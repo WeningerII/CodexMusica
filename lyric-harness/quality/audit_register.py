@@ -2104,7 +2104,18 @@ PINNED = {
     #    declared-relation coordinate -- by asking `classify_pair` for the
     #    name of a pair whose name I already knew. `coverage_audited`
     #    unmoved at 19.
-    "coverage_entries": 92,
+    #    REPINNED 2026-08-22, 92 -> 94: `M-35` (a pair can stand in many
+    #    relations at once, and the mandate can hold one per group) and
+    #    `M-36` (17 of the 77 relations can never be nulled, and the reasons
+    #    are twelve declared capabilities). `coverage_audited` unmoved at 19.
+    #
+    #    AND THE 91 -> 92 REPIN ABOVE SHIPPED THIS GATE RED. M-35 was filed
+    #    AFTER `--check` was run for M-34 and before the commit, so commit
+    #    `a7cc5bd` claimed audit_register green on a reading taken one entry
+    #    earlier. The claim was true when measured and false when made --
+    #    which is this instrument's whole subject, committed against itself.
+    #    Recorded rather than quietly folded into the count.
+    "coverage_entries": 94,
     "coverage_audited": 19,
 }
 

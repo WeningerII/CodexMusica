@@ -3956,6 +3956,66 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-36 · 17 of the 77 relations can never be nulled, and the reasons are twelve declared capabilities `BLOCKED`
+**Filed 2026-08-22 as step 7 of the owner's relation ladder: declare what
+cannot be done, with the constraint named, rather than leaving it looking
+like unfinished work.**
+
+`quality/relations_null.BLOCKERS` names **12 capabilities** that no run can
+supply, and between them they block **17 of the 77 schemas** from ever being
+measured against a null. **THIS ENTRY POINTS AT THAT TABLE AND DOES NOT COPY
+IT** (doctrine 1) — a second list of blockers here is the copy that goes
+stale, and the proof is one paragraph below.
+
+| blocker kind | capabilities | what it means |
+|---|---:|---|
+| `obtain` | **6** | the evidence does not exist here and cannot be made to |
+| `build` | **4** | derivable in principle, and a heuristic written now would decide the verdict and report it as data |
+| `disjoint` | **1** | declared inert ON PURPOSE (`frames.beat`, doctrine 4) |
+| unstated | **1** | the table gives a reason but no kind — a gap in the table's own shape |
+
+Which schemas, counted apart and never summed with the swept ones:
+
+| capability | blocks |
+|---|---|
+| `morphology` | homoioteleuton, polyptoton |
+| `lexicon` | holorhyme, rhyming slang |
+| `quotient:manner` | family rhyme, multisyllabic rhyme |
+| `delivered` | transformative / bent rhyme, wrenched rhyme |
+| `lifts` | alliterative long line, fourth lift must not alliterate |
+| `sense` · `quotient:vowel_class` · `earlier` · `poet` · `sung` · `beat` · `orthography` | antanaclasis · proest · historical rhyme · dialect rhyme · sung-delivery rhyme · offbeat internal rhyme · eye rhyme |
+
+**A BLOCKED SCHEMA IS NOT A SCHEMA THAT FOUND NOTHING**, and the whole
+purpose of counting these apart is that the two are otherwise identical in
+the output. 17 unmeasurable is a fact about this repository's evidence;
+"swept and did not clear" is a fact about the relation. Reporting them as one
+number would be the shape doctrine 20 exists to forbid.
+
+**AND ONE OF THE TWELVE WENT STALE INSIDE THE SAME DAY IT WAS WRITTEN, which
+is why this entry points rather than copies.** `BLOCKERS['orthography']` reads
+*"Blocker: build — a second stream under the `orthography` surface"*. That was
+true when written and is not true now: `quality/relations.declare_orthography`
+exists as of 2026-08-22 (verified: `hasattr(R,'declare_orthography')` is True),
+so the mechanism is built and the blocker moved from **build** to **declare** —
+the caller must supply the rime rule, which the module deliberately does not
+ship because y-as-vowel and silent-final-e are English facts and the module
+serves nine languages (doctrine 45/65). `eye rhyme` still refuses on a plain
+stream, so the SCHEMA is still blocked for the sweep; the REASON recorded for
+it is wrong. Had this entry re-typed the table, there would now be two wrong
+copies instead of one.
+
+**Missing:** `BLOCKERS['orthography']`'s kind repinned from `build` to a
+`declare` kind the table does not yet have; a stated kind for the one entry
+that has none; and — the general remedy — a check that the blocker kinds stay
+true, since nothing today would have caught this one moving.
+**Why it matters:** the admissible set the ladder is being planned against is
+a set over the schemas that CAN be swept. If 17 are unmeasurable, then "N of
+77 clear their null" is the wrong denominator and the honest one is N of 60.
+**BLOCKED, and the constraint is named per row rather than in general:** six
+want evidence that does not exist under this repo's provenance gate, four want
+a resource whose naive version would answer the question it was supposed to
+measure, one is inert by declaration, and one is now mis-filed.
+
 ### M-35 · A pair can stand in many relations at once, and the mandate can hold one per group — with identical groups silently deduped `OPEN`
 **Filed 2026-08-22 at the owner's observation, mid-build of the declared
 relation coordinate: "each poem and song are actually N dimensional webs".
