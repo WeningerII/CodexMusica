@@ -1672,14 +1672,69 @@ def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
         json.dump({"fingerprint": fp, "results": results},
                   open(cache_path, "w"), indent=1)
     green = [t for t, r in results.items() if r["status"] == "PASS"]
+    # TWO REASONS A SUITE LEAVES THE BASELINE, AND THEY ARE NEVER SUMMED
+    # (doctrine 79/20). A suite with a red check IS already-red and the
+    # mutation sweep is right to skip it. A suite that TIMED OUT is not red at
+    # all — it is unrunnable inside this bound, and every mutation only that
+    # suite could catch is now unguarded for a reason that has nothing to do
+    # with the suite's health. Both were printed as "excluded as already-red",
+    # which charges a healthy suite with a failure it did not have and hides
+    # the real remedy (raise the bound) behind the wrong one (fix the test).
+    #
+    # MEASURED 2026-08-22, and it is live rather than hypothetical:
+    # `quality/test_capacity.py` runs in 430s against this module's 420s
+    # default, so the ONE suite in the tree that re-derives 12,387 rhyme
+    # families is excluded from every mutation sweep, by ten seconds, and the
+    # summary said it was red.
+    unrunnable = sorted(t for t, r in results.items()
+                        if r["status"] == "TIMEOUT")
+    red = sorted(t for t, r in results.items()
+                 if r["status"] not in ("PASS", "TIMEOUT"))
     print(f"baseline: {len(green)}/{len(tests)} green, "
-          f"{len(tests) - len(green)} excluded as already-red")
+          f"{len(red)} excluded as already-red, "
+          f"{len(unrunnable)} excluded as UNRUNNABLE in {timeout}s "
+          f"(not red — inconclusive, doctrine 20)")
+    if unrunnable:
+        print("  UNRUNNABLE: " + ", ".join(unrunnable))
+        print("  Every mutation only these could catch is UNGUARDED in this "
+              "run. Raise --timeout; do not read this as a passing sweep.")
     return results
 
 
 # ---------------------------------------------------------------------------
 # Running one mutation
 # ---------------------------------------------------------------------------
+
+def outcome(caught, refused, missing_from_green):
+    """-> (survived, indeterminate). THE THREE-WAY DECISION, in one place.
+
+    It lived inside `run_mutation`, which forks the whole suite once per
+    mutation, so the only way to exercise it was a sweep costing the better
+    part of an hour — and a rule that expensive to test is a rule that gets
+    reasoned about instead (doctrine 48). It is a pure function of three
+    facts now and `quality/test_mutation.py` §3b runs every combination of
+    them in microseconds.
+
+      CAUGHT          a test in scope went red. A detection.
+      SURVIVED        nothing caught it AND every declared catcher actually
+                      reached a verdict. This is a HOLE, and the word is
+                      earned only under that second clause.
+      INDETERMINATE   nothing caught it and some declared catcher did not
+                      answer — it ran and timed out (`refused`), or the
+                      BASELINE dropped it before this mutation was ever
+                      tried (`missing_from_green`). Two different remedies,
+                      one verdict: this run does not know.
+
+    THE SECOND CLAUSE OF `missing_from_green` IS THE ONE THAT WAS MISSING.
+    `refused` can only hold a suite that RAN, so a suite the baseline dropped
+    could never enter it, and a mutation whose declared catcher was dropped
+    came back SURVIVED — a hole in the tests, manufactured by a time bound.
+    """
+    if caught:
+        return False, False
+    unanswered = bool(refused) or bool(missing_from_green)
+    return (not unanswered), unanswered
+
 
 def apply_mutation(tree, mut):
     """Write the mutant into the SHADOW copy. Never touches the real tree.
@@ -1766,12 +1821,16 @@ def run_mutation(mut, green, jobs, mode, base, confirm_all=False,
                     flaky[t] = detail
             if caught:
                 break                      # subset did its job; do not pay full
+        # The DECLARED catchers this run could not ask, because the baseline
+        # dropped them. Read by `indeterminate` below and by the report.
+        missing_from_green = [t for t in mut.subset if t not in green]
+        _survived, _indeterminate = outcome(caught, refused,
+                                            missing_from_green)
         return {
             "name": mut.name, "layer": mut.layer, "file": mut.file,
             "rationale": mut.rationale,
             "subset_declared": list(mut.subset),
-            "subset_missing_from_green": [t for t in mut.subset
-                                          if t not in green],
+            "subset_missing_from_green": missing_from_green,
             "scope_run": scope or "none", "tests_run": sorted(ran),
             "caught_by": caught, "load_sensitive": flaky,
             "refused_by": refused,
@@ -1780,8 +1839,28 @@ def run_mutation(mut, green, jobs, mode, base, confirm_all=False,
             # where one refused, the honest answer is that this run does not
             # know, and calling that a hole would be as wrong as calling it
             # covered.
-            "indeterminate": bool(refused) and not caught,
-            "survived": not caught and not refused,
+            #
+            # A SUITE MISSING FROM THE BASELINE IS THE SAME FACT ONE STEP
+            # EARLIER, AND IT WAS NOT READ (2026-08-22). `refused` holds
+            # suites that RAN and then timed out; a suite the baseline dropped
+            # never runs at all, so it can never enter `refused`, so a
+            # mutation whose declared catcher was dropped came back
+            # `survived=True` — reported as A HOLE IN THE TESTS, manufactured
+            # by a time bound. `subset_missing_from_green` was computed four
+            # lines above and read by nothing, which is this repository's
+            # most-filed defect appearing inside the module written to find
+            # it.
+            #
+            # MEASURED THE DAY IT WAS FIXED, and the population is the honest
+            # part: `quality/test_capacity.py` runs 430s against the 420s
+            # default and IS dropped, 7 of the 58 mutations declare a subset
+            # naming a suite that bound excludes, and ZERO of them lose their
+            # whole subset — so no mutation is misreported today, and the
+            # reason is escalation to the full green suite rather than luck.
+            # The guard is written because the population can become
+            # non-empty by a staging that nobody connects to this file.
+            "survived": _survived,
+            "indeterminate": _indeterminate,
             "seconds": round(sum(timings.values()), 1),
         }
     finally:
@@ -1920,14 +1999,28 @@ def report(results, baseline_results, elapsed, mode, bounded=None):
               f"{', '.join(stale)}")
     if indeterminate:
         print()
-        print("INDETERMINATE — a test in scope never finished, so neither "
-              "'caught' nor 'a hole' is earned here:")
+        print("INDETERMINATE — a test in scope never reached a verdict, so "
+              "neither 'caught' nor 'a hole' is earned here:")
+        # TWO WAYS TO REACH THIS AND THEY SEND A READER TO DIFFERENT PLACES.
+        # REFUSED: the suite ran and timed out — raise `--timeout`, or the
+        # machine was loaded. DROPPED: the suite never entered the baseline at
+        # all, so the declared catcher was never asked — the remedy is the
+        # baseline's bound, one layer earlier, and it is invisible in this
+        # run's own timings.
         for r in results:
-            if r.get("indeterminate"):
-                print(f"  {r['name']} [{r['layer']}] {r['file']}  "
-                      f"refused by " + ", ".join(
-                          f"{os.path.basename(t)} ({d})"
-                          for t, d in sorted(r["refused_by"].items())))
+            if not r.get("indeterminate"):
+                continue
+            why = []
+            if r["refused_by"]:
+                why.append("refused by " + ", ".join(
+                    f"{os.path.basename(t)} ({d})"
+                    for t, d in sorted(r["refused_by"].items())))
+            if r.get("subset_missing_from_green"):
+                why.append("declared catcher DROPPED FROM THE BASELINE: "
+                           + ", ".join(os.path.basename(t) for t in
+                                       r["subset_missing_from_green"]))
+            print(f"  {r['name']} [{r['layer']}] {r['file']}  "
+                  + "; ".join(why))
     if survivors:
         print()
         print("SURVIVING MUTATIONS — each one is a hole in the suite, named:")

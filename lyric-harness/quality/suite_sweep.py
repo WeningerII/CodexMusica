@@ -104,6 +104,16 @@ EXCLUDED = {
 #: a refusal go away is the move this table exists to make visible.
 DEFAULT_TIMEOUT = 1200
 SUITE_TIMEOUT = {
+    "quality/test_verbs.py": 2400,
+    # MEASURED 2026-08-22: 1,442s and EXIT 0. The first sweep gave it the
+    # 1,200s default, killed it, and reported `FAIL(1 rc=124)` -- and the `1`
+    # was a REAL red check it had printed before the bound (the ci.yml orphan
+    # check, since fixed). So one run carried a true finding and an
+    # inconclusive verdict at once, which is why `run_one` now reads the
+    # partial buffer instead of discarding it. The bound is 2,400s: 1.66x the
+    # measurement, because this suite forks ~300 CLI subprocesses and each
+    # pays a full lexicon load, so its wall clock moves with machine load far
+    # more than a single-process suite's does.
     "quality/test_mutation.py": 7200,
     # MEASURED 2026-08-22: it plants 57 mutations and runs a declared subset
     # of the suite against each, so its runtime is roughly the sweep's own.

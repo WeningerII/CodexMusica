@@ -296,6 +296,77 @@ def test_M1_is_declared_verbatim():
           m.file == "lyric_harness.py")
 
 
+def test_the_three_way_outcome():
+    """3b. SURVIVED IS EARNED, NOT DEFAULTED (added 2026-08-22).
+
+    `survived` was `not caught and not refused`, and `refused` can only hold a
+    suite that RAN and then timed out. A suite the BASELINE dropped never runs,
+    so it could never enter `refused` — and a mutation whose declared catcher
+    was dropped came back SURVIVED, which this file's own report prints under
+    the heading *"each one is a hole in the suite"*. A hole manufactured by a
+    time bound.
+
+    IT IS LIVE, NOT HYPOTHETICAL: `quality/test_capacity.py` runs in 430s
+    against `mutate.py`'s 420s default and IS dropped from every baseline on
+    this machine. What kept it harmless is that 0 of the 58 mutations lose
+    their WHOLE declared subset to that bound — escalation to the full green
+    suite covers the other 7 — so nothing is misreported today, and the reason
+    is escalation rather than luck. A staging that slows one more suite makes
+    the population non-empty with nothing connecting the two facts.
+
+    THE DECISION IS A PURE FUNCTION NOW so this section costs microseconds.
+    It lived inside `run_mutation`, which forks the whole suite once per
+    mutation — the only way to exercise the rule was an hour-long sweep, and a
+    rule that expensive to test is one that gets reasoned about instead
+    (doctrine 48, inside the module written to find exactly that).
+    """
+    print("\n3b. the three-way outcome — SURVIVED is earned, not defaulted")
+    O = mutate.outcome
+    check("caught: neither survived nor indeterminate",
+          O({"t": "red"}, {}, []) == (False, False))
+    check("nothing caught it and every declared catcher ANSWERED -> SURVIVED, "
+          "which is the only shape that earns the word 'hole'",
+          O({}, {}, []) == (True, False))
+    check("a catcher that ran and timed out -> INDETERMINATE",
+          O({}, {"q": "TIMEOUT"}, []) == (False, True))
+    check("a catcher the BASELINE DROPPED -> INDETERMINATE, not a hole — the "
+          "clause that was missing",
+          O({}, {}, ["quality/test_capacity.py"]) == (False, True))
+    check("both at once is still one verdict, not two",
+          O({}, {"q": "TIMEOUT"}, ["quality/test_capacity.py"])
+          == (False, True))
+    check("a catch OUTRANKS both — a mutation that was detected is detected "
+          "however noisy the run was",
+          O({"t": "red"}, {"q": "TIMEOUT"}, ["quality/x.py"]) == (False, False))
+    # AND THE EXCLUSIVITY, over every combination rather than the six above:
+    # nothing may be both, and exactly one of the three must hold.
+    bad = []
+    for c in ({}, {"t": "red"}):
+        for r in ({}, {"q": "TIMEOUT"}):
+            for m in ([], ["quality/test_capacity.py"]):
+                sv, ind = O(c, r, m)
+                if sv and ind:
+                    bad.append((bool(c), bool(r), bool(m)))
+                if not (bool(c) or sv or ind):
+                    bad.append(("none-of-three", bool(r), bool(m)))
+    check("over all 8 combinations exactly one of caught/survived/"
+          "indeterminate holds", not bad, str(bad))
+
+    # THE POPULATION, MEASURED — so the section reports the risk's size
+    # rather than only its shape (doctrine 20: a guard over an empty
+    # population must say the population is empty).
+    slow = "quality/test_capacity.py"
+    touch = [m for m in mutate.MUTATIONS if m.subset and slow in m.subset]
+    whole = [m for m in mutate.MUTATIONS
+             if m.subset and set(m.subset) <= {slow}]
+    print(f"          {len(touch)} mutation(s) declare {slow} in a subset; "
+          f"{len(whole)} would lose their WHOLE subset to it")
+    check("no mutation currently loses its whole declared subset to the "
+          "slowest suite — recorded, because it is what makes the missing "
+          "clause harmless TODAY rather than always",
+          not whole, str([m.name for m in whole]))
+
+
 # ---------------------------------------------------------------------------
 # The run
 # ---------------------------------------------------------------------------
@@ -583,6 +654,7 @@ if __name__ == "__main__":
     test_the_mutation_list_is_well_formed()
     test_every_mutation_still_applies()
     test_M1_is_declared_verbatim()
+    test_the_three_way_outcome()
     if a.static:
         # THE TRIPWIRE WAS WELDED TO THE SWEEP, WHICH IS WHY NOBODY RAN IT.
         # Sections 1-3 read the mutation list and seven source files and cost

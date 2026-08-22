@@ -3902,6 +3902,71 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-30 · The mutation sweep called a suite it could not run "already-red", and a hole it never tested "SURVIVED" `PARTIAL`
+**Found 2026-08-22 by running `quality/test_mutation.py` with no bound in
+order to answer a question about the SWEEP, and reading its own baseline
+output on the way past.**
+
+`quality/mutate.py` computes a green baseline before any mutation is planted:
+each suite runs unmutated, a red one is excluded, and the mutation sweep is
+run against the rest. Two things a suite can do there are not the same thing
+and were reported as one.
+
+**"EXCLUDED AS ALREADY-RED" COVERED A SUITE THAT WAS NEVER RUN.** The summary
+line read `N excluded as already-red` over every non-`PASS` status, TIMEOUT
+included. A suite with a red check IS already-red and skipping it is correct.
+A suite that exceeded the bound is not red at all — it is UNRUNNABLE inside
+that bound, its health is unknown, and the remedy is `--timeout`, not the
+test. Charging it as red sends a reader to the wrong file (doctrine 20/79).
+
+**IT IS LIVE, BY TEN SECONDS.** `quality/test_capacity.py` — the one suite
+that re-derives 12,387 rhyme families — takes **430s** against `mutate.py`'s
+**420s** default, so it is dropped from every baseline on this machine and the
+summary called it red. The bound is doctrine 58's own shape: a threshold with
+no measurement behind it, in a module whose `--timeout` help text already says
+*"raise it instead of trusting them"* — advice nobody could follow, because
+nothing measured what raising it would cost.
+
+**AND THE SAME COLLAPSE ONE LAYER DOWN MANUFACTURES HOLES.**
+`run_mutation` computed `subset_missing_from_green` — the declared catchers
+this run could not ask — **and read it with nothing.** `survived` was
+`not caught and not refused`, and `refused` can only hold a suite that RAN and
+then timed out, so a suite the baseline DROPPED could never enter it. A
+mutation whose declared catcher was dropped therefore came back
+`survived=True` and was printed under this module's own heading *"SURVIVING
+MUTATIONS — each one is a hole in the suite"*. A hole in the tests,
+manufactured by a time bound, in the adversary that exists to find holes —
+and a computed-then-discarded value, which is this repository's most-filed
+defect appearing inside the module written to find it.
+
+**THE POPULATION IS EMPTY TODAY AND THE REASON IS ESCALATION, NOT LUCK.**
+Measured: **7 of the 58 mutations** declare a subset naming a suite the 420s
+bound excludes (QR1–QR7, all `test_loop.py`), and **0** lose their WHOLE
+declared subset — so nothing is misreported at head, because a subset that
+catches nothing escalates to the full green suite. Recorded rather than
+asserted, because the population becomes non-empty the moment a staging slows
+one more suite, and nothing connects those two facts.
+
+**BUILT:** the baseline summary reports `already-red` and `UNRUNNABLE` as two
+counts and names the unrunnable suites with the sentence *"Every mutation only
+these could catch is UNGUARDED in this run"*; `outcome(caught, refused,
+missing_from_green)` is the three-way decision extracted as a PURE FUNCTION —
+it lived inside a routine that forks the whole suite once per mutation, so the
+only way to exercise it was an hour-long sweep, which is doctrine 48's shape
+inside the module written to find it — and `INDETERMINATE` now says which of
+the two reasons produced it, since the remedies differ.
+`quality/test_mutation.py` §3b runs all eight combinations in microseconds and
+is in the `--static` arm CI already invokes; removing the new clause reds
+exactly the check that names it.
+
+**TESTED WHILE OPEN**, and `PARTIAL` rather than closed for one reason: **the
+bound itself is still unmeasured.** 420s excludes `test_capacity` (430s) and
+would exclude `test_loop` (436s), `test_discriminate` (890s) and `test_verbs`
+(1,442s) if the sweep reached them — so raising it to cover the tree means a
+baseline measured in hours, and choosing that number is a cost decision this
+entry does not take. What is fixed is that the exclusion is now LOUD and can
+no longer be read as a passing sweep.
+
 ### M-23 · `Structure` has no `kind="partition"`, and that is the same missing kind four times `OPEN`
 **Found 2026-08-21, and it is the one change that serves every spec-shaped
 structural source this project has located.**

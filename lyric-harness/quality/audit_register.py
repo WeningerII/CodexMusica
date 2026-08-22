@@ -2075,7 +2075,13 @@ PINNED = {
     #    periods and the time layer, mute for want of one, reads none of
     #    them), filed at the owner's request from the observation that some
     #    poems carry a performance duration. `coverage_audited` unmoved at 19.
-    "coverage_entries": 87,
+    #    REPINNED 2026-08-22, 87 -> 88: `M-30` (the mutation sweep called a
+    #    suite it could not run "already-red", and a hole it never tested
+    #    "SURVIVED"), found by running `test_mutation.py` unbounded to answer
+    #    a question about the SWEEP and reading its baseline output on the way
+    #    past. `coverage_audited` unmoved at 19: the entry carries no audited
+    #    claim of its own yet.
+    "coverage_entries": 88,
     "coverage_audited": 19,
 }
 
