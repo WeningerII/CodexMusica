@@ -1007,14 +1007,23 @@ def test_unprovidable_is_declared_and_measured():
           not still, f"now provided: {still}")
 
     # THE MANUFACTURING, MEASURED. Force the flag and compare.
+    #
+    # PATCHED AT `supply`, NOT AT `provides` (2026-08-22). The capability gate
+    # in `realise()` reads the three-valued `Stream.supply` now and `provides`
+    # is a thin `state == 'present'` on top of it, so a stub that forces
+    # `provides` True is a stub the gate never calls — and this section went
+    # green-then-TypeError, which is the honest failure. Forcing the SUPPLY
+    # keeps the measurement pointed at the same claim: what does the schema
+    # report when the capability is handed to it.
     def forced(cap, name, on=st):
-        orig = R.Stream.provides
-        R.Stream.provides = lambda self, c: (True if c == cap
-                                             else orig(self, c))
+        orig = R.Stream.supply
+        R.Stream.supply = lambda self, c: (
+            R.Supply(cap, "present", 1, "FORCED", "test stub")
+            if c == cap else orig(self, c))
         try:
             return R.realise(R.REGISTRY[name], on)
         finally:
-            R.Stream.provides = orig
+            R.Stream.supply = orig
 
     trite = forced("frequency", "trite rhyme")
     perfect = R.realise(R.REGISTRY["perfect rhyme"], st)
@@ -2182,6 +2191,516 @@ def test_refrain_tail_documented_call_was_impossible():
           f"could see (doctrine 20).")
 
 
+# ---------------------------------------------------------------------------
+# X6. THE VACUOUS FRAME. A source is not a population, and a declared-empty
+#     frame is a third state.
+# ---------------------------------------------------------------------------
+
+#: The staged English item the defect was measured on. 24 lines, 204 units,
+#: and the split 30 FIRED / 26 REFUSED / 21 RAN AND FOUND NOTHING before
+#: either frame-supplier is called.
+VACUITY_ITEM = "song/eng_american_dan_e_townsend.txt"
+
+#: The six schemas that rode the two shipped frame-suppliers into a silent
+#: zero. Four want `caesura`, two want `refrain_tail`.
+VACUOUS_SIX = ("cynghanedd groes", "cynghanedd draws",
+               "cynghanedd groes o gyswllt", "leonine rhyme",
+               "epistrophe / radif", "qafiya (before the radif)")
+
+
+def _eng_corpus_stream(name):
+    """-> (raw lines, Stream) for one staged English item through the fixture.
+
+    Apparatus is dropped the same way `relations.main` drops it, and blank
+    lines are KEPT because the stanza frame is derived from them.
+    """
+    raw = [l.rstrip() for l in
+           open(os.path.join(HERE, "..", "corpus", name),
+                encoding="utf-8").read().splitlines()
+           if not l.strip().startswith(("[", "---", "#"))]
+    return raw, R.build_stream(raw, ENG, declaration={"language": "eng"},
+                               stanzas=R.stanzas_from_blank_lines(raw))
+
+
+def _split(st):
+    """(fired, refused, ran-and-found-nothing) over all 77, doctrine 79."""
+    f = r = n = 0
+    for s in R.REGISTRY.values():
+        out = R.realise(s, st, keep="all")
+        if isinstance(out, R.Refusal):
+            r += 1
+        elif any(i.verdict is True for i in out):
+            f += 1
+        else:
+            n += 1
+    return f, r, n
+
+
+class _PreFixGate:
+    """The gate as it stood before 2026-08-22: `provides` reads the SOURCE.
+
+    The mutant this section fails against. It restores exactly one sentence —
+    a declared source is a supplied capability — and nothing else, so a check
+    that survives it was never testing the fix.
+    """
+
+    def __enter__(self):
+        self.orig = R.Stream.supply
+
+        def supply(self, cap):
+            got = self.orig_supply(cap)
+            if got.state == "empty":
+                return R.Supply(cap, "present", got.n, got.source,
+                                "PRE-FIX: source declared, population unread")
+            return got
+        R.Stream.orig_supply = self.orig
+        R.Stream.supply = supply
+        return self
+
+    def __exit__(self, *exc):
+        R.Stream.supply = self.orig
+        del R.Stream.orig_supply
+        return False
+
+
+def test_vacuous_frame_is_not_a_null():
+    """X6. `mark_printed_caesura` on English declares a source and marks
+    NOTHING, and six schemas went from REFUSED to a measured zero.
+
+    Doctrine 20: an instrument that has not fired is not an instrument that
+    fired and found nothing — and a DECLARED-BUT-EMPTY frame is a third thing
+    that had no name. Every span rule reading such a frame enumerates zero
+    loci, so the zero was inconclusive BY CONSTRUCTION.
+
+    TEN CHECKS. Four fail under `_PreFixGate` (the three states collapse, the
+    six stop refusing, the report's fourth count goes to 0, and the split
+    moves). The other six are controls that must pass on BOTH trees: the
+    never-looked state, the two positive cases, the Refusal contract, and the
+    partition arithmetic.
+    """
+    print("\nX6. the vacuous frame — a declared source is not a population "
+          "(doctrine 20)")
+    raw, st = _eng_corpus_stream(VACUITY_ITEM)
+    before = _split(st)
+    check("the staged item reproduces the measured split 30 FIRED / 26 "
+          "REFUSED / 21 RAN AND FOUND NOTHING",
+          before == (30, 26, 21),
+          f"{before} on corpus/{VACUITY_ITEM}: {len(raw)} raw lines, "
+          f"{len(st.units)} units. PREMISE — it must hold on both trees.")
+
+    # -- STATE 1. NEVER LOOKED.
+    s1 = st.supply("caesura")
+    r1 = R.realise(R.REGISTRY["cynghanedd groes"], st)
+    check("STATE 1 never looked: supply is `absent` with source 'none', and "
+          "the refusal's kind is 'capability'",
+          s1.state == "absent" and s1.source == "none" and s1.n == 0
+          and isinstance(r1, R.Refusal) and r1.kind == "capability"
+          and r1.vacuous == () and r1.missing == ("caesura",),
+          f"{s1} — the remedy here IS to declare a source.")
+
+    # -- STATE 2. LOOKED, AND THE FRAME IS EMPTY.
+    cae = R.mark_printed_caesura(st)
+    ref = R.mark_refrain_tail(st)
+    check("both shipped frame-suppliers RUN on this text and mark NOTHING, "
+          "and both now say so in their return",
+          cae["found"] == 0 and ref["found"] == 0
+          and st.frames.caesura_source == "printed"
+          and st.frames.refrain_source == "computed",
+          f"caesura {cae}; refrain {ref}. MISSING M-28 is why: English "
+          f"prints no caesura, and the 1,628 lines carrying an internal run "
+          f"of 2+ spaces are line-number columns and speaker gaps. The "
+          f"SOURCE is still declared on purpose — deleting it would make "
+          f"'the instrument ran and found none' read as 'nobody looked'.")
+    s2 = st.supply("caesura")
+    s2r = st.supply("refrain_tail")
+    check("STATE 2 looked-and-empty: supply is `empty`, n=0, and the SOURCE "
+          "survives — so state 2 is distinguishable from state 1",
+          s2.state == "empty" and s2.n == 0 and s2.source == "printed"
+          and s2r.state == "empty" and s2r.source == "computed"
+          and s1.state != s2.state and s1.source != s2.source,
+          f"{s2} / {s2r}")
+    outs = {n: R.realise(R.REGISTRY[n], st, keep="all") for n in VACUOUS_SIX}
+    _shown = str({n: (o.kind, o.vacuous) if isinstance(o, R.Refusal)
+                  else "RAN — %d instances" % len(o)
+                  for n, o in outs.items()})
+    check("...and all SIX schemas REFUSE with kind 'vacuous_frame', naming "
+          "the empty frame on `.vacuous` — not an empty list",
+          all(isinstance(o, R.Refusal) and o.kind == "vacuous_frame"
+              and o.vacuous == o.missing for o in outs.values())
+          and {o.vacuous[0] for o in outs.values()}
+          == {"caesura", "refrain_tail"},
+          _shown)
+    after = _split(st)
+    check("...so calling both markers moves NOTHING: the split is still "
+          "30/26/21, where it used to become 30/20/27",
+          after == before == (30, 26, 21),
+          f"before {before} after {after}. Six schemas crossing from REFUSED "
+          f"to RAN AND FOUND NOTHING is the collapse; the counts are the "
+          f"cheapest place to see it.")
+
+    # -- THE REPORT CARRIES THE FOURTH COUNT.
+    rep = R.relation_report(st)
+    check("relation_report separates the two refusals and the partition "
+          "still closes",
+          rep["refused_vacuous"] == 6 and rep["refused_capability"] == 20
+          and rep["refused"] == 26
+          and (rep["refused"] + rep["ran_found_nothing"]
+               + rep["ran_and_fired"]) == rep["declared"] == 77
+          and {r[0] for r in rep["vacuous_refusals"]} == set(VACUOUS_SIX)
+          and all(len(r) == 4 for r in rep["refusals"]),
+          f"refused {rep['refused']} = capability "
+          f"{rep['refused_capability']} + EMPTY FRAME "
+          f"{rep['refused_vacuous']}; ran-found-nothing "
+          f"{rep['ran_found_nothing']}; fired {rep['ran_and_fired']}")
+
+    # -- STATE 3. LOOKED, THE FRAME IS POPULATED, AND A REAL FINDING SURVIVES.
+    #    This is the half that proves the rule cannot swallow anything.
+    lein = stream(["The queen was seen / a light was green",
+                   "The night was bright / the sky was white"])
+    got = R.mark_printed_caesura(lein)
+    s3 = lein.supply("caesura")
+    leo = R.realise(R.REGISTRY["leonine rhyme"], lein, keep="all")
+    groes_st = stream(["A cat may sit / a cot my seat",
+                       "A dog will run / a dig well ran"])
+    R.mark_printed_caesura(groes_st)
+    groes = R.realise(R.REGISTRY["cynghanedd groes"], groes_st, keep="all")
+    check("STATE 3 looked-and-populated: supply is `present` with n>0, and "
+          "the caesura schemas RUN AND FIRE",
+          s3.state == "present" and s3.n == 2 and got["found"] == 2
+          and not isinstance(leo, R.Refusal)
+          and sum(1 for i in leo if i.verdict is True) == 2
+          and not isinstance(groes, R.Refusal)
+          and sum(1 for i in groes if i.verdict is True) == 2,
+          f"{s3}; leonine rhyme "
+          f"{sum(1 for i in leo if i.verdict is True)} true, cynghanedd "
+          f"groes {sum(1 for i in groes if i.verdict is True)} true on the "
+          f"consonant-skeleton pair. THE RULE MAY NOT SWALLOW A FINDING: a "
+          f"gate keyed on the population must open the moment the population "
+          f"is non-zero.")
+    rst = stream(["the light will go down to the sea",
+                  "the night will go down to the sea",
+                  "the bright will go down to the sea",
+                  "the sight will go down to the sea"])
+    rgot = R.mark_refrain_tail(rst)
+    epi = R.realise(R.REGISTRY["epistrophe / radif"], rst, keep="all")
+    qaf = R.realise(R.REGISTRY["qafiya (before the radif)"], rst, keep="all")
+    check("...and the refrain schemas do the same on a text that HAS a "
+          "shared tail",
+          rgot["found"] == 4 and rst.supply("refrain_tail").state == "present"
+          and sum(1 for i in epi if i.verdict is True) == 6
+          and sum(1 for i in qaf if i.verdict is True) == 6,
+          f"{rgot}; epistrophe {sum(1 for i in epi if i.verdict is True)} "
+          f"true, qafiya {sum(1 for i in qaf if i.verdict is True)} true — "
+          f"the miscounted case, still counted.")
+
+    # -- THE CONTRACTS THE FIX MAY NOT BREAK.
+    raised = []
+    for obj in (r1, outs["cynghanedd groes"], s1, s2, s3):
+        try:
+            bool(obj)
+            raised.append(f"{type(obj).__name__} has a truth value")
+        except TypeError:
+            pass
+    check("neither a Refusal nor a Supply has a truth value, and `.capability`"
+          " is still `missing[0]`",
+          not raised
+          and all(o.capability == o.missing[0] for o in outs.values())
+          and r1.capability == "caesura" and r1.complete
+          and R.Refusal("x", "denominator", "d").kind == ""
+          and R.Refusal("x", "denominator", "d").vacuous == (),
+          f"{raised or 'both raise TypeError'}. `kind` defaults to '' — a "
+          f"Refusal built outside realise() has passed through no gate here "
+          f"and labelling it 'capability' would be a claim about one.")
+    check("`Supply.declared` is TRUE for both looked-at states and False only "
+          "for never-looked",
+          s2.declared and s3.declared and not s1.declared
+          and set(R.SUPPLY_STATES) == {"absent", "empty", "present"}
+          and "vacuous_frame" in R.REFUSAL_KINDS,
+          "'declared and not provided' is the vacuous state, in one read.")
+
+    # -- THE MUTANT. Restore the pre-fix sentence and watch the defect return.
+    with _PreFixGate():
+        mut_outs = {n: R.realise(R.REGISTRY[n], st, keep="all")
+                    for n in VACUOUS_SIX}
+        mut_split = _split(st)
+        mut_rep = R.relation_report(st)
+        mut_state = st.supply("caesura").state
+    check("MUTANT: with `provides` reading the SOURCE again, all six stop "
+          "refusing and return an empty list, the split moves to 30/20/27, "
+          "and the fourth count goes to zero",
+          all(not isinstance(o, R.Refusal) and len(o) == 0
+              for o in mut_outs.values())
+          and mut_split == (30, 20, 27) and mut_rep["refused_vacuous"] == 0
+          and mut_state == "present",
+          f"{mut_split} under the mutant against {after} at head; "
+          f"{ {n: len(o) for n, o in mut_outs.items()} }. Six schemas, six "
+          f"zeros, and nothing in the output able to say the frames were "
+          f"empty — that is the state this section exists to make illegal.")
+    check("...and the mutant is REVERSIBLE — head is restored, so the "
+          "measurement above was not an artefact of the patch",
+          st.supply("caesura").state == "empty" and _split(st) == before,
+          f"{st.supply('caesura')}")
+
+
+# ---------------------------------------------------------------------------
+# X7. THE ORTHOGRAPHIC SURFACE — the first ALT_SURFACE a caller can build
+# ---------------------------------------------------------------------------
+
+EYE_DRAFT = ["I never learned to love", "the engine will not move",
+             "the poet made a rhyme", "we never had the time"]
+
+
+def test_orthography_surface_is_declarable():
+    """X7. `eye rhyme` refused on every text under every declaration because
+    nothing could build the surface it names. `declare_orthography` can.
+
+    NINE CHECKS. Three fail without the surface (the refusal stands, no
+    instance exists, love/move is not found); the rest are the contract:
+    the rime rule is the CALLER'S, the surface is a projection of the primary
+    segmentation, an empty rime rule is a VACUOUS surface and not a null, and
+    nothing about the phonemic reading moved.
+    """
+    print("\nX7. the orthographic surface — declared by the caller, because "
+          "a rime rule is a fact about a spelling system (doctrine 45/65)")
+    st = stream(EYE_DRAFT)
+    before = R.realise(R.REGISTRY["eye rhyme"], st)
+    check("`eye rhyme` REFUSES on a plain English stream, naming "
+          "'orthography' — the state this closes",
+          isinstance(before, R.Refusal) and before.missing == ("orthography",)
+          and before.kind == "capability"
+          and st.supply("orthography").state == "absent",
+          f"{before.capability}; MISSING E-2. PREMISE — true on both trees.")
+
+    got = R.declare_orthography(st, lh.spelled_rime)
+    sup = st.supply("orthography")
+    check("...and DECLARING it supplies the capability, with a population",
+          sup.state == "present" and sup.n == got["graphemes"] == 20
+          and got["units"] == 24 and sup.source == "declared",
+          f"{got}; {sup}. 20 of 24 units carry a grapheme — the four "
+          f"that do not are the non-word-final syllables of `never`, "
+          f"`engine` and "
+          f"`poet`, and they read UNKNOWN rather than empty.")
+    out = R.realise(R.REGISTRY["eye rhyme"], st, keep="all")
+    true = [i for i in out if i.verdict is True]
+    check("...and the schema RUNS and finds love/move: same spelled rime, "
+          "different nucleus",
+          not isinstance(out, R.Refusal) and len(true) == 1
+          and "LAHV" in true[0].describe(st)
+          and "MUWV" in true[0].describe(st),
+          f"{[i.describe(st) for i in true]} out of {len(out)} judged pairs. "
+          f"spelled_rime('love') == spelled_rime('move') == "
+          f"{lh.spelled_rime('love')!r}.")
+    rt = [i for i in out
+          if "RAYM" in i.describe(st) and "TAYM" in i.describe(st)]
+    check("...and rhyme/time, which SHARE the sound, are correctly NOT an "
+          "eye rhyme — the schema is not `perfect rhyme` wearing a surface",
+          len(rt) == 1 and rt[0].verdict is False,
+          f"{[i.describe(st) for i in rt]}: the grapheme channel agrees on "
+          f"{lh.spelled_rime('rhyme')!r}/{lh.spelled_rime('time')!r} and the "
+          f"nucleus DIFFER channel is False, which is the conjunction doing "
+          f"its job.")
+
+    # THE RULE IS THE CALLER'S, AND THE ANCHOR IS TOO.
+    check("this module ships NO rime rule and refuses a non-callable by "
+          "name",
+          not any("rime" in n.lower() for n in dir(R) if not n.startswith("_")
+                  and n != "declare_orthography")
+          and isinstance(_raises(R.declare_orthography, st, "ove"),
+                         R.NoReferent),
+          "y is a vowel letter and w is not; a final silent -e folds. Those "
+          "are ENGLISH, and relations.py serves nine languages — a built-in "
+          "default would be a checker silently picking a coordinate.")
+    FEM = ["a bowl of molten silver", "the letters they deliver"]
+
+    def _end_graphemes(rime):
+        s = stream(FEM)
+        R.declare_orthography(s, rime)
+        alt = s.alt["orthography"]
+        return tuple(alt.units[ids[-1]].syl.text
+                     for ids in s.lines if ids)
+
+    bare = _end_graphemes(lh.spelled_rime)
+    anchored = _end_graphemes(
+        lambda w: lh.spelled_rime(w, stress_from_end=2))
+    check("...and `stress_from_end` is visibly the caller's: the SAME draft "
+          "carries different graphemes on the surface under the two rules",
+          bare == ("er", "er") and anchored == ("ilver", "iver")
+          and bare != anchored,
+          f"bare {bare} vs anchored {anchored}. Bare, silver/deliver share "
+          f"'-er' and the ENTIRE unstressed -er/-ing/-ed space collapses "
+          f"into one grapheme class — `spelled_rime`'s own docstring calls "
+          f"that over-reach, and the anchor rule that fixes it is the "
+          f"harness's (last primary stress), not this module's. Choosing "
+          f"either here would be a coordinate nobody declared. Read at the "
+          f"SURFACE rather than through `eye rhyme`'s verdict on purpose: "
+          f"both readings verdict False on this pair because the nucleus "
+          f"DIFFER channel refuses it either way, and a check that could not "
+          f"see the difference would be asserting the wrong layer.")
+
+    # A SURFACE THAT ANSWERS NOTHING IS VACUOUS, NOT NULL — X6's rule, one
+    # seam over, and it is the reason this is not a bare `alt[name] = ...`.
+    dead = stream(EYE_DRAFT)
+    R.declare_orthography(dead, lambda w: "")
+    d_sup = dead.supply("orthography")
+    d_out = R.realise(R.REGISTRY["eye rhyme"], dead)
+    check("a rime rule that answers nothing leaves the surface DECLARED AND "
+          "EMPTY, which refuses by name rather than running over unreadable "
+          "positions",
+          d_sup.state == "empty" and d_sup.n == 0
+          and d_sup.source == "declared"
+          and isinstance(d_out, R.Refusal) and d_out.kind == "vacuous_frame"
+          and d_out.vacuous == ("orthography",),
+          f"{d_sup}. Defect P7 is the same shape with a real second "
+          f"phonology: a surface that re-tokenises projects to None at every "
+          f"position, so every read is None and the schema reports a zero.")
+    alt = st.alt["orthography"]
+    projected = sum(1 for u in st.units if R._project(u, alt) is not None)
+    check("the surface PROJECTS the primary segmentation rather than "
+          "re-reading the text, so `_project` aligns at EVERY position and "
+          "the surface's own phon refuses to syllabify",
+          projected == len(st.units) == 24
+          and [u.i for u in alt.units] == [u.i for u in st.units]
+          and isinstance(_raises(alt.phon.syllabify, "love"), R.NoReferent),
+          f"{projected} of {len(st.units)} units project. A second "
+          f"declaration that re-tokenised would project to None everywhere "
+          f"(defect P7) and read as declared-and-empty here, which is why "
+          f"the surface is built by re-labelling and not by re-reading.")
+    plain = stream(EYE_DRAFT)
+    check("...and declaring it moves NO phonemic count: `perfect rhyme` is "
+          "byte-identical with and without the surface",
+          [(i.a.idx, i.b.idx, i.verdict)
+           for i in R.realise(R.REGISTRY["perfect rhyme"], st, keep="all")]
+          == [(i.a.idx, i.b.idx, i.verdict)
+              for i in R.realise(R.REGISTRY["perfect rhyme"], plain,
+                                 keep="all")],
+          "a second declaration is read only where a ChannelRule names its "
+          "surface; nothing else in the registry does.")
+
+
+def _raises(fn, *a, **kw):
+    try:
+        fn(*a, **kw)
+    except Exception as e:                                    # noqa: BLE001
+        return e
+    return None
+
+
+# ---------------------------------------------------------------------------
+# X8. `frequency` STAYS REFUSED, and the refusal is MEASURED against all
+#     three shipped tables rather than argued from one.
+# ---------------------------------------------------------------------------
+
+
+def test_frequency_refusal_is_measured_against_the_shipped_tables():
+    """X8. The two sources a reader reaches for next are doctrine 92's two
+    HALVES, and they disagree.
+
+    `quality/frequency.py` already declares `eng-verse` to have NO INDEPENDENT
+    SOURCE — the cell needs the right POSITION, the right MEDIUM and the
+    right PERIOD, and nothing here has all three. This measures that on the two
+    tables the repo does hold, so the UNPROVIDABLE entry is a test and not a
+    paragraph (doctrine 48).
+
+    SIX CHECKS. Four fail if the entry is deleted or `frequency` is wired; two
+    are the arithmetic of the two tables and hold regardless.
+    """
+    print("\nX8. `frequency`: the two shipped tables are doctrine 92's two "
+          "halves, and they order the cliche vocabulary differently")
+    import collections
+    st = stream(QUATRAIN)
+    entry = next(e for e in R.UNPROVIDABLE if e.capability == "frequency")
+    check("`frequency` is still UNPROVIDABLE, blocker 'disjoint', and no "
+          "stream supplies it",
+          entry.blocker == "disjoint"
+          and st.supply("frequency").state == "absent"
+          and entry.schemas == ("trite rhyme",)
+          and "trite rhyme" in R.REGISTRY,
+          f"{st.supply('frequency')}")
+
+    tot = collections.Counter()
+    authors = collections.defaultdict(set)
+    path = os.path.join(HERE, "..", "data", "song_endword_en.tsv")
+    for line in open(path, encoding="utf-8"):
+        if line.startswith("#") or line.startswith("word\t"):
+            continue
+        w, a, c = line.rstrip("\n").split("\t")
+        tot[w] += int(c)
+        authors[w].add(a)
+    top = [w for w, _ in tot.most_common(20)]
+    check("the ONLY line-final source is pre-1931 and its head is `me` and "
+          "`thee`",
+          top[:2] == ["me", "thee"] and tot["me"] == 2948
+          and tot["thee"] == 2031 and len(authors["me"]) == 483,
+          f"data/song_endword_en.tsv: {len(tot)} distinct line-final words, "
+          f"{sum(tot.values())} tokens. A commonness cut on it flags `thee` "
+          f"as one of the two tritest line-endings in English.")
+
+    lex = _lex()
+    words = {w for p in lh.CLICHE_PAIRS for w in p}
+    end_rank = {w: i for i, (w, _) in enumerate(tot.most_common())}
+    both = [(w, end_rank[w], lex.freq_rank.get(w, lex.freq_rank_oov))
+            for w in sorted(words) if w in end_rank]
+    rho = _spearman([b for _, b, _ in both], [c for _, _, c in both])
+    check("...and the CONTEMPORARY source (`Lexicon.freq_rank` = "
+          "data/opensubtitles_en_50k.tsv) orders the same words differently: "
+          "Spearman 0.32",
+          len(both) == 58 and 0.30 <= rho <= 0.34
+          and lex.freq_rank.get("rhyme") > 9000
+          and lex.freq_rank.get("time") < 100,
+          f"rho={rho:.3f} over the {len(both)} CLICHE_PAIRS words in both. "
+          f"`rhyme` is line-final rank {end_rank['rhyme']} against spoken "
+          f"{lex.freq_rank['rhyme']}; `skies` {end_rank['skies']} against "
+          f"{lex.freq_rank['skies']}. WHICH TABLE decides the verdict, and "
+          f"neither is the `eng-verse` cell that would settle it.")
+
+    try:
+        import quality.frequency as F
+        unavailable = F.unavailable("eng-verse")
+    except Exception as exc:                                  # noqa: BLE001
+        unavailable = ""
+        check("quality/frequency.py imports", False, str(exc))
+    check("...which is `frequency.NO_INDEPENDENT_SOURCE['eng-verse']` stating "
+          "the same thing one module over",
+          bool(unavailable) and "post-1960" in unavailable
+          and "nothing can" in unavailable,
+          "position + medium + period, and no source has all three. The "
+          "refusal is not this file's opinion.")
+
+    check("the table is NOT INDEPENDENT of the corpus (doctrine 13), so even "
+          "reading it needs a DECLARED author a Stream does not carry",
+          sum(1 for a in authors.values()
+              if "eng_american_dan_e_townsend" in a) == 20
+          and not hasattr(R.Stream, "author")
+          and "author" not in R.Stream.__dataclass_fields__,
+          "the item X6 measures the vacuity on has 20 rows IN the table; "
+          "`quality/frequency.py` refuses to serve it for a contained author "
+          "unless `leave_out=` is passed, and there is nothing on the stream "
+          "to pass.")
+    check("...and the entry says all of this in `detail`, so a reader who "
+          "never runs this file still gets the numbers",
+          "0.319" in entry.detail and "song_endword_en.tsv" in entry.detail
+          and "opensubtitles" in entry.detail
+          and "leave-one-author-out" in entry.detail,
+          "doctrine 48: a principle that lives only in prose gets followed "
+          "exactly as often as somebody remembers it.")
+
+
+def _spearman(xs, ys):
+    n = len(xs)
+    rx = sorted(range(n), key=lambda i: xs[i])
+    ry = sorted(range(n), key=lambda i: ys[i])
+    px, py = [0] * n, [0] * n
+    for r, i in enumerate(rx):
+        px[i] = r
+    for r, i in enumerate(ry):
+        py[i] = r
+    mx, my = sum(px) / n, sum(py) / n
+    num = sum((px[i] - mx) * (py[i] - my) for i in range(n))
+    den = (sum((px[i] - mx) ** 2 for i in range(n))
+           * sum((py[i] - my) ** 2 for i in range(n))) ** 0.5
+    return num / den
+
+
 if __name__ == "__main__":
     test_inventory()
     test_p0_unreadable_final_token()
@@ -2211,6 +2730,9 @@ if __name__ == "__main__":
     test_caesura_layer_reconciled()
     test_printed_caesura_reads_none_of_welsh()
     test_refrain_tail_documented_call_was_impossible()
+    test_vacuous_frame_is_not_a_null()
+    test_orthography_surface_is_declarable()
+    test_frequency_refusal_is_measured_against_the_shipped_tables()
     print("=" * 66)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")

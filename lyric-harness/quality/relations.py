@@ -42,6 +42,33 @@ metrical lift template, an orthographic surface, a lexicon, a beat grid --
 `realise()` returns a `Refusal` naming the missing capability.  The anchor rule
 'last stressed syllable' is a COORDINATE, not a universal.
 
+AND SUPPLY IS THREE-VALUED, SINCE 2026-08-22, BECAUSE A DECLARED SOURCE IS NOT
+A POPULATION.  `Stream.provides` returned a bool and the caesura branch read
+`caesura_source != 'none'`, so calling `mark_printed_caesura` on an English
+text -- which finds ZERO printed marks, M-28 -- opened the gate on a frame
+with nothing in it, and six schemas (cynghanedd groes / draws / groes o
+gyswllt, leonine rhyme, epistrophe / radif, qafiya (before the radif)) went
+from an honest REFUSAL to a silent RAN AND FOUND NOTHING.  Every span rule
+that reads those frames enumerates zero loci, so the zero was inconclusive BY
+CONSTRUCTION -- doctrine 20's own sentence, in the enforcement path this file
+is.  `Stream.supply(cap)` now returns a `Supply` carrying `state` (absent /
+empty / present) and the population `n`, `provides` is `state == 'present'`,
+and a schema blocked only by empty declared frames refuses with
+`Refusal.kind == 'vacuous_frame'` and the frame named on `.vacuous`.  THE
+MARKERS STILL DECLARE THEIR SOURCE ON A NULL RUN, deliberately: deleting it
+would make "the instrument ran and found none" indistinguishable from "nobody
+looked", which is the same collapse one layer up.  They report `found` instead.
+So three states are readable where there were two: NEVER LOOKED (`absent`, a
+`'capability'` refusal), LOOKED AND THE FRAME IS EMPTY (`empty`, a
+`'vacuous_frame'` refusal), LOOKED AND THE FRAME IS POPULATED (`present`, the
+schema runs and any zero it reports is a null a control can be built against).
+
+`declare_orthography(stream, rime)` is the first ALT_SURFACE a caller can
+actually build, and it takes the rime rule as an ARGUMENT because y-as-vowel
+and silent-final-e are English and this module serves nine languages
+(doctrine 45/65).  `eye rhyme` runs on it.  `frequency` stays refused and the
+UNPROVIDABLE entry now measures why against all three shipped tables.
+
 PHONOLOGY STAYS INJECTABLE.  Nothing here transcribes and nothing here consults
 CMUdict.  `phon` is any object with `.syllabify(word)`.  The channel INVENTORY
 is itself a declaration coordinate: Welsh does not declare onset and coda as
@@ -184,6 +211,18 @@ class Refusal:
     #: file (`quality/relations_null.py` builds a `'denominator'` refusal that
     #: way) keep working unchanged; `realise()` always fills it.
     missing: tuple = ()
+    #: WHICH GATE refused, one of `REFUSAL_KINDS`, or `""` where the refusal
+    #: was not raised by `realise()` at all.  The empty default is deliberate
+    #: and is the same argument `complete` makes one field up: a Refusal built
+    #: by another module (`relations_null`'s `'denominator'`) has not been
+    #: classified by this one, and labelling it `'capability'` would be a
+    #: claim about a gate it never passed through.
+    kind: str = ""
+    #: The subset of `missing` that is DECLARED-BUT-EMPTY -- a frame whose
+    #: source a caller declared and whose population is zero.  Empty on every
+    #: other kind of refusal.  See `Supply` for why this is not the same
+    #: answer as "not supplied".
+    vacuous: tuple = ()
 
     def __bool__(self):
         raise TypeError(
@@ -201,6 +240,91 @@ class Refusal:
         be in.  Doctrine 28, at the scale of one dataclass.
         """
         return bool(self.missing)
+
+
+#: The gates `realise()` can refuse at.  `Refusal.kind` is one of these or the
+#: empty string; see the field's own comment for why "" is not `'capability'`.
+REFUSAL_KINDS = ("capability", "vacuous_frame", "span")
+
+#: `Supply.state`'s value set, ordered from least to most supplied.
+#:
+#: THREE, NOT TWO, AND THAT IS THE WHOLE OF DOCTRINE 20 HERE.  `provides()`
+#: answered a BOOLEAN, so a frame whose SOURCE a caller declared passed the
+#: gate whether or not the source had found anything -- and a schema built
+#: entirely on that frame then ran over zero loci and returned `[]`.  Doctrine
+#: 20's sentence is that an instrument which has not fired is not an
+#: instrument that fired and found nothing; a declared-but-empty frame is the
+#: third thing, and it had no name.
+#:
+#:   absent   nothing was declared.  The instrument never looked, and no
+#:            count from it exists to be quoted.
+#:   empty    a source WAS declared and its population is zero.  The
+#:            instrument looked and marked nothing, so every schema resting on
+#:            it is inconclusive BY CONSTRUCTION (doctrine 20's own words) and
+#:            refuses -- `Refusal.kind == 'vacuous_frame'`.
+#:   present  a source was declared and the population is non-zero.  The
+#:            schema RUNS, and a zero it then reports is a null a control can
+#:            be built against.
+SUPPLY_STATES = ("absent", "empty", "present")
+
+
+@dataclass(frozen=True)
+class Supply:
+    """What a stream can answer about ONE capability, with the POPULATION.
+
+    `Stream.provides(cap)` is `supply(cap).state == 'present'` and keeps its
+    boolean contract for every caller that has one.  This is the reading
+    underneath it, and the reason it exists is that the boolean cannot tell
+    the second state from the first:
+
+        mark_printed_caesura(stream)      # English: 0 lines print `/` or `|`
+        stream.frames.caesura_source      # 'printed'
+        stream.provides('caesura')        # True, before this type existed
+        realise(cynghanedd_groes, stream) # []  -- a SILENT ZERO
+
+    -- because `_loci` yields nothing at `half_line_a` when `frames.caesura`
+    is empty, `enumerate_spans` raises nothing (it raises only where an anchor
+    had loci to fail at), and `realise` returns an ordinary empty list that a
+    census counts under RAN AND FOUND NOTHING.  Measured 2026-08-22 on
+    `corpus/song/eng_american_dan_e_townsend.txt`: calling both shipped
+    frame-suppliers moved SIX schemas -- cynghanedd groes / draws / groes o
+    gyswllt, leonine rhyme, epistrophe / radif, qafiya (before the radif) --
+    from an honest REFUSAL to a measured zero, and the split went 30/26/21 to
+    30/20/27 with nothing in the output able to say the frames were empty.
+
+    `n` is the population and it is the field that makes the distinction
+    MEASURED rather than declared: `empty` is `n == 0` under a declared
+    source, never a flag somebody set.  `source` is the frame's own provenance
+    string (`printed` / `computed` / `searched` / `declared`), because
+    doctrine 55/56 already say a caesura is a coordinate of HOW it was found
+    and a reader of an empty frame needs to know which instrument came back
+    empty.
+    """
+    capability: str
+    state: str
+    n: int = 0
+    source: str = ""
+    detail: str = ""
+
+    def __bool__(self):
+        # The same argument as `Refusal.__bool__`, for the same reason.  Under
+        # default truthiness `if stream.supply('caesura'):` is True in all
+        # three states, which is precisely the collapse this type exists to
+        # end -- and it would read as a fix while restoring the defect.
+        raise TypeError(
+            "a Supply has no truth value; it is THREE-valued. Read .state "
+            f"(one of {SUPPLY_STATES}) or call Stream.provides(cap), which "
+            "is .state == 'present'.")
+
+    @property
+    def declared(self):
+        """True where a caller declared a source, EMPTY OR NOT.
+
+        `declared and not provided` is the vacuous state, and it is the
+        question a consumer asks when it wants to know whether the instrument
+        fired at all.
+        """
+        return self.state in ("empty", "present")
 
 
 # ---------------------------------------------------------------------------
@@ -376,34 +500,117 @@ class Stream:
     # -- capabilities.  A schema's `requires` is checked against these, and a
     #    missing one produces a Refusal naming it rather than a wrong number.
     def provides(self, cap):
-        if cap == "line_status":
-            return any(self.line_status)
-        if cap == "prominence":
-            return any(u.syl.prominence is not None for u in self.units)
+        """Boolean, and UNCHANGED as a contract: True iff the schema can run.
+
+        What changed on 2026-08-22 is which side of the line a DECLARED-BUT-
+        EMPTY frame falls on.  It used to be True -- `caesura_source` was
+        `'printed'`, so the gate opened, and the schema went and enumerated
+        zero loci.  A gate that opens on a source rather than on a population
+        turns a refusal into a null (doctrine 20), so this now reads the
+        population and `supply()` is where the three-valued answer lives.
+        """
+        return self.supply(cap).state == "present"
+
+    def supply(self, cap):
+        """-> `Supply`.  THE THREE-VALUED READ, and `provides` is its top.
+
+        Two shapes of capability, and only the first can be vacuous:
+
+        A FRAME has a declared SOURCE and a POPULATION, and the two are
+        separate facts -- `mark_printed_caesura` sets `caesura_source` even
+        where it marked no line, and it is right to, because "the printed-mark
+        instrument ran and found none" is a finding about the EDITION (M-28:
+        English prints no caesura; the 1,628 lines with an internal double
+        space are line-number columns and speaker gaps) and deleting the
+        source would collapse it with "nobody ever looked".  So the source is
+        kept and the POPULATION is what the gate reads.
+
+        EVERYTHING ELSE is two-valued and says so by returning `absent` or
+        `present` only.  `prominence` is a property of the phonology, not a
+        frame a marker fills: no caller declares a prominence source, so
+        there is no third state to be in and inventing one would be a
+        coordinate nobody declared (defect P14's shape).  `beat` is doctrine
+        4's permanent None.  A resource and a quotient are a name in a
+        declaration and a callable respectively, and neither has a population
+        this module can count without calling it.
+
+        AN ALT SURFACE IS A FRAME, and its population is the number of units
+        that PROJECT into the second declaration and carry material there.
+        That is not a formality: defect P7 records a second surface whose
+        tokeniser splits the apostrophe, against which `_project` returns None
+        at every position -- so the surface is declared, every channel read on
+        it is None, and every schema riding it ran and reported nothing.  Same
+        collapse, one seam over.
+        """
+        fr = self.frames
         if cap == "caesura":
-            return self.frames.caesura_source != "none"
-        if cap == "lifts":
-            return self.frames.lift_source != "none"
+            return self._frame_supply(cap, fr.caesura_source, len(fr.caesura),
+                                      "lines carrying a caesura position")
         if cap == "refrain_tail":
-            return self.frames.refrain_source != "none"
-        if cap == "beat":
-            return self.frames.beat is not None
+            return self._frame_supply(cap, fr.refrain_source,
+                                      len(fr.refrain_tail),
+                                      "lines carrying a refrain tail")
+        if cap == "lifts":
+            return self._frame_supply(cap, fr.lift_source, len(fr.lifts),
+                                      "lines carrying a lift template")
         if cap == "bayt":
-            return self.frames.bayt_source != "none"
+            return self._frame_supply(cap, fr.bayt_source, len(fr.hemistich),
+                                      "lines mapped to a (bayt, half)")
+        if cap == "line_status":
+            # DECLARED is a non-empty tuple; POPULATED is a non-empty LABEL in
+            # it.  `line_status_from(lines, predicate, label)` with a predicate
+            # that matches nothing returns a full tuple of "" -- declared, and
+            # empty -- and the old `any(self.line_status)` filed that under
+            # "nobody declared one".
+            n = sum(1 for s in self.line_status if s)
+            return self._frame_supply(
+                cap, "declared" if self.line_status else "none", n,
+                "lines carrying a non-empty declared status")
+        if cap == "prominence":
+            n = sum(1 for u in self.units if u.syl.prominence is not None)
+            return Supply(cap, "present" if n else "absent", n, "phonology",
+                          "units whose syllable carries a prominence value")
+        if cap == "beat":
+            return Supply(cap, "present" if fr.beat is not None else "absent",
+                          1 if fr.beat is not None else 0, "",
+                          "doctrine 4: this stays None")
         if cap in ALT_SURFACES:
-            return cap in self.alt
+            alt = self.alt.get(cap)
+            if alt is None:
+                return Supply(cap, "absent", 0, "none",
+                              "no second declaration is held under this name")
+            n = sum(1 for u in self.units
+                    if _surface_material(_project(u, alt)))
+            return self._frame_supply(
+                cap, "declared", n,
+                "units that project into the second declaration and carry "
+                "material there")
         if cap in ("lexicon", "sense", "morphology"):
             res = self.declaration.get("resources", ())
             # either the capability name or any LEVEL that maps to it: the two
             # key-spaces used to disagree and no declaration could satisfy both.
-            return cap in res or any(
+            got = cap in res or any(
                 lv in res for lv, c in _CAP_OF_LEVEL.items() if c == cap)
+            return Supply(cap, "present" if got else "absent", 1 if got else 0,
+                          "declaration", "named in declaration['resources']")
         if cap.startswith(QUOTIENT_CAP):
             # DEFECT P14: a quotient nobody declared is not the identity, and a
             # schema whose grain is undeclared refuses here rather than
             # answering at the finest grain the channel happens to carry.
-            return _quotient_of(self, cap[len(QUOTIENT_CAP):]) is not None
-        return False
+            q = _quotient_of(self, cap[len(QUOTIENT_CAP):])
+            return Supply(cap, "present" if q is not None else "absent",
+                          1 if q is not None else 0, "declaration",
+                          "a partition callable, from the declaration or the "
+                          "phonology")
+        return Supply(cap, "absent", 0, "none",
+                      "`Stream.supply` has no branch for this name, so no "
+                      "declaration can supply it (see UNPROVIDABLE)")
+
+    def _frame_supply(self, cap, source, n, detail):
+        if source == "none" or not source:
+            return Supply(cap, "absent", 0, "none",
+                          "no source declared: " + detail)
+        return Supply(cap, "present" if n else "empty", n, source, detail)
 
     def line_of(self, span):
         ls = {self.units[i].line for i in span.idx}
@@ -784,6 +991,24 @@ def _project(u, alt):
         if w.tok_syl == u.tok_syl:
             return w
     return None
+
+
+def _surface_material(u):
+    """Does this projected unit carry ANYTHING a channel could read?
+
+    `Stream.supply` counts an alt surface's population with this, and it is
+    structural on purpose -- no channel is named, no reader is called, no
+    `ChannelSet` is consulted -- because the question is whether the second
+    declaration says anything AT ALL at this position, and a surface answering
+    only one channel (`declare_orthography` answers only `grapheme`) is still
+    a surface.  `None` in, False out: a position that does not project is a
+    position that carries nothing, which is defect P7's whole finding.
+    """
+    if u is None:
+        return False
+    s = u.syl
+    return any(getattr(s, f, None) for f in
+               ("text", "onset", "nucleus", "coda"))
 
 
 # ---------------------------------------------------------------------------
@@ -2108,19 +2333,44 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
     # schema needing two reported one.  See `Refusal` for the measurement; the
     # cost of completeness is one extra `provides()` call per satisfied
     # capability on a refusing schema, and `provides()` is a dict lookup.
-    miss = tuple(c for c in schema.capabilities() if not stream.provides(c))
+    sup = {c: stream.supply(c) for c in schema.capabilities()}
+    miss = tuple(c for c in schema.capabilities()
+                 if sup[c].state != "present")
     if miss:
         lang = stream.declaration.get("language", "?")
+        # THE VACUOUS SUBSET, SEPARATED.  A frame whose source a caller
+        # declared and whose population is zero is NOT the same gap as one
+        # nobody declared, and the two have opposite remedies: the first is
+        # answered by declaring a source, the second by nothing a declaration
+        # can do -- the text does not carry the thing.  Before this split the
+        # second state did not refuse at all; it ran over zero loci and
+        # reported a zero (doctrine 20, and `Supply` carries the measurement).
+        vac = tuple(c for c in miss if sup[c].state == "empty")
+        kind = "vacuous_frame" if len(vac) == len(miss) else "capability"
         head = (f"{schema.name} needs {miss[0]!r}" if len(miss) == 1 else
                 f"{schema.name} needs {len(miss)} capabilities this "
                 f"declaration does not supply: "
                 f"{', '.join(repr(c) for c in miss)}")
-        return Refusal(schema.name, miss[0],
-                       f"{head}; this declaration ({lang}) does not supply "
-                       f"{'it' if len(miss) == 1 else 'them'}. Refused rather "
-                       f"than asserted. Every missing name is on `.missing` — "
-                       f"declaring only the first would not make this schema "
-                       f"run.", missing=miss)
+        if vac:
+            why = "; ".join(
+                f"{c!r} was DECLARED (source {sup[c].source!r}) and is EMPTY "
+                f"— 0 {sup[c].detail}" for c in vac)
+            detail = (
+                f"{head}. {why}. An empty declared frame is not a capability "
+                f"nobody declared and it is not a null: every span rule that "
+                f"reads it enumerates zero loci, so this schema could only "
+                f"have returned an empty list. Refused rather than reported "
+                f"as 0 (doctrine 20). The remedy is not to declare a source — "
+                f"one IS declared and it came back empty; it is a text, an "
+                f"edition or a mark inventory that carries the thing.")
+        else:
+            detail = (
+                f"{head}; this declaration ({lang}) does not supply "
+                f"{'it' if len(miss) == 1 else 'them'}. Refused rather "
+                f"than asserted. Every missing name is on `.missing` — "
+                f"declaring only the first would not make this schema run.")
+        return Refusal(schema.name, miss[0], detail, missing=miss, kind=kind,
+                       vacuous=vac)
     try:
         A = list(enumerate_spans(schema.spans[0], stream))
         B = (A if schema.spans[0] == schema.spans[1]
@@ -2128,8 +2378,10 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
     except NoReferent as e:
         # NOT a capability refusal: `missing` stays empty and `.complete` is
         # False, because the span rule found no referent in a declaration that
-        # supplied everything the schema asked for.
-        return Refusal(schema.name, "span", str(e))
+        # supplied everything the schema asked for.  `kind` says so by name,
+        # so a consumer separating the gates does not have to infer it from an
+        # empty `missing`.
+        return Refusal(schema.name, "span", str(e), kind="span")
     a_keys = {s.idx for s in A}
     b_keys = a_keys if B is A else {s.idx for s in B}
 
@@ -2362,8 +2614,21 @@ def mark_refrain_tail(stream, min_count=2, min_fraction=0.6, lines=None):
             if len(ls) >= min_count and n and len(ls) / n >= min_fraction:
                 best = (depth, run, ls)
     if best is None:
+        # THE SOURCE IS STILL SET, AND THE RETURN IS NO LONGER `None`.
+        # Deleting the source on a null result would make "the shared-tail
+        # search ran and there is no shared tail" indistinguishable from "the
+        # search was never run" -- doctrine 20 pointed at this function
+        # instead of at its consumers, and one collapse traded for another.
+        # What was wrong was the SILENCE: `None` back to the caller and a
+        # `provides()` that read the source alone, so `epistrophe / radif`
+        # and `qafiya (before the radif)` ran over zero loci and reported a
+        # measured zero.  Both halves are answered here -- the caller gets a
+        # summary carrying `found: 0`, and `Stream.supply('refrain_tail')`
+        # reads the POPULATION and returns state `'empty'`.
         stream.frames.refrain_source = "computed"
-        return None
+        return {"depth": 0, "run": (), "lines": [], "found": 0,
+                "candidates": n, "min_count": min_count,
+                "min_fraction": min_fraction}
     depth, run, ls = best
     for li in ls:
         ids = stream.lines[li]
@@ -2378,6 +2643,7 @@ def mark_refrain_tail(stream, min_count=2, min_fraction=0.6, lines=None):
             i for i in ids if stream.units[i].token == start_tok)
     stream.frames.refrain_source = "computed"
     return {"depth": depth, "run": tuple(reversed(run)), "lines": ls,
+            "found": len(ls), "candidates": n,
             "min_count": min_count, "min_fraction": min_fraction}
 
 
@@ -2428,7 +2694,12 @@ def search_caesura(stream):
             stream.frames.caesura[li] = cands
             ks.append(len(cands))
     stream.frames.caesura_source = "searched"
-    return {"lines": len(ks), "mean_k": sum(ks) / len(ks) if ks else 0.0,
+    # `found` is the same key the other two markers report, so a caller can
+    # ask any of the three "how many lines did you mark" without knowing which
+    # instrument it is holding.  Zero here is the vacuous frame again: a text
+    # of one-word lines offers no boundary to cut at.
+    return {"lines": len(ks), "found": len(ks),
+            "mean_k": sum(ks) / len(ks) if ks else 0.0,
             "note": "report the EXCESS over a null run under this same search"}
 
 
@@ -2455,10 +2726,22 @@ def mark_printed_caesura(stream, marks=("/", "|")):
     parameter's documented string form could not even express it, since
     `"--/|"` iterates to a single `-` and would fire on every hyphenated
     compound in a language that JOINS on the hyphen (doctrine 65).
+
+    THE RETURN IS A SUMMARY, NOT `stream.frames`.  It used to hand back the
+    caller's own mutable object, which says nothing: the ONE number a caller
+    needs from a marker is how many lines it marked, and on English that
+    number is ZERO while `caesura_source` reads `'printed'`.  The source is
+    still set on a null run, deliberately -- see `mark_refrain_tail` for the
+    argument, which is the same one -- and `Stream.supply('caesura')` reads
+    the population, so the six schemas that ride the caesura and the refrain
+    now refuse with `kind='vacuous_frame'` instead of returning `[]`.
     """
     if isinstance(marks, str):
         marks = tuple(marks)
+    scanned = 0
     for li, raw in enumerate(stream.text_lines):
+        if li < len(stream.lines) and stream.lines[li]:
+            scanned += 1
         pos = min((raw.find(m) for m in marks if m in raw), default=-1)
         if pos < 0:
             continue
@@ -2468,7 +2751,119 @@ def mark_printed_caesura(stream, marks=("/", "|")):
                 stream.frames.caesura[li] = i
                 break
     stream.frames.caesura_source = "printed"
-    return stream.frames
+    return {"marks": tuple(marks), "found": len(stream.frames.caesura),
+            "lines": scanned, "source": "printed"}
+
+
+# ---------------------------------------------------------------------------
+# 9a. THE ORTHOGRAPHIC SURFACE -- an ALT_SURFACE a caller can actually declare
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class _Spelling:
+    """One position of a spelling surface, duck-typed as a `Syllable`.
+
+    Only `text` is ever populated, because the rime rule this surface is
+    projected through decomposes a WORD and not a syllable.  The three
+    phonemic fields are the empty/None a channel reader expects, so reading
+    `nucleus` here is None -- unknown -- and not a claim, and reading `onset`
+    is the empty cluster rather than a crash.
+    """
+    text: object = None
+    onset: tuple = ()
+    nucleus: object = None
+    coda: tuple = ()
+    prominence: object = None
+    moras: object = None
+
+
+class _SpellingSurface:
+    """The `phon` of a projected surface.  It syllabifies NOTHING.
+
+    `declare_orthography` does not re-read the text: it re-labels the
+    segmentation the primary declaration already made, which is the only way
+    `_project` can align (defect P7 -- a second declaration that re-tokenises
+    projects to None at every position, and then every read on the surface is
+    None while `provides()` says True).  A phonology object that pretended it
+    could syllabify would be an entrance to exactly that.
+    """
+
+    def __init__(self, rime, language):
+        self.rime = rime
+        self.language = language
+
+    def syllabify(self, word):
+        raise NoReferent(
+            "the orthographic surface is PROJECTED from the phonemic "
+            "segmentation, not syllabified independently; build the primary "
+            "stream first and call declare_orthography() on it")
+
+
+def declare_orthography(stream, rime, name="orthography"):
+    """Declare the ORTHOGRAPHIC alt surface `eye rhyme` refuses without.
+
+    `rime` is a CALLER-SUPPLIED `word -> str`, and this module ships none.
+    That is doctrine 45 and doctrine 65 in one argument: an orthographic rime
+    rule is a fact about a SPELLING SYSTEM -- `lyric_harness.spelled_rime`'s
+    own docstring declares that y is a vowel letter, w is not, and a word-final
+    silent -e folds, all three of which are English -- and this module serves
+    nine languages and imports nothing from the harness.  A built-in default
+    would be a checker silently picking a coordinate, which is the bug.
+
+    `spelled_rime` also takes `stress_from_end`, and BINDING IT IS THE
+    CALLER'S TOO: without it the rime anchors at the last vowel group, which
+    over-reaches on feminine rhymes (silver/deliver share `-er`), and the
+    anchor rule that fixes it is the harness's, not this module's.  Pass a
+    closure if you want it; the summary records nothing about which you chose
+    because a callable cannot be asked.
+
+    HOW THE SURFACE IS BUILT.  Every unit of `stream` is re-emitted at the
+    SAME index with the same coordinates and a `_Spelling` in place of its
+    syllable, so `_project` aligns by construction -- same line lengths, same
+    token lengths, same `tok_syl`.  The WORD-FINAL unit of each token carries
+    `rime(token_text)`; every earlier unit carries None, because the rime rule
+    decomposes a word and inventing a head spelling for its first syllable
+    would be a reading nobody declared.  `eye rhyme` reads `grapheme` at scope
+    `last` under `flush_right`, so the word-final unit is the one it asks
+    about, and a None elsewhere propagates as UNDECIDED rather than False.
+
+    -> a summary.  `graphemes` is the population `Stream.supply(name)` will
+    report; a rime callable that answers "" everywhere leaves the surface
+    DECLARED AND EMPTY, which now refuses by name instead of running `eye
+    rhyme` over unreadable positions and reporting a zero.
+    """
+    if not callable(rime):
+        raise NoReferent(
+            f"`rime` is a callable word -> str (e.g. "
+            f"lyric_harness.spelled_rime); got {type(rime).__name__}. This "
+            f"module ships no rime rule: which letters are vowels and whether "
+            f"a final -e is silent are facts about a spelling system, and "
+            f"this module serves nine of them.")
+    if name not in ALT_SURFACES:
+        raise NoReferent(
+            f"{name!r} is not one of ALT_SURFACES {ALT_SURFACES}; a surface "
+            f"no schema can name is a stream nothing will ever read.")
+    units, known = [], 0
+    for u in stream.units:
+        g = None
+        if u.word_final:
+            g = rime(u.token_text) or None
+        if g is not None:
+            known += 1
+        units.append(replace(u, syl=_Spelling(text=g)))
+    alt = Stream(units=units, lines=list(stream.lines),
+                 tokens=dict(stream.tokens),
+                 phon=_SpellingSurface(rime, stream.declaration.get(
+                     "language", "")),
+                 declaration=dict(stream.declaration, surface=name),
+                 text_lines=stream.text_lines)
+    stream.alt[name] = alt
+    return {"surface": name, "units": len(units), "graphemes": known,
+            "found": known,
+            "tokens": len({(u.line, u.token) for u in stream.units
+                           if u.word_final}),
+            "source": "declared"}
 
 
 # ---------------------------------------------------------------------------
@@ -3411,13 +3806,34 @@ def all_schemas():
 
 def capability_report(stream):
     """Which of the declared types this stream can even be asked about, and
-    which capability each refusal is waiting on.  The honest inventory."""
-    ok, refused = [], {}
+    which capability each refusal is waiting on.  The honest inventory.
+
+    THREE BUCKETS NOW, because "not supplied" was two answers wearing one
+    name.  `refused` is unchanged in shape and content -- every schema with a
+    missing capability, keyed on the `+`-joined missing set, so a stored
+    census stays comparable.  `vacuous` is the SUBSET of those whose every
+    missing capability is a DECLARED-BUT-EMPTY frame, and `supply` is the
+    per-capability population the split is computed from, so a reader can see
+    the number rather than take the bucket's word for it.
+    """
+    ok, refused, vac = [], {}, {}
+    supply = {}
     for n, s in REGISTRY.items():
-        miss = [c for c in s.capabilities() if not stream.provides(c)]
-        (ok.append(n) if not miss else refused.setdefault(tuple(miss), []).append(n))
+        caps = s.capabilities()
+        for c in caps:
+            if c not in supply:
+                supply[c] = stream.supply(c)
+        miss = [c for c in caps if supply[c].state != "present"]
+        if not miss:
+            ok.append(n)
+            continue
+        refused.setdefault(tuple(miss), []).append(n)
+        if all(supply[c].state == "empty" for c in miss):
+            vac.setdefault(tuple(miss), []).append(n)
     return {"reachable": sorted(ok),
-            "refused": {"+".join(k): sorted(v) for k, v in refused.items()}}
+            "refused": {"+".join(k): sorted(v) for k, v in refused.items()},
+            "vacuous": {"+".join(k): sorted(v) for k, v in vac.items()},
+            "supply": supply}
 
 
 # ---------------------------------------------------------------------------
@@ -3512,7 +3928,43 @@ UNPROVIDABLE = (
             "out of the cell grid on purpose, so even with the source the "
             "cut would be an UNCALIBRATED THRESHOLD (doctrine 16/22) that "
             "must be stated as a false-positive rate before it means "
-            "anything."),
+            "anything. "
+            "RE-MEASURED 2026-08-22 AGAINST THE TWO OTHER SHIPPED SOURCES, "
+            "because the entry above cites only `song_rhymepair_en.tsv` and "
+            "the obvious next move is to reach for one of the other two. "
+            "They are the two HALVES of doctrine 92's disjunction and "
+            "`quality/frequency.py` already names the whole: "
+            "`NO_INDEPENDENT_SOURCE['eng-verse']` says the cell needs the "
+            "right POSITION, the right MEDIUM and the right PERIOD and that "
+            "nothing here has all three. (1) `data/song_endword_en.tsv` -- "
+            "13,989 distinct line-final words, 251,544 tokens -- has the "
+            "position and the medium and is pre-1931: its head is `me` "
+            "(2,948 over 483 authors) and `thee` (2,031 over 359), and 9 of "
+            "its top 20 are words from this repo's own CLICHE_PAIRS, so a "
+            "commonness cut on it flags `thee` as among the two tritest "
+            "line-endings in English. (2) `lyric_harness.Lexicon.freq_rank` "
+            "is `data/opensubtitles_en_50k.tsv`, 49,999 entries, and has the "
+            "PERIOD and neither of the others -- it is contemporary SPOKEN "
+            "English with no line-final position at all, which is "
+            "`frequency.py`'s own `eng-spoken`. THE TWO DISAGREE, and that "
+            "is the measurement rather than the argument: over the 58 of the "
+            "60 CLICHE_PAIRS words present in both, Spearman between the "
+            "pre-1931 line-final rank and the contemporary spoken rank is "
+            "**0.319** -- `rhyme` is line-final rank 811 against spoken "
+            "9,131, `skies` 62 against 5,647, `crazy` 6,294 against 388. So "
+            "the answer to 'is this pair trite' is decided by WHICH TABLE is "
+            "read, and neither table is the cell that would settle it. "
+            "A THIRD BLOCKER, and it is the cheapest to check: "
+            "`song_endword_en.tsv`'s own header records that it is NOT "
+            "INDEPENDENT of `corpus/song/` (doctrine 13), so scoring a "
+            "corpus item with it needs leave-one-author-out -- "
+            "`frequency.py` refuses to serve it otherwise -- and a `Stream` "
+            "carries no author coordinate to leave out. The item this "
+            "vacuity was measured on, `eng_american_dan_e_townsend`, has 20 "
+            "rows IN the table. Supplying `frequency` from it would "
+            "therefore need a DECLARED author on the stream before it could "
+            "be read at all, and would still be answering a different "
+            "question from the one the schema's name asks."),
     ),
     Unprovidable(
         capability="stub_resolution",
@@ -4680,11 +5132,25 @@ def relation_report(stream, chans=None, schemas=None):
     scope, so a rule-shape match is neither silently listed nor silently
     hidden (M-15).
 
-    Three counts, never two (doctrine 79): a schema the instrument REFUSED for
-    want of a capability is not a schema that found nothing, and neither is a
-    schema that ran and found nothing.  The same triple is reported over
-    INSTANCES: decided-true, decided-false and undecided are three answers and
-    the undecided ones are the ternary this module exists to preserve.
+    FOUR COUNTS, NEVER TWO OR THREE (doctrine 79, one column wider than it
+    was).  A schema the instrument REFUSED for want of a capability is not a
+    schema that found nothing; a schema that ran and found nothing is not
+    either; and -- added 2026-08-22 -- a schema refused because the frame it
+    rides was DECLARED AND CAME BACK EMPTY is a fourth answer with its own
+    remedy.  `refused` stays the TOTAL so the old partition still closes
+    (`declared == refused + ran_found_nothing + ran_and_fired`) and no row
+    silently leaves the report; `refused_capability` and `refused_vacuous`
+    split it, and they are a genuine partition of the same denominator rather
+    than two rates over different ones.
+
+    The same triple is reported over INSTANCES: decided-true, decided-false
+    and undecided are three answers and the undecided ones are the ternary
+    this module exists to preserve.
+
+    `refusals` rows are 4-TUPLES `(schema, key, scope, kind)`.  They were
+    triples; the arity changed with this split, because a reader iterating
+    the list is exactly the reader who must not be told that a vacuous frame
+    and an undeclared one are the same row.
     """
     lang = stream.declaration.get("language", "")
     reg = schemas if schemas is not None else REGISTRY
@@ -4701,7 +5167,7 @@ def relation_report(stream, chans=None, schemas=None):
             # (doctrine 44).  `+`-joined, matching `capability_report`'s own
             # key so the two reports can be compared row for row.
             refusals.append((name, "+".join(out.missing) or out.capability,
-                             tradition_scope(s, lang)))
+                             tradition_scope(s, lang), out.kind))
             continue
         t = sum(1 for i in out if i.verdict is True)
         f = sum(1 for i in out if i.verdict is False)
@@ -4712,10 +5178,14 @@ def relation_report(stream, chans=None, schemas=None):
                      "true": t, "false": f, "undecided": u,
                      "search": search_burden(s, stream)})
     fired = [r for r in rows if r["true"]]
+    vac = [r for r in refusals if r[3] == "vacuous_frame"]
     return {
         "language": lang,
         "declared": len(reg),
         "refused": len(refusals),
+        "refused_vacuous": len(vac),
+        "refused_capability": len(refusals) - len(vac),
+        "vacuous_refusals": vac,
         "ran_found_nothing": len(rows) - len(fired),
         "ran_and_fired": len(fired),
         "refusals": refusals,
@@ -4735,9 +5205,13 @@ def print_relation_report(rep, limit=None):
     is the defect this section closes."""
     print(f"  phonology {rep['language'] or '?'}   schemas declared "
           f"{rep['declared']}")
-    print(f"  REFUSED {rep['refused']}  ·  RAN AND FOUND NOTHING "
-          f"{rep['ran_found_nothing']}  ·  RAN AND FIRED {rep['ran_and_fired']}"
-          "   (three counts, doctrine 79)")
+    print(f"  REFUSED {rep['refused']} (capability {rep['refused_capability']}"
+          f" · EMPTY DECLARED FRAME {rep['refused_vacuous']})  ·  RAN AND "
+          f"FOUND NOTHING {rep['ran_found_nothing']}  ·  RAN AND FIRED "
+          f"{rep['ran_and_fired']}   (four counts, doctrine 79/20)")
+    for name, key, _scope, _kind in rep["vacuous_refusals"]:
+        print(f"      [EMPTY FRAME] {name}: {key} was declared and marked "
+              f"nothing — not a null, and not a capability nobody declared")
     ins = rep["instances"]
     print(f"  instances: decided-true {ins['true']}  decided-false "
           f"{ins['false']}  UNDECIDED {ins['undecided']}")
@@ -4776,9 +5250,11 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "DEFAULT_CHANNELS", "evaluate", "realise", "assemble",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",
            "ALT_SURFACES", "QUOTIENT_CAP",
+           "Supply", "SUPPLY_STATES", "REFUSAL_KINDS",
            "Unprovidable", "UNPROVIDABLE", "check_unprovidable",
            "print_unprovidable_report",
            "mark_refrain_tail", "search_caesura", "mark_printed_caesura",
+           "declare_orthography",
            "REGISTRY", "QUERIES", "declare", "all_schemas",
            "capability_report", "tri_and", "tri_or",
            "Tradition", "CANON", "LANG_CELL", "UNSOURCED", "SCOPES",
