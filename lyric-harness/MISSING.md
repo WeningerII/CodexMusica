@@ -4000,9 +4000,45 @@ false red reports a hole as COVERED, which is the opposite direction, and
 confirming every catch would multiply the sweep's cost by its catch rate. The
 baseline runs once and only its reds pay.
 
-**THREE INSTANCES, THREE CAUSES, ONE SENTENCE.** A bound, a refusal and a load
-flake all arrived at the summary spelled `already-red`, and all three cost the
-same thing: a suite silently absent from the adversary that grades the tests.
+**AND THE FOURTH IS THE WORST OF THEM, BECAUSE IT IS THE SUITE THAT GRADES THE
+REGISTER.** Measured in a REAL shadow tree built by `mutate.build_shadow`
+rather than an approximation of one: `quality/test_triage.py` came back
+**`ERROR  IndexError`**. Its §5 carries a correct doctrine-20 guard — *"the
+population is non-empty — with no open-and-tested entry every check below
+would pass on an empty set"* — the guard FIRED, and **the next line indexed
+`[0]` anyway**. So a legible FAIL became a crash, and `mutate.run_test`
+distinguishes those two on purpose (*"FAIL means an assertion disagreed, ERROR
+means it could not run"*), which means the wrong kind of evidence reached the
+baseline.
+
+**THE CAUSE IS ONE LINE UNDER IT, AND IT IS THE SAME SENTENCE THAT FILE
+ALREADY WROTE.** `triage._tracked` ran `git ls-files` and returned `[]` when
+git could not answer — three lines below a comment in that same module warning
+that *"an empty population here reads exactly like a clean one (doctrine
+20)"*. Every entry's `tests` and `code` came back empty, so `bucket()` reported
+**the whole register UNGUARDED, at exit 0** — a wrong answer, not a refusal.
+
+**FIXED, AND THE TWO CASES ARE TOLD APART BEFORE THE LISTING.**
+`NotAGitCheckout` is raised only when `git rev-parse --is-inside-work-tree`
+says no; INSIDE a checkout an empty listing is a real finding and is returned
+as the empty list it is, so nothing about CI moves. `triage.py --check` catches
+it and prints `RESULT: REFUSED (not a pass, not a failure -- doctrine 20)` at
+exit 2 instead of a clean-looking register. `test_triage.py` catches it at
+module scope, asks §0 FIRST — *the register scan answered, or this run says it
+did not* — and stops, because every section below it reads `ENTRIES` and an
+empty register makes almost all of them pass on nothing.
+
+**VERIFIED IN THE SHADOW TREE AT HEAD**, which is the only place these three
+can be tested: `test_triage` PASS, `test_provenance` PASS, `test_verify_entries`
+PASS, and `triage --check` from inside the shadow rc=2 with its reason named.
+The shadow run of `test_triage` prints `REFUSED — the register was not readable
+from here; no section ran` and exits 0, so it re-enters the mutation baseline
+without ever claiming to have graded a register it could not see.
+
+**FOUR INSTANCES, FOUR CAUSES, ONE SENTENCE.** A bound, a correct refusal, a
+load flake and an unguarded `[0]` all arrived at the summary spelled
+`already-red`, and all four cost the same thing: a suite silently absent from
+the adversary that grades the tests.
 
 **TESTED WHILE OPEN**, and `PARTIAL` rather than closed for one reason: **the
 bound itself is still unmeasured.** 420s excludes `test_capacity` (430s) and

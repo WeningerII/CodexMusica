@@ -274,7 +274,41 @@ def read_entries():
     return out
 
 
+class NotAGitCheckout(Exception):
+    """`git ls-files` cannot name this module's population.
+
+    NOT an empty population — that is the thing this exception exists to stop
+    being confused with (`MISSING.md` M-30). `_tracked` returned `[]` when git
+    could not answer, so every entry's `tests` and `code` came back empty and
+    `bucket()` reported the whole register UNGUARDED: a wrong answer, at exit
+    0, three lines below a comment in this same file warning that *"an empty
+    population here reads exactly like a clean one (doctrine 20)"*.
+
+    MEASURED 2026-08-22 in a real shadow tree built by `quality/mutate.py`
+    (`shutil.copytree`, no `.git`): `quality/test_triage.py` came back ERROR
+    with an `IndexError`, because §5's own non-empty guard fired correctly and
+    the next line indexed `[0]` anyway. So the ONE suite that grades the
+    register was reported to the mutation baseline as "could not run" rather
+    than as the legible failure it had already written.
+    """
+
+
 def _tracked(*globs):
+    """-> [path, ...] tracked files matching `globs`. REFUSES if it cannot ask.
+
+    The two cases are told apart before the listing: outside a git work tree
+    the question is unanswerable and this raises, while INSIDE one an empty
+    listing is a real finding and is returned as the empty list it is.
+    """
+    probe = subprocess.run(["git", "rev-parse", "--is-inside-work-tree"],
+                           cwd=ROOT, capture_output=True, text=True)
+    if probe.returncode != 0 or probe.stdout.strip() != "true":
+        raise NotAGitCheckout(
+            "%s is not a git work tree, so `git ls-files` cannot name the "
+            "population this module scans. That is INCONCLUSIVE, not an "
+            "empty register (doctrine 20) — every entry would come back with "
+            "no test and no code, and the whole register would read "
+            "UNGUARDED." % ROOT)
     p = subprocess.run(["git", "ls-files", *globs], cwd=ROOT,
                        capture_output=True, text=True)
     return [f for f in p.stdout.split("\n") if f.strip()]
@@ -350,7 +384,15 @@ def main(argv=None):
                     help="one entry, and every file that names it")
     a = ap.parse_args(argv)
 
-    entries = scan(read_entries())
+    # THE REFUSAL IS NAMED, NOT TRACEBACKED (`MISSING.md` M-30). Run from a
+    # copied tree this module cannot read its own population, and answering
+    # anyway would report the whole register UNGUARDED at exit 0.
+    try:
+        entries = scan(read_entries())
+    except NotAGitCheckout as exc:
+        print("REFUSED — %s" % exc)
+        print("RESULT: REFUSED (not a pass, not a failure -- doctrine 20)")
+        return 2
     buckets = collections.defaultdict(list)
     for e in entries:
         buckets[bucket(e)].append(e)

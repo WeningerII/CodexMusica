@@ -34,7 +34,20 @@ def check(name, ok, detail=""):
         FAILURES.append(name)
 
 
-ENTRIES = T.scan(T.read_entries())
+# THE SCAN CAN REFUSE, AND A REFUSAL IS NOT A FAILURE (`MISSING.md` M-30).
+# Run from a copied tree — which is exactly what `quality/mutate.py` builds to
+# grade this suite — `git ls-files` cannot name the population, so `triage`
+# raises rather than reporting the whole register UNGUARDED. This file then
+# has nothing to check and says so, at exit 0, instead of crashing: measured
+# in a real shadow tree, it came back `ERROR  IndexError` because §5's own
+# non-empty guard fired correctly and the next line indexed `[0]` anyway, so
+# the ONE suite that grades the register reached the mutation baseline as
+# "could not run" rather than as the failure it had already written.
+try:
+    ENTRIES = T.scan(T.read_entries())
+    SCAN_REFUSED = ""
+except T.NotAGitCheckout as _exc:
+    ENTRIES, SCAN_REFUSED = [], str(_exc)
 BY = {e.key: e for e in ENTRIES}
 
 
@@ -217,6 +230,13 @@ def test_the_escape_hatch_is_two_sided():
         check("%s is DECLARED, not CONTESTED" % e.key,
               T.bucket(e) == "DECLARED", "bucket=%s" % T.bucket(e))
     # And the marker is what does it: strip it and the same entry contests.
+    if not open_tested:
+        # The guard above has ALREADY reported this. Indexing anyway turned a
+        # legible FAIL into an `IndexError`, and `mutate.run_test` reads those
+        # as ERROR — "the file could not run" — rather than as the assertion
+        # that disagreed. Two different kinds of evidence, and the wrong one
+        # was reaching the baseline (`MISSING.md` M-30).
+        return
     victim = open_tested[0]
     real = victim.body
     try:
@@ -284,5 +304,32 @@ def main():
     return 0
 
 
+
+def test_the_scan_itself_can_refuse():
+    """0. THE POPULATION, ASKED FIRST (`MISSING.md` M-30, 2026-08-22).
+
+    Every section below reads `ENTRIES`. If the scan refused, that list is
+    EMPTY, and an empty population makes almost every check here pass on
+    nothing — the exact shape this file exists to enforce against, one level
+    up (doctrine 20). Asked first so a reader is told before any green
+    appears.
+    """
+    print("\n0. the register scan answered, or this run says it did not")
+    if SCAN_REFUSED:
+        print("  REFUSED  the register scan could not name its population")
+        print("          %s" % SCAN_REFUSED)
+        print("          Every section below reads an EMPTY register. This "
+              "run makes NO claim about the register (doctrine 20).")
+        return
+    check("the scan answered, so the sections below read a real register",
+          bool(ENTRIES), "%d entr(ies)" % len(ENTRIES))
+
+
 if __name__ == "__main__":
+    test_the_scan_itself_can_refuse()
+    if SCAN_REFUSED:
+        print("=" * 62)
+        print("REFUSED — the register was not readable from here; no "
+              "section ran")
+        sys.exit(0)
     sys.exit(main())
