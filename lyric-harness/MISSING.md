@@ -3875,6 +3875,33 @@ as INERT. It is
 inert to a tokeniser that returns nothing for Persian at all. Doctrine 20: a
 measurement made with a blind instrument reads as a null.
 
+**AND THE THIRD INSTANCE WAS THE SECTION'S OWN CONTROL — FOUND 2026-08-22 BY
+THE VERIFICATION SWEEP RATHER THAN BY READING.**
+`quality/test_structure_census.py` §7 was written to prove this entry's fix
+and it measured every positive against `LH.line_tokens` as its WRONG-ANSWER
+control: `fin reads its own words (ASCII shreds them)` asserted
+`line_tokens("pää") == ["p"]`, `san` asserted five ASCII fragments, and the
+end-to-end check drove `tokens=LH.line_tokens` as the ASCII arm against real
+Finnish. The repertoire fix landed the same day and **the control stopped
+being wrong** — three checks red, the only failure in a sweep of the whole
+suite tree. The section's ARGUMENT — each language's tokeniser is the one
+definition, doctrine 1 — is untouched and still correct; its control had been
+repaired out from under it.
+
+`ascii_tokens` is FROZEN in the test file now, copied from
+`git show 1580d11^:./lyric_harness.py` rather than imported, because it IS the
+defect and nothing may fix it. A check asked FIRST — before any positive that
+depends on it — pins that the control still shreds what the live reader now
+reads (`tân` → `['t', 'n']` against `['tân']`), so a control that has quietly
+stopped being wrong fails BY NAME instead of turning three positives into
+doctrine 20's empty population. Repointing `ascii_tokens` back at the live
+reader reds four checks and the guard is the first of them.
+
+**A CONTROL MAY NOT BE A FUNCTION THAT IS ALLOWED TO IMPROVE**, and the three
+instances in this entry are one shape at three depths: the census read English
+with the wrong reader, the typography sweep read Persian with a blind one, and
+the test read its own wrong answer out of a module entitled to stop giving it.
+
 ### M-23 · `Structure` has no `kind="partition"`, and that is the same missing kind four times `OPEN`
 **Found 2026-08-21, and it is the one change that serves every spec-shaped
 structural source this project has located.**

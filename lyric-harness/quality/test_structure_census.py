@@ -16,6 +16,7 @@ Run: python3 quality/test_structure_census.py
 """
 
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -48,6 +49,32 @@ PARENS = os.path.join(HERE, "..", "corpus", "song",
 #: A real Finnish file, for proving `pair_counters` tokenises with the
 #: language's reader rather than merely resolving one.
 FIN_FILE = os.path.join(HERE, "..", "corpus", "song", "fin_kanteletar.txt")
+
+
+def ascii_tokens(text, strip_parens=True):
+    """Section 7's WRONG-ANSWER CONTROL: an ASCII-only reader, frozen here.
+
+    The section's claim is that a language read with the wrong reader loses
+    its own words, so it needs a reader that genuinely shreds `paa`-with-
+    umlauts and `adyapi`-with-macrons.  It used `lyric_harness.line_tokens`
+    for that, and that was true until 2026-08-21, when `line_tokens` moved
+    onto the declared `LATIN_SCRIPT` repertoire (`MISSING.md` M-22) and
+    began reading those words whole.  The argument survived the fix; the
+    CONTROL did not, and three checks here went red -- the only failure in
+    a 60-suite sweep, which is the shape a live function used as a control
+    always eventually takes.
+
+    A CONTROL MAY NOT BE A FUNCTION THAT IS ALLOWED TO IMPROVE.  This is
+    the pre-M-22 body verbatim (`git show 1580d11^:./lyric_harness.py`,
+    `line_tokens`), copied rather than imported: it IS the defect, so
+    nothing may repair it, and the `re` module is the only thing it shares
+    with the live path.
+    """
+    norm = text.replace("\u2019", "'").replace("\u2018", "'")
+    if strip_parens:
+        norm = re.sub(r"\([^)]*\)", " ", norm)
+    return [t for t in re.findall(r"[A-Za-z'\-]+", norm)
+            if re.search(r"[A-Za-z]", t)]
 
 
 def test_rows():
@@ -199,11 +226,15 @@ def test_checkpointing():
 def test_tokeniser_is_declared():
     """7. THE TOKENISER IS THE LANGUAGE'S OWN, OR THE LANGUAGE IS REFUSED.
 
-    `pair_counters` called `lyric_harness.line_tokens` — an ASCII-only
-    reader — for every language until 2026-08-21 (`MISSING.md` M-22).  That
-    is the substitution that VOIDED Kalevala alliteration run 1, and it was
-    invisible here because `corpus_files()` globs `eng_*` and English is the
-    one language it reads correctly.
+    `pair_counters` called `lyric_harness.line_tokens` for every language
+    until 2026-08-21 (`MISSING.md` M-22).  That is the substitution that
+    VOIDED Kalevala alliteration run 1, and it was invisible here because
+    `corpus_files()` globs `eng_*` and English is the one language it read
+    correctly.  `line_tokens` WAS ASCII-only when this section was written
+    and is not any more -- it moved onto `LATIN_SCRIPT` the same day -- so
+    the wrong-answer reader every check below measures against is
+    `ascii_tokens`, frozen at the top of this file.  Reading it out of the
+    live module is what broke this section once already.
 
     The section drives `pair_counters` rather than `tokeniser_for` alone,
     because a table that resolves correctly and is consulted by nobody is
@@ -267,16 +298,27 @@ def test_tokeniser_is_declared():
     check("eng resolves to line_tokens, not English._tokens",
           CEN.tokeniser_for("eng") is LH.line_tokens)
 
+    # (b) THE CONTROL IS ALIVE, ASKED FIRST.  `ascii_tokens` is the
+    # wrong-answer reader every positive below is measured against, and a
+    # control that has quietly stopped being wrong turns each of them into
+    # doctrine 20's empty population.  M-22's own headline word proves both
+    # directions in one line: the frozen control shreds it, the live reader
+    # reads it whole.
+    check("the ASCII control still shreds what the live reader now reads",
+          ascii_tokens("tân") == ["t", "n"] and LH.line_tokens("tân") == ["tân"]
+          and CEN.tokeniser_for("eng") is not ascii_tokens,
+          f"control {ascii_tokens('tân')} vs live {LH.line_tokens('tân')}")
+
     # (b) THE POSITIVE: a language with a declared tokeniser reads its own
     # words.  `pää` -> ['p'] under the ASCII reader and stays whole here.
     fin = CEN.tokeniser_for("fin")
     check("fin reads its own words (ASCII shreds them)",
-          fin("pää") == ["pää"] and LH.line_tokens("pää") == ["p"],
-          f"fin._tokens {fin('pää')} vs line_tokens {LH.line_tokens('pää')}")
+          fin("pää") == ["pää"] and ascii_tokens("pää") == ["p"],
+          f"fin._tokens {fin('pää')} vs ASCII {ascii_tokens('pää')}")
     san = CEN.tokeniser_for("san")
     check("san reads its own words",
           len(san("adyāpi tāṃ kanakacampakadāmagaurīṃ")) == 3
-          and len(LH.line_tokens("adyāpi tāṃ kanakacampakadāmagaurīṃ")) == 5,
+          and len(ascii_tokens("adyāpi tāṃ kanakacampakadāmagaurīṃ")) == 5,
           "3 words vs 5 ASCII fragments")
 
     # AND `pair_counters` MUST ACTUALLY USE IT.  The two checks above prove
@@ -289,7 +331,7 @@ def test_tokeniser_is_declared():
     # Finnish: under the language's own reader the endwords are whole words
     # carrying ä/ö; under the ASCII reader they are fragments that carry none.
     fin_ec, _fin_wl = CEN.pair_counters(FIN_FILE, language="fin")
-    ascii_ec, _ascii_wl = CEN.pair_counters(FIN_FILE, tokens=LH.line_tokens)
+    ascii_ec, _ascii_wl = CEN.pair_counters(FIN_FILE, tokens=ascii_tokens)
     fin_words = {w for pair in fin_ec for w in pair}
     ascii_words = {w for pair in ascii_ec for w in pair}
     non_ascii = {w for w in fin_words if any(ord(c) > 127 for c in w)}
