@@ -3966,6 +3966,69 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-44 · The named-relation judge reaches 4 of 80 names, because it STAMPS a position instead of judging at the name's own coordinate `OPEN`
+**Raised by an agent's M-35 work, and the diagnosis below is the third one I
+tried — the first two were wrong and the measurements are what corrected
+them. This is the mechanical cause of the owner's complaint that the grader's
+door admits two relations out of 601.**
+
+**WHAT `satisfies_relation` DOES.** It REFUSES if the caller leaves `position`
+unset — correctly, doctrine 45 — then calls `classify_pair` **without passing
+the position**, and stamps the caller's value onto the result:
+
+```python
+t = _dc.replace(t, position=position)      # asserted, never verified
+return canon in t.names()
+```
+
+`classify_pair` itself refuses this move. Declare a position to it with no
+`Frame` and it raises `Unverifiable`: *"This parameter used to be accepted and
+never consulted — it reached the label and never the span — so a declared
+placement is now either verified or refused."* **`satisfies_relation`
+reintroduces exactly that, one layer up**, and `revise.py` has the line
+indices `i` and `j` that would build the `Frame` it never passes.
+
+**MEASURED — `night`/`light`, the paradigm English perfect rhyme, over the
+80-name vocabulary:**
+
+| preset | position-agnostic | stamped `'end'` |
+|---|---|---|
+| `perfect-rhyme` | `perfect rhyme (last stressed syllable)` | **0 — stamping LOSES it** |
+| `english-end-rhyme` | 0 | 4 · `antya-prasa`, `masculine rhyme`, `qafiya`, `single rhyme` |
+| none (what `revise.py` passes) | 0 | **4** |
+
+**Preset and position are COUPLED** — each preset registers its names at a
+particular position slot — and no single pair of values reaches both sets. So
+`revise.py`, passing `position="end"` and no preset, judges every mandated
+pair against **4 of 80 names**, and `night`/`light` grades as NOT SATISFYING
+`perfect rhyme (last stressed syllable)`. Not refused: **graded a violation**,
+which is doctrine 20 in the judge.
+
+**TWO WRONG DIAGNOSES, KEPT because the corrections are the finding.**
+~~"24 relations are reported violated because the position is hardcoded"~~ —
+the hardcoding is real and its comment already documents it honestly, but the
+count is of a different thing. ~~"22 names registered at `position=None` are
+unreachable, so reading `None` as a WILDCARD is the fix"~~ — measured:
+position-agnostic reaches **0** names for `night`/`light` without a preset, so
+a wildcard adds nothing. The registry's 49 entries sit at `'end'` 22, `None`
+18, `'internal'` 4, `'head'` 2, and one each at `leonine` / `cross` /
+`holorhyme`; the blocker is not the position slot alone but the (preset,
+position) PAIR.
+
+**THE REMEDY, and it needs a ruling.** A name knows the coordinate it is
+registered at. `satisfies_relation` should judge each canon AT THAT
+COORDINATE — look the canon's key up, classify with its own anchors, and
+answer — instead of making the caller guess one global coordinate for all 80.
+That removes the guess rather than moving it, and it is the same shape as the
+M-35 agent's recommendation that a mandated relation carry a
+`(namespace:name, position, anchor)` coordinate rather than a bare name.
+**It is a change to a JUDGE and it will move every number the grader
+produces**, so it is filed and not applied.
+
+**Why it matters:** this is the floor under the whole ladder. The 601 survey,
+the 117 canon structures and the 77 schemas all sit above a judge that, as
+called today, can say yes to four names.
+
 ### M-43 · The census threw away WHY a schema refused, in the layer that makes every panel number `CLOSED` 2026-08-22
 **Found 2026-08-22 by an agent sweeping the tree for the M-39 laundering
 family, and it is the sharpest thing that sweep returned: the defect is inside
