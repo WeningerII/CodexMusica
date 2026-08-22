@@ -467,6 +467,42 @@ def s11_refused_replicates():
               for r in live))
 
 
+def s12_the_page_derivation_never_runs_on_a_token_join():
+    """M-39, REOPENED AND CLOSED AGAIN 2026-08-22.  `_stream_of` hands
+    `build_stream` a JOIN OF TOKENS and calls it `text_lines`, so the
+    blank-line derivation -- which reads a blank line as the PRINTER's mark --
+    was being asked a question about a page it was never shown."""
+    print("\n§12 a token join is not a page (M-39, second closure)")
+    from quality.phonology import get as _gp
+    # `1818.]` is real: it is a Gutenberg publication note wrapped inside a
+    # [VERSE] block in `corpus/song/eng_british_percy_bysshe_shelley.txt`.
+    # Every character is a digit or punctuation, none in `_WORD`'s repertoire.
+    page = ["1818.]", "I found a cat", "she wore a hat"]
+    toks = [R.tokenise(l) for l in page if l.strip()]
+    check("§12 the apparatus line is NON-BLANK on the page and tokenises to "
+          "nothing, so the join manufactures a blank line",
+          toks[0] == [] and " ".join(toks[0]) == "" and page[0].strip(),
+          f"{toks}")
+    st = N._stream_of(toks, _gp("eng"), "eng", None, None, "")
+    check("§12 no ground handed in -> the derivation does NOT run, and the "
+          "source is `none`",
+          st.frames.stanza_source == "none"
+          and st.supply("stanza").state == "absent",
+          f"was `blank_lines` / present n=1 — the collapsed frame M-39 closed, "
+          f"re-entering through the reader; now {st.supply('stanza')}")
+    out = R.realise(R.REGISTRY["monorhyme / leash"], st)
+    check("§12 ...so a stanza-framed schema REFUSES on it, naming the frame",
+          isinstance(out, R.Refusal) and out.capability == "stanza",
+          "it returned a NUMBER over one frame before this fix")
+    st2 = N._stream_of(toks, _gp("eng"), "eng", None, [0, 0, 1],
+                       "printed_breaks")
+    check("§12 ...and a DECLARED ground still lands, with its own provenance "
+          "— the control that proves the fix is not just a blanket refusal",
+          st2.frames.stanza_source == "printed_breaks"
+          and st2.supply("stanza").n == 2,
+          f"{st2.supply('stanza')}")
+
+
 def main():
     print("=" * 74)
     print("RELATIONS NULLS · SECTION 9 (THE PANEL) — regressions")
@@ -482,6 +518,7 @@ def main():
     s9_blockers()
     s10_missing_complete()
     s11_refused_replicates()
+    s12_the_page_derivation_never_runs_on_a_token_join()
     print("\n" + "=" * 74)
     print(f"  {len(PASS)} passed, {len(FAIL)} failed")
     if FAIL:

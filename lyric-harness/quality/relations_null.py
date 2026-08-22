@@ -647,8 +647,18 @@ def _stream_of(toks, phon, language, prepare=None, stanzas=None,
     which refuses; passing the reader's ground supplies the real one.
     """
     lines = [" ".join(t) for t in toks]
+    # `"none"` AND NOT `""` WHEN NO GROUND WAS HANDED IN.  `lines` above is a
+    # JOIN OF TOKENS, not a page, so `build_stream`'s blank-line derivation
+    # must never be allowed to run on it: a page line whose characters are all
+    # digits and punctuation tokenises to `[]` and joins to `""`, and the
+    # derivation reads that as a printer's blank line.  Measured 2026-08-22 on
+    # `1818.]` from a Gutenberg publication note -- `stanza_source` came back
+    # `blank_lines` and `supply('stanza')` `present, n=1`, which is the
+    # collapsed frame M-39 closed, re-entering through the reader.
     st = R.build_stream(lines, phon, declaration={"language": language},
-                        stanzas=stanzas, stanza_source=stanza_source)
+                        stanzas=stanzas,
+                        stanza_source=(stanza_source or "none")
+                        if stanzas is None else stanza_source)
     if prepare is not None:
         prepare(st)
     return st
@@ -682,7 +692,7 @@ def _measure(st, schema, statistics, chans=None, keep="all"):
 
 
 def _statistics_of(toks, phon, schema, statistics, language, chans=None,
-                   keep="all", prepare=None, stanzas=None):
+                   keep="all", prepare=None, stanzas=None, stanza_source=""):
     """EVERY statistic from ONE realise() pass over one replicate.
 
     Statistics are computed together and not one arm at a time, because the
@@ -692,7 +702,7 @@ def _statistics_of(toks, phon, schema, statistics, language, chans=None,
     and `local_fraction` would have been measured on different replicates of
     the same seed and could not have been read against each other.
     """
-    st = _stream_of(toks, phon, language, prepare, stanzas)
+    st = _stream_of(toks, phon, language, prepare, stanzas, stanza_source)
     vals, refusal = _measure(st, schema, statistics, chans, keep)
     return vals, st, refusal
 
@@ -705,7 +715,7 @@ def _statistic_of(toks, phon, schema, statistic, language, chans=None):
 
 def run_many(lines, phon, schema, statistics, null="line_permutation",
              n=200, seed=SEED, language="", chans=None, tokeniser=R.tokenise,
-             prepare=None, stanzas=None):
+             prepare=None, stanzas=None, stanza_source=""):
     """One null, EVERY statistic, off one set of replicates.  -> [Result].
 
     `lines` are RAW text lines.  They are tokenised once and every replicate is
@@ -724,7 +734,7 @@ def run_many(lines, phon, schema, statistics, null="line_permutation",
     obs, st0, refusal = _statistics_of(
         NULLS["identity"].fn(toks, random.Random(seed)),
         phon, schema, stats, language, chans, prepare=prepare,
-        stanzas=stanzas)
+        stanzas=stanzas, stanza_source=stanza_source)
     if refusal is not None:
         return [refusal for _ in stats]
     burden = R.search_burden(schema, st0)
@@ -747,7 +757,8 @@ def run_many(lines, phon, schema, statistics, null="line_permutation",
         rng = random.Random(seed + 1 + k)
         vals, _, refused = _statistics_of(null.fn(toks, rng), phon, schema,
                                           stats, language, chans,
-                                          prepare=prepare, stanzas=stanzas)
+                                          prepare=prepare, stanzas=stanzas,
+                                          stanza_source=stanza_source)
         if vals is None:
             for r in out:
                 if not isinstance(r, R.Refusal):

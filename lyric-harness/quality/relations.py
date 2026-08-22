@@ -735,7 +735,30 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
     stream it got before, byte for byte.
     """
     units, lines, toks, unreadable, excluded = [], [], {}, [], []
-    if stanzas is None:
+    if stanzas is None and stanza_source == "none":
+        # THE CALLER KNOWS THERE IS NO GROUND AND SAYS SO, and this branch is
+        # the one that must exist for the derivation to be REFUSABLE (M-39,
+        # reopened and closed again 2026-08-22).
+        #
+        # `stanzas_from_blank_lines` reads a BLANK LINE as the printer's own
+        # mark.  That is true of a page and false of anything else, and
+        # `relations_null._stream_of` hands this function a JOIN OF TOKENS:
+        #
+        #     [" ".join(t) for t in toks]
+        #
+        # A page line that tokenises to nothing -- `1818.]` in a Gutenberg
+        # publication note, whose characters are all digits and punctuation
+        # and none of them in `_WORD`'s repertoire -- joins to `""`.  The
+        # derivation then finds a blank line THE SOURCE NEVER PRINTED, records
+        # `blank_lines`, and `supply('stanza')` answers `present` with n=1:
+        # the exact collapsed frame this entry closed, walking back in through
+        # the reader.  Measured on a three-line fixture, and live on the first
+        # candidate corpus cell carrying un-stripped apparatus.
+        #
+        # A caller holding a token grid cannot ask a question about a page, so
+        # it says so here instead of being answered wrongly.
+        stanzas = [0] * len(text_lines)
+    elif stanzas is None:
         stanzas = stanzas_from_blank_lines(text_lines)
         # THE DERIVATION IS ONLY A SOURCE WHERE IT HAD EVIDENCE (M-39).  A
         # blank line is the evidence; a text carrying none did not tell this

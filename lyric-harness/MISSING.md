@@ -4275,8 +4275,17 @@ refuse there, which is the honest answer and not a zero. All nine readers are
 byte-identical to before (hashed and compared); the ground comes from the same
 single walk, so the two lists cannot fall out of correspondence.
 
-**EVERY STANZA-FRAMED NUMBER IN THE PANEL MOVED, most by an order of
-magnitude.** `monorhyme / leash` on `eng` **268 → 30** instances — and that is
+**~~EVERY~~ ALMOST EVERY STANZA-FRAMED NUMBER IN THE PANEL MOVED, most by an
+order of magnitude — and the exception is the most interesting cell.**
+
+> **CORRECTED 2026-08-22.** On `cym_cynghanedd` the printed ground is exactly
+> ONE group, so nothing moved there at all: 51→51, 5→5, 10→10, 37→37 on the
+> four schemas that fire. That is why `monai` restates at *exactly* +4 /
+> 2.31×. The NUMBER is unchanged and its PROVENANCE is not — it moved from a
+> laundered `declared` to a measured `printed_breaks, n=1` — which is the
+> whole point of the entry stated in the one cell where it changes nothing
+> else. "Every" was written from the general argument rather than from the
+> per-cell table, which is the mistake this register exists to catch. `monorhyme / leash` on `eng` **268 → 30** instances — and that is
 the schema sitting SECOND in the admissible set of
 `quality/RESULTS_RELATIONS_NULL.md` §A at +231. `analysed rhyme` 26 → 4 on
 `eng`, 93 → 3 on `non`, 98 → 5 on `san`. A leash is a run of one rhyme sound
@@ -4306,7 +4315,27 @@ instances — one leash per stanza** instead of 6 across the lot.
    marks its sections and prints no blank line still refuses there. The panel
    reads both because its readers see the marks; the CLI does not, and that
    asymmetry is real and is not yet closed.
-3. **`section` HAS NO CAPABILITY GATE, and the hole is the mirror of the one
+3. **THE REFUSAL WAS BYPASSABLE FOR SEVEN HOURS, AND THE HOLE WAS IN THE
+   READER.** `_stream_of` hands `build_stream` a JOIN OF TOKENS and calls it
+   `text_lines`; `stanzas_from_blank_lines` reads a blank line as the
+   PRINTER's mark. A page line whose characters are all digits and
+   punctuation — `1818.]`, a real Gutenberg publication note wrapped inside a
+   `[VERSE 1]` block in `eng_british_percy_bysshe_shelley.txt` — tokenises to
+   `[]` and joins to `""`. The derivation then found a blank line the source
+   never printed, recorded `blank_lines`, and `supply('stanza')` answered
+   **present, n=1**: the exact collapsed frame this entry closed, re-entering
+   through the reader. Reproduced on a three-line fixture. **CLOSED** —
+   `build_stream` now honours an explicit `stanza_source="none"` as a
+   refusable no-ground declaration, and `_stream_of` passes it whenever it
+   holds no ground, because a caller holding a token grid cannot ask a
+   question about a page. Pinned in `test_relations_null.py` §12 with the
+   control that a declared ground still lands.
+
+   *Latent on the recorded panel — all nine slices have zero empty-token
+   lines, and `fin`/`cym` still refused — and live on the first candidate cell
+   with un-stripped apparatus. `analysed rhyme` = 87 on a Shelley trial cell
+   is a laundered number and is not carried anywhere.*
+4. **`section` HAS NO CAPABILITY GATE, and the hole is the mirror of the one
    this entry just closed.** Measured: `Stream.supply('section')` falls through
    to the catch-all — *"`Stream.supply` has no branch for this name, so no
    declaration can supply it"* — so it answers `absent` for the wrong reason,
@@ -4325,7 +4354,7 @@ instances — one leash per stanza** instead of 6 across the lot.
    function it changes is the one being wired into production right now, and a
    coordinate changed underneath its first caller is how the stanza half got
    its bug.
-4. **The ledger slice stays ungrounded on purpose.** `_read` keeps `---` rows
+5. **The ledger slice stays ungrounded on purpose.** `_read` keeps `---` rows
    as verse and `EXTENSION_LEDGER` is recorded through it, so grounding it in
    the same commit that changed what it measures would verify nothing. The
    five are repinned there as CANNOT OBTAIN, which is true of that reader.
