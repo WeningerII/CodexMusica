@@ -2813,7 +2813,7 @@ a `__main__` and keep it as a comparison runner.
 > **DECIDED 2026-08-11, and "genuinely stranded" no longer holds.** The file
 > now has an `if __name__ == "__main__"`, and it
 > has callers: `quality/relations.py` and `quality/test_relations.py`.
-> **REPINNED 2026-08-15: `quality/rhyme_constraints.py` is 1,652
+> **REPINNED 2026-08-15, AND AGAIN 2026-08-22: `quality/rhyme_constraints.py` is ~~1,652~~ **1,738** lines (repinned 2026-08-22: the M-38 quantifier reconciliation added the shared vocabulary table, the `Selection.__post_init__` gate and their comments. The argument this figure supports — that the module is large and is KEPT on a stated ground — never rested on the third digit)
 > lines** — ~~1,566~~ when this block was written (`ade8546`, 2026-08-11),
 > ~~1,609~~ later the same day (`e4cdf72`), ~~1,607~~ on 2026-08-12
 > (`11aa19b`), ~~1,611~~ 2026-08-13 (`010f7a7`) to 2026-08-15. The +41 is
@@ -3956,7 +3956,7 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
-### M-38 · One quantifier coordinate, two modules, two spellings — and `exists_k` counts different objects in each `OPEN`
+### M-38 · One quantifier coordinate, two modules, two spellings — and `exists_k` counts different objects in each `PARTIAL`
 **Found 2026-08-22 by `quality/relation_shapes.py`'s author while reading all
 77 schemas, and verified here before filing. Step 4 of the relation ladder is
 an arity/quantifier extension, so it walks straight into this.**
@@ -4013,6 +4013,56 @@ namespacing) and the classifier's other finding that `Figure.nodes`,
 `Figure.edges` and `Figure.template` are declared on all 77 and read by
 nothing — the fields step 4 needs are inert, and the quantifier they would be
 read alongside is doubly declared.
+
+---
+
+**RECONCILED 2026-08-22 ON THE OWNER'S INSTRUCTION, BEFORE STEP 4.**
+
+**ONE TABLE, IN THE LOWER MODULE.** `quality/rhyme_constraints.py` now
+declares `QUANTIFIERS` (the four canonical names),
+`QUANTIFIER_ALIASES` (every spelling either module uses, mapped onto them)
+and `canonical_quantifier()`. It lives there because the dependency runs one
+way — `relations.py` imports `rhyme_constraints` (lazily, one call site) and
+nothing there imports `relations` — so the lower module owns the vocabulary
+and the upper one reads it, cached.
+
+**BOTH SPELLINGS KEPT AS ALIASES, NOT RENAMED.** `pair` → `exists` and
+`count_fraction` → `fraction` resolve; neither module's declarations were
+rewritten. A rename would edit 77 schema rows and two `RhymeType` rows for a
+cosmetic gain, and doctrine 17 prefers the old word visible beside the new.
+
+**WHAT `k` COUNTS IS DECLARED ONCE: `K_COUNTS = "members"`** — distinct
+member positions. That is what the traditions mean (Kalevala alliteration is
+"at least two alliterating words in the line", a count of words) and what
+`relations.assemble()` already implements exactly.
+
+**AND THE DIVERGENCE IS BOUNDED RATHER THAN GUESSED AT.**
+`Selection.__post_init__` now REFUSES `exists_k` with any k outside
+`EXISTS_K_PROVEN_AT = (2,)`, naming why: this module's `len(fs) >= k - 1` is
+a figure-count PROXY for the declared member semantics, exact only where a
+figure carries two member sites and no two figures repeat a pair — verified,
+both `exists_k` rows here declare `members=(WORD_HEAD, WORD_HEAD)`.
+`relations.Figure` carries no such bound because it is not a proxy.
+**Neither reading was adopted for k ≥ 3**; the untested branch refuses.
+
+**A GATE THAT DID NOT EXIST BEFORE.** `Figure.__post_init__` validates the
+quantifier at construction, so a typo in one of 77 schemas refuses at import
+instead of falling through `assemble()`'s if/elif chain to a silent no-op —
+the same shape `unmatched` was fixed for as defect P15. Verified: all 77
+resolve (`exists` 69, `forall` 4, `exists_k` 3, `fraction` 1), and
+`Figure(quantifier="PAIR")` — a plausible near-miss — refuses.
+
+**STILL PARTIAL, and this is what remains.** The vocabulary is one table and
+the semantics is declared; the two IMPLEMENTATIONS are still two. Reconciling
+them means either making `_select()` count members, or deciding the proxy is
+what `Selection` means and renaming its parameter so it stops claiming to be
+`k`. That is a behaviour change to a module this entry did not set out to
+rewrite, and it is not owed until something asks for k ≥ 3.
+
+Pinned in `test_relation_shapes.py` §11, both directions: the canonical four,
+the aliases, all 77 resolving, three bad spellings refusing at construction,
+a good one still building, and `Selection` refusing k ∈ {1, 3, 5} while
+`Figure(quantifier="exists_k", k=7)` builds.
 
 ### M-37 · 26 relation names mean two different things, and the two judges disagree `CLOSED` 2026-08-22
 **Found 2026-08-22 on the first move of step 3 — "route the pair-shaped

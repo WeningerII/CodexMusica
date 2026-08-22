@@ -508,11 +508,73 @@ def test_the_arity_premise():
               os.path.join(HERE, "relations.py"), encoding="utf-8").read())
 
 
+# ---------------------------------------------------------------------------
+# 11. THE QUANTIFIER VOCABULARY IS ONE TABLE  (`MISSING.md` M-38)
+# ---------------------------------------------------------------------------
+
+def test_quantifier_vocabulary_is_one_table():
+    """Two modules declared this coordinate and neither knew about the other.
+    The table now lives in `rhyme_constraints` (the lower module — nothing
+    there imports `relations`), both read it, and the divergent `exists_k`
+    is bounded to the range where the proxy is exact rather than guessed at.
+    """
+    import sys as _s, os as _o
+    _s.path.insert(0, _o.path.join(_o.path.dirname(_o.path.abspath(__file__)),
+                                   ".."))
+    from quality import relations as R
+    from quality import rhyme_constraints as C
+
+    print("\n11. the quantifier vocabulary is ONE table (M-38)")
+    check("`k` COUNTS is declared, once, and it is members",
+          C.K_COUNTS == "members", C.K_COUNTS)
+    check("four canonical names",
+          sorted(C.QUANTIFIERS) == ["exists", "exists_k", "forall",
+                                    "fraction"], sorted(C.QUANTIFIERS))
+    check("both modules' historical spellings are ALIASES onto them, kept "
+          "rather than renamed (doctrine 17)",
+          C.canonical_quantifier("pair") == "exists"
+          and C.canonical_quantifier("count_fraction") == "fraction"
+          and C.canonical_quantifier("exists") == "exists")
+    check("EVERY one of the 77 figures resolves through that one table",
+          all(s.figure.canonical_quantifier() in C.QUANTIFIERS
+              for s in R.REGISTRY.values()))
+    # THE GATE FAILS IN BOTH DIRECTIONS.
+    for bad in ("nonsense", "PAIR", ""):
+        try:
+            R.Figure(quantifier=bad)
+            check("Figure refuses %r" % bad, False, "it constructed")
+        except C.QuantifierRefused:
+            check("a Figure declaring %r REFUSES AT CONSTRUCTION, so a typo "
+                  "in one of 77 schemas cannot fall through assemble()'s "
+                  "if/elif to a silent no-op (defect P15's shape)" % bad, True)
+    check("...and a good one still constructs",
+          R.Figure(quantifier="forall").canonical_quantifier() == "forall")
+    # THE BOUND ON THE PROXY.
+    check("the proxy is declared exact only at k=2",
+          C.EXISTS_K_PROVEN_AT == (2,), C.EXISTS_K_PROVEN_AT)
+    check("Selection(exists_k, k=2) constructs — the only value in use",
+          C.Selection("exists_k", k=2).canonical() == "exists_k")
+    for k in (1, 3, 5):
+        try:
+            C.Selection("exists_k", k=k)
+            check("Selection refuses exists_k k=%d" % k, False, "it built")
+        except C.QuantifierRefused as e:
+            check("Selection REFUSES exists_k k=%d rather than picking a "
+                  "reading: its `>= k-1` figure count is a proxy for the "
+                  "declared member semantics, exact only at 2, and which "
+                  "module is right above 2 is CANNOT TELL from the source"
+                  % k, "CANNOT TELL" in str(e))
+    check("relations' own exists_k carries NO such bound, because it is not "
+          "a proxy — it counts distinct members and tests >= k exactly",
+          R.Figure(quantifier="exists_k", k=7).k == 7)
+
+
 if __name__ == "__main__":
     for fn in (test_premise, test_partition, test_both_directions,
                test_gate_goes_red, test_cannot_tell, test_doctrine_1_by_ast,
                test_survey, test_surfaces, test_pin_sweep_reads_it,
-               test_the_arity_premise):
+               test_the_arity_premise,
+               test_quantifier_vocabulary_is_one_table):
         fn()
     print("=" * 68)
     if FAILURES:

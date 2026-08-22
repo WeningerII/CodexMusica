@@ -1833,17 +1833,58 @@ class IdentityRule:
     predicate: object
 
 
+_QUANT = None
+
+
+def quantifier_table():
+    """-> (QUANTIFIERS, canonical_quantifier) from `rhyme_constraints`.
+
+    LAZY AND CACHED. `relations.py` already imports that module lazily (one
+    call site, for cost rather than for cycles — nothing there imports this),
+    and the vocabulary is read on every `Figure` construction, so it is
+    resolved once and held.
+    """
+    global _QUANT
+    if _QUANT is None:
+        from quality import rhyme_constraints as _C
+        _QUANT = (_C.QUANTIFIERS, _C.canonical_quantifier)
+    return _QUANT
+
+
 @dataclass(frozen=True)
 class Figure:
     """The relation's shape over its members.  A labelled multigraph plus a
     member-selection rule; the pair is the degenerate case."""
     nodes: int = 2
     edges: tuple = ((0, 1, "self"),)
-    quantifier: str = "exists"     # exists | exists_k | forall | fraction
+    #: A spelling in `rhyme_constraints.QUANTIFIER_ALIASES` — THE ONE TABLE
+    #: (M-38). This field used to carry its own four-name comment while
+    #: `rhyme_constraints.Selection.quantifier` carried a different four, two
+    #: names apart for one concept and two shared. The table is declared in
+    #: `rhyme_constraints` because the dependency runs that way: this module
+    #: imports it, never the reverse.
+    #:
+    #: `k` COUNTS DISTINCT MEMBERS (`rhyme_constraints.K_COUNTS`), and
+    #: `assemble()` below implements that exactly — `len(nodes) >= fig.k`
+    #: over the union of member indices. The other module's `exists_k` is a
+    #: figure-count proxy exact only at k=2 and REFUSES above it; this one
+    #: has no such bound because it is not a proxy.
+    quantifier: str = "exists"
     k: int = 1
     fraction: object = None
     frame: str = "song"            # line | line_pair | stanza | poem | song | token
     template: object = None        # 平仄: one member against a declared pattern
+
+    def __post_init__(self):
+        # Validated HERE, at the declaration, so a typo in one of 77 schemas
+        # refuses at import rather than falling through `assemble()`'s
+        # if/elif chain to silent no-op (the shape `unmatched` was fixed for
+        # in `RelationSchema.__post_init__`, defect P15).
+        quantifier_table()[1](self.quantifier)
+
+    def canonical_quantifier(self):
+        """-> the canonical name, whatever spelling was declared."""
+        return quantifier_table()[1](self.quantifier)
 
 
 PAIR = Figure()

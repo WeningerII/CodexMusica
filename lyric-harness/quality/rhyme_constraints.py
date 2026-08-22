@@ -677,13 +677,99 @@ class Edge:
     align: str = "index"          # 'index' | 'subsequence' | 'set'
 
 
+# ---------------------------------------------------------------------------
+# THE QUANTIFIER VOCABULARY  (`MISSING.md` M-38 — one coordinate, one table)
+# ---------------------------------------------------------------------------
+#
+# TWO MODULES DECLARED THIS COORDINATE AND NEITHER KNEW ABOUT THE OTHER.
+# `Selection.quantifier` here read `pair|exists_k|forall|count_fraction`;
+# `relations.Figure.quantifier` reads `exists|exists_k|forall|fraction`. Two
+# names differ for one concept and two are SHARED, and sharing a name is what
+# made the difference invisible.
+#
+# THE TABLE LIVES HERE because the dependency runs one way: `relations.py`
+# imports this module (lazily, at its line ~4195) and nothing here imports
+# `relations`. The lower module owns the vocabulary; the upper one reads it.
+#
+# WHAT `k` COUNTS, DECLARED ONCE: **distinct MEMBERS**. That is what the
+# traditions mean — Kalevala alliteration is "at least two alliterating words
+# in the line", a count of words — and it is what `relations.assemble()`
+# already implements exactly (`len(nodes) >= fig.k` over the union of member
+# indices). It is written down here so a third implementation cannot invent a
+# third reading.
+K_COUNTS = "members"
+
+#: canonical name -> what it requires over the frame.
+QUANTIFIERS = {
+    "exists":   "at least one figure",
+    "exists_k": "at least k distinct MEMBERS (see K_COUNTS)",
+    "forall":   "every eligible site in the frame participates",
+    "fraction": "at least `fraction` of the frame's sites participate",
+}
+
+#: every spelling either module uses -> the canonical name. Both modules'
+#: historical spellings are kept as ALIASES rather than renamed, because a
+#: rename is a change to 77 schema declarations and two RhymeType rows for a
+#: cosmetic gain, and doctrine 17 prefers the old word visible beside the new.
+QUANTIFIER_ALIASES = {
+    "exists": "exists", "pair": "exists",
+    "exists_k": "exists_k",
+    "forall": "forall",
+    "fraction": "fraction", "count_fraction": "fraction",
+}
+
+#: WHERE THE TWO IMPLEMENTATIONS DIVERGE, and the bound this file refuses at.
+#: `relations.assemble()` counts distinct members and tests `>= k` — exact at
+#: every k. `_select()` below counts found FIGURES and tests `>= k - 1` — a
+#: PROXY, exact only where a figure carries exactly two member sites and no
+#: two figures repeat a pair. MEASURED 2026-08-22: both `exists_k` rows here
+#: declare `members=(WORD_HEAD, WORD_HEAD)` and `k=2`, and all three
+#: `exists_k` figures in `relations.REGISTRY` are `k=2, nodes=2`, so the two
+#: formulas coincide at the only value in use. Above 2 nobody has run either
+#: branch and which reading is right is `CANNOT TELL` from the source — so
+#: this file REFUSES k != 2 rather than picking one (doctrine 20/28).
+EXISTS_K_PROVEN_AT = (2,)
+
+
+class QuantifierRefused(ValueError):
+    """A quantifier name or `k` this vocabulary does not declare."""
+
+
+def canonical_quantifier(name):
+    """-> the canonical name for either module's spelling."""
+    if name in QUANTIFIER_ALIASES:
+        return QUANTIFIER_ALIASES[name]
+    raise QuantifierRefused(
+        f"{name!r} is not a declared quantifier. The canonical names are "
+        f"{sorted(QUANTIFIERS)}; the accepted spellings, including both "
+        f"modules' historical ones, are {sorted(QUANTIFIER_ALIASES)}.")
+
+
 @dataclass(frozen=True)
 class Selection:
-    quantifier: str = "pair"      # pair|exists_k|forall|count_fraction
+    quantifier: str = "pair"      # a spelling in QUANTIFIER_ALIASES
     k: int = 2
     frame: str = "line"
     min_count: int = 2
     min_fraction: float = 0.0
+
+    def __post_init__(self):
+        canon = canonical_quantifier(self.quantifier)
+        if canon == "exists_k" and self.k not in EXISTS_K_PROVEN_AT:
+            raise QuantifierRefused(
+                f"`exists_k` with k={self.k}: this module counts found "
+                f"FIGURES and tests `>= k - 1`, which is a PROXY for the "
+                f"declared semantics (K_COUNTS = {K_COUNTS!r}) and is exact "
+                f"only at k in {list(EXISTS_K_PROVEN_AT)}. "
+                f"`relations.assemble()` counts distinct members and tests "
+                f"`>= k`, which is exact everywhere. Above 2 the two "
+                f"disagree, nobody has run either branch, and which is right "
+                f"is CANNOT TELL from the source -- so this REFUSES rather "
+                f"than picking one (M-38, doctrine 20/28).")
+
+    def canonical(self):
+        """-> the canonical quantifier name, whatever spelling was declared."""
+        return canonical_quantifier(self.quantifier)
 
 
 @dataclass(frozen=True)
