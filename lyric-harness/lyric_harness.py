@@ -627,6 +627,9 @@ class _DictionaryOnlyLexicon:
     def __init__(self, entries, freq_rank):
         self.entries = entries
         self.freq_rank = freq_rank
+        # Carried here too, because this view SHARES the real Lexicon's dict
+        # by identity and a caller holding one must get the same sentinel.
+        self.freq_rank_oov = len(freq_rank)
 
     def transcribe_word(self, word):
         w = fold_apostrophes(word).lower().strip("'\"“”‘’.,;:!?()[]")
@@ -703,6 +706,19 @@ class Lexicon:
                     w = line.split("\t", 1)[0].strip().lower()
                     if w:
                         self.freq_rank.setdefault(w, len(self.freq_rank))
+        # THE 'PAST THE END' SENTINEL IS THE LIST'S OWN PROPERTY, DERIVED.
+        # `quality/features.py` typed it as `MAX_RANK = 20000` -- the size of
+        # `wordfreq20k.txt`, the list this project read until the source was
+        # swapped. The swap left the constant behind, and a sentinel that is
+        # no longer past the end is not a sentinel: with 49,999 entries
+        # ranked to 49,998, an OOV word scored 20,000 came out COMMONER than
+        # 29,998 real English words -- 60% of the list, `thistle` among them.
+        # Doctrine 58 on its own axis: the number was a coordinate of the
+        # RESOURCE, and the resource moved. Read from the list so it cannot
+        # be left behind again (doctrine 1, doctrine 14 -- a control may not
+        # be defined in terms of the quantity it controls, and this one is
+        # now defined by the list it must sit past).
+        self.freq_rank_oov = len(self.freq_rank)
 
     def transcribe_word(self, word):
         """Return (phones, oov_flag). Naive fallback for out-of-vocabulary."""

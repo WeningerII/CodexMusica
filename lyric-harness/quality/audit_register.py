@@ -2081,7 +2081,12 @@ PINNED = {
     #    a question about the SWEEP and reading its baseline output on the way
     #    past. `coverage_audited` unmoved at 19: the entry carries no audited
     #    claim of its own yet.
-    "coverage_entries": 88,
+    #    REPINNED 2026-08-22, 88 -> 89: `M-31` (a source swap left its
+    #    sentinel behind, and 60% of English scored as rarer than a word
+    #    nobody has heard of), found while executing the owner's ruling to
+    #    refuse `wordfreq20k.txt` -- by asking what still READ it rather than
+    #    by reading the licence. `coverage_audited` unmoved at 19.
+    "coverage_entries": 89,
     "coverage_audited": 19,
 }
 

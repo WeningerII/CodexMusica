@@ -3956,6 +3956,50 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-31 · A source swap left its sentinel behind, and 60% of English scored as rarer than a word nobody has heard of `CLOSED` 2026-08-22
+**Found 2026-08-22 while executing the owner's ruling to refuse
+`wordfreq20k.txt`, by asking what still READ it rather than by reading the
+licence.**
+
+`quality/features.py` declared `MAX_RANK = 20000  # frequency-list size;
+unknown words sort past the end` — the size of `wordfreq20k.txt`. When
+`Lexicon.freq_rank` was repointed to `data/opensubtitles_en_50k.tsv` the
+constant stayed behind, and **a sentinel that is no longer past the end of
+the list is not a sentinel.** The live list holds 49,999 entries ranked to
+49,998, so an out-of-vocabulary word scored 20,000 came back **commoner than
+29,998 real English words — 60.0% of the list**, `thistle` (35,537) among
+them.
+
+**FEATURE 10 IS THE RARITY OF THE CONTENT VOCABULARY**, so the defect ran that
+feature backwards on exactly the words a lyric reaches for. MEASURED over 30
+real song texts: **30 of 30 moved**, every one understated — min 978, median
+**3,600**, max 13,214 rank points — and always in the same direction, because
+an unknown word can only ever have been scored too common. Not one text was
+unaffected: every one of the thirty contains at least one out-of-vocabulary
+content word.
+
+**IT WAS IN TWO MODULES, AND FIXING THE DECLARING ONE WOULD HAVE LEFT THE
+OTHER.** `quality/within_item.py` imports `MAX_RANK` from `features.py` and
+uses it twice, so the respecification carried the identical defect.
+
+**DOCTRINE 58 ON ITS OWN AXIS: the number was a coordinate of the RESOURCE,
+not of a threshold.** Doctrine 58 says a recorded count is a threshold nobody
+wrote down; this is the same shape one step out — a constant that silently
+described a FILE, and survived the file being replaced. The fix is
+`Lexicon.freq_rank_oov`, derived from the list at load time, so the list owns
+its own "past the end" and a future swap cannot leave it behind (doctrine 1).
+`MAX_RANK` is struck in place rather than deleted (doctrine 17).
+
+**AND THE SAME SWAP LEFT A SECOND READER STALE**, found in the same pass:
+`quality/discriminate.py`'s `RESOURCE_FILES` — the tuple whose own comment
+reads *"Re-fetching a norm set silently re-scales concreteness and frequency;
+doctrine 58 -- the resource is a coordinate of the number just as much as a
+threshold is"* — digested `wordfreq20k.txt`, a file no feature reads, and did
+NOT digest `opensubtitles_en_50k.tsv`, which they all do. So re-fetching the
+live source would have silently reused a feature cache scaled to the refused
+one: verbatim the failure that comment warns about, in the tuple that carries
+the warning.
+
 ### M-30 · The mutation sweep called a suite it could not run "already-red", and a hole it never tested "SURVIVED" `PARTIAL`
 **Found 2026-08-22 by running `quality/test_mutation.py` with no bound in
 order to answer a question about the SWEEP, and reading its own baseline

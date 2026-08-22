@@ -41,7 +41,18 @@ NOUN_TAGS = {"NN", "NNS", "NNP", "NNPS"}
 # Archaic verb forms NLTK's tagger mislabels; used only by the inversion check.
 PERIPHRASTIC_DO = {"do", "does", "did", "dost", "doth", "didst"}
 
-MAX_RANK = 20000          # frequency-list size; unknown words sort past the end
+#: ~~MAX_RANK = 20000~~ STRUCK 2026-08-22. It was the size of
+#: `wordfreq20k.txt`, the list this project read until the frequency source
+#: was swapped to `data/opensubtitles_en_50k.tsv` -- and the constant stayed
+#: behind. A sentinel that is no longer past the end of the list is not a
+#: sentinel: at 49,999 entries ranked to 49,998, an out-of-vocabulary word
+#: scored 20,000 came back COMMONER than 29,998 real English words, 60% of
+#: the list, `thistle` (35,537) among them. Feature 10 is the RARITY of the
+#: content vocabulary, so the defect ran the feature backwards on exactly the
+#: words a lyric reaches for.
+#: Read from the lexicon now (`Lexicon.freq_rank_oov`), so a future source
+#: swap cannot leave it behind again -- doctrine 58 on its own axis: the
+#: number was a coordinate of the RESOURCE, not of a threshold.
 CONC_ABSTRACT = 2.5       # Brysbaert midpoint used for the abstract-noun cut
 
 #: MATTR's moving-average window, in TOKENS. It was a bare default in
@@ -469,7 +480,8 @@ class QualityFeatures:
         f_inv = sum(self._inversions(tl) for tl in tagged) / len(tagged)
 
         # 10 rarity of the content vocabulary
-        cranks = [self.lex.freq_rank.get(w, MAX_RANK) for w in content]
+        oov = getattr(self.lex, "freq_rank_oov", len(self.lex.freq_rank))
+        cranks = [self.lex.freq_rank.get(w, oov) for w in content]
         f_freq = sum(cranks) / len(cranks) if cranks else float("nan")
 
         return {

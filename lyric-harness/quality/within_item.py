@@ -26,7 +26,7 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from quality.features import (CONTENT_TAGS, CONC_ABSTRACT,  # noqa: E402
-                              FUNCTION_TAGS, MAX_RANK, NOUN_TAGS,
+                              FUNCTION_TAGS, NOUN_TAGS,
                               QualityFeatures)
 
 NAN = float("nan")
@@ -46,6 +46,11 @@ def _delta(marked, unmarked):
         return NAN
     return a - b
 
+
+
+def _oov(lex):
+    """The frequency list's own 'past the end' rank, never a typed constant."""
+    return getattr(lex, "freq_rank_oov", len(lex.freq_rank))
 
 class WithinItemFeatures(QualityFeatures):
 
@@ -147,8 +152,13 @@ class WithinItemFeatures(QualityFeatures):
             [1.0 if self.conc[w] < CONC_ABSTRACT else 0.0 for w in u_nouns])
 
         f_freq = _delta(
-            [self.lex.freq_rank.get(w, MAX_RANK) for w in m_content],
-            [self.lex.freq_rank.get(w, MAX_RANK) for w in u_content])
+            # The sentinel is the LIST'S, read from the lexicon (see
+            # `features.py`'s struck `MAX_RANK`). This module imported that
+            # constant, so the stale-sentinel defect was in TWO readers and
+            # fixing only the one that declared it would have left this one
+            # scoring an unknown word as commoner than 60% of English.
+            [self.lex.freq_rank.get(w, _oov(self.lex)) for w in m_content],
+            [self.lex.freq_rank.get(w, _oov(self.lex)) for w in u_content])
 
         # 5 function-word share at rhyme position vs elsewhere. Cancels the
         #   typological question of what counts as a function word, because

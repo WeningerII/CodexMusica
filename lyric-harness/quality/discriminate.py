@@ -166,7 +166,15 @@ SOURCE_FILES = (
 #: coordinate of the number just as much as a threshold is.
 RESOURCE_FILES = (
     os.path.join(HERE, "..", "data", "concreteness.txt"),
-    os.path.join(HERE, "..", "wordfreq20k.txt"),
+    # REPOINTED 2026-08-22. This named `wordfreq20k.txt` -- the list
+    # `Lexicon.freq_rank` STOPPED reading when the frequency source was
+    # swapped -- so the cache key digested a file no feature reads and did
+    # NOT digest the one they do. Re-fetching `opensubtitles_en_50k.tsv`
+    # would have silently reused features scaled to the old list, which is
+    # verbatim what this tuple's own comment three lines up warns about.
+    # The refused file is gone from the tree; naming it here would digest
+    # ABSENT forever and freeze the key.
+    os.path.join(HERE, "..", "data", "opensubtitles_en_50k.tsv"),
     os.path.join(HERE, "..", "cmudict.dict"),
 )
 

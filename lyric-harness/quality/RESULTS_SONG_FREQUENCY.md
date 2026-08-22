@@ -144,6 +144,24 @@ EXCLUDED because absent from wordfreq20k.txt         106,916   (85.6%)
 not merely un-forbiddable — they are **unofferable**. `yahoo` is in the pool
 and `weep` is not.
 
+**SUPERSEDED 2026-08-22, AND THE FINDING IS WHAT FIXED IT.** `wordfreq20k.txt`
+is REFUSED under doctrine 85 (owner ruling) and `Lexicon.freq_rank` reads
+`data/opensubtitles_en_50k.tsv` (MIT, uncontested). Re-derived against the
+live source — a-z ASCII lexicon words, which may differ by a few hundred from
+the rule the block above used, so the two totals are not subtracted:
+
+```
+a-z lexicon words                                    117,493
+candidate index size                                  39,418
+EXCLUDED because absent from the frequency list        78,075   (66.5%)
+```
+
+The pool more than DOUBLES, 18,010 -> 39,418, and the six words this document
+named are every one of them now IN it: `weep` 7,804, `wept` 14,742, `mourn`
+10,136, `doth` 11,269, `ere` 10,534, `wilt` 13,861. The paragraph above is
+kept because it is the argument that earned the swap (doctrine 17); what is
+struck is its status as a description of the shipped harness.
+
 ---
 
 ## 2. THE DELIVERABLE — FORBIDDEN sets, real call words, real song
@@ -157,7 +175,7 @@ committed two commits ago. Produced through the shipped
 
 | source | FORBIDDEN |
 |---|---|
-| **W** `wordfreq20k.txt` (SHIPPED) | `for, or, are, your, more, r` |
+| ~~**W** `wordfreq20k.txt` (SHIPPED)~~ REFUSED 2026-08-22 | `for, or, are, your, more, r` |
 | **S** OpenSubtitles (spoken) | `for, your, are, or, more, sure` |
 | **E** song line-final | `more, door, shore, before, are, store` |
 | **C** song CONDITIONAL P(b\|a) | `door, more, before, shore, bore, store` |
