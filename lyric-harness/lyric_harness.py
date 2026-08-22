@@ -1011,9 +1011,12 @@ def relation_ground(text_lines, language=""):
     THE GROUND IS ASKED FOR ONCE, FROM THE PAGE, and the three answers are
     kept apart (doctrine 79):
 
-      1. `grid.stanza_ground` returns a vector -- the marks, the `---` rows
-         and the blank lines agreed on where the groups are, and the source is
-         `printed_breaks`.
+      1. `grid.stanza_ground` returns a vector -- at least one of its three
+         break kinds fired, and the source is `printed_breaks`. THIS IS THE
+         BRANCH AN UNMARKED-BUT-STANZA'D LYRIC TAKES TOO: that function reads
+         the blank line and the `---` row as well as the mark, so a text that
+         prints its stanzas and no headings is GROUNDED here and never
+         reaches the fallback below.
       2. It REFUSES, because the text printed a `[MARK]` that
          `grid.MARK_OPENS_GROUP` does not declare. The ground is then refused
          WHOLE and `stanza_source` is `none`: a vector built from the marks
@@ -1024,10 +1027,17 @@ def relation_ground(text_lines, language=""):
          made on purpose -- the blank lines are a DIFFERENT instrument and
          nothing has checked that they agree with the marks.
       3. It supplies nothing and refuses nothing, and the text printed no
-         `[MARK]` at all. THAT is where the blank-line derivation is the
-         fallback, and it is `build_stream`'s own: `stanzas=None` lets it
-         record `blank_lines` where it had a blank line to read and `none`
-         where it did not. A text that DOES print marks never reaches this
+         `[MARK]` at all -- so the page printed no break of ANY kind. THAT,
+         and only that, is where the blank-line derivation is the fallback,
+         and it is `build_stream`'s own: `stanzas=None` lets it record
+         `blank_lines` where it had a blank line to read and `none` where it
+         did not. The two rules differ on exactly one input -- a lyric whose
+         only blank line is a leading or trailing one, which
+         `grid.stanza_ground` calls no ground and `build_stream` calls
+         `blank_lines` over an all-zero vector. That difference is
+         `relations.build_stream`'s own documented rule, this reader does not
+         overrule it from the caller, and `quality/test_grid.py` pins it by
+         name so it is visible rather than surprising. A text that DOES print marks never reaches this
          branch, because for such a text "the marks supplied no break" is a
          fact about the marks and answering it with the blank lines would be
          the silent coordinate-pick doctrine 45 forbids.
@@ -6377,8 +6387,11 @@ def main():
             print(f"  stanza ground: {st.frames.stanza_source} — "
                   f"supply('stanza') {sup.state}, {sup.n} distinct stanza(s)"
                   + ("" if ground.stanza_source else
-                     "  [FALLBACK: the page printed no [MARK], so this is "
-                     "`build_stream`'s own blank-line derivation]"))
+                     "  [FALLBACK: the page printed no break of any kind — "
+                     "no [MARK] that opens a group, no `---` row and no "
+                     "blank line between stanzas — so this reader declared "
+                     "nothing and the name above is `build_stream`'s own "
+                     "derivation]"))
         print(f"  schema filter: "
               + (f"{want!r} — {len(selected)} of {len(all_schemas)} "
                  f"schemas asked (SUBSTRING match on the name). The two "

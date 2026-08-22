@@ -2736,6 +2736,256 @@ def test_the_stanza_ground_is_printed_or_refused():
           "that looked and found nothing must not print the same thing")
 
 
+def test_the_cli_reads_the_marks_it_used_to_delete():
+    """`MISSING.md` M-39, the piece the stanza commit left open.
+
+    The entry names the asymmetry in one sentence: *"The CLI grounds on BLANK
+    LINES only -- `is_apparatus_line` has already dropped the `[VERSE n]` rows
+    by the time `build_stream` is called, so a lyric that marks its sections
+    and prints no blank line still refuses there. The panel reads both because
+    its readers see the marks; the CLI does not."*  `lyric_harness.
+    relation_ground` is the supply, and this pins it end to end BECAUSE the
+    vocabulary it reads -- `SECTION_MARK`, `MARK_OPENS_GROUP`,
+    `GROUP_BREAK_PREFIX` -- is this module's.
+
+    EVERY POSITIVE CHECK BELOW HAS A CONTROL, because a positive-only suite
+    cannot find a rule that is too permissive: each one is run a second time
+    against the reader as it was (`is_apparatus_line` then `stanzas=None`) or
+    against a stream built with the argument withheld, and the control asserts
+    the COLLAPSE. Delete the supply and the controls pass while the positives
+    fail, which is the pair that makes this a regression rather than a
+    snapshot.
+    """
+    print("\n·  M-39 — the CLI reads the marks it used to delete")
+    import lyric_harness as _LH
+    from quality import relations as _R
+
+    phon = _LH._phonology_or_refuse("eng")
+
+    def _stream(g):
+        return _R.build_stream(g.lines, phon, sections=g.sections,
+                               stanzas=g.stanzas,
+                               stanza_source=g.stanza_source,
+                               line_status=g.line_status,
+                               exclude_status=g.exclude_status)
+
+    def _old(text):
+        """The reader as it was: apparatus deleted, blank lines the only
+        ground. This is the defect, kept runnable so the pins below are a
+        DIFFERENCE and not a snapshot."""
+        raw = [l.rstrip() for l in text if not _LH.is_apparatus_line(l)]
+        return _R.build_stream(raw, phon, stanzas=None)
+
+    # -- 1. what carries a coordinate is KEPT; what carries none is dropped.
+    text = ["# author: nobody", "--- TITLE: A SONG", "[VERSE 1]",
+            "the night", "the light", "[CHORUS]", "the day", "the way",
+            "[Exeunt."]
+    g = _LH.relation_ground(text, "eng")
+    check("the `[MARK]` and `---` rows are KEPT in the line vector and the "
+          "`#` comment and the unclosed bracket are dropped",
+          (g.marks, g.breaks, g.dropped) == (2, 1, 2)
+          and g.lines == ["--- TITLE: A SONG", "[VERSE 1]", "the night",
+                          "the light", "[CHORUS]", "the day", "the way"],
+          (g.marks, g.breaks, g.dropped, g.lines))
+    check("...and each kept row carries the status that keeps it out of the "
+          "token stream, which is what `exclude_status` reads",
+          g.line_status == (_LH.SONG_BREAK_STATUS, _G.SECTION_MARKER_STATUS,
+                            "", "", _G.SECTION_MARKER_STATUS, "", "")
+          and g.exclude_status == (_G.SECTION_MARKER_STATUS,
+                                   _LH.SONG_BREAK_STATUS),
+          g.line_status)
+    check("a `#` header block is dropped rather than kept-and-excluded, "
+          "because `stanza_ground` reads any line it cannot classify as "
+          "CONTENT and nine lines of `# author:` would become a stanza",
+          "# author: nobody" not in g.lines)
+
+    # -- 2. THE SENTENCE M-39 WROTE: marks, no blank line, and it grounds.
+    st = _stream(g)
+    check("a lyric that marks its sections and prints NO blank line now "
+          "grounds on its own marks",
+          (st.frames.stanza_source, st.supply("stanza").state,
+           st.supply("stanza").n) == ("printed_breaks", "present", 2),
+          (st.frames.stanza_source, st.supply("stanza")))
+    sto = _old(text)
+    check("CONTROL — the reader as it was supplies NO ground for the same "
+          "text, which is the refusal M-39 recorded at this seam",
+          (sto.frames.stanza_source, sto.supply("stanza").state)
+          == ("none", "absent"),
+          (sto.frames.stanza_source, sto.supply("stanza")))
+
+    # -- 3. `Unit.section` reaches production, and both predicates answer.
+    check("Unit.section is populated by a PRODUCTION caller for the first "
+          "time — `sections=` had zero callers anywhere when M-39 was filed",
+          sorted({u.section for u in st.units})
+          == ["CHORUS#1", "VERSE#0"],
+          sorted({u.section for u in st.units}))
+    a = _R.Span(idx=(0,), anchor_pos=0, direction=1, unit="token")
+    b = _R.Span(idx=(len(st.units) - 1,), anchor_pos=0, direction=1,
+                unit="token")
+    ans = (_R.Placement(kind="same_section", args=(), polarity=True,
+                        requires=()).holds(a, b, st),
+           _R.Placement(kind="different_sections", args=(), polarity=True,
+                        requires=()).holds(a, b, st))
+    check("the two placement predicates ANSWER, and answer differently",
+          ans == (False, True), ans)
+    bare = _R.build_stream(g.lines, phon, stanzas=g.stanzas,
+                           stanza_source=g.stanza_source,
+                           line_status=g.line_status,
+                           exclude_status=g.exclude_status)
+    b0 = _R.Span(idx=(len(bare.units) - 1,), anchor_pos=0, direction=1,
+                 unit="token")
+    ctl = (_R.Placement(kind="same_section", args=(), polarity=True,
+                        requires=()).holds(a, b0, bare),
+           _R.Placement(kind="different_sections", args=(), polarity=True,
+                        requires=()).holds(a, b0, bare))
+    check("CONTROL — withhold `sections=` and they collapse again, one "
+          "always True and the other always False over an all-`\"\"` stream",
+          len({u.section for u in bare.units}) == 1 and ctl == (True, False),
+          ctl)
+
+    # -- 4. the kept rows are POINTERS, not verse. M-39's latent half: an
+    #       unfiltered `[CHORUS]` tokenises to the WORD `CHORUS`, and two of
+    #       them stand in a `repetition`.
+    check("a kept marker contributes NO units — the mark never becomes a word",
+          not {"CHORUS", "VERSE", "TITLE"} & {u.token_text for u in st.units})
+    check("...and the loss is RECORDED rather than silent",
+          [e[2] for e in st.excluded_lines]
+          == ["--- TITLE: A SONG", "[VERSE 1]", "[CHORUS]"],
+          st.excluded_lines)
+    loose = _R.build_stream(g.lines, phon, sections=g.sections)
+    check("CONTROL — hand the same lines over with no `exclude_status` and "
+          "the marker IS a word, which is the defect the status exists for",
+          "CHORUS" in {u.token_text for u in loose.units})
+
+    # -- 5. AN UNDECLARED MARK REFUSES THE GROUND WHOLE, and the blank lines
+    #       are NOT substituted for it.
+    fixture = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                           "fixtures", "song.txt")
+    ftext = [l.rstrip() for l in _LH.read_lyric_text(fixture).splitlines()]
+    fg = _LH.relation_ground(ftext, "eng")
+    check("this repo's own example lyric prints three marks "
+          "`MARK_OPENS_GROUP` does not declare, and the ground goes WHOLE",
+          fg.refused_marks == ("BRIDGE", "OUTRO", "PRE")
+          and fg.stanza_source == "none",
+          (fg.refused_marks, fg.stanza_source))
+    check("CONTROL — the blank lines WOULD have supplied seven groups, and "
+          "they are deliberately not asked: a ground refused on the marks "
+          "must not be answered by a different instrument (doctrine 45)",
+          len(set(_R.stanzas_from_blank_lines(fg.lines))) == 7,
+          "if this ever reads 1 the control has stopped controlling")
+    fst = _stream(fg)
+    check("...so `supply('stanza')` is ABSENT and a stanza-framed schema "
+          "REFUSES, naming the frame",
+          fst.supply("stanza").state == "absent"
+          and getattr(_R.realise(_R.REGISTRY["monorhyme / leash"], fst),
+                      "capability", None) == "stanza",
+          str(fst.supply("stanza")))
+    check("...while the SECTION coordinate still stands — a mark this table "
+          "cannot group is still a printed section identity",
+          len({u.section for u in fst.units}) == 7,
+          sorted({u.section for u in fst.units}))
+
+    # -- 6. THE FALLBACK IS VISIBLE, which is the whole of `stanza_source`.
+    #
+    #    And it is NARROWER than it looks, which is worth pinning: a text with
+    #    no marks at all still goes through `stanza_ground`, because that
+    #    function reads the blank line and the `---` row as well as the mark.
+    #    So the unmarked-and-stanza'd case is a GROUND (`printed_breaks`), not
+    #    a fallback, and `relation_ground` declares nothing (`stanza_source ==
+    #    ""`) only where the page printed no break of any kind.
+    plain = _LH.relation_ground(["a cat", "a hat", "", "the moon", "the tune"])
+    check("no `[MARK]` at all is still a GROUND where the page prints its "
+          "stanzas — `stanza_ground` reads the blank line too",
+          (plain.stanza_source, plain.marks) == ("printed_breaks", 0)
+          and _stream(plain).supply("stanza").n == 2,
+          (plain.stanza_source, str(_stream(plain).supply("stanza"))))
+    bare2 = _LH.relation_ground(["a cat", "a hat"])
+    check("a page printing no break of any kind supplies NO ground, and the "
+          "fallback names it `none` rather than one stanza",
+          bare2.stanza_source == ""
+          and _stream(bare2).frames.stanza_source == "none"
+          and _stream(bare2).supply("stanza").state == "absent")
+    # THE ONE PLACE THE TWO DERIVATIONS DISAGREE, PINNED SO IT IS NOT A
+    # SURPRISE LATER.  `stanza_ground` requires a break to have SEPARATED
+    # something; `build_stream`'s own rule counts any blank line in the text
+    # as evidence.  A lyric whose only blank line is a trailing one therefore
+    # falls back to `blank_lines` over an all-zero vector -- one stanza,
+    # `present`.  That is `relations.build_stream`'s ruling and not this
+    # reader's, it is unchanged by M-39's second half, and it is recorded
+    # here rather than worked around from the caller (doctrine 20).
+    edge = _LH.relation_ground(["a cat", "a hat", ""])
+    check("RESIDUE — a trailing blank line alone: this reader declares "
+          "nothing, and `build_stream`'s derivation calls it `blank_lines` "
+          "with ONE stanza. Unchanged behaviour, named so it is visible",
+          edge.stanza_source == ""
+          and (_stream(edge).frames.stanza_source,
+               _stream(edge).supply("stanza").n) == ("blank_lines", 1),
+          "`stanza_ground` alone would have said `none` here; the difference "
+          "belongs to relations.py's rule, which this cell does not own")
+
+    # -- 7. A REAL CORPUS FILE, and the numbers are the point.
+    #
+    #    PINNED 2026-08-22.  `corpus/song/eng_american_a_g_knight.txt` prints
+    #    eight `[VERSE n]`/`[CHORUS]` marks and ONE blank line, and that one
+    #    stands before the first stanza -- so the reader as it was reported
+    #    `blank_lines` with ONE distinct stanza over 256 units and the five
+    #    `frame="stanza"` schemas ran and printed numbers over a frame the
+    #    text had told nobody about.
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    path = os.path.join(root, "corpus", "song",
+                        "eng_american_a_g_knight.txt")
+    ctext = [l.rstrip() for l in _LH.read_lyric_text(path).splitlines()]
+    cg = _LH.relation_ground(ctext, "eng")
+    cst = _stream(cg)
+    check("the corpus file frames as it PRINTS: eight marks, eight sections, "
+          "eight stanzas, and the unit count is untouched",
+          (cg.marks, len({u.section for u in cst.units}),
+           cst.supply("stanza").n, len(cst.units)) == (8, 8, 8, 256),
+          (cg.marks, sorted({u.section for u in cst.units}),
+           cst.supply("stanza"), len(cst.units)))
+    cold = _old(ctext)
+    check("CONTROL — the reader as it was called the same file ONE stanza "
+          "and named a source for it",
+          (cold.frames.stanza_source, cold.supply("stanza").n,
+           len(cold.units)) == ("blank_lines", 1, 256),
+          (cold.frames.stanza_source, cold.supply("stanza")))
+
+    def _leash(s):
+        out = _R.realise(_R.REGISTRY["monorhyme / leash"], s, keep="true")
+        return (out.capability if isinstance(out, _R.Refusal)
+                else sum(1 for i in out if i.verdict is True))
+    check("monorhyme/leash reads ~~61~~ 19 instances — a leash is a run of "
+          "ONE rhyme sound inside ONE stanza, and 42 of those pairs no leash "
+          "contains",
+          (_leash(cst), _leash(cold)) == (19, 61),
+          (_leash(cst), _leash(cold)))
+
+    # THE WHOLE-REGISTRY COUNTS THE VERB PRINTS.  Doctrine 79 and the third
+    # constraint on this work: an instrument that found nothing and one that
+    # never looked must produce different output, so the two counts are
+    # pinned TOGETHER and a schema crossing between `refused` and `nothing`
+    # moves one of them.
+    def _split(s):
+        found = refused = 0
+        for sch in _R.all_schemas().values():
+            out = _R.realise(sch, s)
+            if isinstance(out, _R.Refusal):
+                refused += 1
+            elif any(i.verdict is True for i in out):
+                found += 1
+        return found, refused
+    check("the verb's two summary counts on that file: ~~38~~ 35 finding, "
+          "26 refusing — three schemas narrowed out of `found` and NOT ONE "
+          "crossed the refused/nothing line, because the file declares every "
+          "mark it prints",
+          (_split(cst), _split(cold)) == ((35, 26), (38, 26)),
+          (_split(cst), _split(cold)))
+    check("on the fixture whose marks are REFUSED the refused count moves "
+          "instead: ~~25~~ 23 finding, ~~26~~ 31 refusing, and the five are "
+          "the `frame=\"stanza\"` schemas",
+          _split(fst) == (23, 31), _split(fst))
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -2774,7 +3024,8 @@ if __name__ == "__main__":
                test_a_refusal_is_true_in_a_language,
                test_the_elaboration_pointer_and_the_rank_that_was_refused,
                test_the_section_coordinate_is_supplied,
-               test_the_stanza_ground_is_printed_or_refused):
+               test_the_stanza_ground_is_printed_or_refused,
+               test_the_cli_reads_the_marks_it_used_to_delete):
         fn()
     print("=" * 62)
     if FAILURES:
