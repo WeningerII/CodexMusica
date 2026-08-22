@@ -141,6 +141,24 @@ that slice; `rows` is cleared / moved over the whole panel.
 relation is rare under the null and NOT that the effect is large — read the
 gap, which for `rime riche` is two instances.
 
+> **THE `nulls` COLUMN IS OVER-COUNTED FOR SEVEN OF THESE ROWS (`MISSING.md`
+> M-42, 2026-08-22).** `line_permutation` and `line_final_permutation` each
+> shuffle once off the same `random.Random(seed + 1 + k)`, so they draw the
+> same permutation. Measured over 200 replicates: **200 of 200 place the same
+> line-final token in the same line**, while 0 of 200 produce identical token
+> grids. For a schema declaring `both_line_final` — 28 of the 77 — the two are
+> ONE randomisation, so the denominator is **3, not 4**. Affected here:
+> `perfect rhyme`, `monorhyme / leash`, `mosaic rhyme`, `light rhyme`,
+> `compound / phrasal rhyme`, `rime riche`, `pantun ABAB`.
+>
+> **This does not say those seven are wrong.** `perfect rhyme` clears at +231
+> against a null max of 30; a gap that size is not manufactured by counting a
+> randomisation twice. What is wrong is the robustness figure beside it — and
+> for the rows that cleared under exactly one of four, "one of four" and "one
+> of three" are different sentences about how hard the row tried. The column
+> is left as recorded and flagged rather than re-typed, because fixing it
+> properly means giving the second null its own stream and re-running.
+
 > **`monorhyme / leash` IS STRUCK, 2026-08-22, and the row is the second in
 > this table.** Both §A and §B measured it — and the four other
 > `frame="stanza"` schemas, and `Scots vowel-length rhyme (Aitken's Law)` in

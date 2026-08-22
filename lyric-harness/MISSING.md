@@ -3966,6 +3966,63 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-42 · Two of the four nulls are ONE randomisation for 28 of the 77 schemas `OPEN`
+**Found 2026-08-22 by an agent re-running the stanza-framed schemas, and
+verified here independently before filing. It qualifies the published
+admissible set directly and it is the sharpest instrument defect on the
+panel.**
+
+**MEASURED.** `line_permutation` and `line_final_permutation` each call
+`rng.shuffle` exactly once, on a list of `len(toks)` elements, off the same
+`random.Random(seed + 1 + k)` — so they draw the SAME permutation σ. Over 200
+replicates on a six-line fixture at the panel's own seed:
+
+* **200 of 200** replicates place the same line-final token in the same line.
+* **0 of 200** produce identical token grids — they genuinely differ in the
+  material that is NOT line-final.
+
+So the two are one randomisation for any schema that reads only line-final
+material, and two genuinely different randomisations for any schema that does
+not. **28 of the 77 declare `both_line_final`**, which pins both members there
+and makes the collision exact.
+
+**WHAT IT COSTS THE PUBLISHED SET.** `RESULTS_RELATIONS_NULL.md` §A.1 prints a
+`nulls` column — "4/4", "2/4", "1/4" — read by any reader as how many
+independent randomisations a row survived. For a `both_line_final` schema the
+denominator is **3, not 4**, and a row whose two clears ARE the collided pair
+has survived **one** randomisation while printing two. Seven of the seventeen
+admissible-in-tradition rows are affected, including the top row:
+
+`perfect rhyme` · `monorhyme / leash` · `mosaic rhyme` · `light rhyme` ·
+`compound / phrasal rhyme` · `rime riche` · `pantun ABAB`
+
+**THIS IS NOT A CLAIM THAT THOSE SEVEN ARE WRONG.** `perfect rhyme` clears at
++231 against a null max of 30 and `monorhyme / leash` at +29 on `non`; a gap
+that size is not manufactured by counting a randomisation twice. What is wrong
+is the ROBUSTNESS number beside them. Three of §A.1's rows cleared under
+exactly one of four, and for a `both_line_final` schema "one of four" and "one
+of three" are different sentences about how hard the row tried.
+
+**THE DEEPER READING, which is doctrine 68's.** `null_menu` DERIVES which
+nulls can move a schema, and this pair is a case the derivation cannot see: it
+reasons about which COORDINATES a randomisation destroys, and these two
+destroy different coordinates *in general* while destroying identical ones
+*for a line-final schema*. The collision is a property of the (schema, null)
+PAIR and the table is keyed on the null alone. A menu that proposes and a
+measurement that decides is exactly the arrangement this file already argues
+for; this is the measurement finding something the derivation could not.
+
+**REMEDY, not applied here.** Either give `line_final_permutation` its own
+`Random` stream so the two draw different σ — cheapest, and it makes the two
+nulls independent for every schema at once — or key the printed `nulls`
+denominator on the schema's own read positions so a `both_line_final` row
+prints `/3`. The first is a behaviour change to a recorded instrument and
+would move every §A row that used either null, so it wants a re-run and an
+owner's ruling on whether the recorded panel is re-derived or superseded. The
+second is presentational and could land immediately. **Neither is done, and
+the seven rows above are flagged in `RESULTS_RELATIONS_NULL.md` rather than
+re-stated.**
+
 ### M-41 · The capacity ceiling is derived under ONE relation, and its headline says "English" `OPEN`
 **Found 2026-08-22 while looking for ladder step 5 ("capacity per relation").
 `quality/capacity.py` contains ZERO occurrences of `relation`, `ASSONANCE`,
