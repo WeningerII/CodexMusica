@@ -373,27 +373,85 @@ _CELLS = (
 )
 
 
+#: THE EDGES, DERIVED (2026-08-22, `MISSING.md` M-54). These were the literals
+#: `"intro"` and `("outro", "coda")` written into `_sample_pattern`'s control
+#: flow, which made "an outro is last" true of the output and stated in no
+#: coordinate — so no grader could check it and no table row could extend the
+#: roster. They are read off `grid.FunctionSpec.boundary` now, and the same
+#: table is what `grid.placement_findings` grades a draft against, so the
+#: planner and the grader cannot disagree (doctrine 1).
+def _edges():
+    from quality import grid as _GR
+    first = tuple(sorted(n for n, sp in _GR.SECTION_FUNCTIONS.items()
+                         if sp.boundary == "first" and n in GENERATOR_ROSTER))
+    last = tuple(sorted(n for n, sp in _GR.SECTION_FUNCTIONS.items()
+                        if sp.boundary == "last" and n in GENERATOR_ROSTER))
+    return first, last
+
+
+#: How many times a body may be redrawn before the planner gives up. Rejection
+#: sampling from a UNIFORM proposal is uniform over the ACCEPTED set — which is
+#: the property the design asked for ("uniform over SOLUTIONS") and the reason
+#: this is not a greedy left-to-right collapse: collapsing slot by slot would
+#: re-introduce exactly the enumeration bias v2's own smoke run found. A bound
+#: is still required, because a constraint set can be unsatisfiable and a
+#: sampler that hangs is worse than one that refuses (doctrine 20).
+PATTERN_ATTEMPTS = 200
+
+
 def _sample_pattern(rng):
     """-> ordered tuple of function names. Once-functions once, edges at
-    the edges, everything else free."""
-    funcs = []
-    if rng.random() < 0.5:
-        funcs.append("intro")
-    n_cells = rng.randint(*ENVELOPE["body_cells"])
-    bridge_used = False
-    for _ in range(n_cells):
-        while True:
-            cell = _CELLS[rng.randrange(len(_CELLS))]
-            if "bridge" in cell and bridge_used:
-                continue
-            break
-        if "bridge" in cell:
-            bridge_used = True
-        funcs.extend(cell)
-    ending = rng.choice((None, "outro", "coda"))
-    if ending:
-        funcs.append(ending)
-    return tuple(funcs)
+    the edges, everything else free.
+
+    THE EDGES AND THE ADMISSIBILITY TEST ARE BOTH DERIVED FROM THE VOCABULARY
+    (M-54). What was hardcoded: `funcs.append("intro")` before the cell loop
+    and `rng.choice((None, "outro", "coda"))` after it. Those two `append`
+    calls WERE the rule "an intro is first and an outro is last", enforced by
+    the order of statements and written down nowhere — measured true of 84 of
+    84 plans carrying an outro, and consultable by nothing.
+
+    AND THE BODY ITSELF WAS UNCHECKED. Measured before this changed: **19 of
+    300 plans violated the vocabulary's own definitions**, every one an
+    `interlude` opening or closing the song — a span whose gloss is "between
+    sung sections", with nothing sung on one side of it. `_CELLS` offers
+    `("interlude",)` and `("solo",)` as standalone cells and nothing stopped
+    one landing at an edge.
+    """
+    first_fns, last_fns = _edges()
+    from quality import grid as _GR
+    for _ in range(PATTERN_ATTEMPTS):
+        funcs = []
+        # An opener, drawn uniformly over the boundary='first' rows plus the
+        # no-opener case, so adding a row to that table widens this draw.
+        opener = rng.choice((None,) + first_fns)
+        if opener:
+            funcs.append(opener)
+        n_cells = rng.randint(*ENVELOPE["body_cells"])
+        bridge_used = False
+        for _ in range(n_cells):
+            while True:
+                cell = _CELLS[rng.randrange(len(_CELLS))]
+                if "bridge" in cell and bridge_used:
+                    continue
+                break
+            if "bridge" in cell:
+                bridge_used = True
+            funcs.extend(cell)
+        # AT MOST ONE CLOSER, and that bound is NOT derived — nothing in
+        # either gloss says a song may not carry a coda AND an outro. It is
+        # the old `rng.choice((None, "outro", "coda"))` preserved as an
+        # EXPLICIT declared choice rather than silently kept in a tuple's
+        # shape, and the ruling on whether to lift it is M-54's open half.
+        ending = rng.choice((None,) + last_fns)
+        if ending:
+            funcs.append(ending)
+        if not _GR.placement_findings(list(funcs)):
+            return tuple(funcs)
+    raise PlanRefused(
+        f"no admissible section pattern in {PATTERN_ATTEMPTS} draws. The "
+        f"placement constraints on `grid.SECTION_FUNCTIONS` and the cell "
+        f"grammar `_CELLS` do not intersect — REFUSED rather than returning "
+        f"a pattern the vocabulary's own definitions reject (doctrine 20).")
 
 
 # ---------------------------------------------------------------- plan

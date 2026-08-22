@@ -234,27 +234,105 @@ class FunctionSpec:
     #: way `_FUNCTION_SPELLINGS` already enumerates, explicit over clever.
     aliases: tuple = ()
 
+    # -- WHERE THIS FUNCTION CAN GO (2026-08-22, `MISSING.md` M-54) --------
+    #
+    # THE RULE THIS LAYER OBEYS, AND IT IS THE WHOLE SAFETY ARGUMENT: a
+    # placement coordinate may only ever DENY. Anything not denied stays
+    # reachable, so `verse` carries none of these fields and may open a song,
+    # close one, or sit anywhere. An allow-list would have had to enumerate
+    # {first, mid, last} and would go stale the moment a shape nobody
+    # enumerated turned up -- which is the owner's "move 37" ban aimed at
+    # structure instead of at rhyme.
+    #
+    # AND A DENIAL IS ADMISSIBLE ONLY IF IT IS DEFINITIONAL. The test, applied
+    # per row: VIOLATE IT -- is the result a NOVEL SONG, or a MISLABELLED
+    # SECTION? A prechorus with no chorus is not an experimental structure;
+    # the word means BEFORE THE CHORUS, so the section is simply something
+    # else. Mislabelled, so it prunes. Verse-chorus-verse-chorus-bridge
+    # violated is a novel song -- a CONVENTION, which belongs in
+    # `FormConvention` as a note and never near the planner (doctrine 6).
+    #
+    # WHY THESE FOUR KINDS AND NOT ONE `position` FIELD. M-54's first design
+    # was `position in {first, last, free}`, and its own derivation refuted
+    # it: read out of the glosses by keyword it claimed a position for 11 of
+    # 21 rows and got 4 wrong, every failure a RELATIONAL fact flattened into
+    # an ABSOLUTE one and inverted. `false_ending` came out "last" on the word
+    # *close* when its definition is that the song comes back from it;
+    # `turnaround` and `interlude` are BETWEEN things; `reprise` needs
+    # something earlier. Exactly three rows carry a genuine boundary fact and
+    # everything else falls out of a dependency, so position is mostly
+    # DERIVED. `quality/SECTION_CONSTRAINTS_DESIGN.md` is the argument.
+
+    #: "first" | "last" | "" -- an edge of the WHOLE SONG. Three rows.
+    boundary: str = ""
+    #: functions that must be present in the song AT ALL for this one to mean
+    #: what it says. A precondition on the ROSTER, checked before any ordering
+    #: question is asked: "this song has no chorus, so it has neither a pre-
+    #: nor a post-chorus" is this field and not an adjacency one.
+    requires: tuple = ()
+    #: this function sits IMMEDIATELY AFTER a section of the NAMED function.
+    #: Strictly stronger than `requires`, and separate from it because a row
+    #: can need a chorus to exist without needing to touch one.
+    adjacent_after: str = ""
+    #: ...and immediately BEFORE one.
+    adjacent_before: str = ""
+    #: requires SOME section before it -- any function, just not the first
+    #: thing in the song. This is where three of the four failed keyword
+    #: derivations actually live.
+    needs_before: bool = False
+    #: ...and some section after it, so not the last thing in the song.
+    needs_after: bool = False
+    #: THE PHRASE THAT LICENSES EVERY CLAIM ABOVE, quoted from a gloss in this
+    #: vocabulary -- usually this row's own. Not decoration: `test_grid`
+    #: asserts the quotation really occurs, so a placement claim cannot be
+    #: added without evidence a reader can check (doctrine 45 -- a checker
+    #: that silently picks is the bug, and so is a table that silently
+    #: asserts).
+    placement_evidence: str = ""
+    #: WHY NO CLAIM WAS MADE, when the gloss WAS consulted and did not decide.
+    #: `verse` has no constraint because nothing denies it; `tag` has none
+    #: because its gloss says "closing a section OR THE SONG" and carries both
+    #: readings at once. Those are different states and a table that rendered
+    #: them identically would be doctrine 20 in a dataclass. Mutually
+    #: exclusive with every claim field above.
+    placement_refused: str = ""
+
 
 def _spec(name, gloss, recurrence, returns_as, contrasts_with=(),
-          aliases=()):
+          aliases=(), boundary="", requires=(), adjacent_after="",
+          adjacent_before="", needs_before=False, needs_after=False,
+          placement_evidence="", placement_refused=""):
     return FunctionSpec(name, gloss, recurrence, returns_as, contrasts_with,
-                        aliases)
+                        aliases, boundary, requires, adjacent_after,
+                        adjacent_before, needs_before, needs_after,
+                        placement_evidence, placement_refused)
 
 
 #: THE VOCABULARY. D-1 asked for it by name. Every entry is declared here and
 #: nowhere else; `as_function` accepts exactly these keys.
 SECTION_FUNCTIONS = {s.name: s for s in (
     _spec("intro", "opens the song; may state material that returns later",
-          "once", "n/a"),
+          "once", "n/a",
+          boundary="first", placement_evidence="opens the song"),
+    # NO PLACEMENT CLAIM, AND NO REFUSAL EITHER -- the two empty states are
+    # different and this row is the first one. A verse may open a song, close
+    # one, or sit anywhere; nothing in its gloss denies any position, so
+    # nothing here does. That is the answer to the owner's "does verse know it
+    # can be first, free, and/or last": it does not need to, because the layer
+    # only ever denies.
     _spec("verse", "carries the narrative; returns with NEW WORDS on the same "
           "tune", "returns", "new words"),
     _spec("prechorus", "lifts from verse into chorus; a distinct function, "
-          "not a short verse", "returns", "varied", ("verse", "chorus")),
+          "not a short verse", "returns", "varied", ("verse", "chorus"),
+          requires=("chorus",), adjacent_before="chorus",
+          placement_evidence="lifts from verse into chorus"),
     _spec("chorus", "the returning section; the one place where REPEAT is the "
           "requirement rather than the violation (doctrine 3)",
           "returns", "verbatim", ("verse",)),
     _spec("postchorus", "returns immediately after the chorus and is not part "
-          "of it", "returns", "verbatim", ("chorus",)),
+          "of it", "returns", "verbatim", ("chorus",),
+          requires=("chorus",), adjacent_after="chorus",
+          placement_evidence="returns immediately after the chorus"),
     _spec("refrain", "a returning line or couplet INSIDE or after a stanza, "
           "not a standalone section", "returns", "verbatim"),
     # THE POSITION CLAUSE WAS FALSE AND THE COUNT WAS STALE -- both repaired
@@ -272,7 +350,15 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           "`refrain` because the corpus marks the two differently and "
           "collapsing them would delete a distinction ~~1,776~~ 1,580 blocks "
           "already carry (doctrine 24)",
-          "returns", "verbatim"),
+          "returns", "verbatim",
+          requires=("verse",), adjacent_after="verse",
+          # THE ONLY PLACEMENT CLAIM IN THIS TABLE BACKED BY A MEASURED RATE
+          # RATHER THAN A DEFINITION -- 1,580 of 1,580, and the row already
+          # carries the measurement. It is admissible on the same test as the
+          # rest: a "burden" printed before the first stanza is not a novel
+          # structure, it is what this corpus marks REFRAIN or CHORUS.
+          placement_evidence="printed AFTER a stanza in every staged "
+                             "instance"),
     _spec("bridge", "appears once and CONTRASTS; a middle-8 is a bridge whose "
           "bar count happens to be 8, which this model already records, so it "
           "is not a separate function", "once", "n/a", ("verse", "chorus"),
@@ -282,28 +368,64 @@ SECTION_FUNCTIONS = {s.name: s for s in (
                    "departure_section")),
     _spec("breakdown", "strips the arrangement back", "open", "varied"),
     _spec("build", "raises tension toward a return", "open", "varied"),
-    _spec("drop", "the arrival a build points at", "returns", "varied"),
+    # REFUSED IN BOTH DIRECTIONS, and the asymmetry is why. `drop`'s gloss
+    # defines it BY REFERENCE to a build, which is not the same as requiring
+    # one -- a drop can arrive without a formal build section. And `build`'s
+    # own gloss says only "raises tension toward a return", which does not
+    # name a drop, so the edge cannot be licensed from that side either
+    # without citing a row that is not its own. An owner ruling, not a
+    # reading.
+    _spec("drop", "the arrival a build points at", "returns", "varied",
+          placement_refused="'the arrival a build points at' defines a drop "
+                            "by reference to a build without requiring one, "
+                            "and `build`'s own gloss names no drop. The edge "
+                            "is a ruling, not a reading."),
     _spec("vamp", "a repeating figure held open", "open", "varied"),
+    # THE KEYWORD DERIVATION READ THIS AS `last`, on "the end of one section".
+    # It is a SEAM: it needs a section on BOTH sides, so it can be neither
+    # first nor last, which is the opposite of what an absolute reading gave.
     _spec("turnaround", "carries the end of one section into the next",
-          "returns", "verbatim"),
+          "returns", "verbatim",
+          needs_before=True, needs_after=True,
+          placement_evidence="carries the end of one section into the next"),
     _spec("interlude", "instrumental or spoken span between sung sections",
           "open", "n/a",
+          needs_before=True, needs_after=True,
+          placement_evidence="between sung sections",
           aliases=("instrumental-break", "instrumental break",
                    "instrumental_break")),
     _spec("solo", "an instrumental span over section material", "open", "n/a",
           aliases=("instrumental-solo", "instrumental solo",
                    "instrumental_solo")),
+    # REFUSED, AND THE REFUSAL IS THE POINT. Both readings live in one
+    # sentence and picking either would answer a question the vocabulary has
+    # not decided (doctrine 20). A tag closing a SECTION is mid-song; a tag
+    # closing THE SONG is last; the gloss asserts both.
     _spec("tag", "a short repeated fragment closing a section or the song",
-          "returns", "verbatim"),
+          "returns", "verbatim",
+          placement_refused="its gloss says 'closing a section OR THE SONG' "
+                            "-- a section-final tag is mid-song and a "
+                            "song-final tag is last, and the row asserts "
+                            "both. Picking one would settle by table order "
+                            "what the vocabulary has not settled."),
     _spec("hook", "a section that IS the hook. A hook is properly a FRAGMENT "
           "(MISSING.md D-2) and `Hook` below is the object for that; this "
           "entry covers the post-chorus-hook case where a whole section "
           "carries it", "returns", "verbatim"),
-    _spec("coda", "a closing section with its own material", "once", "n/a"),
-    _spec("outro", "closes the song and does not recur", "once", "n/a"),
-    _spec("false_ending", "a close the song comes back from", "once", "n/a"),
+    _spec("coda", "a closing section with its own material", "once", "n/a",
+          boundary="last", placement_evidence="a closing section"),
+    _spec("outro", "closes the song and does not recur", "once", "n/a",
+          boundary="last", placement_evidence="closes the song"),
+    # THE SHARPEST OF THE FOUR. An absolute reading makes a false ending the
+    # LAST section, on the word *close*, and its whole definition is that it
+    # is not: the song COMES BACK FROM it, so something must follow.
+    _spec("false_ending", "a close the song comes back from", "once", "n/a",
+          needs_after=True,
+          placement_evidence="a close the song comes back from"),
     _spec("reprise", "a declared return of earlier material, later and "
-          "changed", "once", "varied"),
+          "changed", "once", "varied",
+          needs_before=True,
+          placement_evidence="a declared return of earlier material"),
 )}
 
 #: The alias map, derived from the rows' own declarations — never written
@@ -318,6 +440,147 @@ for _s in SECTION_FUNCTIONS.values():
             raise UnknownFunction(
                 f"alias {_a!r} on {_s.name!r} shadows a declared function")
         _FUNCTION_ALIASES.setdefault(_a, _s.name)
+
+# THE PLACEMENT TABLE CHECKS ITSELF AT IMPORT (2026-08-22, M-54), the same
+# move the alias-shadow check one block up already makes. Every one of these
+# would otherwise be a claim nobody could disagree with in a coordinate: a
+#  naming a function that does not exist, a boundary value outside
+# the declared two, a row that both claims and refuses, or -- the one that
+# matters most -- a claim with no evidence behind it. A table that can hold a
+# placement rule nobody can trace back to a gloss is the  defect this
+# entry exists to end (doctrine 45).
+_BOUNDARIES = ("first", "last")
+_GLOSSES = " || ".join(_s.gloss for _s in SECTION_FUNCTIONS.values())
+for _s in SECTION_FUNCTIONS.values():
+    _claims = (bool(_s.boundary) or bool(_s.requires) or bool(_s.adjacent_after)
+               or bool(_s.adjacent_before) or _s.needs_before or _s.needs_after)
+    if _s.boundary and _s.boundary not in _BOUNDARIES:
+        raise UnknownFunction(
+            f"{_s.name!r} declares boundary {_s.boundary!r}; the declared "
+            f"values are {list(_BOUNDARIES)}. An edge of the whole song has "
+            f"two sides and no third.")
+    for _f in tuple(_s.requires) + (_s.adjacent_after, _s.adjacent_before):
+        if _f and _f not in SECTION_FUNCTIONS:
+            raise UnknownFunction(
+                f"{_s.name!r} names {_f!r} in a placement claim and there is "
+                f"no such function. A dependency on a name nobody declared is "
+                f"a rule that can never be satisfied or violated.")
+    # A boundary and a same-side neighbour requirement contradict: nothing can
+    # come before the first section, or after the last.
+    if _s.boundary == "first" and _s.needs_before:
+        raise UnknownFunction(
+            f"{_s.name!r} claims boundary 'first' AND needs_before -- nothing "
+            f"can precede the first section.")
+    if _s.boundary == "last" and _s.needs_after:
+        raise UnknownFunction(
+            f"{_s.name!r} claims boundary 'last' AND needs_after -- nothing "
+            f"can follow the last section.")
+    if _claims and _s.placement_refused:
+        raise UnknownFunction(
+            f"{_s.name!r} both CLAIMS a placement and REFUSES one. Those are "
+            f"the two answers this layer distinguishes (doctrine 20) and a "
+            f"row may give one.")
+    if _claims and not _s.placement_evidence:
+        raise UnknownFunction(
+            f"{_s.name!r} claims a placement with no `placement_evidence`. "
+            f"Every claim quotes a gloss so a reader can check it; an "
+            f"unevidenced rule is the `_CELLS` defect (doctrine 45).")
+    if _s.placement_evidence and _s.placement_evidence not in _GLOSSES:
+        raise UnknownFunction(
+            f"{_s.name!r} offers placement evidence {_s.placement_evidence!r} "
+            f"and that phrase occurs in NO gloss in this vocabulary. The "
+            f"quotation has to be real or it is decoration.")
+    if _s.placement_evidence and not _claims:
+        raise UnknownFunction(
+            f"{_s.name!r} offers placement evidence and claims nothing.")
+
+
+def placement_of(function):
+    """-> the placement claims for one function, as a plain dict.
+
+    THE ONE READER.  derives its pattern space from this and the
+    grader checks a draft against it, so the planner and the grader cannot
+    disagree about where a section may go -- which is the shape  had to be collapsed into one constant to fix (doctrine 1).
+    """
+    sp = SECTION_FUNCTIONS[as_function(function)]
+    return {"boundary": sp.boundary, "requires": tuple(sp.requires),
+            "adjacent_after": sp.adjacent_after,
+            "adjacent_before": sp.adjacent_before,
+            "needs_before": sp.needs_before, "needs_after": sp.needs_after,
+            "evidence": sp.placement_evidence,
+            "refused": sp.placement_refused}
+
+
+PLACEMENT_CODES = ("SECTION_NOT_AT_BOUNDARY", "SECTION_REQUIREMENT_ABSENT",
+                   "SECTION_AT_EDGE", "SECTION_NOT_ADJACENT")
+
+
+def placement_findings(functions):
+    """An ordered list of function names -> [(code, index, evidence), ...].
+
+    THE ONE DEFINITION. `plan.py` prunes its pattern space with this and the
+    grader checks a draft with it, so the planner and the grader cannot
+    disagree about where a section may go. Two readers of one rule is the
+    shape `THETA_COLLISION` had to be collapsed to fix (doctrine 1), and this
+    layer is born with a planner and a grader on it, so it is collapsed from
+    the start rather than after they drift.
+
+    `None` entries are UNDECLARED sections and are SKIPPED, never guessed at:
+    a section nobody typed a function on cannot violate a rule about
+    functions, and treating it as a verse is exactly what `as_function`
+    refuses to do (doctrine 79 -- a refusal is not a violation). They still
+    OCCUPY a position, so a `needs_after` section followed only by undeclared
+    sections is NOT charged: something does follow it.
+
+    Every finding carries the row's own `placement_evidence`, so the report
+    quotes the gloss that licensed the rule rather than asserting it.
+    """
+    out = []
+    n = len(functions)
+    present = {f for f in functions if f}
+    for i, f in enumerate(functions):
+        if not f:
+            continue
+        sp = SECTION_FUNCTIONS.get(f)
+        if sp is None or sp.placement_refused:
+            continue
+        ev = sp.placement_evidence
+        if sp.boundary == "first" and i != 0:
+            out.append(("SECTION_NOT_AT_BOUNDARY", i,
+                        f"{f!r} opens the song by definition and sits at "
+                        f"position {i + 1} of {n} — {ev!r}"))
+        if sp.boundary == "last" and i != n - 1:
+            out.append(("SECTION_NOT_AT_BOUNDARY", i,
+                        f"{f!r} closes the song by definition and sits at "
+                        f"position {i + 1} of {n} — {ev!r}"))
+        for r in sp.requires:
+            if r not in present:
+                out.append(("SECTION_REQUIREMENT_ABSENT", i,
+                            f"{f!r} requires a {r!r} and this song has none "
+                            f"— {ev!r}"))
+        if sp.needs_before and i == 0:
+            out.append(("SECTION_AT_EDGE", i,
+                        f"{f!r} requires a section before it and opens the "
+                        f"song — {ev!r}"))
+        if sp.needs_after and i == n - 1:
+            out.append(("SECTION_AT_EDGE", i,
+                        f"{f!r} requires a section after it and closes the "
+                        f"song — {ev!r}"))
+        if sp.adjacent_after and (i == 0
+                                  or functions[i - 1] != sp.adjacent_after):
+            got = functions[i - 1] if i else "the start of the song"
+            out.append(("SECTION_NOT_ADJACENT", i,
+                        f"{f!r} sits immediately after {sp.adjacent_after!r} "
+                        f"by definition; here it follows {got!r} — {ev!r}"))
+        if sp.adjacent_before and (i == n - 1
+                                   or functions[i + 1] != sp.adjacent_before):
+            got = functions[i + 1] if i < n - 1 else "the end of the song"
+            out.append(("SECTION_NOT_ADJACENT", i,
+                        f"{f!r} sits immediately before "
+                        f"{sp.adjacent_before!r} by definition; here it "
+                        f"precedes {got!r} — {ev!r}"))
+    return out
+
 
 #: Spelling variants only. NOT a synonym table: `middle8 -> bridge` would be a
 #: CLAIM, and claims live in the vocabulary above WITH a gloss — which is
@@ -2414,6 +2677,40 @@ def song_function_report(song, hooks=(), rhyme_key=None,
                                       decl)
         ask_one(f, r)
         reprises[(ln, en)] = reps
+    # WHERE THE SECTIONS SIT (2026-08-22, `MISSING.md` M-54). One question,
+    # asked once over the whole ordered list, so a song with three misplaced
+    # sections is ONE refused-or-answered question and three findings —
+    # `song_function_report`'s counting docstring records what happens when a
+    # question is counted per record instead (`asked 3, answered -1`).
+    #
+    # NOTES, NOT FLAGS, AND THE PRECEDENT IS `uncovered_bars` VERBATIM: a
+    # section's POSITION is a fact about the DECLARATION, not about any line's
+    # words. No rewrite moves it and `revise_loop`'s only move is a word swap
+    # on a named line, so a flag here would spend every round of `max_rounds`
+    # on a defect the loop has no move for and then report ROUND_LIMIT — the
+    # destroyed SUCCESS that entry already priced and measured. It never
+    # reaches `verify()`'s gate either way: placement is a function of the
+    # blueprint alone, identical on both sides of a diff, so it cancels out.
+    #
+    # A DEFINITIONAL VIOLATION ARGUABLY BELONGS AT THE READER, refused the way
+    # `UNDECLARED_METER` is, and that is NOT decided here: it is a behaviour
+    # change at a door and the shipped blueprints measure 0 violations, so
+    # nothing is lost by reporting first and ruling later (M-54's open half).
+    #
+    # ASKED ONLY WHEN IT CAN BE PUT. A song where NO section declares a
+    # function has no placement question: there are no functions to place, and
+    # counting one as asked-and-answered would report a clean answer to a
+    # question nobody could pose (doctrine 20 -- "inconclusive by
+    # construction" is not "null"). Caught by `test_song_function` 8b, whose
+    # whole subject is that an undeclared song "answers nothing", and by
+    # `test_grid` §18 on three unnamed sections.
+    _placed = [s.function if s.declared else None for s in song.sections]
+    if any(_placed):
+        pf = [GridFinding(code,
+                          f"section {i + 1} sits where its own definition "
+                          f"says it cannot", evidence)
+              for code, i, evidence in placement_findings(_placed)]
+        ask_one(pf, [])
     f, r, ch = bridge_contrast(song, convention=convention,
                                rhyme_key=rhyme_key)
     ask_one(f, r)

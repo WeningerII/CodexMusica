@@ -394,11 +394,41 @@ def test_the_measure():
             subs.add(n.module.split(".", 1)[1])
     opens = sum(1 for n in ast.walk(tree) if isinstance(n, ast.Call)
                 and isinstance(n.func, ast.Name) and n.func.id == "open")
-    check("plan.py imports exactly {schemes, meter_bands, structures} from "
-          "quality and opens NO file — the corpus cannot reach the dice "
+    # `grid` JOINED THE ALLOW-LIST 2026-08-22 (`MISSING.md` M-54) AND IS THE
+    # ONLY MEMBER THAT NEEDED AN ARGUMENT. `schemes`, `meter_bands` and
+    # `structures` open NO file between them; `grid.py` opens THREE, so
+    # admitting it hands `plan.py` transitive reach to a corpus reader, which
+    # is exactly what this guard exists to deny. It is admitted because the
+    # planner needs `SECTION_FUNCTIONS` — a HAND-DECLARED vocabulary of the
+    # same species as `structures`, not a measured distribution — and because
+    # deriving the section placement rules from anywhere else would put a
+    # second copy of them beside the grader's (doctrine 1, and the whole
+    # subject of M-54).
+    #
+    # SO THE GUARD IS NARROWED WHERE IT WAS WIDENED, and the second check is
+    # STRICTER than the first was: from `grid`, `plan.py` may name ONLY the
+    # declared vocabulary and its pure checker. `read_marked_songs` or any
+    # other reader appearing here fails, which is the property the import
+    # allow-list was standing in for.
+    ALLOWED_FROM_GRID = {"SECTION_FUNCTIONS", "FunctionSpec",
+                         "placement_findings", "placement_of"}
+    grid_names = set()
+    for n in ast.walk(tree):
+        if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name) \
+                and n.value.id in ("_GR", "grid", "GR"):
+            grid_names.add(n.attr)
+    check("plan.py imports exactly {schemes, meter_bands, structures, grid} "
+          "from quality and opens NO file — the corpus cannot reach the dice "
           "(the owner's move-37 rule)",
-          subs == {"schemes", "meter_bands", "structures"} and opens == 0,
+          subs == {"schemes", "meter_bands", "structures", "grid"}
+          and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
+    check("...and from `grid` — the one allowed module that opens files at "
+          "all — it names ONLY the declared vocabulary and its pure checker, "
+          "never a corpus reader. This is the check the import allow-list "
+          "was standing in for, and it is stricter than the list",
+          grid_names <= ALLOWED_FROM_GRID,
+          f"names {sorted(grid_names)}")
 
 
 def test_the_disclosure():

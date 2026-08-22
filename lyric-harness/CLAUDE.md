@@ -298,6 +298,75 @@ reading an omitted argument as a statement.
 `quality/test_mandate_relation.py` §6 (9 checks, three mutations killing 8 / 3
 / 5) and §7 (10 checks, the re-open mutation killing 5).
 
+**WHERE A SECTION MAY GO IS A DECLARED COORDINATE NOW (2026-08-22,
+`MISSING.md` M-54).** "An outro is last" was true of every plan the planner
+produced and was stated in NO coordinate: `plan._sample_pattern` enforced it
+by the ORDER OF TWO `append` CALLS. So nothing could consult it — a
+hand-written blueprint with an outro in the middle graded CLEAN — and the
+roster could not be extended by a table row.
+**THE FIRST DESIGN WAS WRONG AND ITS OWN DERIVATION REFUTED IT.** `position ∈
+{first, last, free}` read out of the glosses by keyword claimed a position for
+11 of 21 rows and got **4 wrong**, every failure a RELATIONAL fact flattened
+into an ABSOLUTE one and inverted: `false_ending` came out `last` on the word
+*close* when its definition is that the song COMES BACK FROM it;
+`turnaround` and `interlude` are BETWEEN things; `reprise` needs something
+earlier. Exactly THREE rows carry a genuine boundary fact (`intro`, `outro`,
+`coda`) and everything else falls out of a dependency, so position is mostly
+DERIVED. `quality/SECTION_CONSTRAINTS_DESIGN.md` is the argument.
+**FOUR KINDS, AND THE LAYER ONLY EVER DENIES**: `boundary` (an edge of the
+whole song), `requires` (a precondition on the ROSTER — "this song has no
+chorus, so it has neither a pre- nor a post-chorus"), `adjacent_before`/
+`adjacent_after` (a NAMED immediate neighbour), `needs_before`/`needs_after`
+(SOME neighbour). Anything not denied stays reachable, so **`verse` carries
+nothing at all** — which is what keeps this from barring an unprecedented
+shape. A denial is admissible only if DEFINITIONAL, and the per-row test is
+written into the field: *violate it — is the result a NOVEL SONG or a
+MISLABELLED SECTION?* A prechorus with no chorus is not experimental; the word
+means before-the-chorus. Mislabelled, so it prunes. Verse-chorus-verse-chorus-
+bridge violated is a novel song — a CONVENTION, `FormConvention`'s business, a
+note, never the planner (doctrine 6, the owner's "move 37" ban).
+**A REFUSAL IS NOT AN ABSENCE** (doctrine 20): `placement_refused` records
+*why* a row could not claim, and 2 rows use it — `tag`, whose gloss says
+"closing a section OR THE SONG" and asserts both readings, and `drop`, where
+the build edge is a ruling rather than a reading. A refused row is SILENT in
+the grader.
+**EVERY CLAIM QUOTES A GLOSS, AND THE TABLE CHECKS ITSELF AT IMPORT.** Six
+checks, each proven by a mutation: a boundary outside the declared two, a
+`requires` naming no function, a claim with no evidence, evidence quoting a
+phrase that occurs in no gloss, a row both claiming and refusing, and
+`boundary='first'` beside `needs_before`. An unevidenced placement rule is the
+`_CELLS` defect this entry exists to end (doctrine 45).
+**IT FOUND A LIVE DEFECT ON ITS FIRST RUN.** Shipped blueprints: **0
+violations**. The PLANNER: **19 of 300 plans**, every one an `interlude`
+opening or closing the song — a span whose own gloss is *"between sung
+sections"*, with nothing sung on one side. `_sample_pattern` derives its edges
+from `boundary` now and rejects any body `placement_findings` refuses
+(rejection sampling from a uniform proposal is uniform over the ACCEPTED set,
+which is why it is not a greedy left-to-right collapse — that would
+re-introduce the enumeration bias v2's own smoke run found). **0 of 300 now,
+with function coverage unmoved at 14 of 21.**
+**NOTES, NOT FLAGS, and the precedent is `uncovered_bars` verbatim**: a
+section's position is a fact about the DECLARATION, not any line's words, so
+no rewrite moves it and a flag would spend every round of `max_rounds` and
+report ROUND_LIMIT. **And the question is asked only when it CAN be put** —
+the first wiring asked it unconditionally and `test_song_function` §8b caught
+it, because a song where no section declares a function has no placement
+question at all. One honest repin stands: `moonlight_fixture`'s triple moves
+(4, 3, 1) -> (5, 4, 1), a real new question asked and answered, with the
+FINDING LIST unmoved.
+**AND `plan.py`'s MOVE-37 GUARD WAS WIDENED AND RE-TIGHTENED IN THE SAME
+BREATH.** `test_plan.py` §4 pins by AST that `plan.py` imports only
+`{schemes, meter_bands, structures}` and opens no file. `grid` had to join it,
+and it is the ONLY member that needed an argument: the other three open ZERO
+files between them and `grid.py` opens THREE, so admitting it hands the
+planner transitive reach to a corpus reader. It is admitted because
+`SECTION_FUNCTIONS` is a HAND-DECLARED vocabulary of the same species as
+`structures`, and because deriving the placement rules anywhere else would put
+a second copy beside the grader's. The guard is narrowed where it was widened:
+a second check asserts `plan.py` names ONLY the vocabulary and its pure
+checker from `grid`, never a reader — stricter than the list it replaces.
+`quality/test_placement.py`, 24 checks over 5 sections.
+
 **THE STRUCTURE CATALOG IS WIRED — MANDATE, GRADER AND PLANNER READ ONE
 TABLE (2026-08-18).** Phase A/B built the 58 rows (`quality/structures.py`:
 1 comparator sentinel, 9 presets, 48 named axis cells, world aliases); this

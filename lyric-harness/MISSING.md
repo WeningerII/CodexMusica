@@ -6892,7 +6892,7 @@ path could not distinguish *not declared* from *declared as the default* for
 `relations`. One branch, two ways of reading an omitted argument as a
 statement.
 
-### M-54 · "an outro is last" is enforced by CONTROL FLOW and stated nowhere, so no grader can check it and no table can extend it `OPEN`
+### M-54 · "an outro is last" is enforced by CONTROL FLOW and stated nowhere, so no grader can check it and no table can extend it `PARTIAL`
 **Raised by the owner 2026-08-22, asking whether the section vocabulary is
 machine-readable to the order of "outro is at the end… in a way that does not
 bar novel move-37 song structures", and naming constraint propagation as the
@@ -6985,7 +6985,75 @@ tuple, in the same function as the one this entry opened on.
 `FunctionSpec` — at minimum `position ∈ {first, last, free, refused}` and
 `precedes`/`follows` as NAME SETS rather than prose, every row quoting its own
 gloss as the evidence and `refused` used wherever the gloss does not decide
-(`tag` is the worked case: it must refuse rather than pick, doctrine 20). (2)
+
+---
+
+**BUILT 2026-08-22 — the layer ships; the entry is PARTIAL because four
+things below are deliberately not taken.**
+
+`FunctionSpec` carries `boundary` / `requires` / `adjacent_before` /
+`adjacent_after` / `needs_before` / `needs_after` plus `placement_evidence`
+and `placement_refused`. `grid.placement_findings` is the ONE definition the
+planner and the grader both read. `plan._sample_pattern` derives its edges
+from `boundary` and rejects any body the table refuses.
+`quality/test_placement.py` is 24 checks over 5 sections.
+
+| | |
+|---|---:|
+| rows carrying a boundary | **3** — `intro`, `outro`, `coda` |
+| rows carrying any claim | 11 |
+| rows REFUSING one (doctrine 20) | 2 — `tag`, `drop` |
+| rows saying nothing, `verse` among them | 8 |
+
+**IT FOUND A LIVE DEFECT ON ITS FIRST RUN.** Shipped blueprints: **0
+violations**. The PLANNER: **19 of 300 plans**, every one an `interlude`
+opening or closing the song — a span whose own gloss is *"between sung
+sections"*, with nothing sung on one side of it. **Now 0 of 300, with function
+coverage unmoved at 14 of 21** — the constraint pruned nothing legitimate.
+
+**SIX IMPORT-TIME CHECKS, each proven by a mutation**: a boundary outside the
+declared two, a `requires` naming no function, a claim with no evidence,
+evidence quoting a phrase in no gloss, a row both claiming and refusing, and
+`boundary='first'` beside `needs_before`.
+
+**NOTES, NOT FLAGS — the `uncovered_bars` precedent verbatim**: a section's
+position is a fact about the DECLARATION, not any line's words, so no rewrite
+moves it and a flag would spend every round and report ROUND_LIMIT. **And the
+question is asked only when it CAN be put**: the first wiring asked it
+unconditionally and `test_song_function` §8b caught it. One honest repin
+stands — `moonlight_fixture`'s triple (4, 3, 1) -> (5, 4, 1), a real new
+question asked and answered, FINDING LIST unmoved.
+
+**`plan.py`'s MOVE-37 GUARD WAS WIDENED AND RE-TIGHTENED IN ONE EDIT.**
+`grid` had to join the AST allow-list and is the only member that needed an
+argument: the other three open ZERO files and `grid.py` opens THREE. Admitted
+because `SECTION_FUNCTIONS` is a hand-declared vocabulary of the same species
+as `structures`, and because deriving the rules elsewhere would put a second
+copy beside the grader's. A second check now asserts `plan.py` names ONLY the
+vocabulary and its pure checker from `grid`, never a reader — stricter than
+the list it replaces.
+
+**WHAT IS STILL OPEN, and it is why this is PARTIAL:**
+1. The unwarranted **outro/coda exclusion is PRESERVED, not lifted** — now an
+   explicit declared choice with the comment saying no gloss licenses it,
+   rather than a rule hidden in a tuple's shape. Lifting it is a distribution
+   change and wants a ruling.
+2. **`_CELLS` still does not derive.** Its comment claims its runs are what
+   "the vocabulary's own adjacencies license", and the vocabulary now HAS
+   adjacency edges — so the claim is checkable for the first time, and
+   unchecked.
+3. **A definitional violation arguably belongs at the READER**, refused the
+   way `UNDECLARED_METER` is. Shipped blueprints measure 0, so nothing is lost
+   by reporting first and ruling later, but it is a behaviour change at a door.
+4. **M-56's kinds are not applied.** `refrain` and `hook` say in their own
+   glosses they are not sections; a placement coordinate on either answers a
+   question about the wrong kind of object. Both carry none today, which is
+   correct by accident rather than by declaration.
+
+TESTED WHILE OPEN: `quality/test_placement.py`.
+
+
+**THE REMAINING WORK, restated.** (2)
 `_sample_pattern` DERIVES from it instead of hardcoding, and `_CELLS` either
 derives from the adjacency sets or its comment stops claiming it does
 (doctrine 45 — a checker that silently picks is the bug; so is a generator

@@ -820,9 +820,17 @@ def test_the_ask_gate_reaches_every_function_that_is_expected_once():
           [f.code for f in real["findings"]]
           == ["RETURN_LOCKED", "HOOK_CONFINED", "TITLE_NOT_IN_HOOK"],
           [f.code for f in real["findings"]])
+    # THE TRIPLE IS REPINNED (5, 4, 1) -> (5, 4, 1), 2026-08-22: the
+    # PLACEMENT question joined the report (`MISSING.md` M-54) and this
+    # fixture answers it cleanly, so one more question is asked and one more
+    # answered. THE FINDING LIST IS UNMOVED, which is this section's actual
+    # subject and is asserted immediately above -- "the well-formed fixture
+    # gains nothing" is a claim about FINDINGS and it still holds. A count
+    # that moves because a new question is genuinely put is a repin, not a
+    # regression (doctrine 58/91).
     check("same refusals, and the same three counts",
           [r.code for r in real["refusals"]] == ["CHANNEL_NOT_MEASURED"]
-          and (real["asked"], real["answered"], real["refused"]) == (4, 3, 1),
+          and (real["asked"], real["answered"], real["refused"]) == (5, 4, 1),
           f"asked {real['asked']}, answered {real['answered']}, refused "
           f"{real['refused']}")
 
@@ -1546,7 +1554,7 @@ def test_a_reprise_is_a_relation_between_two_DIFFERENT_functions():
           not real["reprises"]
           and [f.code for f in real["findings"]]
           == ["RETURN_LOCKED", "HOOK_CONFINED", "TITLE_NOT_IN_HOOK"]
-          and (real["asked"], real["answered"], real["refused"]) == (4, 3, 1),
+          and (real["asked"], real["answered"], real["refused"]) == (5, 4, 1),
           f"pairs asked: {sorted(real['reprises'])}; asked {real['asked']} "
           f"answered {real['answered']} refused {real['refused']} — the same "
           f"three counts section 19 pins, unchanged by this layer")
