@@ -11,6 +11,7 @@ Run: python3 quality/test_grid.py
 
 import glob
 import os
+import shutil
 import tempfile
 import sys
 from fractions import Fraction as F
@@ -2252,6 +2253,136 @@ def test_the_printed_indent_survives_ingestion():
                                        lines=["a", "b"])))
 
 
+def test_a_refusal_is_true_in_a_language():
+    """`MISSING.md` M-24 — `MARK_REFUSED` is keyed on `(language, mark)`.
+
+    The table was keyed on a bare token, so `MARK_REFUSED["PART"]` read *"a
+    speaker or role attribution in the Kalevala wedding songs"* — and that
+    sentence is what an Irish tune staged as `[PART A]` would have been
+    refused with: true, in the wrong language, about the wrong object.
+    Doctrine 45 — a checker that silently picks a language is making a claim
+    it never states.
+
+    THE CHECKS BELOW ARE NOT SATISFIED BY THE SHIPPED CORPUS, and that is
+    deliberate: measured 2026-08-22, EVERY refused mark occurs in exactly one
+    language, so no corpus file can reach the cross-language branch and a
+    section built only on real files would pass identically before and after
+    the fix (doctrine 20 — an empty population reads like a pass).
+    """
+    print("\n32. a refusal is true IN A LANGUAGE, not of a token (M-24)")
+
+    # (a) THE TABLE CANNOT HOLD A LANGUAGE-LESS ROW. This is the mechanical
+    # half: the coordinate is in the KEY, so a row cannot be added without
+    # naming a tradition, and no future lot can reintroduce the bare token by
+    # forgetting rather than by deciding (doctrine 48).
+    from quality import phonology as _PH
+    bad = [k for k in _G.MARK_REFUSED
+           if not (isinstance(k, tuple) and len(k) == 2)]
+    check("every MARK_REFUSED key is a (language, mark) pair", not bad,
+          str(bad))
+    undeclared = sorted({k[0] for k in _G.MARK_REFUSED
+                         if k[0] not in _PH.declared()})
+    check("every key's language is a DECLARED one, not a free string",
+          not undeclared, str(undeclared))
+    check("and the table is not empty, so the two checks above examined "
+          "something", len(_G.MARK_REFUSED) >= 15,
+          "%d rows" % len(_G.MARK_REFUSED))
+
+    # (b) THE WORKED CASE FROM THE ENTRY, and the load-bearing assertion is
+    # the NEGATIVE one: the Finnish sentence must not appear. A refusal that
+    # merely changed its code while still quoting the other tradition would
+    # pass a code check and fail the reader.
+    fin_reason = _G.MARK_REFUSED[("fin", "PART")]
+    own = _G.ingest_mark("PART: Kaason puoli", "fin")[3]
+    check("PART in fin gets fin's own written reason",
+          own.code == "MARK_NOT_A_FUNCTION" and own.evidence == fin_reason,
+          own.code)
+    other = _G.ingest_mark("PART A", "gle")[3]
+    check("PART in another language is REFUSED ELSEWHERE, not decided",
+          other.code == "MARK_REFUSED_ELSEWHERE", other.code)
+    check("and Finland's reason is NOT quoted over it",
+          "Kalevala" not in other.evidence
+          and "wedding" not in other.evidence, other.evidence[:80])
+    check("the refusal NAMES the language that did decide, and the one that "
+          "did not", "fin" in other.evidence and "gle" in other.evidence,
+          other.evidence[:80])
+
+    # (c) NO LANGUAGE DECLARED IS ITS OWN ANSWER. Every recorded refusal keeps
+    # its wording — this is not a behaviour change for the 1,423 staged files
+    # — but the reader is told whose sentence it is reading.
+    none = _G.ingest_mark("PART: Kaason puoli")[3]
+    check("with no language the decision still stands, LABELLED with the "
+          "tradition it was written for",
+          none.code == "MARK_NOT_A_FUNCTION" and fin_reason in none.evidence
+          and "fin" in none.evidence.split("]")[0], none.evidence[:70])
+
+    # (d) THE POSITIVE TABLE IS NOT GIVEN THE COORDINATE, and the measurement
+    # is the argument rather than an omission: `VERSE` is carried by eng, ltc,
+    # fin, cym and san. Keying it per language would be five rows saying one
+    # thing.
+    check("a shared positive mark reads identically in every language",
+          len({_G.ingest_mark("VERSE 2", lg)[:3]
+               for lg in ("eng", "san", "ltc", "cym", "fin", "")}) == 1)
+
+    # (e) AND A MARK IN NO TABLE AT ALL IS STILL THE THIRD ANSWER — the fix
+    # must not collapse "declared somewhere else" into "never heard of it".
+    check("an unrecognised mark is UNRECOGNISED, not REFUSED_ELSEWHERE",
+          _G.ingest_mark("ZZZQX", "eng")[3].code == "MARK_UNRECOGNISED")
+
+    # (f) THE DERIVATION, AND ITS LIMIT, STATED. `language_of_path` reads the
+    # corpus's own filename prefix and CHECKS it, so a fixture named
+    # `marked.txt` yields "" rather than the language `mar`.
+    check("a corpus path yields its declared language",
+          _G.language_of_path("corpus/song/fin_kanteletar.txt") == "fin")
+    check("a non-corpus path yields NO language rather than inventing one",
+          _G.language_of_path("quality/fixtures/marked.txt") == "")
+    # THE LIMIT IS REAL AND IS ASSERTED SO IT CANNOT BE MISREAD AS CLOSED:
+    # `gle` is not a declared phonology, so M-24's own Irish example cannot
+    # reach the ELSEWHERE branch BY PATH — only by a caller passing the
+    # language. Staging a language this repo has no phonology for is a
+    # separate decision and the entry stays open on it.
+    check("a language with no phonology does not derive from a path — the "
+          "half of M-24 that a coordinate alone does not close",
+          _G.language_of_path("corpus/song/gle_tune.txt") == "")
+
+    # (g) AND THE RESOLVER IS REACHED BY THE READER, not merely reachable.
+    # This repo has filed the resolver-consulted-by-nobody defect four times;
+    # `read_marked_songs` had taken `language=` since it was written and
+    # passed it to `ingest_mark` never.
+    d = tempfile.mkdtemp()
+    try:
+        f = os.path.join(d, "fin_probe.txt")
+        with open(f, "w", encoding="utf-8") as fh:
+            fh.write("--- TITLE: PROBE\n[PART: Kaason puoli]\nyksi rivi\n")
+        blocks = _G.read_marked_songs(f)[0].blocks
+        check("read_marked_songs DERIVES the language from the path and "
+              "hands it to ingest_mark",
+              blocks[0].refusal.evidence == fin_reason,
+              blocks[0].refusal.evidence[:60])
+        # THE CONTRAST, on a byte-identical mark in a file whose language
+        # decided nothing about it: the same three words, a different answer.
+        g = os.path.join(d, "cym_probe.txt")
+        with open(g, "w", encoding="utf-8") as fh:
+            fh.write("--- TITLE: PROBE\n[PART: Kaason puoli]\nun llinell\n")
+        b2 = _G.read_marked_songs(g)[0].blocks[0]
+        check("the SAME mark in a cym file is refused elsewhere, not decided",
+              b2.refusal.code == "MARK_REFUSED_ELSEWHERE", b2.refusal.code)
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+    # (h) THE VOCABULARY IS KEPT IN TWO PLACES, and this is the guard that
+    # makes the duplication safe rather than the restructuring that would
+    # remove it: `audit_corpus.LANG_PREFIX` is a hand-kept dict of the same
+    # nine codes `phonology.declared()` returns. Two definitions of one
+    # vocabulary (doctrine 1) — recorded in `MISSING.md` M-24 rather than
+    # merged here, because that table is read by a pinned audit.
+    from quality import audit_corpus as _AC
+    check("audit_corpus.LANG_PREFIX and phonology.declared() are the same "
+          "vocabulary — asserted, since they are typed twice",
+          set(_AC.LANG_PREFIX) == set(_PH.declared()),
+          str(set(_AC.LANG_PREFIX) ^ set(_PH.declared())))
+
+
 def test_the_elaboration_pointer_and_the_rank_that_was_refused():
     """`quality/SECTION_ORDER_PREREGISTRATION.md`, both halves.
 
@@ -2366,6 +2497,7 @@ if __name__ == "__main__":
                test_function_aliases_are_claims_on_their_own_rows,
                test_the_named_air_is_a_coordinate_not_a_substring,
                test_the_printed_indent_survives_ingestion,
+               test_a_refusal_is_true_in_a_language,
                test_the_elaboration_pointer_and_the_rank_that_was_refused):
         fn()
     print("=" * 62)

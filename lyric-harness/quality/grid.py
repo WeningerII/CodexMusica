@@ -2403,56 +2403,114 @@ MARK_FUNCTION = {
     "REFRAIN": "refrain",
 }
 
-#: source mark -> why it is NOT a section function. Every entry is a decision
-#: with a reason attached, which is what makes it a table rather than a filter.
+#: (LANGUAGE, source mark) -> why it is NOT a section function. Every entry
+#: is a decision with a reason attached, which is what makes it a table rather
+#: than a filter — and every entry now says WHICH TRADITION the decision was
+#: made in, which is what makes it a coordinate rather than a claim about the
+#: token (`MISSING.md` M-24, doctrine 45).
+#:
+#: THE KEY IS A PAIR SO THAT A ROW CANNOT BE ADDED WITHOUT NAMING A LANGUAGE.
+#: It was a bare token, and `MARK_REFUSED["PART"]` read *"a speaker or role
+#: attribution in the Kalevala wedding songs"* — true of Finnish, and the
+#: sentence a hypothetical Irish tune staged as `[PART A]` would have been
+#: refused with: a true refusal, in the wrong language, about the wrong
+#: object. Nothing in a single-token table can express that `PART` means one
+#: thing in `fin` and another in `gle`.
+#:
+#: MEASURED 2026-08-22 BEFORE THE TABLE WAS REWRITTEN, and the measurement is
+#: why this is a latent defect rather than a live one: over the whole of
+#: `corpus/song/`, EVERY refused mark occurs in EXACTLY ONE language —
+#: `BAYT`/`RADIF` fas, `SLOKA` san, `PANTUN`/`QUATRAIN` msa,
+#: `PART`/`NOTE`/`VARIANT` fin, `CYWYDD` cym, and the rest eng. So no reason
+#: below is currently quoted over a tradition it was not written for, and the
+#: languages here are READ OFF THAT MEASUREMENT rather than assigned by
+#: guess. `TAORLUATH` is the one exception and it is declared `eng` beside its
+#: three pìobaireachd siblings: it has zero occurrences anywhere, which its
+#: own reason already records.
+#:
+#: `MARK_FUNCTION` IS NOT GIVEN THE SAME COORDINATE, and the same measurement
+#: is the argument: `VERSE` is carried by eng, ltc, fin, cym AND san, `REFRAIN`
+#: by four languages and `BURDEN` by two. The positive table is genuinely
+#: shared, so keying it per language would manufacture five rows saying one
+#: thing. M-24's other half — `SECTION_FUNCTIONS`' bare names, where the pop
+#: `bridge` and the sonata `bridge` are different objects — is a claim about
+#: the FUNCTION vocabulary rather than the MARK vocabulary, and it stays open.
 MARK_REFUSED = {
-    "BAYT": "a bayt is the couplet-unit of a ghazal. A ghazal has no chorus "
+    ("fas", "BAYT"): "a bayt is the couplet-unit of a ghazal. A ghazal has no chorus "
             "and no verse; calling it `verse` would be this vocabulary "
             "claiming a form it does not describe (doctrine 43).",
-    "RADIF": "a radif is a RHYME DEVICE -- the repeated word after the rhyme "
+    ("fas", "RADIF"): "a radif is a RHYME DEVICE -- the repeated word after the rhyme "
              "-- not a span of the song. It has no bars and no return.",
-    "SLOKA": "a sloka is a metrical stanza-unit. In the Gitagovinda it is an "
+    ("san", "SLOKA"): "a sloka is a metrical stanza-unit. In the Gitagovinda it is an "
              "interleaved narrative verse, and the source says so; that is a "
              "position in a text, not a function in a form.",
-    "PANTUN": "a pantun is a whole quatrain FORM, not a section of a song.",
-    "QUATRAIN": "a printing/metrical unit, and the mark carries its rhyme "
+    ("msa", "PANTUN"): "a pantun is a whole quatrain FORM, not a section of a song.",
+    ("msa", "QUATRAIN"): "a printing/metrical unit, and the mark carries its rhyme "
                 "scheme rather than a function.",
-    "VARIANT": "Lonnrot's numbered alternative READING of the same passage. "
+    ("fin", "VARIANT"): "Lonnrot's numbered alternative READING of the same passage. "
                "An editor's variant is not a performed return, and treating "
                "it as one would count editorial apparatus as structure.",
-    "PART": "a speaker or role attribution in the Kalevala wedding songs "
+    ("fin", "PART"): "a speaker or role attribution in the Kalevala wedding songs "
             "(`[PART: Kaason puoli]`), not a section function.",
-    "PATTER": "a music-hall function this vocabulary does not declare. It is "
+    ("eng", "PATTER"): "a music-hall function this vocabulary does not declare. It is "
               "refused rather than folded into `verse`, because folding it in "
               "would delete the distinction the printer made.",
-    "NOTE": "editorial apparatus.",
-    "SIDENOTE": "editorial apparatus.",
-    "MUSIC": "editorial apparatus.",
-    "GOTHIC": "editorial apparatus.",
-    "CYWYDD": "a Welsh METRE name, not a section.",
-    "URLAR": "the GROUND of a pìobaireachd — the theme the variations are "
+    ("fin", "NOTE"): "editorial apparatus.",
+    ("eng", "SIDENOTE"): "editorial apparatus.",
+    ("eng", "MUSIC"): "editorial apparatus.",
+    ("eng", "GOTHIC"): "editorial apparatus.",
+    ("cym", "CYWYDD"): "a Welsh METRE name, not a section.",
+    ("eng", "URLAR"): "the GROUND of a pìobaireachd — the theme the variations are "
              "built on. It IS a span of the performance, which is why it is "
              "a mark at all; what this vocabulary has no member for is a "
              "movement in a VARIATION LADDER, and folding it into `verse` "
              "would say the theme and its ornamented restatements are the "
              "same kind of thing (`PATTER`'s argument, one tradition over).",
-    "SIUBHAL": "a pìobaireachd variation on the ùrlar. Refused for the same "
+    ("eng", "SIUBHAL"): "a pìobaireachd variation on the ùrlar. Refused for the same "
                "reason and with the same regret: the relation it needs is a "
                "POINTER at the section it elaborates, and the section "
                "vocabulary has no pointer yet "
                "(`quality/SECTION_ORDER_PREREGISTRATION.md`).",
-    "TAORLUATH": "a pìobaireachd variation, later in the ladder than the "
+    ("eng", "TAORLUATH"): "a pìobaireachd variation, later in the ladder than the "
                  "siubhal. Declared here with zero occurrences in this "
                  "corpus, and the zero is the point: the ladder is INCOMPLETE "
                  "in the three staged pìobaireachds, so a `rank` over these "
                  "marks would be ordering a sequence the corpus never shows "
                  "whole. That measurement is what refused `rank`.",
-    "CRUNLUATH": "the closing pìobaireachd variation, the most ornamented. "
+    ("eng", "CRUNLUATH"): "the closing pìobaireachd variation, the most ornamented. "
                  "Same refusal as `SIUBHAL`. Two of the three staged "
                  "instances print `(FINALE)` after it, which this reader "
                  "keeps as the mark's ANNOTATION rather than as a second "
                  "mark — an editor's gloss on a heading is apparatus.",
 }
+
+
+
+#: base -> {language: reason}. DERIVED from `MARK_REFUSED`, never typed
+#: beside it: a second hand-kept index is a second place for the language
+#: coordinate to be wrong (doctrine 1).
+_REFUSED_BY_BASE = {}
+for (_lg, _bs), _rsn in MARK_REFUSED.items():
+    _REFUSED_BY_BASE.setdefault(_bs, {})[_lg] = _rsn
+
+
+def language_of_path(path):
+    """-> the file's declared language code, or `""` when it has none.
+
+    THE PREFIX IS THE CORPUS'S OWN CONVENTION and has dispatched the phonology
+    since doctrine 45; this reads the same three characters. It is CHECKED
+    against `phonology.declared()` rather than trusted, so a fixture called
+    `marked.txt` yields `""` and not `"mar"` — a language that does not exist,
+    silently substituted, is the failure this function is here to avoid rather
+    than to commit one layer down.
+
+    `phonology` is imported inside the body, matching `read_marked_songs`'s own
+    `import lyric_harness`: this module imports nothing from `quality` at
+    module level and a language lookup is not the reason to start.
+    """
+    from quality import phonology as _PH
+    head = os.path.basename(path).split("_")[0]
+    return head if head in _PH.declared() else ""
 
 
 #: A MARK POINTS AT THE MARK IT IS A VARIATION OF.
@@ -2608,7 +2666,7 @@ _MARK_RE = re.compile(r"^\[([^\]]*)\]")
 _INDEX_RE = re.compile(r"(\d+)\s*$")
 
 
-def ingest_mark(mark):
+def ingest_mark(mark, language=""):
     """-> (base, index, function, refusal). Reads a printed mark; never a name.
 
     The numeral is an INSTANCE INDEX, declared: `[CHORUS 2]` is the song's
@@ -2616,6 +2674,22 @@ def ingest_mark(mark):
     `[QUATRAIN AAAA]` carry a rhyme scheme after the head, so the base is the
     FIRST token; `[CHORUS: abbreviated return, printed "&c."]` carries an
     editorial note after a colon, so the head stops there.
+
+    `language` IS THE COORDINATE A REFUSAL IS TRUE IN (`MISSING.md` M-24,
+    doctrine 45). Three answers, and the middle one is new:
+
+      * the base is refused IN THIS LANGUAGE -> that language's own reason.
+      * the base is refused in some OTHER language and not in this one ->
+        `MARK_REFUSED_ELSEWHERE`. The other tradition's sentence is NOT
+        quoted: a reason written about Kalevala wedding songs is a true
+        statement in the wrong language about the wrong object, and
+        answering with it would be worse than not answering. Doctrine 20 —
+        nobody has written what this mark means here, which is not the same
+        as its having been decided.
+      * no language is declared at all -> the reason is still given, LABELLED
+        with the tradition it was written for. Every recorded refusal keeps
+        its wording; what changes is that the reader is told whose it is,
+        rather than the table's single voice being read as universal.
     """
     head = re.split(r"[:(]", mark, 1)[0].strip()
     m = _INDEX_RE.search(head)
@@ -2623,6 +2697,8 @@ def ingest_mark(mark):
     head = _INDEX_RE.sub("", head).strip()
     base = head.split()[0].upper() if head.split() else ""
     if base in MARK_FUNCTION:
+        # NOT KEYED ON LANGUAGE, and the measurement is the argument -- see
+        # `MARK_REFUSED`'s own note. `VERSE` is carried by five languages.
         return base, index, MARK_FUNCTION[base], None
     if not base:
         return base, index, UNDECLARED, Refusal(
@@ -2631,14 +2707,36 @@ def ingest_mark(mark):
             "A numbered bracket in a printed text is a footnote reference or "
             "a stanza number, not a section. Reading it as a function would "
             "make the apparatus into structure.")
-    reason = MARK_REFUSED.get(base)
+    rows = _REFUSED_BY_BASE.get(base)
+    if rows and language and language not in rows:
+        elsewhere = ", ".join(sorted(rows))
+        return base, index, UNDECLARED, Refusal(
+            "MARK_REFUSED_ELSEWHERE",
+            f"the source mark {base!r} is not declared in {language!r}",
+            f"{base!r} carries a written decision in {elsewhere} and NONE in "
+            f"{language!r}. That other tradition's reason is deliberately not "
+            f"quoted here: it would be a true sentence about a different "
+            f"object (doctrine 45). Nobody has written what {base!r} means in "
+            f"{language!r}, which is not the same as its having been decided "
+            f"(doctrine 20) — the remedy is a row, in this language, with a "
+            f"reason.")
+    if rows:
+        lang = language if language in rows else sorted(rows)[0]
+        reason = rows[lang]
+        if not language:
+            reason = (f"[the decision below was written for {lang!r}; this "
+                      f"reader was given no language] " + reason)
+        return base, index, UNDECLARED, Refusal(
+            "MARK_NOT_A_FUNCTION",
+            f"the source mark {base!r} is not read as a section function",
+            reason)
     return base, index, UNDECLARED, Refusal(
-        "MARK_NOT_A_FUNCTION" if reason else "MARK_UNRECOGNISED",
+        "MARK_UNRECOGNISED",
         f"the source mark {base!r} is not read as a section function",
-        reason or (f"{base!r} is in no declared table. It is refused rather "
-                   f"than guessed: a mark that looks stanza-shaped is not "
-                   f"evidence of a function, and the table is closed on "
-                   f"purpose so that additions are decisions."))
+        f"{base!r} is in no declared table. It is refused rather "
+        f"than guessed: a mark that looks stanza-shaped is not "
+        f"evidence of a function, and the table is closed on "
+        f"purpose so that additions are decisions.")
 
 
 #: THE NAMED AIR, WHICH WAS NEVER MISSING -- IT WAS INSIDE ANOTHER COORDINATE.
@@ -2743,6 +2841,14 @@ def read_marked_songs(path, language=""):
     `quality/test_grid.py` pins the rule on a fixture.
     """
     import lyric_harness as LH
+    # THE COORDINATE WAS ON THE PATH AND WAS DROPPED AT THE ONE CALL THAT
+    # NEEDED IT. This function has taken `language=` since it was written and
+    # stored it on `MarkedSong`; `ingest_mark` — the reader that decides what
+    # a mark MEANS — was handed nothing, and `audit_corpus` calls this with no
+    # language at all. Derived from the filename when not declared, which is
+    # the same three characters the phonology has dispatched on since
+    # doctrine 45.
+    language = language or language_of_path(path)
     songs, cur = [], None
     with open(path, encoding="utf-8", errors="replace") as f:
         for n, raw in enumerate(f, 1):
@@ -2760,7 +2866,7 @@ def read_marked_songs(path, language=""):
             s = line.strip()
             m = _MARK_RE.match(s)
             if m:
-                base, idx, fn, ref = ingest_mark(m.group(1))
+                base, idx, fn, ref = ingest_mark(m.group(1), language)
                 cur.blocks.append(Block(mark=m.group(1), base=base, index=idx,
                                         function=fn, refusal=ref,
                                         source_line=n))
@@ -2813,7 +2919,8 @@ __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
            # the hook -- MISSING.md D-2
            "Hook", "HookOccurrence", "hook_occurrences", "hook_findings",
            # reading the corpus's own marks
-           "MARK_FUNCTION", "MARK_REFUSED", "ingest_mark", "Block",
+           "MARK_FUNCTION", "MARK_REFUSED", "ingest_mark",
+           "language_of_path", "Block",
            "MarkedSong", "read_marked_songs",
            # the named air -- MISSING.md M-11, BACKLOG 3.2
            "AIR_DISTINCT", "AIR_RESTATED", "split_named_air",

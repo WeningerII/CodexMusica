@@ -75,6 +75,15 @@ CODE_BUCKET = {
     "MARK_NOT_A_FUNCTION": "decided",
     "MARK_UNRECOGNISED": "undecided",
     "MARK_IS_A_NUMERAL": "apparatus",
+    # ADDED 2026-08-22 with the language coordinate (`MISSING.md` M-24). It is
+    # UNDECIDED and not DECIDED, which is the whole point of the code: the
+    # mark carries a written decision in ANOTHER tradition and none in this
+    # one, so nobody has answered the question here. Bucketing it `decided`
+    # would let one tradition's ruling be counted as coverage of every other
+    # (doctrine 20). Zero occurrences today — every refused mark in this
+    # corpus is single-language, measured — and the zero is the reason the
+    # row is written rather than waited for.
+    "MARK_REFUSED_ELSEWHERE": "undecided",
 }
 
 
@@ -131,7 +140,13 @@ def scan(root=SONG_DIR):
                 rec["bucket"] = bucket
                 rec["function"] = b.function or ""
                 if bucket == "decided":
-                    rec["reason"] = GR.MARK_REFUSED.get(base, "")
+                    # KEYED ON THE PAIR SINCE 2026-08-22. Read through
+                    # the DERIVED index rather than re-deriving the language
+                    # here, so this module cannot disagree with `grid` about
+                    # which tradition a reason belongs to (doctrine 1).
+                    _rows = GR._REFUSED_BY_BASE.get(base, {})
+                    rec["reason"] = _rows.get(lang) or (
+                        next(iter(_rows.values())) if _rows else "")
                 buckets[bucket] += 1
                 by_lang_bucket[lang][bucket] += 1
                 seen[base].append(b)

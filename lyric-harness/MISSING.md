@@ -3945,7 +3945,7 @@ for a cywydd's cynghanedd. Run 2 owes a declared entry per tradition, and the
 registration's own E1 amendment owes `dactylic-rhyme`'s removal from the
 constrained family (its shipped `constrained=yes` tag is VOID for consumers).
 
-### M-24 · The section vocabulary is keyed on a bare token, so a mark means whatever the first tradition to claim it meant `OPEN`
+### M-24 · The section vocabulary is keyed on a bare token, so a mark means whatever the first tradition to claim it meant `PARTIAL`
 **Found 2026-08-21 by sixteen concurrent tradition-family surveys, and three
 of them hit the same wall independently.**
 
@@ -3981,6 +3981,79 @@ means the POP bridge — declared four ways over (`recurrence="once"`,
 and `BRIDGE_IS_A_VERSE`) — and **the sonata bridge is a `connective` that
 RECURS**, which the same row cannot also mean. Two more false friends found
 the same day: fugal vs sonata *exposition*, and *stretto* vs *stretta*.
+
+**THE MARK HALF IS BUILT — 2026-08-22 — AND THE FUNCTION HALF IS NOT, WHICH
+IS WHY THIS IS `PARTIAL` AND NOT CLOSED.** `MARK_REFUSED` is keyed on
+`(language, mark)`; `ingest_mark` takes a `language`; `read_marked_songs`
+DERIVES it from the filename prefix — the same three characters the phonology
+has dispatched on since doctrine 45 — and hands it over. The coordinate was
+on the path the whole time: this reader has taken `language=` since it was
+written, stored it on `MarkedSong`, and passed it to the one function that
+decides what a mark MEANS never. `audit_corpus` calls it with no language at
+all.
+
+**THREE ANSWERS NOW, AND THE MIDDLE ONE IS THE ENTRY'S OWN WORKED CASE.**
+A mark refused IN THIS LANGUAGE gets that language's written reason. A mark
+refused in some OTHER language and not this one gets `MARK_REFUSED_ELSEWHERE`
+— and the other tradition's sentence is deliberately NOT quoted, because a
+reason about Kalevala wedding songs is a true statement in the wrong language
+about the wrong object, and answering with it is worse than not answering
+(doctrine 20: nobody has written what `PART` means in Irish, which is not the
+same as its having been decided). A mark asked with NO language declared still
+gets its decision, LABELLED with the tradition it was written for — so every
+one of the 1,423 staged files reads exactly as before, and what changed is
+that the table's single voice is no longer read as universal.
+
+**MEASURED BEFORE THE TABLE WAS TOUCHED, AND THE MEASUREMENT IS WHY THIS WAS
+LATENT RATHER THAN LIVE.** Over the whole of `corpus/song/`, EVERY refused
+mark occurs in EXACTLY ONE language — `BAYT` 70,866 and `RADIF` 54,193 in fas,
+`SLOKA` 136 in san, `PANTUN` 88 and `QUATRAIN` 41 in msa, `PART` 61, `NOTE` 48
+and `VARIANT` 18 in fin, `CYWYDD` 1 in cym, and the rest in eng. So no reason
+in the table is currently quoted over a tradition it was not written for, the
+languages in the new keys are READ OFF that measurement rather than assigned,
+and `mark_coverage.py --check` is byte-identical either side of the change
+(typed 76,930 / decided 125,504 / undecided 32 / apparatus 59). A coordinate
+was added and no number moved, which is the control that says the fix is a
+coordinate and not a re-decision.
+
+**`MARK_FUNCTION` IS DELIBERATELY NOT GIVEN THE SAME KEY, on the same
+measurement.** `VERSE` is carried by eng, ltc, fin, cym AND san; `REFRAIN` by
+four languages; `BURDEN` by two. The positive table is genuinely shared, so
+keying it per language would manufacture five rows saying one thing —
+doctrine 61's shape, a rule that fires more often is not a better rule.
+
+**AND `gle` IS THE LIMIT, ASSERTED SO IT CANNOT READ AS CLOSED.**
+`language_of_path` checks the prefix against `phonology.declared()` rather
+than trusting it, so a fixture named `marked.txt` yields `""` and not the
+language `mar`. The consequence is that THIS ENTRY'S OWN IRISH EXAMPLE cannot
+reach the `MARK_REFUSED_ELSEWHERE` branch BY PATH — `gle` is not a declared
+phonology, so a `gle_*.txt` file would derive no language and take the
+labelled-reason route. Reaching it needs a caller to pass the language, or the
+staging vocabulary to grow. `quality/test_grid.py` §32 asserts that limit as a
+check, not as prose.
+
+**ONE MORE THING THE FIX SURFACED AND DID NOT REPAIR:** the language
+vocabulary is typed TWICE — `audit_corpus.LANG_PREFIX` is a hand-kept dict of
+the same nine codes `phonology.declared()` returns (doctrine 1). Merged by
+neither, because that table is read by a pinned audit; §32's last check
+asserts the two sets are equal instead, so the duplication cannot drift while
+it stands.
+
+**TESTED WHILE OPEN**, and `triage.py --check` is what required this sentence
+rather than a reader noticing: `quality/test_grid.py` §32 names M-24 while the
+entry stays `PARTIAL`, which is CONTESTED until the body says why. The why is
+the split above — §32 tests the MARK half, which is built, and asserts the two
+limits (`gle` does not derive; the language vocabulary is typed twice) as
+checks rather than as prose. It tests nothing about the FUNCTION half below,
+and the entry stays open on that.
+
+**STILL OPEN, AND IT IS THE HALF WITH THE FALSE FRIENDS IN IT:**
+`SECTION_FUNCTIONS`' 21 functions are still declared on bare names, so the pop
+`bridge` and the sonata `bridge` are one row that cannot mean both, and fugal
+vs sonata *exposition* and *stretto* vs *stretta* are unaddressed. That is a
+claim about the FUNCTION vocabulary rather than the MARK vocabulary, and
+`RESULTS_MARK_COVERAGE.md`'s adopted answer — a global closed FUNCTION
+vocabulary with per-tradition NAME rows — is still what it needs.
 
 **WHAT IS OWED is a coordinate, not a bigger table:** a mark and a function
 resolve under a declared LANGUAGE (or tradition), the way the phonology
