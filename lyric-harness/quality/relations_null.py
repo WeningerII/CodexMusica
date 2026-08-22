@@ -126,16 +126,23 @@ rather than quoting these:
                       admissible (statistic, null) pairs between them and the
                       arms ran 7 of the 16, so 9 pairs on "controlled"
                       schemas have no matched control (section 7b prints them)
-  EXTENDABLE    31    runs, fires, a null moves it, nobody had run it.  33
+  EXTENDABLE    27    runs, fires, a null moves it, nobody had run it.  29
                       AT `budget=None`, which is the number section 7b's
-                      ledger pins: 31 is this figure minus the two schemas the
+                      ledger pins: 27 is this figure minus the two schemas the
                       2.0 s budget took, and that boundary is a wall clock
                       reading that does not reproduce (see TOO EXPENSIVE
-                      below).  Only the first two clauses of this line were
+                      below).  SUPERSEDED 2026-08-22 by M-39, and the four
+                      values before it were ~~31~~ and ~~33~~: `analysed
+                      rhyme`, `monorhyme / leash`, `dvitiyakshara-prasa` and
+                      `monai` moved to CANNOT OBTAIN because a `frame="stanza"`
+                      figure now asks for the frame it quantifies over, and
+                      the ledger slice as `_read` renders it supplies none.  Only the first two clauses of this line were
                       ever checked by code.  "a null moves it" was `null_menu`,
-                      a DERIVATION, and 39 of the 195 pairs it nominates on
-                      this slice move 0 of 10 replicates while 43 pairs it
-                      calls identity maps DO move; "nobody had run it" was
+                      a DERIVATION, and 22 of the 154 pairs it nominates on
+                      this slice move 0 of 10 replicates while 37 pairs it
+                      calls identity maps DO move (~~39 of 195~~ and ~~43~~
+                      before M-39 took four stanza-framed schemas off this
+                      slice, 2026-08-22); "nobody had run it" was
                       `name not in ARM_SCHEMAS`, a membership test on a
                       hand-written tuple.  SECTION 7b MAKES BOTH FAILABLE
   TOO EXPENSIVE  2    `chain rhyme (rap)` is 14.19 s per realise() pass and
@@ -245,6 +252,11 @@ if os.path.dirname(HERE) not in sys.path:
 
 from dataclasses import dataclass, field          # noqa: E402
 import quality.relations as R                     # noqa: E402
+import quality.grid as _GRID                      # noqa: E402  (M-39: the
+#                                                   printed group coordinate;
+#                                                   grid imports nothing from
+#                                                   relations, so this adds no
+#                                                   cycle)
 
 #: Doctrine 66.  A tie broken by iterating a set is a result that does not
 #: reproduce; so is a randomisation with no stated seed.  Every replicate's
@@ -603,7 +615,8 @@ class Result:
                 f"seed={self.seed}")
 
 
-def _stream_of(toks, phon, language, prepare=None):
+def _stream_of(toks, phon, language, prepare=None, stanzas=None,
+               stanza_source=""):
     """One replicate's token grid -> one Stream.  Split out of
     `_statistics_of` so that a WHOLE-REGISTRY pass (`sweep`, section 7) can
     build the stream ONCE per replicate and ask 60 schemas of it, instead of
@@ -617,10 +630,25 @@ def _stream_of(toks, phon, language, prepare=None):
     that is COMPUTED from the song has to be recomputed on each replicate or
     the null preserves by hand what it is supposed to destroy.  Default None
     keeps every pre-existing caller byte-identical.
+
+    `stanzas` IS THE DECLARED GROUND (M-39), one 0-based group per line of
+    `toks`, or None.  This used to read
+
+        stanzas=R.stanzas_from_blank_lines(lines)
+
+    which is where the collapse hid.  `lines` here is a JOIN OF TOKENS and
+    carries no blank line by construction, so that derivation always returned
+    all-zeros -- and by passing the result as an explicit list it recorded
+    `stanza_source='declared'`, laundering "no evidence" into "the caller
+    said so".  `Stream.supply('stanza')` then answered `present`, the five
+    `frame="stanza"` schemas ran over one frame on all nine panel slices, and
+    `monorhyme / leash` reported +227 against a null drawn through the same
+    collapsed frame.  Passing None instead lets `build_stream` record `none`,
+    which refuses; passing the reader's ground supplies the real one.
     """
     lines = [" ".join(t) for t in toks]
     st = R.build_stream(lines, phon, declaration={"language": language},
-                        stanzas=R.stanzas_from_blank_lines(lines))
+                        stanzas=stanzas, stanza_source=stanza_source)
     if prepare is not None:
         prepare(st)
     return st
@@ -654,7 +682,7 @@ def _measure(st, schema, statistics, chans=None, keep="all"):
 
 
 def _statistics_of(toks, phon, schema, statistics, language, chans=None,
-                   keep="all", prepare=None):
+                   keep="all", prepare=None, stanzas=None):
     """EVERY statistic from ONE realise() pass over one replicate.
 
     Statistics are computed together and not one arm at a time, because the
@@ -664,7 +692,7 @@ def _statistics_of(toks, phon, schema, statistics, language, chans=None,
     and `local_fraction` would have been measured on different replicates of
     the same seed and could not have been read against each other.
     """
-    st = _stream_of(toks, phon, language, prepare)
+    st = _stream_of(toks, phon, language, prepare, stanzas)
     vals, refusal = _measure(st, schema, statistics, chans, keep)
     return vals, st, refusal
 
@@ -677,7 +705,7 @@ def _statistic_of(toks, phon, schema, statistic, language, chans=None):
 
 def run_many(lines, phon, schema, statistics, null="line_permutation",
              n=200, seed=SEED, language="", chans=None, tokeniser=R.tokenise,
-             prepare=None):
+             prepare=None, stanzas=None):
     """One null, EVERY statistic, off one set of replicates.  -> [Result].
 
     `lines` are RAW text lines.  They are tokenised once and every replicate is
@@ -695,7 +723,8 @@ def run_many(lines, phon, schema, statistics, null="line_permutation",
 
     obs, st0, refusal = _statistics_of(
         NULLS["identity"].fn(toks, random.Random(seed)),
-        phon, schema, stats, language, chans, prepare=prepare)
+        phon, schema, stats, language, chans, prepare=prepare,
+        stanzas=stanzas)
     if refusal is not None:
         return [refusal for _ in stats]
     burden = R.search_burden(schema, st0)
@@ -718,7 +747,7 @@ def run_many(lines, phon, schema, statistics, null="line_permutation",
         rng = random.Random(seed + 1 + k)
         vals, _, refused = _statistics_of(null.fn(toks, rng), phon, schema,
                                           stats, language, chans,
-                                          prepare=prepare)
+                                          prepare=prepare, stanzas=stanzas)
         if vals is None:
             for r in out:
                 if not isinstance(r, R.Refusal):
@@ -1239,7 +1268,7 @@ SWEEP_STATISTICS = ("count", "local_fraction@0", "local_fraction@2",
 def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
           keep=("true", "none"), tokeniser=R.tokenise, budget=2.0,
           statistics=None, progress=None, derived_only=False, prepare=None,
-          nulls=None):
+          nulls=None, stanzas=None, stanza_source=""):
     """EVERY schema that produced an observation, under EVERY null, off ONE
     set of replicates per null.
 
@@ -1300,7 +1329,7 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
     # seed, so the observation and the replicates differ in the permutation
     # and in nothing else -- including nothing about how the stream was built.
     st0 = _stream_of(NULLS["identity"].fn(toks, random.Random(seed)), phon,
-                     language, prepare)
+                     language, prepare, stanzas, stanza_source)
     census = coverage(st0, schemas=schemas, chans=chans,
                       statistics=statistics or SWEEP_STATISTICS,
                       budget=budget, keep=keep, progress=progress)
@@ -1369,7 +1398,8 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
             rows[sname] = (sch, stats, row)
         for k in range(n):
             rng = random.Random(seed + 1 + k)
-            st = _stream_of(nl.fn(toks, rng), phon, language, prepare)
+            st = _stream_of(nl.fn(toks, rng), phon, language, prepare,
+                            stanzas, stanza_source)
             if progress:
                 progress(f"{nl_name} replicate {k + 1}/{n}")
             for sname, (sch, stats, row) in rows.items():
@@ -1441,8 +1471,10 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
 #     says that verdict does not reproduce — `compound / phrasal rhyme`
 #     crossed the 2 s line between two runs of this exact slice — and pinning
 #     a machine's load is not a claim about a schema.  THAT, AND ONLY THAT,
-#     is why this ledger records 33 EXTENDABLE where the docstring's
-#     budget=2.0 census recorded 31: the two are `chain rhyme (rap)` and
+#     is why this ledger records 29 EXTENDABLE where the docstring's
+#     budget=2.0 census recorded 27 (~~33~~ and ~~31~~ before M-39 moved four
+#     stanza-framed schemas to CANNOT OBTAIN): the two are
+#     `chain rhyme (rap)` and
 #     `compound / phrasal rhyme`, and on this machine at head they now run in
 #     under 2 s anyway.
 #   * INSTANCE COUNTS.  `internal rhyme · count` has already been observed to
@@ -1479,7 +1511,13 @@ LEDGER_BUDGET = None
 #: `23 / 3` and named `poet` as permanent while `NEVER_PROVIDED`'s own comment
 #: in this same file recorded that `poet` had left the table.  Two numbers in
 #: one file disagreeing about one split, and nothing read either.  Pinned.
-LEDGER_CANNOT_OBTAIN = (24, 2)
+#:
+#: REPINNED 2026-08-22 (M-39): ~~(24, 2)~~.  Five schemas entered CANNOT
+#: OBTAIN and all five entered the DECLARABLE half, which is the correct half:
+#: the frame they want is one a caller supplies, and
+#: `quality/grid.stanza_ground` is the call that supplies it.  Nothing moved
+#: into or out of NEVER PROVIDED.
+LEDGER_CANNOT_OBTAIN = (29, 2)
 
 
 def ledger_slice(root=None):
@@ -1600,13 +1638,13 @@ EXTENSION_LEDGER = (
     ('symploce',                                'extendable',      6,  0),
     ('anadiplosis',                             'no_instance',     2,  0),
     ('epanalepsis',                             'extendable',      1,  0),
-    ('analysed rhyme',                          'extendable',     10,  0),
-    ('monorhyme / leash',                       'extendable',     13,  0),
+    ('analysed rhyme',                          'cannot_obtain',  10,  0),
+    ('monorhyme / leash',                       'cannot_obtain',  13,  0),
     ('chain rhyme (rap)',                       'extendable',     12,  0),
     ('alliterative long line',                  'cannot_obtain',   2,  0),
     ('fourth lift must not alliterate',         'cannot_obtain',   1,  0),
-    ('dvitiyakshara-prasa',                     'extendable',      9,  0),
-    ('monai',                                   'extendable',      9,  0),
+    ('dvitiyakshara-prasa',                     'cannot_obtain',   9,  0),
+    ('monai',                                   'cannot_obtain',   9,  0),
     ('cynghanedd groes',                        'cannot_obtain',   2,  0),
     ('cynghanedd draws',                        'cannot_obtain',   2,  0),
     ('cynghanedd groes o gyswllt',              'cannot_obtain',   2,  0),
@@ -1620,7 +1658,7 @@ EXTENSION_LEDGER = (
     ('Middle Chinese end rhyme (同用 group)',     'cannot_obtain',   8,  0),
     ('平仄 tonal template',                       'no_instance',     5,  0),
     ('pantun ABAB',                             'extendable',      4,  0),
-    ('blues AAB stanza',                        'no_instance',     2,  0),
+    ('blues AAB stanza',                        'cannot_obtain',   2,  0),
     ('offbeat internal rhyme',                  'cannot_obtain',   4,  0),
     ('rhyming slang',                           'cannot_obtain',   4,  0),
     ('transformative / bent rhyme',             'cannot_obtain',   4,  0),
@@ -1644,36 +1682,39 @@ EXTENSION_LEDGER = (
 #: is the worked case: silent at n=4, moving at n=10, so a ledger recorded at
 #: n=4 would have carried it here and been wrong about it.
 #:
-#: 39 of the 195 nominated pairs on this slice, over 13 of the 33 EXTENDABLE
-#: schemas — one nominated pair in five.
+#: 22 of the 154 nominated pairs on this slice, over 9 of the 29 EXTENDABLE
+#: schemas — one nominated pair in seven.
+#:
+#: RE-MEASURED 2026-08-22 (M-39) AND SEVENTEEN ROWS LEFT: ~~39 of 195, over 13
+#: of 33, one in five~~.  Four of the schemas this counted over --
+#: `analysed rhyme`, `monorhyme / leash`, `dvitiyakshara-prasa`, `monai` --
+#: are now CANNOT OBTAIN on this slice, because a `frame="stanza"` figure asks
+#: for the frame it quantifies over and `_read` supplies none.  A pair that
+#: cannot be REACHED is not a pair the derivation nominated and this
+#: measurement found silent, so `--record` removes the rows rather than
+#: keeping them: the table is "nominated AND measured silent", and those pairs
+#: are no longer measured at all.
+#:
+#: BOTH HALVES OF THE FRACTION MOVED AND THE RATIO IMPROVED ANYWAY, which is
+#: worth saying because it is not the direction the change was made for.  The
+#: denominator fell 195 -> 154 (nominations on the 32 live schemas) and the
+#: numerator 39 -> 22, so the derivation's unbacked share went from one in five
+#: to one in seven.  That is a fact about WHICH pairs left, not evidence that
+#: `null_menu` got better: the four schemas removed were carrying 17 of the 39
+#: silent rows between them, and a derivation looks more reliable when the
+#: rows it was wrong about stop being reachable.  Doctrine 27's shape, one
+#: layer out.
 MENU_SILENT = (
     ("Scots vowel-length rhyme (Aitken's Law)",
      'local_fraction@0', 'global_redeal'),
     ("Scots vowel-length rhyme (Aitken's Law)",
      'local_fraction@0', 'within_line_shuffle'),
-    ('analysed rhyme', 'count', 'line_permutation'),
-    ('analysed rhyme', 'local_fraction@0', 'global_redeal'),
-    ('analysed rhyme', 'local_fraction@0', 'line_permutation'),
-    ('analysed rhyme', 'local_fraction@0', 'within_line_shuffle'),
     ('anaphora', 'local_fraction@2', 'line_final_permutation'),
     ('chain rhyme (rap)', 'line_fraction', 'global_redeal'),
     ('chain rhyme (rap)', 'line_fraction', 'line_final_permutation'),
     ('chain rhyme (rap)', 'line_fraction', 'line_permutation'),
     ('chain rhyme (rap)', 'line_fraction', 'within_line_shuffle'),
-    ('dvitiyakshara-prasa', 'line_fraction', 'global_redeal'),
-    ('dvitiyakshara-prasa', 'line_fraction', 'line_final_permutation'),
-    ('dvitiyakshara-prasa', 'line_fraction', 'line_permutation'),
     ('head rhyme (positional)', 'local_fraction@2', 'line_final_permutation'),
-    ('monai', 'line_fraction', 'global_redeal'),
-    ('monai', 'line_fraction', 'line_final_permutation'),
-    ('monai', 'line_fraction', 'line_permutation'),
-    ('monorhyme / leash', 'count', 'line_permutation'),
-    ('monorhyme / leash', 'line_fraction', 'global_redeal'),
-    ('monorhyme / leash', 'line_fraction', 'line_permutation'),
-    ('monorhyme / leash', 'line_fraction', 'within_line_shuffle'),
-    ('monorhyme / leash', 'local_fraction@0', 'global_redeal'),
-    ('monorhyme / leash', 'local_fraction@0', 'line_permutation'),
-    ('monorhyme / leash', 'local_fraction@0', 'within_line_shuffle'),
     ('rime riche', 'local_fraction@2', 'global_redeal'),
     ('rime riche', 'local_fraction@2', 'within_line_shuffle'),
     ('semirhyme', 'local_fraction@0', 'global_redeal'),
@@ -1730,7 +1771,6 @@ OFF_MENU_MOVERS = (
     ("Scots vowel-length rhyme (Aitken's Law)",
      'count', 'line_final_permutation'),
     ('alliteration', 'count', 'line_final_permutation'),
-    ('analysed rhyme', 'count', 'line_final_permutation'),
     ('assonance', 'count', 'line_final_permutation'),
     ('compound / phrasal rhyme', 'count', 'line_final_permutation'),
     ('compound / phrasal rhyme', 'local_fraction@0', 'line_final_permutation'),
@@ -1741,8 +1781,6 @@ OFF_MENU_MOVERS = (
     ('cynghanedd sain drosgl', 'count', 'line_final_permutation'),
     ('cynghanedd sain gadwynog', 'count', 'line_final_permutation'),
     ('cynghanedd sain lafarog', 'count', 'line_final_permutation'),
-    ('dvitiyakshara-prasa', 'count', 'within_line_shuffle'),
-    ('dvitiyakshara-prasa', 'local_fraction@2', 'within_line_shuffle'),
     ('epanalepsis', 'count', 'line_final_permutation'),
     ('epanalepsis', 'count', 'within_line_shuffle'),
     ('head rhyme (positional)', 'count', 'line_final_permutation'),
@@ -1750,9 +1788,6 @@ OFF_MENU_MOVERS = (
     ('internal rhyme', 'local_fraction@0', 'line_final_permutation'),
     ('linked rhyme', 'count', 'global_redeal'),
     ('linked rhyme', 'count', 'within_line_shuffle'),
-    ('monai', 'count', 'within_line_shuffle'),
-    ('monai', 'local_fraction@2', 'within_line_shuffle'),
-    ('monorhyme / leash', 'count', 'line_final_permutation'),
     ('mosaic rhyme', 'count', 'line_final_permutation'),
     ('mosaic rhyme', 'local_fraction@0', 'line_final_permutation'),
     ('perfect rhyme', 'count', 'line_final_permutation'),
@@ -2151,18 +2186,84 @@ def _read_slice(path, limit=None):
     declares `--- REGION:` and `--- FUNCTION:` as per-song overrides of the
     same shape.  A marker row is not a line of verse and it never was.
     """
-    out = []
+    return _read_slice_grounded(path, limit)[0]
+
+
+def _read_slice_grounded(path, limit=None, language=""):
+    """`_read_slice`, and the PRINTED GROUP INDEX of every line it keeps.
+
+    -> `(lines, stanzas, source, refused_marks)`.  `stanzas` is one 0-based
+    group per KEPT line and is `None` when the span carries no ground; the
+    other two readers return the same four-tuple.
+
+    ONE WALK, NOT TWO (doctrine 1, and M-38's ruling one module over).  The
+    drop rule and the group rule read the same rows in the same pass, so the
+    two lists cannot fall out of correspondence; a parallel function mirroring
+    the drop rule would be a second implementation of one question, which is
+    the defect this repo has now been bitten by twice.
+
+    THE GROUP RULE IS `grid.stanza_ground`'S, and the marks it consults are
+    `grid.MARK_OPENS_GROUP` — the closed table with a reason per row.  A span
+    carrying a mark that table does not declare returns `None`: a ground that
+    is right about four marks and silent about a fifth is a wrong answer, not
+    a partial one.
+    """
+    out, groups, refused = [], [], []
+    g, seen, opened = 0, False, False
     for l in open(path, encoding="utf-8"):
         l = l.rstrip()
-        if not l.strip():
-            continue
         t = l.lstrip()
-        if t.startswith("#") or t.startswith("[") or t.startswith("---"):
+        if not t:
+            if seen:
+                g += 1
+                seen = False
+            continue
+        if t.startswith("#"):
+            continue
+        if t.startswith("---"):
+            if seen:
+                g += 1
+                seen = False
+            opened = True
+            continue
+        if t.startswith("["):
+            m = _GRID.SECTION_MARK.match(l)
+            base = (_GRID.ingest_mark(m.group(1).strip(), language)[0]
+                    if m else None)
+            if base is None or base not in _GRID.MARK_OPENS_GROUP:
+                refused.append(base if base else t)
+            elif _GRID.MARK_OPENS_GROUP[base]:
+                if seen:
+                    g += 1
+                    seen = False
+                opened = True
             continue
         out.append(l)
+        groups.append(g)
+        seen = True
         if limit and len(out) >= limit:
             break
-    return out
+    return _grounded(out, groups, opened, refused)
+
+
+def _grounded(lines, groups, opened, refused):
+    """The four-tuple every grounded reader returns, and the ONE place the
+    three ways of having no ground are decided.
+
+      * a mark nobody declared    -> refused, named
+      * no break of any kind      -> `none`, and NOT "one stanza"
+      * a break fired             -> `printed_breaks`
+
+    The middle case is the whole point of M-39.  `stanzas_from_blank_lines`
+    answered it with all-zeros and called that "a TRUE statement about the
+    text", which made a one-stanza poem and an unframed stream produce the
+    same vector (doctrine 20).
+    """
+    if refused:
+        return lines, None, "none", tuple(sorted(set(refused)))
+    if not opened and len(set(groups)) < 2:
+        return lines, None, "none", ()
+    return lines, groups, "printed_breaks", ()
 
 
 def _read_dcs(path, limit=None):
@@ -2177,19 +2278,54 @@ def _read_dcs(path, limit=None):
     line is also the frame `dvitiyakshara-prasa` needs: the relation is
     second-syllable agreement BETWEEN pādas.
     """
-    out = []
+    return _read_dcs_grounded(path, limit)[0]
+
+
+def _read_dcs_grounded(path, limit=None, language=""):
+    """`_read_dcs`, and its ground.  -> `(lines, stanzas, source, refused)`.
+
+    THE GROUND IS PRINTED IN THE FILE AND IS NOT A MARK.  This slice carries
+    no blank line and no `[MARK]` inside the span read, so the rule the other
+    two readers apply finds nothing — and the TSV states the frame outright in
+    columns 1-3 (text, chapter file, verse number).  A verse is exactly the
+    group `dvitiyakshara-prasa` is quantified over: the relation is
+    second-syllable agreement BETWEEN THE PĀDAS OF ONE VERSE, and with the
+    frame collapsed it was being asked across forty pādas of four different
+    verses at once.
+
+    `source` is `printed_verse_number` and not `printed_breaks`, because the
+    two are different readings of different marks and a shared label would
+    make them one number (doctrine 58).
+
+    A SPAN THAT LANDS INSIDE ONE VERSE RETURNS NO GROUND, which is stricter
+    than the mark readers -- `cym_cynghanedd` reports a ground of ONE group
+    off a single mark.  The asymmetry is deliberate and it is about what the
+    evidence is: a mark is a printed ASSERTION that a group starts here, so
+    one mark is one grounded group; a verse NUMBER that never changes across
+    the span is a column this reader cannot tell apart from a column it
+    misread.  Unreached on the shipped panel (the `san` cell spans 14
+    verses); stated so that the day it is reached, the choice is one somebody
+    made.
+    """
+    out, groups, keys = [], [], {}
     for raw in open(path, encoding="utf-8"):
         if raw.startswith("#") or not raw.strip():
             continue
         f = raw.rstrip("\n").split("\t")
         if len(f) < 7:
             continue
+        key = (f[0], f[1], f[2])
+        if key not in keys:
+            keys[key] = len(keys)
         for pada in f[6].split(" | "):
             if pada.strip():
                 out.append(pada.strip())
+                groups.append(keys[key])
                 if limit and len(out) >= limit:
-                    return out
-    return out
+                    return (out, groups, "printed_verse_number", ()) \
+                        if len(set(groups)) > 1 else (out, None, "none", ())
+    return ((out, groups, "printed_verse_number", ())
+            if len(set(groups)) > 1 else (out, None, "none", ()))
 
 
 def _read_one_song(path, limit=None):
@@ -2207,28 +2343,69 @@ def _read_one_song(path, limit=None):
     one; taking more text makes the schema report nothing, which is a fact
     about the frame and not about Persian (doctrine 28).
     """
-    out, started = [], False
+    return _read_one_song_grounded(path, limit)[0]
+
+
+def _read_one_song_grounded(path, limit=None, language=""):
+    """`_read_one_song`, and its ground.  -> `(lines, stanzas, source,
+    refused)`.
+
+    Inside ONE song the `---` rows are the bound rather than a break, so the
+    only ground here is the mark table.  On the `fas` cell that is `[BAYT n]`
+    — which `MARK_OPENS_GROUP` declares TRUE quoting its own `MARK_REFUSED`
+    reason, "the couplet-unit of a ghazal" — and `[RADIF]`, declared FALSE
+    quoting "not a span of the song. It has no bars and no return."  So the
+    ghazal frames as its couplets, which is the unit the tradition names, and
+    the radif pointer does not cut a bayt in half.
+    """
+    out, groups, refused = [], [], []
+    started, g, seen, opened = False, 0, False, False
     for l in open(path, encoding="utf-8"):
         l = l.rstrip()
-        if not l.strip():
-            continue
         t = l.lstrip()
+        if not t:
+            continue
         if t.startswith("---"):
             if started:
                 break
             started = True
             continue
-        if t.startswith("#") or t.startswith("["):
+        if t.startswith("#"):
+            continue
+        if t.startswith("["):
+            if not started:
+                continue
+            m = _GRID.SECTION_MARK.match(l)
+            base = (_GRID.ingest_mark(m.group(1).strip(), language)[0]
+                    if m else None)
+            if base is None or base not in _GRID.MARK_OPENS_GROUP:
+                refused.append(base if base else t)
+            elif _GRID.MARK_OPENS_GROUP[base]:
+                if seen:
+                    g += 1
+                    seen = False
+                opened = True
             continue
         if started:
             out.append(l)
+            groups.append(g)
+            seen = True
             if limit and len(out) >= limit:
                 break
-    return out
+    return _grounded(out, groups, opened, refused)
 
 
 READERS = {"plain": _read_slice, "dcs_tsv": _read_dcs,
            "one_song": _read_one_song}
+
+#: THE SAME THREE READERS, EACH RETURNING ITS GROUND (M-39).  Keyed
+#: identically on purpose: a slice whose lines come from one reader and whose
+#: stanza vector came from another is the alignment defect doctrine 66 is
+#: about, and `quality/test_relations_null.py` pins that every key here has a
+#: `READERS` twin returning byte-identical lines.
+GROUNDED_READERS = {"plain": _read_slice_grounded,
+                    "dcs_tsv": _read_dcs_grounded,
+                    "one_song": _read_one_song_grounded}
 
 
 # --- THE DECLARATION STEPS ------------------------------------------------
@@ -2331,6 +2508,23 @@ class Slice:
                 f"nothing' and 'this schema was never asked' the same output "
                 f"(doctrine 20).")
         return READERS[self.reader](full, self.limit), None
+
+    def read_grounded(self, root):
+        """-> `(lines, stanzas, stanza_source, refused_marks, refusal)`.
+
+        `read()`'s four-tuple plus the PRINTED GROUP COORDINATE (M-39), from
+        the reader's own single walk of the file so the two lists cannot fall
+        out of correspondence.  `stanzas` is None where the span carries no
+        ground, and a None here is what makes the five `frame="stanza"`
+        schemas refuse on this cell instead of being quantified over one
+        frame.
+        """
+        full = os.path.join(root, self.path)
+        if not os.path.exists(full):
+            return (None, None, "none", (), self.read(root)[1])
+        lines, st, src, ref = GROUNDED_READERS[self.reader](
+            full, self.limit, self.language)
+        return lines, st, src, ref, None
 
     def prepare(self):
         return declaration_step(self.declare)
@@ -2600,17 +2794,21 @@ def panel_sweep(root=None, n=25, budget=None, panel=None, progress=None,
     root = root or os.path.dirname(HERE)
     out, per_slice = [], {}
     for sl in (panel or PANEL):
-        lines, refusal = sl.read(root)
+        lines, stanzas, src, refused_marks, refusal = sl.read_grounded(root)
         if refusal is not None:
             per_slice[sl.name] = (sl, None, refusal)
             continue
         phon = get_phonology(sl.language)
         if progress:
-            progress(f"slice {sl.name}: {len(lines)} lines")
+            groups = "no stanza ground" if stanzas is None else \
+                f"{len(set(stanzas))} stanzas ({src})"
+            progress(f"slice {sl.name}: {len(lines)} lines, {groups}"
+                     + (f", marks refused: {','.join(refused_marks)}"
+                        if refused_marks else ""))
         results, census = sweep(
             lines, phon, sl.language, n=n, seed=seed, budget=budget,
             prepare=sl.prepare(), progress=progress, statistics=statistics,
-            nulls=nulls)
+            nulls=nulls, stanzas=stanzas, stanza_source=src)
         per_slice[sl.name] = (sl, census, None)
         for r in results:
             out.append((sl.name, r))

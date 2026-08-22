@@ -86,9 +86,11 @@ def check(name, ok, note=""):
 
 
 def stream_of(lines, lang="eng"):
+    # M-39: NO pre-computed derivation.  A fixture that prints no blank line
+    # supplies no stanza ground, and the stanza-framed schemas refuse on it —
+    # which is what this file exists to keep honest one layer up.
     return R.build_stream(lines, get_phonology(lang),
-                          declaration={"language": lang},
-                          stanzas=R.stanzas_from_blank_lines(lines))
+                          declaration={"language": lang})
 
 
 #: Four lines with a printable caesura structure and a repeated tail, so the
@@ -324,19 +326,48 @@ def s9_blockers():
     # Capabilities a phonology or the bare stream already supplies are neither
     # declared by a step nor blocked; they are asked of the stream, so the set
     # under test is the one nothing in the panel can turn on.
+    # `read_grounded` AND NOT `read` (M-39).  The panel runs the grounded
+    # reader, so a test that built its streams from the bare one would ask
+    # this question of a pipeline production does not use — and would have
+    # answered that `stanza` is unreachable on a panel where seven of nine
+    # slices carry a printed ground.
     supplied_by_some_slice = set()
+    per_slice_ground = {}
     for sl in N.PANEL:
-        got, refusal = sl.read(ROOT)
+        got, stanzas, src, refused_marks, refusal = sl.read_grounded(ROOT)
         if refusal is not None:
             continue
+        per_slice_ground[sl.name] = (src, None if stanzas is None
+                                     else len(set(stanzas)), refused_marks)
         st = N._stream_of([R.tokenise(x) for x in got if x.strip()],
                           get_phonology(sl.language), sl.language,
-                          sl.prepare())
+                          sl.prepare(), stanzas)
         supplied_by_some_slice |= {c for c in needed if st.provides(c)}
     unreachable = needed - supplied_by_some_slice
     missing_entry = sorted(c for c in unreachable
                            if c not in N.BLOCKERS
                            and c not in N.NEVER_PROVIDED)
+    # M-39: the ground is a COORDINATE OF EVERY STANZA-FRAMED ROW, so it is
+    # pinned here rather than left to be re-derived by whoever reads a number.
+    check("§9 the panel's stanza grounds are what the corpus prints",
+          per_slice_ground == {
+              "eng": ("printed_breaks", 7, ()),
+              "fin": ("none", None, ()),
+              "cym": ("none", None, ()),
+              "cym_cynghanedd": ("printed_breaks", 1, ()),
+              "non": ("printed_breaks", 5, ()),
+              "san": ("printed_verse_number", 14, ()),
+              "msa": ("printed_breaks", 10, ()),
+              "ltc": ("printed_breaks", 10, ()),
+              "fas": ("printed_breaks", 7, ())},
+          f"{per_slice_ground}")
+    check("§9 TWO slices supply NO stanza ground, and that is a refusal "
+          "rather than one stanza",
+          [k for k, v in per_slice_ground.items() if v[0] == "none"]
+          == ["fin", "cym"],
+          "Kalevala and Alun print no blank line, no `---` row and no "
+          "[MARK] inside the 40 lines read; the five `frame=\"stanza\"` "
+          "schemas refuse there and are quantified everywhere else")
     check("§9 every capability NO panel slice supplies has a recorded "
           "blocker",
           not missing_entry, str(missing_entry))

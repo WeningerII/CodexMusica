@@ -413,6 +413,33 @@ class Frames:
     beat: object = None                              # doctrine 4: stays None
     hemistich: dict = field(default_factory=dict)    # line -> (bayt, half)
     bayt_source: str = "none"
+    #: WHERE `Unit.stanza` CAME FROM (M-39).  `blank_lines` and `collapsed`
+    #: and `none` are `build_stream`'s own three; a caller declaring a list
+    #: gets `declared` or whatever name it passes as `stanza_source=`, which
+    #: today is `printed_breaks` or `printed_verse_number` from
+    #: `relations_null`'s grounded readers.  The set is OPEN on purpose: this
+    #: module serves nine languages and does not own the list of ways a
+    #: printer can mark a stanza, so it records the name rather than
+    #: validating it against a table it has no standing to write (doctrine
+    #: 45/65).  What it does own is the difference between a name and NONE.
+    #:
+    #: This field exists because the stanza coordinate was the one frame with
+    #: no provenance, and the omission had the exact shape doctrine 20 is
+    #: about.  `stanzas_from_blank_lines` on a text printing NO blank line
+    #: returns all-zeros, and its own docstring called that "a TRUE statement
+    #: about the text" -- which it is about the LIST, and is not about the
+    #: text.  A `forall stanza` figure then quantified over one frame and
+    #: returned a number, and nothing downstream could tell "this poem is one
+    #: stanza" from "nobody ever told this stream where the stanzas are".
+    #:
+    #: Measured on the `relations_null` panel, 2026-08-22: all NINE slices
+    #: reported exactly ONE distinct `Unit.stanza`, because both panel readers
+    #: drop blank lines before tokenising.  The five `frame="stanza"` schemas
+    #: were quantified over a frame that could not vary, on every cell of the
+    #: run.  (`frame="line_pair"` is `line // 2` and varied 20 ways on all
+    #: nine, so `symploce` is NOT in that set -- the finding as first written
+    #: said six schemas and the number is five.)
+    stanza_source: str = "none"
 
 
 #: Capability prefix for a DECLARED QUOTIENT (defect P14).  `capabilities()`
@@ -556,6 +583,17 @@ class Stream:
         if cap == "bayt":
             return self._frame_supply(cap, fr.bayt_source, len(fr.hemistich),
                                       "lines mapped to a (bayt, half)")
+        if cap == "stanza":
+            # M-39.  Source and population are separate facts here for the same
+            # reason they are for the caesura, and the separation is what makes
+            # a one-stanza POEM distinguishable from a stream nobody framed.
+            # The population is the number of distinct frames a `forall stanza`
+            # figure would quantify over, so a caller reading `Supply.n` can
+            # say "grounded, 8 stanzas" or "grounded, 1 stanza" and mean two
+            # different things by them.
+            return self._frame_supply(
+                cap, fr.stanza_source, len({u.stanza for u in self.units}),
+                "distinct stanzas over the stream's units")
         if cap == "line_status":
             # DECLARED is a non-empty tuple; POPULATED is a non-empty LABEL in
             # it.  `line_status_from(lines, predicate, label)` with a predicate
@@ -664,7 +702,7 @@ def line_status_from(text_lines, predicate, label):
 
 def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
                  declaration=None, hyphen_continues=True, stanzas=None,
-                 line_status=None, exclude_status=()):
+                 line_status=None, exclude_status=(), stanza_source=""):
     """Syllabify a whole song ONCE into one flat indexed sequence.
 
     O(total syllables).  A 40-line lyric is ~250 units; a 5,000-line corpus item
@@ -676,6 +714,16 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
     (defect P8 -- it used to be the constant 0, which collapsed all five
     stanza-framed schemas into one frame for every text).  Pass a list to
     declare it, or `stanzas=False` to keep every line in stanza 0.
+
+    `stanza_source` NAMES WHERE A DECLARED LIST CAME FROM (M-39), and it is
+    the difference between "a caller said so" and "the printer said so".  A
+    caller passing a list gets `Frames.stanza_source = 'declared'` unless it
+    names something more specific -- `quality/relations_null`'s panel passes
+    `printed_breaks` or `printed_verse_number` -- and the name reaches every
+    row through `Supply.source`, so a number quantified over a stanza frame
+    can be read together with what supplied the frame.  Ignored when `stanzas`
+    is None or False: those two have sources of their own, and letting a
+    caller label a derivation it did not make is the laundering this closed.
 
     `line_status` is a per-line label, or a callable `raw_line -> label`, and
     defaults to nothing declared (defect P10).  `exclude_status` names labels
@@ -689,8 +737,21 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
     units, lines, toks, unreadable, excluded = [], [], {}, [], []
     if stanzas is None:
         stanzas = stanzas_from_blank_lines(text_lines)
+        # THE DERIVATION IS ONLY A SOURCE WHERE IT HAD EVIDENCE (M-39).  A
+        # blank line is the evidence; a text carrying none did not tell this
+        # function anything, and recording `blank_lines` there would be the
+        # gate-opens-on-a-source defect `supply()` already documents one seam
+        # over.  `quality/grid.stanzas_from_sections` is the other ground a
+        # caller can declare, and it is DECLARED rather than sniffed for here:
+        # a checker silently picking a coordinate is the bug (doctrine 45).
+        stanza_source = ("blank_lines"
+                         if any(not (l or "").strip() for l in text_lines)
+                         else "none")
     elif stanzas is False:
         stanzas = [0] * len(text_lines)
+        stanza_source = "collapsed"
+    else:
+        stanza_source = stanza_source or "declared"
     if callable(line_status):
         line_status = tuple(line_status(l) or "" for l in text_lines)
     elif line_status is None:
@@ -748,6 +809,7 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
         lines.append(tuple(idxs))
     return Stream(units=units, lines=lines, tokens=toks, phon=phon,
                   declaration=dict(declaration or {}),
+                  frames=Frames(stanza_source=stanza_source),
                   text_lines=tuple(text_lines), unreadable=unreadable,
                   line_status=line_status, excluded_lines=excluded)
 
@@ -1953,6 +2015,16 @@ class RelationSchema:
                 need.add(QUOTIENT_CAP + q)
         for i in self.identity:
             need.add(_CAP_OF_LEVEL.get(i.level, i.level))
+        # M-39: A FRAME IS A CAPABILITY, and until 2026-08-22 this method was
+        # the reason one of them was not.  `_frame_key` reads `Unit.stanza`,
+        # every unit of an unframed stream carries 0, and a `forall stanza`
+        # figure therefore quantified over ONE frame and reported a number
+        # rather than refusing.  `line` and `token` are free -- every unit
+        # carries both -- and `line_pair` is `line // 2`, which is defined
+        # wherever a line index is; `stanza` is the only frame in `_frame_key`
+        # with a ground it can be missing.
+        if getattr(self.figure, "frame", None) == "stanza":
+            need.add("stanza")
         need.discard("token")        # always available: the surface text
         return tuple(sorted(need))
 
@@ -2268,7 +2340,19 @@ def mirrored(a, b, a_keys, b_keys):
 
     Measured on `metidja.txt` (16 non-blank lines, `eng`, 48 of the 77
     schemas realising): the rule drops 14,254 candidate pairs whose mirror is
-    a candidate, and RECOVERS 114 instances the positional rule deleted.  All
+    a candidate, and RECOVERS 114 instances the positional rule deleted.
+
+    THE POPULATION MOVED ON 2026-08-22 AND THESE NUMBERS ARE NOT RE-DERIVED
+    (M-39, doctrine 58).  `metidja.txt` prints no blank line, so it supplies
+    no stanza ground and the five `frame="stanza"` schemas now refuse on it:
+    ~~48~~ **46** of the 77 realise there.  The 14,254 was summed over the
+    larger population and is left at its measured value with its date and its
+    coordinate stated, rather than replaced by a number this docstring would
+    then be the only record of.  What is UNAFFECTED is the finding itself:
+    all five of those schemas are SYMMETRIC (`spans[0] == spans[1]`), and the
+    114 recovered instances fall entirely on ASYMMETRIC schemas, so neither
+    the 114, nor the four schemas carrying them, nor `mosaic rhyme`'s 69 is
+    touched by the five leaving.  All
     114 fall on 4 ASYMMETRIC schemas and NONE on any of the 60 symmetric
     ones, which is the separation this function makes mechanical.  72 of the
     114 carry a TRUE verdict, and `mosaic rhyme` alone accounts for 69 of
@@ -5357,8 +5441,13 @@ def main(argv):
     # BLANK lines, and this module derives the stanza frame from them.
     raw = [l.rstrip() for l in open(paths[0]).read().splitlines()
            if not l.strip().startswith(("[", "---", "#"))]
-    st = build_stream(raw, get_phonology(lang), declaration={"language": lang},
-                      stanzas=stanzas_from_blank_lines(raw))
+    # `stanzas` LEFT TO THE DERIVATION, not pre-computed and handed back
+    # (M-39).  `raw` keeps blank lines -- the comment above says why -- so a
+    # text that prints its stanzas frames exactly as before; what changes is
+    # a text that prints NONE, where passing the all-zero derivation as an
+    # explicit list recorded `stanza_source='declared'` and let five
+    # `frame="stanza"` schemas quantify over one frame.
+    st = build_stream(raw, get_phonology(lang), declaration={"language": lang})
     print(f"  {paths[0]}   lines {sum(1 for l in raw if l.strip())}   units "
           f"{len(st.units)}   UNREADABLE tokens {len(st.unreadable)}")
     if inert:

@@ -588,8 +588,17 @@ those 26 are permanent**, naming `poet` first and `dialect rhyme` with it;
 `poet` was added to `ALT_SURFACES` and left `NEVER_PROVIDED` earlier the same
 day, so `dialect rhyme` is declarable and the count is 2. **EXTENDABLE 31 is a
 `budget=2.0` reading and the budget is a wall-clock verdict this file's own
-census says does not reproduce** — at `budget=None` it is **33**, the two extra
-being `chain rhyme (rap)` and `compound / phrasal rhyme`. And the sweep line
+census says does not reproduce** — at `budget=None` it is ~~33~~ **29**, the
+two extra being `chain rhyme (rap)` and `compound / phrasal rhyme`.
+
+> **REPINNED AGAIN 2026-08-22 (M-39).** ~~31~~ **27** budgeted and ~~33~~
+> **29** unbudgeted. A `figure(frame="stanza")` now asks for the frame it
+> quantifies over, and the ledger slice as `_read` renders it — blank lines
+> and `[SECTION]` rows dropped — supplies none, so `analysed rhyme`,
+> `monorhyme / leash`, `dvitiyakshara-prasa` and `monai` moved from EXTENDABLE
+> to CANNOT OBTAIN and `blues AAB stanza` from NO INSTANCE to the same place.
+> That is five schemas whose printed numbers here were taken over a frame that
+> could not vary, and the remedy named is the right one: declare the ground. And the sweep line
 below (34 live schemas, 268 rows in 199 s) is the same budgeted reading; at
 `budget=None` it is **36 live / 292 rows**. Superseded figures kept visible
 (doctrine 17). `relations_null.py --verify` now pins the unbudgeted reading,

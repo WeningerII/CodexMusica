@@ -2652,6 +2652,90 @@ def test_the_section_coordinate_is_supplied():
                        requires=()).holds(a0, b0, st0) is False)
 
 
+def test_the_stanza_ground_is_printed_or_refused():
+    """`MISSING.md` M-39, the second half.  A stanza frame that no text
+    supplied and a stanza frame of one must not be the same vector."""
+    print("\nM-39: the stanza ground is READ FROM THE PAGE, or REFUSED")
+    import quality.relations as _R
+    import quality.relations_null as _N
+
+    # -- the table answers a question of its own, and not `MARK_FUNCTION`'s.
+    check("BAYT/SLOKA/PANTUN are NOT section functions and DO open a group",
+          all(_G.ingest_mark(m, lg)[2] == ""
+              and _G.MARK_OPENS_GROUP[_G.ingest_mark(m, lg)[0]] is True
+              for m, lg in (("BAYT 1", "fas"), ("SLOKA", "san"),
+                            ("PANTUN ABAB", "msa"))),
+          "each refusal says in its own words that the mark is a couplet-, "
+          "stanza- or quatrain-unit; reading MARK_FUNCTION as the group table "
+          "would have dropped all three")
+    check("RADIF is a rhyme device and opens NOTHING",
+          _G.MARK_OPENS_GROUP["RADIF"] is False,
+          "'not a span of the song. It has no bars and no return.'")
+    check("PART is ABSENT rather than guessed, so a fin text carrying it "
+          "refuses its ground WHOLE",
+          "PART" not in _G.MARK_OPENS_GROUP
+          and _G.stanza_ground(["[PART: Kaason puoli]", "a line"], "fin")
+          == (None, "none", ("PART",)))
+
+    # -- the three outcomes, and the middle one is the whole entry.
+    marked = ["[VERSE 1]", "a cat", "a hat", "", "[CHORUS]", "the moon"]
+    st, src, ref = _G.stanza_ground(marked, "eng")
+    check("a marked text grounds, and the mark and the blank line agree",
+          (st, src, ref) == ([0, 0, 0, 0, 1, 1], "printed_breaks", ()))
+    check("a text printing NO break of any kind supplies NO ground — it does "
+          "NOT supply one stanza",
+          _G.stanza_ground(["a cat", "a hat"], "eng") == (None, "none", ()))
+    check("stanzas_from_sections maps a section vector to group indices",
+          _G.stanzas_from_sections(["", "V#0", "V#0", "C#1"]) == [0, 1, 1, 2])
+
+    # -- and the panel, which is where the collapse was measured.
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    grounds = {}
+    for sl in _N.PANEL:
+        lines, stanzas, src, refused, refusal = sl.read_grounded(root)
+        if refusal is not None:
+            continue
+        check("%s: the grounded reader returns the SAME lines as the plain "
+              "one" % sl.name,
+              lines == _N.READERS[sl.reader](os.path.join(root, sl.path),
+                                             sl.limit),
+              "one walk, not two — a parallel function mirroring the drop "
+              "rule would be a second implementation of one question")
+        grounds[sl.name] = (src, None if stanzas is None
+                            else len(set(stanzas)))
+    check("seven of nine panel slices carry a printed ground, and fin/cym "
+          "carry none",
+          grounds == {"eng": ("printed_breaks", 7),
+                      "fin": ("none", None), "cym": ("none", None),
+                      "cym_cynghanedd": ("printed_breaks", 1),
+                      "non": ("printed_breaks", 5),
+                      "san": ("printed_verse_number", 14),
+                      "msa": ("printed_breaks", 10),
+                      "ltc": ("printed_breaks", 10),
+                      "fas": ("printed_breaks", 7)},
+          "%s" % grounds)
+
+    # -- the consequence, on the schema that sits second in the admissible set
+    from quality.phonology import get as _get_phon
+    sl = {x.name: x for x in _N.PANEL}["eng"]
+    lines, stanzas, _s, _r, _x = sl.read_grounded(root)
+    phon = _get_phon("eng")
+    toks = [_R.tokenise(l) for l in lines if l.strip()]
+    def _inst(ground):
+        st = _N._stream_of(toks, phon, "eng", sl.prepare(), ground)
+        out = _R.realise(_R.REGISTRY["monorhyme / leash"], st, keep="true")
+        return (out.capability if isinstance(out, _R.Refusal)
+                else sum(1 for i in out if i.verdict is True))
+    check("monorhyme/leash on Poe: 30 instances inside the printed stanzas",
+          _inst(stanzas) == 30,
+          "it read 268 over one 40-line block — a leash is a run of ONE rhyme "
+          "sound inside ONE stanza, and 238 of those pairs no leash contains")
+    check("...and with NO ground declared it REFUSES, naming the frame",
+          _inst(None) == "stanza",
+          "the refusal is the point: an instrument that never looked and one "
+          "that looked and found nothing must not print the same thing")
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -2689,7 +2773,8 @@ if __name__ == "__main__":
                test_a_return_that_varies_off_the_text,
                test_a_refusal_is_true_in_a_language,
                test_the_elaboration_pointer_and_the_rank_that_was_refused,
-               test_the_section_coordinate_is_supplied):
+               test_the_section_coordinate_is_supplied,
+               test_the_stanza_ground_is_printed_or_refused):
         fn()
     print("=" * 62)
     if FAILURES:

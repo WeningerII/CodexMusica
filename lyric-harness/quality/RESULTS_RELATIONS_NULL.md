@@ -34,10 +34,32 @@ is n, not argument.
 **EVERYTHING §B SAYS ABOUT THE INSTRUMENT STILL STANDS**, including the two
 findings §A did not make: the collapsed stanza frame (§B's last paragraph —
 the panel readers drop blank lines and `_stream_of` derives stanzas from blank
-lines, so every slice is ONE stanza and six stanza/`line_pair`-framed schemas
-were quantified over a frame that could not vary) **applies to the n=200 run
-identically and is not fixed here**; and §B's warning that every row is a
-best-of over 4 statistics × 4 nulls × 9 slices applies to §A unchanged.
+lines, so every slice is ONE stanza) **applies to the n=200 run identically**;
+and §B's warning that every row is a best-of over 4 statistics × 4 nulls ×
+9 slices applies to §A unchanged.
+
+> **THE COLLAPSED FRAME IS NOW FIXED IN THE CODE, AND IT COSTS THIS DOCUMENT
+> THREE ROWS** (`MISSING.md` M-39, 2026-08-22). Two corrections to §B's
+> paragraph first: it is **five** schemas and not six — `line_pair` is
+> `line // 2` and took 20 distinct values on all nine slices, so `symploce`
+> was never collapsed — and the laundering was not the derivation but
+> `_stream_of`, which computed `stanzas_from_blank_lines` over a join of
+> TOKENS and passed the all-zero result as an explicit declaration, so
+> `Stream.supply('stanza')` answered `present`.
+>
+> A `frame="stanza"` figure now ASKS for the frame it quantifies over and
+> refuses when nobody supplied one; `grid.stanza_ground` supplies it from what
+> the sources print. Seven of nine slices ground (eng 7 stanzas, non 5 vísur,
+> msa 10 pantun, ltc 10 詞, fas 7 bayts, san 14 verses, cym_cynghanedd 1); the
+> Kalevala and Alun print no break of any kind inside the 40 lines read and
+> the five schemas **refuse** there rather than reporting a number.
+>
+> **Struck in §A: `monorhyme / leash` (§A.1, the +227 row), `Scots
+> vowel-length rhyme (Aitken's Law)` and `monai` (§A.2).** §B is left
+> UNALTERED as promised, and its own copies of those rows (its §"ADMISSIBLE"
+> tables, `monorhyme / leash` 268/41 among them) are superseded by this
+> paragraph rather than by an edit. Nothing else in either section is
+> affected: no other row reads `Unit.stanza`.
 
 ---
 
@@ -97,7 +119,7 @@ that slice; `rows` is cleared / moved over the whole panel.
 | schema | statistic | null | slice | observed | null max | gap | lift | nulls | rows |
 |---|---|---|---|---:|---:|---:|---:|---:|---|
 | `perfect rhyme` | count | within_line_shuffle | eng | 261 | 30 | **+231** | 32.62× | 4/4 | 6/36 |
-| `monorhyme / leash` | count | global_redeal | eng | 268 | 41 | **+227** | 17.87× | 4/4 | 6/42 |
+| ~~`monorhyme / leash`~~ | ~~count~~ | ~~global_redeal~~ | ~~eng~~ | ~~268~~ | ~~41~~ | ~~**+227**~~ | ~~17.87×~~ | ~~4/4~~ | ~~6/42~~ |
 | `alliteration` | count | global_redeal | fin | 45 | 19 | +26 | 5.00× | 2/4 | 5/18 |
 | `Kalevala alliteration (weak)` | count | global_redeal | fin | 45 | 19 | +26 | 5.00× | 2/4 | 11/36 |
 | `mosaic rhyme` | count | within_line_shuffle | eng | 53 | 33 | +20 | 6.62× | 2/4 | 2/60 |
@@ -118,8 +140,26 @@ that slice; `rows` is cleared / moved over the whole panel.
 relation is rare under the null and NOT that the effect is large — read the
 gap, which for `rime riche` is two instances.
 
+> **`monorhyme / leash` IS STRUCK, 2026-08-22, and the row is the second in
+> this table.** Both §A and §B measured it — and the four other
+> `frame="stanza"` schemas, and `Scots vowel-length rhyme (Aitken's Law)` in
+> §A.2, which returns the identical instance set — over a stanza frame THAT
+> COULD NOT VARY. `_stream_of` computed `stanzas_from_blank_lines` over a join
+> of tokens, which carries no blank line, and passed the all-zero result as an
+> explicit declaration; every panel slice was therefore one stanza and a leash
+> was enumerated across all forty lines. Grounded on what the sources print
+> (`MISSING.md` M-39, closed the same day), the eng observation is **30
+> instances, not 268** — a leash is a run of one rhyme sound inside ONE
+> stanza. **The +227 gap is not re-stated as smaller: it is withdrawn**, since
+> the null was drawn through the same collapsed frame and has to be re-run
+> before any gap can be quoted. What survives unchanged is `perfect rhyme` at
+> the top of this table and every unframed row below it; what does not is this
+> row, `monai` in §A.2, and the `Aitken's Law` row that mirrors it. The
+> re-run is M-39's first remaining piece.
+
 **Three cleared under all four randomisations** — `perfect rhyme`,
-`monorhyme / leash`, `light rhyme` — and fourteen of the seventeen under two
+~~`monorhyme / leash`~~ (struck above), `light rhyme` — and fourteen of the
+seventeen under two
 or more nulls that destroy different coordinates. **Three cleared under
 exactly one of four** (`cynghanedd sain`, `cynghanedd sain gadwynog`,
 `pantun ABAB`) and three have gaps of two or three instances (`cynghanedd
@@ -141,17 +181,25 @@ number and none is a measurement of the relation the canon names.
 
 | schema | statistic | null | slice | gap | lift |
 |---|---|---|---|---:|---:|
-| `Scots vowel-length rhyme (Aitken's Law)` | count | global_redeal | eng | +227 | 17.87× |
+| ~~`Scots vowel-length rhyme (Aitken's Law)`~~ | ~~count~~ | ~~global_redeal~~ | ~~eng~~ | ~~+227~~ | ~~17.87×~~ |
 | `anaphora` | local_fraction@2 | line_permutation | msa | +0.5263 | 8.00× |
 | `cluster consonance / skothending span` | local_fraction@2 | within_line_shuffle | cym_cynghanedd | +0.5 | 11.00× |
 | `syllabic rhyme` | local_fraction@2 | line_final_permutation | non | +0.3333 | 10.00× |
 | `leonine rhyme` | count | global_redeal | ltc | +9 | 13.00× |
-| `monai` | count | within_line_shuffle | cym_cynghanedd | +4 | 2.31× |
+| ~~`monai`~~ | ~~count~~ | ~~within_line_shuffle~~ | ~~cym_cynghanedd~~ | ~~+4~~ | ~~2.31×~~ |
 | `cynghanedd lusg` | count | within_line_shuffle | eng | +3 | 5.00× |
 | `symploce` | count | line_permutation | msa | +3 | ∞ |
 | `semirhyme` | count | global_redeal | fin | +2 | 3.17× |
 | `incremental repetition` | count | global_redeal | msa | +2 | ∞ |
 | `consonance` | local_fraction@2 | line_final_permutation | non | +0.0185 | 2.40× |
+
+> **TWO OF THE ELEVEN ARE STRUCK for the same reason as §A.1's second row.**
+> `Scots vowel-length rhyme (Aitken's Law)` returns the IDENTICAL instance set
+> to `monorhyme / leash` on eng (§A.4 measures that), so the collapsed stanza
+> frame carried it too; `monai` is `forall stanza` in its own right. Nine
+> stand. The count in this heading is left at eleven and not re-typed to nine:
+> re-running the two is what decides where they land, and a heading edited
+> ahead of the measurement would be the thing this document is written against.
 
 The remedy for all eleven is a corpus, not a null. `monai` is Tamil and
 `Scots vowel-length rhyme` is Scots, and this repo has neither a phonology nor

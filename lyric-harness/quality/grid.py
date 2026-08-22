@@ -3032,6 +3032,166 @@ def sections_from_marks(text_lines, language=""):
     return sections, status
 
 
+#: base mark -> does this mark OPEN A NEW METRICAL GROUP?
+#:
+#: A THIRD QUESTION ABOUT THE SAME TOKEN, and it is a separate table because
+#: it is a separate question.  `MARK_FUNCTION` asks whether a mark names a
+#: SONG-FORM function; `MARK_REFUSED` says why a mark does not.  Neither
+#: answers what `relations.build_stream(stanzas=...)` needs to know, and
+#: reading either one as if it did is doctrine 43 in the direction this
+#: module usually catches it going the other way: `BAYT`, `SLOKA` and
+#: `PANTUN` are all refused as functions, and all three refusals say IN THEIR
+#: OWN WORDS that the mark is a couplet-unit, a metrical stanza-unit and a
+#: quatrain form — which is exactly a metrical group.  A ghazal has no chorus
+#: AND has stanzas.
+#:
+#: EVERY ROW QUOTES A DECISION ALREADY WRITTEN IN THIS FILE.  Nothing here is
+#: a new judgement about a tradition; the reasons in `MARK_FUNCTION` and
+#: `MARK_REFUSED` were written for the other two questions and each already
+#: says whether the mark is A SPAN OF THE TEXT.  Where an existing reason does
+#: NOT say, the mark is ABSENT from this table and the ground is refused
+#: whole (see `stanza_ground`) rather than being built from the marks that
+#: happen to be declared: a stanza vector that is right about four marks and
+#: silent about a fifth is not a partial answer, it is a wrong one.
+MARK_OPENS_GROUP = {
+    # spans of the song — `MARK_FUNCTION`'s five, which are functions
+    # precisely because they are spans.
+    "VERSE": True, "CHORUS": True, "BURDEN": True, "BURDEN-TAIL": True,
+    "REFRAIN": True,
+    # metrical units, each quoting its own `MARK_REFUSED` reason.
+    "BAYT": True,        # "the couplet-unit of a ghazal"
+    "SLOKA": True,       # "a metrical stanza-unit"
+    "PANTUN": True,      # "a whole quatrain FORM"
+    "QUATRAIN": True,    # "a printing/metrical unit"
+    "CYWYDD": True,      # "a Welsh METRE name" — it heads a poem
+    # pìobaireachd movements.  `URLAR`'s refusal says it verbatim: "It IS a
+    # span of the performance, which is why it is a mark at all"; the other
+    # three are refused "for the same reason".
+    "URLAR": True, "SIUBHAL": True, "TAORLUATH": True, "CRUNLUATH": True,
+    "PATTER": True,      # "a music-hall function" — a function is a span
+    # NOT a span, and each says so.
+    "RADIF": False,      # "not a span of the song. It has no bars and no
+    #                      return."
+    "NOTE": False, "SIDENOTE": False, "MUSIC": False, "GOTHIC": False,
+    "VARIANT": False,    # editorial apparatus, all five
+    # `PART` IS DELIBERATELY ABSENT.  Its reason — "a speaker or role
+    # attribution in the Kalevala wedding songs" — settles that it is not a
+    # FUNCTION and says nothing about whether a change of speaker begins a
+    # metrical group.  Deciding that here would be inventing a fact about
+    # Finnish wedding songs to make a vector come out non-empty.
+}
+
+#: A `---` row is the corpus's own SONG boundary (`--- TITLE:`, `--- SOURCE:`
+#: and the rest are written by the loaders in `quality/`), and a new song is a
+#: new group under any reading.
+GROUP_BREAK_PREFIX = "---"
+
+
+def stanza_ground(text_lines, language=""):
+    """-> (stanzas, source, refusals).  THE PRINTED GROUP COORDINATE, for
+    `relations.build_stream(stanzas=...)`.
+
+    `stanzas` is one 0-based group index per input line, or `None` when the
+    text carries no ground at all.  `source` is `"printed_breaks"` or
+    `"none"`.  `refusals` names every mark the span carried that
+    `MARK_OPENS_GROUP` does not declare.
+
+    ONE RULE, APPLIED TO EVERY TRADITION (doctrine 1).  A group ends at a run
+    of blank lines, at a `---` row, or at a `[MARK]` that `MARK_OPENS_GROUP`
+    declares to open one.  There is no per-file branch and no sniffing: the
+    three break kinds are the ones the corpus prints, and which marks are of
+    the third kind is a closed table with a reason per row.
+
+    WHY THIS EXISTS.  `relations.stanzas_from_blank_lines` is the only other
+    ground and it has evidence only where a text prints a blank line.  Both
+    of `relations_null`'s panel readers drop blank lines AND `[MARK]` rows
+    before tokenising, so measured on 2026-08-22 all NINE panel slices
+    reported exactly ONE distinct `Unit.stanza` and the five `frame="stanza"`
+    schemas were quantified over a frame that could not vary — including
+    `monorhyme / leash`, second in that run's admissible set at +227.
+
+    A REFUSED SPAN RETURNS `None` AND NOT A BEST EFFORT.  If any mark in the
+    span is undeclared the whole ground goes, because the alternative is a
+    vector that silently merges two groups and reports a number for it.
+    """
+    stanzas, refusals = [], []
+    g, seen, opened = 0, False, False
+    for raw in text_lines:
+        line = raw or ""
+        t = line.strip()
+        if not t:
+            stanzas.append(g)
+            if seen:
+                g += 1
+                seen = False
+            continue
+        if t.startswith(GROUP_BREAK_PREFIX):
+            if seen:
+                g += 1
+                seen = False
+            opened = True
+            stanzas.append(g)
+            continue
+        m = SECTION_MARK.match(line)
+        if m:
+            base, _n, _fn, _ref = ingest_mark(m.group(1).strip(), language)
+            if base not in MARK_OPENS_GROUP:
+                refusals.append(base)
+                stanzas.append(g)
+                continue
+            if MARK_OPENS_GROUP[base]:
+                if seen:
+                    g += 1
+                    seen = False
+                opened = True
+            stanzas.append(g)
+            continue
+        stanzas.append(g)
+        seen = True
+    if refusals:
+        return None, "none", tuple(sorted(set(refusals)))
+    if not opened and len(set(stanzas)) < 2:
+        # No break of any kind fired.  That is not "one stanza": it is a text
+        # that never told this function where its stanzas are, and the two
+        # must not produce the same vector (doctrine 20).
+        return None, "none", ()
+    return stanzas, "printed_breaks", ()
+
+
+def stanzas_from_sections(sections):
+    """-> a per-line 0-based STANZA index derived from a per-line SECTION
+    vector, for `relations.build_stream(stanzas=...)`.
+
+    THE SECOND GROUND, and it is declared rather than sniffed.  `relations`
+    ships one derivation, `stanzas_from_blank_lines`, and it has evidence only
+    where the text prints a blank line.  Measured on the `relations_null`
+    panel (2026-08-22): both panel readers drop blank lines before tokenising,
+    so all NINE slices reported exactly one distinct `Unit.stanza` and the five
+    `frame="stanza"` schemas were quantified over a frame that could not vary.
+    Three of the nine slices -- `fin`, `cym`, `san` -- print neither a blank
+    line NOR a section mark inside the span read, so for those the honest
+    answer is that no ground exists and `Stream.supply('stanza')` refuses.
+    The other six carry marks the corpus already prints, and this turns them
+    into the coordinate.
+
+    A SECTION IS NOT A STANZA and this does not claim otherwise.  A verse can
+    print three stanzas under one `[VERSE 1]`, and where a text carries both
+    grounds they will disagree; the caller picks, the pick is recorded in
+    `Frames.stanza_source`, and the two are never averaged.  What this rules
+    out is the third state -- no ground at all, silently rendered as one.
+
+    Lines before the first mark carry `""` from `sections_from_marks` and are
+    grouped together as stanza 0, which is a real group (the material a text
+    prints above its first heading) and not a fallback.
+    """
+    out, seen, cur = [], {}, None
+    for sec in sections:
+        if sec not in seen:
+            seen[sec] = len(seen)
+        out.append(seen[sec])
+    return out
+
+
 def section_census(text_lines, language=""):
     """-> {'marks': n, 'sections': n, 'functions': {...}, 'refused': {...},
     'lines_before_first_mark': n} -- what a text's section marks ARE.
@@ -3088,4 +3248,6 @@ __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
            "named_air_kind", "named_air_census",
            # the section coordinate -- MISSING.md M-39
            "SECTION_MARK", "SECTION_MARKER_STATUS",
-           "sections_from_marks", "section_census"]
+           "sections_from_marks", "section_census",
+           "stanzas_from_sections",
+           "MARK_OPENS_GROUP", "GROUP_BREAK_PREFIX", "stanza_ground"]

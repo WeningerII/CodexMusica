@@ -122,6 +122,14 @@ DECL = {"language": "eng"}
 
 
 def stream(lines, **kw):
+    # M-39: THE FIXTURES DECLARE THEIR OWN STANZA GROUND, and `False` is the
+    # declaration "every line is in one stanza".  These fixtures are four-line
+    # quatrains, so that is true of them; what it is NOT is the silence that
+    # `stanzas=None` now records, and the difference is the whole of M-39.
+    # Before `Frames.stanza_source` existed the two were the same vector and a
+    # `forall stanza` figure could not tell an unframed stream from a
+    # one-stanza poem.  §M-39 below pins the undeclared case.
+    kw.setdefault("stanzas", False)
     return R.build_stream(lines, ENG, declaration=dict(DECL, **kw.pop(
         "declaration", {})), **kw)
 
@@ -440,14 +448,38 @@ def test_p7_project():
 def test_p8_stanza():
     print("\nP8. the stanza is a coordinate READ FROM THE PAGE, not the "
           "constant 0")
-    st = stream(["a cat", "a hat", "", "the moon", "a tune"])
+    # `stanzas=None` DEFEATS THE FIXTURE HELPER'S DECLARATION on purpose: this
+    # section is about the blank-line DERIVATION, so it has to be the thing
+    # under test rather than a default the helper supplied (M-39).
+    st = stream(["a cat", "a hat", "", "the moon", "a tune"], stanzas=None)
     check("a blank line ends a stanza", {u.stanza for u in st.units} == {0, 1},
           "was {0} for every text in the repo")
+    check("...and the derivation RECORDS that it had evidence",
+          st.frames.stanza_source == "blank_lines"
+          and st.supply("stanza").state == "present",
+          f"M-39: source={st.frames.stanza_source!r}")
     check("stanza 0 is the first two lines",
           {u.token_text for u in st.units if u.stanza == 0} == {"a", "cat",
                                                                 "hat"})
-    check("a text with no blank line is one stanza",
-          {u.stanza for u in stream(QUATRAIN).units} == {0})
+    # SUPERSEDED 2026-08-22 (M-39, doctrine 17).  This used to read "a text
+    # with no blank line is one stanza" and assert `{0}` off the derivation.
+    # The vector is still {0} and the CLAIM was wrong: a text printing no
+    # blank line did not tell the derivation anything, and calling that "one
+    # stanza" is the sentence that let five `frame="stanza"` schemas be
+    # quantified over a frame that could not vary on all nine panel slices.
+    undeclared = stream(QUATRAIN, stanzas=None)
+    check("a text with no blank line SUPPLIES NO STANZA GROUND",
+          {u.stanza for u in undeclared.units} == {0}
+          and undeclared.frames.stanza_source == "none"
+          and undeclared.supply("stanza").state == "absent",
+          f"was asserted to be 'one stanza'; source is now "
+          f"{undeclared.frames.stanza_source!r}")
+    check("...so a stanza-framed schema REFUSES on it, naming the frame",
+          isinstance(R.realise(R.REGISTRY["monorhyme / leash"], undeclared),
+                     R.Refusal)
+          and R.realise(R.REGISTRY["monorhyme / leash"],
+                        undeclared).capability == "stanza",
+          "it used to return edges over one frame and report a number")
     check("stanzas=False keeps the old behaviour, on purpose",
           {u.stanza for u in R.build_stream(
               ["a cat", "", "a hat"], ENG, declaration=DECL,
@@ -458,7 +490,7 @@ def test_p8_stanza():
               stanzas=[3, 7]).units} == {3, 7})
 
     mono = R.REGISTRY["monorhyme / leash"]
-    st2 = stream(["a cat", "a hat", "", "the moon", "a tune"])
+    st2 = stream(["a cat", "a hat", "", "the moon", "a tune"], stanzas=None)
     found = R.assemble(mono, R.realise(mono, st2, keep="all"), st2)
     check("two stanzas, each a monorhyme, are two findings — P3 and P8 "
           "together", len(found) == 2 and {f[0] for f in found} == {0, 1},
@@ -1816,9 +1848,10 @@ def _cym_stream(name):
     raw = [l.rstrip() for l in
            open(os.path.join(HERE, "..", "corpus", name),
                 encoding="utf-8").read().splitlines()]
+    # M-39: the derivation is `build_stream`'s to make.  Pre-computing it and
+    # passing the result labelled the absence of blank lines as a declaration.
     return raw, R.build_stream(raw, _get("cym"),
-                               declaration={"language": "cym"},
-                               stanzas=R.stanzas_from_blank_lines(raw))
+                               declaration={"language": "cym"})
 
 
 def test_inert_command_runs_and_can_fail():
@@ -1952,17 +1985,48 @@ def test_relation_report_renderer_runs():
     check("`python3 quality/relations.py metidja.txt` RUNS end to end and "
           "exits 0",
           rc == 0 and "phonology eng   schemas declared 77" in out
-          and "RAN AND FIRED 24" in out,
-          "REFUSED 26 · RAN AND FOUND NOTHING 27 · RAN AND FIRED 24; "
-          "instances 1167 / 4518 / 2. Measured 2026-08-13, the first run of "
-          "this verb's own renderer.")
+          and "RAN AND FIRED 20" in out,
+          "REFUSED 31 · RAN AND FOUND NOTHING 26 · RAN AND FIRED 20; "
+          "instances 1050 / 4340 / 2. REPINNED 2026-08-22 by M-39 from "
+          "~~26 · 27 · 24; 1167 / 4518 / 2~~ (measured 2026-08-13): "
+          "`metidja.txt` prints NO blank line, so it supplies no stanza "
+          "ground and the five `frame=\"stanza\"` schemas refuse on it "
+          "instead of quantifying over one frame.")
+
+    # THE UNSOURCED BRANCH MOVED TO A FIXTURE WHERE IT FIRES FOR A REASON.
+    # This used to read `"[UNSOURCED] blues AAB stanza" in out` off the
+    # metidja run above, and M-39 showed that hit for what it was: metidja is
+    # sixteen lines of Browning with no stanza break, the collapsed frame put
+    # all sixteen in one stanza, and a schema that wants an AAB TRIPLET found
+    # one across a poem that has no triplet in it. The branch was exercised by
+    # an artefact. It is exercised here by an actual twelve-bar stanza — two
+    # of them, so the `forall stanza` figure has something to quantify over —
+    # and the fixture declares its ground the way the corpus does, with a
+    # printed blank line.
+    aab = ["I woke up this morning with the walking blues",
+           "I woke up this morning with the walking blues",
+           "well I got to keep moving, got nothing left to lose",
+           "",
+           "the sun going down and the sky is turning grey",
+           "the sun going down and the sky is turning grey",
+           "and my baby left me, nothing left to say"]
+    blues_st = R.build_stream(aab, ENG, declaration={"language": "eng"})
+    check("the AAB fixture supplies a stanza ground from its printed blank "
+          "line, and TWO stanzas — not one, which is what made the old hit "
+          "meaningless",
+          blues_st.frames.stanza_source == "blank_lines"
+          and blues_st.supply("stanza").n == 2,
+          f"{blues_st.supply('stanza')}")
+    _, btext = _capture(R.print_relation_report, R.relation_report(blues_st))
     check("...and the UNSOURCED branch — a second dict read by schema name — "
           "is exercised rather than merely present",
-          "[UNSOURCED] blues AAB stanza" in out
-          and "no tradition sourced:" in out,
-          "the only branch in the renderer that indexes UNSOURCED[schema]; "
-          "on a text where no unsourced schema fires it is never reached, "
-          "which is every fixture in this file.")
+          "[UNSOURCED] blues AAB stanza" in btext
+          and "no tradition sourced:" in btext,
+          "the only branch in the renderer that indexes UNSOURCED[schema]. "
+          "`UNSOURCED` has exactly two members and the other, `refrain by "
+          "reference`, needs `stub_resolution`, which nothing in this repo "
+          "provides — so this schema on a real AAB stanza is the only route "
+          "to the branch that is not an artefact.")
 
     # THE APPARATUS FILTER, which this reader was the last holdout of.
     import tempfile
@@ -2218,8 +2282,8 @@ def _eng_corpus_stream(name):
            open(os.path.join(HERE, "..", "corpus", name),
                 encoding="utf-8").read().splitlines()
            if not l.strip().startswith(("[", "---", "#"))]
-    return raw, R.build_stream(raw, ENG, declaration={"language": "eng"},
-                               stanzas=R.stanzas_from_blank_lines(raw))
+    # M-39, as above.
+    return raw, R.build_stream(raw, ENG, declaration={"language": "eng"})
 
 
 def _split(st):

@@ -424,6 +424,16 @@ five-relation path and does not call this.~~
 > `admits`, `rhyme_density`, the chains — is five-valued and consults neither.**
 > A CLI verb reaching the 77 schemas is not the grader reaching them.
 
+**TESTED WHILE OPEN.** `quality/test_relations.py` names this entry while it
+stays PARTIAL, and the two halves do not overlap. What the suite guards is the
+TREE's side — that `REGISTRY` holds 77 schemas, that 58 declare an English
+tradition, that `classify_pair` reads the axes the heading said were missing.
+What stays open is the GRADER's side: `lyric_harness.score`/`admits` are still
+five-valued and consult neither module. No regression asserts that they are,
+so nothing here is being tested green while the gap is open — the entry closes
+when the grading path consults the registry, which is the relation ladder's
+own destination and not a fix this entry can make alone.
+
 ### E-3 · ~~Internal rhyme is two-line only~~ Internal rhyme has two windows and neither is declared `PARTIAL`
 **Now:** ~~`internal_matches` supports a pair of lines. No verse-wide or
 song-wide positional rhyme graph.~~
@@ -3956,6 +3966,86 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-40 · Eight admissible-set failures are eight facts about the TEXT, and the survey already names a chain rhyme nobody built `OPEN`
+**Raised 2026-08-22 by the owner, reading the n=200 admissible set and asking
+where the missing corpora would come from. Two separable findings; the second
+was found while checking the first and is the sharper of the two.**
+
+**FINDING 1 — `E44` IS A SURVEY ROW WITH NO SCHEMA, AND THE NAME COLLISION IS
+WHY NOBODY NOTICED.** `quality/canon_index.tsv` carries **two** chain rhymes:
+
+| row | sense | source it cites | status |
+|---|---|---|---|
+| `E43` | chain rhyme (**rap sense**) | Bradley, *Book of Rhymes* — "extends a single rhyme over a succession of lines by deleting word boundaries and even consonants" | BUILT, as `chain rhyme (rap)` |
+| `E44` | chain rhyme (**interlocking-scheme sense**) | "English literary (**Shelley, Frost**)" | `unrecorded` / `appeal` — **NO SCHEMA** |
+
+`REGISTRY` holds `E43` and not `E44`. The `(rap)` suffix on the schema name is
+correct and is doing exactly the disambiguating job it should — the defect is
+that the OTHER sense, the one Chaucer, Byron, Shelley and Morris are known
+for, is a row in the survey with nothing implementing it. It is not covered by
+`linked rhyme` either: that schema is `cyrch-gymeriad` / `leixa-pren` /
+`coblas capcaudadas`, a LAST-word-to-FIRST-word chain, where `E44` is a rhyme
+SOUND carried forward into the next stanza's scheme (terza rima's `aba bcb`).
+Two different relations that share an English name. **This is the
+best-evidenced step-8 item on the ladder**: the survey named it, named its
+poets, and nobody built it.
+
+**FINDING 2 — THE EIGHT THAT LEFT THE ADMISSIBLE SET AT n=200 DID NOT LEAVE
+FOR ONE REASON, AND ONLY THREE ARE CORPUS PROBLEMS.** Kept apart because the
+remedies are different (doctrine 44):
+
+*(a) CLEARED, BUT OUT OF TRADITION — the corpus IS the remedy, and
+`RESULTS_RELATIONS_NULL.md` §A.2 says so in as many words.*
+
+| schema | cleared on | its own tradition | owner's nomination |
+|---|---|---|---|
+| `semirhyme` | `fin` (Kalevala) | English | Charles Kingsley (d. 1875) |
+| `anaphora` | `msa` (pantun) | English | William Shakespeare (d. 1616) |
+| `cynghanedd lusg` | **`eng` (Poe)** | Welsh | John Ceiriog Hughes (d. 1887) |
+
+`cynghanedd lusg` clearing on Poe and on NEITHER Welsh cell is the one that
+should not be allowed to stand: §A.4 files it as an instrument problem, and a
+Welsh text that actually uses the metre is how the two readings get separated.
+
+*(b) RAN AND LOST TO THEIR OWN NULL (`RESULTS_RELATIONS_NULL.md` §A.3.1) — a
+corpus MIGHT be the remedy and it is not yet shown to be.* `cross rhyme`,
+`interlaced rhyme` and `linked rhyme` carry a `both_line_final` or a DIFFER
+channel that **excludes the material the poet actually rhymed**, which §A.3.1
+measures as the mechanism for the whole below-chance group. Ernest Henley,
+John Keats and Percy Shelley are worth running BECAUSE the two hypotheses are
+currently indistinguishable — "the form is not in Poe" and "the rule is
+mis-specified" produce the same row — and not because the corpus is known to
+be the fault.
+
+*(c) NEITHER — one is a NULL problem.* `epistrophe / radif` accounts for **all
+1,508 refused replicate draws** in the n=200 run by itself; `global_redeal`
+refused 200 of 200, leaving an empty null. More Poe cannot move a schema whose
+randomisation refuses to draw. §A.4 states the deeper version: no null in
+`NULLS` is a null ABOUT the radif — they all destroy the definition rather
+than the effect (doctrine 69).
+
+*(d) `cynghanedd groes o gyswllt` — the nomination is sound and the EDITION
+gate is the obstacle.* Tudur Aled (d. c. 1526) is a far better witness than
+either Welsh cell on the panel: `cym_alun_strict.txt` is a 19th-century lyric
+poet and `cym_cynghanedd_llywelyn_goch_cywydd.txt` is one cywydd marwnad.
+Doctrine 80 applies with its usual force here — the author gate is trivial by
+four centuries and the BINDING gate is the edition, and the standard modern
+Tudur Aled is T. Gwynn Jones (d. 1949), which does **not** clear the 1931
+cutoff. Gutenberg is also thin on Welsh. So (a)'s and (b)'s six come off
+Gutenberg on author death and these two need a source with its own ruling.
+
+**WHAT THIS ENTRY DOES NOT CLAIM.** That any of the eight WILL clear on the
+nominated text. Every one of them is an argmax over 4 statistics × 4 nulls ×
+9 slices already, and adding a tenth slice chosen because a schema is expected
+to do well on it is doctrine 19's bias with a poet's name on it. The
+nominations are a QUEUE, and each one lands as a slice declared in `PANEL`
+before it is run, so the cell is fixed in advance of the number.
+
+**Why it matters:** the ladder's north star is the 601, and eight schemas are
+currently sitting at "measured, and the measurement is about the wrong text".
+That is the cheapest kind of movement available — no new schema, no new
+capability, one corpus each.
+
 ### M-39 · The section coordinate is declared four layers deep and supplied by nobody `PARTIAL`
 **Found 2026-08-22 on the owner's question of whether to take the structure
 work while the null sweep ran — by checking whether the relation layer was
@@ -4022,22 +4112,106 @@ NOT carried in this field (doctrine 1).
 **AND IT HAS A LIVE CONSEQUENCE THE NULL RUN ALREADY PAID.** `Figure.frame`
 is `stanza` on 5 schemas and `line_pair` on 1. The panel's reader drops blank
 lines along with the apparatus rows, and `_stream_of` derives stanzas FROM
-blank lines — so **every panel slice is one stanza**. Measured on the real
-slice: 24 lines, 0 blanks, 1 distinct stanza, 1 distinct `Unit.section`. Six
-of the 77 were nulled over a frame that could not vary, and their rows in
-`quality/RESULTS_RELATIONS_NULL.md` are the weakest in that run.
+blank lines — so **every panel slice is one stanza**.
 
-**PARTIAL, and this is what remains.** The coordinate is suppliable and the
-parser is tested; **nothing supplies it yet in production** — `build_stream`'s
-callers still pass nothing, `_stream_of` still derives stanzas from blank
-lines, and no schema declares either section placement. Three separable
-pieces: wire the callers, ground the stanza frame on sections rather than
-blank lines and re-run the six affected schemas, and decide whether any schema
-SHOULD declare `different_sections` (which is step 8 territory, a new schema,
-not this).
+> **CORRECTED 2026-08-22, same day, by measuring instead of counting the
+> declarations.** This paragraph said ~~six~~ of the 77 were nulled over a
+> frame that could not vary, and the number is **five**. `line_pair` is
+> `u.line // 2`, which is defined wherever a line index is: measured on all
+> nine slices it takes **20 distinct values**, so `symploce` was never in the
+> collapsed set. The five are `analysed rhyme`, `monorhyme / leash`,
+> `dvitiyakshara-prasa`, `monai` and `blues AAB stanza`. The earlier figure
+> came from reading `Figure.frame` off the registry rather than reading
+> `Unit.stanza` off a stream — a declaration counted where a measurement was
+> owed.
+
+**THE COLLAPSE IS CLOSED, AND THE HOLE THAT HID IT WAS ONE LINE.**
+`_stream_of` did not let `build_stream` derive the stanzas; it computed the
+derivation itself and passed the RESULT:
+
+```python
+stanzas=R.stanzas_from_blank_lines(lines)      # `lines` is a join of TOKENS
+```
+
+`lines` there carries no blank line by construction, so the derivation always
+returned all-zeros — and passing it as an explicit list recorded the source as
+`declared`, laundering "no evidence" into "the caller said so".
+`Stream.supply('stanza')` then answered `present` and the five ran over one
+frame. Three changes close it:
+
+* **`Frames.stanza_source`** (`blank_lines` | `sections` | `declared` |
+  `collapsed` | `none`), set by `build_stream`, and a derivation with no blank
+  line to read records `none` rather than claiming the text said one stanza.
+* **`RelationSchema.capabilities()` asks for `stanza`** when the figure is
+  stanza-framed, so `realise()` REFUSES naming the frame instead of returning
+  a number over a frame nobody supplied (doctrines 20/45).
+* **`grid.MARK_OPENS_GROUP` and `grid.stanza_ground`** supply the ground from
+  what the corpus already prints. One rule for every tradition: a group ends
+  at a blank line, at a `---` row, or at a `[MARK]` the table declares to open
+  one. Every row of that table quotes a decision already written in `grid.py`
+  — `BAYT` "the couplet-unit of a ghazal", `SLOKA` "a metrical stanza-unit",
+  `PANTUN` "a whole quatrain FORM" all open a group; `RADIF` "not a span of
+  the song. It has no bars and no return" does not. `PART` is deliberately
+  ABSENT, and a span carrying an undeclared mark refuses WHOLE rather than
+  building a vector that silently merges two groups.
+
+**MEASURED, the panel's nine slices now frame as their sources print them:**
+`eng` 7 stanzas (3/6/7 lines) · `non` 5 vísur of 8 · `msa` 10 pantun of 4 ·
+`ltc` 10 詞 of 4 · `fas` 7 bayts of 2 · `san` 14 verses of 2–4 pādas, from the
+TSV's own verse number rather than a mark · `cym_cynghanedd` 1 declared group
+· **`fin` and `cym` NO GROUND AT ALL** — the Kalevala and Alun print no blank
+line, no `---` and no `[MARK]` inside the 40 lines read, so the five schemas
+refuse there, which is the honest answer and not a zero. All nine readers are
+byte-identical to before (hashed and compared); the ground comes from the same
+single walk, so the two lists cannot fall out of correspondence.
+
+**EVERY STANZA-FRAMED NUMBER IN THE PANEL MOVED, most by an order of
+magnitude.** `monorhyme / leash` on `eng` **268 → 30** instances — and that is
+the schema sitting SECOND in the admissible set of
+`quality/RESULTS_RELATIONS_NULL.md` §A at +231. `analysed rhyme` 26 → 4 on
+`eng`, 93 → 3 on `non`, 98 → 5 on `san`. A leash is a run of one rhyme sound
+inside ONE stanza; over a 40-line block with no boundaries, 238 of those 268
+"instances" were pairs no leash can contain.
+
+**THE SAME LINE WAS IN THE CLI, AND IT IS FIXED TOO.** `lyric_harness.py`'s
+`relations` verb went out of its way to KEEP blank lines — its own comment
+says why, naming these five schemas — and then spent the care on
+`stanzas=RL.stanzas_from_blank_lines(raw)`, the same pre-computed derivation
+passed as a declaration. On a lyric that prints no blank line the five ran
+over one frame. Measured on a four-line fixture: unframed it now reports
+**14 finding / 33 refusing** where it reported 15/28, and the same fixture
+with one blank line between two couplets reports `monorhyme / leash` at **2
+instances — one leash per stanza** instead of 6 across the lot.
+
+**PARTIAL, and this is what remains.**
+1. **The five schemas' null rows are not re-run.** Their observations moved and
+   so will their nulls, since both are drawn through the same frame — so
+   `RESULTS_RELATIONS_NULL.md` §A.1's `monorhyme / leash` row is now a number
+   whose frame is superseded, and it is struck there rather than quoted.
+2. **`sections=` is still supplied by nobody.** `stanza_ground` supplies the
+   STANZA; `Unit.section` and the two placement predicates remain unreached,
+   and no schema declares either kind (step 8 territory, a new schema). The
+   CLI grounds on BLANK LINES only — `is_apparatus_line` has already dropped
+   the `[VERSE n]` rows by the time `build_stream` is called, so a lyric that
+   marks its sections and prints no blank line still refuses there. The panel
+   reads both because its readers see the marks; the CLI does not, and that
+   asymmetry is real and is not yet closed.
+3. **The ledger slice stays ungrounded on purpose.** `_read` keeps `---` rows
+   as verse and `EXTENSION_LEDGER` is recorded through it, so grounding it in
+   the same commit that changed what it measures would verify nothing. The
+   five are repinned there as CANNOT OBTAIN, which is true of that reader.
+
+**TESTED WHILE OPEN.** `quality/test_grid.py` guards the two BUILT halves —
+`sections_from_marks` end to end, and §M-39's stanza-ground table — while the
+entry stays PARTIAL for the three above. `quality/test_relations.py` §P8 pins
+that an undeclared text supplies NO ground and that a stanza-framed schema
+refuses on it; `quality/test_relations_null.py` §9 pins the nine slices'
+grounds by name. None of the three names the unreached half, and the entry
+closes when the five null rows are re-run and `sections=` has a caller.
+
 **Why it matters:** `verse` and `chorus` are not decoration here. They are the
-frame six relation schemas quantify over, currently supplied by blank-line
-guessing and thrown away before the sweep sees it.
+frame five relation schemas quantify over, and until this entry the frame was
+supplied by a derivation that had nothing to read and said so to nobody.
 
 ### M-38 · One quantifier coordinate, two modules, two spellings — and `exists_k` counts different objects in each `PARTIAL`
 **Found 2026-08-22 by `quality/relation_shapes.py`'s author while reading all
@@ -4146,6 +4320,14 @@ Pinned in `test_relation_shapes.py` §11, both directions: the canonical four,
 the aliases, all 77 resolving, three bad spellings refusing at construction,
 a good one still building, and `Selection` refusing k ∈ {1, 3, 5} while
 `Figure(quantifier="exists_k", k=7)` builds.
+
+**TESTED WHILE OPEN.** §11 guards the half that was BUILT — one vocabulary,
+one canonicaliser, the construction-time gate — and asserts nothing about the
+half that remains. It cannot: the open claim is that `_select()` counts a
+PROXY where `assemble()` counts MEMBERS, and pinning the proxy would freeze
+the disagreement rather than surface it. The entry stays PARTIAL until
+something asks for k ≥ 3, at which point the two implementations have to be
+reconciled and §11 gains the row that proves they agree.
 
 ### M-37 · 26 relation names mean two different things, and the two judges disagree `CLOSED` 2026-08-22
 **Found 2026-08-22 on the first move of step 3 — "route the pair-shaped

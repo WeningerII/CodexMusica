@@ -6114,8 +6114,23 @@ def main():
                if not is_apparatus_line(l)]
         lines = [l for l in raw if l.strip()]
         phon = _phonology_or_refuse(lang)
-        st = RL.build_stream(raw, phon,
-                             stanzas=RL.stanzas_from_blank_lines(raw))
+        # `stanzas=None` AND NOT THE PRE-COMPUTED DERIVATION (M-39,
+        # 2026-08-22).  This read
+        #
+        #     stanzas=RL.stanzas_from_blank_lines(raw)
+        #
+        # which is the identical VALUE and a different CLAIM: passing a list
+        # records `Frames.stanza_source = 'declared'`, so a text printing no
+        # blank line at all handed the five `frame="stanza"` schemas an
+        # all-zero vector labelled as the caller's declaration, and they ran
+        # over one frame and printed a number.  `relations_null._stream_of`
+        # carried the same line and it is what collapsed the whole null panel.
+        # Passing None lets `build_stream` record `blank_lines` where it had a
+        # blank line to read and `none` where it did not, and the schemas
+        # REFUSE on the second (doctrine 20).  `raw` still keeps the blank
+        # lines, which is what the paragraph above is about, so a text that
+        # prints its stanzas still frames as it did.
+        st = RL.build_stream(raw, phon, stanzas=None)
         # --schema= IS A SUBSTRING FILTER OVER THE POPULATION THE TWO COUNTS
         # BELOW ARE TAKEN FROM, and an unmatched value used to filter all 77
         # schemas out and print `schemas finding something: 0   refusing on a
