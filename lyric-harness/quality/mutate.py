@@ -1651,13 +1651,26 @@ def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
             for f in futures.as_completed(fs):
                 t = fs[f]
                 st, dt, tail = f.result()
-                if st != "PASS" and (confirm_all or t in LOAD_SENSITIVE
-                                     or st == "TIMEOUT"):
-                    # Same rule as a catch: red under load is not red. A
-                    # TIMEOUT is ALWAYS re-run, whatever LOAD_SENSITIVE says —
-                    # that list is about wall-clock ASSERTIONS, and a timeout
-                    # is the runner's own clock, which every test is exposed to
-                    # once siblings are on the machine.
+                if st != "PASS":
+                    # EVERY BASELINE RED IS RE-CONFIRMED, 2026-08-22, and this
+                    # module's own comment on `LOAD_SENSITIVE` asked for it:
+                    # *"`--confirm-all` applies the same treatment to every
+                    # red, which is the honest setting IF THIS LIST IS EVER
+                    # SUSPECTED OF BEING INCOMPLETE."* It is now measured
+                    # incomplete: `quality/test_propose.py` — not on the list
+                    # — went red in a baseline running the tree at width
+                    # `cpu_count()` and passes cleanly both at head and in an
+                    # isolated copy. A hand-kept list of load-sensitive suites
+                    # is a population nobody wrote down (doctrine 58), and its
+                    # failure mode here is the expensive one: a false red
+                    # drops a suite from EVERY mutation, for the whole run.
+                    #
+                    # THE MUTATION RUNS KEEP THE OLD RULE, deliberately. There
+                    # a red is a CATCH, so a false red reports a hole as
+                    # COVERED — the opposite direction, already argued above —
+                    # and confirming every one of them would multiply the
+                    # sweep's cost by its catch rate. The BASELINE is run once,
+                    # its reds are few, and only the reds pay.
                     verdict, detail = confirm_failure(tree, t, timeout)
                     if verdict == "FLAKY":
                         st, tail = "PASS", ""

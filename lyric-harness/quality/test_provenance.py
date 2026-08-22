@@ -29,6 +29,17 @@ from quality.provenance import (ADMIT_DATE_VERIFIED,  # noqa: E402
 
 FAILURES = []
 
+#: THREE OUTCOMES, NEVER SUMMED (doctrine 79/20). A check can PASS, it can
+#: FAIL, and it can be REFUSED — the environment cannot answer the question,
+#: which is not the same as the answer being no. Added 2026-08-22: §12's
+#: population census shells out to `git ls-files`, so OUTSIDE A CHECKOUT it
+#: came back FAIL and this whole suite exited 1 — with nothing wrong with it.
+#: `quality/mutate.py` runs the suite in a SHADOW TREE (a copy, no `.git`) to
+#: build its baseline, read that FAIL as red, and EXCLUDED THIS SUITE FROM
+#: EVERY MUTATION SWEEP. A suite refusing correctly, charged as broken, and
+#: dropped from the adversary that grades the tests (`MISSING.md` M-30).
+REFUSALS = []
+
 
 def check(name, cond, detail=""):
     print(f"  {'PASS' if cond else 'FAIL'}  {name}")
@@ -36,6 +47,13 @@ def check(name, cond, detail=""):
         print(f"          {detail}")
     if not cond:
         FAILURES.append(name)
+
+
+def refuse(name, reason):
+    """This run cannot ask the question. NOT a failure and NOT a pass."""
+    print(f"  REFUSED  {name}")
+    print(f"          {reason}")
+    REFUSALS.append(name)
 
 
 def gate(strict=True):
@@ -407,17 +425,38 @@ def test_every_data_table_has_a_provenance_row():
     import fnmatch
     import subprocess
     root = os.path.join(HERE, "..")
-    try:
-        out = subprocess.run(["git", "ls-files", "data"], cwd=root,
-                             capture_output=True, text=True, timeout=60)
-        tracked = out.stdout.split() if out.returncode == 0 else None
-    except (OSError, subprocess.SubprocessError):
-        tracked = None
-    # A CENSUS THAT CANNOT SEE THE POPULATION MUST REFUSE, not pass. Globbing
-    # instead would silently fold in the gitignored artifacts
-    # (provenance_ledger.tsv, feature_cache.json, cmudict.dict, data/nltk),
-    # which have no row BECAUSE THEY ARE NOT COMMITTED -- and a check that
-    # reports them as defects punishes the table for working (doctrine 20).
+    def _git(*args):
+        try:
+            r = subprocess.run(("git",) + args, cwd=root, capture_output=True,
+                               text=True, timeout=60)
+            return r.stdout if r.returncode == 0 else None
+        except (OSError, subprocess.SubprocessError):
+            return None
+
+    # TWO WAYS THIS CENSUS CAN COME BACK EMPTY AND THEY ARE NOT THE SAME FACT
+    # (added 2026-08-22, `MISSING.md` M-30). Outside a git work tree the
+    # question CANNOT BE ASKED — the instrument is blind, and saying so is a
+    # refusal. Inside one, an empty answer is a real defect. Both were spelled
+    # `FAIL`, so this suite exited 1 in any copied tree; `quality/mutate.py`
+    # builds its baseline in exactly such a copy, read that as red, and
+    # dropped this suite from every mutation sweep it has ever run.
+    probe = _git("rev-parse", "--is-inside-work-tree")
+    in_checkout = probe is not None and probe.strip() == "true"
+    listing = _git("ls-files", "data") if in_checkout else None
+    tracked = listing.split() if listing is not None else None
+    if not in_checkout:
+        refuse("the tracked population is readable",
+               "not a git work tree, so `git ls-files` cannot name the "
+               "population. INCONCLUSIVE, not a failure (doctrine 20): "
+               "globbing instead would fold in the gitignored artifacts "
+               "(provenance_ledger.tsv, feature_cache.json, cmudict.dict, "
+               "data/nltk), which have no row BECAUSE THEY ARE NOT "
+               "COMMITTED, and reporting those as defects would punish the "
+               "table for working. The census below did NOT run.")
+        return
+    # A CENSUS THAT CANNOT SEE THE POPULATION MUST REFUSE, not pass. Inside a
+    # checkout an empty listing is the real defect this check is for, and it
+    # stays a FAIL.
     check("the tracked population is readable — a census that cannot see its "
           "population REFUSES rather than passing on an empty list",
           bool(tracked), f"git ls-files returned {tracked!r}")
@@ -476,6 +515,49 @@ def test_every_data_table_has_a_provenance_row():
           blob[:80] or "NO ROW")
 
 
+def test_a_refusal_is_not_a_failure():
+    """13. THE SUITE'S OWN THIRD OUTCOME (`MISSING.md` M-30, 2026-08-22).
+
+    §12's census shells out to `git ls-files`, and OUTSIDE A CHECKOUT that
+    question cannot be asked at all. It was spelled `FAIL`, so this whole
+    suite exited 1 in any copied tree with nothing wrong with it — and
+    `quality/mutate.py` builds its mutation baseline in exactly such a tree (a
+    copy, no `.git`), read the FAIL as red, and DROPPED THIS SUITE FROM EVERY
+    MUTATION SWEEP IT HAS EVER RUN. A suite refusing correctly, charged as
+    broken, and excluded from the adversary that grades the tests.
+
+    Doctrine 79: a refusal is not a failure. Doctrine 20: and it is not a pass
+    either, which is why `REFUSALS` is printed rather than swallowed.
+    """
+    print("\n13. a refusal is not a failure, and not a pass")
+    check("the suite has a third outcome and it is not spelled with the "
+          "other two", callable(globals().get("refuse"))
+          and isinstance(REFUSALS, list))
+    # THE ANTI-VACUITY HALF, and it is the one that matters: in a real
+    # checkout the census must actually RUN. A detector that always refused
+    # would turn §12 off everywhere and print a tidy green summary.
+    import subprocess
+    root = os.path.join(HERE, "..")
+    try:
+        probe = subprocess.run(["git", "rev-parse", "--is-inside-work-tree"],
+                               cwd=root, capture_output=True, text=True,
+                               timeout=60)
+        here_is_a_checkout = (probe.returncode == 0
+                              and probe.stdout.strip() == "true")
+    except (OSError, subprocess.SubprocessError):
+        here_is_a_checkout = False
+    if here_is_a_checkout:
+        check("this run IS inside a checkout, so §12's census ran rather "
+              "than refusing — the guard cannot silence the check it guards",
+              not REFUSALS, str(REFUSALS))
+    else:
+        # Run from a copy: the refusal is the CORRECT answer and the suite
+        # must still be green, which is the whole point of the split.
+        check("run from a copied tree, §12 REFUSED rather than failing",
+              REFUSALS == ["the tracked population is readable"]
+              and not FAILURES, f"{REFUSALS} / {FAILURES}")
+
+
 if __name__ == "__main__":
     test_route_one_pd_affirmation()
     test_open_licence_is_not_a_pd_claim()
@@ -489,8 +571,17 @@ if __name__ == "__main__":
     test_noncommercial_is_a_rejection()
     test_the_dataset_a_date_names_has_to_have_a_row()
     test_every_data_table_has_a_provenance_row()
+    test_a_refusal_is_not_a_failure()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
         sys.exit(1)
-    print("all provenance regressions pass")
+    if REFUSALS:
+        # NOT A PASS AND NOT A FAILURE. Exit 0, because nothing here is red —
+        # but the line is printed so a run in a copied tree cannot be read as
+        # a clean bill on a census that never ran (doctrine 20).
+        print(f"{len(REFUSALS)} REFUSED (the environment could not answer): "
+              f"{', '.join(REFUSALS)}")
+        print("every check that COULD run passed; the refused one did not run")
+    else:
+        print("all provenance regressions pass")

@@ -3959,6 +3959,51 @@ the two reasons produced it, since the remedies differ.
 is in the `--static` arm CI already invokes; removing the new clause reds
 exactly the check that names it.
 
+**AND THE SAME RUN FOUND TWO MORE SUITES DROPPED FOR REASONS THAT ARE NOT
+FAILURES — 2026-08-22, later the same day.** The baseline's own output named
+`quality/test_provenance.py` and `quality/test_propose.py` `BASELINE-RED`.
+**Both PASS at head and both PASS in an isolated copy**, so both were dropped
+from every mutation sweep for something other than their own health, and the
+causes are different.
+
+**`test_provenance.py` WAS REFUSING, CORRECTLY, AND HAD NO WAY TO SAY SO.**
+Its §12 census shells out to `git ls-files` and its own comment says a census
+that cannot see its population must REFUSE rather than pass on an empty list —
+which is right, and doctrine 20. But the refusal was spelled `FAIL`, so
+OUTSIDE A CHECKOUT the whole suite exited 1 with nothing wrong with it. And
+`mutate.py` builds its baseline in a SHADOW TREE — `shutil.copytree` into a
+temp directory, no `.git` — so this suite has been red in every mutation
+baseline this repo has ever run, excluded as already-red, for a question it
+was right to decline. Reproduced by copying the tree and running it:
+`git ls-files returned None`. **FIXED**: the suite has a third outcome.
+`refuse()` prints `REFUSED`, the summary names it, and the exit code stays 0
+because nothing is red — the two cases are now told apart by asking
+`git rev-parse --is-inside-work-tree` first, so an empty listing INSIDE a
+checkout is still the FAIL it should be. `quality/test_provenance.py` §13 has
+both arms and its anti-vacuity half is the load-bearing one: inside a checkout
+it requires `REFUSALS` to be EMPTY, so a detector that always refused would
+turn §12 off everywhere and could not hide behind a tidy green summary.
+
+**`test_propose.py` WENT RED UNDER THE BASELINE'S OWN PARALLELISM.** Not
+reproducible at head or in an isolated copy; the baseline runs the tree at
+width `cpu_count()`. `mutate.py` re-confirms a red only when it is in
+`LOAD_SENSITIVE` (one member: `test_relations.py`), is a TIMEOUT, or
+`--confirm-all` was passed — and that module's own comment already wrote the
+remedy: *"`--confirm-all` applies the same treatment to every red, which is
+the honest setting IF THIS LIST IS EVER SUSPECTED OF BEING INCOMPLETE."* It is
+now measured incomplete. **FIXED**: every BASELINE red is re-confirmed in
+isolation, always. A hand-kept list of load-sensitive suites is a population
+nobody wrote down (doctrine 58), and here its failure mode is the expensive
+one — a false red drops a suite from EVERY mutation for the whole run. The
+MUTATION runs keep the old rule deliberately: there a red is a CATCH, so a
+false red reports a hole as COVERED, which is the opposite direction, and
+confirming every catch would multiply the sweep's cost by its catch rate. The
+baseline runs once and only its reds pay.
+
+**THREE INSTANCES, THREE CAUSES, ONE SENTENCE.** A bound, a refusal and a load
+flake all arrived at the summary spelled `already-red`, and all three cost the
+same thing: a suite silently absent from the adversary that grades the tests.
+
 **TESTED WHILE OPEN**, and `PARTIAL` rather than closed for one reason: **the
 bound itself is still unmeasured.** 420s excludes `test_capacity` (430s) and
 would exclude `test_loop` (436s), `test_discriminate` (890s) and `test_verbs`
