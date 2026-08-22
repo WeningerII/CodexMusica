@@ -4246,13 +4246,44 @@ known gap 8 cites Byron's `...lay white on the turf,[mm]` as
 yields no syllable — and files it as a `word_syllable_map` edge case. It is
 that, and it is also the 47th of 54 footnote anchors in one file.
 
-**1,166 FILE HEADERS DECLARE THIS EXACT STRIP AND 9 LEAK.** Byron's own header
-reads *"stripped: PG header/footer, editor's biographical memoirs, `[n]`
-footnote markers and footnote bodies"*. The rule is real and it is 99.2%
-complete; what is missing is anything that CHECKS it, which is why 93
-survivors sat under 1,166 declarations of their absence. Doctrine 93 read the
-other way: the file claims a cleaning, and nothing asks the text whether the
-cleaning happened.
+**~~1,166 FILE HEADERS DECLARE THIS EXACT STRIP AND 9 LEAK. Byron's own header
+reads "stripped: PG header/footer, editor's biographical memoirs, `[n]`
+footnote markers and footnote bodies".~~ CORRECTED 2026-08-22, AND THE
+CORRECTION IS THE BETTER FINDING.**
+
+**BYRON'S HEADER SAYS NO SUCH THING.** It declares `author`, `region`, three
+`source` rows, two `licence` rows, two `edition` rows, a `note` and a
+`structure` line, and it contains the word *footnote* nowhere. The sentence
+quoted above was lifted from a DIFFERENT file: a repo-wide grep for `[n]`
+returned hits from `eng_celtic_carolina_oliphant_lady_nairne.txt` and
+`eng_celtic_james_hogg.txt` among others, and the first three lines of that
+output were read as though they were Byron's. One grep, three files, attributed
+to one. This entry asserted it as a quotation.
+
+**MEASURED PROPERLY, the picture inverts and gets sharper.** 1,199 files
+mention a footnote strip in their header. Of the **9 files that leak markers,
+only 3 declare a strip** — Lovelace, Wilbye and Finlayson — and two of those
+three leak **zero** end-word corruptions:
+
+| file | markers | end word wrong | declares a strip? |
+|---|---:|---:|---|
+| `eng_british_lord_byron.txt` | 54 | **54** | **no** |
+| `eng_hall_thomas_durfey.txt` | 10 | 6 | no |
+| `eng_british_robert_herrick.txt` | 9 | 2 | no |
+| `eng_hall_william_barnes.txt` | 7 | 5 | no |
+| `eng_british_richard_lovelace.txt` | 5 | 1 | yes |
+| `eng_british_john_dowland.txt` | 3 | 0 | no |
+| `eng_british_john_wilbye.txt` | 2 | 0 | yes |
+| `eng_british_thomas_campion.txt` | 2 | 0 | no |
+| `eng_celtic_msm_charles_james_finlayson.txt` | 1 | 0 | yes |
+
+**SO THIS IS NOT A DECLARED RULE LEAKING — IT IS FILES STAGED WITHOUT THE RULE
+AT ALL, AND NOTHING ASKING.** The files that declare the strip overwhelmingly
+achieve it; 67 of the 68 corrupted end words are in files whose stagers never
+claimed to strip footnote markers. That is a WORSE defect than the one this
+entry originally described and a different one: a missing declaration cannot be
+checked against the text, so no doctrine-93 comparison was ever available. What
+is owed is not a checker for a claim — it is the claim.
 
 **NOT REPAIRED HERE, AND THE REASON IS THAT THE SHAPE IS THREE OBJECTS —
 `M-25(a)`'s lesson arriving one layer down.** All 93 look like `[x]`:
