@@ -197,7 +197,46 @@ gap, which for `rime riche` is two instances.
 > the top of this table and every unframed row below it; what does not is this
 > row and `monai` in §A.2. (This paragraph first named the `Aitken's Law` row
 > as a third casualty; it is not one, and §A.2 records why the strike was
-> withdrawn.) The re-run is M-39's first remaining piece.
+> withdrawn.)
+>
+> **THE RE-RUN IS DONE, 2026-08-22, and it RESTORES the row on a different
+> cell.** Six schemas re-nulled over the grounded panel at the recorded
+> coordinates — n=200, seed 20260811, budget None — for **93.8 CPU-seconds**,
+> where the original 77-schema panel cost 56,723. 368 live rows, 223 moved,
+> **16 clear**, and `expected_false_clears(223, 200) = 1.109`, so ~7% of the
+> clears are free.
+>
+> **`monorhyme / leash` is ADMISSIBLE IN TRADITION again — and its best row is
+> `non`, not `eng`:**
+>
+> | schema | statistic | null | slice | observed | null max | gap | lift | scope |
+> |---|---|---|---|---:|---:|---:|---:|---|
+> | `monorhyme / leash` | count | global_redeal | **non** | 37 | 8 | **+29** | 18.50× | **in_tradition** |
+> | `monorhyme / leash` | count | within_line_shuffle | non | 37 | 11 | +26 | 9.25× | in_tradition |
+> | `monorhyme / leash` | count | global_redeal | eng | 30 | 7 | +23 | 15.00× | in_tradition |
+> | `monorhyme / leash` | count | within_line_shuffle | eng | 30 | 11 | +19 | 15.00× | in_tradition |
+>
+> Höfuðlausn is a **drápa in runhent** — end-rhymed Old Norse, the one metre in
+> the corpus built out of single-sound runs — so the schema's strongest row is
+> now on a text whose form it names. That is a better outcome than the row it
+> replaces: the withdrawn +227 was Poe measured over forty lines with no
+> stanza boundary, and this is 37 instances inside real vísur.
+>
+> **THE COLLIDED-NULL CAVEAT APPLIES HERE TOO (M-42).** Four of the sixteen
+> clears are `line_final_permutation` **and** `line_permutation` on the same
+> schema and slice — one randomisation counted twice — and the affected rows
+> are marked as such below rather than counted as two.
+>
+> **`analysed rhyme` is NOT banked, on the re-run agent's own advice and mine.**
+> Its single clear is that collided pair; its observation is **1.0**, the
+> statistic's CEILING; and its denominator is **3 instances**. It clears
+> nothing in its own tradition (eng: 4 against a null max of 15). A clear that
+> is one randomisation, at a ceiling, over three instances is not a finding.
+>
+> `monai` restates at **exactly** +4 / 2.31× — unchanged, because
+> `cym_cynghanedd`'s printed ground is one group, so its frame never varied
+> either way. What moved is its provenance, from a laundered `declared` to a
+> measured `printed_breaks, n=1`.
 
 **Three cleared under all four randomisations** — `perfect rhyme`,
 ~~`monorhyme / leash`~~ (struck above), `light rhyme` — and fourteen of the
