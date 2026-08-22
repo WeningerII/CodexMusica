@@ -1895,23 +1895,90 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
         raise RelationRefused(
             f"position {position!r} is not in the declared vocabulary "
             f"{list(POSITION)}.")
+    # ------------------------------------------------------------------
+    # M-44: JUDGE THE CANON AT THE COORDINATE IT IS REGISTERED AT.
+    #
+    # This block replaced a two-line one that classified the pair at ONE
+    # coordinate -- the caller's -- and stamped the caller's `position` onto
+    # the result:
+    #
+    #     t = _dc.replace(t, position=position)   # asserted, never verified
+    #     return canon in t.names()
+    #
+    # `classify_pair` refuses that move in its own body: declare a position to
+    # it with no `Frame` and it raises `Unverifiable`, whose message says the
+    # parameter "used to be accepted and never consulted -- it reached the
+    # label and never the span".  This function reintroduced exactly that one
+    # layer up, and the cost was measured rather than argued.
+    #
+    # A NAME LIVES AT A COORDINATE AND THE CALLER CANNOT KNOW IT.  `NAMED` is
+    # keyed on the whole type signature -- cells, identity, alignment,
+    # position, boundary, length, realisation and the two anchors -- so
+    # `perfect rhyme (last stressed syllable)` is registered with an anchor
+    # span of 1 and NO position, while `masculine rhyme` is registered
+    # `to-end` AT position 'end'.  One classification cannot satisfy both, and
+    # a caller made to pick one coordinate for all 80 names picks wrong for
+    # nearly all of them.  MEASURED on `night`/`light` at position 'end', the
+    # paradigm English perfect rhyme: the old path answered 4 names of 80 and
+    # said NOT SATISFIED to `perfect rhyme (last stressed syllable)` -- a
+    # violation, not a refusal, about the very relation the pair is.  This
+    # path answers 11, refuses 3, and says yes to that one.
+    #
+    # A REGISTERED `position=None` MEANS THE NAME DOES NOT CONSTRAIN POSITION,
+    # not that it demands the absence of one.  18 of the 49 entries are
+    # registered that way and they are the position-agnostic names -- a
+    # perfect rhyme is a perfect rhyme wherever it sits.  A registered
+    # position that DIFFERS from the caller's is a real no: `internal rhyme`
+    # at an end position is not satisfied, and that is a finding rather than a
+    # refusal.
+    #
+    # `Indeterminate` per key is a SKIP and not an error: a fixed-index anchor
+    # with no referent in a one-syllable member ("the index is the rule, so an
+    # out-of-range index is a refusal and not a clamp") means this name cannot
+    # apply to this pair, which is what a False says.
+    # CAN THIS PAIR BE READ AT ALL?  Asked ONCE, before any key, and it is
+    # the difference between a refusal and a no.  `classify_pair` returns None
+    # when a member is unreadable -- outside the declared inventory, no
+    # transcription -- and the answer then is UNDECIDED, never False: reading
+    # it as False charges the writer for a word the engine cannot pronounce
+    # (doctrine 79).  The per-key loop below `continue`s past a None, so
+    # without this the fall-through would answer False for an unreadable
+    # member.  `quality/test_mandate_relation.py` caught exactly that when
+    # this block was first written, which is the check doing its job.
     try:
-        t = classify_pair(a, b, phon, **({"preset": preset} if preset else {}))
+        readable = classify_pair(a, b, phon,
+                                 **({"preset": preset} if preset else {}))
     except Indeterminate:
         return None
-    if t is None:
+    if readable is None:
         return None
-    if t.position is None:
-        import dataclasses as _dc
-        t = _dc.replace(t, position=position)
-    elif t.position != position:
-        # The classifier DID determine a position and the caller declared a
-        # different one. Two answers to one question: refuse rather than let
-        # either win silently (doctrine 1).
-        raise RelationRefused(
-            f"the classifier read position {t.position!r} and the caller "
-            f"declared {position!r}. One coordinate, two answers -- REFUSED.")
-    return canon in t.names()
+
+    import dataclasses as _dc
+    for key, val in NAMED.items():
+        names_here = val if isinstance(val, (list, tuple, set, frozenset)) \
+            else (val,)
+        if canon not in names_here:
+            continue
+        if key[6] != "phonetic":
+            # The same guard as `_reachable_phonetically` above, applied per
+            # KEY: a canon may be registered at several coordinates and only
+            # the phonetic ones are readable off a phonemic stream.
+            continue
+        reg_position = key[3]
+        if reg_position is not None and reg_position != position:
+            continue
+        try:
+            t = classify_pair(a, b, phon, boundary=key[4],
+                              realisation=key[6], anchor_a=key[7],
+                              anchor_b=key[8],
+                              **({"preset": preset} if preset else {}))
+        except Indeterminate:
+            continue
+        if t is None:
+            continue
+        if canon in _dc.replace(t, position=reg_position).names():
+            return True
+    return False
 
 
 __all__ = ["CHANNELS", "SPAN", "IDENTITY", "STRESS", "POSITION", "BOUNDARY",

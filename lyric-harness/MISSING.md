@@ -3966,7 +3966,7 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
-### M-44 · The named-relation judge reaches 4 of 80 names, because it STAMPS a position instead of judging at the name's own coordinate `OPEN`
+### M-44 · The named-relation judge reached 4 of 80 names, because it STAMPED a position instead of judging at the name's own coordinate `PARTIAL`
 **Raised by an agent's M-35 work, and the diagnosis below is the third one I
 tried — the first two were wrong and the measurements are what corrected
 them. This is the mechanical cause of the owner's complaint that the grader's
@@ -4015,15 +4015,46 @@ a wildcard adds nothing. The registry's 49 entries sit at `'end'` 22, `None`
 `holorhyme`; the blocker is not the position slot alone but the (preset,
 position) PAIR.
 
-**THE REMEDY, and it needs a ruling.** A name knows the coordinate it is
-registered at. `satisfies_relation` should judge each canon AT THAT
-COORDINATE — look the canon's key up, classify with its own anchors, and
-answer — instead of making the caller guess one global coordinate for all 80.
-That removes the guess rather than moving it, and it is the same shape as the
-M-35 agent's recommendation that a mandated relation carry a
-`(namespace:name, position, anchor)` coordinate rather than a bare name.
-**It is a change to a JUDGE and it will move every number the grader
-produces**, so it is filed and not applied.
+**THE REMEDY — APPLIED 2026-08-22 on the owner's instruction to proceed.** A
+name knows the coordinate it is registered at, so `satisfies_relation` now
+judges each canon AT THAT COORDINATE: it looks the canon's keys up in `NAMED`,
+classifies the pair with THAT key's boundary, realisation and anchors, and
+answers. The caller no longer guesses one global coordinate for all 80 names,
+and the stamping is gone.
+
+Three rules make it correct rather than merely wider:
+
+* **A registered `position=None` means the name does not constrain position**,
+  not that it demands the absence of one. 18 of the 49 entries are registered
+  that way and they are the position-agnostic names — a perfect rhyme is a
+  perfect rhyme wherever it sits. A registered position that DIFFERS from the
+  caller's is a real no: `internal rhyme` at an end position is not satisfied,
+  and that is a finding, not a refusal.
+* **The phonetic guard is kept, and applied PER KEY.** A canon registered at
+  several coordinates is judged only at the phonetic ones, so `eye rhyme`,
+  `historical rhyme` and `sight rhyme` still REFUSE off a phonemic stream
+  rather than matching on a surface the classifier cannot see.
+* **An unreadable member is UNDECIDED, never a no.** The per-key loop skips a
+  `None` classification, so a naive fall-through would have answered False for
+  a word the engine cannot pronounce. `classify_pair` is therefore asked ONCE
+  up front and a `None` returns `None`. **`quality/test_mandate_relation.py`
+  caught exactly that when this block was first written** — the check doing
+  its job on the commit that was written to widen the judge.
+
+**MEASURED THROUGH THE REAL ENTRY POINT**, `position='end'`, coarse `RHYME`:
+
+| pair | before | after |
+|---|---:|---|
+| `night`/`light` | 5 | **9** — and `perfect rhyme (last stressed syllable)` now answers YES, where it was a VIOLATION |
+| `mother`/`brother` | — | 7, including `feminine rhyme` and `double rhyme` |
+| `love`/`move` | — | 2 — correctly NOT a perfect rhyme |
+
+**WHAT IS STILL OPEN.** Cross-tradition names appear for English pairs —
+`adalhending` and `dvitiyakshara-prasa (full aksara)` on `mother`/`brother`.
+Those are RULE SHAPE matched and tradition NOT, which is doctrine 43, and the
+relations layer already has `tradition_scope` to label it while the grader
+layer does not. Widening the judge makes that gap visible rather than causing
+it, and closing it is the tradition coordinate M-35's ruling would supply.
 
 **Why it matters:** this is the floor under the whole ladder. The 601 survey,
 the 117 canon structures and the 77 schemas all sit above a judge that, as
