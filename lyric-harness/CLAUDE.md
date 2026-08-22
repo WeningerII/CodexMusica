@@ -2039,6 +2039,24 @@ the repaired check now fails and the old one did not.
 
 - `python3 battery.py` — sonnet oracle (152 sonnets, ABABCDCDEFEFGG),
   Lear limerick known-answers, Whitman **legacy** comparator.
+- `python3 quality/suite_sweep.py` — **IS THE WHOLE SUITE TREE GREEN, AND
+  WHERE DOES THE TIME GO?** Added here 2026-08-22 for the same reason
+  `negative_control.py` was added the day before: this list is the one place a
+  reader looks, and it named neither sweep. Three counts never summed — PASS,
+  FAIL, and **CANNOT RUN**, which is a bound or a crash and is never added to
+  PASS. It replaces a shell loop that had been rewritten from memory every
+  sitting (standing rule 3), and that loop's own defect is the reason the
+  module exists: it printed `FAIL(0 rc=124)` for a suite its `timeout(1)` had
+  killed, so a suite that RAN OUT OF TIME rendered exactly like a suite with a
+  red check in it. **Over an hour**, and every suite's runtime prints beside
+  its verdict — five suites carry 3,265s of it. A before-you-push command, not
+  a per-commit one; `--only` asks a subset.
+- `python3 quality/pin_sweep.py` — **WHICH COMMITTED FIGURES DOES THIS WORKING
+  TREE MOVE?** (`MISSING.md` M-21). Runs every pin-holding instrument's own
+  `--check`. HOLDS / MOVED / CANNOT RUN, never summed; repairs nothing, and
+  `test_pin_sweep.py` asserts on the AST that it cannot. Also over an hour.
+  **Its first full run found 30 pin-holding files against 23 named in CI — 5
+  pins asked by nothing that gates.**
 - `python3 quality/negative_control.py` — **THE NEGATIVE CONTROL, and it is
   not Whitman.** Added here 2026-08-21, because this list is the one place a
   reader looks for this project's controls and it named only the retired one.
