@@ -4338,8 +4338,12 @@ wrong for a majority of the poems those headers describe.
 **Found 2026-08-21 by two tradition surveys that hit it independently, from
 opposite ends of the Indian subcontinent, and confirmed here by construction.**
 
-`quality/grid.py`'s `VARIATION_KINDS` is 15 named kinds and **every one
-compares WORD CONTENT.** So a return that holds the text fixed and varies
+`quality/grid.py`'s `VARIATION_KINDS` was ~~15~~ named kinds and **every
+one compared WORD CONTENT.** (The cardinality is struck and NOT replaced:
+`CLAUDE.md`'s known gap 7 records a commit written to repair a stale
+count writing one that was stale on arrival, and the argument here does
+not turn on the number — `python3 -c "from quality import grid as G; "`
+`"print(len(G.VARIATION_KINDS))"` is beside it.) So a return that holds the text fixed and varies
 something else scores **`VERBATIM`** — the strongest available claim that
 nothing changed.
 
@@ -4395,6 +4399,57 @@ variation channel is not the words, turns a false `VERBATIM` into a stated
 `cannot tell`. The two missing KINDS are a preregistration each and neither is
 urgent, because both misreport a shape rather than assert a falsehood. **The
 `VERBATIM` is the one that lies.**
+
+**THE CHEAP HALF IS BUILT — 2026-08-22 — AND IT IS THE HALF THIS ENTRY SAID
+STOPS A WRONG ANSWER.** `VariationDeclaration.varies_off_text` is a declared
+coordinate naming the channel a tradition varies when that channel is not the
+words (`"the melodic line (Carnatic sangati)"`,
+`"placement across the tāla (Hindustani bol-baant)"`). Declared, a return whose
+WORDS are identical earns the `VARIES_OFF_TEXT` refusal and the new headline
+kind `TEXT_VERBATIM_CHANNEL_UNREAD`, ranked ABOVE `VERBATIM` — so a sangati
+stops reading as the strongest available claim that nothing changed and starts
+reading as *cannot tell*, which is what it is (doctrine 20). The refusal names
+the declared channel, so a reader learns WHICH question went unanswered rather
+than only that one did.
+
+**THE MEASUREMENT IS KEPT, NOT DELETED (doctrine 24).** `qualities` still
+carries `VERBATIM`: the words really are identical and that is true. Only the
+HEADLINE moves, because `kind` is what a consumer reads. Trading one false
+claim for a missing one would be the worse repair.
+
+**UNDECLARED IS BYTE-IDENTICAL**, which is what makes it safe: the field
+defaults to `""`, every comparison this repo has ever made reads unchanged, and
+the whole feature is unreachable without a caller's declaration. Doctrine 93 is
+respected throughout — melody and tāla placement are not in a lyric sheet and
+this layer still claims neither; what changed is that its SILENCE is now
+reported as silence.
+
+**AND THE RELABEL BROKE TWO TRUE FINDINGS UNTIL THE CONSUMERS WERE MOVED ONTO
+THE QUALITY.** `RETURNS_WITH_SAME_WORDS` and `RETURN_LOCKED` both gated on
+`kinds == {"VERBATIM"}` — the HEADLINE — while both ask about the WORDS. Under
+a declared off-text channel the headline is no longer `VERBATIM` and both
+findings would have vanished, silently, for a caller who had told the harness
+something true. They read `"VERBATIM" in r.qualities` now. The two spellings
+could not disagree BEFORE this row existed — the only other kind above
+`VERBATIM` is `STUB`, which carries no `VERBATIM` quality — and
+`quality/test_grid.py` §33 asserts that equivalence so the rewrite is provably
+a no-op on every existing comparison.
+
+**STILL OPEN — the two missing KINDS.** A resequenced return still has no name
+and a substituted cadence (ouvert/clos) is still indistinguishable from an
+incidental edit; both are a preregistration each, and this entry's own reading
+is that neither is urgent because both misreport a shape rather than assert a
+falsehood. **TESTED WHILE OPEN**: §33 tests the refusal member and nothing
+about those two kinds.
+
+**AND §22 CAUGHT THE COMMIT ON ITS WAY IN**, which is the guard working: it
+requires every member of `VARIATION_KINDS` to have a fixture that REACHES it as
+the reported kind, so the new row failed there rather than shipping unreachable.
+Its fixture is a VERBATIM pair and the DECLARATION is the whole difference,
+which is the property the section exists to pin. §22's own heading and two of
+its messages said *"the fifteen kinds"*; the cardinality is struck rather than
+incremented, for the reason `CLAUDE.md`'s known gap 7 records — a commit written
+to repair a stale count once wrote one that was stale on arrival.
 
 ### M-27 · A footnote letter is the end word of 68 rhyming lines, and 1,166 file headers declare it was stripped `OPEN`
 **Found 2026-08-21 by the owner asking the right question after `M-25(a)`:

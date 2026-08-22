@@ -22,9 +22,9 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 from quality import grid as _G                                    # noqa: E402
 from quality import schemes as S                                  # noqa: E402
 from quality.grid import (Line, Meter, Section, Song, UNDECLARED,  # noqa: E402
-                          UnknownFunction, line_pickup, phrase_profile,
-                          song_from_blueprint, stanza_lock, tokens,
-                          uniformity)
+                          UnknownFunction, VariationDeclaration, line_pickup,
+                          phrase_profile, song_from_blueprint, stanza_lock,
+                          tokens, uniformity)
 
 FAILURES = []
 
@@ -1064,11 +1064,11 @@ def test_every_variation_kind_is_reportable():
     input also satisfies something above it is dead vocabulary: present in the
     tuple, glossed in the docstring, never once the answer. Doctrine 48 -- a
     principle that lives only in prose gets followed exactly as often as
-    someone remembers it, and the fifteen entries of `VARIATION_KINDS` are a
+    someone remembers it, and the entries of `VARIATION_KINDS` are a
     promise in prose until something asks each of them to be the answer.
 
     THIS IS THE AUDIT, RUN AS A TEST rather than reported once. It found
-    nothing wrong with the shipped ladder: all fifteen are reportable, so
+    nothing wrong with the shipped ladder: EVERY rung is reportable, so
     nothing was fixed. It fails under QG1 with EXACTLY the two kinds that
     mutation collapses -- TRUNCATED_RETURN and EXTENDED_RETURN -- and the
     other thirteen still reported, which is a sharper fingerprint than "a
@@ -1081,7 +1081,7 @@ def test_every_variation_kind_is_reportable():
     a LABELLED proxy (doctrine 45), it says so in its own `declared_name`, and
     reading it as a claim about rhyme would be reading it wrong.
     """
-    print("\n22. THE LADDER — every one of the fifteen kinds can be the "
+    print("\n22. THE LADDER — every one of its kinds can be the "
           "REPORTED kind")
     from quality.grid import (VARIATION_KINDS, compare_returns,
                               rime_orthographic)
@@ -1148,6 +1148,16 @@ def test_every_variation_kind_is_reportable():
              "morning found the empty road"],
             ["whistles blow for nobody",
              "so few candles burning bright"], {}),
+        # THE ONLY RUNG REACHED BY A DECLARATION RATHER THAN BY TEXT
+        # (`MISSING.md` M-26). Its fixture is a VERBATIM pair: what makes it
+        # this kind is `varies_off_text`, so the fixture is identical to
+        # VERBATIM's above and the DECLARATION is the whole difference —
+        # which is exactly the property §33 exists to pin.
+        "TEXT_VERBATIM_CHANNEL_UNREAD": (
+            ["kamala kanuka mrdu smita", "nadalola nannu brovumu"],
+            ["kamala kanuka mrdu smita", "nadalola nannu brovumu"],
+            {"decl": VariationDeclaration(
+                varies_off_text="the melodic line (Carnatic sangati)")}),
     }
 
     ladder = [k for k, _ in VARIATION_KINDS]
@@ -1166,7 +1176,7 @@ def test_every_variation_kind_is_reportable():
         got = compare_returns(first, again, **kw)
         if got.kind != kind:
             unreportable.append((kind, got.kind, sorted(got.qualities)))
-    check("all fifteen are reachable as the reported kind — no rung of the "
+    check("EVERY rung is reachable as the reported kind — no rung of the "
           "ladder is shadowed by the one above it",
           not unreportable,
           "\n          ".join(f"{k} is UNREPORTABLE: its own fixture came "
@@ -2253,6 +2263,106 @@ def test_the_printed_indent_survives_ingestion():
                                        lines=["a", "b"])))
 
 
+def test_a_return_that_varies_off_the_text():
+    """`MISSING.md` M-26 — a declared off-text channel outranks VERBATIM.
+
+    All 15 members of `VARIATION_KINDS` compare WORD CONTENT, so a return
+    that holds the text fixed and varies something else scored `VERBATIM` —
+    the STRONGEST claim the ladder can make that nothing changed. A kṛti's
+    sangati is the defining device of its exposition and holds the sāhitya
+    fixed while the melody moves; every one came back `VERBATIM`.
+
+    THIS IS NOT THE HARNESS OVERREACHING ITS TEXT (doctrine 93 — melody is
+    not in a lyric sheet and this layer must not claim it). It is the harness
+    MISREPORTING ITS SILENCE: `compare_returns` has a refusal channel and no
+    member of it could say *the channel this tradition varies is not in the
+    text*, so inconclusive-by-construction came back as a null — and as the
+    most positive null available (doctrine 20).
+    """
+    print("\n33. a declared off-text channel outranks VERBATIM (M-26)")
+    same = ["kamala kanuka mrdu smita", "nadalola nannu brovumu"]
+
+    # (a) UNDECLARED IS UNCHANGED. This is the control that makes the feature
+    # safe to ship: every comparison ever made here reads as it always did.
+    plain = _G.compare_returns(same, list(same))
+    check("with nothing declared the return is still VERBATIM",
+          plain.kind == "VERBATIM"
+          and not [r for r in plain.refusals if r.code == "VARIES_OFF_TEXT"],
+          plain.kind)
+
+    # (b) THE DECLARED CASE.
+    decl = _G.VariationDeclaration(
+        varies_off_text="the melodic line (Carnatic sangati)")
+    off = _G.compare_returns(same, list(same), decl=decl)
+    check("a declared off-text channel relabels the headline",
+          off.kind == "TEXT_VERBATIM_CHANNEL_UNREAD", off.kind)
+    ref = [r for r in off.refusals if r.code == "VARIES_OFF_TEXT"]
+    check("and it REFUSES by name rather than only relabelling", len(ref) == 1)
+    check("the refusal names the channel the caller declared, so a reader "
+          "learns WHICH question went unanswered",
+          ref and "sangati" in ref[0].evidence, ref[0].evidence[:70] if ref
+          else "")
+    check("...and says it CANNOT TELL, not that the return did not vary",
+          ref and "CANNOT TELL" in ref[0].evidence.upper()
+          and "doctrine 20" in ref[0].evidence, ref[0].evidence[:90] if ref
+          else "")
+
+    # (c) THE MEASUREMENT IS KEPT (doctrine 24 — the rule RELABELS). The words
+    # ARE identical and that is true; deleting it would trade one false claim
+    # for a missing one.
+    check("`qualities` still carries VERBATIM — the underlying measurement "
+          "survives the relabel",
+          "VERBATIM" in off.qualities, sorted(off.qualities))
+
+    # (d) THE DECLARATION ONLY OUTRANKS VERBATIM. A return whose WORDS moved
+    # is graded by the ladder exactly as before — the declaration is about
+    # what the harness cannot see, not a blanket silencer.
+    moved = _G.compare_returns(same, [same[0], "nadalola ninnu vededanu"],
+                               decl=decl)
+    check("a return whose WORDS moved is unaffected by the declaration",
+          moved.kind != "TEXT_VERBATIM_CHANNEL_UNREAD"
+          and not [r for r in moved.refusals if r.code == "VARIES_OFF_TEXT"],
+          moved.kind)
+
+    # (e) THE RANK IS STRUCTURAL. `kind` is the FIRST member of
+    # `VARIATION_KINDS` present in the quality set, so the new row must sit
+    # ABOVE `VERBATIM` or the relabel silently never happens.
+    order = [k for k, _ in _G.VARIATION_KINDS]
+    check("the new kind is ranked above VERBATIM in the declared order",
+          order.index("TEXT_VERBATIM_CHANNEL_UNREAD") < order.index("VERBATIM"))
+    # AND THE EQUIVALENCE THAT MAKES THE CONSUMER REWRITE SAFE: the only OTHER
+    # kind above VERBATIM is STUB, which never carries the quality — so
+    # `kind == "VERBATIM"` and `"VERBATIM" in qualities` could not disagree
+    # before this row existed, and the rewrite below moved nothing.
+    stub = _G.compare_returns(["one line here", "and a second"], ["&c."])
+    check("STUB — the only other kind above VERBATIM — carries no VERBATIM "
+          "quality, so the two readings agreed before this row",
+          stub.kind == "STUB" and "VERBATIM" not in stub.qualities,
+          "%s %s" % (stub.kind, sorted(stub.qualities)))
+
+    # (f) AND THE TWO CONSUMERS STILL FIRE, which is the half a relabel breaks
+    # if nobody looks. Both ask about the WORDS, so both read the QUALITY now;
+    # under the old `kinds == {"VERBATIM"}` spelling a caller who declared an
+    # off-text channel would have silently lost two true findings.
+    verse = ["a quiet road and nothing on it", "the rain came down at "
+             "midnight", "morning found the empty road", "and nobody was home"]
+    sng = _G.Song(sections=[_G.Section("v1", 4, function="verse"),
+                            _G.Section("c1", 4, function="chorus"),
+                            _G.Section("v2", 4, function="verse"),
+                            _G.Section("c2", 4, function="chorus")]).layout()
+    sng.lines = ([_G.Line(t, bar=1) for t in verse]
+                 + [_G.Line("hold the line tonight", bar=5)]
+                 + [_G.Line(t, bar=9) for t in verse]
+                 + [_G.Line("hold the line tonight", bar=13)])
+    base = {f.code for f in _G.return_findings(sng, "verse")[0]}
+    under = {f.code for f in _G.return_findings(sng, "verse", decl=decl)[0]}
+    check("RETURNS_WITH_SAME_WORDS fires with the declaration as without — "
+          "the words really are identical and that finding is about the words",
+          "RETURNS_WITH_SAME_WORDS" in base
+          and "RETURNS_WITH_SAME_WORDS" in under,
+          "base %s | declared %s" % (sorted(base), sorted(under)))
+
+
 def test_a_refusal_is_true_in_a_language():
     """`MISSING.md` M-24 — `MARK_REFUSED` is keyed on `(language, mark)`.
 
@@ -2497,6 +2607,7 @@ if __name__ == "__main__":
                test_function_aliases_are_claims_on_their_own_rows,
                test_the_named_air_is_a_coordinate_not_a_substring,
                test_the_printed_indent_survives_ingestion,
+               test_a_return_that_varies_off_the_text,
                test_a_refusal_is_true_in_a_language,
                test_the_elaboration_pointer_and_the_rank_that_was_refused):
         fn()

@@ -846,6 +846,14 @@ VARIATION_KINDS = (
     ("STUB", "the return POINTS at its target instead of reproducing it "
              "(printed '&c.'). Distance is REFUSED, not zero and not large: "
              "there is no second text to measure against."),
+    ("TEXT_VERBATIM_CHANNEL_UNREAD",
+     "the WORDS returned unchanged and the channel this tradition varies is "
+     "not in the text, so no claim is made about whether the return varied. "
+     "Reachable only under `VariationDeclaration.varies_off_text`; the "
+     "underlying measurement is kept in `qualities`, which still carries "
+     "VERBATIM, because the words really are identical and deleting that "
+     "would trade one false claim for a missing one (doctrine 24 -- the rule "
+     "RELABELS)."),
     ("VERBATIM", "every line identical under the declared normalisation"),
     ("TRUNCATED_RETURN", "the return is a strict sub-sequence of the first, "
                          "every kept line verbatim -- the last-chorus cut"),
@@ -912,6 +920,26 @@ class VariationDeclaration:
     #: because a checker that silently picks a phonology is making a claim it
     #: never states (doctrine 45).
     rhyme_key: str = ""
+
+    #: NAME of the channel this tradition varies, when that channel is NOT the
+    #: words -- `"the melodic line (Carnatic sangati)"`,
+    #: `"placement across the tala (Hindustani bol-baant)"`. Empty means
+    #: undeclared, and every comparison ever made here reproduces unchanged.
+    #:
+    #: `MISSING.md` M-26. All 15 members of `VARIATION_KINDS` compare WORD
+    #: CONTENT, so a return that holds the text fixed and varies something else
+    #: scored `VERBATIM` -- the STRONGEST available claim that nothing changed.
+    #: A kṛti's sangati is the defining device of its exposition and it holds
+    #: the sāhitya fixed while the melody moves; every one of them came back
+    #: `VERBATIM`.
+    #:
+    #: THIS IS NOT THE HARNESS OVERREACHING ITS TEXT. Doctrine 93 -- melody and
+    #: tāla placement are not in a lyric sheet and this layer must not claim
+    #: them. The defect was that `compare_returns` HAS a refusal channel and no
+    #: member of it could say *the channel this tradition varies is not in the
+    #: text*, so inconclusive-by-construction came back as a null, and as the
+    #: most POSITIVE null the vocabulary has (doctrine 20).
+    varies_off_text: str = ""
 
 
 _MARKUP = re.compile(r"[_*]+")
@@ -1338,6 +1366,23 @@ def compare_returns(first, again, decl=None, rhyme_key=None,
         q.add("RESTATEMENT")
     if not q:
         q.add("REWRITTEN_RETURN")
+
+    # THE DECLARED OFF-TEXT CHANNEL OUTRANKS `VERBATIM` (M-26). `VERBATIM` is
+    # left IN `q`: the words are identical and that is a true measurement. What
+    # changes is the HEADLINE, because `kind` is what a consumer reads and
+    # `VERBATIM` there is the strongest possible claim that nothing changed --
+    # about a return whose varying channel this reader cannot see at all.
+    if "VERBATIM" in q and decl.varies_off_text:
+        q.add("TEXT_VERBATIM_CHANNEL_UNREAD")
+        refusals.append(Refusal(
+            "VARIES_OFF_TEXT",
+            "the channel this tradition varies is not in the text",
+            f"the words returned unchanged, and {decl.varies_off_text} is "
+            f"where this tradition puts the variation. A lyric sheet does not "
+            f"carry it (doctrine 93), so this comparison CANNOT TELL whether "
+            f"the return varied -- which is not the same as finding that it "
+            f"did not (doctrine 20). `qualities` keeps VERBATIM: the words "
+            f"really are identical, and that measurement stands."))
 
     kind = next(k for k, _ in VARIATION_KINDS if k in q)
     return Return(kind=kind, qualities=frozenset(q),
@@ -1956,9 +2001,19 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
                 f"there are RETURN_NOT_VERBATIM. Phonology: "
                 f"{drifted[0][2].declaration.rhyme_key or 'NONE DECLARED'}"))
 
-    kinds = {r.kind for _, _, r in rets}
+    # BOTH CHECKS BELOW ASK ABOUT THE WORDS, so both read the QUALITY and not
+    # the headline kind (M-26, 2026-08-22). `kind` is the most specific label
+    # the ladder can give and it CAN be outranked while the words are still
+    # identical -- by `STUB` (which never carries the quality, so the two
+    # readings agreed) and, since the off-text declaration, by
+    # `TEXT_VERBATIM_CHANNEL_UNREAD` (which does). Under the old spelling a
+    # caller who declared an off-text channel would have silently lost
+    # `RETURNS_WITH_SAME_WORDS` and `RETURN_LOCKED`, both of which are true and
+    # both of which are about the words alone.
+    same_words = bool(rets) and all("VERBATIM" in r.qualities
+                                    for _, _, r in rets)
     spec = SECTION_FUNCTIONS[fn]
-    if spec.returns_as == "new words" and kinds == {"VERBATIM"}:
+    if spec.returns_as == "new words" and same_words:
         findings.append(GridFinding(
             "RETURNS_WITH_SAME_WORDS",
             f"every {fn} returns with IDENTICAL words",
@@ -1968,7 +2023,7 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
             f"LABEL, not about the lines."))
     if (spec.returns_as == "verbatim"
             and len(rets) >= convention.return_lock_min - 1
-            and kinds == {"VERBATIM"}
+            and same_words
             and all(r.tune_slot_preserved for _, _, r in rets)):
         findings.append(GridFinding(
             "RETURN_LOCKED",
