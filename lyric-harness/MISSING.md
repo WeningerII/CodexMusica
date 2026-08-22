@@ -3566,6 +3566,31 @@ not bookkeeping, and doctrine 58 says do not tune the statistic to meet the
 number. What is owed is the re-run; what this entry now carries is that
 somebody has to decide to do it, which nobody could have known before.
 
+**AND THE SWEEP TAKES OVER AN HOUR, WHICH IS RECORDED RATHER THAN DISCOVERED
+BY WAITING.** Measured on that first full run: 29 of 30 instruments in 3,600s,
+killed by its own outer bound before the 30th. The time is real work —
+`capacity.py` re-derives 12,387 rhyme families, and the meter-band check
+re-derives its two bands over 264,082 corpus lines — and every instrument's runtime prints beside its verdict. So this is a
+BEFORE-YOU-PUSH-A-BIG-CHANGE command and not a per-commit one, and `--only` is
+how you ask a subset. **A tool nobody runs because it takes an hour is the
+same shape as a pin nobody asks**, which is this entry's own subject.
+
+**AND THAT KILL PRODUCED NO SUMMARY AT ALL — FIXED THE SAME DAY.** The
+transcript of a sweep that had found four real drifts was byte-for-byte
+indistinguishable from one that found nothing: the per-instrument lines were
+there, the three counts were not. Doctrine 20, in the module written to hunt
+doctrine-20 failures. On SIGTERM/SIGINT it now prints the counts over what
+RAN, says `INTERRUPTED after N of M`, NAMES the instruments it never reached,
+and exits **2** rather than 0 — an interrupted sweep has certified nothing.
+Pinned by `test_pin_sweep.py` §7, which kills a real run mid-instrument.
+
+**THREE OF THE FIVE UNASKED PINS ARE NOW IN CI** (`audit_tang_null.py`,
+`kalevala_rate.py`, `run_positive_control.py`) — they HOLD today, so the gap
+closed at no cost. The other two are deliberate: `expected_drift.py` is
+reached through `song_profile_calibration.py --check`, and
+`phrase_commonplace.py` is drifted, so adding it would land a red job whose
+remedy is re-running a whole study.
+
 **THE ENTRY STAYS OPEN** on the half it names last: this is the QUESTION, and
 the sweep is only as complete as `CHECK_ARGV` is. Every instrument whose pin
 check is not a bare `--check` needs a row, and today exactly one is known

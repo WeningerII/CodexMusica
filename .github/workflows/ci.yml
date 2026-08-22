@@ -1245,6 +1245,31 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/prasa_rate.py --check
 
+      # THREE PINS NOTHING ASKED, ADDED 2026-08-22, and the way they were
+      # found is the point. `quality/pin_sweep.py` (MISSING.md M-21) walks
+      # every pin-holding file under `quality/` and runs its own `--check`;
+      # its first full run measured 30 such files against the 23 this
+      # workflow named, and the difference is not a rounding error — it is
+      # pins that NOTHING gates. These three HOLD today, so adding them costs
+      # no red and closes the gap.
+      #
+      # TWO OF THE FIVE ARE DELIBERATELY NOT ADDED HERE. `expected_drift.py`
+      # needs an instrument argument and is already reached through
+      # `song_profile_calibration.py --check` below. `phrase_commonplace.py`
+      # is DRIFTED — 143 authors / 991,751 tokens / 152,154 lines against a
+      # measured 1,297 / 1,885,292 / 283,301 — because its pins are exact
+      # over a FIXED corpus that has since grown ninefold, and its own test
+      # suite passes while never invoking `--check` at all. Adding it would
+      # land a red job whose remedy is re-running a whole study; the finding
+      # is recorded in M-21 and the re-run is somebody's decision.
+      - name: Tang null, Kalevala rate and the positive control — pins nothing asked
+        if: always()
+        working-directory: lyric-harness
+        run: |
+          python3 quality/audit_tang_null.py --check
+          python3 quality/kalevala_rate.py --check
+          python3 quality/run_positive_control.py --check
+
       # THE CONJUNCTIVE BAND'S NEGATIVE CONTROL. 3.86 CPU-s, MEASURED
       # 2026-08-14. The last "prints its own drift and exits 0" runner in the
       # repo, and the one where that mattered most: its figures flipped sign

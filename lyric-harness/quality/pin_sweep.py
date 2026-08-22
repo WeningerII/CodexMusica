@@ -16,6 +16,19 @@ This is the question, not the answer.
     python3 quality/pin_sweep.py --only 'audit*' a subset, by filename glob
     python3 quality/pin_sweep.py --json          machine-readable
 
+IT TAKES OVER AN HOUR AND THAT IS A PROPERTY, NOT A BUG -- SAID HERE SO
+NOBODY DISCOVERS IT BY WAITING.  MEASURED 2026-08-22 on the first full run:
+29 of the 30 instruments in 3,600s, killed by its own outer bound before the
+30th.  The time is real work -- `capacity.py` re-derives 12,387 rhyme
+families, the meter-band check re-derives its two bands over 264,082 corpus
+lines, `audit_fwer_fpr.py` takes 70s
+-- and every instrument's own runtime is printed beside its verdict so a
+caller can see where it goes.  THE CONSEQUENCE IS THE USE: this is a
+BEFORE-YOU-PUSH-A-BIG-CHANGE command, not a per-commit one, and `--only` is
+how you ask a subset.  A tool nobody runs because it takes an hour is the
+same shape as a pin nobody asks -- which is the defect this module exists to
+find, so it is written down rather than left for the next reader.
+
 IT REPAIRS NOTHING, AND THAT IS A CONTRACT RATHER THAN AN OMISSION.
 `counters.py`'s own docstring records why a remedy that writes is a laundering
 path; a sweep that repaired would inherit that hole across thirty instruments
@@ -52,6 +65,7 @@ import fnmatch
 import json
 import os
 import re
+import signal
 import subprocess
 import sys
 import time
@@ -307,14 +321,35 @@ def main(argv=None):
         for l in row["evidence"]:
             print("          | %s" % l[:110])
 
-    rows = sweep(ROOT, only=a.only, timeout=a.timeout, progress=note)
+    # A KILLED SWEEP MUST NOT LOOK LIKE A CLEAN ONE. The first full run took
+    # longer than its own outer bound and was killed at instrument 29 of 30,
+    # printing NO SUMMARY AT ALL -- so the transcript of a sweep that had
+    # found four real drifts was indistinguishable from a sweep that found
+    # nothing. That is this module's own subject turned on itself (doctrine
+    # 20), and it is why the partial summary below exists: on SIGTERM or
+    # SIGINT the counts are printed over what actually RAN, with the
+    # unreached instruments named as unreached rather than silently absent.
+    rows = []
 
-    counts = {k: sum(1 for r in rows if r["verdict"] == k)
-              for k in ("HOLDS", "MOVED", "CANNOT RUN")}
-    if a.json:
-        print(json.dumps({"counts": counts, "rows": rows}, indent=2))
-    else:
+    def _summarise(partial):
+        counts = {k: sum(1 for r in rows if r["verdict"] == k)
+                  for k in ("HOLDS", "MOVED", "CANNOT RUN")}
+        if a.json:
+            print(json.dumps({"counts": counts, "rows": rows,
+                              "partial": partial,
+                              "not_reached": [f for f in found
+                                              if f not in {r["instrument"]
+                                                           for r in rows}]},
+                             indent=2))
+            return counts
         print("\n" + "=" * 70)
+        if partial:
+            unreached = [f for f in found
+                         if f not in {r["instrument"] for r in rows}]
+            print("  INTERRUPTED after %d of %d instrument(s). The counts "
+                  "below are over what RAN." % (len(rows), len(found)))
+            print("  NOT REACHED (%d): %s" % (len(unreached),
+                                              ", ".join(unreached[:6])))
         print("  HOLDS      %3d   the committed figures reproduce"
               % counts["HOLDS"])
         print("  MOVED      %3d   a figure moved -- repin it BY HAND, with "
@@ -322,6 +357,23 @@ def main(argv=None):
         print("  CANNOT RUN %3d   inconclusive by construction, NOT a pass "
               "(doctrine 20)" % counts["CANNOT RUN"])
         print("  three counts, never summed (doctrine 79)")
+        return counts
+
+    def _on_signal(_sig, _frm):
+        _summarise(partial=True)
+        sys.exit(2)
+
+    for sig in (signal.SIGTERM, signal.SIGINT):
+        try:
+            signal.signal(sig, _on_signal)
+        except (ValueError, OSError):        # not the main thread
+            pass
+
+    rows.extend(sweep(ROOT, only=a.only, timeout=a.timeout, progress=note))
+
+    counts = {k: sum(1 for r in rows if r["verdict"] == k)
+              for k in ("HOLDS", "MOVED", "CANNOT RUN")}
+    _summarise(partial=False)
     return 1 if counts["MOVED"] else 0
 
 

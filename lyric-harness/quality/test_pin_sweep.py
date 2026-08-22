@@ -17,6 +17,7 @@ from __future__ import annotations
 import ast
 import os
 import sys
+import time
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -197,6 +198,44 @@ def test_it_runs_one_instrument_end_to_end():
           row["evidence"] == [], row["evidence"])
 
 
+def test_an_interrupted_sweep_reports_what_it_ran():
+    """A KILLED SWEEP MUST NOT LOOK LIKE A CLEAN ONE.
+
+    The first full run took longer than its own outer bound and was killed at
+    instrument 29 of 30, printing NO SUMMARY AT ALL -- so the transcript of a
+    sweep that had already found four real drifts was indistinguishable from
+    a sweep that found nothing. This module's own subject, turned on itself
+    (doctrine 20). On SIGTERM/SIGINT the counts are printed over what RAN,
+    and the instruments never reached are NAMED as unreached rather than
+    silently absent."""
+    print("\n7. an interrupted sweep reports what it ran")
+    import signal as _sig
+    import subprocess as _sp
+    import tempfile as _tf
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    out = _tf.NamedTemporaryFile("w+", suffix=".log", delete=False)
+    # `meter_bands.py --check` re-derives over 264,082 lines, so it is
+    # reliably still running four seconds in -- that is what makes the kill
+    # land mid-instrument rather than racing the summary.
+    p = _sp.Popen([sys.executable, "quality/pin_sweep.py",
+                   "--only", "meter_bands.py"],
+                  cwd=root, stdout=out, stderr=_sp.STDOUT)
+    time.sleep(4)
+    p.send_signal(_sig.SIGTERM)
+    p.wait(timeout=30)
+    out.flush()
+    text = open(out.name, encoding="utf-8").read()
+    check("the interrupted run still prints a summary",
+          "HOLDS" in text and "CANNOT RUN" in text, text[-120:])
+    check("it says INTERRUPTED and how far it got",
+          "INTERRUPTED after 0 of 1" in text, text[-200:])
+    check("and it NAMES what it never reached — an unrun instrument is not "
+          "an instrument that passed",
+          "NOT REACHED" in text and "meter_bands.py" in text, text[-200:])
+    check("the exit code is 2, not 0: an interrupted sweep has not certified "
+          "anything", p.returncode == 2, p.returncode)
+
+
 def test_sweep_is_the_one_walk():
     """`main` calls `sweep`; it does not re-implement the loop.
 
@@ -234,6 +273,7 @@ if __name__ == "__main__":
                test_evidence_is_never_empty_under_a_moved_verdict,
                test_the_two_false_verdicts_the_first_full_run_produced,
                test_it_runs_one_instrument_end_to_end,
+               test_an_interrupted_sweep_reports_what_it_ran,
                test_sweep_is_the_one_walk):
         fn()
     print("=" * 66)

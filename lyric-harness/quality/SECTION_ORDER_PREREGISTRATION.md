@@ -67,7 +67,7 @@ imitation*. The corpus is the imitation. A rank measured on piping practice and
 applied to this corpus would be a claim about a tradition the staged text does
 not witness (doctrine 45).
 
-## RESULT — the pointer half is EARNED and NOT YET BUILT
+## RESULT — the pointer half is EARNED, and BUILT 2026-08-22
 
 `elaborates` survives its falsifier: siubhal and crunluath elaborate the ùrlar
 in all three songs regardless of sequence, and the relation is what makes the
@@ -81,10 +81,54 @@ repo has paid for repeatedly:
 > the declared-but-unread defect this repo has filed four times over.
 
 **ORDER OF OPERATIONS, and it is the deliverable of this registration:**
-1. `M-25(a)` — stage the movement headings as marks rather than as verse lyrics.
-2. THEN `elaborates` has 14 sections in 3 songs to point at.
-3. A reader that says something (`ELABORATION_UNGROUNDED` when a section
-   declares `elaborates` and its target never appears) — with a population.
+1. ~~`M-25(a)` — stage the movement headings as marks rather than as verse
+   lyrics.~~ **DONE 2026-08-21.** `[URLAR]`, `[SIUBHAL 2]`,
+   `[CRUNLUATH] (FINALE)` across the three `eng_celtic_msm_*` files, declared
+   in `grid.MARK_REFUSED` with the reason.
+2. ~~THEN `elaborates` has 14 sections in 3 songs to point at.~~ **DONE.**
+3. ~~A reader that says something.~~ **DONE:** `grid.elaboration_findings`,
+   read by `quality/mark_coverage.py`'s report.
+
+## WHAT WAS BUILT, AND ONE DEPARTURE FROM WHAT WAS REGISTERED
+
+`grid.MARK_ELABORATES` + `grid.elaboration_findings(song)`.
+
+**IT IS ON THE MARK AND THIS REGISTRATION SAID `FunctionSpec`.** Recorded
+rather than retargeted in silence (doctrine 17). The registration was written
+while all 14 headings were still `[VERSE n]` blocks whose whole lyric was the
+heading; staging them as marks is what gave the field a population, and it put
+that population on the MARK. Declaring three new SECTION FUNCTIONS instead
+would mean folding a pìobaireachd movement into a vocabulary this very survey
+found straining — the exact move `MARK_REFUSED` exists to decline.
+
+**THE MEASUREMENT, over the whole population — 9 elaborating sections in 3
+songs.** THREE COUNTS, NEVER SUMMED (doctrine 79):
+
+| | count |
+|---|---:|
+| `grounded_before` — the mark it elaborates appears earlier | **8** |
+| `grounded_after` — the target appears, but only later | **1** |
+| `ungrounded` — the target never appears at all | **0** |
+
+**ONLY `ungrounded` IS A FINDING.** Ordering is a DISCLOSURE and not a charge:
+an editor who opens on a variation has departed from nothing (doctrine 6). The
+single `grounded_after` is `THE PRAISE OF MORAG`, and reading the page is what
+explains it — the first movement is printed with **NO HEADING AT ALL**, because
+the compositor sets a heading only where the movement CHANGES. That is also
+the sharper reason `rank` was refused: the ladder's own head is unmarked in
+this corpus.
+
+**`ungrounded` IS 0 OF 9, SO THE DEFECT IS PLANTED.** `quality/test_grid.py`
+constructs a siubhal with no ùrlar anywhere in the song and requires the
+finding, with the ground restored as the control. A measured zero over a named
+population is a fact about this corpus and is not evidence the rule works
+(doctrine 94: a positive-case suite cannot find a rule that is too generous).
+
+**AND `rank` IS PINNED AS REFUSED**, not merely absent: the same section
+asserts that no section function carries a `rank` field and that the ladder's
+top two rungs are declared in `MARK_ELABORATES` while attested nowhere — the
+measurement that refused it. A falsified proposal that leaves no trace is one
+a later session re-proposes.
 
 ## What is NOT proposed, and why
 
