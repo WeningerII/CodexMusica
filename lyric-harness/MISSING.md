@@ -4035,14 +4035,29 @@ The shadow run of `test_triage` prints `REFUSED — the register was not readabl
 from here; no section ran` and exits 0, so it re-enters the mutation baseline
 without ever claiming to have graded a register it could not see.
 
-**AND THE CENSUS IS SEVEN.** The unbounded run's own baseline named, in full:
-`test_capacity` (TIMEOUT, 430s vs the 420s bound), `test_discriminate`
-(TIMEOUT, 890s), `test_loop` (TIMEOUT, 436s), `test_provenance` (a correct
-refusal spelled FAIL), `test_propose` (red under the baseline's own
-parallelism, unconfirmed), `test_triage` (ERROR, an unguarded `[0]`), and
-`test_verify_entries`. **SEVEN SUITES DROPPED FROM THE MUTATION BASELINE AND
-NOT ONE OF THEM FOR HAVING A RED CHECK** — and the summary called all seven
-already-red.
+**AND THE CENSUS IS EIGHT — the run finished, and its own closing line is the
+sentence this entry is about: `baseline: 53/61 green, 8 excluded as
+already-red`.** In full, with each suite's true runtime from the same day's
+62-suite sweep beside the bound that excluded it:
+
+| suite | reported | the actual reason |
+|---|---|---|
+| `test_verbs.py` | TIMEOUT | **1,469s** against a 420s bound |
+| `test_discriminate.py` | TIMEOUT | **892s** |
+| `test_capacity.py` | TIMEOUT | **455s** — by thirty-five seconds |
+| `test_loop.py` | TIMEOUT | **428s** — by eight |
+| `test_provenance.py` | FAIL | a CORRECT refusal, spelled `FAIL` |
+| `test_propose.py` | FAIL | red under the baseline's own parallelism |
+| `test_triage.py` | ERROR | an unguarded `[0]` after its own guard fired |
+| `test_verify_entries.py` | FAIL | a stray stderr line from a probe that worked |
+
+**EIGHT OF SIXTY-ONE — 13% — AND NOT ONE OF THEM FOR HAVING A RED CHECK.**
+The same sweep that measured those runtimes reports the whole tree
+**62 PASS / 0 FAIL / 0 CANNOT RUN**, so every one of the eight is green when
+asked on its own. The four bounds are the four most expensive suites in the
+repository, which is not a coincidence: a fixed bound excludes exactly the
+suites that do the most work, and those are the ones whose absence from a
+mutation sweep costs the most.
 
 **THE SEVENTH IS A DIAGNOSTIC DEFECT AND IT HID ITS OWN CAUSE.**
 `test_verify_entries` was reported red with `fatal: not a git repository` —
@@ -4061,7 +4076,7 @@ its traceback, so the fix cannot blind the ERROR path. At head the suite passes
 in a real shadow tree, so the underlying red was transient — which is exactly
 what the baseline's new re-confirmation is for.
 
-**SEVEN INSTANCES, FIVE CAUSES, ONE SENTENCE.** A bound, a correct refusal, a
+**EIGHT INSTANCES, FIVE CAUSES, ONE SENTENCE.** A bound, a correct refusal, a
 load flake, an unguarded `[0]` and a stray stderr line all arrived at the
 summary spelled `already-red`, and all of them cost the same thing: a suite
 silently absent from the adversary that grades the tests.
