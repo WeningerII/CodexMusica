@@ -1182,7 +1182,7 @@ FINDING and not as a task** — the replacement was built; what does not go away
 is that the text this project used as its negative control carries the property
 under test.
 
-### K-4 · Old Norse has a phonology and ~~no licensed corpus~~ **ONE licensed corpus nobody has ruled on** `BLOCKED`
+### K-4 · Old Norse has a phonology and ~~no licensed corpus~~ ~~ONE licensed corpus nobody has ruled on~~ **the ruling was made and the corpus is staged** `PARTIAL`
 **Constraint:** the only complete Háttatal is inside a 1974 editor's copyright;
 the 1848 edition that clears the gate has OCR that destroyed the consonants a
 hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
@@ -1305,7 +1305,61 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > `corpus/song/non_*.txt` — and `corpus/song/` still holds **zero** `non_`
 > files, confirmed today.
 >
-> **7 · Still BLOCKED, and here is what would move it**, in cost order:
+> **THE RULING WAS MADE 2026-08-22 — ADMIT — AND THE CORPUS IS STAGED.**
+> `(a)` below is done. `corpus/song/non_*.txt` is no longer zero: **seven
+> files, 160 vísur, 1,228 verse lines**, the first Old Norse text this project
+> has ever held. `quality/stage_sagadb.py` is the recipe and `--check`
+> re-derives every file from the upstream XML.
+>
+> **THE PRIOR FIGURE DOES NOT SURVIVE AND THAT IS THE POINT.** §6 cites *585
+> dróttkvætt lines already extracted*, naming a file under a dead session's
+> scratchpad. The path is deliberately NOT written here as a repo path: it
+> does not exist, and `verify_entries`' REPO_PATH_EXISTS reads a backticked
+> path as an assertion that it DOES — it caught this paragraph's first draft,
+> which is the register's own checker working on the sentence written to
+> record that the file is missing. So a number this register
+> has quoted for eleven days rested on a rule nobody can reproduce (standing
+> rule 3: an improvised script used twice is a defect report). ~~585~~ is
+> struck and NOT replaced by a new dróttkvætt count, because **the edition
+> declares a metre for exactly two poems** — Egils saga ch. 60 *"Egill flutti
+> Höfuðlausn"* (runhent) and ch. 78 *"Egill kveðr Sonatorrek ok
+> Arinbjarnarkviðu"* (kviðuháttr), both named in its own chapter titles — and
+> says nothing about the rest. The verse is visibly mixed: `eiriks_saga_rauda`
+> block 3 is short-lined eddic, `graenlendinga_saga`'s single block is
+> eight-syllable hrynhent. Calling the remainder dróttkvætt would be the
+> staging inventing a coordinate the source does not carry (doctrine 45). The
+> two named poems are split into their own files; every other staged file
+> declares `# metre: UNDECLARED`, and the count is `non.py`'s to make and to
+> REFUSE (doctrine 79).
+>
+> **AND THE RULING DOES NOT COVER EVERY MEMBER — a doctrine-40 finding of the
+> staging, not of this entry.** The README affirms PD over a compilation whose
+> eight `.on.xml` declare FOUR different upstreams, and one refutes the
+> affirmation in its own bytes: `hrafnkels_saga_freysgoda.on.xml` carries
+> `<orig_publication>From reading selections from An Introduction to Old Norse
+> by E.V. Gordon and A.R. Taylor, second edition (Oxford University Press,
+> 1956).</orig_publication>`. A.R. Taylor died 1985 — that member runs to
+> 2055. **REFUSED by name, and the refusal is FREE: it carries 0 poetry
+> blocks, measured.** `gunnlaugs_saga_ormstungu.on.xml` names NO upstream at
+> all (empty `<sourcename>` and `<sourceurl>`) and is **181 of the 1,228 lines
+> (14.7%)** — admitted under the ruling with the hole disclosed in its own
+> staged header rather than smoothed over.
+>
+> **THE CHANNEL IS INTACT, MEASURED.** The 42 `*.is.xml` were refused for the
+> epenthetic `-ur` that breaks the six-syllable line; the staged verse carries
+> **114 classical `-r` nominatives and ZERO modernised `-ur`** (`maðr` 6,
+> `sonr` 2, `konungr` 2, `Þórólfr` 1, `Egill` 103), against 1,534/0 in the
+> prose it was cut from. `audit_corpus` check G notes six of the seven files
+> and that is the check WORKING: its hits are legitimate classical forms that
+> end in `-ir`/`-ur` (`fylkir`, `hilmir`, `bróður`, `faðir`), not epenthesis.
+>
+> **STILL OPEN, which is why this is `PARTIAL` and not closed:** the hending
+> measurement has NOT been re-run against the staged text, so 55.63% / 30.72%
+> remain the dead scratchpad's figures and are not quoted as live. `(b)` and
+> `(c)` below are untouched, and there is still no licensed *Háttatal* — the
+> title's original subject.
+
+> **7 · ~~Still BLOCKED~~ (a) IS DONE; here is what would move the rest**, in cost order:
 > (a) make the sagadb call; (b) get `archive.org` on the egress allowlist and
 > **re-OCR scans 0610–0730 with an Icelandic model** — §3 says the images are
 > intact; (c) name the edition behind `is.wikisource.org`'s Old Norse, reached

@@ -1,0 +1,314 @@
+# author: ANONYMOUS. The sagas are 13th-century prose compilations and
+#         the verse inside them is attributed IN THE TEXT to named
+#         10th-11th century skalds. Neither layer has a living
+#         claimant: the works are medieval and the binding gate here
+#         is the EDITION, not the author (doctrine 80).
+# source: sveinbjornt/sagadb.org  src/gunnlaugs_saga_ormstungu.on.xml
+#         md5 50655659b7a239a9cbc38ef7ca055b0c, 76,021 bytes, UTF-8.
+#         Cut by `python3 quality/stage_sagadb.py --write`; that module
+#         is the recipe and `--check` re-derives this file (the previous
+#         extraction lived in a scratchpad and did not survive its
+#         session, which is why the recipe now ships).
+#         Upstream declared by the source's own <sourcename>: (NONE DECLARED)
+# licence: express PUBLIC DOMAIN affirmation by the compiler, quoted
+#         verbatim from README.md: 'All saga source texts are in the
+#         public domain.' The repository's License.txt is BSD-3-Clause
+#         (c) 2007 Sveinbjorn Thordarson and covers the Perl build
+#         scripts ONLY -- two separable layers, stated separately by
+#         the compiler himself (doctrine 54).
+#         ADMITTED BY OWNER RULING 2026-08-22 on `MISSING.md` K-4. The
+#         row had stood `contested=true` since 2026-08-11 with the
+#         reason recorded: the affirmation is the compiler's assertion
+#         about the medieval WORK and does not reach the 20th-century
+#         normalisation this text descends from. That residual is not
+#         resolved by the ruling; it is ACCEPTED by it, and it stays
+#         written here so no later reader mistakes a decision for a
+#         proof (doctrine 17).
+# note: THIS MEMBER NAMES NO UPSTREAM. Its <sourcename> and
+#       <sourceurl> are both empty in the source XML. Staged
+#       under the owner's ruling on the source as a whole, with
+#       the hole disclosed rather than smoothed over.
+# metre: UNDECLARED. The edition names a metre for only two
+#         poems (Höfuðlausn, Sonatorrek/Arinbjarnarkviða) and
+#         says nothing about this verse. It is NOT assumed to
+#         be dróttkvætt: the corpus is visibly mixed, and the
+#         question is one for `quality/phonology/non.py` to
+#         answer and REFUSE (doctrine 79), not for a stager.
+
+
+--- TITLE: Gunnlaugs saga ormstungu ch 5 vísa 1
+--- SOURCE: chapter 5, 'Helga verðr heitkona Gunnlaugs.'
+[VERSE 1]
+Mörk bauðk mundangs sterkum
+manni, tyggja ranna.
+Grásíma skaltu góma
+glóðspýtis þat nýta.
+Iðrask munt, ef yðrum
+allráðr flóða ór sjóði
+lætr eyðanda líða
+linns samlagar kindar.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 6 vísa 1
+--- SOURCE: chapter 6, 'Gunnlaugr fann Eirík jarl.'
+[VERSE 1]
+Hirðmaðr es einn,
+sá 's einkar meinn.
+Trúið hánum vart,
+hann 's illr ok svartr.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 7 vísa 1
+--- SOURCE: chapter 7, 'Gunnlaugr var með Aðalráði konungi.'
+[VERSE 1]
+Herr sésk allr enn örva
+Englands sem goð þengil.
+Ætt lýtr grams ok gumna
+gunnbráðs Aðalráði.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 7 vísa 2
+--- SOURCE: chapter 7, 'Gunnlaugr var með Aðalráði konungi.'
+[VERSE 1]
+Meðalráð es þér, Móði
+malma galdrs, at halda,
+att hafið ér við prettum
+oddrjóð, fyr mér hoddum.
+Vita mátt hitt, at heitik,
+hér sék á því færi,
+þat fekksk nafn af nökkvi,
+naðrstunga, mér ungum.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 7 vísa 3
+--- SOURCE: chapter 7, 'Gunnlaugr var með Aðalráði konungi.'
+[VERSE 1]
+Koma skalk vistar vitja
+viggs döglinga þriggja,
+því hefk hlutvöndum heitit
+hjarls ok tveggja jarla.
+Hverfkak aftr, áðr arfi,
+auðveitir gefr rauðan
+orma beð fyr ermar,
+odd-Gefnar mér stefni.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 8 vísa 1
+--- SOURCE: chapter 8, 'Gunnlaugr sækir heim höfðingja.'
+[VERSE 1]
+Elr sváru skæ
+Sigtryggr við hræ.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 8 vísa 2
+--- SOURCE: chapter 8, 'Gunnlaugr sækir heim höfðingja.'
+[VERSE 1]
+Kann ek máls of skil,
+hvern ek mæra vil
+konungmanna kon,
+hann 's Kvárans son.
+Muna gramr við mik,
+venr hann gjöfli sik,
+þess mun grepp vara,
+gollhring spara.
+Segi hildingr mér,
+ef hann heyrði sér
+dýrligra brag,
+þat es drápulag.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 8 vísa 3
+--- SOURCE: chapter 8, 'Gunnlaugr sækir heim höfðingja.'
+[VERSE 1]
+Segið ér frá jarli,
+oddfeimu stafir, þeima,
+hann hefir litnar hávar,
+hárr karl es sá, bárur.
+Sigreynir hefir sénar
+sjalfr í miklu gjalfri
+austr fyr unnar hesti
+Eiríkr bláar fleiri.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 10 vísa 1
+--- SOURCE: chapter 10, 'Útkváma Gunnlaugs ok brúðkaup Hrafns.'
+[VERSE 1]
+Rækik lítt, þótt leiki,
+létt veðr es nú, þéttan
+austanvindr at öndri
+andness viku þessa.
+Meir séumk hitt, en hæru
+hoddstríðandi bíðit,
+orð, at eigi verðak
+jafnröskr taliðr Hrafni.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 10 vísa 2
+--- SOURCE: chapter 10, 'Útkváma Gunnlaugs ok brúðkaup Hrafns.'
+[VERSE 1]
+Munat háðvörum hyrjar
+hríðmundaðar Þundi
+hafnar hörvi drifna
+hlýða jörð at þýðask,
+þvít lautsíkjar lékum
+lyngs, es várum yngri,
+alnar gims á ýmsum
+andnesjum því landi.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 11 vísa 1
+--- SOURCE: chapter 11, 'Hólmganga Gunnlaugs ok Hrafns á alþingi.'
+[VERSE 1]
+Hugðumk orms á armi
+ý döggvar þér höggvinn,
+væri, brúðr, í blóði
+beðr þinn roðinn mínu,
+knættit endr of undir
+ölstafns Njörun Hrafni,
+líka getr þat lauka
+lind, höggþyrnis binda.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 11 vísa 2
+--- SOURCE: chapter 11, 'Hólmganga Gunnlaugs ok Hrafns á alþingi.'
+[VERSE 1]
+Ormstungu varð engi
+allr dagr und sal fjalla
+hægr, síz Helga en fagra
+Hrafns kvánar réð nafni.
+Lítt sá hölðr enn hvíti
+hjörþeys faðir meyjar,
+gefin vas Eir til aura
+ung, við minni tungu.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 11 vísa 3
+--- SOURCE: chapter 11, 'Hólmganga Gunnlaugs ok Hrafns á alþingi.'
+[VERSE 1]
+Væn, ák verst at launa,
+vín-Gefn, föður þínum,
+fold nemr flaum af skaldi
+flóðhyrs, ok svá móður,
+því at gerðu bil borða
+bæði senn und klæðum,
+herr hafi hölðs ok svarra
+hagvirki, svá fagra.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 11 vísa 4
+--- SOURCE: chapter 11, 'Hólmganga Gunnlaugs ok Hrafns á alþingi.'
+[VERSE 1]
+Samira okkr of eina,
+Ullr benloga, Fullu,
+frægir folka Ságu,
+fangs í brigð at ganga.
+Mjök eru margar slíkar,
+morðrunnr, fyr haf sunnan,
+ýtik sævar Sóta,
+sannfróðr, konur góðar.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 11 vísa 5
+--- SOURCE: chapter 11, 'Hólmganga Gunnlaugs ok Hrafns á alþingi.'
+[VERSE 1]
+Gefin vas Eir til aura
+ormdags en litfagra,
+þann kveða menn né minna
+minn jafnoka, Hrafni,
+allra nýztr meðan austan
+Aðalráðr farar dvalði,
+því es menrýris minni
+málgráðr, í gný stála.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 11 vísa 6
+--- SOURCE: chapter 11, 'Hólmganga Gunnlaugs ok Hrafns á alþingi.'
+[VERSE 1]
+Nú emk út á eyri
+alvangs búinn ganga,
+happs unni goð greppi
+gört, með tognum hjörvi.
+Hnakk skalk Helgu lokka,
+haus vinnk frá bol lausan
+loks með ljósum mæki
+ljúfsvelgs, í tvau kljúfa.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 11 vísa 7
+--- SOURCE: chapter 11, 'Hólmganga Gunnlaugs ok Hrafns á alþingi.'
+[VERSE 1]
+Veitat greppr, hvárr greppa
+gagnsæli hlýtr fagna.
+Hér 's bensigðum brugðit,
+búin es egg í leggi.
+Þat mun ein ok ekkja
+ung mær, þótt vér særimsk,
+þorna spöng af þingi
+þegns hugrekki fregna.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 11 vísa 8
+--- SOURCE: chapter 11, 'Hólmganga Gunnlaugs ok Hrafns á alþingi.'
+[VERSE 1]
+Alin vas rýgr at rógi,
+runnr olli því Gunnar,
+lág vask auðs at eiga
+óðgjarn, fira börnum.
+Nú eru svanmærrar síðan
+svört augu mér bauga
+lands til lýsi-Gunnar
+lítilþörf at títa.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 11 vísa 9
+--- SOURCE: chapter 11, 'Hólmganga Gunnlaugs ok Hrafns á alþingi.'
+[VERSE 1]
+Brámáni skein brúna
+brims und ljósum himni
+Hristar hörvi glæstrar
+haukfránn á mik lauka,
+en sá geisli sýslir
+síðan gullmens Fríðar
+hvarma tungls ok hringa
+Hlínar óþurft mína.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 12 vísa 1
+--- SOURCE: chapter 12, 'Fall Hrafns ok Gunnlaugs.'
+[VERSE 1]
+Hlóð, áðr Hrafni næði,
+hugreifum Óleifi,
+Göndlar þeys ok Grími
+Gunnlaugr hjörvi þunnum.
+Hann varð hvatra manna,
+hugmóðr, drifinn blóði,
+Ullr réð ýta falli
+unnviggs, bani þriggja.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 12 vísa 2
+--- SOURCE: chapter 12, 'Fall Hrafns ok Gunnlaugs.'
+[VERSE 1]
+Oss gekk mætr á móti
+mótrunnr í dyn spjóta,
+hríðgervandi hjörva,
+Hrafn framliga jafnan.
+Hér varð mörg í morgin
+malmflaug of Gunnlaugi,
+hergerðandi, á Hörða,
+hringþollr, nesi Dinga.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 13 vísa 1
+--- SOURCE: chapter 13, 'Helga in fagra gefin Þorkatli.'
+[VERSE 1]
+Vissak Hrafn, en Hrafni
+hvöss kom egg í leggi,
+hjaltugguðum höggva
+hrynfiski mik brynju,
+þás hræskæri hlýra
+hlaut fen ari benja.
+Klauf gunnsproti Gunnar
+Gunnlaugs höfuð runna.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 13 vísa 2
+--- SOURCE: chapter 13, 'Helga in fagra gefin Þorkatli.'
+[VERSE 1]
+Roðit vas sverð, en sverða
+sverð-Rögnir mik gerði.
+Váru reynd í röndum
+randgölkn fyr ver handan.
+Blóðug hykk í blóði
+blóðgögl of skör stóðu.
+Sárfíkinn hlaut sára
+sárgammr enn á þramma.
+
+--- TITLE: Gunnlaugs saga ormstungu ch 13 vísa 3
+--- SOURCE: chapter 13, 'Helga in fagra gefin Þorkatli.'
+[VERSE 1]
+Lagðak orms at armi
+arms góða mér tróðu,
+goð brá Lofnar lífi
+líns, andaða mína.
+-- -- --
+þó 's beiðöndum bíða
+bliks þungara miklu.

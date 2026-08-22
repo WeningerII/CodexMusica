@@ -456,8 +456,14 @@ def test_every_declared_source_reaches_a_row():
     # declarations over 1,174 -> 1,423 files. Both move now, unlike the
     # Montgomery merge where only the file count did: HBV added 272 files
     # AND gave 191 existing ones a second book.
-    check("2007 id-shaped `# source:` declarations are checked, over 1423 "
-          "files", total == 2007 and len(files) == 1423, (total, len(files)))
+    # REPINNED 2026-08-22 (K-4, the Old Norse staging): 2,007 -> 2,014
+    # declarations over 1,423 -> 1,430 files. Both move by SEVEN, which is
+    # the signature of a load where every new file carries exactly one
+    # `# source:` id and no existing file gained a second: the seven
+    # `corpus/song/non_*.txt` are all cut from one compilation,
+    # `sveinbjornt/sagadb.org`, admitted by owner ruling.
+    check("2014 id-shaped `# source:` declarations are checked, over 1430 "
+          "files", total == 2014 and len(files) == 1430, (total, len(files)))
     # REPINNED 2026-08-20 (Tier-1): 62 -> 70 — eight of the 18 topped-up
     # files gained their first second source citation.
     # 70 -> 73 same sitting: three twin merges gave their keepers a second

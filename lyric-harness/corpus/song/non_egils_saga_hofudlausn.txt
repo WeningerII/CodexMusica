@@ -1,0 +1,257 @@
+# author: ANONYMOUS. The sagas are 13th-century prose compilations and
+#         the verse inside them is attributed IN THE TEXT to named
+#         10th-11th century skalds. Neither layer has a living
+#         claimant: the works are medieval and the binding gate here
+#         is the EDITION, not the author (doctrine 80).
+# source: sveinbjornt/sagadb.org  src/egils_saga.on.xml
+#         md5 a039827471792282c2507fafa4ca49b4, 449,423 bytes, UTF-8.
+#         Cut by `python3 quality/stage_sagadb.py --write`; that module
+#         is the recipe and `--check` re-derives this file (the previous
+#         extraction lived in a scratchpad and did not survive its
+#         session, which is why the recipe now ships).
+#         Upstream declared by the source's own <sourcename>: Heimskringla.no
+# licence: express PUBLIC DOMAIN affirmation by the compiler, quoted
+#         verbatim from README.md: 'All saga source texts are in the
+#         public domain.' The repository's License.txt is BSD-3-Clause
+#         (c) 2007 Sveinbjorn Thordarson and covers the Perl build
+#         scripts ONLY -- two separable layers, stated separately by
+#         the compiler himself (doctrine 54).
+#         ADMITTED BY OWNER RULING 2026-08-22 on `MISSING.md` K-4. The
+#         row had stood `contested=true` since 2026-08-11 with the
+#         reason recorded: the affirmation is the compiler's assertion
+#         about the medieval WORK and does not reach the 20th-century
+#         normalisation this text descends from. That residual is not
+#         resolved by the ruling; it is ACCEPTED by it, and it stays
+#         written here so no later reader mistakes a decision for a
+#         proof (doctrine 17).
+# metre: runhent -- END-RHYMED, and it carries no hendings
+#         NAMED BY THE EDITION ITSELF, in its chapter
+#         title. Every other staged file here leaves this
+#         field ABSENT, because the source declares no
+#         metre for them and this staging will not invent
+#         one (doctrine 45).
+
+
+--- TITLE: Höfuðlausn ch 60 vísa 1
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Vestr fórk of ver,
+en ek Viðris ber
+munstrandar mar.
+Svá's mitt of far.
+Drók eik á flot
+við ísa brot.
+Hlóðk mærðar hlut
+míns knarrar skut.
+
+--- TITLE: Höfuðlausn ch 60 vísa 2
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Buðumk hilmir löð.
+Þar ák hróðrar kvöð.
+Berk Óðins mjöð
+á Engla bjöð.
+Lofat vísa vann.
+Víst mærik þann.
+Hljóðs biðjum hann,
+því at hróðr of fann.
+
+--- TITLE: Höfuðlausn ch 60 vísa 3
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Hygg, vísi, at,
+vel sómir þat,
+hvé ek þylja fet,
+ef ek þögn of get.
+Flestr maðr of frá,
+hvat fylkir vá,
+en Viðrir sá,
+hvar valr of lá.
+
+--- TITLE: Höfuðlausn ch 60 vísa 4
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Óx hjörva glöm
+við hlífar þröm.
+Guðr óx of gram.
+Gramr sótti fram.
+Þar heyrðisk þá,
+þaut mækis á,
+malmhríðar spá.
+Sú vas mest of lá.
+
+--- TITLE: Höfuðlausn ch 60 vísa 5
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Vasat villr staðar
+vefr darraðar
+of grams glaðar
+geirvangs raðar.
+Þars í blóði
+enn brimlá-móði
+völlr of þrumði,
+und véum glumði.
+
+--- TITLE: Höfuðlausn ch 60 vísa 6
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Hné folk á fit
+við fleina hnit.
+Orðstír of gat
+Eiríkr at þat.
+
+--- TITLE: Höfuðlausn ch 60 vísa 7
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Fremr munk segja,
+ef firar þegja.
+Frágum fleira
+til frama þeira.
+Óxu undir
+við jöfurs fundi.
+Brustu brandar
+við bláar randar.
+
+--- TITLE: Höfuðlausn ch 60 vísa 8
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Hlam heinsöðul
+við hjaldrröðul.
+Beit bengrefill,
+þat vas blóðrefill.
+Frák, at felli
+fyr fetilsvelli
+Óðins eiki
+í éarnleiki.
+
+--- TITLE: Höfuðlausn ch 60 vísa 9
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Þar vas eggja at
+ok odda gnat.
+Orðstír of gat
+Eiríkr at þat.
+
+--- TITLE: Höfuðlausn ch 60 vísa 10
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Rauð hilmir hjör.
+Þar vas hrafna gjör.
+Fleinn hitti fjör.
+Flugu dreyrug spjör.
+Ól flagðs gota
+fárbjóðr Skota.
+Trað nift Nara
+náttverð ara.
+
+--- TITLE: Höfuðlausn ch 60 vísa 11
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Flugu hjaldrs tranar
+á hræs lanar.
+Órut blóðs vanar
+benmás granar.
+Sleit und freki,
+en oddbreki
+gnúði hrafni
+á höfuðstafni.
+
+--- TITLE: Höfuðlausn ch 60 vísa 12
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Kom gríðar læ
+at Gjalpar skæ.
+Bauð ulfum hræ
+Eiríkr of sæ.
+
+--- TITLE: Höfuðlausn ch 60 vísa 13
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Lætr snót saka
+sverð-Frey vaka,
+en skers Haka
+skíðgarð braka.
+Brustu broddar,
+en bitu oddar.
+Báru hörvar
+af bogum örvar.
+
+--- TITLE: Höfuðlausn ch 60 vísa 14
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Beit fleinn floginn.
+Þá vas friðr loginn.
+Vas almr dreginn.
+Varð ulfr feginn.
+Stózk folkhagi
+við fjörlagi.
+Gall ýbogi
+at eggtogi.
+
+--- TITLE: Höfuðlausn ch 60 vísa 15
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Jöfurr sveigði ý,
+flugu unda bý.
+Bauð ulfum hræ
+Eiríkr of sæ.
+
+--- TITLE: Höfuðlausn ch 60 vísa 16
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Enn munk vilja
+fyr verum skilja
+skapleik skata.
+Skal mærð hvata.
+Verpr ábröndum,
+en jöfurr löndum
+heldr hornklofi.
+Hann's næstr lofi.
+
+--- TITLE: Höfuðlausn ch 60 vísa 17
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Brýtr bógvita
+bjóðr hrammþvita.
+Muna hodd-dofa
+hringbrjótr lofa.
+Mjök's hánum föl
+haukstrandar möl.
+Glaðar flotna fjöl
+við Fróða mjöl.
+
+--- TITLE: Höfuðlausn ch 60 vísa 18
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Verpr broddfleti
+af baugseti
+hjörleiks hvati.
+Hann es baugskati.
+Þróask hér sem hvar,
+hugat mælik þar,
+frétt's austr of mar,
+Eiríks of far.
+
+--- TITLE: Höfuðlausn ch 60 vísa 19
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Jöfurr hyggi at,
+hvé ek yrkja fat.
+Gótt þykkjumk þat,
+es ek þögn of gat.
+Hrærðak munni
+af munar grunni
+Óðins ægi
+of jöru fægi.
+
+--- TITLE: Höfuðlausn ch 60 vísa 20
+--- SOURCE: chapter 60, 'Egill flutti Höfuðlausn.'
+[VERSE 1]
+Bark þengils lof
+á þagnar rof.
+Kannk mála mjöt
+of manna sjöt.
+Ór hlátra ham
+hróðr bark fyr gram.
+Svá fór þat fram,
+at flestr of nam.

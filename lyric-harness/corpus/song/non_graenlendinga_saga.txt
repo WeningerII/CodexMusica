@@ -1,0 +1,41 @@
+# author: ANONYMOUS. The sagas are 13th-century prose compilations and
+#         the verse inside them is attributed IN THE TEXT to named
+#         10th-11th century skalds. Neither layer has a living
+#         claimant: the works are medieval and the binding gate here
+#         is the EDITION, not the author (doctrine 80).
+# source: sveinbjornt/sagadb.org  src/graenlendinga_saga.on.xml
+#         md5 9524bc78c658ef75457b5d0c9c4bd64d, 44,872 bytes, UTF-8.
+#         Cut by `python3 quality/stage_sagadb.py --write`; that module
+#         is the recipe and `--check` re-derives this file (the previous
+#         extraction lived in a scratchpad and did not survive its
+#         session, which is why the recipe now ships).
+#         Upstream declared by the source's own <sourcename>: Heimskringla.no
+# licence: express PUBLIC DOMAIN affirmation by the compiler, quoted
+#         verbatim from README.md: 'All saga source texts are in the
+#         public domain.' The repository's License.txt is BSD-3-Clause
+#         (c) 2007 Sveinbjorn Thordarson and covers the Perl build
+#         scripts ONLY -- two separable layers, stated separately by
+#         the compiler himself (doctrine 54).
+#         ADMITTED BY OWNER RULING 2026-08-22 on `MISSING.md` K-4. The
+#         row had stood `contested=true` since 2026-08-11 with the
+#         reason recorded: the affirmation is the compiler's assertion
+#         about the medieval WORK and does not reach the 20th-century
+#         normalisation this text descends from. That residual is not
+#         resolved by the ruling; it is ACCEPTED by it, and it stays
+#         written here so no later reader mistakes a decision for a
+#         proof (doctrine 17).
+# metre: UNDECLARED. The edition names a metre for only two
+#         poems (Höfuðlausn, Sonatorrek/Arinbjarnarkviða) and
+#         says nothing about this verse. It is NOT assumed to
+#         be dróttkvætt: the corpus is visibly mixed, and the
+#         question is one for `quality/phonology/non.py` to
+#         answer and REFUSE (doctrine 79), not for a stager.
+
+
+--- TITLE: Grænlendinga saga ch 2 vísa 1
+--- SOURCE: chapter 2, 'Bjarni Herjólfsson leitar Grænlands.'
+[VERSE 1]
+Mínar biðk at munka reyni
+meinalausan farar beina.
+Heiðis haldi hárar foldar
+hallar dróttinn yfir mér stalli.

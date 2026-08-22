@@ -2875,7 +2875,21 @@ def main(argv=None):
 #: SMALL populations. The 517 that agree get no per-file note ON PURPOSE, and
 #: the summary is what keeps them from being silent — 517 notes each saying
 #: "as expected" would bury the 28 that do not (doctrine 20/79).
-PINNED_SHAPE = {"files": 1423, "FAIL": 1, "WARN": 340, "NOTE": 1162}
+#: REPINNED 2026-08-22 on the K-4 STAGING: `files` ~~1423~~ **1430** and NOTE
+#: ~~1162~~ **1168**; `FAIL` and `WARN` unmoved. Seven `corpus/song/non_*.txt`
+#: entered on the owner's ruling admitting `sveinbjornt/sagadb.org` — 160
+#: vísur, 1,228 verse lines, the first Old Norse text this corpus has ever
+#: held (`MISSING.md` K-4, `quality/stage_sagadb.py`). Six of the seven earn a
+#: check-G note and that is the check WORKING, not a defect: G screens for the
+#: epenthetic `-ur` that modernised Icelandic inserts, which is the exact
+#: property the 42 `*.is.xml` siblings were REFUSED for. Its hits here are
+#: legitimate classical forms that merely end in `-ir`/`-ur` (`fylkir`,
+#: `hilmir`, `bróður`, `faðir`), and the direct probe settles it: the staged
+#: verse carries **114 classical `-r` nominatives and ZERO modernised `-ur`
+#: ones** (`maðr` 6, `sonr` 2, `konungr` 2, `Þórólfr` 1, `Egill` 103), against
+#: 1,534/0 in the prose it was cut from. The channel the hending measurement
+#: needs is intact, measured rather than hoped.
+PINNED_SHAPE = {"files": 1430, "FAIL": 1, "WARN": 340, "NOTE": 1168}
 
 
 def _verify_shape(files, findings):
