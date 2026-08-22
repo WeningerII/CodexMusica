@@ -3966,6 +3966,98 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-48 · `same_object_as` is the survey's dedup column and it holds prose, so the structure canon cannot be deduped mechanically `OPEN`
+**Raised by the owner, 2026-08-22, on reading the section-function list: "I'd
+bet dollars to donuts that you're looking at an occurrence of a literal
+translation synonym here… several of these are the same thing… there's a ton
+of nuance in the differences of chorus and refrain but they're important."
+Measured before filing, and the measurement is worse than the suspicion.**
+
+`data/structure_canon.tsv` carries a column named **`same_object_as`** — the
+field whose whole job is to answer "are these two rows the same object". It is
+populated on **622 of 623 rows**. By shape:
+
+| shape of the value | rows |
+|---|---:|
+| **long prose (>60 chars)** | **381** |
+| short free text | 137 |
+| `—` (explicit none) | 64 |
+| bare equality (`=…`) | 26 |
+| `↑` (ditto mark) | 7 |
+| typed relation (`species-of`, `nesting-of`, `complements`) | **5** |
+| hedged (`probably =`, `possibly =`) | 2 |
+| empty | 1 |
+
+**Five rows out of 623 use a typed relation.** And of the 551 values that are
+neither empty nor a dash, **111 mention no known term anywhere in their
+prose** — a value in a column named `same_object_as` that does not name an
+object.
+
+Actual values, unedited:
+
+```
+AABA                      -> the one hit is a rhyme scheme AABA=233 in fas_baba_tahir…
+Accumulative form         -> probably = Cumulative form (spelling variant)
+Arch form                 -> —
+Blowing changes           -> ↑
+Compound AABA             -> nesting-of AABA
+Contrasting verse-chorus  -> species-of Verse-chorus
+Head-solos-head           -> complements Blowing changes
+```
+
+That is: an em-dash, a ditto mark, a hedge, three different typed relations,
+and ATTESTATION COMMENTARY that belongs in the `attested` column — all sharing
+one field whose name promises an identifier.
+
+**WHY THIS BLOCKS THE STRUCTURE LADDER AND NOT MERELY TIDINESS.** The rhyme
+ladder runs 601 survey rows → 77 schemas → 49 named types → a door admitting
+2. The structure ladder is meant to run 623 → 314 section rows → a vocabulary.
+**It cannot take the second step.** Collapsing 314 section terms across
+fifteen traditions into a vocabulary REQUIRES deciding which of them name the
+same span — `estribillo` / `coro` / `pallavi` / `mukhda` / `nakarat` /
+`chorus` all landed on the function `goal`, and whether they are ONE value or
+six is exactly the question this column was built to answer and cannot.
+A survey that cannot be deduped mechanically cannot become a vocabulary, and
+this is the column standing between the two.
+
+**THE NUANCE THE OWNER NAMED IS THE REASON TO TYPE IT, NOT A REASON TO FUDGE
+IT.** `chorus` and `refrain` are NOT the same object — a chorus is a
+multi-line returning span with its own words, a refrain is a returning line or
+couplet inside a stanza, and this repo already treats them as distinct
+`SECTION_FUNCTIONS` and distinct marks. A dedup column that can only say
+"same" or nothing forces every such pair into a wrong answer. That is the
+argument for a TYPED set rather than a boolean.
+
+**PROPOSED REPLACEMENT — four pointer columns and a note, each holding a term
+id or empty:**
+
+| column | means | example |
+|---|---|---|
+| `same_as` | the identical object under another tradition's name. Symmetric, transitive, must be acyclic. | `Coro` → `Estribillo` |
+| `species_of` | a narrower kind of the target | `Contrasting verse-chorus` → `Verse-chorus` |
+| `part_of` | a span contained by the target | `Stollen` → `Bar form` |
+| `complements` | a counterpart that co-occurs, neither containing the other | `Zapev` → `Pripev` |
+| `note` | the prose, KEPT — it is genuinely valuable and merely in the wrong seat | |
+
+**AND A `--check`, because a pointer nobody validates is prose with a colon in
+it.** Three conditions, each failing by name: every non-empty pointer resolves
+to an existing `term`; `same_as` is acyclic and its closure does not merge two
+rows with DIFFERENT declared `function`s (which would silently claim
+`chorus` = `refrain`); and no row carries both `same_as` and `species_of` to
+the same target. The 111 unresolvable values are the population that check
+would refuse on day one, which is the point.
+
+**THIS IS THE SAME SHAPE THE RHYME SIDE ALREADY MEASURED.** M-35's strictness
+work found **43 antisymmetry failures, all synonym classes**, and killed the
+lattice option on exactly that evidence. Synonymy across traditions is the
+recurring hard problem in both canons, and on the rhyme side it is at least
+measurable because the names resolve. Here it is not measurable at all.
+
+**Why it matters:** the owner supplied a large multi-language section list
+precisely so that literal-translation collisions would surface rather than
+bite later. The survey collected it faithfully — and then recorded the
+collisions in a column no program can read.
+
 ### M-47 · Apparatus survives into LINE-FINAL position in 35 corpus files, which is the one position end rhyme reads `OPEN`
 **Two instances found by the poet-cell agent, both reproduced here verbatim,
 then sized across the whole corpus rather than filed as two anecdotes.**
