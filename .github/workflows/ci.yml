@@ -1650,10 +1650,23 @@ jobs:
               wait -n
             done
             { echo "── quality/test_$f.py"
-              python3 "quality/test_$f.py" || touch /tmp/suites-failed; } &
+              python3 "quality/test_$f.py" || echo "$f" >> /tmp/suites-failed; } &
           done
           wait
-          test ! -f /tmp/suites-failed
+          # THE GATE NAMES WHAT FAILED. It was `touch` + `test ! -f`, so the
+          # step failed correctly and printed NOTHING about which suite did
+          # it -- and this loop runs FOUR AT A TIME, so its output is
+          # interleaved and a reader had to scroll a whole job to find out.
+          # Measured 2026-08-22 on run 32542791452, where the tail of this
+          # step is an ADOPTION CHECK passing, immediately followed by the
+          # step failing for a reason named nowhere near it.
+          if [ -f /tmp/suites-failed ]; then
+            echo "=============================================="
+            echo "FAILING SUITES ($(wc -l < /tmp/suites-failed)):"
+            sed 's|^|  quality/test_|;s|$|.py|' /tmp/suites-failed
+            echo "(output above is interleaved 4-wide; search for the name)"
+            exit 1
+          fi
 
       # MOVED HERE FROM `record` 2026-08-14, because this job has the tagger.
       # 64 CPU-s. It judges 13 of the 18 calibration constants EXACTLY and
