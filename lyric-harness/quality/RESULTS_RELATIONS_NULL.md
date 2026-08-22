@@ -54,8 +54,9 @@ and §B's warning that every row is a best-of over 4 statistics × 4 nulls ×
 > Kalevala and Alun print no break of any kind inside the 40 lines read and
 > the five schemas **refuse** there rather than reporting a number.
 >
-> **Struck in §A: `monorhyme / leash` (§A.1, the +227 row), `Scots
-> vowel-length rhyme (Aitken's Law)` and `monai` (§A.2).** §B is left
+> **Struck in §A: `monorhyme / leash` (§A.1, the +227 row) and `monai`
+> (§A.2) — TWO rows, not the three this paragraph first claimed; the
+> `Aitken's Law` strike was withdrawn on re-measurement, see §A.2.** §B is left
 > UNALTERED as promised, and its own copies of those rows (its §"ADMISSIBLE"
 > tables, `monorhyme / leash` 268/41 among them) are superseded by this
 > paragraph rather than by an edit. Nothing else in either section is
@@ -154,8 +155,9 @@ gap, which for `rime riche` is two instances.
 > the null was drawn through the same collapsed frame and has to be re-run
 > before any gap can be quoted. What survives unchanged is `perfect rhyme` at
 > the top of this table and every unframed row below it; what does not is this
-> row, `monai` in §A.2, and the `Aitken's Law` row that mirrors it. The
-> re-run is M-39's first remaining piece.
+> row and `monai` in §A.2. (This paragraph first named the `Aitken's Law` row
+> as a third casualty; it is not one, and §A.2 records why the strike was
+> withdrawn.) The re-run is M-39's first remaining piece.
 
 **Three cleared under all four randomisations** — `perfect rhyme`,
 ~~`monorhyme / leash`~~ (struck above), `light rhyme` — and fourteen of the
@@ -181,7 +183,7 @@ number and none is a measurement of the relation the canon names.
 
 | schema | statistic | null | slice | gap | lift |
 |---|---|---|---|---:|---:|
-| ~~`Scots vowel-length rhyme (Aitken's Law)`~~ | ~~count~~ | ~~global_redeal~~ | ~~eng~~ | ~~+227~~ | ~~17.87×~~ |
+| `Scots vowel-length rhyme (Aitken's Law)` | count | global_redeal | eng | +227 | 17.87× |
 | `anaphora` | local_fraction@2 | line_permutation | msa | +0.5263 | 8.00× |
 | `cluster consonance / skothending span` | local_fraction@2 | within_line_shuffle | cym_cynghanedd | +0.5 | 11.00× |
 | `syllabic rhyme` | local_fraction@2 | line_final_permutation | non | +0.3333 | 10.00× |
@@ -193,13 +195,25 @@ number and none is a measurement of the relation the canon names.
 | `incremental repetition` | count | global_redeal | msa | +2 | ∞ |
 | `consonance` | local_fraction@2 | line_final_permutation | non | +0.0185 | 2.40× |
 
-> **TWO OF THE ELEVEN ARE STRUCK for the same reason as §A.1's second row.**
+> **ONE OF THE ELEVEN IS STRUCK: `monai`, which is `forall stanza` in its own
+> right and whose eng-side sibling fell with it.** Ten stand. The count in this
+> heading is left at eleven and not re-typed to ten: re-running `monai` is what
+> decides where it lands, and a heading edited ahead of the measurement would
+> be the thing this document is written against.
+>
+> ~~**TWO OF THE ELEVEN ARE STRUCK for the same reason as §A.1's second row.**
 > `Scots vowel-length rhyme (Aitken's Law)` returns the IDENTICAL instance set
 > to `monorhyme / leash` on eng (§A.4 measures that), so the collapsed stanza
-> frame carried it too; `monai` is `forall stanza` in its own right. Nine
-> stand. The count in this heading is left at eleven and not re-typed to nine:
-> re-running the two is what decides where they land, and a heading edited
-> ahead of the measurement would be the thing this document is written against.
+> frame carried it too.~~ **THAT REASONING WAS WRONG AND THE STRIKE IS
+> WITHDRAWN, 2026-08-22, on an independent re-measurement rather than on the
+> summary it was taken from.** `Scots vowel-length rhyme` is `frame='song'`.
+> Measured on the eng slice through both stream builds: **268 instances over
+> the collapsed frame and 268 over the printed ground** — the stanza
+> coordinate does not touch it, and its row was never a casualty of M-39. What
+> was true is the OPPOSITE of what I wrote: the two schemas returned the same
+> set BECAUSE the collapsed frame erased the only thing separating them, and
+> the fix has now separated them (268 against 30). See §A.4.1, which this
+> correction rewrites.
 
 The remedy for all eleven is a corpus, not a null. `monai` is Tamil and
 `Scots vowel-length rhyme` is Scots, and this repo has neither a phonology nor
@@ -297,17 +311,37 @@ the gap).
 
 ## A.4 Three places the instrument is measuring the wrong thing
 
-**A.4.1 Two PAIRS of admissible schemas are one measurement each.**
+**A.4.1 ~~Two PAIRS of admissible schemas are one measurement each.~~ ONE
+PAIR IS. The other pair was one measurement BECAUSE OF THE COLLAPSED FRAME,
+and M-39 has separated them.**
+
+*Re-measured independently 2026-08-22, both claims checked by hand rather than
+carried over from the run's summary.*
+
 `Scots vowel-length rhyme (Aitken's Law)` and `monorhyme / leash` differ by
-one channel (`moras` AGREE at anchor scope) and by their `figure`, and they
-return the **identical instance set** — 268 on the English slice, span for
-span, and 3 on the Welsh one. `alliteration` and `Kalevala alliteration
-(weak)`, BOTH inside A.1's seventeen, return the identical 45 on the Finnish
-slice. So `Scots vowel-length rhyme`'s +227 at 17.87× carries no information
-about Aitken's Law: the channel meant to distinguish it is inert under `eng`
-and `cym`, and there is no `sco` phonology to make it bite. A schema whose
-distinguishing channel never fires is a name, not a measurement — this is
-`relations.check_inert`'s question asked of a CHANNEL rather than of a field.
+one channel (`moras` AGREE at anchor scope) and by their `figure` — and the
+figure difference IS the frame: `song` against `stanza`. Over a frame
+collapsed to one group the figures cannot differ, so the two schemas were
+reduced to their channel difference alone, and they returned the **identical
+instance set** (268 on the English slice, span for span). Grounded on what the
+page prints, the same slice reads **268 against 30**. The identity was an
+artefact of the defect, not a property of the schemas.
+
+**The inert-channel finding SURVIVES the correction and is in fact what the
+identity proved.** Two schemas differing by one channel returned the same set,
+which is exactly what it looks like when that channel never fires: `moras` is
+inert under `eng`, there is no `sco` phonology to make it bite, and
+`Scots vowel-length rhyme`'s +227 at 17.87× still carries no information about
+Aitken's Law specifically. A schema whose distinguishing channel never fires
+is a name, not a measurement — `relations.check_inert`'s question asked of a
+CHANNEL rather than of a field. What is withdrawn is only the claim that the
+two schemas are ONE MEASUREMENT: they are two, and one of them was being
+measured over a frame that could not vary.
+
+`alliteration` and `Kalevala alliteration (weak)`, BOTH inside A.1's
+seventeen, **still return the identical 45 on the Finnish slice** — verified
+span for span after the fix. Neither is stanza-framed, nothing about M-39
+touches them, and that pair genuinely is one measurement wearing two names.
 
 **A.4.2 `epistrophe / radif`'s null is 21 draws wearing an n of 200.** Every
 randomisation in `NULLS` destroys the shared trailing run the schema requires,
