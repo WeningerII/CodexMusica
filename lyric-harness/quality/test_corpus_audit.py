@@ -1137,6 +1137,52 @@ def test_check_H_on_the_real_corpus():
 
 
 # ---------------------------------------------------------------------------
+# 4c. Check I — the printed indent as an independent witness
+# ---------------------------------------------------------------------------
+
+
+def test_check_I_reads_the_indent_and_charges_nothing():
+    """`MISSING.md` M-28. The compositor's indent predicts a shared spelled
+    rime at 6.19x corpus-wide against a within-block permutation null, and
+    every reader stripped it before anything saw it. Check I is what READS it
+    — a coordinate that is declared and never read is the defect this
+    repository keeps rediscovering.
+
+    IT CHARGES NOTHING, and that is the binding property. An indent can mark
+    the rhyme GROUP or the rhyme BEARER, and those are opposite conventions in
+    the same typography: `eng_pah_francis_lieber.txt` prints ABCB stanzas
+    indenting ONLY the rhyming fourth line, so its same-depth pairs are by
+    construction the ones that do not rhyme. Any threshold would charge a
+    printing convention as a defect."""
+    files = AC.load()
+    fs = AC.check_indent(files, AC.Sources())
+    check("check I emits findings", bool(fs), len(fs))
+    check("EVERY one is a NOTE — nothing is charged",
+          all(f.severity == AC.NOTE for f in fs),
+          sorted({f.severity for f in fs}))
+    check("and every one cites doctrine 14, the independence argument",
+          all(f.doctrine == "14" for f in fs),
+          sorted({f.doctrine for f in fs}))
+    summary = [f for f in fs if f.path.startswith("corpus/song/ (")]
+    check("exactly one corpus-wide summary carries the three counts",
+          len(summary) == 1 and "AGREES" in summary[0].measured
+          and "OPPOSITE" in summary[0].measured
+          and "inside the null" in summary[0].measured,
+          [f.path for f in summary])
+    check("517 agree / 6 opposite / 22 inside the null",
+          summary and "AGREES 517 | runs OPPOSITE 6 | inside the null 22"
+          in summary[0].measured, summary and summary[0].measured[:70])
+    check("the per-file notes are the two SMALL populations only, 28 of them",
+          len(fs) - 1 == 28, len(fs) - 1)
+    lieber = [f for f in fs if "francis_lieber" in f.path]
+    check("`eng_pah_francis_lieber.txt` is named as running OPPOSITE — the "
+          "file that refutes any threshold",
+          len(lieber) == 1 and "OPPOSITE" in lieber[0].what, lieber)
+    check("H and I are both registered", {"H", "I"} <= set(AC.CHECKS),
+          sorted(AC.CHECKS))
+
+
+# ---------------------------------------------------------------------------
 # 5. __main__
 # ---------------------------------------------------------------------------
 

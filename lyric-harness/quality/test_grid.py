@@ -10,6 +10,7 @@ Run: python3 quality/test_grid.py
 """
 
 import os
+import tempfile
 import sys
 from fractions import Fraction as F
 
@@ -2191,6 +2192,65 @@ def test_function_aliases_are_claims_on_their_own_rows():
           "middle-eight" in _GR.SECTION_FUNCTIONS["bridge"].aliases)
 
 
+def test_the_printed_indent_survives_ingestion():
+    """`Block.indents` and `indent_partition`, added 2026-08-21.
+
+    Every reader in this repo called `.strip()` before anything saw a line, so
+    the compositor's indent — which over `eng_*` predicts a shared spelled
+    rime at 6.19x against a within-block permutation null (`MISSING.md` M-28)
+    — reached nothing. This pins that it survives, that it is a SHAPE rather
+    than a column count, and that a `Block` with no printing says so with an
+    EMPTY partition rather than a row of zeros (doctrine 20)."""
+    print("\ntest: the printed indent survives ingestion")
+    import lyric_harness as LH
+    check("line_indent counts leading columns", LH.line_indent("    x") == 4,
+          LH.line_indent("    x"))
+    check("a blank line has no indent rather than its own length",
+          LH.line_indent("      ") == 0, LH.line_indent("      "))
+
+    tmp = tempfile.mkdtemp(prefix="grid_indent_")
+    path = os.path.join(tmp, "eng_indent.txt")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("# lang: eng\n\n--- TITLE: A LADDER\n[VERSE 1]\n"
+                "The wind was on the heath,\n"
+                "  and there it stayed;\n"
+                "The sun was underneath,\n"
+                "  and all was shade;\n")
+    song = _G.read_marked_songs(path)[0]
+    b = song.blocks[0]
+    check("the indents are recorded, index-aligned with the lines",
+          b.indents == [0, 2, 0, 2] and len(b.indents) == len(b.lines),
+          (b.indents, b.lines))
+    check("the lines themselves are STILL stripped — the text half is "
+          "byte-identical to what every reader saw before",
+          b.lines[1] == "and there it stayed;", b.lines[1])
+    check("indent_partition is a SHAPE, not a column count",
+          _G.indent_partition(b) == (0, 1, 0, 1), _G.indent_partition(b))
+
+    # THE SAME SHAPE AT A DIFFERENT DEPTH MUST READ THE SAME, which is what
+    # makes two printings comparable — the normalisation a letter scheme
+    # already applies to rhyme.
+    path2 = os.path.join(tmp, "eng_indent_deep.txt")
+    with open(path2, "w", encoding="utf-8") as f:
+        f.write("# lang: eng\n\n--- TITLE: THE SAME LADDER\n[VERSE 1]\n"
+                "a\n        b\nc\n        d\n")
+    b2 = _G.read_marked_songs(path2)[0].blocks[0]
+    check("8 spaces reads the same shape as 2", 
+          _G.indent_partition(b2) == _G.indent_partition(b),
+          (_G.indent_partition(b2), b2.indents))
+
+    # DOCTRINE 20: a Block built from a blueprint has no printing, and
+    # "the printing said nothing" is not "the printing set every line flush".
+    check("a Block with no recorded indents returns an EMPTY partition, "
+          "never a row of zeros",
+          _G.indent_partition(_G.Block(mark="VERSE", base="VERSE", index=1,
+                                       function="verse",
+                                       lines=["a", "b"])) == (),
+          _G.indent_partition(_G.Block(mark="VERSE", base="VERSE", index=1,
+                                       function="verse",
+                                       lines=["a", "b"])))
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -2223,7 +2283,8 @@ if __name__ == "__main__":
                test_line_runs_is_surfaced_rather_than_computed_for_nobody,
                test_two_refusals_that_nothing_had_ever_asserted_can_fire,
                test_function_aliases_are_claims_on_their_own_rows,
-               test_the_named_air_is_a_coordinate_not_a_substring):
+               test_the_named_air_is_a_coordinate_not_a_substring,
+               test_the_printed_indent_survives_ingestion):
         fn()
     print("=" * 62)
     if FAILURES:

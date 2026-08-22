@@ -27,6 +27,7 @@ import json
 import math
 import os
 import re
+import unicodedata
 import sys
 import textwrap
 import urllib.request
@@ -759,8 +760,15 @@ class Lexicon:
         if self.strip_parens:
             text = re.sub(r"\([^)]*\)", " ", text)
         phones, oov = [], []
-        words = [t for t in re.findall(r"[A-Za-z'’\-]+", text)
-                 if re.search(r"[A-Za-z]", t)]
+        # ONE REPERTOIRE, NOT TWO. This was its own `[A-Za-z'’\-]+` until
+        # 2026-08-21 and it has to move with `line_tokens` in the same edit:
+        # widening one and not the other makes them DISAGREE ABOUT WHAT A WORD
+        # IS, which is worse than both being wrong together. Measured while it
+        # was half-fixed: `line_tokens` said `tân` was one word, this said it
+        # was `t` and `n`, and `line_anchors` glued the two LETTER-NAME
+        # syllables (T-IY, EH-N) onto the one word and reported the Welsh line
+        # READABLE, anchored on a spelling-out of its own rhyme word.
+        words = [t for t in _TOKEN_RUN.findall(text) if LATIN_SCRIPT.search(t)]
         for w in words:
             for piece in re.split(r"[-\u2011]", w):
                 if not piece:
@@ -961,15 +969,60 @@ def read_lyric_text(path):
         raise UndecodableLyricFile(path, e) from e
 
 
-def load_lyric_lines(path):
+#: THE PRINTED INDENT OF A LINE, and it is a coordinate of the SOURCE rather
+#: than whitespace to be tidied away.
+#:
+#: In printed English verse the compositor's indent ladder IS the rhyme scheme
+#: set visibly -- the b-lines of a ballad stanza, the couplet of a sonnet, the
+#: short line of a hymn metre. MEASURED over `corpus/song/`: 73,672 sung lines
+#: (12.7%) across 872 files carry one, and the depths are a ladder rather than
+#: a smear (2 spaces 46,732 - 4 spaces 15,783 - 6 spaces 4,298 - 8 spaces
+#: 1,949). Over the 15,685 `eng_*` blocks of >=4 lines that carry two or more
+#: depths, 528,370 end-word pairs with identical end words excluded (doctrine
+#: 3): lines at the SAME depth share a `spelled_rime` 11.83% of the time
+#: against 1.91% at different depths, **+9.92 pp, 6.19x** -- and the matched
+#: null that permutes the depths WITHIN each block, 20 draws at seed
+#: 20260821, has an excess of -2.71 to -2.49 pp, so the observation sits 12.6
+#: points above the null's MAXIMUM and the null does not straddle zero.
+#:
+#: EVERY READER IN THIS REPO STRIPPED IT BEFORE ANYTHING SAW IT until
+#: 2026-08-21 (`MISSING.md` M-28). That is doctrine 45's shape: a reader
+#: silently choosing a coordinate. What this function does NOT do is infer a
+#: mandate from whitespace -- a scheme derived from indentation is exactly as
+#: DERIVED as `--cliques` and doctrine 14 governs it. It makes the printing's
+#: own grouping SURVIVE INGESTION so a caller can ask.
+#:
+#: TABS ARE COUNTED AS ONE COLUMN AND THE POPULATION IS WHY: exactly ONE sung
+#: line in the whole corpus carries a tab, so any expansion width would be a
+#: threshold nobody wrote down (doctrine 58) fitted to a single line.
+def line_indent(raw):
+    """-> int, the number of leading whitespace columns of a raw source line.
+
+    Takes the line BEFORE stripping; a line that is entirely whitespace has no
+    indent and returns 0 rather than its own length.
+    """
+    if not raw or not raw.strip():
+        return 0
+    return len(raw) - len(raw.lstrip(" \t"))
+
+
+def load_lyric_lines(path, with_indent=False):
     """-> list[str]. Non-empty, non-apparatus lines from a lyric file, in
 
     the same shape every CLI verb below expects: stripped, in order, blank
     and apparatus lines dropped. One definition so every verb agrees on
     what counts as sung text.
+
+    `with_indent=True` returns `[(indent, text), ...]` instead -- the SAME
+    walk and the same drop rule, so the text half is byte-identical to the
+    default and the two can never select different lines. A second function
+    walking the file again would be a second definition of what counts as
+    sung text, which is the defect this one exists to prevent (doctrine 1).
     """
-    return [l.strip() for l in read_lyric_text(path).splitlines()
+    rows = [(line_indent(l), l.strip())
+            for l in read_lyric_text(path).splitlines()
             if l.strip() and not is_apparatus_line(l)]
+    return rows if with_indent else [t for _i, t in rows]
 
 
 # A single `FILE|L...` token that is NOT on disk: is it a mistyped path, or a
@@ -1027,6 +1080,70 @@ def _lyric_source(src, verb):
     return None
 
 
+#: THE LETTER REPERTOIRE THIS HARNESS READS WORDS IN, and it is a DECLARED
+#: coordinate rather than a property of the regex somebody first typed.
+#:
+#: It was ``A-Za-z`` from the first commit to 2026-08-21, and that is not a
+#: narrower Latin -- it is a repertoire that CANNOT SPELL ENGLISH AS PRINTED.
+#: Measured over `corpus/song/` before the change: `eng_hall_william_barnes.txt`
+#: had **1,320 lines whose end word read as two characters or fewer**, because
+#: Barnes's Dorset diaeresis is a separate character and `jaÿ` tokenised as
+#: `ja`; that file's own header warns, in as many words, that a transcription
+#: which flattens the diaeresis "must NOT be used for any letter- or
+#: syllable-counted measure", and the harness was flattening it at read time.
+#: Welsh printed inside `eng_`-prefixed files is the same shape: `lân` read
+#: as `n`, `tân` as `n`, `Pîl` as `l` -- the RHYME WORD reduced to a bare
+#: consonant. `MISSING.md` M-22 holds the measurement.
+#:
+#: THE RANGES ARE MEASURED, NOT GUESSED. Over every letter in `corpus/`:
+#: 10,164,939 fall inside this class and **not one letter whose Unicode name
+#: begins LATIN falls outside it**. What falls outside is ARABIC (3,411,079),
+#: CJK (604,346) and GREEK (500) -- three scripts, none of which CMUdict can
+#: read and each of which has, or is owed, its own phonology (doctrine 45).
+#: `letters_outside_repertoire` is how a caller asks about them, because a
+#: line that yields no tokens because of its SCRIPT and a line that yields no
+#: tokens because it is blank are different facts (doctrine 20).
+#:
+#: WIDENING IT MOVES NOTHING THAT WAS ALREADY RIGHT, and that was measured
+#: before it shipped rather than argued: `corpus/sonnets.txt` -- the battery's
+#: oracle -- is **0 lines moved of 2,621**, and `corpus/whitman.txt` is 4 of
+#: 14,467. The `eng_*` song corpus moves 6,872 lines of 283,506 (2.42%), of
+#: which 5,926 are Barnes.
+LATIN_SCRIPT = re.compile(r"[A-Za-zÀ-ɏḀ-ỿ]")
+
+#: A token run: letters of the declared repertoire, with `'` and `-` free
+#: inside the run. THE JOINER DISCIPLINE IS UNCHANGED AND DELIBERATELY SO --
+#: the old class was `[A-Za-z'\-]+`, so `word--word` is ONE token and `--and`
+#: is a token beginning with two hyphens, and both remain true here. That
+#: reading is questionable (`thee--Arise` is one token today) but it is a
+#: SECOND question, and changing the repertoire and the joiner discipline in
+#: one edit would leave no way to say which one moved a number (doctrine 1).
+#: Measured cost of conflating them: 917 battery lines move under the joint
+#: change against 4 under this one.
+_TOKEN_RUN = re.compile(r"(?:[A-Za-zÀ-ɏḀ-ỿ]|['\-])+")
+
+
+def letters_outside_repertoire(text):
+    """-> {script_name: count} for every letter `LATIN_SCRIPT` cannot read.
+
+    A line of Han or Arabic returns NO TOKENS from `line_tokens`, and that is
+    correct -- this is the English path and CMUdict is its dictionary. What is
+    NOT correct is for the caller to receive the same empty list a blank line
+    returns. This names the difference so a reader can report a REFUSAL where
+    it would otherwise report an absence (doctrine 20/79).
+    """
+    out = {}
+    for c in text:
+        if not c.isalpha() or LATIN_SCRIPT.match(c):
+            continue
+        try:
+            nm = unicodedata.name(c).split()[0]
+        except ValueError:
+            nm = "UNNAMED"
+        out[nm] = out.get(nm, 0) + 1
+    return out
+
+
 def line_tokens(text, strip_parens=True):
     """The line's word tokens, in order, before any dictionary filtering.
 
@@ -1057,8 +1174,7 @@ def line_tokens(text, strip_parens=True):
     norm = text.replace("’", "'").replace("‘", "'")
     if strip_parens:
         norm = re.sub(r"\([^)]*\)", " ", norm)
-    return [t for t in re.findall(r"[A-Za-z'\-]+", norm)
-            if re.search(r"[A-Za-z]", t)]
+    return [t for t in _TOKEN_RUN.findall(norm) if LATIN_SCRIPT.search(t)]
 
 
 def raw_final_token(text, strip_parens=True):
@@ -1315,7 +1431,7 @@ def token_pieces(lex, token):
     """
     read, unread = [], []
     for p in HYPHEN_SPLIT.split(token):
-        if not p or not re.search(r"[A-Za-z]", p):
+        if not p or not LATIN_SCRIPT.search(p):
             continue
         ph, is_oov = lex.transcribe_word(p)
         (unread if (is_oov or not ph) else read).append(p)
@@ -1347,7 +1463,7 @@ def unread_final_piece(lex, token):
     if not token or not HYPHEN_SPLIT.search(token):
         return None, None
     pieces = [p for p in HYPHEN_SPLIT.split(token)
-              if p and re.search(r"[A-Za-z]", p)]
+              if p and LATIN_SCRIPT.search(p)]
     if len(pieces) < 2:
         return None, None
     read, unread = token_pieces(lex, token)

@@ -2014,6 +2014,182 @@ def check_staging(files, src):
     return out
 
 
+#: THE PRINTED INDENT AS A WITNESS, and it is REPORTED rather than judged.
+#:
+#: `lyric_harness.line_indent` carries the compositor's indent through
+#: ingestion for the first time (`MISSING.md` M-28). This check is what READS
+#: it, because a coordinate that is declared and never read is the defect this
+#: repository keeps rediscovering, one layer at a time.
+#:
+#: THE STATISTIC, per file: over every block of >=4 lines carrying >=2 indent
+#: depths, the share of end-word pairs that share a `spelled_rime` at the SAME
+#: printed depth, against the share at DIFFERENT depths. Corpus-wide over
+#: `eng_*` that is 11.83% against 1.91%, a ratio of 6.19, against a
+#: within-block permutation null whose 20-draw excess range is -2.71 to -2.49
+#: pp -- so the printing is a real and independent witness to the rhyme
+#: partition, which is the thing `--cliques` is NOT (doctrine 14).
+#:
+#: NO THRESHOLD, AND THE REASON IS A FILE. It is tempting to WARN on a ratio
+#: below 1 -- same-depth lines rhyming LESS than different-depth ones -- as an
+#: extraction that destroyed the ladder. MEASURED: 8 files of 546 run that
+#: way, and the strongest of them is not damaged at all.
+#: `eng_pah_francis_lieber.txt` (1.45% against 24.64%, ratio 0.06) prints
+#: ABCB stanzas in which ONLY THE RHYMING FOURTH LINE IS INDENTED, so its
+#: same-depth pairs are by construction the lines that do not rhyme:
+#:
+#:     Rend America asunder
+#:     And unite the Binding Sea
+#:     That emboldens man and tempers--
+#:         Make the ocean free.
+#:
+#: An indent can mark the rhyme GROUP (a ballad's b-lines) or the rhyme
+#: BEARER (Lieber's fourth line), and those are opposite conventions with the
+#: same typography. A rule that charged one of them would be manufacturing
+#: findings, which this module has already paid 30 FAILs to learn
+#: (`_COUNT_FIELDS`). So the check states the number and the reader decides.
+#:
+#: AND IT CORRECTS THIS PROJECT'S OWN HEADLINE: because the two conventions
+#: pull in opposite directions, the corpus-wide 6.19x is an average ACROSS
+#: them and UNDERSTATES how much the printing knows.
+_INDENT_MIN_LINES = 4
+_INDENT_MIN_PAIRS = 40
+
+
+def indent_rhyme_witness(cf, rel):
+    """-> (same_pairs, same_share, diff_pairs, diff_share) or None.
+
+    None when the file has no block that both carries an indent ladder and
+    reaches `_INDENT_MIN_PAIRS` judgeable pairs -- an ABSENCE OF POPULATION,
+    which is not a rate of zero (doctrine 20).
+    """
+    import itertools
+    import lyric_harness as LH
+    from quality.grid import indent_partition, read_marked_songs
+    s_y = s_n = d_y = d_n = 0
+    blocks = 0
+    for song in read_marked_songs(cf.path):
+        for b in song.blocks:
+            part = indent_partition(b)
+            if len(part) < _INDENT_MIN_LINES or len(set(part)) < 2:
+                continue
+            blocks += 1
+            keys = []
+            for l in b.lines:
+                w = LH.raw_final_token(l)
+                keys.append(LH.spelled_rime(w) if w else None)
+            for i, j in itertools.combinations(range(len(part)), 2):
+                if keys[i] is None or keys[j] is None:
+                    continue
+                hit = keys[i] == keys[j]
+                if part[i] == part[j]:
+                    s_y += hit
+                    s_n += not hit
+                else:
+                    d_y += hit
+                    d_n += not hit
+    ns, nd = s_y + s_n, d_y + d_n
+    if ns < _INDENT_MIN_PAIRS or nd < _INDENT_MIN_PAIRS:
+        return None
+    return blocks, ns, s_y / ns, nd, d_y / nd
+
+
+#: THE PER-FILE GATE IS THE MEASURED NULL AND NOT A GUESS (doctrine 22). The
+#: within-block permutation null's excess spans -2.71 to -2.49 pp over 20
+#: draws, so a per-file excess whose MAGNITUDE is inside +-2.71 pp is not
+#: distinguishable from chance and earns no per-file note; outside it, in
+#: EITHER direction, it is a witness worth naming.
+_INDENT_NULL_PP = 0.0271
+
+
+def check_indent(files, src):
+    """I · the printed indent against the measured rhyme partition.
+
+    THREE COUNTS, NEVER SUMMED, and the reason the two SMALL ones get the
+    per-file notes is proportion rather than significance. 517 English files
+    of 545 have an indent that agrees with their rhyme partition, which is
+    the corpus-wide result and is reported ONCE -- 517 notes each saying "as
+    expected" would bury the 28 that do not, and the population is not
+    silent because the summary counts it (doctrine 20/79).
+    """
+    out = []
+    agrees, opposite, inside = 0, [], []
+    for rel, cf in files:
+        lang, _ = declared_language(cf, rel)
+        if lang != "eng":
+            continue
+        # NO `try/except` HERE, AND THAT IS DELIBERATE. Swallowing an
+        # exception would make a file that FAILED TO PARSE indistinguishable
+        # from a file with no indent ladder — doctrine 20 inside the check
+        # written to enforce doctrine 20. MEASURED before the guard was
+        # removed: 0 of 1,297 `eng_` files raise. If one ever does, this
+        # check crashes loudly, which is the correct behaviour for an
+        # auditor whose generous failure mode is silence.
+        m = indent_rhyme_witness(cf, rel)
+        if m is None:
+            continue
+        blocks, ns, sa, nd, da = m
+        excess = sa - da
+        row = (rel, blocks, ns, sa, nd, da, excess)
+        if abs(excess) <= _INDENT_NULL_PP:
+            inside.append(row)
+        elif excess > 0:
+            agrees += 1
+        else:
+            opposite.append(row)
+    if not (agrees or opposite or inside):
+        return out
+    out.append(Finding(
+        "I", NOTE, "corpus/song/ (every eng_ file with an indent ladder)",
+        "the printed indent is an independent witness to the rhyme "
+        "partition on %d of %d files" % (agrees, agrees + len(opposite)
+                                         + len(inside)),
+        "AGREES %d | runs OPPOSITE %d | inside the null %d — three counts, "
+        "never summed. Corpus-wide the same-depth pair rate is 11.83%% "
+        "against 1.91%% at different depths (ratio 6.19) over 528,370 pairs "
+        "in 15,685 blocks, with identical end words excluded (doctrine 3); "
+        "the matched null permutes the indent depths WITHIN each block and "
+        "its 20-draw excess is -2.71 to -2.49 pp, so the observation sits "
+        "12.6 pp above the null's MAXIMUM"
+        % (agrees, len(opposite), len(inside)),
+        "this is the control `--cliques` cannot be: a cover derived from the "
+        "grader's own rhyme graph is not independent of the grader (doctrine "
+        "14), and the compositor's indent is. It is a WITNESS and not a "
+        "mandate — nothing here derives a scheme from whitespace",
+        "14"))
+    for rel, blocks, ns, sa, nd, da, excess in opposite:
+        out.append(Finding(
+            "I", NOTE, rel,
+            "the printed indent runs OPPOSITE to the rhyme partition "
+            "(%.2f%% same-depth against %.2f%% different)"
+            % (100.0 * sa, 100.0 * da),
+            "%d laddered block(s), %d same-depth and %d different-depth "
+            "pairs, excess %+.2f pp — outside the null's +-%.2f pp"
+            % (blocks, ns, nd, 100.0 * excess, 100.0 * _INDENT_NULL_PP),
+            "NOT a defect and NOT charged: an indent can mark the rhyme "
+            "GROUP or the rhyme BEARER, and those are opposite conventions "
+            "in the same typography. `eng_pah_francis_lieber.txt` prints "
+            "ABCB stanzas indenting ONLY the rhyming fourth line, so its "
+            "same-depth pairs are by construction the lines that do not "
+            "rhyme. Named because the corpus-wide ratio averages ACROSS the "
+            "two conventions and therefore UNDERSTATES what the printing "
+            "knows", "14"))
+    for rel, blocks, ns, sa, nd, da, excess in inside:
+        out.append(Finding(
+            "I", NOTE, rel,
+            "the printed indent tells us NOTHING about this file's rhyme "
+            "partition",
+            "%d laddered block(s) | %.2f%% same-depth against %.2f%% "
+            "different, excess %+.2f pp — INSIDE the null's +-%.2f pp"
+            % (blocks, 100.0 * sa, 100.0 * da, 100.0 * excess,
+               100.0 * _INDENT_NULL_PP),
+            "an indistinguishable-from-chance result is reported rather than "
+            "dropped: a file whose printing carries a ladder that answers "
+            "nothing is either a form the ladder does not encode or an "
+            "extraction that re-indented, and only a reader can tell which "
+            "(doctrine 20 — this is inconclusive, not null)", "14"))
+    return out
+
+
 CHECKS = collections.OrderedDict([
     ("A", ("ROW — every file has a sources.tsv row, every row a file", check_row)),
     ("B", ("HEADER — the file's own header against its row", check_header)),
@@ -2023,6 +2199,7 @@ CHECKS = collections.OrderedDict([
     ("F", ("CHANNEL — doctrine 52, the channel not the legibility", check_channel)),
     ("G", ("ORTHOGRAPHY — doctrines 50/70, the destroying alternant", check_orthography)),
     ("H", ("STAGING — a `[VERSE]` mark on something that is not a stanza", check_staging)),
+    ("I", ("INDENT — doctrine 14, the printing as an independent witness", check_indent)),
 ])
 
 
@@ -2691,7 +2868,14 @@ def main(argv=None):
 #: it cannot read as a pass, doctrine 20). Nothing was silenced to meet this
 #: pin; the two findings the check manufactured on its first two runs were
 #: REMOVED BY FIXING THE RULE and are written up at `apparatus_shape`.
-PINNED_SHAPE = {"files": 1423, "FAIL": 1, "WARN": 340, "NOTE": 1133}
+#: REPINNED 2026-08-21, same sitting: NOTE ~~1133~~ **1162**, `files`, `FAIL`
+#: and `WARN` all unmoved — the new-check signature again. Check I (INDENT) is
+#: `M-28`'s discriminator: 1 corpus-wide note carrying the three counts (517
+#: agree / 6 opposite / 22 inside the null) plus 28 per-file notes for the two
+#: SMALL populations. The 517 that agree get no per-file note ON PURPOSE, and
+#: the summary is what keeps them from being silent — 517 notes each saying
+#: "as expected" would bury the 28 that do not (doctrine 20/79).
+PINNED_SHAPE = {"files": 1423, "FAIL": 1, "WARN": 340, "NOTE": 1162}
 
 
 def _verify_shape(files, findings):

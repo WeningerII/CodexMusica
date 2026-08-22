@@ -2463,6 +2463,17 @@ class Block:
     index: int               # the numeral the mark carries; 1 when bare
     function: str            # a declared function, or UNDECLARED
     lines: list = field(default_factory=list)
+    #: The PRINTED INDENT of each line in `lines`, index-aligned with it.
+    #: The compositor's indent ladder is the rhyme scheme set visibly, and
+    #: every reader in this repo stripped it before anything saw it until
+    #: 2026-08-21 -- measured at 6.19x against a within-block permutation
+    #: null, `MISSING.md` M-28 and `lyric_harness.line_indent`. Carried, not
+    #: interpreted: nothing here derives a mandate from whitespace, because a
+    #: cover derived from the printing is exactly as DERIVED as `--cliques`
+    #: (doctrine 14). Empty on a `Block` built by any path but
+    #: `read_marked_songs`, which is honest -- a blueprint declares no
+    #: printing.
+    indents: list = field(default_factory=list)
     refusal: Refusal = None
     source_line: int = 0
     #: text printed on the MARK's own line. In this corpus's convention that
@@ -2665,7 +2676,32 @@ def read_marked_songs(path, language=""):
                 cur.blocks[-1].annotation = s[m.end():].strip()
             elif s and cur.blocks and not LH.is_apparatus_line(s):
                 cur.blocks[-1].lines.append(s)
+                cur.blocks[-1].indents.append(LH.line_indent(line))
     return songs
+
+
+def indent_partition(block):
+    """-> tuple[int, ...] — each line's group id under the PRINTED indent.
+
+    Group ids are assigned in order of first appearance, so the partition is
+    a shape and not a set of column counts: a stanza printed flush/indented/
+    flush/indented reads `(0, 1, 0, 1)` whether the indent is 2 spaces or 8.
+    That is what makes two files comparable, and it is the same normalisation
+    a letter scheme already applies to rhyme.
+
+    Returns `()` when the block carries no recorded indents (a `Block` from a
+    blueprint) — EMPTY, never all-zeros, because "the printing said nothing"
+    and "the printing set every line flush" are different facts and only one
+    of them is a measurement (doctrine 20).
+    """
+    if not block.indents or len(block.indents) != len(block.lines):
+        return ()
+    seen, out = {}, []
+    for d in block.indents:
+        if d not in seen:
+            seen[d] = len(seen)
+        out.append(seen[d])
+    return tuple(out)
 
 
 __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
@@ -2680,6 +2716,7 @@ __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
            # repetition with variation -- MISSING.md A-2, D-3
            "VARIATION_KINDS", "VariationDeclaration", "Return",
            "compare_returns", "normalise_line", "tokens",
+           "indent_partition",
            "rime_orthographic", "rime_cmudict",
            # the hook -- MISSING.md D-2
            "Hook", "HookOccurrence", "hook_occurrences", "hook_findings",

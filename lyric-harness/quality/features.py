@@ -262,8 +262,17 @@ class QualityFeatures:
 
     @staticmethod
     def _tokens(line):
-        return [t for t in re.findall(r"[A-Za-z'\-]+", line)
-                if re.search(r"[A-Za-z]", t)]
+        # THE LETTER REPERTOIRE IS `lyric_harness.LATIN_SCRIPT`'S, 2026-08-21.
+        # This is the quality layer and it is deliberately separate from the
+        # correctness engine, but "separate" governs WHAT is measured and not
+        # WHETHER a word is a word: under `A-Za-z` Barnes's `A-baggèn` was two
+        # tokens and `jaÿ` was one letter short, so MATTR and the
+        # function-word ratio were computed over a text nobody printed.
+        # MEASURED on `corpus/song/eng_*`: 6,856 lines of 283,506 (2.42%) move
+        # and the token total falls 1,873,325 -> 1,865,465, **-0.420%** — the
+        # fall is fragments merging back into the words they came from.
+        return [t for t in re.findall(r"(?:[A-Za-zÀ-ɏḀ-ỿ]|['\-])+", line)
+                if re.search(r"[A-Za-zÀ-ɏḀ-ỿ]", t)]
 
     def _tag_lines(self, lines):
         return [self.pos_tag(self._tokens(l)) for l in lines]

@@ -468,7 +468,9 @@ def read_line(text, phon=None, strip_parens=True):
             refused.append(RefusedToken(
                 c, "NUMERAL",
                 "a numeral is sung as a word and `lyric_harness.line_tokens` "
-                "matches [A-Za-z'-]+, so it contributes no syllables and "
+                "matches LATIN_SCRIPT letters plus `'` and `-` (it was "
+                "[A-Za-z'-] until 2026-08-21), so it contributes no "
+                "syllables and "
                 "raises no refusal. The count without it is a LOWER BOUND."))
 
     units = []

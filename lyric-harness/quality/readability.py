@@ -65,7 +65,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
-from lyric_harness import (Declaration, Lexicon,  # noqa: E402
+from lyric_harness import (Declaration, LATIN_SCRIPT, Lexicon,  # noqa: E402
                            is_apparatus_line, line_anchors,
                            line_readability, line_tokens,
                            raw_final_token, read_lyric_text,
@@ -386,7 +386,7 @@ def read_lines(path):
     out = []
     for raw in read_lyric_text(path).splitlines():
         s = raw.strip()
-        if not s or not re.search(r"[A-Za-z]", s):
+        if not s or not LATIN_SCRIPT.search(s):
             continue
         if is_apparatus_line(s):
             continue

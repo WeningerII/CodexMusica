@@ -3695,6 +3695,67 @@ syllable-counted measure". The harness flattens it at read time instead.
 Welsh in `eng`-prefixed files is the same shape: `lân` reads `n`, `tân` reads
 `n`, `Pîl` reads `l` — the rhyme word is a bare consonant.
 
+**FIXED 2026-08-21 — `LATIN_SCRIPT` IS THE ONE DECLARED REPERTOIRE, AND BOTH
+READERS USE IT. TESTED WHILE OPEN.** `lyric_harness.LATIN_SCRIPT` is
+`[A-Za-zÀ-ɏḀ-ỿ]`, measured rather than guessed: over every letter in
+`corpus/`, 10,164,939 fall inside it and **not one letter whose Unicode name
+begins LATIN falls outside**. What falls outside is Arabic (3,411,079), CJK
+(604,346) and Greek (500) — three scripts CMUdict cannot read and each of
+which has, or is owed, its own phonology (doctrine 45).
+
+**FOUR SITES, ONE EDIT, AND THE REASON IS THAT HALF-FIXING IT IS WORSE THAN
+NOT FIXING IT.** `line_tokens`, `Lexicon.transcribe`, `token_pieces` and
+`readability`'s piece filter each carried their own `[A-Za-z]`. Measured while
+only `line_tokens` was widened: the two readers DISAGREED ABOUT WHAT A WORD
+IS, `line_tokens` said `tân` was one word, `transcribe` said `t` + `n`, and
+`line_anchors` glued transcribe's two LETTER-NAME syllables (T-IY, EH-N) onto
+the one word and reported the Welsh line **READABLE, anchored on a
+spelling-out of its own rhyme word**. `substituted_silent` — the count
+`test_readability.py` says "must be watched" — went **2 → 1,462** under that
+state and is back at **2** with all four sites on the one definition.
+
+**WHAT MOVED, AND THE DIRECTION IS UP BECAUSE A REFUSAL IS NOT A FAILURE
+(doctrine 79).** The corpus-wide end-word refusal rate rises **5.74% →
+6.2611%**: a fragment CMUdict happened to list (`n`, `ja`) used to read, and
+the whole word honestly does not. `cause TOKEN` 15,958 → 17,274,
+`cause PIECE` 260 → 428. Barnes's `a-` participle class — the one this repo
+records as the harness MANUFACTURING rhymes — is **29 → 118**, and the other
+89 were not even ONE token before.
+
+**AND THREE CONTROLS SAY IT MOVED ONLY WHAT WAS WRONG.** `corpus/sonnets.txt`
+is pure ASCII: **0 of 2,621 lines move**, and the sonnet battery is
+byte-identical either side (mandated 1064, judged 1014, refused 50, violations
+82). `corpus/whitman.txt` moves 4 of 14,467. And **`data/song_endword_en.tsv`
+and `data/song_rhymepair_en.tsv` rebuild BYTE-IDENTICAL** — md5
+`ac36602c…`/`329ad8da…` before and after — because the words the fix newly
+reveals are words CMUdict cannot read anyway, so the modal ban, the tier-2
+field and everything downstream are untouched. The change moves REFUSALS, not
+admissions.
+
+**AND THE SECOND QUESTION IS NAMED AND MEASURED RATHER THAN QUIETLY CARRIED.**
+The old class was `[A-Za-z'\-]+`, so `'` and `-` are FREE MEMBERS of a token
+run, and the fix changed the letter repertoire and nothing else — widening
+both in one edit would leave no way to say which one moved a number (doctrine
+1). Measured cost of conflating them: **917** battery lines move under the
+joint change against **4** under the repertoire alone. The residue is real and
+this is its size: **10,286 sung lines across 834 files carry a token with a
+stray `--` or an edge hyphen, and on 5,644 of them it is the END WORD** —
+`drachefn--`, `weary--`, and Procter's `thee--Arise`, which is two words the
+harness reads as one. `build_song_frequency`'s `accent_refusal` bucket falls
+**1,635 → 10** across the fix and **8 of the 10 survivors are this**, not the
+repertoire (the other 2 are Greek in Herrick's editorial notes). IT IS NOT
+CAUSING REFUSALS — `weary--` reads, because `HYPHEN_SPLIT` reaches the pieces
+— so it is a question about what a WORD is, not about what can be read, and
+it is owed its own sitting with its own controls.
+
+**THE ENTRY STAYS OPEN** on its original subject: `structure_census`'s promise
+that the schema is world-shaped. `line_tokens` is now honest about what it can
+read, and it still cannot read Chinese or Persian — that is correct, it is the
+English path, and `letters_outside_repertoire` is how a caller learns the
+difference between "no words" and "a script this reader does not serve"
+(doctrine 20). Wiring the per-language tokenisers into the census is `M-22`'s
+own fix and is done; giving the REST of the harness the same dispatch is not.
+
 **AND THE INSTRUMENT THAT FOUND IT WALKED INTO IT.** The sweep below was
 written to answer "what other typography is being scored", it used
 `LH.line_tokens` as its reader, and it therefore reported the ZERO-WIDTH
@@ -4128,7 +4189,34 @@ one is an ALREADY DECLARED coordinate:
 | `-` U+002D | 26,986 | the joiner; the hyphen-splitting family, 3 recorded rule errors |
 | `’` U+2019 | 10,642 | normalised to `'`; doctrine 26 |
 | `(` `)` | 1,104 (901 END WORDS) | `strip_parens=True` ERASES the span; the `--voices` coordinate |
-| `‘` U+2018 | 478 | NOT in the joiner class, unlike `’` — an asymmetry nobody declared |
+| `‘` U+2018 | 478 | folds to `'` like `’`, so it JOINS: `‘tis` is one token |
+
+**~~AND `‘` IS AN ASYMMETRY NOBODY DECLARED, unlike `’`.~~ STRUCK THE SAME
+DAY, AND THE PROBE IS WHAT WAS WRONG.** `line_tokens` normalises BOTH curly
+quotes to `'` on its first line, so `‘tis` and `’tis` return the byte-identical
+`["'tis", ...]`. The census reported `‘` as "reaching a measurement" because
+its probe REPLACED THE CHARACTER WITH A SPACE, and replacing any joiner with a
+space moves the token stream — so the probe cannot tell a joiner from an
+asymmetry, and the entry read its own instrument's blind spot as a finding
+about the corpus. Doctrine 20, inside the sweep that was written to find
+doctrine-20 failures.
+
+**QUOTATION MARKS ARE THREE OF EIGHT, AND THEY ARE THE APOSTROPHE-SHAPED
+THREE.** Asked of the whole family after the owner raised it: `'` moves the
+token stream on 57,772 lines, `’` on 10,642, `‘` on 478 — all three by
+FOLDING TO ONE CHARACTER, which is doctrine 26 working. Every double and angle
+quote is inert: `"` 11,144 lines, `“` 1,819, `”` 1,410, `»` 807, `«` 130, all
+at **0** moved. `‹ › „ ‚ 「 」 『 』 ｢ ｣` are absent from the corpus entirely.
+
+**AND THERE IS NO MUSICAL NOTATION IN THIS CORPUS AT ALL — a measured zero
+over four Unicode blocks and over EVERY line, apparatus and header included,
+not just the sung ones.** Musical Symbols (U+1D100–U+1D1FF, where 𝄞 lives)
+**0**; Ancient Greek Musical Notation (U+1D200–U+1D24F) **0**; the note and
+accidental characters in Miscellaneous Symbols (♩♪♫♬♭♮♯, U+2669–U+266F)
+**0**; the music emoji (U+1F3B5–U+1F3BC) **0**. Together with the zero time
+signatures above, the whole worry that the harness is scoring engraved
+notation is answered NO, and answered over a named population rather than by
+not having seen any.
 
 **THE OTHER SIXTY-SEVEN ARE INERT**, and four of those negatives are worth
 having in writing because they are the ones a reader would worry about:
@@ -4177,6 +4265,42 @@ space at all. `grep -rn 'lstrip(" ")'` over the tree returns exactly two
 hits, `audit_corpus.py:2216` and `kalevala_rate.py:266`, both STAGING
 heuristics — no reader on the rhyme, meter, or structure path keeps it.
 
+**FIXED 2026-08-21 — THE INDENT SURVIVES INGESTION AND SOMETHING READS IT.
+TESTED WHILE OPEN.** `lyric_harness.line_indent` is the one definition;
+`load_lyric_lines(path, with_indent=True)` returns `[(indent, text), ...]`
+from the SAME walk, so the text half is byte-identical to the default and no
+second reader can select different lines; `grid.Block.indents` carries it
+index-aligned with `Block.lines`; and `grid.indent_partition` normalises it to
+a SHAPE — a stanza printed flush/indented/flush/indented reads `(0, 1, 0, 1)`
+whether the indent is 2 columns or 8 — returning `()` and never a row of zeros
+for a `Block` that has no printing (doctrine 20).
+
+**THE READER IS `audit_corpus` CHECK I, AND IT CHARGES NOTHING.** Per file,
+the same-depth against different-depth spelled-rime rates. Of the 545 files
+that carry a measurable indent ladder, **517 agree, 6 run opposite, 22 sit
+inside the null** — three counts, never summed,
+with the 517 reported ONCE because 517 notes each saying "as expected" would
+bury the 28 that do not.
+
+**AND THE THRESHOLD WAS REFUTED BY A FILE BEFORE IT WAS WRITTEN.** It is
+tempting to WARN on a ratio below 1 as an extraction that destroyed the
+ladder. `eng_pah_francis_lieber.txt` (1.45% against 24.64%, ratio 0.06) is not
+damaged at all — it prints ABCB stanzas indenting ONLY the rhyming fourth
+line, so its same-depth pairs are by construction the lines that do not rhyme:
+
+```
+Rend America asunder
+And unite the Binding Sea
+That emboldens man and tempers--
+    Make the ocean free.
+```
+
+An indent can mark the rhyme GROUP or the rhyme BEARER, and those are opposite
+conventions in the same typography. **So the corpus-wide 6.19x is an average
+ACROSS the two and UNDERSTATES what the printing knows.** The per-file gate is
+the MEASURED NULL and not a guess (doctrine 22): an excess inside ±2.71 pp is
+not distinguishable from chance and earns no note.
+
 **WHAT THIS IS AND IS NOT.** It is NOT a proposal to infer a mandate from
 whitespace: doctrine 14 forbids a control defined in terms of the quantity it
 controls, and a scheme derived from indentation would be exactly as derived
@@ -4202,5 +4326,66 @@ one — terminal punctuation is preserved in every staged line and no module
 reads it — and they are the coordinate the meter layer would need before it
 could say anything about a line's boundary, so they belong with the time
 layer's gaps rather than here.
+
+### M-29 · The corpus declares 11,099 periods and the time layer, which is mute for want of one, reads none of them `OPEN`
+**Filed 2026-08-21 at the owner's request, from the observation that some
+poems carry an amount of time they are meant to be performed in. Measured
+before writing: the literal form of that is ABSENT here and two other forms
+of it are everywhere.**
+
+**WHAT IS NOT THERE, over every line of every file under `corpus/`:**
+
+| | occurrences |
+|---|---:|
+| an explicit duration (`N minutes`, `N seconds`) | **0** |
+| a metronome mark (`M.M. ♩= 96`, `crotchet = 60`) | **0** |
+| a named Ottoman/Arabic *usul* | **0** |
+| a named Persian *bahr* / `aruz` | **0** |
+| a named Indian *tāla* | **0** |
+
+The three "duration" and 29 "tala" regex hits are all false positives — a
+Project Gutenberg edition note, and the Scots place-name in *"The lanesome
+Tala and the Lyne"*. Measured zeroes over a named population (doctrine 79),
+not absences nobody looked for.
+
+**WHAT IS THERE IS BIGGER, and it is a period by another name:**
+
+| | count | where |
+|---|---:|---|
+| `--- TITLE: X  [air: Y]` — a NAMED TUNE | **11,099** | 194 files |
+| a 詞牌 tune-pattern name | 133 header lines | 67 files |
+| `data/qindingcipu_ge.tsv` — the 欽定詞譜 格, per-line character counts for 687 patterns | **2,334 rows** | — |
+
+A named air fixes the tune, and a tune fixes the period. A 詞牌 fixes the
+character count of every line, which is a period measured in syllables rather
+than seconds — the 1715 欽定詞譜 is a durational template printed as a table,
+and this repository already ships it.
+
+**WHY THIS IS THE RIGHT SHAPE OF UNBLOCK, and it is NOT the beat grid.**
+`CLAUDE.md` known gap 3 says the time layer is MUTE, and its own repin says
+what actually blocks it: *"the blocker was multiplicity AND the family size is
+the measurement that says so"* — 18 of 20 items mute, median family over
+`m_needed` 5.5x to 21.3x, candidate families of 89 on a quatrain and 156–282
+across 24 sonnets. Doctrine 56 is why those families are so large: **a search
+over placements needs a null under the same search.** A DECLARED period needs
+no search. If the placement comes from the tune rather than from sweeping k
+positions, the candidate family collapses toward **1**, `m_needed` collapses
+with it, and the two items that already answered with a measured zero stop
+being the only two that can answer at all. That is a different lever from
+"wait for audio", and it is the one the corpus can supply today.
+
+**WHAT IS OWED, and none of it is done here.** (1) The air is a STRING, not a
+period: `M-11` split it out of the title into a coordinate, and nothing maps
+`[air: Tibbie Fowler i' the Glen]` to a bar count, a cycle or a tune source —
+that is a lookup table this repo does not have and a licence question it has
+not asked. (2) The 詞牌 route needs no external table at all, because
+`data/qindingcipu_ge.tsv` IS the table, so it is the cheaper first arm and it
+is a `ltc` arm, not an English one. (3) Whatever is built must be a DECLARED
+coordinate with a refusal, not a default: a song whose air is named but whose
+tune is unknown must refuse, because assuming a period for it is the same
+error as assuming isochrony, one level up (doctrine 20). (4) **A period
+derived from the corpus's own rhyme placement would be circular** and doctrine
+14 forbids it — the whole value here is that the air is an INDEPENDENT witness,
+the same property that makes the printed indent worth reading in `M-28`.
 
 ## Add below this line

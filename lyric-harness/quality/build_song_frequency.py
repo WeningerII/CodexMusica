@@ -69,14 +69,39 @@ which is the count CLAUDE.md records for this corpus.
 
 Two further refusals are DECLARED here and are not in the harness:
 
-  accent_refusal  `line_tokens` matches `[A-Za-z'\\-]+`, so a non-ASCII letter
-                  BREAKS the token and the piece after it becomes the final
-                  token: `ceäre` -> `re`, `numberèd` -> `d`, `outré` -> `outr`.
-                  1,635 line ends, 19 of 143 files. The harness scores those
-                  fragments and reports `1.0 RHYME` on `n ~ n`; this builder
-                  refuses them so no fragment enters the distribution. The
-                  defect is in `lyric_harness.py`, which is not this module's
-                  file -- see scratchpad/cellBE/PATCHES-not-mine.md.
+  accent_refusal  ~~`line_tokens` matches `[A-Za-z'\\-]+`, so a non-ASCII
+                  letter BREAKS the token and the piece after it becomes the
+                  final token: `ceäre` -> `re`, `numberèd` -> `d`, `outré` ->
+                  `outr`. 1,635 line ends, 19 of 143 files. The harness scores
+                  those fragments and reports `1.0 RHYME` on `n ~ n`; this
+                  builder refuses them so no fragment enters the
+                  distribution.~~ **THE UPSTREAM DEFECT IS FIXED (2026-08-21)
+                  AND THIS BUCKET FALLS 1,635 -> 10.**
+                  `lyric_harness.LATIN_SCRIPT` is the declared repertoire and
+                  `line_tokens` returns `ceäre` whole, so `last` equals the
+                  true final word and the guard cannot fire on the repertoire.
+                  THE 10 SURVIVORS ARE TWO OTHER THINGS AND NEITHER IS THIS
+                  DEFECT — 8 are the JOINER DISCIPLINE, which the repertoire
+                  fix deliberately did not touch (`feäce--` against `feäce`,
+                  `pleäce--`, `seäme--`, `sheäpe--`, `weär--`, `pavèment--`,
+                  `Thermopylæ--`, Clough's `d'armée'`), because `-` and `'`
+                  are free members of a token run and changing that in the
+                  same edit would leave no way to say which change moved a
+                  number (doctrine 1); and 2 are GREEK inside Herrick's
+                  editorial notes (`γυναικὸς`, `κοινὸν`), where the guard is
+                  doing exactly the work it was written for. The words did not
+                  become admissible —
+                  they moved from `accent_refusal` to `oov`, because CMUdict
+                  cannot read them either, which is why `data/
+                  song_endword_en.tsv` and `song_rhymepair_en.tsv` rebuild
+                  BYTE-IDENTICAL across the fix (md5 `ac36602c…`/`329ad8da…`).
+                  THE RULE IS KEPT, NOT DELETED: it is the check that the
+                  upstream fix is still in place, and a session that narrowed
+                  the repertoire again would see this bucket refill (doctrine
+                  17 — a falsified check may be kept, never quoted as live).
+                  The original entry said "The defect is in `lyric_harness.py`,
+                  which is not this module's file", and it was right about
+                  both.
 
   burden_mark     `&c.` is the 18th-century printer's "repeat the burden"
                   mark. `line_tokens` drops the `&` and yields `c`, which

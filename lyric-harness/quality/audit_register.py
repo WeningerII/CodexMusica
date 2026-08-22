@@ -2071,7 +2071,11 @@ PINNED = {
     #    sitting from the owner's question about what ELSE the corpus is
     #    scoring. `coverage_audited` is unmoved at 19: neither carries an
     #    audited claim of its own yet.
-    "coverage_entries": 86,
+    #    REPINNED 2026-08-21, 86 -> 87: `M-29` (the corpus declares 11,099
+    #    periods and the time layer, mute for want of one, reads none of
+    #    them), filed at the owner's request from the observation that some
+    #    poems carry a performance duration. `coverage_audited` unmoved at 19.
+    "coverage_entries": 87,
     "coverage_audited": 19,
 }
 

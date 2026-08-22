@@ -1165,6 +1165,47 @@ and is why this repin lands on the counts and not on the mechanism: the three
 admitted repetends above, the Burns figure, and every repetend of ≥3 words
 charged, 10 of 10.
 
+**THE TOKENISER COULD NOT SPELL ENGLISH AS PRINTED, AND THE INDENT WAS
+THROWN AWAY BEFORE ANYTHING SAW IT — BOTH FIXED 2026-08-21, BOTH FOUND BY THE
+OWNER ASKING WHAT ELSE THE CORPUS IS SCORING.**
+`line_tokens`'s own docstring calls it *"the ONLY definition of the words of a
+line the rhyme path may use"*, and its body was `re.findall(r"[A-Za-z'\-]+")`.
+That is not a narrower Latin, it is a repertoire that cannot spell this
+repository's own English: Barnes's `jaÿ` tokenised as `ja` and `A-baggèn` as
+`A-bagg` + `n`, Welsh printed in `eng_` files gave `tân` -> `t` + `n` with END
+WORD `n`, and 43.1% of the corpus returned NO TOKENS AT ALL.
+`LATIN_SCRIPT` is the declared repertoire now — measured, not guessed:
+10,164,939 letters of `corpus/` inside it and **zero letters whose Unicode
+name begins LATIN outside it**. FOUR SITES MOVED IN ONE EDIT
+(`line_tokens`, `Lexicon.transcribe`, `token_pieces`, `readability`'s piece
+filter) because half-fixing it is worse than not fixing it: with only
+`line_tokens` widened the two readers DISAGREED ABOUT WHAT A WORD IS and
+`line_anchors` reported a Welsh line READABLE, anchored on a spelling-out of
+its own rhyme word (T-IY, EH-N for `tân`). The end-word refusal rate rises
+5.74% -> 6.2611% and the direction is the point (doctrine 79): a fragment
+CMUdict happened to list used to read, and the whole word honestly does not.
+THREE CONTROLS SAY IT MOVED ONLY WHAT WAS WRONG — `corpus/sonnets.txt` is
+0 of 2,621 lines moved and the battery is byte-identical (1064/1014/50/82);
+`data/song_endword_en.tsv` and `song_rhymepair_en.tsv` rebuild BYTE-IDENTICAL,
+so the modal ban is untouched, because the words the fix reveals are words
+CMUdict cannot read anyway. `letters_outside_repertoire` names the scripts
+this reader does not serve, so "no words" and "a script I cannot read" stop
+being the same empty list (doctrine 20). `MISSING.md` M-22.
+**AND THE INDENT IS A COORDINATE, NOT WHITESPACE.** Every reader here called
+`.strip()` first, so the compositor's ladder — which over `eng_*` predicts a
+shared spelled rime at **6.19x**, +9.92 pp against a within-block permutation
+null whose whole 20-draw range is -2.71 to -2.49 pp — reached nothing.
+`line_indent` is the one definition, `load_lyric_lines(with_indent=True)`
+returns it from the SAME walk, `grid.Block.indents` carries it and
+`grid.indent_partition` normalises it to a shape. `audit_corpus` CHECK I is
+what READS it and it CHARGES NOTHING: of 545 files with a ladder, 517 agree,
+6 run opposite, 22 sit inside the null. The threshold was refused by a file —
+`eng_pah_francis_lieber.txt` indents ONLY the rhyming fourth line of an ABCB
+stanza, so an indent can mark the rhyme GROUP or the rhyme BEARER and those
+are opposite conventions in one typography. This is the control `--cliques`
+cannot be (doctrine 14): the printing is INDEPENDENT of the grader's own
+graph. Nothing derives a mandate from whitespace. `MISSING.md` M-28.
+
 **A LYRIC FILE'S APPARATUS LINES ARE `[Section]`, `---`, OR `#` — NOTHING
 ELSE — CENTRALIZED 2026-08-12, CONVERGED 2026-08-13.** A `(parenthetical stage direction)` under a
 section header is not apparatus to any reader in this repo: it starts with

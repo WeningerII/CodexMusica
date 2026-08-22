@@ -309,9 +309,16 @@ class English(Phonology):
         # apostrophe is INSIDE the tokens this phonology cares most about
         # (`grow'st`, `o'er`), so a split that treats it as punctuation
         # manufactures the very refusals the fallback exists to remove.
+        # AND THE LETTER REPERTOIRE IS THE HARNESS'S DECLARED ONE, 2026-08-21.
+        # `A-Za-z` cannot spell the English this repository stages -- Barnes's
+        # `jaÿ`, Hemans's accents, Welsh printed in `eng_` files -- so a
+        # phonology tokenising that way disagrees with `line_tokens` about
+        # what a word is, which is the disagreement that had `line_anchors`
+        # reporting a Welsh line readable on a spelling-out of its own rhyme
+        # word. See `lyric_harness.LATIN_SCRIPT`.
         text = text.replace("’", "'").replace("‘", "'")
-        return [t for t in re.findall(r"[A-Za-z'\-]+", text)
-                if re.search(r"[A-Za-z]", t)]
+        return [t for t in re.findall(r"(?:[A-Za-zÀ-ɏḀ-ỿ]|['\-])+", text)
+                if re.search(r"[A-Za-zÀ-ɏḀ-ỿ]", t)]
 
 
 #: The REGISTERED instance has no fallback. `quality.phonology.get('eng')`
