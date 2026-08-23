@@ -151,7 +151,16 @@ def test_planner_derives():
           bad == 0, f"{plans} plans, {bad} violating")
     check("...and the constraint pruned nothing legitimate: the planner "
           "still emits 14 of the 21 declared functions",
-          len(emitted & set(GR.SECTION_FUNCTIONS)) == 14,
+          # ~~14~~ 19 — REPINNED 2026-08-22 for the same reason as
+          # `test_plan.py` §? above: `plan._CELLS` derives from the
+          # vocabulary now, so every section-kind function is
+          # drawable and the placement layer — not a hardcoded tuple
+          # — is what prunes. That is this check's own subject, and
+          # the number rising is the constraint proving it pruned
+          # nothing legitimate over a WIDER roster, not a narrower.
+          # The remaining 2 of 21 are `refrain` and `burden`, which
+          # are line-kind and cannot be drawn as spans at all.
+          len(emitted & set(GR.SECTION_FUNCTIONS)) == 19,
           f"{len(emitted)} functions emitted")
     check("the sampler REFUSES rather than hanging if the constraints and "
           "the cell grammar do not intersect — rejection sampling is uniform "

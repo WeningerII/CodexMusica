@@ -369,7 +369,16 @@ def test_the_measure():
           f"ks {sorted(ks)}, k=4 at {ks[4] / k_total:.3f}")
     check("the whole GENERATOR_ROSTER is reached — 14 functions, not "
           "v1's five",
-          funcs == set(GENERATOR_ROSTER) and len(GENERATOR_ROSTER) == 14,
+          # ~~14~~ 19 — REPINNED 2026-08-22. `GENERATOR_ROSTER` is no
+          # longer a hand-typed tuple: it DERIVES from the
+          # section-kind functions in `grid.SECTION_FUNCTIONS`
+          # (`FunctionSpec.kind`, M-56), so this number is now a
+          # property of the vocabulary rather than of a literal, and
+          # the seven that were excluded by a prose comment — hook,
+          # postchorus, reprise, turnaround, false_ending among them —
+          # are drawn. The ASSERTION that matters is the equality: the
+          # sampler reaches the WHOLE roster, whatever size it is.
+          funcs == set(GENERATOR_ROSTER) and len(GENERATOR_ROSTER) == 19,
           f"reached {len(funcs)}")
     check("totals cover the envelope's order, not one shape: 40+ distinct "
           "values, reaching under 8 and over 60 lines",

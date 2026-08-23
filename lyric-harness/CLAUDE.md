@@ -320,8 +320,8 @@ null must not become enforceable"~~ — STRUCK. It is the same prove-it-first
 instinct that produced the two-name default. **The null sweep governs what
 this harness may ASSERT unprompted; it does not govern what a writer may ASK
 FOR by name.**
-**WHAT ROUTING BUYS, counted apart (doctrine 79) — 35 of the 77 are LIVE IN
-A MANDATE TODAY.** 33 out of the box, plus 2 (`epistrophe / radif`,
+**ALL 77 ARE ASKABLE SINCE 2026-08-22 — 0 BLOCKED** (`python3 quality/schema_census.py` re-derives it; `quality/test_capabilities.py` §8 pins it). Seven capabilities stood in the way at the last count and every one closed by building the CONSTRUCTOR that lets a caller DECLARE the coordinate, never by inferring it: `declare_senses`, `declare_stub_resolution`, `declare_period_surface`, `declare_beat`, `declare_lifts`/`search_lifts`, and `declare_delivery` for the delivered/sung surfaces. Doctrine 4 is untouched — its own words are "no beat grid without audio OR A DECLARED TEMPO", so an INFERRED grid is still refused and `frames.beat` is still None by default. Two schemas also needed a PREDICATE rather than a capability: a bare `requires=` gate cannot make a schema selective, and stamping it would have labelled every perfect rhyme trite and every internal rhyme offbeat — which `UNPROVIDABLE` predicted in as many words.
+**WHAT ROUTING BUYS, counted apart (doctrine 79) — 35 of the 77 were live in a mandate at the halfway mark.** 33 out of the box, plus 2 (`epistrophe / radif`,
 `qafiya (before the radif)`) that this same lot turned on by calling
 `relations.mark_refrain_tail` when a declared schema needs the frame — and
 passing `lines=` THE MANDATE'S OWN GROUPS rather than `None`, because that

@@ -7350,6 +7350,12 @@ differentia and a mismatch REFUSES rather than silently widening to the genus.
 statements are compatible and the table currently makes them look exclusive.
 
 ### M-59 · the default admit set was TWO of four, and the `schema:` namespace refused all 77 of its names — ~~by design~~ by an instinct the owner has now overruled `CLOSED`
+**FINISHED 2026-08-22: 77 of 77 ASKABLE, 0 BLOCKED.** The table below records
+the state partway through and is kept for the ladder it shows (33 -> 52 -> 66
+-> 70 -> 77); the seven that were still blocked at the last count are closed
+in the section `THE LAST SEVEN` at the end of this entry. `python3
+quality/schema_census.py` re-derives the figure and
+`quality/test_capabilities.py` §8 pins it, so neither can go stale.
 **Filed and closed 2026-08-22, on the owner's ruling, after they had asked
 for this repeatedly and been answered with the argument rather than the
 change.**
@@ -7503,6 +7509,37 @@ that move are `wrenched rhyme`, `transformative / bent rhyme` and
 with, found a second time in a second register: one entry answering the
 question it was written for, and a reader (me) carrying its verdict into a
 question it never addressed.
+
+**THE LAST SEVEN, and every one closed the same way: by building the
+CONSTRUCTOR that lets a caller declare the coordinate, never by inferring
+it.** Each `BLOCKERS` entry was right about the job it was written for — a
+CORPUS READER cannot obtain what the page does not carry — and each was being
+read as an answer to a different question, which is this entry's own opening
+theme found six more times.
+
+| capability | schema(s) | what closed it |
+|---|---|---|
+| `stub_resolution` | refrain by reference | `relations.declare_stub_resolution` — `{stub line: (start, end)}`, DECLARED. The naive resolver measured 18.7% unique / 26.6% no match / 54.7% ambiguous over 843 stubs, so this repo still ships none; what it now ships is the edition-level annotation the entry itself called for |
+| `sense` | antanaclasis | `relations.declare_senses` — keyed by `(line, token)`, because the figure IS one word at two positions and a word-keyed map collapses it into `repetition`, which is the degeneration `BLOCKERS` names, reached from the other side |
+| `earlier` | historical rhyme | `relations.declare_period_surface` — takes a `declared_inputs.PeriodPhonology`, which is what enforces period, reconstruction and source; a BARE phonology is refused here so those three checks cannot be routed around |
+| `poet` | dialect rhyme | the same constructor under the other name |
+| `lifts` | alliterative long line, fourth lift must not alliterate | `relations.search_lifts` (derives from PROMINENCE — real CMUdict stress — with the per-half-line count as a declared PARAMETER, since four lifts to a line is a convention of the form) and `relations.declare_lifts` for a hand scansion. This is the function `BLOCKERS` said did not exist: *"unlike `caesura` and `refrain_tail` … THERE IS NO FUNCTION TO CALL"* |
+| `beat` | offbeat internal rhyme | `relations.declare_beat`. **Doctrine 4 is untouched**: its own sentence, quoted in that schema's note, is *"no beat grid without audio OR A DECLARED TEMPO"* — it refuses an INFERRED grid and never refused a stated one. Undeclared, `frames.beat` is None and the schema refuses byte for byte as before |
+
+**AND TWO SCHEMAS NEEDED A PREDICATE, NOT A CAPABILITY — the defect that
+would have made "all 77" a lie.** `trite rhyme` and `offbeat internal rhyme`
+each carried a bare `requires=` gate and NOTHING that read the resource, so
+supplying the capability would have fired them on every rhyme in the draft.
+`UNPROVIDABLE`'s own `would_manufacture` field predicted it exactly: *"every
+perfect rhyme in the text, labelled trite … nothing in it reads a rank"*. A
+gate cannot make a schema selective; only a channel or a placement can. Both
+now have one — `trite rhyme` reads the declared 30-pair partition
+(`quality/quotients.trite`) and flags `sun`/`fun` but not `cap`/`clap`;
+`offbeat internal rhyme` keeps its gate AND gains `Placement("off_beat")`,
+because the gate is what makes an undeclared grid a REFUSAL and the placement
+is what makes a declared one selective, and either alone is one of the two
+defects it has now had. `quality/test_capabilities.py` §7 is the check that
+catches a regression to a stamp.
 
 **AND MULTISYLLABICITY IS NOT ON THIS LIST.** M-58 — the monosyllable cap —
 is a defect in the `type:` namespace's 49 named keys and does not touch the

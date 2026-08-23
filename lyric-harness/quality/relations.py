@@ -410,7 +410,18 @@ class Frames:
     #                                                   line's shared trailing run
     #                                                   begins (radif / epistrophe)
     refrain_source: str = "none"                     # computed|declared|none
-    beat: object = None                              # doctrine 4: stays None
+    #: THE BEAT GRID. ~~"doctrine 4: stays None"~~ — REPHRASED 2026-08-22, and
+    #: the doctrine is unchanged. `offbeat internal rhyme`'s own note says the
+    #: rule in full: "no beat grid without audio OR A DECLARED TEMPO". What
+    #: doctrine 4 refuses is INFERENCE — deriving a beat from syllable counts,
+    #: from a meter, from anything the page carries — and it has never refused
+    #: a DECLARATION. A writer knows where the beats fall; a blueprint already
+    #: places every line in a bar and on a beat (`quality/fit.py`). So the
+    #: field stays None by default, exactly as before, and
+    #: `declare_beat(stream, ...)` is the one way to fill it.
+    #: `{line: (unit index, ...)}` — the units that fall ON the beat.
+    beat: object = None
+    beat_source: str = "none"                        # declared|none
     hemistich: dict = field(default_factory=dict)    # line -> (bayt, half)
     bayt_source: str = "none"
     #: WHERE `Unit.stanza` CAME FROM (M-39).  `blank_lines` and `collapsed`
@@ -440,6 +451,14 @@ class Frames:
     #: nine, so `symploce` is NOT in that set -- the finding as first written
     #: said six schemas and the number is five.)
     stanza_source: str = "none"
+    #: THE STUB RESOLUTION (2026-08-22): {stub line index -> (start, end)},
+    #: 0-based and end-exclusive, DECLARED by the caller. `&c.` stands for a
+    #: whole chorus and nothing in the text says how many lines that is, so
+    #: this is an EDITION's fact and never a detector's — `relations_null`
+    #: measured the naive resolver at 18.7% unique / 26.6% no match / 54.7%
+    #: ambiguous over 843 stub lines, which is wrong more often than right.
+    stub_resolution: dict = field(default_factory=dict)
+    stub_source: str = "none"
 
 
 #: Capability prefix for a DECLARED QUOTIENT (defect P14).  `capabilities()`
@@ -580,6 +599,10 @@ class Stream:
         if cap == "lifts":
             return self._frame_supply(cap, fr.lift_source, len(fr.lifts),
                                       "lines carrying a lift template")
+        if cap == "stub_resolution":
+            return self._frame_supply(cap, fr.stub_source,
+                                      len(fr.stub_resolution),
+                                      "stub lines resolved to a span")
         if cap == "bayt":
             return self._frame_supply(cap, fr.bayt_source, len(fr.hemistich),
                                       "lines mapped to a (bayt, half)")
@@ -609,9 +632,12 @@ class Stream:
             return Supply(cap, "present" if n else "absent", n, "phonology",
                           "units whose syllable carries a prominence value")
         if cap == "beat":
-            return Supply(cap, "present" if fr.beat is not None else "absent",
-                          1 if fr.beat is not None else 0, "",
-                          "doctrine 4: this stays None")
+            # ~~"doctrine 4: this stays None"~~ — the field stays None until a
+            # caller DECLARES one (`declare_beat`), which doctrine 4 has
+            # always permitted: it refuses an INFERRED grid, not a stated one.
+            return self._frame_supply(cap, fr.beat_source,
+                                      len(fr.beat or {}),
+                                      "lines carrying a declared beat grid")
         if cap in ALT_SURFACES:
             alt = self.alt.get(cap)
             if alt is None:
@@ -1905,6 +1931,18 @@ class Placement:
                 return None
             lf = stream.frames.lifts.get(U[b.head()].line, ())
             return bool(lf) and b.head() == lf[self.args[0]]
+        if k == "off_beat":
+            # THE SAME SHAPE AS `at_lift` DIRECTLY ABOVE, and for the same
+            # reason: an undeclared grid is a REFUSAL (None), never a False.
+            # "no beat was declared" and "this syllable is not on the beat"
+            # are different answers (doctrine 20), and only the second is a
+            # verdict about the writing.
+            if stream.frames.beat_source == "none":
+                return None
+            grid = stream.frames.beat or {}
+            on_a = grid.get(U[a.head()].line, ())
+            on_b = grid.get(U[b.head()].line, ())
+            return a.head() not in on_a and b.head() not in on_b
         if k == "spans_disjoint":
             return not (set(a.idx) & set(b.idx))
         if k == "spans_overlap":
@@ -2980,6 +3018,380 @@ class _SpellingSurface:
             "stream first and call declare_orthography() on it")
 
 
+#: HOW MANY LIFTS A HALF-LINE CARRIES. A CONVENTION OF THE VERSE FORM, and
+#: labelled one for the same reason `grid.FormConvention` and
+#: `Meter.conventional_grouping` are: the Germanic alliterative long line is
+#: conventionally two lifts per half-line and four per line, and a tradition
+#: may answer differently. It is a PARAMETER, so a caller who knows their
+#: form states it rather than inheriting a fiat (doctrine 58 — a bare n is a
+#: threshold nobody wrote down).
+LIFTS_PER_HALF_LINE = 2
+HALVES_PER_LINE = 2
+
+
+def declare_beat(stream, mapping):
+    """Declare WHERE THE BEATS FALL. -> dict. `{line: (unit index, ...)}`.
+
+    THE UNITS LISTED ARE THE ON-BEAT ONES; everything else in the line is off
+    the beat. `offbeat internal rhyme` is the one schema that reads this, and
+    it is defined by a rhyme landing where the pulse does NOT.
+
+    DOCTRINE 4 IS NOT BEING LIFTED HERE. Its own sentence, quoted in that
+    schema's note, is "no beat grid without audio OR A DECLARED TEMPO" — it
+    refuses an INFERRED grid, and this is a stated one. Nothing in this
+    function looks at a meter, a syllable count or a line length; a caller who
+    declares nothing gets `frames.beat is None`, `supply('beat')` absent and
+    the schema refusing, byte for byte as before.
+
+    WHERE A WRITER GETS THE NUMBERS: they know the tune. `quality/fit.py`
+    already places every blueprint line in a bar and on a beat, so a song with
+    a blueprint has stated this once already — this is the seam that carries
+    it into the relation layer.
+    """
+    if not isinstance(mapping, dict):
+        raise NoReferent(
+            f"`mapping` is {{line: (unit index, ...)}} naming the ON-BEAT "
+            f"units, got {type(mapping).__name__}.")
+    n = len(stream.lines)
+    grid = {}
+    for ln, idx in mapping.items():
+        ln = int(ln)
+        if not (0 <= ln < n):
+            raise NoReferent(f"line {ln} is outside this stream's {n} lines.")
+        grid[ln] = tuple(int(i) for i in idx)
+    stream.frames.beat = grid or None
+    stream.frames.beat_source = "declared" if grid else "none"
+    return {"lines": len(grid), "found": len(grid),
+            "source": stream.frames.beat_source}
+
+
+def declare_lifts(stream, mapping, source="declared"):
+    """Declare the lift map directly. -> dict. `{line: (unit index, ...)}`.
+
+    For a caller who has SCANNED the verse — by hand, from an edition, or with
+    an instrument this repo does not ship. Nothing is inferred and nothing is
+    checked against prominence: a declared scansion is the caller's claim and
+    overriding it with a derivation would be the checker outranking the
+    declaration (doctrine 1).
+    """
+    if not isinstance(mapping, dict):
+        raise NoReferent(
+            f"`mapping` is {{line: (unit index, ...)}}, got "
+            f"{type(mapping).__name__}.")
+    n = len(stream.lines)
+    out = {}
+    for ln, idx in mapping.items():
+        ln = int(ln)
+        if not (0 <= ln < n):
+            raise NoReferent(f"line {ln} is outside this stream's {n} lines.")
+        out[ln] = tuple(int(i) for i in idx)
+    stream.frames.lifts = out
+    stream.frames.lift_source = source if out else "none"
+    return {"lines": len(out), "found": len(out), "source": source}
+
+
+def search_lifts(stream, per_half_line=LIFTS_PER_HALF_LINE,
+                 halves=HALVES_PER_LINE):
+    """Derive a lift map from PROMINENCE. -> dict, and it writes the frame.
+
+    `relations_null.BLOCKERS` calls `lifts` `Blocker: build` and says exactly
+    what is missing: "`Stream.provides('lifts')` reads `frames.lift_source`,
+    and MEASURED over this repository NOTHING assigns it: there is no scanner,
+    no declarer and no caller … unlike `caesura` and `refrain_tail`, which
+    this panel supplies from `search_caesura` and `mark_refrain_tail`, THERE
+    IS NO FUNCTION TO CALL." This is that function, and `declare_lifts` above
+    is the declarer.
+
+    WHAT IT READS AND WHAT IT ASSUMES, kept apart:
+      READS   `Syllable.prominence`, which is real data — CMUdict lexical
+              stress with this repo's own function-word demotion applied
+              (doctrine 46: a function-word list is part of a phonology).
+      ASSUMES `per_half_line` and `halves`, which are a CONVENTION of the
+              verse form and are PARAMETERS for that reason. Four lifts to a
+              line, two to a half-line, is the Germanic alliterative
+              long-line convention; a caller working another form says so.
+
+    THE SPLIT IS THE CAESURA WHERE ONE IS DECLARED and an even division of
+    the line's units where none is — and `lift_source` names which, so a
+    reader can tell a scansion that rested on a declared medial break from one
+    that rested on arithmetic. That distinction is the entire reason the two
+    source names differ rather than both reading "computed".
+
+    A LINE WITH TOO FEW PROMINENT SYLLABLES GETS WHAT IT HAS, not padding.
+    A half-line carrying one stress yields one lift; `fourth lift must not
+    alliterate` then finds no fourth lift on that line and says nothing about
+    it, which is the honest answer — inventing a lift on an unstressed
+    syllable to reach the convention's count would be manufacturing the
+    scansion the schema is meant to test.
+    """
+    if per_half_line < 1 or halves < 1:
+        raise NoReferent(
+            f"per_half_line={per_half_line}, halves={halves}: both are counts "
+            f"of positions and must be at least 1.")
+    by_line = {}
+    for k, u in enumerate(stream.units):
+        by_line.setdefault(u.line, []).append(k)
+    caes = dict(getattr(stream.frames, "caesura", None) or {})
+    used_caesura = 0
+    out = {}
+    for ln, idxs in by_line.items():
+        cut = None
+        if ln in caes:
+            c = caes[ln]
+            cut = c if isinstance(c, int) else (c[0] if c else None)
+        if cut is not None:
+            used_caesura += 1
+            parts = [[k for k in idxs if k < cut],
+                     [k for k in idxs if k >= cut]]
+            parts = [p for p in parts if p] or [idxs]
+        else:
+            step = max(1, len(idxs) // halves)
+            parts = [idxs[i:i + step] for i in range(0, len(idxs), step)]
+            parts = parts[:halves] or [idxs]
+        lifts = []
+        for part in parts:
+            got = 0
+            for k in part:
+                syl = stream.units[k].syl
+                if syl is not None and (syl.prominence or 0) >= 1:
+                    lifts.append(k)
+                    got += 1
+                    if got >= per_half_line:
+                        break
+        if lifts:
+            out[ln] = tuple(lifts)
+    stream.frames.lifts = out
+    stream.frames.lift_source = (
+        "prominence+caesura" if used_caesura else "prominence") if out \
+        else "none"
+    return {"lines": len(out), "found": len(out),
+            "from_caesura": used_caesura,
+            "per_half_line": per_half_line, "halves": halves,
+            "source": stream.frames.lift_source}
+
+
+def declare_period_surface(stream, sourced, name="earlier"):
+    """Read the draft through a SOURCED period or dialect phonology. -> dict.
+
+    `historical rhyme` and `dialect rhyme` are each defined as a DIFFERENCE
+    between two readings — nucleus and coda AGREE on the second surface while
+    the nucleus DIFFERS on the phonemic one — and both refuse without it.
+    `relations_null` calls `earlier` and `poet` `Blocker: obtain`, and what it
+    says is precise: "`declared_inputs.PeriodPhonology` refuses to construct
+    without a named reconstruction, which is the CORRECT REFUSAL … the surface
+    itself is reachable; THE DATA IS NOT."
+
+    THE DATA IS THE CALLER'S AND ALWAYS WAS. What was missing is this
+    constructor: `ALT_SURFACES` has held both names since it was written,
+    `PeriodPhonology` has held the wrapper, and nothing joined them, so a
+    reader who HAD a sourced reconstruction still could not hand it to a
+    schema. `quality/phonology/ltc.py` is the existence proof `PeriodPhonology`
+    itself names — Middle Chinese is a LOOKUP over a sourced table, not a
+    guess — and any object with `.syllabify()` behind that wrapper works here.
+
+    `sourced` is a `declared_inputs.PeriodPhonology`, and it is required to BE
+    one rather than a bare phonology: that class is what enforces the period,
+    the reconstruction and the source, and accepting a raw object here would
+    route around three checks whose whole purpose is to stop an unsourced
+    reading being reported as a historical one (doctrine 34). A caller with no
+    reconstruction gets the refusal from `PeriodPhonology`, where it belongs,
+    and not a surface full of modern vowels wearing a period's name.
+    """
+    if name not in ALT_SURFACES:
+        raise NoReferent(
+            f"{name!r} is not one of ALT_SURFACES {ALT_SURFACES}.")
+    phon = getattr(sourced, "phonology", None)
+    if phon is None or not hasattr(sourced, "reconstruction"):
+        raise NoReferent(
+            f"`sourced` must be a `declared_inputs.PeriodPhonology`, got "
+            f"{type(sourced).__name__}. That class is what requires a period, "
+            f"a named reconstruction and a source; taking a bare phonology "
+            f"here would route around all three and let an unsourced reading "
+            f"be reported as a historical one.")
+    units, read = [], 0
+    cache = {}
+    for u in stream.units:
+        w = (u.token_text or "").lower()
+        if w not in cache:
+            try:
+                cache[w] = list(phon.syllabify(w))
+            except Exception:
+                cache[w] = None
+        syls = cache[w]
+        if not syls or u.tok_syl >= len(syls):
+            # THE PERIOD PHONOLOGY COULD NOT READ THIS WORD, and the unit is
+            # carried with NO material rather than with its modern syllable:
+            # projecting the phonemic reading into the `earlier` surface is
+            # exactly the manufacture this surface exists to avoid, and it
+            # would make every unreadable word a silent historical AGREE.
+            units.append(replace(u, syl=None))
+            continue
+        units.append(replace(u, syl=syls[u.tok_syl]))
+        read += 1
+    alt = Stream(units=units, lines=list(stream.lines),
+                 tokens=dict(stream.tokens), phon=phon,
+                 declaration=dict(stream.declaration, surface=name,
+                                  period=getattr(sourced, "period", ""),
+                                  reconstruction=sourced.reconstruction),
+                 text_lines=stream.text_lines)
+    stream.alt[name] = alt
+    return {"surface": name, "units": len(units), "read": read,
+            "found": read, "period": getattr(sourced, "period", ""),
+            "reconstruction": sourced.reconstruction, "source": "declared"}
+
+
+def declare_senses(stream, mapping):
+    """Declare WHICH SENSE a word carries where. -> a summary dict.
+
+    `antanaclasis` is ONE WORD IN TWO SENSES — "put out the light, and then
+    put out the light" — and it refuses without a `sense` resource.
+    `relations_null` calls that `Blocker: obtain` and the reason is exact for
+    the job it was written about: "with any resource that keys on the TOKEN it
+    degenerates to `repetition`, which is a different schema already in this
+    registry", and `data/nltk/` carries taggers and tokenizers, not WordNet.
+
+    A CORPUS READER NEEDS AN INVENTORY. A WRITER DOES NOT, and that is the
+    whole difference this constructor turns on. Antanaclasis is a DELIBERATE
+    FIGURE: a writer who repeats a word in a second sense is doing it on
+    purpose and can say which sense goes where. So the resource is a
+    declaration — `{(line, token): sense}` in 0-based indices — exactly like
+    the delivered surface and the stub resolution, and nothing here infers a
+    sense from anything.
+
+    THE KEY IS POSITIONAL AND HAS TO BE. A `{word: sense}` map cannot express
+    this figure at all: the schema's entire content is that the SAME token
+    carries DIFFERENT senses at two positions, so a word-keyed resource makes
+    every instance sense-identical and the schema collapses into `repetition`
+    — the exact degeneration `BLOCKERS` names, arrived at from the other
+    direction.
+
+    A token with no declared sense gets its own text as its sense, so two
+    undeclared occurrences of one word are sense-IDENTICAL and antanaclasis
+    does NOT fire on them. That is the safe direction: silence means "an
+    ordinary repeat", never "a figure".
+    """
+    if not isinstance(mapping, dict):
+        raise NoReferent(
+            f"`mapping` is {{(line, token): sense}} in 0-based indices, got "
+            f"{type(mapping).__name__}. A word-keyed map cannot express "
+            f"antanaclasis — see this function's docstring.")
+    norm = {}
+    for k, v in mapping.items():
+        try:
+            ln, tk = int(k[0]), int(k[1])
+        except (TypeError, IndexError, ValueError):
+            raise NoReferent(
+                f"sense key {k!r} is not a (line, token) pair. The figure is "
+                f"about one word at two POSITIONS, so the key carries both.")
+        norm[(ln, tk)] = str(v)
+
+    def _sense_of_unit(u):
+        return norm.get((u.line, u.token),
+                        (getattr(u, "token_text", "") or "").lower())
+
+    res = dict(stream.declaration.get("resources") or {})
+    res["sense"] = _sense_of_unit
+    stream.declaration = dict(stream.declaration, resources=res)
+    return {"declared": len(norm), "found": len(norm), "source": "declared"}
+
+
+def declare_stub_resolution(stream, mapping):
+    """Declare WHAT A CHORUS STUB POINTS AT. -> a summary dict.
+
+    `refrain by reference` compares two WHOLE LINES token-for-token and
+    refuses without `stub_resolution`. `relations_null` calls it
+    `Blocker: build` and the measurement behind that is not in dispute: over
+    `corpus/song/`, matching each stub's incipit against earlier lines
+    resolves 158 of 843 (18.7%) uniquely, leaves 224 (26.6%) with no earlier
+    match, and leaves 461 (54.7%) ambiguous between 2 and 9 candidates. A
+    naive resolver is WRONG MORE OFTEN THAN RIGHT, and this module ships none
+    — the entry's own words are that the honest version is an edition-level
+    annotation.
+
+    SO THIS IS THE ANNOTATION, AND NOT A DETECTOR. `mapping` is
+    `{stub_line: (start, end)}` in 0-based, end-exclusive line indices, and it
+    is DECLARED — by the editor who knows which chorus the `&c.` meant, or by
+    the writer who wrote it. Nothing here guesses, and a stub with no entry
+    stays unresolved.
+
+    WHAT RESOLUTION DOES, precisely, because "resolve" could mean three
+    things: the stub line's UNITS are replaced by the units of the first line
+    of the span it points at, retagged to the stub's own line number. That is
+    what an edition does when it prints the chorus out in full instead of
+    abbreviating it, and it is what makes the stub line comparable at all —
+    `tokenise` reads `Oh, my poor Nelly Gray, &c.` as ending in the word `c`,
+    so before resolution the stub matches nothing and the schema would fire on
+    every ORDINARY verbatim repeat instead (the inverse of what it is for,
+    which `UNPROVIDABLE` predicted in as many words).
+
+    THE FIRST LINE OF THE SPAN, and the span is kept. A stub stands for a
+    whole chorus; `refrain by reference` is a LINE-to-LINE schema, so the
+    first line is the comparand a per-line judge can use. The full span is
+    recorded on `frames.stub_resolution` so a later figure-level consumer has
+    it — the narrowing is this schema's, not the declaration's.
+    """
+    if not isinstance(mapping, dict):
+        raise NoReferent(
+            f"`mapping` is {{stub_line: (start, end)}} in 0-based line "
+            f"indices, got {type(mapping).__name__}.")
+    n_lines = len(stream.lines)
+    resolved, by_line = {}, {}
+    for stub, span in mapping.items():
+        try:
+            a, b = int(span[0]), int(span[1])
+        except (TypeError, IndexError, ValueError):
+            raise NoReferent(
+                f"stub resolution for line {stub!r} is not a (start, end) "
+                f"pair: {span!r}. A stub stands for a SPAN, not a line — "
+                f"nothing in the text says how many lines a chorus is, which "
+                f"is why the declaration carries both ends.")
+        if not (0 <= a < b <= n_lines):
+            raise NoReferent(
+                f"stub resolution {stub!r} -> ({a}, {b}) is outside this "
+                f"stream's {n_lines} line(s), or is empty.")
+        if not (0 <= int(stub) < n_lines):
+            raise NoReferent(
+                f"stub line {stub!r} is outside this stream's {n_lines} "
+                f"line(s).")
+        if a <= int(stub) < b:
+            raise NoReferent(
+                f"stub line {stub!r} points at a span containing itself "
+                f"({a}, {b}); a reference that resolves to the reference is "
+                f"not a resolution.")
+        resolved[int(stub)] = (a, b)
+        by_line[int(stub)] = a
+    if not resolved:
+        stream.frames.stub_source = "none"
+        return {"stubs": 0, "found": 0, "source": "none"}
+    src_units = {}
+    for u in stream.units:
+        src_units.setdefault(u.line, []).append(u)
+    units, done = [], 0
+    for u in stream.units:
+        if u.line not in by_line:
+            units.append(u)
+            continue
+        continue                      # the stub's own units are dropped
+    for stub, first in sorted(by_line.items()):
+        for k, su in enumerate(src_units.get(first, [])):
+            units.append(replace(su, line=stub))
+            done += 1
+    units.sort(key=lambda u: (u.line, u.i))
+    alt_lines, alt_tokens = [], {}
+    for ln in range(n_lines):
+        idx = tuple(k for k, u in enumerate(units) if u.line == ln)
+        alt_lines.append(idx)
+    for k, u in enumerate(units):
+        alt_tokens.setdefault((u.line, u.token), []).append(k)
+    stream.units = units
+    stream.lines = alt_lines
+    stream.tokens = {k: tuple(v) for k, v in alt_tokens.items()}
+    stream.frames.stub_resolution = dict(resolved)
+    stream.frames.stub_source = "declared"
+    return {"stubs": len(resolved), "found": len(resolved),
+            "units_substituted": done, "source": "declared"}
+
+
 def declare_delivery(stream, overrides, name="delivered"):
     """Declare HOW THE LINES ARE SUNG, as a second stream. -> a summary dict.
 
@@ -3990,11 +4402,29 @@ declare(RelationSchema(
     spans=(SpanRule("any_token", "last_stressed", 1, "to_word_end"),) * 2,
     align="anchor",
     channels=(ChannelRule("nucleus", AGREE, "each"),),
+    placement=(Placement("off_beat"),),
+    # BOTH, AND THE PAIR IS THE POINT. `requires` is what makes an
+    # UNDECLARED grid a REFUSAL — dropping it made this answer
+    # looked-and-none instead, which is doctrine 20's collapse and was
+    # measured on the way in. The placement is what makes a DECLARED grid
+    # selective. Either alone is one of the two defects this schema has
+    # now had: a gate with no predicate fires on everything, a predicate
+    # with no gate says "no offbeat rhymes here" about a draft nobody
+    # asked about the beat of.
     requires=("beat",),
-    note="UNREPRESENTABLE HERE AND DECLARED SO. frames.beat stays None "
-         "(doctrine 4: no beat grid without audio or a declared tempo), so "
-         "realise() returns Refusal('beat'). The type is a POINT in the model "
-         "and the producer refuses it -- which is the honest pair of answers."))
+    note="~~UNREPRESENTABLE HERE AND DECLARED SO~~ — REPRESENTABLE SINCE "
+         "2026-08-22, and doctrine 4 is untouched. This carried "
+         "`requires=('beat',)` and nothing else, which is the same defect "
+         "`trite rhyme` had: a bare capability gate cannot make a schema "
+         "SELECTIVE, so stamping the capability would have fired this on "
+         "every internal nucleus agreement in the draft, on the beat or off "
+         "it. It now carries a `Placement('off_beat')` that READS the grid, "
+         "which both supplies the capability (a placement naming a frame "
+         "demands it) and makes the answer mean what the name says. The grid "
+         "itself is DECLARED — `relations.declare_beat` — and doctrine 4's "
+         "own words allow exactly that: 'no beat grid without audio OR A "
+         "DECLARED TEMPO'. Undeclared, `beat_source` is 'none', the placement "
+         "returns None and this refuses, byte for byte as before."))
 
 declare(RelationSchema(
     name="rhyming slang",
@@ -5615,6 +6045,10 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "DEFAULT_CHANNELS", "evaluate", "realise", "assemble",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",
            "line_pairs_for", "declare_delivery",
+           "declare_stub_resolution", "declare_senses",
+           "declare_period_surface", "declare_lifts",
+           "search_lifts", "LIFTS_PER_HALF_LINE",
+           "HALVES_PER_LINE",
            "ALT_SURFACES", "QUOTIENT_CAP",
            "Supply", "SUPPLY_STATES", "REFUSAL_KINDS",
            "Unprovidable", "UNPROVIDABLE", "check_unprovidable",

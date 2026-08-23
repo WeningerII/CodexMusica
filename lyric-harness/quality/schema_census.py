@@ -61,6 +61,35 @@ def _full_stream():
     R.declare_orthography(st, lh.spelled_rime)
     R.declare_delivery(st, {}, name="delivered")
     R.declare_delivery(st, {}, name="sung")
+    R.search_lifts(st)
+    R.declare_senses(st, {})
+    R.declare_stub_resolution(st, {3: (0, 2)})
+    byline = {}
+    for k, u in enumerate(st.units):
+        byline.setdefault(u.line, []).append(k)
+    R.declare_beat(st, {ln: tuple(v[::3]) for ln, v in byline.items()})
+    # THE TWO PERIOD SURFACES need a SOURCED reconstruction, which is the
+    # caller's to supply and is not this census's to invent. A constructed
+    # fixture (doctrine 94) stands in so the CONSTRUCTOR is exercised; what
+    # it proves is that the seam is joined, not that this repo ships a
+    # reconstruction — it does not, and `declared_inputs.PeriodPhonology`
+    # refuses to build one without a named source.
+    from quality.declared_inputs import PeriodPhonology
+    from quality.phonology import Syllable as _Syl
+
+    class _Fixture:
+        def syllabify(self, w):
+            return [_Syl(text=w, onset=("H",), nucleus="UW", coda=("V",),
+                         prominence=1, moras=1)]
+
+    for nm, per in (("earlier", "1590-1620, London English"),
+                    ("poet", "Ayrshire Scots, 1780s")):
+        R.declare_period_surface(
+            st, PeriodPhonology(_Fixture(), "eng", per,
+                                reconstruction="constructed fixture, "
+                                               "doctrine 94",
+                                source="this census, not a shipped table"),
+            name=nm)
     return st
 
 
