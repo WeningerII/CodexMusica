@@ -66,8 +66,15 @@ schema runs and any zero it reports is a null a control can be built against).
 `declare_orthography(stream, rime)` is the first ALT_SURFACE a caller can
 actually build, and it takes the rime rule as an ARGUMENT because y-as-vowel
 and silent-final-e are English and this module serves nine languages
-(doctrine 45/65).  `eye rhyme` runs on it.  `frequency` stays refused and the
-UNPROVIDABLE entry now measures why against all three shipped tables.
+(doctrine 45/65).  `eye rhyme` runs on it.  The FREQUENCY ROUTE to `trite
+rhyme` stays refused and its measurement against all three shipped tables is
+now in RETIRED_UNPROVIDABLE -- retired 2026-08-23 not because the argument
+weakened but because the schema stopped asking: `trite rhyme` gated on a bare
+`requires=("frequency",)` it read on no channel, and now carries
+`ClassEqual(resource="trite")` over the repo's own declared CLICHE_PAIRS.
+That is a narrower question -- "are these two a DECLARED trite pair", no rank
+and no threshold -- answered by a declaration instead of by a table nobody
+can source.
 
 PHONOLOGY STAYS INJECTABLE.  Nothing here transcribes and nothing here consults
 CMUdict.  `phon` is any object with `.syllabify(word)`.  The channel INVENTORY
@@ -3450,8 +3457,30 @@ def declare_senses(stream, mapping):
 STUB_INCIPIT_LENGTHS = (5, 4, 3, 2)
 
 
-def search_stub_resolution(stream, language=None, incipit=None):
+def search_stub_resolution(stream, is_stub=None, language=None, incipit=None):
     """Resolve the stubs that resolve UNIQUELY, and refuse the rest. -> dict.
+
+    WHICH LINES ARE STUBS IS NOT THIS MODULE'S QUESTION (P10, and this
+    function violated it from 2026-08-23 until the same day's audit). The
+    first draft did `import lyric_harness as _lh` and called
+    `_lh.is_chorus_stub`, which is shipping a detector by reference rather
+    than by regex -- the same defect at one remove, and `test_relations.py`'s
+    P10 check caught it. Deciding that a printed mark is a POINTER is the
+    edition's judgement: English prints `&c.`, Finnish `j. n. e.`, Malay
+    `d. s. b.`, and a module serving nine languages cannot hold that list.
+
+    So stub-hood arrives the way the orthographic rime does in
+    `declare_orthography(stream, rime)` -- from the caller:
+
+      * `stream.line_status`, if the caller declared one (via
+        `build_stream(line_status=...)` or `line_status_from`). A line whose
+        label is truthy is a stub. THIS WINS when present, because a declared
+        coordinate outranks a derivation and both would be answering one
+        question.
+      * `is_stub`, a callable `(text, language) -> bool` passed in.
+      * neither: a `Refusal` naming `line_status`. Not an empty result --
+        "nobody said which lines are pointers" is not "there are no
+        pointers" (doctrine 20).
 
     `relations_null.BLOCKERS` measured the naive resolver over `corpus/song/`
     and the numbers are why this repo shipped none: of 843 stub lines,
@@ -3475,7 +3504,28 @@ def search_stub_resolution(stream, language=None, incipit=None):
     it to "probably four lines" would be inventing the chorus's length, which
     is the edition-level judgement `BLOCKERS` says this cannot make.
     """
-    import lyric_harness as _lh
+    status = tuple(getattr(stream, "line_status", ()) or ())
+    if status:
+        def _is_stub(text, _lang, _i=None):
+            return bool(_i is not None and _i < len(status) and status[_i])
+    elif callable(is_stub):
+        def _is_stub(text, _lang, _i=None):
+            try:
+                return bool(is_stub(text, _lang))
+            except Exception:
+                return False
+    else:
+        return Refusal(
+            schema="search_stub_resolution", capability="line_status",
+            detail="nobody has said which lines are POINTERS. Declare it -- "
+                   "`build_stream(line_status=...)`, or `line_status_from("
+                   "lines, predicate, label)` -- or pass `is_stub=`. Which "
+                   "printed mark is a stub is the EDITION's judgement and "
+                   "this module ships no list: English prints `&c.`, Finnish "
+                   "`j. n. e.`, Malay `d. s. b.` (P10, BACKLOG 2.4). An "
+                   "empty map would say 'no pointers here', which is a "
+                   "different answer (doctrine 20).",
+            missing=("line_status",), kind="capability")
     lines = list(getattr(stream, "text_lines", ()) or [])
     if not lines:
         by = {}
@@ -3499,10 +3549,7 @@ def search_stub_resolution(stream, language=None, incipit=None):
     stubs, resolved, ambiguous, unmatched, no_incipit = [], {}, [], [], []
     evidence = {}
     for i, text in enumerate(lines):
-        try:
-            if not _lh.is_chorus_stub(text, language):
-                continue
-        except Exception:
+        if not _is_stub(text, language, i):
             continue
         stubs.append(i)
         hit = amb = None
@@ -3511,7 +3558,7 @@ def search_stub_resolution(stream, language=None, incipit=None):
             if k is None:
                 continue
             got = [j for j in range(i)
-                   if not _safe_is_stub(_lh, lines[j], language)
+                   if not _is_stub(lines[j], language, j)
                    and _key(lines[j], w) == k]
             if len(got) == 1:
                 hit, amb = (got[0], w), None
@@ -3542,13 +3589,6 @@ def search_stub_resolution(stream, language=None, incipit=None):
             "no_incipit": no_incipit,
             "found": len(resolved), "source": "incipit_unique",
             "evidence": evidence, "lengths_tried": tuple(lengths)}
-
-
-def _safe_is_stub(_lh, text, language):
-    try:
-        return bool(_lh.is_chorus_stub(text, language))
-    except Exception:
-        return False
 
 
 def declare_stub_resolution(stream, mapping):
@@ -4830,16 +4870,25 @@ def capability_report(stream):
 # shape and reads it for its `cannot_obtain` REMEDY string.
 #
 # THE CENSUS THAT PRODUCED THIS ran 2026-08-13 over all 77 schemas and found
-# THREE such capabilities: `poet`, `frequency`, `stub_resolution`.  `poet` is
-# gone -- see ALT_SURFACES; it was one name missing from a tuple, and the two
-# schemas it separated (`dialect rhyme`, `historical rhyme`) are the same
-# schema up to a surface name.  The other two are NOT the same kind of gap as
-# each other, and neither is a missing tuple entry.  Each entry below says
-# what `provides` would have to answer, WHY wiring it as a flag would be
-# worse than leaving it refused, and which of doctrine 44/92's three blockers
-# it is -- because "find a better source" is the answer to only one of them.
+# THREE such capabilities: `poet`, `frequency`, `stub_resolution`.  TWO have
+# since left, each for its own reason, and ONE remains below.
 #
-# WHY NOT JUST WIRE THEM.  Both schemas gate on a bare `requires=`, and
+#   `poet`       gone -- see ALT_SURFACES; it was one name missing from a
+#                tuple, and the two schemas it separated (`dialect rhyme`,
+#                `historical rhyme`) are the same schema up to a surface name.
+#   `frequency`  RETIRED 2026-08-23 into RETIRED_UNPROVIDABLE, whole. Not
+#                because the argument weakened -- it is unchanged and still
+#                measured -- but because `trite rhyme` stopped requiring it.
+#                See that table for what it costs to reopen the route.
+#   `stub_       the one live entry, below.
+#    resolution`
+#
+# The entry below says what `provides` would have to answer, WHY wiring it as
+# a flag would be worse than leaving it refused, and which of doctrine 44/92's
+# three blockers it is -- because "find a better source" is the answer to only
+# one of them.
+#
+# WHY NOT JUST WIRE THEM.  Both schemas gated on a bare `requires=`, and
 # NEITHER reads its capability on any channel.  So making `provides` return
 # True does not make either schema CONSULT the thing it is named for; it makes
 # the schema fire on the channels it already has and label the output with a
@@ -4867,6 +4916,83 @@ class Unprovidable:
 
 
 UNPROVIDABLE = (
+    Unprovidable(
+        capability="stub_resolution",
+        schemas=("refrain by reference",),
+        needs=(
+            "a declared map from a stub LINE to the SPAN of lines it points "
+            "at -- not a line pointer, a span, because `&c.` stands for a "
+            "whole chorus and nothing in the text says how many lines that "
+            "is. `Stream.line_status` already MARKS the stub and "
+            "`lyric_harness.chorus_stub_match` already names which "
+            "tradition's convention it read; what is absent is the "
+            "resolution, and `relations.py` ships no detector on purpose "
+            "(BACKLOG 2.4: `&c.` is an EDITION's fact, not English's)."),
+        would_manufacture=(
+            "ordinary verbatim refrains, reported as refrains BY REFERENCE. "
+            "The schema's one channel is token AGREE over the whole line, so "
+            "with the flag set and the stub still tokenising to `c` it would "
+            "fire on every exactly-repeated line in the text and on no stub "
+            "at all -- the inverse of what it is for."),
+        blocker="build",
+        detail=(
+            "DOCTRINE 44's 'hard to build', and `quality/declared_inputs.py` "
+            "says so first: its header excludes this row from the six "
+            "declared-input families precisely because the map 'is derivable "
+            "from the text itself', making it a producer defect (P10) and "
+            "not an input nobody can supply. HOW HARD, measured 2026-08-13 "
+            "over `corpus/song/`: 843 stub lines; matching each stub's "
+            "incipit against earlier lines resolves 158 (18.7%) to a UNIQUE "
+            "earlier line, leaves 224 (26.6%) with no earlier match at all, "
+            "and 461 (54.7%) ambiguous between 2 and 9 candidates. And a "
+            "unique match still gives only the chorus's FIRST line. So the "
+            "naive resolver is wrong more often than right and the honest "
+            "version is an edition-level annotation. "
+            "SECOND, INDEPENDENT BLOCKER, and it is the one that decides the "
+            "question: `relations_null.null_menu('refrain by reference', "
+            "'count')` is EMPTY -- no randomisation in `NULLS` moves "
+            "whole-line token identity, so the schema's primary statistic "
+            "CANNOT FAIL (doctrine 63/68). Wiring the capability would "
+            "therefore start a schema firing with no null behind it, which "
+            "is the exact move this area exists to prevent. The positional "
+            "statistics DO have a menu (local_fraction@0/@2 under "
+            "global_redeal), so a resolution built later must be reported on "
+            "those and never on `count`."),
+    ),
+)
+
+
+#: RETIRED, AND KEPT WHOLE (2026-08-23, doctrines 3/24 and 17).
+#:
+#: An entry here is one whose CAPABILITY is still unprovidable and whose
+#: ARGUMENT still stands, but which no schema asks for any more -- so it is
+#: out of `UNPROVIDABLE`, where `check_unprovidable` would (correctly) report
+#: it as an entry that outlived its schema. It is not deleted: the reason a
+#: capability cannot be supplied does not stop being true because the schema
+#: that wanted it was re-founded, and the next person to reach for it needs
+#: the measurement, not a fresh afternoon.
+#:
+#: `poet` left the table the other way and left only a sentence behind, in
+#: the section header above. That was thinner than it should have been. This
+#: is the shape retirements take from now on.
+#:
+#: `frequency` -- retired because `trite rhyme` stopped requiring it. The
+#: schema gated on a bare `requires=("frequency",)` and READ IT ON NO
+#: CHANNEL, which is the "capability vs predicate" defect: a bare `requires=`
+#: gate cannot make a schema selective, so the schema fired on the channels
+#: it already had and wore a label about a rank it never consulted. It now
+#: carries `ClassEqual(resource="trite")` over the repo's own declared
+#: `CLICHE_PAIRS`, which is a DIFFERENT and narrower question -- "are these
+#: two a declared trite pair", with no rank and no threshold -- and it is
+#: answered by a declaration rather than by a frequency table.
+#:
+#: NOTHING BELOW IS SUPERSEDED BY THAT. The argument is about the FREQUENCY
+#: ROUTE, and every word of it still holds for anyone who wants to build one:
+#: the only admissible sources are pre-1931, so a frequency-driven trite
+#: detector would flag `me`/`thee` hardest and miss `baby`/`crazy` entirely.
+#: That is doctrine 92's disjunction, measured, and it is why the narrow
+#: declared-list question was the one worth answering.
+RETIRED_UNPROVIDABLE = (
     Unprovidable(
         capability="frequency",
         schemas=("trite rhyme",),
@@ -4948,49 +5074,6 @@ UNPROVIDABLE = (
             "be read at all, and would still be answering a different "
             "question from the one the schema's name asks."),
     ),
-    Unprovidable(
-        capability="stub_resolution",
-        schemas=("refrain by reference",),
-        needs=(
-            "a declared map from a stub LINE to the SPAN of lines it points "
-            "at -- not a line pointer, a span, because `&c.` stands for a "
-            "whole chorus and nothing in the text says how many lines that "
-            "is. `Stream.line_status` already MARKS the stub and "
-            "`lyric_harness.chorus_stub_match` already names which "
-            "tradition's convention it read; what is absent is the "
-            "resolution, and `relations.py` ships no detector on purpose "
-            "(BACKLOG 2.4: `&c.` is an EDITION's fact, not English's)."),
-        would_manufacture=(
-            "ordinary verbatim refrains, reported as refrains BY REFERENCE. "
-            "The schema's one channel is token AGREE over the whole line, so "
-            "with the flag set and the stub still tokenising to `c` it would "
-            "fire on every exactly-repeated line in the text and on no stub "
-            "at all -- the inverse of what it is for."),
-        blocker="build",
-        detail=(
-            "DOCTRINE 44's 'hard to build', and `quality/declared_inputs.py` "
-            "says so first: its header excludes this row from the six "
-            "declared-input families precisely because the map 'is derivable "
-            "from the text itself', making it a producer defect (P10) and "
-            "not an input nobody can supply. HOW HARD, measured 2026-08-13 "
-            "over `corpus/song/`: 843 stub lines; matching each stub's "
-            "incipit against earlier lines resolves 158 (18.7%) to a UNIQUE "
-            "earlier line, leaves 224 (26.6%) with no earlier match at all, "
-            "and 461 (54.7%) ambiguous between 2 and 9 candidates. And a "
-            "unique match still gives only the chorus's FIRST line. So the "
-            "naive resolver is wrong more often than right and the honest "
-            "version is an edition-level annotation. "
-            "SECOND, INDEPENDENT BLOCKER, and it is the one that decides the "
-            "question: `relations_null.null_menu('refrain by reference', "
-            "'count')` is EMPTY -- no randomisation in `NULLS` moves "
-            "whole-line token identity, so the schema's primary statistic "
-            "CANNOT FAIL (doctrine 63/68). Wiring the capability would "
-            "therefore start a schema firing with no null behind it, which "
-            "is the exact move this area exists to prevent. The positional "
-            "statistics DO have a menu (local_fraction@0/@2 under "
-            "global_redeal), so a resolution built later must be reported on "
-            "those and never on `count`."),
-    ),
 )
 
 
@@ -5027,6 +5110,25 @@ def check_unprovidable(stream):
             elif e.capability not in REGISTRY[name].capabilities():
                 out.append(f"{e.capability}: names schema {name!r}, which no "
                            f"longer requires it")
+    # AND THE RETIRED TABLE, IN THE OTHER DIRECTION (2026-08-23). A
+    # retirement is a claim too -- "no schema asks for this any more" -- and
+    # it can stop being true without anyone noticing, which is how the entry
+    # this function retired came to be wrong in the first place. A capability
+    # that comes back into a schema's `capabilities()` needs its argument
+    # back in the LIVE table, where the schema-naming checks above run on it.
+    for e in RETIRED_UNPROVIDABLE:
+        if e.capability in named:
+            askers = sorted(s.name for s in REGISTRY.values()
+                            if e.capability in s.capabilities())
+            out.append(f"{e.capability}: RETIRED as unprovidable, and a "
+                       f"schema asks for it again ({', '.join(askers)}). "
+                       f"Move the entry back into UNPROVIDABLE, or supply it "
+                       f"and name the null it is reported against.")
+        if stream is not None and stream.provides(e.capability):
+            out.append(f"{e.capability}: RETIRED as unprovidable and this "
+                       f"stream SUPPLIES it — the argument in "
+                       f"RETIRED_UNPROVIDABLE is now false and has to be "
+                       f"re-measured, not left standing.")
     return out
 
 

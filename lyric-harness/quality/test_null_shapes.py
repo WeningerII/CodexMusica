@@ -357,9 +357,29 @@ def relations_sections():
     still = [c for c in N.NEVER_PROVIDED if rich.provides(c)]
     check("no capability in NEVER_PROVIDED is reachable from a maximally "
           "declared stream", not still, "now provided: %s" % (still,))
-    check("every NEVER_PROVIDED capability is actually asked for by a schema",
-          all(any(c in s.capabilities() for s in R.REGISTRY.values())
-              for c in N.NEVER_PROVIDED))
+    # ...OR IS A RETIRED ENTRY, which is the third state this check did not
+    # have (2026-08-23). `frequency` stopped being asked for when
+    # `trite rhyme` was re-founded on `ClassEqual(resource="trite")`, and it
+    # is still never provided, so its row here is CORRECT while the schema
+    # that wanted it has moved on. `relations.RETIRED_UNPROVIDABLE` is where
+    # that argument now lives, whole; without this arm the check reports a
+    # right table as a wrong one.
+    _asked = {c for s in R.REGISTRY.values() for c in s.capabilities()}
+    _retired = {e.capability for e in R.RETIRED_UNPROVIDABLE}
+    _orphan = sorted(c for c in N.NEVER_PROVIDED
+                     if c not in _asked and c not in _retired)
+    check("every NEVER_PROVIDED capability is asked for by a schema, or is a "
+          "RETIRED entry whose argument is kept in "
+          "relations.RETIRED_UNPROVIDABLE",
+          not _orphan,
+          f"orphans: {_orphan}; retired and correctly still listed: "
+          f"{sorted(_retired & set(N.NEVER_PROVIDED))}")
+    check("...and every RETIRED capability is one no schema asks for — the "
+          "retirement's own claim, checked here as well as in relations.py, "
+          "because a row nobody re-measures is how this drifted",
+          not (_retired & _asked),
+          f"retired {sorted(_retired)}; still asked for "
+          f"{sorted(_retired & _asked)}")
 
     planted, refusal = N.plant_locality(FAR, phon, per, "eng")
     check("the planted text is a PERMUTATION of the same lines, so it is "

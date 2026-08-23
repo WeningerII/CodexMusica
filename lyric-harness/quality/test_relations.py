@@ -1003,6 +1003,24 @@ def test_poet_is_an_alt_surface():
           "SOURCED dialect phonology, and this repo has none")
 
 
+def _retired_readmitted():
+    """Put a RETIRED capability back into a schema's `requires` and ask
+    `check_unprovidable` what it says. A retirement is a CLAIM -- "no schema
+    asks for this any more" -- and the way that claim went wrong the first
+    time was that nothing re-measured it. The registry is restored before
+    this returns; nothing on disk is touched."""
+    import dataclasses
+    cap = R.RETIRED_UNPROVIDABLE[0].capability
+    name = R.RETIRED_UNPROVIDABLE[0].schemas[0]
+    real = R.REGISTRY[name]
+    R.REGISTRY[name] = dataclasses.replace(
+        real, requires=tuple(real.requires) + (cap,))
+    try:
+        return R.check_unprovidable(None)
+    finally:
+        R.REGISTRY[name] = real
+
+
 def test_unprovidable_is_declared_and_measured():
     """§3. `frequency` and `stub_resolution` are DECLARED, not built.
 
@@ -1020,10 +1038,28 @@ def test_unprovidable_is_declared_and_measured():
           all(e.blocker in ("build", "obtain", "disjoint")
               for e in R.UNPROVIDABLE),
           f"{ {e.capability: e.blocker for e in R.UNPROVIDABLE} }")
-    check("`poet` is NOT in the table any more; the other two are",
-          {e.capability for e in R.UNPROVIDABLE}
-          == {"frequency", "stub_resolution"},
+    # REPINNED 2026-08-23. Was `== {"frequency", "stub_resolution"}`.
+    # `frequency` left the LIVE table when `trite rhyme` stopped requiring it
+    # -- the schema gated on a bare `requires=("frequency",)` that it read on
+    # no channel, and now carries `ClassEqual(resource="trite")` over the
+    # repo's own declared CLICHE_PAIRS. `check_unprovidable` caught the stale
+    # entry the same day and said what to do with it (doctrine 17: the
+    # argument is retired whole, not deleted).
+    check("`poet` and `frequency` are NOT in the live table; "
+          "`stub_resolution` is",
+          {e.capability for e in R.UNPROVIDABLE} == {"stub_resolution"},
           f"{sorted(e.capability for e in R.UNPROVIDABLE)}")
+    check("...and `frequency` is RETIRED WHOLE rather than deleted — the "
+          "reason a capability cannot be supplied does not stop being true "
+          "because the schema that wanted it was re-founded",
+          {e.capability for e in R.RETIRED_UNPROVIDABLE} == {"frequency"}
+          and len(R.RETIRED_UNPROVIDABLE[0].detail) > 800,
+          f"{sorted(e.capability for e in R.RETIRED_UNPROVIDABLE)}, "
+          f"detail {len(R.RETIRED_UNPROVIDABLE[0].detail)} chars")
+    check("a retirement is checked in the OTHER direction too: a schema "
+          "asking for a retired capability again is a finding, not a silence",
+          any("asks for it again" in f for f in _retired_readmitted()),
+          str(_retired_readmitted())[:120])
 
     # A MAXIMALLY DECLARED STREAM still supplies neither.
     rich = R.build_stream(QUATRAIN, ENG, declaration={
@@ -1057,24 +1093,44 @@ def test_unprovidable_is_declared_and_measured():
         finally:
             R.Stream.supply = orig
 
+    # THE DEMONSTRATION, AND WHAT IT DEMONSTRATES NOW (2026-08-23).
+    #
+    # HISTORICALLY, and this is why the section exists: `trite rhyme` gated on
+    # a bare `requires=("frequency",)` and read it on NO channel, so forcing
+    # the flag returned EXACTLY `perfect rhyme`'s two instances -- cat/hat and
+    # moon/tune, in no cliche list, alongside the ones that are, with nothing
+    # in the output able to tell them apart. That measurement is the whole
+    # argument of RETIRED_UNPROVIDABLE and it is kept verbatim above.
+    #
+    # THE SCHEMA WAS RE-FOUNDED, so the demonstration has to be repointed at
+    # what is true now rather than left asserting a shape the code no longer
+    # has. `trite rhyme` carries `ClassEqual(resource="trite")` on its token
+    # channel, so its capability is `quotient:trite` and it is READ, not
+    # gated. The consequence is the one the section was arguing for: forcing
+    # `frequency` now buys NOTHING. A flag nothing reads cannot manufacture a
+    # result, and this is the check that says so.
     trite = forced("frequency", "trite rhyme")
     perfect = R.realise(R.REGISTRY["perfect rhyme"], st)
 
     def pairs(x):
         return sorted((i.a.idx, i.b.idx, i.verdict) for i in x)
 
-    check("a flagged `frequency` makes `trite rhyme` return EXACTLY perfect "
-          "rhyme's instances",
-          pairs(trite) == pairs(perfect) and len(trite) == 2,
-          f"{[i.describe(st) for i in trite]} — cat/hat and moon/tune are in "
-          f"no cliche list, and nothing in the output could say so, because "
-          f"the schema's channels are nucleus/coda on the PHONEMIC surface "
-          f"and none of them reads a rank")
-    check("...so no channel of `trite rhyme` reads its own capability",
-          all(c.surface == "phonemic"
-              for c in R.REGISTRY["trite rhyme"].channels),
-          "the same is true of `refrain by reference`: one token channel, "
-          "phonemic surface, and the stub still tokenises to 'c'")
+    check("forcing `frequency` no longer makes `trite rhyme` fire — it "
+          "REFUSES for want of `quotient:trite`, because the capability is "
+          "now read on a channel instead of gated on a bare `requires=`",
+          isinstance(trite, R.Refusal)
+          and trite.capability == "quotient:trite",
+          f"{trite if isinstance(trite, R.Refusal) else pairs(trite)}; "
+          f"`perfect rhyme` on the same stream still returns "
+          f"{len(perfect)} instances, which is what the old wiring copied")
+    check("...and the capability it DOES name is one of its own channels' — "
+          "the difference between a schema that consults the thing it is "
+          "named for and one that wears the label",
+          "quotient:trite" in R.REGISTRY["trite rhyme"].capabilities()
+          and any(getattr(c.predicate, "resource", None) == "trite"
+                  for c in R.REGISTRY["trite rhyme"].channels),
+          f"capabilities {R.REGISTRY['trite rhyme'].capabilities()}; "
+          f"channels {[(c.channel, getattr(c.predicate, 'resource', None)) for c in R.REGISTRY['trite rhyme'].channels]}")
 
     # A PLAIN REFRAIN and A REAL STUB, side by side under the forced flag.
     # The stub line is what the schema is FOR and it is the one that finds
@@ -1111,13 +1167,29 @@ def test_unprovidable_is_declared_and_measured():
 
     # THE TWO TABLES MUST NOT DRIFT. relations_null.py is not editable from
     # here; this pins the edit that is owed there and stays green after it.
+    # A ROW THERE HAS THREE LEGITIMATE STATES, not two (2026-08-23). It can
+    # answer a LIVE `UNPROVIDABLE` entry; it can be one this file has since
+    # made REACHABLE; or its entry can be RETIRED -- still unprovidable,
+    # still correctly listed there, but no longer asked for by any schema.
+    # Before the third existed, retiring `frequency` turned this check red
+    # while both tables were saying exactly the right thing.
+    retired = {e.capability for e in R.RETIRED_UNPROVIDABLE}
     extra = [c for c in N.NEVER_PROVIDED
-             if c not in {e.capability for e in R.UNPROVIDABLE}]
+             if c not in {e.capability for e in R.UNPROVIDABLE}
+             and c not in retired]
     check("every capability relations.py calls unprovidable is also in "
           "relations_null.NEVER_PROVIDED",
           {e.capability for e in R.UNPROVIDABLE} <= set(N.NEVER_PROVIDED),
           "the reverse containment is NOT required while a row there is being "
           "retired")
+    check("a RETIRED capability keeps its NEVER_PROVIDED row and is still "
+          "not provided by even a maximally declared stream — retiring the "
+          "entry retires the SCHEMA'S CLAIM ON IT, not the blocker",
+          all(c in N.NEVER_PROVIDED and not rich.provides(c)
+              for c in retired),
+          f"retired: {sorted(retired)}; in NEVER_PROVIDED "
+          f"{sorted(c for c in retired if c in N.NEVER_PROVIDED)}; provided "
+          f"by the rich stream {sorted(c for c in retired if rich.provides(c))}")
     check("...and every EXTRA row there is one this file has since made "
           "REACHABLE, never a gap relations.py forgot",
           all(rich.provides(c) for c in extra),
@@ -1691,18 +1763,33 @@ def test_known_open_defects():
     # wrong fix -- a `&c.` regex inside relations.py -- would satisfy the
     # headline and break all three.
     STUB = "Oh, my poor Nelly Gray, &c."
+    # THE LAST CONJUNCT USED TO BE A NAME GREP -- no callable in `dir(R)`
+    # with "stub" in its name -- and on 2026-08-23 it went red for two
+    # reasons at once, only one of which was a defect. `declare_stub_
+    # resolution` and `search_stub_resolution` are about RESOLUTION, which is
+    # a different question from DETECTION and is exactly what this module
+    # should offer; the grep could not tell them apart. What it DID correctly
+    # catch was `search_stub_resolution` doing `import lyric_harness` and
+    # calling `is_chorus_stub` -- shipping a detector by reference instead of
+    # by regex, the same defect at one remove. The import is gone and the
+    # predicate is now the caller's, the way `declare_orthography` takes the
+    # rime rule. The conjunct is BEHAVIOURAL now: ask the module to resolve
+    # stubs with nobody having said which lines are stubs, and it must
+    # REFUSE. A name cannot tell you that; a call can.
+    _undeclared = R.search_stub_resolution(stream([STUB, "a plain line"]))
     check("P10 closed: relations.py holds a LINE STATUS and ships no detector",
           "line_status" in R.Stream.__dataclass_fields__
           and R.tokenise(STUB)[-1] == "c"
           and "lyric_harness" not in _relations_imports()
-          and not [n for n in dir(R)
-                   if "stub" in n.lower() and callable(getattr(R, n))],
+          and isinstance(_undeclared, R.Refusal)
+          and _undeclared.capability == "line_status",
           "the stub is a LINE STATUS and the stream now has the field. The "
           "TOKENISER is unchanged and still reads '&c' as 'c' — that is "
           "correct, because it is a pointer, not a word, and deciding which "
           "printed mark is a pointer is the EDITION's business (BACKLOG §2.4: "
           "Finnish prints 'j. n. e.', Malay 'd. s. b.'). relations.py ships "
-          "no pattern and imports nothing from lyric_harness.")
+          "no pattern, imports nothing from lyric_harness, and REFUSES to "
+          f"guess: {_undeclared if isinstance(_undeclared, R.Refusal) else _undeclared}")
     check("...and the caller's own predicate excludes it, with the loss "
           "RECORDED",
           _stub_excluded(STUB),
@@ -1985,10 +2072,19 @@ def test_relation_report_renderer_runs():
     check("`python3 quality/relations.py metidja.txt` RUNS end to end and "
           "exits 0",
           rc == 0 and "phonology eng   schemas declared 77" in out
-          and "RAN AND FIRED 20" in out,
-          "REFUSED 31 · RAN AND FOUND NOTHING 26 · RAN AND FIRED 20; "
-          "instances 1050 / 4340 / 2. REPINNED 2026-08-22 by M-39 from "
-          "~~26 · 27 · 24; 1167 / 4518 / 2~~ (measured 2026-08-13): "
+          and "RAN AND FIRED 24" in out,
+          "REFUSED 24 · RAN AND FOUND NOTHING 29 · RAN AND FIRED 24. "
+          "REPINNED 2026-08-23 from ~~31 · 26 · 20~~ (2026-08-22, M-39) and "
+          "before that ~~26 · 27 · 24~~ (2026-08-13). SEVEN SCHEMAS STOPPED "
+          "REFUSING on this text, and the move is the capability work of "
+          "2026-08-22/23, not drift. THREE of the seven are attributable "
+          "here by measurement rather than by argument: withdrawing "
+          "`eng.English.quotients` in memory and re-running this same verb "
+          "gives REFUSED 27 · RAN AND FIRED 22, so the shipped manner and "
+          "trite partitions account for 3 refusals and 2 of the extra "
+          "firings. The other four are the stub, sense, lift, beat and "
+          "delivery seams that landed in the same window. M-39's own note "
+          "still holds and is why the number is not simply back at 26: "
           "`metidja.txt` prints NO blank line, so it supplies no stanza "
           "ground and the five `frame=\"stanza\"` schemas refuse on it "
           "instead of quantifying over one frame.")
@@ -2672,14 +2768,31 @@ def test_frequency_refusal_is_measured_against_the_shipped_tables():
           "halves, and they order the cliche vocabulary differently")
     import collections
     st = stream(QUATRAIN)
-    entry = next(e for e in R.UNPROVIDABLE if e.capability == "frequency")
-    check("`frequency` is still UNPROVIDABLE, blocker 'disjoint', and no "
-          "stream supplies it",
+    # READS THE RETIRED TABLE SINCE 2026-08-23, and the move is the point of
+    # the repin rather than an accident of it. `trite rhyme` stopped
+    # REQUIRING `frequency` -- it gated on a bare `requires=` it read on no
+    # channel, and now carries `ClassEqual(resource="trite")` -- so the entry
+    # left `UNPROVIDABLE`, where `check_unprovidable` correctly reports an
+    # entry that outlived its schema. NOTHING BELOW CHANGES: the four checks
+    # that fail if the argument is weakened, and the two that are the
+    # arithmetic of the two tables, all still run, because the argument is
+    # about the FREQUENCY ROUTE and that route is exactly as blocked as it
+    # was. This section is why the entry was retired WHOLE instead of
+    # deleted.
+    entry = next(e for e in R.RETIRED_UNPROVIDABLE
+                 if e.capability == "frequency")
+    check("`frequency` is still unprovidable and blocker 'disjoint', no "
+          "stream supplies it, and the schema it names has stopped asking — "
+          "which is what RETIRED means and why it is not in the live table",
           entry.blocker == "disjoint"
           and st.supply("frequency").state == "absent"
           and entry.schemas == ("trite rhyme",)
-          and "trite rhyme" in R.REGISTRY,
-          f"{st.supply('frequency')}")
+          and "trite rhyme" in R.REGISTRY
+          and "frequency" not in R.REGISTRY["trite rhyme"].capabilities()
+          and entry.capability not in {e.capability
+                                       for e in R.UNPROVIDABLE},
+          f"{st.supply('frequency')}; `trite rhyme` capabilities "
+          f"{R.REGISTRY['trite rhyme'].capabilities()}")
 
     tot = collections.Counter()
     authors = collections.defaultdict(set)

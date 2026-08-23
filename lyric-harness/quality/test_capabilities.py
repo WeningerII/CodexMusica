@@ -118,7 +118,7 @@ def test_stub_resolution():
           str(_pairs(st, "refrain by reference")))
     # THE DERIVED HALF — the 18.7% that resolve uniquely.
     st3 = _stream(d)
-    rep = R.search_stub_resolution(st3)
+    rep = R.search_stub_resolution(st3, is_stub=lh.is_chorus_stub)
     check("`search_stub_resolution` resolves the UNAMBIGUOUS stub with "
           "nothing declared — the incipit matches exactly one earlier line",
           rep["resolved"] == {3: (0, 1)} and not rep["ambiguous"],
@@ -143,7 +143,7 @@ def test_stub_resolution():
     # doctrine-20 collapse this whole campaign is about, committed in fresh
     # code and caught by measuring the corpus instead of quoting a number.
     st4 = _stream(d + ["&c."])
-    rep4 = R.search_stub_resolution(st4)
+    rep4 = R.search_stub_resolution(st4, is_stub=lh.is_chorus_stub)
     check("a bare `&c.` is NO_INCIPIT, not a miss — the method does not "
           "apply to it, and that is a third answer",
           rep4["no_incipit"] == [4] and not rep4["unmatched"],
@@ -171,7 +171,8 @@ def test_stub_resolution():
           and max(rep["evidence"].values()) == 5)
     check("a caller may still pin ONE length, which is what the measurement "
           "sweep in the docstring was run with",
-          R.search_stub_resolution(_stream(d), incipit=3)["lengths_tried"]
+          R.search_stub_resolution(_stream(d), is_stub=lh.is_chorus_stub,
+                                   incipit=3)["lengths_tried"]
           == (3,))
     # THE PROPERTY THE CORPUS MEASUREMENT FOUND, asserted as a property
     # rather than as a corpus number: longest-first can never resolve FEWER
@@ -194,10 +195,12 @@ def test_stub_resolution():
     disc = ["the wind blows cold tonight",
             "and no one waits for me",
             "the wind blows, &c."]
-    _lf = len(R.search_stub_resolution(_stream(disc))["resolved"])
-    _fixed = {w: len(R.search_stub_resolution(_stream(disc),
-                                              incipit=w)["resolved"])
-              for w in (2, 3, 4, 5)}
+    def _resolve(**kw):
+        return R.search_stub_resolution(_stream(disc),
+                                        is_stub=lh.is_chorus_stub, **kw)
+
+    _lf = len(_resolve()["resolved"])
+    _fixed = {w: len(_resolve(incipit=w)["resolved"]) for w in (2, 3, 4, 5)}
     check("longest-first never resolves FEWER than any fixed length — every "
           "fixed length is a rung it falls through — and on a stub the long "
           "rungs cannot reach it resolves where fixed 4 and 5 return NOTHING "
@@ -208,8 +211,8 @@ def test_stub_resolution():
               f"{w}:{n}" for w, n in sorted(_fixed.items())))
     check("...and it records the rung that decided it, so the weaker "
           "evidence is visible rather than averaged away",
-          R.search_stub_resolution(_stream(disc))["evidence"] == {2: 3},
-          str(R.search_stub_resolution(_stream(disc))["evidence"]))
+          _resolve()["evidence"] == {2: 3},
+          str(_resolve()["evidence"]))
 
     for bad, why in (({3: 3}, "a span, not a line"),
                      ({3: (3, 4)}, "a span containing itself"),
@@ -387,6 +390,52 @@ def test_beat_and_selectivity():
           "sources cannot supply",
           "quotient:trite" in R.REGISTRY["trite rhyme"].capabilities())
 
+    # THE SIBLING QUOTIENT, WHICH NOTHING WAS EXERCISING (2026-08-23).
+    # `eng.English` began declaring BOTH `trite` and `manner` on 2026-08-22.
+    # `trite` got the check above; `manner` got none, and the gap was found
+    # by stubbing each function in `quality/quotients.py` one at a time and
+    # asking which checks noticed — `manner` was answered by nothing in the
+    # tree, because `test_relations.py` exercises `family rhyme` through an
+    # `EnglishFixture` that declares no quotients and never touches the
+    # SHIPPED partition. A capability with no regression behind it is the
+    # same defect as a capability with no predicate behind it, one layer out.
+    st4 = _stream(["i heard the alley cat", "he wore a paper cap",
+                   "she called the empty can", "they left it on the mat"])
+    fam = _pairs(st4, "family rhyme")
+    perf = _pairs(st4, "perfect rhyme")
+    check("`family rhyme` runs on the SHIPPED English phonology's own manner "
+          "partition — no caller declaration, no fixture",
+          not isinstance(fam, R.Refusal)
+          and "quotient:manner" in R.REGISTRY["family rhyme"].capabilities(),
+          f"{fam}")
+    check("...and the partition is doing the work its label claims: it adds "
+          "cat/cap and cap/mat, which are T~P at the coda and both stops, to "
+          "the perfect rhymes — a superset, not a relabelling",
+          fam > perf and (1, 2) in fam and (2, 4) in fam,
+          f"family {sorted(fam)} vs perfect {sorted(perf)}")
+    check("...and it EXCLUDES every pair carrying `can`, whose N is a nasal "
+          "— which is the half a stamped capability could never have given, "
+          "since a schema that only gates fires on everything or nothing",
+          not any(3 in p for p in fam),
+          f"pairs touching line 3 (`can`): "
+          f"{sorted(p for p in fam if 3 in p) or 'none'}")
+    _ph = get_phon("eng")
+    _saved = _ph.quotients
+    try:
+        _ph.quotients = {}
+        _bare = R.build_stream(
+            ["i heard the alley cat", "he wore a paper cap",
+             "she called the empty can", "they left it on the mat"],
+            _ph, declaration={"language": "eng"})
+        _out = R.line_pairs_for(R.REGISTRY["family rhyme"], _bare)
+    finally:
+        _ph.quotients = _saved
+    check("...and withdrawing the phonology's declaration puts the schema "
+          "straight back to REFUSING by name — so the shipped partition is "
+          "what makes it answer, not the channels it would have anyway",
+          isinstance(_out, R.Refusal) and _out.capability == "quotient:manner",
+          f"{_out if isinstance(_out, R.Refusal) else sorted(_out)}")
+
 
 def test_the_whole_registry():
     print("\n8. THE CENSUS — every schema askable, and it is DERIVED")
@@ -403,6 +452,32 @@ def test_the_whole_registry():
     check("2 answer under their OWN phonology, which is a language "
           "coordinate (M-4) and not a gap in the registry",
           len(rep["other_language"]) == 2, rep["other_language"])
+    # THE COUNT ABOVE IS 77 AND THREE OF THE 77 ARE LIVE ON A FIXTURE. That
+    # was true before 2026-08-23 too -- `earlier` and `poet` have always been
+    # constructed inputs -- and the census did not say so, so "77 askable"
+    # read as "77 working". `proest` joined them the day the invented Welsh
+    # circumflex rule came out of `cym.Welsh`. Pinned here so the disclosure
+    # cannot quietly disappear from the report the way it was never in it.
+    check("...and the census NAMES the ones that answer only on a fixture it "
+          "declares itself — 77 askable is not 77 shipped, and the report "
+          "has to be the thing that says so (doctrine 94)",
+          rep["fixture_only"] == ["dialect rhyme", "historical rhyme",
+                                  "proest"],
+          str(rep["fixture_only"]))
+    # NAMING THE COORDINATE, not just the schema. A reason that says "needs
+    # more work" is the bare verdict doctrine 20 refuses; a reason that names
+    # `earlier`, `poet` or `quotient:vowel_class` tells a caller with the
+    # table exactly which declaration lifts it.
+    _missing = {n: [c for c in R.REGISTRY[n].capabilities()
+                    if c in CEN.FIXTURE_ONLY[n]]
+                for n in rep["fixture_only"]}
+    check("...and every one of them carries a written reason that NAMES the "
+          "capability it is standing in for, so a caller holding the table "
+          "knows which declaration lifts it",
+          all(_missing[n] and len(CEN.FIXTURE_ONLY[n]) > 80
+              for n in rep["fixture_only"]),
+          str({n: (_missing[n], len(CEN.FIXTURE_ONLY[n]))
+               for n in rep["fixture_only"]}))
 
 
 if __name__ == "__main__":

@@ -1073,9 +1073,18 @@ def unreachable_coordinates(schema, statistic):
 #: `relations.UNPROVIDABLE`: a sourced dialect phonology, which
 #: `PeriodPhonology` refuses to construct without a named reconstruction.
 NEVER_PROVIDED = {
-    "frequency": "`trite rhyme` needs a corpus frequency table joined to the "
-                 "stream; `data/song_rhymepair_en.tsv` exists and nothing "
-                 "hands it to `build_stream`",
+    "frequency": "the FREQUENCY ROUTE to `trite rhyme`: a corpus frequency "
+                 "table joined to the stream, plus a declared cut on it. "
+                 "RETIRED from `relations.UNPROVIDABLE` into "
+                 "`relations.RETIRED_UNPROVIDABLE` on 2026-08-23 — not "
+                 "because the blocker lifted (it has not; every admissible "
+                 "English source is pre-1931, so the route would flag "
+                 "me/thee hardest and miss baby/crazy entirely) but because "
+                 "`trite rhyme` stopped asking for it. The schema now reads "
+                 "`ClassEqual(resource='trite')` over the repo's own "
+                 "declared CLICHE_PAIRS: a narrower question, answered by a "
+                 "declaration. The row stays here because the capability is "
+                 "still never provided",
     "stub_resolution": "`refrain by reference` needs the `&c.` stub RESOLVED "
                        "to the lines it points at; `Stream.line_status` marks "
                        "the stub and no reader expands it",
@@ -2768,34 +2777,81 @@ class PanelRow:
 #: blocker is that supplying it HONESTLY needs an input this repo does not
 #: have, and supplying it dishonestly is the move `relations.UNPROVIDABLE`
 #: measured and refused for `frequency`.
+#: BLOCKERS WHOSE BLOCKER WAS LIFTED, kept whole (2026-08-23, doctrines
+#: 3/24 and 17). Symmetric with `relations.RETIRED_UNPROVIDABLE`, and added
+#: for the same reason: three rows below had become FALSE and nothing said
+#: so, because the only check over them ran in `test_relations_null.py` §9
+#: and had been red long enough to read as furniture.
+#:
+#: The rule for this table is the one BLOCKERS states for itself -- the
+#: blocker is that supplying the capability HONESTLY needs an input this
+#: repo does not have. When the repo GETS that input, the row does not
+#: become wrong, it becomes HISTORY, and the honest close is to move it here
+#: with the route that lifted it rather than to edit the sentence until it
+#: is true again.
+LIFTED = {
+    "quotient:manner": (
+        "a manner-of-articulation partition of the consonant inventory. "
+        "SAID 'NO phonology in this repo declares one -- `ltc` declares 同用 "
+        "and is the only module with the field at all', which stopped being "
+        "true on 2026-08-22. LIFTED BY `quality/quotients.py`, whose MANNER "
+        "table is derived from the shipped 126,052-entry lexicon's own "
+        "ARPABET inventory and checked total at import; `eng.English` "
+        "declares it, so `family rhyme` and `multisyllabic rhyme` run on a "
+        "stream built with the shipped English phonology and REFUSE by name "
+        "on one that is not. Blocker was: build. It belonged in a phonology, "
+        "not in a null runner, and that is where it went."),
+    "morphology": (
+        "a lemmatiser/segmenter. `homoioteleuton` and `polyptoton` compare "
+        "morpheme roots and affix classes; a suffix-strip written here would "
+        "decide both verdicts by its own heuristic and report them as "
+        "morphology. LIFTED BY `quality/morphology.py`, which is built on "
+        "`g2p.SUFFIXES` -- the repo's OWN existing affix vocabulary, so the "
+        "two layers cannot drift into two answers (doctrine 1) -- with a "
+        "morphology-specific tie-break and a productivity check over the "
+        "frequency table. Blocker was: build."),
+    "lexicon": (
+        "a lexeme inventory. `holorhyme` compares LEXEME SEQUENCES across a "
+        "whole line and `rhyming slang` a declared slang lexicon; keying "
+        "either on lowercased token text makes `lexeme` an alias of `token` "
+        "and collapses a declared coordinate. LIFTED as a DECLARED resource: "
+        "a caller supplies the inventory and the panel slices do, which is "
+        "the shape the row itself described. Blocker was: obtain."),
+}
+
 BLOCKERS = {
     "sense": "a sense inventory. `antanaclasis` is one word in two SENSES; "
              "with any resource that keys on the token it degenerates to "
              "`repetition`, which is a different schema already in this "
-             "registry. Blocker: obtain (no sense resource here; "
-             "`data/nltk/` carries taggers and tokenizers, not WordNet).",
-    "morphology": "a lemmatiser/segmenter. `homoioteleuton` and `polyptoton` "
-                  "compare morpheme roots and affix classes; a suffix-strip "
-                  "written here would decide both verdicts by its own "
-                  "heuristic and report them as morphology. Blocker: build "
-                  "(the resource is a callable a caller declares; nothing in "
-                  "this repo is one).",
-    "lexicon": "a lexeme inventory. `holorhyme` compares LEXEME SEQUENCES "
-               "across a whole line and `rhyming slang` a declared slang "
-               "lexicon; keying either on lowercased token text makes "
-               "`lexeme` an alias of `token` and collapses a declared "
-               "coordinate. Blocker: obtain.",
-    "quotient:manner": "a manner-of-articulation partition of the consonant "
-                       "inventory. `_quotient_of` reads it from "
-                       "`declaration['quotients']` or from `phon.quotients`, "
-                       "and NO phonology in this repo declares one — `ltc` "
-                       "declares 同用 and is the only module with the field "
-                       "at all. Blocker: build, and it belongs in a "
-                       "phonology, not in a null runner.",
-    "quotient:vowel_class": "a Welsh vowel-class partition for `proest`. Same "
-                            "mechanism and same blocker as "
-                            "`quotient:manner`; `quality/phonology/cym.py` "
-                            "declares no `quotients`.",
+             "registry. Blocker: obtain. THE PARENTHESIS HERE READ 'no "
+             "sense resource here; `data/nltk/` carries taggers and "
+             "tokenizers, not WordNet' and expired on 2026-08-22 (doctrine "
+             "17): `data/nltk/corpora/wordnet` is staged, and "
+             "`quality/senses.py` reads it with a POS-constrained simplified "
+             "Lesk keyed on the lexicographer file. It is NOT in LIFTED, and "
+             "the reason is a measurement rather than a preference: the "
+             "derivation false-fires on 9.42% of pairs, so it is OPT-IN "
+             "(`declaration['derive_senses']`) and a default panel slice "
+             "still supplies nothing. The blocker is now the RATE, not the "
+             "resource.",
+    "quotient:vowel_class": "a Welsh vowel-class partition for `proest`. "
+                            "`quality/phonology/cym.py` declares no "
+                            "`quotients` — true again since 2026-08-23, "
+                            "false for one day before that. Welsh length is "
+                            "largely a function of the following consonant "
+                            "and the to bach DISAMBIGUATES rather than marks "
+                            "it, so the circumflex rule that briefly shipped "
+                            "answered `short` for every unmarked long vowel: "
+                            "a wrong answer, not a missing one, and it "
+                            "silently disabled the refusal P14 pins. NOT the "
+                            "same blocker as `quotient:manner`, which is the "
+                            "comparison this row used to make: manner is "
+                            "BUILDABLE from sourced articulatory phonetics "
+                            "and now is built; Welsh quantity needs a table "
+                            "this repo does not have. Blocker: obtain "
+                            "(doctrine 44) — RHYME_CANON R11 names quantity "
+                            "as part of the requirement and supplies no "
+                            "membership.",
     "orthography": "a second stream under the `orthography` surface. `eye "
                    "rhyme` compares SPELLINGS, so the surface has to be a "
                    "declaration and not the phonemic stream wearing a label. "

@@ -374,6 +374,22 @@ def s9_blockers():
     outlived = sorted(c for c in N.BLOCKERS if c not in needed)
     check("§9 no BLOCKERS line outlived the schema that asked for it",
           not outlived, str(outlived))
+    # A CAPABILITY THE PANEL SUPPLIES IS NOT BLOCKED, and the three that
+    # became supplied on 2026-08-22/23 -- `quotient:manner`, `morphology`,
+    # `lexicon` -- sat in BLOCKERS saying otherwise until 2026-08-23. This
+    # check was RED that whole time and read as furniture, which is the only
+    # reason it took an audit to notice. They are in `N.LIFTED` now, whole,
+    # with the route that lifted each one.
+    check("§9 every LIFTED capability really IS supplied by some slice — a "
+          "row moves out of BLOCKERS when the repo gets the input, and this "
+          "is the assertion that the move was earned",
+          set(N.LIFTED) <= supplied_by_some_slice and bool(N.LIFTED),
+          f"lifted {sorted(N.LIFTED)}; of those, not supplied by any slice: "
+          f"{sorted(set(N.LIFTED) - supplied_by_some_slice)}")
+    check("§9 LIFTED and BLOCKERS are disjoint — one capability, one verdict "
+          "(doctrine 1)",
+          not (set(N.LIFTED) & set(N.BLOCKERS)),
+          str(sorted(set(N.LIFTED) & set(N.BLOCKERS))))
     both = sorted(set(N.BLOCKERS) & supplied_by_some_slice)
     check("§9 no capability is both SUPPLIED by a slice and recorded as "
           "blocked",

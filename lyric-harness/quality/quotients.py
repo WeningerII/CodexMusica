@@ -258,9 +258,35 @@ ENG_QUOTIENTS = {"manner": manner, "trite": trite}
 #: talgron". This table implements the FIRST TWO and refuses to invent the
 #: third:
 #:
-#:   QUANTITY      long vs short, read off the CIRCUMFLEX (`â î ô û ŵ ŷ`),
-#:                 which is what the orthography marks it with. Unambiguous
-#:                 from the spelling and needs no external source.
+#:   QUANTITY      long vs short, read off the CIRCUMFLEX (`â î ô û ŵ ŷ`).
+#:
+#:                 THIS LINE SAID "Unambiguous from the spelling and needs no
+#:                 external source" AND SHIPPED ON IT (2026-08-22). Withdrawn
+#:                 2026-08-23; kept visible per doctrine 17, because the
+#:                 wrongness is the useful part. The to bach does not MARK
+#:                 Welsh length, it DISAMBIGUATES it: length is largely a
+#:                 function of the following consonant environment, and the
+#:                 circumflex is written where that environment would predict
+#:                 the other value. So "no circumflex" is not "short" — it is
+#:                 "whatever the environment gives", and this rule answers
+#:                 `short` for every unmarked long vowel in the language. A
+#:                 wrong answer, not a missing one, which is the thing this
+#:                 repo refuses hardest.
+#:
+#:                 AND THE REPO ALREADY SAID SO. `quality/test_relations.py`
+#:                 carries the same rule as a TEST FIXTURE (`_quantity`) whose
+#:                 docstring reads: "deliberately NOT shipped in
+#:                 quality/phonology/cym.py — Welsh length is largely
+#:                 predictable from the following consonant and is not a fact
+#:                 this repo has sourced (doctrine 44 ...), and a test fixture
+#:                 that declared it in the module would be the harness
+#:                 inventing the tradition's own rule." That was written
+#:                 before this table existed and it is the sourced side of the
+#:                 disagreement, so it wins (doctrine 1: one definition per
+#:                 question, and the one with the citation outranks the one
+#:                 without). RHYME_CANON R11 names quantity as part of the
+#:                 requirement and supplies NO membership table, which is the
+#:                 gap this invented a rule to cover.
 #:   SHAPE         simple vs diphthong, read off the length of the nucleus.
 #:                 Also unambiguous.
 #:   ~~LLEDDF vs   NOT IMPLEMENTED, and said so rather than guessed. The
@@ -304,6 +330,29 @@ def vowel_class(value):
     return (quantity, shape)
 
 
+#: NOT SHIPPED INTO `cym.Welsh`, and that is the point (2026-08-23).
+#: `quality/phonology/cym.py` declared `quotients = dict(CYM_QUOTIENTS)` for
+#: one day. Two things followed, and both are the reason it is a caller
+#: coordinate now rather than a phonology fact:
+#:
+#:   1. `proest` stopped refusing. `test_relations.py` P14 pins the refusal --
+#:      "the shipped proest REFUSES on a declaration that names no vowel
+#:      class, instead of answering False" -- and it went red, because the
+#:      phonology was now answering the question nobody had sourced.
+#:   2. `relations_null.NEVER_PROVIDED['quotient:vowel_class']` still read
+#:      "`quality/phonology/cym.py` declares no `quotients`". One repository,
+#:      two opposite answers about one coordinate: the defect this whole area
+#:      exists to catch, committed by the change meant to close it.
+#:
+#: A caller WITH a sourced Welsh length table declares it and `proest` runs:
+#:     stream = relations.build_stream(
+#:         lines, cym.Welsh(),
+#:         declaration={"language": "cym",
+#:                      "quotients": {"vowel_class": my_sourced_rule}})
+#: What lifts it for everyone is the table, not the code (doctrine 44: the
+#: blocker is the TABLE). `vowel_class` below stays importable so that a
+#: caller who wants the coarse orthographic approximation can declare it
+#: KNOWINGLY, with the direction of its error stated above.
 CYM_QUOTIENTS = {"vowel_class": vowel_class}
 
 
