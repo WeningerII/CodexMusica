@@ -154,6 +154,26 @@ def test_stub_resolution():
           "incipit, which a `str.split()` fallback got wrong",
           "gray" in [t.lower() for t in R.tokenise("nelly gray, &c.")])
 
+    # THE INCIPIT LENGTH IS NO LONGER A CONSTANT, and the resolution carries
+    # WHICH length decided it. ~~STUB_INCIPIT_WORDS = 3~~ was declared with a
+    # story and never measured; the measurement (in the function's own
+    # docstring) shows no single length is right, because a short incipit
+    # reaches more stubs and a long one carries more evidence.
+    check("the resolution records its EVIDENCE — the incipit length that "
+          "decided it — so a five-word match and a two-word one are not "
+          "reported as the same claim",
+          rep["evidence"].get(3) == 5,
+          f"evidence {rep['evidence']}, lengths tried {rep['lengths_tried']}")
+    check("...and it resolves at the LONGEST length the stub can form, not "
+          "at a fixed one: this stub carries five words and is decided on "
+          "five, having never needed the fallback",
+          rep["lengths_tried"] == (5, 4, 3, 2)
+          and max(rep["evidence"].values()) == 5)
+    check("a caller may still pin ONE length, which is what the measurement "
+          "sweep in the docstring was run with",
+          R.search_stub_resolution(_stream(d), incipit=3)["lengths_tried"]
+          == (3,))
+
     for bad, why in (({3: 3}, "a span, not a line"),
                      ({3: (3, 4)}, "a span containing itself"),
                      ({3: (0, 99)}, "outside the stream")):

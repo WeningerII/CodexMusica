@@ -3393,16 +3393,38 @@ def declare_senses(stream, mapping):
     return {"declared": len(norm), "found": len(norm), "source": "declared"}
 
 
-#: HOW MANY WORDS OF A STUB'S INCIPIT MUST MATCH before the match counts.
-#: DECLARED, not tuned (doctrine 58). Three is the shortest prefix that is
-#: not routinely shared by unrelated lines in this corpus — `oh my poor` is a
-#: stub's whole distinguishing content, while a two-word prefix like `oh my`
-#: matches half a songbook.
-STUB_INCIPIT_WORDS = 3
+#: THE INCIPIT LENGTHS TRIED, LONGEST FIRST. ~~STUB_INCIPIT_WORDS = 3~~, and
+#: the struck constant is the point: it was declared with a plausible story
+#: ("a two-word prefix like `oh my` matches half a songbook") and never
+#: measured. MEASURED 2026-08-23 over 1,297 corpus files / 989 stub lines,
+#: one fixed length at a time, WITH the tokeniser fix in place:
+#:
+#:     incipit  no-incipit    unique       ambiguous     no match
+#:        2      0 ( 0.0%)   363 (36.7%)  389 (39.3%)  237 (24.0%)
+#:        3     14 ( 1.4%)   322 (33.0%)  228 (23.4%)  425 (43.6%)
+#:        4    208 (21.0%)   197 (25.2%)   80 (10.2%)  504 (64.5%)
+#:        5    530 (53.6%)    83 (18.1%)   45 ( 9.8%)  331 (72.1%)
+#:
+#: (The tokeniser fix alone is worth ~105 resolutions: at length 3 the
+#: `str.split()` version resolved 217, this resolves 322.)
+#:
+#: NO SINGLE LENGTH IS RIGHT, which is why the constant is GONE rather than
+#: repinned. A short incipit reaches more stubs and carries less evidence; a
+#: long one carries more evidence and cannot be formed by most stubs at all —
+#: at five words 53.6% of them have no incipit to match with. Picking one
+#: number trades coverage against evidence GLOBALLY when the trade is
+#: available PER STUB.
+#:
+#: So each stub is tried at the longest length it can form and falls back
+#: shorter only when that yields NOTHING — never to overturn an ambiguity,
+#: because two candidates on five words do not become one on two, they become
+#: more. The resolution records WHICH length decided it (`evidence`), so a
+#: reader can weigh a five-word match differently from a two-word one instead
+#: of being told they are the same claim.
+STUB_INCIPIT_LENGTHS = (5, 4, 3, 2)
 
 
-def search_stub_resolution(stream, language=None,
-                           incipit=STUB_INCIPIT_WORDS):
+def search_stub_resolution(stream, language=None, incipit=None):
     """Resolve the stubs that resolve UNIQUELY, and refuse the rest. -> dict.
 
     `relations_null.BLOCKERS` measured the naive resolver over `corpus/song/`
@@ -3435,7 +3457,7 @@ def search_stub_resolution(stream, language=None,
             by.setdefault(u.line, []).append(u.token_text or "")
         lines = [" ".join(by.get(i, ())) for i in range(len(stream.lines))]
 
-    def _key(text):
+    def _key(text, w):
         # THIS MODULE'S OWN TOKENISER, not `str.split()`. The first draft
         # probed `lyric_harness` for a `tokenise` it does not have and fell
         # back to whitespace splitting, which leaves punctuation glued on:
@@ -3443,10 +3465,13 @@ def search_stub_resolution(stream, language=None,
         # stub matched an earlier line only when the two happened to be
         # punctuated identically. `tokenise` is defined 1,200 lines above
         # this one.
-        w = [x.lower() for x in tokenise(text or "")][:incipit]
-        return tuple(w) if len(w) >= incipit else None
+        toks = [x.lower() for x in tokenise(text or "")][:w]
+        return tuple(toks) if len(toks) >= w else None
 
+    lengths = ((int(incipit),) if incipit is not None
+               else STUB_INCIPIT_LENGTHS)
     stubs, resolved, ambiguous, unmatched, no_incipit = [], {}, [], [], []
+    evidence = {}
     for i, text in enumerate(lines):
         try:
             if not _lh.is_chorus_stub(text, language):
@@ -3454,7 +3479,27 @@ def search_stub_resolution(stream, language=None,
         except Exception:
             continue
         stubs.append(i)
-        k = _key(text)
+        hit = amb = None
+        for w in lengths:
+            k = _key(text, w)
+            if k is None:
+                continue
+            got = [j for j in range(i)
+                   if not _safe_is_stub(_lh, lines[j], language)
+                   and _key(lines[j], w) == k]
+            if len(got) == 1:
+                hit, amb = (got[0], w), None
+                break
+            if got and amb is None:
+                amb = (tuple(got), w)
+        if hit is not None:
+            resolved[i] = (hit[0], hit[0] + 1)
+            evidence[i] = hit[1]
+            continue
+        if amb is not None:
+            ambiguous.append((i, amb[0]))
+            continue
+        k = _key(text, min(lengths))
         if k is None:
             # NO INCIPIT TO MATCH WITH, which is NOT the same answer as
             # "the incipit matched nothing" and is counted apart from it
@@ -3465,20 +3510,12 @@ def search_stub_resolution(stream, language=None,
             # large share of stubs in this corpus carry no incipit at all.
             no_incipit.append(i)
             continue
-        hits = [j for j in range(i)
-                if not _safe_is_stub(_lh, lines[j], language)
-                and _key(lines[j]) == k]
-        if len(hits) == 1:
-            resolved[i] = (hits[0], hits[0] + 1)
-        elif hits:
-            ambiguous.append((i, tuple(hits)))
-        else:
-            unmatched.append(i)
+        unmatched.append(i)
     return {"stubs": len(stubs), "resolved": resolved,
             "ambiguous": ambiguous, "unmatched": unmatched,
             "no_incipit": no_incipit,
             "found": len(resolved), "source": "incipit_unique",
-            "incipit_words": incipit}
+            "evidence": evidence, "lengths_tried": tuple(lengths)}
 
 
 def _safe_is_stub(_lh, text, language):
@@ -6239,7 +6276,7 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",
            "line_pairs_for", "declare_delivery",
            "declare_stub_resolution", "search_stub_resolution",
-           "STUB_INCIPIT_WORDS", "declare_senses",
+           "STUB_INCIPIT_LENGTHS", "declare_senses",
            "declare_period_surface", "declare_lifts",
            "search_lifts", "LIFTS_PER_HALF_LINE",
            "HALVES_PER_LINE",
