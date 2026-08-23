@@ -321,17 +321,40 @@ toothless), and `floor.LENGTH_GATE_CODES` (the codes a verb may not exit 0
 on). Each set is READ from the module that OWNS it, never respelled, because a
 second copy of a gate set is how a census starts disagreeing with the thing it
 counts (doctrine 1).
-**MEASURED: of 67 finding codes, 8 CAN definitely refuse something, 15
-definitely CANNOT, and 44 depend on where they are constructed.** Never summed
-past that partition (doctrine 79). Undecidable is NOT quietly counted as
-gated — that would be this census answering its own question in the direction
-that flatters it — and it has TWO causes reported APART, because they ask
-different things of whoever closes them: **23** `computed` (the severity is
-`sev(...)` at the call site, a profile downgrade, readable only under the
-profile the call runs under) and **21** `consumer-assigned`, where the
-constructor has NO severity field at all — `GridFinding` is `(code, message,
-evidence)`, so the whole SHAPE layer takes its severity from whoever folds it
-in (`revise._function_findings`).
+**MEASURED, AND THE FIRST READING WAS WRONG IN ITS OWN FLATTERING DIRECTION.**
+~~of 67 finding codes, 8 CAN definitely refuse something, 15 definitely
+CANNOT, and 44 depend on where they are constructed — 23 `computed` and 21
+`consumer-assigned`~~ **STRUCK 2026-08-23 (`MISSING.md` M-77): the standing
+figure is 20 GATED / 51 DISCLOSED-ONLY / 0 UNDECIDABLE, over 71 codes and
+not 67 — the placement layer builds `GridFinding` from a VARIABLE at one
+site, so four codes this tree emits were counted by nothing, and the same
+gap would have crashed `severity_of` on any draft that tripped one.** Never summed past
+that partition (doctrine 79).
+**THE 23/21 SPLIT WAS AN ARTEFACT AND 39 OF THE 44 WERE NEVER UNDECIDED.** The
+census read ARGUMENT 1 as the severity for every constructor, because
+`floor.Finding` and `readability.Finding` are `(code, severity, message, ...)`.
+`FitFinding` is `(code, MESSAGE, ...)` with NO severity field, so 18 of
+`fit.py`'s codes had their message tested against "flag"/"note" and filed
+`computed`. **A severity can be DECLARED in four spellings** and the census
+knew one: a `severity` field; ANOTHER FIELD NAME (`FitFinding.satisfiable` --
+False means the declaration cannot be met, a contradiction, so a flag); a
+PER-CODE TABLE (`grid.SEVERITY`); and a DOWNGRADE CEILING (`floor.py`'s
+`sev("flag")`, whose body is `default if exact else "note"`, so the argument
+is the strongest reachable severity). An over-reported UNDECIDABLE makes the
+tree look worse and the instrument look more necessary -- the direction an
+instrument least audits itself in.
+**WHAT CHANGED IN THE TREE, kept apart from what changed in the reading**:
+`grid.SEVERITY` rules on all 21 shape codes in the module that DEFINES them
+(it was `"flag" if f.code == "HOOK_ABSENT" else "note"`, one inline
+conditional in a consumer that defines none of them); `severity_of` REFUSES an
+unruled code rather than defaulting it, because a default is a ruling nobody
+made; and `FitFinding.severity`/`GridFinding.severity` are the ONE definition
+of mappings `revise.py` held THREE copies of -- under a docstring reading
+*"SEVERITY IS NOT RE-DECIDED HERE ... this method does not maintain a second
+opinion."* **NO DRAFT GRADES DIFFERENTLY**: every table was proven equivalent
+to the expression it replaced before it shipped (0 disagreements over all 21
+shape codes), so 0 codes are newly enforced and all 12 newly-VISIBLE gates
+were already firing.
 **A DISCLOSED-ONLY CODE IS NOT AUTOMATICALLY A DEFECT AND DOCTRINE 6 IS THE
 COUNTERWEIGHT**: a CONVENTION a writer may depart from cannot be what fails a
 check, so the shape layer's notes (`DOWNBEAT_LOCKED`, `QUATRAIN_LOCK`) are

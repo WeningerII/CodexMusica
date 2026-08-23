@@ -9,11 +9,19 @@ read from there rather than restated here, so this docstring cannot go stale
 against the thing it describes (doctrine 1).
 
 Sections:
-  1  the census counts what it says it counts, and cannot see a layer
+  1  the census counts what it says it counts, and cannot miss a layer
   2  the gate sets are READ from the modules that own them
-  3  an undecidable code is never counted as gated
-  4  the two causes of undecidability are reported APART
+  3  undecidable is EMPTY, asserted before the checks that walk that list
+  4  the causes stay apart, and the four-spelling reader is load-bearing
   5  the pin moves when the tree does
+
+UNDECIDABLE REACHED 0 ON 2026-08-23 (`MISSING.md` M-77) and that turned two
+of these checks vacuous — `all()` over an empty list is True and reads exactly
+like a check that examined something, which is the defect this repo found in
+seven of its own checks and fixed by mutation. Sections 3 and 4 assert the
+POPULATION first and then prove the classifier still classifies by taking the
+spelling away, because "0 undecidable" and "the census stopped answering"
+produce the same number.
 """
 
 import os
@@ -90,14 +98,20 @@ def test_undecidable_is_never_counted_as_gated():
     print("\n3. an undecidable code is NEVER counted as gated")
     c = GC.census()
     und = [k for k, v in c.items() if v["verdict"] == "UNDECIDABLE"]
-    check("no undecidable code carries a gate — if it did, the verdict would "
-          "have been GATED, and the census would be answering its own "
-          "question in the direction that flatters it",
+    # UNDECIDABLE IS 0 SINCE M-77, so the two checks that walk that list are
+    # now VACUOUS — `all()` over an empty list is True and would read exactly
+    # like a check that examined something. The population is asserted FIRST
+    # so the section cannot pass by looking at nothing (this repo's own
+    # seven-vacuous-checks lesson, applied to the suite that found it).
+    check("the undecidable list is EMPTY, which is the claim M-77 makes — "
+          "every code this tree can emit has a severity readable at its "
+          "emitter, in one of the four declared spellings",
+          und == [], f"{len(und)} undecidable: {und}")
+    check("no undecidable code carries a gate — vacuous today by design, and "
+          "kept because the moment a new constructor arrives it stops being "
+          "vacuous and this is the check that catches a gate hiding inside "
+          "an unreadable severity",
           all(not c[k]["gates"] for k in und), f"{len(und)} undecidable")
-    check("and no undecidable code is a pure note either: undecidable means "
-          "the severity is not readable at the emitter, which is a different "
-          "answer from 'it is a note' (doctrine 20)",
-          all(c[k]["severities"] != ["note"] for k in und))
     dis = [k for k, v in c.items() if v["verdict"] == "DISCLOSED-ONLY"]
     check("every DISCLOSED-ONLY code is a note at every construction site — "
           "the claim is that nothing CAN refuse on it, so a single flag "
@@ -107,17 +121,38 @@ def test_undecidable_is_never_counted_as_gated():
 
 
 def test_the_two_causes_are_apart():
-    print("\n4. the two causes of undecidability are reported APART")
+    print("\n4. the causes stay reported APART, and the READING is load-bearing")
     s = GC.summarize(GC.census())
-    check("computed-at-the-call-site and no-severity-field-at-all are "
-          "counted separately: they ask different things of whoever closes "
-          "them, and one total would hide the second entirely",
+    check("computed-at-the-call-site and no-severity-field-at-all are still "
+          "counted separately and still sum to the undecidable total: they "
+          "ask different things of whoever closes them, and one total would "
+          "hide the second entirely",
           s["computed"] + s["consumer_assigned"] == s["undecidable"],
           f"{s['computed']} computed + {s['consumer_assigned']} "
           f"consumer-assigned = {s['undecidable']}")
-    check("both causes are actually present in this tree, so neither branch "
-          "of the split is a category with no members",
-          s["computed"] > 0 and s["consumer_assigned"] > 0)
+    # THE MUTATION THAT MAKES THIS SECTION NON-VACUOUS. Both causes are 0 now,
+    # so asserting "both are present" would fail and asserting "both are zero"
+    # would pass against a census that had simply stopped classifying. Take
+    # away the SPELLING and the codes must fall back into undecidable — that
+    # is the proof the four-spelling reader is doing the work and not merely
+    # present, and it is the same shape as §5's constructor mutation.
+    real = GC.SEVERITY_SPELLING
+    try:
+        GC.SEVERITY_SPELLING = {}
+        blind = GC.summarize(GC.census())
+    finally:
+        GC.SEVERITY_SPELLING = real
+    check("forgetting that `FitFinding` spells its severity `satisfiable` "
+          "puts 18 codes straight back into UNDECIDABLE — so the reading is "
+          "READ, and the 0 is an answer rather than a classifier that "
+          "stopped classifying",
+          blind["consumer_assigned"] > 0
+          and blind["undecidable"] > s["undecidable"],
+          f"blind to the spelling: {blind['undecidable']} undecidable "
+          f"({blind['consumer_assigned']} consumer-assigned) vs "
+          f"{s['undecidable']} when it is read")
+    check("...and the restoration held",
+          GC.summarize(GC.census()) == GC.PINNED)
 
 
 def test_the_pin_moves_when_the_tree_does():

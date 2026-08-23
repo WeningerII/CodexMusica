@@ -20,6 +20,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 
 from quality import grid as _G                                    # noqa: E402
+from quality.grid import SEVERITY, GridFinding, severity_of      # noqa: E402
 from quality import schemes as S                                  # noqa: E402
 from quality.grid import (Line, Meter, Section, Song, UNDECLARED,  # noqa: E402
                           UnknownFunction, VariationDeclaration, line_pickup,
@@ -1926,21 +1927,49 @@ def test_a_returns_broken_rhyme_scheme_reaches_the_report():
           "X across its returns', one channel over")
 
     # WHERE THE FLAG LIVES. This is a CONVENTION and may not fail a draft.
-    # Pinned against `revise.py`'s SOURCE, the same move
-    # `test_mandate_language.test_line_count_cannot_fire_through_the_reviser`
-    # makes for RETURN_NOT_VERBATIM: the severity is decided in that file, so
-    # a promotion made there has to fail HERE.
-    rsrc = open(os.path.join(HERE, "revise.py")).read()
-    check("`revise.py` types every song-function finding a note except "
-          "HOOK_ABSENT, so this arrives as a NOTE and cannot fail "
-          "`verify()` — it is measured against a labelled CONVENTION "
-          "(doctrine 6)",
-          '"flag" if f.code == "HOOK_ABSENT" else "note"' in rsrc
-          and "RETURN_SCHEME_DRIFT" in rsrc,
+    #
+    # REPOINTED 2026-08-23, AND THE PIN GOT STRONGER FOR IT. It used to grep
+    # `revise.py`'s SOURCE for the literal
+    # `'"flag" if f.code == "HOOK_ABSENT" else "note"'`, because the whole
+    # SHAPE layer's severity was one inline conditional in that consumer. The
+    # intent — "a promotion has to fail HERE" — was right and is kept; what
+    # moved is WHERE the decision lives. `grid.SEVERITY` now rules on all 21
+    # codes in the module that DEFINES them, so this reads the VALUE rather
+    # than a spelling: a source grep passes on a file that has the right
+    # characters and the wrong behaviour, and it goes stale the moment anyone
+    # reformats the line (which is what happened).
+    check("`RETURN_SCHEME_DRIFT` is declared a NOTE by `grid.SEVERITY`, in "
+          "the module that defines it, so it cannot fail `verify()` — it is "
+          "measured against a labelled CONVENTION (doctrine 6)",
+          SEVERITY["RETURN_SCHEME_DRIFT"] == "note"
+          and GridFinding("RETURN_SCHEME_DRIFT", "m", "e").severity == "note",
           f"{POPULAR_SONG.name!r} — `return_findings` is never handed a "
           f"mandate, so nothing it says is a requirement the writer declared. "
           f"The flag for a REQUIRED return is RETURN_NOT_VERBATIM, from "
           f"`Mandate.returns_check`, one layer down.")
+    check("...and the table rules on EVERY shape code with exactly one flag, "
+          "so a new finding cannot join the convention family by default — "
+          "`severity_of` REFUSES an unruled code rather than defaulting it, "
+          "which is the gate this layer did not have (doctrine 20)",
+          [c for c, v in SEVERITY.items() if v == "flag"] == ["HOOK_ABSENT"]
+          and _unruled_refuses(),
+          f"{len(SEVERITY)} codes ruled; the one flag is a fact about the "
+          f"writer's own supplied hook text, not a convention")
+
+
+def _unruled_refuses():
+    """A shape code nobody has ruled on must REFUSE, not default to a note.
+
+    The whole reason 21 codes were undecidable is that the answer lived in a
+    consumer's `else` branch. An `else` branch here would rebuild that: the
+    next `GridFinding` would join the convention family without anyone
+    deciding it should.
+    """
+    try:
+        severity_of("A_CODE_NOBODY_RULED_ON")
+    except KeyError:
+        return True
+    return False
 
 
 def test_line_runs_is_surfaced_rather_than_computed_for_nobody():

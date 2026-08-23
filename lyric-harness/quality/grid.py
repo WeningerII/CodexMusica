@@ -945,11 +945,128 @@ def song_from_blueprint(obj, assume_meter=None):
 # THE ANTI-CLICHE CHECK
 # ---------------------------------------------------------------------------
 
+#: WHAT EACH SHAPE FINDING IS WORTH — the SEVERITY, declared HERE, in the
+#: module that owns the codes.
+#:
+#: IT USED TO LIVE IN A CONSUMER, AS ONE INLINE CONDITIONAL. `revise.
+#: _function_findings` read `"flag" if f.code == "HOOK_ABSENT" else "note"`,
+#: with thirty lines of docstring in THAT module arguing why — so the whole
+#: SHAPE layer's severity was a string comparison in a file that does not
+#: define a single one of these codes, and the reasoning was prose (doctrine
+#: 48). `quality/gate_census.py` measured the consequence: 21 codes whose
+#: severity could not be read at the emitter at all, reported as UNDECIDABLE
+#: because that is what they were.
+#:
+#: THE RULE, and it is one rule with one exception:
+#: everything here is measured against `POPULAR_SONG`, a labelled CONVENTION
+#: (`FormConvention`, the same move `Meter.conventional_grouping` makes) and
+#: NOT a mandate the writer declared. **Doctrine 6: a convention a writer is
+#: free to depart from cannot be the thing that fails `verify()`.** 5/4 and an
+#: eleven-bar bridge are choices. So: note.
+#:
+#: `HOOK_ABSENT` is the exception and is different IN KIND: the writer
+#: supplied the exact hook TEXT, and whether it occurs in the draft is a
+#: factual question with no convention in it — the same shape as
+#: `RETURN_NOT_VERBATIM` being a flag while its sibling `RETURN_OUT_OF_RANGE`
+#: is a note.
+#:
+#: `RETURN_SCHEME_DRIFT` IS THE ONE A LATER READER WILL WANT TO PROMOTE, and
+#: must not. It is about RHYME, and rhyme is what the mandate flags — but
+#: `return_findings` is never handed a mandate, so every answer it gives is
+#: against the convention. THE FLAG ALREADY EXISTS ONE LAYER DOWN: a writer
+#: who REQUIRES a return declares `schemes.Return(verbatim=True)` and
+#: `Mandate.returns_check` breaks it as `RETURN_NOT_VERBATIM`. Promoting this
+#: one would fail an undeclared return on a convention AND fail a declared one
+#: twice under two names.
+SEVERITY = {
+    # THE ONE FLAG — a fact about the writer's own supplied text.
+    "HOOK_ABSENT": "flag",
+    # THE CONVENTION MEASUREMENTS — notes on purpose, every one.
+    "BRIDGE_IS_A_VERSE": "note",
+    "CROSS_FUNCTION_REPRISE": "note",
+    "DOWNBEAT_LOCKED": "note",
+    "ELABORATION_UNGROUNDED": "note",
+    "HOOK_CONFINED": "note",
+    "HOOK_DOES_NOT_RECUR": "note",
+    "METER_LOCKED": "note",
+    "PHRASE_LENGTH_LOCKED": "note",
+    "QUATRAIN_LOCK": "note",
+    "RETURNS_WITH_SAME_WORDS": "note",
+    "RETURN_LENGTH_DRIFT": "note",
+    "RETURN_LOCKED": "note",
+    "RETURN_METER_DRIFT": "note",
+    "RETURN_NEVER_RETURNS": "note",
+    "RETURN_SCHEME_DRIFT": "note",
+    "RETURN_SLOT_DRIFT": "note",
+    "SECTION_LENGTH_LOCKED": "note",
+    "SINGLE_USE_RECURRED": "note",
+    "TITLE_NOT_IN_HOOK": "note",
+    "UNIFORM_ANACRUSIS": "note",
+    # THE PLACEMENT LAYER (M-54). These four reach `GridFinding` through the
+    # ONE site that passes a VARIABLE code, so neither a reader nor
+    # `gate_census.py` could see them by scanning for literals — the census
+    # counted 67 codes and these are the 68th through 71st.
+    #
+    # AND THIS TABLE'S REFUSAL IS WHAT FOUND THEM. The four were absent from
+    # the first draft, so `severity_of` would have RAISED on any draft that
+    # tripped a placement rule — a crash where the old `else "note"` silently
+    # gave the right answer for the wrong reason. No suite caught it: the
+    # shipped blueprints trip 0 placement rules (M-54's own measurement), so
+    # no fixture reaches the site. The gate caught what the tests could not,
+    # which is the argument for a refusal over a default.
+    #
+    # NOTES, and M-54 settled why: a section's position is a fact about the
+    # DECLARATION, not about any line's words, so no rewrite moves it and a
+    # flag would spend every round of `max_rounds` and report ROUND_LIMIT —
+    # the `uncovered_bars` precedent verbatim.
+    "SECTION_AT_EDGE": "note",
+    "SECTION_NOT_ADJACENT": "note",
+    "SECTION_NOT_AT_BOUNDARY": "note",
+    "SECTION_REQUIREMENT_ABSENT": "note",
+}
+
+#: The severity a code carries when this table has never heard of it. NOT
+#: "note": a code nobody has ruled on is an OPEN QUESTION, and answering it
+#: with the lenient default is how a finding joins the silent majority without
+#: anybody deciding it should (doctrine 20). `severity_of` REFUSES instead.
+UNRULED = None
+
+
+def severity_of(code):
+    """-> "flag" | "note" for one shape code. THE one definition.
+
+    REFUSES on a code no one has ruled on rather than defaulting it, because
+    a default here is a ruling nobody made. A new `GridFinding` therefore
+    cannot ship until its severity is decided in the table above — which is
+    the gate this module did not have, and the reason 21 codes were
+    undecidable.
+    """
+    sev = SEVERITY.get(code, UNRULED)
+    if sev is None:
+        raise KeyError(
+            f"{code!r} has no declared severity in grid.SEVERITY. A shape "
+            f"finding is a measurement against a CONVENTION and is almost "
+            f"always a note (doctrine 6) — but 'almost always' is not a "
+            f"ruling, and defaulting it here would be this module deciding "
+            f"by omission. Add the row.")
+    return sev
+
+
 @dataclass
 class GridFinding:
     code: str
     message: str
     evidence: str
+
+    @property
+    def severity(self):
+        """The declared severity, read from `SEVERITY` at the point of use.
+
+        A PROPERTY rather than a field, deliberately: a field would let a
+        caller construct a finding whose severity disagrees with the table,
+        which is the second-opinion problem this table exists to end.
+        """
+        return severity_of(self.code)
 
     def __str__(self):
         return f"[{self.code}] {self.message}\n    {self.evidence}"

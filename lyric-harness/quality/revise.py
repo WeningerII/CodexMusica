@@ -1814,7 +1814,7 @@ class Reviser:
                 if f.conditional_on:
                     ev += f" CONDITIONAL ON: {f.conditional_on}"
                 per.setdefault(ln, []).append(Finding(
-                    f.code, "flag" if not f.satisfiable else "note",
+                    f.code, f.severity,
                     f.message, ev, [ln]))
             for r in lf.refusals:
                 refusals.setdefault(r.code, []).append((ln, r))
@@ -1863,7 +1863,7 @@ class Reviser:
         # counts and not verdicts for the same reason.
         for f in FT.uncovered_bar_findings(fits, secs):
             whole.append(Finding(
-                f.code, "flag" if not f.satisfiable else "note",
+                f.code, f.severity,
                 f.message, f.evidence, []))
         return per, whole
 
@@ -2037,7 +2037,7 @@ class Reviser:
         whole = []
         for f in rep["findings"]:
             whole.append(Finding(
-                f.code, "flag" if f.code == "HOOK_ABSENT" else "note",
+                f.code, f.severity,
                 f.message, f.evidence, []))
         for r in rep["refusals"]:
             whole.append(Finding(r.code, "note", r.message, r.evidence, []))

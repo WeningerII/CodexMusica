@@ -8610,3 +8610,106 @@ their own pins. Moving that prose into a vault would move it out of the layer
 that enforces it. A vault READING these files is a reading surface and costs
 nothing; a vault REPLACING them would trade the only property that has kept
 this record honest.
+
+### M-77 · the 44 undecidable finding codes, decided — and 39 of them were never undecided `CLOSED` 2026-08-23
+**The owner's instruction**, after reading M-73's measurement: *"do the 44
+undecidable codes."* Done. The count is **0**, and the honest account of how it
+got there has two halves that must not be merged, because merging them would
+let a reading correction look like an enforcement win.
+
+**THE CENSUS WAS WRONG FIRST, AND IT WAS WRONG IN ITS OWN FLATTERING
+DIRECTION.** `quality/gate_census.py` shipped the same day with
+`{computed: 23, consumer_assigned: 21}` pinned. Both numbers were artefacts:
+it read **argument 1 as the severity for every constructor**, because
+`floor.Finding` and `readability.Finding` are `(code, severity, message, …)`.
+`FitFinding` is `(code, MESSAGE, evidence, kind, satisfiable, …)` **and has no
+severity field at all**, so 18 of `quality/fit.py`'s codes had their MESSAGE
+tested against `"flag"`/`"note"`, failed, and were filed `computed`. The true
+split at that moment was **5 / 39**.
+
+**AND `Finding` NAMES FOUR DIFFERENT CLASSES IN THIS TREE** — `floor`,
+`readability`, `audit_corpus`, `rhyme_constraints` — of which
+`rhyme_constraints.Finding` is `(type_name, verdict, extents, channels, …)`
+and is not a coded finding at all. One name over four layouts is doctrine 1's
+own case, and a census reading them by position asserts a shape instead of
+reading one (doctrine 45). `severity_fields()` now DERIVES each constructor's
+layout from its own dataclass, so a class that gains or loses the field moves
+the census by itself.
+
+**A SEVERITY CAN BE DECLARED IN FOUR SPELLINGS, and the census knew one.**
+That is why 39 codes read as open when they were decided at the emitter:
+
+| spelling | who | codes |
+|---|---|---:|
+| a `severity` field | `floor.Finding`, `readability.Finding` | — |
+| **another field name** | `FitFinding.satisfiable` — False = the declaration CANNOT BE MET, a contradiction, therefore a flag | **18** |
+| **a per-code table** | `grid.SEVERITY` (new) | **21** |
+| **a downgrade ceiling** | `floor.py`'s `sev("flag")`, whose body is `default if exact else "note"` — the argument is the strongest reachable severity | **5** |
+
+An over-reported UNDECIDABLE is not a harmless error: it makes the tree look
+worse than it is and the instrument look more necessary than it is, which is
+the direction an instrument is least likely to audit itself in.
+
+**WHAT ACTUALLY CHANGED IN THE TREE**, kept separate:
+* **`grid.SEVERITY` rules on all 21 shape codes in the module that DEFINES
+  them.** It was `"flag" if f.code == "HOOK_ABSENT" else "note"` — one inline
+  conditional in `revise._function_findings`, a file that defines none of
+  those codes, with thirty lines of docstring in THAT module arguing why. The
+  whole SHAPE layer's severity was a string comparison in a consumer.
+* **`severity_of` REFUSES an unruled code** instead of defaulting it. A
+  default here is a ruling nobody made: the next `GridFinding` would join the
+  convention family without anyone deciding it should (doctrine 20). That is
+  the gate this layer did not have.
+* **`FitFinding.severity` and `GridFinding.severity` are THE one definition**
+  of mappings `quality/revise.py` held **three copies** of — while its own
+  docstring read *"SEVERITY IS NOT RE-DECIDED HERE … this method does not
+  maintain a second opinion."* It maintained two copies of the opinion.
+
+**NO DRAFT GRADES DIFFERENTLY, and this was proven before anything shipped**:
+every table was checked against the expression it replaced —
+**0 disagreements** across all 21 shape codes, and `FitFinding.severity`
+reproduces `"flag" if not satisfiable else "note"` on both branches. The 20
+gated codes were gated all along; **0 are newly enforced and all 12
+newly-VISIBLE gates were already firing.** What moved is what can be READ.
+
+**THE PIN: 8 / 15 / 44 → 20 / 51 / 0, over 71 codes and not 67.**
+
+**AND THE REFUSAL CAUGHT A CRASH THE TESTS COULD NOT.** `severity_of` REFUSES
+an unruled code, and the first draft of `grid.SEVERITY` ruled on 21 — every
+code the census could see. It could not see four: `quality/grid.py`'s
+placement layer (M-54) builds `GridFinding(code, …)` from a VARIABLE at
+exactly one site, so `SECTION_AT_EDGE`, `SECTION_NOT_ADJACENT`,
+`SECTION_NOT_AT_BOUNDARY` and `SECTION_REQUIREMENT_ABSENT` are invisible to a
+scan for string literals. Two consequences, both live:
+
+* **A CRASH WOULD HAVE SHIPPED.** Any draft tripping a placement rule would
+  have raised `KeyError` where the old `else "note"` silently gave the right
+  answer for the wrong reason. **No suite catches it** — M-54's own
+  measurement is that the shipped blueprints trip **0 of 300** placement
+  rules, so no fixture reaches the site. The GATE found what the tests could
+  not, which is the whole argument for a refusal over a default.
+* **AND THE CENSUS HAD BEEN UNDERCOUNTING BY FOUR** — the same blindness that
+  lost an entire constructor on its first run, one argument in. Those codes
+  were emitted by this tree and counted by nothing. A declared table is an
+  EXISTENCE claim as well as a severity, so the census folds them in from
+  `grid.SEVERITY` and the total moves **67 → 71**.
+
+(`--check` re-derives all of it.)
+
+**A SOURCE-GREP PIN WAS REPOINTED AND GOT STRONGER.**
+`quality/test_grid.py` asserted the convention rule by searching `revise.py`'s
+SOURCE for the literal `'"flag" if f.code == "HOOK_ABSENT" else "note"'`. Its
+intent — *"the severity is decided in that file, so a promotion made there has
+to fail HERE"* — was exactly right; only the location moved. It now reads the
+VALUE (`SEVERITY["RETURN_SCHEME_DRIFT"] == "note"`, and a constructed
+`GridFinding` reporting the same), because a source grep passes on a file with
+the right characters and the wrong behaviour, and goes stale the moment
+anybody reformats the line — which is precisely what happened.
+
+**WHAT IS NOT CLOSED, and it is now the honest headline: 51 of 71 codes can
+refuse NOTHING.** That is up from a reported 15, and it is not a regression —
+it is the 32 codes that were hiding inside UNDECIDABLE plus the 4 that were
+hiding from the scan entirely, now correctly counted as toothless. Doctrine 6 says most of them SHOULD be: a convention a writer
+may depart from cannot fail a check, and the shape layer's notes are notes on
+purpose. But 47 is the real size of the owner's complaint, and it is a
+question for a person, per code, which is what this census exists to put.
