@@ -434,6 +434,167 @@ def summarize(c):
                 and "computed" not in r["severities"])}
 
 
+#: WHY EACH TOOTHLESS CODE IS TOOTHLESS — the DISPOSITION, ruled one at a time.
+#:
+#: The census's own sentence was *"what this census produces is the LIST, so
+#: the question 'should this one gate?' is asked of each code by a person
+#: rather than answered by whoever last edited the file."* A list nobody
+#: answers is the defect one level up, so here are the answers.
+#:
+#: WHY THIS TABLE LIVES HERE AND NOT WITH THE CODES, which is the opposite of
+#: where `grid.SEVERITY` had to go. A severity is CONSUMED at run time —
+#: `revise.py` reads it to build a `Finding` — so it had to sit with the codes
+#: or two layers would hold opinions. A disposition is consumed by NOBODY at
+#: run time: it is a claim about the taxonomy, and its whole value is being
+#: auditable in ONE screen. Split across four modules it would be 51 rulings
+#: nobody can read side by side, which is how a taxonomy drifts.
+#:
+#: THE VOCABULARY IS CLOSED, and every entry carries the doctrine that
+#: licenses it. `PROMOTE_CANDIDATE` is the one that is WORK rather than a
+#: settled answer.
+DISPOSITIONS = {
+    # THE CITATION IS A COROLLARY AND IS WRITTEN AS ONE. This rule is
+    # quoted as "doctrine 6" at 22 sites in this repository and doctrine 6
+    # does not say it: 6 is "no weighted quality score, ever" and its check
+    # (`test_floor.py`) verifies the floor emits a VECTOR and never a score.
+    # The rule follows from 6 AND 7 together — taste belongs in a declaration
+    # (6), and a floor may not order the region it already passed (7) — so a
+    # convention, being a declared taste rather than a floor, may not reject.
+    # It has NO NUMBER OF ITS OWN, and therefore no registry row and no
+    # check, while governing 51 of 71 codes. `MISSING.md` M-78.
+    "CONVENTION":  "a corollary of doctrines 6 and 7, not doctrine 6 alone — "
+                   "measured against a labelled convention a writer is free "
+                   "to depart from, so a flag would be the error and not the "
+                   "fix",
+    "REFUSAL":     "doctrine 79/20 — the harness could not answer. A refusal "
+                   "is not a failure and putting it in a numerator charges "
+                   "the wrong layer",
+    "DISCLOSURE":  "a fact about the CALL or the MANDATE, not about the "
+                   "draft. No rewrite moves it, so there is nothing for a "
+                   "gate to demand",
+    "SATISFIED":   "the finding records a requirement being MET. Gating it "
+                   "would fail a draft for doing what it was asked",
+    "NO_MOVE":     "a fact about the DECLARATION (bars, placement, span). "
+                   "The loop's only move is a word swap on a named line, so a "
+                   "flag would spend every round of `max_rounds` and report "
+                   "ROUND_LIMIT — the `uncovered_bars` precedent verbatim",
+    "UNCALIBRATED": "a count with no measured threshold. Its CALIBRATED "
+                   "sibling already gates; this one cannot until somebody "
+                   "measures the band (doctrine 16/58)",
+    "PROMOTE_CANDIDATE": "factual, with no convention in it, and arguably "
+                   "should gate. NOT promoted here: changing what refuses a "
+                   "draft is the owner's call, and this table's job is to "
+                   "put the question, not to answer it by editing",
+}
+
+#: One ruling per disclosed-only code. `--check` FAILS on an unruled one, so a
+#: new note cannot join the silent majority without somebody deciding it
+#: should — which is the gate this list did not have.
+DISPOSITION = {
+    # --- quality/grid.py: the SHAPE layer. Conventions, near enough entire.
+    "DOWNBEAT_LOCKED": "CONVENTION",
+    "METER_LOCKED": "CONVENTION",
+    "PHRASE_LENGTH_LOCKED": "CONVENTION",
+    "QUATRAIN_LOCK": "CONVENTION",
+    "SECTION_LENGTH_LOCKED": "CONVENTION",
+    "UNIFORM_ANACRUSIS": "CONVENTION",
+    "RETURN_LENGTH_DRIFT": "CONVENTION",
+    "RETURN_METER_DRIFT": "CONVENTION",
+    "RETURN_SCHEME_DRIFT": "CONVENTION",
+    "RETURN_SLOT_DRIFT": "CONVENTION",
+    "RETURN_LOCKED": "CONVENTION",
+    "RETURNS_WITH_SAME_WORDS": "CONVENTION",
+    "BRIDGE_IS_A_VERSE": "CONVENTION",
+    "CROSS_FUNCTION_REPRISE": "CONVENTION",
+    "SINGLE_USE_RECURRED": "CONVENTION",
+    "HOOK_CONFINED": "CONVENTION",
+    # The placement layer (M-54): DEFINITIONAL, not conventional — a prechorus
+    # with no chorus is mislabelled, not novel. It still cannot gate, and
+    # M-54 settled why in those words: a section's position is a fact about
+    # the declaration, no rewrite moves it, and a flag spends max_rounds.
+    "SECTION_AT_EDGE": "NO_MOVE",
+    "SECTION_NOT_ADJACENT": "NO_MOVE",
+    "SECTION_NOT_AT_BOUNDARY": "NO_MOVE",
+    "SECTION_REQUIREMENT_ABSENT": "NO_MOVE",
+    "RETURN_NEVER_RETURNS": "NO_MOVE",
+    "ELABORATION_UNGROUNDED": "NO_MOVE",
+    # THE TWO THAT ARE NOT SETTLED, and they are the reason this table has a
+    # seventh word. `HOOK_ABSENT` is a FLAG on the argument that the writer
+    # supplied the exact hook TEXT and its presence is factual with no
+    # convention in it. These two are about the SAME declared text and are
+    # equally factual — "occurs once, so it is a line and not a hook" is
+    # arguably definitional rather than conventional, and a title absent from
+    # its own hook is a fact, not a taste. Promoting either changes what
+    # refuses a draft, which is not this table's decision to make.
+    "HOOK_DOES_NOT_RECUR": "PROMOTE_CANDIDATE",
+    "TITLE_NOT_IN_HOOK": "PROMOTE_CANDIDATE",
+
+    # --- quality/fit.py: counts against a DECLARED meter. `satisfiable=True`
+    # is fit.py's own statement that these are measurements and not
+    # contradictions, so none is a defect by itself.
+    "CROWDED": "UNCALIBRATED",
+    "SPARSE": "UNCALIBRATED",
+    "PROMINENCE_EXCEEDS_HEADS": "UNCALIBRATED",
+    "PROMINENCE_OFF_HEAD": "UNCALIBRATED",
+    "HEADS_EXCEED_UNITS": "UNCALIBRATED",
+    "PROMINENCE_CANNOT_ALIGN": "UNCALIBRATED",
+    "EVEN_DIVISION_LANDINGS": "UNCALIBRATED",
+    "ANACRUSIS": "NO_MOVE",
+    "LATE_ENTRY": "NO_MOVE",
+    "TUPLET_REQUIRED": "NO_MOVE",
+    "UNCOVERED_BARS": "NO_MOVE",
+    "OVERLAPPING_SPANS": "NO_MOVE",
+
+    # --- quality/floor.py
+    "EXTRAPOLATED_LENGTH": "DISCLOSURE",
+    "UNIFORM_LINE_LENGTH": "CONVENTION",
+    "RADIF_LICENSED": "SATISFIED",
+    # SHARED_SUFFIX names the SAME phenomenon `HOMEOTELEUTON` names, and that
+    # one is GATED through MANDATORY_PURSUE. One repository, two answers about
+    # one sonic event — the tier-1 ban is unskippable at the mandate layer and
+    # silent at the floor. That asymmetry may be right (the floor speaks about
+    # a draft nobody mandated) and it is not obviously right, so it is a
+    # question and not a ruling.
+    "SHARED_SUFFIX": "PROMOTE_CANDIDATE",
+
+    # --- quality/revise.py: almost none of these is about the DRAFT.
+    "BAND_UNJUDGED": "REFUSAL",
+    "SCHEME_UNREADABLE": "REFUSAL",
+    "COLLISION_CUT_IS_SCALAR_ONLY": "DISCLOSURE",
+    "MANDATE_EXCUSED_BY_OVERLAP": "DISCLOSURE",
+    "MANDATE_GROUPS_INDISTINGUISHABLE": "DISCLOSURE",
+    "MANDATE_NOT_INDEPENDENT": "DISCLOSURE",
+    "MANDATE_SCOPE_DECLARED": "DISCLOSURE",
+    "STRUCTURE_UNCALIBRATED": "DISCLOSURE",
+    "REFRAIN_REPEAT": "SATISFIED",
+    "GROUPS_DECLARED_RETURN": "SATISFIED",
+    "RETURN_OUT_OF_RANGE": "NO_MOVE",
+}
+
+
+def unruled(c=None):
+    """-> disclosed-only codes with no declared disposition.
+
+    THE GATE. A note that nobody has ruled on is indistinguishable from a note
+    somebody decided to leave alone, and the second is a position while the
+    first is an oversight (doctrine 20). `--check` fails on a non-empty list.
+    """
+    c = c if c is not None else census()
+    return sorted(k for k, v in c.items()
+                  if v["verdict"] == "DISCLOSED-ONLY"
+                  and k not in DISPOSITION)
+
+
+def by_disposition(c=None):
+    """-> {disposition: [codes]}, the ruling as a reader sees it."""
+    c = c if c is not None else census()
+    out = collections.defaultdict(list)
+    for k, v in c.items():
+        if v["verdict"] == "DISCLOSED-ONLY":
+            out[DISPOSITION.get(k, "UNRULED")].append(k)
+    return {k: sorted(v) for k, v in out.items()}
+
+
 #: THE PINNED CENSUS — 2026-08-23, AFTER THE 44 WERE DECIDED.
 #: Of 71 finding codes: **20 can refuse something, 51 cannot, and 0 are
 #: undecidable.**
@@ -505,12 +666,33 @@ def main(argv):
                 extra = (" via " + ", ".join(r["gates"])) if r["gates"] else ""
                 print(f"  {code:28s} {'/'.join(r['severities']):9s}"
                       f"{extra}  [{', '.join(r['files'])}]")
-        print("\nA DISCLOSED-ONLY CODE IS NOT AUTOMATICALLY A DEFECT: "
-              "doctrine 6 says a CONVENTION a writer may depart from cannot "
-              "be what fails a check, so the shape layer's notes are notes "
-              "on purpose. This list is the QUESTION, asked of each code by "
-              "a person, not an answer.")
+        print("\nWHY EACH DISCLOSED-ONLY CODE IS TOOTHLESS — RULED ONE AT A "
+              "TIME, never assumed:")
+        for _k, _v in sorted(by_disposition(c).items()):
+            print(f"  {_k:20s} {len(_v):3d}  {DISPOSITIONS.get(_k, '?')[:86]}")
+        print("\nA DISCLOSED-ONLY CODE IS NOT AUTOMATICALLY A DEFECT — a "
+              "CONVENTION a writer may depart from cannot be what fails a "
+              "check, so the shape layer's notes are notes on purpose. That "
+              "rule is a COROLLARY OF DOCTRINES 6 AND 7 and is quoted across "
+              "this tree as doctrine 6 alone, which says something else "
+              "entirely; it has no number of its own and therefore no check, "
+              "while governing most of this table (`MISSING.md` M-78).")
         return 0
+    u = unruled(c)
+    if u:
+        print(f"\nCHECK FAILED — {len(u)} disclosed-only code(s) carry no "
+              f"declared disposition: {', '.join(u)}. A note nobody has ruled "
+              f"on is indistinguishable from a note somebody decided to leave "
+              f"alone, and the second is a position while the first is an "
+              f"oversight (doctrine 20). Add a DISPOSITION row naming which "
+              f"of the {len(DISPOSITIONS)} kinds it is.")
+        return 3
+    _bad = sorted({d for d in DISPOSITION.values() if d not in DISPOSITIONS})
+    if _bad:
+        print(f"\nCHECK FAILED — disposition(s) outside the closed "
+              f"vocabulary: {_bad}. The set is closed so a new kind is added "
+              f"deliberately, not by somebody typing a new string.")
+        return 3
     if s != PINNED:
         print(f"\nCHECK FAILED — the census moved: pinned {PINNED}, "
               f"measured {s}. A finding added without a gate moves "

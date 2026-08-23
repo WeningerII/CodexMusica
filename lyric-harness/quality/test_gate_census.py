@@ -14,6 +14,7 @@ Sections:
   3  undecidable is EMPTY, asserted before the checks that walk that list
   4  the causes stay apart, and the four-spelling reader is load-bearing
   5  the pin moves when the tree does
+  6  every disclosed-only code carries a DECLARED disposition
 
 UNDECIDABLE REACHED 0 ON 2026-08-23 (`MISSING.md` M-77) and that turned two
 of these checks vacuous — `all()` over an empty list is True and reads exactly
@@ -184,12 +185,54 @@ def test_the_pin_moves_when_the_tree_does():
           GC.summarize(GC.census()) == GC.PINNED)
 
 
+def test_every_toothless_code_is_ruled():
+    print("\n6. every disclosed-only code carries a DECLARED disposition")
+    c = GC.census()
+    dis = [k for k, v in c.items() if v["verdict"] == "DISCLOSED-ONLY"]
+    check("the population is non-empty, so this section cannot pass by "
+          "examining nothing", len(dis) > 0, f"{len(dis)} disclosed-only")
+    check("...and NONE is unruled. M-73 produced the LIST and said the "
+          "question 'should this one gate?' must be asked of each code by a "
+          "person; a list nobody answers is the same defect one level up",
+          GC.unruled(c) == [], f"unruled: {GC.unruled(c)}")
+    check("every ruling is inside the CLOSED vocabulary, so a new kind is "
+          "added deliberately rather than by somebody typing a new string "
+          "(doctrine 58)",
+          all(d in GC.DISPOSITIONS for d in GC.DISPOSITION.values()),
+          f"{sorted(GC.DISPOSITIONS)}")
+    check("`PROMOTE_CANDIDATE` has members — the vocabulary keeps a word for "
+          "'this should probably gate and it is not mine to decide', so a "
+          "ruling can be WORK rather than a settled answer (doctrine 20)",
+          GC.by_disposition(c).get("PROMOTE_CANDIDATE"),
+          f"{GC.by_disposition(c).get('PROMOTE_CANDIDATE')}")
+    # THE MUTATIONS: both branches of the gate must actually refuse.
+    real = dict(GC.DISPOSITION)
+    try:
+        GC.DISPOSITION.pop("QUATRAIN_LOCK")
+        rc_unruled = GC.main(["--check"])
+    finally:
+        GC.DISPOSITION.clear(); GC.DISPOSITION.update(real)
+    try:
+        GC.DISPOSITION["QUATRAIN_LOCK"] = "PROBABLY_FINE"
+        rc_offvocab = GC.main(["--check"])
+    finally:
+        GC.DISPOSITION.clear(); GC.DISPOSITION.update(real)
+    check("removing one ruling REFUSES at exit 3 — the gate is read, not "
+          "merely present", rc_unruled == 3, f"exit {rc_unruled}")
+    check("and a disposition outside the vocabulary REFUSES too, so the "
+          "closed set is closed by a check and not by hoping",
+          rc_offvocab == 3, f"exit {rc_offvocab}")
+    check("...and the restoration held, so no later section inherits a "
+          "mutated table", GC.unruled() == [])
+
+
 def main():
     for fn in (test_the_census_sees_every_layer,
                test_gate_sets_are_read_not_respelled,
                test_undecidable_is_never_counted_as_gated,
                test_the_two_causes_are_apart,
-               test_the_pin_moves_when_the_tree_does):
+               test_the_pin_moves_when_the_tree_does,
+               test_every_toothless_code_is_ruled):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0

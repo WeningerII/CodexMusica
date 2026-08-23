@@ -8706,6 +8706,34 @@ VALUE (`SEVERITY["RETURN_SCHEME_DRIFT"] == "note"`, and a constructed
 the right characters and the wrong behaviour, and goes stale the moment
 anybody reformats the line — which is precisely what happened.
 
+**AND THE 51 ARE NOW RULED ONE AT A TIME** (same sitting, on the owner's
+instruction "now do the 51 disclosed-only"). `gate_census.DISPOSITION` gives
+every toothless code a reason from a CLOSED seven-word vocabulary, and
+`--check` REFUSES on an unruled code or an off-vocabulary word — both branches
+proven by mutation. The ruling:
+
+| disposition | codes | why it cannot gate |
+|---|---:|---|
+| `CONVENTION` | 17 | a writer may depart; a flag would be the error |
+| `NO_MOVE` | 12 | a fact about the DECLARATION — the loop's only move is a word swap, so a flag spends `max_rounds` |
+| `DISCLOSURE` | 7 | about the CALL or the MANDATE, not the draft |
+| `UNCALIBRATED` | 7 | its CALIBRATED sibling already gates; this one needs a measured band |
+| `SATISFIED` | 3 | records a requirement being MET |
+| `REFUSAL` | 2 | the harness could not answer (doctrine 79/20) |
+| `PROMOTE_CANDIDATE` | 3 | factual, no convention in it — arguably should gate, and NOT promoted here |
+
+**THE THREE CANDIDATES ARE THE DELIVERABLE, not the 48 settled ones.**
+`HOOK_DOES_NOT_RECUR` and `TITLE_NOT_IN_HOOK` are about the writer's own
+DECLARED hook text and are as factual as `HOOK_ABSENT`, which is a FLAG on
+exactly that argument — "occurs once, so it is a line and not a hook" is
+arguably definitional rather than conventional. And `SHARED_SUFFIX` names the
+same sonic event as `HOMEOTELEUTON`, which is GATED through
+`MANDATORY_PURSUE`: **one repository, two answers about one phenomenon**, the
+ban unskippable at the mandate layer and silent at the floor. That asymmetry
+may be right — the floor speaks about a draft nobody mandated — and it is not
+obviously right. Promoting any of the three changes what refuses a draft,
+which is the owner's call and not a table's.
+
 **WHAT IS NOT CLOSED, and it is now the honest headline: 51 of 71 codes can
 refuse NOTHING.** That is up from a reported 15, and it is not a regression —
 it is the 32 codes that were hiding inside UNDECIDABLE plus the 4 that were
@@ -8713,3 +8741,85 @@ hiding from the scan entirely, now correctly counted as toothless. Doctrine 6 sa
 may depart from cannot fail a check, and the shape layer's notes are notes on
 purpose. But 47 is the real size of the owner's complaint, and it is a
 question for a person, per code, which is what this census exists to put.
+
+### M-78 · the rule that decides note-vs-flag for 51 of 71 codes is not a doctrine, and has been cited as one 22 times `OPEN` — sized 2026-08-23
+**Found by the owner asking a one-line question** while M-77's disposition
+table was being written: *"did you say that we have a doctrine contradicting
+the rest of them? are you saying that doctrine 6 says just wrote prose?"* The
+answer to the literal question is no. The answer to what it uncovered is
+worse.
+
+**DOCTRINE 6 IS NOT PROSE.** It carries a MECHANICAL registry row —
+`python3 quality/test_floor.py`, checking *"the floor emits a vector of
+findings and never a weighted score."* It is enforced.
+
+**BUT IT DOES NOT SAY THE THING IT IS CITED FOR.** Doctrine 6 is *"No
+weighted quality score, ever. The features stay a vector."* The rule quoted
+under its number across this tree is *"a convention a writer is free to
+depart from cannot be the thing that fails `verify()`"* — a different claim
+about a different question. MEASURED over every `doctrine 6` citation in the
+repository:
+
+| what the citation CLAIMS | sites |
+|---|---:|
+| the CONVENTION rule (which 6 does not state) | **22** |
+| no weighted score (which 6 does state) | 10 |
+| both / ambiguous | 1 |
+| other | 27 |
+
+**The miscitation is more than twice as common as the correct one**, across
+`grid.py`, `revise.py`, `test_revise.py`, `lyric_harness.py`, `mutate.py`,
+`CLAUDE.md` and `MISSING.md`.
+
+**AND NO DOCTRINE IN 1–95 STATES IT.** Every numbered headline in `CLAUDE.md`
+and `quality/METHOD.md` was searched. The nearest is **doctrine 7**, whose own
+registry row reads *"a forced finding is a NOTE and never a flag — a floor may
+not order the permitted region"* — closer, and still not the same claim: 7 is
+about not RANKING inside the permitted region, the rule is about not
+REJECTING on a convention. The rule is best read as a COROLLARY of 6 and 7
+together: taste belongs in a declaration (6), a floor may not order the region
+it already passed (7), therefore a convention — a declared taste rather than a
+floor — may not reject.
+
+**WHY THIS IS NOT PEDANTRY.** That corollary is the single most load-bearing
+rule in the finding taxonomy: **it decides note-vs-flag for 51 of 71 codes**,
+which is every `CONVENTION` and every `NO_MOVE` disposition in M-77's table.
+It is the reason `QUATRAIN_LOCK` may not fail a draft and the reason
+`RETURN_SCHEME_DRIFT` must not be promoted. Having no number of its own, it
+has **no registry row and no check** — so the one rule that governs most of
+this harness's restraint is exactly the thing doctrine 48 warns about, a
+principle living only in prose. Worse than the ordinary case: by being quoted
+under a number, it LOOKS checked.
+
+**WHAT WAS DONE**: M-77's disposition table cites the rule as *"a corollary of
+doctrines 6 and 7, not doctrine 6 alone"*, so at least the new 51 rulings do
+not repeat it. **The 22 existing sites are NOT rewritten**, deliberately — a
+bulk find-and-replace over a doctrine citation is how a number quietly comes
+to mean something else, and this repo's own rule is that a number cannot be
+renumbered, only added.
+
+**AND THE VERIFIER REFUSED THE FIRST DRAFT OF THIS ENTRY**, which is worth
+recording because it is the mechanism working at the layer under discussion.
+The remedy below was first written naming the next doctrine number as a
+literal; `quality/verify_doctrines.py` failed it as a reference with no
+definition. **A number cannot be minted by writing it down** — even in a
+proposal, even in a MISSING entry. The number is withheld here for that
+reason, not for style.
+**AND IT REFUSED THE SECOND DRAFT TOO**, for a subtler reason worth keeping:
+that draft QUOTED the verifier's own error message, which names the number —
+and to this checker a number inside a quoted error is still a citation. There
+is no escaping distinction between using a doctrine number and mentioning one,
+which is correct for its purpose (a stale citation is stale wherever it sits)
+and is the reason this paragraph paraphrases the error instead of quoting it.
+
+**THE REMEDY IS THE OWNER'S CALL AND IS ONE OF TWO.** Either (a) the rule gets
+**a doctrine number of its own** — the next one — with its own registry row
+and its own check, the sanctioned move since the numbering is append-only,
+which would also require the 1–95 invariant in `verify_doctrines.py` to widen;
+or (b) the citations are
+repointed at **doctrine 7**, whose registry row already says *"a forced
+finding is a NOTE and never a flag"*, and the corollary is written into 7's
+own text. (a) is honest about the rule being load-bearing enough to deserve a
+number; (b) is cheaper and leaves the strongest rule in the taxonomy as
+someone else's footnote. **Nothing is changed until that is ruled**, because a
+doctrine number is the owner's vocabulary and not a session's.
