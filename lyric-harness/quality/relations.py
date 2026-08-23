@@ -624,13 +624,19 @@ class Stream:
                 "units that project into the second declaration and carry "
                 "material there")
         if cap in ("lexicon", "sense", "morphology"):
-            res = self.declaration.get("resources", ())
+            res = _resources_of(self)
             # either the capability name or any LEVEL that maps to it: the two
             # key-spaces used to disagree and no declaration could satisfy both.
             got = cap in res or any(
                 lv in res for lv, c in _CAP_OF_LEVEL.items() if c == cap)
+            src = ("declaration"
+                   if (cap in (self.declaration.get("resources") or {})
+                       or any(lv in (self.declaration.get("resources") or {})
+                              for lv, c in _CAP_OF_LEVEL.items() if c == cap))
+                   else "phonology")
             return Supply(cap, "present" if got else "absent", 1 if got else 0,
-                          "declaration", "named in declaration['resources']")
+                          src,
+                          "named in declaration['resources'] or phon.resources")
         if cap.startswith(QUOTIENT_CAP):
             # DEFECT P14: a quotient nobody declared is not the identity, and a
             # schema whose grain is undeclared refuses here rather than
@@ -1320,6 +1326,32 @@ def _quotient_of(stream, name):
     if q is None:
         q = (getattr(stream.phon, "quotients", None) or {}).get(name)
     return q
+
+
+def _resources_of(stream):
+    """-> the resource table this stream supplies, declaration first.
+
+    THE SAME TWO SOURCES `_quotient_of` READS, AND FOR THE SAME REASON
+    (2026-08-22). A morphology, a lexeme inventory and a sense inventory are
+    facts about a LANGUAGE, exactly as a manner partition or a 同用 grouping
+    is, so they belong on the phonology that owns the language -- and this is
+    the seam `ltc` established for quotients: `relations.py` imports no
+    phonology, hard-codes no table, and re-derives nothing.
+
+      declaration['resources'][level]   the caller's own, per stream. WINS,
+                                        because a declaration is where an
+                                        assumption is supposed to live
+                                        (doctrine 1) and a caller who wrote
+                                        one down meant it.
+      phon.resources[level]             the PHONOLOGY's own.
+
+    A phonology that declares none supplies none, and the schema refuses
+    instead -- unchanged for every language that has not learned the
+    coordinate.
+    """
+    out = dict(getattr(stream.phon, "resources", None) or {})
+    out.update(stream.declaration.get("resources") or {})
+    return out
 
 
 def _bind_quotient(pred, stream):
@@ -2264,7 +2296,7 @@ def _identity_values(ir, span, stream):
     toks = _span_tokens(span, stream)
     if ir.level == "token":
         return " ".join(u.token_text.lower() for u in toks)
-    res = stream.declaration.get("resources", {})
+    res = _resources_of(stream)
     if not isinstance(res, dict):
         return _NORES
     fn = res.get(ir.level)
@@ -2946,6 +2978,104 @@ class _SpellingSurface:
             "the orthographic surface is PROJECTED from the phonemic "
             "segmentation, not syllabified independently; build the primary "
             "stream first and call declare_orthography() on it")
+
+
+def declare_delivery(stream, overrides, name="delivered"):
+    """Declare HOW THE LINES ARE SUNG, as a second stream. -> a summary dict.
+
+    THE SURFACE THAT WAS CALLED UNOBTAINABLE, AND WHY IT IS NOT (2026-08-22,
+    owner ruling). `relations_null.BLOCKERS` calls `delivered` and `sung`
+    `Blocker: obtain` — *"what the singer actually sang, against what the page
+    prints"* — and for the NULL SWEEP that is correct and stays: you cannot
+    measure `wrenched rhyme` against a corpus of printed ballads, because what
+    was sung is not in the book. **For a writer it is a DECLARATION.** This
+    repo is a harness for WRITING songs, and the writer is the one who decides
+    how a line is sung, so the delivered surface is a coordinate they state —
+    the same kind of thing as the meter or the relation — and there is nothing
+    to obtain. `ALT_SURFACES` has held both names since it was written and
+    `Stream.alt` is already `surface name -> Stream`; what was missing was the
+    constructor, and this is it.
+
+    WHAT THE THREE SCHEMAS ACTUALLY ASK FOR, which is what fixes the shape of
+    `overrides`:
+
+      wrenched rhyme      prominence DIFFERS on the page and AGREES as
+                          delivered — the ballad move of forcing a normally
+                          unstressed syllable to take the stress so it
+                          rhymes (`sailing` against `king`).
+      transformative /    nucleus and coda AGREE as delivered while the
+      bent rhyme          nucleus DIFFERS on the page — the rap and soul move
+                          of bending a vowel to land a rhyme.
+      sung-delivery       nucleus and moras AGREE on the `sung` surface.
+      rhyme
+
+    So a delivery is a per-syllable override of `prominence`, `nucleus`,
+    `coda` and `moras`, and nothing else: it re-voices material the page
+    already carries and never invents a syllable.
+
+    `overrides` may be
+      {word: {field: value}}              applied to that word's LAST
+                                          syllable, which is the rhyme-
+                                          bearing one and the only one any of
+                                          the three schemas reads at `scope`
+                                          `last`/`anchor`.
+      {(word, syl_index): {field: value}} for a word whose interior moves.
+      callable(unit) -> dict or None      for a writer who wants the whole
+                                          say. A callable that returns None
+                                          leaves the unit exactly as printed.
+
+    NOTHING IS INFERRED. A word with no entry is delivered as written, so a
+    caller who declares one word declares one word — the surface does not
+    quietly re-stress the rest of the song to make a rhyme work, which is the
+    manufacture this constructor exists to avoid.
+    """
+    if name not in ALT_SURFACES:
+        raise NoReferent(
+            f"{name!r} is not one of ALT_SURFACES {ALT_SURFACES}; a surface "
+            f"no schema can name is a stream nothing will ever read.")
+    _FIELDS = ("prominence", "nucleus", "coda", "moras")
+    is_call = callable(overrides)
+    if not is_call and not isinstance(overrides, dict):
+        raise NoReferent(
+            f"`overrides` is a dict or a callable, got "
+            f"{type(overrides).__name__}. See this function's docstring for "
+            f"the three accepted shapes.")
+    if not is_call:
+        for k, v in overrides.items():
+            bad = [f for f in (v or {}) if f not in _FIELDS]
+            if bad:
+                raise NoReferent(
+                    f"delivery override for {k!r} names {bad}, which are not "
+                    f"deliverable fields. A delivery re-voices "
+                    f"{list(_FIELDS)} and never invents a syllable.")
+    # LAST-SYLLABLE INDEX PER TOKEN, so a bare `{word: {...}}` lands on the
+    # rhyme-bearing syllable rather than on the first one it meets.
+    last_of = {}
+    for u in stream.units:
+        last_of[(u.line, u.token)] = max(
+            last_of.get((u.line, u.token), -1), u.tok_syl)
+    units, touched = [], 0
+    for u in stream.units:
+        over = None
+        if is_call:
+            over = overrides(u)
+        else:
+            w = (u.token_text or "").lower()
+            over = overrides.get((w, u.tok_syl))
+            if over is None and u.tok_syl == last_of.get((u.line, u.token)):
+                over = overrides.get(w)
+        if not over:
+            units.append(u)
+            continue
+        touched += 1
+        units.append(replace(u, syl=replace(u.syl, **dict(over))))
+    alt = Stream(units=units, lines=list(stream.lines),
+                 tokens=dict(stream.tokens), phon=stream.phon,
+                 declaration=dict(stream.declaration, surface=name),
+                 text_lines=stream.text_lines)
+    stream.alt[name] = alt
+    return {"surface": name, "units": len(units), "delivered": touched,
+            "found": touched, "source": "declared"}
 
 
 def declare_orthography(stream, rime, name="orthography"):
@@ -3920,13 +4050,31 @@ declare(RelationSchema(
     name="trite rhyme",
     spans=(END_ANCHOR, END_ANCHOR), align="anchor",
     channels=(ChannelRule("nucleus", AGREE, "each"),
-              ChannelRule("coda", AGREE, "each")),
+              ChannelRule("coda", AGREE, "each"),
+              ChannelRule("token",
+                          ClassEqual(label="declared trite-pair set",
+                                     resource="trite"),
+                          "anchor", surface="phonemic")),
     placement=(Placement("both_line_final"),), identity=(DISTINCT,),
-    requires=("frequency",), normative="deprecated",
+    normative="deprecated",
     note="NOT A PHONOLOGICAL TYPE, and included to mark the BOUNDARY of the "
          "space: it is a coordinate on a VALUE axis orthogonal to all the "
          "structural ones. Kept out of the cell grid deliberately (doctrine "
-         "9/48, modal_exclusion in quality/revise.py)."))
+         "9/48, modal_exclusion in quality/revise.py). "
+         "~~requires=('frequency',)~~ REPLACED 2026-08-22 BY A PREDICATE, and "
+         "`UNPROVIDABLE`'s entry for `frequency` is why: it recorded, "
+         "correctly, that stamping the capability would report 'every "
+         "perfect rhyme in the text, labelled trite', because the two "
+         "channels above are nucleus AGREE and coda AGREE and NOTHING IN THE "
+         "SCHEMA READ A RANK. A bare `requires=` gate cannot make a schema "
+         "selective; only a channel can. The third channel reads the "
+         "DECLARED trite-pair partition (`quality/quotients.trite`, built "
+         "from `lyric_harness.CLICHE_PAIRS`), so the schema now flags the 30 "
+         "pairs this repo declares trite and not one rhyme more. No rank, no "
+         "threshold, no uncalibrated cut (doctrine 16/22) — and the corpus-"
+         "frequency route stays refused for the reason `UNPROVIDABLE` "
+         "measured: a pre-1931 table cannot say what is over-familiar to a "
+         "living listener."))
 
 
 # NOT A TYPE, and recorded so nothing stores it as one.
@@ -5387,6 +5535,75 @@ def print_relation_report(rep, limit=None):
           "matched control; doctrines 56/61 and 63/68/75/90.")
 
 
+# --------------------------------------------------------------------------
+# THE MANDATE ROUTE (2026-08-22).  `satisfies_relation` is a PER-PAIR judge
+# and a `RelationSchema` is a whole-STREAM object, and that mismatch — not
+# any policy — is what kept the `schema:` namespace declarable and unjudgeable
+# since M-37 made it a namespace.  The judge's refusal used to give a second
+# reason beside the mismatch: "gated on the null sweep — a schema that does
+# not beat its own null must not become enforceable".  THAT CLAUSE IS STRUCK
+# BY OWNER RULING, 2026-08-22.  It is the prove-it-first instinct that also
+# produced the two-name default admit set, and the ruling on that set applies
+# here for the same reason: a schema the reader can name is a real thing to
+# ask for, and refusing to let a writer DECLARE it because the corpus study
+# is unfinished withholds a coordinate over a question the writer never asked.
+# The null sweep still decides what the harness may assert on its OWN
+# initiative.  It does not decide what a writer may ask for by name.
+#
+# WHAT THIS FUNCTION DOES NOT CLAIM.  Only 29 of the 77 schemas declare
+# `both_line_final`, which is the placement a `--groups=` mandate expresses;
+# 19 more are cross-line at some other placement, 19 are INTRA-line figures
+# (a property of one line, which no pair mandate can ask about), and 10
+# declare no placement at all.  Routing here does not make an intra-line
+# figure into a rhyme relation — it makes every schema whose instances ARE
+# line pairs answerable, and leaves the rest to refuse honestly with their
+# placement named.
+
+
+def line_pairs_for(schema, stream, keep_refusal=True):
+    """Every LINE PAIR this schema is true of, 1-based.  -> frozenset or a
+    `Refusal`.
+
+    The bridge between `realise()`'s stream verdicts and a mandate's per-pair
+    question.  A `Span.origin` is spelled `L<line>.<locus>` with a 0-BASED
+    line index (`'L0.final'`, `'L1.T4'`), so the +1 here is the only
+    conversion and it is done once, in one place, rather than at each caller.
+
+    A `Refusal` is RETURNED, not raised and not flattened to an empty set:
+    "this schema needs a capability the stream does not supply" and "this
+    schema is true of no pair here" are different answers and doctrine 20
+    forbids spelling them the same.  An empty frozenset means looked-and-none.
+    """
+    out = realise(schema, stream)
+    if isinstance(out, Refusal):
+        return out if keep_refusal else frozenset()
+    pairs = set()
+    for inst in out:
+        if inst.verdict is not True:
+            continue
+        a, b = _origin_line(inst.a), _origin_line(inst.b)
+        if a is None or b is None or a == b:
+            # SAME-LINE INSTANCES ARE DROPPED HERE AND THAT IS NOT A LOSS OF
+            # INFORMATION, it is the placement axis being honest: an
+            # alliteration inside L1 is a true instance of a real figure and
+            # is not an answer to "do L1 and L3 stand in a relation".  A
+            # schema ALL of whose instances are same-line yields the empty
+            # set, and the caller reports that as "no pair" rather than as a
+            # violation — see `rhyme_types.satisfies_relation`.
+            continue
+        pairs.add((min(a, b), max(a, b)))
+    return frozenset(pairs)
+
+
+def _origin_line(span):
+    """-> 1-based line number from a `Span.origin`, or None."""
+    o = getattr(span, "origin", "") or ""
+    if not o.startswith("L"):
+        return None
+    head = o.split(".", 1)[0][1:]
+    return int(head) + 1 if head.isdigit() else None
+
+
 __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "stanzas_from_blank_lines",
            "Span", "SpanRule", "enumerate_spans", "Alignment", "ALIGNERS",
@@ -5397,6 +5614,7 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "SequenceSuffix", "SubsequenceOf", "Read", "ChannelSet",
            "DEFAULT_CHANNELS", "evaluate", "realise", "assemble",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",
+           "line_pairs_for", "declare_delivery",
            "ALT_SURFACES", "QUOTIENT_CAP",
            "Supply", "SUPPLY_STATES", "REFUSAL_KINDS",
            "Unprovidable", "UNPROVIDABLE", "check_unprovidable",

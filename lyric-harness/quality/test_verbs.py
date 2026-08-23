@@ -455,6 +455,20 @@ def test_brief_refuses_instead_of_tracebacking():
           "Traceback" not in err)
 
     rc, out, _ = run("brief", EXAMPLE_TXT, "--groups=2,4")
+    # AND THE EVIDENCE REPOINTED — 2026-08-22, the SECOND time this pair of
+    # checks was found passing on the wrong thing. After the parenthesising
+    # below, `"group A" in out` was still satisfied by exactly one string in
+    # the whole report: the SCHEME_VIOLATION message about group A. So the
+    # check proved the group had been mandated by showing it had FAILED, and
+    # when the default admit set widened to all four relations (that pair is
+    # ASSONANCE at 0.974 and now satisfies) the violation went away and took
+    # the only mention of the group with it. Both checks went red on a draft
+    # that had got BETTER. The defect was never in the checks' intent — it
+    # was that `brief` had no disclosure of its own mandate, so a clean
+    # graded group and an unasked question printed identically. `_say_derived`
+    # now prints `MANDATE:` for a declared cover as well as a derived one,
+    # which is what these two assertions were always trying to observe.
+    #
     # PARENTHESISED, AND THE DEAD CLAUSE DROPPED — 2026-08-15. This read
     # `rc == 0 and "group B" in out or "group A" in out`, which Python groups
     # as `(rc == 0 and ...) or ("group A" in out)`, so the exit code was
@@ -509,8 +523,21 @@ def test_brief_refuses_instead_of_tracebacking():
 
     check("the old `must rhyme with L(5, 'mailboxes')` tuple-print is gone",
           "must rhyme with L(" not in out)
+    # REPOINTED 2026-08-22 from the `--cliques` output to a DECLARED cover.
+    # `mandate_from_graph` reads its edges through `admits()`, so widening the
+    # default admit set to all four relations widened the DERIVED cover too —
+    # MEASURED on this fixture: 3 groups / 3 mandated pairs -> 8 groups / 35.
+    # That is the correct consequence and not a defect (doctrine 1: one
+    # definition per question — if a near relation satisfies a mandate then
+    # two lines standing in one ARE related, and the song's own structure
+    # should say so), but it means the derived brief no longer happens to
+    # contain a candidate the modal table forbids. The exclusion itself is
+    # untouched, which is what this check is about, so it is asked of a cover
+    # that does not move when the door does.
+    _, mod_out, _ = run("brief", EXAMPLE_TXT, "--groups=1,3")
     check("the modal exclusion is still printed (doctrine 9)",
-          "FORBIDDEN (modal" in out)
+          "FORBIDDEN (modal" in mod_out,
+          mod_out[:200])
 
     # `--returns=` -- FIXED 2026-08-12, found by using the harness on a real
     # draft rather than by reading the code. `--groups=` builds a bare
@@ -1910,10 +1937,18 @@ def test_the_report_rolls_up_without_dropping_anything():
           and per_code.get(("NOTE", "CROWDED")) == 16
           and per_code.get(("NOTE", "PROMINENCE_EXCEEDS_HEADS")) == 16,
           str(sorted(per_code.items())))
-    check("the two SCHEME_VIOLATION flags survive the rollup — they are "
-          "the craft criticism the 48 were burying, and they are NOT "
-          "saturated, so the rule had to leave them alone",
-          per_code.get(("FLAG", "SCHEME_VIOLATION")) == 2,
+    # ~~two~~ ONE, REPINNED 2026-08-22. The widened default admit set
+    # (`MISSING.md` M-59) means a pair this fixture used to fail as ASSONANCE
+    # now SATISFIES, so one of the two violations is gone from the draft
+    # entirely. That is the door working, not the rollup: what this check is
+    # about is whether an UNSATURATED code survives the collapse of 48
+    # findings into 3 rows, and one surviving proves that exactly as well as
+    # two did. Pinned at >= 1 rather than at 1 so the next movement in the
+    # comparator does not re-break a check whose subject is the ROLLUP.
+    check("the SCHEME_VIOLATION flag survives the rollup — ~~two~~ one since "
+          "the door widened; it is the craft criticism the 48 were burying, "
+          "and it is NOT saturated, so the rule had to leave it alone",
+          (per_code.get(("FLAG", "SCHEME_VIOLATION")) or 0) >= 1,
           str(per_code.get(("FLAG", "SCHEME_VIOLATION"))))
     check("the counts are printed as TWO, by kind, and never summed "
           "(doctrine 79/91)",
@@ -2003,9 +2038,19 @@ def test_song_exits_on_a_flag():
     # findings into 3 rows on the run above, so 18 FLAGS reach the reader as
     # 3 decisions; the exit code is computed from the finding SET before any
     # of that runs, so it is the same 3 either way (doctrine 91).
-    check("the exit code counts FINDINGS, not printed blocks — 18 flags "
-          "over 3 printed decisions is still exit 3",
-          "18 FLAG" in out and "3 decision(s)" in out and rc == 3,
+    # ~~18~~ 17 FLAG, REPINNED 2026-08-22, same cause as the rollup check
+    # above: one ASSONANCE pair stopped being a violation when the default
+    # admit set widened. THE FLAG COUNT IS NOT WHAT THIS CHECKS — the subject
+    # is that the EXIT CODE is computed from the finding set and not from the
+    # rendered blocks, so it is read out of the report line rather than
+    # written into the assertion, and the invariant asserted is the one that
+    # matters: many flags, few printed decisions, still exit 3.
+    _flags = re.search(r"REPORT:.*?— (\d+) FLAG", out)
+    check("the exit code counts FINDINGS, not printed blocks — "
+          f"{_flags.group(1) if _flags else '?'} flags (~~18~~) over 3 "
+          "printed decisions is still exit 3",
+          _flags is not None and int(_flags.group(1)) > 3
+          and "3 decision(s)" in out and rc == 3,
           [l for l in out.splitlines() if "REPORT:" in l][:1])
 
     # SCOPED TO `song`, DELIBERATELY. `brief` is the interactive "what do I

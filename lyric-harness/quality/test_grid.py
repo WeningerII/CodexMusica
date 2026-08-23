@@ -2982,16 +2982,34 @@ def test_the_cli_reads_the_marks_it_used_to_delete():
             elif any(i.verdict is True for i in out):
                 found += 1
         return found, refused
-    check("the verb's two summary counts on that file: ~~38~~ 35 finding, "
-          "26 refusing — three schemas narrowed out of `found` and NOT ONE "
-          "crossed the refused/nothing line, because the file declares every "
-          "mark it prints",
-          (_split(cst), _split(cold)) == ((35, 26), (38, 26)),
+    # REPINNED 2026-08-22 (~~(35, 26)~~ / ~~(38, 26)~~ -> (39, 20) / (42, 20)),
+    # and the movement is one-directional BY CONSTRUCTION: this lot supplied
+    # capabilities that were absent, so schemas can only cross from `refused`
+    # toward `found` or `nothing`, never back. What was supplied, each on the
+    # seam the phonology already used for `ltc`'s 同用 grouping — a manner
+    # partition and a declared trite-pair partition (`quality/quotients.py`),
+    # a root/affix/lexeme resource built on `g2p`'s own pre-registered suffix
+    # set (`quality/morphology.py`), and an orthography surface. `refused`
+    # falls 26 -> 20 on both fixtures and `found` rises 35 -> 39 and 38 -> 42.
+    # The DIFFERENCE between the two fixtures — 3 schemas — is unchanged,
+    # which is what this check is actually about: the marked file and the
+    # unmarked one still differ by exactly the marks.
+    check("the verb's two summary counts on that file: ~~38~~ ~~35~~ 39 "
+          "finding, ~~26~~ 20 refusing — the two fixtures still differ by "
+          "exactly three schemas, and NOT ONE crossed the refused/nothing "
+          "line, because the file declares every mark it prints",
+          (_split(cst), _split(cold)) == ((39, 20), (42, 20)),
           (_split(cst), _split(cold)))
+    # REPINNED 2026-08-22, same lot, same direction: ~~(23, 31)~~ -> (27, 25).
+    # `refused` falls by 6 and `found` rises by 4 for the reasons above; the
+    # five `frame="stanza"` schemas this check names are NOT among them and
+    # still refuse, because a stanza frame is GROUND and not a resource —
+    # M-39(b) is why, and supplying it from an all-zero vector is the exact
+    # defect that entry closed.
     check("on the fixture whose marks are REFUSED the refused count moves "
-          "instead: ~~25~~ 23 finding, ~~26~~ 31 refusing, and the five are "
-          "the `frame=\"stanza\"` schemas",
-          _split(fst) == (23, 31), _split(fst))
+          "instead: ~~25~~ ~~23~~ 27 finding, ~~26~~ ~~31~~ 25 refusing, and "
+          "the five `frame=\"stanza\"` schemas are still among the refused",
+          _split(fst) == (27, 25), _split(fst))
 
     # -- 8. THE CALL SITE, and not only the function. Everything above builds
     #    its own stream from `relation_ground`, so it would all still pass

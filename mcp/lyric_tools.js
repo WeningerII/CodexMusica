@@ -232,7 +232,7 @@ const relationField = z
   .max(64)
   .optional()
   .describe(
-    'Declare ONE rhyme relation every mandated group is judged under, e.g. "type:rime riche", "type:pararhyme", "class:ASSONANCE". Namespace it (type: / class: / schema:) — 26 names live in two namespaces and a bare one refuses by name. Omit and the coarse default applies. Ask lyric_types for the vocabulary.'
+    'Declare ONE rhyme relation every mandated group is judged under, e.g. "type:rime riche", "type:pararhyme", "class:ASSONANCE", "schema:perfect rhyme". Namespace it (type: / class: / schema:) — 26 names live in two namespaces and a bare one refuses by name. All three namespaces are judged: class: is the coarse band, type: is the named-cell engine, schema: is realised over the whole draft (29 of the 77 schemas are end-rhyme and fit a group directly; an INTRA-LINE figure like schema:alliteration REFUSES and names its placement, because it is a property of one line and no pair of lines can stand in it). Omit and the coarse default applies — which since 2026-08-22 admits ALL FOUR classes, so a near relation the band typed is no longer charged as a violation. Ask lyric_types for the vocabulary.'
   );
 
 const functionsField = z

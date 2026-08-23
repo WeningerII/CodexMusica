@@ -2,12 +2,21 @@
 """Regressions for the DECLARED RELATION coordinate on a mandate.
 
 Added 2026-08-22 on the owner's ruling that a door admitting two relations
-out of a 601-entry world survey is not a palette. The fix is NOT a wider
-global set: `admits()` answers "what satisfies ANY mandate anywhere", so
-widening it makes every requirement in every song looser. A PER-GROUP
-declared relation is richer AND stricter, and §4 is the section that proves
-the stricter half — a group declaring ASSONANCE is not satisfied by a full
-rhyme.
+out of a 601-entry world survey is not a palette. A PER-GROUP declared
+relation is richer AND stricter, and §4 is the section that proves the
+stricter half — a group declaring ASSONANCE is not satisfied by a full rhyme.
+
+~~"The fix is NOT a wider global set: `admits()` answers 'what satisfies ANY
+mandate anywhere', so widening it makes every requirement in every song
+looser."~~ SUPERSEDED THE SAME DAY, by the owner, and the superseded text
+stays visible (doctrine 17). Both halves of that sentence are true and the
+conclusion drawn from them was still wrong: looser was the RIGHT direction
+for that particular door, because doctrines 3/24 make ASSONANCE and
+CONSONANCE real named sonic events and the mandate layer was then saying
+those names satisfy nothing — one repository giving two opposite answers
+about one pair. MEASURED across the sonnet battery: of 726 flagged mandated
+pairs, 355 (48.9%) were typed ASSONANCE or CONSONANCE by this harness's own
+band. The default now admits all four; narrowing is the declared move.
 
 Sections:
   1  the vocabulary — derived from NAMED, two granularities, no collisions
@@ -468,11 +477,154 @@ def test_reopen_carries_what_it_is_not_declaring():
           "relations" in reop.origin, reop.origin)
 
 
+def test_the_schema_namespace_is_judged():
+    """§8 — the 77 `schema:` names, live (2026-08-22).
+
+    These resolved 77/77 through the vocabulary and refused 77/77 at the
+    judge, for two stated reasons. One was real — a `RelationSchema` is
+    evaluated by `relations.realise()` over a whole STREAM and
+    `satisfies_relation` holds two words — and is fixed by doing the stream
+    work in `grade()`, where the lines are, and handing the judge the line
+    pairs. The other, ~~"gated on the null sweep: a schema that does not beat
+    its own null must not become enforceable"~~, is struck by owner ruling:
+    the null sweep governs what the harness may ASSERT unprompted, not what
+    a writer may ASK FOR by name.
+
+    The three answers this section pins are three DIFFERENT answers, which
+    is the whole point (doctrine 20): satisfied, violated, and two distinct
+    refusals — one for a figure no pair can stand in, one for evidence this
+    draft does not carry.
+    """
+    print("\n8. the `schema:` namespace is judged — over the stream, "
+          "answered per pair")
+    from quality.revise import Reviser
+    rv = Reviser()
+    # L2/L4 = 'much'/'touch' (a perfect rhyme); L1/L3 = 'sun'/'turn'.
+    draft = ["we lay all day beneath the sun",
+             "these old hands never asked for much",
+             "the river runs and will not turn",
+             "i felt the cold of your last touch"]
+
+    def _grade(rel, grp=None):
+        m = mandate([grp or [2, 4]], n_lines=4, default_relation=rel)
+        return rv.grade(draft, m)
+
+    g = _grade("schema:perfect rhyme")
+    check("a declared SCHEMA is SATISFIED where it holds — 'much'/'touch' "
+          "under `schema:perfect rhyme`, the namespace that refused every "
+          "one of its 77 names until today",
+          not g["violations"] and not g["refusals"],
+          (g["violations"], g["refusals"]))
+
+    g = _grade("schema:consonance")
+    check("...and VIOLATED where it does not — the same pair is a full "
+          "rhyme, not a consonance, so the schema route is STRICTER than "
+          "the coarse door and not merely another way to pass",
+          len(g["violations"]) == 1 and not g["refusals"],
+          (g["violations"], g["refusals"]))
+
+    g = _grade("schema:alliteration")
+    check("an INTRA-LINE figure REFUSES and names its placement — 19 of "
+          "the 77 are properties of ONE line, and answering `False` would "
+          "charge the writer for asking a question the schema does not "
+          "answer (doctrine 20)",
+          len(g["refusals"]) == 1 and not g["violations"]
+          and "INTRA-LINE" in g["refusals"][0]["reason"]
+          and "same_line" in g["refusals"][0]["reason"],
+          g["refusals"][0]["reason"][:160] if g["refusals"] else g)
+
+    # REPOINTED FROM ~~`schema:holorhyme`~~ TO `schema:antanaclasis`, 2026-08-22
+    # — and the repoint is the good news, not a workaround. `holorhyme` needed
+    # `lexicon`, and the SAME LOT that wrote this check went on to supply it
+    # (`quality/morphology.py`, lexeme = root), so the schema now JUDGES and
+    # correctly says `much`/`touch` is not a holorhyme. A check that asserts
+    # "this refuses" is invalidated by the thing it names being built, which
+    # is the healthiest possible reason for a test to move. `antanaclasis`
+    # needs `sense` — one word in two SENSES — and nothing in this repo
+    # supplies a sense inventory, so it is the live example of the third
+    # answer.
+    g = _grade("schema:antanaclasis")
+    check("a schema whose CAPABILITY this draft cannot supply refuses with "
+          "the capability named — a REFUSAL, never a failure (doctrine 79), "
+          "and distinct from the placement refusal above",
+          len(g["refusals"]) == 1 and not g["violations"]
+          and "sense" in g["refusals"][0]["reason"],
+          g["refusals"][0]["reason"][:160] if g["refusals"] else g)
+
+    check("the two refusals are DIFFERENT TEXT — 'cannot be asked of a "
+          "pair' and 'this draft has no evidence' are two answers and "
+          "spelling them the same is the collapse doctrine 20 forbids",
+          _grade("schema:alliteration")["refusals"][0]["reason"]
+          != _grade("schema:antanaclasis")["refusals"][0]["reason"])
+
+    # THE PER-PAIR JUDGE ALONE STILL REFUSES, and must: it is handed two
+    # words and no stream, so a caller that skipped the realisation step
+    # gets a refusal naming the step rather than a wrong answer.
+    import quality.rhyme_types as _RT
+    try:
+        _RT.satisfies_relation("schema:perfect rhyme", "RHYME",
+                               "much", "touch", None, position="end")
+        ok = False
+    except _RT.RelationRefused as e:
+        ok = "instances=" in str(e)
+    check("`satisfies_relation` called WITHOUT `instances=` still refuses, "
+          "naming the realisation step — the judge never guesses a "
+          "whole-stream answer from two words",
+          ok)
+
+    # THE REFRAIN-TAIL FRAME, SUPPLIED FROM THE DECLARATION.
+    radif = ["the burning wheel keeps turning round again",
+             "the empty street is learning how to end again",
+             "the burning wheel keeps turning round again",
+             "the yearning heart is churning to no end again"]
+    m = mandate([[1, 3], [2, 4]], n_lines=4,
+                default_relation="schema:epistrophe / radif")
+    g = rv.grade(radif, m)
+    check("`epistrophe / radif` is JUDGED, not refused — `grade()` calls "
+          "`mark_refrain_tail` when a declared schema needs the frame, so "
+          "the capability the schema demands is supplied by the run that "
+          "demands it",
+          not any("refrain_tail" in r["reason"] for r in g["refusals"]),
+          [r["reason"][:110] for r in g["refusals"]])
+
+    # AND THE ARGUMENT MATTERS. `mark_refrain_tail(stream, lines=None)`
+    # answers ZERO on 495 of 495 Hafez ghazals, by its own docstring, because
+    # the fraction is taken over lines that never carried the rhyme. The
+    # mandate IS the declared rhyme-bearing subset, so it is what gets passed.
+    import quality.relations as _R
+    from quality.phonology import get as _get
+    st = _R.build_stream(radif, _get("eng"), declaration={"language": "eng"})
+    before = st.supply("refrain_tail").state
+    _R.mark_refrain_tail(st, lines=[0, 1, 2, 3])
+    check("the frame is genuinely ABSENT before the mark and PRESENT after "
+          "— so the wiring supplies something the stream did not carry, "
+          "rather than dressing up a capability it already had",
+          before == "absent" and st.supply("refrain_tail").state == "present",
+          (before, st.supply("refrain_tail").state))
+    check("...and the schema then finds real line pairs on a radif draft",
+          len(_R.line_pairs_for(_R.REGISTRY["epistrophe / radif"], st)) == 6,
+          _R.line_pairs_for(_R.REGISTRY["epistrophe / radif"], st))
+    check("`qafiya (before the radif)` on the same draft returns the EMPTY "
+          "set, not a refusal — looked-and-none is a third answer and the "
+          "route keeps it apart from both (doctrine 20)",
+          _R.line_pairs_for(_R.REGISTRY["qafiya (before the radif)"],
+                            st) == frozenset())
+
+    # AND THE COST IS ONLY PAID BY A MANDATE THAT DECLARES ONE.
+    m = mandate([[2, 4]], n_lines=4, default_relation="type:rime riche")
+    g2 = rv.grade(draft, m)
+    check("a mandate declaring a NAMED type never builds a stream — the "
+          "schema route is lazy, like the structure route beside it",
+          isinstance(g2, dict) and "violations" in g2)
+
+
+
 if __name__ == "__main__":
     for fn in (test_vocabulary, test_judge, test_mandate_coordinate,
                test_grade_routing, test_position_is_declared,
                test_mandate_level_default,
-               test_reopen_carries_what_it_is_not_declaring):
+               test_reopen_carries_what_it_is_not_declaring,
+               test_the_schema_namespace_is_judged):
         fn()
     print("=" * 62)
     if FAILURES:

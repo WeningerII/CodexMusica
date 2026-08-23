@@ -344,15 +344,43 @@ def _abs_groups(code, first_line):
 #:   "returns verbatim"  -> instance 2+ is a return class of instance 1
 #:   "returns new words" / "varied" / "open" -> fresh groups per instance,
 #:                          same line count and scheme (the same tune)
-#: Functions NOT in the roster are hand-declarable today and wait for a
+#: ~~"Functions NOT in the roster are hand-declarable today and wait for a
 #: stated reason: refrain/burden are line-level per their own glosses (not
-#: standalone sections); reprise needs a cross-reference the plan schema
-#: does not carry yet; turnaround overlaps a seam; postchorus and
-#: false_ending need ordering machinery beyond the cell grammar; hook is
-#: covered by the hook SLOT below (a hook is properly a fragment).
-GENERATOR_ROSTER = ("intro", "verse", "prechorus", "chorus", "bridge",
-                    "breakdown", "build", "drop", "vamp", "tag",
-                    "interlude", "solo", "outro", "coda")
+#: standalone sections); reprise needs a cross-reference the plan schema does
+#: not carry yet; turnaround overlaps a seam; postchorus and false_ending need
+#: ordering machinery beyond the cell grammar; hook is covered by the hook
+#: SLOT below (a hook is properly a fragment)."~~
+#:
+#: DERIVED, NOT LISTED — 2026-08-22, owner ruling "all 21 working". The
+#: paragraph above was doing two different jobs and only one of them was
+#: sound. The sound half is a KIND distinction and it is now a FIELD
+#: (`FunctionSpec.kind`, `MISSING.md` M-56): `refrain` and `burden` are
+#: line-level by their own glosses, so a cell grammar that draws SPANS can
+#: never draw one, and that is not a gap. The unsound half was four functions
+#: excluded for "ordering machinery beyond the cell grammar" — `postchorus`,
+#: `false_ending`, `reprise`, `turnaround` — when the ordering machinery had
+#: ALREADY BEEN BUILT: `grid.placement_findings` enforces `requires`,
+#: `adjacent_after`, `adjacent_before`, `needs_before` and `needs_after`, and
+#: `_sample_pattern` already rejection-samples on it. Every one of those four
+#: declares exactly such a constraint and it was being enforced by a
+#: hand-written omission instead. `hook` was excluded as "properly a
+#: fragment", which its own gloss contradicts in as many words: "this entry
+#: covers the post-chorus-hook case where a WHOLE SECTION carries it" — the
+#: fragment is the separate `Hook` object.
+#:
+#: So the roster is READ OFF THE VOCABULARY and cannot drift from it.
+def _derive_roster():
+    """-> the section-kind function names. LAZY IMPORT, like every other
+    `grid` reach in this file: `quality/test_plan.py` §4's move-37 guard
+    reads this module's AST and allows `grid` only for a named symbol set,
+    and a module-level `import grid` would also make `import plan` pay for
+    `grid`'s three file opens."""
+    from quality import grid as _GR
+    return tuple(n for n, sp in sorted(_GR.SECTION_FUNCTIONS.items())
+                 if sp.kind == "section")
+
+
+GENERATOR_ROSTER = _derive_roster()
 
 #: Instrumental spans: bars with no lines. `fit.py` reports their bars as
 #: uncovered — a note, a rest is not a defect.
@@ -365,12 +393,58 @@ VERBATIM_RETURNERS = frozenset({"chorus", "tag"})
 #: The cell grammar: a body is 2..6 cells; each cell is a short run the
 #: vocabulary's own adjacencies license (a prechorus is BEFORE a chorus by
 #: definition; a build points AT a drop).
-_CELLS = (
-    ("verse",), ("verse", "chorus"), ("prechorus", "chorus"),
-    ("verse", "prechorus", "chorus"), ("chorus",), ("bridge",),
-    ("breakdown",), ("build", "drop"), ("vamp",), ("tag",),
-    ("interlude",), ("solo",),
-)
+#:
+#: DERIVED FROM `SECTION_FUNCTIONS` SINCE 2026-08-22, and the comment above
+#: is why it had to be: it claimed these runs were "the vocabulary's own
+#: adjacencies", and until the placement layer shipped there was no way to
+#: check that claim — so the literal below drifted from the vocabulary it
+#: named. MEASURED before the change: `grid` declared 21 functions and this
+#: tuple reached 11 of them, with eight of the ten missing carrying placement
+#: constraints that were declared, validated at import, covered by
+#: `quality/test_placement.py` — and consulted by nothing, because the
+#: planner drew from the literal instead. That is `MISSING.md` M-59's shape
+#: one layer up: a declared coordinate read by nothing.
+#:
+#: THE DERIVATION, and it is deliberately the SMALLEST one that is honest:
+#:   * every section-kind function gets a singleton cell `(f,)`;
+#:   * a function declaring `adjacent_before=X` also gets `(f, X)`, and one
+#:     declaring `adjacent_after=X` also gets `(X, f)` — that is what those
+#:     fields MEAN, and it is where `("prechorus", "chorus")` and
+#:     `("build", "drop")` come from rather than from a hand-typed row;
+#:   * `("verse", "prechorus", "chorus")` is the one chain, composed by
+#:     following `adjacent_before` twice.
+#: Nothing else is invented. A cell that violates a `requires` or a boundary
+#: is NOT filtered here: `_sample_pattern` already rejection-samples on
+#: `grid.placement_findings`, and pruning twice in two places is how the two
+#: come to disagree (doctrine 1).
+
+
+def _derive_cells():
+    """-> the cell grammar, from the vocabulary's own adjacency fields."""
+    from quality import grid as _GR
+    fns = {n: sp for n, sp in _GR.SECTION_FUNCTIONS.items()
+           if sp.kind == "section"}
+    cells = {(n,) for n in fns}
+    for n, sp in fns.items():
+        b = getattr(sp, "adjacent_before", "")
+        a = getattr(sp, "adjacent_after", "")
+        if b and b in fns:
+            cells.add((n, b))
+        if a and a in fns:
+            cells.add((a, n))
+    # THE ONE CHAIN, composed rather than typed: a function whose
+    # `adjacent_before` is itself a function with an `adjacent_before`.
+    for n, sp in fns.items():
+        b = getattr(sp, "adjacent_before", "")
+        if not b or b not in fns:
+            continue
+        for m, sp2 in fns.items():
+            if getattr(sp2, "adjacent_after", "") == n and m in fns:
+                cells.add((m, n, b))
+    return tuple(sorted(cells))
+
+
+_CELLS = _derive_cells()
 
 
 #: THE EDGES, DERIVED (2026-08-22, `MISSING.md` M-54). These were the literals

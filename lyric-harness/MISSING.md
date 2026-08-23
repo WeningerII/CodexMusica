@@ -7104,10 +7104,38 @@ the list it replaces.
    explicit declared choice with the comment saying no gloss licenses it,
    rather than a rule hidden in a tuple's shape. Lifting it is a distribution
    change and wants a ruling.
-2. **`_CELLS` still does not derive.** Its comment claims its runs are what
-   "the vocabulary's own adjacencies license", and the vocabulary now HAS
-   adjacency edges — so the claim is checkable for the first time, and
-   unchecked.
+2. **`_CELLS` still does not derive, AND THE COST IS NOW COUNTED
+   (2026-08-22, measured when the owner asked what bars the full section
+   roster).** Its comment claims its runs are what "the vocabulary's own
+   adjacencies license", and the vocabulary now HAS adjacency edges — so the
+   claim is checkable for the first time, and unchecked.
+   **`grid.SECTION_FUNCTIONS` declares 21 functions. `plan._CELLS` is 12
+   hand-written tuples reaching 11 of them. TEN ARE UNDRAWABLE** — no
+   missing capability, no hard problem, simply absent from the list:
+
+   | undrawable | what `grid` ALREADY declares about it |
+   |---|---|
+   | `intro` | `boundary=first` |
+   | `outro` | `boundary=last` |
+   | `coda` | `boundary=last` |
+   | `postchorus` | `requires=(chorus,)`, `adjacent_after=chorus` |
+   | `burden` | `requires=(verse,)`, `adjacent_after=verse` |
+   | `reprise` | `needs_before=True` |
+   | `turnaround` | `needs_before=True`, `needs_after=True` |
+   | `false_ending` | `needs_after=True` |
+   | `hook` | *(nothing — see item 4)* |
+   | `refrain` | *(nothing — see item 4)* |
+
+   Eight of the ten carry placement constraints that are declared, validated
+   at import, and covered by `quality/test_placement.py` — **and the planner
+   consults none of them, because it draws from the hardcoded list
+   instead.** That is the shape of `MISSING.md` M-59 one layer up: a
+   declared coordinate read by nothing. The remedy is item (2)'s own
+   sentence and it is now sized: derive the proposal from
+   `SECTION_FUNCTIONS` + `placement_findings` (both of which
+   `_sample_pattern` ALREADY calls for its rejection step) instead of from
+   the literal, and the roster goes 11 -> 21 with the placement layer, not
+   the tuple's shape, deciding what is legal.
 3. **A definitional violation arguably belongs at the READER**, refused the
    way `UNDECLARED_METER` is. Shipped blueprints measure 0, so nothing is lost
    by reporting first and ruling later, but it is a behaviour change at a door.
@@ -7320,6 +7348,173 @@ declared, so a section declared `middle-eight` can be checked against its
 differentia and a mismatch REFUSES rather than silently widening to the genus.
 (4) `burden` gains `specialises='refrain'` while staying its own row — the two
 statements are compatible and the table currently makes them look exclusive.
+
+### M-59 · the default admit set was TWO of four, and the `schema:` namespace refused all 77 of its names — ~~by design~~ by an instinct the owner has now overruled `CLOSED`
+**Filed and closed 2026-08-22, on the owner's ruling, after they had asked
+for this repeatedly and been answered with the argument rather than the
+change.**
+
+Three gates stood between a declared relation and a judge. They are
+different coordinates at different rungs of the same ladder
+(601 survey rows → 77 schemas → 49 named keys / 76 names → a door), which
+is why "add everything to the default" had no single site — and why saying
+so was an explanation and not an answer.
+
+| gate | holds | was | now |
+|---|---|---|---|
+| `Declaration.admit` | 4 relation CLASSES | 2 | **4** |
+| `type:` namespace | 76 names / 49 keys | routed | routed (M-58 still caps 69 at one syllable) |
+| `schema:` namespace | **77 schemas** | resolved 77, judged 0 | **judged** |
+
+**GATE 1 — WHAT IT COST, MEASURED.** Every mandated pair the battery
+flagged, classified by the relation THIS HARNESS'S OWN BAND had already
+typed it as:
+
+| typed relation | flagged pairs |
+|---|---:|
+| `NO_RELATION` | 363 |
+| `ASSONANCE` | **303** |
+| `CONSONANCE` | **52** |
+| `REPEAT` | 8 |
+| **total flagged** | **726** |
+
+**355 of 726 — 48.9% — were real, typed sonic relations.** Doctrines 3 and
+24 say the band RELABELS rather than rejects, precisely because an assonance
+running across a song is a real event; the mandate layer then said that name
+satisfies nothing. One repository, two opposite answers, one pair. The
+default now derives from `ADMITTABLE_RELATIONS` (which had sat 2,000 lines
+BELOW the class that needed it, so the default was a hand-typed literal free
+to drift from its own validator — doctrine 1).
+
+**HOW IT SURVIVED EVERY GREEN RUN.** `quality/test_homeoteleuton.py` §5
+asserted *"DEFAULT is byte-identical to the old world: sun/much violates as
+ASSONANCE"* — and PASSED. A check written to guard the door was holding it
+shut. That is the second pin found doing this in one day; the first is in
+`quality/test_verbs.py` §6, which proved a group had been mandated by
+pointing at a **violation message about it**, so when the pair started
+satisfying, both checks went red on a draft that had got BETTER. The real
+defect they exposed: `brief` had no disclosure of its own mandate, so a
+clean graded group and an unasked question printed identically (doctrine 20).
+`_say_derived` now prints `MANDATE:` for a declared cover as well as a
+derived one.
+
+**GATE 3 — THE TWO REASONS, ONE REAL.** `satisfies_relation` refused the
+`schema:` namespace for a shape reason and a policy reason.
+
+* **Shape (real).** A `RelationSchema` is evaluated by `relations.realise()`
+  over a whole STREAM; `satisfies_relation` holds two words. FIXED by doing
+  the stream work once in `grade()`, where the lines are, and handing the
+  judge the line pairs (`relations.line_pairs_for`, new). `Span.origin` is
+  `L<0-based>.<locus>`, so the conversion happens in one place.
+* **Policy (struck).** ~~"gated on the null sweep: a schema that does not
+  beat its own null must not become enforceable"~~ — the same prove-it-first
+  instinct that produced the two-name default. The null sweep governs what
+  this harness may ASSERT unprompted. It does not govern what a writer may
+  ASK FOR by name.
+
+**WHAT ROUTING ACTUALLY BUYS, counted apart and never summed (doctrine 79).**
+By placement axis, with satisfiability measured on a bare four-line English
+draft:
+
+| bucket | schemas | satisfiable today |
+|---|---:|---:|
+| end-rhyme (`both_line_final`) — fits `--groups=` directly | 29 | **18** |
+| other cross-line | 19 | 12 |
+| **intra-line figure** — refuses, naming its placement | 19 | 13 |
+| unplaced | 10 | 3 |
+
+The 19 intra-line schemas do not become rhyme relations by being routed:
+`same_line`/`same_token` figures are properties of ONE line, so a mandate
+group has nothing to declare and the judge REFUSES with the placement named
+rather than answering `False` (doctrine 20 — answering `False` charges the
+writer for asking a question the schema does not answer). Four distinct
+answers are pinned in `quality/test_mandate_relation.py` §8: satisfied
+(`schema:perfect rhyme` on `much`/`touch`), violated (`schema:consonance` on
+the same pair — the schema route is STRICTER, not merely another way to
+pass), refused-for-placement (`schema:alliteration`), and
+refused-for-evidence (`schema:holorhyme` needs `lexicon`).
+
+**WHAT MAKES IT DEFINITIVE.** The default is pinned at all four names AND
+pinned to DERIVE from `ADMITTABLE_RELATIONS`, so a future session that
+narrows it — or that lets the two lists drift — goes red. Doctrine 48's own
+move: a preference in prose is followed as often as it is remembered.
+
+**THE FULL ACCOUNTING OF WHAT STILL BARS EACH OF THE 77, measured
+2026-08-22 when the owner asked for the list.** Counted apart, never summed
+(doctrine 79); the buckets partition the registry.
+
+| bucket | n | what it is |
+|---|---:|---|
+| **A** live in a mandate now | **35** | nothing bars them — 33 out of the box, plus the 2 the refrain-tail frame turned on in this same lot (see B) |
+| **B** needs a stanza frame | 5 | ~~7~~ — the 2 refrain-tail schemas were WIRED HERE and moved to A. The remaining 5 are M-39's question, not this entry's — see below |
+| **C** INTRA-LINE figure | 19 | a property of ONE line, so no pair of lines can stand in it. Needs a per-LINE finding route, which is different wiring from this one and is not attempted here |
+| **D** data that does not exist here (`obtain`) | 8 | sense inventory, lexeme inventory, sourced earlier-period and dialect phonologies, `delivered` and `sung` surfaces — **AND THREE OF THESE EIGHT ARE MISFILED FOR THE DECLARATION QUESTION; SEE THE NOTE BELOW** |
+| **E** resource nobody has built (`build`) | 5 | lemmatiser/segmenter, manner-of-articulation partition, orthography surface, and the LIFT MAP (no scanner, no declarer, no caller anywhere in the tree) |
+| **F** deliberately inert (`disjoint`) | 1 | `offbeat internal rhyme` — `frames.beat` is doctrine 4's declared-inert field and refuses BY DESIGN |
+| **G** unclassified — a gap in M-36's own table | 4 | `Middle Chinese end rhyme (同用 group)`, `proest`, `refrain by reference`, `trite rhyme`: their missing capabilities (`quotient:同用`, `quotient:vowel_class`, `stub_resolution`, `frequency`) get a reason in `BLOCKERS` but no `Blocker:` KIND, so the table cannot say whether they are obtainable |
+
+**BUCKET B IN FULL, AND THE SPLIT MATTERS** — the first draft of this table
+called all seven "wiring, the cheapest win", which was wrong about five of
+them and is corrected here rather than left standing:
+
+| schema | needs | verdict |
+|---|---|---|
+| `epistrophe / radif` | `refrain_tail` | **DONE IN THIS LOT.** `grade()` now calls `relations.mark_refrain_tail` when a declared schema needs the frame — and passes `lines=` THE MANDATE'S OWN GROUPS (0-based), not `None`. That argument is not a nicety: the function's docstring records that `lines=None` answers ZERO on 495 of 495 Hafez ghazals, because the fraction is taken over lines that never carried the rhyme. `lines` is documented as "the declared rhyme-bearing subset as line indices", and a mandate IS that subset, spelled by the writer — so the coordinate comes from the declaration and not from the checker's guess (doctrine 45). MEASURED: `refrain_tail` goes `absent` -> `present` and the schema returns 6 line pairs on a four-line radif draft |
+| `qafiya (before the radif)` | `refrain_tail` | **DONE**, same route. It returns the EMPTY set on that draft (the pre-radif words are `round`/`end`/`round`/`end`), which is looked-and-none and not a refusal — the distinction the whole route exists to keep |
+| `analysed rhyme` | `stanza` | **NOT WIRING — this is M-39(b).** `stanza` goes `present` from BLANK LINES, and `grade()` is handed lines with the blanks already stripped, so it has no ground. Passing an all-zero stanza vector to make the capability report `present` is precisely the defect M-39(b) closed: a frame asserted where there is none, letting five `frame="stanza"` schemas quantify over one frame |
+| `blues AAB stanza` | `stanza` | same |
+| `dvitiyakshara-prasa` | `stanza` | same |
+| `monai` | `stanza` | same |
+| `monorhyme / leash` | `stanza` | same |
+
+So the cheapest win was **two** schemas, not seven — and they are done. The
+other five wait on `grade()` being given text it has not been given (the
+unstripped draft, or a declared section map), which is a caller-side change
+and is M-39's question, not this entry's.
+
+**THE `delivered` / `sung` ROWS ANSWER THE NULLING QUESTION AND WERE READ
+AS ANSWERING THE DECLARATION QUESTION — corrected 2026-08-22 when the owner
+asked where the surface even came from.** It is not invented: `ALT_SURFACES`
+has held `delivered` and `sung` since it was written
+(`quality/relations.py:487`), and they come from the world survey's row
+**R27 · prominence coerced by the delivered surface**
+(`quality/RHYME_CANON.md:318`). Three schemas need them — `wrenched rhyme`
+and `transformative / bent rhyme` (`delivered`), `sung-delivery rhyme`
+(`sung`) — and all three are ordinary songwriting: wrenched rhyme is the
+ballad and folk move of forcing a normally-unstressed syllable to take the
+stress so it rhymes; bent rhyme is the rap and soul move of bending a vowel
+in performance to land one. The rhyme lives in the delivery, not on the page.
+
+`relations_null.BLOCKERS` calls both `Blocker: obtain` — *"what the singer
+actually sang, against what the page prints"* — **and for NULLING that is
+correct and stays**: you cannot measure `wrenched rhyme` against a corpus of
+printed ballads, because what was sung is not in the book. **For DECLARING
+it is wrong.** This is a harness for WRITING songs, and the writer is the one
+who decides how a line is sung — so the delivered surface is a DECLARATION,
+the same kind of coordinate as the meter or the relation, and there is
+nothing to obtain. The mechanism is already half-built: `Stream.alt` is
+`surface name -> Stream`, `relations.py` already has the constructor that
+validates a name against `ALT_SURFACES` and stamps `"source": "declared"`,
+and `orthography` is the same shape one row up.
+
+So bucket D is **8 for the null sweep and 5 for a writer**, and the three
+that move are `wrenched rhyme`, `transformative / bent rhyme` and
+`sung-delivery rhyme`. This is the same door/route distinction M-59 opens
+with, found a second time in a second register: one entry answering the
+question it was written for, and a reader (me) carrying its verdict into a
+question it never addressed.
+
+**AND MULTISYLLABICITY IS NOT ON THIS LIST.** M-58 — the monosyllable cap —
+is a defect in the `type:` namespace's 49 named keys and does not touch the
+77 at all. It was worth saying explicitly because it is the gap most likely
+to be assumed to cover everything.
+
+**ALSO STILL OPEN:** M-36's 12 blocker capabilities still block 17 schemas
+from ever being NULLED, which is a SEPARATE question from being declared —
+that entry governs what the harness may assert, this one governs what a
+writer may ask for. And `plan._CELLS` reaches 11 of `grid`'s 21 section
+functions (M-54 item 2), which is this same shape one layer up.
+
 
 ### M-58 · the named-relation judge is MONOSYLLABLE-ONLY — 69 of 76 names are reachable at a 1-syllable key and nowhere else, so every polysyllabic pair that stands in the declared relation is graded a VIOLATION `OPEN`
 **Found 2026-08-22 by WRITING A SONG through the path M-55 had just opened,

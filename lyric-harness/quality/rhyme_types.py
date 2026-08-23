@@ -1821,8 +1821,57 @@ def _reachable_phonetically(canon):
     return "phonetic" in _realisations_of(canon)
 
 
+#: `relations.Refusal`, imported lazily and cached, so `rhyme_types` keeps
+#: costing nothing for a mandate that declares no schema. A module-level
+#: `from quality import relations` here would make every `import rhyme_types`
+#: pay for the 77-schema registry.
+def _SchemaRefusal_cls():
+    from quality import relations as _R
+    return _R.Refusal
+
+
+class _SchemaRefusalMeta(type):
+    def __instancecheck__(cls, obj):
+        return isinstance(obj, _SchemaRefusal_cls())
+
+
+class _SchemaRefusal(metaclass=_SchemaRefusalMeta):
+    """`isinstance(x, _SchemaRefusal)` without importing `relations` at
+    module scope. Never instantiated — it exists for the check alone."""
+
+
+def _placements_of(canon):
+    """-> the placement kinds this schema declares, as a sorted tuple."""
+    from quality import relations as _R
+    sch = _R.REGISTRY.get(canon)
+    if sch is None:
+        return ()
+    return tuple(sorted({p.kind for p in (getattr(sch, "placement", None)
+                                          or ())}))
+
+
+#: The placement kinds that make a schema a property of ONE line. A mandate
+#: group is a set of lines that must relate to EACH OTHER, so a schema whose
+#: every placement is in here has nothing a group can declare — and the
+#: honest answer is a refusal naming the placement, never `False`.
+INTRA_LINE_PLACEMENTS = frozenset((
+    "same_line", "same_token", "at_caesura", "at_lift", "lift_index",
+    "spans_overlap", "a_is_split_token"))
+
+
+def _all_same_line(canon):
+    """Is every placement this schema declares an intra-line one?
+
+    An UNPLACED schema (10 of the 77) answers False: it declares no
+    constraint, so its instances may well be line pairs and an empty result
+    from it means looked-and-none, not cannot-ask.
+    """
+    kinds = _placements_of(canon)
+    return bool(kinds) and set(kinds) <= INTRA_LINE_PLACEMENTS
+
+
 def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
-                       position=None):
+                       position=None, lines=None, instances=None):
     """Does this pair stand in the declared relation?
 
     -> True / False / None, and **None is a REFUSAL, not a no** (doctrine 79)
@@ -1838,24 +1887,61 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
     """
     canon, kind = resolve_relation(name)
     if kind == "schema":
-        # A MANDATE MAY NAME A SCHEMA; NOTHING HERE CAN JUDGE ONE YET.
-        # `relations.REGISTRY`'s schemas are span/placement/figure objects
-        # evaluated by `realise()` over a whole STREAM, not per-pair
-        # predicates, so routing them is step 3 proper and is gated on the
-        # null sweep: a schema that does not beat its own null must not
-        # become enforceable (the whole point of step 0). Refusing here
-        # keeps `schema:` a declarable coordinate that cannot silently
-        # grade as something else in the meantime.
-        raise RelationRefused(
-            f"{canon!r} resolves in the `schema` namespace, and this judge "
-            f"reads per-pair coordinates from `classify_pair`. A "
-            f"`RelationSchema` is evaluated by `relations.realise()` over a "
-            f"whole stream; routing that into a mandate is step 3 and is "
-            f"gated on the null sweep. Declare `type:{canon}` if you mean "
-            f"the named cell." if canon in namespaced_vocabulary()["type"]
-            else f"{canon!r} resolves in the `schema` namespace, which no "
-                 f"per-pair judge can evaluate yet (step 3, gated on the "
-                 f"null sweep).")
+        # A MANDATE MAY NAME A SCHEMA, AND SINCE 2026-08-22 IT IS JUDGED.
+        #
+        # ~~"routing them is step 3 proper and is gated on the null sweep:
+        # a schema that does not beat its own null must not become
+        # enforceable"~~ — STRUCK BY OWNER RULING (doctrine 17 keeps it
+        # visible). That clause is the same prove-it-first instinct that
+        # produced the two-name default admit set, and it fails the same
+        # way: the null sweep governs what this harness may ASSERT on its
+        # own initiative, not what a writer may ASK FOR BY NAME. Withholding
+        # a coordinate until a corpus study finishes answers a question the
+        # writer never asked.
+        #
+        # WHAT WAS ALWAYS REAL is the shape: a `RelationSchema` is evaluated
+        # by `relations.realise()` over a whole STREAM and this function
+        # holds two words. So the stream work happens ONE LAYER UP, where
+        # the lines are, and arrives here as `instances` — the set of line
+        # pairs the schema is true of, from `relations.line_pairs_for`. The
+        # caller pays for it once per declared schema, not once per pair.
+        if instances is None:
+            raise RelationRefused(
+                f"{canon!r} resolves in the `schema` namespace and is "
+                f"evaluated over a whole STREAM, so this call — which was "
+                f"given two words and no `instances=` — cannot answer it. "
+                f"The caller must realise the schema over the draft first "
+                f"(`relations.line_pairs_for`) and hand the line pairs in; "
+                f"`quality.revise.grade` does. "
+                + (f"Declare `type:{canon}` if you mean the named cell."
+                   if canon in namespaced_vocabulary()["type"] else ""))
+        if isinstance(instances, _SchemaRefusal):
+            # THE SCHEMA REFUSED ITSELF, and that refusal is the answer.
+            # Re-raised rather than collapsed to False: "this draft does not
+            # supply `lexicon`" is not "these two words are not a holorhyme"
+            # (doctrine 20/79).
+            raise RelationRefused(
+                f"{canon!r} could not be realised over this draft: "
+                f"{instances.detail}")
+        if lines is None:
+            raise RelationRefused(
+                f"{canon!r} was realised over the draft but this call was "
+                f"given no line numbers to look the pair up by — the "
+                f"caller must pass `lines=(i, j)` beside `instances=`.")
+        i, j = sorted(lines)
+        if not instances and _all_same_line(canon):
+            # AN INTRA-LINE FIGURE ASKED AS A PAIR RELATION. 19 of the 77
+            # schemas declare `same_line`/`same_token` placement: they are
+            # properties of ONE line, so a mandate group can never satisfy
+            # one and answering False would charge the writer for asking a
+            # question the schema does not answer (doctrine 20).
+            raise RelationRefused(
+                f"{canon!r} is an INTRA-LINE figure (placement "
+                f"{', '.join(_placements_of(canon)) or 'unplaced'}), so it "
+                f"is a property of a single line and no pair of lines can "
+                f"stand in it. A mandate group declares a relation BETWEEN "
+                f"lines; this schema has none to declare.")
+        return (i, j) in instances
     if kind == "class":
         return coarse == canon
     if phon is None:

@@ -296,16 +296,36 @@ class FunctionSpec:
     #: them identically would be doctrine 20 in a dataclass. Mutually
     #: exclusive with every claim field above.
     placement_refused: str = ""
+    #: WHAT KIND OF OBJECT THIS FUNCTION IS — `MISSING.md` M-56, closed
+    #: 2026-08-22. Three values:
+    #:
+    #:   "section"   a SPAN of lines the planner can draw as a cell.
+    #:   "line"      a returning LINE or couplet inside or after a stanza.
+    #:               Not a span, so a cell grammar can never draw one and a
+    #:               placement coordinate on one would answer a question about
+    #:               the wrong kind of object.
+    #:   "fragment"  a phrase, shorter than a line.
+    #:
+    #: THIS WAS ALREADY DECIDED AND ONLY EVER WRITTEN IN PROSE, which is the
+    #: defect doctrine 48 names: `quality/plan.py`'s roster comment excluded
+    #: `refrain`/`burden` as "line-level per their own glosses" and `hook` as
+    #: "properly a fragment", and nothing could read that. Now the glosses'
+    #: own words are the field: `refrain` says "a returning line or couplet
+    #: INSIDE or after a stanza, not a standalone section"; `burden` says "a
+    #: refrain sung by all"; `hook` says "A hook is properly a FRAGMENT
+    #: (MISSING.md D-2)". The value is read off the declaration, not invented
+    #: beside it.
+    kind: str = "section"
 
 
 def _spec(name, gloss, recurrence, returns_as, contrasts_with=(),
           aliases=(), boundary="", requires=(), adjacent_after="",
           adjacent_before="", needs_before=False, needs_after=False,
-          placement_evidence="", placement_refused=""):
+          placement_evidence="", placement_refused="", kind="section"):
     return FunctionSpec(name, gloss, recurrence, returns_as, contrasts_with,
                         aliases, boundary, requires, adjacent_after,
                         adjacent_before, needs_before, needs_after,
-                        placement_evidence, placement_refused)
+                        placement_evidence, placement_refused, kind)
 
 
 #: THE VOCABULARY. D-1 asked for it by name. Every entry is declared here and
@@ -334,7 +354,14 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           requires=("chorus",), adjacent_after="chorus",
           placement_evidence="returns immediately after the chorus"),
     _spec("refrain", "a returning line or couplet INSIDE or after a stanza, "
-          "not a standalone section", "returns", "verbatim"),
+          "not a standalone section", "returns", "verbatim",
+          # KIND READ OFF THIS ROW'S OWN GLOSS (M-56, 2026-08-22): "a
+          # returning LINE or couplet ... NOT a standalone section". A cell
+          # grammar draws spans, so it can never draw this, and that is not a
+          # gap in the planner — it is this function being a different kind of
+          # object. `quality/plan.py` had the same sentence in a comment
+          # nothing could read.
+          kind="line"),
     # THE POSITION CLAUSE WAS FALSE AND THE COUNT WAS STALE -- both repaired
     # 2026-08-21 against the corpus this row describes.  It read "often
     # printed before the first stanza": MEASURED, **1,580 of 1,580 [BURDEN]
@@ -351,6 +378,11 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           "collapsing them would delete a distinction ~~1,776~~ 1,580 blocks "
           "already carry (doctrine 24)",
           "returns", "verbatim",
+          # SAME KIND AS `refrain`, and for the reason this row's own gloss
+          # gives: a burden IS "a refrain sung by all". Its placement claim
+          # (after a verse, 1,580 of 1,580) is about where the LINE is
+          # printed, not about a span the planner draws.
+          kind="line",
           requires=("verse",), adjacent_after="verse",
           # THE ONLY PLACEMENT CLAIM IN THIS TABLE BACKED BY A MEASURED RATE
           # RATHER THAN A DEFINITION -- 1,580 of 1,580, and the row already
@@ -379,7 +411,24 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           placement_refused="'the arrival a build points at' defines a drop "
                             "by reference to a build without requiring one, "
                             "and `build`'s own gloss names no drop. The edge "
-                            "is a ruling, not a reading."),
+                            "is a ruling, not a reading.",
+          # ATTEMPTED AND WITHDRAWN, 2026-08-22, and recorded because the
+          # attempt found something. Deriving `quality/plan._CELLS` from
+          # these fields made `("build", "drop")` vanish — the literal had
+          # hard-coded that pair while NEITHER row declared an adjacency —
+          # and the first move was to add `adjacent_after="build"` here so
+          # the derivation would reproduce it. THE REFUSAL ABOVE REFUSED
+          # THAT, and the import-time claim/refusal check enforced it: a
+          # drop may follow a breakdown, so the gloss references a build
+          # WITHOUT requiring one, and "the edge is a ruling, not a
+          # reading" is exactly right. The pair stays undeclared.
+          # WHAT IS LOST BY THAT, measured rather than waved at: NOTHING
+          # functional. `build` and `drop` each keep a singleton cell, and
+          # the pattern sampler can still place them adjacently by drawing
+          # the two cells in sequence — what it no longer does is treat the
+          # pair as a PREFERRED unit, which is what a ruling nobody made
+          # was buying
+          ),
     _spec("vamp", "a repeating figure held open", "open", "varied"),
     # THE KEYWORD DERIVATION READ THIS AS `last`, on "the end of one section".
     # It is a SEAM: it needs a section on BOTH sides, so it can be neither

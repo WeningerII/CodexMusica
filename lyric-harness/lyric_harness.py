@@ -282,6 +282,37 @@ def channel_profile(profile):
 
 
 # ---------------------------------------------------------------------------
+# THE ADMITTABLE RELATION SETS. Defined HERE, above `Declaration`,
+# because that class's `admit` field DERIVES its default from
+# `ADMITTABLE_RELATIONS` — one definition, so the default and the
+# validator cannot drift (doctrine 1). They lived 2,000 lines below
+# the class until 2026-08-22, which is why the default was a
+# hand-typed literal that could disagree with the validator.
+RHYME_RELATIONS = {"RHYME", "RIME_RICHE"}
+#: Named relations the conjunctive band produces that are NOT rhyme. They are
+#: members of the taxonomy, not failures, and consumers that ask "is this a
+#: rhyme?" must answer no while the graph keeps the name.
+NEAR_RELATIONS = {"ASSONANCE", "CONSONANCE"}
+
+#: What a Declaration may ADMIT as satisfying a mandate (`Declaration.admit`).
+#: The default is the historical pair; the near relations are LEGAL DECLARED
+#: MOVES — the owner's 2026-08-18 finding: a 601-entry world survey
+#: (quality/RHYME_CANON.md), ~116 canonical structures, 49 named engine
+#: types, and the grader's door admitted two. ~~Widening is BY
+#: DECLARATION, never by default: an undeclared assonance still
+#: violates, because a mandate satisfied by any near-miss is the
+#: sun/much leak wearing a liberty's name.~~ STRUCK BY THE OWNER
+#: 2026-08-22. The sun/much leak was closed by the CONJUNCTIVE BAND,
+#: which RELABELS the pair as ASSONANCE (doctrines 3/24) — it was never
+#: this door that closed it, and citing the closed leak to keep the
+#: door shut charged the same defect twice. `Declaration.admit` now
+#: DEFAULTS to this whole set; narrowing stays available and is the
+#: useful direction. REPEAT is deliberately absent — identity has its own
+#: licence machinery (`repeat_licence`) and admitting it here would let a
+#: copied word satisfy a rhyme.
+ADMITTABLE_RELATIONS = frozenset(RHYME_RELATIONS | NEAR_RELATIONS)
+
+
 # Declaration
 # ---------------------------------------------------------------------------
 
@@ -289,18 +320,45 @@ def channel_profile(profile):
 class Declaration:
     dialect: str = "cmudict (General American citation forms)"
     anchor: str = "last primary stress to end of unit"
-    # --- WHAT SATISFIES A MANDATE (owner's widening, 2026-08-18) -----------
-    # The admitted relation set, DECLARED. Default is the historical pair, so
-    # every undeclared run is byte-identical to before the coordinate
-    # existed. Widening to ASSONANCE / CONSONANCE is a legal declared move —
-    # the counterweight to the homeoteleuton class ban, so a writer pushed
-    # off the lazily-spelled end of perfect rhyme has the taxonomy's named
-    # near relations as first-class options instead of a shrunken pool. The
-    # repo's own count decided this shape: 601 surveyed structures, ~116
-    # canonical, 49 the engine names — and the door admitted 2. Validated in
-    # __post_init__ against ADMITTABLE_RELATIONS: an unknown name refuses at
-    # declaration time, not silently at grade time (doctrine 20).
-    admit: tuple = ("RHYME", "RIME_RICHE")
+    # --- WHAT SATISFIES A MANDATE ------------------------------------------
+    # THE DEFAULT IS EVERYTHING ADMITTABLE (owner's ruling, 2026-08-22).
+    # ~~Default is the historical pair, so every undeclared run is
+    # byte-identical to before the coordinate existed.~~ STRUCK: that
+    # sentence describes a MIGRATION, and it was kept as a policy for four
+    # days after the migration was over.
+    #
+    # THE CONTRADICTION IT WAS DEFENDING, stated plainly because this
+    # session defended it more than once before the owner stopped it.
+    # Doctrines 3 and 24 exist so the band RELABELS RATHER THAN REJECTS:
+    # `sun`/`much` is ASSONANCE, and the taxonomy grew from three names to
+    # five precisely so a near relation is a REAL SONIC EVENT with a name,
+    # not a non-relation. Then this line turned around and told the mandate
+    # layer that a real sonic event satisfies nothing. One repository, two
+    # opposite answers about the same pair, twelve hundred lines apart.
+    #
+    # THE ARGUMENT FOR KEEPING IT AT TWO WAS THAT WIDENING IS "LOOSER", AND
+    # LOOSER IS NOT THE SAME AS WRONG. It IS looser -- fewer mandated pairs
+    # are charged -- and every pair it stops charging is one the band had
+    # already typed as a named relation this project exists to represent.
+    # Doctrine 7 is the same point in the floor's language: a floor may not
+    # order the region it has already passed, and a typed near relation is
+    # inside the region.
+    #
+    # NARROWING IS THE USEFUL DIRECTION AND IT IS STILL AVAILABLE, which is
+    # why this stays a declared coordinate rather than being deleted: a
+    # ghazal cell that genuinely wants perfect rhyme only declares
+    # `admit=("RHYME", "RIME_RICHE")` and gets exactly the old behaviour by
+    # SAYING SO. What is gone is that reading being the one nobody chose.
+    #
+    # PINNED BY A TEST, not by this comment (doctrine 48): a preference that
+    # lives in prose is followed exactly as often as someone remembers it,
+    # and this one was forgotten across at least four sittings. See
+    # `quality/test_homoeoteleuton.py`'s default-admit pin.
+    #
+    # Validated in __post_init__ against ADMITTABLE_RELATIONS: an unknown
+    # name refuses at declaration time, not silently at grade time
+    # (doctrine 20).
+    admit: tuple = tuple(sorted(ADMITTABLE_RELATIONS))
 
     def __post_init__(self):
         bad = [r for r in self.admit if r not in ADMITTABLE_RELATIONS]
@@ -2317,23 +2375,7 @@ def cluster_sim(a, b):
     return 2.0 * dp[n][m] / (n + m)
 
 
-RHYME_RELATIONS = {"RHYME", "RIME_RICHE"}
-#: Named relations the conjunctive band produces that are NOT rhyme. They are
-#: members of the taxonomy, not failures, and consumers that ask "is this a
-#: rhyme?" must answer no while the graph keeps the name.
-NEAR_RELATIONS = {"ASSONANCE", "CONSONANCE"}
 
-#: What a Declaration may ADMIT as satisfying a mandate (`Declaration.admit`).
-#: The default is the historical pair; the near relations are LEGAL DECLARED
-#: MOVES — the owner's 2026-08-18 finding: a 601-entry world survey
-#: (quality/RHYME_CANON.md), ~116 canonical structures, 49 named engine
-#: types, and the grader's door admitted two. Widening is BY DECLARATION,
-#: never by default: an undeclared assonance still violates, because a
-#: mandate satisfied by any near-miss is the sun/much leak wearing a
-#: liberty's name. REPEAT is deliberately absent — identity has its own
-#: licence machinery (`repeat_licence`) and admitting it here would let a
-#: copied word satisfy a rhyme.
-ADMITTABLE_RELATIONS = frozenset(RHYME_RELATIONS | NEAR_RELATIONS)
 
 
 def spelled_rime(word, stress_from_end=None):
@@ -7420,12 +7462,61 @@ def main():
             """Doctrine 14, out loud. A cover read off the rhyme graph is
             mutually band-passing BY CONSTRUCTION, so a clean rhyme result
             against it is an identity and not a verdict. `Mandate.describe`
-            has said so since it was written; nothing printed it."""
+            has said so since it was written; nothing printed it.
+
+            THE `MANDATE:` LINE IS NO LONGER GATED ON DERIVED-NESS, AND THAT
+            IS THE FIX OF 2026-08-22. It sat inside the `independent()`
+            guard, so a DECLARED mandate — the ordinary case, `--groups=` —
+            printed nothing at all about itself, and the only place a
+            declared group's LABEL reached the page was inside a violation
+            message about it. Measured on `quality/fixtures/song.txt`:
+            `brief --groups=2,4` named `group A` exactly once, in
+            `SCHEME_VIOLATION: ... group A ... ASSONANCE not rhyme`. When
+            the default admit set widened to all four relations that pair
+            began to SATISFY, the violation vanished, and with it every
+            mention that a group had been declared — so a clean graded
+            group and an ignored flag became the same page. That is
+            doctrine 20 exactly: the report could not tell "asked and clean"
+            from "never asked", and it was `quality/test_verbs.py` §6 going
+            red that surfaced it, because that check was asserting on the
+            violation text as its only evidence the group existed.
+
+            What is gated on derived-ness is the WARNING below it, which is
+            the only part that was ever about doctrine 14."""
+            # BOTH SHAPES, because `--groups=` alone hands a bare LIST of
+            # line-lists down this path and only grows a `Mandate` when
+            # `--structures=` / `--relations=` is also given. Disclosing one
+            # shape and not the other would leave the plainest call — the
+            # one a writer actually types — as the silent one.
+            if isinstance(m, (str, type(None))):
+                return                     # a letter scheme: the page has it
+            if hasattr(m, "groups"):
+                _grps = list(m.groups)
+                _lab = list(getattr(m, "labels", ()))
+                _head = (f"  MANDATE: {len(_grps)} group(s) over "
+                         f"{m.n_lines} lines, {len(m.pairs())} mandated "
+                         f"pair(s), source={m.source} ({m.origin})")
+            elif isinstance(m, list) and m and isinstance(m[0], list):
+                _grps, _lab = list(m), []
+                _head = (f"  MANDATE: {len(_grps)} group(s) declared, "
+                         f"source=declared (--groups=)")
+            else:
+                return
+            while len(_lab) < len(_grps):          # A, B, C ... as the
+                _lab.append(chr(65 + len(_lab)))   # report letters them
+            # `group A`, UNQUOTED — the house spelling everywhere a group is
+            # named in prose (`quality/loop.py`, `quality/propose.py`, the
+            # violation messages), so a reader and a grep both find one form.
+            _named = ", ".join(
+                f"group {_lab[k]} = lines "
+                f"{','.join(str(x) for x in sorted(grp))}"
+                for k, grp in enumerate(_grps)) or "no groups"
+            print(_head)
+            print(f"           {_named} — GRADED WHETHER OR NOT ANYTHING IS "
+                  f"SAID ABOUT THEM BELOW; silence here is a clean group, "
+                  f"not an unasked question (doctrine 20)")
             if not (hasattr(m, "independent") and not m.independent()):
                 return
-            print(f"  MANDATE: {len(m.groups)} group(s) over {m.n_lines} "
-                  f"lines, {len(m.pairs())} mandated pair(s), "
-                  f"source={m.source} ({m.origin})")
             print("  NOT INDEPENDENT of the grader (doctrine 14): this cover "
                   "was read off the rhyme graph, so every group band-passes "
                   "BY CONSTRUCTION and a clean rhyme result here is an "

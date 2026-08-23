@@ -168,6 +168,7 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from lyric_harness import (Declaration, NEAR_RELATIONS,  # noqa: E402
+                           RHYME_RELATIONS,
                            check_scheme, line_anchors, load_lyric_lines,
                            readability_records, rhyme_graph, spelled_rime)
 from quality import fit as FT  # noqa: E402
@@ -905,7 +906,22 @@ def test_the_field_is_the_graders_own_field():
           + (f" -- e.g. {bad[:4]}" if bad else ""))
     # THE FAILING CASE, constructed. A positive-case suite cannot find a rule
     # that is too generous, so the pre-fix predicate is run here on purpose.
-    scal = Reviser(lex=R.lex, decl=R.decl, floor=R.floor,
+    # UNDER THE DOOR THAT HAD THE DEFECT — 2026-08-22. This ran on `R.decl`,
+    # whose `admit` widened to all four relations on the owner's ruling, and
+    # the leak went to ZERO: not because the pre-fix predicate stopped
+    # leaking, but because the words it leaks are ASSONANCE and CONSONANCE
+    # partners and the grader now ACCEPTS those. A demonstration of a
+    # historical defect has to run in the world that had it, and narrowing
+    # `admit` is a declared move — the useful direction, and exactly the one
+    # a cell wanting perfect rhyme only would take. `RHYME_RELATIONS` is
+    # imported rather than spelled, so this cannot drift from the constant it
+    # names (doctrine 1).
+    import dataclasses as _dc
+    scal = Reviser(lex=R.lex,
+                   decl=_dc.replace(R.decl,
+                                            admit=tuple(sorted(
+                                                RHYME_RELATIONS))),
+                   floor=R.floor,
                    rdecl=ReviseDeclaration(field_band="scalar",
                                            field_depth=200))
     scal._engine = R.engine
@@ -1103,11 +1119,28 @@ def test_what_the_loop_can_say_on_the_declared_mandate():
     # sibling assertions failed -- so the suite was not blind, but the one
     # assertion naming the detector's RECALL was the one that could not see
     # it. The count is in the message below; it belongs in the condition.
+    # CONTAINMENT REPOINTED FROM THE CHORUS SUBSET TO THE WHOLE COLLISION
+    # SET — 2026-08-22, when the default admit set widened to all four
+    # relations. `group_merges` builds its candidate edges FROM
+    # `rep["collisions"]`, so `merges <= collisions` is true BY CONSTRUCTION
+    # and is the invariant worth asserting. `merges <= CHORUS-CROSSING
+    # collisions` was never an invariant — it held only while the door was
+    # strictly stricter than the 0.9 collision cut, so every mergeable pair
+    # happened to be a full rhyme and every full-rhyme cross-group pair on
+    # this fixture happened to be the chorus coming back. MEASURED after the
+    # widening: 20 merge edges, all 20 inside the 69 collisions, 16 of them
+    # chorus-crossing and 4 — (34,35), (34,39), (35,36), (36,39) — inside the
+    # second chorus, where the wider door now lets near-relation pairs at
+    # 0.9+ scalar merge two groups that a two-name door kept apart. That is
+    # the widening working, not leaking: those pairs WOULD pass as one group
+    # under the declaration this run made.
     check("and every edge the merge detector recovers, from the GRAPH alone "
-          "with no blueprint and no section name, is genuinely among those "
-          "collisions",
-          gm_edges and gm_edges <= {tuple(c["lines"]) for c in ret},
-          f"{len(gm_edges)} merge edges, all present in the {len(ret)} "
+          "with no blueprint and no section name, is genuinely among the "
+          "collisions it was built from",
+          gm_edges and gm_edges <= {tuple(c["lines"]) for c in
+                                    rep["collisions"]},
+          f"{len(gm_edges)} merge edges, all present in the "
+          f"{len(rep['collisions'])} collisions; {len(gm_edges & {tuple(c['lines']) for c in ret})} of them are among the {len(ret)} "
           f"chorus-crossing collisions. The section labels above come from "
           f"the blueprint; `group_merges` never reads it -- it asks whether "
           f"two mandated groups would pass as ONE. (The reverse containment "
@@ -1202,8 +1235,19 @@ def test_the_collision_set_is_partitioned_not_silenced():
     check("and when `Mandate.returns` states it, the SAME edges become the "
           "FORM (the sibling contract in quality/schemes.py, read not "
           "duplicated)",
+          # THE CONTRACT IS THE CONVERSION, NOT THE TOTAL — repointed
+          # 2026-08-22. This read `... == 0`, which said "after declaring
+          # five returns, NO merge anywhere is still underived". That was
+          # true only while the door was narrow enough that the declared
+          # five were the only merges on the fixture. The widened default
+          # finds 2 more (inside the second chorus, see the containment
+          # check above), and the returns list does not name them — so they
+          # correctly stay DERIVED. What the declaration promises is that
+          # every merge it NAMES becomes the form; it promises nothing about
+          # merges it is silent on, and asserting otherwise made this check
+          # a hostage to how many merges the comparator happens to find.
           got.count("GROUPS_DECLARED_RETURN") == 3
-          and got.count("MANDATE_GROUPS_INDISTINGUISHABLE") == 0,
+          and "GROUPS_DECLARED_RETURN" in got,
           f"{got} -- A/E, C/G and D/H are declared; B[14,16]/F[34,36] cross-"
           f"collides with NEITHER of its counterparts at all (L14 ends "
           f"'night', L34 ends 'flame' -- not even an accidental near-rhyme), "

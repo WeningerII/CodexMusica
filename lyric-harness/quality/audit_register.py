@@ -2129,7 +2129,9 @@ PINNED = {
     #    declared four layers deep and supplied by nobody), found by asking
     #    whether the relation layer was already leaning on a structure layer
     #    before treating the structure work as a change of subject. It was.
-    "coverage_entries": 116,  # M-49..M-57 filed 2026-08-22 wiring
+    # ~~116~~ -> 117 on 2026-08-22: M-59 filed (the default admit set and
+    # the `schema:` route). Superseded value kept visible, doctrine 17.
+    "coverage_entries": 117,  # M-49..M-59 filed 2026-08-22 wiring
                               # the relation route (97..106 superseded)
     "coverage_audited": 19,
 }

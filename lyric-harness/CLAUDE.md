@@ -239,11 +239,16 @@ Both tiers land in `joint_field`'s forbidden set (the offers) AND the
 proactive pair check (`HOMEOTELEUTON` / `MODAL_RHYME` notes, both in
 `MANDATORY_PURSUE` — unskippable). The counterweight that keeps the ban
 from closing rhyme classes is `Declaration.admit`: what satisfies a
-mandate is a DECLARED set, default ("RHYME", "RIME_RICHE") byte-identical
-to history, widenable to ASSONANCE/CONSONANCE — the 601-entry world
-survey (quality/RHYME_CANON.md) and the engine's 49 named types are the
-palette, and the door was admitting 2. Validated at declaration time;
-near-only refuses. `quality/test_homeoteleuton.py`, 4 mutations proven.
+mandate is a DECLARED set. **THE DEFAULT IS ALL FOUR SINCE 2026-08-22
+(owner ruling)** and DERIVES from `ADMITTABLE_RELATIONS` rather than
+restating it — ~~default ("RHYME", "RIME_RICHE") byte-identical to history,
+widenable to ASSONANCE/CONSONANCE ... and the door was admitting 2~~
+(doctrine 17). The 601-entry world survey (quality/RHYME_CANON.md) and the
+engine's 49 named types are the palette. Validated at declaration time;
+near-only refuses; `REPEAT` still refused (identity has its own licence
+machinery). NARROWING is now the declared move and is the useful direction —
+a cell that genuinely wants perfect rhyme only says so and gets exactly the
+old behaviour. `quality/test_homeoteleuton.py`, 4 mutations proven.
 
 **THE DOOR AND THE ROUTE ARE NOT ALTERNATIVES, AND THIS SESSION'S OWN PROSE
 CONFUSED THEM — WRITTEN DOWN 2026-08-22 BECAUSE THE OWNER CAUGHT IT.** Asked
@@ -260,23 +265,36 @@ relation, `grade()` routes through `satisfies_relation` and **never consults
 said anything.
 **TWO MECHANISMS, FOUR DAYS APART, ANSWERING ONE COMPLAINT.**
 `Declaration.admit` (2026-08-18) is the counterweight to the homoeoteleuton
-ban: a declared, widenable set, maximum FOUR
-(`ADMITTABLE_RELATIONS`), so the ban cannot quietly close rhyme classes. It
-stays at two on purpose — it is ONE GLOBAL SET answering "what satisfies ANY
-mandate anywhere", so widening it makes every requirement in every song
-LOOSER. The relation route is the other answer and the better one: per group,
-so it is richer AND stricter at once. **The door was never raised because
-raising it is the wrong move; the route around it was built instead.**
+ban: a declared set, maximum FOUR (`ADMITTABLE_RELATIONS`), so the ban cannot
+quietly close rhyme classes. The relation route is the other answer and is
+richer AND stricter at once: per group, so a group declaring
+`class:ASSONANCE` is NOT satisfied by a perfect rhyme.
+~~"It stays at two on purpose — it is ONE GLOBAL SET answering 'what
+satisfies ANY mandate anywhere', so widening it makes every requirement in
+every song LOOSER. The door was never raised because raising it is the wrong
+move; the route around it was built instead."~~ **OVERRULED BY THE OWNER
+2026-08-22 AND THE SUPERSEDED TEXT STAYS VISIBLE (doctrine 17).** Both
+premises are true and the conclusion drawn from them was wrong. Looser was
+the RIGHT direction for this particular door, because doctrines 3/24 make
+ASSONANCE and CONSONANCE real named sonic events and the mandate layer was
+then saying those names satisfy nothing — one repository giving two opposite
+answers about one pair. MEASURED across the battery: of 726 flagged mandated
+pairs, **355 (48.9%) were typed ASSONANCE or CONSONANCE by this harness's
+own band**. See `MISSING.md` M-59 for the full accounting and for how the
+two-name default survived every green run (a check in
+`test_homeoteleuton.py` §5 was ASSERTING the defect).
 **SO A HOLE IN THE ROUTE IS NOT A SECOND-ORDER PROBLEM** — it is a hole in the
 only path past the door, which is why `MISSING.md` M-58 (the named judge is
 monosyllable-only for 69 of its 76 names) outranks both the null sweep and any
 widening of `admit`.
 
-**THE RELATION IS THE DEFAULT ROUTE NOW, AND THE DOOR IT REPLACES ADMITTED
-TWO (2026-08-22, owner's instruction).** `Declaration.admit` is ONE global set
-answering "what satisfies ANY mandate anywhere", so widening it makes every
-requirement in every song LOOSER — which is why it still holds
-`("RHYME", "RIME_RICHE")` and why the answer was never to widen it.
+**THE RELATION IS THE DEFAULT ROUTE NOW (2026-08-22, owner's instruction).**
+~~"...AND THE DOOR IT REPLACES ADMITTED TWO. `Declaration.admit` is ONE
+global set answering 'what satisfies ANY mandate anywhere', so widening it
+makes every requirement in every song LOOSER — which is why it still holds
+`('RHYME', 'RIME_RICHE')` and why the answer was never to widen it."~~
+Superseded the same day: the door admits all four and the answer WAS to
+widen it (M-59).
 `Mandate.relations` is per GROUP and therefore richer AND STRICTER: a group
 declaring `class:ASSONANCE` is NOT satisfied by a perfect rhyme. What shipped
 this sitting is the half that makes it a route rather than a field:
@@ -288,6 +306,48 @@ is the first spelling of ANY relation coordinate reachable without dropping to
 Python. Validated at DECLARATION time through `Mandate.__post_init__`, which is
 the one place every construction passes through (`mandate()` is not: `plan.py`,
 the tests and the re-open path all build `Mandate` directly).
+**AND THE `schema:` NAMESPACE IS JUDGED SINCE 2026-08-22 — ALL 77 NAMES
+(owner ruling, `MISSING.md` M-59).** Those names RESOLVED 77/77 through the
+vocabulary and were judged 0/77: `satisfies_relation` refused them for a
+shape reason and a policy reason, and only the shape reason was real.
+**Shape:** a `RelationSchema` is evaluated by `relations.realise()` over a
+whole STREAM and `satisfies_relation` holds two words. Fixed by doing the
+stream work ONCE in `grade()`, where the lines are, and handing the judge the
+line pairs — `relations.line_pairs_for` is the new bridge, and `Span.origin`
+(`L<0-based>.<locus>`) is converted in exactly one place.
+**Policy:** ~~"gated on the null sweep: a schema that does not beat its own
+null must not become enforceable"~~ — STRUCK. It is the same prove-it-first
+instinct that produced the two-name default. **The null sweep governs what
+this harness may ASSERT unprompted; it does not govern what a writer may ASK
+FOR by name.**
+**WHAT ROUTING BUYS, counted apart (doctrine 79) — 35 of the 77 are LIVE IN
+A MANDATE TODAY.** 33 out of the box, plus 2 (`epistrophe / radif`,
+`qafiya (before the radif)`) that this same lot turned on by calling
+`relations.mark_refrain_tail` when a declared schema needs the frame — and
+passing `lines=` THE MANDATE'S OWN GROUPS rather than `None`, because that
+function's docstring records `lines=None` answering ZERO on 495 of 495 Hafez
+ghazals: the fraction is taken over lines that never carried the rhyme.
+`lines` is "the declared rhyme-bearing subset as line indices" and a mandate
+IS that subset, so the coordinate comes from the declaration and not from
+the checker's guess (doctrine 45). The remaining 42 are 19 INTRA-LINE
+figures, 5 waiting on a grounded stanza frame (M-39, NOT a wiring job —
+`grade()` is handed lines with the blanks stripped, and an all-zero stanza
+vector is the defect M-39(b) closed), 8 blocked by data that does not exist
+here, 5 by a resource nobody has built, 1 deliberately inert, and 4 whose
+blocker M-36's own table gives no KIND for. By placement: 29 declare
+`both_line_final` and fit a `--groups=` mandate directly, 19 more are
+cross-line at another placement, 19 are intra-line, 10 declare none. The 19 intra-line
+schemas do NOT become rhyme relations by being routed: a `same_line` figure
+is a property of ONE line, so the judge REFUSES with the placement named
+rather than answering `False` — answering `False` would charge a writer for
+asking a question the schema does not answer (doctrine 20). Four distinct
+answers pinned in `quality/test_mandate_relation.py` §8: satisfied
+(`schema:perfect rhyme` on `much`/`touch`), VIOLATED (`schema:consonance` on
+the same pair — the schema route is STRICTER, not another way to pass),
+refused-for-placement (`schema:alliteration`) and refused-for-evidence
+(`schema:holorhyme` needs `lexicon`). The cost is lazy: a mandate that never
+says `schema:` never imports `relations` and never builds a stream.
+
 **FOUR DEFECTS FELL OUT OF WIRING IT AND THREE WERE LIVE.** (1) `MISSING.md`
 M-49 — the store held a relation's BARE canonical name and `grade()`
 re-resolves it, so the 26 names living in BOTH the `type` and `schema`
@@ -1379,7 +1439,9 @@ its own rhyme word (T-IY, EH-N for `tân`). The end-word refusal rate rises
 5.74% -> 6.2611% and the direction is the point (doctrine 79): a fragment
 CMUdict happened to list used to read, and the whole word honestly does not.
 THREE CONTROLS SAY IT MOVED ONLY WHAT WAS WRONG — `corpus/sonnets.txt` is
-0 of 2,621 lines moved and the battery is byte-identical (1064/1014/50/82);
+0 of 2,621 lines moved and the battery is byte-identical (1064/1014/50/82
+AS IT STOOD THAT DAY; the violation count is 35 since 2026-08-22 and the
+other three are unchanged, so this control still reads as it did);
 `data/song_endword_en.tsv` and `song_rhymepair_en.tsv` rebuild BYTE-IDENTICAL,
 so the modal ban is untouched, because the words the fix reveals are words
 CMUdict cannot read anyway. `letters_outside_repertoire` names the scripts
@@ -2282,17 +2344,29 @@ the repaired check now fails and the old one did not.
   as a LEGACY arm and is explicitly not the control**, because
   `corpus/whitman.txt` carries the property under test as epistrophe and was
   never eligible for the role (`K-3`, still OPEN as a finding).
-- Current baselines, WITH the conjunctive band: sonnets **8.1%
-  violations (82/1014 JUDGED pairs; 73/1014 = 7.2% before `theta_coda`
-  was calibrated 0.60 -> 0.80 on 2026-08-11, and 35/1014 = 3.5% pre-band)**
-  — MEASURED 2026-08-13, not recalled: `python3 battery.py` prints
-  `mandated 1064, judged 1014, refused 50` and `violations 82`.
-  REPINNED 2026-08-13 from 81/8.0%, which was this file's figure from
-  2026-08-11 and no longer reproduces. `mandated`/`judged`/`refused` are
-  unchanged, so the movement is one pair crossing the band, not an
-  ingestion change.
-  The rise is the typed residue: love/prove and its class are CONSONANCE in
-  the declared General American dialect, which is correct and now named.
+- Current baselines: sonnets **3.5% violations (35/1014 JUDGED pairs)** —
+  MEASURED 2026-08-22, not recalled: `python3 battery.py` prints
+  `mandated 1064, judged 1014, refused 50` and `violations 35`.
+  **REPINNED 2026-08-22 from ~~8.1% (82/1014)~~** when the default admit set
+  widened to all four relations (`MISSING.md` M-59, owner ruling). The
+  superseded ladder stays visible (doctrine 17): ~~82/1014 = 8.1%~~,
+  ~~73/1014 = 7.2% before `theta_coda` was calibrated 0.60 -> 0.80 on
+  2026-08-11~~, ~~35/1014 = 3.5% pre-band~~, ~~81/8.0% on 2026-08-11~~.
+  **WHICH LAYER MOVED: the DOOR, and only the door.**
+  `mandated`/`judged`/`refused` are unchanged — a refusal is an ingestion
+  verdict reached before any comparison — and the movement was measured as
+  one-directional per (sonnet, line_i, line_j): **47 pairs STOPPED violating,
+  0 newly violated**, being **38 CONSONANCE and 9 ASSONANCE**. Not one is
+  `NO_RELATION` and not one is `REPEAT`; the door still refuses both, which
+  is why 35 is not 0.
+  The new figure MEASURES EQUAL to the old pre-band figure, and the 47 show
+  why: the conjunctive band's entire contribution to the sonnet violation
+  count was pairs it demoted from RHYME to a near relation, and the two-name
+  door converted that demotion into a charge. The band's work survives — all
+  47 are still TYPED and `types` still names them — what stops is the charge.
+  ~~"The rise is the typed residue"~~: the residue is the point now, not the
+  price. love/prove and its class are CONSONANCE in the declared General
+  American dialect, which is correct, is named, and is no longer charged.
   Report **refused, judged and mandated as three separate counts, always** —
   50 of the 1064 mandated pairs are REFUSALS, end words absent from CMUdict,
   and charging them to the comparator is the triage rule two items below this
@@ -2494,7 +2568,12 @@ rather than this paragraph — a roster copied into two files drifts in both.
    neither figure can drift alone again. Measured independently the same day by
    two lots that agreed to the decimal. The three battery arms in full:
    off 1064/1014/50/82, `high` 1064/1053/11/84, `low` 1064/1063/1/89 —
-   mandated/judged/refused/violations. The conclusion is unchanged and the
+   mandated/judged/refused/violations. **ALL THREE VIOLATION COUNTS WERE
+   MEASURED UNDER THE TWO-NAME DOOR** and are kept at those values rather
+   than silently restated: the door widened 2026-08-22 (M-59) and the
+   `off` arm is 35 today. The §10 assertion is on the RATIO between arms
+   and is computed from three runs of whatever the current door is, so it
+   does not depend on these three literals; they are history. The conclusion is unchanged and the
    absolute case is STRONGER, so the shipped default was never at risk) and
    which the wiring does not default to. What the wiring closes: known DICTIONARY-DERIVED refusals
    (`viewest`, `o'er`, `savour`, `groun'`) now read correctly wherever a

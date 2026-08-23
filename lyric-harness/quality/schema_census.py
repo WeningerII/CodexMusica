@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+"""HOW MANY OF THE 77 SCHEMAS CAN BE ASKED, AND WHAT BLOCKS THE REST.
+
+An instrument, not a scratch script (doctrine 69): the figure is quoted in
+`MISSING.md` M-59 and in `CLAUDE.md`, and a number in prose that nothing
+re-derives is a number that goes stale (doctrine 48).
+
+IT COUNTS WHAT A WRITER CAN ACTUALLY REACH, not what a bare stream happens to
+carry, because those are different questions and the difference is the whole
+subject. Four capabilities are supplied BY THE ROUTE that needs them and never
+by the caller: `caesura` (`quality/figures.py` calls `search_caesura`),
+`refrain_tail` (`revise.grade` calls `mark_refrain_tail` with the mandate's own
+groups), and — when the writer declares them — `stanza` (from a blueprint's
+sections), `orthography`, `delivered` and `sung`. A census that built a bare
+stream and stopped would report those as blockers, which is exactly the
+mistake this file exists to stop repeating.
+"""
+
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from quality import relations as R                          # noqa: E402
+from quality import rhyme_types as RT                       # noqa: E402
+from quality.phonology import get as get_phonology          # noqa: E402
+import lyric_harness as lh                                  # noqa: E402
+
+DRAFT = ["the silver salmon slipped the stream again",
+         "these old hands never asked for much again",
+         "the river runs and will not turn again",
+         "i felt the cold of your last touch again"]
+SECTIONS = ["verse", "verse", "chorus", "chorus"]
+
+#: SCHEMAS WHOSE CAPABILITY IS A LANGUAGE'S, NOT A CALLER'S. A census run on
+#: an English stream CANNOT supply a Welsh vowel-class partition or a Middle
+#: Chinese 同用 grouping, and reporting them as blocked would be reporting the
+#: census's own monolingualism as a gap in the registry. Both ARE supplied —
+#: by `quality/phonology/cym.py` and `quality/phonology/ltc.py` respectively —
+#: and each is verified below against its OWN phonology rather than excused.
+BY_LANGUAGE = {
+    "cym": ("proest",),
+    "ltc": ("Middle Chinese end rhyme (同用 group)",),
+}
+
+
+def _full_stream():
+    """A stream with every coordinate a writer CAN declare, declared."""
+    stz, k, prev = [], -1, object()
+    for sec in SECTIONS:
+        if sec != prev:
+            k += 1
+            prev = sec
+        stz.append(k)
+    st = R.build_stream(DRAFT, get_phonology("eng"), sections=SECTIONS,
+                        stanzas=stz, stanza_source="declared_sections",
+                        declaration={"language": "eng"})
+    R.search_caesura(st)
+    R.mark_refrain_tail(st, lines=list(range(len(DRAFT))))
+    R.declare_orthography(st, lh.spelled_rime)
+    R.declare_delivery(st, {}, name="delivered")
+    R.declare_delivery(st, {}, name="sung")
+    return st
+
+
+def _other_language_live():
+    """-> the names that answer under their OWN phonology, verified here."""
+    out = []
+    for lang, names in BY_LANGUAGE.items():
+        try:
+            st = R.build_stream(["a b", "c d"], get_phonology(lang),
+                                declaration={"language": lang})
+        except Exception:
+            continue
+        for n in names:
+            sch = R.REGISTRY.get(n)
+            if sch and not [c for c in sch.capabilities()
+                            if st.supply(c).state != "present"]:
+                out.append(n)
+    return out
+
+
+def census():
+    st = _full_stream()
+    live, blocked = [], {}
+    other = _other_language_live()
+    for name, sch in sorted(R.REGISTRY.items()):
+        miss = [c for c in sch.capabilities()
+                if st.supply(c).state != "present"]
+        if not miss:
+            live.append(name)
+        elif name in other:
+            live.append(name)          # answers under its own phonology
+        else:
+            blocked[name] = miss
+    return {"live": live, "blocked": blocked, "other_language": other,
+            "intra": sorted(n for n in R.REGISTRY if RT._all_same_line(n))}
+
+
+def main():
+    rep = census()
+    n = len(R.REGISTRY)
+    print(f"REGISTRY {n} schemas")
+    print(f"  ASKABLE with every declarable coordinate declared : "
+          f"{len(rep['live'])}")
+    print(f"  still blocked                                     : "
+          f"{len(rep['blocked'])}")
+    if rep["other_language"]:
+        print(f"  (of the askable, {len(rep['other_language'])} answer under "
+              f"their OWN phonology and not English:\n   "
+              + "; ".join(rep["other_language"]) + ")")
+    print(f"  (of the askable, {len(rep['intra'])} are INTRA-LINE and are read "
+          f"by `quality/figures.py`,\n   not by a mandate — a pair of lines "
+          f"cannot stand in a one-line figure)")
+    if rep["blocked"]:
+        from collections import Counter
+        print("\n  WHAT IS LEFT, and what each one needs:")
+        by = {}
+        for name, miss in rep["blocked"].items():
+            for c in miss:
+                by.setdefault(c, []).append(name)
+        for cap, names in sorted(by.items(),
+                                 key=lambda kv: (-len(kv[1]), kv[0])):
+            print(f"    {cap:24s} {len(names)}  {', '.join(names)}")
+    return 0 if not rep["blocked"] else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

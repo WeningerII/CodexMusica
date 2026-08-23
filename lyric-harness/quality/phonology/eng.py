@@ -100,6 +100,8 @@ would compete with a coordinate that can already say it.
 import re
 
 from quality.phonology import Phonology, Syllable, register
+from quality import quotients as _QUOTIENTS  # noqa: E402
+from quality import morphology as _MORPH  # noqa: E402
 
 _LEX = None
 
@@ -169,6 +171,28 @@ class English(Phonology):
                 f"{sorted(k for k in FALLBACK_MODES if k)} or None")
         self.fallback = fallback
         self._fb = None
+        # THE DECLARED QUOTIENTS THIS PHONOLOGY SUPPLIES (2026-08-22).
+        # `relations._quotient_of` looks in `declaration['quotients']` first
+        # and `phon.quotients` second — the seam `ltc` has used since it was
+        # written to hand its 平水韻 同用 grouping to the 同用 schema without
+        # `relations.py` importing a phonology or hard-coding a table.
+        # English had none, so `ClassEqual(resource='manner')` found nothing
+        # and `family rhyme` and `multisyllabic rhyme` REFUSED on every pair
+        # — correctly, because the identity is not a quotient (defect P14),
+        # and uselessly, because the partition they want is ordinary
+        # articulatory phonetics. It is declared in `quality/quotients.py`,
+        # asserted total against the inventory derived from this same
+        # dictionary, and adopted here.
+        self.quotients = dict(_QUOTIENTS.ENG_QUOTIENTS)
+        # THE DECLARED MORPHOLOGY / LEXEME RESOURCES, on the same seam
+        # (2026-08-22). `homoioteleuton` and `polyptoton` are DEFINED on
+        # root and affix and refused without them; `holorhyme` and
+        # `rhyming slang` are defined on lexemes. `quality/morphology.py`
+        # builds all of them from `g2p.SUFFIXES` — the closed suffix set this
+        # repo already ships and pre-registered — with a tie-break argued for
+        # morphology rather than for pronunciation, and it prints where the
+        # two disagree instead of leaving that to be discovered.
+        self.resources = dict(_MORPH.ENG_RESOURCES)
 
     def declaration(self):
         """-> dict. The tuple this phonology is asking to be judged under.
