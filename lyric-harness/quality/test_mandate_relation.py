@@ -580,12 +580,45 @@ def test_the_schema_namespace_is_judged():
     m = mandate([[1, 3], [2, 4]], n_lines=4,
                 default_relation="schema:epistrophe / radif")
     g = rv.grade(radif, m)
+    # THE POSITIVE, NOT THE ABSENCE (2026-08-23, doctrine 17). This asserted
+    # `not any("refrain_tail" in r["reason"] for r in g["refusals"])` over a
+    # refusals list that is EMPTY on this fixture -- so it held equally if the
+    # schema had never been asked, if `default_relation` had been dropped on
+    # the floor, or if `grade()` had returned nothing at all. Proving a thing
+    # was JUDGED by pointing at an absence of refusals is the shape: the
+    # counts say it directly, and `pairs_judged` cannot be 2 on a run that
+    # did not run.
     check("`epistrophe / radif` is JUDGED, not refused — `grade()` calls "
           "`mark_refrain_tail` when a declared schema needs the frame, so "
           "the capability the schema demands is supplied by the run that "
           "demands it",
-          not any("refrain_tail" in r["reason"] for r in g["refusals"]),
-          [r["reason"][:110] for r in g["refusals"]])
+          g["pairs_judged"] == 2 and g["pairs_refused"] == 0
+          and not any("refrain_tail" in r["reason"] for r in g["refusals"]),
+          f"{g['pairs_judged']} judged / {g['pairs_refused']} refused of "
+          f"{g['pairs_mandated']} mandated; refusals "
+          f"{[r['reason'][:80] for r in g['refusals']]}")
+    # AND THE ARM THAT MAKES THE ONE ABOVE MEAN SOMETHING. A radif's end
+    # WORD is the repeated tail, so on the fixture above every route -- this
+    # schema, `perfect rhyme`, `cynghanedd groes`, no declaration at all --
+    # collapses to the same REPEAT verdict and the same counts. Measured
+    # 2026-08-23: all four give judged 2 / refused 0 / 2 violations, and
+    # stubbing `mark_refrain_tail` moves none of them. So the fixture ALONE
+    # cannot tell a judged schema from an unread coordinate, whatever the
+    # condition. The same mandate on a draft with NO refrain tail is what
+    # separates them: there the frame cannot be computed and the schema
+    # refuses BY NAME, which is only possible if the declaration was read.
+    plain = ["the cat sat on the mat", "i sang beneath the moon",
+             "he wore a funny hat", "and whistled her a tune"]
+    gp = rv.grade(plain, mandate([[1, 3], [2, 4]], n_lines=4,
+                                 default_relation="schema:epistrophe / radif"))
+    check("...and the SAME declaration on a draft with no refrain tail "
+          "REFUSES BY NAME — which is what proves the coordinate was read, "
+          "since the radif fixture answers identically under every schema "
+          "and under none",
+          gp["pairs_judged"] == 0 and gp["pairs_refused"] == 2
+          and all("epistrophe / radif" in r["reason"] for r in gp["refusals"]),
+          f"{gp['pairs_judged']} judged / {gp['pairs_refused']} refused; "
+          f"{[r['reason'][:88] for r in gp['refusals']][:1]}")
 
     # AND THE ARGUMENT MATTERS. `mark_refrain_tail(stream, lines=None)`
     # answers ZERO on 495 of 495 Hafez ghazals, by its own docstring, because
