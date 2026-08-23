@@ -2254,12 +2254,21 @@ def _member_slot(x):
     end-rhyme-only (`quality/slots.py`). `None` means the default slot, which
     is the end of the line, which is what a bare line number has always
     meant: absence keeps ONE reading (doctrine 66).
+
+    BOTH BRANCHES ASK `slots.slot_line` FOR THE LINE, and that is the point of
+    the call rather than a tidy-up: this function computes the line-level
+    question two ways — `slot.line` on one branch and `int(x)` on the other —
+    which is one question with two spellings in one function (doctrine 1).
+    `slot_line` is the one definition and it was reachable by NOTHING until
+    this call: `quality/counters.py`'s public-symbol census reported it in the
+    named-by-nothing bucket, which is the declared-but-unread defect this repo
+    has an instrument for, sitting in the module that introduced it.
     """
+    from quality import slots as _SL
     if isinstance(x, str) and "." in x:
-        from quality import slots as _SL
         slot = _SL.check(_SL.parse_slot(x))
-        return slot.line, slot
-    return int(x), None
+        return _SL.slot_line(slot), slot
+    return _SL.slot_line(x), None
 
 
 def _normalise_groups(raw, n_lines):

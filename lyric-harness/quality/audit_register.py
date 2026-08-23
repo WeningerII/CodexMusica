@@ -2159,12 +2159,22 @@ PINNED = {
     # provenance crash the first non-final span found (M-68), the planner's
     # six literal bounds (M-69), the instrumental freebie (M-70), and the
     # two classes the generator could never draw (M-71).
-    "coverage_entries": 130,  # M-49..M-59 filed 2026-08-22 wiring
+    # 130 -> 132: M-73, the gate census — the owner's standing rule that
+    # only a gate is an enforcement, made a command instead of a memory —
+    # and M-74, which that census's own closing found: the placement work
+    # made every mandate import `quality/relations.py` (17.7 ms -> 132.8 ms
+    # warm) while a sentence promising the opposite was left standing.
+    # (M-72, the second front half, was already inside the 130: it was
+    # filed and repinned in the commit that shipped `quality/recover.py`,
+    # which is the rule this repo keeps — the register moves in the same
+    # commit as the entry, not in a bookkeeping sitting afterwards.)
+    "coverage_entries": 132,  # M-49..M-59 filed 2026-08-22 wiring
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;
                               # M-67..M-71 the same day, the placement
-                              # conversion
+                              # conversion, and M-72 the second door;
+                              # M-73 the gate census, M-74 its finding
     "coverage_audited": 19,
 }
 

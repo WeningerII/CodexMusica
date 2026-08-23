@@ -211,6 +211,53 @@ them at a placement other than the line end**, where an end-anchored recovery
 finds 2. Every edge is spelled in the mandate's own notation, so a recovered
 cover hands straight to `--groups=`.
 
+**AND HOW MUCH OF THIS HARNESS CAN REFUSE ANYTHING IS A COMMAND NOW, NOT A
+MEMORY (2026-08-23, `MISSING.md` M-73).** The owner's standing rule, verbatim:
+*"I fucking hate seeing prose, flags, notes, etc... and ... you refuse to
+finish your work unless we have the appropriate gate, band, constraint,
+etc..."* A note is a RECORD; only a gate is an ENFORCEMENT, and work that ends
+in a note has not closed its loop. That is one sentence and it is impossible
+to keep across every finding this tree emits — doctrine 48's own subject — so
+it was kept by memory and nothing could say how much of the harness enforces
+anything.
+**`quality/gate_census.py` ENUMERATES THE THREE GATE MECHANISMS** so the answer
+is checkable rather than argued: a `flag` severity at the construction site
+(`verify()` gates acceptance on `new_flags`; `song`/`revise` exit 3 while one
+stands), `loop.MANDATORY_PURSUE` (a line held open on a pursued NOTE — the
+mechanism doctrine 9 needed and the reason a note is not automatically
+toothless), and `floor.LENGTH_GATE_CODES` (the codes a verb may not exit 0
+on). Each set is READ from the module that OWNS it, never respelled, because a
+second copy of a gate set is how a census starts disagreeing with the thing it
+counts (doctrine 1).
+**MEASURED: of 67 finding codes, 8 CAN definitely refuse something, 15
+definitely CANNOT, and 44 depend on where they are constructed.** Never summed
+past that partition (doctrine 79). Undecidable is NOT quietly counted as
+gated — that would be this census answering its own question in the direction
+that flatters it — and it has TWO causes reported APART, because they ask
+different things of whoever closes them: **23** `computed` (the severity is
+`sev(...)` at the call site, a profile downgrade, readable only under the
+profile the call runs under) and **21** `consumer-assigned`, where the
+constructor has NO severity field at all — `GridFinding` is `(code, message,
+evidence)`, so the whole SHAPE layer takes its severity from whoever folds it
+in (`revise._function_findings`).
+**A DISCLOSED-ONLY CODE IS NOT AUTOMATICALLY A DEFECT AND DOCTRINE 6 IS THE
+COUNTERWEIGHT**: a CONVENTION a writer may depart from cannot be what fails a
+check, so the shape layer's notes (`DOWNBEAT_LOCKED`, `QUATRAIN_LOCK`) are
+notes ON PURPOSE and promoting them would be the error. The instrument
+produces the LIST, so "should this one gate?" is asked of each code by a
+person rather than answered by whoever last edited the file.
+**AND IT CAUGHT ITS OWN VERSION OF THE DEFECT ON ITS FIRST RUN.** The first
+draft named two constructors, measured **46** codes, and silently omitted
+`quality/grid.py` — the layer gap 10 below calls "the only checks in the repo
+that ask about the song as a whole SHAPE". A census blind to a whole layer
+reports that layer as FULLY GATED, which is the flattering direction; its own
+prose then carried "55 codes in eleven modules" against a measured 67 in FOUR
+files, struck before shipping (doctrine 58). `FINDING_CONSTRUCTORS` is a
+declared tuple and `quality/test_gate_census.py` §5 drops one as a MUTATION
+and requires the count to move. The pin is on the COUNTS and not the
+membership — a new finding is a question rather than a merge conflict — and
+`gate_census.py --check` exits **3** on drift in the cheap CI job.
+
 **AND THE PLANNER DRAWS PLACEMENTS AND OVERLAPPING COVERS NOW — TWO CLASSES
 THAT HAD PROBABILITY EXACTLY ZERO FROM THE FRONT DOOR (2026-08-23,
 `MISSING.md` M-71).** The owner's ruling, aimed at the generator: *"if that
@@ -490,8 +537,26 @@ answers pinned in `quality/test_mandate_relation.py` §8: satisfied
 (`schema:perfect rhyme` on `much`/`touch`), VIOLATED (`schema:consonance` on
 the same pair — the schema route is STRICTER, not another way to pass),
 refused-for-placement (`schema:alliteration`) and refused-for-evidence
-(`schema:holorhyme` needs `lexicon`). The cost is lazy: a mandate that never
-says `schema:` never imports `relations` and never builds a stream.
+(`schema:holorhyme` needs `lexicon`). ~~The cost is lazy: a mandate that never
+says `schema:` never imports `relations` and never builds a stream.~~
+**HALF STRUCK 2026-08-23 — THE PLACEMENT WORK FALSIFIED IT AND MEASURED THE
+COST (`MISSING.md` M-74).** The second clause HOLDS and is the expensive half:
+a mandate that never says `schema:` still builds NO stream, and `realise()` is
+never called. The first clause is now FALSE. `quality/schemes.py` imports
+`SlotUnsupported` from `quality/slots.py` at MODULE level — correctly, as the
+one definition of the placement refusal — and `slots.py` imports
+`quality/relations.py` at module level for `SpanRule`, so **every mandate
+imports `relations` now, `schema:` or none.** MEASURED, warm, five runs each,
+against `9ad2dad^`: `import quality.schemes` was **17.7–18.2 ms** with
+`quality.relations` NOT in `sys.modules`, and is **132.8–177.2 ms** with it
+loaded — roughly 7x, paid once per process. It is a COST and not a defect: the
+alias is doctrine 1 working (two exception classes for one refusal is how a
+caller catches the wrong one), and restoring the laziness means making
+`_normalise_groups`' `except` clause discriminate a `ValueError` subclass
+without naming its module, which is a real restructure of the one function
+every mandate passes through and is NOT taken here on the strength of 115 ms.
+What is not tolerated is the sentence: a claim about laziness that the tree
+stopped satisfying, left standing, is doctrine 17's own subject.
 
 **FOUR DEFECTS FELL OUT OF WIRING IT AND THREE WERE LIVE.** (1) `MISSING.md`
 M-49 — the store held a relation's BARE canonical name and `grade()`

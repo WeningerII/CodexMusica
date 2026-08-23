@@ -8320,3 +8320,135 @@ cover hands straight to `--groups=`.
 returning a truncated one, quoting the bound and the population it would have
 compared, because a silently truncated web reads as a song with fewer
 relations in it.
+
+### M-73 · every measurement was supposed to end in a gate, and nothing could say how many did `CLOSED` 2026-08-23
+**The owner's standing rule, verbatim:** *"I fucking hate seeing prose, flags,
+notes, etc... and ... you refuse to finish your work unless we have the
+appropriate gate, band, constraint, etc..."*
+
+A note is a RECORD; only a gate is an ENFORCEMENT, and work that ends in a
+note has not closed its loop. The rule is one sentence and it is impossible to
+keep by memory across every finding this tree can emit — doctrine 48's own
+subject — so it was kept by memory, and no instrument could say how much of
+the harness actually enforces anything. `MANDATORY_PURSUE` exists precisely
+because a note is not AUTOMATICALLY toothless; nothing enumerated which notes
+had been given teeth and which had not.
+
+**`quality/gate_census.py` MEASURES IT INSTEAD OF ASSERTING IT.** Three gate
+mechanisms are ENUMERATED so the answer is checkable rather than argued: a
+`flag` severity at the construction site (`verify()` gates acceptance on
+`new_flags`, and `song`/`revise` exit 3 while one stands), `loop.
+MANDATORY_PURSUE` (the loop holds a line open on a pursued NOTE until it
+clears), and `floor.LENGTH_GATE_CODES` (the codes a verb may not exit 0 on).
+Each set is READ from the module that OWNS it and never respelled here — a
+second copy of a gate set is how a census starts disagreeing with the thing it
+counts (doctrine 1).
+
+**THE MEASUREMENT, and it is the honest size of the complaint.** Of **67**
+finding codes, **8** can definitely refuse something, **15** definitely
+cannot, and **44** depend on where they are constructed. Never summed past
+that partition (doctrine 79). The 8 are `DENSITY_OUT_OF_BAND`,
+`PROMINENCE_OUT_OF_BAND`, `RETURN_NOT_VERBATIM` and `SCHEME_VIOLATION` by
+severity, `HOMEOTELEUTON`/`MODAL_RHYME`/`PREDICTABLE_RHYME` through the pursue
+set, and `OUT_OF_CALIBRATED_LENGTH` through the length gate.
+
+**UNDECIDABLE IS NOT QUIETLY COUNTED AS GATED**, which would be this census
+answering its own question in the direction that flatters it (doctrine 20).
+It has TWO causes and they are reported APART because they ask different
+things of whoever closes them: **23** are `computed` — the severity is
+`sev(...)` at the call site, a profile downgrade, and reading it needs the
+profile the call runs under — and **21** are `consumer-assigned`, where the
+constructor has NO severity field at all. `GridFinding` is `(code, message,
+evidence)`, so the whole SHAPE layer takes its severity from whoever folds it
+in (`revise._function_findings`). A severity that cannot be read from the
+emitter is a finding of its own, and it is why this census reports the cause
+rather than one total.
+
+**A DISCLOSED-ONLY CODE IS NOT AUTOMATICALLY A DEFECT, and doctrine 6 is the
+load-bearing counterweight.** A CONVENTION a writer may depart from cannot be
+the thing that fails a check, so the shape layer's notes (`DOWNBEAT_LOCKED`,
+`QUATRAIN_LOCK`) are notes ON PURPOSE and promoting them would be the error.
+What this instrument produces is the LIST, so "should this one gate?" is asked
+of each code by a person rather than answered by whoever last edited the file.
+
+**THE CENSUS CAUGHT ITS OWN VERSION OF THE DEFECT ON ITS FIRST RUN**, which is
+the entry's sharpest fact. The first draft named two constructors
+(`Finding`, `FitFinding`), measured **46** codes, and silently omitted
+`quality/grid.py` entirely — `HOOK_ABSENT`, `QUATRAIN_LOCK`,
+`DOWNBEAT_LOCKED` and the rest of the layer `CLAUDE.md`'s own gap 10 calls
+"the only checks in the repo that ask about the song as a whole SHAPE". **A
+census blind to a whole layer reports that layer as fully gated**, which is
+the flattering direction. `FINDING_CONSTRUCTORS` is a declared tuple for
+exactly that reason, and `quality/test_gate_census.py` §5 drops a constructor
+as a MUTATION and requires the count to move.
+
+**AND ITS OWN PROSE CARRIED A THRESHOLD NOBODY WROTE DOWN.** The module
+docstring opened "across 55 finding codes in eleven modules" — wrong in both
+coordinates against its own measurement (67 codes, constructed in FOUR files:
+`quality/revise.py`, `fit.py`, `floor.py`, `grid.py`). Struck before the
+module shipped and replaced by a pointer at `PINNED`, because a count written
+into prose beside the instrument that derives it is doctrine 58 with the
+shortest possible fuse.
+
+**THE PIN IS ON THE COUNTS AND NOT THE MEMBERSHIP**, deliberately: the useful
+signal is "the enforcing fraction changed", and pinning every code's name
+would make every new finding a merge conflict rather than a question.
+`gate_census.py --check` exits **3** on drift and runs in the cheap CI job, so
+a finding added without a gate MOVES A NUMBER instead of joining a list nobody
+reads.
+
+### M-74 · the placement work made every mandate import `relations`, and the sentence promising it would not was left standing `OPEN` — sized 2026-08-23
+**Found while closing M-73**, by asking `quality/counters.py` which public
+symbols nothing references and then chasing the one it named in
+`quality/slots.py`. Not a correctness defect and not a gate: a documented
+COST that stopped being true, which is doctrine 17's subject rather than
+doctrine 48's.
+
+**THE CLAIM.** `CLAUDE.md`, on the `schema:` route: *"The cost is lazy: a
+mandate that never says `schema:` never imports `relations` and never builds a
+stream."*
+
+**THE SECOND CLAUSE HOLDS AND IS THE EXPENSIVE HALF** — `relations.realise()`
+is called only where a schema is declared, and no stream is built otherwise.
+**THE FIRST IS NOW FALSE.** `quality/schemes.py` imports `SlotUnsupported`
+from `quality/slots.py` at module level, and `slots.py` imports
+`quality/relations.py` at module level for `SpanRule`. So importing
+`quality.schemes` imports `quality.relations`, `schema:` or none.
+
+**MEASURED**, warm, five runs each, against `9ad2dad^` (the commit before the
+placement coordinate landed): `import quality.schemes` was **17.7–18.2 ms**
+with `quality.relations` absent from `sys.modules`, and is **132.8–177.2 ms**
+with it loaded. Roughly **7x**, paid once per process.
+
+**IT IS A COST, NOT A DEFECT, AND BOTH IMPORTS ARE RIGHT.** The alias is
+doctrine 1 working as designed — the module raises the slot layer's own
+refusal rather than re-declaring a second exception class for one refusal,
+which is how a caller ends up catching the wrong one — and `slots.py` imports
+`SpanRule` rather than respelling the vocabulary `relations.py` has carried
+since 2026-08-10.
+
+**WHY IT IS NOT FIXED IN THE SAME BREATH.** Restoring the laziness means
+making `_normalise_groups`' `except SlotRefused: raise` discriminate a
+`ValueError` subclass WITHOUT naming its module — `SlotUnsupported` is a
+`ValueError`, so the next clause would otherwise wrap it in a `NoMandate`
+about "an iterable of line numbers", which is the wrong layer's words for a
+placement refusal. Every candidate spelling (a `sys.modules` probe, a
+`type(e).__name__` test, a sentinel re-raise inside `_member_slot`) is a
+second statement of the contract inside the one function every mandate passes
+through. That is a scoped change with its own measurement and its own
+regression risk, and 115 ms per process does not buy it today.
+
+**WHAT WAS DONE INSTEAD**: the sentence is struck in place with the
+measurement beside it (doctrine 17), so the record says what the tree does.
+**THE REMEDY, when someone takes it**: give `slots.py` a `SpanRule` import
+that does not pull the whole registry, or move the refusal class to a leaf
+module both can import — and re-measure, because a fix that does not move the
+17.7 ms figure has not closed this.
+
+**AND THE SYMBOL THAT LED HERE IS CLOSED.** `quality.slots.slot_line` was
+public, named by NOTHING, and its one natural caller —
+`schemes._member_slot` — was computing the line-level question two ways in one
+function (`slot.line` on the dotted branch, `int(x)` on the other), which is
+doctrine 1 inside eight lines. Both branches call `slot_line` now. It costs
+nothing precisely BECAUSE of the finding above: the import this call needs was
+already being paid on every mandate.
