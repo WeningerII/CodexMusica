@@ -4445,6 +4445,24 @@ the quality layer (each says which module answered):
                           (count mismatch REFUSED, never zipped). Unknown
                           forms, blocked forms and unattainable lengths
                           refuse by name with the alternatives listed
+  plan --sweep=LO-HI [--want=PRED;PRED] [the same declarations]
+                          THE SEED SWEEP, a verb since 2026-08-23 (the last
+                          instrument standing rule 3 named and left manual).
+                          A roster PERMITS and cannot COMPEL a draw to use
+                          it -- compelling would weight the dice -- so the
+                          honest way to compel is to DRAW AGAIN, and
+                          rejection sampling from a uniform proposal is
+                          uniform over the accepted set. It RETURNS SEEDS
+                          and no plan: a plan is a pure function of its
+                          seed, so run `plan --seed=N` on one and nothing
+                          carries over from the search. IT DOES NOT RANK
+                          (doctrine 7/19) and it has NO DEFAULT PREDICATE:
+                          the numbers in a --want are the caller's
+                          declaration about THIS song. Three counts, never
+                          summed -- swept, planned, REFUSED-by-the-planner
+                          -- and an empty accepted set REFUSES at exit 2
+                          with the rate, because unreachable and merely
+                          rare are different answers
   readability FILE        what the ingestion layer could not read"""
 
 
@@ -6225,6 +6243,14 @@ def main():
         # into the plan artifact and into the GRADE IT line.
         relation = _flag_value(rest, "--relation")
         funcs_raw = _flag_value(rest, "--functions")
+        # THE SEED SWEEP, A VERB SINCE 2026-08-23 (`MISSING.md` M-82, owner's
+        # ruling "make it a verb"). It was the last instrument standing rule 3
+        # named and left manual, and a song delivered through it was a song
+        # delivered through a scratch script.
+        sweep_raw = _flag_value(rest, "--sweep")
+        want_raw = _flag_value(rest, "--want")
+        rest = _strip_flag(rest, "--sweep")
+        rest = _strip_flag(rest, "--want")
         rest = _strip_flag(rest, "--relation")
         rest = _strip_flag(rest, "--functions")
         rest = _strip_flag(rest, "--seed")
@@ -6238,10 +6264,92 @@ def main():
                             "[--lines=N] [--relation=NAME] "
                             "[--functions=a,b,c] [--fill=DRAFT] "
                             "[--out=PATH]",
+                            "   or: plan --sweep=LO-HI [--want=PRED;PRED] "
+                            "[the same declarations]",
                             "an unrecognised flag is refused rather than "
                             "ignored -- a flag silently not read leaves a "
                             "plan that looks exactly like one you never "
                             "asked for"])
+        plan_kw = dict(
+            form=form,
+            lines=int(nlines) if nlines is not None else None,
+            relation=relation,
+            functions=[x for x in (funcs_raw or "").split(",") if x.strip()]
+            or None)
+        if sweep_raw is not None:
+            if seed is not None:
+                _refuse("plan takes --seed OR --sweep, never both",
+                        detail=["a sweep FINDS seeds and a seed NAMES one; "
+                                "reading both would leave a caller unable to "
+                                "tell which produced the answer"])
+            if fill is not None or out_path is not None:
+                _refuse("plan --sweep does not take --fill or --out",
+                        detail=["a sweep returns SEEDS and no plan, because "
+                                "a plan is a pure function of its seed — run "
+                                "`plan --seed=N` on one of them and the "
+                                "artifact is reproducible with nothing "
+                                "carried over from the search"])
+            lo_hi = str(sweep_raw).split("-")
+            try:
+                lo, hi = int(lo_hi[0]), int(lo_hi[-1])
+            except (ValueError, IndexError):
+                _refuse(f"--sweep={sweep_raw!r} is not a range",
+                        detail=["--sweep=LO-HI over integer seeds, e.g. "
+                                "--sweep=0-600"])
+            if hi < lo:
+                _refuse(f"--sweep={sweep_raw!r} runs backwards")
+            try:
+                wants = [PLN.parse_sweep_want(w)
+                         for w in str(want_raw or "").split(";") if w.strip()]
+                res = PLN.sweep(range(lo, hi), wants=wants, **plan_kw)
+            except PLN.PlanRefused as e:
+                _refuse(str(e))
+            print(f"  SWEEP: seeds {lo}..{hi - 1} ({res['seeds']}), "
+                  f"form={form}"
+                  + (f", lines={nlines}" if nlines else "")
+                  + (f", roster={funcs_raw}" if funcs_raw else ""))
+            if wants:
+                for nm, op, val in wants:
+                    gloss = (PLN.SWEEP_MEASURES.get(nm)
+                             or PLN.SWEEP_SETS.get(nm)
+                             or (PLN.SWEEP_ORDERS.get(nm),))[0]
+                    print(f"    WANT {nm}{op}{val} — {gloss}")
+            else:
+                print("    (no predicate declared, so every seed that plans "
+                      "at all is accepted — honest and useless, and there is "
+                      "no default: a sweep does not decide what you want)")
+            # THREE COUNTS, NEVER SUMMED (doctrine 79). `refused` is the
+            # planner turning a request down — an unattainable length, the
+            # joint gate — and charging it to the predicates would blame the
+            # declaration for the envelope.
+            print(f"    swept {res['seeds']}  planned {res['planned']}  "
+                  f"REFUSED by the planner {res['refused']}  "
+                  f"accepted {len(res['accepted'])}"
+                  + (f" ({100.0 * len(res['accepted']) / res['planned']:.1f}%"
+                     f" of the planned)" if res["planned"] else ""))
+            if not res["accepted"]:
+                _refuse(
+                    f"no seed in {lo}..{hi - 1} satisfies every declared "
+                    f"predicate",
+                    detail=[f"{res['planned']} seed(s) planned and none was "
+                            f"kept, so the declaration is unreachable in this "
+                            f"range rather than merely rare",
+                            "widen the range, or drop a predicate — and the "
+                            "acceptance rate above is the measurement that "
+                            "says which"])
+            print(f"    ACCEPTED (in seed order — this does NOT rank them; "
+                  f"doctrine 7 enforces a floor and does not order the "
+                  f"permitted region, and an argmax over a swept parameter "
+                  f"is doctrine 19's own bias):")
+            print(f"      {', '.join(str(x) for x in res['accepted'][:40])}"
+                  + (f" ... and {len(res['accepted']) - 40} more"
+                     if len(res["accepted"]) > 40 else ""))
+            print(f"    NEXT: python3 lyric_harness.py plan "
+                  f"--seed={res['accepted'][0]}"
+                  + (f" --form={form}" if form != "verse-chorus" else "")
+                  + (f" --lines={nlines}" if nlines else "")
+                  + (f" --functions={funcs_raw}" if funcs_raw else ""))
+            return 0
         try:
             the_plan = PLN.make_plan(
                 seed=int(seed) if seed is not None else None,

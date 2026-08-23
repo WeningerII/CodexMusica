@@ -9487,3 +9487,110 @@ the whole tree for it — *"entries with no status"* — because a heading in th
 file must carry a bracketed status token and a closing paragraph is not an
 entry. Two instruments in two hours catching two different ways of putting
 a record in the wrong shape.
+
+### M-82 · the seed sweep was the last private instrument, and it is a verb now `CLOSED` — 2026-08-23
+**The owner's ruling, in four words: *"make it a verb."*** Asked what stood
+between the harness and a written song, the answer was one thing, and it was
+not a capability — it was that producing a song required an instrument the
+repository forbids.
+
+**CLAUDE.md's standing rule 3 named this one and left it open**, deliberately
+and by the owner's own pending ruling: *"The seed-sweep instrument (looping
+`make_plan` with filters to find a shape) stays manual for now BY THE OWNER'S
+PENDING RULING, and is named here so it cannot become a quiet fourth
+instrument."* The rule it is an exception to is the rest of that paragraph:
+*"any measurement or step used in producing a delivered song goes through a
+verb, and an improvised script used twice is a defect report, not a
+convenience."*
+
+**AND IT HAD BEEN USED TWICE, IN THIS SESSION, BY THE SESSION THAT QUOTED THE
+RULE.** Finding the seeds behind `M-81`'s end-to-end figures meant writing
+`sweep.py` and then `sweep2.py` in a scratch directory, with **seven filter
+criteria invented on the spot and declared nowhere** — 12–28 lines, at most
+six sections, none under two lines, a verse before the first chorus, no group
+deeper than a quatrain, slots within twice the density ceiling, at most two
+bars per line. Every number in that list was a hard number in an instrument,
+which is the thing this repository spent two sittings removing from the
+generator.
+
+**WHY A SWEEP IS NEEDED AT ALL, and it is a property of the planner rather
+than a defect in it.** `--functions` is an ALLOW-LIST. It PERMITS a roster and
+cannot COMPEL a draw to use it — `functions_unused` exists precisely to say so
+— because compelling would mean weighting the dice, which is the "move 37"
+ban. **The honest way to turn a permit into a compel is to DRAW AGAIN**, and
+rejection sampling from a uniform proposal is uniform over the accepted set:
+the same argument `_sample_pattern` already makes for the placement layer. A
+sweep is that argument spelled as a command.
+
+**`plan --sweep=LO-HI [--want=PRED;PRED]`**, and the design is three
+refusals:
+
+  1. **IT DOES NOT RANK**, and that is the load-bearing one. Doctrine 7 —
+     *"enforce a floor, do not order the permitted region"* — and doctrine 19,
+     on an argmax over a swept parameter being biased toward whichever end has
+     more degrees of freedom. A sweep returning *the best seed* would be
+     exactly that argmax, and whatever it ranked by would be the weighted
+     quality score doctrine 6 forbids. It returns the accepted set **in seed
+     order**, with its acceptance rate, and carries no score field at all.
+  2. **IT INVENTS NO CRITERIA.** Every predicate reads a coordinate the plan
+     ALREADY DISCLOSES; the vocabulary is CLOSED (`SWEEP_MEASURES`,
+     `SWEEP_SETS`, `SWEEP_ORDERS` — doctrine 58) and an undeclared name
+     REFUSES and prints the table, because a predicate silently matching
+     nothing and a predicate that refuses look identical in the accepted set.
+     **The numbers in a `--want` are the CALLER's**, which is `M-55`'s own
+     principle: a writer saying *"I want a chorus and a postchorus"* is
+     declaring something about THIS song. The owner's ban is on hard numbers
+     in the generator, not on a writer stating what they want.
+  3. **IT HAS NO DEFAULT.** A sweep with no predicate accepts every seed that
+     plans at all — honest, useless, and correct. A default would be the
+     instrument deciding what the caller wants, and `before=verse,chorus` in
+     particular would be the rate-matching `FORM_TENDENCIES` explicitly
+     refuses: *"a planner that refused those would be refusing a quarter of
+     the corpus it was measured on."*
+
+**THREE COUNTS, NEVER SUMMED (doctrine 79)**: swept, planned, and
+REFUSED-BY-THE-PLANNER. A seed the envelope turns down — an unattainable
+length, the `M-80` joint gate — is not a seed the predicates rejected, and
+charging one to the other blames the declaration for the planner.
+
+**AND AN EMPTY ACCEPTED SET REFUSES AT EXIT 2 WITH THE RATE BESIDE IT**,
+because *unreachable in this range* and *merely rare* are different answers
+and the acceptance rate is the measurement that separates them (doctrine 20).
+
+**IT RETURNS SEEDS AND NO PLAN**, and `--fill`/`--out` are refused with it: a
+plan is a pure function of its seed, so the caller runs `plan --seed=N` and
+gets the artifact reproducibly with nothing carried over from the search.
+
+**MEASURED, and it is the same answer the scratch script gave**: over seeds
+0–119 with the six predicates the private version used, `accepted [108]`,
+120 planned, 0 refused — **0.5% of the planned**. The instrument moved into
+the tree without its answer changing, which is what makes this a verb rather
+than a rewrite.
+
+**PROVEN BY MUTATION AND BY REACHABILITY, in two suites for two different
+claims.** `quality/test_plan.py` §10 holds the API — the closed vocabulary,
+every measure reading a real plan, the seed-ordered accepted set with no score
+key, the three counts, the no-default behaviour, and four parse refusals.
+`quality/test_verbs.py` §40 holds the half standing rule 3 is actually about:
+**that a person can RUN it**, as a subprocess and not an import, with all six
+CLI refusals fired and the disclosure asserted line by line — including that
+the output says out loud that it does not rank.
+
+**AND THE APPEND THAT FILED THIS ENTRY WENT MISSING TWICE FIRST**, which is
+worth one sentence because it is the same shape as the record defects above:
+a shell whose working directory had moved wrote it once to an untracked file
+at the repository root (caught by `quality/verify_entries.py`) and once to
+nowhere at all (caught by `audit_register.py` reporting an unmoved entry
+count). An entry nobody can find and an entry nobody wrote are the same entry.
+
+**WHAT IS LEFT AFTER THIS, stated so the next session does not have to
+rediscover it**: the writing. The pipeline was run end to end mechanically
+before this entry was filed — `plan --seed=108` → `fill_plan` → `song
+BP DRAFT --groups=… --subdivision 2` — and every step completed, with exit 3
+and the finding set that eighteen lines of placeholder tokens deserve. No
+layer refused, nothing was unreachable. The remaining owner rulings (`M-77`'s
+promotions, `M-78`'s doctrine number) block nothing.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~139~~ -> **140**
+on 2026-08-23 with this entry — the ladder ~~137~~ -> ~~138~~ -> 139 -> 140 is
+recorded across `M-81` and `M-75`, and this is its last step in this sitting.

@@ -1328,12 +1328,113 @@ def test_the_joint_gate():
           f"{spelled}")
 
 
+
+
+def test_the_seed_sweep_is_a_verb():
+    print("\n10. THE SEED SWEEP — the last private instrument, made a verb "
+          "(`MISSING.md` M-82)")
+    # CLAUDE.md standing rule 3 named this one and left it: "The seed-sweep
+    # instrument (looping `make_plan` with filters to find a shape) stays
+    # manual for now BY THE OWNER'S PENDING RULING, and is named here so it
+    # cannot become a quiet fourth instrument." The ruling was made.
+    #
+    # WHY IT EXISTS: `--functions` is an ALLOW-LIST. It PERMITS a roster and
+    # cannot COMPEL a draw to use it, because compelling means weighting the
+    # dice. Drawing again is the honest compel, and rejection sampling from a
+    # uniform proposal is uniform over the accepted set.
+    check("the predicate vocabulary is CLOSED and every name reads a "
+          "coordinate the plan already DISCLOSES — a sweep that invented a "
+          "measurement would be a second planner (doctrine 58)",
+          set(PLN.SWEEP_MEASURES) & set(PLN.SWEEP_SETS) == set()
+          and set(PLN.SWEEP_MEASURES) & set(PLN.SWEEP_ORDERS) == set()
+          and all(isinstance(v, tuple) and callable(v[1])
+                  for v in PLN.SWEEP_MEASURES.values()),
+          f"{sorted(set(PLN.SWEEP_MEASURES) | set(PLN.SWEEP_SETS) | set(PLN.SWEEP_ORDERS))}")
+    p = PLN.make_plan(seed=108)
+    for name, (_gloss, fn) in PLN.SWEEP_MEASURES.items():
+        check(f"`{name}` reads off a real plan without inventing anything",
+              isinstance(fn(p), (int, float)), f"{name} = {fn(p)}")
+
+    # THE SWEEP ITSELF, on the range the scratch script used before it was a
+    # verb — and it returns the same answer, which is what makes this a verb
+    # rather than a rewrite.
+    wants = [PLN.parse_sweep_want(w) for w in
+             ("sections<=6", "lines_per_section>=2", "group<=4",
+              "uses=verse,chorus", "before=verse,chorus", "pins_per_line<=5")]
+    res = PLN.sweep(range(120), wants=wants)
+    check("the sweep finds the seed the private script found, over the same "
+          "range — the instrument moved into the tree without its answer "
+          "changing", res["accepted"] == [108],
+          f"accepted {res['accepted']}, planned {res['planned']}, "
+          f"refused {res['refused']}")
+    check("THREE COUNTS, NEVER SUMMED (doctrine 79): swept, planned, and "
+          "REFUSED-by-the-planner. A refusal is the envelope turning a "
+          "request down and charging it to the predicates would blame the "
+          "declaration for the planner",
+          res["seeds"] == 120
+          and res["planned"] + res["refused"] == res["seeds"]
+          and len(res["accepted"]) <= res["planned"],
+          f"{res['seeds']} = {res['planned']} + {res['refused']}")
+    check("NO DEFAULT PREDICATE — a sweep with none accepts every seed that "
+          "plans at all, which is honest and useless. A default would be the "
+          "sweep deciding what the caller wants",
+          PLN.sweep(range(12))["accepted"] == list(range(12)),
+          f"{PLN.sweep(range(12))['accepted']}")
+    # IT DOES NOT RANK, and this is the load-bearing refusal (doctrine 7 —
+    # enforce a floor, do not order the permitted region; doctrine 19 — an
+    # argmax over a swept parameter is biased). The accepted set is in SEED
+    # order and carries no score at all.
+    many = PLN.sweep(range(60), wants=[PLN.parse_sweep_want("sections<=6")])
+    check("the accepted set is in SEED order and carries no score — a sweep "
+          "that returned 'the best seed' would be doctrine 19's own argmax, "
+          "and whatever it ranked by would be the weighted quality score "
+          "doctrine 6 forbids",
+          many["accepted"] == sorted(many["accepted"])
+          and set(res) == {"accepted", "planned", "refused", "wants",
+                           "seeds"},
+          f"{len(many['accepted'])} accepted, keys {sorted(res)}")
+
+    # THE REFUSALS, each proven rather than described.
+    def refuses(text):
+        try:
+            PLN.parse_sweep_want(text)
+        except PLN.PlanRefused as exc:
+            return str(exc)
+        return ""
+    check("an undeclared coordinate REFUSES and prints the vocabulary — a "
+          "predicate silently matching nothing and one that refuses look "
+          "identical in the accepted set, and the first has a caller believe "
+          "their declaration was applied (doctrine 20)",
+          "not a coordinate" in refuses("vibes<=3")
+          and "sections" in refuses("vibes<=3"), refuses("vibes<=3")[:70])
+    check("...and so does a predicate with no operator this vocabulary "
+          "declares", "carries none of" in refuses("sections<3"),
+          refuses("sections<3")[:60])
+    check("...and a count compared against a non-integer",
+          "is not an" in refuses("sections<=lots"),
+          refuses("sections<=lots")[:60])
+    check("...and a FUNCTION name compared with an inequality, because "
+          "functions do not compare",
+          "and nothing else" in refuses("uses>=chorus"),
+          refuses("uses>=chorus")[:60])
+    # THE MUTATION: an unreachable declaration must REFUSE at the verb, not
+    # return an empty list that reads like a clean run.
+    empty = PLN.sweep(range(20), wants=[PLN.parse_sweep_want("sections<=1")])
+    check("an unreachable declaration accepts NOTHING, and the verb turns "
+          "that into a refusal at exit 2 rather than an empty list — "
+          "unreachable and merely rare are different answers and the "
+          "acceptance rate is what separates them",
+          empty["accepted"] == [] and empty["planned"] > 0,
+          f"planned {empty['planned']}, accepted 0")
+
+
 if __name__ == "__main__":
     for fn in (test_the_planner_plans_the_whole_line,
                test_determinism, test_refusals, test_the_round_trip,
                test_the_measure, test_the_disclosure,
                test_the_rendering, test_the_writers_declaration,
-               test_the_form_is_read, test_the_joint_gate):
+               test_the_form_is_read, test_the_joint_gate,
+               test_the_seed_sweep_is_a_verb):
         fn()
     print("=" * 62)
     if FAILURES:

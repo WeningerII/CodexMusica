@@ -115,9 +115,32 @@ These outrank any inference a session draws from the code.
    and the rendered song (`plan --fill` emits the complete
    performance-order text, headers from each section's own measurements,
    returns written out — `render_song`, pinned in `test_plan.py` §6).
-   The seed-sweep instrument (looping `make_plan` with filters to find a
+   ~~The seed-sweep instrument (looping `make_plan` with filters to find a
    shape) stays manual for now BY THE OWNER'S PENDING RULING, and is
-   named here so it cannot become a quiet fourth instrument.
+   named here so it cannot become a quiet fourth instrument.~~
+   **THE RULING CAME 2026-08-23 — *"make it a verb"* — AND IT IS
+   `plan --sweep=LO-HI [--want=PRED;PRED]` (`MISSING.md` M-82).** It was the
+   last exception to this rule, and the session that closed it had already
+   broken the rule twice in one sitting: the seeds behind M-81's end-to-end
+   figures came from two scratch scripts carrying SEVEN filter criteria
+   invented on the spot and declared nowhere. A sweep is needed because
+   `--functions` is an ALLOW-LIST — it PERMITS a roster and cannot COMPEL a
+   draw to use it, since compelling means weighting the dice — so the honest
+   compel is to DRAW AGAIN, and rejection sampling from a uniform proposal is
+   uniform over the accepted set. **IT DOES NOT RANK** (doctrine 7/19: an
+   argmax over a swept parameter is biased, and whatever it ranked by would
+   be the score doctrine 6 forbids), **it invents no criteria** (a CLOSED
+   predicate vocabulary, every name reading a coordinate the plan already
+   discloses, an undeclared one refusing by name), and **it has no default**
+   — a sweep with no predicate accepts everything and says so, because a
+   default would be the instrument deciding what the caller wants, and
+   `before=verse,chorus` in particular is the rate-matching
+   `plan.FORM_TENDENCIES` explicitly refuses. Three counts, never summed;
+   an empty accepted set REFUSES at exit 2 with the rate beside it, because
+   unreachable and merely rare are different answers. It returns SEEDS and no
+   plan (`--fill`/`--out` refused with it), since a plan is a pure function
+   of its seed. `test_plan.py` §10 holds the API and `test_verbs.py` §40
+   holds the half this rule is actually about — that a person can RUN it.
 
 **Read this file before you write. Read `quality/METHOD.md` when you are about
 to MEASURE** — a rate, a null, a threshold, a refusal, a provenance claim. One

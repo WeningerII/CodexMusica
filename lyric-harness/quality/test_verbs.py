@@ -3820,6 +3820,77 @@ def test_the_structures_spelling_reaches_the_verbs():
         os.unlink(path)
 
 
+
+
+def test_the_seed_sweep_is_reachable_from_the_command_line():
+    print("\n40. THE SEED SWEEP is a VERB, not a scratch script "
+          "(`MISSING.md` M-82)")
+    # THE POINT OF THIS SECTION IS REACHABILITY. `quality/test_plan.py` §10
+    # exercises `sweep()` at the API; what CLAUDE.md's standing rule 3 is
+    # about is whether a person can RUN it — "any measurement or step used in
+    # producing a delivered song goes through a verb, and an improvised
+    # script used twice is a defect report, not a convenience."
+    WANT = ("--want=sections<=6;lines_per_section>=2;group<=4;"
+            "uses=verse,chorus;before=verse,chorus;pins_per_line<=5")
+    rc, out, _ = run("plan", "--sweep=0-120", WANT, expect_rc=0)
+    check("the sweep RUNS from the command line and finds the seed the "
+          "private script found", rc == 0 and " 108" in out,
+          [l for l in out.splitlines() if "108" in l][:1])
+    check("...and it ECHOES every predicate with the coordinate's own gloss, "
+          "so a caller can see which declaration was applied rather than "
+          "inferring it from the answer",
+          out.count("WANT ") == 6 and "the SMALLEST sung section" in out,
+          f"{out.count('WANT ')} predicates echoed")
+    check("...and prints THREE COUNTS, never summed (doctrine 79)",
+          "swept 120" in out and "planned" in out
+          and "REFUSED by the planner" in out and "accepted" in out,
+          [l for l in out.splitlines() if "swept" in l][:1])
+    check("...and says OUT LOUD that it does not rank, which is the whole "
+          "refusal: doctrine 7 enforces a floor and does not order the "
+          "permitted region",
+          "does NOT rank" in out and "doctrine 19" in out)
+    check("...and hands over the NEXT command rather than a plan, because a "
+          "plan is a pure function of its seed and nothing should carry over "
+          "from the search",
+          "NEXT: python3 lyric_harness.py plan --seed=108" in out)
+    # NO DEFAULT PREDICATE — and the verb says so instead of quietly
+    # accepting everything as though that had been asked for.
+    rc, out, _ = run("plan", "--sweep=0-8", expect_rc=0)
+    check("a sweep with NO predicate accepts everything and SAYS it is "
+          "deciding nothing — a default here would be the instrument "
+          "choosing what the caller wants",
+          rc == 0 and "no predicate declared" in out
+          and "there is no default" in out)
+    # THE REFUSALS. Each is a way of putting a declaration wrong, and each
+    # must be refused BY NAME rather than read as a filter that matched
+    # nothing (doctrine 20).
+    for args, needle in (
+            (("plan", "--sweep=0-20", "--want=sections<=1"),
+             "no seed in 0..19"),
+            (("plan", "--sweep=0-20", "--seed=3"),
+             "--seed OR --sweep"),
+            (("plan", "--sweep=0-20", "--want=vibes<=3"),
+             "not a coordinate"),
+            (("plan", "--sweep=0-20", "--want=sections<3"),
+             "carries none of"),
+            (("plan", "--sweep=0-20", "--fill=x.txt"),
+             "does not take --fill"),
+            (("plan", "--sweep=nope"),
+             "is not a range")):
+        rc, out, err = run(*args, expect_rc=2)
+        check(f"`{' '.join(args[1:])}` REFUSES at exit 2, naming the cause",
+              rc == 2 and needle in (out + err), needle)
+    # AND THE UNREACHABLE CASE CARRIES ITS RATE, because "no seed satisfies
+    # this" and "this range was too small" are different answers and the
+    # acceptance rate is what separates them.
+    rc, out, _ = run("plan", "--sweep=0-20", "--want=sections<=1",
+                     expect_rc=2)
+    check("...and the empty accepted set REFUSES with the acceptance rate "
+          "beside it, so unreachable and merely rare stay distinguishable",
+          "accepted 0" in out and "unreachable in this range" in out,
+          [l for l in out.splitlines() if "accepted 0" in l][:1])
+
+
 if __name__ == "__main__":
     _SECTIONS = (
         test_the_map_is_not_stale,
@@ -3861,6 +3932,7 @@ if __name__ == "__main__":
         test_both_meter_coordinates_are_disclosed_and_collisions_are_typed,
         test_every_report_names_the_draft_it_read,
         test_the_structures_spelling_reaches_the_verbs,
+        test_the_seed_sweep_is_reachable_from_the_command_line,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —
     # measured 21-22 minutes on CI run #524, and after the pool went

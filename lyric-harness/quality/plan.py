@@ -147,6 +147,9 @@ __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "render_song", "section_header",
            "meter_dims", "meter_space_size", "bell",
            "meter_factorisations", "beats_values",
+           "SWEEP_MEASURES", "SWEEP_SETS", "SWEEP_ORDERS",
+           "SWEEP_OPS", "parse_sweep_want", "sweep_holds",
+           "sweep",
            "BEATS_PER_SYLLABLE_MAX",
            "JOINT_CODES", "LAST_WORD", "placement_word",
            "line_syllable_ceiling", "joint_findings"]
@@ -1263,6 +1266,208 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
 
 
 # ---------------------------------------------------------------- plan
+
+# ------------------------------------------------------- the seed sweep
+#
+# THE LAST PRIVATE INSTRUMENT, MADE A VERB (2026-08-23, `MISSING.md` M-82,
+# owner's ruling *"make it a verb"*). CLAUDE.md's standing rule 3 named this
+# one and left it: *"The seed-sweep instrument (looping `make_plan` with
+# filters to find a shape) stays manual for now BY THE OWNER'S PENDING
+# RULING, and is named here so it cannot become a quiet fourth instrument."*
+# The ruling has been made.
+#
+# WHY IT IS NEEDED AT ALL, and the answer is a property of the planner rather
+# than a defect in it. `--functions` is an ALLOW-LIST: it PERMITS a roster and
+# cannot COMPEL a draw to use it, because compelling would mean weighting the
+# dice, which is the "move 37" ban. The honest way to turn a permit into a
+# compel is to DRAW AGAIN — and rejection sampling from a uniform proposal is
+# uniform over the accepted set, which is the same argument `_sample_pattern`
+# already makes for the placement layer. A sweep is that argument spelled as
+# a command.
+#
+# IT DOES NOT RANK, AND THAT IS THE LOAD-BEARING REFUSAL. Doctrine 7 —
+# *"enforce a floor, do not order the permitted region"* — and doctrine 19,
+# on an argmax over a swept parameter being biased toward whichever end of the
+# sweep has more degrees of freedom. A sweep that returned "the best seed"
+# would be exactly that argmax, and the score it ranked by would be the
+# weighted quality score doctrine 6 forbids. So this returns the ACCEPTED SET
+# in seed order, with its acceptance RATE, and nothing else.
+#
+# AND IT INVENTS NO CRITERIA. Every predicate reads a coordinate the plan
+# ALREADY DISCLOSES, the vocabulary is CLOSED, and there are NO DEFAULTS: a
+# sweep with no predicates accepts every seed that plans at all, which is
+# honest and useless and is the correct behaviour. The numbers in a predicate
+# are the CALLER's — `M-55`'s own principle, that a writer saying *"I want a
+# chorus and a postchorus"* is making a declaration about THIS song — and the
+# owner's ban on hard numbers is a ban on them in the GENERATOR, not on a
+# writer stating what they want.
+
+#: WHAT A SWEEP MAY ASK ABOUT — CLOSED (doctrine 58: an exclusion nobody
+#: writes down is a threshold nobody wrote down), and every entry a
+#: coordinate the emitted plan already carries. A name outside this table
+#: REFUSES and prints the table, rather than being read as a filter that
+#: silently matched nothing.
+#:
+#: The NUMERIC measures answer `<=`, `>=` and `=`; the two SET measures answer
+#: `=` alone and take a comma-separated list. `before` is the one ORDER
+#: measure and takes exactly two function names.
+SWEEP_MEASURES = {
+    "lines": ("the song's total line count",
+              lambda p: p["total_lines"]),
+    "sections": ("how many sections the pattern drew",
+                 lambda p: len(p["sections"])),
+    "lines_per_section": ("the SMALLEST sung section's line count — sections "
+                          "carrying no lines are not counted, because a "
+                          "wordless section is not a short one",
+                          lambda p: min(_sweep_sung(p).values() or [0])),
+    "group": ("the deepest rhyme group's member count",
+              lambda p: max([len(g.split(",")) for g in
+                             str(p.get("groups") or "").split(";") if g]
+                            or [0])),
+    "bars_per_line": ("bars per lyric line, as drawn",
+                      lambda p: p["choices"]["bars_per_line"]),
+    "beats_per_line": ("how many beats a lyric line runs — the length a "
+                       "listener hears (`MISSING.md` M-81(B))",
+                       lambda p: p["choices"]["meter"]["beats_per_line"]),
+    "slots_per_line": ("the widest line's slot capacity",
+                       lambda p: max([float(s["duration"]) * p["subdivision"]
+                                      for s in p["line_slots"]] or [0])),
+    "pins_per_line": ("the most words any one line is bound at — the "
+                      "coordinate `M-79`'s Finding 3 says has none",
+                      lambda p: max(_sweep_pins(p).values() or [0])),
+}
+
+#: SET measures: `uses=chorus,bridge` asks that the draw REACHED them, which
+#: is the compel a roster cannot be.
+SWEEP_SETS = {
+    "uses": ("the functions the pattern actually drew — a roster PERMITS and "
+             "this is how a caller COMPELS, by drawing again rather than by "
+             "weighting the dice",
+             lambda p: {s["function"] for s in p["sections"]}),
+}
+
+#: ORDER measures: `before=verse,chorus` asks that the first instance of the
+#: first name precedes the first instance of the second.
+#:
+#: NOTE WHAT THIS IS NOT. `FORM_TENDENCIES` records that a verse precedes the
+#: first chorus in 137 of 178 corpus songs and is DELIBERATELY NOT ENFORCED,
+#: because a planner refusing the other 41 would refuse a quarter of the
+#: corpus it was measured on. Nothing here changes that: the planner still
+#: draws both orders, and a CALLER asking for one is declaring what they want
+#: for THIS song. A default here would be the rate-matching that paragraph
+#: refuses.
+SWEEP_ORDERS = {
+    "before": "the first instance of A precedes the first instance of B",
+}
+
+SWEEP_OPS = ("<=", ">=", "=")
+
+
+def _sweep_sung(plan):
+    """-> {section name: line count} for sections that carry lines."""
+    out = {}
+    for s in plan["line_slots"]:
+        out[s["section"]] = out.get(s["section"], 0) + 1
+    return out
+
+
+def _sweep_pins(plan):
+    """-> {line: how many words this line is bound at}."""
+    out = {}
+    for group in str(plan.get("groups") or "").split(";"):
+        for member in group.split(","):
+            member = member.strip()
+            if member:
+                ln = int(member.partition(".")[0])
+                out[ln] = out.get(ln, 0) + 1
+    return out
+
+
+def parse_sweep_want(text):
+    """'sections<=6' -> ('sections', '<=', '6'). REFUSES anything else.
+
+    The refusal prints the vocabulary, because a predicate silently read as
+    matching nothing and a predicate that refuses look identical in the
+    accepted set — and the first would have a caller believe their
+    declaration was applied (doctrine 20).
+    """
+    raw = str(text).strip()
+    for op in SWEEP_OPS:
+        name, sep, val = raw.partition(op)
+        if not sep:
+            continue
+        name, val = name.strip(), val.strip()
+        known = set(SWEEP_MEASURES) | set(SWEEP_SETS) | set(SWEEP_ORDERS)
+        if name not in known:
+            raise PlanRefused(
+                f"{raw!r} asks about {name!r}, which is not a coordinate a "
+                f"sweep can read. Declared: "
+                f"{', '.join(sorted(known))}.")
+        if name in SWEEP_SETS or name in SWEEP_ORDERS:
+            if op != "=":
+                raise PlanRefused(
+                    f"{raw!r}: {name!r} answers '=' and nothing else — it "
+                    f"names functions, and functions do not compare.")
+        elif not val.lstrip("-").isdigit():
+            raise PlanRefused(
+                f"{raw!r}: {name!r} is a count and {val!r} is not an "
+                f"integer.")
+        if not val:
+            raise PlanRefused(f"{raw!r} declares no value.")
+        return name, op, val
+    raise PlanRefused(
+        f"{raw!r} carries none of {', '.join(SWEEP_OPS)}. A predicate is "
+        f"NAME<=N, NAME>=N or NAME=VALUE.")
+
+
+def sweep_holds(plan, want):
+    """-> True if this plan satisfies one parsed predicate."""
+    name, op, val = want
+    if name in SWEEP_ORDERS:
+        a, _, b = val.partition(",")
+        fns = [s["function"] for s in plan["sections"]]
+        if a.strip() not in fns or b.strip() not in fns:
+            return False
+        return fns.index(a.strip()) < fns.index(b.strip())
+    if name in SWEEP_SETS:
+        have = SWEEP_SETS[name][1](plan)
+        return all(x.strip() in have for x in val.split(",") if x.strip())
+    got, n = SWEEP_MEASURES[name][1](plan), int(val)
+    return got <= n if op == "<=" else got >= n if op == ">=" else got == n
+
+
+def sweep(seeds, wants=(), **plan_kw):
+    """-> {accepted, refused, planned, wants, seeds} over a declared range.
+
+    REJECTION, NOT SELECTION (doctrine 7). `accepted` is every seed whose
+    plan satisfies every predicate, IN SEED ORDER — no ranking, no score, no
+    "best". A sweep that ordered the permitted region would be the argmax
+    doctrine 19 refuses and the weighted quality score doctrine 6 forbids.
+
+    THREE COUNTS, NEVER SUMMED (doctrine 79): `planned` is how many seeds
+    produced a plan at all, `refused` how many `make_plan` itself turned down
+    (an unattainable request, or the joint gate), and `accepted` how many of
+    the planned ones the predicates kept. A refusal is not a rejection and
+    charging one to the other would blame the predicates for the envelope.
+
+    A PLAN IS A PURE FUNCTION OF ITS SEED, so this returns SEEDS and no
+    plans: the caller runs `plan --seed=N` on one and gets the artifact,
+    reproducibly, with nothing carried over from the search.
+    """
+    seeds = list(seeds)
+    accepted, planned, refused = [], 0, 0
+    for s in seeds:
+        try:
+            p = make_plan(seed=s, **plan_kw)
+        except PlanRefused:
+            refused += 1
+            continue
+        planned += 1
+        if all(sweep_holds(p, w) for w in wants):
+            accepted.append(s)
+    return {"accepted": accepted, "planned": planned, "refused": refused,
+            "wants": list(wants), "seeds": len(seeds)}
+
 
 def make_plan(seed, form="verse-chorus", lines=None, relation=None,
               functions=None):
