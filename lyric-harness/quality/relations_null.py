@@ -1572,7 +1572,31 @@ LEDGER_BUDGET = None
 #: the frame they want is one a caller supplies, and
 #: `quality/grid.stanza_ground` is the call that supplies it.  Nothing moved
 #: into or out of NEVER PROVIDED.
-LEDGER_CANNOT_OBTAIN = (29, 2)
+#:
+#: REPINNED 2026-08-23: ~~(29, 2)~~ -> (23, 1).  SIX LEFT THE DECLARABLE HALF
+#: AND ONE LEFT NEVER-PROVIDED, and every one of the seven left because the
+#: RESOURCE ARRIVED rather than because a verdict was re-argued — the same
+#: seven `EXTENSION_LEDGER` re-recorded on the same day:
+#:
+#:   family rhyme, multisyllabic rhyme   `quotient:manner`, now declared by
+#:                                       `eng.English` out of
+#:                                       `quality/quotients.py`
+#:   homoioteleuton, polyptoton          `morphology`, now
+#:                                       `quality/morphology.py`
+#:   holorhyme, rhyming slang            `lexicon`, now a declared resource
+#:   trite rhyme                         `quotient:trite`, and this is the
+#:                                       one that left NEVER-PROVIDED: the
+#:                                       schema stopped requiring `frequency`
+#:                                       (retired whole into
+#:                                       `relations.RETIRED_UNPROVIDABLE`)
+#:                                       and now reads a declared pair list.
+#:
+#: DOCTRINE 44's split is exactly what this pin is for and it is the reason
+#: the move is worth writing down rather than absorbing: a schema that has
+#: moved between "declare the capability" and "BUILD it" is being sent to the
+#: WRONG REMEDY until this number is repinned, and the check that says so is
+#: `verify_extension`.
+LEDGER_CANNOT_OBTAIN = (23, 1)
 
 
 def ledger_slice(root=None):

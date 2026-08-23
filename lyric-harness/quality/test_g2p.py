@@ -380,8 +380,21 @@ def test_real_population_against_shakespeares_own_form():
     m1, j1, r1, v1 = _patched_battery("high")
     newly = r0 - r1
     new_viol = [p for p in newly if p in v1]
-    check("off reproduces the battery", (m0, j0, len(r0), len(v0))
-          == (1064, 1014, 50, 82), f"{(m0, j0, len(r0), len(v0))}")
+    # REPINNED 2026-08-23 from ~~82~~ violations to 35 (doctrine 17), and
+    # `CLAUDE.md`'s own known-gap 1 predicted the number in as many words:
+    # "ALL THREE VIOLATION COUNTS WERE MEASURED UNDER THE TWO-NAME DOOR ...
+    # the door widened 2026-08-22 (M-59) and the `off` arm is 35 today."
+    # The prose was repinned that day and this literal was not, so the file
+    # and the test disagreed for a day about one number.
+    #
+    # THE OTHER THREE DO NOT MOVE, and that is the check that this is the
+    # door and not the ingestion: mandated/judged/refused are 1064/1014/50
+    # before and after, because a refusal is an INGESTION verdict reached
+    # before any comparison and no admit set touches it (doctrine 79).
+    check("off reproduces the battery — mandated/judged/refused unmoved, "
+          "violations at the widened door",
+          (m0, j0, len(r0), len(v0)) == (1064, 1014, 50, 35),
+          f"{(m0, j0, len(r0), len(v0))}")
     check("the derived layers turn 39 of the 50 refusals into judgements",
           len(newly) == 39, f"{len(newly)}; refused 50 -> {len(r1)}")
     # REPINNED 2026-08-11: 38/39 -> 37/39, one PAIR added, after cell BA's
@@ -393,8 +406,22 @@ def test_real_population_against_shakespeares_own_form():
     # found (RESULTS_CODA_SHAPE.md). Both new failures are the SAME residue:
     # a real Elizabethan pairing that does not hold in the declared General
     # American dialect, not a bad guess by the fallback.
-    check("and 37 of those 39 RHYME, as the sonnet mandates",
-          len(new_viol) == 2,
+    # REPINNED 2026-08-23 from ~~2~~ to 1 (doctrine 17). The comment above
+    # is the 2026-08-11 record and stays as written; what it describes has
+    # since been overtaken at the DOOR rather than at the comparator.
+    # `impannelled`/`determined` is an L-vs-N coda, which the identity
+    # predicate correctly types CONSONANCE — and CONSONANCE entered the
+    # default admit set on 2026-08-22, so the pair now SATISFIES and leaves
+    # this count. `recur'd`/`assur'd` remains, and remains for the reason
+    # given: it is the declared-dialect residue, not a bad guess.
+    #
+    # SO THE ACCURACY WENT UP AND THE FALLBACK DID NOT CHANGE. That is the
+    # thing worth saying out loud: this number measures the fallback against
+    # the form as ground truth, and it moved because the door moved, so it
+    # is not a clean fallback-accuracy figure across the two dates. The
+    # 38/39 is against the CURRENT door.
+    check("and 38 of those 39 RHYME, as the sonnet mandates",
+          len(new_viol) == 1,
           f"{len(newly) - len(new_viol)}/{len(newly)} = "
           f"{1 - len(new_viol)/len(newly):.1%}. This is the only clean "
           f"accuracy number available on the real population: the form is "

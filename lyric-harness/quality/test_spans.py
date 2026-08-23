@@ -301,8 +301,14 @@ def test_the_oracle_does_not_move():
     # RANGE rather than a point so it fails on a structural change and not on
     # a corpus edit -- but it must never be zero, because zero would mean the
     # instrument is not looking.
-    check("9 of the 81 violations were scored on a span that is NOT the "
-          "end word", mosaic_scored == 9, f"{mosaic_scored} / {viol} "
+    # REPINNED 2026-08-23: ~~9 of 81~~ -> 8 of 35 (doctrine 17). The
+    # denominator moved because the default admit set widened on 2026-08-22
+    # (M-59) and 47 pairs stopped violating — a DOOR change, not a span
+    # change. The two checks above pin `battery.EXPECTED["violations"]` and
+    # both pass, so the oracle already carried 35 and only these literals
+    # were behind.
+    check("8 of the 35 violations were scored on a span that is NOT the "
+          "end word", mosaic_scored == 8, f"{mosaic_scored} / {viol} "
           f"= {mosaic_scored / viol:.1%} of the oracle's violations named a "
           f"pair of words that did not produce their number")
 
@@ -505,15 +511,32 @@ def test_the_sweep_runs_and_reports_three_counts():
           "their number", r["claimed"] == 632,
           f"{r['claimed']} / {r['judged']}; the other "
           f"{r['judged'] - r['claimed']} name a pair that did not")
-    check("36 of the 82 VIOLATIONS do — this is the number that decides "
+    # REPINNED 2026-08-23: ~~36 of 82~~ -> 7 of 35, and the RATE moved in a
+    # direction worth stating (doctrine 17/79). `claimed` over all JUDGED
+    # pairs is 632/1014 and is UNMOVED — the check above still passes — so
+    # nothing about attribution changed. What changed is which pairs are
+    # still violations: of the 47 that left when the door widened, 29 were
+    # well-attributed and 18 were not, so the well-attributed ones left
+    # FASTER than the rest and the surviving violations are more often
+    # mis-attributed than before — 43.9% claimed then, 20.0% now.
+    #
+    # That is the expected direction rather than a surprise: a pair demoted
+    # to CONSONANCE or ASSONANCE is an ordinary end-word comparison, which
+    # is exactly the population that DOES name the words that produced its
+    # number. Widening the door retires those first and leaves the mosaic
+    # and reach cases standing.
+    check("7 of the 35 VIOLATIONS do — this is the number that decides "
           "whether a triage lands on the right layer",
-          r["violations_claimed"] == 36,
+          r["violations_claimed"] == 7,
           f"{r['violations_claimed']} / {r['violations']}")
     severe = sum(v for k, v in r["viol_kinds"].items()
                  if any(x in (lh.SPAN_REACH, lh.SPAN_SUBSTITUTED,
                               lh.SPAN_UNATTRIBUTED) for x in k))
-    check("9 of them could not be reconstructed from the printed words even "
-          "in principle (reach / substituted / unattributed)", severe == 9,
+    # REPINNED 2026-08-23: ~~9~~ -> 8. One of the nine left with the 47 the
+    # widened door retired; the other eight are the residue this check
+    # exists to keep visible.
+    check("8 of them could not be reconstructed from the printed words even "
+          "in principle (reach / substituted / unattributed)", severe == 8,
           f"{severe} / {r['violations']}; the remaining "
           f"{r['violations'] - r['violations_claimed'] - severe} are the "
           f"declared anchor cut, visible in the label")
