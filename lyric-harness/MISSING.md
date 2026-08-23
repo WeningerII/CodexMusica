@@ -7948,3 +7948,53 @@ without reintroducing the `"0\n0"` defect the original comment records: on a
 zero count grep still prints `0`; on an absent file it prints nothing and the
 default expansion supplies the `0`. One value either way. Measured on both
 arms under `bash -e` before shipping.
+
+### M-66 · `PREDICTABLE_RHYME` was in the loop's vocabulary and outside its reach — the aggregate named no line, so the flagship enforcement of doctrine 9 could not ask for a single revision `CLOSED` 2026-08-23
+**By owner ruling, verbatim: "measure-first then adopt, and yes add
+PREDICTABLE_RHYME to mandatory pursue"** — the second half of a sitting whose
+first half (the in-line rhyme calibration,
+`quality/INTERNAL_RHYME_PREREGISTRATION.md`) answers the same complaint one
+axis over: this harness's enforcement was riddled with opt-ins, and the
+end-rhyme predictability check was the sharpest case because BOTH halves were
+already built and neither could reach the other.
+
+**THE SHAPE.** `floor.py`'s `PREDICTABLE_RHYME` note fired as an AGGREGATE —
+"N of M pairs above 0.90" — with an empty `locations`, and `loop.py`'s
+`MANDATORY_PURSUE` held `MODAL_RHYME` and `HOMEOTELEUTON` but not this code,
+under a comment saying it "cannot be pursued per-line (it names no line)".
+Both sentences were locally true and jointly a dead end: the finding named no
+line BECAUSE THE EMISSION THREW THE LINES AWAY — `_predictability` computes
+`(i, j, v)` per pair and the emitter kept only the fraction — and the pursue
+set excluded it because the finding named no line. So on a draft `song`
+reported at 3 of 3 pairs above 0.90, `revise` returned **SUCCESS in 0
+rounds**: the identical machinery that briefs a 24-candidate field for a
+`MODAL_RHYME` note sat unreachable one code over. Doctrine 48's own case —
+the mechanism was mechanical, and the wiring between two mechanical halves
+was prose.
+
+**THE FIX, two edits, both superseding recorded arguments (doctrine 17, the
+strikes stay visible in the code).** (1) `floor.py`'s emitter keeps the
+triples and emits `locations` = the 1-based line numbers of BOTH members of
+every obvious pair — both, because a pair is above 0.90 as a PAIR and holding
+one end open while the partner stays closed would offer the writer half a
+question; the `resolved_elsewhere` machinery already closes the partner when
+one end's fix clears the pair. The struck comment ("this check wants the
+values only") recorded the aggregation as if it were the phenomenon. (2)
+`loop.py`'s `MANDATORY_PURSUE` gains `PREDICTABLE_RHYME`; the struck comment
+conflated the modal head (frequency rank of a candidate) with predictability
+(probability of a PAIR) — overlapping populations, neither containing the
+other, and "names no line" was a fact about the aggregation, not the code.
+The note fires only inside a profile whose `predictability_max` was MEASURED
+(`sonnet` 0.8333, `song` 0.9286; `section` has none), so the pursue is
+calibration-gated by construction.
+
+**PROVEN END TO END on a 14-line, 126-token draft inside the sonnet band**:
+the finding lands per-line (locations 1–14), `brief()` offers the candidate
+field with the modal head FORBIDDEN, and a real `revise_loop` drove the
+obvious fraction **7/7 → 5/7**, under the 0.8333 threshold — the finding
+CLEARS, where the identical draft was previously SUCCESS-in-0-rounds with
+the aggregate standing. The loop's stop conditions needed no change:
+`--pursue`'s existing machinery holds the lines open, which is exactly what
+the 2026-08-15 `pursue` coordinate was built for and could never reach here.
+`test_floor` / `test_loop` / `test_revise` / `test_nc_census` / `test_verbs`
+all green at rc 0 after the change.

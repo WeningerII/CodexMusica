@@ -1227,14 +1227,26 @@ class SlopFloor:
         thr = d.resolve("predictable_pair_fraction_max", prof)
         pairs = self._pairs(lines, scheme)
         # `_predictability` returns (i, j, value) aligned to its pairs since
-        # 2026-08-14; this check wants the values only, and the ratio below
-        # is why the misalignment it used to carry was never visible here.
-        preds = ([v for _i, _j, v in self.qf._predictability(lines, pairs)]
+        # 2026-08-14. ~~this check wants the values only~~ — it wants all
+        # three since 2026-08-23 (owner ruling): the finding joined
+        # `loop.MANDATORY_PURSUE`, and a pursued note must NAME ITS LINES or
+        # the loop has nothing to hold open. The lines were always computed
+        # here and thrown away in this aggregation; keeping them is the same
+        # move CLICHE_PAIR/SHARED_SUFFIX have always made, 1-based via the
+        # same +1.
+        preds = (list(self.qf._predictability(lines, pairs))
                  if thr is not None else [])
         if preds:
-            obvious = [p for p in preds if p > d.predictability_max]
+            obvious = [(i, j, v) for i, j, v in preds
+                       if v > d.predictability_max]
             frac = len(obvious) / len(preds)
             if frac > thr:
+                # BOTH members of every obvious pair: either side's word can
+                # move the pair out of the top of its field, and the loop's
+                # own `resolved_elsewhere` machinery already closes the
+                # partner when one side's fix clears the pair — that is what
+                # it was built for (2026-08-16, defect B).
+                locs = sorted({x + 1 for i, j, _ in obvious for x in (i, j)})
                 out.append(Finding(
                     "PREDICTABLE_RHYME", "note",
                     f"{len(obvious)} of {len(preds)} rhymes are near the top "
@@ -1251,7 +1263,11 @@ class SlopFloor:
                     f"the ten-feature joint reaches on the same "
                     f"human-vs-generated split, so it is a weak separator "
                     f"carried by stronger features. Computed against an "
-                    f"English frequency list; unvalidated outside English"))
+                    f"English frequency list; unvalidated outside English. "
+                    f"PURSUED since 2026-08-23 (owner ruling): the lines "
+                    f"named are the members of the obvious pairs, and the "
+                    f"revise loop holds them open — it still may not reject",
+                    locs))
 
         # 6-8. relation-level defects the correctness engine already names.
         # These are length-independent, so they RUN under every profile and

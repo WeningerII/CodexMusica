@@ -2148,9 +2148,15 @@ PINNED = {
     # ~~122~~ -> 123: M-65, the nightly job dying on its first line whenever
     # its cache was cold — found by asking why the Pages sync skipped (it was
     # skipping correctly) and following that to two nights of red on main.
-    "coverage_entries": 123,  # M-49..M-59 filed 2026-08-22 wiring
+    # ~~123~~ -> 124: M-66, PREDICTABLE_RHYME in the loop's vocabulary and
+    # outside its reach — closed by owner ruling 2026-08-23 ("add
+    # PREDICTABLE_RHYME to mandatory pursue"): the aggregate note now emits
+    # both members of every obvious pair as locations, and the pursue set
+    # holds it.
+    "coverage_entries": 124,  # M-49..M-59 filed 2026-08-22 wiring
                               # the relation route (97..106 superseded);
-                              # M-60..M-65 filed 2026-08-23 driving CI green
+                              # M-60..M-66 filed 2026-08-23 driving CI
+                              # green, then the pursue ruling
     "coverage_audited": 19,
 }
 

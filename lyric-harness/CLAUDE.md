@@ -320,7 +320,7 @@ null must not become enforceable"~~ — STRUCK. It is the same prove-it-first
 instinct that produced the two-name default. **The null sweep governs what
 this harness may ASSERT unprompted; it does not govern what a writer may ASK
 FOR by name.**
-**ALL 77 ARE ASKABLE SINCE 2026-08-22 — 0 BLOCKED** (`python3 quality/schema_census.py` re-derives it; `quality/test_capabilities.py` §8 pins it). Seven capabilities stood in the way at the last count and every one closed by building the CONSTRUCTOR that lets a caller DECLARE the coordinate, never by inferring it: `declare_senses`, `declare_stub_resolution`, `declare_period_surface`, `declare_beat`, `declare_lifts`/`search_lifts`, and `declare_delivery` for the delivered/sung surfaces. Doctrine 4 is untouched — its own words are "no beat grid without audio OR A DECLARED TEMPO", so an INFERRED grid is still refused and `frames.beat` is still None by default. Two schemas also needed a PREDICATE rather than a capability: a bare `requires=` gate cannot make a schema selective, and stamping it would have labelled every perfect rhyme trite and every internal rhyme offbeat — which `UNPROVIDABLE` predicted in as many words.
+**ALL 77 ARE ASKABLE SINCE 2026-08-22 — 0 BLOCKED** (`python3 quality/schema_census.py` re-derives it; `quality/test_capabilities.py` §8 pins it). Seven capabilities stood in the way at the last count and every one closed by building the CONSTRUCTOR that lets a caller DECLARE the coordinate, never by inferring it: `declare_senses`, `declare_stub_resolution`, `declare_period_surface`, `declare_beat`, `declare_lifts`/`search_lifts`, and `declare_delivery` for the delivered/sung surfaces. Doctrine 4 is untouched — its own words were then "no beat grid without audio OR A DECLARED TEMPO" (amended 2026-08-23 to name the DECLARED TEMPO alone: audio left the project's vocabulary by owner ruling, and the quote here is kept as the historical wording), so an INFERRED grid is still refused and `frames.beat` is still None by default. Two schemas also needed a PREDICATE rather than a capability: a bare `requires=` gate cannot make a schema selective, and stamping it would have labelled every perfect rhyme trite and every internal rhyme offbeat — which `UNPROVIDABLE` predicted in as many words.
 **WHAT ROUTING BUYS, counted apart (doctrine 79) — 35 of the 77 were live in a mandate at the halfway mark.** 33 out of the box, plus 2 (`epistrophe / radif`,
 `qafiya (before the radif)`) that this same lot turned on by calling
 `relations.mark_refrain_tail` when a declared schema needs the frame — and
@@ -798,8 +798,25 @@ introducing one — the exact regression `new_flags` was split out to end.
 BYTE-IDENTICAL with the note pursued. The pair composes doctrine 9 end to end
 — the loop now ASKS for a non-modal word and `verify()`'s pre-existing
 `modal_taken` rejection refuses an answer that takes one. `--pursue=CODE,CODE`
-on the CLI; empty by default, so every earlier run reads unchanged; a code
+on the CLI; ~~empty by default, so every earlier run reads unchanged~~; a code
 `brief()` cannot offer a field for REFUSES rather than sitting inert.
+**THE DEFAULT IS NOT EMPTY SINCE THE BAN WENT UNSKIPPABLE, AND
+`PREDICTABLE_RHYME` JOINED IT 2026-08-23 BY OWNER RULING (`MISSING.md`
+M-66).** `loop.MANDATORY_PURSUE` is
+`{MODAL_RHYME, HOMEOTELEUTON, PREDICTABLE_RHYME}` and the CLI flag only ever
+ADDS to it. The third member was in the loop's vocabulary and outside its
+reach the whole time: the floor's note fired as an AGGREGATE ("N of M pairs
+above 0.90") with no locations, and the old comment beside `MANDATORY_PURSUE`
+excused the omission with "it names no line" — a fact about the EMISSION, not
+the phenomenon, since `_predictability` computes per-pair triples and the
+emitter was discarding them. The emitter now names BOTH members of every
+obvious pair (the partner is closed by `resolved_elsewhere` when one end's
+fix clears the pair), `brief()` offers the same candidate field a
+`MODAL_RHYME` line gets, and a real `revise_loop` drove a 7/7 draft to 5/7 —
+under the sonnet profile's measured 0.8333, so the finding CLEARS — where the
+byte-identical draft was previously SUCCESS in 0 rounds. The note still fires
+only inside a profile whose `predictability_max` was measured, so the pursue
+is calibration-gated by construction.
 
 **AND THE BRIEF TOLD A WRITER SOMETHING FALSE ABOUT THE MANDATE — FIXED
 2026-08-16, FOUND BY WRITING A SONG THROUGH `--propose=defer:`.** `brief()`
@@ -2100,9 +2117,22 @@ from the first run — do not drift from these either:**, merged into one run.)
    2 return zero events.**
    The standing record of what that layer does and does not
    license is METHOD § Time layer.
-   Still no beat grid — there is no audio, so isochrony is an assumed
+   ~~Still no beat grid — there is no audio, so isochrony is an assumed
    coordinate, not a measurement, and "on the beat" is not a claim this
-   project can make). 
+   project can make.~~ **AMENDED 2026-08-23 BY OWNER RULING, AND THE
+   RULING IS PERMANENT: AUDIO IS NOT IN THIS PROJECT'S VOCABULARY.** The
+   owner's words: it is entirely unnecessary, it will never be supplied,
+   and the recurring reflex of proposing it was poisoning the reasoning —
+   three sessions cited "without audio" as if audio were the missing
+   instrument, when COUNTING is the instrument: `word_syllable_map`
+   counts syllables, `fit.py` answers satisfiability against a DECLARED
+   meter, and the composition grammar recovers meter from text. The
+   rule's refusal is unchanged and restated in the only terms it ever
+   needed: **no beat grid without a DECLARED tempo/meter — an INFERRED
+   grid is refused, and the declaration is the one and only route in.**
+   Isochrony remains an assumed coordinate unless declared; what is
+   struck is audio as the contemplated alternative source, everywhere,
+   forever). 
    Perception (theta is a function: per-genre theta_chain, promotion
    licensed only by declared meter). Value (cliche pairs, shared-suffix
    stem check, REPEAT flags; doggerel = value failure, not rhyme type).
@@ -2694,7 +2724,9 @@ rather than this paragraph — a roster copied into two files drifts in both.
    (`m_needed >= 1` AND `share_firable == 0.0`, median family / m_needed
    5.5x-21.3x). The layer is not usable; it is just not usable for the reason
    stated in one absolute too many. The beat grid still does not
-   exist and cannot until audio or a declared tempo enters. NOT a
+   exist and cannot until ~~audio or~~ a declared tempo enters (the
+   audio clause struck 2026-08-23 with doctrine 4's amendment — the
+   declaration is the only route, by owner ruling). NOT a
    second rap corpus -- that was doctrine 8 broken twice (single
    source, single language) and no rap is admissible anyway. The
    binding constraint is EVENTS PER ITEM: 8 events at ~75% of an item's

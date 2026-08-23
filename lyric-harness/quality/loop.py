@@ -309,12 +309,28 @@ def swap_end_word(text, new_word):
 #: the loop keeps asking until the finding clears, or it stops loudly with
 #: the line named in `unresolved_pursued` and the CLI exits nonzero.
 #:
-#: `MODAL_RHYME` is the member because it is the per-LINE laziness finding
-#: with a built candidate field (doctrine 9's own machinery); the whole-draft
-#: `PREDICTABLE_RHYME` fraction empties as a consequence of clearing it and
-#: cannot be pursued per-line (it names no line). `verify()` is untouched:
-#: pursuing changes what the loop ASKS FOR, never what it rejects.
-MANDATORY_PURSUE = frozenset({"MODAL_RHYME", "HOMEOTELEUTON"})
+#: `MODAL_RHYME` is a member because it is the per-LINE laziness finding
+#: with a built candidate field (doctrine 9's own machinery). ~~the
+#: whole-draft `PREDICTABLE_RHYME` fraction empties as a consequence of
+#: clearing it and cannot be pursued per-line (it names no line)~~ —
+#: SUPERSEDED 2026-08-23, owner ruling, and BOTH clauses were half-true.
+#: The overlap is real but not containment: the modal head is a FREQUENCY
+#: rank over the field and predictability is a probability over the pair,
+#: so a pair can sit above 0.90 predictability with neither word in the
+#: other's modal head — clearing every MODAL_RHYME does not empty the
+#: fraction. And "it names no line" was a fact about the AGGREGATION, not
+#: the measurement: `_predictability` returns (i, j, value) per pair and
+#: `SlopFloor.check` threw the lines away. It keeps them now (the
+#: CLICHE_PAIR/SHARED_SUFFIX pattern), the finding lands per-line through
+#: `inspect()`'s existing locations routing, `PREDICTABLE_RHYME` has been in
+#: `RHYME_FINDINGS` since 2026-08-15 so `brief()` hands those lines a
+#: candidate field with the modal head marked FORBIDDEN — and the member
+#: below makes the loop hold them open. `verify()` is untouched: pursuing
+#: changes what the loop ASKS FOR, never what it rejects, and this finding
+#: fires only where a measured profile declared its threshold, so a draft
+#: inside the band is asked nothing.
+MANDATORY_PURSUE = frozenset({"MODAL_RHYME", "HOMEOTELEUTON",
+                              "PREDICTABLE_RHYME"})
 
 
 def _open_lines(briefs, pursue=frozenset()):

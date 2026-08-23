@@ -2047,6 +2047,20 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/kalevala_calibration.py --check
 
+      # THE IN-LINE RHYME TABLE (owner ruling 2026-08-23, measure-first):
+      # re-derives the observed arm and null replicates 1 and 20 EXACTLY
+      # against data/internal_rhyme_eng.tsv — the bounded-cost spelling the
+      # registration's own amendment declares (the full 21-arm re-run is
+      # ~35 min at 8-wide; three arms bound it while pinning both ends of
+      # the seed range). Exit 3 on drift. Lives here and not in the
+      # per-push pool for the same measured reason as its two siblings
+      # above: the cost is CPU-minutes, not seconds. Wired the same day
+      # the pin was created so it never joins pin_sweep's "asked by
+      # nothing that gates" list (MISSING.md M-21).
+      - name: In-line rhyme calibration check (observed + replicates 1 and 20)
+        working-directory: lyric-harness
+        run: python3 quality/internal_rhyme_rate.py --check
+
       # THE FULL ARM IS NOW BOUNDED AND RESUMABLE, HANDED HERE BY THE OWNER
       # 2026-08-20 because it cannot finish anywhere else. The corpus grew
       # 4,930 -> 8,667 items in the loading campaign, and the cold cost grew
