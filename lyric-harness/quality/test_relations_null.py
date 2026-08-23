@@ -436,9 +436,20 @@ def s10_missing_complete():
     check("§10 `capability` is still the alphabetically first one, "
           "unchanged",
           fam.capability == "prominence" and fam.capability == fam.missing[0])
+    # READS `structural()` SINCE 2026-08-23, not `BLOCKERS` directly. The
+    # capability moved to `N.LIFTED` when `eng.English` began declaring a
+    # manner partition, and this check went red while its sentence stayed
+    # true: on the MALAY slice `family rhyme` refuses for both, and the two
+    # are still different kinds. English having the partition does not make
+    # the Malay absence a cheap one, and asking the union by name is what
+    # keeps that distinction in one place.
     check("§10 the two answer different questions — the cheap blocker is not "
           "the structural one",
-          "prominence" not in N.BLOCKERS and "quotient:manner" in N.BLOCKERS)
+          not N.structural("prominence") and N.structural("quotient:manner"),
+          f"prominence structural={N.structural('prominence')}, "
+          f"quotient:manner structural={N.structural('quotient:manner')} "
+          f"(in BLOCKERS={'quotient:manner' in N.BLOCKERS}, "
+          f"in LIFTED={'quotient:manner' in N.LIFTED})")
 
 
 # ---------------------------------------------------------------------------

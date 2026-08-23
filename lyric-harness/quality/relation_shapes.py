@@ -689,7 +689,14 @@ PINNED = {
     "n_pair_and_arity": 1,
     # -- slot totals --------------------------------------------------------
     "span_slots": 154,
-    "placement_slots": 91,
+    #: REPINNED 2026-08-23 from ~~91~~ (doctrine 17). ONE slot, and it is
+    #: `off_beat` on `offbeat internal rhyme`: the schema kept its `beat`
+    #: capability gate AND gained the placement, because the gate is what
+    #: makes an undeclared grid a refusal and the placement is what makes a
+    #: declared one selective, and either alone is one of the two defects
+    #: that schema has had. The gate-only version fired on every internal
+    #: rhyme and called it off-beat.
+    "placement_slots": 92,
     # -- the survey ---------------------------------------------------------
     #    `survey_rows` is NOT here: `audit_register.PINNED["index_rows"]` owns
     #    it (exclusion 1).
@@ -724,9 +731,14 @@ PINNED_PLACEMENT_PROFILE = (
     ("a_is_split_token", 1), ("a_line_final", 1), ("at_lift", 1),
     ("both_line_final (forbidden)", 1), ("both_multiword", 1),
     ("exactly_one_line_final", 1), ("lift_index", 1),
-    ("neither_line_final", 1), ("spans_overlap", 1),
+    ("neither_line_final", 1), ("off_beat", 1), ("spans_overlap", 1),
     ("word_count_differs", 1),
 )
+#: `off_beat` ADDED 2026-08-23 (doctrine 17). It is the whole of the
+#: `placement_slots` 91 -> 92 move above, and it is the placement half of
+#: `offbeat internal rhyme` -- the half that makes a DECLARED beat grid
+#: selective, as against the `beat` capability gate, which is the half that
+#: makes an UNDECLARED one refuse. Every other row is unchanged.
 
 #: THE FIGURE CENSUS: 13 distinct signatures over the 77 schemas.  Pinned as
 #: the SIGNATURE and not as `_fmt_fig`'s rendering of it, so a cosmetic change

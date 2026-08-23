@@ -1643,6 +1643,28 @@ def menu_pairs(cov):
 #: REGENERATE WITH `--verify --record`, which prints this table and the two
 #: below to stdout for pasting.  It does not edit the file: a ledger a program
 #: can rewrite when it disagrees with itself is not a ledger.
+#: RE-RECORDED 2026-08-23 by `record_extension()`, SEVEN ROWS MOVED, and the
+#: seven are the capability work of 2026-08-22/23 arriving in the ledger
+#: (doctrine 17 — the old verdicts are struck here, not deleted):
+#:
+#:   family rhyme          ~~cannot_obtain~~ -> extendable   `quotient:manner`
+#:   multisyllabic rhyme   ~~cannot_obtain~~ -> extendable   `quotient:manner`
+#:   homoioteleuton        ~~cannot_obtain~~ -> extendable   `morphology`
+#:   polyptoton            ~~cannot_obtain~~ -> extendable   `morphology`
+#:   holorhyme             ~~cannot_obtain~~ -> no_instance  `lexicon`
+#:   rhyming slang         ~~cannot_obtain~~ -> no_instance  `lexicon`
+#:   trite rhyme           ~~cannot_obtain~~ -> no_instance  `quotient:trite`
+#:
+#: `cannot_obtain` MEANS "no text this repo can reach carries the relation",
+#: and for these seven it had stopped meaning that: the text was always
+#: reachable and the RESOURCE was the thing missing. Four now measure
+#: `extendable`; three measure `no_instance`, which is the honest and less
+#: flattering half — the resource arrived and the ledger slice carries zero
+#: instances, so the observation is 0 and no replicate can go lower.
+#: THE VERDICT PICKS WHICH OF SIX REMEDIES A READER IS PRINTED (doctrine 44),
+#: and sending someone hunting for a text when what they need is a declared
+#: lexicon is the wrong errand. Row count 77 before and after; nothing added,
+#: nothing dropped, and the tuple carries one row per schema in the registry.
 EXTENSION_LEDGER = (
     ('perfect rhyme',                           'controlled',      6,  4),
     ('rime riche',                              'extendable',      6,  0),
@@ -1658,7 +1680,7 @@ EXTENSION_LEDGER = (
     ('Kalevala alliteration (weak)',            'controlled',      2,  3),
     ('Kalevala alliteration (strong)',          'extendable',      2,  0),
     ('paroemion',                               'no_instance',     6,  0),
-    ('family rhyme',                            'cannot_obtain',   8,  0),
+    ('family rhyme',                            'extendable',      8,  0),
     ('additive rhyme',                          'no_instance',     8,  0),
     ('subtractive rhyme',                       'extendable',      8,  0),
     ('semirhyme',                               'extendable',      8,  0),
@@ -1670,12 +1692,12 @@ EXTENSION_LEDGER = (
     ('eye rhyme',                               'cannot_obtain',   8,  0),
     ('historical rhyme',                        'cannot_obtain',   8,  0),
     ('dialect rhyme',                           'cannot_obtain',   8,  0),
-    ('homoioteleuton',                          'cannot_obtain',   8,  0),
-    ('polyptoton',                              'cannot_obtain',   4,  0),
-    ('multisyllabic rhyme',                     'cannot_obtain',   6,  0),
+    ('homoioteleuton',                          'extendable',      8,  0),
+    ('polyptoton',                              'extendable',      4,  0),
+    ('multisyllabic rhyme',                     'extendable',      6,  0),
     ('mosaic rhyme',                            'extendable',      8,  0),
     ('compound / phrasal rhyme',                'extendable',      8,  0),
-    ('holorhyme',                               'cannot_obtain',   2,  0),
+    ('holorhyme',                               'no_instance',     2,  0),
     ('broken rhyme',                            'no_instance',     8,  0),
     ('enjambed rhyme',                          'extendable',      4,  0),
     ('rhyming reduplication',                   'no_instance',     0,  0),
@@ -1715,12 +1737,12 @@ EXTENSION_LEDGER = (
     ('pantun ABAB',                             'extendable',      4,  0),
     ('blues AAB stanza',                        'cannot_obtain',   2,  0),
     ('offbeat internal rhyme',                  'cannot_obtain',   4,  0),
-    ('rhyming slang',                           'cannot_obtain',   4,  0),
+    ('rhyming slang',                           'no_instance',     4,  0),
     ('transformative / bent rhyme',             'cannot_obtain',   4,  0),
     ('sung-delivery rhyme',                     'cannot_obtain',   4,  0),
     ('refrain by reference',                    'cannot_obtain',   4,  0),
     ('incremental repetition',                  'no_instance',     5,  0),
-    ('trite rhyme',                             'cannot_obtain',   8,  0),
+    ('trite rhyme',                             'no_instance',     8,  0),
 )
 
 #: THE DERIVATION'S OWN ERROR, FROZEN — DIRECTION ONE.  Pairs the census
@@ -2818,6 +2840,28 @@ LIFTED = {
         "a caller supplies the inventory and the panel slices do, which is "
         "the shape the row itself described. Blocker was: obtain."),
 }
+
+def structural(capability):
+    """Is this capability's absence a STRUCTURAL fact rather than a cheap one?
+
+    A cheap blocker is one a stream can simply be told -- `prominence` is
+    supplied by declaring it. A structural one needs an INPUT: a partition, a
+    lemmatiser, an inventory, a sourced reconstruction. `BLOCKERS` and
+    `LIFTED` between them hold every structural capability this repo has
+    written down, and the split between the two tables is about whether the
+    input has ARRIVED -- not about whether the capability was ever cheap.
+
+    Named here on 2026-08-23 because the day `quotient:manner` moved from
+    BLOCKERS to LIFTED, `test_relations_null.py` §10 went red while saying
+    something still true: on the Malay slice `family rhyme` refuses for both
+    `prominence` and `quotient:manner`, and those are different KINDS of
+    refusal. English having the partition does not make the Malay absence
+    cheap. Spelling the union at each call site would have put the same idea
+    in two places and let them drift, which is the defect this file exists to
+    report (doctrine 1).
+    """
+    return capability in BLOCKERS or capability in LIFTED
+
 
 BLOCKERS = {
     "sense": "a sense inventory. `antanaclasis` is one word in two SENSES; "
