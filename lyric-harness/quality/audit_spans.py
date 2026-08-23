@@ -526,6 +526,32 @@ def sweep_record(lex, decl, verbose=True):
 
 # ---------------------------------------------------------------------------
 
+#: REPINNED 2026-08-23 — THE DOOR MOVED, AND ONLY THE DOOR (`MISSING.md`
+#: M-59, owner ruling 2026-08-22). `Declaration.admit`'s default widened from
+#: ("RHYME", "RIME_RICHE") to all four relations, so a pair the conjunctive
+#: band had DEMOTED to ASSONANCE or CONSONANCE stopped being charged as a
+#: violation. ~~violations 82~~ -> 35 and ~~violations_claimed 36~~ -> 7
+#: (doctrine 17 — the superseded values stay visible).
+#:
+#: THE MOVE IS ONE-DIRECTIONAL AND ALREADY ACCOUNTED FOR ELSEWHERE: CLAUDE.md's
+#: Test discipline records the same 82 -> 35 as **47 pairs stopped violating, 0
+#: newly violated, being 38 CONSONANCE and 9 ASSONANCE**, and 82 - 47 = 35
+#: exactly. So this is a SECOND instrument reproducing the battery's own
+#: figure, not this file being tuned to meet it — which is what the note below
+#: forbids.
+#:
+#: `mandated`, `judged`, `refused` and `claimed` are UNMOVED, and that is the
+#: control: 1064 / 1014 / 50 are ingestion verdicts reached before any
+#: comparison, and 632 is the claim rate over ALL judged pairs. Only the two
+#: figures scoped to the violations move, which is what "the door and only the
+#: door" means when it is measured rather than asserted.
+#:
+#: THE RATE MOVED TOO AND IT IS WORTH SAYING: 36 of 82 was 43.9%, 7 of 35 is
+#: 20.0%. The 47 pairs that left were disproportionately ones whose report line
+#: named the pair correctly, so what remains is a HARDER residue for this
+#: instrument's own subject — the number, the label and the evidence agreeing.
+#: Not a regression: nothing about the rendering changed, the population did.
+#:
 #: THE COMMITTED FIGURES, pinned so `--check` can go red. These are
 #: `RESULTS_SPANS.md`'s headline, and until 2026-08-13 nothing could fail on
 #: them: `main` returned a literal 0 whatever the sweep found, so the process
@@ -538,11 +564,12 @@ def sweep_record(lex, decl, verbose=True):
 #: and repin; do not tune anything to meet them.
 PINNED = {
     "mandated": 1064, "judged": 1014, "refused": 50,
-    "violations": 82,
+    #: ~~82~~ under the two-name door; 35 since it widened (M-59)
+    "violations": 35,
     #: report lines that name the two words that actually produced the number
     "claimed": 632,
-    #: the same question asked of the violations alone
-    "violations_claimed": 36,
+    #: the same question asked of the violations alone. ~~36~~ of ~~82~~
+    "violations_claimed": 7,
 }
 
 

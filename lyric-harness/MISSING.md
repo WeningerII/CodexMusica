@@ -5375,8 +5375,12 @@ shape, one layer down. Both warnings are struck in place.
 
 **THE SUITE THAT SHOULD HAVE CAUGHT IT WAS GREEN FOR THE WRONG REASON.**
 `test_pin_sweep.py` asserted that `audit_joint_auc_null` reads `CANNOT RUN` —
-true only when `data/feature_cache.json` is cold. That file is **gitignored**,
-so CI is always cold and the assertion was permanently, accidentally green,
+true only when the feature cache is cold. That cache (data/feature_cache.json,
+a GITIGNORED build artifact — deliberately NOT written here as a repo-path
+citation, because it is not one: it is present in a working tree that has run
+the discrimination suite and absent from every clean checkout, and no claim
+about it can be true in both) is written by a run and never committed, so CI
+is always cold and the assertion was permanently, accidentally green,
 while anyone who had just run the discrimination suite got a red for a reason
 unrelated to the sweep. **A suite that can only pass in one environment is not
 testing the thing it names.** Both arms are pinned now, the cache state is read
@@ -7779,3 +7783,48 @@ appeared"* and *"the interrupt was mishandled"* are different findings
 (doctrine 20). One check added, stating the precondition the sleep left
 implicit; `p.wait` is raised to 120s with a `kill` fallback, so a slow unwind
 is not an exception three frames down.
+
+### M-63 · the register asserted a GITIGNORED build artifact as a repo path, so `verify_entries` could only pass where a run had already happened `CLOSED` 2026-08-23
+**Found by reproducing CI's tree rather than by reading the log** — the
+`record` job's failing step scrolls out of the retrievable log window, so the
+method was to hardlink the working tree, delete exactly what a clean checkout
+lacks and CI does not stage — the feature cache, the provenance ledger, the
+authority sources and the derived label tables, named in `.gitignore` and
+deliberately NOT spelled here as backticked paths, for the reason this entry
+is about — and run the instrument there.
+
+**ONE FALSE CLAIM, AND IT IS M-33's OWN SENTENCE.** The entry named the
+feature cache by its path, in backticks, and added *"that file is
+**gitignored**"* — correct English, and `REPO_PATH_EXISTS` reads a backticked
+path as a claim of
+PRESENCE unless a `PATH_ABSENT_PHRASES` phrase binds to it inside
+`ABSENCE_WINDOW`. "gitignored" is not one of those phrases, so the register
+asserted that a file absent from every clean checkout is on disk.
+
+**AND SAYING "IS NOT IN THE REPOSITORY" IS NOT THE FIX EITHER — THAT WAS THIS
+LOT'S FIRST ATTEMPT AND THE INSTRUMENT REFUSED IT FROM THE OTHER SIDE.** With
+the absence phrase bound, a developer machine (which HAS run the suite) then
+reads `on disk=True, the entry asserts ABSENT`. The claim is not stale in
+either direction; it is UNSTATEABLE as a path claim, which is the finding.
+The remedy is to stop making one.
+
+**THE ENTRY WAS ABOUT THIS EXACT DEFECT.** M-33's subject is
+`test_pin_sweep.py` being *"permanently, accidentally green"* because CI is
+always cold — and the sentence recording it was itself only true where a run
+had already written the cache. The register reproduced, one layer up, the
+thing it was recording. CLAUDE.md already carries the correct move for the
+sibling artifact, the provenance ledger, and it does not spell that path in
+backticks either: it calls it *"a GITIGNORED build artifact — deliberately not
+written as a repo-path citation, because it is not one, and a claim about a
+file that is present in a working tree and absent from a clean checkout cannot
+be true in both."* M-33 does the same now — it names the cache in plain text
+and states why it is not a citation.
+
+**THE REPRODUCTION IS THE REUSABLE PART.** `quality/verify_entries.py` passes
+on a developer machine and fails in CI for a class of reason no log excerpt
+shows; a hardlinked copy with the gitignored artifacts removed answers in one
+run, costs no disk, and touches none of the real tree's files but the ones it
+deleted from its own copy. Run it BOTH WAYS: this entry's own first draft
+passed on the real tree and failed 3 ways on the CI-shaped one, because it
+had cited the deleted artifacts as backticked paths — the defect it exists to
+record, committed inside the record of it, which is this file's oldest shape.

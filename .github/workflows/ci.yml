@@ -1672,6 +1672,7 @@ jobs:
           # never trips `set -e` for it) and the LAST line is the gate: the
           # step fails if ANY suite failed, never silently.
           rm -f /tmp/suites-failed
+          rm -rf /tmp/suite-logs && mkdir -p /tmp/suite-logs
           for f in align band capabilities capacity coda controls corpus_audit \
                    crosslinguistic cym \
                    corpus_taxonomy data_row_claims declared_inputs english_text \
@@ -1693,8 +1694,19 @@ jobs:
             while [ "$(jobs -rp | wc -l)" -ge 4 ]; do
               wait -n
             done
+            # THE OUTPUT IS ALSO KEPT PER SUITE, 2026-08-23. Four-wide
+            # interleaving means a failing suite's own lines are scattered
+            # through a 5,000-line step, and the retrievable log window does
+            # not reach back to the suites that run first — so `test_pin_sweep`
+            # could be named as failing on two consecutive runs with its
+            # reason visible nowhere. `tee` keeps the live stream AND a
+            # per-suite copy, and the gate below prints the tail of each
+            # failing suite's own log, unmixed, where a reader is already
+            # looking. A gate that names a failure it cannot show is half a
+            # gate.
             { echo "── quality/test_$f.py"
-              python3 "quality/test_$f.py" || echo "$f" >> /tmp/suites-failed; } &
+              python3 "quality/test_$f.py" 2>&1 | tee "/tmp/suite-logs/$f.log"
+              [ "${PIPESTATUS[0]}" -eq 0 ] || echo "$f" >> /tmp/suites-failed; } &
           done
           wait
           # THE GATE NAMES WHAT FAILED. It was `touch` + `test ! -f`, so the
@@ -1708,7 +1720,14 @@ jobs:
             echo "=============================================="
             echo "FAILING SUITES ($(wc -l < /tmp/suites-failed)):"
             sed 's|^|  quality/test_|;s|$|.py|' /tmp/suites-failed
-            echo "(output above is interleaved 4-wide; search for the name)"
+            while read -r f; do
+              echo ""
+              echo "=============================================="
+              echo "quality/test_$f.py — its OWN last 60 lines, unmixed"
+              echo "=============================================="
+              tail -n 60 "/tmp/suite-logs/$f.log" 2>/dev/null \
+                || echo "  (no log — the suite died before writing anything)"
+            done < /tmp/suites-failed
             exit 1
           fi
 

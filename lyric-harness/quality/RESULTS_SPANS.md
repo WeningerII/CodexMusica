@@ -20,9 +20,28 @@ its first instrument and its first measurement.
 ## Headline
 
 **Of the 1,014 sonnet pairs the harness JUDGES, 632 name the two words that
-produced their number and 382 do not. Of the 82 violations, 36 do and 46 do
-not; 9 of those 46 could not be reconstructed from the printed words even in
-principle.**
+produced their number and 382 do not. Of the ~~82~~ **35** violations,
+~~36~~ **7** do and ~~46~~ **28** do not; ~~9 of those 46~~ **8 of those 28**
+could not be reconstructed from the printed words even in principle.**
+
+*THE VIOLATION HALF IS REPINNED 2026-08-23 AND THE DOOR IS THE WHOLE REASON
+(`MISSING.md` M-59, owner ruling 2026-08-22).* `Declaration.admit`'s default
+widened from `("RHYME", "RIME_RICHE")` to all four relations, so a pair the
+conjunctive band had DEMOTED to ASSONANCE or CONSONANCE stopped being charged.
+CLAUDE.md's Test discipline records the same move as **47 pairs stopped
+violating, 0 newly violated — 38 CONSONANCE and 9 ASSONANCE** — and
+82 − 47 = 35 exactly, so `audit_spans.py` is a SECOND instrument reproducing
+the battery's figure rather than this file being tuned to it.
+*THE FIRST HALF IS THE CONTROL AND IT DOES NOT MOVE.* 632 / 382 / 1014, and
+`mandated` 1064 / `refused` 50 beside them, are unchanged: those are ingestion
+verdicts and a claim rate over ALL judged pairs, so only the two figures scoped
+to the violations move. "The door and only the door", measured.
+*AND THE RATE MOVED WITH THE COUNT, WHICH IS THE INTERESTING PART.* 36 of 82
+was **43.9%**; 7 of 35 is **20.0%**. The 47 pairs that left were
+disproportionately ones whose report line named its pair correctly, so what
+remains is a harder residue for this file's own subject — the number, the
+label and the evidence agreeing. Nothing about the RENDERING changed; the
+POPULATION did.
 
 *632 / 382 / 1014 REPRODUCES BIT-IDENTICALLY, re-measured 2026-08-13 — the
 headline of this file is unmoved. The VIOLATION split is REPINNED from

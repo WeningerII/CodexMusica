@@ -2131,8 +2131,18 @@ PINNED = {
     #    before treating the structure work as a change of subject. It was.
     # ~~116~~ -> 117 on 2026-08-22: M-59 filed (the default admit set and
     # the `schema:` route). Superseded value kept visible, doctrine 17.
-    "coverage_entries": 117,  # M-49..M-59 filed 2026-08-22 wiring
-                              # the relation route (97..106 superseded)
+    # ~~117~~ -> 121 on 2026-08-23: FOUR filed in one sitting, all from
+    # driving CI to green and all the SAME SHAPE one layer out from the code
+    # — M-60 (the gate could not tell a REFUSAL from a MOVED pin, and the
+    # refusal took two never-run checks down with it), M-61 (`test_capabilities`
+    # named by nothing that gates, the orphan census's third catch in two
+    # days), M-62 (a test that fired its interrupt on a clock, so it certified
+    # the machine it ran on), M-63 (the register asserting a GITIGNORED build
+    # artifact as a repo path, so `verify_entries` could only pass where a run
+    # had already happened). Superseded values kept visible, doctrine 17.
+    "coverage_entries": 121,  # M-49..M-59 filed 2026-08-22 wiring
+                              # the relation route (97..106 superseded);
+                              # M-60..M-63 filed 2026-08-23 driving CI green
     "coverage_audited": 19,
 }
 
