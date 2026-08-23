@@ -2159,7 +2159,7 @@ PINNED = {
     # provenance crash the first non-final span found (M-68), the planner's
     # six literal bounds (M-69), the instrumental freebie (M-70), and the
     # two classes the generator could never draw (M-71).
-    "coverage_entries": 129,  # M-49..M-59 filed 2026-08-22 wiring
+    "coverage_entries": 130,  # M-49..M-59 filed 2026-08-22 wiring
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

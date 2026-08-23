@@ -181,6 +181,36 @@ route that does answer it (`relations.realise` + `quality/figures.py`), because
 a group is a set of lines and a rhyme whose members share a line has one
 member. `quality/test_slots.py`, 9 sections.
 
+**AND THE PIPELINE HAS TWO FRONT HALVES NOW, NOT ONE (2026-08-23,
+`MISSING.md` M-72).** The owner's ruling: *"If an LLM writes something we go
+through all of the steps, if a human does it then we need the same steps. If a
+person puts unstructured song in for example, then the beginning must be to
+structure it."* `plan.py` gave the LLM door its front half; a PASTED song
+reached the graders with nothing, so an operator hand-wrote a `--groups=`
+string or the run was rhyme-only by omission — and every gate downstream is
+only as good as what was declared to it. `quality/recover.py` emits the
+plan's own shape from text, so the same grading command runs and the same
+gates apply.
+**FOUR PROVENANCES, CLOSED AND NOT INTERCHANGEABLE**, which is the module's
+whole discipline: `counted` (arithmetic — the line count, the syllables per
+line), `declared` (the text said so — a `[SECTION]` mark), `derived` (the
+harness inferred it, carrying doctrine 14 IN THE COORDINATE: every edge of the
+recovered cover is a band-passing pair BY CONSTRUCTION), and `REFUSED` (not
+obtainable, not guessed). Sections prefer the declaration in that order and a
+text with neither mark nor blank block is REFUSED, because a sectioning
+invented here would be graded as though the writer had asked for it.
+**THE METER IS REFUSED, AND THAT IS THE AMENDED DOCTRINE 4 RATHER THAN A
+GAP** — counting gives SYLLABLES, which the module reports; a bar grid is a
+declared coordinate, and inferring one would be this harness declaring a meter
+on the writer's behalf and then grading them against it. The refusal names
+`--blueprint=` and does not reach for audio.
+**AND THE RECOVERED COVER IS OVER PLACEMENTS**, which is why it is not
+`mandate_from_graph`: that function's cliques are cliques of `words[-1]`.
+Measured on a six-line fixture — 21 binding sites, 22 admitted pairs, **20 of
+them at a placement other than the line end**, where an end-anchored recovery
+finds 2. Every edge is spelled in the mandate's own notation, so a recovered
+cover hands straight to `--groups=`.
+
 **AND THE PLANNER DRAWS PLACEMENTS AND OVERLAPPING COVERS NOW — TWO CLASSES
 THAT HAD PROBABILITY EXACTLY ZERO FROM THE FRONT DOOR (2026-08-23,
 `MISSING.md` M-71).** The owner's ruling, aimed at the generator: *"if that

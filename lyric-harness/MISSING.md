@@ -8263,3 +8263,60 @@ function.
 `meter_bands.ADOPTED`'s species; `read_table()` opens the artifact) and
 `slots` for `PLANNABLE_PLACEMENTS` only (a hand-declared vocabulary of
 `structures`' species; `slots` reaches `relations`, which opens a file).
+
+### M-72 · the harness had two entrances and only one of them had a front half `CLOSED` 2026-08-23
+**The owner's ruling, verbatim:** *"If an LLM writes something we go through
+all of the steps, if a human does it then we need the same steps. If a person
+puts unstructured song in for example, then the beginning must be to structure
+it. I'd need what we have built to necessarily count the lines, read what is
+written and assign sections and all the other stuff an LLM writer needs to
+have done."*
+
+`quality/plan.py` gives the LLM door a front half: a blueprint and a mandate,
+so a written song reaches the graders with its structure DECLARED. A PASTED
+song reached them with nothing — an operator hand-wrote a `--groups=` string,
+or reached for `--cliques`, or the run was rhyme-only by omission. "We go
+through all of the steps" was true of one door and false of the other, and
+every gate downstream is only as good as what was declared to it.
+
+**`quality/recover.py` IS THE SECOND FRONT HALF**, and it emits the plan's own
+shape so the same grading command runs on it and the same gates apply.
+
+**FOUR PROVENANCES, A CLOSED SET, AND NOT INTERCHANGEABLE** — this is the whole
+discipline of the module rather than a decoration on it. `counted` is
+arithmetic nobody can disagree with (the line count, the syllables per line).
+`declared` is the text saying so (a `[SECTION]` mark the writer wrote).
+`derived` is the harness inferring from its own measurements — and it carries
+doctrine 14 IN THE COORDINATE: the recovered cover's every edge is a
+band-passing pair BY CONSTRUCTION, so grading it against the same band at the
+same theta cannot produce a violation, which is stated where a reader will hit
+it rather than left to be remembered. `REFUSED` is a coordinate that cannot be
+obtained from this text and is NOT guessed.
+
+**SECTIONS PREFER THE DECLARATION, IN THAT ORDER**: a `[SECTION]` mark
+outranks a blank-line block, which is a printer's convention and is stamped
+`derived` for exactly that reason, and a text with NEITHER is **REFUSED** — a
+sectioning invented here would be graded as though the writer had asked for
+it (doctrine 20). The refusal names the remedy, so it is a work order.
+
+**AND THE METER IS REFUSED, WHICH IS THE AMENDED DOCTRINE 4 AND NOT A GAP.**
+Counting is this project's instrument: the module counts syllables per line
+and reports them. It does not infer a bar grid, because a grid is a DECLARED
+coordinate and inferring one would be the harness declaring a meter on the
+writer's behalf and then grading them against it. The refusal names
+`--blueprint=` as the remedy and does not reach for audio — the owner's ban is
+standing and the amended doctrine reads "no beat grid without a DECLARED
+tempo/meter" full stop.
+
+**THE RECOVERED COVER IS OVER PLACEMENTS, NOT OVER LINE ENDS**, which is why
+this module is written now rather than in terms of `mandate_from_graph`: that
+function's cliques are cliques of `words[-1]`. MEASURED on a six-line fixture:
+21 binding sites over 6 lines, 22 admitted pairs, and **20 of the 22 name a
+placement other than the line end** — an end-anchored recovery would have
+found 2. Every edge is spelled in the mandate's own notation, so a recovered
+cover hands straight to `--groups=`.
+
+**NO SILENT CAPS**: past a declared pair bound the web REFUSES rather than
+returning a truncated one, quoting the bound and the population it would have
+compared, because a silently truncated web reads as a song with fewer
+relations in it.
