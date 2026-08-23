@@ -223,12 +223,34 @@ def test_transitivity_defect():
     res = check_scheme(LEX, lines, "AAA", DECL)
     edges = {p["endwords"]: (p["relation"], p["score"])
              for p in res["pair_scores"]}
-    check("two of the three edges are admitted and one is not",
-          res["transitivity_defect_triangles"] == 1,
-          f"{edges}. done/stone is CONSONANCE at 0.772 -- it clears the .75 "
-          f"scalar and fails on the RELATION, so this also exercises "
-          f"`admits`'s second clause. A counter that fires on COMPLETE "
-          f"triangles instead reports a broken class as clean.")
+    # THE ADMIT SET IS WHAT DECIDES, and that is the content of this
+    # section since 2026-08-22 (doctrine 17). It read
+    # `res["transitivity_defect_triangles"] == 1` under `DECL` — the DEFAULT
+    # — with a detail explaining that done/stone "clears the .75 scalar and
+    # fails on the RELATION". That was true while the default admitted only
+    # the two rhyme relations. The default now admits every relation the
+    # taxonomy names, CONSONANCE among them, so the same three lines are a
+    # COMPLETE triangle and 0 is the right answer.
+    #
+    # The claim worth pinning did not go away, it moved: one fixture, two
+    # declarations, and the difference is entirely the declared door.
+    # Asserting only the narrowed arm would hide that the default changed;
+    # asserting only the default would drop the `admits` second-clause
+    # exercise the section was built for. Both are here.
+    check("under the DEFAULT door the triangle is COMPLETE — CONSONANCE is "
+          "admitted, so done/stone is a real edge and there is no defect",
+          res["transitivity_defect_triangles"] == 0,
+          f"{edges}; admit={Declaration().admit}")
+    narrow = check_scheme(LEX, lines, "AAA",
+                          Declaration(admit=("RHYME", "RIME_RICHE")))
+    check("...and NARROWING the door to the two rhyme relations makes the "
+          "same three lines a broken class again — done/stone clears the "
+          ".75 scalar and fails on the RELATION, which is `admits`'s second "
+          "clause and the only thing this counter exists to say",
+          narrow["transitivity_defect_triangles"] == 1,
+          f"{ {p['endwords']: (p['relation'], round(p['score'], 3)) for p in narrow['pair_scores']} }"
+          f"; admit=('RHYME', 'RIME_RICHE'). A counter that fired on "
+          f"COMPLETE triangles instead would report a broken class as clean.")
     res2 = check_scheme(LEX, ["the deed is done", "the sun has won",
                               "a race begun"], "AAA", DECL)
     check("a complete triangle is NOT a defect",

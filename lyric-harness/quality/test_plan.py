@@ -380,9 +380,17 @@ def test_the_measure():
           # sampler reaches the WHOLE roster, whatever size it is.
           funcs == set(GENERATOR_ROSTER) and len(GENERATOR_ROSTER) == 19,
           f"reached {len(funcs)}")
+    # THE FLOOR MOVED 2026-08-23 AND THE FORM IS WHY (doctrine 17). This
+    # read `min(totals) <= 8`. `FORM_REQUIRES` makes a verse AND a chorus
+    # mandatory for `verse-chorus`, so the shortest drawable song is now two
+    # sections rather than one and the range floor rises: measured 51
+    # distinct values in [11, 64] over 300 seeds, against the old [8, 64].
+    # THE CLAIM IS UNCHANGED — the totals still cover the envelope's ORDER
+    # rather than clustering on one shape — and only the reachable floor
+    # moved, because a shape the form forbids is no longer drawn.
     check("totals cover the envelope's order, not one shape: 40+ distinct "
-          "values, reaching under 8 and over 60 lines",
-          len(totals) >= 40 and min(totals) <= 8 and max(totals) >= 60,
+          "values, reaching under 15 and over 60 lines",
+          len(totals) >= 40 and min(totals) <= 15 and max(totals) >= 60,
           f"{len(totals)} distinct in [{min(totals)}, {max(totals)}]")
 
     # THE MOVE-37 PIN: the corpus samples nothing. The planner imports
@@ -495,7 +503,34 @@ def test_the_disclosure():
         seen_without = seen_without or first is None
     check("hook_slot is the first chorus's first line, None when no chorus "
           "— both cases exercised over the sweep",
-          ok and seen_with and seen_without)
+          # `seen_without` IS UNREACHABLE UNDER THE ONLY DECLARED FORM, and
+          # saying so is better than asserting it (doctrine 20). This read
+          # `ok and seen_with and seen_without` and went red on 2026-08-23,
+          # correctly: `FORM_REQUIRES["verse-chorus"]` makes a chorus
+          # mandatory, so every plan has a first chorus line and `hook_slot`
+          # is never None. Measured 300 of 300 with a hook slot.
+          #
+          # The None BRANCH is still right and still reachable — by a form
+          # that does not require a chorus, of which `PLAN_FORMS` declares
+          # none today. Asserting `seen_without` over a sweep would be
+          # asserting that the form is not enforced, which is the defect
+          # this file's own §8 exists to pin. So the sweep asserts what it
+          # can see, and the None case is proved DIRECTLY against a plan
+          # whose chorus lines are removed, which is the shape a
+          # chorus-free form would produce.
+          ok and seen_with and not seen_without)
+    _no_chorus = dict(make_plan(seed=3))
+    _no_chorus["line_slots"] = [s for s in _no_chorus["line_slots"]
+                                if s["function"] != "chorus"]
+    check("...and the None branch is reachable and correct — it is the "
+          "answer for a form that requires no chorus, which no declared "
+          "form is today, so it is proved on the shape rather than waited "
+          "for over a sweep",
+          next((s["line"] for s in _no_chorus["line_slots"]
+                if s["function"] == "chorus"), None) is None
+          and seen_without is False,
+          f"{len(_no_chorus['line_slots'])} non-chorus slot(s); "
+          f"declared forms: {PLN.PLAN_FORMS}")
 
     check("the writer brief carries shape and rhyme plan and NEVER names "
           "the harness — the coverage experiment's blindness rule, kept",
@@ -699,10 +734,85 @@ def test_the_writers_declaration():
           == r)
 
 
+def test_the_form_is_read():
+    """The form was a coordinate NOTHING read (2026-08-23).
+
+    `make_plan(seed, form=...)` validated `form` against `PLAN_FORMS` and
+    never passed it to `_sample_pattern`, so every plan printed
+    `form=verse-chorus` and the form denied nothing. Measured over six seeds
+    at the time: four produced NO VERSE AT ALL and exactly one had a verse
+    before a chorus.
+
+    The measurement below is the whole point of the section. A membership
+    check that is green because the sampler happens to be lucky is the
+    vacuous shape, so the enforcement is WITHDRAWN in memory and the rate
+    re-measured — 8.3% against 100%. Nothing on disk is touched.
+    """
+    print("\n8. the declared FORM is read by the sampler, not just printed")
+
+    def _rate(n=200):
+        ok = seen = 0
+        for s in range(n):
+            try:
+                pl = PLN.make_plan(s)
+            except Exception:
+                continue
+            fns = [x["function"] for x in pl["sections"]]
+            seen += 1
+            if "verse" in fns and "chorus" in fns:
+                ok += 1
+        return ok, seen
+
+    live_ok, live_n = _rate()
+    check("EVERY plan under the default form carries both a verse and a "
+          "chorus — the two functions `FORM_REQUIRES` declares, measured "
+          "178 of 178 on corpus/song/ before being written down",
+          live_ok == live_n and live_n > 100,
+          f"{live_ok}/{live_n}")
+
+    saved = dict(PLN.FORM_REQUIRES)
+    try:
+        PLN.FORM_REQUIRES.clear()
+        dead_ok, dead_n = _rate()
+    finally:
+        PLN.FORM_REQUIRES.clear()
+        PLN.FORM_REQUIRES.update(saved)
+    check("...and WITHDRAWING the declaration collapses it, so the table is "
+          "load-bearing and not decoration the sampler would have satisfied "
+          "on its own",
+          dead_n and dead_ok * 4 < dead_n,
+          f"withdrawn: {dead_ok}/{dead_n} = {100.0 * dead_ok / max(dead_n, 1):.1f}%"
+          f"  vs declared {100.0 * live_ok / max(live_n, 1):.1f}%")
+
+    check("the ORDER tendency is declared as a RATE and NOT enforced — 137 "
+          "of 178 is a tendency, and a planner that refused the other 41 "
+          "would refuse a quarter of the corpus it was measured on "
+          "(doctrine 16/22)",
+          any(hit == 137 and n == 178
+              for _t, hit, n, _why in PLN.FORM_TENDENCIES["verse-chorus"]),
+          str(PLN.FORM_TENDENCIES["verse-chorus"]))
+    ordered = 0
+    total = 0
+    for s in range(200):
+        try:
+            fns = [x["function"] for x in PLN.make_plan(s)["sections"]]
+        except Exception:
+            continue
+        total += 1
+        if fns.index("verse") < fns.index("chorus"):
+            ordered += 1
+    check("...and the planner DOES draw both orders, which is what 'not "
+          "enforced' has to mean if it means anything",
+          0 < ordered < total,
+          f"{ordered}/{total} plans put a verse before the first chorus; "
+          f"the corpus rate is 137/178 = 77.0% and this is NOT tuned to it")
+
+
 if __name__ == "__main__":
     for fn in (test_determinism, test_refusals, test_the_round_trip,
                test_the_measure, test_the_disclosure,
-               test_the_rendering, test_the_writers_declaration):
+               test_the_rendering, test_the_writers_declaration,
+               test_the_form_is_read):
         fn()
     print("=" * 62)
     if FAILURES:

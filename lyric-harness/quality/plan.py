@@ -108,6 +108,68 @@ BLOCKED_FORMS = {
                "not a workaround."),
 }
 
+#: WHAT A NAMED FORM REQUIRES — and the half of it this repo REFUSES to
+#: enforce, which is the more important half (2026-08-23).
+#:
+#: THE DEFECT THIS CLOSES. `make_plan(seed, form=...)` validated `form`
+#: against `PLAN_FORMS` and then never passed it to `_sample_pattern`, so
+#: every plan printed `form=verse-chorus` and the form constrained NOTHING.
+#: Measured over six seeds before the fix: seeds 42, 777 and 2024 produced no
+#: verse at all, seed 1 produced none either, seed 100 put the only verse
+#: last, and exactly one of the six had a verse before a chorus. A coordinate
+#: printed on every run and read by no one is this repo's oldest defect and
+#: it was sitting in the one verb between a writer and a shape.
+#:
+#: WHY IT COULD NOT LIVE IN `grid.SECTION_FUNCTIONS`. That table's own
+#: comment on `verse` says it: "the layer only ever denies". Per-function
+#: rows state what a section may not do — `requires`, `adjacent_after`,
+#: `boundary` — and "a verse-chorus song CONTAINS a verse" is a positive
+#: claim about the WHOLE, which no denial about a part can express. So this
+#: is a new layer, not a row somebody forgot.
+#:
+#: MEASURED ON `corpus/song/` BEFORE BEING WRITTEN, because the alternative
+#: was inventing it, and inventing a rule about a tradition is the exact
+#: mistake this repo made about Welsh vowel length on 2026-08-22 and undid a
+#: day later. Over the 1,421 staged files, 178 song items carry a [CHORUS]
+#: marker:
+#:
+#:   MEMBERSHIP   178 of 178 items with a chorus ALSO carry a verse. Nothing
+#:                in the corpus is a chorus-without-verse. That is why
+#:                `FORM_REQUIRES` is categorical and enforced below.
+#:   ORDER        137 of 178 = 77.0% put a verse BEFORE the first chorus.
+#:                41 items open on the chorus. So "a verse precedes its
+#:                chorus" is a TENDENCY, not a rule, and it is NOT enforced —
+#:                see `FORM_TENDENCIES`.
+#:
+#: CAVEAT ON THE SOURCE, stated because 77% is a number and numbers travel
+#: further than their provenance. This corpus is pre-1931 by the provenance
+#: gate (doctrine 85) and is anthology verse, not 20th-century popular song:
+#: 74,319 [VERSE] markers against 269 [CHORUS]. It is the best evidence this
+#: repo HAS about the form and it is not evidence about modern pop. A caller
+#: with a sourced modern set should re-measure; what would lift it is the
+#: same corpus that lifts `eng-verse` in `quality/frequency.py`.
+FORM_REQUIRES = {
+    "verse-chorus": ("chorus", "verse"),
+}
+
+#: MEASURED, DECLARED, AND DELIBERATELY NOT ENFORCED (doctrine 16/22: an
+#: uncalibrated cut is a rate before it is a rule). Each row is a rate over
+#: `corpus/song/`, and each is here so that the NEXT person to reach for it
+#: finds the measurement instead of an intuition.
+#:
+#: Enforcing the 77% would make the planner refuse a shape 23% of this
+#: repo's own chorus-bearing corpus takes, and the sampler is uniform over
+#: the admissible set by design — rate-matching is a different instrument
+#: with its own argument to make, not a tweak to this one.
+FORM_TENDENCIES = {
+    "verse-chorus": (
+        ("a verse precedes the first chorus", 137, 178,
+         "41 of the 178 open on the chorus. NOT enforced: a planner that "
+         "refused those would be refusing a quarter of the corpus it was "
+         "measured on."),
+    ),
+}
+
 #: The one declared multiplier in this module. The slots ceiling is the
 #: density band's ceiling times this: at 4x, a line at the band's own
 #: maximum fills a quarter of its grid, which is where a grid stops
@@ -473,9 +535,18 @@ def _edges():
 PATTERN_ATTEMPTS = 200
 
 
-def _sample_pattern(rng, roster=None):
+def _sample_pattern(rng, roster=None, form=None):
     """-> ordered tuple of function names. Once-functions once, edges at
     the edges, everything else free.
+
+    `form` is THE NAMED SHAPE, and it is enforced HERE because nothing else
+    could (2026-08-23). It was a parameter of `make_plan` that this function
+    never received, so `form=verse-chorus` printed on every plan and denied
+    nothing. What it now denies is exactly what `FORM_REQUIRES` declares —
+    membership, measured 178 of 178 on `corpus/song/` — and nothing else.
+    The ORDER tendency is measured at 77% and left to `FORM_TENDENCIES`,
+    unenforced, because a planner that refused the other 23% would be
+    refusing a quarter of the corpus the number came from.
 
     `roster` is THE WRITER'S ALLOW-LIST (`MISSING.md` M-55): when given, no
     function outside it may appear. It is enforced by REJECTION, the same way
@@ -500,6 +571,7 @@ def _sample_pattern(rng, roster=None):
     one landing at an edge.
     """
     first_fns, last_fns = _edges()
+    need = set(FORM_REQUIRES.get(form, ()))
     from quality import grid as _GR
     # PRUNE THE PROPOSAL, DO NOT STEER THE DRAW. Drawing uniformly from the
     # cells a roster admits is uniform over the admissible set -- the same
@@ -547,13 +619,22 @@ def _sample_pattern(rng, roster=None):
         ending = rng.choice(enders)
         if ending:
             funcs.append(ending)
+        # THE FORM'S OWN MEMBERSHIP, on the same rejection path as the
+        # placement constraints. Pruning the cell grammar instead would be
+        # steering the draw rather than pruning the proposal, which is the
+        # correctness argument the roster block above already makes.
+        if need and not need <= set(funcs):
+            continue
         if not _GR.placement_findings(list(funcs)):
             return tuple(funcs)
     raise PlanRefused(
         f"no admissible section pattern in {PATTERN_ATTEMPTS} draws"
         + (f" under the declared roster {sorted(roster)}" if roster else "")
+        + (f" carrying every function `--form={form}` requires "
+           f"({', '.join(sorted(need))})" if need else "")
         + f". The placement constraints on `grid.SECTION_FUNCTIONS`"
         + (", the declared roster," if roster else "")
+        + (", the form's membership," if need else "")
         + f" and the cell grammar `_CELLS` do not intersect — REFUSED rather "
         f"than returning a pattern the vocabulary's own definitions reject, "
         f"or quietly widening a roster the writer declared (doctrine 20).")
@@ -663,7 +744,7 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     # space, CONDITIONED on the envelope (and on --lines when given).
     # Deterministic — the retries are the same rng stream.
     for _attempt in range(500):
-        funcs = _sample_pattern(rng, roster)
+        funcs = _sample_pattern(rng, roster, form=form)
         s_lo, s_hi = ENVELOPE["sections"]
         if not s_lo <= len(funcs) <= s_hi:
             continue

@@ -566,11 +566,31 @@ def test_end_to_end():
                   ["a door left close", "a wilted rose"]):
         old, new, moved = _instance_moves(lines, E_UNC)
         vals = Counter(moved.values())
-        check(f"{lines[0]!r} / {lines[1]!r}: instances move, and every move "
-              f"lands on None",
-              moved and all(nv is None for _, nv in moved.values()),
+        # WIDENED 2026-08-23, AND THE INVARIANT GOT STRONGER (doctrine 17).
+        # This read `all(nv is None for _, nv in moved.values())` — every
+        # move lands on None, i.e. the seam only ever WITHDRAWS a verdict.
+        # It went red on `('family rhyme', (3,), (7,)) None -> True`, and
+        # that move is correct: `eng.English` began declaring a manner
+        # partition on 2026-08-22, so a schema that refused for want of
+        # `quotient:manner` now answers, and the new readers reach the span
+        # that lets it. A seam that can supply an answer as well as
+        # withdraw one is a wider claim than the old sentence allowed.
+        #
+        # THE PROPERTY WORTH HAVING WAS NEVER THE DIRECTION, IT IS
+        # NON-CONTRADICTION: no True becomes False and no False becomes
+        # True. Answerability may move either way — that is what a reader
+        # change IS — but a verdict the old readers reached must not be
+        # reversed by the new ones, because that would be two readers
+        # disagreeing about one pair rather than one reader seeing further.
+        # MEASURED 0 contradictions on both fixtures.
+        contra = {k: v for k, v in moved.items()
+                  if v[0] is not None and v[1] is not None}
+        check(f"{lines[0]!r} / {lines[1]!r}: instances move, and NO verdict "
+              f"is contradicted — every move is to or from None",
+              moved and not contra,
               f"{len(moved)} of {len(set(old) & set(new))} shared instances "
-              f"move: {dict(vals)}; {len(set(new) - set(old))} instance(s) "
+              f"move: {dict(vals)}; contradictions {contra or 'none'}; "
+              f"{len(set(new) - set(old))} instance(s) "
               f"exist only under the NEW readers (bucket_key no longer prunes "
               f"a homograph), {len(set(old) - set(new))} only under the old.")
         check("...and no instance is LOST, which a refusal must not do",

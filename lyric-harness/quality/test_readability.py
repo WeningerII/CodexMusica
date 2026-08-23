@@ -243,10 +243,47 @@ def test_readable_pairs_are_untouched():
     # admit set (`Declaration.admit`) a near relation could have entered
     # through. Same verdict, same score, same relation; only the sentence
     # grew the coordinate that governs it.
-    check("the demo's single violation is unchanged",
-          d["violations"] == [(1, 2, 0.729, "CONSONANCE not rhyme "
-                                            "(conjunctive band; not in the "
-                                            "declared admit set)")])
+    # SAME PAIR, SAME SCORE, SAME COUNT — A DIFFERENT REASON, and the new
+    # one is the more fundamental (2026-08-23, doctrine 17). This pinned
+    # ~~"CONSONANCE not rhyme (conjunctive band; not in the declared admit
+    # set)"~~, which was the answer while the default door held only the two
+    # rhyme relations: the pair cleared nothing and was refused on the
+    # RELATION. The door widened to all four on 2026-08-22 (M-59), so
+    # CONSONANCE is admitted now and the relation no longer refuses
+    # anything here. The pair still violates, and it violates on the
+    # SCALAR: 0.729 is under theta_rhyme 0.75.
+    #
+    # THAT IS THE DISTINCTION WORTH KEEPING, and it is finer than the first
+    # draft of this comment claimed. That draft said the demo's verdict is
+    # "door-invariant" and asserted the whole violation tuple was
+    # byte-identical under a narrowed door. MEASURED, it is not: narrowing
+    # to ("RHYME", "RIME_RICHE") puts the reason back to "CONSONANCE not
+    # rhyme (... not in the declared admit set)". So `admits()`'s two
+    # clauses BOTH refuse this pair and the RELATION clause is the one that
+    # answers first when it applies.
+    #
+    # What IS door-invariant is the PAIR: (1, 2) violates at 0.729 under
+    # every declared door, because 0.729 is under theta_rhyme and no admit
+    # set widens past a scalar. What moves is WHICH clause says so, and
+    # that is worth an assertion of its own rather than a claim of
+    # sameness — the reason string is what a writer acts on.
+    check("the demo's single violation is unchanged, and it now refuses on "
+          "the SCALAR rather than on the relation — 0.729 is under "
+          "theta_rhyme, which no declared door widens past",
+          d["violations"] == [(1, 2, 0.729, "below theta_rhyme=0.75")],
+          str(d["violations"]))
+    from lyric_harness import Declaration as _Decl
+    _narrow = check_scheme(LEX, demo, "AABB",
+                           _Decl(admit=("RHYME", "RIME_RICHE")))
+    check("...and NARROWING the door keeps the SAME pair at the SAME score "
+          "while changing WHICH clause refuses it — relation under a "
+          "rhyme-only door, scalar under the default; a writer acts on the "
+          "reason, so the two are not one answer",
+          [v[:3] for v in _narrow["violations"]] == [v[:3] for v in d["violations"]]
+          and "admit set" in _narrow["violations"][0][3]
+          and "theta_rhyme" in d["violations"][0][3],
+          f"narrowed: {_narrow['violations'][0][3]!r}; "
+          f"default: {d['violations'][0][3]!r}")
     check("the demo refuses nothing", d["pairs_refused"] == 0)
 
     g = rhyme_graph(LEX, demo, DECL)

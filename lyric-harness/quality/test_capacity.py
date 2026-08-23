@@ -36,6 +36,7 @@ sys.path.insert(0, ROOT)
 
 from quality import capacity as CAP  # noqa: E402
 from quality.revise import Reviser  # noqa: E402
+from lyric_harness import Declaration  # noqa: E402
 import quality.schemes as SC  # noqa: E402
 
 FAILURES = []
@@ -80,13 +81,44 @@ def test_the_anchor():
             ok = False
     check("pairs in one family GRADE as satisfied rhymes — the key is "
           "the judge's own equivalence, not a lookalike", ok)
-    ok = True
-    for a, b in [("hair", "hire"), ("bone", "bin")]:
-        v, _ = pair_verdict(a, b)
-        if fam(a) == fam(b) or (v is not None and v["why"] is None):
-            ok = False
-    check("clearly unrelated pairs sit in different families and do not "
-          "grade as rhymes", ok)
+    # SPLIT 2026-08-23, because the two halves stopped having one answer
+    # (doctrine 17). This asserted `fam(a) != fam(b) AND the pair does not
+    # grade as satisfied` over both pairs at once, under the DEFAULT door.
+    # When the default widened to every admittable relation on 2026-08-22,
+    # `hair`/`hire` began SATISFYING as CONSONANCE 0.792 — correctly: the
+    # band types it, and doctrine 24 says a rule that would delete a category
+    # relabels instead. The family half never moved.
+    #
+    # The two pairs also fail for DIFFERENT reasons, which the merged check
+    # could not say: `bone`/`bin` fails on the SCALAR at 0.671 under every
+    # door, `hair`/`hire` fails only on the RELATION and only under a
+    # narrowed one. That distinction is the whole of `admits`'s two clauses.
+    ok = all(fam(a) != fam(b) for a, b in [("hair", "hire"), ("bone", "bin")])
+    check("clearly unrelated pairs sit in different FAMILIES — the key is "
+          "the judge's own equivalence and it does not depend on any "
+          "declared door",
+          ok,
+          f"hair={fam('hair')} hire={fam('hire')}; "
+          f"bone={fam('bone')} bin={fam('bin')}")
+    v_bin, _ = pair_verdict("bone", "bin")
+    check("`bone`/`bin` does not grade as a satisfied rhyme under ANY door "
+          "— it fails on the SCALAR, which no admit set can widen past",
+          v_bin is None or "theta_rhyme" in (v_bin["why"] or ""),
+          str(v_bin and v_bin["why"]))
+    v_hair, _ = pair_verdict("hair", "hire")
+    narrow = Reviser(decl=Declaration(admit=("RHYME", "RIME_RICHE")))
+    f_n = narrow.inspect(["we carry the evening to the hair",
+                          "and no one had to tell us about hire"],
+                         SC.mandate([[1, 2]], n_lines=2))
+    v_narrow = (f_n["grade"]["verdicts"] or [None])[0]
+    check("`hair`/`hire` clears the scalar as CONSONANCE, so whether it "
+          "SATISFIES is entirely the declared door: the default admits it, "
+          "a rhyme-only declaration refuses it BY RELATION",
+          (v_hair is not None and v_hair["why"] is None
+           and v_narrow is not None
+           and "admit set" in (v_narrow["why"] or "")),
+          f"default: {v_hair and (v_hair['relation'], v_hair['score'], v_hair['why'])}; "
+          f"narrowed: {v_narrow and v_narrow['why']}")
     # Families are strictly FINER than the graded band: silver/deliver
     # sit in different perfect classes (the feminine anchors SIL vs LIV)
     # while the band may still admit them — capacity states what a
