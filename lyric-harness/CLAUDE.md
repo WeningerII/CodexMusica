@@ -168,11 +168,23 @@ FIRST on a broad "what touches this" question and it is never the last word,
 and no check in this repository depends on it.
 
 **AND THE SEMANTIC HALF IS DELIBERATELY NOT RUN.** `graphify extract` without
-`--code-only` sends documents to a model API and emits `INFERRED` edges. That
-is a non-deterministic derivation (doctrine 66) presented beside deterministic
-ones, and this repo already has a name for a claim that cannot be re-derived.
-`--code-only` is the shipped invocation; an INFERRED edge would be
-declared-not-counted.
+`--code-only` sends documents to a model API. That is a non-deterministic
+derivation (doctrine 66) presented beside deterministic ones, and this repo
+already has a name for a claim that cannot be re-derived. `--code-only` is the
+shipped invocation.
+**AND `INFERRED` IS ONE LABEL OVER TWO PROVENANCES, WHICH IS DOCTRINE 1 IN
+SOMEBODY ELSE'S VOCABULARY — CORRECTED HERE 2026-08-23 THE HOUR IT WAS
+WRITTEN.** ~~an INFERRED edge would be declared-not-counted~~ read as though
+`--code-only` emitted none. It does not: this tree's own report is **93%
+EXTRACTED, 7% INFERRED — 1,079 edges at average confidence 0.86 — with a
+token cost of 0 input and 0 output.** Those are DETERMINISTIC symbol
+resolutions the AST could not settle by an explicit reference, not model
+output, and they are reproducible. The semantic pass emits edges under the
+SAME NAME that are model output and are not. So `INFERRED` alone does not say
+which, and the coordinate that separates them is the INVOCATION: under
+`--code-only` an INFERRED edge is derived-and-reproducible; under the semantic
+pass it is derived-and-not. Read the report's own token cost before trusting
+either.
 
 ## The loop, and the MCP wrap plan
 
