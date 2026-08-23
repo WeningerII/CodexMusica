@@ -12,3 +12,12 @@ codex.zip
 # step folds them into references/02_instruments.js.
 .draft-spec.md
 .drafts/
+
+# GRAPHIFY BUILD OUTPUT — regenerated, never authored. `graphify extract .
+# --code-only` rebuilds it in ~47s from the AST alone (no API key, no model
+# call), so committing 8.2 MB of graph.json plus a per-file cache would be
+# committing a derivation whose source is already here. The SCOPE declaration
+# (`.graphifyignore`) IS committed, because that one is authored: it says which
+# trees the graph is allowed to see, and a scope nobody can read is a threshold
+# nobody wrote down (doctrine 58).
+graphify-out/
