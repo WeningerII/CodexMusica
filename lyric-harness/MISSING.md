@@ -7902,3 +7902,49 @@ there (done, and the neighbouring stdlib-only claim is untouched — it pins
 the GRADING PATH, not the research instruments). `audit_tang_null.py` and
 `run_positive_control.py` both CANNOT RUN, and for the same declared reason:
 the 全唐诗 pool is an absolute path outside this repository.
+
+### M-65 · the nightly job died on its FIRST LINE whenever its cache was cold, so it could never warm the cache it needed `CLOSED` 2026-08-23
+**Found by asking why the Pages sync was skipping**, which it was doing
+CORRECTLY — `sync-pages.yml` publishes only for a CI run whose
+`workflow_run.event == 'push'`, and the run that triggered it was a
+`schedule`. The skip was the design working. What it led to was not: **the
+scheduled CI run on `main` has been FAILING for at least two nights**
+(2026-08-22 and 2026-08-23, both at `e24e716`), while the `push` run at the
+same commit SUCCEEDED. One job separates them — `nightly`.
+
+**THE WHOLE JOB DIED AT `exit 2` WITH NO EXPLANATION ANYWHERE.** Its step
+opens:
+
+    MEMO=~/.cache/lyric-harness/song_predictability_v1.tsv
+    before=$(grep -vc '^#' "$MEMO" 2>/dev/null); before=${before:-0}
+
+MEASURED, under `bash -e`, which is the step's shell:
+
+| memo state | `grep -vc` exit | stdout | step |
+|---|---|---|---|
+| exists, zero non-comment lines | **1** | `0` | continues |
+| **absent** | **2** | *(nothing)* | **aborts at 2** |
+
+The comment above that line is precise about the exit-**1** case and handles
+it. Exit **2** — the file is not there — was unhandled, and it is the state
+of every runner with a COLD `actions/cache`.
+
+**SO IT IS A DEADLOCK, NOT A FLAKE.** The abort happens *before* `set +e`,
+*before* the 150-minute calibration slice runs, and *before* the `case` that
+is the only thing in the step able to report an outcome — with grep's own
+message swallowed by `2>/dev/null`. The job exists to bank a slice of work so
+the NEXT night resumes further along; dying on line one means it banks
+nothing, so the cache never warms, so it dies again. Every night, forever,
+showing a bare `Process completed with exit code 2`.
+
+**AND THE THREE-OUTCOME VOCABULARY WAS ALREADY THERE AND UNREACHABLE.** The
+`case` keeps 0 / 1 / 124 apart by name — re-derived, DRIFT, bounded slice —
+under a comment citing doctrine 79. None of it could ever run in the failing
+state. Third instance today of the same shape as M-60 and M-64: a refusal
+path that cannot be reached, and the error silenced on the way past it.
+
+**FIXED with `|| true` on both memo reads**, which covers exit 1 and exit 2
+without reintroducing the `"0\n0"` defect the original comment records: on a
+zero count grep still prints `0`; on an absent file it prints nothing and the
+default expansion supplies the `0`. One value either way. Measured on both
+arms under `bash -e` before shipping.

@@ -2145,9 +2145,12 @@ PINNED = {
     # its first run, and it was `pin_sweep` reading a crash at import as a
     # MOVED pin. A fix that finds the next defect is the shape this lane is
     # for.
-    "coverage_entries": 122,  # M-49..M-59 filed 2026-08-22 wiring
+    # ~~122~~ -> 123: M-65, the nightly job dying on its first line whenever
+    # its cache was cold — found by asking why the Pages sync skipped (it was
+    # skipping correctly) and following that to two nights of red on main.
+    "coverage_entries": 123,  # M-49..M-59 filed 2026-08-22 wiring
                               # the relation route (97..106 superseded);
-                              # M-60..M-64 filed 2026-08-23 driving CI green
+                              # M-60..M-65 filed 2026-08-23 driving CI green
     "coverage_audited": 19,
 }
 

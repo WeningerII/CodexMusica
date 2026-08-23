@@ -2090,12 +2090,32 @@ jobs:
           # `$(grep -vc ... || echo 0)` yields the two-line string "0\n0" on a
           # fresh memo and breaks the arithmetic below. Proven locally before
           # this shipped; the default-expansion form is the one that holds.
-          before=$(grep -vc '^#' "$MEMO" 2>/dev/null); before=${before:-0}
+          #
+          # AND IT EXITS **2** WHEN THE FILE IS ABSENT, WHICH IS A DIFFERENT
+          # CASE AND WAS UNHANDLED — FIXED 2026-08-23, found by reading why
+          # main's nightly had been red for days. The shell is `bash -e`, so
+          # under a COLD `actions/cache` the very first line of this step
+          # aborted the whole job at exit 2: before `set +e`, before the
+          # calibration ran, and before the `case` below could say anything —
+          # with grep's own message swallowed by `2>/dev/null`. The job could
+          # therefore never bank its first slice, so the cache could never
+          # warm, so it failed again the next night. A permanent deadlock whose
+          # only symptom was a bare `exit code 2`.
+          #
+          # `|| true` covers BOTH exits without reintroducing the defect the
+          # paragraph above records: on a zero count grep still prints `0`, and
+          # on an absent file it prints NOTHING, so the default expansion is
+          # what supplies the 0 — one value either way, never "0\n0".
+          # Measured, both arms, under `bash -e`.
+          before=$(grep -vc '^#' "$MEMO" 2>/dev/null || true); before=${before:-0}
           set +e
           timeout 150m python3 quality/song_profile_calibration.py --check
           rc=$?
           set -e
-          after=$(grep -vc '^#' "$MEMO" 2>/dev/null); after=${after:-0}
+          # Same guard, same reason: if the run above refused before writing
+          # a memo, this line would abort at 2 and skip the `case` that is the
+          # only thing able to report what happened.
+          after=$(grep -vc '^#' "$MEMO" 2>/dev/null || true); after=${after:-0}
           echo "memo: $before -> $after items (+$((after - before)) banked this run)"
           case $rc in
             0) echo "COMPLETE — the shipped constants re-derive over the whole corpus." ;;
