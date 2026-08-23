@@ -2159,7 +2159,7 @@ PINNED = {
     # provenance crash the first non-final span found (M-68), the planner's
     # six literal bounds (M-69), the instrumental freebie (M-70), and the
     # two classes the generator could never draw (M-71).
-    # 130 -> 136: M-73, the gate census — the owner's standing rule that
+    # 130 -> 137: M-73, the gate census — the owner's standing rule that
     # only a gate is an enforcement, made a command instead of a memory —
     # and M-74, which that census's own closing found: the placement work
     # made every mandate import `quality/relations.py` (17.7 ms -> 132.8 ms
@@ -2184,7 +2184,7 @@ PINNED = {
     # filed and repinned in the commit that shipped `quality/recover.py`,
     # which is the rule this repo keeps — the register moves in the same
     # commit as the entry, not in a bookkeeping sitting afterwards.)
-    "coverage_entries": 136,  # M-49..M-59 filed 2026-08-22 wiring
+    "coverage_entries": 137,  # M-49..M-59 filed 2026-08-22 wiring
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;
@@ -2196,7 +2196,8 @@ PINNED = {
                               # graph's refuted token claim, and M-77
                               # deciding the 44 undecidable codes, and
                               # M-78 the unnumbered rule that governs
-                              # most of the 51 that stay toothless
+                              # most of the 51 that stay toothless, and
+                              # M-79 the first end-to-end run
     "coverage_audited": 19,
 }
 

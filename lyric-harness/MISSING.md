@@ -8823,3 +8823,79 @@ own text. (a) is honest about the rule being load-bearing enough to deserve a
 number; (b) is cheaper and leaves the strongest rule in the taxonomy as
 someone else's footnote. **Nothing is changed until that is ruled**, because a
 doctrine number is the owner's vocabulary and not a session's.
+
+### M-79 · the first end-to-end run: the pipeline stops at WRITE, because nothing checks that a plan is writable `OPEN` — measured 2026-08-23
+**The owner's instruction**, after asking what the shortest line to a finished
+song is: *"yes, run it."* One song, end to end, through the real verbs, nothing
+done by hand. **It did not reach the WRITE step**, and the reason is
+measurable rather than anecdotal.
+
+**WHAT THE RUN DID.** `plan --seed=8231` returned a valid plan in one second:
+42 lines, 7 sections, **33/8 grouped in fifteen chunks**, one bar per line,
+~40 rhyme groups including an **11-member chain across 11 placements**, a
+12-line chorus against a **2-line verse**, and the chorus BEFORE the verse.
+Every declared gate passed. It is not a song. The rest is what 200 seeds say
+about whether that was bad luck.
+
+**FINDING 1 — THE METER AND THE DENSITY BAND CONTRADICT EACH OTHER IN 78% OF
+PLANS.** Each line is given a span in slots; the floor's calibrated band says a
+line carries **5–12 syllables**. MEASURED over 200 plans: the median line is
+given **24 slots**, and **157/200 = 78%** give every line MORE slots than the
+density ceiling permits. Only **18%** land inside the band. The writer is
+handed a bar they cannot legally fill, and the finding that names it —
+`SPARSE`, *"pulses with nothing declared on them"* — is a NOTE whose M-77
+disposition is `UNCALIBRATED`. **So the pipeline generates an impossible brief
+and the grader cannot refuse it.**
+
+**FINDING 2 — 3.3% OF SEEDS PRODUCE A WRITABLE PLAN.** Over 399 seeds, asking
+only four undemanding things (line span inside the density band, no rhyme
+group larger than 4, verse before the first chorus, 8–24 lines): **13 of 399**.
+And most of those 13 are still not songs — seed 87 is **12 sections for 19
+lines**, seed 102 is 15 sections for 19. Only one of the thirteen has sections
+averaging more than two lines.
+
+**FINDING 3 — THE MANDATE PINS MOST OF THE WORDS IN A LINE, AND NOTHING
+MEASURES THAT.** A group pins a POSITION, and a line in several groups is
+pinned at several positions — different ones. MEASURED over 200 plans:
+**median 3 pinned positions per line, 32% of lines with 4 or more, and 166 of
+200 plans containing a line with 5.** Seed 85's L15 pins positions 1, 2, 4, 5
+and 6 of a roughly seven-word line, each to a different rhyme family, each of
+which also pins words in L13, L14, L16, L17 and L18. That is a coupled
+constraint system over six lines, not a brief.
+**AND THIS IS THE PLACEMENT WORK'S OWN SHADOW.** The owner asked for the web —
+*"literally every word in the piece"* — and immediately qualified it: *"I don't
+think that literally every word need N pairs of rhymes."* The planner draws a
+per-LINE participation count (uniform over 1–5), which controls how many GROUPS
+a line joins. It does not control **how many WORDS get pinned**, and those are
+different numbers precisely because each group pins a different position. The
+qualification has no coordinate.
+
+**FINDING 4 — UNIFORM IS A CHOICE TOO.** The planner puts the chorus before
+the first verse in **112/200 = 56%** of plans; the corpus rate is 41 of 178 =
+**23%**. `plan.py` records the order tendency as *"declared as a RATE and NOT
+enforced"*, deliberately, on the move-37 argument that sampling measured
+distributions makes the unprecedented improbable. True — and the consequence
+is that the PRECEDENTED becomes improbable in exactly the same measure. A
+verse SHORTER than its chorus lands in **39%** of plans.
+
+**WHAT WORKS, and it should be said**: the placement bound is respected.
+The highest token index any of 200 plans demands is **T7**, and **0/200**
+demand an index beyond what the density ceiling can supply. `_PLACE_POOL`'s
+`max_token` is doing its job.
+
+**THE ONE DEFECT UNDER ALL FOUR: NOTHING ASKS WHETHER A PLAN IS WRITABLE.**
+Every constraint is individually legal. The meter is drawn from a derived
+cycle space, the density band is a corpus calibration, the schemes are exact-
+uniform over completions, the placements are bounded by a reachable token
+index. **Each gate passes and their conjunction does not**, and no layer holds
+the conjunction. `capacity.ADOPTED_MAX_GROUP` is the one joint check that
+exists — it stops a plan asking for a rhyme family no family can fill — and it
+is the shape the rest of this needs: a plan-time gate on the CONJUNCTION,
+refusing before a writer is handed the brief.
+
+**AND THAT IS WHY THIS RUN WAS WORTH MORE THAN THE AUDIT.** Four measured
+defects in under an hour, none of which any of the 71 green suites can see,
+because every suite tests a layer and the defect is BETWEEN layers. It is the
+same lesson `COVERAGE_PREREGISTRATION.md` already banked — *"length is the
+coverage lever and the SPEC is the defect lever"* — one level out: **the
+pipeline is the defect lever, and there is no pipeline.**
