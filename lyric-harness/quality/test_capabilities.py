@@ -116,6 +116,26 @@ def test_stub_resolution():
           "stands for the chorus at L1-L2 and now MATCHES L1",
           _pairs(st, "refrain by reference") == frozenset({(1, 4)}),
           str(_pairs(st, "refrain by reference")))
+    # THE DERIVED HALF — the 18.7% that resolve uniquely.
+    st3 = _stream(d)
+    rep = R.search_stub_resolution(st3)
+    check("`search_stub_resolution` resolves the UNAMBIGUOUS stub with "
+          "nothing declared — the incipit matches exactly one earlier line",
+          rep["resolved"] == {3: (0, 1)} and not rep["ambiguous"],
+          str({k: rep[k] for k in ("stubs", "resolved", "ambiguous",
+                                   "unmatched")}))
+    R.declare_stub_resolution(st3, rep["resolved"])
+    check("...and the schema then finds the reference, so the derivation and "
+          "the declaration COMPOSE — they are the same map, and the "
+          "declaration wins where both speak",
+          _pairs(st3, "refrain by reference") == frozenset({(1, 4)}),
+          str(_pairs(st3, "refrain by reference")))
+    check("the span it returns is ONE LINE, not a guessed chorus length — a "
+          "stub stands for a whole chorus and the incipit finds only its "
+          "FIRST line; widening it would be inventing the edition's "
+          "judgement, which is the thing BLOCKERS says cannot be made here",
+          rep["resolved"][3] == (0, 1))
+
     for bad, why in (({3: 3}, "a span, not a line"),
                      ({3: (3, 4)}, "a span containing itself"),
                      ({3: (0, 99)}, "outside the stream")):

@@ -3060,6 +3060,58 @@ LIFTS_PER_HALF_LINE = 2
 HALVES_PER_LINE = 2
 
 
+def _beat_from_grid(stream, grid):
+    """-> {line: (unit index, ...)} from a `declared_inputs.BeatGrid`.
+
+    A unit is ON THE BEAT when its declared pulse position is one of the
+    cycle's GROUP HEADS. The grouping is `grid.cycle`'s and R5 already
+    refuses to construct without one, so nothing is assumed here.
+
+    A UNIT THE GRID DOES NOT PLACE IS NOT ON THE BEAT AND IS NOT GUESSED —
+    it simply does not appear in the returned set, which is the same answer
+    `fit._read_beatgrid` gives it (`BEATGRID_INCOMPLETE`: "a partial map
+    answers for the units it holds and refuses for the rest; it is not
+    filled in").
+    """
+    from fractions import Fraction
+    cyc = grid.cycle
+    heads = None
+    for attr in ("pulse_groups", "groups"):
+        fn = getattr(cyc, attr, None)
+        got = fn() if callable(fn) else fn
+        if got:
+            heads, acc = set(), 0
+            for g in got:
+                heads.add(Fraction(acc))
+                acc += g
+            break
+    if not heads:
+        raise NoReferent(
+            "the BeatGrid's cycle declares no GROUPING, so which pulses are "
+            "beats is undetermined — `meter.pulse_groups()` returns None "
+            "rather than asserting one of the 2^(n-1) compositions, and this "
+            "refuses for the same reason (doctrine 19).")
+    per = getattr(grid, "positions", None) or {}
+    npulse = Fraction(getattr(cyc, "pulses", 0) or 0)
+    out = {}
+    for key, val in per.items():
+        try:
+            ln, ui = (key if isinstance(key, tuple) and len(key) == 2
+                      else (None, key))
+            ln, ui = int(ln), int(ui)
+        except (TypeError, ValueError):
+            continue
+        v = Fraction(val)
+        # THE POSITION IS FROM THE CYCLE ORIGIN, so it is reduced INTO the
+        # cycle before being asked whether it is a head — a syllable in bar
+        # three on the downbeat is on a head exactly as one in bar one is.
+        if npulse:
+            v = v % npulse
+        if v in heads:
+            out.setdefault(ln, []).append(ui)
+    return {ln: tuple(sorted(v)) for ln, v in out.items()}
+
+
 def declare_beat(stream, mapping):
     """Declare WHERE THE BEATS FALL. -> dict. `{line: (unit index, ...)}`.
 
@@ -3079,10 +3131,25 @@ def declare_beat(stream, mapping):
     a blueprint has stated this once already — this is the seam that carries
     it into the relation layer.
     """
+    # A `declared_inputs.BeatGrid` IS ACCEPTED DIRECTLY, and that is the
+    # seam this constructor should have used from the start (2026-08-23).
+    # R5 already exists, already maps `(line, syllable) -> Fraction pulses`,
+    # already requires its `Cycle` to declare a GROUPING (because which
+    # pulses are beats is exactly what a composition of the pulse count
+    # declares), and already carries `derived_from` — audio / notation /
+    # asserted — which is the provenance any verdict resting on it must
+    # stamp. `quality/fit.py._read_beatgrid` reads the same object and
+    # computes `v in heads` per unit, i.e. THIS SET, for its
+    # PROMINENCE_OFF_HEAD finding. Taking a raw dict here and nothing else
+    # would have made a writer declare the same grid twice for two layers,
+    # which is the drift doctrine 1 exists to stop.
+    if hasattr(mapping, "positions") and hasattr(mapping, "cycle"):
+        mapping = _beat_from_grid(stream, mapping)
     if not isinstance(mapping, dict):
         raise NoReferent(
             f"`mapping` is {{line: (unit index, ...)}} naming the ON-BEAT "
-            f"units, got {type(mapping).__name__}.")
+            f"units, or a `declared_inputs.BeatGrid`, got "
+            f"{type(mapping).__name__}.")
     n = len(stream.lines)
     grid = {}
     for ln, idx in mapping.items():
@@ -3324,6 +3391,88 @@ def declare_senses(stream, mapping):
     res["sense"] = _sense_of_unit
     stream.declaration = dict(stream.declaration, resources=res)
     return {"declared": len(norm), "found": len(norm), "source": "declared"}
+
+
+#: HOW MANY WORDS OF A STUB'S INCIPIT MUST MATCH before the match counts.
+#: DECLARED, not tuned (doctrine 58). Three is the shortest prefix that is
+#: not routinely shared by unrelated lines in this corpus — `oh my poor` is a
+#: stub's whole distinguishing content, while a two-word prefix like `oh my`
+#: matches half a songbook.
+STUB_INCIPIT_WORDS = 3
+
+
+def search_stub_resolution(stream, language=None,
+                           incipit=STUB_INCIPIT_WORDS):
+    """Resolve the stubs that resolve UNIQUELY, and refuse the rest. -> dict.
+
+    `relations_null.BLOCKERS` measured the naive resolver over `corpus/song/`
+    and the numbers are why this repo shipped none: of 843 stub lines,
+    matching each stub's incipit against earlier lines resolves **158 (18.7%)
+    to a UNIQUE earlier line**, leaves **224 (26.6%) with no earlier match at
+    all**, and leaves **461 (54.7%) ambiguous between 2 and 9 candidates**.
+    "Wrong more often than right" is the correct summary OF THE WHOLE, and it
+    was read here as a reason to supply NOTHING — which throws away the 18.7%
+    that are not ambiguous at all.
+
+    SO THIS RESOLVES ONLY THE UNAMBIGUOUS AND SAYS SO. A stub whose incipit
+    matches exactly one earlier line is resolved; a stub with two or more
+    candidates, or none, is LEFT OUT of the map entirely and counted in the
+    return. `declare_stub_resolution` then takes the result and a caller may
+    add the hard ones by hand — the derivation and the declaration compose,
+    and the declaration wins, because they are the same map.
+
+    THE SPAN IS A GUESS THIS DOES NOT MAKE. A stub stands for a whole chorus
+    and the incipit finds only its FIRST line, so the span returned is
+    `(match, match + 1)` — one line, the one that was actually found. Widening
+    it to "probably four lines" would be inventing the chorus's length, which
+    is the edition-level judgement `BLOCKERS` says this cannot make.
+    """
+    import lyric_harness as _lh
+    lines = list(getattr(stream, "text_lines", ()) or [])
+    if not lines:
+        by = {}
+        for u in stream.units:
+            by.setdefault(u.line, []).append(u.token_text or "")
+        lines = [" ".join(by.get(i, ())) for i in range(len(stream.lines))]
+
+    def _key(text):
+        w = [x for x in _lh.tokenise(text)] if hasattr(_lh, "tokenise") \
+            else str(text).split()
+        w = [x.lower() for x in w][:incipit]
+        return tuple(w) if len(w) >= incipit else None
+
+    stubs, resolved, ambiguous, unmatched = [], {}, [], []
+    for i, text in enumerate(lines):
+        try:
+            if not _lh.is_chorus_stub(text, language):
+                continue
+        except Exception:
+            continue
+        stubs.append(i)
+        k = _key(text)
+        if k is None:
+            unmatched.append(i)
+            continue
+        hits = [j for j in range(i)
+                if not _safe_is_stub(_lh, lines[j], language)
+                and _key(lines[j]) == k]
+        if len(hits) == 1:
+            resolved[i] = (hits[0], hits[0] + 1)
+        elif hits:
+            ambiguous.append((i, tuple(hits)))
+        else:
+            unmatched.append(i)
+    return {"stubs": len(stubs), "resolved": resolved,
+            "ambiguous": ambiguous, "unmatched": unmatched,
+            "found": len(resolved), "source": "incipit_unique",
+            "incipit_words": incipit}
+
+
+def _safe_is_stub(_lh, text, language):
+    try:
+        return bool(_lh.is_chorus_stub(text, language))
+    except Exception:
+        return False
 
 
 def declare_stub_resolution(stream, mapping):
@@ -6076,7 +6225,8 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "DEFAULT_CHANNELS", "evaluate", "realise", "assemble",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",
            "line_pairs_for", "declare_delivery",
-           "declare_stub_resolution", "declare_senses",
+           "declare_stub_resolution", "search_stub_resolution",
+           "STUB_INCIPIT_WORDS", "declare_senses",
            "declare_period_surface", "declare_lifts",
            "search_lifts", "LIFTS_PER_HALF_LINE",
            "HALVES_PER_LINE",

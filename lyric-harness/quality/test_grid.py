@@ -2994,11 +2994,20 @@ def test_the_cli_reads_the_marks_it_used_to_delete():
     # The DIFFERENCE between the two fixtures — 3 schemas — is unchanged,
     # which is what this check is actually about: the marked file and the
     # unmarked one still differ by exactly the marks.
-    check("the verb's two summary counts on that file: ~~38~~ ~~35~~ 39 "
-          "finding, ~~26~~ 20 refusing — the two fixtures still differ by "
-          "exactly three schemas, and NOT ONE crossed the refused/nothing "
-          "line, because the file declares every mark it prints",
-          (_split(cst), _split(cold)) == ((39, 20), (42, 20)),
+    # SETTLED AT (40, 19) / (43, 19). The (39, 20) pin above it was measured
+    # mid-lot and superseded within the hour by `trite rhyme` gaining a real
+    # predicate — one more schema FINDING, one fewer REFUSING. Both numbers
+    # are kept in the label because the ladder is the useful record: 35 -> 39
+    # -> 40 finding, 26 -> 20 -> 19 refusing. The `sense` derivation added
+    # later does NOT appear here: it is opt-in, so a stream that declares
+    # nothing is unchanged by it, which is exactly what "opt-in" has to mean
+    # to be worth the word.
+    check("the verb's two summary counts on that file: ~~38~~ ~~35~~ ~~39~~ "
+          "40 finding, ~~26~~ ~~20~~ 19 refusing — the two fixtures still "
+          "differ by exactly three schemas, and NOT ONE crossed the "
+          "refused/nothing line, because the file declares every mark it "
+          "prints",
+          (_split(cst), _split(cold)) == ((40, 19), (43, 19)),
           (_split(cst), _split(cold)))
     # REPINNED 2026-08-22, same lot, same direction: ~~(23, 31)~~ -> (27, 25).
     # `refused` falls by 6 and `found` rises by 4 for the reasons above; the
@@ -3007,9 +3016,10 @@ def test_the_cli_reads_the_marks_it_used_to_delete():
     # M-39(b) is why, and supplying it from an all-zero vector is the exact
     # defect that entry closed.
     check("on the fixture whose marks are REFUSED the refused count moves "
-          "instead: ~~25~~ ~~23~~ 27 finding, ~~26~~ ~~31~~ 25 refusing, and "
-          "the five `frame=\"stanza\"` schemas are still among the refused",
-          _split(fst) == (27, 25), _split(fst))
+          "instead: ~~25~~ ~~23~~ 27 finding, ~~26~~ ~~31~~ ~~25~~ 24 "
+          "refusing, and the five `frame=\"stanza\"` schemas are still among "
+          "the refused",
+          _split(fst) == (27, 24), _split(fst))
 
     # -- 8. THE CALL SITE, and not only the function. Everything above builds
     #    its own stream from `relation_ground`, so it would all still pass
