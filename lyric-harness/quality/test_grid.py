@@ -3093,6 +3093,115 @@ def test_the_cli_reads_the_marks_it_used_to_delete():
         shutil.rmtree(d, ignore_errors=True)
 
 
+
+
+def _lock_song(section_lines, bars=None):
+    """A song of `section_lines` sections, one bar per line unless `bars` says
+    otherwise — so a section's bar span always covers its own lines. A fixture
+    that makes a long section look short would answer the WEIGHTING question
+    with an arithmetic accident, which is what the first draft of this helper
+    did (an 18-line section declared 4 bars read back as 4 lines)."""
+    secs, lines, bar = [], [], 1
+    for i, k in enumerate(section_lines):
+        nm = "S%d" % (i + 1)
+        nb = k if bars is None else bars[i]
+        secs.append(Section(name=nm, bars=nb, start_bar=bar,
+                            meter=Meter(4, 4, groups=())))
+        for j in range(k):
+            lines.append(Line("line %d" % (len(lines) + 1), bar=bar + j,
+                              beat=F(1), duration=F(4), section=nm))
+        bar += nb
+    return Song(title="t", sections=tuple(secs), lines=tuple(lines))
+
+
+def test_one_short_section_no_longer_silences_the_locks():
+    print("\n27. M-75 — a lock is a property of the song's MASS, so a free "
+          "token cannot buy silence")
+    # THE OWNER'S ANECDOTE, VERBATIM: "I've seen this system say something to
+    # the order of 'oh I can't use only quatrains' and then immediately it
+    # made all quatrains and ended with a 2 line outro which, technically
+    # satisfied it but that's blatantly just gaming the system."
+    #
+    # Every lock fired on a FRACTION OF SECTIONS, so appending one section
+    # moved the denominator by 1/n and silenced it for every song of fewer
+    # than ten sections. The statistic was wrong IN KIND, not in its
+    # threshold: 0.90 stays exactly where it was, and retuning it would only
+    # move the duck from one section to two (doctrine 58).
+    def fires(shape, code="QUATRAIN_LOCK", bars=None):
+        return code in {f.code for f in stanza_lock(_lock_song(shape, bars))}
+
+    def u4(shape):
+        return uniformity(_lock_song(shape))["four_lines_per_section"]
+
+    check("the cliche itself still fires — the repair must not cost the "
+          "check its original subject", fires([4] * 6), f"{u4([4] * 6):.3f}")
+    check("AND THE OWNER'S SENTENCE FIRES NOW: five quatrains and a two-line "
+          "outro is 20 of 22 lines in quatrains, where by section count it "
+          "was 5 of 6 and silent",
+          fires([4] * 5 + [2]), f"{u4([4] * 5 + [2]):.3f} against 0.833 by "
+          f"section count")
+    varied = [4, 4, 4, 6, 8, 2, 5, 7, 3, 9, 10, 11]
+    check("a genuinely varied form is still SILENT, so the repair did not "
+          "buy its reach by charging everything",
+          not fires(varied), f"{u4(varied):.3f}")
+    check("...and neither does a song whose off-modal section is REAL — two "
+          "quatrains beside an eighteen-line section is a form with a shape "
+          "of its own, which is what `SECTION_LENGTH_LOCKED`'s own message "
+          "asks for", not fires([4, 4, 18]), f"{u4([4, 4, 18]):.3f}")
+    # WHAT THE DUCK COSTS NOW, stated rather than claimed away (doctrine 22).
+    # It is NOT un-duckable and must never be described as such: at threshold
+    # t, silencing k sections of length L needs an appended section longer
+    # than kL(1-t)/t — a NINTH of the song at the declared 0.90. What changed
+    # is that the price went from a CONSTANT (one section, any size, in any
+    # song under ten sections) to a SHARE of the song.
+    check("the duck still exists and its price is DERIVED from the declared "
+          "threshold: a three-line tag on five quatrains does silence it, "
+          "because 3 of 23 lines is more than the ninth that (1-0.90)/0.90 "
+          "asks for — and at that size the form has begun to have a shape",
+          not fires([4] * 5 + [3]), f"{u4([4] * 5 + [3]):.3f}")
+    # THE MUTATION: put the section-count denominator back and the owner's
+    # sentence must go quiet again. Without this the checks above read
+    # exactly like a suite that would pass against the defect — which is
+    # precisely what the whole of this file did before it was written.
+    real = uniformity
+
+    def by_section_count(song):
+        u = dict(real(song))
+        counts = [len(song.lines_in(s)) for s in song.sections]
+        u["four_lines_per_section"] = (
+            sum(1 for c in counts if c == 4) / len(counts)) if counts else 0.0
+        return u
+
+    import quality.grid as _GR
+    try:
+        _GR.uniformity = by_section_count
+        ducked, still = fires([4] * 5 + [2]), fires([4] * 6)
+    finally:
+        _GR.uniformity = real
+    check("weighting by SECTION COUNT instead of by line mass puts the duck "
+          "back — the owner's shape goes silent while the plain cliche still "
+          "fires, which is the exact asymmetry M-75 names",
+          not ducked and still,
+          f"5 quatrains + outro fires: {ducked}, 6 quatrains: {still}")
+    check("...and the restoration held", fires([4] * 5 + [2]))
+    # AND THE METRIC LOCKS TAKE THE SAME REPAIR, weighted by BARS rather than
+    # lines, because a metric lock is about bars. Found on this repo's OWN
+    # fixtures rather than constructed: `mandate_song` is 24/8/24/8 bars of
+    # 4/4 plus a ONE-BAR outro, and that single bar — 1 of 65 — was worth a
+    # fifth of a section-count statistic and silenced METER_LOCKED entirely.
+    metric = _lock_song([12, 8, 12, 8, 1], bars=[24, 8, 24, 8, 1])
+    check("a one-bar tag no longer silences METER_LOCKED on a 65-bar song: "
+          "64 of 65 bars are a multiple of four where 4 of 5 sections was "
+          "0.800",
+          "METER_LOCKED" in {f.code for f in stanza_lock(metric)},
+          f"{uniformity(metric)['bars_multiple_of_four']:.3f}")
+    check("...and the two statistics that were ALREADY per-line stop being "
+          "exceptions and become instances of one rule — every uniformity "
+          "measure is a share of the mass it is about, and the channel set "
+          "is unmoved", set(uniformity(metric)) == CHANNELS,
+          f"{len(CHANNELS)} channels")
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -3132,7 +3241,8 @@ if __name__ == "__main__":
                test_the_elaboration_pointer_and_the_rank_that_was_refused,
                test_the_section_coordinate_is_supplied,
                test_the_stanza_ground_is_printed_or_refused,
-               test_the_cli_reads_the_marks_it_used_to_delete):
+               test_the_cli_reads_the_marks_it_used_to_delete,
+               test_one_short_section_no_longer_silences_the_locks):
         fn()
     print("=" * 62)
     if FAILURES:

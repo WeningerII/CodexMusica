@@ -2468,17 +2468,33 @@ def test_stanza_lock_reaches_the_loop_not_only_the_grid_verb():
             os.path.join(HERE, "fixtures", name + ".blueprint.json"))
         ship[name] = {f.code for f in GR.stanza_lock(s)}
     tripped = set().union(*ship.values())
+    # ~~{DOWNBEAT_LOCKED, PHRASE_LENGTH_LOCKED}~~ and ~~FOUR of the six~~ —
+    # REPOINTED 2026-08-23 (`MISSING.md` M-75), and the movement makes this
+    # section's own claim STRONGER rather than weaker. Every lock was a
+    # fraction of SECTIONS, so appending one short section moved the
+    # denominator and silenced it; weighting each statistic by the MASS its
+    # sections carry brings two more codes out of exactly that hiding place,
+    # on these same fixtures, with no threshold touched:
+    #   `function_fixture` — eight 2-bar sections and a ONE-BAR outro.
+    #       `equal_section_length` read 8/9 = 0.889 and missed by a
+    #       hundredth; by bars it is 16/17 = 0.941.
+    #   `mandate_song`      — 24/8/24/8 bars of 4/4 and a ONE-BAR outro.
+    #       `bars_multiple_of_four` read 4/5 = 0.800, so ONE BAR IN
+    #       SIXTY-FIVE was worth a fifth of the statistic; by bars it is
+    #       64/65 = 0.985.
+    # So "firing on the repo's own fixtures and reporting to nobody" was true
+    # of FOUR codes, not two, and the two extra were hidden by the duck this
+    # very section is about.
     check("the shipped fixtures were ALREADY tripping this layer and "
           "reporting it nowhere — not an untested check, a silent one",
-          tripped == {"DOWNBEAT_LOCKED", "PHRASE_LENGTH_LOCKED"},
+          tripped == {"DOWNBEAT_LOCKED", "PHRASE_LENGTH_LOCKED",
+                      "SECTION_LENGTH_LOCKED", "METER_LOCKED"},
           "; ".join(f"{k}: {sorted(v) or '(none)'}" for k, v in ship.items()))
-    check("and FOUR of the six are tripped by no shipped fixture at all, "
+    check("and TWO of the six are tripped by no shipped fixture at all, "
           "which is why this test had to construct the cliché rather than "
-          "reach for one",
-          not (SHAPE - tripped - {"UNIFORM_ANACRUSIS"}) & tripped
-          and sorted(SHAPE - tripped) == ["METER_LOCKED", "QUATRAIN_LOCK",
-                                          "SECTION_LENGTH_LOCKED",
-                                          "UNIFORM_ANACRUSIS"],
+          "reach for one — it was four before the weighting, and the two that "
+          "moved were being silenced by a single one-bar tag",
+          sorted(SHAPE - tripped) == ["QUATRAIN_LOCK", "UNIFORM_ANACRUSIS"],
           sorted(SHAPE - tripped))
 
     # DOCTRINE 17, FOUND ON THE WAY IN AND DELIBERATELY NOT "FIXED".

@@ -1129,14 +1129,64 @@ def uniformity(song):
     # the worse instance -- a song could clear METER_LOCKED by declaring a
     # grouping, which is a coordinate about where the BEATS are and says
     # nothing whatever about whether the song is in four.
-    out["four_four"] = (sum(1 for s in secs
-                            if (s.meter.beats, s.meter.unit) == (4, 4))
-                        / len(secs)) if secs else 0.0
-    out["bars_multiple_of_four"] = (sum(1 for s in secs if s.bars % 4 == 0)
-                                    / len(secs)) if secs else 0.0
+    # EVERY SECTION STATISTIC IS WEIGHTED BY THE MASS THAT SECTION CARRIES
+    # (`MISSING.md` M-75, 2026-08-23) — bars for the metric locks, lines for
+    # the lyric ones. ~~a plain fraction of SECTIONS~~ is what the owner's
+    # anecdote defeats: *"it made all quatrains and ended with a 2 line outro
+    # which technically satisfied it but that's blatantly just gaming the
+    # system."* A count of sections gives every section the same vote, so
+    # appending ONE two-line tag moves the denominator by 1/n and silences
+    # every lock in a song of fewer than ten sections — a duck that costs
+    # nothing and adds nothing.
+    #
+    # WHAT THE WEIGHT CHANGES IS THE PRICE OF THE DUCK, and that is the whole
+    # claim. Under a section count the duck costs exactly one section however
+    # long the song is; under mass it costs a share of the song, so silencing
+    # a lock means giving the form a section big enough to be heard — which
+    # is the thing `SECTION_LENGTH_LOCKED`'s own message asks for ("a section
+    # that ARRIVES early or overstays is where structure becomes audible").
+    # It is NOT un-duckable and must not be described as such: a large enough
+    # off-modal section still clears it, and at that size the form does have
+    # a shape of its own. Doctrine 22 — the honest statement is what the duck
+    # COSTS, not that it is impossible.
+    #
+    # AND IT IS A DERIVATION, NOT A CALIBRATION (owner's ruling 2026-08-23,
+    # *"derived envelope not rate-matching"*). No corpus rate is consulted
+    # and `threshold` does not move; retuning 0.90 would be doctrine 58's
+    # error and would only move the duck from one section to two. What
+    # changes is which population the fraction is taken OVER, and the
+    # argument is internal: a lock is a property of the song's MASS, and the
+    # two statistics that were already right — `downbeat_locked` and
+    # `uniform_anacrusis`, both per-LINE — stop being exceptions and become
+    # instances of one rule.
+    bars = [max(0, s.bars) for s in secs]
+    b_tot = sum(bars)
+    lines_in = [len(song.lines_in(s)) for s in secs]
+    l_tot = sum(lines_in)
+
+    def _by(mass, total, keep):
+        """-> the share of `mass` carried by the sections `keep` admits.
+
+        Falls back to the SECTION COUNT when the mass is zero, because a
+        weight of nothing is not a reading: a song whose sections declare no
+        bars at all has not thereby cleared every metric lock, and answering
+        0.0 there would be the silence this entry exists to close.
+        """
+        if not secs:
+            return 0.0
+        if total <= 0:
+            return sum(1 for i, _s in enumerate(secs) if keep(i)) / len(secs)
+        return sum(m for i, m in enumerate(mass) if keep(i)) / total
+
+    out["four_four"] = _by(
+        bars, b_tot,
+        lambda i: (secs[i].meter.beats, secs[i].meter.unit) == (4, 4))
+    out["bars_multiple_of_four"] = _by(
+        bars, b_tot, lambda i: secs[i].bars % 4 == 0)
     lens = [s.bars for s in secs]
-    out["equal_section_length"] = (
-        max(lens.count(v) for v in set(lens)) / len(lens)) if lens else 0.0
+    _modal_bars = (max(set(lens), key=lens.count) if lens else None)
+    out["equal_section_length"] = _by(
+        bars, b_tot, lambda i: lens[i] == _modal_bars)
     durs = [l.duration for l in lines]
     out["equal_line_duration"] = (
         max(durs.count(v) for v in set(durs)) / len(durs)) if durs else 0.0
@@ -1146,9 +1196,14 @@ def uniformity(song):
     out["uniform_anacrusis"] = (
         max(picks.count(v) for v in set(picks)) / len(picks)) if picks \
         else 1.0
-    counts = [len(song.lines_in(s)) for s in secs]
-    out["four_lines_per_section"] = (
-        sum(1 for c in counts if c == 4) / len(counts)) if counts else 0.0
+    counts = list(lines_in)
+    # WEIGHTED BY LINES, for the reason above: this is the statistic the
+    # owner's two-line outro was aimed at, and it is the lyric lock, so the
+    # mass that counts is the mass of WORDS. Five quatrains and a two-line
+    # tag is 20 of 22 lines in quatrains — 0.909, still locked — where by
+    # section count it was 5 of 6 and silent.
+    out["four_lines_per_section"] = _by(
+        lines_in, l_tot, lambda i: counts[i] == 4)
     return out
 
 

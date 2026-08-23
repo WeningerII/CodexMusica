@@ -8453,7 +8453,7 @@ doctrine 1 inside eight lines. Both branches call `slot_line` now. It costs
 nothing precisely BECAUSE of the finding above: the import this call needs was
 already being paid on every mandate.
 
-### M-75 · the shape locks are silenced by appending ONE short section, which is the cheat they were written to catch `OPEN` — sized 2026-08-23
+### M-75 · the shape locks are silenced by appending ONE short section, which is the cheat they were written to catch `CLOSED` — sized and closed 2026-08-23
 **The owner's anecdote, verbatim:** *"I've seen this system say something to
 the order of 'oh I can't use only quatrains' and then immediately it made all
 quatrains and ended with a 2 line outro which, technically satisfied it but
@@ -9354,3 +9354,136 @@ the first attempt at this paragraph was appended at the repository root by a
 shell whose working directory had moved. An untracked `MISSING.md` two
 directories up reads exactly like a recorded supersession to everything
 except the instrument that looks.
+
+**M-75 CLOSED THE SAME DAY — THE WEIGHT, NOT THE THRESHOLD.**
+**The owner's ruling: *"do 101, derived envelope not rate-matching."*** The
+sizing above ends by saying the remedy is a calibration sitting: register a
+dispersion statistic, measure the corpus, state the cut as a false-positive
+rate. **That is not what was done and the ruling is why.** No corpus rate is
+consulted, `threshold` does not move, and nothing new is fitted to anything.
+
+**AND THE TITLE'S OWN PHRASE IS NOT WHAT SHIPPED, WHICH IS SAID FIRST SO IT
+CAN BE PUSHED BACK ON.** The sizing's framing — the owner's — is *"existence
+rules become distribution bands"*, and what shipped is a WEIGHTED EXISTENCE
+RULE, not a dispersion statistic. The reason is the ruling itself: **a
+dispersion BAND needs a reference distribution to say what dispersion is
+normal, and the only reference this repo has is the corpus.** Fitting a cut to
+corpus dispersion is the rate-matching the ruling forbids; using the PLANNER's
+own uniform draw as the reference instead would define the grader in terms of
+the generator, which is doctrine 14's error and would charge nearly every
+published song besides. So under *derived, not rate-matched*, a dispersion
+band is not derivable — and the hole turns out not to need one.
+
+**WHAT CHANGED IS WHICH POPULATION THE FRACTION IS TAKEN OVER.** Every
+statistic in `uniformity()` that ranged over SECTIONS now ranges over the MASS
+those sections carry — **bars** for the metric locks (`four_four`,
+`bars_multiple_of_four`, `equal_section_length`) and **lines** for the lyric
+one (`four_lines_per_section`). The sizing's own diagnosis is what licenses
+it: *"a modal-FRACTION statistic is duckable by construction because appending
+one token moves the denominator."* A section count gives every section one
+vote regardless of size, so a two-line tag is worth as much as a twelve-line
+verse. Mass does not.
+
+**AND THE TWO STATISTICS THAT WERE ALREADY RIGHT STOP BEING EXCEPTIONS.**
+`downbeat_locked` and `uniform_anacrusis` were already per-LINE and were
+already un-duckable by a short section — nobody had noticed that they were the
+only two, or that being per-line was WHY. Seven measures, one rule now: a
+share of the mass the measure is about.
+
+**M-75's OWN TABLE, RE-RUN:**
+
+| shape | sections | before | after |
+|---|---:|---|---|
+| 6 quatrains — the cliche itself | 6 | FIRES | **FIRES** |
+| **5 quatrains + a 2-line outro** | 6 | **silent** | **FIRES** (0.909) |
+| 5 quatrains + a 3-line outro | 6 | silent | silent (0.870) |
+| 9 quatrains + a 2-line outro | 10 | FIRES | FIRES |
+| 10 quatrains + a 2-line outro | 11 | FIRES | FIRES |
+| varied 4,4,4,6,8,2,5,7,3,9,10,11 | 12 | silent | silent (0.164) |
+| 2 quatrains + an 18-line section | 3 | silent | silent (0.308) |
+
+Row 2 is the owner's sentence and it fires. Rows 6 and 7 are the control: the
+repair did not buy its reach by charging everything.
+
+**WHAT THE DUCK COSTS NOW, STATED RATHER THAN CLAIMED AWAY (doctrine 22).**
+Row 3 is silent and that is CORRECT and must not be read as a residual defect.
+At threshold `t`, silencing `k` sections of length `L` needs an appended
+section longer than `kL(1-t)/t` — **a ninth of the song** at the declared
+0.90. The duck is not gone; **its price went from a CONSTANT (one section, any
+size, in any song under ten sections) to a SHARE of the song**, which is
+exactly what `SECTION_LENGTH_LOCKED`'s own message asks for: *"a section that
+ARRIVES early or overstays is where structure becomes audible."* A three-line
+tag on five quatrains has begun to be a section.
+
+**AND IT FOUND THE ANECDOTE IN THIS REPO'S OWN FIXTURES.** The sizing recorded
+the hole as LATENT — *"0 of 200 planner draws are currently IN the all-but-one
+shape"* — and looked at the planner. It was live in `examples/`:
+  * **`function_fixture.blueprint.json`** — EIGHT sections of 2 bars and a
+    ONE-BAR outro. `equal_section_length` read 8/9 = 0.889 and went silent by
+    a hundredth; by bars it is 16/17 = **0.941** and `SECTION_LENGTH_LOCKED`
+    fires.
+  * **`mandate_song.blueprint.json`** — 24/8/24/8 bars, all 4/4, plus a
+    ONE-BAR outro. `bars_multiple_of_four` read 4/5 = 0.800; **one bar out of
+    sixty-five was worth a fifth of the statistic**. By bars it is 64/65 =
+    **0.985** and `METER_LOCKED` fires.
+The other two shipped blueprints are unmoved.
+
+**AND A PIN ON EXACTLY THIS CENSUS WAS SHORT BY TWO CODES.**
+`quality/test_revise.py`'s shape-layer section exists to say the layer *"was
+not merely untested — it was firing on the repo's own fixtures and reporting
+to nobody"*, and it pins WHICH codes: `{DOWNBEAT_LOCKED,
+PHRASE_LENGTH_LOCKED}`, with *"FOUR of the six tripped by no shipped fixture
+at all"*. Both were true and both were short, because the two extra were
+hidden by the very duck that section's neighbour describes. It is
+**four of the six** now, and the two that were missing are `METER_LOCKED` and
+`SECTION_LENGTH_LOCKED` — repointed with the argument rather than relaxed, the
+same way `test_plan.py` §4's measure checks were. This is the one suite that
+went red, and it went red for the right reason: it was pinning the census and
+the census moved.
+**EVERYTHING ELSE STAYED GREEN, which is the coverage gap this entry lived
+in**: 298 checks in `test_grid.py` and 72 in `test_song_function.py` passed
+against a repair that moves two shipped fixtures' findings.
+
+**THE COST ON PUBLISHED VERSE, MEASURED AND NOT TUNED TO (doctrine 22).** The
+metric locks need a bar grid and the corpus carries none (doctrine 4), so the
+answerable half is the lyric lock — which is the half the anecdote is about.
+Over **15,063** `corpus/song/` songs with more than two non-empty blocks:
+`QUATRAIN_LOCK` fires on **11.80% -> 15.30%**, newly charging **550 songs =
+3.65%** and releasing 23. **The newly-charged population is not a random
+slice of verse — it is the anecdote:** the six commonest shapes are
+`[1,4,4,4,4,4,4]` (133 songs), `[1,4,4,4,4]` (91), `[1,4,4,4,4,4]` (82),
+`[2,4,4,4,4,4,4]` (60), `[1,4,4,4]` (35), `[1,4,4,4,4,4,4,4]` (32) — every
+one of them *n* quatrains and a one- or two-line tag. **THAT IS NOT A FALSE
+POSITIVE RATE.** A hymn of six quatrains closing on a one-line refrain IS
+written in quatrains; the old statistic was calling it clean. The 23 released
+are the mirror image and are also right — nine quatrains beside a thirty-line
+section is a form with a shape.
+
+**AND IT STAYS A NOTE**, unchanged: these are measurements against
+`POPULAR_SONG`, a labelled CONVENTION, and doctrine 6 says a convention a
+writer may depart from cannot be what fails `verify()`. What was closed is the
+SILENCE, never the severity — the sizing's own last requirement.
+
+**PROVEN BY MUTATION.** `quality/test_grid.py` §27 is 9 checks: the cliche
+still fires, the owner's shape now fires, a varied form and a real off-modal
+section stay silent, the duck's remaining price is stated with its
+derivation, and **restoring the section-count denominator puts the duck back**
+— the owner's shape goes quiet while the plain cliche still fires, which is
+the exact asymmetry this entry names.
+
+**WHAT THIS DOES NOT TOUCH, SAID PLAINLY BECAUSE A SESSION ALREADY GOT IT
+WRONG.** This is the GRADER. It changes nothing about what the planner draws:
+the song-SHAPE rate over 600 seeds is **0.3% before and after**, and `M-79`'s
+Findings 2 and 4 — twelve sections for nineteen lines, chorus before verse at
+56% against a corpus 23% — are untouched. A session reported that closing 101
+would move that rate; it does not, and the two are separate pieces of work.
+
+**BOOKKEEPING — AND THE COVERAGE COUNT DOES *NOT* MOVE FOR THIS ONE, WHICH IS
+THE POINT.** `M-75` is CLOSED IN PLACE rather than by a new entry, so
+`audit_register.PINNED["coverage_entries"]` stays at **139** (the ladder
+~~137~~ -> ~~138~~ -> 139 is recorded in `M-81`). The first draft of this
+close was written as its own `###` heading and `quality/counters.py` REFUSED
+the whole tree for it — *"entries with no status"* — because a heading in this
+file must carry a bracketed status token and a closing paragraph is not an
+entry. Two instruments in two hours catching two different ways of putting
+a record in the wrong shape.

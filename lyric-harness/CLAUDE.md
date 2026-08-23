@@ -3479,6 +3479,35 @@ rather than this paragraph — a roster copied into two files drifts in both.
    wiring: this is a measurement against a CONVENTION at an uncalibrated 0.90
    threshold, and doctrine 6 says a convention a writer may depart from cannot
    be what fails `verify()`. 5/4 and an 11-bar bridge are choices, not repairs.
+   **AND EVERY ONE OF THOSE STATISTICS WAS SILENCED BY APPENDING ONE SHORT
+   SECTION — FIXED 2026-08-23, `MISSING.md` M-75, owner's ruling *"derived
+   envelope not rate-matching"*.** The owner's anecdote: *"it made all
+   quatrains and ended with a 2 line outro which technically satisfied it but
+   that's blatantly just gaming the system."* Each lock fired on a FRACTION OF
+   SECTIONS, so one appended section moved the denominator by 1/n and went
+   quiet for every song of fewer than TEN sections. **The threshold is
+   untouched and retuning it would only move the duck from one section to
+   two** (doctrine 58); what changed is the POPULATION the fraction is over —
+   the MASS each section carries, bars for the metric locks and lines for the
+   lyric one. The two measures that were already per-LINE (`downbeat_locked`,
+   `uniform_anacrusis`) stop being exceptions and become instances of one
+   rule. **AND THE DUCK IS NOT GONE, WHICH IS THE HONEST STATEMENT** — its
+   PRICE went from a constant (one section, any size) to a share of the song,
+   derived from the declared threshold itself: silencing k sections of length
+   L now needs an appended section longer than `kL(1-t)/t`, a ninth of the
+   song at 0.90. **FOUND IN THIS REPO'S OWN FIXTURES**, where the sizing had
+   looked at the planner and called it latent: `function_fixture` is eight
+   2-bar sections and a ONE-BAR outro (`equal_section_length` 8/9 = 0.889,
+   silent; by bars 16/17 = 0.941, fires) and `mandate_song` is 65 bars of 4/4
+   whose single one-bar outro was worth a fifth of a section-count statistic
+   (`bars_multiple_of_four` 4/5 = 0.800; by bars 64/65 = 0.985). **No suite
+   went red on either** — 298 checks in `test_grid.py` passed against a repair
+   that moves two fixtures. Over 15,063 corpus songs the lyric lock goes
+   **11.80% -> 15.30%**, and the 550 newly charged are not a slice of verse
+   but the anecdote itself: the six commonest are `[1,4,4,4,4,4,4]`,
+   `[1,4,4,4,4]`, `[1,4,4,4,4,4]`, `[2,4,4,4,4,4,4]`, `[1,4,4,4]`,
+   `[1,4,4,4,4,4,4,4]`. `test_grid.py` §27, 9 checks, the mutation being to
+   put the section-count denominator back.
    NOT folded into `song_function_report`, whose contract is every
    *function*-dependent question and whose doctrine-79 triple has already gone
    negative once; `stanza_lock` never reads `Section.function`.
