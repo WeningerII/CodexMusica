@@ -41,7 +41,18 @@ NOUN_TAGS = {"NN", "NNS", "NNP", "NNPS"}
 # Archaic verb forms NLTK's tagger mislabels; used only by the inversion check.
 PERIPHRASTIC_DO = {"do", "does", "did", "dost", "doth", "didst"}
 
-MAX_RANK = 20000          # frequency-list size; unknown words sort past the end
+#: ~~MAX_RANK = 20000~~ STRUCK 2026-08-22. It was the size of
+#: `wordfreq20k.txt`, the list this project read until the frequency source
+#: was swapped to `data/opensubtitles_en_50k.tsv` -- and the constant stayed
+#: behind. A sentinel that is no longer past the end of the list is not a
+#: sentinel: at 49,999 entries ranked to 49,998, an out-of-vocabulary word
+#: scored 20,000 came back COMMONER than 29,998 real English words, 60% of
+#: the list, `thistle` (35,537) among them. Feature 10 is the RARITY of the
+#: content vocabulary, so the defect ran the feature backwards on exactly the
+#: words a lyric reaches for.
+#: Read from the lexicon now (`Lexicon.freq_rank_oov`), so a future source
+#: swap cannot leave it behind again -- doctrine 58 on its own axis: the
+#: number was a coordinate of the RESOURCE, not of a threshold.
 CONC_ABSTRACT = 2.5       # Brysbaert midpoint used for the abstract-noun cut
 
 #: MATTR's moving-average window, in TOKENS. It was a bare default in
@@ -242,7 +253,26 @@ class QualityFeatures:
         "mattr": "higher",
         "function_word_ratio": "lower",
         "syntactic_inversion_rate": "lower",
-        "content_word_freq_mean": "lower",
+        # CORRECTED 2026-08-22 BY OWNER RULING (`MISSING.md` M-32): ~~lower~~
+        # **higher**. `quality/PREREGISTRATION.md` committed this feature as
+        # "**LOWER** (rarer words)", and the two halves of that cell point
+        # opposite ways — `freq_rank` is 0-based ascending by commonness, so
+        # LOWER is MORE COMMON and the gloss says rarer. The ruling is that
+        # the GLOSS was the commitment, so the prediction is RARER WORDS and
+        # the direction that encodes it is `higher`.
+        #
+        # THE RESPECIFICATION ALREADY AGREED WITH THE GLOSS, which is the
+        # corroboration and not the reason: `within_item.WithinItemFeatures`
+        # declares `wi_freq_delta: "higher"` for the same quantity measured
+        # marked-minus-unmarked, and has since it was written. The two
+        # modules had disagreed with each other about one prediction the
+        # whole time (doctrine 1).
+        #
+        # IT MOVES NO AUC. `permutation_test` is direction-free and
+        # `joint_classifier` fits logistic regression on raw values, so every
+        # figure is unchanged; what moves is `dir_ok`, the printed verdict,
+        # and the count of features clearing FDR with the predicted sign.
+        "content_word_freq_mean": "higher",
     }
 
     def __init__(self, lex=None, decl=None, mattr_window=MATTR_WINDOW):
@@ -262,8 +292,17 @@ class QualityFeatures:
 
     @staticmethod
     def _tokens(line):
-        return [t for t in re.findall(r"[A-Za-z'\-]+", line)
-                if re.search(r"[A-Za-z]", t)]
+        # THE LETTER REPERTOIRE IS `lyric_harness.LATIN_SCRIPT`'S, 2026-08-21.
+        # This is the quality layer and it is deliberately separate from the
+        # correctness engine, but "separate" governs WHAT is measured and not
+        # WHETHER a word is a word: under `A-Za-z` Barnes's `A-baggèn` was two
+        # tokens and `jaÿ` was one letter short, so MATTR and the
+        # function-word ratio were computed over a text nobody printed.
+        # MEASURED on `corpus/song/eng_*`: 6,856 lines of 283,506 (2.42%) move
+        # and the token total falls 1,873,325 -> 1,865,465, **-0.420%** — the
+        # fall is fragments merging back into the words they came from.
+        return [t for t in re.findall(r"(?:[A-Za-zÀ-ɏḀ-ỿ]|['\-])+", line)
+                if re.search(r"[A-Za-zÀ-ɏḀ-ỿ]", t)]
 
     def _tag_lines(self, lines):
         return [self.pos_tag(self._tokens(l)) for l in lines]
@@ -460,7 +499,8 @@ class QualityFeatures:
         f_inv = sum(self._inversions(tl) for tl in tagged) / len(tagged)
 
         # 10 rarity of the content vocabulary
-        cranks = [self.lex.freq_rank.get(w, MAX_RANK) for w in content]
+        oov = getattr(self.lex, "freq_rank_oov", len(self.lex.freq_rank))
+        cranks = [self.lex.freq_rank.get(w, oov) for w in content]
         f_freq = sum(cranks) / len(cranks) if cranks else float("nan")
 
         return {

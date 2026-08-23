@@ -561,6 +561,47 @@ class Brief:
         return "\n".join(out)
 
 
+
+def _relation_phonology():
+    """-> the phonology the declared-relation judge reads.
+
+    `Reviser` carries NO language coordinate — checked 2026-08-22, it has no
+    `lang`/`language` attribute anywhere — so this resolves English, exactly
+    as `structures.Structure.judge` already does with `phon or PH.get("eng")`.
+
+    IT IS A NAMED FUNCTION RATHER THAN AN INLINE DEFAULT ON PURPOSE. Doctrine
+    45 says language is a coordinate and a checker silently picking one is
+    the bug; this path does pick one, and putting the pick behind a name
+    makes it a single visible site to fix when `Reviser` learns a language,
+    instead of a literal buried in a branch. `MISSING.md` M-4 owns the
+    coordinate itself. Recorded rather than hidden: a mandate declaring
+    `cynghanedd lusg` on a Welsh draft is being judged by the English
+    phonology today, and that is wrong in a way this comment is the only
+    warning of.
+    """
+    from quality import phonology as _PH
+    return _PH.get("eng")
+
+
+def _schema_name_of(_RT, want):
+    """-> the canonical schema name `want` declares, or "" if it declares a
+    class or a named type.
+
+    ASKED THROUGH THE VOCABULARY RATHER THAN BY PREFIX-MATCHING `"schema:"`.
+    A stored relation is namespaced (M-49) so the prefix IS reliable today,
+    but the namespace spelling is `resolve_relation`'s to own and a second
+    module deciding it by string surgery is how the two drift apart
+    (doctrine 1). A name that refuses here returns "" and the per-pair judge
+    raises the vocabulary's own refusal a moment later, in the one place
+    that already turns it into a `refusals` row.
+    """
+    try:
+        canon, kind = _RT.resolve_relation(want)
+    except Exception:
+        return ""
+    return canon if kind == "schema" else ""
+
+
 class Reviser:
     """Grades a draft, briefs a revision, and verifies the result."""
 
@@ -841,8 +882,22 @@ class Reviser:
 
     # -- grading the mandate ----------------------------------------------
 
-    def grade(self, lines, mandate=None, profile=None):
+    def grade(self, lines, mandate=None, profile=None, sections=None):
         """The mandate, diffed against the graph. -> dict, group-scoped.
+
+        `sections` IS THE STANZA GROUND AND IT IS PASSED, NEVER INVENTED
+        (2026-08-22). Five registry schemas declare `frame="stanza"` —
+        `analysed rhyme`, `blues AAB stanza`, `dvitiyakshara-prasa`, `monai`,
+        `monorhyme / leash` — and every one refuses without it. `grade()` is
+        handed lines with the blank lines already stripped, so it has NO
+        ground of its own, and handing `build_stream` an all-zero stanza
+        vector to make `supply('stanza')` say `present` is precisely the
+        defect `MISSING.md` M-39(b) closed: a frame asserted where there is
+        none, letting five schemas quantify over one stanza and report the
+        result as measurement. So the ground comes from the CALLER — a
+        per-line section list, which `inspect()` derives from the blueprint
+        the writer declared. No blueprint, no sections, and the five schemas
+        go on refusing, which is the honest answer and not a gap.
 
         This is `check_scheme` generalised off letters. Same primitives, same
         order of tests, same constants — deliberately, because the two must
@@ -884,6 +939,98 @@ class Reviser:
         if getattr(m, "structures", ()) and any(m.structures):
             from quality import structures as _ST_mod
             _ST = _ST_mod
+        # THE DECLARED RELATION, same lazy discipline: a mandate that never
+        # learned the coordinate pays nothing and takes the byte-identical
+        # old path. A NAMED relation costs one `classify_pair` per pair
+        # (~1.3 ms, measured 2026-08-22); a coarse CLASS is answered from the
+        # score that was computed anyway.
+        #
+        # THE GATE ASKS BOTH COORDINATES (2026-08-22, owner's instruction
+        # "wire Mandate.relations as the default route"). It read
+        # `m.relations` alone, and `Mandate.default_relation` — the SAME
+        # declaration made once for the whole song instead of once per group
+        # — left this None, so `want` was "" on every pair and a mandate
+        # that declared its relation at the mandate level was graded by the
+        # coarse `admit` set in silence. A declared coordinate read by
+        # nothing is the defect this whole route exists to end, and shipping
+        # the field without this line would have re-created it in the act of
+        # closing it.
+        _RT = None
+        if ((getattr(m, "relations", ()) and any(m.relations))
+                or getattr(m, "default_relation", "")):
+            from quality import rhyme_types as _RT_mod
+            _RT = _RT_mod
+
+        # THE SCHEMA ROUTE (2026-08-22, owner ruling "everything in the
+        # default"). A `schema:` relation is evaluated by
+        # `relations.realise()` over the WHOLE DRAFT, so it is realised ONCE
+        # here — where the lines are — and handed to the per-pair judge as a
+        # set of line pairs. The alternative, calling `realise()` inside the
+        # pair loop, would re-enumerate every span in the song for every
+        # mandated pair.
+        #
+        # THE COST IS PAID ONLY BY A MANDATE THAT DECLARES ONE. `_schema_of`
+        # returns "" for every class and named relation, so a mandate that
+        # never says `schema:` does not import `relations`, does not build a
+        # stream, and takes the byte-identical old path — the same lazy
+        # discipline the structure and named-relation routes above take.
+        _sch_pairs, _stream = {}, None
+        if _RT is not None:
+            _wants = {w for w in
+                      (list(getattr(m, "relations", ()) or [])
+                       + [getattr(m, "default_relation", "")]) if w}
+            _schemas = [w for w in _wants if _schema_name_of(_RT, w)]
+            if _schemas:
+                from quality import relations as _R_mod
+                # SECTIONS -> STANZAS, and the derivation is named rather
+                # than implied. `build_stream` reads its stanza frame from
+                # `stanzas=` (a per-line index), NOT from `sections=`, which
+                # only labels units — measured: passing sections alone leaves
+                # `supply('stanza')` at `absent`, source `none`. A contiguous
+                # run of one declared section IS a stanza boundary, so the
+                # index is derived from the runs and `stanza_source` says
+                # `declared_sections` so the provenance survives into every
+                # report (M-39: a declared list gets a source name, and the
+                # name is what tells a reader this was not blank lines).
+                _stanzas = None
+                if sections:
+                    _stanzas, _k, _prev = [], -1, object()
+                    for sec in sections:
+                        if sec != _prev:
+                            _k += 1
+                            _prev = sec
+                        _stanzas.append(_k)
+                _stream = _R_mod.build_stream(
+                    lines, _relation_phonology(),
+                    sections=sections, stanzas=_stanzas,
+                    stanza_source="declared_sections" if _stanzas else "",
+                    declaration={"language": "eng"})
+                # THE REFRAIN-TAIL FRAME, DERIVED FROM THE DECLARATION AND
+                # NOT FROM A DEFAULT. `epistrophe / radif` and
+                # `qafiya (before the radif)` refuse without
+                # `frames.refrain_tail`, and `mark_refrain_tail` computes it
+                # from the song — but its own docstring records that running
+                # it with `lines=None` over a ghazal answers ZERO on 495 of
+                # 495, because the fraction is taken over lines that never
+                # carried the rhyme. `lines` is documented as "the declared
+                # rhyme-bearing subset AS LINE INDICES", and a mandate is
+                # exactly that subset, spelled by the writer. So it is passed
+                # rather than defaulted: the union of the mandated groups,
+                # 0-based. A mandate that declares no schema needing the
+                # frame never calls this (doctrine 45 — the coordinate comes
+                # from the declaration, not from the checker's guess).
+                if any(c == "refrain_tail"
+                       for w in _schemas
+                       for c in _R_mod.REGISTRY[
+                           _schema_name_of(_RT, w)].capabilities()):
+                    _bearing = sorted({ln - 1 for g in m.groups for ln in g
+                                       if 1 <= ln <= len(lines)})
+                    if _bearing:
+                        _R_mod.mark_refrain_tail(_stream, lines=_bearing)
+                for w in _schemas:
+                    _canon = _schema_name_of(_RT, w)
+                    _sch_pairs[w] = _R_mod.line_pairs_for(
+                        _R_mod.REGISTRY[_canon], _stream)
         for (i, j, k) in pairs:
             if (i, j) in refused:
                 unknown.add((i, k))
@@ -893,12 +1040,71 @@ class Reviser:
             rel = s["relation"]
             why = None
             struct = m.structure_of(k) if _ST is not None else None
+            want = m.relation_of(k) if _RT is not None else ""
             if rel == "REPEAT":
                 # Identity is its own question under EVERY structure — the
                 # returns/licence machinery owns it, and an identical word
                 # trivially "satisfying" an alliteration demand is exactly
                 # the laziness that machinery exists to adjudicate.
                 why = "REPEAT not rhyme (identical word)"
+            elif want:
+                # THE GROUP DECLARED WHAT RELATION IT WANTS. This is the
+                # coordinate `admits()` could never carry: `admits()` is ONE
+                # global set answering "what satisfies ANY mandate", so
+                # widening it makes every requirement looser. Asked per
+                # group, the same question is STRICTER — a group declaring
+                # ASSONANCE is not satisfied by a perfect rhyme.
+                #
+                # POSITION IS DECLARED, NOT ASSUMED. 31 of the 49 named types
+                # require one and `classify_pair` cannot know it (M-34). A
+                # mandate's groups are end-rhyme groups by construction, so
+                # 'end' is the honest value here and is passed explicitly —
+                # a checker picking it silently would be the bug (doctrine
+                # 45), and it is exactly the wrong value for the internal,
+                # head, leonine, cross and holorhyme relations, which this
+                # path therefore cannot yet mandate.
+                try:
+                    ok = _RT.satisfies_relation(
+                        want, rel, endwords[i - 1], endwords[j - 1],
+                        _relation_phonology(), position="end",
+                        lines=(i, j), instances=_sch_pairs.get(want))
+                except _RT.RelationRefused as e:
+                    refusals.append({
+                        "lines": (i, j),
+                        "endwords": (endwords[i - 1], endwords[j - 1]),
+                        "unreadable": [],
+                        "groups": [m.labels[k]],
+                        "reason": (f"the declared relation {want!r} cannot be "
+                                   f"judged here: {e} — REFUSED, not failed "
+                                   f"(doctrine 79)")})
+                    refused.add((i, j))
+                    unknown.add((i, k))
+                    unknown.add((j, k))
+                    continue
+                if ok is None:
+                    # The phonology could not read a member, or the
+                    # classification is indeterminate. A refusal, never a no
+                    # — reading it as a failure charges the writer for a word
+                    # the engine cannot pronounce (doctrine 79).
+                    refusals.append({
+                        "lines": (i, j),
+                        "endwords": (endwords[i - 1], endwords[j - 1]),
+                        "unreadable": [],
+                        "groups": [m.labels[k]],
+                        "reason": (f"the declared relation {want!r} has no "
+                                   f"coordinates in this pair (a member the "
+                                   f"phonology refuses, or an indeterminate "
+                                   f"classification) — REFUSED, not failed "
+                                   f"(doctrine 79)")})
+                    refused.add((i, j))
+                    unknown.add((i, k))
+                    unknown.add((j, k))
+                    continue
+                if not ok:
+                    why = (f"does not satisfy the declared relation {want!r} "
+                           f"— judged by the named-type engine at that "
+                           f"relation's own coordinate, not by the scalar "
+                           f"comparator's admit set")
             elif _ST is not None and struct != _ST.DEFAULT:
                 sv = _ST.judge(struct, endwords[i - 1], endwords[j - 1])
                 if sv is None:
@@ -1923,7 +2129,23 @@ class Reviser:
             else:
                 whole.append(f)
 
-        rep = self.grade(lines, m, profile=profile)
+        # THE STANZA GROUND, FROM THE BLUEPRINT THE WRITER DECLARED. See
+        # `grade`'s own docstring for why this is passed and never derived
+        # here: an all-zero stanza vector is M-39(b)'s defect. `blueprint`
+        # already carries a per-line section (it is what `_function_findings`
+        # reads), so a writer who declared one has already supplied the
+        # ground, and a writer who did not gets refusals from the five
+        # `frame="stanza"` schemas rather than a manufactured frame.
+        _sections = None
+        if blueprint is not None:
+            try:
+                _song, _ = GR.song_from_blueprint(blueprint)
+                _sections = [l.section for l in _song.lines][:len(lines)]
+                if len(_sections) < len(lines):
+                    _sections = None      # a partial map is not a ground
+            except Exception:
+                _sections = None
+        rep = self.grade(lines, m, profile=profile, sections=_sections)
         # A DECLARED STRUCTURE WITH NO LAZINESS DATA IS SAID OUT LOUD, ONCE
         # PER DRAFT (doctrine 48: silence about it would read as clean).
         # `Structure.calibrated` is True only where a preregistered
@@ -2447,11 +2669,30 @@ class Reviser:
             else:
                 msg = (f"L{i} ({gi}) and L{j} ({gj}) collide as "
                        f"{c['relation']}, WHICH IS NOT A RHYME — {pair}")
+                # ASKED, NOT ASSERTED — 2026-08-22. This sentence used to
+                # state `admits()` is FALSE (the mandate cut)` as a fixed
+                # fact, which was true only while the DEFAULT admit set was
+                # the two rhyme relations. The default now admits all four,
+                # so for an ASSONANCE or CONSONANCE collision the two cuts
+                # AGREE and the old text told the writer their clean pair
+                # would be charged. Doctrine 45's shape, in prose rather
+                # than in a checker: a sentence that silently picks one
+                # answer to a question the declaration decides.
+                _adm = c["relation"] in self.decl.admit
                 ev = (f"scalar {c['score']:.3f} >= {THETA_COLLISION} (the "
-                      f"collision cut) but `admits()` is FALSE (the mandate "
-                      f"cut), so this same module would call the pair a "
-                      f"VIOLATION if L{i} and L{j} were mandated together. "
-                      f"See the whole-draft note below")
+                      f"collision cut) and `admits()` is "
+                      f"{'TRUE' if _adm else 'FALSE'} (the mandate cut, "
+                      f"under this run's declared admit set "
+                      f"{tuple(self.decl.admit)}), so this same module "
+                      + (f"would ACCEPT the pair if L{i} and L{j} were "
+                         f"mandated together — it is reported here because "
+                         f"the collision detector's cut is the SCALAR "
+                         f"alone and says nothing about whether the "
+                         f"relation was wanted"
+                         if _adm else
+                         f"would call the pair a VIOLATION if L{i} and "
+                         f"L{j} were mandated together")
+                      + ". See the whole-draft note below")
             add(j, Finding(code, "note", msg, ev, [i, j]))
         if near:
             # Said ONCE. The argument is a property of the cut, not of any
@@ -2465,8 +2706,14 @@ class Reviser:
                 f"collision detector reported them anyway",
                 f"the collision cut is `total >= {THETA_COLLISION}` — the "
                 f"SCALAR alone — while `grade()` accepts a mandated pair only "
-                f"when `admits()` does: the scalar AND a relation in "
-                f"RHYME_RELATIONS. So the two halves of this module ask "
+                f"when `admits()` does: the scalar AND a relation in the "
+                f"DECLARED admit set — ~~RHYME_RELATIONS~~, which was this "
+                f"sentence's answer while the default was the two rhyme "
+                f"relations and stopped being it on 2026-08-22, when the "
+                f"default widened to every admittable relation (doctrine "
+                f"17: the superseded value stays visible). This run "
+                f"declared {tuple(self.decl.admit)}. So the two halves of "
+                f"this module ask "
                 f"different questions about the same pair, which is the "
                 f"defect `RESULTS_REVISION_LOOP.md` §1 found in `_field` and "
                 f"fixed there, surviving here. The SET is not changed: it is "

@@ -456,8 +456,14 @@ def test_every_declared_source_reaches_a_row():
     # declarations over 1,174 -> 1,423 files. Both move now, unlike the
     # Montgomery merge where only the file count did: HBV added 272 files
     # AND gave 191 existing ones a second book.
-    check("2007 id-shaped `# source:` declarations are checked, over 1423 "
-          "files", total == 2007 and len(files) == 1423, (total, len(files)))
+    # REPINNED 2026-08-22 (K-4, the Old Norse staging): 2,007 -> 2,014
+    # declarations over 1,423 -> 1,430 files. Both move by SEVEN, which is
+    # the signature of a load where every new file carries exactly one
+    # `# source:` id and no existing file gained a second: the seven
+    # `corpus/song/non_*.txt` are all cut from one compilation,
+    # `sveinbjornt/sagadb.org`, admitted by owner ruling.
+    check("2014 id-shaped `# source:` declarations are checked, over 1430 "
+          "files", total == 2014 and len(files) == 1430, (total, len(files)))
     # REPINNED 2026-08-20 (Tier-1): 62 -> 70 — eight of the 18 topped-up
     # files gained their first second source citation.
     # 70 -> 73 same sitting: three twin merges gave their keepers a second
@@ -946,6 +952,240 @@ def test_cross_language_baseline_is_what_makes_check_D_weak():
           all(abs(AC.CROSS_LANGUAGE_BASELINE[k] - v) < 0.02
               for k, v in r.items()),
           (AC.CROSS_LANGUAGE_BASELINE, r))
+
+
+# ---------------------------------------------------------------------------
+# 4b. Check H — the staging discriminator, and the two findings it invented
+#
+# `MISSING.md` M-25(a) says what is owed first and why: "a one-line `[VERSE]`
+# block whose line matches none of the sung-text shapes is a candidate, and
+# the corpus audit can raise it without anyone adjudicating a poem". This is
+# that check, and the pins below are in three groups.
+#
+# THE FALSE-POSITIVE PINS ARE FIRST, because this check manufactured a finding
+# on each of its first two runs and both were the same defect one script
+# apart: an ORTHOGRAPHIC rule silently picking a script (doctrine 45). Neither
+# was visible by reading the rule; both were found by running it over the
+# corpus. This file's own convention is that a removed false positive is
+# pinned, "because a fix that is not tested is a fix that comes back".
+# ---------------------------------------------------------------------------
+
+
+def test_check_H_does_not_charge_a_caseless_script():
+    """RUN 1's manufactured finding. `ltc_siku_kr4j0074.txt`'s
+    `欲寄逺憑誰是。` is a sung line of a 詞 — one whitespace token, and no
+    character in it is lowercase because CHINESE HAS NO CASE. The ALL-CAPS
+    rule charged it, 9 blocks over two files. "No lowercase letter" says
+    nothing about a line until the script has case at all."""
+    for t in ("欲寄逺憑誰是。", "心有靈犀一㸃通。", "一曲哀絃謾託。"):
+        check("a case-less line is not an ALL-CAPS label: %r" % t,
+              AC.apparatus_shape(t) is None, AC.apparatus_shape(t))
+
+
+def test_check_H_does_not_charge_a_cased_non_latin_script():
+    """RUN 2's manufactured finding, and it is the sharper one.
+    `eng_british_lord_byron.txt`'s `Ζωή μου, σᾶς ἀγαπῶ.` is *Maid of Athens*'s
+    Greek refrain — the most sung line in the poem — charged because the
+    lowercase test was the LATIN-1 class `[a-zà-öø-ÿ]` and Greek `ωή` is not
+    in it. A hand-written character class is a claim about which alphabets
+    exist; `str.islower()` is the same question asked of Unicode."""
+    check("Byron's Greek refrain is not an ALL-CAPS label",
+          AC.apparatus_shape("Ζωή μου, σᾶς ἀγαπῶ.") is None,
+          AC.apparatus_shape("Ζωή μου, σᾶς ἀγαπῶ."))
+    check("a Greek line in actual capitals still IS one",
+          AC.apparatus_shape("ΖΩΗ ΜΟΥ.") == "allcaps-label",
+          AC.apparatus_shape("ΖΩΗ ΜΟΥ."))
+    check("and the Latin case still reads, so the fix did not delete the rule",
+          AC.apparatus_shape("B. TAYLOR.") == "allcaps-label",
+          AC.apparatus_shape("B. TAYLOR."))
+
+
+def test_check_H_shapes_are_the_declared_four():
+    """The table is the rule (doctrine 58). A shape that is not in it leaves
+    the line in the RESIDUE, which is a count and not a pass."""
+    for line, want in (("I.", "numeral"),
+                       ("XLIV.—XLVI.  DA.", "allcaps-label"),
+                       ("II-1", "numeral"),
+                       ("1845.", "numeral"),
+                       ("* * * * *", "ornament"),
+                       ("Recitativo", "heading-word"),
+                       ("Come gie 's a sang, Montgomery cried,", None),
+                       ("The nativity of Christ, Luke 1. 30 &c.", None)):
+        got = AC.apparatus_shape(line)
+        check("%r -> %s" % (line, want), got == want, got)
+
+
+def test_check_H_fires_on_a_planted_apparatus_block_and_not_on_a_stanza():
+    """Doctrine 94 aimed at check H. The planted file carries BOTH: a one-line
+    `[VERSE]` block whose line is a byline, and a one-line `[VERSE]` block
+    whose line is real sung text. A rule that charges both is too generous and
+    a rule that charges neither is silent, so the pin is the DIFFERENCE."""
+    tmp = tempfile.mkdtemp(prefix="audit_corpus_h_")
+    p = os.path.join(tmp, "eng_planted_staging.txt")
+    open(p, "w", encoding="utf-8").write(
+        "# lang: eng\n# licence: n/a\n\n"
+        "--- TITLE: A PLANTED SONG\n"
+        "[VERSE 1]\nB. TAYLOR.\n\n"
+        "[VERSE 2]\nAnd so we sang the whole night long,\n"
+        "and never once did tire,\n\n"
+        "[VERSE 3]\nO give me back my heart again.\n")
+    cf = AC.CorpusFile(p)
+    blocks = AC.one_line_verse_blocks(cf)
+    check("the walk finds exactly the two one-line blocks",
+          [b[1] for b in blocks]
+          == ["B. TAYLOR.", "O give me back my heart again."], blocks)
+    fs = AC.check_staging([(AC.display_path(p), cf)], AC.Sources())
+    check("check H returns exactly one finding for the file", len(fs) == 1,
+          [(f.severity, f.what) for f in fs])
+    check("it is a WARN, because a declared shape matched",
+          fs and fs[0].severity == AC.WARN, fs and fs[0].severity)
+    check("it charges the byline and NOT the sung line",
+          fs and "matched 1" in fs[0].measured and "residue 1" in
+          fs[0].measured, fs and fs[0].measured)
+    check("the residue is named as UNADJUDICATED, never as clean",
+          fs and "UNADJUDICATED" in fs[0].measured, fs and fs[0].measured)
+
+
+def test_check_H_reports_a_residue_only_file_rather_than_passing_it():
+    """Doctrine 20 — a population nobody has looked at must not render as a
+    population that passed. `san_jayadeva_gitagovinda.txt` is the real case:
+    28 one-line `[VERSE]` blocks, every one a long Sanskrit verse line, no
+    declared shape among them. Zero findings there would be a false clean."""
+    tmp = tempfile.mkdtemp(prefix="audit_corpus_h2_")
+    p = os.path.join(tmp, "eng_residue_only.txt")
+    open(p, "w", encoding="utf-8").write(
+        "# lang: eng\n# licence: n/a\n\n"
+        "--- TITLE: RESIDUE ONLY\n"
+        "[VERSE 1]\nO give me back my heart again.\n")
+    cf = AC.CorpusFile(p)
+    fs = AC.check_staging([(AC.display_path(p), cf)], AC.Sources())
+    check("a residue-only file is REPORTED, not silent", len(fs) == 1,
+          [(f.severity, f.what) for f in fs])
+    check("and it is a NOTE, not a WARN — nothing was charged",
+          fs and fs[0].severity == AC.NOTE, fs and fs[0].severity)
+    check("the doctrine cited is 20", fs and fs[0].doctrine == "20",
+          fs and fs[0].doctrine)
+
+
+def test_check_H_is_wired_into_the_audit():
+    """A helper that computes the right population and reports it to NOBODY is
+    this module's own recurring defect — its `unwalked()` section records
+    stubbing the emission and leaving all five checks green. So the pin is on
+    the AUDIT, not on `check_staging` in isolation: H must be in `CHECKS`, and
+    a run of `audit()` must carry findings that came from it."""
+    check("H is registered in CHECKS", "H" in AC.CHECKS, sorted(AC.CHECKS))
+    tmp = tempfile.mkdtemp(prefix="audit_corpus_h3_")
+    p = os.path.join(tmp, "eng_wired.txt")
+    open(p, "w", encoding="utf-8").write(
+        "# lang: eng\n# licence: n/a\n\n"
+        "--- TITLE: WIRED\n[VERSE 1]\nB. TAYLOR.\n")
+    _files, fs = AC.audit(root=tmp, checks=["H"])
+    check("audit(checks=['H']) reaches the check and it fires",
+          any(f.check == "H" and f.severity == AC.WARN for f in fs),
+          [(f.check, f.severity, f.what) for f in fs])
+    _files, allfs = AC.audit(root=tmp)
+    check("and a full audit() carries the same finding",
+          any(f.check == "H" for f in allfs),
+          sorted(set(f.check for f in allfs)))
+
+
+def test_check_H_on_the_real_corpus():
+    """The corpus-wide figure, pinned with the rule that produced it.
+
+    `MISSING.md` M-25(a) records 940 across 67 files. That was THIS QUESTION
+    asked by a session script whose shape rules were never written down — no
+    `D`/`M` in the roman class, no comma in the arabic one, a strict character
+    class that dropped every dash-joined range, and no ornament class at all.
+    Doctrine 58 exactly, and the repair is that the number is now whatever the
+    committed table produces.
+
+    2,564 AND NOT 2,551, AND THE 13 ARE THE FLUSH. The scratch script that
+    raised M-25(a) evaluated a block only when the NEXT apparatus line arrived,
+    so a file whose last block is a one-line `[VERSE]` block was never asked
+    about it — 13 files, silently. `one_line_verse_blocks` flushes at end of
+    file and says so in its own docstring, which is the whole reason the rule
+    belongs in a module rather than in a session's scratch.
+
+    REPINNED 2026-08-21, SAME SITTING: one ~~2,564~~ **2,550**, matched
+    ~~1,059~~ **1,045**, `allcaps-label` ~~526~~ **512**. Exactly 14 out of
+    the MATCHED half and none out of the residue, which is the signature of a
+    REPAIR rather than a rule change — the 14 pìobaireachd movement headings
+    (`URLAR`/`SIUBHAL`/`CRUNLUATH`, three `eng_celtic_msm_*` files) are marks
+    now. That subset was repaired and the other 1,045 were not, for the reason
+    `M-25(a)` gives: the printing itself sets a movement heading as a heading,
+    so nothing had to be adjudicated. A poem title, a byline and a speaker
+    attribution each need a reading, and they are still counted here."""
+    files = AC.load()
+    song = [(rel, cf) for rel, cf in files if "/song/" in rel]
+    one = matched = 0
+    shapes = {}
+    for _rel, cf in song:
+        for _m, line in AC.one_line_verse_blocks(cf):
+            one += 1
+            k = AC.apparatus_shape(line)
+            if k:
+                matched += 1
+                shapes[k] = shapes.get(k, 0) + 1
+    check("2,550 one-line `[VERSE]` blocks under corpus/song/", one == 2550,
+          one)
+    check("1,045 of them carry a declared apparatus shape", matched == 1045,
+          matched)
+    check("the shape split reproduces",
+          shapes == {"allcaps-label": 512, "numeral": 445, "ornament": 72,
+                     "heading-word": 16}, shapes)
+    check("the residue is 1,505 and is NOT claimed to be clean",
+          one - matched == 1505, one - matched)
+    fs = AC.check_staging(files, AC.Sources())
+    warn = sum(1 for f in fs if f.severity == AC.WARN)
+    note = sum(1 for f in fs if f.severity == AC.NOTE)
+    check("105 files carry a charged block, 48 carry residue only",
+          (warn, note) == (105, 48), (warn, note))
+
+
+# ---------------------------------------------------------------------------
+# 4c. Check I — the printed indent as an independent witness
+# ---------------------------------------------------------------------------
+
+
+def test_check_I_reads_the_indent_and_charges_nothing():
+    """`MISSING.md` M-28. The compositor's indent predicts a shared spelled
+    rime at 6.19x corpus-wide against a within-block permutation null, and
+    every reader stripped it before anything saw it. Check I is what READS it
+    — a coordinate that is declared and never read is the defect this
+    repository keeps rediscovering.
+
+    IT CHARGES NOTHING, and that is the binding property. An indent can mark
+    the rhyme GROUP or the rhyme BEARER, and those are opposite conventions in
+    the same typography: `eng_pah_francis_lieber.txt` prints ABCB stanzas
+    indenting ONLY the rhyming fourth line, so its same-depth pairs are by
+    construction the ones that do not rhyme. Any threshold would charge a
+    printing convention as a defect."""
+    files = AC.load()
+    fs = AC.check_indent(files, AC.Sources())
+    check("check I emits findings", bool(fs), len(fs))
+    check("EVERY one is a NOTE — nothing is charged",
+          all(f.severity == AC.NOTE for f in fs),
+          sorted({f.severity for f in fs}))
+    check("and every one cites doctrine 14, the independence argument",
+          all(f.doctrine == "14" for f in fs),
+          sorted({f.doctrine for f in fs}))
+    summary = [f for f in fs if f.path.startswith("corpus/song/ (")]
+    check("exactly one corpus-wide summary carries the three counts",
+          len(summary) == 1 and "AGREES" in summary[0].measured
+          and "OPPOSITE" in summary[0].measured
+          and "inside the null" in summary[0].measured,
+          [f.path for f in summary])
+    check("517 agree / 6 opposite / 22 inside the null",
+          summary and "AGREES 517 | runs OPPOSITE 6 | inside the null 22"
+          in summary[0].measured, summary and summary[0].measured[:70])
+    check("the per-file notes are the two SMALL populations only, 28 of them",
+          len(fs) - 1 == 28, len(fs) - 1)
+    lieber = [f for f in fs if "francis_lieber" in f.path]
+    check("`eng_pah_francis_lieber.txt` is named as running OPPOSITE — the "
+          "file that refutes any threshold",
+          len(lieber) == 1 and "OPPOSITE" in lieber[0].what, lieber)
+    check("H and I are both registered", {"H", "I"} <= set(AC.CHECKS),
+          sorted(AC.CHECKS))
 
 
 # ---------------------------------------------------------------------------

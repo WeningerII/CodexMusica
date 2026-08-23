@@ -1,51 +1,72 @@
-# CHANNEL MAP — what can be reached from inside this container
+# CHANNEL MAP — the egress policy is an ALLOWLIST
 
 Doctrine 78. Six cells in one round independently rediscovered that
-gutenberg.org is blocked and between them found eleven more blocked hosts. That
-is six times the same probing, paid for six times. This file exists so a cell
-reads the map instead of re-deriving it.
+gutenberg.org is blocked and between them found eleven more blocked hosts.
+That is six times the same probing, paid for six times. This file exists so a
+cell reads the map instead of re-deriving it.
 
-**Doctrine 49 applies to every row here: a NOT-REACHABLE row is a claim about
-the network at a moment, not about the world.** Rows carry the date they were
-last probed. If a row is stale and the source matters, re-probe it and edit the
-row in place with the new date — do not add a second row.
+**REFRAMED 2026-08-21 (M-9).** This file was written as a blocklist and the
+policy is not one: the gateway DENIES BY DEFAULT and answers 403 to CONNECT
+for anything not on its list. A blocklist of 13 hosts implied 13 closed doors
+and an open world; the truth is ~8 open doors. That inversion cost one cell
+most of its authors (`data/sources.tsv:125`, which states the allowlist fact
+this file contradicted for eleven days) and shaped six sourcing briefs.
 
-**Append, do not rewrite.** If you find a new channel, add it. If you find a row
-is wrong, correct it and say when.
+**The proxy does NOT publish the allowlist, and its status endpoint is a
+failure LOG, not a policy dump.** `curl -sS "$HTTPS_PROXY/__agentproxy/status"`
+returns `recentRelayFailures[]`, which is EMPTY until you probe and then names
+each denied host as `connect_rejected: gateway answered 403 to CONNECT`.
+Probe, then read it — that is the only enumeration available (verified
+2026-08-21: empty before five probes, five rows after).
+
+**Doctrine 49 applies to every row here: a row is a claim about the network at
+a moment, not about the world.** Rows carry the date they were last probed. If
+a row is stale and the source matters, re-probe it and edit the row in place
+with the new date — do not add a second row. If you find a new channel, add
+it; if you find a row is wrong, correct it and say when.
 
 ---
 
-## Blocked (egress-denied from this container)
+## OPEN — the doors that are known to work
 
-Last probed 2026-08-10 unless noted.
-
-| host | note |
-|---|---|
-| `gutenberg.org` | use GITenberg on GitHub instead — see below |
-| `gutendex.com` | the Gutenberg JSON API; same block |
-| `*.wikisource.org` | including all language subdomains |
-| `*.wikipedia.org` | |
-| `archive.org` | this is what puts the Tin Pan Alley scans out of reach |
-| `hathitrust.org` | |
-| `ccel.org` | Christian Classics Ethereal Library |
-| `hymnary.org` | |
-| Bodleian broadside ballads | |
-| `gsarchive.net` | Gilbert & Sullivan Archive |
-| `codeload.github.com` | the tarball endpoint — `git clone` still works, RECONFIRMED 2026-08-11 (five clones, no fallback needed) |
-| `cdn.jsdelivr.net` | |
-| `unicode.org` | 403 from the proxy, probed 2026-08-11. Use `unicode-org/unihan-database` on GitHub instead. |
-
-## Reachable
-
-| channel | how | note |
+| channel | last verified | evidence |
 |---|---|---|
-| **`git clone` of any public GitHub repo** | plain `git clone https://github.com/OWNER/REPO` | works even though `codeload` is blocked. This is the single most useful channel in the list. |
-| **GITenberg** | `github.com/GITenberg` — Project Gutenberg mirrored as ~50k repos | **overturned a committed NOT-FOUND row**: the Finnish Kalevala, recorded as unreachable, fetched in one call and validated at **81.3%** alliteration *(~~81.2%~~ REPINNED 2026-08-13: 3,253 of the first 4,000 verse lines, and 22,795 lines extracted rather than the 22,822 recorded — MEASURED by `quality/audit_kalevala_null.py --check`; the origin row is `data/sources.tsv:58`)* (doctrine 49) |
-| **GITenberg search via `WebFetch`** | fetch the org's HTML search page | **no rate limit**, unlike the MCP `search_repositories` tool, which throttles after ~8 calls |
-| `mcp__github__search_code` | GitHub-wide code search | good for locating a known text by a line of it. Doctrine 51: count DISTINCT BYTES, not distinct URLs — five hits in four repos turned out to be three copies of one file plus a fork |
-| `huggingface.co` datasets | the HF MCP tools, and `hf_fs` | how `wikimedia/wikisource` is reachable despite wikisource itself being blocked |
-| `thabz/Kalliope` | GitHub repo | Nordic poetry, found late in a round nobody had mapped |
-| `WebSearch` / `WebFetch` | general | `WebFetch` on a blocked host still fails; the block is per-host, not per-tool |
+| **`git clone` / `git ls-remote` of any public GitHub repo** | 2026-08-21 | the single most useful channel in the list; works even though `codeload` tarballs 403 at the ORIGIN (see the correction below) |
+| **`raw.githubusercontent.com`** | 2026-08-21 | `data/sources.tsv:67`, `:125` |
+| **GITenberg** (`github.com/GITenberg`, ~50k repos) | standing | **overturned a committed NOT-FOUND row**: the Finnish Kalevala, recorded as unreachable, fetched in one call and validated at **81.3%** alliteration *(~~81.2%~~ REPINNED 2026-08-13: 3,253 of the first 4,000 verse lines, and 22,795 lines extracted rather than the 22,822 recorded — MEASURED by `quality/audit_kalevala_null.py --check`; the origin row is `data/sources.tsv:58`)* (doctrine 49). Search the org by REPOSITORY NAME — `mcp__github__search_code` does not index GITenberg text bodies (`data/sources.tsv:392`) |
+| `mcp__github__search_code` / `search_repositories` | standing | locating a known text by a line of it, OUTSIDE GITenberg. Doctrine 51: count DISTINCT BYTES, not URLs — five hits in four repos were three copies of one file plus a fork. `search_repositories` throttles after ~8 calls |
+| GITenberg search via `WebFetch` on github.com HTML | CONTESTED 2026-08-21 | this file said "no rate limit"; `data/sources.tsv:63` records 429 after a couple of `/search` hits. Both rows are committed and they disagree — RE-PROBE AND PICK ONE before relying on either |
+| Hugging Face **MCP tools only** (`hf_whoami`, `hf_fs`, `hub_repo_search`) | 2026-08-21 | how `wikimedia/wikisource` is reachable despite wikisource being closed. `hf_fs cat` refuses binaries: `wikimedia/wikisource` config `20231201.cy` — Welsh Wikisource, one 1,251,259-byte parquet — is **named, located and unreadable** until someone has a parquet-capable channel (M-9's standing pointer). `huggingface.co` itself is closed at CONNECT |
+| `gitlab.com`, `pypi.org`, `registry.npmjs.org`, `files.pythonhosted.org` | 2026-08-11 | the last three are in the proxy's own `noProxy` list, i.e. direct (`data/sources.tsv:125`) |
+| `thabz/Kalliope` | standing | Nordic poetry, found late in a round nobody had mapped |
+| `WebSearch` | standing, with the trap named | it works AND its results are often unfetchable — a Blaydon Races search returned mudcat, traditionalmusic and Wikipedia, every one refused at CONNECT (`data/sources.tsv:125`) |
+
+## The stand-in shapes — a blocked host with an open twin
+
+GITenberg for `gutenberg.org` · `unicode-org/unihan-database` for
+`unicode.org` · the HF MCP tools for `huggingface.co`, and through
+`wikimedia/wikisource`, for wikisource itself.
+
+## KNOWN CLOSED — kept because a cell will try them anyway
+
+Confirmed by `connect_rejected` 2026-08-21: `huggingface.co` (HTTPS — the MCP
+route above is open), `gutenberg.org`, `cdn.jsdelivr.net`, `unicode.org`,
+`archive.org` (what puts the Tin Pan Alley scans out of reach). Recorded
+2026-08-10/11, not re-probed since: `gutendex.com`, `*.wikisource.org`,
+`*.wikipedia.org`, `hathitrust.org`, `ccel.org` (Christian Classics),
+`hymnary.org`, the Bodleian broadside ballads, `gsarchive.net` (Gilbert &
+Sullivan Archive). `WebFetch` on any closed host still fails; the block is
+per-host, not per-tool.
+
+## CORRECTED 2026-08-21 — `codeload.github.com` was never egress-denied
+
+It sat under "Blocked (egress-denied)". Measured: the tarball endpoint
+returns **403 with a 378-byte body and logs NO `connect_rejected`** — the
+tunnel opens and GitHub refuses at the origin. A different fact under
+doctrine 49: still unusable for tarballs, for a different reason, and
+`git clone` remains the route (five clones, no fallback, 2026-08-11).
+
+---
 
 ## Known-good repositories already used
 

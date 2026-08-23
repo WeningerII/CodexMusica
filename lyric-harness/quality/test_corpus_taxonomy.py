@@ -411,11 +411,67 @@ def test_manifest():
           set(rec) == live)
 
 
+def test_readoption_verdict():
+    """6b. WHICH adoptions a drift actually owes a re-derivation to.
+
+    The protocol says a load's closing sitting must "re-derive and re-adopt
+    the corpus-calibrated constants".  A drift that lands outside every
+    calibrated population owes nothing — but before `readoption_owed`, that
+    state and "I re-derived and nothing moved" were indistinguishable in the
+    output.  Both showed a green lane and a fresh snapshot.  This section is
+    the difference: the map must say OWED for a file a population reads, and
+    NOT-OWED for one it cannot see, and it must REFUSE rather than answer
+    NOT-OWED when it could not ask.
+    """
+    print("\n6b. the re-adoption verdict")
+    from quality import corpus_manifest as CM
+
+    check("every named adoption declares a population that can be ASKED — "
+          "a re-typed glob here would be doctrine 1's second definition",
+          all(hasattr(__import__(m, fromlist=["_"]), "corpus_files")
+              or hasattr(__import__(m, fromlist=["_"]), "CORPUS_GLOB")
+              for _lbl, m in CM.CALIBRATED),
+          [m for _l, m in CM.CALIBRATED])
+
+    # THE POSITIVE CONTROL.  An instrument that can only ever say NOT-OWED is
+    # the same instrument as one that never looked, which is the whole defect.
+    eng = "corpus/song/eng_hymn_watts.txt"
+    hits, unaskable = CM.readoption_owed([eng])
+    check("an English song file is OWED by all four adoptions — the map can "
+          "say OWED, not only NOT-OWED",
+          not unaskable and len(hits) == len(CM.CALIBRATED)
+          and all(inside == [eng] for _lbl, inside in hits),
+          [(l, i) for l, i in hits])
+
+    non = "corpus/song/non_egils_saga_lausavisur.txt"
+    hits, unaskable = CM.readoption_owed([non])
+    check("a staged Old Norse file is owed by NONE — every calibrated glob "
+          "is eng_-scoped, so no adopted constant can have moved",
+          not unaskable and hits == [], [(l, i) for l, i in hits])
+
+    check("...and that verdict is a fact about the POPULATIONS, not about "
+          "the file's content: the same file is owed by a population that "
+          "does read it",
+          CM.readoption_owed([non, eng])[0] != [])
+
+    # THE REFUSAL PATH.  An unaskable population must not be counted clean.
+    for label, mod in (("a module that declares neither", "json"),
+                       ("a module that does not exist", "quality.no_such_x")):
+        saved = CM.CALIBRATED
+        try:
+            CM.CALIBRATED = ((label, mod),)
+            hits, unaskable = CM.readoption_owed([eng])
+        finally:
+            CM.CALIBRATED = saved
+        check("%s is UNASKABLE, never a silent clean" % label,
+              hits == [] and len(unaskable) == 1, unaskable)
+
+
 if __name__ == "__main__":
     for fn in (test_tables, test_resolution, test_closed_set,
                test_prose_on_a_value_key_is_not_a_declaration,
                test_apparatus_invisibility, test_backfilled_corpus,
-               test_manifest):
+               test_manifest, test_readoption_verdict):
         fn()
     print("=" * 62)
     if FAILURES:

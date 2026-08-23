@@ -253,7 +253,15 @@ __all__ = ["LineAttempt", "PairBrief", "RoundResult", "LoopResult",
           "revise_loop", "swap_end_word", "default_propose",
           "default_propose_pair"]
 
-_WORD_RE = re.compile(r"[A-Za-z'\-]+")
+#: The CRUDER reading `swap_end_word` uses to find a token's character span.
+#: It must carry the SAME letter repertoire as `lyric_harness.line_tokens`, or
+#: the two disagree on every word with a diacritic and this function refuses a
+#: swap it could have made: with `line_tokens` widened to `LATIN_SCRIPT` on
+#: 2026-08-21 and this left ASCII, `raw_final_token` returned `jaÿ` while this
+#: found `ja`, they disagreed, and the reviser lost the ability to swap an end
+#: word on any line Barnes actually wrote. Safe (it refuses rather than
+#: corrupting) and wrong (doctrine 1).
+_WORD_RE = re.compile(r"(?:[A-Za-zÀ-ɏḀ-ỿ]|['\-])+")
 
 
 def swap_end_word(text, new_word):

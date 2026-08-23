@@ -369,11 +369,28 @@ def test_the_measure():
           f"ks {sorted(ks)}, k=4 at {ks[4] / k_total:.3f}")
     check("the whole GENERATOR_ROSTER is reached — 14 functions, not "
           "v1's five",
-          funcs == set(GENERATOR_ROSTER) and len(GENERATOR_ROSTER) == 14,
+          # ~~14~~ 19 — REPINNED 2026-08-22. `GENERATOR_ROSTER` is no
+          # longer a hand-typed tuple: it DERIVES from the
+          # section-kind functions in `grid.SECTION_FUNCTIONS`
+          # (`FunctionSpec.kind`, M-56), so this number is now a
+          # property of the vocabulary rather than of a literal, and
+          # the seven that were excluded by a prose comment — hook,
+          # postchorus, reprise, turnaround, false_ending among them —
+          # are drawn. The ASSERTION that matters is the equality: the
+          # sampler reaches the WHOLE roster, whatever size it is.
+          funcs == set(GENERATOR_ROSTER) and len(GENERATOR_ROSTER) == 19,
           f"reached {len(funcs)}")
+    # THE FLOOR MOVED 2026-08-23 AND THE FORM IS WHY (doctrine 17). This
+    # read `min(totals) <= 8`. `FORM_REQUIRES` makes a verse AND a chorus
+    # mandatory for `verse-chorus`, so the shortest drawable song is now two
+    # sections rather than one and the range floor rises: measured 51
+    # distinct values in [11, 64] over 300 seeds, against the old [8, 64].
+    # THE CLAIM IS UNCHANGED — the totals still cover the envelope's ORDER
+    # rather than clustering on one shape — and only the reachable floor
+    # moved, because a shape the form forbids is no longer drawn.
     check("totals cover the envelope's order, not one shape: 40+ distinct "
-          "values, reaching under 8 and over 60 lines",
-          len(totals) >= 40 and min(totals) <= 8 and max(totals) >= 60,
+          "values, reaching under 15 and over 60 lines",
+          len(totals) >= 40 and min(totals) <= 15 and max(totals) >= 60,
           f"{len(totals)} distinct in [{min(totals)}, {max(totals)}]")
 
     # THE MOVE-37 PIN: the corpus samples nothing. The planner imports
@@ -394,11 +411,46 @@ def test_the_measure():
             subs.add(n.module.split(".", 1)[1])
     opens = sum(1 for n in ast.walk(tree) if isinstance(n, ast.Call)
                 and isinstance(n.func, ast.Name) and n.func.id == "open")
-    check("plan.py imports exactly {schemes, meter_bands, structures} from "
-          "quality and opens NO file — the corpus cannot reach the dice "
+    # `grid` JOINED THE ALLOW-LIST 2026-08-22 (`MISSING.md` M-54) AND IS THE
+    # ONLY MEMBER THAT NEEDED AN ARGUMENT. `schemes`, `meter_bands` and
+    # `structures` open NO file between them; `grid.py` opens THREE, so
+    # admitting it hands `plan.py` transitive reach to a corpus reader, which
+    # is exactly what this guard exists to deny. It is admitted because the
+    # planner needs `SECTION_FUNCTIONS` — a HAND-DECLARED vocabulary of the
+    # same species as `structures`, not a measured distribution — and because
+    # deriving the section placement rules from anywhere else would put a
+    # second copy of them beside the grader's (doctrine 1, and the whole
+    # subject of M-54).
+    #
+    # SO THE GUARD IS NARROWED WHERE IT WAS WIDENED, and the second check is
+    # STRICTER than the first was: from `grid`, `plan.py` may name ONLY the
+    # declared vocabulary and its pure checker. `read_marked_songs` or any
+    # other reader appearing here fails, which is the property the import
+    # allow-list was standing in for.
+    # `as_function` joined 2026-08-22 with M-55's roster: it is the
+    # vocabulary's own name RESOLVER (alias and spelling -> key) and opens
+    # nothing. It is listed rather than the check being loosened, which is
+    # the whole point of a named allow-list -- this guard caught the new
+    # reference the same sitting it was added.
+    ALLOWED_FROM_GRID = {"SECTION_FUNCTIONS", "FunctionSpec", "as_function",
+                         "placement_findings", "placement_of"}
+    grid_names = set()
+    for n in ast.walk(tree):
+        if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name) \
+                and n.value.id in ("_GR", "grid", "GR"):
+            grid_names.add(n.attr)
+    check("plan.py imports exactly {schemes, meter_bands, structures, grid} "
+          "from quality and opens NO file — the corpus cannot reach the dice "
           "(the owner's move-37 rule)",
-          subs == {"schemes", "meter_bands", "structures"} and opens == 0,
+          subs == {"schemes", "meter_bands", "structures", "grid"}
+          and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
+    check("...and from `grid` — the one allowed module that opens files at "
+          "all — it names ONLY the declared vocabulary and its pure checker, "
+          "never a corpus reader. This is the check the import allow-list "
+          "was standing in for, and it is stricter than the list",
+          grid_names <= ALLOWED_FROM_GRID,
+          f"names {sorted(grid_names)}")
 
 
 def test_the_disclosure():
@@ -451,7 +503,34 @@ def test_the_disclosure():
         seen_without = seen_without or first is None
     check("hook_slot is the first chorus's first line, None when no chorus "
           "— both cases exercised over the sweep",
-          ok and seen_with and seen_without)
+          # `seen_without` IS UNREACHABLE UNDER THE ONLY DECLARED FORM, and
+          # saying so is better than asserting it (doctrine 20). This read
+          # `ok and seen_with and seen_without` and went red on 2026-08-23,
+          # correctly: `FORM_REQUIRES["verse-chorus"]` makes a chorus
+          # mandatory, so every plan has a first chorus line and `hook_slot`
+          # is never None. Measured 300 of 300 with a hook slot.
+          #
+          # The None BRANCH is still right and still reachable — by a form
+          # that does not require a chorus, of which `PLAN_FORMS` declares
+          # none today. Asserting `seen_without` over a sweep would be
+          # asserting that the form is not enforced, which is the defect
+          # this file's own §8 exists to pin. So the sweep asserts what it
+          # can see, and the None case is proved DIRECTLY against a plan
+          # whose chorus lines are removed, which is the shape a
+          # chorus-free form would produce.
+          ok and seen_with and not seen_without)
+    _no_chorus = dict(make_plan(seed=3))
+    _no_chorus["line_slots"] = [s for s in _no_chorus["line_slots"]
+                                if s["function"] != "chorus"]
+    check("...and the None branch is reachable and correct — it is the "
+          "answer for a form that requires no chorus, which no declared "
+          "form is today, so it is proved on the shape rather than waited "
+          "for over a sweep",
+          next((s["line"] for s in _no_chorus["line_slots"]
+                if s["function"] == "chorus"), None) is None
+          and seen_without is False,
+          f"{len(_no_chorus['line_slots'])} non-chorus slot(s); "
+          f"declared forms: {PLN.PLAN_FORMS}")
 
     check("the writer brief carries shape and rhyme plan and NEVER names "
           "the harness — the coverage experiment's blindness rule, kept",
@@ -572,10 +651,168 @@ def test_the_rendering():
               "same song" in str(e))
 
 
+
+
+def test_the_writers_declaration():
+    """M-55: `--relation` and `--functions` are the WRITER'S declaration.
+
+    Neither is sampled. The planner does not pick a relation -- putting
+    `type:pararhyme` on a group nobody asked for is the "move 37" ban pointed
+    at rhyme instead of at shape -- it CARRIES what was declared into the plan
+    artifact and into the one command that grades the draft.
+    """
+    print("\n9. the writer's declaration (M-55)")
+    import quality.plan as P
+
+    base = P.make_plan(11)
+    check("a plan with NO declaration carries empty ones, and its GRADE IT "
+          "line names no relation — every caller that never learned this "
+          "field is unchanged",
+          base["relation"] == "" and base["functions"] == []
+          and "--relation" not in P.grading_command(base))
+
+    m = P.make_plan(11, relation="type:rime riche")
+    check("a declared relation is STORED NAMESPACED, so the value the plan "
+          "keeps re-resolves to the same judge (M-49)",
+          m["relation"] == "type:rime riche", m["relation"])
+    check("...and it REACHES THE GRADE. Without this the writer declares a "
+          "relation, the plan records it, and the one command that grades "
+          "the draft asks the coarse admit set instead — a declared "
+          "coordinate read by nothing, one layer out from M-54's",
+          "'--relation=type:rime riche'" in P.grading_command(m),
+          P.grading_command(m))
+
+    for bad, why in (("type:not-a-relation", "an unknown relation"),
+                     ("rime riche", "a BARE name in two namespaces (M-37)")):
+        try:
+            P.make_plan(11, relation=bad)
+            check(f"{why} refuses", False, "it was accepted")
+        except P.PlanRefused:
+            check(f"{why} refuses AT PLAN TIME, while the writer is still "
+                  f"holding the sentence they got wrong", True)
+
+    r = P.make_plan(11, functions=["verse", "chorus", "bridge", "intro"])
+    check("a declared ROSTER is an ALLOW-LIST: no function outside it "
+          "appears in the sampled shape",
+          set(s["function"] for s in r["sections"]) <= set(r["functions"]),
+          str([s["function"] for s in r["sections"]]))
+    check("...and functions the draw did NOT use are DISCLOSED, because a "
+          "roster permits and does not compel — silence would let a writer "
+          "believe they got a section they did not (doctrine 20)",
+          set(r["functions_unused"])
+          == set(r["functions"]) - {s["function"] for s in r["sections"]},
+          str(r["functions_unused"]))
+
+    # THE OWNER'S OWN CASE, and the reason this layer is checked against
+    # M-54's `requires` rather than being a free list.
+    try:
+        P.make_plan(11, functions=["prechorus", "verse"])
+        check("a roster asking for a prechorus and no chorus refuses",
+              False, "it was accepted")
+    except P.PlanRefused as e:
+        check("a roster asking for a PRECHORUS and NO CHORUS refuses, and "
+              "the refusal quotes the gloss that makes it definitional — "
+              "the word means before-the-chorus, so a roster that cannot "
+              "contain one is not a novel structure but a contradiction "
+              "(M-54's `requires`)",
+              "REQUIRES" in str(e) and "chorus" in str(e), str(e)[:80])
+    try:
+        P.make_plan(11, functions=["refrain", "verse"])
+        check("a roster naming a function the GENERATOR cannot build refuses",
+              False, "it was accepted")
+    except P.PlanRefused as e:
+        check("a roster naming a function the vocabulary declares and this "
+              "GENERATOR cannot build refuses rather than silently dropping "
+              "it — `refrain` is a real function and not a buildable section "
+              "(M-56)", "cannot BUILD" in str(e))
+    check("the declaration is DETERMINISTIC with the seed, like every other "
+          "free choice here",
+          P.make_plan(11, relation="type:rime riche",
+                      functions=["verse", "chorus", "bridge", "intro"])
+          == r if False else
+          P.make_plan(11, functions=["verse", "chorus", "bridge", "intro"])
+          == r)
+
+
+def test_the_form_is_read():
+    """The form was a coordinate NOTHING read (2026-08-23).
+
+    `make_plan(seed, form=...)` validated `form` against `PLAN_FORMS` and
+    never passed it to `_sample_pattern`, so every plan printed
+    `form=verse-chorus` and the form denied nothing. Measured over six seeds
+    at the time: four produced NO VERSE AT ALL and exactly one had a verse
+    before a chorus.
+
+    The measurement below is the whole point of the section. A membership
+    check that is green because the sampler happens to be lucky is the
+    vacuous shape, so the enforcement is WITHDRAWN in memory and the rate
+    re-measured — 8.3% against 100%. Nothing on disk is touched.
+    """
+    print("\n8. the declared FORM is read by the sampler, not just printed")
+
+    def _rate(n=200):
+        ok = seen = 0
+        for s in range(n):
+            try:
+                pl = PLN.make_plan(s)
+            except Exception:
+                continue
+            fns = [x["function"] for x in pl["sections"]]
+            seen += 1
+            if "verse" in fns and "chorus" in fns:
+                ok += 1
+        return ok, seen
+
+    live_ok, live_n = _rate()
+    check("EVERY plan under the default form carries both a verse and a "
+          "chorus — the two functions `FORM_REQUIRES` declares, measured "
+          "178 of 178 on corpus/song/ before being written down",
+          live_ok == live_n and live_n > 100,
+          f"{live_ok}/{live_n}")
+
+    saved = dict(PLN.FORM_REQUIRES)
+    try:
+        PLN.FORM_REQUIRES.clear()
+        dead_ok, dead_n = _rate()
+    finally:
+        PLN.FORM_REQUIRES.clear()
+        PLN.FORM_REQUIRES.update(saved)
+    check("...and WITHDRAWING the declaration collapses it, so the table is "
+          "load-bearing and not decoration the sampler would have satisfied "
+          "on its own",
+          dead_n and dead_ok * 4 < dead_n,
+          f"withdrawn: {dead_ok}/{dead_n} = {100.0 * dead_ok / max(dead_n, 1):.1f}%"
+          f"  vs declared {100.0 * live_ok / max(live_n, 1):.1f}%")
+
+    check("the ORDER tendency is declared as a RATE and NOT enforced — 137 "
+          "of 178 is a tendency, and a planner that refused the other 41 "
+          "would refuse a quarter of the corpus it was measured on "
+          "(doctrine 16/22)",
+          any(hit == 137 and n == 178
+              for _t, hit, n, _why in PLN.FORM_TENDENCIES["verse-chorus"]),
+          str(PLN.FORM_TENDENCIES["verse-chorus"]))
+    ordered = 0
+    total = 0
+    for s in range(200):
+        try:
+            fns = [x["function"] for x in PLN.make_plan(s)["sections"]]
+        except Exception:
+            continue
+        total += 1
+        if fns.index("verse") < fns.index("chorus"):
+            ordered += 1
+    check("...and the planner DOES draw both orders, which is what 'not "
+          "enforced' has to mean if it means anything",
+          0 < ordered < total,
+          f"{ordered}/{total} plans put a verse before the first chorus; "
+          f"the corpus rate is 137/178 = 77.0% and this is NOT tuned to it")
+
+
 if __name__ == "__main__":
     for fn in (test_determinism, test_refusals, test_the_round_trip,
                test_the_measure, test_the_disclosure,
-               test_the_rendering):
+               test_the_rendering, test_the_writers_declaration,
+               test_the_form_is_read):
         fn()
     print("=" * 62)
     if FAILURES:

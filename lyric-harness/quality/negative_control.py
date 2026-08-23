@@ -18,11 +18,19 @@ THE THREE THINGS THAT CHANGE
      replacement is comparable to the record it replaces rather than merely
      different from it.
   2. THE POSITIVE IS MULTI-AUTHOR AND SPANS MORE THAN ONE SCHEME.  Quatrains
-     are drawn from `corpus/song/eng_*.txt` — 143 files, one author each, 1567
-     to 1929 — capped per file so no author dominates.  The scheme axis is
+     are drawn from `corpus/song/eng_*.txt` — ~~143 files, one author each~~
+     **1,297 files, 1,295 distinct author slugs** (REPINNED 2026-08-21; this
+     sentence disagreed with THE RUN block 65 lines below, which has said 712
+     files over 9 groups since it was re-derived, and the two were never read
+     together), 1567
+     to 1929 — capped per file so no author dominates.  "One author each" is
+     true only BY FILENAME CONVENTION and is struck for that reason: exactly 5
+     of the 1,297 files carry a `--- AUTHOR:` line, so the property was
+     asserted of 1,292 files that do not state it.  The scheme axis is
      NOT the statistic: quatrains are selected by LINE COUNT, a typographic
      property fixed before any rhyme is scored, and the arm is then reported
-     per TRADITION GROUP (american / british / celtic / hymn / scots), a
+     per TRADITION GROUP (american / british / celtic / hymn / scots, and
+     since the mass loads hbv / oxford / pah / parlour), a
      grouping taken from the filename.  Doctrine 14: a control may not be
      defined in terms of the quantity it controls, and neither may the strata
      a positive is broken into.

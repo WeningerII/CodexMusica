@@ -624,6 +624,16 @@ are each staged TWICE in their own file — same opening line, ~25 shared long
 lines — once with the air and once without. The near-duplicate pair check does
 not carry them either (Jaccard 0.39 and 0.36, under the floor), so they were
 invisible to both instruments at once for two different reasons.
+**THE `2` IS THIS CHECKER'S YIELD AND NOT THE POPULATION — REPINNED
+2026-08-21, and `M-20` holds the measurement.** Asking the corpus directly
+(items inside one file sharing a normalised title AND opening line) returns
+**28 pairs, 27 `eng_` and 1 `cym_`**, of which the near-duplicate check
+surfaces exactly **one**. Three named causes with three counts, never summed:
+8 dropped before comparison for holding under `ITEM_SIG_MIN` 8 long lines, 11
+refused by `ITEM_SHARED_MIN` 8 despite containment as high as 0.88, 8 genuinely
+under the 0.60 floor. And 28 is a floor: a third pair in Hogg (`THE WOMEN
+FOLK`) is excluded by one letter (`sarely`/`sairly`). The gain of 2 recorded
+above is exactly right about the SPLIT and says nothing about the corpus.
 
 **GUARDED BY** `quality/test_grid.py`, 19 checks, whose census re-derives every
 figure above from `corpus/song/` rather than pinning it; and
@@ -910,7 +920,7 @@ the runner rather than inside the canon.
 the repair is partial.
 
 ### 4.4 · ~~`rhyme_constraints.py` — 1,325 stranded lines~~ `DECIDED 2026-08-11`
-~~The only genuinely stranded module.~~ `quality/rhyme_constraints.py` is **1,652 lines** (~~1,566~~, ~~1,609~~, ~~1,611~~ — 2026-08-15's dead-coordinate lot removed the `tie_break` knob and stated its rule at the two enforcing sites, and wired `surfaces` — the inert-coordinate cell added the `Span.unit` and `Span.terminator` docstrings, which is growth in the file's OWN account of why it is kept; the 2026-08-13 doc-cleanup cell added four more correcting a comment that compared this module's exit behaviour to `battery.py`'s, which stopped holding at `9396946`).
+~~The only genuinely stranded module.~~ `quality/rhyme_constraints.py` is ~~1,652~~ **1,738** lines (repinned 2026-08-22: the M-38 quantifier reconciliation added the shared vocabulary table, the `Selection.__post_init__` gate and their comments. The argument this figure supports — that the module is large and is KEPT on a stated ground — never rested on the third digit) (~~1,566~~, ~~1,609~~, ~~1,611~~ — 2026-08-15's dead-coordinate lot removed the `tie_break` knob and stated its rule at the two enforcing sites, and wired `surfaces` — the inert-coordinate cell added the `Span.unit` and `Span.terminator` docstrings, which is growth in the file's OWN account of why it is kept; the 2026-08-13 doc-cleanup cell added four more correcting a comment that compared this module's exit behaviour to `battery.py`'s, which stopped holding at `9396946`).
 It has an `if __name__ == "__main__"` and non-test callers.
 (The line count is now stated in a sentence naming exactly ONE module, because
 `python3 quality/verify_entries.py`'s `MODULE_LINE_COUNT` shape REFUSES a count
@@ -1457,7 +1467,7 @@ either.
 `meter.py` and `fit.py` between them expose no pitch, scale, mode or tuning
 object. 12-TET assumed by omission (B-2). No tempo (C-5), which `fit.py` states
 in its own refusal: *"a note DURATION is not [a coordinate], because there is no
-tempo"*. The floor has two length profiles and L-4 records what they are.
+tempo"*. The floor has ~~two~~ **three** length profiles — the third is the whole-sheet `song` profile, 2026-08-11 — and ~~L-4 records what they are~~ L-4 closed 2026-08-21 on saying "two"; L-4a carries the real residue (no generated class).
 
 **MOVED OUT ON 2026-08-11 — three absences that were FILLED and stayed on the
 list.** This section exists so absences "are not mistaken for" debt or defects.
@@ -1533,7 +1543,8 @@ never one (doctrine 79).
 >   is moving does not belong in a file that is read as a record.
 >
 > The two that were RIGHT and were checked anyway: the sonnet battery
-> (`81/1014` as measured on 2026-08-11; `82/1014` today, repinned 2026-08-13
+> (`81/1014` as measured on 2026-08-11; `82/1014` from 2026-08-13 and
+> **`35/1014` since 2026-08-22**, when the door widened — repinned 2026-08-13
 > after cell BA's coda-identity fix — and this paragraph's point survives the
 > move, since the row was confirmed by re-running rather than assumed) and
 > the mutation count — which was right on 2026-08-11 and has since been
@@ -1570,17 +1581,17 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 46 OPEN / 16 PARTIAL / 2 BLOCKED / 12 CLOSED = 76 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 56 OPEN / 31 PARTIAL / 2 BLOCKED / 34 CLOSED = 123 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
-| stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,652 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1129** DECLARED-public top-level functions/classes under `quality/` and the root — **188** named by another production module, **307** by tests only, **566** only inside their own module, **11** by nothing anywhere, **57** REFUSED (40 ambiguous, 10 dynamic, 7 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **20** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 2 non-test callers (`relation_shapes.py`, `relations.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
+| public symbols by where they are referenced | **1238** DECLARED-public top-level functions/classes under `quality/` and the root — **212** named by another production module, **362** by tests only, **588** only inside their own module, **12** by nothing anywhere, **64** REFUSED (43 ambiguous, 14 dynamic, 7 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **29** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `corpus/song/eng_*` — K-1's own quantities | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `data/sources.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `data/lyricists.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
-| sonnet battery | 82/1014 = 8.1% violations (`mandated 1064, judged 1014, refused 50`) | `python3 battery.py` |
+| sonnet battery | 35/1014 = 3.5% violations (`mandated 1064, judged 1014, refused 50`) | `python3 battery.py` |
 | band FPR on random pairs | **2.10%** (84 of 4,000 at seed 20260810, the runner's own default n; 2.00% = 60 of 3,000 at n=3,000 — the population size is a coordinate) | `python3 quality/redteam_band.py` |
 | register-audit findings | **0** — FALSE derivations: none | `python3 quality/audit_register.py` |
 | adversaries built, of 8 | REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it) | `read BACKLOG.md §0` |

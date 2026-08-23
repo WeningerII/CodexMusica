@@ -867,6 +867,16 @@ class Finnish(Phonology):
 #: else's layer), 29 `out_of_inventory` (foreign proper names, correctly
 #: refused) and 538 `non_initial_opening_diphthong` (designed). The Kalevala
 #: itself has ZERO unreadable.
+#: AT RISK 2026-08-21, and named here as well as in the RESULTS document
+#: because this docstring is the OTHER site the pair lives at and a repin that
+#: moves only one of them writes the retired figure straight back. An
+#: independent re-derivation reports 145,280 / 144,562 for the two TOTALS
+#: while 567 / 151 and the whole by-code split reproduce exactly. The corpus
+#: is byte-stable since 2026-08-10/11, so any real move is in the INGESTION or
+#: the tokeniser and not in the material. Not repinned: a second attempt
+#: reached neither figure under a different file set, and a third unverified
+#: number in a comment about unwritten counting rules is the defect it
+#: documents. `quality/RESULTS_FIN_RHYME.md` section 9 carries the same note.
 UNREADABLE_REASONS = {
     "vowelless_token": (
         "ingestion", True,

@@ -1,0 +1,684 @@
+# author: ANONYMOUS. The sagas are 13th-century prose compilations and
+#         the verse inside them is attributed IN THE TEXT to named
+#         10th-11th century skalds. Neither layer has a living
+#         claimant: the works are medieval and the binding gate here
+#         is the EDITION, not the author (doctrine 80).
+# source: sveinbjornt/sagadb.org  src/egils_saga.on.xml
+#         md5 a039827471792282c2507fafa4ca49b4, 449,423 bytes, UTF-8.
+#         Cut by `python3 quality/stage_sagadb.py --write`; that module
+#         is the recipe and `--check` re-derives this file (the previous
+#         extraction lived in a scratchpad and did not survive its
+#         session, which is why the recipe now ships).
+#         Upstream declared by the source's own <sourcename>: Heimskringla.no
+# licence: express PUBLIC DOMAIN affirmation by the compiler, quoted
+#         verbatim from README.md: 'All saga source texts are in the
+#         public domain.' The repository's License.txt is BSD-3-Clause
+#         (c) 2007 Sveinbjorn Thordarson and covers the Perl build
+#         scripts ONLY -- two separable layers, stated separately by
+#         the compiler himself (doctrine 54).
+#         ADMITTED BY OWNER RULING 2026-08-22 on `MISSING.md` K-4. The
+#         row had stood `contested=true` since 2026-08-11 with the
+#         reason recorded: the affirmation is the compiler's assertion
+#         about the medieval WORK and does not reach the 20th-century
+#         normalisation this text descends from. That residual is not
+#         resolved by the ruling; it is ACCEPTED by it, and it stays
+#         written here so no later reader mistakes a decision for a
+#         proof (doctrine 17).
+# metre: kviðuháttr -- and it carries no hendings
+#         NAMED BY THE EDITION ITSELF, in its chapter
+#         title. Every other staged file here leaves this
+#         field ABSENT, because the source declares no
+#         metre for them and this staging will not invent
+#         one (doctrine 45).
+
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 1
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Mjök erum tregt
+tungu at hræra
+eða loftvætt
+ljóðpundara.
+Esa nú vænligt
+of Viðurs þýfi
+né hógdrægt
+ór hugarfylgsni.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 2
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Esa auðþeystr,
+þvít ekki veldr
+höfugligr,
+ór hyggju stað
+fagnafundr
+Friggjar niðja,
+ár borinn
+ór Jötunheimum,
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 3
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+lastalauss
+es lifnaði
+á Nökkvers
+nökkva bragi.
+Jötuns hals
+undir þjóta
+Náins niðr
+fyr naustdurum.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 4
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Þvít ætt mín
+á enda stendr,
+hræbarnir
+sem hlynir marka.
+Esa karskr maðr
+sás köggla berr
+frænda hrörs
+af fletjum niðr.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 5
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Þó munk mitt
+ok móður hrör
+föður fall
+fyrst of telja.
+Þat berk út
+ór orðhofi
+mærðar timbr
+máli laufgat.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 6
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Grimmt vörum hlið,
+þats hrönn of braut
+föður míns
+á frændgarði.
+Veitk ófullt
+ok opit standa
+sonar skarð,
+es mér sær of vann.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 7
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Mjök hefr Rán
+ryskt um mik.
+Emk ofsnauðr
+at ástvinum.
+Sleit marr bönd
+minnar ættar,
+snaran þátt
+af sjölfum mér.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 8
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Veizt, ef þá sök
+sverði of rækak,
+vas ölsmiðr
+allra tíma.
+Hroða vágs bræðr,
+ef vega mættak,
+fórk andvígr
+ok Ægis mani.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 9
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+En ek ekki
+eiga þóttumk
+sakar afl
+við sonar bana,
+þvít alþjóð
+fyr augum verðr
+gamals þegns
+gengileysi.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 10
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Mik hefr marr
+miklu ræntan.
+Grimmt es fall
+frænda at telja,
+síðan's minn
+á munvega
+ættar skjöldr
+aflífi hvarf.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 11
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Veitk þat sjalfr,
+at í syni mínum
+vasa ills þegns
+efni vaxit,
+ef sá randviðr
+röskvask næði,
+unz her-Gauts
+hendr of tæki.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 12
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Æ lét flest
+þats faðir mælti,
+þótt öll þjóð
+annat segði.
+Mér upp helt
+of herbergi
+ok mitt afl
+mest of studdi.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 13
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Oft kemr mér
+mána bjarnar
+í byrvind
+bræðraleysi.
+Hyggjumk um,
+es hildr þróask,
+nýsumk hins
+ok hygg at því,
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 14
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+hverr mér hugaðr
+á hlið standi
+annarr þegn
+við óðræði.
+Þarfk þess oft
+of þvergörum.
+Verðk varfleygr,
+es vinir þverra.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 15
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Mjök es torfyndr,
+sás trúa knegum
+of alþjóð
+Elgjar galga,
+þvít niflgóðr
+niðja steypir
+bróður hrör
+við baugum selr.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 16
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Finn ek þat oft,
+es féar beiðir -- -- --
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 17
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Þat's auk mælt,
+at engi geti
+sonar iðgjöld,
+nema sjalfr ali
+enn þann nið,
+es öðrum sé
+borinn maðr
+í bróður stað.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 18
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Erumka þekkt
+þjóða sinni,
+þótt sér hverr
+sátt of haldi.
+Burr's Bileygs
+í bæ kominn,
+kvánar sonr,
+kynnis leita.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 19
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+En mér fens
+í föstum þokk
+hrosta hilmir
+á hendi stendr.
+Mákak upp
+jörðu grímu,
+rýnnis-reið,
+réttri halda,
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 20
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+síz son minn
+sóttar brími
+heiftugligr
+ór heimi nam,
+þanns ek veit
+at varnaði
+vamma varr
+við vámæli.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 21
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Þat mank enn,
+es upp of hóf
+í goðheim
+Gauta spjalli
+ættar ask,
+þanns óx af mér,
+ok kynvið
+kvánar minnar.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 22
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Áttak gótt
+við geirs dróttin.
+Gerðumk tryggr
+at trúa hánum,
+áðr vinan
+vagna rúni,
+sigrhöfundr,
+of sleit við mik.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 23
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Blætka því
+bróður Vílis,
+goðjaðar,
+at gjarn séak.
+Þó hefr Míms vinr
+mér of fengnar
+bölva bætr,
+ef et betra telk.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 24
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Göfumk íþrótt
+ulfs of bági
+vígi vanr
+vammi firrða
+ok þat geð,
+es ek gerða mér
+vísa fjandr
+af vélöndum.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 25
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Nú erum torvelt.
+Tveggja bága
+njörva nift
+á nesi stendr.
+Skalk þó glaðr
+með góðan vilja
+ok óhryggr
+heljar bíða.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 26
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Emk hraðkvæðr
+hilmi at mæra,
+en glapmáll
+of glöggvinga,
+opinspjallr
+of jöfurs dáðum,
+en þagmælskr
+of þjóðlygi,
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 27
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+skaupi gnægðr
+skrökberöndum,
+emk vilkvæðr
+of vini mína.
+Sótt hefk mörg
+mildinga sjöt
+með grunlaust
+grepps of æði.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 28
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Hafðak endr
+Ynglings burar,
+ríks konungs,
+reiði fengna.
+Drók djarfhött
+of dökkva skör,
+létk hersi
+heim of sóttan,
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 29
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+þars allvaldr
+und ýgs hjalmi,
+ljóðfrömuðr,
+at landi sat.
+Stýrði konungr
+við stirðan hug
+í Jórvík
+úrgum ströndum.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 30
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Vasa þat tunglskin
+tryggt at líta
+né ógnlaust
+Eiríks bráa,
+þás ormfránn
+ennimáni
+skein allvalds
+ægigeislum.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 31
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Þó bólstrverð
+of bera þorðak
+maka hæings
+markar dróttni,
+svát Yggs full
+ýranda kom
+at hvers manns
+hlusta munnum.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 32
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Né hamfagrt
+hölðum þótti
+skaldfé mitt
+at skata húsum,
+þás ulfgrátt
+við Yggjar miði
+hattar staup
+at hilmi þák.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 33
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Við því tók,
+en tvau fylgðu
+sökk sámleit
+síðra brúna
+ok sá muðr,
+es mína bar
+höfuðlausn
+fyr hilmis kné.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 34
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Þars tannfjölð
+með tungu þák
+ok hlertjöld
+hlustum göfguð,
+en sú gjöf
+golli betri
+hróðugs konungs
+of heitin vas.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 35
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Þar stóð mér
+mörgum betri
+hoddfíöndum
+á hlið aðra
+tryggr vinr minn,
+sás trúa knáttak,
+heiðþróaðr
+hverju ráði,
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 36
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Arinbjörn,
+es oss einn of hóf,
+knía fremstr,
+frá konungs fjónum,
+vinr þjóðans,
+es vættki ló
+í herskás
+hilmis garði.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 37
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Ok -- -- --
+-- -- stuðli lét
+margfrömuðr
+minna dáða,
+sem en -- -- að --
+-- -- Halfdanar
+at í væri
+ættar skaði.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 38
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Munk vinþjófr
+verða heitinn
+ok váljúgr
+at Viðurs fulli,
+hróðrs örverðr
+ok heitrofi,
+nema þess gagns
+gjöld of vinnak.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 39
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Nú's þat sét,
+hvars setja skal
+bratt stiginn
+bragar fótum
+fyr mannfjölð,
+margra sjónir,
+hróðr máttigs
+hersa kundar.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 40
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Erum auðskæf
+ómunlokri
+magar Þóris
+mærðar efni,
+vinar míns,
+þvít valið liggja
+tvenn ok þrenn
+á tungu mér.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 41
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Þat telk fyrst,
+es flestr of veit
+ok alþjóð
+eyru sækir,
+hvé mildgeðr
+mönnum þótti
+bjóða björn
+birkis ótta.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 42
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Þat allsheri
+at undri gefsk,
+hvé hann urþjóð
+auði gnægir,
+en grjót-björn
+of gæddan hefr
+Freyr ok Njörðr
+at féar afli.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 43
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+En Hróalds
+at höfuðbaðmi
+auðs iðgnótt
+at ölnum sifjar,
+sér vinreið
+af vegum öllum
+á vindkers
+víðum botni.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 44
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Hann drógseil
+of eiga gat
+sem hildingr
+heyrnar spanna,
+goðum ávarðr
+með gumna fjölð,
+vinr véþorms,
+veklinga tös.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 45
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Þat hann viðr,
+es þrjóta mun
+flesta menn,
+þótt fé eigi.
+Kveðka skammt
+meðal skata húsa
+né auðskeft
+almanna spjör.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 46
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Gekk maðr engi
+at Arinbjarnar
+ór legvers
+löngum knerri
+háði leiddr
+né heiftkviðum
+með atgeirs
+auðar toftir.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 47
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Hinn's fégrimmr,
+es í Fjörðum býr.
+Sá's of dolgr
+Draupnis niðja,
+en sökunautr
+Sónar hvinna,
+hringum hættr,
+hoddvegandi.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 48
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Hann aldrteig
+of eiga gat
+fjölsáinn
+með friðar spjöllum
+-- -- -- --
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 49
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Þat's órétt,
+ef orpit hefr
+á máskeið
+mörgu gagni,
+ramriðin
+Rökkva stoði,
+vellvönuðr,
+þvís veitti mér.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 50
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Vask árvakr,
+bark orð saman
+með málþjóns
+morginverkum.
+Hlóðk lofköst,
+þanns lengi stendr
+óbrotgjarn
+í bragar túni.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 51
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Börðumk einn við átta,
+en við ellifu tysvar.
+Svá fengum val vargi.
+Varðk einn bani þeira.
+Skiptumsk hart af heiftum
+hlífar skelfiknífum.
+Létk af ermar aski
+eld valbasta kastat.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 52
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Þverra nú, þeirs þverrðu,
+þingbirtingar Ingva,
+hvar skalk manna mildra,
+mjaðveitar dag, leita,
+þeira's hauks fyr handan
+háfjöll digulsnjávi
+jarðar gjörð við orðum
+eyneglda mér hegldu.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 53
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Gerðak veig um virða
+vörð, þanns sitr at jörðu,
+iðrumk þess, meðan aðrir,
+Örr Váfaðar, sváfu.
+Hykk, at hodda stökkvi,
+hinig sóttak gram, þótti,
+fýsinn, fræknum vísa,
+ferri, skald in verra.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 54
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Sækjum jarl, þanns auka
+ulfs verð þorir sverðum.
+Skipum borðróinn barða
+baugskjöldum Sigvalda.
+Drepr eigi sá sveigir
+sárlinns, es gram finnum,
+rönd berum út á andra
+Endils, við mér hendi.
+
+--- TITLE: Sonatorrek ok Arinbjarnarkviða ch 78 vísa 55
+--- SOURCE: chapter 78, 'Egill kveðr Sonatorrek ok Arinbjarnarkviðu.'
+[VERSE 1]
+Mál es lofs at lýsa
+ljósgarð, es þák, barða,
+mér kom heim at hendi
+hoddsendis boð, enda.
+Skalat at grundar Gylfa
+glaums misfengnir taumar,
+hlýðið ér til orða,
+erðgróins mér verða.

@@ -37,6 +37,8 @@ verse occupied here", not "bad". Positive class 152 Shakespeare sonnets;
 negative class 40 sonnets by one model in the same form and register.
 
 | | section profile | sonnet profile |
+
+> **This table predates the third profile.** `song` (whole lyric sheet, 150–400 tokens, 3,571 human items, tol 1.25) landed 2026-08-11 and is a different kind of calibration — a held-out false-positive rate, no AUC, because no generated song class exists (L-4a). The two columns below are correct for the two stanza profiles and are not the full list.
 |---|---|---|
 | unit | 4-line quatrain (lines 1–4, 5–8, 9–12 of each sonnet) | whole 14-line sonnet |
 | token domain (human p05–p95) | 29–37 | 108–126 |
@@ -207,7 +209,10 @@ band.
 > HERE.** The band population it names — 150–400 (1,859 items, 108 authors) —
 > and the cut it quotes (0.7226) are the readings of that corpus. The closing
 > sitting adopted 150–400 (3,571 items, 879 authors) with `mattr_min` at
-> 0.7128 on 2026-08-21. The window sweep was NOT re-run, so nothing above is
+> ~~0.7128~~ **0.7118** on 2026-08-21 (repinned 2026-08-22: the
+> `LATIN_SCRIPT` tokeniser fix moved the type count, and MATTR is the only
+> one of the five thresholds that counts types — `quality/RESULTS_SONG_FLOOR.md`
+> carries the measurement). The window sweep was NOT re-run, so nothing above is
 > repinned: it describes the population it was measured on, and re-measuring
 > it is a separate job from saying which population was measured (doctrine
 > 91). What the adoption does confirm is the sweep's own conclusion — the

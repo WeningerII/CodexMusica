@@ -693,13 +693,14 @@ def analyse(lex, lines, decl=None, tdecl=None, events=None,
             return result
     if len(ev) < 4 or len(slots) < 8:
         result.update(kl=None, period=None, p=None,
+                      refused_by="analyse:n_events",
                       refused="too few events or slots for a permutation test "
                               "to mean anything; the layer declines rather "
                               "than returning a number")
         return result
     if saturation >= tdecl.max_saturation:
         result.update(
-            kl=None, period=None, p=None,
+            kl=None, period=None, p=None, refused_by="analyse:saturation",
             refused=f"{saturation:.0%} of eligible slots are events, at or "
                     f"above the declared {tdecl.max_saturation:.0%} ceiling. "
                     f"When nearly every slot carries an event the event and "
@@ -819,8 +820,18 @@ def report(res, label="", stream=sys.stdout):
         # WHICH guard fired is part of the finding: "too few events" names the
         # item, "cannot_tell" names the instrument, and reporting them as one
         # string blames the wrong layer.
-        print(f"  REFUSED BY       {res.get('refused_by', 'analyse:n_events')}",
-              file=stream)
+        #
+        # AND THAT IS WHAT THIS LINE DID UNTIL 2026-08-23, one line under the
+        # sentence forbidding it (doctrine 48). It read
+        # `res.get('refused_by', 'analyse:n_events')`, and only ONE of the four
+        # refusal paths set `refused_by` -- so a saturation refusal, whose whole
+        # point is that the INSTRUMENT has no power here, printed "REFUSED BY
+        # analyse:n_events" and blamed the item's event count. The default is
+        # gone; a path that forgets to name itself now says so out loud rather
+        # than borrowing another guard's name (doctrine 20).
+        by = res.get("refused_by") or ("UNATTRIBUTED — the refusing guard "
+                                       "did not name itself")
+        print(f"  REFUSED BY       {by}", file=stream)
         print(f"  REFUSED          {res['refused']}", file=stream)
         return res
     if res.get("period") is not None:

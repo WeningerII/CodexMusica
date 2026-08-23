@@ -8,6 +8,7 @@ is the only way anything in this project has ever been found.
 Run: python3 quality/test_floor.py
 """
 
+import io
 import os
 import sys
 
@@ -453,9 +454,33 @@ def test_calibration_block_is_honest():
         check("checks that failed their expectation are recorded too",
               "BACKWARDS" in CALIBRATION.get("failed_expectations", ""),
               "a gate that only shows its working results is advertising")
-    else:
-        check("an uncalibrated block is marked provisional", True,
-              "calibrated=False; findings mean 'outside a guessed range'")
+    # THE PROVISIONAL PATH, EXERCISED RATHER THAN ASSERTED. This sat in an
+    # `else:` on `CALIBRATION["calibrated"]` and read `check("an uncalibrated
+    # block is marked provisional", True, ...)` until 2026-08-23 (doctrine
+    # 17). The shipped tree IS calibrated, so the branch was dead -- and had
+    # it ever run it could only have passed, because nothing in it read the
+    # banner it was making a claim about. It is now hoisted out of the branch
+    # and run every time, against a CALIBRATION whose flag is flipped for the
+    # length of the call.
+    def _banner():
+        buf = io.StringIO()
+        SlopFloor(FloorDeclaration()).banner(buf)
+        return buf.getvalue()
+
+    was = CALIBRATION.get("calibrated")
+    try:
+        CALIBRATION["calibrated"] = False
+        said = _banner()
+    finally:
+        CALIBRATION["calibrated"] = was
+    check("an uncalibrated block is marked provisional — the banner says so "
+          "in the run's own output, not in a comment",
+          "PROVISIONAL" in said and "outside a guessed range" in said,
+          [ln.strip() for ln in said.splitlines() if ln.strip()][:1])
+    check("...and a CALIBRATED block does not print it, so the warning means "
+          "something when it appears",
+          "PROVISIONAL" not in _banner(),
+          "CALIBRATION['calibrated'] is %r in the shipped tree" % (was,))
 
 
 def test_predictability_is_demoted():
@@ -501,8 +526,11 @@ def test_predictability_is_demoted():
           "REPINNED 2026-08-14: 0.560 was a warm reading and 'which is "
           "chance' was arithmetic on it. This pin required 0.560 until then, "
           "so the string and the test moved together or not at all")
+    # REPINNED 2026-08-22 with the ten-feature joint: 0.964 -> 0.960
+    # (`MISSING.md` M-31). The pin and the string move together or not at
+    # all, which is the same discipline the 0.560 check two above records.
     check("it names what the number is a coordinate of",
-          all("0.964" in f.evidence for f in fs) and bool(fs),
+          all("0.960" in f.evidence for f in fs) and bool(fs),
           "doctrine 58: 0.648 is only readable against the ten-feature "
           "joint on the SAME human-vs-generated split")
 
@@ -584,15 +612,33 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
     # 108 quoted below, so the OTHER four thresholds move with it as well.
     # The sweep, the admissible set [1,22] u [40,93] and the reason 50 is
     # kept rather than retuned are `quality.floor.CALIBRATION["mattr_window"]`.
+    # REPINNED 2026-08-22, `mattr_min` ONLY: 0.7128 -> 0.7118, and it is a
+    # READER FIX and not a load. `features.py._tokens` matched `[A-Za-z'\-]+`
+    # until 2026-08-21, so Barnes's `A-baggèn` was two tokens and `jaÿ` was a
+    # letter short; MATTR is a TYPE-token ratio and was being computed over a
+    # text nobody printed. The eng token total falls -0.420% as fragments
+    # merge back into words, and the band's 5th percentile follows.
+    #
+    # THE OTHER FOUR RE-DERIVE EXACTLY, which is what makes this one
+    # coordinate moving rather than the set being re-adopted: MATTR is the
+    # only one of the five that counts TYPES, so it is the only one a
+    # tokenisation change can touch.
+    #
+    # THIS CHECK DID NOT FIND IT AND COULD NOT: it pins the CONSTANT against
+    # itself, so it moves only when someone edits `floor.py`. The drift was
+    # found by `quality/pin_sweep.py` (`MISSING.md` M-21) through
+    # `expected_drift.py`, which re-DERIVES. A pin and a re-derivation are
+    # different instruments and this file holds the first kind.
     check("the five song thresholds are the recorded corpus percentiles",
-          song.percentiles == {"mattr_min": 0.7128,
+          song.percentiles == {"mattr_min": 0.7118,
                                "function_word_ratio_max": 0.4773,
                                "anaphora_max": 0.3000,
                                "line_length_cv_min": 0.1094,
                                "predictable_pair_fraction_max": 0.9286},
           "ADOPTED 2026-08-21 over the loaded corpus: 150-400 tokens, 3,571 "
           "items, 879 authors, MATTR window 50 (~~1,859 items, 108 "
-          "authors~~). Three moved -- mattr 0.7226 -> 0.7128, fwr 0.4716 -> "
+          "authors~~). Three moved -- mattr 0.7226 -> 0.7128 -> 0.7118 (the "
+          "second step is the 2026-08-22 tokeniser repin), fwr 0.4716 -> "
           "0.4773, cv 0.1123 -> 0.1094 -- and TWO DID NOT, which is what made "
           "the set adoptable: predictability re-derived to 0.9286 against a "
           "shipped 0.9286 and anaphora to 0.3000 against 0.3000. "

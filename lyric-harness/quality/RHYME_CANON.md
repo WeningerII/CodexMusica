@@ -1590,7 +1590,9 @@ alone. The 1 that reach none is named rather than counted:
 ### 8.5 A PRIMARY source, with its date, for the entries that have one
 
 This file carried **zero publication-year tokens across 94 KB**, which was the sharpest single
-finding of the provenance audit. **9** indices resolve to a primary source that is not merely
+finding of the provenance audit — and it is a claim in the PAST TENSE: today it carries
+**23** across **128 KB**, so the finding is preserved as history and the current reading is
+beside it. **9** indices resolve to a primary source that is not merely
 named but **stored in this repository and quotable**. Each row is re-checked on every render by
 running the command in its last column against the named file; 9 of 9 pass today.
 

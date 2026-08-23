@@ -234,34 +234,163 @@ class FunctionSpec:
     #: way `_FUNCTION_SPELLINGS` already enumerates, explicit over clever.
     aliases: tuple = ()
 
+    # -- WHERE THIS FUNCTION CAN GO (2026-08-22, `MISSING.md` M-54) --------
+    #
+    # THE RULE THIS LAYER OBEYS, AND IT IS THE WHOLE SAFETY ARGUMENT: a
+    # placement coordinate may only ever DENY. Anything not denied stays
+    # reachable, so `verse` carries none of these fields and may open a song,
+    # close one, or sit anywhere. An allow-list would have had to enumerate
+    # {first, mid, last} and would go stale the moment a shape nobody
+    # enumerated turned up -- which is the owner's "move 37" ban aimed at
+    # structure instead of at rhyme.
+    #
+    # AND A DENIAL IS ADMISSIBLE ONLY IF IT IS DEFINITIONAL. The test, applied
+    # per row: VIOLATE IT -- is the result a NOVEL SONG, or a MISLABELLED
+    # SECTION? A prechorus with no chorus is not an experimental structure;
+    # the word means BEFORE THE CHORUS, so the section is simply something
+    # else. Mislabelled, so it prunes. Verse-chorus-verse-chorus-bridge
+    # violated is a novel song -- a CONVENTION, which belongs in
+    # `FormConvention` as a note and never near the planner (doctrine 6).
+    #
+    # WHY THESE FOUR KINDS AND NOT ONE `position` FIELD. M-54's first design
+    # was `position in {first, last, free}`, and its own derivation refuted
+    # it: read out of the glosses by keyword it claimed a position for 11 of
+    # 21 rows and got 4 wrong, every failure a RELATIONAL fact flattened into
+    # an ABSOLUTE one and inverted. `false_ending` came out "last" on the word
+    # *close* when its definition is that the song comes back from it;
+    # `turnaround` and `interlude` are BETWEEN things; `reprise` needs
+    # something earlier. Exactly three rows carry a genuine boundary fact and
+    # everything else falls out of a dependency, so position is mostly
+    # DERIVED. `quality/SECTION_CONSTRAINTS_DESIGN.md` is the argument.
+
+    #: "first" | "last" | "" -- an edge of the WHOLE SONG. Three rows.
+    boundary: str = ""
+    #: functions that must be present in the song AT ALL for this one to mean
+    #: what it says. A precondition on the ROSTER, checked before any ordering
+    #: question is asked: "this song has no chorus, so it has neither a pre-
+    #: nor a post-chorus" is this field and not an adjacency one.
+    requires: tuple = ()
+    #: this function sits IMMEDIATELY AFTER a section of the NAMED function.
+    #: Strictly stronger than `requires`, and separate from it because a row
+    #: can need a chorus to exist without needing to touch one.
+    adjacent_after: str = ""
+    #: ...and immediately BEFORE one.
+    adjacent_before: str = ""
+    #: requires SOME section before it -- any function, just not the first
+    #: thing in the song. This is where three of the four failed keyword
+    #: derivations actually live.
+    needs_before: bool = False
+    #: ...and some section after it, so not the last thing in the song.
+    needs_after: bool = False
+    #: THE PHRASE THAT LICENSES EVERY CLAIM ABOVE, quoted from a gloss in this
+    #: vocabulary -- usually this row's own. Not decoration: `test_grid`
+    #: asserts the quotation really occurs, so a placement claim cannot be
+    #: added without evidence a reader can check (doctrine 45 -- a checker
+    #: that silently picks is the bug, and so is a table that silently
+    #: asserts).
+    placement_evidence: str = ""
+    #: WHY NO CLAIM WAS MADE, when the gloss WAS consulted and did not decide.
+    #: `verse` has no constraint because nothing denies it; `tag` has none
+    #: because its gloss says "closing a section OR THE SONG" and carries both
+    #: readings at once. Those are different states and a table that rendered
+    #: them identically would be doctrine 20 in a dataclass. Mutually
+    #: exclusive with every claim field above.
+    placement_refused: str = ""
+    #: WHAT KIND OF OBJECT THIS FUNCTION IS — `MISSING.md` M-56, closed
+    #: 2026-08-22. Three values:
+    #:
+    #:   "section"   a SPAN of lines the planner can draw as a cell.
+    #:   "line"      a returning LINE or couplet inside or after a stanza.
+    #:               Not a span, so a cell grammar can never draw one and a
+    #:               placement coordinate on one would answer a question about
+    #:               the wrong kind of object.
+    #:   "fragment"  a phrase, shorter than a line.
+    #:
+    #: THIS WAS ALREADY DECIDED AND ONLY EVER WRITTEN IN PROSE, which is the
+    #: defect doctrine 48 names: `quality/plan.py`'s roster comment excluded
+    #: `refrain`/`burden` as "line-level per their own glosses" and `hook` as
+    #: "properly a fragment", and nothing could read that. Now the glosses'
+    #: own words are the field: `refrain` says "a returning line or couplet
+    #: INSIDE or after a stanza, not a standalone section"; `burden` says "a
+    #: refrain sung by all"; `hook` says "A hook is properly a FRAGMENT
+    #: (MISSING.md D-2)". The value is read off the declaration, not invented
+    #: beside it.
+    kind: str = "section"
+
 
 def _spec(name, gloss, recurrence, returns_as, contrasts_with=(),
-          aliases=()):
+          aliases=(), boundary="", requires=(), adjacent_after="",
+          adjacent_before="", needs_before=False, needs_after=False,
+          placement_evidence="", placement_refused="", kind="section"):
     return FunctionSpec(name, gloss, recurrence, returns_as, contrasts_with,
-                        aliases)
+                        aliases, boundary, requires, adjacent_after,
+                        adjacent_before, needs_before, needs_after,
+                        placement_evidence, placement_refused, kind)
 
 
 #: THE VOCABULARY. D-1 asked for it by name. Every entry is declared here and
 #: nowhere else; `as_function` accepts exactly these keys.
 SECTION_FUNCTIONS = {s.name: s for s in (
     _spec("intro", "opens the song; may state material that returns later",
-          "once", "n/a"),
+          "once", "n/a",
+          boundary="first", placement_evidence="opens the song"),
+    # NO PLACEMENT CLAIM, AND NO REFUSAL EITHER -- the two empty states are
+    # different and this row is the first one. A verse may open a song, close
+    # one, or sit anywhere; nothing in its gloss denies any position, so
+    # nothing here does. That is the answer to the owner's "does verse know it
+    # can be first, free, and/or last": it does not need to, because the layer
+    # only ever denies.
     _spec("verse", "carries the narrative; returns with NEW WORDS on the same "
           "tune", "returns", "new words"),
     _spec("prechorus", "lifts from verse into chorus; a distinct function, "
-          "not a short verse", "returns", "varied", ("verse", "chorus")),
+          "not a short verse", "returns", "varied", ("verse", "chorus"),
+          requires=("chorus",), adjacent_before="chorus",
+          placement_evidence="lifts from verse into chorus"),
     _spec("chorus", "the returning section; the one place where REPEAT is the "
           "requirement rather than the violation (doctrine 3)",
           "returns", "verbatim", ("verse",)),
     _spec("postchorus", "returns immediately after the chorus and is not part "
-          "of it", "returns", "verbatim", ("chorus",)),
+          "of it", "returns", "verbatim", ("chorus",),
+          requires=("chorus",), adjacent_after="chorus",
+          placement_evidence="returns immediately after the chorus"),
     _spec("refrain", "a returning line or couplet INSIDE or after a stanza, "
-          "not a standalone section", "returns", "verbatim"),
-    _spec("burden", "a refrain sung by all, often printed before the first "
-          "stanza; kept SEPARATE from `refrain` because the corpus marks the "
-          "two differently and collapsing them would delete a distinction "
-          "1,776 blocks already carry (doctrine 24)",
-          "returns", "verbatim"),
+          "not a standalone section", "returns", "verbatim",
+          # KIND READ OFF THIS ROW'S OWN GLOSS (M-56, 2026-08-22): "a
+          # returning LINE or couplet ... NOT a standalone section". A cell
+          # grammar draws spans, so it can never draw this, and that is not a
+          # gap in the planner — it is this function being a different kind of
+          # object. `quality/plan.py` had the same sentence in a comment
+          # nothing could read.
+          kind="line"),
+    # THE POSITION CLAUSE WAS FALSE AND THE COUNT WAS STALE -- both repaired
+    # 2026-08-21 against the corpus this row describes.  It read "often
+    # printed before the first stanza": MEASURED, **1,580 of 1,580 [BURDEN]
+    # blocks in `corpus/song/eng_*.txt` follow a VERSE block and NOT ONE
+    # stands before the first stanza**.  The marks that do appear there are
+    # REFRAIN and CHORUS.  A gloss is what a later session reads to decide
+    # whether a printing is a burden, so a false positional claim here is a
+    # staging instruction, not a note.  The SEPARATION argument is untouched
+    # and is what the row is for; only the evidence offered for it moved.
+    _spec("burden", "a refrain sung by all, printed AFTER a stanza in every "
+          "staged instance (1,580 of 1,580, measured 2026-08-21 -- the marks "
+          "that open a song are `refrain` and `chorus`); kept SEPARATE from "
+          "`refrain` because the corpus marks the two differently and "
+          "collapsing them would delete a distinction ~~1,776~~ 1,580 blocks "
+          "already carry (doctrine 24)",
+          "returns", "verbatim",
+          # SAME KIND AS `refrain`, and for the reason this row's own gloss
+          # gives: a burden IS "a refrain sung by all". Its placement claim
+          # (after a verse, 1,580 of 1,580) is about where the LINE is
+          # printed, not about a span the planner draws.
+          kind="line",
+          requires=("verse",), adjacent_after="verse",
+          # THE ONLY PLACEMENT CLAIM IN THIS TABLE BACKED BY A MEASURED RATE
+          # RATHER THAN A DEFINITION -- 1,580 of 1,580, and the row already
+          # carries the measurement. It is admissible on the same test as the
+          # rest: a "burden" printed before the first stanza is not a novel
+          # structure, it is what this corpus marks REFRAIN or CHORUS.
+          placement_evidence="printed AFTER a stanza in every staged "
+                             "instance"),
     _spec("bridge", "appears once and CONTRASTS; a middle-8 is a bridge whose "
           "bar count happens to be 8, which this model already records, so it "
           "is not a separate function", "once", "n/a", ("verse", "chorus"),
@@ -271,28 +400,81 @@ SECTION_FUNCTIONS = {s.name: s for s in (
                    "departure_section")),
     _spec("breakdown", "strips the arrangement back", "open", "varied"),
     _spec("build", "raises tension toward a return", "open", "varied"),
-    _spec("drop", "the arrival a build points at", "returns", "varied"),
+    # REFUSED IN BOTH DIRECTIONS, and the asymmetry is why. `drop`'s gloss
+    # defines it BY REFERENCE to a build, which is not the same as requiring
+    # one -- a drop can arrive without a formal build section. And `build`'s
+    # own gloss says only "raises tension toward a return", which does not
+    # name a drop, so the edge cannot be licensed from that side either
+    # without citing a row that is not its own. An owner ruling, not a
+    # reading.
+    _spec("drop", "the arrival a build points at", "returns", "varied",
+          placement_refused="'the arrival a build points at' defines a drop "
+                            "by reference to a build without requiring one, "
+                            "and `build`'s own gloss names no drop. The edge "
+                            "is a ruling, not a reading.",
+          # ATTEMPTED AND WITHDRAWN, 2026-08-22, and recorded because the
+          # attempt found something. Deriving `quality/plan._CELLS` from
+          # these fields made `("build", "drop")` vanish — the literal had
+          # hard-coded that pair while NEITHER row declared an adjacency —
+          # and the first move was to add `adjacent_after="build"` here so
+          # the derivation would reproduce it. THE REFUSAL ABOVE REFUSED
+          # THAT, and the import-time claim/refusal check enforced it: a
+          # drop may follow a breakdown, so the gloss references a build
+          # WITHOUT requiring one, and "the edge is a ruling, not a
+          # reading" is exactly right. The pair stays undeclared.
+          # WHAT IS LOST BY THAT, measured rather than waved at: NOTHING
+          # functional. `build` and `drop` each keep a singleton cell, and
+          # the pattern sampler can still place them adjacently by drawing
+          # the two cells in sequence — what it no longer does is treat the
+          # pair as a PREFERRED unit, which is what a ruling nobody made
+          # was buying
+          ),
     _spec("vamp", "a repeating figure held open", "open", "varied"),
+    # THE KEYWORD DERIVATION READ THIS AS `last`, on "the end of one section".
+    # It is a SEAM: it needs a section on BOTH sides, so it can be neither
+    # first nor last, which is the opposite of what an absolute reading gave.
     _spec("turnaround", "carries the end of one section into the next",
-          "returns", "verbatim"),
+          "returns", "verbatim",
+          needs_before=True, needs_after=True,
+          placement_evidence="carries the end of one section into the next"),
     _spec("interlude", "instrumental or spoken span between sung sections",
           "open", "n/a",
+          needs_before=True, needs_after=True,
+          placement_evidence="between sung sections",
           aliases=("instrumental-break", "instrumental break",
                    "instrumental_break")),
     _spec("solo", "an instrumental span over section material", "open", "n/a",
           aliases=("instrumental-solo", "instrumental solo",
                    "instrumental_solo")),
+    # REFUSED, AND THE REFUSAL IS THE POINT. Both readings live in one
+    # sentence and picking either would answer a question the vocabulary has
+    # not decided (doctrine 20). A tag closing a SECTION is mid-song; a tag
+    # closing THE SONG is last; the gloss asserts both.
     _spec("tag", "a short repeated fragment closing a section or the song",
-          "returns", "verbatim"),
+          "returns", "verbatim",
+          placement_refused="its gloss says 'closing a section OR THE SONG' "
+                            "-- a section-final tag is mid-song and a "
+                            "song-final tag is last, and the row asserts "
+                            "both. Picking one would settle by table order "
+                            "what the vocabulary has not settled."),
     _spec("hook", "a section that IS the hook. A hook is properly a FRAGMENT "
           "(MISSING.md D-2) and `Hook` below is the object for that; this "
           "entry covers the post-chorus-hook case where a whole section "
           "carries it", "returns", "verbatim"),
-    _spec("coda", "a closing section with its own material", "once", "n/a"),
-    _spec("outro", "closes the song and does not recur", "once", "n/a"),
-    _spec("false_ending", "a close the song comes back from", "once", "n/a"),
+    _spec("coda", "a closing section with its own material", "once", "n/a",
+          boundary="last", placement_evidence="a closing section"),
+    _spec("outro", "closes the song and does not recur", "once", "n/a",
+          boundary="last", placement_evidence="closes the song"),
+    # THE SHARPEST OF THE FOUR. An absolute reading makes a false ending the
+    # LAST section, on the word *close*, and its whole definition is that it
+    # is not: the song COMES BACK FROM it, so something must follow.
+    _spec("false_ending", "a close the song comes back from", "once", "n/a",
+          needs_after=True,
+          placement_evidence="a close the song comes back from"),
     _spec("reprise", "a declared return of earlier material, later and "
-          "changed", "once", "varied"),
+          "changed", "once", "varied",
+          needs_before=True,
+          placement_evidence="a declared return of earlier material"),
 )}
 
 #: The alias map, derived from the rows' own declarations — never written
@@ -307,6 +489,147 @@ for _s in SECTION_FUNCTIONS.values():
             raise UnknownFunction(
                 f"alias {_a!r} on {_s.name!r} shadows a declared function")
         _FUNCTION_ALIASES.setdefault(_a, _s.name)
+
+# THE PLACEMENT TABLE CHECKS ITSELF AT IMPORT (2026-08-22, M-54), the same
+# move the alias-shadow check one block up already makes. Every one of these
+# would otherwise be a claim nobody could disagree with in a coordinate: a
+#  naming a function that does not exist, a boundary value outside
+# the declared two, a row that both claims and refuses, or -- the one that
+# matters most -- a claim with no evidence behind it. A table that can hold a
+# placement rule nobody can trace back to a gloss is the  defect this
+# entry exists to end (doctrine 45).
+_BOUNDARIES = ("first", "last")
+_GLOSSES = " || ".join(_s.gloss for _s in SECTION_FUNCTIONS.values())
+for _s in SECTION_FUNCTIONS.values():
+    _claims = (bool(_s.boundary) or bool(_s.requires) or bool(_s.adjacent_after)
+               or bool(_s.adjacent_before) or _s.needs_before or _s.needs_after)
+    if _s.boundary and _s.boundary not in _BOUNDARIES:
+        raise UnknownFunction(
+            f"{_s.name!r} declares boundary {_s.boundary!r}; the declared "
+            f"values are {list(_BOUNDARIES)}. An edge of the whole song has "
+            f"two sides and no third.")
+    for _f in tuple(_s.requires) + (_s.adjacent_after, _s.adjacent_before):
+        if _f and _f not in SECTION_FUNCTIONS:
+            raise UnknownFunction(
+                f"{_s.name!r} names {_f!r} in a placement claim and there is "
+                f"no such function. A dependency on a name nobody declared is "
+                f"a rule that can never be satisfied or violated.")
+    # A boundary and a same-side neighbour requirement contradict: nothing can
+    # come before the first section, or after the last.
+    if _s.boundary == "first" and _s.needs_before:
+        raise UnknownFunction(
+            f"{_s.name!r} claims boundary 'first' AND needs_before -- nothing "
+            f"can precede the first section.")
+    if _s.boundary == "last" and _s.needs_after:
+        raise UnknownFunction(
+            f"{_s.name!r} claims boundary 'last' AND needs_after -- nothing "
+            f"can follow the last section.")
+    if _claims and _s.placement_refused:
+        raise UnknownFunction(
+            f"{_s.name!r} both CLAIMS a placement and REFUSES one. Those are "
+            f"the two answers this layer distinguishes (doctrine 20) and a "
+            f"row may give one.")
+    if _claims and not _s.placement_evidence:
+        raise UnknownFunction(
+            f"{_s.name!r} claims a placement with no `placement_evidence`. "
+            f"Every claim quotes a gloss so a reader can check it; an "
+            f"unevidenced rule is the `_CELLS` defect (doctrine 45).")
+    if _s.placement_evidence and _s.placement_evidence not in _GLOSSES:
+        raise UnknownFunction(
+            f"{_s.name!r} offers placement evidence {_s.placement_evidence!r} "
+            f"and that phrase occurs in NO gloss in this vocabulary. The "
+            f"quotation has to be real or it is decoration.")
+    if _s.placement_evidence and not _claims:
+        raise UnknownFunction(
+            f"{_s.name!r} offers placement evidence and claims nothing.")
+
+
+def placement_of(function):
+    """-> the placement claims for one function, as a plain dict.
+
+    THE ONE READER.  derives its pattern space from this and the
+    grader checks a draft against it, so the planner and the grader cannot
+    disagree about where a section may go -- which is the shape  had to be collapsed into one constant to fix (doctrine 1).
+    """
+    sp = SECTION_FUNCTIONS[as_function(function)]
+    return {"boundary": sp.boundary, "requires": tuple(sp.requires),
+            "adjacent_after": sp.adjacent_after,
+            "adjacent_before": sp.adjacent_before,
+            "needs_before": sp.needs_before, "needs_after": sp.needs_after,
+            "evidence": sp.placement_evidence,
+            "refused": sp.placement_refused}
+
+
+PLACEMENT_CODES = ("SECTION_NOT_AT_BOUNDARY", "SECTION_REQUIREMENT_ABSENT",
+                   "SECTION_AT_EDGE", "SECTION_NOT_ADJACENT")
+
+
+def placement_findings(functions):
+    """An ordered list of function names -> [(code, index, evidence), ...].
+
+    THE ONE DEFINITION. `plan.py` prunes its pattern space with this and the
+    grader checks a draft with it, so the planner and the grader cannot
+    disagree about where a section may go. Two readers of one rule is the
+    shape `THETA_COLLISION` had to be collapsed to fix (doctrine 1), and this
+    layer is born with a planner and a grader on it, so it is collapsed from
+    the start rather than after they drift.
+
+    `None` entries are UNDECLARED sections and are SKIPPED, never guessed at:
+    a section nobody typed a function on cannot violate a rule about
+    functions, and treating it as a verse is exactly what `as_function`
+    refuses to do (doctrine 79 -- a refusal is not a violation). They still
+    OCCUPY a position, so a `needs_after` section followed only by undeclared
+    sections is NOT charged: something does follow it.
+
+    Every finding carries the row's own `placement_evidence`, so the report
+    quotes the gloss that licensed the rule rather than asserting it.
+    """
+    out = []
+    n = len(functions)
+    present = {f for f in functions if f}
+    for i, f in enumerate(functions):
+        if not f:
+            continue
+        sp = SECTION_FUNCTIONS.get(f)
+        if sp is None or sp.placement_refused:
+            continue
+        ev = sp.placement_evidence
+        if sp.boundary == "first" and i != 0:
+            out.append(("SECTION_NOT_AT_BOUNDARY", i,
+                        f"{f!r} opens the song by definition and sits at "
+                        f"position {i + 1} of {n} — {ev!r}"))
+        if sp.boundary == "last" and i != n - 1:
+            out.append(("SECTION_NOT_AT_BOUNDARY", i,
+                        f"{f!r} closes the song by definition and sits at "
+                        f"position {i + 1} of {n} — {ev!r}"))
+        for r in sp.requires:
+            if r not in present:
+                out.append(("SECTION_REQUIREMENT_ABSENT", i,
+                            f"{f!r} requires a {r!r} and this song has none "
+                            f"— {ev!r}"))
+        if sp.needs_before and i == 0:
+            out.append(("SECTION_AT_EDGE", i,
+                        f"{f!r} requires a section before it and opens the "
+                        f"song — {ev!r}"))
+        if sp.needs_after and i == n - 1:
+            out.append(("SECTION_AT_EDGE", i,
+                        f"{f!r} requires a section after it and closes the "
+                        f"song — {ev!r}"))
+        if sp.adjacent_after and (i == 0
+                                  or functions[i - 1] != sp.adjacent_after):
+            got = functions[i - 1] if i else "the start of the song"
+            out.append(("SECTION_NOT_ADJACENT", i,
+                        f"{f!r} sits immediately after {sp.adjacent_after!r} "
+                        f"by definition; here it follows {got!r} — {ev!r}"))
+        if sp.adjacent_before and (i == n - 1
+                                   or functions[i + 1] != sp.adjacent_before):
+            got = functions[i + 1] if i < n - 1 else "the end of the song"
+            out.append(("SECTION_NOT_ADJACENT", i,
+                        f"{f!r} sits immediately before "
+                        f"{sp.adjacent_before!r} by definition; here it "
+                        f"precedes {got!r} — {ev!r}"))
+    return out
+
 
 #: Spelling variants only. NOT a synonym table: `middle8 -> bridge` would be a
 #: CLAIM, and claims live in the vocabulary above WITH a gloss — which is
@@ -835,6 +1158,14 @@ VARIATION_KINDS = (
     ("STUB", "the return POINTS at its target instead of reproducing it "
              "(printed '&c.'). Distance is REFUSED, not zero and not large: "
              "there is no second text to measure against."),
+    ("TEXT_VERBATIM_CHANNEL_UNREAD",
+     "the WORDS returned unchanged and the channel this tradition varies is "
+     "not in the text, so no claim is made about whether the return varied. "
+     "Reachable only under `VariationDeclaration.varies_off_text`; the "
+     "underlying measurement is kept in `qualities`, which still carries "
+     "VERBATIM, because the words really are identical and deleting that "
+     "would trade one false claim for a missing one (doctrine 24 -- the rule "
+     "RELABELS)."),
     ("VERBATIM", "every line identical under the declared normalisation"),
     ("TRUNCATED_RETURN", "the return is a strict sub-sequence of the first, "
                          "every kept line verbatim -- the last-chorus cut"),
@@ -901,6 +1232,26 @@ class VariationDeclaration:
     #: because a checker that silently picks a phonology is making a claim it
     #: never states (doctrine 45).
     rhyme_key: str = ""
+
+    #: NAME of the channel this tradition varies, when that channel is NOT the
+    #: words -- `"the melodic line (Carnatic sangati)"`,
+    #: `"placement across the tala (Hindustani bol-baant)"`. Empty means
+    #: undeclared, and every comparison ever made here reproduces unchanged.
+    #:
+    #: `MISSING.md` M-26. All 15 members of `VARIATION_KINDS` compare WORD
+    #: CONTENT, so a return that holds the text fixed and varies something else
+    #: scored `VERBATIM` -- the STRONGEST available claim that nothing changed.
+    #: A kṛti's sangati is the defining device of its exposition and it holds
+    #: the sāhitya fixed while the melody moves; every one of them came back
+    #: `VERBATIM`.
+    #:
+    #: THIS IS NOT THE HARNESS OVERREACHING ITS TEXT. Doctrine 93 -- melody and
+    #: tāla placement are not in a lyric sheet and this layer must not claim
+    #: them. The defect was that `compare_returns` HAS a refusal channel and no
+    #: member of it could say *the channel this tradition varies is not in the
+    #: text*, so inconclusive-by-construction came back as a null, and as the
+    #: most POSITIVE null the vocabulary has (doctrine 20).
+    varies_off_text: str = ""
 
 
 _MARKUP = re.compile(r"[_*]+")
@@ -1327,6 +1678,23 @@ def compare_returns(first, again, decl=None, rhyme_key=None,
         q.add("RESTATEMENT")
     if not q:
         q.add("REWRITTEN_RETURN")
+
+    # THE DECLARED OFF-TEXT CHANNEL OUTRANKS `VERBATIM` (M-26). `VERBATIM` is
+    # left IN `q`: the words are identical and that is a true measurement. What
+    # changes is the HEADLINE, because `kind` is what a consumer reads and
+    # `VERBATIM` there is the strongest possible claim that nothing changed --
+    # about a return whose varying channel this reader cannot see at all.
+    if "VERBATIM" in q and decl.varies_off_text:
+        q.add("TEXT_VERBATIM_CHANNEL_UNREAD")
+        refusals.append(Refusal(
+            "VARIES_OFF_TEXT",
+            "the channel this tradition varies is not in the text",
+            f"the words returned unchanged, and {decl.varies_off_text} is "
+            f"where this tradition puts the variation. A lyric sheet does not "
+            f"carry it (doctrine 93), so this comparison CANNOT TELL whether "
+            f"the return varied -- which is not the same as finding that it "
+            f"did not (doctrine 20). `qualities` keeps VERBATIM: the words "
+            f"really are identical, and that measurement stands."))
 
     kind = next(k for k, _ in VARIATION_KINDS if k in q)
     return Return(kind=kind, qualities=frozenset(q),
@@ -1945,9 +2313,19 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
                 f"there are RETURN_NOT_VERBATIM. Phonology: "
                 f"{drifted[0][2].declaration.rhyme_key or 'NONE DECLARED'}"))
 
-    kinds = {r.kind for _, _, r in rets}
+    # BOTH CHECKS BELOW ASK ABOUT THE WORDS, so both read the QUALITY and not
+    # the headline kind (M-26, 2026-08-22). `kind` is the most specific label
+    # the ladder can give and it CAN be outranked while the words are still
+    # identical -- by `STUB` (which never carries the quality, so the two
+    # readings agreed) and, since the off-text declaration, by
+    # `TEXT_VERBATIM_CHANNEL_UNREAD` (which does). Under the old spelling a
+    # caller who declared an off-text channel would have silently lost
+    # `RETURNS_WITH_SAME_WORDS` and `RETURN_LOCKED`, both of which are true and
+    # both of which are about the words alone.
+    same_words = bool(rets) and all("VERBATIM" in r.qualities
+                                    for _, _, r in rets)
     spec = SECTION_FUNCTIONS[fn]
-    if spec.returns_as == "new words" and kinds == {"VERBATIM"}:
+    if spec.returns_as == "new words" and same_words:
         findings.append(GridFinding(
             "RETURNS_WITH_SAME_WORDS",
             f"every {fn} returns with IDENTICAL words",
@@ -1957,7 +2335,7 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
             f"LABEL, not about the lines."))
     if (spec.returns_as == "verbatim"
             and len(rets) >= convention.return_lock_min - 1
-            and kinds == {"VERBATIM"}
+            and same_words
             and all(r.tune_slot_preserved for _, _, r in rets)):
         findings.append(GridFinding(
             "RETURN_LOCKED",
@@ -2348,6 +2726,40 @@ def song_function_report(song, hooks=(), rhyme_key=None,
                                       decl)
         ask_one(f, r)
         reprises[(ln, en)] = reps
+    # WHERE THE SECTIONS SIT (2026-08-22, `MISSING.md` M-54). One question,
+    # asked once over the whole ordered list, so a song with three misplaced
+    # sections is ONE refused-or-answered question and three findings —
+    # `song_function_report`'s counting docstring records what happens when a
+    # question is counted per record instead (`asked 3, answered -1`).
+    #
+    # NOTES, NOT FLAGS, AND THE PRECEDENT IS `uncovered_bars` VERBATIM: a
+    # section's POSITION is a fact about the DECLARATION, not about any line's
+    # words. No rewrite moves it and `revise_loop`'s only move is a word swap
+    # on a named line, so a flag here would spend every round of `max_rounds`
+    # on a defect the loop has no move for and then report ROUND_LIMIT — the
+    # destroyed SUCCESS that entry already priced and measured. It never
+    # reaches `verify()`'s gate either way: placement is a function of the
+    # blueprint alone, identical on both sides of a diff, so it cancels out.
+    #
+    # A DEFINITIONAL VIOLATION ARGUABLY BELONGS AT THE READER, refused the way
+    # `UNDECLARED_METER` is, and that is NOT decided here: it is a behaviour
+    # change at a door and the shipped blueprints measure 0 violations, so
+    # nothing is lost by reporting first and ruling later (M-54's open half).
+    #
+    # ASKED ONLY WHEN IT CAN BE PUT. A song where NO section declares a
+    # function has no placement question: there are no functions to place, and
+    # counting one as asked-and-answered would report a clean answer to a
+    # question nobody could pose (doctrine 20 -- "inconclusive by
+    # construction" is not "null"). Caught by `test_song_function` 8b, whose
+    # whole subject is that an undeclared song "answers nothing", and by
+    # `test_grid` §18 on three unnamed sections.
+    _placed = [s.function if s.declared else None for s in song.sections]
+    if any(_placed):
+        pf = [GridFinding(code,
+                          f"section {i + 1} sits where its own definition "
+                          f"says it cannot", evidence)
+              for code, i, evidence in placement_findings(_placed)]
+        ask_one(pf, [])
     f, r, ch = bridge_contrast(song, convention=convention,
                                rhyme_key=rhyme_key)
     ask_one(f, r)
@@ -2392,34 +2804,205 @@ MARK_FUNCTION = {
     "REFRAIN": "refrain",
 }
 
-#: source mark -> why it is NOT a section function. Every entry is a decision
-#: with a reason attached, which is what makes it a table rather than a filter.
+#: (LANGUAGE, source mark) -> why it is NOT a section function. Every entry
+#: is a decision with a reason attached, which is what makes it a table rather
+#: than a filter — and every entry now says WHICH TRADITION the decision was
+#: made in, which is what makes it a coordinate rather than a claim about the
+#: token (`MISSING.md` M-24, doctrine 45).
+#:
+#: THE KEY IS A PAIR SO THAT A ROW CANNOT BE ADDED WITHOUT NAMING A LANGUAGE.
+#: It was a bare token, and `MARK_REFUSED["PART"]` read *"a speaker or role
+#: attribution in the Kalevala wedding songs"* — true of Finnish, and the
+#: sentence a hypothetical Irish tune staged as `[PART A]` would have been
+#: refused with: a true refusal, in the wrong language, about the wrong
+#: object. Nothing in a single-token table can express that `PART` means one
+#: thing in `fin` and another in `gle`.
+#:
+#: MEASURED 2026-08-22 BEFORE THE TABLE WAS REWRITTEN, and the measurement is
+#: why this is a latent defect rather than a live one: over the whole of
+#: `corpus/song/`, EVERY refused mark occurs in EXACTLY ONE language —
+#: `BAYT`/`RADIF` fas, `SLOKA` san, `PANTUN`/`QUATRAIN` msa,
+#: `PART`/`NOTE`/`VARIANT` fin, `CYWYDD` cym, and the rest eng. So no reason
+#: below is currently quoted over a tradition it was not written for, and the
+#: languages here are READ OFF THAT MEASUREMENT rather than assigned by
+#: guess. `TAORLUATH` is the one exception and it is declared `eng` beside its
+#: three pìobaireachd siblings: it has zero occurrences anywhere, which its
+#: own reason already records.
+#:
+#: `MARK_FUNCTION` IS NOT GIVEN THE SAME COORDINATE, and the same measurement
+#: is the argument: `VERSE` is carried by eng, ltc, fin, cym AND san, `REFRAIN`
+#: by four languages and `BURDEN` by two. The positive table is genuinely
+#: shared, so keying it per language would manufacture five rows saying one
+#: thing. M-24's other half — `SECTION_FUNCTIONS`' bare names, where the pop
+#: `bridge` and the sonata `bridge` are different objects — is a claim about
+#: the FUNCTION vocabulary rather than the MARK vocabulary, and it stays open.
 MARK_REFUSED = {
-    "BAYT": "a bayt is the couplet-unit of a ghazal. A ghazal has no chorus "
+    ("fas", "BAYT"): "a bayt is the couplet-unit of a ghazal. A ghazal has no chorus "
             "and no verse; calling it `verse` would be this vocabulary "
             "claiming a form it does not describe (doctrine 43).",
-    "RADIF": "a radif is a RHYME DEVICE -- the repeated word after the rhyme "
+    ("fas", "RADIF"): "a radif is a RHYME DEVICE -- the repeated word after the rhyme "
              "-- not a span of the song. It has no bars and no return.",
-    "SLOKA": "a sloka is a metrical stanza-unit. In the Gitagovinda it is an "
+    ("san", "SLOKA"): "a sloka is a metrical stanza-unit. In the Gitagovinda it is an "
              "interleaved narrative verse, and the source says so; that is a "
              "position in a text, not a function in a form.",
-    "PANTUN": "a pantun is a whole quatrain FORM, not a section of a song.",
-    "QUATRAIN": "a printing/metrical unit, and the mark carries its rhyme "
+    ("msa", "PANTUN"): "a pantun is a whole quatrain FORM, not a section of a song.",
+    ("msa", "QUATRAIN"): "a printing/metrical unit, and the mark carries its rhyme "
                 "scheme rather than a function.",
-    "VARIANT": "Lonnrot's numbered alternative READING of the same passage. "
+    ("fin", "VARIANT"): "Lonnrot's numbered alternative READING of the same passage. "
                "An editor's variant is not a performed return, and treating "
                "it as one would count editorial apparatus as structure.",
-    "PART": "a speaker or role attribution in the Kalevala wedding songs "
+    ("fin", "PART"): "a speaker or role attribution in the Kalevala wedding songs "
             "(`[PART: Kaason puoli]`), not a section function.",
-    "PATTER": "a music-hall function this vocabulary does not declare. It is "
+    ("eng", "PATTER"): "a music-hall function this vocabulary does not declare. It is "
               "refused rather than folded into `verse`, because folding it in "
               "would delete the distinction the printer made.",
-    "NOTE": "editorial apparatus.",
-    "SIDENOTE": "editorial apparatus.",
-    "MUSIC": "editorial apparatus.",
-    "GOTHIC": "editorial apparatus.",
-    "CYWYDD": "a Welsh METRE name, not a section.",
+    ("fin", "NOTE"): "editorial apparatus.",
+    ("eng", "SIDENOTE"): "editorial apparatus.",
+    ("eng", "MUSIC"): "editorial apparatus.",
+    ("eng", "GOTHIC"): "editorial apparatus.",
+    ("cym", "CYWYDD"): "a Welsh METRE name, not a section.",
+    ("eng", "URLAR"): "the GROUND of a pìobaireachd — the theme the variations are "
+             "built on. It IS a span of the performance, which is why it is "
+             "a mark at all; what this vocabulary has no member for is a "
+             "movement in a VARIATION LADDER, and folding it into `verse` "
+             "would say the theme and its ornamented restatements are the "
+             "same kind of thing (`PATTER`'s argument, one tradition over).",
+    ("eng", "SIUBHAL"): "a pìobaireachd variation on the ùrlar. Refused for the same "
+               "reason and with the same regret: the relation it needs is a "
+               "POINTER at the section it elaborates, and the section "
+               "vocabulary has no pointer yet "
+               "(`quality/SECTION_ORDER_PREREGISTRATION.md`).",
+    ("eng", "TAORLUATH"): "a pìobaireachd variation, later in the ladder than the "
+                 "siubhal. Declared here with zero occurrences in this "
+                 "corpus, and the zero is the point: the ladder is INCOMPLETE "
+                 "in the three staged pìobaireachds, so a `rank` over these "
+                 "marks would be ordering a sequence the corpus never shows "
+                 "whole. That measurement is what refused `rank`.",
+    ("eng", "CRUNLUATH"): "the closing pìobaireachd variation, the most ornamented. "
+                 "Same refusal as `SIUBHAL`. Two of the three staged "
+                 "instances print `(FINALE)` after it, which this reader "
+                 "keeps as the mark's ANNOTATION rather than as a second "
+                 "mark — an editor's gloss on a heading is apparatus.",
 }
+
+
+
+#: base -> {language: reason}. DERIVED from `MARK_REFUSED`, never typed
+#: beside it: a second hand-kept index is a second place for the language
+#: coordinate to be wrong (doctrine 1).
+_REFUSED_BY_BASE = {}
+for (_lg, _bs), _rsn in MARK_REFUSED.items():
+    _REFUSED_BY_BASE.setdefault(_bs, {})[_lg] = _rsn
+
+
+def language_of_path(path):
+    """-> the file's declared language code, or `""` when it has none.
+
+    THE PREFIX IS THE CORPUS'S OWN CONVENTION and has dispatched the phonology
+    since doctrine 45; this reads the same three characters. It is CHECKED
+    against `phonology.declared()` rather than trusted, so a fixture called
+    `marked.txt` yields `""` and not `"mar"` — a language that does not exist,
+    silently substituted, is the failure this function is here to avoid rather
+    than to commit one layer down.
+
+    `phonology` is imported inside the body, matching `read_marked_songs`'s own
+    `import lyric_harness`: this module imports nothing from `quality` at
+    module level and a language lookup is not the reason to start.
+    """
+    from quality import phonology as _PH
+    head = os.path.basename(path).split("_")[0]
+    return head if head in _PH.declared() else ""
+
+
+#: A MARK POINTS AT THE MARK IT IS A VARIATION OF.
+#:
+#: `quality/SECTION_ORDER_PREREGISTRATION.md` registered TWO fields and its
+#: falsifier fired on one of them. `rank` -- a position in the monotone ladder
+#: urlar < siubhal < taorluath < crunluath < crunluath a-mach -- is REFUSED:
+#: two of the three staged pìobaireachds are NOT monotone, none is complete,
+#: and `TAORLUATH`/`CRUNLUATH A-MACH` have zero attestation anywhere in the
+#: corpus. What the literary imitation does is ALTERNATE (ground, variation,
+#: ground, variation, close), so a `rank` check would have failed two of three
+#: songs that are printed exactly as their editor set them (doctrine 6).
+#:
+#: `elaborates` SURVIVED that falsifier and this is it. The relation holds
+#: regardless of sequence, and it is what makes the alternation readable
+#: rather than random.
+#:
+#: IT IS ON THE MARK AND NOT ON `FunctionSpec`, AND THE REGISTRATION SAID
+#: `FunctionSpec`. The registration was written while all 14 headings were
+#: still typed `[VERSE n]` with the heading as the block's whole lyric
+#: (`MISSING.md` M-25(a)); staging them as marks is what gave the field a
+#: population, and it put that population on the MARK. Declaring three new
+#: SECTION FUNCTIONS instead would mean folding a pìobaireachd movement into
+#: a vocabulary the canon survey says it strains -- the exact move
+#: `MARK_REFUSED` exists to decline. Recorded rather than retargeted in
+#: silence (doctrine 17).
+#:
+#: MEASURED over the whole population, 9 elaborating sections in 3 songs:
+#: every target is PRESENT, and 8 of 9 are grounded BEFORE the elaboration.
+#: The one exception is `THE PRAISE OF MORAG`, whose opening siubhal precedes
+#: its urlar because the page prints the first movement with NO HEADING AT
+#: ALL -- a heading appears only where the movement changes.
+MARK_ELABORATES = {
+    "SIUBHAL": "URLAR",
+    "TAORLUATH": "URLAR",
+    "CRUNLUATH": "URLAR",
+    "CRUNLUATH A-MACH": "URLAR",
+}
+
+
+def elaboration_findings(song):
+    """-> (findings, counts) for one `MarkedSong`.
+
+    THREE COUNTS, NEVER SUMMED (doctrine 79):
+
+      grounded_before  the mark it elaborates appears EARLIER in the song
+      grounded_after   the target appears, but only later -- a legitimate
+                       shape (a variation-first opening), not a defect
+      ungrounded       the target never appears at all
+
+    ONLY `ungrounded` IS A FINDING. Ordering is a DISCLOSURE and not a
+    charge: an editor who opens on a variation has departed from nothing, and
+    doctrine 6 says a convention a writer may depart from cannot be what
+    fails a check. `ELABORATION_UNGROUNDED` is different in kind -- the
+    section says it varies something the song does not contain, which is a
+    factual claim and false.
+
+    SEVERITY IS NOT SET HERE AND CANNOT BE: `GridFinding` carries `code`,
+    `message` and `evidence` and no severity at all, because in this module
+    severity is the CONSUMER's decision (`Reviser._function_findings` is
+    where a grid finding becomes a note or a flag). The first draft of this
+    docstring said "and it is a NOTE", which was a claim about an object
+    that has no such field -- one question answered in two places, with one
+    of the answers imaginary (doctrine 1).
+
+    MEASURED CORPUS-WIDE: `ungrounded` is **0 of 9**. That zero is over a
+    named population and is not evidence the check works, so
+    `quality/test_grid.py` plants the defect to prove it fires (doctrine 94 --
+    a positive-case suite cannot find a rule that is too generous).
+    """
+    order = [b.base for b in song.blocks]
+    out = []
+    counts = {"grounded_before": 0, "grounded_after": 0, "ungrounded": 0}
+    for i, base in enumerate(order):
+        target = MARK_ELABORATES.get(base)
+        if target is None:
+            continue
+        if target not in order:
+            counts["ungrounded"] += 1
+            out.append(GridFinding(
+                "ELABORATION_UNGROUNDED",
+                "`%s` elaborates `%s`, and no `%s` appears in this song"
+                % (base, target, target),
+                "the mark declares itself a variation OF something the song "
+                "does not contain. Unlike the ORDER of the two, which is an "
+                "editor's choice, this is a factual claim and it is false"))
+        elif target in order[:i]:
+            counts["grounded_before"] += 1
+        else:
+            counts["grounded_after"] += 1
+    return out, counts
 
 
 @dataclass
@@ -2430,6 +3013,17 @@ class Block:
     index: int               # the numeral the mark carries; 1 when bare
     function: str            # a declared function, or UNDECLARED
     lines: list = field(default_factory=list)
+    #: The PRINTED INDENT of each line in `lines`, index-aligned with it.
+    #: The compositor's indent ladder is the rhyme scheme set visibly, and
+    #: every reader in this repo stripped it before anything saw it until
+    #: 2026-08-21 -- measured at 6.19x against a within-block permutation
+    #: null, `MISSING.md` M-28 and `lyric_harness.line_indent`. Carried, not
+    #: interpreted: nothing here derives a mandate from whitespace, because a
+    #: cover derived from the printing is exactly as DERIVED as `--cliques`
+    #: (doctrine 14). Empty on a `Block` built by any path but
+    #: `read_marked_songs`, which is honest -- a blueprint declares no
+    #: printing.
+    indents: list = field(default_factory=list)
     refusal: Refusal = None
     source_line: int = 0
     #: text printed on the MARK's own line. In this corpus's convention that
@@ -2473,7 +3067,7 @@ _MARK_RE = re.compile(r"^\[([^\]]*)\]")
 _INDEX_RE = re.compile(r"(\d+)\s*$")
 
 
-def ingest_mark(mark):
+def ingest_mark(mark, language=""):
     """-> (base, index, function, refusal). Reads a printed mark; never a name.
 
     The numeral is an INSTANCE INDEX, declared: `[CHORUS 2]` is the song's
@@ -2481,6 +3075,22 @@ def ingest_mark(mark):
     `[QUATRAIN AAAA]` carry a rhyme scheme after the head, so the base is the
     FIRST token; `[CHORUS: abbreviated return, printed "&c."]` carries an
     editorial note after a colon, so the head stops there.
+
+    `language` IS THE COORDINATE A REFUSAL IS TRUE IN (`MISSING.md` M-24,
+    doctrine 45). Three answers, and the middle one is new:
+
+      * the base is refused IN THIS LANGUAGE -> that language's own reason.
+      * the base is refused in some OTHER language and not in this one ->
+        `MARK_REFUSED_ELSEWHERE`. The other tradition's sentence is NOT
+        quoted: a reason written about Kalevala wedding songs is a true
+        statement in the wrong language about the wrong object, and
+        answering with it would be worse than not answering. Doctrine 20 —
+        nobody has written what this mark means here, which is not the same
+        as its having been decided.
+      * no language is declared at all -> the reason is still given, LABELLED
+        with the tradition it was written for. Every recorded refusal keeps
+        its wording; what changes is that the reader is told whose it is,
+        rather than the table's single voice being read as universal.
     """
     head = re.split(r"[:(]", mark, 1)[0].strip()
     m = _INDEX_RE.search(head)
@@ -2488,6 +3098,8 @@ def ingest_mark(mark):
     head = _INDEX_RE.sub("", head).strip()
     base = head.split()[0].upper() if head.split() else ""
     if base in MARK_FUNCTION:
+        # NOT KEYED ON LANGUAGE, and the measurement is the argument -- see
+        # `MARK_REFUSED`'s own note. `VERSE` is carried by five languages.
         return base, index, MARK_FUNCTION[base], None
     if not base:
         return base, index, UNDECLARED, Refusal(
@@ -2496,14 +3108,36 @@ def ingest_mark(mark):
             "A numbered bracket in a printed text is a footnote reference or "
             "a stanza number, not a section. Reading it as a function would "
             "make the apparatus into structure.")
-    reason = MARK_REFUSED.get(base)
+    rows = _REFUSED_BY_BASE.get(base)
+    if rows and language and language not in rows:
+        elsewhere = ", ".join(sorted(rows))
+        return base, index, UNDECLARED, Refusal(
+            "MARK_REFUSED_ELSEWHERE",
+            f"the source mark {base!r} is not declared in {language!r}",
+            f"{base!r} carries a written decision in {elsewhere} and NONE in "
+            f"{language!r}. That other tradition's reason is deliberately not "
+            f"quoted here: it would be a true sentence about a different "
+            f"object (doctrine 45). Nobody has written what {base!r} means in "
+            f"{language!r}, which is not the same as its having been decided "
+            f"(doctrine 20) — the remedy is a row, in this language, with a "
+            f"reason.")
+    if rows:
+        lang = language if language in rows else sorted(rows)[0]
+        reason = rows[lang]
+        if not language:
+            reason = (f"[the decision below was written for {lang!r}; this "
+                      f"reader was given no language] " + reason)
+        return base, index, UNDECLARED, Refusal(
+            "MARK_NOT_A_FUNCTION",
+            f"the source mark {base!r} is not read as a section function",
+            reason)
     return base, index, UNDECLARED, Refusal(
-        "MARK_NOT_A_FUNCTION" if reason else "MARK_UNRECOGNISED",
+        "MARK_UNRECOGNISED",
         f"the source mark {base!r} is not read as a section function",
-        reason or (f"{base!r} is in no declared table. It is refused rather "
-                   f"than guessed: a mark that looks stanza-shaped is not "
-                   f"evidence of a function, and the table is closed on "
-                   f"purpose so that additions are decisions."))
+        f"{base!r} is in no declared table. It is refused rather "
+        f"than guessed: a mark that looks stanza-shaped is not "
+        f"evidence of a function, and the table is closed on "
+        f"purpose so that additions are decisions.")
 
 
 #: THE NAMED AIR, WHICH WAS NEVER MISSING -- IT WAS INSIDE ANOTHER COORDINATE.
@@ -2608,6 +3242,14 @@ def read_marked_songs(path, language=""):
     `quality/test_grid.py` pins the rule on a fixture.
     """
     import lyric_harness as LH
+    # THE COORDINATE WAS ON THE PATH AND WAS DROPPED AT THE ONE CALL THAT
+    # NEEDED IT. This function has taken `language=` since it was written and
+    # stored it on `MarkedSong`; `ingest_mark` — the reader that decides what
+    # a mark MEANS — was handed nothing, and `audit_corpus` calls this with no
+    # language at all. Derived from the filename when not declared, which is
+    # the same three characters the phonology has dispatched on since
+    # doctrine 45.
+    language = language or language_of_path(path)
     songs, cur = [], None
     with open(path, encoding="utf-8", errors="replace") as f:
         for n, raw in enumerate(f, 1):
@@ -2625,14 +3267,305 @@ def read_marked_songs(path, language=""):
             s = line.strip()
             m = _MARK_RE.match(s)
             if m:
-                base, idx, fn, ref = ingest_mark(m.group(1))
+                base, idx, fn, ref = ingest_mark(m.group(1), language)
                 cur.blocks.append(Block(mark=m.group(1), base=base, index=idx,
                                         function=fn, refusal=ref,
                                         source_line=n))
                 cur.blocks[-1].annotation = s[m.end():].strip()
             elif s and cur.blocks and not LH.is_apparatus_line(s):
                 cur.blocks[-1].lines.append(s)
+                cur.blocks[-1].indents.append(LH.line_indent(line))
     return songs
+
+
+def indent_partition(block):
+    """-> tuple[int, ...] — each line's group id under the PRINTED indent.
+
+    Group ids are assigned in order of first appearance, so the partition is
+    a shape and not a set of column counts: a stanza printed flush/indented/
+    flush/indented reads `(0, 1, 0, 1)` whether the indent is 2 spaces or 8.
+    That is what makes two files comparable, and it is the same normalisation
+    a letter scheme already applies to rhyme.
+
+    Returns `()` when the block carries no recorded indents (a `Block` from a
+    blueprint) — EMPTY, never all-zeros, because "the printing said nothing"
+    and "the printing set every line flush" are different facts and only one
+    of them is a measurement (doctrine 20).
+    """
+    if not block.indents or len(block.indents) != len(block.lines):
+        return ()
+    seen, out = {}, []
+    for d in block.indents:
+        if d not in seen:
+            seen[d] = len(seen)
+        out.append(seen[d])
+    return tuple(out)
+
+
+# ---------------------------------------------------------------------------
+# THE SECTION COORDINATE, SUPPLIED  (`MISSING.md` M-39)
+# ---------------------------------------------------------------------------
+#
+# WHAT WAS INERT.  `relations.build_stream` has taken a `sections=` argument
+# since it was written; `relations.Unit.section` is populated from it; two
+# `Placement` kinds -- `different_sections` and `same_section` -- read it.
+# MEASURED 2026-08-22: **zero callers anywhere pass `sections=`**, so every
+# `Unit.section` is `""`, so one of those predicates is always True and the
+# other always False -- and **zero of the 77 schemas declare either kind**.
+# Four layers of declared-and-unreached, which is `SpanRule.terminator`
+# (defect P2) and M-15's shape a third time.
+#
+# WHY THE PARSER LIVES HERE AND NOT THERE.  `relations.py` serves nine
+# languages and ships no vocabulary -- it declined to ship a rime rule for
+# the same reason (doctrine 45/65). The section MARK vocabulary is this
+# module's: `MARK_FUNCTION`, `MARK_REFUSED` and `ingest_mark` already read it,
+# already know that `VERSE 1` is a verse, and already REFUSE `BAYT` and
+# `RADIF` for English because those marks belong to other traditions. So the
+# coordinate is derived HERE, from the declared table, and handed across --
+# `relations` stays the engine and this stays the vocabulary.
+
+#: The corpus's printed section mark. MEASURED over `corpus/song/*.txt`:
+#: `[VERSE n]` 74,318 · `[BAYT n]` 70,866 · `[RADIF]` 54,193 · `[BURDEN]`
+#: 1,753 · `[REFRAIN]` 709 · `[CHORUS]` 267 · `[SLOKA]` 144 and a tail of
+#: nine more. The bracket is the convention; what is INSIDE it is adjudicated
+#: by `ingest_mark`, never by this pattern.
+SECTION_MARK = re.compile(r"^\s*\[([^\]]+)\]\s*$")
+
+SECTION_MARKER_STATUS = "section_marker"
+
+
+def sections_from_marks(text_lines, language=""):
+    """-> (sections, line_status), both one entry per line, for `build_stream`.
+
+    `sections` is a per-line SECTION IDENTITY and `line_status` marks the
+    marker lines themselves so a caller can pass
+    `exclude_status=(SECTION_MARKER_STATUS,)` and keep them out of the token
+    stream. That matters on its own: `build_stream` tokenises whatever it is
+    given, so an unfiltered `[CHORUS]` becomes the WORD `CHORUS` and can
+    stand in a `repetition` with the next one. Every caller that matters
+    filters first today, which makes this latent rather than live -- but the
+    filtering lives in each caller instead of in the coordinate, and that is
+    the arrangement that eventually gets one caller wrong.
+
+    THE IDENTITY IS PER OCCURRENCE, and that is a choice worth stating: a
+    second `[CHORUS]` is a DIFFERENT section here (`CHORUS#3`), not the same
+    one returning. `different_sections` and `same_section` are placement
+    predicates about whether a pair crosses a printed block boundary, and the
+    per-occurrence reading is the one that answers that. The OTHER reading --
+    that both choruses are one thing recurring -- is a question about
+    FUNCTION, it is what `MARK_FUNCTION` and the returns machinery already
+    answer, and it is deliberately NOT supplied through this field
+    (doctrine 1: one coordinate, one question).
+
+    A mark this module REFUSES for the declared language keeps its base in the
+    identity and is reported by `section_census`; it is not silently dropped
+    and not silently accepted (doctrine 79). Lines before the first mark get
+    `""` -- undeclared, which is honest and is exactly what the field's
+    historical default already meant.
+    """
+    sections, status = [], []
+    cur, k = "", 0
+    for raw in text_lines:
+        m = SECTION_MARK.match(raw or "")
+        if m:
+            base, _n, _fn, _ref = ingest_mark(m.group(1).strip(), language)
+            cur = "%s#%d" % (base, k)
+            k += 1
+            status.append(SECTION_MARKER_STATUS)
+        else:
+            status.append("")
+        sections.append(cur)
+    return sections, status
+
+
+#: base mark -> does this mark OPEN A NEW METRICAL GROUP?
+#:
+#: A THIRD QUESTION ABOUT THE SAME TOKEN, and it is a separate table because
+#: it is a separate question.  `MARK_FUNCTION` asks whether a mark names a
+#: SONG-FORM function; `MARK_REFUSED` says why a mark does not.  Neither
+#: answers what `relations.build_stream(stanzas=...)` needs to know, and
+#: reading either one as if it did is doctrine 43 in the direction this
+#: module usually catches it going the other way: `BAYT`, `SLOKA` and
+#: `PANTUN` are all refused as functions, and all three refusals say IN THEIR
+#: OWN WORDS that the mark is a couplet-unit, a metrical stanza-unit and a
+#: quatrain form — which is exactly a metrical group.  A ghazal has no chorus
+#: AND has stanzas.
+#:
+#: EVERY ROW QUOTES A DECISION ALREADY WRITTEN IN THIS FILE.  Nothing here is
+#: a new judgement about a tradition; the reasons in `MARK_FUNCTION` and
+#: `MARK_REFUSED` were written for the other two questions and each already
+#: says whether the mark is A SPAN OF THE TEXT.  Where an existing reason does
+#: NOT say, the mark is ABSENT from this table and the ground is refused
+#: whole (see `stanza_ground`) rather than being built from the marks that
+#: happen to be declared: a stanza vector that is right about four marks and
+#: silent about a fifth is not a partial answer, it is a wrong one.
+MARK_OPENS_GROUP = {
+    # spans of the song — `MARK_FUNCTION`'s five, which are functions
+    # precisely because they are spans.
+    "VERSE": True, "CHORUS": True, "BURDEN": True, "BURDEN-TAIL": True,
+    "REFRAIN": True,
+    # metrical units, each quoting its own `MARK_REFUSED` reason.
+    "BAYT": True,        # "the couplet-unit of a ghazal"
+    "SLOKA": True,       # "a metrical stanza-unit"
+    "PANTUN": True,      # "a whole quatrain FORM"
+    "QUATRAIN": True,    # "a printing/metrical unit"
+    "CYWYDD": True,      # "a Welsh METRE name" — it heads a poem
+    # pìobaireachd movements.  `URLAR`'s refusal says it verbatim: "It IS a
+    # span of the performance, which is why it is a mark at all"; the other
+    # three are refused "for the same reason".
+    "URLAR": True, "SIUBHAL": True, "TAORLUATH": True, "CRUNLUATH": True,
+    "PATTER": True,      # "a music-hall function" — a function is a span
+    # NOT a span, and each says so.
+    "RADIF": False,      # "not a span of the song. It has no bars and no
+    #                      return."
+    "NOTE": False, "SIDENOTE": False, "MUSIC": False, "GOTHIC": False,
+    "VARIANT": False,    # editorial apparatus, all five
+    # `PART` IS DELIBERATELY ABSENT.  Its reason — "a speaker or role
+    # attribution in the Kalevala wedding songs" — settles that it is not a
+    # FUNCTION and says nothing about whether a change of speaker begins a
+    # metrical group.  Deciding that here would be inventing a fact about
+    # Finnish wedding songs to make a vector come out non-empty.
+}
+
+#: A `---` row is the corpus's own SONG boundary (`--- TITLE:`, `--- SOURCE:`
+#: and the rest are written by the loaders in `quality/`), and a new song is a
+#: new group under any reading.
+GROUP_BREAK_PREFIX = "---"
+
+
+def stanza_ground(text_lines, language=""):
+    """-> (stanzas, source, refusals).  THE PRINTED GROUP COORDINATE, for
+    `relations.build_stream(stanzas=...)`.
+
+    `stanzas` is one 0-based group index per input line, or `None` when the
+    text carries no ground at all.  `source` is `"printed_breaks"` or
+    `"none"`.  `refusals` names every mark the span carried that
+    `MARK_OPENS_GROUP` does not declare.
+
+    ONE RULE, APPLIED TO EVERY TRADITION (doctrine 1).  A group ends at a run
+    of blank lines, at a `---` row, or at a `[MARK]` that `MARK_OPENS_GROUP`
+    declares to open one.  There is no per-file branch and no sniffing: the
+    three break kinds are the ones the corpus prints, and which marks are of
+    the third kind is a closed table with a reason per row.
+
+    WHY THIS EXISTS.  `relations.stanzas_from_blank_lines` is the only other
+    ground and it has evidence only where a text prints a blank line.  Both
+    of `relations_null`'s panel readers drop blank lines AND `[MARK]` rows
+    before tokenising, so measured on 2026-08-22 all NINE panel slices
+    reported exactly ONE distinct `Unit.stanza` and the five `frame="stanza"`
+    schemas were quantified over a frame that could not vary — including
+    `monorhyme / leash`, second in that run's admissible set at +227.
+
+    A REFUSED SPAN RETURNS `None` AND NOT A BEST EFFORT.  If any mark in the
+    span is undeclared the whole ground goes, because the alternative is a
+    vector that silently merges two groups and reports a number for it.
+    """
+    stanzas, refusals = [], []
+    g, seen, opened = 0, False, False
+    for raw in text_lines:
+        line = raw or ""
+        t = line.strip()
+        if not t:
+            stanzas.append(g)
+            if seen:
+                g += 1
+                seen = False
+            continue
+        if t.startswith(GROUP_BREAK_PREFIX):
+            if seen:
+                g += 1
+                seen = False
+            opened = True
+            stanzas.append(g)
+            continue
+        m = SECTION_MARK.match(line)
+        if m:
+            base, _n, _fn, _ref = ingest_mark(m.group(1).strip(), language)
+            if base not in MARK_OPENS_GROUP:
+                refusals.append(base)
+                stanzas.append(g)
+                continue
+            if MARK_OPENS_GROUP[base]:
+                if seen:
+                    g += 1
+                    seen = False
+                opened = True
+            stanzas.append(g)
+            continue
+        stanzas.append(g)
+        seen = True
+    if refusals:
+        return None, "none", tuple(sorted(set(refusals)))
+    if not opened and len(set(stanzas)) < 2:
+        # No break of any kind fired.  That is not "one stanza": it is a text
+        # that never told this function where its stanzas are, and the two
+        # must not produce the same vector (doctrine 20).
+        return None, "none", ()
+    return stanzas, "printed_breaks", ()
+
+
+def stanzas_from_sections(sections):
+    """-> a per-line 0-based STANZA index derived from a per-line SECTION
+    vector, for `relations.build_stream(stanzas=...)`.
+
+    THE SECOND GROUND, and it is declared rather than sniffed.  `relations`
+    ships one derivation, `stanzas_from_blank_lines`, and it has evidence only
+    where the text prints a blank line.  Measured on the `relations_null`
+    panel (2026-08-22): both panel readers drop blank lines before tokenising,
+    so all NINE slices reported exactly one distinct `Unit.stanza` and the five
+    `frame="stanza"` schemas were quantified over a frame that could not vary.
+    Three of the nine slices -- `fin`, `cym`, `san` -- print neither a blank
+    line NOR a section mark inside the span read, so for those the honest
+    answer is that no ground exists and `Stream.supply('stanza')` refuses.
+    The other six carry marks the corpus already prints, and this turns them
+    into the coordinate.
+
+    A SECTION IS NOT A STANZA and this does not claim otherwise.  A verse can
+    print three stanzas under one `[VERSE 1]`, and where a text carries both
+    grounds they will disagree; the caller picks, the pick is recorded in
+    `Frames.stanza_source`, and the two are never averaged.  What this rules
+    out is the third state -- no ground at all, silently rendered as one.
+
+    Lines before the first mark carry `""` from `sections_from_marks` and are
+    grouped together as stanza 0, which is a real group (the material a text
+    prints above its first heading) and not a fallback.
+    """
+    out, seen, cur = [], {}, None
+    for sec in sections:
+        if sec not in seen:
+            seen[sec] = len(seen)
+        out.append(seen[sec])
+    return out
+
+
+def section_census(text_lines, language=""):
+    """-> {'marks': n, 'sections': n, 'functions': {...}, 'refused': {...},
+    'lines_before_first_mark': n} -- what a text's section marks ARE.
+
+    The three counts are kept apart (doctrine 79): a mark this language
+    declares, a mark another tradition owns and this one REFUSES, and the
+    lines that sit under no mark at all.
+    """
+    marks = funcs = 0
+    refused, fn = {}, {}
+    before, seen = 0, False
+    for raw in text_lines:
+        m = SECTION_MARK.match(raw or "")
+        if not m:
+            if not seen:
+                before += 1
+            continue
+        seen = True
+        marks += 1
+        base, _n, function, ref = ingest_mark(m.group(1).strip(), language)
+        if ref is not None:
+            refused[base] = refused.get(base, 0) + 1
+        elif function:
+            funcs += 1
+            fn[function] = fn.get(function, 0) + 1
+    return {"marks": marks, "sections": marks, "functions": fn,
+            "declared_functions": funcs, "refused": refused,
+            "lines_before_first_mark": before}
 
 
 __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
@@ -2647,12 +3580,20 @@ __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
            # repetition with variation -- MISSING.md A-2, D-3
            "VARIATION_KINDS", "VariationDeclaration", "Return",
            "compare_returns", "normalise_line", "tokens",
+           "indent_partition",
+           "MARK_ELABORATES", "elaboration_findings",
            "rime_orthographic", "rime_cmudict",
            # the hook -- MISSING.md D-2
            "Hook", "HookOccurrence", "hook_occurrences", "hook_findings",
            # reading the corpus's own marks
-           "MARK_FUNCTION", "MARK_REFUSED", "ingest_mark", "Block",
+           "MARK_FUNCTION", "MARK_REFUSED", "ingest_mark",
+           "language_of_path", "Block",
            "MarkedSong", "read_marked_songs",
            # the named air -- MISSING.md M-11, BACKLOG 3.2
            "AIR_DISTINCT", "AIR_RESTATED", "split_named_air",
-           "named_air_kind", "named_air_census"]
+           "named_air_kind", "named_air_census",
+           # the section coordinate -- MISSING.md M-39
+           "SECTION_MARK", "SECTION_MARKER_STATUS",
+           "sections_from_marks", "section_census",
+           "stanzas_from_sections",
+           "MARK_OPENS_GROUP", "GROUP_BREAK_PREFIX", "stanza_ground"]

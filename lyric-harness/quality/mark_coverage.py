@@ -75,6 +75,15 @@ CODE_BUCKET = {
     "MARK_NOT_A_FUNCTION": "decided",
     "MARK_UNRECOGNISED": "undecided",
     "MARK_IS_A_NUMERAL": "apparatus",
+    # ADDED 2026-08-22 with the language coordinate (`MISSING.md` M-24). It is
+    # UNDECIDED and not DECIDED, which is the whole point of the code: the
+    # mark carries a written decision in ANOTHER tradition and none in this
+    # one, so nobody has answered the question here. Bucketing it `decided`
+    # would let one tradition's ruling be counted as coverage of every other
+    # (doctrine 20). Zero occurrences today — every refused mark in this
+    # corpus is single-language, measured — and the zero is the reason the
+    # row is written rather than waited for.
+    "MARK_REFUSED_ELSEWHERE": "undecided",
 }
 
 
@@ -98,10 +107,20 @@ def scan(root=SONG_DIR):
     recur = collections.defaultdict(lambda: {"songs": 0, "recurring": 0})
     ladder = collections.defaultdict(collections.Counter)
     rhyme_told = collections.Counter()
+    #: THE ELABORATION POINTER, counted in the SAME pass for the reason this
+    #: module already gives: a second sweep would derive the population from a
+    #: second definition of what a block is (doctrine 1).
+    elab = collections.Counter()
+    elab_findings = []
 
     for path in sorted(glob.glob(os.path.join(root, "*.txt"))):
         lang = _lang(path)
         for song in GR.read_marked_songs(path, language=lang):
+            _ef, _ec = GR.elaboration_findings(song)
+            for _k, _v in _ec.items():
+                elab[_k] += _v
+            for _f in _ef:
+                elab_findings.append((path.split("/")[-1], song.title, _f))
             seen = collections.defaultdict(list)
             for b in song.blocks:
                 if not b.base:
@@ -121,7 +140,13 @@ def scan(root=SONG_DIR):
                 rec["bucket"] = bucket
                 rec["function"] = b.function or ""
                 if bucket == "decided":
-                    rec["reason"] = GR.MARK_REFUSED.get(base, "")
+                    # KEYED ON THE PAIR SINCE 2026-08-22. Read through
+                    # the DERIVED index rather than re-deriving the language
+                    # here, so this module cannot disagree with `grid` about
+                    # which tradition a reason belongs to (doctrine 1).
+                    _rows = GR._REFUSED_BY_BASE.get(base, {})
+                    rec["reason"] = _rows.get(lang) or (
+                        next(iter(_rows.values())) if _rows else "")
                 buckets[bucket] += 1
                 by_lang_bucket[lang][bucket] += 1
                 seen[base].append(b)
@@ -162,6 +187,8 @@ def scan(root=SONG_DIR):
         "unwitnessed_functions": sorted(
             set(GR.SECTION_FUNCTIONS) - set(witnessed)),
         "rhyme_channel": dict(rhyme_told),
+        "elaboration": dict(elab),
+        "elaboration_findings": [(f, t, x.code) for f, t, x in elab_findings],
     }
 
 
@@ -177,7 +204,34 @@ def scan(root=SONG_DIR):
 #: honest direction and a small one: the refusal is Persian, and no
 #: amount of English anthology moves it.
 PINNED = {
-    "typed": 76944, "decided": 125490, "undecided": 32, "apparatus": 59,
+    #: REPINNED 2026-08-22: typed ~~76,944~~ **76,930**, decided ~~125,490~~
+    #: **125,504**. EXACTLY -14 AND +14, and the sign of each is the finding.
+    #: The 14 pìobaireachd movement headings (`URLAR`/`SIUBHAL`/`CRUNLUATH`,
+    #: three `eng_celtic_msm_*` files) were `[VERSE n]` blocks whose whole
+    #: lyric was the heading -- `MISSING.md` M-25(a) -- so this module counted
+    #: them TYPED, reaching the `verse` function. Staged as marks and declared
+    #: in `grid.MARK_REFUSED`, they are now DECIDED: refused WITH a written
+    #: reason. That is the good direction across this module's own axis, and
+    #: `undecided` is UNMOVED at 32, which is the half that matters --
+    #: nothing new was added to the pile nobody has thought about.
+    #:
+    #: FOUND BY `quality/pin_sweep.py` on its first full run, not by a suite:
+    #: this figure is re-DERIVED from the corpus, and the corpus edit that
+    #: moved it landed in a commit whose gates were all green.
+    #: REPINNED 2026-08-22 (second time today): typed ~~76,930~~ **77,090**,
+    #: +160 and nothing else moved.  The K-4 Old Norse load added 160 songs,
+    #: each carrying one `[VERSE 1]`, and `non` measures 160 typed / 0
+    #: decided / 0 undecided — the whole drift, attributable to one prefix.
+    #: `decided`, `undecided` and `apparatus` are UNMOVED, which is the half
+    #: that matters: the load added nothing to the pile nobody has considered.
+    #:
+    #: FOUND BY AN AUDIT AGENT, NOT BY THE CLOSING SITTING.  This is the THIRD
+    #: gate the Old Norse load left red that no `--check` in the standard set
+    #: catches — after `test_corpus_taxonomy` §6 and `test_grid`'s air census.
+    #: `CORPUS_LOADING_PROTOCOL.md` already requires `suite_sweep.py` in the
+    #: closing sitting for exactly that reason; `mark_coverage --check` is not
+    #: in it and re-derives from the corpus, so it drifts silently on any load.
+    "typed": 77090, "decided": 125504, "undecided": 32, "apparatus": 59,
     "declared_functions": 21, "witnessed": 4,
 }
 
@@ -279,6 +333,31 @@ def report(root=SONG_DIR):
         print(f"\n    {k}: recurs in {v['songs_with_recurrence']:,} of "
               f"{v['songs']:,} songs ({rate:.0%})")
         print(f"      ladder: {top}")
+    e = s["elaboration"]
+    n_elab = sum(e.values())
+    print("\n  THE ELABORATION POINTER (`grid.MARK_ELABORATES`), which is the "
+          "half of")
+    print("  `SECTION_ORDER_PREREGISTRATION.md` that SURVIVED its falsifier — "
+          "`rank` was")
+    print("  REFUSED because two of three staged pìobaireachds are not "
+          "monotone and the")
+    print("  ladder's top two rungs have zero attestation anywhere:")
+    if not n_elab:
+        print("    NO population — no staged mark points at another. That is "
+              "an absence of")
+        print("    population and not a rate of zero (doctrine 20).")
+    else:
+        print("    %s elaborating section(s), THREE COUNTS, NEVER SUMMED"
+              % _fmt(n_elab))
+        for k in ("grounded_before", "grounded_after", "ungrounded"):
+            print("      %-16s %s" % (k, _fmt(e.get(k, 0))))
+        print("    only `ungrounded` is a finding, and it is a NOTE: the "
+              "ORDER of a")
+        print("    variation and its ground is an editor's choice (doctrine "
+              "6), while a")
+        print("    ground that never appears is a factual claim and false.")
+        for f, t, code in s["elaboration_findings"][:5]:
+            print("      %s  %s — %s" % (code, f, t[:40]))
     rc = s["rhyme_channel"]
     print(f"\n    rhyme channel over every comparison: "
           f"cannot_tell {_fmt(rc.get('cannot_tell', 0))}, "

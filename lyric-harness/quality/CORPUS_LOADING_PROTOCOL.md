@@ -128,6 +128,53 @@ songs into a corpus whose checks are green-by-coincidence. The nightly
 lanes still measure the LIVE tree; rewiring them to the manifest
 snapshot is its own future sitting and is NOT licensed by this file.
 
+**AND THE CLOSING SITTING MUST RUN `quality/suite_sweep.py`, NOT ONLY THE
+`--check` LANES.** Added 2026-08-22, after the Old Norse batch (K-4) left
+~~two~~ **three** gates red that the standard set could not see: `test_corpus_taxonomy`
+§6, because the manifest had drifted, and `test_grid`'s named-air census,
+because the staging introduced a language prefix the census pins by name.
+Corpus-SHAPE pins live in suites — per-prefix counts, populations,
+censuses — while `--check` lanes guard corpus-CALIBRATED constants, and a
+load moves both. The two were found separately and by accident, one of them
+only because the mutation sweep happened to run; the sweep is the
+instrument that finds them on purpose.
+
+**THE THIRD ONE IS NOT A SUITE AND `suite_sweep.py` DOES NOT FIND IT EITHER.**
+Later the same day, an audit agent sweeping for an unrelated defect found
+`quality/mark_coverage.py --check` red at head: `typed` pinned 76,930,
+measured 77,090. Attributed exactly — `non` measures **160 typed / 0 decided /
+0 undecided**, one `[VERSE 1]` per song over the 160 songs the batch added, so
+the whole drift is one prefix and the counts that matter (`decided`,
+`undecided`, `apparatus`) did not move. Repinned with the superseded values
+kept visible.
+
+It is a THIRD KIND and it is why this paragraph now says three. `--check`
+lanes guard corpus-CALIBRATED constants and suites guard corpus-SHAPE pins;
+this is a **corpus-DERIVED census with its own `--check` that is in neither
+standard set**. It re-derives from `corpus/song/*.txt` on every run, so it
+drifts on ANY load, silently, and nothing in the closing sitting called it.
+
+**So the closing sitting runs all three:** `suite_sweep.py`, the `--check`
+lanes, AND `mark_coverage.py --check`. The general rule the third case
+teaches: *a checker that re-derives from the corpus belongs in the closing
+sitting whether or not it is a suite*, and the way to find the others is to
+ask which `--check` lanes read `corpus/` rather than a committed table.
+
+**A repin here is not a re-derivation and must not be reported as one.** The
+figure moved because the corpus grew, which is the instrument working; what
+would need saying is `undecided` moving, because that is the pile nobody has
+considered.
+
+**Ask `corpus_manifest.py --check` which adoptions the drift actually
+touches before re-deriving anything.** Its drift report now names, per
+calibrated adoption, which drifted files fall inside that adoption's
+population — asked from each owning module, never re-typed there. A batch
+whose files land outside every population (the Old Norse one did: all four
+populations are `eng_`-scoped) owes **no** re-derivation, and the report
+says so in those words. That verdict is not the same claim as "re-derived
+and nothing moved", and the report REFUSES rather than reporting a clean
+when a population cannot be asked.
+
 ## What the loading sessions must not do
 
 - No licence/provenance verdicts without the owner (see Pass 2).

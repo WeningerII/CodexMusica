@@ -78,12 +78,16 @@ THE FOUR BUCKETS, COUNTED APART AND NEVER SUMMED (doctrine 79):
                   weaker signal than CONTESTED and a real one: something was
                   built near enough to this entry to cite it, and nothing
                   guards the result. ADDED AFTER THE FACT, and D-1 is why —
-                  its own `Now (verified)` clause ("`Section` fields are
-                  exactly `name, bars, meter, start_bar`") is false at head,
-                  `grid.Section` has carried `function` for days, and no TEST
-                  names D-1 so the first draft of this file put it at the head
-                  of the queue. `grid.py` cites it. The blind spot was found
-                  by a human reading the queue and is now half-instrumented.
+                  at the time, its own `Now (verified)` clause was false at
+                  head, `grid.Section` had carried `function` for days, and
+                  no TEST appeared to name it, so the first draft of this
+                  file put it at the head of the queue while `grid.py` cited
+                  it. The blind spot was found by a human reading the queue.
+                  D-1 CLOSED 2026-08-21, and the second half of its story
+                  closed the same day: a test HAD named it all along, in a
+                  multi-key header the citation scanner read one key of
+                  (see `m_win` below). The bucket stays; its founding case
+                  is historical, which is what founding cases become.
 
   UNGUARDED       open, and NOTHING in the tree names it — not a test, not a
                   module. **This is the answer to "what is next."** Nothing
@@ -141,7 +145,10 @@ BACKLOG_CLOSED_RE = re.compile(
 #: single word "The" on 2.4 and into nothing at all on 2.2 and 2.6.
 TITLE_TAIL_RE = re.compile(
     r"\s*(?:—|-)?\s*`(?:[A-Z]-\d+[a-z]?|(?:CLOSED|DONE|MET|BUILT|OPEN|"
-    r"PARTIAL|BLOCKED)\b[^`]*)`\s*$")
+    r"PARTIAL|BLOCKED)\b[^`]*)`"
+    # a date, an aside or a doctrine cite may follow the status (the reader
+    # repair above lists the shapes); the title should not carry them either
+    r"(?:\s*\d{4}-\d{2}-\d{2})?(?:\s*[—(-][^`]*)?\s*$")
 
 
 def clean_title(head):
@@ -222,8 +229,22 @@ def _blocks(path, header_re):
     return out
 
 
-MISSING_HEAD = re.compile(
-    r"^### ([A-Z]-\d+[a-z]?) · (.*?)\s*`(OPEN|PARTIAL|BLOCKED|CLOSED)`\s*$")
+#: THE OPENER AND THE STATUS ARE TWO READS, NOT ONE — repaired 2026-08-21.
+#: The first draft demanded `\`STATUS\`` at END OF LINE, and the register's
+#: real headings put things after it: a date (`\`CLOSED\` 2026-08-11`, eleven
+#: entries), an aside (`\`PARTIAL\` — the container exists, ...`), a doctrine
+#: cite (`\`BLOCKED\` (doctrine 44: cannot obtain)`). Eighteen of 77 entries
+#: silently fell out of the population — among them K-7, L-1 and L-2, all
+#: OPEN, which therefore appeared in NO bucket for the whole first day of
+#: this instrument's life. The reader that raises on an EMPTY population had
+#: quietly lost a quarter of a full one, which is doctrine 20 one grain
+#: finer, and it was found only because a heading edited that day stopped
+#: parsing and its entry went missing from a check. The opener is now the
+#: only gate; the status is searched for INSIDE the heading, and a heading
+#: with no status token at all (L-3, at the time of repair) is read as OPEN —
+#: an entry that has not said it is finished must surface, not vanish.
+MISSING_HEAD = re.compile(r"^### ([A-Z]-\d+[a-z]?) · (.*)$")
+MISSING_STATUS = re.compile(r"`(OPEN|PARTIAL|BLOCKED|CLOSED)[^`]*`")
 BACKLOG_HEAD = re.compile(r"^### (\d+\.\d+) · (.*)$")
 
 
@@ -235,8 +256,11 @@ def read_entries():
     """
     out = []
     for m, ln, body in _blocks(MISSING_MD, MISSING_HEAD):
-        out.append(Entry(m.group(1), "MISSING.md", m.group(2).strip(),
-                         m.group(3), ln, body))
+        head = m.group(2)
+        st = MISSING_STATUS.search(head)
+        out.append(Entry(m.group(1), "MISSING.md",
+                         clean_title(head), st.group(1) if st else "OPEN",
+                         ln, body))
     for m, ln, body in _blocks(BACKLOG_MD, BACKLOG_HEAD):
         head = m.group(2)
         status = "CLOSED" if BACKLOG_CLOSED_RE.search(head) else "OPEN"
@@ -250,7 +274,41 @@ def read_entries():
     return out
 
 
+class NotAGitCheckout(Exception):
+    """`git ls-files` cannot name this module's population.
+
+    NOT an empty population — that is the thing this exception exists to stop
+    being confused with (`MISSING.md` M-30). `_tracked` returned `[]` when git
+    could not answer, so every entry's `tests` and `code` came back empty and
+    `bucket()` reported the whole register UNGUARDED: a wrong answer, at exit
+    0, three lines below a comment in this same file warning that *"an empty
+    population here reads exactly like a clean one (doctrine 20)"*.
+
+    MEASURED 2026-08-22 in a real shadow tree built by `quality/mutate.py`
+    (`shutil.copytree`, no `.git`): `quality/test_triage.py` came back ERROR
+    with an `IndexError`, because §5's own non-empty guard fired correctly and
+    the next line indexed `[0]` anyway. So the ONE suite that grades the
+    register was reported to the mutation baseline as "could not run" rather
+    than as the legible failure it had already written.
+    """
+
+
 def _tracked(*globs):
+    """-> [path, ...] tracked files matching `globs`. REFUSES if it cannot ask.
+
+    The two cases are told apart before the listing: outside a git work tree
+    the question is unanswerable and this raises, while INSIDE one an empty
+    listing is a real finding and is returned as the empty list it is.
+    """
+    probe = subprocess.run(["git", "rev-parse", "--is-inside-work-tree"],
+                           cwd=ROOT, capture_output=True, text=True)
+    if probe.returncode != 0 or probe.stdout.strip() != "true":
+        raise NotAGitCheckout(
+            "%s is not a git work tree, so `git ls-files` cannot name the "
+            "population this module scans. That is INCONCLUSIVE, not an "
+            "empty register (doctrine 20) — every entry would come back with "
+            "no test and no code, and the whole register would read "
+            "UNGUARDED." % ROOT)
     p = subprocess.run(["git", "ls-files", *globs], cwd=ROOT,
                        capture_output=True, text=True)
     return [f for f in p.stdout.split("\n") if f.strip()]
@@ -274,8 +332,17 @@ def scan(entries):
     #: is only as good as its spellings, and the spellings are a property of
     #: the repo rather than of the scanner (doctrine 58).
     b_re = re.compile(r"BACKLOG(?:\s+|\s*§\s*)(\d+\.\d+)")
-    m_re = re.compile(r"MISSING(?:\.md)?[^\n]{0,%d}?\b([A-Z]-\d+[a-z]?)\b"
-                      % MISSING_NEAR)
+    #: EVERY key in the window, not the first. The old pattern was non-greedy
+    #: up to ONE capture, so "`MISSING.md` A-1, A-2, D-1, D-2, D-3" — the
+    #: header of `test_song_function.py`, and a completely ordinary way to
+    #: cite five entries — was read as citing A-1 alone. D-1 sat in UNGUARDED
+    #: for the whole life of this file while a test named it, and this file's
+    #: own docstring cited D-1 as the proof the CITED bucket was needed.
+    #: MEASURED 2026-08-21: the fix moves D-1, D-2 and D-3 into the named
+    #: population; the lookalike guards below are unchanged because the window
+    #: is the same 40 characters (test_triage.py §3 pins both directions).
+    m_win = re.compile(r"MISSING(?:\.md)?`?([^\n]{0,%d})" % MISSING_NEAR)
+    key_re = re.compile(r"\b([A-Z]-\d+[a-z]?)\b")
     for rel in _tracked("*.py", "*.js", "*.mjs"):
         if os.path.basename(rel) in SELF:
             continue
@@ -284,7 +351,8 @@ def scan(entries):
                         errors="replace").read()
         except OSError:
             continue
-        keys = set(b_re.findall(text)) | set(m_re.findall(text))
+        keys = set(b_re.findall(text)) | {
+            k for w in m_win.findall(text) for k in key_re.findall(w)}
         for k in keys:
             e = by_key.get(k)
             if e is None:
@@ -316,7 +384,15 @@ def main(argv=None):
                     help="one entry, and every file that names it")
     a = ap.parse_args(argv)
 
-    entries = scan(read_entries())
+    # THE REFUSAL IS NAMED, NOT TRACEBACKED (`MISSING.md` M-30). Run from a
+    # copied tree this module cannot read its own population, and answering
+    # anyway would report the whole register UNGUARDED at exit 0.
+    try:
+        entries = scan(read_entries())
+    except NotAGitCheckout as exc:
+        print("REFUSED — %s" % exc)
+        print("RESULT: REFUSED (not a pass, not a failure -- doctrine 20)")
+        return 2
     buckets = collections.defaultdict(list)
     for e in entries:
         buckets[bucket(e)].append(e)
@@ -375,9 +451,9 @@ def main(argv=None):
         print("\nCITED — open, a MODULE names it, no test guards it. Worth a "
               "read before")
         print("starting: something was built near enough to cite the entry. "
-              "D-1 is the")
-        print("worked case — `grid.py` cites it and its own verified clause "
-              "is false at head.")
+              "The founding")
+        print("case was D-1 — cited by `grid.py`, stale at head, CLOSED "
+              "2026-08-21.")
         for e in sorted(buckets["CITED"], key=lambda x: x.tier)[:12]:
             print("  %-6s %-9s %-42s %s"
                   % (e.key, e.status, e.title[:42], ", ".join(e.code[:2])))

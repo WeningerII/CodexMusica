@@ -213,7 +213,48 @@ def whitman_battery():
 # its detected links are REPEAT on an identical token, which is why `now`
 # still closes four consecutive lines below. A number printed by a withdrawn
 # control is a number, not a warrant.
-EXPECTED = {"mandated": 1064, "judged": 1014, "refused": 50, "violations": 82}
+# ---------------------------------------------------------------------------
+# REPINNED 2026-08-22, violations 82 -> 35. THE PRICE, STATED.
+# ---------------------------------------------------------------------------
+# WHICH LAYER MOVED: the DOOR, and nothing else. `Declaration.admit` went from
+# ("RHYME", "RIME_RICHE") to all four of `ADMITTABLE_RELATIONS` on the owner's
+# ruling (`MISSING.md` M-59). Ingestion, projection, anchor, comparator and
+# band are untouched, and the three counts that measure them are unchanged:
+# `mandated 1064, judged 1014, refused 50`. A refusal is an ingestion verdict
+# reached before any comparison, so the door cannot touch it.
+#
+# THE MOVEMENT IS ONE-DIRECTIONAL AND WAS MEASURED AS SUCH, because a widened
+# door that ADDED a violation would mean the change did something other than
+# what it says. Re-running the oracle under both declarations and diffing per
+# (sonnet, line_i, line_j):
+#     STOPPED violating  47      NEWLY violating  0
+# and every one of the 47 is a relation the band had already TYPED:
+#     CONSONANCE  38        ASSONANCE  9
+# Not one is NO_RELATION and not one is REPEAT — the door still refuses both,
+# which is why 35 is not zero.
+#
+# 35 IS ALSO, MEASURED AND NOT ARGUED, THE PRE-BAND FIGURE this file has
+# carried since 2026-08-11 (`35/1014 = 3.5% pre-band`). The mechanism is
+# visible in the 47: the conjunctive band's entire contribution to the SONNET
+# VIOLATION COUNT was pairs it demoted from RHYME to a near relation, and the
+# two-name door then converted that demotion into a charge. The band's work
+# survives — every one of those 47 pairs is still TYPED, and `types` still
+# names it — what stops is the charge. That is doctrines 3 and 24 read
+# straight: a rule that would delete a category must RELABEL instead, and a
+# label the mandate layer treats as satisfying nothing is a deletion wearing
+# a name.
+#
+# WHY IT IS WORTH 47 PAIRS. Across the whole battery, 355 of 726 flagged
+# mandated pairs (48.9%) were typed ASSONANCE or CONSONANCE — nearly half of
+# every violation this harness reported against canonical verse was the
+# harness contradicting its own band. love/prove and its class are CONSONANCE
+# in the declared General American dialect; that is correct, it is now named,
+# and it is no longer charged.
+#
+# ~~"The rise is the typed residue"~~ (2026-08-13, when this pin went 81 -> 82
+# and the residue was still being charged) — the residue is now the point, not
+# the price. Superseded text kept visible, doctrine 17.
+EXPECTED = {"mandated": 1064, "judged": 1014, "refused": 50, "violations": 35}
 
 
 def assert_pinned(got, expected=EXPECTED):

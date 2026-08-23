@@ -82,10 +82,85 @@ Ten features. Direction is committed now; a feature that separates with the
 | 7 | `mattr` — moving-average type/token ratio, length-normalized | **HIGHER** |
 | 8 | `function_word_ratio` | **LOWER** |
 | 9 | `syntactic_inversion_rate` — marked inversions per line | **LOWER** |
-| 10 | `content_word_freq_mean` — mean corpus frequency rank of content words | **LOWER** (rarer words) |
+| 10 | `content_word_freq_mean` — mean corpus frequency rank of content words | ~~**LOWER**~~ **HIGHER** (rarer words) — see the amendment below |
 
 No feature outside this list may be reported as a finding. Anything discovered
 later is exploratory and must be labelled as such.
+
+## Amendment 2026-08-22 — feature 10's direction, by owner ruling
+
+**Row 10 said two opposite things.** `freq_rank` is 0-based and ascending by
+commonness (`the` 2, `love` 122, `thistle` 35,537), so **LOWER** is *more
+common* while the parenthetical says *rarer*. `quality/features.py` encoded
+`lower`, following the word; `quality/within_item.py` has always encoded
+`wi_freq_delta: "higher"` for the same quantity, following the gloss. One
+prediction, two readings, and the two modules disagreed with each other for
+the life of the feature set (doctrine 1).
+
+**RULED 2026-08-22: THE GLOSS WAS THE COMMITMENT.** The prediction is RARER
+WORDS in survived/human, and the direction that encodes it is **higher**.
+`~~lower~~` is struck in place rather than deleted (doctrine 17).
+
+**THIS IS AN AMENDMENT TO A COMMITTED DIRECTION AND IT IS DECLARED AS ONE.**
+The document's rule — *"Direction is committed now; a feature that separates
+with the wrong sign counts as a failed prediction, not a success"* — is what
+makes the amendment consequential rather than clerical, so it is recorded
+with what it costs and what it buys:
+
+- **It changes no measurement.** `permutation_test` is direction-free and
+  `joint_classifier` fits logistic regression on raw values, so every AUC and
+  every p-value is byte-identical either side of it. What moves is `dir_ok`,
+  the printed per-feature verdict, and the count of features clearing FDR
+  with the predicted sign.
+- **It converts a recorded failure into a recorded hit.** Feature 10 has
+  printed `WRONG SIGN` on every run this project has made. Measured through
+  the shipped `discriminate.compute` path: human 6,525.3 vs generated 5,121.6
+  mean rank, survived 6,625.0 vs forgotten 6,388.3 — human and survived use
+  RARER content words in both arms, which is the glossed prediction.
+- **The amendment runs IN the amender's favour, and that is the warning.** It
+  makes the harness's headline hit count LARGER and its wrong-sign count
+  smaller, and it was made after the sign was known. A post-hoc direction
+  change of that shape is the one a reader should trust least. What is offered
+  against it is not the ruling's authority but three independent facts that
+  were not arranged for the purpose: `within_item.py` encoded the gloss's
+  direction before any of this was noticed; the class means run that way in
+  both arms; and `RESULTS.md`'s own findings prose made the identical
+  rank-as-frequency error, which is what a systematic confusion looks like as
+  opposed to a convenient reading. Corroboration found afterwards is still not
+  preregistration. Doctrine 19 — this row is weaker than the nine that were
+  never amended, and should be read that way.
+- **It does not touch the other four `WRONG SIGN` verdicts** in Experiment 2
+  (`concreteness_mean`, `concreteness_p90`, `abstract_noun_ratio`,
+  `syntactic_inversion_rate`). Their cells carry no contradicting gloss, so
+  their signs are failed predictions and stay recorded as such.
+- **AND IT COSTS THE STUDY ONE OF ITS DEMONSTRATIONS.** `RESULTS.md` §2 argued
+  the monoculture trap on FIVE features inverting between designs. Feature 10
+  does not invert under the amended direction — a HIT in Experiment 2 and a
+  *null* in Experiment 1 is "holds in one design, undetectable in the other",
+  the weakest of the three patterns — so that section now rests on **four**.
+  An amendment that shrinks the evidence for a claim the amender is making is
+  the half a doctrine-19 warning usually omits, and it is the half that has to
+  be visible for the warning to mean anything.
+
+**MEASURED OUTCOME, re-run cold 2026-08-22 after the flip.** Every AUC is
+identical to the pre-flip re-run, which is the control on the claim that the
+amendment moves no measurement:
+
+| | before | after |
+|---|---|---|
+| Exp 2, feature 10 | `0.707 0.0001 lower WRONG SIGN` | `0.707 0.0001 higher HIT (FDR)` |
+| Exp 2, hits at q=0.10 | 4/10 | **5/10** |
+| Exp 2, wrong-sign | 5 | **4** |
+| Exp 1, feature 10 | `0.523 0.7788 lower null` | `0.523 0.7788 higher null` — only `dir` moves |
+| Exp 1, hits at q=0.10 | 2/10 | 2/10 |
+| joint held-out, Exp 1 / Exp 2 | 0.723 / 0.960 | 0.723 / 0.960 |
+| within-item, all eight | unchanged | unchanged |
+
+**Experiment 1 is NOT rescued by the amendment.** Feature 10 there is 0.523,
+|AUC − 0.5| = 0.023 — an order of magnitude inside the band this document's
+analysis plan declared undetectable in advance at n = 15 vs 117. It moves from
+`WRONG SIGN` to *null*, not to a hit, and a null that size is not evidence
+about the feature in either direction (doctrine 20).
 
 ## Analysis plan
 

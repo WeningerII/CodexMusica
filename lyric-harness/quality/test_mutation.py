@@ -296,6 +296,179 @@ def test_M1_is_declared_verbatim():
           m.file == "lyric_harness.py")
 
 
+def test_the_three_way_outcome():
+    """3b. SURVIVED IS EARNED, NOT DEFAULTED (added 2026-08-22).
+
+    `survived` was `not caught and not refused`, and `refused` can only hold a
+    suite that RAN and then timed out. A suite the BASELINE dropped never runs,
+    so it could never enter `refused` — and a mutation whose declared catcher
+    was dropped came back SURVIVED, which this file's own report prints under
+    the heading *"each one is a hole in the suite"*. A hole manufactured by a
+    time bound.
+
+    IT IS LIVE, NOT HYPOTHETICAL: `quality/test_capacity.py` runs in 430s
+    against `mutate.py`'s 420s default and IS dropped from every baseline on
+    this machine. What kept it harmless is that 0 of the 58 mutations lose
+    their WHOLE declared subset to that bound — escalation to the full green
+    suite covers the other 7 — so nothing is misreported today, and the reason
+    is escalation rather than luck. A staging that slows one more suite makes
+    the population non-empty with nothing connecting the two facts.
+
+    THE DECISION IS A PURE FUNCTION NOW so this section costs microseconds.
+    It lived inside `run_mutation`, which forks the whole suite once per
+    mutation — the only way to exercise the rule was an hour-long sweep, and a
+    rule that expensive to test is one that gets reasoned about instead
+    (doctrine 48, inside the module written to find exactly that).
+    """
+    print("\n3b. the three-way outcome — SURVIVED is earned, not defaulted")
+    O = mutate.outcome
+    check("caught: neither survived nor indeterminate",
+          O({"t": "red"}, {}, []) == (False, False))
+    check("nothing caught it and every declared catcher ANSWERED -> SURVIVED, "
+          "which is the only shape that earns the word 'hole'",
+          O({}, {}, []) == (True, False))
+    check("a catcher that ran and timed out -> INDETERMINATE",
+          O({}, {"q": "TIMEOUT"}, []) == (False, True))
+    check("a catcher the BASELINE DROPPED -> INDETERMINATE, not a hole — the "
+          "clause that was missing",
+          O({}, {}, ["quality/test_capacity.py"]) == (False, True))
+    check("both at once is still one verdict, not two",
+          O({}, {"q": "TIMEOUT"}, ["quality/test_capacity.py"])
+          == (False, True))
+    check("a catch OUTRANKS both — a mutation that was detected is detected "
+          "however noisy the run was",
+          O({"t": "red"}, {"q": "TIMEOUT"}, ["quality/x.py"]) == (False, False))
+    # AND THE EXCLUSIVITY, over every combination rather than the six above:
+    # nothing may be both, and exactly one of the three must hold.
+    bad = []
+    for c in ({}, {"t": "red"}):
+        for r in ({}, {"q": "TIMEOUT"}):
+            for m in ([], ["quality/test_capacity.py"]):
+                sv, ind = O(c, r, m)
+                if sv and ind:
+                    bad.append((bool(c), bool(r), bool(m)))
+                if not (bool(c) or sv or ind):
+                    bad.append(("none-of-three", bool(r), bool(m)))
+    check("over all 8 combinations exactly one of caught/survived/"
+          "indeterminate holds", not bad, str(bad))
+
+    # THE POPULATION, MEASURED — so the section reports the risk's size
+    # rather than only its shape (doctrine 20: a guard over an empty
+    # population must say the population is empty).
+    slow = "quality/test_capacity.py"
+    touch = [m for m in mutate.MUTATIONS if m.subset and slow in m.subset]
+    whole = [m for m in mutate.MUTATIONS
+             if m.subset and set(m.subset) <= {slow}]
+    print(f"          {len(touch)} mutation(s) declare {slow} in a subset; "
+          f"{len(whole)} would lose their WHOLE subset to it")
+    check("no mutation currently loses its whole declared subset to the "
+          "slowest suite — recorded, because it is what makes the missing "
+          "clause harmless TODAY rather than always",
+          not whole, str([m.name for m in whole]))
+
+
+def test_the_reported_cause_is_the_suites_own():
+    """3c. A FAILING SUITE'S CAUSE IS ITS OWN VERDICT, NOT STRAY STDERR.
+
+    `run_test` reported `stderr or stdout` as the tail, so ANY line a suite's
+    subprocesses wrote to stderr became the stated reason it was red.
+    MEASURED 2026-08-22 on this repo's own baseline: `verify_entries.py`'s
+    best-effort `git rev-parse` probe did not redirect stderr, so outside a
+    checkout every run of it printed `fatal: not a git repository` while
+    exiting perfectly normally — and that line was reported as WHY
+    `quality/test_verify_entries.py` had failed, sending a reader after a git
+    problem that was not the failure. Both ends are fixed: the probe captures
+    its stderr, and the tail prefers the suite's own `N FAILING:` roll-up.
+    """
+    print("\n3c. a failing suite's reported cause is its own verdict")
+    import shutil
+    import tempfile
+    d = tempfile.mkdtemp()
+    try:
+        os.makedirs(os.path.join(d, "quality"))
+        probe = os.path.join(d, "quality", "test_zz_cause.py")
+        with open(probe, "w", encoding="utf-8") as fh:
+            fh.write("import sys\n"
+                     "sys.stderr.write('fatal: a red herring\\n')\n"
+                     "print('  FAIL  the real reason')\n"
+                     "print('1 FAILING: the real reason')\n"
+                     "sys.exit(1)\n")
+        st, _dt, tail = mutate.run_test(d, "quality/test_zz_cause.py",
+                                        timeout=60)
+        check("a red suite is FAIL", st == "FAIL", st)
+        check("its reported cause is its OWN roll-up, not the stray stderr",
+              "the real reason" in tail and "red herring" not in tail, tail)
+
+        # THE CONTROL: a suite that CRASHES prints no roll-up, and there
+        # stderr IS the evidence — the fix must not blind the ERROR path.
+        crash = os.path.join(d, "quality", "test_zz_crash.py")
+        with open(crash, "w", encoding="utf-8") as fh:
+            fh.write("import quality_module_that_is_not_there\n")
+        st2, _d2, tail2 = mutate.run_test(d, "quality/test_zz_crash.py",
+                                          timeout=60)
+        check("a crash is still ERROR and still reports its traceback",
+              st2 == "ERROR" and "ModuleNotFoundError" in tail2, tail2[:70])
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
+def test_the_bounds_are_declared_and_reachable():
+    """3d. THE BOUND IS A PER-SUITE TABLE, AND IT MAY ONLY RAISE.
+
+    One global 420s excluded the four most expensive suites in the repository
+    and the summary called all four already-red (`MISSING.md` M-30). Raised
+    2026-08-22 on measurement rather than by feel: `suite_sweep.py` timed the
+    whole tree, the four outliers got bounds at ~2x their serial runtime, and
+    the global default moved 420 -> 600 into the real gap between
+    `test_revise.py` (309s) and `test_loop.py` (428s).
+
+    A TABLE AND NOT ONE BIG NUMBER: raising the global ceiling to cover
+    `test_verbs` would give a genuinely hung two-second suite half an hour to
+    hang in, which is the one thing a bound exists to prevent.
+    """
+    print("\n3d. the bounds are declared per suite, and only ever raise")
+    check("every SUITE_TIMEOUT key names a file that exists — a bound on a "
+          "renamed suite is a declared coordinate pointing at nothing",
+          all(os.path.exists(os.path.join(HERE, "..", k))
+              for k in mutate.SUITE_TIMEOUT),
+          str([k for k in mutate.SUITE_TIMEOUT
+               if not os.path.exists(os.path.join(HERE, "..", k))]))
+    check("every entry RAISES above the default, or it is doing nothing",
+          all(v > mutate.DEFAULT_TIMEOUT
+              for v in mutate.SUITE_TIMEOUT.values()),
+          str({k: v for k, v in mutate.SUITE_TIMEOUT.items()
+               if v <= mutate.DEFAULT_TIMEOUT}))
+    # THE SEMANTICS, which are the part a caller has to be able to predict:
+    # `--timeout N` means AT LEAST N FOR EVERYTHING, and a table nobody read
+    # can never quietly lower it.
+    slow = os.path.join("quality", "test_verbs.py")
+    fast = os.path.join("quality", "test_band.py")
+    check("a listed suite gets its own, larger bound",
+          mutate.bound_for(slow) == mutate.SUITE_TIMEOUT[slow])
+    check("an unlisted suite gets the default",
+          mutate.bound_for(fast) == mutate.DEFAULT_TIMEOUT)
+    check("`--timeout` raises the floor for an unlisted suite",
+          mutate.bound_for(fast, 900) == 900)
+    check("...and NEVER lowers a listed one below its declared bound",
+          mutate.bound_for(slow, 100) == mutate.SUITE_TIMEOUT[slow],
+          "%ds" % mutate.bound_for(slow, 100))
+    check("a `--timeout` above every entry raises those too",
+          mutate.bound_for(slow, 9000) == 9000)
+
+    # AND THE TABLE MUST GO STALE LOUDLY. `suite_sweep` measures the tree; if
+    # a suite outgrows its ceiling the mutation sweep silently drops it again,
+    # which is the whole of M-30. This does not RE-TIME the tree — that costs
+    # an hour — it pins that the four suites measured over the default are
+    # exactly the four that carry an entry, so a fifth outgrowing it is a
+    # visible edit here rather than a silent exclusion there.
+    MEASURED_OVER_DEFAULT = {"test_verbs", "test_discriminate",
+                             "test_capacity", "test_loop"}
+    listed = {os.path.basename(k)[:-3] for k in mutate.SUITE_TIMEOUT}
+    check("the listed suites are exactly the ones measured above the default "
+          "on 2026-08-22 — a fifth is an edit here, not a silent drop there",
+          listed == MEASURED_OVER_DEFAULT, str(listed ^ MEASURED_OVER_DEFAULT))
+
+
 # ---------------------------------------------------------------------------
 # The run
 # ---------------------------------------------------------------------------
@@ -583,6 +756,9 @@ if __name__ == "__main__":
     test_the_mutation_list_is_well_formed()
     test_every_mutation_still_applies()
     test_M1_is_declared_verbatim()
+    test_the_three_way_outcome()
+    test_the_reported_cause_is_the_suites_own()
+    test_the_bounds_are_declared_and_reachable()
     if a.static:
         # THE TRIPWIRE WAS WELDED TO THE SWEEP, WHICH IS WHY NOBODY RAN IT.
         # Sections 1-3 read the mutation list and seven source files and cost

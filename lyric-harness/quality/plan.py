@@ -108,6 +108,68 @@ BLOCKED_FORMS = {
                "not a workaround."),
 }
 
+#: WHAT A NAMED FORM REQUIRES — and the half of it this repo REFUSES to
+#: enforce, which is the more important half (2026-08-23).
+#:
+#: THE DEFECT THIS CLOSES. `make_plan(seed, form=...)` validated `form`
+#: against `PLAN_FORMS` and then never passed it to `_sample_pattern`, so
+#: every plan printed `form=verse-chorus` and the form constrained NOTHING.
+#: Measured over six seeds before the fix: seeds 42, 777 and 2024 produced no
+#: verse at all, seed 1 produced none either, seed 100 put the only verse
+#: last, and exactly one of the six had a verse before a chorus. A coordinate
+#: printed on every run and read by no one is this repo's oldest defect and
+#: it was sitting in the one verb between a writer and a shape.
+#:
+#: WHY IT COULD NOT LIVE IN `grid.SECTION_FUNCTIONS`. That table's own
+#: comment on `verse` says it: "the layer only ever denies". Per-function
+#: rows state what a section may not do — `requires`, `adjacent_after`,
+#: `boundary` — and "a verse-chorus song CONTAINS a verse" is a positive
+#: claim about the WHOLE, which no denial about a part can express. So this
+#: is a new layer, not a row somebody forgot.
+#:
+#: MEASURED ON `corpus/song/` BEFORE BEING WRITTEN, because the alternative
+#: was inventing it, and inventing a rule about a tradition is the exact
+#: mistake this repo made about Welsh vowel length on 2026-08-22 and undid a
+#: day later. Over the 1,421 staged files, 178 song items carry a [CHORUS]
+#: marker:
+#:
+#:   MEMBERSHIP   178 of 178 items with a chorus ALSO carry a verse. Nothing
+#:                in the corpus is a chorus-without-verse. That is why
+#:                `FORM_REQUIRES` is categorical and enforced below.
+#:   ORDER        137 of 178 = 77.0% put a verse BEFORE the first chorus.
+#:                41 items open on the chorus. So "a verse precedes its
+#:                chorus" is a TENDENCY, not a rule, and it is NOT enforced —
+#:                see `FORM_TENDENCIES`.
+#:
+#: CAVEAT ON THE SOURCE, stated because 77% is a number and numbers travel
+#: further than their provenance. This corpus is pre-1931 by the provenance
+#: gate (doctrine 85) and is anthology verse, not 20th-century popular song:
+#: 74,319 [VERSE] markers against 269 [CHORUS]. It is the best evidence this
+#: repo HAS about the form and it is not evidence about modern pop. A caller
+#: with a sourced modern set should re-measure; what would lift it is the
+#: same corpus that lifts `eng-verse` in `quality/frequency.py`.
+FORM_REQUIRES = {
+    "verse-chorus": ("chorus", "verse"),
+}
+
+#: MEASURED, DECLARED, AND DELIBERATELY NOT ENFORCED (doctrine 16/22: an
+#: uncalibrated cut is a rate before it is a rule). Each row is a rate over
+#: `corpus/song/`, and each is here so that the NEXT person to reach for it
+#: finds the measurement instead of an intuition.
+#:
+#: Enforcing the 77% would make the planner refuse a shape 23% of this
+#: repo's own chorus-bearing corpus takes, and the sampler is uniform over
+#: the admissible set by design — rate-matching is a different instrument
+#: with its own argument to make, not a tweak to this one.
+FORM_TENDENCIES = {
+    "verse-chorus": (
+        ("a verse precedes the first chorus", 137, 178,
+         "41 of the 178 open on the chorus. NOT enforced: a planner that "
+         "refused those would be refusing a quarter of the corpus it was "
+         "measured on."),
+    ),
+}
+
 #: The one declared multiplier in this module. The slots ceiling is the
 #: density band's ceiling times this: at 4x, a line at the band's own
 #: maximum fills a quarter of its grid, which is where a grid stops
@@ -344,15 +406,43 @@ def _abs_groups(code, first_line):
 #:   "returns verbatim"  -> instance 2+ is a return class of instance 1
 #:   "returns new words" / "varied" / "open" -> fresh groups per instance,
 #:                          same line count and scheme (the same tune)
-#: Functions NOT in the roster are hand-declarable today and wait for a
+#: ~~"Functions NOT in the roster are hand-declarable today and wait for a
 #: stated reason: refrain/burden are line-level per their own glosses (not
-#: standalone sections); reprise needs a cross-reference the plan schema
-#: does not carry yet; turnaround overlaps a seam; postchorus and
-#: false_ending need ordering machinery beyond the cell grammar; hook is
-#: covered by the hook SLOT below (a hook is properly a fragment).
-GENERATOR_ROSTER = ("intro", "verse", "prechorus", "chorus", "bridge",
-                    "breakdown", "build", "drop", "vamp", "tag",
-                    "interlude", "solo", "outro", "coda")
+#: standalone sections); reprise needs a cross-reference the plan schema does
+#: not carry yet; turnaround overlaps a seam; postchorus and false_ending need
+#: ordering machinery beyond the cell grammar; hook is covered by the hook
+#: SLOT below (a hook is properly a fragment)."~~
+#:
+#: DERIVED, NOT LISTED — 2026-08-22, owner ruling "all 21 working". The
+#: paragraph above was doing two different jobs and only one of them was
+#: sound. The sound half is a KIND distinction and it is now a FIELD
+#: (`FunctionSpec.kind`, `MISSING.md` M-56): `refrain` and `burden` are
+#: line-level by their own glosses, so a cell grammar that draws SPANS can
+#: never draw one, and that is not a gap. The unsound half was four functions
+#: excluded for "ordering machinery beyond the cell grammar" — `postchorus`,
+#: `false_ending`, `reprise`, `turnaround` — when the ordering machinery had
+#: ALREADY BEEN BUILT: `grid.placement_findings` enforces `requires`,
+#: `adjacent_after`, `adjacent_before`, `needs_before` and `needs_after`, and
+#: `_sample_pattern` already rejection-samples on it. Every one of those four
+#: declares exactly such a constraint and it was being enforced by a
+#: hand-written omission instead. `hook` was excluded as "properly a
+#: fragment", which its own gloss contradicts in as many words: "this entry
+#: covers the post-chorus-hook case where a WHOLE SECTION carries it" — the
+#: fragment is the separate `Hook` object.
+#:
+#: So the roster is READ OFF THE VOCABULARY and cannot drift from it.
+def _derive_roster():
+    """-> the section-kind function names. LAZY IMPORT, like every other
+    `grid` reach in this file: `quality/test_plan.py` §4's move-37 guard
+    reads this module's AST and allows `grid` only for a named symbol set,
+    and a module-level `import grid` would also make `import plan` pay for
+    `grid`'s three file opens."""
+    from quality import grid as _GR
+    return tuple(n for n, sp in sorted(_GR.SECTION_FUNCTIONS.items())
+                 if sp.kind == "section")
+
+
+GENERATOR_ROSTER = _derive_roster()
 
 #: Instrumental spans: bars with no lines. `fit.py` reports their bars as
 #: uncovered — a note, a rest is not a defect.
@@ -365,41 +455,210 @@ VERBATIM_RETURNERS = frozenset({"chorus", "tag"})
 #: The cell grammar: a body is 2..6 cells; each cell is a short run the
 #: vocabulary's own adjacencies license (a prechorus is BEFORE a chorus by
 #: definition; a build points AT a drop).
-_CELLS = (
-    ("verse",), ("verse", "chorus"), ("prechorus", "chorus"),
-    ("verse", "prechorus", "chorus"), ("chorus",), ("bridge",),
-    ("breakdown",), ("build", "drop"), ("vamp",), ("tag",),
-    ("interlude",), ("solo",),
-)
+#:
+#: DERIVED FROM `SECTION_FUNCTIONS` SINCE 2026-08-22, and the comment above
+#: is why it had to be: it claimed these runs were "the vocabulary's own
+#: adjacencies", and until the placement layer shipped there was no way to
+#: check that claim — so the literal below drifted from the vocabulary it
+#: named. MEASURED before the change: `grid` declared 21 functions and this
+#: tuple reached 11 of them, with eight of the ten missing carrying placement
+#: constraints that were declared, validated at import, covered by
+#: `quality/test_placement.py` — and consulted by nothing, because the
+#: planner drew from the literal instead. That is `MISSING.md` M-59's shape
+#: one layer up: a declared coordinate read by nothing.
+#:
+#: THE DERIVATION, and it is deliberately the SMALLEST one that is honest:
+#:   * every section-kind function gets a singleton cell `(f,)`;
+#:   * a function declaring `adjacent_before=X` also gets `(f, X)`, and one
+#:     declaring `adjacent_after=X` also gets `(X, f)` — that is what those
+#:     fields MEAN, and it is where `("prechorus", "chorus")` and
+#:     `("build", "drop")` come from rather than from a hand-typed row;
+#:   * `("verse", "prechorus", "chorus")` is the one chain, composed by
+#:     following `adjacent_before` twice.
+#: Nothing else is invented. A cell that violates a `requires` or a boundary
+#: is NOT filtered here: `_sample_pattern` already rejection-samples on
+#: `grid.placement_findings`, and pruning twice in two places is how the two
+#: come to disagree (doctrine 1).
 
 
-def _sample_pattern(rng):
+def _derive_cells():
+    """-> the cell grammar, from the vocabulary's own adjacency fields."""
+    from quality import grid as _GR
+    fns = {n: sp for n, sp in _GR.SECTION_FUNCTIONS.items()
+           if sp.kind == "section"}
+    cells = {(n,) for n in fns}
+    for n, sp in fns.items():
+        b = getattr(sp, "adjacent_before", "")
+        a = getattr(sp, "adjacent_after", "")
+        if b and b in fns:
+            cells.add((n, b))
+        if a and a in fns:
+            cells.add((a, n))
+    # THE ONE CHAIN, composed rather than typed: a function whose
+    # `adjacent_before` is itself a function with an `adjacent_before`.
+    for n, sp in fns.items():
+        b = getattr(sp, "adjacent_before", "")
+        if not b or b not in fns:
+            continue
+        for m, sp2 in fns.items():
+            if getattr(sp2, "adjacent_after", "") == n and m in fns:
+                cells.add((m, n, b))
+    return tuple(sorted(cells))
+
+
+_CELLS = _derive_cells()
+
+
+#: THE EDGES, DERIVED (2026-08-22, `MISSING.md` M-54). These were the literals
+#: `"intro"` and `("outro", "coda")` written into `_sample_pattern`'s control
+#: flow, which made "an outro is last" true of the output and stated in no
+#: coordinate — so no grader could check it and no table row could extend the
+#: roster. They are read off `grid.FunctionSpec.boundary` now, and the same
+#: table is what `grid.placement_findings` grades a draft against, so the
+#: planner and the grader cannot disagree (doctrine 1).
+def _edges():
+    from quality import grid as _GR
+    first = tuple(sorted(n for n, sp in _GR.SECTION_FUNCTIONS.items()
+                         if sp.boundary == "first" and n in GENERATOR_ROSTER))
+    last = tuple(sorted(n for n, sp in _GR.SECTION_FUNCTIONS.items()
+                        if sp.boundary == "last" and n in GENERATOR_ROSTER))
+    return first, last
+
+
+#: How many times a body may be redrawn before the planner gives up. Rejection
+#: sampling from a UNIFORM proposal is uniform over the ACCEPTED set — which is
+#: the property the design asked for ("uniform over SOLUTIONS") and the reason
+#: this is not a greedy left-to-right collapse: collapsing slot by slot would
+#: re-introduce exactly the enumeration bias v2's own smoke run found. A bound
+#: is still required, because a constraint set can be unsatisfiable and a
+#: sampler that hangs is worse than one that refuses (doctrine 20).
+PATTERN_ATTEMPTS = 200
+
+
+def _sample_pattern(rng, roster=None, form=None):
     """-> ordered tuple of function names. Once-functions once, edges at
-    the edges, everything else free."""
-    funcs = []
-    if rng.random() < 0.5:
-        funcs.append("intro")
-    n_cells = rng.randint(*ENVELOPE["body_cells"])
-    bridge_used = False
-    for _ in range(n_cells):
-        while True:
-            cell = _CELLS[rng.randrange(len(_CELLS))]
-            if "bridge" in cell and bridge_used:
-                continue
-            break
-        if "bridge" in cell:
-            bridge_used = True
-        funcs.extend(cell)
-    ending = rng.choice((None, "outro", "coda"))
-    if ending:
-        funcs.append(ending)
-    return tuple(funcs)
+    the edges, everything else free.
+
+    `form` is THE NAMED SHAPE, and it is enforced HERE because nothing else
+    could (2026-08-23). It was a parameter of `make_plan` that this function
+    never received, so `form=verse-chorus` printed on every plan and denied
+    nothing. What it now denies is exactly what `FORM_REQUIRES` declares —
+    membership, measured 178 of 178 on `corpus/song/` — and nothing else.
+    The ORDER tendency is measured at 77% and left to `FORM_TENDENCIES`,
+    unenforced, because a planner that refused the other 23% would be
+    refusing a quarter of the corpus the number came from.
+
+    `roster` is THE WRITER'S ALLOW-LIST (`MISSING.md` M-55): when given, no
+    function outside it may appear. It is enforced by REJECTION, the same way
+    the placement constraints are, so the draw stays uniform over the
+    admissible set rather than being steered function by function. A roster
+    the cell grammar cannot satisfy exhausts the attempts and REFUSES, which
+    is the honest answer -- a planner that quietly widened the roster to find
+    a plan would be answering a different request (doctrine 20).
+
+    THE EDGES AND THE ADMISSIBILITY TEST ARE BOTH DERIVED FROM THE VOCABULARY
+    (M-54). What was hardcoded: `funcs.append("intro")` before the cell loop
+    and `rng.choice((None, "outro", "coda"))` after it. Those two `append`
+    calls WERE the rule "an intro is first and an outro is last", enforced by
+    the order of statements and written down nowhere — measured true of 84 of
+    84 plans carrying an outro, and consultable by nothing.
+
+    AND THE BODY ITSELF WAS UNCHECKED. Measured before this changed: **19 of
+    300 plans violated the vocabulary's own definitions**, every one an
+    `interlude` opening or closing the song — a span whose gloss is "between
+    sung sections", with nothing sung on one side of it. `_CELLS` offers
+    `("interlude",)` and `("solo",)` as standalone cells and nothing stopped
+    one landing at an edge.
+    """
+    first_fns, last_fns = _edges()
+    need = set(FORM_REQUIRES.get(form, ()))
+    from quality import grid as _GR
+    # PRUNE THE PROPOSAL, DO NOT STEER THE DRAW. Drawing uniformly from the
+    # cells a roster admits is uniform over the admissible set -- the same
+    # argument rejection sampling rests on, with the rejections done once
+    # here instead of once per attempt. Rejecting cell by cell instead was
+    # measured and it is not a tuning question, it is a correctness one:
+    # `--functions=verse,chorus,outro` admits 3 of the 12 cells, so a
+    # 2-6 cell body survives at ~0.25^n and REFUSED on an ordinary request.
+    cells = _CELLS if roster is None else tuple(
+        c for c in _CELLS if all(f in roster for f in c))
+    if not cells:
+        raise PlanRefused(
+            f"the declared roster {sorted(roster)} admits NONE of the "
+            f"{len(_CELLS)} cells the pattern grammar is built from, so no "
+            f"body can be drawn from it at all. The buildable functions are "
+            f"{sorted(set().union(*_CELLS))} plus the edges "
+            f"{sorted(set(first_fns) | set(last_fns))}.")
+    openers = (None,) + tuple(f for f in first_fns
+                              if roster is None or f in roster)
+    enders = (None,) + tuple(f for f in last_fns
+                             if roster is None or f in roster)
+    for _ in range(PATTERN_ATTEMPTS):
+        funcs = []
+        # An opener, drawn uniformly over the boundary='first' rows plus the
+        # no-opener case, so adding a row to that table widens this draw.
+        opener = rng.choice(openers)
+        if opener:
+            funcs.append(opener)
+        n_cells = rng.randint(*ENVELOPE["body_cells"])
+        bridge_used = False
+        for _ in range(n_cells):
+            while True:
+                cell = cells[rng.randrange(len(cells))]
+                if "bridge" in cell and bridge_used:
+                    continue
+                break
+            if "bridge" in cell:
+                bridge_used = True
+            funcs.extend(cell)
+        # AT MOST ONE CLOSER, and that bound is NOT derived — nothing in
+        # either gloss says a song may not carry a coda AND an outro. It is
+        # the old `rng.choice((None, "outro", "coda"))` preserved as an
+        # EXPLICIT declared choice rather than silently kept in a tuple's
+        # shape, and the ruling on whether to lift it is M-54's open half.
+        ending = rng.choice(enders)
+        if ending:
+            funcs.append(ending)
+        # THE FORM'S OWN MEMBERSHIP, on the same rejection path as the
+        # placement constraints. Pruning the cell grammar instead would be
+        # steering the draw rather than pruning the proposal, which is the
+        # correctness argument the roster block above already makes.
+        if need and not need <= set(funcs):
+            continue
+        if not _GR.placement_findings(list(funcs)):
+            return tuple(funcs)
+    raise PlanRefused(
+        f"no admissible section pattern in {PATTERN_ATTEMPTS} draws"
+        + (f" under the declared roster {sorted(roster)}" if roster else "")
+        + (f" carrying every function `--form={form}` requires "
+           f"({', '.join(sorted(need))})" if need else "")
+        + f". The placement constraints on `grid.SECTION_FUNCTIONS`"
+        + (", the declared roster," if roster else "")
+        + (", the form's membership," if need else "")
+        + f" and the cell grammar `_CELLS` do not intersect — REFUSED rather "
+        f"than returning a pattern the vocabulary's own definitions reject, "
+        f"or quietly widening a roster the writer declared (doctrine 20).")
 
 
 # ---------------------------------------------------------------- plan
 
-def make_plan(seed, form="verse-chorus", lines=None):
-    """A request -> the plan dict. Refuses rather than guessing."""
+def make_plan(seed, form="verse-chorus", lines=None, relation=None,
+              functions=None):
+    """A request -> the plan dict. Refuses rather than guessing.
+
+    `relation` and `functions` are THE WRITER'S DECLARATION (`MISSING.md`
+    M-55) and neither is sampled. The planner does not pick a relation: doing
+    so would put `type:pararhyme` on a group nobody asked for, which is the
+    "move 37" ban pointed at rhyme instead of at shape. What the planner does
+    is CARRY a declaration into the plan artifact, so the one command that
+    grades the draft names the relation the writer chose.
+
+    THREE LAYERS, AND ONLY THE MIDDLE ONE IS HERE (design doc §2):
+    the VOCABULARY says a prechorus requires a chorus and that is
+    definitional; the CONVENTION says verse-chorus-verse-chorus and is never
+    enforced; and this is the DECLARATION — "chorus and postchorus, no
+    prechorus" — which is neither, and had no way to be spelled at all.
+    """
     if seed is None:
         raise PlanRefused(
             "plan requires --seed=N — the pattern, the meter and every "
@@ -422,13 +681,70 @@ def make_plan(seed, form="verse-chorus", lines=None):
             f"VOLUNTEERS, not what the graders accept — declare a "
             f"blueprint and mandate by hand for a shape outside it.")
 
+    # THE DECLARED RELATION, validated HERE rather than at grade time. It is
+    # resolved through the same `rhyme_types.resolve_relation` every mandate
+    # uses, so a typo refuses while the writer is still holding the sentence
+    # they got wrong, and the stored form is the namespaced one that
+    # re-resolves to the same judge (`MISSING.md` M-49).
+    if relation:
+        from quality import schemes as _SC
+        try:
+            relation = _SC.mandate("AA", n_lines=2,
+                                   default_relation=relation).default_relation
+        except _SC.NoMandate as e:
+            raise PlanRefused(f"--relation={relation!r} is not declarable: "
+                              f"{e}")
+
+    # THE DECLARED ROSTER. A song may ask for the functions it wants, and the
+    # request is CHECKED against the vocabulary's own definitional
+    # constraints: asking for a prechorus and no chorus REFUSES, because the
+    # word means before-the-chorus and a roster that cannot contain one is
+    # not a novel structure, it is a contradiction (M-54's `requires`).
+    roster = None
+    if functions:
+        from quality import grid as _GR
+        want = []
+        for f in functions:
+            f = str(f).strip()
+            if not f:
+                continue
+            try:
+                want.append(_GR.as_function(f))
+            except Exception:
+                raise PlanRefused(
+                    f"--functions names {f!r} and there is no such section "
+                    f"function. The vocabulary is "
+                    f"`quality.grid.SECTION_FUNCTIONS` — "
+                    f"{len(_GR.SECTION_FUNCTIONS)} names.")
+        unbuildable = sorted(set(want) - set(GENERATOR_ROSTER))
+        if unbuildable:
+            raise PlanRefused(
+                f"--functions names {unbuildable}, which the vocabulary "
+                f"declares but this planner cannot BUILD. Its roster is "
+                f"{sorted(GENERATOR_ROSTER)} — a declaration the generator "
+                f"cannot honour is refused rather than silently dropped "
+                f"(doctrine 20).")
+        have = set(want)
+        for f in want:
+            sp = _GR.SECTION_FUNCTIONS[f]
+            missing = [r for r in sp.requires if r not in have]
+            if missing:
+                raise PlanRefused(
+                    f"--functions asks for {f!r} and not for {missing} — and "
+                    f"{f!r} REQUIRES {missing} by definition "
+                    f"({sp.placement_evidence!r}). A section that cannot "
+                    f"stand in the relation its own name states is not a "
+                    f"novel structure, it is a mislabelled one. Declare "
+                    f"{missing} too, or drop {f!r}.")
+        roster = tuple(want)
+
     rng = random.Random(seed)
 
     # REJECTION SAMPLING over the generated grammar: uniform over the
     # space, CONDITIONED on the envelope (and on --lines when given).
     # Deterministic — the retries are the same rng stream.
     for _attempt in range(500):
-        funcs = _sample_pattern(rng)
+        funcs = _sample_pattern(rng, roster, form=form)
         s_lo, s_hi = ENVELOPE["sections"]
         if not s_lo <= len(funcs) <= s_hi:
             continue
@@ -579,6 +895,16 @@ def make_plan(seed, form="verse-chorus", lines=None):
         "sections": sections,
         "line_slots": line_slots,
         "hook_slot": hook_slot,
+        # THE WRITER'S DECLARATION, echoed so the grading command can name
+        # it and so a reader of a stored plan can see what was asked for --
+        # `""` and `[]` mean NOBODY SAID, never "the default was chosen".
+        "relation": relation or "",
+        "functions": list(roster) if roster else [],
+        #: requested functions the sampled pattern did NOT use. A DISCLOSURE,
+        #: not a failure: a roster is an allow-list, and a plan that happens
+        #: not to reach `bridge` this seed has not disobeyed anything. Silence
+        #: here would let a writer believe they got a section they did not.
+        "functions_unused": sorted(set(roster) - set(funcs)) if roster else [],
         "groups": ";".join(",".join(str(x) for x in g) for g in groups),
         "returns": ";".join(f"{a},{b}" for a, b in returns),
         "subdivision": sub,
@@ -694,5 +1020,11 @@ def grading_command(plan, draft_path="DRAFT.txt", bp_path="BP.json"):
         parts.append(f"'--groups={plan['groups']}'")
     if plan["returns"]:
         parts.append(f"'--returns={plan['returns']}'")
+    # THE DECLARED RELATION REACHES THE GRADE (M-55). Without this line the
+    # writer declares a relation, the plan records it, and the one command
+    # that grades the draft asks the coarse `Declaration.admit` set instead —
+    # a declared coordinate read by nothing, one layer out from M-54's.
+    if plan.get("relation"):
+        parts.append(f"'--relation={plan['relation']}'")
     parts.append(f"--subdivision {plan['subdivision']}")
     return " ".join(parts)

@@ -4,6 +4,12 @@ data/*.zip
 data/nltk/
 data/feature_cache.json
 cmudict.dict
+# REFUSED 2026-08-22 under doctrine 85 (MISSING.md, the frequency
+# ruling): its upstream LICENSE.md says 'I DO NOT RECOMMEND USING THIS
+# DATA FOR COMMERCIAL PURPOSES WITHOUT LICENSING IT FROM THE LINGUISTIC
+# DATA CONSORTIUM', and this project's stated target is an MCP server.
+# The ignore line STAYS so that a stray re-download can never be
+# committed; nothing in the tree fetches or reads it any more.
 wordfreq20k.txt
 
 # Derived

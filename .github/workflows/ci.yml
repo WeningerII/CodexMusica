@@ -861,6 +861,20 @@ jobs:
         working-directory: lyric-harness
         run: python3 -c "import lyric_harness, quality.floor, quality.revise, quality.propose; print('stdlib-only import OK')"
 
+      # AND ONE RESEARCH INSTRUMENT IS NOT THE HARNESS. The step above pins
+      # `lyric_harness`, `floor`, `revise` and `propose` as stdlib-only, and
+      # that claim is unchanged. `quality/kalevala_rate.py` is a measurement
+      # instrument, not the grading path, and its null is vectorised: it does
+      # `import numpy as np` at module level and uses it for the whole
+      # permutation core. Without it the instrument crashed at import and the
+      # gate below read exit 1 as MOVED — a MISSING DEPENDENCY rendered as a
+      # committed figure that no longer reproduces, which is the same
+      # collapse in the other direction (doctrine 20/79). Installing it lets
+      # the pin actually HOLD, which is worth more than classifying the crash.
+      # `suites` installs nltk for the same reason and in the same shape.
+      - name: Install numpy (kalevala_rate's permutation null is vectorised)
+        run: python3 -m pip install --disable-pip-version-check numpy
+
       # cmudict.dict is 3.6 MB, gitignored, and fetched from a moving master
       # branch with no checksum — which the audit flagged as its own defect
       # (doctrine 34, inside the function whose comment invokes doctrine 34).
@@ -1245,6 +1259,72 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/prasa_rate.py --check
 
+      # THREE PINS NOTHING ASKED, ADDED 2026-08-22, and the way they were
+      # found is the point. `quality/pin_sweep.py` (MISSING.md M-21) walks
+      # every pin-holding file under `quality/` and runs its own `--check`;
+      # its first full run measured 30 such files against the 23 this
+      # workflow named, and the difference is not a rounding error — it is
+      # pins that NOTHING gates. These three HOLD today, so adding them costs
+      # no red and closes the gap.
+      #
+      # TWO OF THE FIVE ARE DELIBERATELY NOT ADDED HERE. `expected_drift.py`
+      # needs an instrument argument and is already reached through
+      # `song_profile_calibration.py --check` below. `phrase_commonplace.py`
+      # is DRIFTED — 143 authors / 991,751 tokens / 152,154 lines against a
+      # measured 1,297 / 1,885,292 / 283,301 — because its pins are exact
+      # over a FIXED corpus that has since grown ninefold, and its own test
+      # suite passes while never invoking `--check` at all. Adding it would
+      # land a red job whose remedy is re-running a whole study; the finding
+      # is recorded in M-21 and the re-run is somebody's decision.
+      # AND THE GATE COULD NOT TELL A REFUSAL FROM A DRIFT — FIXED 2026-08-23.
+      # The three commands ran under `bash -e` as a bare list, so the step
+      # asked ONE question of three instruments and read the answer off the
+      # first non-zero exit. `audit_tang_null.py --check` REFUSES at 2 on
+      # every runner: the 全唐诗 pool is an absolute path outside this
+      # repository, overridable by `TANG_POOL`, fetched by no CI job, and the
+      # instrument says so in as many words — *"Nothing was measured, so
+      # nothing moved (doctrine 20)"*. That refusal was rendered as a red
+      # step, which is doctrine 79's own error at the gate: a refusal in the
+      # numerator, charged to the layer that did not fail.
+      #
+      # IT COST THE OTHER TWO ENTIRELY. `-e` aborts the step at the first
+      # non-zero, so `kalevala_rate.py` and `run_positive_control.py` — two
+      # pins that CAN run here — were never invoked on any run since this
+      # step was added (2026-08-22, on a machine that had the pool: "these
+      # three HOLD today, so adding them costs no red"). A check that can only
+      # pass in one environment is not testing the thing it names, and this
+      # one took two working checks down with it.
+      #
+      # THREE VERDICTS, NEVER SUMMED — `pin_sweep.py`'s own vocabulary, since
+      # this step is the same question that tool asks. 0 is HOLDS, 2 is the
+      # refusal code every instrument in this repo uses and reads CANNOT RUN,
+      # and ANY OTHER non-zero is MOVED and fails. A CANNOT RUN is printed by
+      # name with its instrument, so it is disclosed rather than swallowed;
+      # the step fails if and only if something MOVED.
+      - name: Tang null, Kalevala rate and the positive control — pins nothing asked
+        if: always()
+        working-directory: lyric-harness
+        run: |
+          holds=0; moved=0; cannot=0
+          for inst in audit_tang_null kalevala_rate run_positive_control; do
+            echo "── quality/$inst.py --check"
+            set +e
+            python3 "quality/$inst.py" --check
+            rc=$?
+            set -e
+            case "$rc" in
+              0) holds=$((holds+1)); echo "   HOLDS      $inst.py" ;;
+              2) cannot=$((cannot+1)); echo "   CANNOT RUN $inst.py (exit 2 — the instrument REFUSED and named its own reason above; nothing was measured, so nothing moved)" ;;
+              *) moved=$((moved+1)); echo "   MOVED      $inst.py (exit $rc)" ;;
+            esac
+          done
+          echo "=============================================="
+          echo "HOLDS $holds   MOVED $moved   CANNOT RUN $cannot   (three counts, never summed)"
+          if [ "$moved" -gt 0 ]; then
+            echo "$moved instrument(s) MOVED — a committed figure no longer reproduces."
+            exit 1
+          fi
+
       # THE CONJUNCTIVE BAND'S NEGATIVE CONTROL. 3.86 CPU-s, MEASURED
       # 2026-08-14. The last "prints its own drift and exits 0" runner in the
       # repo, and the one where that mattered most: its figures flipped sign
@@ -1587,7 +1667,7 @@ jobs:
       # caught `nc_census` on the run that added it — and `structures` on
       # the run that added THAT. `comm -23 <(ls quality/test_*.py | sed 's|quality/test_||;s|\.py$||'
       # | sort) <(the names in this file, sorted)` is that command.
-      - name: The 54 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21)
+      - name: The 62 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1606,28 +1686,64 @@ jobs:
           # never trips `set -e` for it) and the LAST line is the gate: the
           # step fails if ANY suite failed, never silently.
           rm -f /tmp/suites-failed
-          for f in align band capacity coda controls corpus_audit crosslinguistic cym \
+          rm -rf /tmp/suite-logs && mkdir -p /tmp/suite-logs
+          for f in align band capabilities capacity coda controls corpus_audit \
+                   crosslinguistic cym \
                    corpus_taxonomy data_row_claims declared_inputs english_text \
                    expected_drift \
-                   fit floor fwer g2p grid \
+                   pin_sweep suite_sweep \
+                   fit floor fwer g2p grid placement section_marks \
                    homeoteleuton homograph ipa ltc mandate_language \
+                   mandate_relation \
                    matrix meter \
                    meter_bands msa_fin \
                    mut_band mut_oracle nucleus null_shapes phon_fas phon_msa \
                    phon_non phon_san phonology phrase_commonplace \
                    nc_census plan positive_control propose provenance \
                    readability readings_seam register_audit relations \
+                   relation_shapes relations_null \
                    screen song_function spans structure_census structures \
                    taxonomy time_layer \
                    verify_entries; do
             while [ "$(jobs -rp | wc -l)" -ge 4 ]; do
               wait -n
             done
+            # THE OUTPUT IS ALSO KEPT PER SUITE, 2026-08-23. Four-wide
+            # interleaving means a failing suite's own lines are scattered
+            # through a 5,000-line step, and the retrievable log window does
+            # not reach back to the suites that run first — so `test_pin_sweep`
+            # could be named as failing on two consecutive runs with its
+            # reason visible nowhere. `tee` keeps the live stream AND a
+            # per-suite copy, and the gate below prints the tail of each
+            # failing suite's own log, unmixed, where a reader is already
+            # looking. A gate that names a failure it cannot show is half a
+            # gate.
             { echo "── quality/test_$f.py"
-              python3 "quality/test_$f.py" || touch /tmp/suites-failed; } &
+              python3 "quality/test_$f.py" 2>&1 | tee "/tmp/suite-logs/$f.log"
+              [ "${PIPESTATUS[0]}" -eq 0 ] || echo "$f" >> /tmp/suites-failed; } &
           done
           wait
-          test ! -f /tmp/suites-failed
+          # THE GATE NAMES WHAT FAILED. It was `touch` + `test ! -f`, so the
+          # step failed correctly and printed NOTHING about which suite did
+          # it -- and this loop runs FOUR AT A TIME, so its output is
+          # interleaved and a reader had to scroll a whole job to find out.
+          # Measured 2026-08-22 on run 32542791452, where the tail of this
+          # step is an ADOPTION CHECK passing, immediately followed by the
+          # step failing for a reason named nowhere near it.
+          if [ -f /tmp/suites-failed ]; then
+            echo "=============================================="
+            echo "FAILING SUITES ($(wc -l < /tmp/suites-failed)):"
+            sed 's|^|  quality/test_|;s|$|.py|' /tmp/suites-failed
+            while read -r f; do
+              echo ""
+              echo "=============================================="
+              echo "quality/test_$f.py — its OWN last 60 lines, unmixed"
+              echo "=============================================="
+              tail -n 60 "/tmp/suite-logs/$f.log" 2>/dev/null \
+                || echo "  (no log — the suite died before writing anything)"
+            done < /tmp/suites-failed
+            exit 1
+          fi
 
       # MOVED HERE FROM `record` 2026-08-14, because this job has the tagger.
       # 64 CPU-s. It judges 13 of the 18 calibration constants EXACTLY and
@@ -1974,12 +2090,32 @@ jobs:
           # `$(grep -vc ... || echo 0)` yields the two-line string "0\n0" on a
           # fresh memo and breaks the arithmetic below. Proven locally before
           # this shipped; the default-expansion form is the one that holds.
-          before=$(grep -vc '^#' "$MEMO" 2>/dev/null); before=${before:-0}
+          #
+          # AND IT EXITS **2** WHEN THE FILE IS ABSENT, WHICH IS A DIFFERENT
+          # CASE AND WAS UNHANDLED — FIXED 2026-08-23, found by reading why
+          # main's nightly had been red for days. The shell is `bash -e`, so
+          # under a COLD `actions/cache` the very first line of this step
+          # aborted the whole job at exit 2: before `set +e`, before the
+          # calibration ran, and before the `case` below could say anything —
+          # with grep's own message swallowed by `2>/dev/null`. The job could
+          # therefore never bank its first slice, so the cache could never
+          # warm, so it failed again the next night. A permanent deadlock whose
+          # only symptom was a bare `exit code 2`.
+          #
+          # `|| true` covers BOTH exits without reintroducing the defect the
+          # paragraph above records: on a zero count grep still prints `0`, and
+          # on an absent file it prints NOTHING, so the default expansion is
+          # what supplies the 0 — one value either way, never "0\n0".
+          # Measured, both arms, under `bash -e`.
+          before=$(grep -vc '^#' "$MEMO" 2>/dev/null || true); before=${before:-0}
           set +e
           timeout 150m python3 quality/song_profile_calibration.py --check
           rc=$?
           set -e
-          after=$(grep -vc '^#' "$MEMO" 2>/dev/null); after=${after:-0}
+          # Same guard, same reason: if the run above refused before writing
+          # a memo, this line would abort at 2 and skip the `case` that is the
+          # only thing able to report what happened.
+          after=$(grep -vc '^#' "$MEMO" 2>/dev/null || true); after=${after:-0}
           echo "memo: $before -> $after items (+$((after - before)) banked this run)"
           case $rc in
             0) echo "COMPLETE — the shipped constants re-derive over the whole corpus." ;;

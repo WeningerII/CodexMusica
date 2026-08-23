@@ -578,14 +578,28 @@ def population_report():
     entries = read_entries()
     out = {"malay": {"staged": _msa_staged_population(), "source": _msa_source_population()}}
     quoted = []
+    #: THE LANGUAGE IS A COORDINATE OF THE SCAN TOO — repaired 2026-08-21.
+    #: This used to read each entry WHOLE, and M-4 is about four languages:
+    #: the day its Welsh row gained a stated rule ("39 - 6 = 33 lines, and
+    #: 35 lines contain the string at all"), this scan reported 33 and 35 as
+    #: Malay corpus sizes and section 3 printed them in the INCOMPATIBLE
+    #: list. The checker built to catch substituted populations substituted
+    #: one. The scan is now scoped to paragraphs that name the Malay corpus,
+    #: and the rule is stated here so the next reader can re-derive it: a
+    #: paragraph is a blank-line-separated block; it is in scope iff it
+    #: contains "Malay", "msa" or the staged filename.
+    _MALAY_PARA = re.compile(r"Malay|msa", re.I)
     for ident in ("M-3", "M-4", "N-3"):
         t = entry_text(entries, ident)
-        for m in re.finditer(r"([\d,]+)\s+(?:Malay\s+)?(?:verse\s+)?blocks", t):
-            quoted.append((ident, "blocks", float(m.group(1).replace(",", ""))))
-        for m in re.finditer(r"\(?([\d,]+)\s+lines", t):
-            quoted.append((ident, "lines", float(m.group(1).replace(",", ""))))
-        for m in re.finditer(r"([\d,]+)\s+tokens\)", t):
-            quoted.append((ident, "tokens", float(m.group(1).replace(",", ""))))
+        for para in re.split(r"\n\s*\n", t):
+            if not _MALAY_PARA.search(para):
+                continue
+            for m in re.finditer(r"([\d,]+)\s+(?:Malay\s+)?(?:verse\s+)?blocks", para):
+                quoted.append((ident, "blocks", float(m.group(1).replace(",", ""))))
+            for m in re.finditer(r"\(?([\d,]+)\s+lines", para):
+                quoted.append((ident, "lines", float(m.group(1).replace(",", ""))))
+            for m in re.finditer(r"([\d,]+)\s+tokens\)", para):
+                quoted.append((ident, "tokens", float(m.group(1).replace(",", ""))))
     out["quoted_sizes"] = quoted
     by_unit = collections.defaultdict(set)
     for ident, unit, v in quoted:
@@ -731,13 +745,43 @@ def _d_sung_lines():
 
 
 def _d_repeat_blocks():
-    _, _, tags = _song_stats(_song_files("eng_"))
+    """The corpus-wide repeat-block triple — WITH ITS CONCENTRATION, because
+    the total alone is the biased number K-1a is about.
+
+    MEASURED 2026-08-21: one file, D'Urfey's songbook, carries 567 of the
+    1,580 burdens (35.9%); two files carry 52.4%; only 101 of 1,297 `eng_`
+    files carry any repeat block at all. 19th-century anthology editors set
+    lyrics as continuous stanzas and DROP the chorus; songsters and hymnals
+    keep it — so an unstratified rate over this corpus measures editorial
+    practice as much as the songs. The top contributors are APPENDED after
+    the triple rather than folded into it, so `counters.py`'s and
+    `_k1_claims`'s parsing regexes keep matching the substring they always
+    matched, and the number stops being quotable without its stratification
+    (doctrine 79's shape: counts kept apart, never summed — here, a total
+    kept beside its concentration, never alone).
+    """
+    per_file = collections.Counter()
+    tags = collections.Counter()
+    for f in _song_files("eng_"):
+        _, _, ft = _song_stats([f])
+        n = ft["BURDEN"] + ft["REFRAIN"] + ft["CHORUS"]
+        if n:
+            per_file[os.path.basename(f)] = n
+        tags.update(ft)
     got = (tags["BURDEN"], tags["REFRAIN"], tags["CHORUS"])
+    total = sum(got)
+    top = per_file.most_common(3)
+    conc = ("; CONCENTRATION (K-1a): top files %s of %d blocks in %d "
+            "carrying files"
+            % (", ".join("%s %d (%.1f%%)" % (n, c, 100.0 * c / max(1, total))
+                         for n, c in top),
+               total, len(per_file)))
     c = _k1_claims(read_entries()).get("repeats")
-    detail = "BURDEN %d REFRAIN %d CHORUS %d (sum %d)" % (got + (sum(got),))
+    detail = ("BURDEN %d REFRAIN %d CHORUS %d (sum %d)" % (got + (total,))
+              + conc)
     if c is None:
         return UNVERIFIABLE, detail, "K-1's repeat-block sentence not readable"
-    v = CONFIRMED if (got == c[1:] and sum(got) == c[0]) else MOVED
+    v = CONFIRMED if (got == c[1:] and total == c[0]) else MOVED
     return v, detail, ("%d BURDEN / %d REFRAIN / %d CHORUS, sum %d, per K-1"
                        % (c[1], c[2], c[3], c[0]))
 
@@ -1991,13 +2035,122 @@ PINNED = {
     "cym_total": 29569, "cym_read": 29443,
     "cym_refused": 0, "cym_defective": 126,
     # -- MISSING.md's shape, but NOT its prose (see exclusion 3) ------------
-    #    REPINNED 2026-08-21: ~~75~~ 76 entries. `M-20` was filed that day —
+    #    REPINNED 2026-08-21, TWICE IN ONE SITTING: ~~75~~ ~~76~~ 77 entries.
+    #    The second move is `M-21`, which is ABOUT this line: the entry count
+    #    is pinned here AND in `BACKLOG.md`'s counters row, in two media that
+    #    share no string, so no grep finds both and the second is found only
+    #    by a CI round going red after the first is repaired. Moving both in
+    #    one commit is that entry's own demonstration.
+    #    REPINNED AGAIN 2026-08-21 (third move today): 77 -> 79. The fruit
+    #    sweep split two residues into their own entries — `L-4a` (the song
+    #    profile has a rate and no separation; the generated class is the
+    #    corpus that does not exist) and `F-4a` (the reader flattens the
+    #    letter the transcription kept) — while closing L-4, M-17 and D-1.
+    #    REPINNED AGAIN 2026-08-21 (fourth move today): 79 -> 84. The Wave A
+    #    tradition surveys filed five entries in one sitting — `M-22` (the
+    #    census tokeniser), `M-23` (no `kind="partition"`), `M-24` (the section
+    #    vocabulary has no language coordinate), `M-25` (three staging
+    #    defects) and `M-26` (the variation ladder answers VERBATIM off-text).
+    #    AND THIS PIN WENT RED IN CI RATHER THAN AT THE DESK, which is `M-21`'s
+    #    own finding happening to the session that widened `M-21`: every one of
+    #    those five commits ran `counters.py --write`, and `counters.py` does
+    #    not touch THIS number. Two media, one fact, no grep that finds both —
+    #    the pin below is the second medium and it was moved four commits late.
+    #    The first was: `M-20` was filed that day —
     #    two English poems staged TWICE in their own file, found when the
-    #    named air was split out of the title (BACKLOG 3.2). A new entry is
+    #    named air was split out of the title (BACKLOG 3.2). That is what the
+    #    CHECKER surfaced and it is not the population: M-20 was repinned the
+    #    same day to 28 such pairs corpus-wide, of which check E carries 2.
+    #    The figure below does not move on it — one entry either way. A new entry is
     #    the ORDINARY way this figure moves and the pin is what makes filing
     #    one a decision rather than a diff; `coverage_audited` is unmoved at
     #    19 because M-20 carries no audited claim of its own yet.
-    "coverage_entries": 76,
+    #    REPINNED 2026-08-21, 84 -> 86: `M-27` (a footnote letter is the end
+    #    word of 68 rhyming lines) and `M-28` (the printed indent carries the
+    #    rhyme scheme at 6.19x and every reader strips it), both filed the same
+    #    sitting from the owner's question about what ELSE the corpus is
+    #    scoring. `coverage_audited` is unmoved at 19: neither carries an
+    #    audited claim of its own yet.
+    #    REPINNED 2026-08-21, 86 -> 87: `M-29` (the corpus declares 11,099
+    #    periods and the time layer, mute for want of one, reads none of
+    #    them), filed at the owner's request from the observation that some
+    #    poems carry a performance duration. `coverage_audited` unmoved at 19.
+    #    REPINNED 2026-08-22, 87 -> 88: `M-30` (the mutation sweep called a
+    #    suite it could not run "already-red", and a hole it never tested
+    #    "SURVIVED"), found by running `test_mutation.py` unbounded to answer
+    #    a question about the SWEEP and reading its baseline output on the way
+    #    past. `coverage_audited` unmoved at 19: the entry carries no audited
+    #    claim of its own yet.
+    #    REPINNED 2026-08-22, 88 -> 89: `M-31` (a source swap left its
+    #    sentinel behind, and 60% of English scored as rarer than a word
+    #    nobody has heard of), found while executing the owner's ruling to
+    #    refuse `wordfreq20k.txt` -- by asking what still READ it rather than
+    #    by reading the licence. `coverage_audited` unmoved at 19.
+    #    REPINNED 2026-08-22, 89 -> 90: `M-32` (feature 10's committed
+    #    direction and its own gloss point opposite ways, and the verdict on
+    #    the feature flips between them), found by asking whether feature 10
+    #    earns its place and finding the question unanswerable as posed.
+    #    `coverage_audited` unmoved at 19.
+    #    REPINNED 2026-08-22, 90 -> 91: `M-33` (one joint AUC pair lives in
+    #    twelve places in one document, and a careful repin left seven of them
+    #    stale), found while repinning `RESULTS.md` for the M-32 ruling -- by
+    #    grepping for a figure I was about to cite beside, and finding it stale
+    #    in seven sentences that were not marked superseded, plus a second
+    #    document the repin never touched at all. `coverage_audited` unmoved
+    #    at 19.
+    #    REPINNED 2026-08-22, 91 -> 92: `M-34` (the named-type engine can
+    #    never name a masculine rhyme, and it explains the emptiness as a
+    #    fact about the vocabulary), found while wiring the mandate's
+    #    declared-relation coordinate -- by asking `classify_pair` for the
+    #    name of a pair whose name I already knew. `coverage_audited`
+    #    unmoved at 19.
+    #    REPINNED 2026-08-22, 92 -> 94: `M-35` (a pair can stand in many
+    #    relations at once, and the mandate can hold one per group) and
+    #    `M-36` (17 of the 77 relations can never be nulled, and the reasons
+    #    are twelve declared capabilities). `coverage_audited` unmoved at 19.
+    #
+    #    AND THE 91 -> 92 REPIN ABOVE SHIPPED THIS GATE RED. M-35 was filed
+    #    AFTER `--check` was run for M-34 and before the commit, so commit
+    #    `a7cc5bd` claimed audit_register green on a reading taken one entry
+    #    earlier. The claim was true when measured and false when made --
+    #    which is this instrument's whole subject, committed against itself.
+    #    Recorded rather than quietly folded into the count.
+    #    REPINNED 2026-08-22, 94 -> 95: `M-37` (26 relation names mean two
+    #    different things, and the two judges disagree), found on the first
+    #    move of step 3 by asking whether the names were already taken. This
+    #    repin was taken AFTER the entry was filed rather than before -- the
+    #    ordering the note above records getting wrong.
+    #    REPINNED 2026-08-22, 95 -> 96: `M-38` (one quantifier coordinate,
+    #    two modules, two spellings -- and `exists_k` counts different
+    #    objects in each), found by relation_shapes.py's author while
+    #    reading all 77 schemas and verified here before filing. Checked
+    #    AFTER the entry, as the note above says it should be.
+    #    REPINNED 2026-08-22, 96 -> 97: `M-39` (the section coordinate is
+    #    declared four layers deep and supplied by nobody), found by asking
+    #    whether the relation layer was already leaning on a structure layer
+    #    before treating the structure work as a change of subject. It was.
+    # ~~116~~ -> 117 on 2026-08-22: M-59 filed (the default admit set and
+    # the `schema:` route). Superseded value kept visible, doctrine 17.
+    # ~~117~~ -> 121 on 2026-08-23: FOUR filed in one sitting, all from
+    # driving CI to green and all the SAME SHAPE one layer out from the code
+    # — M-60 (the gate could not tell a REFUSAL from a MOVED pin, and the
+    # refusal took two never-run checks down with it), M-61 (`test_capabilities`
+    # named by nothing that gates, the orphan census's third catch in two
+    # days), M-62 (a test that fired its interrupt on a clock, so it certified
+    # the machine it ran on), M-63 (the register asserting a GITIGNORED build
+    # artifact as a repo path, so `verify_entries` could only pass where a run
+    # had already happened). Superseded values kept visible, doctrine 17.
+    # ~~121~~ -> 122 the same day: M-64, filed BY the M-60 fix — the legible
+    # gate printed the one line that named the sole failing suite's reason on
+    # its first run, and it was `pin_sweep` reading a crash at import as a
+    # MOVED pin. A fix that finds the next defect is the shape this lane is
+    # for.
+    # ~~122~~ -> 123: M-65, the nightly job dying on its first line whenever
+    # its cache was cold — found by asking why the Pages sync skipped (it was
+    # skipping correctly) and following that to two nights of red on main.
+    "coverage_entries": 123,  # M-49..M-59 filed 2026-08-22 wiring
+                              # the relation route (97..106 superseded);
+                              # M-60..M-65 filed 2026-08-23 driving CI green
     "coverage_audited": 19,
 }
 

@@ -48,9 +48,31 @@ commissioned it, and **three recorded numbers did not reproduce**.
 
 ## 1. There is a fifth Whitman figure, and the other four are a comparator
 
+> **§§1.1 AND 1.2 ARE THE 2026-08-11 READING AND WERE NEVER TOLD ABOUT THE
+> 2026-08-13 SUPERSESSION — REPINNED 2026-08-21.** `battery.py` prints
+> **`lines captured in chains: 16 (10.7%) across 7 chains`** at head, and
+> `negative_control.py`'s P3-LEGACY arm agrees at **0.1067**. This file's own
+> §0 item 2 and §1.3 already carry that correction; §1.1 and §1.2 do not, so
+> **the document asserts 17.3% as "today" three times and 10.7% as "today"
+> twice.** `CLAUDE.md` repinned the same figure on 2026-08-13 and this
+> document was not told either.
+>
+> **NOTHING IN §§1.1–1.2's ARGUMENT DEPENDS ON THE VALUE.** §1.1's claim is
+> that the four recorded Whitman figures are ONE STATISTIC under different
+> comparators, and that is a claim about `captured()` having three call sites
+> — which still holds, at whatever the number currently is. §1.2's claim is
+> that the 2×2 is exactly additive, and the 2×2 was measured under a scratch
+> script that no longer exists (see the UNVERIFIABLE note at §1.2). **What is
+> withdrawn is the word "today" in both sections, not the decomposition.**
+> The fifth-figure finding is unchanged and now has a sixth reading: the
+> shipped comparator has moved again since the fifth was recorded, which is
+> this document's own thesis happening to this document.
+
 ### 1.1 It is the SAME quantity — the alternative reading is refuted
 
-`battery.py` prints `lines captured in chains: 26 (17.3%)`.
+~~`battery.py` prints `lines captured in chains: 26 (17.3%)`.~~
+**At head it prints `16 (10.7%) across 7 chains`; the figures below are the
+2026-08-11 reading, kept under doctrine 17.**
 `CLAUDE.md:297` records `Whitman 20.0% chained at theta 0.82`.
 
 The candidate reading that these are different quantities is **wrong**, and
@@ -92,7 +114,8 @@ HEAD(pre)  0.80        ON    |  27 lines  18.0%    25 lines  16.7%
 | 20.0% | same three | HEAD + `theta_coda` 0.60 + θ 0.82 **only** |
 | 18.0% | `RESULTS_MATRIX.md` P5 hand-set, θ 0.85 | HEAD + `theta_coda` 0.60 + θ 0.85 **only** |
 | 21.3% | `RESULTS_MATRIX.md` P5 fitted | not re-run — needs a fitted comparator threaded through `infer_chains` |
-| **17.3%** | **nowhere yet** | **the shipped comparator, today** |
+| **17.3%** | **nowhere yet** | ~~**the shipped comparator, today**~~ **the shipped comparator ON 2026-08-11** |
+| **10.7%** | `CLAUDE.md` (repinned 2026-08-13), §0 item 2, §1.3 | **the shipped comparator at head — a SIXTH figure, and the row above is now a fifth historical one** |
 
 The decomposition is additive to the line: `theta_coda` 0.60 → 0.80 costs
 −2.0 pp on its own, the alignment fix costs −0.7 pp on its own, and together
@@ -193,12 +216,26 @@ one.
 prior to any null, and it is decisive on its own.
 
 ```
-$ python3 quality/negative_control.py          # P3-LEGACY, new decomposition
+$ python3 quality/negative_control.py          # P3-LEGACY, 2026-08-11 reading
   WHAT THE CHAINS ARE MADE OF — 14 adjacent links:
     RHYME       7  (50%)
     REPEAT      7  (50%)
     links on the SAME TOKEN at both ends: 7 (50%)
+
+$ python3 quality/negative_control.py          # REPINNED 2026-08-21, at head
+  WHAT THE CHAINS ARE MADE OF — 9 adjacent links:
+    REPEAT       7  (78%)
+    RHYME        2  (22%)
+    links on the SAME TOKEN at both ends: 7 (78%)
 ```
+
+> **THE REPEAT COUNT DID NOT MOVE AND THE RHYME LINKS COLLAPSED 7 → 2**, so
+> the share went 50% → **78%** under the same comparator shift §1 is about.
+> `CLAUDE.md` carries the 78% reading and this document was not told.
+> **The argument gets STRONGER, which is why the repin is worth making rather
+> than deferring:** the claim below is that this control's signal is largely a
+> relation whose sign needs a declared context, and at head it is 78% of it
+> rather than half.
 
 The chains themselves:
 
@@ -213,8 +250,9 @@ The chains themselves:
 `now` closes four consecutive lines of `Song of Myself`. That is epistrophe,
 and doctrine 3 is explicit that REPEAT's sign inverts by context: a violation
 inside a verse, the requirement across chorus instances, licensed as
-radif/refrain. **Half of this negative control's signal is a relation whose
-sign is a function of a context the file does not declare.**
+radif/refrain. **~~Half~~ SEVENTY-EIGHT PER CENT of this negative control's
+signal is a relation whose sign is a function of a context the file does not
+declare** (repinned 2026-08-21; it was half when this was written).
 
 A negative control is a text in which the property under test is ABSENT.
 `corpus/whitman.txt` carries line-final sound recurrence, in the one form the
@@ -378,17 +416,38 @@ regime boundary is between 400 and 2000.
 
 ```
 family      arm                    mute   mean sat   items>0
-scored      REAL sonnets          0/20      29.1%         20
-scored      word scramble         0/20      29.0%         20
-scored      cross-item redeal     0/20      31.8%         20
+scored      REAL sonnets          0/20      29.1%         20   <- 37.9% at head
+scored      word scramble         0/20      29.0%         20   <- 38.1% at head
+scored      cross-item redeal     0/20      31.8%         20   <- AT RISK, unpinned
 scored      mono-rime redeal     20/20       0.0%          0   <- tripwire, correct
-scored      dispersed redeal      0/20      59.4%         20
+scored      dispersed redeal      0/20      59.4%         20   <- AT RISK, unpinned
 candidate   REAL sonnets         18/20       0.0%          0
 candidate   word scramble        16/20       0.0%          0
 candidate   cross-item redeal    19/20       0.0%          0
 candidate   mono-rime redeal     20/20       0.0%          0   <- tripwire, correct
 candidate   dispersed redeal      1/20       0.2%          1   <- FIRES
 ```
+
+> **THE `scored` HALF MOVED, THE `candidate` HALF DID NOT — REPINNED
+> 2026-08-21.** `python3 quality/fwer_family.py --arms` re-derives the first
+> two `scored` rows as **37.9%** and **38.1%**, and every `candidate` row
+> unchanged. This is the SAME comparator shift as `RESULTS_FWER.md`'s headline
+> table: **one move, two documents, and no instrument connects them**
+> (`MISSING.md` M-21).
+>
+> **THE OTHER TWO `scored` CELLS ARE NOT REPINNED, AND THAT IS A REFUSAL
+> RATHER THAN AN OVERSIGHT.** `cross-item redeal` and `dispersed redeal` are
+> printed by no shipped command — this whole block came from
+> `<scratch>/probe_pfloor.py`'s sibling, which is gone (doctrine 77). They are
+> marked AT RISK because the two arms measured beside them moved by 8–9 points
+> and there is no reason to think these held. **Writing an unverified number
+> here would be worse than the stale one**: the stale one is dated and this
+> note says so.
+>
+> **NOTHING BELOW IS WITHDRAWN.** Every conclusion drawn from this table rests
+> on the `candidate` half — that the honest family produces no event on real,
+> scrambled or redealt English, and that `dispersed redeal` fires on exactly
+> one item — and the `candidate` half reproduces to the digit.
 
 At `family=candidate` — the honest family, per `BACKLOG.md` §4.1 — the layer
 produces no event on real English, on scrambled English, or on redealt
@@ -529,8 +588,17 @@ those 26 are permanent**, naming `poet` first and `dialect rhyme` with it;
 `poet` was added to `ALT_SURFACES` and left `NEVER_PROVIDED` earlier the same
 day, so `dialect rhyme` is declarable and the count is 2. **EXTENDABLE 31 is a
 `budget=2.0` reading and the budget is a wall-clock verdict this file's own
-census says does not reproduce** — at `budget=None` it is **33**, the two extra
-being `chain rhyme (rap)` and `compound / phrasal rhyme`. And the sweep line
+census says does not reproduce** — at `budget=None` it is ~~33~~ **29**, the
+two extra being `chain rhyme (rap)` and `compound / phrasal rhyme`.
+
+> **REPINNED AGAIN 2026-08-22 (M-39).** ~~31~~ **27** budgeted and ~~33~~
+> **29** unbudgeted. A `figure(frame="stanza")` now asks for the frame it
+> quantifies over, and the ledger slice as `_read` renders it — blank lines
+> and `[SECTION]` rows dropped — supplies none, so `analysed rhyme`,
+> `monorhyme / leash`, `dvitiyakshara-prasa` and `monai` moved from EXTENDABLE
+> to CANNOT OBTAIN and `blues AAB stanza` from NO INSTANCE to the same place.
+> That is five schemas whose printed numbers here were taken over a frame that
+> could not vary, and the remedy named is the right one: declare the ground. And the sweep line
 below (34 live schemas, 268 rows in 199 s) is the same budgeted reading; at
 `budget=None` it is **36 live / 292 rows**. Superseded figures kept visible
 (doctrine 17). `relations_null.py --verify` now pins the unbudgeted reading,

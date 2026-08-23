@@ -102,6 +102,19 @@ WHAT IT CHECKS, in the order the errors were actually found
                    measured over, because a zero measured on a one-seventh
                    extract is not a zero about the source.
 
+  H · STAGING      Doctrine 93 read the other way round.  A `[VERSE n]` mark
+                   declares a STANZA; this reports every `[VERSE]` block
+                   holding exactly ONE non-blank line, split into the subset
+                   whose line carries a declared apparatus shape (a numeral, a
+                   printer's ornament, an ALL-CAPS short label, a printed
+                   performance heading) and the RESIDUE, which is reported as
+                   a count rather than as a pass.  It adjudicates nothing: the
+                   ALL-CAPS class alone is a poem title, a speaker
+                   attribution, a byline and a movement heading at once, and
+                   telling those apart needs a reading of the printing.
+                   `MISSING.md` M-25(a) is the census this makes into a
+                   command.
+
 THE MEASURED BASELINE THAT MAKES CHECK D WEAK, STATED UP FRONT
 ---------------------------------------------------------------
 
@@ -1205,7 +1218,7 @@ def check_header(files, src):
                 "no `# lang:` header and the filename prefix %r is not a "
                 "declared phonology" % os.path.basename(rel).split("_")[0],
                 "checks D, F and G all key on the declared language, so an "
-                "undeclared file is unaudited by three of seven checks",
+                "undeclared file is unaudited by three of eight checks",
                 "44"))
 
         # -- the header's own counts ---------------------------------------
@@ -1799,6 +1812,384 @@ def check_orthography(files, src):
     return out
 
 
+#: THE SUNG-TEXT QUESTION, AND IT IS ASKED OF ONE SHAPE ONLY — a `[VERSE]`
+#: block holding exactly one non-blank line.
+#:
+#: `[VERSE n]` declares a STANZA.  A one-line stanza exists, so the shape is
+#: a CANDIDATE and never a verdict; what makes it worth raising is that in
+#: this corpus the shape is overwhelmingly a printer's apparatus line that the
+#: staging typed as sung words — a poem title, a stanza numeral, a byline, a
+#: speaker attribution, an editorial footnote, a printer's ornament.  Every
+#: one of those enters MATTR, the function-word ratio, the rhyme graph, the
+#: endword population and every per-line rate in this repository.
+#:
+#: RESTRICTED TO `[VERSE`, DELIBERATELY.  A one-line `[CHORUS]`/`[REFRAIN]`/
+#: `[BURDEN]` block is the ordinary shape of a one-line refrain and carries no
+#: contradiction at all; asking the question of those marks would manufacture
+#: a thousand findings about the thing the marks are for.
+#:
+#: THREE COUNTS AND THEY ARE NEVER SUMMED (doctrine 79/20).  The candidate
+#: population is every one-line `[VERSE]` block.  MATCHED is the subset whose
+#: line carries a shape declared below.  The RESIDUE is the rest, and it is
+#: reported as UNADJUDICATED rather than as clean: sampled at n=50 (seed
+#: 20260821) roughly a quarter of it is real text — single lines of dramatic
+#: dialogue, which is a DIFFERENT staging defect and not this one — and the
+#: other three quarters are apparatus in shapes this table does not spell
+#: (Watts's scripture arguments, Lovelace's editorial footnotes, Burns's
+#: `Tune--` lines, place-and-date colophons).  A residue reported as zero
+#: findings would read as a pass on a population nobody has looked at.
+#:
+#: THE TABLE IS TIGHT ON PURPOSE.  `_COUNT_FIELDS` cost this module 30 FAILs
+#: of its own by reading prose as a claim, and the rule that came out of it
+#: holds here: manufacturing findings is worse than missing them, because a
+#: reader cannot tell a manufactured one from a real one.  So a shape enters
+#: this table only when a false positive is close to impossible, and the
+#: shapes that would need a judgement stay in the residue where they can be
+#: counted without being charged.
+#:
+#: MEASURED 2026-08-21 over `corpus/song/`: 72,803 `[VERSE]` blocks, 2,551 of
+#: them one-line, 1,067 matched across 107 files, 1,484 residue.  `MISSING.md`
+#: M-25(a) records 940 across 67 files, which is THIS QUESTION asked by a
+#: session script whose shape rules were never written down — no `D`/`M` in
+#: the roman class, no comma in the arabic one, a strict character class that
+#: dropped every dash-joined range, and no ornament class at all.  Doctrine 58
+#: exactly: the recorded count was a threshold nobody wrote down, and the
+#: repair is that the rule now lives here and the number is whatever this
+#: table produces.
+_ONE_LINE_NUMERAL = re.compile(
+    r"^[\(\[]?(?:[IVXLCDM]+|\d[\d,]*)"
+    r"(?:[.)\]]?\s*[-–—]\s*[\(\[]?(?:[IVXLCDM]+|\d[\d,]*))*"
+    r"[.)\]]?$")
+
+_ONE_LINE_ORNAMENT = re.compile(r"^[*·•\-–—.\s]{3,}$")
+
+#: The printed performance headings a score sets over a movement.  A CLOSED
+#: list, and the reason it is closed rather than a pattern is doctrine 24's:
+#: `Air` is also an ordinary English word, so anything wider would charge a
+#: line of sung text for containing it.
+_ONE_LINE_HEADING = re.compile(
+    r"^(Recitativo|Recitative|Air|Duetto|Duet|Trio|Solo|Finale|Chorus|"
+    r"Da capo|Aria|Overture|Prelude)\b[.,]?$", re.I)
+
+def _has_cased_letter(t):
+    """Does this string contain a letter in a script that HAS case?"""
+    return any(c.isupper() or c.islower() for c in t)
+
+
+def _has_lower(t):
+    return any(c.islower() for c in t)
+
+#: THE CASE TEST IS PYTHON'S OWN AND IT IS UNICODE, BECAUSE THE FIRST TWO
+#: RUNS OF THIS CHECK MANUFACTURED A FINDING EACH — the same defect, one
+#: script apart, and neither was visible by reading the rule.
+#:   RUN 1 charged `ltc_siku_kr4j0074.txt`'s `欲寄逺憑誰是。`, a sung line of a
+#:   詞: it is one whitespace token and no character in it is lowercase,
+#:   because Chinese HAS NO CASE.  9 blocks over two `ltc_siku` files.  "No
+#:   lowercase letter" says nothing about a line until the script has case at
+#:   all, so `_has_cased_letter` is the gate and the whole `ltc` corpus leaves
+#:   this shape BY CONSTRUCTION rather than by a language exclusion somebody
+#:   has to remember.
+#:   RUN 2 charged `eng_british_lord_byron.txt`'s `Ζωή μου, σᾶς ἀγαπῶ.` —
+#:   *Maid of Athens*'s Greek refrain, the most sung line in the poem — because
+#:   the lowercase test was the LATIN-1 class `[a-zà-öø-ÿ]` and Greek `ωή` is
+#:   not in it.  A hand-written character class is a claim about which
+#:   alphabets exist; `str.islower()` is the same question asked of Unicode.
+#: Doctrine 45 twice over: an ORTHOGRAPHIC rule that silently picks a script
+#: is making a claim it never states, and the claim was wrong in both
+#: directions — case-less read as ALL-CAPS, and cased-but-not-Latin read as
+#: ALL-CAPS.
+#:
+#: The ALL-CAPS class is FOUR OBJECTS and this check does not separate them —
+#: separating them is what needs a reading of the printing, which is why
+#: `M-25(a)` is a census and not yet a repair list.  A poem title wants an
+#: item split, a speaker attribution wants a mark, a byline wants an author
+#: field and a movement heading wants a section function.  The `<= 4 words`
+#: bound is what keeps a shouted line of real sung text out of it, and it is
+#: a bound rather than a calibration: nothing measured it, and a line of five
+#: capitalised words is left in the residue rather than guessed at.
+_ALLCAPS_MAX_WORDS = 4
+
+
+def apparatus_shape(line):
+    """-> the declared shape name, or None.
+
+    None means UNADJUDICATED, never CLEAN — see the table above.
+    """
+    t = line.strip()
+    if _ONE_LINE_NUMERAL.match(t):
+        return "numeral"
+    if _ONE_LINE_ORNAMENT.match(t):
+        return "ornament"
+    if (_has_cased_letter(t) and not _has_lower(t)
+            and len(t.split()) <= _ALLCAPS_MAX_WORDS):
+        return "allcaps-label"
+    if _ONE_LINE_HEADING.match(t):
+        return "heading-word"
+    return None
+
+
+def one_line_verse_blocks(cf):
+    """-> [(mark, line), ...] for every `[VERSE` block holding exactly one
+    non-blank line.
+
+    A block runs from its own mark to the next apparatus line of any kind
+    (`[`, `--- `, `#`), which is `_MARKER`'s own rule read one level up.  The
+    final block is flushed at end of file: a session script that forgot to do
+    that is how a corpus's last item goes unaudited in silence.
+    """
+    out, mark, buf = [], None, []
+
+    def flush():
+        if mark is not None and len(buf) == 1:
+            out.append((mark, buf[0]))
+
+    for raw in cf._lines:
+        s = raw.strip()
+        if _MARKER.match(s):
+            flush()
+            mark = s if s.upper().startswith("[VERSE") else None
+            del buf[:]
+            continue
+        if s and mark is not None:
+            buf.append(s)
+    flush()
+    return out
+
+
+def check_staging(files, src):
+    """H · a `[VERSE]` mark used for something that is not a sung stanza."""
+    out = []
+    for rel, cf in files:
+        blocks = one_line_verse_blocks(cf)
+        if not blocks:
+            continue
+        shapes = collections.Counter()
+        examples = collections.defaultdict(list)
+        residue = []
+        for _, line in blocks:
+            k = apparatus_shape(line)
+            if k is None:
+                residue.append(line)
+            else:
+                shapes[k] += 1
+                if len(examples[k]) < 3:
+                    examples[k].append(line)
+        matched = sum(shapes.values())
+        pop = ("%d one-line of %d `[VERSE]` blocks | matched %d | "
+               "residue %d (UNADJUDICATED, not clean)"
+               % (len(blocks), sum(1 for l in cf._lines
+                                   if l.strip().upper().startswith("[VERSE")),
+                  matched, len(residue)))
+        if matched:
+            out.append(Finding(
+                "H", WARN, rel,
+                "%d one-line `[VERSE]` block(s) carry a declared apparatus "
+                "shape and are scored as sung words" % matched,
+                "%s | %s" % (
+                    pop,
+                    " · ".join("%s %d (%s)"
+                               % (k, n, ", ".join(repr(e) for e
+                                                  in examples[k][:2]))
+                               for k, n in shapes.most_common())),
+                "a `[VERSE n]` mark declares a STANZA. These lines are a "
+                "printer's apparatus — a numeral, a byline, a title, a "
+                "speaker name, an ornament — and every one of them enters "
+                "MATTR, the function-word ratio, the rhyme graph and the "
+                "endword population. The four shapes are AT LEAST THREE "
+                "DIFFERENT OBJECTS wanting three different repairs, so this "
+                "check RAISES the population and adjudicates none of it "
+                "(`MISSING.md` M-25(a))",
+                "93"))
+        else:
+            out.append(Finding(
+                "H", NOTE, rel,
+                "%d one-line `[VERSE]` block(s), none in a declared "
+                "apparatus shape" % len(residue),
+                "%s | e.g. %s" % (pop,
+                                  " · ".join(repr(l) for l in residue[:3])),
+                "reported so the residue is a COUNT rather than a silence "
+                "(doctrine 20): a population nobody has looked at must not "
+                "render as a population that passed",
+                "20"))
+    return out
+
+
+#: THE PRINTED INDENT AS A WITNESS, and it is REPORTED rather than judged.
+#:
+#: `lyric_harness.line_indent` carries the compositor's indent through
+#: ingestion for the first time (`MISSING.md` M-28). This check is what READS
+#: it, because a coordinate that is declared and never read is the defect this
+#: repository keeps rediscovering, one layer at a time.
+#:
+#: THE STATISTIC, per file: over every block of >=4 lines carrying >=2 indent
+#: depths, the share of end-word pairs that share a `spelled_rime` at the SAME
+#: printed depth, against the share at DIFFERENT depths. Corpus-wide over
+#: `eng_*` that is 11.83% against 1.91%, a ratio of 6.19, against a
+#: within-block permutation null whose 20-draw excess range is -2.71 to -2.49
+#: pp -- so the printing is a real and independent witness to the rhyme
+#: partition, which is the thing `--cliques` is NOT (doctrine 14).
+#:
+#: NO THRESHOLD, AND THE REASON IS A FILE. It is tempting to WARN on a ratio
+#: below 1 -- same-depth lines rhyming LESS than different-depth ones -- as an
+#: extraction that destroyed the ladder. MEASURED: 8 files of 546 run that
+#: way, and the strongest of them is not damaged at all.
+#: `eng_pah_francis_lieber.txt` (1.45% against 24.64%, ratio 0.06) prints
+#: ABCB stanzas in which ONLY THE RHYMING FOURTH LINE IS INDENTED, so its
+#: same-depth pairs are by construction the lines that do not rhyme:
+#:
+#:     Rend America asunder
+#:     And unite the Binding Sea
+#:     That emboldens man and tempers--
+#:         Make the ocean free.
+#:
+#: An indent can mark the rhyme GROUP (a ballad's b-lines) or the rhyme
+#: BEARER (Lieber's fourth line), and those are opposite conventions with the
+#: same typography. A rule that charged one of them would be manufacturing
+#: findings, which this module has already paid 30 FAILs to learn
+#: (`_COUNT_FIELDS`). So the check states the number and the reader decides.
+#:
+#: AND IT CORRECTS THIS PROJECT'S OWN HEADLINE: because the two conventions
+#: pull in opposite directions, the corpus-wide 6.19x is an average ACROSS
+#: them and UNDERSTATES how much the printing knows.
+_INDENT_MIN_LINES = 4
+_INDENT_MIN_PAIRS = 40
+
+
+def indent_rhyme_witness(cf, rel):
+    """-> (same_pairs, same_share, diff_pairs, diff_share) or None.
+
+    None when the file has no block that both carries an indent ladder and
+    reaches `_INDENT_MIN_PAIRS` judgeable pairs -- an ABSENCE OF POPULATION,
+    which is not a rate of zero (doctrine 20).
+    """
+    import itertools
+    import lyric_harness as LH
+    from quality.grid import indent_partition, read_marked_songs
+    s_y = s_n = d_y = d_n = 0
+    blocks = 0
+    for song in read_marked_songs(cf.path):
+        for b in song.blocks:
+            part = indent_partition(b)
+            if len(part) < _INDENT_MIN_LINES or len(set(part)) < 2:
+                continue
+            blocks += 1
+            keys = []
+            for l in b.lines:
+                w = LH.raw_final_token(l)
+                keys.append(LH.spelled_rime(w) if w else None)
+            for i, j in itertools.combinations(range(len(part)), 2):
+                if keys[i] is None or keys[j] is None:
+                    continue
+                hit = keys[i] == keys[j]
+                if part[i] == part[j]:
+                    s_y += hit
+                    s_n += not hit
+                else:
+                    d_y += hit
+                    d_n += not hit
+    ns, nd = s_y + s_n, d_y + d_n
+    if ns < _INDENT_MIN_PAIRS or nd < _INDENT_MIN_PAIRS:
+        return None
+    return blocks, ns, s_y / ns, nd, d_y / nd
+
+
+#: THE PER-FILE GATE IS THE MEASURED NULL AND NOT A GUESS (doctrine 22). The
+#: within-block permutation null's excess spans -2.71 to -2.49 pp over 20
+#: draws, so a per-file excess whose MAGNITUDE is inside +-2.71 pp is not
+#: distinguishable from chance and earns no per-file note; outside it, in
+#: EITHER direction, it is a witness worth naming.
+_INDENT_NULL_PP = 0.0271
+
+
+def check_indent(files, src):
+    """I · the printed indent against the measured rhyme partition.
+
+    THREE COUNTS, NEVER SUMMED, and the reason the two SMALL ones get the
+    per-file notes is proportion rather than significance. 517 English files
+    of 545 have an indent that agrees with their rhyme partition, which is
+    the corpus-wide result and is reported ONCE -- 517 notes each saying "as
+    expected" would bury the 28 that do not, and the population is not
+    silent because the summary counts it (doctrine 20/79).
+    """
+    out = []
+    agrees, opposite, inside = 0, [], []
+    for rel, cf in files:
+        lang, _ = declared_language(cf, rel)
+        if lang != "eng":
+            continue
+        # NO `try/except` HERE, AND THAT IS DELIBERATE. Swallowing an
+        # exception would make a file that FAILED TO PARSE indistinguishable
+        # from a file with no indent ladder — doctrine 20 inside the check
+        # written to enforce doctrine 20. MEASURED before the guard was
+        # removed: 0 of 1,297 `eng_` files raise. If one ever does, this
+        # check crashes loudly, which is the correct behaviour for an
+        # auditor whose generous failure mode is silence.
+        m = indent_rhyme_witness(cf, rel)
+        if m is None:
+            continue
+        blocks, ns, sa, nd, da = m
+        excess = sa - da
+        row = (rel, blocks, ns, sa, nd, da, excess)
+        if abs(excess) <= _INDENT_NULL_PP:
+            inside.append(row)
+        elif excess > 0:
+            agrees += 1
+        else:
+            opposite.append(row)
+    if not (agrees or opposite or inside):
+        return out
+    out.append(Finding(
+        "I", NOTE, "corpus/song/ (every eng_ file with an indent ladder)",
+        "the printed indent is an independent witness to the rhyme "
+        "partition on %d of %d files" % (agrees, agrees + len(opposite)
+                                         + len(inside)),
+        "AGREES %d | runs OPPOSITE %d | inside the null %d — three counts, "
+        "never summed. Corpus-wide the same-depth pair rate is 11.83%% "
+        "against 1.91%% at different depths (ratio 6.19) over 528,370 pairs "
+        "in 15,685 blocks, with identical end words excluded (doctrine 3); "
+        "the matched null permutes the indent depths WITHIN each block and "
+        "its 20-draw excess is -2.71 to -2.49 pp, so the observation sits "
+        "12.6 pp above the null's MAXIMUM"
+        % (agrees, len(opposite), len(inside)),
+        "this is the control `--cliques` cannot be: a cover derived from the "
+        "grader's own rhyme graph is not independent of the grader (doctrine "
+        "14), and the compositor's indent is. It is a WITNESS and not a "
+        "mandate — nothing here derives a scheme from whitespace",
+        "14"))
+    for rel, blocks, ns, sa, nd, da, excess in opposite:
+        out.append(Finding(
+            "I", NOTE, rel,
+            "the printed indent runs OPPOSITE to the rhyme partition "
+            "(%.2f%% same-depth against %.2f%% different)"
+            % (100.0 * sa, 100.0 * da),
+            "%d laddered block(s), %d same-depth and %d different-depth "
+            "pairs, excess %+.2f pp — outside the null's +-%.2f pp"
+            % (blocks, ns, nd, 100.0 * excess, 100.0 * _INDENT_NULL_PP),
+            "NOT a defect and NOT charged: an indent can mark the rhyme "
+            "GROUP or the rhyme BEARER, and those are opposite conventions "
+            "in the same typography. `eng_pah_francis_lieber.txt` prints "
+            "ABCB stanzas indenting ONLY the rhyming fourth line, so its "
+            "same-depth pairs are by construction the lines that do not "
+            "rhyme. Named because the corpus-wide ratio averages ACROSS the "
+            "two conventions and therefore UNDERSTATES what the printing "
+            "knows", "14"))
+    for rel, blocks, ns, sa, nd, da, excess in inside:
+        out.append(Finding(
+            "I", NOTE, rel,
+            "the printed indent tells us NOTHING about this file's rhyme "
+            "partition",
+            "%d laddered block(s) | %.2f%% same-depth against %.2f%% "
+            "different, excess %+.2f pp — INSIDE the null's +-%.2f pp"
+            % (blocks, 100.0 * sa, 100.0 * da, 100.0 * excess,
+               100.0 * _INDENT_NULL_PP),
+            "an indistinguishable-from-chance result is reported rather than "
+            "dropped: a file whose printing carries a ladder that answers "
+            "nothing is either a form the ladder does not encode or an "
+            "extraction that re-indented, and only a reader can tell which "
+            "(doctrine 20 — this is inconclusive, not null)", "14"))
+    return out
+
+
 CHECKS = collections.OrderedDict([
     ("A", ("ROW — every file has a sources.tsv row, every row a file", check_row)),
     ("B", ("HEADER — the file's own header against its row", check_header)),
@@ -1807,6 +2198,8 @@ CHECKS = collections.OrderedDict([
     ("E", ("DISTINCT — doctrine 51, count distinct BYTES", check_distinct)),
     ("F", ("CHANNEL — doctrine 52, the channel not the legibility", check_channel)),
     ("G", ("ORTHOGRAPHY — doctrines 50/70, the destroying alternant", check_orthography)),
+    ("H", ("STAGING — a `[VERSE]` mark on something that is not a stanza", check_staging)),
+    ("I", ("INDENT — doctrine 14, the printing as an independent witness", check_indent)),
 ])
 
 
@@ -2466,7 +2859,37 @@ def main(argv=None):
 #: LIKE A DIZZINESS` and Rodger's `BEHAVE YOURSEL' BEFORE FOLK` are each staged
 #: TWICE in their own file, once with the air and once without. Nothing was
 #: silenced to meet this pin and nothing was lost: gained 2, lost 0.
-PINNED_SHAPE = {"files": 1423, "FAIL": 1, "WARN": 235, "NOTE": 1085}
+#: REPINNED 2026-08-21: WARN ~~235~~ **340**, NOTE ~~1085~~ **1133**, and it
+#: is a NEW CHECK rather than a load or a reader change — `files` and `FAIL`
+#: are both unmoved, which is that signature. Check H (STAGING) is `M-25(a)`'s
+#: discriminator made mechanical: +105 WARN (a file holding one-line `[VERSE]`
+#: blocks in a declared apparatus shape) and +48 NOTE (a file holding one-line
+#: `[VERSE]` blocks in NO declared shape — the residue, reported as a count so
+#: it cannot read as a pass, doctrine 20). Nothing was silenced to meet this
+#: pin; the two findings the check manufactured on its first two runs were
+#: REMOVED BY FIXING THE RULE and are written up at `apparatus_shape`.
+#: REPINNED 2026-08-21, same sitting: NOTE ~~1133~~ **1162**, `files`, `FAIL`
+#: and `WARN` all unmoved — the new-check signature again. Check I (INDENT) is
+#: `M-28`'s discriminator: 1 corpus-wide note carrying the three counts (517
+#: agree / 6 opposite / 22 inside the null) plus 28 per-file notes for the two
+#: SMALL populations. The 517 that agree get no per-file note ON PURPOSE, and
+#: the summary is what keeps them from being silent — 517 notes each saying
+#: "as expected" would bury the 28 that do not (doctrine 20/79).
+#: REPINNED 2026-08-22 on the K-4 STAGING: `files` ~~1423~~ **1430** and NOTE
+#: ~~1162~~ **1168**; `FAIL` and `WARN` unmoved. Seven `corpus/song/non_*.txt`
+#: entered on the owner's ruling admitting `sveinbjornt/sagadb.org` — 160
+#: vísur, 1,228 verse lines, the first Old Norse text this corpus has ever
+#: held (`MISSING.md` K-4, `quality/stage_sagadb.py`). Six of the seven earn a
+#: check-G note and that is the check WORKING, not a defect: G screens for the
+#: epenthetic `-ur` that modernised Icelandic inserts, which is the exact
+#: property the 42 `*.is.xml` siblings were REFUSED for. Its hits here are
+#: legitimate classical forms that merely end in `-ir`/`-ur` (`fylkir`,
+#: `hilmir`, `bróður`, `faðir`), and the direct probe settles it: the staged
+#: verse carries **114 classical `-r` nominatives and ZERO modernised `-ur`
+#: ones** (`maðr` 6, `sonr` 2, `konungr` 2, `Þórólfr` 1, `Egill` 103), against
+#: 1,534/0 in the prose it was cut from. The channel the hending measurement
+#: needs is intact, measured rather than hoped.
+PINNED_SHAPE = {"files": 1430, "FAIL": 1, "WARN": 340, "NOTE": 1168}
 
 
 def _verify_shape(files, findings):

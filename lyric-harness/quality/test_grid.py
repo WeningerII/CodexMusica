@@ -9,7 +9,10 @@ it owned was about words.
 Run: python3 quality/test_grid.py
 """
 
+import glob
 import os
+import shutil
+import tempfile
 import sys
 from fractions import Fraction as F
 
@@ -19,9 +22,9 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 from quality import grid as _G                                    # noqa: E402
 from quality import schemes as S                                  # noqa: E402
 from quality.grid import (Line, Meter, Section, Song, UNDECLARED,  # noqa: E402
-                          UnknownFunction, line_pickup, phrase_profile,
-                          song_from_blueprint, stanza_lock, tokens,
-                          uniformity)
+                          UnknownFunction, VariationDeclaration, line_pickup,
+                          phrase_profile, song_from_blueprint, stanza_lock,
+                          tokens, uniformity)
 
 FAILURES = []
 
@@ -817,9 +820,17 @@ def test_the_ask_gate_reaches_every_function_that_is_expected_once():
           [f.code for f in real["findings"]]
           == ["RETURN_LOCKED", "HOOK_CONFINED", "TITLE_NOT_IN_HOOK"],
           [f.code for f in real["findings"]])
+    # THE TRIPLE IS REPINNED (5, 4, 1) -> (5, 4, 1), 2026-08-22: the
+    # PLACEMENT question joined the report (`MISSING.md` M-54) and this
+    # fixture answers it cleanly, so one more question is asked and one more
+    # answered. THE FINDING LIST IS UNMOVED, which is this section's actual
+    # subject and is asserted immediately above -- "the well-formed fixture
+    # gains nothing" is a claim about FINDINGS and it still holds. A count
+    # that moves because a new question is genuinely put is a repin, not a
+    # regression (doctrine 58/91).
     check("same refusals, and the same three counts",
           [r.code for r in real["refusals"]] == ["CHANNEL_NOT_MEASURED"]
-          and (real["asked"], real["answered"], real["refused"]) == (4, 3, 1),
+          and (real["asked"], real["answered"], real["refused"]) == (5, 4, 1),
           f"asked {real['asked']}, answered {real['answered']}, refused "
           f"{real['refused']}")
 
@@ -1061,11 +1072,11 @@ def test_every_variation_kind_is_reportable():
     input also satisfies something above it is dead vocabulary: present in the
     tuple, glossed in the docstring, never once the answer. Doctrine 48 -- a
     principle that lives only in prose gets followed exactly as often as
-    someone remembers it, and the fifteen entries of `VARIATION_KINDS` are a
+    someone remembers it, and the entries of `VARIATION_KINDS` are a
     promise in prose until something asks each of them to be the answer.
 
     THIS IS THE AUDIT, RUN AS A TEST rather than reported once. It found
-    nothing wrong with the shipped ladder: all fifteen are reportable, so
+    nothing wrong with the shipped ladder: EVERY rung is reportable, so
     nothing was fixed. It fails under QG1 with EXACTLY the two kinds that
     mutation collapses -- TRUNCATED_RETURN and EXTENDED_RETURN -- and the
     other thirteen still reported, which is a sharper fingerprint than "a
@@ -1078,7 +1089,7 @@ def test_every_variation_kind_is_reportable():
     a LABELLED proxy (doctrine 45), it says so in its own `declared_name`, and
     reading it as a claim about rhyme would be reading it wrong.
     """
-    print("\n22. THE LADDER — every one of the fifteen kinds can be the "
+    print("\n22. THE LADDER — every one of its kinds can be the "
           "REPORTED kind")
     from quality.grid import (VARIATION_KINDS, compare_returns,
                               rime_orthographic)
@@ -1145,6 +1156,16 @@ def test_every_variation_kind_is_reportable():
              "morning found the empty road"],
             ["whistles blow for nobody",
              "so few candles burning bright"], {}),
+        # THE ONLY RUNG REACHED BY A DECLARATION RATHER THAN BY TEXT
+        # (`MISSING.md` M-26). Its fixture is a VERBATIM pair: what makes it
+        # this kind is `varies_off_text`, so the fixture is identical to
+        # VERBATIM's above and the DECLARATION is the whole difference —
+        # which is exactly the property §33 exists to pin.
+        "TEXT_VERBATIM_CHANNEL_UNREAD": (
+            ["kamala kanuka mrdu smita", "nadalola nannu brovumu"],
+            ["kamala kanuka mrdu smita", "nadalola nannu brovumu"],
+            {"decl": VariationDeclaration(
+                varies_off_text="the melodic line (Carnatic sangati)")}),
     }
 
     ladder = [k for k, _ in VARIATION_KINDS]
@@ -1163,7 +1184,7 @@ def test_every_variation_kind_is_reportable():
         got = compare_returns(first, again, **kw)
         if got.kind != kind:
             unreportable.append((kind, got.kind, sorted(got.qualities)))
-    check("all fifteen are reachable as the reported kind — no rung of the "
+    check("EVERY rung is reachable as the reported kind — no rung of the "
           "ladder is shadowed by the one above it",
           not unreportable,
           "\n          ".join(f"{k} is UNREPORTABLE: its own fixture came "
@@ -1533,7 +1554,7 @@ def test_a_reprise_is_a_relation_between_two_DIFFERENT_functions():
           not real["reprises"]
           and [f.code for f in real["findings"]]
           == ["RETURN_LOCKED", "HOOK_CONFINED", "TITLE_NOT_IN_HOOK"]
-          and (real["asked"], real["answered"], real["refused"]) == (4, 3, 1),
+          and (real["asked"], real["answered"], real["refused"]) == (5, 4, 1),
           f"pairs asked: {sorted(real['reprises'])}; asked {real['asked']} "
           f"answered {real['answered']} refused {real['refused']} — the same "
           f"three counts section 19 pins, unchanged by this layer")
@@ -2038,6 +2059,14 @@ _SONG_GLOB = os.path.join(os.path.dirname(os.path.abspath(__file__)),
 #: song counts are the register's, re-derived; the AIRS are the finding.
 _AIR_EXPECT = {"cym": (391, 13), "eng": (8667, 539), "fas": (8350, 0),
                "fin": (962, 18), "ltc": (10529, 0), "msa": (129, 0),
+               # ADDED 2026-08-22 with the K-4 Old Norse staging: 160 vísur,
+               # ZERO named airs, and the zero is a reading rather than an
+               # absence — skaldic verse quoted inside saga prose carries no
+               # tune direction, because it was spoken in a narrative and not
+               # sung to a known air. The prefix is pinned precisely so that
+               # stays a measured zero: an absent key would read the same
+               # (doctrine 20), which is the whole point of the check above.
+               "non": (160, 0),
                "san": (25, 0)}
 
 
@@ -2191,6 +2220,850 @@ def test_function_aliases_are_claims_on_their_own_rows():
           "middle-eight" in _GR.SECTION_FUNCTIONS["bridge"].aliases)
 
 
+def test_the_printed_indent_survives_ingestion():
+    """`Block.indents` and `indent_partition`, added 2026-08-21.
+
+    Every reader in this repo called `.strip()` before anything saw a line, so
+    the compositor's indent — which over `eng_*` predicts a shared spelled
+    rime at 6.19x against a within-block permutation null (`MISSING.md` M-28)
+    — reached nothing. This pins that it survives, that it is a SHAPE rather
+    than a column count, and that a `Block` with no printing says so with an
+    EMPTY partition rather than a row of zeros (doctrine 20)."""
+    print("\ntest: the printed indent survives ingestion")
+    import lyric_harness as LH
+    check("line_indent counts leading columns", LH.line_indent("    x") == 4,
+          LH.line_indent("    x"))
+    check("a blank line has no indent rather than its own length",
+          LH.line_indent("      ") == 0, LH.line_indent("      "))
+
+    tmp = tempfile.mkdtemp(prefix="grid_indent_")
+    path = os.path.join(tmp, "eng_indent.txt")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("# lang: eng\n\n--- TITLE: A LADDER\n[VERSE 1]\n"
+                "The wind was on the heath,\n"
+                "  and there it stayed;\n"
+                "The sun was underneath,\n"
+                "  and all was shade;\n")
+    song = _G.read_marked_songs(path)[0]
+    b = song.blocks[0]
+    check("the indents are recorded, index-aligned with the lines",
+          b.indents == [0, 2, 0, 2] and len(b.indents) == len(b.lines),
+          (b.indents, b.lines))
+    check("the lines themselves are STILL stripped — the text half is "
+          "byte-identical to what every reader saw before",
+          b.lines[1] == "and there it stayed;", b.lines[1])
+    check("indent_partition is a SHAPE, not a column count",
+          _G.indent_partition(b) == (0, 1, 0, 1), _G.indent_partition(b))
+
+    # THE SAME SHAPE AT A DIFFERENT DEPTH MUST READ THE SAME, which is what
+    # makes two printings comparable — the normalisation a letter scheme
+    # already applies to rhyme.
+    path2 = os.path.join(tmp, "eng_indent_deep.txt")
+    with open(path2, "w", encoding="utf-8") as f:
+        f.write("# lang: eng\n\n--- TITLE: THE SAME LADDER\n[VERSE 1]\n"
+                "a\n        b\nc\n        d\n")
+    b2 = _G.read_marked_songs(path2)[0].blocks[0]
+    check("8 spaces reads the same shape as 2", 
+          _G.indent_partition(b2) == _G.indent_partition(b),
+          (_G.indent_partition(b2), b2.indents))
+
+    # DOCTRINE 20: a Block built from a blueprint has no printing, and
+    # "the printing said nothing" is not "the printing set every line flush".
+    check("a Block with no recorded indents returns an EMPTY partition, "
+          "never a row of zeros",
+          _G.indent_partition(_G.Block(mark="VERSE", base="VERSE", index=1,
+                                       function="verse",
+                                       lines=["a", "b"])) == (),
+          _G.indent_partition(_G.Block(mark="VERSE", base="VERSE", index=1,
+                                       function="verse",
+                                       lines=["a", "b"])))
+
+
+def test_a_return_that_varies_off_the_text():
+    """`MISSING.md` M-26 — a declared off-text channel outranks VERBATIM.
+
+    All 15 members of `VARIATION_KINDS` compare WORD CONTENT, so a return
+    that holds the text fixed and varies something else scored `VERBATIM` —
+    the STRONGEST claim the ladder can make that nothing changed. A kṛti's
+    sangati is the defining device of its exposition and holds the sāhitya
+    fixed while the melody moves; every one came back `VERBATIM`.
+
+    THIS IS NOT THE HARNESS OVERREACHING ITS TEXT (doctrine 93 — melody is
+    not in a lyric sheet and this layer must not claim it). It is the harness
+    MISREPORTING ITS SILENCE: `compare_returns` has a refusal channel and no
+    member of it could say *the channel this tradition varies is not in the
+    text*, so inconclusive-by-construction came back as a null — and as the
+    most positive null available (doctrine 20).
+    """
+    print("\n33. a declared off-text channel outranks VERBATIM (M-26)")
+    same = ["kamala kanuka mrdu smita", "nadalola nannu brovumu"]
+
+    # (a) UNDECLARED IS UNCHANGED. This is the control that makes the feature
+    # safe to ship: every comparison ever made here reads as it always did.
+    plain = _G.compare_returns(same, list(same))
+    check("with nothing declared the return is still VERBATIM",
+          plain.kind == "VERBATIM"
+          and not [r for r in plain.refusals if r.code == "VARIES_OFF_TEXT"],
+          plain.kind)
+
+    # (b) THE DECLARED CASE.
+    decl = _G.VariationDeclaration(
+        varies_off_text="the melodic line (Carnatic sangati)")
+    off = _G.compare_returns(same, list(same), decl=decl)
+    check("a declared off-text channel relabels the headline",
+          off.kind == "TEXT_VERBATIM_CHANNEL_UNREAD", off.kind)
+    ref = [r for r in off.refusals if r.code == "VARIES_OFF_TEXT"]
+    check("and it REFUSES by name rather than only relabelling", len(ref) == 1)
+    check("the refusal names the channel the caller declared, so a reader "
+          "learns WHICH question went unanswered",
+          ref and "sangati" in ref[0].evidence, ref[0].evidence[:70] if ref
+          else "")
+    check("...and says it CANNOT TELL, not that the return did not vary",
+          ref and "CANNOT TELL" in ref[0].evidence.upper()
+          and "doctrine 20" in ref[0].evidence, ref[0].evidence[:90] if ref
+          else "")
+
+    # (c) THE MEASUREMENT IS KEPT (doctrine 24 — the rule RELABELS). The words
+    # ARE identical and that is true; deleting it would trade one false claim
+    # for a missing one.
+    check("`qualities` still carries VERBATIM — the underlying measurement "
+          "survives the relabel",
+          "VERBATIM" in off.qualities, sorted(off.qualities))
+
+    # (d) THE DECLARATION ONLY OUTRANKS VERBATIM. A return whose WORDS moved
+    # is graded by the ladder exactly as before — the declaration is about
+    # what the harness cannot see, not a blanket silencer.
+    moved = _G.compare_returns(same, [same[0], "nadalola ninnu vededanu"],
+                               decl=decl)
+    check("a return whose WORDS moved is unaffected by the declaration",
+          moved.kind != "TEXT_VERBATIM_CHANNEL_UNREAD"
+          and not [r for r in moved.refusals if r.code == "VARIES_OFF_TEXT"],
+          moved.kind)
+
+    # (e) THE RANK IS STRUCTURAL. `kind` is the FIRST member of
+    # `VARIATION_KINDS` present in the quality set, so the new row must sit
+    # ABOVE `VERBATIM` or the relabel silently never happens.
+    order = [k for k, _ in _G.VARIATION_KINDS]
+    check("the new kind is ranked above VERBATIM in the declared order",
+          order.index("TEXT_VERBATIM_CHANNEL_UNREAD") < order.index("VERBATIM"))
+    # AND THE EQUIVALENCE THAT MAKES THE CONSUMER REWRITE SAFE: the only OTHER
+    # kind above VERBATIM is STUB, which never carries the quality — so
+    # `kind == "VERBATIM"` and `"VERBATIM" in qualities` could not disagree
+    # before this row existed, and the rewrite below moved nothing.
+    stub = _G.compare_returns(["one line here", "and a second"], ["&c."])
+    check("STUB — the only other kind above VERBATIM — carries no VERBATIM "
+          "quality, so the two readings agreed before this row",
+          stub.kind == "STUB" and "VERBATIM" not in stub.qualities,
+          "%s %s" % (stub.kind, sorted(stub.qualities)))
+
+    # (f) AND THE TWO CONSUMERS STILL FIRE, which is the half a relabel breaks
+    # if nobody looks. Both ask about the WORDS, so both read the QUALITY now;
+    # under the old `kinds == {"VERBATIM"}` spelling a caller who declared an
+    # off-text channel would have silently lost two true findings.
+    verse = ["a quiet road and nothing on it", "the rain came down at "
+             "midnight", "morning found the empty road", "and nobody was home"]
+    sng = _G.Song(sections=[_G.Section("v1", 4, function="verse"),
+                            _G.Section("c1", 4, function="chorus"),
+                            _G.Section("v2", 4, function="verse"),
+                            _G.Section("c2", 4, function="chorus")]).layout()
+    sng.lines = ([_G.Line(t, bar=1) for t in verse]
+                 + [_G.Line("hold the line tonight", bar=5)]
+                 + [_G.Line(t, bar=9) for t in verse]
+                 + [_G.Line("hold the line tonight", bar=13)])
+    base = {f.code for f in _G.return_findings(sng, "verse")[0]}
+    under = {f.code for f in _G.return_findings(sng, "verse", decl=decl)[0]}
+    check("RETURNS_WITH_SAME_WORDS fires with the declaration as without — "
+          "the words really are identical and that finding is about the words",
+          "RETURNS_WITH_SAME_WORDS" in base
+          and "RETURNS_WITH_SAME_WORDS" in under,
+          "base %s | declared %s" % (sorted(base), sorted(under)))
+
+
+def test_a_refusal_is_true_in_a_language():
+    """`MISSING.md` M-24 — `MARK_REFUSED` is keyed on `(language, mark)`.
+
+    The table was keyed on a bare token, so `MARK_REFUSED["PART"]` read *"a
+    speaker or role attribution in the Kalevala wedding songs"* — and that
+    sentence is what an Irish tune staged as `[PART A]` would have been
+    refused with: true, in the wrong language, about the wrong object.
+    Doctrine 45 — a checker that silently picks a language is making a claim
+    it never states.
+
+    THE CHECKS BELOW ARE NOT SATISFIED BY THE SHIPPED CORPUS, and that is
+    deliberate: measured 2026-08-22, EVERY refused mark occurs in exactly one
+    language, so no corpus file can reach the cross-language branch and a
+    section built only on real files would pass identically before and after
+    the fix (doctrine 20 — an empty population reads like a pass).
+    """
+    print("\n32. a refusal is true IN A LANGUAGE, not of a token (M-24)")
+
+    # (a) THE TABLE CANNOT HOLD A LANGUAGE-LESS ROW. This is the mechanical
+    # half: the coordinate is in the KEY, so a row cannot be added without
+    # naming a tradition, and no future lot can reintroduce the bare token by
+    # forgetting rather than by deciding (doctrine 48).
+    from quality import phonology as _PH
+    bad = [k for k in _G.MARK_REFUSED
+           if not (isinstance(k, tuple) and len(k) == 2)]
+    check("every MARK_REFUSED key is a (language, mark) pair", not bad,
+          str(bad))
+    undeclared = sorted({k[0] for k in _G.MARK_REFUSED
+                         if k[0] not in _PH.declared()})
+    check("every key's language is a DECLARED one, not a free string",
+          not undeclared, str(undeclared))
+    check("and the table is not empty, so the two checks above examined "
+          "something", len(_G.MARK_REFUSED) >= 15,
+          "%d rows" % len(_G.MARK_REFUSED))
+
+    # (b) THE WORKED CASE FROM THE ENTRY, and the load-bearing assertion is
+    # the NEGATIVE one: the Finnish sentence must not appear. A refusal that
+    # merely changed its code while still quoting the other tradition would
+    # pass a code check and fail the reader.
+    fin_reason = _G.MARK_REFUSED[("fin", "PART")]
+    own = _G.ingest_mark("PART: Kaason puoli", "fin")[3]
+    check("PART in fin gets fin's own written reason",
+          own.code == "MARK_NOT_A_FUNCTION" and own.evidence == fin_reason,
+          own.code)
+    other = _G.ingest_mark("PART A", "gle")[3]
+    check("PART in another language is REFUSED ELSEWHERE, not decided",
+          other.code == "MARK_REFUSED_ELSEWHERE", other.code)
+    check("and Finland's reason is NOT quoted over it",
+          "Kalevala" not in other.evidence
+          and "wedding" not in other.evidence, other.evidence[:80])
+    check("the refusal NAMES the language that did decide, and the one that "
+          "did not", "fin" in other.evidence and "gle" in other.evidence,
+          other.evidence[:80])
+
+    # (c) NO LANGUAGE DECLARED IS ITS OWN ANSWER. Every recorded refusal keeps
+    # its wording — this is not a behaviour change for the 1,423 staged files
+    # — but the reader is told whose sentence it is reading.
+    none = _G.ingest_mark("PART: Kaason puoli")[3]
+    check("with no language the decision still stands, LABELLED with the "
+          "tradition it was written for",
+          none.code == "MARK_NOT_A_FUNCTION" and fin_reason in none.evidence
+          and "fin" in none.evidence.split("]")[0], none.evidence[:70])
+
+    # (d) THE POSITIVE TABLE IS NOT GIVEN THE COORDINATE, and the measurement
+    # is the argument rather than an omission: `VERSE` is carried by eng, ltc,
+    # fin, cym and san. Keying it per language would be five rows saying one
+    # thing.
+    check("a shared positive mark reads identically in every language",
+          len({_G.ingest_mark("VERSE 2", lg)[:3]
+               for lg in ("eng", "san", "ltc", "cym", "fin", "")}) == 1)
+
+    # (e) AND A MARK IN NO TABLE AT ALL IS STILL THE THIRD ANSWER — the fix
+    # must not collapse "declared somewhere else" into "never heard of it".
+    check("an unrecognised mark is UNRECOGNISED, not REFUSED_ELSEWHERE",
+          _G.ingest_mark("ZZZQX", "eng")[3].code == "MARK_UNRECOGNISED")
+
+    # (f) THE DERIVATION, AND ITS LIMIT, STATED. `language_of_path` reads the
+    # corpus's own filename prefix and CHECKS it, so a fixture named
+    # `marked.txt` yields "" rather than the language `mar`.
+    check("a corpus path yields its declared language",
+          _G.language_of_path("corpus/song/fin_kanteletar.txt") == "fin")
+    check("a non-corpus path yields NO language rather than inventing one",
+          _G.language_of_path("quality/fixtures/marked.txt") == "")
+    # THE LIMIT IS REAL AND IS ASSERTED SO IT CANNOT BE MISREAD AS CLOSED:
+    # `gle` is not a declared phonology, so M-24's own Irish example cannot
+    # reach the ELSEWHERE branch BY PATH — only by a caller passing the
+    # language. Staging a language this repo has no phonology for is a
+    # separate decision and the entry stays open on it.
+    check("a language with no phonology does not derive from a path — the "
+          "half of M-24 that a coordinate alone does not close",
+          _G.language_of_path("corpus/song/gle_tune.txt") == "")
+
+    # (g) AND THE RESOLVER IS REACHED BY THE READER, not merely reachable.
+    # This repo has filed the resolver-consulted-by-nobody defect four times;
+    # `read_marked_songs` had taken `language=` since it was written and
+    # passed it to `ingest_mark` never.
+    d = tempfile.mkdtemp()
+    try:
+        f = os.path.join(d, "fin_probe.txt")
+        with open(f, "w", encoding="utf-8") as fh:
+            fh.write("--- TITLE: PROBE\n[PART: Kaason puoli]\nyksi rivi\n")
+        blocks = _G.read_marked_songs(f)[0].blocks
+        check("read_marked_songs DERIVES the language from the path and "
+              "hands it to ingest_mark",
+              blocks[0].refusal.evidence == fin_reason,
+              blocks[0].refusal.evidence[:60])
+        # THE CONTRAST, on a byte-identical mark in a file whose language
+        # decided nothing about it: the same three words, a different answer.
+        g = os.path.join(d, "cym_probe.txt")
+        with open(g, "w", encoding="utf-8") as fh:
+            fh.write("--- TITLE: PROBE\n[PART: Kaason puoli]\nun llinell\n")
+        b2 = _G.read_marked_songs(g)[0].blocks[0]
+        check("the SAME mark in a cym file is refused elsewhere, not decided",
+              b2.refusal.code == "MARK_REFUSED_ELSEWHERE", b2.refusal.code)
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+    # (h) THE VOCABULARY IS KEPT IN TWO PLACES, and this is the guard that
+    # makes the duplication safe rather than the restructuring that would
+    # remove it: `audit_corpus.LANG_PREFIX` is a hand-kept dict of the same
+    # nine codes `phonology.declared()` returns. Two definitions of one
+    # vocabulary (doctrine 1) — recorded in `MISSING.md` M-24 rather than
+    # merged here, because that table is read by a pinned audit.
+    from quality import audit_corpus as _AC
+    check("audit_corpus.LANG_PREFIX and phonology.declared() are the same "
+          "vocabulary — asserted, since they are typed twice",
+          set(_AC.LANG_PREFIX) == set(_PH.declared()),
+          str(set(_AC.LANG_PREFIX) ^ set(_PH.declared())))
+
+
+def test_the_elaboration_pointer_and_the_rank_that_was_refused():
+    """`quality/SECTION_ORDER_PREREGISTRATION.md`, both halves.
+
+    The registration proposed TWO fields and its falsifier fired on one.
+    `rank` -- a position in the ladder urlar < siubhal < taorluath <
+    crunluath < crunluath a-mach -- is REFUSED: two of three staged
+    pìobaireachds are NOT monotone, none is complete, and the top two rungs
+    have zero attestation anywhere in the corpus. `elaborates` survived, and
+    this pins it.
+
+    THE UNGROUNDED CHECK FIRES ZERO TIMES ON THE SHIPPED CORPUS, so the
+    defect is PLANTED here. Doctrine 94: a positive-case suite cannot find a
+    rule that is too generous, and 0 of 9 is a measurement about this corpus
+    rather than evidence the rule works."""
+    print("\ntest: the elaboration pointer, and the rank that was refused")
+
+    # THE REFUSED HALF, PINNED AS REFUSED (doctrine 17: a falsified proposal
+    # is recorded, never quietly reintroduced).
+    check("no `rank` field was adopted on any section function",
+          not any(hasattr(v, "rank") for v in _G.SECTION_FUNCTIONS.values()),
+          [k for k, v in _G.SECTION_FUNCTIONS.items() if hasattr(v, "rank")])
+    check("the ladder's top two rungs are declared but unattested — the "
+          "measurement that refused `rank`",
+          {"TAORLUATH", "CRUNLUATH A-MACH"} <= set(_G.MARK_ELABORATES),
+          sorted(_G.MARK_ELABORATES))
+
+    # THE ADOPTED HALF, ON THE REAL POPULATION.
+    song_dir = os.path.join(os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__))), "corpus", "song")
+    tot = {"grounded_before": 0, "grounded_after": 0, "ungrounded": 0}
+    found = 0
+    for path in sorted(glob.glob(os.path.join(song_dir, "*.txt"))):
+        for song in _G.read_marked_songs(path):
+            fs, c = _G.elaboration_findings(song)
+            for k, v in c.items():
+                tot[k] += v
+            found += len(fs)
+    check("9 elaborating sections corpus-wide, 8 grounded BEFORE and 1 after",
+          tot == {"grounded_before": 8, "grounded_after": 1, "ungrounded": 0},
+          tot)
+    check("...and the one grounded AFTER is not charged: `THE PRAISE OF "
+          "MORAG` opens on a siubhal because the page prints its first "
+          "movement with NO heading at all",
+          found == 0, found)
+
+    # THE PLANTED DEFECT. A song whose siubhal varies an urlar it never has.
+    tmp = tempfile.mkdtemp(prefix="grid_elab_")
+    path = os.path.join(tmp, "eng_planted_elab.txt")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("# lang: eng\n\n--- TITLE: NO GROUND\n"
+                "[SIUBHAL]\n[VERSE 1]\nAway with all but Morag,\n")
+    song = _G.read_marked_songs(path)[0]
+    fs, c = _G.elaboration_findings(song)
+    check("a siubhal with no urlar anywhere in the song IS reported",
+          len(fs) == 1 and fs[0].code == "ELABORATION_UNGROUNDED",
+          [(x.code, x.message) for x in fs])
+    # SEVERITY IS THE CONSUMER'S, and asserting it here would be asserting a
+    # field this object does not have. The first draft of this check read
+    # `fs[0].severity == "note"`; `GridFinding` is `code`/`message`/
+    # `evidence`, so it raised rather than passing — which is the good
+    # outcome, and the pin is on what the object DOES carry.
+    check("it carries a message and evidence, so a reader is told what the "
+          "claim was and why it is false — an empty evidence string under a "
+          "finding is a verdict with no reason",
+          fs and fs[0].message and fs[0].evidence,
+          fs and (fs[0].message, fs[0].evidence[:40]))
+    check("the counts say ungrounded 1 and nothing else",
+          c == {"grounded_before": 0, "grounded_after": 0, "ungrounded": 1}, c)
+
+    # THE CONTROL: add the ground and the finding goes away.
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("# lang: eng\n\n--- TITLE: WITH GROUND\n"
+                "[URLAR]\n[VERSE 1]\nWe would strike the note of joy,\n"
+                "[SIUBHAL]\n[VERSE 2]\nAway with all but Morag,\n")
+    fs2, c2 = _G.elaboration_findings(_G.read_marked_songs(path)[0])
+    check("with the urlar present the finding is gone and the count moves to "
+          "grounded_before",
+          not fs2 and c2["grounded_before"] == 1, (fs2, c2))
+
+
+def test_the_section_coordinate_is_supplied():
+    """`MISSING.md` M-39. `relations.build_stream` has taken `sections=`
+    since it was written, `Unit.section` is populated from it, two Placement
+    kinds read it — and nobody ever passed one. This is the supply, and it
+    lives here because this module owns the mark vocabulary."""
+    print("\n·  M-39 — the section coordinate, supplied")
+    raw = ["[VERSE 1]", "the night", "the light",
+           "[CHORUS]", "the day", "the way",
+           "[VERSE 2]", "the sea"]
+    sec, status = _G.sections_from_marks(raw, "eng")
+    check("a marker line is labelled so a caller can exclude it",
+          status[0] == _G.SECTION_MARKER_STATUS and status[1] == "",
+          status[:2])
+    check("every line carries its section, and the identity is PER "
+          "OCCURRENCE — a second [VERSE] is a different section, which is "
+          "what the placement predicates ask",
+          (sec[1], sec[4], sec[7]) == ("VERSE#0", "CHORUS#1", "VERSE#2"),
+          (sec[1], sec[4], sec[7]))
+    check("lines before the first mark are UNDECLARED, not guessed",
+          _G.sections_from_marks(["a line", "[VERSE 1]", "b"], "eng")[0][0]
+          == "")
+    cen = _G.section_census(raw, "eng")
+    check("the census counts marks and functions from the DECLARED table",
+          cen["marks"] == 3 and cen["functions"] == {"verse": 2, "chorus": 1},
+          cen)
+    # A MARK THIS LANGUAGE REFUSES IS KEPT APART, never dropped and never
+    # accepted (doctrine 79) -- BAYT is Persian and MARK_REFUSED says so.
+    ref = _G.section_census(["[BAYT 1]", "a line"], "eng")
+    check("a mark another tradition owns is REFUSED and counted apart, not "
+          "silently accepted as an English section function",
+          ref["refused"] == {"BAYT": 1} and ref["functions"] == {}, ref)
+    check("...and it still gets a section identity, so the line is not "
+          "orphaned by the refusal",
+          _G.sections_from_marks(["[BAYT 1]", "a"], "eng")[0][1] == "BAYT#0")
+    # END TO END: the coordinate reaches the two predicates that read it.
+    from quality import relations as _R
+    import lyric_harness as _LH
+    phon = _LH._phonology_or_refuse("eng")
+    st = _R.build_stream(raw, phon, sections=sec, line_status=status,
+                         exclude_status=(_G.SECTION_MARKER_STATUS,))
+    check("the marker is OUT of the token stream — unfiltered it becomes the "
+          "WORD `CHORUS` and can stand in a `repetition`",
+          "CHORUS" not in [u.token_text for u in st.units]
+          and "VERSE" not in [u.token_text for u in st.units])
+    check("...and the loss is RECORDED, not silent",
+          [e[2] for e in st.excluded_lines]
+          == ["[VERSE 1]", "[CHORUS]", "[VERSE 2]"],
+          st.excluded_lines)
+    check("Unit.section is real for the first time",
+          len({u.section for u in st.units}) == 3,
+          sorted({u.section for u in st.units}))
+    a = _R.Span(idx=(0,), anchor_pos=0, direction=1, unit="token")
+    b = _R.Span(idx=(len(st.units) - 1,), anchor_pos=0, direction=1,
+                unit="token")
+    same = _R.Placement(kind="same_section", args=(), polarity=True,
+                        requires=()).holds(a, b, st)
+    diff = _R.Placement(kind="different_sections", args=(), polarity=True,
+                        requires=()).holds(a, b, st)
+    check("the two predicates ANSWER, and answer differently — against the "
+          "historical all-`\"\"` stream one was always True and the other "
+          "always False", (same, diff) == (False, True), (same, diff))
+    st0 = _R.build_stream(raw, phon)
+    a0 = _R.Span(idx=(0,), anchor_pos=0, direction=1, unit="token")
+    b0 = _R.Span(idx=(len(st0.units) - 1,), anchor_pos=0, direction=1,
+                 unit="token")
+    check("...and WITHOUT the supply they still collapse, which is the "
+          "defect this pins rather than a second passing case",
+          _R.Placement(kind="different_sections", args=(), polarity=True,
+                       requires=()).holds(a0, b0, st0) is False)
+
+
+def test_the_stanza_ground_is_printed_or_refused():
+    """`MISSING.md` M-39, the second half.  A stanza frame that no text
+    supplied and a stanza frame of one must not be the same vector."""
+    print("\nM-39: the stanza ground is READ FROM THE PAGE, or REFUSED")
+    import quality.relations as _R
+    import quality.relations_null as _N
+
+    # -- the table answers a question of its own, and not `MARK_FUNCTION`'s.
+    check("BAYT/SLOKA/PANTUN are NOT section functions and DO open a group",
+          all(_G.ingest_mark(m, lg)[2] == ""
+              and _G.MARK_OPENS_GROUP[_G.ingest_mark(m, lg)[0]] is True
+              for m, lg in (("BAYT 1", "fas"), ("SLOKA", "san"),
+                            ("PANTUN ABAB", "msa"))),
+          "each refusal says in its own words that the mark is a couplet-, "
+          "stanza- or quatrain-unit; reading MARK_FUNCTION as the group table "
+          "would have dropped all three")
+    check("RADIF is a rhyme device and opens NOTHING",
+          _G.MARK_OPENS_GROUP["RADIF"] is False,
+          "'not a span of the song. It has no bars and no return.'")
+    check("PART is ABSENT rather than guessed, so a fin text carrying it "
+          "refuses its ground WHOLE",
+          "PART" not in _G.MARK_OPENS_GROUP
+          and _G.stanza_ground(["[PART: Kaason puoli]", "a line"], "fin")
+          == (None, "none", ("PART",)))
+
+    # -- the three outcomes, and the middle one is the whole entry.
+    marked = ["[VERSE 1]", "a cat", "a hat", "", "[CHORUS]", "the moon"]
+    st, src, ref = _G.stanza_ground(marked, "eng")
+    check("a marked text grounds, and the mark and the blank line agree",
+          (st, src, ref) == ([0, 0, 0, 0, 1, 1], "printed_breaks", ()))
+    check("a text printing NO break of any kind supplies NO ground — it does "
+          "NOT supply one stanza",
+          _G.stanza_ground(["a cat", "a hat"], "eng") == (None, "none", ()))
+    check("stanzas_from_sections maps a section vector to group indices",
+          _G.stanzas_from_sections(["", "V#0", "V#0", "C#1"]) == [0, 1, 1, 2])
+
+    # -- and the panel, which is where the collapse was measured.
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    grounds = {}
+    for sl in _N.PANEL:
+        lines, stanzas, src, refused, refusal = sl.read_grounded(root)
+        if refusal is not None:
+            continue
+        check("%s: the grounded reader returns the SAME lines as the plain "
+              "one" % sl.name,
+              lines == _N.READERS[sl.reader](os.path.join(root, sl.path),
+                                             sl.limit),
+              "one walk, not two — a parallel function mirroring the drop "
+              "rule would be a second implementation of one question")
+        grounds[sl.name] = (src, None if stanzas is None
+                            else len(set(stanzas)))
+    check("seven of nine panel slices carry a printed ground, and fin/cym "
+          "carry none",
+          grounds == {"eng": ("printed_breaks", 7),
+                      "fin": ("none", None), "cym": ("none", None),
+                      "cym_cynghanedd": ("printed_breaks", 1),
+                      "non": ("printed_breaks", 5),
+                      "san": ("printed_verse_number", 14),
+                      "msa": ("printed_breaks", 10),
+                      "ltc": ("printed_breaks", 10),
+                      "fas": ("printed_breaks", 7)},
+          "%s" % grounds)
+
+    # -- the consequence, on the schema that sits second in the admissible set
+    from quality.phonology import get as _get_phon
+    sl = {x.name: x for x in _N.PANEL}["eng"]
+    lines, stanzas, _s, _r, _x = sl.read_grounded(root)
+    phon = _get_phon("eng")
+    toks = [_R.tokenise(l) for l in lines if l.strip()]
+    def _inst(ground):
+        st = _N._stream_of(toks, phon, "eng", sl.prepare(), ground)
+        out = _R.realise(_R.REGISTRY["monorhyme / leash"], st, keep="true")
+        return (out.capability if isinstance(out, _R.Refusal)
+                else sum(1 for i in out if i.verdict is True))
+    check("monorhyme/leash on Poe: 30 instances inside the printed stanzas",
+          _inst(stanzas) == 30,
+          "it read 268 over one 40-line block — a leash is a run of ONE rhyme "
+          "sound inside ONE stanza, and 238 of those pairs no leash contains")
+    check("...and with NO ground declared it REFUSES, naming the frame",
+          _inst(None) == "stanza",
+          "the refusal is the point: an instrument that never looked and one "
+          "that looked and found nothing must not print the same thing")
+
+
+def test_the_cli_reads_the_marks_it_used_to_delete():
+    """`MISSING.md` M-39, the piece the stanza commit left open.
+
+    The entry names the asymmetry in one sentence: *"The CLI grounds on BLANK
+    LINES only -- `is_apparatus_line` has already dropped the `[VERSE n]` rows
+    by the time `build_stream` is called, so a lyric that marks its sections
+    and prints no blank line still refuses there. The panel reads both because
+    its readers see the marks; the CLI does not."*  `lyric_harness.
+    relation_ground` is the supply, and this pins it end to end BECAUSE the
+    vocabulary it reads -- `SECTION_MARK`, `MARK_OPENS_GROUP`,
+    `GROUP_BREAK_PREFIX` -- is this module's.
+
+    EVERY POSITIVE CHECK BELOW HAS A CONTROL, because a positive-only suite
+    cannot find a rule that is too permissive: each one is run a second time
+    against the reader as it was (`is_apparatus_line` then `stanzas=None`) or
+    against a stream built with the argument withheld, and the control asserts
+    the COLLAPSE. Delete the supply and the controls pass while the positives
+    fail, which is the pair that makes this a regression rather than a
+    snapshot.
+    """
+    print("\n·  M-39 — the CLI reads the marks it used to delete")
+    import lyric_harness as _LH
+    from quality import relations as _R
+
+    phon = _LH._phonology_or_refuse("eng")
+
+    def _stream(g):
+        return _R.build_stream(g.lines, phon, sections=g.sections,
+                               stanzas=g.stanzas,
+                               stanza_source=g.stanza_source,
+                               line_status=g.line_status,
+                               exclude_status=g.exclude_status)
+
+    def _old(text):
+        """The reader as it was: apparatus deleted, blank lines the only
+        ground. This is the defect, kept runnable so the pins below are a
+        DIFFERENCE and not a snapshot."""
+        raw = [l.rstrip() for l in text if not _LH.is_apparatus_line(l)]
+        return _R.build_stream(raw, phon, stanzas=None)
+
+    # -- 1. what carries a coordinate is KEPT; what carries none is dropped.
+    text = ["# author: nobody", "--- TITLE: A SONG", "[VERSE 1]",
+            "the night", "the light", "[CHORUS]", "the day", "the way",
+            "[Exeunt."]
+    g = _LH.relation_ground(text, "eng")
+    check("the `[MARK]` and `---` rows are KEPT in the line vector and the "
+          "`#` comment and the unclosed bracket are dropped",
+          (g.marks, g.breaks, g.dropped) == (2, 1, 2)
+          and g.lines == ["--- TITLE: A SONG", "[VERSE 1]", "the night",
+                          "the light", "[CHORUS]", "the day", "the way"],
+          (g.marks, g.breaks, g.dropped, g.lines))
+    check("...and each kept row carries the status that keeps it out of the "
+          "token stream, which is what `exclude_status` reads",
+          g.line_status == (_LH.SONG_BREAK_STATUS, _G.SECTION_MARKER_STATUS,
+                            "", "", _G.SECTION_MARKER_STATUS, "", "")
+          and g.exclude_status == (_G.SECTION_MARKER_STATUS,
+                                   _LH.SONG_BREAK_STATUS),
+          g.line_status)
+    check("a `#` header block is dropped rather than kept-and-excluded, "
+          "because `stanza_ground` reads any line it cannot classify as "
+          "CONTENT and nine lines of `# author:` would become a stanza",
+          "# author: nobody" not in g.lines)
+
+    # -- 2. THE SENTENCE M-39 WROTE: marks, no blank line, and it grounds.
+    st = _stream(g)
+    check("a lyric that marks its sections and prints NO blank line now "
+          "grounds on its own marks",
+          (st.frames.stanza_source, st.supply("stanza").state,
+           st.supply("stanza").n) == ("printed_breaks", "present", 2),
+          (st.frames.stanza_source, st.supply("stanza")))
+    sto = _old(text)
+    check("CONTROL — the reader as it was supplies NO ground for the same "
+          "text, which is the refusal M-39 recorded at this seam",
+          (sto.frames.stanza_source, sto.supply("stanza").state)
+          == ("none", "absent"),
+          (sto.frames.stanza_source, sto.supply("stanza")))
+
+    # -- 3. `Unit.section` reaches production, and both predicates answer.
+    check("Unit.section is populated by a PRODUCTION caller for the first "
+          "time — `sections=` had zero callers anywhere when M-39 was filed",
+          sorted({u.section for u in st.units})
+          == ["CHORUS#1", "VERSE#0"],
+          sorted({u.section for u in st.units}))
+    a = _R.Span(idx=(0,), anchor_pos=0, direction=1, unit="token")
+    b = _R.Span(idx=(len(st.units) - 1,), anchor_pos=0, direction=1,
+                unit="token")
+    ans = (_R.Placement(kind="same_section", args=(), polarity=True,
+                        requires=()).holds(a, b, st),
+           _R.Placement(kind="different_sections", args=(), polarity=True,
+                        requires=()).holds(a, b, st))
+    check("the two placement predicates ANSWER, and answer differently",
+          ans == (False, True), ans)
+    bare = _R.build_stream(g.lines, phon, stanzas=g.stanzas,
+                           stanza_source=g.stanza_source,
+                           line_status=g.line_status,
+                           exclude_status=g.exclude_status)
+    b0 = _R.Span(idx=(len(bare.units) - 1,), anchor_pos=0, direction=1,
+                 unit="token")
+    ctl = (_R.Placement(kind="same_section", args=(), polarity=True,
+                        requires=()).holds(a, b0, bare),
+           _R.Placement(kind="different_sections", args=(), polarity=True,
+                        requires=()).holds(a, b0, bare))
+    check("CONTROL — withhold `sections=` and they collapse again, one "
+          "always True and the other always False over an all-`\"\"` stream",
+          len({u.section for u in bare.units}) == 1 and ctl == (True, False),
+          ctl)
+
+    # -- 4. the kept rows are POINTERS, not verse. M-39's latent half: an
+    #       unfiltered `[CHORUS]` tokenises to the WORD `CHORUS`, and two of
+    #       them stand in a `repetition`.
+    check("a kept marker contributes NO units — the mark never becomes a word",
+          not {"CHORUS", "VERSE", "TITLE"} & {u.token_text for u in st.units})
+    check("...and the loss is RECORDED rather than silent",
+          [e[2] for e in st.excluded_lines]
+          == ["--- TITLE: A SONG", "[VERSE 1]", "[CHORUS]"],
+          st.excluded_lines)
+    loose = _R.build_stream(g.lines, phon, sections=g.sections)
+    check("CONTROL — hand the same lines over with no `exclude_status` and "
+          "the marker IS a word, which is the defect the status exists for",
+          "CHORUS" in {u.token_text for u in loose.units})
+
+    # -- 5. AN UNDECLARED MARK REFUSES THE GROUND WHOLE, and the blank lines
+    #       are NOT substituted for it.
+    fixture = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                           "fixtures", "song.txt")
+    ftext = [l.rstrip() for l in _LH.read_lyric_text(fixture).splitlines()]
+    fg = _LH.relation_ground(ftext, "eng")
+    check("this repo's own example lyric prints three marks "
+          "`MARK_OPENS_GROUP` does not declare, and the ground goes WHOLE",
+          fg.refused_marks == ("BRIDGE", "OUTRO", "PRE")
+          and fg.stanza_source == "none",
+          (fg.refused_marks, fg.stanza_source))
+    check("CONTROL — the blank lines WOULD have supplied seven groups, and "
+          "they are deliberately not asked: a ground refused on the marks "
+          "must not be answered by a different instrument (doctrine 45)",
+          len(set(_R.stanzas_from_blank_lines(fg.lines))) == 7,
+          "if this ever reads 1 the control has stopped controlling")
+    fst = _stream(fg)
+    check("...so `supply('stanza')` is ABSENT and a stanza-framed schema "
+          "REFUSES, naming the frame",
+          fst.supply("stanza").state == "absent"
+          and getattr(_R.realise(_R.REGISTRY["monorhyme / leash"], fst),
+                      "capability", None) == "stanza",
+          str(fst.supply("stanza")))
+    check("...while the SECTION coordinate still stands — a mark this table "
+          "cannot group is still a printed section identity",
+          len({u.section for u in fst.units}) == 7,
+          sorted({u.section for u in fst.units}))
+
+    # -- 6. THE FALLBACK IS VISIBLE, which is the whole of `stanza_source`.
+    #
+    #    And it is NARROWER than it looks, which is worth pinning: a text with
+    #    no marks at all still goes through `stanza_ground`, because that
+    #    function reads the blank line and the `---` row as well as the mark.
+    #    So the unmarked-and-stanza'd case is a GROUND (`printed_breaks`), not
+    #    a fallback, and `relation_ground` declares nothing (`stanza_source ==
+    #    ""`) only where the page printed no break of any kind.
+    plain = _LH.relation_ground(["a cat", "a hat", "", "the moon", "the tune"])
+    check("no `[MARK]` at all is still a GROUND where the page prints its "
+          "stanzas — `stanza_ground` reads the blank line too",
+          (plain.stanza_source, plain.marks) == ("printed_breaks", 0)
+          and _stream(plain).supply("stanza").n == 2,
+          (plain.stanza_source, str(_stream(plain).supply("stanza"))))
+    bare2 = _LH.relation_ground(["a cat", "a hat"])
+    check("a page printing no break of any kind supplies NO ground, and the "
+          "fallback names it `none` rather than one stanza",
+          bare2.stanza_source == ""
+          and _stream(bare2).frames.stanza_source == "none"
+          and _stream(bare2).supply("stanza").state == "absent")
+    # THE ONE PLACE THE TWO DERIVATIONS DISAGREE, PINNED SO IT IS NOT A
+    # SURPRISE LATER.  `stanza_ground` requires a break to have SEPARATED
+    # something; `build_stream`'s own rule counts any blank line in the text
+    # as evidence.  A lyric whose only blank line is a trailing one therefore
+    # falls back to `blank_lines` over an all-zero vector -- one stanza,
+    # `present`.  That is `relations.build_stream`'s ruling and not this
+    # reader's, it is unchanged by M-39's second half, and it is recorded
+    # here rather than worked around from the caller (doctrine 20).
+    edge = _LH.relation_ground(["a cat", "a hat", ""])
+    check("RESIDUE — a trailing blank line alone: this reader declares "
+          "nothing, and `build_stream`'s derivation calls it `blank_lines` "
+          "with ONE stanza. Unchanged behaviour, named so it is visible",
+          edge.stanza_source == ""
+          and (_stream(edge).frames.stanza_source,
+               _stream(edge).supply("stanza").n) == ("blank_lines", 1),
+          "`stanza_ground` alone would have said `none` here; the difference "
+          "belongs to relations.py's rule, which this cell does not own")
+
+    # -- 7. A REAL CORPUS FILE, and the numbers are the point.
+    #
+    #    PINNED 2026-08-22.  `corpus/song/eng_american_a_g_knight.txt` prints
+    #    eight `[VERSE n]`/`[CHORUS]` marks and ONE blank line, and that one
+    #    stands before the first stanza -- so the reader as it was reported
+    #    `blank_lines` with ONE distinct stanza over 256 units and the five
+    #    `frame="stanza"` schemas ran and printed numbers over a frame the
+    #    text had told nobody about.
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    path = os.path.join(root, "corpus", "song",
+                        "eng_american_a_g_knight.txt")
+    ctext = [l.rstrip() for l in _LH.read_lyric_text(path).splitlines()]
+    cg = _LH.relation_ground(ctext, "eng")
+    cst = _stream(cg)
+    check("the corpus file frames as it PRINTS: eight marks, eight sections, "
+          "eight stanzas, and the unit count is untouched",
+          (cg.marks, len({u.section for u in cst.units}),
+           cst.supply("stanza").n, len(cst.units)) == (8, 8, 8, 256),
+          (cg.marks, sorted({u.section for u in cst.units}),
+           cst.supply("stanza"), len(cst.units)))
+    cold = _old(ctext)
+    check("CONTROL — the reader as it was called the same file ONE stanza "
+          "and named a source for it",
+          (cold.frames.stanza_source, cold.supply("stanza").n,
+           len(cold.units)) == ("blank_lines", 1, 256),
+          (cold.frames.stanza_source, cold.supply("stanza")))
+
+    def _leash(s):
+        out = _R.realise(_R.REGISTRY["monorhyme / leash"], s, keep="true")
+        return (out.capability if isinstance(out, _R.Refusal)
+                else sum(1 for i in out if i.verdict is True))
+    check("monorhyme/leash reads ~~61~~ 19 instances — a leash is a run of "
+          "ONE rhyme sound inside ONE stanza, and 42 of those pairs no leash "
+          "contains",
+          (_leash(cst), _leash(cold)) == (19, 61),
+          (_leash(cst), _leash(cold)))
+
+    # THE WHOLE-REGISTRY COUNTS THE VERB PRINTS.  Doctrine 79 and the third
+    # constraint on this work: an instrument that found nothing and one that
+    # never looked must produce different output, so the two counts are
+    # pinned TOGETHER and a schema crossing between `refused` and `nothing`
+    # moves one of them.
+    def _split(s):
+        found = refused = 0
+        for sch in _R.all_schemas().values():
+            out = _R.realise(sch, s)
+            if isinstance(out, _R.Refusal):
+                refused += 1
+            elif any(i.verdict is True for i in out):
+                found += 1
+        return found, refused
+    # REPINNED 2026-08-22 (~~(35, 26)~~ / ~~(38, 26)~~ -> (39, 20) / (42, 20)),
+    # and the movement is one-directional BY CONSTRUCTION: this lot supplied
+    # capabilities that were absent, so schemas can only cross from `refused`
+    # toward `found` or `nothing`, never back. What was supplied, each on the
+    # seam the phonology already used for `ltc`'s 同用 grouping — a manner
+    # partition and a declared trite-pair partition (`quality/quotients.py`),
+    # a root/affix/lexeme resource built on `g2p`'s own pre-registered suffix
+    # set (`quality/morphology.py`), and an orthography surface. `refused`
+    # falls 26 -> 20 on both fixtures and `found` rises 35 -> 39 and 38 -> 42.
+    # The DIFFERENCE between the two fixtures — 3 schemas — is unchanged,
+    # which is what this check is actually about: the marked file and the
+    # unmarked one still differ by exactly the marks.
+    # SETTLED AT (40, 19) / (43, 19). The (39, 20) pin above it was measured
+    # mid-lot and superseded within the hour by `trite rhyme` gaining a real
+    # predicate — one more schema FINDING, one fewer REFUSING. Both numbers
+    # are kept in the label because the ladder is the useful record: 35 -> 39
+    # -> 40 finding, 26 -> 20 -> 19 refusing. The `sense` derivation added
+    # later does NOT appear here: it is opt-in, so a stream that declares
+    # nothing is unchanged by it, which is exactly what "opt-in" has to mean
+    # to be worth the word.
+    check("the verb's two summary counts on that file: ~~38~~ ~~35~~ ~~39~~ "
+          "40 finding, ~~26~~ ~~20~~ 19 refusing — the two fixtures still "
+          "differ by exactly three schemas, and NOT ONE crossed the "
+          "refused/nothing line, because the file declares every mark it "
+          "prints",
+          (_split(cst), _split(cold)) == ((40, 19), (43, 19)),
+          (_split(cst), _split(cold)))
+    # REPINNED 2026-08-22, same lot, same direction: ~~(23, 31)~~ -> (27, 25).
+    # `refused` falls by 6 and `found` rises by 4 for the reasons above; the
+    # five `frame="stanza"` schemas this check names are NOT among them and
+    # still refuse, because a stanza frame is GROUND and not a resource —
+    # M-39(b) is why, and supplying it from an all-zero vector is the exact
+    # defect that entry closed.
+    check("on the fixture whose marks are REFUSED the refused count moves "
+          "instead: ~~25~~ ~~23~~ 27 finding, ~~26~~ ~~31~~ ~~25~~ 24 "
+          "refusing, and the five `frame=\"stanza\"` schemas are still among "
+          "the refused",
+          _split(fst) == (27, 24), _split(fst))
+
+    # -- 8. THE CALL SITE, and not only the function. Everything above builds
+    #    its own stream from `relation_ground`, so it would all still pass
+    #    with the verb reverted to `build_stream(raw, phon, stanzas=None)`.
+    #    This runs the verb and reads what it says, which is the only check
+    #    here that fails if the SUPPLY is dropped from the caller.
+    import subprocess
+    d = tempfile.mkdtemp()
+    try:
+        marked = os.path.join(d, "marked.txt")
+        with open(marked, "w", encoding="utf-8") as fh:
+            fh.write("[VERSE 1]\nthe night\nthe light\n"
+                     "[CHORUS]\nthe day\nthe way\n")
+        p = subprocess.run([sys.executable, "lyric_harness.py", "relations",
+                            marked], cwd=root, capture_output=True, text=True,
+                           timeout=900)
+        check("the VERB grounds on the page and says so — this is the check "
+              "that fails if `sections=`/`stanzas=` are dropped from the "
+              "call site while `relation_ground` keeps working",
+              p.returncode == 0
+              and "stanza ground: printed_breaks" in p.stdout
+              and "2 distinct stanza(s)" in p.stdout
+              and "2 distinct Unit.section over the units" in p.stdout,
+              (p.returncode,
+               [l for l in p.stdout.splitlines()
+                if "stanza ground" in l or "section coordinate" in l][:2]))
+        plainf = os.path.join(d, "plain.txt")
+        with open(plainf, "w", encoding="utf-8") as fh:
+            fh.write("a cat sat\na hat fell\n")
+        p2 = subprocess.run([sys.executable, "lyric_harness.py", "relations",
+                             plainf], cwd=root, capture_output=True,
+                            text=True, timeout=900)
+        check("CONTROL — the same verb on a page that declares nothing "
+              "reports NO ground and names the fallback, so the two runs are "
+              "distinguishable in the output and not only in the code",
+              p2.returncode == 0
+              and "stanza ground: none" in p2.stdout
+              and "FALLBACK" in p2.stdout
+              and "0 [MARK] row(s)" in p2.stdout,
+              [l for l in p2.stdout.splitlines() if "stanza ground" in l][:1])
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -2223,7 +3096,14 @@ if __name__ == "__main__":
                test_line_runs_is_surfaced_rather_than_computed_for_nobody,
                test_two_refusals_that_nothing_had_ever_asserted_can_fire,
                test_function_aliases_are_claims_on_their_own_rows,
-               test_the_named_air_is_a_coordinate_not_a_substring):
+               test_the_named_air_is_a_coordinate_not_a_substring,
+               test_the_printed_indent_survives_ingestion,
+               test_a_return_that_varies_off_the_text,
+               test_a_refusal_is_true_in_a_language,
+               test_the_elaboration_pointer_and_the_rank_that_was_refused,
+               test_the_section_coordinate_is_supplied,
+               test_the_stanza_ground_is_printed_or_refused,
+               test_the_cli_reads_the_marks_it_used_to_delete):
         fn()
     print("=" * 62)
     if FAILURES:

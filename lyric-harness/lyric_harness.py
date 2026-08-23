@@ -27,6 +27,7 @@ import json
 import math
 import os
 import re
+import unicodedata
 import sys
 import textwrap
 import urllib.request
@@ -281,6 +282,37 @@ def channel_profile(profile):
 
 
 # ---------------------------------------------------------------------------
+# THE ADMITTABLE RELATION SETS. Defined HERE, above `Declaration`,
+# because that class's `admit` field DERIVES its default from
+# `ADMITTABLE_RELATIONS` — one definition, so the default and the
+# validator cannot drift (doctrine 1). They lived 2,000 lines below
+# the class until 2026-08-22, which is why the default was a
+# hand-typed literal that could disagree with the validator.
+RHYME_RELATIONS = {"RHYME", "RIME_RICHE"}
+#: Named relations the conjunctive band produces that are NOT rhyme. They are
+#: members of the taxonomy, not failures, and consumers that ask "is this a
+#: rhyme?" must answer no while the graph keeps the name.
+NEAR_RELATIONS = {"ASSONANCE", "CONSONANCE"}
+
+#: What a Declaration may ADMIT as satisfying a mandate (`Declaration.admit`).
+#: The default is the historical pair; the near relations are LEGAL DECLARED
+#: MOVES — the owner's 2026-08-18 finding: a 601-entry world survey
+#: (quality/RHYME_CANON.md), ~116 canonical structures, 49 named engine
+#: types, and the grader's door admitted two. ~~Widening is BY
+#: DECLARATION, never by default: an undeclared assonance still
+#: violates, because a mandate satisfied by any near-miss is the
+#: sun/much leak wearing a liberty's name.~~ STRUCK BY THE OWNER
+#: 2026-08-22. The sun/much leak was closed by the CONJUNCTIVE BAND,
+#: which RELABELS the pair as ASSONANCE (doctrines 3/24) — it was never
+#: this door that closed it, and citing the closed leak to keep the
+#: door shut charged the same defect twice. `Declaration.admit` now
+#: DEFAULTS to this whole set; narrowing stays available and is the
+#: useful direction. REPEAT is deliberately absent — identity has its own
+#: licence machinery (`repeat_licence`) and admitting it here would let a
+#: copied word satisfy a rhyme.
+ADMITTABLE_RELATIONS = frozenset(RHYME_RELATIONS | NEAR_RELATIONS)
+
+
 # Declaration
 # ---------------------------------------------------------------------------
 
@@ -288,18 +320,45 @@ def channel_profile(profile):
 class Declaration:
     dialect: str = "cmudict (General American citation forms)"
     anchor: str = "last primary stress to end of unit"
-    # --- WHAT SATISFIES A MANDATE (owner's widening, 2026-08-18) -----------
-    # The admitted relation set, DECLARED. Default is the historical pair, so
-    # every undeclared run is byte-identical to before the coordinate
-    # existed. Widening to ASSONANCE / CONSONANCE is a legal declared move —
-    # the counterweight to the homeoteleuton class ban, so a writer pushed
-    # off the lazily-spelled end of perfect rhyme has the taxonomy's named
-    # near relations as first-class options instead of a shrunken pool. The
-    # repo's own count decided this shape: 601 surveyed structures, ~116
-    # canonical, 49 the engine names — and the door admitted 2. Validated in
-    # __post_init__ against ADMITTABLE_RELATIONS: an unknown name refuses at
-    # declaration time, not silently at grade time (doctrine 20).
-    admit: tuple = ("RHYME", "RIME_RICHE")
+    # --- WHAT SATISFIES A MANDATE ------------------------------------------
+    # THE DEFAULT IS EVERYTHING ADMITTABLE (owner's ruling, 2026-08-22).
+    # ~~Default is the historical pair, so every undeclared run is
+    # byte-identical to before the coordinate existed.~~ STRUCK: that
+    # sentence describes a MIGRATION, and it was kept as a policy for four
+    # days after the migration was over.
+    #
+    # THE CONTRADICTION IT WAS DEFENDING, stated plainly because this
+    # session defended it more than once before the owner stopped it.
+    # Doctrines 3 and 24 exist so the band RELABELS RATHER THAN REJECTS:
+    # `sun`/`much` is ASSONANCE, and the taxonomy grew from three names to
+    # five precisely so a near relation is a REAL SONIC EVENT with a name,
+    # not a non-relation. Then this line turned around and told the mandate
+    # layer that a real sonic event satisfies nothing. One repository, two
+    # opposite answers about the same pair, twelve hundred lines apart.
+    #
+    # THE ARGUMENT FOR KEEPING IT AT TWO WAS THAT WIDENING IS "LOOSER", AND
+    # LOOSER IS NOT THE SAME AS WRONG. It IS looser -- fewer mandated pairs
+    # are charged -- and every pair it stops charging is one the band had
+    # already typed as a named relation this project exists to represent.
+    # Doctrine 7 is the same point in the floor's language: a floor may not
+    # order the region it has already passed, and a typed near relation is
+    # inside the region.
+    #
+    # NARROWING IS THE USEFUL DIRECTION AND IT IS STILL AVAILABLE, which is
+    # why this stays a declared coordinate rather than being deleted: a
+    # ghazal cell that genuinely wants perfect rhyme only declares
+    # `admit=("RHYME", "RIME_RICHE")` and gets exactly the old behaviour by
+    # SAYING SO. What is gone is that reading being the one nobody chose.
+    #
+    # PINNED BY A TEST, not by this comment (doctrine 48): a preference that
+    # lives in prose is followed exactly as often as someone remembers it,
+    # and this one was forgotten across at least four sittings. See
+    # `quality/test_homoeoteleuton.py`'s default-admit pin.
+    #
+    # Validated in __post_init__ against ADMITTABLE_RELATIONS: an unknown
+    # name refuses at declaration time, not silently at grade time
+    # (doctrine 20).
+    admit: tuple = tuple(sorted(ADMITTABLE_RELATIONS))
 
     def __post_init__(self):
         bad = [r for r in self.admit if r not in ADMITTABLE_RELATIONS]
@@ -626,6 +685,9 @@ class _DictionaryOnlyLexicon:
     def __init__(self, entries, freq_rank):
         self.entries = entries
         self.freq_rank = freq_rank
+        # Carried here too, because this view SHARES the real Lexicon's dict
+        # by identity and a caller holding one must get the same sentinel.
+        self.freq_rank_oov = len(freq_rank)
 
     def transcribe_word(self, word):
         w = fold_apostrophes(word).lower().strip("'\"“”‘’.,;:!?()[]")
@@ -702,6 +764,19 @@ class Lexicon:
                     w = line.split("\t", 1)[0].strip().lower()
                     if w:
                         self.freq_rank.setdefault(w, len(self.freq_rank))
+        # THE 'PAST THE END' SENTINEL IS THE LIST'S OWN PROPERTY, DERIVED.
+        # `quality/features.py` typed it as `MAX_RANK = 20000` -- the size of
+        # `wordfreq20k.txt`, the list this project read until the source was
+        # swapped. The swap left the constant behind, and a sentinel that is
+        # no longer past the end is not a sentinel: with 49,999 entries
+        # ranked to 49,998, an OOV word scored 20,000 came out COMMONER than
+        # 29,998 real English words -- 60% of the list, `thistle` among them.
+        # Doctrine 58 on its own axis: the number was a coordinate of the
+        # RESOURCE, and the resource moved. Read from the list so it cannot
+        # be left behind again (doctrine 1, doctrine 14 -- a control may not
+        # be defined in terms of the quantity it controls, and this one is
+        # now defined by the list it must sit past).
+        self.freq_rank_oov = len(self.freq_rank)
 
     def transcribe_word(self, word):
         """Return (phones, oov_flag). Naive fallback for out-of-vocabulary."""
@@ -759,8 +834,15 @@ class Lexicon:
         if self.strip_parens:
             text = re.sub(r"\([^)]*\)", " ", text)
         phones, oov = [], []
-        words = [t for t in re.findall(r"[A-Za-z'’\-]+", text)
-                 if re.search(r"[A-Za-z]", t)]
+        # ONE REPERTOIRE, NOT TWO. This was its own `[A-Za-z'’\-]+` until
+        # 2026-08-21 and it has to move with `line_tokens` in the same edit:
+        # widening one and not the other makes them DISAGREE ABOUT WHAT A WORD
+        # IS, which is worse than both being wrong together. Measured while it
+        # was half-fixed: `line_tokens` said `tân` was one word, this said it
+        # was `t` and `n`, and `line_anchors` glued the two LETTER-NAME
+        # syllables (T-IY, EH-N) onto the one word and reported the Welsh line
+        # READABLE, anchored on a spelling-out of its own rhyme word.
+        words = [t for t in _TOKEN_RUN.findall(text) if LATIN_SCRIPT.search(t)]
         for w in words:
             for piece in re.split(r"[-\u2011]", w):
                 if not piece:
@@ -892,6 +974,183 @@ def is_apparatus_line(line):
     return s.startswith("[") or s.startswith("---") or s.startswith("#")
 
 
+# ---------------------------------------------------------------------------
+# THE PRINTED COORDINATES A LYRIC HANDS TO `relations.build_stream`
+# (`MISSING.md` M-39, the half the stanza commit left open)
+#
+# `is_apparatus_line` above is a DROP rule, and for every verb but one that is
+# what is wanted: apparatus is not sung, so it is not scored. The `relations`
+# verb is the exception, and the asymmetry M-39 recorded is exactly this:
+#
+#   > The CLI grounds on BLANK LINES only -- `is_apparatus_line` has already
+#   > dropped the `[VERSE n]` rows by the time `build_stream` is called, so a
+#   > lyric that marks its sections and prints no blank line still refuses
+#   > there. The panel reads both because its readers see the marks; the CLI
+#   > does not.
+#
+# MEASURED 2026-08-22 on `corpus/song/eng_american_a_g_knight.txt` -- eight
+# printed `[VERSE n]` / `[CHORUS]` marks, ONE blank line, and that one before
+# the first stanza. The verb reported `Frames.stanza_source = 'blank_lines'`
+# with ONE distinct stanza over 256 units, which is the collapse M-39 is
+# about wearing the label of a source: the five `frame="stanza"` schemas ran
+# and printed numbers over a frame the text had told nobody about, while the
+# text's own eight boundaries sat in lines the reader had already deleted.
+#
+# TWO APPARATUS KINDS CARRY A COORDINATE AND ARE THEREFORE KEPT, with a
+# DECLARED STATUS instead of a deletion:
+#
+#   * the `[MARK]` row -- `quality/grid.sections_from_marks` reads it as the
+#     per-line SECTION identity and `grid.stanza_ground` reads it as a group
+#     break, and `grid` owns that vocabulary (`MARK_FUNCTION`, `MARK_REFUSED`,
+#     `MARK_OPENS_GROUP`) because `relations.py` serves nine languages and
+#     ships none. The dependency runs one way and stays that way: this module
+#     imports `grid`, `grid` imports this one for `line_indent`, and
+#     `relations` imports neither.
+#   * the `---` row -- the corpus's own SONG boundary, and
+#     `grid.GROUP_BREAK_PREFIX` reads it as the third break kind. Dropping it
+#     before asking for the ground would filter away one third of the evidence
+#     the function documents itself as reading.
+#
+# Everything else `is_apparatus_line` catches -- a `#` comment, a bracket with
+# no closing `]` -- is DROPPED as before. It carries no coordinate, and
+# keeping it would be worse than cosmetic: `stanza_ground` reads any non-blank
+# line it cannot classify as CONTENT, so nine lines of `# author:` header
+# would become a stanza of the song.
+#
+# THE KEPT ROWS CONTRIBUTE NO WORDS. They leave the token stream through
+# `build_stream(exclude_status=...)`, which is the machinery a chorus stub
+# already uses (defect P10): the line keeps its index and its entry in
+# `Stream.lines`, and the loss is recorded in `excluded_lines` rather than
+# being silent. Deleting them instead would be the live half of M-39's other
+# finding -- an unfiltered `[CHORUS]` tokenises to the WORD `CHORUS`, and two
+# of them stand in a `repetition`.
+# ---------------------------------------------------------------------------
+
+#: The status this reader puts on a `---` row. `grid.SECTION_MARKER_STATUS` is
+#: the other, and it is `grid`'s to name because `grid` is what produces it.
+#: Both are excluded from the token stream and neither is deleted from the
+#: line vector, which is the whole difference between a line that carries no
+#: words and a line that was never there.
+SONG_BREAK_STATUS = "song_break"
+
+
+@dataclass
+class RelationGround:
+    """What a lyric's OWN PRINTING declares to `relations.build_stream`.
+
+    Every field is a coordinate the text supplied, or the recorded absence of
+    one. `stanza_source` is the field that makes the fallback visible: it says
+    `printed_breaks` where the page's marks and breaks supplied the frame,
+    `none` where they were refused, and `""` where this reader declared
+    nothing and `build_stream` may name its own derivation (`blank_lines` or
+    `none`).
+    """
+    lines: list              # the line vector `build_stream` is handed
+    sections: list           # per line, from `grid.sections_from_marks`
+    line_status: tuple       # per line: "", a section marker, a song break
+    exclude_status: tuple    # the statuses that contribute NO units
+    stanzas: object          # a per-line group index, or None -> derive
+    stanza_source: str       # "" -> `build_stream` names its own
+    refused_marks: tuple     # marks `grid.MARK_OPENS_GROUP` does not declare
+    marks: int               # `[MARK]` rows kept
+    breaks: int              # `---` rows kept
+    dropped: int             # apparatus rows carrying no coordinate, deleted
+
+    @property
+    def verse_lines(self):
+        """The SUNG lines -- what `lines N` has always counted."""
+        return [l for l, st in zip(self.lines, self.line_status)
+                if l.strip() and not st]
+
+
+def relation_ground(text_lines, language=""):
+    """-> `RelationGround` for `relations.build_stream`. M-39's second half.
+
+    THE GROUND IS ASKED FOR ONCE, FROM THE PAGE, and the three answers are
+    kept apart (doctrine 79):
+
+      1. `grid.stanza_ground` returns a vector -- at least one of its three
+         break kinds fired, and the source is `printed_breaks`. THIS IS THE
+         BRANCH AN UNMARKED-BUT-STANZA'D LYRIC TAKES TOO: that function reads
+         the blank line and the `---` row as well as the mark, so a text that
+         prints its stanzas and no headings is GROUNDED here and never
+         reaches the fallback below.
+      2. It REFUSES, because the text printed a `[MARK]` that
+         `grid.MARK_OPENS_GROUP` does not declare. The ground is then refused
+         WHOLE and `stanza_source` is `none`: a vector built from the marks
+         this table CAN read would silently merge the groups the undeclared
+         one opens, and a frame that is right about four marks and silent
+         about a fifth is not a partial answer but a wrong one. Falling back
+         to the blank lines here would be working around a refusal that was
+         made on purpose -- the blank lines are a DIFFERENT instrument and
+         nothing has checked that they agree with the marks.
+      3. It supplies nothing and refuses nothing, and the text printed no
+         `[MARK]` at all -- so the page printed no break of ANY kind. THAT,
+         and only that, is where the blank-line derivation is the fallback,
+         and it is `build_stream`'s own: `stanzas=None` lets it record
+         `blank_lines` where it had a blank line to read and `none` where it
+         did not. The two rules differ on exactly one input -- a lyric whose
+         only blank line is a leading or trailing one, which
+         `grid.stanza_ground` calls no ground and `build_stream` calls
+         `blank_lines` over an all-zero vector. That difference is
+         `relations.build_stream`'s own documented rule, this reader does not
+         overrule it from the caller, and `quality/test_grid.py` pins it by
+         name so it is visible rather than surprising.
+
+         A TEXT THAT DOES PRINT MARKS NEVER REACHES THIS BRANCH. For such a
+         text "the marks supplied no break" is a fact about the marks, and
+         answering it with the blank lines instead would be the silent
+         coordinate-pick doctrine 45 forbids.
+
+    `sections` is supplied on every path, marks or no marks. On a text with no
+    marks it is all-`""`, which is byte-identical to the field's historical
+    default -- so this argument reaching `build_stream` costs an unmarked
+    lyric nothing and gives a marked one `Unit.section` for the first time.
+    """
+    from quality import grid as GR
+    lines, dropped = [], 0
+    for raw in text_lines:
+        s = (raw or "").rstrip()
+        t = s.strip()
+        if GR.SECTION_MARK.match(s) or t.startswith(GR.GROUP_BREAK_PREFIX):
+            lines.append(s)
+        elif is_apparatus_line(s):
+            dropped += 1
+        else:
+            lines.append(s)
+    sections, status = GR.sections_from_marks(lines, language)
+    # `sections_from_marks` labels the `[MARK]` rows; the `---` rows are this
+    # reader's own and are labelled here rather than there, because `grid`
+    # owns the mark vocabulary and this module owns the drop rule.
+    status = tuple(
+        st or (SONG_BREAK_STATUS
+               if l.strip().startswith(GR.GROUP_BREAK_PREFIX) else "")
+        for st, l in zip(status, lines))
+    marks = sum(1 for st in status if st == GR.SECTION_MARKER_STATUS)
+    breaks = sum(1 for st in status if st == SONG_BREAK_STATUS)
+    ground, source, refused = GR.stanza_ground(lines, language)
+    if ground is not None:
+        stanzas, stanza_source = ground, source
+    elif refused or marks:
+        # THE REFUSAL, CARRIED THROUGH `stanza_source` AND NOT THROUGH THE
+        # VECTOR. `build_stream` has no "refused" input: `stanzas=False` would
+        # record `collapsed` and `stanzas=None` would let the blank lines
+        # answer, and both of those are claims. Naming the source `none` is
+        # the one spelling that makes `Stream.supply('stanza')` answer
+        # `absent`, which is what a stanza-framed schema refuses on. The
+        # all-zero vector below is inert: nothing reads `Unit.stanza` without
+        # first passing that gate.
+        stanzas, stanza_source = [0] * len(lines), "none"
+    else:
+        stanzas, stanza_source = None, ""
+    return RelationGround(lines=lines, sections=sections, line_status=status,
+                          exclude_status=(GR.SECTION_MARKER_STATUS,
+                                          SONG_BREAK_STATUS),
+                          stanzas=stanzas, stanza_source=stanza_source,
+                          refused_marks=refused, marks=marks, breaks=breaks,
+                          dropped=dropped)
+
+
 class UndecodableLyricFile(Exception):
     """A file this harness was told to read as text is not valid UTF-8.
 
@@ -961,15 +1220,60 @@ def read_lyric_text(path):
         raise UndecodableLyricFile(path, e) from e
 
 
-def load_lyric_lines(path):
+#: THE PRINTED INDENT OF A LINE, and it is a coordinate of the SOURCE rather
+#: than whitespace to be tidied away.
+#:
+#: In printed English verse the compositor's indent ladder IS the rhyme scheme
+#: set visibly -- the b-lines of a ballad stanza, the couplet of a sonnet, the
+#: short line of a hymn metre. MEASURED over `corpus/song/`: 73,672 sung lines
+#: (12.7%) across 872 files carry one, and the depths are a ladder rather than
+#: a smear (2 spaces 46,732 - 4 spaces 15,783 - 6 spaces 4,298 - 8 spaces
+#: 1,949). Over the 15,685 `eng_*` blocks of >=4 lines that carry two or more
+#: depths, 528,370 end-word pairs with identical end words excluded (doctrine
+#: 3): lines at the SAME depth share a `spelled_rime` 11.83% of the time
+#: against 1.91% at different depths, **+9.92 pp, 6.19x** -- and the matched
+#: null that permutes the depths WITHIN each block, 20 draws at seed
+#: 20260821, has an excess of -2.71 to -2.49 pp, so the observation sits 12.6
+#: points above the null's MAXIMUM and the null does not straddle zero.
+#:
+#: EVERY READER IN THIS REPO STRIPPED IT BEFORE ANYTHING SAW IT until
+#: 2026-08-21 (`MISSING.md` M-28). That is doctrine 45's shape: a reader
+#: silently choosing a coordinate. What this function does NOT do is infer a
+#: mandate from whitespace -- a scheme derived from indentation is exactly as
+#: DERIVED as `--cliques` and doctrine 14 governs it. It makes the printing's
+#: own grouping SURVIVE INGESTION so a caller can ask.
+#:
+#: TABS ARE COUNTED AS ONE COLUMN AND THE POPULATION IS WHY: exactly ONE sung
+#: line in the whole corpus carries a tab, so any expansion width would be a
+#: threshold nobody wrote down (doctrine 58) fitted to a single line.
+def line_indent(raw):
+    """-> int, the number of leading whitespace columns of a raw source line.
+
+    Takes the line BEFORE stripping; a line that is entirely whitespace has no
+    indent and returns 0 rather than its own length.
+    """
+    if not raw or not raw.strip():
+        return 0
+    return len(raw) - len(raw.lstrip(" \t"))
+
+
+def load_lyric_lines(path, with_indent=False):
     """-> list[str]. Non-empty, non-apparatus lines from a lyric file, in
 
     the same shape every CLI verb below expects: stripped, in order, blank
     and apparatus lines dropped. One definition so every verb agrees on
     what counts as sung text.
+
+    `with_indent=True` returns `[(indent, text), ...]` instead -- the SAME
+    walk and the same drop rule, so the text half is byte-identical to the
+    default and the two can never select different lines. A second function
+    walking the file again would be a second definition of what counts as
+    sung text, which is the defect this one exists to prevent (doctrine 1).
     """
-    return [l.strip() for l in read_lyric_text(path).splitlines()
+    rows = [(line_indent(l), l.strip())
+            for l in read_lyric_text(path).splitlines()
             if l.strip() and not is_apparatus_line(l)]
+    return rows if with_indent else [t for _i, t in rows]
 
 
 # A single `FILE|L...` token that is NOT on disk: is it a mistyped path, or a
@@ -1027,6 +1331,70 @@ def _lyric_source(src, verb):
     return None
 
 
+#: THE LETTER REPERTOIRE THIS HARNESS READS WORDS IN, and it is a DECLARED
+#: coordinate rather than a property of the regex somebody first typed.
+#:
+#: It was ``A-Za-z`` from the first commit to 2026-08-21, and that is not a
+#: narrower Latin -- it is a repertoire that CANNOT SPELL ENGLISH AS PRINTED.
+#: Measured over `corpus/song/` before the change: `eng_hall_william_barnes.txt`
+#: had **1,320 lines whose end word read as two characters or fewer**, because
+#: Barnes's Dorset diaeresis is a separate character and `jaÿ` tokenised as
+#: `ja`; that file's own header warns, in as many words, that a transcription
+#: which flattens the diaeresis "must NOT be used for any letter- or
+#: syllable-counted measure", and the harness was flattening it at read time.
+#: Welsh printed inside `eng_`-prefixed files is the same shape: `lân` read
+#: as `n`, `tân` as `n`, `Pîl` as `l` -- the RHYME WORD reduced to a bare
+#: consonant. `MISSING.md` M-22 holds the measurement.
+#:
+#: THE RANGES ARE MEASURED, NOT GUESSED. Over every letter in `corpus/`:
+#: 10,164,939 fall inside this class and **not one letter whose Unicode name
+#: begins LATIN falls outside it**. What falls outside is ARABIC (3,411,079),
+#: CJK (604,346) and GREEK (500) -- three scripts, none of which CMUdict can
+#: read and each of which has, or is owed, its own phonology (doctrine 45).
+#: `letters_outside_repertoire` is how a caller asks about them, because a
+#: line that yields no tokens because of its SCRIPT and a line that yields no
+#: tokens because it is blank are different facts (doctrine 20).
+#:
+#: WIDENING IT MOVES NOTHING THAT WAS ALREADY RIGHT, and that was measured
+#: before it shipped rather than argued: `corpus/sonnets.txt` -- the battery's
+#: oracle -- is **0 lines moved of 2,621**, and `corpus/whitman.txt` is 4 of
+#: 14,467. The `eng_*` song corpus moves 6,872 lines of 283,506 (2.42%), of
+#: which 5,926 are Barnes.
+LATIN_SCRIPT = re.compile(r"[A-Za-zÀ-ɏḀ-ỿ]")
+
+#: A token run: letters of the declared repertoire, with `'` and `-` free
+#: inside the run. THE JOINER DISCIPLINE IS UNCHANGED AND DELIBERATELY SO --
+#: the old class was `[A-Za-z'\-]+`, so `word--word` is ONE token and `--and`
+#: is a token beginning with two hyphens, and both remain true here. That
+#: reading is questionable (`thee--Arise` is one token today) but it is a
+#: SECOND question, and changing the repertoire and the joiner discipline in
+#: one edit would leave no way to say which one moved a number (doctrine 1).
+#: Measured cost of conflating them: 917 battery lines move under the joint
+#: change against 4 under this one.
+_TOKEN_RUN = re.compile(r"(?:[A-Za-zÀ-ɏḀ-ỿ]|['\-])+")
+
+
+def letters_outside_repertoire(text):
+    """-> {script_name: count} for every letter `LATIN_SCRIPT` cannot read.
+
+    A line of Han or Arabic returns NO TOKENS from `line_tokens`, and that is
+    correct -- this is the English path and CMUdict is its dictionary. What is
+    NOT correct is for the caller to receive the same empty list a blank line
+    returns. This names the difference so a reader can report a REFUSAL where
+    it would otherwise report an absence (doctrine 20/79).
+    """
+    out = {}
+    for c in text:
+        if not c.isalpha() or LATIN_SCRIPT.match(c):
+            continue
+        try:
+            nm = unicodedata.name(c).split()[0]
+        except ValueError:
+            nm = "UNNAMED"
+        out[nm] = out.get(nm, 0) + 1
+    return out
+
+
 def line_tokens(text, strip_parens=True):
     """The line's word tokens, in order, before any dictionary filtering.
 
@@ -1057,8 +1425,7 @@ def line_tokens(text, strip_parens=True):
     norm = text.replace("’", "'").replace("‘", "'")
     if strip_parens:
         norm = re.sub(r"\([^)]*\)", " ", norm)
-    return [t for t in re.findall(r"[A-Za-z'\-]+", norm)
-            if re.search(r"[A-Za-z]", t)]
+    return [t for t in _TOKEN_RUN.findall(norm) if LATIN_SCRIPT.search(t)]
 
 
 def raw_final_token(text, strip_parens=True):
@@ -1315,7 +1682,7 @@ def token_pieces(lex, token):
     """
     read, unread = [], []
     for p in HYPHEN_SPLIT.split(token):
-        if not p or not re.search(r"[A-Za-z]", p):
+        if not p or not LATIN_SCRIPT.search(p):
             continue
         ph, is_oov = lex.transcribe_word(p)
         (unread if (is_oov or not ph) else read).append(p)
@@ -1347,7 +1714,7 @@ def unread_final_piece(lex, token):
     if not token or not HYPHEN_SPLIT.search(token):
         return None, None
     pieces = [p for p in HYPHEN_SPLIT.split(token)
-              if p and re.search(r"[A-Za-z]", p)]
+              if p and LATIN_SCRIPT.search(p)]
     if len(pieces) < 2:
         return None, None
     read, unread = token_pieces(lex, token)
@@ -2008,23 +2375,7 @@ def cluster_sim(a, b):
     return 2.0 * dp[n][m] / (n + m)
 
 
-RHYME_RELATIONS = {"RHYME", "RIME_RICHE"}
-#: Named relations the conjunctive band produces that are NOT rhyme. They are
-#: members of the taxonomy, not failures, and consumers that ask "is this a
-#: rhyme?" must answer no while the graph keeps the name.
-NEAR_RELATIONS = {"ASSONANCE", "CONSONANCE"}
 
-#: What a Declaration may ADMIT as satisfying a mandate (`Declaration.admit`).
-#: The default is the historical pair; the near relations are LEGAL DECLARED
-#: MOVES — the owner's 2026-08-18 finding: a 601-entry world survey
-#: (quality/RHYME_CANON.md), ~116 canonical structures, 49 named engine
-#: types, and the grader's door admitted two. Widening is BY DECLARATION,
-#: never by default: an undeclared assonance still violates, because a
-#: mandate satisfied by any near-miss is the sun/much leak wearing a
-#: liberty's name. REPEAT is deliberately absent — identity has its own
-#: licence machinery (`repeat_licence`) and admitting it here would let a
-#: copied word satisfy a rhyme.
-ADMITTABLE_RELATIONS = frozenset(RHYME_RELATIONS | NEAR_RELATIONS)
 
 
 def spelled_rime(word, stress_from_end=None):
@@ -3986,6 +4337,15 @@ the quality layer (each says which module answered):
                           row each group DEMANDS (quality/structures.py names()
                           lists the 58; world aliases resolve) -- shipped by
                           the Kalevala adoption 2026-08-18
+                          --relations=LABEL:NAME,... declares which RELATION
+                          each group demands, and --relation=NAME declares
+                          one for the whole mandate (every group that does
+                          not override). The vocabulary is
+                          quality.rhyme_types.relation_vocabulary() -- 4
+                          coarse classes and every named cell -- and a name
+                          in two namespaces must say which (type:NAME /
+                          schema:NAME / class:NAME, M-37). A group may not
+                          declare BOTH a structure and a relation.
                           SCHEME_VIOLATION for being exactly identical), or
                           --cliques (the song's own graph structure).
                           With NO mandate it REFUSES: nothing declared means
@@ -4023,7 +4383,8 @@ the quality layer (each says which module answered):
                           --subdivision does, and every failure to meet the
                           contract is a printed refusal, never a traceback
                           and never a silent downgrade to the stub
-  plan --seed=N [--form=verse-chorus] [--lines=N] [--fill=DRAFT]
+  plan --seed=N [--form=verse-chorus] [--lines=N] [--relation=NAME]
+       [--functions=a,b,c] [--fill=DRAFT]
        [--out=PATH]      the PLANNING phase: a request in, a blueprint and
                           a mandate out (quality/plan.py). Structure from a
                           declared pattern grammar, schemes from the FULL
@@ -5809,6 +6170,15 @@ def main():
         nlines = _flag_value(rest, "--lines")
         fill = _flag_value(rest, "--fill")
         out_path = _flag_value(rest, "--out")
+        # THE WRITER'S DECLARATION (`MISSING.md` M-55). Neither is sampled:
+        # the planner does not pick a relation, because putting
+        # `type:pararhyme` on a group nobody asked for is the "move 37" ban
+        # pointed at rhyme. What it does is CARRY what the writer declared
+        # into the plan artifact and into the GRADE IT line.
+        relation = _flag_value(rest, "--relation")
+        funcs_raw = _flag_value(rest, "--functions")
+        rest = _strip_flag(rest, "--relation")
+        rest = _strip_flag(rest, "--functions")
         rest = _strip_flag(rest, "--seed")
         rest = _strip_flag(rest, "--form")
         rest = _strip_flag(rest, "--lines")
@@ -5817,7 +6187,9 @@ def main():
         if rest:
             _refuse(f"plan does not take {rest[0]!r}",
                     detail=["usage: plan --seed=N [--form=verse-chorus] "
-                            "[--lines=N] [--fill=DRAFT] [--out=PATH]",
+                            "[--lines=N] [--relation=NAME] "
+                            "[--functions=a,b,c] [--fill=DRAFT] "
+                            "[--out=PATH]",
                             "an unrecognised flag is refused rather than "
                             "ignored -- a flag silently not read leaves a "
                             "plan that looks exactly like one you never "
@@ -5826,7 +6198,10 @@ def main():
             the_plan = PLN.make_plan(
                 seed=int(seed) if seed is not None else None,
                 form=form,
-                lines=int(nlines) if nlines is not None else None)
+                lines=int(nlines) if nlines is not None else None,
+                relation=relation,
+                functions=[x for x in (funcs_raw or "").split(",") if x.strip()]
+                or None)
         except PLN.PlanRefused as e:
             _refuse(str(e))
         except ValueError:
@@ -5837,6 +6212,23 @@ def main():
               f"{len(the_plan['sections'])} section(s): "
               f"{'-'.join(pat['functions'])}")
         print(f"    (pattern drawn from {pat['chosen_from']})")
+        # DECLARED, OUT LOUD. Silence here would make `plan --seed=3` and
+        # `plan --seed=3 --relation=type:rime riche` look identical on a run
+        # where the relation happens not to change the sampled shape — the
+        # byte-identical shape `_say_relation` was written to end one verb
+        # over.
+        if the_plan.get("relation"):
+            print(f"  RELATION: every mandated group is judged under "
+                  f"{the_plan['relation']!r} — DECLARED, not sampled; the "
+                  f"planner never picks a relation.")
+        if the_plan.get("functions"):
+            print(f"  ROSTER: {', '.join(the_plan['functions'])} — an "
+                  f"ALLOW-LIST, checked against each function's own "
+                  f"`requires` before any shape was drawn.")
+            if the_plan.get("functions_unused"):
+                print(f"    NOT USED by this seed's draw: "
+                      f"{', '.join(the_plan['functions_unused'])} — a roster "
+                      f"permits, it does not compel.")
         m = the_plan["choices"]["meter"]["value"]
         print(f"  METER: {m['beats']}/{m['unit']} as "
               f"{tuple(m['groups'])} -- "
@@ -5976,22 +6368,56 @@ def main():
         # has one definition, so this verb alone turned an undecodable file
         # into a raw `UnicodeDecodeError` at exit 1 after every sibling had
         # learned to refuse it. What that function does NOT do is drop blank
-        # lines -- it returns the text -- so the split and both filters below
+        # lines -- it returns the text -- so the split and the filtering below
         # stay here, where the stanza frame needs them.
-        raw = [l.rstrip() for l in read_lyric_text(keep[0]).splitlines()
-               if not is_apparatus_line(l)]
-        lines = [l for l in raw if l.strip()]
+        #
+        # AND THE `[MARK]` ROWS ARE KEPT TOO, 2026-08-22, which is the half of
+        # M-39 the stanza commit left open. `is_apparatus_line` deleted them
+        # BEFORE `build_stream` was called, so this verb ground on blank lines
+        # alone and a lyric that marks its sections and prints no blank line
+        # refused here while the null panel -- whose readers see the marks --
+        # framed the same text seven ways. `relation_ground` above is the one
+        # place that rule now lives; see its comment for which apparatus kinds
+        # carry a coordinate and which are still dropped.
+        ground = relation_ground(
+            [l.rstrip() for l in read_lyric_text(keep[0]).splitlines()], lang)
+        raw = ground.lines
+        lines = ground.verse_lines
         phon = _phonology_or_refuse(lang)
-        st = RL.build_stream(raw, phon,
-                             stanzas=RL.stanzas_from_blank_lines(raw))
+        # `stanzas=` IS THE PAGE'S OWN GROUND WHERE THE PAGE HAS ONE (M-39,
+        # 2026-08-22), and `stanzas=None` -- NOT the pre-computed derivation --
+        # where it does not.  Until this entry the line read
+        #
+        #     stanzas=RL.stanzas_from_blank_lines(raw)
+        #
+        # which is the identical VALUE and a different CLAIM: passing a list
+        # records `Frames.stanza_source = 'declared'`, so a text printing no
+        # blank line at all handed the five `frame="stanza"` schemas an
+        # all-zero vector labelled as the caller's declaration, and they ran
+        # over one frame and printed a number.  `relations_null._stream_of`
+        # carried the same line and it is what collapsed the whole null panel.
+        # `stanza_source` now names WHICH of the three answers happened on
+        # this text -- `printed_breaks`, `none` (refused whole), or
+        # `build_stream`'s own `blank_lines`/`none` -- and the verb prints it,
+        # because a fallback nobody can see is the laundering this closed.
+        st = RL.build_stream(raw, phon, sections=ground.sections,
+                             stanzas=ground.stanzas,
+                             stanza_source=ground.stanza_source,
+                             line_status=ground.line_status,
+                             exclude_status=ground.exclude_status)
         # --schema= IS A SUBSTRING FILTER OVER THE POPULATION THE TWO COUNTS
         # BELOW ARE TAKEN FROM, and an unmatched value used to filter all 77
         # schemas out and print `schemas finding something: 0   refusing on a
         # capability eng does not have: 0` at exit 0 -- the SAME SHAPE as a
         # genuine null, wrapped in the two paragraphs about how to read these
-        # counts, and reachable by no other flag (no filter gives 25/26 on
-        # this repo's own fixture). Two changes, and they are different
-        # fixes:
+        # counts, and reachable by no other flag (no filter gives ~~25/26~~
+        # 23/31 on this repo's own fixture -- REPINNED 2026-08-22 by M-39's
+        # second half, which found that `quality/fixtures/song.txt` prints
+        # three marks `grid.MARK_OPENS_GROUP` does not declare, so its stanza
+        # ground is now REFUSED WHOLE and the five `frame="stanza"` schemas
+        # refuse on it. The superseded pair is kept in view because what the
+        # sentence needs is a number no flag can produce, and both are).
+        # Two changes, and they are different fixes:
         #
         #   * A FILTER THAT SELECTED NOTHING REFUSES. It is not a null and
         #     must not be printed in a null's shape.
@@ -6020,6 +6446,42 @@ def main():
         print(f"  phonology {lang}   lines {len(lines)}   "
               f"units {len(st.units)}   UNREADABLE tokens "
               f"{len(st.unreadable)}")
+        # THE TWO COORDINATES THE PAGE SUPPLIED, SAID OUT LOUD (M-39). An
+        # instrument that found nothing and one that never looked must not
+        # print the same thing, and until 2026-08-22 this verb printed neither
+        # -- it ground on blank lines it could not name and dropped the marks
+        # before it looked.
+        sup = st.supply("stanza")
+        print(f"  section coordinate: {ground.marks} [MARK] row(s) and "
+              f"{ground.breaks} `---` row(s) KEPT (excluded from the token "
+              f"stream, not deleted), {ground.dropped} apparatus row(s) "
+              f"dropped; {len({u.section for u in st.units})} distinct "
+              f"Unit.section over the units")
+        if ground.refused_marks:
+            print(f"  stanza ground: REFUSED WHOLE — "
+                  f"{', '.join(ground.refused_marks)} — the text prints a "
+                  f"[MARK] `quality/grid.MARK_OPENS_GROUP` does not declare, "
+                  f"and a ground built from the marks it CAN read would "
+                  f"silently merge the groups that one opens. The five "
+                  f"frame=\"stanza\" schemas REFUSE below rather than "
+                  f"quantify over a frame that is wrong about a mark; the "
+                  f"blank lines are NOT substituted, because nothing has "
+                  f"checked that they agree with the marks (doctrine 45).")
+        elif ground.marks and ground.stanza_source == "none":
+            print(f"  stanza ground: NONE — the text prints "
+                  f"{ground.marks} [MARK] row(s) and not one of them opens a "
+                  f"group, so its own marks placed no boundary. The blank "
+                  f"lines are not asked instead: that would answer a fact "
+                  f"about the marks with a different instrument.")
+        else:
+            print(f"  stanza ground: {st.frames.stanza_source} — "
+                  f"supply('stanza') {sup.state}, {sup.n} distinct stanza(s)"
+                  + ("" if ground.stanza_source else
+                     "  [FALLBACK: the page printed no break of any kind — "
+                     "no [MARK] that opens a group, no `---` row and no "
+                     "blank line between stanzas — so this reader declared "
+                     "nothing and the name above is `build_stream`'s own "
+                     "derivation]"))
         print(f"  schema filter: "
               + (f"{want!r} — {len(selected)} of {len(all_schemas)} "
                  f"schemas asked (SUBSTRING match on the name). The two "
@@ -6730,12 +7192,14 @@ def main():
         _no_unknown_flags_or_refuse(
             [a for a in args
              if a.split("=", 1)[0] not in ("--groups", "--returns",
-                                           "--cliques", "--structures")],
+                                           "--cliques", "--structures",
+                                           "--relations", "--relation")],
             ("--blueprint=B", "--profile=" + "|".join(sorted(PROFILES)),
              "--subdivision N", "--isochronous",
              "--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY",
              "--pursue=CODE,CODE", "--groups=", "--returns=", "--cliques",
-             "--structures=LABEL:NAME,..."),
+             "--structures=LABEL:NAME,...", "--relations=LABEL:NAME,...",
+             "--relation=NAME"),
             cmd)
 
         def _mandate_arg(args, at, lines):
@@ -6813,6 +7277,10 @@ def main():
                     flags.append(("--returns=", tok.split("=", 1)[1]))
                 elif tok.startswith("--structures="):
                     flags.append(("--structures=", tok.split("=", 1)[1]))
+                elif tok.startswith("--relations="):
+                    flags.append(("--relations=", tok.split("=", 1)[1]))
+                elif tok.startswith("--relation="):
+                    flags.append(("--relation=", tok.split("=", 1)[1]))
                 else:
                     tail.append(tok)
 
@@ -6821,6 +7289,17 @@ def main():
                 _refuse("the same mandate spelling was handed in more than "
                         "once, and this reader will not choose between them",
                         detail=[f"handed in: {' '.join(names)}"])
+            # `--relation=` IS NOT A MANDATE SPELLING. It says nothing about
+            # which lines answer which — it names the RELATION every group
+            # is judged under — so it is split out here, after the duplicate
+            # check has seen it and before the mutual-exclusion rules below,
+            # which are about spellings that each declare a whole cover.
+            # Leaving it in `flags` made `brief FILE AABB --relation=...`
+            # refuse as "a letter scheme beside a flag", which is the rule
+            # working on the wrong member.
+            dflt = next((v for n, v in flags if n == "--relation="), None)
+            flags = [(n, v) for n, v in flags if n != "--relation="]
+            names = [n for n, _ in flags]
             if "--cliques" in names and len(flags) > 1:
                 _refuse("--cliques cannot be combined with another mandate "
                         "spelling",
@@ -6863,21 +7342,73 @@ def main():
                     out[int(key) - 1 if key.isdigit() else key] = name.strip()
                 return out
 
+            def _rels(raw):
+                # --relations=B:cynghanedd lusg,A:type:qafiya — a group
+                # LABEL (A, B, ...) or a 1-based group index, a colon, and a
+                # relation NAME. The name may itself carry a namespace
+                # (`type:` / `schema:` / `class:`), which is why the split is
+                # on the FIRST colon only: 26 of the 131 declarable names
+                # live in two namespaces and M-37 made saying which one
+                # mandatory, so `A:type:qafiya` has to survive the parse.
+                # Validation is the vocabulary's — an unknown name refuses
+                # through `_normalise_relations` as NoMandate.
+                out = {}
+                for part in raw.split(","):
+                    part = part.strip()
+                    if not part:
+                        continue
+                    if ":" not in part:
+                        _refuse(f"--relations entry {part!r} has no ':' — "
+                                f"the spelling is LABEL:NAME (group label "
+                                f"or 1-based index, then a relation name, "
+                                f"which may itself be namespaced as "
+                                f"type:NAME / schema:NAME / class:NAME)")
+                    key, name = part.split(":", 1)
+                    key = key.strip()
+                    out[int(key) - 1 if key.isdigit() else key] = name.strip()
+                return out
+
             by = dict(flags)
+            # THE MANDATE-LEVEL RELATION, declared ONCE for the whole song
+            # (owner's instruction 2026-08-22, "wire Mandate.relations as
+            # the default route"). It is not a fifth mandate SPELLING — it
+            # declares nothing about which lines answer which — so it does
+            # not join the mutual-exclusion rules above and instead rides
+            # whatever cover the other flags built. `_finish` is the one
+            # place it is applied, because every branch below returns a
+            # different SHAPE and applying it per branch is four chances to
+            # forget one (which is exactly how `relations=` came to be
+            # dropped on the re-open path, `MISSING.md` M-50).
+
+            def _finish(spec, rest):
+                if dflt is None:
+                    return spec, rest
+                if spec is None:
+                    # No mandate at all. The refusal that fires downstream is
+                    # about the MANDATE, and it is the right one — a relation
+                    # with no groups to speak about declares nothing.
+                    return spec, rest
+                return (SC.mandate(spec, n_lines=len(lines),
+                                   default_relation=dflt),
+                        rest)
+
             if not flags:
-                # No flag: the mandate is the FIRST positional, as it always
-                # was — a letter string, or None so the refusal can fire.
+                # No mandate SPELLING: the mandate is the FIRST positional,
+                # as it always was — a letter string, or None so the refusal
+                # can fire. `_finish` is a no-op when no `--relation=` was
+                # declared, so this path stays byte-identical.
                 spec = tail[0] if tail else None
-                return spec, tail[1:]
+                return _finish(spec, tail[1:])
             if "--cliques" in by:
                 # The song's OWN structure. `mandate_from_graph` marks it
                 # source="derived", so the brief says out loud that its groups
                 # band-pass BY CONSTRUCTION (doctrine 14).
-                return rv.mandate_from_graph(lines), tail
+                return _finish(rv.mandate_from_graph(lines), tail)
             st = _structs(by["--structures="]) if "--structures=" in by \
                 else None
+            rl = _rels(by["--relations="]) if "--relations=" in by else None
             if tail and not tail[0].lstrip("-").replace(",", "").isdigit():
-                if set(by) == {"--structures="}:
+                if set(by) <= {"--structures=", "--relations="} and set(by):
                     # A letter string WITH --structures= is expressible and
                     # NOT the conflict the refusal below closes: the letter
                     # fully determines the cover and its labels, and
@@ -6885,8 +7416,11 @@ def main():
                     # declaring new ones. Built here because
                     # `Reviser.mandate()` forwards no structures= of its own
                     # — the same reason the returns spelling builds early.
-                    return (SC.mandate(tail[0], n_lines=len(lines),
-                                       structures=st), tail[1:])
+                    # `--relations=` annotates the same way and joins the
+                    # same branch (2026-08-22).
+                    return _finish(SC.mandate(tail[0], n_lines=len(lines),
+                                              structures=st, relations=rl),
+                                   tail[1:])
                 # A letter string BESIDE a flag. Refused rather than ignored:
                 # silently dropping it is the very defect this block closes.
                 _refuse(f"mandate {tail[0]!r} was handed in beside "
@@ -6900,10 +7434,11 @@ def main():
 
             g = _groups(by["--groups="]) if "--groups=" in by else []
             r = _groups(by["--returns="]) if "--returns=" in by else []
-            if st is not None and not (g or r):
-                _refuse("--structures= was handed in with no groups to "
-                        "annotate — declare the mandate it speaks about "
-                        "(a letter scheme, --groups= and/or --returns=)")
+            for flag, val in (("--structures=", st), ("--relations=", rl)):
+                if val is not None and not (g or r):
+                    _refuse(f"{flag} was handed in with no groups to "
+                            f"annotate — declare the mandate it speaks about "
+                            f"(a letter scheme, --groups= and/or --returns=)")
             # `--returns=` groups are REQUIRE_RETURN — identity REQUIRED,
             # REPEAT is the requirement and not a violation (doctrine 3's
             # second half). `--groups=` groups are plain REQUIRE_RHYME. Both
@@ -6912,25 +7447,76 @@ def main():
             # hold two different requirement kinds at once, and
             # `Reviser.mandate()` forwards no `returns=` of its own.
             if r:
-                return (SC.mandate(g + r, n_lines=len(lines), returns=r,
-                                   structures=st),
-                        tail)
-            if st is not None:
-                # --groups= with --structures=: built here for the same
-                # reason the returns branch builds here.
-                return SC.mandate(g, n_lines=len(lines), structures=st), tail
-            return g, tail                       # --groups= alone, as before
+                return _finish(SC.mandate(g + r, n_lines=len(lines),
+                                          returns=r, structures=st,
+                                          relations=rl),
+                               tail)
+            if st is not None or rl is not None:
+                # --groups= with --structures= / --relations=: built here for
+                # the same reason the returns branch builds here.
+                return _finish(SC.mandate(g, n_lines=len(lines),
+                                          structures=st, relations=rl), tail)
+            return _finish(g, tail)              # --groups= alone, as before
 
         def _say_derived(m):
             """Doctrine 14, out loud. A cover read off the rhyme graph is
             mutually band-passing BY CONSTRUCTION, so a clean rhyme result
             against it is an identity and not a verdict. `Mandate.describe`
-            has said so since it was written; nothing printed it."""
+            has said so since it was written; nothing printed it.
+
+            THE `MANDATE:` LINE IS NO LONGER GATED ON DERIVED-NESS, AND THAT
+            IS THE FIX OF 2026-08-22. It sat inside the `independent()`
+            guard, so a DECLARED mandate — the ordinary case, `--groups=` —
+            printed nothing at all about itself, and the only place a
+            declared group's LABEL reached the page was inside a violation
+            message about it. Measured on `quality/fixtures/song.txt`:
+            `brief --groups=2,4` named `group A` exactly once, in
+            `SCHEME_VIOLATION: ... group A ... ASSONANCE not rhyme`. When
+            the default admit set widened to all four relations that pair
+            began to SATISFY, the violation vanished, and with it every
+            mention that a group had been declared — so a clean graded
+            group and an ignored flag became the same page. That is
+            doctrine 20 exactly: the report could not tell "asked and clean"
+            from "never asked", and it was `quality/test_verbs.py` §6 going
+            red that surfaced it, because that check was asserting on the
+            violation text as its only evidence the group existed.
+
+            What is gated on derived-ness is the WARNING below it, which is
+            the only part that was ever about doctrine 14."""
+            # BOTH SHAPES, because `--groups=` alone hands a bare LIST of
+            # line-lists down this path and only grows a `Mandate` when
+            # `--structures=` / `--relations=` is also given. Disclosing one
+            # shape and not the other would leave the plainest call — the
+            # one a writer actually types — as the silent one.
+            if isinstance(m, (str, type(None))):
+                return                     # a letter scheme: the page has it
+            if hasattr(m, "groups"):
+                _grps = list(m.groups)
+                _lab = list(getattr(m, "labels", ()))
+                _head = (f"  MANDATE: {len(_grps)} group(s) over "
+                         f"{m.n_lines} lines, {len(m.pairs())} mandated "
+                         f"pair(s), source={m.source} ({m.origin})")
+            elif isinstance(m, list) and m and isinstance(m[0], list):
+                _grps, _lab = list(m), []
+                _head = (f"  MANDATE: {len(_grps)} group(s) declared, "
+                         f"source=declared (--groups=)")
+            else:
+                return
+            while len(_lab) < len(_grps):          # A, B, C ... as the
+                _lab.append(chr(65 + len(_lab)))   # report letters them
+            # `group A`, UNQUOTED — the house spelling everywhere a group is
+            # named in prose (`quality/loop.py`, `quality/propose.py`, the
+            # violation messages), so a reader and a grep both find one form.
+            _named = ", ".join(
+                f"group {_lab[k]} = lines "
+                f"{','.join(str(x) for x in sorted(grp))}"
+                for k, grp in enumerate(_grps)) or "no groups"
+            print(_head)
+            print(f"           {_named} — GRADED WHETHER OR NOT ANYTHING IS "
+                  f"SAID ABOUT THEM BELOW; silence here is a clean group, "
+                  f"not an unasked question (doctrine 20)")
             if not (hasattr(m, "independent") and not m.independent()):
                 return
-            print(f"  MANDATE: {len(m.groups)} group(s) over {m.n_lines} "
-                  f"lines, {len(m.pairs())} mandated pair(s), "
-                  f"source={m.source} ({m.origin})")
             print("  NOT INDEPENDENT of the grader (doctrine 14): this cover "
                   "was read off the rhyme graph, so every group band-passes "
                   "BY CONSTRUCTION and a clean rhyme result here is an "
@@ -6941,6 +7527,45 @@ def main():
                 print(f"  NO LETTER SCHEME EXISTS: lines "
                       f"{m.overlapping_lines()} are in more than one group, "
                       f"and a letter is a property of a LINE (doctrine 2).")
+
+        def _say_relation(m):
+            """THE DECLARED RELATION, OUT LOUD (2026-08-22).
+
+            MEASURED before this existed: `brief FILE --groups=1,2` and
+            `brief FILE --groups=1,2 --relation=type:rime riche` on a draft
+            the relation is SATISFIED by are BYTE-IDENTICAL, md5
+            `9e8f3f418504`. That is the worst available shape and this file
+            says so about `--isochronus` twelve hundred lines up: a caller
+            who typed the flag and got a clean report cannot tell it was
+            read from it being dropped, and the only run that would tell
+            them is one where the draft happens to FAIL.
+
+            So the coordinate is announced whenever one is declared, on the
+            same argument `_say_blueprint` is: the disclosure is about the
+            CALL, not about the draft, so it is a printed line and never a
+            `Finding` (a caller scans `whole` for things wrong with the
+            song). Nothing is printed when nothing was declared — the coarse
+            `Declaration.admit` path is the default and announcing a default
+            on every run buries the line that matters."""
+            if m is None or isinstance(m, (str, list)):
+                return                     # a bare spec: no relation on it
+            dflt_ = getattr(m, "default_relation", "")
+            per = [(m.labels[k], r)
+                   for k, r in enumerate(getattr(m, "relations", ()) or ())
+                   if r]
+            if not (dflt_ or per):
+                return
+            if dflt_:
+                print(f"  RELATION: every group is judged under "
+                      f"{dflt_!r} unless it declares its own — the named "
+                      f"engine's own coordinate, not the scalar "
+                      f"comparator's admit set.")
+            for lab, rel in per:
+                print(f"  RELATION: group {lab!r} is judged under {rel!r}.")
+            if not dflt_:
+                print(f"  ...and every OTHER group takes the coarse admit "
+                      f"set, which is what a mandate declaring no relation "
+                      f"has always used.")
 
         def _print_brief_report(lines, scheme, blueprint):
             """`brief`'s own report, factored out so `song` can print the
@@ -7298,6 +7923,7 @@ def main():
                 lines = load_lyric_lines(args[1])
                 scheme, _tail = _mandate_arg(args, 2, lines)
                 _say_derived(scheme)
+                _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
                 _print_brief_report(lines, scheme, bp_path)
@@ -7415,6 +8041,7 @@ def main():
                          if l.strip() and not is_apparatus_line(l)])
                 scheme, _tail = _mandate_arg(args, 3, lines)
                 _say_derived(scheme)
+                _say_relation(scheme)
                 if scheme is not None:
                     print(f"  BLUEPRINT: {song_bp_path} — meter and "
                           f"song-function join the rhyme/floor finding set"
@@ -7444,6 +8071,7 @@ def main():
                 after = load_lyric_lines(args[2])
                 scheme, tail = _mandate_arg(args, 3, before)
                 _say_derived(scheme)
+                _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
                     # BOTH SIDES, BEFORE THE VERDICT THAT COMPARES THEM.
@@ -7525,6 +8153,7 @@ def main():
                 lines = load_lyric_lines(args[1])
                 scheme, _tail = _mandate_arg(args, 2, lines)
                 _say_derived(scheme)
+                _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
                 propose, propose_pair, say_proposer = _resolve_proposer(

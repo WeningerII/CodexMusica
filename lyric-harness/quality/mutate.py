@@ -162,6 +162,7 @@ import concurrent.futures as futures
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -1520,7 +1521,53 @@ class Gate:
 GATE = Gate()
 
 
-def run_test(tree, rel_path, timeout=420):
+#: PER-SUITE BOUNDS, in seconds, each with the measurement that set it.
+#:
+#: THE BOUND WAS ONE GLOBAL 420s AND IT EXCLUDED THE FOUR MOST EXPENSIVE
+#: SUITES IN THE REPOSITORY (`MISSING.md` M-30). That is not a coincidence: a
+#: fixed bound excludes exactly the suites that do the most work, and those
+#: are the ones whose absence from a mutation sweep costs most. The run of
+#: 2026-08-22 closed `53/61 green, 8 excluded as already-red` — four of the
+#: eight were bounds, and `test_capacity` missed by thirty-five seconds while
+#: `test_loop` missed by eight.
+#:
+#: A TABLE AND NOT ONE BIG NUMBER, deliberately. Raising the global bound to
+#: cover `test_verbs` would give a genuinely HUNG two-second suite half an
+#: hour to hang in, and the whole point of a bound is to hear about that
+#: quickly. The 57 ordinary suites keep a tight ceiling; the four outliers get
+#: one matched to what they were measured to need.
+#:
+#: THE NUMBERS ARE ~2x THE MEASURED SERIAL RUNTIME, and the factor is not
+#: decoration: these run inside a mutation sweep at width `cpu_count()`, so
+#: wall clock moves with load in a way a serial sweep does not see. Measured
+#: 2026-08-22 by `quality/suite_sweep.py` over the whole tree.
+SUITE_TIMEOUT = {
+    os.path.join("quality", "test_verbs.py"): 3000,        # measured 1,469s
+    os.path.join("quality", "test_discriminate.py"): 1800,  # measured   892s
+    os.path.join("quality", "test_capacity.py"): 1000,      # measured   455s
+    os.path.join("quality", "test_loop.py"): 900,           # measured   428s
+}
+
+#: The global ceiling for everything else. RAISED 420 -> 600 on the same
+#: measurement: the slowest suite NOT in the table above is `test_revise.py`
+#: at 309s, so 420 left it 36% of headroom on a loaded machine and 600 leaves
+#: it 94%. Nothing in the tree measures between 309s and 428s, so this number
+#: sits in a real gap rather than beside a cliff.
+DEFAULT_TIMEOUT = 600
+
+
+def bound_for(rel_path, default=None):
+    """-> the seconds this suite gets. NEVER below `default`.
+
+    A per-suite entry may only RAISE the ceiling, so `--timeout N` still means
+    *at least N for everything* and a caller who raises the global bound is
+    never quietly overridden downward by a table they did not read.
+    """
+    default = DEFAULT_TIMEOUT if default is None else default
+    return max(SUITE_TIMEOUT.get(rel_path, 0), default)
+
+
+def run_test(tree, rel_path, timeout=None):
     """-> (status, seconds, tail-of-output). status in PASS/FAIL/ERROR/TIMEOUT.
 
     FAIL and ERROR are distinguished because they are different evidence: FAIL
@@ -1528,6 +1575,7 @@ def run_test(tree, rel_path, timeout=420):
     mutant broke the file badly enough that it could not run. Both count as
     caught; only FAIL means somebody wrote a check.
     """
+    timeout = bound_for(rel_path, timeout)
     env = dict(os.environ)
     env["PYTHONHASHSEED"] = str(SEED)          # doctrine 66
     env["PYTHONDONTWRITEBYTECODE"] = "1"       # no shared/stale bytecode
@@ -1538,7 +1586,10 @@ def run_test(tree, rel_path, timeout=420):
         p = subprocess.run([sys.executable, rel_path], cwd=tree, env=env,
                            capture_output=True, timeout=timeout)
     except subprocess.TimeoutExpired:
-        return "TIMEOUT", round(time.time() - t0, 1), "timed out"
+        # THE BOUND IS NAMED. It is per-suite now, so "timed out" alone leaves
+        # a reader guessing which ceiling was in force (`MISSING.md` M-30).
+        return ("TIMEOUT", round(time.time() - t0, 1),
+                "timed out after %ds (this suite's declared bound)" % timeout)
     finally:
         GATE.release_shared()
     dt = round(time.time() - t0, 1)
@@ -1547,11 +1598,23 @@ def run_test(tree, rel_path, timeout=420):
     err = (p.stderr or b"").decode("utf-8", "replace")
     out = (p.stdout or b"").decode("utf-8", "replace")
     status = "ERROR" if "Traceback (most recent call last)" in err else "FAIL"
-    tail = (err.strip() or out.strip()).splitlines()
+    # THE SUITE'S OWN VERDICT OUTRANKS INCIDENTAL STDERR (`MISSING.md` M-30).
+    # The tail was `stderr or stdout`, so ANY line a suite's subprocesses wrote
+    # to stderr became the stated cause of its failure. Measured: a best-effort
+    # `git rev-parse` probe in `verify_entries.py` printed `fatal: not a git
+    # repository` while exiting normally, and that line was reported as why
+    # `quality/test_verify_entries.py` was red -- sending a reader after a git
+    # problem that was not the failure. Every suite here prints its own
+    # `N FAILING: ...` roll-up; when one is present it IS the cause.
+    rollup = [l for l in out.splitlines() if re.match(r"^\s*\d+ FAILING:", l)]
+    if rollup:
+        tail = rollup
+    else:
+        tail = (err.strip() or out.strip()).splitlines()
     return status, dt, " | ".join(tail[-3:])[:400]
 
 
-def confirm_failure(tree, rel_path, timeout=420, attempts=3):
+def confirm_failure(tree, rel_path, timeout=None, attempts=3):
     """Re-run a failing test with the machine to itself. -> (verdict, detail).
 
     `verdict` is one of three, and the third one was being read as the first:
@@ -1578,6 +1641,7 @@ def confirm_failure(tree, rel_path, timeout=420, attempts=3):
     catch load-sensitive costs an escalation to the rest of the inventory and a
     line in the report; calling a load flake a catch reports a hole as covered.
     """
+    timeout = bound_for(rel_path, timeout)
     last = "failed on every isolated re-run"
     timed_out = 0
     for _ in range(max(1, attempts)):
@@ -1629,7 +1693,7 @@ def source_fingerprint():
 
 
 def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
-             timeout=420):
+             timeout=None):
     """Which tests are GREEN right now. A test red at baseline is excluded
     from the detector set: it fails either way, so it distinguishes nothing."""
     fp = source_fingerprint()
@@ -1651,13 +1715,26 @@ def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
             for f in futures.as_completed(fs):
                 t = fs[f]
                 st, dt, tail = f.result()
-                if st != "PASS" and (confirm_all or t in LOAD_SENSITIVE
-                                     or st == "TIMEOUT"):
-                    # Same rule as a catch: red under load is not red. A
-                    # TIMEOUT is ALWAYS re-run, whatever LOAD_SENSITIVE says —
-                    # that list is about wall-clock ASSERTIONS, and a timeout
-                    # is the runner's own clock, which every test is exposed to
-                    # once siblings are on the machine.
+                if st != "PASS":
+                    # EVERY BASELINE RED IS RE-CONFIRMED, 2026-08-22, and this
+                    # module's own comment on `LOAD_SENSITIVE` asked for it:
+                    # *"`--confirm-all` applies the same treatment to every
+                    # red, which is the honest setting IF THIS LIST IS EVER
+                    # SUSPECTED OF BEING INCOMPLETE."* It is now measured
+                    # incomplete: `quality/test_propose.py` — not on the list
+                    # — went red in a baseline running the tree at width
+                    # `cpu_count()` and passes cleanly both at head and in an
+                    # isolated copy. A hand-kept list of load-sensitive suites
+                    # is a population nobody wrote down (doctrine 58), and its
+                    # failure mode here is the expensive one: a false red
+                    # drops a suite from EVERY mutation, for the whole run.
+                    #
+                    # THE MUTATION RUNS KEEP THE OLD RULE, deliberately. There
+                    # a red is a CATCH, so a false red reports a hole as
+                    # COVERED — the opposite direction, already argued above —
+                    # and confirming every one of them would multiply the
+                    # sweep's cost by its catch rate. The BASELINE is run once,
+                    # its reds are few, and only the reds pay.
                     verdict, detail = confirm_failure(tree, t, timeout)
                     if verdict == "FLAKY":
                         st, tail = "PASS", ""
@@ -1672,14 +1749,69 @@ def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
         json.dump({"fingerprint": fp, "results": results},
                   open(cache_path, "w"), indent=1)
     green = [t for t, r in results.items() if r["status"] == "PASS"]
+    # TWO REASONS A SUITE LEAVES THE BASELINE, AND THEY ARE NEVER SUMMED
+    # (doctrine 79/20). A suite with a red check IS already-red and the
+    # mutation sweep is right to skip it. A suite that TIMED OUT is not red at
+    # all — it is unrunnable inside this bound, and every mutation only that
+    # suite could catch is now unguarded for a reason that has nothing to do
+    # with the suite's health. Both were printed as "excluded as already-red",
+    # which charges a healthy suite with a failure it did not have and hides
+    # the real remedy (raise the bound) behind the wrong one (fix the test).
+    #
+    # MEASURED 2026-08-22, and it is live rather than hypothetical:
+    # `quality/test_capacity.py` runs in 430s against this module's 420s
+    # default, so the ONE suite in the tree that re-derives 12,387 rhyme
+    # families is excluded from every mutation sweep, by ten seconds, and the
+    # summary said it was red.
+    unrunnable = sorted(t for t, r in results.items()
+                        if r["status"] == "TIMEOUT")
+    red = sorted(t for t, r in results.items()
+                 if r["status"] not in ("PASS", "TIMEOUT"))
     print(f"baseline: {len(green)}/{len(tests)} green, "
-          f"{len(tests) - len(green)} excluded as already-red")
+          f"{len(red)} excluded as already-red, "
+          f"{len(unrunnable)} excluded as UNRUNNABLE at their own declared "
+          f"bound (not red — inconclusive, doctrine 20)")
+    if unrunnable:
+        print("  UNRUNNABLE: " + ", ".join(unrunnable))
+        print("  Every mutation only these could catch is UNGUARDED in this "
+              "run. Raise --timeout; do not read this as a passing sweep.")
     return results
 
 
 # ---------------------------------------------------------------------------
 # Running one mutation
 # ---------------------------------------------------------------------------
+
+def outcome(caught, refused, missing_from_green):
+    """-> (survived, indeterminate). THE THREE-WAY DECISION, in one place.
+
+    It lived inside `run_mutation`, which forks the whole suite once per
+    mutation, so the only way to exercise it was a sweep costing the better
+    part of an hour — and a rule that expensive to test is a rule that gets
+    reasoned about instead (doctrine 48). It is a pure function of three
+    facts now and `quality/test_mutation.py` §3b runs every combination of
+    them in microseconds.
+
+      CAUGHT          a test in scope went red. A detection.
+      SURVIVED        nothing caught it AND every declared catcher actually
+                      reached a verdict. This is a HOLE, and the word is
+                      earned only under that second clause.
+      INDETERMINATE   nothing caught it and some declared catcher did not
+                      answer — it ran and timed out (`refused`), or the
+                      BASELINE dropped it before this mutation was ever
+                      tried (`missing_from_green`). Two different remedies,
+                      one verdict: this run does not know.
+
+    THE SECOND CLAUSE OF `missing_from_green` IS THE ONE THAT WAS MISSING.
+    `refused` can only hold a suite that RAN, so a suite the baseline dropped
+    could never enter it, and a mutation whose declared catcher was dropped
+    came back SURVIVED — a hole in the tests, manufactured by a time bound.
+    """
+    if caught:
+        return False, False
+    unanswered = bool(refused) or bool(missing_from_green)
+    return (not unanswered), unanswered
+
 
 def apply_mutation(tree, mut):
     """Write the mutant into the SHADOW copy. Never touches the real tree.
@@ -1701,7 +1833,7 @@ def apply_mutation(tree, mut):
 
 
 def run_mutation(mut, green, jobs, mode, base, confirm_all=False,
-                 timeout=420):
+                 timeout=None):
     """-> result dict. Runs the declared subset; escalates to the full green
     suite if the subset finds nothing, because a SURVIVOR is a finding and a
     finding has to be checked against everything before it is reported."""
@@ -1766,12 +1898,16 @@ def run_mutation(mut, green, jobs, mode, base, confirm_all=False,
                     flaky[t] = detail
             if caught:
                 break                      # subset did its job; do not pay full
+        # The DECLARED catchers this run could not ask, because the baseline
+        # dropped them. Read by `indeterminate` below and by the report.
+        missing_from_green = [t for t in mut.subset if t not in green]
+        _survived, _indeterminate = outcome(caught, refused,
+                                            missing_from_green)
         return {
             "name": mut.name, "layer": mut.layer, "file": mut.file,
             "rationale": mut.rationale,
             "subset_declared": list(mut.subset),
-            "subset_missing_from_green": [t for t in mut.subset
-                                          if t not in green],
+            "subset_missing_from_green": missing_from_green,
             "scope_run": scope or "none", "tests_run": sorted(ran),
             "caught_by": caught, "load_sensitive": flaky,
             "refused_by": refused,
@@ -1780,8 +1916,28 @@ def run_mutation(mut, green, jobs, mode, base, confirm_all=False,
             # where one refused, the honest answer is that this run does not
             # know, and calling that a hole would be as wrong as calling it
             # covered.
-            "indeterminate": bool(refused) and not caught,
-            "survived": not caught and not refused,
+            #
+            # A SUITE MISSING FROM THE BASELINE IS THE SAME FACT ONE STEP
+            # EARLIER, AND IT WAS NOT READ (2026-08-22). `refused` holds
+            # suites that RAN and then timed out; a suite the baseline dropped
+            # never runs at all, so it can never enter `refused`, so a
+            # mutation whose declared catcher was dropped came back
+            # `survived=True` — reported as A HOLE IN THE TESTS, manufactured
+            # by a time bound. `subset_missing_from_green` was computed four
+            # lines above and read by nothing, which is this repository's
+            # most-filed defect appearing inside the module written to find
+            # it.
+            #
+            # MEASURED THE DAY IT WAS FIXED, and the population is the honest
+            # part: `quality/test_capacity.py` runs 430s against the 420s
+            # default and IS dropped, 7 of the 58 mutations declare a subset
+            # naming a suite that bound excludes, and ZERO of them lose their
+            # whole subset — so no mutation is misreported today, and the
+            # reason is escalation to the full green suite rather than luck.
+            # The guard is written because the population can become
+            # non-empty by a staging that nobody connects to this file.
+            "survived": _survived,
+            "indeterminate": _indeterminate,
             "seconds": round(sum(timings.values()), 1),
         }
     finally:
@@ -1920,14 +2076,28 @@ def report(results, baseline_results, elapsed, mode, bounded=None):
               f"{', '.join(stale)}")
     if indeterminate:
         print()
-        print("INDETERMINATE — a test in scope never finished, so neither "
-              "'caught' nor 'a hole' is earned here:")
+        print("INDETERMINATE — a test in scope never reached a verdict, so "
+              "neither 'caught' nor 'a hole' is earned here:")
+        # TWO WAYS TO REACH THIS AND THEY SEND A READER TO DIFFERENT PLACES.
+        # REFUSED: the suite ran and timed out — raise `--timeout`, or the
+        # machine was loaded. DROPPED: the suite never entered the baseline at
+        # all, so the declared catcher was never asked — the remedy is the
+        # baseline's bound, one layer earlier, and it is invisible in this
+        # run's own timings.
         for r in results:
-            if r.get("indeterminate"):
-                print(f"  {r['name']} [{r['layer']}] {r['file']}  "
-                      f"refused by " + ", ".join(
-                          f"{os.path.basename(t)} ({d})"
-                          for t, d in sorted(r["refused_by"].items())))
+            if not r.get("indeterminate"):
+                continue
+            why = []
+            if r["refused_by"]:
+                why.append("refused by " + ", ".join(
+                    f"{os.path.basename(t)} ({d})"
+                    for t, d in sorted(r["refused_by"].items())))
+            if r.get("subset_missing_from_green"):
+                why.append("declared catcher DROPPED FROM THE BASELINE: "
+                           + ", ".join(os.path.basename(t) for t in
+                                       r["subset_missing_from_green"]))
+            print(f"  {r['name']} [{r['layer']}] {r['file']}  "
+                  + "; ".join(why))
     if survivors:
         print()
         print("SURVIVING MUTATIONS — each one is a hole in the suite, named:")
@@ -1962,7 +2132,7 @@ def main(argv=None):
                          "files. SURVIVED then means 'survived these', not "
                          "'survived the suite', and the report says so at the "
                          "top of the table")
-    ap.add_argument("--timeout", type=int, default=420,
+    ap.add_argument("--timeout", type=int, default=DEFAULT_TIMEOUT,
                     help="seconds one test file may take. Raise it on a "
                          "loaded machine: a timeout is now a REFUSAL, not a "
                          "catch, so a tight limit buys indeterminate "

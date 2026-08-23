@@ -243,10 +243,47 @@ def test_readable_pairs_are_untouched():
     # admit set (`Declaration.admit`) a near relation could have entered
     # through. Same verdict, same score, same relation; only the sentence
     # grew the coordinate that governs it.
-    check("the demo's single violation is unchanged",
-          d["violations"] == [(1, 2, 0.729, "CONSONANCE not rhyme "
-                                            "(conjunctive band; not in the "
-                                            "declared admit set)")])
+    # SAME PAIR, SAME SCORE, SAME COUNT — A DIFFERENT REASON, and the new
+    # one is the more fundamental (2026-08-23, doctrine 17). This pinned
+    # ~~"CONSONANCE not rhyme (conjunctive band; not in the declared admit
+    # set)"~~, which was the answer while the default door held only the two
+    # rhyme relations: the pair cleared nothing and was refused on the
+    # RELATION. The door widened to all four on 2026-08-22 (M-59), so
+    # CONSONANCE is admitted now and the relation no longer refuses
+    # anything here. The pair still violates, and it violates on the
+    # SCALAR: 0.729 is under theta_rhyme 0.75.
+    #
+    # THAT IS THE DISTINCTION WORTH KEEPING, and it is finer than the first
+    # draft of this comment claimed. That draft said the demo's verdict is
+    # "door-invariant" and asserted the whole violation tuple was
+    # byte-identical under a narrowed door. MEASURED, it is not: narrowing
+    # to ("RHYME", "RIME_RICHE") puts the reason back to "CONSONANCE not
+    # rhyme (... not in the declared admit set)". So `admits()`'s two
+    # clauses BOTH refuse this pair and the RELATION clause is the one that
+    # answers first when it applies.
+    #
+    # What IS door-invariant is the PAIR: (1, 2) violates at 0.729 under
+    # every declared door, because 0.729 is under theta_rhyme and no admit
+    # set widens past a scalar. What moves is WHICH clause says so, and
+    # that is worth an assertion of its own rather than a claim of
+    # sameness — the reason string is what a writer acts on.
+    check("the demo's single violation is unchanged, and it now refuses on "
+          "the SCALAR rather than on the relation — 0.729 is under "
+          "theta_rhyme, which no declared door widens past",
+          d["violations"] == [(1, 2, 0.729, "below theta_rhyme=0.75")],
+          str(d["violations"]))
+    from lyric_harness import Declaration as _Decl
+    _narrow = check_scheme(LEX, demo, "AABB",
+                           _Decl(admit=("RHYME", "RIME_RICHE")))
+    check("...and NARROWING the door keeps the SAME pair at the SAME score "
+          "while changing WHICH clause refuses it — relation under a "
+          "rhyme-only door, scalar under the default; a writer acts on the "
+          "reason, so the two are not one answer",
+          [v[:3] for v in _narrow["violations"]] == [v[:3] for v in d["violations"]]
+          and "admit set" in _narrow["violations"][0][3]
+          and "theta_rhyme" in d["violations"][0][3],
+          f"narrowed: {_narrow['violations'][0][3]!r}; "
+          f"default: {d['violations'][0][3]!r}")
     check("the demo refuses nothing", d["pairs_refused"] == 0)
 
     g = rhyme_graph(LEX, demo, DECL)
@@ -440,34 +477,62 @@ def test_corpus_song_rate_is_pinned():
     # anthologies are mostly standard literary English (American, Victorian,
     # Elizabethan), so the Scots concentration the mass load created is
     # diluted, not repaired.
-    check("countable lines 282745 — VERSE ONLY, now that apparatus lines "
+    # REPINNED 2026-08-21 — THE TOKENISER'S LETTER REPERTOIRE, and every
+    # figure in this block moves for one reason. `lyric_harness.line_tokens`
+    # and `Lexicon.transcribe` both matched `[A-Za-z...]` until this date, so
+    # a printed English word carrying a diacritic was not one word to this
+    # harness: Barnes's `A-baggèn` tokenised as `A-bagg` + `n`, `jaÿ` as `ja`,
+    # and Welsh printed in an `eng_` file gave `tân` -> `t` + `n`, END WORD
+    # `n`. `LATIN_SCRIPT` is the declared repertoire now (0 Latin-named
+    # letters in `corpus/` fall outside it) and every count here is the
+    # harness looking at the RIGHT WORD for the first time.
+    #
+    # THE DIRECTION IS UP AND THAT IS THE POINT (doctrine 79 — a refusal is
+    # not a failure). The end-word refusal rate rises 5.74% -> 6.2611%
+    # because a fragment that CMUdict happened to list (`n`, `ja`) used to
+    # read, and the whole word honestly does not. Nothing was lost: the
+    # sonnet battery is byte-identical either side (1064/1014/50/82) because
+    # `corpus/sonnets.txt` is pure ASCII, which is the control that says this
+    # moved only what was already wrong.
+    #
+    # AND THE TWO HALVES HAD TO MOVE TOGETHER. With `line_tokens` widened and
+    # `Lexicon.transcribe` not, the two DISAGREED about what a word is, and
+    # `line_anchors` glued transcribe's two letter-name syllables (T-IY,
+    # EH-N) onto line_tokens' one word `tân` and reported the line READABLE —
+    # anchored on a spelling-out of its own rhyme word. `substituted_silent`
+    # went 2 -> 1,462 under the half-fix and is back at 2 with both sites on
+    # the one definition, which is the number that proves they agree.
+    #
+    # -14 on `lines_countable` is NOT this change: it is the 14 pìobaireachd
+    # movement headings that stopped being verse lines the same sitting
+    # (`MISSING.md` M-25(a)).
+    check("countable lines 282731 — VERSE ONLY, now that apparatus lines "
           "are excluded at the source instead of subtracted by hand, and "
           "under the CENTRE's `---` rather than a second `--- ` of our own",
-          r["lines_countable"] == 282745,
-          f"{r['lines_countable']}  (179193 before the Tier-1 load; 153224 "
+          r["lines_countable"] == 282731,
+          f"{r['lines_countable']}  (282745 before the LATIN_SCRIPT repin; 179193 before the Tier-1 load; 153224 "
           f"before the mass load; 151894 before Pass-1)")
-    check("unreadable end word, cause TOKEN, 15958 — the Scots share grew, "
-          "and so did CMUdict's honest refusal count",
-          r["unreadable_final_token"] == 15958,
+    check("unreadable end word, cause TOKEN, 17274 — UP from 15958, because a "
+          "fragment CMUdict happened to list is no longer the end word",
+          r["unreadable_final_token"] == 17274,
           f"{r['unreadable_final_token']} ({r['rate_token']:.4%})  "
-          f"(11658 before the Tier-1 load; 9094 before the mass load)")
-    check("rate on that quantity is 5.64% — DOWN again from 5.88%: the "
-          "Home Book of Verse safe subset is standard literary English, "
-          "diluting the Scots concentration further",
-          abs(r["rate_token"] - 0.056440) < 1e-5,
-          f"{r['rate_token']:.4%}  (6.5065% before the Tier-1 load; 5.9351% "
-          f"before the mass load)")
-    check("unreadable end word, cause PIECE, 260 — the price of the hyphen "
+          f"(15958 before the LATIN_SCRIPT repin; 11658 before the Tier-1 load)")
+    check("rate on that quantity is 6.11% — UP from 5.64%, and the rise is the "
+          "harness reading the whole word instead of an ASCII fragment",
+          abs(r["rate_token"] - 0.061097) < 1e-5,
+          f"{r['rate_token']:.4%}  (5.6440% before the LATIN_SCRIPT repin; "
+          f"6.5065% before the Tier-1 load)")
+    check("unreadable end word, cause PIECE, 428 — the price of the hyphen "
           "refusal on VERSE lines alone",
-          r["unreadable_final_piece"] == 260,
-          f"{r['unreadable_final_piece']}  (201 before the Phase-1 load)")
-    check("so the end-word refusal rate is 5.74% AFTER the rule and 5.64% "
+          r["unreadable_final_piece"] == 428,
+          f"{r['unreadable_final_piece']}  (260 before the LATIN_SCRIPT repin)")
+    check("so the end-word refusal rate is 6.26% AFTER the rule and 6.11% "
           "before it, and both are printed",
-          r["unreadable_final"] == 16218 and abs(r["rate"] - 0.057359) < 1e-5,
+          r["unreadable_final"] == 17702 and abs(r["rate"] - 0.062611) < 1e-5,
           f"{r['unreadable_final']} ({r['rate']:.4%})")
-    check("15405 of those would have had the rhyme word SUBSTITUTED by an "
-          "earlier word", r["substituted_end_word"] == 15405,
-          f"{r['substituted_end_word']}  (11788 before the Phase-1 load)")
+    check("16712 of those would have had the rhyme word SUBSTITUTED by an "
+          "earlier word", r["substituted_end_word"] == 16712,
+          f"{r['substituted_end_word']}  (15405 before the LATIN_SCRIPT repin)")
     # THE SUBSET CLAIM, PINNED 2026-08-14 — and it is pinned because it is
     # FALSE. `substitution_report`'s docstring called itself "a strict subset
     # of the unreadable-final lines" from the day it was written; nothing
@@ -481,18 +546,18 @@ def test_corpus_song_rate_is_pinned():
     # second is the population NOTHING in this module reached before the
     # wiring. If `substituted_silent` ever moves, either the corpus changed
     # or `line_anchors` did, and both are things a reader needs told.
-    check("15403 + 2, not 15405 + 0 — the substitution is NOT a subset of "
+    check("16710 + 2, not 16712 + 0 — the substitution is NOT a subset of "
           "the unreadable-final lines, and the 2 are the only lines in this "
           "module that no other finding reaches",
-          r["substituted_flagged"] == 15403 and r["substituted_silent"] == 2,
+          r["substituted_flagged"] == 16710 and r["substituted_silent"] == 2,
           f"{r['substituted_flagged']} already flagged as a LINE by "
           f"UNREADABLE_END_WORD (the gap there was only the WORD) + "
           f"{r['substituted_silent']} reached by nothing "
           f"(Byron's `...on the turf,[mm]` and D'Urfey's `_Sh----_`)")
-    check("and the complement is the larger half and is not a defect: 715 "
+    check("and the complement is the larger half and is not a defect: 992 "
           "unreadable-final lines are NOT substitutions",
-          r["unreadable_final"] - r["substituted_flagged"] == 815
-          and r["unreadable_final_piece"] == 260,
+          r["unreadable_final"] - r["substituted_flagged"] == 992
+          and r["unreadable_final_piece"] == 428,
           f"{r['unreadable_final'] - r['substituted_flagged']} = 233 cause "
           f"PIECE (`hill-zide` keeps its own token in the syllable map, so "
           f"nothing is substituted) + 482 where no earlier word read either")
@@ -520,23 +585,23 @@ def test_corpus_song_rate_is_pinned():
     # unexplained by an earlier token. 0 is what "derived by POSITION" means
     # measured rather than asserted, and it is the direct successor to the
     # 328 of 328.
-    check("the hyphen population is 487 end tokens with a read piece and an "
+    check("the hyphen population is 638 end tokens with a read piece and an "
           "unread piece (CLAUDE.md's 323 was this figure at the 143-file "
           "corpus)",
-          r["final_piece_population"] == 487,
+          r["final_piece_population"] == 638,
           f"{r['final_piece_population']}")
-    check("split 260 ANCHOR-layer (refused) + 227 REPORT-layer (label "
+    check("split 428 ANCHOR-layer (refused) + 210 REPORT-layer (label "
           "overstates, never refused)",
-          r["unreadable_final_piece"] == 260 and r["label_overstates"] == 227,
+          r["unreadable_final_piece"] == 428 and r["label_overstates"] == 210,
           f"{r['unreadable_final_piece']} + {r['label_overstates']}")
     check("0 of 323 have an end-word piece misfiled as interior — the "
           "328-of-328 defect, measured at zero",
           r["interior_misfiled_unexplained"] == 0,
           f"{r['interior_misfiled_unexplained']} unexplained of "
           f"{r['interior_misfiled']} raw overlaps")
-    check("and the 8 raw overlaps are REAL double occurrences, not "
+    check("and the 10 raw overlaps are REAL double occurrences, not "
           "misfilings — reported separately rather than summed (doctrine 79)",
-          r["interior_misfiled"] == 8,
+          r["interior_misfiled"] == 10,
           f"{r['interior_misfiled']}: all eight are the same refrain shape — "
           f"Kingsley's `Sing heigh-ho, and heigh-ho!` x4 and the mass-loaded "
           f"David Macbeth Moir's `Sing heigh-ho! sing heigh-ho!--` x4 — "
@@ -832,9 +897,20 @@ def test_the_manufactured_rhyme_is_refused():
     # Pinned 2026-08-13 against the shipped cmudict.dict and this file at
     # HEAD. Doctrine 58: the file set and the lexicon are part of the number,
     # so both are named. If Barnes is re-ingested this moves, and it should.
-    check("29 distinct `a-` participles end a line in this one file with "
-          "their last piece unread", len(klass) == 29,
-          f"{len(klass)}: {sorted(klass)[:6]} ...")
+    # REPINNED 2026-08-21, 29 -> 118, AND THE FOURFOLD RISE IS THE FINDING.
+    # Under `[A-Za-z]` an `a-` participle carrying Barnes's grave accent was
+    # not ONE end token at all: `A-baggèn` tokenised as `A-bagg` + `n`, so the
+    # END WORD was `n`, CMUdict listed it, and the line read clean. Only the
+    # 29 participles that happen to be pure ASCII ever reached this class.
+    # With `LATIN_SCRIPT` the whole word is the end token, its last piece is
+    # unread, and the manufactured class this section measures is four times
+    # the size the record claimed. The check below is UNMOVED and still
+    # passes: all 118 still yield the IDENTICAL would-be anchor, because the
+    # only piece that reads is still the participial prefix's schwa.
+    check("118 distinct `a-` participles end a line in this one file with "
+          "their last piece unread", len(klass) == 118,
+          f"{len(klass)}: {sorted(klass)[:6]} ... (29 before the "
+          f"LATIN_SCRIPT repin, and the other 89 were not even ONE token)")
     phones = {w: tuple(LEX.transcribe(w)[0]) for w in klass}
     distinct = set(phones.values())
     check("and ALL of them would have anchored on the IDENTICAL phone list — "
@@ -872,6 +948,103 @@ def test_the_manufactured_rhyme_is_refused():
           res["violations"] == [] and res["pairs_refused"] == 1
           and res["pairs_judged"] == 0,
           "a manufactured rhyme deleted is not a rhyme failure created")
+
+
+def test_the_letter_repertoire_is_declared_and_the_two_sites_agree():
+    """§10 — `LATIN_SCRIPT`, added 2026-08-21, and the invariant that makes it
+    safe.
+
+    `line_tokens` and `Lexicon.transcribe` each carried their OWN
+    `[A-Za-z...]` class. Widening one and not the other is worse than leaving
+    both wrong, because the two then DISAGREE ABOUT WHAT A WORD IS: measured
+    while it was half-fixed, `line_tokens` said `tân` was one word,
+    `transcribe` said `t` + `n`, and `line_anchors` glued transcribe's two
+    LETTER-NAME syllables (T-IY, EH-N) onto the one word and reported the
+    Welsh line READABLE — anchored on a spelling-out of its own rhyme word.
+    `substituted_silent` went 2 -> 1,462 under that state, which is what
+    caught it.
+
+    So the binding check here is not that either site is Unicode. It is that
+    they AGREE, on a line only a widened repertoire can read."""
+    print("\n10. the letter repertoire is DECLARED, and both readers use it")
+    import lyric_harness as LH
+    from quality import readability as RD
+
+    check("LATIN_SCRIPT is a compiled pattern on lyric_harness, not a local",
+          hasattr(LH, "LATIN_SCRIPT") and hasattr(LH.LATIN_SCRIPT, "search"),
+          getattr(LH, "LATIN_SCRIPT", None))
+
+    # 1. THE REPERTOIRE IS MEASURED. Over every letter in `corpus/`, not one
+    #    whose Unicode name begins LATIN falls outside the declared ranges.
+    import unicodedata
+    missed = sorted({c for c in
+                     "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêëìíîïñòóôõöøùúûüýÿ"
+                     "ĀāăĂĄąĆćČčĎďĐđĒēĔĕĖėĘęĚěŁłŃńŇňŌōŐőŒœŘřŚśŞşŠšŤťŪūŮůŰűŸŹźŻżŽž"
+                     "ȳṁṅṛṣṭĀīūḥṃśḍṇḷ"
+                     if not LH.LATIN_SCRIPT.match(c)})
+    check("every Latin-script letter this corpus prints is inside the class",
+          not missed, missed)
+    for c in "歸ωاΖ":
+        check("%r is NOT in the Latin class" % c,
+              not LH.LATIN_SCRIPT.match(c), c)
+
+    # 2. THE INVARIANT. One line, two readers, one answer.
+    # THE FIRST DRAFT OF THIS CHECK COULD NOT FAIL, and it is recorded rather
+    # than quietly replaced. It called `LEX.transcribe(line)`, DISCARDED the
+    # result, and then compared `line_tokens` against a whitespace split — so
+    # a check named "line_tokens and transcribe agree" was not asking
+    # `transcribe` anything at all. That is the shape this file's own
+    # discipline section exists to stop, and it survived mutation M2 (the
+    # exact disagreement it is named for) for that reason.
+    #
+    # THE DISCRIMINATING SIGNAL is that a word `line_tokens` returns as ONE
+    # token must reach `transcribe` as one token too. When it does and CMUdict
+    # cannot read it, the WHOLE WORD appears in transcribe's OOV list. Under
+    # an ASCII `transcribe`, `tân` is split into `t` and `n`, CMUdict lists
+    # both as letter names, and the word is absent from OOV entirely — which
+    # is how the harness came to report a Welsh line readable, anchored on a
+    # spelling-out of its own rhyme word.
+    LEX = Lexicon()
+    for line, word in (("SION a Sian, oddeutu'r tân,", "tân"),
+                       ("You gie'd me life, you gie'd me jaÿ,", "jaÿ")):
+        toks = LH.line_tokens(line)
+        _ph, _all, oov = LEX.transcribe(line)
+        check("line_tokens returns %r as ONE token and transcribe reports "
+              "that same whole word OOV — the two readers agree" % word,
+              word in toks and word in oov, (toks, oov))
+
+    check("the Welsh end word is `tân`, not `n`",
+          LH.raw_final_token("SION a Sian, oddeutu’r tân,") == "tân",
+          LH.raw_final_token("SION a Sian, oddeutu’r tân,"))
+    check("Barnes's end word is `jaÿ`, not `ja`",
+          LH.raw_final_token("You gie'd me life, you gie'd me jaÿ,") == "jaÿ",
+          LH.raw_final_token("You gie'd me life, you gie'd me jaÿ,"))
+
+    # 3. AND THE HONEST CONSEQUENCE, which is the point of the whole change:
+    #    the whole word is now REFUSED rather than a fragment being scored.
+    r = RD.readability_records(LEX, ["SION a Sian, oddeutu’r tân,"])[0]
+    check("`tân` is refused as cause TOKEN — an honest refusal, not a "
+          "fragment scored (doctrine 79)",
+          r["final_unreadable"] and r["final_unreadable_cause"] == "token",
+          (r["final_unreadable"], r["final_unreadable_cause"]))
+
+    # 4. THE ASCII CONTROL. Nothing that was already right may move — this is
+    #    why the sonnet battery is byte-identical (1064/1014/50/82).
+    for line in ("Shall I compare thee to a summer's day?",
+                 "Of hill-zide an' the wife-zide",
+                 "word--word and --and"):
+        old = [t for t in re.findall(r"[A-Za-z'\-]+", line)
+               if re.search(r"[A-Za-z]", t)]
+        check("pure-ASCII line unmoved: %r" % line[:34],
+              LH.line_tokens(line) == old, (LH.line_tokens(line), old))
+
+    # 5. THE SILENCE HAS A NAME NOW (doctrine 20).
+    out = LH.letters_outside_repertoire("歸。 Ζωή است")
+    check("letters_outside_repertoire names the scripts it cannot read",
+          out == {"CJK": 1, "GREEK": 3, "ARABIC": 3}, out)
+    check("and it is empty for a line the repertoire covers",
+          LH.letters_outside_repertoire("jaÿ and tân") == {},
+          LH.letters_outside_repertoire("jaÿ and tân"))
 
 
 def test_interior_is_derived_by_position():
@@ -972,6 +1145,23 @@ def test_interior_is_derived_by_position():
           f"codes: {sorted(got4)}")
 
 
+#: THE RUNNER IS AN EXPLICIT LIST, AND AN EXPLICIT LIST SILENTLY DROPS A NEW
+#: SECTION. `test_the_letter_repertoire_is_declared_and_the_two_sites_agree`
+#: was written, was correct, and did not run: the suite printed
+#: `all regressions pass` over 111 checks with a whole section unexecuted, and
+#: that is indistinguishable from a section that passed. Doctrine 48 inside
+#: the file that pins doctrine-48 defects. The list stays (its ORDER is the
+#: document's numbered sections, which a `sorted(globals())` sweep would
+#: scramble), and the guard below makes the omission loud instead.
+def _every_section_runs(listed):
+    missing = sorted(k for k, v in globals().items()
+                     if k.startswith("test_") and callable(v)
+                     and v not in listed)
+    check("every `test_*` in this file is in the runner's list — an "
+          "explicit list that silently drops a section prints the same "
+          "`all pass` as one that ran it", not missing, missing)
+
+
 if __name__ == "__main__":
     for fn in (test_readable_pairs_are_untouched,
                test_constructed_oov_final,
@@ -981,8 +1171,17 @@ if __name__ == "__main__":
                test_zero_syllable_word_has_no_anchor,
                test_every_emitted_code_has_a_case,
                test_the_manufactured_rhyme_is_refused,
+               test_the_letter_repertoire_is_declared_and_the_two_sites_agree,
                test_interior_is_derived_by_position):
         fn()
+    _every_section_runs((
+        test_readable_pairs_are_untouched, test_constructed_oov_final,
+        test_real_corpus_line, test_nothing_was_lost_on_the_sonnets,
+        test_corpus_song_rate_is_pinned, test_zero_syllable_word_has_no_anchor,
+        test_every_emitted_code_has_a_case,
+        test_the_manufactured_rhyme_is_refused,
+        test_the_letter_repertoire_is_declared_and_the_two_sites_agree,
+        test_interior_is_derived_by_position))
     print("=" * 68)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")

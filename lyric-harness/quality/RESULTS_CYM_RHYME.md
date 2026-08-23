@@ -796,20 +796,38 @@ The full order in which the record caught up, from `git log -S`:
 | `MISSING.md` N-1 | `75059e0`, 2026-08-11 02:37 | re-measured the whole seven-corpus gradient |
 | **this document** | `49be381`, 2026-08-11 05:57 | written after the change; never carried the old value |
 | `CLAUDE.md`, `EXEMPLARS.md`, `METHOD.md`, `NULL_AUDIT.md`, `POSITIVE_CONTROL.md` | `8d3e05a`, 2026-08-13 18:55 | *"Welsh: the corpus stopped being blocked three days ago and four documents never heard"* |
-| **`data/sources.tsv`** | — | **never** |
+| **`data/sources.tsv`** | ~~—~~ **`RE-MEASURED 2026-08-14`** | ~~**never**~~ **closed three days after this table was written — see below** |
 
 `8d3e05a` touched exactly five files and `data/sources.tsv` was not one of them,
 so the commit that repaired this contradiction was itself **one document
-short** — and it is the document a sourcing cell reads first. **Seven of its
+short** — and it is the document a sourcing cell reads first. ~~**Seven of its
 rows** still present the pre-doctrine-82 figures as current — lines 82, 265,
-266, 267, 268, 269 and 273 — one of them under the words `FINAL FIGURES`. They
-are not this cell's to edit; the exact lines and their replacement text are in
-this lot's report. A row that quotes a retired comparator without saying so is
-doctrine 17's own failure mode.
+266, 267, 268, 269 and 273 — one of them under the words `FINAL FIGURES`.~~
 
-**One of those seven has a claim that does not merely go stale, it INVERTS.**
-Line 265, the *hwiangerddi* row, reads *"the observation is BELOW the null max,
-so there is no cynghanedd excess"*. Re-measured, the observation is 12.9%
+> **BOTH HALVES OF THAT SENTENCE ARE FALSE AT HEAD — REPINNED 2026-08-21.**
+> **(a) The shortfall was closed.** Six `data/sources.tsv` rows now carry
+> `RE-MEASURED 2026-08-14` with the pre-doctrine-82 figures kept visible
+> beneath them under doctrine 17, printing the current 57.1 / 46.2 / 44.1 /
+> 28.4 / 12.9 / 14.5 / 8.2 series. `grep "FINAL FIGURES" data/sources.tsv`
+> returns **nothing**. So the catch-up table's `never` row is wrong and this
+> paragraph outlived its own subject by a week.
+> **(b) The seven LINE NUMBERS are not addresses.** `data/sources.tsv` is
+> **1,613 rows** and append-only: lines 265/266 are Malay `SEARCH:` rows now,
+> and the Welsh rows this paragraph names have slid to **267–271**, with 82
+> still `NOTE:cynghanedd-checker-fixed-and-nulled`. **Cite the `source_id`,
+> never the offset** — `CLAUDE.md` repinned itself for exactly this on
+> 2026-08-16 (*"a line number into an append-only table is not an address, it
+> is an offset from a moving origin"*) and this document was not told. The
+> rows meant are `NOTE:cynghanedd-checker-fixed-and-nulled`,
+> `GITenberg/Yr-Hwiangerddi_8194`, `GITenberg/Gwaith-Mynyddog.-Cyfrol-II_14547`,
+> `GITenberg/Some-Specimens-of-the-Poetry-of-the-Ancient-Welsh-Bards_32767`,
+> `GITenberg/Gwaith-Twm-o-r-Nant-Cyfrol-2_2734#songs` and
+> `GITenberg/Gwaith-Alun_14865#songs`.
+
+**The INVERSION below survives both corrections and is the reason this section
+stays.** ~~Line 265,~~ **The `GITenberg/Yr-Hwiangerddi_8194` row**, reads
+*"the observation is BELOW the null max, so there is no cynghanedd excess"*.
+Re-measured, the observation is 12.9%
 against a null max of 12.3% — **above** it, by +0.6 pp, with p at the floor. The
 sentence's own conclusion (traditional nursery verse carries no meaningful
 cynghanedd) survives at +0.6 pp on 1,712 lines, but the *reason it gives* is now

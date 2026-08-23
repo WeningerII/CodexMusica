@@ -9,9 +9,9 @@ will never return one. Two project rules force that shape:
   - No weighted quality score, ever. The exchange rate between surprise and
     clarity is not derivable; it is a genre's answer, so it belongs in a
     declaration rather than in a constant.
-  - Rejection, not selection. Detecting bad writing held out at AUC 0.964;
+  - Rejection, not selection. Detecting bad writing held out at AUC 0.960;
     ranking good writing at 0.717. Enforce a floor, do not order what passes.
-    (Both ABSOLUTE ten-feature joints, cold: 0.964 is Experiment 2, human vs
+    (Both ABSOLUTE ten-feature joints, cold: 0.960 is Experiment 2, human vs
     generated; 0.717 is Experiment 1, anthologized vs not. REPINNED
     2026-08-14 from 0.971/0.709 — see the cold-repin section below.)
 
@@ -29,7 +29,7 @@ by one model. That is:
   - one generator
   - a 400-year register gap between the classes
 
-The joint classifier separating those two sets reached AUC 0.964, but the same
+The joint classifier separating those two sets reached AUC 0.960, but the same
 analysis showed it is largely reading REGISTER AND PERIOD rather than quality:
 five of ten features separated with the WRONG sign, and a within-item
 respecification that removes level effects takes it to 0.891. Both figures are
@@ -64,7 +64,7 @@ One check is a NOTE for a reason that changed under it. PREDICTABLE_RHYME, this
 project's former candidate universal, was recorded here as reproducing its own
 withdrawal at 0.560 — chance. Cold, the predictability-only joint reads 0.648
 on human-vs-generated and 0.710 on anthologized-vs-not: above chance in both,
-and far under the 0.964 the ten-feature joint reaches on the same
+and far under the 0.960 the ten-feature joint reaches on the same
 human-vs-generated split. So predictability is a WEAK separator carried by
 stronger features rather than a dead one, and it is STILL a note that may not
 carry a rejection — on doctrine 7, which was always the better reason: a floor
@@ -88,6 +88,7 @@ overwritten (doctrine 17):
         pre-fix 0.709  ->  warm 0.659  ->  COLD 0.717
     absolute joint held-out, Exp 2 (ten features, human vs generated)
         pre-fix 0.971  ->  warm 0.975  ->  COLD 0.964
+        ->  0.960 (2026-08-22, the M-31 sentinel fix)
     within-item joint, Exp 1 (respecified eight)
         warm 0.604  ->  COLD 0.638
     within-item joint, Exp 2 (respecified eight)
@@ -99,7 +100,7 @@ THREE AXES, AND THE SENTENCE THIS MODULE CARRIED COLLAPSED ALL THREE. "Removing
 level effects dropped joint AUC from 0.971 to 0.877" subtracted a WITHIN-ITEM,
 WARM figure from an ABSOLUTE, PRE-FIX one, so it charged the respecification
 for the out-of-vocabulary fix and for a stale cache as well. Like for like —
-same design, same cache state, only the feature set moving — it is 0.964 ->
+same design, same cache state, only the feature set moving — it is 0.960 ->
 0.891. DESIGN (Exp 1 / Exp 2), FEATURE SET (ten absolute / eight within-item /
 two predictability-only) and CACHE STATE (pre-fix / warm / cold) are three
 separate coordinates, and a figure quoted without all three is unreadable
@@ -287,7 +288,7 @@ CALIBRATION = {
                     "gap. Reads register and period as well as craft; five of "
                     "ten features separated with the wrong sign, and removing "
                     "level effects takes the human-vs-generated joint from "
-                    "0.964 (ten absolute features) to 0.891 (eight within-item "
+                    "0.960 (ten absolute features) to 0.896 (eight within-item "
                     "ones) -- same design, same cold reading, only the feature "
                     "set moving. The "
                     "`song` profile is NOT part of this: it has no generated "
@@ -449,7 +450,7 @@ CALIBRATION = {
         "post-hoc finding and needs its own replication. || "
         "PREDICTABLE_RHYME was this project's candidate universal and is not "
         "one. Cold, the predictability-only joint reaches 0.648 on "
-        "human-vs-generated against 0.964 for the ten-feature joint on the "
+        "human-vs-generated against 0.960 for the ten-feature joint on the "
         "same split: a real but weak separator, carried by stronger features. "
         "It stays a NOTE and may not reject (doctrine 7). REPINNED 2026-08-14 "
         "-- this read 'reproduced its own withdrawal: 0.560, chance', which "
@@ -565,10 +566,14 @@ class Profile:
                 "songwriter, not whether it catches a machine" % f)
 
 
-#: Both profiles come from the SAME two classes -- the 152 sonnets and the 40
-#: generated ones -- measured at two units. The section profile takes the
-#: three quatrains of each sonnet (lines 1-4, 5-8, 9-12), which is the closest
-#: thing to a song section that this corpus contains.
+#: ~~Both profiles~~ THE TWO STANZA PROFILES come from the SAME two classes --
+#: the 152 sonnets and the 40 generated ones -- measured at two units. The
+#: section profile takes the three quatrains of each sonnet (lines 1-4, 5-8,
+#: 9-12), which is the closest thing to a song section that this corpus
+#: contains. The THIRD profile (`song`, added 2026-08-11) is a different kind
+#: of calibration and says so in its own block below; this comment said
+#: "both" for ten days after the list stopped having two members (L-4,
+#: closed 2026-08-21 on exactly that staleness).
 PROFILES = [
     Profile(
         name="section", unit="4-line quatrain, 29-37 tokens",
@@ -633,8 +638,33 @@ PROFILES = [
         #: ADOPTED 2026-08-21 over the loaded corpus, as a SET. The three
         #: that moved are struck beside their replacements; the two that did
         #: not are the reason the set could be adopted at all -- see `source=`.
+        #:
+        #: REPINNED 2026-08-22, `mattr_min` ONLY: 0.7128 -> 0.7118, and the
+        #: cause is a READER FIX rather than a load. `features.py._tokens`
+        #: matched `[A-Za-z'\-]+` until 2026-08-21, so Barnes's `A-baggèn`
+        #: was TWO tokens and `jaÿ` was one letter short -- MATTR is a
+        #: type-token ratio and it was being computed over a text nobody
+        #: printed. `lyric_harness.LATIN_SCRIPT` is the declared repertoire
+        #: now; the eng token total falls 1,873,325 -> 1,865,465 (-0.420%) as
+        #: fragments merge back into the words they came from, and the 5th
+        #: percentile of the band moves with it.
+        #:
+        #: THE OTHER FOUR ARE UNMOVED, which is what makes this a repin of one
+        #: coordinate rather than a re-adoption of the set: `fwr` 0.4773,
+        #: `anaphora` 0.3000, `cv` 0.1094 and `predictable_pair` 0.9286 all
+        #: re-derive exactly. MATTR is the only one of the five that counts
+        #: TYPES, so it is the only one a tokenisation change can move.
+        #:
+        #: AND NO TEST SAW IT. `test_floor.py` pins the CONSTANT and passed;
+        #: `test_discriminate.py` passed; the held-out AUCs are unmoved. It
+        #: was found by `quality/pin_sweep.py` -- `MISSING.md` M-21's answer,
+        #: built the same day -- on its first full run, through
+        #: `expected_drift.py`, whose own words are "Either argue and declare
+        #: it here, or repin the constant." This is the repin: the corrected
+        #: reader gives the true MATTR of this corpus, so the constant moves
+        #: rather than the drift being ruled.
         percentiles={
-            "mattr_min": 0.7128,                # human 5th  (~~0.7226~~)
+            "mattr_min": 0.7118,                # human 5th  (~~0.7226~~ ~~0.7128~~)
             "function_word_ratio_max": 0.4773,  # human 95th (~~0.4716~~)
             "anaphora_max": 0.3000,             # human 95th (unmoved)
             "line_length_cv_min": 0.1094,       # human 5th  (~~0.1123~~)
@@ -1217,7 +1247,7 @@ class SlopFloor:
                     f"it on its own a generated-text detector. Held out and "
                     f"cold, predictability alone reaches AUC 0.648 on "
                     f"human-vs-generated and 0.710 on anthologized-vs-not "
-                    f"(n=15) — above chance in both, and well under the 0.964 "
+                    f"(n=15) — above chance in both, and well under the 0.960 "
                     f"the ten-feature joint reaches on the same "
                     f"human-vs-generated split, so it is a weak separator "
                     f"carried by stronger features. Computed against an "

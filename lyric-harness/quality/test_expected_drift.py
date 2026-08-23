@@ -104,10 +104,16 @@ def test_every_ruling_is_answerable():
     print("\n2. a ruling states a reason, a date and what ends it")
     shipped = {n: i for n, i in ED.INSTRUMENTS.items() if n != "__fixture__"}
     live = sum(len(i.declared) for i in shipped.values())
-    check("an EMPTY shipped set is reported, not silently skipped — zero "
-          "declared drift is the healthy state and this says so out loud "
-          "rather than passing on an empty loop (doctrine 20)",
-          True, "%d ruling(s) declared across %d instrument(s)"
+    # This said the same sentence on `True` until 2026-08-23 (doctrine 17):
+    # it announced that an empty set would be reported while being, itself,
+    # the thing that would have reported it -- and it would have said PASS on
+    # a registry of nothing, with the loop below emitting no checks at all.
+    # The count is now ASSERTED. Zero declared drift stays the healthy state;
+    # zero INSTRUMENTS is a dead register and reads red.
+    check("the ruling loop below has something to iterate — a register with "
+          "no instruments prints no checks and reads as green, so the count "
+          "is asserted here rather than left to a silent loop (doctrine 20)",
+          len(shipped) > 0, "%d ruling(s) declared across %d instrument(s)"
           % (live, len(shipped)))
     for name, inst in sorted(ED.INSTRUMENTS.items()):
         for k, r in sorted(inst.declared.items()):

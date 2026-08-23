@@ -1,12 +1,17 @@
 # RESULTS — mark coverage: what the section vocabulary cannot type
 
-`quality/mark_coverage.py`, run 2026-08-20 over `corpus/song/` at 1,423
-files. **REPINNED 2026-08-20** after the Home Book of Verse safe subset
+`quality/mark_coverage.py`, run 2026-08-20 over `corpus/song/` at
+~~1,423~~ **1,414** files (1,423 was the count BEFORE the same commit's
+23 twin merges; `corpus/song/` has not changed since). **REPINNED 2026-08-20** after the Home Book of Verse safe subset
 landed: typed 71,748 -> 76,944 and ~~36.4%~~ -> 38.0%, and **nothing
 else moved at all**. HBV marks its blocks `[VERSE n]` throughout, so it
 adds 5,196 typed blocks and not one new refused mark — decided,
 undecided, apparatus and the witnessed-function count are byte-identical
-across a load of 1,049 items. The refusal is Persian, and no amount of
+across a load of 1,049 items. **~~and nothing else moved at all~~ —
+STRUCK 2026-08-21: two UNPINNED figures moved with it, `[VERSE]` by
+5,197 and the rhyme channel by 4,147, and the invariance claim was made
+over the four buckets `--check` covers rather than over the document.
+Scope an invariance to what is pinned, or pin what it is scoped to.** The refusal is Persian, and no amount of
 English anthology moves it: that invariance is the sharper half of this
 repin. Re-derived by `python3 quality/mark_coverage.py --check` (exit 1
 on drift; an off-by-one on any pinned figure fails it, proven by
@@ -27,19 +32,72 @@ declared section function; 62.0% are refused.**
 
 | bucket | blocks | share |
 |---|---:|---:|
-| **typed** — reaches a declared function | 76,944 | 38.00% |
-| **decided** — refused *with a written reason* | 125,490 | 61.96% |
+| **typed** — reaches a declared function | ~~76,930~~ **77,090** | 38.03% |
+| **decided** — refused *with a written reason* | ~~125,490~~ **125,504** | 61.92% |
 | **undecided** — refused, no row either way | 32 | 0.02% |
 | **apparatus** — a bare numeral | 59 | 0.03% |
 
-202,525 marked blocks over 36 distinct marks. **Four counts, never
+~~202,525~~ **202,685** marked blocks over ~~36~~ **39** distinct marks.
+
+> **REPINNED 2026-08-22 (second time today), and the TABLE was carrying a
+> figure its own repin note had already superseded.** Two separate things:
+>
+> 1. **`typed` +160, from the K-4 Old Norse load.** `non` measures 160 typed /
+>    0 decided / 0 undecided — 160 songs, one `[VERSE 1]` each. The whole
+>    drift is one prefix. `decided`, `undecided` and `apparatus` are UNMOVED,
+>    which is the half that matters: the load added nothing to the pile nobody
+>    has considered.
+> 2. **`decided` was already stale HERE.** The note below repinned it
+>    125,490 → 125,504 on 2026-08-22 and this table was not updated with it,
+>    so the table and the note under it disagreed, and the stated total
+>    (202,525) matched neither. That is a hand-kept index of a derived figure,
+>    which is the thing `--check` exists to end — and `--check` did not catch
+>    it, because it reads the CODE pin and not this table.
+>
+> Found by an audit agent, not by the load's closing sitting. This is the
+> **third** gate the Old Norse load left red that no `--check` in the standard
+> set catches, after `test_corpus_taxonomy` §6 and `test_grid`'s air census.
+
+**Four counts, never
 summed** (doctrine 79): a decided refusal is a position the vocabulary
 has taken, an undecided one is a gap nobody has looked at, and adding
 them would report the second as though someone had thought about it.
 
-**The single most common section mark in this corpus is one the
+~~**The single most common section mark in this corpus is one the
 vocabulary refuses to type.** `[BAYT]` appears 70,866 times against
-`[VERSE]`'s 68,976.
+`[VERSE]`'s 68,976.~~
+
+**STRUCK 2026-08-21: THIS SENTENCE WAS FALSE ON THE DAY IT WAS REPINNED,
+AND THE PINNED CHECK CANNOT SEE IT.** `[VERSE]` is **74,173**, not
+68,976 — 68,976 is the PRE-HBV count, and the repin above says in its
+own words that HBV "adds 5,196 typed blocks". 68,976 + 5,196 = 74,172,
+i.e. the number this sentence compares against was superseded by the
+same edit that wrote the paragraph above it. **`[VERSE]` 74,173 beats
+`[BAYT]` 70,866: the most common section mark is TYPED.**
+
+`VERSE` is not in `PINNED`, so `mark_coverage.py --check` passes green
+over it — a false headline under a passing gate, which is this
+document's own subject one level up.
+
+**WHAT SURVIVES, and it is most of the point:**
+
+* `[BAYT]` at 70,866 outnumbers **every typed mark except `VERSE`** —
+  `BURDEN`, the next one, is 1,753.
+* The bucket split is untouched and pinned: **38.0% typed against 62.0%
+  refused**, and **99.7%** of decided refusals are `fas`.
+* The refusal is Persian and no English anthology moves it. That half of
+  the repin's claim holds; what does not hold is "nothing else moved at
+  all" — `[VERSE]` moved by 5,197 and the rhyme channel by 4,147, and
+  neither is pinned, so neither was seen.
+
+**AND THE COMPARISON HAS A SECOND TRAP, walked into on 2026-08-21 by a
+reader of this document.** `[VERSE n]` is **47,655 in `eng_` alone** and
+74,173 corpus-wide (eng 47,655 · ltc 19,552 · fin 5,944 · cym 780 · san
+242). Comparing the English-only count against `[BAYT]`'s corpus-wide
+70,866 makes the struck sentence look true again by summing two
+different populations — doctrine 79, in a paragraph that invokes
+doctrine 79 three lines above. **State the population beside the mark or
+the comparison is not a comparison.**
 
 And the second headline, which is about the vocabulary rather than the
 corpus:
@@ -138,7 +196,11 @@ instances placed on the 15-way `VARIATION_KINDS` ladder.
 Sanskrit, Finnish and Malay; handing it the English phonology would be
 doctrine 45's error — a checker silently picking a phonology and making
 a claim it never states. The rhyme channel therefore answers
-**cannot_tell 156,286, told 0**. The refusal is the finding, not a gap.
+**cannot_tell ~~156,286~~ 160,433, told 0**. The refusal is the finding,
+not a gap. (Repinned 2026-08-21: the count moved with the HBV load and
+this figure is not in `PINNED` either. **`told 0` — the finding — is
+untouched**, which is why the drift is a bookkeeping fault and not a
+result.)
 
 | mark | recurs | ladder (top kinds) |
 |---|---|---|
@@ -166,6 +228,40 @@ Both are defensible and they may simply be about different objects (the
 device vs. the span). But one vocabulary naming a phenomenon and its
 neighbour declining to is worth a deliberate answer rather than an
 accident of which module was written first.
+
+> **THE PARKED QUESTION HAS AN ANSWER NOW, AND IT IS `BOTH, AT DIFFERENT
+> LAYERS` — recorded 2026-08-21 from a per-language vocabulary census plus a
+> ~900-term world survey the owner compiled.** The survey's own bucket headers
+> — framing / initiating / medial / goal / contrasting / instrumental /
+> connective / rear-framing — are a **small closed FUNCTION vocabulary that
+> nearly every world name maps into**: sthayi, coro, pallavi, drop, estribillo,
+> mukhda and chorus are all *goal*. That is the GLOBAL layer, and it is closed.
+> The NAMES are per-tradition data rows, attested-or-blank, entering with their
+> first staged song exactly as `CORPUS_LOADING_PROTOCOL.md` already requires.
+>
+> **THE CENSUS IS WHY THIS IS NOT A COIN-FLIP.** Three facts decide it:
+> **(1)** `SECTION_FUNCTIONS` declares 21 functions and the corpus witnesses
+> **4** — one global table is not straining. **(2)** What is representable
+> today is a function of *which English word a stager reached for*: `san` at
+> **2 files** types 4 of 5 marks because someone wrote `BURDEN`/`BURDEN-TAIL`,
+> while the identical Persian radif, transliterated, types at **0%** across
+> 125,059 blocks. A per-tradition NAME table with a global FUNCTION column is
+> precisely the coordinate doctrine 45 says must be declared rather than
+> implied. **(3)** Building the name tables from a term LIST rather than from
+> staged text would populate rows with zero members — measured, 8 of the
+> survey's expected terms (sèist, penillion, toddaid, gwawdodyn, takhallus,
+> matlaʿ, qafiya, anuṣṭubh) occur in **0 files**, and the 4 Finnish `seist`
+> hits are `seistä`. That is the declared-but-unread defect in a taxonomy hat,
+> and the protocol already refuses it.
+>
+> **`RADIF` RESOLVES UNDER THE SAME ANSWER AND IT IS A WRONG-LAYER REFUSAL,
+> not a vocabulary gap.** It is a rhyme device refused by a SECTION table; it
+> belongs beside `Mandate.returns` / `repeat_licence`, which already model
+> licensed repetition, and beside `relations.py`'s `"epistrophe / radif"`
+> family — which **already names English epistrophe, Persian radīf, Turkish
+> redif, Arabic ḥājib and Spanish epífora as five members of one relation**.
+> The cross-tradition table the section layer is missing exists in the relation
+> layer and has for some time.
 
 **(c) BAYT lands on REWRITTEN_RETURN 53,345 times, and that is the
 ladder's shrug.** Its gloss says it has *"two readings the harness
@@ -218,7 +314,18 @@ python3 quality/mark_coverage.py --check    # re-derive against the pins
 python3 quality/mark_coverage.py --json     # the whole scan
 ```
 
-`--check` pins typed 76,944 / decided 125,490 / undecided 32 /
+**REPINNED 2026-08-22: typed ~~76,944~~ 76,930, decided ~~125,490~~ 125,504 —
+exactly −14 and +14, and the sign of each is the finding.** The 14
+pìobaireachd movement headings (`URLAR`/`SIUBHAL`/`CRUNLUATH`) were `[VERSE
+n]` blocks whose entire lyric was the heading (`MISSING.md` M-25(a)), so they
+counted TYPED. Staged as marks and declared in `grid.MARK_REFUSED` they are
+DECIDED: refused with a written reason. **`undecided` is UNMOVED at 32**,
+which is the half that matters — nothing was added to the pile nobody has
+considered. Found by `quality/pin_sweep.py` on its first full run, not by a
+suite: this figure re-DERIVES from the corpus, and the edit that moved it
+landed in a commit whose gates were all green.
+
+`--check` pins typed ~~76,930~~ **77,090** / decided 125,504 / undecided 32 /
 apparatus 59, declared 21, witnessed 4. It exits 1 on drift and names
 the moved figure; an off-by-one on any of them fails it, verified by
 mutation.

@@ -1,0 +1,69 @@
+# author: ANONYMOUS. The sagas are 13th-century prose compilations and
+#         the verse inside them is attributed IN THE TEXT to named
+#         10th-11th century skalds. Neither layer has a living
+#         claimant: the works are medieval and the binding gate here
+#         is the EDITION, not the author (doctrine 80).
+# source: sveinbjornt/sagadb.org  src/eiriks_saga_rauda.on.xml
+#         md5 c51465e788678b82a96a5cda5100d847, 53,836 bytes, UTF-8.
+#         Cut by `python3 quality/stage_sagadb.py --write`; that module
+#         is the recipe and `--check` re-derives this file (the previous
+#         extraction lived in a scratchpad and did not survive its
+#         session, which is why the recipe now ships).
+#         Upstream declared by the source's own <sourcename>: Heimskringla.no
+# licence: express PUBLIC DOMAIN affirmation by the compiler, quoted
+#         verbatim from README.md: 'All saga source texts are in the
+#         public domain.' The repository's License.txt is BSD-3-Clause
+#         (c) 2007 Sveinbjorn Thordarson and covers the Perl build
+#         scripts ONLY -- two separable layers, stated separately by
+#         the compiler himself (doctrine 54).
+#         ADMITTED BY OWNER RULING 2026-08-22 on `MISSING.md` K-4. The
+#         row had stood `contested=true` since 2026-08-11 with the
+#         reason recorded: the affirmation is the compiler's assertion
+#         about the medieval WORK and does not reach the 20th-century
+#         normalisation this text descends from. That residual is not
+#         resolved by the ruling; it is ACCEPTED by it, and it stays
+#         written here so no later reader mistakes a decision for a
+#         proof (doctrine 17).
+# metre: UNDECLARED. The edition names a metre for only two
+#         poems (Höfuðlausn, Sonatorrek/Arinbjarnarkviða) and
+#         says nothing about this verse. It is NOT assumed to
+#         be dróttkvætt: the corpus is visibly mixed, and the
+#         question is one for `quality/phonology/non.py` to
+#         answer and REFUSE (doctrine 79), not for a stager.
+
+
+--- TITLE: Eiríks saga rauða ch 9 vísa 1
+--- SOURCE: chapter 9, 'Frá Þórhalli veiðimanni.'
+[VERSE 1]
+Hafa kváðu mik meiðar
+malmþings, es komk hingat,
+mér samir láð fyr lýðum
+lasta, drykk inn bazta.
+Bílds hattar verðr byttu
+beiði-Týr at reiða.
+Heldr's svát krýpk at keldu.
+Komat vín á grön mína.
+
+--- TITLE: Eiríks saga rauða ch 9 vísa 2
+--- SOURCE: chapter 9, 'Frá Þórhalli veiðimanni.'
+[VERSE 1]
+Förum aftr, þar es órir
+eru, sandhimins, landar,
+látum kenni-Val kanna
+knarrar skeið in breiðu,
+meðan bilstyggvir byggva
+bellendr ok hval vella
+Laufa veðrs, þeirs leyfa
+lönd, á Furðuströndum.
+
+--- TITLE: Eiríks saga rauða ch 12 vísa 1
+--- SOURCE: chapter 12, 'Brottför af Vínlandi.'
+[VERSE 1]
+Eltu seggir,
+allsatt vas þat,
+einn einfæting
+ofan til strandar,
+en kynligr maðr
+kostaði rásar
+hart of stopir.
+Heyr, Karlsefni.

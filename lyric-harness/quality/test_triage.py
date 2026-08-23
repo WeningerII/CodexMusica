@@ -34,17 +34,52 @@ def check(name, ok, detail=""):
         FAILURES.append(name)
 
 
-ENTRIES = T.scan(T.read_entries())
+# THE SCAN CAN REFUSE, AND A REFUSAL IS NOT A FAILURE (`MISSING.md` M-30).
+# Run from a copied tree — which is exactly what `quality/mutate.py` builds to
+# grade this suite — `git ls-files` cannot name the population, so `triage`
+# raises rather than reporting the whole register UNGUARDED. This file then
+# has nothing to check and says so, at exit 0, instead of crashing: measured
+# in a real shadow tree, it came back `ERROR  IndexError` because §5's own
+# non-empty guard fired correctly and the next line indexed `[0]` anyway, so
+# the ONE suite that grades the register reached the mutation baseline as
+# "could not run" rather than as the failure it had already written.
+try:
+    ENTRIES = T.scan(T.read_entries())
+    SCAN_REFUSED = ""
+except T.NotAGitCheckout as _exc:
+    ENTRIES, SCAN_REFUSED = [], str(_exc)
 BY = {e.key: e for e in ENTRIES}
 
 
 def test_the_population_is_real():
     print("\n1. the registers are read, and an empty read REFUSES")
-    check("both registers parse into a real population", len(ENTRIES) > 60,
+    # THE FLOOR IS 100 BECAUSE 60 LET AN 18-ENTRY LOSS READ AS A PASS.
+    # The first reader demanded `\`STATUS\`` at end-of-line; eighteen of 77
+    # MISSING entries carry a date, an aside or a doctrine cite after the
+    # status and silently fell out — K-7, L-1 and L-2 among them, all OPEN,
+    # in NO bucket for the instrument's whole first day, while this check
+    # passed at 88. A floor cannot see a +1 (M-21), but it can be set above
+    # the last measured failure: a re-drop of the dated-heading class takes
+    # 106 below 100 and this check goes red.
+    check("both registers parse into a real population", len(ENTRIES) > 100,
           "%d entries: %d from MISSING.md, %d from BACKLOG.md"
           % (len(ENTRIES),
              sum(1 for e in ENTRIES if e.source == "MISSING.md"),
              sum(1 for e in ENTRIES if e.source == "BACKLOG.md")))
+    # THE THREE HEADING SHAPES THE REGISTER ACTUALLY WRITES, pinned on the
+    # PREDICATE. A dated close, a status with an aside, and no status at all
+    # (L-3's shape — an entry that has not said it is finished must surface
+    # as OPEN, not vanish).
+    for head, want in (
+            ("### X-1 · a probe `CLOSED` 2026-08-11", "CLOSED"),
+            ("### X-2 · a probe `PARTIAL` — the container exists", "PARTIAL"),
+            ("### X-3 · a probe `BLOCKED` (doctrine 44)", "BLOCKED"),
+            ("### X-4 · a probe with no status token", "OPEN")):
+        m = T.MISSING_HEAD.match(head)
+        st = T.MISSING_STATUS.search(m.group(2)) if m else None
+        got = st.group(1) if st else ("OPEN" if m else None)
+        check("heading shape parses: %r -> %s" % (head[10:44], want),
+              got == want, "got %s" % got)
     # A heading pattern that stops matching is the failure that reads as a
     # pass, so the reader raises rather than returning [].
     real, T.MISSING_HEAD, T.BACKLOG_HEAD = (
@@ -130,6 +165,23 @@ def test_the_citation_scan_discriminates():
           b.findall("MATCHED CONTROLS. BACKLOG §2.6.") == ["2.6"])
     check("...and a bare decimal near the word is NOT read as a citation",
           not b.findall("the BACKLOG. 2.6 seconds elapsed"))
+    # EVERY KEY IN THE WINDOW. The old pattern was non-greedy to ONE capture,
+    # so `test_song_function.py`'s header — "`MISSING.md` A-1, A-2, D-1,
+    # D-2, D-3", a completely ordinary way to cite five entries — was read
+    # as citing A-1 alone, and D-1 spent this instrument's whole first day
+    # in UNGUARDED while a test named it. Driven through the SHIPPED scan
+    # via a synthetic entry set rather than a re-implementation.
+    line = "`MISSING.md` A-1, A-2, D-1, D-2, D-3."
+    w = T.re.compile(r"MISSING(?:\.md)?`?([^\n]{0,%d})" % T.MISSING_NEAR)
+    k = T.re.compile(r"\b([A-Z]-\d+[a-z]?)\b")
+    got = {x for win in w.findall(line) for x in k.findall(win)}
+    check("a multi-key citation yields EVERY key in the window",
+          got == {"A-1", "A-2", "D-1", "D-2", "D-3"}, str(sorted(got)))
+    check("...and the live scan agrees: D-2 and D-3 are named by "
+          "test_song_function.py",
+          "quality/test_song_function.py" in BY["D-2"].tests
+          and "quality/test_song_function.py" in BY["D-3"].tests,
+          "D-2 tests=%s" % BY["D-2"].tests)
 
 
 def test_the_signal_was_validated_backwards():
@@ -178,6 +230,13 @@ def test_the_escape_hatch_is_two_sided():
         check("%s is DECLARED, not CONTESTED" % e.key,
               T.bucket(e) == "DECLARED", "bucket=%s" % T.bucket(e))
     # And the marker is what does it: strip it and the same entry contests.
+    if not open_tested:
+        # The guard above has ALREADY reported this. Indexing anyway turned a
+        # legible FAIL into an `IndexError`, and `mutate.run_test` reads those
+        # as ERROR — "the file could not run" — rather than as the assertion
+        # that disagreed. Two different kinds of evidence, and the wrong one
+        # was reaching the baseline (`MISSING.md` M-30).
+        return
     victim = open_tested[0]
     real = victim.body
     try:
@@ -205,15 +264,24 @@ def test_the_queue_is_ordered_and_stated():
           all(e.is_open and not e.tests and not e.code for e in nxt),
           "offenders: %s"
           % [e.key for e in nxt if not e.is_open or e.tests or e.code][:5])
-    # THE BUCKET THAT WAS ADDED BECAUSE THE QUEUE WAS WRONG. D-1's own
-    # verified clause is false at head and no TEST names it, so the first
-    # draft put it at the head of "what is next". `grid.py` cites it.
+    # THE BUCKET THAT WAS ADDED BECAUSE THE QUEUE WAS WRONG. D-1 was the
+    # founding case — cited by `grid.py`, stale at head, no test apparently
+    # naming it — and it CLOSED on 2026-08-21, so pinning D-1 here became
+    # the pinned-literal defect §2 already documents: this check failed the
+    # moment the entry it pinned got fixed, which is when a check should be
+    # celebrating. The bucket is asserted as a POPULATION (the same repair
+    # §2 got), and D-1's history is asserted where it is stable: it is
+    # CLOSED, and `grid.py` still cites it, which is what made it CITED.
     cited = [e for e in ENTRIES if T.bucket(e) == "CITED"]
-    check("CITED is non-empty and holds D-1 — the entry that proved the "
-          "queue needed a second signal",
-          any(e.key == "D-1" for e in cited),
+    check("CITED is non-empty — a population, not a pinned founding case",
+          bool(cited),
           "%d cited: %s" % (len(cited),
                             ", ".join(e.key for e in cited[:8])))
+    d1 = BY.get("D-1")
+    check("...and D-1, its founding case, is CLOSED and still cited by "
+          "production code — the history that motivated the bucket",
+          d1 is not None and not d1.is_open and bool(d1.code),
+          "status=%s code=%s" % (d1 and d1.status, d1 and d1.code[:2]))
     check("...and no CITED entry is in the queue",
           not ({e.key for e in cited} & {e.key for e in nxt}))
 
@@ -236,5 +304,32 @@ def main():
     return 0
 
 
+
+def test_the_scan_itself_can_refuse():
+    """0. THE POPULATION, ASKED FIRST (`MISSING.md` M-30, 2026-08-22).
+
+    Every section below reads `ENTRIES`. If the scan refused, that list is
+    EMPTY, and an empty population makes almost every check here pass on
+    nothing — the exact shape this file exists to enforce against, one level
+    up (doctrine 20). Asked first so a reader is told before any green
+    appears.
+    """
+    print("\n0. the register scan answered, or this run says it did not")
+    if SCAN_REFUSED:
+        print("  REFUSED  the register scan could not name its population")
+        print("          %s" % SCAN_REFUSED)
+        print("          Every section below reads an EMPTY register. This "
+              "run makes NO claim about the register (doctrine 20).")
+        return
+    check("the scan answered, so the sections below read a real register",
+          bool(ENTRIES), "%d entr(ies)" % len(ENTRIES))
+
+
 if __name__ == "__main__":
+    test_the_scan_itself_can_refuse()
+    if SCAN_REFUSED:
+        print("=" * 62)
+        print("REFUSED — the register was not readable from here; no "
+              "section ran")
+        sys.exit(0)
     sys.exit(main())

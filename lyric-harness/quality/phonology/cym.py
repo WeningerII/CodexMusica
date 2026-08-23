@@ -161,6 +161,10 @@ import re
 import unicodedata
 
 from quality.phonology import Phonology, Syllable, register
+# NO `quality.quotients` IMPORT. It was here for one day to build
+# `Welsh.quotients`; when that came out (see the class body) the import
+# would have stayed behind, which is the unread-coordinate shape this
+# module's own section headers are about.
 
 #: The eight digraphs, and the reason this module exists. Order matters: the
 #: two-letter forms must be matched before their first letters.
@@ -373,6 +377,21 @@ def units(word):
 
 class Welsh(Phonology):
     language = "cym"
+    #: NO `quotients`, AND THAT IS A DECLARATION (2026-08-23, doctrine 17).
+    #: This read `quotients = dict(_QUOTIENTS.CYM_QUOTIENTS)` for one day.
+    #: The comment it carried called the partition "a fact about Welsh"; it
+    #: is a fact about the to bach, which DISAMBIGUATES Welsh length rather
+    #: than marking it, so the rule answered `short` for every unmarked long
+    #: vowel. `quality/quotients.py` sets out the direction of that error in
+    #: full.
+    #:
+    #: `proest` therefore refuses here for want of `quotient:vowel_class`,
+    #: which is the honest state and the one `test_relations.py` P14 pins:
+    #: the schema is ASKABLE and it REFUSES until a caller declares the
+    #: class, exactly like `earlier` and `poet`. Declaring it is one dict:
+    #: `declaration={'quotients': {'vowel_class': <sourced rule>}}`. What
+    #: lifts it for everyone is a sourced Welsh quantity table -- doctrine
+    #: 44, the blocker is the TABLE and not the difficulty.
     name = "Welsh"
     notation = "standard Welsh orthography, treated as near-phonemic"
     grid_unit = "syllable"

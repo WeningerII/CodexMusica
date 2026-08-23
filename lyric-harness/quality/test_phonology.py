@@ -544,11 +544,24 @@ def test_welsh_cynghanedd():
     check("and an undeclared caesura mode raises rather than defaulting",
           _raises(lambda: c.cynghanedd("tan a thi", caesura="best")))
     # These lines are CONSTRUCTED to satisfy the rule, so they test the
-    # IMPLEMENTATION against the rule -- not the rule against canon. Canon
-    # needs a sourced Welsh strict-metre text, which is blocked; see
-    # data/sources.tsv.
-    check("constructed tests are labelled as testing the implementation",
-          True, "canon requires a sourced corpus, which is blocked")
+    # IMPLEMENTATION against the rule -- not the rule against canon.
+    #
+    # TWO DEFECTS IN ONE LINE UNTIL 2026-08-23 (doctrine 17). It read
+    # `check("constructed tests are labelled...", True, "canon requires a
+    # sourced corpus, which is blocked")`: vacuous, and the reason was stale.
+    # The corpus stopped being blocked on 2026-08-10 -- data/sources.tsv row
+    # GITenberg/Gwaith-Alun_14865, 1,558 strict-metre lines at
+    # corpus/cym_alun_strict.txt, which quality/test_cym.py reads. A check
+    # that cannot fail also cannot notice that its own reason expired.
+    canon = os.path.join(HERE, "..", "corpus", "cym_alun_strict.txt")
+    n_canon = (sum(1 for ln in open(canon, encoding="utf-8")
+                   if ln.strip() and not ln.startswith(("---", "[", "#")))
+               if os.path.exists(canon) else 0)
+    check("the fixtures above are labelled as testing the IMPLEMENTATION, "
+          "and the canon arm they defer to is STAGED rather than blocked",
+          n_canon > 1000,
+          f"corpus/cym_alun_strict.txt: {n_canon} strict-metre lines "
+          f"(GITenberg/Gwaith-Alun_14865), read by quality/test_cym.py")
 
 
 #: ATTESTED. Lines of the two staged Welsh corpora (corpus/cym_alun_strict.txt,

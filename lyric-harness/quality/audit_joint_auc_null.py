@@ -216,9 +216,30 @@ def main(n_perm=200, n_seeds=200, strict=False, cache_path=CACHE):
             # agreeing to the digit: 0.717/0.964 and 0.638/0.891. See
             # quality/RESULTS.md, which carries both readings and the
             # reproduce command.
-            ("ABSOLUTE (original ten)", QualityFeatures, "0.717", "0.964"),
+            #
+            # REPINNED AGAIN 2026-08-22 -- ~~0.717~~/~~0.964~~ and
+            # ~~0.638~~/~~0.891~~ -> 0.723/0.960 and 0.621/0.896, for
+            # `MISSING.md` M-31: a frequency sentinel left pointing at a
+            # replaced word list, so feature 10 ran backwards on every
+            # out-of-vocabulary word. All four moved; the two
+            # predictability-only joints did not, which is the control.
+            #
+            # THIS FILE WAS THE FOURTH SITE THAT REPIN MISSED (`MISSING.md`
+            # M-33) AND THE FIRST ONE IN CODE. The other three are prose in
+            # RESULTS.md and RESULTS_WITHIN_ITEM.md. It was found by the
+            # mutation sweep, not by the repin's own grep, and only because
+            # the feature cache happened to be warm -- see the note on
+            # `test_pin_sweep.py`'s arm for why a COLD cache hides it.
+            #
+            # THE SEED MEDIANS IN `PINNED` ARE **NOT** REPINNED and are still
+            # the 2026-08-13 measurement against the uncorrected sentinel.
+            # Re-running them is 200 cross-validation fits per cell. Until
+            # that is done, every comparison of one of these observed AUCs
+            # against its `seed_median` is a CURRENT DRAW AGAINST A STALE
+            # NULL, and both RESULTS documents say so where they make it.
+            ("ABSOLUTE (original ten)", QualityFeatures, "0.723", "0.960"),
             ("WITHIN-ITEM (respecified eight)", WithinItemFeatures,
-             "0.638", "0.891")):
+             "0.621", "0.896")):
         qf = feats()
         pfx = "abs" if feats is QualityFeatures else "wi"
         print(f"\n### {tag}\n")
@@ -292,16 +313,40 @@ def main(n_perm=200, n_seeds=200, strict=False, cache_path=CACHE):
 #
 # Doctrine 58 for all of it: argue these and repin with the date; do not tune
 # the measurement to meet them.
+#: REPINNED 2026-08-22 for `MISSING.md` M-31 -- the frequency sentinel fix.
+#: ALL FOUR SEED MEDIANS MOVED, and they moved by different amounts per arm:
+#:
+#:     abs_exp1   ~~0.638~~ -> 0.635   (-0.003)
+#:     abs_exp2   ~~0.967~~ -> 0.961   (-0.006)
+#:     wi_exp1    ~~0.640~~ -> 0.623   (-0.017)
+#:     wi_exp2    ~~0.900~~ -> 0.906   (+0.006)
+#:
+#: THIS IS THE SEPARATION ABOVE EARNING ITS KEEP. The comment on this pin says
+#: the whole seed distribution can shift while the one recorded draw sits
+#: still, and that such movement is invisible to a check watching only the
+#: headline. Here both moved -- and `wi_exp1`'s median fell -0.017, the same
+#: -0.017 its observed AUC fell (0.638 -> 0.621), so that arm's entire
+#: distribution translated down together rather than the draw wandering
+#: inside a fixed one. Nothing but a separately-pinned median could say that.
+#:
+#: AND IT CORRECTS A CLAIM THIS REPO MADE ABOUT ITSELF. Both RESULTS documents
+#: carried, for part of 2026-08-22, a warning that these medians were "NOT
+#: re-measured against the corrected sentinel" and that re-running them was
+#: "200 cross-validation fits per cell, a sitting of its own". That was wrong:
+#: `--check` re-measures them on every run. It reads as expensive only from a
+#: COLD cache, where the 384 feature extractions dominate; warm, the fits are
+#: the whole cost. The warning was a statement about a cache state, mistaken
+#: for a statement about the measurement.
 PINNED = {
     "cache_entries": 384,
     "abs_exp1": {"n_pos": 15, "n_neg": 117, "n_features": 10,
-                 "seed_median": 0.638},
+                 "seed_median": 0.635},
     "abs_exp2": {"n_pos": 152, "n_neg": 40, "n_features": 10,
-                 "seed_median": 0.967},
+                 "seed_median": 0.961},
     "wi_exp1": {"n_pos": 15, "n_neg": 117, "n_features": 8,
-                "seed_median": 0.640},
+                "seed_median": 0.623},
     "wi_exp2": {"n_pos": 152, "n_neg": 40, "n_features": 8,
-                "seed_median": 0.900},
+                "seed_median": 0.906},
 }
 
 #: The observed AUCs are NOT repeated here. They are checked against the

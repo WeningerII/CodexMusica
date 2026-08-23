@@ -42,6 +42,40 @@ metrical lift template, an orthographic surface, a lexicon, a beat grid --
 `realise()` returns a `Refusal` naming the missing capability.  The anchor rule
 'last stressed syllable' is a COORDINATE, not a universal.
 
+AND SUPPLY IS THREE-VALUED, SINCE 2026-08-22, BECAUSE A DECLARED SOURCE IS NOT
+A POPULATION.  `Stream.provides` returned a bool and the caesura branch read
+`caesura_source != 'none'`, so calling `mark_printed_caesura` on an English
+text -- which finds ZERO printed marks, M-28 -- opened the gate on a frame
+with nothing in it, and six schemas (cynghanedd groes / draws / groes o
+gyswllt, leonine rhyme, epistrophe / radif, qafiya (before the radif)) went
+from an honest REFUSAL to a silent RAN AND FOUND NOTHING.  Every span rule
+that reads those frames enumerates zero loci, so the zero was inconclusive BY
+CONSTRUCTION -- doctrine 20's own sentence, in the enforcement path this file
+is.  `Stream.supply(cap)` now returns a `Supply` carrying `state` (absent /
+empty / present) and the population `n`, `provides` is `state == 'present'`,
+and a schema blocked only by empty declared frames refuses with
+`Refusal.kind == 'vacuous_frame'` and the frame named on `.vacuous`.  THE
+MARKERS STILL DECLARE THEIR SOURCE ON A NULL RUN, deliberately: deleting it
+would make "the instrument ran and found none" indistinguishable from "nobody
+looked", which is the same collapse one layer up.  They report `found` instead.
+So three states are readable where there were two: NEVER LOOKED (`absent`, a
+`'capability'` refusal), LOOKED AND THE FRAME IS EMPTY (`empty`, a
+`'vacuous_frame'` refusal), LOOKED AND THE FRAME IS POPULATED (`present`, the
+schema runs and any zero it reports is a null a control can be built against).
+
+`declare_orthography(stream, rime)` is the first ALT_SURFACE a caller can
+actually build, and it takes the rime rule as an ARGUMENT because y-as-vowel
+and silent-final-e are English and this module serves nine languages
+(doctrine 45/65).  `eye rhyme` runs on it.  The FREQUENCY ROUTE to `trite
+rhyme` stays refused and its measurement against all three shipped tables is
+now in RETIRED_UNPROVIDABLE -- retired 2026-08-23 not because the argument
+weakened but because the schema stopped asking: `trite rhyme` gated on a bare
+`requires=("frequency",)` it read on no channel, and now carries
+`ClassEqual(resource="trite")` over the repo's own declared CLICHE_PAIRS.
+That is a narrower question -- "are these two a DECLARED trite pair", no rank
+and no threshold -- answered by a declaration instead of by a table nobody
+can source.
+
 PHONOLOGY STAYS INJECTABLE.  Nothing here transcribes and nothing here consults
 CMUdict.  `phon` is any object with `.syllabify(word)`.  The channel INVENTORY
 is itself a declaration coordinate: Welsh does not declare onset and coda as
@@ -184,6 +218,18 @@ class Refusal:
     #: file (`quality/relations_null.py` builds a `'denominator'` refusal that
     #: way) keep working unchanged; `realise()` always fills it.
     missing: tuple = ()
+    #: WHICH GATE refused, one of `REFUSAL_KINDS`, or `""` where the refusal
+    #: was not raised by `realise()` at all.  The empty default is deliberate
+    #: and is the same argument `complete` makes one field up: a Refusal built
+    #: by another module (`relations_null`'s `'denominator'`) has not been
+    #: classified by this one, and labelling it `'capability'` would be a
+    #: claim about a gate it never passed through.
+    kind: str = ""
+    #: The subset of `missing` that is DECLARED-BUT-EMPTY -- a frame whose
+    #: source a caller declared and whose population is zero.  Empty on every
+    #: other kind of refusal.  See `Supply` for why this is not the same
+    #: answer as "not supplied".
+    vacuous: tuple = ()
 
     def __bool__(self):
         raise TypeError(
@@ -201,6 +247,91 @@ class Refusal:
         be in.  Doctrine 28, at the scale of one dataclass.
         """
         return bool(self.missing)
+
+
+#: The gates `realise()` can refuse at.  `Refusal.kind` is one of these or the
+#: empty string; see the field's own comment for why "" is not `'capability'`.
+REFUSAL_KINDS = ("capability", "vacuous_frame", "span")
+
+#: `Supply.state`'s value set, ordered from least to most supplied.
+#:
+#: THREE, NOT TWO, AND THAT IS THE WHOLE OF DOCTRINE 20 HERE.  `provides()`
+#: answered a BOOLEAN, so a frame whose SOURCE a caller declared passed the
+#: gate whether or not the source had found anything -- and a schema built
+#: entirely on that frame then ran over zero loci and returned `[]`.  Doctrine
+#: 20's sentence is that an instrument which has not fired is not an
+#: instrument that fired and found nothing; a declared-but-empty frame is the
+#: third thing, and it had no name.
+#:
+#:   absent   nothing was declared.  The instrument never looked, and no
+#:            count from it exists to be quoted.
+#:   empty    a source WAS declared and its population is zero.  The
+#:            instrument looked and marked nothing, so every schema resting on
+#:            it is inconclusive BY CONSTRUCTION (doctrine 20's own words) and
+#:            refuses -- `Refusal.kind == 'vacuous_frame'`.
+#:   present  a source was declared and the population is non-zero.  The
+#:            schema RUNS, and a zero it then reports is a null a control can
+#:            be built against.
+SUPPLY_STATES = ("absent", "empty", "present")
+
+
+@dataclass(frozen=True)
+class Supply:
+    """What a stream can answer about ONE capability, with the POPULATION.
+
+    `Stream.provides(cap)` is `supply(cap).state == 'present'` and keeps its
+    boolean contract for every caller that has one.  This is the reading
+    underneath it, and the reason it exists is that the boolean cannot tell
+    the second state from the first:
+
+        mark_printed_caesura(stream)      # English: 0 lines print `/` or `|`
+        stream.frames.caesura_source      # 'printed'
+        stream.provides('caesura')        # True, before this type existed
+        realise(cynghanedd_groes, stream) # []  -- a SILENT ZERO
+
+    -- because `_loci` yields nothing at `half_line_a` when `frames.caesura`
+    is empty, `enumerate_spans` raises nothing (it raises only where an anchor
+    had loci to fail at), and `realise` returns an ordinary empty list that a
+    census counts under RAN AND FOUND NOTHING.  Measured 2026-08-22 on
+    `corpus/song/eng_american_dan_e_townsend.txt`: calling both shipped
+    frame-suppliers moved SIX schemas -- cynghanedd groes / draws / groes o
+    gyswllt, leonine rhyme, epistrophe / radif, qafiya (before the radif) --
+    from an honest REFUSAL to a measured zero, and the split went 30/26/21 to
+    30/20/27 with nothing in the output able to say the frames were empty.
+
+    `n` is the population and it is the field that makes the distinction
+    MEASURED rather than declared: `empty` is `n == 0` under a declared
+    source, never a flag somebody set.  `source` is the frame's own provenance
+    string (`printed` / `computed` / `searched` / `declared`), because
+    doctrine 55/56 already say a caesura is a coordinate of HOW it was found
+    and a reader of an empty frame needs to know which instrument came back
+    empty.
+    """
+    capability: str
+    state: str
+    n: int = 0
+    source: str = ""
+    detail: str = ""
+
+    def __bool__(self):
+        # The same argument as `Refusal.__bool__`, for the same reason.  Under
+        # default truthiness `if stream.supply('caesura'):` is True in all
+        # three states, which is precisely the collapse this type exists to
+        # end -- and it would read as a fix while restoring the defect.
+        raise TypeError(
+            "a Supply has no truth value; it is THREE-valued. Read .state "
+            f"(one of {SUPPLY_STATES}) or call Stream.provides(cap), which "
+            "is .state == 'present'.")
+
+    @property
+    def declared(self):
+        """True where a caller declared a source, EMPTY OR NOT.
+
+        `declared and not provided` is the vacuous state, and it is the
+        question a consumer asks when it wants to know whether the instrument
+        fired at all.
+        """
+        return self.state in ("empty", "present")
 
 
 # ---------------------------------------------------------------------------
@@ -286,9 +417,55 @@ class Frames:
     #                                                   line's shared trailing run
     #                                                   begins (radif / epistrophe)
     refrain_source: str = "none"                     # computed|declared|none
-    beat: object = None                              # doctrine 4: stays None
+    #: THE BEAT GRID. ~~"doctrine 4: stays None"~~ — REPHRASED 2026-08-22, and
+    #: the doctrine is unchanged. `offbeat internal rhyme`'s own note says the
+    #: rule in full: "no beat grid without audio OR A DECLARED TEMPO". What
+    #: doctrine 4 refuses is INFERENCE — deriving a beat from syllable counts,
+    #: from a meter, from anything the page carries — and it has never refused
+    #: a DECLARATION. A writer knows where the beats fall; a blueprint already
+    #: places every line in a bar and on a beat (`quality/fit.py`). So the
+    #: field stays None by default, exactly as before, and
+    #: `declare_beat(stream, ...)` is the one way to fill it.
+    #: `{line: (unit index, ...)}` — the units that fall ON the beat.
+    beat: object = None
+    beat_source: str = "none"                        # declared|none
     hemistich: dict = field(default_factory=dict)    # line -> (bayt, half)
     bayt_source: str = "none"
+    #: WHERE `Unit.stanza` CAME FROM (M-39).  `blank_lines` and `collapsed`
+    #: and `none` are `build_stream`'s own three; a caller declaring a list
+    #: gets `declared` or whatever name it passes as `stanza_source=`, which
+    #: today is `printed_breaks` or `printed_verse_number` from
+    #: `relations_null`'s grounded readers.  The set is OPEN on purpose: this
+    #: module serves nine languages and does not own the list of ways a
+    #: printer can mark a stanza, so it records the name rather than
+    #: validating it against a table it has no standing to write (doctrine
+    #: 45/65).  What it does own is the difference between a name and NONE.
+    #:
+    #: This field exists because the stanza coordinate was the one frame with
+    #: no provenance, and the omission had the exact shape doctrine 20 is
+    #: about.  `stanzas_from_blank_lines` on a text printing NO blank line
+    #: returns all-zeros, and its own docstring called that "a TRUE statement
+    #: about the text" -- which it is about the LIST, and is not about the
+    #: text.  A `forall stanza` figure then quantified over one frame and
+    #: returned a number, and nothing downstream could tell "this poem is one
+    #: stanza" from "nobody ever told this stream where the stanzas are".
+    #:
+    #: Measured on the `relations_null` panel, 2026-08-22: all NINE slices
+    #: reported exactly ONE distinct `Unit.stanza`, because both panel readers
+    #: drop blank lines before tokenising.  The five `frame="stanza"` schemas
+    #: were quantified over a frame that could not vary, on every cell of the
+    #: run.  (`frame="line_pair"` is `line // 2` and varied 20 ways on all
+    #: nine, so `symploce` is NOT in that set -- the finding as first written
+    #: said six schemas and the number is five.)
+    stanza_source: str = "none"
+    #: THE STUB RESOLUTION (2026-08-22): {stub line index -> (start, end)},
+    #: 0-based and end-exclusive, DECLARED by the caller. `&c.` stands for a
+    #: whole chorus and nothing in the text says how many lines that is, so
+    #: this is an EDITION's fact and never a detector's — `relations_null`
+    #: measured the naive resolver at 18.7% unique / 26.6% no match / 54.7%
+    #: ambiguous over 843 stub lines, which is wrong more often than right.
+    stub_resolution: dict = field(default_factory=dict)
+    stub_source: str = "none"
 
 
 #: Capability prefix for a DECLARED QUOTIENT (defect P14).  `capabilities()`
@@ -376,34 +553,141 @@ class Stream:
     # -- capabilities.  A schema's `requires` is checked against these, and a
     #    missing one produces a Refusal naming it rather than a wrong number.
     def provides(self, cap):
-        if cap == "line_status":
-            return any(self.line_status)
-        if cap == "prominence":
-            return any(u.syl.prominence is not None for u in self.units)
+        """Boolean, and UNCHANGED as a contract: True iff the schema can run.
+
+        What changed on 2026-08-22 is which side of the line a DECLARED-BUT-
+        EMPTY frame falls on.  It used to be True -- `caesura_source` was
+        `'printed'`, so the gate opened, and the schema went and enumerated
+        zero loci.  A gate that opens on a source rather than on a population
+        turns a refusal into a null (doctrine 20), so this now reads the
+        population and `supply()` is where the three-valued answer lives.
+        """
+        return self.supply(cap).state == "present"
+
+    def supply(self, cap):
+        """-> `Supply`.  THE THREE-VALUED READ, and `provides` is its top.
+
+        Two shapes of capability, and only the first can be vacuous:
+
+        A FRAME has a declared SOURCE and a POPULATION, and the two are
+        separate facts -- `mark_printed_caesura` sets `caesura_source` even
+        where it marked no line, and it is right to, because "the printed-mark
+        instrument ran and found none" is a finding about the EDITION (M-28:
+        English prints no caesura; the 1,628 lines with an internal double
+        space are line-number columns and speaker gaps) and deleting the
+        source would collapse it with "nobody ever looked".  So the source is
+        kept and the POPULATION is what the gate reads.
+
+        EVERYTHING ELSE is two-valued and says so by returning `absent` or
+        `present` only.  `prominence` is a property of the phonology, not a
+        frame a marker fills: no caller declares a prominence source, so
+        there is no third state to be in and inventing one would be a
+        coordinate nobody declared (defect P14's shape).  `beat` is doctrine
+        4's permanent None.  A resource and a quotient are a name in a
+        declaration and a callable respectively, and neither has a population
+        this module can count without calling it.
+
+        AN ALT SURFACE IS A FRAME, and its population is the number of units
+        that PROJECT into the second declaration and carry material there.
+        That is not a formality: defect P7 records a second surface whose
+        tokeniser splits the apostrophe, against which `_project` returns None
+        at every position -- so the surface is declared, every channel read on
+        it is None, and every schema riding it ran and reported nothing.  Same
+        collapse, one seam over.
+        """
+        fr = self.frames
         if cap == "caesura":
-            return self.frames.caesura_source != "none"
-        if cap == "lifts":
-            return self.frames.lift_source != "none"
+            return self._frame_supply(cap, fr.caesura_source, len(fr.caesura),
+                                      "lines carrying a caesura position")
         if cap == "refrain_tail":
-            return self.frames.refrain_source != "none"
-        if cap == "beat":
-            return self.frames.beat is not None
+            return self._frame_supply(cap, fr.refrain_source,
+                                      len(fr.refrain_tail),
+                                      "lines carrying a refrain tail")
+        if cap == "lifts":
+            return self._frame_supply(cap, fr.lift_source, len(fr.lifts),
+                                      "lines carrying a lift template")
+        if cap == "stub_resolution":
+            return self._frame_supply(cap, fr.stub_source,
+                                      len(fr.stub_resolution),
+                                      "stub lines resolved to a span")
         if cap == "bayt":
-            return self.frames.bayt_source != "none"
+            return self._frame_supply(cap, fr.bayt_source, len(fr.hemistich),
+                                      "lines mapped to a (bayt, half)")
+        if cap == "stanza":
+            # M-39.  Source and population are separate facts here for the same
+            # reason they are for the caesura, and the separation is what makes
+            # a one-stanza POEM distinguishable from a stream nobody framed.
+            # The population is the number of distinct frames a `forall stanza`
+            # figure would quantify over, so a caller reading `Supply.n` can
+            # say "grounded, 8 stanzas" or "grounded, 1 stanza" and mean two
+            # different things by them.
+            return self._frame_supply(
+                cap, fr.stanza_source, len({u.stanza for u in self.units}),
+                "distinct stanzas over the stream's units")
+        if cap == "line_status":
+            # DECLARED is a non-empty tuple; POPULATED is a non-empty LABEL in
+            # it.  `line_status_from(lines, predicate, label)` with a predicate
+            # that matches nothing returns a full tuple of "" -- declared, and
+            # empty -- and the old `any(self.line_status)` filed that under
+            # "nobody declared one".
+            n = sum(1 for s in self.line_status if s)
+            return self._frame_supply(
+                cap, "declared" if self.line_status else "none", n,
+                "lines carrying a non-empty declared status")
+        if cap == "prominence":
+            n = sum(1 for u in self.units if u.syl.prominence is not None)
+            return Supply(cap, "present" if n else "absent", n, "phonology",
+                          "units whose syllable carries a prominence value")
+        if cap == "beat":
+            # ~~"doctrine 4: this stays None"~~ — the field stays None until a
+            # caller DECLARES one (`declare_beat`), which doctrine 4 has
+            # always permitted: it refuses an INFERRED grid, not a stated one.
+            return self._frame_supply(cap, fr.beat_source,
+                                      len(fr.beat or {}),
+                                      "lines carrying a declared beat grid")
         if cap in ALT_SURFACES:
-            return cap in self.alt
+            alt = self.alt.get(cap)
+            if alt is None:
+                return Supply(cap, "absent", 0, "none",
+                              "no second declaration is held under this name")
+            n = sum(1 for u in self.units
+                    if _surface_material(_project(u, alt)))
+            return self._frame_supply(
+                cap, "declared", n,
+                "units that project into the second declaration and carry "
+                "material there")
         if cap in ("lexicon", "sense", "morphology"):
-            res = self.declaration.get("resources", ())
+            res = _resources_of(self)
             # either the capability name or any LEVEL that maps to it: the two
             # key-spaces used to disagree and no declaration could satisfy both.
-            return cap in res or any(
+            got = cap in res or any(
                 lv in res for lv, c in _CAP_OF_LEVEL.items() if c == cap)
+            src = ("declaration"
+                   if (cap in (self.declaration.get("resources") or {})
+                       or any(lv in (self.declaration.get("resources") or {})
+                              for lv, c in _CAP_OF_LEVEL.items() if c == cap))
+                   else "phonology")
+            return Supply(cap, "present" if got else "absent", 1 if got else 0,
+                          src,
+                          "named in declaration['resources'] or phon.resources")
         if cap.startswith(QUOTIENT_CAP):
             # DEFECT P14: a quotient nobody declared is not the identity, and a
             # schema whose grain is undeclared refuses here rather than
             # answering at the finest grain the channel happens to carry.
-            return _quotient_of(self, cap[len(QUOTIENT_CAP):]) is not None
-        return False
+            q = _quotient_of(self, cap[len(QUOTIENT_CAP):])
+            return Supply(cap, "present" if q is not None else "absent",
+                          1 if q is not None else 0, "declaration",
+                          "a partition callable, from the declaration or the "
+                          "phonology")
+        return Supply(cap, "absent", 0, "none",
+                      "`Stream.supply` has no branch for this name, so no "
+                      "declaration can supply it (see UNPROVIDABLE)")
+
+    def _frame_supply(self, cap, source, n, detail):
+        if source == "none" or not source:
+            return Supply(cap, "absent", 0, "none",
+                          "no source declared: " + detail)
+        return Supply(cap, "present" if n else "empty", n, source, detail)
 
     def line_of(self, span):
         ls = {self.units[i].line for i in span.idx}
@@ -457,7 +741,7 @@ def line_status_from(text_lines, predicate, label):
 
 def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
                  declaration=None, hyphen_continues=True, stanzas=None,
-                 line_status=None, exclude_status=()):
+                 line_status=None, exclude_status=(), stanza_source=""):
     """Syllabify a whole song ONCE into one flat indexed sequence.
 
     O(total syllables).  A 40-line lyric is ~250 units; a 5,000-line corpus item
@@ -470,6 +754,16 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
     stanza-framed schemas into one frame for every text).  Pass a list to
     declare it, or `stanzas=False` to keep every line in stanza 0.
 
+    `stanza_source` NAMES WHERE A DECLARED LIST CAME FROM (M-39), and it is
+    the difference between "a caller said so" and "the printer said so".  A
+    caller passing a list gets `Frames.stanza_source = 'declared'` unless it
+    names something more specific -- `quality/relations_null`'s panel passes
+    `printed_breaks` or `printed_verse_number` -- and the name reaches every
+    row through `Supply.source`, so a number quantified over a stanza frame
+    can be read together with what supplied the frame.  Ignored when `stanzas`
+    is None or False: those two have sources of their own, and letting a
+    caller label a derivation it did not make is the laundering this closed.
+
     `line_status` is a per-line label, or a callable `raw_line -> label`, and
     defaults to nothing declared (defect P10).  `exclude_status` names labels
     whose lines contribute NO UNITS -- the treatment an unreadable token
@@ -480,10 +774,46 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
     stream it got before, byte for byte.
     """
     units, lines, toks, unreadable, excluded = [], [], {}, [], []
-    if stanzas is None:
+    if stanzas is None and stanza_source == "none":
+        # THE CALLER KNOWS THERE IS NO GROUND AND SAYS SO, and this branch is
+        # the one that must exist for the derivation to be REFUSABLE (M-39,
+        # reopened and closed again 2026-08-22).
+        #
+        # `stanzas_from_blank_lines` reads a BLANK LINE as the printer's own
+        # mark.  That is true of a page and false of anything else, and
+        # `relations_null._stream_of` hands this function a JOIN OF TOKENS:
+        #
+        #     [" ".join(t) for t in toks]
+        #
+        # A page line that tokenises to nothing -- `1818.]` in a Gutenberg
+        # publication note, whose characters are all digits and punctuation
+        # and none of them in `_WORD`'s repertoire -- joins to `""`.  The
+        # derivation then finds a blank line THE SOURCE NEVER PRINTED, records
+        # `blank_lines`, and `supply('stanza')` answers `present` with n=1:
+        # the exact collapsed frame this entry closed, walking back in through
+        # the reader.  Measured on a three-line fixture, and live on the first
+        # candidate corpus cell carrying un-stripped apparatus.
+        #
+        # A caller holding a token grid cannot ask a question about a page, so
+        # it says so here instead of being answered wrongly.
+        stanzas = [0] * len(text_lines)
+    elif stanzas is None:
         stanzas = stanzas_from_blank_lines(text_lines)
+        # THE DERIVATION IS ONLY A SOURCE WHERE IT HAD EVIDENCE (M-39).  A
+        # blank line is the evidence; a text carrying none did not tell this
+        # function anything, and recording `blank_lines` there would be the
+        # gate-opens-on-a-source defect `supply()` already documents one seam
+        # over.  `quality/grid.stanzas_from_sections` is the other ground a
+        # caller can declare, and it is DECLARED rather than sniffed for here:
+        # a checker silently picking a coordinate is the bug (doctrine 45).
+        stanza_source = ("blank_lines"
+                         if any(not (l or "").strip() for l in text_lines)
+                         else "none")
     elif stanzas is False:
         stanzas = [0] * len(text_lines)
+        stanza_source = "collapsed"
+    else:
+        stanza_source = stanza_source or "declared"
     if callable(line_status):
         line_status = tuple(line_status(l) or "" for l in text_lines)
     elif line_status is None:
@@ -541,6 +871,7 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
         lines.append(tuple(idxs))
     return Stream(units=units, lines=lines, tokens=toks, phon=phon,
                   declaration=dict(declaration or {}),
+                  frames=Frames(stanza_source=stanza_source),
                   text_lines=tuple(text_lines), unreadable=unreadable,
                   line_status=line_status, excluded_lines=excluded)
 
@@ -786,6 +1117,24 @@ def _project(u, alt):
     return None
 
 
+def _surface_material(u):
+    """Does this projected unit carry ANYTHING a channel could read?
+
+    `Stream.supply` counts an alt surface's population with this, and it is
+    structural on purpose -- no channel is named, no reader is called, no
+    `ChannelSet` is consulted -- because the question is whether the second
+    declaration says anything AT ALL at this position, and a surface answering
+    only one channel (`declare_orthography` answers only `grapheme`) is still
+    a surface.  `None` in, False out: a position that does not project is a
+    position that carries nothing, which is defect P7's whole finding.
+    """
+    if u is None:
+        return False
+    s = u.syl
+    return any(getattr(s, f, None) for f in
+               ("text", "onset", "nucleus", "coda"))
+
+
 # ---------------------------------------------------------------------------
 # 3. PREDICATES -- ternary, and AGREEMENT IS SEPARATE FROM EVIDENCE
 #
@@ -1010,6 +1359,63 @@ def _quotient_of(stream, name):
     if q is None:
         q = (getattr(stream.phon, "quotients", None) or {}).get(name)
     return q
+
+
+def _resources_of(stream):
+    """-> the resource table this stream supplies, declaration first.
+
+    THE SAME TWO SOURCES `_quotient_of` READS, AND FOR THE SAME REASON
+    (2026-08-22). A morphology, a lexeme inventory and a sense inventory are
+    facts about a LANGUAGE, exactly as a manner partition or a 同用 grouping
+    is, so they belong on the phonology that owns the language -- and this is
+    the seam `ltc` established for quotients: `relations.py` imports no
+    phonology, hard-codes no table, and re-derives nothing.
+
+      declaration['resources'][level]   the caller's own, per stream. WINS,
+                                        because a declaration is where an
+                                        assumption is supposed to live
+                                        (doctrine 1) and a caller who wrote
+                                        one down meant it.
+      phon.resources[level]             the PHONOLOGY's own.
+
+    A phonology that declares none supplies none, and the schema refuses
+    instead -- unchanged for every language that has not learned the
+    coordinate.
+    """
+    out = dict(getattr(stream.phon, "resources", None) or {})
+    # THE DERIVED SENSE RESOURCE, third in precedence and first to be built
+    # (2026-08-22). `quality/senses.py` reads WordNet and assigns each token
+    # a sense by simplified Lesk over its own line; it is a NAMED, WEAK
+    # algorithm and says so. It sits BELOW both other sources because a
+    # declaration always outranks a derivation (doctrine 1), and it supplies
+    # nothing at all when the corpus is absent — `sense` then stays absent
+    # and `antanaclasis` refuses, exactly as before it existed.
+    if "sense" not in out and stream.declaration.get("derive_senses"):
+        # OPT-IN, AND THE RATE IS WHY (2026-08-23). `quality/senses.py`
+        # computes a sense per token — WordNet, POS-tagged, simplified Lesk,
+        # coarsened to the lexicographer file — and it WORKS on the case the
+        # figure is named for: `bank`/`bank` separates with nothing declared.
+        # It was wired ON BY DEFAULT and then MEASURED over 40 corpus songs,
+        # 1,603 lines: of 14,508 line pairs sharing a word, it separated
+        # 1,366 — 9.42% — and the samples are visibly refrains, not puns
+        # ("Land of the South! the fairest land" against "Land of the South!
+        # in brightest dreams"). A figure detector at that rate would bury a
+        # writer in false findings, which is worse than the refusal it
+        # replaced. So the DERIVATION is available and disclosed and the
+        # DEFAULT is unchanged: declare `derive_senses=True` to accept the
+        # rate, or `relations.declare_senses` for positions you care about,
+        # or neither and `antanaclasis` refuses exactly as before.
+        # Doctrine 16/22: an uncalibrated cut is stated as a rate before it
+        # means anything, and this one is stated and NOT adopted.
+        try:
+            from quality import senses as _SENSES
+            fn = _SENSES.sense_resource(stream)
+            if fn is not None:
+                out["sense"] = fn
+        except Exception:
+            pass
+    out.update(stream.declaration.get("resources") or {})
+    return out
 
 
 def _bind_quotient(pred, stream):
@@ -1563,6 +1969,18 @@ class Placement:
                 return None
             lf = stream.frames.lifts.get(U[b.head()].line, ())
             return bool(lf) and b.head() == lf[self.args[0]]
+        if k == "off_beat":
+            # THE SAME SHAPE AS `at_lift` DIRECTLY ABOVE, and for the same
+            # reason: an undeclared grid is a REFUSAL (None), never a False.
+            # "no beat was declared" and "this syllable is not on the beat"
+            # are different answers (doctrine 20), and only the second is a
+            # verdict about the writing.
+            if stream.frames.beat_source == "none":
+                return None
+            grid = stream.frames.beat or {}
+            on_a = grid.get(U[a.head()].line, ())
+            on_b = grid.get(U[b.head()].line, ())
+            return a.head() not in on_a and b.head() not in on_b
         if k == "spans_disjoint":
             return not (set(a.idx) & set(b.idx))
         if k == "spans_overlap":
@@ -1608,17 +2026,58 @@ class IdentityRule:
     predicate: object
 
 
+_QUANT = None
+
+
+def quantifier_table():
+    """-> (QUANTIFIERS, canonical_quantifier) from `rhyme_constraints`.
+
+    LAZY AND CACHED. `relations.py` already imports that module lazily (one
+    call site, for cost rather than for cycles — nothing there imports this),
+    and the vocabulary is read on every `Figure` construction, so it is
+    resolved once and held.
+    """
+    global _QUANT
+    if _QUANT is None:
+        from quality import rhyme_constraints as _C
+        _QUANT = (_C.QUANTIFIERS, _C.canonical_quantifier)
+    return _QUANT
+
+
 @dataclass(frozen=True)
 class Figure:
     """The relation's shape over its members.  A labelled multigraph plus a
     member-selection rule; the pair is the degenerate case."""
     nodes: int = 2
     edges: tuple = ((0, 1, "self"),)
-    quantifier: str = "exists"     # exists | exists_k | forall | fraction
+    #: A spelling in `rhyme_constraints.QUANTIFIER_ALIASES` — THE ONE TABLE
+    #: (M-38). This field used to carry its own four-name comment while
+    #: `rhyme_constraints.Selection.quantifier` carried a different four, two
+    #: names apart for one concept and two shared. The table is declared in
+    #: `rhyme_constraints` because the dependency runs that way: this module
+    #: imports it, never the reverse.
+    #:
+    #: `k` COUNTS DISTINCT MEMBERS (`rhyme_constraints.K_COUNTS`), and
+    #: `assemble()` below implements that exactly — `len(nodes) >= fig.k`
+    #: over the union of member indices. The other module's `exists_k` is a
+    #: figure-count proxy exact only at k=2 and REFUSES above it; this one
+    #: has no such bound because it is not a proxy.
+    quantifier: str = "exists"
     k: int = 1
     fraction: object = None
     frame: str = "song"            # line | line_pair | stanza | poem | song | token
     template: object = None        # 平仄: one member against a declared pattern
+
+    def __post_init__(self):
+        # Validated HERE, at the declaration, so a typo in one of 77 schemas
+        # refuses at import rather than falling through `assemble()`'s
+        # if/elif chain to silent no-op (the shape `unmatched` was fixed for
+        # in `RelationSchema.__post_init__`, defect P15).
+        quantifier_table()[1](self.quantifier)
+
+    def canonical_quantifier(self):
+        """-> the canonical name, whatever spelling was declared."""
+        return quantifier_table()[1](self.quantifier)
 
 
 PAIR = Figure()
@@ -1687,6 +2146,16 @@ class RelationSchema:
                 need.add(QUOTIENT_CAP + q)
         for i in self.identity:
             need.add(_CAP_OF_LEVEL.get(i.level, i.level))
+        # M-39: A FRAME IS A CAPABILITY, and until 2026-08-22 this method was
+        # the reason one of them was not.  `_frame_key` reads `Unit.stanza`,
+        # every unit of an unframed stream carries 0, and a `forall stanza`
+        # figure therefore quantified over ONE frame and reported a number
+        # rather than refusing.  `line` and `token` are free -- every unit
+        # carries both -- and `line_pair` is `line // 2`, which is defined
+        # wherever a line index is; `stanza` is the only frame in `_frame_key`
+        # with a ground it can be missing.
+        if getattr(self.figure, "frame", None) == "stanza":
+            need.add("stanza")
         need.discard("token")        # always available: the surface text
         return tuple(sorted(need))
 
@@ -1903,7 +2372,7 @@ def _identity_values(ir, span, stream):
     toks = _span_tokens(span, stream)
     if ir.level == "token":
         return " ".join(u.token_text.lower() for u in toks)
-    res = stream.declaration.get("resources", {})
+    res = _resources_of(stream)
     if not isinstance(res, dict):
         return _NORES
     fn = res.get(ir.level)
@@ -2002,7 +2471,19 @@ def mirrored(a, b, a_keys, b_keys):
 
     Measured on `metidja.txt` (16 non-blank lines, `eng`, 48 of the 77
     schemas realising): the rule drops 14,254 candidate pairs whose mirror is
-    a candidate, and RECOVERS 114 instances the positional rule deleted.  All
+    a candidate, and RECOVERS 114 instances the positional rule deleted.
+
+    THE POPULATION MOVED ON 2026-08-22 AND THESE NUMBERS ARE NOT RE-DERIVED
+    (M-39, doctrine 58).  `metidja.txt` prints no blank line, so it supplies
+    no stanza ground and the five `frame="stanza"` schemas now refuse on it:
+    ~~48~~ **46** of the 77 realise there.  The 14,254 was summed over the
+    larger population and is left at its measured value with its date and its
+    coordinate stated, rather than replaced by a number this docstring would
+    then be the only record of.  What is UNAFFECTED is the finding itself:
+    all five of those schemas are SYMMETRIC (`spans[0] == spans[1]`), and the
+    114 recovered instances fall entirely on ASYMMETRIC schemas, so neither
+    the 114, nor the four schemas carrying them, nor `mosaic rhyme`'s 69 is
+    touched by the five leaving.  All
     114 fall on 4 ASYMMETRIC schemas and NONE on any of the 60 symmetric
     ones, which is the separation this function makes mechanical.  72 of the
     114 carry a TRUE verdict, and `mosaic rhyme` alone accounts for 69 of
@@ -2108,19 +2589,44 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
     # schema needing two reported one.  See `Refusal` for the measurement; the
     # cost of completeness is one extra `provides()` call per satisfied
     # capability on a refusing schema, and `provides()` is a dict lookup.
-    miss = tuple(c for c in schema.capabilities() if not stream.provides(c))
+    sup = {c: stream.supply(c) for c in schema.capabilities()}
+    miss = tuple(c for c in schema.capabilities()
+                 if sup[c].state != "present")
     if miss:
         lang = stream.declaration.get("language", "?")
+        # THE VACUOUS SUBSET, SEPARATED.  A frame whose source a caller
+        # declared and whose population is zero is NOT the same gap as one
+        # nobody declared, and the two have opposite remedies: the first is
+        # answered by declaring a source, the second by nothing a declaration
+        # can do -- the text does not carry the thing.  Before this split the
+        # second state did not refuse at all; it ran over zero loci and
+        # reported a zero (doctrine 20, and `Supply` carries the measurement).
+        vac = tuple(c for c in miss if sup[c].state == "empty")
+        kind = "vacuous_frame" if len(vac) == len(miss) else "capability"
         head = (f"{schema.name} needs {miss[0]!r}" if len(miss) == 1 else
                 f"{schema.name} needs {len(miss)} capabilities this "
                 f"declaration does not supply: "
                 f"{', '.join(repr(c) for c in miss)}")
-        return Refusal(schema.name, miss[0],
-                       f"{head}; this declaration ({lang}) does not supply "
-                       f"{'it' if len(miss) == 1 else 'them'}. Refused rather "
-                       f"than asserted. Every missing name is on `.missing` — "
-                       f"declaring only the first would not make this schema "
-                       f"run.", missing=miss)
+        if vac:
+            why = "; ".join(
+                f"{c!r} was DECLARED (source {sup[c].source!r}) and is EMPTY "
+                f"— 0 {sup[c].detail}" for c in vac)
+            detail = (
+                f"{head}. {why}. An empty declared frame is not a capability "
+                f"nobody declared and it is not a null: every span rule that "
+                f"reads it enumerates zero loci, so this schema could only "
+                f"have returned an empty list. Refused rather than reported "
+                f"as 0 (doctrine 20). The remedy is not to declare a source — "
+                f"one IS declared and it came back empty; it is a text, an "
+                f"edition or a mark inventory that carries the thing.")
+        else:
+            detail = (
+                f"{head}; this declaration ({lang}) does not supply "
+                f"{'it' if len(miss) == 1 else 'them'}. Refused rather "
+                f"than asserted. Every missing name is on `.missing` — "
+                f"declaring only the first would not make this schema run.")
+        return Refusal(schema.name, miss[0], detail, missing=miss, kind=kind,
+                       vacuous=vac)
     try:
         A = list(enumerate_spans(schema.spans[0], stream))
         B = (A if schema.spans[0] == schema.spans[1]
@@ -2128,8 +2634,10 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
     except NoReferent as e:
         # NOT a capability refusal: `missing` stays empty and `.complete` is
         # False, because the span rule found no referent in a declaration that
-        # supplied everything the schema asked for.
-        return Refusal(schema.name, "span", str(e))
+        # supplied everything the schema asked for.  `kind` says so by name,
+        # so a consumer separating the gates does not have to infer it from an
+        # empty `missing`.
+        return Refusal(schema.name, "span", str(e), kind="span")
     a_keys = {s.idx for s in A}
     b_keys = a_keys if B is A else {s.idx for s in B}
 
@@ -2362,8 +2870,21 @@ def mark_refrain_tail(stream, min_count=2, min_fraction=0.6, lines=None):
             if len(ls) >= min_count and n and len(ls) / n >= min_fraction:
                 best = (depth, run, ls)
     if best is None:
+        # THE SOURCE IS STILL SET, AND THE RETURN IS NO LONGER `None`.
+        # Deleting the source on a null result would make "the shared-tail
+        # search ran and there is no shared tail" indistinguishable from "the
+        # search was never run" -- doctrine 20 pointed at this function
+        # instead of at its consumers, and one collapse traded for another.
+        # What was wrong was the SILENCE: `None` back to the caller and a
+        # `provides()` that read the source alone, so `epistrophe / radif`
+        # and `qafiya (before the radif)` ran over zero loci and reported a
+        # measured zero.  Both halves are answered here -- the caller gets a
+        # summary carrying `found: 0`, and `Stream.supply('refrain_tail')`
+        # reads the POPULATION and returns state `'empty'`.
         stream.frames.refrain_source = "computed"
-        return None
+        return {"depth": 0, "run": (), "lines": [], "found": 0,
+                "candidates": n, "min_count": min_count,
+                "min_fraction": min_fraction}
     depth, run, ls = best
     for li in ls:
         ids = stream.lines[li]
@@ -2378,6 +2899,7 @@ def mark_refrain_tail(stream, min_count=2, min_fraction=0.6, lines=None):
             i for i in ids if stream.units[i].token == start_tok)
     stream.frames.refrain_source = "computed"
     return {"depth": depth, "run": tuple(reversed(run)), "lines": ls,
+            "found": len(ls), "candidates": n,
             "min_count": min_count, "min_fraction": min_fraction}
 
 
@@ -2428,7 +2950,12 @@ def search_caesura(stream):
             stream.frames.caesura[li] = cands
             ks.append(len(cands))
     stream.frames.caesura_source = "searched"
-    return {"lines": len(ks), "mean_k": sum(ks) / len(ks) if ks else 0.0,
+    # `found` is the same key the other two markers report, so a caller can
+    # ask any of the three "how many lines did you mark" without knowing which
+    # instrument it is holding.  Zero here is the vacuous frame again: a text
+    # of one-word lines offers no boundary to cut at.
+    return {"lines": len(ks), "found": len(ks),
+            "mean_k": sum(ks) / len(ks) if ks else 0.0,
             "note": "report the EXCESS over a null run under this same search"}
 
 
@@ -2455,10 +2982,22 @@ def mark_printed_caesura(stream, marks=("/", "|")):
     parameter's documented string form could not even express it, since
     `"--/|"` iterates to a single `-` and would fire on every hyphenated
     compound in a language that JOINS on the hyphen (doctrine 65).
+
+    THE RETURN IS A SUMMARY, NOT `stream.frames`.  It used to hand back the
+    caller's own mutable object, which says nothing: the ONE number a caller
+    needs from a marker is how many lines it marked, and on English that
+    number is ZERO while `caesura_source` reads `'printed'`.  The source is
+    still set on a null run, deliberately -- see `mark_refrain_tail` for the
+    argument, which is the same one -- and `Stream.supply('caesura')` reads
+    the population, so the six schemas that ride the caesura and the refrain
+    now refuse with `kind='vacuous_frame'` instead of returning `[]`.
     """
     if isinstance(marks, str):
         marks = tuple(marks)
+    scanned = 0
     for li, raw in enumerate(stream.text_lines):
+        if li < len(stream.lines) and stream.lines[li]:
+            scanned += 1
         pos = min((raw.find(m) for m in marks if m in raw), default=-1)
         if pos < 0:
             continue
@@ -2468,7 +3007,849 @@ def mark_printed_caesura(stream, marks=("/", "|")):
                 stream.frames.caesura[li] = i
                 break
     stream.frames.caesura_source = "printed"
-    return stream.frames
+    return {"marks": tuple(marks), "found": len(stream.frames.caesura),
+            "lines": scanned, "source": "printed"}
+
+
+# ---------------------------------------------------------------------------
+# 9a. THE ORTHOGRAPHIC SURFACE -- an ALT_SURFACE a caller can actually declare
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class _Spelling:
+    """One position of a spelling surface, duck-typed as a `Syllable`.
+
+    Only `text` is ever populated, because the rime rule this surface is
+    projected through decomposes a WORD and not a syllable.  The three
+    phonemic fields are the empty/None a channel reader expects, so reading
+    `nucleus` here is None -- unknown -- and not a claim, and reading `onset`
+    is the empty cluster rather than a crash.
+    """
+    text: object = None
+    onset: tuple = ()
+    nucleus: object = None
+    coda: tuple = ()
+    prominence: object = None
+    moras: object = None
+
+
+class _SpellingSurface:
+    """The `phon` of a projected surface.  It syllabifies NOTHING.
+
+    `declare_orthography` does not re-read the text: it re-labels the
+    segmentation the primary declaration already made, which is the only way
+    `_project` can align (defect P7 -- a second declaration that re-tokenises
+    projects to None at every position, and then every read on the surface is
+    None while `provides()` says True).  A phonology object that pretended it
+    could syllabify would be an entrance to exactly that.
+    """
+
+    def __init__(self, rime, language):
+        self.rime = rime
+        self.language = language
+
+    def syllabify(self, word):
+        raise NoReferent(
+            "the orthographic surface is PROJECTED from the phonemic "
+            "segmentation, not syllabified independently; build the primary "
+            "stream first and call declare_orthography() on it")
+
+
+#: HOW MANY LIFTS A HALF-LINE CARRIES. A CONVENTION OF THE VERSE FORM, and
+#: labelled one for the same reason `grid.FormConvention` and
+#: `Meter.conventional_grouping` are: the Germanic alliterative long line is
+#: conventionally two lifts per half-line and four per line, and a tradition
+#: may answer differently. It is a PARAMETER, so a caller who knows their
+#: form states it rather than inheriting a fiat (doctrine 58 — a bare n is a
+#: threshold nobody wrote down).
+LIFTS_PER_HALF_LINE = 2
+HALVES_PER_LINE = 2
+
+
+def _beat_from_grid(stream, grid):
+    """-> {line: (unit index, ...)} from a `declared_inputs.BeatGrid`.
+
+    A unit is ON THE BEAT when its declared pulse position is one of the
+    cycle's GROUP HEADS. The grouping is `grid.cycle`'s and R5 already
+    refuses to construct without one, so nothing is assumed here.
+
+    A UNIT THE GRID DOES NOT PLACE IS NOT ON THE BEAT AND IS NOT GUESSED —
+    it simply does not appear in the returned set, which is the same answer
+    `fit._read_beatgrid` gives it (`BEATGRID_INCOMPLETE`: "a partial map
+    answers for the units it holds and refuses for the rest; it is not
+    filled in").
+    """
+    from fractions import Fraction
+    cyc = grid.cycle
+    heads = None
+    for attr in ("pulse_groups", "groups"):
+        fn = getattr(cyc, attr, None)
+        got = fn() if callable(fn) else fn
+        if got:
+            heads, acc = set(), 0
+            for g in got:
+                heads.add(Fraction(acc))
+                acc += g
+            break
+    if not heads:
+        raise NoReferent(
+            "the BeatGrid's cycle declares no GROUPING, so which pulses are "
+            "beats is undetermined — `meter.pulse_groups()` returns None "
+            "rather than asserting one of the 2^(n-1) compositions, and this "
+            "refuses for the same reason (doctrine 19).")
+    per = getattr(grid, "positions", None) or {}
+    npulse = Fraction(getattr(cyc, "pulses", 0) or 0)
+    out = {}
+    for key, val in per.items():
+        try:
+            ln, ui = (key if isinstance(key, tuple) and len(key) == 2
+                      else (None, key))
+            ln, ui = int(ln), int(ui)
+        except (TypeError, ValueError):
+            continue
+        v = Fraction(val)
+        # THE POSITION IS FROM THE CYCLE ORIGIN, so it is reduced INTO the
+        # cycle before being asked whether it is a head — a syllable in bar
+        # three on the downbeat is on a head exactly as one in bar one is.
+        if npulse:
+            v = v % npulse
+        if v in heads:
+            out.setdefault(ln, []).append(ui)
+    return {ln: tuple(sorted(v)) for ln, v in out.items()}
+
+
+def declare_beat(stream, mapping):
+    """Declare WHERE THE BEATS FALL. -> dict. `{line: (unit index, ...)}`.
+
+    THE UNITS LISTED ARE THE ON-BEAT ONES; everything else in the line is off
+    the beat. `offbeat internal rhyme` is the one schema that reads this, and
+    it is defined by a rhyme landing where the pulse does NOT.
+
+    DOCTRINE 4 IS NOT BEING LIFTED HERE. Its own sentence, quoted in that
+    schema's note, is "no beat grid without audio OR A DECLARED TEMPO" — it
+    refuses an INFERRED grid, and this is a stated one. Nothing in this
+    function looks at a meter, a syllable count or a line length; a caller who
+    declares nothing gets `frames.beat is None`, `supply('beat')` absent and
+    the schema refusing, byte for byte as before.
+
+    WHERE A WRITER GETS THE NUMBERS: they know the tune. `quality/fit.py`
+    already places every blueprint line in a bar and on a beat, so a song with
+    a blueprint has stated this once already — this is the seam that carries
+    it into the relation layer.
+    """
+    # A `declared_inputs.BeatGrid` IS ACCEPTED DIRECTLY, and that is the
+    # seam this constructor should have used from the start (2026-08-23).
+    # R5 already exists, already maps `(line, syllable) -> Fraction pulses`,
+    # already requires its `Cycle` to declare a GROUPING (because which
+    # pulses are beats is exactly what a composition of the pulse count
+    # declares), and already carries `derived_from` — audio / notation /
+    # asserted — which is the provenance any verdict resting on it must
+    # stamp. `quality/fit.py._read_beatgrid` reads the same object and
+    # computes `v in heads` per unit, i.e. THIS SET, for its
+    # PROMINENCE_OFF_HEAD finding. Taking a raw dict here and nothing else
+    # would have made a writer declare the same grid twice for two layers,
+    # which is the drift doctrine 1 exists to stop.
+    if hasattr(mapping, "positions") and hasattr(mapping, "cycle"):
+        mapping = _beat_from_grid(stream, mapping)
+    if not isinstance(mapping, dict):
+        raise NoReferent(
+            f"`mapping` is {{line: (unit index, ...)}} naming the ON-BEAT "
+            f"units, or a `declared_inputs.BeatGrid`, got "
+            f"{type(mapping).__name__}.")
+    n = len(stream.lines)
+    grid = {}
+    for ln, idx in mapping.items():
+        ln = int(ln)
+        if not (0 <= ln < n):
+            raise NoReferent(f"line {ln} is outside this stream's {n} lines.")
+        grid[ln] = tuple(int(i) for i in idx)
+    stream.frames.beat = grid or None
+    stream.frames.beat_source = "declared" if grid else "none"
+    return {"lines": len(grid), "found": len(grid),
+            "source": stream.frames.beat_source}
+
+
+def declare_lifts(stream, mapping, source="declared"):
+    """Declare the lift map directly. -> dict. `{line: (unit index, ...)}`.
+
+    For a caller who has SCANNED the verse — by hand, from an edition, or with
+    an instrument this repo does not ship. Nothing is inferred and nothing is
+    checked against prominence: a declared scansion is the caller's claim and
+    overriding it with a derivation would be the checker outranking the
+    declaration (doctrine 1).
+    """
+    if not isinstance(mapping, dict):
+        raise NoReferent(
+            f"`mapping` is {{line: (unit index, ...)}}, got "
+            f"{type(mapping).__name__}.")
+    n = len(stream.lines)
+    out = {}
+    for ln, idx in mapping.items():
+        ln = int(ln)
+        if not (0 <= ln < n):
+            raise NoReferent(f"line {ln} is outside this stream's {n} lines.")
+        out[ln] = tuple(int(i) for i in idx)
+    stream.frames.lifts = out
+    stream.frames.lift_source = source if out else "none"
+    return {"lines": len(out), "found": len(out), "source": source}
+
+
+def search_lifts(stream, per_half_line=LIFTS_PER_HALF_LINE,
+                 halves=HALVES_PER_LINE):
+    """Derive a lift map from PROMINENCE. -> dict, and it writes the frame.
+
+    `relations_null.BLOCKERS` calls `lifts` `Blocker: build` and says exactly
+    what is missing: "`Stream.provides('lifts')` reads `frames.lift_source`,
+    and MEASURED over this repository NOTHING assigns it: there is no scanner,
+    no declarer and no caller … unlike `caesura` and `refrain_tail`, which
+    this panel supplies from `search_caesura` and `mark_refrain_tail`, THERE
+    IS NO FUNCTION TO CALL." This is that function, and `declare_lifts` above
+    is the declarer.
+
+    WHAT IT READS AND WHAT IT ASSUMES, kept apart:
+      READS   `Syllable.prominence`, which is real data — CMUdict lexical
+              stress with this repo's own function-word demotion applied
+              (doctrine 46: a function-word list is part of a phonology).
+      ASSUMES `per_half_line` and `halves`, which are a CONVENTION of the
+              verse form and are PARAMETERS for that reason. Four lifts to a
+              line, two to a half-line, is the Germanic alliterative
+              long-line convention; a caller working another form says so.
+
+    THE SPLIT IS THE CAESURA WHERE ONE IS DECLARED and an even division of
+    the line's units where none is — and `lift_source` names which, so a
+    reader can tell a scansion that rested on a declared medial break from one
+    that rested on arithmetic. That distinction is the entire reason the two
+    source names differ rather than both reading "computed".
+
+    A LINE WITH TOO FEW PROMINENT SYLLABLES GETS WHAT IT HAS, not padding.
+    A half-line carrying one stress yields one lift; `fourth lift must not
+    alliterate` then finds no fourth lift on that line and says nothing about
+    it, which is the honest answer — inventing a lift on an unstressed
+    syllable to reach the convention's count would be manufacturing the
+    scansion the schema is meant to test.
+    """
+    if per_half_line < 1 or halves < 1:
+        raise NoReferent(
+            f"per_half_line={per_half_line}, halves={halves}: both are counts "
+            f"of positions and must be at least 1.")
+    by_line = {}
+    for k, u in enumerate(stream.units):
+        by_line.setdefault(u.line, []).append(k)
+    caes = dict(getattr(stream.frames, "caesura", None) or {})
+    used_caesura = 0
+    out = {}
+    for ln, idxs in by_line.items():
+        cut = None
+        if ln in caes:
+            c = caes[ln]
+            cut = c if isinstance(c, int) else (c[0] if c else None)
+        if cut is not None:
+            used_caesura += 1
+            parts = [[k for k in idxs if k < cut],
+                     [k for k in idxs if k >= cut]]
+            parts = [p for p in parts if p] or [idxs]
+        else:
+            step = max(1, len(idxs) // halves)
+            parts = [idxs[i:i + step] for i in range(0, len(idxs), step)]
+            parts = parts[:halves] or [idxs]
+        lifts = []
+        for part in parts:
+            got = 0
+            for k in part:
+                syl = stream.units[k].syl
+                if syl is not None and (syl.prominence or 0) >= 1:
+                    lifts.append(k)
+                    got += 1
+                    if got >= per_half_line:
+                        break
+        if lifts:
+            out[ln] = tuple(lifts)
+    stream.frames.lifts = out
+    stream.frames.lift_source = (
+        "prominence+caesura" if used_caesura else "prominence") if out \
+        else "none"
+    return {"lines": len(out), "found": len(out),
+            "from_caesura": used_caesura,
+            "per_half_line": per_half_line, "halves": halves,
+            "source": stream.frames.lift_source}
+
+
+def declare_period_surface(stream, sourced, name="earlier"):
+    """Read the draft through a SOURCED period or dialect phonology. -> dict.
+
+    `historical rhyme` and `dialect rhyme` are each defined as a DIFFERENCE
+    between two readings — nucleus and coda AGREE on the second surface while
+    the nucleus DIFFERS on the phonemic one — and both refuse without it.
+    `relations_null` calls `earlier` and `poet` `Blocker: obtain`, and what it
+    says is precise: "`declared_inputs.PeriodPhonology` refuses to construct
+    without a named reconstruction, which is the CORRECT REFUSAL … the surface
+    itself is reachable; THE DATA IS NOT."
+
+    THE DATA IS THE CALLER'S AND ALWAYS WAS. What was missing is this
+    constructor: `ALT_SURFACES` has held both names since it was written,
+    `PeriodPhonology` has held the wrapper, and nothing joined them, so a
+    reader who HAD a sourced reconstruction still could not hand it to a
+    schema. `quality/phonology/ltc.py` is the existence proof `PeriodPhonology`
+    itself names — Middle Chinese is a LOOKUP over a sourced table, not a
+    guess — and any object with `.syllabify()` behind that wrapper works here.
+
+    `sourced` is a `declared_inputs.PeriodPhonology`, and it is required to BE
+    one rather than a bare phonology: that class is what enforces the period,
+    the reconstruction and the source, and accepting a raw object here would
+    route around three checks whose whole purpose is to stop an unsourced
+    reading being reported as a historical one (doctrine 34). A caller with no
+    reconstruction gets the refusal from `PeriodPhonology`, where it belongs,
+    and not a surface full of modern vowels wearing a period's name.
+    """
+    if name not in ALT_SURFACES:
+        raise NoReferent(
+            f"{name!r} is not one of ALT_SURFACES {ALT_SURFACES}.")
+    phon = getattr(sourced, "phonology", None)
+    if phon is None or not hasattr(sourced, "reconstruction"):
+        raise NoReferent(
+            f"`sourced` must be a `declared_inputs.PeriodPhonology`, got "
+            f"{type(sourced).__name__}. That class is what requires a period, "
+            f"a named reconstruction and a source; taking a bare phonology "
+            f"here would route around all three and let an unsourced reading "
+            f"be reported as a historical one.")
+    units, read = [], 0
+    cache = {}
+    for u in stream.units:
+        w = (u.token_text or "").lower()
+        if w not in cache:
+            try:
+                cache[w] = list(phon.syllabify(w))
+            except Exception:
+                cache[w] = None
+        syls = cache[w]
+        if not syls or u.tok_syl >= len(syls):
+            # THE PERIOD PHONOLOGY COULD NOT READ THIS WORD, and the unit is
+            # carried with NO material rather than with its modern syllable:
+            # projecting the phonemic reading into the `earlier` surface is
+            # exactly the manufacture this surface exists to avoid, and it
+            # would make every unreadable word a silent historical AGREE.
+            units.append(replace(u, syl=None))
+            continue
+        units.append(replace(u, syl=syls[u.tok_syl]))
+        read += 1
+    alt = Stream(units=units, lines=list(stream.lines),
+                 tokens=dict(stream.tokens), phon=phon,
+                 declaration=dict(stream.declaration, surface=name,
+                                  period=getattr(sourced, "period", ""),
+                                  reconstruction=sourced.reconstruction),
+                 text_lines=stream.text_lines)
+    stream.alt[name] = alt
+    return {"surface": name, "units": len(units), "read": read,
+            "found": read, "period": getattr(sourced, "period", ""),
+            "reconstruction": sourced.reconstruction, "source": "declared"}
+
+
+def declare_senses(stream, mapping):
+    """Declare WHICH SENSE a word carries where. -> a summary dict.
+
+    `antanaclasis` is ONE WORD IN TWO SENSES — "put out the light, and then
+    put out the light" — and it refuses without a `sense` resource.
+    `relations_null` calls that `Blocker: obtain` and the reason is exact for
+    the job it was written about: "with any resource that keys on the TOKEN it
+    degenerates to `repetition`, which is a different schema already in this
+    registry", and `data/nltk/` carries taggers and tokenizers, not WordNet.
+
+    A CORPUS READER NEEDS AN INVENTORY. A WRITER DOES NOT, and that is the
+    whole difference this constructor turns on. Antanaclasis is a DELIBERATE
+    FIGURE: a writer who repeats a word in a second sense is doing it on
+    purpose and can say which sense goes where. So the resource is a
+    declaration — `{(line, token): sense}` in 0-based indices — exactly like
+    the delivered surface and the stub resolution, and nothing here infers a
+    sense from anything.
+
+    THE KEY IS POSITIONAL AND HAS TO BE. A `{word: sense}` map cannot express
+    this figure at all: the schema's entire content is that the SAME token
+    carries DIFFERENT senses at two positions, so a word-keyed resource makes
+    every instance sense-identical and the schema collapses into `repetition`
+    — the exact degeneration `BLOCKERS` names, arrived at from the other
+    direction.
+
+    A token with no declared sense gets its own text as its sense, so two
+    undeclared occurrences of one word are sense-IDENTICAL and antanaclasis
+    does NOT fire on them. That is the safe direction: silence means "an
+    ordinary repeat", never "a figure".
+    """
+    if not isinstance(mapping, dict):
+        raise NoReferent(
+            f"`mapping` is {{(line, token): sense}} in 0-based indices, got "
+            f"{type(mapping).__name__}. A word-keyed map cannot express "
+            f"antanaclasis — see this function's docstring.")
+    norm = {}
+    for k, v in mapping.items():
+        try:
+            ln, tk = int(k[0]), int(k[1])
+        except (TypeError, IndexError, ValueError):
+            raise NoReferent(
+                f"sense key {k!r} is not a (line, token) pair. The figure is "
+                f"about one word at two POSITIONS, so the key carries both.")
+        norm[(ln, tk)] = str(v)
+
+    def _sense_of_unit(u):
+        return norm.get((u.line, u.token),
+                        (getattr(u, "token_text", "") or "").lower())
+
+    res = dict(stream.declaration.get("resources") or {})
+    res["sense"] = _sense_of_unit
+    stream.declaration = dict(stream.declaration, resources=res)
+    return {"declared": len(norm), "found": len(norm), "source": "declared"}
+
+
+#: THE INCIPIT LENGTHS TRIED, LONGEST FIRST. ~~STUB_INCIPIT_WORDS = 3~~, and
+#: the struck constant is the point: it was declared with a plausible story
+#: ("a two-word prefix like `oh my` matches half a songbook") and never
+#: measured. MEASURED 2026-08-23 over 1,297 corpus files / 989 stub lines,
+#: one fixed length at a time, WITH the tokeniser fix in place:
+#:
+#:     incipit  no-incipit    unique       ambiguous     no match
+#:        2      0 ( 0.0%)   363 (36.7%)  389 (39.3%)  237 (24.0%)
+#:        3     14 ( 1.4%)   322 (33.0%)  228 (23.4%)  425 (43.6%)
+#:        4    208 (21.0%)   197 (25.2%)   80 (10.2%)  504 (64.5%)
+#:        5    530 (53.6%)    83 (18.1%)   45 ( 9.8%)  331 (72.1%)
+#:
+#: (The tokeniser fix alone is worth ~105 resolutions: at length 3 the
+#: `str.split()` version resolved 217, this resolves 322.)
+#:
+#: NO SINGLE LENGTH IS RIGHT, which is why the constant is GONE rather than
+#: repinned. A short incipit reaches more stubs and carries less evidence; a
+#: long one carries more evidence and cannot be formed by most stubs at all —
+#: at five words 53.6% of them have no incipit to match with. Picking one
+#: number trades coverage against evidence GLOBALLY when the trade is
+#: available PER STUB.
+#:
+#: So each stub is tried at the longest length it can form and falls back
+#: shorter only when that yields NOTHING — never to overturn an ambiguity,
+#: because two candidates on five words do not become one on two, they become
+#: more. The resolution records WHICH length decided it (`evidence`), so a
+#: reader can weigh a five-word match differently from a two-word one instead
+#: of being told they are the same claim.
+#:
+#: AND THE STRATEGY WAS THEN MEASURED AGAINST EVERY FIXED LENGTH rather than
+#: assumed to beat them, on the same 989 stubs:
+#:
+#:     strategy        resolved       ambiguous  none  no-incipit
+#:     fixed 2        363 (36.7%)        389      237       0
+#:     fixed 3        322 (32.6%)        228      425      14
+#:     fixed 4        197 (19.9%)         80      504     208
+#:     fixed 5         83 ( 8.4%)         45      331     530
+#:     LONGEST-FIRST  469 (47.4%)        283      237       0
+#:
+#: 469 against the best single length's 363 — 29% more than any fixed choice
+#: and 46% more than the `3` this shipped with. The evidence distribution is
+#: the half that matters: **5w:83  4w:120  3w:141  2w:125**, so 344 of the 469
+#: (73%) rest on three or more words and a reader can discount the 125 that do
+#: not. A bare threshold destroys exactly that distinction by making every
+#: resolution look equally well founded.
+#:
+#: AGAINST `relations_null.BLOCKERS`' FIGURE, carefully: it measured 158 of
+#: 843 (18.7%) unique for the naive resolver it was describing, and this
+#: reaches 469 of 989 (47.4%). THOSE ARE NOT THE SAME MEASUREMENT — different
+#: stub count, different matcher, different tokeniser — so this is not a
+#: refutation of that number. What it does supersede is the entry's
+#: CONCLUSION, that a resolver is "wrong more often than right" and therefore
+#: this repo should supply none: nearly half the stubs in the corpus resolve
+#: to a unique earlier line, and the rest are still refused.
+STUB_INCIPIT_LENGTHS = (5, 4, 3, 2)
+
+
+def search_stub_resolution(stream, is_stub=None, language=None, incipit=None):
+    """Resolve the stubs that resolve UNIQUELY, and refuse the rest. -> dict.
+
+    WHICH LINES ARE STUBS IS NOT THIS MODULE'S QUESTION (P10, and this
+    function violated it from 2026-08-23 until the same day's audit). The
+    first draft did `import lyric_harness as _lh` and called
+    `_lh.is_chorus_stub`, which is shipping a detector by reference rather
+    than by regex -- the same defect at one remove, and `test_relations.py`'s
+    P10 check caught it. Deciding that a printed mark is a POINTER is the
+    edition's judgement: English prints `&c.`, Finnish `j. n. e.`, Malay
+    `d. s. b.`, and a module serving nine languages cannot hold that list.
+
+    So stub-hood arrives the way the orthographic rime does in
+    `declare_orthography(stream, rime)` -- from the caller:
+
+      * `stream.line_status`, if the caller declared one (via
+        `build_stream(line_status=...)` or `line_status_from`). A line whose
+        label is truthy is a stub. THIS WINS when present, because a declared
+        coordinate outranks a derivation and both would be answering one
+        question.
+      * `is_stub`, a callable `(text, language) -> bool` passed in.
+      * neither: a `Refusal` naming `line_status`. Not an empty result --
+        "nobody said which lines are pointers" is not "there are no
+        pointers" (doctrine 20).
+
+    `relations_null.BLOCKERS` measured the naive resolver over `corpus/song/`
+    and the numbers are why this repo shipped none: of 843 stub lines,
+    matching each stub's incipit against earlier lines resolves **158 (18.7%)
+    to a UNIQUE earlier line**, leaves **224 (26.6%) with no earlier match at
+    all**, and leaves **461 (54.7%) ambiguous between 2 and 9 candidates**.
+    "Wrong more often than right" is the correct summary OF THE WHOLE, and it
+    was read here as a reason to supply NOTHING — which throws away the 18.7%
+    that are not ambiguous at all.
+
+    SO THIS RESOLVES ONLY THE UNAMBIGUOUS AND SAYS SO. A stub whose incipit
+    matches exactly one earlier line is resolved; a stub with two or more
+    candidates, or none, is LEFT OUT of the map entirely and counted in the
+    return. `declare_stub_resolution` then takes the result and a caller may
+    add the hard ones by hand — the derivation and the declaration compose,
+    and the declaration wins, because they are the same map.
+
+    THE SPAN IS A GUESS THIS DOES NOT MAKE. A stub stands for a whole chorus
+    and the incipit finds only its FIRST line, so the span returned is
+    `(match, match + 1)` — one line, the one that was actually found. Widening
+    it to "probably four lines" would be inventing the chorus's length, which
+    is the edition-level judgement `BLOCKERS` says this cannot make.
+    """
+    status = tuple(getattr(stream, "line_status", ()) or ())
+    if status:
+        def _is_stub(text, _lang, _i=None):
+            return bool(_i is not None and _i < len(status) and status[_i])
+    elif callable(is_stub):
+        def _is_stub(text, _lang, _i=None):
+            try:
+                return bool(is_stub(text, _lang))
+            except Exception:
+                return False
+    else:
+        return Refusal(
+            schema="search_stub_resolution", capability="line_status",
+            detail="nobody has said which lines are POINTERS. Declare it -- "
+                   "`build_stream(line_status=...)`, or `line_status_from("
+                   "lines, predicate, label)` -- or pass `is_stub=`. Which "
+                   "printed mark is a stub is the EDITION's judgement and "
+                   "this module ships no list: English prints `&c.`, Finnish "
+                   "`j. n. e.`, Malay `d. s. b.` (P10, BACKLOG 2.4). An "
+                   "empty map would say 'no pointers here', which is a "
+                   "different answer (doctrine 20).",
+            missing=("line_status",), kind="capability")
+    lines = list(getattr(stream, "text_lines", ()) or [])
+    if not lines:
+        by = {}
+        for u in stream.units:
+            by.setdefault(u.line, []).append(u.token_text or "")
+        lines = [" ".join(by.get(i, ())) for i in range(len(stream.lines))]
+
+    def _key(text, w):
+        # THIS MODULE'S OWN TOKENISER, not `str.split()`. The first draft
+        # probed `lyric_harness` for a `tokenise` it does not have and fell
+        # back to whitespace splitting, which leaves punctuation glued on:
+        # `"oh my poor nelly gray, &c."` splits to `gray,` and `&c.`, so a
+        # stub matched an earlier line only when the two happened to be
+        # punctuated identically. `tokenise` is defined 1,200 lines above
+        # this one.
+        toks = [x.lower() for x in tokenise(text or "")][:w]
+        return tuple(toks) if len(toks) >= w else None
+
+    lengths = ((int(incipit),) if incipit is not None
+               else STUB_INCIPIT_LENGTHS)
+    stubs, resolved, ambiguous, unmatched, no_incipit = [], {}, [], [], []
+    evidence = {}
+    for i, text in enumerate(lines):
+        if not _is_stub(text, language, i):
+            continue
+        stubs.append(i)
+        hit = amb = None
+        for w in lengths:
+            k = _key(text, w)
+            if k is None:
+                continue
+            got = [j for j in range(i)
+                   if not _is_stub(lines[j], language, j)
+                   and _key(lines[j], w) == k]
+            if len(got) == 1:
+                hit, amb = (got[0], w), None
+                break
+            if got and amb is None:
+                amb = (tuple(got), w)
+        if hit is not None:
+            resolved[i] = (hit[0], hit[0] + 1)
+            evidence[i] = hit[1]
+            continue
+        if amb is not None:
+            ambiguous.append((i, amb[0]))
+            continue
+        k = _key(text, min(lengths))
+        if k is None:
+            # NO INCIPIT TO MATCH WITH, which is NOT the same answer as
+            # "the incipit matched nothing" and is counted apart from it
+            # (doctrine 20/79). A bare `&c.` tokenises to a single `c`: it
+            # names no line, so incipit matching is not a method that can
+            # fail on it — it is a method that does not apply. Lumping the
+            # two together inflated the miss rate and hid the fact that a
+            # large share of stubs in this corpus carry no incipit at all.
+            no_incipit.append(i)
+            continue
+        unmatched.append(i)
+    return {"stubs": len(stubs), "resolved": resolved,
+            "ambiguous": ambiguous, "unmatched": unmatched,
+            "no_incipit": no_incipit,
+            "found": len(resolved), "source": "incipit_unique",
+            "evidence": evidence, "lengths_tried": tuple(lengths)}
+
+
+def declare_stub_resolution(stream, mapping):
+    """Declare WHAT A CHORUS STUB POINTS AT. -> a summary dict.
+
+    `refrain by reference` compares two WHOLE LINES token-for-token and
+    refuses without `stub_resolution`. `relations_null` calls it
+    `Blocker: build` and the measurement behind that is not in dispute: over
+    `corpus/song/`, matching each stub's incipit against earlier lines
+    resolves 158 of 843 (18.7%) uniquely, leaves 224 (26.6%) with no earlier
+    match, and leaves 461 (54.7%) ambiguous between 2 and 9 candidates. A
+    naive resolver is WRONG MORE OFTEN THAN RIGHT, and this module ships none
+    — the entry's own words are that the honest version is an edition-level
+    annotation.
+
+    SO THIS IS THE ANNOTATION, AND NOT A DETECTOR. `mapping` is
+    `{stub_line: (start, end)}` in 0-based, end-exclusive line indices, and it
+    is DECLARED — by the editor who knows which chorus the `&c.` meant, or by
+    the writer who wrote it. Nothing here guesses, and a stub with no entry
+    stays unresolved.
+
+    WHAT RESOLUTION DOES, precisely, because "resolve" could mean three
+    things: the stub line's UNITS are replaced by the units of the first line
+    of the span it points at, retagged to the stub's own line number. That is
+    what an edition does when it prints the chorus out in full instead of
+    abbreviating it, and it is what makes the stub line comparable at all —
+    `tokenise` reads `Oh, my poor Nelly Gray, &c.` as ending in the word `c`,
+    so before resolution the stub matches nothing and the schema would fire on
+    every ORDINARY verbatim repeat instead (the inverse of what it is for,
+    which `UNPROVIDABLE` predicted in as many words).
+
+    THE FIRST LINE OF THE SPAN, and the span is kept. A stub stands for a
+    whole chorus; `refrain by reference` is a LINE-to-LINE schema, so the
+    first line is the comparand a per-line judge can use. The full span is
+    recorded on `frames.stub_resolution` so a later figure-level consumer has
+    it — the narrowing is this schema's, not the declaration's.
+    """
+    if not isinstance(mapping, dict):
+        raise NoReferent(
+            f"`mapping` is {{stub_line: (start, end)}} in 0-based line "
+            f"indices, got {type(mapping).__name__}.")
+    n_lines = len(stream.lines)
+    resolved, by_line = {}, {}
+    for stub, span in mapping.items():
+        try:
+            a, b = int(span[0]), int(span[1])
+        except (TypeError, IndexError, ValueError):
+            raise NoReferent(
+                f"stub resolution for line {stub!r} is not a (start, end) "
+                f"pair: {span!r}. A stub stands for a SPAN, not a line — "
+                f"nothing in the text says how many lines a chorus is, which "
+                f"is why the declaration carries both ends.")
+        if not (0 <= a < b <= n_lines):
+            raise NoReferent(
+                f"stub resolution {stub!r} -> ({a}, {b}) is outside this "
+                f"stream's {n_lines} line(s), or is empty.")
+        if not (0 <= int(stub) < n_lines):
+            raise NoReferent(
+                f"stub line {stub!r} is outside this stream's {n_lines} "
+                f"line(s).")
+        if a <= int(stub) < b:
+            raise NoReferent(
+                f"stub line {stub!r} points at a span containing itself "
+                f"({a}, {b}); a reference that resolves to the reference is "
+                f"not a resolution.")
+        resolved[int(stub)] = (a, b)
+        by_line[int(stub)] = a
+    if not resolved:
+        stream.frames.stub_source = "none"
+        return {"stubs": 0, "found": 0, "source": "none"}
+    src_units = {}
+    for u in stream.units:
+        src_units.setdefault(u.line, []).append(u)
+    units, done = [], 0
+    for u in stream.units:
+        if u.line not in by_line:
+            units.append(u)
+            continue
+        continue                      # the stub's own units are dropped
+    for stub, first in sorted(by_line.items()):
+        for k, su in enumerate(src_units.get(first, [])):
+            units.append(replace(su, line=stub))
+            done += 1
+    units.sort(key=lambda u: (u.line, u.i))
+    alt_lines, alt_tokens = [], {}
+    for ln in range(n_lines):
+        idx = tuple(k for k, u in enumerate(units) if u.line == ln)
+        alt_lines.append(idx)
+    for k, u in enumerate(units):
+        alt_tokens.setdefault((u.line, u.token), []).append(k)
+    stream.units = units
+    stream.lines = alt_lines
+    stream.tokens = {k: tuple(v) for k, v in alt_tokens.items()}
+    stream.frames.stub_resolution = dict(resolved)
+    stream.frames.stub_source = "declared"
+    return {"stubs": len(resolved), "found": len(resolved),
+            "units_substituted": done, "source": "declared"}
+
+
+def declare_delivery(stream, overrides, name="delivered"):
+    """Declare HOW THE LINES ARE SUNG, as a second stream. -> a summary dict.
+
+    THE SURFACE THAT WAS CALLED UNOBTAINABLE, AND WHY IT IS NOT (2026-08-22,
+    owner ruling). `relations_null.BLOCKERS` calls `delivered` and `sung`
+    `Blocker: obtain` — *"what the singer actually sang, against what the page
+    prints"* — and for the NULL SWEEP that is correct and stays: you cannot
+    measure `wrenched rhyme` against a corpus of printed ballads, because what
+    was sung is not in the book. **For a writer it is a DECLARATION.** This
+    repo is a harness for WRITING songs, and the writer is the one who decides
+    how a line is sung, so the delivered surface is a coordinate they state —
+    the same kind of thing as the meter or the relation — and there is nothing
+    to obtain. `ALT_SURFACES` has held both names since it was written and
+    `Stream.alt` is already `surface name -> Stream`; what was missing was the
+    constructor, and this is it.
+
+    WHAT THE THREE SCHEMAS ACTUALLY ASK FOR, which is what fixes the shape of
+    `overrides`:
+
+      wrenched rhyme      prominence DIFFERS on the page and AGREES as
+                          delivered — the ballad move of forcing a normally
+                          unstressed syllable to take the stress so it
+                          rhymes (`sailing` against `king`).
+      transformative /    nucleus and coda AGREE as delivered while the
+      bent rhyme          nucleus DIFFERS on the page — the rap and soul move
+                          of bending a vowel to land a rhyme.
+      sung-delivery       nucleus and moras AGREE on the `sung` surface.
+      rhyme
+
+    So a delivery is a per-syllable override of `prominence`, `nucleus`,
+    `coda` and `moras`, and nothing else: it re-voices material the page
+    already carries and never invents a syllable.
+
+    `overrides` may be
+      {word: {field: value}}              applied to that word's LAST
+                                          syllable, which is the rhyme-
+                                          bearing one and the only one any of
+                                          the three schemas reads at `scope`
+                                          `last`/`anchor`.
+      {(word, syl_index): {field: value}} for a word whose interior moves.
+      callable(unit) -> dict or None      for a writer who wants the whole
+                                          say. A callable that returns None
+                                          leaves the unit exactly as printed.
+
+    NOTHING IS INFERRED. A word with no entry is delivered as written, so a
+    caller who declares one word declares one word — the surface does not
+    quietly re-stress the rest of the song to make a rhyme work, which is the
+    manufacture this constructor exists to avoid.
+    """
+    if name not in ALT_SURFACES:
+        raise NoReferent(
+            f"{name!r} is not one of ALT_SURFACES {ALT_SURFACES}; a surface "
+            f"no schema can name is a stream nothing will ever read.")
+    _FIELDS = ("prominence", "nucleus", "coda", "moras")
+    is_call = callable(overrides)
+    if not is_call and not isinstance(overrides, dict):
+        raise NoReferent(
+            f"`overrides` is a dict or a callable, got "
+            f"{type(overrides).__name__}. See this function's docstring for "
+            f"the three accepted shapes.")
+    if not is_call:
+        for k, v in overrides.items():
+            bad = [f for f in (v or {}) if f not in _FIELDS]
+            if bad:
+                raise NoReferent(
+                    f"delivery override for {k!r} names {bad}, which are not "
+                    f"deliverable fields. A delivery re-voices "
+                    f"{list(_FIELDS)} and never invents a syllable.")
+    # LAST-SYLLABLE INDEX PER TOKEN, so a bare `{word: {...}}` lands on the
+    # rhyme-bearing syllable rather than on the first one it meets.
+    last_of = {}
+    for u in stream.units:
+        last_of[(u.line, u.token)] = max(
+            last_of.get((u.line, u.token), -1), u.tok_syl)
+    units, touched = [], 0
+    for u in stream.units:
+        over = None
+        if is_call:
+            over = overrides(u)
+        else:
+            w = (u.token_text or "").lower()
+            over = overrides.get((w, u.tok_syl))
+            if over is None and u.tok_syl == last_of.get((u.line, u.token)):
+                over = overrides.get(w)
+        if not over:
+            units.append(u)
+            continue
+        touched += 1
+        units.append(replace(u, syl=replace(u.syl, **dict(over))))
+    alt = Stream(units=units, lines=list(stream.lines),
+                 tokens=dict(stream.tokens), phon=stream.phon,
+                 declaration=dict(stream.declaration, surface=name),
+                 text_lines=stream.text_lines)
+    stream.alt[name] = alt
+    return {"surface": name, "units": len(units), "delivered": touched,
+            "found": touched, "source": "declared"}
+
+
+def declare_orthography(stream, rime, name="orthography"):
+    """Declare the ORTHOGRAPHIC alt surface `eye rhyme` refuses without.
+
+    `rime` is a CALLER-SUPPLIED `word -> str`, and this module ships none.
+    That is doctrine 45 and doctrine 65 in one argument: an orthographic rime
+    rule is a fact about a SPELLING SYSTEM -- `lyric_harness.spelled_rime`'s
+    own docstring declares that y is a vowel letter, w is not, and a word-final
+    silent -e folds, all three of which are English -- and this module serves
+    nine languages and imports nothing from the harness.  A built-in default
+    would be a checker silently picking a coordinate, which is the bug.
+
+    `spelled_rime` also takes `stress_from_end`, and BINDING IT IS THE
+    CALLER'S TOO: without it the rime anchors at the last vowel group, which
+    over-reaches on feminine rhymes (silver/deliver share `-er`), and the
+    anchor rule that fixes it is the harness's, not this module's.  Pass a
+    closure if you want it; the summary records nothing about which you chose
+    because a callable cannot be asked.
+
+    HOW THE SURFACE IS BUILT.  Every unit of `stream` is re-emitted at the
+    SAME index with the same coordinates and a `_Spelling` in place of its
+    syllable, so `_project` aligns by construction -- same line lengths, same
+    token lengths, same `tok_syl`.  The WORD-FINAL unit of each token carries
+    `rime(token_text)`; every earlier unit carries None, because the rime rule
+    decomposes a word and inventing a head spelling for its first syllable
+    would be a reading nobody declared.  `eye rhyme` reads `grapheme` at scope
+    `last` under `flush_right`, so the word-final unit is the one it asks
+    about, and a None elsewhere propagates as UNDECIDED rather than False.
+
+    -> a summary.  `graphemes` is the population `Stream.supply(name)` will
+    report; a rime callable that answers "" everywhere leaves the surface
+    DECLARED AND EMPTY, which now refuses by name instead of running `eye
+    rhyme` over unreadable positions and reporting a zero.
+    """
+    if not callable(rime):
+        raise NoReferent(
+            f"`rime` is a callable word -> str (e.g. "
+            f"lyric_harness.spelled_rime); got {type(rime).__name__}. This "
+            f"module ships no rime rule: which letters are vowels and whether "
+            f"a final -e is silent are facts about a spelling system, and "
+            f"this module serves nine of them.")
+    if name not in ALT_SURFACES:
+        raise NoReferent(
+            f"{name!r} is not one of ALT_SURFACES {ALT_SURFACES}; a surface "
+            f"no schema can name is a stream nothing will ever read.")
+    units, known = [], 0
+    for u in stream.units:
+        g = None
+        if u.word_final:
+            g = rime(u.token_text) or None
+        if g is not None:
+            known += 1
+        units.append(replace(u, syl=_Spelling(text=g)))
+    alt = Stream(units=units, lines=list(stream.lines),
+                 tokens=dict(stream.tokens),
+                 phon=_SpellingSurface(rime, stream.declaration.get(
+                     "language", "")),
+                 declaration=dict(stream.declaration, surface=name),
+                 text_lines=stream.text_lines)
+    stream.alt[name] = alt
+    return {"surface": name, "units": len(units), "graphemes": known,
+            "found": known,
+            "tokens": len({(u.line, u.token) for u in stream.units
+                           if u.word_final}),
+            "source": "declared"}
 
 
 # ---------------------------------------------------------------------------
@@ -3317,11 +4698,29 @@ declare(RelationSchema(
     spans=(SpanRule("any_token", "last_stressed", 1, "to_word_end"),) * 2,
     align="anchor",
     channels=(ChannelRule("nucleus", AGREE, "each"),),
+    placement=(Placement("off_beat"),),
+    # BOTH, AND THE PAIR IS THE POINT. `requires` is what makes an
+    # UNDECLARED grid a REFUSAL — dropping it made this answer
+    # looked-and-none instead, which is doctrine 20's collapse and was
+    # measured on the way in. The placement is what makes a DECLARED grid
+    # selective. Either alone is one of the two defects this schema has
+    # now had: a gate with no predicate fires on everything, a predicate
+    # with no gate says "no offbeat rhymes here" about a draft nobody
+    # asked about the beat of.
     requires=("beat",),
-    note="UNREPRESENTABLE HERE AND DECLARED SO. frames.beat stays None "
-         "(doctrine 4: no beat grid without audio or a declared tempo), so "
-         "realise() returns Refusal('beat'). The type is a POINT in the model "
-         "and the producer refuses it -- which is the honest pair of answers."))
+    note="~~UNREPRESENTABLE HERE AND DECLARED SO~~ — REPRESENTABLE SINCE "
+         "2026-08-22, and doctrine 4 is untouched. This carried "
+         "`requires=('beat',)` and nothing else, which is the same defect "
+         "`trite rhyme` had: a bare capability gate cannot make a schema "
+         "SELECTIVE, so stamping the capability would have fired this on "
+         "every internal nucleus agreement in the draft, on the beat or off "
+         "it. It now carries a `Placement('off_beat')` that READS the grid, "
+         "which both supplies the capability (a placement naming a frame "
+         "demands it) and makes the answer mean what the name says. The grid "
+         "itself is DECLARED — `relations.declare_beat` — and doctrine 4's "
+         "own words allow exactly that: 'no beat grid without audio OR A "
+         "DECLARED TEMPO'. Undeclared, `beat_source` is 'none', the placement "
+         "returns None and this refuses, byte for byte as before."))
 
 declare(RelationSchema(
     name="rhyming slang",
@@ -3377,13 +4776,31 @@ declare(RelationSchema(
     name="trite rhyme",
     spans=(END_ANCHOR, END_ANCHOR), align="anchor",
     channels=(ChannelRule("nucleus", AGREE, "each"),
-              ChannelRule("coda", AGREE, "each")),
+              ChannelRule("coda", AGREE, "each"),
+              ChannelRule("token",
+                          ClassEqual(label="declared trite-pair set",
+                                     resource="trite"),
+                          "anchor", surface="phonemic")),
     placement=(Placement("both_line_final"),), identity=(DISTINCT,),
-    requires=("frequency",), normative="deprecated",
+    normative="deprecated",
     note="NOT A PHONOLOGICAL TYPE, and included to mark the BOUNDARY of the "
          "space: it is a coordinate on a VALUE axis orthogonal to all the "
          "structural ones. Kept out of the cell grid deliberately (doctrine "
-         "9/48, modal_exclusion in quality/revise.py)."))
+         "9/48, modal_exclusion in quality/revise.py). "
+         "~~requires=('frequency',)~~ REPLACED 2026-08-22 BY A PREDICATE, and "
+         "`UNPROVIDABLE`'s entry for `frequency` is why: it recorded, "
+         "correctly, that stamping the capability would report 'every "
+         "perfect rhyme in the text, labelled trite', because the two "
+         "channels above are nucleus AGREE and coda AGREE and NOTHING IN THE "
+         "SCHEMA READ A RANK. A bare `requires=` gate cannot make a schema "
+         "selective; only a channel can. The third channel reads the "
+         "DECLARED trite-pair partition (`quality/quotients.trite`, built "
+         "from `lyric_harness.CLICHE_PAIRS`), so the schema now flags the 30 "
+         "pairs this repo declares trite and not one rhyme more. No rank, no "
+         "threshold, no uncalibrated cut (doctrine 16/22) — and the corpus-"
+         "frequency route stays refused for the reason `UNPROVIDABLE` "
+         "measured: a pre-1931 table cannot say what is over-familiar to a "
+         "living listener."))
 
 
 # NOT A TYPE, and recorded so nothing stores it as one.
@@ -3411,13 +4828,34 @@ def all_schemas():
 
 def capability_report(stream):
     """Which of the declared types this stream can even be asked about, and
-    which capability each refusal is waiting on.  The honest inventory."""
-    ok, refused = [], {}
+    which capability each refusal is waiting on.  The honest inventory.
+
+    THREE BUCKETS NOW, because "not supplied" was two answers wearing one
+    name.  `refused` is unchanged in shape and content -- every schema with a
+    missing capability, keyed on the `+`-joined missing set, so a stored
+    census stays comparable.  `vacuous` is the SUBSET of those whose every
+    missing capability is a DECLARED-BUT-EMPTY frame, and `supply` is the
+    per-capability population the split is computed from, so a reader can see
+    the number rather than take the bucket's word for it.
+    """
+    ok, refused, vac = [], {}, {}
+    supply = {}
     for n, s in REGISTRY.items():
-        miss = [c for c in s.capabilities() if not stream.provides(c)]
-        (ok.append(n) if not miss else refused.setdefault(tuple(miss), []).append(n))
+        caps = s.capabilities()
+        for c in caps:
+            if c not in supply:
+                supply[c] = stream.supply(c)
+        miss = [c for c in caps if supply[c].state != "present"]
+        if not miss:
+            ok.append(n)
+            continue
+        refused.setdefault(tuple(miss), []).append(n)
+        if all(supply[c].state == "empty" for c in miss):
+            vac.setdefault(tuple(miss), []).append(n)
     return {"reachable": sorted(ok),
-            "refused": {"+".join(k): sorted(v) for k, v in refused.items()}}
+            "refused": {"+".join(k): sorted(v) for k, v in refused.items()},
+            "vacuous": {"+".join(k): sorted(v) for k, v in vac.items()},
+            "supply": supply}
 
 
 # ---------------------------------------------------------------------------
@@ -3432,16 +4870,25 @@ def capability_report(stream):
 # shape and reads it for its `cannot_obtain` REMEDY string.
 #
 # THE CENSUS THAT PRODUCED THIS ran 2026-08-13 over all 77 schemas and found
-# THREE such capabilities: `poet`, `frequency`, `stub_resolution`.  `poet` is
-# gone -- see ALT_SURFACES; it was one name missing from a tuple, and the two
-# schemas it separated (`dialect rhyme`, `historical rhyme`) are the same
-# schema up to a surface name.  The other two are NOT the same kind of gap as
-# each other, and neither is a missing tuple entry.  Each entry below says
-# what `provides` would have to answer, WHY wiring it as a flag would be
-# worse than leaving it refused, and which of doctrine 44/92's three blockers
-# it is -- because "find a better source" is the answer to only one of them.
+# THREE such capabilities: `poet`, `frequency`, `stub_resolution`.  TWO have
+# since left, each for its own reason, and ONE remains below.
 #
-# WHY NOT JUST WIRE THEM.  Both schemas gate on a bare `requires=`, and
+#   `poet`       gone -- see ALT_SURFACES; it was one name missing from a
+#                tuple, and the two schemas it separated (`dialect rhyme`,
+#                `historical rhyme`) are the same schema up to a surface name.
+#   `frequency`  RETIRED 2026-08-23 into RETIRED_UNPROVIDABLE, whole. Not
+#                because the argument weakened -- it is unchanged and still
+#                measured -- but because `trite rhyme` stopped requiring it.
+#                See that table for what it costs to reopen the route.
+#   `stub_       the one live entry, below.
+#    resolution`
+#
+# The entry below says what `provides` would have to answer, WHY wiring it as
+# a flag would be worse than leaving it refused, and which of doctrine 44/92's
+# three blockers it is -- because "find a better source" is the answer to only
+# one of them.
+#
+# WHY NOT JUST WIRE THEM.  Both schemas gated on a bare `requires=`, and
 # NEITHER reads its capability on any channel.  So making `provides` return
 # True does not make either schema CONSULT the thing it is named for; it makes
 # the schema fire on the channels it already has and label the output with a
@@ -3469,51 +4916,6 @@ class Unprovidable:
 
 
 UNPROVIDABLE = (
-    Unprovidable(
-        capability="frequency",
-        schemas=("trite rhyme",),
-        needs=(
-            "a rank over RHYME PAIRS at the line-final position, joined to "
-            "the stream, PLUS a declared cut on that rank. `quality/"
-            "frequency.py` already serves ranked tables and "
-            "`data/song_rhymepair_en.tsv` is already the pair-keyed shape "
-            "(15,409 distinct pairs, 91,636 tokens, per author), so the "
-            "DATA half is not the blocker -- doctrine 44's 'hard to build' "
-            "does not apply and neither does 'cannot obtain'."),
-        would_manufacture=(
-            "every perfect rhyme in the text, labelled trite. The schema's "
-            "two channels are nucleus AGREE and coda AGREE on the PHONEMIC "
-            "surface; nothing in it reads a rank."),
-        blocker="disjoint",
-        detail=(
-            "DOCTRINE 92, and it is `quality/phrase_commonplace.py`'s "
-            "recorded finding one level down -- that module refuses at the "
-            "PHRASE level for exactly this reason and this is the same "
-            "disjunction at the RHYME-PAIR level. A cliche is over-familiar "
-            "TO A LIVING LISTENER; every admissible English source here is "
-            "pre-1931 by the provenance gate. MEASURED 2026-08-13 against "
-            "`lyric_harness.CLICHE_PAIRS`, the repo's own 30-pair list: 7 of "
-            "the 30 have count ZERO in the pre-1931 table (beats/streets, "
-            "feel/real, tears/years, girl/world, alone/phone, baby/crazy, "
-            "cash/stash) -- the modern stock, invisible; and the table's own "
-            "top by author dispersion is me/thee (1,080 over 51 authors), "
-            "be/thee (482 over 50), away/day (805 over 61), none of which is "
-            "a cliche to anyone now. Eleven of the top fifteen are not in "
-            "the list at all. So a frequency-driven trite detector built on "
-            "the only admissible source would flag `me`/`thee` hardest and "
-            "miss `baby`/`crazy` entirely. `frequency.NO_INDEPENDENT_SOURCE` "
-            "already names the source that would fix it -- cell `eng-verse`, "
-            "'CONTEMPORARY English sung verse ... nothing in this repo has "
-            "all three, and nothing can'. WHAT WOULD LIFT IT: the same thing "
-            "that lifts eng-verse, i.e. a line-structured, rhyme-bearing, "
-            "post-1960 English corpus under a licence this repo accepts. "
-            "SEPARATELY, and it does not depend on the corpus: the schema is "
-            "`normative='deprecated'` and CLAUDE.md doctrine 9/48 keeps it "
-            "out of the cell grid on purpose, so even with the source the "
-            "cut would be an UNCALIBRATED THRESHOLD (doctrine 16/22) that "
-            "must be stated as a false-positive rate before it means "
-            "anything."),
-    ),
     Unprovidable(
         capability="stub_resolution",
         schemas=("refrain by reference",),
@@ -3560,6 +4962,121 @@ UNPROVIDABLE = (
 )
 
 
+#: RETIRED, AND KEPT WHOLE (2026-08-23, doctrines 3/24 and 17).
+#:
+#: An entry here is one whose CAPABILITY is still unprovidable and whose
+#: ARGUMENT still stands, but which no schema asks for any more -- so it is
+#: out of `UNPROVIDABLE`, where `check_unprovidable` would (correctly) report
+#: it as an entry that outlived its schema. It is not deleted: the reason a
+#: capability cannot be supplied does not stop being true because the schema
+#: that wanted it was re-founded, and the next person to reach for it needs
+#: the measurement, not a fresh afternoon.
+#:
+#: `poet` left the table the other way and left only a sentence behind, in
+#: the section header above. That was thinner than it should have been. This
+#: is the shape retirements take from now on.
+#:
+#: `frequency` -- retired because `trite rhyme` stopped requiring it. The
+#: schema gated on a bare `requires=("frequency",)` and READ IT ON NO
+#: CHANNEL, which is the "capability vs predicate" defect: a bare `requires=`
+#: gate cannot make a schema selective, so the schema fired on the channels
+#: it already had and wore a label about a rank it never consulted. It now
+#: carries `ClassEqual(resource="trite")` over the repo's own declared
+#: `CLICHE_PAIRS`, which is a DIFFERENT and narrower question -- "are these
+#: two a declared trite pair", with no rank and no threshold -- and it is
+#: answered by a declaration rather than by a frequency table.
+#:
+#: NOTHING BELOW IS SUPERSEDED BY THAT. The argument is about the FREQUENCY
+#: ROUTE, and every word of it still holds for anyone who wants to build one:
+#: the only admissible sources are pre-1931, so a frequency-driven trite
+#: detector would flag `me`/`thee` hardest and miss `baby`/`crazy` entirely.
+#: That is doctrine 92's disjunction, measured, and it is why the narrow
+#: declared-list question was the one worth answering.
+RETIRED_UNPROVIDABLE = (
+    Unprovidable(
+        capability="frequency",
+        schemas=("trite rhyme",),
+        needs=(
+            "a rank over RHYME PAIRS at the line-final position, joined to "
+            "the stream, PLUS a declared cut on that rank. `quality/"
+            "frequency.py` already serves ranked tables and "
+            "`data/song_rhymepair_en.tsv` is already the pair-keyed shape "
+            "(15,409 distinct pairs, 91,636 tokens, per author), so the "
+            "DATA half is not the blocker -- doctrine 44's 'hard to build' "
+            "does not apply and neither does 'cannot obtain'."),
+        would_manufacture=(
+            "every perfect rhyme in the text, labelled trite. The schema's "
+            "two channels are nucleus AGREE and coda AGREE on the PHONEMIC "
+            "surface; nothing in it reads a rank."),
+        blocker="disjoint",
+        detail=(
+            "DOCTRINE 92, and it is `quality/phrase_commonplace.py`'s "
+            "recorded finding one level down -- that module refuses at the "
+            "PHRASE level for exactly this reason and this is the same "
+            "disjunction at the RHYME-PAIR level. A cliche is over-familiar "
+            "TO A LIVING LISTENER; every admissible English source here is "
+            "pre-1931 by the provenance gate. MEASURED 2026-08-13 against "
+            "`lyric_harness.CLICHE_PAIRS`, the repo's own 30-pair list: 7 of "
+            "the 30 have count ZERO in the pre-1931 table (beats/streets, "
+            "feel/real, tears/years, girl/world, alone/phone, baby/crazy, "
+            "cash/stash) -- the modern stock, invisible; and the table's own "
+            "top by author dispersion is me/thee (1,080 over 51 authors), "
+            "be/thee (482 over 50), away/day (805 over 61), none of which is "
+            "a cliche to anyone now. Eleven of the top fifteen are not in "
+            "the list at all. So a frequency-driven trite detector built on "
+            "the only admissible source would flag `me`/`thee` hardest and "
+            "miss `baby`/`crazy` entirely. `frequency.NO_INDEPENDENT_SOURCE` "
+            "already names the source that would fix it -- cell `eng-verse`, "
+            "'CONTEMPORARY English sung verse ... nothing in this repo has "
+            "all three, and nothing can'. WHAT WOULD LIFT IT: the same thing "
+            "that lifts eng-verse, i.e. a line-structured, rhyme-bearing, "
+            "post-1960 English corpus under a licence this repo accepts. "
+            "SEPARATELY, and it does not depend on the corpus: the schema is "
+            "`normative='deprecated'` and CLAUDE.md doctrine 9/48 keeps it "
+            "out of the cell grid on purpose, so even with the source the "
+            "cut would be an UNCALIBRATED THRESHOLD (doctrine 16/22) that "
+            "must be stated as a false-positive rate before it means "
+            "anything. "
+            "RE-MEASURED 2026-08-22 AGAINST THE TWO OTHER SHIPPED SOURCES, "
+            "because the entry above cites only `song_rhymepair_en.tsv` and "
+            "the obvious next move is to reach for one of the other two. "
+            "They are the two HALVES of doctrine 92's disjunction and "
+            "`quality/frequency.py` already names the whole: "
+            "`NO_INDEPENDENT_SOURCE['eng-verse']` says the cell needs the "
+            "right POSITION, the right MEDIUM and the right PERIOD and that "
+            "nothing here has all three. (1) `data/song_endword_en.tsv` -- "
+            "13,989 distinct line-final words, 251,544 tokens -- has the "
+            "position and the medium and is pre-1931: its head is `me` "
+            "(2,948 over 483 authors) and `thee` (2,031 over 359), and 9 of "
+            "its top 20 are words from this repo's own CLICHE_PAIRS, so a "
+            "commonness cut on it flags `thee` as among the two tritest "
+            "line-endings in English. (2) `lyric_harness.Lexicon.freq_rank` "
+            "is `data/opensubtitles_en_50k.tsv`, 49,999 entries, and has the "
+            "PERIOD and neither of the others -- it is contemporary SPOKEN "
+            "English with no line-final position at all, which is "
+            "`frequency.py`'s own `eng-spoken`. THE TWO DISAGREE, and that "
+            "is the measurement rather than the argument: over the 58 of the "
+            "60 CLICHE_PAIRS words present in both, Spearman between the "
+            "pre-1931 line-final rank and the contemporary spoken rank is "
+            "**0.319** -- `rhyme` is line-final rank 811 against spoken "
+            "9,131, `skies` 62 against 5,647, `crazy` 6,294 against 388. So "
+            "the answer to 'is this pair trite' is decided by WHICH TABLE is "
+            "read, and neither table is the cell that would settle it. "
+            "A THIRD BLOCKER, and it is the cheapest to check: "
+            "`song_endword_en.tsv`'s own header records that it is NOT "
+            "INDEPENDENT of `corpus/song/` (doctrine 13), so scoring a "
+            "corpus item with it needs leave-one-author-out -- "
+            "`frequency.py` refuses to serve it otherwise -- and a `Stream` "
+            "carries no author coordinate to leave out. The item this "
+            "vacuity was measured on, `eng_american_dan_e_townsend`, has 20 "
+            "rows IN the table. Supplying `frequency` from it would "
+            "therefore need a DECLARED author on the stream before it could "
+            "be read at all, and would still be answering a different "
+            "question from the one the schema's name asks."),
+    ),
+)
+
+
 def check_unprovidable(stream):
     """MEASURE every UNPROVIDABLE claim.  -> list of finding strings, empty
     when every entry still holds.
@@ -3593,6 +5110,25 @@ def check_unprovidable(stream):
             elif e.capability not in REGISTRY[name].capabilities():
                 out.append(f"{e.capability}: names schema {name!r}, which no "
                            f"longer requires it")
+    # AND THE RETIRED TABLE, IN THE OTHER DIRECTION (2026-08-23). A
+    # retirement is a claim too -- "no schema asks for this any more" -- and
+    # it can stop being true without anyone noticing, which is how the entry
+    # this function retired came to be wrong in the first place. A capability
+    # that comes back into a schema's `capabilities()` needs its argument
+    # back in the LIVE table, where the schema-naming checks above run on it.
+    for e in RETIRED_UNPROVIDABLE:
+        if e.capability in named:
+            askers = sorted(s.name for s in REGISTRY.values()
+                            if e.capability in s.capabilities())
+            out.append(f"{e.capability}: RETIRED as unprovidable, and a "
+                       f"schema asks for it again ({', '.join(askers)}). "
+                       f"Move the entry back into UNPROVIDABLE, or supply it "
+                       f"and name the null it is reported against.")
+        if stream is not None and stream.provides(e.capability):
+            out.append(f"{e.capability}: RETIRED as unprovidable and this "
+                       f"stream SUPPLIES it — the argument in "
+                       f"RETIRED_UNPROVIDABLE is now false and has to be "
+                       f"re-measured, not left standing.")
     return out
 
 
@@ -4680,11 +6216,25 @@ def relation_report(stream, chans=None, schemas=None):
     scope, so a rule-shape match is neither silently listed nor silently
     hidden (M-15).
 
-    Three counts, never two (doctrine 79): a schema the instrument REFUSED for
-    want of a capability is not a schema that found nothing, and neither is a
-    schema that ran and found nothing.  The same triple is reported over
-    INSTANCES: decided-true, decided-false and undecided are three answers and
-    the undecided ones are the ternary this module exists to preserve.
+    FOUR COUNTS, NEVER TWO OR THREE (doctrine 79, one column wider than it
+    was).  A schema the instrument REFUSED for want of a capability is not a
+    schema that found nothing; a schema that ran and found nothing is not
+    either; and -- added 2026-08-22 -- a schema refused because the frame it
+    rides was DECLARED AND CAME BACK EMPTY is a fourth answer with its own
+    remedy.  `refused` stays the TOTAL so the old partition still closes
+    (`declared == refused + ran_found_nothing + ran_and_fired`) and no row
+    silently leaves the report; `refused_capability` and `refused_vacuous`
+    split it, and they are a genuine partition of the same denominator rather
+    than two rates over different ones.
+
+    The same triple is reported over INSTANCES: decided-true, decided-false
+    and undecided are three answers and the undecided ones are the ternary
+    this module exists to preserve.
+
+    `refusals` rows are 4-TUPLES `(schema, key, scope, kind)`.  They were
+    triples; the arity changed with this split, because a reader iterating
+    the list is exactly the reader who must not be told that a vacuous frame
+    and an undeclared one are the same row.
     """
     lang = stream.declaration.get("language", "")
     reg = schemas if schemas is not None else REGISTRY
@@ -4701,7 +6251,7 @@ def relation_report(stream, chans=None, schemas=None):
             # (doctrine 44).  `+`-joined, matching `capability_report`'s own
             # key so the two reports can be compared row for row.
             refusals.append((name, "+".join(out.missing) or out.capability,
-                             tradition_scope(s, lang)))
+                             tradition_scope(s, lang), out.kind))
             continue
         t = sum(1 for i in out if i.verdict is True)
         f = sum(1 for i in out if i.verdict is False)
@@ -4712,10 +6262,14 @@ def relation_report(stream, chans=None, schemas=None):
                      "true": t, "false": f, "undecided": u,
                      "search": search_burden(s, stream)})
     fired = [r for r in rows if r["true"]]
+    vac = [r for r in refusals if r[3] == "vacuous_frame"]
     return {
         "language": lang,
         "declared": len(reg),
         "refused": len(refusals),
+        "refused_vacuous": len(vac),
+        "refused_capability": len(refusals) - len(vac),
+        "vacuous_refusals": vac,
         "ran_found_nothing": len(rows) - len(fired),
         "ran_and_fired": len(fired),
         "refusals": refusals,
@@ -4735,9 +6289,13 @@ def print_relation_report(rep, limit=None):
     is the defect this section closes."""
     print(f"  phonology {rep['language'] or '?'}   schemas declared "
           f"{rep['declared']}")
-    print(f"  REFUSED {rep['refused']}  ·  RAN AND FOUND NOTHING "
-          f"{rep['ran_found_nothing']}  ·  RAN AND FIRED {rep['ran_and_fired']}"
-          "   (three counts, doctrine 79)")
+    print(f"  REFUSED {rep['refused']} (capability {rep['refused_capability']}"
+          f" · EMPTY DECLARED FRAME {rep['refused_vacuous']})  ·  RAN AND "
+          f"FOUND NOTHING {rep['ran_found_nothing']}  ·  RAN AND FIRED "
+          f"{rep['ran_and_fired']}   (four counts, doctrine 79/20)")
+    for name, key, _scope, _kind in rep["vacuous_refusals"]:
+        print(f"      [EMPTY FRAME] {name}: {key} was declared and marked "
+              f"nothing — not a null, and not a capability nobody declared")
     ins = rep["instances"]
     print(f"  instances: decided-true {ins['true']}  decided-false "
           f"{ins['false']}  UNDECIDED {ins['undecided']}")
@@ -4765,6 +6323,75 @@ def print_relation_report(rep, limit=None):
           "matched control; doctrines 56/61 and 63/68/75/90.")
 
 
+# --------------------------------------------------------------------------
+# THE MANDATE ROUTE (2026-08-22).  `satisfies_relation` is a PER-PAIR judge
+# and a `RelationSchema` is a whole-STREAM object, and that mismatch — not
+# any policy — is what kept the `schema:` namespace declarable and unjudgeable
+# since M-37 made it a namespace.  The judge's refusal used to give a second
+# reason beside the mismatch: "gated on the null sweep — a schema that does
+# not beat its own null must not become enforceable".  THAT CLAUSE IS STRUCK
+# BY OWNER RULING, 2026-08-22.  It is the prove-it-first instinct that also
+# produced the two-name default admit set, and the ruling on that set applies
+# here for the same reason: a schema the reader can name is a real thing to
+# ask for, and refusing to let a writer DECLARE it because the corpus study
+# is unfinished withholds a coordinate over a question the writer never asked.
+# The null sweep still decides what the harness may assert on its OWN
+# initiative.  It does not decide what a writer may ask for by name.
+#
+# WHAT THIS FUNCTION DOES NOT CLAIM.  Only 29 of the 77 schemas declare
+# `both_line_final`, which is the placement a `--groups=` mandate expresses;
+# 19 more are cross-line at some other placement, 19 are INTRA-line figures
+# (a property of one line, which no pair mandate can ask about), and 10
+# declare no placement at all.  Routing here does not make an intra-line
+# figure into a rhyme relation — it makes every schema whose instances ARE
+# line pairs answerable, and leaves the rest to refuse honestly with their
+# placement named.
+
+
+def line_pairs_for(schema, stream, keep_refusal=True):
+    """Every LINE PAIR this schema is true of, 1-based.  -> frozenset or a
+    `Refusal`.
+
+    The bridge between `realise()`'s stream verdicts and a mandate's per-pair
+    question.  A `Span.origin` is spelled `L<line>.<locus>` with a 0-BASED
+    line index (`'L0.final'`, `'L1.T4'`), so the +1 here is the only
+    conversion and it is done once, in one place, rather than at each caller.
+
+    A `Refusal` is RETURNED, not raised and not flattened to an empty set:
+    "this schema needs a capability the stream does not supply" and "this
+    schema is true of no pair here" are different answers and doctrine 20
+    forbids spelling them the same.  An empty frozenset means looked-and-none.
+    """
+    out = realise(schema, stream)
+    if isinstance(out, Refusal):
+        return out if keep_refusal else frozenset()
+    pairs = set()
+    for inst in out:
+        if inst.verdict is not True:
+            continue
+        a, b = _origin_line(inst.a), _origin_line(inst.b)
+        if a is None or b is None or a == b:
+            # SAME-LINE INSTANCES ARE DROPPED HERE AND THAT IS NOT A LOSS OF
+            # INFORMATION, it is the placement axis being honest: an
+            # alliteration inside L1 is a true instance of a real figure and
+            # is not an answer to "do L1 and L3 stand in a relation".  A
+            # schema ALL of whose instances are same-line yields the empty
+            # set, and the caller reports that as "no pair" rather than as a
+            # violation — see `rhyme_types.satisfies_relation`.
+            continue
+        pairs.add((min(a, b), max(a, b)))
+    return frozenset(pairs)
+
+
+def _origin_line(span):
+    """-> 1-based line number from a `Span.origin`, or None."""
+    o = getattr(span, "origin", "") or ""
+    if not o.startswith("L"):
+        return None
+    head = o.split(".", 1)[0][1:]
+    return int(head) + 1 if head.isdigit() else None
+
+
 __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "stanzas_from_blank_lines",
            "Span", "SpanRule", "enumerate_spans", "Alignment", "ALIGNERS",
@@ -4775,10 +6402,18 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "SequenceSuffix", "SubsequenceOf", "Read", "ChannelSet",
            "DEFAULT_CHANNELS", "evaluate", "realise", "assemble",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",
+           "line_pairs_for", "declare_delivery",
+           "declare_stub_resolution", "search_stub_resolution",
+           "STUB_INCIPIT_LENGTHS", "declare_senses",
+           "declare_period_surface", "declare_lifts",
+           "search_lifts", "LIFTS_PER_HALF_LINE",
+           "HALVES_PER_LINE",
            "ALT_SURFACES", "QUOTIENT_CAP",
+           "Supply", "SUPPLY_STATES", "REFUSAL_KINDS",
            "Unprovidable", "UNPROVIDABLE", "check_unprovidable",
            "print_unprovidable_report",
            "mark_refrain_tail", "search_caesura", "mark_printed_caesura",
+           "declare_orthography",
            "REGISTRY", "QUERIES", "declare", "all_schemas",
            "capability_report", "tri_and", "tri_or",
            "Tradition", "CANON", "LANG_CELL", "UNSOURCED", "SCOPES",
@@ -4840,8 +6475,13 @@ def main(argv):
     # BLANK lines, and this module derives the stanza frame from them.
     raw = [l.rstrip() for l in open(paths[0]).read().splitlines()
            if not l.strip().startswith(("[", "---", "#"))]
-    st = build_stream(raw, get_phonology(lang), declaration={"language": lang},
-                      stanzas=stanzas_from_blank_lines(raw))
+    # `stanzas` LEFT TO THE DERIVATION, not pre-computed and handed back
+    # (M-39).  `raw` keeps blank lines -- the comment above says why -- so a
+    # text that prints its stanzas frames exactly as before; what changes is
+    # a text that prints NONE, where passing the all-zero derivation as an
+    # explicit list recorded `stanza_source='declared'` and let five
+    # `frame="stanza"` schemas quantify over one frame.
+    st = build_stream(raw, get_phonology(lang), declaration={"language": lang})
     print(f"  {paths[0]}   lines {sum(1 for l in raw if l.strip())}   units "
           f"{len(st.units)}   UNREADABLE tokens {len(st.unreadable)}")
     if inert:

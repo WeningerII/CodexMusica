@@ -1,0 +1,683 @@
+# author: ANONYMOUS. The sagas are 13th-century prose compilations and
+#         the verse inside them is attributed IN THE TEXT to named
+#         10th-11th century skalds. Neither layer has a living
+#         claimant: the works are medieval and the binding gate here
+#         is the EDITION, not the author (doctrine 80).
+# source: sveinbjornt/sagadb.org  src/egils_saga.on.xml
+#         md5 a039827471792282c2507fafa4ca49b4, 449,423 bytes, UTF-8.
+#         Cut by `python3 quality/stage_sagadb.py --write`; that module
+#         is the recipe and `--check` re-derives this file (the previous
+#         extraction lived in a scratchpad and did not survive its
+#         session, which is why the recipe now ships).
+#         Upstream declared by the source's own <sourcename>: Heimskringla.no
+# licence: express PUBLIC DOMAIN affirmation by the compiler, quoted
+#         verbatim from README.md: 'All saga source texts are in the
+#         public domain.' The repository's License.txt is BSD-3-Clause
+#         (c) 2007 Sveinbjorn Thordarson and covers the Perl build
+#         scripts ONLY -- two separable layers, stated separately by
+#         the compiler himself (doctrine 54).
+#         ADMITTED BY OWNER RULING 2026-08-22 on `MISSING.md` K-4. The
+#         row had stood `contested=true` since 2026-08-11 with the
+#         reason recorded: the affirmation is the compiler's assertion
+#         about the medieval WORK and does not reach the 20th-century
+#         normalisation this text descends from. That residual is not
+#         resolved by the ruling; it is ACCEPTED by it, and it stays
+#         written here so no later reader mistakes a decision for a
+#         proof (doctrine 17).
+# metre: UNDECLARED. The edition names a metre for only two
+#         poems (Höfuðlausn, Sonatorrek/Arinbjarnarkviða) and
+#         says nothing about this verse. It is NOT assumed to
+#         be dróttkvætt: the corpus is visibly mixed, and the
+#         question is one for `quality/phonology/non.py` to
+#         answer and REFUSE (doctrine 79), not for a stager.
+
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 24 vísa 1
+--- SOURCE: chapter 24, 'Hryggð Kveld-Úlfs.'
+[VERSE 1]
+Nú frák norðr í eyju,
+norn erum grimm, til snimma
+Þundr kaus þremja skyndi,
+Þórólf und lok fóru.
+Létumk þung at þingi
+Þórs fangvina at ganga,
+skjótt munat hefnt, þótt hvettimk
+hugr, malm-Gnáar brugðit.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 27 vísa 1
+--- SOURCE: chapter 27, 'Hefnd Kveld-Úlfs ok andlát.'
+[VERSE 1]
+Nús hersis hefnd
+við hilmi efnd.
+Gengr ulfr ok örn
+of ynglings börn.
+Flugu höggvin hræ
+Hallvarðs á sæ.
+Grár slítr undir
+ari Snarfara."
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 30 vísa 1
+--- SOURCE: chapter 30, 'Útkváma Yngvars.'
+[VERSE 1]
+Mjök verðr ár, sás aura,
+ísarns meiðr at rísa,
+váðir vidda bróður
+veðrseygjar skal kveðja.
+Gjalla lætk á golli
+geisla njóts, meðan þjóta,
+heitu, hrærikytjur
+hreggs vindfrekar, sleggjur.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 31 vísa 1
+--- SOURCE: chapter 31, 'Hér segir af börnum Skalla-Gríms.'
+[VERSE 1]
+Kominn emk enn til arna
+Yngvars, þess's beð lyngva,
+hann vask fúss at finna,
+fránþvengjar gefr drengjum.
+Mun eigi þú, þægir,
+þrévetran mér betra,
+ljósundinna landa
+linns, óðar smið finna.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 31 vísa 2
+--- SOURCE: chapter 31, 'Hér segir af börnum Skalla-Gríms.'
+[VERSE 1]
+Síþögla gaf söglum
+sárgagls þría Agli
+herðimeiðr við hróðri
+hagr brimrótar gagra,
+ok bekkþiðurs blakka
+borðvallar gaf fjorða
+kennimeiðr, sás kunni,
+körbeð, Egil gleðja.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 38 vísa 1
+--- SOURCE: chapter 38, 'Útkváma Þórólfs.'
+[VERSE 1]
+Liggja ýgs í eggju,
+ák sveigar kör deiga,
+fox es illt í öxi,
+undvargs flösur margar.
+Arghyrnu lát árna
+aftr með roknu skafti.
+Þörfgi væri þeirar,
+þat vas inga gjöf, hingat.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 40 vísa 1
+--- SOURCE: chapter 40, 'Frá knattleikum. Útanför Egils.'
+[VERSE 1]
+Þat mælti mín móðir,
+at mér skyldi kaupa
+fley ok fagrar árar,
+fara á brott með víkingum,
+standa upp í stafni,
+stýra dýrum knerri,
+halda svá til hafnar,
+höggva mann ok annan.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 44 vísa 1
+--- SOURCE: chapter 44, 'Egill vegr Atleyjar-Bárð.'
+[VERSE 1]
+Sögðuð sverri flagða
+sumbleklu ér, kumbla,
+því telk, brjótr, þars blétuð,
+bragðvísan þik, dísir.
+Leynduð alls til illa
+ókunna hjörrunna,
+illt hafið bragð of brugðit,
+Báröðr, hugar fári.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 44 vísa 2
+--- SOURCE: chapter 44, 'Egill vegr Atleyjar-Bárð.'
+[VERSE 1]
+Rístum rún á horni.
+Rjóðum spjöll í dreyra.
+Þau velk orð til eyrna
+óðs dýrs viðar róta.
+Drekkum veig, sem viljum,
+vel glýjaðra þýja.
+Vitum, hvé oss of eiri
+öl, þats Báröðr signdi.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 44 vísa 3
+--- SOURCE: chapter 44, 'Egill vegr Atleyjar-Bárð.'
+[VERSE 1]
+Öl ber mér, þvít Ölvi
+öl gervir nú fölvan.
+Atgeira lætk ýrar
+ýring of grön skýra.
+Öllungis kannt illa,
+oddskýs, fyr þér nýsa,
+rigna getr at regni,
+regnbjóðr, Hávars þegna.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 45 vísa 1
+--- SOURCE: chapter 45, 'Þórir hersir nær sætt fyrir Egil.'
+[VERSE 1]
+Svá hefk leystsk ór Lista
+láðvarðaðar garði,
+né fágak dul drjúgan,
+dáðmildr ok Gunnhildar,
+at þrifreynis þjónar
+þrír nakkvarir Hlakkar
+til hásalar Heljar
+helgengnir för dvelja.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 47 vísa 1
+--- SOURCE: chapter 47, 'Uppganga í Lundi.'
+[VERSE 1]
+Upp skulum órum sverðum,
+ulfs tannlituðr, glitra.
+Eigum dáð at drýgja
+í dalmiskunn fiska.
+Leiti upp til Lundar
+lýða hverr sem bráðast.
+Gerum þar fyr setr sólar
+seið ófagran vigra.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 48 vísa 1
+--- SOURCE: chapter 48, 'Egill hefir vetrvist með Arinhirni.'
+[VERSE 1]
+Hvat skaltu, sveinn, í sess minn,
+þvít þú sjaldan hefr gefnar
+vargi varmar bráðir?
+Vesa vilk ein of mína.
+Sáttaðu hrafn í hausti
+of hræsolli gjalla.
+Vastaðu at, þars eggjar
+á skelþunnar runnusk.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 48 vísa 2
+--- SOURCE: chapter 48, 'Egill hefir vetrvist með Arinhirni.'
+[VERSE 1]
+Farit hefk blóðgum brandi,
+svát mér benþiðurr fylgði,
+ok gjallanda geiri.
+Gangr vas harðr af víkingum.
+Gerðum reiðir róstu.
+Rann eldr of sjöt manna.
+Létum blóðga búka
+í borghliðum sæfask.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 49 vísa 1
+--- SOURCE: chapter 49, 'Dráp Þorvalds ofsa ok hefnd Egils.'
+[VERSE 1]
+Gerðum helzti harða
+hríð fyr Jótlands síðu.
+Barðisk vel, sás varði,
+víkingr, Dana ríki,
+áðr á sund fyr sandi
+snarfengr með lið drengja
+austr af unnar hesti
+Eyvindr of hljóp skreyja.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 52 vísa 1
+--- SOURCE: chapter 52, 'Af liðs samandrætti.'
+[VERSE 1]
+Áleifr of kom jöfri,
+ótt vas víg, á bak flótta,
+þingharðan frák þengil
+þann, en felldi annan.
+Glapstígu lét gnóga
+Goðrekr á mó troðna.
+Jörð spenr Engla skerðir
+Alfgeirs und sik halfa.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 55 vísa 1
+--- SOURCE: chapter 55, 'Egill jarðaði Þórólf.'
+[VERSE 1]
+Gekk, sás óðisk ekki,
+jarlmanns bani snarla,
+þreklundaðr fell, Þundar,
+Þórólfr, í gný stórum.
+Jörð grær, en vér verðum,
+Vínu nær of mínum,
+helnauð es þat, hylja
+harm, ágætum barma.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 55 vísa 2
+--- SOURCE: chapter 55, 'Egill jarðaði Þórólf.'
+[VERSE 1]
+Valköstum hlóðk vestan
+vang fyr merkistangir.
+Ótt vas él þats sóttak
+Aðgils bláum Naðri.
+Háði ungr við Engla
+Áleifr þrimu stála.
+Helt, né hrafnar sultu,
+Hringr á vápna þingi.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 55 vísa 3
+--- SOURCE: chapter 55, 'Egill jarðaði Þórólf.'
+[VERSE 1]
+Hrammtangar lætr hanga
+hrynvirgil mér brynju
+Höðr á hauki troðnum
+heiðis vingameiði.
+Rítmæðis knák reiða,
+ræðr gunnvala bræðir,
+gelgju seil á galga
+geirveðrs, lofi at meira.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 55 vísa 4
+--- SOURCE: chapter 55, 'Egill jarðaði Þórólf.'
+[VERSE 1]
+Knáttu hvarms af harmi
+hnúpgnípur mér drúpa.
+Nú fann ek þanns ennis
+ósléttur þær rétti.
+Gramr hefr gerðihömrum
+grundar upp of hrundit,
+sá 's til ýgr, af augum,
+armsíma, mér grímu.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 55 vísa 5
+--- SOURCE: chapter 55, 'Egill jarðaði Þórólf.'
+[VERSE 1]
+Nú hefr foldgnárr fellda,
+fellr jörð und nið Ellu,
+hjaldrsnerrandi, harra
+höfuðbaðmr, þría jöfra.
+Aðalsteinn of vann annat,
+allt's lægra kynfrægjum,
+hér sverjum þess, hyrjar
+hrannbrjótr, konungmanni.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 55 vísa 6
+--- SOURCE: chapter 55, 'Egill jarðaði Þórólf.'
+[VERSE 1]
+Nú liggr hæst und hraustum
+hreinbraut Aðalsteini.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 56 vísa 1
+--- SOURCE: chapter 56, 'Kvánfang Egils ok arfheimta.'
+[VERSE 1]
+Ókynni vensk, ennis
+ungr þorðak vel forðum,
+haukaklifs, at hefja,
+Hlín, þvergnípur mínar.
+Verðk í feld, þás foldar
+faldr kemr í hug skaldi
+berg-Óneris, brúna
+brátt miðstalli hváta.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 56 vísa 2
+--- SOURCE: chapter 56, 'Kvánfang Egils ok arfheimta.'
+[VERSE 1]
+Sef-Skuldar felk sjaldan,
+sorg Hlés vita borgar,
+í niðjerfi Narfa
+nafn aurmýils, drafnar,
+þvít geir-Rótu götva
+gnýþings bragar fingrum
+rógs at ræsis veigum
+reifendr sumir þreifa.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 56 vísa 3
+--- SOURCE: chapter 56, 'Kvánfang Egils ok arfheimta.'
+[VERSE 1]
+Þýborna kveðr þorna
+þorn reið áar horna,
+sýslir hann of sína
+síngirnð Önundr, mína.
+Naddhristir, ák nesta
+norn til arfs of borna.
+Þigg, Auða konr, eiða,
+eiðsært es þat, greiða.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 56 vísa 4
+--- SOURCE: chapter 56, 'Kvánfang Egils ok arfheimta.'
+[VERSE 1]
+Erfingi réð arfi
+arfljúgr fyr mér svarfa,
+mætik hans ok heitum
+hótun, Þyrnifótar,
+nærgis simla sorgar
+slík rán ek get hánum,
+vér deildum fjöl foldar
+foldværingja, goldin.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 56 vísa 5
+--- SOURCE: chapter 56, 'Kvánfang Egils ok arfheimta.'
+[VERSE 1]
+Nú hefr þrym-Rögnir þegna
+þróttharðr, en mik varðak
+víti, várrar sveitar
+vígelds tíu fellda,
+þvít sárlaxa Sýrar,
+sendr ór minni hendi,
+digr fló beint meðal bjúgra
+bifþorn Ketils rifja.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 56 vísa 6
+--- SOURCE: chapter 56, 'Kvánfang Egils ok arfheimta.'
+[VERSE 1]
+Svá skyldi goð gjalda,
+gram reki bönd af löndum,
+reið sé rögn ok Óðinn,
+rán míns féar hánum.
+Folkmýgi lát flýja,
+Freyr ok Njörðr, af jörðum.
+Leiðisk lofða stríði
+landáss, þanns vé grandar.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 57 vísa 1
+--- SOURCE: chapter 57, 'Egill vegr Berg-Onund ok reisir níðstöng.'
+[VERSE 1]
+Lögbrigðir hefr lagða,
+landalfr, fyr mér sjölfum,
+blekkir bræðra sökkva
+brúðfang, vega langa.
+Gunnhildi ák gjalda,
+greypt's hennar skap, þenna,
+ungr gatk ok læ launat,
+landrekstr, bili grandat.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 57 vísa 2
+--- SOURCE: chapter 57, 'Egill vegr Berg-Onund ok reisir níðstöng.'
+[VERSE 1]
+Sátum lyngs til lengi
+ljósheims börvi þeima,
+meir varðak fé forðum,
+fjarðölna hlut skarðan,
+áðr Berg-Önund benjum
+bensæfðan létk venjask,
+Bors niðjar feltk beðju
+blóði, Hadd ok Fróða.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 57 vísa 3
+--- SOURCE: chapter 57, 'Egill vegr Berg-Onund ok reisir níðstöng.'
+[VERSE 1]
+Börðumk vér, né virðak,
+vígleiftr sonar, heiftir,
+Blóðöxar rauðk blóði
+böðmilds ok Gunnhildar.
+Þar fellu nú þollar
+þrettán lagar mána,
+stendr af styrjar skyndi
+starf, á einum karfa.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 57 vísa 4
+--- SOURCE: chapter 57, 'Egill vegr Berg-Onund ok reisir níðstöng.'
+[VERSE 1]
+Þél höggr stórt fyr stáli
+stafnkvígs á veg jafnan
+út með éla meitli
+andærr jötunn vandar,
+en svalbúinn selju
+sverfr eirar vanr þeiri
+Gestils ölft með gustum
+gandr of stál fyr brandi.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 59 vísa 1
+--- SOURCE: chapter 59, 'Englandsferð Egils.'
+[VERSE 1]
+Kominn emk á jó Íva
+angrbeittan veg langan
+öldu enskrar foldar
+atsitjanda at vitja.
+Nú hefr sískelfir sjálfan
+snarþátt Haralds áttar
+viðr ofrhuga yfrinn
+undar bliks of fundinn.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 61 vísa 1
+--- SOURCE: chapter 61, 'Lífgjöf Egils.'
+[VERSE 1]
+Erumka leitt,
+þótt ljótr séi,
+hjalma klett
+af hilmi þiggja.
+Hvars sás gat
+af göfuglyndum
+æðri gjöf
+allvalds syni?
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 61 vísa 2
+--- SOURCE: chapter 61, 'Lífgjöf Egils.'
+[VERSE 1]
+Svartbrúnum lét sjónum
+sannsparr Hugins varra,
+hugr tjóðum mjök mága,
+mögnuðr Egil fagna.
+Arfstóli knák Ála
+áttgöfguðum hattar
+fyr regnaðar regni
+ráða nú sem áðan.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 64 vísa 1
+--- SOURCE: chapter 64, 'Egill drap Ljót inn bleika.'
+[VERSE 1]
+Urðumk leið en ljóta
+landbeiðaðar reiði.
+Sígrat gaukr, ef glamma
+gamm veit of sik þramma.
+Þar nautk enn sem oftar
+arnstalls sjötulbjarnar.
+Hnígrat allr, sás holla
+hjalpendr of för gjalpar.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 64 vísa 2
+--- SOURCE: chapter 64, 'Egill drap Ljót inn bleika.'
+[VERSE 1]
+Esa Friðgeiri færi,
+förum holms á vit, sörvar,
+skulum banna mjök manni
+mey, örlygi at heyja
+við þanns bítr ok blótar
+bönd élhvötuð Göndlar,
+alfeigum skýtr ægir
+augum, skjöld at baugi.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 64 vísa 3
+--- SOURCE: chapter 64, 'Egill drap Ljót inn bleika.'
+[VERSE 1]
+Esat lítillar Ljóti,
+leik ek við hal bleikan
+við bifteini, bænar,
+brynju, rétt at synja.
+Búumk til vígs, en vægðar
+ván lætka ek hánum,
+skapa verðum vit skaldi
+skæru, drengr, á Mæri.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 64 vísa 4
+--- SOURCE: chapter 64, 'Egill drap Ljót inn bleika.'
+[VERSE 1]
+Höggum hjaltvönd skyggðan.
+Hæfum rönd með brandi.
+Reynum randar mána.
+Rjóðum sverð í blóði.
+Stýfum Ljót af lífi.
+Leikum sárt við bleikan.
+Kyrrum kappa errinn,
+komi örn á hræ, jörnum.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 64 vísa 5
+--- SOURCE: chapter 64, 'Egill drap Ljót inn bleika.'
+[VERSE 1]
+Fyrir þykki mér fúra
+fleins stökkvandi nökkvat,
+hræðisk hodda beiðir
+happlauss, fara kappi.
+Stendrat fast, sás frestar
+fleindöggvar stafr, höggum.
+Vábeiða ferr víðan
+völl fyr rotnum skalla.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 64 vísa 6
+--- SOURCE: chapter 64, 'Egill drap Ljót inn bleika.'
+[VERSE 1]
+Fell sás flest et illa,
+fót hjó skald af Ljóti,
+ulfgrennir hefr unnit.
+Eir veittak Friðgeiri.
+Séka lóns til launa
+logbrjótanda í móti.
+Jafn vas mér í gný geira
+gamanleikr við hal bleikan.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 65 vísa 1
+--- SOURCE: chapter 65, 'Egill drap Atla inn skamma.'
+[VERSE 1]
+Beitat nú, sás brugðum,
+blár Dragvandill randir,
+af þvít eggjar deyfði
+Atli framm enn skammi.
+Neyttak afls við ýti
+örmálgastan hjörva.
+Jaxlbróður létk eyða,
+ek bar af sauði, nauðum.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 67 vísa 1
+--- SOURCE: chapter 67, 'Utanferð Egils in síðasta.'
+[VERSE 1]
+Sjalfráði lét slæður
+silki drengr of fengit
+gollknappaðar greppi.
+Getk aldri vin betra.
+Arinbjörn hefr árnat
+eirarlaust eða meira,
+síð mun seggr of fæðask
+slíkr, oddvita ríki.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 71 vísa 1
+--- SOURCE: chapter 71, 'Egill fann Ármóð skegg.'
+[VERSE 1]
+Því sendi mín móðir
+mik við þik til fundar
+ok orð bera Agli,
+at ér varir skyldið.
+Hildr mælti þat horna:
+Haga svá maga þínum,
+eigu órir gestir
+æðra nest á frestum.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 71 vísa 2
+--- SOURCE: chapter 71, 'Egill fann Ármóð skegg.'
+[VERSE 1]
+Títt erum verð at Vátta,
+vætti berk at hættak
+þung til þessar göngu,
+þinn kinnalá minni.
+Margr velr gestr, þars gistir,
+gjöld, finnumsk vér sjaldan,
+Ármóði liggr, æðri,
+ölðra dregg í skeggi.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 71 vísa 3
+--- SOURCE: chapter 71, 'Egill fann Ármóð skegg.'
+[VERSE 1]
+Drekkum ór, þótt Ekkils
+eykríðr beri tíðum
+horna sund at hendi,
+hvert full, bragar Ulli.
+Leifik vætr, þótt Laufa
+leikstærir mér færi,
+hrosta tjarnar horni,
+horn til dags at morni.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 72 vísa 1
+--- SOURCE: chapter 72, 'Egill kom til Þorfinns bónda.'
+[VERSE 1]
+Nýtr illsögull ýtir
+armlinns konu sinnar,
+oss's við ógnar hvessi
+óttalaust, ok dóttur.
+Þeygi munt við þenna
+þykkjask verðr fyr drykkju
+grepp, skulum á veg vappa
+vítt, svágöru hlíta.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 72 vísa 2
+--- SOURCE: chapter 72, 'Egill kom til Þorfinns bónda.'
+[VERSE 1]
+Skalat maðr rúnar rísta,
+nema ráða vel kunni.
+Þat verðr mörgum manni,
+es of myrkvan staf villisk.
+Sák á telgðu talkni
+tíu launstafi ristna.
+Þat hefr lauka lindi
+langs ofrtrega fengit.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 73 vísa 1
+--- SOURCE: chapter 73, 'Egill kom til Alfs bónda.'
+[VERSE 1]
+Veizt, ef ferk með fjóra,
+færat sex, þás víxli
+hlífa hneitiknífum
+hjaldrgoðs við mik roðnum.
+En ef ek em með átta,
+esat þeir tolf, es skelfi
+at samtogi sverða
+svartbrúnum mér hjarta.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 79 vísa 1
+--- SOURCE: chapter 79, 'Af Þorsteini Egilssyni ok börnum hans.'
+[VERSE 1]
+Áttkak erfinytja
+arfa mér til þarfan.
+Mik hefr sonr of svikvinn,
+svik telk í því, kvikvan.
+Vel mátti þess vatna
+viggríðandi bíða,
+es hafskíða hlæði
+hljótendr of mik grjóti.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 79 vísa 2
+--- SOURCE: chapter 79, 'Af Þorsteini Egilssyni ok börnum hans.'
+[VERSE 1]
+Heyri fúrs á forsa
+fallhadds vinar stalla,
+hyggi, þegn, til þagnar
+þínn lýðr, konungs, mína.
+Oft skal arnar kjafta
+örð góð of tröð Hörða,
+hrafnstýrandi hræra
+hregna, mín of fregnask.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 84 vísa 1
+--- SOURCE: chapter 84, 'Þorsteinn stökkvir í brott Steinari.'
+[VERSE 1]
+Spanðak jörð með orðum
+endr Steinari úr hendi.
+Ek þóttumk þá orka
+arfa Geirs til þarfar.
+Mér brásk minnar systur
+mögr. Hétumk þá fögru.
+Máttit böls of bindask
+Blundr. Ek slíkt of undrumk.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 85 vísa 1
+--- SOURCE: chapter 85, 'Andlát Egils Skalla-Grímssonar.'
+[VERSE 1]
+Vals hefk váfur helsis.
+Váfallr em ek skalla.
+Blautr erum bergis fótar
+borr, en hlust es þorrin.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 85 vísa 2
+--- SOURCE: chapter 85, 'Andlát Egils Skalla-Grímssonar.'
+[VERSE 1]
+Hvarfak blindr of branda,
+biðk eirar Syn geira,
+þann berk harm á hvarma
+hnitvöllum mér, sitja,
+es jarðgöfugr orðum,
+orð mín konungr forðum
+hafði gramr at gamni,
+Geirhamðis mik framði.
+
+--- TITLE: Egils saga Skalla-Grímssonar ch 85 vísa 3
+--- SOURCE: chapter 85, 'Andlát Egils Skalla-Grímssonar.'
+[VERSE 1]
+Langt þykki mér.
+Ligg einn saman
+karl afgamall,
+án konungs vörnum.
+Eigum ekkjur
+allkaldar tvær,
+en þær konur
+þurfu blossa.

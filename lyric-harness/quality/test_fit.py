@@ -1011,8 +1011,37 @@ def test_the_two_inert_coordinates_are_measured_not_asserted():
     # enough: an entry renamed off its subject leaves the dead code declared
     # by nothing while this section still reads green, which is the "entry
     # outlives its subject" direction `check_inert()` exists to catch.
-    want = {"fit.NO_TEMPO / declared_inputs.TimeGrid.tempo_bpm",
+    # AND THIS SET PINNED A SYMBOL THAT DOES NOT EXIST until 2026-08-21:
+    # `declared_inputs.TimeGrid` is not a class in this tree and never was, so
+    # the string above was unfalsifiable by any rename of the real coordinate
+    # (`BeatGrid.tempo_bpm`). The check was green against exactly the failure
+    # the comment above says it exists to catch. The name is asserted to
+    # RESOLVE now, so a set-equality on a fiction cannot pass again.
+    want = {"fit.NO_TEMPO / declared_inputs.BeatGrid.tempo_bpm",
             "fit.PROMINENCE_UNDECIDED"}
+    from quality import declared_inputs as DI
+
+    def _resolves(dotted):
+        """-> True if `declared_inputs.Class.field` names something real.
+
+        The last hop is checked against `__dataclass_fields__` as well as
+        `hasattr`, because a declared field whose default is None answers
+        `getattr(..., None) is None` and would read as absent.
+        """
+        parts = dotted.split(".")[1:]
+        obj = DI
+        for part in parts[:-1]:
+            obj = getattr(obj, part, None)
+            if obj is None:
+                return False
+        last = parts[-1]
+        return (hasattr(obj, last)
+                or last in getattr(obj, "__dataclass_fields__", {}))
+
+    check("every INERT field names a symbol that resolves",
+          all(_resolves(f) for e in FIT.INERT for f in e.field.split(" / ")
+              if f.startswith("declared_inputs.")),
+          sorted(e.field for e in FIT.INERT))
     check("both entries are present, name their SUBJECTS, and each names one "
           "of the three blockers",
           {e.field for e in FIT.INERT} == want

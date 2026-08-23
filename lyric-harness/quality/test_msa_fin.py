@@ -600,7 +600,11 @@ def test_fin_the_kanteletar_is_a_negative_control_that_clears_its_null():
           "a syntactic frame, so the two lines end in one ending",
           obs2 > mx2, f"{obs2:.4f} vs max {mx2:.4f}")
     check("so the two books separate on 2&4 and AGREE on 1&2, which is what "
-          "makes the null load-bearing rather than decorative", True)
+          "makes the null load-bearing rather than decorative",
+          obs < med and obs2 > mx2,
+          f"2&4 {obs:.4f} < null median {med:.4f}; 1&2 {obs2:.4f} > null max "
+          f"{mx2:.4f}. Asserted rather than narrated since 2026-08-23 — it "
+          f"rode on `True` and would have said PASS with both arms reversed.")
 
 
 def test_fin_alliteration_known_answers_have_not_moved():

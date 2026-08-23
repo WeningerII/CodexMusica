@@ -455,6 +455,20 @@ def test_brief_refuses_instead_of_tracebacking():
           "Traceback" not in err)
 
     rc, out, _ = run("brief", EXAMPLE_TXT, "--groups=2,4")
+    # AND THE EVIDENCE REPOINTED — 2026-08-22, the SECOND time this pair of
+    # checks was found passing on the wrong thing. After the parenthesising
+    # below, `"group A" in out` was still satisfied by exactly one string in
+    # the whole report: the SCHEME_VIOLATION message about group A. So the
+    # check proved the group had been mandated by showing it had FAILED, and
+    # when the default admit set widened to all four relations (that pair is
+    # ASSONANCE at 0.974 and now satisfies) the violation went away and took
+    # the only mention of the group with it. Both checks went red on a draft
+    # that had got BETTER. The defect was never in the checks' intent — it
+    # was that `brief` had no disclosure of its own mandate, so a clean
+    # graded group and an unasked question printed identically. `_say_derived`
+    # now prints `MANDATE:` for a declared cover as well as a derived one,
+    # which is what these two assertions were always trying to observe.
+    #
     # PARENTHESISED, AND THE DEAD CLAUSE DROPPED — 2026-08-15. This read
     # `rc == 0 and "group B" in out or "group A" in out`, which Python groups
     # as `(rc == 0 and ...) or ("group A" in out)`, so the exit code was
@@ -509,8 +523,21 @@ def test_brief_refuses_instead_of_tracebacking():
 
     check("the old `must rhyme with L(5, 'mailboxes')` tuple-print is gone",
           "must rhyme with L(" not in out)
+    # REPOINTED 2026-08-22 from the `--cliques` output to a DECLARED cover.
+    # `mandate_from_graph` reads its edges through `admits()`, so widening the
+    # default admit set to all four relations widened the DERIVED cover too —
+    # MEASURED on this fixture: 3 groups / 3 mandated pairs -> 8 groups / 35.
+    # That is the correct consequence and not a defect (doctrine 1: one
+    # definition per question — if a near relation satisfies a mandate then
+    # two lines standing in one ARE related, and the song's own structure
+    # should say so), but it means the derived brief no longer happens to
+    # contain a candidate the modal table forbids. The exclusion itself is
+    # untouched, which is what this check is about, so it is asked of a cover
+    # that does not move when the door does.
+    _, mod_out, _ = run("brief", EXAMPLE_TXT, "--groups=1,3")
     check("the modal exclusion is still printed (doctrine 9)",
-          "FORBIDDEN (modal" in out)
+          "FORBIDDEN (modal" in mod_out,
+          mod_out[:200])
 
     # `--returns=` -- FIXED 2026-08-12, found by using the harness on a real
     # draft rather than by reading the code. `--groups=` builds a bare
@@ -1910,10 +1937,18 @@ def test_the_report_rolls_up_without_dropping_anything():
           and per_code.get(("NOTE", "CROWDED")) == 16
           and per_code.get(("NOTE", "PROMINENCE_EXCEEDS_HEADS")) == 16,
           str(sorted(per_code.items())))
-    check("the two SCHEME_VIOLATION flags survive the rollup — they are "
-          "the craft criticism the 48 were burying, and they are NOT "
-          "saturated, so the rule had to leave them alone",
-          per_code.get(("FLAG", "SCHEME_VIOLATION")) == 2,
+    # ~~two~~ ONE, REPINNED 2026-08-22. The widened default admit set
+    # (`MISSING.md` M-59) means a pair this fixture used to fail as ASSONANCE
+    # now SATISFIES, so one of the two violations is gone from the draft
+    # entirely. That is the door working, not the rollup: what this check is
+    # about is whether an UNSATURATED code survives the collapse of 48
+    # findings into 3 rows, and one surviving proves that exactly as well as
+    # two did. Pinned at >= 1 rather than at 1 so the next movement in the
+    # comparator does not re-break a check whose subject is the ROLLUP.
+    check("the SCHEME_VIOLATION flag survives the rollup — ~~two~~ one since "
+          "the door widened; it is the craft criticism the 48 were burying, "
+          "and it is NOT saturated, so the rule had to leave it alone",
+          (per_code.get(("FLAG", "SCHEME_VIOLATION")) or 0) >= 1,
           str(per_code.get(("FLAG", "SCHEME_VIOLATION"))))
     check("the counts are printed as TWO, by kind, and never summed "
           "(doctrine 79/91)",
@@ -2003,10 +2038,37 @@ def test_song_exits_on_a_flag():
     # findings into 3 rows on the run above, so 18 FLAGS reach the reader as
     # 3 decisions; the exit code is computed from the finding SET before any
     # of that runs, so it is the same 3 either way (doctrine 91).
-    check("the exit code counts FINDINGS, not printed blocks — 18 flags "
-          "over 3 printed decisions is still exit 3",
-          "18 FLAG" in out and "3 decision(s)" in out and rc == 3,
-          [l for l in out.splitlines() if "REPORT:" in l][:1])
+    # ~~18~~ 17 FLAG, REPINNED 2026-08-22, same cause as the rollup check
+    # above: one ASSONANCE pair stopped being a violation when the default
+    # admit set widened. THE FLAG COUNT IS NOT WHAT THIS CHECKS — the subject
+    # is that the EXIT CODE is computed from the finding set and not from the
+    # rendered blocks, so it is read out of the report line rather than
+    # written into the assertion, and the invariant asserted is the one that
+    # matters: many flags, few printed decisions, still exit 3.
+    # AND THE DECISION COUNT IS READ TOO, 2026-08-23. The flag count was
+    # already read out of the report — for exactly the reason given above —
+    # while `"3 decision(s)" in out` stayed a literal beside it, so half of
+    # this check was door-proof and half was not. It is 2 now: the check
+    # immediately above this one was repinned ~~two~~ -> ONE on 2026-08-22
+    # for the same widened admit set, and the pair of literals moved
+    # together in the report and separately in the file.
+    #
+    # NEITHER NUMBER IS THE SUBJECT. The claim is the INEQUALITY plus the
+    # exit code: many findings, few printed decisions, and an exit computed
+    # from the finding SET before any rendering runs (doctrine 91). Both
+    # sides are read, so a door change moves the numbers and cannot move
+    # the claim.
+    _flags = re.search(r"REPORT:.*?— (\d+) FLAG", out)
+    _dec = re.search(r"WHAT TO CHANGE — (\d+) decision\(s\)", out)
+    check("the exit code counts FINDINGS, not printed blocks — "
+          f"{_flags.group(1) if _flags else '?'} flags over "
+          f"{_dec.group(1) if _dec else '?'} printed decisions is still "
+          "exit 3",
+          _flags is not None and _dec is not None
+          and int(_flags.group(1)) > int(_dec.group(1)) > 0
+          and rc == 3,
+          [l for l in out.splitlines()
+           if "REPORT:" in l or "WHAT TO CHANGE" in l][:2])
 
     # SCOPED TO `song`, DELIBERATELY. `brief` is the interactive "what do I
     # fix next" verb; every useful run of it has flags, and four cases in
@@ -2335,9 +2397,29 @@ def test_both_mandate_spellings_are_read():
     rc_free, out_free, _ = run("verify", txt, after, MANDATE_THAT_FAILS, rets)
     rc_tgt, out_tgt, _ = run("verify", txt, after, MANDATE_THAT_FAILS, rets,
                              "1,3")
-    check("with NO targeted list the untargeted rejection cannot fire",
-          "VERDICT: ACCEPTED" in out_free and "not targeted" not in out_free,
-          out_free.strip().splitlines()[-1:])
+    # RESTATED 2026-08-23, AND ONLY THE INCIDENTAL MOVED. This asserted
+    # `"VERDICT: ACCEPTED" in out_free`, which was never the subject: the
+    # subject is that the UNTARGETED rejection cannot fire when no list was
+    # declared. The untargeted run is REJECTED now, for `nothing was fixed`
+    # — the one-line change repaired a SCHEME_VIOLATION that the widened
+    # admit set (M-59) had already retired, so there was nothing left for it
+    # to fix. A different rule, firing correctly.
+    #
+    # ASSERTED AS THE DIFFERENCE, so it cannot be satisfied vacuously. A
+    # bare `"not targeted" not in out_free` is true of empty output and of a
+    # crash; what is checked is that BOTH runs reach a real verdict, that
+    # ONLY the declared-list run names the untargeted rule, and (the check
+    # below) that the two are not byte-identical — which together are the
+    # whole claim that the trailing list is READ.
+    check("with NO targeted list the untargeted rejection cannot fire — "
+          "both runs reach a verdict, and only the one declaring `1,3` "
+          "names the untargeted rule",
+          "VERDICT:" in out_free and "VERDICT:" in out_tgt
+          and "not targeted" not in out_free
+          and "not targeted" in out_tgt,
+          [l.strip() for l in out_free.splitlines() if "VERDICT" in l][:1]
+          + [l.strip() for l in out_free.splitlines()
+             if "nothing was fixed" in l][:1])
     check("declaring `1,3` REJECTS the same diff and NAMES the line it "
           "touched — the trailing list is READ, not merely parsed",
           "VERDICT: REJECTED" in out_tgt and "[4] were changed but not "
@@ -2423,18 +2505,48 @@ def test_the_loop_suspends_instead_of_guessing():
     # defer flow cascaded red. 'pour' is measured clean against 'store'
     # both ways ('our' vs 'ore' — same sound, different spelling, below the
     # frequency tier), which is exactly the reach the ban exists to force.
+    # RESTATED 2026-08-23: THE LOOP ASKS ONE QUESTION HERE NOW, NOT TWO, and
+    # the second one disappeared at the DOOR rather than in the loop. This
+    # scripted two answers and walked them unconditionally, so when the loop
+    # converged after the first it CRASHED on `st["pending"]["answer"]` with
+    # `pending` already None — a test that assumed its own subject's shape
+    # instead of reading it.
+    #
+    # WHY: the mandate is `--groups=1,3;2,4` and group B is L2 'four' against
+    # L4 'gone' — AO nucleus agreeing, R against N coda, which the band types
+    # ASSONANCE. The default admit set widened to all four relations on
+    # 2026-08-22 (M-59), so that pair now SATISFIES and never becomes a
+    # question. Group A, 'store' against 'own', is below theta_rhyme at 0.736
+    # and is refused on the SCALAR, which no door widens past — so it is
+    # still asked, and it is the one the section needs.
+    #
+    # The walk is driven by the STATE now rather than by the answer list, so
+    # it cannot crash on a loop that converges early; the count of questions
+    # is then asserted separately, with the reason, because a walk that
+    # silently tolerates any number would stop pinning this at all.
     answers = ["we packed the truck and watched the last rain pour",
                "and drove until the county line was far"]
+    asked = []
     for want in answers:
         st = json.load(open(state))
+        if st.get("pending") is None:
+            break
+        asked.append(st["pending"]["record"]["line"])
         st["pending"]["answer"] = want
         json.dump(st, open(state, "w"))
         rc, out, _ = run("revise", draft, mand, f"--propose=defer:{state}")
     check("answering drives the loop to a stop condition",
           rc == 0 and "SUCCESS" in out, f"rc {rc}")
-    check("only the answered lines changed",
-          "* L3: " + answers[0] in out and "* L4: " + answers[1] in out
-          and "* L1:" not in out and "* L2:" not in out)
+    check("EXACTLY ONE line was ever asked about — L3, whose pair is refused "
+          "on the SCALAR. L2/L4 is ASSONANCE and the widened door admits it, "
+          "so it is not a question (doctrine 17: this asked TWO until "
+          "2026-08-22)",
+          asked == [3], f"lines asked: {asked}")
+    check("only the answered line changed",
+          "* L3: " + answers[0] in out
+          and "* L1:" not in out and "* L2:" not in out
+          and "* L4:" not in out,
+          "L4 is untouched because nothing was ever wrong with it")
 
     # THE FINISHED STATE IS A RECORDED RUN. Asserted rather than claimed in a
     # docstring: a deferred session is only reproducible if someone with no
@@ -2446,8 +2558,9 @@ def test_the_loop_suspends_instead_of_guessing():
     rc4, out4, _ = run("revise", draft, mand, f"--propose=replay:{rep}")
     check("the `answered` block IS a valid --propose=replay: file",
           rc4 == 0 and "* L3: " + answers[0] in out4
-          and "* L4: " + answers[1] in out4,
-          "same draft, no writer present")
+          and "* L4:" not in out4,
+          "same draft, no writer present; ONE answer, because one question "
+          "was asked")
 
     rc5, out5, _ = run("revise", draft, mand, "--propose=defer", expect_rc=2)
     check("`defer` without a PATH refuses like every other flag value",

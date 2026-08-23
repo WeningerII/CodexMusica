@@ -145,20 +145,30 @@ def test_pursuit_is_mandatory():
 
 
 def test_the_admit_coordinate():
-    print("\n5. the admit coordinate — widening is BY DECLARATION, never "
-          "by default")
+    print("\n5. the admit coordinate — ~~widening is BY DECLARATION, never "
+          "by default~~ the default admits all four; NARROWING is the "
+          "declared move (2026-08-22)")
     lex = Lexicon()
     # sun/much: identical nucleus, disagreeing coda -> ASSONANCE at 0.772,
-    # the BAND_PREREGISTRATION.md case. Default: violation. Declared
-    # admit=ASSONANCE: satisfied on its scalar.
+    # the BAND_PREREGISTRATION.md case.
+    #
+    # ~~Default: violation.~~ SUPERSEDED 2026-08-22 (doctrine 17 — the old
+    # value stays visible). This check used to read "DEFAULT is
+    # byte-identical to the old world: sun/much violates as ASSONANCE",
+    # and it PASSED, which is how a default that charged a TYPED sonic
+    # relation as a violation survived every suite: the pin asserted the
+    # defect. The band names this pair ASSONANCE (doctrines 3/24 — the band
+    # RELABELS rather than rejects) and the mandate layer then said that
+    # name satisfies nothing. One repository, two opposite answers, one
+    # pair. The door now admits every relation the vocabulary admits.
     draft = ["we lay all day beneath the sun", "these old hands never "
              "asked for much"]
     strict = check_scheme(lex, draft, "AA", Declaration())
     v = [x for x in strict["violations"] if x[0] == 1 and x[1] == 2]
-    check("DEFAULT is byte-identical to the old world: sun/much violates "
-          "as ASSONANCE, with the refusal naming the declared door",
-          v and "ASSONANCE" in v[0][3] and "admit set" in v[0][3],
-          v[0][3] if v else strict["violations"][:2])
+    check("DEFAULT now SATISFIES sun/much — the band typed it ASSONANCE "
+          "and the door no longer contradicts the band "
+          "(~~violates as ASSONANCE, refusal naming the declared door~~)",
+          not v, v)
     wide = check_scheme(lex, draft, "AA",
                         Declaration(admit=("RHYME", "RIME_RICHE",
                                            "ASSONANCE")))
@@ -181,10 +191,53 @@ def test_the_admit_coordinate():
                                    "CONSONANCE"})
 
 
+
+
+def test_the_default_admits_everything_admittable():
+    """THE DEFAULT IS PINNED, because prose did not hold it (doctrine 48).
+
+    `Declaration.admit` sat at `("RHYME", "RIME_RICHE")` for four days after
+    the migration that justified it was over, and this repository defended
+    that default more than once while ALSO holding doctrines 3 and 24, which
+    exist so the band RELABELS rather than rejects. `sun`/`much` is
+    ASSONANCE -- a real sonic event with a name -- and the mandate layer was
+    telling the writer it satisfied nothing.
+
+    A preference that lives in a comment is followed exactly as often as
+    someone remembers it. This is the check that remembers.
+    """
+    print("\n   the DEFAULT admit set")
+    import lyric_harness as _LH
+    check("the default admits EVERY admittable relation — a near relation "
+          "the band has already TYPED is a sonic event this project exists "
+          "to represent, and a default that charged it as a violation was "
+          "one repository giving two opposite answers about one pair",
+          set(_LH.Declaration().admit) == set(_LH.ADMITTABLE_RELATIONS),
+          str(_LH.Declaration().admit))
+    check("...and it DERIVES from `ADMITTABLE_RELATIONS` rather than "
+          "restating it, so the default and the validator cannot drift "
+          "(doctrine 1) — they were 2,000 lines apart and hand-typed until "
+          "2026-08-22",
+          tuple(sorted(_LH.ADMITTABLE_RELATIONS)) == _LH.Declaration().admit)
+    check("NARROWING is still available and is the useful direction — a "
+          "cell that genuinely wants perfect rhyme only declares it and "
+          "gets exactly the old behaviour BY SAYING SO",
+          _LH.Declaration(admit=("RHYME", "RIME_RICHE")).admit
+          == ("RHYME", "RIME_RICHE"))
+    try:
+        _LH.Declaration(admit=("REPEAT",))
+        check("REPEAT is still refused", False, "it was accepted")
+    except ValueError:
+        check("REPEAT is still REFUSED — identity has its own licence "
+              "machinery and admitting it here would let a copied word "
+              "satisfy a rhyme", True)
+
+
 if __name__ == "__main__":
     for fn in (test_spelled_rime, test_two_tiers_compose,
                test_pair_verdicts, test_pursuit_is_mandatory,
-               test_the_admit_coordinate):
+               test_the_admit_coordinate,
+               test_the_default_admits_everything_admittable):
         fn()
     print("=" * 62)
     if FAILURES:
