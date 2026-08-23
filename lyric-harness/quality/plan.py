@@ -38,7 +38,51 @@ GENERATOR over a space the enforcement layers already grade:
   cycle conventionally (4 for simple groupings, 8 for compound); a writer
   hand-declaring 5/24 is grading-identical to 5/8 and nothing refuses it.
 - LINES PER SECTION are sampled UNIFORMLY from the envelope, per function
-  kind. Schemes come from `schemes.rgs` exactly as before up to
+  kind.
+  V3 (2026-08-23) — AND THE ENVELOPE ITSELF IS DERIVED NOW. V2 replaced the
+  planner's TABLES with generators and left its BOUNDS as literals: lines per
+  section `(1, 16)`, sections `(2, 12)`, total lines `(4, 64)`, bars per line
+  `(1, 4)`, body cells `(2, 6)`, anacrusis `(0.0, 0.5, 1.0)`. The owner named
+  the first — *"1-16 is weird...should we change it to a variable?"* — under
+  the standing rule that a hard number in the generator is a defect. All six
+  are functions now:
+    * TOKENS PER LINE is read off the floor's own calibration. Each stanza
+      profile declares a measured token band AND the line count it was
+      measured at (`Profile.n_lines`, declared the same day), so the 4-line
+      section profile fixes 7.25-9.25 tokens per line and the 14-line sonnet
+      profile fixes 7.71-9.00. They agree, which is the check that this is a
+      property of English verse rather than of one profile.
+    * THE LINE ENVELOPE IS WHAT THE FLOOR CAN ENFORCE. A draft outside every
+      profile's MEASURED range has every length-sensitive finding downgraded
+      to a note or skipped, so volunteering that length is volunteering a
+      plan the graders cannot hold to anything. Measured across 1-699
+      tokens: 39.9% of lengths can produce a flag, 29.8% sit in a tolerance
+      band where everything is downgraded, 30.3% reach no profile at all.
+      `gradeable_line_counts()` is the set that survives, and it is NOT
+      contiguous — 6 to 11 lines falls between the section profile's reach
+      and the sonnet's. `line_count_gaps()` names that hole in every plan's
+      own disclosure, because a gap nobody prints is a calibration request
+      nobody makes.
+    * THE TOTAL IS DRAWN FIRST and then bounds everything conditioned on it:
+      the pattern's cell count (a song of T lines carries at most T sung
+      sections) and the per-kind line counts, which are drawn EXACT-UNIFORM
+      over the assignments summing to it (`_partition_uniform`, the
+      counted-completions move `_composition_uniform` and `_rgs_uniform`
+      already use). Drawing each kind independently was measured at 6 plans
+      per 200 seeds and, worse, biased the survivors.
+    * ANACRUSIS is derived from the grid the section actually drew — k/sub
+      beats for k in 0..sub — instead of the sub=2 case written out as a
+      tuple. A section at subdivision 4 can now land on the quarter-beat
+      pickups its own grid resolves.
+  AND A SECTION WITH NO WORDS IS NOT A SECTION WITH NO CONSTRAINTS. V2's own
+  sentence here read "instrumental functions carry bars with no lines", and
+  the owner refused it: *"instrumental is not free of lines."* A wordless
+  section draws a PHRASE count and its bars follow from it exactly as a sung
+  section's follow from its line count — see `WORDLESS_FUNCTIONS`. What the
+  label removes is the LYRIC half and nothing else, because a section
+  carrying no constraint mass is a free token an optimiser can append to
+  satisfy any structural rule.
+  Schemes come from `schemes.rgs` exactly as before up to
   `EXACT_ENUM_MAX` lines (full enumeration, pool size disclosed); above it,
   an EXACT-UNIFORM set-partition sampler (the Bell-triangle completion
   counts drive each digit, so every partition is equally likely without
@@ -78,12 +122,16 @@ Test: python3 quality/test_plan.py
 import json
 import math
 import random
+from fractions import Fraction
 from functools import lru_cache
 
 from quality import schemes as SC
+from quality import floor as _FL
 from quality import meter_bands as MB
 
 __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX", "SLOTS_CEILING_X",
+           "tokens_per_line_band", "gradeable_line_counts",
+           "line_count_gaps",
            "GENERATOR_ROSTER", "ZERO_LINE_FUNCTIONS", "PlanRefused",
            "make_plan", "fill_plan", "writer_brief", "grading_command",
            "render_song", "section_header",
@@ -183,34 +231,152 @@ SLOTS_CEILING_X = 4
 #: ENUMERATION, not a bound on what is reachable.
 EXACT_ENUM_MAX = 10
 
-#: The planner's envelope — what it volunteers by default. NOT the system's
-#: bounds: a writer hand-declares anything and the graders grade it. Each
-#: entry names its provenance.
-ENVELOPE = {
-    # slots per line = beats x subdivision x bars_per_line. Floor DERIVED:
-    # the calibrated density band's floor (meter_bands.ADOPTED) — fewer
-    # slots than the minimum band-legal syllable count is unsatisfiable by
-    # construction. Ceiling: band ceiling x SLOTS_CEILING_X.
-    "slots_per_line": (MB.ADOPTED["DENSITY"][0],
-                       MB.ADOPTED["DENSITY"][1] * SLOTS_CEILING_X),
-    # lines per section: uniform sample range. 1 is a real section (a tag,
-    # a one-line vamp); the top is where the floor's length calibrations
-    # have long self-downgraded (disclosed per draft as
-    # EXTRAPOLATED_LENGTH) — sampled anyway, since disclosure is not a ban,
-    # but the envelope keeps the DEFAULT volunteer inside a singable order
-    # of magnitude.
-    "lines_per_section": (1, 16),
-    "sections": (2, 12),
-    "total_lines": (4, 64),
-    # subdivisions the fit layer's grid models (eighth/sixteenth pulse
-    # against the beat) — a data-type set, not taste.
-    "subdivisions": (1, 2, 4),
-    "bars_per_line": (1, 4),
-    # per-section pickup offset in beats; halves need subdivision >= 2.
-    "anacrusis": (0.0, 0.5, 1.0),
-    "body_cells": (2, 6),
-}
+#: HOW MANY TOKENS A LINE CARRIES — DERIVED, not chosen (2026-08-23).
+#:
+#: Each of the floor's stanza profiles declares BOTH a measured token band and
+#: the line count of the items it was measured on (`Profile.n_lines`), so the
+#: two together fix a tokens-per-line band that nobody had to pick: the
+#: 4-line section profile says 29-37 tokens (7.25-9.25 per line) and the
+#: 14-line sonnet profile says 108-126 (7.71-9.00). They agree, which is the
+#: check that this is a property of English verse and not of one profile.
+#: `song` declares `n_lines=0` — a lyric sheet has no fixed line count — and
+#: contributes nothing here rather than a zero to divide by.
+def tokens_per_line_band():
+    """-> (lo, hi) tokens per line, read off the floor's own calibration."""
+    per = [(p.lo / p.n_lines, p.hi / p.n_lines)
+           for p in _FL.PROFILES if p.n_lines]
+    if not per:
+        raise PlanRefused(
+            "no floor profile declares a line count, so tokens-per-line "
+            "cannot be derived and the planner has no envelope to volunteer "
+            "inside. This is a REFUSAL and not a fallback: a line count "
+            "chosen without a derivation is the literal this function "
+            "replaced.")
+    return min(a for a, _ in per), max(b for _, b in per)
 
+
+@lru_cache(maxsize=None)
+def gradeable_line_counts():
+    """-> frozenset of line counts the FLOOR CAN GRADE WITH TEETH.
+
+    THE ENVELOPE IS WHAT THE ENFORCEMENT CAN ENFORCE. A draft whose token
+    count falls outside every profile's MEASURED range gets every
+    length-sensitive finding downgraded to a note or skipped entirely, so a
+    plan volunteering that length is a plan the graders cannot hold to
+    anything. Measured across 1..699 tokens: 39.9% of lengths can produce a
+    flag, 29.8% are inside a tolerance band where every finding is downgraded,
+    and 30.3% reach no profile at all.
+
+    So the line envelope is the set of line counts whose expected token count
+    — at the derived tokens-per-line band — can land inside some profile's
+    measured range. It is NOT CONTIGUOUS, and the gap is a real finding rather
+    than an inconvenience: it is a calibration request, and
+    `line_count_gaps()` names it so it is visible in every plan's own
+    disclosure instead of being discovered by a writer.
+    """
+    tlo, thi = tokens_per_line_band()
+    out = set()
+    for prof in _FL.PROFILES:
+        lo = max(1, math.ceil(prof.lo / thi))
+        hi = int(prof.hi // tlo)
+        out.update(range(lo, hi + 1))
+    if not out:
+        raise PlanRefused(
+            "no line count lands inside any calibrated profile — the floor "
+            "can grade nothing this planner could volunteer.")
+    return frozenset(out)
+
+
+def line_count_gaps():
+    """-> [(lo, hi)] runs of line counts INSIDE the envelope's span that no
+    profile grades with teeth. Disclosed, never silently skipped."""
+    ok = gradeable_line_counts()
+    gaps, run = [], None
+    for n in range(min(ok), max(ok) + 1):
+        if n in ok:
+            if run:
+                gaps.append(run)
+                run = None
+        else:
+            run = (run[0], n) if run else (n, n)
+    if run:
+        gaps.append(run)
+    return gaps
+
+
+#: The planner's envelope — what it volunteers by default. NOT the system's
+#: bounds: a writer hand-declares anything and the graders grade it.
+#:
+#: EVERY ENTRY IS DERIVED OR ARGUED, AND NONE IS CHOSEN (2026-08-23, the
+#: owner's standing rule: *"we do not want hard numbers anywhere ... meter
+#: should be something like x/y and number of lines should be something like
+#: N"*). What was here before: `lines_per_section (1, 16)`, `sections
+#: (2, 12)`, `total_lines (4, 64)`, `bars_per_line (1, 4)`, `body_cells
+#: (2, 6)` and `anacrusis (0.0, 0.5, 1.0)` — six literals with no derivation
+#: between them, of which the owner named the first: *"1-16 is weird ...
+#: should we change it to a variable?"*. It is a variable now, and so are the
+#: other five.
+def _envelope():
+    ok = gradeable_line_counts()
+    lo, hi = MB.ADOPTED["DENSITY"][0], MB.ADOPTED["DENSITY"][1] * SLOTS_CEILING_X
+    return {
+        # slots per line = beats x subdivision x bars_per_line. Floor DERIVED:
+        # the calibrated density band's floor (meter_bands.ADOPTED) — fewer
+        # slots than the minimum band-legal syllable count is unsatisfiable by
+        # construction. Ceiling: band ceiling x SLOTS_CEILING_X.
+        "slots_per_line": (lo, hi),
+        # LINES PER SECTION: bounded ONLY by what the whole song may carry.
+        # There is no separate per-section calibration to derive a tighter
+        # bound from — the floor grades a DRAFT, not a section — so inventing
+        # one would be the literal this replaced wearing a derivation. 1 is a
+        # real section (a tag, a one-line vamp).
+        "lines_per_section": (1, max(ok)),
+        # SECTIONS: a sung section carries at least one line, so a song of at
+        # most `max(ok)` lines carries at most that many sung sections. 1 is
+        # a real song.
+        "sections": (1, max(ok)),
+        # TOTAL LINES: the span of the gradeable set. The set itself is what
+        # the sampler rejects against, because the span is not contiguous.
+        "total_lines": (min(ok), max(ok)),
+        # subdivisions the fit layer's grid models (eighth/sixteenth pulse
+        # against the beat) — a data-type set, not taste.
+        "subdivisions": (1, 2, 4),
+        # BARS PER LINE: bounded by the slots envelope it feeds. A line of
+        # `bars` bars at the coarsest grid this vocabulary admits (2 beats,
+        # subdivision 1) already carries `2 * bars` slots, so a bars count
+        # past `hi // 2` cannot produce a band-legal line at any meter.
+        "bars_per_line": (1, max(1, hi // 2)),
+        # ANACRUSIS is derived PER DRAW from the subdivision, because the
+        # pickup has to land on the grid the section actually declared:
+        # `_anacrusis_choices(sub)`. The entry here is the widest set any
+        # subdivision admits, for the disclosure's denominator.
+        "anacrusis": _anacrusis_choices(max(ENVELOPE_SUBDIVISIONS)),
+        # BODY CELLS: at least one, and no more than the section ceiling —
+        # every cell contributes at least one section, so a draw past that
+        # can only be rejected. The pattern's own length check is what
+        # actually binds (see `_sample_pattern`).
+        "body_cells": (1, max(ok)),
+    }
+
+
+#: Named so `_envelope` can read it before ENVELOPE exists — the subdivision
+#: set is the one entry with no dependency on the others.
+ENVELOPE_SUBDIVISIONS = (1, 2, 4)
+
+
+def _anacrusis_choices(sub):
+    """-> the pickups a grid of `sub` subdivisions per beat can LAND ON.
+
+    DERIVED from the grid's own resolution: a pickup of k/sub beats for k in
+    0..sub, i.e. every grid position from no pickup up to a full beat. The
+    literal `(0.0, 0.5, 1.0)` this replaces was the sub=2 case written out,
+    which silently denied a sub=4 section the quarter-beat pickups its own
+    grid resolves — a table standing in for the arithmetic that produces it.
+    """
+    return tuple(k / sub for k in range(sub + 1))
+
+
+ENVELOPE = _envelope()
 
 # ---------------------------------------------------------------- meters
 
@@ -271,6 +437,60 @@ def _composition_uniform(n, rng):
         out.append(part)
         n -= part
     return tuple(out)
+
+
+@lru_cache(maxsize=None)
+def _partition_count(counts, total):
+    """How many line-count assignments realise `total` exactly.
+
+    `counts` is the per-kind instance count as a tuple, in the order the
+    draw will walk; a kind appearing c times contributes c x k lines. Counts
+    the solutions of `sum(c_i * k_i) == total, k_i >= 1` — the completions,
+    not the leaves, which is what makes an exact-uniform draw possible
+    without enumerating the space (`_composition_uniform` and `_rgs_uniform`
+    use the identical move, and `_n_compositions_23` is the same recurrence
+    one dimension down).
+    """
+    if not counts:
+        return 1 if total == 0 else 0
+    c, rest = counts[0], counts[1:]
+    later = sum(rest)
+    n = 0
+    k = 1
+    while c * k <= total - later:
+        n += _partition_count(rest, total - c * k)
+        k += 1
+    return n
+
+
+def _partition_uniform(counts, total, rng):
+    """One EXACT-UNIFORM assignment of line counts, or None when the shape
+    admits none.
+
+    Each next count is drawn with probability proportional to the
+    COMPLETIONS it leaves, so every admissible assignment is equally likely.
+    The sequential alternative — draw each kind uniform over what remains —
+    is NOT uniform and was measured so: it forced later kinds to the floor
+    and left 52% of all sections carrying exactly one line.
+    """
+    total_ways = _partition_count(counts, total)
+    if not total_ways:
+        return None
+    out, rem = [], total
+    for i, c in enumerate(counts):
+        rest = counts[i + 1:]
+        later = sum(rest)
+        pick = rng.randrange(_partition_count(counts[i:], rem))
+        k = 1
+        while True:
+            w = _partition_count(rest, rem - c * k)
+            if pick < w:
+                break
+            pick -= w
+            k += 1
+        out.append(k)
+        rem -= c * k
+    return out
 
 
 def meter_dims():
@@ -446,7 +666,32 @@ GENERATOR_ROSTER = _derive_roster()
 
 #: Instrumental spans: bars with no lines. `fit.py` reports their bars as
 #: uncovered — a note, a rest is not a defect.
+#: Functions that carry NO SUNG WORDS. They are NOT zero-structure sections
+#: — see `WORDLESS_FUNCTIONS` and the paragraph below it — and the name is
+#: kept because `plan.py`'s own API exports it and callers read it.
 ZERO_LINE_FUNCTIONS = frozenset({"interlude", "solo"})
+
+#: THE SAME SET, NAMED FOR WHAT IT ACTUALLY MEANS (2026-08-23).
+#:
+#: A SECTION WITH NO WORDS IS NOT A SECTION WITH NO CONSTRAINTS, and modelling
+#: it as one was a hole an optimiser could drive through. The owner named it:
+#: *"instrumental is not free of lines. what have you that idea?"* — and the
+#: idea came from this module's own v2 paragraph, "instrumental functions
+#: carry bars with no lines", repeated uncritically.
+#:
+#: MUSICALLY IT IS FALSE: an instrumental has bars, a meter, and phrase
+#: structure; what it lacks is words. STRUCTURALLY IT IS DANGEROUS: a section
+#: carrying no constraint mass is a free token, the cheapest possible version
+#: of the two-line outro that "technically satisfied" a variety rule while
+#: gaming it. Any structural requirement over sections could be answered by
+#: appending constraint-free instrumentals.
+#:
+#: SO EVERY SECTION CARRIES PHRASES. A wordless section draws a PHRASE count
+#: from the same per-section envelope every other section draws its line
+#: count from, and its bars follow from that count exactly as a sung
+#: section's do. What "wordless" removes is the LYRIC half — no line slots,
+#: no rhyme group, nothing for the writer to fill — and nothing else.
+WORDLESS_FUNCTIONS = ZERO_LINE_FUNCTIONS
 
 #: Functions whose later instances RETURN VERBATIM (their contract's
 #: `returns_as`): the plan realises them as return classes.
@@ -535,7 +780,7 @@ def _edges():
 PATTERN_ATTEMPTS = 200
 
 
-def _sample_pattern(rng, roster=None, form=None):
+def _sample_pattern(rng, roster=None, form=None, max_cells=None):
     """-> ordered tuple of function names. Once-functions once, edges at
     the edges, everything else free.
 
@@ -593,6 +838,8 @@ def _sample_pattern(rng, roster=None, form=None):
                               if roster is None or f in roster)
     enders = (None,) + tuple(f for f in last_fns
                              if roster is None or f in roster)
+    max_cells = ENVELOPE["sections"][1] if max_cells is None \
+        else max_cells
     for _ in range(PATTERN_ATTEMPTS):
         funcs = []
         # An opener, drawn uniformly over the boundary='first' rows plus the
@@ -600,7 +847,18 @@ def _sample_pattern(rng, roster=None, form=None):
         opener = rng.choice(openers)
         if opener:
             funcs.append(opener)
-        n_cells = rng.randint(*ENVELOPE["body_cells"])
+        # THE CELL COUNT IS BOUNDED BY THE SONG THIS PLAN IS ALREADY
+        # COMMITTED TO. `max_cells` comes from the drawn total: every sung
+        # section carries at least one line, so a song of T lines cannot
+        # hold more than T sung sections and therefore not more than T
+        # cells. That is the derivation the old literal `(2, 6)` stood in
+        # for — and it stood in for something real, since the placement
+        # vocabulary's admissible fraction decays smoothly with length
+        # (measured: 71% of one-cell patterns are admissible, 18% at six,
+        # 0.12% at twenty-four). There is no admissible CEILING to derive,
+        # only a decay, so the bound comes from the song and the placement
+        # layer keeps doing the rejecting.
+        n_cells = rng.randint(1, max(1, max_cells))
         bridge_used = False
         for _ in range(n_cells):
             while True:
@@ -743,20 +1001,87 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     # REJECTION SAMPLING over the generated grammar: uniform over the
     # space, CONDITIONED on the envelope (and on --lines when given).
     # Deterministic — the retries are the same rng stream.
+    _GRADEABLE = gradeable_line_counts()
+    k_lo, k_hi = ENVELOPE["lines_per_section"]
     for _attempt in range(500):
-        funcs = _sample_pattern(rng, roster, form=form)
+        # THE LENGTH FIRST. It is the coordinate that decides what the floor
+        # can grade, so it is drawn from the gradeable set before anything
+        # is conditioned on it — and it then BOUNDS the pattern, since a
+        # song of T lines cannot carry more than T sung sections.
+        total = rng.choice(sorted(_GRADEABLE))
+        funcs = _sample_pattern(rng, roster, form=form, max_cells=total)
         s_lo, s_hi = ENVELOPE["sections"]
         if not s_lo <= len(funcs) <= s_hi:
             continue
-        k_lo, k_hi = ENVELOPE["lines_per_section"]
-        ks = {}
+        # THE TOTAL FIRST, THEN THE PARTITION — the dimension-by-dimension
+        # derivation `_sample_meter` already follows, and it is not a
+        # convenience: drawing each kind's line count INDEPENDENTLY over the
+        # song's whole capacity blows the joint budget almost every time
+        # (measured at 6 plans in 200 seeds), and rejecting those draws would
+        # bias the survivors toward whichever shapes happen to fit. So the
+        # TOTAL is drawn uniform over the gradeable set — which is the
+        # distribution that matters, since it decides how long a song this
+        # planner volunteers — and the per-kind counts are then drawn to sum
+        # to it exactly.
+        #
+        # A kind appearing c times contributes c x k lines, so each draw is
+        # bounded by what remains after every LATER kind takes its minimum of
+        # one line per instance. The kind ORDER is shuffled from the same
+        # seeded stream, because a fixed order would hand the first kind the
+        # widest range on every plan — a bias in the sampler's own bookkeeping
+        # rather than in its declared space.
+        kinds = [f for f in dict.fromkeys(funcs)
+                 if f not in ZERO_LINE_FUNCTIONS]
+        counts = {fn: sum(1 for f in funcs if f == fn) for fn in kinds}
+        order = list(kinds)
+        rng.shuffle(order)
+        shape = tuple(counts[f] for f in order)
+        drawn = _partition_uniform(shape, total, rng)
+        if drawn is None:
+            # This (pattern, total) pair admits no assignment at all — every
+            # kind needs at least one line per instance and the total cannot
+            # cover them, or the arithmetic leaves no whole remainder.
+            # Rejected, never rounded: a rounded total is a length the floor
+            # was not asked about.
+            continue
+        ks = {f: 0 for f in dict.fromkeys(funcs)}
+        for fn, k in zip(order, drawn):
+            ks[fn] = k
+        # PHRASES FOR THE WORDLESS SECTIONS, from the SAME per-section
+        # envelope. They consume no lines — they carry no words — so they
+        # are not part of the partition above, but they are not free either:
+        # a wordless section's bars follow from its phrase count exactly as
+        # a sung section's follow from its line count, so it cannot be a
+        # one-bar token an optimiser appends to satisfy a structural rule.
+        phrases = dict(ks)
+        # AT THIS SONG'S OWN SCALE, not at the envelope's. A wordless
+        # section consumes no lines, so nothing in the partition bounds it —
+        # and drawn against the global ceiling it produced instrumentals of
+        # 984 bars beside verses of four, which is the freebie inverted
+        # rather than closed. The scale that IS available is the song's own:
+        # the longest sung section this plan drew. An instrumental is as long
+        # as this song's sections are, which is a derivation from the plan
+        # rather than a number chosen for it.
+        _scale = max([v for f, v in ks.items()
+                      if f not in WORDLESS_FUNCTIONS] or [k_lo])
         for fn in dict.fromkeys(funcs):
-            ks[fn] = 0 if fn in ZERO_LINE_FUNCTIONS \
-                else rng.randint(k_lo, k_hi)
-        total = sum(ks[f] for f in funcs)
+            if fn in WORDLESS_FUNCTIONS:
+                phrases[fn] = rng.randint(k_lo, max(k_lo, _scale))
         # verbatim returners: later instances are copies, so they carry the
-        # SAME line count already (ks is per kind) — total stands.
-        if not t_lo <= total <= t_hi:
+        # SAME line count already (ks is per kind) — the drawn total stands.
+        assert total == sum(ks[f] for f in funcs), (
+            "the partition must sum to the drawn total; a mismatch here "
+            "would mean the plan's length is not the length the gradeable "
+            "set was asked about")
+        #
+        # THE SET, NOT THE SPAN. `gradeable_line_counts()` is not contiguous
+        # — 6 to 11 lines lands between the section profile's reach and the
+        # sonnet's, where every length-sensitive finding is downgraded to a
+        # note — so a span test would volunteer plans the floor cannot hold
+        # to anything. Rejection against the set keeps the draw uniform over
+        # what is ACCEPTED, which is the same argument the placement layer's
+        # rejection sampling makes.
+        if total not in _GRADEABLE:
             continue
         if lines is not None and total != lines:
             continue
@@ -770,6 +1095,8 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             f"500 seeded draws found no plan matching the request inside "
             f"the envelope (sections {ENVELOPE['sections']}, lines/section "
             f"{ENVELOPE['lines_per_section']}, total {ENVELOPE['total_lines']}"
+            f" MINUS the uncalibrated runs {line_count_gaps()}, which no "
+            f"floor profile grades with teeth"
             f"{', exact total ' + str(lines) if lines is not None else ''}) "
             f"— try another seed, drop --lines, or declare the shape by "
             f"hand.")
@@ -796,8 +1123,13 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     # grader's own shape layer a RETURN_SLOT_DRIFT on a return this very
     # plan mandates as verbatim (caught by the first round-trip probe,
     # 2026-08-18). Halves need a subdivided grid to land on.
-    ana_choices = [a for a in ENVELOPE["anacrusis"]
-                   if a == int(a) or sub >= 2]
+    # DERIVED FROM THE GRID THIS PLAN ACTUALLY DREW, not filtered out of a
+    # table: a pickup must land on a grid position, and a section at
+    # subdivision `sub` resolves k/sub of a beat. The old filter kept whole
+    # beats plus halves-if-subdivided, which is the sub=2 case written out —
+    # it denied a sub=4 section the quarter-beat pickups its own grid can
+    # land on, and no coordinate said so.
+    ana_choices = list(_anacrusis_choices(sub))
     anacrusis = {fn: rng.choice(ana_choices)
                  for fn in dict.fromkeys(funcs) if ks[fn] > 0}
 
@@ -811,7 +1143,12 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         counts[fn] = counts.get(fn, 0) + 1
         name = f"{fn.upper()}{counts[fn]}"
         k = ks[fn]
-        n_bars = max(k, 1) * bars
+        # BARS FOLLOW THE PHRASE COUNT, which for a sung section IS its line
+        # count and for a wordless one is its own draw. `max(k, 1)` used to
+        # stand here and it is what made an instrumental exactly one line's
+        # worth of music whatever else the plan did — the freebie this
+        # section's own comment now records.
+        n_bars = phrases[fn] * bars
         ana = anacrusis.get(fn, 0.0)
         sections.append({"name": name, "function": fn,
                          "bars": n_bars, "start_bar": bar,
@@ -940,6 +1277,36 @@ def fill_plan(plan, lines):
     }
 
 
+def _pickup_phrase(beats):
+    """-> the pickup clause for an anacrusis of `beats` beats.
+
+    DERIVED FROM THE FRACTION, not looked up. It was a dict literal
+    `{0.0: "", 0.5: ", half-beat pickup", 1.0: ", one-beat pickup"}`, which
+    is the sub=2 grid written out — and the moment the anacrusis became a
+    function of the section's OWN subdivision (2026-08-23) a legitimate
+    quarter-beat pickup raised `KeyError: 0.75` from inside the report
+    builder. A table standing in for arithmetic, found by widening the space
+    it was silently bounding.
+
+    Renders exact fractions rather than decimals because a pickup is a
+    position on a grid: `three-quarter-beat`, not `0.75-beat`.
+    """
+    if not beats:
+        return ""
+    frac = Fraction(beats).limit_denominator(64)
+    if frac.denominator == 1:
+        names = {1: "one", 2: "two", 3: "three", 4: "four"}
+        n = names.get(frac.numerator, str(frac.numerator))
+        return f", {n}-beat pickup"
+    parts = {2: "half", 3: "third", 4: "quarter", 6: "sixth", 8: "eighth"}
+    unit = parts.get(frac.denominator, f"1/{frac.denominator}")
+    if frac.numerator == 1:
+        return f", {unit}-beat pickup"
+    words = {2: "two", 3: "three", 5: "five", 7: "seven"}
+    n = words.get(frac.numerator, str(frac.numerator))
+    return f", {n}-{unit}-beat pickup"
+
+
 def section_header(sec, slots):
     """The bracket header for one section — measurements SURFACED from the
     section's own dict and its own line slots, the same numbers the grid
@@ -953,8 +1320,7 @@ def section_header(sec, slots):
             f"of {im['beats']}/{im['unit']}")
     if not slots:
         return f"[{sec['function'].upper()} — instrumental — {size}, no words]"
-    pickup = {0.0: "", 0.5: ", half-beat pickup",
-              1.0: ", one-beat pickup"}[slots[0]["beat"] - 1]
+    pickup = _pickup_phrase(slots[0]["beat"] - 1)
     n = len(slots)
     return (f"[{sec['function'].upper()} — {n} "
             f"line{'s' if n != 1 else ''} — {size}{pickup}]")

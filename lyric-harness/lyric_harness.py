@@ -1861,6 +1861,14 @@ def line_anchors(lex, text, promote=False):
     return uniq, last, oov
 
 
+#: EVERY TAG `span_provenance` READS, named once so the guard and the body
+#: cannot disagree about the set. `_tag_span_words` and `word_syllable_map`
+#: are the two taggers and both write all six; a reader that writes fewer
+#: gets `None` from `span_provenance`, which is its documented answer.
+_PROVENANCE_KEYS = ("widx", "word", "syl_in_word", "word_syllables",
+                    "word_read", "word_unread")
+
+
 def span_provenance(anc):
     """Which WORDS a scored span covers -> dict, or None when it cannot say.
 
@@ -1871,7 +1879,14 @@ def span_provenance(anc):
     """
     if not anc:
         return None
-    if any("widx" not in s for s in anc):
+    # THE GUARD TESTS EVERY KEY THE BODY READS, since 2026-08-23. It tested
+    # `widx` alone and the body reads six, so a span tagged by a reader that
+    # supplies `widx` and not the rest passed the gate and raised `KeyError`
+    # three frames down, inside `best_score`. "Cannot say" is this function's
+    # documented answer for an untagged span and a traceback is not a way of
+    # saying it (doctrine 20); the one-key guard made the difference between
+    # those two outcomes depend on WHICH tagger had run.
+    if any(any(k not in s for k in _PROVENANCE_KEYS) for s in anc):
         return None
     runs = []
     for s in anc:
@@ -3367,6 +3382,24 @@ def word_syllable_map(lex, text):
     is the last word the dictionary could READ, which is not in general the
     line's last word. Anything that wants the rhyme word must use
     `raw_final_token`, and `widx` is kept so a caller can see the gap.
+
+    THE FULL PROVENANCE TAG SET SINCE 2026-08-23, and it was a CRASH before.
+    This function tagged `word` and `widx`; `_tag_span_words` \u2014 the tagger on
+    the `line_anchors` path \u2014 tags those plus `syl_in_word`, `word_syllables`,
+    `word_read` and `word_unread`. `span_provenance` GUARDS on `widx` and then
+    READS all six, so a span built from this map passed the guard and died on
+    `KeyError: 'syl_in_word'` inside `best_score`. Nothing had ever handed it
+    one: `internal_matches` is this map's only in-tree consumer and it calls
+    `score()` directly, never `best_score`. The slot layer
+    (`quality/slots.py`) is the first caller to route a non-final span through
+    the full comparator, and it found this on its first probe.
+    TAGGED HERE RATHER THAN AT THE NEW CALLER, because the alternative is a
+    second tagging implementation beside `_tag_span_words` (doctrine 1), and
+    because this map is the one object that already knows every value: it
+    syllabifies word by word, so the count and the position within the word
+    are what its own loop is holding. `span_provenance`'s guard is widened in
+    the same commit to test every key it reads, so a span from a THIRD reader
+    gets the documented `None` \u2014 "cannot say" \u2014 instead of a traceback.
     """
     words = line_tokens(text, strip_parens=lex.strip_parens)
     out = []
@@ -3381,10 +3414,25 @@ def word_syllable_map(lex, text):
         final = (k == len(words) - 1)
         if lw in WEAK_ALWAYS or (lw in WEAK_NONFINAL and not final):
             phones = [re.sub(r"[12]$", "0", ph) for ph in phones]
-        for s in syllabify(phones):
+        # The hyphen halves, read exactly as `_tag_span_words` reads them:
+        # a span may name a token that is only partly the string it was built
+        # from, and a provenance record that cannot say so is the defect
+        # `token_pieces` exists to close.
+        rd, un = (token_pieces(lex, w) if HYPHEN_SPLIT.search(w)
+                  else (None, None))
+        sylls = syllabify(phones)
+        for n, s in enumerate(sylls):
             s = dict(s)
             s["word"] = w
             s["widx"] = k
+            #: 1-BASED within its word, matching `_tag_span_words`' own
+            #: `seen[w]` counter \u2014 `span_provenance.partial_word` tests
+            #: `first_syllable > 1`, so a 0-based count here would report
+            #: every span as partial.
+            s["syl_in_word"] = n + 1
+            s["word_syllables"] = len(sylls)
+            s["word_read"] = tuple(rd) if rd is not None else ()
+            s["word_unread"] = tuple(un) if un is not None else ()
             out.append(s)
     return out
 
@@ -7694,11 +7742,29 @@ def main():
                 and `song` says both out loud rather than a sum when it
                 chooses its exit code.
                 """
+                # THE LENGTH GATE, counted APART from flags and notes
+                # (doctrine 79 — three counts, never a sum). A draft whose
+                # length reaches no calibrated profile has had every
+                # length-sensitive check SKIPPED, and before 2026-08-23 that
+                # was a NOTE beside an exit 0, so "nothing could be checked"
+                # and "nothing was wrong" were the same answer to a caller
+                # reading the code. It is not promoted to a flag: a whole-
+                # draft flag would spend every round of the revise loop on a
+                # defect the loop has no move for and then report
+                # ROUND_LIMIT (the failure mode CLAUDE.md records for
+                # exactly three codes). It moves the EXIT CODE instead.
+                # LAZY, like every other `quality` import in this file: the
+                # quality package imports THIS module, so a top-level import
+                # here is a cycle.
+                from quality.floor import LENGTH_GATE_CODES
+                ungraded = [f for f in whole
+                            if f.code in LENGTH_GATE_CODES]
                 return {"briefed": len(briefs), "flags": n_flag,
                         "notes": n_note, "flagged_lines": flagged_lines,
                         "rolled_codes": len(rolled),
                         "rolled_findings": rolled_n,
-                        "whole": len(whole), "whole_flags": len(whole_flags)}
+                        "whole": len(whole), "whole_flags": len(whole_flags),
+                        "ungraded_length": len(ungraded)}
 
             def _print_whole():
                 """BELOW the per-line half on purpose: `inspect()`'s own
@@ -8322,6 +8388,24 @@ def main():
         # Computed from the finding set, never from the rendering — the
         # rollup above collapses 48 findings into 3 rows and does not move
         # this by one (`quality/test_verbs.py` §15).
+        # THE LENGTH GATE IS CHECKED FIRST AND EXITS 2, not 3. Exit 3 means
+        # "answered, and a finding stands"; this is the harness saying it
+        # COULD NOT ANSWER about a whole layer, which is exit 2's meaning and
+        # the code `NoMandate` and an undecodable file already take. A caller
+        # in a pipeline can tell "your song has a defect" from "I cannot
+        # grade a song this length" — which is the distinction doctrine 20
+        # exists for, and which a note beside exit 0 destroyed.
+        if cmd == "song" and song_counts and song_counts.get(
+                "ungraded_length"):
+            print(f"\n  EXIT 2 — this draft's length reaches no calibrated "
+                  f"profile, so every length-sensitive check was SKIPPED. "
+                  f"The rhyme, meter and structure layers above DID report "
+                  f"and their findings stand; what is missing is the floor, "
+                  f"and a run that cannot certify may not exit 0 (doctrine "
+                  f"20). Write inside a calibrated length, calibrate this "
+                  f"one, or declare "
+                  f"`FloorDeclaration(uncalibrated_length='note')`.")
+            sys.exit(2)
         if cmd == "song" and song_counts and (song_counts["flags"]
                                               or song_counts["whole_flags"]):
             per_line = (f"{song_counts['flags']} FLAG finding(s) on "

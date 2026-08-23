@@ -1361,6 +1361,14 @@ def _normalise_returns(raw, n_lines, rule):
 # ---------------------------------------------------------------------------
 
 
+#: The slot layer's refusal, re-exported under the name this module
+#: raises so a caller catching `NoMandate` still catches a placement
+#: that cannot be graded. It is `slots.SlotUnsupported`, aliased and not
+#: re-declared: two exception classes for one refusal is how a caller
+#: ends up catching the wrong one (doctrine 1).
+from quality.slots import SlotUnsupported as SlotRefused  # noqa: E402
+
+
 class NoMandate(ValueError):
     """Raised when a grader is asked to check a draft against NOTHING.
 
@@ -1431,6 +1439,25 @@ class Mandate:
     #: per-group name goes through, so a typo refuses when the mandate is
     #: written rather than answering a different question at grade time.
     default_relation: str = ""
+    #: WHERE IN EACH LINE THE GROUP BINDS — index-aligned with `groups`, and
+    #: the coordinate that stops this layer being end-rhyme-only (2026-08-23,
+    #: owner ruling: *"there's just no way that we can only be contemplating
+    #: the last word of every line"*).
+    #:
+    #: Entry k is `""` — every member of group k binds at the DEFAULT slot,
+    #: the end of its line — or a tuple index-aligned with `groups[k]`'s own
+    #: (sorted) members, each entry a `quality.slots.Slot` or None for the
+    #: default. Absence has ONE meaning, so every mandate ever written or
+    #: stored reads exactly as it always did (doctrine 66), and
+    #: `slot_of` resolves the absence rather than each caller doing it.
+    #:
+    #: WHY A PARALLEL TUPLE rather than richer members: a group is a tuple of
+    #: 1-based line numbers and about sixty sites take that literally —
+    #: `min()`, `max()`, `sorted()`, `matrix[i - 1][j - 1]`, the
+    #: `range(1, n + 1)` complement that computes `free`, and
+    #: `_normalise_groups`' own `int()` coercion. This is the convention
+    #: `structures` and `relations` already use, for the same reason.
+    loci: tuple = ()
     #: 1-based lines in no group at all -- declared free, mandating nothing
     free: tuple = ()
     source: str = "declared"          # "declared" | "derived"
@@ -1514,6 +1541,45 @@ class Mandate:
         # mandate declaring NEITHER falls through to the coarse admit set, so
         # every caller that never learned this field is unaffected.
         return self.default_relation or ""
+
+    def slot_of(self, group_index, line):
+        """-> the `Slot` one LINE binds at inside one GROUP.
+
+        The resolution of `loci`'s absences, done HERE so no caller repeats it
+        (doctrine 1): an undeclared group, an undeclared member, or a `None`
+        entry all mean the default slot — the end of that line — which is
+        what a bare line number has always meant.
+
+        A line that is not in the group raises, rather than answering with a
+        default: "this line binds at the end" and "this line is not in this
+        group" are different facts and returning one for the other is how a
+        grader ends up scoring a pair nobody declared (doctrine 20).
+        """
+        from quality import slots as _SL
+        g = self.groups[group_index]
+        if line not in g:
+            raise NoMandate(
+                f"L{line} is not in group {self.labels[group_index]} "
+                f"{list(g)} — a slot is a place a MEMBER binds at, so asking "
+                f"for a non-member's slot is asking about a requirement that "
+                f"does not exist.")
+        if group_index < len(self.loci):
+            place = self.loci[group_index]
+            if place:
+                slot = place[g.index(line)]
+                if slot is not None:
+                    return slot
+        return _SL.as_slot(line)
+
+    def slots_declared(self):
+        """-> True when ANY group binds anywhere but its lines' ends.
+
+        The one question a caller asks to decide whether it must take the slot
+        path at all, so the byte-identical fast path for an ordinary
+        end-rhyme mandate is a property of the object rather than a guess at
+        each call site.
+        """
+        return any(bool(p) for p in self.loci)
 
     def pairs(self):
         """-> [(i, j, group_index)], 1-based, i < j. THE mandate, expanded.
@@ -2180,34 +2246,93 @@ class Mandate:
         return "\n".join(rows)
 
 
+def _member_slot(x):
+    """One raw group member -> (line, Slot|None).
+
+    A member is a LINE (`3`, `'3'`) or a line and a place in it (`'3.head'`,
+    `'3.T2'`) — the placement coordinate that stops this layer being
+    end-rhyme-only (`quality/slots.py`). `None` means the default slot, which
+    is the end of the line, which is what a bare line number has always
+    meant: absence keeps ONE reading (doctrine 66).
+    """
+    if isinstance(x, str) and "." in x:
+        from quality import slots as _SL
+        slot = _SL.check(_SL.parse_slot(x))
+        return slot.line, slot
+    return int(x), None
+
+
 def _normalise_groups(raw, n_lines):
-    """-> (groups, free). Validates, dedupes, and sends singletons to free."""
-    seen, groups = set(), []
+    """-> (groups, free, loci). Validates, dedupes, sends singletons to free.
+
+    `loci` is index-aligned with `groups`, and each entry is either `""` — every
+    member of that group binds at the default slot, the end of its line — or a
+    tuple index-aligned with THAT group's own (sorted) members. The parallel
+    tuple is the convention `structures` and `relations` already use, and it is
+    used here for the reason `quality/slots.py` records: a group is a tuple of
+    line numbers that some sixty sites take literally (`min`, `max`, `sorted`,
+    `matrix[i - 1][j - 1]`, the `range(1, n + 1)` complement just below), so a
+    placement object put INTO it would be coerced back by the `int()` on the
+    line above or would break every one of them.
+
+    THE DEDUP KEY CARRIES THE PLACEMENT, and it has to: `L1.end ~ L2.end` and
+    `L1.head ~ L2.head` are two different requirements over one pair of lines
+    — a song can ask for both at once — and a key of line numbers alone would
+    silently collapse the second into the first.
+    """
+    seen, groups, loci = set(), [], []
     for g in raw:
         try:
-            members = sorted({int(x) for x in g})
-        except (TypeError, ValueError):
+            pairs = [_member_slot(x) for x in g]
+        except SlotRefused:
+            raise
+        except (TypeError, ValueError) as e:
             raise NoMandate(
-                f"a mandate group must be an iterable of line numbers; got "
-                f"{g!r}. A partition is a list of LINE GROUPS -- "
-                f"[[1, 3], [2, 4]] -- not a list of letters.")
-        for i in members:
+                f"a mandate group must be an iterable of line numbers, each "
+                f"optionally naming a place in its line; got {g!r} ({e}). A "
+                f"partition is a list of LINE GROUPS -- [[1, 3], [2, 4]] -- "
+                f"not a list of letters.")
+        for i, _ in pairs:
             if not 1 <= i <= n_lines:
                 raise NoMandate(
                     f"line {i} is outside 1..{n_lines}. Mandate line numbers "
                     f"are 1-BASED and run over the WHOLE song, because a "
                     f"stanza is a printing convention and a rhyme that "
                     f"answers thirty lines earlier has to be expressible.")
+        by_line = {}
+        for i, slot in pairs:
+            if i in by_line and by_line[i] != slot:
+                # A WITHIN-LINE BINDING, and it is REFUSED rather than
+                # silently deduplicated (doctrine 20). A group is a SET of
+                # lines, so it cannot hold one line twice, so this layer
+                # cannot state "L1's opening answers L1's own ending". The
+                # harness is not blind to that figure — it is the `same_line`
+                # placement `relations.realise` reports and `quality/figures.py`
+                # is built to keep — so the refusal names the route rather
+                # than the limit.
+                raise NoMandate(
+                    f"group {list(g)!r} names line {i} twice, at two places. "
+                    f"A WITHIN-LINE binding is not expressible as a mandated "
+                    f"group: a group is a set of lines and a rhyme whose two "
+                    f"members share a line has one member. Ask it as a "
+                    f"`schema:` relation — `relations.realise` reports "
+                    f"same-line instances and `quality/figures.py` reads "
+                    f"them — or bind the two lines that carry it.")
+            by_line[i] = slot
+        members = sorted(by_line)
         if len(members) < 2:
             continue            # a singleton mandates nothing; it is FREE
-        key = tuple(members)
+        place = tuple(by_line[i] for i in members)
+        key = (tuple(members),
+               tuple(p.rule if p is not None else None for p in place))
         if key in seen:
             continue
         seen.add(key)
-        groups.append(key)
+        groups.append(tuple(members))
+        loci.append("" if all(p is None for p in place) else place)
     covered = {i for g in groups for i in g}
     free = tuple(i for i in range(1, n_lines + 1) if i not in covered)
-    return tuple(groups), free
+    return tuple(groups), free, tuple(loci)
 
 
 def _normalise_scope(raw, n_lines, groups, returns):
@@ -2471,7 +2596,7 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
                 [max(g) for g in raw if g] or [0])
             org = origin or "declared line groups"
 
-    groups, free = _normalise_groups(raw, n)
+    groups, free, loci = _normalise_groups(raw, n)
     if not groups:
         raise NoMandate(
             "the mandate declares no group of two or more lines, so it "
@@ -2496,7 +2621,7 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
     sc = _normalise_scope(scope, n, groups, rets)
     return Mandate(n_lines=n, groups=groups, labels=labels, free=free,
                    source=source, origin=org, returns=rets, scope=sc,
-                   rule=rule,
+                   rule=rule, loci=loci,
                    structures=(_st := _normalise_structures(
                        structures, labels, len(groups))),
                    relations=_normalise_relations(relations, labels,

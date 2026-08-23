@@ -142,6 +142,83 @@ the ban is unskippable at any exit code. All connector-side
 (`mcp/lyric_tools.js`, `gemini_agent.js`, `chat.js`, the page) — the
 harness itself is untouched.
 
+**THE END-RHYME PROJECTION IS NO LONGER THE ARCHITECTURE — PLACEMENT IS A
+DECLARED COORDINATE (2026-08-23, `MISSING.md` M-67).** The owner's ruling,
+verbatim: *"it looks like an insane idea to me to only be planning around end
+rhyme and only ever look for end rhymes. rhymes happen in the first word in
+several rhyme types, rhymes happen all throughout the piece as well ... there's
+just no way that we can only be contemplating the last word of every line."*
+**AND DOCTRINE 2 HAS SAID SO SINCE THE FIRST COMMIT** — *"the full pairwise
+score matrix is the primary object ... never rebuild a projection-first
+architecture"* — while every enforcement layer here was built on one
+projection: `line_anchors` takes `words[-1]`, a `Mandate` group is a tuple of
+LINE numbers, `swap_end_word` is the loop's only move, the planner emits
+end-letter schemes. The doctrine sat at the top of this file and the
+architecture drifted anyway, because the graph that got built was the
+projection wearing the doctrine's name.
+**THE VOCABULARY WAS ALREADY ON DISK AND REACHABLE BY ALMOST NOTHING.**
+`quality/relations.py`'s `SpanRule` — locus, anchor, direction, magnitude —
+has carried it since 2026-08-10, and its own census is the argument: over the
+77 schemas' 154 member rules the anchors are `word_start` 64, `last_stressed`
+58, `word_end` 15, `searched` 8, `none` 6, `final_unstressed` 2, `penult` 1.
+Nearly half the vocabulary reads from the FRONT of a word, and **8 schemas are
+MIXED** — one member at each end, which no global alignment value can express.
+It was reachable only through a `schema:` mandate; the default grading path
+reached none of it. `grade()` said so in its own comment, one line above the
+hardcoded `position="end"` it was diagnosing.
+**`quality/slots.py` + `Mandate.loci` CLOSE IT.** Placement rides in a PARALLEL
+index-aligned coordinate — the convention `structures` and `relations` already
+use — because a group is a tuple of line numbers that some sixty sites take
+literally, down to `_normalise_groups`' own `int(x)`. Absence keeps ONE meaning
+and the default slot is resolved by CALLING `line_anchors`, so every mandate
+ever written is byte-identical BY CONSTRUCTION. `--groups=1.T4,2` binds L1's
+FOURTH WORD to L2's end; `grade()` scores it through the SAME `best_score`;
+`brief()` names the right word; `loop.swap_at_slot` rewrites the right word;
+`revise_loop` converges. **WHAT REFUSES IS THE POINT**: seven loci need a frame
+a mandate does not carry and refuse AT DECLARATION TIME naming it; a `searched`
+anchor refuses citing doctrine 56; and a WITHIN-LINE binding refuses naming the
+route that does answer it (`relations.realise` + `quality/figures.py`), because
+a group is a set of lines and a rhyme whose members share a line has one
+member. `quality/test_slots.py`, 9 sections.
+
+**AND THE PLANNER'S ENVELOPE IS DERIVED NOW, ALL SIX BOUNDS (2026-08-23,
+`MISSING.md` M-69/M-70).** The owner's standing rule: *"we do not want hard
+numbers anywhere ... meter should be something like x/y and number of lines
+should be something like N"*, and on the specific one, *"1-16 is weird ...
+should we change it to a variable?"* — with increasing the digit refused in
+the same breath as the same stub in a bigger hat. V2 replaced the planner's
+TABLES and left its BOUNDS literal. The derivation source was measured and
+unread: every floor profile STATES its line count in its `unit` prose
+("4-line quatrain", "14-line sonnet") where no code could reach it.
+`Profile.n_lines` declares it, and the two stanza profiles then fix a
+tokens-per-line band agreeing to a fifth of a token (7.25–9.25 against
+7.71–9.00).
+**SO THE ENVELOPE IS WHAT THE ENFORCEMENT CAN ENFORCE.** MEASURED over
+1–699 tokens: **39.9% of lengths can produce a FLAG, 29.8% sit in a tolerance
+band where every length-sensitive finding is downgraded to a note, and 30.3%
+reach no profile at all.** `gradeable_line_counts()` is the surviving set and
+it is NOT contiguous — **a song of 6 to 11 lines cannot be graded with teeth
+at any length-sensitive check** — and `line_count_gaps()` prints that hole in
+every plan's own disclosure, so it is a calibration request rather than a
+discovery. Three more literals fell out while widening what they silently
+bounded: a pickup-phrase lookup table that raised `KeyError: 0.75` the moment
+anacrusis became a function of the section's own subdivision; an independent
+per-kind line draw that produced **6 plans in 200 seeds** (replaced by
+`_partition_uniform`, the counted-completions move `_rgs_uniform` already
+uses — acceptance 91%); and `body_cells (2, 6)`, which was tracking a REAL
+decay by guesswork (the placement vocabulary admits **71%** of one-cell
+patterns, **18%** at six, **0.12%** at twenty-four — a decay, not a ceiling).
+**AND AN INSTRUMENTAL IS NOT A SECTION WITH NO CONSTRAINTS.** The owner:
+*"instrumental is not free of lines. what have you that idea?"* — and the idea
+came from v2's own paragraph here, repeated uncritically. A section carrying
+no constraint mass is a free token an optimiser appends to satisfy any
+structural rule, which is the two-line-outro cheat in its cheapest form. Every
+section draws a PHRASE count and its bars follow from it; `WORDLESS_FUNCTIONS`
+removes the LYRIC half and nothing else. The first fix overshot the other way
+— **984-bar instrumentals beside four-line verses** — so the phrase count is
+drawn against the longest SUNG section THIS plan drew, a derivation from the
+plan rather than a number chosen for it.
+
 **THE CAPACITY LAYER (density stage 1, derived 2026-08-19).** The
 owner's ruling on rhyme density: solve, don't census — a survey of
 what's been done would band the middle and rate the marvel verse

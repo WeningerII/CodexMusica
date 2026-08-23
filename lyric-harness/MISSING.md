@@ -7998,3 +7998,184 @@ the aggregate standing. The loop's stop conditions needed no change:
 the 2026-08-15 `pursue` coordinate was built for and could never reach here.
 `test_floor` / `test_loop` / `test_revise` / `test_nc_census` / `test_verbs`
 all green at rc 0 after the change.
+
+### M-67 · the declaration layer could not say WHERE in a line a requirement binds, so every enforcement in this repository was built on the last word `CLOSED` 2026-08-23
+**Owner's ruling, verbatim:** *"it looks like an insane idea to me to only be
+planning around end rhyme and only ever look for end rhymes. rhymes happen in
+the first word in several rhyme types, rhymes happen all throughout the piece
+as well. we can not be focusing on a small percentage of the words in the
+entire piece ... there's just no way that we can only be contemplating the
+last word of every line."*
+
+**AND DOCTRINE 2 HAD SAID SO SINCE THE FIRST COMMIT.** *"The full pairwise
+score matrix is the primary object. Letter schemes, chains, blueprints are
+lossy projections ... Never rebuild a projection-first architecture."* What
+was actually built: `line_anchors` takes `words[-1]`; a `Mandate` group is a
+tuple of LINE numbers; `swap_end_word` is the revise loop's only move; the
+planner emits end-letter schemes; the floor's modal and predictability tables
+are end-word tables. The doctrine sat at the top of the file the whole time
+and the architecture drifted anyway, because the graph that got built was the
+projection wearing the doctrine's name.
+
+**AND THE VOCABULARY FOR THE FIX WAS ALREADY ON DISK.** `quality/relations.py`
+has carried it since 2026-08-10 — a member is found by a `SpanRule` (locus,
+anchor, direction, magnitude), and its census is the argument: over the 77
+registered schemas' 154 member rules the anchors are `word_start` 64,
+`last_stressed` 58, `word_end` 15, `searched` 8, `none` 6, `final_unstressed`
+2, `penult` 1. The vocabulary is almost evenly split between reading from the
+FRONT of a word and from the BACK, and **8 schemas are MIXED** — one member
+anchored at each end, which no global alignment setting can express
+(amphisbaenic rhyme is `word_start` against `word_end`; linked rhyme is a
+line-final against a line-INITIAL). It was reachable only through a `schema:`
+mandate, which builds its own stream and judges with its own channels; the
+DEFAULT grading path reached none of it.
+
+**`grade()` DIAGNOSED ITSELF, ONE LINE ABOVE THE LITERAL.** Its own comment
+read: *"A mandate's groups are end-rhyme groups by construction, so 'end' is
+the honest value here ... and it is exactly the wrong value for the internal,
+head, leonine, cross and holorhyme relations, which this path therefore cannot
+yet mandate."* A correct diagnosis sitting above the hardcoded `position="end"`
+it diagnoses. That comment is now struck and is the specification it was
+superseded by.
+
+**THE FIX: `quality/slots.py` + `Mandate.loci`.** Placement rides in a PARALLEL
+index-aligned coordinate, the convention `structures` and `relations` already
+use — not in `groups`, because a group is a tuple of line numbers that roughly
+sixty sites take literally (`min`, `max`, `sorted`, `matrix[i - 1][j - 1]`, the
+`range(1, n + 1)` complement that computes `free`, and `_normalise_groups`' own
+`int(x)` coercion). Absence keeps ONE meaning, so every mandate ever written
+reads exactly as it did. The default slot is resolved by CALLING
+`line_anchors`, not by reimplementing it, so byte-identity is structural.
+**THE DEDUP KEY CARRIES THE PLACEMENT**: `L1.end ~ L2.end` and `L1.head ~
+L2.head` are two requirements over one pair of lines and a key of line numbers
+alone collapsed the second into the first.
+**PROVEN END TO END**: `--groups=1.T4,2` binds L1's FOURTH WORD to L2's end;
+`grade()` scores `morning`~`warning` at 1.000 RHYME through the SAME
+`best_score` the band was calibrated on; `brief()` tells L2 to answer
+`morning` and not `light`; `loop.swap_at_slot` rewrites the word the flag is
+actually about; and a real `revise_loop` converges. `quality/test_slots.py`,
+9 sections.
+**WHAT REFUSES, AND IT IS THE POINT.** Seven of `relations.py`'s thirteen loci
+need a frame a mandate does not carry (caesura, lift template, refrain tail) —
+each refuses AT DECLARATION TIME naming the frame it would need. A `searched`
+anchor refuses citing the multiplicity correction doctrine 56 requires. And a
+group naming ONE LINE TWICE — a within-line binding — refuses naming the route
+that does answer it (`relations.realise` reports same-line instances,
+`quality/figures.py` reads them), because a group is a set of lines and a
+rhyme whose two members share a line has one member.
+
+### M-68 · `span_provenance` guarded on ONE key and read SIX, so a span from the other tagger died three frames down inside `best_score` `CLOSED` 2026-08-23
+**Found by the slot layer's first probe**, which is the first caller ever to
+route a non-line-final span through the full comparator.
+
+`span_provenance` opens `if any("widx" not in s for s in anc): return None` —
+its documented "cannot say" answer — and then reads `syl_in_word`,
+`word_syllables`, `word_read` and `word_unread`. The repository has TWO
+taggers: `_tag_span_words`, on the `line_anchors` path, which writes all six;
+and `word_syllable_map`, the reader `internal_matches` has always used for
+in-line spans, which wrote `word` and `widx` only. So a `word_syllable_map`
+span PASSED the guard and raised `KeyError: 'syl_in_word'`.
+
+**IT HAD NEVER FIRED because nothing had ever handed it one**:
+`internal_matches` is that map's only in-tree consumer and it calls `score()`
+directly, never `best_score`. A latent crash on a path nobody had walked, in
+the function whose entire job is to answer "which words did this span cover".
+
+**FIXED IN BOTH DIRECTIONS.** `word_syllable_map` emits the full tag set — it
+is the object that already knows every value, since it syllabifies word by
+word, and tagging at the new CALLER instead would have put a second tagging
+implementation beside `_tag_span_words` (doctrine 1). And the guard now tests
+every key the body reads, named once in `_PROVENANCE_KEYS`, so a span from a
+THIRD reader gets the documented `None` rather than a traceback — "cannot say"
+is this function's answer and a traceback is not a way of saying it (doctrine
+20). `syl_in_word` is 1-BASED to match `_tag_span_words`' own counter; 0-based
+would have made `partial_word` true of every span.
+
+### M-69 · the planner's envelope was six literals, and the one the owner named was tracking a real boundary by guesswork `CLOSED` 2026-08-23
+**Owner's standing rule:** *"we do not want hard numbers anywhere ... meter
+should be something like x/y and number of lines should be something like N"*
+— and, on this entry's own subject, *"1-16 is weird...should we increase it to
+1-32 or should we change it to a variable?"*. Increasing the digit was refused
+in the same breath: it is the same stub in a bigger hat.
+
+V2 (2026-08-18) replaced the planner's TABLES with generators and left its
+BOUNDS as literals: `lines_per_section (1, 16)`, `sections (2, 12)`,
+`total_lines (4, 64)`, `bars_per_line (1, 4)`, `body_cells (2, 6)`,
+`anacrusis (0.0, 0.5, 1.0)`.
+
+**THE DERIVATION SOURCE WAS ALREADY MEASURED AND WAS NEVER READ.** Each floor
+profile carries a measured token band, and each profile's `unit` string has
+always STATED its line count in prose — "4-line quatrain", "14-line sonnet" —
+where no code could read it. `Profile.n_lines` declares it, and the two stanza
+profiles then fix a tokens-per-line band that agrees to within a fifth of a
+token: 7.25-9.25 from the quatrains, 7.71-9.00 from the sonnets.
+
+**AND THE ENVELOPE BECOMES WHAT THE ENFORCEMENT CAN ENFORCE.** MEASURED across
+1-699 tokens: **39.9% of lengths can produce a FLAG; 29.8% sit inside a
+tolerance band where every length-sensitive finding is downgraded to a note;
+30.3% reach no profile at all.** So `gradeable_line_counts()` is the set of
+line counts whose expected token count lands in some profile's MEASURED range
+— and it is NOT CONTIGUOUS. **A song of 6 to 11 lines falls between the
+section profile's reach and the sonnet's and cannot be graded with teeth at
+any length-sensitive check.** `line_count_gaps()` names it so it is a
+calibration request rather than a discovery.
+
+**THREE MORE LITERALS FELL OUT ON THE WAY, EACH FOUND BY WIDENING WHAT IT WAS
+SILENTLY BOUNDING.**
+(1) `section_header` looked its pickup phrase up in
+`{0.0: "", 0.5: ..., 1.0: ...}` — the sub=2 grid written out — and a
+legitimate quarter-beat pickup raised `KeyError: 0.75` from inside the report
+builder the moment anacrusis became a function of the section's own
+subdivision. `_pickup_phrase` derives it from the fraction.
+(2) Drawing each kind's line count INDEPENDENTLY over the song's capacity
+produced **6 plans in 200 seeds**, and rejecting those draws would have biased
+the survivors toward whichever shapes happen to fit. The total is drawn first,
+uniform over the gradeable set, and the per-kind counts are drawn
+EXACT-UNIFORM over the assignments summing to it (`_partition_uniform` — the
+counted-completions move `_composition_uniform` and `_rgs_uniform` already
+use). Acceptance 91%.
+(3) `body_cells (2, 6)` was tracking something REAL by guesswork: the
+placement vocabulary's admissible fraction decays smoothly with pattern length
+— **measured at 71% for one cell, 18% at six, 0.12% at twenty-four** — so
+there is no ceiling to derive, only a decay. The bound now comes from the song
+(a T-line song carries at most T sung sections) and the placement layer keeps
+doing the rejecting.
+
+**AND THE MOVE-37 GUARD WAS WIDENED AND RE-TIGHTENED IN THE SAME BREATH**, the
+same shape `grid`'s admission took: `plan.py` may now import `floor`, on the
+argument that `floor.PROFILES` is a table of ADOPTED CALIBRATION CONSTANTS of
+the same species as `meter_bands.ADOPTED` which the guard already admitted —
+and a second check asserts that from `floor` it names ONLY `PROFILES`, never a
+reader, because `floor.py` reaches `quality.features` and an unrestricted
+admission is the corpus arriving at the dice by a longer road.
+`quality/test_plan.py` §4 also pins that the envelope MOVES when its source
+moves, by perturbing a profile in-process — a derivation that is written down
+but not wired reads exactly like a literal (doctrine 48).
+
+### M-70 · an instrumental was modelled as a section with no constraints, which is a free token an optimiser can append to satisfy any structural rule `CLOSED` 2026-08-23
+**Owner, verbatim:** *"ok, well no, instrumental is not free of lines. what
+have you that idea?"* — and the idea came from this repository's own v2
+paragraph, *"instrumental functions carry bars with no lines"*, repeated
+uncritically by the session that was asked about it.
+
+**MUSICALLY FALSE**: an instrumental has bars, a meter and phrase structure;
+what it lacks is words. **STRUCTURALLY DANGEROUS**, and this is the half that
+matters: `plan.py` gave a wordless function `ks[fn] = 0` and then
+`n_bars = max(k, 1) * bars`, so an instrumental was exactly one line's worth
+of music however long the song was. A section carrying no constraint mass is
+the cheapest possible version of the two-line outro the owner caught gaming a
+variety rule — any requirement over sections could be answered by appending
+constraint-free instrumentals.
+
+**FIXED**: `WORDLESS_FUNCTIONS` names the set for what it is, every section
+draws a PHRASE count, and bars follow from it exactly as a sung section's
+follow from its line count. What the label removes is the LYRIC half — no line
+slots, no rhyme group, nothing to fill — and nothing else.
+**AT THE SONG'S OWN SCALE, and the first attempt was wrong in the other
+direction**: drawn against the global envelope, a wordless section consumes no
+lines so nothing bounded it, and the planner produced instrumentals of **984
+bars beside verses of four** — the freebie inverted rather than closed. The
+phrase count is drawn against the longest SUNG section this plan itself drew,
+which is a derivation from the plan rather than a number chosen for it.
+MEASURED after: wordless sections run at a median 33 bars against sung
+sections' 18, the same order of magnitude.

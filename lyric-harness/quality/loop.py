@@ -245,7 +245,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
-from lyric_harness import load_lyric_lines, raw_final_token  # noqa: E402
+from lyric_harness import (load_lyric_lines, line_tokens,
+                           raw_final_token)
+from quality import slots as _SL  # noqa: E402
 from quality.revise import (ReviseDeclaration, Reviser,  # noqa: E402
                             draft_fingerprint)
 
@@ -293,6 +295,64 @@ def swap_end_word(text, new_word):
     else:
         cased = new_word.lower()
     return text[:last.start()] + cased + text[last.end():]
+
+
+def swap_at_slot(text, slot, new_word):
+    """-> `text` with the token the SLOT names replaced; `None` if it cannot
+    be done without guessing.
+
+    The generalisation of `swap_end_word` to the placement coordinate
+    (`quality/slots.py`), and the reason it has to exist: `grade()` can flag a
+    binding that is NOT at the line's end, and a loop whose only move is an
+    end-word swap would answer that flag by rewriting the wrong word — the
+    writer told to fix L3's opening and handed a rewrite of its ending. One
+    question, two readings (doctrine 1), with the loop acting on the wrong
+    one.
+
+    THE DEFAULT SLOT IS `swap_end_word`, CALLED. Same discipline
+    `slots.resolve` uses for `line_anchors`: the ordinary case is not
+    reimplemented, so every existing run keeps its exact behaviour including
+    the paren-stripping refusal that function documents.
+
+    A slot naming no token in this line returns None — the loop's own "no
+    move here" — rather than falling back to a token nearby.
+    """
+    if _SL.is_default(slot):
+        return swap_end_word(text, new_word)
+    slot = _SL.as_slot(slot)
+    toks = list(_WORD_RE.finditer(text))
+    if not toks:
+        return None
+    # THE TOKEN INDEX IS READ THROUGH `line_tokens`, the one definition of
+    # "the words of a line" the rhyme path may use, and then matched back to
+    # the RAW span so leading words, punctuation and whitespace stay
+    # byte-identical — the property `swap_end_word` refuses rather than
+    # loses. A disagreement between the two readings refuses here too.
+    words = line_tokens(text)
+    if [m.group(0) for m in toks] != list(words):
+        return None
+    locus = slot.rule.locus
+    if locus == "line_final_token":
+        idx = len(toks) - 1
+    elif locus == "line_initial_token":
+        idx = 0
+    elif locus == "any_token":
+        idx = _SL._declared_token(slot.rule)
+    else:
+        # `line` covers every token, so "replace the word" names no single
+        # one. The loop has no move for it and says so instead of picking.
+        return None
+    if idx is None or not 0 <= idx < len(toks):
+        return None
+    hit = toks[idx]
+    old = hit.group(0)
+    if old.isupper():
+        cased = new_word.upper()
+    elif old[:1].isupper():
+        cased = new_word.capitalize()
+    else:
+        cased = new_word.lower()
+    return text[:hit.start()] + cased + text[hit.end():]
 
 
 #: THE MANDATORY PURSUE SET — OWNER'S STANDING ORDER, 2026-08-17, AND IT IS
@@ -390,7 +450,15 @@ def default_propose(brief, lines, attempt, reasons=None, whole=()):
     """
     if attempt >= len(brief.candidates):
         return None
-    return swap_end_word(brief.text, brief.candidates[attempt])
+    # AT THE BRIEF'S OWN BINDING SITE since 2026-08-23. `brief.slot` is None
+    # for every line that binds at its end, and `swap_at_slot` calls
+    # `swap_end_word` for those, so this is the same splice it has always
+    # been on every draft written before the coordinate existed. Where a
+    # slot IS declared, splicing the end word would answer a flag about the
+    # line's HEAD by rewriting its ending — the stub proving the loop's
+    # control flow would be proving it against the wrong word.
+    return swap_at_slot(brief.text, brief.slot or brief.line_no,
+                        brief.candidates[attempt])
 
 
 def default_propose_pair(pair_brief):

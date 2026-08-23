@@ -1,5 +1,52 @@
 # Pre-registration — the in-line rhyme rate: what English verse does between the end words
 
+## WITHDRAWN 2026-08-23 BY THE OWNER, BEFORE ANY CORPUS NUMBER WAS READ
+
+**State at withdrawal, exactly:** registered; both falsifiers run and passed
+(F1 the Raven fixture, F2 as amended below); the observed arm and null
+replicates 1–7 computed in a background process that was **killed at
+replicate 8**; `data/internal_rhyme_eng.tsv` **never written**; nothing
+adopted; no number from this instrument is quoted anywhere in the repository
+and none may be. The document is KEPT rather than deleted because a
+withdrawn registration is evidence about how a decision was made (doctrine
+17), and because its amendment below records a real instrument property that
+the successor work inherits.
+
+**Why it was withdrawn, in the owner's words:** *"it looks like you may have
+taken 'internal rhyme' literally... I was using internal rhyme as an example.
+It appears as though you're doing an internal rhyme calibration and I gotta
+tell you that's a really lazy move when we actually have 77 included if you
+did everything right."* The registration is not wrong, it is **parochial**:
+it calibrates ONE cell of a vocabulary that holds 77 named schemas over 154
+member span-rules, at a moment when the binding defect is that the DEFAULT
+grading path reads `words[-1]` and reaches none of them. Calibrating the
+example instead of converting the spine is the same shape as building a
+third partial instrument beside two existing ones.
+
+**What survives, and where it went.** The two-exclusion discipline (a
+both-line-final pair IS the end-rhyme scheme; REPEAT is identity, not rhyme)
+and the placement-destroying null (shuffle the non-final tokens, hold the end
+words fixed, so vocabulary and scheme are held while PLACEMENT is broken) are
+both correct and both generalize: placement is the coordinate under test for
+every schema in the registry, not just this one. They are carried into the
+web-wide work, and `quality/internal_rhyme_rate.py` is retired as a
+standalone instrument in the same commit that lands its successor — a
+one-cell instrument kept alive beside a general one is the private-workflow
+defect standing rule 3 exists to stop.
+
+**One instrument property banked here because it cost a falsifier to learn**
+(see the F2 amendment below): at this reader's grain — stressed-syllable
+anchors, spans of 1–3 syllables, theta 0.80 — sound matches are admitted in
+very nearly any English text, INCLUDING one constructed to contain none. So
+no raw rate from this reader may ever be quoted as "deliberate" anything;
+only observed-against-null carries information. That constraint binds the
+successor work and is the most useful thing this sitting produced.
+
+---
+
+*The registration as it stood at withdrawal follows, unedited except for this
+header.*
+
 Committed before any number over the corpus exists. Protocol pattern:
 `quality/METER_BANDS_PREREGISTRATION.md` (register → measure → adopt or
 refuse → CI re-derives) and `quality/KALEVALA_ALLITERATION_PREREGISTRATION.md`

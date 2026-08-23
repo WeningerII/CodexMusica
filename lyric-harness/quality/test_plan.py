@@ -434,23 +434,82 @@ def test_the_measure():
     # reference the same sitting it was added.
     ALLOWED_FROM_GRID = {"SECTION_FUNCTIONS", "FunctionSpec", "as_function",
                          "placement_findings", "placement_of"}
-    grid_names = set()
+    # `floor` JOINED THE ALLOW-LIST 2026-08-23, ON THE SAME ARGUMENT AS
+    # `meter_bands` AND WITH THE SAME RE-TIGHTENING AS `grid`. The owner's
+    # standing rule is that no hard number may sit in the generator, and the
+    # planner's line envelope was six literals — `(1, 16)`, `(2, 12)`,
+    # `(4, 64)`, `(1, 4)`, `(2, 6)`, `(0.0, 0.5, 1.0)` — with no derivation
+    # behind any of them. The derivation source is `floor.PROFILES`: a table
+    # of ADOPTED CALIBRATION CONSTANTS, the same species as
+    # `meter_bands.ADOPTED`, which this guard has always admitted. It is what
+    # lets the envelope be a function of WHAT THE GRADER CAN ENFORCE rather
+    # than of what somebody chose.
+    #
+    # AND THE GUARD IS NARROWED WHERE IT WAS WIDENED: from `floor`, `plan.py`
+    # may name ONLY `PROFILES`. `floor.py` reaches `quality.features` and
+    # `lyric_harness`, so an unrestricted admission would hand the planner
+    # transitive reach to a frequency table — which is the corpus arriving at
+    # the dice by a longer road (the owner's move-37 ban).
+    ALLOWED_FROM_FLOOR = {"PROFILES"}
+    grid_names, floor_names = set(), set()
     for n in ast.walk(tree):
-        if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name) \
-                and n.value.id in ("_GR", "grid", "GR"):
-            grid_names.add(n.attr)
-    check("plan.py imports exactly {schemes, meter_bands, structures, grid} "
-          "from quality and opens NO file — the corpus cannot reach the dice "
-          "(the owner's move-37 rule)",
-          subs == {"schemes", "meter_bands", "structures", "grid"}
+        if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name):
+            if n.value.id in ("_GR", "grid", "GR"):
+                grid_names.add(n.attr)
+            elif n.value.id in ("_FL", "floor", "FL"):
+                floor_names.add(n.attr)
+    check("plan.py imports exactly {schemes, meter_bands, structures, grid, "
+          "floor} from quality and opens NO file — the corpus cannot reach "
+          "the dice (the owner's move-37 rule)",
+          subs == {"schemes", "meter_bands", "structures", "grid", "floor"}
           and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
+    check("...and from `floor` it names ONLY the adopted calibration table, "
+          "never a feature reader — `floor.py` reaches `quality.features` "
+          "and `lyric_harness`, so an unrestricted admission is the corpus "
+          "arriving at the dice by a longer road",
+          floor_names <= ALLOWED_FROM_FLOOR,
+          f"names {sorted(floor_names)}")
+    check("EVERY entry in the planner's envelope is DERIVED or argued, and "
+          "none is a bare literal pair — the owner's standing rule that a "
+          "number in the generator is a defect. The check is that the "
+          "envelope MOVES when its derivation source moves: a floor profile "
+          "whose token band widened must widen the line envelope",
+          _envelope_tracks_the_floor(),
+          "measured by perturbing floor.PROFILES in-process")
     check("...and from `grid` — the one allowed module that opens files at "
           "all — it names ONLY the declared vocabulary and its pure checker, "
           "never a corpus reader. This is the check the import allow-list "
           "was standing in for, and it is stricter than the list",
           grid_names <= ALLOWED_FROM_GRID,
           f"names {sorted(grid_names)}")
+
+
+def _envelope_tracks_the_floor():
+    """Is the line envelope actually a FUNCTION of the floor's calibration?
+
+    A derivation that is written down but not wired reads exactly like a
+    literal (doctrine 48). This perturbs the source — widening the `song`
+    profile's measured token band — and requires the derived set of
+    gradeable line counts to widen with it. Restores the table afterwards,
+    and asserts the restoration, so a later section cannot inherit a
+    perturbed floor.
+    """
+    from quality import floor as FL
+    from quality import plan as _PL
+    before = set(_PL.gradeable_line_counts())
+    song = [p for p in FL.PROFILES if p.name == "song"][0]
+    old_hi = song.hi
+    try:
+        song.hi = old_hi + 200
+        _PL.gradeable_line_counts.cache_clear()
+        after = set(_PL.gradeable_line_counts())
+    finally:
+        song.hi = old_hi
+        _PL.gradeable_line_counts.cache_clear()
+    assert set(_PL.gradeable_line_counts()) == before, \
+        "the perturbation was not restored"
+    return after > before
 
 
 def test_the_disclosure():
