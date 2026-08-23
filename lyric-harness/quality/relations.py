@@ -3421,6 +3421,32 @@ def declare_senses(stream, mapping):
 #: more. The resolution records WHICH length decided it (`evidence`), so a
 #: reader can weigh a five-word match differently from a two-word one instead
 #: of being told they are the same claim.
+#:
+#: AND THE STRATEGY WAS THEN MEASURED AGAINST EVERY FIXED LENGTH rather than
+#: assumed to beat them, on the same 989 stubs:
+#:
+#:     strategy        resolved       ambiguous  none  no-incipit
+#:     fixed 2        363 (36.7%)        389      237       0
+#:     fixed 3        322 (32.6%)        228      425      14
+#:     fixed 4        197 (19.9%)         80      504     208
+#:     fixed 5         83 ( 8.4%)         45      331     530
+#:     LONGEST-FIRST  469 (47.4%)        283      237       0
+#:
+#: 469 against the best single length's 363 — 29% more than any fixed choice
+#: and 46% more than the `3` this shipped with. The evidence distribution is
+#: the half that matters: **5w:83  4w:120  3w:141  2w:125**, so 344 of the 469
+#: (73%) rest on three or more words and a reader can discount the 125 that do
+#: not. A bare threshold destroys exactly that distinction by making every
+#: resolution look equally well founded.
+#:
+#: AGAINST `relations_null.BLOCKERS`' FIGURE, carefully: it measured 158 of
+#: 843 (18.7%) unique for the naive resolver it was describing, and this
+#: reaches 469 of 989 (47.4%). THOSE ARE NOT THE SAME MEASUREMENT — different
+#: stub count, different matcher, different tokeniser — so this is not a
+#: refutation of that number. What it does supersede is the entry's
+#: CONCLUSION, that a resolver is "wrong more often than right" and therefore
+#: this repo should supply none: nearly half the stubs in the corpus resolve
+#: to a unique earlier line, and the rest are still refused.
 STUB_INCIPIT_LENGTHS = (5, 4, 3, 2)
 
 

@@ -173,6 +173,43 @@ def test_stub_resolution():
           "sweep in the docstring was run with",
           R.search_stub_resolution(_stream(d), incipit=3)["lengths_tried"]
           == (3,))
+    # THE PROPERTY THE CORPUS MEASUREMENT FOUND, asserted as a property
+    # rather than as a corpus number: longest-first can never resolve FEWER
+    # than a fixed length, because every fixed length is one of the rungs it
+    # falls through. On the corpus it resolved 469 of 989 against the best
+    # fixed length's 363; here it is checked on a fixture so the suite does
+    # not depend on the corpus being present.
+    # A FIXTURE THAT DISCRIMINATES. The first version of this check ran on
+    # `d` above, where every strategy resolves the same single stub —
+    # `longest-first 1; fixed 2:1, 3:1, 4:1, 5:1` — so it passed and proved
+    # nothing. That is the same can-only-pass shape found twice already this
+    # session (test_homeoteleuton §5, test_verbs §6), committed in a check
+    # written to guard against exactly it.
+    #
+    # `the wind blows, &c.` tokenises to four tokens ending in `c`, so:
+    #   at 5 words it has NO INCIPIT; at 4 the `c` blocks the match against
+    #   `... cold tonight`; at 3 `the wind blows` matches uniquely.
+    # Fixed-5 and fixed-4 therefore resolve NOTHING and longest-first
+    # resolves it on the 3-word rung.
+    disc = ["the wind blows cold tonight",
+            "and no one waits for me",
+            "the wind blows, &c."]
+    _lf = len(R.search_stub_resolution(_stream(disc))["resolved"])
+    _fixed = {w: len(R.search_stub_resolution(_stream(disc),
+                                              incipit=w)["resolved"])
+              for w in (2, 3, 4, 5)}
+    check("longest-first never resolves FEWER than any fixed length — every "
+          "fixed length is a rung it falls through — and on a stub the long "
+          "rungs cannot reach it resolves where fixed 4 and 5 return NOTHING "
+          "(on the corpus: 469 of 989 against the best fixed length's 363)",
+          _lf >= max(_fixed.values()) and _lf == 1
+          and _fixed[5] == 0 and _fixed[4] == 0,
+          f"longest-first {_lf}; fixed " + ", ".join(
+              f"{w}:{n}" for w, n in sorted(_fixed.items())))
+    check("...and it records the rung that decided it, so the weaker "
+          "evidence is visible rather than averaged away",
+          R.search_stub_resolution(_stream(disc))["evidence"] == {2: 3},
+          str(R.search_stub_resolution(_stream(disc))["evidence"]))
 
     for bad, why in (({3: 3}, "a span, not a line"),
                      ({3: (3, 4)}, "a span containing itself"),
