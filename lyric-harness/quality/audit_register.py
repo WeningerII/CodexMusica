@@ -2153,10 +2153,18 @@ PINNED = {
     # PREDICTABLE_RHYME to mandatory pursue"): the aggregate note now emits
     # both members of every obvious pair as locations, and the pursue set
     # holds it.
-    "coverage_entries": 124,  # M-49..M-59 filed 2026-08-22 wiring
+    # ~~124~~ -> 129: M-67..M-71, the placement conversion. The owner's
+    # ruling that this harness may not be end-rhyme-only, taken through
+    # every layer it touched — the declaration coordinate (M-67), the
+    # provenance crash the first non-final span found (M-68), the planner's
+    # six literal bounds (M-69), the instrumental freebie (M-70), and the
+    # two classes the generator could never draw (M-71).
+    "coverage_entries": 129,  # M-49..M-59 filed 2026-08-22 wiring
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
-                              # green, then the pursue ruling
+                              # green, then the pursue ruling;
+                              # M-67..M-71 the same day, the placement
+                              # conversion
     "coverage_audited": 19,
 }
 

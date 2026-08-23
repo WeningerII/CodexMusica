@@ -126,7 +126,9 @@ from fractions import Fraction
 from functools import lru_cache
 
 from quality import schemes as SC
+from quality import capacity as _CAP
 from quality import floor as _FL
+from quality import slots as _SL
 from quality import meter_bands as MB
 
 __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX", "SLOTS_CEILING_X",
@@ -618,6 +620,55 @@ def _abs_groups(code, first_line):
     return [g for _, g in sorted(blocks.items()) if len(g) >= 2]
 
 
+def _place_group(group, rng, max_token, used):
+    """-> the group's members SPELLED with a placement (`quality/slots.py`).
+
+    THE PLANNER STOPS PLANNING AROUND END RHYME HERE (2026-08-23, the owner's
+    ruling). A group's members were emitted as bare line numbers, which is the
+    default slot — the end of the line — so every plan this generator has ever
+    produced bound every requirement to the last word of its lines. Not
+    because anything chose that: because it was the only thing the
+    declaration layer could say.
+
+    A PLACEMENT PER MEMBER, uniform over what the grading path can resolve.
+    Per member and not per group, because the mixed case is real and is the
+    one no letter scheme can express: 8 of the registry's 77 schemas anchor
+    one member at each end of a word, and linked rhyme binds a line-final to
+    a line-INITIAL. Uniform over the vocabulary means `end` is one placement
+    among the ones this harness can grade rather than the axis everything
+    else is measured against — which is the correction, stated as a measure.
+
+    `T<n>` IS DRAWN WITH ITS INDEX BOUNDED BY WHAT A LINE RELIABLY HAS. The
+    bound is the floor's own measured tokens-per-line floor, so the planner
+    asks for the n-th word only where the calibration says a line carries
+    that many; asking for the fortieth word of a line the grid holds seven
+    words of is a binding no writer can fill, and an unfillable plan is the
+    "move 37" ban's own shape pointed at placement.
+    """
+    out = []
+    for ln in group:
+        free = [p for p in _PLACE_POOL(max_token)
+                if p not in used.get(ln, ())]
+        if not free:
+            # Every placement this path can grade is already spoken for on
+            # this line. The group is DROPPED rather than doubled onto one:
+            # two groups at one placement are a joint constraint on one word,
+            # which is the question a plan cannot answer.
+            return []
+        place = rng.choice(free)
+        used.setdefault(ln, set()).add(place)
+        out.append(str(ln) if place == "end" else f"{ln}.{place}")
+    return out
+
+
+@lru_cache(maxsize=None)
+def _PLACE_POOL(max_token):
+    """The placements a plan may draw, with the token indices this line
+    length admits. Cached because it is a pure function of one integer."""
+    return tuple(_SL.PLANNABLE_PLACEMENTS) + tuple(
+        f"T{n}" for n in range(1, max_token + 1))
+
+
 # ---------------------------------------------------------------- pattern
 
 #: WHICH FUNCTIONS THE GENERATOR REACHES, with each row's semantics taken
@@ -1009,7 +1060,18 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         # is conditioned on it — and it then BOUNDS the pattern, since a
         # song of T lines cannot carry more than T sung sections.
         total = rng.choice(sorted(_GRADEABLE))
-        funcs = _sample_pattern(rng, roster, form=form, max_cells=total)
+        try:
+            funcs = _sample_pattern(rng, roster, form=form, max_cells=total)
+        except PlanRefused:
+            # A REJECTED DRAW, NOT A REFUSED REQUEST. `_sample_pattern`
+            # raises when it cannot find an admissible pattern within the
+            # cell ceiling it was given, and that ceiling is THIS attempt's
+            # drawn total — a four-line song cannot carry a form that
+            # requires two sung sections and much else. The outer loop is the
+            # rejection sampler, so the honest move is to draw another total;
+            # letting the inner refusal escape would report a request as
+            # impossible on the strength of one unlucky length.
+            continue
         s_lo, s_hi = ENVELOPE["sections"]
         if not s_lo <= len(funcs) <= s_hi:
             continue
@@ -1101,6 +1163,10 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             f"— try another seed, drop --lines, or declare the shape by "
             f"hand.")
 
+    # THE WORD INDEX A PLACEMENT MAY NAME, derived from the floor's own
+    # measured tokens-per-line floor: the planner asks for the n-th word only
+    # where the calibration says a line carries that many.
+    _max_token = max(1, int(tokens_per_line_band()[0]))
     bars, sub, beats, groups_m, (n_pairs, b_lo, b_hi) = _sample_meter(rng)
     meter = {"beats": beats, "unit": _unit_for(groups_m),
              "groups": list(groups_m)}
@@ -1135,6 +1201,11 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
 
     # Lay out sections and line slots.
     sections, line_slots = [], []
+    #: WHICH PLACEMENTS EACH LINE ALREADY CARRIES. A line may join a further
+    #: group only at a placement it does not already have — see the overlap
+    #: draw below for why that is what makes an overlapping cover satisfiable
+    #: without words.
+    used = {}
     bar, line_no = 1, 1
     counts = {}
     first_seen = {}
@@ -1169,7 +1240,109 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         else:
             if fn in VERBATIM_RETURNERS:
                 first_seen[fn] = first
-            groups.extend(_abs_groups(by_func[fn], first))
+            for _g in _abs_groups(by_func[fn], first):
+                # THE CAPACITY GATE (`MISSING.md` M-41). A rhyme group of k
+                # members needs a family the grader accepts k members of AT
+                # ONCE, and `quality/capacity.py` is what measured that: the
+                # deepest CERTIFIED chain is 40, a witness clique graded
+                # through `Reviser.inspect`. A plan volunteering a larger
+                # group is asking for something no family in this lexicon is
+                # measured to fill — unfillable homework, refused here rather
+                # than discovered three revise rounds in.
+                if len(_g) > _CAP.ADOPTED_MAX_GROUP:
+                    raise PlanRefused(
+                        f"this seed's scheme puts {len(_g)} lines in one "
+                        f"rhyme group, and the lexicon is measured to "
+                        f"sustain at most {_CAP.ADOPTED_MAX_GROUP} "
+                        f"(quality/capacity.py: the deepest CERTIFIED chain, "
+                        f"a witness clique graded through the reviser). The "
+                        f"tier-1 ceiling reaches further and is ungraded, so "
+                        f"this refuses where the MEASUREMENT stops rather "
+                        f"than where the arithmetic does.")
+                groups.append(_place_group(_g, rng, _max_token, used))
+            # OVERLAPPING GROUPS, DRAWN AND NOT ONLY DECLARABLE (2026-08-23).
+            #
+            # Doctrine 2's own sentence is that maximal cliques MAY OVERLAP —
+            # "structures with no letter representation" — and the mandate
+            # layer has accepted overlapping groups since it was written.
+            # The GENERATOR could not produce one: its groups come from an
+            # RGS code, which is a PARTITION, so a whole class of structure
+            # was declarable and never drawable. On this repository's own
+            # rule that the planner is the front door and hand-written
+            # mandates are for tests, that is the class of song the system
+            # WORKING AS INTENDED can never write — probability exactly zero,
+            # which is the "move 37" ban committed by omission rather than by
+            # weighting.
+            #
+            # AND THE PLACEMENT COORDINATE IS WHAT MAKES IT SATISFIABLE. Two
+            # groups binding one line at the SAME placement are a joint
+            # constraint on ONE word, and whether any word answers both is
+            # `joint_field`'s question — which needs words, and a plan has
+            # none. At DIFFERENT placements they constrain different words of
+            # the line and no such question arises. So a line may join a
+            # second group only at a placement it does not already carry:
+            # satisfiable BY CONSTRUCTION rather than by a search a plan
+            # cannot run.
+            #
+            # DIMENSION BY DIMENSION, never uniform over the leaves: the
+            # count first, then each group's size, then its members. Uniform
+            # over covers would weight a shape by how many memberships it
+            # admits, which is the enumeration bias v2's own smoke run found
+            # in the meter sampler.
+            sec_lines = list(range(first, line_no))
+            if len(sec_lines) >= 2:
+                # HOW MUCH WEB, and it is a PER-LINE draw. The owner's
+                # framing: *"I don't think that literally every word need N
+                # pairs of rhymes but there's just no way that we can only be
+                # contemplating the last word of every line."* Both ends of
+                # that sentence are refusals — of a plan that binds only line
+                # ends, and of one that binds everything — so the count is
+                # drawn rather than chosen at either extreme.
+                #
+                # EACH LINE DRAWS ITS OWN PARTICIPATION, uniform over what
+                # the placement pool admits. Uniform over [1, |pool|]
+                # privileges no count: a line carrying exactly one binding —
+                # the classic end rhyme and nothing else — is as likely as
+                # any other, and so is a line woven into several. Drawing a
+                # number of extra GROUPS instead was measured at 100% of
+                # plans overlapping with a median of 22 groups a song, which
+                # is the density decided by the shape of the loop rather than
+                # by a coordinate.
+                # THE CEILING IS WHAT A LINE CAN CARRY, not how many names
+                # the placement table happens to hold. A binding occupies a
+                # SPAN, and distinct bindings on one line need distinct
+                # spans, so the number a line can carry is bounded by its
+                # syllables — and the number it is GUARANTEED to carry is
+                # bounded by the fewest syllables a band-legal line may have,
+                # which is the calibrated density band's floor
+                # (`meter_bands.ADOPTED`, the same constant the slots
+                # envelope derives from). Bounding by the pool size instead
+                # would let a plan ask a five-syllable line for eleven
+                # distinct bound spans — arithmetic the line cannot satisfy
+                # at its own minimum legal length.
+                pool_n = max(1, min(len(_PLACE_POOL(_max_token)),
+                                    MB.ADOPTED["DENSITY"][0]))
+                want = {ln: rng.randint(1, pool_n) for ln in sec_lines}
+                have = {ln: sum(1 for g in groups
+                                for m in g
+                                if int(str(m).split(".")[0]) == ln)
+                        for ln in sec_lines}
+                for _ in range(len(sec_lines) * pool_n):
+                    short = [ln for ln in sec_lines
+                             if have[ln] < want[ln]]
+                    if len(short) < 2:
+                        break
+                    hi = min(len(short), _CAP.ADOPTED_MAX_GROUP)
+                    members = rng.sample(short, rng.randint(2, hi))
+                    spelled = _place_group(sorted(members), rng,
+                                           _max_token, used)
+                    if not spelled:
+                        break
+                    if spelled in groups:
+                        continue
+                    groups.append(spelled)
+                    for ln in members:
+                        have[ln] += 1
 
     total = line_no - 1
 
@@ -1221,6 +1394,32 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                                      f"{_n_compositions_23(beats)} "
                                      f"groupings of {beats}; unit is "
                                      f"notation, never enforced"},
+            # WHERE EACH REQUIREMENT BINDS, and the MEASURE it was drawn
+            # under — disclosed because it is the coordinate that stopped
+            # this generator being end-rhyme-only, and because the measure
+            # is a ruling the owner has not made yet.
+            #
+            # UNIFORM OVER THE POOL means `end` is one placement among the
+            # ones this harness can grade rather than the axis everything
+            # else is measured against. The consequence is stated rather
+            # than buried: a two-member group is all-ends with probability
+            # 1/|pool|^2, so a plain end-rhyme plan becomes RARE. That is
+            # the correction taken literally; whether a song's placements
+            # should instead be drawn with end as a first-class outcome is a
+            # taste question, and the pool and its measure are printed here
+            # so the answer can be given to a coordinate rather than to a
+            # rewrite.
+            "placements": {"pool": list(_PLACE_POOL(_max_token)),
+                           "measure": "uniform per MEMBER over the pool; "
+                                      "per member and not per group because "
+                                      "8 of the 77 registered schemas anchor "
+                                      "one member at each end of a word",
+                           "token_ceiling": _max_token,
+                           "token_ceiling_from":
+                               "the floor's measured tokens-per-line floor "
+                               f"{tokens_per_line_band()[0]:.2f} — a plan "
+                               f"asks for the n-th word only where the "
+                               f"calibration says a line carries that many"},
             "schemes": scheme_meta,
             "structures": struct_meta,
             "anacrusis": {fn: {"value": v, "chosen_from": ana_choices}
@@ -1242,6 +1441,10 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         #: not to reach `bridge` this seed has not disobeyed anything. Silence
         #: here would let a writer believe they got a section they did not.
         "functions_unused": sorted(set(roster) - set(funcs)) if roster else [],
+        # MEMBERS CARRY THEIR PLACEMENT since 2026-08-23: `3` is the end of
+        # line 3 (what a bare number has always meant) and `3.head` is its
+        # first word. `--groups=` parses both, so a plan that drew all-ends
+        # is byte-identical to what this line always emitted.
         "groups": ";".join(",".join(str(x) for x in g) for g in groups),
         "returns": ";".join(f"{a},{b}" for a, b in returns),
         "subdivision": sub,

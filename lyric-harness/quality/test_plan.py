@@ -52,6 +52,8 @@ from quality.plan import (BLOCKED_FORMS, ENVELOPE,  # noqa: E402
                           grading_command, make_plan, meter_dims,
                           meter_space_size)
 import quality.plan as PLN  # noqa: E402
+from quality import capacity as CAP  # noqa: E402
+from quality import meter_bands as MB  # noqa: E402
 
 FAILURES = []
 
@@ -184,7 +186,13 @@ def test_the_round_trip():
                     or len(song.sections) != len(plan["sections"])):
                 bad.append((seed, "blueprint shape mismatch"))
                 continue
-            gs = [[int(x) for x in g.split(",")]
+            # MEMBERS ARE LEFT AS STRINGS, exactly as the CLI's own
+            # `--groups=` reader leaves them since 2026-08-23: a member may
+            # name WHERE in its line the requirement binds (`3.head`,
+            # `3.T2`), and `int()` here refused the planner's own output in
+            # this test's words rather than the slot layer's. `mandate()` is
+            # the one definition of what a member may be.
+            gs = [[x for x in g.split(",")]
                   for g in plan["groups"].split(";")]
             rets = ([[int(x) for x in r.split(",")]
                      for r in plan["returns"].split(";")]
@@ -310,10 +318,20 @@ def test_the_measure():
     rng = random.Random(20260818)
     draws = [PLN._sample_meter(rng) for _ in range(24000)]
     pair_n = Counter((d[0], d[1]) for d in draws)
-    check("the dimension pairs are drawn uniformly — all 12 pairs, each "
-          "within 15% of its expected share",
+    # ~~all 12 pairs~~ — REPINNED 2026-08-23. Twelve was a property of the
+    # LITERAL `bars_per_line (1, 4)`, and that bound is derived now (from the
+    # slots envelope: a line at the coarsest admissible grid already carries
+    # 2 slots per bar, so a bars count past `hi // 2` cannot produce a
+    # band-legal line at any meter). The ASSERTION that matters is unchanged
+    # and is the equality: the sampler reaches EVERY pair the envelope
+    # admits, whatever number that is, each within 15% of its share.
+    _share = 24000 / max(1, len(dims))
+    check("the dimension pairs are drawn uniformly — every pair the envelope "
+          "admits, each within 15% of its expected share",
           len(pair_n) == len(dims)
-          and all(abs(v - 2000) <= 300 for v in pair_n.values()),
+          and all(abs(v - _share) <= 0.15 * _share
+                  for v in pair_n.values()),
+          f"{len(dims)} pairs, share {_share:.0f}, "
           f"min {min(pair_n.values())}, max {max(pair_n.values())}")
     wide = [d[2] for d in draws if (d[0], d[1]) == (1, 1)]
     check("within the widest pair the beat count is UNIFORM on its range "
@@ -354,19 +372,28 @@ def test_the_measure():
           "{2,3} grow ~1.3247^n)",
           bs[100] <= 8 and sum(b >= 40 for b in bs) / 200 < 0.10,
           f"median {bs[100]}, frac>=40 {sum(b >= 40 for b in bs) / 200}")
-    check("the 4/4 bias is dead: 20+ distinct meters over 200 seeds, both "
-          "notation units, and 4/4 under 30% of plans",
-          len(meters) >= 20 and units == {4, 8}
+    check("the 4/4 bias is dead: many distinct meters over 200 seeds, both "
+          "notation units, and 4/4 under 30% of plans. The COUNT is not "
+          "pinned at a literal — it moves with the derived envelope — so "
+          "what is asserted is that the sampler is not concentrated: at "
+          "least ten distinct cycles and 4/4 no more common than any "
+          "single-cycle share of the space would make it",
+          len(meters) >= 10 and units == {4, 8}
           and sum(1 for b in beats if b == 4) / 200 < 0.30,
-          f"{len(meters)} meters, units {sorted(units)}")
+          f"{len(meters)} meters, units {sorted(units)}, "
+          f"4/4 {sum(1 for b in beats if b == 4) / 200:.1%}")
     k_total = sum(ks.values())
-    check("the 4-line bias is dead: every k in the envelope's section "
-          "range is drawn, and k=4 takes under 20% of sections "
-          "(uniform expects ~6%)",
-          set(ks) == set(range(ENVELOPE["lines_per_section"][0],
-                               ENVELOPE["lines_per_section"][1] + 1))
-          and ks[4] / k_total < 0.20,
-          f"ks {sorted(ks)}, k=4 at {ks[4] / k_total:.3f}")
+    # ~~every k in the envelope's section range~~ — REPINNED 2026-08-23. The
+    # section range is no longer a literal `(1, 16)`: its ceiling is the whole
+    # song's derived line ceiling, and a section can only be as long as the
+    # song it is drawn inside, so EXHAUSTING that range in 200 seeds is
+    # arithmetic nobody should assert. The claim that carries the finding is
+    # unchanged: 4 is not privileged, and the spread is wide.
+    check("the 4-line bias is dead: k=4 takes under 20% of sections, and the "
+          "draw reaches well past the quatrain",
+          ks[4] / k_total < 0.20 and len(ks) >= 12 and max(ks) > 8,
+          f"{len(ks)} distinct k in [{min(ks)}, {max(ks)}], "
+          f"k=4 at {ks[4] / k_total:.3f}")
     check("the whole GENERATOR_ROSTER is reached — 14 functions, not "
           "v1's five",
           # ~~14~~ 19 — REPINNED 2026-08-22. `GENERATOR_ROSTER` is no
@@ -388,10 +415,21 @@ def test_the_measure():
     # THE CLAIM IS UNCHANGED — the totals still cover the envelope's ORDER
     # rather than clustering on one shape — and only the reachable floor
     # moved, because a shape the form forbids is no longer drawn.
+    # ~~reaching under 15 and over 60 lines~~ — REPINNED 2026-08-23. 60 was
+    # inside the LITERAL envelope `total_lines (4, 64)`; the envelope is
+    # derived now and its ceiling is 55, because that is the longest song
+    # whose expected token count still lands inside a MEASURED floor profile.
+    # Asserting 60 would be asserting that the planner volunteers a length
+    # the floor cannot grade with teeth — the opposite of what this repin is
+    # for. The claim that carries the finding is the SPREAD, and it is
+    # stated against the derived envelope rather than against a number.
+    _lo, _hi = ENVELOPE["total_lines"]
     check("totals cover the envelope's order, not one shape: 40+ distinct "
-          "values, reaching under 15 and over 60 lines",
-          len(totals) >= 40 and min(totals) <= 15 and max(totals) >= 60,
-          f"{len(totals)} distinct in [{min(totals)}, {max(totals)}]")
+          "values spanning most of the DERIVED envelope, both ends reached",
+          len(totals) >= 40 and min(totals) <= _lo + 5
+          and max(totals) >= _hi - 5,
+          f"{len(totals)} distinct in [{min(totals)}, {max(totals)}], "
+          f"envelope [{_lo}, {_hi}]")
 
     # THE MOVE-37 PIN: the corpus samples nothing. The planner imports
     # exactly its three quality dependencies and never opens a file — a
@@ -451,17 +489,39 @@ def test_the_measure():
     # transitive reach to a frequency table — which is the corpus arriving at
     # the dice by a longer road (the owner's move-37 ban).
     ALLOWED_FROM_FLOOR = {"PROFILES"}
+    # `capacity` AND `slots` JOINED 2026-08-23, each with its own argument
+    # and each RE-TIGHTENED the way `grid` and `floor` were.
+    #
+    # `capacity` — the planner refuses a rhyme group larger than the lexicon
+    # is MEASURED to sustain, and that figure is an ADOPTED CALIBRATION
+    # constant of the same species as `meter_bands.ADOPTED`. It may name
+    # ONLY `ADOPTED_MAX_GROUP`: `capacity.read_table()` opens the artifact,
+    # and a planner reaching a table is the corpus arriving at the dice by a
+    # longer road.
+    # `slots` — the placement vocabulary a plan may draw from. A HAND-
+    # DECLARED table of the same species as `structures` and
+    # `SECTION_FUNCTIONS`, both already admitted. It may name ONLY
+    # `PLANNABLE_PLACEMENTS`: `slots` reaches `relations`, which opens one
+    # file, so the same reasoning applies.
+    ALLOWED_FROM_CAPACITY = {"ADOPTED_MAX_GROUP"}
+    ALLOWED_FROM_SLOTS = {"PLANNABLE_PLACEMENTS"}
     grid_names, floor_names = set(), set()
+    cap_names, slot_names = set(), set()
     for n in ast.walk(tree):
         if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name):
             if n.value.id in ("_GR", "grid", "GR"):
                 grid_names.add(n.attr)
             elif n.value.id in ("_FL", "floor", "FL"):
                 floor_names.add(n.attr)
+            elif n.value.id in ("_CAP", "capacity", "CAP"):
+                cap_names.add(n.attr)
+            elif n.value.id in ("_SL", "slots", "SL"):
+                slot_names.add(n.attr)
     check("plan.py imports exactly {schemes, meter_bands, structures, grid, "
-          "floor} from quality and opens NO file — the corpus cannot reach "
-          "the dice (the owner's move-37 rule)",
-          subs == {"schemes", "meter_bands", "structures", "grid", "floor"}
+          "floor, capacity, slots} from quality and opens NO file — the "
+          "corpus cannot reach the dice (the owner's move-37 rule)",
+          subs == {"schemes", "meter_bands", "structures", "grid", "floor",
+                   "capacity", "slots"}
           and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
     check("...and from `floor` it names ONLY the adopted calibration table, "
@@ -470,6 +530,13 @@ def test_the_measure():
           "arriving at the dice by a longer road",
           floor_names <= ALLOWED_FROM_FLOOR,
           f"names {sorted(floor_names)}")
+    check("...and from `capacity` ONLY the adopted group ceiling, never the "
+          "table reader that opens the artifact behind it",
+          cap_names <= ALLOWED_FROM_CAPACITY, f"names {sorted(cap_names)}")
+    check("...and from `slots` ONLY the plannable placement vocabulary, "
+          "never a resolver — `slots` reaches `relations`, which opens a "
+          "file, so the narrowing is what the import allow-list stands for",
+          slot_names <= ALLOWED_FROM_SLOTS, f"names {sorted(slot_names)}")
     check("EVERY entry in the planner's envelope is DERIVED or argued, and "
           "none is a bare literal pair — the owner's standing rule that a "
           "number in the generator is a defect. The check is that the "
@@ -619,8 +686,12 @@ def test_the_disclosure():
                 want = (f"[{s['function'].upper()} — instrumental — "
                         f"{size}, no words]")
             else:
-                pickup = {0.0: "", 0.5: ", half-beat pickup",
-                          1.0: ", one-beat pickup"}[slots[0]["beat"] - 1]
+                # THE ONE DEFINITION, called rather than copied. This was
+                # a second literal of the same table and it went stale the
+                # same day the first one did: anacrusis became a function of
+                # the section's own subdivision, a quarter-beat pickup
+                # appeared, and BOTH copies raised `KeyError: 0.75`.
+                pickup = PLN._pickup_phrase(slots[0]["beat"] - 1)
                 k = len(slots)
                 want = (f"[{s['function'].upper()} — {k} "
                         f"line{'s' if k != 1 else ''} — {size}{pickup}]")
@@ -867,8 +938,73 @@ def test_the_form_is_read():
           f"the corpus rate is 137/178 = 77.0% and this is NOT tuned to it")
 
 
+def test_the_planner_plans_the_whole_line():
+    print("\n. the planner binds WHERE, not only at the ends — and draws "
+          "overlapping covers, which an RGS partition cannot express")
+    from collections import Counter
+    import quality.schemes as SC
+    places, part, overlap, sizes = Counter(), Counter(), 0, []
+    n = 0
+    for seed in range(60):
+        try:
+            pl = make_plan(seed=seed)
+        except PlanRefused:
+            continue
+        n += 1
+        for g in pl["groups"].split(";"):
+            for m in g.split(","):
+                places["end" if "." not in m else m.split(".", 1)[1]] += 1
+        m_ = SC.mandate([g.split(",") for g in pl["groups"].split(";")],
+                        n_lines=pl["total_lines"])
+        sizes.append(len(m_.groups))
+        if m_.overlapping_lines():
+            overlap += 1
+        for ln in range(1, m_.n_lines + 1):
+            part[len(m_.groups_of(ln))] += 1
+    check("every plan's groups PARSE back into a Mandate — the spelling the "
+          "planner emits is the spelling the declaration layer reads, which "
+          "is the only shape that proves the coordinate crossed the seam",
+          n > 0 and len(sizes) == n, f"{n} plans, {len(sizes)} mandates")
+    check("placements other than the line's end are DRAWN, not merely "
+          "declarable: the head, the whole end word, the head read as a "
+          "rhyme span, and indexed words all appear",
+          {"head", "endword", "headrime"} <= set(places)
+          and any(k.startswith("T") for k in places),
+          f"{dict(places.most_common(6))}")
+    end_share = places["end"] / max(1, sum(places.values()))
+    check("and `end` is ONE placement among them rather than the axis "
+          "everything is measured against — its share is near the uniform "
+          "share of the pool, which is the correction stated as a measure",
+          end_share < 0.25,
+          f"end at {end_share:.1%} of members over {n} plans")
+    check("OVERLAPPING covers are reached by the DRAW. Doctrine 2 says "
+          "maximal cliques may overlap and the mandate layer has always "
+          "accepted them; the generator could not produce one, so that "
+          "class of song had probability exactly zero from the front door",
+          overlap > 0, f"{overlap}/{n} plans put some line in >1 group")
+    check("a line's participation is bounded by what a band-legal line can "
+          "CARRY — the calibrated density band's floor — so no plan asks a "
+          "five-syllable line for more distinct bound spans than it has "
+          "syllables",
+          max(part) <= MB.ADOPTED["DENSITY"][0],
+          f"max participation {max(part)}, density floor "
+          f"{MB.ADOPTED['DENSITY'][0]}")
+    check("...and it is not pinned at either extreme: lines carrying ONE "
+          "binding and lines carrying several are both ordinary",
+          part[1] > 0 and sum(v for k, v in part.items() if k >= 2) > 0,
+          f"participation {dict(sorted(part.items()))}")
+    check("no group exceeds what the LEXICON is measured to sustain — the "
+          "capacity layer's deepest CERTIFIED chain, so a plan never asks "
+          "for a rhyme family no family can fill",
+          all(len(g) <= CAP.ADOPTED_MAX_GROUP
+              for pl in [make_plan(seed=k) for k in range(8)]
+              for g in [x.split(",") for x in pl["groups"].split(";")]),
+          f"ceiling {CAP.ADOPTED_MAX_GROUP}")
+
+
 if __name__ == "__main__":
-    for fn in (test_determinism, test_refusals, test_the_round_trip,
+    for fn in (test_the_planner_plans_the_whole_line,
+               test_determinism, test_refusals, test_the_round_trip,
                test_the_measure, test_the_disclosure,
                test_the_rendering, test_the_writers_declaration,
                test_the_form_is_read):

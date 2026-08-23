@@ -181,6 +181,44 @@ route that does answer it (`relations.realise` + `quality/figures.py`), because
 a group is a set of lines and a rhyme whose members share a line has one
 member. `quality/test_slots.py`, 9 sections.
 
+**AND THE PLANNER DRAWS PLACEMENTS AND OVERLAPPING COVERS NOW — TWO CLASSES
+THAT HAD PROBABILITY EXACTLY ZERO FROM THE FRONT DOOR (2026-08-23,
+`MISSING.md` M-71).** The owner's ruling, aimed at the generator: *"if that
+end rhyme focus is poisoning our planning as severely as it appears to be then
+I think it needs to be converted into just straight up all rhymes."* The
+"move 37" ban exists because sampling measured distributions gives an
+unprecedented shape probability ~zero; the planner was committing that error
+by OMISSION twice — every group member was a bare line number (the end of the
+line, because nothing else was sayable), and groups came from an RGS code,
+which is a PARTITION, so doctrine 2's own overlapping cliques were declarable
+and never drawable.
+**PLACEMENT IS DRAWN PER MEMBER**, uniform over what the grading path
+resolves — per member because 8 of the 77 schemas anchor one member at each
+end of a word. MEASURED over 200 seeds: `end` takes 9.6% of members, near the
+uniform share. The consequence is DISCLOSED in `choices.placements` rather
+than buried: a two-member group is all-ends with probability 1/|pool|², so a
+plain end-rhyme plan becomes rare, and whether `end` should be a first-class
+outcome instead is a taste question printed for the owner to answer into a
+coordinate.
+**OVERLAP IS SATISFIABLE BECAUSE PLACEMENT EXISTS.** Two groups on one line at
+the SAME placement constrain ONE word — `joint_field`'s question, which needs
+words a plan does not have. At DIFFERENT placements they constrain different
+words and the question does not arise, so a line joins a further group only at
+a placement it does not already carry: satisfiable BY CONSTRUCTION.
+**HOW MUCH WEB IS A PER-LINE DRAW AND BOTH EXTREMES ARE REFUSED** — the
+owner's *"I don't think that literally every word need N pairs of rhymes but
+there's just no way that we can only be contemplating the last word of every
+line."* Drawing a count of extra GROUPS measured at 100% of plans overlapping,
+median 22 groups a song — a density set by the shape of a loop. Each line now
+draws its own participation uniform over what a band-legal line can CARRY: the
+calibrated density band's FLOOR, since distinct bindings need distinct spans.
+Measured after: participation uniform over 1–5, median 26 groups a song.
+**AND THE LEXICON'S CEILING IS A PLAN-TIME GATE**: `capacity.ADOPTED_MAX_GROUP`
+adopts the deepest CERTIFIED chain (40, a witness clique graded through
+`Reviser.inspect`; the tier-1 ceiling reaches 228 and is ungraded), so a plan
+never asks for a rhyme family no family can fill. Re-derived by
+`capacity.py --check` nightly.
+
 **AND THE PLANNER'S ENVELOPE IS DERIVED NOW, ALL SIX BOUNDS (2026-08-23,
 `MISSING.md` M-69/M-70).** The owner's standing rule: *"we do not want hard
 numbers anywhere ... meter should be something like x/y and number of lines

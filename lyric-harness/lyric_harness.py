@@ -7362,8 +7362,19 @@ def main():
                 _refuse("mandate flags were found and none was named")
 
             def _groups(raw):
-                # 1-based, ';'-separated, MAY OVERLAP
-                return [[int(x) for x in g.split(",") if x.strip()]
+                # 1-based, ';'-separated, MAY OVERLAP.
+                #
+                # MEMBERS ARE LEFT AS STRINGS since 2026-08-23 and the `int()`
+                # that stood here is gone: a member may now name WHERE in its
+                # line the requirement binds (`3.head`, `3.T2` —
+                # `quality/slots.py`), and `int()` refused those in the
+                # CLI's own words rather than the slot layer's. `mandate()`
+                # is the one definition of what a member may be — it parses
+                # a bare number and a placement alike, and refuses an unknown
+                # placement by name — so parsing here would be a second
+                # statement of it (doctrine 1). A bare number reaches
+                # `_normalise_groups` and is int()ed there exactly as before.
+                return [[x.strip() for x in g.split(",") if x.strip()]
                         for g in raw.split(";") if g.strip()]
 
             def _structs(raw):

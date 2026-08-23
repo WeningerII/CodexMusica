@@ -8179,3 +8179,87 @@ phrase count is drawn against the longest SUNG section this plan itself drew,
 which is a derivation from the plan rather than a number chosen for it.
 MEASURED after: wordless sections run at a median 33 bars against sung
 sections' 18, the same order of magnitude.
+
+### M-71 · the planner could not draw a placement or an overlapping cover, so two whole classes of song had probability exactly zero from the front door `CLOSED` 2026-08-23
+**Owner's ruling**, the same one M-67 closes at the declaration layer, aimed
+here at the generator: *"if that end rhyme focus is poisoning our planning as
+severely as it appears to be then I think it needs to be converted into just
+straight up all rhymes."*
+
+**TWO ZEROES, AND A ZERO IS NOT A WEIGHTING.** This repository's own
+"move 37" ban exists because sampling measured distributions would give an
+unprecedented shape probability ~zero. The planner was committing that error
+by OMISSION rather than by weighting, twice over:
+1. **Every member of every group was a bare line number**, which is the
+   default slot — the end of the line. Not because anything chose it: because
+   it was the only thing the declaration layer could say (M-67).
+2. **Groups came from an RGS code, which is a PARTITION.** Doctrine 2's own
+   sentence is that maximal cliques MAY OVERLAP — *"structures with no letter
+   representation"* — and `Mandate` has accepted overlapping groups since it
+   was written. The generator could not produce one. On this repository's own
+   standing rule that the planner is the front door and hand-written mandates
+   are for tests, that is a class of song the system WORKING AS INTENDED can
+   never write.
+
+**PLACEMENT IS DRAWN PER MEMBER, uniform over what the grading path can
+resolve.** Per member and not per group, because the mixed case is the real
+one: 8 of the 77 registered schemas anchor one member at each end of a word,
+and linked rhyme binds a line-final to a line-INITIAL. Uniform means `end` is
+one placement among the gradeable ones rather than the axis everything else is
+measured against — the correction stated as a measure. MEASURED over 200
+seeds: placements land within a few percent of the uniform share, and `end`
+takes 9.6% of members. **The consequence is disclosed rather than buried**
+(`choices.placements` carries the pool AND the measure): a two-member group is
+all-ends with probability 1/|pool|², so a plain end-rhyme plan becomes RARE,
+and whether end should instead be a first-class outcome is a taste question
+printed for the owner to answer into a coordinate.
+
+**OVERLAP IS DRAWN, AND THE PLACEMENT COORDINATE IS WHAT MAKES IT
+SATISFIABLE.** Two groups binding one line at the SAME placement are a joint
+constraint on ONE word, and whether any word answers both is `joint_field`'s
+question — which needs words, and a plan has none. At DIFFERENT placements
+they constrain different words of the line and no such question arises. So a
+line may join a further group only at a placement it does not already carry:
+satisfiable BY CONSTRUCTION rather than by a search a plan cannot run.
+
+**HOW MUCH WEB IS A PER-LINE DRAW, AND BOTH EXTREMES ARE REFUSED.** The
+owner's framing: *"I don't think that literally every word need N pairs of
+rhymes but there's just no way that we can only be contemplating the last word
+of every line."* Drawing a number of extra GROUPS was measured at **100% of
+plans overlapping with a median of 22 groups a song** — a density decided by
+the shape of a loop rather than by a coordinate. Each line now draws its own
+participation, uniform over what a band-legal line can CARRY: a binding
+occupies a span, distinct bindings need distinct spans, so the ceiling is the
+calibrated density band's FLOOR — the fewest syllables a legal line may have.
+Bounding by the placement table's size instead would let a plan ask a
+five-syllable line for eleven distinct bound spans. MEASURED after: line
+participation is uniform over 1–5, median 26 groups a song.
+
+**AND THE LEXICON'S OWN CEILING IS NOW A PLAN-TIME GATE (M-41's first half).**
+A rhyme group of k members needs a family the grader accepts k members of AT
+ONCE, and `quality/capacity.py` measured exactly that: the tier-1 ceiling
+reaches 228 and the deepest **CERTIFIED** chain is 40 — a witness clique
+stored word for word and graded through `Reviser.inspect`.
+`capacity.ADOPTED_MAX_GROUP` adopts 40, the number a run can stand on, and the
+planner refuses a larger group: unfillable homework refused at draw time
+rather than discovered three revise rounds in. The constant is re-derived by
+`capacity.py --check` in the nightly lane, so drift fails loud instead of
+silently widening what a planner volunteers.
+
+**FOUR SITES STILL SPOKE THE OLD SPELLING AND EVERY ONE WAS FOUND BY RUNNING
+IT.** The CLI's own `--groups=` reader int()ed each member, refusing the
+planner's own output in the CLI's words rather than the slot layer's; the
+round-trip test did the same in its own; `section_header` looked its pickup
+phrase up in a three-entry dict and raised `KeyError: 0.75` the moment
+anacrusis followed the section's own subdivision; and `test_plan.py` held a
+SECOND copy of that same dict, which went stale on the same day and in the
+same way. The parsers now leave members as strings — `mandate()` is the one
+definition of what a member may be — and both pickup copies call one derived
+function.
+
+**AND THE MOVE-37 GUARD WAS WIDENED TWICE AND RE-TIGHTENED TWICE**, the shape
+`grid`'s admission established: `plan.py` may name `capacity` for
+`ADOPTED_MAX_GROUP` only (an adopted calibration constant of
+`meter_bands.ADOPTED`'s species; `read_table()` opens the artifact) and
+`slots` for `PLANNABLE_PLACEMENTS` only (a hand-declared vocabulary of
+`structures`' species; `slots` reaches `relations`, which opens a file).

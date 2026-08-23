@@ -94,6 +94,7 @@ from dataclasses import dataclass, replace
 from quality import relations as REL
 
 __all__ = ["Slot", "SlotUnsupported", "DEFAULT_RULE", "GRADEABLE_LOCI",
+           "PLANNABLE_PLACEMENTS",
            "GRADEABLE_ANCHORS", "FRAME_LOCI", "NAMED_SLOTS",
            "as_slot", "slot_line", "is_default", "check", "resolve",
            "parse_slot", "spell_slot", "position_of"]
@@ -235,6 +236,21 @@ NAMED_SLOTS = {
     # every syllable of the line, in order
     "line": REL.WHOLE_LINE,
 }
+
+
+#: WHAT A PLANNER MAY VOLUNTEER. A subset of `NAMED_SLOTS`, and the subset
+#: is an argument rather than a preference:
+#:   * `line` is excluded — a whole-line span standing in a rhyme relation is
+#:     a holorhyme-shaped demand, and a generator that volunteers one is
+#:     asking for a figure the writer did not request (the owner's "move 37"
+#:     ban pointed at placement instead of at shape). It stays declarable.
+#:   * `T<n>` is NOT here because it carries an index: a planner draws it
+#:     with the index bounded by what a line reliably HAS, which is a
+#:     coordinate of the plan and not of this table.
+#: `end` IS a member, and that is the point: it is one placement among the
+#: ones this path can grade, not the axis everything else is measured
+#: against.
+PLANNABLE_PLACEMENTS = ("end", "endword", "head", "headrime")
 
 
 def as_slot(member, rule=None):
