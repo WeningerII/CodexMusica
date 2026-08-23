@@ -1376,6 +1376,37 @@ def _resources_of(stream):
     coordinate.
     """
     out = dict(getattr(stream.phon, "resources", None) or {})
+    # THE DERIVED SENSE RESOURCE, third in precedence and first to be built
+    # (2026-08-22). `quality/senses.py` reads WordNet and assigns each token
+    # a sense by simplified Lesk over its own line; it is a NAMED, WEAK
+    # algorithm and says so. It sits BELOW both other sources because a
+    # declaration always outranks a derivation (doctrine 1), and it supplies
+    # nothing at all when the corpus is absent — `sense` then stays absent
+    # and `antanaclasis` refuses, exactly as before it existed.
+    if "sense" not in out and stream.declaration.get("derive_senses"):
+        # OPT-IN, AND THE RATE IS WHY (2026-08-23). `quality/senses.py`
+        # computes a sense per token — WordNet, POS-tagged, simplified Lesk,
+        # coarsened to the lexicographer file — and it WORKS on the case the
+        # figure is named for: `bank`/`bank` separates with nothing declared.
+        # It was wired ON BY DEFAULT and then MEASURED over 40 corpus songs,
+        # 1,603 lines: of 14,508 line pairs sharing a word, it separated
+        # 1,366 — 9.42% — and the samples are visibly refrains, not puns
+        # ("Land of the South! the fairest land" against "Land of the South!
+        # in brightest dreams"). A figure detector at that rate would bury a
+        # writer in false findings, which is worse than the refusal it
+        # replaced. So the DERIVATION is available and disclosed and the
+        # DEFAULT is unchanged: declare `derive_senses=True` to accept the
+        # rate, or `relations.declare_senses` for positions you care about,
+        # or neither and `antanaclasis` refuses exactly as before.
+        # Doctrine 16/22: an uncalibrated cut is stated as a rate before it
+        # means anything, and this one is stated and NOT adopted.
+        try:
+            from quality import senses as _SENSES
+            fn = _SENSES.sense_resource(stream)
+            if fn is not None:
+                out["sense"] = fn
+        except Exception:
+            pass
     out.update(stream.declaration.get("resources") or {})
     return out
 

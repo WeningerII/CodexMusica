@@ -149,6 +149,37 @@ def test_senses():
           _pairs(st2, "antanaclasis") == frozenset(),
           str(_pairs(st2, "antanaclasis")))
 
+    # THE DERIVED ROUTE — computed, not declared, and OPT-IN.
+    from quality import senses as SEN
+    if SEN.available():
+        st3 = R.build_stream(d, get_phon("eng"),
+                             declaration={"language": "eng",
+                                          "derive_senses": True})
+        check("with `derive_senses=True` the figure is found with NOTHING "
+              "declared — WordNet, POS-tagged, simplified Lesk, keyed on the "
+              "lexicographer file. This is the half that was declaration-only "
+              "until 2026-08-23",
+              _pairs(st3, "antanaclasis") == frozenset({(2, 3)}),
+              str(_pairs(st3, "antanaclasis")))
+        check("...and the POS constraint is load-bearing: `sat` reads the "
+              "SAME semantic field in both lines, so an ordinary repeat of a "
+              "past-tense verb does NOT fire. Without it Lesk returned "
+              "`saturday.n.01` on one line and `ride.v.01` on the other",
+              SEN.sense_of("sat", "she sat beside the river bank".split(),
+                           "v")
+              == SEN.sense_of("sat", "the cat sat on the mat".split(), "v"))
+        check("the DERIVATION IS NOT THE DEFAULT, and the rate is why: "
+              "measured over 40 corpus songs it separates 9.42% of "
+              "shared-word line pairs and the samples are refrains, not puns "
+              "— so a stream that declares neither still REFUSES (doctrine "
+              "16/22: an uncalibrated cut is stated as a rate, not adopted)",
+              _refused(_pairs(_stream(d), "antanaclasis"), "sense"))
+    else:
+        check("WordNet absent — the derived route REFUSES rather than "
+              "silently treating every word as monosemous "
+              "(`python3 quality/fetch_data.py` stages it)",
+              _refused(_pairs(_stream(d), "antanaclasis"), "sense"))
+
 
 def test_period_surface():
     print("\n5. `earlier` / `poet` — a SOURCED period or dialect reading")

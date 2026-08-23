@@ -38,6 +38,23 @@ NLTK_PACKAGES = {
         "averaged_perceptron_tagger_eng.zip",
     "tokenizers/punkt_tab":
         f"{RAW}/nltk/nltk_data/gh-pages/packages/tokenizers/punkt_tab.zip",
+    # ADDED 2026-08-23 for `quality/senses.py`, which supplies the `sense`
+    # capability `antanaclasis` refuses without. WordNet 3.0 is licensed for
+    # use, copy, modification and distribution without fee or royalty (the
+    # notice ships beside the data and both rows are in `data/sources.tsv`);
+    # it is FETCHED and not committed because `data/nltk/` is gitignored,
+    # which is this repo's convention for every large corpus.
+    "corpora/wordnet":
+        f"{RAW}/nltk/nltk_data/gh-pages/packages/corpora/wordnet.zip",
+    # THE TAGGER IS NOT OPTIONAL FOR THAT USE and the un-suffixed name is
+    # needed beside the `_eng` one above: `nltk.pos_tag` loads
+    # `averaged_perceptron_tagger` and then the language model. Simplified
+    # Lesk with NO part of speech resolves `sat` to `saturday.n.01` on one
+    # line and `ride.v.01` on another — measured — so a past-tense verb read
+    # as two senses and the figure fired on an ordinary repeat.
+    "taggers/averaged_perceptron_tagger":
+        f"{RAW}/nltk/nltk_data/gh-pages/packages/taggers/"
+        "averaged_perceptron_tagger.zip",
 }
 
 
