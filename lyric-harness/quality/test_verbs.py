@@ -3891,6 +3891,83 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
           [l for l in out.splitlines() if "accepted 0" in l][:1])
 
 
+def test_fill_reads_a_draft_the_way_every_other_verb_does():
+    print("\n41. `plan --fill` USES THE ONE DEFINITION OF SUNG TEXT — the "
+          "SIXTH holdout from it (`MISSING.md` M-83)")
+    # FOUND BY WRITING A SONG, not by reading the code. The planner's own
+    # `writer_brief` prints a `[INTRO — 3 lines — ...]` header per section and
+    # says "Write a song: N lines, M sections". `--fill` then read the draft
+    # with a bare `open()` + `if l.strip()`, so those headers counted as
+    # LYRIC and the draft was refused BY LINE COUNT — the refusal naming the
+    # draft for a miscount the reader made (doctrine 20).
+    #
+    # WHY THE STANDING GREPS MISS IT. CLAUDE.md ends the apparatus paragraph
+    # on `grep -rn 'startswith("--- ")'` and `grep -rn 'startswith("\[")'`.
+    # Neither finds this site, because it tests no prefix at all. So the
+    # check that the centralization is finished has to be a RUN, not a grep.
+    # The declared line count comes from the verb's OWN artifact, never from
+    # a literal — seed 108's shape is a property of the planner and a number
+    # written here would go stale the next time a space is re-derived, which
+    # is the defect `mcp/test.mjs` was repaired for (doctrine 58).
+    with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as ph:
+        plan_path = ph.name
+    try:
+        run("plan", "--seed=108", f"--out={plan_path}", expect_rc=0)
+        with open(plan_path, encoding="utf-8") as fh:
+            n = json.load(fh)["total_lines"]
+    finally:
+        os.unlink(plan_path)
+    body = [f"line {i} holds its place in the count" for i in range(1, n + 1)]
+    # ALL THREE APPARATUS SPELLINGS AT ONCE, which is the population the one
+    # definition covers and the inline reader covered none of.
+    marked = ["--- TITLE: the sixth holdout", "# a stage direction"]
+    for i, text in enumerate(body):
+        if i % 4 == 0:
+            marked.append(f"[SECTION{i // 4}]")
+        marked.append(text)
+    with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False,
+                                     encoding="utf-8") as fh:
+        fh.write("\n".join(marked) + "\n")
+        path = fh.name
+    try:
+        rc, out, err = run("plan", "--seed=108", f"--fill={path}",
+                           expect_rc=0)
+        check("a draft carrying `[SECTION]`, `#` and `--- TITLE:` FILLS — "
+              "the apparatus the plan's own brief tells a writer to put "
+              "there is not counted as sung text",
+              rc == 0 and "REFUSED" not in (out + err),
+              [l for l in (out + err).splitlines() if "REFUSED" in l][:1]
+              or f"rc={rc}")
+        # THE MUTATION IS THE POINT: the pre-fix reader is re-created here and
+        # must produce the refusal this section exists to end. Without this
+        # the check above passes on any tree that happens to accept the file.
+        raw = [l.rstrip("\n") for l in open(path, encoding="utf-8")
+               if l.strip()]
+        check("...and the pre-fix reader, re-created, MISCOUNTS it — so the "
+              "check above is not passing on a draft that had nothing to "
+              "drop", len(raw) > n and len(lh.load_lyric_lines(path)) == n,
+              f"inline {len(raw)} vs one-definition "
+              f"{len(lh.load_lyric_lines(path))}, plan declares {n}")
+        # THE CONTROL, and it must hold on BOTH trees: a draft with no
+        # apparatus is byte-identical either side of the repair. The fix adds
+        # a drop rule; it changes nothing for a file with nothing to drop.
+        with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False,
+                                         encoding="utf-8") as fh2:
+            fh2.write("\n".join(body) + "\n")
+            bare = fh2.name
+        try:
+            rc2, out2, _ = run("plan", "--seed=108", f"--fill={bare}",
+                               expect_rc=0)
+            check("CONTROL — a headerless draft fills exactly as before, so "
+                  "the repair moved only the apparatus case",
+                  rc2 == 0 and all(b in out2 for b in body[:3]),
+                  f"rc={rc2}")
+        finally:
+            os.unlink(bare)
+    finally:
+        os.unlink(path)
+
+
 if __name__ == "__main__":
     _SECTIONS = (
         test_the_map_is_not_stale,
@@ -3933,6 +4010,7 @@ if __name__ == "__main__":
         test_every_report_names_the_draft_it_read,
         test_the_structures_spelling_reaches_the_verbs,
         test_the_seed_sweep_is_reachable_from_the_command_line,
+        test_fill_reads_a_draft_the_way_every_other_verb_does,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —
     # measured 21-22 minutes on CI run #524, and after the pool went

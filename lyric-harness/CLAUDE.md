@@ -2157,8 +2157,17 @@ it drops blank lines, which this module derives its stanza frame from. No
 shipped corpus or fixture carries a `#`/`---` line, so no recorded number
 moves. FOUR HOLDOUTS FOUND BY FOUR SEPARATE LOTS OVER TWO DAYS, each after a
 paragraph in this file said the centralization was done;
-`grep -rn 'startswith("--- ")'` and `grep -rn 'startswith("\[")'` are the only
-checks that it actually is.
+~~`grep -rn 'startswith("--- ")'` and `grep -rn 'startswith("\[")'` are the only
+checks that it actually is.~~ **STRUCK 2026-08-23 BY THE SIXTH SITE, WHICH
+NEITHER GREP CAN SEE (`MISSING.md` M-83).** `plan --fill` read its draft with a
+bare `open()` and `if l.strip()` — it tests no prefix at all, so both commands
+come back clean on a tree that counts `[SECTION]`, `#` and `--- TITLE:` as sung
+text. A grep for the two spellings answers "is anyone else spelling the rule by
+hand", and the way the rule actually broke here was **nobody spelling it at
+all**. The check that this is finished has to be a RUN: `test_verbs.py` §41
+drives `--fill` on a draft carrying all three apparatus spellings and requires
+it to fill, and restoring the inline reader reds exactly that check while both
+its controls hold.
 
 **AND THE FIFTH SITE WAS NOT THE APPARATUS RULE — IT WAS THE DECODE, ONE LAYER
 EARLIER, FOUND 2026-08-15 BY SWEEPING THE VERBS RATHER THAN GREPPING THE

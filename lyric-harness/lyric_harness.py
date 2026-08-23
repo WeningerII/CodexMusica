@@ -6403,8 +6403,26 @@ def main():
         print(the_plan["writer_brief"])
         print()
         if fill:
-            with open(fill, encoding="utf-8") as fh:
-                draft_lines = [l.rstrip("\n") for l in fh if l.strip()]
+            # THE ONE DEFINITION OF SUNG TEXT, and this verb was the SIXTH
+            # holdout from it (2026-08-23, `MISSING.md` M-83). It read the
+            # draft with a bare `open()` + `if l.strip()`, so `[SECTION]`,
+            # `#` and `--- TITLE:` all counted as LYRIC -- and the plan's
+            # own `writer_brief`, printed six lines above this one, tells
+            # the writer to lay the song out in exactly those sections. A
+            # draft that follows the brief was refused BY THE LINE COUNT,
+            # naming the draft ("declares 18 ... carries 24") for a
+            # miscount this reader made (doctrine 20). `render_song` takes
+            # the same list, so the performance-order artifact -- the
+            # no-private-instruments deliverable -- would have printed the
+            # headers as sung lines. `load_lyric_lines` also carries the
+            # strict decode, so an undecodable draft now refuses by name
+            # rather than through a third inline `encoding="utf-8"`.
+            try:
+                draft_lines = load_lyric_lines(fill)
+            except UndecodableLyricFile as e:
+                _refuse(str(e))
+            except OSError as e:
+                _refuse(f"cannot read the draft: {e}")
             try:
                 bp = PLN.fill_plan(the_plan, draft_lines)
             except PLN.PlanRefused as e:

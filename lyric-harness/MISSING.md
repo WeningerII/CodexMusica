@@ -9594,3 +9594,66 @@ promotions, `M-78`'s doctrine number) block nothing.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~139~~ -> **140**
 on 2026-08-23 with this entry — the ladder ~~137~~ -> ~~138~~ -> 139 -> 140 is
 recorded across `M-81` and `M-75`, and this is its last step in this sitting.
+
+### M-83 · `plan --fill` was the SIXTH holdout from the one definition of sung text `CLOSED` — 2026-08-23
+**FOUND BY WRITING A SONG THROUGH THE PIPELINE, which is the only way it could
+be found** — the owner asked for a song, the planner's own `writer_brief` said
+*"Write a song: 18 lines, 6 sections"* and printed a `[INTRO — 3 lines — 3 bars
+of 10/8, one-beat pickup]` header for each, the draft was laid out in exactly
+those sections, and `plan --fill` REFUSED it.
+
+**THE REFUSAL NAMED THE WRONG LAYER** (doctrine 20): *"the plan declares 18
+line(s) and the draft carries 24 — they must be the same song."* The draft
+carried 18. The reader counted 24, because it read the file with
+
+    with open(fill, encoding="utf-8") as fh:
+        draft_lines = [l.rstrip("\n") for l in fh if l.strip()]
+
+— a bare `open()` and a blank-line test, reaching `is_apparatus_line` by
+nothing. So the SIX `[SECTION]` headers the brief told the writer to write were
+counted as LYRIC, and a `#` stage direction or a `--- TITLE:` line would have
+been too. A writer who follows the plan's own instructions is refused, and told
+the fault is in their draft.
+
+**THIS IS THE SIXTH SITE, AND CLAUDE.md HAS A PARAGRAPH PER PREVIOUS ONE.** The
+apparatus rule was *"CENTRALIZED 2026-08-12, CONVERGED 2026-08-13"*, then found
+again in `quality/loop.py`'s `__main__` (2026-08-13), then in
+`quality/relations.py`'s `main()` (2026-08-13, correctly spelled inline — it
+derives its stanza frame from blank lines), then a fifth time one layer earlier
+in the DECODE (2026-08-15, `read_lyric_text`). That paragraph ends on the two
+commands that check it — `grep -rn 'startswith("--- ")'` and
+`grep -rn 'startswith("\[")'` — and **neither finds this one**, because this
+site does not test a prefix at all. It tests `l.strip()` and nothing else, so
+the greps that were written to prove the centralization is finished are blind
+to the shape that broke it.
+
+**AND IT IS IN THE NEWEST VERB, WHICH IS THE PART THAT STINGS.** `--fill`
+shipped 2026-08-18 under standing rule 3 — *"any measurement or step used in
+producing a delivered song goes through a verb"* — as the verb that ENDS the
+hand-assembled song text. `render_song` is handed the same `draft_lines`, so
+the performance-order artifact, the deliverable that rule exists to produce,
+would have printed the section headers as sung lines interleaved with its own.
+The instrument built to stop a private habit had the habit inside it.
+
+**THE FIX IS THE ONE DEFINITION, NOT A SEVENTH SPELLING.** `load_lyric_lines`,
+whose docstring is *"One definition so every verb agrees on what counts as sung
+text"*, drops blanks exactly as the inline read did, so no other behaviour
+moves. It also carries `read_lyric_text`'s STRICT decode, so `--fill` gains the
+`UndecodableLyricFile` refusal the 2026-08-15 lot gave seven other verbs and
+could not give this one, since this one did not exist yet — an undecodable
+draft was reaching `plan` as an uncaught `UnicodeDecodeError` at exit 1.
+
+**MEASURED, both directions.** Before: a 6-section 18-line draft REFUSES at
+exit 2 naming the draft. After: the same file fills, `render_song` emits the
+18 lines under 6 headers, and `song` grades it **0 FLAG / 0 banned pair /
+0 SCHEME_VIOLATION**, exit 0. A draft with NO headers is byte-identical either
+side of the fix, which is the control — the repair adds a drop rule and changes
+nothing for a file that has nothing to drop.
+
+**WHAT IS NOT CLAIMED**: `grep` cannot certify this family and this entry does
+not pretend the next site would be caught. The check that IS a gate is
+`test_verbs.py` §41, which drives `--fill` on a draft carrying all three
+apparatus spellings at once and requires the plan to accept it; reverting the
+reader to the inline `open()` reds it.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~140~~ -> **141**.
