@@ -558,16 +558,68 @@ try {
     console.log('  ok  lyric_screen live: hair/chair BANNED: HOMEOTELEUTON, exit 0');
     passed++;
 
-    // Seed 55 is Count to Five's shape: 22 lines, chorus lines 17-19
-    // returning verbatim as 20-22. The dummy draft honors the returns.
-    const draft = [];
+    // THE SHAPE IS READ FROM THE PLAN, NEVER REMEMBERED (2026-08-23).
+    // This block used to open `Seed 55 is Count to Five's shape: 22 lines,
+    // chorus lines 17-19 returning verbatim as 20-22` and build a 22-line
+    // draft to match. That was true of planner v1. Planner v2 re-derived
+    // every space it samples from, so seed 55 is 53 lines in 4 sections
+    // today -- and the check went red as `1 !== 2`, which is the SYMPTOM
+    // (`lyric_grade` returns one block when `plan --fill` produced no
+    // render) and names neither the seed nor the count. A grade whose
+    // draft is the wrong length REFUSES at exit 2, correctly; the test was
+    // the thing that was wrong.
+    //
+    // So the draft is built from the plan's OWN report: the line count and
+    // the return classes come back from `lyric_plan` on the same seed, and
+    // nothing here restates them. That is strictly stronger than the
+    // literal it replaces -- it proves the two-block contract for whatever
+    // shape the planner produces, it cannot go stale when the planner is
+    // re-derived, and it reads two coordinates (`lines`, `returns`) the
+    // hardcoded version never consulted.
+    const plannedRes = await client.callTool({
+      name: 'lyric_plan',
+      arguments: { seed: 55 },
+    });
+    assert.ok(!plannedRes.isError, 'lyric_plan answered without isError');
+    assert.equal(plannedRes.content.length, 2, 'plan returns two blocks: report, then verdict');
+    const planReport = plannedRes.content[0].text;
+    const nLines = Number((planReport.match(/-> (\d+) line\(s\)/) || [])[1]);
+    assert.ok(nLines >= 4, `the plan declares its own line count (got ${nLines})`);
+
+    // The bracket header rows ARE the shape, and their line counts must sum
+    // to the declared total -- an invariant of the report rather than a
+    // remembered section list, so a planner that re-derives its patterns
+    // still has to satisfy it.
+    const headers = [...planReport.matchAll(/\[([A-Z_]+) — (\d+) lines? — /g)];
+    assert.ok(headers.length > 0, 'the plan brief carries bracket section headers');
+    assert.equal(
+      headers.reduce((t, h) => t + Number(h[2]), 0),
+      nLines,
+      'the section headers account for every declared line'
+    );
+
+    // RETURNS is the plan's own verbatim-return declaration. `(none)` is an
+    // ordinary answer, not a missing one, so the draft honors whatever is
+    // there and asserts nothing about which it got.
+    const returnsMatch = planReport.match(/RETURNS: (.*)/);
+    assert.ok(returnsMatch, 'the plan report declares its return classes on a RETURNS line');
+    const returnsRaw = returnsMatch[1].trim();
+    const returnClasses =
+      returnsRaw === '(none)'
+        ? []
+        : returnsRaw.split(';').map((g) => g.split(',').map((n) => Number(n.trim())));
+
     const bank = (
       'stone rain door light road name glass train hill salt wire ' +
       'bell coat dust song tide map north paper'
     ).split(' ');
-    for (let i = 1; i <= 19; i++)
+    const draft = [];
+    for (let i = 1; i <= nLines; i++)
       draft.push(`we carry the morning to the ${bank[(i - 1) % bank.length]}`);
-    draft.push(draft[16], draft[17], draft[18]);
+    // A declared return class is the SAME LINE, so every member after the
+    // first is that first line verbatim (1-based line numbers).
+    for (const cls of returnClasses)
+      for (const ln of cls.slice(1)) draft[ln - 1] = draft[cls[0] - 1];
     // The Wide Room fix (2026-08-19): grade and plan lead with the
     // deliverable as its OWN PLAIN-TEXT content block — the song, the plan
     // report — and carry the JSON verdict second, because a render buried
@@ -581,8 +633,10 @@ try {
     assert.equal(gradedRes.content.length, 2, 'grade returns two blocks: song, then verdict');
     const song = gradedRes.content[0].text;
     assert.ok(
-      song.includes('[CHORUS — 3 lines —') && !song.trimStart().startsWith('{'),
-      'block 0 is the SONG as plain text, bracket headers intact'
+      // The plan's OWN first header, not a literal -- see the note above.
+      song.includes(`[${headers[0][1]} — ${headers[0][2]} line`) &&
+        !song.trimStart().startsWith('{'),
+      'block 0 is the SONG as plain text, the plan\u2019s own bracket headers intact'
     );
     // The provenance stamp is SERVER-written under the song, inside the
     // verbatim block: seed + exit + banned-pair count reach the user even
@@ -622,16 +676,19 @@ try {
     console.log('  ok  lyric_check live: banned_pairs surfaces the ban at exit 0');
     passed++;
 
-    const planRes = await client.callTool({ name: 'lyric_plan', arguments: { seed: 55 } });
-    assert.ok(!planRes.isError, 'lyric_plan answered without isError');
-    assert.equal(planRes.content.length, 2, 'plan returns two blocks: report, then verdict');
+    // The SAME plan the draft above was built from -- re-calling the tool
+    // here ran the planner a second time on one seed and then asserted a
+    // remembered `[CHORUS — 3 lines —` against it, which is the stale
+    // literal repaired above wearing a second hat (doctrine 1: one
+    // definition per question). `plannedRes` is that call; this check owns
+    // the presentation contract, so it keeps its own assertions.
     assert.ok(
-      planRes.content[0].text.includes('[CHORUS — 3 lines —') &&
-        !planRes.content[0].text.trimStart().startsWith('{'),
-      'block 0 is the plan report as plain text, bracket headers intact'
+      planReport.includes(`[${headers[0][1]} — ${headers[0][2]} line`) &&
+        !planReport.trimStart().startsWith('{'),
+      'block 0 is the plan report as plain text, its own bracket headers intact'
     );
     assert.equal(
-      JSON.parse(planRes.content[1].text).exit_code,
+      JSON.parse(plannedRes.content[1].text).exit_code,
       0,
       'plan verdict block reports exit 0'
     );

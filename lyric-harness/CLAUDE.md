@@ -427,8 +427,31 @@ DIRECTLY, since it builds its own mandate rather than reading a plan — same
 coordinate, and the difference is which object is the mandate.
 `quality/test_plan.py` §9, 10 checks. **One pre-existing red is NOT this
 change and was verified by reverting**: `mcp/test.mjs`'s `grade returns two
-blocks` fails byte-identically before and after, because `data/cmudict.dict`
-is unfetched in this container so the harness cannot grade.
+blocks` fails byte-identically before and after, ~~because `data/cmudict.dict`
+is unfetched in this container so the harness cannot grade.~~
+**THE FIRST HALF HELD AND THE CAUSE WAS WRONG — REPINNED 2026-08-23, AND THE
+CAUSE WAS A STALE FIXTURE OF OURS.** `cmudict.dict` sits at the repo root,
+not under `data/`, and it is present: `lyric_screen live: hair/chair BANNED:
+HOMEOTELEUTON` passes in the same run, which is the whole stack answering.
+The check's own comment read *"Seed 55 is Count to Five's shape: 22 lines,
+chorus lines 17-19 returning verbatim as 20-22"* — true of planner v1. V2
+re-derived every space it samples from, so **seed 55 is 53 lines in 4
+sections today** and a 22-line draft REFUSES at exit 2, correctly; with no
+render, `lyric_grade` returns one block and the check reads `1 !== 2`, which
+names neither the seed nor the count. Calling an environment artifact was
+doctrine 20 pointed at our own suite: a defect nobody had looked at, recorded
+as a defect nobody could fix.
+**THE SHAPE IS READ FROM THE PLAN NOW, NEVER REMEMBERED.** The draft is built
+from `lyric_plan`'s own report — declared line count, bracket-header rows,
+`RETURNS:` classes — so the check proves the two-block contract for whatever
+shape the planner produces and cannot go stale when the planner is
+re-derived. It also reads two coordinates the literal never consulted, and
+adds an invariant the literal could not state: the section headers must
+account for every declared line. A second `lyric_plan` call on the same seed,
+asserting the same remembered header, is folded into the first (doctrine 1).
+`node mcp/test.mjs` is **34 checks, exit 0**; stubbing `extractRender` to
+return `null` takes it to 31 and red, which is the proof the repaired check
+reads the coordinate it names.
 
 **WHERE A SECTION MAY GO IS A DECLARED COORDINATE NOW (2026-08-22,
 `MISSING.md` M-54).** "An outro is last" was true of every plan the planner

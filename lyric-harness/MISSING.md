@@ -7240,9 +7240,34 @@ caller that never learned these fields is unchanged.
 
 **ONE THING THE CONNECTOR SUITE SHOWS AND IT IS NOT THIS.**
 `mcp/test.mjs` fails one check (`grade returns two blocks`) BEFORE and AFTER
-this change, byte-identically: `data/cmudict.dict` is not fetched in this
+this change, byte-identically: ~~`data/cmudict.dict` is not fetched in this
 container, so the harness cannot grade and the render is absent. An
-environment artifact, verified by reverting.
+environment artifact, verified by reverting.~~
+**THE BEFORE/AFTER HELD; THE CAUSE DID NOT — REPINNED 2026-08-23 (doctrine
+17).** The dictionary is at the repo ROOT (`cmudict.dict`), not under
+`data/`, and it is present and readable: `lyric_screen live: hair/chair
+BANNED: HOMEOTELEUTON` passes in the same run. The real cause is a fixture of
+ours that went stale when the planner was rewritten — the check builds a
+**22-line** draft on a comment reading *"Seed 55 is Count to Five's shape"*,
+and planner v2 gives seed 55 **53 lines over 4 sections
+(chorus-postchorus-verse-hook, RETURNS `(none)`)**. A wrong-length draft
+refuses at exit 2, `plan --fill` emits no render, `lyric_grade` returns ONE
+content block, and the assertion reads `1 !== 2` — a symptom that names
+neither the seed nor the count. **Charging it to the environment is doctrine
+20 turned on our own suite**: work nobody had done, recorded as work nobody
+could do, and it survived a full sitting of CI reds on that record.
+**FIXED BY READING THE SHAPE OFF THE PLAN.** `lyric_plan` on the same seed
+returns the report as block 0; the check now takes the declared line count
+(`-> N line(s)`), the bracket-header rows and the `RETURNS:` classes from it
+and builds the draft to match, honouring the returns. Strictly stronger than
+the literal: it survives any re-derivation of the planner, it reads two
+coordinates (`lines`, `returns`) the hardcoded draft never consulted, and it
+adds an invariant the literal could not state — the section headers must sum
+to the declared total. The duplicate `lyric_plan` call twenty lines down,
+which asserted the same remembered `[CHORUS — 3 lines —`, is folded into the
+first (doctrine 1). `node mcp/test.mjs`: **34 checks, exit 0**. Proven
+non-vacuous by mutation — stubbing `extractRender` to `null` drops it to 31
+and red on exactly this check.
 
 ### M-56 · two of the twenty-one "section functions" declare in their own glosses that they are NOT sections `OPEN`
 **Found 2026-08-22 deriving the section-constraint table, by reading all 21
@@ -7666,3 +7691,91 @@ different question than the one that will grade them.
    Filed here because it was found in the same run; it is independent.
 
 ## Add below this line
+
+### M-60 · CI could not tell a REFUSAL from a MOVED pin, and the refusal took two working checks down with it `CLOSED` 2026-08-23
+**Found by reading `record`'s job log rather than its verdict.** The job was
+red on every run since 2026-08-22 and the failing step's own last line read
+`RESULT: PASS`, because the step that failed is not the step that ends the
+job (`if: always()` carries the rest).
+
+**THE STEP ASKED ONE QUESTION OF THREE INSTRUMENTS.**
+`- name: Tang null, Kalevala rate and the positive control — pins nothing
+asked` ran three `--check`s as a bare list under `shell: bash -e`, so the
+step's verdict was the first non-zero exit and nothing after it ran.
+
+**AND THE FIRST ONE REFUSES ON EVERY RUNNER, CORRECTLY.**
+`audit_tang_null.py --check` prints, in its own words:
+
+> `REFUSED — the 全唐诗 pool yielded no poems.`
+> `It is an absolute path OUTSIDE this repository, not committed and not
+> fetched by CI. Set TANG_POOL to a checkout of chinese-poetry ...`
+> `Nothing was measured, so nothing moved (doctrine 20).`
+
+and exits **2**, which is this repo's refusal code everywhere. The gate read
+that as a failure — **a refusal in the numerator, charged to the layer that
+did not fail (doctrine 79)**, at the one place the distinction is enforced
+rather than described. The instrument was never wrong; it grew that guard on
+2026-08-14, *"found by CI"*, precisely so a missing corpus would stop reading
+as a defect in the statistic.
+
+**THE COST IS THE OTHER TWO, AND IT IS TOTAL.** `-e` aborts at the first
+non-zero, so `kalevala_rate.py --check` and `run_positive_control.py --check`
+have **never been invoked on any CI run since the step was added**. Both
+answer here — measured 2026-08-23, `RESULT: PASS`, exit 0 each — so this was
+two live pins silently unrun behind one unrunnable one. The step's own
+comment claims the opposite in as many words: *"These three HOLD today, so
+adding them costs no red and closes the gap."* That was measured on a machine
+that had the pool. **A check that can only pass in one environment is not
+testing the thing it names** — this file's own sentence, from the
+`audit_joint_auc_null` arm four weeks earlier, and the same shape at the gate
+instead of inside a suite.
+
+**FIXED BY GIVING THE GATE THE THREE-VERDICT VOCABULARY IT WAS MISSING** —
+`pin_sweep.py`'s own, since this step asks that tool's question. Each
+instrument runs independently; **0 is HOLDS, 2 is CANNOT RUN, any other
+non-zero is MOVED**; the three counts print separately and are never summed;
+the step fails **if and only if** something MOVED. A CANNOT RUN is printed
+with its instrument's name, so it is disclosed on every run rather than
+swallowed — which is the difference between this and simply appending
+`|| true`.
+
+### M-61 · `test_capabilities.py` was named by nothing that gates, and it holds the 77-of-77 claim `CLOSED` 2026-08-23
+**Found by `test_verbs.py` §24, the orphan census, for the third time in two
+days** — and this one is the one that mattered most. `quality/
+test_capabilities.py` §8 is what pins **ALL 77 `schema:` NAMES ARE ASKABLE —
+0 BLOCKED**, the claim `CLAUDE.md` leads its relation section with. It was on
+disk, green, and run by no CI job: 68 suites on disk, 67 accounted for.
+
+51 checks at **6.9s**, so it belongs in the cheap pool on its measured cost
+and not on an argument. Added there; the step's label goes 61 → 62, which the
+same section's second check requires (`label 62, list 62`).
+
+**THE CENSUS IS THE ONLY REASON THIS IS FINDABLE.** `pin_sweep` and
+`suite_sweep` were caught by it on 2026-08-22, then `mandate_relation`,
+`relation_shapes` and `relations_null` the same day, then `placement` and
+`section_marks`. Seven suites in three days, every one green on a developer
+machine and unrun by the thing that gates. A hand-kept list that is SHORT
+looks exactly like a list that is COMPLETE, and no amount of care replaces
+the arithmetic.
+
+### M-62 · a test fired its interrupt on a CLOCK, so it certified the machine it ran on `CLOSED` 2026-08-23
+`test_pin_sweep.py` §7 proves that a killed sweep still prints its counts and
+NAMES what it never reached. It set that up with `time.sleep(4)`, on the
+recorded argument that *"`meter_bands.py --check` re-derives over 264,082
+lines, so it is reliably still running four seconds in."*
+
+**That is a claim about a MACHINE, and it was measured on one.** A CI runner
+spends those four seconds importing and opening the corpus, so `SIGTERM` can
+land before `sweep()` has begun the instrument at all — and then there is no
+interrupted instrument, and every check in the section reads a state the test
+did not create. The section can go red for a reason that has nothing to do
+with its subject, on the slower box, which is the box CI is.
+
+**THE MARKER SAYS WHAT THE SLEEP WAS GUESSING AT.** `sweep()` prints
+`  [ 1/ 1] <instrument>` BEFORE it starts each one — the subject of §8's own
+check — so the test polls for it and signals then. The wait is bounded and
+the bound is a NAMED failure rather than a hang, because *"the marker never
+appeared"* and *"the interrupt was mishandled"* are different findings
+(doctrine 20). One check added, stating the precondition the sleep left
+implicit; `p.wait` is raised to 120s with a `kill` fallback, so a slow unwind
+is not an exception three frames down.

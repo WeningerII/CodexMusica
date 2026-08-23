@@ -256,15 +256,44 @@ def test_an_interrupted_sweep_reports_what_it_ran():
     import tempfile as _tf
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     out = _tf.NamedTemporaryFile("w+", suffix=".log", delete=False)
-    # `meter_bands.py --check` re-derives over 264,082 lines, so it is
-    # reliably still running four seconds in -- that is what makes the kill
-    # land mid-instrument rather than racing the summary.
+    # THE KILL IS FIRED ON A MARKER, NOT ON A CLOCK -- CHANGED 2026-08-23.
+    # This read `time.sleep(4)` under the argument that *"`meter_bands.py
+    # --check` re-derives over 264,082 lines, so it is reliably still running
+    # four seconds in"*. That is a claim about a MACHINE, and it was measured
+    # on one: a CI runner takes those four seconds to import and open the
+    # corpus, so the signal can land before `sweep()` has begun the
+    # instrument at all -- and then there is no interrupted instrument to
+    # report and every check in this section reads the wrong state. A race a
+    # test can lose on a slower box is a test that certifies the box.
+    #
+    # `sweep()` prints `  [ 1/ 1] <instrument>` BEFORE it starts each one
+    # (that is check 8's own subject), so the marker says exactly what the
+    # sleep was guessing at: the instrument is RUNNING and the summary has
+    # not been reached. Poll for it, then signal. The outer bound is a named
+    # failure rather than a hang, because "the marker never appeared" and
+    # "the interrupt was mishandled" are different findings (doctrine 20).
     p = _sp.Popen([sys.executable, "quality/pin_sweep.py",
                    "--only", "meter_bands.py"],
                   cwd=root, stdout=out, stderr=_sp.STDOUT)
-    time.sleep(4)
+    started, deadline = False, time.time() + 180
+    while time.time() < deadline:
+        if p.poll() is not None:
+            break            # it finished on its own -- checked below
+        if "meter_bands.py" in open(out.name, encoding="utf-8").read():
+            started = True
+            break
+        time.sleep(0.2)
+    check("the sweep announced the instrument BEFORE running it, so the "
+          "interrupt lands mid-instrument rather than racing the summary",
+          started and p.poll() is None,
+          ("announced" if started else "no marker within 180s",
+           "still running" if p.poll() is None else "exited %s" % p.poll()))
     p.send_signal(_sig.SIGTERM)
-    p.wait(timeout=30)
+    try:
+        p.wait(timeout=120)
+    except _sp.TimeoutExpired:
+        p.kill()
+        p.wait(timeout=30)
     out.flush()
     text = open(out.name, encoding="utf-8").read()
     check("the interrupted run still prints a summary",
