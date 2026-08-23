@@ -40,11 +40,28 @@ These outrank any inference a session draws from the code.
    with a generator over a derived space: meters from the {2,3}-composition
    cycle grammar filtered by ONE derived envelope (slots-per-line floor =
    the calibrated density band's floor, ceiling = band ceiling × one
-   declared multiplier), sampled BY DERIVATION — dimension pair, then beat
-   count, then grouping, each uniform over its own set, never uniform over
+   declared multiplier), sampled BY DERIVATION — ~~dimension pair, then beat
+   count, then grouping~~ **SLOTS PER LINE, then a factorisation of it, then
+   the grouping** (REPOINTED 2026-08-23, `MISSING.md` M-81, owner's ruling
+   *"do A"*: slots per line is the coordinate the envelope and the
+   calibration behind it are STATED IN, and uniform-over-dimension-pairs is
+   not uniform over it — `bars_per_line` runs to `hi // 2`, a sound bound and
+   never a claim that all 24 values are equally musical, and a high-bars
+   pair's beat range COLLAPSES, so `bars=24, sub=1` emitted the envelope's
+   ceiling every time it was drawn. MEASURED: median 38 slots of a [5, 48]
+   envelope spelled as a median of **eight bars per lyric line**, with 4.0%
+   of lines given a grid a band-legal line could fill. After: median **26**,
+   **one bar** per line in 54.9%, fillable **18.2%**. The pair marginal is now
+   a REALISABILITY share, predicted from `meter_factorisations` alone and held
+   to four sigma — deliberately not flat, because a slots count one
+   factorisation can make must not be rarer than one twenty-one can), each
+   uniform over its own set, never uniform over
    the enumerated leaves (which weight a cycle by how many groupings it
    admits and hand nearly every plan the maximal beat count — the first
-   smoke run's own finding); lines per section uniform over the envelope;
+   smoke run's own finding, and the bar §4 holds the sampler to is now HALF
+   what that leaf measure actually gives, computed rather than typed: leaf
+   beat median **46** and >=40 share **0.918**, against this sampler's 11 and
+   0.090); lines per section uniform over the envelope;
    schemes exact-uniform via Bell-triangle completion counts above the
    enumeration bound, so large stanzas are reachable; patterns generated
    from the section-function vocabulary's recurrence contracts, 14 of 21

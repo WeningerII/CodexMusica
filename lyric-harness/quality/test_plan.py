@@ -323,31 +323,79 @@ def test_the_measure():
     # 26.5; under a leaf measure their mass sits at the top of the range,
     # mean 45+. Deterministic — one seeded rng.
     rng = random.Random(20260818)
-    draws = [PLN._sample_meter(rng) for _ in range(24000)]
+    N = 24000
+    draws = [PLN._sample_meter(rng) for _ in range(N)]
     pair_n = Counter((d[0], d[1]) for d in draws)
-    # ~~all 12 pairs~~ — REPINNED 2026-08-23. Twelve was a property of the
-    # LITERAL `bars_per_line (1, 4)`, and that bound is derived now (from the
-    # slots envelope: a line at the coarsest admissible grid already carries
-    # 2 slots per bar, so a bars count past `hi // 2` cannot produce a
-    # band-legal line at any meter). The ASSERTION that matters is unchanged
-    # and is the equality: the sampler reaches EVERY pair the envelope
-    # admits, whatever number that is, each within 15% of its share.
-    _share = 24000 / max(1, len(dims))
-    check("the dimension pairs are drawn uniformly — every pair the envelope "
-          "admits, each within 15% of its expected share",
-          len(pair_n) == len(dims)
-          and all(abs(v - _share) <= 0.15 * _share
-                  for v in pair_n.values()),
-          f"{len(dims)} pairs, share {_share:.0f}, "
-          f"min {min(pair_n.values())}, max {max(pair_n.values())}")
-    wide = [d[2] for d in draws if (d[0], d[1]) == (1, 1)]
-    check("within the widest pair the beat count is UNIFORM on its range "
-          "— observed mean within 1.5 of the range's own midpoint (a leaf "
-          "measure pushes it 18+ beats high)",
-          abs(sum(wide) / len(wide)
-              - (dims[(1, 1)][0] + dims[(1, 1)][1]) / 2) <= 1.5,
-          f"mean {sum(wide) / len(wide):.2f} over {len(wide)} draws, "
-          f"midpoint {(dims[(1, 1)][0] + dims[(1, 1)][1]) / 2}")
+    slot_n = Counter(d[4][2] for d in draws)
+    vals = PLN.slot_values()
+
+    # THE MEASURE MOVED 2026-08-23 (`MISSING.md` M-81) AND THE OLD CHECKS
+    # HERE WERE PINNING THE DEFECT, which is why they are repointed with the
+    # argument rather than deleted (this repo's own §5/§13 lesson — a test
+    # that measures a wrong behaviour precisely is what keeps it):
+    #   ~~"the dimension pairs are drawn uniformly — every pair the envelope
+    #   admits, each within 15% of its expected share"~~
+    #   ~~"within the widest pair the beat count is UNIFORM on its range"~~
+    # Both were true of the sampler and both were the wrong question.
+    # `bars_per_line` runs to `hi // 2` — a sound BOUND and never a claim
+    # that all 24 values are equally musical — and a high-bars pair's beat
+    # range COLLAPSES: at `bars=24, sub=1` the only legal beat count is 2, so
+    # that pair emitted the envelope's CEILING every time it was drawn.
+    # Uniform over PAIRS is therefore not uniform over SLOTS PER LINE, which
+    # is the coordinate the envelope — and the calibration behind it — is
+    # actually stated in: measured at median 35 of a [5, 48] envelope, with
+    # 4.6% of lines given a grid a band-legal line could fill.
+    #
+    # WHAT IS ASSERTED NOW is the declared coordinate's own uniformity, the
+    # coverage the old check was really protecting, and the pair marginal as
+    # a PREDICTION computed from `meter_factorisations` alone.
+    _sshare = N / len(vals)
+    _smean = sum(slot_n.elements()) / N
+    _smid = (vals[0] + vals[-1]) / 2
+    check("SLOTS PER LINE — the coordinate the envelope is stated in — is "
+          "drawn UNIFORM over what the envelope can realise: every value "
+          "reached, each within 15% of its share, and the observed mean "
+          "within 1.0 of the envelope's own midpoint (the pair-uniform "
+          "measure this replaces put it 8 slots high)",
+          len(slot_n) == len(vals)
+          and all(abs(v - _sshare) <= 0.15 * _sshare for v in slot_n.values())
+          and abs(_smean - _smid) <= 1.0,
+          f"{len(slot_n)}/{len(vals)} values, mean {_smean:.2f}, midpoint "
+          f"{_smid}, max deviation "
+          f"{max(abs(v - _sshare) / _sshare for v in slot_n.values()):.1%}")
+    check("...and the ADMITTED PAIR SET is the same set derived two ways — "
+          "`meter_dims`' non-empty beat range and `meter_factorisations`' "
+          "divisibility — so the sampler and the disclosure's denominator "
+          "cannot come to different answers about what this envelope allows "
+          "(doctrine 1)",
+          {p for n in vals for p in PLN.meter_factorisations(n)} == set(dims),
+          f"{len(dims)} pairs both ways")
+    check("...and EVERY pair the envelope admits is still REACHED, which is "
+          "the coverage the uniformity check was really protecting",
+          len(pair_n) == len(dims), f"{len(pair_n)}/{len(dims)} pairs")
+    # THE PAIR MARGINAL IS A PREDICTION, NOT AN ACCIDENT. Computed from
+    # `meter_factorisations` and nothing else: a slots count is drawn 1/|vals|
+    # of the time and then splits its mass evenly over its factorisations.
+    pred = Counter()
+    for n in vals:
+        f = PLN.meter_factorisations(n)
+        for p in f:
+            pred[p] += N / len(vals) / len(f)
+    _sigma = max(abs(pair_n[p] - pred[p]) / (pred[p] ** 0.5) for p in dims)
+    check("...and the pair marginal MATCHES that prediction, every pair "
+          "inside four sigma of its own expected count — so the shares "
+          "follow from the arithmetic rather than from whatever the sampler "
+          "happens to do",
+          all(abs(pair_n[p] - pred[p]) <= 4 * (pred[p] ** 0.5) for p in dims),
+          f"worst {_sigma:.2f} sigma")
+    _ratio = max(pred.values()) / min(pred.values())
+    check("...and that marginal is emphatically NOT flat, so a check "
+          "asserting pair-uniformity would today be asserting the defect: a "
+          "count one factorisation can make must not be rarer than one "
+          "twenty-one can",
+          _ratio > 100,
+          f"max/min predicted share {_ratio:.0f}x; (1,1) realises every "
+          f"value, the rarest realise one each")
 
     # The envelope floor is DERIVED, not copied (the calibration chain).
     from quality import meter_bands as MB
@@ -373,12 +421,48 @@ def test_the_measure():
         for sm in p["choices"]["schemes"].values():
             ks[sm["lines"]] += 1
     bs = sorted(beats)
-    check("the meter marginal is freed from the LEAF measure — median "
-          "beat count <= 8 and under 10% of plans at >= 40 beats (the "
-          "leaf measure put nearly ALL of them there: compositions into "
-          "{2,3} grow ~1.3247^n)",
-          bs[100] <= 8 and sum(b >= 40 for b in bs) / 200 < 0.10,
-          f"median {bs[100]}, frac>=40 {sum(b >= 40 for b in bs) / 200}")
+    # THE LEAF MEASURE, COMPUTED rather than described — the bar this check
+    # holds the sampler to is now HALF whatever the thing it names actually
+    # does, so it is derived from its own subject instead of being two
+    # literals (the owner's standing rule, turned on the check itself).
+    # ~~median beat count <= 8 and under 10% of plans at >= 40 beats~~ —
+    # REPOINTED 2026-08-23 (`MISSING.md` M-81). Those two numbers described
+    # the PAIR-UNIFORM marginal, which ran a median 2-beat bar because it
+    # ran a median EIGHT BARS PER LINE: preserving 8 would have meant
+    # preserving that, and a lyric line spread over eight bars is the thing
+    # M-81 is about. 10% also sat 20x clear of the old observation and would
+    # sit 1.15x clear of this one — a flap risk rather than a discriminator.
+    _leaf = Counter()
+    for (_b, _s), (_lo, _hi) in dims.items():
+        for _n in range(_lo, _hi + 1):
+            _leaf[_n] += PLN._n_compositions_23(_n)
+    _lt = sum(_leaf.values())
+    _leaf_hi = sum(v for k, v in _leaf.items() if k >= 40) / _lt
+    _leaf_med = min(k for k in sorted(_leaf)
+                    if sum(_leaf[j] for j in _leaf if j <= k) >= _lt / 2)
+    check("the meter marginal is freed from the LEAF measure — beat-count "
+          "median and the >=40 share both at most HALF what uniform-over-"
+          "enumerated-cycles gives, which is the measure this sampler exists "
+          "to not be (compositions into {2,3} grow ~1.3247^n, so leaves pile "
+          "on the envelope's maximal beat count)",
+          bs[100] <= _leaf_med / 2
+          and sum(b >= 40 for b in bs) / 200 <= _leaf_hi / 2,
+          f"median {bs[100]} vs leaf {_leaf_med}, frac>=40 "
+          f"{sum(b >= 40 for b in bs) / 200:.3f} vs leaf {_leaf_hi:.3f}")
+    # AND THE COUNTERWEIGHT, which nothing checked before and which the
+    # pair-uniform measure failed outright: a lyric line normally occupies
+    # ONE bar, or a few. `bars_per_line` runs to `hi // 2` as a BOUND, and
+    # under the old measure the median plan spent EIGHT bars on a line — the
+    # same slots product spelled as many short bars instead of one long one.
+    bars_pl = sorted(p["choices"]["bars_per_line"] for p in
+                     [make_plan(seed=s) for s in range(200)])
+    check("...and a line occupies ONE bar in most plans, which is what the "
+          "pair-uniform measure got wrong in the other direction: it is the "
+          "same slots product spelled as many short bars, and no song sets "
+          "one lyric line across eight of them",
+          bars_pl[100] <= 2 and sum(b == 1 for b in bars_pl) / 200 > 0.4,
+          f"median {bars_pl[100]} bars/line, "
+          f"one-bar {sum(b == 1 for b in bars_pl) / 200:.1%}")
     check("the 4/4 bias is dead: many distinct meters over 200 seeds, both "
           "notation units, and 4/4 under 30% of plans. The COUNT is not "
           "pinned at a literal — it moves with the derived envelope — so "

@@ -9065,7 +9065,7 @@ word need N pairs of rhymes"* asks for and still does not have. FINDINGS 2 and
 are about what a plan should PREFER, and this gate is about what it may not
 ASK.
 
-### M-81 · a plan can be satisfiable and still unsingable: the grid is three times emptier than the densest legal line `OPEN` — measured 2026-08-23
+### M-81 · a plan can be satisfiable and still unsingable: the sampler did not sample the envelope it declares `PARTIAL` — measured 2026-08-23, half (A) CLOSED the same day
 **FOUND BY RUNNING THE PIPELINE AGAIN AFTER `M-80` CLOSED**, which is what the
 gate was for: with every plan now writability-gated, the next thing in the way
 is visible. Seed 108 is one of the two plans in 600 whose SHAPE is a song —
@@ -9143,3 +9143,96 @@ which is doctrine 58's error with the two layers swapped.
 SATISFIABLE — `plan.joint_findings` returns nothing on all 400 — which is the
 distinction `M-80` exists to hold. Unsingable and unsatisfiable are different
 verdicts and only one of them is a refusal.
+
+**(A) IS CLOSED — THE OWNER'S RULING WAS *"do A"*, 2026-08-23.** The sampler
+draws the DECLARED COORDINATE first: `slot_values()` is what the envelope can
+realise, `_sample_meter` picks one uniformly, `meter_factorisations(slots)`
+gives every `(bars, subdivision)` that makes it, one is drawn uniformly, and
+`beats` follows by division. The grouping half is untouched — it was already
+exact-uniform over compositions and has its own pin.
+
+**MEASURED, 24,000 draws of `_sample_meter` under one seeded rng, and the
+trade is explicit:**
+
+| | OLD (uniform over pairs) | NEW (uniform over slots) |
+|---|---:|---:|
+| slots per line, median | 38 | **26** |
+| lines a band-legal line can FILL | 4.0% | **18.2%** |
+| **bars per line, median** | **8** | **1** |
+| one bar per line | 7.1% | **54.9%** |
+| beats per bar, median | 2 | **11** |
+| beats >= 40 | 0.5% | 8.7% |
+
+Over 400 whole plans the per-line figures agree: slots-per-line median
+**35 -> 27**, and the share of lines whose grid a band-legal line can fill
+**4.6% -> 19.9%**.
+
+**THE OLD MEASURE'S LOW BEAT COUNT WAS NOT A VIRTUE, IT WAS THE SAME DEFECT
+SPELLED DIFFERENTLY.** A median 2-beat bar sounds tame until you read the row
+above it: the pair-uniform sampler ran a median of **eight bars per lyric
+line**. It was taking a too-large slots product and spending it on many short
+bars instead of one long one. No song sets one lyric line across eight bars,
+and nothing in this file checked it — `test_plan.py` §4 now does.
+
+**AND THE RESIDUE IS HONEST AND IS (B)'s.** Beats-per-bar rises 2 -> 11 and
+the >=40 share 0.5% -> 8.7%, because with `bars_per_line` at 1 the beat count
+IS the slots count. That is the same quantity — slots per line is still too
+large — arriving at the reader through the time signature instead of through
+the bar count, and the lever is `SLOTS_CEILING_X`, not the sampler. It is not
+hidden by a threshold: the check that names it is **derived from its own
+subject** now rather than from two literals.
+
+**THE TWO LITERALS IN THAT CHECK WERE PINNING THE OLD MEASURE.** It read
+*"median beat count <= 8 and under 10% of plans at >= 40 beats"*. Eight was a
+property of the pair-uniform marginal — of the eight-bars-per-line that
+produced it — so preserving it would have preserved the defect; and 10% sat
+20x clear of the old observation and 1.15x clear of this one, which is a flap
+risk rather than a discriminator. The bar is now **half whatever the LEAF
+measure itself gives**, computed in the check from `meter_dims` and
+`_n_compositions_23`: uniform-over-enumerated-cycles puts the beat median at
+**46** and the >=40 share at **0.918**, against this sampler's 11 and 0.090.
+The check cannot be vacuous, because its threshold is a measurement of the
+thing it exists to exclude.
+
+**WHAT ELSE THE REPOINTING PROVED.** The admitted-pair set derived two ways —
+`meter_dims`' non-empty beat range and `meter_factorisations`' divisibility —
+is the SAME 42 pairs, so the sampler and the disclosure's denominator cannot
+answer differently about what the envelope allows (doctrine 1). All 42 are
+still reached. And the pair marginal is now a PREDICTION computed from
+`meter_factorisations` alone, held to within four sigma of its expected count
+for every pair (worst observed **2.55 sigma**) — deliberately **not** flat,
+max/min share **412x**, because a slots count one factorisation can make must
+not be rarer than one twenty-one can. A check asserting pair-uniformity would
+today be asserting the defect, which is why §4's old one is struck with its
+argument rather than deleted.
+
+**NO SEEDS LOST AND THE GATE IS UNMOVED**: `plan.joint_findings` still returns
+nothing on all 400 seeds, and 0 refuse. `M-80` and this are independent — one
+says a plan must be satisfiable, this says the sampler must sample what it
+declares.
+
+**(B) STAYS OPEN AND IS NOW THE ONLY LEVER LEFT.** Even under (A) the median
+line gets 26 slots for at most 12 syllables. `SLOTS_CEILING_X = 4` is the
+module's own "one declared multiplier", argued and never measured, and it
+cannot be calibrated from `corpus/song/`: doctrine 4 makes a bar grid a
+DECLARED coordinate, `quality/recover.py` REFUSES to infer one, and audio is
+out of the project's vocabulary by owner ruling. There is no population of
+grids to measure a fill fraction against, so closing it is a RULING — a
+declared fill band — and it is the owner's.
+
+**AND THE END-TO-END EFFECT, MEASURED THE WAY A WRITER WOULD FEEL IT.** Over
+600 seeds, asking for a **singable grid** — every line's slots within twice the
+density ceiling, and a lyric line living in at most two bars — the rate goes
+**44/600 = 7.3% -> 196/600 = 32.7%**, four and a half times. Seed 108's brief
+moves from `[INTRO — 3 lines — 51 bars of 2/4]` to one bar of 39/8, and seed
+336's meter from 4/4 to 5/8.
+**THE SAME RUN SAYS WHAT (A) DID NOT TOUCH, AND IT IS THE MORE IMPORTANT
+HALF.** Asking separately for a **song SHAPE** — 12–28 lines, at most six
+sections, none shorter than two lines, a verse before the first chorus, no
+group deeper than a quatrain — the rate is **2/600 = 0.3% BEFORE AND AFTER**,
+and **0 of 600 seeds satisfy both at once**. The grid axis moved 4.5x; the
+shape axis did not move at all, because nothing in this change touches it.
+That is M-79's Findings 2 and 4 standing exactly where they were, and it is
+the lane `BACKLOG` task 101 already names — existence rules becoming
+distribution bands. **The shortest line to a written song now runs through
+SHAPE, not through the grid.**

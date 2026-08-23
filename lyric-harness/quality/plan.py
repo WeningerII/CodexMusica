@@ -138,6 +138,7 @@ __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX", "SLOTS_CEILING_X",
            "make_plan", "fill_plan", "writer_brief", "grading_command",
            "render_song", "section_header",
            "meter_dims", "meter_space_size", "bell",
+           "meter_factorisations", "slot_values",
            "JOINT_CODES", "LAST_WORD", "placement_word",
            "line_syllable_ceiling", "joint_findings"]
 
@@ -523,25 +524,80 @@ def meter_space_size():
                for b in range(lo, hi + 1))
 
 
+@lru_cache(maxsize=None)
+def meter_factorisations(slots):
+    """-> ((bars, subdivision), ...) every way this envelope can realise a
+    line of `slots` slots. `beats = slots // (bars * sub)` follows, and the
+    `>= 2` is the composition grammar's own floor: `_compositions_23` has no
+    composition below 2, so a one-beat cycle is not a cycle here."""
+    out = []
+    for bars in range(ENVELOPE["bars_per_line"][0],
+                      ENVELOPE["bars_per_line"][1] + 1):
+        for sub in ENVELOPE["subdivisions"]:
+            step = bars * sub
+            if slots % step == 0 and slots // step >= 2:
+                out.append((bars, sub))
+    return tuple(out)
+
+
+@lru_cache(maxsize=None)
+def slot_values():
+    """-> the slots-per-line counts the envelope can actually REALISE.
+
+    Every integer in the envelope is realisable — `(bars, sub) = (1, 1)`
+    gives `beats = slots`, and the envelope's floor is the density band's
+    floor, comfortably above the grammar's 2 — so this is the envelope's own
+    range today. It is COMPUTED rather than assumed because the moment
+    `bars_per_line` or `subdivisions` narrows, a value can stop being
+    reachable, and a sampler drawing uniformly over values it cannot realise
+    would silently re-weight the ones it can.
+    """
+    lo, hi = ENVELOPE["slots_per_line"]
+    return tuple(n for n in range(lo, hi + 1) if meter_factorisations(n))
+
+
 def _sample_meter(rng):
-    """One meter draw under the DERIVATION measure (module docstring):
-    dimension pair uniform over what the envelope admits, beat count
-    uniform over that pair's derived range, grouping exact-uniform over
-    that beat count's compositions. Uniform over the flat enumeration is
-    the same grammar under a weight-by-grouping-count table nobody
-    declared (compositions into {2,3} grow ~1.3247^n, so leaves
-    concentrate on the envelope's maximal beat count — this module's
-    first smoke run showed it). A function of its own so the test file
-    can hold the MEASURE itself to its prediction, not just the plans
-    downstream of it. -> (bars, sub, beats, groups, (n_pairs, b_lo,
-    b_hi)); the tail is the disclosure's raw material."""
-    dims = meter_dims()
-    dim_keys = sorted(dims)
-    bars, sub = dim_keys[rng.randrange(len(dim_keys))]
-    b_lo, b_hi = dims[(bars, sub)]
-    beats = rng.randint(b_lo, b_hi)
+    """One meter draw under the DERIVATION measure (module docstring).
+
+    SLOTS PER LINE FIRST, then a factorisation of it, then the grouping.
+    That order is the module's own rule — *"THE MEASURE IS BY DERIVATION,
+    NOT BY LEAF"* — applied to the coordinate the ENVELOPE is stated in, and
+    it is the second time this file has had to learn it (`MISSING.md` M-81).
+    ~~dimension pair uniform over what the envelope admits, beat count
+    uniform over that pair's derived range~~ was the first correction's
+    shape and it moved the bias rather than removing it: `bars_per_line`
+    runs to `hi // 2` — a sound BOUND, since past it no band-legal line is
+    possible at any meter, and never a claim that all of those values are
+    equally musical — and a high-bars pair's beat range COLLAPSES. At
+    `bars=24, sub=1` the only legal beat count is 2, so that pair emits the
+    envelope's ceiling every time it is drawn. Uniform over PAIRS is
+    therefore not uniform over slots per line: MEASURED at median 35 of a
+    [5, 48] envelope, with only 4.6% of lines given a grid a band-legal line
+    could fill.
+
+    THE PAIR MARGINAL IS NOW A REALISABILITY SHARE and that is the correct
+    direction, not a new bias: a slots count one factorisation can make
+    should not be rarer than one six can make, which is exactly what
+    weighting by pair did. It is a PREDICTION rather than an accident —
+    `P(bars, sub)` is computable from `meter_factorisations` alone, and
+    `test_plan.py` §4 holds the sampler to it.
+
+    Uniform over the flat enumeration remains wrong for the reason it always
+    was: compositions into {2,3} grow ~1.3247^n, so leaves concentrate on
+    the maximal beat count (this module's first smoke run showed it).
+
+    A function of its own so the test file can hold the MEASURE itself to
+    its prediction, not just the plans downstream of it. -> (bars, sub,
+    beats, groups, (n_slot_values, n_factorisations, slots)); the tail is
+    the disclosure's raw material.
+    """
+    vals = slot_values()
+    slots = vals[rng.randrange(len(vals))]
+    fact = meter_factorisations(slots)
+    bars, sub = fact[rng.randrange(len(fact))]
+    beats = slots // (bars * sub)
     groups = _composition_uniform(beats, rng)
-    return bars, sub, beats, groups, (len(dim_keys), b_lo, b_hi)
+    return bars, sub, beats, groups, (len(vals), len(fact), slots)
 
 
 # ---------------------------------------------------------------- schemes
@@ -1316,7 +1372,8 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             f"— try another seed, drop --lines, or declare the shape by "
             f"hand.")
 
-    bars, sub, beats, groups_m, (n_pairs, b_lo, b_hi) = _sample_meter(rng)
+    bars, sub, beats, groups_m, (n_slots, n_fact, slots_pl) = \
+        _sample_meter(rng)
     meter = {"beats": beats, "unit": _unit_for(groups_m),
              "groups": list(groups_m)}
 
@@ -1585,16 +1642,22 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                                         f"roster {len(GENERATOR_ROSTER)} "
                                         f"of 21 functions")},
             "meter": {"value": dict(meter),
+                      "slots_per_line": slots_pl,
                       "chosen_from": f"{meter_space_size()} derived cycles "
                                      f"(slots envelope "
                                      f"{list(ENVELOPE['slots_per_line'])}), "
-                                     f"measured BY DERIVATION: 1 of "
-                                     f"{n_pairs} bars x subdivision "
-                                     f"pairs, beats {b_lo}-{b_hi} within "
-                                     f"the pair, 1 of "
-                                     f"{_n_compositions_23(beats)} "
-                                     f"groupings of {beats}; unit is "
-                                     f"notation, never enforced"},
+                                     f"measured BY DERIVATION ON THE "
+                                     f"DECLARED COORDINATE: 1 of {n_slots} "
+                                     f"slots-per-line values, then 1 of "
+                                     f"{n_fact} bars x subdivision "
+                                     f"factorisation(s) of {slots_pl}, then "
+                                     f"1 of {_n_compositions_23(beats)} "
+                                     f"groupings of {beats}. The slots "
+                                     f"count is what the envelope is stated "
+                                     f"in, so it is what the draw is uniform "
+                                     f"over; the pair share follows from how "
+                                     f"many ways each count factorises. Unit "
+                                     f"is notation, never enforced"},
             # WHERE EACH REQUIREMENT BINDS, and the MEASURE it was drawn
             # under — disclosed because it is the coordinate that stopped
             # this generator being end-rhyme-only, and because the measure
