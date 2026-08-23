@@ -9065,7 +9065,7 @@ word need N pairs of rhymes"* asks for and still does not have. FINDINGS 2 and
 are about what a plan should PREFER, and this gate is about what it may not
 ASK.
 
-### M-81 · a plan can be satisfiable and still unsingable: the sampler did not sample the envelope it declares `PARTIAL` — measured 2026-08-23, half (A) CLOSED the same day
+### M-81 · a plan can be satisfiable and still unsingable: the sampler did not sample the envelope it declares, and the envelope was in the wrong unit `CLOSED` — measured 2026-08-23, (A) and (B) both closed the same day
 **FOUND BY RUNNING THE PIPELINE AGAIN AFTER `M-80` CLOSED**, which is what the
 gate was for: with every plan now writability-gated, the next thing in the way
 is visible. Seed 108 is one of the two plans in 600 whose SHAPE is a song —
@@ -9236,3 +9236,121 @@ That is M-79's Findings 2 and 4 standing exactly where they were, and it is
 the lane `BACKLOG` task 101 already names — existence rules becoming
 distribution bands. **The shortest line to a written song now runs through
 SHAPE, not through the grid.**
+
+**(B) IS CLOSED TOO — THE OWNER'S RULING WAS *"now do B"*, 2026-08-23 — AND
+IT DID NOT NEED A CORPUS, BECAUSE THE MULTIPLIER WAS ASKING THE WRONG
+QUESTION.** This entry said closing (B) would be a RULING, since no
+population of bar grids exists to take a fill fraction over. That was true of
+the question `SLOTS_CEILING_X` posed and the question was wrong. Its own
+sentence gives it away: *"a line at the band's own maximum fills a quarter of
+its grid"* measures emptiness in **SLOTS** — and a slot is a SUBDIVISION unit,
+not a unit of time. **Forty-eight slots is twelve beats at subdivision 4 and
+FORTY-EIGHT BEATS at subdivision 1, and one multiplier called those the same
+line.** There was never a single fill fraction to calibrate.
+
+**THE ENVELOPE IS STATED IN TWO UNITS NOW, AND BOTH ENDS ARE THE SAME
+CALIBRATED BAND:**
+  * **CEILING, in BEATS** — a line runs at most `DENSITY` ceiling beats,
+    because it carries at most that many syllables and a sung line carries at
+    least one syllable per beat. Beyond it the beat itself is decoration: the
+    grid is finer than the words need at EVERY level, subdivision included.
+  * **FLOOR, in SLOTS** — a line holds at least `DENSITY` floor slots,
+    because it must be able to carry the fewest syllables the band permits
+    and a syllable occupies one slot (`fit.SLOTS_EXCEEDED`).
+The ceiling bounds TIME and the floor bounds CAPACITY, which is why one
+multiplier could not be both, and why the SLOTS ceiling is not declared at all
+any more — it FOLLOWS as `beats ceiling x max(subdivisions)`.
+
+**WHAT IS CALIBRATED AND WHAT IS DECLARED, KEPT APART (doctrine 16/22).** The
+band `[5, 12]` syllables per line is MEASURED over 139,694 corpus lines. The
+step from syllables to beats is DECLARED: `BEATS_PER_SYLLABLE_MAX = 1`, named
+so it can be overruled in one line rather than found inside an expression. **1
+is the IDENTITY** — the point where the grid's own beat is the syllable rate —
+and it is chosen for the reason exact equality is chosen over a threshold
+elsewhere in this repo: it is the only value in the range that is not a guess.
+Above 1 the planner would be volunteering held notes, which is a melodic
+decision it has no basis to make. **AND IT IS A CAPACITY, NOT A REQUIREMENT**
+— the ceiling is computed against the MOST syllables a line may carry, so a
+writer who puts five syllables in a twelve-beat line gets a slow line and no
+finding. That is the `SPARSE` reading this whole entry began by getting wrong.
+
+**MEASURED, 24,000 seeded draws of `_sample_meter`, all three states:**
+
+| | ORIGINAL | after (A) | after (B) |
+|---|---:|---:|---:|
+| **beats per LINE, median** | **24** | **22** | **7** |
+| beats per LINE, max | 48 | 48 | **12** |
+| bars per line, median | 8 | 1 | **1** |
+| bars per line, max | 24 | 24 | **6** |
+| beats per BAR, median | 2 | 11 | **4** |
+| beats per bar >= 40 | 0.5% | 8.7% | **0.0%** |
+| slots per line, median | 38 | 26 | **12** |
+
+**READ THE FIRST ROW AND (A)'s WHOLE CONTRIBUTION COMES INTO FOCUS: IT MOVED
+THE SPELLING, NOT THE LENGTH.** A lyric line ran a median of 24 beats before
+and 22 after — barely anything — while the bars it was spread over went 8 to 1
+and its slots 38 to 26. (A) was right and necessary (the sampler must sample
+the coordinate it declares, and eight bars per line is not a song) and it
+could not have fixed this, because the quantity it drew uniformly was still
+the wrong one. **(B) is what moves the line: 22 beats to 7.**
+
+Over 400 whole plans, the share of lines whose grid a band-legal line can
+FILL: **4.6% -> 19.9% -> 56.3%**. The median beat count per bar is **4**, and
+nothing tuned it there — `4/4` was v1's bias and this is the same figure
+arrived at by derivation from a band.
+
+**THE RESIDUE (A) LEFT IS GONE.** (A)'s honest cost was the beat count rising
+2 -> 11 with an 8.7% tail past 40, because with `bars=1` the beat count IS the
+slots count. The beats ceiling removes it structurally: **no beat count above
+12 exists in the envelope at all**, so the tail is 0.0% and it cannot come
+back by tuning.
+
+**AND THE PIPELINE PRODUCES A SONG FOR THE FIRST TIME.** Over 600 seeds,
+asking for a **singable grid** (every line's slots within twice the density
+ceiling, a lyric line living in at most two bars): **44/600 = 7.3% -> 400/600
+= 66.7%**, a nine-fold move. Asking for **both** that and a song SHAPE (12–28
+lines, at most six sections, none under two lines, a verse before the first
+chorus, no group deeper than a quatrain): **0 of 600 before, 2 of 600 now**
+(seeds 108 and 336). Seed 108's brief, across the three states:
+```
+  [INTRO — 3 lines — 51 bars of 2/4]                 ORIGINAL
+  [INTRO — 3 lines — 1 bar of 39/8]                  after (A)
+  [INTRO — 3 lines — 3 bars of 10/8, one-beat pickup]   after (B)
+```
+
+**AND §4's LAST TWO THRESHOLDS WENT WITH IT, WHICH IS THE OWNER'S RULE TURNED
+ON THE CHECKS THEMSELVES.** (A) had already replaced two literals with *half
+whatever the leaf measure gives*; that stopped discriminating the moment the
+beats ceiling capped the beat count, because the leaf measure's >=40 share is
+now 0 and so is this sampler's — **`0 <= 0` reads exactly like a check that
+examined something**. Both surviving thresholds are now TWO-HYPOTHESIS TESTS
+between two COMPUTED distributions, with no number anywhere in them:
+  * the beats-per-bar marginal is closer to THIS SAMPLER's prediction (total
+    variation **0.0089**) than to the LEAF measure's (**0.4327**) — and the
+    two predictions are proven to differ from each other by more than the
+    observation differs from either, so it is not a comparison of one
+    hypothesis with itself;
+  * the pair marginal is closer to the REALISABILITY share (**0.0095**) than
+    to FLAT (**0.4941**) — which is the claim §4's own struck pair-uniformity
+    check used to make in the opposite direction.
+
+**NO SEEDS LOST AND THE JOINT GATE IS UNMOVED**: `plan.joint_findings` returns
+nothing on all 400 seeds, and 0 refuse.
+
+**WHAT REMAINS, AND IT IS NOT THIS ENTRY'S.** The SHAPE axis is unmoved at
+**0.3% before and after** — 12 sections for 19 lines, chorus before verse at
+56% against a corpus 23%. That is M-79's Findings 2 and 4, and the lane is
+`BACKLOG` task 101: existence rules becoming distribution bands. Two seeds in
+600 is a pipeline that CAN write a song, not one that reliably does.
+
+**BOOKKEEPING — `audit_register.PINNED["coverage_entries"]` CLIMBED TWICE IN
+THIS SITTING, and both steps are recorded here so that neither superseded
+value is a figure nobody stands behind (doctrine 17).** ~~137~~ -> **138** on
+2026-08-23 when `M-80` was filed, and ~~138~~ -> **139** the same day when
+this entry was. Each step is exactly one new entry in this file and nothing
+else moved. `quality/verify_entries.py` is what caught the second one going
+un-recorded — and then caught the correction landing in the WRONG FILE, since
+the first attempt at this paragraph was appended at the repository root by a
+shell whose working directory had moved. An untracked `MISSING.md` two
+directories up reads exactly like a recorded supersession to everything
+except the instrument that looks.

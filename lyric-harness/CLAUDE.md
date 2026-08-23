@@ -38,30 +38,49 @@ These outrank any inference a session draws from the code.
    4/4, everywhere — and named the cause: tables (constants per function,
    three meters by hand, five pattern strings). V2 replaces every table
    with a generator over a derived space: meters from the {2,3}-composition
-   cycle grammar filtered by ONE derived envelope (slots-per-line floor =
-   the calibrated density band's floor, ceiling = band ceiling × one
-   declared multiplier), sampled BY DERIVATION — ~~dimension pair, then beat
-   count, then grouping~~ **SLOTS PER LINE, then a factorisation of it, then
-   the grouping** (REPOINTED 2026-08-23, `MISSING.md` M-81, owner's ruling
-   *"do A"*: slots per line is the coordinate the envelope and the
-   calibration behind it are STATED IN, and uniform-over-dimension-pairs is
-   not uniform over it — `bars_per_line` runs to `hi // 2`, a sound bound and
-   never a claim that all 24 values are equally musical, and a high-bars
-   pair's beat range COLLAPSES, so `bars=24, sub=1` emitted the envelope's
-   ceiling every time it was drawn. MEASURED: median 38 slots of a [5, 48]
-   envelope spelled as a median of **eight bars per lyric line**, with 4.0%
-   of lines given a grid a band-legal line could fill. After: median **26**,
-   **one bar** per line in 54.9%, fillable **18.2%**. The pair marginal is now
-   a REALISABILITY share, predicted from `meter_factorisations` alone and held
-   to four sigma — deliberately not flat, because a slots count one
-   factorisation can make must not be rarer than one twenty-one can), each
+   cycle grammar filtered by ONE derived envelope whose ~~floor and ceiling
+   are both slots-per-line (floor = the calibrated density band's floor,
+   ceiling = band ceiling × one declared multiplier)~~ **two ends are the
+   same calibrated band read in two UNITS: the CEILING in beats (a line runs
+   at most the density band's ceiling in beats, because it carries at most
+   that many syllables and at least one beat each — `BEATS_PER_SYLLABLE_MAX`
+   is the one declared step) and the FLOOR in slots (a line holds at least
+   the band's floor, because a syllable occupies one slot). The slots ceiling
+   is not declared at all now; it FOLLOWS as beats-ceiling × the finest grid
+   the vocabulary models**, sampled BY DERIVATION — ~~dimension pair, then beat
+   count, then grouping~~ ~~SLOTS PER LINE, then a factorisation of it~~
+   **BEATS PER LINE, then a factorisation of it, then the grouping**
+   (REPOINTED TWICE ON 2026-08-23, `MISSING.md` M-81, owner's rulings *"do A"*
+   then *"now do B"*. (A): the envelope's coordinate must be what the draw is
+   uniform over — uniform-over-dimension-pairs is not, because `bars_per_line`
+   runs to `hi // 2` (a sound bound, never a claim that all 24 values are
+   equally musical) and a high-bars pair's beat range COLLAPSES, so
+   `bars=24, sub=1` emitted the ceiling every time it was drawn: measured at a
+   median of **eight bars per lyric line**. (B): and the coordinate itself was
+   in the wrong UNIT. A slot is a subdivision unit, so 48 slots is twelve
+   beats at subdivision 4 and forty-eight at subdivision 1 — the same envelope
+   entry calling two different lines the same. MEASURED across all three
+   states, 24,000 seeded draws: **beats per LINE median 24 -> 22 -> 7**,
+   bars per line 8 -> 1 -> 1, beats per BAR 2 -> 11 -> **4**, and the share of
+   lines whose grid a band-legal line can FILL **4.6% -> 19.9% -> 56.3%**.
+   Read the first row and (A)'s contribution comes into focus: it fixed how
+   the length was SPELLED and could not fix the length, because the quantity
+   it drew uniformly was still the wrong one. The pair marginal is now a
+   REALISABILITY share, predicted from `meter_factorisations` alone and held
+   to four sigma — deliberately not flat, because a beat count one
+   factorisation can make must not be rarer than one fifteen can), each
    uniform over its own set, never uniform over
    the enumerated leaves (which weight a cycle by how many groupings it
    admits and hand nearly every plan the maximal beat count — the first
-   smoke run's own finding, and the bar §4 holds the sampler to is now HALF
-   what that leaf measure actually gives, computed rather than typed: leaf
-   beat median **46** and >=40 share **0.918**, against this sampler's 11 and
-   0.090); lines per section uniform over the envelope;
+   smoke run's own finding. **§4's LAST TWO THRESHOLDS WENT WITH (B)**: the
+   leaf measure's >=40 share is 0 under the beats ceiling and so is this
+   sampler's, and `0 <= 0` reads exactly like a check that examined
+   something. Both surviving checks are TWO-HYPOTHESIS TESTS between two
+   COMPUTED distributions with no number in them — the beats-per-bar marginal
+   is total variation **0.0089** from this sampler's own prediction and
+   **0.4327** from the leaf's, and the pair marginal **0.0095** from the
+   realisability share against **0.4941** from flat);
+   lines per section uniform over the envelope;
    schemes exact-uniform via Bell-triangle completion counts above the
    enumeration bound, so large stanzas are reachable; patterns generated
    from the section-function vocabulary's recurrence contracts, 14 of 21

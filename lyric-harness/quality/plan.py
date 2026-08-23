@@ -19,15 +19,23 @@ GENERATOR over a space the enforcement layers already grade:
 - METERS are derived from the cycle grammar — any beat count whose pulse
   grouping is a composition into 2s and 3s (the attested additive-meter
   vocabulary), at any bars-per-line and subdivision, FILTERED by one derived
-  envelope: slots per line. The envelope's floor IS the calibrated density
-  band's floor (`meter_bands.ADOPTED` — a line must hold at least that many
-  syllables, so fewer slots is unsatisfiable BY CONSTRUCTION); the ceiling is
-  the band's ceiling times one declared multiplier (`SLOTS_CEILING_X`),
-  beyond which every band-legal line under-fills the grid into decoration.
-  THE MEASURE IS BY DERIVATION, NOT BY LEAF — (bars, subdivision) uniform
-  over the pairs the envelope admits, the beat count uniform over that
-  pair's derived range, the grouping exact-uniform over that beat count's
-  compositions. This module's own first smoke run (2026-08-18) convicted
+  envelope — and BOTH OF ITS ENDS ARE THE SAME CALIBRATED BAND READ IN
+  DIFFERENT UNITS (2026-08-23, `MISSING.md` M-81(B)). CEILING, in BEATS: a
+  line runs at most `DENSITY` ceiling beats, because it carries at most that
+  many syllables and a sung line carries at least one syllable per beat
+  (`BEATS_PER_SYLLABLE_MAX`, the one declared step in the chain). FLOOR, in
+  SLOTS: a line holds at least `DENSITY` floor slots, because it must be able
+  to carry the fewest syllables the band permits and a syllable occupies one
+  slot. ~~the ceiling is the band's ceiling times one declared multiplier
+  (`SLOTS_CEILING_X`), beyond which every band-legal line under-fills the
+  grid into decoration~~ — struck: it measured emptiness in SLOTS, and a slot
+  is a subdivision unit, so it called a twelve-beat line and a forty-eight-
+  beat line the same thing and let one lyric line be set across two dozen
+  bars.
+  THE MEASURE IS BY DERIVATION, NOT BY LEAF — beats per line uniform over
+  what the envelope realises, the (bars, subdivision) factorisation uniform
+  over the ways to make it, the grouping exact-uniform over the resulting
+  beat count's compositions. This module's own first smoke run (2026-08-18) convicted
   the leaf measure: compositions of n into {2,3} grow ~1.3247^n, so
   uniform-over-enumerated-cycles hands nearly every plan the largest beat
   count the envelope admits — a weight-by-grouping-count table nobody
@@ -131,14 +139,15 @@ from quality import floor as _FL
 from quality import slots as _SL
 from quality import meter_bands as MB
 
-__all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX", "SLOTS_CEILING_X",
+__all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "tokens_per_line_band", "gradeable_line_counts",
            "line_count_gaps",
            "GENERATOR_ROSTER", "ZERO_LINE_FUNCTIONS", "PlanRefused",
            "make_plan", "fill_plan", "writer_brief", "grading_command",
            "render_song", "section_header",
            "meter_dims", "meter_space_size", "bell",
-           "meter_factorisations", "slot_values",
+           "meter_factorisations", "beats_values",
+           "BEATS_PER_SYLLABLE_MAX",
            "JOINT_CODES", "LAST_WORD", "placement_word",
            "line_syllable_ceiling", "joint_findings"]
 
@@ -223,12 +232,55 @@ FORM_TENDENCIES = {
     ),
 }
 
-#: The one declared multiplier in this module. The slots ceiling is the
-#: density band's ceiling times this: at 4x, a line at the band's own
-#: maximum fills a quarter of its grid, which is where a grid stops
-#: discriminating and starts decorating. Everything else in ENVELOPE is
-#: either the band itself or a data-type fact.
-SLOTS_CEILING_X = 4
+#: ~~SLOTS_CEILING_X = 4 — the one declared multiplier in this module. The
+#: slots ceiling is the density band's ceiling times this: at 4x, a line at
+#: the band's own maximum fills a quarter of its grid, which is where a grid
+#: stops discriminating and starts decorating.~~
+#: **STRUCK AND DERIVED 2026-08-23 BY OWNER RULING ("now do B"), `MISSING.md`
+#: M-81(B).** It was the last hard number in the generator, argued and never
+#: measured, and it could not be measured: doctrine 4 makes a bar grid a
+#: DECLARED coordinate, `quality/recover.py` REFUSES to infer one from text,
+#: and audio is out of this project's vocabulary — so there is no population
+#: of grids to take a fill fraction over. Its own sentence is also the reason
+#: it had to go: *"a line at the band's own maximum fills a quarter of its
+#: grid"* measures emptiness in SLOTS, and a slot is a subdivision unit, not
+#: a unit of time. Forty-eight slots is twelve beats at subdivision 4 and
+#: FORTY-EIGHT BEATS at subdivision 1, and this multiplier called those the
+#: same line.
+#:
+#: THE ENVELOPE IS STATED IN BEATS NOW, AND BOTH OF ITS ENDS ARE THE SAME
+#: CALIBRATED BAND READ IN DIFFERENT UNITS:
+#:   * CEILING — a line runs at most `DENSITY` ceiling BEATS, because it
+#:     carries at most that many syllables and a sung line carries at least
+#:     one syllable per beat. Beyond it the beat itself is decoration: the
+#:     grid is finer than the words need at EVERY level, subdivision
+#:     included, and nothing about the line is being measured by counting it.
+#:   * FLOOR — a line holds at least `DENSITY` floor SLOTS, because it must
+#:     be able to carry the fewest syllables the band permits and a syllable
+#:     occupies one slot (`fit.SLOTS_EXCEEDED`).
+#: So the ceiling is a bound on TIME and the floor a bound on CAPACITY, which
+#: is why they are in different units and why one multiplier could not be
+#: both.
+#:
+#: WHAT IS CALIBRATED AND WHAT IS DECLARED, kept apart (doctrine 16/22): the
+#: band `[5, 12]` syllables per line is MEASURED over 139,694 corpus lines
+#: (`meter_bands.ADOPTED`, three preregistrations). The step from syllables
+#: to beats is DECLARED and is `BEATS_PER_SYLLABLE_MAX` below — the one free
+#: choice left in this envelope, named so it can be overruled in one line
+#: rather than found in an expression.
+
+#: THE SLOWEST LINE THE PLANNER VOLUNTEERS, in beats per syllable. 1 is the
+#: IDENTITY — the point where the grid's own beat is the syllable rate — and
+#: it is chosen for the reason exact equality is chosen over a threshold
+#: elsewhere in this repo: it is the only value in the range that is not a
+#: guess. Above 1 the planner would be volunteering held notes, which is a
+#: melodic decision it has no basis to make and a writer makes for
+#: themselves; a draft that holds a note is not refused by anything here.
+#: A CAPACITY, NOT A REQUIREMENT (the `SPARSE` reading M-79 got wrong): the
+#: ceiling is computed against the MOST syllables a line may carry, so a
+#: writer who fills a twelve-beat line with five syllables gets a slow line
+#: and no finding.
+BEATS_PER_SYLLABLE_MAX = 1
 
 #: Exact scheme enumeration up to this many lines (Bell(10) = 115,975 —
 #: instant); beyond it the exact-uniform sampler serves, with the Bell
@@ -323,13 +375,32 @@ def line_count_gaps():
 #: other five.
 def _envelope():
     ok = gradeable_line_counts()
-    lo, hi = MB.ADOPTED["DENSITY"][0], MB.ADOPTED["DENSITY"][1] * SLOTS_CEILING_X
+    d_lo, d_hi = MB.ADOPTED["DENSITY"]
+    # TWO ENDS, ONE CALIBRATED BAND, TWO UNITS (`MISSING.md` M-81(B)). The
+    # ceiling bounds TIME and the floor bounds CAPACITY, which is why the old
+    # single `slots_per_line` pair could not carry both: 48 slots is twelve
+    # beats at subdivision 4 and forty-eight at subdivision 1, and one
+    # multiplier called those the same line.
+    beats_hi = max(2, int(d_hi * BEATS_PER_SYLLABLE_MAX))
     return {
-        # slots per line = beats x subdivision x bars_per_line. Floor DERIVED:
-        # the calibrated density band's floor (meter_bands.ADOPTED) — fewer
-        # slots than the minimum band-legal syllable count is unsatisfiable by
-        # construction. Ceiling: band ceiling x SLOTS_CEILING_X.
-        "slots_per_line": (lo, hi),
+        # BEATS PER LINE = bars_per_line x beats_per_bar, and it is the
+        # quantity a listener hears as the length of the line. Ceiling
+        # DERIVED: a line carries at most `DENSITY` ceiling syllables and at
+        # least `BEATS_PER_SYLLABLE_MAX` beat each, so it runs at most that
+        # many beats. Floor: the composition grammar's own — no cycle has
+        # fewer than 2 beats, and a line is at least one bar.
+        "beats_per_line": (2, beats_hi),
+        # SLOTS PER LINE = beats_per_line x subdivision, so the ceiling
+        # FOLLOWS from the beats ceiling and the finest grid this vocabulary
+        # models rather than being declared beside it. Floor DERIVED: the
+        # calibrated density band's floor — fewer slots than the minimum
+        # band-legal syllable count is unsatisfiable by construction, since a
+        # syllable occupies one slot (`fit.SLOTS_EXCEEDED`).
+        # KEPT AS AN ENTRY because `meter_dims` and the disclosure both read
+        # it, and because the FLOOR genuinely lives in this unit — but it is
+        # now the widest span any subdivision admits, not a bound the sampler
+        # draws against (see `_sample_meter`, which draws in beats).
+        "slots_per_line": (d_lo, beats_hi * max(ENVELOPE_SUBDIVISIONS)),
         # LINES PER SECTION: bounded ONLY by what the whole song may carry.
         # There is no separate per-section calibration to derive a tighter
         # bound from — the floor grades a DRAFT, not a section — so inventing
@@ -346,11 +417,15 @@ def _envelope():
         # subdivisions the fit layer's grid models (eighth/sixteenth pulse
         # against the beat) — a data-type set, not taste.
         "subdivisions": (1, 2, 4),
-        # BARS PER LINE: bounded by the slots envelope it feeds. A line of
-        # `bars` bars at the coarsest grid this vocabulary admits (2 beats,
-        # subdivision 1) already carries `2 * bars` slots, so a bars count
-        # past `hi // 2` cannot produce a band-legal line at any meter.
-        "bars_per_line": (1, max(1, hi // 2)),
+        # BARS PER LINE: bounded by the BEATS envelope it feeds. The
+        # composition grammar admits no bar under 2 beats, so a line of
+        # `bars` bars runs at least `2 * bars` beats and a bars count past
+        # `beats_hi // 2` cannot produce a legal line at any meter.
+        # ~~`hi // 2` on the SLOTS envelope~~, which read 24 and let one lyric
+        # line be set across two dozen bars — the ceiling was a bound on the
+        # wrong unit, and M-81(A) measured the median plan spending eight
+        # bars on a line because of it.
+        "bars_per_line": (1, max(1, beats_hi // 2)),
         # ANACRUSIS is derived PER DRAW from the subdivision, because the
         # pickup has to land on the grid the section actually declared:
         # `_anacrusis_choices(sub)`. The entry here is the widest set any
@@ -500,16 +575,27 @@ def _partition_uniform(counts, total, rng):
 
 def meter_dims():
     """-> {(bars_per_line, subdivision): (beats_lo, beats_hi)} — every
-    dimension pair whose derived beat range is non-empty under the slots
-    envelope. Pure arithmetic on the envelope; the beat count needs no cap
-    of its own — the envelope's ceiling implies one."""
-    lo, hi = ENVELOPE["slots_per_line"]
+    dimension pair whose derived BEATS-PER-BAR range is non-empty under the
+    envelope. Pure arithmetic on the envelope; the beat count needs no cap of
+    its own — the beats-per-line ceiling implies one.
+
+    BOTH ENDS COME FROM THE DENSITY BAND, in the two units M-81(B) separated:
+    the floor is the CAPACITY end (this pair must be able to hold the fewest
+    syllables the band permits, and a syllable occupies one slot) and the
+    ceiling is the TIME end (the whole line runs at most `DENSITY` ceiling
+    beats, so one bar of it runs at most that over the bar count).
+    ~~`b_hi = slots_hi // (sub * bars)`~~ — struck 2026-08-23: dividing the
+    SLOTS ceiling by the subdivision let a coarse grid buy length, which is
+    how `bars=24, sub=1` became a legal shape for one lyric line.
+    """
+    d_lo = MB.ADOPTED["DENSITY"][0]
+    beats_hi = ENVELOPE["beats_per_line"][1]
     dims = {}
     for bars in range(ENVELOPE["bars_per_line"][0],
                       ENVELOPE["bars_per_line"][1] + 1):
         for sub in ENVELOPE["subdivisions"]:
-            b_lo = max(2, math.ceil(lo / (sub * bars)))
-            b_hi = hi // (sub * bars)
+            b_lo = max(2, math.ceil(d_lo / (sub * bars)))
+            b_hi = beats_hi // bars
             if b_lo <= b_hi:
                 dims[(bars, sub)] = (b_lo, b_hi)
     return dims
@@ -525,44 +611,62 @@ def meter_space_size():
 
 
 @lru_cache(maxsize=None)
-def meter_factorisations(slots):
+def meter_factorisations(beats_per_line):
     """-> ((bars, subdivision), ...) every way this envelope can realise a
-    line of `slots` slots. `beats = slots // (bars * sub)` follows, and the
-    `>= 2` is the composition grammar's own floor: `_compositions_23` has no
-    composition below 2, so a one-beat cycle is not a cycle here."""
+    line running `beats_per_line` beats.
+
+    `beats_per_bar = beats_per_line // bars` follows, and the `>= 2` is the
+    composition grammar's own floor: `_compositions_23` has no composition
+    below 2, so a one-beat cycle is not a cycle here. The SUBDIVISION is
+    filtered by the CAPACITY end of the envelope — a line must be able to
+    hold the fewest syllables the density band permits, and a syllable
+    occupies one slot, so `beats_per_line * sub` must clear the floor. That
+    is why a two-beat line exists only at the finest grid: two beats of
+    quarter-notes cannot carry five syllables and two beats of sixteenths
+    can.
+    ~~took `slots` and divided~~ — struck 2026-08-23 with M-81(B). Slots are
+    subdivision units, so drawing in them made a line's LENGTH a function of
+    its grid resolution: 48 slots was twelve beats at subdivision 4 and
+    forty-eight at subdivision 1.
+    """
+    d_lo = MB.ADOPTED["DENSITY"][0]
     out = []
     for bars in range(ENVELOPE["bars_per_line"][0],
                       ENVELOPE["bars_per_line"][1] + 1):
+        if beats_per_line % bars or beats_per_line // bars < 2:
+            continue
         for sub in ENVELOPE["subdivisions"]:
-            step = bars * sub
-            if slots % step == 0 and slots // step >= 2:
+            if beats_per_line * sub >= d_lo:
                 out.append((bars, sub))
     return tuple(out)
 
 
 @lru_cache(maxsize=None)
-def slot_values():
-    """-> the slots-per-line counts the envelope can actually REALISE.
+def beats_values():
+    """-> the beats-per-line counts the envelope can actually REALISE.
 
-    Every integer in the envelope is realisable — `(bars, sub) = (1, 1)`
-    gives `beats = slots`, and the envelope's floor is the density band's
-    floor, comfortably above the grammar's 2 — so this is the envelope's own
-    range today. It is COMPUTED rather than assumed because the moment
-    `bars_per_line` or `subdivisions` narrows, a value can stop being
-    reachable, and a sampler drawing uniformly over values it cannot realise
-    would silently re-weight the ones it can.
+    COMPUTED rather than assumed: the moment `bars_per_line`, `subdivisions`
+    or the density floor moves, a count can stop being reachable, and a
+    sampler drawing uniformly over counts it cannot realise would silently
+    re-weight the ones it can.
     """
-    lo, hi = ENVELOPE["slots_per_line"]
+    lo, hi = ENVELOPE["beats_per_line"]
     return tuple(n for n in range(lo, hi + 1) if meter_factorisations(n))
 
 
 def _sample_meter(rng):
     """One meter draw under the DERIVATION measure (module docstring).
 
-    SLOTS PER LINE FIRST, then a factorisation of it, then the grouping.
+    BEATS PER LINE FIRST, then a factorisation of it, then the grouping.
     That order is the module's own rule — *"THE MEASURE IS BY DERIVATION,
     NOT BY LEAF"* — applied to the coordinate the ENVELOPE is stated in, and
     it is the second time this file has had to learn it (`MISSING.md` M-81).
+    ~~SLOTS per line first~~ (M-81(A)) got the ORDER right and the UNIT
+    wrong: a slot is a subdivision unit, so 48 slots is twelve beats at
+    subdivision 4 and forty-eight at subdivision 1, and drawing uniformly
+    over slots made a line's length a function of its grid resolution. The
+    length a listener hears is BEATS, and that is what the envelope is stated
+    in now (M-81(B)).
     ~~dimension pair uniform over what the envelope admits, beat count
     uniform over that pair's derived range~~ was the first correction's
     shape and it moved the bias rather than removing it: `bars_per_line`
@@ -576,7 +680,7 @@ def _sample_meter(rng):
     could fill.
 
     THE PAIR MARGINAL IS NOW A REALISABILITY SHARE and that is the correct
-    direction, not a new bias: a slots count one factorisation can make
+    direction, not a new bias: a beat count one factorisation can make
     should not be rarer than one six can make, which is exactly what
     weighting by pair did. It is a PREDICTION rather than an accident —
     `P(bars, sub)` is computable from `meter_factorisations` alone, and
@@ -588,16 +692,16 @@ def _sample_meter(rng):
 
     A function of its own so the test file can hold the MEASURE itself to
     its prediction, not just the plans downstream of it. -> (bars, sub,
-    beats, groups, (n_slot_values, n_factorisations, slots)); the tail is
-    the disclosure's raw material.
+    beats, groups, (n_beat_values, n_factorisations, beats_per_line)); the
+    tail is the disclosure's raw material.
     """
-    vals = slot_values()
-    slots = vals[rng.randrange(len(vals))]
-    fact = meter_factorisations(slots)
+    vals = beats_values()
+    per_line = vals[rng.randrange(len(vals))]
+    fact = meter_factorisations(per_line)
     bars, sub = fact[rng.randrange(len(fact))]
-    beats = slots // (bars * sub)
+    beats = per_line // bars
     groups = _composition_uniform(beats, rng)
-    return bars, sub, beats, groups, (len(vals), len(fact), slots)
+    return bars, sub, beats, groups, (len(vals), len(fact), per_line)
 
 
 # ---------------------------------------------------------------- schemes
@@ -1372,7 +1476,7 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             f"— try another seed, drop --lines, or declare the shape by "
             f"hand.")
 
-    bars, sub, beats, groups_m, (n_slots, n_fact, slots_pl) = \
+    bars, sub, beats, groups_m, (n_beats, n_fact, beats_pl) = \
         _sample_meter(rng)
     meter = {"beats": beats, "unit": _unit_for(groups_m),
              "groups": list(groups_m)}
@@ -1642,22 +1746,30 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                                         f"roster {len(GENERATOR_ROSTER)} "
                                         f"of 21 functions")},
             "meter": {"value": dict(meter),
-                      "slots_per_line": slots_pl,
+                      "beats_per_line": beats_pl,
+                      "slots_per_line": beats_pl * sub,
                       "chosen_from": f"{meter_space_size()} derived cycles "
-                                     f"(slots envelope "
+                                     f"(beats envelope "
+                                     f"{list(ENVELOPE['beats_per_line'])}, "
+                                     f"slots envelope "
                                      f"{list(ENVELOPE['slots_per_line'])}), "
                                      f"measured BY DERIVATION ON THE "
-                                     f"DECLARED COORDINATE: 1 of {n_slots} "
-                                     f"slots-per-line values, then 1 of "
+                                     f"DECLARED COORDINATE: 1 of {n_beats} "
+                                     f"beats-per-line values, then 1 of "
                                      f"{n_fact} bars x subdivision "
-                                     f"factorisation(s) of {slots_pl}, then "
-                                     f"1 of {_n_compositions_23(beats)} "
-                                     f"groupings of {beats}. The slots "
-                                     f"count is what the envelope is stated "
-                                     f"in, so it is what the draw is uniform "
-                                     f"over; the pair share follows from how "
-                                     f"many ways each count factorises. Unit "
-                                     f"is notation, never enforced"},
+                                     f"factorisation(s) of {beats_pl} beats, "
+                                     f"then 1 of {_n_compositions_23(beats)} "
+                                     f"groupings of {beats}. The line runs "
+                                     f"{beats_pl} beat(s) — at most the "
+                                     f"density band's ceiling, since a sung "
+                                     f"line carries at least one syllable a "
+                                     f"beat — and holds {beats_pl * sub} "
+                                     f"slot(s), at least the band's floor. "
+                                     f"Both ends are the same calibrated "
+                                     f"band in different units; the pair "
+                                     f"share follows from how many ways each "
+                                     f"beat count factorises. Unit is "
+                                     f"notation, never enforced"},
             # WHERE EACH REQUIREMENT BINDS, and the MEASURE it was drawn
             # under — disclosed because it is the coordinate that stopped
             # this generator being end-rhyme-only, and because the measure
