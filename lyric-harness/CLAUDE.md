@@ -108,8 +108,25 @@ on this paragraph's first draft — the same treatment data/provenance_ledger.ts
 already gets). The scope is `.graphifyignore` (corpus/ and data/ are out:
 283k lines of verse would swamp every hub).
 
-**REBUILD IT WHEN THE TREE MOVES:** `graphify extract . --code-only` from the
-repo root. **A STALE GRAPH ANSWERS CONFIDENTLY**, which is this repo's own
+**RESTORE IT IN A FRESH CONTAINER:** `bash scripts/setup-graphify.sh`,
+idempotent. That script exists because EVERY OPERATIONAL PIECE OF THIS LIVES
+OUTSIDE THE REPOSITORY — the CLI in the container's home, the Claude skill in
+`~/.claude/skills/`, the git hooks in `.git/hooks/` which is never cloned, the
+graph itself gitignored — so "graphify is installed" was true of exactly one
+container and of nothing else. A setup somebody has to remember is the
+private-instrument defect standing rule 3 exists for.
+**AND THE FIRST INSTALL OF IT WAS THIS FILE'S OWN FAMILY OF DEFECT.** The
+session that adopted it built the graph, measured it, and wrote this section
+telling later sessions to consult it — WITHOUT EVER RUNNING `graphify install`,
+so the skill was registered with nothing and the graph was reachable only by a
+hand-typed CLI call. Built, tested, documented, unreachable: the same shape as
+`--blueprint` before 2026-08-11 and `stanza_lock` before 2026-08-14, committed
+an hour after quoting both. The owner caught it by asking to SEE it.
+**REBUILD WHEN THE TREE MOVES:** `graphify extract . --code-only` from the repo
+root — and `graphify hook install` (which the setup script runs) puts a
+post-commit hook in place so the graph re-extracts the changed files by itself,
+because a staleness warning in prose is the thing this repository has learned
+does not work. **A STALE GRAPH ANSWERS CONFIDENTLY**, which is this repo's own
 most-repeated defect wearing a new hat, so the graph carries a `built_at_commit` — check it against `HEAD` before trusting an answer, and
 rebuild rather than reason from a graph built before the change you are asking
 about. Absent that file the probe REFUSES at exit 2 and says so, rather than
