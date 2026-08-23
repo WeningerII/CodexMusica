@@ -138,6 +138,23 @@ _SAYS_REFUSED = re.compile(
 #: never about the instrument's figures.
 _USAGE_ERROR = re.compile(r"^usage: .*\n(.|\n)*?: error: ", re.M)
 
+#: AN INSTRUMENT THAT CANNOT IMPORT HAS MEASURED NOTHING — added 2026-08-23,
+#: found by CI. Several instruments here are vectorised and reach numpy or
+#: scikit-learn (`kalevala_rate.py`, `audit_joint_auc_null.py`); the harness
+#: itself is stdlib-only and CI installs third-party packages per JOB, so a
+#: runner that does not have them gets `ModuleNotFoundError` at import and
+#: exit 1 — which `verdict_for` read as MOVED.
+#:
+#: THAT IS A FIGURE NOBODY MEASURED, REPORTED AS A FIGURE THAT CHANGED. It is
+#: the same collapse `_USAGE_ERROR` above already guards against for a
+#: different cause, and it is this tool's whole subject: MOVED means a
+#: committed value no longer reproduces, and nothing here reproduced or
+#: failed to. The module is NAMED in the evidence, because "inconclusive" and
+#: "inconclusive because numpy is missing" have different remedies
+#: (doctrine 20/44), and `evidence_kind` is its own value so a caller can
+#: tell this apart from the instrument's OWN word for inconclusive.
+_MISSING_DEP = re.compile(r"ModuleNotFoundError: No module named '([^']+)'")
+
 #: Per-instrument exit-code vocabulary, DECLARED because the instruments do
 #: not share one.  A code absent from an entry falls through to the default
 #: reading below it.
@@ -252,6 +269,12 @@ def run_one(rel, root=ROOT, timeout=DEFAULT_TIMEOUT):
     elif code is None:
         v = "CANNOT RUN"
         lines, how = [out[:200]], "error"
+    elif _MISSING_DEP.search(out):
+        v = "CANNOT RUN"
+        lines = ["needs the third-party module %r, which is not installed on "
+                 "this runner -- the instrument never ran, so none of its "
+                 "figures moved" % _MISSING_DEP.search(out).group(1)]
+        how = "missing dependency"
     elif _USAGE_ERROR.search(out):
         # The sweep asked the wrong question. That is never a statement about
         # the instrument's figures, and calling it MOVED would manufacture a

@@ -7734,6 +7734,33 @@ testing the thing it names** — this file's own sentence, from the
 `audit_joint_auc_null` arm four weeks earlier, and the same shape at the gate
 instead of inside a suite.
 
+**AND ON ITS FIRST RUN THE NEW GATE FOUND THE TWO THINGS THE OLD ONE HAD BEEN
+HIDING — recorded 2026-08-23, same day.** With each instrument run separately
+and its verdict printed by name, the step reported **HOLDS 0, MOVED 1, CANNOT
+RUN 2**:
+
+- `kalevala_rate.py --check` died at import with `ModuleNotFoundError: No
+  module named 'numpy'` and exited 1, so the gate typed it **MOVED** — a
+  MISSING DEPENDENCY rendered as a committed figure that no longer
+  reproduces, which is this entry's own collapse pointed the other way. The
+  `record` job installs numpy now; the neighbouring *"the harness needs no
+  third-party packages"* step is UNCHANGED and still true, because it pins
+  `lyric_harness`, `floor`, `revise` and `propose` — the grading path — and
+  `kalevala_rate.py` is a research instrument whose permutation null is
+  vectorised.
+- `run_positive_control.py --check` refuses at 2 for the SAME reason
+  `audit_tang_null.py` does: it needs the 全唐诗 pool. Correctly CANNOT RUN,
+  and now visibly so on every run instead of never being reached.
+
+**AND THIS LOT'S OWN "BOTH PASS HERE, MEASURED" DID NOT GENERALISE.** Both
+instruments returned `RESULT: PASS`, exit 0, on this machine — because this
+container happens to have numpy installed AND `/workspace/chinese-poetry` on
+disk. A measurement on one box, quoted as a property of the code: the
+sentence directly above, committed in the same sitting that wrote *"a check
+that can only pass in one environment is not testing the thing it names."*
+The honest reading is that ONE of the three can hold in CI, and it holds only
+once numpy is installed.
+
 **FIXED BY GIVING THE GATE THE THREE-VERDICT VOCABULARY IT WAS MISSING** —
 `pin_sweep.py`'s own, since this step asks that tool's question. Each
 instrument runs independently; **0 is HOLDS, 2 is CANNOT RUN, any other
@@ -7828,3 +7855,50 @@ deleted from its own copy. Run it BOTH WAYS: this entry's own first draft
 passed on the real tree and failed 3 ways on the CI-shaped one, because it
 had cited the deleted artifacts as backticked paths — the defect it exists to
 record, committed inside the record of it, which is this file's oldest shape.
+
+### M-64 · `pin_sweep` read a CRASH AT IMPORT as a MOVED pin, so a missing third-party module was reported as a committed figure that no longer reproduces `CLOSED` 2026-08-23
+**M-60's shape, one tool over, and CI's own gate is what surfaced it** — the
+`suites` job named `quality/test_pin_sweep.py` as its sole failure on THREE
+consecutive runs with the reason visible nowhere, because the pool runs four
+wide and the retrievable log window does not reach the suites that start
+first. The fix was to make the gate print each failing suite's own tail
+(same commit), and the very next run printed one line:
+
+> `1 FAILING: audit_joint_auc_null reads CANNOT RUN and carries its own words as the reason`
+
+**THE HARNESS IS STDLIB-ONLY AND THE INSTRUMENTS ARE NOT.** `quality/
+audit_joint_auc_null.py` imports numpy AND six names from scikit-learn;
+`quality/kalevala_rate.py` imports numpy for its permutation core. CI
+installs third-party packages PER JOB — `suites` installs nltk, `record`
+installed nothing — so on those runners the instrument dies at import with
+`ModuleNotFoundError` and exits 1, and `verdict_for` read 1 as **MOVED**.
+
+**THAT IS A FIGURE NOBODY MEASURED, REPORTED AS A FIGURE THAT CHANGED.**
+MOVED means a committed value no longer reproduces; nothing here reproduced
+or failed to, because the process never started. It is the same collapse
+`_USAGE_ERROR` has guarded against since the tool was written, for a
+different cause, in the same function.
+
+**`_MISSING_DEP` TYPES IT CANNOT RUN AND NAMES THE MODULE**, with its own
+`evidence_kind` — because *"the instrument said inconclusive"* and *"the
+instrument could not start"* have different remedies (doctrine 20/44), and
+folding the second into the first is what this tool exists to prevent.
+`test_pin_sweep.py` §4 gains a third arm for it, separate from the refusal
+arm, and §3 drives the classifier DIRECTLY on a captured traceback — because
+the §4 arm only fires on a runner that LACKS the module, so on a machine that
+has it the arm would prove nothing (doctrine 48).
+
+**MEASURED BOTH WAYS.** Under a shadow `sklearn` that raises on import —
+CI's exact condition, numpy present and scikit-learn absent — the suite
+passes 41/41 and takes the new arm; with `_MISSING_DEP` mutated to never
+match, it fails 2 checks, one of them the CI line verbatim. `run_one` on
+`audit_joint_auc_null.py` with numpy shadowed returns `CANNOT RUN`, kind
+`missing dependency`, evidence naming `numpy`; before the fix it returned
+MOVED.
+
+**AND THE THREE INSTRUMENTS IN `record` SPLIT THREE WAYS, WHICH IS THE POINT
+OF COUNTING THEM APART.** `kalevala_rate.py` HOLDS once numpy is installed
+there (done, and the neighbouring stdlib-only claim is untouched — it pins
+the GRADING PATH, not the research instruments). `audit_tang_null.py` and
+`run_positive_control.py` both CANNOT RUN, and for the same declared reason:
+the 全唐诗 pool is an absolute path outside this repository.

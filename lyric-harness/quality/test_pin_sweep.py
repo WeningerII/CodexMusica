@@ -124,6 +124,24 @@ def test_the_exit_vocabulary_is_per_instrument():
           "inconclusive",
           PS.verdict_for("quality/not_in_the_table.py", 1) == "MOVED",
           PS.verdict_for("quality/not_in_the_table.py", 1))
+    # AND A CRASH AT IMPORT IS NOT A MOVED PIN — pinned directly 2026-08-23,
+    # because the arm in §4 that exercises it only fires on a runner that
+    # LACKS the module, so on a machine that has numpy it would prove nothing
+    # (doctrine 48: a check with no live instance). Driven here on the
+    # classifier itself, so it is alive in both environments.
+    _crash = ("Traceback (most recent call last):\n"
+              "  File \"quality/kalevala_rate.py\", line 235, in <module>\n"
+              "    import numpy as np\n"
+              "ModuleNotFoundError: No module named 'numpy'\n")
+    check("a ModuleNotFoundError in the output is recognised, and the module "
+          "is captured", bool(PS._MISSING_DEP.search(_crash))
+          and PS._MISSING_DEP.search(_crash).group(1) == "numpy",
+          PS._MISSING_DEP.search(_crash))
+    check("...and a clean report does NOT match it, so the rule cannot "
+          "swallow an instrument that ran",
+          not PS._MISSING_DEP.search(
+              "RESULT: PASS\n  [ok  ] committed 84, measured 84"), None)
+
     check("...and its zero still reads HOLDS",
           PS.verdict_for("quality/not_in_the_table.py", 0) == "HOLDS")
 
@@ -205,6 +223,34 @@ def test_the_two_false_verdicts_the_first_full_run_produced():
               "and the refusal rule does NOT swallow it",
               row["verdict"] in ("HOLDS", "MOVED"),
               (row["verdict"], row["evidence"][:1]))
+    elif row["evidence_kind"] == "missing dependency":
+        # A THIRD ARM, AND CI IS WHERE IT LIVES (2026-08-23). This instrument
+        # reaches numpy AND scikit-learn; the harness is stdlib-only and CI
+        # installs third-party packages per JOB, so on the `suites` runner it
+        # dies at import with ModuleNotFoundError and exit 1 — which
+        # `verdict_for` read as MOVED, and this section then failed asserting
+        # CANNOT RUN. A figure nobody measured, reported as a figure that
+        # changed. `pin_sweep` types it CANNOT RUN now and NAMES the module,
+        # and this arm is separate from the refusal arm below because "the
+        # instrument said inconclusive" and "the instrument could not start"
+        # have different remedies (doctrine 20/44).
+        check("a MISSING THIRD-PARTY MODULE reads CANNOT RUN and names the "
+              "module — never MOVED, which would be a claim about figures "
+              "that were never computed",
+              row["verdict"] == "CANNOT RUN" and row["evidence"]
+              and "module" in row["evidence"][0],
+              (row["verdict"], row["evidence"][:1]))
+    elif row["evidence_kind"] == "bound":
+        # Same split as §5's: cold, this instrument computes the whole feature
+        # set, and under a loaded four-wide pool that can reach the sweep's
+        # bound. The bound is the sweep's, so it is reported and not read as
+        # the instrument's own word for inconclusive — which is the exact
+        # distinction the arm below is testing.
+        check("the sweep hit its OWN bound on the cold path — reported as a "
+              "fact about the sweep, never as the instrument's refusal",
+              row["exit"] is None and row["evidence"]
+              and "bound" in row["evidence"][0],
+              (row["exit"], row["seconds"], row["evidence"][:1]))
     else:
         check("audit_joint_auc_null reads CANNOT RUN and carries its own "
               "words as the reason",
@@ -228,7 +274,26 @@ def test_it_runs_one_instrument_end_to_end():
     # HOLDS there demands a checkout in order to test a sweep whose entire
     # subject is telling a refusal from an answer. Both arms are pinned, so
     # neither environment is the one nobody checked.
-    if row["verdict"] == "CANNOT RUN":
+    # CANNOT RUN HAS TWO CAUSES AND THIS BRANCH READ ONLY ONE — SPLIT
+    # 2026-08-23. `run_one` returns CANNOT RUN both when the instrument
+    # REFUSED with its own exit 2 and when the SWEEP'S OWN BOUND was hit, and
+    # on a bound `exit` is None, not 2. So under load — four suites wide on a
+    # four-vCPU runner, which is what CI is — a slow `triage.py` failed this
+    # check while the message blamed "outside a checkout", a state that was
+    # not the case. Two states in one branch, and the report naming the wrong
+    # one: this file's own subject (doctrine 20/79), inside the suite for the
+    # tool that exists to keep those apart.
+    #
+    # A BOUND IS NOT A STATEMENT ABOUT THE INSTRUMENT. It is reported and the
+    # only things asserted are what a bound actually implies; charging it to
+    # triage would manufacture a finding about figures nobody measured.
+    if row["evidence_kind"] == "bound":
+        check("the sweep hit its OWN bound, which is a fact about the sweep "
+              "and not about triage.py's figures — reported, not charged",
+              row["exit"] is None and row["evidence"]
+              and "bound" in row["evidence"][0],
+              (row["exit"], row["seconds"], row["evidence"][:1]))
+    elif row["verdict"] == "CANNOT RUN":
         check("outside a checkout triage REFUSES and the sweep reads it as "
               "CANNOT RUN — not MOVED, which is what the conservative "
               "default would have made of exit 2",

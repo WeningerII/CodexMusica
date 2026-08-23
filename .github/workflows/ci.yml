@@ -861,6 +861,20 @@ jobs:
         working-directory: lyric-harness
         run: python3 -c "import lyric_harness, quality.floor, quality.revise, quality.propose; print('stdlib-only import OK')"
 
+      # AND ONE RESEARCH INSTRUMENT IS NOT THE HARNESS. The step above pins
+      # `lyric_harness`, `floor`, `revise` and `propose` as stdlib-only, and
+      # that claim is unchanged. `quality/kalevala_rate.py` is a measurement
+      # instrument, not the grading path, and its null is vectorised: it does
+      # `import numpy as np` at module level and uses it for the whole
+      # permutation core. Without it the instrument crashed at import and the
+      # gate below read exit 1 as MOVED — a MISSING DEPENDENCY rendered as a
+      # committed figure that no longer reproduces, which is the same
+      # collapse in the other direction (doctrine 20/79). Installing it lets
+      # the pin actually HOLD, which is worth more than classifying the crash.
+      # `suites` installs nltk for the same reason and in the same shape.
+      - name: Install numpy (kalevala_rate's permutation null is vectorised)
+        run: python3 -m pip install --disable-pip-version-check numpy
+
       # cmudict.dict is 3.6 MB, gitignored, and fetched from a moving master
       # branch with no checksum — which the audit flagged as its own defect
       # (doctrine 34, inside the function whose comment invokes doctrine 34).

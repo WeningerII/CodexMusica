@@ -2140,9 +2140,14 @@ PINNED = {
     # the machine it ran on), M-63 (the register asserting a GITIGNORED build
     # artifact as a repo path, so `verify_entries` could only pass where a run
     # had already happened). Superseded values kept visible, doctrine 17.
-    "coverage_entries": 121,  # M-49..M-59 filed 2026-08-22 wiring
+    # ~~121~~ -> 122 the same day: M-64, filed BY the M-60 fix — the legible
+    # gate printed the one line that named the sole failing suite's reason on
+    # its first run, and it was `pin_sweep` reading a crash at import as a
+    # MOVED pin. A fix that finds the next defect is the shape this lane is
+    # for.
+    "coverage_entries": 122,  # M-49..M-59 filed 2026-08-22 wiring
                               # the relation route (97..106 superseded);
-                              # M-60..M-63 filed 2026-08-23 driving CI green
+                              # M-60..M-64 filed 2026-08-23 driving CI green
     "coverage_audited": 19,
 }
 
