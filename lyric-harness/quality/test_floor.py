@@ -8,6 +8,7 @@ is the only way anything in this project has ever been found.
 Run: python3 quality/test_floor.py
 """
 
+import io
 import os
 import sys
 
@@ -453,9 +454,33 @@ def test_calibration_block_is_honest():
         check("checks that failed their expectation are recorded too",
               "BACKWARDS" in CALIBRATION.get("failed_expectations", ""),
               "a gate that only shows its working results is advertising")
-    else:
-        check("an uncalibrated block is marked provisional", True,
-              "calibrated=False; findings mean 'outside a guessed range'")
+    # THE PROVISIONAL PATH, EXERCISED RATHER THAN ASSERTED. This sat in an
+    # `else:` on `CALIBRATION["calibrated"]` and read `check("an uncalibrated
+    # block is marked provisional", True, ...)` until 2026-08-23 (doctrine
+    # 17). The shipped tree IS calibrated, so the branch was dead -- and had
+    # it ever run it could only have passed, because nothing in it read the
+    # banner it was making a claim about. It is now hoisted out of the branch
+    # and run every time, against a CALIBRATION whose flag is flipped for the
+    # length of the call.
+    def _banner():
+        buf = io.StringIO()
+        SlopFloor(FloorDeclaration()).banner(buf)
+        return buf.getvalue()
+
+    was = CALIBRATION.get("calibrated")
+    try:
+        CALIBRATION["calibrated"] = False
+        said = _banner()
+    finally:
+        CALIBRATION["calibrated"] = was
+    check("an uncalibrated block is marked provisional — the banner says so "
+          "in the run's own output, not in a comment",
+          "PROVISIONAL" in said and "outside a guessed range" in said,
+          [ln.strip() for ln in said.splitlines() if ln.strip()][:1])
+    check("...and a CALIBRATED block does not print it, so the warning means "
+          "something when it appears",
+          "PROVISIONAL" not in _banner(),
+          "CALIBRATION['calibrated'] is %r in the shipped tree" % (was,))
 
 
 def test_predictability_is_demoted():

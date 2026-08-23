@@ -1205,17 +1205,23 @@ def test_line_count_cannot_fire_through_the_reviser():
           "this proof rather than silently outdating it (doctrine 48)")
     with open(os.path.join(HERE, "revise.py")) as fh:
         rsrc = fh.read()
-    ok("`Reviser.mandate` is still `SC.mandate(spec, n_lines=len(lines))`",
-       "return SC.mandate(spec, n_lines=len(lines))" in rsrc)
-    ok("`inspect()` still builds its mandate from the draft it is grading",
-       "m = self.mandate(lines, mandate)" in rsrc)
-    ok("...and still hands `returns_check` that same `lines`",
-       "for label, i, j, kind, msg in m.returns_check(lines):" in rsrc)
+    s1 = "return SC.mandate(spec, n_lines=len(lines))" in rsrc
+    ok("`Reviser.mandate` is still `SC.mandate(spec, n_lines=len(lines))`", s1)
+    s2 = "m = self.mandate(lines, mandate)" in rsrc
+    ok("`inspect()` still builds its mandate from the draft it is grading", s2)
+    s3 = "for label, i, j, kind, msg in m.returns_check(lines):" in rsrc
+    ok("...and still hands `returns_check` that same `lines`", s3)
+    # This carried `True` and a detail that SAID SO -- "nothing here asserts
+    # it on its own" -- until 2026-08-23. An honest label on a vacuous check
+    # is still a vacuous check: it printed PASS in the report either way, and
+    # a reader counting green lines counted it. The conjunction the sentence
+    # claims is now the condition (doctrine 17).
     ok("so `self.n_lines == len(lines)` there BY CONSTRUCTION, and the "
        "LINE_COUNT branch is unreachable from inspect(), verify(), brief() "
        "and every CLI verb that runs the loop",
-       True,
-       "-- steps 1 and 2 together; nothing here asserts it on its own")
+       s1 and s2 and s3,
+       "-- the conjunction of the three reads above, asserted rather than "
+       "narrated; step 1 supplies the other half")
 
     print("\n    STEP 3 — WHAT WOULD HAVE TO CHANGE, pinned so the handoff "
           "is mechanical. This finding names NO PAIR, and `revise.py`'s loop "

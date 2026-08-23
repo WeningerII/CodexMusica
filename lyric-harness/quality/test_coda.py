@@ -334,14 +334,18 @@ def test_the_plural_s_is_an_ingestion_fact():
           f"n={n} dictionary -s words whose base is a true phonetic prefix: "
           f"voicing-aware rule {ok/n:.2%}, the old append-Z fallback "
           f"{old/n:.2%}. By class the voiceless arm goes 0.2% -> 99.8%.")
-    check("it moves the sonnet oracle by EXACTLY NOTHING, so the two changes "
-          "price separately",
-          True,
-          "battery A(ingestion OLD, coda scalar) = 81 violations, "
-          "B(ingestion NEW, coda scalar) = 81, C(ingestion NEW, coda "
-          "identity) = 82. Its effect is on the 515 distinct corpus words "
-          "that had an impossible coda, and on making C cost one pair "
-          "instead of two.")
+    # AND IT MOVES THE SONNET ORACLE BY EXACTLY NOTHING, so the two changes
+    # price separately: battery A(ingestion OLD, coda scalar) = 81 violations,
+    # B(ingestion NEW, coda scalar) = 81, C(ingestion NEW, coda identity) = 82.
+    # Its effect is on the 515 distinct corpus words that had an impossible
+    # coda, and on making C cost one pair instead of two.
+    #
+    # THIS WAS A `check(..., True)` UNTIL 2026-08-23 (doctrine 17). Nothing in
+    # this file recomputes 81/81/82 -- they are a measurement from the sitting
+    # that made the change, and a PASS line asserting a number no run produces
+    # is a record dressed as a result. The record is worth keeping; the PASS
+    # was not. Re-running it means re-running the three batteries, not reading
+    # this comment.
 
 
 if __name__ == "__main__":

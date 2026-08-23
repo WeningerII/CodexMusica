@@ -69,8 +69,14 @@ def test_kl_bias_is_absorbed_by_the_null():
              "he paid the man and carried home the load"]
     res = analyse(LEX, lines, tdecl=TimeDeclaration(n_perm=300))
     if res.get("kl") is None:
-        check("declines cleanly when there is too little to test", True,
-              res.get("refused", ""))
+        # `True` until 2026-08-23: it said "declines CLEANLY" while accepting
+        # a decline that named nothing, then returned, skipping the rest of
+        # the section on a green line. Doctrine 20 -- a refusal is not a
+        # silence -- is now the condition (doctrine 17).
+        check("declines cleanly when there is too little to test — and NAMES "
+              "the refusal rather than returning a bare None",
+              bool(res.get("refused")) and res.get("refused_by"),
+              f"{res.get('refused_by')}: {str(res.get('refused'))[:88]}")
         return
     check("the null mean is well above zero",
           res["null_mean"] > 0.01,
@@ -93,8 +99,11 @@ def test_h3_tripwire_line_final_in_isosyllabic_form():
            "a shallow gutter carries to the shore"]
     res = line_final_control(LEX, iso, tdecl=TimeDeclaration(n_perm=500))
     if res.get("kl") is None:
-        check("the control refuses rather than reporting a determined result",
-              True, res.get("refused", ""))
+        check("the control refuses rather than reporting a determined result "
+              "— and says which stage refused (doctrine 20; this rode on "
+              "`True` until 2026-08-23)",
+              bool(res.get("refused")) and res.get("refused_by"),
+              f"{res.get('refused_by')}: {str(res.get('refused'))[:88]}")
     else:
         check("the line-final control does not fire",
               res["p"] > 0.05,
@@ -158,9 +167,30 @@ def test_registered_h3_control_is_a_tautology_and_says_so():
               "NO evidence" in (res.get("degenerate") or ""),
               "doctrine 14: a control defined in terms of the quantity it "
               "controls, reproduced in this module's own first draft")
+    elif res.get("kl") is None:
+        # THE BRANCH THIS SECTION IS NAMED AFTER, and it was unreachable
+        # until 2026-08-23 because there were only two arms. The `else` read
+        # `check("not every line-final rhymes here, so the control is live",
+        # True, ...)` — a sentence that is FALSE on this fixture (stone/bone,
+        # door/shore: every line-final rhymes, which is the whole design) and
+        # that could not be contradicted because it rode on `True`. What the
+        # control actually does here is produce ZERO events and decline. That
+        # is not a failure and not a silence — it is the third outcome, and
+        # doctrine 20 says it has to be told apart from both. Now it is.
+        check("the control cannot fire on this fixture and ANNOUNCES it — a "
+              "refusal that names itself and the guard that raised it, not a "
+              "bare None and not a KL of zero",
+              bool(res.get("refused")) and bool(res.get("refused_by"))
+              and res.get("p") is None,
+              f"{res.get('refused_by')} at n_events="
+              f"{res.get('n_events')}: {str(res.get('refused'))[:76]}")
     else:
-        check("not every line-final rhymes here, so the control is live",
-              True, f"saturation {res['saturation']:.0%}")
+        check("not every line-final rhymes here, so the control is live — it "
+              "returns a divergence and a p-value, not a refusal",
+              res["saturation"] < 0.999
+              and 0.0 < res.get("p", 0) <= 1.0,
+              f"saturation {res['saturation']:.0%}, kl={res.get('kl')}, "
+              f"p={res.get('p')}")
     post = line_final_control(LEX, iso, tdecl=TimeDeclaration(n_perm=200),
                               mode="against_all")
     check("the post-hoc variant is labelled post-hoc in its own output",

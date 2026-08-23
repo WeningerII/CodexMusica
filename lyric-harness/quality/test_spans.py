@@ -102,17 +102,28 @@ def test_the_original_bad_report_line():
 def test_every_syllable_knows_its_word():
     print("\n2. anchors carry word provenance, and it is derived from the "
           "NUCLEUS")
+    # THE COUNT IS THE POINT. Until 2026-08-23 this closed on
+    # `check("every syllable ... is tagged", True, "word, widx, ...")`: the
+    # loop could visit zero syllables -- three anchor lists of empty anchors
+    # would do it -- and the report still printed PASS, and it named four
+    # fields while testing one. Both halves are now asserted (doctrine 17).
+    WANT = {"word", "widx", "syl_in_word", "word_syllables"}
+    tagged = 0
     for ancs in (anchors("I don't get to go"),
                  anchors("how they read the address like a receipt"),
                  anchors("the cattle waded through the silt")):
         assert ancs
         for a in ancs:
             for syl in a:
-                if "widx" not in syl:
-                    check("every syllable is tagged", False, str(syl))
+                if not WANT <= set(syl):
+                    check("every syllable is tagged", False,
+                          f"missing {sorted(WANT - set(syl))} on {syl}")
                     return
-    check("every syllable of every candidate anchor is tagged", True,
-          "word, widx, syl_in_word, word_syllables")
+                tagged += 1
+    check("every syllable of every candidate anchor is tagged",
+          tagged > 0,
+          f"{tagged} syllables over three lines, each carrying "
+          f"{', '.join(sorted(WANT))}")
     # syllabify maximises the onset of the NEXT syllable, so consonants cross
     # word boundaries and the vowel is the only phone whose word is certain.
     a = anchors("a nation")[0]
