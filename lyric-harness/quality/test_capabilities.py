@@ -136,6 +136,24 @@ def test_stub_resolution():
           "judgement, which is the thing BLOCKERS says cannot be made here",
           rep["resolved"][3] == (0, 1))
 
+    # NO INCIPIT IS NOT NO MATCH, and the two were one field until 2026-08-23.
+    # A bare `&c.` tokenises to a single `c`: it names no line, so incipit
+    # matching is not a method that FAILS on it, it is a method that does not
+    # APPLY. Counting them together inflated the miss rate — the same
+    # doctrine-20 collapse this whole campaign is about, committed in fresh
+    # code and caught by measuring the corpus instead of quoting a number.
+    st4 = _stream(d + ["&c."])
+    rep4 = R.search_stub_resolution(st4)
+    check("a bare `&c.` is NO_INCIPIT, not a miss — the method does not "
+          "apply to it, and that is a third answer",
+          rep4["no_incipit"] == [4] and not rep4["unmatched"],
+          str({k: rep4[k] for k in ("stubs", "resolved", "unmatched",
+                                    "no_incipit")}))
+    check("...and the tokeniser is this module's own, so punctuation does "
+          "not decide a match: `\"gray, &c.\"` and `\"gray\"` share an "
+          "incipit, which a `str.split()` fallback got wrong",
+          "gray" in [t.lower() for t in R.tokenise("nelly gray, &c.")])
+
     for bad, why in (({3: 3}, "a span, not a line"),
                      ({3: (3, 4)}, "a span containing itself"),
                      ({3: (0, 99)}, "outside the stream")):

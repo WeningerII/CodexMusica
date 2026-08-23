@@ -7520,11 +7520,34 @@ theme found six more times.
 | capability | schema(s) | what closed it |
 |---|---|---|
 | `stub_resolution` | refrain by reference | `relations.declare_stub_resolution` — `{stub line: (start, end)}`, DECLARED. The naive resolver measured 18.7% unique / 26.6% no match / 54.7% ambiguous over 843 stubs, so this repo still ships none; what it now ships is the edition-level annotation the entry itself called for |
-| `sense` | antanaclasis | `relations.declare_senses` — keyed by `(line, token)`, because the figure IS one word at two positions and a word-keyed map collapses it into `repetition`, which is the degeneration `BLOCKERS` names, reached from the other side |
+| `sense` | antanaclasis | **NOW A DERIVATION** (`quality/senses.py`): WordNet 3.0, POS-tagged, simplified Lesk, keyed on the LEXICOGRAPHER FILE. `relations.declare_senses` remains, keyed by `(line, token)` — because the figure IS one word at two positions and a word-keyed map collapses it into `repetition` — and OVERRIDES the derivation. See `THE SENSE CORRECTION` below |
 | `earlier` | historical rhyme | `relations.declare_period_surface` — takes a `declared_inputs.PeriodPhonology`, which is what enforces period, reconstruction and source; a BARE phonology is refused here so those three checks cannot be routed around |
 | `poet` | dialect rhyme | the same constructor under the other name |
 | `lifts` | alliterative long line, fourth lift must not alliterate | `relations.search_lifts` (derives from PROMINENCE — real CMUdict stress — with the per-half-line count as a declared PARAMETER, since four lifts to a line is a convention of the form) and `relations.declare_lifts` for a hand scansion. This is the function `BLOCKERS` said did not exist: *"unlike `caesura` and `refrain_tail` … THERE IS NO FUNCTION TO CALL"* |
-| `beat` | offbeat internal rhyme | `relations.declare_beat`. **Doctrine 4 is untouched**: its own sentence, quoted in that schema's note, is *"no beat grid without audio OR A DECLARED TEMPO"* — it refuses an INFERRED grid and never refused a stated one. Undeclared, `frames.beat` is None and the schema refuses byte for byte as before |
+| `beat` | offbeat internal rhyme | `relations.declare_beat`, which ALSO ACCEPTS a `declared_inputs.BeatGrid` (R5) and derives the on-beat set from that grid's own cycle grouping — one declaration, two consumers, since `fit._read_beatgrid` already reads the same object. **Doctrine 4 is untouched.** AND IT CANNOT BE DERIVED FROM A BLUEPRINT, checked rather than assumed: `quality/fit.py` reports `heads` and then refuses the rest in its own words — `NO_SETTING: NOT ANSWERED — which syllable sits on which pulse — ABSENT`. That is a SETTING, and the module that would supply it declines |
+
+**THE SENSE CORRECTION, 2026-08-23, caught by the owner.** `sense` shipped as
+`declare_senses` and nothing computed anything — a real coordinate, not an
+implementation of the figure. It shipped that way on one sentence in
+`relations_null.BLOCKERS`: *"`data/nltk/` carries taggers and tokenizers, not
+WordNet"*. That is a claim about what is ON DISK, and it was read as a claim
+about what is OBTAINABLE. The URL returns HTTP 200, `nltk` 3.10.2 was already
+installed, and `quality/fetch_data.py` was already staging NLTK packages into
+that exact directory. Two rows are now in `data/sources.tsv`.
+
+**TWO DEFECTS IN THE DERIVATION, MEASURED AND FIXED.** Simplified Lesk with NO
+part of speech resolved `sat` to `saturday.n.01` on one line and `ride.v.01`
+on another, so a past-tense verb read as two senses and the figure fired on an
+ordinary repeat; and `global _WN, _LESK` was missing `_TAG`, so the assignment
+bound a LOCAL and the POS constraint was silently inert — reintroducing,
+through a missing name, the exact defect it was added to fix.
+
+**AND THEN THE RATE DECIDED THE DEFAULT.** Wired ON first, then MEASURED over
+40 corpus songs / 1,603 lines: of 14,508 line pairs sharing a word it
+separated **1,366 — 9.42%** — and the sampled separations are visibly
+REFRAINS, not puns. So the derivation is **DISCLOSED AND NOT ADOPTED**:
+`derive_senses=True` accepts the rate, `declare_senses` is exact, and neither
+means `antanaclasis` refuses as before (doctrine 16/22).
 
 **AND TWO SCHEMAS NEEDED A PREDICATE, NOT A CAPABILITY — the defect that
 would have made "all 77" a lie.** `trite rhyme` and `offbeat internal rhyme`

@@ -3436,12 +3436,17 @@ def search_stub_resolution(stream, language=None,
         lines = [" ".join(by.get(i, ())) for i in range(len(stream.lines))]
 
     def _key(text):
-        w = [x for x in _lh.tokenise(text)] if hasattr(_lh, "tokenise") \
-            else str(text).split()
-        w = [x.lower() for x in w][:incipit]
+        # THIS MODULE'S OWN TOKENISER, not `str.split()`. The first draft
+        # probed `lyric_harness` for a `tokenise` it does not have and fell
+        # back to whitespace splitting, which leaves punctuation glued on:
+        # `"oh my poor nelly gray, &c."` splits to `gray,` and `&c.`, so a
+        # stub matched an earlier line only when the two happened to be
+        # punctuated identically. `tokenise` is defined 1,200 lines above
+        # this one.
+        w = [x.lower() for x in tokenise(text or "")][:incipit]
         return tuple(w) if len(w) >= incipit else None
 
-    stubs, resolved, ambiguous, unmatched = [], {}, [], []
+    stubs, resolved, ambiguous, unmatched, no_incipit = [], {}, [], [], []
     for i, text in enumerate(lines):
         try:
             if not _lh.is_chorus_stub(text, language):
@@ -3451,7 +3456,14 @@ def search_stub_resolution(stream, language=None,
         stubs.append(i)
         k = _key(text)
         if k is None:
-            unmatched.append(i)
+            # NO INCIPIT TO MATCH WITH, which is NOT the same answer as
+            # "the incipit matched nothing" and is counted apart from it
+            # (doctrine 20/79). A bare `&c.` tokenises to a single `c`: it
+            # names no line, so incipit matching is not a method that can
+            # fail on it — it is a method that does not apply. Lumping the
+            # two together inflated the miss rate and hid the fact that a
+            # large share of stubs in this corpus carry no incipit at all.
+            no_incipit.append(i)
             continue
         hits = [j for j in range(i)
                 if not _safe_is_stub(_lh, lines[j], language)
@@ -3464,6 +3476,7 @@ def search_stub_resolution(stream, language=None,
             unmatched.append(i)
     return {"stubs": len(stubs), "resolved": resolved,
             "ambiguous": ambiguous, "unmatched": unmatched,
+            "no_incipit": no_incipit,
             "found": len(resolved), "source": "incipit_unique",
             "incipit_words": incipit}
 
