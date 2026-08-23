@@ -9064,3 +9064,82 @@ word need N pairs of rhymes"* asks for and still does not have. FINDINGS 2 and
 4 (writable-plan rate, chorus-before-verse rate) are likewise untouched: they
 are about what a plan should PREFER, and this gate is about what it may not
 ASK.
+
+### M-81 · a plan can be satisfiable and still unsingable: the grid is three times emptier than the densest legal line `OPEN` — measured 2026-08-23
+**FOUND BY RUNNING THE PIPELINE AGAIN AFTER `M-80` CLOSED**, which is what the
+gate was for: with every plan now writability-gated, the next thing in the way
+is visible. Seed 108 is one of the two plans in 600 whose SHAPE is a song —
+18 lines, 6 sections, verse before chorus, no group deeper than a quatrain —
+and its brief reads **`[INTRO — 3 lines — 51 bars of 2/4]`**. Seventeen bars
+per line. That is not a bar a writer cannot legally fill (`M-80` settles
+that: slots are a CAPACITY); it is one line every seventeen bars, and no
+song is that.
+
+**MEASURED over 400 plans / 12,793 lines.** The envelope declares slots per
+line **[5, 48]** — the calibrated density band's floor, and its ceiling times
+`SLOTS_CEILING_X`:
+
+| slots per line | min | p25 | median | p75 | max |
+|---|---:|---:|---:|---:|---:|
+| drawn | 5 | 26 | **35** | 43 | 48 |
+
+**Only 588 of 12,793 lines (4.6%) get a grid a band-legal line can FILL** —
+23.3% are within twice the band's ceiling, 55.7% within three times. The
+median sits three-quarters of the way to the envelope's own ceiling, not at
+its middle.
+
+**THE CAUSE IS THE SAME BIAS V2's SMOKE RUN FOUND, ONE LEVEL FURTHER OUT.**
+`_sample_meter` draws `(bars_per_line, subdivision)` uniform over the 42 pairs
+the envelope admits, then the beat count uniform inside each pair's derived
+range. But `bars_per_line` runs to **24** (the envelope's `hi // 2`, a sound
+BOUND — past it no band-legal line is possible at any meter — which was never
+a claim that all 24 values are equally musical), and a high-bars pair's beat
+range COLLAPSES: at `bars=24, sub=1` the only legal beat count is 2, so that
+pair produces exactly 48 slots, the ceiling, every time. Uniform over PAIRS is
+therefore not uniform over the quantity the calibration is stated in. The
+module's own docstring is the standard it fails: *"THE MEASURE IS BY
+DERIVATION, NOT BY LEAF."*
+
+**AND IT FORKS. TWO READINGS, AND THEY ARE DIFFERENT WORK — THIS IS THE
+OWNER'S RULING TO MAKE, NOT A SESSION'S.**
+
+**(A) A SAMPLER BIAS.** The declared coordinate is slots-per-line; draw IT
+uniform over `[5, 48]` and then a factorisation `(bars, sub, beats)` uniform
+over the ways to realise it. Every integer in the envelope is realisable (the
+`(1, 1)` factorisation always exists), so the draw is well defined, and the
+pair marginal becomes a REALISABILITY share rather than flat — which is the
+correct direction by this module's own argument, since a slots value one pair
+can make should not be rarer than one six pairs can. Predicted median **26.5**
+against today's 35. **COST**: it moves every seed again, and it repoints a
+LIVE check — `test_plan.py` §4 asserts *"the dimension pairs are drawn
+uniformly — every pair the envelope admits, each within 15% of its expected
+share"*, which is precisely the measure this reading calls wrong. A test that
+measures a wrong behaviour precisely is what keeps it (this repo's own §5/§13
+lesson), so the check would be repointed with the argument written into it,
+never deleted.
+
+**(B) AN UNCALIBRATED CEILING, AND NO CORPUS CAN CLOSE IT.**
+`SLOTS_CEILING_X = 4` is named in its own comment as *"the one declared
+multiplier in this module"*, argued (*"at 4x, a line at the band's own maximum
+fills a quarter of its grid, which is where a grid stops discriminating and
+starts decorating"*) and **never measured**. Even under reading (A) the median
+line would sit at 26 slots — still more than twice the densest legal line. The
+lever that decides emptiness is this multiplier, and **it cannot be calibrated
+from `corpus/song/`**: doctrine 4 makes a bar grid a DECLARED coordinate,
+`quality/recover.py` REFUSES to infer one from text, and audio left the
+project's vocabulary by owner ruling. So there is no population of grids to
+measure a fill fraction against. This is doctrine 44/92's third category —
+neither hard to build nor impossible to obtain: **the measurement has no
+subject here**, and closing it is a RULING (a declared fill band) rather than
+a calibration.
+
+**THEY ARE NOT ALTERNATIVES AND THE ORDER MATTERS.** (A) is a defect and is
+closable today by the module's own stated principle. (B) is a hole and stays
+open under either. Doing (B) first would tune a multiplier against a marginal
+that is itself biased — retuning a threshold to compensate for a sampler,
+which is doctrine 58's error with the two layers swapped.
+
+**WHAT IS NOT IN QUESTION**: the gate. Every one of these plans is
+SATISFIABLE — `plan.joint_findings` returns nothing on all 400 — which is the
+distinction `M-80` exists to hold. Unsingable and unsatisfiable are different
+verdicts and only one of them is a refusal.
