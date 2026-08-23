@@ -8452,3 +8452,70 @@ function (`slot.line` on the dotted branch, `int(x)` on the other), which is
 doctrine 1 inside eight lines. Both branches call `slot_line` now. It costs
 nothing precisely BECAUSE of the finding above: the import this call needs was
 already being paid on every mandate.
+
+### M-75 · the shape locks are silenced by appending ONE short section, which is the cheat they were written to catch `OPEN` — sized 2026-08-23
+**The owner's anecdote, verbatim:** *"I've seen this system say something to
+the order of 'oh I can't use only quatrains' and then immediately it made all
+quatrains and ended with a 2 line outro which, technically satisfied it but
+that's blatantly just gaming the system."*
+
+It is not an anecdote about a past session. It is a live property of
+`quality/grid.py`'s `stanza_lock`, and it REPRODUCES.
+
+**THE ARITHMETIC.** Every lock in `stanza_lock` fires on `u[...] >= threshold`
+with `threshold=0.90`, and every statistic in `uniformity()` is a FRACTION OF
+SECTIONS at the modal value. Put `k = n - 1` — one divergent section — and the
+check fires only when `(n-1)/n >= 0.90`, i.e. **n >= 10**. So **one odd
+section silences the lock for every song with fewer than ten sections.**
+
+**MEASURED ON A CONSTRUCTED SONG, which is the proof rather than the worry:**
+
+| shape | sections | `QUATRAIN_LOCK` |
+|---|---:|---|
+| 6 quatrains — the cliche itself | 6 | **FIRES** |
+| 5 quatrains + a 2-line outro | 6 | **silent** |
+| 9 quatrains + a 2-line outro | 10 | FIRES |
+| 10 quatrains + a 2-line outro | 11 | FIRES |
+
+Row 2 is the owner's sentence, executed. The song is quatrain-locked in every
+sense a listener would use, and the check that exists to name that is quiet.
+
+**MEASURED ON BOTH POPULATIONS THAT MATTER.** Over `corpus/song/`'s **29,210**
+marked songs carrying blocks, the median is **3** blocks and **21,476
+(73.5%)** have fewer than ten — so the duck works on roughly three-quarters of
+real songs. Over 200 planner seeds the median is **10** sections and **97
+(48.5%)** have fewer than ten. **0 of 200 planner draws are currently IN the
+all-but-one shape**, so this is LATENT rather than live in the generator: the
+planner draws lines-per-section uniformly and does not write to a stanza. The
+hole is what a writer, an optimiser, or a model reaching for the cheapest
+compliance would find, and `--fill` puts a model on exactly that path.
+
+**THE STATISTIC IS WRONG IN KIND, NOT IN ITS THRESHOLD.** Retuning 0.90 to
+0.80 would be doctrine 58's error and would not close it — it moves the duck
+from one section to two. A modal-FRACTION statistic is duckable by
+construction because appending one token moves the denominator. What the
+question actually asks is whether the DISTRIBUTION of section lengths looks
+like the corpus's or like a lock, which is a dispersion question and is not
+satisfiable by a free token. That is the owner's own framing: **existence
+rules become distribution bands.**
+
+**AND IT MUST STAY A NOTE.** These are measurements against `POPULAR_SONG`, a
+labelled CONVENTION, and doctrine 6 says a convention a writer may depart from
+cannot be what fails `verify()`. 5/4 and an 11-bar bridge are choices. What is
+being closed is the SILENCE, never the severity.
+
+**THE REMEDY IS A CALIBRATION SITTING AND IT IS NOT TAKEN HERE**, deliberately:
+`CLAUDE.md`'s gap 10 already records this threshold as *"an uncalibrated 0.90"*,
+so picking a dispersion statistic and a cut in the same breath as measuring
+them would be the argmax-over-a-swept-parameter this repo refuses (doctrine
+19), and it would ship a second uncalibrated number to replace the first. The
+order this repo uses is register, measure, adopt, and CI re-derives — the
+shape `METER_BANDS` and `KALEVALA_ALLITERATION` both took. The registration
+has to declare the statistic and the adoption rule BEFORE the corpus is
+looked at, and state the cut as a false-positive rate against published verse
+(doctrine 16/22), because a band that charges a quarter of the corpus is a
+band that will be switched off.
+
+**WHAT IS DONE HERE IS THE SIZING**, and the two figures a registration needs
+are in it: the duck threshold is exactly ten sections, and the populations it
+covers are 73.5% of the corpus and 48.5% of the planner's own draws.

@@ -2159,22 +2159,28 @@ PINNED = {
     # provenance crash the first non-final span found (M-68), the planner's
     # six literal bounds (M-69), the instrumental freebie (M-70), and the
     # two classes the generator could never draw (M-71).
-    # 130 -> 132: M-73, the gate census — the owner's standing rule that
+    # 130 -> 133: M-73, the gate census — the owner's standing rule that
     # only a gate is an enforcement, made a command instead of a memory —
     # and M-74, which that census's own closing found: the placement work
     # made every mandate import `quality/relations.py` (17.7 ms -> 132.8 ms
     # warm) while a sentence promising the opposite was left standing.
+    # M-75 sizes the owner's own gaming anecdote as a live gate defect:
+    # `stanza_lock`'s locks are all modal FRACTIONS against 0.90, so one
+    # divergent section silences them below ten sections — 73.5% of the
+    # corpus and 48.5% of the planner's draws.
     # (M-72, the second front half, was already inside the 130: it was
     # filed and repinned in the commit that shipped `quality/recover.py`,
     # which is the rule this repo keeps — the register moves in the same
     # commit as the entry, not in a bookkeeping sitting afterwards.)
-    "coverage_entries": 132,  # M-49..M-59 filed 2026-08-22 wiring
+    "coverage_entries": 133,  # M-49..M-59 filed 2026-08-22 wiring
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;
                               # M-67..M-71 the same day, the placement
                               # conversion, and M-72 the second door;
-                              # M-73 the gate census, M-74 its finding
+                              # M-73 the gate census, M-74 its
+                              # finding, and M-75 the shape locks
+                              # silenced by one short section
     "coverage_audited": 19,
 }
 
