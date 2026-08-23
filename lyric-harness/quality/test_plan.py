@@ -54,6 +54,13 @@ from quality.plan import (BLOCKED_FORMS, ENVELOPE,  # noqa: E402
 import quality.plan as PLN  # noqa: E402
 from quality import capacity as CAP  # noqa: E402
 from quality import meter_bands as MB  # noqa: E402
+from quality import slots as SL  # noqa: E402
+
+#: HOW MANY SEEDS §7's population is. Declared rather than typed at each
+#: call, because the blind-draw mutation below has to sweep the SAME set as
+#: the clean draw or the two rates are not comparable.
+JOINT_SWEEP = 40
+real_word = SL.placement_word
 
 FAILURES = []
 
@@ -503,8 +510,17 @@ def test_the_measure():
     # `SECTION_FUNCTIONS`, both already admitted. It may name ONLY
     # `PLANNABLE_PLACEMENTS`: `slots` reaches `relations`, which opens one
     # file, so the same reasoning applies.
+    # WIDENED BY TWO 2026-08-23 (`MISSING.md` M-80) AND THE ARGUMENT IS THE
+    # SAME ONE: `placement_word` and its `LAST_WORD` sentinel are VOCABULARY
+    # — which word of a line a placement NAME denotes — and they touch no
+    # stream, no `realise()` and no reader. They live in `slots.py` for
+    # doctrine 1's reason (that module is the one place a name is bound to a
+    # rule) and are named here rather than re-implemented, which is the whole
+    # point of the widening: a second answer to "which word is `headrime`?"
+    # inside `plan.py` is exactly what this allow-list would otherwise force.
     ALLOWED_FROM_CAPACITY = {"ADOPTED_MAX_GROUP"}
-    ALLOWED_FROM_SLOTS = {"PLANNABLE_PLACEMENTS"}
+    ALLOWED_FROM_SLOTS = {"PLANNABLE_PLACEMENTS", "placement_word",
+                          "LAST_WORD"}
     grid_names, floor_names = set(), set()
     cap_names, slot_names = set(), set()
     for n in ast.walk(tree):
@@ -1002,12 +1018,189 @@ def test_the_planner_plans_the_whole_line():
           f"ceiling {CAP.ADOPTED_MAX_GROUP}")
 
 
+def _place_group_keyed_on_the_name(group, rng, max_token, used):
+    """THE PRE-FIX `plan._place_group`, verbatim but for its one coordinate:
+    `used` holds the placement NAME rather than the WORD that placement binds.
+
+    Kept here as a MUTATION and not as history. The claim §7 makes is that
+    the planner satisfies the joint gate by construction; that claim is only
+    worth anything if the gate can fail, and the only honest way to show it
+    can is to put the defect back and watch `make_plan` refuse.
+    """
+    out = []
+    for ln in group:
+        free = [p for p in PLN._PLACE_POOL(max_token)
+                if p not in used.get(ln, ())]
+        if not free:
+            return []
+        place = rng.choice(free)
+        used.setdefault(ln, set()).add(place)
+        out.append(str(ln) if place == "end" else f"{ln}.{place}")
+    return out
+
+
+def test_the_joint_gate():
+    print("\n7. the JOINT gate — every constraint legal, the conjunction "
+          "checked")
+    # THE POPULATION FIRST, so the section cannot pass by examining nothing.
+    # Every check below walks a list, and `all()` over an empty list is True
+    # and reads exactly like a check that looked at something — this repo's
+    # own seven-vacuous-checks lesson (CLAUDE.md, Test discipline).
+    plans = [make_plan(seed=k) for k in range(JOINT_SWEEP)]
+    check("the sweep produced plans to ask the question of",
+          len(plans) == JOINT_SWEEP, f"{len(plans)} plans")
+    check("NO plan in the sweep asks for a conjunction it cannot have — the "
+          "gate is satisfied BY CONSTRUCTION, which is the relationship "
+          "`ADOPTED_MAX_GROUP` already has to the scheme sampler and is why "
+          "the mutations below are the only way to fire it",
+          all(PLN.joint_findings(p) == [] for p in plans),
+          f"{sum(len(PLN.joint_findings(p)) for p in plans)} findings over "
+          f"{len(plans)} plans")
+    check("the codes are a DECLARED closed set, so a new one is added "
+          "deliberately rather than by somebody typing a new string "
+          "(doctrine 58)",
+          len(set(PLN.JOINT_CODES)) == len(PLN.JOINT_CODES)
+          and all(isinstance(c, str) for c in PLN.JOINT_CODES),
+          f"{list(PLN.JOINT_CODES)}")
+
+    base = plans[0]
+
+    def fired(plan):
+        return sorted({c for c, _, _ in PLN.joint_findings(plan)})
+
+    # THE FOUR MUTATIONS, one per cause. Each is a PLAN handed to the gate,
+    # not a draw — `joint_findings` is a pure function of the emitted dict on
+    # purpose, so a hand-written plan is checked on the same terms.
+    two_on_one = dict(base, groups=base["groups"] + ";1.head,2.head;1.T1,3.T1")
+    check("two declared groups landing on ONE WORD by two different NAMES "
+          "fires — `head` and `T1` are both the first word, which is the "
+          "coordinate `_place_group` was missing",
+          fired(two_on_one) == ["TWO_GROUPS_ONE_WORD"], f"{fired(two_on_one)}")
+
+    far = dict(base, groups="1.T40,2.T40")
+    check("a placement naming a word past what the line can carry fires — a "
+          "line has no more words than syllables, and no more syllables than "
+          "the smaller of its slots and the band's ceiling",
+          "TOKEN_INDEX_UNREACHABLE" in fired(far), f"{fired(far)}")
+
+    starved = dict(base, groups="", line_slots=[
+        dict(s, duration=0.5) if s["line"] == 1 else s
+        for s in base["line_slots"]])
+    check("a line whose span falls under the calibrated density FLOOR fires "
+          "— below the floor the band flags it and at or above it "
+          "`fit.SLOTS_EXCEEDED` does, so no draft clears both",
+          fired(starved) == ["SPAN_BELOW_DENSITY_FLOOR"], f"{fired(starved)}")
+
+    crowded = dict(base, subdivision=1, groups="1.T6,2.T6;1,3", line_slots=[
+        dict(s, duration=6.0) for s in base["line_slots"]])
+    check("a line asked for more DISTINCT words than it can carry fires, and "
+          "it is its own code — the last word must differ from every "
+          "numbered one or the two groups binding them meet",
+          "WORDS_EXCEED_SPAN" in fired(crowded), f"{fired(crowded)}")
+
+    # AND THE GATE REFUSES RATHER THAN REPORTING. `make_plan` is what a
+    # writer calls; a finding it does not act on is a note, and the owner's
+    # standing rule is that a note is a record and only a gate is an
+    # enforcement.
+    real = PLN.joint_findings
+    try:
+        PLN.joint_findings = lambda plan: [("TOKEN_INDEX_UNREACHABLE", 1, "x")]
+        refused = None
+        try:
+            make_plan(seed=0)
+        except PlanRefused as exc:
+            refused = str(exc)
+    finally:
+        PLN.joint_findings = real
+    check("a plan with a joint finding is REFUSED by `make_plan`, and the "
+          "refusal names the code",
+          refused is not None and "TOKEN_INDEX_UNREACHABLE" in refused,
+          f"{(refused or '')[:80]}")
+    check("...and the restoration held, so no later check inherits a "
+          "mutated gate", PLN.joint_findings(base) == [])
+
+    # THE MUTATION THAT MAKES THE GENERATOR'S HALF NON-VACUOUS. `0 findings
+    # over 40 plans` is a claim about the DRAW, and it reads exactly like a
+    # gate that stopped asking. Restoring the pre-fix `_place_group` — the
+    # same body, keyed on the placement NAME — must bring the collisions
+    # back, and it must bring them back THROUGH `make_plan`, since a plan
+    # that is generated and not refused is the defect this section exists
+    # for.
+    real_place = PLN._place_group
+    blind_refused, blind_codes = 0, set()
+    try:
+        PLN._place_group = _place_group_keyed_on_the_name
+        for k in range(JOINT_SWEEP):
+            try:
+                make_plan(seed=k)
+            except PlanRefused as exc:
+                blind_refused += 1
+                blind_codes |= {c for c in PLN.JOINT_CODES if c in str(exc)}
+    finally:
+        PLN._place_group = real_place
+    check("keying the collision test on the placement NAME instead of the "
+          "WORD makes `make_plan` REFUSE most seeds — so the repair is READ "
+          "and the sweep's 0 above is an answer, not a check that stopped "
+          "checking",
+          blind_refused > JOINT_SWEEP // 2,
+          f"{blind_refused}/{JOINT_SWEEP} seeds refused when the word is "
+          f"spelled as a placement name")
+    check("...and the cause it names is the collision, not something the "
+          "mutation broke sideways",
+          blind_codes == {"TWO_GROUPS_ONE_WORD"}, f"{sorted(blind_codes)}")
+    check("...and the restoration held: the clean sweep is clean again",
+          all(PLN.joint_findings(make_plan(seed=k)) == []
+              for k in range(4)))
+
+    # THE OTHER DIRECTION IS NOT A DEFECT, and this is the check that pins
+    # M-79's own correction. A line given MORE slots than the band's ceiling
+    # is a legitimately SLOWER line: `SPARSE` reads "fewer units than
+    # pulses", so slots are a CAPACITY and never a requirement.
+    sparse = dict(base, groups="", line_slots=[
+        dict(s, duration=99.0) for s in base["line_slots"]])
+    check("a line with far MORE slots than the density ceiling produces NO "
+          "joint finding — slots are a capacity, not a requirement, and "
+          "M-79's Finding 1 read 78% of plans as impossible on exactly this "
+          "confusion", PLN.joint_findings(sparse) == [],
+          f"{PLN.joint_findings(sparse)[:1]}")
+    check("`line_syllable_ceiling` is the CONJUNCTION of the two layers — "
+          "the band's ceiling where the bar is roomy, the bar where it is "
+          "not — so neither layer answers for the other",
+          PLN.line_syllable_ceiling(99) == MB.ADOPTED["DENSITY"][1]
+          and PLN.line_syllable_ceiling(3) == 3,
+          f"99 slots -> {PLN.line_syllable_ceiling(99)}, "
+          f"3 slots -> {PLN.line_syllable_ceiling(3)}")
+
+    # A PLACEMENT WHOSE WORD IS UNKNOWN REFUSES rather than being filed under
+    # a nearby one (doctrine 20): an unchecked collision reads exactly like a
+    # line with no collision. `line` is the registered placement this cannot
+    # resolve, and it is deliberately outside `PLANNABLE_PLACEMENTS`.
+    try:
+        PLN.placement_word("line")
+        refused_locus = ""
+    except SL.SlotUnsupported as exc:
+        refused_locus = str(exc)
+    check("`placement_word` REFUSES a locus it cannot resolve to one word, "
+          "naming it",
+          "line" in refused_locus and "WHICH WORD" in refused_locus,
+          f"{refused_locus[:70]}")
+    spelled = sorted((str(PLN.placement_word(p)), p)
+                     for p in SL.PLANNABLE_PLACEMENTS)
+    check("...and it is DERIVED from `quality/slots.py`'s own loci, not a "
+          "second table here: every plannable placement resolves, and the "
+          "four names the pool draws denote only two words at the ends",
+          {PLN.placement_word(p) for p in SL.PLANNABLE_PLACEMENTS}
+          == {1, PLN.LAST_WORD}
+          and PLN.placement_word("T1") == PLN.placement_word("headrime"),
+          f"{spelled}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_planner_plans_the_whole_line,
                test_determinism, test_refusals, test_the_round_trip,
                test_the_measure, test_the_disclosure,
                test_the_rendering, test_the_writers_declaration,
-               test_the_form_is_read):
+               test_the_form_is_read, test_the_joint_gate):
         fn()
     print("=" * 62)
     if FAILURES:

@@ -386,17 +386,32 @@ which is a PARTITION, so doctrine 2's own overlapping cliques were declarable
 and never drawable.
 **PLACEMENT IS DRAWN PER MEMBER**, uniform over what the grading path
 resolves — per member because 8 of the 77 schemas anchor one member at each
-end of a word. MEASURED over 200 seeds: `end` takes 9.6% of members, near the
-uniform share. The consequence is DISCLOSED in `choices.placements` rather
-than buried: a two-member group is all-ends with probability 1/|pool|², so a
-plain end-rhyme plan becomes rare, and whether `end` should be a first-class
-outcome instead is a taste question printed for the owner to answer into a
-coordinate.
+end of a word. MEASURED over ~~200~~ 400 seeds: `end` takes ~~9.6%~~ **8.5%**
+of members (REPINNED 2026-08-23 with M-80's word-keying: once a WORD is bound
+its other names are excluded, and the last word carries two names against the
+six that carry one each). The consequence is DISCLOSED in `choices.placements`
+rather than buried: a two-member group is all-ends with probability 1/|pool|²,
+so a plain end-rhyme plan becomes rare, and whether `end` should be a
+first-class outcome instead is a taste question printed for the owner to
+answer into a coordinate.
 **OVERLAP IS SATISFIABLE BECAUSE PLACEMENT EXISTS.** Two groups on one line at
 the SAME placement constrain ONE word — `joint_field`'s question, which needs
 words a plan does not have. At DIFFERENT placements they constrain different
 words and the question does not arise, so a line joins a further group only at
 a placement it does not already carry: satisfiable BY CONSTRUCTION.
+**~~a placement it does not already carry~~ — THE COORDINATE WAS WRONG AND THIS
+SENTENCE IS THE WHOLE ARGUMENT FOR DRAWING OVERLAPPING COVERS AT ALL
+(`MISSING.md` M-80, 2026-08-23).** `used` held the placement NAME, and four of
+the names the pool draws denote only TWO words: `end` and `endword` are both
+the last word, `head`, `headrime` and `T1` are all the first — `headrime` and
+`T1` the IDENTICAL span of it. So the invariant was tested against a
+distinction that is not the distinction it names, and **376 of 400 plans
+(94%)** put two declared rhyme groups on one word — **291 of them (72.8%)** on
+the IDENTICAL SPAN of it. `slots.placement_word` is
+the coordinate that answers it, DERIVED from each rule's own locus and
+REFUSING a locus it cannot resolve to one word. **A WORD it does not already
+bind** is the invariant now, and it is checked rather than asserted — see the
+joint gate below.
 **HOW MUCH WEB IS A PER-LINE DRAW AND BOTH EXTREMES ARE REFUSED** — the
 owner's *"I don't think that literally every word need N pairs of rhymes but
 there's just no way that we can only be contemplating the last word of every
@@ -410,6 +425,38 @@ adopts the deepest CERTIFIED chain (40, a witness clique graded through
 `Reviser.inspect`; the tier-1 ceiling reaches 228 and is ungraded), so a plan
 never asks for a rhyme family no family can fill. Re-derived by
 `capacity.py --check` nightly.
+
+**AND A PLAN IS CHECKED FOR WRITABILITY BEFORE A WRITER EVER SEES IT
+(2026-08-23, `MISSING.md` M-79/M-80).** The owner's instruction after the
+first end-to-end run: *"build the plan-time joint satisfiability gate."* Every
+constraint this planner draws is individually legal — the meter from a derived
+cycle space, the density band from a corpus calibration, the schemes
+exact-uniform over completions, the placements bounded by a reachable token
+index — and **NO LAYER HELD THEIR CONJUNCTION**, so an unwritable plan was
+emitted, graded as legal, and discovered three revise rounds in.
+`plan.joint_findings` is that layer, and `ADOPTED_MAX_GROUP` above is the
+shape it generalises: a plan-time refusal, per LINE rather than per group.
+**FOUR CAUSES, NEVER SUMMED (doctrine 79), measured over 400 seeds before the
+repair**: a span below the density FLOOR where the band flags too few
+syllables and `fit.SLOTS_EXCEEDED` too many (**1/400**); a placement naming a
+word the line cannot reach (**5/400**); more DISTINCT words demanded than the
+line has syllables (**4/400**); and two declared rhyme groups on ONE WORD
+(**376/400**). **AFTER: 0 over 400, with 0 seeds lost** — the three
+derivations they came from are repaired, so the gate is satisfied BY
+CONSTRUCTION and a MUTATION is the only way to fire it (`test_plan.py` §7
+restores the pre-fix `_place_group` and **38 of 40 seeds then REFUSE**).
+**THE PREMISE WAS FALSIFIED BEFORE THE GATE WAS BUILT ON IT.** M-79's Finding
+1 read 78% of plans as handing the writer *"a bar they cannot legally fill"*
+and proposed promoting `SPARSE`, whose own gloss is *"fewer units than
+pulses"* — **slots are a CAPACITY, never a requirement**, so a twelve-syllable
+line in a twenty-four-slot bar is a slower line and promoting the note would
+have made every slow line a defect (doctrine 7). `line_syllable_ceiling` is
+the honest conjunction — the smaller of the bar and the band — and a
+deliberately sparse line produces no finding at all.
+**WHAT IT DOES NOT DECIDE**: two groups on one LINE at different words stay
+permitted, because whether the lexicon holds a word answering two families at
+once is `capacity.py`'s question and `MISSING.md` M-41's ladder step is still
+open. The gate refuses what is decidable without words rather than reaching.
 
 **AND THE PLANNER'S ENVELOPE IS DERIVED NOW, ALL SIX BOUNDS (2026-08-23,
 `MISSING.md` M-69/M-70).** The owner's standing rule: *"we do not want hard

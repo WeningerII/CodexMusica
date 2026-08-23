@@ -137,7 +137,9 @@ __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX", "SLOTS_CEILING_X",
            "GENERATOR_ROSTER", "ZERO_LINE_FUNCTIONS", "PlanRefused",
            "make_plan", "fill_plan", "writer_brief", "grading_command",
            "render_song", "section_header",
-           "meter_dims", "meter_space_size", "bell"]
+           "meter_dims", "meter_space_size", "bell",
+           "JOINT_CODES", "LAST_WORD", "placement_word",
+           "line_syllable_ceiling", "joint_findings"]
 
 
 class PlanRefused(ValueError):
@@ -648,15 +650,15 @@ def _place_group(group, rng, max_token, used):
     out = []
     for ln in group:
         free = [p for p in _PLACE_POOL(max_token)
-                if p not in used.get(ln, ())]
+                if placement_word(p) not in used.get(ln, ())]
         if not free:
-            # Every placement this path can grade is already spoken for on
-            # this line. The group is DROPPED rather than doubled onto one:
-            # two groups at one placement are a joint constraint on one word,
-            # which is the question a plan cannot answer.
+            # Every WORD this path can bind is already spoken for on this
+            # line. The group is DROPPED rather than doubled onto one: two
+            # groups on one word are a joint constraint on one word, which is
+            # the question a plan cannot answer.
             return []
         place = rng.choice(free)
-        used.setdefault(ln, set()).add(place)
+        used.setdefault(ln, set()).add(placement_word(place))
         out.append(str(ln) if place == "end" else f"{ln}.{place}")
     return out
 
@@ -667,6 +669,157 @@ def _PLACE_POOL(max_token):
     length admits. Cached because it is a pure function of one integer."""
     return tuple(_SL.PLANNABLE_PLACEMENTS) + tuple(
         f"T{n}" for n in range(1, max_token + 1))
+
+
+# -------------------------------- joint satisfiability (M-79 / M-80)
+#
+# EVERY GATE IN THIS MODULE PASSES AND THEIR CONJUNCTION DOES NOT, which is
+# the one defect under all four of `MISSING.md` M-79's findings. The meter is
+# drawn from a derived cycle space, the density band is a corpus calibration,
+# the schemes are exact-uniform over completions, the placements are bounded
+# by a reachable token index — and NO LAYER HOLDS THE CONJUNCTION, so a plan
+# whose constraints cannot be met together is emitted, graded as legal, and
+# handed to a writer who discovers it three revise rounds in.
+#
+# `capacity.ADOPTED_MAX_GROUP` (above) was the only joint check that existed:
+# it refuses a rhyme group larger than any family in the lexicon is measured
+# to fill. This is the same shape, per LINE rather than per group.
+
+#: THE WORD A PLACEMENT BINDS, and the sentinel for the last one. RE-EXPORTED
+#: FROM `quality/slots.py` AND NOT RE-IMPLEMENTED: that module is the one
+#: place a placement name is bound to a rule, and a second answer here to
+#: "which word is `headrime`?" is exactly the shape doctrine 1 names. Bound to
+#: module-level names so this file reads as though they were local, which is
+#: what a re-export is for.
+LAST_WORD = _SL.LAST_WORD
+placement_word = _SL.placement_word
+
+#: The codes this gate can emit, DECLARED (doctrine 58 — an exclusion nobody
+#: writes down is a threshold nobody wrote down). Every one is a REFUSAL and
+#: not a note: a plan is the one artifact in this pipeline nobody has spent
+#: any writing on yet, so refusing here costs a seed and refusing later costs
+#: a draft.
+JOINT_CODES = ("SPAN_BELOW_DENSITY_FLOOR", "TOKEN_INDEX_UNREACHABLE",
+               "WORDS_EXCEED_SPAN", "TWO_GROUPS_ONE_WORD")
+
+
+def line_syllable_ceiling(slots):
+    """-> the most syllables a line of `slots` slots may LEGALLY carry.
+
+    The conjunction of two layers that never met. `quality/fit.py` refuses
+    more units than slots (`SLOTS_EXCEEDED`, `satisfiable=False`); the
+    calibrated density band refuses more than its ceiling. A line may carry
+    what BOTH admit, which is the smaller — and that is the number every
+    placement demand below is measured against.
+
+    THE OTHER DIRECTION IS NOT A CEILING AND MUST NOT BE READ AS ONE. A line
+    given MORE slots than the band's ceiling is a legitimately SLOWER line —
+    `SPARSE`'s own gloss is *"fewer units than pulses"*, so slots are a
+    CAPACITY and never a requirement. M-79's Finding 1 read 24 slots against a
+    ceiling of 12 as a bar the writer could not legally fill and measured 78%
+    of plans that way; the honest reading is that those plans are sparse and
+    the unsatisfiable ones are elsewhere (see this module's own gate below).
+    """
+    return min(slots, MB.ADOPTED["DENSITY"][1])
+
+
+def joint_findings(plan):
+    """-> [(code, line, detail)] every per-line CONJUNCTION this plan asks for
+    and cannot get.
+
+    A PURE FUNCTION OF THE EMITTED PLAN, so it checks a hand-written one on
+    the same terms as a generated one and so `make_plan`'s own draw cannot be
+    what makes it pass. `make_plan` calls it on the finished dict and REFUSES
+    on any finding; the generator is separately arranged to satisfy it by
+    construction, which is what makes a mutation the only way to fire it —
+    the same relationship `ADOPTED_MAX_GROUP` has to the scheme sampler.
+
+    THE FOUR CAUSES ARE REPORTED APART AND NEVER SUMMED (doctrine 79). They
+    ask different things of whoever closes them: the first is a meter that
+    left no room after its own pickup, the second and third are a placement
+    reaching past what the line can hold, and the fourth is two declared rhyme
+    groups landing on ONE word — which is not an arithmetic impossibility at
+    all but the joint question `joint_field` answers WITH WORDS, and a plan
+    has none.
+
+    IT READS `groups` AND NOT `returns`, and that is a fact about the shape
+    rather than an omission. A return class demands the later instance be the
+    EARLIER LINE, so it adds no binding of its own and no placement to collide
+    with: `make_plan` emits groups for a returning function's FIRST instance
+    only, and the later ones carry the identical constraints by being the
+    identical words. The span question is settled the same way — anacrusis and
+    meter are per function KIND, so two instances of one kind have the same
+    slots by construction, and a drift there is `RETURN_SLOT_DRIFT`'s to
+    report rather than this gate's to refuse.
+    """
+    lo = MB.ADOPTED["DENSITY"][0]
+    sub = plan["subdivision"]
+    span = {s["line"]: float(s["duration"]) * sub
+            for s in plan["line_slots"]}
+    at = {}
+    for group in str(plan.get("groups") or "").split(";"):
+        for member in group.split(","):
+            member = member.strip()
+            if not member:
+                continue
+            num, _, place = member.partition(".")
+            at.setdefault(int(num), []).append(place or "end")
+
+    out = []
+    for ln in sorted(span):
+        slots = span[ln]
+        ceiling = line_syllable_ceiling(slots)
+        if ceiling < lo:
+            out.append((
+                "SPAN_BELOW_DENSITY_FLOOR", ln,
+                f"the line is given {slots:g} slot(s) and the calibrated "
+                f"density band's floor is {lo} syllable(s), so every legal "
+                f"line overflows its own bar: below the floor the band flags "
+                f"it and at or above it `fit.SLOTS_EXCEEDED` does. No draft "
+                f"clears both."))
+            continue
+        places = at.get(ln, [])
+        words = [placement_word(p) for p in places]
+        landed = {}
+        for place, word in zip(places, words):
+            landed.setdefault(word, []).append(place)
+        for word in sorted(landed, key=str):
+            names = landed[word]
+            if len(names) > 1:
+                where = ("the last word" if word == LAST_WORD
+                         else f"word {word}")
+                out.append((
+                    "TWO_GROUPS_ONE_WORD", ln,
+                    f"{len(names)} declared rhyme groups bind {where} of this "
+                    f"line ({', '.join(sorted(names))}). Whether one word "
+                    f"answers every family at once is `joint_field`'s "
+                    f"question and it needs WORDS; a plan has none, so this "
+                    f"is volunteered homework nobody has checked."))
+        indices = [w for w in words if w != LAST_WORD]
+        top = max(indices) if indices else 0
+        if top > ceiling:
+            out.append((
+                "TOKEN_INDEX_UNREACHABLE", ln,
+                f"a placement names word {top} of a line that may carry at "
+                f"most {ceiling:g} syllable(s) — {slots:g} slot(s) against a "
+                f"band ceiling of {MB.ADOPTED['DENSITY'][1]} — and a line has "
+                f"no more words than syllables."))
+            continue
+        need = top
+        if LAST_WORD in words:
+            # The last word must be a DIFFERENT word from every numbered one,
+            # or the two groups meet on it — the collision above, arrived at
+            # by arithmetic instead of by name.
+            need = max(1, top + 1 if top else 1)
+        if need > ceiling:
+            out.append((
+                "WORDS_EXCEED_SPAN", ln,
+                f"the placements on this line need {need} distinct words and "
+                f"the line may carry at most {ceiling:g} syllable(s) "
+                f"({slots:g} slot(s) against a band ceiling of "
+                f"{MB.ADOPTED['DENSITY'][1]}); a word is at least one "
+                f"syllable."))
+    return out
 
 
 # ---------------------------------------------------------------- pattern
@@ -1163,10 +1316,6 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             f"— try another seed, drop --lines, or declare the shape by "
             f"hand.")
 
-    # THE WORD INDEX A PLACEMENT MAY NAME, derived from the floor's own
-    # measured tokens-per-line floor: the planner asks for the n-th word only
-    # where the calibration says a line carries that many.
-    _max_token = max(1, int(tokens_per_line_band()[0]))
     bars, sub, beats, groups_m, (n_pairs, b_lo, b_hi) = _sample_meter(rng)
     meter = {"beats": beats, "unit": _unit_for(groups_m),
              "groups": list(groups_m)}
@@ -1195,16 +1344,56 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     # beats plus halves-if-subdivided, which is the sub=2 case written out —
     # it denied a sub=4 section the quarter-beat pickups its own grid can
     # land on, and no coordinate said so.
-    ana_choices = list(_anacrusis_choices(sub))
+    # AND THE PICKUP IS SUBTRACTED FROM THE SPAN THE ENVELOPE GUARANTEED, so
+    # the choices are filtered against what is LEFT (`MISSING.md` M-80). The
+    # envelope's floor is derived on `bars x beats x sub` — "fewer slots than
+    # the minimum band-legal syllable count is unsatisfiable BY CONSTRUCTION",
+    # this module's own docstring — and then every line is emitted with
+    # `duration = bars * beats - ana`, so a pickup of a whole beat at
+    # subdivision 4 removes four slots from a floor that was checked before
+    # they were taken. A derivation stated on one quantity and applied to
+    # another: measured at 1 plan in 400 landing a line UNDER the density
+    # floor, where every legal draft is flagged either by the band (too few
+    # syllables) or by `fit.SLOTS_EXCEEDED` (too many for the bar).
+    # THE FILTERED SET CANNOT BE EMPTY: `_anacrusis_choices` always contains
+    # 0.0, and the envelope has already cleared the un-pickedup span.
+    _floor = MB.ADOPTED["DENSITY"][0]
+    ana_choices = [a for a in _anacrusis_choices(sub)
+                   if (bars * beats - a) * sub >= _floor]
     anacrusis = {fn: rng.choice(ana_choices)
                  for fn in dict.fromkeys(funcs) if ks[fn] > 0}
 
+    # THE WORD INDEX A PLACEMENT MAY NAME. Two bounds, and the second is this
+    # plan's own (`MISSING.md` M-80): the floor's measured tokens-per-line
+    # floor says what a line of English verse RELIABLY carries, and the
+    # shortest line THIS PLAN drew says what it can carry AT ALL. A plan whose
+    # sections run seven slots after their pickup was still asking for the
+    # seventh word, because the ceiling was a module-level constant computed
+    # before the meter was even drawn — measured at 5 plans in 400 naming a
+    # word past what the line could hold and 4 more needing more distinct
+    # words than syllables.
+    # MINUS ONE, because a numbered word and the LAST word must be different
+    # words or the two groups binding them meet (`joint_findings`' fourth
+    # cause). Reserving the final word is what makes `end` co-drawable with
+    # any `T<n>` this pool holds.
+    _spans = [(bars * beats - a) * sub for a in anacrusis.values()] \
+        or [bars * beats * sub]
+    _cap_lo = min(int(line_syllable_ceiling(s)) for s in _spans)
+    _max_token = max(1, min(int(tokens_per_line_band()[0]), _cap_lo - 1))
+
     # Lay out sections and line slots.
     sections, line_slots = [], []
-    #: WHICH PLACEMENTS EACH LINE ALREADY CARRIES. A line may join a further
-    #: group only at a placement it does not already have — see the overlap
-    #: draw below for why that is what makes an overlapping cover satisfiable
-    #: without words.
+    #: WHICH WORDS EACH LINE ALREADY BINDS. A line may join a further group
+    #: only at a word it does not already bind — see the overlap draw below
+    #: for why that is what makes an overlapping cover satisfiable without
+    #: words.
+    #: ~~WHICH PLACEMENTS EACH LINE ALREADY CARRIES~~ — the placement NAME was
+    #: the wrong coordinate and it is the whole of `MISSING.md` M-80's fourth
+    #: cause: four of the names this pool draws denote only TWO words (`end`
+    #: and `endword` are the last, `head`, `headrime` and `T1` the first), so
+    #: the invariant this comment states was tested against something that
+    #: does not answer it, and 94% of plans landed two declared rhyme groups
+    #: on one word. `placement_word` is the coordinate that answers it.
     used = {}
     bar, line_no = 1, 1
     counts = {}
@@ -1275,14 +1464,21 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             # weighting.
             #
             # AND THE PLACEMENT COORDINATE IS WHAT MAKES IT SATISFIABLE. Two
-            # groups binding one line at the SAME placement are a joint
-            # constraint on ONE word, and whether any word answers both is
+            # groups binding one line at the SAME WORD are a joint constraint
+            # on ONE word, and whether any word answers both is
             # `joint_field`'s question — which needs words, and a plan has
-            # none. At DIFFERENT placements they constrain different words of
-            # the line and no such question arises. So a line may join a
-            # second group only at a placement it does not already carry:
-            # satisfiable BY CONSTRUCTION rather than by a search a plan
-            # cannot run.
+            # none. At DIFFERENT words they constrain different words of the
+            # line and no such question arises. So a line may join a second
+            # group only at a WORD it does not already bind: satisfiable BY
+            # CONSTRUCTION rather than by a search a plan cannot run.
+            # ~~at a PLACEMENT it does not already carry~~ — struck 2026-08-23
+            # (`MISSING.md` M-80). The placement name is not the word: `end`
+            # and `endword` are one word between them, `head`, `headrime` and
+            # `T1` another, and `headrime`/`T1` are the IDENTICAL SPAN of it.
+            # Under the name test this paragraph's own conclusion was false in
+            # 94% of plans, which is why `used` keys on `placement_word` and
+            # why `joint_findings` checks the conclusion rather than asserting
+            # it.
             #
             # DIMENSION BY DIMENSION, never uniform over the leaves: the
             # count first, then each group's size, then its members. Uniform
@@ -1320,7 +1516,12 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                 # would let a plan ask a five-syllable line for eleven
                 # distinct bound spans — arithmetic the line cannot satisfy
                 # at its own minimum legal length.
-                pool_n = max(1, min(len(_PLACE_POOL(_max_token)),
+                # AND THE POOL IS COUNTED IN WORDS, not in names: `end` and
+                # `endword` are one word between them and so are `head`,
+                # `headrime` and `T1`, so the number of names overstates what
+                # a line can carry (M-80).
+                pool_n = max(1, min(len({placement_word(p)
+                                         for p in _PLACE_POOL(_max_token)}),
                                     MB.ADOPTED["DENSITY"][0]))
                 want = {ln: rng.randint(1, pool_n) for ln in sec_lines}
                 have = {ln: sum(1 for g in groups
@@ -1410,16 +1611,23 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             # so the answer can be given to a coordinate rather than to a
             # rewrite.
             "placements": {"pool": list(_PLACE_POOL(_max_token)),
+                           "words": sorted(
+                               {str(placement_word(p))
+                                for p in _PLACE_POOL(_max_token)}),
                            "measure": "uniform per MEMBER over the pool; "
                                       "per member and not per group because "
                                       "8 of the 77 registered schemas anchor "
                                       "one member at each end of a word",
                            "token_ceiling": _max_token,
                            "token_ceiling_from":
-                               "the floor's measured tokens-per-line floor "
-                               f"{tokens_per_line_band()[0]:.2f} — a plan "
-                               f"asks for the n-th word only where the "
-                               f"calibration says a line carries that many"},
+                               "the smaller of the floor's measured "
+                               f"tokens-per-line floor "
+                               f"{tokens_per_line_band()[0]:.2f} and this "
+                               f"plan's own shortest line ({_cap_lo} "
+                               f"syllable(s) after its pickup) less one for "
+                               f"the last word — a plan asks for the n-th "
+                               f"word only where BOTH the calibration and "
+                               f"this meter say a line carries that many"},
             "schemes": scheme_meta,
             "structures": struct_meta,
             "anacrusis": {fn: {"value": v, "chosen_from": ana_choices}
@@ -1449,6 +1657,24 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         "returns": ";".join(f"{a},{b}" for a, b in returns),
         "subdivision": sub,
     }
+    # THE JOINT GATE (`MISSING.md` M-80). Every constraint above is
+    # individually legal and their CONJUNCTION is what nothing held. Asked of
+    # the FINISHED dict rather than of the draw, so it is the same check a
+    # hand-written plan gets and so no repair upstream can make it pass by
+    # not being asked. Refused BEFORE the brief is built: a brief is what a
+    # writer reads, and handing one out is the moment the plan stops costing
+    # a seed and starts costing a draft.
+    joint = joint_findings(plan)
+    if joint:
+        codes = sorted({c for c, _, _ in joint})
+        raise PlanRefused(
+            "this seed's constraints cannot be satisfied together — "
+            + f"{len(joint)} finding(s) over {len({ln for _, ln, _ in joint})}"
+            + f" line(s), {', '.join(codes)}:\n"
+            + "\n".join(f"  L{ln} {code}: {detail}"
+                        for code, ln, detail in joint)
+            + "\nEach gate this plan passed is a separate layer and no layer "
+              "held their conjunction; this one does. Try another seed.")
     plan["writer_brief"] = writer_brief(plan)
     return plan
 

@@ -94,7 +94,7 @@ from dataclasses import dataclass, replace
 from quality import relations as REL
 
 __all__ = ["Slot", "SlotUnsupported", "DEFAULT_RULE", "GRADEABLE_LOCI",
-           "PLANNABLE_PLACEMENTS",
+           "PLANNABLE_PLACEMENTS", "LAST_WORD", "placement_word",
            "GRADEABLE_ANCHORS", "FRAME_LOCI", "NAMED_SLOTS",
            "as_slot", "slot_line", "is_default", "check", "resolve",
            "parse_slot", "spell_slot", "position_of"]
@@ -349,6 +349,52 @@ def spell_slot(slot):
     if tok is not None:
         return f"{slot.line}.T{tok + 1}"
     return f"{slot.line}.<{slot.rule.locus}/{slot.rule.anchor}>"
+
+
+#: The sentinel for the line's LAST word, whose index no declaration knows.
+#: It is a WORD and not an index, and keeping it un-numbered is what stops a
+#: caller asserting a line length nobody measured.
+LAST_WORD = "last"
+
+
+def placement_word(place):
+    """placement name -> the WORD it binds: a 1-based index from the front of
+    the line, or `LAST_WORD`.
+
+    THE COORDINATE THAT SAYS WHETHER TWO BINDINGS MEET (`MISSING.md` M-80).
+    This table binds FOUR names to only TWO words at the ends of a line —
+    `end` and `endword` are both the last word (its rhyme span and the whole
+    of it), `head`, `headrime` and `T1` are all the first — so "these are
+    different placements" and "these are different words" are different
+    questions, and only the second one answers whether two rhyme groups land
+    on one word. `quality/plan.py` asked the first for as long as it drew
+    placements at all, and 94% of its plans put two declared groups on one
+    word as a result.
+
+    IT LIVES HERE because this module is *"the ONLY place a name is bound to
+    a rule"* (`NAMED_SLOTS`' own docstring). Derived from the rule's LOCUS,
+    so a placement added to the table is answered by this function on the day
+    it is added rather than by a second table that goes stale (doctrine 1).
+
+    A locus this cannot resolve to one word REFUSES (doctrine 20): a
+    placement filed under a nearby word cannot be tested for collision, and
+    an unchecked collision reads exactly like a line with none. `line` is the
+    registered case — a whole-line span is not a word — and it is already
+    outside `PLANNABLE_PLACEMENTS` for its own separate reason.
+    """
+    rule = parse_slot(f"1.{place}").rule
+    if rule.locus == "line_initial_token":
+        return 1
+    if rule.locus == "line_final_token":
+        return LAST_WORD
+    tok = _declared_token(rule)
+    if rule.locus == "any_token" and tok is not None:
+        return tok + 1
+    raise SlotUnsupported(
+        f"the placement {place!r} resolves to locus {rule.locus!r}, and this "
+        f"module cannot say WHICH WORD of the line that is. A placement whose "
+        f"word is unknown cannot be tested against another for landing on the "
+        f"same one, so it is REFUSED rather than filed under a nearby word.")
 
 
 def _declared_token(rule):

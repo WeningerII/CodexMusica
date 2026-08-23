@@ -8841,11 +8841,36 @@ about whether that was bad luck.
 PLANS.** Each line is given a span in slots; the floor's calibrated band says a
 line carries **5–12 syllables**. MEASURED over 200 plans: the median line is
 given **24 slots**, and **157/200 = 78%** give every line MORE slots than the
-density ceiling permits. Only **18%** land inside the band. The writer is
-handed a bar they cannot legally fill, and the finding that names it —
-`SPARSE`, *"pulses with nothing declared on them"* — is a NOTE whose M-77
-disposition is `UNCALIBRATED`. **So the pipeline generates an impossible brief
-and the grader cannot refuse it.**
+density ceiling permits. Only **18%** land inside the band.
+~~The writer is handed a bar they cannot legally fill, and the finding that
+names it — `SPARSE`, *"pulses with nothing declared on them"* — is a NOTE whose
+M-77 disposition is `UNCALIBRATED`. **So the pipeline generates an impossible
+brief and the grader cannot refuse it.**~~
+**AMENDED 2026-08-23 BEFORE THE GATE WAS BUILT ON IT, AND THE MEASUREMENT
+SURVIVES WHILE THE READING DOES NOT (doctrine 17).** 24 slots against a
+ceiling of 12 is not a bar the writer cannot fill: `SPARSE`'s own gloss is
+*"fewer units than pulses"*, so a line's slots are a **CAPACITY** and never a
+requirement, and a twelve-syllable line in a twenty-four-slot bar is a
+legitimately SLOWER line. The grader is right not to refuse it. **`SPARSE`
+being an UNCALIBRATED note is therefore correct and this finding was about to
+promote it, which would have made every slow line a defect** — doctrine 7's
+own error, a floor ordering the region it already passed.
+**THE UNSATISFIABLE DIRECTION IS THE OTHER ONE, and it is rarer: a line whose
+span falls BELOW the density floor, where the band flags too few syllables and
+`fit.SLOTS_EXCEEDED` flags too many, so no draft clears both.** Re-measured
+over 400 seeds: **1 plan in 400**. Two more arithmetic contradictions sit
+beside it at **5/400** and **4/400** (a placement naming a word the line cannot
+reach; more distinct words demanded than syllables available).
+**AND A DEFECT OF NEARLY THIS RATE IS REAL, IN A LAYER THIS FINDING NEVER
+LOOKED AT — WHICH IS WHY THE NUMBER FELT RIGHT.** The same re-measurement
+found **376 of 400 plans (94.0%)** binding TWO declared rhyme groups to ONE
+WORD: the planner's own stated invariant, broken because it was tested on the
+placement NAME when four of the names it draws denote only two words. The two
+statistics are NOT the same statistic and are not comparable (78% is *every
+line over the ceiling*, 94% is *at least one line with a collision*); what
+they share is that a plan-time reading of 200 plans was pointing at something
+real and naming the wrong layer. `M-80` holds it, and the gate this finding
+asked for is built there.
 
 **FINDING 2 — 3.3% OF SEEDS PRODUCE A WRITABLE PLAN.** Over 399 seeds, asking
 only four undemanding things (line span inside the density band, no rhyme
@@ -8882,6 +8907,17 @@ verse SHORTER than its chorus lands in **39%** of plans.
 The highest token index any of 200 plans demands is **T7**, and **0/200**
 demand an index beyond what the density ceiling can supply. `_PLACE_POOL`'s
 `max_token` is doing its job.
+**AMENDED 2026-08-23: TRUE OF THE STATISTIC IT MEASURED AND OF NO OTHER
+(`M-80`).** T7 against the band's ceiling of 12 is the comparison against a
+GLOBAL bound, and the global bound is not what a line has. A line's own
+capacity is the smaller of the band ceiling and its OWN slot span — and
+`_max_token` was a module-level constant read off the floor's calibration
+before this plan's meter was even drawn. Re-measured over 400 seeds against
+each line's own span: **5 plans name a word the line cannot reach** and **4
+more need more distinct words than the line has syllables**. So the paragraph
+is a correct null about the ceiling and reads as a clean bill for the
+coordinate, which is doctrine 20's own shape — a question not asked, recorded
+as a question answered.
 
 **THE ONE DEFECT UNDER ALL FOUR: NOTHING ASKS WHETHER A PLAN IS WRITABLE.**
 Every constraint is individually legal. The meter is drawn from a derived
@@ -8899,3 +8935,132 @@ because every suite tests a layer and the defect is BETWEEN layers. It is the
 same lesson `COVERAGE_PREREGISTRATION.md` already banked — *"length is the
 coverage lever and the SPEC is the defect lever"* — one level out: **the
 pipeline is the defect lever, and there is no pipeline.**
+
+### M-80 · the plan-time joint satisfiability gate — every layer legal, the conjunction unheld `CLOSED` — built 2026-08-23
+**The owner's instruction, in four words**: *"build the plan-time joint
+satisfiability gate."* M-79 named the shape and `capacity.ADOPTED_MAX_GROUP`
+was the one instance of it: a plan-time refusal on the CONJUNCTION, before a
+writer is handed the brief. This is the rest of it — and building it
+falsified the finding it was built on, which is recorded first because the
+gate would otherwise have shipped enforcing the wrong thing.
+
+**THE PREMISE WAS CHECKED BEFORE IT WAS BUILT ON, AND HALF OF IT WAS WRONG.**
+M-79's Finding 1 read *"157/200 = 78% give every line MORE slots than the
+density ceiling permits ... the writer is handed a bar they cannot legally
+fill"* and proposed promoting `SPARSE`. **`SPARSE`'s own gloss is "fewer
+units than pulses":** slots are a **CAPACITY**, not a requirement. A
+twelve-syllable line in a twenty-four-slot bar is a slower line, not an
+impossible one, and promoting the note would have made every slow line a
+defect — doctrine 7's own error, a floor ordering the region it already
+passed. Finding 1 is amended in place (doctrine 17); the measurement stands
+and the reading does not.
+
+**WHAT IS ACTUALLY UNSATISFIABLE, MEASURED OVER 400 SEEDS.** Four causes,
+counted apart and never summed (doctrine 79) because they ask different
+things of whoever closes them:
+
+| cause | plans | lines | what no draft can do |
+|---|---:|---:|---|
+| `SPAN_BELOW_DENSITY_FLOOR` | **1/400** | 6 | the band flags too few syllables; `fit.SLOTS_EXCEEDED` flags too many |
+| `TOKEN_INDEX_UNREACHABLE` | **5/400** | 26 | a placement names word *n* of a line that cannot reach *n* words |
+| `WORDS_EXCEED_SPAN` | **4/400** | 9 | more DISTINCT words demanded than the line has syllables |
+| `TWO_GROUPS_ONE_WORD` | **376/400 = 94.0%** | 2,336 | two declared rhyme groups bind ONE word — `joint_field`'s question, which needs words |
+
+**FOUR COLUMNS OF ONE RUN, not four runs quoted side by side.** The gate as
+shipped is run over 400 plans from `plan.py` AS IT STOOD AT HEAD — all three
+derivations below un-repaired — rather than measured once per repair, because
+a rate taken after a neighbouring fix is a rate about a tree nobody had
+(doctrine 58, one axis out). 0 of the 400 were refused by the old generator.
+
+**THE FOURTH IS THE PLANNER'S OWN STATED INVARIANT, AND IT WAS TESTED ON A
+COORDINATE THAT DOES NOT ANSWER IT.** `_place_group`'s comment reads *"a line
+may join a second group only at a placement it does not already carry:
+satisfiable BY CONSTRUCTION rather than by a search a plan cannot run"* — and
+the whole argument for the planner drawing OVERLAPPING covers at all (M-71)
+rests on that sentence. `used` held the placement **NAME**. Four of the names
+the pool draws denote only **TWO** words: `end` and `endword` are both the
+last word (its rhyme span and the whole of it), `head`, `headrime` and `T1`
+are all the first. `headrime` and `T1` are the **identical span** of the
+identical word. So the invariant was checked against a distinction that is
+not the distinction it names, and **2,336 lines over 376 plans** carried two
+groups on one word. The sharpest sub-case is **666 lines over 291 plans
+(72.8%)**, where the two placements are `headrime` and `T1` — not merely one
+word but the **IDENTICAL SPAN** of it, two rhyme families demanding the same
+syllables.
+
+**`slots.placement_word` IS THE COORDINATE THAT ANSWERS IT**, and it lives in
+`quality/slots.py` because that module's own docstring calls itself *"the ONLY
+place a name is bound to a rule"* — a second answer to *which word is
+`headrime`?* inside `plan.py` is the shape doctrine 1 names. It is DERIVED
+from each rule's LOCUS, so a placement added to `NAMED_SLOTS` is answered on
+the day it is added; a locus it cannot resolve to one word **REFUSES** rather
+than being filed under a nearby one (`line` is the registered case), because
+an unchecked collision reads exactly like a line with none.
+
+**THREE DERIVATIONS WERE REPAIRED SO THE GENERATOR SATISFIES THE GATE BY
+CONSTRUCTION**, which is the relationship `ADOPTED_MAX_GROUP` already has to
+the scheme sampler:
+  1. **THE PICKUP WAS SUBTRACTED FROM A SPAN THE ENVELOPE HAD ALREADY
+     CLEARED.** `plan.py`'s own docstring says *"fewer slots than the minimum
+     band-legal syllable count is unsatisfiable BY CONSTRUCTION"* and derives
+     the envelope floor on `bars x beats x sub` — then every line is emitted
+     with `duration = bars * beats - ana`. A whole-beat pickup at subdivision
+     4 removes four slots from a floor that was checked before they were
+     taken: **a derivation stated on one quantity and applied to another.**
+     The anacrusis is drawn from the choices that leave the span at or above
+     the floor, and the filtered set cannot be empty because 0.0 is always in
+     it.
+  2. **THE TOKEN CEILING WAS A MODULE-LEVEL CONSTANT READ BEFORE THE METER
+     WAS DRAWN.** It is now the smaller of the floor's measured
+     tokens-per-line floor and THIS plan's own shortest line, less one for the
+     last word — the reservation that lets `end` be co-drawn with any `T<n>`.
+     Measured after: the ceiling is still 7 in **394 of 400** plans, so the
+     new bound binds where it should and nowhere else.
+  3. **`used` KEYS ON THE WORD**, and `pool_n` counts the pool in words rather
+     than in names.
+
+**AFTER: 0 findings over 400 seeds, and 0 seeds lost.** Every seed that
+produced a plan before produces one now — the repairs shift the draw, they do
+not narrow the space. The placement shares move as they must: `end` takes
+**8.5%** of members (from 9.6%), because once a word is bound its other names
+are excluded, and the last word carries two names against the six that carry
+one each.
+
+**THE GATE IS A PURE FUNCTION OF THE EMITTED PLAN** (`plan.joint_findings`),
+so a hand-written plan is checked on the same terms and no repair upstream can
+make it pass by not being asked. `make_plan` calls it on the finished dict and
+**REFUSES BEFORE THE BRIEF IS BUILT** — a brief is what a writer reads, and
+handing one out is the moment a bad plan stops costing a seed and starts
+costing a draft.
+
+**PROVEN BY MUTATION, because a gate nothing can fire reads exactly like a
+gate that passes.** `quality/test_plan.py` §7 is 18 checks: the population is
+asserted before the sweep is called clean; each of the four codes is fired by
+its own hand-built plan; `make_plan`'s refusal is fired by stubbing the
+finder; and the load-bearing one restores the **pre-fix `_place_group`
+verbatim but for its one coordinate**, under which **38 of 40 seeds REFUSE**
+and the only code named is `TWO_GROUPS_ONE_WORD`. A further check pins the
+correction this entry opens with: a line given far MORE slots than the band's
+ceiling produces **no finding at all**.
+
+**WHAT THIS DOES NOT DECIDE, AND IT IS NOT SMALL.** Two groups on one word are
+refused; two groups on one LINE at different words are not, and cannot be
+here — whether the lexicon holds a word answering two families at once is
+`capacity.py`'s question and the relation coordinate that would answer it is
+`M-41`'s ladder step, still open. The gate refuses what is decidable without
+words and says so rather than reaching.
+
+**AND M-79's FINDING 3 IS NOT CLOSED BY THIS, WHICH IS SAID HERE SO THE GATE
+IS NOT READ AS HAVING CLOSED IT.** That finding is about HOW MANY words a line
+is pinned at, and re-measured over 200 seeds after the repair the figures are
+unmoved: **median 3 pinned positions per line, 33% of lines at 4 or more, 163
+of 200 plans containing a line pinned at 5.** What changed is that those pins
+are now on DISTINCT words inside a capacity the line demonstrably has —
+satisfiable rather than fewer. The ceiling is the calibrated density band's
+FLOOR (5), which is what `pool_n` has always drawn against; a line pinned at 5
+words at its own minimum legal length is every word pinned, which is legal and
+tight and is the coordinate the owner's *"I don't think that literally every
+word need N pairs of rhymes"* asks for and still does not have. FINDINGS 2 and
+4 (writable-plan rate, chorus-before-verse rate) are likewise untouched: they
+are about what a plan should PREFER, and this gate is about what it may not
+ASK.

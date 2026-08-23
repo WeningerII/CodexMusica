@@ -284,12 +284,71 @@ def test_provenance_guard():
           smap[0]["syl_in_word"] == 1 and not prov["partial_word"])
 
 
+def test_which_word_a_placement_binds():
+    print("\n10. `placement_word` — the coordinate that says whether two "
+          "bindings MEET")
+    # THE POPULATION FIRST: this section walks tables, and `all()` over an
+    # empty one is True and reads exactly like a check that examined
+    # something.
+    names = [n for n in SL.NAMED_SLOTS if n != "line"]
+    tokens = [f"T{n}" for n in range(1, 9)]
+    check("there is a vocabulary to ask the question of",
+          len(names) >= 4 and len(tokens) == 8,
+          f"{sorted(names)} + {tokens[0]}..{tokens[-1]}")
+    check("FOUR NAMES DENOTE TWO WORDS, which is the whole finding "
+          "(`MISSING.md` M-80): `end` and `endword` are both the last word — "
+          "its rhyme span and the whole of it — and `head`, `headrime` and "
+          "`T1` are all the first. A caller asking 'is this a different "
+          "PLACEMENT?' is not asking 'is this a different WORD?'",
+          SL.placement_word("end") == SL.placement_word("endword")
+          == SL.LAST_WORD
+          and SL.placement_word("head") == SL.placement_word("headrime")
+          == SL.placement_word("T1") == 1,
+          f"{[(n, SL.placement_word(n)) for n in sorted(names)]}")
+    check("`T<n>` is 1-BASED here, the same base a declaration's line numbers "
+          "and its `T<n>` spelling already use — an off-by-one would put "
+          "every numbered binding on its neighbour's word",
+          [SL.placement_word(t) for t in tokens] == list(range(1, 9)),
+          f"{[SL.placement_word(t) for t in tokens]}")
+    check("the LAST word is a SENTINEL and not an index, so no caller can "
+          "assert a line length nobody measured",
+          not isinstance(SL.LAST_WORD, int)
+          and SL.LAST_WORD not in range(1, 99), f"{SL.LAST_WORD!r}")
+    check("EVERY name the table declares resolves except the one that names "
+          "no word — so this is DERIVED from the loci and a placement added "
+          "to `NAMED_SLOTS` is answered on the day it is added, not by a "
+          "second table that goes stale (doctrine 1)",
+          all(SL.placement_word(n) in (1, SL.LAST_WORD) or
+              isinstance(SL.placement_word(n), int) for n in names))
+    refused = ""
+    try:
+        SL.placement_word("line")
+    except SL.SlotUnsupported as exc:
+        refused = str(exc)
+    check("`line` REFUSES, naming the locus — a whole-line span is not a "
+          "word, and filing it under a nearby one would make an unchecked "
+          "collision read exactly like a line with none (doctrine 20)",
+          "line" in refused and "WHICH WORD" in refused, f"{refused[:70]}")
+    # THE MUTATION: the refusal must come from the LOCUS and not from the
+    # name, or a placement added later with an unresolvable locus is filed
+    # under a word it does not bind.
+    unknown = ""
+    try:
+        SL.placement_word("zzznotaplace")
+    except SL.SlotUnsupported as exc:
+        unknown = str(exc)
+    check("...and a name the table does not hold refuses through "
+          "`parse_slot`'s own vocabulary message rather than through this "
+          "function's, so the two refusals stay distinguishable",
+          "names no place" in unknown, f"{unknown[:70]}")
+
+
 def main():
     for fn in (test_default_is_line_anchors, test_spelling_round_trips,
                test_anchor_with_no_referent, test_refusals,
                test_mandate_carries_placement, test_within_line_refusal,
                test_grade_reads_the_slot, test_untouched_path,
-               test_provenance_guard):
+               test_provenance_guard, test_which_word_a_placement_binds):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0
