@@ -8519,3 +8519,94 @@ band that will be switched off.
 **WHAT IS DONE HERE IS THE SIZING**, and the two figures a registration needs
 are in it: the duck threshold is exactly ten sections, and the populations it
 covers are 73.5% of the corpus and 48.5% of the planner's own draws.
+
+### M-76 · the code graph's advertised token saving does not reproduce here, and it cannot see the half of this architecture that matters `CLOSED` 2026-08-23
+**The owner asked** whether graphify and Obsidian would raise a progress rate
+that had fallen to hour-plus tasks, having read that they pair well with
+Claude Code. The tools were evaluated rather than adopted on the pitch.
+
+**WHAT GRAPHIFY IS**: tree-sitter AST → queryable knowledge graph, local and
+deterministic for code, with an optional semantic pass over documents that
+uses a model API and emits `INFERRED` edges. Its advertised figure is *"70x
+fewer tokens per search"*; a widely-linked community setup repo headlines
+*"up to 71.5x fewer tokens per session"* and substantiates no methodology —
+its one concrete measurement is a single case study on an unrelated 126-file
+React project. Doctrine 58: a number nobody can re-derive is a threshold
+nobody wrote down. `quality/graph_probe.py` re-derives it here.
+
+**THE BUILD IS CHEAP AND THE MAP IS GOOD.** `extract . --code-only` is **47
+seconds**, no API key, 7,555 nodes / 15,261 edges / 373 communities, with
+`corpus/` and `node_modules/` scoped out by `.graphifyignore`. And
+`god-nodes`, with no access to `CLAUDE.md`, independently recovered the spine
+that file describes — `Reviser` 108 edges, `Declaration` 68, `Lexicon` 55,
+`Syllable` 55, `Mandate` 53, `line_anchors` 48. A map derived from the AST
+agreeing with a map written by hand is a check on both, and it is the strongest
+thing in this entry.
+
+**THE TOKEN CASE IS REFUSED.** Eight questions, every one asked of this tree
+during real work earlier the same day (declared before measuring, so the set
+cannot have been chosen to fit — doctrine 19). Characters counted exactly,
+because `tiktoken` cannot fetch its encoding through this container's proxy
+and an estimated token would be a decimal wearing a claim; both arms are the
+same kind of text, so the RATIO is what survives.
+
+| baseline | ratio |
+|---|---|
+| `grep 'SYMBOL('` — the USE sites, the SAME question | **0.68x** (the graph costs half again as MUCH) |
+| `grep`+read every matched file in full | 180x |
+
+**The 180x is the advertised shape and it is a strawman**: nobody answers "who
+calls this" by reading two dozen files end to end. Against the search actually
+run, the graph route is MORE expensive.
+
+**AND IT IS ALSO THE LESS COMPLETE ROUTE**: mean recall **0.74** over the
+indexed questions (**0.77** if the defining file is counted as a dependent —
+both readings printed, because picking one silently is choosing the rendering
+that suits the conclusion, doctrine 91), with **1 of 5 complete**. A route
+that returns less is cheaper by construction, so a saving measured without
+checking the answer charges the wrong layer (doctrine 79) — which is why the
+probe refuses to quote a ratio on a question whose recall is short.
+
+**THE FINDING THAT MATTERS FOR THIS TREE: MODULE-LEVEL CONSTANTS ARE NOT
+INDEXED AT ALL.** `MANDATORY_PURSUE`, `LENGTH_GATE_CODES`, `PROFILES`,
+`ADOPTED` and `RHYME_FINDINGS` have **no node**; 4,347 of the 7,555 nodes are
+callables and not one is a constant. **Doctrine 1 makes a DECLARED CONSTANT
+the primary coupling here** — the `Declaration` tuple, the calibrated bands,
+the pursue set, the gate sets — so the graph covers the callable half of this
+architecture and is blind to the declared half, which is precisely the half
+`quality/gate_census.py` reads to answer what can refuse anything. Asked about
+a constant the graph returns 42 characters of nothing, and **nothing reads
+exactly like "no dependents"** (doctrine 20). That is a SCOPE LIMIT and not a
+wrong answer, and the probe reports it as `NOT INDEXED` rather than as a
+recall of zero for that reason.
+
+**THE PROBE CAUGHT ITS OWN COMPARATOR CHEATING, TWICE**, which is the reason to
+trust the numbers above. Its first draft scored the graph against every
+textual MENTION of a symbol — docstrings, comments, the definition — when the
+graph answers DEPENDENCY, and reported 41.7% recall with 0 of 6 complete.
+Corrected to `SYMBOL(`, a use. Its second draft still counted the DEFINING
+file as a dependent, so `affected slot_line` was charged a miss for correctly
+omitting `quality/slots.py`, the module that declares it: 1 of 2 rather than
+1 of 1. A comparator that penalises the right answer is the defect this repo
+keeps finding in its own instruments (doctrine 48), reproduced inside the
+instrument written to evaluate somebody else's.
+
+**ADOPTED AS A LENS, GATING NOTHING.** No check depends on the graph, no
+document instructs a session to trust it, and `graphify-out/` is gitignored as
+a derivation whose input is in the tree. `--code-only` is the shipped
+invocation: the semantic pass is non-deterministic (doctrine 66) and an
+`INFERRED` edge would be declared-not-counted. The rebuild command and the
+`built_at_commit` staleness warning are in `CLAUDE.md`, because a stale graph
+answering confidently is this repo's own most-repeated defect in a new hat.
+
+**OBSIDIAN IS NOT ADOPTED AND THE REASON IS SPECIFIC.** It cannot run in this
+container (GUI, ephemeral headless Linux), and more to the point the documented
+pattern — Karpathy's LLM-wiki, raw material compiled into an indexed markdown
+wiki an agent reads — describes what `CLAUDE.md`, `MISSING.md` and
+`BACKLOG.md` already are, with one property a vault cannot have: they FAIL.
+`verify_entries.py` goes red when a sentence stops being true, `counters.py
+--write` rewrites figures so nobody retypes them, thirty instruments re-derive
+their own pins. Moving that prose into a vault would move it out of the layer
+that enforces it. A vault READING these files is a reading surface and costs
+nothing; a vault REPLACING them would trade the only property that has kept
+this record honest.

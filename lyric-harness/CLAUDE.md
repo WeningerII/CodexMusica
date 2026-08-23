@@ -94,6 +94,69 @@ that mattered: a principle that lives only in prose gets followed exactly as
 often as someone remembers it, and a session cannot remember what it never
 reached.
 
+## The code graph (graphify) — what it answers, and what it cannot
+
+**ADOPTED 2026-08-23 AS A LENS, NOT AS A SOURCE OF TRUTH, and the token case
+that was made for it is REFUTED on this tree.** `graphify extract . --code-only`
+builds a graph.json under graphify-out/ from the AST alone — local,
+deterministic, no API key, **47s** over this repo — giving 7,555 nodes and
+15,261 edges. That output is a GITIGNORED build artifact and its path is
+deliberately NOT written here as a backticked repo-path citation, because it
+is not one: it is absent from a clean checkout, and `quality/
+verify_entries.py` is right to fail a sentence that claims otherwise (it did,
+on this paragraph's first draft — the same treatment data/provenance_ledger.tsv
+already gets). The scope is `.graphifyignore` (corpus/ and data/ are out:
+283k lines of verse would swamp every hub).
+
+**REBUILD IT WHEN THE TREE MOVES:** `graphify extract . --code-only` from the
+repo root. **A STALE GRAPH ANSWERS CONFIDENTLY**, which is this repo's own
+most-repeated defect wearing a new hat, so the graph carries a `built_at_commit` — check it against `HEAD` before trusting an answer, and
+rebuild rather than reason from a graph built before the change you are asking
+about. Absent that file the probe REFUSES at exit 2 and says so, rather than
+reporting a comparison it did not make (doctrine 20).
+
+**WHAT IT IS GOOD FOR, measured:**
+  - `graphify affected "SYMBOL" --depth 2` — what DEPENDS on a symbol, which
+    is a different question from `grep`'s "where does this string appear" and
+    is the one worth asking before a refactor.
+  - `graphify god-nodes` — the architectural hubs. On its first run, with no
+    access to this file, it independently recovered the spine this file
+    describes: `Reviser` 108 edges, `Declaration` 68, `Lexicon` 55,
+    `Syllable` 55, `Mandate` 53, `line_anchors` 48. A map derived from the AST
+    agreeing with a map written by hand is a check on both.
+
+**WHAT IT CANNOT DO, AND THIS IS THE HALF THAT MATTERS HERE.** `quality/
+graph_probe.py` re-derives the advertised *"70x fewer tokens per search"* on
+this tree and it does not reproduce (`MISSING.md` M-76):
+  - against the search answering the SAME question (`grep 'SYMBOL('`) the
+    graph route costs **0.68x — half again as MUCH**, not 70x less. The
+    **180x** appears only against `grep+read`, every matched file quoted in
+    full, which is a baseline nobody uses.
+  - mean recall **0.74**, **1 of 5** questions complete: the cheaper-looking
+    route is also the less complete one.
+  - **MODULE-LEVEL CONSTANTS ARE NOT INDEXED AT ALL.** `MANDATORY_PURSUE`,
+    `LENGTH_GATE_CODES`, `PROFILES`, `ADOPTED`, `RHYME_FINDINGS` have NO NODE;
+    4,347 of the 7,555 nodes are callables and none is a constant. **Doctrine
+    1 makes a declared constant the primary coupling in this tree**, so the
+    graph covers the callable half of the architecture and is blind to the
+    declared half — the half `quality/gate_census.py` reads to answer what can
+    refuse anything. Ask the graph about a constant and it says nothing, which
+    reads exactly like "nothing depends on it".
+
+**SO IT NEVER SETTLES A QUESTION A CHECK CAN SETTLE.** `wiring` finds stranded
+modules, `counters.py` censuses every public symbol by who references it,
+`gate_census.py` says what can refuse, `verify_entries.py` fails when prose
+goes stale. Those GATE; a graph edge does not. The graph is where to look
+FIRST on a broad "what touches this" question and it is never the last word,
+and no check in this repository depends on it.
+
+**AND THE SEMANTIC HALF IS DELIBERATELY NOT RUN.** `graphify extract` without
+`--code-only` sends documents to a model API and emits `INFERRED` edges. That
+is a non-deterministic derivation (doctrine 66) presented beside deterministic
+ones, and this repo already has a name for a claim that cannot be re-derived.
+`--code-only` is the shipped invocation; an INFERRED edge would be
+declared-not-counted.
+
 ## The loop, and the MCP wrap plan
 
 Tools: transcribe, score, candidates, check_scheme, check_meter,
