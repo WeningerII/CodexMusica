@@ -6,7 +6,17 @@ node_modules/
 codex.zip
 /_dist
 /_dist_test
-.claude/
+# .claude/ IS IGNORED EXCEPT THE TWO FILES THAT ARE ENFORCEMENT.
+# `.claude/worktrees/` is scratch and must stay out. The Stop hook is NOT:
+# it is what gives `quality/check_render_form.py` jurisdiction over a message
+# (`MISSING.md` M-97), and an enforcement that lives only in one container is
+# an enforcement that disappears with it. `test_render_form.py` §6 asserts
+# both files exist, so leaving them ignored would also red CI on a clone.
+# `.claude/*` rather than `.claude/`, because git does not descend into an
+# ignored DIRECTORY and a negation inside one never fires.
+.claude/*
+!.claude/settings.json
+!.claude/render_form_hook.sh
 # Scratch for the instrument-drafting workflows: the binding schema handed to
 # the drafting agents, and the JSON batches they return before the serial apply
 # step folds them into references/02_instruments.js.
