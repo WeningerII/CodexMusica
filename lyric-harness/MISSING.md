@@ -10351,3 +10351,48 @@ of a cancelled job are not retained and the failing run's are not readable at
 that offset, so the cause is NOT diagnosed here. `nightly` already accepts
 `workflow_dispatch`, so it is reproducible on demand — that is the next move,
 not a guess written down as a finding.
+
+### M-96 · five songs shipped and nothing in the repository read one `CLOSED` — 2026-08-24
+**`songs/` HELD FIVE DELIVERED SONGS AND NO CHECK ANYWHERE TOUCHED THEM** —
+zero Python checks under `quality/`, zero mentions in
+`.github/workflows/ci.yml`, measured by grep before this entry was written.
+So a song could ship with its structure gone and every gate in the tree would
+stay green. Two of the five did: `stay_awake.txt` carried **0 markers against
+10 declared sections** and `carry_it_over.txt` **0 against 23**. The three
+that predate them carry it correctly — `keep_the_light.txt`'s eleven `[NAME]`
+markers ARE its blueprint's eleven section names.
+
+**THE GATE THAT EXISTED WAS AIMED ONE STEP UPSTREAM, AND IT PASSES.**
+`test_plan.py` §6 proves `render_song` puts a section's apparatus INSIDE its
+bracket — `[VERSE — 4 lines — 8 bars of 3/8]` — and its mutation proves the
+same apparatus split onto its own line is scored as LYRIC with end word
+`pickup`. That check has never been red. It gates the RENDERER. It cannot see
+`songs/*.txt`, and it cannot see a rendered song RETYPED BY HAND with the
+apparatus dropped to a bare `[VERSE]`. Both failures happened where the gate
+had no jurisdiction, and *the renderer is correct* is not the same claim as
+*the shipped song is correct* — doctrine 1's shape one step out: two
+artifacts, one of them checked.
+
+**`quality/test_songs.py`, AND IT WAS WRITTEN RED.** Four sections: the
+population is non-empty and every song has its blueprint; every song carries
+markers; the markers ARE the blueprint's sections in order with each
+section's line count; and a MUTATION that strips a good song's brackets and
+requires the match to fail. Its first run reported **6 FAILING** — and found
+two more than the two it was written for: `one_more.txt` was missing
+`INTERLUDE1` and `turn_the_wheel.txt` `SOLO1`, both zero-line instrumentals,
+which task #100's ruling already settles (*a section with no words is not a
+section with no constraints*) and which `render_song` already emits a bracket
+for. All four repaired from their blueprints.
+
+**VERDICT-NEUTRAL, CHECKED RATHER THAN ASSUMED.** `song` on both repaired
+songs returns a finding set BYTE-IDENTICAL to the pre-marker grade, exit 0
+both times: `load_lyric_lines` drops apparatus, so restoring the structure
+cannot reach a grade. What was broken is the artifact a person opens.
+
+**WHAT THIS ENTRY DOES NOT CLOSE.** No check in a repository can read a chat
+reply. The second half of this defect — a song retyped by hand into a message
+with `[INTRO — 2 lines — 2 bars of 8/8, one-beat pickup]` flattened to
+`[INTRO]` — is bounded only by never retyping one: the renderer's bytes are
+the artifact, and `plan --fill` already prints them. That is a standing
+instruction, not a gate, and it is recorded here as the part that has no
+enforcement rather than left to look enforced.

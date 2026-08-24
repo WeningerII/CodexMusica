@@ -2189,7 +2189,8 @@ PINNED = {
     # refuses) and M-95 (tandem and nightly, red for a week on four separate
     # defects), all filed 2026-08-24. ~~150~~ was M-90..M-92, the CI-green
     # sitting the same day.
-    "coverage_entries": 153,
+    # ~~153~~ -> 154: M-96, the delivered songs had no gate at all.
+    "coverage_entries": 154,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;
