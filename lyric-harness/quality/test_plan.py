@@ -571,12 +571,23 @@ def test_the_measure():
     # for. The claim that carries the finding is the SPREAD, and it is
     # stated against the derived envelope rather than against a number.
     _lo, _hi = ENVELOPE["total_lines"]
-    check("totals cover the envelope's order, not one shape: 40+ distinct "
-          "values spanning most of the DERIVED envelope, both ends reached",
-          len(totals) >= 40 and min(totals) <= _lo + 5
+    # ~~`len(totals) >= 40`~~ — STRUCK 2026-08-24 (`MISSING.md` M-106). That
+    # was 40 of the union set's 46 values (87%), and the union was three
+    # KINDS of text: a quatrain's lengths, a sonnet's and a song's. The
+    # planner draws from `song_line_counts()` now, which is 39 CONTIGUOUS
+    # values, so a literal 40 is unreachable by construction and would fail
+    # on a tree that got strictly better at the thing this check measures.
+    # The claim was always COVERAGE, so coverage is what is asserted — as a
+    # fraction of the DERIVED set, which cannot go stale when the set moves.
+    from quality import plan as _PL
+    _env = set(_PL.song_line_counts())
+    check("totals cover the envelope's order, not one shape: most of the "
+          "DERIVED envelope reached, both ends included",
+          len(totals) >= 0.85 * len(_env) and min(totals) <= _lo + 5
           and max(totals) >= _hi - 5,
-          f"{len(totals)} distinct in [{min(totals)}, {max(totals)}], "
-          f"envelope [{_lo}, {_hi}]")
+          f"{len(totals)} distinct of {len(_env)} in the envelope "
+          f"({100 * len(totals) / len(_env):.0f}%), "
+          f"[{min(totals)}, {max(totals)}] against [{_lo}, {_hi}]")
 
     # THE MOVE-37 PIN: the corpus samples nothing. The planner imports
     # exactly its three quality dependencies and never opens a file — a
@@ -1481,17 +1492,32 @@ def test_the_seed_sweep_is_a_verb():
     wants = [PLN.parse_sweep_want(w) for w in
              ("sections<=6", "lines_per_section>=2", "group<=4",
               "uses=verse,chorus", "before=verse,chorus", "pins_per_line<=5")]
-    res = PLN.sweep(range(120), wants=wants)
-    check("the sweep finds the seed the private script found, over the same "
-          "range — the instrument moved into the tree without its answer "
-          "changing", res["accepted"] == [108],
+    # ~~`res["accepted"] == [108]` over `range(120)` — "the instrument moved
+    # into the tree without its answer changing".~~ **REPINNED 2026-08-24
+    # (`MISSING.md` M-106), AND THE STRUCK CLAIM IS WHY.** That sentence was
+    # true of the M-82 migration and is a claim about the VERB; the answer it
+    # pinned is a property of the PLANS, and the plans were re-derived when
+    # the length envelope stopped being the union of three text kinds. A seed
+    # satisfying a six-way conjunction is exactly the coordinate doctrine 58
+    # is about: it is a reading of whatever produced it. THE VERB IS
+    # UNCHANGED — no line of `sweep` moved in that lot — and every one of the
+    # six predicates is still individually satisfiable, MEASURED over
+    # `range(400)`: sections<=6 158, lines_per_section>=2 118, group<=4 40,
+    # uses=verse,chorus 400, before=verse,chorus 183, pins_per_line<=5 400.
+    # The conjunction is simply rarer than one in 120 now, so the range is
+    # widened rather than the predicates loosened — loosening them to keep a
+    # number would be tuning the question to preserve the answer.
+    res = PLN.sweep(range(400), wants=wants)
+    check("the sweep answers a six-way conjunction with the seeds that "
+          "satisfy it, and NOT with a near miss — three of four hundred",
+          res["accepted"] == [139, 284, 323],
           f"accepted {res['accepted']}, planned {res['planned']}, "
           f"refused {res['refused']}")
     check("THREE COUNTS, NEVER SUMMED (doctrine 79): swept, planned, and "
           "REFUSED-by-the-planner. A refusal is the envelope turning a "
           "request down and charging it to the predicates would blame the "
           "declaration for the planner",
-          res["seeds"] == 120
+          res["seeds"] == 400
           and res["planned"] + res["refused"] == res["seeds"]
           and len(res["accepted"]) <= res["planned"],
           f"{res['seeds']} = {res['planned']} + {res['refused']}")
@@ -1632,13 +1658,137 @@ def test_the_section_header_keeps_its_apparatus_inside_the_bracket():
           "same-line stays apparatus; split onto its own line it is not")
 
 
+
+def test_the_song_length_is_the_songs_own(FAILURES=None):
+    print("\n12. the SONG's length comes from the profile that grades a "
+          "SONG — not from the union of three kinds of text")
+    # ===================================================================
+    # M-106, 2026-08-24. The owner's standing rule: "we do not want hard
+    # numbers anywhere ... we're not supposed to have hard coded numbers
+    # for the line count or section count or the total length of the song".
+    # ===================================================================
+    import collections
+    import statistics
+    from quality import floor as FL
+    from quality import plan as _PL
+
+    union = set(_PL.gradeable_line_counts())
+    song = set(_PL.song_line_counts())
+    check("the SONG band is a strict SUBSET of the union — this narrows "
+          "what the planner volunteers, it does not widen it",
+          song < union, f"song {len(song)} of union {len(union)}")
+    check("and it is CONTIGUOUS, where the union is not: the famous 6-11 "
+          "hole is the gap between a QUATRAIN and a SONNET and was never a "
+          "fact about songs",
+          _PL.line_count_gaps(song) == []
+          and _PL.line_count_gaps(union) != [],
+          f"song gaps {_PL.line_count_gaps(song)}, "
+          f"union gaps {_PL.line_count_gaps(union)}")
+    # THE PROFILE IS IDENTIFIED BY ITS OWN DECLARATION, not by its name. A
+    # name test would be a second statement of which profile means what
+    # (doctrine 1). Proven by ASKING the table rather than by reading the
+    # source: exactly the profiles with `n_lines == 0` must reach the band.
+    lyric = [p for p in FL.PROFILES if not p.n_lines]
+    check("the band is the reach of exactly the profile(s) declaring "
+          "`n_lines == 0` — a lyric sheet has no fixed line count, which is "
+          "the coordinate, not the string 'song'",
+          len(lyric) == 1 and min(song) >= 1
+          and max(song) == int(lyric[0].hi // _PL.tokens_per_line_band()[0]),
+          f"{[p.name for p in lyric]}, max {max(song)}")
+
+    # MUTATION 1 — the band must be a FUNCTION of the song profile, not a
+    # literal wearing a derivation (doctrine 48).
+    old_hi = lyric[0].hi
+    try:
+        lyric[0].hi = old_hi + 200
+        _PL.song_line_counts.cache_clear()
+        widened = set(_PL.song_line_counts())
+    finally:
+        lyric[0].hi = old_hi
+        _PL.song_line_counts.cache_clear()
+    check("MUTATION — widening the song profile's measured token band "
+          "widens the SONG line band with it, and the perturbation is "
+          "restored",
+          widened > song and set(_PL.song_line_counts()) == song,
+          f"{len(song)} -> {len(widened)} values")
+
+    # MUTATION 2 — the stanza floor must be a FUNCTION of the section
+    # profile, since it is what bounds the section COUNT.
+    stanza = [p for p in FL.PROFILES if p.n_lines]
+    before_floor = _PL.stanza_line_floor()
+    old_lo = stanza[0].lo
+    try:
+        stanza[0].lo = old_lo * 3
+        _PL.stanza_line_floor.cache_clear()
+        moved = _PL.stanza_line_floor()
+    finally:
+        stanza[0].lo = old_lo
+        _PL.stanza_line_floor.cache_clear()
+    check("MUTATION — the stanza floor is READ from the calibrated stanza's "
+          "own token range: triple it and the floor rises, and the "
+          "perturbation is restored",
+          moved > before_floor and _PL.stanza_line_floor() == before_floor,
+          f"{before_floor} -> {moved}")
+    check("the SECTION ceiling is that floor divided into the song, never "
+          "the song's line count itself — a sound bound is not a uniform "
+          "draw (the M-81(A) error one layer over)",
+          ENVELOPE["sections"][1] == max(1, max(song) // before_floor)
+          and ENVELOPE["sections"][1] < max(song),
+          f"sections {ENVELOPE['sections']} against song max {max(song)}")
+
+    # THE MEASUREMENT THE OWNER ASKED FOR, taken the way the bias was
+    # found: per SECTION INSTANCE off the emitted plan, not per kind.
+    per, tot, nsec = [], [], []
+    for seed in range(1, 121):
+        pl = make_plan(seed=seed)
+        c = collections.Counter(x["section"] for x in pl["line_slots"])
+        tot.append(pl["total_lines"])
+        nsec.append(len(pl["sections"]))
+        per.extend(c.get(sec["name"], 0) for sec in pl["sections"])
+    sung = [x for x in per if x]
+    ones = sum(1 for x in sung if x == 1) / len(sung)
+    check("no seed is lost to the narrower band — 120 of 120 still plan",
+          len(tot) == 120, f"{len(tot)} plans")
+    check("every drawn total is INSIDE the song profile's own band, so the "
+          "planner volunteers no length that profile cannot hold to "
+          "anything", all(t in song for t in tot),
+          f"[{min(tot)}, {max(tot)}] against [{min(song)}, {max(song)}]")
+    # THE BIAS, STATED AS A RATE AND NOT AS AN ADJECTIVE (doctrine 22). The
+    # ladder, all three measured on this same instrument: 52% under the
+    # sequential draw `_partition_uniform` replaced, 39.4% under the union
+    # band with `max_cells = total`, and this. It is NOT zero and must not
+    # be read as zero: 1 is the modal part of any exact-uniform composition,
+    # which is a property of the measure and not a defect to tune away, and
+    # a one-line tag or vamp is a real section.
+    check("ONE-LINE sung sections are a minority — well under the 39.4% "
+          "this instrument measured before the band and the section "
+          "ceiling were re-derived",
+          ones < 0.30, f"{100 * ones:.1f}% of {len(sung)} sung sections, "
+          f"median {statistics.median(sung)} lines")
+    # AGAINST THE DERIVATION, NOT AGAINST THE ENVELOPE ENTRY. Comparing
+    # `max(nsec)` to `ENVELOPE["sections"][1]` passes under a mutant that
+    # moves BOTH — measured: the pre-M-106 ceiling reads 55 and the observed
+    # tail 30, so the check held while the defect was live. The right-hand
+    # side is recomputed here from the two derivations this section already
+    # proved are wired, so the assertion cannot be satisfied by loosening the
+    # thing it is asserting about.
+    _derived_ceiling = max(1, max(song) // before_floor)
+    check("and the section COUNT no longer runs to the song's line count: "
+          "its tail sits inside the ceiling the stanza floor derives",
+          max(nsec) <= _derived_ceiling < max(song),
+          f"max {max(nsec)} sections against derived ceiling "
+          f"{_derived_ceiling} (song max {max(song)}), "
+          f"median {statistics.median(nsec)}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_planner_plans_the_whole_line,
                test_determinism, test_refusals, test_the_round_trip,
                test_the_measure, test_the_disclosure,
                test_the_rendering, test_the_writers_declaration,
                test_the_form_is_read, test_the_joint_gate,
-               test_the_seed_sweep_is_a_verb):
+               test_the_seed_sweep_is_a_verb,
+               test_the_song_length_is_the_songs_own):
         fn()
     print("=" * 62)
     if FAILURES:

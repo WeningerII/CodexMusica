@@ -584,11 +584,39 @@ try {
     // shape the planner produces, it cannot go stale when the planner is
     // re-derived, and it reads two coordinates (`lines`, `returns`) the
     // hardcoded version never consulted.
-    const plannedRes = await client.callTool({
-      name: 'lyric_plan',
-      arguments: { seed: 55 },
-    });
-    assert.ok(!plannedRes.isError, 'lyric_plan answered without isError');
+    // THE SEED IS SEARCHED FOR, NOT REMEMBERED (2026-08-24, `MISSING.md`
+    // M-106). This block asserts three TITLE codes, and every one of them is
+    // asked only of a plan that DECLARES A HOOK -- a hook is defined by
+    // RETURN, so a pattern whose functions all occur once declares none and
+    // the title question is never put. `seed: 55` was hardcoded here and had
+    // a hook until the length envelope was re-derived; it now draws six
+    // sections with no repeat, and the failure read "with no title the
+    // question is REFUSED, not answered" -- naming the title layer for a
+    // fact about the pattern. That is the SAME staleness this file's own
+    // comment above describes fixing once already, one coordinate over, so
+    // the fix is the same: ASK the report rather than remember the answer.
+    // MEASURED over 240 seeds: 59.6% of plans declared a hook before the
+    // re-derivation and 56.2% after, so this is a coin flip either way and
+    // was never a property of 55.
+    let plannedRes = null;
+    let planSeed = null;
+    for (const candidate of [55, 1, 4, 5, 11, 16, 17, 19]) {
+      const tryRes = await client.callTool({
+        name: 'lyric_plan',
+        arguments: { seed: candidate },
+      });
+      assert.ok(!tryRes.isError, `lyric_plan answered without isError (seed ${candidate})`);
+      if (/is the hook/.test(tryRes.content[0].text)) {
+        plannedRes = tryRes;
+        planSeed = candidate;
+        break;
+      }
+    }
+    assert.ok(
+      plannedRes !== null,
+      'NO candidate seed declares a hook -- the premise of the title checks '
+      + 'below, and a fact about the PATTERN rather than about titles'
+    );
     assert.equal(plannedRes.content.length, 2, 'plan returns two blocks: report, then verdict');
     const planReport = plannedRes.content[0].text;
     const nLines = Number((planReport.match(/-> (\d+) line\(s\)/) || [])[1]);
@@ -635,7 +663,7 @@ try {
     // [SECTION] headers. Block 0 must parse as a song, not as JSON.
     const gradedRes = await client.callTool({
       name: 'lyric_grade',
-      arguments: { seed: 55, draft },
+      arguments: { seed: planSeed, draft },
     });
     assert.ok(!gradedRes.isError, 'lyric_grade answered without isError');
     assert.equal(gradedRes.content.length, 2, 'grade returns two blocks: song, then verdict');
@@ -650,7 +678,8 @@ try {
     // verbatim block: seed + exit + banned-pair count reach the user even
     // through a client that relays nothing else.
     assert.ok(
-      /\[GRADED — seed 55 — exit [03], .+ — \d+ banned pair\(s\)/.test(song),
+      new RegExp(`\\[GRADED — seed ${planSeed} — exit [03], .+ — \\d+ banned pair\\(s\\)`)
+        .test(song),
       'block 0 carries the [GRADED — seed …] stamp line'
     );
     const gradeVerdict = JSON.parse(gradedRes.content[1].text);
@@ -677,7 +706,9 @@ try {
     const titleReport = async (title) => {
       const res = await client.callTool({
         name: 'lyric_grade',
-        arguments: title === null ? { seed: 55, draft } : { seed: 55, draft, title },
+        arguments: title === null
+          ? { seed: planSeed, draft }
+          : { seed: planSeed, draft, title },
       });
       assert.ok(!res.isError, `lyric_grade answered without isError (title=${title})`);
       return JSON.parse(res.content[1].text);

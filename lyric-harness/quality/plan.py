@@ -141,7 +141,7 @@ from quality import meter_bands as MB
 
 __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "tokens_per_line_band", "gradeable_line_counts",
-           "line_count_gaps",
+           "line_count_gaps", "song_line_counts", "stanza_line_floor",
            "GENERATOR_ROSTER", "ZERO_LINE_FUNCTIONS", "PlanRefused",
            "make_plan", "fill_plan", "writer_brief", "grading_command",
            "render_song", "section_header",
@@ -347,10 +347,17 @@ def gradeable_line_counts():
     return frozenset(out)
 
 
-def line_count_gaps():
-    """-> [(lo, hi)] runs of line counts INSIDE the envelope's span that no
-    profile grades with teeth. Disclosed, never silently skipped."""
-    ok = gradeable_line_counts()
+def line_count_gaps(ok=None):
+    """-> [(lo, hi)] runs of line counts INSIDE a set's span that no profile
+    grades with teeth. Disclosed, never silently skipped.
+
+    TAKES THE SET SINCE 2026-08-24 (`MISSING.md` M-106), defaulting to the
+    union so every earlier caller reads unchanged. It has to, because the
+    planner no longer draws from the union: asking this of one set and
+    printing the answer beside a draw from another is the shape of defect
+    doctrine 1 is about.
+    """
+    ok = gradeable_line_counts() if ok is None else ok
     gaps, run = [], None
     for n in range(min(ok), max(ok) + 1):
         if n in ok:
@@ -362,6 +369,95 @@ def line_count_gaps():
     if run:
         gaps.append(run)
     return gaps
+
+
+@lru_cache(maxsize=None)
+def song_line_counts():
+    """-> frozenset of line counts THE SONG PROFILE CAN GRADE WITH TEETH.
+
+    THE HOLE IN `gradeable_line_counts()` IS AN ARTEFACT OF UNIONING THREE
+    KINDS OF TEXT, AND THIS IS THE REPAIR (2026-08-24, `MISSING.md` M-106,
+    the owner's standing rule *"we do not want hard numbers anywhere ... we're
+    not supposed to have hard coded numbers for the line count or section
+    count or the total length of the song"*).
+
+    `gradeable_line_counts()` answers *"what line counts can ANY floor profile
+    grade"* over `section` (a 4-line quatrain), `sonnet` (14 lines) and `song`
+    (a lyric sheet). MEASURED, the three reach **4–5**, **12–17** and
+    **17–55** lines — so the union is `{4, 5} | {12..55}` and the famous
+    **6–11 hole is the space between a quatrain and a sonnet**, which is not
+    a fact about songs at all. A SONG planner drawing its length from that
+    union was drawing from a set that contains "lengths a QUATRAIN can be"
+    and "lengths a SONNET can be", and the hole it then had to reject around
+    was one it created by asking the wrong question.
+
+    THE SONG PROFILE ALONE IS CONTIGUOUS — **17..55, 39 values, no hole** —
+    and it is the profile that grades the object this planner emits. The
+    profile is identified by `n_lines == 0`, which is its own declaration
+    that a lyric sheet has no fixed line count, and not by its name: a name
+    test would be a second statement of which profile means what (doctrine
+    1), and `tokens_per_line_band()` one screen up already keys on the same
+    field for the opposite reason.
+
+    WHAT THIS COSTS, SAID PLAINLY: a song of fewer than 17 lines is now
+    outside the planner's envelope. That is not a narrowing of the harness —
+    a writer hand-declares any length and the graders grade it — it is the
+    planner declining to volunteer a length the song profile cannot hold to
+    anything. `gradeable_line_counts()` is UNCHANGED and still answers its
+    own (different) question for any caller that wants the union.
+    """
+    tlo, thi = tokens_per_line_band()
+    lyric = [p for p in _FL.PROFILES if not p.n_lines]
+    if not lyric:
+        raise PlanRefused(
+            "no floor profile declares itself a whole lyric sheet "
+            "(`n_lines == 0`), so a SONG length cannot be derived and this "
+            "planner has no envelope to volunteer inside. A REFUSAL, not a "
+            "fallback to the union: grading a song against a quatrain's "
+            "calibration is the laundering doctrine 13/14 forbids.")
+    out = set()
+    for prof in lyric:
+        out.update(range(max(1, math.ceil(prof.lo / thi)),
+                         int(prof.hi // tlo) + 1))
+    if not out:
+        raise PlanRefused(
+            "no line count lands inside the song profile's measured range.")
+    return frozenset(out)
+
+
+@lru_cache(maxsize=None)
+def stanza_line_floor():
+    """-> the fewest lines a section can carry and still BE a stanza the
+    floor has calibrated.
+
+    THE SECTION-COUNT CEILING WAS A SOUND BOUND USED AS A UNIFORM DRAW, and
+    that is verbatim the error `MISSING.md` M-81(A) named one layer over.
+    `_sample_pattern` took `max_cells = total` under the argument *"a song of
+    T lines cannot hold more than T sung sections"* — TRUE, and never a claim
+    that all T values are equally musical. MEASURED over 240 seeds: sections
+    per song reached **22**, and since the total was drawn INDEPENDENTLY of
+    the section count, lines-per-section is `total / sections` — a hyperbola.
+    **31.5% of sung sections came out with exactly ONE line.**
+
+    THE DERIVATION IS THE `section` PROFILE'S OWN REACH. That profile grades
+    a stanza at `lo` tokens; at the derived tokens-per-line band that is
+    `ceil(lo / thi)` lines — **4**. So a song of T lines can carry at most
+    `T // 4` sung sections without every section being a fragment the floor
+    has no calibration for. Read from the profile, never respelled.
+
+    NOT A FLOOR ON ANY SECTION. Sections shorter than this are still
+    reachable — the partition puts them there, and a one-line tag or vamp is
+    a real section. What is bounded is the COUNT, which is the quantity that
+    was blowing up.
+    """
+    tlo, thi = tokens_per_line_band()
+    stanza = [p for p in _FL.PROFILES if p.n_lines]
+    if not stanza:
+        raise PlanRefused(
+            "no floor profile declares a line count, so the size of a graded "
+            "stanza cannot be derived and the section-count ceiling would be "
+            "a literal.")
+    return max(1, min(math.ceil(p.lo / thi) for p in stanza))
 
 
 #: The planner's envelope — what it volunteers by default. NOT the system's
@@ -377,7 +473,13 @@ def line_count_gaps():
 #: should we change it to a variable?"*. It is a variable now, and so are the
 #: other five.
 def _envelope():
-    ok = gradeable_line_counts()
+    # THE SONG'S OWN BAND, NOT THE UNION OF THREE TEXT KINDS (M-106). What
+    # this planner emits is a lyric sheet, so the lengths it volunteers come
+    # from the profile that grades one. `gradeable_line_counts()` still
+    # answers its own question and is still exported; it is simply not the
+    # question a SONG planner is asking.
+    ok = song_line_counts()
+    stanza = stanza_line_floor()
     d_lo, d_hi = MB.ADOPTED["DENSITY"]
     # TWO ENDS, ONE CALIBRATED BAND, TWO UNITS (`MISSING.md` M-81(B)). The
     # ceiling bounds TIME and the floor bounds CAPACITY, which is why the old
@@ -410,12 +512,19 @@ def _envelope():
         # one would be the literal this replaced wearing a derivation. 1 is a
         # real section (a tag, a one-line vamp).
         "lines_per_section": (1, max(ok)),
-        # SECTIONS: a sung section carries at least one line, so a song of at
-        # most `max(ok)` lines carries at most that many sung sections. 1 is
-        # a real song.
-        "sections": (1, max(ok)),
-        # TOTAL LINES: the span of the gradeable set. The set itself is what
-        # the sampler rejects against, because the span is not contiguous.
+        # SECTIONS: ~~a sung section carries at least one line, so a song of
+        # at most `max(ok)` lines carries at most that many sung sections.~~
+        # **REPINNED 2026-08-24 (M-106): that is a SOUND bound and it was
+        # being used as a UNIFORM DRAW, which is M-81(A)'s error one layer
+        # over.** The ceiling is now what the song can afford at the
+        # calibrated stanza size — `max(ok) // stanza_line_floor()` — so a
+        # section count is bounded by what makes a section a stanza rather
+        # than by what makes it non-empty. 1 is still a real song.
+        "sections": (1, max(1, max(ok) // stanza)),
+        # TOTAL LINES: the span of the song profile's own set. The set itself
+        # is what the sampler rejects against; it is CONTIGUOUS now, and the
+        # 6-11 hole it used to carry belonged to the gap between a quatrain
+        # and a sonnet rather than to songs (M-106).
         "total_lines": (min(ok), max(ok)),
         # subdivisions the fit layer's grid models (eighth/sixteenth pulse
         # against the beat) — a data-type set, not taste.
@@ -1619,7 +1728,8 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     # REJECTION SAMPLING over the generated grammar: uniform over the
     # space, CONDITIONED on the envelope (and on --lines when given).
     # Deterministic — the retries are the same rng stream.
-    _GRADEABLE = gradeable_line_counts()
+    _GRADEABLE = song_line_counts()
+    _STANZA = stanza_line_floor()
     k_lo, k_hi = ENVELOPE["lines_per_section"]
     for _attempt in range(500):
         # THE LENGTH FIRST. It is the coordinate that decides what the floor
@@ -1627,8 +1737,18 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         # is conditioned on it — and it then BOUNDS the pattern, since a
         # song of T lines cannot carry more than T sung sections.
         total = rng.choice(sorted(_GRADEABLE))
+        # THE CELL CEILING IS WHAT THIS SONG CAN AFFORD AT THE CALIBRATED
+        # STANZA SIZE, not what it can afford at one line each (M-106).
+        # `total` alone is a SOUND bound — a song of T lines cannot hold more
+        # than T sung sections — and using it as the ceiling of a uniform
+        # draw made 31.5% of sung sections one line long, because the total
+        # was drawn INDEPENDENTLY of the count it was then divided among.
+        # `stanza_line_floor()` is read from the `section` profile's own
+        # measured range, so this is a derivation and not a tuning.
+        _cells_hi = max(1, total // _STANZA)
         try:
-            funcs = _sample_pattern(rng, roster, form=form, max_cells=total)
+            funcs = _sample_pattern(rng, roster, form=form,
+                                    max_cells=_cells_hi)
         except PlanRefused:
             # A REJECTED DRAW, NOT A REFUSED REQUEST. `_sample_pattern`
             # raises when it cannot find an admissible pattern within the
@@ -1703,13 +1823,17 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             "would mean the plan's length is not the length the gradeable "
             "set was asked about")
         #
-        # THE SET, NOT THE SPAN. `gradeable_line_counts()` is not contiguous
-        # — 6 to 11 lines lands between the section profile's reach and the
-        # sonnet's, where every length-sensitive finding is downgraded to a
-        # note — so a span test would volunteer plans the floor cannot hold
-        # to anything. Rejection against the set keeps the draw uniform over
-        # what is ACCEPTED, which is the same argument the placement layer's
-        # rejection sampling makes.
+        # THE SET, NOT THE SPAN. ~~`gradeable_line_counts()` is not
+        # contiguous — 6 to 11 lines lands between the section profile's
+        # reach and the sonnet's~~ — **and `song_line_counts()` IS contiguous
+        # (M-106): that hole was the gap between a quatrain and a sonnet and
+        # was never a fact about songs.** The set test is KEPT anyway, because
+        # what makes it correct is that the set is the authority and the span
+        # is a rendering of it — a span test would go wrong silently the day
+        # a second lyric-sheet profile is calibrated at another length.
+        # Rejection against the set keeps the draw uniform over what is
+        # ACCEPTED, the same argument the placement layer's rejection
+        # sampling makes.
         if total not in _GRADEABLE:
             continue
         if lines is not None and total != lines:
@@ -1724,8 +1848,9 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             f"500 seeded draws found no plan matching the request inside "
             f"the envelope (sections {ENVELOPE['sections']}, lines/section "
             f"{ENVELOPE['lines_per_section']}, total {ENVELOPE['total_lines']}"
-            f" MINUS the uncalibrated runs {line_count_gaps()}, which no "
-            f"floor profile grades with teeth"
+            f" MINUS the uncalibrated runs "
+            f"{line_count_gaps(song_line_counts())}, which the song profile "
+            f"does not grade with teeth"
             f"{', exact total ' + str(lines) if lines is not None else ''}) "
             f"— try another seed, drop --lines, or declare the shape by "
             f"hand.")

@@ -10886,3 +10886,115 @@ appears in no tier-2 reason on that draft.
 containing the pivot when computing a member's outside obligations, not only
 the one being rewritten. That is pre-existing, unexamined here, and is not
 claimed clean.
+
+### M-106 · the SONG's length was drawn from a set that is three kinds of text `CLOSED`
+Filed and closed 2026-08-24, by the owner's instruction *"start on 1-3 now"*,
+after the length bias was traced to its source.
+
+**THE OWNER'S COMPLAINT, VERBATIM:** *"I've noticed there's a pretty strong
+bias we've got going in the outputs towards shorter. shorter lines and fewer
+lines per section."* And the standing rule it rests on: *"we're not supposed to
+have hard coded numbers for the line count or section count or the total length
+of the song."*
+
+**HALF THE COMPLAINT WAS THE HARNESS AND HALF WAS THE WRITING, MEASURED.** Line
+LENGTH is not biased short by the planner: the calibrated density band is 5–12
+syllables and **0.0% of lines are handed a ceiling below the floor, while 51.7%
+can carry the full 12** — the planner offers more than half of all lines the
+maximum the calibration permits. Short lines in the delivered songs are the
+WRITER reaching for six syllables out of a twelve-syllable allowance. Lines per
+SECTION is a real harness defect and is what this entry closes.
+
+**DEFECT 1 — THE LENGTH CAME FROM A UNION OF THREE KINDS OF TEXT.**
+`gradeable_line_counts()` answers *"what line counts can ANY floor profile
+grade"* over `section` (a 4-line quatrain), `sonnet` (14 lines) and `song` (a
+lyric sheet). MEASURED at the derived tokens-per-line band (7.25–9.25), the
+three reach **4–5**, **12–17** and **17–55** lines. So the union is
+`{4,5} | {12..55}` — and **the famous 6–11 hole is the space between a quatrain
+and a sonnet**, which is not a fact about songs at all. A song planner drawing
+its total from that set was drawing from lengths a QUATRAIN can be and lengths
+a SONNET can be, then rejecting around a hole it had created by asking the
+wrong question. `song_line_counts()` reads the profile that grades a lyric
+sheet: **17..55, 39 values, CONTIGUOUS, no hole.** The profile is identified by
+`n_lines == 0` — its own declaration that a lyric sheet has no fixed line count
+— never by its name, which would be a second statement of which profile means
+what (doctrine 1).
+
+**DEFECT 2 — A SOUND BOUND WAS BEING USED AS A UNIFORM DRAW, AND IT IS
+`MISSING.md` M-81(A)'s ERROR ONE LAYER OVER.** `_sample_pattern` took
+`max_cells = total` under the argument *"a song of T lines cannot hold more
+than T sung sections"* — TRUE, and never a claim that all T values are equally
+musical, exactly as `bars_per_line` running to `hi // 2` was true and produced
+a median of eight bars per lyric line. Since the total was drawn INDEPENDENTLY
+of the section count and then divided among it, lines-per-section is
+`total / sections`: a hyperbola. `stanza_line_floor()` is the derivation that
+replaces it — the `section` profile's own reach, **4 lines** — so a song of T
+lines carries at most `T // 4` sung sections rather than `T`. It is NOT a floor
+on any section: a one-line tag or vamp is a real section and the partition
+still puts them there. What is bounded is the COUNT, which is the quantity that
+was blowing up.
+
+**MEASURED over 240 seeds, on the instrument that found the bias — per SECTION
+INSTANCE off the emitted plan, not per kind:**
+
+| | before | after |
+|---|---:|---:|
+| total lines | median 32, range **5**–55 | median 35, range **17**–55 |
+| sections per song | median 10, max **31** | median 8, max **13** |
+| lines per sung section | median 2 | median 3 |
+| **ONE-LINE sung sections** | **39.4%** | **20.2%** |
+| plans lost to the narrower band | — | **0 of 240** |
+
+**IT IS NOT ZERO AND MUST NOT BE READ AS ZERO.** 1 is the modal part of any
+exact-uniform composition — a property of the measure `_partition_uniform`
+deliberately chose, whose own docstring records the sequential alternative
+leaving **52%** of sections at one line. The ladder is 52% → 39.4% → 20.2%, all
+three on the same instrument, and the remaining 20.2% is not tuned away because
+tuning it would mean barring a one-line tag.
+
+**WHAT THIS COSTS, SAID PLAINLY:** a song of fewer than 17 lines is now outside
+the planner's envelope. That is not a narrowing of the harness — a writer
+hand-declares any length and the graders grade it — it is the planner declining
+to volunteer a length the song profile cannot hold to anything.
+`gradeable_line_counts()` is UNCHANGED, still exported, and still answers its
+own different question.
+
+**A CONTROL, RECORDED SO A LATER SESSION DOES NOT BLAME THIS LOT.** The share
+of plans declaring a HOOK is **59.6% before and 56.2% after** — a hook is
+defined by RETURN, so it depends on whether any function recurs, and fewer
+cells could have collapsed it. It did not move.
+
+**THE TEST CHURN, AND TWO OF THE THREE PIECES ARE REPINS OF CLAIMS THAT WENT
+STALE UNDER THE DERIVATION.** (a) `test_plan.py`'s `len(totals) >= 40` was 40
+of the union's 46 values (87%) and is unreachable against a 39-value envelope —
+restated as a FRACTION of the derived set, which cannot go stale when the set
+moves. (b) The sweep's `res["accepted"] == [108]` over `range(120)` pinned
+*"the instrument moved into the tree without its answer changing"* — a claim
+about the VERB, pinned by a property of the PLANS. The verb is untouched and
+all six predicates are still individually satisfiable (MEASURED over
+`range(400)`: 158 / 118 / 40 / 400 / 183 / 400); the conjunction is rarer than
+one in 120 now, so the RANGE is widened and the answer repinned to
+`[139, 284, 323]` rather than the predicates loosened — loosening them to keep
+a number would be tuning the question to preserve the answer. (c)
+`mcp/test.mjs` hardcoded `seed: 55` for three TITLE checks that are only asked
+of a plan DECLARING A HOOK; seed 55 now draws six sections with no repeat, and
+the failure read *"with no title the question is REFUSED, not answered"* —
+naming the title layer for a fact about the pattern. The seed is SEARCHED FOR
+now, with the premise asserted, so the same staleness cannot recur.
+
+**THE NEW SECTION IS `test_plan.py` §12** — 10 checks, two in-process
+MUTATIONS of `floor.PROFILES` proving both derivations are WIRED and not
+written down (widen the song profile's token band, the line band widens; triple
+the stanza's `lo`, the floor rises; both restored and the restoration
+asserted). Restoring the union band and `max_cells = total` as a production
+mutation **kills 4 of the 10**, and reproduces the pre-fix figures exactly:
+44.2% one-line sections, median 2 lines, 30 sections, totals down to 5. One
+check originally survived that mutant — it compared the observed section count
+to `ENVELOPE["sections"][1]`, which the mutant also moves — and is now
+compared against the ceiling recomputed from the two derivations the section
+has already proved are wired.
+
+**WHAT THIS DOES NOT CLOSE.** The token band itself (`song` profile 150–400)
+is untouched: widening it is a re-calibration against the corpus — preregister,
+measure, adopt, re-snapshot the manifest — and not a code change. The owner has
+that ruling.

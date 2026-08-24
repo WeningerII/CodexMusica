@@ -540,11 +540,36 @@ tokens-per-line band agreeing to a fifth of a token (7.25–9.25 against
 **SO THE ENVELOPE IS WHAT THE ENFORCEMENT CAN ENFORCE.** MEASURED over
 1–699 tokens: **39.9% of lengths can produce a FLAG, 29.8% sit in a tolerance
 band where every length-sensitive finding is downgraded to a note, and 30.3%
-reach no profile at all.** `gradeable_line_counts()` is the surviving set and
+reach no profile at all.** ~~`gradeable_line_counts()` is the surviving set and
 it is NOT contiguous — **a song of 6 to 11 lines cannot be graded with teeth
 at any length-sensitive check** — and `line_count_gaps()` prints that hole in
 every plan's own disclosure, so it is a calibration request rather than a
-discovery. Three more literals fell out while widening what they silently
+discovery.~~
+**STRUCK 2026-08-24 (`MISSING.md` M-106): THE HOLE WAS AN ARTEFACT OF ASKING
+THE WRONG QUESTION, AND THE PLANNER WAS DRAWING ITS LENGTH FROM THREE KINDS OF
+TEXT.** `gradeable_line_counts()` unions `section` (a 4-line quatrain),
+`sonnet` and `song`, whose reaches at the derived tokens-per-line band are
+**4–5**, **12–17** and **17–55** lines — so 6 to 11 is the space between a
+QUATRAIN and a SONNET and was never a fact about songs. `song_line_counts()`
+reads the profile that grades a lyric sheet, identified by its own
+`n_lines == 0` and never by name: **17..55, 39 values, CONTIGUOUS.** The
+function above is unchanged and still answers its own different question.
+**AND THE SECTION CEILING WAS M-81(A)'s ERROR ONE LAYER OVER** —
+`_sample_pattern` took `max_cells = total` on the argument that a song of T
+lines cannot hold more than T sung sections, TRUE and never a claim that all T
+values are equally musical. With the total drawn INDEPENDENTLY of the count it
+was then divided among, lines-per-section is a hyperbola.
+`stanza_line_floor()` — the `section` profile's own reach, 4 lines — bounds the
+count at `T // 4` instead. **MEASURED over 240 seeds, per section instance:
+ONE-LINE sung sections 39.4% -> 20.2%, sections per song median 10 -> 8 and max
+31 -> 13, totals median 32 -> 35 with the floor 5 -> 17, 0 seeds lost.** It is
+NOT zero and must not be read as zero: 1 is the modal part of any exact-uniform
+composition (the ladder is 52% under the sequential draw, 39.4%, 20.2%), and a
+one-line tag is a real section. **THE OTHER HALF OF THE OWNER'S COMPLAINT WAS
+THE WRITING, MEASURED**: line LENGTH is not biased short by the planner — 0.0%
+of lines get a ceiling under the density floor and **51.7% can carry the full
+12 syllables**, so a six-syllable line out of a twelve-syllable allowance is
+the writer's choice, not the harness's. Three more literals fell out while widening what they silently
 bounded: a pickup-phrase lookup table that raised `KeyError: 0.75` the moment
 anacrusis became a function of the section's own subdivision; an independent
 per-kind line draw that produced **6 plans in 200 seeds** (replaced by

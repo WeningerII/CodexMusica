@@ -3846,27 +3846,52 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
     # script used twice is a defect report, not a convenience."
     WANT = ("--want=sections<=6;lines_per_section>=2;group<=4;"
             "uses=verse,chorus;before=verse,chorus;pins_per_line<=5")
-    rc, out, _ = run("plan", "--sweep=0-120", WANT, expect_rc=0)
-    check("the sweep RUNS from the command line and finds the seed the "
-          "private script found", rc == 0 and " 108" in out,
-          [l for l in out.splitlines() if "108" in l][:1])
+    # ~~`--sweep=0-120` and `" 108" in out`.~~ **REPINNED 2026-08-24
+    # (`MISSING.md` M-106), the CLI mirror of `test_plan.py` §10's repin and
+    # for the same reason.** The seed that satisfies a six-way conjunction is
+    # a property of the PLANS, and the plans were re-derived when the length
+    # envelope stopped being the union of three kinds of text; the VERB is
+    # untouched and every predicate is still individually satisfiable. The
+    # range is widened rather than the predicates loosened — loosening them
+    # to keep a number would be tuning the question to preserve the answer.
+    # WHAT THIS SECTION IS ABOUT IS REACHABILITY, so what it asserts is that
+    # a person running the command GETS AN ANSWER: a non-empty accepted list
+    # that agrees with the header's own count, which is a stronger property
+    # than one remembered integer and cannot go stale when the planner moves.
+    rc, out, _ = run("plan", "--sweep=0-400", WANT, expect_rc=0)
+    _acc = [l for l in out.splitlines() if "accepted" in l and "swept" in l]
+    _n = int(re.search(r"accepted (\d+)", _acc[0]).group(1)) if _acc else 0
+    check("the sweep RUNS from the command line and comes back with seeds — "
+          "and the header's count agrees with the list it printed",
+          rc == 0 and _n > 0 and "ACCEPTED (in seed order" in out
+          and len([x for x in out.split("ACCEPTED (in seed order")[1]
+                   .splitlines()[1].split(",") if x.strip()]) == _n,
+          f"{_n} accepted :: {_acc[:1]}")
     check("...and it ECHOES every predicate with the coordinate's own gloss, "
           "so a caller can see which declaration was applied rather than "
           "inferring it from the answer",
           out.count("WANT ") == 6 and "the SMALLEST sung section" in out,
           f"{out.count('WANT ')} predicates echoed")
     check("...and prints THREE COUNTS, never summed (doctrine 79)",
-          "swept 120" in out and "planned" in out
+          "swept 400" in out and "planned" in out
           and "REFUSED by the planner" in out and "accepted" in out,
           [l for l in out.splitlines() if "swept" in l][:1])
     check("...and says OUT LOUD that it does not rank, which is the whole "
           "refusal: doctrine 7 enforces a floor and does not order the "
           "permitted region",
           "does NOT rank" in out and "doctrine 19" in out)
-    check("...and hands over the NEXT command rather than a plan, because a "
-          "plan is a pure function of its seed and nothing should carry over "
-          "from the search",
-          "NEXT: python3 lyric_harness.py plan --seed=108" in out)
+    # THE FIRST ACCEPTED SEED, READ OFF THE OUTPUT — not the remembered 108
+    # (M-106). What is under test is that the handover names a seed the sweep
+    # ACTUALLY accepted, which is checkable against the list the same run
+    # printed and is what a literal could never assert.
+    _first = out.split("ACCEPTED (in seed order")[1].splitlines()[1].split(
+        ",")[0].strip()
+    check("...and hands over the NEXT command rather than a plan, naming the "
+          "FIRST accepted seed, because a plan is a pure function of its seed "
+          "and nothing should carry over from the search",
+          f"NEXT: python3 lyric_harness.py plan --seed={_first}" in out,
+          f"first accepted {_first!r} :: "
+          f"{[l for l in out.splitlines() if 'NEXT:' in l][:1]}")
     # NO DEFAULT PREDICATE — and the verb says so instead of quietly
     # accepting everything as though that had been asked for.
     rc, out, _ = run("plan", "--sweep=0-8", expect_rc=0)
