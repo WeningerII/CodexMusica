@@ -1,0 +1,436 @@
+{
+  "hooks": ["Carry it. Don't look down."],
+  "lines": [
+    {
+      "bar": 1,
+      "beat": 1.0,
+      "duration": 8.0,
+      "section": "INTRO1",
+      "text": "Freight, grey water, low in the hold"
+    },
+    {
+      "bar": 2,
+      "beat": 1.0,
+      "duration": 8.0,
+      "section": "INTRO1",
+      "text": "Weigh it out and cross the strait"
+    },
+    {
+      "bar": 5,
+      "beat": 1.0,
+      "duration": 8.0,
+      "section": "VAMP1",
+      "text": "Down in the engine, counting strokes"
+    },
+    {
+      "bar": 6,
+      "beat": 1.0,
+      "duration": 8.0,
+      "section": "VAMP1",
+      "text": "The oaks on the far side go dark"
+    },
+    {
+      "bar": 7,
+      "beat": 2.0,
+      "duration": 7.0,
+      "section": "VERSE1",
+      "text": "Past the bell, one low arc"
+    },
+    {
+      "bar": 8,
+      "beat": 2.0,
+      "duration": 7.0,
+      "section": "VERSE1",
+      "text": "Spark on the black swell, quell it"
+    },
+    {
+      "bar": 9,
+      "beat": 2.0,
+      "duration": 7.0,
+      "section": "CHORUS1",
+      "text": "Carry it. Don't look down."
+    },
+    {
+      "bar": 10,
+      "beat": 2.0,
+      "duration": 7.0,
+      "section": "BRIDGE1",
+      "text": "A name on every crate"
+    },
+    {
+      "bar": 13,
+      "beat": 1.0,
+      "duration": 8.0,
+      "section": "BUILD1",
+      "text": "Half of it sighed, borne into rust"
+    },
+    {
+      "bar": 14,
+      "beat": 1.0,
+      "duration": 8.0,
+      "section": "BUILD1",
+      "text": "Tide is cussed, iron, salt, mourn"
+    },
+    {
+      "bar": 15,
+      "beat": 1.0,
+      "duration": 8.0,
+      "section": "FALSE_ENDING1",
+      "text": "Nobody told us this was war"
+    },
+    {
+      "bar": 16,
+      "beat": 1.0,
+      "duration": 8.0,
+      "section": "FALSE_ENDING1",
+      "text": "Door of the hold. The light goes thin"
+    },
+    {
+      "bar": 17,
+      "beat": 1.0,
+      "duration": 8.0,
+      "section": "DROP1",
+      "text": "Rust on the chain. The chain holds."
+    },
+    {
+      "bar": 20,
+      "beat": 2.0,
+      "duration": 7.0,
+      "section": "TAG1",
+      "text": "Count it again from the bell"
+    },
+    {
+      "bar": 21,
+      "beat": 2.0,
+      "duration": 7.0,
+      "section": "REPRISE1",
+      "text": "Low arc, and the light comes back"
+    },
+    {
+      "bar": 22,
+      "beat": 2.0,
+      "duration": 7.0,
+      "section": "PRECHORUS1",
+      "text": "Everything here has a weight"
+    },
+    {
+      "bar": 23,
+      "beat": 2.0,
+      "duration": 7.0,
+      "section": "CHORUS2",
+      "text": "Carry it. Don't look down."
+    },
+    {
+      "bar": 24,
+      "beat": 2.0,
+      "duration": 7.0,
+      "section": "REPRISE2",
+      "text": "Salt in the seam and the hold"
+    },
+    {
+      "bar": 25,
+      "beat": 1.0,
+      "duration": 8.0,
+      "section": "DROP2",
+      "text": "Nobody drowns on a schedule"
+    },
+    {
+      "bar": 26,
+      "beat": 2.0,
+      "duration": 7.0,
+      "section": "CHORUS3",
+      "text": "Carry it. Don't look down."
+    },
+    {
+      "bar": 27,
+      "beat": 1.0,
+      "duration": 8.0,
+      "section": "POSTCHORUS1",
+      "text": "Over. Over. The far bank."
+    },
+    {
+      "bar": 28,
+      "beat": 2.0,
+      "duration": 7.0,
+      "section": "REPRISE3",
+      "text": "After the crossing, we count"
+    },
+    {
+      "bar": 29,
+      "beat": 1.0,
+      "duration": 8.0,
+      "section": "DROP3",
+      "text": "Dust on the deck where we stood"
+    },
+    {
+      "bar": 30,
+      "beat": 2.0,
+      "duration": 7.0,
+      "section": "TURNAROUND1",
+      "text": "And we go back for the rest"
+    },
+    {
+      "bar": 31,
+      "beat": 1.0,
+      "duration": 8.0,
+      "section": "CODA1",
+      "text": "The bell again, and we go"
+    }
+  ],
+  "sections": [
+    {
+      "bars": 2,
+      "function": "intro",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "INTRO1",
+      "start_bar": 1
+    },
+    {
+      "bars": 2,
+      "function": "interlude",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "INTERLUDE1",
+      "start_bar": 3
+    },
+    {
+      "bars": 2,
+      "function": "vamp",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "VAMP1",
+      "start_bar": 5
+    },
+    {
+      "bars": 2,
+      "function": "verse",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "VERSE1",
+      "start_bar": 7
+    },
+    {
+      "bars": 1,
+      "function": "chorus",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "CHORUS1",
+      "start_bar": 9
+    },
+    {
+      "bars": 1,
+      "function": "bridge",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "BRIDGE1",
+      "start_bar": 10
+    },
+    {
+      "bars": 2,
+      "function": "interlude",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "INTERLUDE2",
+      "start_bar": 11
+    },
+    {
+      "bars": 2,
+      "function": "build",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "BUILD1",
+      "start_bar": 13
+    },
+    {
+      "bars": 2,
+      "function": "false_ending",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "FALSE_ENDING1",
+      "start_bar": 15
+    },
+    {
+      "bars": 1,
+      "function": "drop",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "DROP1",
+      "start_bar": 17
+    },
+    {
+      "bars": 2,
+      "function": "interlude",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "INTERLUDE3",
+      "start_bar": 18
+    },
+    {
+      "bars": 1,
+      "function": "tag",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "TAG1",
+      "start_bar": 20
+    },
+    {
+      "bars": 1,
+      "function": "reprise",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "REPRISE1",
+      "start_bar": 21
+    },
+    {
+      "bars": 1,
+      "function": "prechorus",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "PRECHORUS1",
+      "start_bar": 22
+    },
+    {
+      "bars": 1,
+      "function": "chorus",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "CHORUS2",
+      "start_bar": 23
+    },
+    {
+      "bars": 1,
+      "function": "reprise",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "REPRISE2",
+      "start_bar": 24
+    },
+    {
+      "bars": 1,
+      "function": "drop",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "DROP2",
+      "start_bar": 25
+    },
+    {
+      "bars": 1,
+      "function": "chorus",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "CHORUS3",
+      "start_bar": 26
+    },
+    {
+      "bars": 1,
+      "function": "postchorus",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "POSTCHORUS1",
+      "start_bar": 27
+    },
+    {
+      "bars": 1,
+      "function": "reprise",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "REPRISE3",
+      "start_bar": 28
+    },
+    {
+      "bars": 1,
+      "function": "drop",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "DROP3",
+      "start_bar": 29
+    },
+    {
+      "bars": 1,
+      "function": "turnaround",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "TURNAROUND1",
+      "start_bar": 30
+    },
+    {
+      "bars": 1,
+      "function": "coda",
+      "meter": {
+        "beats": 8,
+        "groups": [3, 3, 2],
+        "unit": 8
+      },
+      "name": "CODA1",
+      "start_bar": 31
+    }
+  ],
+  "title": "Carry It"
+}
