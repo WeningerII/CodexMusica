@@ -227,6 +227,58 @@ function verdictOf(r) {
   return v;
 }
 
+// `verify` NEEDS ITS OWN VERDICT, and reusing verdictOf would be the trap.
+// Two measured reasons. (1) The verify report emits ZERO `FINDING` lines —
+// it prints only the diff block — so `extractBannedPairs` returns [] on every
+// call and `banned_pairs` would be ABSENT on a draft full of banned pairs.
+// Absent reads as clean: the 2026-08-19 failure, third time. (2) `verify`
+// exits 0 for ACCEPTED *and* REJECTED — the verdict is in the text — so a
+// caller reading only exit_code would hear "no flag stands" about a revision
+// the harness just refused.
+//
+// AND WHAT verify CANNOT SAY IS PART OF THE ANSWER. It is a DIFF: it speaks
+// about what this change FIXED and what it INTRODUCED, never about what
+// survived. A pair that was banned before and is still banned after appears
+// in neither list, correctly, because nothing about it changed.
+function verifyVerdictOf(r) {
+  const out = r.stdout;
+  const m = out.match(/VERDICT: (ACCEPTED|REJECTED)/);
+  const v = {
+    exit_code: r.code,
+    accepted: m ? m[1] === 'ACCEPTED' : null,
+    verdict: m ? m[1] : null,
+  };
+  if (!m)
+    v.meaning = EXIT_MEANING[r.code] || `subprocess failure (${r.code}): ${r.stderr.slice(0, 400)}`;
+  else
+    v.meaning =
+      (v.accepted
+        ? 'ACCEPTED — this revision earned it: it fixed something and introduced no flag, and touched only lines that were targeted.'
+        : 'REJECTED — the harness refused this revision. The reason is in the report: it fixed nothing, or it introduced a flag, or it took a forbidden modal candidate, or it changed lines nobody targeted.') +
+      ' NOTE THE EXIT CODE IS 0 EITHER WAY — read `accepted`, not `exit_code`.';
+  const grab = (label) => {
+    const g = out.match(new RegExp(`${label}: (\\[[^\\n]*\\])`));
+    return g ? g[1] : null;
+  };
+  for (const k of ['fixed', 'new_flags', 'new_notes']) {
+    const got = grab(k);
+    if (got) v[k] = got;
+  }
+  const counts = out.match(/fixed (\d+), introduced (\d+)/);
+  if (counts) {
+    v.fixed_count = Number(counts[1]);
+    v.introduced_count = Number(counts[2]);
+  }
+  v.scope =
+    'A DIFF, NOT A GRADE. verify answers "did this change earn it" — what it fixed and what ' +
+    'it introduced. It says NOTHING about defects that survived the change unaltered, and it ' +
+    'does not report banned pairs: a pair banned before and still banned after appears in ' +
+    'neither list because nothing about it moved. For "is this song finished", grade the ' +
+    'whole draft with lyric_grade or lyric_check.';
+  v.report = out;
+  return v;
+}
+
 function refuse(msg) {
   const e = new Error(msg);
   e.isRefusal = true;
@@ -446,6 +498,35 @@ export const LYRIC_TOOL_SCHEMAS = {
     form: formField,
     lines: linesField,
     functions: functionsField,
+  },
+  lyric_verify: {
+    before: draftField,
+    after: draftField,
+    scheme: z
+      .string()
+      .max(64)
+      .optional()
+      .describe("Letter rhyme scheme over the lines, e.g. 'ABAB' (X = free line)."),
+    groups: z
+      .string()
+      .max(MAX_MANDATE_CHARS)
+      .optional()
+      .describe(
+        "Rhyme groups by 1-based line numbers, e.g. '1,3;2,4'. A member may name WHERE in its line the rhyme binds: '1,3.head'. Places: end (default), endword, head, headrime, line, T<n>."
+      ),
+    returns: z
+      .string()
+      .max(MAX_MANDATE_CHARS)
+      .optional()
+      .describe("Verbatim-return classes by line numbers, e.g. '5,13;6,14'. Optional."),
+    relation: relationField,
+    targeted: z
+      .array(z.number().int().min(1).max(MAX_LINES))
+      .max(MAX_LINES)
+      .optional()
+      .describe(
+        'The 1-based lines this revision was ASKED to change. Declaring it turns on the "you quietly rewrote lines nobody asked about" rejection — one of the three silent ways a revision goes wrong. Omit and that check does not run, which is a REFUSAL on it, not evidence the revision stayed in scope.'
+      ),
   },
   lyric_check: {
     lines: draftField,
@@ -713,6 +794,58 @@ export function registerLyricTools(server, tool) {
 
   tool(
     server,
+    'lyric_verify',
+    {
+      title: 'Did this revision earn it?',
+      description:
+        'The other half of a revision round. lyric_check briefs a draft; this judges a CHANGE to one — hand it the ' +
+        'lines BEFORE and AFTER under the same mandate and it answers whether the revision earned its place. Three ' +
+        'ways a revision goes wrong and all three are silent: it fixes the flagged line and breaks another, it ' +
+        'fixes the rhyme by taking the most predictable word in the field, or it quietly rewrites lines nobody ' +
+        'asked about. Declare `targeted` to turn the third one on. READ `accepted`, NOT `exit_code`: this verb ' +
+        'exits 0 for ACCEPTED and REJECTED alike, because the verdict is an answer and not an error. IT IS A DIFF, ' +
+        'NOT A GRADE — it reports what this change fixed and introduced, and says nothing about defects that ' +
+        'survived it untouched, so it does not and cannot report banned pairs. For "is the song finished", use ' +
+        'lyric_grade or lyric_check. ~25s.',
+      inputSchema: LYRIC_TOOL_SCHEMAS.lyric_verify,
+    },
+    (a) =>
+      withTempDir(async (dir) => {
+        checkLines(a.before);
+        checkLines(a.after);
+        const hasScheme = a.scheme != null && a.scheme !== '';
+        const hasGroups = a.groups != null && a.groups !== '';
+        if (hasScheme === hasGroups)
+          throw refuse(
+            "declare exactly one of 'scheme' or 'groups' — a verify with no mandate has nothing to judge the change against"
+          );
+        if (hasScheme && !SCHEME_RE.test(a.scheme))
+          throw refuse("scheme must be letters only, e.g. 'ABAB'");
+        if (hasGroups && !MANDATE_RE.test(a.groups))
+          throw refuse("groups must be line numbers like '1,3;2,4', optionally naming a place");
+        if (a.returns && !RETURNS_RE.test(a.returns))
+          throw refuse("returns must be line numbers like '5,13;6,14'");
+        const bPath = path.join(dir, 'before.txt');
+        const aPath = path.join(dir, 'after.txt');
+        await writeFile(bPath, a.before.join('\n') + '\n', 'utf8');
+        await writeFile(aPath, a.after.join('\n') + '\n', 'utf8');
+        const args = ['verify', bPath, aPath];
+        if (hasScheme) args.push(a.scheme);
+        if (hasGroups) args.push(`--groups=${a.groups}`);
+        if (a.returns) args.push(`--returns=${a.returns}`);
+        if (a.relation) args.push(`--relation=${a.relation}`);
+        // TARGETED IS A TRAILING POSITIONAL, and it is the sole gate on the
+        // untargeted-rewrite rejection. This repo has already recorded what
+        // happens when it is parsed and not read: `targeted = None` left the
+        // whole verb suite green.
+        if (a.targeted && a.targeted.length) args.push(...a.targeted.map(String));
+        const r = await runVerb(args);
+        return verifyVerdictOf(r);
+      })
+  );
+
+  tool(
+    server,
     'lyric_check',
     {
       title: 'Check pasted lyrics against a declared rhyme plan',
@@ -819,7 +952,9 @@ export const LYRIC_INSTRUCTIONS =
   'the bracket headers ([CHORUS — 3 lines — 6 bars of 6/8, half-beat pickup]) are measurements, ' +
   'restyling them to bare [CHORUS] deletes what the format exists to carry, and the [GRADED — seed …] ' +
   'stamp line under the song is part of the block and reaches the user with it. For lyrics a user ' +
-  'pastes, lyric_check with their declared scheme or groups. FLAGS are defects; banned pairs are ' +
+  'pastes, lyric_check with their declared scheme or groups — and lyric_verify to judge a CHANGE to one, ' +
+  'which is the other half of a revision round: read its `accepted`, not its exit code, and remember it is a ' +
+  'DIFF that cannot report banned pairs surviving untouched. FLAGS are defects; banned pairs are ' +
   'unskippable whatever their severity; other NOTES are measurements and are not to be "fixed". A verdict ' +
   'carrying structures_uncalibrated is the third thing to read: correctness IS graded for that declared ' +
   'structure and laziness is NOT, the two-tier ban is skipped on its pairs, and an absent banned_pairs ' +

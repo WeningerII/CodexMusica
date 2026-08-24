@@ -10712,3 +10712,58 @@ carries a comma was NOT established here — two attempts to enumerate that
 vocabulary read the wrong structure — so the site is named as UNEXAMINED rather
 than reported as fine. Deciding it needs the relation vocabulary enumerated
 properly, which is a separate sitting.
+
+### M-104 · `verify` was refused on `revise`'s measurement `CLOSED`
+Filed and closed 2026-08-24, by re-examining a recorded decision rather than
+inheriting it.
+
+**ONE VERB'S NUMBER WAS DOING DUTY FOR TWO.** `CLAUDE.md` records
+*"`revise`/`loop` and `verify` are deliberately NOT wrapped yet (a 40-90s
+synchronous call is the wrong shape for chat)"*. That 40–90s is
+`test_loop.py`'s own figure and its subject is **`revise_loop`**. `verify`
+runs no loop, no proposer and no rounds — it is one `brief` plus two
+`inspect`s — and its cost was never measured when that sentence was written.
+
+**MEASURED NOW:** `revise` on a 28-line draft that actually needs work is
+**92.3s** (ROUND_LIMIT after 4 rounds); `verify` on the same draft is
+**32.2s**, and **22.1s** on a 12-line one. A factor of three, and the wrap
+decision falls on opposite sides of it.
+
+**THE CLOCK THAT DECIDES IT IS NOT THIS CONNECTOR'S.** `SUBPROCESS_TIMEOUT_MS`
+is 90_000, but the vendored MCP SDK's `DEFAULT_REQUEST_TIMEOUT_MSEC` is
+**60_000**, nothing here emits the progress notifications that would reset it,
+and a cancelled request does **not** free the serial python queue. So a call
+past 60s is abandoned by the client while the subprocess runs on, blocking
+every other lyric and recipe call for the remainder of its own 90s. `verify`
+fits with headroom; `revise` does not fit at all.
+
+**AND THE DEFER ROUND-TRIP FAILS FOR A REASON THAT IS NOT SIZE.** The state is
+~22 KB, which round-trips fine. It fails on COUNT: a 28-line draft made ~81
+proposal requests, and the ceiling is `max_rounds` × flagged lines ×
+`attempts_per_line`. Each resume REPLAYS FROM ROUND 1, so the total is
+quadratic in answers given — against a serial queue and a per-IP rate limit.
+It also fails on FIDELITY, since resume is sound only because the loop is
+deterministic, and passing state through tool parameters makes the model the
+storage medium for ~81 exact-match records whose tier-2 key is a 4-tuple of
+full line texts.
+**MOST OF ALL IT SOLVES A PROBLEM THAT DOES NOT EXIST HERE.** `defer:` was
+built because a CHILD PROCESS cannot re-enter the agent that spawned it — the
+caller is BLOCKED inside `revise_loop`. In MCP the caller is not blocked: the
+tool returns and the model gets its turn back. The round-level brief → write →
+verify cycle IS chat's native answer, and `lyric_check` + `lyric_verify` are
+now both halves of it.
+
+**SO `revise` STAYS ON THE CLI**, where a writer with a terminal, a file and no
+60-second clock is the caller it was built for — and the refusal is recorded
+with the numbers rather than the adjective.
+
+**TWO THINGS THE WRAP HAD TO GET RIGHT, both of which a reused `verdictOf`
+would have got wrong.** (1) The `verify` report emits **zero** `FINDING`
+lines, so `extractBannedPairs` returns `[]` on every call and `banned_pairs`
+would be ABSENT on a draft full of banned pairs — absent reads as clean, which
+is the 2026-08-19 failure a third time. `lyric_verify` has its own verdict and
+a `scope` field saying it is a DIFF that cannot speak about defects surviving
+untouched. (2) `verify` exits **0 for ACCEPTED and REJECTED alike**, so a
+caller reading `exit_code` would hear "no flag stands" about a revision the
+harness just refused; `accepted` carries the verdict and the meaning says to
+read it.

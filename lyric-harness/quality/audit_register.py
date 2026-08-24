@@ -2202,8 +2202,10 @@ PINNED = {
     # the count is a check on the numbering as well as on the total.
     # ~~160~~ -> 161: M-103 (two catalog rows could not be spelled through
     # `--structures=` at all — the same connector specification turning up a
-    # second defect one function away from the first).
-    "coverage_entries": 161,
+    # second defect one function away from the first), then M-104 (`verify`
+    # was refused on `revise`'s measurement — one verb's number doing duty
+    # for two, and they are a factor of three apart).
+    "coverage_entries": 162,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

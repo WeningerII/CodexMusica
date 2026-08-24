@@ -514,14 +514,22 @@ try {
   const lyric = tools.filter((t) => t.name.startsWith('lyric_'));
   assert.deepEqual(
     lyric.map((t) => t.name).sort(),
-    ['lyric_check', 'lyric_grade', 'lyric_plan', 'lyric_screen', 'lyric_sweep', 'lyric_types'],
-    'the six lyric tools are advertised'
+    [
+      'lyric_check',
+      'lyric_grade',
+      'lyric_plan',
+      'lyric_screen',
+      'lyric_sweep',
+      'lyric_types',
+      'lyric_verify',
+    ],
+    'the seven lyric tools are advertised'
   );
   for (const t of lyric) {
     assert.equal(t.annotations?.readOnlyHint, true, `${t.name} read-only`);
     assert.equal(t.annotations?.openWorldHint, false, `${t.name} closed-world`);
   }
-  console.log('  ok  lyric family advertised: 6 tools, read-only, closed-world');
+  console.log('  ok  lyric family advertised: 7 tools, read-only, closed-world');
   passed++;
 
   // LIVE: stage the lexicon exactly as the Docker build does, then drive
@@ -901,6 +909,67 @@ try {
     assert.ok(wide.accepted_shown.length < wide.accepted_count, 'and the printed list is shorter');
     assert.equal(wide.accepted_truncated, true, '...which the verdict says out loud');
     console.log('  ok  lyric_sweep live: bounded, composes, and does not rank');
+    passed++;
+
+    // `lyric_verify` — the other half of a revision round. The claims that
+    // needed their own checks are the two that would have been silently
+    // wrong under a reused verdictOf: the exit code does NOT carry the
+    // verdict, and this verb reports no banned pairs BY CONSTRUCTION.
+    const vBefore = [
+      'Lights cut, and the bass came down in a pour',
+      'Half the room gone quiet where the sound stone',
+    ];
+    const vGood = [vBefore[0], 'Half the room gone quiet where the sound tore'];
+    const ok = await callText('lyric_verify', {
+      before: vBefore,
+      after: vGood,
+      groups: '1,2',
+    });
+    assert.equal(ok.accepted, true, 'a revision that fixes the violation is ACCEPTED');
+    assert.equal(ok.fixed_count, 1, '...and the fixed count is reported');
+    // THE EXIT CODE IS 0 EITHER WAY. A connector reading exit_code would
+    // call a refused revision "no flag stands".
+    const bad = await callText('lyric_verify', {
+      before: vBefore,
+      after: vBefore,
+      groups: '1,2',
+    });
+    assert.equal(bad.accepted, false, 'a no-op revision is REJECTED');
+    assert.equal(bad.exit_code, ok.exit_code, 'and BOTH exit with the same code');
+    assert.equal(bad.exit_code, 0, '...which is 0 — the verdict is an answer, not an error');
+    assert.ok(
+      /accepted.*not.*exit_code/i.test(bad.meaning),
+      'so the meaning tells the caller to read accepted, not exit_code'
+    );
+    // IT IS A DIFF AND SAYS SO. verify cannot speak about a defect that
+    // survived the change untouched, so it must not carry banned_pairs —
+    // an absent banned_pairs here would read as "no banned pairs".
+    assert.ok(!('banned_pairs' in ok), 'no banned_pairs field: verify cannot answer that');
+    assert.ok(
+      /does not report banned pairs/i.test(ok.scope) && /lyric_grade/.test(ok.scope),
+      '...and the scope field says so, pointing at the verb that can'
+    );
+    // TARGETED IS THE SOLE GATE on the untargeted-rewrite rejection, and
+    // the only shape that proves it is read is OPPOSITE verdicts on one diff.
+    const untargeted = [vGood[0].replace('Lights cut', 'Lights fell'), vGood[1]];
+    const free = await callText('lyric_verify', {
+      before: vBefore,
+      after: untargeted,
+      groups: '1,2',
+    });
+    const scoped = await callText('lyric_verify', {
+      before: vBefore,
+      after: untargeted,
+      groups: '1,2',
+      targeted: [2],
+    });
+    assert.notEqual(
+      free.accepted,
+      scoped.accepted,
+      'declaring targeted changes the verdict on the identical diff — the field is read'
+    );
+    assert.equal(scoped.accepted, false, '...and the run that named line 2 refuses the L1 rewrite');
+    console.log('  ok  lyric_verify live: accepted is the verdict, and targeted is read');
     passed++;
   }
 } catch (err) {
