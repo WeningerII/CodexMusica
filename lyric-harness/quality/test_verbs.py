@@ -4118,6 +4118,64 @@ def test_a_song_wide_relation_may_not_stand_beside_a_structure():
         os.unlink(path)
 
 
+def test_a_row_name_with_a_comma_is_still_reachable():
+    """45. TWO OF 58 ROWS COULD NOT BE SPELLED THROUGH THE ONLY FLAG THAT
+    REACHES THEM (`MISSING.md` M-103).
+
+    `--structures=` split on EVERY comma, and two catalog rows carry one
+    inside the name. The flag refused them naming the FRAGMENT --
+    `--structures entry '-closed-syllable)' has no ':'` -- so the report
+    blamed the caller's syntax for a name the catalog itself declares.
+
+    The invariant is asserted over the WHOLE catalog rather than the two
+    known rows: a later row whose name happens to contain `,LABEL:` would
+    re-open this silently, and a test that names only today's two would
+    not see it.
+    """
+    print("\n45. a catalog row whose name contains a comma is reachable")
+    import re as _re
+    import tempfile
+    from quality import structures as _ST
+    rows = sorted(_ST.STRUCTURES)
+    check("the catalog is non-empty, so this section cannot pass by "
+          "examining nothing", len(rows) > 1, f"{len(rows)} rows")
+    commad = [n for n in rows if "," in n]
+    check("...and at least one row name DOES contain a comma — the case the "
+          "split used to tear in half", bool(commad), f"{commad}")
+    # THE SPLIT RULE, ASSERTED OVER THE WHOLE VOCABULARY. A comma that
+    # begins an entry is one followed by LABEL: — no row name may contain
+    # that pattern, or the rule quietly starts tearing a different name.
+    collide = [n for n in rows if _re.search(r",(?=[A-Za-z0-9]{1,3}:)", n)]
+    check("...and NO row name contains the pattern the splitter treats as "
+          "an entry boundary, so the rule is safe for every row and not "
+          "only for today's two", not collide, f"collide: {collide or 'none'}")
+    lines = ["the night was cold and bright", "we held each other tight",
+             "we walked beneath the sun", "and rivers ran with silver"]
+    with tempfile.NamedTemporaryFile("w", suffix=".txt",
+                                     delete=False) as fh:
+        fh.write("\n".join(lines) + "\n")
+        path = fh.name
+    try:
+        rc, out, _ = run("brief", path, "--groups=1,2;3,4",
+                         f"--structures=A:{commad[0]}")
+        check("...and the comma-bearing row is ACCEPTED by the flag rather "
+              "than refused as a broken entry",
+              rc == 0 and "has no ':'" not in out, f"rc {rc}")
+        # THE CONTROL, because a splitter that stopped splitting would
+        # also pass the check above.
+        rc2, out2, _ = run("brief", path, "--groups=1,2;3,4",
+                           "--structures=A:pararhyme,B:kalevala-alliteration")
+        check("...while TWO entries still separate, so the fix did not buy "
+              "the comma back by refusing to split at all",
+              rc2 == 0 and "STRUCTURE_UNCALIBRATED" in out2, f"rc {rc2}")
+        rc3, out3, _ = run("brief", path, "--groups=1,2",
+                           "--structures=A:vibes")
+        check("...and an unknown name still REFUSES through the catalog's "
+              "own message", rc3 == 2 and "not a declared structure" in out3)
+    finally:
+        os.unlink(path)
+
+
 def test_every_workflow_file_is_parseable_yaml():
     print("\n43. THE CI WORKFLOW PARSES — checked HERE because a broken one "
           "cannot run the check that catches it (`MISSING.md` M-89)")
@@ -4226,6 +4284,7 @@ if __name__ == "__main__":
         test_fill_reads_a_draft_the_way_every_other_verb_does,
         test_the_ban_is_unskippable_at_the_grading_verb_too,
         test_a_song_wide_relation_may_not_stand_beside_a_structure,
+        test_a_row_name_with_a_comma_is_still_reachable,
         test_every_workflow_file_is_parseable_yaml,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —

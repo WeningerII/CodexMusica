@@ -10674,3 +10674,41 @@ now set at the ONE raise site that means it, the headline is chosen from it,
 and §44's control requires the genuinely-empty case to still say exactly what
 it always said — a split that silently widened would be the same defect
 inverted.
+
+### M-103 · two catalog rows could not be spelled through `--structures=` `CLOSED`
+Filed and closed 2026-08-24, found while specifying the connector wiring for
+the same flag.
+
+**`--structures=LABEL:NAME,LABEL:NAME` SPLIT ON EVERY COMMA**, and two of the
+58 rows carry one INSIDE the name:
+`Kalevala-alliteration-(strong,-closed-syllable)` and
+`Kalevala-alliteration-(weak,-framed)`. The names are built by `_build`, which
+hyphenates spaces and appends a disambiguating index, so the comma comes from
+the coordinate's own gloss and is not a typo anyone can fix by renaming.
+
+**AND THE REFUSAL NAMED THE FRAGMENT**, which is what made it a defect rather
+than a limitation: `--structures entry '-closed-syllable)' has no ':'`. The
+report blamed the caller's syntax for a name the catalog itself declares, and a
+caller reading it would look for their own missing colon rather than conclude
+the row is unreachable. Two of 58 rows, through the only spelling that reaches
+them.
+
+**THE SPLIT IS ON A COMMA THAT BEGINS AN ENTRY.** A LABEL is a letter or a
+1–3 digit index and is ALWAYS followed by `:`, so an entry boundary is a comma
+followed by `LABEL:`; inside both affected names the comma is followed by `-`.
+The rule is CHECKED over the whole vocabulary rather than against the two known
+rows — `test_verbs.py` §45 asserts that NO row name contains the pattern the
+splitter treats as a boundary, so a row added later whose name would re-open
+this turns the suite red instead of failing silently.
+
+**THE CONTROL IS THE HALF THAT MATTERS**: a splitter that stopped splitting
+would also make the comma-bearing row work, so §45 requires two entries to
+still separate and an unknown name to still refuse through the catalog's own
+message.
+
+**THE SIBLING IS NOT CLAIMED CLEAN.** `--relations=` has the identical
+`raw.split(",")` one function away. Whether any declarable relation name
+carries a comma was NOT established here — two attempts to enumerate that
+vocabulary read the wrong structure — so the site is named as UNEXAMINED rather
+than reported as fine. Deciding it needs the relation vocabulary enumerated
+properly, which is a separate sitting.

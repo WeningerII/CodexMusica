@@ -2200,7 +2200,10 @@ PINNED = {
     # `--structures` and reproduced before anything was changed). M-98 was
     # FILED AS A SECOND M-97 and caught by this pin refusing to reconcile —
     # the count is a check on the numbering as well as on the total.
-    "coverage_entries": 160,
+    # ~~160~~ -> 161: M-103 (two catalog rows could not be spelled through
+    # `--structures=` at all — the same connector specification turning up a
+    # second defect one function away from the first).
+    "coverage_entries": 161,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

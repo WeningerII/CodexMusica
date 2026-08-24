@@ -7658,8 +7658,26 @@ def main():
                 # that calibration adopted. Validation is the catalog's —
                 # an unknown name refuses through `_normalise_structures`
                 # as NoMandate, naming the vocabulary's size.
+                #
+                # SPLIT ON A COMMA THAT STARTS A NEW ENTRY, NOT ON EVERY
+                # COMMA (2026-08-24, `MISSING.md` M-103). TWO catalog rows
+                # carry a comma INSIDE the name --
+                # `Kalevala-alliteration-(strong,-closed-syllable)` and
+                # `Kalevala-alliteration-(weak,-framed)` -- so a bare
+                # `raw.split(",")` tore them in half and this flag refused a
+                # row the catalog declares, naming the FRAGMENT:
+                # `--structures entry '-closed-syllable)' has no ':'`. Two of
+                # 58 rows were unreachable through the only spelling that
+                # reaches them, and the refusal blamed the caller's syntax.
+                #
+                # A LABEL is a letter or a 1-3 digit index and is ALWAYS
+                # followed by ':', so a comma that begins an entry is one
+                # followed by `LABEL:`. Inside a row name a comma is followed
+                # by '-' in both cases. CHECKED, not assumed: no row name in
+                # the catalog contains the pattern this splits on
+                # (`test_verbs.py` §45 asserts that over all 58).
                 out = {}
-                for part in raw.split(","):
+                for part in re.split(r",(?=[A-Za-z0-9]{1,3}:)", raw):
                     part = part.strip()
                     if not part:
                         continue
