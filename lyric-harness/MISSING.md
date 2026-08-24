@@ -22,7 +22,6 @@ with the constraint named).
 ## A. Notation and scheme representation
 
 ### A-1 · Capital/lowercase refrain notation `OPEN`
-
 **TESTED WHILE OPEN.** `test_english_text.py` and `test_song_function.py`
 name this entry to PIN THE GAP, not to guard a fix — the citation reads
 "the repo cannot represent it (MISSING.md A-1)". A test that asserts an
@@ -59,7 +58,6 @@ after every verse" convention). Both are in the corpus, source order preserved.
 It broke the hymn cell's first parser.
 
 ### A-2 · Repetition-with-variation `PARTIAL` 2026-08-21
-
 **VERIFIED CLAUSE BY CLAUSE 2026-08-21 — the pass this entry's own
 declaration promised.** Two clauses are FALSE at head; two are the entry.
 
@@ -99,7 +97,6 @@ the interior lines and keeps the first and last. Staged under
 `corpus/song/eng_parlour_*.txt`, tagged `[CHORUS 2]`.
 
 ### A-3 · Scheme space beyond 26 sounds is untested at song length `PARTIAL`
-
 **Now:** `label()` falls through to `A1 B1 …` past Z. Round-trip is tested to
 30 sounds only.
 
@@ -108,7 +105,6 @@ the interior lines and keeps the first and last. Staged under
 ## B. Pitch, harmony, melody — ABSENT
 
 ### B-1 · No pitch layer at all `OPEN`
-
 **Now (verified):** no module in the repo represents pitch. The grep hits for
 "pitch/interval/scale" are Somali pitch ACCENT, statistical confidence
 INTERVALS, and rescaling.
@@ -119,7 +115,6 @@ quartal and cluster harmony, polychords, voice leading, cadence types,
 modulation, tonicization, harmonic rhythm.
 
 ### B-2 · 12-TET is assumed BY OMISSION `OPEN`
-
 **Missing:** any tuning declaration at all, and therefore every non-12 system —
 just intonation, meantone, well temperaments, 19-TET (171 dyads), 22-TET,
 24-TET (276 dyads), 31-TET (465), 53-TET, Bohlen-Pierce; maqām with neutral
@@ -129,14 +124,12 @@ Turkish AEU 53-comma; Thai 7-equal.
 Doctrine 1 says assumptions live in a declaration; the tuning has no coordinate.
 
 ### B-3 · No scale or mode systems `OPEN`
-
 **Missing:** church modes, melodic/harmonic minor modes, pentatonic, hexatonic,
 octatonic, whole-tone, acoustic, altered, blues scales, the maqāmāt, the rāgas,
 Japanese modes, and the fact that several of these are not scales but
 behaviours (ascent/descent asymmetry, characteristic phrases, ornament rules).
 
 ### B-4 · No melodic shape `OPEN`
-
 **Missing:** contour, range, tessitura, leap/step ratio, phrase arch, peak
 placement, repetition and sequence, motif development.
 
@@ -145,7 +138,6 @@ placement, repetition and sequence, motif development.
 ## C. Rhythm and meter
 
 ### C-1 · Additive/aksak meter is inexpressible `CLOSED` 2026-08-10
-
 **Was:** `pulse_groups` did not merely omit the grouping — it ASSERTED one,
 returning `(3,3,3)` for 9/8 where Balkan daichovo is 2+2+2+3, and seven single
 pulses for 7/8.
@@ -157,7 +149,6 @@ being distinguished from. `grid.Meter` delegates, so the assertion is gone
 there too.
 
 ### C-2 · No cyclic-metre systems `PARTIAL` — the container exists, the
-
 catalogues do not `OPEN`
 **Now:** `Cycle` can hold every one of them — **typed groups** (a tāla's angas:
 laghu/drutam/anudrutam), **per-position labels** (an usul or īqāʿ is a LABELLED
@@ -173,7 +164,6 @@ without a `source`, because a catalogue written from memory is unsourced data
 in the evidence base.
 
 ### C-3 · No metric complexity `PARTIAL` — structure built 2026-08-10
-
 **Now:** bar duration is an exact `Fraction`, so **.125/1 through 64/32**,
 fractional numerators and non-power-of-two denominators (4/3, 5/6) are one
 object with no special cases; `irrational` is a declared property.
@@ -185,7 +175,6 @@ span, 3:2 resolving at 1/6), `MeterMap` (meter per BAR, not per section), and
 continuous value, rubato/senza misura, hypermeter, metric dissonance.
 
 ### C-4 · ~~No groove or microtiming~~ — the groove questions are DECLARED and PERMANENTLY REFUSED BY NAME `PARTIAL`
-
 **Missing:** pushes, pulls, laid-back and ahead-of-beat placement, syncopation
 measurement, the difference between a line that lands and one that drags.
 
@@ -220,7 +209,6 @@ measurement, the difference between a line that lands and one that drags.
 > the scanner reshuffles all five triage counts, which is its own change.
 
 ### C-5 · Tempo is not represented `PARTIAL`
-
 **Now:** `Song` has bars and meters, no tempo, no tempo change. **That sentence
 is TRUE at head** — `grep -n tempo quality/grid.py` returns nothing.
 
@@ -255,7 +243,6 @@ is TRUE at head** — `grep -n tempo quality/grid.py` returns nothing.
 ## D. Song architecture
 
 ### D-1 · ~~Sections have no FUNCTION~~ — they have had one since `d944ff7`, and every clause of this entry is satisfied `CLOSED` 2026-08-21
-
 > **THIS ENTRY'S OWN `Now (verified)` CLAUSE IS FALSE AT HEAD — 2026-08-21.**
 > It reads _"`Section` fields are exactly `name, bars, meter, start_bar`"_.
 > That was the first finding; the reading of the rest, deferred below, is now
@@ -292,7 +279,6 @@ What remains in this area belongs to its neighbours and is already filed
 there: D-3's reprise-across-two-functions clause, D-2's hook, D-4's arc.
 
 ### D-2 · ~~"Hook" cannot be represented~~ — it can be held, counted, placed and read sub-line; density and melody remain `PARTIAL` 2026-08-21
-
 **VERIFIED CLAUSE BY CLAUSE 2026-08-21. Five of seven are FALSE at head,
 including the sub-line clause the earlier declaration deferred.**
 
@@ -325,7 +311,6 @@ than a line. Nothing in the model can hold one, count its returns, place it, or
 measure its density.
 
 ### D-3 · No return/variation structure `PARTIAL`
-
 **TESTED WHILE OPEN** — `quality/test_song_function.py` guards the built half
 (`compare_returns`, `return_findings`, the ladder) and this entry stays
 PARTIAL on its own "Still missing" clause below, which the 2026-08-21
@@ -354,7 +339,6 @@ declared functions (does the outro reprise the intro). The primitive exists;
 the question is not asked.
 
 ### D-4 · No arc `OPEN`
-
 **Missing:** energy, dynamics, density, register, instrumentation change across
 the form — the shape a listener actually experiences.
 
@@ -363,7 +347,6 @@ the form — the shape a listener actually experiences.
 ## E. Rhyme
 
 ### E-1 · The type taxonomy has NO PRODUCER `CLOSED` 2026-08-10
-
 **Was:** nothing called `rhyme_types.py` except its own test. It was a
 vocabulary with nothing that could look at two words and return a coordinate.
 **Now:** `classify_pair(a, b, phon)` and `verdict(a, b, phon)`. `phon` is any
@@ -382,7 +365,6 @@ where the phonology carries no prominence — som, msa and fas all decline a
 stress grid — because the anchor rule is a coordinate, not a universal.
 
 ### E-2 · ~~English still has five relations~~ — the five-relation path is the GRADER's, and it is not the tree's `PARTIAL`
-
 **Now:** `lyric_harness.py`'s own `score()`/`admits()` band recognises RHYME,
 REPEAT, RIME_RICHE, ASSONANCE, CONSONANCE — **and that is a statement about
 ONE layer, not about English in this repository.** `quality/relations.py`'s
@@ -454,7 +436,6 @@ when the grading path consults the registry, which is the relation ladder's
 own destination and not a fix this entry can make alone.
 
 ### E-3 · ~~Internal rhyme is two-line only~~ Internal rhyme has two windows and neither is declared `PARTIAL`
-
 **Now:** ~~`internal_matches` supports a pair of lines. No verse-wide or
 song-wide positional rhyme graph.~~
 **REPINNED 2026-08-16 — the graph exists and this entry cited it without
@@ -502,12 +483,10 @@ not.
 > name E-3, moving it CITED → GUARDED.
 
 ### E-4 · No rhyme density over time `OPEN`
-
 **Missing:** rhyme rate per bar, acceleration into a hook, thinning in a
 bridge — rhyme as a rhythmic parameter rather than a per-pair verdict.
 
 ### E-5 · The empty/empty coda gift `OPEN` — sized 2026-08-21: the fix has a cheap half and an expensive half, and they are different claims
-
 **Now (verified by using it):** `now ~ why` scores 0.902 and types RHYME,
 because two vowel-final words get a free 1.0 on the coda channel. The fitted
 matrix takes this to −0.000 and is not shipped.
@@ -543,7 +522,6 @@ and declined, not missed.
 ## F. Language coverage
 
 ### F-1 · ~~Eight~~ NINE phonologies, and English IS one now `PARTIAL`
-
 **TESTED WHILE OPEN.** The phonology suites name this entry as the ROSTER
 they are counting against; the roster grows and the entry stays PARTIAL
 until it stops (`quality/triage.py`).
@@ -561,7 +539,6 @@ Japanese, Korean, Mandarin, Cantonese, Vietnamese, Thai, Indonesian, Tagalog,
 Yoruba, Swahili, Zulu, Amharic, Irish, Scots Gaelic, Quechua, Nahuatl.
 
 ### F-2 · Whole rhyme MECHANISMS are unrepresented `OPEN`
-
 **TESTED WHILE OPEN.** `test_declared_inputs.py` pins the ABSENT field —
 "closing R6 means adding the field, which is ordinary scheduled work" —
 so the test tracks the gap rather than guarding a fix (`quality/triage.py`).
@@ -572,7 +549,6 @@ harmony (Turkish, Finnish, Hungarian) as a rhyme constraint; consonant mutation
 changes what rhyme even means.
 
 ### F-3 · Dialect orthography is a per-dialect SYSTEM, not a spelling quirk `OPEN`
-
 **Found in the corpus 2026-08-10, and it contradicts what is already built.**
 Three English dialects in the staged song corpus use the apostrophe and hyphen
 for four different jobs, and the existing modules would corrupt three of them:
@@ -660,7 +636,6 @@ declared, like everything else in `quality/phonology/`.
 > table is derived, so the blast radius is zero.
 
 ### F-5 · An EDITION can retokenise a language `OPEN`
-
 **Verified 2026-08-10.** Rogers's 1855 _Modern Scottish Minstrel_ sets a SPACE
 before enclitics — `There 's high and low`, `Wha 'll buy caller herrin'` — 189
 times in Nairne and 81 in Hogg, against **13 in all 17,555 lines of Burns**.
@@ -673,7 +648,6 @@ elision (`a'`, `o'`) are untouched. **Still open:** nothing detects WHICH
 convention an edition uses, so a corpus mixing both is silently inconsistent.
 
 ### F-6 · The best PD source can be the one that loses the metadata `OPEN`
-
 **Verified 2026-08-10.** Moore's _Irish Melodies_ were written to named airs.
 Gutenberg's own Moore (PG 8187) carries all 124 lyrics and **drops every air**.
 `thabz/Kalliope` carries 122 of 124 as `<subtitle>Air - X</subtitle>`. The
@@ -682,7 +656,6 @@ substitutes the Danish **æ ligature for Scots `ae`** (`sae` → `sæ`), so Rams
 is recorded CONTESTED and was not staged. Check per-file, never per-repository.
 
 ### F-4 · A transcription can invent a letter `OPEN` — the instance is closed, the guard is not
-
 **Verified 2026-08-10, inside a single Gutenberg record.** Barnes exists as two
 files: `21785.txt` (ASCII) flattens the a-diaeresis to the two-letter sequence
 `ae`, printing `Greaeve` and `Feaeir` — **inventing a letter in every affected
@@ -716,7 +689,6 @@ including the eng-range repin.
 out as F-4a** because it is a different actor with a different blast radius.
 
 ### F-4a · The reader flattens the letter the transcription kept `OPEN`
-
 Found 2026-08-21 while verifying F-4. Staging the Latin-1 Barnes preserved
 `ä`; `lyric_harness.line_tokens` (`lyric_harness.py:1030`) matches
 `[A-Za-z'\-]+`, so the non-ASCII letter BREAKS THE TOKEN:
@@ -740,7 +712,6 @@ on them. ~1 day including the repins, and it should not be started casually.
 ## G. Syllable and prosodic fit
 
 ### G-1 · No syllable-to-beat mapping `OPEN`
-
 **TESTED WHILE OPEN.** `test_fit.py` asserts that the `NO_SETTING` REFUSAL
 names G-1 and is PERMANENT. What is under test is the DISCLOSURE of the
 gap, which is exactly what an open entry should have (`quality/triage.py`).
@@ -750,7 +721,6 @@ holds.
 fits, is crammed, or leaves the bar empty.
 
 ### G-2 · ~~No prosodic fit~~ — the METRIC half is delivered; melodic, vowel-length and the rest are the residue `PARTIAL`
-
 **Missing:** whether lyric stress agrees with melodic/metric accent, whether a
 long vowel sits on a long note, whether a phrase breathes, whether a word is
 broken across a rest. This is the thing that makes a lyric singable and
@@ -786,7 +756,6 @@ broken across a rest. This is the thing that makes a lyric singable and
 > entry's coordinate rather than on work this entry names.
 
 ### G-3 · Meter templates are unconnected to the bar grid `PARTIAL`
-
 **Now:** `lyric_harness.py meter TEMPLATE` checks a stress template on text.
 It has no relationship to `quality/grid.py`.
 
@@ -795,7 +764,6 @@ It has no relationship to `quality/grid.py`.
 ## H. Semantics and craft
 
 ### H-1 · Nothing measures meaning on the WRITING path `OPEN`
-
 **TESTED WHILE OPEN.** `quality/phrase_commonplace.py` is the PHRASE SLICE
 of this entry and carries its own suite, which names H-1 as its subject. A
 part delivery with tests is not the entry closing — the concreteness half
@@ -814,7 +782,6 @@ diction consistency, showing vs telling, cliché at the PHRASE level rather than
 the rhyme-pair level.
 
 ### H-2 · The pembayang/maksud property is unmeasured `OPEN`
-
 **Missing:** the Malay pantun carries rhyme ACROSS a deliberate semantic break.
 We found the property, quoted Skeat's own footnote describing it, extracted ~~82
 quatrains~~ — and never measured the discontinuity, which is the interesting part.
@@ -877,7 +844,6 @@ quatrains~~ — and never measured the discontinuity, which is the interesting p
 > failure after it.
 
 ### H-3 · No structural cliché beyond the grid `PARTIAL`
-
 **Now:** `stanza_lock()` names ~~five~~ **six** grid clichés. That is the only
 structural cliché detector.
 **Re-derived 2026-08-11 by walking the AST of `quality/grid.py`** rather than by
@@ -899,7 +865,6 @@ verse-chorus-bridge sequence, clichéd rhyme-scheme choice itself.
 ## I. Generation and workflow
 
 ### I-1 · ~~Nothing generates~~ — the harness does not WRITE, and that is a DECISION `PARTIAL` 2026-08-21
-
 **Now:** `quality/revise.py` returns line-scoped briefs; the harness grades.
 ~~**Missing:** any writing loop, melody-first or lyric-first workflow, or way to
 sample a structure from the scheme/grid spaces and write into it.~~
@@ -930,7 +895,6 @@ can take a tune as input, because there is no pitch or tune object at all
 and false of the SYSTEM from the day `plan.py` v2 landed.
 
 ### I-2 · No way to sample the space under constraints `PARTIAL` 2026-08-21 — the SAMPLER shipped; the PREDICATE is ruled on hold
-
 **Missing:** "give me an 11-line scheme with 3 sounds, no adjacencies, at least
 2 section-crossings, and no name" — the spaces are enumerable and there is no
 constrained sampler over them.
@@ -967,7 +931,6 @@ as a favour: shipping it silently violates standing rule 3.
 ## J. Integration
 
 ### J-1 · ~~Codex Musica is not connected~~ — connected 2026-08-18, one client, two DISJOINT families `CLOSED` 2026-08-21
-
 ~~**Missing:** the MCP server (2,503 traditions, 1,406 instruments, 741 prefaces)
 is in the same workspace and the harness has never called it.~~ **The
 connection that shipped is the one standing rule 1 permits, and it runs the
@@ -1006,7 +969,6 @@ FALSE against a tree that does not contain it.
 ## K. Corpora and evidence
 
 ### K-1 · There is no SONG corpus `PARTIAL` — closed at 143 files; the 1,297-file corpus has never been audited under this entry
-
 **Was:** Shakespeare's sonnets and Whitman. Neither is a song.
 
 > **REPINNED 2026-08-21, AND THE HEADLINE WAS THE WORD `Now`.** Everything in
@@ -1144,7 +1106,6 @@ Funning`, `GAELIC AIR`, `To The Air Of "Am Rhein, Am Rhein!"`). So there is no
 > Sullivan libretti in GITenberg 808 with ~349 machine-separable number headings.
 
 ### K-1a · The printed record is BIASED AGAINST the chorus `OPEN` — sized 2026-08-21, and the concentration is WORSE than recorded
-
 **SIZED 2026-08-21 (re-measured under the shipped rule).** Corpus totals:
 BURDEN 1,580 / REFRAIN 597 / CHORUS 290 over `eng_*` — and **one file,
 D'Urfey's songbook, is 567 of the 1,580 burdens (35.9%); two files are
@@ -1174,7 +1135,6 @@ verbatim-repeat pointer (`CHORUS. Who's now the traitor? etc.`). Two cells
 found it independently in different centuries and countries.
 
 ### K-2 · ~~English is single-author on BOTH sides~~ — both halves retired `CLOSED`
-
 **Was:** positive = Shakespeare alone; negative = Whitman alone.
 ~~**Now:** the positive side spans **143 authors across 16 rhyme traditions**, 1567 to 1929. The NEGATIVE side is still Whitman alone, and K-3 shows it never
 separated — so the replacement remains the corpus's own shuffled self.~~
@@ -1221,7 +1181,6 @@ and dead" burden closing every stanza and our file records no refrain marking
 at all. That is a fact about Whitman, and Whitman is K-3's subject.
 
 ### K-3 · The Whitman negative control does not separate `OPEN`
-
 **Now (verified):** all four recorded Whitman figures (18.0, 20.0, 21.3, 26.0%)
 fall inside one line-permutation null spanning 6.7–27.3%. Replacement is the
 corpus's own shuffled self, plus a multi-author positive spanning more than one
@@ -1236,7 +1195,6 @@ is that the text this project used as its negative control carries the property
 under test.
 
 ### K-4 · Old Norse has a phonology and ~~no licensed corpus~~ ~~ONE licensed corpus nobody has ruled on~~ **the ruling was made and the corpus is staged** `PARTIAL`
-
 **Constraint:** the only complete Háttatal is inside a 1974 editor's copyright;
 the 1848 edition that clears the gate has OCR that destroyed the consonants a
 hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
@@ -1426,7 +1384,6 @@ Sigurðar Nordals, 2. útgáfa 1980` four rows away, which is doctrine 40 at its
 > admissible and in-copyright editions.
 
 ### K-5 · Somali has no REACHABLE corpus `BLOCKED` (doctrine 44: cannot obtain)
-
 **Retitled 2026-08-11 from "Somali can never have a corpus". "Never" is a
 universal, it was tested, and it is FALSE — while the block itself survives,
 reclassified.** Measured: `python3 quality/som_channel_audit.py`. Full working
@@ -1540,7 +1497,6 @@ and testing it is an egress block, which doctrine 49 says is a claim about the
 network at a moment rather than about the world.
 
 ### K-6 · ~~Eight non-English phonologies, ZERO songs~~ — **six of the eight now have song text; two still have none** `OPEN`
-
 **TESTED WHILE OPEN.** `test_readability.py` names K-6 while asserting the
 corpus is no longer monolingual — it tracks PROGRESS on the entry, and the
 entry's own heading says two of the eight still have none
@@ -1797,7 +1753,6 @@ exactly` is a measurement claim, not an emphasis, and it was the one figure
 ## L. Known instrument defects
 
 ### L-1 · The false-event rate is not controlled at α `OPEN` — and it was never a rate
-
 ~~"5.4% against 5.0%" is n=6; at n=20 the same construction gives 9.6%. The
 guarding test runs three sonnets and asserts only `mean < 0.20`.~~
 
@@ -1861,7 +1816,6 @@ this half stays OPEN because the CAPABILITY — a false-event rate controlled at
 α — is exactly as missing as it was.
 
 ### L-2 · Real sonnets do not separate from scrambled text on event rate `OPEN` — EXPLAINED
-
 ~~10.9% observed vs 9.6% word-scramble (p=0.095).~~ Either the detector is
 broken or these sonnets carry no internal rhyme, and this event set cannot tell
 them apart — so any null placement result on it is uninterpretable.
@@ -1910,12 +1864,10 @@ about 10× — a redesign of the layer, a declared beat, not a backlog item.
 Guarded by `quality/test_controls.py` and `quality/test_null_shapes.py`.
 
 ### L-3 · The slop floor is calibrated on one form, one language, one generator
-
 `PARTIAL` — 152 Shakespeare sonnets vs 40 model sonnets, a 400-year register
 gap. Its own docstring calls it unvalidated as a general slop detector.
 
 ### L-4 · ~~The floor has two length profiles and they are both stanzas~~ — THREE, and the third is a whole lyric sheet `CLOSED` 2026-08-21
-
 ~~"4-line quatrain, 29–37 tokens" and "14-line sonnet". Anything else is an
 extrapolation and gets downgraded to a note.~~ The `song` profile landed
 2026-08-11 (`quality/floor.py:630`) — whole lyric sheet, 150–400 tokens, 3,571
@@ -1942,7 +1894,6 @@ trustworthy about what does NOT exist — and `quality/FLOOR.md:39`'s
 two-column profile table. All three repinned with this close.
 
 ### L-4a · The song profile has no generated class, so it carries a rate and no separation `OPEN`
-
 Split from L-4's close, 2026-08-21, because it was buried in a headline about
 profile arithmetic and it is not about length at all. `quality/floor.py`'s
 `song` profile ships with `n_generated = 0`: what it has is a false-positive
@@ -1957,7 +1908,6 @@ entry is doctrine 44's "cannot obtain" for the property, with the floor's own
 docstring (`quality/floor.py:124-131`) as the standing disclosure.
 
 ### L-5 · Doctrine has drifted toward auditing `CLOSED` 2026-08-11
-
 ~~`CLAUDE.md` carries 76 numbered items~~ ~~**102 numbered items, measured
 2026-08-11**~~ — **95 doctrines**, and roughly the last 25 are about null
 hypotheses and calibration. A future session reading it will learn to audit
@@ -2038,7 +1988,6 @@ reported. Every one of them found a defect in the harness rather than only in
 the world, which is the point of pointing a module at a corpus (doctrine 37).
 
 ### M-1 · `ltc.rhymes` uses the 詩 standard on 詞 and calls 45% of real ci rhymes failures `CLOSED`
-
 **The single most actionable item in this section.** `quality/phonology/ltc.py`
 ships the 平水韻 grouping, which is the standard for 詩. Measured against the
 **欽定詞譜 of 1715** — 817 per-詞牌 files with a 韻/句/叶 marker at every line end,
@@ -2110,7 +2059,6 @@ and an entry going CLOSED is not a licence to un-withdraw a number (doctrine
 17). What is closed is the DEFECT, which was never the arithmetic.
 
 ### M-2 · `data/qieyun_mc.tsv` is keyed on ONE orthographic norm `CLOSED`
-
 **CLOSED 2026-08-21, AND THE DECLARATION THAT STOOD HERE FOR TWO HOURS WAS
 MINE AND WAS WRONG.** `quality/triage.py` flagged this entry CONTESTED —
 open, and a regression names it — which is exactly the state it was in. It
@@ -2194,7 +2142,6 @@ refusal**, which is doctrine 79 in a second layer.
 > returns a different word's rhyme** on the rest.
 
 ### M-3 · The Malay apostrophe rule — and the number that billed it `CLOSED` 2026-08-11
-
 **The fix, one rule:** a part with no vowel is not a word, so it merges into the
 part that FOLLOWS. `s'ri` → `sri`, `b'ras` → `bras`, `p'rut-'kau` → `prut`+`kau`.
 `anak'nda` still splits, because `anak` is a well-formed Malay word alone. That
@@ -2352,7 +2299,6 @@ population next to the zero, or the next reader inherits a "0" that is true of a
 one-seventh extract.**
 
 ### M-4 · The `&c.` refrain stub is not an English printing convention `PARTIAL`
-
 **TESTED WHILE OPEN, and the remainder is NAMED: WELSH.** Three of the four
 languages ship in `CHORUS_STUB_FORMS` and return their language as a
 coordinate; `ac ati` matches nothing (measured 2026-08-21). `BACKLOG.md`
@@ -2474,7 +2420,6 @@ words and one phantom alliteration, in the numerator _and_ the denominator.
 `chorus_stub_match` reports WHICH convention fired (doctrine 45).
 
 ### M-4a · A tighter rhyme band LOOSENS the time layer's correction `CLOSED`
-
 **Found 2026-08-11, and it is a defect in a fix this repo shipped the day
 before.** Commit `b1d7f64` (tail alignment + `theta_coda` 0.60 → 0.80) was
 validated on the band's false-positive rate and on the sonnet violation rate,
@@ -2559,7 +2504,6 @@ the measurement that says so. It was stated in one absolute too many.
 against a HEAD containing the change — is about the AUDIT and is unaffected.
 
 ### M-5 · A printing can spell one sound two ways, and the modernisation check cannot see it `OPEN`
-
 Every recorded instance of the orthography rule (doctrine 50, CHANNELS.md rule 4) is a MODERNISATION. The Kanteletar is not modernised at all and still carries
 a hazard: `w` and `v` are **allographs of one phoneme** and the printing MIXES
 them — `Väinämöisen` and `Wäinämöinen`, same name, same book. `fin.py` keys the
@@ -2572,7 +2516,6 @@ and passes the file. The question that catches it is **"does this printing spell
 one sound two ways?"**
 
 ### M-6 · `fin.py` implements alliteration and nothing else — BOTH SENTENCES WERE FALSE `CLOSED` 2026-08-11
-
 ~~No `rhymes()`. Nine of the ten staged Finnish files are **rhymed strophic
 verse** whose actual constraint the module cannot check. F-1 lists `fin` as
 present; it is present _for the Kalevala metre only_, and the corpus that just
@@ -2613,7 +2556,6 @@ re-derived rather than recorded; the live count is measured at run time by
 `python3 quality/verify_entries.py`.
 
 ### M-7 · Doctrine 55's fix was right and its dash rule is over-general `OPEN` — sized 2026-08-21, and this entry's own proposed fix does not carry the load
-
 **SIZED 2026-08-21 (measured, not estimated).** The 72/72 reproduces exactly —
 6 llywelyn + 0 alun + 11 hwiangerddi + 54 mynyddog + 1 twm, medial dashes read
 as caesura by `cym._marked_parts()`. **But the positional rule this entry
@@ -2643,7 +2585,6 @@ position and pairing: gwant single and usually line-final, editorial dash medial
 and often paired.
 
 ### M-8 · No metre index was found in any reachable Welsh edition `OPEN`
-
 Welsh hymnody is sung to named tunes with a declared metre (8.7.8.7 and so on),
 which is exactly the field the English corpus records for 331 songs and the
 rarest thing in it. **Not one reachable Welsh edition prints one.** The sourcing
@@ -2652,7 +2593,6 @@ transcription, which is correct — that would invent the corpus's rarest field
 rather than source it — and it is the largest thing that round did not deliver.
 
 ### M-9 · ~~`CHANNELS.md` is written as a blocklist and the policy is an ALLOWLIST~~ — reframed 2026-08-21 `CLOSED` 2026-08-21
-
 ~~The gateway denies by default and the proxy enumerates its own denials~~ —
 **and the second half of that sentence was imprecise in a way the rewrite had
 to fix:** `recentRelayFailures[]` is a failure LOG, empty until you probe, not
@@ -2681,7 +2621,6 @@ unreadable**. Highest-value single Welsh target for whoever next has a
 parquet-capable channel.
 
 ### M-11 · ~~ZERO named airs across EVERY non-English song staged~~ — **31, and the field was inside the title all along** `PARTIAL`
-
 The field this whole round was chasing. ~~ZERO named airs across 8,009
 non-English songs~~ — **the heading carried a denominator that moves and a
 finding that does not**, so it no longer carries the denominator at all. The
@@ -2773,7 +2712,6 @@ largest structural gap left in the corpus.
 > finding was never only about whether a field could be read.
 
 ### M-12 · The admissible copy and the complete copy are DISJOINT `OPEN`
-
 Doctrine 92. Three instances in one round, and "find a better source" is the
 answer to none of them:
 
@@ -2786,7 +2724,6 @@ answer to none of them:
   see K-7 and doctrine 85.
 
 ### M-13 · The Persian EDITION gate is OPEN on all ~~30~~ **31** files `OPEN`
-
 **REPINNED 2026-08-21 to match its BACKLOG half.** `BACKLOG.md` §3.3 was
 brought up to date that day and this entry was not — the same one-half-repinned
 drift M-21 records for a different pair. Three of the four side-clauses below
@@ -2830,7 +2767,6 @@ Mullā Hādī Sabzavārī, Riḍā al-Dīn Ārtīmānī, Sulṭān Bāhū — fr
 list extends.
 
 ### M-14 · 2 Sanskrit authors is the DCS's ceiling for this property, not a shortfall `OPEN`
-
 Amaru, Bhartṛhari, Govardhana and every DCS stotra are reachable, CC BY 4.0 and
 out of term, and the refrain detector fires **zero** on them at every setting
 against 24 on Jayadeva in the same run — so they are NOT_FOUND _for this
@@ -2843,7 +2779,6 @@ stotra/pada literature — Vedānta Deśika, Bilvamaṅgala, the Gosvāmins,
 final-akṣara rhyme key is **not comparable across DCS texts without folding**.
 
 ### M-15 · `RelationSchema.traditions` — ~~declared on 77 schemas and populated on ZERO~~ **75 of 77 populated, and the SOURCE is the gap** `PARTIAL`
-
 The ZERO was left standing as live heading text under a blockquote that already
 corrected it, which is how a superseded figure keeps being quoted: `BACKLOG.md`
 §2.5 copied it forward for a day. Struck now, and `python3
@@ -2872,7 +2807,6 @@ its own output that the tradition did not match, the rule shape did.
 > entry named is filled and the fill has a gap of its own.
 
 ### M-16 · ~~One module is genuinely stranded~~ — it is not, and the decision is taken `CLOSED` 2026-08-11
-
 `python3 lyric_harness.py wiring` now reports this mechanically instead of
 requiring an audit. ~~After wiring: **`quality/rhyme_constraints.py`, 1,325
 lines** — a library with no caller and no `__main__`.~~ The 1,325 stood as live
@@ -2930,7 +2864,6 @@ a `__main__` and keep it as a comparison runner.
 > be a decision rather than a default.
 
 ### K-7 · The Chinese ci and yuefu are refused, and the unblock route ~~is named~~ **WAS ALREADY BUILT** `PARTIAL` 2026-08-11
-
 **~~`BLOCKED` 2026-08-11~~ — struck, and the strike is the finding.** This entry
 was written at `ad7edca`, 05:19, and marked `BLOCKED`. The route it calls
 unbuilt had landed at `16cb073`, 02:14 — **three hours and five minutes
@@ -3085,7 +3018,6 @@ overwritten.
 hours.
 
 ### M-17 · `best_score` names a pair that did not produce the number `CLOSED` 2026-08-21
-
 **CLOSED FOUR DAYS AFTER ITS OWN WORK ITEM AND NOBODY TOLD IT.** `BACKLOG.md`
 §1.2 has read `M-17, CLOSED 2026-08-17` since the 17th; this half kept saying
 _the adversary is built; the repair is not_, which had been false for four
@@ -3128,7 +3060,6 @@ beside the real span is the repaired behaviour, not a residue.
 **Work item:** `BACKLOG.md` §1.2, `CLOSED 2026-08-17`.
 
 ### M-10 · GITenberg enumeration misses about a third by any single method `OPEN`
-
 Repo-name WebFetch → 5 Welsh holdings; `filename:metadata.yaml "language: cy"`
 → 5, missing three files that contain that exact string; `"Language: Welsh"` →
 a _different_ 5, because one PG header wrongly says `Language: English`.
@@ -3140,7 +3071,6 @@ a _different_ 5, because one PG header wrongly says `Language: English`.
 ## N. What the round CONFIRMED, which is rarer than what it broke
 
 ### N-1 · The cynghanedd detector reads the FORM, not the author `CLOSED`
-
 **This is the control the project did not have.** `corpus/cym_alun_strict.txt`
 and the new `corpus/song/cym_song_alun.txt` are **the same book** — same poet,
 same 1909 Ab Owen volume, same transcriber, same flattened-ASCII orthography,
@@ -3204,7 +3134,6 @@ beside a null; here SPECIFICITY was what needed showing.
 > gradient +35.3 → +19.3 → +15.8 → +11.4 → +0.6 → +0.0 → −0.7 is the finding.
 
 ### N-2 · Doctrine 65 corroborated at scale, not merely defended `CLOSED` — with the headline `UNVERIFIABLE`
-
 ~~`cym` reads all five new Welsh files at **100.00%** — 0 unreadable tokens in
 29,571~~ — including 2,750 internal apostrophes (`a'i`, `sy'n`, `mae'r`) that the
 elision rule joins correctly and 94 internal hyphens. A split check for `l l`,
@@ -3241,7 +3170,6 @@ digraph. **The digraph corroboration stands; the 100.00% does not.**
 > becomes a measurement instead of an assertion.
 
 ### N-4 · The Gītagovinda is here, and it overturns the number doctrine 76 rests on `CLOSED`
-
 24 aṣṭapadī recovered by ONE fixed unswept rule (a 3-token suffix recurring ≥5
 times at spacing ≤6 within a chapter) — the canonical count — with 192 dhruva
 refrain lines. 27.75% refrain lines against a line-permutation null **max
@@ -3267,7 +3195,6 @@ median of 4.12%, p=0.945, below chance and correctly so. The two Sanskrit songs
 in this repo put their refrain at **opposite ends of the line**.
 
 ### N-5 · Persian is no longer one poet, and the radif rate is authorial `CLOSED`
-
 Doctrine 8's Persian instance is closed. Pooled radif 71.3% of 7,949 judged at
 `min_fraction=0.60` (65.4% at 1.00, 35 refused — three counts, never two),
 against a cross-ghazal redeal null with median 0 and max 1 of 7,949. The rate
@@ -3286,7 +3213,6 @@ have produced a corpus of alif-rhymes. Every capped author is every ⌈n/400⌉-
 in the edition's own numbering; Ḥāfiẓ is uncapped at 495 as the control.
 
 ### N-3 · Doctrine 58, third instance — the DELTA reproduced while the COUNT did not `OPEN`
-
 A fresh Malay implementation sharing no code gets **131/129** where
 `data/sources.tsv` records 82/80. 705 blocks and 5,555 lines reproduce exactly,
 and **the keep-minus-drop delta is 2 in both runs**, so doctrine 58's second
@@ -3340,7 +3266,6 @@ it moves a `sources.tsv` row and pulls the corpus-audit md5 checks with it.
 ---
 
 ### M-15a · `Tradition.source` is a pointer into a document that cites nothing `OPEN`
-
 **Found 2026-08-11 by `python3 quality/audit_register.py --provenance`, auditing
 the FIX to M-15 rather than the gap.** 75 of 77 schemas now carry traditions —
 298 distinct `Tradition` rows, 319 attachments — and **every single
@@ -3381,7 +3306,6 @@ real citation in`Tradition.source`, before the transcripts are collected and
 the provenance of 117 named structures is gone for good.
 
 ### M-18 · A number's POPULATION is a coordinate, and doctrine 58 names only the threshold `OPEN`
-
 **Found 2026-08-11 by `quality/audit_register.py`, and it is the generalisation
 of four separate errors in this file.** Doctrine 58 says a bare n-of-N is a
 coordinate of a setting nobody wrote down. Section M shows the setting is not
@@ -3446,7 +3370,6 @@ population is a coordinate. This round
 touched roughly a quarter of the register's entries.
 
 ### M-19 · The nucleus threshold cannot be priced on the only corpus we have `OPEN`
-
 **Found 2026-08-11 while closing `BACKLOG.md` §1.3, and it replaces a weaker
 claim with a stronger one.** The record said tightening `theta_nucleus`
 0.60 → 0.70 was "a worse trade" than the coda fix. That is `WITHDRAWN`: **the
@@ -3487,7 +3410,6 @@ declared dialect, which this repository does not have.** Until it exists,
 obtain", not "hard to build".
 
 ### M-20 · Poems staged TWICE in their own file, and every instrument that could see it is looking somewhere else `OPEN`
-
 **Found 2026-08-21 while splitting the named air out of the title (§3.2), by
 the checker that was already looking.** `quality/audit_corpus.py`'s
 `false_unit_items` compares each item's body lines against the OTHER items'
@@ -3580,7 +3502,6 @@ it moves `RUN-ON 11`, `test_corpus_audit.py:890`'s `shapes` dict and the
 counters/`PINNED` pair in one commit, and the repin is the half going stale.
 
 ### M-21 · One fact about the registers is pinned in two media, and no instrument can be asked which pins a change moves `OPEN`
-
 **Found 2026-08-21 by paying the cost twice in one sitting, on consecutive CI
 rounds.** Filing `M-20` moved the number of entries in `MISSING.md` from 75 to 76. That single fact is pinned in **two places, in two different media**:
 
@@ -3819,7 +3740,6 @@ the table above do not read 77 in the tree you are looking at, this entry has
 gone stale in exactly the way it is about.
 
 ### M-22 · The structure census promises to be world-shaped and its tokeniser is ASCII `OPEN`
-
 **Found 2026-08-21 by three concurrent recon agents on the cross-tradition
 structure question, and it is the defect that ALREADY VOIDED ONE ADOPTION
 RUN, reintroduced one layer over.**
@@ -4050,7 +3970,6 @@ with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
 ### M-48 · `same_object_as` is the survey's dedup column and it holds prose, so the structure canon cannot be deduped mechanically `OPEN`
-
 **Raised by the owner, 2026-08-22, on reading the section-function list: "I'd
 bet dollars to donuts that you're looking at an occurrence of a literal
 translation synonym here… several of these are the same thing… there's a ton
@@ -4142,7 +4061,6 @@ bite later. The survey collected it faithfully — and then recorded the
 collisions in a column no program can read.
 
 ### M-47 · Apparatus survives into LINE-FINAL position in 35 corpus files, which is the one position end rhyme reads `OPEN`
-
 **Two instances found by the poet-cell agent, both reproduced here verbatim,
 then sized across the whole corpus rather than filed as two anecdotes.**
 
@@ -4188,7 +4106,6 @@ place (doctrine 1). Not applied: it moves every end-rhyme number on 35 files,
 including a panel cell, and wants its own sitting with the re-runs named.
 
 ### M-45 · A replicate draw that produced no VALUE is counted nowhere, so a p is drawn at an n nobody printed `OPEN`
-
 **Found independently by TWO agents in the same batch — one re-running the
 stanza-framed schemas, one measuring the poet cells — which is why it is filed
 at this weight. Mechanism confirmed here by reading both runners; the sweep was
@@ -4237,7 +4154,6 @@ different questions and must never be summed — and `p` reported against the
 rows.
 
 ### M-46 · `local_fraction@0` runs on 20 of 77 schemas where it cannot move, and looks like a clean null `OPEN`
-
 **Found by the re-null agent. `_GAP_FORCED` (`relations_null.py:950-958`) has
 no row for `both_line_final`.**
 
@@ -4257,7 +4173,6 @@ schemas were swept.
 sitting.
 
 ### M-44 · The named-relation judge reached 4 of 80 names, because it STAMPED a position instead of judging at the name's own coordinate `PARTIAL`
-
 **Raised by an agent's M-35 work, and the diagnosis below is the third one I
 tried — the first two were wrong and the measurements are what corrected
 them. This is the mechanical cause of the owner's complaint that the grader's
@@ -4352,7 +4267,6 @@ the 117 canon structures and the 77 schemas all sit above a judge that, as
 called today, can say yes to four names.
 
 ### M-43 · The census threw away WHY a schema refused, in the layer that makes every panel number `CLOSED` 2026-08-22
-
 **Found 2026-08-22 by an agent sweeping the tree for the M-39 laundering
 family, and it is the sharpest thing that sweep returned: the defect is inside
 the instrument written to prevent it.**
@@ -4396,7 +4310,6 @@ on the ledger slice — safe by accident of the harness rather than by
 construction, and worth knowing.
 
 ### M-42 · Two of the four nulls are ONE randomisation for 28 of the 77 schemas `OPEN`
-
 **Found 2026-08-22 by an agent re-running the stanza-framed schemas, and
 verified here independently before filing. It qualifies the published
 admissible set directly and it is the sharpest instrument defect on the
@@ -4454,7 +4367,6 @@ the seven rows above are flagged in `RESULTS_RELATIONS_NULL.md` rather than
 re-stated.**
 
 ### M-41 · The capacity ceiling is derived under ONE relation, and its headline says "English" `OPEN`
-
 **Found 2026-08-22 while looking for ladder step 5 ("capacity per relation").
 `quality/capacity.py` contains ZERO occurrences of `relation`, `ASSONANCE`,
 `CONSONANCE` or `RIME_RICHE` — the whole layer is relation-blind, and its own
@@ -4523,7 +4435,6 @@ several, and the owner's whole complaint about the grader admitting two
 relations out of 601 is the same complaint arriving at the capacity layer.
 
 ### M-40 · Eight admissible-set failures are eight facts about the TEXT, and the survey already names a chain rhyme nobody built `OPEN`
-
 **Raised 2026-08-22 by the owner, reading the n=200 admissible set and asking
 where the missing corpora would come from. Two separable findings; the second
 was found while checking the first and is the sharper of the two.**
@@ -4646,7 +4557,6 @@ That is the cheapest kind of movement available — no new schema, no new
 capability, one corpus each.
 
 ### M-39 · The section coordinate is declared four layers deep and supplied by nobody `PARTIAL`
-
 **Found 2026-08-22 on the owner's question of whether to take the structure
 work while the null sweep ran — by checking whether the relation layer was
 already leaning on a structure layer, rather than assuming it was a change of
@@ -4898,7 +4808,6 @@ frame five relation schemas quantify over, and until this entry the frame was
 supplied by a derivation that had nothing to read and said so to nobody.
 
 ### M-38 · One quantifier coordinate, two modules, two spellings — and `exists_k` counts different objects in each `PARTIAL`
-
 **Found 2026-08-22 by `quality/relation_shapes.py`'s author while reading all
 77 schemas, and verified here before filing. Step 4 of the relation ladder is
 an arity/quantifier extension, so it walks straight into this.**
@@ -5015,7 +4924,6 @@ something asks for k ≥ 3, at which point the two implementations have to be
 reconciled and §11 gains the row that proves they agree.
 
 ### M-37 · 26 relation names mean two different things, and the two judges disagree `CLOSED` 2026-08-22
-
 **Found 2026-08-22 on the first move of step 3 — "route the pair-shaped
 schemas through the new mandate; this is wiring" — by asking, before wiring
 anything, whether the names were already taken.**
@@ -5140,7 +5048,6 @@ bare resolution still working for the unambiguous, the exact-before-case
 ordering, an undeclared namespace refusing, and the `schema:` judge refusal.
 
 ### M-36 · 17 of the 77 relations can never be nulled, and the reasons are twelve declared capabilities `BLOCKED`
-
 **Filed 2026-08-22 as step 7 of the owner's relation ladder: declare what
 cannot be done, with the constraint named, rather than leaving it looking
 like unfinished work.**
@@ -5201,7 +5108,6 @@ a resource whose naive version would answer the question it was supposed to
 measure, one is inert by declaration, and one is now mis-filed.
 
 ### M-35 · A pair can stand in many relations at once, and the mandate can hold one per group — with identical groups silently deduped `OPEN`
-
 **Filed 2026-08-22 at the owner's observation, mid-build of the declared
 relation coordinate: "each poem and song are actually N dimensional webs".
 Measured before writing, and the measurement sharpens the claim rather than
@@ -5272,7 +5178,6 @@ The 2026-08-22 relation coordinate is unaffected and correct as far as it goes:
 one relation per group, groups may overlap, and nothing here needs undoing.
 
 ### M-34 · The named-type engine can never name a masculine rhyme, and it explains the emptiness as a fact about the vocabulary `PARTIAL`
-
 **Found 2026-08-22 while wiring the mandate's declared-relation coordinate, by
 asking `classify_pair` for the name of a pair I already knew the name of.**
 
@@ -5337,7 +5242,6 @@ and that is a real bound on step 1 rather than a defect — recorded so the
 count 40, not 49, is the one quoted.
 
 ### M-33 · One joint AUC pair lives in twelve places in one document, and a careful repin left seven of them stale `OPEN`
-
 **Found 2026-08-22 while repinning `quality/RESULTS.md` for M-32, by grepping
 for a figure I was about to cite beside and finding it stale in seven sentences
 that were not marked superseded.**
@@ -5501,7 +5405,6 @@ the largest unre-run thing in this arm and the reason every median comparison
 in the two `RESULTS` documents now carries a warning where it is made.
 
 ### M-32 · Feature 10's committed direction and its own gloss point opposite ways, and the verdict on the feature flips between them `CLOSED` 2026-08-22
-
 **Found 2026-08-22 by asking whether feature 10 earns its place, and finding
 that the question cannot be answered as posed.**
 
@@ -5697,7 +5600,6 @@ analysis plan declared undetectable in advance at n = 15 vs 117, so it is not
 evidence about the feature in either direction (doctrine 20).
 
 ### M-31 · A source swap left its sentinel behind, and 60% of English scored as rarer than a word nobody has heard of `CLOSED` 2026-08-22
-
 **Found 2026-08-22 while executing the owner's ruling to refuse
 `wordfreq20k.txt`, by asking what still READ it rather than by reading the
 licence.**
@@ -5742,7 +5644,6 @@ one: verbatim the failure that comment warns about, in the tuple that carries
 the warning.
 
 ### M-30 · The mutation sweep called a suite it could not run "already-red", and a hole it never tested "SURVIVED" `PARTIAL`
-
 **Found 2026-08-22 by running `quality/test_mutation.py` with no bound in
 order to answer a question about the SWEEP, and reading its own baseline
 output on the way past.**
@@ -5930,7 +5831,6 @@ entry does not take. What is fixed is that the exclusion is now LOUD and can
 no longer be read as a passing sweep.
 
 ### M-23 · `Structure` has no `kind="partition"`, and that is the same missing kind four times `OPEN`
-
 **Found 2026-08-21, and it is the one change that serves every spec-shaped
 structural source this project has located.**
 
@@ -6022,7 +5922,6 @@ truthy, so every cell would tag `yes` and no example-based check would catch
 it), and emptying the void table reds 2.
 
 ### M-24 · The section vocabulary is keyed on a bare token, so a mark means whatever the first tradition to claim it meant `PARTIAL`
-
 **Found 2026-08-21 by sixteen concurrent tradition-family surveys, and three
 of them hit the same wall independently.**
 
@@ -6142,7 +6041,6 @@ table is true only of the tradition that wrote it**, and no reader is told
 which one that was.
 
 ### M-25 · Three staging defects the marks cannot show, found by asking sixteen traditions at once `OPEN`
-
 **Found 2026-08-21. Each is a file whose own header or content contradicts how
 it is marked, and none is visible to any current check.**
 
@@ -6300,7 +6198,6 @@ phrase-layer object, its complement is 重頭, and the boundary's own name is
 wrong for a majority of the poems those headers describe.
 
 ### M-26 · The variation ladder answers VERBATIM to traditions whose variation is not in the words `OPEN`
-
 **Found 2026-08-21 by two tradition surveys that hit it independently, from
 opposite ends of the Indian subcontinent, and confirmed here by construction.**
 
@@ -6418,7 +6315,6 @@ incremented, for the reason `CLAUDE.md`'s known gap 7 records — a commit writt
 to repair a stale count once wrote one that was stale on arrival.
 
 ### M-27 · A footnote letter is the end word of 68 rhyming lines, and 1,166 file headers declare it was stripped `OPEN`
-
 **Found 2026-08-21 by the owner asking the right question after `M-25(a)`:
 poems carry LINE NUMBERS, usually by fives, and scores carry time signatures
 and tempo marks — is any of that being scored too? Three of the four answers
@@ -6548,7 +6444,6 @@ stanza. The population is _a token inside a sung line_, not _a block that is
 not a stanza_, and the check that would raise it is a different check.
 
 ### M-28 · The printed indent carries the rhyme scheme at 6.19x, and every reader strips it `OPEN`
-
 **Found 2026-08-21 when the owner, having seen the bracket and numeral
 findings, asked the general question: what about SPACING — indent, offset,
 caesura, end-stop. The answer is that one spacing channel is large, real, and
@@ -6706,7 +6601,6 @@ could say anything about a line's boundary, so they belong with the time
 layer's gaps rather than here.
 
 ### M-29 · The corpus declares 11,099 periods and the time layer, which is mute for want of one, reads none of them `OPEN`
-
 **Filed 2026-08-21 at the owner's request, from the observation that some
 poems carry an amount of time they are meant to be performed in. Measured
 before writing: the literal form of that is ABSENT here and two other forms
@@ -6768,7 +6662,6 @@ derived from the corpus's own rhyme placement would be circular** and doctrine
 the same property that makes the printed indent worth reading in `M-28`.
 
 ### M-49 · the mandate stored a relation's BARE name and `grade()` re-resolves it, so 52 of 157 declarations were accepted at the door and refused at the judge `CLOSED` 2026-08-22
-
 **Found wiring the owner's "wire `Mandate.relations` as the default route",
 by asking whether the value a mandate KEEPS is the value the judge READS.**
 
@@ -6815,7 +6708,6 @@ the bare store, re-opening a mandate that had already been ACCEPTED refused it.
 the bare store reds 8 checks.
 
 ### M-50 · `mandate()`'s re-open guard did not name `relations`, so a re-declared relation was byte-identical to declaring nothing `CLOSED` 2026-08-22
-
 **Found in the same sitting, three lines below a comment describing this exact
 defect in the coordinate next door.**
 
@@ -6843,7 +6735,6 @@ conjunction with nothing after it, which is what a provenance string looks
 like when it is describing something nobody told it about).
 
 ### M-51 · a bad `--structures=` / `--relations=` name refuses under the headline "this verb was given nothing to check against" `OPEN`
-
 **Found 2026-08-22 exercising the new CLI refusals; PRE-EXISTING and not
 introduced by that work — `--structures=` has had it since it shipped.**
 
@@ -6867,7 +6758,6 @@ commit. The remedy is a second refusal shape — _the mandate is declared and a
 name in it is not_ — carrying the same exit code.
 
 ### M-52 · 17 of the 21 declared section functions are printed NOWHERE, and 62% of the marks that ARE printed reach no function at all `PARTIAL`
-
 **Raised by the owner 2026-08-22 — "is it possible to work on getting us the
 '17 declared and never printed' parsed and working instead of just the 4
 section functions currently in use?" — and MEASURED before answering, because
@@ -7039,7 +6929,6 @@ TESTED WHILE OPEN: `quality/test_section_marks.py`, and
 `quality/section_marks.py --check` in CI.
 
 ### M-53 · `mandate()`'s re-open path re-defaulted the `ReturnRule`, so re-opening a mandate to add any coordinate silently replaced the rule its writer declared `CLOSED` 2026-08-22
-
 **Found in the same sitting as M-50, by testing that the CLI's new
 `--relation=` path — which re-opens whatever cover the other flags built —
 preserves everything it is not declaring.**
@@ -7081,7 +6970,6 @@ path could not distinguish _not declared_ from _declared as the default_ for
 statement.
 
 ### M-54 · "an outro is last" is enforced by CONTROL FLOW and stated nowhere, so no grader can check it and no table can extend it `PARTIAL`
-
 **Raised by the owner 2026-08-22, asking whether the section vocabulary is
 machine-readable to the order of "outro is at the end… in a way that does not
 bar novel move-37 song structures", and naming constraint propagation as the
@@ -7283,7 +7171,6 @@ groupings it admits), so the constraint layer prunes the space and the
 sampler still draws by derivation, never by walking the tree.
 
 ### M-55 · there is no way to DECLARE which section functions a song wants, so the planner's roster is sampled and never asked for `CLOSED` 2026-08-22
-
 **Raised by the owner 2026-08-22: "ok I do want a chorus and a post chorus
 because this song xyz and because of that a pre chorus would mess that up."
 That sentence fits neither layer M-54 named, and the gap is that a THIRD layer
@@ -7395,7 +7282,6 @@ non-vacuous by mutation — stubbing `extractRender` to `null` drops it to 31
 and red on exactly this check.
 
 ### M-56 · two of the twenty-one "section functions" declare in their own glosses that they are NOT sections `OPEN`
-
 **Found 2026-08-22 deriving the section-constraint table, by reading all 21
 glosses rather than the four the work needed.**
 
@@ -7426,7 +7312,6 @@ anything for. `verify_entries`/`corpus_taxonomy` are the precedent: a closed
 vocabulary whose members carry their own definition.
 
 ### M-57 · `FunctionSpec.aliases` models SYNONYMY, and three of its five claims are SUBSUMPTION — so the specialisation is accepted at the door and discarded `OPEN`
-
 **Raised by the owner 2026-08-22: "While all middle eights are bridges, not all
 bridges are middle eights… same deal with refrain and chorus if I'm not
 mistaken… just for efficiency's sake." Measured, and the efficiency instinct is
@@ -7502,7 +7387,6 @@ differentia and a mismatch REFUSES rather than silently widening to the genus.
 statements are compatible and the table currently makes them look exclusive.
 
 ### M-59 · the default admit set was TWO of four, and the `schema:` namespace refused all 77 of its names — ~~by design~~ by an instinct the owner has now overruled `CLOSED`
-
 **FINISHED 2026-08-22: 77 of 77 ASKABLE, 0 BLOCKED.** The table below records
 the state partway through and is kept for the ladder it shows (33 -> 52 -> 66
 -> 70 -> 77); the seven that were still blocked at the last count are closed
@@ -7729,7 +7613,6 @@ writer may ask for. And `plan._CELLS` reaches 11 of `grid`'s 21 section
 functions (M-54 item 2), which is this same shape one layer up.
 
 ### M-58 · the named-relation judge is MONOSYLLABLE-ONLY — 69 of 76 names are reachable at a 1-syllable key and nowhere else, so every polysyllabic pair that stands in the declared relation is graded a VIOLATION `OPEN`
-
 **Found 2026-08-22 by WRITING A SONG through the path M-55 had just opened,
 after the owner asked whether anything besides the null sweep bars us from
 using this. Something does, and it is larger than the null sweep.**
@@ -7822,7 +7705,6 @@ different question than the one that will grade them.
 ## Add below this line
 
 ### M-60 · CI could not tell a REFUSAL from a MOVED pin, and the refusal took two working checks down with it `CLOSED` 2026-08-23
-
 **Found by reading `record`'s job log rather than its verdict.** The job was
 red on every run since 2026-08-22 and the failing step's own last line read
 `RESULT: PASS`, because the step that failed is not the step that ends the
@@ -7897,7 +7779,6 @@ swallowed — which is the difference between this and simply appending
 `|| true`.
 
 ### M-61 · `test_capabilities.py` was named by nothing that gates, and it holds the 77-of-77 claim `CLOSED` 2026-08-23
-
 **Found by `test_verbs.py` §24, the orphan census, for the third time in two
 days** — and this one is the one that mattered most. `quality/
 test_capabilities.py` §8 is what pins **ALL 77 `schema:` NAMES ARE ASKABLE —
@@ -7917,7 +7798,6 @@ looks exactly like a list that is COMPLETE, and no amount of care replaces
 the arithmetic.
 
 ### M-62 · a test fired its interrupt on a CLOCK, so it certified the machine it ran on `CLOSED` 2026-08-23
-
 `test_pin_sweep.py` §7 proves that a killed sweep still prints its counts and
 NAMES what it never reached. It set that up with `time.sleep(4)`, on the
 recorded argument that _"`meter_bands.py --check` re-derives over 264,082
@@ -7940,7 +7820,6 @@ implicit; `p.wait` is raised to 120s with a `kill` fallback, so a slow unwind
 is not an exception three frames down.
 
 ### M-63 · the register asserted a GITIGNORED build artifact as a repo path, so `verify_entries` could only pass where a run had already happened `CLOSED` 2026-08-23
-
 **Found by reproducing CI's tree rather than by reading the log** — the
 `record` job's failing step scrolls out of the retrievable log window, so the
 method was to hardlink the working tree, delete exactly what a clean checkout
@@ -7986,7 +7865,6 @@ had cited the deleted artifacts as backticked paths — the defect it exists to
 record, committed inside the record of it, which is this file's oldest shape.
 
 ### M-64 · `pin_sweep` read a CRASH AT IMPORT as a MOVED pin, so a missing third-party module was reported as a committed figure that no longer reproduces `CLOSED` 2026-08-23
-
 **M-60's shape, one tool over, and CI's own gate is what surfaced it** — the
 `suites` job named `quality/test_pin_sweep.py` as its sole failure on THREE
 consecutive runs with the reason visible nowhere, because the pool runs four
@@ -8034,7 +7912,6 @@ the GRADING PATH, not the research instruments). `audit_tang_null.py` and
 the 全唐诗 pool is an absolute path outside this repository.
 
 ### M-65 · the nightly job died on its FIRST LINE whenever its cache was cold, so it could never warm the cache it needed `CLOSED` 2026-08-23
-
 **Found by asking why the Pages sync was skipping**, which it was doing
 CORRECTLY — `sync-pages.yml` publishes only for a CI run whose
 `workflow_run.event == 'push'`, and the run that triggered it was a
@@ -8081,7 +7958,6 @@ default expansion supplies the `0`. One value either way. Measured on both
 arms under `bash -e` before shipping.
 
 ### M-66 · `PREDICTABLE_RHYME` was in the loop's vocabulary and outside its reach — the aggregate named no line, so the flagship enforcement of doctrine 9 could not ask for a single revision `CLOSED` 2026-08-23
-
 **By owner ruling, verbatim: "measure-first then adopt, and yes add
 PREDICTABLE_RHYME to mandatory pursue"** — the second half of a sitting whose
 first half (the in-line rhyme calibration,
@@ -8132,7 +8008,6 @@ the 2026-08-15 `pursue` coordinate was built for and could never reach here.
 all green at rc 0 after the change.
 
 ### M-67 · the declaration layer could not say WHERE in a line a requirement binds, so every enforcement in this repository was built on the last word `CLOSED` 2026-08-23
-
 **Owner's ruling, verbatim:** _"it looks like an insane idea to me to only be
 planning around end rhyme and only ever look for end rhymes. rhymes happen in
 the first word in several rhyme types, rhymes happen all throughout the piece
@@ -8198,7 +8073,6 @@ that does answer it (`relations.realise` reports same-line instances,
 rhyme whose two members share a line has one member.
 
 ### M-68 · `span_provenance` guarded on ONE key and read SIX, so a span from the other tagger died three frames down inside `best_score` `CLOSED` 2026-08-23
-
 **Found by the slot layer's first probe**, which is the first caller ever to
 route a non-line-final span through the full comparator.
 
@@ -8226,7 +8100,6 @@ is this function's answer and a traceback is not a way of saying it (doctrine
 would have made `partial_word` true of every span.
 
 ### M-69 · the planner's envelope was six literals, and the one the owner named was tracking a real boundary by guesswork `CLOSED` 2026-08-23
-
 **Owner's standing rule:** _"we do not want hard numbers anywhere ... meter
 should be something like x/y and number of lines should be something like N"_
 — and, on this entry's own subject, _"1-16 is weird...should we increase it to
@@ -8288,7 +8161,6 @@ moves, by perturbing a profile in-process — a derivation that is written down
 but not wired reads exactly like a literal (doctrine 48).
 
 ### M-70 · an instrumental was modelled as a section with no constraints, which is a free token an optimiser can append to satisfy any structural rule `CLOSED` 2026-08-23
-
 **Owner, verbatim:** _"ok, well no, instrumental is not free of lines. what
 have you that idea?"_ — and the idea came from this repository's own v2
 paragraph, _"instrumental functions carry bars with no lines"_, repeated
@@ -8317,7 +8189,6 @@ MEASURED after: wordless sections run at a median 33 bars against sung
 sections' 18, the same order of magnitude.
 
 ### M-71 · the planner could not draw a placement or an overlapping cover, so two whole classes of song had probability exactly zero from the front door `CLOSED` 2026-08-23
-
 **Owner's ruling**, the same one M-67 closes at the declaration layer, aimed
 here at the generator: _"if that end rhyme focus is poisoning our planning as
 severely as it appears to be then I think it needs to be converted into just
@@ -8403,7 +8274,6 @@ function.
 `structures`' species; `slots` reaches `relations`, which opens a file).
 
 ### M-72 · the harness had two entrances and only one of them had a front half `CLOSED` 2026-08-23
-
 **The owner's ruling, verbatim:** _"If an LLM writes something we go through
 all of the steps, if a human does it then we need the same steps. If a person
 puts unstructured song in for example, then the beginning must be to structure
@@ -8461,7 +8331,6 @@ compared, because a silently truncated web reads as a song with fewer
 relations in it.
 
 ### M-73 · every measurement was supposed to end in a gate, and nothing could say how many did `CLOSED` 2026-08-23
-
 **The owner's standing rule, verbatim:** _"I fucking hate seeing prose, flags,
 notes, etc... and ... you refuse to finish your work unless we have the
 appropriate gate, band, constraint, etc..."_
@@ -8538,7 +8407,6 @@ a finding added without a gate MOVES A NUMBER instead of joining a list nobody
 reads.
 
 ### M-74 · the placement work made every mandate import `relations`, and the sentence promising it would not was left standing `OPEN` — sized 2026-08-23
-
 **Found while closing M-73**, by asking `quality/counters.py` which public
 symbols nothing references and then chasing the one it named in
 `quality/slots.py`. Not a correctness defect and not a gate: a documented
@@ -8595,7 +8463,6 @@ nothing precisely BECAUSE of the finding above: the import this call needs was
 already being paid on every mandate.
 
 ### M-75 · the shape locks are silenced by appending ONE short section, which is the cheat they were written to catch `CLOSED` — sized and closed 2026-08-23
-
 **The owner's anecdote, verbatim:** _"I've seen this system say something to
 the order of 'oh I can't use only quatrains' and then immediately it made all
 quatrains and ended with a 2 line outro which, technically satisfied it but
@@ -8663,7 +8530,6 @@ are in it: the duck threshold is exactly ten sections, and the populations it
 covers are 73.5% of the corpus and 48.5% of the planner's own draws.
 
 ### M-76 · the code graph's advertised token saving does not reproduce here, and it cannot see the half of this architecture that matters `CLOSED` 2026-08-23
-
 **The owner asked** whether graphify and Obsidian would raise a progress rate
 that had fallen to hour-plus tasks, having read that they pair well with
 Claude Code. The tools were evaluated rather than adopted on the pitch.
@@ -8755,7 +8621,6 @@ nothing; a vault REPLACING them would trade the only property that has kept
 this record honest.
 
 ### M-77 · the 44 undecidable finding codes, decided — and 39 of them were never undecided `CLOSED` 2026-08-23
-
 **The owner's instruction**, after reading M-73's measurement: _"do the 44
 undecidable codes."_ Done. The count is **0**, and the honest account of how it
 got there has two halves that must not be merged, because merging them would
@@ -8888,7 +8753,6 @@ purpose. But 47 is the real size of the owner's complaint, and it is a
 question for a person, per code, which is what this census exists to put.
 
 ### M-78 · the rule that decides note-vs-flag for 51 of 71 codes is not a doctrine, and has been cited as one 22 times `OPEN` — sized 2026-08-23
-
 **Found by the owner asking a one-line question** while M-77's disposition
 table was being written: _"did you say that we have a doctrine contradicting
 the rest of them? are you saying that doctrine 6 says just wrote prose?"_ The
@@ -8971,7 +8835,6 @@ someone else's footnote. **Nothing is changed until that is ruled**, because a
 doctrine number is the owner's vocabulary and not a session's.
 
 ### M-79 · the first end-to-end run: the pipeline stops at WRITE, because nothing checks that a plan is writable `OPEN` — measured 2026-08-23
-
 **The owner's instruction**, after asking what the shortest line to a finished
 song is: _"yes, run it."_ One song, end to end, through the real verbs, nothing
 done by hand. **It did not reach the WRITE step**, and the reason is
@@ -9084,7 +8947,6 @@ coverage lever and the SPEC is the defect lever"_ — one level out: **the
 pipeline is the defect lever, and there is no pipeline.**
 
 ### M-80 · the plan-time joint satisfiability gate — every layer legal, the conjunction unheld `CLOSED` — built 2026-08-23
-
 **The owner's instruction, in four words**: _"build the plan-time joint
 satisfiability gate."_ M-79 named the shape and `capacity.ADOPTED_MAX_GROUP`
 was the one instance of it: a plan-time refusal on the CONJUNCTION, before a
@@ -9215,7 +9077,6 @@ are about what a plan should PREFER, and this gate is about what it may not
 ASK.
 
 ### M-81 · a plan can be satisfiable and still unsingable: the sampler did not sample the envelope it declares, and the envelope was in the wrong unit `CLOSED` — measured 2026-08-23, (A) and (B) both closed the same day
-
 **FOUND BY RUNNING THE PIPELINE AGAIN AFTER `M-80` CLOSED**, which is what the
 gate was for: with every plan now writability-gated, the next thing in the way
 is visible. Seed 108 is one of the two plans in 600 whose SHAPE is a song —
@@ -9643,7 +9504,6 @@ entry. Two instruments in two hours catching two different ways of putting
 a record in the wrong shape.
 
 ### M-82 · the seed sweep was the last private instrument, and it is a verb now `CLOSED` — 2026-08-23
-
 **The owner's ruling, in four words: _"make it a verb."_** Asked what stood
 between the harness and a written song, the answer was one thing, and it was
 not a capability — it was that producing a song required an instrument the
@@ -9751,7 +9611,6 @@ on 2026-08-23 with this entry — the ladder ~~137~~ -> ~~138~~ -> 139 -> 140 is
 recorded across `M-81` and `M-75`, and this is its last step in this sitting.
 
 ### M-83 · `plan --fill` was the SIXTH holdout from the one definition of sung text `CLOSED` — 2026-08-23
-
 **FOUND BY WRITING A SONG THROUGH THE PIPELINE, which is the only way it could
 be found** — the owner asked for a song, the planner's own `writer_brief` said
 _"Write a song: 18 lines, 6 sections"_ and printed a `[INTRO — 3 lines — 3 bars
@@ -9815,7 +9674,6 @@ reader to the inline `open()` reds it.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~140~~ -> **141**.
 
 ### M-84 · `HOOK_DOES_NOT_RECUR` gates now, and promoting it exposed a planner that could not satisfy it `CLOSED` — 2026-08-23
-
 **THE OWNER'S RULING, in five words: _"promote HOOK_DOES_NOT_RECUR to a flag."_**
 `M-77` produced the disclosed-only roster precisely so that _"should this one
 gate?"_ is asked of each code BY A PERSON rather than answered by whoever last
@@ -9902,7 +9760,6 @@ the flag family as a DECLARED SET rather than a count (~~`== ["HOOK_ABSENT"]`~~)
 keeping its original intent that a new finding must not drift into the family.
 
 ### M-85 · the section header's apparatus is gated, `SHARED_SUFFIX` is pursued, and `TITLE_NOT_IN_HOOK` is refused ON EVIDENCE `PARTIAL` — 2026-08-23
-
 **THREE THINGS FROM ONE SITTING, and the first was found by the owner reading
 a chat message rather than a file.**
 
@@ -10012,7 +9869,6 @@ explaining a fixture move is not a regression on the entry, and nothing in
 `M-90`'s subject, and it is OPEN there rather than answered here.
 
 ### M-86 · `TITLE_NOT_IN_HOOK` gates, on reaffirmation against the number `CLOSED` — 2026-08-23
-
 **THE OWNER RULED TWICE, AND THE SECOND TIME IS THE ONE THAT COUNTS.** `M-85`
 recorded a REFUSAL to promote this code and put a measurement behind it: over
 `corpus/song/eng_*`, of **8,667 songs carrying a declared `--- TITLE:`, 5,867
@@ -10059,7 +9915,6 @@ DECLARED SET, so a fourth cannot drift in; the five convention locks beside
 them are asserted still notes, so promoting three did not open the family.
 
 ### M-87 · the sweep gained the two coordinates a hook needs, because `M-84` made one askable `CLOSED` — 2026-08-23
-
 **FOUND BY WRITING THE NEXT SONG.** `M-84` made `HOOK_DOES_NOT_RECUR` a flag
 and repaired the planner so a hook is only ever declared in a function drawn
 more than once. That changed what a writer must ask the sweep for: a shape
@@ -10107,7 +9962,6 @@ whole-draft flag is covered automatically instead of breaking the section.
 115/0.
 
 ### M-88 · the two-tier ban was enforced in the loop and skippable at the grading verb `CLOSED` — 2026-08-23
-
 **FOUND BY THE OWNER ASKING WHY A DELIVERED SONG HAD NOT BEEN RUN THROUGH
 `revise`.** The first answer is a confession: the session skipped it. The
 second is the defect, and it is the larger one — **nothing stopped it.**
@@ -10167,7 +10021,6 @@ that had one rather than a gate to codes that had none — which is why the
 census is right not to move and why the hole was invisible to it.
 
 ### M-89 · the CI workflow had been INVALID YAML, so every run started zero jobs `CLOSED` — 2026-08-24
-
 **FOUND BY BEING TOLD TO GET CI GREEN.** `.github/workflows/ci.yml` did not
 parse. A `- name:` scalar was unquoted and contained `": "` — which YAML reads
 as a nested mapping — at line 1690, column 1983: _"rather than a sitting
@@ -10342,7 +10195,6 @@ of an OPEN entry). The citation stands and is still a pointer, not a guard —
 §41 grades RULE 3 and would grade it identically under either answer.
 
 ### M-91 · the tier-1 prompt said "end word" whatever the mandate bound `CLOSED` — 2026-08-24
-
 **FOUND BY `test_propose.py` §7c, EXACTLY AS THAT GUARD PREDICTED.** It
 checks that its `Brief` stand-in has grown every field the real dataclass has,
 on the argument that _"a stub that has not grown the field renders the new
@@ -10378,7 +10230,6 @@ asserted, not assumed, by `test_propose.py` §7c, which also requires the
 `end`/`head`/`T4` prompts to be three DISTINCT strings.
 
 ### M-92 · the check that catches an unparseable workflow could not run in CI `CLOSED` — 2026-08-24
-
 **`M-89` SHIPPED §43 WITH `import yaml` AND THE RUNNER HAS NO PyYAML.** The
 check went green on a developer machine that happened to carry the package and
 raised `ModuleNotFoundError` at module level in `verbs (1)`, so **shard 1 died

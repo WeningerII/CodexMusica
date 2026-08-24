@@ -1745,13 +1745,23 @@ def test_modal_rhyme_fires_on_a_passing_pair():
 #: stems: 15 pairs, all homeoteleuton, and `SHARED_SUFFIX.locations` comes
 #: back [1,1,1,1,1,2,2,2,2,3,3,3,4,4,5] -- one entry per PAIR, which is
 #: exactly the shape that printed line 1's paragraph six times.
+#: SIX `-ing` LINES WHOSE STEMS PAIRWISE DO NOT RHYME — rebuilt 2026-08-24
+#: with the M-90 ruling. The witness was `singing`/`running`/`ringing`/
+#: `burning`/`swinging`/`turning`, and under the ruling most of its pairs
+#: correctly STOP firing: `sing`/`ring` and `burn`/`turn` rhyme without the
+#: `-ing`, so the ending is not the whole of the rhyme there. The fan-out fell
+#: from 5x to 3x and §16's `worst >= 4` went red — the witness got weaker, not
+#: the dedupe. `sing`/`walk`/`burn`/`hope`/`point`/`read` is the repair:
+#: no two of them rhyme, so all 15 mandated pairs fire and every line appears
+#: 5x, which is a STRONGER witness than the original. Asserted, not assumed —
+#: check 1 below reads the count off the floor.
 SUFFIX_PILEUP = [
     "the kettle on the windowsill is singing",
-    "a neighbour up the stairwell keeps on running",
-    "the bell above the chapel door is ringing",
+    "a neighbour up the stairwell keeps on walking",
     "the letter in my coat pocket is burning",
-    "the shutter in the alleyway is swinging",
-    "the engine of the last express is turning",
+    "the sailor at the harbour wall is hoping",
+    "the compass in the captain's hand is pointing",
+    "the schoolboy by the window keeps on reading",
 ]
 SUFFIX_PILEUP_SCHEME = "AAAAAA"
 
