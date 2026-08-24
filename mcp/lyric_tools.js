@@ -42,6 +42,30 @@ const MAX_WORD_CHARS = 40;
 const MAX_LINES = 64; // the planner envelope's own total_lines ceiling
 const MAX_LINE_CHARS = 200;
 const MAX_MANDATE_CHARS = 400;
+// THE SWEEP WINDOW, DERIVED AGAINST THE TIGHTER OF THE TWO CLOCKS. This
+// connector kills a subprocess at SUBPROCESS_TIMEOUT_MS (90s) but the MCP
+// SDK's own DEFAULT_REQUEST_TIMEOUT_MSEC is 60_000, nothing here emits the
+// progress notifications that would reset it, and a cancelled request does
+// NOT free the serial python queue -- so the client gives up first and the
+// box stays blocked. 60s is the budget, not 90s; deriving against the looser
+// clock is the flattering direction.
+//
+// Budget = 60s minus the lexicon load this connector already declares on the
+// deploy target (~10s) = 50s of planning. MEASURED here, warm: 128 seeds in
+// 4.2s and 512 in 15.1s, i.e. ~1.5s fixed and ~28.5ms marginal per seed. 512
+// seeds is 14.6s of planning, which absorbs a deploy box ~3.4x slower than
+// this one before the client's clock runs out.
+//
+// AND THE BOUND IS PAGINATION, NOT TRUNCATION, because a plan is a pure
+// function of its seed: sweep(1..900) is exactly sweep(1..512) union
+// sweep(512..900) and the three counts add. The two acceptance rates this
+// repo has actually banked are 23/899 (stay_awake) and 6/699
+// (carry_it_over); at the HARDER of those, 0.86%, a 512-seed window holds at
+// least one acceptance 98.8% of the time, so one call usually answers.
+const MAX_SWEEP_SEEDS = 512;
+const MAX_WANTS = 12; // = |SWEEP_MEASURES| + |SWEEP_SETS| + |SWEEP_ORDERS|
+const MAX_WANT_CHARS = 80;
+
 const SUBPROCESS_TIMEOUT_MS = 90_000;
 const MAX_OUTPUT_BYTES = 4 * 1024 * 1024;
 
@@ -73,6 +97,13 @@ const MANDATE_RE = new RegExp(`^${MEMBER_RE}(,${MEMBER_RE})*(;${MEMBER_RE}(,${ME
 // catalog rows are spelled `Kalevala-alliteration-(strong,-closed-syllable)`
 // — and the leading character of the whole string is pinned to a label so
 // nothing input-shaped can grow into a flag.
+// A predicate is NAME<=N / NAME>=N / NAME=VALUE. The NAME vocabulary is
+// CLOSED and lives in quality/plan.py; it is deliberately NOT restated here,
+// because the harness refuses an undeclared name BY NAME and prints the whole
+// table, and a second copy of a closed vocabulary in JS is the copy that goes
+// stale (doctrine 1). This is charset only, and the first character is pinned
+// to a letter so nothing input-shaped can grow into a flag.
+const WANT_RE = /^[a-z][a-z_]{0,23}(<=|>=|=)[A-Za-z0-9_,-]{1,48}$/;
 const STRUCTURES_RE =
   /^[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. \/-]{1,64}(,[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. \/-]{1,64})*$/;
 const RETURNS_RE = /^[0-9]+(,[0-9]+)*(;[0-9]+(,[0-9]+)*)*$/;
@@ -261,6 +292,33 @@ function planArgs(a) {
 // Pull the rendered song out of `plan --fill`'s report by its own banner.
 // Extraction, not re-implementation: the text between the banner and the
 // WROTE line is render_song's output byte for byte (pinned in test.mjs).
+// THE SWEEP'S THREE COUNTS, READ OUT OF THE VERB'S OWN LINE. Extraction, not
+// re-implementation — this file re-derives no judgement. The ACCEPTED list
+// the report prints is TRUNCATED AT 40 by the harness, so a field called
+// `accepted` parsed from it would be silently incomplete: the count and the
+// shown list are separate keys and the truncation is disclosed.
+function extractSweep(stdout) {
+  const c = stdout.match(
+    /swept (\d+)\s+planned (\d+)\s+REFUSED by the planner (\d+)\s+accepted (\d+)/
+  );
+  if (!c) return null;
+  const listed = stdout.match(/own bias\):\n\s*([0-9, ]*)/);
+  const shown = listed
+    ? listed[1]
+        .split(',')
+        .map((x) => Number(x.trim()))
+        .filter((x) => Number.isFinite(x))
+    : [];
+  return {
+    swept: Number(c[1]),
+    planned: Number(c[2]),
+    planner_refused: Number(c[3]),
+    accepted_count: Number(c[4]),
+    accepted_shown: shown,
+    accepted_truncated: /\.\.\. and \d+ more/.test(stdout),
+  };
+}
+
 function extractRender(stdout) {
   const m = stdout.match(/THE SONG, PERFORMANCE ORDER:\n\n([\s\S]*?)\n\s*WROTE /);
   return m ? m[1].trimEnd() : null;
@@ -360,6 +418,34 @@ export const LYRIC_TOOL_SCHEMAS = {
     functions: functionsField,
     title: titleField,
     draft: draftField,
+  },
+  lyric_sweep: {
+    seed_from: z
+      .number()
+      .int()
+      .min(0)
+      .max(2147483000)
+      .describe(
+        'First seed of the window, inclusive. Non-negative: a sweep range is spelled LO-HI and a negative LO cannot be spelled.'
+      ),
+    count: z
+      .number()
+      .int()
+      .min(1)
+      .max(MAX_SWEEP_SEEDS)
+      .describe(
+        `How many consecutive seeds to plan (1-${MAX_SWEEP_SEEDS}). The window is BOUNDED so one call answers inside the client's request timeout; sweeps COMPOSE exactly — a plan is a pure function of its seed, so calling again with seed_from = next_seed_from continues the search and the counts add. This is pagination, not truncation.`
+      ),
+    want: z
+      .array(z.string().max(MAX_WANT_CHARS))
+      .max(MAX_WANTS)
+      .optional()
+      .describe(
+        "What you want the shape to be, as predicates: NAME<=N, NAME>=N, or NAME=VALUE. The vocabulary is CLOSED and an undeclared name refuses BY NAME, printing the whole table. Counts (answer <=, >=, =): lines, sections, lines_per_section (smallest SUNG section), group (deepest rhyme group), bars_per_line, beats_per_line, slots_per_line, hook (line number, 0 if none), returns (how many verbatim-return classes), pins_per_line (most words any line is bound at). Function-valued (answer '=' only, comma-separated names): uses=verse,chorus means BOTH were drawn; before=verse,chorus means the first verse precedes the first chorus, and is FALSE rather than an error if either is absent. Omit entirely and every seed that plans is accepted, which is honest and useless — there is no default, because a sweep does not decide what you want."
+      ),
+    form: formField,
+    lines: linesField,
+    functions: functionsField,
   },
   lyric_check: {
     lines: draftField,
@@ -560,6 +646,73 @@ export function registerLyricTools(server, tool) {
 
   tool(
     server,
+    'lyric_sweep',
+    {
+      title: 'Find seeds whose shape matches what you want',
+      description:
+        'A plan is a pure function of its seed, so choosing a seed is choosing a shape — and guessing one is how a ' +
+        'writer ends up accepting whatever the first seed drew. Declare what you want (predicates over coordinates ' +
+        'the plan already discloses) and this plans a WINDOW of consecutive seeds and returns the ones that hold. ' +
+        'IT DOES NOT RANK: the accepted seeds come back in seed order and carry no score, because a floor enforces ' +
+        'and does not order the region it already passed, and an argmax over a swept parameter is biased toward ' +
+        'whichever end has more freedom. Pick from the list on taste, then call lyric_plan with that seed. THREE ' +
+        'COUNTS, NEVER SUMMED: swept, planned, planner_refused, and accepted — planner_refused is the planner ' +
+        'turning a request down (an unbuildable roster, an unattainable length) and is NOT a predicate rejecting a ' +
+        'shape, so `planned 0` means the DECLARATION is unbuildable and the predicates never ran. The window is ' +
+        `bounded at ${MAX_SWEEP_SEEDS} seeds per call and sweeps compose exactly — continue from next_seed_from ` +
+        'and add the counts. ~15s at the full window.',
+      inputSchema: LYRIC_TOOL_SCHEMAS.lyric_sweep,
+    },
+    async (a) => {
+      const from = a.seed_from;
+      const n = a.count;
+      const wants = (a.want || []).map((w) => String(w).trim()).filter(Boolean);
+      for (const w of wants)
+        if (!WANT_RE.test(w))
+          throw refuse(
+            `'${w}' is not a predicate — write NAME<=N, NAME>=N or NAME=VALUE ` +
+              "(the names are listed in this tool's `want` description, and an " +
+              'undeclared one refuses by name with the whole table)'
+          );
+      // HI IS EXCLUSIVE in the harness (`range(lo, hi)`), so composing the
+      // range HERE from a count rather than asking the caller for an endpoint
+      // removes the off-by-one from the caller entirely — and makes the
+      // CLI's lenient spellings (`5--10`, `1-2-3`, a negative LO) unreachable
+      // by construction rather than by validation.
+      const args = ['plan', `--sweep=${from}-${from + n}`];
+      if (wants.length) args.push(`--want=${wants.join(';')}`);
+      if (a.form) args.push(`--form=${a.form}`);
+      if (a.lines != null) args.push(`--lines=${a.lines}`);
+      if (a.functions) args.push(`--functions=${a.functions}`);
+      const r = await runVerb(args);
+      const v = verdictOf(r);
+      const counts = extractSweep(r.stdout);
+      if (counts) {
+        Object.assign(v, counts);
+        v.window = { seed_from: from, count: n, next_seed_from: from + n };
+        // TWO MEANINGS THE CONNECTOR OWNS, both derived from the printed
+        // counts and neither invented. The harness's own headline on an
+        // empty accepted set blames the PREDICATES — which is wrong when the
+        // planner refused every seed, a case reachable with no predicate
+        // declared at all.
+        if (counts.planned === 0)
+          v.window_meaning =
+            'the planner refused EVERY seed in this window, so the DECLARATION ' +
+            '(form / lines / functions) is unbuildable — the predicates never ran, ' +
+            'and this says nothing about them.';
+        else if (r.code === 2)
+          v.window_meaning =
+            'no seed in THIS WINDOW satisfies every predicate. That is a statement ' +
+            'about these seeds, not about the declaration: continue from ' +
+            'next_seed_from, or drop a predicate — the acceptance rate above is the ' +
+            'measurement that says which.';
+      }
+      return v;
+    }
+  );
+
+  tool(
+    server,
     'lyric_check',
     {
       title: 'Check pasted lyrics against a declared rhyme plan',
@@ -647,7 +800,9 @@ export function registerLyricTools(server, tool) {
 export const LYRIC_INSTRUCTIONS =
   ' BESIDE THE RECIPES, AND NEVER TOUCHING THEM, the lyric_* family is a songwriting ' +
   'harness (plan and grade; it writes no words — the writer is you or the user). The working order that ' +
-  'produces one-draft songs: (1) lyric_screen candidate end-word pairs BEFORE writing — a banned pair ' +
+  'produces one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare what you ' +
+  'want the shape to be and it returns the seeds that hold, in seed order, unranked; ' +
+  '(1) lyric_screen candidate end-word pairs BEFORE writing — a banned pair ' +
   '(HOMEOTELEUTON/MODAL_RHYME) is an answer, pick different words; (2) lyric_plan with a declared integer ' +
   'seed for a complete shape (sections, meter — often not 4/4, rhyme plan, hook slot) and write to its ' +
   'brief, honoring the verbatim returns — declare the `title` here if the song has one, because an ' +

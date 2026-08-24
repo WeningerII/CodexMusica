@@ -76,6 +76,7 @@ Beside the recipes — and never touching them — the `lyric_*` family plans an
 | `lyric_plan` | A declared integer seed → a complete, reproducible song shape: sections with bars/meter/pickup, rhyme plan, verbatim returns, hook slot, and a writer brief. Writes no words. |
 | `lyric_grade` | The whole-song verdict: re-derives the plan from the same seed, fills it with the draft, grades rhyme/returns/meter/functions/floor, and returns the rendered song (performance order, bracket headers) + the report. |
 | `lyric_check` | Grade pasted lyrics without a plan: declare a letter scheme (`ABAB`) or line-number groups (`1,3;2,4`), optional verbatim-return classes. |
+| `lyric_sweep` | Find seeds whose shape matches a declared want (`lines>=16`, `uses=bridge`, `before=verse,chorus`) over a bounded window of consecutive seeds. Returns seeds in SEED ORDER and does not rank; three counts never summed; windows compose, so continue from `next_seed_from`. |
 | `lyric_types` | The 9-axis rhyme-type coordinate for one word pair (taxonomy; for usable-or-banned use `lyric_screen`). |
 
 Every tool is read-only and deterministic. State is passed in and out — Claude

@@ -42,6 +42,7 @@ call: the pronunciation lexicon loads per process).
 | `lyric_plan` | A declared integer seed → a complete, reproducible song shape: sections with bars/meter/pickup, rhyme plan, verbatim returns, hook slot, and a writer brief. Writes no words. Optional declarations — `relation`, `functions`, `title` — are CARRIED, never sampled. |
 | `lyric_grade` | The whole-song verdict: re-derives the plan from the same seed AND the same declarations (a declaration dropped here grades a different plan), fills it with the draft, grades rhyme/returns/meter/functions/floor, and returns the rendered song (performance order, bracket headers) + the report. |
 | `lyric_check` | Grade pasted lyrics without a plan: declare a letter scheme (`ABAB`) or line-number groups (`1,3;2,4`), optional verbatim-return classes, an optional `relation`, and an optional per-group `structures` declaration (`B:kalevala-alliteration`) whose uncalibrated disclosure rides in the verdict. |
+| `lyric_sweep` | Find seeds whose shape matches a declared want (`lines>=16`, `uses=bridge`, `before=verse,chorus`) over a bounded window of consecutive seeds. Returns seeds in SEED ORDER and does not rank; three counts never summed; windows compose, so continue from `next_seed_from`. |
 | `lyric_types` | The 9-axis rhyme-type coordinate for one word pair (taxonomy; for usable-or-banned use `lyric_screen`). |
 
 ## Quick start

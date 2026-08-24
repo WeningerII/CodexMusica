@@ -514,14 +514,14 @@ try {
   const lyric = tools.filter((t) => t.name.startsWith('lyric_'));
   assert.deepEqual(
     lyric.map((t) => t.name).sort(),
-    ['lyric_check', 'lyric_grade', 'lyric_plan', 'lyric_screen', 'lyric_types'],
-    'the five lyric tools are advertised'
+    ['lyric_check', 'lyric_grade', 'lyric_plan', 'lyric_screen', 'lyric_sweep', 'lyric_types'],
+    'the six lyric tools are advertised'
   );
   for (const t of lyric) {
     assert.equal(t.annotations?.readOnlyHint, true, `${t.name} read-only`);
     assert.equal(t.annotations?.openWorldHint, false, `${t.name} closed-world`);
   }
-  console.log('  ok  lyric family advertised: 5 tools, read-only, closed-world');
+  console.log('  ok  lyric family advertised: 6 tools, read-only, closed-world');
   passed++;
 
   // LIVE: stage the lexicon exactly as the Docker build does, then drive
@@ -803,6 +803,104 @@ try {
       'plan verdict block reports exit 0'
     );
     console.log('  ok  lyric_plan live: two blocks — the report plain, the verdict JSON');
+    passed++;
+
+    // `lyric_sweep` — the seed search, bounded. The claims this tool makes
+    // that nothing else checks are: the bound is real, the windows COMPOSE
+    // (which is what makes a bound pagination rather than truncation), the
+    // vocabulary description is a checked restatement rather than a second
+    // copy, and it does not rank.
+    // The predicate is TIGHT on purpose: the harness truncates its printed
+    // ACCEPTED list at 40, so a loose want makes the spanning window show
+    // fewer seeds than its two halves and the membership check below would
+    // fail on the truncation rather than on composition. 240 seeds accept 28
+    // here, under the cap. The truncation itself is checked separately.
+    const sweepA = await callText('lyric_sweep', {
+      seed_from: 1,
+      count: 120,
+      want: ['lines>=24', 'lines<=28'],
+    });
+    assert.equal(sweepA.swept, 120, 'the window is the one that was asked for');
+    assert.ok(sweepA.accepted_count > 0, 'and it found seeds, so this check is not vacuous');
+    assert.equal(sweepA.window.next_seed_from, 121, 'the next window starts where this one ended');
+    const sweepB = await callText('lyric_sweep', {
+      seed_from: 121,
+      count: 120,
+      want: ['lines>=24', 'lines<=28'],
+    });
+    const sweepAB = await callText('lyric_sweep', {
+      seed_from: 1,
+      count: 240,
+      want: ['lines>=24', 'lines<=28'],
+    });
+    // COMPOSITION IS THE LOAD-BEARING CLAIM. A plan is a pure function of
+    // its seed, so two windows must equal the one that spans them — counts
+    // and membership both. Without this the bound is just truncation with a
+    // friendly name.
+    assert.equal(
+      sweepA.accepted_count + sweepB.accepted_count,
+      sweepAB.accepted_count,
+      'two windows accept exactly what the window spanning them accepts'
+    );
+    assert.equal(sweepA.planned + sweepB.planned, sweepAB.planned, '...and the planned counts add');
+    assert.deepEqual(
+      [...sweepA.accepted_shown, ...sweepB.accepted_shown],
+      sweepAB.accepted_shown,
+      '...and the seeds themselves are the same, in the same order'
+    );
+    // IT DOES NOT RANK, and the report says so in its own words.
+    assert.ok(
+      sweepAB.report.includes('does NOT rank') && sweepAB.report.includes('doctrine 19'),
+      'the report carries its own not-ranked disclosure'
+    );
+    for (const k of ['best', 'top', 'score', 'ranked'])
+      assert.ok(!(k in sweepAB), `the verdict carries no '${k}' key`);
+    assert.deepEqual(
+      [...sweepAB.accepted_shown].sort((x, y) => x - y),
+      sweepAB.accepted_shown,
+      'and the accepted seeds are in seed order'
+    );
+    // THE BOUND IS REAL AND NAMED.
+    const over = await client.callTool({
+      name: 'lyric_sweep',
+      arguments: { seed_from: 1, count: 513 },
+    });
+    assert.ok(over.isError, 'a window past the ceiling is refused');
+    // THE VOCABULARY DESCRIPTION IS CHECKED, NOT TRUSTED. The harness prints
+    // the whole closed table when it refuses an undeclared name; every name
+    // it lists must appear in this tool's own `want` description, or the
+    // description is a second copy that has drifted.
+    const bogusWant = await callText('lyric_sweep', {
+      seed_from: 1,
+      count: 4,
+      want: ['zzz<=1'],
+    });
+    assert.equal(bogusWant.exit_code, 2, 'an undeclared predicate name REFUSES');
+    const declared = (bogusWant.report.match(/Declared: ([^.]*)\./) || [])[1];
+    assert.ok(declared, 'and the refusal prints the whole declared vocabulary');
+    // Read the ADVERTISED schema, not the module's export: what a client
+    // sees is what has to agree with the harness, and the SDK rewrites the
+    // schema on the way out.
+    const sweepTool = tools.find((t) => t.name === 'lyric_sweep');
+    const described = sweepTool.inputSchema.properties.want.description || '';
+    const missing = declared
+      .split(',')
+      .map((x) => x.trim())
+      .filter((x) => x && !described.includes(x));
+    assert.deepEqual(
+      missing,
+      [],
+      `every declared predicate name appears in the tool description (missing: ${missing})`
+    );
+    // TRUNCATION IS DISCLOSED, NOT SILENT. A no-predicate window accepts
+    // every seed that plans, so the printed list is cut at 40 and the count
+    // is not — a field holding 40 of N with no flag would be the silent
+    // substitution this repo refuses.
+    const wide = await callText('lyric_sweep', { seed_from: 1, count: 64 });
+    assert.equal(wide.accepted_count, 64, 'with no predicate every seed that plans is accepted');
+    assert.ok(wide.accepted_shown.length < wide.accepted_count, 'and the printed list is shorter');
+    assert.equal(wide.accepted_truncated, true, '...which the verdict says out loud');
+    console.log('  ok  lyric_sweep live: bounded, composes, and does not rank');
     passed++;
   }
 } catch (err) {
