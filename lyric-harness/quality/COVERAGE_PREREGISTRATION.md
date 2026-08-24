@@ -1711,6 +1711,8 @@ IS a return has no backtrack at all. `PairBrief.anchor_calls` carries the
 anchor's obligations to `render_pair`, which prints them under **AND THE
 ANCHOR HAS GROUPS OF ITS OWN**.
 
+**RENAMED 2026-08-24 (`MISSING.md` M-105), CONTENT UNCHANGED:** `PairBrief.anchor_calls` is `GroupBrief.anchors[i].calls` and `render_pair` is `render_group` — tier 2 rewrites a WHOLE group now, so one anchor became a list. Every claim above holds per member.
+
 **Three counts, never summed** (doctrine 79). `tried` is pairs actually put to
 a proposer; `pinned` is groups REFUSED unsearched; `starved` is groups whose
 anchor conjunction came back EMPTY. The last one was unsayable before the

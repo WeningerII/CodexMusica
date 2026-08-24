@@ -10767,3 +10767,122 @@ untouched. (2) `verify` exits **0 for ACCEPTED and REJECTED alike**, so a
 caller reading `exit_code` would hear "no flag stands" about a revision the
 harness just refused; `accepted` carries the verdict and the meaning says to
 read it.
+
+### M-105 · tier 2 could only backtrack a PAIR, and 41.6% of the planner's groups are bigger `CLOSED`
+Filed and closed 2026-08-24, by the owner's instruction *"build the joint
+backtrack"*, after a traced investigation into where this harness looks at
+rhyme pairs one at a time.
+
+**FOUR LAYERS, AND ONLY ONE OF THEM WAS THE DEFECT.** The question put was
+whether the tree evaluates rhyme pairs one at a time where it could evaluate
+them together, and at how many layers. Traced:
+
+  1. **`Mandate.pairs()` expands a group into `C(k, 2)` pairs**
+     (`quality/schemes.py:1624`). NOT a defect and not changed: "these five
+     lines rhyme" MEANS all ten pairings hold, so the expansion is the
+     definition (doctrine 2).
+  2. **`grade()` writes one verdict per pair** (`quality/revise.py:999`).
+     Also correct, and required: `pairs_mandated`/`pairs_judged`/
+     `pairs_refused` are three counts that are never summed (doctrine 79),
+     which needs a per-pair verdict to count.
+  3. **The SEARCH was already joint.** `Reviser.joint_field(calls)`
+     (`quality/revise.py:3027`) returns the INTERSECTION over every call a
+     line must answer, and `modal_field(w)` is literally
+     `joint_field([w])` — one definition, not two.
+  4. **The tier-2 BACKTRACK was pairwise, and that was the whole finding.**
+     `quality/loop.py`'s `two_member = [... if len(mem) == 2]` filtered every
+     group of three or more out of the search and reported them as
+     `too_large`.
+
+**MEASURED over 300 plans, 7,641 declared groups:** sizes run 2 to 19;
+**3,177 groups (41.6%) have three or more members**, and those carry
+**28,912 of the 33,376 mandated pairs (86.6%)**. Tier 2 refused all of them.
+So the loop's only backtrack could not reach the population the planner spends
+most of its declarations on — and the refusal was correctly disclosed the
+whole time, which is why nothing went red.
+
+**THE BOUND WAS TRUE WHEN IT WAS WRITTEN AND STOPPED BEING TRUE UNDER IT.**
+`loop.py`'s own argument was that a group of three or more *"would mean
+rewriting the whole group at once to keep its members mutually rhyming, which
+is a bigger and structurally different move"*. The first half is right and the
+second is wrong: rewriting the group at once IS how the members stay mutually
+rhyming, and it is one more member on the same search. The bound dates from
+when a group came from an RGS partition and was almost always a pair; it
+stopped fitting when placement drawing (M-71/M-80) began emitting overlapping
+covers at a median of 26 groups a song, and nothing re-asked it.
+
+**THE CLIQUE IS BY CONSTRUCTION, NOT BY A SECOND PREDICATE.** Members are
+assigned IN ORDER and each one's field is searched against the pivot's word
+PLUS every sibling already placed, so `joint_field`'s intersection is what
+holds the group together. There is no separate mutual-rhyme check to drift
+from the grader's own predicate (doctrine 1), and the loop's own proposal
+cannot be a set of words that each rhyme with the pivot and not with each
+other.
+
+**THE COST IS LINEAR IN THE GROUP.** `backtrack_width` pivot words are walked;
+under each, the first `k-2` members take their field's own top candidate and
+only the LAST is walked over `backtrack_width` — `width * (k - 1)` searches
+plus `width ** 2` proposals, never `width ** k`. **At k=2 that is byte-identical
+to the pair search it replaces**, which `test_loop.py` §16 pins by measuring
+two widths on one fixture rather than asserting it.
+
+**WHAT A WRITER IS OWED, AND IT IS DISCLOSED RATHER THAN RELIED ON.** A
+writer reaching past the loop's own pick into a late member's `offered` field
+is picking from a field computed against every member BEFORE it and none
+after, so two late picks can answer the pivot and not each other.
+`GroupBrief`'s docstring and the rendered prompt both say so; `verify()`
+grades the whole group and rejects such a set with a named reason, which
+reaches the next attempt through `reasons`. An offer never put through the
+check that judges the answer cannot report its own impossibility (doctrine 48,
+defect F).
+
+**THE CONTRACT MOVED RATHER THAN GREW A SECOND SHAPE.** A pair is a group of
+two, so two contracts for one move would be two statements of it (doctrine 1):
+`PairBrief` -> **`GroupBrief` + `AnchorSlot`** (one per non-pivot member),
+`propose_pair(pair_brief) -> (str, str)` ->
+**`propose_group(group_brief) -> tuple[str, ...]`**, one line per member in
+`GroupBrief.members` order. `render_pair`/`parse_pair` ->
+`render_group`/`parse_group`, and the response marker is **`L<n>:`** rather
+than `PIVOT:`/`ANCHOR:` — two role names cannot address a group of nine, and
+numbering the roles would put the role-to-line mapping back in the reader's
+head, which is the guess that parser exists to refuse. The
+`--propose=replay:`/`defer:` record is three parallel lists
+(`members`/`texts`/`words`) whose lengths must agree; a ragged record REFUSES.
+**THE BREAK SET WAS ENUMERATED AND MOVED IN THE SAME COMMIT**, the way the
+2026-08-14 arity break was: `default_propose_group`,
+`quality/propose.py`'s `ModelProposer`, `lyric_harness.py`'s two file-backed
+proposers, and the inline proposers in
+`test_loop.py`/`test_propose.py`/`test_verbs.py`.
+
+**AND THE STUB WAS SPLICING THE WRONG WORD.** `default_propose_pair` called
+`swap_end_word` on both lines unconditionally, so a group binding at a line's
+HEAD was answered by rewriting its ENDING — the identical defect
+`swap_at_slot` was written to close for tier 1 on 2026-08-23, still live in
+tier 2 because the two stubs were repaired a lot apart. `default_propose_group`
+splices at each member's own `Mandate.slot_of`. Invisible on any end-bound
+group, which is every group written before `Mandate.loci` existed, and that is
+exactly why it survived.
+
+**THE TEST THAT PINNED THE BOUND IS REWRITTEN IN PLACE, NOT ADDED BESIDE.**
+`test_loop.py` §6 was `test_tier2_declines_a_group_of_three_or_more` and
+asserted `tried == 0`, `"3+ members"` in the reason, and `res.lines ==
+TOO_LARGE` — a correct, precisely-measured record of a REFUSAL. A test that
+measures a bound precisely is what keeps it. It is now
+`test_tier2_rewrites_a_group_of_three_or_more` on the SAME fixture, and its
+load-bearing assertion is that **every member of the group moved in ONE
+accepted attempt** (`set(touched) == {1, 2, 5}`) — a backtrack that moved one
+line and left its siblings would break the group it was rewriting. MEASURED on
+that fixture: the loop went from `0 tried, draft untouched` to SUCCESS in 3
+rounds.
+
+**THE DISCLOSURE REPLACES A REFUSAL AND IS CHECKED AS ONE** (doctrine 20). The
+sentence *"N group(s) have 3+ members and were NOT attempted"* is gone and a
+size census stands in its place — a reader told the old sentence for weeks is
+owed the news in the same place, and a silent widening reads exactly like a
+tier that never had the bound. §6 asserts the phrase "were NOT attempted"
+appears in no tier-2 reason on that draft.
+
+**WHAT THIS DOES NOT CLOSE.** `_anchor_obligations` still drops EVERY group
+containing the pivot when computing a member's outside obligations, not only
+the one being rewritten. That is pre-existing, unexamined here, and is not
+claimed clean.

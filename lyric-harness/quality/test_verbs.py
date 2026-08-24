@@ -2096,7 +2096,7 @@ def test_song_exits_on_a_flag():
 def test_propose_selects_who_writes_the_line():
     print("\n17. `revise --propose=stub|replay:PATH|call:MODULE:FACTORY` — "
           "who writes the line, declared (BUILT 2026-08-14)")
-    # `revise_loop` has taken `propose=`/`propose_pair=` since it was
+    # `revise_loop` has taken `propose=`/`propose_group=` since it was
     # written and nothing on this command line could hand it one, so the only
     # reachable proposer was `default_propose` -- a single-word splice that
     # produces "waded through the on". Same built-and-tested-was-not-the-
@@ -2170,7 +2170,7 @@ def test_propose_selects_who_writes_the_line():
              "text": "the cattle waded past the muddy lawn"},
             {"line": 4, "attempt": 0,
              "text": "past every fence the county left to rot"}],
-            "propose_pair": []}, fh)
+            "propose_group": []}, fh)
     # rc 3 since 2026-08-17 — same fixture, same mandatory-pursuit residue.
     rc, out, err = run("revise", quat, "ABAB", f"--propose=replay:{rp}",
                        expect_rc=3)
@@ -2197,7 +2197,7 @@ def test_propose_selects_who_writes_the_line():
           and "Traceback" not in err, out.strip().splitlines()[:1])
     empty = os.path.join(d, "empty.json")
     with open(empty, "w") as fh:
-        json.dump({"propose": [], "propose_pair": []}, fh)
+        json.dump({"propose": [], "propose_group": []}, fh)
     rc, out, _ = run("revise", quat, "ABAB", f"--propose=replay:{empty}",
                      expect_rc=2)
     check("a replay recording NOTHING refuses rather than reporting the "

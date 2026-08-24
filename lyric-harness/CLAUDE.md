@@ -1085,9 +1085,9 @@ loud. `quality/test_meter_bands.py` sections 9–10.
 **THE LOOP IS AUTOMATED: quality/loop.py, tests in test_loop.py.**
 `brief`/`verify` graded one round at a time by hand; `revise_loop(reviser,
 lines, mandate, ...)` drives them to convergence. It still never writes: text
-generation is a `propose`/`propose_pair` callable the caller supplies, and
-the one shipped here (`swap_end_word`, a single-word splice) exists to prove
-the loop's OWN control flow, not to write a good line.
+generation is a `propose`/`propose_group` callable the caller supplies, and
+the one shipped here (`swap_at_slot`, a single-word splice at the binding
+site) exists to prove the loop's OWN control flow, not to write a good line.
 
 **THE TWO SEAMS ARE NOT ONE SEAM, AND TIER 2's WAS STARVED — FIXED
 2026-08-14.** `propose(brief, lines, attempt, reasons=None, whole=())` and
@@ -1180,11 +1180,42 @@ BACKTRACKS: `Brief.joint_conflict` means `joint_field` already searched the
 complete pool and nothing answers every group a pivot is in at once —
 retrying tier 1 there is re-running a search already proven empty, which is
 why the brief says "the mandate, not the line, is what needs revising."
-Tier 2 instead revises the WORD of the line the pivot has to match, bounded
+Tier 2 instead revises the WORD of the line the pivot has to match, ~~bounded
 to a two-line group (the pivot and one anchor): a group of three or more
 would mean rewriting the whole group to keep it mutually rhyming, which is a
 bigger move this tier does not attempt, and it says so rather than pretend
-the search was wider than it was.
+the search was wider than it was.~~
+**AND THE BOUND IS GONE — IT REWRITES THE WHOLE GROUP AT ONCE (2026-08-24,
+`MISSING.md` M-105, owner's instruction *"build the joint backtrack"*).** The
+struck sentence has two halves and only the first is true: rewriting the group
+at once IS how its members stay mutually rhyming, and that is one more member
+on the same search, not a bigger move. **MEASURED over 300 plans, 7,641
+declared groups: 3,177 (41.6%) have three or more members, carrying 28,912 of
+the 33,376 mandated pairs (86.6%)** — every one of them refused by this tier,
+correctly disclosed, which is why nothing ever went red. The bound dates from
+when a group came from an RGS partition and was almost always a pair; it
+stopped fitting when placement drawing (M-71/M-80) began emitting overlapping
+covers at a median of 26 groups a song, and nothing re-asked it. **THE CLIQUE
+IS BY CONSTRUCTION**: members are assigned IN ORDER, each one's field searched
+against the pivot's word PLUS every sibling already placed, so `joint_field`'s
+intersection holds the group together and there is no second mutual-rhyme
+predicate to drift from the grader (doctrine 1). **THE COST IS LINEAR IN THE
+GROUP** — `width * (k - 1)` searches and `width ** 2` proposals, never
+`width ** k` — and **at k=2 it is byte-identical to the pair search it
+replaces**, pinned by `test_loop.py` §16 measuring two widths on one fixture.
+The contract moved rather than grew a second shape (a pair IS a group of two,
+doctrine 1): `PairBrief` -> `GroupBrief` + `AnchorSlot`, `propose_pair` ->
+`propose_group(group_brief) -> tuple[str, ...]` in `GroupBrief.members` order,
+`render_pair`/`parse_pair` -> `render_group`/`parse_group`, and the response
+marker is `L<n>:` because two role names cannot address a group of nine.
+**AND THE STUB WAS SPLICING THE WRONG WORD**: `default_propose_pair` called
+`swap_end_word` unconditionally, so a HEAD-bound group was answered by
+rewriting its ENDING — the defect `swap_at_slot` closed for tier 1 on
+2026-08-23, still live here because the two stubs were repaired a lot apart.
+`test_loop.py` §6 was the test that PINNED the bound (`tried == 0`, `"3+
+members"`, draft untouched) and is rewritten in place on the same fixture: its
+load-bearing assertion is now that EVERY member moved in ONE accepted attempt,
+and that draft goes from `0 tried, untouched` to SUCCESS in 3 rounds.
 
 THREE STOP CONDITIONS, and they are not one thing. SUCCESS — nothing left
 carries a flag finding **ON A LINE. That qualifier is load-bearing and was

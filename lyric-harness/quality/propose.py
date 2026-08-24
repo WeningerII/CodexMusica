@@ -18,7 +18,7 @@ caller-supplied `callable(prompt: str) -> str`. That is what makes the whole
 path testable with a stub and no API key, which is the point — the network
 adapter is a separate file and is not imported from here.
 
-PURE, STDLIB-ONLY, DETERMINISTIC. `render_line`/`render_pair` read their
+PURE, STDLIB-ONLY, DETERMINISTIC. `render_line`/`render_group` read their
 arguments and nothing else: no clock, no environment, no filesystem, no
 randomness. The same inputs render byte-identically, across processes and
 across `PYTHONHASHSEED` — anything that arrives as a `set` is sorted before
@@ -60,7 +60,7 @@ not this line's to fix, because `verify()` reads them and a proposer that
 cannot see them is being graded on a rubric it cannot read.
 
 PARSING REFUSES RATHER THAN GUESSES. A wrong parse writes a line the writer
-never wrote into a draft nobody re-reads, so `parse_line`/`parse_pair`
+never wrote into a draft nobody re-reads, so `parse_line`/`parse_group`
 return `None` on anything ambiguous — two bare lines with no marker, two
 `LINE:` markers, two fenced blocks, a fence and a marker that disagree, a
 quote-wrapped line. Every one of those refusals is enumerated in
@@ -71,7 +71,7 @@ reports, and a corrupted line is not.
 
 import re
 
-__all__ = ["render_line", "parse_line", "render_pair", "parse_pair",
+__all__ = ["render_line", "parse_line", "render_group", "parse_group",
            "ModelProposer", "OFFERED_SHOWN"]
 
 #: How many words of the offered candidate field are printed. A cap on what
@@ -85,9 +85,12 @@ OFFERED_SHOWN = 40
 _FENCE_RE = re.compile(r"```[^\n]*\n(.*?)```", re.DOTALL)
 _LINE_MARK_RE = re.compile(r"^[ \t]*LINE[ \t]*:[ \t]*(.*)$",
                            re.IGNORECASE | re.MULTILINE)
-_PIVOT_MARK_RE = re.compile(r"^[ \t]*PIVOT[ \t]*:[ \t]*(.*)$",
-                            re.IGNORECASE | re.MULTILINE)
-_ANCHOR_MARK_RE = re.compile(r"^[ \t]*ANCHOR[ \t]*:[ \t]*(.*)$",
+#: THE TIER-2 MARKER SINCE 2026-08-24 — one per member, keyed on the LINE
+#: NUMBER rather than on a role name. `PIVOT:`/`ANCHOR:` could address two
+#: lines and a group can have nineteen; numbering the roles would put the
+#: role-to-line mapping back in the reader's head, which is the guess
+#: `parse_group` exists to refuse.
+_MEMBER_MARK_RE = re.compile(r"^[ \t]*L[ \t]*(\d+)[ \t]*:[ \t]*(.*)$",
                              re.IGNORECASE | re.MULTILINE)
 #: A model that was shown `L3: text` answers `L3: text` often enough that
 #: leaving the label in would write "L3:" into the draft — a corruption
@@ -696,28 +699,36 @@ def _clean_single(blob):
     return row
 
 
-def render_pair(pair_brief):
-    """-> str, the tier-2 prompt: rewrite a PIVOT and its ANCHOR together.
+def render_group(group_brief):
+    """-> str, the tier-2 prompt: rewrite a PIVOT and its whole GROUP.
 
     TIER 2 IS A DIFFERENT REQUEST AND THE PROMPT SAYS SO. Tier 2 fires only
     where `joint_field` has ALREADY proved that no single word answers every
     group the pivot is in at once (`Brief.joint_conflict`) — so asking for a
     better word for the pivot is asking for a search that has come back
     empty to come back full. What is wrong is the MANDATE: the pivot is
-    required to rhyme with two lines that do not rhyme with each other. The
-    move is to change the word of the line the pivot has to match, which
-    changes what the pivot must satisfy, and it needs BOTH lines back.
+    required to rhyme with lines that do not rhyme with each other. The move
+    is to change the words of the lines the pivot has to match, which changes
+    what the pivot must satisfy, and it needs EVERY member of that group back.
 
-    `pair_brief` is duck-typed on `quality.loop.PairBrief`: `pivot_line_no`,
-    `pivot_text`, `pivot_word`, `pivot_offered`, `anchor_line_no`,
-    `anchor_text`, `anchor_word`, `anchor_offered`, `label`, `members`,
-    `brief`, `lines`, `attempt`, `reasons`, `whole`, `anchor_calls`. Read by
-    `getattr` with defaults, and `quality.loop` is NOT imported (it imports
-    proposers; the dependency runs one way).
+    ~~`render_pair`, and TWO lines.~~ **`render_group` SINCE 2026-08-24
+    (`MISSING.md` M-105).** The two-line shape was the tier's bound, not the
+    request's: 41.6% of the groups this planner draws have three or more
+    members and none of them could be asked for. What is unchanged is every
+    argument the pair prompt made — the situation block, the offered/required
+    split, the four enforced rules — because a pair is a group of two and the
+    request never differed (doctrine 1).
 
-    `pivot_word`/`anchor_word` ARE THE PROPOSAL — the words the loop's own
-    search is asking for on THIS attempt — and NOT what the two lines
-    currently end on. That is `PairBrief`'s own declared reading and this
+    `group_brief` is duck-typed on `quality.loop.GroupBrief`: `pivot_line_no`,
+    `pivot_text`, `pivot_word`, `pivot_offered`, `anchors` (each with
+    `line_no`, `text`, `word`, `offered`, `calls`), `label`, `members`,
+    `brief`, `lines`, `attempt`, `reasons`, `whole`. Read by `getattr` with
+    defaults, and `quality.loop` is NOT imported (it imports proposers; the
+    dependency runs one way).
+
+    `pivot_word` AND EACH ANCHOR'S `word` ARE THE PROPOSAL — the words the
+    loop's own search is asking for on THIS attempt — and NOT what the lines
+    currently end on. That is `GroupBrief`'s own declared reading and this
     function had the opposite one until 2026-08-14, which put a false
     statement about the draft into every tier-2 prompt a real run produced.
     Nothing here derives the CURRENT end word: it is `lyric_harness.`
@@ -725,15 +736,12 @@ def render_pair(pair_brief):
     a second spelling of "the end word" would be the same defect one layer
     down. The line text is printed in full instead.
     """
-    g = pair_brief
+    g = group_brief
     p_no = getattr(g, "pivot_line_no", 0)
-    a_no = getattr(g, "anchor_line_no", 0)
     p_text = getattr(g, "pivot_text", "")
-    a_text = getattr(g, "anchor_text", "")
     p_word = getattr(g, "pivot_word", "")
-    a_word = getattr(g, "anchor_word", "")
     p_off = _ordered(getattr(g, "pivot_offered", ()) or ())
-    a_off = _ordered(getattr(g, "anchor_offered", ()) or ())
+    anchors = _ordered(getattr(g, "anchors", ()) or ())
     label = getattr(g, "label", "?")
     members = _ordered(getattr(g, "members", ()) or ())
     lines = _ordered(getattr(g, "lines", ()) or ())
@@ -741,9 +749,13 @@ def render_pair(pair_brief):
     inner = getattr(g, "brief", None)
     decl = getattr(inner, "field_declaration", "field_depth=?, field_band=?")
     findings = _ordered(getattr(inner, "findings", ()) or ())
+    a_nos = [getattr(a, "line_no", 0) for a in anchors]
+    a_list = ", ".join(f"L{n}" for n in a_nos) or "(none)"
+    k = len(members)
 
     out = []
-    out.append(f"REVISE TWO COUPLED LINES — pivot L{p_no}, anchor L{a_no}.")
+    out.append(f"REWRITE A WHOLE RHYME GROUP — {k} coupled line(s): pivot "
+               f"L{p_no}, with {a_list}.")
     out.append("")
     out.append("THE SITUATION, AND IT IS NOT THE ORDINARY ONE")
     out.append(f"  L{p_no} is a PIVOT: it sits in more than one rhyme group "
@@ -755,17 +767,18 @@ def render_pair(pair_brief):
     out.append(f"  So there is no better word for L{p_no} to be found by "
                f"looking harder. The MANDATE is")
     out.append("  what needs revising: this line is required to rhyme with "
-               "two lines that do not rhyme")
+               "lines that do not rhyme")
     out.append("  with each other.")
     out.append("")
-    out.append(f"  The move is to BACKTRACK. Change the end word of "
-               f"L{a_no} — the line L{p_no} has to match")
-    out.append(f"  in group {label} {list(members)} — so that what L{p_no} "
-               f"must satisfy becomes satisfiable, and")
-    out.append(f"  give L{p_no} a word that answers its OTHER group(s). Both "
-               f"lines come back, and they must")
-    out.append("  rhyme with each other, or the group you just rewrote is "
-               "broken instead.")
+    out.append(f"  The move is to BACKTRACK. Change the bound word of every "
+               f"OTHER member of group")
+    out.append(f"  {label} {list(members)} — the lines L{p_no} has to match "
+               f"— so that what L{p_no} must satisfy")
+    out.append(f"  becomes satisfiable, and give L{p_no} a word that answers "
+               f"its OTHER group(s). All {k}")
+    out.append("  lines come back, and they must all rhyme with EACH OTHER, "
+               "or the group you just")
+    out.append("  rewrote is broken instead.")
     out.append("")
 
     out.append("ATTEMPT")
@@ -773,43 +786,46 @@ def render_pair(pair_brief):
                               getattr(g, "reasons", None)))
     out.append("")
 
-    out.append("THE TWO LINES")
+    out.append(f"THE {k} LINES")
     out.append(f"  PIVOT   L{p_no}: {p_text}")
-    out.append(f"  ANCHOR  L{a_no}: {a_text}")
+    for a in anchors:
+        out.append(f"  MEMBER  L{getattr(a, 'line_no', 0)}: "
+                   f"{getattr(a, 'text', '')}")
     out.append("")
 
-    # `pivot_word`/`anchor_word` ARE THE PROPOSAL, NOT THE STATUS QUO, and
-    # this block used to say the opposite. It rendered them as
-    # `(ends on 'mankind')` beside a line ending on "dream" — so on a real
-    # `revise_loop` run the prompt told the writer what each line currently
-    # ended on and was WRONG ON BOTH, then offered the anchor a word
-    # "instead of 'kind'" when the anchor ended on "silver". One field, two
-    # readings, in two modules (doctrine 1); `quality/loop.py`'s `PairBrief`
-    # states the intended one in its own docstring under a heading, and this
-    # is the side that had misread it. NOT repaired by deriving the current
-    # end word here: that is `lyric_harness.raw_final_token`'s one job, this
-    # module imports `re` and nothing else on purpose, and a second spelling
-    # of "the end word" is the defect one layer down. The line text is
-    # already printed directly above — a writer can see where it ends —
-    # so the fix is to label the two words for what they are and claim
-    # nothing about what is being replaced.
-    if p_word or a_word:
-        out.append("THE PAIR THE GRADER'S OWN SEARCH IS PROPOSING")
-        if p_word:
-            out.append(f"  L{p_no} to end on {p_word!r}")
-        if a_word:
-            out.append(f"  L{a_no} to end on {a_word!r}")
-        out.append("  Offered, not required — they are the pair the "
+    # THE `word` FIELDS ARE THE PROPOSAL, NOT THE STATUS QUO, and this block
+    # used to say the opposite. It rendered them as `(ends on 'mankind')`
+    # beside a line ending on "dream" — so on a real `revise_loop` run the
+    # prompt told the writer what each line currently ended on and was WRONG
+    # ON BOTH. One field, two readings, in two modules (doctrine 1);
+    # `quality/loop.py`'s `GroupBrief` states the intended one in its own
+    # docstring under a heading, and this is the side that had misread it.
+    # NOT repaired by deriving the current end word here: that is
+    # `lyric_harness.raw_final_token`'s one job, this module imports `re` and
+    # nothing else on purpose, and a second spelling of "the end word" is the
+    # defect one layer down. The line text is already printed directly above
+    # — a writer can see where it ends — so the fix is to label the words for
+    # what they are and claim nothing about what is being replaced.
+    proposed = [(p_no, p_word)] + [(getattr(a, "line_no", 0),
+                                    getattr(a, "word", "")) for a in anchors]
+    if any(w for _n, w in proposed):
+        out.append("THE SET THE GRADER'S OWN SEARCH IS PROPOSING")
+        for n, w in proposed:
+            if w:
+                out.append(f"  L{n} to bind on {w!r}")
+        out.append("  Offered, not required — they are the set the "
                    "mechanical search believes makes")
-        out.append("  the mandate hold. Ending elsewhere is allowed; the "
-                   "grader re-derives the findings")
-        out.append("  either way and rejects a pair that does not actually "
-                   "hold.")
+        out.append("  the mandate hold, and they are MUTUALLY rhyming by "
+                   "construction: each was")
+        out.append("  searched against the pivot's word AND every member "
+                   "listed above it. Binding")
+        out.append("  elsewhere is allowed; the grader re-derives the "
+                   "findings either way and rejects")
+        out.append("  a set that does not actually hold.")
         out.append("")
 
-    out.append(f"THE WHOLE DRAFT (context — only L{p_no} and L{a_no} may "
-               f"change)")
-    out.extend(_draft_block(lines, focus=(p_no, a_no)))
+    out.append(f"THE WHOLE DRAFT (context — only {', '.join(f'L{n}' for n in members)} may change)")
+    out.extend(_draft_block(lines, focus=tuple(members)))
     out.append("")
 
     out.append(f"WHAT THE GRADER FOUND ON L{p_no} ({len(findings)})")
@@ -830,78 +846,90 @@ def render_pair(pair_brief):
                else ["  (not supplied)"])
     out.append("")
 
-    out.append(f"PIVOT OPTIONS — words L{p_no} could end on once L{a_no} "
-               f"moves")
+    out.append(f"PIVOT OPTIONS — words L{p_no} could bind on once the rest "
+               f"of the group moves")
     if p_off:
         out.extend(_offered_block(p_off, decl))
     else:
         out.append("  (none offered)")
     out.append("")
 
-    # THE ANCHOR'S OWN MANDATE. This block did not exist until 2026-08-17 and
-    # its absence was defect F: the prompt printed THE RHYME MANDATE ON THE
-    # PIVOT, told the writer to move the anchor's end word, and never said
-    # what else that word had to answer. MEASURED — a writer that took the
-    # only correct move available to it was rejected for a flag on a line the
-    # prompt had not mentioned.
-    a_calls = list(getattr(g, "anchor_calls", ()) or ())
-    if a_calls:
-        shown = ", ".join(repr(w) for w in a_calls)
-        out.append(f"AND THE ANCHOR HAS GROUPS OF ITS OWN — L{a_no} is a "
-                   f"pivot too")
-        out.append(f"  Besides group {label} {list(members)}, L{a_no} must "
-                   f"also answer: {shown}.")
-        out.append(f"  Those groups are NOT being rewritten, so they still "
-                   f"hold: whatever L{a_no} moves")
-        out.append(f"  to has to answer them as well, and a new end word "
-                   f"that breaks one of them is a")
-        out.append(f"  new FLAG under item 4 below. The ANCHOR OPTIONS list "
-                   f"already has them folded in.")
+    # EACH MEMBER'S OWN MANDATE. This block did not exist until 2026-08-17
+    # and its absence was defect F: the prompt printed THE RHYME MANDATE ON
+    # THE PIVOT, told the writer to move the other line's bound word, and
+    # never said what else that word had to answer. MEASURED — a writer that
+    # took the only correct move available to it was rejected for a flag on a
+    # line the prompt had not mentioned. It is per MEMBER now, because one
+    # anchor was the tier's bound and not the shape of the question.
+    for a in anchors:
+        a_no = getattr(a, "line_no", 0)
+        a_off = _ordered(getattr(a, "offered", ()) or ())
+        a_calls = list(getattr(a, "calls", ()) or ())
+        if a_calls:
+            shown = ", ".join(repr(w) for w in a_calls)
+            out.append(f"AND L{a_no} HAS GROUPS OF ITS OWN — it is a pivot "
+                       f"too")
+            out.append(f"  Besides group {label} {list(members)}, L{a_no} "
+                       f"must also answer: {shown}.")
+            out.append(f"  Those groups are NOT being rewritten, so they "
+                       f"still hold: whatever L{a_no} moves")
+            out.append(f"  to has to answer them as well, and a new bound "
+                       f"word that breaks one of them is")
+            out.append(f"  a new FLAG under item 4 below. The options list "
+                       f"below already has them folded in.")
+            out.append("")
+        out.append(f"L{a_no} OPTIONS — words L{a_no} could bind on instead "
+                   f"of what it binds on now")
+        if a_off:
+            out.extend(_offered_block(a_off, decl))
+        elif a_calls:
+            out.append(f"  (none offered — NOTHING answers group {label} "
+                       f"{list(members)} AND L{a_no}'s own group(s) at once, "
+                       f"so the conjunction")
+            out.append("   is unsatisfiable at this line and the MANDATE is "
+                       "what needs revising, not the words)")
+        else:
+            out.append("  (none offered)")
         out.append("")
 
-    out.append(f"ANCHOR OPTIONS — words L{a_no} could end on instead of what "
-               f"it ends on now")
-    if a_off:
-        out.extend(_offered_block(a_off, decl))
-    elif a_calls:
-        out.append(f"  (none offered — NOTHING answers group {label} "
-                   f"{list(members)} AND L{a_no}'s own group(s) at once, so "
-                   f"the conjunction")
-        out.append("   is unsatisfiable at this line and the MANDATE is what "
-                   "needs revising, not the words)")
-    else:
-        out.append("  (none offered)")
-    out.append("")
-    out.append("  Both lists are OFFERED, not required, and the two picks "
-               "are COUPLED: whatever the")
-    out.append(f"  pivot ends on and whatever the anchor ends on must rhyme "
-               f"with each other, because")
-    out.append(f"  group {label} {list(members)} still holds after the "
-               f"rewrite.")
+    out.append(f"  Every list is OFFERED, not required, and the {k} picks "
+               f"are COUPLED: whatever each")
+    out.append(f"  line binds on must rhyme with what every OTHER member "
+               f"binds on, because group")
+    out.append(f"  {label} {list(members)} still holds after the rewrite. "
+               f"The offered lists are ORDERED —")
+    out.append(f"  each was searched against the pivot's word and every "
+               f"member listed BEFORE it, and")
+    out.append(f"  against none listed after — so the loop's own picks above "
+               f"are mutually rhyming,")
+    out.append(f"  and reaching past them into two late lists at once is the "
+               f"one way to pick a set")
+    out.append(f"  that answers the pivot and not itself.")
     out.append("")
 
     out.append("WHAT THE GRADER ENFORCES ON YOUR ANSWER")
-    out.append(f"  1. TWO lines back — a new L{p_no} and a new L{a_no}. The "
-               f"draft stays {len(lines)} lines.")
-    out.append(f"  2. ONLY L{p_no} and L{a_no} change. Every other line must "
-               f"come back byte-identical, or the")
-    out.append("     revision is rejected outright.")
+    out.append(f"  1. {k} line(s) back — one for each of "
+               f"{', '.join(f'L{n}' for n in members)}. The draft stays "
+               f"{len(lines)} lines.")
+    out.append(f"  2. ONLY {', '.join(f'L{n}' for n in members)} change. "
+               f"Every other line must come back")
+    out.append("     byte-identical, or the revision is rejected outright.")
     # ITEM 3, MADE HONEST ABOUT ITS OWN SCOPE — 2026-08-16. It said "neither
     # end word may be a forbidden modal one for its own line", which reads as
-    # a live constraint on both. It is not, for the PIVOT: tier 2 fires only
-    # on `Brief.joint_conflict`, and that flag is `len(calls) > 1 and not
-    # candidates and not forbidden_modal` — so the pivot's modal head is
-    # EMPTY BY CONSTRUCTION every time this prompt is rendered, and item 3
-    # could only ever bind the anchor. Neither list is printed here at all.
+    # a live constraint on all of them. It is not, for the PIVOT: tier 2
+    # fires only on `Brief.joint_conflict`, and that flag is `len(calls) > 1
+    # and not candidates and not forbidden_modal` — so the pivot's modal head
+    # is EMPTY BY CONSTRUCTION every time this prompt is rendered, and item 3
+    # could only ever bind the other members. No list is printed here at all.
     # Stated rather than quietly left, because a rule a writer cannot see and
     # that cannot fire is decoration (doctrine 48).
-    out.append("  3. Neither end word may be the most predictable answer in "
-               "its own field (doctrine 9),")
+    out.append("  3. No bound word may be the most predictable answer in its "
+               "own field (doctrine 9),")
     out.append(f"     and this is checked only for a word a line MOVES TO. "
                f"For L{p_no} the modal head is")
     out.append("     empty by construction — this tier runs precisely "
                "because nothing answered all of")
-    out.append(f"     its groups — so in practice item 3 binds L{a_no}.")
+    out.append(f"     its groups — so in practice item 3 binds {a_list}.")
     out.append("  4. The rewrite must FIX something. It may not trade one "
                "defect for another: new FLAG")
     out.append("     findings anywhere in the draft reject it (new NOTES do "
@@ -909,53 +937,80 @@ def render_pair(pair_brief):
     out.append("")
 
     out.append("HOW TO ANSWER")
-    out.append("  Exactly two lines, each with its marker, and nothing else:")
+    out.append(f"  Exactly {k} line(s), each with its own line-number "
+               f"marker, and nothing else:")
     out.append("")
-    out.append(f"    PIVOT: <the new L{p_no}>")
-    out.append(f"    ANCHOR: <the new L{a_no}>")
+    for n in members:
+        out.append(f"    L{n}: <the new L{n}>")
     out.append("")
-    out.append("  Both markers are required — two bare lines are discarded "
-               "unread, because which one")
-    out.append("  is the pivot would be a guess, and guessing wrong writes "
-               "each line into the other's")
-    out.append("  place. No quotation marks, no line numbers, no commentary.")
+    out.append("  Every marker is required and each may appear once. A "
+               "response missing one, or")
+    out.append("  repeating one, or carrying a marker for a line outside "
+               "the group, is discarded")
+    out.append("  unread — which line is which would be a guess, and "
+               "guessing wrong writes each")
+    out.append("  line into another's place. No quotation marks, no "
+               "commentary.")
     return "\n".join(out)
 
 
-def parse_pair(text):
-    """-> `(pivot_line, anchor_line)`, or `None`.
+def parse_group(text, members):
+    """-> one line per member, in `members` order, or `None`.
 
-    BOTH MARKERS ARE REQUIRED. `parse_line` will read a bare line because
-    there is only one slot to put it in; here there are two, and their order
-    is not something a response format can be trusted to have got right.
-    Writing the anchor into the pivot's slot produces a draft that is
-    plausible, wrong, and completely invisible to `verify()` — both targeted
-    lines changed, which is exactly what was asked for. So a response with
-    no `PIVOT:`/`ANCHOR:` markers is refused rather than ordered by guess.
+    EVERY MARKER IS REQUIRED AND IT IS KEYED ON THE LINE NUMBER.
+    `parse_line` will read a bare line because there is only one slot to put
+    it in; here there are k, and their order is not something a response
+    format can be trusted to have got right. Writing one member into
+    another's slot produces a draft that is plausible, wrong, and completely
+    invisible to `verify()` — every targeted line changed, which is exactly
+    what was asked for.
+
+    ~~`PIVOT:`/`ANCHOR:`.~~ **`L<n>:` SINCE 2026-08-24 (`MISSING.md`
+    M-105).** Two role names cannot address a group of nine, and numbering
+    the roles (`ANCHOR1`, `ANCHOR2`) would put the mapping from role to line
+    back in the reader's head — which is the guess this parser exists to
+    refuse. The line number is the one label that is already unambiguous, and
+    `members` is passed in so the parser knows what it is owed rather than
+    accepting whatever arrived.
 
     Accepts the markers inside a single fenced block. Refuses: a missing
-    marker, a repeated marker, more than one fence, and — through
-    `_clean_single` — a quote-wrapped or empty line on either side.
+    marker, a repeated marker, a marker for a line outside the group, more
+    than one fence, and — through `_clean_single` — a quote-wrapped or empty
+    line anywhere in the set.
     """
     if not isinstance(text, str):
+        return None
+    members = tuple(members or ())
+    if not members:
         return None
     fences = _FENCE_RE.findall(text)
     if len(fences) > 1:
         return None
     body = fences[0] if fences else text
-    piv = _PIVOT_MARK_RE.findall(body)
-    anc = _ANCHOR_MARK_RE.findall(body)
-    if len(piv) != 1 or len(anc) != 1:
+    got = {}
+    for raw_no, payload in _MEMBER_MARK_RE.findall(body):
+        n = int(raw_no)
+        if n in got:
+            # A REPEATED MARKER IS NOT A CORRECTION. Taking the last one
+            # would be this parser deciding which of two answers the writer
+            # meant, on a response format that already failed to follow the
+            # one rule it was given.
+            return None
+        got[n] = payload
+    if set(got) != set(members):
         return None
-    p = _clean_single(piv[0])
-    a = _clean_single(anc[0])
-    if p is None or a is None:
-        return None
-    return p, a
+    out = []
+    for n in members:
+        cleaned = _clean_single(got[n])
+        if cleaned is None:
+            return None
+        out.append(cleaned)
+    return tuple(out)
 
 
 class ModelProposer:
-    """A `propose`/`propose_pair` pair backed by one `callable(prompt) -> str`.
+    """A `propose`/`propose_group` pair backed by one
+    `callable(prompt) -> str`.
 
     NO NETWORK LIVES HERE. `call` is supplied by the caller and is the only
     thing in this path that can touch one — a stub that returns a canned
@@ -964,10 +1019,11 @@ class ModelProposer:
     (section 6, including the case where the grader REJECTS what the stub
     sends back).
 
-    `parse` overrides `parse_line` for tier 1 only. `propose_pair` always
-    uses `parse_pair`: the two responses have different shapes — one line
-    versus two labelled ones — and a single-line parser handed a pair
-    response would return the first of them as if it were the answer.
+    `parse` overrides `parse_line` for tier 1 only. `propose_group` always
+    uses `parse_group`: the two responses have different shapes — one bare
+    line versus k line-number-labelled ones — and a single-line parser handed
+    a group response would return the first of them as if it were the whole
+    answer.
 
     A `call` that returns anything other than a `str`, or a response nothing
     can be parsed out of, yields `None`, which the loop reads as "this
@@ -987,6 +1043,12 @@ class ModelProposer:
                              reasons=reasons)
         return self.parse(self.call(prompt))
 
-    def propose_pair(self, pair_brief):
-        """-> `(new_pivot_text, new_anchor_text)`, or `None`."""
-        return parse_pair(self.call(render_pair(pair_brief)))
+    def propose_group(self, group_brief):
+        """-> one new line per member in `members` order, or `None`.
+
+        `members` is handed to the parser rather than re-derived from the
+        response, so a reply that answers a DIFFERENT set of lines is refused
+        instead of accepted as a group nobody declared (doctrine 20).
+        """
+        return parse_group(self.call(render_group(group_brief)),
+                           getattr(group_brief, "members", ()))
