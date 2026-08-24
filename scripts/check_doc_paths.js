@@ -149,6 +149,14 @@ function candidatePaths(line) {
   const out = [];
   for (let tok of line.split(/[\s`'"()|]+/)) {
     tok = tok.replace(/[.,;:]+$/, '');
+    // A PATH GIVEN AS A FLAG VALUE IS STILL A PATH. `--fill=songs/x.txt` is
+    // one token, and reading it whole made this checker look for a file
+    // literally named `--fill=songs/x.txt` — reporting MISSING on a file that
+    // is right there. This repo documents `--blueprint=`, `--out=`, `--fill=`
+    // and `--subdivision` all over CLAUDE.md, so the next person to write one
+    // hits the identical wall; it is the checker that mis-parses, not the doc
+    // that mis-cites. Strip the flag and judge what it names.
+    tok = tok.replace(/^--[A-Za-z0-9][A-Za-z0-9-]*=/, '');
     if (!tok || PLACEHOLDER_RE.test(tok)) continue;
     if (!EXTS.has(path.extname(tok))) continue;
     if (tok.startsWith('/') || tok.startsWith('http')) continue;
