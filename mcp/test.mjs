@@ -654,6 +654,53 @@ try {
     console.log('  ok  lyric_grade live: two blocks — the song plain, the verdict JSON');
     passed++;
 
+    // `title` REACHES THE PLAN (MISSING.md M-93), and the only shape that
+    // proves it is a DIFFERENCE between runs — accepting a field and
+    // dropping it looks identical from the outside. Three runs, because the
+    // coordinate moves TWO codes in opposite directions: undeclared leaves
+    // the question REFUSED, a title inside the hook answers it YES, and a
+    // title outside the hook answers NO and that answer is a FLAG.
+    //
+    // Every draft line here is `we carry the morning to the <word>` and the
+    // blueprint's hook is the draft line at the plan's own hook slot, so
+    // `carry the morning` is a contiguous run of words inside it under any
+    // seed. Containment is a normalised WORD-subsequence test, not a
+    // substring match, which is why the in-hook title is three whole words.
+    const titleReport = async (title) => {
+      const res = await client.callTool({
+        name: 'lyric_grade',
+        arguments: title === null ? { seed: 55, draft } : { seed: 55, draft, title },
+      });
+      assert.ok(!res.isError, `lyric_grade answered without isError (title=${title})`);
+      return JSON.parse(res.content[1].text);
+    };
+    const noTitle = await titleReport(null);
+    assert.ok(
+      noTitle.report.includes('TITLE_UNDECLARED'),
+      'with no title the question is REFUSED, not answered'
+    );
+    const inHook = await titleReport('carry the morning');
+    assert.ok(
+      !inHook.report.includes('TITLE_UNDECLARED'),
+      'declaring a title REMOVES the refusal — the field is read, not dropped'
+    );
+    assert.ok(
+      !inHook.report.includes('TITLE_NOT_IN_HOOK'),
+      'and a title that is a run of words inside the hook answers YES'
+    );
+    const outOfHook = await titleReport('zzz nowhere');
+    assert.ok(
+      outOfHook.report.includes('TITLE_NOT_IN_HOOK'),
+      'a title outside the hook answers NO'
+    );
+    assert.equal(
+      outOfHook.exit_code,
+      3,
+      'and that answer is a FLAG (M-86) — the connector can now trip it AND fix it'
+    );
+    console.log('  ok  lyric_grade live: --title reaches the plan, both directions');
+    passed++;
+
     // The two-tier ban reaches the verdict as banned_pairs — UNSKIPPABLE
     // disclosure at the one surface with no revise loop. mass/pass is the
     // demonstrative pair: it RHYMES, so it grades exit 0, and it is

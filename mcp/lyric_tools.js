@@ -204,6 +204,12 @@ function planArgs(a) {
   // but not reachable.
   if (a.relation) args.push(`--relation=${a.relation}`);
   if (a.functions) args.push(`--functions=${a.functions}`);
+  // The `=` spelling is mandatory here and not a style choice: the harness's
+  // `--title X` form takes exactly ONE argv token, so a multi-word title is
+  // only reachable through `--title=`. Guarded on truthiness like its two
+  // neighbours -- an empty string must not emit a bare `--title=`, which the
+  // harness reads back as `""`, which is what NOBODY DECLARED already means.
+  if (a.title) args.push(`--title=${a.title}`);
   return args;
 }
 
@@ -259,6 +265,24 @@ const functionsField = z
     'Comma-separated ALLOW-LIST of section functions this song may use, e.g. "verse,chorus,bridge,outro". Checked against each function\'s own definition BEFORE any shape is drawn: asking for a prechorus without a chorus REFUSES, because the word means before-the-chorus. A roster permits, it does not compel — functions the draw did not use are reported. Omit to let the planner use its whole roster.'
   );
 
+// THE TITLE IS THE THIRD OF THAT FAMILY (MISSING.md M-93), and it is the one
+// with TEETH. `grid.hook_findings` asks "is the title in the hook?" and
+// `fill_plan` wrote `"title": ""` into every blueprint the planner has ever
+// built, so the question could only be ANSWERED by editing the planner's own
+// output by hand -- a step in producing a delivered song with no entrance the
+// system owns (standing rule 3). Declaring one moves TWO codes in opposite
+// directions: the `TITLE_UNDECLARED` refusal goes away, and `TITLE_NOT_IN_HOOK`
+// becomes reachable, which has been a FLAG since 2026-08-23 (M-86). So this
+// field can take a grade from exit 0 to exit 3, and the description has to say
+// what containment means or a caller cannot tell why.
+const titleField = z
+  .string()
+  .max(MAX_LINE_CHARS)
+  .optional()
+  .describe(
+    'The song\'s title, CARRIED into the blueprint and never inferred. Declaring one answers "is the title in the hook?" instead of leaving it refused as TITLE_UNDECLARED — and the answer can be NO: TITLE_NOT_IN_HOOK is a FLAG, so a title whose words are not a contiguous run inside the hook line (or the hook inside the title) takes the grade to exit 3. Containment is a normalised WORD-subsequence test in either direction, not a substring match. A title with more words than the hook can never be answered YES by any draft and is refused as TITLE_LONGER_THAN_HOOK rather than charged. Omit and the harness reads exactly as it did before this field existed.'
+  );
+
 const draftField = z
   .array(z.string().max(MAX_LINE_CHARS))
   .min(1)
@@ -281,6 +305,7 @@ export const LYRIC_TOOL_SCHEMAS = {
     lines: linesField,
     relation: relationField,
     functions: functionsField,
+    title: titleField,
   },
   lyric_grade: {
     seed: seedField,
@@ -288,6 +313,7 @@ export const LYRIC_TOOL_SCHEMAS = {
     lines: linesField,
     relation: relationField,
     functions: functionsField,
+    title: titleField,
     draft: draftField,
   },
   lyric_check: {
@@ -357,7 +383,9 @@ export function registerLyricTools(server, tool) {
         'every free choice is disclosed beside the space it was drawn from (meters from a derived cycle grammar — expect 5/8, ' +
         '7/8, 20/8, not always 4/4). It writes NO WORDS: the writer (model or human) writes to the brief, then lyric_grade ' +
         'checks the draft against this same seed. Try a few seeds and pick the shape that sings — the choice of seed is the ' +
-        "writer's taste and the plan's own record. The FIRST content block is the plan report and writer brief: when " +
+        "writer's taste and the plan's own record. Declaring a `title` answers 'is the title in the hook?' instead of " +
+        'leaving it refused — and the answer can be NO, which is a FLAG, so screen the title against the hook line ' +
+        'the way you screen a rhyme pair. The FIRST content block is the plan report and writer brief: when ' +
         'showing the shape, keep the bracket header rows exactly as written (they carry lines/bars/meter/pickup). The ' +
         'second block is the verdict.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_plan,
@@ -386,7 +414,9 @@ export function registerLyricTools(server, tool) {
     {
       title: 'Grade a draft against its plan',
       description:
-        'The whole-song verdict: re-derives the plan from the SAME seed (and form/lines) given to lyric_plan, fills it with ' +
+        'The whole-song verdict: re-derives the plan from the SAME seed and the same declarations given to lyric_plan ' +
+        '(form, lines, relation, functions, title — every one that was declared there must be declared here, or a ' +
+        'DIFFERENT plan is graded), fills it with ' +
         'the draft, and grades — rhyme mandate, verbatim returns, meter fit, section functions, the slop floor. THE FIRST ' +
         'CONTENT BLOCK OF THE RESULT IS THE FINISHED SONG in performance order: when presenting it, reproduce that block ' +
         "CHARACTER FOR CHARACTER, exactly as you present a recipe string — the bracket headers carry each section's " +
@@ -542,7 +572,11 @@ export const LYRIC_INSTRUCTIONS =
   'produces one-draft songs: (1) lyric_screen candidate end-word pairs BEFORE writing — a banned pair ' +
   '(HOMEOTELEUTON/MODAL_RHYME) is an answer, pick different words; (2) lyric_plan with a declared integer ' +
   'seed for a complete shape (sections, meter — often not 4/4, rhyme plan, hook slot) and write to its ' +
-  'brief, honoring the verbatim returns; (3) lyric_grade with the SAME seed and the draft — present the ' +
+  'brief, honoring the verbatim returns — declare the `title` here if the song has one, because an ' +
+  'undeclared title leaves "is the title in the hook?" REFUSED and a declared one that is not a run of ' +
+  'words inside the hook line is a FLAG; (3) lyric_grade with the SAME seed AND THE SAME DECLARATIONS ' +
+  '(form, lines, relation, functions, title — a declaration dropped here grades a different plan) and ' +
+  'the draft — present the ' +
   'rendered song VERBATIM with its bracket headers, then revise the flagged AND banned lines and grade ' +
   'again. THE BAN IS UNSKIPPABLE: a grade verdict with banned_pairs above zero is the harness answering ' +
   'NO — the song is not finished even at exit 0. Replace the banned end words (screen the replacements ' +
