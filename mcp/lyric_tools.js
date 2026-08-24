@@ -63,8 +63,7 @@ const WORD_RE = /^[A-Za-z][A-Za-z''-]*$/;
 // name anyway, and this is the belt on top of that.
 const SLOT_PLACE = '(?:end|endword|head|headrime|line|T[0-9]{1,3})';
 const MEMBER_RE = `[0-9]+(?:\\.${SLOT_PLACE})?`;
-const MANDATE_RE = new RegExp(
-  `^${MEMBER_RE}(,${MEMBER_RE})*(;${MEMBER_RE}(,${MEMBER_RE})*)*$`);
+const MANDATE_RE = new RegExp(`^${MEMBER_RE}(,${MEMBER_RE})*(;${MEMBER_RE}(,${MEMBER_RE})*)*$`);
 // `--returns=` names LINES that are the same line, so a place has no meaning
 // there — a return is a whole line repeated, not a span inside one.
 const RETURNS_RE = /^[0-9]+(,[0-9]+)*(;[0-9]+(,[0-9]+)*)*$/;
@@ -497,9 +496,10 @@ export function registerLyricTools(server, tool) {
         if (hasGroups && !MANDATE_RE.test(a.groups))
           throw refuse(
             "groups must be line numbers like '1,3;2,4', each optionally " +
-            "naming a place in its line — '1,3.head;2,4' binds line 3's " +
-            "FIRST word to line 1's last. Places: end (the default), " +
-            "endword, head, headrime, line, or T<n> for the n-th word");
+              "naming a place in its line — '1,3.head;2,4' binds line 3's " +
+              "FIRST word to line 1's last. Places: end (the default), " +
+              'endword, head, headrime, line, or T<n> for the n-th word'
+          );
         if (a.returns && !RETURNS_RE.test(a.returns))
           throw refuse("returns must be line numbers like '5,13;6,14'");
         const draftPath = path.join(dir, 'draft.txt');

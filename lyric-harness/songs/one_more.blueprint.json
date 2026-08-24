@@ -1,353 +1,306 @@
 {
- "hooks": [
-  "One more, and then I swear that I am gone"
- ],
- "lines": [
-  {
-   "bar": 1,
-   "beat": 1.25,
-   "duration": 3.75,
-   "section": "DROP1",
-   "text": "Lights cut, and the bass came down in a pour"
-  },
-  {
-   "bar": 2,
-   "beat": 1.25,
-   "duration": 3.75,
-   "section": "DROP1",
-   "text": "Half the room gone quiet where the sound tore"
-  },
-  {
-   "bar": 3,
-   "beat": 1.25,
-   "duration": 3.75,
-   "section": "BUILD1",
-   "text": "Hands up. Here it comes again."
-  },
-  {
-   "bar": 4,
-   "beat": 2.0,
-   "duration": 3.0,
-   "section": "TURNAROUND1",
-   "text": "Eyes gone red, ache half crossed with fear"
-  },
-  {
-   "bar": 5,
-   "beat": 2.0,
-   "duration": 3.0,
-   "section": "TURNAROUND1",
-   "text": "Thread the brake, and hold what it will cost"
-  },
-  {
-   "bar": 6,
-   "beat": 1.75,
-   "duration": 3.25,
-   "section": "FALSE_ENDING1",
-   "text": "And that was almost it. Almost."
-  },
-  {
-   "bar": 7,
-   "beat": 2.0,
-   "duration": 3.0,
-   "section": "VERSE1",
-   "text": "I know the road home and I do not take it"
-  },
-  {
-   "bar": 11,
-   "beat": 1.25,
-   "duration": 3.75,
-   "section": "PRECHORUS1",
-   "text": "Somebody counting down behind my teeth"
-  },
-  {
-   "bar": 12,
-   "beat": 1.0,
-   "duration": 4.0,
-   "section": "CHORUS1",
-   "text": "One more, and then I swear that I am gone"
-  },
-  {
-   "bar": 13,
-   "beat": 1.0,
-   "duration": 4.0,
-   "section": "POSTCHORUS1",
-   "text": "Nothing to spare, dry in the mouth again"
-  },
-  {
-   "bar": 14,
-   "beat": 1.0,
-   "duration": 4.0,
-   "section": "POSTCHORUS1",
-   "text": "Down the back stair, morning nigh enough"
-  },
-  {
-   "bar": 15,
-   "beat": 1.25,
-   "duration": 3.75,
-   "section": "TAG1",
-   "text": "Say it again. Say it like you mean it."
-  },
-  {
-   "bar": 16,
-   "beat": 1.75,
-   "duration": 3.25,
-   "section": "VAMP1",
-   "text": "And the room keeps turning on its heel"
-  },
-  {
-   "bar": 17,
-   "beat": 1.25,
-   "duration": 3.75,
-   "section": "PRECHORUS2",
-   "text": "Somebody counting up now, and it's late"
-  },
-  {
-   "bar": 18,
-   "beat": 1.0,
-   "duration": 4.0,
-   "section": "CHORUS2",
-   "text": "One more, and then I swear that I am gone"
-  },
-  {
-   "bar": 19,
-   "beat": 1.5,
-   "duration": 3.5,
-   "section": "HOOK1",
-   "text": "One more, and the light goes grey"
-  },
-  {
-   "bar": 20,
-   "beat": 1.25,
-   "duration": 3.75,
-   "section": "CODA1",
-   "text": "Groan of the crane, heap past quay and dark"
-  },
-  {
-   "bar": 21,
-   "beat": 1.25,
-   "duration": 3.75,
-   "section": "CODA1",
-   "text": "Plea, stone under my hand, the light a creep"
-  },
-  {
-   "bar": 22,
-   "beat": 1.25,
-   "duration": 3.75,
-   "section": "CODA1",
-   "text": "Flee it or wear it. Dawn in the one bare tree"
-  }
- ],
- "sections": [
-  {
-   "bars": 2,
-   "function": "drop",
-   "meter": {
-    "beats": 4,
-    "groups": [
-     2,
-     2
-    ],
-    "unit": 4
-   },
-   "name": "DROP1",
-   "start_bar": 1
-  },
-  {
-   "bars": 1,
-   "function": "build",
-   "meter": {
-    "beats": 4,
-    "groups": [
-     2,
-     2
-    ],
-    "unit": 4
-   },
-   "name": "BUILD1",
-   "start_bar": 3
-  },
-  {
-   "bars": 2,
-   "function": "turnaround",
-   "meter": {
-    "beats": 4,
-    "groups": [
-     2,
-     2
-    ],
-    "unit": 4
-   },
-   "name": "TURNAROUND1",
-   "start_bar": 4
-  },
-  {
-   "bars": 1,
-   "function": "false_ending",
-   "meter": {
-    "beats": 4,
-    "groups": [
-     2,
-     2
-    ],
-    "unit": 4
-   },
-   "name": "FALSE_ENDING1",
-   "start_bar": 6
-  },
-  {
-   "bars": 1,
-   "function": "verse",
-   "meter": {
-    "beats": 4,
-    "groups": [
-     2,
-     2
-    ],
-    "unit": 4
-   },
-   "name": "VERSE1",
-   "start_bar": 7
-  },
-  {
-   "bars": 3,
-   "function": "interlude",
-   "meter": {
-    "beats": 4,
-    "groups": [
-     2,
-     2
-    ],
-    "unit": 4
-   },
-   "name": "INTERLUDE1",
-   "start_bar": 8
-  },
-  {
-   "bars": 1,
-   "function": "prechorus",
-   "meter": {
-    "beats": 4,
-    "groups": [
-     2,
-     2
-    ],
-    "unit": 4
-   },
-   "name": "PRECHORUS1",
-   "start_bar": 11
-  },
-  {
-   "bars": 1,
-   "function": "chorus",
-   "meter": {
-    "beats": 4,
-    "groups": [
-     2,
-     2
-    ],
-    "unit": 4
-   },
-   "name": "CHORUS1",
-   "start_bar": 12
-  },
-  {
-   "bars": 2,
-   "function": "postchorus",
-   "meter": {
-    "beats": 4,
-    "groups": [
-     2,
-     2
-    ],
-    "unit": 4
-   },
-   "name": "POSTCHORUS1",
-   "start_bar": 13
-  },
-  {
-   "bars": 1,
-   "function": "tag",
-   "meter": {
-    "beats": 4,
-    "groups": [
-     2,
-     2
-    ],
-    "unit": 4
-   },
-   "name": "TAG1",
-   "start_bar": 15
-  },
-  {
-   "bars": 1,
-   "function": "vamp",
-   "meter": {
-    "beats": 4,
-    "groups": [
-     2,
-     2
-    ],
-    "unit": 4
-   },
-   "name": "VAMP1",
-   "start_bar": 16
-  },
-  {
-   "bars": 1,
-   "function": "prechorus",
-   "meter": {
-    "beats": 4,
-    "groups": [
-     2,
-     2
-    ],
-    "unit": 4
-   },
-   "name": "PRECHORUS2",
-   "start_bar": 17
-  },
-  {
-   "bars": 1,
-   "function": "chorus",
-   "meter": {
-    "beats": 4,
-    "groups": [
-     2,
-     2
-    ],
-    "unit": 4
-   },
-   "name": "CHORUS2",
-   "start_bar": 18
-  },
-  {
-   "bars": 1,
-   "function": "hook",
-   "meter": {
-    "beats": 4,
-    "groups": [
-     2,
-     2
-    ],
-    "unit": 4
-   },
-   "name": "HOOK1",
-   "start_bar": 19
-  },
-  {
-   "bars": 3,
-   "function": "coda",
-   "meter": {
-    "beats": 4,
-    "groups": [
-     2,
-     2
-    ],
-    "unit": 4
-   },
-   "name": "CODA1",
-   "start_bar": 20
-  }
- ],
- "title": "one more"
+  "hooks": ["One more, and then I swear that I am gone"],
+  "lines": [
+    {
+      "bar": 1,
+      "beat": 1.25,
+      "duration": 3.75,
+      "section": "DROP1",
+      "text": "Lights cut, and the bass came down in a pour"
+    },
+    {
+      "bar": 2,
+      "beat": 1.25,
+      "duration": 3.75,
+      "section": "DROP1",
+      "text": "Half the room gone quiet where the sound tore"
+    },
+    {
+      "bar": 3,
+      "beat": 1.25,
+      "duration": 3.75,
+      "section": "BUILD1",
+      "text": "Hands up. Here it comes again."
+    },
+    {
+      "bar": 4,
+      "beat": 2.0,
+      "duration": 3.0,
+      "section": "TURNAROUND1",
+      "text": "Eyes gone red, ache half crossed with fear"
+    },
+    {
+      "bar": 5,
+      "beat": 2.0,
+      "duration": 3.0,
+      "section": "TURNAROUND1",
+      "text": "Thread the brake, and hold what it will cost"
+    },
+    {
+      "bar": 6,
+      "beat": 1.75,
+      "duration": 3.25,
+      "section": "FALSE_ENDING1",
+      "text": "And that was almost it. Almost."
+    },
+    {
+      "bar": 7,
+      "beat": 2.0,
+      "duration": 3.0,
+      "section": "VERSE1",
+      "text": "I know the road home and I do not take it"
+    },
+    {
+      "bar": 11,
+      "beat": 1.25,
+      "duration": 3.75,
+      "section": "PRECHORUS1",
+      "text": "Somebody counting down behind my teeth"
+    },
+    {
+      "bar": 12,
+      "beat": 1.0,
+      "duration": 4.0,
+      "section": "CHORUS1",
+      "text": "One more, and then I swear that I am gone"
+    },
+    {
+      "bar": 13,
+      "beat": 1.0,
+      "duration": 4.0,
+      "section": "POSTCHORUS1",
+      "text": "Nothing to spare, dry in the mouth again"
+    },
+    {
+      "bar": 14,
+      "beat": 1.0,
+      "duration": 4.0,
+      "section": "POSTCHORUS1",
+      "text": "Down the back stair, morning nigh enough"
+    },
+    {
+      "bar": 15,
+      "beat": 1.25,
+      "duration": 3.75,
+      "section": "TAG1",
+      "text": "Say it again. Say it like you mean it."
+    },
+    {
+      "bar": 16,
+      "beat": 1.75,
+      "duration": 3.25,
+      "section": "VAMP1",
+      "text": "And the room keeps turning on its heel"
+    },
+    {
+      "bar": 17,
+      "beat": 1.25,
+      "duration": 3.75,
+      "section": "PRECHORUS2",
+      "text": "Somebody counting up now, and it's late"
+    },
+    {
+      "bar": 18,
+      "beat": 1.0,
+      "duration": 4.0,
+      "section": "CHORUS2",
+      "text": "One more, and then I swear that I am gone"
+    },
+    {
+      "bar": 19,
+      "beat": 1.5,
+      "duration": 3.5,
+      "section": "HOOK1",
+      "text": "One more, and the light goes grey"
+    },
+    {
+      "bar": 20,
+      "beat": 1.25,
+      "duration": 3.75,
+      "section": "CODA1",
+      "text": "Groan of the crane, heap past quay and dark"
+    },
+    {
+      "bar": 21,
+      "beat": 1.25,
+      "duration": 3.75,
+      "section": "CODA1",
+      "text": "Plea, stone under my hand, the light a creep"
+    },
+    {
+      "bar": 22,
+      "beat": 1.25,
+      "duration": 3.75,
+      "section": "CODA1",
+      "text": "Flee it or wear it. Dawn in the one bare tree"
+    }
+  ],
+  "sections": [
+    {
+      "bars": 2,
+      "function": "drop",
+      "meter": {
+        "beats": 4,
+        "groups": [2, 2],
+        "unit": 4
+      },
+      "name": "DROP1",
+      "start_bar": 1
+    },
+    {
+      "bars": 1,
+      "function": "build",
+      "meter": {
+        "beats": 4,
+        "groups": [2, 2],
+        "unit": 4
+      },
+      "name": "BUILD1",
+      "start_bar": 3
+    },
+    {
+      "bars": 2,
+      "function": "turnaround",
+      "meter": {
+        "beats": 4,
+        "groups": [2, 2],
+        "unit": 4
+      },
+      "name": "TURNAROUND1",
+      "start_bar": 4
+    },
+    {
+      "bars": 1,
+      "function": "false_ending",
+      "meter": {
+        "beats": 4,
+        "groups": [2, 2],
+        "unit": 4
+      },
+      "name": "FALSE_ENDING1",
+      "start_bar": 6
+    },
+    {
+      "bars": 1,
+      "function": "verse",
+      "meter": {
+        "beats": 4,
+        "groups": [2, 2],
+        "unit": 4
+      },
+      "name": "VERSE1",
+      "start_bar": 7
+    },
+    {
+      "bars": 3,
+      "function": "interlude",
+      "meter": {
+        "beats": 4,
+        "groups": [2, 2],
+        "unit": 4
+      },
+      "name": "INTERLUDE1",
+      "start_bar": 8
+    },
+    {
+      "bars": 1,
+      "function": "prechorus",
+      "meter": {
+        "beats": 4,
+        "groups": [2, 2],
+        "unit": 4
+      },
+      "name": "PRECHORUS1",
+      "start_bar": 11
+    },
+    {
+      "bars": 1,
+      "function": "chorus",
+      "meter": {
+        "beats": 4,
+        "groups": [2, 2],
+        "unit": 4
+      },
+      "name": "CHORUS1",
+      "start_bar": 12
+    },
+    {
+      "bars": 2,
+      "function": "postchorus",
+      "meter": {
+        "beats": 4,
+        "groups": [2, 2],
+        "unit": 4
+      },
+      "name": "POSTCHORUS1",
+      "start_bar": 13
+    },
+    {
+      "bars": 1,
+      "function": "tag",
+      "meter": {
+        "beats": 4,
+        "groups": [2, 2],
+        "unit": 4
+      },
+      "name": "TAG1",
+      "start_bar": 15
+    },
+    {
+      "bars": 1,
+      "function": "vamp",
+      "meter": {
+        "beats": 4,
+        "groups": [2, 2],
+        "unit": 4
+      },
+      "name": "VAMP1",
+      "start_bar": 16
+    },
+    {
+      "bars": 1,
+      "function": "prechorus",
+      "meter": {
+        "beats": 4,
+        "groups": [2, 2],
+        "unit": 4
+      },
+      "name": "PRECHORUS2",
+      "start_bar": 17
+    },
+    {
+      "bars": 1,
+      "function": "chorus",
+      "meter": {
+        "beats": 4,
+        "groups": [2, 2],
+        "unit": 4
+      },
+      "name": "CHORUS2",
+      "start_bar": 18
+    },
+    {
+      "bars": 1,
+      "function": "hook",
+      "meter": {
+        "beats": 4,
+        "groups": [2, 2],
+        "unit": 4
+      },
+      "name": "HOOK1",
+      "start_bar": 19
+    },
+    {
+      "bars": 3,
+      "function": "coda",
+      "meter": {
+        "beats": 4,
+        "groups": [2, 2],
+        "unit": 4
+      },
+      "name": "CODA1",
+      "start_bar": 20
+    }
+  ],
+  "title": "one more"
 }
