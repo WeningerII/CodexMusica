@@ -8572,27 +8572,6 @@ def main():
                   f"one, or declare "
                   f"`FloorDeclaration(uncalibrated_length='note')`.")
             sys.exit(2)
-        # THE BAN GATE (2026-08-23, `MISSING.md` M-88). Checked AFTER the
-        # flag gate so a flagged draft still reports its flags — both exit 3,
-        # and the stronger signal keeps the message. A draft with no flag and
-        # a standing banned pair used to exit 0, which made the ban skippable
-        # by choosing the grading verb over the loop.
-        if cmd == "song" and song_counts and song_counts.get("banned_lines"):
-            _bc = ", ".join(song_counts["banned_codes"])
-            _bl = line_range(song_counts["banned_lines"])
-            print(f"\n  EXIT 3 — the two-tier ban STANDS on "
-                  f"{len(song_counts['banned_lines'])} line(s) {_bl}: {_bc}. "
-                  f"These are NOTES and stay notes — the severity is not "
-                  f"changed and `verify()` is untouched, because a pair that "
-                  f"RHYMES sits inside the region a floor may not re-order "
-                  f"(doctrine 7). What changes is that a run carrying one "
-                  f"MAY NOT EXIT 0, the same shape `LENGTH_GATE_CODES` "
-                  f"already has. Until now the ban was enforced only inside "
-                  f"`revise`, so a song could be certified here without it "
-                  f"ever being applied. Clear them with "
-                  f"`revise FILE MANDATE`, or screen the pair before writing "
-                  f"with `screen WORD WORD`.")
-            sys.exit(3)
         if cmd == "song" and song_counts and (song_counts["flags"]
                                               or song_counts["whole_flags"]):
             per_line = (f"{song_counts['flags']} FLAG finding(s) on "
@@ -8611,6 +8590,34 @@ def main():
                   f"measurement handed back, never a defect (doctrine 6/79)")
             sys.exit(3)
 
+        # THE BAN GATE (2026-08-23, `MISSING.md` M-88). A draft with no flag
+        # and a standing banned pair used to exit 0, which made the ban
+        # skippable by choosing the grading verb over the loop.
+        #
+        # IT SITS AFTER THE FLAG GATE, AND FOR A DAY THE COMMENT SAYING SO
+        # SAT ABOVE CODE THAT PUT IT FIRST — caught by `test_verbs.py` §16
+        # on the first CI run that could start jobs. Both gates exit 3, so
+        # the ORDER decides only which sentence a caller reads, and a
+        # flagged draft must read its flags: a flag is a defect the writer
+        # can act on line by line, while the ban names a pair to screen.
+        # Preempting the stronger signal with the narrower one is a
+        # rendering decision moving what a verdict SAYS (doctrine 91).
+        if cmd == "song" and song_counts and song_counts.get("banned_lines"):
+            _bc = ", ".join(song_counts["banned_codes"])
+            _bl = line_range(song_counts["banned_lines"])
+            print(f"\n  EXIT 3 — the two-tier ban STANDS on "
+                  f"{len(song_counts['banned_lines'])} line(s) {_bl}: {_bc}. "
+                  f"These are NOTES and stay notes — the severity is not "
+                  f"changed and `verify()` is untouched, because a pair that "
+                  f"RHYMES sits inside the region a floor may not re-order "
+                  f"(doctrine 7). What changes is that a run carrying one "
+                  f"MAY NOT EXIT 0, the same shape `LENGTH_GATE_CODES` "
+                  f"already has. Until now the ban was enforced only inside "
+                  f"`revise`, so a song could be certified here without it "
+                  f"ever being applied. Clear them with "
+                  f"`revise FILE MANDATE`, or screen the pair before writing "
+                  f"with `screen WORD WORD`.")
+            sys.exit(3)
     elif cmd == "demo":
         print("DECLARATION")
         print(decl.show())

@@ -2008,21 +2008,35 @@ def test_song_exits_on_a_flag():
     # asserting it: 8 NOTE findings, 0 FLAG, exit 0. Doctrine 6 -- a
     # convention a writer is free to depart from cannot be the thing that
     # fails a check.
+    # THE HOOK NOW RECURS, AND THAT IS A RULING RATHER THAN A REPAIR. This
+    # fixture was ONE `verse` section declaring a hook, so the hook occurred
+    # once — and `HOOK_DOES_NOT_RECUR` became a FLAG on 2026-08-23 by the
+    # owner's ruling (`MISSING.md` M-84). The draft therefore exited 3 on a
+    # WHOLE-DRAFT flag and this section's subject — notes alone never move
+    # the code — could not be stated on it. Two `chorus` sections carrying
+    # the hook is the smallest shape that declares a hook AND satisfies the
+    # ruling, so the layer is still exercised rather than switched off by
+    # dropping the declaration. 0 FLAG, 8 NOTE, exit 0.
     quat = os.path.join(d, "q.txt")
     with open(quat, "w") as fh:
         fh.write("The river took the bridge at dawn\n"
                  "and no one saw the water again\n"
-                 "the cattle waded through the silt\n"
+                 "the river rose above the silt\n"
                  "past every fence the county rebuilt\n")
     qbp = os.path.join(d, "q.blueprint.json")
     with open(qbp, "w") as fh:
         json.dump({"title": "The river", "hooks": ["the river"],
-                   "sections": [{"name": "a", "bars": 4, "start_bar": 1,
-                                 "function": "verse",
+                   "sections": [{"name": "a", "bars": 2, "start_bar": 1,
+                                 "function": "chorus",
+                                 "meter": {"beats": 4, "unit": 4,
+                                           "groups": [2, 2]}},
+                                {"name": "b", "bars": 2, "start_bar": 3,
+                                 "function": "chorus",
                                  "meter": {"beats": 4, "unit": 4,
                                            "groups": [2, 2]}}],
                    "lines": [{"text": t, "bar": i + 1, "beat": 1,
-                              "duration": 4, "section": "a"}
+                              "duration": 4,
+                              "section": "a" if i < 2 else "b"}
                              for i, t in enumerate(open(quat).read()
                                                    .splitlines())]}, fh)
     rc0, out0, _ = run("song", qbp, quat, "--groups=3,4", expect_rc=0)
