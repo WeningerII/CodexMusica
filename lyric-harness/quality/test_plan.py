@@ -995,6 +995,78 @@ def test_the_writers_declaration():
           == set(r["functions"]) - {s["function"] for s in r["sections"]},
           str(r["functions_unused"]))
 
+    # ---- THE TITLE, THE SAME DECLARATION, ADDED 2026-08-24 ----------------
+    # `grid.hook_findings` asks "is the title in the hook?" and REFUSES on an
+    # empty `Song.title` (TITLE_UNDECLARED), while `fill_plan` wrote
+    # `"title": ""` into every blueprint the planner has ever built. So the
+    # only way to answer that question was to edit the JSON by hand after the
+    # planner wrote it -- a step in producing a delivered song with no
+    # entrance the system owns, which is standing rule 3's own case.
+    import quality.grid as G
+
+    check("a plan with NO declared title carries `''`, and `fill_plan` writes "
+          "that straight through -- the finding is UNCHANGED for anyone who "
+          "does not declare one",
+          base["title"] == ""
+          and P.fill_plan(base, ["x"] * base["total_lines"])["title"] == "",
+          repr(base["title"]))
+
+    t = P.make_plan(11, title="Stay Awake")
+    filled = P.fill_plan(t, [f"line {i}" for i in range(t["total_lines"])])
+    check("a declared title is CARRIED into the plan and through `fill_plan` "
+          "into the blueprint -- never inferred, because guessing one off the "
+          "first line is the inference TITLE_UNDECLARED exists to refuse",
+          t["title"] == "Stay Awake" and filled["title"] == "Stay Awake",
+          f"{t['title']!r} / {filled['title']!r}")
+
+    # THE MUTATION, and it is the defect this block was written for: the CLI
+    # parsed `--title`, the usage line advertised it, and the non-sweep branch
+    # spelled its own `make_plan(...)` call beside the identical `plan_kw` --
+    # so the flag reached the SWEEP and not the PLAN, and the blueprint came
+    # out with `"title": ""` anyway. Carrying it in the library is not the
+    # claim; carrying it THROUGH THE VERB is.
+    import subprocess, json as _json, tempfile, os as _os
+    with tempfile.TemporaryDirectory() as td:
+        draft = _os.path.join(td, "d.txt")
+        bp = _os.path.join(td, "bp.json")
+        open(draft, "w", encoding="utf-8").write(
+            "\n".join(f"line {i}" for i in range(t["total_lines"])) + "\n")
+        root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+        # NOT `r` -- that name holds the roster plan the determinism check
+        # below compares against, and shadowing it here made that check
+        # compare a plan with a CompletedProcess.
+        proc = subprocess.run(
+            [sys.executable, _os.path.join(root, "lyric_harness.py"), "plan",
+             "--seed=11", "--title=Stay Awake", f"--fill={draft}",
+             f"--out={bp}"], capture_output=True, text=True, cwd=root)
+        wrote = _os.path.exists(bp)
+        got = _json.load(open(bp, encoding="utf-8"))["title"] if wrote else None
+    check("`plan --title=` REACHES THE BLUEPRINT through the CLI, not only "
+          "through the library -- the flag the sweep branch read and the plan "
+          "branch did not",
+          wrote and got == "Stay Awake",
+          f"rc={proc.returncode} title={got!r}")
+
+    # AND THE FINDING MOVES WITH IT, both ways -- without this pair the two
+    # checks above pin a field nothing reads.
+    song_t, hooks_t = G.song_from_blueprint(
+        dict(filled, hooks=["line 0"], lines=[dict(l, text="line 0")
+                                              for l in filled["lines"]]))
+    codes_t = {r.code for r in G.hook_findings(song_t, hooks_t)[1]}
+    song_0, hooks_0 = G.song_from_blueprint(
+        dict(filled, title="", hooks=["line 0"],
+             lines=[dict(l, text="line 0") for l in filled["lines"]]))
+    codes_0 = {r.code for r in G.hook_findings(song_0, hooks_0)[1]}
+    # `hook_findings` -> (findings, REFUSALS), and TITLE_UNDECLARED is a
+    # refusal: "the question was not asked" is not the same answer as "asked
+    # and clean" (doctrine 20/28), so it comes back on the second element.
+    check("TITLE_UNDECLARED stands on the SAME song with the title removed "
+          "and is gone once it is declared -- the coordinate is read, not "
+          "merely stored",
+          "TITLE_UNDECLARED" in codes_0
+          and "TITLE_UNDECLARED" not in codes_t,
+          f"declared={sorted(codes_t)} undeclared={sorted(codes_0)}")
+
     # THE OWNER'S OWN CASE, and the reason this layer is checked against
     # M-54's `requires` rather than being a free list.
     try:

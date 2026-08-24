@@ -4562,7 +4562,7 @@ the quality layer (each says which module answered):
                           contract is a printed refusal, never a traceback
                           and never a silent downgrade to the stub
   plan --seed=N [--form=verse-chorus] [--lines=N] [--relation=NAME]
-       [--functions=a,b,c] [--fill=DRAFT]
+       [--functions=a,b,c] [--title=TEXT] [--fill=DRAFT]
        [--out=PATH]      the PLANNING phase: a request in, a blueprint and
                           a mandate out (quality/plan.py). Structure from a
                           declared pattern grammar, schemes from the FULL
@@ -4572,7 +4572,12 @@ the quality layer (each says which module answered):
                           Writes NO WORDS: emits line SLOTS, the writer
                           brief, and the exact grading command. --fill=DRAFT
                           completes the blueprint from a finished draft
-                          (count mismatch REFUSED, never zipped). Unknown
+                          (count mismatch REFUSED, never zipped).
+                          --title=TEXT is CARRIED, never sampled (M-93): it
+                          is the only thing `grid.hook_findings` reads to
+                          ask "is the title in the hook?", and without it
+                          that question comes back TITLE_UNDECLARED rather
+                          than guessing one off the first line. Unknown
                           forms, blocked forms and unattainable lengths
                           refuse by name with the alternatives listed
   plan --sweep=LO-HI [--want=PRED;PRED] [the same declarations]
@@ -6373,6 +6378,14 @@ def main():
         # into the plan artifact and into the GRADE IT line.
         relation = _flag_value(rest, "--relation")
         funcs_raw = _flag_value(rest, "--functions")
+        # THE TITLE, SAME STANDING, A FLAG SINCE 2026-08-24. `grid.py` asks
+        # "is the title in the hook?" and refuses on an empty `Song.title`;
+        # `fill_plan` hardcoded `""`, so answering it meant editing the
+        # blueprint JSON by hand after the planner wrote it -- a step in
+        # producing a delivered song with no entrance the system owns
+        # (standing rule 3). Carried, never inferred: no flag leaves `""`
+        # and TITLE_UNDECLARED stands.
+        title = _flag_value(rest, "--title")
         # THE SEED SWEEP, A VERB SINCE 2026-08-23 (`MISSING.md` M-82, owner's
         # ruling "make it a verb"). It was the last instrument standing rule 3
         # named and left manual, and a song delivered through it was a song
@@ -6383,6 +6396,7 @@ def main():
         rest = _strip_flag(rest, "--want")
         rest = _strip_flag(rest, "--relation")
         rest = _strip_flag(rest, "--functions")
+        rest = _strip_flag(rest, "--title")
         rest = _strip_flag(rest, "--seed")
         rest = _strip_flag(rest, "--form")
         rest = _strip_flag(rest, "--lines")
@@ -6392,8 +6406,8 @@ def main():
             _refuse(f"plan does not take {rest[0]!r}",
                     detail=["usage: plan --seed=N [--form=verse-chorus] "
                             "[--lines=N] [--relation=NAME] "
-                            "[--functions=a,b,c] [--fill=DRAFT] "
-                            "[--out=PATH]",
+                            "[--functions=a,b,c] [--title=TEXT] "
+                            "[--fill=DRAFT] [--out=PATH]",
                             "   or: plan --sweep=LO-HI [--want=PRED;PRED] "
                             "[the same declarations]",
                             "an unrecognised flag is refused rather than "
@@ -6404,6 +6418,7 @@ def main():
             form=form,
             lines=int(nlines) if nlines is not None else None,
             relation=relation,
+            title=title,
             functions=[x for x in (funcs_raw or "").split(",") if x.strip()]
             or None)
         if sweep_raw is not None:
@@ -6481,13 +6496,14 @@ def main():
                   + (f" --functions={funcs_raw}" if funcs_raw else ""))
             return 0
         try:
+            # ONE SPELLING OF THE ARGUMENT LIST. This branch used to build its
+            # own `make_plan(...)` call beside the identical `plan_kw` the
+            # sweep branch passes, and the two drifted the moment a coordinate
+            # was added: `--title` reached the sweep and not the plan, so the
+            # flag parsed, the usage line advertised it, and the blueprint
+            # came out with `"title": ""` anyway (doctrine 1).
             the_plan = PLN.make_plan(
-                seed=int(seed) if seed is not None else None,
-                form=form,
-                lines=int(nlines) if nlines is not None else None,
-                relation=relation,
-                functions=[x for x in (funcs_raw or "").split(",") if x.strip()]
-                or None)
+                seed=int(seed) if seed is not None else None, **plan_kw)
         except PLN.PlanRefused as e:
             _refuse(str(e))
         except ValueError:

@@ -10239,3 +10239,32 @@ beside nltk — a coordinate of the TEST JOB and never of the harness, and
 is guarded so a missing parser is a FAILING CHECK naming the install rather
 than a traceback naming a check nobody wrote: CANNOT RUN is never PASS
 (doctrine 20), and it may not be silent either.
+
+### M-93 · the blueprint's `title` had no entrance, so one question could only be answered by hand `CLOSED` — 2026-08-24
+**`grid.hook_findings` ASKS "IS THE TITLE IN THE HOOK?" AND REFUSES ON AN EMPTY
+`Song.title`** — `TITLE_UNDECLARED`, whose own message says guessing one off the
+first line is the inference the cell exists to avoid. It reads exactly one
+place: the blueprint's `"title"` key. And `plan.fill_plan` wrote **`"title":
+""`** into every blueprint the planner has ever built, with no flag anywhere to
+say otherwise. So the only way to answer that question was to open the JSON the
+planner had just written and edit it — a step in producing a delivered song
+with no entrance the system owns, which is standing rule 3's own case. Three of
+the four songs in `songs/` carry the refusal for this reason and nothing else.
+
+**`plan --title=TEXT`, CARRIED AND NEVER SAMPLED**, on the same footing
+`--relation` and `--functions` have had since M-55: the planner does not pick a
+title, because naming a song nobody named is the "move 37" ban pointed at the
+one field whose whole purpose is to record what the writer said. No flag still
+leaves `""` and `TITLE_UNDECLARED` still stands — the finding is byte-identical
+for anyone who does not declare one.
+
+**THE DEFECT THE GATE WAS WRITTEN FOR IS THE ONE THIS SITTING SHIPPED FIRST.**
+The CLI's `plan` branch spelled its own `make_plan(...)` argument list beside
+the identical `plan_kw` the sweep branch passes, so `--title` parsed, the usage
+line advertised it, and the blueprint came out `""` anyway — one coordinate,
+two spellings of the call, doctrine 1. `test_plan.py` §9 now drives the CLI as
+a subprocess and reads the title back off the written blueprint, so carrying it
+in the library is not what is asserted; carrying it THROUGH THE VERB is. The
+same block flips the finding both ways on one song — declared, and with the
+title removed — because two checks that pin a field nothing reads are worth
+nothing.

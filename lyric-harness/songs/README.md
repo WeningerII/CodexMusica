@@ -55,6 +55,63 @@ is for.
 `song` exit 0, 0 FLAG. `revise` SUCCESS in 0 rounds, md5 `f5ed3b7d8cea`,
 10 pairs mandated / 10 judged / 0 refused.
 
+## `stay_awake.txt` — seed 568, 2/4 grouped 2, title DECLARED
+
+    python3 lyric_harness.py plan --seed=568
+    python3 lyric_harness.py plan --seed=568 --title='Stay Awake' \
+        --fill=songs/stay_awake.txt --out=songs/stay_awake.blueprint.json
+    python3 lyric_harness.py song songs/stay_awake.blueprint.json \
+        songs/stay_awake.txt \
+        '--groups=1.T3,2.endword;1.T1,2.T1;1.T5,2.T5;5.T6,7.T5;5,6.T4;5.T1,6.T3;9.T7,10.T4,11.T6;9.T4,10.T5,11.headrime;15.headrime,16.headrime;15.T2,16;15.T3,16.T4' \
+        '--returns=4,13' --subdivision 2
+
+`song` exit 0, 0 FLAG. `revise` SUCCESS in 0 rounds on the committed draft,
+UNCHANGED (md5 `df36634e2601`), 16 pairs mandated / 16 judged / 0 refused.
+
+The seed came from the sweep verb, not from taste — the sweep plans all 899
+seeds in `1-899`, refuses none, and **accepts 23** (2.6%). 568 is one of them,
+named in seed order because a sweep does not rank (doctrine 7/19):
+
+    python3 lyric_harness.py plan --sweep=1-900 \
+        --want='slots_per_line>=10;pins_per_line<=3;lines>=16;lines<=30'
+
+Ten sections — `intro-build-chorus-false_ending-turnaround-verse-prechorus-`
+`chorus-reprise-coda` — 10 beats a line over 5 bars of 2/4, 20 slots at
+subdivision 2, hook at line 4 returning verbatim at line 13.
+
+**THE FIRST GREEN DRAFT WAS NOT THE FIRST DRAFT, AND THE LOOP SAID WHY.**
+`song` came back exit 3 on the M-88 ban gate: `PREDICTABLE_RHYME`, 6 of 7
+rhymes above 0.90 predictability against a `predictable_pair_fraction_max` of
+0.8333. Two hand-picked swaps did not move it, which is the point at which
+guessing stops being work — so the fix went through `revise --propose=defer:`
+instead, and the loop asked for two COUPLED rewrites it could not make itself
+(both pivots whose complete-pool joint search came back empty). The writer
+answered both, and the second draft is what shipped:
+
+| line | was | became |
+|---|---|---|
+| L5 | `Cinder goes down to one ember, night lifts siege` | `Cinder goes down to one ember in the metal` |
+| L6 | `Down below, winter hedge holds its own dark` | `Down below, winter nettle holds its own vigil` |
+| L16 | `Siren in the weather takes what we offer` | `Siren in the weather empties the coffer` |
+
+The loop scored the first pair **fixed 8, introduced 0** and the second
+**fixed 2, introduced 0**, and closed L7 without asking about it — an earlier
+fix in the same round had already resolved it.
+
+`hedge` is why the loop had to backtrack rather than swap one word. Screened
+before anything was rewritten: `ledge`, `wedge`, `pledge`, `sledge` and
+`dredge` all come back BANNED as tier-1 HOMEOTELEUTON — one spelled rime
+`edge` on both sides — and the only clean answer the pool had was `allege`,
+which is not a word this song can end a line on. A family whose members all
+spell their rime the same way has a rhyme CEILING near one, and `screen` says
+so before a word is written. `metal ~ nettle` scores the same 1.000 and is
+CLEAN, because `etal` and `ettle` are two spellings of one sound.
+
+This is the first song here whose blueprint carries a `title`, so it is the
+first whose `TITLE_UNDECLARED` refusal is answered rather than reported —
+`MISSING.md` M-93, and `plan --title=` is the entrance that made it possible
+without editing the planner's own output by hand.
+
 ---
 
 ## What the screen cost, measured

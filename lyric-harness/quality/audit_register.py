@@ -2184,7 +2184,9 @@ PINNED = {
     # filed and repinned in the commit that shipped `quality/recover.py`,
     # which is the rule this repo keeps — the register moves in the same
     # commit as the entry, not in a bookkeeping sitting afterwards.)
-    "coverage_entries": 150,  # M-90..M-92 filed 2026-08-24 CI-green sitting
+    # ~~150~~ -> 151: M-93 filed 2026-08-24 (the blueprint `title` had no
+    # entrance). ~~150~~ was M-90..M-92, the CI-green sitting the same day.
+    "coverage_entries": 151,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

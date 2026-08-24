@@ -1,0 +1,252 @@
+{
+ "hooks": [
+  "Somebody has to stay awake"
+ ],
+ "lines": [
+  {
+   "bar": 1,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "INTRO1",
+   "text": "Watch that lantern climb tower steps tonight"
+  },
+  {
+   "bar": 6,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "INTRO1",
+   "text": "Wash of rain turning sour in a pattern"
+  },
+  {
+   "bar": 11,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "BUILD1",
+   "text": "Nobody down there knows it yet"
+  },
+  {
+   "bar": 16,
+   "beat": 1.0,
+   "duration": 10.0,
+   "section": "CHORUS1",
+   "text": "Somebody has to stay awake"
+  },
+  {
+   "bar": 21,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "FALSE_ENDING1",
+   "text": "Cinder goes down to one ember in the metal"
+  },
+  {
+   "bar": 26,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "FALSE_ENDING1",
+   "text": "Down below, winter nettle holds its own vigil"
+  },
+  {
+   "bar": 31,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "FALSE_ENDING1",
+   "text": "And the air goes summer again"
+  },
+  {
+   "bar": 36,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "TURNAROUND1",
+   "text": "But it never really goes out"
+  },
+  {
+   "bar": 41,
+   "beat": 1.0,
+   "duration": 10.0,
+   "section": "VERSE1",
+   "text": "Wind off the smoke makes glass shimmer"
+  },
+  {
+   "bar": 46,
+   "beat": 1.0,
+   "duration": 10.0,
+   "section": "VERSE1",
+   "text": "Let the low river soak everything gold"
+  },
+  {
+   "bar": 51,
+   "beat": 1.0,
+   "duration": 10.0,
+   "section": "VERSE1",
+   "text": "Folk in the town see silver on the hill"
+  },
+  {
+   "bar": 56,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "PRECHORUS1",
+   "text": "The radio says nothing, so I say it"
+  },
+  {
+   "bar": 61,
+   "beat": 1.0,
+   "duration": 10.0,
+   "section": "CHORUS2",
+   "text": "Somebody has to stay awake"
+  },
+  {
+   "bar": 66,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "REPRISE1",
+   "text": "And the hill keeps the only light for miles"
+  },
+  {
+   "bar": 71,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CODA1",
+   "text": "Iron, copper, amber \u2014 all of it will burn"
+  },
+  {
+   "bar": 76,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CODA1",
+   "text": "Siren in the weather empties the coffer"
+  }
+ ],
+ "sections": [
+  {
+   "bars": 10,
+   "function": "intro",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "INTRO1",
+   "start_bar": 1
+  },
+  {
+   "bars": 5,
+   "function": "build",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "BUILD1",
+   "start_bar": 11
+  },
+  {
+   "bars": 5,
+   "function": "chorus",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "CHORUS1",
+   "start_bar": 16
+  },
+  {
+   "bars": 15,
+   "function": "false_ending",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "FALSE_ENDING1",
+   "start_bar": 21
+  },
+  {
+   "bars": 5,
+   "function": "turnaround",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "TURNAROUND1",
+   "start_bar": 36
+  },
+  {
+   "bars": 15,
+   "function": "verse",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "VERSE1",
+   "start_bar": 41
+  },
+  {
+   "bars": 5,
+   "function": "prechorus",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "PRECHORUS1",
+   "start_bar": 56
+  },
+  {
+   "bars": 5,
+   "function": "chorus",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "CHORUS2",
+   "start_bar": 61
+  },
+  {
+   "bars": 5,
+   "function": "reprise",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "REPRISE1",
+   "start_bar": 66
+  },
+  {
+   "bars": 10,
+   "function": "coda",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "CODA1",
+   "start_bar": 71
+  }
+ ],
+ "title": "Stay Awake"
+}
