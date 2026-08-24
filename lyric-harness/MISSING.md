@@ -10034,3 +10034,108 @@ It says they can now be started, which they could not be. Whatever CI reports
 next is the first real verdict this branch has had since `18835a4`.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~146~~ -> **147**.
+
+### M-90 · `SHARED_SUFFIX` became an enforcement whose own field cannot answer it `OPEN` — 2026-08-24
+**FOUND BY THE FIRST CI RUN THAT COULD START JOBS** (`M-89`).
+`quality/test_revise.py` §41's premise — *"the loop converges on this pair"* —
+went red, and the cause is `M-85`: `SHARED_SUFFIX` joined
+`loop.MANDATORY_PURSUE` by the owner's ruling, so a pursued note now holds a
+line open until it clears. §41's pair is `four` ~ `stairs`, answered on
+`glares`, and `glares`/`stairs` share the plural `-s`.
+
+**THE PURSUE HAS ZERO LEGAL ANSWERS ON THAT PAIR, and that is a fact about the
+lexicon rather than about the fixture.** `Reviser.modal_field("stairs")`
+returns a COMPLETE pool of **39** words — 24 offered, 15 in the modal head —
+and **39 of 39 end in `-s`**, because that is what rhyming with a plural
+means. **37 of the 39** trip `SHARED_SUFFIX` against `stairs` under the
+floor's own test; the two that do not are `upstairs` and `downstairs`, and
+both are in the MODAL HEAD, which doctrine 9 forbids taking. So the loop was
+asking for a word that does not exist in the field it had just computed —
+the shape `joint_conflict` already names, arriving through a different door.
+
+**AND THE FINDING'S OWN SENTENCE IS NOT TESTED BY ITS OWN CODE.** The message
+reads *"rhyme only on a shared grammatical ending (homeoteleuton)"*. The test
+behind it is: both words end in a member of `lyric_harness.SUFFIXES`, and for
+a suffix of one or two letters both letter-stems are known words. **Nothing
+asks whether the pair still rhymes once the ending is removed** — which is
+what the word ONLY claims. `glare`/`stair` rhyme perfectly, so on this pair
+the ending carries nothing and the sentence is false.
+
+**MEASURED, over `data/song_rhymepair_en.tsv`'s 23,853 distinct pairs — every
+one of them a perfect rhyme observed in `corpus/song/eng_*`:**
+`SHARED_SUFFIX` fires on **3,884 (16.28%)**. Stripping the matched suffix from
+both words by LETTERS and re-scoring the remainder through `score`/`admits`:
+the remainder still rhymes on **3,223 (82.98% of firings)**, does not on
+**168 (4.33%)**, and is unreadable to CMUdict on **493 (12.69%)**. By suffix,
+the firings are dominated by `-s` (2,109), `-ing` (847) and `-ed` (336).
+
+**THE 82.98% IS A BOUND AND NOT A RATE, AND THE LIMIT IS STATED RATHER THAN
+BURIED** (doctrine 20): a letter-stem is not a morpheme, so `abortion` strips
+to `abor` and `abides` to `abid`, and both arms of that partition are
+contaminated by it. What the measurement establishes is the ORDER: the great
+majority of what this note fires on is a pair whose rhyme survives the ending,
+and the fraction it was built to name is small. `quality/morphology.py` and
+`g2p.SUFFIXES`' allomorphs are the instrument that would make the partition
+exact, and this entry does not reach for them.
+
+**WHAT IS NOT DONE HERE, AND WHY.** The promotion is the owner's ruling and
+stands. The detector is not retuned, because retuning a threshold to rescue a
+premise is doctrine 58's error and because the honest repair — test the claim
+the message makes — changes what the note says about a sixth of every English
+rhyme this repo can observe. That is a ruling, not a fix. §41's fixture is
+moved to the singular `four` ~ `stair`, which trips nothing, so the section
+grades RULE 3 — its actual subject — and this entry carries the finding.
+
+**THE QUESTION FOR THE OWNER, in one line:** should `SHARED_SUFFIX` fire when
+the pair rhymes without the shared ending, or only when the ending is the
+whole of the rhyme?
+
+### M-91 · the tier-1 prompt said "end word" whatever the mandate bound `CLOSED` — 2026-08-24
+**FOUND BY `test_propose.py` §7c, EXACTLY AS THAT GUARD PREDICTED.** It
+checks that its `Brief` stand-in has grown every field the real dataclass has,
+on the argument that *"a stub that has not grown the field renders the new
+rule as an EMPTY BLOCK — no error, no red"*. It reported `['slot',
+'slot_conflict']`.
+
+**THOSE TWO LANDED AT `9ad2dad`** (`M-67`, placement stops being the
+end-rhyme projection) **AND `quality/propose.py` READ NEITHER.** Every
+sentence in the tier-1 prompt that names the word to change was the literal
+`end word`, so a mandate binding `1.head` or `1.T4` told the writer to rewrite
+the one word it does not constrain, and the grader then judged a word the
+writer was never asked about. The planner has drawn non-end placements since
+`M-71` — `end` takes **8.5%** of members — so this was the ordinary case, not
+a corner.
+
+**THE GUARD WAS RED FOR THAT WHOLE STRETCH AND NOBODY SAW IT**, because
+`M-89`'s unparseable workflow meant the job that runs this suite never
+started. Two of this repository's own failure modes composing: a check that
+was working, inside a CI that could not run it.
+
+**`propose.slot_phrase` IS THE ONE DEFINITION** and it reads the placement
+through `quality/slots.py`'s declared API — `is_default`, `spell_slot`,
+`placement_word` — rather than a second table. `_enforced_block` takes the
+answer as an argument instead of re-deriving it, because a second reading of
+the placement is a second definition of it (doctrine 1). A non-default
+placement is ANNOUNCED above the rules rather than left implied, and a
+`slot_conflict` says the mandate is what needs revising.
+
+**NO PROMPT THIS REPOSITORY HAS EVER PRODUCED MOVES.** `slots.is_default` is
+true of every bare-int member, which is every mandate written before placement
+existed and every fixture here, and those render `end word` byte-identically —
+asserted, not assumed, by `test_propose.py` §7c, which also requires the
+`end`/`head`/`T4` prompts to be three DISTINCT strings.
+
+### M-92 · the check that catches an unparseable workflow could not run in CI `CLOSED` — 2026-08-24
+**`M-89` SHIPPED §43 WITH `import yaml` AND THE RUNNER HAS NO PyYAML.** The
+check went green on a developer machine that happened to carry the package and
+raised `ModuleNotFoundError` at module level in `verbs (1)`, so **shard 1 died
+at §43 and every section after it never ran**. A check that takes out the rest
+of its suite when its instrument is missing is worse than the defect it names.
+
+**TWO REPAIRS, AND THEY ANSWER DIFFERENT HALVES.** The job installs PyYAML
+beside nltk — a coordinate of the TEST JOB and never of the harness, and
+`record`'s own stdlib-only step is untouched and still passes. And the import
+is guarded so a missing parser is a FAILING CHECK naming the install rather
+than a traceback naming a check nobody wrote: CANNOT RUN is never PASS
+(doctrine 20), and it may not be silent either.
+

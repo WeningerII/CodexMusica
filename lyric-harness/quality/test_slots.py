@@ -343,12 +343,70 @@ def test_which_word_a_placement_binds():
           "names no place" in unknown, f"{unknown[:70]}")
 
 
+
+def test_the_writer_facing_spelling():
+    print("\n11. `word_phrase` — the same span in the PROMPT's words, and it "
+          "is one function because it had been two false sentences "
+          "(`MISSING.md` M-91)")
+    # THE POPULATION FIRST, so this cannot pass by examining nothing.
+    names = [n for n in SL.NAMED_SLOTS if n != "line"]
+    check("there is a vocabulary to ask the question of", len(names) >= 4,
+          f"{sorted(names)}")
+    check("a BARE INT — every mandate written before placement existed — "
+          "reads 'end word', so this repair moves no prompt this repository "
+          "has ever produced",
+          SL.word_phrase(3) == "end word", f"{SL.word_phrase(3)!r}")
+    check("...and so does an explicitly declared `end`/`endword`, because "
+          "they are the same word (M-80) and a writer must not be told two "
+          "things about one span",
+          SL.word_phrase(SL.parse_slot("3.end"))
+          == SL.word_phrase(SL.parse_slot("3.endword")) == "end word",
+          f"{SL.word_phrase(SL.parse_slot('3.endword'))!r}")
+    check("the three names for the FIRST word all say 'first word' — same "
+          "coordinate, same sentence",
+          {SL.word_phrase(SL.parse_slot(f"1.{n}"))
+           for n in ("head", "headrime", "T1")} == {"first word"},
+          f"{sorted({SL.word_phrase(SL.parse_slot(f'1.{n}')) for n in ('head', 'headrime', 'T1')})}")
+    check("a numbered token says WHICH, 1-based, so `T4` is the fourth word "
+          "and not the end of the line",
+          [SL.word_phrase(SL.parse_slot(f"1.T{n}")) for n in (2, 4, 7)]
+          == ["word 2", "word 4", "word 7"],
+          f"{[SL.word_phrase(SL.parse_slot(f'1.T{n}')) for n in (2, 4, 7)]}")
+    check("a locus that binds NO single word is NAMED rather than defaulted "
+          "to 'end word' — defaulting is the defect M-91 records, so the "
+          "refusal must not be renderable as the sentence it refuses",
+          SL.word_phrase(SL.parse_slot("1.line")).startswith("declared span")
+          and "end word" not in SL.word_phrase(SL.parse_slot("1.line")),
+          f"{SL.word_phrase(SL.parse_slot('1.line'))!r}")
+    check("EVERY declared name answers — DERIVED from the loci, so a "
+          "placement added to `NAMED_SLOTS` is spelled on the day it is "
+          "added and not by a second table (doctrine 1)",
+          all(SL.word_phrase(SL.parse_slot(f"1.{n}")) for n in names),
+          f"{len(names)} name(s)")
+    # THE READERS. A one-definition claim is worth nothing if a renderer
+    # kept its own copy, which is exactly what M-91 was.
+    from quality.propose import slot_phrase                     # noqa: PLC0415
+    from quality.revise import Brief                            # noqa: PLC0415
+    b_end = Brief(line_no=1, text="x", findings=[],
+                  forbidden_incumbent="stair")
+    b_t4 = Brief(line_no=1, text="x", findings=[],
+                 forbidden_incumbent="stair", slot=SL.parse_slot("1.T4"))
+    check("`propose.slot_phrase` DELEGATES here rather than carrying a "
+          "second table", slot_phrase(b_t4) == SL.word_phrase(b_t4.slot)
+          == "word 4", f"{slot_phrase(b_t4)!r}")
+    check("`Brief.__str__` — the OTHER renderer of the same sentence — reads "
+          "it too, and said 'end word' whatever the mandate bound until M-91",
+          "word 4" in str(b_t4) and "end word" in str(b_end),
+          f"{[l for l in str(b_t4).splitlines() if 'ALREADY THERE' in l]}")
+
+
 def main():
     for fn in (test_default_is_line_anchors, test_spelling_round_trips,
                test_anchor_with_no_referent, test_refusals,
                test_mandate_carries_placement, test_within_line_refusal,
                test_grade_reads_the_slot, test_untouched_path,
-               test_provenance_guard, test_which_word_a_placement_binds):
+               test_provenance_guard, test_which_word_a_placement_binds,
+               test_the_writer_facing_spelling):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0

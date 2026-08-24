@@ -1908,6 +1908,17 @@ jobs:
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
       - name: Install nltk (sections reach the POS tagger through features.py)
         run: python3 -m pip install --disable-pip-version-check nltk
+      # §43 parses THIS FILE with a real YAML parser, and a real parser is the
+      # only thing that answers the question it asks. The check shipped
+      # importing `yaml` and this runner does not have it, so shard 1 died on
+      # `ModuleNotFoundError` -- the check passed on a developer machine that
+      # happened to carry PyYAML and could not run in the one place it gates.
+      # Installed here, beside nltk, for the same reason and on the same terms:
+      # it is a coordinate of the TEST JOB, never of the harness. The
+      # stdlib-only claim is pinned by `record`'s own step and is untouched --
+      # nothing under `lyric_harness`/`floor`/`revise`/`propose` imports yaml.
+      - name: Install PyYAML (§43 parses this workflow with a real parser)
+        run: python3 -m pip install --disable-pip-version-check PyYAML
       - name: Stage the tagger model and the concreteness norms
         run: python3 quality/fetch_data.py
       - name: test_verbs shard ${{ matrix.shard }}/2 (the whole file, halved by section residue)

@@ -261,7 +261,7 @@ def _mandate_block(brief, indent="  "):
     return out
 
 
-def _enforced_block(line_no, n_lines, indent="  "):
+def _enforced_block(line_no, n_lines, indent="  ", word_name="end word"):
     """-> [str]. The rejection rules of `Reviser.verify`, in the order that
     method applies them, and NOTHING ELSE.
 
@@ -270,6 +270,12 @@ def _enforced_block(line_no, n_lines, indent="  "):
     net-new flags. `allow_net_new` is named rather than quoted as a number —
     it is a `ReviseDeclaration` coordinate and a `Brief` does not carry it,
     so this file cannot see the value the caller actually set.
+
+    `word_name` is `slot_phrase`'s answer, passed rather than re-derived
+    because this block has no `Brief` and a second reading of the placement
+    is a second definition of it (doctrine 1). Its default is the spelling
+    every pre-placement mandate produces, so an omitted argument renders the
+    sentence this block has always rendered.
     """
     return [
         f"{indent}1. ONE line back, and it replaces L{line_no}. The draft "
@@ -289,7 +295,7 @@ def _enforced_block(line_no, n_lines, indent="  "):
         # word that is also the incumbent. Two items now, because RULE 3 has
         # two behaviours and this block's own docstring promises one item
         # per early return.
-        f"{indent}3. The end word L{line_no} MOVES TO is not one of the "
+        f"{indent}3. The {word_name} L{line_no} MOVES TO is not one of the "
         f"FORBIDDEN words above. That is",
         f"{indent}   checked before anything else about the line and rejects "
         f"on its own. KEEPING the",
@@ -333,6 +339,50 @@ def _attempt_block(attempt, reasons, indent="  "):
     return out
 
 
+def slot_phrase(brief):
+    """-> the WORD this brief asks the writer to change, in words.
+
+    THE PROMPT SAID "END WORD" WHATEVER THE MANDATE BOUND — fixed 2026-08-24,
+    and it had been false since `9ad2dad` put placement in the architecture.
+    `Brief.slot` has carried the bound span since that commit (`MISSING.md`
+    M-67: *"there's just no way that we can only be contemplating the last
+    word of every line"*) and NOTHING in this module read it, so a mandate
+    binding `1.T4` or `1.head` produced a prompt telling the writer to change
+    the END word — the one word that mandate does not constrain. The grader
+    then judged the word the writer was never asked about.
+
+    IT WAS THE GUARD IN `test_propose.py` §7c THAT NAMED IT, exactly as that
+    guard's own comment predicted: a stand-in that has not grown a field
+    "renders the new rule as an EMPTY BLOCK, no error and no red". Here it was
+    not even a block — `render_line` reads every field through `getattr`, so
+    the two new fields were simply never asked for, and the prompt kept its
+    old sentence with nothing to contradict it.
+
+    THE DEFAULT SPELLING IS BYTE-IDENTICAL, which is why this is a repair and
+    not a rewrite: `slots.is_default` is true of every bare-int member, i.e.
+    of every mandate written before placement existed, and of every fixture in
+    this repository. Those render "end word" as they always did.
+
+    A LOCUS THAT RESOLVES TO NO SINGLE WORD IS NAMED, NOT DEFAULTED. Silently
+    falling back to "end word" is the defect this function exists to end, so
+    an unresolvable placement is spelled out in the mandate's own notation and
+    the writer is told which span it is (doctrine 20).
+    """
+    slot = getattr(brief, "slot", None)
+    if slot is None:
+        return "end word"
+    # DELEGATED, NOT RE-DERIVED. `slots.word_phrase` is the one definition —
+    # see its docstring for why a renderer may not carry a second one. The
+    # import is LAZY so this module's module-level import list stays `re` and
+    # nothing else, which `test_propose.py` §7b pins for a different reason
+    # (no network, no client, no key) and which this must not disturb.
+    from quality import slots as _SL                   # noqa: PLC0415
+    try:
+        return _SL.word_phrase(slot)
+    except Exception:                                  # noqa: BLE001
+        return "end word"
+
+
 def render_line(brief, lines, whole=(), attempt=0, reasons=None):
     """-> str, the tier-1 prompt: rewrite ONE flagged line.
 
@@ -361,6 +411,9 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
     findings = _ordered(getattr(brief, "findings", ()) or ())
     whole = _ordered(whole or ())
     decl = getattr(brief, "field_declaration", "field_depth=?, field_band=?")
+    #: WHICH WORD this brief is about. Read ONCE and threaded, never
+    #: re-derived per block — see `slot_phrase`.
+    word_name = slot_phrase(brief)
 
     out = []
     out.append(f"REVISE ONE LINE — L{line_no} of a {len(lines)}-line draft.")
@@ -377,6 +430,19 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
 
     out.append("THE LINE TO REVISE")
     out.append(f"  L{line_no}: {text}")
+    # A NON-DEFAULT PLACEMENT IS STATED, NOT IMPLIED. Every sentence below
+    # names the word through `word_name`, and a writer who has only ever seen
+    # end-rhyme prompts would read "word 4" as a typo rather than as the
+    # mandate. Silent on the default, so no existing prompt gains a line.
+    if word_name != "end word":
+        out.append(f"  THE BOUND WORD IS THE {word_name.upper()}, NOT THE "
+                   f"END WORD — this mandate binds a placement")
+        out.append(f"  other than the line end, and every rule below is "
+                   f"about the {word_name}.")
+    if getattr(brief, "slot_conflict", False):
+        out.append("  AND TWO DECLARED GROUPS LAND ON THAT ONE WORD, so no "
+                   "single word answers both:")
+        out.append("  the mandate, not the line, is what needs revising.")
     out.append("")
 
     out.append(f"THE WHOLE DRAFT (context — only L{line_no} may change)")
@@ -405,8 +471,8 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
         out.extend(_offered_block(candidates, decl))
         out.append("  Offered, NOT required. The grader re-grades the rhyme "
                    "itself; it never checks whether")
-        out.append("  your end word came off this list. A word that is not "
-                   "here and rhymes is accepted, and")
+        out.append(f"  your {word_name} came off this list. A word that is "
+                   f"not here and rhymes is accepted, and")
         out.append("  a word that is here is not accepted for being here.")
     else:
         # THREE CAUSES, AND THIS ENUMERATED TWO — fixed 2026-08-16, and the
@@ -493,8 +559,8 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
                f"above ({1 if incumbent else 0})")
     if incumbent:
         out.append(f"  {incumbent}")
-        out.append("  This is the end word L%d already has. Re-proposing it "
-                   "is not a revision — but it" % line_no)
+        out.append(f"  This is the {word_name} L{line_no} already has. "
+                   f"Re-proposing it is not a revision — but it")
         out.append("  is NOT rejected outright the way the list above is: "
                    "the grader asks whether a modal")
         out.append("  candidate was TAKEN, and keeping the word you were "
@@ -513,8 +579,8 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
         # An empty value stated the wrong reason for being empty, which is the
         # whole of defect D one rule over.
         if getattr(brief, "field_computed", False):
-            out.append("  (none — this line's end word could not be read, so "
-                       "there is no incumbent to keep)")
+            out.append(f"  (none — this line's {word_name} could not be "
+                       f"read, so there is no incumbent to keep)")
         else:
             out.append("  (none recorded — no candidate field was computed "
                        "for this line, and the incumbent is only recorded")
@@ -536,7 +602,8 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
     out.append("")
 
     out.append("WHAT THE GRADER ENFORCES ON YOUR ANSWER")
-    out.extend(_enforced_block(line_no, len(lines)))
+    out.extend(_enforced_block(line_no, len(lines),
+                               word_name=word_name))
     out.append("")
 
     out.append("HOW TO ANSWER")

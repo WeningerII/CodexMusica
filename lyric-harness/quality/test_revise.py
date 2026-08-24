@@ -3347,8 +3347,25 @@ def test_rule_three_asks_whether_a_word_was_taken():
     from quality import loop as _LP
     import quality.fit as _FT
 
+    # THE PAIR WENT SINGULAR 2026-08-24, AND THE REASON IS A RULING, NOT A
+    # REPAIR. `stairs`/`glares` share the plural `-s`, so `SHARED_SUFFIX`
+    # fires on them — and that note joined `loop.MANDATORY_PURSUE` on
+    # 2026-08-23 by the owner's ruling (`MISSING.md` M-85). A pursued note
+    # holds the line open, this fixture's proposer has exactly two answers,
+    # and the loop therefore stopped at `no_progress` with the PREMISE below
+    # red. Nothing about RULE 3 — this section's actual subject — moved.
+    # `stair`/`glare` carry no shared ending, so the pursue does not fire and
+    # the section grades the rule it was written for.
+    #
+    # AND THE PURSUE WAS UNANSWERABLE ON THE OLD PAIR, RECORDED HERE BECAUSE
+    # IT IS A FINDING ABOUT THE RULING AND NOT ABOUT THIS TEST: every one of
+    # the 24 words `brief()` offered L1 for `stairs` ends in `-s` — 24 of 24 —
+    # because that is what rhyming with a plural means, so the loop was asking
+    # for a word the field cannot contain. `MISSING.md` M-90 holds that
+    # measurement and the question it puts to the owner; this fixture answers
+    # it in neither direction.
     before = ["the kitchen light is burning at half past four",
-              "and nobody came back to climb the stairs"]
+              "and nobody came back to climb the stair"]
     bp = {"_note": "constructed inline for this regression, not a fixture",
           "sections": [{"name": "V1", "bars": 2, "start_bar": 1,
                         "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
@@ -3358,17 +3375,17 @@ def test_rule_three_asks_whether_a_word_was_taken():
     sub = _FT.Subdivision(2, source="constructed for this regression")
     kw = dict(blueprint=bp, subdivision=sub)
 
-    # 'four' ~ 'stairs' fails the mandate; L1 answering on 'glares' repairs
+    # 'four' ~ 'stair' fails the mandate; L1 answering on 'glare' repairs
     # the pair AND its own SLOTS_EXCEEDED, so L2 then needs only its meter.
-    ANSWERS = ["at four the kitchen light still glares",
-               "and nobody climbed the stairs"]
+    ANSWERS = ["at four the kitchen light still glare",
+               "and nobody climbed the stair"]
 
-    off, forb_ex = R.modal_field("four", exclude=("stairs",))
+    off, forb_ex = R.modal_field("four", exclude=("stair",))
     _o2, forb_raw = R.modal_field("four")
-    check("PREMISE: 'stairs' is NOT a modal candidate for 'four' under "
+    check("PREMISE: 'stair' is NOT a modal candidate for 'four' under "
           "either spelling — it reaches `forbidden_modal` only as the "
           "INCUMBENT, so the old message named the rule that did not fire",
-          "stairs" not in forb_ex and "stairs" not in forb_raw,
+          "stair" not in forb_ex and "stair" not in forb_raw,
           f"excluded={forb_ex} raw={forb_raw}")
 
     seq = list(ANSWERS)
@@ -3389,7 +3406,7 @@ def test_rule_three_asks_whether_a_word_was_taken():
     check("...and the skip is DISCLOSED rather than swallowed: 'kept a "
           "forbidden word' and 'was never on the list' are different "
           "outcomes (doctrine 20)",
-          v.get("modal_endword_unchanged") == [(2, "stairs")]
+          v.get("modal_endword_unchanged") == [(2, "stair")]
           and any("KEPT its end word" in r for r in v["reasons"])
           and not any("took the modal candidate" in r for r in v["reasons"]),
           f"{v.get('modal_endword_unchanged')}")

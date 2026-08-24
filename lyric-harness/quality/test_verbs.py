@@ -4052,8 +4052,29 @@ def test_every_workflow_file_is_parseable_yaml():
     # is in a local suite. A workflow that does not parse runs nothing —
     # including a step that would have validated it. The only place this can
     # fail usefully is before the push.
+    #
+    # AND THE FIRST SHIPPING OF THIS CHECK COULD NOT RUN IN CI — a bare
+    # `import yaml` at the top of the body, on a runner with no PyYAML. It went
+    # green on a developer machine that happened to carry the package, and in
+    # CI it raised `ModuleNotFoundError` at MODULE level, so shard 1 died HERE
+    # and every section after this one never ran. A check that takes out the
+    # rest of the suite when its instrument is missing is worse than the defect
+    # it names. The parser is installed by the job now (`verbs`, beside nltk),
+    # and its ABSENCE is a FAILING CHECK that names the install rather than a
+    # traceback that names a check nobody wrote: CANNOT RUN is never PASS
+    # (doctrine 20), and it may not be silent either.
     import glob
-    import yaml                                        # noqa: PLC0415
+    try:
+        import yaml                                    # noqa: PLC0415
+    except ImportError as exc:                         # noqa: BLE001
+        yaml = None
+        _why = f"{type(exc).__name__}: {exc}"
+    check("the YAML parser this section grades with is REACHABLE — without it "
+          "the question is not answered NO, it is NOT ASKED, and this suite "
+          "must say so rather than skip (`python3 -m pip install PyYAML`)",
+          yaml is not None, "PyYAML present" if yaml else _why)
+    if yaml is None:
+        return
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     files = sorted(glob.glob(os.path.join(root, "..", ".github", "workflows",
                                           "*.yml"))

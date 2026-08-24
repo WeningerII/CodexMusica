@@ -97,7 +97,7 @@ __all__ = ["Slot", "SlotUnsupported", "DEFAULT_RULE", "GRADEABLE_LOCI",
            "PLANNABLE_PLACEMENTS", "LAST_WORD", "placement_word",
            "GRADEABLE_ANCHORS", "FRAME_LOCI", "NAMED_SLOTS",
            "as_slot", "slot_line", "is_default", "check", "resolve",
-           "parse_slot", "spell_slot", "position_of"]
+           "parse_slot", "spell_slot", "position_of", "word_phrase"]
 
 
 class SlotUnsupported(ValueError):
@@ -396,6 +396,42 @@ def placement_word(place):
         f"word is unknown cannot be tested against another for landing on the "
         f"same one, so it is REFUSED rather than filed under a nearby word.")
 
+
+
+def word_phrase(member):
+    """member -> the bound word IN WORDS: 'end word', 'first word', 'word 4'.
+
+    THE WRITER-FACING SPELLING, and it lives here for `placement_word`'s own
+    reason: this module is the ONLY place a name is bound to a rule, so a
+    second table naming the same span in a renderer is doctrine 1's case.
+    `spell_slot` answers the MANDATE's notation (`3.T4`); this answers the
+    PROMPT's ("word 4"), and both derive from the one rule.
+
+    WHY IT EXISTS (`MISSING.md` M-91): `quality/propose.py` and
+    `revise.Brief.__str__` both told a writer to change the "end word"
+    whatever the mandate bound, for as long as placement has existed. Two
+    renderers, one false sentence, and the fix had to be one function or it
+    would have been two.
+
+    THE DEFAULT IS 'end word' — every bare-int member, i.e. every mandate
+    written before placement existed — so no prompt this repo has produced
+    moves. A locus that resolves to no single word is REFUSED by
+    `placement_word` and named here rather than defaulted, because defaulting
+    to "end word" is the defect.
+    """
+    try:
+        if is_default(member):
+            return "end word"
+        spelled = spell_slot(member)
+        name = spelled.split(".", 1)[1] if "." in spelled else ""
+        word = placement_word(name)
+    except SlotUnsupported:
+        return f"declared span {spell_slot(member)}"
+    if word == LAST_WORD:
+        return "end word"
+    if word == 1:
+        return "first word"
+    return f"word {word}"
 
 def _declared_token(rule):
     """-> the 0-based token index a `token:N` requirement names, or None."""

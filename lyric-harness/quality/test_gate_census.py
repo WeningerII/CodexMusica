@@ -200,11 +200,45 @@ def test_every_toothless_code_is_ruled():
           "(doctrine 58)",
           all(d in GC.DISPOSITIONS for d in GC.DISPOSITION.values()),
           f"{sorted(GC.DISPOSITIONS)}")
-    check("`PROMOTE_CANDIDATE` has members — the vocabulary keeps a word for "
+    # `PROMOTE_CANDIDATE` IS A WORD THE VOCABULARY KEEPS, NOT A QUOTA THE
+    # ROSTER MUST FILL — REPOINTED 2026-08-24. This check read
+    # `by_disposition(c).get("PROMOTE_CANDIDATE")` and required the SHIPPED
+    # table to hold at least one, on the argument that a ruling can be WORK
+    # rather than a settled answer (doctrine 20). That argument is untouched
+    # and the assertion was the wrong shape for it: the owner ruled on all
+    # three candidates in one sitting — `HOOK_DOES_NOT_RECUR` (`M-84`),
+    # `SHARED_SUFFIX` (`M-85`), `TITLE_NOT_IN_HOOK` (`M-86`) — so the queue
+    # went to ZERO and the suite went red for the roster having been WORKED.
+    # A check that fails when the open questions are all answered is asking
+    # for a backlog, and an EMPTY queue is a legitimate state of this table.
+    #
+    # THE SUBJECT IS THAT THE CENSUS CAN REPORT ONE, and that is proven by a
+    # MUTATION rather than by the shipped contents — the same move §5 makes
+    # on `FINDING_CONSTRUCTORS`. The count is DISCLOSED beside it, because
+    # "nobody has open questions" and "the word is unreachable" are different
+    # states and only the second is a defect.
+    open_now = GC.by_disposition(c).get("PROMOTE_CANDIDATE") or []
+    real_d = dict(GC.DISPOSITION)
+    try:
+        GC.DISPOSITION["QUATRAIN_LOCK"] = "PROMOTE_CANDIDATE"
+        planted = GC.by_disposition(GC.census()).get("PROMOTE_CANDIDATE") or []
+    finally:
+        GC.DISPOSITION.clear(); GC.DISPOSITION.update(real_d)
+    check("`PROMOTE_CANDIDATE` is REACHABLE — the vocabulary keeps a word for "
           "'this should probably gate and it is not mine to decide', so a "
-          "ruling can be WORK rather than a settled answer (doctrine 20)",
-          GC.by_disposition(c).get("PROMOTE_CANDIDATE"),
-          f"{GC.by_disposition(c).get('PROMOTE_CANDIDATE')}")
+          "ruling can be WORK rather than a settled answer (doctrine 20). "
+          "Proven by planting one, because the shipped queue may honestly be "
+          "empty and a check that demands a backlog is asking the roster not "
+          "to be worked",
+          "PROMOTE_CANDIDATE" in GC.DISPOSITIONS
+          and list(planted) == ["QUATRAIN_LOCK"],
+          f"planted -> {list(planted)}; open in the shipped table: "
+          f"{list(open_now)}")
+    check("...and the restoration held, so the shipped queue is read as it "
+          "ships and no later section inherits a planted ruling",
+          (GC.by_disposition(GC.census()).get("PROMOTE_CANDIDATE") or [])
+          == list(open_now),
+          f"{list(open_now)}")
     # THE MUTATIONS: both branches of the gate must actually refuse.
     real = dict(GC.DISPOSITION)
     try:

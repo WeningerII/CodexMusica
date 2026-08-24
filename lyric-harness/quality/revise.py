@@ -570,9 +570,15 @@ class Brief:
                        f"these is the slop direction): "
                        f"{', '.join(self.forbidden_modal)}")
         if self.forbidden_incumbent:
+            # THE SECOND RENDERER OF THE SAME SENTENCE (`MISSING.md` M-91).
+            # It said "end word" whatever `self.slot` bound; `slots
+            # .word_phrase` is the one definition and answers "end word" for
+            # every default member, so this line is byte-identical on every
+            # mandate written before placement existed.
             out.append(f"    ALREADY THERE (not a modal word — re-proposing "
-                       f"the end word that is already on this line is not a "
-                       f"revision): {self.forbidden_incumbent}")
+                       f"the {_SL.word_phrase(self.slot)} that is already on "
+                       f"this line is not a revision): "
+                       f"{self.forbidden_incumbent}")
         if self.candidates:
             out.append(f"    offered: {', '.join(self.candidates[:12])}"
                        + (" ..." if len(self.candidates) > 12 else ""))
