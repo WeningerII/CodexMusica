@@ -1000,7 +1000,7 @@ SEVERITY = {
     "RETURN_SLOT_DRIFT": "note",
     "SECTION_LENGTH_LOCKED": "note",
     "SINGLE_USE_RECURRED": "note",
-    "TITLE_NOT_IN_HOOK": "note",
+    "TITLE_NOT_IN_HOOK": "flag",
     "UNIFORM_ANACRUSIS": "note",
     # THE PLACEMENT LAYER (M-54). These four reach `GridFinding` through the
     # ONE site that passes a VARIABLE code, so neither a reader nor
@@ -2071,6 +2071,29 @@ def hook_findings(song, hooks=(), title=None):
     tkey = tokens(title)
     for h in hooks:
         hk = h.key.split()
+        # UNSATISFIABLE AS DECLARED, so it REFUSES rather than charging the
+        # draft (2026-08-23, `MISSING.md` M-86). `TITLE_NOT_IN_HOOK` is a FLAG
+        # by the owner's ruling, and a flag must name something the writer can
+        # answer. A title with MORE TOKENS than the hook cannot be contained
+        # in it by any writing at all — the containment test below is a
+        # subsequence check in both directions, and a longer string is not a
+        # subsequence of a shorter one. That is a contradiction between two
+        # DECLARATIONS, not a defect in the words, so it is recorded as a
+        # refusal and the flag is not raised (doctrine 20/79: a refusal is not
+        # a failure, and putting it in the numerator charges the wrong layer).
+        # The same shape `M-84` gave the hook slot, one layer over: a gate may
+        # only demand what some draft could supply.
+        if len(tkey) > len(hk):
+            refusals.append(Refusal(
+                "TITLE_LONGER_THAN_HOOK",
+                "'is the title in the hook?' cannot be answered YES by any "
+                "draft: the title has more words than the hook it would have "
+                "to sit inside",
+                f"title {title!r} is {len(tkey)} token(s); hook {h.text!r} is "
+                f"{len(hk)}. Containment is a subsequence test, so no choice "
+                f"of words makes the longer fit in the shorter — shorten the "
+                f"title or declare a longer hook."))
+            continue
         if any(tkey[k:k + len(hk)] == hk
                for k in range(len(tkey) - len(hk) + 1)) or \
            any(hk[k:k + len(tkey)] == tkey

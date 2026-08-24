@@ -1963,9 +1963,10 @@ def test_a_returns_broken_rhyme_scheme_reaches_the_report():
           "cannot join it by default — `severity_of` REFUSES an unruled code "
           "rather than defaulting it (doctrine 20)",
           sorted(c for c, v in SEVERITY.items() if v == "flag")
-          == ["HOOK_ABSENT", "HOOK_DOES_NOT_RECUR"]
+          == ["HOOK_ABSENT", "HOOK_DOES_NOT_RECUR",
+              "TITLE_NOT_IN_HOOK"]
           and _unruled_refuses(),
-          f"{len(SEVERITY)} codes ruled; both flags are facts about the "
+          f"{len(SEVERITY)} codes ruled; all three flags are facts about the "
           f"writer's own supplied hook text, not conventions — every other "
           f"shape code is measured against {POPULAR_SONG.name!r} and stays a "
           f"note (doctrine 6)")

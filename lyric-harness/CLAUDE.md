@@ -384,9 +384,14 @@ counts (doctrine 1).
 ~~of 67 finding codes, 8 CAN definitely refuse something, 15 definitely
 CANNOT, and 44 depend on where they are constructed — 23 `computed` and 21
 `consumer-assigned`~~ **STRUCK 2026-08-23 (`MISSING.md` M-77): the standing
-figure is ~~20 GATED / 51 DISCLOSED-ONLY~~ **21 GATED / 50 DISCLOSED-ONLY
-(repinned 2026-08-23, `MISSING.md` M-84 — `HOOK_DOES_NOT_RECUR` promoted by
-owner ruling, the first code this roster caused to be asked about)** /
+figure is ~~20 GATED / 51 DISCLOSED-ONLY~~ ~~21 GATED / 50~~ ~~22 GATED / 49~~
+**23 GATED / 48 DISCLOSED-ONLY (repinned three times on 2026-08-23 as the
+owner ruled on the roster this instrument produced: `HOOK_DOES_NOT_RECUR`
+promoted to a flag (`M-84`), `SHARED_SUFFIX` promoted and PURSUED rather than
+flagged (`M-85`), `TITLE_NOT_IN_HOOK` promoted to a flag on reaffirmation
+against a measured 67.7% corpus rate (`M-86`). That ladder is the roster
+working: M-77 built it so the question would be ASKED of each code by a
+person, and three were)** /
 0 UNDECIDABLE, over 71 codes and
 not 67 — the placement layer builds `GridFinding` from a VARIABLE at one
 site, so four codes this tree emits were counted by nothing, and the same
@@ -1186,13 +1191,18 @@ carries a flag finding **ON A LINE. That qualifier is load-bearing and was
 missing until 2026-08-13.** Every stop condition reads `brief()`, `brief()` is
 built from `inspect()`'s `per_line` half, and a WHOLE-DRAFT finding names no
 line — so it is in no `Brief` and no stop condition can see it. ~~Exactly three
-codes are~~ **FOUR codes are** whole-draft AND a flag: `LEXICAL_MONOTONY` and
+codes are~~ ~~FOUR codes are~~ **FIVE codes are** whole-draft AND a flag:
+`LEXICAL_MONOTONY` and
 `FUNCTION_WORD_HEAVY`
 (the floor, and only inside a calibrated profile's MEASURED range) and
 `HOOK_ABSENT` — ~~which is the song-function layer's ONLY flag~~ **joined
 2026-08-23 by `HOOK_DOES_NOT_RECUR` (`MISSING.md` M-84, owner's ruling), so the
-song-function layer now has TWO and they are the same kind: both are facts
-about a hook the WRITER DECLARED, not measurements against `POPULAR_SONG`** —
+song-function layer now has THREE and they are the same kind: all are facts
+about a hook the WRITER DECLARED, not measurements against `POPULAR_SONG` —
+`TITLE_NOT_IN_HOOK` joined 2026-08-23 (`M-86`), promoted on the owner's
+reaffirmation after the 67.7% corpus rate was put in front of them, and it
+ships with `TITLE_LONGER_THAN_HOOK`, a REFUSAL for the case no writing can
+answer** —
 so the layer
 wired in above can never stop this loop. `verify()` reads all four, because
 its diff covers `whole` as well as `per_line`. **So a whole-draft flag can

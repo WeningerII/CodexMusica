@@ -9841,3 +9841,49 @@ rather than deleted because the ARGUMENT is what a later reader needs
 **BOOKKEEPING**: `gate_census.PINNED` ~~gated 21 / disclosed_only 50~~ ->
 **22 / 49** over the same 71 codes. `audit_register.PINNED["coverage_entries"]`
 ~~142~~ -> **143**.
+
+### M-86 · `TITLE_NOT_IN_HOOK` gates, on reaffirmation against the number `CLOSED` — 2026-08-23
+**THE OWNER RULED TWICE, AND THE SECOND TIME IS THE ONE THAT COUNTS.** `M-85`
+recorded a REFUSAL to promote this code and put a measurement behind it: over
+`corpus/song/eng_*`, of **8,667 songs carrying a declared `--- TITLE:`, 5,867
+(67.7%) do not contain their own title anywhere in the lyric** — the weakest
+form of the test, since "in the hook" is a strict subset of "in the lyric".
+The argument was doctrine 61 (*a rule that fires more often is not a better
+rule*) and `M-54`'s per-row test: a song whose title is absent from its hook
+reads as a NOVEL SONG rather than a mislabelled one.
+
+**The owner was shown that number and answered *"promote it anyway."*** That
+is the ruling, it is recorded here with the objection intact rather than
+quietly dropped (doctrine 17), and the code is a FLAG.
+
+**WHAT SHIPPED WITH IT IS THE GUARD THAT KEEPS THE FLAG HONEST**, and it is
+`M-84`'s lesson applied without being asked for again. A flag must name
+something a writer can answer. Containment here is a SUBSEQUENCE test in both
+directions, so a title with MORE TOKENS than the hook cannot sit inside it by
+any writing at all. `TITLE_LONGER_THAN_HOOK` is a REFUSAL for exactly that
+case: it records the contradiction between two DECLARATIONS and does not raise
+the flag, because charging a draft for an unanswerable demand is the error
+`M-84` caught in the planner (doctrine 20/79 — a refusal is not a failure, and
+putting one in the numerator charges the wrong layer). MEASURED as reachable:
+**209 of 8,643 corpus titles (2.42%) are longer than the density band's own
+12-syllable ceiling**, so no band-legal line could hold them whatever the hook
+said.
+
+**THE THREE BRANCHES, PROVEN RATHER THAN DESCRIBED**, on one fixture:
+title inside the hook -> `findings=[] refusals=[]`; title absent ->
+`[('TITLE_NOT_IN_HOOK', 'flag')]`; title longer than the hook ->
+`findings=[] refusals=['TITLE_LONGER_THAN_HOOK']`.
+
+**A REFUSAL IS NOT A FINDING, so the census does not grow.** `codes` stays
+**71** — `FINDING_CONSTRUCTORS` names `Finding`/`FitFinding`/`GridFinding` and
+a `Refusal` is none of them, which is the doctrine-79 partition holding on its
+own rather than by anybody remembering it.
+
+**BOOKKEEPING**: `gate_census.PINNED` ~~gated 22 / disclosed_only 49~~ ->
+**23 / 48**, the third repin of the day and the third code the `M-77` roster
+caused to be ASKED about — which is that roster doing the job it was built
+for. `audit_register.PINNED["coverage_entries"]` ~~143~~ -> **144**.
+`grid.SEVERITY`'s flag family is now three (`HOOK_ABSENT`,
+`HOOK_DOES_NOT_RECUR`, `TITLE_NOT_IN_HOOK`) and `test_grid.py` pins it as a
+DECLARED SET, so a fourth cannot drift in; the five convention locks beside
+them are asserted still notes, so promoting three did not open the family.

@@ -547,7 +547,15 @@ DISPOSITION = {
     # better rule), and by `M-54`'s per-row test a song whose title is absent
     # from its hook is a NOVEL SONG, not a mislabelled one. The question is
     # still the owner's; what changed is that it now has evidence attached.
-    "TITLE_NOT_IN_HOOK": "PROMOTE_CANDIDATE",
+    # RULED 2026-08-23: promoted to a FLAG (`MISSING.md` M-86). The owner
+    # was shown the 67.7% corpus rate and reaffirmed, which is the ruling.
+    # What shipped WITH it is the guard that keeps the flag honest:
+    # a title with more tokens than its hook REFUSES
+    # (`TITLE_LONGER_THAN_HOOK`) instead of charging the draft, because
+    # containment is a subsequence test and no writing makes the longer
+    # fit in the shorter. A Refusal is not a Finding, so it adds no row
+    # to this census (doctrine 79) — `codes` stays 71.
+    "TITLE_NOT_IN_HOOK": "PROMOTED",
 
     # --- quality/fit.py: counts against a DECLARED meter. `satisfiable=True`
     # is fit.py's own statement that these are measurements and not
@@ -690,7 +698,7 @@ def by_disposition(c=None):
 #: planner emitted a hook into a section it drew once in 219 of 400 seeds, and
 #: that derivation is repaired in the same commit, so the flag's live target
 #: is a hand-written blueprint or a recovered song rather than a plan.
-PINNED = {'codes': 71, 'gated': 22, 'disclosed_only': 49, 'undecidable': 0,
+PINNED = {'codes': 71, 'gated': 23, 'disclosed_only': 48, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 
