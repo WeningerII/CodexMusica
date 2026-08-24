@@ -1,0 +1,43 @@
+song	step	measured	harness_commit	verb	exit	fact	value
+one_more.txt	1	2026-08-24	34149de-WORKING	plan	0	form	verse-chorus
+one_more.txt	1	2026-08-24	34149de-WORKING	plan	0	seed	102
+one_more.txt	1	2026-08-24	34149de-WORKING	plan	0	lines	19
+one_more.txt	1	2026-08-24	34149de-WORKING	plan	0	sections	15
+one_more.txt	1	2026-08-24	34149de-WORKING	plan	0	pattern	drop-build-turnaround-false_ending-verse-interlude-prechorus-chorus-postchorus-tag-vamp-prechorus-chorus-hook-coda
+one_more.txt	1	2026-08-24	34149de-WORKING	plan	0	meter	4/4 as (2, 2)
+one_more.txt	1	2026-08-24	34149de-WORKING	plan	0	subdivision	4
+one_more.txt	1	2026-08-24	34149de-WORKING	plan	0	groups	1.endword,2.endword;4.T3,5.T1;4.T4,5.T3;4.T6,5.endword;10.T4,11.T6;10.T3,11.T4;18.head,19;17.headrime,18.T2;17.T7,19.headrime;17.T5,18.endword
+one_more.txt	1	2026-08-24	34149de-WORKING	plan	0	returns	9,15
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	mandate_groups	11
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	lines	19
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	mandated_pairs	11
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	mandate_source	declared
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	md5	69a6577d4a5c
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	briefed	19
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	per_line_flag	0
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	per_line_note	79
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	whole_draft	14
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	whole_draft_flag	0
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	finding:COLLISION_CUT_IS_SCALAR_ONLY	NOTE x1
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	finding:CROWDED	NOTE x19
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	finding:FUNCTION_UNDECLARED	NOTE x1
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	finding:LATE_ENTRY	NOTE x15
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	finding:MANDATE_GROUPS_INDISTINGUISHABLE	NOTE x1
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	finding:NEAR_COLLISION	NOTE x4
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	finding:NO_SETTING	NOTE x1
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	finding:PROMINENCE_CANNOT_ALIGN	NOTE x19
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x19
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	finding:REFRAIN_REPEAT	NOTE x1
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	finding:REPEAT_ACROSS_GROUPS	NOTE x2
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	finding:RETURN_LOCKED	NOTE x1
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	finding:RETURN_NEVER_RETURNS	NOTE x2
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	finding:SINGLE_INSTANCE	NOTE x6
+one_more.txt	2	2026-08-24	34149de-WORKING	song	0	finding:UNCOVERED_BARS	NOTE x1
+one_more.txt	3	2026-08-24	34149de-WORKING	revise	0	stop_reason	SUCCESS
+one_more.txt	3	2026-08-24	34149de-WORKING	revise	0	rounds	0
+one_more.txt	3	2026-08-24	34149de-WORKING	revise	0	md5_in	69a6577d4a5c
+one_more.txt	3	2026-08-24	34149de-WORKING	revise	0	md5_out	69a6577d4a5c
+one_more.txt	3	2026-08-24	34149de-WORKING	revise	0	unchanged	yes
+one_more.txt	3	2026-08-24	34149de-WORKING	revise	0	mandated	11
+one_more.txt	3	2026-08-24	34149de-WORKING	revise	0	judged	11
+one_more.txt	3	2026-08-24	34149de-WORKING	revise	0	pairs_refused	0

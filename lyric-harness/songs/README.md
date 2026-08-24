@@ -135,6 +135,42 @@ without editing the planner's own output by hand.
 `song` exit 0, 0 FLAG. `revise` SUCCESS in 0 rounds, draft UNCHANGED
 (md5 `89bcde433fbe`), 11 pairs mandated / 11 judged / 0 refused.
 
+The seed came from the sweep and not from taste: it plans all 699 seeds in
+`1-700`, is refused by the planner on 0 of them, and accepts 6 (0.9%) —
+`2,232,394,503,510,614` [LOG: accepted_seeds carry_it_over.txt], named in seed
+order because a sweep does not rank (doctrine 7/19).
+
+**THE FIVE PREDICATES ARE ONE SESSION'S DECLARATION AND NO RULE IN THIS TREE
+STANDS BEHIND ANY OF THEM.** `uses=bridge;lines>=20;lines<=28;slots_per_line>=8;pins_per_line<=3`
+was typed on a command line while this song was being written. Checked rather
+than remembered: `--want` has NO default (omit it and every seed is accepted,
+and the verb says so out loud); no section function REQUIRES a bridge — the
+only `requires` edges in the vocabulary are `burden`->`verse`,
+`postchorus`->`chorus` and `prechorus`->`chorus`; and the string `uses=bridge`
+occurs in exactly ONE place in this repository, which is the command line
+above. A sweep does not decide what you want, so what a sweep accepted is a
+fact about the want and never a fact about songs.
+**AND THE BRIDGE PREDICATE HAS A NOTE STANDING BEHIND IT THAT IT SHOULD NOT
+BE ANSWERING** (`MISSING.md` M-101). `song_function_report` emits
+`FUNCTION_UNDECLARED: no section declares 'bridge'` — visible as
+`finding:FUNCTION_UNDECLARED` in `turn_the_wheel.log.tsv` — and a sweep
+predicate demanding a bridge silences it by steering the PLAN to satisfy the
+CHECKER. That is doctrine 9's failure mode pointed at structure instead of
+rhyme, and doctrine 7 says a floor may not order the region it already passed.
+The note measures a CONVENTION a writer is free to depart from; designing the
+plan around it is the error, whatever the note says.
+
+**THOSE ARE THREE COUNTS AND ONLY ONE OF THEM IS ABOUT LEGALITY** (doctrine
+79). `planned 699` beside `REFUSED by the planner 0` says every seed in the
+range produced a WRITABLE plan — which is not luck but the plan-time joint
+satisfiability gate working, since that gate went from 376 of 400 plans
+failing to 0 of 400 when the three derivations behind it were repaired, and a
+MUTATION is now the only way to fire it. The 0.9% is the acceptance rate for
+the FIVE PREDICATES declared above and says nothing about legality: declare
+fewer and it rises, declare none and it is 100%, which the verb itself calls
+honest and useless. Reading the acceptance rate as a legality rate would put
+the writer's own narrow want in the numerator and charge it to the planner.
+
 **25 lines, 23 sections, 8/8 grouped 3+3+2** — an additive limp rather than a
 march, one bar to a line, so the lines are SHORT: 8 slots on a downbeat and
 **7 on the one-beat pickup**. Three instrumental INTERLUDEs carry bars and no
@@ -170,25 +206,47 @@ and the last line is what happens to an inherited instruction when the person
 who gave it is gone.
 
 **WHAT THE SCREEN COST, AND THE TWO FAMILIES THAT COST EVERYTHING.** Eleven
-families went through `screen`; the clean yield per family is the
-measurement:
+families went through `screen`. Every row below is re-derived from
+`carry_it_over.log.tsv` and each cell carries a `[LOG:]` citation, so a number
+here that stops matching the log FAILS `--verdicts`. Three counts, never
+summed (doctrine 79) — a BAN is the grader answering and a REFUSAL is the
+grader saying it cannot read the word:
 
-| family | clean pairs of 15 |
-|---|---|
-| `-ell` (bell, knell, quell, gel…) | 7 |
-| `-ear` (year, here, near, fear, clear, sheer) | 7 |
-| `-ide` (tide, sighed, dyed, wide…) | 6 |
-| `-ay` (weigh, grey, prey, sleigh…) | 5 |
-| `-ust` (rust, dust, bust ~ cussed) | 4 |
-| `-ark` (spark, arc, hark, lark) | 3 |
-| `-or` (oar, shore, soar, war, door) | 3 |
-| `-orn` (torn, borne, mourn…) | 1 |
-| `-eight/-ait` (freight, strait…) | 1 |
-| `-old` (cold, rolled, tolled, hauled…) | **0** |
-| `-ame` (name, came, blame, shame…) | **0** |
+| family (members screened) | banned | refused | clean |
+|---|---|---|---|
+| `-ell` bell knell quell gel swell shell | 8 [LOG: banned carry_it_over.txt bell] | 0 [LOG: refused carry_it_over.txt bell] | 7 [LOG: clean_or_non_rhyme carry_it_over.txt bell] |
+| `-ear` year here near fear clear sheer | 8 [LOG: banned carry_it_over.txt year] | 0 [LOG: refused carry_it_over.txt year] | 7 [LOG: clean_or_non_rhyme carry_it_over.txt year] |
+| `-ide` tide sighed dyed wide | 2 [LOG: banned carry_it_over.txt tide] | 0 [LOG: refused carry_it_over.txt tide] | 4 [LOG: clean_or_non_rhyme carry_it_over.txt tide] |
+| `-ay` weigh grey prey sleigh | 2 [LOG: banned carry_it_over.txt weigh] | 0 [LOG: refused carry_it_over.txt weigh] | 4 [LOG: clean_or_non_rhyme carry_it_over.txt weigh] |
+| `-ust` rust dust bust cussed | 3 [LOG: banned carry_it_over.txt rust] | 0 [LOG: refused carry_it_over.txt rust] | 3 [LOG: clean_or_non_rhyme carry_it_over.txt rust] |
+| `-ark` spark arc hark lark | 3 [LOG: banned carry_it_over.txt spark] | 0 [LOG: refused carry_it_over.txt spark] | 3 [LOG: clean_or_non_rhyme carry_it_over.txt spark] |
+| `-or` oar shore soar war door | 7 [LOG: banned carry_it_over.txt oar] | 0 [LOG: refused carry_it_over.txt oar] | 3 [LOG: clean_or_non_rhyme carry_it_over.txt oar] |
+| `-orn` torn borne mourn | 2 [LOG: banned carry_it_over.txt torn] | 0 [LOG: refused carry_it_over.txt torn] | 1 [LOG: clean_or_non_rhyme carry_it_over.txt torn] |
+| `-eight/-ait` freight strait | 0 [LOG: banned carry_it_over.txt freight] | 0 [LOG: refused carry_it_over.txt freight] | 1 [LOG: clean_or_non_rhyme carry_it_over.txt freight] |
+| `-old` cold rolled tolled hauled bowled scrolled | 10 [LOG: banned carry_it_over.txt cold] | 5 [LOG: refused carry_it_over.txt cold] | 0 [LOG: clean_or_non_rhyme carry_it_over.txt cold] |
+| `-ame` name came blame shame claim flame | 15 [LOG: banned carry_it_over.txt name] | 0 [LOG: refused carry_it_over.txt name] | 0 [LOG: clean_or_non_rhyme carry_it_over.txt name] |
 
-Two families have a rhyme CEILING of zero: every member is either
-homoeoteleuton with the others or somebody's modal answer. `-ame` is the
+**THE TABLE THIS REPLACES HAD ONE DENOMINATOR AND ELEVEN POPULATIONS, AND
+FIVE OF ITS ROWS WERE ARITHMETICALLY IMPOSSIBLE.** It read
+~~`| family | clean pairs of 15 |`~~ with the members abbreviated behind an
+ellipsis, and 15 is `C(6, 2)` — the pair count of a SIX-member family. Five
+rows name four or five members, where the pair count is 6 or 10, so
+~~`-ark (spark, arc, hark, lark) | 3`~~ claimed three clean pairs out of
+fifteen in a family that has six. The denominator was written once and
+carried across every row (doctrine 91: a count is a coordinate of the
+RENDERING, not only of the threshold).
+
+**THE NEW NUMBERS ARE NOT A CORRECTION OF THE OLD ONES**, and saying so
+matters more than the numbers. The old table's member sets were never
+recorded — the ellipses hid them — so ~~6~~ for `-ide` and ~~5~~ for `-ay`
+were taken over LARGER sets than the four members named here. Two
+measurements over two populations are two measurements; only the ones with a
+`[LOG:]` citation are re-derivable, and that is exactly the property the old
+table lacked.
+
+**WHAT SURVIVES UNCHANGED IS THE FINDING.** Two families have a rhyme CEILING
+of zero: every member is either homoeoteleuton with the others or somebody's
+modal answer. `-ame` is the
 starker case — `name`, `came`, `blame`, `shame`, `claim`, `flame`, and not
 one usable pair among all fifteen.
 
@@ -246,3 +304,55 @@ predictable partner in its family. Two whole sound families, `/OW/` and
 `/AA-R-K/`, turned out unusable: every pair inside them is somebody's modal
 answer. That is doctrine 9 enforced before a word ships rather than argued
 about afterwards.
+
+---
+
+## The process beside the product
+
+`RESULTS.tsv` says what a song IS. `songs/<name>.log.tsv` says what the verbs
+SAID while it was being written — one row per (invocation, fact), in the order
+the questions were asked.
+
+    python3 quality/song_log.py --record SONG -- CMD...   # run a verb, bank what it printed
+    python3 quality/song_log.py --show SONG               # render one song's log
+    python3 quality/song_log.py --verdicts                # this file's process claims vs the rows
+
+**IT RECORDS EMITTED TEXT AND NOTHING ELSE.** `--record` runs the command,
+keeps its exit code, and parses stdout with a parser declared for that verb. A
+command with no declared parser REFUSES at exit 2; so does a declared verb
+whose output the parser reads nothing from, because an invocation whose output
+nothing read looks exactly like an invocation that went well. It cannot bank
+an intention, a reason or a regret — everything a session BELIEVES stays in
+this README, where `--verdicts` charges it against a row.
+
+**EVERY PROCESS CLAIM ABOVE IS NOW GATED.** An exit code, a stop reason, a
+round count, an md5, a mandated/judged/refused triple — each must resolve to a
+row in that song's log or `--verdicts` fails. Three counts, never summed:
+RESOLVED, MISMATCHED and REFUSED, the third being a claim the log cannot
+answer, which is not the same thing as a claim it agrees with (doctrine 20).
+
+**WHAT THE LOG DOES NOT CLAIM.** A row is stamped with the commit and date it
+was RECORDED at, not with the hour of the original writing session. The rows
+banked on 2026-08-24 are re-derivations of the same commands against the same
+committed bytes — the stronger property, because a log nobody can re-run is
+the memoir this file was written to replace. The genuinely unrepeatable half —
+a superseded draft that was never committed, the two hand-picked swaps that
+did not move `stay_awake`'s ban gate — has no rows and cannot get any. Those
+sentences stay prose and are REFUSED by the gate rather than passed by it.
+
+**THE ZERO-CEILING FAMILIES ARE ROWS NOW, NOT A TABLE.** `-old` and `-ame`
+each yield zero clean pairs, and that is a measurement about English taken
+through this harness's own two-tier ban. It sat in a markdown table nothing
+could re-derive — a table whose single denominator was impossible for five of
+its own rows, which is what a number nobody can re-run does. `screen`'s own
+verdict per pair is banked now, `scrolled`'s five refusals included, each one
+naming the word CMUdict could not read.
+
+**A CITATION IS KEYED ON A WORD, NOT A ROW NUMBER.**
+`[LOG: clean_or_non_rhyme carry_it_over.txt bell]` names the screen run that
+screened `bell`, so it survives re-recording, reordering and insertion. A
+citation into an append-only log keyed on POSITION is an offset from a moving
+origin — the defect this repository already found in its own
+`data/sources.tsv` line-number citations, where an unrelated insertion made a
+true sentence false without one character of it changing. A word screened by
+two runs REFUSES as ambiguous rather than resolving to whichever came first.

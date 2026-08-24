@@ -1,0 +1,42 @@
+song	step	measured	harness_commit	verb	exit	fact	value
+turn_the_wheel.txt	1	2026-08-24	34149de-WORKING	plan	0	form	verse-chorus
+turn_the_wheel.txt	1	2026-08-24	34149de-WORKING	plan	0	seed	189
+turn_the_wheel.txt	1	2026-08-24	34149de-WORKING	plan	0	lines	12
+turn_the_wheel.txt	1	2026-08-24	34149de-WORKING	plan	0	sections	8
+turn_the_wheel.txt	1	2026-08-24	34149de-WORKING	plan	0	pattern	chorus-verse-chorus-postchorus-solo-prechorus-chorus-postchorus
+turn_the_wheel.txt	1	2026-08-24	34149de-WORKING	plan	0	meter	3/8 as (3,)
+turn_the_wheel.txt	1	2026-08-24	34149de-WORKING	plan	0	subdivision	4
+turn_the_wheel.txt	1	2026-08-24	34149de-WORKING	plan	0	groups	1.T4,2.endword;3.endword,4.headrime;8.headrime,9;8.T3,9.head;8.T7,9.T5;8.T5,9.T6
+turn_the_wheel.txt	1	2026-08-24	34149de-WORKING	plan	0	returns	1,5;2,6;1,10;2,11
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	mandate_groups	10
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	lines	12
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	mandated_pairs	10
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	mandate_source	declared
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	md5	f5ed3b7d8cea
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	briefed	12
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	per_line_flag	0
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	per_line_note	47
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	whole_draft	10
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	whole_draft_flag	0
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	finding:ANACRUSIS	NOTE x4
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	finding:CROWDED	NOTE x12
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	finding:EXTRAPOLATED_LENGTH	NOTE x1
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	finding:FUNCTION_UNDECLARED	NOTE x1
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	finding:HOOK_CONFINED	NOTE x1
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	finding:LEXICAL_MONOTONY	NOTE x1
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	finding:NO_SETTING	NOTE x1
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	finding:PROMINENCE_CANNOT_ALIGN	NOTE x12
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x12
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	finding:REFRAIN_REPEAT	NOTE x4
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	finding:REPEAT_ACROSS_GROUPS	NOTE x3
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	finding:RETURN_LOCKED	NOTE x2
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	finding:SINGLE_INSTANCE	NOTE x2
+turn_the_wheel.txt	2	2026-08-24	34149de-WORKING	song	0	finding:UNCOVERED_BARS	NOTE x1
+turn_the_wheel.txt	3	2026-08-24	34149de-WORKING	revise	0	stop_reason	SUCCESS
+turn_the_wheel.txt	3	2026-08-24	34149de-WORKING	revise	0	rounds	0
+turn_the_wheel.txt	3	2026-08-24	34149de-WORKING	revise	0	md5_in	f5ed3b7d8cea
+turn_the_wheel.txt	3	2026-08-24	34149de-WORKING	revise	0	md5_out	f5ed3b7d8cea
+turn_the_wheel.txt	3	2026-08-24	34149de-WORKING	revise	0	unchanged	yes
+turn_the_wheel.txt	3	2026-08-24	34149de-WORKING	revise	0	mandated	10
+turn_the_wheel.txt	3	2026-08-24	34149de-WORKING	revise	0	judged	10
+turn_the_wheel.txt	3	2026-08-24	34149de-WORKING	revise	0	pairs_refused	0

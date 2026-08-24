@@ -10490,3 +10490,137 @@ labelled song population, and the label is the hard part — the sonnet arm got
 one from anthologisation, which has no clean analogue for song. Filed on
 2026-08-24 when M-98's build made the gap explicit: the series can now show
 DRIFT and can refuse an uncited claim; it still cannot show MERIT.
+
+### M-100 · the SONGS had a series and no PROCESS record `CLOSED`
+Filed and closed 2026-08-24.
+
+**M-98 BANKED WHAT A SONG IS AND NOTHING BANKED HOW IT GOT THERE.**
+`songs/RESULTS.tsv` carries ten features over the committed bytes; the making
+of the song — which pairs `screen` refused, which seed the sweep accepted,
+what `song` said on the first pass, how many rounds `revise` took — lived
+entirely in `songs/README.md` as PROSE, written from a session's memory. The
+owner asked for exactly this half: *"are you proposing that you also record
+the process you took along with and assumed successes and known failures you
+had to solve along the way?"*
+
+**A SENTENCE NOBODY CAN CHECK IS A STORY**, and this repository's own record
+of that failure mode is long. Worse, the prose was the ONLY witness to the
+half that matters most here: the zero-ceiling rhyme families. `-old` and
+`-ame` yield 0 clean pairs of 15, which is a measurement about ENGLISH taken
+through this harness's own ban, and it was a table in a README that no command
+could re-derive.
+
+**`quality/song_log.py` — THREE VERBS, AND IT GRADES NOTHING.**
+
+    --record SONG -- CMD...   run a verb, bank what it PRINTED
+    --show SONG               render one song's log
+    --verdicts                the README's process claims vs the rows
+
+**IT RECORDS EMITTED TEXT AND NOTHING ELSE.** `--record` runs the command,
+keeps the exit code, and parses stdout with a parser DECLARED for that verb.
+It cannot record an intention, a reason or a regret — everything a session
+BELIEVES stays in the README, where `--verdicts` can charge it against a row.
+`quality/test_songs_log.py` §5 checks by ABSENCE that the module reaches no
+grader: no `discriminate`, no `floor`, no `Reviser`, no `QualityFeatures`.
+Every verdict it holds arrives through `subprocess`, which is the only route
+that cannot become a second opinion about the draft (doctrine 1).
+
+**TWO REFUSALS, AND THEY ARE THE INSTRUMENT.** A command with no declared
+parser REFUSES at exit 2 naming the vocabulary; a command whose parser reads
+NOTHING from a real run refuses too, and prints the tail of the output. Both
+matter for the same reason: an invocation whose output nothing read looks
+exactly like an invocation that went well (doctrine 20), and a verb whose
+format has drifted would otherwise bank a silently empty row forever.
+
+**THE SHAPE IS LONG, NOT WIDE.** One row per (invocation, fact). `screen`
+emits a verdict per pair and `revise` emits a stop reason; a wide table would
+invent an empty cell for every fact the other verb does not answer, and an
+empty cell reads as a measurement that came back zero. A fact a verb does not
+emit has NO ROW — the only spelling of *not asked* that cannot be misread as
+*asked and clean*. `step` is the ordinal within one song's log, so the
+SEQUENCE survives: the order in which a session asked its questions is itself
+part of the record.
+
+**`--verdicts` IS THE GATE AND IT IS TWO-SIDED.** Every process claim in the
+README that names an exit code, a stop reason, a round count, an md5 or a
+mandated/judged/refused triple must resolve to a row. Three counts, never
+summed: RESOLVED, MISMATCHED, REFUSED — a claim the log cannot answer is
+REFUSED and never quietly passed. `test_songs_log.py` §4 rewrites one
+committed claim off its row and requires exit 3, then restores the file.
+
+**WHAT THE LOG DOES NOT CLAIM, STATED SO IT CANNOT BE MISREAD.** A row is
+stamped with the commit and date it was RECORDED at, not with the moment of
+the original writing session — the rows banked on 2026-08-24 are
+re-derivations of the same commands against the same committed bytes. That is
+the stronger property, not a weaker one: a log nobody can re-run is the
+memoir this file was written to replace. The genuinely unrepeatable half — a
+superseded draft that was never committed — has no rows and cannot get any,
+so `--verdicts` REFUSES those claims rather than failing them, and says how
+many it refused.
+
+**AND IT FOUND A DEFECT IN THE PROSE IT WAS BUILT TO GATE, ON ITS FIRST RUN.**
+`songs/README.md` carried an eleven-row table headed
+~~`| family | clean pairs of 15 |`~~ — one denominator over eleven
+populations. 15 is `C(6, 2)`, the pair count of a SIX-member family, and five
+of the eleven rows name four or five members, where the pair count is 6 or 10:
+~~`-ark (spark, arc, hark, lark) | 3`~~ claimed three clean pairs out of
+fifteen in a family that has six. **Five rows were arithmetically impossible
+and every one of them had been read as a measurement.** The denominator was
+written once and carried across (doctrine 91 — a count is a coordinate of the
+RENDERING, not only of the threshold), and nothing could catch it because
+nothing could re-derive a single cell.
+**THE REPLACEMENT IS NOT A CORRECTION AND THE ENTRY SAYS SO.** The old member
+sets were hidden behind ellipses and were never recorded, so the re-derived
+`-ide` and `-ay` counts are taken over SMALLER, DECLARED sets — two
+measurements over two populations, not a repin of one. What survives
+unchanged is the finding: `-old` and `-ame` have a rhyme ceiling of zero.
+
+**THE CITATION IS KEYED ON A WORD, NOT A ROW NUMBER.**
+`[LOG: clean_or_non_rhyme carry_it_over.txt bell]` names the screen run that
+screened `bell`; the value written immediately before it must EQUAL the banked
+one, so the gate charges the number and not merely the existence of a row. A
+step ordinal was the obvious key and is refused for the reason this register
+already records against `data/sources.tsv:NNN` citations: a position into an
+append-only file is an offset from a moving origin, and an unrelated insertion
+makes a true sentence false without one character of it changing. A word
+screened by TWO runs REFUSES as ambiguous rather than resolving to whichever
+came first (`test_songs_log.py` §6 plants exactly that log and requires the
+refusal).
+
+### M-101 · a CONVENTION asks about four function names nobody derived `OPEN`
+Filed 2026-08-24, by the owner catching a sweep predicate and asking what
+stood behind it.
+
+**`quality/grid.py`'s `song_profile` LOOPS OVER A HAND-WRITTEN TUPLE.**
+
+    for fn in ("chorus", "prechorus", "bridge", "hook"):
+
+Four names out of the twenty-one `SECTION_FUNCTIONS` declares. Those four
+drive `has_<fn>` and `bars_until_first_<fn>` on every profile the shape layer
+reads, and `FUNCTION_UNDECLARED` fires for each one a draft does not declare —
+`turn_the_wheel.log.tsv` carries `finding:FUNCTION_UNDECLARED NOTE x1`, whose
+message is *"no section declares 'bridge'"*.
+
+**NOTHING SAYS WHY THOSE FOUR.** There is no measurement, no corpus rate, no
+gloss-derived rule and no owner ruling behind the membership; `verse`,
+`outro`, `postchorus`, `refrain` and the other seventeen are absent for no
+recorded reason. This is the owner's *"we do not want hard numbers anywhere"*
+in the species the tree cannot see: a TUPLE OF STRINGS is a threshold nobody
+wrote down (doctrine 58), and every instrument here that hunts hard numbers
+hunts integers.
+
+**AND IT ALREADY STEERED A PLAN.** `songs/carry_it_over.txt` was planned from
+a seed accepted by `--want=uses=bridge;...`, and the note above fires on a
+song with no bridge. Whether that predicate was written to silence the note
+cannot be established from the record — what IS established is that the note
+exists, the predicate answers it, and the two sit one layer apart. Steering
+the PLAN to satisfy the CHECKER is doctrine 9's failure mode pointed at
+structure rather than rhyme, and doctrine 7 forbids a floor ordering the
+region it already passed. The README section for that song now says so.
+
+**WHAT IS NOT DONE HERE, DELIBERATELY.** The tuple is UNTOUCHED. Which
+functions a convention profile asks about is a RULING and not a cleanup — the
+honest options are to derive the membership from `SECTION_FUNCTIONS`' own
+recurrence contracts, to measure which functions `corpus/song/`'s marked songs
+actually declare, or for the owner to name the four (or twenty-one) by hand.
+Picking one of those silently is how the current four got there.

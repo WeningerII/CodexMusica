@@ -2323,6 +2323,48 @@ named defect can be two-thirds shut and the live third a different shape.
 
 **A SECTION BRACKET IS PRESENTED WHOLE OR NOT AT ALL — GATED 2026-08-24 (`MISSING.md` M-97).** `quality/plan.py:section_header` is the ONE builder and it puts the line count, the bar count, the METER and the pickup INSIDE the bracket: `[INTRO — 2 lines — 2 bars of 8/8, one-beat pickup]`. Flattening that to `[INTRO]` when presenting a song throws away two thirds of what the section declares, and it happened six or seven times because nothing could see it — `test_plan.py` §6 gates the RENDERER, `test_songs.py` gates the FILE, and neither reads a message. **DO NOT RETYPE A SONG.** `plan --seed=N --fill=DRAFT --out=BP` prints it; present those bytes. This is no longer a standing instruction: `.claude/settings.json` registers a **Stop hook** that runs `quality/check_render_form.py` against the turn about to be delivered and EXITS 2 — the turn is blocked and the reason comes back. Quoting a raw lyric file, which legitimately carries bare `[VERSE1]` markers, is the one escape and it is declared IN THE TEXT with `RAW LYRIC FILE`.
 
+**THE SONGS ARE A SERIES NOW, AND SO IS THE PROCESS THAT MADE THEM — 2026-08-24
+(`MISSING.md` M-98/M-99/M-100).** Five songs shipped and nothing compared any
+of them to any other; every report about them was a PASS/FAIL bit — `song`
+exit 0, `revise` 0 rounds — read aloud as a judgement of quality. **IT IS NOT
+ONE, AND THE MEASUREMENT IS THE ARGUMENT**: BOTH drafts of `carry_it_over`
+were exit 0 with 0 rounds, the one whose lines were atmosphere stacked into
+token positions and the rewrite, and NO GATE IN THIS TREE CAN TELL THEM APART.
+A bit that cannot separate those two cannot support a sentence containing the
+word "best".
+**TWO REGISTERS, KEPT APART BECAUSE THEY ANSWER DIFFERENT QUESTIONS.**
+`quality/song_record.py` -> `songs/RESULTS.tsv` banks what a song IS: the ten
+pre-registered features over the committed bytes, keyed on the HARNESS COMMIT,
+so a moved number means the TREE moved and the delta is attributable. The
+songs become fixed witnesses and `--check` is a regression detector for the
+whole quality layer. `quality/song_log.py` -> `songs/<name>.log.tsv` banks
+what the VERBS SAID while a song was written — one row per (invocation, fact),
+long and not wide, because an empty cell reads as a measurement that came back
+zero and a fact a verb does not emit must have NO ROW.
+**NEITHER GRADES.** `song_record.py` extracts features with NO SCHEME and
+stops; `song_log.py` reaches every verdict through `subprocess` and imports no
+grader at all, checked by ABSENCE in `test_songs_log.py` §5. The reason is
+M-99: `discriminate.py` is fitted on **152 SONNETS** under a fixed
+`SONNET_SCHEME` while `corpus/song/` holds **1,421** songs that calibrate the
+FLOOR's song profile. Pushing a 25-line song in 8/8 through a sonnet-fitted
+model and printing the number is a measurement laundered out of its domain
+(doctrine 13/14), so **there is no human-vs-generated discriminator for songs
+and the tables say so by having no column for one.**
+**BOTH GATES ARE AIMED AT THE NARRATOR RATHER THAN THE CODE**, which is what
+makes them worth the commit. `--claims` requires every comparative sentence in
+`songs/README.md` to carry a `[RESULTS: <column> <song>]` citation that
+resolves — an uncited superlative FAILS, and it failed on its first run
+against two of my own. `--verdicts` charges every process claim — an exit
+code, a stop reason, a round count, an md5, a mandated/judged/refused triple —
+against a banked row. Three counts, never summed: RESOLVED, MISMATCHED and
+REFUSED, the third being the genuinely unrepeatable half (a superseded draft
+nobody committed), which is refused rather than passed (doctrine 20).
+**AND THE FIRST RUN DID NOT FLATTER THE NEWEST SONG**, which is the whole
+point of banking before claiming: `carry_it_over.txt` is LOWEST of the five on
+concreteness (3.043667) and `keep_the_light.txt` LOWEST on rhyme
+predictability (0.816206) — both readings against the story the session had
+been telling.
+
 **AND THE BLUEPRINT'S OWN `"title"` KEY HAD NO ENTRANCE UNTIL 2026-08-24 (`MISSING.md` M-93).** The paragraphs above settle WHICH declaration reaches `hook_findings` — the blueprint's key, and only that one. What none of them noticed is that `plan.fill_plan` wrote `"title": ""` into every blueprint the planner has ever built and no flag anywhere could say otherwise, so the coordinate the tree fought twice to route correctly could only be SET by editing the planner's output by hand. `plan --title=TEXT` is that entrance, on the same footing `--relation` and `--functions` have had since M-55: CARRIED, never sampled, and no flag still leaves `""` with `TITLE_UNDECLARED` standing byte-identically. `songs/stay_awake.txt` is the first song here to answer that question rather than report it.
 
 **THE SIXTH ITEM IN THAT AUDIT LANE WAS ALREADY CLOSED** — `--pursue` announced on `brief`/`song` is what this session's own flag guard fixed, and `lyric_harness.py` carries the refusal (`only \`revise\` runs a loop`) dated the same day. Re-measured before anything was touched, as with every lever before it: the lane was 6 items and closed as 4 repairs, 1 already shut, and 1 — `grid.Meter.assumed` — NOT A DEFECT AT ALL.
