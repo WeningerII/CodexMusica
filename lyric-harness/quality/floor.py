@@ -324,6 +324,34 @@ CALIBRATION = {
     # lists" is what caught it; nothing about the source looked wrong.
     "definitional": ["predictability_max", "radif_min_pair_fraction",
                      "cliche_pairs", "mattr_window"],
+    #: A THIRD CATEGORY, DECLARED 2026-08-23, and the census that demanded it
+    #: was right to. `test_floor.py`'s "no threshold can hide outside both
+    #: lists" requires every valued `FloorDeclaration` field to be either
+    #: MEASURED (a profile supplies it) or DEFINITIONAL (it defines what a
+    #: quantity IS). The length gate's two fields are NEITHER, and widening
+    #: `definitional` to swallow them would have been the category error the
+    #: census exists to catch: they are not thresholds at all. They compare
+    #: against nothing and no measurement could move them — they select
+    #: BEHAVIOUR at a length the measurements do not reach, which is a policy
+    #: the owner rules on and not a number the corpus answers.
+    #:
+    #: The distinction is load-bearing rather than tidy: a policy field
+    #: quoted as a threshold would look like something a calibration could
+    #: revise, and a reader would go looking for the run that set it.
+    "policy": {
+        "uncalibrated_length":
+            "what happens where NO profile reaches: 'gate' (the default — "
+            "report in full, and the verb may not exit 0), 'refuse' (raise "
+            "at the call site) or 'note' (the pre-2026-08-23 behaviour, "
+            "reachable so the defect stays demonstrable). Owner's standing "
+            "rule that a measurement which cannot refuse anything is "
+            "unfinished work.",
+        "require_exact_length":
+            "whether a TOLERANCE BAND also refuses. Off by default because "
+            "the band is a measured allowance (`Profile.tolerance` carries "
+            "its own false-positive rate) rather than an absence; on, it "
+            "takes the refusing region from 30.3% of lengths to 60.1%.",
+    },
     #: `mattr_window` is definitional in the SAME sense and in that sense
     #: only -- it defines what MATTR IS, so moving it moves what every
     #: `mattr_min` percentile is a percentile of. It is emphatically NOT
@@ -504,6 +532,22 @@ class Profile:
     unit: str
     lo: int
     hi: int
+    #: HOW MANY LINES the calibration population's items carry, or 0 where the
+    #: unit does not fix one. DECLARED 2026-08-23, and it is a fact each
+    #: profile's `unit` string has always STATED in prose while no code could
+    #: read it: "4-line quatrain", "14-line sonnet". A whole lyric sheet has
+    #: no fixed line count, so `song` declares 0 — which is a refusal to
+    #: claim, not a zero to divide by.
+    #:
+    #: WHO NEEDS IT: `quality/plan.py`. The planner's line envelope was the
+    #: literal `(1, 16)` with no derivation behind it, and the owner named it
+    #: — *"1-16 is weird...should we change it to a variable?"*. The variable
+    #: is here: a profile that declares BOTH a token band and a line count
+    #: fixes a measured TOKENS-PER-LINE band, and that is what converts the
+    #: floor's calibrated coverage into the line counts a planner may
+    #: volunteer. So the planner's envelope becomes a function of what the
+    #: grader can actually enforce, rather than a number somebody chose.
+    n_lines: int
     n_human: int
     n_generated: int
     percentiles: dict
@@ -577,7 +621,7 @@ class Profile:
 PROFILES = [
     Profile(
         name="section", unit="4-line quatrain, 29-37 tokens",
-        lo=29, hi=37, n_human=456, n_generated=120,
+        lo=29, hi=37, n_lines=4, n_human=456, n_generated=120,
         percentiles={
             # PLAIN TTR, NOT MATTR. Kept under the key `mattr_min` because
             # that is the key `resolve()` and every caller reads, and
@@ -619,7 +663,7 @@ PROFILES = [
              "here rather than borrowing the sonnet cut."),
     Profile(
         name="sonnet", unit="14-line sonnet, 108-126 tokens",
-        lo=108, hi=126, n_human=152, n_generated=40,
+        lo=108, hi=126, n_lines=14, n_human=152, n_generated=40,
         percentiles={
             "mattr_min": 0.7557,
             "function_word_ratio_max": 0.4788,
@@ -633,7 +677,7 @@ PROFILES = [
         note="The domain the ten pre-registered features were run on."),
     Profile(
         name="song", unit="whole lyric sheet, 150-400 tokens",
-        lo=150, hi=400, n_human=3571, n_generated=0,
+        lo=150, hi=400, n_lines=0, n_human=3571, n_generated=0,
         tolerance=1.25,
         #: ADOPTED 2026-08-21 over the loaded corpus, as a SET. The three
         #: that moved are struck beside their replacements; the two that did
@@ -855,6 +899,53 @@ class Finding:
                f"         {self.evidence}"
 
 
+#: THE CODES A VERB MAY NOT EXIT 0 ON. Named here, beside the findings that
+#: emit them, so the gate and the emitter cannot drift about which lengths
+#: are ungraded (doctrine 1). `lyric_harness` reads this; nothing else
+#: decides it.
+#:
+#: `EXTRAPOLATED_LENGTH` is deliberately NOT a member: inside a tolerance
+#: band every check still runs and reports, downgraded on a measured
+#: false-positive rate that `Profile.tolerance` carries. That is a graded
+#: draft under a declared allowance, not an ungraded one.
+#: `FloorDeclaration.require_exact_length` is the coordinate for a caller who
+#: disagrees, and it says what it costs.
+LENGTH_GATE_CODES = ("OUT_OF_CALIBRATED_LENGTH",)
+
+
+class UncalibratedLength(ValueError):
+    """The draft's length reaches NO calibrated profile, so the floor cannot
+    grade it — a refusal, raised, not a note appended.
+
+    THE GATE (2026-08-23, owner's standing rule: a measurement that cannot
+    refuse anything is unfinished work, and *"a note is a record, not an
+    enforcement"*). Before this, a draft at a length nothing was calibrated
+    at got `OUT_OF_CALIBRATED_LENGTH` — a NOTE — and the verb exited 0. So
+    "every length-sensitive check was skipped because no threshold exists
+    here" and "this draft is clean" were the same exit code, which is exactly
+    the collapse doctrine 20 forbids, in the one report that should have been
+    loudest about it.
+
+    MEASURED, so the size of the hole is on the record rather than asserted.
+    Across 1-699 tokens: **39.9% of lengths can produce a FLAG; 29.8% sit
+    inside a tolerance band where every length-sensitive finding is
+    DOWNGRADED to a note; 30.3% reach no profile at all.** This class is the
+    gate on that last 30.3%.
+
+    WHY NOT ALSO THE 29.8%. The tolerance band is a DECLARED and MEASURED
+    allowance, not an accident — `Profile.tolerance` carries its own
+    false-positive measurement (the song profile's 1.25 was adopted at 23.12%
+    against 20.79% in-band). Findings there are produced and downgraded on a
+    number somebody measured. `FloorDeclaration.require_exact_length` reaches
+    the stricter posture for a caller who wants it, and says so in its own
+    field comment; the default refuses only where nothing was measured at all.
+
+    A `ValueError`, so the CLI's existing `REFUSED ... exit 2` path carries it
+    with no new handler — the route `NoMandate` and `UndecodableLyricFile`
+    already take.
+    """
+
+
 @dataclass
 class FloorDeclaration:
     """Thresholds, declared so a disagreement lands in a coordinate.
@@ -899,6 +990,41 @@ class FloorDeclaration:
     line_length_cv_min: float = None
     predictable_pair_fraction_max: float = None
     predictability_max: float = 0.90
+    #: WHAT HAPPENS AT A LENGTH NOTHING WAS CALIBRATED AT — "refuse" (the
+    #: default) or "note" (the behaviour before 2026-08-23, reachable so the
+    #: defect is demonstrable rather than a sentence nobody can check, the
+    #: shape `modal_exclusion=0` and `field_band='scalar'` already use).
+    #:
+    #: Under "refuse" the floor raises `UncalibratedLength` rather than
+    #: appending `OUT_OF_CALIBRATED_LENGTH` and returning what it could. A
+    #: note there made "every length-sensitive check was skipped" and "this
+    #: draft is clean" the same exit code.
+    #:
+    #: THREE VALUES, and the default is "gate" rather than "refuse" because
+    #: of doctrine 79. The floor is ONE layer: the rhyme, meter and structure
+    #: layers grade a two-line draft perfectly well, and raising from inside
+    #: `check()` would refuse the whole report because THIS layer cannot
+    #: speak — charging a refusal to the wrong layer, which is the exact
+    #: error this file's own triple exists to prevent.
+    #:   "gate"    the note is emitted and every other layer reports in full,
+    #:             AND the verb cannot exit 0 (`lyric_harness` reads
+    #:             `LENGTH_GATE_CODES`). The draft is graded as far as it can
+    #:             be and is never CERTIFIED.
+    #:   "refuse"  raise `UncalibratedLength` from `check()` — the hard stop,
+    #:             for an API caller who wants the floor's silence to be
+    #:             fatal at the call site.
+    #:   "note"    the behaviour before 2026-08-23, reachable so the defect
+    #:             is demonstrable rather than a sentence nobody can check.
+    uncalibrated_length: str = "gate"
+    #: AND THE STRICTER POSTURE, DECLARED AND OFF BY DEFAULT: refuse inside a
+    #: profile's TOLERANCE BAND too, where every finding is downgraded to a
+    #: note and nothing can reject. It is not the default because the
+    #: tolerance band is a measured allowance rather than an absence —
+    #: `Profile.tolerance` carries its own false-positive rate — so refusing
+    #: there is a policy a caller may want and not a fact the measurement
+    #: forces. Measured: it takes the refusing region from 30.3% of lengths
+    #: to 60.1%.
+    require_exact_length: bool = False
     #: What share of an item's rhyme pairs a repetend must close before it is
     #: read as a radif rather than as repeated rhyme words. A count alone will
     #: not do — two of thirty-one pairs ending in "it" is coincidence, two of
@@ -1062,6 +1188,31 @@ class SlopFloor:
             """An extrapolated measurement may not carry a rejection."""
             return default if exact else "note"
 
+        # THE LENGTH GATE (2026-08-23). A length nothing was calibrated at is
+        # a question this layer CANNOT ANSWER, and the honest spelling of that
+        # is a refusal — not a note beside an exit 0, which made "skipped
+        # because no threshold exists here" and "clean" indistinguishable to
+        # any caller reading the code rather than the prose. The message
+        # carries what the note carried, so nothing a reader had is lost.
+        if prof is None and d.uncalibrated_length == "refuse":
+            raise UncalibratedLength(
+                f"{n_tok} tokens reaches no calibrated length profile, so "
+                f"every length-sensitive check would be SKIPPED and the "
+                f"result would read as clean. Profiles cover "
+                f"{', '.join(f'{p.name} {p.lo}-{p.hi}' for p in PROFILES)} "
+                f"tokens, each with its own declared tolerance band. Write "
+                f"inside a calibrated length, calibrate this one, or declare "
+                f"`FloorDeclaration(uncalibrated_length='note')` to take the "
+                f"pre-2026-08-23 behaviour with its name on it.")
+        if prof is not None and not exact and d.require_exact_length \
+                and d.uncalibrated_length == "refuse":
+            a, b = prof.band()
+            raise UncalibratedLength(
+                f"{n_tok} tokens is inside the {prof.name} profile's "
+                f"tolerance band ({a}-{b}) but outside its MEASURED range "
+                f"({prof.lo}-{prof.hi}), so every length-sensitive finding "
+                f"would be downgraded to a note and nothing could reject. "
+                f"`require_exact_length` is declared, so this refuses.")
         if prof is None:
             out.append(Finding(
                 "OUT_OF_CALIBRATED_LENGTH", "note",
@@ -1227,14 +1378,26 @@ class SlopFloor:
         thr = d.resolve("predictable_pair_fraction_max", prof)
         pairs = self._pairs(lines, scheme)
         # `_predictability` returns (i, j, value) aligned to its pairs since
-        # 2026-08-14; this check wants the values only, and the ratio below
-        # is why the misalignment it used to carry was never visible here.
-        preds = ([v for _i, _j, v in self.qf._predictability(lines, pairs)]
+        # 2026-08-14. ~~this check wants the values only~~ — it wants all
+        # three since 2026-08-23 (owner ruling): the finding joined
+        # `loop.MANDATORY_PURSUE`, and a pursued note must NAME ITS LINES or
+        # the loop has nothing to hold open. The lines were always computed
+        # here and thrown away in this aggregation; keeping them is the same
+        # move CLICHE_PAIR/SHARED_SUFFIX have always made, 1-based via the
+        # same +1.
+        preds = (list(self.qf._predictability(lines, pairs))
                  if thr is not None else [])
         if preds:
-            obvious = [p for p in preds if p > d.predictability_max]
+            obvious = [(i, j, v) for i, j, v in preds
+                       if v > d.predictability_max]
             frac = len(obvious) / len(preds)
             if frac > thr:
+                # BOTH members of every obvious pair: either side's word can
+                # move the pair out of the top of its field, and the loop's
+                # own `resolved_elsewhere` machinery already closes the
+                # partner when one side's fix clears the pair — that is what
+                # it was built for (2026-08-16, defect B).
+                locs = sorted({x + 1 for i, j, _ in obvious for x in (i, j)})
                 out.append(Finding(
                     "PREDICTABLE_RHYME", "note",
                     f"{len(obvious)} of {len(preds)} rhymes are near the top "
@@ -1251,7 +1414,11 @@ class SlopFloor:
                     f"the ten-feature joint reaches on the same "
                     f"human-vs-generated split, so it is a weak separator "
                     f"carried by stronger features. Computed against an "
-                    f"English frequency list; unvalidated outside English"))
+                    f"English frequency list; unvalidated outside English. "
+                    f"PURSUED since 2026-08-23 (owner ruling): the lines "
+                    f"named are the members of the obvious pairs, and the "
+                    f"revise loop holds them open — it still may not reject",
+                    locs))
 
         # 6-8. relation-level defects the correctness engine already names.
         # These are length-independent, so they RUN under every profile and
@@ -1471,19 +1638,28 @@ class SlopFloor:
                 continue
             if frozenset((a, b)) in self.decl.cliche_pairs:
                 cliche.append((i + 1, j + 1, f"{a}/{b}"))
-            for suf in SUFFIXES:
-                if (a.endswith(suf) and b.endswith(suf)
-                        and len(a) > len(suf) + 1 and len(b) > len(suf) + 1):
-                    # Same stem guard the correctness engine applies. Without
-                    # it, -ed/-er/-es/-s fire on words that merely END in
-                    # those letters: shed/bred share no morpheme, and calling
-                    # that homeoteleuton is a false accusation about craft.
-                    if len(suf) <= 2 and not (
-                            a[: -len(suf)] in _lh._KNOWN_WORDS
-                            and b[: -len(suf)] in _lh._KNOWN_WORDS):
-                        continue
-                    suffix.append((i + 1, j + 1, f"-{suf}"))
-                    break
+            # THE ENDING MUST BE THE WHOLE OF THE RHYME — the owner's ruling,
+            # 2026-08-24 (`MISSING.md` M-90). This block was `shared_ending`
+            # ALONE, spelled inline and byte-identical to `lyric_harness
+            # .score`'s copy, and it never asked the question its own message
+            # makes: *"rhyme ONLY on a shared grammatical ending"*. `glare`
+            # and `stair` rhyme perfectly, so on `glares`/`stairs` the `-s`
+            # carried nothing and the sentence was false — while the finding
+            # sat in `loop.MANDATORY_PURSUE`, holding the line open for a word
+            # the field cannot contain (39 of 39 words that rhyme with
+            # `stairs` end in `-s`).
+            #
+            # THE TEST IS ORTHOGRAPHIC AND HAS NO STEMMER IN IT. Two
+            # conditions: a shared grammatical ending, AND the same SPELLED
+            # RIME on both sides. The second is tier 1's own `spelled_rime`,
+            # so "the ending is the whole of the rhyme" reads as "the
+            # agreement adds nothing the ending did not already give".
+            # `lyric_harness.ending_carries_the_rhyme` carries the argument,
+            # including why the stem route was built and then refuted.
+            verdict, suf, why = _lh.ending_carries_the_rhyme(
+                a, b, self.qf.lex, self.qf.decl)
+            if verdict == _lh.ENDING_IS_THE_RHYME:
+                suffix.append((i + 1, j + 1, f"-{suf} ({why})"))
         if cliche:
             n_list = len(self.decl.cliche_pairs)
             shipped = self.decl.cliche_pairs == frozenset(CLICHE_PAIRS)
@@ -1570,7 +1746,12 @@ class SlopFloor:
                 "SHARED_SUFFIX", "note",
                 f"{len(suffix)} pair(s) rhyme only on a shared grammatical "
                 f"ending (homeoteleuton)",
-                "; ".join(s for _, _, s in suffix),
+                "; ".join(s for _, _, s in suffix)
+                + ". THE ENDING IS THE WHOLE OF THE RHYME HERE: the stems "
+                  "were read and do not rhyme without it. A pair whose stems "
+                  "still rhyme produces no finding — the ending is then "
+                  "incidental agreement, not the rhyme (owner's ruling, "
+                  "`MISSING.md` M-90)",
                 [i for i, _, _ in suffix]))
         # `rsev` again, for the same reason: this loop variable shadowed the
         # gate too. REPEAT_IN_VERSE does NOT go through it — see the

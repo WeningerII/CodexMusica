@@ -16,6 +16,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
+import lyric_harness as _lh  # noqa: E402
+from quality import floor as FL  # noqa: E402
 from quality.floor import (CALIBRATION, Finding, FloorDeclaration,  # noqa: E402
                            PROFILES, SlopFloor, declaration_for)
 
@@ -123,17 +125,58 @@ def test_radif_is_not_a_repeat():
 
 
 def test_shared_suffix_needs_a_real_stem():
-    print("\n5. -ed/-er/-es/-s only count on real stems")
-    real = ["Down the empty road the band kept walking",
-            "Carrying her load, the girl kept talking"]
-    check("a genuine shared participle fires",
-          "SHARED_SUFFIX" in codes(real, "AA"))
-    fake = ["The tired horse was standing in the shed",
-            "The heavy cloth that she had woven, bred"]
-    check("shed/bred does not fire",
-          "SHARED_SUFFIX" not in codes(fake, "AA"),
-          "neither 'sh' nor 'br' is a word; this was a false accusation "
-          "about craft in the drafted version")
+    print("\n5. the ending must be the WHOLE of the rhyme — every worked pair "
+          "DECLARED, none chosen by eye")
+    # THE OWNER'S RULING, 2026-08-24 (`MISSING.md` M-90): the finding fires
+    # *"only when the ending is the whole of the rhyme"*.
+    #
+    # AND THIS SECTION IS THE GATE THE OWNER ASKED FOR, in their words:
+    # *"you keep screwing this up you need to be gating this stuff instead of
+    # shooting from the hip"*. Three example pairs were picked by eye in one
+    # sitting and all three were wrong — `walking`/`talking` offered as a
+    # clean rhyme (`alk` against `alk`), then `singing`/`ringing` and
+    # `burning`/`turning` built into a fixture as clean (`ing`, `urn`). So no
+    # pair is written here at all: `lyric_harness.SHARED_ENDING_CASES` is the
+    # declared table of worked pairs AND their verdicts, this drives the whole
+    # of it, and adding an example means declaring what it must do.
+    cases = _lh.SHARED_ENDING_CASES
+    check("the case table is non-empty and carries BOTH verdicts, so this "
+          "section cannot pass by examining one side of the rule",
+          len(cases) >= 6
+          and {v for _a, _b, v, _w in cases} == {
+              _lh.ENDING_IS_THE_RHYME, _lh.ENDING_IS_NOT_THE_RHYME},
+          f"{len(cases)} declared case(s)")
+    wrong = []
+    for a, b, want, why in cases:
+        got, _suf, _detail = _lh.ending_carries_the_rhyme(a, b)
+        if got != want:
+            wrong.append(f"{a}/{b}: want {want}, got {got} — {why}")
+    check("EVERY declared case answers as ruled — this is the whole gate, and "
+          "a pair that disagrees names itself rather than hiding in a fixture",
+          not wrong, "; ".join(wrong) if wrong else f"{len(cases)}/{len(cases)}")
+
+    # AND THE VERDICTS REACH THE FINDING, which the table alone cannot say:
+    # a predicate that answers correctly and is wired to nothing is this
+    # repository's most-repeated defect.
+    fires = ["The board reviewed the clauses it was affecting",
+             "The lawyer read them back and kept objecting"]
+    f = find(fires, "SHARED_SUFFIX", "AA")
+    check("a CARRIES pair reaches the finding, evidence and all",
+          f is not None and "spelled rime" in f.evidence,
+          f.evidence[:96] if f else "no SHARED_SUFFIX finding")
+    silent = ["The kitchen light still burns and no one cares",
+              "and nobody came back to climb the stairs"]
+    check("a SURVIVES pair produces NO finding — `es` against `airs`, so the "
+          "plural is incidental and the rhyme is care/stair",
+          "SHARED_SUFFIX" not in codes(silent, "AA"))
+    # THE MUTATION: without the spelled-rime condition the rule collapses back
+    # to a shared ending alone, which is the defect M-90 opened on.
+    survives_now = [(a, b) for a, b, v, _w in cases
+                    if v == _lh.ENDING_IS_NOT_THE_RHYME
+                    and _lh.shared_ending(a, b)]
+    check("...and that is NOT vacuous: those pairs DO share a grammatical "
+          "ending, so only the spelled-rime condition is holding them back",
+          bool(survives_now), f"{survives_now}")
 
 
 def test_cliche_pair():
@@ -284,11 +327,13 @@ def test_anaphora_is_a_note_about_a_figure():
 def test_thresholds_are_declared_not_hidden():
     print("\n9. every threshold lives in the declaration")
     d = FloorDeclaration()
-    defn = set(CALIBRATION["definitional"])
+    defn = set(CALIBRATION["definitional"]) | set(
+        CALIBRATION.get("policy", ()))
     valued = {k for k, v in d.__dict__.items() if v is not None}
     check("every threshold with a default value is a declared definition",
           valued == defn,
-          f"valued: {sorted(valued)}; definitional: {sorted(defn)} — every "
+          f"valued: {sorted(valued)}; definitional-or-policy: "
+          f"{sorted(defn)} — every "
           f"other field is None and takes the profile's measurement, so the "
           f"defaults assert nothing")
     same = ["And so the morning comes and so it goes",
@@ -405,14 +450,33 @@ def test_calibration_block_is_honest():
               ", ".join(f"{n}:{len(p.percentiles)}" for n, p in profs.items()))
         # the load-bearing direction: a threshold cannot be added to the
         # declaration without being either measured or explicitly definitional
+        #
+        # THREE LISTS SINCE 2026-08-23, and the third was earned by this very
+        # check failing. The length gate added `uncalibrated_length` and
+        # `require_exact_length`, and they are NEITHER measured NOR
+        # definitional: they are not thresholds at all — they compare against
+        # nothing, no measurement could move them, and they select BEHAVIOUR
+        # where the measurements do not reach. Widening `definitional` to
+        # swallow them would have been exactly the category error this check
+        # exists to catch, and would have left a reader looking for the
+        # calibration run that set a policy.
+        policy = set(CALIBRATION.get("policy", ()))
         measured = {k for p in profs.values() for k in p.percentiles}
         untraceable = [k for k in d.__dict__
-                       if k not in measured and k not in defn]
-        check("no threshold can hide outside both lists",
+                       if k not in measured and k not in defn
+                       and k not in policy]
+        check("no threshold can hide outside the THREE lists",
               not untraceable,
               f"untraceable: {untraceable}" if untraceable else
               f"{len(measured)} measured, {len(defn)} definitional, "
-              f"0 unaccounted")
+              f"{len(policy)} policy, 0 unaccounted")
+        check("and every POLICY entry says what it selects and why it is not "
+              "a number a corpus could answer — an unexplained policy field "
+              "reads exactly like a threshold nobody calibrated",
+              policy and all(
+                  isinstance(v, str) and len(v) > 80
+                  for v in CALIBRATION.get("policy", {}).values()),
+              f"{len(policy)} policy field(s): {sorted(policy)}")
         # AMENDED 2026-08-11. This read `all(p.measured_auc for p in ...)` --
         # every profile must record an AUC -- which was true while every
         # profile came from the same human-vs-generated pair. The `song`
@@ -948,8 +1012,73 @@ def test_the_radif_licence_says_which_layer_it_speaks_for():
           f"{lic_viol} violation(s) at repeat_licence='refrain'; "
           f"RADIF_LICENSED {'present' if 'RADIF_LICENSED' in lic_codes else 'GONE'}")
 
+def test_the_length_gate_is_a_gate():
+    print("\n. an uncalibrated length REFUSES to certify — it is not a note")
+    short = ["A cat", "A hat"]
+    n = sum(len(FL.QualityFeatures._tokens(l)) for l in short)
+    prof, exact = FL.declaration_for(n)
+    check("the premise: this fixture reaches NO profile, so every "
+          "length-sensitive check is skipped on it",
+          prof is None, f"{n} tokens -> profile {prof}")
+    found = [f.code for f in FL.SlopFloor().check(short)]
+    check("the default still REPORTS rather than raising, because the floor "
+          "is ONE layer and the rhyme, meter and structure layers grade a "
+          "two-line draft perfectly well — raising here would charge a "
+          "refusal to the wrong layer (doctrine 79)",
+          "OUT_OF_CALIBRATED_LENGTH" in found, f"{found}")
+    check("and the code is NAMED in `LENGTH_GATE_CODES`, beside the finding "
+          "that emits it, so the gate and the emitter cannot drift about "
+          "which lengths are ungraded (doctrine 1)",
+          "OUT_OF_CALIBRATED_LENGTH" in FL.LENGTH_GATE_CODES)
+    check("`EXTRAPOLATED_LENGTH` is deliberately NOT a gate code: inside a "
+          "tolerance band every check still runs and reports, downgraded on "
+          "a false-positive rate `Profile.tolerance` carries. That is a "
+          "graded draft under a measured allowance, not an ungraded one",
+          "EXTRAPOLATED_LENGTH" not in FL.LENGTH_GATE_CODES)
+    raised = False
+    try:
+        FL.SlopFloor(FL.FloorDeclaration(
+            uncalibrated_length="refuse")).check(short)
+    except FL.UncalibratedLength:
+        raised = True
+    check("the declared hard stop RAISES for an API caller who wants the "
+          "floor's silence to be fatal at the call site", raised)
+    old = [f.code for f in FL.SlopFloor(FL.FloorDeclaration(
+        uncalibrated_length="note")).check(short)]
+    check("and the pre-2026-08-23 behaviour is still reachable WITH ITS NAME "
+          "ON IT — the shape `modal_exclusion=0` uses, so the defect stays "
+          "demonstrable rather than becoming a sentence nobody can check",
+          old == found, f"{old}")
+    mid = ["Silver rivers carry morning light"] * 4
+    nm = sum(len(FL.QualityFeatures._tokens(l)) for l in mid)
+    pm, em = FL.declaration_for(nm)
+    strict = False
+    try:
+        FL.SlopFloor(FL.FloorDeclaration(
+            require_exact_length=True,
+            uncalibrated_length="refuse")).check(mid)
+    except FL.UncalibratedLength:
+        strict = True
+    check("`require_exact_length` refuses inside a TOLERANCE BAND too, where "
+          "nothing can reject — off by default because the band is a "
+          "measured allowance rather than an absence",
+          pm is not None and not em and strict,
+          f"{nm} tokens -> {pm.name if pm else None}, exact={em}")
+    exact_n = sum(1 for k in range(1, 700)
+                  if all(FL.declaration_for(k)))
+    none_n = sum(1 for k in range(1, 700)
+                 if FL.declaration_for(k)[0] is None)
+    check("AND THE SIZE OF THE HOLE IS MEASURED, not asserted: over 1-699 "
+          "tokens the floor can FLAG at 39.9% of lengths and reaches no "
+          "profile at all at 30.3%, with everything between downgraded",
+          abs(exact_n / 699 - 0.399) < 0.01
+          and abs(none_n / 699 - 0.303) < 0.01,
+          f"flaggable {exact_n / 699:.1%}, no profile {none_n / 699:.1%}")
+
+
 if __name__ == "__main__":
-    for fn in (test_never_returns_a_score, test_too_short_is_silent,
+    for fn in (test_the_length_gate_is_a_gate,
+               test_never_returns_a_score, test_too_short_is_silent,
                test_repeat_in_verse, test_single_pair_repeat_is_undecidable,
                test_radif_is_not_a_repeat,
                test_shared_suffix_needs_a_real_stem, test_cliche_pair,

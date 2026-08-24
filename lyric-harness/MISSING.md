@@ -61,12 +61,12 @@ It broke the hymn cell's first parser.
 **VERIFIED CLAUSE BY CLAUSE 2026-08-21 — the pass this entry's own
 declaration promised.** Two clauses are FALSE at head; two are the entry.
 
-| A-2's clause | at head |
-|---|---|
-| a one-word-changed chorus is neither "the same line" nor "a different line" | **FALSE** — `compare_returns` returns `LEXICAL_VARIATION` with `invariant_lines` reported (`grid.py:834`) |
-| no representation for **partial return** | **FALSE** — `PARTIAL_RETURN` is a named member of a **15-way** ladder ("at least one line invariant and nothing above holds"), beside `TRUNCATED_RETURN`, `EXTENDED_RETURN`, `FRAME_PRESERVED`, `HEAD_/TAIL_/HEAD_AND_TAIL_PRESERVED`, `ANAPHORIC_/EPIPHORIC_RETURN`, `RESTATEMENT`, `RHYME_PRESERVING_REWRITE`, `REWRITTEN_RETURN`, `VERBATIM`, `STUB` |
-| no representation for **answer lines** | **TRUE** — the only tree hit is `schemes.py`'s prose about slant rhyme ("line 2 can answer line 1 on the nucleus"), which is a sentence, not a relation |
-| no representation for **call-and-response pairs** | **TRUE** — zero hits repo-wide for `call.and.response`, `antiphon`, `responsorial` outside this file |
+| A-2's clause                                                                | at head                                                                                                                                                                                                                                                                                                                                                 |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| a one-word-changed chorus is neither "the same line" nor "a different line" | **FALSE** — `compare_returns` returns `LEXICAL_VARIATION` with `invariant_lines` reported (`grid.py:834`)                                                                                                                                                                                                                                               |
+| no representation for **partial return**                                    | **FALSE** — `PARTIAL_RETURN` is a named member of a **15-way** ladder ("at least one line invariant and nothing above holds"), beside `TRUNCATED_RETURN`, `EXTENDED_RETURN`, `FRAME_PRESERVED`, `HEAD_/TAIL_/HEAD_AND_TAIL_PRESERVED`, `ANAPHORIC_/EPIPHORIC_RETURN`, `RESTATEMENT`, `RHYME_PRESERVING_REWRITE`, `REWRITTEN_RETURN`, `VERBATIM`, `STUB` |
+| no representation for **answer lines**                                      | **TRUE** — the only tree hit is `schemes.py`'s prose about slant rhyme ("line 2 can answer line 1 on the nucleus"), which is a sentence, not a relation                                                                                                                                                                                                 |
+| no representation for **call-and-response pairs**                           | **TRUE** — zero hits repo-wide for `call.and.response`, `antiphon`, `responsorial` outside this file                                                                                                                                                                                                                                                    |
 
 **And the 2026-08-10 evidence is DISCHARGED, not merely staged:**
 `test_song_function.py` §7 reads Hanby and Russell **out of the corpus** and
@@ -80,19 +80,19 @@ two clauses below, which is why this entry stays open at PARTIAL rather than
 closing on a green suite.
 
 **Still missing, and it is one shape not two:** answer lines and
-call-and-response pairs are both *a relation between two lines within a
-block*, and neither is a RETURN. A return asks *did this come back, and how*;
-these ask *does line B reply to line A*. `relations.py`'s `REGISTRY` is the
+call-and-response pairs are both _a relation between two lines within a
+block_, and neither is a RETURN. A return asks _did this come back, and how_;
+these ask _does line B reply to line A_. `relations.py`'s `REGISTRY` is the
 layer that would hold it and has no leader/response axis. See also the
 2026-08-21 vocabulary census: Malay's pembayang/maksud is the same shape one
 tradition over — a functional split INSIDE a quatrain that no layer can hold.
 **Missing:** a chorus that returns with one word changed is neither "the same
 line" nor "a different line". No representation for partial return, answer
 lines, or call-and-response pairs.
-**Evidence, verified 2026-08-10:** Hanby's *Darling Nelly Gray* keeps the rhyme
+**Evidence, verified 2026-08-10:** Hanby's _Darling Nelly Gray_ keeps the rhyme
 scheme and the tune slot and rewrites the words — `they have taken you away /
 I'll never see my darling any more` returns as `up in heaven there they say /
-they'll never take you from me any more`. Russell's *Cheer, Boys, Cheer* alters
+they'll never take you from me any more`. Russell's _Cheer, Boys, Cheer_ alters
 the interior lines and keeps the first and last. Staged under
 `corpus/song/eng_parlour_*.txt`, tagged `[CHORUS 2]`.
 
@@ -181,11 +181,11 @@ measurement, the difference between a line that lands and one that drags.
 > **REPINNED 2026-08-21 — `OPEN` was MISPINNED, and the difference is doctrine
 > 20's.** These questions are not unrepresented; they are enumerated, named and
 > **permanently refused**, which is an answer. `quality/fit.py`'s module
-> docstring says so in this entry's own words — *"every groove question in
+> docstring says so in this entry's own words — _"every groove question in
 > MISSING.md C-4 (pushes, pulls, laid-back placement, syncopation as a
 > measurement rather than as a declared offset) are refused permanently and by
-> name, not approximated"* — and `fit.UNANSWERABLE` carries the sentence as a
-> ROW (*"whether the singer LANDS on the beat, ahead of it or behind it"* /
+> name, not approximated"_ — and `fit.UNANSWERABLE` carries the sentence as a
+> ROW (_"whether the singer LANDS on the beat, ahead of it or behind it"_ /
 > `PERMANENT: MISSING.md C-4 …`). `quality/declared_inputs.py`'s family
 > **R5 offbeat rhyme** is `route="OUTSIDE"`, `status="PERMANENT"`, referencing
 > `MISSING.md C-4, C-5, G-1; doctrine 4`, and it SPECIFIES the input that would
@@ -196,7 +196,7 @@ measurement, the difference between a line that lands and one that drags.
 > **WHAT IS TRULY MISSING IS NARROWER: syncopation as a measurable quantity
 > GIVEN a declared grid.** R5 accepts a `BeatGrid` and nothing computes
 > displacement off one; no `groove`/`syncopat` symbol exists in `meter.py` or
-> `grid.py`. C-3's *"swing ratio as a continuous value"* is the live neighbour.
+> `grid.py`. C-3's _"swing ratio as a continuous value"_ is the live neighbour.
 >
 > **AND A TEST GUARDS THIS ENTRY THAT TRIAGE CANNOT SEE** —
 > `quality/test_fit.py` asserts `"C-4" in whys` over `fit.UNANSWERABLE` and
@@ -215,12 +215,12 @@ is TRUE at head** — `grep -n tempo quality/grid.py` returns nothing.
 > **REPINNED 2026-08-21 — AND THE HEADLINE IS THE WRONG SHAPE OF CLAIM.** A
 > tempo field **does** exist: `declared_inputs.BeatGrid.tempo_bpm` (`:546`),
 > read by nothing anywhere in the tree. Beside it sits `fit._no_tempo`
-> (`:184`), a `PERMANENT` refusal whose detail opens *"MISSING.md C-5: `Song`
-> carries bars and meters and no tempo"* — constructed by nothing.
+> (`:184`), a `PERMANENT` refusal whose detail opens _"MISSING.md C-5: `Song`
+> carries bars and meters and no tempo"_ — constructed by nothing.
 > `quality/meter.py`'s `note_value` docstring refuses seconds by name for the
 > same reason. **`fit.INERT` (`:313`) already declares both dead and says why**:
-> *"BOTH HALVES OF THE TEMPO STORY ARE UNWIRED, and each is dead in its own
-> direction"* — a declaration with no reader, and a guard with no question.
+> _"BOTH HALVES OF THE TEMPO STORY ARE UNWIRED, and each is dead in its own
+> direction"_ — a declaration with no reader, and a guard with no question.
 > `test_fit.py` re-derives both directions and passes.
 >
 > So this is **not an unrepresented coordinate; it is a declared one with no
@@ -244,23 +244,23 @@ is TRUE at head** — `grep -n tempo quality/grid.py` returns nothing.
 
 ### D-1 · ~~Sections have no FUNCTION~~ — they have had one since `d944ff7`, and every clause of this entry is satisfied `CLOSED` 2026-08-21
 > **THIS ENTRY'S OWN `Now (verified)` CLAUSE IS FALSE AT HEAD — 2026-08-21.**
-> It reads *"`Section` fields are exactly `name, bars, meter, start_bar`"*.
+> It reads _"`Section` fields are exactly `name, bars, meter, start_bar`"_.
 > That was the first finding; the reading of the rest, deferred below, is now
 > done, and EVERY sentence closes:
 >
-> | D-1's sentence | at head |
-> |---|---|
-> | fields are exactly `name, bars, meter, start_bar` | FALSE — `function` is the fifth (`grid.py:356`) |
-> | `name` is a free string | TRUE, and deliberately: "deliberately not evidence" (`grid.py:359`) |
-> | Missing: a declared vocabulary of 20 names | FALSE — `SECTION_FUNCTIONS` holds 21 rows and all 20 of this entry's names round-trip through `as_function`, `middle-8` via a declared alias, plus `burden` and `hook` beyond the ask |
-> | nothing can ask *does this song have a pre-chorus* | FALSE — `function_profile` emits `has_prechorus`; `test_song_function.py` PASSes it by name, quoting this entry |
-> | nothing can ask *how many bars until the first chorus* | FALSE — `Song.bars_until` (`grid.py:475`), whose docstring quotes this sentence verbatim; tested by name |
+> | D-1's sentence                                         | at head                                                                                                                                                                               |
+> | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+> | fields are exactly `name, bars, meter, start_bar`      | FALSE — `function` is the fifth (`grid.py:356`)                                                                                                                                       |
+> | `name` is a free string                                | TRUE, and deliberately: "deliberately not evidence" (`grid.py:359`)                                                                                                                   |
+> | Missing: a declared vocabulary of 20 names             | FALSE — `SECTION_FUNCTIONS` holds 21 rows and all 20 of this entry's names round-trip through `as_function`, `middle-8` via a declared alias, plus `burden` and `hook` beyond the ask |
+> | nothing can ask _does this song have a pre-chorus_     | FALSE — `function_profile` emits `has_prechorus`; `test_song_function.py` PASSes it by name, quoting this entry                                                                       |
+> | nothing can ask _how many bars until the first chorus_ | FALSE — `Song.bars_until` (`grid.py:475`), whose docstring quotes this sentence verbatim; tested by name                                                                              |
 >
 > The refusal path is built too: `UNDECLARED` is not `verse`, an unknown value
 > raises `UnknownFunction`, and `song_function_report` reports asked/answered/
 > refused as three counts. `BACKLOG.md` already carries the close —
-> *"~~Sections have no FUNCTION (D-1)~~ … `7e802d3` (field first at
-> `d944ff7`)"* — so this is the eighth entry of the day whose work shipped
+> _"~~Sections have no FUNCTION (D-1)~~ … `7e802d3` (field first at
+> `d944ff7`)"_ — so this is the eighth entry of the day whose work shipped
 > while the register slept, and the second (after M-17) where the OTHER
 > register knew.
 >
@@ -282,16 +282,16 @@ there: D-3's reprise-across-two-functions clause, D-2's hook, D-4's arc.
 **VERIFIED CLAUSE BY CLAUSE 2026-08-21. Five of seven are FALSE at head,
 including the sub-line clause the earlier declaration deferred.**
 
-| D-2's clause | at head |
-|---|---|
-| a hook is not a section, it is a FRAGMENT | **FALSE** — `Hook` is a frozen dataclass with ONE field, `text` (`grid.py:1355`); empty raises |
-| possibly inside other sections | **FALSE** — `hook_occurrences` walks `song.lines` and reports the containing `section`/`function` |
-| nothing can hold one | **FALSE** — `Hook` |
-| count its returns | **FALSE** — bar-ordered occurrence list; `HOOK_DOES_NOT_RECUR` at 1 ("a hook is defined by RETURN; one occurrence is a phrase"), `HOOK_ABSENT` at 0 |
-| place it | **FALSE** — `bar`, `beat`, `next_downbeat`, `token_offset`, `has_pickup`, plus `HOOK_CONFINED` and two placement REFUSALS. At LINE granularity, and `grid.py:1389` says why: a mid-line fragment's bars are the line's, because per-syllable placement needs the setting `fit.py`'s `NO_SETTING` refuses |
-| possibly shorter than a line | **FALSE** — a 3-word and a 1-word hook are both found at non-zero `token_offset`; `test_song_function.py:221` |
-| possibly melodic rather than lyric | **TRUE** — `Hook.text` is words matched against `Line.text`; no pitch layer exists (B-1, re-verified absent 2026-08-21) |
-| measure its density | **TRUE** — `grep -i densit quality/grid.py` returns **nothing**. Six `HOOK_` codes and not one is a density measure |
+| D-2's clause                              | at head                                                                                                                                                                                                                                                                                                  |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| a hook is not a section, it is a FRAGMENT | **FALSE** — `Hook` is a frozen dataclass with ONE field, `text` (`grid.py:1355`); empty raises                                                                                                                                                                                                           |
+| possibly inside other sections            | **FALSE** — `hook_occurrences` walks `song.lines` and reports the containing `section`/`function`                                                                                                                                                                                                        |
+| nothing can hold one                      | **FALSE** — `Hook`                                                                                                                                                                                                                                                                                       |
+| count its returns                         | **FALSE** — bar-ordered occurrence list; `HOOK_DOES_NOT_RECUR` at 1 ("a hook is defined by RETURN; one occurrence is a phrase"), `HOOK_ABSENT` at 0                                                                                                                                                      |
+| place it                                  | **FALSE** — `bar`, `beat`, `next_downbeat`, `token_offset`, `has_pickup`, plus `HOOK_CONFINED` and two placement REFUSALS. At LINE granularity, and `grid.py:1389` says why: a mid-line fragment's bars are the line's, because per-syllable placement needs the setting `fit.py`'s `NO_SETTING` refuses |
+| possibly shorter than a line              | **FALSE** — a 3-word and a 1-word hook are both found at non-zero `token_offset`; `test_song_function.py:221`                                                                                                                                                                                            |
+| possibly melodic rather than lyric        | **TRUE** — `Hook.text` is words matched against `Line.text`; no pitch layer exists (B-1, re-verified absent 2026-08-21)                                                                                                                                                                                  |
+| measure its density                       | **TRUE** — `grep -i densit quality/grid.py` returns **nothing**. Six `HOOK_` codes and not one is a density measure                                                                                                                                                                                      |
 
 **TESTED WHILE OPEN** — `test_song_function.py` guards the five clauses that
 are FALSE at head (it PASSes the sub-line case by name). Nothing tests density
@@ -386,16 +386,16 @@ five-relation path and does not call this.~~
 > `rhyme_types.py` FACT TO THE WHOLE TREE, and it is right about one layer and
 > wrong about the other.** Measured at head against the real `eng` phonology:
 >
-> | schema | what it does when asked |
-> |---|---|
-> | `mosaic rhyme` | **realises** — returns a verdict list |
-> | `compound / phrasal rhyme` | **realises** |
-> | `broken rhyme` | **realises** (`Unit.split_left/split_right`, computed from a trailing hyphen) |
-> | `apocopated rhyme` | **realises** (`unmatched='require_a'`) |
-> | `eye rhyme` | **REFUSES** — `Refusal(capability='orthography', missing=('orthography',))` |
-> | `historical rhyme` | **REFUSES** — `Refusal(capability='earlier')` |
+> | schema                     | what it does when asked                                                       |
+> | -------------------------- | ----------------------------------------------------------------------------- |
+> | `mosaic rhyme`             | **realises** — returns a verdict list                                         |
+> | `compound / phrasal rhyme` | **realises**                                                                  |
+> | `broken rhyme`             | **realises** (`Unit.split_left/split_right`, computed from a trailing hyphen) |
+> | `apocopated rhyme`         | **realises** (`unmatched='require_a'`)                                        |
+> | `eye rhyme`                | **REFUSES** — `Refusal(capability='orthography', missing=('orthography',))`   |
+> | `historical rhyme`         | **REFUSES** — `Refusal(capability='earlier')`                                 |
 >
-> So *"all three need the ORTHOGRAPHY"* is a **category error for the first
+> So _"all three need the ORTHOGRAPHY"_ is a **category error for the first
 > four**: they are phonemic-plus-token questions and they run. It is exactly
 > right for the last two, and those refuse **by named capability** rather than
 > returning a false negative, which is the honest shape. **What was NOT
@@ -407,10 +407,11 @@ five-relation path and does not call this.~~
 > distinguishes the two halves of the table.
 >
 > **THE RESIDUE IS TWO CLAIMS, AND NEITHER IS A MISSING AXIS.**
+>
 > 1. **`rhyme_types.classify_pair`'s `boundary` and `realisation` are declared
 >    parameters with defaults that NO caller infers** — `boundary='simple'`,
->    `realisation='phonetic'`, pass-through. *"The axis exists, nothing infers
->    it from text"* is exactly true HERE and exactly false of `relations.py`.
+>    `realisation='phonetic'`, pass-through. _"The axis exists, nothing infers
+>    it from text"_ is exactly true HERE and exactly false of `relations.py`.
 > 2. **`Stream.alt` is a declared slot (`ALT_SURFACES`) that `build_stream`
 >    never populates** — the only stream builder in the tree structurally
 >    cannot, so `eye rhyme` and `historical rhyme` refuse for want of a
@@ -457,6 +458,7 @@ not.
 
 > **REPINNED 2026-08-21, THREE CORRECTIONS, AND THE NARROWED CLAIM SURVIVES
 > ALL THREE — it gets wider, not weaker.**
+>
 > 1. **`stanza-wide` is the wrong word and it UNDERSTATES the gap.**
 >    `REGISTRY['internal rhyme'].figure.frame` is `'song'`, and measured across
 >    a blank-line stanza break the schema returns 22 instances of which **8
@@ -527,7 +529,7 @@ until it stops (`quality/triage.py`).
 path and is not a declared module.~~
 **The English half is CLOSED, 2026-08-11.** `quality/phonology/` holds **nine**
 modules — `cym eng fas fin ltc msa non san som` — and `eng.py` was added in
-commit `c74fb48`, *"declare English as the ninth phonology"*. The title of this
+commit `c74fb48`, _"declare English as the ninth phonology"_. The title of this
 entry was false for as long as it took nobody to re-read it. The rest of the
 entry stands: the gap is the other thirty-odd languages below.
 **Missing (non-exhaustive):** Spanish, Portuguese, French, Italian, German,
@@ -554,7 +556,7 @@ for four different jobs, and the existing modules would corrupt three of them:
 - **Lancashire (Waugh):** final-consonant elision on function words — `o'`=of,
   `an'`=and, `wi'`=with, `th'`=the. But `i'th` and `o'th` are **one token with
   one apostrophe standing for TWO elisions**; splitting there invents a syllable.
-- **Dorset (Barnes):** three jobs at once — *initial*-onset loss (`'ithin`,
+- **Dorset (Barnes):** three jobs at once — _initial_-onset loss (`'ithin`,
   `'twer`, `'oman`), unlike Lancashire; final loss (`o'`, `an'`); and the
   a-prefix is a **HYPHEN, never an apostrophe** (`a-vallen`, `a-done`). A
   hyphen-splitting tokeniser destroys it — and `cym.py` DELETES internal
@@ -610,8 +612,8 @@ declared, like everything else in `quality/phonology/`.
 >
 > **THE DECLARATION IS ALREADY WRITTEN AND IS READ BY NOTHING.** All three
 > dialect files carry a `# orthography:` header, and Barnes's spells out all
-> three apostrophe jobs verbatim, including *"A tokeniser that treats hyphen as
-> a word break destroys it."* **No `.py` in the tree reads `orthography:`**,
+> three apostrophe jobs verbatim, including _"A tokeniser that treats hyphen as
+> a word break destroys it."_ **No `.py` in the tree reads `orthography:`**,
 > and `data/song_regions.tsv` has one English row (`english`) that Barnes,
 > Waugh and Gay all declare — **there is no dialect axis at all**. The seam
 > exists: `build_stream(tokeniser=)` is injectable and no caller anywhere
@@ -621,8 +623,8 @@ declared, like everything else in `quality/phonology/`.
 > direction the entry understates. `relations.ALT_SURFACES` carries `poet`,
 > `Stream.provides('poet')` has its branch, and the `dialect rhyme` schema
 > fires on love/prove against a fixture dialect stream. `test_relations.py`
-> states the blocker in its own words — *"the blocker is a SOURCED dialect
-> phonology, and this repo has none"* — and `declared_inputs.PeriodPhonology`
+> states the blocker in its own words — _"the blocker is a SOURCED dialect
+> phonology, and this repo has none"_ — and `declared_inputs.PeriodPhonology`
 > (R2) is the declared carrier, requiring period + reconstruction + source.
 > **So ORTHOGRAPHY is a BUILD with a seam already in place, and PHONOLOGY is a
 > built mechanism blocked on an OBTAINABLE source.** Two remedies, one entry.
@@ -634,7 +636,7 @@ declared, like everything else in `quality/phonology/`.
 > table is derived, so the blast radius is zero.
 
 ### F-5 · An EDITION can retokenise a language `OPEN`
-**Verified 2026-08-10.** Rogers's 1855 *Modern Scottish Minstrel* sets a SPACE
+**Verified 2026-08-10.** Rogers's 1855 _Modern Scottish Minstrel_ sets a SPACE
 before enclitics — `There 's high and low`, `Wha 'll buy caller herrin'` — 189
 times in Nairne and 81 in Hogg, against **13 in all 17,555 lines of Burns**.
 Same language, same register, opposite tokenisation, and the only cause is
@@ -646,7 +648,7 @@ elision (`a'`, `o'`) are untouched. **Still open:** nothing detects WHICH
 convention an edition uses, so a corpus mixing both is silently inconsistent.
 
 ### F-6 · The best PD source can be the one that loses the metadata `OPEN`
-**Verified 2026-08-10.** Moore's *Irish Melodies* were written to named airs.
+**Verified 2026-08-10.** Moore's _Irish Melodies_ were written to named airs.
 Gutenberg's own Moore (PG 8187) carries all 124 lyrics and **drops every air**.
 `thabz/Kalliope` carries 122 of 124 as `<subtitle>Air - X</subtitle>`. The
 obvious source is the lossy one. But Kalliope is NOT uniform: its Scots Ramsay
@@ -736,12 +738,12 @@ broken across a rest. This is the thing that makes a lyric singable and
 >
 > Clause by clause, because the four are in four different states:
 >
-> | clause | at head |
-> |---|---|
-> | stress agrees with **metric** accent | **DELIVERED** — five codes: `PROMINENCE_EXCEEDS_HEADS` (unconditional pigeonhole), `HEADS_EXCEED_UNITS`, `PROMINENCE_CANNOT_ALIGN` (the maximum over every order-preserving setting a declared `Subdivision` permits), `PROMINENCE_OFF_HEAD` (declared `BeatGrid`), `EVEN_DIVISION_LANDINGS` (declared `Isochrony`) |
-> | stress agrees with **melodic** accent | open, and **not this entry's** — there is no tune to accent, which is `B-1` |
-> | a long vowel on a long note | open and **blocked on `F-2`**, said so by the module: the note-VALUE half is already exact (`_frac_value_name`); the vowel-length half needs `Syllable` to carry length |
-> | whether a phrase breathes / a word broken across a rest | open, **PERMANENT without a declared setting** — `fit.py`'s own row says melisma and rest *"IS the setting, and it comes from notation, not from text"* |
+> | clause                                                  | at head                                                                                                                                                                                                                                                                                                             |
+> | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+> | stress agrees with **metric** accent                    | **DELIVERED** — five codes: `PROMINENCE_EXCEEDS_HEADS` (unconditional pigeonhole), `HEADS_EXCEED_UNITS`, `PROMINENCE_CANNOT_ALIGN` (the maximum over every order-preserving setting a declared `Subdivision` permits), `PROMINENCE_OFF_HEAD` (declared `BeatGrid`), `EVEN_DIVISION_LANDINGS` (declared `Isochrony`) |
+> | stress agrees with **melodic** accent                   | open, and **not this entry's** — there is no tune to accent, which is `B-1`                                                                                                                                                                                                                                         |
+> | a long vowel on a long note                             | open and **blocked on `F-2`**, said so by the module: the note-VALUE half is already exact (`_frac_value_name`); the vowel-length half needs `Syllable` to carry length                                                                                                                                             |
+> | whether a phrase breathes / a word broken across a rest | open, **PERMANENT without a declared setting** — `fit.py`'s own row says melisma and rest _"IS the setting, and it comes from notation, not from text"_                                                                                                                                                             |
 >
 > **AND THE CALIBRATED PROMINENCE BAND [2, 7] IS NOT OPT-IN** — it runs on
 > every `inspect()` with no blueprint declared at all. So the first clause is
@@ -789,7 +791,7 @@ quatrains~~ — and never measured the discontinuity, which is the interesting p
 > layers, and one of them is fenced BY A TEST.**
 >
 > **THE POPULATION WAS THE WRONG ONE.** `82` is `data/sources.tsv`'s
-> *permissive extraction* figure (737 segments → 82 exact ABAB), not the staged
+> _permissive extraction_ figure (737 segments → 82 exact ABAB), not the staged
 > file. `corpus/song/msa_skeat_pantun.txt` holds **129 `--- TITLE:` blocks over
 > 1,357 lines, of which 126 are exactly four sung lines and 3 are three** —
 > re-derived through `audit_corpus._items`, the corpus reader. Naming the file
@@ -798,17 +800,17 @@ quatrains~~ — and never measured the discontinuity, which is the interesting p
 >
 > **HOOK 1 — the split is already exposed, and deliberately fenced.**
 > `msa.abab()` returns `{"pembayang": lines[:2], "maksud": lines[2:], "pairs",
-> "confirmed", "syllables"}`, under its own module prohibition: *"This module
-> makes no semantic measurement and must not be extended to make one."*
-> `quality/test_phon_msa.py` §13 **pins the fence** — *"no semantic field is
-> offered"* asserts the absence of `meaning`/`semantic`/`similarity`/`topic`
+"confirmed", "syllables"}`, under its own module prohibition: _"This module
+> makes no semantic measurement and must not be extended to make one."_
+> `quality/test_phon_msa.py` §13 **pins the fence** — _"no semantic field is
+> offered"_ asserts the absence of `meaning`/`semantic`/`similarity`/`topic`
 > keys. So the halves are handed over and the measurement must live OUTSIDE
 > `msa.py`; that is a design decision already taken, not an obstacle.
 >
 > **HOOK 2 — `relations.py`'s `sense` capability exists at the WRONG GRAIN.**
 > The `pantun ABAB` schema declares the rhyme and says the discontinuity is
-> *"a sense-channel MUST-DIFFER this schema cannot state without a sense
-> resource"*. Unlike the `poet` precedent, `sense` is **not branchless**:
+> _"a sense-channel MUST-DIFFER this schema cannot state without a sense
+> resource"_. Unlike the `poet` precedent, `sense` is **not branchless**:
 > `Stream.provides('sense')` has its branch and `IdentityRule("sense", DIFFER)`
 > is already used by antanaclasis. What is missing is the grain — sense lives
 > on the per-TOKEN identity axis and this property is about two HALVES. There
@@ -836,7 +838,7 @@ quatrains~~ — and never measured the discontinuity, which is the interesting p
 > prasa / tang each ship a `*_rate.py --check` beside an `audit_*_null.py`. The
 > templates are in-tree. Preregister first, per the house pattern, and declare
 > in the registration what it cannot claim: Skeat's fn.[431] is the only
-> attestation, the source's own caveat is that this is charm verse *using* the
+> attestation, the source's own caveat is that this is charm verse _using_ the
 > form rather than a curated anthology, n=126 is small, and **a null is a
 > result** (doctrines 20/31) — said before the run so it cannot be read as a
 > failure after it.
@@ -868,11 +870,11 @@ verse-chorus-bridge sequence, clichéd rhyme-scheme choice itself.
 sample a structure from the scheme/grid spaces and write into it.~~
 
 **VERIFIED 2026-08-21: two of the three clauses shipped, and the headline is a
-category error.** *Any writing loop* exists — `quality/loop.py`'s
+category error.** _Any writing loop_ exists — `quality/loop.py`'s
 `revise_loop(..., propose=, propose_pair=)`, driven from the CLI by
 `--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY`, with
-`quality/propose.py` as the prompt renderer. *A way to sample a structure and
-write into it* exists end to end — `quality/plan.py`'s `make_plan` →
+`quality/propose.py` as the prompt renderer. _A way to sample a structure and
+write into it_ exists end to end — `quality/plan.py`'s `make_plan` →
 `writer_brief` → `fill_plan` → `render_song`, with a CLI verb and
 `quality/test_plan.py` pinning the round trip.
 
@@ -885,7 +887,7 @@ docstring says "It writes NO WORDS: the writer is outside the harness" and
 a stated design decision is a category error**, and this one has invited a
 session to fix a thing the rules forbid for eleven days.
 
-The accurate sentence is not *the harness writes* — it is **the harness plans,
+The accurate sentence is not _the harness writes_ — it is **the harness plans,
 grades, and drives a writing loop whose writer is external**. This entry stays
 PARTIAL on exactly one surviving clause: **melody-first**. Nothing in the tree
 can take a tune as input, because there is no pitch or tune object at all
@@ -906,7 +908,7 @@ AST check that `plan.py` reads no corpus and opens no file. Constraint
 conditioning EXISTS: rejection sampling over the generated grammar,
 conditioned on a declared `ENVELOPE`, on an exact `--lines=N`, and on "at
 least one mandated pair", with refusals that name the envelope. And
-**`EXACT_ENUM_MAX = 10`**, so this entry's *11*-line scheme is precisely the
+**`EXACT_ENUM_MAX = 10`**, so this entry's _11_-line scheme is precisely the
 case that goes to the Bell sampler with its pool size disclosed — "large
 stanzas are not banned by arithmetic".
 
@@ -918,10 +920,10 @@ layer makes. What no request can carry is a FILTER over them: `make_plan`
 takes `seed`, `form`, `lines`, and the CLI takes the same.
 
 **And this is neither doctrine 44's "hard to build" nor doctrine 92's "cannot
-obtain" — it is RULED ON HOLD, by name.** `CLAUDE.md`: *"The seed-sweep
+obtain" — it is RULED ON HOLD, by name.** `CLAUDE.md`: _"The seed-sweep
 instrument (looping `make_plan` with filters to find a shape) stays manual for
 now BY THE OWNER'S PENDING RULING, and is named here so it cannot become a
-quiet fourth instrument."* Recorded here so a later session does not build it
+quiet fourth instrument."_ Recorded here so a later session does not build it
 as a favour: shipping it silently violates standing rule 3.
 
 ---
@@ -942,9 +944,9 @@ other way: the CONNECTOR calls the HARNESS.** `mcp/lyric_tools.js` (landed
 
 **"The recording and the words are being designed in separate universes" is
 RETAINED — as the RULE it turned out to be, not as the gap it was filed as.**
-That is standing rule 1: *THE RECIPE ENGINE AND THE LYRICS DO NOT TOUCH.
+That is standing rule 1: _THE RECIPE ENGINE AND THE LYRICS DO NOT TOUCH.
 EVER … A session that proposes connecting them is repeating a mistake the
-owner has had to correct multiple times.* So this entry spent eleven days
+owner has had to correct multiple times._ So this entry spent eleven days
 inviting exactly the mistake the rules forbid, in the register whose job is to
 know what is missing. The two families reach one client and still do not
 touch — proven at the import graph, not merely in prose: `mcp/lyric_tools.js`
@@ -987,7 +989,7 @@ FALSE against a tree that does not contain it.
 > **AND THE DIRECTION OF THE DRIFT IS THE FINDING, not the size of it.** Songs
 > rose **+73.6%** (4,993 → 8,667) and sung lines **+84.7%**, while marked
 > repeat blocks moved **2,443 → 2,467, +1.0%** — and inside that total BURDEN
-> *fell* (1,592 → 1,580) and REFRAIN *fell* (604 → 597), with only CHORUS
+> _fell_ (1,592 → 1,580) and REFRAIN _fell_ (604 → 597), with only CHORUS
 > rising (247 → 290). Three mass loads added some 3,700 songs and about a
 > dozen net repeat blocks. **`K-1a`'s finding — that the printed record's
 > chorus is concentrated rather than representative — got WORSE under the
@@ -1042,7 +1044,7 @@ stated.
 > corpus cell runs, which is exactly what happened below.
 >
 > **Why they moved, 2026-08-11 (commit `0e36b56`).** An attribution cell removed
-> **819 duplicated lines**: nine poems of the 1798 *Lyrical Ballads* were staged
+> **819 duplicated lines**: nine poems of the 1798 _Lyrical Ballads_ were staged
 > under BOTH Coleridge and Wordsworth, split by a line-count cap standing in for
 > an author rule, and one hymn under a joint Tate–Brady attribution was claimed
 > solely by two files. `SOURCED` fell 142 → 141 and a sixth status,
@@ -1075,10 +1077,10 @@ stated.
 > RE-MEASURED 2026-08-21 over the loaded tree: across the 1,297 English
 > files' 8,667 songs (~~143 files, 5,006 songs~~ on 2026-08-11), the
 > number of TITLE strings containing the word `air`
-> case-insensitively is **331** — the rule nobody wrote down. It counts *"The
-> Birds Of The Air"*, *"Thrice toss these oaken ashes in the air"*, *"The
-> Measureless Gulfs Of Air Are Full Of Thee"* and *"Divine providence in air,
-> earth, and sea"* as songs carrying a named air.
+> case-insensitively is **331** — the rule nobody wrote down. It counts _"The
+> Birds Of The Air"_, _"Thrice toss these oaken ashes in the air"_, _"The
+> Measureless Gulfs Of Air Are Full Of Thee"_ and _"Divine providence in air,
+> earth, and sea"_ as songs carrying a named air.
 >
 > **318 is the figure the corpus supports.** That is the `[air: NAME]`
 > convention — `HER HOME SHE IS LEAVING  [air: Mordelia]`,
@@ -1089,19 +1091,19 @@ stated.
 > **The 13-title residue is not clean either**, and saying so is the point: 9
 > are ordinary uses of the noun, and 4 name an air under a DIFFERENT convention
 > (`Air XXXI -- You'll think ere many Days ensue`, `Air XXXVI -- Cease your
-> Funning`, `GAELIC AIR`, `To The Air Of "Am Rhein, Am Rhein!"`). So there is no
+Funning`, `GAELIC AIR`, `To The Air Of "Am Rhein, Am Rhein!"`). So there is no
 > single mechanical rule that is right, which is exactly what a declared field
 > would fix. **Until `--- AIR:` exists, neither this figure nor M-11's "ZERO
 > across 8,009 non-English songs" is re-derivable, and the rarest field in the
 > corpus is the one field the corpus does not declare.**
-**Still missing:** the Tin Pan Alley generation (Dresser, Cannon, Dacre, Lamb,
-Cole, Lawlor, Weatherly...) and the eight music-hall names — a
-**scanned-broadside problem, not a rights problem**. Every one is out of
-copyright and lives on archive.org / Wikisource / LoC / Levy / Bodleian, all
-egress-blocked. Also unmined and already on disk: ~250 further Scots
-songwriters in Rogers's *Modern Scottish Minstrel*, ~86 unclaimed
-refrain-bearing hymns in the Otterbein Hymnal, and all fourteen Gilbert &
-Sullivan libretti in GITenberg 808 with ~349 machine-separable number headings.
+> **Still missing:** the Tin Pan Alley generation (Dresser, Cannon, Dacre, Lamb,
+> Cole, Lawlor, Weatherly...) and the eight music-hall names — a
+> **scanned-broadside problem, not a rights problem**. Every one is out of
+> copyright and lives on archive.org / Wikisource / LoC / Levy / Bodleian, all
+> egress-blocked. Also unmined and already on disk: ~250 further Scots
+> songwriters in Rogers's _Modern Scottish Minstrel_, ~86 unclaimed
+> refrain-bearing hymns in the Otterbein Hymnal, and all fourteen Gilbert &
+> Sullivan libretti in GITenberg 808 with ~349 machine-separable number headings.
 
 ### K-1a · The printed record is BIASED AGAINST the chorus `OPEN` — sized 2026-08-21, and the concentration is WORSE than recorded
 **SIZED 2026-08-21 (re-measured under the shipped rule).** Corpus totals:
@@ -1134,41 +1136,41 @@ found it independently in different centuries and countries.
 
 ### K-2 · ~~English is single-author on BOTH sides~~ — both halves retired `CLOSED`
 **Was:** positive = Shakespeare alone; negative = Whitman alone.
-~~**Now:** the positive side spans **143 authors across 16 rhyme traditions**, 1567 to
-1929. The NEGATIVE side is still Whitman alone, and K-3 shows it never
+~~**Now:** the positive side spans **143 authors across 16 rhyme traditions**, 1567 to 1929. The NEGATIVE side is still Whitman alone, and K-3 shows it never
 separated — so the replacement remains the corpus's own shuffled self.~~
 
 **CLOSED 2026-08-21, AND THE TITLE WAS FALSE ON BOTH HALVES.**
+
 - **The positive side** is **1,295 distinct author slugs over 1,297 files** (two
   authors appear in two cohorts each), not 143. The arm as re-derived
   2026-08-21 draws **4,217 quatrains from 712 files across 9 tradition groups**
-  in 15 distinct schemes. The *16 rhyme traditions* figure is still exactly 16
+  in 15 distinct schemes. The _16 rhyme traditions_ figure is still exactly 16
   and is still true — it is `data/lyricists.tsv`'s `tradition` column — but it
   is **not the axis the arm strata on**, which is the 9 filename cohorts
   (hbv 258, celtic 256, pah 233, american 208, oxford 194, british 95, hymn 34,
   parlour 12, hall 7). One number, two axes (doctrine 1).
 - **The negative side is not a text any more.** `quality/negative_control.py`
-  landed 2026-08-11 (`3e0b806`) and its FIRST LINE reads *"THE REPLACEMENT
-  NEGATIVE CONTROL. MISSING.md K-2 / K-3."* The negative is
+  landed 2026-08-11 (`3e0b806`) and its FIRST LINE reads _"THE REPLACEMENT
+  NEGATIVE CONTROL. MISSING.md K-2 / K-3."_ The negative is
   `line_permutation` over the positive corpus's own quatrains — matched by
   construction — and Whitman is retained as an explicitly LEGACY comparator.
   "still Whitman alone" was ten days stale relative to a file that names this
   entry in its opening sentence.
 
 **AND `BACKLOG.md` §3.5 SAID SO IN WRITING BEFORE THIS ENTRY DID.** That half
-reads `CLOSED 2026-08-21`, is tagged `K-2, K-3`, and states *"the positive is
-multi-author, drawn from 1,297 `eng_*` files"* — so the two halves of the
-register held opposite facts about one file. That is the defect `K-6` documents
-about itself and `M-21` names as a class: **the BACKLOG half closed and the
+reads `CLOSED 2026-08-21`, is tagged `K-2, K-3`, and states _"the positive is
+multi-author, drawn from 1,297 `eng\__`files"* — so the two halves of the
+register held opposite facts about one file. That is the defect`K-6`documents
+about itself and`M-21` names as a class: **the BACKLOG half closed and the
 MISSING half was never told.**
 
 **THE INSTRUMENT ITSELF CARRIED THE SAME SPLIT AND IS REPAIRED IN THIS COMMIT.**
-`negative_control.py`'s docstring §2 said *"143 files, one author each"* while
+`negative_control.py`'s docstring §2 said _"143 files, one author each"_ while
 its own `THE RUN` block 65 lines below said 712 files over 9 groups. The
 "one author each" half was true only by filename convention — **exactly 5 of
 the 1,297 English files carry a `--- AUTHOR:` line at all** — so the docstring
 asserted a per-file property 1,292 of those files do not state. (Said
-positively on purpose: `CORPUS_MARKER_ABSENT` reads *"no `--- X:` marker"* as
+positively on purpose: `CORPUS_MARKER_ABSENT` reads _"no `--- X:` marker"_ as
 a claim that the marker is unused ANYWHERE under `corpus/song/`, which is a
 different question and is false here — 10,616 occurrences, nearly all `ltc_`.
 A per-file fraction has to be spelled as one.)
@@ -1200,19 +1202,19 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > **RETITLED 2026-08-21 — THE OUTCOME SURVIVES AND THE NAMED CAUSE DOES NOT.**
 > `BLOCKED` is right: `corpus/song/non_*.txt` is **0 files, 0 songs**, confirmed
 > today, and `data/lyricists.tsv` holds 25 `non` rows every one of which is
-> `PENDING_TEXT`. What is false is *no licensed corpus*. **A PD-affirmed,
+> `PENDING_TEXT`. What is false is _no licensed corpus_. **A PD-affirmed,
 > verse-marked-up, ALREADY-MEASURED Old Norse source sits in this repo's own
 > known-good table**: `data/CHANNELS.md` lists `sveinbjornt/sagadb.org` — BSD
-> for the CODE, with *"a separate README sentence affirms the TEXTS public
-> domain"*. The BSD is a decoy covering Perl build scripts; the texts clear on
+> for the CODE, with _"a separate README sentence affirms the TEXTS public
+> domain"_. The BSD is a decoy covering Perl build scripts; the texts clear on
 > an **express PD affirmation**, quoted verbatim in `data/sources.tsv` row 61:
-> *"All saga source texts are in the public domain."* Machine-readable
+> _"All saga source texts are in the public domain."_ Machine-readable
 > `<poetry>`/`<line>` markup, 8 `*.on.xml` = 160 poetry blocks / 1,228 verse
 > lines.
 >
-> **AND THIS ENTRY'S OWN §6 ALREADY CONCEDED IT** — *"585 extracted dróttkvætt
+> **AND THIS ENTRY'S OWN §6 ALREADY CONCEDED IT** — _"585 extracted dróttkvætt
 > lines, already measured at 55.63% skothending against a null median of
-> 30.72%. It is `contested=true` and awaiting a human call nobody has made."*
+> 30.72%. It is `contested=true` and awaiting a human call nobody has made."_
 > A source that has already produced a separating measurement is not "no
 > licensed corpus". The entry was contradicted by a paragraph inside itself.
 >
@@ -1222,7 +1224,7 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > CC-BY-SA-3.0 covers the Perseus fornaldarsögur and **not** the Snorra-Edda
 > beside it (doctrine 54), and `cltk/old_norse_texts_heimskringla` is
 > byte-identical to it (md5 `c221b3761633838018e24ccf4e43e7fd`). **There is no
-> licensed *Háttatal*. There is a licensed *hending corpus*.** Once the
+> licensed _Háttatal_. There is a licensed _hending corpus_.** Once the
 > `contested=true` call is made, staging is ~2–4 h from the 8 `*.on.xml` with
 > the metre separation `sources.tsv` already specifies — Egill's lausavísur are
 > dróttkvætt; Höfuðlausn is runhent and Sonatorrek/Arinbjarnarkviða
@@ -1244,12 +1246,12 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > **2 · For the CORPUS it is doctrine 92, and the arithmetic is now on the
 > page.** P1 = clears the gate; P2 = 102 vísur with the channel intact.
 >
-> | witness | P1 | P2 | reachable |
-> |---|:--:|:--:|:--:|
-> | `cltk` pair (Guðni Jónsson d.1974, edns 1935–54) | ✗ (to 2044) | ✓ | ✓ |
-> | Faulkes / VSNR | ✗ (express reservation, living) | ✓ | ✗ |
-> | `latin-ocr` Arnamagnæan **1848** | **✓** | ✗ (**0** channel chars) | ✓ |
-> | Finnur Jónsson (d. **1934**) | **✓** | ✓ | **✗** |
+> | witness                                          |               P1                |           P2            | reachable |
+> | ------------------------------------------------ | :-----------------------------: | :---------------------: | :-------: |
+> | `cltk` pair (Guðni Jónsson d.1974, edns 1935–54) |           ✗ (to 2044)           |            ✓            |     ✓     |
+> | Faulkes / VSNR                                   | ✗ (express reservation, living) |            ✓            |     ✗     |
+> | `latin-ocr` Arnamagnæan **1848**                 |              **✓**              | ✗ (**0** channel chars) |     ✓     |
+> | Finnur Jónsson (d. **1934**)                     |              **✓**              |            ✓            |   **✗**   |
 >
 > **|P1 ∩ P2 ∩ reachable| = 0.** Strike the egress row and the set is
 > non-empty — so the disjointness is contingent on the **channel map**, not on
@@ -1267,7 +1269,7 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > window **`lang=lat` 21,926 words (94.05 %) and `lang=grc` 1,387 (5.95 %),
 > total 23,313, and nothing else.** The book was OCR'd with a Latin-plus-Greek
 > model and **no Norse model at all** — so the channel characters are not in
-> either charset and *could not have been emitted*, and the Greek is the `grc`
+> either charset and _could not have been emitted_, and the Greek is the `grc`
 > model firing on Old Norse. The scan is fine: word confidence **75.6** mean on
 > the Norse verso against **81.3** on the Latin recto. Doctrine 45 committed by
 > an OCR engine — the language is a declared coordinate and it was silently
@@ -1279,7 +1281,7 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > channel character in their pre-image and **16 also stand for themselves**.
 > `b` ← `ð`×133, `b`×122, `ö`×80, `þ`×56, `ó`×27, `Þ`×10, so rewriting every
 > `b` to its modal source **corrupts 316 characters to fix 133**. The wipe is
-> many-to-one *into the ambient alphabet*; its image has no free symbol. The
+> many-to-one _into the ambient alphabet_; its image has no free symbol. The
 > **Bayes-optimal** inverse, fitted on the answer key itself, reproduces
 > **12.6 %** of verse lines, **50.8 %** of words and **63.6 %** of line-final
 > words — a pair ceiling near 0.32, and an upper bound a real repair cannot
@@ -1295,10 +1297,10 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > characters against 40.05**, clean tokens **84.7 % against 67.2 %**. All NINE
 > rules `non.py` implements are legible there, including the two doctrine 62
 > exists for — skothending's `diversae sunt vocales, diversaeque literae
-> initiales, sed in utraque voce eaedem consonantes vocalem excipiunt` and
+initiales, sed in utraque voce eaedem consonantes vocalem excipiunt` and
 > aðalhending's `literae vero initiales distinguunt voces`, which is
-> *upphafstafir greina orðin* — plus the málfylling list as `particulis
-> hypermetris, verbi caussa: ek, aut: en, er, at, í, á, of, af, um`. The book's
+> _upphafstafir greina orðin_ — plus the málfylling list as `particulis
+hypermetris, verbi caussa: ek, aut: en, er, at, í, á, of, af, um`. The book's
 > own praefatio names the translator in its bytes (scan 0013, Sveinbjörn
 > Egilsson, rector of the Reykjavík school). **So `non.py`'s rules no longer
 > rest on an edition the gate refuses**, and the two witnesses are 87 years and
@@ -1321,8 +1323,8 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > has ever held. `quality/stage_sagadb.py` is the recipe and `--check`
 > re-derives every file from the upstream XML.
 >
-> **THE PRIOR FIGURE DOES NOT SURVIVE AND THAT IS THE POINT.** §6 cites *585
-> dróttkvætt lines already extracted*, naming a file under a dead session's
+> **THE PRIOR FIGURE DOES NOT SURVIVE AND THAT IS THE POINT.** §6 cites _585
+> dróttkvætt lines already extracted_, naming a file under a dead session's
 > scratchpad. The path is deliberately NOT written here as a repo path: it
 > does not exist, and `verify_entries`' REPO_PATH_EXISTS reads a backticked
 > path as an assertion that it DOES — it caught this paragraph's first draft,
@@ -1331,9 +1333,9 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > has quoted for eleven days rested on a rule nobody can reproduce (standing
 > rule 3: an improvised script used twice is a defect report). ~~585~~ is
 > struck and NOT replaced by a new dróttkvætt count, because **the edition
-> declares a metre for exactly two poems** — Egils saga ch. 60 *"Egill flutti
-> Höfuðlausn"* (runhent) and ch. 78 *"Egill kveðr Sonatorrek ok
-> Arinbjarnarkviðu"* (kviðuháttr), both named in its own chapter titles — and
+> declares a metre for exactly two poems** — Egils saga ch. 60 _"Egill flutti
+> Höfuðlausn"_ (runhent) and ch. 78 _"Egill kveðr Sonatorrek ok
+> Arinbjarnarkviðu"_ (kviðuháttr), both named in its own chapter titles — and
 > says nothing about the rest. The verse is visibly mixed: `eiriks_saga_rauda`
 > block 3 is short-lined eddic, `graenlendinga_saga`'s single block is
 > eight-syllable hrynhent. Calling the remainder dróttkvætt would be the
@@ -1347,9 +1349,8 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > eight `.on.xml` declare FOUR different upstreams, and one refutes the
 > affirmation in its own bytes: `hrafnkels_saga_freysgoda.on.xml` carries
 > `<orig_publication>From reading selections from An Introduction to Old Norse
-> by E.V. Gordon and A.R. Taylor, second edition (Oxford University Press,
-> 1956).</orig_publication>`. A.R. Taylor died 1985 — that member runs to
-> 2055. **REFUSED by name, and the refusal is FREE: it carries 0 poetry
+by E.V. Gordon and A.R. Taylor, second edition (Oxford University Press,
+1956).</orig_publication>`. A.R. Taylor died 1985 — that member runs to 2055. **REFUSED by name, and the refusal is FREE: it carries 0 poetry
 > blocks, measured.** `gunnlaugs_saga_ormstungu.on.xml` names NO upstream at
 > all (empty `<sourcename>` and `<sourceurl>`) and is **181 of the 1,228 lines
 > (14.7%)** — admitted under the ruling with the hole disclosed in its own
@@ -1366,7 +1367,7 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > **STILL OPEN, which is why this is `PARTIAL` and not closed:** the hending
 > measurement has NOT been re-run against the staged text, so 55.63% / 30.72%
 > remain the dead scratchpad's figures and are not quoted as live. `(b)` and
-> `(c)` below are untouched, and there is still no licensed *Háttatal* — the
+> `(c)` below are untouched, and there is still no licensed _Háttatal_ — the
 > title's original subject.
 
 > **7 · ~~Still BLOCKED~~ (a) IS DONE; here is what would move the rest**, in cost order:
@@ -1378,7 +1379,7 @@ hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
 > orthography that **no text this project has ever held contains**, and the
 > whole reason `non.py` needs a merged-vowel tri-state. Not staged: the dump
 > names no edition, and the same 4,900-row file carries `Andvökur, úrval
-> Sigurðar Nordals, 2. útgáfa 1980` four rows away, which is doctrine 40 at its
+Sigurðar Nordals, 2. útgáfa 1980` four rows away, which is doctrine 40 at its
 > sharpest — a CC-BY-SA-3.0 licence on a compilation that demonstrably mixes
 > admissible and in-copyright editions.
 
@@ -1412,8 +1413,8 @@ constraint **nothing** (doctrine 60). Somali is the one language here whose
 pitch accent is irrelevant to its own form.
 
 **So K-5 rests entirely on DATE and REACHABILITY — and the universal breaks on
-an instance.** J. W. C. Kirk (b. 1878), *A grammar of the Somali language, with
-examples in prose and verse*, Cambridge University Press, **1905** — a
+an instance.** J. W. C. Kirk (b. 1878), _A grammar of the Somali language, with
+examples in prose and verse_, Cambridge University Press, **1905** — a
 Latin-script transcription of Somali VERSE published 26 years inside the cutoff
 and 67 years before the 1972 orthography. "Every written gabay is a modern
 transcription" is false. Doctrine 38's bind ("any text `som` can read was
@@ -1425,8 +1426,8 @@ Latin script, and does not carry the universal it was asked to carry.
 proxy names it verbatim as `gateway answered 403 to CONNECT`. `WebFetch` on the
 same hosts returns `EGRESS_BLOCKED`, reconfirming on a second date that the
 block is per-host, not per-tool. **Two things stay unverified and they are the
-whole risk:** whether the verse includes *gabay* rather than only
-*geeraar*/*hees*, and **whether Kirk's transcription records vowel length and
+whole risk:** whether the verse includes _gabay_ rather than only
+_geeraar_/_hees_, and **whether Kirk's transcription records vowel length and
 the four pharyngeals** — the title page has not been seen and his death year was
 not found, so only route 3 (publication ≤ 1931) is in play. Unblock route
 (doctrine 85): one fetch of the `grammarofsomalil00kirkuoft` djvu text from any
@@ -1454,7 +1455,7 @@ count turns on it and nowhere else (doctrine 58).
 **And this entry's stated REASON for the 13 was wrong and pointed the opposite
 way from its own verdict.** It read: lives "recorded only as '19th–20th
 century', whose upper bound is 1900+70 past the term". 1900+70 = **1970**, which
-expired 56 years ago — the sentence as written *admits* the poets it refuses.
+expired 56 years ago — the sentence as written _admits_ the poets it refuses.
 The rows apply doctrine 81 correctly: the END of a "19th–20th century" window is
 **2000**, they say `life+70 = 2070 has not expired`, and 2070 is what refuses.
 The prose had copied the bound of the OTHER Somali group — the three "19th
@@ -1479,7 +1480,7 @@ the moment a pre-1931 witness is reachable it will be in a pre-1972 notation.
 
 **Probes recorded so the next session does not repeat them** (doctrine 39, seven
 rows): the four GITenberg Somaliland holdings fetched and read (2.27 MB, **zero**
-occurrences of gabay/gabei/gabai — Swayne 1895 describes the *gerara* minstrel
+occurrences of gabay/gabei/gabai — Swayne 1895 describes the _gerara_ minstrel
 at length and renders every song as English prose paraphrase, which is doctrine
 93's cleanest instance here); Hugging Face 50 Somali datasets, **zero literary**,
 and `wikimedia/wikisource` carries 72 language editions with **no `so`**; GitHub
@@ -1490,7 +1491,7 @@ under doctrine 49 and **stands**; its argument is confirmed and its framing is
 superseded.
 
 **What the evidence supports, since "never" does not:** no admissible Somali
-verse text is reachable *from this container*; one admissible-by-date candidate
+verse text is reachable _from this container_; one admissible-by-date candidate
 is known to exist and to be digitised; and the only thing between this project
 and testing it is an egress block, which doctrine 49 says is a claim about the
 network at a moment rather than about the world.
@@ -1601,16 +1602,16 @@ pre-existing rows are backfilled `eng`, which is the gap stated as data).
 Author-gate outcome, **REPINNED 2026-08-21 — 4 of the 8 rows moved and the
 three columns can no longer hold the answer**:
 
-| lang | rows | SOURCED | SOURCED_BY_PUBLICATION | PENDING_TEXT | NOT_FOUND | other |
-|---|---:|---:|---:|---:|---:|---|
-| fas | 76 | 30 | 0 | 0 | 46 | — |
-| ltc | 76 | 24 | 0 | 0 | 26 | 9 `REFUSED_EDITION`, 17 `FOUND_NOT_ON_LIST` |
-| san | 62 | 2 | 0 | 0 | 60 | — |
-| cym | 40 | 5 | 0 | 0 | 35 | — |
-| fin | 26 | 9 | 12 | 0 | 4 | 1 `COMPOSER_NOT_LYRICIST` |
-| non | 25 | 0 | 0 | 25 | 0 | — |
-| som | 18 | 0 | 0 | 0 | 0 | 14 `REFUSED_DATE`, 4 `BLOCKED_ORTHOGRAPHY` |
-| msa | 8 | 0 | 0 | 8 | 0 | — |
+| lang | rows | SOURCED | SOURCED_BY_PUBLICATION | PENDING_TEXT | NOT_FOUND | other                                       |
+| ---- | ---: | ------: | ---------------------: | -----------: | --------: | ------------------------------------------- |
+| fas  |   76 |      30 |                      0 |            0 |        46 | —                                           |
+| ltc  |   76 |      24 |                      0 |            0 |        26 | 9 `REFUSED_EDITION`, 17 `FOUND_NOT_ON_LIST` |
+| san  |   62 |       2 |                      0 |            0 |        60 | —                                           |
+| cym  |   40 |       5 |                      0 |            0 |        35 | —                                           |
+| fin  |   26 |       9 |                     12 |            0 |         4 | 1 `COMPOSER_NOT_LYRICIST`                   |
+| non  |   25 |       0 |                      0 |           25 |         0 | —                                           |
+| som  |   18 |       0 |                      0 |            0 |         0 | 14 `REFUSED_DATE`, 4 `BLOCKED_ORTHOGRAPHY`  |
+| msa  |    8 |       0 |                      0 |            8 |         0 | —                                           |
 
 ~~| fas | 76 | 0 | 0 | · | san | 62 | 0 | 0 | · | ltc | 59 | 0 | 0 | · |
 cym | 35 | 0 | 0 | · | non | 25 | 0 | 0 | · | fin | 14 | 0 | 0 | ·
@@ -1693,23 +1694,23 @@ verified year. 18 rows across cym/som/san are on that footing.
 >   Boodheri's row moved because `provenance.py` declares a 95-year term where
 >   the ledger computed `died + 70` — and `audit_register.py`'s D11 has been
 >   printing MOVED `14 / 4` on every run since. A word like `CONFIRMED
->   exactly` is a measurement claim, not an emphasis, and it was the one figure
+exactly` is a measurement claim, not an emphasis, and it was the one figure
 >   in the block that had not been re-measured at all.
 > - **The status enumeration is not stale — IT IS A BROKEN PARTITION, and the
 >   two defects hide each other exactly.** The sentence above reads as a
 >   partition: 33 + 47 + 174 + 29 + 17 + 13 + 5 + 1 = 319, its own stated
 >   population, closed. Today the same eight slots hold 33 + 70 + 171 + 9 + 17
->   + 14 + 4 + 1, and that **also sums to 319** — so a reader who checks the
->   arithmetic against the population this block states finds it closes, and
->   concludes the entry is sound. The population is **331**. The 12 rows in the
->   difference all carry a NINTH status the enumeration has no slot for:
->   **`SOURCED_BY_PUBLICATION` = 12**, all `fin`. A stale total and a missing
->   category are individually detectable; together they are not, and that is
->   the reason this is written up as a defect in the SENTENCE rather than as
->   eight fresher integers. It is `C4`'s finding at the non-English layer: K-1
->   quoted two statuses of five and invited an addition that did not close, and
->   `audit_register.py`'s `_chk_status_partition` was built for exactly that.
->   K-6 has no such check, and this is what its absence bought.
+>   - 14 + 4 + 1, and that **also sums to 319** — so a reader who checks the
+>     arithmetic against the population this block states finds it closes, and
+>     concludes the entry is sound. The population is **331**. The 12 rows in the
+>     difference all carry a NINTH status the enumeration has no slot for:
+>     **`SOURCED_BY_PUBLICATION` = 12**, all `fin`. A stale total and a missing
+>     category are individually detectable; together they are not, and that is
+>     the reason this is written up as a defect in the SENTENCE rather than as
+>     eight fresher integers. It is `C4`'s finding at the non-English layer: K-1
+>     quoted two statuses of five and invited an addition that did not close, and
+>     `audit_register.py`'s `_chk_status_partition` was built for exactly that.
+>     K-6 has no such check, and this is what its absence bought.
 > - **`SOURCED_BY_PUBLICATION` IS NEW, IT IS NOT A RELABEL, AND IT IS DECLARED
 >   NOWHERE.** It first appears at commit `debf64e` (2026-08-11), on **12 rows
 >   that were added, not moved** — `fin` went 14 → 26 in the same commit and no
@@ -1721,7 +1722,7 @@ verified year. 18 rows across cym/som/san are on that footing.
 >   is the rows themselves.
 > - **What the 12 rows say, read rather than guessed.** All 12 are `fin`, all
 >   12 point at one file, `corpus/song/fin_wahanen_laulukirja.txt` (the
->   *Wähänen Laulu-kirja*, Turku 1864), and all 12 have **`born`, `died`,
+>   _Wähänen Laulu-kirja_, Turku 1864), and all 12 have **`born`, `died`,
 >   `pd_route` and `pd_expired` EMPTY** — the only rows in the ledger that do.
 >   Their notes record why: the 1864 printing gives pen-names (`Kallio`,
 >   `Tuokko`), initials and surnames (`A. Oksanen`, `C. Helenius`), and in one
@@ -1791,7 +1792,7 @@ this half was not, so the register carried the discharged and the undischarged
 statement of the same fact side by side for four days.
 
 `quality/time_attainable.py` is the runner and `quality/RESULTS_FWER.md`
-§*THE LEVERS, MEASURED — and the layer cannot speak* is the write-up. **Six
+§_THE LEVERS, MEASURED — and the layer cannot speak_ is the write-up. **Six
 levers, all dead**, and `null_samples` — the one this paragraph named — is dead
 in the most instructive way: it **RUNS BACKWARDS**. `min_p` goes 3.998e-3 at
 2,000 samples to 4.415e-3 at 200,000, so buying resolution makes the floor
@@ -1842,11 +1843,11 @@ which is a result and not a debt.** `BACKLOG.md` §4.2 carried the same stale
 `quality/negative_control.py:631 arm_spans` whose docstring names this entry.
 `quality/RESULTS_NULL_SHAPES.md` §3 measures it:
 
-| arm | `band_pass` | `min_p` move |
-|---|---:|---:|
-| real verse | 0.0572 | — |
-| word scramble | 0.0601 | 1.15× |
-| **cross-item redeal** | **0.0599** | **0.94×** |
+| arm                   | `band_pass` | `min_p` move |
+| --------------------- | ----------: | -----------: |
+| real verse            |      0.0572 |            — |
+| word scramble         |      0.0601 |        1.15× |
+| **cross-item redeal** |  **0.0599** |    **0.94×** |
 
 **The purpose-built null PRESERVES the quantity it was commissioned to
 destroy**, over a detection floor spanning 51× (0.00059–0.03040) — so this is
@@ -1899,9 +1900,9 @@ profile arithmetic and it is not about length at all. `quality/floor.py`'s
 rate on held-out human song text — the doctrine-22 statement of a threshold —
 and NO AUC, and `evidence_for` (`quality/floor.py:546`) refuses to let a
 caller borrow one (`quality/test_floor.py:436`, `:448` pin the refusal). So
-the floor can say *this human text does not trip the slop checks* at a known
-rate, and cannot say *the checks separate generated song lyrics from human
-ones*, because no generated song class exists in this repository. What is
+the floor can say _this human text does not trip the slop checks_ at a known
+rate, and cannot say _the checks separate generated song lyrics from human
+ones_, because no generated song class exists in this repository. What is
 owed is a CORPUS, not a number — M-19's shape exactly. Until one exists this
 entry is doctrine 44's "cannot obtain" for the property, with the floor's own
 docstring (`quality/floor.py:124-131`) as the standing disclosure.
@@ -1927,11 +1928,11 @@ counts them together. **At commit `d11ca0a`, 2026-08-11**, that regex returned
 Measured by `python3 quality/verify_doctrines.py`, which reads only between
 the `<!-- DOCTRINE-BLOCK -->` markers that exist for exactly this reason:
 
-| | doctrines | `known gap N` |
-|---|---:|---:|
-| `CLAUDE.md` | 20 | ~~7~~ **10** |
-| `quality/METHOD.md` | 75 | 0 |
-| **total** | **95**, a contiguous run 1–95, nothing defined twice | ~~**7**, a separate run 1–7~~ **10**, a separate run 1–10 |
+|                     |                                            doctrines |                                             `known gap N` |
+| ------------------- | ---------------------------------------------------: | --------------------------------------------------------: |
+| `CLAUDE.md`         |                                                   20 |                                              ~~7~~ **10** |
+| `quality/METHOD.md` |                                                   75 |                                                         0 |
+| **total**           | **95**, a contiguous run 1–95, nothing defined twice | ~~**7**, a separate run 1–7~~ **10**, a separate run 1–10 |
 
 > **REPINNED 2026-08-14 at `b560014`: the gaps run is 1–10, the bare regex
 > returns 30, and 30 + 75 = 105.** The `7` and the `1–7` above were correct on
@@ -1939,11 +1940,11 @@ the `<!-- DOCTRINE-BLOCK -->` markers that exist for exactly this reason:
 > the `75` are unchanged and re-derive exactly. Superseded values, with the
 > commit each was last true at:
 >
-> | measured at | date | gaps run | bare `^N. **` over `CLAUDE.md` | + 75 |
-> |---|---|---:|---:|---:|
-> | `d11ca0a` … `e85609a` | 2026-08-11 | 1–7 | 27 | 102 |
-> | `4efc370` … `19d2f1e` | 2026-08-13 | 1–9 | 29 | 104 |
-> | `d9f266d` … `b560014` | 2026-08-14 | **1–10** | **30** | **105** |
+> | measured at           | date       | gaps run | bare `^N. **` over `CLAUDE.md` |    + 75 |
+> | --------------------- | ---------- | -------: | -----------------------------: | ------: |
+> | `d11ca0a` … `e85609a` | 2026-08-11 |      1–7 |                             27 |     102 |
+> | `4efc370` … `19d2f1e` | 2026-08-13 |      1–9 |                             29 |     104 |
+> | `d9f266d` … `b560014` | 2026-08-14 | **1–10** |                         **30** | **105** |
 >
 > ```
 > grep -cE '^[0-9]+\. \*\*' CLAUDE.md            # 30
@@ -2024,15 +2025,15 @@ population this entry never named. `WITHDRAWN` 2026-08-11.**
 > attached to a sentence that says "mandated".
 >
 > **Note on the check itself, so nobody reads its output as a pass.** With the
-> claim withdrawn, `audit_register.py`'s C8 now reports `n/a` — *"M-1's verdict
-> counts not found in their current form"* — because there is no longer a live
+> claim withdrawn, `audit_register.py`'s C8 now reports `n/a` — _"M-1's verdict
+> counts not found in their current form"_ — because there is no longer a live
 > "X% of N false verdicts" for it to test. That is an UNGUARDED entry, not a
 > satisfied one. Restoring the claim with its population named would put the
 > check back on it.
-**Fix shape:** make the standard a declared coordinate,
-`standard='pingshui'|'cilin'`, exactly the move `check_cynghanedd` made for
-`language` (doctrine 45). Doctrine 36 was written about Qieyun → 平水韻 and it
-is true one rung further in.
+> **Fix shape:** make the standard a declared coordinate,
+> `standard='pingshui'|'cilin'`, exactly the move `check_cynghanedd` made for
+> `language` (doctrine 45). Doctrine 36 was written about Qieyun → 平水韻 and it
+> is true one rung further in.
 
 **CLOSED 2026-08-21 — the fix shape above is what shipped, and this entry was
 the last place still calling it OPEN.** `MiddleChinese(standard=...)` accepts
@@ -2061,22 +2062,22 @@ and an entry going CLOSED is not a licence to un-withdraw a number (doctrine
 **CLOSED 2026-08-21, AND THE DECLARATION THAT STOOD HERE FOR TWO HOURS WAS
 MINE AND WAS WRONG.** `quality/triage.py` flagged this entry CONTESTED —
 open, and a regression names it — which is exactly the state it was in. It
-was resolved by writing *"the entry as a whole stands"* WITHOUT READING THE
+was resolved by writing _"the entry as a whole stands"_ WITHOUT READING THE
 ENTRY. That is the failure the CONTESTED bucket exists to prevent, committed
 by the same sitting that built the bucket. A declaration is only honest for
 an entry someone has checked; otherwise it is a silencer with a date on it.
 
 **MEASURED, every clause of this entry, 2026-08-21:**
 
-| the entry says | today |
-|---|---|
-| 魂 cannot be looked up | reads, `via` **䰟** |
-| 窗 absent, 窓/牕/窻 present | 窗 reads, `via` **窓** |
-| 19 recoverable by an 異體字 map | **19 of 19 read** |
-| 你 is vernacular, refusal correct | reads `via` **伱** — this entry's own falsified clause |
-| nothing tells an ingestion defect from a correct refusal | `refusal()` returns the KIND |
-| 諄/真/殷/桓/戈 name groups the data does not | authority moved to `data/ltc_rhyme_standards.tsv`, which agrees with the data |
-| the docstring cites 193 rhymes | it cites 58 韻系 and says 193 was never the number in the file |
+| the entry says                                           | today                                                                         |
+| -------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| 魂 cannot be looked up                                   | reads, `via` **䰟**                                                           |
+| 窗 absent, 窓/牕/窻 present                              | 窗 reads, `via` **窓**                                                        |
+| 19 recoverable by an 異體字 map                          | **19 of 19 read**                                                             |
+| 你 is vernacular, refusal correct                        | reads `via` **伱** — this entry's own falsified clause                        |
+| nothing tells an ingestion defect from a correct refusal | `refusal()` returns the KIND                                                  |
+| 諄/真/殷/桓/戈 name groups the data does not             | authority moved to `data/ltc_rhyme_standards.tsv`, which agrees with the data |
+| the docstring cites 193 rhymes                           | it cites 58 韻系 and says 193 was never the number in the file                |
 
 `data/qieyun_variants.tsv` is the mechanism and it does not touch the CC0
 original: **7,258 rows — 810 RECOVERED** to a variant that is in the rime
@@ -2087,8 +2088,8 @@ buckets are counted apart and reconcile to the row count exactly (doctrine
 `variants=False` reads **1** — which is what the map buys, measured rather
 than asserted.
 
-**THE SHARPEST PART IS THE ONE THIS ENTRY ASKED FOR LAST.** *"Nothing
-currently tells an ingestion defect from a correct refusal"* is answered in
+**THE SHARPEST PART IS THE ONE THIS ENTRY ASKED FOR LAST.** _"Nothing
+currently tells an ingestion defect from a correct refusal"_ is answered in
 TWO methods, not one, and the split is finer than the ask: `refusal()`
 answers for a character that does NOT read (後起 = postdates the rime book,
 correct; 簡化 = a simplified form, an ingestion defect), and `hazard()`
@@ -2129,16 +2130,16 @@ refusal**, which is doctrine 79 in a second layer.
 > "correct refusal" reading requires. The ARGUMENT is untouched — it is
 > strengthened, because it now rests on a checked map rather than on a listed
 > one.
-**Related, same file:** 諄, 真, 殷, 桓, 戈 appear in `ltc._GROUPS` and never in
-the data file, which uses 眞/欣/寒/歌 — the grouping table was written against a
-different naming convention than the data. And the table holds 58 rhyme labels
-× 4 tones, the 廣韻 206 system by 韻系, not the 193 the docstring cites.
-**Measured cost of getting the script wrong:** a SIMPLIFIED corpus reads at
-70.95% against traditional's 99.03%, with **31.7% of line-final rhyme positions
-unreadable**, failing on the commonest words (风 3,687 tokens, 来 2,327, 时 1,987,
-楼 941). OpenCC is not the fix: 无, 云 and 丽 resolve because they were separate
-Middle Chinese words, so the corpus fails loudly on some merges and **silently
-returns a different word's rhyme** on the rest.
+> **Related, same file:** 諄, 真, 殷, 桓, 戈 appear in `ltc._GROUPS` and never in
+> the data file, which uses 眞/欣/寒/歌 — the grouping table was written against a
+> different naming convention than the data. And the table holds 58 rhyme labels
+> × 4 tones, the 廣韻 206 system by 韻系, not the 193 the docstring cites.
+> **Measured cost of getting the script wrong:** a SIMPLIFIED corpus reads at
+> 70.95% against traditional's 99.03%, with **31.7% of line-final rhyme positions
+> unreadable**, failing on the commonest words (风 3,687 tokens, 来 2,327, 时 1,987,
+> 楼 941). OpenCC is not the fix: 无, 云 and 丽 resolve because they were separate
+> Middle Chinese words, so the corpus fails loudly on some merges and **silently
+> returns a different word's rhyme** on the rest.
 
 ### M-3 · The Malay apostrophe rule — and the number that billed it `CLOSED` 2026-08-11
 **The fix, one rule:** a part with no vowel is not a word, so it merges into the
@@ -2164,8 +2165,8 @@ the corpus file's own header, which belongs to a corpus cell. The rule: blocks
 are maximal runs of lines
 indented ≥ 4 (**705 blocks, 5,555 lines**), and a block is Malay where its Malay
 function-word count strictly exceeds its English one (**330 blocks, 3,442
-lines**). Tokens are maximal runs of `[A-Za-z'`’-]` that contain at least one
-letter: **15,601**. `corpus/song/msa_skeat_pantun.txt` is a 129-block extract
+lines**). Tokens are maximal runs of `[A-Za-z'`’-]`that contain at least one
+letter: **15,601**.`corpus/song/msa_skeat_pantun.txt` is a 129-block extract
 cut from this, 513 verse lines, 2,113 tokens, and **no figure in this entry is
 derivable from it.**
 
@@ -2173,12 +2174,12 @@ derivable from it.**
 this entry shipped is kept beneath it, because three of its numbers are exact
 and the two that are not are the finding:
 
-| class | before (`_merge_vowelless` off) | after (shipped `msa.py`) | layer |
-|---|---:|---:|---|
-| vowelless fragment FROM the apostrophe split | 79 | **1** | `msa.py` — the real defect |
-| vowelless WHOLE token (`b` 101, `d` 100, `s` 99 — the `d. s. b.` stub, M-4) | 305 | 305 | ingestion, elsewhere |
-| complex coda / complex medial | 87 | 88 | correct refusal |
-| **total** | **471** (3.02%) | **394** (2.53%) | |
+| class                                                                       | before (`_merge_vowelless` off) | after (shipped `msa.py`) | layer                      |
+| --------------------------------------------------------------------------- | ------------------------------: | -----------------------: | -------------------------- |
+| vowelless fragment FROM the apostrophe split                                |                              79 |                    **1** | `msa.py` — the real defect |
+| vowelless WHOLE token (`b` 101, `d` 100, `s` 99 — the `d. s. b.` stub, M-4) |                             305 |                      305 | ingestion, elsewhere       |
+| complex coda / complex medial                                               |                              87 |                       88 | correct refusal            |
+| **total**                                                                   |                 **471** (3.02%) |          **394** (2.53%) |                            |
 
 Three counts, never two (doctrine 79). Before: read 15,130 / refused 87 /
 defective 384. After: read 15,207 / refused 88 / defective 306. Both sum to
@@ -2199,15 +2200,15 @@ table, so the arithmetic checker reads one table in this entry and not two):
 **WHAT `384` ACTUALLY IS, and this is the whole correction.** 384 is the
 **before-fix count of vowelless tokens** — `by_code {'vowelless_token': 384,
 'complex_medial': 55, 'complex_coda': 32}` — inside a before-fix unreadable
-total of exactly **471**. So *"384 of 471"* is arithmetically CORRECT and was
+total of exactly **471**. So _"384 of 471"_ is arithmetically CORRECT and was
 never a false number; what was false is the ATTRIBUTION. Of those 384 vowelless
 tokens the apostrophe split produced **79**; the other **305** are whole tokens
 the rule never touched. The entry then carried 384 down into the `after` column,
 where it belongs to nothing: the after-total is 394.
 
 **The apostrophe rule owned 79 of 471 = 16.8%, not 82%**, and 16.6% was close
-for the wrong reason. The earlier classifier keyed on *"this part has no vowel"*
-rather than *"an apostrophe split produced it"*, so it charged `msa.py` for 305
+for the wrong reason. The earlier classifier keyed on _"this part has no vowel"_
+rather than _"an apostrophe split produced it"_, so it charged `msa.py` for 305
 tokens it never touched. `unreadable_reason()` makes the split machine-readable
 so this cannot recur silently.
 
@@ -2266,7 +2267,7 @@ wrong label:
   breaks — and `-ong` is 41 tokens in **28 types**, `-ok` 30 tokens in **14
   types**. So M-3's 28 and 14 are correct, correctly labelled, and measured on a
   tokenisation this entry did not state; the "15" is the `-ok` type count under
-  the *other* rule (apostrophe and hyphen kept inside the token: 28 tokens / 15
+  the _other_ rule (apostrophe and hyphen kept inside the token: 28 tokens / 15
   types). **This entry quoted two tokenisations in one breath and named
   neither.** (First recovered by the owner of `quality/METHOD.md`; re-derived
   here independently and confirmed to the token. An earlier reconstruction of
@@ -2308,11 +2309,11 @@ the English case knew none of them.
 **CLOSED for Finnish 2026-08-11**, and the numbers in the first version of this
 entry were WRONG — corrected below rather than quietly restated.
 
-| language | stub | stub lines | unreadable tokens before → after |
-|---|---|---:|---|
-| English | `&c.` / `etc.` | 941 | handled by `is_chorus_stub` |
-| Finnish | `j. n. e.` (*ja niin edelleen*) | ~~8~~ **9 at `debf64e`** | `fin_kanteletar` 14 → **0**; ~~all ten `fin_*` 155 → 139~~ `UNVERIFIABLE`, see below |
-| Welsh | `&c.` | ~~30 (see note)~~ **33, rule stated below** | Mynyddog, foot of a stanza; READ AS WELSH since 2026-08-21 |
+| language | stub                            |                                  stub lines | unreadable tokens before → after                                                     |
+| -------- | ------------------------------- | ------------------------------------------: | ------------------------------------------------------------------------------------ |
+| English  | `&c.` / `etc.`                  |                                         941 | handled by `is_chorus_stub`                                                          |
+| Finnish  | `j. n. e.` (_ja niin edelleen_) |                    ~~8~~ **9 at `debf64e`** | `fin_kanteletar` 14 → **0**; ~~all ten `fin_*` 155 → 139~~ `UNVERIFIABLE`, see below |
+| Welsh    | `&c.`                           | ~~30 (see note)~~ **33, rule stated below** | Mynyddog, foot of a stanza; READ AS WELSH since 2026-08-21                           |
 
 **THE FINNISH ROW MOVED WITH THE CORPUS, NOT WITH THE REGISTER — and the
 distinction is the whole reason the verdict is `MOVED` and not `FALSE`.**
@@ -2329,15 +2330,15 @@ written by other cells while this file is being read.
 
 **The `155 → 139` half is now `UNVERIFIABLE`, and struck rather than replaced.**
 D24 re-runs it and reports 145,280 tokens with 718 unreadable over the same
-files — two orders off — because *this entry states no tokeniser and no
-reason-code filter*, so there is no rule to re-run and no way to tell a drift
+files — two orders off — because _this entry states no tokeniser and no
+reason-code filter_, so there is no rule to re-run and no way to tell a drift
 from a different question. Doctrine 58 with the RULE as the unwritten
 coordinate. **Owed: the tokeniser, beside the number.** It is not replaced with
 718, because 718 is the answer to a question this row did not ask.
 
 **~~The Welsh 30 is `UNVERIFIABLE` and no rule tried reproduces it.~~ THE RULE
 IS STATED AND THE THREE VALUES RECONCILE — 2026-08-21.** The debt this row
-carried was *the rule, beside the number*, and it is paid here rather than by
+carried was _the rule, beside the number_, and it is paid here rather than by
 picking a value:
 
 > **RULE.** `lyric_harness.is_chorus_stub(line, language="cym")` over the lines
@@ -2356,15 +2357,15 @@ satisfied by naming the rule, not by moving the number, and the number moved
 only because the rule finally exists.
 
 **AND THE ROW WAS BEING READ UNDER ENGLISH'S LABEL.** Until 2026-08-21 all 33
-answered `('eng', ...)` to `chorus_stub_match`, and answered `None` — *not a
-pointer* — the moment a caller supplied `language='cym'`, which is the silent
+answered `('eng', ...)` to `chorus_stub_match`, and answered `None` — _not a
+pointer_ — the moment a caller supplied `language='cym'`, which is the silent
 half and the one that puts 33 refrain pointers into rhyme extraction as sung
 text. `CHORUS_STUB_FORMS`' first field is now a SET of the traditions a form is
 attested in, `&c.` is attested for `eng` and `cym` both, and the undeclared
-call answers `(None, gloss)` — *this is a pointer, which tradition printed it
-cannot be told from the line*. See BACKLOG 2.4 and `quality/test_spans.py` §8b.
+call answers `(None, gloss)` — _this is a pointer, which tradition printed it
+cannot be told from the line_. See BACKLOG 2.4 and `quality/test_spans.py` §8b.
 
-BACKLOG 2.4 expected the remaining work to be a Welsh WORD for *et cetera*.
+BACKLOG 2.4 expected the remaining work to be a Welsh WORD for _et cetera_.
 Measured: `ac ati`, `ac yn y blaen` and `a.y.y.b` occur **zero** times
 line-final in the staged Welsh. The entry's premise was falsified by the
 corpus, and the fix is a second attestation on the existing form rather than a
@@ -2414,7 +2415,7 @@ time by `python3 quality/verify_entries.py` rather than written down here.
 **The silent half is confirmed and is the part that mattered:** the `e` IS
 readable, so on `Härkä ei juo vettä j. n. e.` `fin.line_alliteration` returns
 (2 alliterating, 7 words) against (1, 4) for the real line — three phantom
-words and one phantom alliteration, in the numerator *and* the denominator.
+words and one phantom alliteration, in the numerator _and_ the denominator.
 `CHORUS_STUB_FORMS` is now a declared table of `(language, gloss, pattern)` and
 `chorus_stub_match` reports WHICH convention fired (doctrine 45).
 
@@ -2425,17 +2426,17 @@ validated on the band's false-positive rate and on the sonnet violation rate,
 held out on both. It was never run against the time layer, and it breaks all
 four `test_fwer.py` assertions:
 
-| | uncorrected saturation (want >60%) | word-scramble (want <20%) | degenerate item refused / band-pass (want yes, >0.25) |
-|---|---:|---:|---|
-| pre-`b1d7f64` (head, 0.60) | 70.0% | 8.8% | Yes / 0.429 |
-| tail, 0.60 | 65.0% | 6.8% | **No** / 0.232 |
-| head, 0.80 | 60.0% | **25.5%** | Yes / 0.426 |
-| **shipped (tail, 0.80)** | **55.0%** | **26.7%** | **No** / 0.226 |
+|                            | uncorrected saturation (want >60%) | word-scramble (want <20%) | degenerate item refused / band-pass (want yes, >0.25) |
+| -------------------------- | ---------------------------------: | ------------------------: | ----------------------------------------------------- |
+| pre-`b1d7f64` (head, 0.60) |                              70.0% |                      8.8% | Yes / 0.429                                           |
+| tail, 0.60                 |                              65.0% |                      6.8% | **No** / 0.232                                        |
+| head, 0.80                 |                              60.0% |                 **25.5%** | Yes / 0.426                                           |
+| **shipped (tail, 0.80)**   |                          **55.0%** |                 **26.7%** | **No** / 0.226                                        |
 
 Two independent causes, cleanly separated. **`theta_coda` causes the
 false-event blowup, ~3× in BOTH alignments** — a tighter rhyme band shrinks each
 position's comparison family, which loosens the Šidák cut, so tightening the
-band *raises* the corrected false-event rate. That is doctrine 22 arriving from
+band _raises_ the corrected false-event rate. That is doctrine 22 arriving from
 the other side: a threshold is a rate, and this one is a rate somewhere nobody
 was looking. **Tail alignment alone drops the degenerate-item guard below its
 0.25 threshold**, silencing doctrine 28's tripwire — the mechanism that
@@ -2477,10 +2478,10 @@ contains the change under test. What does not stand is the closing sentence.
 1. **The guard's alignment dependence is a DECLARED COORDINATE, not a
    dependency.** `TimeDeclaration.max_null_band_pass` is **0.152**, not 0.25,
    and it carries `max_null_band_pass_basis` naming the alignment and the
-   `theta_coda` it was measured at — *"2 x max over 30 Shakespeare sonnets =
+   `theta_coda` it was measured at — _"2 x max over 30 Shakespeare sonnets =
    2 x 0.076, measured 2026-08-11 at alignment=tail, theta_coda=0.80 … the
    previous value 0.25 was the same quantity measured at alignment=head,
-   theta_coda=0.60."* There is a re-measurement runner
+   theta_coda=0.60."_ There is a re-measurement runner
    (`python3 quality/fwer_family.py --calibrate`) and `test_fwer.py` §5
    asserts the degenerate item is refused **under BOTH alignments** and real
    verse clear of the guard under both. **The threshold was stale, not the
@@ -2499,26 +2500,25 @@ contains the change under test. What does not stand is the closing sentence.
 **WHAT IS UNCHANGED, and it is the whole load-bearing claim:** the layer is
 still MUTE, the blocker is still multiplicity, and the family size is still
 the measurement that says so. It was stated in one absolute too many.
-`M-18`'s instance list item 2 — this entry's *"confirmed at clean HEAD"*
+`M-18`'s instance list item 2 — this entry's _"confirmed at clean HEAD"_
 against a HEAD containing the change — is about the AUDIT and is unaffected.
 
 ### M-5 · A printing can spell one sound two ways, and the modernisation check cannot see it `OPEN`
-Every recorded instance of the orthography rule (doctrine 50, CHANNELS.md rule
-4) is a MODERNISATION. The Kanteletar is not modernised at all and still carries
+Every recorded instance of the orthography rule (doctrine 50, CHANNELS.md rule 4) is a MODERNISATION. The Kanteletar is not modernised at all and still carries
 a hazard: `w` and `v` are **allographs of one phoneme** and the printing MIXES
 them — `Väinämöisen` and `Wäinämöinen`, same name, same book. `fin.py` keys the
 alliteration class on the first onset character, so `Wiipurin`/`veti` reports no
 alliteration where the tradition hears one. Folding `w`→`v`: weak 81.84% →
 82.15% (+70 lines), strong 60.21% → 60.43% (+48). Small — **the shape matters
 more than the size.** A text using `w` throughout is self-consistent and costs
-nothing; it is the MIXING that costs. "Has this been modernised?" returns *no*
+nothing; it is the MIXING that costs. "Has this been modernised?" returns _no_
 and passes the file. The question that catches it is **"does this printing spell
 one sound two ways?"**
 
 ### M-6 · `fin.py` implements alliteration and nothing else — BOTH SENTENCES WERE FALSE `CLOSED` 2026-08-11
 ~~No `rhymes()`. Nine of the ten staged Finnish files are **rhymed strophic
 verse** whose actual constraint the module cannot check. F-1 lists `fin` as
-present; it is present *for the Kalevala metre only*, and the corpus that just
+present; it is present _for the Kalevala metre only_, and the corpus that just
 landed is mostly not that.~~
 
 **Both sentences were false at the commit that wrote them, in different ways,
@@ -2529,13 +2529,13 @@ rule, because the pair is the calibration case for `quality/verify_entries.py`.
 **1 · The symbol existed.** `Finnish.rhymes()` landed at `f94383c`, with
 `rime()`, `relation_type()`, `refusal_reason()` and `readability_census()`
 beside it and a corpus arm in `quality/test_msa_fin.py`. `f94383c`'s own commit
-title is *"two of my own MISSING entries were false"* — so this entry went stale
+title is _"two of my own MISSING entries were false"_ — so this entry went stale
 inside the very round that was meant to be catching that class, which is the
 argument for an instrument rather than another careful read.
 
 **2 · The corpus half was wrong twice over.** `ls corpus/song/fin_*.txt | wc -l`
 returned **11** at commit `debf64e`, not the ten counted here: the eleventh,
-`fin_wahanen_laulukirja.txt` (1864 song-book, PG 72965), landed *after* `fin.py`
+`fin_wahanen_laulukirja.txt` (1864 song-book, PG 72965), landed _after_ `fin.py`
 was written. And the metre split is not 1 : 9 — measured against
 `quality/kalevala_rate.py`'s own across-line permutation null,
 `fin_jaakko_juteini.txt` carries a HIGHER weak-alliteration excess than the
@@ -2635,14 +2635,14 @@ largest structural gap left in the corpus.
 > **THE DENOMINATOR HAS MOVED AND THE ZERO HAS NOT. Measured 2026-08-11**, same
 > rule as K-1 (a song is a `--- TITLE:` line), over `corpus/song/`:
 >
-> | prefix | language | songs |
-> |---|---|---:|
-> | `fas_` | Persian | 8,350 |
-> | `fin_` | Finnish | 962 |
-> | `cym_` | Welsh | 391 |
-> | `msa_` | Malay | 129 |
-> | `san_` | Sanskrit | 25 |
-> | | **the five M-11 names** | **9,857** |
+> | prefix | language                |     songs |
+> | ------ | ----------------------- | --------: |
+> | `fas_` | Persian                 |     8,350 |
+> | `fin_` | Finnish                 |       962 |
+> | `cym_` | Welsh                   |       391 |
+> | `msa_` | Malay                   |       129 |
+> | `san_` | Sanskrit                |        25 |
+> |        | **the five M-11 names** | **9,857** |
 >
 > ~~8,009~~ **9,857**, and `ltc_` is a further 10,529 outside M-11's list. The
 > **0 is untouched** — it is the finding, and it does not depend on the
@@ -2665,16 +2665,16 @@ largest structural gap left in the corpus.
 > `python3 quality/audit_register.py --slow` (derivation D5) or
 > `python3 quality/test_grid.py`.
 >
-> | prefix | songs | air of its OWN | air RESTATING the title |
-> |---|---:|---:|---:|
-> | `cym_` | 391 | **13** | 0 |
-> | `fin_` | 962 | **18** | 0 |
-> | `fas_` | 8,350 | 0 | 0 |
-> | `msa_` | 129 | 0 | 0 |
-> | `san_` | 25 | 0 | 0 |
-> | **the five this entry names** | **9,857** | **31** | **0** |
-> | `eng_` | 8,667 | 539 | 0 |
-> | `ltc_` | 10,529 | 0 | 10,529 |
+> | prefix                        |     songs | air of its OWN | air RESTATING the title |
+> | ----------------------------- | --------: | -------------: | ----------------------: |
+> | `cym_`                        |       391 |         **13** |                       0 |
+> | `fin_`                        |       962 |         **18** |                       0 |
+> | `fas_`                        |     8,350 |              0 |                       0 |
+> | `msa_`                        |       129 |              0 |                       0 |
+> | `san_`                        |        25 |              0 |                       0 |
+> | **the five this entry names** | **9,857** |         **31** |                   **0** |
+> | `eng_`                        |     8,667 |            539 |                       0 |
+> | `ltc_`                        |    10,529 |              0 |                  10,529 |
 >
 > **THE 31 ARE WHAT FALSIFIES THE ZERO. THE 10,529 ARE NOT, AND THE TWO ARE
 > NEVER SUMMED** (doctrine 79). A ci's title IS its 詞牌, and
@@ -2714,6 +2714,7 @@ largest structural gap left in the corpus.
 ### M-12 · The admissible copy and the complete copy are DISJOINT `OPEN`
 Doctrine 92. Three instances in one round, and "find a better source" is the
 answer to none of them:
+
 - **Gītagovinda rāga/tāla** — present in GRETIL, verified by fetch (HTTP 200,
   60,793 B, 25 `gīyate`, 5 `rāgeṇa`, 9 `tālena`), **CC BY-NC-SA**. Refused. The
   DCS copy that IS admissible is the copy that dropped the headings.
@@ -2768,8 +2769,8 @@ list extends.
 ### M-14 · 2 Sanskrit authors is the DCS's ceiling for this property, not a shortfall `OPEN`
 Amaru, Bhartṛhari, Govardhana and every DCS stotra are reachable, CC BY 4.0 and
 out of term, and the refrain detector fires **zero** on them at every setting
-against 24 on Jayadeva in the same run — so they are NOT_FOUND *for this
-property*, with the floor printed beside the zero (doctrine 93). Extending
+against 24 on Jayadeva in the same run — so they are NOT_FOUND _for this
+property_, with the floor printed beside the zero (doctrine 93). Extending
 Sanskrit needs either an NC decision on GRETIL or a source for the Vaiṣṇava
 stotra/pada literature — Vedānta Deśika, Bilvamaṅgala, the Gosvāmins,
 Śaṅkaradeva — **none of which is among the DCS's 270 texts**.
@@ -2924,7 +2925,7 @@ where the spec put a line end.
    chain has a link outside the repo is a claim nobody here can check. The
    segmentation was never in doubt — all 436 printed break vectors already
    landed on a real 格 of exactly their character count, 436 of 436 — so this
-   was an *unverifiable* claim, not a wrong one, and the difference is worth
+   was an _unverifiable_ claim, not a wrong one, and the difference is worth
    stating.
 
 2. **The coverage figure was measured on the wrong denominator, and the bias
@@ -3019,7 +3020,7 @@ hours.
 ### M-17 · `best_score` names a pair that did not produce the number `CLOSED` 2026-08-21
 **CLOSED FOUR DAYS AFTER ITS OWN WORK ITEM AND NOBODY TOLD IT.** `BACKLOG.md`
 §1.2 has read `M-17, CLOSED 2026-08-17` since the 17th; this half kept saying
-*the adversary is built; the repair is not*, which had been false for four
+_the adversary is built; the repair is not_, which had been false for four
 days. The seventh already-built-and-unmarked entry of 2026-08-21, and the
 first where the two registers' stale halves were REVERSED from the usual
 direction (the BACKLOG closed first).
@@ -3061,7 +3062,7 @@ beside the real span is the repaired behaviour, not a residue.
 ### M-10 · GITenberg enumeration misses about a third by any single method `OPEN`
 Repo-name WebFetch → 5 Welsh holdings; `filename:metadata.yaml "language: cy"`
 → 5, missing three files that contain that exact string; `"Language: Welsh"` →
-a *different* 5, because one PG header wrongly says `Language: English`.
+a _different_ 5, because one PG header wrongly says `Language: English`.
 **Union = 9.** Third confirmation that the filename suffix (`<id>.txt` /
 `-0.txt` / `-8.txt`) follows no rule.
 
@@ -3080,15 +3081,15 @@ shipped were taken before doctrine 82 — before `skeleton()`'s terminus became 
 property of the DIWEDDEB and `extent` lost its default. Every row below is
 re-run at `caesura='search'`, 200 within-line shuffles, seed 20260810:
 
-| | n judged | observed | null max | excess | p |
-|---|---:|---:|---:|---:|---:|
-| Alun, strict metre | 1558 | 57.1% | 21.8% | **+35.3** | floor |
-| Twm o'r Nant cywydd | 156 | 46.2% | 26.9% | **+19.3** | floor |
-| Llywelyn Goch cywydd, 1862 | 145 | 44.1% | 28.3% | **+15.8** | floor |
-| Twm o'r Nant *cerdd rydd* | 804 | 28.4% | 17.0% | **+11.4** | floor |
-| Welsh hwiangerddi | 1712 | 12.9% | 12.3% | +0.6 | floor |
-| **Alun, his own hymns** | 262 | 14.5% | 14.5% | **+0.0** | **0.015** |
-| Mynyddog, song | 2893 | 8.2% | 8.9% | −0.7 | 0.104 |
+|                            | n judged | observed | null max |    excess |         p |
+| -------------------------- | -------: | -------: | -------: | --------: | --------: |
+| Alun, strict metre         |     1558 |    57.1% |    21.8% | **+35.3** |     floor |
+| Twm o'r Nant cywydd        |      156 |    46.2% |    26.9% | **+19.3** |     floor |
+| Llywelyn Goch cywydd, 1862 |      145 |    44.1% |    28.3% | **+15.8** |     floor |
+| Twm o'r Nant _cerdd rydd_  |      804 |    28.4% |    17.0% | **+11.4** |     floor |
+| Welsh hwiangerddi          |     1712 |    12.9% |    12.3% |      +0.6 |     floor |
+| **Alun, his own hymns**    |      262 |    14.5% |    14.5% |  **+0.0** | **0.015** |
+| Mynyddog, song             |     2893 |     8.2% |     8.9% |      −0.7 |     0.104 |
 
 `for f in corpus/cym_*.txt corpus/song/cym_song_*.txt corpus/song/cym_cyng*.txt;
 do python3 quality/cynghanedd_rate.py "$f" 200; done`
@@ -3103,8 +3104,8 @@ Author, edition, printer, century, orthography and transcriber all held
 constant; **the effect goes to zero off the strict metre, and the re-measured
 table says so more cleanly than the shipped one did.** Every previous Welsh
 number came from strict metre, so a high rate was compatible with the detector
-reading the *language's* redundancy (doctrine 64) or the Ab Owen printing house.
-It reads neither. The graded middle — 18th-century *cerdd rydd*, sung to named
+reading the _language's_ redundancy (doctrine 64) or the Ab Owen printing house.
+It reads neither. The graded middle — 18th-century _cerdd rydd_, sung to named
 airs, at **+11.4, about a third of the strict-metre excess** — is where the
 tradition says it should be.
 **Doctrine 76 from the other side:** that doctrine says report SENSITIVITY
@@ -3116,9 +3117,9 @@ beside a null; here SPECIFICITY was what needed showing.
 > alpha. Check C10 found it, correctly, and called them two different questions.
 > **They are not two questions — at n = 200 they are two readings of the same
 > tail**, and that is the re-derivation. The empirical p is
-> `(#shuffles ≥ observed + 1) / 201`, so p at the floor (0.005) means *no*
+> `(#shuffles ≥ observed + 1) / 201`, so p at the floor (0.005) means _no_
 > shuffle reached the observation, which is exactly "the excess over the null
-> max is positive"; p = 0.015 means *two* did, which is exactly "the null max
+> max is positive"; p = 0.015 means _two_ did, which is exactly "the null max
 > reaches or exceeds the observation". The two columns cannot point opposite
 > ways once you know that — what they can do is round to figures that LOOK like
 > they do, which is what happened.
@@ -3221,11 +3222,11 @@ lands on 82/80, which places the difference **upstream of the rhyme test**: a
 ~~**function-word list nobody wrote down.** That is worse than an unrecorded
 threshold, because a threshold at least announces that it exists.~~
 
-**REPINNED 2026-08-21 — A FUNCTION-WORD LIST *IS* WRITTEN DOWN, AND IT LANDED
+**REPINNED 2026-08-21 — A FUNCTION-WORD LIST _IS_ WRITTEN DOWN, AND IT LANDED
 TEN DAYS AGO IN A FILE THIS ENTRY SITS BESIDE.** `quality/audit_corpus.py:2011`
-carries `_MALAY_FW` (≈130 words) and `_ENGLISH_FW` under the comment *"The two
+carries `_MALAY_FW` (≈130 words) and `_ENGLISH_FW` under the comment _"The two
 closed function-word lists that separate Skeat's Malay from his own English
-translation"* — landed `3e0b806`, **2026-08-11**, the day after this entry was
+translation"_ — landed `3e0b806`, **2026-08-11**, the day after this entry was
 filed. It is not decorative: `:2141` applies it as the block classifier and
 `:2148` asserts the result against `RECORDED` — `malay_blocks` **705**,
 `malay_block_lines` **5,555**, `malay_malay_blocks` **330**,
@@ -3233,10 +3234,11 @@ filed. It is not decorative: `:2141` applies it as the block classifier and
 is pinned and re-derived on every audit run.
 
 **THREE THINGS IT DOES NOT CLOSE, and the entry stays OPEN on all three.**
+
 1. **It is a FRESH list and belongs to the 131/129 chain.** `_malay_blocks`'s
-   own docstring says why: *"Re-stated here rather than imported from the
+   own docstring says why: _"Re-stated here rather than imported from the
    extraction script, because a calibration that shares code with the thing it
-   calibrates proves nothing (doctrine 58's fresh-implementation rule)."* That
+   calibrates proves nothing (doctrine 58's fresh-implementation rule)."_ That
    is correct and it means the list recovers **nothing** about the 82/80 run's.
 2. **It is UNREACHABLE from a clone.** `MALAY_SOURCE` (`audit_corpus.py:1909`)
    is `scratch/src_msa/raw_malay_magic.txt`, which is NOT in this repository,
@@ -3286,21 +3288,21 @@ checkout and no `git log` will ever contain.
 **19 named structures have no witness but this project** — every recorded source
 is a `quality/phonology/*` module, a `CLAUDE.md` doctrine, or the author's
 memory. Two say so outright: `chan (ฉันท์) quantitative template` is sourced
-*"Thai chan from memory"*, and `hā-yi ghayr-i malfūẓ as rawī` is *"MY
-characterisation"*. `C-2` already declares the rule — `register_named()` REFUSES
-an entry without a source, *because a catalogue written from memory is unsourced
-data in the evidence base* — and `RHYME_CANON.md` has no such gate. The full
+_"Thai chan from memory"_, and `hā-yi ghayr-i malfūẓ as rawī` is _"MY
+characterisation"_. `C-2` already declares the rule — `register_named()` REFUSES
+an entry without a source, _because a catalogue written from memory is unsourced
+data in the evidence base_ — and `RHYME_CANON.md` has no such gate. The full
 list is in `quality/RESULTS_REGISTER_AUDIT.md` §5 and is deliberately NOT filled
 in, because a plausible fill is the `gabay higaad` error repeated.
 
 **This is not an argument for unpopulating the field.** The rule shapes are
 right and M-15 was a real gap. It is an argument that "sourced" was the wrong
 word for a pointer into a document whose own §0 records that its Norse, Persian,
-Sanskrit, Tamil, Chinese and Malay entries were *"reconstructed from the
-repository's own `quality/phonology/*` modules and CLAUDE.md doctrine …
+Sanskrit, Tamil, Chinese and Malay entries were _"reconstructed from the
+repository's own `quality/phonology/_`modules and CLAUDE.md doctrine …
 therefore not independent of the code they were meant to critique."*
-**Owed:** inline the survey's `source` strings into `RHYME_CANON.md` and put the
-real citation in `Tradition.source`, before the transcripts are collected and
+**Owed:** inline the survey's`source`strings into`RHYME_CANON.md`and put the
+real citation in`Tradition.source`, before the transcripts are collected and
 the provenance of 117 named structures is gone for good.
 
 ### M-18 · A number's POPULATION is a coordinate, and doctrine 58 names only the threshold `OPEN`
@@ -3312,12 +3314,12 @@ that were incompatible when this was written and are RECONCILED WITH A NAMED
 RESIDUE since 2026-08-11**, none of them, at the time, saying which object
 they meant:
 
-| | blocks | verse lines | tokens |
-|---|---:|---:|---:|
-| `corpus/song/msa_skeat_pantun.txt` (in the repo) | 129 | 513 | 2,113 |
-| M-3's stated population | 330 | 3,415 | 15,519 |
-| the same 330 blocks under the corpus file's own declared rule | 330 | **3,442** | **15,601** |
-| N-3 / `data/sources.tsv`, all indented blocks | 705 | 5,555 | — |
+|                                                               | blocks | verse lines |     tokens |
+| ------------------------------------------------------------- | -----: | ----------: | ---------: |
+| `corpus/song/msa_skeat_pantun.txt` (in the repo)              |    129 |         513 |      2,113 |
+| M-3's stated population                                       |    330 |       3,415 |     15,519 |
+| the same 330 blocks under the corpus file's own declared rule |    330 |   **3,442** | **15,601** |
+| N-3 / `data/sources.tsv`, all indented blocks                 |    705 |       5,555 |          — |
 
 > **THE LEDGER, 2026-08-21 — what of this entry's debt is paid.**
 > **PAID:** M-3 states population AND tokenisation in one place, citing this
@@ -3390,9 +3392,9 @@ rhotic observations against 9 of final-obstruent voicing**;
 coda's own mandated evidence is dialect too, and the contrast this sentence
 drew does not exist. **THE CONCLUSION IS UNCHANGED AND NOW RESTS ON ONE LEG
 INSTEAD OF TWO** — it stands on the nucleus's own 28/6/1 partition with no
-remainder, which is what the amendment's closing sentence says: *"The
+remainder, which is what the amendment's closing sentence says: _"The
 conclusion this file draws … does not depend on the coda being clean, only on
-the nucleus's OWN 28/6/1 partition."* The nucleus is where four centuries of
+the nucleus's OWN 28/6/1 partition."_ The nucleus is where four centuries of
 sound change live, so the sonnet violation rate prices the **`dialect`
 coordinate** there, not the threshold.
 The scalar's SHAPE is uninformative too: Spearman between `vowel_sim` and each
@@ -3415,10 +3417,10 @@ titles in the same file. It read `--- TITLE: X  [air: Y]` whole, so an item
 whose title carried an air could never be matched against — and both halves of
 each pair below carry one on exactly one side:
 
-| file | items | shared long lines | opening line |
-|---|---|---:|---|
-| `corpus/song/eng_celtic_james_hogg.txt` | 10 `LOVE IS LIKE A DIZZINESS  [air: Paddy's Wedding]` / 27 `"LOVE IS LIKE A DIZZINESS"` | 25 of 45 / 44 | `I lately lived in quiet ease,` |
-| `corpus/song/eng_celtic_msm_alexander_rodger.txt` | 1 `BEHAVE YOURSEL' BEFORE FOLK  [air: Good-morrow to your night-cap]` / 5 `"BEHAVE YOURSEL' BEFORE FOLK"` | 24 of 45 / 45 | `Behave yoursel' before folk,` |
+| file                                              | items                                                                                                     | shared long lines | opening line                    |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ----------------: | ------------------------------- |
+| `corpus/song/eng_celtic_james_hogg.txt`           | 10 `LOVE IS LIKE A DIZZINESS  [air: Paddy's Wedding]` / 27 `"LOVE IS LIKE A DIZZINESS"`                   |     25 of 45 / 44 | `I lately lived in quiet ease,` |
+| `corpus/song/eng_celtic_msm_alexander_rodger.txt` | 1 `BEHAVE YOURSEL' BEFORE FOLK  [air: Good-morrow to your night-cap]` / 5 `"BEHAVE YOURSEL' BEFORE FOLK"` |     24 of 45 / 45 | `Behave yoursel' before folk,`  |
 
 Same opening line, same poem, staged twice. **The near-duplicate pair check
 does NOT carry them**: Jaccard is 0.39 and 0.36, under `ITEM_OVERLAP_FLOOR`,
@@ -3462,11 +3464,11 @@ surfaces **28**. **The intersection is ONE** (Rossetti's `Dream-Land` /
 `Dream Land`). The other 27 miss for three named reasons, counted apart
 because they are three different defects (doctrine 79):
 
-| why the near-duplicate check does not carry it | pairs | worked case |
-|---|---:|---|
-| **DROPPED before any comparison** — a side holds fewer than `ITEM_SIG_MIN` 8 distinct body lines over `ITEM_LINE_MIN_CHARS` 12 chars, so it is never in `recs` | 8 | Browning's `Parting at Morning`, 6 lines |
-| **`ITEM_SHARED_MIN` 8** — containment is high and the poem is too short to contribute 8 shared lines | 11 | Landor's `Rose Aylmer` at containment **0.88**, refused on 7 shared lines |
-| **below the `ITEM_OVERLAP_FLOOR` 0.60** — genuinely divergent printings | 8 | Barnes's `The Blackbird` at 0.37 |
+| why the near-duplicate check does not carry it                                                                                                                 | pairs | worked case                                                               |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----: | ------------------------------------------------------------------------- |
+| **DROPPED before any comparison** — a side holds fewer than `ITEM_SIG_MIN` 8 distinct body lines over `ITEM_LINE_MIN_CHARS` 12 chars, so it is never in `recs` |     8 | Browning's `Parting at Morning`, 6 lines                                  |
+| **`ITEM_SHARED_MIN` 8** — containment is high and the poem is too short to contribute 8 shared lines                                                           |    11 | Landor's `Rose Aylmer` at containment **0.88**, refused on 7 shared lines |
+| **below the `ITEM_OVERLAP_FLOOR` 0.60** — genuinely divergent printings                                                                                        |     8 | Barnes's `The Blackbird` at 0.37                                          |
 
 **Five of the eleven sit at or above 0.75 containment** (Herrick ×2 and
 O'Reilly at 0.88, Blake's `Infant Joy` at 0.78, Jago at 0.75) and are refused
@@ -3477,15 +3479,15 @@ containment**, which is a third blind spot and the one with the largest yield.
 **CAUSE, which this entry did not name.** In 25 of the 28 the second printing
 carries a different `--- SOURCE:` from the first — `PG2620`, `PG2619`,
 `PG66619` against the author file's original PG. These are the concurrent
-anthology loads (`550dfb1` *Mass load: 245 Modern Scottish Minstrel author
-files*, `810cc5e` *Tier-1 concurrent load: 560 songs from five song-framed
-anthologies*) staging a poem an author file already held, not an extractor
+anthology loads (`550dfb1` _Mass load: 245 Modern Scottish Minstrel author
+files_, `810cc5e` _Tier-1 concurrent load: 560 songs from five song-framed
+anthologies_) staging a poem an author file already held, not an extractor
 defect. **So `eng_` song counts are inflated by ≥28, not by 2**, and any
 per-song rate over the affected files double-counts.
 
 **The label they surface under is imprecise and is left that way on purpose.**
-`false_unit_items` reports them as `RUN-ON`, whose meaning is *the extractor
-glued the next poem onto the end of this one*. That is not what these are. The
+`false_unit_items` reports them as `RUN-ON`, whose meaning is _the extractor
+glued the next poem onto the end of this one_. That is not what these are. The
 shape keys on WHERE the match falls, the match falls deep in the body, and
 relabelling by hand inside a pinned test would be writing a judgement into a
 count. `quality/test_corpus_audit.py` pins `RUN-ON 11` with this entry named.
@@ -3501,13 +3503,12 @@ counters/`PINNED` pair in one commit, and the repin is the half going stale.
 
 ### M-21 · One fact about the registers is pinned in two media, and no instrument can be asked which pins a change moves `OPEN`
 **Found 2026-08-21 by paying the cost twice in one sitting, on consecutive CI
-rounds.** Filing `M-20` moved the number of entries in `MISSING.md` from 75 to
-76. That single fact is pinned in **two places, in two different media**:
+rounds.** Filing `M-20` moved the number of entries in `MISSING.md` from 75 to 76. That single fact is pinned in **two places, in two different media**:
 
-| pin | medium | how it is repaired |
-|---|---|---|
+| pin                                                              | medium                                                             | how it is repaired                    |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------- |
 | `BACKLOG.md:1573` — the `MISSING entries by status` counters row | a markdown table cell, written between `<!-- COUNTERS -->` markers | `python3 quality/counters.py --write` |
-| `quality/audit_register.py:2000` — `PINNED["coverage_entries"]` | a Python dict literal | hand-edited, with the reason |
+| `quality/audit_register.py:2000` — `PINNED["coverage_entries"]`  | a Python dict literal                                              | hand-edited, with the reason          |
 
 **NO GREP FINDS BOTH.** One is prose in a register, one is a constant in an
 auditor; they share no string, no spelling of the figure and no repair
@@ -3527,20 +3528,20 @@ the count of instruments that COULD have caught this reads 2 and not 4.
 
 **WHAT IS MISSING IS NOT A THIRD PIN.** Every pin above is correct and each
 caught the drift it was pointed at, which is the design working. What does not
-exist is a way to ask, BEFORE pushing, *which committed figures does this
-working tree move?* — one command over the `--check` pins under `quality/`
+exist is a way to ask, BEFORE pushing, _which committed figures does this
+working tree move?_ — one command over the `--check` pins under `quality/`
 (about thirty files hold one), reporting every one whose measured value now
 differs. Today that question is answered by CI, one failing step per round,
 and the round trip is ~12 minutes.
 
 > **AND THE FIRST DRAFT OF THIS PARAGRAPH FAILED CI, which is worth recording
 > rather than quietly fixing.** It counted the pin-holding files with a digit
-> immediately before the word *instruments*, and `npm run check-docs` refused
+> immediately before the word _instruments_, and `npm run check-docs` refused
 > it. The rule is `\d+\s+instruments` in `scripts/check_docs.js:233`, and it
 > is RIGHT: in this repository that phrase is a claim about the CodexMusica
 > catalog's 1,406 playable instruments, and the checker exists because the
 > site advertised 651 of them long after the real figure had moved. The lyric
-> harness calls its auditors *instruments* too, so the word is overloaded
+> harness calls its auditors _instruments_ too, so the word is overloaded
 > across the two halves of one repo and a lyric-harness document may not put a
 > number in front of it. Say "about thirty files", or name the pin.
 >
@@ -3575,8 +3576,9 @@ string literal in the module may contain `--write`, `--rebaseline`, `--adopt`,
 
 **IT FOUND THREE DEFECTS ON ITS FIRST TWO RUNS AND ALL THREE WERE ITS OWN OR
 MINE, which is what a first run should do.**
+
 1. **A drift in the working tree, on the FIRST invocation.** `counters.py
-   --check` reported `public symbols by where they are referenced` moved
+--check` reported `public symbols by where they are referenced` moved
    1140 → 1146 — six public symbols added minutes earlier by the tokeniser and
    indent work, never re-written. That is exactly the question M-21 asks, and
    it was answered in 27 seconds instead of a CI round.
@@ -3592,7 +3594,7 @@ MINE, which is what a first run should do.**
    MANUFACTURED MOVED against an instrument it had never asked — its pin flag
    is `--verify-shape`, now in a declared `CHECK_ARGV` table. And
    `audit_joint_auc_null.py --check` prints `RESULT: REFUSED (not a pass, not
-   a failure -- doctrine 20)` on a cold cache and exits non-zero, which the
+a failure -- doctrine 20)` on a cold cache and exits non-zero, which the
    conservative default read as MOVED — **the exact collapse this module's own
    docstring forbids, pointed the other way.** An instrument that states its
    own verdict is believed over a code table now (doctrine 1: the instrument
@@ -3602,12 +3604,12 @@ MINE, which is what a first run should do.**
 SOME PINS ARE ASKED BY NOTHING AT ALL.** M-21 was filed about a fact pinned in
 two media where NO GREP FINDS BOTH. Measured now over the whole population:
 
-| | files |
-|---|---:|
-| pin-holding files the sweep discovers | **30** |
-| named with `--check`/`--verify-shape` in `.github/workflows/ci.yml` | 23 |
-| asked TRANSITIVELY by a CI test that invokes the check | 2 (`corpus_manifest`, `corpus_taxonomy`) |
-| **asked by NOTHING that gates** | **5** |
+|                                                                     |                                    files |
+| ------------------------------------------------------------------- | ---------------------------------------: |
+| pin-holding files the sweep discovers                               |                                   **30** |
+| named with `--check`/`--verify-shape` in `.github/workflows/ci.yml` |                                       23 |
+| asked TRANSITIVELY by a CI test that invokes the check              | 2 (`corpus_manifest`, `corpus_taxonomy`) |
+| **asked by NOTHING that gates**                                     |                                    **5** |
 
 The five are `audit_tang_null.py`, `kalevala_rate.py`,
 `run_positive_control.py`, `expected_drift.py` and `phrase_commonplace.py`.
@@ -3673,16 +3675,16 @@ above are one fact in two media. The wider defect is one fact in a PIN and in
 PROSE, where the pin passes and the prose is wrong, because **the pin is
 narrower than the document**:
 
-| document | its `--check` | what drifted beside it |
-|---|---|---|
-| `RESULTS_MARK_COVERAGE.md` | PASS on 6 buckets | its **headline sentence was false the day it was repinned** — `[VERSE]` 68,976 is the pre-HBV count against a live 74,173, and `VERSE` is not in `PINNED` |
-| `RESULTS_FWER.md` | PASS, pins `family=candidate` | the `scored` column moved 29.1% → 37.9% and **the comparison's sign flipped** |
-| `RESULTS_CYM_RHYME.md` | PASS on 48 counts across seven sections | §0's cross-document quote inverted, and its seven `data/sources.tsv` LINE NUMBERS are no longer the rows they name |
-| `RESULTS_FIN_RHYME.md` | **has no `--check`** | §7 and §9 moved; `quality/phonology/fin.py`'s docstring carries the identical stale pair, so a quote writes it back |
-| `RESULTS_SONG_FLOOR.md` | PARTIAL PASS | §2 says 108 authors where §5·A says 879, with a whole FPR table measured through cuts that no longer ship |
-| `RESULTS_NULL_SHAPES.md` | 27 checks pass | nine figures moved, including 17.3% asserted as "today" three times beside 10.7% asserted as "today" twice |
-| `RESULTS_SPANS.md` | PASS on all six | drifted only where it declares in advance that it will |
-| `RESULTS_RHYME_CAPACITY.md` | PASS | **no drift at all** |
+| document                    | its `--check`                           | what drifted beside it                                                                                                                                    |
+| --------------------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RESULTS_MARK_COVERAGE.md`  | PASS on 6 buckets                       | its **headline sentence was false the day it was repinned** — `[VERSE]` 68,976 is the pre-HBV count against a live 74,173, and `VERSE` is not in `PINNED` |
+| `RESULTS_FWER.md`           | PASS, pins `family=candidate`           | the `scored` column moved 29.1% → 37.9% and **the comparison's sign flipped**                                                                             |
+| `RESULTS_CYM_RHYME.md`      | PASS on 48 counts across seven sections | §0's cross-document quote inverted, and its seven `data/sources.tsv` LINE NUMBERS are no longer the rows they name                                        |
+| `RESULTS_FIN_RHYME.md`      | **has no `--check`**                    | §7 and §9 moved; `quality/phonology/fin.py`'s docstring carries the identical stale pair, so a quote writes it back                                       |
+| `RESULTS_SONG_FLOOR.md`     | PARTIAL PASS                            | §2 says 108 authors where §5·A says 879, with a whole FPR table measured through cuts that no longer ship                                                 |
+| `RESULTS_NULL_SHAPES.md`    | 27 checks pass                          | nine figures moved, including 17.3% asserted as "today" three times beside 10.7% asserted as "today" twice                                                |
+| `RESULTS_SPANS.md`          | PASS on all six                         | drifted only where it declares in advance that it will                                                                                                    |
+| `RESULTS_RHYME_CAPACITY.md` | PASS                                    | **no drift at all**                                                                                                                                       |
 
 **THE ONE THAT DID NOT DRIFT IS THE ANSWER.** `RESULTS_RHYME_CAPACITY.md`
 holds because its one corpus-derived quantity carries the JUDGE'S MD5 in the
@@ -3743,7 +3745,7 @@ structure question, and it is the defect that ALREADY VOIDED ONE ADOPTION
 RUN, reintroduced one layer over.**
 
 `quality/STRUCTURE_CENSUS_PREREGISTRATION.md:35` promises the schema is
-*"world-shaped from day one so that adding a language later"* adds ROWS and
+_"world-shaped from day one so that adding a language later"_ adds ROWS and
 never changes the instrument. **The judge layer keeps that promise and the
 tokeniser breaks it.** Measured, all 57 non-comparator rows through all 7
 phonologies: **0 exceptions** — `fin` 3/51/3, `cym` 0/42/15, `ltc` 6/36/15,
@@ -3770,8 +3772,8 @@ Over real corpus lines: `ltc` **99.9%** of lines yield ZERO tokens, `fas`
 
 **THIS IS DOCTRINE 1's OWN CASE AND THE REPO HAS PAID FOR IT ONCE.**
 `CLAUDE.md` records that Kalevala alliteration run 1 was **VOIDED** because
-*"the ASCII tokenizer had shredded ä/ö, and the fin phonology's `_tokens` was
-the one definition all along."* The census reintroduces the identical
+_"the ASCII tokenizer had shredded ä/ö, and the fin phonology's `_tokens` was
+the one definition all along."_ The census reintroduces the identical
 substitution in a different module. **It is LATENT, not live** — `corpus_files()`
 globs `eng_*.txt`, so the census has never tokenised a non-Latin line and no
 recorded figure moves. It bites the first hour of run 2, which is exactly when
@@ -3807,13 +3809,14 @@ the second erases `(...)` spans first — and **measured, they disagree on
 zero, so the naive swap would have moved `data/structure_census_eng.tsv` and
 its md5 while reading like a pure refactor. `TOKENISER_SITE` declares one site
 per language; `NO_TOKENISER` records **three different reasons** for the three
-that have none, kept apart because doctrine 44 separates *cannot* from *not
-yet*: `ltc` is PERMANENT (one character is one syllable, so WORD is not a unit
+that have none, kept apart because doctrine 44 separates _cannot_ from _not
+yet_: `ltc` is PERMANENT (one character is one syllable, so WORD is not a unit
 of the language), `cym` and `msa` are BUILDABLE and unbuilt. A language in
 that table REFUSES; it never falls back.
 
 **THREE THINGS THE FIRST DRAFT OF THE TEST GOT WRONG, all found by mutation
 and all the same species as the defect being fixed:**
+
 1. **The byte-identical control tested an empty population.** It ran on
    `eng_hymn_cennick.txt`, whose only two `(...)` lines are `# author:` and
    `# source:` — dropped by `is_apparatus_line` before any tokeniser sees
@@ -3846,16 +3849,16 @@ a minimal honest cross-tradition run (cym + san + msa + ltc endword-only) is
 
 **THE SCOPE IS WIDER THAN THE CENSUS — REPINNED 2026-08-21, and the widening
 came from the owner asking whether printed line numbers were being scored.**
-`line_tokens`'s own docstring says *"This is the ONLY definition of 'the words
-of a line' the rhyme path may use"*, so the ASCII class above is not one
+`line_tokens`'s own docstring says _"This is the ONLY definition of 'the words
+of a line' the rhyme path may use"_, so the ASCII class above is not one
 consumer's mistake — it is the harness's central reading. Measured over all
 **581,468 sung lines** of `corpus/song/`:
 
-| | lines | files |
-|---|---:|---:|
-| `line_tokens` returns **ZERO tokens** | **250,502** (43.1%) | 278 |
-| end word carries a non-ASCII letter and is read as something else | 260,949 | 191 |
-| …of which `eng_*`, where NO other tokeniser is on the path | **2,524** | — |
+|                                                                   |               lines | files |
+| ----------------------------------------------------------------- | ------------------: | ----: |
+| `line_tokens` returns **ZERO tokens**                             | **250,502** (43.1%) |   278 |
+| end word carries a non-ASCII letter and is read as something else |             260,949 |   191 |
+| …of which `eng_*`, where NO other tokeniser is on the path        |           **2,524** |     — |
 
 The 43.1% is every `ltc` and `fas` line in the corpus, and it is NOT the live
 defect: those languages are dispatched to their own phonologies by the
@@ -3977,16 +3980,16 @@ Measured before filing, and the measurement is worse than the suspicion.**
 field whose whole job is to answer "are these two rows the same object". It is
 populated on **622 of 623 rows**. By shape:
 
-| shape of the value | rows |
-|---|---:|
-| **long prose (>60 chars)** | **381** |
-| short free text | 137 |
-| `—` (explicit none) | 64 |
-| bare equality (`=…`) | 26 |
-| `↑` (ditto mark) | 7 |
-| typed relation (`species-of`, `nesting-of`, `complements`) | **5** |
-| hedged (`probably =`, `possibly =`) | 2 |
-| empty | 1 |
+| shape of the value                                         |    rows |
+| ---------------------------------------------------------- | ------: |
+| **long prose (>60 chars)**                                 | **381** |
+| short free text                                            |     137 |
+| `—` (explicit none)                                        |      64 |
+| bare equality (`=…`)                                       |      26 |
+| `↑` (ditto mark)                                           |       7 |
+| typed relation (`species-of`, `nesting-of`, `complements`) |   **5** |
+| hedged (`probably =`, `possibly =`)                        |       2 |
+| empty                                                      |       1 |
 
 **Five rows out of 623 use a typed relation.** And of the 551 values that are
 neither empty nor a dash, **111 mention no known term anywhere in their
@@ -4010,8 +4013,7 @@ and ATTESTATION COMMENTARY that belongs in the `attested` column — all sharing
 one field whose name promises an identifier.
 
 **WHY THIS BLOCKS THE STRUCTURE LADDER AND NOT MERELY TIDINESS.** The rhyme
-ladder runs 601 survey rows → 77 schemas → 49 named types → a door admitting
-2. The structure ladder is meant to run 623 → 314 section rows → a vocabulary.
+ladder runs 601 survey rows → 77 schemas → 49 named types → a door admitting 2. The structure ladder is meant to run 623 → 314 section rows → a vocabulary.
 **It cannot take the second step.** Collapsing 314 section terms across
 fifteen traditions into a vocabulary REQUIRES deciding which of them name the
 same span — `estribillo` / `coro` / `pallavi` / `mukhda` / `nakarat` /
@@ -4031,13 +4033,13 @@ argument for a TYPED set rather than a boolean.
 **PROPOSED REPLACEMENT — four pointer columns and a note, each holding a term
 id or empty:**
 
-| column | means | example |
-|---|---|---|
-| `same_as` | the identical object under another tradition's name. Symmetric, transitive, must be acyclic. | `Coro` → `Estribillo` |
-| `species_of` | a narrower kind of the target | `Contrasting verse-chorus` → `Verse-chorus` |
-| `part_of` | a span contained by the target | `Stollen` → `Bar form` |
-| `complements` | a counterpart that co-occurs, neither containing the other | `Zapev` → `Pripev` |
-| `note` | the prose, KEPT — it is genuinely valuable and merely in the wrong seat | |
+| column        | means                                                                                        | example                                     |
+| ------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| `same_as`     | the identical object under another tradition's name. Symmetric, transitive, must be acyclic. | `Coro` → `Estribillo`                       |
+| `species_of`  | a narrower kind of the target                                                                | `Contrasting verse-chorus` → `Verse-chorus` |
+| `part_of`     | a span contained by the target                                                               | `Stollen` → `Bar form`                      |
+| `complements` | a counterpart that co-occurs, neither containing the other                                   | `Zapev` → `Pripev`                          |
+| `note`        | the prose, KEPT — it is genuinely valuable and merely in the wrong seat                      |                                             |
 
 **AND A `--check`, because a pointer nobody validates is prose with a colon in
 it.** Three conditions, each failing by name: every non-empty pointer resolves
@@ -4064,21 +4066,21 @@ then sized across the whole corpus rather than filed as two anecdotes.**
 
 **REPRODUCED:**
 
-* `corpus/song/eng_british_percy_bysshe_shelley.txt` — Gutenberg publication
+- `corpus/song/eng_british_percy_bysshe_shelley.txt` — Gutenberg publication
   notes are wrapped inside a `[VERSE 1]` block. The reader drops the
   `[`-opening row and **keeps its continuation**, so the first kept line of the
   file is `'1818.]'`. Every character is a digit or punctuation, so it
   tokenises to `[]` — which is the same line that reopened M-39.
-* `corpus/song/eng_british_lord_byron.txt` — footnote markers survive: the
+- `corpus/song/eng_british_lord_byron.txt` — footnote markers survive: the
   kept line `'It has not been your lot to see,[a]'` has line-final token
   **`a`**, not `see`. Two such lines in the first 40.
 
 **SIZED over all 1,421 `corpus/song/*.txt`:**
 
-| shape | files | lines |
-|---|---:|---:|
-| a trailing footnote marker on a kept line | **11** | 132 |
-| a kept line ending in a stray `]` | **24** | 137 |
+| shape                                     |  files | lines |
+| ----------------------------------------- | -----: | ----: |
+| a trailing footnote marker on a kept line | **11** |   132 |
+| a kept line ending in a stray `]`         | **24** |   137 |
 
 **WHY THE SMALL NUMBER IS NOT THE POINT.** ~2.5% of files, ~269 lines — and
 every one of them lands on the LINE-FINAL token, which is the single position
@@ -4160,7 +4162,7 @@ exactly as `different_lines` is — but with no row, `forced_gap` returns
 `(0, None)`, `statistic_degeneracy` returns `None`, and `local_fraction@0`
 runs anyway. **Measured: 64 rows, all observed 0.0, 0 of 64 moved.**
 
-That is precisely the *"`p=1.0000`, 0% differing, looking like a clean null"*
+That is precisely the _"`p=1.0000`, 0% differing, looking like a clean null"_
 case `statistic_degeneracy`'s own docstring says the function exists to catch.
 **28 of the 77 schemas declare `both_line_final`** (measured under M-42), so
 the recorded panel's 2,344 rows carry the same dead statistic wherever those
@@ -4186,20 +4188,20 @@ return canon in t.names()
 ```
 
 `classify_pair` itself refuses this move. Declare a position to it with no
-`Frame` and it raises `Unverifiable`: *"This parameter used to be accepted and
+`Frame` and it raises `Unverifiable`: _"This parameter used to be accepted and
 never consulted — it reached the label and never the span — so a declared
-placement is now either verified or refused."* **`satisfies_relation`
+placement is now either verified or refused."_ **`satisfies_relation`
 reintroduces exactly that, one layer up**, and `revise.py` has the line
 indices `i` and `j` that would build the `Frame` it never passes.
 
 **MEASURED — `night`/`light`, the paradigm English perfect rhyme, over the
 80-name vocabulary:**
 
-| preset | position-agnostic | stamped `'end'` |
-|---|---|---|
-| `perfect-rhyme` | `perfect rhyme (last stressed syllable)` | **0 — stamping LOSES it** |
-| `english-end-rhyme` | 0 | 4 · `antya-prasa`, `masculine rhyme`, `qafiya`, `single rhyme` |
-| none (what `revise.py` passes) | 0 | **4** |
+| preset                         | position-agnostic                        | stamped `'end'`                                                |
+| ------------------------------ | ---------------------------------------- | -------------------------------------------------------------- |
+| `perfect-rhyme`                | `perfect rhyme (last stressed syllable)` | **0 — stamping LOSES it**                                      |
+| `english-end-rhyme`            | 0                                        | 4 · `antya-prasa`, `masculine rhyme`, `qafiya`, `single rhyme` |
+| none (what `revise.py` passes) | 0                                        | **4**                                                          |
 
 **Preset and position are COUPLED** — each preset registers its names at a
 particular position slot — and no single pair of values reaches both sets. So
@@ -4228,17 +4230,17 @@ and the stamping is gone.
 
 Three rules make it correct rather than merely wider:
 
-* **A registered `position=None` means the name does not constrain position**,
+- **A registered `position=None` means the name does not constrain position**,
   not that it demands the absence of one. 18 of the 49 entries are registered
   that way and they are the position-agnostic names — a perfect rhyme is a
   perfect rhyme wherever it sits. A registered position that DIFFERS from the
   caller's is a real no: `internal rhyme` at an end position is not satisfied,
   and that is a finding, not a refusal.
-* **The phonetic guard is kept, and applied PER KEY.** A canon registered at
+- **The phonetic guard is kept, and applied PER KEY.** A canon registered at
   several coordinates is judged only at the phonetic ones, so `eye rhyme`,
   `historical rhyme` and `sight rhyme` still REFUSE off a phonemic stream
   rather than matching on a surface the classifier cannot see.
-* **An unreadable member is UNDECIDED, never a no.** The per-key loop skips a
+- **An unreadable member is UNDECIDED, never a no.** The per-key loop skips a
   `None` classification, so a naive fall-through would have answered False for
   a word the engine cannot pronounce. `classify_pair` is therefore asked ONCE
   up front and a `None` returns `None`. **`quality/test_mandate_relation.py`
@@ -4247,11 +4249,11 @@ Three rules make it correct rather than merely wider:
 
 **MEASURED THROUGH THE REAL ENTRY POINT**, `position='end'`, coarse `RHYME`:
 
-| pair | before | after |
-|---|---:|---|
-| `night`/`light` | 5 | **9** — and `perfect rhyme (last stressed syllable)` now answers YES, where it was a VIOLATION |
-| `mother`/`brother` | — | 7, including `feminine rhyme` and `double rhyme` |
-| `love`/`move` | — | 2 — correctly NOT a perfect rhyme |
+| pair               | before | after                                                                                          |
+| ------------------ | -----: | ---------------------------------------------------------------------------------------------- |
+| `night`/`light`    |      5 | **9** — and `perfect rhyme (last stressed syllable)` now answers YES, where it was a VIOLATION |
+| `mother`/`brother` |      — | 7, including `feminine rhyme` and `double rhyme`                                               |
+| `love`/`move`      |      — | 2 — correctly NOT a perfect rhyme                                                              |
 
 **WHAT IS STILL OPEN.** Cross-tradition names appear for English pairs —
 `adalhending` and `dvitiyakshara-prasa (full aksara)` on `mother`/`brother`.
@@ -4276,13 +4278,13 @@ source), `empty` (a source WAS declared and the instrument marked nothing),
 
 **MEASURED on the eng panel cell with its declaration step run:**
 
-| schema | `Refusal.kind` | what it means | `Coverage` before |
-|---|---|---|---|
-| `antanaclasis` | `capability` | no sense inventory exists anywhere | `cannot_obtain` |
-| `epistrophe / radif` | `vacuous_frame` | `mark_refrain_tail` **RAN** (`refrain_source='computed'`) and found no shared tail | `cannot_obtain` |
+| schema               | `Refusal.kind`  | what it means                                                                      | `Coverage` before |
+| -------------------- | --------------- | ---------------------------------------------------------------------------------- | ----------------- |
+| `antanaclasis`       | `capability`    | no sense inventory exists anywhere                                                 | `cannot_obtain`   |
+| `epistrophe / radif` | `vacuous_frame` | `mark_refrain_tail` **RAN** (`refrain_source='computed'`) and found no shared tail | `cannot_obtain`   |
 
-Byte-identical rows, and the printed remedy for both was *"declare the
-capability on the stream"* — **for a capability the slice header prints as
+Byte-identical rows, and the printed remedy for both was _"declare the
+capability on the stream"_ — **for a capability the slice header prints as
 `DECLARED refrain:all_lines` two lines above.** That is doctrine 20's own
 sentence, found-nothing against never-looked, inside the census; and doctrine
 44's, since the two have opposite remedies and one of them is unreachable.
@@ -4293,9 +4295,9 @@ ledger are built from.
 **CLOSED, ADDITIVELY.** `Coverage` gains `refusal_kind` and `vacuous`,
 populated from the `Refusal`; `remedy` answers the vacuous case first, because
 for it the other two answers are both false — the capability IS declared and
-there is nothing to build. The remedy now reads *"a TEXT the declared
+there is nothing to build. The remedy now reads _"a TEXT the declared
 instrument can find something in: refrain_tail was declared and came back
-EMPTY, so declaring it again changes nothing."* **The verdict does not move,
+EMPTY, so declaring it again changes nothing."_ **The verdict does not move,
 so no frozen ledger column moves** and `--verify` still reports LEDGER HOLDS.
 Pinned in `quality/test_relations_null.py` §13, both directions.
 
@@ -4318,8 +4320,8 @@ panel.**
 `random.Random(seed + 1 + k)` — so they draw the SAME permutation σ. Over 200
 replicates on a six-line fixture at the panel's own seed:
 
-* **200 of 200** replicates place the same line-final token in the same line.
-* **0 of 200** produce identical token grids — they genuinely differ in the
+- **200 of 200** replicates place the same line-final token in the same line.
+- **0 of 200** produce identical token grids — they genuinely differ in the
   material that is NOT line-final.
 
 So the two are one randomisation for any schema that reads only line-final
@@ -4347,8 +4349,8 @@ of three" are different sentences about how hard the row tried.
 **THE DEEPER READING, which is doctrine 68's.** `null_menu` DERIVES which
 nulls can move a schema, and this pair is a case the derivation cannot see: it
 reasons about which COORDINATES a randomisation destroys, and these two
-destroy different coordinates *in general* while destroying identical ones
-*for a line-final schema*. The collision is a property of the (schema, null)
+destroy different coordinates _in general_ while destroying identical ones
+_for a line-final schema_. The collision is a property of the (schema, null)
 PAIR and the table is keyed on the null alone. A menu that proposes and a
 measurement that decides is exactly the arrangement this file already argues
 for; this is the measurement finding something the derivation could not.
@@ -4383,12 +4385,12 @@ its rendering, and this rendering makes a claim about a language.
 12,387 reproduces exactly, which is the control that makes the rest
 comparable:**
 
-| equivalence key | families | singletons | max | mean | median |
-|---|---:|---:|---:|---:|---:|
-| **perfect rhyme** (shipped) | 12,387 | 8,131 | 399 | 3.2 | 1 |
-| assonance (anchor nucleus) | **15** | **0** | 5,269 | 2,664.6 | **2,382** |
-| consonance (anchor-to-end consonants) | 3,527 | 1,905 | 2,002 | 11.3 | 1 |
-| rime riche (whole word, onset in) | 37,462 | 35,471 | 7 | 1.1 | 1 |
+| equivalence key                       | families | singletons |   max |    mean |    median |
+| ------------------------------------- | -------: | ---------: | ----: | ------: | --------: |
+| **perfect rhyme** (shipped)           |   12,387 |      8,131 |   399 |     3.2 |         1 |
+| assonance (anchor nucleus)            |   **15** |      **0** | 5,269 | 2,664.6 | **2,382** |
+| consonance (anchor-to-end consonants) |    3,527 |      1,905 | 2,002 |    11.3 |         1 |
+| rime riche (whole word, onset in)     |   37,462 |     35,471 |     7 |     1.1 |         1 |
 
 Under perfect rhyme the median family holds ONE word and two thirds of all
 families are singletons. Under assonance there are **fifteen families, not one
@@ -4440,10 +4442,10 @@ was found while checking the first and is the sharper of the two.**
 **FINDING 1 — `E44` IS A SURVEY ROW WITH NO SCHEMA, AND THE NAME COLLISION IS
 WHY NOBODY NOTICED.** `quality/canon_index.tsv` carries **two** chain rhymes:
 
-| row | sense | source it cites | status |
-|---|---|---|---|
-| `E43` | chain rhyme (**rap sense**) | Bradley, *Book of Rhymes* — "extends a single rhyme over a succession of lines by deleting word boundaries and even consonants" | BUILT, as `chain rhyme (rap)` |
-| `E44` | chain rhyme (**interlocking-scheme sense**) | "English literary (**Shelley, Frost**)" | `unrecorded` / `appeal` — **NO SCHEMA** |
+| row   | sense                                       | source it cites                                                                                                                 | status                                  |
+| ----- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| `E43` | chain rhyme (**rap sense**)                 | Bradley, _Book of Rhymes_ — "extends a single rhyme over a succession of lines by deleting word boundaries and even consonants" | BUILT, as `chain rhyme (rap)`           |
+| `E44` | chain rhyme (**interlocking-scheme sense**) | "English literary (**Shelley, Frost**)"                                                                                         | `unrecorded` / `appeal` — **NO SCHEMA** |
 
 `REGISTRY` holds `E43` and not `E44`. The `(rap)` suffix on the schema name is
 correct and is doing exactly the disambiguating job it should — the defect is
@@ -4459,7 +4461,7 @@ poets, and nobody built it.
 **WHAT E44 WOULD COST TO BUILD, MEASURED RATHER THAN GUESSED (2026-08-22).**
 The obvious worry is that terza rima needs machinery this module does not
 have, because `aba bcb cdc` is a relation BETWEEN ADJACENT STANZAS — the `b`
-of tercet *n* is the outer rhyme of tercet *n+1* — and `_frame_key` PARTITIONS
+of tercet _n_ is the outer rhyme of tercet _n+1_ — and `_frame_key` PARTITIONS
 by `Unit.stanza`, so a `frame="stanza"` figure structurally cannot reach the
 next stanza. That worry is half right and the half that is wrong is the
 useful half.
@@ -4502,21 +4504,21 @@ while measurement runs are in flight against the 77.
 FOR ONE REASON, AND ONLY THREE ARE CORPUS PROBLEMS.** Kept apart because the
 remedies are different (doctrine 44):
 
-*(a) CLEARED, BUT OUT OF TRADITION — the corpus IS the remedy, and
-`RESULTS_RELATIONS_NULL.md` §A.2 says so in as many words.*
+_(a) CLEARED, BUT OUT OF TRADITION — the corpus IS the remedy, and
+`RESULTS_RELATIONS_NULL.md` §A.2 says so in as many words._
 
-| schema | cleared on | its own tradition | owner's nomination |
-|---|---|---|---|
-| `semirhyme` | `fin` (Kalevala) | English | Charles Kingsley (d. 1875) |
-| `anaphora` | `msa` (pantun) | English | William Shakespeare (d. 1616) |
-| `cynghanedd lusg` | **`eng` (Poe)** | Welsh | John Ceiriog Hughes (d. 1887) |
+| schema            | cleared on       | its own tradition | owner's nomination            |
+| ----------------- | ---------------- | ----------------- | ----------------------------- |
+| `semirhyme`       | `fin` (Kalevala) | English           | Charles Kingsley (d. 1875)    |
+| `anaphora`        | `msa` (pantun)   | English           | William Shakespeare (d. 1616) |
+| `cynghanedd lusg` | **`eng` (Poe)**  | Welsh             | John Ceiriog Hughes (d. 1887) |
 
 `cynghanedd lusg` clearing on Poe and on NEITHER Welsh cell is the one that
 should not be allowed to stand: §A.4 files it as an instrument problem, and a
 Welsh text that actually uses the metre is how the two readings get separated.
 
-*(b) RAN AND LOST TO THEIR OWN NULL (`RESULTS_RELATIONS_NULL.md` §A.3.1) — a
-corpus MIGHT be the remedy and it is not yet shown to be.* `cross rhyme`,
+_(b) RAN AND LOST TO THEIR OWN NULL (`RESULTS_RELATIONS_NULL.md` §A.3.1) — a
+corpus MIGHT be the remedy and it is not yet shown to be._ `cross rhyme`,
 `interlaced rhyme` and `linked rhyme` carry a `both_line_final` or a DIFFER
 channel that **excludes the material the poet actually rhymed**, which §A.3.1
 measures as the mechanism for the whole below-chance group. Ernest Henley,
@@ -4525,15 +4527,15 @@ currently indistinguishable — "the form is not in Poe" and "the rule is
 mis-specified" produce the same row — and not because the corpus is known to
 be the fault.
 
-*(c) NEITHER — one is a NULL problem.* `epistrophe / radif` accounts for **all
+_(c) NEITHER — one is a NULL problem._ `epistrophe / radif` accounts for **all
 1,508 refused replicate draws** in the n=200 run by itself; `global_redeal`
 refused 200 of 200, leaving an empty null. More Poe cannot move a schema whose
 randomisation refuses to draw. §A.4 states the deeper version: no null in
 `NULLS` is a null ABOUT the radif — they all destroy the definition rather
 than the effect (doctrine 69).
 
-*(d) `cynghanedd groes o gyswllt` — the nomination is sound and the EDITION
-gate is the obstacle.* Tudur Aled (d. c. 1526) is a far better witness than
+_(d) `cynghanedd groes o gyswllt` — the nomination is sound and the EDITION
+gate is the obstacle._ Tudur Aled (d. c. 1526) is a far better witness than
 either Welsh cell on the panel: `cym_alun_strict.txt` is a 19th-century lyric
 poet and `cym_cynghanedd_llywelyn_goch_cywydd.txt` is one cywydd marwnad.
 Doctrine 80 applies with its usual force here — the author gate is trivial by
@@ -4647,13 +4649,13 @@ returned all-zeros — and passing it as an explicit list recorded the source as
 `Stream.supply('stanza')` then answered `present` and the five ran over one
 frame. Three changes close it:
 
-* **`Frames.stanza_source`** (`blank_lines` | `sections` | `declared` |
+- **`Frames.stanza_source`** (`blank_lines` | `sections` | `declared` |
   `collapsed` | `none`), set by `build_stream`, and a derivation with no blank
   line to read records `none` rather than claiming the text said one stanza.
-* **`RelationSchema.capabilities()` asks for `stanza`** when the figure is
+- **`RelationSchema.capabilities()` asks for `stanza`** when the figure is
   stanza-framed, so `realise()` REFUSES naming the frame instead of returning
   a number over a frame nobody supplied (doctrines 20/45).
-* **`grid.MARK_OPENS_GROUP` and `grid.stanza_ground`** supply the ground from
+- **`grid.MARK_OPENS_GROUP` and `grid.stanza_ground`** supply the ground from
   what the corpus already prints. One rule for every tradition: a group ends
   at a blank line, at a `---` row, or at a `[MARK]` the table declares to open
   one. Every row of that table quotes a decision already written in `grid.py`
@@ -4678,17 +4680,17 @@ order of magnitude — and the exception is the most interesting cell.**
 
 > **CORRECTED 2026-08-22.** On `cym_cynghanedd` the printed ground is exactly
 > ONE group, so nothing moved there at all: 51→51, 5→5, 10→10, 37→37 on the
-> four schemas that fire. That is why `monai` restates at *exactly* +4 /
+> four schemas that fire. That is why `monai` restates at _exactly_ +4 /
 > 2.31×. The NUMBER is unchanged and its PROVENANCE is not — it moved from a
 > laundered `declared` to a measured `printed_breaks, n=1` — which is the
 > whole point of the entry stated in the one cell where it changes nothing
 > else. "Every" was written from the general argument rather than from the
 > per-cell table, which is the mistake this register exists to catch. `monorhyme / leash` on `eng` **268 → 30** instances — and that is
-the schema sitting SECOND in the admissible set of
-`quality/RESULTS_RELATIONS_NULL.md` §A at +231. `analysed rhyme` 26 → 4 on
-`eng`, 93 → 3 on `non`, 98 → 5 on `san`. A leash is a run of one rhyme sound
-inside ONE stanza; over a 40-line block with no boundaries, 238 of those 268
-"instances" were pairs no leash can contain.
+> the schema sitting SECOND in the admissible set of
+> `quality/RESULTS_RELATIONS_NULL.md` §A at +231. `analysed rhyme` 26 → 4 on
+> `eng`, 93 → 3 on `non`, 98 → 5 on `san`. A leash is a run of one rhyme sound
+> inside ONE stanza; over a 40-line block with no boundaries, 238 of those 268
+> "instances" were pairs no leash can contain.
 
 **THE SAME LINE WAS IN THE CLI, AND IT IS FIXED TOO.** `lyric_harness.py`'s
 `relations` verb went out of its way to KEEP blank lines — its own comment
@@ -4701,6 +4703,7 @@ with one blank line between two couplets reports `monorhyme / leash` at **2
 instances — one leash per stanza** instead of 6 across the lot.
 
 **PARTIAL, and this is what remains.**
+
 1. **The five schemas' null rows are not re-run.** Their observations moved and
    so will their nulls, since both are drawn through the same frame — so
    `RESULTS_RELATIONS_NULL.md` §A.1's `monorhyme / leash` row is now a number
@@ -4721,8 +4724,9 @@ instances — one leash per stanza** instead of 6 across the lot.
    file moves `blank_lines` → `printed_breaks`, only `found` moves, and
    `refused` is identical on all forty.
 
-   *Still open under this number:* no schema declares `same_section` or
+   _Still open under this number:_ no schema declares `same_section` or
    `different_sections` — that is step 8, a new schema, not this.
+
 3. **THE REFUSAL WAS BYPASSABLE FOR SEVEN HOURS, AND THE HOLE WAS IN THE
    READER.** `_stream_of` hands `build_stream` a JOIN OF TOKENS and calls it
    `text_lines`; `stanzas_from_blank_lines` reads a blank line as the
@@ -4739,14 +4743,15 @@ instances — one leash per stanza** instead of 6 across the lot.
    question about a page. Pinned in `test_relations_null.py` §12 with the
    control that a declared ground still lands.
 
-   *Latent on the recorded panel — all nine slices have zero empty-token
+   _Latent on the recorded panel — all nine slices have zero empty-token
    lines, and `fin`/`cym` still refused — and live on the first candidate cell
    with un-stripped apparatus. `analysed rhyme` = 87 on a Shelley trial cell
-   is a laundered number and is not carried anywhere.*
+   is a laundered number and is not carried anywhere._
+
 4. **`section` HAS NO CAPABILITY GATE, and the hole is the mirror of the one
    this entry just closed.** Measured: `Stream.supply('section')` falls through
-   to the catch-all — *"`Stream.supply` has no branch for this name, so no
-   declaration can supply it"* — so it answers `absent` for the wrong reason,
+   to the catch-all — _"`Stream.supply` has no branch for this name, so no
+   declaration can supply it"_ — so it answers `absent` for the wrong reason,
    by not knowing the name rather than by finding no coordinate. Today that is
    LATENT and not live: zero schemas declare `same_section` or
    `different_sections` (measured). It goes live the moment step 8 adds one,
@@ -4779,7 +4784,7 @@ closes when the five null rows are re-run and `sections=` has a caller.
 ground means `MARK_OPENS_GROUP` now decides real texts, and it refuses whole
 where a mark is undeclared. Two live cases, neither papered over:
 
-* **This repo's own example lyric refuses.** `quality/fixtures/song.txt`
+- **This repo's own example lyric refuses.** `quality/fixtures/song.txt`
   prints `[pre]`, `[bridge]`, `[outro]`; the table declares none of them, so
   its stanza ground is refused whole and the verb reports 23 found / 31
   refused where it reported ~~25/26~~. `bridge` and `outro` ARE declared
@@ -4789,7 +4794,7 @@ where a mark is undeclared. Two live cases, neither papered over:
   is not even a declared spelling of `prechorus`, and every existing row
   quotes a decision already written in the file. Adding rows to make a fixture
   pass is the move this table exists to prevent.
-* **`corpus/song/fin_kanteletar.txt` refuses.** Its 2,405 marks include
+- **`corpus/song/fin_kanteletar.txt` refuses.** Its 2,405 marks include
   `[PART …]`, which `MARK_OPENS_GROUP` omits on purpose — its `MARK_REFUSED`
   reason settles that it is not a FUNCTION and says nothing about whether a
   change of speaker begins a metrical group. So the ground goes whole where
@@ -4809,9 +4814,9 @@ an arity/quantifier extension, so it walks straight into this.**
 
 Two modules declare the same coordinate and neither knows about the other:
 
-| | field | vocabulary |
-|---|---|---|
-| `quality/relations.py:1842` | `Figure.quantifier` | `exists` · `exists_k` · `forall` · `fraction` |
+|                                    | field                  | vocabulary                                        |
+| ---------------------------------- | ---------------------- | ------------------------------------------------- |
+| `quality/relations.py:1842`        | `Figure.quantifier`    | `exists` · `exists_k` · `forall` · `fraction`     |
 | `quality/rhyme_constraints.py:682` | `Selection.quantifier` | `pair` · `exists_k` · `forall` · `count_fraction` |
 
 Two of the four names differ for one concept (`exists`/`pair`,
@@ -4938,26 +4943,26 @@ over `classify_pair`) and once by `realise()` on a two-line stream carrying
 the pair as end words (verified to match the end words and not the shared
 `the`):
 
-| | cells |
-|---|---:|
-| both answer, and AGREE | **96** |
+|                                |  cells |
+| ------------------------------ | -----: |
+| both answer, and AGREE         | **96** |
 | both REFUSE (honest agreement) | **24** |
-| both answer and **DISAGREE** | **6** |
+| both answer and **DISAGREE**   |  **6** |
 | one answers, the other REFUSES | **18** |
 
 The six that disagree, in both directions:
 
-| name | pair | `rhyme_types` | schema |
-|---|---|---|---|
-| consonance | river/forever | False | **True** |
-| subtractive rhyme | skies/arise | **True** | False |
-| subtractive rhyme | day/away | **True** | False |
-| syllabic rhyme | mother/brother | False | **True** |
-| syllabic rhyme | river/forever | False | **True** |
-| syllabic rhyme | water/daughter | False | **True** |
+| name              | pair           | `rhyme_types` | schema   |
+| ----------------- | -------------- | ------------- | -------- |
+| consonance        | river/forever  | False         | **True** |
+| subtractive rhyme | skies/arise    | **True**      | False    |
+| subtractive rhyme | day/away       | **True**      | False    |
+| syllabic rhyme    | mother/brother | False         | **True** |
+| syllabic rhyme    | river/forever  | False         | **True** |
+| syllabic rhyme    | water/daughter | False         | **True** |
 
 `syllabic rhyme` is the clearest: the cell means the FINAL UNSTRESSED
-syllable agrees *and the stressed one does not* — mother/brother is a
+syllable agrees _and the stressed one does not_ — mother/brother is a
 feminine rhyme, so the cell says no. The schema fires on the final
 unstressed syllable alone and says yes. One name, two questions, and the
 answer flips on a pair any writer would use.
@@ -5013,7 +5018,7 @@ says which vocabulary it means. Three namespaces are declared —
 **AND THE RULING CAUGHT A SHARPER VERSION OF THE PROBLEM THAN THIS ENTRY
 FILED.** Measured while implementing: `relation_ambiguities()` returns **26
 names, every one of them `(schema, type)`** — the coarse classes escape the
-list *only because they are spelled in capitals*. `ASSONANCE` resolved to the
+list _only because they are spelled in capitals_. `ASSONANCE` resolved to the
 class and `assonance` to the cell: two different relations one shift key
 apart, and the case-insensitive fallback was where they would have met. That
 fallback now refuses on ambiguity instead of taking a first match, so the
@@ -5053,22 +5058,22 @@ measured against a null. **THIS ENTRY POINTS AT THAT TABLE AND DOES NOT COPY
 IT** (doctrine 1) — a second list of blockers here is the copy that goes
 stale, and the proof is one paragraph below.
 
-| blocker kind | capabilities | what it means |
-|---|---:|---|
-| `obtain` | **6** | the evidence does not exist here and cannot be made to |
-| `build` | **4** | derivable in principle, and a heuristic written now would decide the verdict and report it as data |
-| `disjoint` | **1** | declared inert ON PURPOSE (`frames.beat`, doctrine 4) |
-| unstated | **1** | the table gives a reason but no kind — a gap in the table's own shape |
+| blocker kind | capabilities | what it means                                                                                      |
+| ------------ | -----------: | -------------------------------------------------------------------------------------------------- |
+| `obtain`     |        **6** | the evidence does not exist here and cannot be made to                                             |
+| `build`      |        **4** | derivable in principle, and a heuristic written now would decide the verdict and report it as data |
+| `disjoint`   |        **1** | declared inert ON PURPOSE (`frames.beat`, doctrine 4)                                              |
+| unstated     |        **1** | the table gives a reason but no kind — a gap in the table's own shape                              |
 
 Which schemas, counted apart and never summed with the swept ones:
 
-| capability | blocks |
-|---|---|
-| `morphology` | homoioteleuton, polyptoton |
-| `lexicon` | holorhyme, rhyming slang |
-| `quotient:manner` | family rhyme, multisyllabic rhyme |
-| `delivered` | transformative / bent rhyme, wrenched rhyme |
-| `lifts` | alliterative long line, fourth lift must not alliterate |
+| capability                                                                              | blocks                                                                                                              |
+| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `morphology`                                                                            | homoioteleuton, polyptoton                                                                                          |
+| `lexicon`                                                                               | holorhyme, rhyming slang                                                                                            |
+| `quotient:manner`                                                                       | family rhyme, multisyllabic rhyme                                                                                   |
+| `delivered`                                                                             | transformative / bent rhyme, wrenched rhyme                                                                         |
+| `lifts`                                                                                 | alliterative long line, fourth lift must not alliterate                                                             |
 | `sense` · `quotient:vowel_class` · `earlier` · `poet` · `sung` · `beat` · `orthography` | antanaclasis · proest · historical rhyme · dialect rhyme · sung-delivery rhyme · offbeat internal rhyme · eye rhyme |
 
 **A BLOCKED SCHEMA IS NOT A SCHEMA THAT FOUND NOTHING**, and the whole
@@ -5079,7 +5084,7 @@ number would be the shape doctrine 20 exists to forbid.
 
 **AND ONE OF THE TWELVE WENT STALE INSIDE THE SAME DAY IT WAS WRITTEN, which
 is why this entry points rather than copies.** `BLOCKERS['orthography']` reads
-*"Blocker: build — a second stream under the `orthography` surface"*. That was
+_"Blocker: build — a second stream under the `orthography` surface"_. That was
 true when written and is not true now: `quality/relations.declare_orthography`
 exists as of 2026-08-22 (verified: `hasattr(R,'declare_orthography')` is True),
 so the mechanism is built and the blocker moved from **build** to **declare** —
@@ -5111,11 +5116,11 @@ just confirming it.**
 **HOW MANY NAMED TYPES ONE PAIR OCCUPIES, measured over the declared
 `POSITION` vocabulary and all ten `PRESETS`:**
 
-| pair | distinct named types | where the multiplicity comes from |
-|---|---:|---|
-| `night`/`light` | **9** | end 4 · internal 1 · leonine 1 · cross 2 · holorhyme 1 |
-| `love`/`move` | **4** | end 2 · internal 2 |
-| `mother`/`brother` | **2** | end 2 |
+| pair               | distinct named types | where the multiplicity comes from                      |
+| ------------------ | -------------------: | ------------------------------------------------------ |
+| `night`/`light`    |                **9** | end 4 · internal 1 · leonine 1 · cross 2 · holorhyme 1 |
+| `love`/`move`      |                **4** | end 2 · internal 2                                     |
+| `mother`/`brother` |                **2** | end 2                                                  |
 
 **BUT THE DIMENSIONS ARE NOT WHAT THEY LOOK LIKE, AND THIS IS THE PART WORTH
 GETTING RIGHT.** At a FIXED coordinate a pair occupies exactly ONE cell. The
@@ -5126,7 +5131,7 @@ multiplicity has two axes and they are both coordinates the PAIR does not fix:
 
 - **position** — the same two words are a `masculine rhyme` at line end, an
   `internal rhyme` mid-line, a `leonine rhyme` across a caesura, a `cross
-  rhyme` between hemistichs. Same phonology, different relation.
+rhyme` between hemistichs. Same phonology, different relation.
 - **anchor/preset** — which syllable the comparison is anchored at.
   `--preset=perfect-rhyme` and the default name different types for one pair.
 
@@ -5194,11 +5199,11 @@ and no line, so it leaves `position=None`, and **those 31 can never match on
 that path.** The verb reports a permanent structural gap in the shape of a
 finding about the vocabulary. Supplying the coordinate is enough:
 
-| pair | `position=None` | `position='end'` |
-|---|---|---|
-| `night`/`light` | `()` | `('masculine rhyme', 'single rhyme', 'qafiya', 'antya-prasa')` |
-| `mother`/`brother` | `()` | `('feminine rhyme', 'double rhyme')` |
-| `love`/`move` | `()` | `('consonance', 'slant rhyme (consonant)')` |
+| pair               | `position=None` | `position='end'`                                               |
+| ------------------ | --------------- | -------------------------------------------------------------- |
+| `night`/`light`    | `()`            | `('masculine rhyme', 'single rhyme', 'qafiya', 'antya-prasa')` |
+| `mother`/`brother` | `()`            | `('feminine rhyme', 'double rhyme')`                           |
+| `love`/`move`      | `()`            | `('consonance', 'slant rhyme (consonant)')`                    |
 
 **IT IS NOT TOTAL, AND THE PARTIAL EXPOSURE IS WHY IT SURVIVED.** Two of the
 ten presets DO name — `--preset=perfect-rhyme` gives `perfect rhyme (last
@@ -5245,15 +5250,15 @@ that were not marked superseded.**
 0.717 / 0.964 to **0.723 / 0.960**. That repin updated the headline table. It
 did not update:
 
-| line at HEAD | site in `RESULTS.md` | what it said |
-|---:|---|---|
-| 64 | the two-numbers argument | "**0.964 against 0.717 cold**", gap "0.247 … narrowed by 0.015" |
-| 288 | the cold-rows pointer | "Cold, the last two rows read **0.717** / **0.964**" |
-| 360 | the 0.975 parenthetical | "cold it is 0.964" |
-| 366 | the Exp 1 fall parenthetical | "cold, that fit reads **0.717**" |
-| 416 | "The joint held-out AUCs, cold" | a row labelled **COLD, current** carrying 0.717 / 0.964 |
-| 424 | the seed-median comparison | "The recorded Exp 1 draw of 0.717" |
-| 560 | the doctrine-73 recap | "0.717 absolute at n = 15" |
+| line at HEAD | site in `RESULTS.md`            | what it said                                                    |
+| -----------: | ------------------------------- | --------------------------------------------------------------- |
+|           64 | the two-numbers argument        | "**0.964 against 0.717 cold**", gap "0.247 … narrowed by 0.015" |
+|          288 | the cold-rows pointer           | "Cold, the last two rows read **0.717** / **0.964**"            |
+|          360 | the 0.975 parenthetical         | "cold it is 0.964"                                              |
+|          366 | the Exp 1 fall parenthetical    | "cold, that fit reads **0.717**"                                |
+|          416 | "The joint held-out AUCs, cold" | a row labelled **COLD, current** carrying 0.717 / 0.964         |
+|          424 | the seed-median comparison      | "The recorded Exp 1 draw of 0.717"                              |
+|          560 | the doctrine-73 recap           | "0.717 absolute at n = 15"                                      |
 
 **COUNTED, not estimated:** `git show HEAD:quality/RESULTS.md | grep -c
 '0\.717\|0\.964'` returns **11**, plus the live current row M-31 added, so the
@@ -5267,14 +5272,14 @@ current"**. All seven are repinned in the same commit as this entry.
 **AND A SEVENTH SITE HAD AN ARITHMETIC SLIP OF ITS OWN.** The blockquote that
 withdraws the unreproducible "0.062" figure — a paragraph whose entire subject
 is a number that does not check out — had the M-31 pair appended to it without
-recomputing the quantity it exists to state: it read *"0.960 − 0.723 = 0.237,
-narrowing **0.015**"*, and 0.262 − 0.237 is **0.025**. Corrected in place, with
+recomputing the quantity it exists to state: it read _"0.960 − 0.723 = 0.237,
+narrowing **0.015**"_, and 0.262 − 0.237 is **0.025**. Corrected in place, with
 the seven gaps now on record re-checked against the 0.062 claim (none produces
 it; the nearest is still 0.063).
 
 **THE DEFECT IS NOT THE STALE DIGITS, IT IS THAT NOTHING COULD HAVE CAUGHT
 THEM.** `quality/test_discriminate.py` pins these AUCs to 5e-4 and would go red
-the instant the *measurement* drifted. Nothing relates that pin to the eleven
+the instant the _measurement_ drifted. Nothing relates that pin to the eleven
 places `RESULTS.md` writes the same number in prose, so a repin is a manual
 grep and a manual grep is a thing that gets tired. This is doctrine 1 at
 document scale: one quantity, eleven copies, and only one of them mechanical.
@@ -5308,7 +5313,7 @@ staleness reached its conclusions, not only its tables:
   **~2.6x**. Third reading of one quantity — 4.9x warm, 3.1x cold 08-13, 2.6x
   cold 08-22 — and every correction so far has made the fall look SMALLER,
   which is worth knowing about a claim whose load-bearing word is
-  *substantial*.
+  _substantial_.
 - **P2's fall** read 0.079; it is **0.102**. Verdict unchanged, size not.
 - **A stated non-coincidence stopped being one.** The document carried a note
   explaining that 0.638 appearing twice was not a typo — it was both a seed
@@ -5321,8 +5326,8 @@ staleness reached its conclusions, not only its tables:
   against a stale null and say so in place.
 
 **AND ONE PRE-REGISTERED PREDICTION LOST ITS COMPARATOR ENTIRELY** — see M-32.
-`PREREGISTRATION_WITHIN_ITEM.md`'s P3 is *"Exp 2 wrong-sign count must fall
-below five"*, and the *five* was the absolute arm's count frozen into a digit.
+`PREREGISTRATION_WITHIN_ITEM.md`'s P3 is _"Exp 2 wrong-sign count must fall
+below five"_, and the _five_ was the absolute arm's count frozen into a digit.
 M-32's ruling moved that count to four, so P3 now reads 4 → 4: the literal test
 still passes and measures nothing. Doctrine 58 catching itself — a recorded
 count became a threshold nobody wrote down, and then the recording moved. All
@@ -5338,30 +5343,30 @@ measured 0.723`. Repinned to 0.723/0.960 and 0.621/0.896.
 **AND REPINNING IT MOVED SOMETHING THIS ENTRY DID NOT EXPECT: ALL FOUR SEED
 MEDIANS.** `audit_joint_auc_null.PINNED` also pins the median of the true-label
 AUC over CV seeds 0..199 — deterministic, and pinned SEPARATELY from the
-observed AUC on the stated ground that *"the whole seed distribution can shift
+observed AUC on the stated ground that _"the whole seed distribution can shift
 while the one recorded draw sits still, and that movement is invisible to any
-check that watches only the headline."* Measured:
+check that watches only the headline."_ Measured:
 
-| arm | committed | measured | Δ |
-|---|---:|---:|---:|
-| abs_exp1 | 0.638 | **0.635** | −0.003 |
-| abs_exp2 | 0.967 | **0.961** | −0.006 |
-| wi_exp1 | 0.640 | **0.623** | **−0.017** |
-| wi_exp2 | 0.900 | **0.906** | +0.006 |
+| arm      | committed |  measured |          Δ |
+| -------- | --------: | --------: | ---------: |
+| abs_exp1 |     0.638 | **0.635** |     −0.003 |
+| abs_exp2 |     0.967 | **0.961** |     −0.006 |
+| wi_exp1  |     0.640 | **0.623** | **−0.017** |
+| wi_exp2  |     0.900 | **0.906** |     +0.006 |
 
 `wi_exp1`'s median fell by exactly the −0.017 its observed AUC fell, so that
 arm's whole distribution translated down together. The separate pin earned its
 keep on its first real test.
 
 **THAT OVERTURNS A CONCLUSION.** `RESULTS_WITHIN_ITEM.md`'s doctrine-73 rescue
-of P2 rested on the within-item Exp 1 median sitting *above* the absolute one —
+of P2 rested on the within-item Exp 1 median sitting _above_ the absolute one —
 +0.003 warm, +0.002 cold. Corrected, it is **−0.012**. P2 now fails at the
 median as well as at the recorded seed, and the rescue is withdrawn in place.
 What survives is only the narrower claim that one CV seed at n = 15 is a coin
 flip. The deeper reading is recorded there too: +0.003, +0.002 and −0.012 are
 all inside the noise that document spends its length warning about, so the
-right verdict is *this comparison has never been resolvable at this sample
-size* — and the first two readings said "holds" on a margin a single upstream
+right verdict is _this comparison has never been resolvable at this sample
+size_ — and the first two readings said "holds" on a margin a single upstream
 bug fix could invert.
 
 **AND I TOLD THE OWNER THE OPPOSITE, TWICE, EARLIER THE SAME DAY.** I wrote
@@ -5404,9 +5409,9 @@ in the two `RESULTS` documents now carries a warning where it is made.
 that the question cannot be answered as posed.**
 
 `quality/PREREGISTRATION.md` commits the ten features with their directions,
-under a rule it states in the same breath: *"Direction is committed now; a
+under a rule it states in the same breath: _"Direction is committed now; a
 feature that separates with the **wrong** sign counts as a failed prediction,
-not a success."* Feature 10's row reads:
+not a success."_ Feature 10's row reads:
 
 > | 10 | `content_word_freq_mean` — mean corpus frequency rank of content words | **LOWER** (rarer words) |
 
@@ -5421,8 +5426,8 @@ that direction applied.
 **~~SO THE FEATURE'S RECORDED RESULT IS EITHER A SUCCESS OR A FAILED
 PREDICTION ... and it has been carried as a success for as long as the feature
 set has existed.~~ STRUCK WITHIN THE HOUR, AND THE CORRECTION INVERTS IT.**
-That paragraph rested on my claim that *"the AUC is computed with that
-direction applied"*, and it is FALSE. `discriminate.py:489` computes the AUC
+That paragraph rested on my claim that _"the AUC is computed with that
+direction applied"_, and it is FALSE. `discriminate.py:489` computes the AUC
 RAW and uses `DIRECTION` only to judge the sign afterwards —
 `observed = "higher" if auc > 0.5 else "lower"`, then
 `observed == predicted` — and a significant result whose sign disagrees is
@@ -5437,16 +5442,16 @@ for the life of the project — and the class means say the data follows the
 GLOSS, not the coded direction. MEASURED 2026-08-22 through the shipped
 `discriminate.compute` path, not fresh code:
 
-| arm | class | n | mean rank | median |
-|---|---|---:|---:|---:|
-| Exp 2 | HUMAN | 152 | **6525.3** | 6338.0 |
-| Exp 2 | GENERATED | 40 | **5121.6** | 5278.1 |
-| Exp 1 | SURVIVED | 15 | **6625.0** | 6489.2 |
+| arm   | class     |   n |  mean rank | median |
+| ----- | --------- | --: | ---------: | -----: |
+| Exp 2 | HUMAN     | 152 | **6525.3** | 6338.0 |
+| Exp 2 | GENERATED |  40 | **5121.6** | 5278.1 |
+| Exp 1 | SURVIVED  |  15 | **6625.0** | 6489.2 |
 | Exp 1 | FORGOTTEN | 117 | **6388.3** | 6175.8 |
 
 Human verse uses **RARER** content words than generated, and survived uses
-rarer than forgotten — both in the direction the parenthetical *"(rarer
-words)"* predicted, and both against the coded `lower`.
+rarer than forgotten — both in the direction the parenthetical _"(rarer
+words)"_ predicted, and both against the coded `lower`.
 
 **SO THE LIVE QUESTION IS WHETHER A HIT HAS BEEN RECORDED AS A FAILURE.** If
 the commitment was `LOWER`, feature 10 is a failed prediction, exactly as
@@ -5454,9 +5459,9 @@ recorded. If the commitment was `(rarer words)` — the half the data matches �
 then feature 10 is a **HIT that has been printed as `WRONG SIGN` on every run
 this project has ever made**, and the count of features clearing FDR with the
 predicted sign is wrong by one. That count is not decorative: the
-preregistration's own falsifier is *"If **zero** features clear FDR with the
+preregistration's own falsifier is _"If **zero** features clear FDR with the
 predicted sign in Experiment 1, the survival-oracle thesis has failed its
-cheapest available test."*
+cheapest available test."_
 
 Doctrine 1 still: one coordinate, two readings, disagreeing about the verdict
 rather than about a number. What changed is which way the error runs.
@@ -5476,9 +5481,9 @@ about feature 10's worth.
 SAME DOCUMENT.** A leave-one-out over the ten would be a criterion chosen
 AFTER seeing the numbers, and the preregistration already declares its own —
 a two-sided permutation test at 20,000 shuffles, Benjamini-Hochberg at
-q = 0.10 across all ten — and closes the door explicitly: *"No feature outside
+q = 0.10 across all ten — and closes the door explicitly: _"No feature outside
 this list may be reported as a finding. Anything discovered later is
-exploratory and must be labelled as such."* Dropping a feature on a rule
+exploratory and must be labelled as such."_ Dropping a feature on a rule
 invented for the occasion is doctrine 19's shape at the level of the study
 design.
 
@@ -5495,8 +5500,8 @@ argued for rather than defaulted to.
 
 **IN EXPERIMENT 1 THE RULING CHANGES NOTHING BUT A COLUMN LABEL.** `WRONG
 SIGN` is printed only for an FDR-significant result (`discriminate.py:508`), and
-feature 10's Experiment 1 p is 0.7788, so it read *null* before the ruling and
-reads *null* after. Only the `dir` column moves there.
+feature 10's Experiment 1 p is 0.7788, so it read _null_ before the ruling and
+reads _null_ after. Only the `dir` column moves there.
 
 **AND IT IS NOT ONLY FEATURE 10.** Experiment 2 records FOUR `WRONG SIGN`
 verdicts — `concreteness_mean`, `concreteness_p90`, `abstract_noun_ratio`,
@@ -5512,13 +5517,14 @@ been true since the feature set was registered.
 
 ---
 
-**RULED 2026-08-22 BY THE OWNER: *the gloss was the commitment — treat it as a
-hit.*** This entry asked which half of the cell was predicted, said plainly
+**RULED 2026-08-22 BY THE OWNER: _the gloss was the commitment — treat it as a
+hit._** This entry asked which half of the cell was predicted, said plainly
 that no measurement could answer it, and named the cheap resolution as the one
 that must be argued for rather than defaulted to. The owner took the other
 half. `(rarer words)` is the commitment; **LOWER** is struck.
 
 **WHAT WAS CHANGED.**
+
 - `quality/features.py` — `DIRECTION["content_word_freq_mean"]` = `"higher"`,
   with the ruling recorded at the line.
 - `quality/PREREGISTRATION.md` — row 10 struck in place (doctrine 17) and an
@@ -5534,13 +5540,13 @@ joints are 0.960 / 0.723 before and after, and the within-item half is
 untouched to the digit. What moves is `dir_ok`, the printed verdict, the FDR
 hit count, and the cache identity (`DIRECTION` is inside `cache_identity`).
 
-| | before | after |
-|---|---|---|
-| Exp 2, feature 10 | `0.707 0.0001 lower WRONG SIGN` | `0.707 0.0001 higher HIT (FDR)` |
-| Exp 2, hits at q=0.10 | 4/10 | **5/10** |
-| Exp 2, wrong-sign | 5 | **4** |
-| Exp 1, feature 10 | `0.523 0.7788 lower null` | `0.523 0.7788 higher null` — only the `dir` column moves |
-| Exp 1, hits at q=0.10 | 2/10 | 2/10 |
+|                       | before                          | after                                                    |
+| --------------------- | ------------------------------- | -------------------------------------------------------- |
+| Exp 2, feature 10     | `0.707 0.0001 lower WRONG SIGN` | `0.707 0.0001 higher HIT (FDR)`                          |
+| Exp 2, hits at q=0.10 | 4/10                            | **5/10**                                                 |
+| Exp 2, wrong-sign     | 5                               | **4**                                                    |
+| Exp 1, feature 10     | `0.523 0.7788 lower null`       | `0.523 0.7788 higher null` — only the `dir` column moves |
+| Exp 1, hits at q=0.10 | 2/10                            | 2/10                                                     |
 
 **THE RESPECIFICATION HAD ALREADY SIDED WITH THE GLOSS, AND NOBODY NOTICED.**
 `within_item.WithinItemFeatures.DIRECTION["wi_freq_delta"]` has read `"higher"`
@@ -5554,9 +5560,9 @@ the gloss is corroboration for the reading the owner took.
 **AND A SECOND SYMPTOM OF THE SAME ROOT ERROR, FOUND WHILE REPINNING.**
 `quality/RESULTS.md`'s findings list carried:
 
-> *"I predicted human writing uses rarer vocabulary. The opposite: the
+> _"I predicted human writing uses rarer vocabulary. The opposite: the
 > generated sonnets reach for rarer words than Shakespeare does ... the failure
-> mode is over-reaching, not under-reaching."*
+> mode is over-reaching, not under-reaching."_
 
 **That paragraph read its own number backwards.** `permutation_test` scores the
 FIRST arm and Experiment 2's first arm is `rows_h` — human — so an AUC above
@@ -5571,7 +5577,7 @@ both symptoms: the boldface `LOWER`, and this paragraph. The gloss is the only
 part of the original commitment that never had it.
 
 **DOCTRINE 19 WARNING, RECORDED IN THREE PLACES AND NOT SOFTENED HERE.** This
-amendment was made *after* the sign was known and it **runs in the amender's
+amendment was made _after_ the sign was known and it **runs in the amender's
 favour**: it makes the headline hit count larger and the wrong-sign count
 smaller. It is corroborated (the respecification, the class means, the prose
 error running the same way) but corroboration found afterwards is not
@@ -5579,9 +5585,9 @@ preregistration, and this row should be read as weaker than the nine that were
 never amended.
 
 **AND IT COST SOMETHING, WHICH IS THE HALF SUCH WARNINGS USUALLY OMIT.**
-`RESULTS.md` §2 argued the monoculture trap on *five* features inverting
+`RESULTS.md` §2 argued the monoculture trap on _five_ features inverting
 between designs, one clause of which was "uses more common words". Feature 10
-does not invert under the amended direction — HIT in Exp 2, *null* in Exp 1 —
+does not invert under the amended direction — HIT in Exp 2, _null_ in Exp 1 —
 so that section now rests on **four**, and the struck clause was never a
 reading of the data at all. The demonstration is weaker by exactly that much
 and says so in place.
@@ -5629,9 +5635,9 @@ its own "past the end" and a future swap cannot leave it behind (doctrine 1).
 
 **AND THE SAME SWAP LEFT A SECOND READER STALE**, found in the same pass:
 `quality/discriminate.py`'s `RESOURCE_FILES` — the tuple whose own comment
-reads *"Re-fetching a norm set silently re-scales concreteness and frequency;
+reads _"Re-fetching a norm set silently re-scales concreteness and frequency;
 doctrine 58 -- the resource is a coordinate of the number just as much as a
-threshold is"* — digested `wordfreq20k.txt`, a file no feature reads, and did
+threshold is"_ — digested `wordfreq20k.txt`, a file no feature reads, and did
 NOT digest `opensubtitles_en_50k.tsv`, which they all do. So re-fetching the
 live source would have silently reused a feature cache scaled to the refused
 one: verbatim the failure that comment warns about, in the tuple that carries
@@ -5659,7 +5665,7 @@ that re-derives 12,387 rhyme families — takes **430s** against `mutate.py`'s
 **420s** default, so it is dropped from every baseline on this machine and the
 summary called it red. The bound is doctrine 58's own shape: a threshold with
 no measurement behind it, in a module whose `--timeout` help text already says
-*"raise it instead of trusting them"* — advice nobody could follow, because
+_"raise it instead of trusting them"_ — advice nobody could follow, because
 nothing measured what raising it would cost.
 
 **AND THE SAME COLLAPSE ONE LAYER DOWN MANUFACTURES HOLES.**
@@ -5668,8 +5674,8 @@ this run could not ask — **and read it with nothing.** `survived` was
 `not caught and not refused`, and `refused` can only hold a suite that RAN and
 then timed out, so a suite the baseline DROPPED could never enter it. A
 mutation whose declared catcher was dropped therefore came back
-`survived=True` and was printed under this module's own heading *"SURVIVING
-MUTATIONS — each one is a hole in the suite"*. A hole in the tests,
+`survived=True` and was printed under this module's own heading _"SURVIVING
+MUTATIONS — each one is a hole in the suite"_. A hole in the tests,
 manufactured by a time bound, in the adversary that exists to find holes —
 and a computed-then-discarded value, which is this repository's most-filed
 defect appearing inside the module written to find it.
@@ -5683,8 +5689,8 @@ asserted, because the population becomes non-empty the moment a staging slows
 one more suite, and nothing connects those two facts.
 
 **BUILT:** the baseline summary reports `already-red` and `UNRUNNABLE` as two
-counts and names the unrunnable suites with the sentence *"Every mutation only
-these could catch is UNGUARDED in this run"*; `outcome(caught, refused,
+counts and names the unrunnable suites with the sentence _"Every mutation only
+these could catch is UNGUARDED in this run"_; `outcome(caught, refused,
 missing_from_green)` is the three-way decision extracted as a PURE FUNCTION —
 it lived inside a routine that forks the whole suite once per mutation, so the
 only way to exercise it was an hour-long sweep, which is doctrine 48's shape
@@ -5724,8 +5730,8 @@ reproducible at head or in an isolated copy; the baseline runs the tree at
 width `cpu_count()`. `mutate.py` re-confirms a red only when it is in
 `LOAD_SENSITIVE` (one member: `test_relations.py`), is a TIMEOUT, or
 `--confirm-all` was passed — and that module's own comment already wrote the
-remedy: *"`--confirm-all` applies the same treatment to every red, which is
-the honest setting IF THIS LIST IS EVER SUSPECTED OF BEING INCOMPLETE."* It is
+remedy: _"`--confirm-all` applies the same treatment to every red, which is
+the honest setting IF THIS LIST IS EVER SUSPECTED OF BEING INCOMPLETE."_ It is
 now measured incomplete. **FIXED**: every BASELINE red is re-confirmed in
 isolation, always. A hand-kept list of load-sensitive suites is a population
 nobody wrote down (doctrine 58), and here its failure mode is the expensive
@@ -5738,19 +5744,19 @@ baseline runs once and only its reds pay.
 **AND THE FOURTH IS THE WORST OF THEM, BECAUSE IT IS THE SUITE THAT GRADES THE
 REGISTER.** Measured in a REAL shadow tree built by `mutate.build_shadow`
 rather than an approximation of one: `quality/test_triage.py` came back
-**`ERROR  IndexError`**. Its §5 carries a correct doctrine-20 guard — *"the
+**`ERROR  IndexError`**. Its §5 carries a correct doctrine-20 guard — _"the
 population is non-empty — with no open-and-tested entry every check below
-would pass on an empty set"* — the guard FIRED, and **the next line indexed
+would pass on an empty set"_ — the guard FIRED, and **the next line indexed
 `[0]` anyway**. So a legible FAIL became a crash, and `mutate.run_test`
-distinguishes those two on purpose (*"FAIL means an assertion disagreed, ERROR
-means it could not run"*), which means the wrong kind of evidence reached the
+distinguishes those two on purpose (_"FAIL means an assertion disagreed, ERROR
+means it could not run"_), which means the wrong kind of evidence reached the
 baseline.
 
 **THE CAUSE IS ONE LINE UNDER IT, AND IT IS THE SAME SENTENCE THAT FILE
 ALREADY WROTE.** `triage._tracked` ran `git ls-files` and returned `[]` when
 git could not answer — three lines below a comment in that same module warning
-that *"an empty population here reads exactly like a clean one (doctrine
-20)"*. Every entry's `tests` and `code` came back empty, so `bucket()` reported
+that _"an empty population here reads exactly like a clean one (doctrine
+20)"_. Every entry's `tests` and `code` came back empty, so `bucket()` reported
 **the whole register UNGUARDED, at exit 0** — a wrong answer, not a refusal.
 
 **FIXED, AND THE TWO CASES ARE TOLD APART BEFORE THE LISTING.**
@@ -5759,8 +5765,8 @@ says no; INSIDE a checkout an empty listing is a real finding and is returned
 as the empty list it is, so nothing about CI moves. `triage.py --check` catches
 it and prints `RESULT: REFUSED (not a pass, not a failure -- doctrine 20)` at
 exit 2 instead of a clean-looking register. `test_triage.py` catches it at
-module scope, asks §0 FIRST — *the register scan answered, or this run says it
-did not* — and stops, because every section below it reads `ENTRIES` and an
+module scope, asks §0 FIRST — _the register scan answered, or this run says it
+did not_ — and stops, because every section below it reads `ENTRIES` and an
 empty register makes almost all of them pass on nothing.
 
 **VERIFIED IN THE SHADOW TREE AT HEAD**, which is the only place these three
@@ -5775,16 +5781,16 @@ sentence this entry is about: `baseline: 53/61 green, 8 excluded as
 already-red`.** In full, with each suite's true runtime from the same day's
 62-suite sweep beside the bound that excluded it:
 
-| suite | reported | the actual reason |
-|---|---|---|
-| `test_verbs.py` | TIMEOUT | **1,469s** against a 420s bound |
-| `test_discriminate.py` | TIMEOUT | **892s** |
-| `test_capacity.py` | TIMEOUT | **455s** — by thirty-five seconds |
-| `test_loop.py` | TIMEOUT | **428s** — by eight |
-| `test_provenance.py` | FAIL | a CORRECT refusal, spelled `FAIL` |
-| `test_propose.py` | FAIL | red under the baseline's own parallelism |
-| `test_triage.py` | ERROR | an unguarded `[0]` after its own guard fired |
-| `test_verify_entries.py` | FAIL | a stray stderr line from a probe that worked |
+| suite                    | reported | the actual reason                            |
+| ------------------------ | -------- | -------------------------------------------- |
+| `test_verbs.py`          | TIMEOUT  | **1,469s** against a 420s bound              |
+| `test_discriminate.py`   | TIMEOUT  | **892s**                                     |
+| `test_capacity.py`       | TIMEOUT  | **455s** — by thirty-five seconds            |
+| `test_loop.py`           | TIMEOUT  | **428s** — by eight                          |
+| `test_provenance.py`     | FAIL     | a CORRECT refusal, spelled `FAIL`            |
+| `test_propose.py`        | FAIL     | red under the baseline's own parallelism     |
+| `test_triage.py`         | ERROR    | an unguarded `[0]` after its own guard fired |
+| `test_verify_entries.py` | FAIL     | a stray stderr line from a probe that worked |
 
 **EIGHT OF SIXTY-ONE — 13% — AND NOT ONE OF THEM FOR HAVING A RED CHECK.**
 The same sweep that measured those runtimes reports the whole tree
@@ -5836,12 +5842,12 @@ already exists in the RELATION registry — `quality/relations.py:3977`,
 `R105: "scheme declarations as set partitions over line indices"` — so the
 vocabulary is there and the catalog cannot carry it.
 
-| source | in repo? | per-song machine-readable? | gap | cost |
-|---|---|---|---|---|
-| **ltc 欽定詞譜** | yes — `data/qindingcipu_ge.tsv`, 2,286 格 rows | **yes** — `GE`/`RHYME`/`JU` on all **10,029** poems, zero `RHYME: -` | catalog row + census population type | **low** |
-| **fas radif** | detector yes, data no | **no** — recomputed every run | persist per-poem, carry `min_fraction` in the column | low-med |
-| **msa pantun** | schema yes | form tag yes (88 `[PANTUN ABAB]`), halves no | halves are free (always 1-2 / 3-4); the discontinuity is `H-2` | split trivial |
-| **fin chain-song** | pointer yes, structure no | **no** structural header at all | needs an N-ary INCREMENT edge, not a repetition edge; n=9 stubs | med-high |
+| source             | in repo?                                       | per-song machine-readable?                                           | gap                                                             | cost          |
+| ------------------ | ---------------------------------------------- | -------------------------------------------------------------------- | --------------------------------------------------------------- | ------------- |
+| **ltc 欽定詞譜**   | yes — `data/qindingcipu_ge.tsv`, 2,286 格 rows | **yes** — `GE`/`RHYME`/`JU` on all **10,029** poems, zero `RHYME: -` | catalog row + census population type                            | **low**       |
+| **fas radif**      | detector yes, data no                          | **no** — recomputed every run                                        | persist per-poem, carry `min_fraction` in the column            | low-med       |
+| **msa pantun**     | schema yes                                     | form tag yes (88 `[PANTUN ABAB]`), halves no                         | halves are free (always 1-2 / 3-4); the discontinuity is `H-2`  | split trivial |
+| **fin chain-song** | pointer yes, structure no                      | **no** structural header at all                                      | needs an N-ary INCREMENT edge, not a repetition edge; n=9 stubs | med-high      |
 
 **THE ltc CASE IS THE ONE THAT SHOULD EMBARRASS US.** A 1715 spec, extracted
 to 2,286 rows, validated against a second independent witness (KR4j0086, the
@@ -5871,7 +5877,7 @@ constrained family (its shipped `constrained=yes` tag is VOID for consumers).
 `partition` KIND, WHICH IS ITS SUBJECT.** `constrained_tag` returns
 `"yes" | "no" | "undeclared"` instead of a bool. A family with no declared row
 now reads `undeclared`; the two-state answer spelled it `no`, which is a CLAIM
-— *this corpus's end words are not rhyme-constrained* — true of `whitman`,
+— _this corpus's end words are not rhyme-constrained_ — true of `whitman`,
 which was chosen for exactly that, and false of a ghazal (doctrine 20).
 `RHYME_CONSTRAINED` is a table of `(verdict, reason)` and `whitman`'s False now
 carries its reason, so a measured negative and an unexamined one are different
@@ -5884,8 +5890,8 @@ artifact is one of the three declared ones. A coordinate was added and no
 recorded value moved.
 
 **AND THE E1 AMENDMENT IS MECHANICAL NOW INSTEAD OF PROSE.**
-`RESULTS_STRUCTURE_CENSUS.md` states *"the artifact's `constrained=yes` tag on
-dactylic-rhyme cells is VOID for consumers"* — and the shipped table carries
+`RESULTS_STRUCTURE_CENSUS.md` states _"the artifact's `constrained=yes` tag on
+dactylic-rhyme cells is VOID for consumers"_ — and the shipped table carries
 **144 such cells, 16.7% of all 864 `yes` rows**, with nothing a consumer RUNS
 saying they are struck. `VOID_CONSTRAINED_ROWS` and `void_reason(row)` are the
 mechanism (doctrine 48; doctrine 17 on not quoting a falsified check as live).
@@ -5926,8 +5932,8 @@ language coordinate.** `ingest_mark` resolves a mark to its base token and
 looks it up; it takes no language and cannot.
 
 **THE WORKED CASE, and it is one staging away from live.** `MARK_REFUSED
-["PART"]` reads *"a speaker or role attribution in the Kalevala wedding songs
-(`[PART: Kaason puoli]`), not a section function."* Irish dance music's A-part
+["PART"]` reads _"a speaker or role attribution in the Kalevala wedding songs
+(`[PART: Kaason puoli]`), not a section function."_ Irish dance music's A-part
 and B-part are ordinary section names. **The moment an Irish tune is staged
 with `[PART A]`, it is refused with a sentence about Finnish wedding songs
 quoted over it** — a true refusal, in the wrong language, about the wrong
@@ -5938,7 +5944,7 @@ and another in `gle`.
 CodexMusica tree, and spelled relative to it so the path check resolves
 it rather than reading a true citation as a false one —
 declares `manman_kase` with `match_tokens: ["break"]` — the Haitian drummed
-cue that *starts and stops* an ensemble — while
+cue that _starts and stops_ an ensemble — while
 `quality/fixtures/string_meter.blueprint.json` declares a section named
 `break`, the English instrumental gap. **One token, two traditions, opposite
 functions.** `as_function(value)` takes one argument; `_FUNCTION_ALIASES`
@@ -5950,7 +5956,7 @@ means the POP bridge — declared four ways over (`recurrence="once"`,
 `contrasts_with=("verse","chorus")`, the middle-8 aliases, `bridge_contrast()`
 and `BRIDGE_IS_A_VERSE`) — and **the sonata bridge is a `connective` that
 RECURS**, which the same row cannot also mean. Two more false friends found
-the same day: fugal vs sonata *exposition*, and *stretto* vs *stretta*.
+the same day: fugal vs sonata _exposition_, and _stretto_ vs _stretta_.
 
 **THE MARK HALF IS BUILT — 2026-08-22 — AND THE FUNCTION HALF IS NOT, WHICH
 IS WHY THIS IS `PARTIAL` AND NOT CLOSED.** `MARK_REFUSED` is keyed on
@@ -6020,7 +6026,7 @@ and the entry stays open on that.
 **STILL OPEN, AND IT IS THE HALF WITH THE FALSE FRIENDS IN IT:**
 `SECTION_FUNCTIONS`' 21 functions are still declared on bare names, so the pop
 `bridge` and the sonata `bridge` are one row that cannot mean both, and fugal
-vs sonata *exposition* and *stretto* vs *stretta* are unaddressed. That is a
+vs sonata _exposition_ and _stretto_ vs _stretta_ are unaddressed. That is a
 claim about the FUNCTION vocabulary rather than the MARK vocabulary, and
 `RESULTS_MARK_COVERAGE.md`'s adopted answer — a global closed FUNCTION
 vocabulary with per-tradition NAME rows — is still what it needs.
@@ -6045,19 +6051,20 @@ instead — **one-line `[VERSE]` blocks whose single line is apparatus** — the
 population is far larger. Rule stated so the count is re-derivable: a block
 holding exactly one non-blank line, classified by that line's shape.
 
-| what the single line is | blocks | examples |
-|---|---:|---|
-| an ALL-CAPS short label (≤4 words) | 493 | `B. TAYLOR.` · `ETHEL LYNN BEERS` · `EVENÈN IN THE VILLAGE.` |
-| a Roman numeral | 240 | `I.` · `V.` · `II.` |
-| an Arabic numeral or year | 191 | `1845.` · `1847.` |
-| a printed heading word | 16 | `Recitativo` · `Air` |
-| **total** | **940** | across **67** files |
+| what the single line is            |  blocks | examples                                                     |
+| ---------------------------------- | ------: | ------------------------------------------------------------ |
+| an ALL-CAPS short label (≤4 words) |     493 | `B. TAYLOR.` · `ETHEL LYNN BEERS` · `EVENÈN IN THE VILLAGE.` |
+| a Roman numeral                    |     240 | `I.` · `V.` · `II.`                                          |
+| an Arabic numeral or year          |     191 | `1845.` · `1847.`                                            |
+| a printed heading word             |      16 | `Recitativo` · `Air`                                         |
+| **total**                          | **940** | across **67** files                                          |
 
 Concentrated: `eng_hall_william_barnes.txt` 224, `fin_eino_leino.txt` 167,
 `eng_american_henry_wadsworth_longfellow.txt` 110.
 
 **THE FOUR CLASSES ARE AT LEAST THREE DIFFERENT OBJECTS, and reading the
 context is what shows it** — so this is a census and not yet a repair list:
+
 - **POEM TITLES.** `eng_hall_william_barnes.txt` runs `[VERSE 3]` /
   `BRINGEN WOONE GWAÏN[A] O' ZUNDAYS.` / `[VERSE 4]`. That is a second poem's
   TITLE inside one `--- TITLE:` item — a false unit (`M-20`'s family) whose
@@ -6096,14 +6103,13 @@ a one-line `[VERSE]` block was never asked about it, 13 files, silently.
 Check H reports **THREE COUNTS AND NEVER SUMS THEM**, which is the other half
 of the repair. Over `corpus/song/`, 72,803 `[VERSE]` blocks:
 
-| | blocks | files |
-|---|---:|---:|
-| one-line `[VERSE]` blocks — the CANDIDATE population | 2,550 | — |
-| MATCHED a declared apparatus shape — charged, WARN | 1,045 | 105 |
-| RESIDUE — reported UNADJUDICATED, never as clean | 1,505 | 48 |
+|                                                      | blocks | files |
+| ---------------------------------------------------- | -----: | ----: |
+| one-line `[VERSE]` blocks — the CANDIDATE population |  2,550 |     — |
+| MATCHED a declared apparatus shape — charged, WARN   |  1,045 |   105 |
+| RESIDUE — reported UNADJUDICATED, never as clean     |  1,505 |    48 |
 
-Shapes: `allcaps-label` 512 · `numeral` 445 · `ornament` 72 · `heading-word`
-16. **The residue is the bigger half and the census never saw it**, sampled at
+Shapes: `allcaps-label` 512 · `numeral` 445 · `ornament` 72 · `heading-word` 16. **The residue is the bigger half and the census never saw it**, sampled at
 n=50 (seed 20260821): roughly a quarter is real text — single lines of
 dramatic dialogue, which is a DIFFERENT staging defect — and the rest is
 apparatus in shapes the table deliberately does not spell, because a false
@@ -6120,7 +6126,7 @@ defect one script apart, both doctrine 45, neither visible by reading the
 rule.** Run 1 charged `ltc_siku_kr4j0074.txt`'s `欲寄逺憑誰是。`, a sung line of
 a 詞: one whitespace token, no lowercase character, because CHINESE HAS NO
 CASE. Run 2 charged `eng_british_lord_byron.txt`'s `Ζωή μου, σᾶς ἀγαπῶ.` —
-*Maid of Athens*'s Greek refrain, the most sung line in the poem — because the
+_Maid of Athens_'s Greek refrain, the most sung line in the poem — because the
 lowercase test was the Latin-1 class `[a-zà-öø-ÿ]`. Both are pinned as
 false-positive regressions in `quality/test_corpus_audit.py` §4b, because a
 fix that is not tested is a fix that comes back.
@@ -6155,9 +6161,9 @@ need a reading of the printing that no check can do. Doctrine 17: the built
 half is real and is not quoted as if it closed the entry.
 
 **THIS UNBLOCKS THE POINTER.** `quality/SECTION_ORDER_PREREGISTRATION.md` says
-in as many words: *"1. `M-25(a)` — stage the movement headings as marks rather
+in as many words: _"1. `M-25(a)` — stage the movement headings as marks rather
 than as verse lyrics. 2. THEN `elaborates` has 14 sections in 3 songs to point
-at."* Step 1 is done, and reading the printing to do it found the reason step
+at."_ Step 1 is done, and reading the printing to do it found the reason step
 2's sibling `rank` was refused: in `THE PRAISE OF MORAG` the FIRST movement is
 printed with NO heading at all — the page sets a heading only where the
 movement CHANGES — so the ladder's own head is unmarked in the corpus, and a
@@ -6165,8 +6171,8 @@ movement CHANGES — so the ladder's own head is unmarked in the corpus, and a
 whole.
 
 **(b) A file that declares a structure it does not carry.**
-`corpus/song/ltc_huajianji.txt`'s header states *"`[VERSE n]` marks a 片
-(pian) — the stanza the TUNE divides"*, and the file holds **500 poems and
+`corpus/song/ltc_huajianji.txt`'s header states _"`[VERSE n]` marks a 片
+(pian) — the stanza the TUNE divides"_, and the file holds **500 poems and
 exactly 500 `[VERSE]` marks: zero 片 boundaries.** Its 更漏子, a canonical
 雙調 in two equal halves, is one block. All **9,023** real 片 boundaries in
 the corpus are in the 66 `ltc_siku_kr4j*` files. One ltc file states the
@@ -6205,7 +6211,7 @@ something else scores **`VERBATIM`** — the strongest available claim that
 nothing changed.
 
 - **Carnatic `sangati`**: the defining device of a kṛti's exposition. It holds
-  the *sāhitya* (the text) fixed and varies the melodic line. Every sangati in
+  the _sāhitya_ (the text) fixed and varies the melodic line. Every sangati in
   a song therefore returns `VERBATIM`.
 - **Hindustani `bol-baant`**: variation by redistributing the SAME words across
   the tāla. Identical words, different rhythmic placement — `VERBATIM` again.
@@ -6215,28 +6221,28 @@ ITS SILENCE.** Doctrine 93 is satisfied — melody and placement are not in a
 lyric sheet and this layer should not claim them. The defect is that
 `compare_returns` HAS a refusal channel (`Return.refusals`, today
 `STUB_RETURN` / `NO_RHYME_KEY` / `END_WORD_UNREADABLE`, and `NO_RHYME_KEY`
-refuses *"a silent default here would make a claim about a language nobody
-named"*) **and no member of it says "the channel this tradition varies is not
+refuses _"a silent default here would make a claim about a language nobody
+named"_) **and no member of it says "the channel this tradition varies is not
 in the text."** Doctrine 20 exactly: inconclusive-by-construction returned as
 a null, and here as the most positive null the vocabulary has.
 
 **TWO FURTHER GAPS IN THE SAME LADDER, measured by construction rather than
 taken on report — and BOTH ARE NARROWER THAN THE SURVEYS CLAIMED.**
 
-| constructed return | ladder says | `invariant_lines` |
-|---|---|---|
-| all 4 lines return, **order changed** | `ANAPHORIC_RETURN` | `()` |
-| same body, **final line substituted** (ouvert/clos) | `LEXICAL_VARIATION` | `(1, 2, 3)` |
-| *control:* one **interior** line changed | `LEXICAL_VARIATION` | `(1, 3, 4)` |
-| *control:* verbatim | `VERBATIM` | `(1, 2, 3, 4)` |
+| constructed return                                  | ladder says         | `invariant_lines` |
+| --------------------------------------------------- | ------------------- | ----------------- |
+| all 4 lines return, **order changed**               | `ANAPHORIC_RETURN`  | `()`              |
+| same body, **final line substituted** (ouvert/clos) | `LEXICAL_VARIATION` | `(1, 2, 3)`       |
+| _control:_ one **interior** line changed            | `LEXICAL_VARIATION` | `(1, 3, 4)`       |
+| _control:_ verbatim                                 | `VERBATIM`          | `(1, 2, 3, 4)`    |
 
 1. **A RESEQUENCED RETURN HAS NO NAME.** Every line came back and the ladder
    reports a kind about heads recurring. `invariant_lines` is `()` and that is
-   **defensible** — the field is documented as *"indices WITHIN the section
-   that survived unchanged"*, i.e. positional, and the alignment is
+   **defensible** — the field is documented as _"indices WITHIN the section
+   that survived unchanged"_, i.e. positional, and the alignment is
    order-preserving by construction. So the survey's claim that the field is
    FALSE is **not** carried here; what is carried is that no kind can say
-   *same lines, resequenced*, and the kind it does report is a positive claim
+   _same lines, resequenced_, and the kind it does report is a positive claim
    about a different property.
 2. **A SUBSTITUTED CADENCE IS INDISTINGUISHABLE FROM AN INCIDENTAL EDIT.**
    Rows 2 and 3 of the table are the same verdict on two different objects.
@@ -6265,7 +6271,7 @@ words (`"the melodic line (Carnatic sangati)"`,
 WORDS are identical earns the `VARIES_OFF_TEXT` refusal and the new headline
 kind `TEXT_VERBATIM_CHANNEL_UNREAD`, ranked ABOVE `VERBATIM` — so a sangati
 stops reading as the strongest available claim that nothing changed and starts
-reading as *cannot tell*, which is what it is (doctrine 20). The refusal names
+reading as _cannot tell_, which is what it is (doctrine 20). The refusal names
 the declared channel, so a reader learns WHICH question went unanswered rather
 than only that one did.
 
@@ -6304,7 +6310,7 @@ requires every member of `VARIATION_KINDS` to have a fixture that REACHES it as
 the reported kind, so the new row failed there rather than shipping unreachable.
 Its fixture is a VERBATIM pair and the DECLARATION is the whole difference,
 which is the property the section exists to pin. §22's own heading and two of
-its messages said *"the fifteen kinds"*; the cardinality is struck rather than
+its messages said _"the fifteen kinds"_; the cardinality is struck rather than
 incremented, for the reason `CLAUDE.md`'s known gap 7 records — a commit written
 to repair a stale count once wrote one that was stale on arrival.
 
@@ -6318,12 +6324,12 @@ are reassuring and the fourth is the sharpest staging defect found so far.**
 over all **581,468 sung lines** of `corpus/song/` — every line no reader drops
 as `#`/`--- `/`[`:
 
-| what | lines | reaches a measurement? |
-|---|---:|---|
-| a trailing printed line number (`  heart.    10`) | 195 | **no** |
-| a time signature anywhere in a sung line (`4/4`, `6/8`) | **0** | — |
-| a tempo or expression mark (`Andante`, `crescendo`) | 5 | no — all 5 are SUNG WORDS |
-| a page or folio reference (`p. 255`, `vol. i.`) | 41 | no |
+| what                                                    | lines | reaches a measurement?    |
+| ------------------------------------------------------- | ----: | ------------------------- |
+| a trailing printed line number (`  heart.    10`)       |   195 | **no**                    |
+| a time signature anywhere in a sung line (`4/4`, `6/8`) | **0** | —                         |
+| a tempo or expression mark (`Andante`, `crescendo`)     |     5 | no — all 5 are SUNG WORDS |
+| a page or folio reference (`p. 255`, `vol. i.`)         |    41 | no                        |
 
 `_TOKEN` is `[^\W\d_]+`, **letters only**, so a bare numeral produces no token
 at all: a trailing `10` contributes nothing to the token count, nothing to
@@ -6341,15 +6347,15 @@ musical terms, correctly not apparatus.
 tokeniser.** 93 markers survive in sung lines across 9 files, and **68 of them
 are the line's END WORD** — the one token a rhyme harness cares most about.
 
-| file | markers | end word wrong |
-|---|---:|---:|
-| `eng_british_lord_byron.txt` | 54 | **54** |
-| `eng_hall_thomas_durfey.txt` | 10 | 6 |
-| `eng_british_robert_herrick.txt` | 9 | 2 |
-| `eng_hall_william_barnes.txt` | 7 | 5 |
-| `eng_british_richard_lovelace.txt` | 5 | 1 |
-| `john_dowland` · `john_wilbye` · `thomas_campion` · `msm_charles_james_finlayson` | 6 | 0 |
-| **total** | **93** | **68** |
+| file                                                                              | markers | end word wrong |
+| --------------------------------------------------------------------------------- | ------: | -------------: |
+| `eng_british_lord_byron.txt`                                                      |      54 |         **54** |
+| `eng_hall_thomas_durfey.txt`                                                      |      10 |              6 |
+| `eng_british_robert_herrick.txt`                                                  |       9 |              2 |
+| `eng_hall_william_barnes.txt`                                                     |       7 |              5 |
+| `eng_british_richard_lovelace.txt`                                                |       5 |              1 |
+| `john_dowland` · `john_wilbye` · `thomas_campion` · `msm_charles_james_finlayson` |       6 |              0 |
+| **total**                                                                         |  **93** |         **68** |
 
 What the harness reads, against what the page prints:
 
@@ -6378,7 +6384,7 @@ CORRECTION IS THE BETTER FINDING.**
 
 **BYRON'S HEADER SAYS NO SUCH THING.** It declares `author`, `region`, three
 `source` rows, two `licence` rows, two `edition` rows, a `note` and a
-`structure` line, and it contains the word *footnote* nowhere. The sentence
+`structure` line, and it contains the word _footnote_ nowhere. The sentence
 quoted above was lifted from a DIFFERENT file: a repo-wide grep for `[n]`
 returned hits from `eng_celtic_carolina_oliphant_lady_nairne.txt` and
 `eng_celtic_james_hogg.txt` among others, and the first three lines of that
@@ -6390,17 +6396,17 @@ mention a footnote strip in their header. Of the **9 files that leak markers,
 only 3 declare a strip** — Lovelace, Wilbye and Finlayson — and two of those
 three leak **zero** end-word corruptions:
 
-| file | markers | end word wrong | declares a strip? |
-|---|---:|---:|---|
-| `eng_british_lord_byron.txt` | 54 | **54** | **no** |
-| `eng_hall_thomas_durfey.txt` | 10 | 6 | no |
-| `eng_british_robert_herrick.txt` | 9 | 2 | no |
-| `eng_hall_william_barnes.txt` | 7 | 5 | no |
-| `eng_british_richard_lovelace.txt` | 5 | 1 | yes |
-| `eng_british_john_dowland.txt` | 3 | 0 | no |
-| `eng_british_john_wilbye.txt` | 2 | 0 | yes |
-| `eng_british_thomas_campion.txt` | 2 | 0 | no |
-| `eng_celtic_msm_charles_james_finlayson.txt` | 1 | 0 | yes |
+| file                                         | markers | end word wrong | declares a strip? |
+| -------------------------------------------- | ------: | -------------: | ----------------- |
+| `eng_british_lord_byron.txt`                 |      54 |         **54** | **no**            |
+| `eng_hall_thomas_durfey.txt`                 |      10 |              6 | no                |
+| `eng_british_robert_herrick.txt`             |       9 |              2 | no                |
+| `eng_hall_william_barnes.txt`                |       7 |              5 | no                |
+| `eng_british_richard_lovelace.txt`           |       5 |              1 | yes               |
+| `eng_british_john_dowland.txt`               |       3 |              0 | no                |
+| `eng_british_john_wilbye.txt`                |       2 |              0 | yes               |
+| `eng_british_thomas_campion.txt`             |       2 |              0 | no                |
+| `eng_celtic_msm_charles_james_finlayson.txt` |       1 |              0 | yes               |
 
 **SO THIS IS NOT A DECLARED RULE LEAKING — IT IS FILES STAGED WITHOUT THE RULE
 AT ALL, AND NOTHING ASKING.** The files that declare the strip overwhelmingly
@@ -6434,8 +6440,8 @@ owed a sitting rather than a regex.
 **AND IT IS NOT REACHABLE BY CHECK H**, which is why it needed the owner's
 question rather than the instrument: check H asks about a `[VERSE]` block
 holding ONE line, and every one of these 93 sits inside an ordinary multi-line
-stanza. The population is *a token inside a sung line*, not *a block that is
-not a stanza*, and the check that would raise it is a different check.
+stanza. The population is _a token inside a sung line_, not _a block that is
+not a stanza_, and the check that would raise it is a different check.
 
 ### M-28 · The printed indent carries the rhyme scheme at 6.19x, and every reader strips it `OPEN`
 **Found 2026-08-21 when the owner, having seen the bracket and numeral
@@ -6450,13 +6456,13 @@ with a space, and again delete it, and see whether the token stream or the
 end word moves. **Six of the seventy-three reach a measurement**, and every
 one is an ALREADY DECLARED coordinate:
 
-| char | lines where tokens move | what it is |
-|---|---:|---|
-| `'` U+0027 | 57,765 | the joiner; doctrine 65's Finnish hiatus, Barnes's three apostrophe jobs |
-| `-` U+002D | 26,986 | the joiner; the hyphen-splitting family, 3 recorded rule errors |
-| `’` U+2019 | 10,642 | normalised to `'`; doctrine 26 |
-| `(` `)` | 1,104 (901 END WORDS) | `strip_parens=True` ERASES the span; the `--voices` coordinate |
-| `‘` U+2018 | 478 | folds to `'` like `’`, so it JOINS: `‘tis` is one token |
+| char       | lines where tokens move | what it is                                                               |
+| ---------- | ----------------------: | ------------------------------------------------------------------------ |
+| `'` U+0027 |                  57,765 | the joiner; doctrine 65's Finnish hiatus, Barnes's three apostrophe jobs |
+| `-` U+002D |                  26,986 | the joiner; the hyphen-splitting family, 3 recorded rule errors          |
+| `’` U+2019 |                  10,642 | normalised to `'`; doctrine 26                                           |
+| `(` `)`    |   1,104 (901 END WORDS) | `strip_parens=True` ERASES the span; the `--voices` coordinate           |
+| `‘` U+2018 |                     478 | folds to `'` like `’`, so it JOINS: `‘tis` is one token                  |
 
 **~~AND `‘` IS AN ASYMMETRY NOBODY DECLARED, unlike `’`.~~ STRUCK THE SAME
 DAY, AND THE PROBE IS WHAT WAS WRONG.** `line_tokens` normalises BOTH curly
@@ -6602,26 +6608,26 @@ of it are everywhere.**
 
 **WHAT IS NOT THERE, over every line of every file under `corpus/`:**
 
-| | occurrences |
-|---|---:|
-| an explicit duration (`N minutes`, `N seconds`) | **0** |
-| a metronome mark (`M.M. ♩= 96`, `crotchet = 60`) | **0** |
-| a named Ottoman/Arabic *usul* | **0** |
-| a named Persian *bahr* / `aruz` | **0** |
-| a named Indian *tāla* | **0** |
+|                                                  | occurrences |
+| ------------------------------------------------ | ----------: |
+| an explicit duration (`N minutes`, `N seconds`)  |       **0** |
+| a metronome mark (`M.M. ♩= 96`, `crotchet = 60`) |       **0** |
+| a named Ottoman/Arabic _usul_                    |       **0** |
+| a named Persian _bahr_ / `aruz`                  |       **0** |
+| a named Indian _tāla_                            |       **0** |
 
 The three "duration" and 29 "tala" regex hits are all false positives — a
-Project Gutenberg edition note, and the Scots place-name in *"The lanesome
-Tala and the Lyne"*. Measured zeroes over a named population (doctrine 79),
+Project Gutenberg edition note, and the Scots place-name in _"The lanesome
+Tala and the Lyne"_. Measured zeroes over a named population (doctrine 79),
 not absences nobody looked for.
 
 **WHAT IS THERE IS BIGGER, and it is a period by another name:**
 
-| | count | where |
-|---|---:|---|
-| `--- TITLE: X  [air: Y]` — a NAMED TUNE | **11,099** | 194 files |
-| a 詞牌 tune-pattern name | 133 header lines | 67 files |
-| `data/qindingcipu_ge.tsv` — the 欽定詞譜 格, per-line character counts for 687 patterns | **2,334 rows** | — |
+|                                                                                         |            count | where     |
+| --------------------------------------------------------------------------------------- | ---------------: | --------- |
+| `--- TITLE: X  [air: Y]` — a NAMED TUNE                                                 |       **11,099** | 194 files |
+| a 詞牌 tune-pattern name                                                                | 133 header lines | 67 files  |
+| `data/qindingcipu_ge.tsv` — the 欽定詞譜 格, per-line character counts for 687 patterns |   **2,334 rows** | —         |
 
 A named air fixes the tune, and a tune fixes the period. A 詞牌 fixes the
 character count of every line, which is a period measured in syllables rather
@@ -6630,8 +6636,8 @@ and this repository already ships it.
 
 **WHY THIS IS THE RIGHT SHAPE OF UNBLOCK, and it is NOT the beat grid.**
 `CLAUDE.md` known gap 3 says the time layer is MUTE, and its own repin says
-what actually blocks it: *"the blocker was multiplicity AND the family size is
-the measurement that says so"* — 18 of 20 items mute, median family over
+what actually blocks it: _"the blocker was multiplicity AND the family size is
+the measurement that says so"_ — 18 of 20 items mute, median family over
 `m_needed` 5.5x to 21.3x, candidate families of 89 on a quatrain and 156–282
 across 24 sonnets. Doctrine 56 is why those families are so large: **a search
 over placements needs a null under the same search.** A DECLARED period needs
@@ -6668,10 +6674,10 @@ fifth of the vocabulary it does not.
 **MEASURED over the whole vocabulary**, by resolving every namespaced
 declaration and re-resolving what it stored:
 
-| | before | after |
-|---|---:|---:|
-| declarations that survive the store | 105 | **157** |
-| declarations REFUSED at grade time | **52** | 0 |
+|                                     | before |   after |
+| ----------------------------------- | -----: | ------: |
+| declarations that survive the store |    105 | **157** |
+| declarations REFUSED at grade time  | **52** |       0 |
 
 The 52 are the two namespaces of the **26 names that live in both `type` and
 `schema`** — which is not a coincidence, it is the whole reason M-37 made the
@@ -6688,8 +6694,8 @@ group comes back `SCHEME_UNREADABLE` with a message about namespaces the
 writer already resolved.
 
 **THE FIX IS THE STORED SHAPE, NOT A SECOND LOOKUP TABLE.** `_resolve_relation`
-returns `f"{ns}:{canon}"`, so the invariant is structural: *the stored value
-re-resolves to the same judge.* Uniformly namespaced rather than
+returns `f"{ns}:{canon}"`, so the invariant is structural: _the stored value
+re-resolves to the same judge._ Uniformly namespaced rather than
 namespaced-only-when-ambiguous, because the second rule makes the store's
 spelling a function of the vocabulary's current contents — a name gaining a
 `schema` twin later would silently change what an untouched mandate holds
@@ -6717,9 +6723,9 @@ m2 == m       -> True
 ```
 
 Not refused, not carried, not recorded. The comment attached to that very line
-reads *"before it joined this condition, `mandate(m, structures={...})` fell
+reads _"before it joined this condition, `mandate(m, structures={...})` fell
 through to the idempotence branch below and DROPPED the declaration in
-silence, the exact defect family `--returns=` beside `--groups=` was"* — and
+silence, the exact defect family `--returns=` beside `--groups=` was"_ — and
 the line it annotates had the identical hole one coordinate over, shipped the
 day `relations` was built. **A guard written as a list of the coordinates
 somebody remembered is a guard that goes stale every time one is added**; it
@@ -6733,8 +6739,8 @@ like when it is describing something nobody told it about).
 introduced by that work — `--structures=` has had it since it shipped.**
 
 Both coordinates raise `NoMandate`, and every CLI surface routes `NoMandate`
-to the shared no-mandate refusal, whose headline is *"this verb was given
-nothing to check against."* That sentence is FALSE here: a mandate WAS given,
+to the shared no-mandate refusal, whose headline is _"this verb was given
+nothing to check against."_ That sentence is FALSE here: a mandate WAS given,
 and what failed is a name inside it. Measured, both spellings:
 
 ```
@@ -6748,8 +6754,8 @@ right; the headline is a refusal naming the wrong layer, which is the family
 `UndecodableLyricFile` and the `NoMandate`-in-`fit`'s-words fixes both belong
 to. **NOT FIXED HERE** because the shared path serves several verbs and moving
 it is test churn that belongs in its own sitting rather than riding a wiring
-commit. The remedy is a second refusal shape — *the mandate is declared and a
-name in it is not* — carrying the same exit code.
+commit. The remedy is a second refusal shape — _the mandate is declared and a
+name in it is not_ — carrying the same exit code.
 
 ### M-52 · 17 of the 21 declared section functions are printed NOWHERE, and 62% of the marks that ARE printed reach no function at all `PARTIAL`
 **Raised by the owner 2026-08-22 — "is it possible to work on getting us the
@@ -6761,10 +6767,10 @@ the two halves of that question have opposite answers.**
 corpus, every bracketed mark, any spelling, case-insensitive, with `_`
 matching space or hyphen:
 
-| | printed marks |
-|---|---:|
-| `bridge`, `intro`, `outro`, `prechorus`, `postchorus`, `hook`, `coda`, `tag`, `vamp`, `solo`, `interlude`, `reprise`, `build`, `breakdown`, `turnaround`, `false_ending` | **0** |
-| `drop` | 1, and it is `[Sidenote: His shipmates drop down dead.]` |
+|                                                                                                                                                                          |                                            printed marks |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------: |
+| `bridge`, `intro`, `outro`, `prechorus`, `postchorus`, `hook`, `coda`, `tag`, `vamp`, `solo`, `interlude`, `reprise`, `build`, `breakdown`, `turnaround`, `false_ending` |                                                    **0** |
+| `drop`                                                                                                                                                                   | 1, and it is `[Sidenote: His shipmates drop down dead.]` |
 
 **0 of 17.** Adding rows to `grid.MARK_FUNCTION` for them would add seventeen
 rows that match zero lines — a vocabulary with no members, which is the
@@ -6778,24 +6784,24 @@ this corpus is printed verse.
 **HALF TWO: AND THERE IS A LARGE PARSING PROBLEM, ON A DIFFERENT SET.**
 Census of every `^\[...\]$` line under `corpus/`:
 
-| | count |
-|---|---:|
-| distinct marks printed | **55** |
-| mapped by `MARK_FUNCTION` | 5 |
-| **UNMAPPED** | **50** |
-| mapped LINES | 77,067 |
-| **unmapped LINES** | **125,465** |
+|                           |       count |
+| ------------------------- | ----------: |
+| distinct marks printed    |      **55** |
+| mapped by `MARK_FUNCTION` |           5 |
+| **UNMAPPED**              |      **50** |
+| mapped LINES              |      77,067 |
+| **unmapped LINES**        | **125,465** |
 
 **62% of every bracketed mark in this corpus reaches no function.** The
 unmapped set is not noise — it sorts into four kinds, and only the fourth is
 apparatus:
 
-| kind | marks | lines |
-|---|---|---:|
-| FORM, not function | `BAYT`, `RADIF`, `SLOKA`, `PANTUN ABAB`, `QUATRAIN AAAA`, `CYWYDD` | 125,332 |
-| a tradition's own SECTION names | `URLAR`, `SIUBHAL` (piobaireachd ground and variation, 3 files each) | 11 |
-| VOICE / ROLE parts | `PART: KAASON PUOLI`, `PART: KOSIOMIEHEN PUOLI`, `PART: MORSIAMELLE TUTTAVILTANSA`, `PART: KAASO`, `PART: MORSIAN LÄHTIESSÄNSÄ` (Finnish wedding song) | 53 |
-| apparatus | `SIDENOTE: …`, `MUSIC: …`, dates, poem titles | ~30 |
+| kind                            | marks                                                                                                                                                  |   lines |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------: |
+| FORM, not function              | `BAYT`, `RADIF`, `SLOKA`, `PANTUN ABAB`, `QUATRAIN AAAA`, `CYWYDD`                                                                                     | 125,332 |
+| a tradition's own SECTION names | `URLAR`, `SIUBHAL` (piobaireachd ground and variation, 3 files each)                                                                                   |      11 |
+| VOICE / ROLE parts              | `PART: KAASON PUOLI`, `PART: KOSIOMIEHEN PUOLI`, `PART: MORSIAMELLE TUTTAVILTANSA`, `PART: KAASO`, `PART: MORSIAN LÄHTIESSÄNSÄ` (Finnish wedding song) |      53 |
+| apparatus                       | `SIDENOTE: …`, `MUSIC: …`, dates, poem titles                                                                                                          |     ~30 |
 
 `RADIF` is the sharpest case and it is 54,193 lines: the radif IS the
 returning element of a ghazal, this repo already has a `refrain` function and
@@ -6809,12 +6815,12 @@ writing rather than only reading them: it does not, and it never did. Asking
 `plan.make_plan` directly over every form and 40 seeds each, rather than
 reading the docs:
 
-| | functions |
-|---|---|
-| **writes AND printed** | `verse`, `chorus` |
-| **writes, NEVER printed** | `bridge` `intro` `outro` `prechorus` `coda` `tag` `vamp` `solo` `interlude` `build` `breakdown` `drop` |
-| **printed, never written** | `burden` `refrain` |
-| neither | `false_ending` `hook` `postchorus` `reprise` `turnaround` |
+|                            | functions                                                                                              |
+| -------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **writes AND printed**     | `verse`, `chorus`                                                                                      |
+| **writes, NEVER printed**  | `bridge` `intro` `outro` `prechorus` `coda` `tag` `vamp` `solo` `interlude` `build` `breakdown` `drop` |
+| **printed, never written** | `burden` `refrain`                                                                                     |
+| neither                    | `false_ending` `hook` `postchorus` `reprise` `turnaround`                                              |
 
 **The planner emits 14 of 21, and 12 of those are among the 17 this entry
 opened on.** It writes bridges and outros today — `interlude`/`solo` as
@@ -6861,14 +6867,14 @@ planner could then emit.
 `quality/section_marks.py --check` re-derives every count from the corpus, and
 `quality/test_section_marks.py` is 13 checks over 5 sections.**
 
-| kind | marks | lines |
-|---|---:|---:|
-| `function` — what the section is FOR; `maps_to` names a vocabulary key | 6 | 77,070 |
-| `form` — a verse-form or prosodic unit, never a function | 6 | **125,333** |
-| `voice` — WHO sings, not what the span is for | 12 | 60 |
-| `apparatus` — not sung, not structural | 27 | 56 |
-| `movement` — a level ABOVE the section | 3 | 12 |
-| `refused` — the corpus does not decide | 1 | 1 |
+| kind                                                                   | marks |       lines |
+| ---------------------------------------------------------------------- | ----: | ----------: |
+| `function` — what the section is FOR; `maps_to` names a vocabulary key |     6 |      77,070 |
+| `form` — a verse-form or prosodic unit, never a function               |     6 | **125,333** |
+| `voice` — WHO sings, not what the span is for                          |    12 |          60 |
+| `apparatus` — not sung, not structural                                 |    27 |          56 |
+| `movement` — a level ABOVE the section                                 |     3 |          12 |
+| `refused` — the corpus does not decide                                 |     1 |           1 |
 
 **NEVER SUMMED** (doctrine 79): a form mark and a function mark are not two of
 the same thing, and the headline that added them is the 62% this entry opened
@@ -6890,7 +6896,7 @@ the whole of the number, and it is not a backlog of fifty small omissions.
    the contained layer's table. Only **`PATTER`** is a missing function, and
    its file's own note carries the evidence — a printed `PATTER-TRIO.`
    heading, plus the record that nothing else in the file was tagged
-   *"because that would be an editorial guess"*.
+   _"because that would be an editorial guess"_.
 2. `[RADIF]` is **`form`, not a `refrain`.** This entry proposed introducing
    it to the refrain machinery; a radif is the ghazal's repeated post-rhyme
    ELEMENT, not a span with a job, and mapping it would make a prosodic unit
@@ -6907,6 +6913,7 @@ a mark cannot be a function to the reader and apparatus to the census
 joining the 62%.
 
 **STILL OPEN, and it is why this is PARTIAL:**
+
 1. **`PATTER` is not in the vocabulary yet.** The evidence is in hand and the
    row is written; adding a 22nd function is a vocabulary change.
 2. **There is no MOVEMENT layer.** Three marks in three files is thin, and
@@ -6957,8 +6964,8 @@ re-open still wins, and a fresh build with no rule still gets the default:
 both pinned.
 
 **SAME SHAPE AS M-50 ONE FIELD OVER, AND THAT IS THE ENTRY.** The re-open
-path could not distinguish *not declared* from *declared as the default* for
-`rule`, and could not distinguish *not declared* from *not re-openable* for
+path could not distinguish _not declared_ from _declared as the default_ for
+`rule`, and could not distinguish _not declared_ from _not re-openable_ for
 `relations`. One branch, two ways of reading an omitted argument as a
 statement.
 
@@ -6985,7 +6992,7 @@ if ending:
 
 `grid.FunctionSpec` carries `name`, `gloss`, `recurrence`, `returns_as`,
 `contrasts_with`, `aliases` — **and no position field**. `outro`'s gloss says
-*"closes the song and does not recur"*; `recurrence='once'` is the machine-
+_"closes the song and does not recur"_; `recurrence='once'` is the machine-
 readable half of that sentence and **"closes the song" is the half that stayed
 prose**. Doctrine 1's own shape: a rule enforced by the order of two
 `append` calls cannot be disagreed with in a coordinate, because it is not in
@@ -6996,8 +7003,8 @@ grader has no `SECTION_OUT_OF_POSITION`, so a hand-written blueprint with an
 outro in the middle grades clean. (2) THE ROSTER CANNOT BE EXTENDED BY A TABLE
 ROW: adding `urlar`/`siubhal`/`crunluath` (`M-52`) means editing control flow,
 not declaring their positions. (3) `_CELLS` IS A TABLE THE V2 REWRITE WAS
-MEANT TO DELETE — 12 hardcoded runs whose own comment claims they are *"a
-short run the vocabulary's own adjacencies license"*, while **the vocabulary
+MEANT TO DELETE — 12 hardcoded runs whose own comment claims they are _"a
+short run the vocabulary's own adjacencies license"_, while **the vocabulary
 has no adjacency field**. That derivation is ASSERTED, not performed
 (doctrine 45), and it is the same table shape standing rule 2 records the
 owner catching in v1.
@@ -7006,10 +7013,10 @@ owner catching in v1.
 A position rule is either DEFINITIONAL or CONVENTIONAL and the two get
 opposite treatment:
 
-| | example | where it goes |
-|---|---|---|
+|                         | example                                                                   | where it goes                                                                                     |
+| ----------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | **HARD / definitional** | an outro is LAST; a prechorus precedes a chorus; a build points at a drop | a DECLARED coordinate on `FunctionSpec`, pruning the planner's space and giving the grader a flag |
-| **SOFT / conventional** | verse-chorus-verse-chorus-bridge-chorus | `FormConvention` only, a NOTE, never the planner (doctrine 6, and the "move 37" ban) |
+| **SOFT / conventional** | verse-chorus-verse-chorus-bridge-chorus                                   | `FormConvention` only, a NOTE, never the planner (doctrine 6, and the "move 37" ban)              |
 
 Enforcing the hard half costs ZERO novelty: a section labelled `outro` that is
 not last is not a novel structure, it is a MISLABELLED SECTION. Enforcing the
@@ -7021,12 +7028,12 @@ since the glosses do state it in prose. Run over all 21, that claims a
 position or an adjacency for **11 of 21**, and **four of the eleven are
 false**:
 
-| function | keyword derivation | why it is wrong |
-|---|---|---|
-| `false_ending` | `last` (matched *close*) | *"a close the song comes back from"* — it is precisely NOT last; something follows it BY DEFINITION. The sign is inverted. |
-| `turnaround` | `last` (matched *end*) | *"carries the end of one section into the next"* — a SEAM, not the song's end. Wrong scope. |
-| `vamp` | `first` (matched *open*) | *"a repeating figure held open"* — a different sense of the word entirely. |
-| `tag` | `last` (matched *closing*) | *"closing a section **or the song**"* — genuinely ambiguous, and both readings are live in one gloss. |
+| function       | keyword derivation         | why it is wrong                                                                                                            |
+| -------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `false_ending` | `last` (matched _close_)   | _"a close the song comes back from"_ — it is precisely NOT last; something follows it BY DEFINITION. The sign is inverted. |
+| `turnaround`   | `last` (matched _end_)     | _"carries the end of one section into the next"_ — a SEAM, not the song's end. Wrong scope.                                |
+| `vamp`         | `first` (matched _open_)   | _"a repeating figure held open"_ — a different sense of the word entirely.                                                 |
+| `tag`          | `last` (matched _closing_) | _"closing a section **or the song**"_ — genuinely ambiguous, and both readings are live in one gloss.                      |
 
 Only `intro` (first), `outro` (last) and `coda` (last) survive as unambiguous.
 **So the position table must be HAND-DECLARED per row with the gloss quoted as
@@ -7036,18 +7043,18 @@ rather than performed (doctrine 45), and this time with four measured errors
 in it rather than an unfalsifiable claim.
 
 **THE ADJACENCY HALF HAS A SECOND PROBLEM: the TARGETS are prose too.**
-`drop`'s gloss is *"the arrival a build points at"* — it names `build`, in
-English, inside a sentence. `postchorus` *"returns immediately after the
-chorus"*, `prechorus` *"lifts from verse into chorus"*, `burden` *"printed
-AFTER a stanza"*. Every one of those is a real, checkable relation written
+`drop`'s gloss is _"the arrival a build points at"_ — it names `build`, in
+English, inside a sentence. `postchorus` _"returns immediately after the
+chorus"_, `prechorus` _"lifts from verse into chorus"_, `burden` _"printed
+AFTER a stanza"_. Every one of those is a real, checkable relation written
 where no checker can reach it, which is this entry's whole subject restated
 one field over.
 
 **AND `_sample_pattern` CARRIES A SECOND RULE WITH NO EVIDENCE.**
 `rng.choice((None, "outro", "coda"))` makes `outro` and `coda` **mutually
 exclusive** — a song may have neither, or one, and never both. Nothing in
-either gloss says so (`outro`: *"closes the song and does not recur"*; `coda`:
-*"a closing section with its own material"*), and a song can plainly carry a
+either gloss says so (`outro`: _"closes the song and does not recur"_; `coda`:
+_"a closing section with its own material"_), and a song can plainly carry a
 coda followed by an outro. A rule with no warrant, enforced by the shape of a
 tuple, in the same function as the one this entry opened on.
 
@@ -7068,17 +7075,17 @@ planner and the grader both read. `plan._sample_pattern` derives its edges
 from `boundary` and rejects any body the table refuses.
 `quality/test_placement.py` is 24 checks over 5 sections.
 
-| | |
-|---|---:|
-| rows carrying a boundary | **3** — `intro`, `outro`, `coda` |
-| rows carrying any claim | 11 |
-| rows REFUSING one (doctrine 20) | 2 — `tag`, `drop` |
-| rows saying nothing, `verse` among them | 8 |
+|                                         |                                  |
+| --------------------------------------- | -------------------------------: |
+| rows carrying a boundary                | **3** — `intro`, `outro`, `coda` |
+| rows carrying any claim                 |                               11 |
+| rows REFUSING one (doctrine 20)         |                2 — `tag`, `drop` |
+| rows saying nothing, `verse` among them |                                8 |
 
 **IT FOUND A LIVE DEFECT ON ITS FIRST RUN.** Shipped blueprints: **0
 violations**. The PLANNER: **19 of 300 plans**, every one an `interlude`
-opening or closing the song — a span whose own gloss is *"between sung
-sections"*, with nothing sung on one side of it. **Now 0 of 300, with function
+opening or closing the song — a span whose own gloss is _"between sung
+sections"_, with nothing sung on one side of it. **Now 0 of 300, with function
 coverage unmoved at 14 of 21** — the constraint pruned nothing legitimate.
 
 **SIX IMPORT-TIME CHECKS, each proven by a mutation**: a boundary outside the
@@ -7104,6 +7111,7 @@ vocabulary and its pure checker from `grid`, never a reader — stricter than
 the list it replaces.
 
 **WHAT IS STILL OPEN, and it is why this is PARTIAL:**
+
 1. The unwarranted **outro/coda exclusion is PRESERVED, not lifted** — now an
    explicit declared choice with the comment saying no gloss licenses it,
    rather than a rule hidden in a tuple's shape. Lifting it is a distribution
@@ -7117,18 +7125,18 @@ the list it replaces.
    hand-written tuples reaching 11 of them. TEN ARE UNDRAWABLE** — no
    missing capability, no hard problem, simply absent from the list:
 
-   | undrawable | what `grid` ALREADY declares about it |
-   |---|---|
-   | `intro` | `boundary=first` |
-   | `outro` | `boundary=last` |
-   | `coda` | `boundary=last` |
-   | `postchorus` | `requires=(chorus,)`, `adjacent_after=chorus` |
-   | `burden` | `requires=(verse,)`, `adjacent_after=verse` |
-   | `reprise` | `needs_before=True` |
-   | `turnaround` | `needs_before=True`, `needs_after=True` |
-   | `false_ending` | `needs_after=True` |
-   | `hook` | *(nothing — see item 4)* |
-   | `refrain` | *(nothing — see item 4)* |
+   | undrawable     | what `grid` ALREADY declares about it         |
+   | -------------- | --------------------------------------------- |
+   | `intro`        | `boundary=first`                              |
+   | `outro`        | `boundary=last`                               |
+   | `coda`         | `boundary=last`                               |
+   | `postchorus`   | `requires=(chorus,)`, `adjacent_after=chorus` |
+   | `burden`       | `requires=(verse,)`, `adjacent_after=verse`   |
+   | `reprise`      | `needs_before=True`                           |
+   | `turnaround`   | `needs_before=True`, `needs_after=True`       |
+   | `false_ending` | `needs_after=True`                            |
+   | `hook`         | _(nothing — see item 4)_                      |
+   | `refrain`      | _(nothing — see item 4)_                      |
 
    Eight of the ten carry placement constraints that are declared, validated
    at import, and covered by `quality/test_placement.py` — **and the planner
@@ -7140,6 +7148,7 @@ the list it replaces.
    `_sample_pattern` ALREADY calls for its rejection step) instead of from
    the literal, and the roster goes 11 -> 21 with the placement layer, not
    the tuple's shape, deciding what is legal.
+
 3. **A definitional violation arguably belongs at the READER**, refused the
    way `UNDECLARED_METER` is. Shipped blueprints measure 0, so nothing is lost
    by reporting first and ruling later, but it is a behaviour change at a door.
@@ -7149,7 +7158,6 @@ the list it replaces.
    correct by accident rather than by declaration.
 
 TESTED WHILE OPEN: `quality/test_placement.py`.
-
 
 **THE REMAINING WORK, restated.** (2)
 `_sample_pattern` DERIVES from it instead of hardcoding, and `_CELLS` either
@@ -7168,11 +7176,11 @@ because this song xyz and because of that a pre chorus would mess that up."
 That sentence fits neither layer M-54 named, and the gap is that a THIRD layer
 was missing from the analysis.**
 
-| layer | example | who owns it | enforcement |
-|---|---|---|---|
-| **1 VOCABULARY** — definitional | a prechorus requires a chorus | `grid.SECTION_FUNCTIONS` | prunes the planner; a grader FLAG |
-| **2 DECLARATION** — this song | "chorus and postchorus, no prechorus" | the writer | restricts the roster before sampling |
-| **3 CONVENTION** — statistical | verse-chorus-verse-chorus-bridge | `grid.FormConvention` | a NOTE, never the planner |
+| layer                           | example                               | who owns it              | enforcement                          |
+| ------------------------------- | ------------------------------------- | ------------------------ | ------------------------------------ |
+| **1 VOCABULARY** — definitional | a prechorus requires a chorus         | `grid.SECTION_FUNCTIONS` | prunes the planner; a grader FLAG    |
+| **2 DECLARATION** — this song   | "chorus and postchorus, no prechorus" | the writer               | restricts the roster before sampling |
+| **3 CONVENTION** — statistical  | verse-chorus-verse-chorus-bridge      | `grid.FormConvention`    | a NOTE, never the planner            |
 
 **LAYER 2 HAS NO IMPLEMENTATION.** `plan.make_plan(seed, form=...)` takes a
 seed and a form name; the roster comes from `GENERATOR_ROSTER` and
@@ -7208,11 +7216,11 @@ SAMPLED: the planner does not pick a relation, because putting
 `type:pararhyme` on a group nobody asked for is the "move 37" ban pointed at
 rhyme instead of at shape. It CARRIES what the writer declared.
 
-| surface | what it gained |
-|---|---|
-| `quality/plan.py` | `relation=` / `functions=`, validated at plan time; `plan["relation"]`, `plan["functions"]`, `plan["functions_unused"]` |
-| `grading_command` | emits `'--relation=…'`, so the one command that grades the draft names it |
-| the `plan` verb | `--relation=NAME` / `--functions=a,b,c`, with a RELATION and ROSTER disclosure line |
+| surface              | what it gained                                                                                                                                                                                                                    |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `quality/plan.py`    | `relation=` / `functions=`, validated at plan time; `plan["relation"]`, `plan["functions"]`, `plan["functions_unused"]`                                                                                                           |
+| `grading_command`    | emits `'--relation=…'`, so the one command that grades the draft names it                                                                                                                                                         |
+| the `plan` verb      | `--relation=NAME` / `--functions=a,b,c`, with a RELATION and ROSTER disclosure line                                                                                                                                               |
 | `mcp/lyric_tools.js` | `relation` + `functions` on `lyric_plan` and `lyric_grade`; `relation` on `lyric_check` (which builds its own mandate rather than reading a plan); `planArgs` passes them and the grade picks `plan.relation` up off the artifact |
 
 **THE ROSTER IS AN ALLOW-LIST, CHECKED AGAINST M-54's `requires` BEFORE ANY
@@ -7252,7 +7260,7 @@ environment artifact, verified by reverting.~~
 `data/`, and it is present and readable: `lyric_screen live: hair/chair
 BANNED: HOMEOTELEUTON` passes in the same run. The real cause is a fixture of
 ours that went stale when the planner was rewritten — the check builds a
-**22-line** draft on a comment reading *"Seed 55 is Count to Five's shape"*,
+**22-line** draft on a comment reading _"Seed 55 is Count to Five's shape"_,
 and planner v2 gives seed 55 **53 lines over 4 sections
 (chorus-postchorus-verse-hook, RETURNS `(none)`)**. A wrong-length draft
 refuses at exit 2, `plan --fill` emits no render, `lyric_grade` returns ONE
@@ -7277,10 +7285,10 @@ and red on exactly this check.
 **Found 2026-08-22 deriving the section-constraint table, by reading all 21
 glosses rather than the four the work needed.**
 
-- `refrain` — *"a returning line or couplet INSIDE or after a stanza, **not a
-  standalone section**"*
-- `hook` — *"a section that IS the hook. A hook is properly a **FRAGMENT**
-  (`MISSING.md` D-2) and `Hook` below is the object for that"*
+- `refrain` — _"a returning line or couplet INSIDE or after a stanza, **not a
+  standalone section**"_
+- `hook` — _"a section that IS the hook. A hook is properly a **FRAGMENT**
+  (`MISSING.md` D-2) and `Hook` below is the object for that"_
 
 So `grid.SECTION_FUNCTIONS` is **19 sections and 2 sub-section objects sharing
 one table**, and each of the two says so in the field a reader would consult.
@@ -7293,7 +7301,7 @@ section-sized slot to be sampled into. (2) Any position or adjacency coordinate
 refrain first or last" has no answer when a refrain sits INSIDE a stanza.
 (3) `refrain` is the second-most attested mark in the corpus (709 lines, 40
 files) and `burden` — 1,753 lines — is kept deliberately separate from it
-*"because the corpus marks the two differently"*, so the distinction is real
+_"because the corpus marks the two differently"_, so the distinction is real
 and load-bearing while the CATEGORY is wrong for one of them.
 
 **NOT FIXED BY DELETION.** Both are needed and both are attested; what is wrong
@@ -7312,11 +7320,11 @@ is wrong is that the field modelling it is symmetric.**
 
 **THE REPO ALREADY DREW THE HARDER LINE AND STOPPED ONE SHORT.**
 `grid._FUNCTION_SPELLINGS` is spelling variants only (`pre-chorus` →
-`prechorus`) and its own comment says *"NOT a synonym table: `middle8 → bridge`
-would be a CLAIM, and claims live in the vocabulary above WITH a gloss."* That
+`prechorus`) and its own comment says _"NOT a synonym table: `middle8 → bridge`
+would be a CLAIM, and claims live in the vocabulary above WITH a gloss."_ That
 distinction is correct and is not the defect. The defect is one level in:
-`FunctionSpec.aliases` is documented as *"a genre dialect naming **the same
-function**"* — **synonymy, a symmetric relation** — and it is carrying claims
+`FunctionSpec.aliases` is documented as _"a genre dialect naming **the same
+function**"_ — **synonymy, a symmetric relation** — and it is carrying claims
 that are not symmetric.
 
 **MEASURED.** `Section(bars=N, function="middle-eight")` for N in 8, 4 and 13:
@@ -7327,8 +7335,8 @@ bars= 4  -> function='bridge'
 bars=13  -> function='bridge'
 ```
 
-The bridge row's own gloss argues a middle-8 needs no row *"whose bar count
-happens to be 8, **which this model already records**"*. The model records **a**
+The bridge row's own gloss argues a middle-8 needs no row _"whose bar count
+happens to be 8, **which this model already records**"_. The model records **a**
 bar count and **never checks it against the claim the alias made**, and the
 claim itself is not kept — after resolution nothing can ask "was this declared
 as a middle-eight?". So the door accepted a SPECIALISATION and stored the
@@ -7343,18 +7351,18 @@ looking at the second one.
 
 **THE SUBSUMPTION EDGES, and they are already written in prose.**
 
-| specific | genus | where it is stated today | how it is stored |
-|---|---|---|---|
-| `middle-eight` | `bridge` | the bridge gloss | ALIAS — lossy |
-| `middle-8` | `bridge` | same | ALIAS — lossy |
-| `departure-section` | `bridge` | the bridge row | ALIAS — probably a true synonym |
-| `burden` | `refrain` | the burden gloss: *"**a refrain** sung by all, printed AFTER a stanza"* | a SEPARATE ROW |
-| `instrumental-break` | `interlude` | the interlude row | ALIAS — probably a true synonym |
+| specific             | genus       | where it is stated today                                                | how it is stored                |
+| -------------------- | ----------- | ----------------------------------------------------------------------- | ------------------------------- |
+| `middle-eight`       | `bridge`    | the bridge gloss                                                        | ALIAS — lossy                   |
+| `middle-8`           | `bridge`    | same                                                                    | ALIAS — lossy                   |
+| `departure-section`  | `bridge`    | the bridge row                                                          | ALIAS — probably a true synonym |
+| `burden`             | `refrain`   | the burden gloss: _"**a refrain** sung by all, printed AFTER a stanza"_ | a SEPARATE ROW                  |
+| `instrumental-break` | `interlude` | the interlude row                                                       | ALIAS — probably a true synonym |
 
 `burden` is the interesting one and it is the OPPOSITE error: the subsumption
-is real and stated (*"a refrain sung by all"*) and the two are correctly kept
-as separate rows, because *"the corpus marks the two differently and collapsing
-them would delete a distinction 1,580 blocks already carry"* — which is right.
+is real and stated (_"a refrain sung by all"_) and the two are correctly kept
+as separate rows, because _"the corpus marks the two differently and collapsing
+them would delete a distinction 1,580 blocks already carry"_ — which is right.
 But the table can then say only that they are UNRELATED, when what is true is
 that one is a kind of the other. **Both directions of the same missing
 relation:** an alias asserts identity where there is specialisation; separate
@@ -7362,8 +7370,8 @@ rows assert independence where there is specialisation.
 
 **AND `refrain`/`chorus` IS NOT ONE OF THEM — checked rather than assumed.**
 The owner's "same deal with refrain and chorus if I'm not mistaken" does not
-hold: `chorus` is *"the returning **section**"* and `refrain` is *"a returning
-line or couplet INSIDE or after a stanza, **not a standalone section**"*. They
+hold: `chorus` is _"the returning **section**"_ and `refrain` is _"a returning
+line or couplet INSIDE or after a stanza, **not a standalone section**"_. They
 are SIBLINGS under returning material, not parent and child — different KINDS
 of object (see M-56), which is a stronger separation than subsumption, not a
 weaker one. The real edge in that family is `burden ⊂ refrain`.
@@ -7395,23 +7403,23 @@ different coordinates at different rungs of the same ladder
 is why "add everything to the default" had no single site — and why saying
 so was an explanation and not an answer.
 
-| gate | holds | was | now |
-|---|---|---|---|
-| `Declaration.admit` | 4 relation CLASSES | 2 | **4** |
-| `type:` namespace | 76 names / 49 keys | routed | routed (M-58 still caps 69 at one syllable) |
-| `schema:` namespace | **77 schemas** | resolved 77, judged 0 | **judged** |
+| gate                | holds              | was                   | now                                         |
+| ------------------- | ------------------ | --------------------- | ------------------------------------------- |
+| `Declaration.admit` | 4 relation CLASSES | 2                     | **4**                                       |
+| `type:` namespace   | 76 names / 49 keys | routed                | routed (M-58 still caps 69 at one syllable) |
+| `schema:` namespace | **77 schemas**     | resolved 77, judged 0 | **judged**                                  |
 
 **GATE 1 — WHAT IT COST, MEASURED.** Every mandated pair the battery
 flagged, classified by the relation THIS HARNESS'S OWN BAND had already
 typed it as:
 
-| typed relation | flagged pairs |
-|---|---:|
-| `NO_RELATION` | 363 |
-| `ASSONANCE` | **303** |
-| `CONSONANCE` | **52** |
-| `REPEAT` | 8 |
-| **total flagged** | **726** |
+| typed relation    | flagged pairs |
+| ----------------- | ------------: |
+| `NO_RELATION`     |           363 |
+| `ASSONANCE`       |       **303** |
+| `CONSONANCE`      |        **52** |
+| `REPEAT`          |             8 |
+| **total flagged** |       **726** |
 
 **355 of 726 — 48.9% — were real, typed sonic relations.** Doctrines 3 and
 24 say the band RELABELS rather than rejects, precisely because an assonance
@@ -7422,8 +7430,8 @@ BELOW the class that needed it, so the default was a hand-typed literal free
 to drift from its own validator — doctrine 1).
 
 **HOW IT SURVIVED EVERY GREEN RUN.** `quality/test_homeoteleuton.py` §5
-asserted *"DEFAULT is byte-identical to the old world: sun/much violates as
-ASSONANCE"* — and PASSED. A check written to guard the door was holding it
+asserted _"DEFAULT is byte-identical to the old world: sun/much violates as
+ASSONANCE"_ — and PASSED. A check written to guard the door was holding it
 shut. That is the second pin found doing this in one day; the first is in
 `quality/test_verbs.py` §6, which proved a group had been mandated by
 pointing at a **violation message about it**, so when the pair started
@@ -7436,12 +7444,12 @@ derived one.
 **GATE 3 — THE TWO REASONS, ONE REAL.** `satisfies_relation` refused the
 `schema:` namespace for a shape reason and a policy reason.
 
-* **Shape (real).** A `RelationSchema` is evaluated by `relations.realise()`
+- **Shape (real).** A `RelationSchema` is evaluated by `relations.realise()`
   over a whole STREAM; `satisfies_relation` holds two words. FIXED by doing
   the stream work once in `grade()`, where the lines are, and handing the
   judge the line pairs (`relations.line_pairs_for`, new). `Span.origin` is
   `L<0-based>.<locus>`, so the conversion happens in one place.
-* **Policy (struck).** ~~"gated on the null sweep: a schema that does not
+- **Policy (struck).** ~~"gated on the null sweep: a schema that does not
   beat its own null must not become enforceable"~~ — the same prove-it-first
   instinct that produced the two-name default. The null sweep governs what
   this harness may ASSERT unprompted. It does not govern what a writer may
@@ -7451,12 +7459,12 @@ derived one.
 By placement axis, with satisfiability measured on a bare four-line English
 draft:
 
-| bucket | schemas | satisfiable today |
-|---|---:|---:|
-| end-rhyme (`both_line_final`) — fits `--groups=` directly | 29 | **18** |
-| other cross-line | 19 | 12 |
-| **intra-line figure** — refuses, naming its placement | 19 | 13 |
-| unplaced | 10 | 3 |
+| bucket                                                    | schemas | satisfiable today |
+| --------------------------------------------------------- | ------: | ----------------: |
+| end-rhyme (`both_line_final`) — fits `--groups=` directly |      29 |            **18** |
+| other cross-line                                          |      19 |                12 |
+| **intra-line figure** — refuses, naming its placement     |      19 |                13 |
+| unplaced                                                  |      10 |                 3 |
 
 The 19 intra-line schemas do not become rhyme relations by being routed:
 `same_line`/`same_token` figures are properties of ONE line, so a mandate
@@ -7478,29 +7486,29 @@ move: a preference in prose is followed as often as it is remembered.
 2026-08-22 when the owner asked for the list.** Counted apart, never summed
 (doctrine 79); the buckets partition the registry.
 
-| bucket | n | what it is |
-|---|---:|---|
-| **A** live in a mandate now | **35** | nothing bars them — 33 out of the box, plus the 2 the refrain-tail frame turned on in this same lot (see B) |
-| **B** needs a stanza frame | 5 | ~~7~~ — the 2 refrain-tail schemas were WIRED HERE and moved to A. The remaining 5 are M-39's question, not this entry's — see below |
-| **C** INTRA-LINE figure | 19 | a property of ONE line, so no pair of lines can stand in it. Needs a per-LINE finding route, which is different wiring from this one and is not attempted here |
-| **D** data that does not exist here (`obtain`) | 8 | sense inventory, lexeme inventory, sourced earlier-period and dialect phonologies, `delivered` and `sung` surfaces — **AND THREE OF THESE EIGHT ARE MISFILED FOR THE DECLARATION QUESTION; SEE THE NOTE BELOW** |
-| **E** resource nobody has built (`build`) | 5 | lemmatiser/segmenter, manner-of-articulation partition, orthography surface, and the LIFT MAP (no scanner, no declarer, no caller anywhere in the tree) |
-| **F** deliberately inert (`disjoint`) | 1 | `offbeat internal rhyme` — `frames.beat` is doctrine 4's declared-inert field and refuses BY DESIGN |
-| **G** unclassified — a gap in M-36's own table | 4 | `Middle Chinese end rhyme (同用 group)`, `proest`, `refrain by reference`, `trite rhyme`: their missing capabilities (`quotient:同用`, `quotient:vowel_class`, `stub_resolution`, `frequency`) get a reason in `BLOCKERS` but no `Blocker:` KIND, so the table cannot say whether they are obtainable |
+| bucket                                         |      n | what it is                                                                                                                                                                                                                                                                                            |
+| ---------------------------------------------- | -----: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **A** live in a mandate now                    | **35** | nothing bars them — 33 out of the box, plus the 2 the refrain-tail frame turned on in this same lot (see B)                                                                                                                                                                                           |
+| **B** needs a stanza frame                     |      5 | ~~7~~ — the 2 refrain-tail schemas were WIRED HERE and moved to A. The remaining 5 are M-39's question, not this entry's — see below                                                                                                                                                                  |
+| **C** INTRA-LINE figure                        |     19 | a property of ONE line, so no pair of lines can stand in it. Needs a per-LINE finding route, which is different wiring from this one and is not attempted here                                                                                                                                        |
+| **D** data that does not exist here (`obtain`) |      8 | sense inventory, lexeme inventory, sourced earlier-period and dialect phonologies, `delivered` and `sung` surfaces — **AND THREE OF THESE EIGHT ARE MISFILED FOR THE DECLARATION QUESTION; SEE THE NOTE BELOW**                                                                                       |
+| **E** resource nobody has built (`build`)      |      5 | lemmatiser/segmenter, manner-of-articulation partition, orthography surface, and the LIFT MAP (no scanner, no declarer, no caller anywhere in the tree)                                                                                                                                               |
+| **F** deliberately inert (`disjoint`)          |      1 | `offbeat internal rhyme` — `frames.beat` is doctrine 4's declared-inert field and refuses BY DESIGN                                                                                                                                                                                                   |
+| **G** unclassified — a gap in M-36's own table |      4 | `Middle Chinese end rhyme (同用 group)`, `proest`, `refrain by reference`, `trite rhyme`: their missing capabilities (`quotient:同用`, `quotient:vowel_class`, `stub_resolution`, `frequency`) get a reason in `BLOCKERS` but no `Blocker:` KIND, so the table cannot say whether they are obtainable |
 
 **BUCKET B IN FULL, AND THE SPLIT MATTERS** — the first draft of this table
 called all seven "wiring, the cheapest win", which was wrong about five of
 them and is corrected here rather than left standing:
 
-| schema | needs | verdict |
-|---|---|---|
-| `epistrophe / radif` | `refrain_tail` | **DONE IN THIS LOT.** `grade()` now calls `relations.mark_refrain_tail` when a declared schema needs the frame — and passes `lines=` THE MANDATE'S OWN GROUPS (0-based), not `None`. That argument is not a nicety: the function's docstring records that `lines=None` answers ZERO on 495 of 495 Hafez ghazals, because the fraction is taken over lines that never carried the rhyme. `lines` is documented as "the declared rhyme-bearing subset as line indices", and a mandate IS that subset, spelled by the writer — so the coordinate comes from the declaration and not from the checker's guess (doctrine 45). MEASURED: `refrain_tail` goes `absent` -> `present` and the schema returns 6 line pairs on a four-line radif draft |
-| `qafiya (before the radif)` | `refrain_tail` | **DONE**, same route. It returns the EMPTY set on that draft (the pre-radif words are `round`/`end`/`round`/`end`), which is looked-and-none and not a refusal — the distinction the whole route exists to keep |
-| `analysed rhyme` | `stanza` | **NOT WIRING — this is M-39(b).** `stanza` goes `present` from BLANK LINES, and `grade()` is handed lines with the blanks already stripped, so it has no ground. Passing an all-zero stanza vector to make the capability report `present` is precisely the defect M-39(b) closed: a frame asserted where there is none, letting five `frame="stanza"` schemas quantify over one frame |
-| `blues AAB stanza` | `stanza` | same |
-| `dvitiyakshara-prasa` | `stanza` | same |
-| `monai` | `stanza` | same |
-| `monorhyme / leash` | `stanza` | same |
+| schema                      | needs          | verdict                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `epistrophe / radif`        | `refrain_tail` | **DONE IN THIS LOT.** `grade()` now calls `relations.mark_refrain_tail` when a declared schema needs the frame — and passes `lines=` THE MANDATE'S OWN GROUPS (0-based), not `None`. That argument is not a nicety: the function's docstring records that `lines=None` answers ZERO on 495 of 495 Hafez ghazals, because the fraction is taken over lines that never carried the rhyme. `lines` is documented as "the declared rhyme-bearing subset as line indices", and a mandate IS that subset, spelled by the writer — so the coordinate comes from the declaration and not from the checker's guess (doctrine 45). MEASURED: `refrain_tail` goes `absent` -> `present` and the schema returns 6 line pairs on a four-line radif draft |
+| `qafiya (before the radif)` | `refrain_tail` | **DONE**, same route. It returns the EMPTY set on that draft (the pre-radif words are `round`/`end`/`round`/`end`), which is looked-and-none and not a refusal — the distinction the whole route exists to keep                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `analysed rhyme`            | `stanza`       | **NOT WIRING — this is M-39(b).** `stanza` goes `present` from BLANK LINES, and `grade()` is handed lines with the blanks already stripped, so it has no ground. Passing an all-zero stanza vector to make the capability report `present` is precisely the defect M-39(b) closed: a frame asserted where there is none, letting five `frame="stanza"` schemas quantify over one frame                                                                                                                                                                                                                                                                                                                                                      |
+| `blues AAB stanza`          | `stanza`       | same                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `dvitiyakshara-prasa`       | `stanza`       | same                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `monai`                     | `stanza`       | same                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `monorhyme / leash`         | `stanza`       | same                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 So the cheapest win was **two** schemas, not seven — and they are done. The
 other five wait on `grade()` being given text it has not been given (the
@@ -7520,8 +7528,8 @@ ballad and folk move of forcing a normally-unstressed syllable to take the
 stress so it rhymes; bent rhyme is the rap and soul move of bending a vowel
 in performance to land one. The rhyme lives in the delivery, not on the page.
 
-`relations_null.BLOCKERS` calls both `Blocker: obtain` — *"what the singer
-actually sang, against what the page prints"* — **and for NULLING that is
+`relations_null.BLOCKERS` calls both `Blocker: obtain` — _"what the singer
+actually sang, against what the page prints"_ — **and for NULLING that is
 correct and stays**: you cannot measure `wrenched rhyme` against a corpus of
 printed ballads, because what was sung is not in the book. **For DECLARING
 it is wrong.** This is a harness for WRITING songs, and the writer is the one
@@ -7546,20 +7554,20 @@ CORPUS READER cannot obtain what the page does not carry — and each was being
 read as an answer to a different question, which is this entry's own opening
 theme found six more times.
 
-| capability | schema(s) | what closed it |
-|---|---|---|
-| `stub_resolution` | refrain by reference | `relations.declare_stub_resolution` — `{stub line: (start, end)}`, DECLARED. The naive resolver measured 18.7% unique / 26.6% no match / 54.7% ambiguous over 843 stubs, so this repo still ships none; what it now ships is the edition-level annotation the entry itself called for |
-| `sense` | antanaclasis | **NOW A DERIVATION** (`quality/senses.py`): WordNet 3.0, POS-tagged, simplified Lesk, keyed on the LEXICOGRAPHER FILE. `relations.declare_senses` remains, keyed by `(line, token)` — because the figure IS one word at two positions and a word-keyed map collapses it into `repetition` — and OVERRIDES the derivation. See `THE SENSE CORRECTION` below |
-| `earlier` | historical rhyme | `relations.declare_period_surface` — takes a `declared_inputs.PeriodPhonology`, which is what enforces period, reconstruction and source; a BARE phonology is refused here so those three checks cannot be routed around |
-| `poet` | dialect rhyme | the same constructor under the other name |
-| `lifts` | alliterative long line, fourth lift must not alliterate | `relations.search_lifts` (derives from PROMINENCE — real CMUdict stress — with the per-half-line count as a declared PARAMETER, since four lifts to a line is a convention of the form) and `relations.declare_lifts` for a hand scansion. This is the function `BLOCKERS` said did not exist: *"unlike `caesura` and `refrain_tail` … THERE IS NO FUNCTION TO CALL"* |
-| `beat` | offbeat internal rhyme | `relations.declare_beat`, which ALSO ACCEPTS a `declared_inputs.BeatGrid` (R5) and derives the on-beat set from that grid's own cycle grouping — one declaration, two consumers, since `fit._read_beatgrid` already reads the same object. **Doctrine 4 is untouched.** AND IT CANNOT BE DERIVED FROM A BLUEPRINT, checked rather than assumed: `quality/fit.py` reports `heads` and then refuses the rest in its own words — `NO_SETTING: NOT ANSWERED — which syllable sits on which pulse — ABSENT`. That is a SETTING, and the module that would supply it declines |
+| capability        | schema(s)                                               | what closed it                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ----------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `stub_resolution` | refrain by reference                                    | `relations.declare_stub_resolution` — `{stub line: (start, end)}`, DECLARED. The naive resolver measured 18.7% unique / 26.6% no match / 54.7% ambiguous over 843 stubs, so this repo still ships none; what it now ships is the edition-level annotation the entry itself called for                                                                                                                                                                                                                                                                                   |
+| `sense`           | antanaclasis                                            | **NOW A DERIVATION** (`quality/senses.py`): WordNet 3.0, POS-tagged, simplified Lesk, keyed on the LEXICOGRAPHER FILE. `relations.declare_senses` remains, keyed by `(line, token)` — because the figure IS one word at two positions and a word-keyed map collapses it into `repetition` — and OVERRIDES the derivation. See `THE SENSE CORRECTION` below                                                                                                                                                                                                              |
+| `earlier`         | historical rhyme                                        | `relations.declare_period_surface` — takes a `declared_inputs.PeriodPhonology`, which is what enforces period, reconstruction and source; a BARE phonology is refused here so those three checks cannot be routed around                                                                                                                                                                                                                                                                                                                                                |
+| `poet`            | dialect rhyme                                           | the same constructor under the other name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `lifts`           | alliterative long line, fourth lift must not alliterate | `relations.search_lifts` (derives from PROMINENCE — real CMUdict stress — with the per-half-line count as a declared PARAMETER, since four lifts to a line is a convention of the form) and `relations.declare_lifts` for a hand scansion. This is the function `BLOCKERS` said did not exist: _"unlike `caesura` and `refrain_tail` … THERE IS NO FUNCTION TO CALL"_                                                                                                                                                                                                   |
+| `beat`            | offbeat internal rhyme                                  | `relations.declare_beat`, which ALSO ACCEPTS a `declared_inputs.BeatGrid` (R5) and derives the on-beat set from that grid's own cycle grouping — one declaration, two consumers, since `fit._read_beatgrid` already reads the same object. **Doctrine 4 is untouched.** AND IT CANNOT BE DERIVED FROM A BLUEPRINT, checked rather than assumed: `quality/fit.py` reports `heads` and then refuses the rest in its own words — `NO_SETTING: NOT ANSWERED — which syllable sits on which pulse — ABSENT`. That is a SETTING, and the module that would supply it declines |
 
 **THE SENSE CORRECTION, 2026-08-23, caught by the owner.** `sense` shipped as
 `declare_senses` and nothing computed anything — a real coordinate, not an
 implementation of the figure. It shipped that way on one sentence in
-`relations_null.BLOCKERS`: *"`data/nltk/` carries taggers and tokenizers, not
-WordNet"*. That is a claim about what is ON DISK, and it was read as a claim
+`relations_null.BLOCKERS`: _"`data/nltk/` carries taggers and tokenizers, not
+WordNet"_. That is a claim about what is ON DISK, and it was read as a claim
 about what is OBTAINABLE. The URL returns HTTP 200, `nltk` 3.10.2 was already
 installed, and `quality/fetch_data.py` was already staging NLTK packages into
 that exact directory. Two rows are now in `data/sources.tsv`.
@@ -7582,8 +7590,8 @@ means `antanaclasis` refuses as before (doctrine 16/22).
 would have made "all 77" a lie.** `trite rhyme` and `offbeat internal rhyme`
 each carried a bare `requires=` gate and NOTHING that read the resource, so
 supplying the capability would have fired them on every rhyme in the draft.
-`UNPROVIDABLE`'s own `would_manufacture` field predicted it exactly: *"every
-perfect rhyme in the text, labelled trite … nothing in it reads a rank"*. A
+`UNPROVIDABLE`'s own `would_manufacture` field predicted it exactly: _"every
+perfect rhyme in the text, labelled trite … nothing in it reads a rank"_. A
 gate cannot make a schema selective; only a channel or a placement can. Both
 now have one — `trite rhyme` reads the declared 30-pair partition
 (`quality/quotients.trite`) and flags `sun`/`fun` but not `cap`/`clap`;
@@ -7603,7 +7611,6 @@ from ever being NULLED, which is a SEPARATE question from being declared —
 that entry governs what the harness may assert, this one governs what a
 writer may ask for. And `plan._CELLS` reaches 11 of `grid`'s 21 section
 functions (M-54 item 2), which is this same shape one layer up.
-
 
 ### M-58 · the named-relation judge is MONOSYLLABLE-ONLY — 69 of 76 names are reachable at a 1-syllable key and nowhere else, so every polysyllabic pair that stands in the declared relation is graded a VIOLATION `OPEN`
 **Found 2026-08-22 by WRITING A SONG through the path M-55 had just opened,
@@ -7640,24 +7647,24 @@ represent it).
 
 **MEASURED, and the direction is perfectly clean:**
 
-| pair | syllables | `type:rime riche` at `position='end'` |
-|---|---:|---|
-| `rain`/`reign` | 1 | **True** |
-| `rain`/`rein` | 1 | **True** |
-| `hoard`/`horde` | 1 | **True** |
-| `bore`/`boar` | 1 | **True** |
-| `cellar`/`seller` | 2 | **False** |
-| `flour`/`flower` | 2 | **False** |
+| pair              | syllables | `type:rime riche` at `position='end'` |
+| ----------------- | --------: | ------------------------------------- |
+| `rain`/`reign`    |         1 | **True**                              |
+| `rain`/`rein`     |         1 | **True**                              |
+| `hoard`/`horde`   |         1 | **True**                              |
+| `bore`/`boar`     |         1 | **True**                              |
+| `cellar`/`seller` |         2 | **False**                             |
+| `flour`/`flower`  |         2 | **False**                             |
 
 **THE SIZE OF IT, censused over the whole registry:**
 
-| | |
-|---|---:|
-| `NAMED` keys total | 49 |
-| keys whose `cells` tuple is 1 syllable | **45** |
-| keys at 2 / 3 / 4 syllables | 2 / 1 / 1 |
-| distinct names in `NAMED` | 76 |
-| **names reachable ONLY at a 1-syllable key** | **69** |
+|                                              |           |
+| -------------------------------------------- | --------: |
+| `NAMED` keys total                           |        49 |
+| keys whose `cells` tuple is 1 syllable       |    **45** |
+| keys at 2 / 3 / 4 syllables                  | 2 / 1 / 1 |
+| distinct names in `NAMED`                    |        76 |
+| **names reachable ONLY at a 1-syllable key** |    **69** |
 
 So the named-relation layer this campaign spent two days making reachable is
 **monosyllable-only for 69 of its 76 names**. `multisyllabic rhyme` is in the
@@ -7677,6 +7684,7 @@ before writing, which standing rule 3 makes mandatory, is given an answer to a
 different question than the one that will grade them.
 
 **WHAT IS OWED, and the first two are separable.**
+
 1. **A polysyllabic pair the judge cannot represent must REFUSE, not fail**
    (doctrine 79). That is a one-branch change and it stops the harness
    charging a writer for its own gap — but it converts 69 names from "wrong"
@@ -7712,14 +7720,14 @@ step's verdict was the first non-zero exit and nothing after it ran.
 
 > `REFUSED — the 全唐诗 pool yielded no poems.`
 > `It is an absolute path OUTSIDE this repository, not committed and not
-> fetched by CI. Set TANG_POOL to a checkout of chinese-poetry ...`
+fetched by CI. Set TANG_POOL to a checkout of chinese-poetry ...`
 > `Nothing was measured, so nothing moved (doctrine 20).`
 
 and exits **2**, which is this repo's refusal code everywhere. The gate read
 that as a failure — **a refusal in the numerator, charged to the layer that
 did not fail (doctrine 79)**, at the one place the distinction is enforced
 rather than described. The instrument was never wrong; it grew that guard on
-2026-08-14, *"found by CI"*, precisely so a missing corpus would stop reading
+2026-08-14, _"found by CI"_, precisely so a missing corpus would stop reading
 as a defect in the statistic.
 
 **THE COST IS THE OTHER TWO, AND IT IS TOTAL.** `-e` aborts at the first
@@ -7727,8 +7735,8 @@ non-zero, so `kalevala_rate.py --check` and `run_positive_control.py --check`
 have **never been invoked on any CI run since the step was added**. Both
 answer here — measured 2026-08-23, `RESULT: PASS`, exit 0 each — so this was
 two live pins silently unrun behind one unrunnable one. The step's own
-comment claims the opposite in as many words: *"These three HOLD today, so
-adding them costs no red and closes the gap."* That was measured on a machine
+comment claims the opposite in as many words: _"These three HOLD today, so
+adding them costs no red and closes the gap."_ That was measured on a machine
 that had the pool. **A check that can only pass in one environment is not
 testing the thing it names** — this file's own sentence, from the
 `audit_joint_auc_null` arm four weeks earlier, and the same shape at the gate
@@ -7740,11 +7748,11 @@ and its verdict printed by name, the step reported **HOLDS 0, MOVED 1, CANNOT
 RUN 2**:
 
 - `kalevala_rate.py --check` died at import with `ModuleNotFoundError: No
-  module named 'numpy'` and exited 1, so the gate typed it **MOVED** — a
+module named 'numpy'` and exited 1, so the gate typed it **MOVED** — a
   MISSING DEPENDENCY rendered as a committed figure that no longer
   reproduces, which is this entry's own collapse pointed the other way. The
-  `record` job installs numpy now; the neighbouring *"the harness needs no
-  third-party packages"* step is UNCHANGED and still true, because it pins
+  `record` job installs numpy now; the neighbouring _"the harness needs no
+  third-party packages"_ step is UNCHANGED and still true, because it pins
   `lyric_harness`, `floor`, `revise` and `propose` — the grading path — and
   `kalevala_rate.py` is a research instrument whose permutation null is
   vectorised.
@@ -7756,8 +7764,8 @@ RUN 2**:
 instruments returned `RESULT: PASS`, exit 0, on this machine — because this
 container happens to have numpy installed AND `/workspace/chinese-poetry` on
 disk. A measurement on one box, quoted as a property of the code: the
-sentence directly above, committed in the same sitting that wrote *"a check
-that can only pass in one environment is not testing the thing it names."*
+sentence directly above, committed in the same sitting that wrote _"a check
+that can only pass in one environment is not testing the thing it names."_
 The honest reading is that ONE of the three can hold in CI, and it holds only
 once numpy is installed.
 
@@ -7792,8 +7800,8 @@ the arithmetic.
 ### M-62 · a test fired its interrupt on a CLOCK, so it certified the machine it ran on `CLOSED` 2026-08-23
 `test_pin_sweep.py` §7 proves that a killed sweep still prints its counts and
 NAMES what it never reached. It set that up with `time.sleep(4)`, on the
-recorded argument that *"`meter_bands.py --check` re-derives over 264,082
-lines, so it is reliably still running four seconds in."*
+recorded argument that _"`meter_bands.py --check` re-derives over 264,082
+lines, so it is reliably still running four seconds in."_
 
 **That is a claim about a MACHINE, and it was measured on one.** A CI runner
 spends those four seconds importing and opening the corpus, so `SIGTERM` can
@@ -7805,8 +7813,8 @@ with its subject, on the slower box, which is the box CI is.
 **THE MARKER SAYS WHAT THE SLEEP WAS GUESSING AT.** `sweep()` prints
 `  [ 1/ 1] <instrument>` BEFORE it starts each one — the subject of §8's own
 check — so the test polls for it and signals then. The wait is bounded and
-the bound is a NAMED failure rather than a hang, because *"the marker never
-appeared"* and *"the interrupt was mishandled"* are different findings
+the bound is a NAMED failure rather than a hang, because _"the marker never
+appeared"_ and _"the interrupt was mishandled"_ are different findings
 (doctrine 20). One check added, stating the precondition the sleep left
 implicit; `p.wait` is raised to 120s with a `kill` fallback, so a slow unwind
 is not an exception three frames down.
@@ -7821,8 +7829,8 @@ deliberately NOT spelled here as backticked paths, for the reason this entry
 is about — and run the instrument there.
 
 **ONE FALSE CLAIM, AND IT IS M-33's OWN SENTENCE.** The entry named the
-feature cache by its path, in backticks, and added *"that file is
-**gitignored**"* — correct English, and `REPO_PATH_EXISTS` reads a backticked
+feature cache by its path, in backticks, and added _"that file is
+**gitignored**"_ — correct English, and `REPO_PATH_EXISTS` reads a backticked
 path as a claim of
 PRESENCE unless a `PATH_ABSENT_PHRASES` phrase binds to it inside
 `ABSENCE_WINDOW`. "gitignored" is not one of those phrases, so the register
@@ -7836,15 +7844,15 @@ either direction; it is UNSTATEABLE as a path claim, which is the finding.
 The remedy is to stop making one.
 
 **THE ENTRY WAS ABOUT THIS EXACT DEFECT.** M-33's subject is
-`test_pin_sweep.py` being *"permanently, accidentally green"* because CI is
+`test_pin_sweep.py` being _"permanently, accidentally green"_ because CI is
 always cold — and the sentence recording it was itself only true where a run
 had already written the cache. The register reproduced, one layer up, the
 thing it was recording. CLAUDE.md already carries the correct move for the
 sibling artifact, the provenance ledger, and it does not spell that path in
-backticks either: it calls it *"a GITIGNORED build artifact — deliberately not
+backticks either: it calls it _"a GITIGNORED build artifact — deliberately not
 written as a repo-path citation, because it is not one, and a claim about a
 file that is present in a working tree and absent from a clean checkout cannot
-be true in both."* M-33 does the same now — it names the cache in plain text
+be true in both."_ M-33 does the same now — it names the cache in plain text
 and states why it is not a citation.
 
 **THE REPRODUCTION IS THE REUSABLE PART.** `quality/verify_entries.py` passes
@@ -7880,8 +7888,8 @@ or failed to, because the process never started. It is the same collapse
 different cause, in the same function.
 
 **`_MISSING_DEP` TYPES IT CANNOT RUN AND NAMES THE MODULE**, with its own
-`evidence_kind` — because *"the instrument said inconclusive"* and *"the
-instrument could not start"* have different remedies (doctrine 20/44), and
+`evidence_kind` — because _"the instrument said inconclusive"_ and _"the
+instrument could not start"_ have different remedies (doctrine 20/44), and
 folding the second into the first is what this tool exists to prevent.
 `test_pin_sweep.py` §4 gains a third arm for it, separate from the refusal
 arm, and §3 drives the classifier DIRECTLY on a captured traceback — because
@@ -7920,17 +7928,17 @@ opens:
 
 MEASURED, under `bash -e`, which is the step's shell:
 
-| memo state | `grep -vc` exit | stdout | step |
-|---|---|---|---|
-| exists, zero non-comment lines | **1** | `0` | continues |
-| **absent** | **2** | *(nothing)* | **aborts at 2** |
+| memo state                     | `grep -vc` exit | stdout      | step            |
+| ------------------------------ | --------------- | ----------- | --------------- |
+| exists, zero non-comment lines | **1**           | `0`         | continues       |
+| **absent**                     | **2**           | _(nothing)_ | **aborts at 2** |
 
 The comment above that line is precise about the exit-**1** case and handles
 it. Exit **2** — the file is not there — was unhandled, and it is the state
 of every runner with a COLD `actions/cache`.
 
-**SO IT IS A DEADLOCK, NOT A FLAKE.** The abort happens *before* `set +e`,
-*before* the 150-minute calibration slice runs, and *before* the `case` that
+**SO IT IS A DEADLOCK, NOT A FLAKE.** The abort happens _before_ `set +e`,
+_before_ the 150-minute calibration slice runs, and _before_ the `case` that
 is the only thing in the step able to report an outcome — with grep's own
 message swallowed by `2>/dev/null`. The job exists to bank a slice of work so
 the NEXT night resumes further along; dying on line one means it banks
@@ -7948,3 +7956,2286 @@ without reintroducing the `"0\n0"` defect the original comment records: on a
 zero count grep still prints `0`; on an absent file it prints nothing and the
 default expansion supplies the `0`. One value either way. Measured on both
 arms under `bash -e` before shipping.
+
+### M-66 · `PREDICTABLE_RHYME` was in the loop's vocabulary and outside its reach — the aggregate named no line, so the flagship enforcement of doctrine 9 could not ask for a single revision `CLOSED` 2026-08-23
+**By owner ruling, verbatim: "measure-first then adopt, and yes add
+PREDICTABLE_RHYME to mandatory pursue"** — the second half of a sitting whose
+first half (the in-line rhyme calibration,
+`quality/INTERNAL_RHYME_PREREGISTRATION.md`) answers the same complaint one
+axis over: this harness's enforcement was riddled with opt-ins, and the
+end-rhyme predictability check was the sharpest case because BOTH halves were
+already built and neither could reach the other.
+
+**THE SHAPE.** `floor.py`'s `PREDICTABLE_RHYME` note fired as an AGGREGATE —
+"N of M pairs above 0.90" — with an empty `locations`, and `loop.py`'s
+`MANDATORY_PURSUE` held `MODAL_RHYME` and `HOMEOTELEUTON` but not this code,
+under a comment saying it "cannot be pursued per-line (it names no line)".
+Both sentences were locally true and jointly a dead end: the finding named no
+line BECAUSE THE EMISSION THREW THE LINES AWAY — `_predictability` computes
+`(i, j, v)` per pair and the emitter kept only the fraction — and the pursue
+set excluded it because the finding named no line. So on a draft `song`
+reported at 3 of 3 pairs above 0.90, `revise` returned **SUCCESS in 0
+rounds**: the identical machinery that briefs a 24-candidate field for a
+`MODAL_RHYME` note sat unreachable one code over. Doctrine 48's own case —
+the mechanism was mechanical, and the wiring between two mechanical halves
+was prose.
+
+**THE FIX, two edits, both superseding recorded arguments (doctrine 17, the
+strikes stay visible in the code).** (1) `floor.py`'s emitter keeps the
+triples and emits `locations` = the 1-based line numbers of BOTH members of
+every obvious pair — both, because a pair is above 0.90 as a PAIR and holding
+one end open while the partner stays closed would offer the writer half a
+question; the `resolved_elsewhere` machinery already closes the partner when
+one end's fix clears the pair. The struck comment ("this check wants the
+values only") recorded the aggregation as if it were the phenomenon. (2)
+`loop.py`'s `MANDATORY_PURSUE` gains `PREDICTABLE_RHYME`; the struck comment
+conflated the modal head (frequency rank of a candidate) with predictability
+(probability of a PAIR) — overlapping populations, neither containing the
+other, and "names no line" was a fact about the aggregation, not the code.
+The note fires only inside a profile whose `predictability_max` was MEASURED
+(`sonnet` 0.8333, `song` 0.9286; `section` has none), so the pursue is
+calibration-gated by construction.
+
+**PROVEN END TO END on a 14-line, 126-token draft inside the sonnet band**:
+the finding lands per-line (locations 1–14), `brief()` offers the candidate
+field with the modal head FORBIDDEN, and a real `revise_loop` drove the
+obvious fraction **7/7 → 5/7**, under the 0.8333 threshold — the finding
+CLEARS, where the identical draft was previously SUCCESS-in-0-rounds with
+the aggregate standing. The loop's stop conditions needed no change:
+`--pursue`'s existing machinery holds the lines open, which is exactly what
+the 2026-08-15 `pursue` coordinate was built for and could never reach here.
+`test_floor` / `test_loop` / `test_revise` / `test_nc_census` / `test_verbs`
+all green at rc 0 after the change.
+
+### M-67 · the declaration layer could not say WHERE in a line a requirement binds, so every enforcement in this repository was built on the last word `CLOSED` 2026-08-23
+**Owner's ruling, verbatim:** _"it looks like an insane idea to me to only be
+planning around end rhyme and only ever look for end rhymes. rhymes happen in
+the first word in several rhyme types, rhymes happen all throughout the piece
+as well. we can not be focusing on a small percentage of the words in the
+entire piece ... there's just no way that we can only be contemplating the
+last word of every line."_
+
+**AND DOCTRINE 2 HAD SAID SO SINCE THE FIRST COMMIT.** _"The full pairwise
+score matrix is the primary object. Letter schemes, chains, blueprints are
+lossy projections ... Never rebuild a projection-first architecture."_ What
+was actually built: `line_anchors` takes `words[-1]`; a `Mandate` group is a
+tuple of LINE numbers; `swap_end_word` is the revise loop's only move; the
+planner emits end-letter schemes; the floor's modal and predictability tables
+are end-word tables. The doctrine sat at the top of the file the whole time
+and the architecture drifted anyway, because the graph that got built was the
+projection wearing the doctrine's name.
+
+**AND THE VOCABULARY FOR THE FIX WAS ALREADY ON DISK.** `quality/relations.py`
+has carried it since 2026-08-10 — a member is found by a `SpanRule` (locus,
+anchor, direction, magnitude), and its census is the argument: over the 77
+registered schemas' 154 member rules the anchors are `word_start` 64,
+`last_stressed` 58, `word_end` 15, `searched` 8, `none` 6, `final_unstressed`
+2, `penult` 1. The vocabulary is almost evenly split between reading from the
+FRONT of a word and from the BACK, and **8 schemas are MIXED** — one member
+anchored at each end, which no global alignment setting can express
+(amphisbaenic rhyme is `word_start` against `word_end`; linked rhyme is a
+line-final against a line-INITIAL). It was reachable only through a `schema:`
+mandate, which builds its own stream and judges with its own channels; the
+DEFAULT grading path reached none of it.
+
+**`grade()` DIAGNOSED ITSELF, ONE LINE ABOVE THE LITERAL.** Its own comment
+read: _"A mandate's groups are end-rhyme groups by construction, so 'end' is
+the honest value here ... and it is exactly the wrong value for the internal,
+head, leonine, cross and holorhyme relations, which this path therefore cannot
+yet mandate."_ A correct diagnosis sitting above the hardcoded `position="end"`
+it diagnoses. That comment is now struck and is the specification it was
+superseded by.
+
+**THE FIX: `quality/slots.py` + `Mandate.loci`.** Placement rides in a PARALLEL
+index-aligned coordinate, the convention `structures` and `relations` already
+use — not in `groups`, because a group is a tuple of line numbers that roughly
+sixty sites take literally (`min`, `max`, `sorted`, `matrix[i - 1][j - 1]`, the
+`range(1, n + 1)` complement that computes `free`, and `_normalise_groups`' own
+`int(x)` coercion). Absence keeps ONE meaning, so every mandate ever written
+reads exactly as it did. The default slot is resolved by CALLING
+`line_anchors`, not by reimplementing it, so byte-identity is structural.
+**THE DEDUP KEY CARRIES THE PLACEMENT**: `L1.end ~ L2.end` and `L1.head ~
+L2.head` are two requirements over one pair of lines and a key of line numbers
+alone collapsed the second into the first.
+**PROVEN END TO END**: `--groups=1.T4,2` binds L1's FOURTH WORD to L2's end;
+`grade()` scores `morning`~`warning` at 1.000 RHYME through the SAME
+`best_score` the band was calibrated on; `brief()` tells L2 to answer
+`morning` and not `light`; `loop.swap_at_slot` rewrites the word the flag is
+actually about; and a real `revise_loop` converges. `quality/test_slots.py`,
+9 sections.
+**WHAT REFUSES, AND IT IS THE POINT.** Seven of `relations.py`'s thirteen loci
+need a frame a mandate does not carry (caesura, lift template, refrain tail) —
+each refuses AT DECLARATION TIME naming the frame it would need. A `searched`
+anchor refuses citing the multiplicity correction doctrine 56 requires. And a
+group naming ONE LINE TWICE — a within-line binding — refuses naming the route
+that does answer it (`relations.realise` reports same-line instances,
+`quality/figures.py` reads them), because a group is a set of lines and a
+rhyme whose two members share a line has one member.
+
+### M-68 · `span_provenance` guarded on ONE key and read SIX, so a span from the other tagger died three frames down inside `best_score` `CLOSED` 2026-08-23
+**Found by the slot layer's first probe**, which is the first caller ever to
+route a non-line-final span through the full comparator.
+
+`span_provenance` opens `if any("widx" not in s for s in anc): return None` —
+its documented "cannot say" answer — and then reads `syl_in_word`,
+`word_syllables`, `word_read` and `word_unread`. The repository has TWO
+taggers: `_tag_span_words`, on the `line_anchors` path, which writes all six;
+and `word_syllable_map`, the reader `internal_matches` has always used for
+in-line spans, which wrote `word` and `widx` only. So a `word_syllable_map`
+span PASSED the guard and raised `KeyError: 'syl_in_word'`.
+
+**IT HAD NEVER FIRED because nothing had ever handed it one**:
+`internal_matches` is that map's only in-tree consumer and it calls `score()`
+directly, never `best_score`. A latent crash on a path nobody had walked, in
+the function whose entire job is to answer "which words did this span cover".
+
+**FIXED IN BOTH DIRECTIONS.** `word_syllable_map` emits the full tag set — it
+is the object that already knows every value, since it syllabifies word by
+word, and tagging at the new CALLER instead would have put a second tagging
+implementation beside `_tag_span_words` (doctrine 1). And the guard now tests
+every key the body reads, named once in `_PROVENANCE_KEYS`, so a span from a
+THIRD reader gets the documented `None` rather than a traceback — "cannot say"
+is this function's answer and a traceback is not a way of saying it (doctrine
+20). `syl_in_word` is 1-BASED to match `_tag_span_words`' own counter; 0-based
+would have made `partial_word` true of every span.
+
+### M-69 · the planner's envelope was six literals, and the one the owner named was tracking a real boundary by guesswork `CLOSED` 2026-08-23
+**Owner's standing rule:** _"we do not want hard numbers anywhere ... meter
+should be something like x/y and number of lines should be something like N"_
+— and, on this entry's own subject, _"1-16 is weird...should we increase it to
+1-32 or should we change it to a variable?"_. Increasing the digit was refused
+in the same breath: it is the same stub in a bigger hat.
+
+V2 (2026-08-18) replaced the planner's TABLES with generators and left its
+BOUNDS as literals: `lines_per_section (1, 16)`, `sections (2, 12)`,
+`total_lines (4, 64)`, `bars_per_line (1, 4)`, `body_cells (2, 6)`,
+`anacrusis (0.0, 0.5, 1.0)`.
+
+**THE DERIVATION SOURCE WAS ALREADY MEASURED AND WAS NEVER READ.** Each floor
+profile carries a measured token band, and each profile's `unit` string has
+always STATED its line count in prose — "4-line quatrain", "14-line sonnet" —
+where no code could read it. `Profile.n_lines` declares it, and the two stanza
+profiles then fix a tokens-per-line band that agrees to within a fifth of a
+token: 7.25-9.25 from the quatrains, 7.71-9.00 from the sonnets.
+
+**AND THE ENVELOPE BECOMES WHAT THE ENFORCEMENT CAN ENFORCE.** MEASURED across
+1-699 tokens: **39.9% of lengths can produce a FLAG; 29.8% sit inside a
+tolerance band where every length-sensitive finding is downgraded to a note;
+30.3% reach no profile at all.** So `gradeable_line_counts()` is the set of
+line counts whose expected token count lands in some profile's MEASURED range
+— and it is NOT CONTIGUOUS. **A song of 6 to 11 lines falls between the
+section profile's reach and the sonnet's and cannot be graded with teeth at
+any length-sensitive check.** `line_count_gaps()` names it so it is a
+calibration request rather than a discovery.
+
+**THREE MORE LITERALS FELL OUT ON THE WAY, EACH FOUND BY WIDENING WHAT IT WAS
+SILENTLY BOUNDING.**
+(1) `section_header` looked its pickup phrase up in
+`{0.0: "", 0.5: ..., 1.0: ...}` — the sub=2 grid written out — and a
+legitimate quarter-beat pickup raised `KeyError: 0.75` from inside the report
+builder the moment anacrusis became a function of the section's own
+subdivision. `_pickup_phrase` derives it from the fraction.
+(2) Drawing each kind's line count INDEPENDENTLY over the song's capacity
+produced **6 plans in 200 seeds**, and rejecting those draws would have biased
+the survivors toward whichever shapes happen to fit. The total is drawn first,
+uniform over the gradeable set, and the per-kind counts are drawn
+EXACT-UNIFORM over the assignments summing to it (`_partition_uniform` — the
+counted-completions move `_composition_uniform` and `_rgs_uniform` already
+use). Acceptance 91%.
+(3) `body_cells (2, 6)` was tracking something REAL by guesswork: the
+placement vocabulary's admissible fraction decays smoothly with pattern length
+— **measured at 71% for one cell, 18% at six, 0.12% at twenty-four** — so
+there is no ceiling to derive, only a decay. The bound now comes from the song
+(a T-line song carries at most T sung sections) and the placement layer keeps
+doing the rejecting.
+
+**AND THE MOVE-37 GUARD WAS WIDENED AND RE-TIGHTENED IN THE SAME BREATH**, the
+same shape `grid`'s admission took: `plan.py` may now import `floor`, on the
+argument that `floor.PROFILES` is a table of ADOPTED CALIBRATION CONSTANTS of
+the same species as `meter_bands.ADOPTED` which the guard already admitted —
+and a second check asserts that from `floor` it names ONLY `PROFILES`, never a
+reader, because `floor.py` reaches `quality.features` and an unrestricted
+admission is the corpus arriving at the dice by a longer road.
+`quality/test_plan.py` §4 also pins that the envelope MOVES when its source
+moves, by perturbing a profile in-process — a derivation that is written down
+but not wired reads exactly like a literal (doctrine 48).
+
+### M-70 · an instrumental was modelled as a section with no constraints, which is a free token an optimiser can append to satisfy any structural rule `CLOSED` 2026-08-23
+**Owner, verbatim:** _"ok, well no, instrumental is not free of lines. what
+have you that idea?"_ — and the idea came from this repository's own v2
+paragraph, _"instrumental functions carry bars with no lines"_, repeated
+uncritically by the session that was asked about it.
+
+**MUSICALLY FALSE**: an instrumental has bars, a meter and phrase structure;
+what it lacks is words. **STRUCTURALLY DANGEROUS**, and this is the half that
+matters: `plan.py` gave a wordless function `ks[fn] = 0` and then
+`n_bars = max(k, 1) * bars`, so an instrumental was exactly one line's worth
+of music however long the song was. A section carrying no constraint mass is
+the cheapest possible version of the two-line outro the owner caught gaming a
+variety rule — any requirement over sections could be answered by appending
+constraint-free instrumentals.
+
+**FIXED**: `WORDLESS_FUNCTIONS` names the set for what it is, every section
+draws a PHRASE count, and bars follow from it exactly as a sung section's
+follow from its line count. What the label removes is the LYRIC half — no line
+slots, no rhyme group, nothing to fill — and nothing else.
+**AT THE SONG'S OWN SCALE, and the first attempt was wrong in the other
+direction**: drawn against the global envelope, a wordless section consumes no
+lines so nothing bounded it, and the planner produced instrumentals of **984
+bars beside verses of four** — the freebie inverted rather than closed. The
+phrase count is drawn against the longest SUNG section this plan itself drew,
+which is a derivation from the plan rather than a number chosen for it.
+MEASURED after: wordless sections run at a median 33 bars against sung
+sections' 18, the same order of magnitude.
+
+### M-71 · the planner could not draw a placement or an overlapping cover, so two whole classes of song had probability exactly zero from the front door `CLOSED` 2026-08-23
+**Owner's ruling**, the same one M-67 closes at the declaration layer, aimed
+here at the generator: _"if that end rhyme focus is poisoning our planning as
+severely as it appears to be then I think it needs to be converted into just
+straight up all rhymes."_
+
+**TWO ZEROES, AND A ZERO IS NOT A WEIGHTING.** This repository's own
+"move 37" ban exists because sampling measured distributions would give an
+unprecedented shape probability ~zero. The planner was committing that error
+by OMISSION rather than by weighting, twice over:
+
+1. **Every member of every group was a bare line number**, which is the
+   default slot — the end of the line. Not because anything chose it: because
+   it was the only thing the declaration layer could say (M-67).
+2. **Groups came from an RGS code, which is a PARTITION.** Doctrine 2's own
+   sentence is that maximal cliques MAY OVERLAP — _"structures with no letter
+   representation"_ — and `Mandate` has accepted overlapping groups since it
+   was written. The generator could not produce one. On this repository's own
+   standing rule that the planner is the front door and hand-written mandates
+   are for tests, that is a class of song the system WORKING AS INTENDED can
+   never write.
+
+**PLACEMENT IS DRAWN PER MEMBER, uniform over what the grading path can
+resolve.** Per member and not per group, because the mixed case is the real
+one: 8 of the 77 registered schemas anchor one member at each end of a word,
+and linked rhyme binds a line-final to a line-INITIAL. Uniform means `end` is
+one placement among the gradeable ones rather than the axis everything else is
+measured against — the correction stated as a measure. MEASURED over 200
+seeds: placements land within a few percent of the uniform share, and `end`
+takes 9.6% of members. **The consequence is disclosed rather than buried**
+(`choices.placements` carries the pool AND the measure): a two-member group is
+all-ends with probability 1/|pool|², so a plain end-rhyme plan becomes RARE,
+and whether end should instead be a first-class outcome is a taste question
+printed for the owner to answer into a coordinate.
+
+**OVERLAP IS DRAWN, AND THE PLACEMENT COORDINATE IS WHAT MAKES IT
+SATISFIABLE.** Two groups binding one line at the SAME placement are a joint
+constraint on ONE word, and whether any word answers both is `joint_field`'s
+question — which needs words, and a plan has none. At DIFFERENT placements
+they constrain different words of the line and no such question arises. So a
+line may join a further group only at a placement it does not already carry:
+satisfiable BY CONSTRUCTION rather than by a search a plan cannot run.
+
+**HOW MUCH WEB IS A PER-LINE DRAW, AND BOTH EXTREMES ARE REFUSED.** The
+owner's framing: _"I don't think that literally every word need N pairs of
+rhymes but there's just no way that we can only be contemplating the last word
+of every line."_ Drawing a number of extra GROUPS was measured at **100% of
+plans overlapping with a median of 22 groups a song** — a density decided by
+the shape of a loop rather than by a coordinate. Each line now draws its own
+participation, uniform over what a band-legal line can CARRY: a binding
+occupies a span, distinct bindings need distinct spans, so the ceiling is the
+calibrated density band's FLOOR — the fewest syllables a legal line may have.
+Bounding by the placement table's size instead would let a plan ask a
+five-syllable line for eleven distinct bound spans. MEASURED after: line
+participation is uniform over 1–5, median 26 groups a song.
+
+**AND THE LEXICON'S OWN CEILING IS NOW A PLAN-TIME GATE (M-41's first half).**
+A rhyme group of k members needs a family the grader accepts k members of AT
+ONCE, and `quality/capacity.py` measured exactly that: the tier-1 ceiling
+reaches 228 and the deepest **CERTIFIED** chain is 40 — a witness clique
+stored word for word and graded through `Reviser.inspect`.
+`capacity.ADOPTED_MAX_GROUP` adopts 40, the number a run can stand on, and the
+planner refuses a larger group: unfillable homework refused at draw time
+rather than discovered three revise rounds in. The constant is re-derived by
+`capacity.py --check` in the nightly lane, so drift fails loud instead of
+silently widening what a planner volunteers.
+
+**FOUR SITES STILL SPOKE THE OLD SPELLING AND EVERY ONE WAS FOUND BY RUNNING
+IT.** The CLI's own `--groups=` reader int()ed each member, refusing the
+planner's own output in the CLI's words rather than the slot layer's; the
+round-trip test did the same in its own; `section_header` looked its pickup
+phrase up in a three-entry dict and raised `KeyError: 0.75` the moment
+anacrusis followed the section's own subdivision; and `test_plan.py` held a
+SECOND copy of that same dict, which went stale on the same day and in the
+same way. The parsers now leave members as strings — `mandate()` is the one
+definition of what a member may be — and both pickup copies call one derived
+function.
+
+**AND THE MOVE-37 GUARD WAS WIDENED TWICE AND RE-TIGHTENED TWICE**, the shape
+`grid`'s admission established: `plan.py` may name `capacity` for
+`ADOPTED_MAX_GROUP` only (an adopted calibration constant of
+`meter_bands.ADOPTED`'s species; `read_table()` opens the artifact) and
+`slots` for `PLANNABLE_PLACEMENTS` only (a hand-declared vocabulary of
+`structures`' species; `slots` reaches `relations`, which opens a file).
+
+### M-72 · the harness had two entrances and only one of them had a front half `CLOSED` 2026-08-23
+**The owner's ruling, verbatim:** _"If an LLM writes something we go through
+all of the steps, if a human does it then we need the same steps. If a person
+puts unstructured song in for example, then the beginning must be to structure
+it. I'd need what we have built to necessarily count the lines, read what is
+written and assign sections and all the other stuff an LLM writer needs to
+have done."_
+
+`quality/plan.py` gives the LLM door a front half: a blueprint and a mandate,
+so a written song reaches the graders with its structure DECLARED. A PASTED
+song reached them with nothing — an operator hand-wrote a `--groups=` string,
+or reached for `--cliques`, or the run was rhyme-only by omission. "We go
+through all of the steps" was true of one door and false of the other, and
+every gate downstream is only as good as what was declared to it.
+
+**`quality/recover.py` IS THE SECOND FRONT HALF**, and it emits the plan's own
+shape so the same grading command runs on it and the same gates apply.
+
+**FOUR PROVENANCES, A CLOSED SET, AND NOT INTERCHANGEABLE** — this is the whole
+discipline of the module rather than a decoration on it. `counted` is
+arithmetic nobody can disagree with (the line count, the syllables per line).
+`declared` is the text saying so (a `[SECTION]` mark the writer wrote).
+`derived` is the harness inferring from its own measurements — and it carries
+doctrine 14 IN THE COORDINATE: the recovered cover's every edge is a
+band-passing pair BY CONSTRUCTION, so grading it against the same band at the
+same theta cannot produce a violation, which is stated where a reader will hit
+it rather than left to be remembered. `REFUSED` is a coordinate that cannot be
+obtained from this text and is NOT guessed.
+
+**SECTIONS PREFER THE DECLARATION, IN THAT ORDER**: a `[SECTION]` mark
+outranks a blank-line block, which is a printer's convention and is stamped
+`derived` for exactly that reason, and a text with NEITHER is **REFUSED** — a
+sectioning invented here would be graded as though the writer had asked for
+it (doctrine 20). The refusal names the remedy, so it is a work order.
+
+**AND THE METER IS REFUSED, WHICH IS THE AMENDED DOCTRINE 4 AND NOT A GAP.**
+Counting is this project's instrument: the module counts syllables per line
+and reports them. It does not infer a bar grid, because a grid is a DECLARED
+coordinate and inferring one would be the harness declaring a meter on the
+writer's behalf and then grading them against it. The refusal names
+`--blueprint=` as the remedy and does not reach for audio — the owner's ban is
+standing and the amended doctrine reads "no beat grid without a DECLARED
+tempo/meter" full stop.
+
+**THE RECOVERED COVER IS OVER PLACEMENTS, NOT OVER LINE ENDS**, which is why
+this module is written now rather than in terms of `mandate_from_graph`: that
+function's cliques are cliques of `words[-1]`. MEASURED on a six-line fixture:
+21 binding sites over 6 lines, 22 admitted pairs, and **20 of the 22 name a
+placement other than the line end** — an end-anchored recovery would have
+found 2. Every edge is spelled in the mandate's own notation, so a recovered
+cover hands straight to `--groups=`.
+
+**NO SILENT CAPS**: past a declared pair bound the web REFUSES rather than
+returning a truncated one, quoting the bound and the population it would have
+compared, because a silently truncated web reads as a song with fewer
+relations in it.
+
+### M-73 · every measurement was supposed to end in a gate, and nothing could say how many did `CLOSED` 2026-08-23
+**The owner's standing rule, verbatim:** _"I fucking hate seeing prose, flags,
+notes, etc... and ... you refuse to finish your work unless we have the
+appropriate gate, band, constraint, etc..."_
+
+A note is a RECORD; only a gate is an ENFORCEMENT, and work that ends in a
+note has not closed its loop. The rule is one sentence and it is impossible to
+keep by memory across every finding this tree can emit — doctrine 48's own
+subject — so it was kept by memory, and no instrument could say how much of
+the harness actually enforces anything. `MANDATORY_PURSUE` exists precisely
+because a note is not AUTOMATICALLY toothless; nothing enumerated which notes
+had been given teeth and which had not.
+
+**`quality/gate_census.py` MEASURES IT INSTEAD OF ASSERTING IT.** Three gate
+mechanisms are ENUMERATED so the answer is checkable rather than argued: a
+`flag` severity at the construction site (`verify()` gates acceptance on
+`new_flags`, and `song`/`revise` exit 3 while one stands), `loop.
+MANDATORY_PURSUE` (the loop holds a line open on a pursued NOTE until it
+clears), and `floor.LENGTH_GATE_CODES` (the codes a verb may not exit 0 on).
+Each set is READ from the module that OWNS it and never respelled here — a
+second copy of a gate set is how a census starts disagreeing with the thing it
+counts (doctrine 1).
+
+**THE MEASUREMENT, and it is the honest size of the complaint.** Of **67**
+finding codes, **8** can definitely refuse something, **15** definitely
+cannot, and **44** depend on where they are constructed. Never summed past
+that partition (doctrine 79). The 8 are `DENSITY_OUT_OF_BAND`,
+`PROMINENCE_OUT_OF_BAND`, `RETURN_NOT_VERBATIM` and `SCHEME_VIOLATION` by
+severity, `HOMEOTELEUTON`/`MODAL_RHYME`/`PREDICTABLE_RHYME` through the pursue
+set, and `OUT_OF_CALIBRATED_LENGTH` through the length gate.
+
+**UNDECIDABLE IS NOT QUIETLY COUNTED AS GATED**, which would be this census
+answering its own question in the direction that flatters it (doctrine 20).
+It has TWO causes and they are reported APART because they ask different
+things of whoever closes them: **23** are `computed` — the severity is
+`sev(...)` at the call site, a profile downgrade, and reading it needs the
+profile the call runs under — and **21** are `consumer-assigned`, where the
+constructor has NO severity field at all. `GridFinding` is `(code, message,
+evidence)`, so the whole SHAPE layer takes its severity from whoever folds it
+in (`revise._function_findings`). A severity that cannot be read from the
+emitter is a finding of its own, and it is why this census reports the cause
+rather than one total.
+
+**A DISCLOSED-ONLY CODE IS NOT AUTOMATICALLY A DEFECT, and doctrine 6 is the
+load-bearing counterweight.** A CONVENTION a writer may depart from cannot be
+the thing that fails a check, so the shape layer's notes (`DOWNBEAT_LOCKED`,
+`QUATRAIN_LOCK`) are notes ON PURPOSE and promoting them would be the error.
+What this instrument produces is the LIST, so "should this one gate?" is asked
+of each code by a person rather than answered by whoever last edited the file.
+
+**THE CENSUS CAUGHT ITS OWN VERSION OF THE DEFECT ON ITS FIRST RUN**, which is
+the entry's sharpest fact. The first draft named two constructors
+(`Finding`, `FitFinding`), measured **46** codes, and silently omitted
+`quality/grid.py` entirely — `HOOK_ABSENT`, `QUATRAIN_LOCK`,
+`DOWNBEAT_LOCKED` and the rest of the layer `CLAUDE.md`'s own gap 10 calls
+"the only checks in the repo that ask about the song as a whole SHAPE". **A
+census blind to a whole layer reports that layer as fully gated**, which is
+the flattering direction. `FINDING_CONSTRUCTORS` is a declared tuple for
+exactly that reason, and `quality/test_gate_census.py` §5 drops a constructor
+as a MUTATION and requires the count to move.
+
+**AND ITS OWN PROSE CARRIED A THRESHOLD NOBODY WROTE DOWN.** The module
+docstring opened "across 55 finding codes in eleven modules" — wrong in both
+coordinates against its own measurement (67 codes, constructed in FOUR files:
+`quality/revise.py`, `fit.py`, `floor.py`, `grid.py`). Struck before the
+module shipped and replaced by a pointer at `PINNED`, because a count written
+into prose beside the instrument that derives it is doctrine 58 with the
+shortest possible fuse.
+
+**THE PIN IS ON THE COUNTS AND NOT THE MEMBERSHIP**, deliberately: the useful
+signal is "the enforcing fraction changed", and pinning every code's name
+would make every new finding a merge conflict rather than a question.
+`gate_census.py --check` exits **3** on drift and runs in the cheap CI job, so
+a finding added without a gate MOVES A NUMBER instead of joining a list nobody
+reads.
+
+### M-74 · the placement work made every mandate import `relations`, and the sentence promising it would not was left standing `OPEN` — sized 2026-08-23
+**Found while closing M-73**, by asking `quality/counters.py` which public
+symbols nothing references and then chasing the one it named in
+`quality/slots.py`. Not a correctness defect and not a gate: a documented
+COST that stopped being true, which is doctrine 17's subject rather than
+doctrine 48's.
+
+**THE CLAIM.** `CLAUDE.md`, on the `schema:` route: _"The cost is lazy: a
+mandate that never says `schema:` never imports `relations` and never builds a
+stream."_
+
+**THE SECOND CLAUSE HOLDS AND IS THE EXPENSIVE HALF** — `relations.realise()`
+is called only where a schema is declared, and no stream is built otherwise.
+**THE FIRST IS NOW FALSE.** `quality/schemes.py` imports `SlotUnsupported`
+from `quality/slots.py` at module level, and `slots.py` imports
+`quality/relations.py` at module level for `SpanRule`. So importing
+`quality.schemes` imports `quality.relations`, `schema:` or none.
+
+**MEASURED**, warm, five runs each, against `9ad2dad^` (the commit before the
+placement coordinate landed): `import quality.schemes` was **17.7–18.2 ms**
+with `quality.relations` absent from `sys.modules`, and is **132.8–177.2 ms**
+with it loaded. Roughly **7x**, paid once per process.
+
+**IT IS A COST, NOT A DEFECT, AND BOTH IMPORTS ARE RIGHT.** The alias is
+doctrine 1 working as designed — the module raises the slot layer's own
+refusal rather than re-declaring a second exception class for one refusal,
+which is how a caller ends up catching the wrong one — and `slots.py` imports
+`SpanRule` rather than respelling the vocabulary `relations.py` has carried
+since 2026-08-10.
+
+**WHY IT IS NOT FIXED IN THE SAME BREATH.** Restoring the laziness means
+making `_normalise_groups`' `except SlotRefused: raise` discriminate a
+`ValueError` subclass WITHOUT naming its module — `SlotUnsupported` is a
+`ValueError`, so the next clause would otherwise wrap it in a `NoMandate`
+about "an iterable of line numbers", which is the wrong layer's words for a
+placement refusal. Every candidate spelling (a `sys.modules` probe, a
+`type(e).__name__` test, a sentinel re-raise inside `_member_slot`) is a
+second statement of the contract inside the one function every mandate passes
+through. That is a scoped change with its own measurement and its own
+regression risk, and 115 ms per process does not buy it today.
+
+**WHAT WAS DONE INSTEAD**: the sentence is struck in place with the
+measurement beside it (doctrine 17), so the record says what the tree does.
+**THE REMEDY, when someone takes it**: give `slots.py` a `SpanRule` import
+that does not pull the whole registry, or move the refusal class to a leaf
+module both can import — and re-measure, because a fix that does not move the
+17.7 ms figure has not closed this.
+
+**AND THE SYMBOL THAT LED HERE IS CLOSED.** `quality.slots.slot_line` was
+public, named by NOTHING, and its one natural caller —
+`schemes._member_slot` — was computing the line-level question two ways in one
+function (`slot.line` on the dotted branch, `int(x)` on the other), which is
+doctrine 1 inside eight lines. Both branches call `slot_line` now. It costs
+nothing precisely BECAUSE of the finding above: the import this call needs was
+already being paid on every mandate.
+
+### M-75 · the shape locks are silenced by appending ONE short section, which is the cheat they were written to catch `CLOSED` — sized and closed 2026-08-23
+**The owner's anecdote, verbatim:** _"I've seen this system say something to
+the order of 'oh I can't use only quatrains' and then immediately it made all
+quatrains and ended with a 2 line outro which, technically satisfied it but
+that's blatantly just gaming the system."_
+
+It is not an anecdote about a past session. It is a live property of
+`quality/grid.py`'s `stanza_lock`, and it REPRODUCES.
+
+**THE ARITHMETIC.** Every lock in `stanza_lock` fires on `u[...] >= threshold`
+with `threshold=0.90`, and every statistic in `uniformity()` is a FRACTION OF
+SECTIONS at the modal value. Put `k = n - 1` — one divergent section — and the
+check fires only when `(n-1)/n >= 0.90`, i.e. **n >= 10**. So **one odd
+section silences the lock for every song with fewer than ten sections.**
+
+**MEASURED ON A CONSTRUCTED SONG, which is the proof rather than the worry:**
+
+| shape                           | sections | `QUATRAIN_LOCK` |
+| ------------------------------- | -------: | --------------- |
+| 6 quatrains — the cliche itself |        6 | **FIRES**       |
+| 5 quatrains + a 2-line outro    |        6 | **silent**      |
+| 9 quatrains + a 2-line outro    |       10 | FIRES           |
+| 10 quatrains + a 2-line outro   |       11 | FIRES           |
+
+Row 2 is the owner's sentence, executed. The song is quatrain-locked in every
+sense a listener would use, and the check that exists to name that is quiet.
+
+**MEASURED ON BOTH POPULATIONS THAT MATTER.** Over `corpus/song/`'s **29,210**
+marked songs carrying blocks, the median is **3** blocks and **21,476
+(73.5%)** have fewer than ten — so the duck works on roughly three-quarters of
+real songs. Over 200 planner seeds the median is **10** sections and **97
+(48.5%)** have fewer than ten. **0 of 200 planner draws are currently IN the
+all-but-one shape**, so this is LATENT rather than live in the generator: the
+planner draws lines-per-section uniformly and does not write to a stanza. The
+hole is what a writer, an optimiser, or a model reaching for the cheapest
+compliance would find, and `--fill` puts a model on exactly that path.
+
+**THE STATISTIC IS WRONG IN KIND, NOT IN ITS THRESHOLD.** Retuning 0.90 to
+0.80 would be doctrine 58's error and would not close it — it moves the duck
+from one section to two. A modal-FRACTION statistic is duckable by
+construction because appending one token moves the denominator. What the
+question actually asks is whether the DISTRIBUTION of section lengths looks
+like the corpus's or like a lock, which is a dispersion question and is not
+satisfiable by a free token. That is the owner's own framing: **existence
+rules become distribution bands.**
+
+**AND IT MUST STAY A NOTE.** These are measurements against `POPULAR_SONG`, a
+labelled CONVENTION, and doctrine 6 says a convention a writer may depart from
+cannot be what fails `verify()`. 5/4 and an 11-bar bridge are choices. What is
+being closed is the SILENCE, never the severity.
+
+**THE REMEDY IS A CALIBRATION SITTING AND IT IS NOT TAKEN HERE**, deliberately:
+`CLAUDE.md`'s gap 10 already records this threshold as _"an uncalibrated 0.90"_,
+so picking a dispersion statistic and a cut in the same breath as measuring
+them would be the argmax-over-a-swept-parameter this repo refuses (doctrine
+19), and it would ship a second uncalibrated number to replace the first. The
+order this repo uses is register, measure, adopt, and CI re-derives — the
+shape `METER_BANDS` and `KALEVALA_ALLITERATION` both took. The registration
+has to declare the statistic and the adoption rule BEFORE the corpus is
+looked at, and state the cut as a false-positive rate against published verse
+(doctrine 16/22), because a band that charges a quarter of the corpus is a
+band that will be switched off.
+
+**WHAT IS DONE HERE IS THE SIZING**, and the two figures a registration needs
+are in it: the duck threshold is exactly ten sections, and the populations it
+covers are 73.5% of the corpus and 48.5% of the planner's own draws.
+
+### M-76 · the code graph's advertised token saving does not reproduce here, and it cannot see the half of this architecture that matters `CLOSED` 2026-08-23
+**The owner asked** whether graphify and Obsidian would raise a progress rate
+that had fallen to hour-plus tasks, having read that they pair well with
+Claude Code. The tools were evaluated rather than adopted on the pitch.
+
+**WHAT GRAPHIFY IS**: tree-sitter AST → queryable knowledge graph, local and
+deterministic for code, with an optional semantic pass over documents that
+uses a model API and emits `INFERRED` edges. Its advertised figure is _"70x
+fewer tokens per search"_; a widely-linked community setup repo headlines
+_"up to 71.5x fewer tokens per session"_ and substantiates no methodology —
+its one concrete measurement is a single case study on an unrelated 126-file
+React project. Doctrine 58: a number nobody can re-derive is a threshold
+nobody wrote down. `quality/graph_probe.py` re-derives it here.
+
+**THE BUILD IS CHEAP AND THE MAP IS GOOD.** `extract . --code-only` is **47
+seconds**, no API key, 7,555 nodes / 15,261 edges / 373 communities, with
+`corpus/` and `node_modules/` scoped out by `.graphifyignore`. And
+`god-nodes`, with no access to `CLAUDE.md`, independently recovered the spine
+that file describes — `Reviser` 108 edges, `Declaration` 68, `Lexicon` 55,
+`Syllable` 55, `Mandate` 53, `line_anchors` 48. A map derived from the AST
+agreeing with a map written by hand is a check on both, and it is the strongest
+thing in this entry.
+
+**THE TOKEN CASE IS REFUSED.** Eight questions, every one asked of this tree
+during real work earlier the same day (declared before measuring, so the set
+cannot have been chosen to fit — doctrine 19). Characters counted exactly,
+because `tiktoken` cannot fetch its encoding through this container's proxy
+and an estimated token would be a decimal wearing a claim; both arms are the
+same kind of text, so the RATIO is what survives.
+
+| baseline                                            | ratio                                          |
+| --------------------------------------------------- | ---------------------------------------------- |
+| `grep 'SYMBOL('` — the USE sites, the SAME question | **0.68x** (the graph costs half again as MUCH) |
+| `grep`+read every matched file in full              | 180x                                           |
+
+**The 180x is the advertised shape and it is a strawman**: nobody answers "who
+calls this" by reading two dozen files end to end. Against the search actually
+run, the graph route is MORE expensive.
+
+**AND IT IS ALSO THE LESS COMPLETE ROUTE**: mean recall **0.74** over the
+indexed questions (**0.77** if the defining file is counted as a dependent —
+both readings printed, because picking one silently is choosing the rendering
+that suits the conclusion, doctrine 91), with **1 of 5 complete**. A route
+that returns less is cheaper by construction, so a saving measured without
+checking the answer charges the wrong layer (doctrine 79) — which is why the
+probe refuses to quote a ratio on a question whose recall is short.
+
+**THE FINDING THAT MATTERS FOR THIS TREE: MODULE-LEVEL CONSTANTS ARE NOT
+INDEXED AT ALL.** `MANDATORY_PURSUE`, `LENGTH_GATE_CODES`, `PROFILES`,
+`ADOPTED` and `RHYME_FINDINGS` have **no node**; 4,347 of the 7,555 nodes are
+callables and not one is a constant. **Doctrine 1 makes a DECLARED CONSTANT
+the primary coupling here** — the `Declaration` tuple, the calibrated bands,
+the pursue set, the gate sets — so the graph covers the callable half of this
+architecture and is blind to the declared half, which is precisely the half
+`quality/gate_census.py` reads to answer what can refuse anything. Asked about
+a constant the graph returns 42 characters of nothing, and **nothing reads
+exactly like "no dependents"** (doctrine 20). That is a SCOPE LIMIT and not a
+wrong answer, and the probe reports it as `NOT INDEXED` rather than as a
+recall of zero for that reason.
+
+**THE PROBE CAUGHT ITS OWN COMPARATOR CHEATING, TWICE**, which is the reason to
+trust the numbers above. Its first draft scored the graph against every
+textual MENTION of a symbol — docstrings, comments, the definition — when the
+graph answers DEPENDENCY, and reported 41.7% recall with 0 of 6 complete.
+Corrected to `SYMBOL(`, a use. Its second draft still counted the DEFINING
+file as a dependent, so `affected slot_line` was charged a miss for correctly
+omitting `quality/slots.py`, the module that declares it: 1 of 2 rather than
+1 of 1. A comparator that penalises the right answer is the defect this repo
+keeps finding in its own instruments (doctrine 48), reproduced inside the
+instrument written to evaluate somebody else's.
+
+**ADOPTED AS A LENS, GATING NOTHING.** No check depends on the graph, no
+document instructs a session to trust it, and `graphify-out/` is gitignored as
+a derivation whose input is in the tree. `--code-only` is the shipped
+invocation: the semantic pass is non-deterministic (doctrine 66) and an
+`INFERRED` edge would be declared-not-counted. The rebuild command and the
+`built_at_commit` staleness warning are in `CLAUDE.md`, because a stale graph
+answering confidently is this repo's own most-repeated defect in a new hat.
+
+**OBSIDIAN IS NOT ADOPTED AND THE REASON IS SPECIFIC.** It cannot run in this
+container (GUI, ephemeral headless Linux), and more to the point the documented
+pattern — Karpathy's LLM-wiki, raw material compiled into an indexed markdown
+wiki an agent reads — describes what `CLAUDE.md`, `MISSING.md` and
+`BACKLOG.md` already are, with one property a vault cannot have: they FAIL.
+`verify_entries.py` goes red when a sentence stops being true, `counters.py
+--write` rewrites figures so nobody retypes them, thirty instruments re-derive
+their own pins. Moving that prose into a vault would move it out of the layer
+that enforces it. A vault READING these files is a reading surface and costs
+nothing; a vault REPLACING them would trade the only property that has kept
+this record honest.
+
+### M-77 · the 44 undecidable finding codes, decided — and 39 of them were never undecided `CLOSED` 2026-08-23
+**The owner's instruction**, after reading M-73's measurement: _"do the 44
+undecidable codes."_ Done. The count is **0**, and the honest account of how it
+got there has two halves that must not be merged, because merging them would
+let a reading correction look like an enforcement win.
+
+**THE CENSUS WAS WRONG FIRST, AND IT WAS WRONG IN ITS OWN FLATTERING
+DIRECTION.** `quality/gate_census.py` shipped the same day with
+`{computed: 23, consumer_assigned: 21}` pinned. Both numbers were artefacts:
+it read **argument 1 as the severity for every constructor**, because
+`floor.Finding` and `readability.Finding` are `(code, severity, message, …)`.
+`FitFinding` is `(code, MESSAGE, evidence, kind, satisfiable, …)` **and has no
+severity field at all**, so 18 of `quality/fit.py`'s codes had their MESSAGE
+tested against `"flag"`/`"note"`, failed, and were filed `computed`. The true
+split at that moment was **5 / 39**.
+
+**AND `Finding` NAMES FOUR DIFFERENT CLASSES IN THIS TREE** — `floor`,
+`readability`, `audit_corpus`, `rhyme_constraints` — of which
+`rhyme_constraints.Finding` is `(type_name, verdict, extents, channels, …)`
+and is not a coded finding at all. One name over four layouts is doctrine 1's
+own case, and a census reading them by position asserts a shape instead of
+reading one (doctrine 45). `severity_fields()` now DERIVES each constructor's
+layout from its own dataclass, so a class that gains or loses the field moves
+the census by itself.
+
+**A SEVERITY CAN BE DECLARED IN FOUR SPELLINGS, and the census knew one.**
+That is why 39 codes read as open when they were decided at the emitter:
+
+| spelling                | who                                                                                                                         |  codes |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------- | -----: |
+| a `severity` field      | `floor.Finding`, `readability.Finding`                                                                                      |      — |
+| **another field name**  | `FitFinding.satisfiable` — False = the declaration CANNOT BE MET, a contradiction, therefore a flag                         | **18** |
+| **a per-code table**    | `grid.SEVERITY` (new)                                                                                                       | **21** |
+| **a downgrade ceiling** | `floor.py`'s `sev("flag")`, whose body is `default if exact else "note"` — the argument is the strongest reachable severity |  **5** |
+
+An over-reported UNDECIDABLE is not a harmless error: it makes the tree look
+worse than it is and the instrument look more necessary than it is, which is
+the direction an instrument is least likely to audit itself in.
+
+**WHAT ACTUALLY CHANGED IN THE TREE**, kept separate:
+
+- **`grid.SEVERITY` rules on all 21 shape codes in the module that DEFINES
+  them.** It was `"flag" if f.code == "HOOK_ABSENT" else "note"` — one inline
+  conditional in `revise._function_findings`, a file that defines none of
+  those codes, with thirty lines of docstring in THAT module arguing why. The
+  whole SHAPE layer's severity was a string comparison in a consumer.
+- **`severity_of` REFUSES an unruled code** instead of defaulting it. A
+  default here is a ruling nobody made: the next `GridFinding` would join the
+  convention family without anyone deciding it should (doctrine 20). That is
+  the gate this layer did not have.
+- **`FitFinding.severity` and `GridFinding.severity` are THE one definition**
+  of mappings `quality/revise.py` held **three copies** of — while its own
+  docstring read _"SEVERITY IS NOT RE-DECIDED HERE … this method does not
+  maintain a second opinion."_ It maintained two copies of the opinion.
+
+**NO DRAFT GRADES DIFFERENTLY, and this was proven before anything shipped**:
+every table was checked against the expression it replaced —
+**0 disagreements** across all 21 shape codes, and `FitFinding.severity`
+reproduces `"flag" if not satisfiable else "note"` on both branches. The 20
+gated codes were gated all along; **0 are newly enforced and all 12
+newly-VISIBLE gates were already firing.** What moved is what can be READ.
+
+**THE PIN: 8 / 15 / 44 → 20 / 51 / 0, over 71 codes and not 67.**
+
+**AND THE REFUSAL CAUGHT A CRASH THE TESTS COULD NOT.** `severity_of` REFUSES
+an unruled code, and the first draft of `grid.SEVERITY` ruled on 21 — every
+code the census could see. It could not see four: `quality/grid.py`'s
+placement layer (M-54) builds `GridFinding(code, …)` from a VARIABLE at
+exactly one site, so `SECTION_AT_EDGE`, `SECTION_NOT_ADJACENT`,
+`SECTION_NOT_AT_BOUNDARY` and `SECTION_REQUIREMENT_ABSENT` are invisible to a
+scan for string literals. Two consequences, both live:
+
+- **A CRASH WOULD HAVE SHIPPED.** Any draft tripping a placement rule would
+  have raised `KeyError` where the old `else "note"` silently gave the right
+  answer for the wrong reason. **No suite catches it** — M-54's own
+  measurement is that the shipped blueprints trip **0 of 300** placement
+  rules, so no fixture reaches the site. The GATE found what the tests could
+  not, which is the whole argument for a refusal over a default.
+- **AND THE CENSUS HAD BEEN UNDERCOUNTING BY FOUR** — the same blindness that
+  lost an entire constructor on its first run, one argument in. Those codes
+  were emitted by this tree and counted by nothing. A declared table is an
+  EXISTENCE claim as well as a severity, so the census folds them in from
+  `grid.SEVERITY` and the total moves **67 → 71**.
+
+(`--check` re-derives all of it.)
+
+**A SOURCE-GREP PIN WAS REPOINTED AND GOT STRONGER.**
+`quality/test_grid.py` asserted the convention rule by searching `revise.py`'s
+SOURCE for the literal `'"flag" if f.code == "HOOK_ABSENT" else "note"'`. Its
+intent — _"the severity is decided in that file, so a promotion made there has
+to fail HERE"_ — was exactly right; only the location moved. It now reads the
+VALUE (`SEVERITY["RETURN_SCHEME_DRIFT"] == "note"`, and a constructed
+`GridFinding` reporting the same), because a source grep passes on a file with
+the right characters and the wrong behaviour, and goes stale the moment
+anybody reformats the line — which is precisely what happened.
+
+**AND THE 51 ARE NOW RULED ONE AT A TIME** (same sitting, on the owner's
+instruction "now do the 51 disclosed-only"). `gate_census.DISPOSITION` gives
+every toothless code a reason from a CLOSED seven-word vocabulary, and
+`--check` REFUSES on an unruled code or an off-vocabulary word — both branches
+proven by mutation. The ruling:
+
+| disposition         | codes | why it cannot gate                                                                                |
+| ------------------- | ----: | ------------------------------------------------------------------------------------------------- |
+| `CONVENTION`        |    17 | a writer may depart; a flag would be the error                                                    |
+| `NO_MOVE`           |    12 | a fact about the DECLARATION — the loop's only move is a word swap, so a flag spends `max_rounds` |
+| `DISCLOSURE`        |     7 | about the CALL or the MANDATE, not the draft                                                      |
+| `UNCALIBRATED`      |     7 | its CALIBRATED sibling already gates; this one needs a measured band                              |
+| `SATISFIED`         |     3 | records a requirement being MET                                                                   |
+| `REFUSAL`           |     2 | the harness could not answer (doctrine 79/20)                                                     |
+| `PROMOTE_CANDIDATE` |     3 | factual, no convention in it — arguably should gate, and NOT promoted here                        |
+
+**THE THREE CANDIDATES ARE THE DELIVERABLE, not the 48 settled ones.**
+`HOOK_DOES_NOT_RECUR` and `TITLE_NOT_IN_HOOK` are about the writer's own
+DECLARED hook text and are as factual as `HOOK_ABSENT`, which is a FLAG on
+exactly that argument — "occurs once, so it is a line and not a hook" is
+arguably definitional rather than conventional. And `SHARED_SUFFIX` names the
+same sonic event as `HOMEOTELEUTON`, which is GATED through
+`MANDATORY_PURSUE`: **one repository, two answers about one phenomenon**, the
+ban unskippable at the mandate layer and silent at the floor. That asymmetry
+may be right — the floor speaks about a draft nobody mandated — and it is not
+obviously right. Promoting any of the three changes what refuses a draft,
+which is the owner's call and not a table's.
+
+**WHAT IS NOT CLOSED, and it is now the honest headline: 51 of 71 codes can
+refuse NOTHING.** That is up from a reported 15, and it is not a regression —
+it is the 32 codes that were hiding inside UNDECIDABLE plus the 4 that were
+hiding from the scan entirely, now correctly counted as toothless. Doctrine 6 says most of them SHOULD be: a convention a writer
+may depart from cannot fail a check, and the shape layer's notes are notes on
+purpose. But 47 is the real size of the owner's complaint, and it is a
+question for a person, per code, which is what this census exists to put.
+
+### M-78 · the rule that decides note-vs-flag for 51 of 71 codes is not a doctrine, and has been cited as one 22 times `OPEN` — sized 2026-08-23
+**Found by the owner asking a one-line question** while M-77's disposition
+table was being written: _"did you say that we have a doctrine contradicting
+the rest of them? are you saying that doctrine 6 says just wrote prose?"_ The
+answer to the literal question is no. The answer to what it uncovered is
+worse.
+
+**DOCTRINE 6 IS NOT PROSE.** It carries a MECHANICAL registry row —
+`python3 quality/test_floor.py`, checking _"the floor emits a vector of
+findings and never a weighted score."_ It is enforced.
+
+**BUT IT DOES NOT SAY THE THING IT IS CITED FOR.** Doctrine 6 is _"No
+weighted quality score, ever. The features stay a vector."_ The rule quoted
+under its number across this tree is _"a convention a writer is free to
+depart from cannot be the thing that fails `verify()`"_ — a different claim
+about a different question. MEASURED over every `doctrine 6` citation in the
+repository:
+
+| what the citation CLAIMS                     |  sites |
+| -------------------------------------------- | -----: |
+| the CONVENTION rule (which 6 does not state) | **22** |
+| no weighted score (which 6 does state)       |     10 |
+| both / ambiguous                             |      1 |
+| other                                        |     27 |
+
+**The miscitation is more than twice as common as the correct one**, across
+`grid.py`, `revise.py`, `test_revise.py`, `lyric_harness.py`, `mutate.py`,
+`CLAUDE.md` and `MISSING.md`.
+
+**AND NO DOCTRINE IN 1–95 STATES IT.** Every numbered headline in `CLAUDE.md`
+and `quality/METHOD.md` was searched. The nearest is **doctrine 7**, whose own
+registry row reads _"a forced finding is a NOTE and never a flag — a floor may
+not order the permitted region"_ — closer, and still not the same claim: 7 is
+about not RANKING inside the permitted region, the rule is about not
+REJECTING on a convention. The rule is best read as a COROLLARY of 6 and 7
+together: taste belongs in a declaration (6), a floor may not order the region
+it already passed (7), therefore a convention — a declared taste rather than a
+floor — may not reject.
+
+**WHY THIS IS NOT PEDANTRY.** That corollary is the single most load-bearing
+rule in the finding taxonomy: **it decides note-vs-flag for 51 of 71 codes**,
+which is every `CONVENTION` and every `NO_MOVE` disposition in M-77's table.
+It is the reason `QUATRAIN_LOCK` may not fail a draft and the reason
+`RETURN_SCHEME_DRIFT` must not be promoted. Having no number of its own, it
+has **no registry row and no check** — so the one rule that governs most of
+this harness's restraint is exactly the thing doctrine 48 warns about, a
+principle living only in prose. Worse than the ordinary case: by being quoted
+under a number, it LOOKS checked.
+
+**WHAT WAS DONE**: M-77's disposition table cites the rule as _"a corollary of
+doctrines 6 and 7, not doctrine 6 alone"_, so at least the new 51 rulings do
+not repeat it. **The 22 existing sites are NOT rewritten**, deliberately — a
+bulk find-and-replace over a doctrine citation is how a number quietly comes
+to mean something else, and this repo's own rule is that a number cannot be
+renumbered, only added.
+
+**AND THE VERIFIER REFUSED THE FIRST DRAFT OF THIS ENTRY**, which is worth
+recording because it is the mechanism working at the layer under discussion.
+The remedy below was first written naming the next doctrine number as a
+literal; `quality/verify_doctrines.py` failed it as a reference with no
+definition. **A number cannot be minted by writing it down** — even in a
+proposal, even in a MISSING entry. The number is withheld here for that
+reason, not for style.
+**AND IT REFUSED THE SECOND DRAFT TOO**, for a subtler reason worth keeping:
+that draft QUOTED the verifier's own error message, which names the number —
+and to this checker a number inside a quoted error is still a citation. There
+is no escaping distinction between using a doctrine number and mentioning one,
+which is correct for its purpose (a stale citation is stale wherever it sits)
+and is the reason this paragraph paraphrases the error instead of quoting it.
+
+**THE REMEDY IS THE OWNER'S CALL AND IS ONE OF TWO.** Either (a) the rule gets
+**a doctrine number of its own** — the next one — with its own registry row
+and its own check, the sanctioned move since the numbering is append-only,
+which would also require the 1–95 invariant in `verify_doctrines.py` to widen;
+or (b) the citations are
+repointed at **doctrine 7**, whose registry row already says _"a forced
+finding is a NOTE and never a flag"_, and the corollary is written into 7's
+own text. (a) is honest about the rule being load-bearing enough to deserve a
+number; (b) is cheaper and leaves the strongest rule in the taxonomy as
+someone else's footnote. **Nothing is changed until that is ruled**, because a
+doctrine number is the owner's vocabulary and not a session's.
+
+### M-79 · the first end-to-end run: the pipeline stops at WRITE, because nothing checks that a plan is writable `OPEN` — measured 2026-08-23
+**The owner's instruction**, after asking what the shortest line to a finished
+song is: _"yes, run it."_ One song, end to end, through the real verbs, nothing
+done by hand. **It did not reach the WRITE step**, and the reason is
+measurable rather than anecdotal.
+
+**WHAT THE RUN DID.** `plan --seed=8231` returned a valid plan in one second:
+42 lines, 7 sections, **33/8 grouped in fifteen chunks**, one bar per line,
+~40 rhyme groups including an **11-member chain across 11 placements**, a
+12-line chorus against a **2-line verse**, and the chorus BEFORE the verse.
+Every declared gate passed. It is not a song. The rest is what 200 seeds say
+about whether that was bad luck.
+
+**FINDING 1 — THE METER AND THE DENSITY BAND CONTRADICT EACH OTHER IN 78% OF
+PLANS.** Each line is given a span in slots; the floor's calibrated band says a
+line carries **5–12 syllables**. MEASURED over 200 plans: the median line is
+given **24 slots**, and **157/200 = 78%** give every line MORE slots than the
+density ceiling permits. Only **18%** land inside the band.
+~~The writer is handed a bar they cannot legally fill, and the finding that
+names it — `SPARSE`, _"pulses with nothing declared on them"_ — is a NOTE whose
+M-77 disposition is `UNCALIBRATED`. **So the pipeline generates an impossible
+brief and the grader cannot refuse it.**~~
+**AMENDED 2026-08-23 BEFORE THE GATE WAS BUILT ON IT, AND THE MEASUREMENT
+SURVIVES WHILE THE READING DOES NOT (doctrine 17).** 24 slots against a
+ceiling of 12 is not a bar the writer cannot fill: `SPARSE`'s own gloss is
+_"fewer units than pulses"_, so a line's slots are a **CAPACITY** and never a
+requirement, and a twelve-syllable line in a twenty-four-slot bar is a
+legitimately SLOWER line. The grader is right not to refuse it. **`SPARSE`
+being an UNCALIBRATED note is therefore correct and this finding was about to
+promote it, which would have made every slow line a defect** — doctrine 7's
+own error, a floor ordering the region it already passed.
+**THE UNSATISFIABLE DIRECTION IS THE OTHER ONE, and it is rarer: a line whose
+span falls BELOW the density floor, where the band flags too few syllables and
+`fit.SLOTS_EXCEEDED` flags too many, so no draft clears both.** Re-measured
+over 400 seeds: **1 plan in 400**. Two more arithmetic contradictions sit
+beside it at **5/400** and **4/400** (a placement naming a word the line cannot
+reach; more distinct words demanded than syllables available).
+**AND A DEFECT OF NEARLY THIS RATE IS REAL, IN A LAYER THIS FINDING NEVER
+LOOKED AT — WHICH IS WHY THE NUMBER FELT RIGHT.** The same re-measurement
+found **376 of 400 plans (94.0%)** binding TWO declared rhyme groups to ONE
+WORD: the planner's own stated invariant, broken because it was tested on the
+placement NAME when four of the names it draws denote only two words. The two
+statistics are NOT the same statistic and are not comparable (78% is _every
+line over the ceiling_, 94% is _at least one line with a collision_); what
+they share is that a plan-time reading of 200 plans was pointing at something
+real and naming the wrong layer. `M-80` holds it, and the gate this finding
+asked for is built there.
+
+**FINDING 2 — 3.3% OF SEEDS PRODUCE A WRITABLE PLAN.** Over 399 seeds, asking
+only four undemanding things (line span inside the density band, no rhyme
+group larger than 4, verse before the first chorus, 8–24 lines): **13 of 399**.
+And most of those 13 are still not songs — seed 87 is **12 sections for 19
+lines**, seed 102 is 15 sections for 19. Only one of the thirteen has sections
+averaging more than two lines.
+
+**FINDING 3 — THE MANDATE PINS MOST OF THE WORDS IN A LINE, AND NOTHING
+MEASURES THAT.** A group pins a POSITION, and a line in several groups is
+pinned at several positions — different ones. MEASURED over 200 plans:
+**median 3 pinned positions per line, 32% of lines with 4 or more, and 166 of
+200 plans containing a line with 5.** Seed 85's L15 pins positions 1, 2, 4, 5
+and 6 of a roughly seven-word line, each to a different rhyme family, each of
+which also pins words in L13, L14, L16, L17 and L18. That is a coupled
+constraint system over six lines, not a brief.
+**AND THIS IS THE PLACEMENT WORK'S OWN SHADOW.** The owner asked for the web —
+_"literally every word in the piece"_ — and immediately qualified it: _"I don't
+think that literally every word need N pairs of rhymes."_ The planner draws a
+per-LINE participation count (uniform over 1–5), which controls how many GROUPS
+a line joins. It does not control **how many WORDS get pinned**, and those are
+different numbers precisely because each group pins a different position. The
+qualification has no coordinate.
+
+**FINDING 4 — UNIFORM IS A CHOICE TOO.** The planner puts the chorus before
+the first verse in **112/200 = 56%** of plans; the corpus rate is 41 of 178 =
+**23%**. `plan.py` records the order tendency as _"declared as a RATE and NOT
+enforced"_, deliberately, on the move-37 argument that sampling measured
+distributions makes the unprecedented improbable. True — and the consequence
+is that the PRECEDENTED becomes improbable in exactly the same measure. A
+verse SHORTER than its chorus lands in **39%** of plans.
+
+**WHAT WORKS, and it should be said**: the placement bound is respected.
+The highest token index any of 200 plans demands is **T7**, and **0/200**
+demand an index beyond what the density ceiling can supply. `_PLACE_POOL`'s
+`max_token` is doing its job.
+**AMENDED 2026-08-23: TRUE OF THE STATISTIC IT MEASURED AND OF NO OTHER
+(`M-80`).** T7 against the band's ceiling of 12 is the comparison against a
+GLOBAL bound, and the global bound is not what a line has. A line's own
+capacity is the smaller of the band ceiling and its OWN slot span — and
+`_max_token` was a module-level constant read off the floor's calibration
+before this plan's meter was even drawn. Re-measured over 400 seeds against
+each line's own span: **5 plans name a word the line cannot reach** and **4
+more need more distinct words than the line has syllables**. So the paragraph
+is a correct null about the ceiling and reads as a clean bill for the
+coordinate, which is doctrine 20's own shape — a question not asked, recorded
+as a question answered.
+
+**THE ONE DEFECT UNDER ALL FOUR: NOTHING ASKS WHETHER A PLAN IS WRITABLE.**
+Every constraint is individually legal. The meter is drawn from a derived
+cycle space, the density band is a corpus calibration, the schemes are exact-
+uniform over completions, the placements are bounded by a reachable token
+index. **Each gate passes and their conjunction does not**, and no layer holds
+the conjunction. `capacity.ADOPTED_MAX_GROUP` is the one joint check that
+exists — it stops a plan asking for a rhyme family no family can fill — and it
+is the shape the rest of this needs: a plan-time gate on the CONJUNCTION,
+refusing before a writer is handed the brief.
+
+**AND THAT IS WHY THIS RUN WAS WORTH MORE THAN THE AUDIT.** Four measured
+defects in under an hour, none of which any of the 71 green suites can see,
+because every suite tests a layer and the defect is BETWEEN layers. It is the
+same lesson `COVERAGE_PREREGISTRATION.md` already banked — _"length is the
+coverage lever and the SPEC is the defect lever"_ — one level out: **the
+pipeline is the defect lever, and there is no pipeline.**
+
+### M-80 · the plan-time joint satisfiability gate — every layer legal, the conjunction unheld `CLOSED` — built 2026-08-23
+**The owner's instruction, in four words**: _"build the plan-time joint
+satisfiability gate."_ M-79 named the shape and `capacity.ADOPTED_MAX_GROUP`
+was the one instance of it: a plan-time refusal on the CONJUNCTION, before a
+writer is handed the brief. This is the rest of it — and building it
+falsified the finding it was built on, which is recorded first because the
+gate would otherwise have shipped enforcing the wrong thing.
+
+**THE PREMISE WAS CHECKED BEFORE IT WAS BUILT ON, AND HALF OF IT WAS WRONG.**
+M-79's Finding 1 read _"157/200 = 78% give every line MORE slots than the
+density ceiling permits ... the writer is handed a bar they cannot legally
+fill"_ and proposed promoting `SPARSE`. **`SPARSE`'s own gloss is "fewer
+units than pulses":** slots are a **CAPACITY**, not a requirement. A
+twelve-syllable line in a twenty-four-slot bar is a slower line, not an
+impossible one, and promoting the note would have made every slow line a
+defect — doctrine 7's own error, a floor ordering the region it already
+passed. Finding 1 is amended in place (doctrine 17); the measurement stands
+and the reading does not.
+
+**WHAT IS ACTUALLY UNSATISFIABLE, MEASURED OVER 400 SEEDS.** Four causes,
+counted apart and never summed (doctrine 79) because they ask different
+things of whoever closes them:
+
+| cause                      |               plans | lines | what no draft can do                                                                  |
+| -------------------------- | ------------------: | ----: | ------------------------------------------------------------------------------------- |
+| `SPAN_BELOW_DENSITY_FLOOR` |           **1/400** |     6 | the band flags too few syllables; `fit.SLOTS_EXCEEDED` flags too many                 |
+| `TOKEN_INDEX_UNREACHABLE`  |           **5/400** |    26 | a placement names word _n_ of a line that cannot reach _n_ words                      |
+| `WORDS_EXCEED_SPAN`        |           **4/400** |     9 | more DISTINCT words demanded than the line has syllables                              |
+| `TWO_GROUPS_ONE_WORD`      | **376/400 = 94.0%** | 2,336 | two declared rhyme groups bind ONE word — `joint_field`'s question, which needs words |
+
+**FOUR COLUMNS OF ONE RUN, not four runs quoted side by side.** The gate as
+shipped is run over 400 plans from `plan.py` AS IT STOOD AT HEAD — all three
+derivations below un-repaired — rather than measured once per repair, because
+a rate taken after a neighbouring fix is a rate about a tree nobody had
+(doctrine 58, one axis out). 0 of the 400 were refused by the old generator.
+
+**THE FOURTH IS THE PLANNER'S OWN STATED INVARIANT, AND IT WAS TESTED ON A
+COORDINATE THAT DOES NOT ANSWER IT.** `_place_group`'s comment reads _"a line
+may join a second group only at a placement it does not already carry:
+satisfiable BY CONSTRUCTION rather than by a search a plan cannot run"_ — and
+the whole argument for the planner drawing OVERLAPPING covers at all (M-71)
+rests on that sentence. `used` held the placement **NAME**. Four of the names
+the pool draws denote only **TWO** words: `end` and `endword` are both the
+last word (its rhyme span and the whole of it), `head`, `headrime` and `T1`
+are all the first. `headrime` and `T1` are the **identical span** of the
+identical word. So the invariant was checked against a distinction that is
+not the distinction it names, and **2,336 lines over 376 plans** carried two
+groups on one word. The sharpest sub-case is **666 lines over 291 plans
+(72.8%)**, where the two placements are `headrime` and `T1` — not merely one
+word but the **IDENTICAL SPAN** of it, two rhyme families demanding the same
+syllables.
+
+**`slots.placement_word` IS THE COORDINATE THAT ANSWERS IT**, and it lives in
+`quality/slots.py` because that module's own docstring calls itself _"the ONLY
+place a name is bound to a rule"_ — a second answer to _which word is
+`headrime`?_ inside `plan.py` is the shape doctrine 1 names. It is DERIVED
+from each rule's LOCUS, so a placement added to `NAMED_SLOTS` is answered on
+the day it is added; a locus it cannot resolve to one word **REFUSES** rather
+than being filed under a nearby one (`line` is the registered case), because
+an unchecked collision reads exactly like a line with none.
+
+**THREE DERIVATIONS WERE REPAIRED SO THE GENERATOR SATISFIES THE GATE BY
+CONSTRUCTION**, which is the relationship `ADOPTED_MAX_GROUP` already has to
+the scheme sampler:
+
+1. **THE PICKUP WAS SUBTRACTED FROM A SPAN THE ENVELOPE HAD ALREADY
+   CLEARED.** `plan.py`'s own docstring says _"fewer slots than the minimum
+   band-legal syllable count is unsatisfiable BY CONSTRUCTION"_ and derives
+   the envelope floor on `bars x beats x sub` — then every line is emitted
+   with `duration = bars * beats - ana`. A whole-beat pickup at subdivision
+   4 removes four slots from a floor that was checked before they were
+   taken: **a derivation stated on one quantity and applied to another.**
+   The anacrusis is drawn from the choices that leave the span at or above
+   the floor, and the filtered set cannot be empty because 0.0 is always in
+   it.
+2. **THE TOKEN CEILING WAS A MODULE-LEVEL CONSTANT READ BEFORE THE METER
+   WAS DRAWN.** It is now the smaller of the floor's measured
+   tokens-per-line floor and THIS plan's own shortest line, less one for the
+   last word — the reservation that lets `end` be co-drawn with any `T<n>`.
+   Measured after: the ceiling is still 7 in **394 of 400** plans, so the
+   new bound binds where it should and nowhere else.
+3. **`used` KEYS ON THE WORD**, and `pool_n` counts the pool in words rather
+   than in names.
+
+**AFTER: 0 findings over 400 seeds, and 0 seeds lost.** Every seed that
+produced a plan before produces one now — the repairs shift the draw, they do
+not narrow the space. The placement shares move as they must: `end` takes
+**8.5%** of members (from 9.6%), because once a word is bound its other names
+are excluded, and the last word carries two names against the six that carry
+one each.
+
+**THE GATE IS A PURE FUNCTION OF THE EMITTED PLAN** (`plan.joint_findings`),
+so a hand-written plan is checked on the same terms and no repair upstream can
+make it pass by not being asked. `make_plan` calls it on the finished dict and
+**REFUSES BEFORE THE BRIEF IS BUILT** — a brief is what a writer reads, and
+handing one out is the moment a bad plan stops costing a seed and starts
+costing a draft.
+
+**PROVEN BY MUTATION, because a gate nothing can fire reads exactly like a
+gate that passes.** `quality/test_plan.py` §7 is 18 checks: the population is
+asserted before the sweep is called clean; each of the four codes is fired by
+its own hand-built plan; `make_plan`'s refusal is fired by stubbing the
+finder; and the load-bearing one restores the **pre-fix `_place_group`
+verbatim but for its one coordinate**, under which **38 of 40 seeds REFUSE**
+and the only code named is `TWO_GROUPS_ONE_WORD`. A further check pins the
+correction this entry opens with: a line given far MORE slots than the band's
+ceiling produces **no finding at all**.
+
+**WHAT THIS DOES NOT DECIDE, AND IT IS NOT SMALL.** Two groups on one word are
+refused; two groups on one LINE at different words are not, and cannot be
+here — whether the lexicon holds a word answering two families at once is
+`capacity.py`'s question and the relation coordinate that would answer it is
+`M-41`'s ladder step, still open. The gate refuses what is decidable without
+words and says so rather than reaching.
+
+**AND M-79's FINDING 3 IS NOT CLOSED BY THIS, WHICH IS SAID HERE SO THE GATE
+IS NOT READ AS HAVING CLOSED IT.** That finding is about HOW MANY words a line
+is pinned at, and re-measured over 200 seeds after the repair the figures are
+unmoved: **median 3 pinned positions per line, 33% of lines at 4 or more, 163
+of 200 plans containing a line pinned at 5.** What changed is that those pins
+are now on DISTINCT words inside a capacity the line demonstrably has —
+satisfiable rather than fewer. The ceiling is the calibrated density band's
+FLOOR (5), which is what `pool_n` has always drawn against; a line pinned at 5
+words at its own minimum legal length is every word pinned, which is legal and
+tight and is the coordinate the owner's _"I don't think that literally every
+word need N pairs of rhymes"_ asks for and still does not have. FINDINGS 2 and
+4 (writable-plan rate, chorus-before-verse rate) are likewise untouched: they
+are about what a plan should PREFER, and this gate is about what it may not
+ASK.
+
+### M-81 · a plan can be satisfiable and still unsingable: the sampler did not sample the envelope it declares, and the envelope was in the wrong unit `CLOSED` — measured 2026-08-23, (A) and (B) both closed the same day
+**FOUND BY RUNNING THE PIPELINE AGAIN AFTER `M-80` CLOSED**, which is what the
+gate was for: with every plan now writability-gated, the next thing in the way
+is visible. Seed 108 is one of the two plans in 600 whose SHAPE is a song —
+18 lines, 6 sections, verse before chorus, no group deeper than a quatrain —
+and its brief reads **`[INTRO — 3 lines — 51 bars of 2/4]`**. Seventeen bars
+per line. That is not a bar a writer cannot legally fill (`M-80` settles
+that: slots are a CAPACITY); it is one line every seventeen bars, and no
+song is that.
+
+**MEASURED over 400 plans / 12,793 lines.** The envelope declares slots per
+line **[5, 48]** — the calibrated density band's floor, and its ceiling times
+`SLOTS_CEILING_X`:
+
+| slots per line | min | p25 | median | p75 | max |
+| -------------- | --: | --: | -----: | --: | --: |
+| drawn          |   5 |  26 | **35** |  43 |  48 |
+
+**Only 588 of 12,793 lines (4.6%) get a grid a band-legal line can FILL** —
+23.3% are within twice the band's ceiling, 55.7% within three times. The
+median sits three-quarters of the way to the envelope's own ceiling, not at
+its middle.
+
+**THE CAUSE IS THE SAME BIAS V2's SMOKE RUN FOUND, ONE LEVEL FURTHER OUT.**
+`_sample_meter` draws `(bars_per_line, subdivision)` uniform over the 42 pairs
+the envelope admits, then the beat count uniform inside each pair's derived
+range. But `bars_per_line` runs to **24** (the envelope's `hi // 2`, a sound
+BOUND — past it no band-legal line is possible at any meter — which was never
+a claim that all 24 values are equally musical), and a high-bars pair's beat
+range COLLAPSES: at `bars=24, sub=1` the only legal beat count is 2, so that
+pair produces exactly 48 slots, the ceiling, every time. Uniform over PAIRS is
+therefore not uniform over the quantity the calibration is stated in. The
+module's own docstring is the standard it fails: _"THE MEASURE IS BY
+DERIVATION, NOT BY LEAF."_
+
+**AND IT FORKS. TWO READINGS, AND THEY ARE DIFFERENT WORK — THIS IS THE
+OWNER'S RULING TO MAKE, NOT A SESSION'S.**
+
+**(A) A SAMPLER BIAS.** The declared coordinate is slots-per-line; draw IT
+uniform over `[5, 48]` and then a factorisation `(bars, sub, beats)` uniform
+over the ways to realise it. Every integer in the envelope is realisable (the
+`(1, 1)` factorisation always exists), so the draw is well defined, and the
+pair marginal becomes a REALISABILITY share rather than flat — which is the
+correct direction by this module's own argument, since a slots value one pair
+can make should not be rarer than one six pairs can. Predicted median **26.5**
+against today's 35. **COST**: it moves every seed again, and it repoints a
+LIVE check — `test_plan.py` §4 asserts _"the dimension pairs are drawn
+uniformly — every pair the envelope admits, each within 15% of its expected
+share"_, which is precisely the measure this reading calls wrong. A test that
+measures a wrong behaviour precisely is what keeps it (this repo's own §5/§13
+lesson), so the check would be repointed with the argument written into it,
+never deleted.
+
+**(B) AN UNCALIBRATED CEILING, AND NO CORPUS CAN CLOSE IT.**
+`SLOTS_CEILING_X = 4` is named in its own comment as _"the one declared
+multiplier in this module"_, argued (_"at 4x, a line at the band's own maximum
+fills a quarter of its grid, which is where a grid stops discriminating and
+starts decorating"_) and **never measured**. Even under reading (A) the median
+line would sit at 26 slots — still more than twice the densest legal line. The
+lever that decides emptiness is this multiplier, and **it cannot be calibrated
+from `corpus/song/`**: doctrine 4 makes a bar grid a DECLARED coordinate,
+`quality/recover.py` REFUSES to infer one from text, and audio left the
+project's vocabulary by owner ruling. So there is no population of grids to
+measure a fill fraction against. This is doctrine 44/92's third category —
+neither hard to build nor impossible to obtain: **the measurement has no
+subject here**, and closing it is a RULING (a declared fill band) rather than
+a calibration.
+
+**THEY ARE NOT ALTERNATIVES AND THE ORDER MATTERS.** (A) is a defect and is
+closable today by the module's own stated principle. (B) is a hole and stays
+open under either. Doing (B) first would tune a multiplier against a marginal
+that is itself biased — retuning a threshold to compensate for a sampler,
+which is doctrine 58's error with the two layers swapped.
+
+**WHAT IS NOT IN QUESTION**: the gate. Every one of these plans is
+SATISFIABLE — `plan.joint_findings` returns nothing on all 400 — which is the
+distinction `M-80` exists to hold. Unsingable and unsatisfiable are different
+verdicts and only one of them is a refusal.
+
+**(A) IS CLOSED — THE OWNER'S RULING WAS _"do A"_, 2026-08-23.** The sampler
+draws the DECLARED COORDINATE first: `slot_values()` is what the envelope can
+realise, `_sample_meter` picks one uniformly, `meter_factorisations(slots)`
+gives every `(bars, subdivision)` that makes it, one is drawn uniformly, and
+`beats` follows by division. The grouping half is untouched — it was already
+exact-uniform over compositions and has its own pin.
+
+**MEASURED, 24,000 draws of `_sample_meter` under one seeded rng, and the
+trade is explicit:**
+
+|                                  | OLD (uniform over pairs) | NEW (uniform over slots) |
+| -------------------------------- | -----------------------: | -----------------------: |
+| slots per line, median           |                       38 |                   **26** |
+| lines a band-legal line can FILL |                     4.0% |                **18.2%** |
+| **bars per line, median**        |                    **8** |                    **1** |
+| one bar per line                 |                     7.1% |                **54.9%** |
+| beats per bar, median            |                        2 |                   **11** |
+| beats >= 40                      |                     0.5% |                     8.7% |
+
+Over 400 whole plans the per-line figures agree: slots-per-line median
+**35 -> 27**, and the share of lines whose grid a band-legal line can fill
+**4.6% -> 19.9%**.
+
+**THE OLD MEASURE'S LOW BEAT COUNT WAS NOT A VIRTUE, IT WAS THE SAME DEFECT
+SPELLED DIFFERENTLY.** A median 2-beat bar sounds tame until you read the row
+above it: the pair-uniform sampler ran a median of **eight bars per lyric
+line**. It was taking a too-large slots product and spending it on many short
+bars instead of one long one. No song sets one lyric line across eight bars,
+and nothing in this file checked it — `test_plan.py` §4 now does.
+
+**AND THE RESIDUE IS HONEST AND IS (B)'s.** Beats-per-bar rises 2 -> 11 and
+the >=40 share 0.5% -> 8.7%, because with `bars_per_line` at 1 the beat count
+IS the slots count. That is the same quantity — slots per line is still too
+large — arriving at the reader through the time signature instead of through
+the bar count, and the lever is `SLOTS_CEILING_X`, not the sampler. It is not
+hidden by a threshold: the check that names it is **derived from its own
+subject** now rather than from two literals.
+
+**THE TWO LITERALS IN THAT CHECK WERE PINNING THE OLD MEASURE.** It read
+_"median beat count <= 8 and under 10% of plans at >= 40 beats"_. Eight was a
+property of the pair-uniform marginal — of the eight-bars-per-line that
+produced it — so preserving it would have preserved the defect; and 10% sat
+20x clear of the old observation and 1.15x clear of this one, which is a flap
+risk rather than a discriminator. The bar is now **half whatever the LEAF
+measure itself gives**, computed in the check from `meter_dims` and
+`_n_compositions_23`: uniform-over-enumerated-cycles puts the beat median at
+**46** and the >=40 share at **0.918**, against this sampler's 11 and 0.090.
+The check cannot be vacuous, because its threshold is a measurement of the
+thing it exists to exclude.
+
+**WHAT ELSE THE REPOINTING PROVED.** The admitted-pair set derived two ways —
+`meter_dims`' non-empty beat range and `meter_factorisations`' divisibility —
+is the SAME 42 pairs, so the sampler and the disclosure's denominator cannot
+answer differently about what the envelope allows (doctrine 1). All 42 are
+still reached. And the pair marginal is now a PREDICTION computed from
+`meter_factorisations` alone, held to within four sigma of its expected count
+for every pair (worst observed **2.55 sigma**) — deliberately **not** flat,
+max/min share **412x**, because a slots count one factorisation can make must
+not be rarer than one twenty-one can. A check asserting pair-uniformity would
+today be asserting the defect, which is why §4's old one is struck with its
+argument rather than deleted.
+
+**NO SEEDS LOST AND THE GATE IS UNMOVED**: `plan.joint_findings` still returns
+nothing on all 400 seeds, and 0 refuse. `M-80` and this are independent — one
+says a plan must be satisfiable, this says the sampler must sample what it
+declares.
+
+**(B) STAYS OPEN AND IS NOW THE ONLY LEVER LEFT.** Even under (A) the median
+line gets 26 slots for at most 12 syllables. `SLOTS_CEILING_X = 4` is the
+module's own "one declared multiplier", argued and never measured, and it
+cannot be calibrated from `corpus/song/`: doctrine 4 makes a bar grid a
+DECLARED coordinate, `quality/recover.py` REFUSES to infer one, and audio is
+out of the project's vocabulary by owner ruling. There is no population of
+grids to measure a fill fraction against, so closing it is a RULING — a
+declared fill band — and it is the owner's.
+
+**AND THE END-TO-END EFFECT, MEASURED THE WAY A WRITER WOULD FEEL IT.** Over
+600 seeds, asking for a **singable grid** — every line's slots within twice the
+density ceiling, and a lyric line living in at most two bars — the rate goes
+**44/600 = 7.3% -> 196/600 = 32.7%**, four and a half times. Seed 108's brief
+moves from `[INTRO — 3 lines — 51 bars of 2/4]` to one bar of 39/8, and seed
+336's meter from 4/4 to 5/8.
+**THE SAME RUN SAYS WHAT (A) DID NOT TOUCH, AND IT IS THE MORE IMPORTANT
+HALF.** Asking separately for a **song SHAPE** — 12–28 lines, at most six
+sections, none shorter than two lines, a verse before the first chorus, no
+group deeper than a quatrain — the rate is **2/600 = 0.3% BEFORE AND AFTER**,
+and **0 of 600 seeds satisfy both at once**. The grid axis moved 4.5x; the
+shape axis did not move at all, because nothing in this change touches it.
+That is M-79's Findings 2 and 4 standing exactly where they were, and it is
+the lane `BACKLOG` task 101 already names — existence rules becoming
+distribution bands. **The shortest line to a written song now runs through
+SHAPE, not through the grid.**
+
+**(B) IS CLOSED TOO — THE OWNER'S RULING WAS _"now do B"_, 2026-08-23 — AND
+IT DID NOT NEED A CORPUS, BECAUSE THE MULTIPLIER WAS ASKING THE WRONG
+QUESTION.** This entry said closing (B) would be a RULING, since no
+population of bar grids exists to take a fill fraction over. That was true of
+the question `SLOTS_CEILING_X` posed and the question was wrong. Its own
+sentence gives it away: _"a line at the band's own maximum fills a quarter of
+its grid"_ measures emptiness in **SLOTS** — and a slot is a SUBDIVISION unit,
+not a unit of time. **Forty-eight slots is twelve beats at subdivision 4 and
+FORTY-EIGHT BEATS at subdivision 1, and one multiplier called those the same
+line.** There was never a single fill fraction to calibrate.
+
+**THE ENVELOPE IS STATED IN TWO UNITS NOW, AND BOTH ENDS ARE THE SAME
+CALIBRATED BAND:**
+
+- **CEILING, in BEATS** — a line runs at most `DENSITY` ceiling beats,
+  because it carries at most that many syllables and a sung line carries at
+  least one syllable per beat. Beyond it the beat itself is decoration: the
+  grid is finer than the words need at EVERY level, subdivision included.
+- **FLOOR, in SLOTS** — a line holds at least `DENSITY` floor slots,
+  because it must be able to carry the fewest syllables the band permits
+  and a syllable occupies one slot (`fit.SLOTS_EXCEEDED`).
+  The ceiling bounds TIME and the floor bounds CAPACITY, which is why one
+  multiplier could not be both, and why the SLOTS ceiling is not declared at all
+  any more — it FOLLOWS as `beats ceiling x max(subdivisions)`.
+
+**WHAT IS CALIBRATED AND WHAT IS DECLARED, KEPT APART (doctrine 16/22).** The
+band `[5, 12]` syllables per line is MEASURED over 139,694 corpus lines. The
+step from syllables to beats is DECLARED: `BEATS_PER_SYLLABLE_MAX = 1`, named
+so it can be overruled in one line rather than found inside an expression. **1
+is the IDENTITY** — the point where the grid's own beat is the syllable rate —
+and it is chosen for the reason exact equality is chosen over a threshold
+elsewhere in this repo: it is the only value in the range that is not a guess.
+Above 1 the planner would be volunteering held notes, which is a melodic
+decision it has no basis to make. **AND IT IS A CAPACITY, NOT A REQUIREMENT**
+— the ceiling is computed against the MOST syllables a line may carry, so a
+writer who puts five syllables in a twelve-beat line gets a slow line and no
+finding. That is the `SPARSE` reading this whole entry began by getting wrong.
+
+**MEASURED, 24,000 seeded draws of `_sample_meter`, all three states:**
+
+|                            | ORIGINAL | after (A) | after (B) |
+| -------------------------- | -------: | --------: | --------: |
+| **beats per LINE, median** |   **24** |    **22** |     **7** |
+| beats per LINE, max        |       48 |        48 |    **12** |
+| bars per line, median      |        8 |         1 |     **1** |
+| bars per line, max         |       24 |        24 |     **6** |
+| beats per BAR, median      |        2 |        11 |     **4** |
+| beats per bar >= 40        |     0.5% |      8.7% |  **0.0%** |
+| slots per line, median     |       38 |        26 |    **12** |
+
+**READ THE FIRST ROW AND (A)'s WHOLE CONTRIBUTION COMES INTO FOCUS: IT MOVED
+THE SPELLING, NOT THE LENGTH.** A lyric line ran a median of 24 beats before
+and 22 after — barely anything — while the bars it was spread over went 8 to 1
+and its slots 38 to 26. (A) was right and necessary (the sampler must sample
+the coordinate it declares, and eight bars per line is not a song) and it
+could not have fixed this, because the quantity it drew uniformly was still
+the wrong one. **(B) is what moves the line: 22 beats to 7.**
+
+Over 400 whole plans, the share of lines whose grid a band-legal line can
+FILL: **4.6% -> 19.9% -> 56.3%**. The median beat count per bar is **4**, and
+nothing tuned it there — `4/4` was v1's bias and this is the same figure
+arrived at by derivation from a band.
+
+**THE RESIDUE (A) LEFT IS GONE.** (A)'s honest cost was the beat count rising
+2 -> 11 with an 8.7% tail past 40, because with `bars=1` the beat count IS the
+slots count. The beats ceiling removes it structurally: **no beat count above
+12 exists in the envelope at all**, so the tail is 0.0% and it cannot come
+back by tuning.
+
+**AND THE PIPELINE PRODUCES A SONG FOR THE FIRST TIME.** Over 600 seeds,
+asking for a **singable grid** (every line's slots within twice the density
+ceiling, a lyric line living in at most two bars): **44/600 = 7.3% -> 400/600
+= 66.7%**, a nine-fold move. Asking for **both** that and a song SHAPE (12–28
+lines, at most six sections, none under two lines, a verse before the first
+chorus, no group deeper than a quatrain): **0 of 600 before, 2 of 600 now**
+(seeds 108 and 336). Seed 108's brief, across the three states:
+
+```
+  [INTRO — 3 lines — 51 bars of 2/4]                 ORIGINAL
+  [INTRO — 3 lines — 1 bar of 39/8]                  after (A)
+  [INTRO — 3 lines — 3 bars of 10/8, one-beat pickup]   after (B)
+```
+
+**AND §4's LAST TWO THRESHOLDS WENT WITH IT, WHICH IS THE OWNER'S RULE TURNED
+ON THE CHECKS THEMSELVES.** (A) had already replaced two literals with _half
+whatever the leaf measure gives_; that stopped discriminating the moment the
+beats ceiling capped the beat count, because the leaf measure's >=40 share is
+now 0 and so is this sampler's — **`0 <= 0` reads exactly like a check that
+examined something**. Both surviving thresholds are now TWO-HYPOTHESIS TESTS
+between two COMPUTED distributions, with no number anywhere in them:
+
+- the beats-per-bar marginal is closer to THIS SAMPLER's prediction (total
+  variation **0.0089**) than to the LEAF measure's (**0.4327**) — and the
+  two predictions are proven to differ from each other by more than the
+  observation differs from either, so it is not a comparison of one
+  hypothesis with itself;
+- the pair marginal is closer to the REALISABILITY share (**0.0095**) than
+  to FLAT (**0.4941**) — which is the claim §4's own struck pair-uniformity
+  check used to make in the opposite direction.
+
+**NO SEEDS LOST AND THE JOINT GATE IS UNMOVED**: `plan.joint_findings` returns
+nothing on all 400 seeds, and 0 refuse.
+
+**WHAT REMAINS, AND IT IS NOT THIS ENTRY'S.** The SHAPE axis is unmoved at
+**0.3% before and after** — 12 sections for 19 lines, chorus before verse at
+56% against a corpus 23%. That is M-79's Findings 2 and 4, and the lane is
+`BACKLOG` task 101: existence rules becoming distribution bands. Two seeds in
+600 is a pipeline that CAN write a song, not one that reliably does.
+
+**BOOKKEEPING — `audit_register.PINNED["coverage_entries"]` CLIMBED TWICE IN
+THIS SITTING, and both steps are recorded here so that neither superseded
+value is a figure nobody stands behind (doctrine 17).** ~~137~~ -> **138** on
+2026-08-23 when `M-80` was filed, and ~~138~~ -> **139** the same day when
+this entry was. Each step is exactly one new entry in this file and nothing
+else moved. `quality/verify_entries.py` is what caught the second one going
+un-recorded — and then caught the correction landing in the WRONG FILE, since
+the first attempt at this paragraph was appended at the repository root by a
+shell whose working directory had moved. An untracked `MISSING.md` two
+directories up reads exactly like a recorded supersession to everything
+except the instrument that looks.
+
+**M-75 CLOSED THE SAME DAY — THE WEIGHT, NOT THE THRESHOLD.**
+**The owner's ruling: _"do 101, derived envelope not rate-matching."_** The
+sizing above ends by saying the remedy is a calibration sitting: register a
+dispersion statistic, measure the corpus, state the cut as a false-positive
+rate. **That is not what was done and the ruling is why.** No corpus rate is
+consulted, `threshold` does not move, and nothing new is fitted to anything.
+
+**AND THE TITLE'S OWN PHRASE IS NOT WHAT SHIPPED, WHICH IS SAID FIRST SO IT
+CAN BE PUSHED BACK ON.** The sizing's framing — the owner's — is _"existence
+rules become distribution bands"_, and what shipped is a WEIGHTED EXISTENCE
+RULE, not a dispersion statistic. The reason is the ruling itself: **a
+dispersion BAND needs a reference distribution to say what dispersion is
+normal, and the only reference this repo has is the corpus.** Fitting a cut to
+corpus dispersion is the rate-matching the ruling forbids; using the PLANNER's
+own uniform draw as the reference instead would define the grader in terms of
+the generator, which is doctrine 14's error and would charge nearly every
+published song besides. So under _derived, not rate-matched_, a dispersion
+band is not derivable — and the hole turns out not to need one.
+
+**WHAT CHANGED IS WHICH POPULATION THE FRACTION IS TAKEN OVER.** Every
+statistic in `uniformity()` that ranged over SECTIONS now ranges over the MASS
+those sections carry — **bars** for the metric locks (`four_four`,
+`bars_multiple_of_four`, `equal_section_length`) and **lines** for the lyric
+one (`four_lines_per_section`). The sizing's own diagnosis is what licenses
+it: _"a modal-FRACTION statistic is duckable by construction because appending
+one token moves the denominator."_ A section count gives every section one
+vote regardless of size, so a two-line tag is worth as much as a twelve-line
+verse. Mass does not.
+
+**AND THE TWO STATISTICS THAT WERE ALREADY RIGHT STOP BEING EXCEPTIONS.**
+`downbeat_locked` and `uniform_anacrusis` were already per-LINE and were
+already un-duckable by a short section — nobody had noticed that they were the
+only two, or that being per-line was WHY. Seven measures, one rule now: a
+share of the mass the measure is about.
+
+**M-75's OWN TABLE, RE-RUN:**
+
+| shape                            | sections | before     | after             |
+| -------------------------------- | -------: | ---------- | ----------------- |
+| 6 quatrains — the cliche itself  |        6 | FIRES      | **FIRES**         |
+| **5 quatrains + a 2-line outro** |        6 | **silent** | **FIRES** (0.909) |
+| 5 quatrains + a 3-line outro     |        6 | silent     | silent (0.870)    |
+| 9 quatrains + a 2-line outro     |       10 | FIRES      | FIRES             |
+| 10 quatrains + a 2-line outro    |       11 | FIRES      | FIRES             |
+| varied 4,4,4,6,8,2,5,7,3,9,10,11 |       12 | silent     | silent (0.164)    |
+| 2 quatrains + an 18-line section |        3 | silent     | silent (0.308)    |
+
+Row 2 is the owner's sentence and it fires. Rows 6 and 7 are the control: the
+repair did not buy its reach by charging everything.
+
+**WHAT THE DUCK COSTS NOW, STATED RATHER THAN CLAIMED AWAY (doctrine 22).**
+Row 3 is silent and that is CORRECT and must not be read as a residual defect.
+At threshold `t`, silencing `k` sections of length `L` needs an appended
+section longer than `kL(1-t)/t` — **a ninth of the song** at the declared
+0.90. The duck is not gone; **its price went from a CONSTANT (one section, any
+size, in any song under ten sections) to a SHARE of the song**, which is
+exactly what `SECTION_LENGTH_LOCKED`'s own message asks for: _"a section that
+ARRIVES early or overstays is where structure becomes audible."_ A three-line
+tag on five quatrains has begun to be a section.
+
+**AND IT FOUND THE ANECDOTE IN THIS REPO'S OWN FIXTURES.** The sizing recorded
+the hole as LATENT — _"0 of 200 planner draws are currently IN the all-but-one
+shape"_ — and looked at the planner. It was live in `examples/`:
+
+- **`function_fixture.blueprint.json`** — EIGHT sections of 2 bars and a
+  ONE-BAR outro. `equal_section_length` read 8/9 = 0.889 and went silent by
+  a hundredth; by bars it is 16/17 = **0.941** and `SECTION_LENGTH_LOCKED`
+  fires.
+- **`mandate_song.blueprint.json`** — 24/8/24/8 bars, all 4/4, plus a
+  ONE-BAR outro. `bars_multiple_of_four` read 4/5 = 0.800; **one bar out of
+  sixty-five was worth a fifth of the statistic**. By bars it is 64/65 =
+  **0.985** and `METER_LOCKED` fires.
+  The other two shipped blueprints are unmoved.
+
+**AND A PIN ON EXACTLY THIS CENSUS WAS SHORT BY TWO CODES.**
+`quality/test_revise.py`'s shape-layer section exists to say the layer _"was
+not merely untested — it was firing on the repo's own fixtures and reporting
+to nobody"_, and it pins WHICH codes: `{DOWNBEAT_LOCKED,
+PHRASE_LENGTH_LOCKED}`, with _"FOUR of the six tripped by no shipped fixture
+at all"_. Both were true and both were short, because the two extra were
+hidden by the very duck that section's neighbour describes. It is
+**four of the six** now, and the two that were missing are `METER_LOCKED` and
+`SECTION_LENGTH_LOCKED` — repointed with the argument rather than relaxed, the
+same way `test_plan.py` §4's measure checks were. This is the one suite that
+went red, and it went red for the right reason: it was pinning the census and
+the census moved.
+**EVERYTHING ELSE STAYED GREEN, which is the coverage gap this entry lived
+in**: 298 checks in `test_grid.py` and 72 in `test_song_function.py` passed
+against a repair that moves two shipped fixtures' findings.
+
+**THE COST ON PUBLISHED VERSE, MEASURED AND NOT TUNED TO (doctrine 22).** The
+metric locks need a bar grid and the corpus carries none (doctrine 4), so the
+answerable half is the lyric lock — which is the half the anecdote is about.
+Over **15,063** `corpus/song/` songs with more than two non-empty blocks:
+`QUATRAIN_LOCK` fires on **11.80% -> 15.30%**, newly charging **550 songs =
+3.65%** and releasing 23. **The newly-charged population is not a random
+slice of verse — it is the anecdote:** the six commonest shapes are
+`[1,4,4,4,4,4,4]` (133 songs), `[1,4,4,4,4]` (91), `[1,4,4,4,4,4]` (82),
+`[2,4,4,4,4,4,4]` (60), `[1,4,4,4]` (35), `[1,4,4,4,4,4,4,4]` (32) — every
+one of them _n_ quatrains and a one- or two-line tag. **THAT IS NOT A FALSE
+POSITIVE RATE.** A hymn of six quatrains closing on a one-line refrain IS
+written in quatrains; the old statistic was calling it clean. The 23 released
+are the mirror image and are also right — nine quatrains beside a thirty-line
+section is a form with a shape.
+
+**AND IT STAYS A NOTE**, unchanged: these are measurements against
+`POPULAR_SONG`, a labelled CONVENTION, and doctrine 6 says a convention a
+writer may depart from cannot be what fails `verify()`. What was closed is the
+SILENCE, never the severity — the sizing's own last requirement.
+
+**PROVEN BY MUTATION.** `quality/test_grid.py` §27 is 9 checks: the cliche
+still fires, the owner's shape now fires, a varied form and a real off-modal
+section stay silent, the duck's remaining price is stated with its
+derivation, and **restoring the section-count denominator puts the duck back**
+— the owner's shape goes quiet while the plain cliche still fires, which is
+the exact asymmetry this entry names.
+
+**WHAT THIS DOES NOT TOUCH, SAID PLAINLY BECAUSE A SESSION ALREADY GOT IT
+WRONG.** This is the GRADER. It changes nothing about what the planner draws:
+the song-SHAPE rate over 600 seeds is **0.3% before and after**, and `M-79`'s
+Findings 2 and 4 — twelve sections for nineteen lines, chorus before verse at
+56% against a corpus 23% — are untouched. A session reported that closing 101
+would move that rate; it does not, and the two are separate pieces of work.
+
+**BOOKKEEPING — AND THE COVERAGE COUNT DOES _NOT_ MOVE FOR THIS ONE, WHICH IS
+THE POINT.** `M-75` is CLOSED IN PLACE rather than by a new entry, so
+`audit_register.PINNED["coverage_entries"]` stays at **139** (the ladder
+~~137~~ -> ~~138~~ -> 139 is recorded in `M-81`). The first draft of this
+close was written as its own `###` heading and `quality/counters.py` REFUSED
+the whole tree for it — _"entries with no status"_ — because a heading in this
+file must carry a bracketed status token and a closing paragraph is not an
+entry. Two instruments in two hours catching two different ways of putting
+a record in the wrong shape.
+
+### M-82 · the seed sweep was the last private instrument, and it is a verb now `CLOSED` — 2026-08-23
+**The owner's ruling, in four words: _"make it a verb."_** Asked what stood
+between the harness and a written song, the answer was one thing, and it was
+not a capability — it was that producing a song required an instrument the
+repository forbids.
+
+**CLAUDE.md's standing rule 3 named this one and left it open**, deliberately
+and by the owner's own pending ruling: _"The seed-sweep instrument (looping
+`make_plan` with filters to find a shape) stays manual for now BY THE OWNER'S
+PENDING RULING, and is named here so it cannot become a quiet fourth
+instrument."_ The rule it is an exception to is the rest of that paragraph:
+_"any measurement or step used in producing a delivered song goes through a
+verb, and an improvised script used twice is a defect report, not a
+convenience."_
+
+**AND IT HAD BEEN USED TWICE, IN THIS SESSION, BY THE SESSION THAT QUOTED THE
+RULE.** Finding the seeds behind `M-81`'s end-to-end figures meant writing
+`sweep.py` and then `sweep2.py` in a scratch directory, with **seven filter
+criteria invented on the spot and declared nowhere** — 12–28 lines, at most
+six sections, none under two lines, a verse before the first chorus, no group
+deeper than a quatrain, slots within twice the density ceiling, at most two
+bars per line. Every number in that list was a hard number in an instrument,
+which is the thing this repository spent two sittings removing from the
+generator.
+
+**WHY A SWEEP IS NEEDED AT ALL, and it is a property of the planner rather
+than a defect in it.** `--functions` is an ALLOW-LIST. It PERMITS a roster and
+cannot COMPEL a draw to use it — `functions_unused` exists precisely to say so
+— because compelling would mean weighting the dice, which is the "move 37"
+ban. **The honest way to turn a permit into a compel is to DRAW AGAIN**, and
+rejection sampling from a uniform proposal is uniform over the accepted set:
+the same argument `_sample_pattern` already makes for the placement layer. A
+sweep is that argument spelled as a command.
+
+**`plan --sweep=LO-HI [--want=PRED;PRED]`**, and the design is three
+refusals:
+
+1. **IT DOES NOT RANK**, and that is the load-bearing one. Doctrine 7 —
+   _"enforce a floor, do not order the permitted region"_ — and doctrine 19,
+   on an argmax over a swept parameter being biased toward whichever end has
+   more degrees of freedom. A sweep returning _the best seed_ would be
+   exactly that argmax, and whatever it ranked by would be the weighted
+   quality score doctrine 6 forbids. It returns the accepted set **in seed
+   order**, with its acceptance rate, and carries no score field at all.
+2. **IT INVENTS NO CRITERIA.** Every predicate reads a coordinate the plan
+   ALREADY DISCLOSES; the vocabulary is CLOSED (`SWEEP_MEASURES`,
+   `SWEEP_SETS`, `SWEEP_ORDERS` — doctrine 58) and an undeclared name
+   REFUSES and prints the table, because a predicate silently matching
+   nothing and a predicate that refuses look identical in the accepted set.
+   **The numbers in a `--want` are the CALLER's**, which is `M-55`'s own
+   principle: a writer saying _"I want a chorus and a postchorus"_ is
+   declaring something about THIS song. The owner's ban is on hard numbers
+   in the generator, not on a writer stating what they want.
+3. **IT HAS NO DEFAULT.** A sweep with no predicate accepts every seed that
+   plans at all — honest, useless, and correct. A default would be the
+   instrument deciding what the caller wants, and `before=verse,chorus` in
+   particular would be the rate-matching `FORM_TENDENCIES` explicitly
+   refuses: _"a planner that refused those would be refusing a quarter of
+   the corpus it was measured on."_
+
+**THREE COUNTS, NEVER SUMMED (doctrine 79)**: swept, planned, and
+REFUSED-BY-THE-PLANNER. A seed the envelope turns down — an unattainable
+length, the `M-80` joint gate — is not a seed the predicates rejected, and
+charging one to the other blames the declaration for the planner.
+
+**AND AN EMPTY ACCEPTED SET REFUSES AT EXIT 2 WITH THE RATE BESIDE IT**,
+because _unreachable in this range_ and _merely rare_ are different answers
+and the acceptance rate is the measurement that separates them (doctrine 20).
+
+**IT RETURNS SEEDS AND NO PLAN**, and `--fill`/`--out` are refused with it: a
+plan is a pure function of its seed, so the caller runs `plan --seed=N` and
+gets the artifact reproducibly with nothing carried over from the search.
+
+**MEASURED, and it is the same answer the scratch script gave**: over seeds
+0–119 with the six predicates the private version used, `accepted [108]`,
+120 planned, 0 refused — **0.5% of the planned**. The instrument moved into
+the tree without its answer changing, which is what makes this a verb rather
+than a rewrite.
+
+**PROVEN BY MUTATION AND BY REACHABILITY, in two suites for two different
+claims.** `quality/test_plan.py` §10 holds the API — the closed vocabulary,
+every measure reading a real plan, the seed-ordered accepted set with no score
+key, the three counts, the no-default behaviour, and four parse refusals.
+`quality/test_verbs.py` §40 holds the half standing rule 3 is actually about:
+**that a person can RUN it**, as a subprocess and not an import, with all six
+CLI refusals fired and the disclosure asserted line by line — including that
+the output says out loud that it does not rank.
+
+**AND THE APPEND THAT FILED THIS ENTRY WENT MISSING TWICE FIRST**, which is
+worth one sentence because it is the same shape as the record defects above:
+a shell whose working directory had moved wrote it once to an untracked file
+at the repository root (caught by `quality/verify_entries.py`) and once to
+nowhere at all (caught by `audit_register.py` reporting an unmoved entry
+count). An entry nobody can find and an entry nobody wrote are the same entry.
+
+**WHAT IS LEFT AFTER THIS, stated so the next session does not have to
+rediscover it**: the writing. The pipeline was run end to end mechanically
+before this entry was filed — `plan --seed=108` → `fill_plan` → `song
+BP DRAFT --groups=… --subdivision 2` — and every step completed, with exit 3
+and the finding set that eighteen lines of placeholder tokens deserve. No
+layer refused, nothing was unreachable. The remaining owner rulings (`M-77`'s
+promotions, `M-78`'s doctrine number) block nothing.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~139~~ -> **140**
+on 2026-08-23 with this entry — the ladder ~~137~~ -> ~~138~~ -> 139 -> 140 is
+recorded across `M-81` and `M-75`, and this is its last step in this sitting.
+
+### M-83 · `plan --fill` was the SIXTH holdout from the one definition of sung text `CLOSED` — 2026-08-23
+**FOUND BY WRITING A SONG THROUGH THE PIPELINE, which is the only way it could
+be found** — the owner asked for a song, the planner's own `writer_brief` said
+_"Write a song: 18 lines, 6 sections"_ and printed a `[INTRO — 3 lines — 3 bars
+of 10/8, one-beat pickup]` header for each, the draft was laid out in exactly
+those sections, and `plan --fill` REFUSED it.
+
+**THE REFUSAL NAMED THE WRONG LAYER** (doctrine 20): _"the plan declares 18
+line(s) and the draft carries 24 — they must be the same song."_ The draft
+carried 18. The reader counted 24, because it read the file with
+
+    with open(fill, encoding="utf-8") as fh:
+        draft_lines = [l.rstrip("\n") for l in fh if l.strip()]
+
+— a bare `open()` and a blank-line test, reaching `is_apparatus_line` by
+nothing. So the SIX `[SECTION]` headers the brief told the writer to write were
+counted as LYRIC, and a `#` stage direction or a `--- TITLE:` line would have
+been too. A writer who follows the plan's own instructions is refused, and told
+the fault is in their draft.
+
+**THIS IS THE SIXTH SITE, AND CLAUDE.md HAS A PARAGRAPH PER PREVIOUS ONE.** The
+apparatus rule was _"CENTRALIZED 2026-08-12, CONVERGED 2026-08-13"_, then found
+again in `quality/loop.py`'s `__main__` (2026-08-13), then in
+`quality/relations.py`'s `main()` (2026-08-13, correctly spelled inline — it
+derives its stanza frame from blank lines), then a fifth time one layer earlier
+in the DECODE (2026-08-15, `read_lyric_text`). That paragraph ends on the two
+commands that check it — `grep -rn 'startswith("--- ")'` and
+`grep -rn 'startswith("\[")'` — and **neither finds this one**, because this
+site does not test a prefix at all. It tests `l.strip()` and nothing else, so
+the greps that were written to prove the centralization is finished are blind
+to the shape that broke it.
+
+**AND IT IS IN THE NEWEST VERB, WHICH IS THE PART THAT STINGS.** `--fill`
+shipped 2026-08-18 under standing rule 3 — _"any measurement or step used in
+producing a delivered song goes through a verb"_ — as the verb that ENDS the
+hand-assembled song text. `render_song` is handed the same `draft_lines`, so
+the performance-order artifact, the deliverable that rule exists to produce,
+would have printed the section headers as sung lines interleaved with its own.
+The instrument built to stop a private habit had the habit inside it.
+
+**THE FIX IS THE ONE DEFINITION, NOT A SEVENTH SPELLING.** `load_lyric_lines`,
+whose docstring is _"One definition so every verb agrees on what counts as sung
+text"_, drops blanks exactly as the inline read did, so no other behaviour
+moves. It also carries `read_lyric_text`'s STRICT decode, so `--fill` gains the
+`UndecodableLyricFile` refusal the 2026-08-15 lot gave seven other verbs and
+could not give this one, since this one did not exist yet — an undecodable
+draft was reaching `plan` as an uncaught `UnicodeDecodeError` at exit 1.
+
+**MEASURED, both directions.** Before: a 6-section 18-line draft REFUSES at
+exit 2 naming the draft. After: the same file fills, `render_song` emits the
+18 lines under 6 headers, and `song` grades it **0 FLAG / 0 banned pair /
+0 SCHEME_VIOLATION**, exit 0. A draft with NO headers is byte-identical either
+side of the fix, which is the control — the repair adds a drop rule and changes
+nothing for a file that has nothing to drop.
+
+**WHAT IS NOT CLAIMED**: `grep` cannot certify this family and this entry does
+not pretend the next site would be caught. The check that IS a gate is
+`test_verbs.py` §41, which drives `--fill` on a draft carrying all three
+apparatus spellings at once and requires the plan to accept it; reverting the
+reader to the inline `open()` reds it.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~140~~ -> **141**.
+
+### M-84 · `HOOK_DOES_NOT_RECUR` gates now, and promoting it exposed a planner that could not satisfy it `CLOSED` — 2026-08-23
+**THE OWNER'S RULING, in five words: _"promote HOOK_DOES_NOT_RECUR to a flag."_**
+`M-77` produced the disclosed-only roster precisely so that _"should this one
+gate?"_ is asked of each code BY A PERSON rather than answered by whoever last
+edited the file. This is the first code that roster caused to be promoted.
+
+**IT IS NOT DOCTRINE 6's CASE, and that is the whole argument for taking this
+one and not its neighbours.** `M-77` warned that a CONVENTION a writer may
+depart from cannot be what fails a check, so `DOWNBEAT_LOCKED` and
+`QUATRAIN_LOCK` are notes ON PURPOSE — they measure a draft against
+`POPULAR_SONG` at an uncalibrated threshold. Apply `M-54`'s own per-row test to
+this one — _violate it: is the result a NOVEL SONG or a MISLABELLED SECTION?_ —
+and a hook heard once is not an experimental song, it is a phrase somebody
+called a hook. The finding's own message has said so since it was written:
+_"A hook is defined by RETURN; one occurrence is a phrase."_ It joins
+`HOOK_ABSENT`, whose flag rests on identical footing — a factual question about
+the writer's OWN declared text, with no convention in it.
+
+**AND THE PROMOTION IMMEDIATELY FAILED THE PLANNER, which is the half worth
+recording.** MEASURED over 400 seeds BEFORE anything was changed: **219 plans
+(54.8%) declared a hook in a section drawn exactly once**, every one of them a
+chorus. The derivation was three lines and asked the wrong question —
+~~`if s["function"] == "chorus": hook_slot = s["line"]; break`~~ — taking the
+first chorus's first line unconditionally, never asking whether that chorus
+COMES BACK.
+
+**SO THE FLAG WOULD HAVE CHARGED A WRITER FOR SOMETHING NO WRITING CAN FIX.**
+This is `M-80`'s joint-satisfiability shape one layer out: a hook slot is
+legal, a one-chorus pattern is legal, and their CONJUNCTION is unwritable
+because **no choice of words makes a section recur**. Shipping the severity
+change alone would have handed better than half of all plans a defect with no
+move — the precise error `line_syllable_ceiling` exists to prevent, and worse
+than the `SPARSE` misreading `M-79`'s Finding 1 made, because that one at least
+had a rewrite available.
+
+**BOTH HALVES, THEREFORE.** The slot is derived from what the plan ACTUALLY
+DREW — the first line of the first instance of a function occurring more than
+once — with the preference taken from the vocabulary rather than a literal:
+`FunctionSpec.returns_as == "verbatim"` wins, which is why `chorus` still gets
+it when a recurring one is present (its gloss: _"the returning section; the one
+place where REPEAT is the requirement rather than the violation"_). When
+NOTHING recurs, the plan declares **no hook** and says why in
+`hook_slot_refused`, because silence and "this shape cannot carry one" look
+identical in an empty field (doctrine 20). `writer_brief` prints the reason
+instead of going quiet.
+
+**`HOOK_IN_NONRECURRING_SECTION` is the fifth `JOINT_CODES` member** and makes
+it CHECKED rather than asserted. **AFTER: 0 findings over 400 plans, 0 seeds
+lost** — satisfied by construction, so a MUTATION is the only way to fire it,
+the same relationship `ADOPTED_MAX_GROUP` has to the scheme sampler. 264 of 400
+plans declare a hook (all in a function drawn 2–4 times); 136 declare none and
+each states its reason.
+
+**THE REPAIR COSTS NO ENTROPY, MEASURED.** It reads the already-drawn
+`sections`, so seed 108's groups string is **byte-identical**, its meter is
+10/8 (2,3,2,3) and its line count 18, either side. No plan's rhyme web, meter
+or scheme moved; only the hook coordinate did.
+
+**THE DELIVERED SONG SURVIVES ITS OWN RULING.** The 18-line flood song written
+this sitting was graded before the promotion at 0 FLAG. Seed 108 draws six
+sections with six DISTINCT functions — nothing in it recurs at all — so under
+the repair it declares no hook, `HOOK_DOES_NOT_RECUR` cannot fire, and
+`HOOK_UNDECLARED` (a note: the question was not asked) takes its place. Re-graded:
+**exit 0, 0 FLAG, 0 banned pairs, 0 SCHEME_VIOLATION**, whole-draft findings
+10 -> 9. The planner had been telling that song's writer _"Line 7 is the hook —
+make it the line someone leaves humming"_ in a song where nothing comes back.
+
+**WHAT THE FLAG'S LIVE TARGET IS, stated so the promotion is not read as
+bigger than it is**: the planner can no longer emit it, so nothing this
+generator produces newly fails. It fires on a HAND-WRITTEN blueprint or a
+recovered song — the `recover.py` door — which is where an undeclared-but-real
+hook problem actually arrives.
+
+**BOOKKEEPING**: `gate_census.PINNED` ~~gated 20 / disclosed_only 51~~ ->
+**21 / 50** over the same 71 codes, repinned deliberately and naming the code
+that moved. `audit_register.PINNED["coverage_entries"]` ~~141~~ -> **142**.
+
+**GATES**: `test_song_function.py` §11 reads the severity off the FINDING the
+layer builds (not off the table it came from) and asserts the five neighbouring
+locks stay notes, so the promotion cannot open the family; `test_plan.py` §7
+adds two checks and a MUTATION that forces a hook into a once-drawn section and
+requires `HOOK_IN_NONRECURRING_SECTION` to fire — without it, both checks would
+pass on a planner that simply never declared a hook; `test_grid.py` §26 repins
+the flag family as a DECLARED SET rather than a count (~~`== ["HOOK_ABSENT"]`~~),
+keeping its original intent that a new finding must not drift into the family.
+
+### M-85 · the section header's apparatus is gated, `SHARED_SUFFIX` is pursued, and `TITLE_NOT_IN_HOOK` is refused ON EVIDENCE `PARTIAL` — 2026-08-23
+**THREE THINGS FROM ONE SITTING, and the first was found by the owner reading
+a chat message rather than a file.**
+
+---
+
+**(1) THE SECTION HEADER — the owner's standing instruction, given repeatedly
+and gated by nothing until now.** The rule: a section's apparatus lives INSIDE
+its bracket, and the METER is part of that apparatus. The owner's words:
+_"I've told you like 5 times now to keep that shit inside the bracket and
+clearly you haven't set up that constraint or gate or whatever ... also I've
+told you I don't know how many times to put the fucking meter in there."_
+
+**THE HARNESS WAS ALREADY RIGHT AND THE DELIVERY WAS NOT.** `plan.section_header`
+emits `[INTRO — 3 lines — 3 bars of 10/8, one-beat pickup]` — one closed
+bracket, meter inside — and is the ONE builder, called by both `render_song`
+and `writer_brief`. What went wrong is that the session RETYPED it in chat as
+`**[INTRO]** — 3 bars, one-beat pickup`: apparatus outside the bracket, meter
+dropped. That is standing rule 3's own defect — the system produced the correct
+artifact and a hand-assembled version was delivered instead of it.
+
+**THE OWNER'S WORRY WAS A RHYME-CONTAMINATION WORRY AND IT WAS CHECKED, NOT
+WAVED OFF.** The graded file carried no such line: `load_lyric_lines` admitted
+18 lines, none containing `bars` or `pickup`. The song's verdict stands. But the
+underlying hole is REAL and was measured:
+
+| form                                                                      | verdict                       |
+| ------------------------------------------------------------------------- | ----------------------------- |
+| `[INTRO] — 3 bars, one-beat pickup`                                       | dropped                       |
+| `[INTRO — 3 lines — 3 bars of 10/8, one-beat pickup]` (the harness's own) | dropped                       |
+| `— 3 bars, one-beat pickup` on its own line                               | **SCORED, end word `pickup`** |
+| `3 bars of 10/8, one-beat pickup` on its own line                         | **SCORED, end word `pickup`** |
+
+**THE OBVIOUS GATE IS WRONG AND THE NUMBER SAYS SO.** A "refuse a line opening
+on a dash" rule was drafted and then MEASURED before shipping: over `corpus/`,
+**433 of 626,282 sung lines open on a dash — 0.0691%** — and every sampled one
+is real verse (Arnold's _"--Ah! thine was not the shelter, but the fray."_,
+Clare, Blunt, Browne). That rule would refuse canonical poetry. REFUSED, and
+the FPR is recorded instead of the rule (doctrine 22).
+
+**WHAT IS DECIDABLE is that this harness OWNS the format**, so the gate is a
+ROUND TRIP over its own output rather than a guess about someone else's:
+render a song, read it back through the one definition of sung text, require
+the lines to come back exactly. MEASURED over 60 plans / **681 headers**:
+0 malformed, 0 missing the meter, 0 escaping `is_apparatus_line`, **0
+round-trip breaks**. `test_plan.py` §11, with a MUTATION that splits the
+apparatus onto its own line and requires it to score as `pickup`.
+
+---
+
+**(2) `SHARED_SUFFIX` GATES — PURSUED, NOT FLAGGED.** The owner's ruling was
+_"do the same for TITLE_NOT_IN_HOOK and SHARED_SUFFIX"_, i.e. promote. The
+census's own argument for this one is doctrine 1's: it names **the same sonic
+event** `HOMEOTELEUTON` names — its message says _"(homeoteleuton)"_ in as many
+words — and that one has been gated through `MANDATORY_PURSUE` since the ban
+went unskippable, while this one was silent. One repository, two answers about
+one event.
+
+**THE INSTRUMENT IS `MANDATORY_PURSUE` AND NOT A FLAG, and the tree already
+paid to learn why.** CLAUDE.md on `MODAL_RHYME`: _"re-typing MODAL_RHYME as a
+flag was wrong twice over: doctrine 7 says a floor may not order the region it
+already passed and a pair that RHYMES is inside that region, and verify() gates
+on flags, so a promoted note would begin REJECTING revisions for introducing
+one."_ A shared-suffix pair rhymes, so it sits inside the permitted region on
+the identical argument. A flag would also have made it STRONGER than the tier-1
+ban it mirrors, and would have falsified `floor.py`'s own user-facing sentence,
+printed twice: _"RADIF_LICENSED and SHARED_SUFFIX are notes at every length."_
+Pursuing keeps that true. The finding already carries its `locations`, so the
+loop has lines to hold.
+
+---
+
+**(3) `TITLE_NOT_IN_HOOK` IS NOT PROMOTED, AND THE MEASUREMENT IS THE REASON.**
+MEASURED over `corpus/song/eng_*`: of **8,667 songs carrying a declared
+`--- TITLE:`, 5,867 (67.7%) do not contain their own title anywhere in the
+lyric** — and that is the WEAKEST form of the test, since "in the hook" is a
+strict subset of "in the lyric". Gating it would fail two thirds of the canon,
+which is doctrine 61 (_a rule that fires more often is not a better rule_), and
+by `M-54`'s per-row test a song whose title is absent from its hook is a NOVEL
+SONG, not a mislabelled one — Habington, Drummond, `the rose`. This entry is
+`PARTIAL` because the question remains the OWNER'S; what changed is that it now
+has a number attached instead of an intuition, and the `PROMOTE_CANDIDATE` row
+carries it.
+
+---
+
+**AND THE CENSUS'S OWN TABLE HAD GONE STALE IN THE SAME BREATH** — the defect
+`gate_census` exists to find in other layers, appearing in `gate_census`.
+`DISPOSITIONS` had no word for _a candidate the owner has since ruled on_, so
+after `M-84` the table still said "somebody should decide this" about a
+decision already made. `PROMOTED` is the new disposition, kept as a ruled row
+rather than deleted because the ARGUMENT is what a later reader needs
+(doctrine 24: relabel, do not delete a category).
+
+**BOOKKEEPING**: `gate_census.PINNED` ~~gated 21 / disclosed_only 50~~ ->
+**22 / 49** over the same 71 codes. `audit_register.PINNED["coverage_entries"]`
+~~142~~ -> **143**.
+
+**TESTED WHILE OPEN — `quality/test_revise.py` §41 names this entry and does
+NOT guard it, declared 2026-08-24 after reading the entry.** §41's subject is
+`verify()`'s RULE 3 (was a modal candidate TAKEN?), which has nothing to do
+with any of this entry's three parts. It cites part (2) — `SHARED_SUFFIX`
+joining `loop.MANDATORY_PURSUE` — because that ruling is WHY its fixture pair
+went from `glares`/`stairs` to the singular `glare`/`stair`: a pursued note
+holds a line open, and the plural pair could not converge. A comment
+explaining a fixture move is not a regression on the entry, and nothing in
+§41 goes red if any open half of M-85 changes. What that pursue costs is
+`M-90`'s subject, and it is OPEN there rather than answered here.
+
+### M-86 · `TITLE_NOT_IN_HOOK` gates, on reaffirmation against the number `CLOSED` — 2026-08-23
+**THE OWNER RULED TWICE, AND THE SECOND TIME IS THE ONE THAT COUNTS.** `M-85`
+recorded a REFUSAL to promote this code and put a measurement behind it: over
+`corpus/song/eng_*`, of **8,667 songs carrying a declared `--- TITLE:`, 5,867
+(67.7%) do not contain their own title anywhere in the lyric** — the weakest
+form of the test, since "in the hook" is a strict subset of "in the lyric".
+The argument was doctrine 61 (_a rule that fires more often is not a better
+rule_) and `M-54`'s per-row test: a song whose title is absent from its hook
+reads as a NOVEL SONG rather than a mislabelled one.
+
+**The owner was shown that number and answered _"promote it anyway."_** That
+is the ruling, it is recorded here with the objection intact rather than
+quietly dropped (doctrine 17), and the code is a FLAG.
+
+**WHAT SHIPPED WITH IT IS THE GUARD THAT KEEPS THE FLAG HONEST**, and it is
+`M-84`'s lesson applied without being asked for again. A flag must name
+something a writer can answer. Containment here is a SUBSEQUENCE test in both
+directions, so a title with MORE TOKENS than the hook cannot sit inside it by
+any writing at all. `TITLE_LONGER_THAN_HOOK` is a REFUSAL for exactly that
+case: it records the contradiction between two DECLARATIONS and does not raise
+the flag, because charging a draft for an unanswerable demand is the error
+`M-84` caught in the planner (doctrine 20/79 — a refusal is not a failure, and
+putting one in the numerator charges the wrong layer). MEASURED as reachable:
+**209 of 8,643 corpus titles (2.42%) are longer than the density band's own
+12-syllable ceiling**, so no band-legal line could hold them whatever the hook
+said.
+
+**THE THREE BRANCHES, PROVEN RATHER THAN DESCRIBED**, on one fixture:
+title inside the hook -> `findings=[] refusals=[]`; title absent ->
+`[('TITLE_NOT_IN_HOOK', 'flag')]`; title longer than the hook ->
+`findings=[] refusals=['TITLE_LONGER_THAN_HOOK']`.
+
+**A REFUSAL IS NOT A FINDING, so the census does not grow.** `codes` stays
+**71** — `FINDING_CONSTRUCTORS` names `Finding`/`FitFinding`/`GridFinding` and
+a `Refusal` is none of them, which is the doctrine-79 partition holding on its
+own rather than by anybody remembering it.
+
+**BOOKKEEPING**: `gate_census.PINNED` ~~gated 22 / disclosed_only 49~~ ->
+**23 / 48**, the third repin of the day and the third code the `M-77` roster
+caused to be ASKED about — which is that roster doing the job it was built
+for. `audit_register.PINNED["coverage_entries"]` ~~143~~ -> **144**.
+`grid.SEVERITY`'s flag family is now three (`HOOK_ABSENT`,
+`HOOK_DOES_NOT_RECUR`, `TITLE_NOT_IN_HOOK`) and `test_grid.py` pins it as a
+DECLARED SET, so a fourth cannot drift in; the five convention locks beside
+them are asserted still notes, so promoting three did not open the family.
+
+### M-87 · the sweep gained the two coordinates a hook needs, because `M-84` made one askable `CLOSED` — 2026-08-23
+**FOUND BY WRITING THE NEXT SONG.** `M-84` made `HOOK_DOES_NOT_RECUR` a flag
+and repaired the planner so a hook is only ever declared in a function drawn
+more than once. That changed what a writer must ask the sweep for: a shape
+with a REAL hook. `SWEEP_MEASURES` could not express it, and finding one by
+looping `make_plan` in a scratch script is the defect standing rule 3 exists
+to end — the more so in the very verb that rule produced.
+
+**TWO MEMBERS, BOTH READING A COORDINATE THE PLAN ALREADY DISCLOSES**, which
+is the vocabulary's own admission rule (`M-82`): `hook` is `hook_slot` or 0,
+and `returns` counts the declared return classes. Neither invents a
+measurement, so neither is a second planner (doctrine 58).
+
+**AND `hook>=1` COULD NOT HAVE BEEN ASKED HONESTLY BEFORE `M-84`.** Under the
+old derivation every plan with a chorus declared a hook, so the predicate
+would have selected 100% of them while 54.8% named a section drawn once — it
+would have answered a question about a coordinate that did not yet mean what
+its name says.
+
+**MEASURED WHILE USING THEM, and the number is the useful part.** Over 600
+seeds: **412 declare a hook, 304 declare returns, and 304 declare BOTH** —
+every returns-bearing plan has a hook, which follows, since a declared return
+IS a recurring function. What killed the first search was none of those:
+`lines_per_section>=2` passes only **17 of the 304**, because a declared
+return almost always arrives with a one-line section beside it. That is a
+real fact about the pattern grammar and it is recorded here rather than
+worked around, since the honest fix for a caller is to drop the predicate,
+which the sweep's own refusal already tells them (_"widen the range, or drop
+a predicate — and the acceptance rate above is the measurement that says
+which"_).
+
+**COVERED BY THE EXISTING GATE RATHER THAN A NEW ONE**: `test_plan.py` §10
+walks `SWEEP_MEASURES` and requires every member to read a real plan without
+inventing anything, so a new coordinate is exercised the moment it is
+declared — which is what that check was built for.
+
+**AND ONE TEST WENT RED FOR THE RIGHT REASON, REPOINTED NOT RELAXED.**
+`test_loop.py`'s whole-draft check compared `LoopResult.whole_flags` against a
+HAND-LISTED pair and went red when `TITLE_NOT_IN_HOOK` joined the family
+(`M-86`): the result read `['LEXICAL_MONOTONY', 'HOOK_ABSENT',
+'TITLE_NOT_IN_HOOK']`. The check's INTENT is doctrine 1 — the writer is shown
+the SAME object the result discloses, not a second derivation — and a literal
+pair never expressed that; it expressed the family's size on the day it was
+written. It compares the FULL SETS now, which is strictly stronger: a fourth
+whole-draft flag is covered automatically instead of breaking the section.
+115/0.
+
+### M-88 · the two-tier ban was enforced in the loop and skippable at the grading verb `CLOSED` — 2026-08-23
+**FOUND BY THE OWNER ASKING WHY A DELIVERED SONG HAD NOT BEEN RUN THROUGH
+`revise`.** The first answer is a confession: the session skipped it. The
+second is the defect, and it is the larger one — **nothing stopped it.**
+
+**`revise` IS THE BAN'S ENFORCEMENT.** `loop.MANDATORY_PURSUE` holds a line
+open until the pair clears and the CLI exits nonzero if it does not; that is
+mechanism 2 of `gate_census`'s three. The GRADING verb read the identical
+finding as a NOTE and exited 0.
+
+**MEASURED on `hair`/`chair`** — the canonical tier-1 pair, one of the three
+CLAUDE.md records as beating the single top-N cliff and forcing the two tiers
+— under `--groups=1,2`:
+
+| verb     |  exit | verdict                                   |
+| -------- | ----: | ----------------------------------------- |
+| `brief`  | **0** | `HOMEOTELEUTON` printed as a note; passes |
+| `revise` | **3** | NO_PROGRESS after 2 rounds, L2 held open  |
+
+**SO CLAUDE.md'S OWN SENTENCE WAS HALF FALSE.** _"The instructions now say the
+ban is unskippable at any exit code"_ (2026-08-19, the connector's field
+failure) was true of the LOOP and false of the VERB, and the same paragraph
+records what that costs: a site's chat planned, wrote and graded a song whose
+every intended rhyme was on the ban, **43 banned pairs**, and presented it as
+finished. That was diagnosed as the wrap not carrying the loop. It is wider
+than the wrap — the CLI has the identical hole, and any caller who reaches for
+the grader instead of the loop skips the ban.
+
+**THE FIX MOVES THE EXIT CODE AND NOTHING ELSE.** The severity is untouched
+and `verify()` is untouched, because re-typing one of these as a FLAG is the
+`MODAL_RHYME` error this repository already paid for: doctrine 7 says a floor
+may not order the region it already passed, and a pair that RHYMES is inside
+it. `floor.LENGTH_GATE_CODES` is the precedent verbatim — _"the codes a verb
+may not exit 0 on"_ — and this is the second member of that species. The
+refusal NAMES the code and the lines, and points at both remedies (`revise` to
+clear, `screen` to avoid).
+
+**COUNTED APART FROM FLAGS, NOTES AND THE LENGTH GATE** — four counts now and
+still never a sum (doctrine 79). The ban gate is checked AFTER the flag gate
+so a flagged draft still reports its flags; both exit 3 and the stronger
+signal keeps the message.
+
+**NO DELIVERED SONG MOVES**: both songs written this sitting re-grade at
+**exit 0** — they carry no banned pair, which is what the pre-writing `screen`
+was for. The gate fires on the ban, not on the fixture.
+
+**THE CONTROL WAS WRONG FIRST AND THAT IS WORTH RECORDING.** `test_verbs.py`
+§42's clean fixture began as `hair`/`floor`, which do not rhyme — so it exited
+3 on `SCHEME_VIOLATION` and would have "passed" the section for entirely the
+wrong reason, certifying a gate that fires on everything. It is `stair`/`spare`
+now, a screened-clean perfect rhyme, so the ONLY difference between the two
+fixtures is the ban itself.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~145~~ -> **146**.
+`gate_census` is UNMOVED at 23/48: these codes were already counted as GATED
+through `MANDATORY_PURSUE`, and this entry adds a second mechanism to codes
+that had one rather than a gate to codes that had none — which is why the
+census is right not to move and why the hole was invisible to it.
+
+### M-89 · the CI workflow had been INVALID YAML, so every run started zero jobs `CLOSED` — 2026-08-24
+**FOUND BY BEING TOLD TO GET CI GREEN.** `.github/workflows/ci.yml` did not
+parse. A `- name:` scalar was unquoted and contained `": "` — which YAML reads
+as a nested mapping — at line 1690, column 1983: _"rather than a sitting
+later: it named two constructors"_. `yaml.safe_load` raises
+`ScannerError: mapping values are not allowed here`.
+
+**SO GITHUB STARTED NO JOBS AND REPORTED `failure`.** Measured: the last
+twelve runs on this branch are all `failure`, and
+`actions_list(list_workflow_jobs)` on the newest returns
+`{"total_count": 0, "jobs": []}`. **Eleven jobs** parse once the scalar is
+quoted.
+
+**IT BROKE AT `18835a4`** (_"The gate census: how much of this harness can
+refuse anything, measured"_), `git log -L 1690,1690`. Every red since was the
+workflow refusing to parse rather than a check failing, so **the repository
+had no CI signal at all for that stretch** — and every commit pushed into it,
+including this session's, was pushed past a light that could not turn green.
+
+**THE FAILURE MODE IS WORSE THAN SILENCE, which is why this is not filed as
+housekeeping.** A gate that cannot RUN normally looks like a gate that PASSES
+(doctrine 48's usual shape, and `MISSING.md` is full of it). This one looked
+like a gate that FAILS — permanently, on every commit, for reasons no job log
+could explain because there were no jobs. That trains a reader to ignore the
+light, which is strictly worse than a false green: a false green is believed
+once, a permanent false red is believed never.
+
+**THE GATE CANNOT LIVE IN CI AND THAT IS THE WHOLE POINT.** A workflow that
+does not parse runs nothing, including a step that would validate it. The
+check has to fire BEFORE the push, so it is `test_verbs.py` §43: every file
+under `.github/workflows/` must parse AND declare at least one job — the
+second half because a file that parses to something structurally empty would
+otherwise read as fine. It names its population first, so it cannot pass by
+examining nothing.
+
+**WHAT IS NOT CLAIMED**: this says nothing about whether the eleven jobs PASS.
+It says they can now be started, which they could not be. Whatever CI reports
+next is the first real verdict this branch has had since `18835a4`.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~146~~ -> **147**.
+
+### M-90 · `SHARED_SUFFIX` became an enforcement whose own field cannot answer it `CLOSED` — 2026-08-24
+
+**FOUND BY THE FIRST CI RUN THAT COULD START JOBS** (`M-89`).
+`quality/test_revise.py` §41's premise — _"the loop converges on this pair"_ —
+went red, and the cause is `M-85`: `SHARED_SUFFIX` joined
+`loop.MANDATORY_PURSUE` by the owner's ruling, so a pursued note now holds a
+line open until it clears. §41's pair is `four` ~ `stairs`, answered on
+`glares`, and `glares`/`stairs` share the plural `-s`.
+
+**THE PURSUE HAS ZERO LEGAL ANSWERS ON THAT PAIR, and that is a fact about the
+lexicon rather than about the fixture.** `Reviser.modal_field("stairs")`
+returns a COMPLETE pool of **39** words — 24 offered, 15 in the modal head —
+and **39 of 39 end in `-s`**, because that is what rhyming with a plural
+means. **37 of the 39** trip `SHARED_SUFFIX` against `stairs` under the
+floor's own test; the two that do not are `upstairs` and `downstairs`, and
+both are in the MODAL HEAD, which doctrine 9 forbids taking. So the loop was
+asking for a word that does not exist in the field it had just computed —
+the shape `joint_conflict` already names, arriving through a different door.
+
+**AND THE FINDING'S OWN SENTENCE IS NOT TESTED BY ITS OWN CODE.** The message
+reads _"rhyme only on a shared grammatical ending (homeoteleuton)"_. The test
+behind it is: both words end in a member of `lyric_harness.SUFFIXES`, and for
+a suffix of one or two letters both letter-stems are known words. **Nothing
+asks whether the pair still rhymes once the ending is removed** — which is
+what the word ONLY claims. `glare`/`stair` rhyme perfectly, so on this pair
+the ending carries nothing and the sentence is false.
+
+**MEASURED, over `data/song_rhymepair_en.tsv`'s 23,853 distinct pairs — every
+one of them a perfect rhyme observed in `corpus/song/eng_*`:**
+`SHARED_SUFFIX` fires on **3,884 (16.28%)**. Stripping the matched suffix from
+both words by LETTERS and re-scoring the remainder through `score`/`admits`:
+the remainder still rhymes on **3,223 (82.98% of firings)**, does not on
+**168 (4.33%)**, and is unreadable to CMUdict on **493 (12.69%)**. By suffix,
+the firings are dominated by `-s` (2,109), `-ing` (847) and `-ed` (336).
+
+**THE 82.98% IS A BOUND AND NOT A RATE, AND THE LIMIT IS STATED RATHER THAN
+BURIED** (doctrine 20): a letter-stem is not a morpheme, so `abortion` strips
+to `abor` and `abides` to `abid`, and both arms of that partition are
+contaminated by it. What the measurement establishes is the ORDER: the great
+majority of what this note fires on is a pair whose rhyme survives the ending,
+and the fraction it was built to name is small. `quality/morphology.py` and
+`g2p.SUFFIXES`' allomorphs are the instrument that would make the partition
+exact, and this entry does not reach for them.
+
+**WHAT IS NOT DONE HERE, AND WHY.** The promotion is the owner's ruling and
+stands. The detector is not retuned, because retuning a threshold to rescue a
+premise is doctrine 58's error and because the honest repair — test the claim
+the message makes — changes what the note says about a sixth of every English
+rhyme this repo can observe. That is a ruling, not a fix. §41's fixture is
+moved to the singular `four` ~ `stair`, which trips nothing, so the section
+grades RULE 3 — its actual subject — and this entry carries the finding.
+
+**THE QUESTION FOR THE OWNER, in one line:** should `SHARED_SUFFIX` fire when
+the pair rhymes without the shared ending, or only when the ending is the
+whole of the rhyme?
+
+---
+
+**RULED THE SAME DAY — _"only when the ending is the whole of the rhyme"_, and
+the code now tests the sentence its own message has always made.**
+
+**TWO CONDITIONS, AND NEITHER NEEDS A STEM.** The pair shares a grammatical
+ending, AND their SPELLED RIMES are identical. The second is tier 1's own
+`spelled_rime`, the one definition in this repository of a shared spelled
+ending, so _the ending is the whole of the rhyme_ reads as _the agreement adds
+nothing the ending did not already give_.
+
+**THE STEM ROUTE WAS BUILT FIRST, SHIPPED, AND REFUTED BY THE OWNER TWICE —
+recorded in full because the refutation is why the shipped rule has the shape
+it has.** Strip the ending, re-score the stems, call the ending incidental if
+they still rhyme. It was wrong at BOTH ends:
+
+1. **The stems rhyming is not enough.** _"sing/ring and burn/turn. both of
+   those fail."_ `sing`/`ring` is `ing` against `ing` and `burn`/`turn` is
+   `urn` against `urn` — those stems rhyme on nothing but an ending of their
+   own, so the reading answered the question one layer down and stopped. The
+   same correction had already been given once, on `walk`/`talk` — _"alk all
+   my guy"_ — and the first response was to change the EXAMPLE rather than the
+   rule, which is the error this entry exists to record.
+2. **No stemmer here can be made sound.** MEASURED: `g2p.stem_candidates`
+   offers `ringe`, `burne`, `walke`, `porr`, `na` and `sta`, and **all six are
+   in `Lexicon.entries` AND in `_KNOWN_WORDS`**, because CMUdict carries
+   surnames. So no readability filter separates a real stem from a surname and
+   a fabricated spelling defeats any guard placed after it — `sing` against
+   `ringe` reads clean. `morphology.segment` fails the same way from the other
+   side (`cares`->`car`, `fired`->`fir`, `boast`->`boa`+`-st`), charging
+   `affairs`/`cares` and `admired`/`fired`, which rhyme at the stem. A test
+   that cannot be made sound is not rescued by being conservative.
+
+**MEASURED, over `data/song_rhymepair_en.tsv`'s 23,853 pairs:
+~~3,884 (16.28%)~~ -> 3,132 (13.13%). 752 stop firing.** Tier-1 HOMEOTELEUTON
+bans 13,710 of the same population (57.48%).
+
+**AND THE HONEST CONSEQUENCE IS THAT THE NOTE IS NOW A STRICT SUBSET OF TIER 1
+— 0 of its 3,132 firings are pairs the outright ban does not already refuse,
+BY CONSTRUCTION**, since the rule is tier 1 restricted to pairs that also share
+a grammatical ending. It survives on doctrine 24: it RELABELS, naming a
+morphological reading of a pair the ban names sonically. What it stops doing is
+charging `abhors`/`doors`, `adores`/`roars`, `aches`/`breaks` — pairs whose
+rime spellings differ, where the plural was incidental.
+
+**THE ENFORCEMENT PROBLEM THIS ENTRY OPENED ON IS CLOSED BY CONSTRUCTION.**
+`glares`/`stairs` is `es` against `airs`, so it answers `survives` and the
+pursue that had 0 legal answers in a 39-word field never fires. The promotion
+(`M-85`) is untouched and `loop.MANDATORY_PURSUE` is unchanged.
+
+**AND THE GATE IS THE POINT, in the owner's words: _"you keep screwing this up
+you need to be gating this stuff instead of shooting from the hip"_.** Three
+worked pairs were chosen by eye in one sitting and all three were wrong.
+`lyric_harness.SHARED_ENDING_CASES` is a DECLARED TABLE of worked pairs and
+their ruled verdicts; `quality/test_floor.py` §5 drives the whole of it and
+writes no pair of its own, so adding an example means declaring what it must do
+and having the suite check it. The section also asserts the table carries BOTH
+verdicts, and that the survivors really do share an ending — so only the
+spelled-rime condition is holding them back and the check cannot pass
+vacuously.
+
+**ONE DEFINITION, WHICH IS THE OTHER HALF.** The ending test was spelled TWICE
+— `lyric_harness.score`'s value flags and `quality/floor.py`'s finding, byte
+for byte. `shared_ending` is the one definition both read now, and `mutate.py`
+proves it: **M29 and QF3 were both re-anchored onto it** and 58/58 mutations
+apply, where before each moved one copy and could pass while the two halves of
+the repository disagreed about one pair.
+
+**BOOKKEEPING**: `gate_census.PINNED` is UNMOVED at 71 codes / 23 gated / 48
+disclosed-only — an intermediate version added a `SHARED_SUFFIX_UNJUDGED`
+refusal for an unreadable stem, and the stemless rule cannot produce one, so
+the code was removed rather than left declared and dead.
+
+
+### M-91 · the tier-1 prompt said "end word" whatever the mandate bound `CLOSED` — 2026-08-24
+**FOUND BY `test_propose.py` §7c, EXACTLY AS THAT GUARD PREDICTED.** It
+checks that its `Brief` stand-in has grown every field the real dataclass has,
+on the argument that _"a stub that has not grown the field renders the new
+rule as an EMPTY BLOCK — no error, no red"_. It reported `['slot',
+'slot_conflict']`.
+
+**THOSE TWO LANDED AT `9ad2dad`** (`M-67`, placement stops being the
+end-rhyme projection) **AND `quality/propose.py` READ NEITHER.** Every
+sentence in the tier-1 prompt that names the word to change was the literal
+`end word`, so a mandate binding `1.head` or `1.T4` told the writer to rewrite
+the one word it does not constrain, and the grader then judged a word the
+writer was never asked about. The planner has drawn non-end placements since
+`M-71` — `end` takes **8.5%** of members — so this was the ordinary case, not
+a corner.
+
+**THE GUARD WAS RED FOR THAT WHOLE STRETCH AND NOBODY SAW IT**, because
+`M-89`'s unparseable workflow meant the job that runs this suite never
+started. Two of this repository's own failure modes composing: a check that
+was working, inside a CI that could not run it.
+
+**`propose.slot_phrase` IS THE ONE DEFINITION** and it reads the placement
+through `quality/slots.py`'s declared API — `is_default`, `spell_slot`,
+`placement_word` — rather than a second table. `_enforced_block` takes the
+answer as an argument instead of re-deriving it, because a second reading of
+the placement is a second definition of it (doctrine 1). A non-default
+placement is ANNOUNCED above the rules rather than left implied, and a
+`slot_conflict` says the mandate is what needs revising.
+
+**NO PROMPT THIS REPOSITORY HAS EVER PRODUCED MOVES.** `slots.is_default` is
+true of every bare-int member, which is every mandate written before placement
+existed and every fixture here, and those render `end word` byte-identically —
+asserted, not assumed, by `test_propose.py` §7c, which also requires the
+`end`/`head`/`T4` prompts to be three DISTINCT strings.
+
+### M-92 · the check that catches an unparseable workflow could not run in CI `CLOSED` — 2026-08-24
+**`M-89` SHIPPED §43 WITH `import yaml` AND THE RUNNER HAS NO PyYAML.** The
+check went green on a developer machine that happened to carry the package and
+raised `ModuleNotFoundError` at module level in `verbs (1)`, so **shard 1 died
+at §43 and every section after it never ran**. A check that takes out the rest
+of its suite when its instrument is missing is worse than the defect it names.
+
+**TWO REPAIRS, AND THEY ANSWER DIFFERENT HALVES.** The job installs PyYAML
+beside nltk — a coordinate of the TEST JOB and never of the harness, and
+`record`'s own stdlib-only step is untouched and still passes. And the import
+is guarded so a missing parser is a FAILING CHECK naming the install rather
+than a traceback naming a check nobody wrote: CANNOT RUN is never PASS
+(doctrine 20), and it may not be silent either.

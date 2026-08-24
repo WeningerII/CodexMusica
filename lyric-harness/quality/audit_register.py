@@ -2148,9 +2148,56 @@ PINNED = {
     # ~~122~~ -> 123: M-65, the nightly job dying on its first line whenever
     # its cache was cold — found by asking why the Pages sync skipped (it was
     # skipping correctly) and following that to two nights of red on main.
-    "coverage_entries": 123,  # M-49..M-59 filed 2026-08-22 wiring
+    # ~~123~~ -> 124: M-66, PREDICTABLE_RHYME in the loop's vocabulary and
+    # outside its reach — closed by owner ruling 2026-08-23 ("add
+    # PREDICTABLE_RHYME to mandatory pursue"): the aggregate note now emits
+    # both members of every obvious pair as locations, and the pursue set
+    # holds it.
+    # ~~124~~ -> 129: M-67..M-71, the placement conversion. The owner's
+    # ruling that this harness may not be end-rhyme-only, taken through
+    # every layer it touched — the declaration coordinate (M-67), the
+    # provenance crash the first non-final span found (M-68), the planner's
+    # six literal bounds (M-69), the instrumental freebie (M-70), and the
+    # two classes the generator could never draw (M-71).
+    # 130 -> 137: M-73, the gate census — the owner's standing rule that
+    # only a gate is an enforcement, made a command instead of a memory —
+    # and M-74, which that census's own closing found: the placement work
+    # made every mandate import `quality/relations.py` (17.7 ms -> 132.8 ms
+    # warm) while a sentence promising the opposite was left standing.
+    # M-76 is the evaluation of an OUTSIDE tool measured by this repo's own
+    # rules: graphify's advertised token saving does not reproduce here
+    # (0.68x against the search that answers the same question, not 70x),
+    # and module-level constants are not indexed at all -- the half of this
+    # architecture doctrine 1 makes primary.
+    # M-77 closes the 44 on the owner's instruction, and corrects the
+    # census that counted them: 39 were decided at the emitter under a
+    # spelling the instrument did not know (`FitFinding.satisfiable`,
+    # `floor`'s `sev()` ceiling), and the 23/21 split was itself an
+    # artefact of reading argument 1 as a severity for a constructor that
+    # has no severity field. 8/15/44 -> 20/47/0, with NO draft grading
+    # differently: every table was proven equivalent before it shipped.
+    # M-75 sizes the owner's own gaming anecdote as a live gate defect:
+    # `stanza_lock`'s locks are all modal FRACTIONS against 0.90, so one
+    # divergent section silences them below ten sections — 73.5% of the
+    # corpus and 48.5% of the planner's draws.
+    # (M-72, the second front half, was already inside the 130: it was
+    # filed and repinned in the commit that shipped `quality/recover.py`,
+    # which is the rule this repo keeps — the register moves in the same
+    # commit as the entry, not in a bookkeeping sitting afterwards.)
+    "coverage_entries": 150,  # M-90..M-92 filed 2026-08-24 CI-green sitting
                               # the relation route (97..106 superseded);
-                              # M-60..M-65 filed 2026-08-23 driving CI green
+                              # M-60..M-66 filed 2026-08-23 driving CI
+                              # green, then the pursue ruling;
+                              # M-67..M-71 the same day, the placement
+                              # conversion, and M-72 the second door;
+                              # M-73 the gate census, M-74 its
+                              # finding, M-75 the shape locks silenced
+                              # by one short section, and M-76 the code
+                              # graph's refuted token claim, and M-77
+                              # deciding the 44 undecidable codes, and
+                              # M-78 the unnumbered rule that governs
+                              # most of the 51 that stay toothless, and
+                              # M-79 the first end-to-end run
     "coverage_audited": 19,
 }
 

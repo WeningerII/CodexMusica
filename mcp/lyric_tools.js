@@ -49,8 +49,24 @@ const MAX_OUTPUT_BYTES = 4 * 1024 * 1024;
 // leading character is constrained separately so no input can grow into a
 // flag; there is no shell (execFile), so this is belt on top of braces.
 const WORD_RE = /^[A-Za-z][A-Za-z''-]*$/;
-// Mandate strings (--groups=/--returns=) are line-number spellings only.
-const MANDATE_RE = /^[0-9]+(,[0-9]+)*(;[0-9]+(,[0-9]+)*)*$/;
+// Mandate strings (--groups=/--returns=). A member is a LINE NUMBER, or a
+// line and a PLACE IN IT since 2026-08-23 — `3.head`, `3.T2`, `3.end`,
+// `3.endword`, `3.line`, `3.headrime` (`quality/slots.py`). The owner's
+// ruling that closed the end-rhyme-only architecture is the reason this
+// spelling exists, and it reaches the connector IN THE SAME COMMIT as the
+// coordinate: a declared coordinate the outermost layer cannot spell is this
+// repository's single most-repeated defect (CLAUDE.md's `--structures`
+// paragraph, M-55, and doctrine 48 at the connector).
+//
+// The place is matched as a BOUNDED alternation rather than `\w+` so nothing
+// input-shaped can grow into a flag; the harness refuses an unknown place by
+// name anyway, and this is the belt on top of that.
+const SLOT_PLACE = '(?:end|endword|head|headrime|line|T[0-9]{1,3})';
+const MEMBER_RE = `[0-9]+(?:\\.${SLOT_PLACE})?`;
+const MANDATE_RE = new RegExp(`^${MEMBER_RE}(,${MEMBER_RE})*(;${MEMBER_RE}(,${MEMBER_RE})*)*$`);
+// `--returns=` names LINES that are the same line, so a place has no meaning
+// there — a return is a whole line repeated, not a span inside one.
+const RETURNS_RE = /^[0-9]+(,[0-9]+)*(;[0-9]+(,[0-9]+)*)*$/;
 const SCHEME_RE = /^[A-Za-z]{1,64}$/;
 
 // One python at a time (see OPERATIONAL SHAPE above). A rejected run must
@@ -286,7 +302,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_MANDATE_CHARS)
       .optional()
       .describe(
-        "Rhyme groups by 1-based line numbers, e.g. '1,3;2,4' — lines 1&3 rhyme and 2&4 rhyme. Alternative to scheme."
+        "Rhyme groups by 1-based line numbers, e.g. '1,3;2,4' — lines 1&3 rhyme and 2&4 rhyme. Alternative to scheme. A member may also name WHERE in its line the rhyme binds: '1,3.head' asks line 3's first word to answer line 1's last; places are end (default), endword, head, headrime, line, or T<n> for the n-th word."
       ),
     // `lyric_check` builds its own mandate rather than reading a plan, so
     // the relation is a DIRECT parameter here where `lyric_grade` takes it
@@ -478,8 +494,13 @@ export function registerLyricTools(server, tool) {
         if (hasScheme && !SCHEME_RE.test(a.scheme))
           throw refuse("scheme must be letters only, e.g. 'ABAB'");
         if (hasGroups && !MANDATE_RE.test(a.groups))
-          throw refuse("groups must be line numbers like '1,3;2,4'");
-        if (a.returns && !MANDATE_RE.test(a.returns))
+          throw refuse(
+            "groups must be line numbers like '1,3;2,4', each optionally " +
+              "naming a place in its line — '1,3.head;2,4' binds line 3's " +
+              "FIRST word to line 1's last. Places: end (the default), " +
+              'endword, head, headrime, line, or T<n> for the n-th word'
+          );
+        if (a.returns && !RETURNS_RE.test(a.returns))
           throw refuse("returns must be line numbers like '5,13;6,14'");
         const draftPath = path.join(dir, 'draft.txt');
         await writeFile(draftPath, a.lines.join('\n') + '\n', 'utf8');

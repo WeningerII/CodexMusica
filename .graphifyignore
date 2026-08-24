@@ -1,0 +1,25 @@
+# GRAPHIFY SCOPE — what the code graph is allowed to see.
+#
+# STATUS: EVALUATION, not adoption. Nothing in this repository consults the
+# graph yet and no check depends on it; this file exists so the evaluation is
+# reproducible rather than a scope somebody remembers. Committed for that
+# reason alone — see the commit that added it for the measured results.
+#
+# The graph exists to show the ARCHITECTURE, so the two largest things in this
+# repo are deliberately out of it:
+#
+#   corpus/  1,400+ song files, 283k lines of VERSE. It is the measured
+#            population, not code and not design documents. Graphing it
+#            would swamp every hub and bury the thing we are looking for.
+#   data/    derived tables (lexicons, frequency tables, capacity artifacts).
+#            Their provenance is already gated by data/sources.tsv and
+#            quality/check_data_rows.py, which is a stronger claim than an
+#            edge in a graph.
+lyric-harness/corpus/
+lyric-harness/data/
+node_modules/
+.claude/worktrees/
+graphify-out/
+cmudict.dict
+*.tsv
+*.whl

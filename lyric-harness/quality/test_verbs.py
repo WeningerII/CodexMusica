@@ -2008,21 +2008,35 @@ def test_song_exits_on_a_flag():
     # asserting it: 8 NOTE findings, 0 FLAG, exit 0. Doctrine 6 -- a
     # convention a writer is free to depart from cannot be the thing that
     # fails a check.
+    # THE HOOK NOW RECURS, AND THAT IS A RULING RATHER THAN A REPAIR. This
+    # fixture was ONE `verse` section declaring a hook, so the hook occurred
+    # once — and `HOOK_DOES_NOT_RECUR` became a FLAG on 2026-08-23 by the
+    # owner's ruling (`MISSING.md` M-84). The draft therefore exited 3 on a
+    # WHOLE-DRAFT flag and this section's subject — notes alone never move
+    # the code — could not be stated on it. Two `chorus` sections carrying
+    # the hook is the smallest shape that declares a hook AND satisfies the
+    # ruling, so the layer is still exercised rather than switched off by
+    # dropping the declaration. 0 FLAG, 8 NOTE, exit 0.
     quat = os.path.join(d, "q.txt")
     with open(quat, "w") as fh:
         fh.write("The river took the bridge at dawn\n"
                  "and no one saw the water again\n"
-                 "the cattle waded through the silt\n"
+                 "the river rose above the silt\n"
                  "past every fence the county rebuilt\n")
     qbp = os.path.join(d, "q.blueprint.json")
     with open(qbp, "w") as fh:
         json.dump({"title": "The river", "hooks": ["the river"],
-                   "sections": [{"name": "a", "bars": 4, "start_bar": 1,
-                                 "function": "verse",
+                   "sections": [{"name": "a", "bars": 2, "start_bar": 1,
+                                 "function": "chorus",
+                                 "meter": {"beats": 4, "unit": 4,
+                                           "groups": [2, 2]}},
+                                {"name": "b", "bars": 2, "start_bar": 3,
+                                 "function": "chorus",
                                  "meter": {"beats": 4, "unit": 4,
                                            "groups": [2, 2]}}],
                    "lines": [{"text": t, "bar": i + 1, "beat": 1,
-                              "duration": 4, "section": "a"}
+                              "duration": 4,
+                              "section": "a" if i < 2 else "b"}
                              for i, t in enumerate(open(quat).read()
                                                    .splitlines())]}, fh)
     rc0, out0, _ = run("song", qbp, quat, "--groups=3,4", expect_rc=0)
@@ -3820,6 +3834,286 @@ def test_the_structures_spelling_reaches_the_verbs():
         os.unlink(path)
 
 
+
+
+def test_the_seed_sweep_is_reachable_from_the_command_line():
+    print("\n40. THE SEED SWEEP is a VERB, not a scratch script "
+          "(`MISSING.md` M-82)")
+    # THE POINT OF THIS SECTION IS REACHABILITY. `quality/test_plan.py` §10
+    # exercises `sweep()` at the API; what CLAUDE.md's standing rule 3 is
+    # about is whether a person can RUN it — "any measurement or step used in
+    # producing a delivered song goes through a verb, and an improvised
+    # script used twice is a defect report, not a convenience."
+    WANT = ("--want=sections<=6;lines_per_section>=2;group<=4;"
+            "uses=verse,chorus;before=verse,chorus;pins_per_line<=5")
+    rc, out, _ = run("plan", "--sweep=0-120", WANT, expect_rc=0)
+    check("the sweep RUNS from the command line and finds the seed the "
+          "private script found", rc == 0 and " 108" in out,
+          [l for l in out.splitlines() if "108" in l][:1])
+    check("...and it ECHOES every predicate with the coordinate's own gloss, "
+          "so a caller can see which declaration was applied rather than "
+          "inferring it from the answer",
+          out.count("WANT ") == 6 and "the SMALLEST sung section" in out,
+          f"{out.count('WANT ')} predicates echoed")
+    check("...and prints THREE COUNTS, never summed (doctrine 79)",
+          "swept 120" in out and "planned" in out
+          and "REFUSED by the planner" in out and "accepted" in out,
+          [l for l in out.splitlines() if "swept" in l][:1])
+    check("...and says OUT LOUD that it does not rank, which is the whole "
+          "refusal: doctrine 7 enforces a floor and does not order the "
+          "permitted region",
+          "does NOT rank" in out and "doctrine 19" in out)
+    check("...and hands over the NEXT command rather than a plan, because a "
+          "plan is a pure function of its seed and nothing should carry over "
+          "from the search",
+          "NEXT: python3 lyric_harness.py plan --seed=108" in out)
+    # NO DEFAULT PREDICATE — and the verb says so instead of quietly
+    # accepting everything as though that had been asked for.
+    rc, out, _ = run("plan", "--sweep=0-8", expect_rc=0)
+    check("a sweep with NO predicate accepts everything and SAYS it is "
+          "deciding nothing — a default here would be the instrument "
+          "choosing what the caller wants",
+          rc == 0 and "no predicate declared" in out
+          and "there is no default" in out)
+    # THE REFUSALS. Each is a way of putting a declaration wrong, and each
+    # must be refused BY NAME rather than read as a filter that matched
+    # nothing (doctrine 20).
+    for args, needle in (
+            (("plan", "--sweep=0-20", "--want=sections<=1"),
+             "no seed in 0..19"),
+            (("plan", "--sweep=0-20", "--seed=3"),
+             "--seed OR --sweep"),
+            (("plan", "--sweep=0-20", "--want=vibes<=3"),
+             "not a coordinate"),
+            (("plan", "--sweep=0-20", "--want=sections<3"),
+             "carries none of"),
+            (("plan", "--sweep=0-20", "--fill=x.txt"),
+             "does not take --fill"),
+            (("plan", "--sweep=nope"),
+             "is not a range")):
+        rc, out, err = run(*args, expect_rc=2)
+        check(f"`{' '.join(args[1:])}` REFUSES at exit 2, naming the cause",
+              rc == 2 and needle in (out + err), needle)
+    # AND THE UNREACHABLE CASE CARRIES ITS RATE, because "no seed satisfies
+    # this" and "this range was too small" are different answers and the
+    # acceptance rate is what separates them.
+    rc, out, _ = run("plan", "--sweep=0-20", "--want=sections<=1",
+                     expect_rc=2)
+    check("...and the empty accepted set REFUSES with the acceptance rate "
+          "beside it, so unreachable and merely rare stay distinguishable",
+          "accepted 0" in out and "unreachable in this range" in out,
+          [l for l in out.splitlines() if "accepted 0" in l][:1])
+
+
+def test_fill_reads_a_draft_the_way_every_other_verb_does():
+    print("\n41. `plan --fill` USES THE ONE DEFINITION OF SUNG TEXT — the "
+          "SIXTH holdout from it (`MISSING.md` M-83)")
+    # FOUND BY WRITING A SONG, not by reading the code. The planner's own
+    # `writer_brief` prints a `[INTRO — 3 lines — ...]` header per section and
+    # says "Write a song: N lines, M sections". `--fill` then read the draft
+    # with a bare `open()` + `if l.strip()`, so those headers counted as
+    # LYRIC and the draft was refused BY LINE COUNT — the refusal naming the
+    # draft for a miscount the reader made (doctrine 20).
+    #
+    # WHY THE STANDING GREPS MISS IT. CLAUDE.md ends the apparatus paragraph
+    # on `grep -rn 'startswith("--- ")'` and `grep -rn 'startswith("\[")'`.
+    # Neither finds this site, because it tests no prefix at all. So the
+    # check that the centralization is finished has to be a RUN, not a grep.
+    # The declared line count comes from the verb's OWN artifact, never from
+    # a literal — seed 108's shape is a property of the planner and a number
+    # written here would go stale the next time a space is re-derived, which
+    # is the defect `mcp/test.mjs` was repaired for (doctrine 58).
+    with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as ph:
+        plan_path = ph.name
+    try:
+        run("plan", "--seed=108", f"--out={plan_path}", expect_rc=0)
+        with open(plan_path, encoding="utf-8") as fh:
+            n = json.load(fh)["total_lines"]
+    finally:
+        os.unlink(plan_path)
+    body = [f"line {i} holds its place in the count" for i in range(1, n + 1)]
+    # ALL THREE APPARATUS SPELLINGS AT ONCE, which is the population the one
+    # definition covers and the inline reader covered none of.
+    marked = ["--- TITLE: the sixth holdout", "# a stage direction"]
+    for i, text in enumerate(body):
+        if i % 4 == 0:
+            marked.append(f"[SECTION{i // 4}]")
+        marked.append(text)
+    with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False,
+                                     encoding="utf-8") as fh:
+        fh.write("\n".join(marked) + "\n")
+        path = fh.name
+    try:
+        rc, out, err = run("plan", "--seed=108", f"--fill={path}",
+                           expect_rc=0)
+        check("a draft carrying `[SECTION]`, `#` and `--- TITLE:` FILLS — "
+              "the apparatus the plan's own brief tells a writer to put "
+              "there is not counted as sung text",
+              rc == 0 and "REFUSED" not in (out + err),
+              [l for l in (out + err).splitlines() if "REFUSED" in l][:1]
+              or f"rc={rc}")
+        # THE MUTATION IS THE POINT: the pre-fix reader is re-created here and
+        # must produce the refusal this section exists to end. Without this
+        # the check above passes on any tree that happens to accept the file.
+        raw = [l.rstrip("\n") for l in open(path, encoding="utf-8")
+               if l.strip()]
+        check("...and the pre-fix reader, re-created, MISCOUNTS it — so the "
+              "check above is not passing on a draft that had nothing to "
+              "drop", len(raw) > n and len(lh.load_lyric_lines(path)) == n,
+              f"inline {len(raw)} vs one-definition "
+              f"{len(lh.load_lyric_lines(path))}, plan declares {n}")
+        # THE CONTROL, and it must hold on BOTH trees: a draft with no
+        # apparatus is byte-identical either side of the repair. The fix adds
+        # a drop rule; it changes nothing for a file with nothing to drop.
+        with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False,
+                                         encoding="utf-8") as fh2:
+            fh2.write("\n".join(body) + "\n")
+            bare = fh2.name
+        try:
+            rc2, out2, _ = run("plan", "--seed=108", f"--fill={bare}",
+                               expect_rc=0)
+            check("CONTROL — a headerless draft fills exactly as before, so "
+                  "the repair moved only the apparatus case",
+                  rc2 == 0 and all(b in out2 for b in body[:3]),
+                  f"rc={rc2}")
+        finally:
+            os.unlink(bare)
+    finally:
+        os.unlink(path)
+
+
+def test_the_ban_is_unskippable_at_the_grading_verb_too():
+    print("\n42. THE TWO-TIER BAN GATES `song`, not only `revise` "
+          "(`MISSING.md` M-88)")
+    # FOUND BY BEING ASKED WHY A SONG HAD NOT GONE THROUGH `revise`. The
+    # honest answer was that the session skipped it — and the sharper one is
+    # that NOTHING STOPPED IT. `loop.MANDATORY_PURSUE` holds a line open
+    # inside the loop; the grading verb read the same finding as a note and
+    # exited 0. CLAUDE.md's own sentence — "the ban is unskippable at any
+    # exit code" — was true of the loop and false of the verb.
+    #
+    # `hair`/`chair` is the canonical tier-1 pair: CLAUDE.md records it as one
+    # of the three that beat the single top-N cliff and forced the two tiers.
+    banned = "I ran my fingers through her hair\nand set the bottle on the chair\n"
+    # THE CONTROL PAIR MUST RHYME AND BE CLEAN, which is a real constraint
+    # and not a detail: the first draft of this check used `hair`/`floor`,
+    # which do not rhyme, so it exited 3 on `SCHEME_VIOLATION` and would have
+    # "passed" the section for entirely the wrong reason. `stair`/`spare` is
+    # a screened-clean perfect rhyme (different spelled rime, neither in the
+    # other's modal head), so the only thing separating the two fixtures is
+    # the ban itself.
+    clean = "She met me halfway up the stair\nand had no second breath to spare\n"
+    bp = {"sections": [{"name": "V1", "function": "verse", "bars": 2,
+                        "start_bar": 1,
+                        "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
+          "lines": [{"text": "x", "bar": 1, "beat": 1.0, "duration": 4.0},
+                    {"text": "x", "bar": 2, "beat": 1.0, "duration": 4.0}]}
+    with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False,
+                                     encoding="utf-8") as fh:
+        json.dump(bp, fh)
+        bpath = fh.name
+    paths = [bpath]
+
+    def _draft(text):
+        with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False,
+                                         encoding="utf-8") as f2:
+            f2.write(text)
+            paths.append(f2.name)
+            return f2.name
+    try:
+        rc, out, err = run("song", bpath, _draft(banned), "--groups=1,2",
+                           expect_rc=3)
+        blob = out + err
+        check("a draft carrying a TIER-1 banned pair may not exit 0 from the "
+              "GRADING verb — until now the ban was enforced only inside "
+              "`revise`, so choosing the other verb skipped it",
+              rc == 3 and "HOMEOTELEUTON" in blob, f"rc={rc}")
+        check("...and the refusal NAMES the code and the line rather than "
+              "saying a count, so a writer knows which pair to screen",
+              "the two-tier ban STANDS" in blob and "L2" in blob,
+              [l for l in blob.splitlines() if "ban STANDS" in l][:1])
+        check("...and it says out loud that the SEVERITY did not move — the "
+              "note stays a note and `verify()` is untouched, because a pair "
+              "that RHYMES sits inside the region doctrine 7 forbids a floor "
+              "to re-order. Re-typing it as a flag is the `MODAL_RHYME` "
+              "error this repo already paid for",
+              "stay notes" in blob and "verify()" in blob)
+        # THE CONTROL, and it must pass on BOTH trees: an unbanned pair on the
+        # identical fixture still exits 0. Without it this section would pass
+        # on a build that refused every draft.
+        rc2, _o2, _e2 = run("song", bpath, _draft(clean), "--groups=1,2",
+                            expect_rc=0)
+        check("CONTROL — the same two lines with an UNBANNED partner exit 0, "
+              "so the gate fires on the ban and not on the fixture",
+              rc2 == 0, f"rc={rc2}")
+    finally:
+        for q in paths:
+            os.unlink(q)
+
+
+def test_every_workflow_file_is_parseable_yaml():
+    print("\n43. THE CI WORKFLOW PARSES — checked HERE because a broken one "
+          "cannot run the check that catches it (`MISSING.md` M-89)")
+    # FOUND BY BEING TOLD TO GET CI GREEN. `.github/workflows/ci.yml` had been
+    # INVALID YAML since `18835a4` — a `- name:` whose unquoted value contained
+    # `": "`, which YAML reads as a nested mapping. GitHub could not parse the
+    # workflow, so every run since started with ZERO JOBS and reported
+    # `failure`. The repository had no CI signal at all for that stretch, and
+    # the failure looked identical to a real one, so it trained everybody to
+    # ignore the light.
+    #
+    # THE CHECK CANNOT LIVE IN CI, which is the whole point and the reason it
+    # is in a local suite. A workflow that does not parse runs nothing —
+    # including a step that would have validated it. The only place this can
+    # fail usefully is before the push.
+    #
+    # AND THE FIRST SHIPPING OF THIS CHECK COULD NOT RUN IN CI — a bare
+    # `import yaml` at the top of the body, on a runner with no PyYAML. It went
+    # green on a developer machine that happened to carry the package, and in
+    # CI it raised `ModuleNotFoundError` at MODULE level, so shard 1 died HERE
+    # and every section after this one never ran. A check that takes out the
+    # rest of the suite when its instrument is missing is worse than the defect
+    # it names. The parser is installed by the job now (`verbs`, beside nltk),
+    # and its ABSENCE is a FAILING CHECK that names the install rather than a
+    # traceback that names a check nobody wrote: CANNOT RUN is never PASS
+    # (doctrine 20), and it may not be silent either.
+    import glob
+    try:
+        import yaml                                    # noqa: PLC0415
+    except ImportError as exc:                         # noqa: BLE001
+        yaml = None
+        _why = f"{type(exc).__name__}: {exc}"
+    check("the YAML parser this section grades with is REACHABLE — without it "
+          "the question is not answered NO, it is NOT ASKED, and this suite "
+          "must say so rather than skip (`python3 -m pip install PyYAML`)",
+          yaml is not None, "PyYAML present" if yaml else _why)
+    if yaml is None:
+        return
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    files = sorted(glob.glob(os.path.join(root, "..", ".github", "workflows",
+                                          "*.yml"))
+                   + glob.glob(os.path.join(root, "..", ".github", "workflows",
+                                            "*.yaml")))
+    check("there are workflow files to check, so this section cannot pass by "
+          "examining nothing", bool(files),
+          [os.path.basename(f) for f in files])
+    for f in files:
+        name = os.path.basename(f)
+        try:
+            doc = yaml.safe_load(open(f, encoding="utf-8"))
+            err = ""
+        except Exception as exc:                        # noqa: BLE001
+            doc, err = None, f"{type(exc).__name__}: {exc}"
+        check(f"`{name}` is parseable YAML — GitHub starts ZERO jobs on one "
+              f"that is not, and reports `failure`, which is "
+              f"indistinguishable from a real red",
+              not err, err or "parses")
+        check(f"...and `{name}` declares at least one job, so a file that "
+              f"parses to something structurally empty is not read as green",
+              isinstance(doc, dict) and bool(doc.get("jobs")),
+              f"{len((doc or {}).get('jobs', {}))} job(s)")
+
+
 if __name__ == "__main__":
     _SECTIONS = (
         test_the_map_is_not_stale,
@@ -3861,6 +4155,10 @@ if __name__ == "__main__":
         test_both_meter_coordinates_are_disclosed_and_collisions_are_typed,
         test_every_report_names_the_draft_it_read,
         test_the_structures_spelling_reaches_the_verbs,
+        test_the_seed_sweep_is_reachable_from_the_command_line,
+        test_fill_reads_a_draft_the_way_every_other_verb_does,
+        test_the_ban_is_unskippable_at_the_grading_verb_too,
+        test_every_workflow_file_is_parseable_yaml,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —
     # measured 21-22 minutes on CI run #524, and after the pool went

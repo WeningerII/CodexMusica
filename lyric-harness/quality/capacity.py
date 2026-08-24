@@ -133,6 +133,32 @@ CHECK_SAMPLE = ("IY", "AY-ER", "EH-R", "UW-Z", "EY-N", "AO-R")
 _PAIR_RE = re.compile(r"L(\d+)/L(\d+)")
 
 
+#: THE DEEPEST RHYME GROUP THE LEXICON IS MEASURED TO SUSTAIN — the adopted
+#: constant, and the only figure from this layer a GENERATOR may read
+#: (2026-08-23, `MISSING.md` M-41's first half).
+#:
+#: A rhyme group of k members needs a family with k members that the grader
+#: accepts TOGETHER, and this layer is what measures that. Two numbers, and
+#: the smaller one is the one that binds:
+#:   * the tier-1 CEILING reaches 228 (family `IY`) — a spelling-class count,
+#:     an upper bound nobody has graded;
+#:   * the deepest CERTIFIED chain is 40 — a witness clique stored word for
+#:     word and graded THROUGH `Reviser.inspect`, held by nine families at
+#:     the declared construction cap.
+#: 40 is adopted because it is the one a run can stand on. It measures the
+#: CAP rather than the language — those nine families are bounded BELOW at 40
+#: and their true ceilings are unmeasured — so a generator refusing above it
+#: is refusing where the MEASUREMENT stops, which is the honest place.
+#:
+#: WHY A CONSTANT AND NOT A CALL: `quality/plan.py` may open no file (the
+#: owner's move-37 ban), and `read_table()` opens one. This is the same
+#: species as `meter_bands.ADOPTED` and `floor.PROFILES` — an adopted figure
+#: from a preregistered derivation, re-derived by `capacity.py --check` in
+#: the nightly lane, so drift fails loud rather than silently widening what a
+#: planner will volunteer.
+ADOPTED_MAX_GROUP = 40
+
+
 def _rime_key(phones):
     """Phoneme rime from the rhyming syllable's vowel to the end, stress
     digits stripped. The ANCHOR IS THE COMPARATOR'S — last PROMINENT
@@ -477,6 +503,15 @@ def check():
     if fresh:
         bad.append(f"{len(fresh)} fresh families missing from the table")
     summary = summarize(rows)
+    # THE GENERATOR-FACING CONSTANT IS RE-DERIVED HERE TOO, and it has to be:
+    # `quality/plan.py` reads `ADOPTED_MAX_GROUP` to refuse a rhyme group
+    # larger than the lexicon is MEASURED to sustain, and a constant that
+    # drifts from its table silently widens what a planner volunteers into
+    # groups no family can fill.
+    if summary.get("max_chain_lo") != ADOPTED_MAX_GROUP:
+        bad.append(f"ADOPTED_MAX_GROUP = {ADOPTED_MAX_GROUP} but the table's "
+                   f"deepest CERTIFIED chain is "
+                   f"{summary.get('max_chain_lo')!r}")
     for k, v in ADOPTED.items():
         if summary.get(k) != v:
             bad.append(f"ADOPTED[{k!r}] = {v!r} but the table says "

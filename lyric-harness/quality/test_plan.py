@@ -40,6 +40,7 @@ import json
 import os
 import random
 import sys
+import tempfile
 from collections import Counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -52,6 +53,21 @@ from quality.plan import (BLOCKED_FORMS, ENVELOPE,  # noqa: E402
                           grading_command, make_plan, meter_dims,
                           meter_space_size)
 import quality.plan as PLN  # noqa: E402
+import lyric_harness as LH  # noqa: E402
+from quality import capacity as CAP  # noqa: E402
+from quality import meter_bands as MB  # noqa: E402
+from quality import slots as SL  # noqa: E402
+
+#: HOW MANY SEEDS §7's population is. Declared rather than typed at each
+#: call, because the blind-draw mutation below has to sweep the SAME set as
+#: the clean draw or the two rates are not comparable.
+JOINT_SWEEP = 40
+
+#: HOW MANY SEEDS §11 renders and reads back. Declared for the same reason
+#: `JOINT_SWEEP` is: the round-trip and the shape checks must walk the same
+#: population, or "0 breaks" and "681 headers" describe different sweeps.
+HEADER_SWEEP = 60
+real_word = SL.placement_word
 
 FAILURES = []
 
@@ -184,7 +200,13 @@ def test_the_round_trip():
                     or len(song.sections) != len(plan["sections"])):
                 bad.append((seed, "blueprint shape mismatch"))
                 continue
-            gs = [[int(x) for x in g.split(",")]
+            # MEMBERS ARE LEFT AS STRINGS, exactly as the CLI's own
+            # `--groups=` reader leaves them since 2026-08-23: a member may
+            # name WHERE in its line the requirement binds (`3.head`,
+            # `3.T2`), and `int()` here refused the planner's own output in
+            # this test's words rather than the slot layer's. `mandate()` is
+            # the one definition of what a member may be.
+            gs = [[x for x in g.split(",")]
                   for g in plan["groups"].split(";")]
             rets = ([[int(x) for x in r.split(",")]
                      for r in plan["returns"].split(";")]
@@ -278,15 +300,20 @@ def test_the_measure():
           and all(c <= max(code[:i + 1]) + 1 for i, c in enumerate(code[1:]))
           and any(code.count(b) >= 2 for b in set(code)))
 
-    # The meter dims are tight arithmetic on the envelope.
+    # The meter dims are tight arithmetic on the envelope. TWO UNITS SINCE
+    # 2026-08-23 (`MISSING.md` M-81(B)): the CEILING binds the line's length
+    # in BEATS and the FLOOR binds its capacity in SLOTS, so a pair's beat
+    # range is tested against a different end of the envelope at each end.
     lo, hi = ENVELOPE["slots_per_line"]
+    b_line = ENVELOPE["beats_per_line"][1]
     dims = meter_dims()
-    tight = all(lo <= bars * sub * b_lo <= hi and lo <= bars * sub * b_hi
-                <= hi and bars * sub * (b_hi + 1) > hi
+    tight = all(bars * b_hi <= b_line and bars * (b_hi + 1) > b_line
+                and bars * sub * b_lo >= lo
                 and (b_lo == 2 or bars * sub * (b_lo - 1) < lo)
                 for (bars, sub), (b_lo, b_hi) in dims.items())
-    check("every dimension pair's beat range is TIGHT against the slots "
-          "envelope — both endpoints legal, one step past either is not",
+    check("every dimension pair's beat range is TIGHT against the envelope "
+          "— the top against the BEATS ceiling and the bottom against the "
+          "SLOTS floor, both endpoints legal, one step past either is not",
           tight, f"{len(dims)} pairs")
     pad = [0] * (hi + 3)
     pad[0] = 1
@@ -303,34 +330,123 @@ def test_the_measure():
     # is too coarse to convict a partial regression (a leaf measure
     # smuggled in BEHIND the uniform pair draw is diluted twelvefold and
     # slips under any plan-level threshold; this exact mutant walked
-    # through the first draft of this file). Under the derivation measure
-    # the (bars=1, sub=1) pair's beat counts are uniform on [5, 48], mean
-    # 26.5; under a leaf measure their mass sits at the top of the range,
-    # mean 45+. Deterministic — one seeded rng.
+    # through the first draft of this file). Deterministic — one seeded rng.
     rng = random.Random(20260818)
-    draws = [PLN._sample_meter(rng) for _ in range(24000)]
+    N = 24000
+    draws = [PLN._sample_meter(rng) for _ in range(N)]
     pair_n = Counter((d[0], d[1]) for d in draws)
-    check("the dimension pairs are drawn uniformly — all 12 pairs, each "
-          "within 15% of its expected share",
-          len(pair_n) == len(dims)
-          and all(abs(v - 2000) <= 300 for v in pair_n.values()),
-          f"min {min(pair_n.values())}, max {max(pair_n.values())}")
-    wide = [d[2] for d in draws if (d[0], d[1]) == (1, 1)]
-    check("within the widest pair the beat count is UNIFORM on its range "
-          "— observed mean within 1.5 of the range's own midpoint (a leaf "
-          "measure pushes it 18+ beats high)",
-          abs(sum(wide) / len(wide)
-              - (dims[(1, 1)][0] + dims[(1, 1)][1]) / 2) <= 1.5,
-          f"mean {sum(wide) / len(wide):.2f} over {len(wide)} draws, "
-          f"midpoint {(dims[(1, 1)][0] + dims[(1, 1)][1]) / 2}")
+    slot_n = Counter(d[4][2] for d in draws)     # beats per LINE since M-81(B)
+    vals = PLN.beats_values()
+
+    # THE MEASURE MOVED 2026-08-23 (`MISSING.md` M-81) AND THE OLD CHECKS
+    # HERE WERE PINNING THE DEFECT, which is why they are repointed with the
+    # argument rather than deleted (this repo's own §5/§13 lesson — a test
+    # that measures a wrong behaviour precisely is what keeps it):
+    #   ~~"the dimension pairs are drawn uniformly — every pair the envelope
+    #   admits, each within 15% of its expected share"~~
+    #   ~~"within the widest pair the beat count is UNIFORM on its range"~~
+    # Both were true of the sampler and both were the wrong question.
+    # `bars_per_line` runs to `hi // 2` — a sound BOUND and never a claim
+    # that all 24 values are equally musical — and a high-bars pair's beat
+    # range COLLAPSES: at `bars=24, sub=1` the only legal beat count is 2, so
+    # that pair emitted the envelope's CEILING every time it was drawn.
+    # Uniform over PAIRS is therefore not uniform over SLOTS PER LINE, which
+    # is the coordinate the envelope — and the calibration behind it — is
+    # actually stated in: measured at median 35 of a [5, 48] envelope, with
+    # 4.6% of lines given a grid a band-legal line could fill.
+    #
+    # WHAT IS ASSERTED NOW is the declared coordinate's own uniformity, the
+    # coverage the old check was really protecting, and the pair marginal as
+    # a PREDICTION computed from `meter_factorisations` alone.
+    def _tv(a, b):
+        """Total variation between two distributions given as counts. Used
+        for every 'which hypothesis does this look like' question below, so
+        that none of them needs a threshold."""
+        _ka, _kb = sum(a.values()), sum(b.values())
+        return 0.5 * sum(abs(a.get(k, 0) / _ka - b.get(k, 0) / _kb)
+                         for k in set(a) | set(b))
+
+    _sshare = N / len(vals)
+    _smean = sum(slot_n.elements()) / N
+    _smid = (vals[0] + vals[-1]) / 2
+    check("BEATS PER LINE — the coordinate the envelope is stated in, and "
+          "the length a listener hears — is drawn UNIFORM over what the "
+          "envelope can realise: every value reached, each within 15% of "
+          "its share, and the observed mean within 1.0 of the envelope's "
+          "own midpoint. ~~SLOTS per line~~ (M-81(A)) had the ORDER right "
+          "and the UNIT wrong: a slot is a subdivision unit, so drawing "
+          "uniformly over slots made a line's LENGTH a function of its grid "
+          "resolution — 48 slots is twelve beats at subdivision 4 and "
+          "forty-eight at subdivision 1",
+          len(slot_n) == len(vals)
+          and all(abs(v - _sshare) <= 0.15 * _sshare for v in slot_n.values())
+          and abs(_smean - _smid) <= 1.0,
+          f"{len(slot_n)}/{len(vals)} values, mean {_smean:.2f}, midpoint "
+          f"{_smid}, max deviation "
+          f"{max(abs(v - _sshare) / _sshare for v in slot_n.values()):.1%}")
+    check("...and the ADMITTED PAIR SET is the same set derived two ways — "
+          "`meter_dims`' non-empty beat range and `meter_factorisations`' "
+          "divisibility — so the sampler and the disclosure's denominator "
+          "cannot come to different answers about what this envelope allows "
+          "(doctrine 1)",
+          {p for n in vals for p in PLN.meter_factorisations(n)} == set(dims),
+          f"{len(dims)} pairs both ways")
+    check("...and EVERY pair the envelope admits is still REACHED, which is "
+          "the coverage the uniformity check was really protecting",
+          len(pair_n) == len(dims), f"{len(pair_n)}/{len(dims)} pairs")
+    # THE PAIR MARGINAL IS A PREDICTION, NOT AN ACCIDENT. Computed from
+    # `meter_factorisations` and nothing else: a slots count is drawn 1/|vals|
+    # of the time and then splits its mass evenly over its factorisations.
+    pred = Counter()
+    for n in vals:
+        f = PLN.meter_factorisations(n)
+        for p in f:
+            pred[p] += N / len(vals) / len(f)
+    _sigma = max(abs(pair_n[p] - pred[p]) / (pred[p] ** 0.5) for p in dims)
+    check("...and the pair marginal MATCHES that prediction, every pair "
+          "inside four sigma of its own expected count — so the shares "
+          "follow from the arithmetic rather than from whatever the sampler "
+          "happens to do",
+          all(abs(pair_n[p] - pred[p]) <= 4 * (pred[p] ** 0.5) for p in dims),
+          f"worst {_sigma:.2f} sigma")
+    # ~~max/min predicted share > 100~~ — struck 2026-08-23: 100 was chosen
+    # against the 412x the SLOTS envelope happened to produce, and M-81(B)'s
+    # beats ceiling brings it to 50x, so the literal was measuring the
+    # envelope's WIDTH rather than the sampler's shape. Asked as the same
+    # two-hypothesis test as the leaf check below, with no threshold: is the
+    # observed pair marginal the realisability share, or is it FLAT — which
+    # is exactly what §4's own struck pair-uniformity check asserted.
+    _flat = Counter({p: N / len(dims) for p in dims})
+    _ratio = max(pred.values()) / min(pred.values())
+    check("...and that marginal is the REALISABILITY share and not a flat "
+          "one, which is what §4's struck pair-uniformity check asserted: a "
+          "beat count one factorisation can make must not be rarer than one "
+          "fifteen can",
+          _tv(pair_n, pred) < _tv(pair_n, _flat),
+          f"total variation to the realisability share "
+          f"{_tv(pair_n, pred):.4f}, to flat {_tv(pair_n, _flat):.4f}; "
+          f"max/min predicted {_ratio:.0f}x")
 
     # The envelope floor is DERIVED, not copied (the calibration chain).
     from quality import meter_bands as MB
-    check("the slots floor IS the calibrated density band's floor and the "
-          "ceiling IS band ceiling x SLOTS_CEILING_X — detach either and "
-          "this fails (doctrine 91)",
-          lo == MB.ADOPTED["DENSITY"][0]
-          and hi == MB.ADOPTED["DENSITY"][1] * PLN.SLOTS_CEILING_X)
+    check("BOTH ENDS OF THE ENVELOPE ARE THE SAME CALIBRATED BAND READ IN "
+          "DIFFERENT UNITS, and neither is a literal (`MISSING.md` M-81(B), "
+          "doctrine 91): the BEATS ceiling is the density band's ceiling "
+          "times `BEATS_PER_SYLLABLE_MAX` — a line carries at most that many "
+          "syllables and at least one beat each — while the SLOTS floor is "
+          "the band's floor, because a syllable occupies one slot. Detach "
+          "either and this fails",
+          b_line == MB.ADOPTED["DENSITY"][1] * PLN.BEATS_PER_SYLLABLE_MAX
+          and lo == MB.ADOPTED["DENSITY"][0],
+          f"beats ceiling {b_line}, slots floor {lo}")
+    check("...and the SLOTS ceiling is not declared beside them — it FOLLOWS "
+          "from the beats ceiling and the finest grid this vocabulary models, "
+          "which is what makes the old `SLOTS_CEILING_X` unnecessary rather "
+          "than merely renamed",
+          hi == b_line * max(ENVELOPE["subdivisions"])
+          and not hasattr(PLN, "SLOTS_CEILING_X"),
+          f"slots ceiling {hi} = {b_line} beats x "
+          f"{max(ENVELOPE['subdivisions'])}")
 
     # THE BIAS-KILLERS, over 200 seeds. Deterministic — make_plan is a
     # function of its seed, so these are pins, not statistics.
@@ -348,25 +464,83 @@ def test_the_measure():
         for sm in p["choices"]["schemes"].values():
             ks[sm["lines"]] += 1
     bs = sorted(beats)
-    check("the meter marginal is freed from the LEAF measure — median "
-          "beat count <= 8 and under 10% of plans at >= 40 beats (the "
-          "leaf measure put nearly ALL of them there: compositions into "
-          "{2,3} grow ~1.3247^n)",
-          bs[100] <= 8 and sum(b >= 40 for b in bs) / 200 < 0.10,
-          f"median {bs[100]}, frac>=40 {sum(b >= 40 for b in bs) / 200}")
-    check("the 4/4 bias is dead: 20+ distinct meters over 200 seeds, both "
-          "notation units, and 4/4 under 30% of plans",
-          len(meters) >= 20 and units == {4, 8}
+    # THE LEAF MEASURE, ASKED AS A TWO-HYPOTHESIS TEST WITH NO THRESHOLD IN
+    # IT AT ALL. ~~median beat count <= 8 and under 10% of plans at >= 40
+    # beats~~ (the original) and ~~both at most HALF what the leaf measure
+    # gives~~ (M-81(A)'s repointing) are both struck: the first described the
+    # pair-uniform marginal, and the second stopped discriminating the moment
+    # M-81(B) capped beats-per-bar — with no beat count above 12 in the
+    # envelope, the leaf measure's >=40 share is 0 and so is this sampler's,
+    # and `0 <= 0` reads exactly like a check that examined something.
+    #
+    # WHAT IS ASKED INSTEAD is which of two COMPUTED distributions the
+    # observation actually looks like: this sampler's own prediction
+    # (beats-per-line uniform, then a factorisation) or uniform-over-
+    # enumerated-cycles. Neither side is a number somebody chose, and the
+    # second check is what stops it being a comparison of one hypothesis
+    # with itself.
+    _own = Counter()
+    for _n in vals:
+        _f = PLN.meter_factorisations(_n)
+        for (_bars, _sub) in _f:
+            _own[_n // _bars] += 1.0 / len(vals) / len(_f)
+    _leaf = Counter()
+    for (_b, _s2), (_lo2, _hi2) in dims.items():
+        for _n in range(_lo2, _hi2 + 1):
+            _leaf[_n] += PLN._n_compositions_23(_n)
+    _obs = Counter(d[2] for d in draws)
+
+    _d_own, _d_leaf = _tv(_obs, _own), _tv(_obs, _leaf)
+    check("the beats-per-bar marginal is the SAMPLER'S OWN prediction and "
+          "not the LEAF measure's — a two-hypothesis test, both sides "
+          "computed, no threshold anywhere in it (compositions into {2,3} "
+          "grow ~1.3247^n, so leaves still pile on the envelope's maximal "
+          "beat count: 0.202 of the leaf's mass sits at 12 against this "
+          "sampler's 0.018)",
+          _d_own < _d_leaf,
+          f"total variation to this sampler {_d_own:.4f}, to the leaf "
+          f"{_d_leaf:.4f}")
+    check("...and the two hypotheses are genuinely DIFFERENT, so that is not "
+          "a comparison of one thing with itself — they part further from "
+          "each other than the observation parts from either",
+          _tv(_own, _leaf) > _d_own, f"predictions differ by "
+          f"{_tv(_own, _leaf):.4f}")
+    # AND THE COUNTERWEIGHT, which nothing checked before and which the
+    # pair-uniform measure failed outright: a lyric line normally occupies
+    # ONE bar, or a few. `bars_per_line` runs to `hi // 2` as a BOUND, and
+    # under the old measure the median plan spent EIGHT bars on a line — the
+    # same slots product spelled as many short bars instead of one long one.
+    bars_pl = sorted(p["choices"]["bars_per_line"] for p in
+                     [make_plan(seed=s) for s in range(200)])
+    check("...and a line occupies ONE bar in most plans, which is what the "
+          "pair-uniform measure got wrong in the other direction: it is the "
+          "same slots product spelled as many short bars, and no song sets "
+          "one lyric line across eight of them",
+          bars_pl[100] <= 2 and sum(b == 1 for b in bars_pl) / 200 > 0.4,
+          f"median {bars_pl[100]} bars/line, "
+          f"one-bar {sum(b == 1 for b in bars_pl) / 200:.1%}")
+    check("the 4/4 bias is dead: many distinct meters over 200 seeds, both "
+          "notation units, and 4/4 under 30% of plans. The COUNT is not "
+          "pinned at a literal — it moves with the derived envelope — so "
+          "what is asserted is that the sampler is not concentrated: at "
+          "least ten distinct cycles and 4/4 no more common than any "
+          "single-cycle share of the space would make it",
+          len(meters) >= 10 and units == {4, 8}
           and sum(1 for b in beats if b == 4) / 200 < 0.30,
-          f"{len(meters)} meters, units {sorted(units)}")
+          f"{len(meters)} meters, units {sorted(units)}, "
+          f"4/4 {sum(1 for b in beats if b == 4) / 200:.1%}")
     k_total = sum(ks.values())
-    check("the 4-line bias is dead: every k in the envelope's section "
-          "range is drawn, and k=4 takes under 20% of sections "
-          "(uniform expects ~6%)",
-          set(ks) == set(range(ENVELOPE["lines_per_section"][0],
-                               ENVELOPE["lines_per_section"][1] + 1))
-          and ks[4] / k_total < 0.20,
-          f"ks {sorted(ks)}, k=4 at {ks[4] / k_total:.3f}")
+    # ~~every k in the envelope's section range~~ — REPINNED 2026-08-23. The
+    # section range is no longer a literal `(1, 16)`: its ceiling is the whole
+    # song's derived line ceiling, and a section can only be as long as the
+    # song it is drawn inside, so EXHAUSTING that range in 200 seeds is
+    # arithmetic nobody should assert. The claim that carries the finding is
+    # unchanged: 4 is not privileged, and the spread is wide.
+    check("the 4-line bias is dead: k=4 takes under 20% of sections, and the "
+          "draw reaches well past the quatrain",
+          ks[4] / k_total < 0.20 and len(ks) >= 12 and max(ks) > 8,
+          f"{len(ks)} distinct k in [{min(ks)}, {max(ks)}], "
+          f"k=4 at {ks[4] / k_total:.3f}")
     check("the whole GENERATOR_ROSTER is reached — 14 functions, not "
           "v1's five",
           # ~~14~~ 19 — REPINNED 2026-08-22. `GENERATOR_ROSTER` is no
@@ -388,10 +562,21 @@ def test_the_measure():
     # THE CLAIM IS UNCHANGED — the totals still cover the envelope's ORDER
     # rather than clustering on one shape — and only the reachable floor
     # moved, because a shape the form forbids is no longer drawn.
+    # ~~reaching under 15 and over 60 lines~~ — REPINNED 2026-08-23. 60 was
+    # inside the LITERAL envelope `total_lines (4, 64)`; the envelope is
+    # derived now and its ceiling is 55, because that is the longest song
+    # whose expected token count still lands inside a MEASURED floor profile.
+    # Asserting 60 would be asserting that the planner volunteers a length
+    # the floor cannot grade with teeth — the opposite of what this repin is
+    # for. The claim that carries the finding is the SPREAD, and it is
+    # stated against the derived envelope rather than against a number.
+    _lo, _hi = ENVELOPE["total_lines"]
     check("totals cover the envelope's order, not one shape: 40+ distinct "
-          "values, reaching under 15 and over 60 lines",
-          len(totals) >= 40 and min(totals) <= 15 and max(totals) >= 60,
-          f"{len(totals)} distinct in [{min(totals)}, {max(totals)}]")
+          "values spanning most of the DERIVED envelope, both ends reached",
+          len(totals) >= 40 and min(totals) <= _lo + 5
+          and max(totals) >= _hi - 5,
+          f"{len(totals)} distinct in [{min(totals)}, {max(totals)}], "
+          f"envelope [{_lo}, {_hi}]")
 
     # THE MOVE-37 PIN: the corpus samples nothing. The planner imports
     # exactly its three quality dependencies and never opens a file — a
@@ -434,23 +619,120 @@ def test_the_measure():
     # reference the same sitting it was added.
     ALLOWED_FROM_GRID = {"SECTION_FUNCTIONS", "FunctionSpec", "as_function",
                          "placement_findings", "placement_of"}
-    grid_names = set()
+    # `floor` JOINED THE ALLOW-LIST 2026-08-23, ON THE SAME ARGUMENT AS
+    # `meter_bands` AND WITH THE SAME RE-TIGHTENING AS `grid`. The owner's
+    # standing rule is that no hard number may sit in the generator, and the
+    # planner's line envelope was six literals — `(1, 16)`, `(2, 12)`,
+    # `(4, 64)`, `(1, 4)`, `(2, 6)`, `(0.0, 0.5, 1.0)` — with no derivation
+    # behind any of them. The derivation source is `floor.PROFILES`: a table
+    # of ADOPTED CALIBRATION CONSTANTS, the same species as
+    # `meter_bands.ADOPTED`, which this guard has always admitted. It is what
+    # lets the envelope be a function of WHAT THE GRADER CAN ENFORCE rather
+    # than of what somebody chose.
+    #
+    # AND THE GUARD IS NARROWED WHERE IT WAS WIDENED: from `floor`, `plan.py`
+    # may name ONLY `PROFILES`. `floor.py` reaches `quality.features` and
+    # `lyric_harness`, so an unrestricted admission would hand the planner
+    # transitive reach to a frequency table — which is the corpus arriving at
+    # the dice by a longer road (the owner's move-37 ban).
+    ALLOWED_FROM_FLOOR = {"PROFILES"}
+    # `capacity` AND `slots` JOINED 2026-08-23, each with its own argument
+    # and each RE-TIGHTENED the way `grid` and `floor` were.
+    #
+    # `capacity` — the planner refuses a rhyme group larger than the lexicon
+    # is MEASURED to sustain, and that figure is an ADOPTED CALIBRATION
+    # constant of the same species as `meter_bands.ADOPTED`. It may name
+    # ONLY `ADOPTED_MAX_GROUP`: `capacity.read_table()` opens the artifact,
+    # and a planner reaching a table is the corpus arriving at the dice by a
+    # longer road.
+    # `slots` — the placement vocabulary a plan may draw from. A HAND-
+    # DECLARED table of the same species as `structures` and
+    # `SECTION_FUNCTIONS`, both already admitted. It may name ONLY
+    # `PLANNABLE_PLACEMENTS`: `slots` reaches `relations`, which opens one
+    # file, so the same reasoning applies.
+    # WIDENED BY TWO 2026-08-23 (`MISSING.md` M-80) AND THE ARGUMENT IS THE
+    # SAME ONE: `placement_word` and its `LAST_WORD` sentinel are VOCABULARY
+    # — which word of a line a placement NAME denotes — and they touch no
+    # stream, no `realise()` and no reader. They live in `slots.py` for
+    # doctrine 1's reason (that module is the one place a name is bound to a
+    # rule) and are named here rather than re-implemented, which is the whole
+    # point of the widening: a second answer to "which word is `headrime`?"
+    # inside `plan.py` is exactly what this allow-list would otherwise force.
+    ALLOWED_FROM_CAPACITY = {"ADOPTED_MAX_GROUP"}
+    ALLOWED_FROM_SLOTS = {"PLANNABLE_PLACEMENTS", "placement_word",
+                          "LAST_WORD"}
+    grid_names, floor_names = set(), set()
+    cap_names, slot_names = set(), set()
     for n in ast.walk(tree):
-        if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name) \
-                and n.value.id in ("_GR", "grid", "GR"):
-            grid_names.add(n.attr)
-    check("plan.py imports exactly {schemes, meter_bands, structures, grid} "
-          "from quality and opens NO file — the corpus cannot reach the dice "
-          "(the owner's move-37 rule)",
-          subs == {"schemes", "meter_bands", "structures", "grid"}
+        if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name):
+            if n.value.id in ("_GR", "grid", "GR"):
+                grid_names.add(n.attr)
+            elif n.value.id in ("_FL", "floor", "FL"):
+                floor_names.add(n.attr)
+            elif n.value.id in ("_CAP", "capacity", "CAP"):
+                cap_names.add(n.attr)
+            elif n.value.id in ("_SL", "slots", "SL"):
+                slot_names.add(n.attr)
+    check("plan.py imports exactly {schemes, meter_bands, structures, grid, "
+          "floor, capacity, slots} from quality and opens NO file — the "
+          "corpus cannot reach the dice (the owner's move-37 rule)",
+          subs == {"schemes", "meter_bands", "structures", "grid", "floor",
+                   "capacity", "slots"}
           and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
+    check("...and from `floor` it names ONLY the adopted calibration table, "
+          "never a feature reader — `floor.py` reaches `quality.features` "
+          "and `lyric_harness`, so an unrestricted admission is the corpus "
+          "arriving at the dice by a longer road",
+          floor_names <= ALLOWED_FROM_FLOOR,
+          f"names {sorted(floor_names)}")
+    check("...and from `capacity` ONLY the adopted group ceiling, never the "
+          "table reader that opens the artifact behind it",
+          cap_names <= ALLOWED_FROM_CAPACITY, f"names {sorted(cap_names)}")
+    check("...and from `slots` ONLY the plannable placement vocabulary, "
+          "never a resolver — `slots` reaches `relations`, which opens a "
+          "file, so the narrowing is what the import allow-list stands for",
+          slot_names <= ALLOWED_FROM_SLOTS, f"names {sorted(slot_names)}")
+    check("EVERY entry in the planner's envelope is DERIVED or argued, and "
+          "none is a bare literal pair — the owner's standing rule that a "
+          "number in the generator is a defect. The check is that the "
+          "envelope MOVES when its derivation source moves: a floor profile "
+          "whose token band widened must widen the line envelope",
+          _envelope_tracks_the_floor(),
+          "measured by perturbing floor.PROFILES in-process")
     check("...and from `grid` — the one allowed module that opens files at "
           "all — it names ONLY the declared vocabulary and its pure checker, "
           "never a corpus reader. This is the check the import allow-list "
           "was standing in for, and it is stricter than the list",
           grid_names <= ALLOWED_FROM_GRID,
           f"names {sorted(grid_names)}")
+
+
+def _envelope_tracks_the_floor():
+    """Is the line envelope actually a FUNCTION of the floor's calibration?
+
+    A derivation that is written down but not wired reads exactly like a
+    literal (doctrine 48). This perturbs the source — widening the `song`
+    profile's measured token band — and requires the derived set of
+    gradeable line counts to widen with it. Restores the table afterwards,
+    and asserts the restoration, so a later section cannot inherit a
+    perturbed floor.
+    """
+    from quality import floor as FL
+    from quality import plan as _PL
+    before = set(_PL.gradeable_line_counts())
+    song = [p for p in FL.PROFILES if p.name == "song"][0]
+    old_hi = song.hi
+    try:
+        song.hi = old_hi + 200
+        _PL.gradeable_line_counts.cache_clear()
+        after = set(_PL.gradeable_line_counts())
+    finally:
+        song.hi = old_hi
+        _PL.gradeable_line_counts.cache_clear()
+    assert set(_PL.gradeable_line_counts()) == before, \
+        "the perturbation was not restored"
+    return after > before
 
 
 def test_the_disclosure():
@@ -490,46 +772,52 @@ def test_the_disclosure():
           and all(v["value"] in v["chosen_from"]
                   for v in ch["anacrusis"].values()))
 
-    # The hook slot points at the first chorus's first line when a chorus
-    # exists, and is honest about absence otherwise.
-    seen_with, seen_without = False, False
-    ok = True
+    # THE HOOK SLOT — REPOINTED 2026-08-23 (`MISSING.md` M-84, owner's ruling
+    # *"promote HOOK_DOES_NOT_RECUR to a flag"*). This asserted
+    # ~~`p["hook_slot"] == the first chorus's first line`~~ and went red on the
+    # promotion, correctly: that WAS the rule, and it was the defect. A hook is
+    # defined by RETURN, so once the code can refuse a draft, a slot in a
+    # section drawn ONCE asks the writer for something no words can supply —
+    # measured at 219 of 400 seeds before the repair, every one a chorus.
+    #
+    # THE NEW CLAIM IS STRICTLY STRONGER AND ITS SECOND BRANCH IS NOW REACHABLE
+    # OVER THE SWEEP. The old check had to prove `hook_slot is None` on a
+    # hand-mutilated plan, because `FORM_REQUIRES["verse-chorus"]` makes a
+    # chorus mandatory so `first` was never None. Recurrence is not mandatory,
+    # so both branches occur naturally and neither is asserted on a shape
+    # nothing produces.
+    seen_with, seen_without, ok = False, False, True
     for seed in range(40):
         p = make_plan(seed=seed)
-        first = next((s["line"] for s in p["line_slots"]
-                      if s["function"] == "chorus"), None)
-        ok = ok and p["hook_slot"] == first
-        seen_with = seen_with or first is not None
-        seen_without = seen_without or first is None
-    check("hook_slot is the first chorus's first line, None when no chorus "
-          "— both cases exercised over the sweep",
-          # `seen_without` IS UNREACHABLE UNDER THE ONLY DECLARED FORM, and
-          # saying so is better than asserting it (doctrine 20). This read
-          # `ok and seen_with and seen_without` and went red on 2026-08-23,
-          # correctly: `FORM_REQUIRES["verse-chorus"]` makes a chorus
-          # mandatory, so every plan has a first chorus line and `hook_slot`
-          # is never None. Measured 300 of 300 with a hook slot.
-          #
-          # The None BRANCH is still right and still reachable — by a form
-          # that does not require a chorus, of which `PLAN_FORMS` declares
-          # none today. Asserting `seen_without` over a sweep would be
-          # asserting that the form is not enforced, which is the defect
-          # this file's own §8 exists to pin. So the sweep asserts what it
-          # can see, and the None case is proved DIRECTLY against a plan
-          # whose chorus lines are removed, which is the shape a
-          # chorus-free form would produce.
-          ok and seen_with and not seen_without)
-    _no_chorus = dict(make_plan(seed=3))
-    _no_chorus["line_slots"] = [s for s in _no_chorus["line_slots"]
-                                if s["function"] != "chorus"]
-    check("...and the None branch is reachable and correct — it is the "
-          "answer for a form that requires no chorus, which no declared "
-          "form is today, so it is proved on the shape rather than waited "
-          "for over a sweep",
-          next((s["line"] for s in _no_chorus["line_slots"]
-                if s["function"] == "chorus"), None) is None
-          and seen_without is False,
-          f"{len(_no_chorus['line_slots'])} non-chorus slot(s); "
+        drawn = {}
+        for sec in p["sections"]:
+            drawn[sec["function"]] = drawn.get(sec["function"], 0) + 1
+        recurs = {fn for fn, n in drawn.items()
+                  if n > 1 and fn not in PLN.WORDLESS_FUNCTIONS}
+        want = next((s2["line"] for s2 in p["line_slots"]
+                     if s2["function"] in recurs), None)
+        got = p["hook_slot"]
+        if want is None:
+            ok = ok and got is None
+            seen_without = True
+        else:
+            # The slot must sit in a function drawn MORE THAN ONCE; which of
+            # them is preferred is the vocabulary's business (`returns_as`),
+            # so this asserts the INVARIANT rather than the preference order.
+            fn = next(s2["function"] for s2 in p["line_slots"]
+                      if s2["line"] == got) if got else None
+            ok = ok and got is not None and drawn.get(fn, 0) > 1
+            seen_with = True
+    check("hook_slot sits in a function this plan drew MORE THAN ONCE, and is "
+          "None when nothing recurs — BOTH branches exercised over the sweep, "
+          "neither asserted on a shape the planner cannot produce",
+          ok and seen_with and seen_without,
+          f"with {seen_with}, without {seen_without}")
+    check("...and a plan declaring no hook says WHY, so 'nothing recurs' and "
+          "'nobody asked' stop looking identical in an empty field "
+          "(doctrine 20)",
+          all(make_plan(seed=k).get("hook_slot_refused")
+              for k in range(40) if not make_plan(seed=k).get("hook_slot")),
           f"declared forms: {PLN.PLAN_FORMS}")
 
     check("the writer brief carries shape and rhyme plan and NEVER names "
@@ -560,8 +848,12 @@ def test_the_disclosure():
                 want = (f"[{s['function'].upper()} — instrumental — "
                         f"{size}, no words]")
             else:
-                pickup = {0.0: "", 0.5: ", half-beat pickup",
-                          1.0: ", one-beat pickup"}[slots[0]["beat"] - 1]
+                # THE ONE DEFINITION, called rather than copied. This was
+                # a second literal of the same table and it went stale the
+                # same day the first one did: anacrusis became a function of
+                # the section's own subdivision, a quarter-beat pickup
+                # appeared, and BOTH copies raised `KeyError: 0.75`.
+                pickup = PLN._pickup_phrase(slots[0]["beat"] - 1)
                 k = len(slots)
                 want = (f"[{s['function'].upper()} — {k} "
                         f"line{'s' if k != 1 else ''} — {size}{pickup}]")
@@ -808,11 +1100,473 @@ def test_the_form_is_read():
           f"the corpus rate is 137/178 = 77.0% and this is NOT tuned to it")
 
 
+def test_the_planner_plans_the_whole_line():
+    print("\n. the planner binds WHERE, not only at the ends — and draws "
+          "overlapping covers, which an RGS partition cannot express")
+    from collections import Counter
+    import quality.schemes as SC
+    places, part, overlap, sizes = Counter(), Counter(), 0, []
+    n = 0
+    for seed in range(60):
+        try:
+            pl = make_plan(seed=seed)
+        except PlanRefused:
+            continue
+        n += 1
+        for g in pl["groups"].split(";"):
+            for m in g.split(","):
+                places["end" if "." not in m else m.split(".", 1)[1]] += 1
+        m_ = SC.mandate([g.split(",") for g in pl["groups"].split(";")],
+                        n_lines=pl["total_lines"])
+        sizes.append(len(m_.groups))
+        if m_.overlapping_lines():
+            overlap += 1
+        for ln in range(1, m_.n_lines + 1):
+            part[len(m_.groups_of(ln))] += 1
+    check("every plan's groups PARSE back into a Mandate — the spelling the "
+          "planner emits is the spelling the declaration layer reads, which "
+          "is the only shape that proves the coordinate crossed the seam",
+          n > 0 and len(sizes) == n, f"{n} plans, {len(sizes)} mandates")
+    check("placements other than the line's end are DRAWN, not merely "
+          "declarable: the head, the whole end word, the head read as a "
+          "rhyme span, and indexed words all appear",
+          {"head", "endword", "headrime"} <= set(places)
+          and any(k.startswith("T") for k in places),
+          f"{dict(places.most_common(6))}")
+    end_share = places["end"] / max(1, sum(places.values()))
+    check("and `end` is ONE placement among them rather than the axis "
+          "everything is measured against — its share is near the uniform "
+          "share of the pool, which is the correction stated as a measure",
+          end_share < 0.25,
+          f"end at {end_share:.1%} of members over {n} plans")
+    check("OVERLAPPING covers are reached by the DRAW. Doctrine 2 says "
+          "maximal cliques may overlap and the mandate layer has always "
+          "accepted them; the generator could not produce one, so that "
+          "class of song had probability exactly zero from the front door",
+          overlap > 0, f"{overlap}/{n} plans put some line in >1 group")
+    check("a line's participation is bounded by what a band-legal line can "
+          "CARRY — the calibrated density band's floor — so no plan asks a "
+          "five-syllable line for more distinct bound spans than it has "
+          "syllables",
+          max(part) <= MB.ADOPTED["DENSITY"][0],
+          f"max participation {max(part)}, density floor "
+          f"{MB.ADOPTED['DENSITY'][0]}")
+    check("...and it is not pinned at either extreme: lines carrying ONE "
+          "binding and lines carrying several are both ordinary",
+          part[1] > 0 and sum(v for k, v in part.items() if k >= 2) > 0,
+          f"participation {dict(sorted(part.items()))}")
+    check("no group exceeds what the LEXICON is measured to sustain — the "
+          "capacity layer's deepest CERTIFIED chain, so a plan never asks "
+          "for a rhyme family no family can fill",
+          all(len(g) <= CAP.ADOPTED_MAX_GROUP
+              for pl in [make_plan(seed=k) for k in range(8)]
+              for g in [x.split(",") for x in pl["groups"].split(";")]),
+          f"ceiling {CAP.ADOPTED_MAX_GROUP}")
+
+
+def _place_group_keyed_on_the_name(group, rng, max_token, used):
+    """THE PRE-FIX `plan._place_group`, verbatim but for its one coordinate:
+    `used` holds the placement NAME rather than the WORD that placement binds.
+
+    Kept here as a MUTATION and not as history. The claim §7 makes is that
+    the planner satisfies the joint gate by construction; that claim is only
+    worth anything if the gate can fail, and the only honest way to show it
+    can is to put the defect back and watch `make_plan` refuse.
+    """
+    out = []
+    for ln in group:
+        free = [p for p in PLN._PLACE_POOL(max_token)
+                if p not in used.get(ln, ())]
+        if not free:
+            return []
+        place = rng.choice(free)
+        used.setdefault(ln, set()).add(place)
+        out.append(str(ln) if place == "end" else f"{ln}.{place}")
+    return out
+
+
+def test_the_joint_gate():
+    print("\n7. the JOINT gate — every constraint legal, the conjunction "
+          "checked")
+    # THE POPULATION FIRST, so the section cannot pass by examining nothing.
+    # Every check below walks a list, and `all()` over an empty list is True
+    # and reads exactly like a check that looked at something — this repo's
+    # own seven-vacuous-checks lesson (CLAUDE.md, Test discipline).
+    plans = [make_plan(seed=k) for k in range(JOINT_SWEEP)]
+    check("the sweep produced plans to ask the question of",
+          len(plans) == JOINT_SWEEP, f"{len(plans)} plans")
+    check("NO plan in the sweep asks for a conjunction it cannot have — the "
+          "gate is satisfied BY CONSTRUCTION, which is the relationship "
+          "`ADOPTED_MAX_GROUP` already has to the scheme sampler and is why "
+          "the mutations below are the only way to fire it",
+          all(PLN.joint_findings(p) == [] for p in plans),
+          f"{sum(len(PLN.joint_findings(p)) for p in plans)} findings over "
+          f"{len(plans)} plans")
+    # THE FIFTH CAUSE — a hook declared in a section drawn once (`MISSING.md`
+    # M-84). It is the one entry on this list a writer cannot answer BY
+    # WRITING, which is exactly why it belongs to a PLAN-TIME gate: no choice
+    # of words makes a section recur. Before the repair the planner emitted it
+    # in 219 of 400 seeds, all chorus.
+    hooked = [p for p in plans if p.get("hook_slot")]
+    check("plans that DO declare a hook declare it in a function this plan "
+          "drew MORE THAN ONCE — a hook is defined by RETURN, so a slot in a "
+          "section heard once is a requirement no writer can meet",
+          hooked and all(
+              sum(1 for s in p["sections"]
+                  if s["function"] == next(r["function"]
+                                           for r in p["line_slots"]
+                                           if r["line"] == p["hook_slot"]))
+              > 1 for p in hooked),
+          f"{len(hooked)} of {len(plans)} plans declare a hook")
+    check("...and a plan that declares NONE says WHY rather than going "
+          "silent, because a shape with nothing recurring and a shape nobody "
+          "asked about a hook look identical in an empty field (doctrine 20)",
+          all(p.get("hook_slot_refused") for p in plans
+              if not p.get("hook_slot")),
+          f"{len(plans) - len(hooked)} plans declare no hook, each with a "
+          f"stated reason")
+    # THE MUTATION: force the hook into a section drawn once and require the
+    # gate to fire. Without this the two checks above pass on any tree whose
+    # planner simply never declares a hook at all.
+    victim = next((p for p in plans if not p.get("hook_slot")), None)
+    if victim is not None:
+        mutant = dict(victim)
+        mutant["hook_slot"] = victim["line_slots"][0]["line"]
+        codes = [c for c, _ln, _d in PLN.joint_findings(mutant)]
+        check("MUTATION — a hook forced into a section this plan drew once "
+              "FIRES `HOOK_IN_NONRECURRING_SECTION`, so the two checks above "
+              "are not passing on a planner that merely never declares one",
+              "HOOK_IN_NONRECURRING_SECTION" in codes, f"{codes}")
+    check("the codes are a DECLARED closed set, so a new one is added "
+          "deliberately rather than by somebody typing a new string "
+          "(doctrine 58)",
+          len(set(PLN.JOINT_CODES)) == len(PLN.JOINT_CODES)
+          and all(isinstance(c, str) for c in PLN.JOINT_CODES),
+          f"{list(PLN.JOINT_CODES)}")
+
+    base = plans[0]
+
+    def fired(plan):
+        return sorted({c for c, _, _ in PLN.joint_findings(plan)})
+
+    # THE FOUR MUTATIONS, one per cause. Each is a PLAN handed to the gate,
+    # not a draw — `joint_findings` is a pure function of the emitted dict on
+    # purpose, so a hand-written plan is checked on the same terms.
+    two_on_one = dict(base, groups=base["groups"] + ";1.head,2.head;1.T1,3.T1")
+    check("two declared groups landing on ONE WORD by two different NAMES "
+          "fires — `head` and `T1` are both the first word, which is the "
+          "coordinate `_place_group` was missing",
+          fired(two_on_one) == ["TWO_GROUPS_ONE_WORD"], f"{fired(two_on_one)}")
+
+    far = dict(base, groups="1.T40,2.T40")
+    check("a placement naming a word past what the line can carry fires — a "
+          "line has no more words than syllables, and no more syllables than "
+          "the smaller of its slots and the band's ceiling",
+          "TOKEN_INDEX_UNREACHABLE" in fired(far), f"{fired(far)}")
+
+    starved = dict(base, groups="", line_slots=[
+        dict(s, duration=0.5) if s["line"] == 1 else s
+        for s in base["line_slots"]])
+    check("a line whose span falls under the calibrated density FLOOR fires "
+          "— below the floor the band flags it and at or above it "
+          "`fit.SLOTS_EXCEEDED` does, so no draft clears both",
+          fired(starved) == ["SPAN_BELOW_DENSITY_FLOOR"], f"{fired(starved)}")
+
+    crowded = dict(base, subdivision=1, groups="1.T6,2.T6;1,3", line_slots=[
+        dict(s, duration=6.0) for s in base["line_slots"]])
+    check("a line asked for more DISTINCT words than it can carry fires, and "
+          "it is its own code — the last word must differ from every "
+          "numbered one or the two groups binding them meet",
+          "WORDS_EXCEED_SPAN" in fired(crowded), f"{fired(crowded)}")
+
+    # AND THE GATE REFUSES RATHER THAN REPORTING. `make_plan` is what a
+    # writer calls; a finding it does not act on is a note, and the owner's
+    # standing rule is that a note is a record and only a gate is an
+    # enforcement.
+    real = PLN.joint_findings
+    try:
+        PLN.joint_findings = lambda plan: [("TOKEN_INDEX_UNREACHABLE", 1, "x")]
+        refused = None
+        try:
+            make_plan(seed=0)
+        except PlanRefused as exc:
+            refused = str(exc)
+    finally:
+        PLN.joint_findings = real
+    check("a plan with a joint finding is REFUSED by `make_plan`, and the "
+          "refusal names the code",
+          refused is not None and "TOKEN_INDEX_UNREACHABLE" in refused,
+          f"{(refused or '')[:80]}")
+    check("...and the restoration held, so no later check inherits a "
+          "mutated gate", PLN.joint_findings(base) == [])
+
+    # THE MUTATION THAT MAKES THE GENERATOR'S HALF NON-VACUOUS. `0 findings
+    # over 40 plans` is a claim about the DRAW, and it reads exactly like a
+    # gate that stopped asking. Restoring the pre-fix `_place_group` — the
+    # same body, keyed on the placement NAME — must bring the collisions
+    # back, and it must bring them back THROUGH `make_plan`, since a plan
+    # that is generated and not refused is the defect this section exists
+    # for.
+    real_place = PLN._place_group
+    blind_refused, blind_codes = 0, set()
+    try:
+        PLN._place_group = _place_group_keyed_on_the_name
+        for k in range(JOINT_SWEEP):
+            try:
+                make_plan(seed=k)
+            except PlanRefused as exc:
+                blind_refused += 1
+                blind_codes |= {c for c in PLN.JOINT_CODES if c in str(exc)}
+    finally:
+        PLN._place_group = real_place
+    check("keying the collision test on the placement NAME instead of the "
+          "WORD makes `make_plan` REFUSE most seeds — so the repair is READ "
+          "and the sweep's 0 above is an answer, not a check that stopped "
+          "checking",
+          blind_refused > JOINT_SWEEP // 2,
+          f"{blind_refused}/{JOINT_SWEEP} seeds refused when the word is "
+          f"spelled as a placement name")
+    check("...and the cause it names is the collision, not something the "
+          "mutation broke sideways",
+          blind_codes == {"TWO_GROUPS_ONE_WORD"}, f"{sorted(blind_codes)}")
+    check("...and the restoration held: the clean sweep is clean again",
+          all(PLN.joint_findings(make_plan(seed=k)) == []
+              for k in range(4)))
+
+    # THE OTHER DIRECTION IS NOT A DEFECT, and this is the check that pins
+    # M-79's own correction. A line given MORE slots than the band's ceiling
+    # is a legitimately SLOWER line: `SPARSE` reads "fewer units than
+    # pulses", so slots are a CAPACITY and never a requirement.
+    sparse = dict(base, groups="", line_slots=[
+        dict(s, duration=99.0) for s in base["line_slots"]])
+    check("a line with far MORE slots than the density ceiling produces NO "
+          "joint finding — slots are a capacity, not a requirement, and "
+          "M-79's Finding 1 read 78% of plans as impossible on exactly this "
+          "confusion", PLN.joint_findings(sparse) == [],
+          f"{PLN.joint_findings(sparse)[:1]}")
+    check("`line_syllable_ceiling` is the CONJUNCTION of the two layers — "
+          "the band's ceiling where the bar is roomy, the bar where it is "
+          "not — so neither layer answers for the other",
+          PLN.line_syllable_ceiling(99) == MB.ADOPTED["DENSITY"][1]
+          and PLN.line_syllable_ceiling(3) == 3,
+          f"99 slots -> {PLN.line_syllable_ceiling(99)}, "
+          f"3 slots -> {PLN.line_syllable_ceiling(3)}")
+
+    # A PLACEMENT WHOSE WORD IS UNKNOWN REFUSES rather than being filed under
+    # a nearby one (doctrine 20): an unchecked collision reads exactly like a
+    # line with no collision. `line` is the registered placement this cannot
+    # resolve, and it is deliberately outside `PLANNABLE_PLACEMENTS`.
+    try:
+        PLN.placement_word("line")
+        refused_locus = ""
+    except SL.SlotUnsupported as exc:
+        refused_locus = str(exc)
+    check("`placement_word` REFUSES a locus it cannot resolve to one word, "
+          "naming it",
+          "line" in refused_locus and "WHICH WORD" in refused_locus,
+          f"{refused_locus[:70]}")
+    spelled = sorted((str(PLN.placement_word(p)), p)
+                     for p in SL.PLANNABLE_PLACEMENTS)
+    check("...and it is DERIVED from `quality/slots.py`'s own loci, not a "
+          "second table here: every plannable placement resolves, and the "
+          "four names the pool draws denote only two words at the ends",
+          {PLN.placement_word(p) for p in SL.PLANNABLE_PLACEMENTS}
+          == {1, PLN.LAST_WORD}
+          and PLN.placement_word("T1") == PLN.placement_word("headrime"),
+          f"{spelled}")
+
+
+
+
+def test_the_seed_sweep_is_a_verb():
+    print("\n10. THE SEED SWEEP — the last private instrument, made a verb "
+          "(`MISSING.md` M-82)")
+    # CLAUDE.md standing rule 3 named this one and left it: "The seed-sweep
+    # instrument (looping `make_plan` with filters to find a shape) stays
+    # manual for now BY THE OWNER'S PENDING RULING, and is named here so it
+    # cannot become a quiet fourth instrument." The ruling was made.
+    #
+    # WHY IT EXISTS: `--functions` is an ALLOW-LIST. It PERMITS a roster and
+    # cannot COMPEL a draw to use it, because compelling means weighting the
+    # dice. Drawing again is the honest compel, and rejection sampling from a
+    # uniform proposal is uniform over the accepted set.
+    check("the predicate vocabulary is CLOSED and every name reads a "
+          "coordinate the plan already DISCLOSES — a sweep that invented a "
+          "measurement would be a second planner (doctrine 58)",
+          set(PLN.SWEEP_MEASURES) & set(PLN.SWEEP_SETS) == set()
+          and set(PLN.SWEEP_MEASURES) & set(PLN.SWEEP_ORDERS) == set()
+          and all(isinstance(v, tuple) and callable(v[1])
+                  for v in PLN.SWEEP_MEASURES.values()),
+          f"{sorted(set(PLN.SWEEP_MEASURES) | set(PLN.SWEEP_SETS) | set(PLN.SWEEP_ORDERS))}")
+    p = PLN.make_plan(seed=108)
+    for name, (_gloss, fn) in PLN.SWEEP_MEASURES.items():
+        check(f"`{name}` reads off a real plan without inventing anything",
+              isinstance(fn(p), (int, float)), f"{name} = {fn(p)}")
+
+    # THE SWEEP ITSELF, on the range the scratch script used before it was a
+    # verb — and it returns the same answer, which is what makes this a verb
+    # rather than a rewrite.
+    wants = [PLN.parse_sweep_want(w) for w in
+             ("sections<=6", "lines_per_section>=2", "group<=4",
+              "uses=verse,chorus", "before=verse,chorus", "pins_per_line<=5")]
+    res = PLN.sweep(range(120), wants=wants)
+    check("the sweep finds the seed the private script found, over the same "
+          "range — the instrument moved into the tree without its answer "
+          "changing", res["accepted"] == [108],
+          f"accepted {res['accepted']}, planned {res['planned']}, "
+          f"refused {res['refused']}")
+    check("THREE COUNTS, NEVER SUMMED (doctrine 79): swept, planned, and "
+          "REFUSED-by-the-planner. A refusal is the envelope turning a "
+          "request down and charging it to the predicates would blame the "
+          "declaration for the planner",
+          res["seeds"] == 120
+          and res["planned"] + res["refused"] == res["seeds"]
+          and len(res["accepted"]) <= res["planned"],
+          f"{res['seeds']} = {res['planned']} + {res['refused']}")
+    check("NO DEFAULT PREDICATE — a sweep with none accepts every seed that "
+          "plans at all, which is honest and useless. A default would be the "
+          "sweep deciding what the caller wants",
+          PLN.sweep(range(12))["accepted"] == list(range(12)),
+          f"{PLN.sweep(range(12))['accepted']}")
+    # IT DOES NOT RANK, and this is the load-bearing refusal (doctrine 7 —
+    # enforce a floor, do not order the permitted region; doctrine 19 — an
+    # argmax over a swept parameter is biased). The accepted set is in SEED
+    # order and carries no score at all.
+    many = PLN.sweep(range(60), wants=[PLN.parse_sweep_want("sections<=6")])
+    check("the accepted set is in SEED order and carries no score — a sweep "
+          "that returned 'the best seed' would be doctrine 19's own argmax, "
+          "and whatever it ranked by would be the weighted quality score "
+          "doctrine 6 forbids",
+          many["accepted"] == sorted(many["accepted"])
+          and set(res) == {"accepted", "planned", "refused", "wants",
+                           "seeds"},
+          f"{len(many['accepted'])} accepted, keys {sorted(res)}")
+
+    # THE REFUSALS, each proven rather than described.
+    def refuses(text):
+        try:
+            PLN.parse_sweep_want(text)
+        except PLN.PlanRefused as exc:
+            return str(exc)
+        return ""
+    check("an undeclared coordinate REFUSES and prints the vocabulary — a "
+          "predicate silently matching nothing and one that refuses look "
+          "identical in the accepted set, and the first has a caller believe "
+          "their declaration was applied (doctrine 20)",
+          "not a coordinate" in refuses("vibes<=3")
+          and "sections" in refuses("vibes<=3"), refuses("vibes<=3")[:70])
+    check("...and so does a predicate with no operator this vocabulary "
+          "declares", "carries none of" in refuses("sections<3"),
+          refuses("sections<3")[:60])
+    check("...and a count compared against a non-integer",
+          "is not an" in refuses("sections<=lots"),
+          refuses("sections<=lots")[:60])
+    check("...and a FUNCTION name compared with an inequality, because "
+          "functions do not compare",
+          "and nothing else" in refuses("uses>=chorus"),
+          refuses("uses>=chorus")[:60])
+    # THE MUTATION: an unreachable declaration must REFUSE at the verb, not
+    # return an empty list that reads like a clean run.
+    empty = PLN.sweep(range(20), wants=[PLN.parse_sweep_want("sections<=1")])
+    check("an unreachable declaration accepts NOTHING, and the verb turns "
+          "that into a refusal at exit 2 rather than an empty list — "
+          "unreachable and merely rare are different answers and the "
+          "acceptance rate is what separates them",
+          empty["accepted"] == [] and empty["planned"] > 0,
+          f"planned {empty['planned']}, accepted 0")
+
+
+def test_the_section_header_keeps_its_apparatus_inside_the_bracket():
+    print("\n11. THE SECTION HEADER — everything inside the bracket, meter "
+          "included, and what the harness WRITES it EXCLUDES (`MISSING.md` "
+          "M-85)")
+    # THE OWNER'S STANDING INSTRUCTION, given more than once and never gated:
+    # a section's apparatus lives INSIDE its bracket, and the METER is part of
+    # that apparatus. `section_header` has always done both; nothing checked
+    # it, so a regression there would be silent and would land in the one
+    # place it must not — the rhyme calculation.
+    #
+    # WHY THE OBVIOUS GATE IS NOT THE ONE WRITTEN HERE. The tempting rule is
+    # "refuse a line that opens on a dash", since `— 3 bars, one-beat pickup`
+    # is what escapes. MEASURED over `corpus/`: 626,282 sung lines, 433 open
+    # on a dash — an 0.0691% false-positive rate, and every sample is real
+    # verse (Arnold's `--Ah! thine was not the shelter, but the fray.`,
+    # Clare, Blunt, Browne). That rule would refuse canonical poetry, so it is
+    # REFUSED here and the number is recorded instead (doctrine 22: state a
+    # threshold as an FPR, not as an argument about how apparatus tends to
+    # look).
+    #
+    # WHAT IS DECIDABLE is that the harness OWNS this format, so the gate is a
+    # ROUND TRIP over its own output rather than a guess about someone else's.
+    shapes = meters = drops = 0
+    total = 0
+    for seed in range(HEADER_SWEEP):
+        p = make_plan(seed=seed)
+        for sec in p["sections"]:
+            slots = [s for s in p["line_slots"] if s["section"] == sec["name"]]
+            h = PLN.section_header(sec, slots)
+            total += 1
+            shapes += (h.startswith("[") and h.endswith("]")
+                       and "\n" not in h
+                       and h.count("[") == 1 and h.count("]") == 1)
+            im = sec["meter"]
+            meters += f"{im['beats']}/{im['unit']}" in h
+            drops += bool(LH.is_apparatus_line(h))
+    check("the population is real, so this section cannot pass by examining "
+          "nothing", total > 0, f"{total} headers over {HEADER_SWEEP} plans")
+    check("every header is ONE closed bracket with NOTHING outside it — the "
+          "owner's rule, and the reason a header cannot leak into the rhyme "
+          "calculation", shapes == total, f"{total - shapes} malformed")
+    check("...and every header CARRIES ITS METER inside that bracket, read "
+          "from the section's own dict rather than trusted to prose",
+          meters == total, f"{total - meters} missing beats/unit")
+    check("...and `is_apparatus_line` DROPS every one of them, which is the "
+          "half that matters: what this harness WRITES, this harness "
+          "EXCLUDES from the rhyme calculation",
+          drops == total, f"{total - drops} would be scored as lyric")
+    # THE ROUND TRIP, and it is the strongest statement available: render a
+    # song, read it back through the ONE definition of sung text, and require
+    # the lines to come back exactly. Anything the renderer emits that is not
+    # a lyric — header, blank, apparatus of any kind — must vanish.
+    breaks = 0
+    for seed in range(HEADER_SWEEP):
+        p = make_plan(seed=seed)
+        body = [f"line {i} holds its own place" for i in
+                range(1, p["total_lines"] + 1)]
+        with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False,
+                                         encoding="utf-8") as fh:
+            fh.write(PLN.render_song(p, body) + "\n")
+            path = fh.name
+        try:
+            breaks += (LH.load_lyric_lines(path) != body)
+        finally:
+            os.unlink(path)
+    check("RENDER -> LOAD ROUND-TRIPS: the rendered song read back through "
+          "`load_lyric_lines` is EXACTLY the lines that went in, so no "
+          "header, blank or pickup phrase the renderer writes can reach the "
+          "grader as a word", breaks == 0,
+          f"{breaks} of {HEADER_SWEEP} songs did not round-trip")
+    # THE MUTATION: move the apparatus outside the bracket, exactly as it was
+    # rendered in chat, and require the round-trip to BREAK. Without this the
+    # checks above pass on any tree whose renderer emits nothing at all.
+    sec = make_plan(seed=108)["sections"][0]
+    escaped = f"[{sec['function'].upper()}] — {sec['bars']} bars, one-beat pickup"
+    check("MUTATION — the same header with its apparatus moved OUTSIDE the "
+          "bracket, split onto its own line, is SCORED AS LYRIC with end "
+          "word 'pickup', which is the defect this section exists to keep "
+          "out", not LH.is_apparatus_line("— 3 bars, one-beat pickup")
+          and LH.line_tokens("— 3 bars, one-beat pickup")[-1] == "pickup"
+          and LH.is_apparatus_line(escaped),
+          "same-line stays apparatus; split onto its own line it is not")
+
+
 if __name__ == "__main__":
-    for fn in (test_determinism, test_refusals, test_the_round_trip,
+    for fn in (test_the_planner_plans_the_whole_line,
+               test_determinism, test_refusals, test_the_round_trip,
                test_the_measure, test_the_disclosure,
                test_the_rendering, test_the_writers_declaration,
-               test_the_form_is_read):
+               test_the_form_is_read, test_the_joint_gate,
+               test_the_seed_sweep_is_a_verb):
         fn()
     print("=" * 62)
     if FAILURES:

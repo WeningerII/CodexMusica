@@ -245,7 +245,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
-from lyric_harness import load_lyric_lines, raw_final_token  # noqa: E402
+from lyric_harness import (load_lyric_lines, line_tokens,
+                           raw_final_token)
+from quality import slots as _SL  # noqa: E402
 from quality.revise import (ReviseDeclaration, Reviser,  # noqa: E402
                             draft_fingerprint)
 
@@ -295,6 +297,64 @@ def swap_end_word(text, new_word):
     return text[:last.start()] + cased + text[last.end():]
 
 
+def swap_at_slot(text, slot, new_word):
+    """-> `text` with the token the SLOT names replaced; `None` if it cannot
+    be done without guessing.
+
+    The generalisation of `swap_end_word` to the placement coordinate
+    (`quality/slots.py`), and the reason it has to exist: `grade()` can flag a
+    binding that is NOT at the line's end, and a loop whose only move is an
+    end-word swap would answer that flag by rewriting the wrong word — the
+    writer told to fix L3's opening and handed a rewrite of its ending. One
+    question, two readings (doctrine 1), with the loop acting on the wrong
+    one.
+
+    THE DEFAULT SLOT IS `swap_end_word`, CALLED. Same discipline
+    `slots.resolve` uses for `line_anchors`: the ordinary case is not
+    reimplemented, so every existing run keeps its exact behaviour including
+    the paren-stripping refusal that function documents.
+
+    A slot naming no token in this line returns None — the loop's own "no
+    move here" — rather than falling back to a token nearby.
+    """
+    if _SL.is_default(slot):
+        return swap_end_word(text, new_word)
+    slot = _SL.as_slot(slot)
+    toks = list(_WORD_RE.finditer(text))
+    if not toks:
+        return None
+    # THE TOKEN INDEX IS READ THROUGH `line_tokens`, the one definition of
+    # "the words of a line" the rhyme path may use, and then matched back to
+    # the RAW span so leading words, punctuation and whitespace stay
+    # byte-identical — the property `swap_end_word` refuses rather than
+    # loses. A disagreement between the two readings refuses here too.
+    words = line_tokens(text)
+    if [m.group(0) for m in toks] != list(words):
+        return None
+    locus = slot.rule.locus
+    if locus == "line_final_token":
+        idx = len(toks) - 1
+    elif locus == "line_initial_token":
+        idx = 0
+    elif locus == "any_token":
+        idx = _SL._declared_token(slot.rule)
+    else:
+        # `line` covers every token, so "replace the word" names no single
+        # one. The loop has no move for it and says so instead of picking.
+        return None
+    if idx is None or not 0 <= idx < len(toks):
+        return None
+    hit = toks[idx]
+    old = hit.group(0)
+    if old.isupper():
+        cased = new_word.upper()
+    elif old[:1].isupper():
+        cased = new_word.capitalize()
+    else:
+        cased = new_word.lower()
+    return text[:hit.start()] + cased + text[hit.end():]
+
+
 #: THE MANDATORY PURSUE SET — OWNER'S STANDING ORDER, 2026-08-17, AND IT IS
 #: NOT A COORDINATE. `ReviseDeclaration.pursue` can ADD codes; nothing can
 #: remove these. The order, verbatim in intent: enforcement must be
@@ -309,12 +369,51 @@ def swap_end_word(text, new_word):
 #: the loop keeps asking until the finding clears, or it stops loudly with
 #: the line named in `unresolved_pursued` and the CLI exits nonzero.
 #:
-#: `MODAL_RHYME` is the member because it is the per-LINE laziness finding
-#: with a built candidate field (doctrine 9's own machinery); the whole-draft
-#: `PREDICTABLE_RHYME` fraction empties as a consequence of clearing it and
-#: cannot be pursued per-line (it names no line). `verify()` is untouched:
-#: pursuing changes what the loop ASKS FOR, never what it rejects.
-MANDATORY_PURSUE = frozenset({"MODAL_RHYME", "HOMEOTELEUTON"})
+#: `MODAL_RHYME` is a member because it is the per-LINE laziness finding
+#: with a built candidate field (doctrine 9's own machinery). ~~the
+#: whole-draft `PREDICTABLE_RHYME` fraction empties as a consequence of
+#: clearing it and cannot be pursued per-line (it names no line)~~ —
+#: SUPERSEDED 2026-08-23, owner ruling, and BOTH clauses were half-true.
+#: The overlap is real but not containment: the modal head is a FREQUENCY
+#: rank over the field and predictability is a probability over the pair,
+#: so a pair can sit above 0.90 predictability with neither word in the
+#: other's modal head — clearing every MODAL_RHYME does not empty the
+#: fraction. And "it names no line" was a fact about the AGGREGATION, not
+#: the measurement: `_predictability` returns (i, j, value) per pair and
+#: `SlopFloor.check` threw the lines away. It keeps them now (the
+#: CLICHE_PAIR/SHARED_SUFFIX pattern), the finding lands per-line through
+#: `inspect()`'s existing locations routing, `PREDICTABLE_RHYME` has been in
+#: `RHYME_FINDINGS` since 2026-08-15 so `brief()` hands those lines a
+#: candidate field with the modal head marked FORBIDDEN — and the member
+#: below makes the loop hold them open. `verify()` is untouched: pursuing
+#: changes what the loop ASKS FOR, never what it rejects, and this finding
+#: fires only where a measured profile declared its threshold, so a draft
+#: inside the band is asked nothing.
+MANDATORY_PURSUE = frozenset({"MODAL_RHYME", "HOMEOTELEUTON",
+                              "PREDICTABLE_RHYME", "SHARED_SUFFIX"})
+#: `SHARED_SUFFIX` JOINED 2026-08-23 (`MISSING.md` M-85, owner's ruling to
+#: promote it out of disclosed-only). `gate_census` had it as a
+#: PROMOTE_CANDIDATE on an argument that is doctrine 1's own: it names THE SAME
+#: SONIC EVENT `HOMEOTELEUTON` names — its message says "(homeoteleuton)" in as
+#: many words — and that one has been gated through this set since the ban went
+#: unskippable, while this one was silent. One repository, two answers about
+#: one event.
+#:
+#: PURSUED AND NOT PROMOTED TO A FLAG, and the tree already paid to learn why.
+#: CLAUDE.md on `MODAL_RHYME`: *"re-typing MODAL_RHYME as a flag was wrong
+#: twice over: doctrine 7 says a floor may not order the region it already
+#: passed and a pair that RHYMES is inside that region, and verify() gates on
+#: flags, so a promoted note would begin REJECTING revisions for introducing
+#: one — the exact regression new_flags was split out to end."* A shared-suffix
+#: pair rhymes, so it sits inside the permitted region on the identical
+#: argument. A flag would also make `floor.py`'s own user-facing sentence
+#: false — it tells a reader, twice, that *"RADIF_LICENSED and SHARED_SUFFIX
+#: are notes at every length"* — and pursuing keeps that true.
+#:
+#: SO IT CHANGES WHAT THE LOOP ASKS FOR AND NEVER WHAT IT REJECTS: `verify()`
+#: is untouched, and this is a GATE by `gate_census`'s own mechanism 2 (a line
+#: held open on a pursued note, the CLI exiting nonzero if it stands). The
+#: finding already carries its `locations`, so the loop has lines to hold.
 
 
 def _open_lines(briefs, pursue=frozenset()):
@@ -374,7 +473,15 @@ def default_propose(brief, lines, attempt, reasons=None, whole=()):
     """
     if attempt >= len(brief.candidates):
         return None
-    return swap_end_word(brief.text, brief.candidates[attempt])
+    # AT THE BRIEF'S OWN BINDING SITE since 2026-08-23. `brief.slot` is None
+    # for every line that binds at its end, and `swap_at_slot` calls
+    # `swap_end_word` for those, so this is the same splice it has always
+    # been on every draft written before the coordinate existed. Where a
+    # slot IS declared, splicing the end word would answer a flag about the
+    # line's HEAD by rewriting its ending — the stub proving the loop's
+    # control flow would be proving it against the wrong word.
+    return swap_at_slot(brief.text, brief.slot or brief.line_no,
+                        brief.candidates[attempt])
 
 
 def default_propose_pair(pair_brief):

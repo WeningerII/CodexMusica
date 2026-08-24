@@ -904,6 +904,30 @@ class FitFinding:
     conditional_on: str = ""
     line: object = None
 
+    @property
+    def severity(self):
+        """-> "flag" | "note". THE one definition of this mapping.
+
+        THIS CLASS HAS ALWAYS DECIDED ITS OWN SEVERITY and never said so in a
+        word any reader could find. `satisfiable=False` means the DECLARATION
+        CANNOT BE MET — a contradiction, not a style call — so it is a hard
+        flag; everything else is a count worth knowing, and doctrine 6 says a
+        count is not a verdict.
+
+        The mapping was spelled `"flag" if not f.satisfiable else "note"` at
+        TWO separate sites in `quality/revise.py`, whose own docstring says
+        "SEVERITY IS NOT RE-DECIDED HERE ... this method does not maintain a
+        second opinion" — while maintaining two copies of the opinion
+        (doctrine 1). Both now call this.
+
+        And `quality/gate_census.py` could not see the coordinate at all: it
+        looked for a field NAMED severity, found none, and filed all 18 of
+        this module's codes as UNDECIDABLE. They were decided the whole
+        time — 6 unsatisfiable and therefore GATED, 12 notes — under a name
+        the census did not know to read.
+        """
+        return "note" if self.satisfiable else "flag"
+
     def __post_init__(self):
         if self.kind not in KINDS:
             raise ValueError(f"kind must be one of {KINDS}")

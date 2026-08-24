@@ -19,15 +19,23 @@ GENERATOR over a space the enforcement layers already grade:
 - METERS are derived from the cycle grammar — any beat count whose pulse
   grouping is a composition into 2s and 3s (the attested additive-meter
   vocabulary), at any bars-per-line and subdivision, FILTERED by one derived
-  envelope: slots per line. The envelope's floor IS the calibrated density
-  band's floor (`meter_bands.ADOPTED` — a line must hold at least that many
-  syllables, so fewer slots is unsatisfiable BY CONSTRUCTION); the ceiling is
-  the band's ceiling times one declared multiplier (`SLOTS_CEILING_X`),
-  beyond which every band-legal line under-fills the grid into decoration.
-  THE MEASURE IS BY DERIVATION, NOT BY LEAF — (bars, subdivision) uniform
-  over the pairs the envelope admits, the beat count uniform over that
-  pair's derived range, the grouping exact-uniform over that beat count's
-  compositions. This module's own first smoke run (2026-08-18) convicted
+  envelope — and BOTH OF ITS ENDS ARE THE SAME CALIBRATED BAND READ IN
+  DIFFERENT UNITS (2026-08-23, `MISSING.md` M-81(B)). CEILING, in BEATS: a
+  line runs at most `DENSITY` ceiling beats, because it carries at most that
+  many syllables and a sung line carries at least one syllable per beat
+  (`BEATS_PER_SYLLABLE_MAX`, the one declared step in the chain). FLOOR, in
+  SLOTS: a line holds at least `DENSITY` floor slots, because it must be able
+  to carry the fewest syllables the band permits and a syllable occupies one
+  slot. ~~the ceiling is the band's ceiling times one declared multiplier
+  (`SLOTS_CEILING_X`), beyond which every band-legal line under-fills the
+  grid into decoration~~ — struck: it measured emptiness in SLOTS, and a slot
+  is a subdivision unit, so it called a twelve-beat line and a forty-eight-
+  beat line the same thing and let one lyric line be set across two dozen
+  bars.
+  THE MEASURE IS BY DERIVATION, NOT BY LEAF — beats per line uniform over
+  what the envelope realises, the (bars, subdivision) factorisation uniform
+  over the ways to make it, the grouping exact-uniform over the resulting
+  beat count's compositions. This module's own first smoke run (2026-08-18) convicted
   the leaf measure: compositions of n into {2,3} grow ~1.3247^n, so
   uniform-over-enumerated-cycles hands nearly every plan the largest beat
   count the envelope admits — a weight-by-grouping-count table nobody
@@ -38,7 +46,51 @@ GENERATOR over a space the enforcement layers already grade:
   cycle conventionally (4 for simple groupings, 8 for compound); a writer
   hand-declaring 5/24 is grading-identical to 5/8 and nothing refuses it.
 - LINES PER SECTION are sampled UNIFORMLY from the envelope, per function
-  kind. Schemes come from `schemes.rgs` exactly as before up to
+  kind.
+  V3 (2026-08-23) — AND THE ENVELOPE ITSELF IS DERIVED NOW. V2 replaced the
+  planner's TABLES with generators and left its BOUNDS as literals: lines per
+  section `(1, 16)`, sections `(2, 12)`, total lines `(4, 64)`, bars per line
+  `(1, 4)`, body cells `(2, 6)`, anacrusis `(0.0, 0.5, 1.0)`. The owner named
+  the first — *"1-16 is weird...should we change it to a variable?"* — under
+  the standing rule that a hard number in the generator is a defect. All six
+  are functions now:
+    * TOKENS PER LINE is read off the floor's own calibration. Each stanza
+      profile declares a measured token band AND the line count it was
+      measured at (`Profile.n_lines`, declared the same day), so the 4-line
+      section profile fixes 7.25-9.25 tokens per line and the 14-line sonnet
+      profile fixes 7.71-9.00. They agree, which is the check that this is a
+      property of English verse rather than of one profile.
+    * THE LINE ENVELOPE IS WHAT THE FLOOR CAN ENFORCE. A draft outside every
+      profile's MEASURED range has every length-sensitive finding downgraded
+      to a note or skipped, so volunteering that length is volunteering a
+      plan the graders cannot hold to anything. Measured across 1-699
+      tokens: 39.9% of lengths can produce a flag, 29.8% sit in a tolerance
+      band where everything is downgraded, 30.3% reach no profile at all.
+      `gradeable_line_counts()` is the set that survives, and it is NOT
+      contiguous — 6 to 11 lines falls between the section profile's reach
+      and the sonnet's. `line_count_gaps()` names that hole in every plan's
+      own disclosure, because a gap nobody prints is a calibration request
+      nobody makes.
+    * THE TOTAL IS DRAWN FIRST and then bounds everything conditioned on it:
+      the pattern's cell count (a song of T lines carries at most T sung
+      sections) and the per-kind line counts, which are drawn EXACT-UNIFORM
+      over the assignments summing to it (`_partition_uniform`, the
+      counted-completions move `_composition_uniform` and `_rgs_uniform`
+      already use). Drawing each kind independently was measured at 6 plans
+      per 200 seeds and, worse, biased the survivors.
+    * ANACRUSIS is derived from the grid the section actually drew — k/sub
+      beats for k in 0..sub — instead of the sub=2 case written out as a
+      tuple. A section at subdivision 4 can now land on the quarter-beat
+      pickups its own grid resolves.
+  AND A SECTION WITH NO WORDS IS NOT A SECTION WITH NO CONSTRAINTS. V2's own
+  sentence here read "instrumental functions carry bars with no lines", and
+  the owner refused it: *"instrumental is not free of lines."* A wordless
+  section draws a PHRASE count and its bars follow from it exactly as a sung
+  section's follow from its line count — see `WORDLESS_FUNCTIONS`. What the
+  label removes is the LYRIC half and nothing else, because a section
+  carrying no constraint mass is a free token an optimiser can append to
+  satisfy any structural rule.
+  Schemes come from `schemes.rgs` exactly as before up to
   `EXACT_ENUM_MAX` lines (full enumeration, pool size disclosed); above it,
   an EXACT-UNIFORM set-partition sampler (the Bell-triangle completion
   counts drive each digit, so every partition is equally likely without
@@ -78,16 +130,29 @@ Test: python3 quality/test_plan.py
 import json
 import math
 import random
+from fractions import Fraction
 from functools import lru_cache
 
 from quality import schemes as SC
+from quality import capacity as _CAP
+from quality import floor as _FL
+from quality import slots as _SL
 from quality import meter_bands as MB
 
-__all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX", "SLOTS_CEILING_X",
+__all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
+           "tokens_per_line_band", "gradeable_line_counts",
+           "line_count_gaps",
            "GENERATOR_ROSTER", "ZERO_LINE_FUNCTIONS", "PlanRefused",
            "make_plan", "fill_plan", "writer_brief", "grading_command",
            "render_song", "section_header",
-           "meter_dims", "meter_space_size", "bell"]
+           "meter_dims", "meter_space_size", "bell",
+           "meter_factorisations", "beats_values",
+           "SWEEP_MEASURES", "SWEEP_SETS", "SWEEP_ORDERS",
+           "SWEEP_OPS", "parse_sweep_want", "sweep_holds",
+           "sweep",
+           "BEATS_PER_SYLLABLE_MAX",
+           "JOINT_CODES", "LAST_WORD", "placement_word",
+           "line_syllable_ceiling", "joint_findings"]
 
 
 class PlanRefused(ValueError):
@@ -170,12 +235,55 @@ FORM_TENDENCIES = {
     ),
 }
 
-#: The one declared multiplier in this module. The slots ceiling is the
-#: density band's ceiling times this: at 4x, a line at the band's own
-#: maximum fills a quarter of its grid, which is where a grid stops
-#: discriminating and starts decorating. Everything else in ENVELOPE is
-#: either the band itself or a data-type fact.
-SLOTS_CEILING_X = 4
+#: ~~SLOTS_CEILING_X = 4 — the one declared multiplier in this module. The
+#: slots ceiling is the density band's ceiling times this: at 4x, a line at
+#: the band's own maximum fills a quarter of its grid, which is where a grid
+#: stops discriminating and starts decorating.~~
+#: **STRUCK AND DERIVED 2026-08-23 BY OWNER RULING ("now do B"), `MISSING.md`
+#: M-81(B).** It was the last hard number in the generator, argued and never
+#: measured, and it could not be measured: doctrine 4 makes a bar grid a
+#: DECLARED coordinate, `quality/recover.py` REFUSES to infer one from text,
+#: and audio is out of this project's vocabulary — so there is no population
+#: of grids to take a fill fraction over. Its own sentence is also the reason
+#: it had to go: *"a line at the band's own maximum fills a quarter of its
+#: grid"* measures emptiness in SLOTS, and a slot is a subdivision unit, not
+#: a unit of time. Forty-eight slots is twelve beats at subdivision 4 and
+#: FORTY-EIGHT BEATS at subdivision 1, and this multiplier called those the
+#: same line.
+#:
+#: THE ENVELOPE IS STATED IN BEATS NOW, AND BOTH OF ITS ENDS ARE THE SAME
+#: CALIBRATED BAND READ IN DIFFERENT UNITS:
+#:   * CEILING — a line runs at most `DENSITY` ceiling BEATS, because it
+#:     carries at most that many syllables and a sung line carries at least
+#:     one syllable per beat. Beyond it the beat itself is decoration: the
+#:     grid is finer than the words need at EVERY level, subdivision
+#:     included, and nothing about the line is being measured by counting it.
+#:   * FLOOR — a line holds at least `DENSITY` floor SLOTS, because it must
+#:     be able to carry the fewest syllables the band permits and a syllable
+#:     occupies one slot (`fit.SLOTS_EXCEEDED`).
+#: So the ceiling is a bound on TIME and the floor a bound on CAPACITY, which
+#: is why they are in different units and why one multiplier could not be
+#: both.
+#:
+#: WHAT IS CALIBRATED AND WHAT IS DECLARED, kept apart (doctrine 16/22): the
+#: band `[5, 12]` syllables per line is MEASURED over 139,694 corpus lines
+#: (`meter_bands.ADOPTED`, three preregistrations). The step from syllables
+#: to beats is DECLARED and is `BEATS_PER_SYLLABLE_MAX` below — the one free
+#: choice left in this envelope, named so it can be overruled in one line
+#: rather than found in an expression.
+
+#: THE SLOWEST LINE THE PLANNER VOLUNTEERS, in beats per syllable. 1 is the
+#: IDENTITY — the point where the grid's own beat is the syllable rate — and
+#: it is chosen for the reason exact equality is chosen over a threshold
+#: elsewhere in this repo: it is the only value in the range that is not a
+#: guess. Above 1 the planner would be volunteering held notes, which is a
+#: melodic decision it has no basis to make and a writer makes for
+#: themselves; a draft that holds a note is not refused by anything here.
+#: A CAPACITY, NOT A REQUIREMENT (the `SPARSE` reading M-79 got wrong): the
+#: ceiling is computed against the MOST syllables a line may carry, so a
+#: writer who fills a twelve-beat line with five syllables gets a slow line
+#: and no finding.
+BEATS_PER_SYLLABLE_MAX = 1
 
 #: Exact scheme enumeration up to this many lines (Bell(10) = 115,975 —
 #: instant); beyond it the exact-uniform sampler serves, with the Bell
@@ -183,34 +291,175 @@ SLOTS_CEILING_X = 4
 #: ENUMERATION, not a bound on what is reachable.
 EXACT_ENUM_MAX = 10
 
-#: The planner's envelope — what it volunteers by default. NOT the system's
-#: bounds: a writer hand-declares anything and the graders grade it. Each
-#: entry names its provenance.
-ENVELOPE = {
-    # slots per line = beats x subdivision x bars_per_line. Floor DERIVED:
-    # the calibrated density band's floor (meter_bands.ADOPTED) — fewer
-    # slots than the minimum band-legal syllable count is unsatisfiable by
-    # construction. Ceiling: band ceiling x SLOTS_CEILING_X.
-    "slots_per_line": (MB.ADOPTED["DENSITY"][0],
-                       MB.ADOPTED["DENSITY"][1] * SLOTS_CEILING_X),
-    # lines per section: uniform sample range. 1 is a real section (a tag,
-    # a one-line vamp); the top is where the floor's length calibrations
-    # have long self-downgraded (disclosed per draft as
-    # EXTRAPOLATED_LENGTH) — sampled anyway, since disclosure is not a ban,
-    # but the envelope keeps the DEFAULT volunteer inside a singable order
-    # of magnitude.
-    "lines_per_section": (1, 16),
-    "sections": (2, 12),
-    "total_lines": (4, 64),
-    # subdivisions the fit layer's grid models (eighth/sixteenth pulse
-    # against the beat) — a data-type set, not taste.
-    "subdivisions": (1, 2, 4),
-    "bars_per_line": (1, 4),
-    # per-section pickup offset in beats; halves need subdivision >= 2.
-    "anacrusis": (0.0, 0.5, 1.0),
-    "body_cells": (2, 6),
-}
+#: HOW MANY TOKENS A LINE CARRIES — DERIVED, not chosen (2026-08-23).
+#:
+#: Each of the floor's stanza profiles declares BOTH a measured token band and
+#: the line count of the items it was measured on (`Profile.n_lines`), so the
+#: two together fix a tokens-per-line band that nobody had to pick: the
+#: 4-line section profile says 29-37 tokens (7.25-9.25 per line) and the
+#: 14-line sonnet profile says 108-126 (7.71-9.00). They agree, which is the
+#: check that this is a property of English verse and not of one profile.
+#: `song` declares `n_lines=0` — a lyric sheet has no fixed line count — and
+#: contributes nothing here rather than a zero to divide by.
+def tokens_per_line_band():
+    """-> (lo, hi) tokens per line, read off the floor's own calibration."""
+    per = [(p.lo / p.n_lines, p.hi / p.n_lines)
+           for p in _FL.PROFILES if p.n_lines]
+    if not per:
+        raise PlanRefused(
+            "no floor profile declares a line count, so tokens-per-line "
+            "cannot be derived and the planner has no envelope to volunteer "
+            "inside. This is a REFUSAL and not a fallback: a line count "
+            "chosen without a derivation is the literal this function "
+            "replaced.")
+    return min(a for a, _ in per), max(b for _, b in per)
 
+
+@lru_cache(maxsize=None)
+def gradeable_line_counts():
+    """-> frozenset of line counts the FLOOR CAN GRADE WITH TEETH.
+
+    THE ENVELOPE IS WHAT THE ENFORCEMENT CAN ENFORCE. A draft whose token
+    count falls outside every profile's MEASURED range gets every
+    length-sensitive finding downgraded to a note or skipped entirely, so a
+    plan volunteering that length is a plan the graders cannot hold to
+    anything. Measured across 1..699 tokens: 39.9% of lengths can produce a
+    flag, 29.8% are inside a tolerance band where every finding is downgraded,
+    and 30.3% reach no profile at all.
+
+    So the line envelope is the set of line counts whose expected token count
+    — at the derived tokens-per-line band — can land inside some profile's
+    measured range. It is NOT CONTIGUOUS, and the gap is a real finding rather
+    than an inconvenience: it is a calibration request, and
+    `line_count_gaps()` names it so it is visible in every plan's own
+    disclosure instead of being discovered by a writer.
+    """
+    tlo, thi = tokens_per_line_band()
+    out = set()
+    for prof in _FL.PROFILES:
+        lo = max(1, math.ceil(prof.lo / thi))
+        hi = int(prof.hi // tlo)
+        out.update(range(lo, hi + 1))
+    if not out:
+        raise PlanRefused(
+            "no line count lands inside any calibrated profile — the floor "
+            "can grade nothing this planner could volunteer.")
+    return frozenset(out)
+
+
+def line_count_gaps():
+    """-> [(lo, hi)] runs of line counts INSIDE the envelope's span that no
+    profile grades with teeth. Disclosed, never silently skipped."""
+    ok = gradeable_line_counts()
+    gaps, run = [], None
+    for n in range(min(ok), max(ok) + 1):
+        if n in ok:
+            if run:
+                gaps.append(run)
+                run = None
+        else:
+            run = (run[0], n) if run else (n, n)
+    if run:
+        gaps.append(run)
+    return gaps
+
+
+#: The planner's envelope — what it volunteers by default. NOT the system's
+#: bounds: a writer hand-declares anything and the graders grade it.
+#:
+#: EVERY ENTRY IS DERIVED OR ARGUED, AND NONE IS CHOSEN (2026-08-23, the
+#: owner's standing rule: *"we do not want hard numbers anywhere ... meter
+#: should be something like x/y and number of lines should be something like
+#: N"*). What was here before: `lines_per_section (1, 16)`, `sections
+#: (2, 12)`, `total_lines (4, 64)`, `bars_per_line (1, 4)`, `body_cells
+#: (2, 6)` and `anacrusis (0.0, 0.5, 1.0)` — six literals with no derivation
+#: between them, of which the owner named the first: *"1-16 is weird ...
+#: should we change it to a variable?"*. It is a variable now, and so are the
+#: other five.
+def _envelope():
+    ok = gradeable_line_counts()
+    d_lo, d_hi = MB.ADOPTED["DENSITY"]
+    # TWO ENDS, ONE CALIBRATED BAND, TWO UNITS (`MISSING.md` M-81(B)). The
+    # ceiling bounds TIME and the floor bounds CAPACITY, which is why the old
+    # single `slots_per_line` pair could not carry both: 48 slots is twelve
+    # beats at subdivision 4 and forty-eight at subdivision 1, and one
+    # multiplier called those the same line.
+    beats_hi = max(2, int(d_hi * BEATS_PER_SYLLABLE_MAX))
+    return {
+        # BEATS PER LINE = bars_per_line x beats_per_bar, and it is the
+        # quantity a listener hears as the length of the line. Ceiling
+        # DERIVED: a line carries at most `DENSITY` ceiling syllables and at
+        # least `BEATS_PER_SYLLABLE_MAX` beat each, so it runs at most that
+        # many beats. Floor: the composition grammar's own — no cycle has
+        # fewer than 2 beats, and a line is at least one bar.
+        "beats_per_line": (2, beats_hi),
+        # SLOTS PER LINE = beats_per_line x subdivision, so the ceiling
+        # FOLLOWS from the beats ceiling and the finest grid this vocabulary
+        # models rather than being declared beside it. Floor DERIVED: the
+        # calibrated density band's floor — fewer slots than the minimum
+        # band-legal syllable count is unsatisfiable by construction, since a
+        # syllable occupies one slot (`fit.SLOTS_EXCEEDED`).
+        # KEPT AS AN ENTRY because `meter_dims` and the disclosure both read
+        # it, and because the FLOOR genuinely lives in this unit — but it is
+        # now the widest span any subdivision admits, not a bound the sampler
+        # draws against (see `_sample_meter`, which draws in beats).
+        "slots_per_line": (d_lo, beats_hi * max(ENVELOPE_SUBDIVISIONS)),
+        # LINES PER SECTION: bounded ONLY by what the whole song may carry.
+        # There is no separate per-section calibration to derive a tighter
+        # bound from — the floor grades a DRAFT, not a section — so inventing
+        # one would be the literal this replaced wearing a derivation. 1 is a
+        # real section (a tag, a one-line vamp).
+        "lines_per_section": (1, max(ok)),
+        # SECTIONS: a sung section carries at least one line, so a song of at
+        # most `max(ok)` lines carries at most that many sung sections. 1 is
+        # a real song.
+        "sections": (1, max(ok)),
+        # TOTAL LINES: the span of the gradeable set. The set itself is what
+        # the sampler rejects against, because the span is not contiguous.
+        "total_lines": (min(ok), max(ok)),
+        # subdivisions the fit layer's grid models (eighth/sixteenth pulse
+        # against the beat) — a data-type set, not taste.
+        "subdivisions": (1, 2, 4),
+        # BARS PER LINE: bounded by the BEATS envelope it feeds. The
+        # composition grammar admits no bar under 2 beats, so a line of
+        # `bars` bars runs at least `2 * bars` beats and a bars count past
+        # `beats_hi // 2` cannot produce a legal line at any meter.
+        # ~~`hi // 2` on the SLOTS envelope~~, which read 24 and let one lyric
+        # line be set across two dozen bars — the ceiling was a bound on the
+        # wrong unit, and M-81(A) measured the median plan spending eight
+        # bars on a line because of it.
+        "bars_per_line": (1, max(1, beats_hi // 2)),
+        # ANACRUSIS is derived PER DRAW from the subdivision, because the
+        # pickup has to land on the grid the section actually declared:
+        # `_anacrusis_choices(sub)`. The entry here is the widest set any
+        # subdivision admits, for the disclosure's denominator.
+        "anacrusis": _anacrusis_choices(max(ENVELOPE_SUBDIVISIONS)),
+        # BODY CELLS: at least one, and no more than the section ceiling —
+        # every cell contributes at least one section, so a draw past that
+        # can only be rejected. The pattern's own length check is what
+        # actually binds (see `_sample_pattern`).
+        "body_cells": (1, max(ok)),
+    }
+
+
+#: Named so `_envelope` can read it before ENVELOPE exists — the subdivision
+#: set is the one entry with no dependency on the others.
+ENVELOPE_SUBDIVISIONS = (1, 2, 4)
+
+
+def _anacrusis_choices(sub):
+    """-> the pickups a grid of `sub` subdivisions per beat can LAND ON.
+
+    DERIVED from the grid's own resolution: a pickup of k/sub beats for k in
+    0..sub, i.e. every grid position from no pickup up to a full beat. The
+    literal `(0.0, 0.5, 1.0)` this replaces was the sub=2 case written out,
+    which silently denied a sub=4 section the quarter-beat pickups its own
+    grid resolves — a table standing in for the arithmetic that produces it.
+    """
+    return tuple(k / sub for k in range(sub + 1))
+
+
+ENVELOPE = _envelope()
 
 # ---------------------------------------------------------------- meters
 
@@ -273,18 +522,83 @@ def _composition_uniform(n, rng):
     return tuple(out)
 
 
+@lru_cache(maxsize=None)
+def _partition_count(counts, total):
+    """How many line-count assignments realise `total` exactly.
+
+    `counts` is the per-kind instance count as a tuple, in the order the
+    draw will walk; a kind appearing c times contributes c x k lines. Counts
+    the solutions of `sum(c_i * k_i) == total, k_i >= 1` — the completions,
+    not the leaves, which is what makes an exact-uniform draw possible
+    without enumerating the space (`_composition_uniform` and `_rgs_uniform`
+    use the identical move, and `_n_compositions_23` is the same recurrence
+    one dimension down).
+    """
+    if not counts:
+        return 1 if total == 0 else 0
+    c, rest = counts[0], counts[1:]
+    later = sum(rest)
+    n = 0
+    k = 1
+    while c * k <= total - later:
+        n += _partition_count(rest, total - c * k)
+        k += 1
+    return n
+
+
+def _partition_uniform(counts, total, rng):
+    """One EXACT-UNIFORM assignment of line counts, or None when the shape
+    admits none.
+
+    Each next count is drawn with probability proportional to the
+    COMPLETIONS it leaves, so every admissible assignment is equally likely.
+    The sequential alternative — draw each kind uniform over what remains —
+    is NOT uniform and was measured so: it forced later kinds to the floor
+    and left 52% of all sections carrying exactly one line.
+    """
+    total_ways = _partition_count(counts, total)
+    if not total_ways:
+        return None
+    out, rem = [], total
+    for i, c in enumerate(counts):
+        rest = counts[i + 1:]
+        later = sum(rest)
+        pick = rng.randrange(_partition_count(counts[i:], rem))
+        k = 1
+        while True:
+            w = _partition_count(rest, rem - c * k)
+            if pick < w:
+                break
+            pick -= w
+            k += 1
+        out.append(k)
+        rem -= c * k
+    return out
+
+
 def meter_dims():
     """-> {(bars_per_line, subdivision): (beats_lo, beats_hi)} — every
-    dimension pair whose derived beat range is non-empty under the slots
-    envelope. Pure arithmetic on the envelope; the beat count needs no cap
-    of its own — the envelope's ceiling implies one."""
-    lo, hi = ENVELOPE["slots_per_line"]
+    dimension pair whose derived BEATS-PER-BAR range is non-empty under the
+    envelope. Pure arithmetic on the envelope; the beat count needs no cap of
+    its own — the beats-per-line ceiling implies one.
+
+    BOTH ENDS COME FROM THE DENSITY BAND, in the two units M-81(B) separated:
+    the floor is the CAPACITY end (this pair must be able to hold the fewest
+    syllables the band permits, and a syllable occupies one slot) and the
+    ceiling is the TIME end (the whole line runs at most `DENSITY` ceiling
+    beats, so one bar of it runs at most that over the bar count).
+    ~~`b_hi = slots_hi // (sub * bars)`~~ — struck 2026-08-23: dividing the
+    SLOTS ceiling by the subdivision let a coarse grid buy length, which is
+    how `bars=24, sub=1` became a legal shape for one lyric line.
+    """
+    d_lo = MB.ADOPTED["DENSITY"][0]
+    beats_hi = ENVELOPE["beats_per_line"][1]
     dims = {}
     for bars in range(ENVELOPE["bars_per_line"][0],
                       ENVELOPE["bars_per_line"][1] + 1):
         for sub in ENVELOPE["subdivisions"]:
-            b_lo = max(2, math.ceil(lo / (sub * bars)))
-            b_hi = hi // (sub * bars)
+            b_lo = max(2, math.ceil(d_lo / (sub * bars)))
+            b_hi = beats_hi // bars
             if b_lo <= b_hi:
                 dims[(bars, sub)] = (b_lo, b_hi)
     return dims
@@ -299,25 +613,98 @@ def meter_space_size():
                for b in range(lo, hi + 1))
 
 
+@lru_cache(maxsize=None)
+def meter_factorisations(beats_per_line):
+    """-> ((bars, subdivision), ...) every way this envelope can realise a
+    line running `beats_per_line` beats.
+
+    `beats_per_bar = beats_per_line // bars` follows, and the `>= 2` is the
+    composition grammar's own floor: `_compositions_23` has no composition
+    below 2, so a one-beat cycle is not a cycle here. The SUBDIVISION is
+    filtered by the CAPACITY end of the envelope — a line must be able to
+    hold the fewest syllables the density band permits, and a syllable
+    occupies one slot, so `beats_per_line * sub` must clear the floor. That
+    is why a two-beat line exists only at the finest grid: two beats of
+    quarter-notes cannot carry five syllables and two beats of sixteenths
+    can.
+    ~~took `slots` and divided~~ — struck 2026-08-23 with M-81(B). Slots are
+    subdivision units, so drawing in them made a line's LENGTH a function of
+    its grid resolution: 48 slots was twelve beats at subdivision 4 and
+    forty-eight at subdivision 1.
+    """
+    d_lo = MB.ADOPTED["DENSITY"][0]
+    out = []
+    for bars in range(ENVELOPE["bars_per_line"][0],
+                      ENVELOPE["bars_per_line"][1] + 1):
+        if beats_per_line % bars or beats_per_line // bars < 2:
+            continue
+        for sub in ENVELOPE["subdivisions"]:
+            if beats_per_line * sub >= d_lo:
+                out.append((bars, sub))
+    return tuple(out)
+
+
+@lru_cache(maxsize=None)
+def beats_values():
+    """-> the beats-per-line counts the envelope can actually REALISE.
+
+    COMPUTED rather than assumed: the moment `bars_per_line`, `subdivisions`
+    or the density floor moves, a count can stop being reachable, and a
+    sampler drawing uniformly over counts it cannot realise would silently
+    re-weight the ones it can.
+    """
+    lo, hi = ENVELOPE["beats_per_line"]
+    return tuple(n for n in range(lo, hi + 1) if meter_factorisations(n))
+
+
 def _sample_meter(rng):
-    """One meter draw under the DERIVATION measure (module docstring):
-    dimension pair uniform over what the envelope admits, beat count
-    uniform over that pair's derived range, grouping exact-uniform over
-    that beat count's compositions. Uniform over the flat enumeration is
-    the same grammar under a weight-by-grouping-count table nobody
-    declared (compositions into {2,3} grow ~1.3247^n, so leaves
-    concentrate on the envelope's maximal beat count — this module's
-    first smoke run showed it). A function of its own so the test file
-    can hold the MEASURE itself to its prediction, not just the plans
-    downstream of it. -> (bars, sub, beats, groups, (n_pairs, b_lo,
-    b_hi)); the tail is the disclosure's raw material."""
-    dims = meter_dims()
-    dim_keys = sorted(dims)
-    bars, sub = dim_keys[rng.randrange(len(dim_keys))]
-    b_lo, b_hi = dims[(bars, sub)]
-    beats = rng.randint(b_lo, b_hi)
+    """One meter draw under the DERIVATION measure (module docstring).
+
+    BEATS PER LINE FIRST, then a factorisation of it, then the grouping.
+    That order is the module's own rule — *"THE MEASURE IS BY DERIVATION,
+    NOT BY LEAF"* — applied to the coordinate the ENVELOPE is stated in, and
+    it is the second time this file has had to learn it (`MISSING.md` M-81).
+    ~~SLOTS per line first~~ (M-81(A)) got the ORDER right and the UNIT
+    wrong: a slot is a subdivision unit, so 48 slots is twelve beats at
+    subdivision 4 and forty-eight at subdivision 1, and drawing uniformly
+    over slots made a line's length a function of its grid resolution. The
+    length a listener hears is BEATS, and that is what the envelope is stated
+    in now (M-81(B)).
+    ~~dimension pair uniform over what the envelope admits, beat count
+    uniform over that pair's derived range~~ was the first correction's
+    shape and it moved the bias rather than removing it: `bars_per_line`
+    runs to `hi // 2` — a sound BOUND, since past it no band-legal line is
+    possible at any meter, and never a claim that all of those values are
+    equally musical — and a high-bars pair's beat range COLLAPSES. At
+    `bars=24, sub=1` the only legal beat count is 2, so that pair emits the
+    envelope's ceiling every time it is drawn. Uniform over PAIRS is
+    therefore not uniform over slots per line: MEASURED at median 35 of a
+    [5, 48] envelope, with only 4.6% of lines given a grid a band-legal line
+    could fill.
+
+    THE PAIR MARGINAL IS NOW A REALISABILITY SHARE and that is the correct
+    direction, not a new bias: a beat count one factorisation can make
+    should not be rarer than one six can make, which is exactly what
+    weighting by pair did. It is a PREDICTION rather than an accident —
+    `P(bars, sub)` is computable from `meter_factorisations` alone, and
+    `test_plan.py` §4 holds the sampler to it.
+
+    Uniform over the flat enumeration remains wrong for the reason it always
+    was: compositions into {2,3} grow ~1.3247^n, so leaves concentrate on
+    the maximal beat count (this module's first smoke run showed it).
+
+    A function of its own so the test file can hold the MEASURE itself to
+    its prediction, not just the plans downstream of it. -> (bars, sub,
+    beats, groups, (n_beat_values, n_factorisations, beats_per_line)); the
+    tail is the disclosure's raw material.
+    """
+    vals = beats_values()
+    per_line = vals[rng.randrange(len(vals))]
+    fact = meter_factorisations(per_line)
+    bars, sub = fact[rng.randrange(len(fact))]
+    beats = per_line // bars
     groups = _composition_uniform(beats, rng)
-    return bars, sub, beats, groups, (len(dim_keys), b_lo, b_hi)
+    return bars, sub, beats, groups, (len(vals), len(fact), per_line)
 
 
 # ---------------------------------------------------------------- schemes
@@ -398,6 +785,230 @@ def _abs_groups(code, first_line):
     return [g for _, g in sorted(blocks.items()) if len(g) >= 2]
 
 
+def _place_group(group, rng, max_token, used):
+    """-> the group's members SPELLED with a placement (`quality/slots.py`).
+
+    THE PLANNER STOPS PLANNING AROUND END RHYME HERE (2026-08-23, the owner's
+    ruling). A group's members were emitted as bare line numbers, which is the
+    default slot — the end of the line — so every plan this generator has ever
+    produced bound every requirement to the last word of its lines. Not
+    because anything chose that: because it was the only thing the
+    declaration layer could say.
+
+    A PLACEMENT PER MEMBER, uniform over what the grading path can resolve.
+    Per member and not per group, because the mixed case is real and is the
+    one no letter scheme can express: 8 of the registry's 77 schemas anchor
+    one member at each end of a word, and linked rhyme binds a line-final to
+    a line-INITIAL. Uniform over the vocabulary means `end` is one placement
+    among the ones this harness can grade rather than the axis everything
+    else is measured against — which is the correction, stated as a measure.
+
+    `T<n>` IS DRAWN WITH ITS INDEX BOUNDED BY WHAT A LINE RELIABLY HAS. The
+    bound is the floor's own measured tokens-per-line floor, so the planner
+    asks for the n-th word only where the calibration says a line carries
+    that many; asking for the fortieth word of a line the grid holds seven
+    words of is a binding no writer can fill, and an unfillable plan is the
+    "move 37" ban's own shape pointed at placement.
+    """
+    out = []
+    for ln in group:
+        free = [p for p in _PLACE_POOL(max_token)
+                if placement_word(p) not in used.get(ln, ())]
+        if not free:
+            # Every WORD this path can bind is already spoken for on this
+            # line. The group is DROPPED rather than doubled onto one: two
+            # groups on one word are a joint constraint on one word, which is
+            # the question a plan cannot answer.
+            return []
+        place = rng.choice(free)
+        used.setdefault(ln, set()).add(placement_word(place))
+        out.append(str(ln) if place == "end" else f"{ln}.{place}")
+    return out
+
+
+@lru_cache(maxsize=None)
+def _PLACE_POOL(max_token):
+    """The placements a plan may draw, with the token indices this line
+    length admits. Cached because it is a pure function of one integer."""
+    return tuple(_SL.PLANNABLE_PLACEMENTS) + tuple(
+        f"T{n}" for n in range(1, max_token + 1))
+
+
+# -------------------------------- joint satisfiability (M-79 / M-80)
+#
+# EVERY GATE IN THIS MODULE PASSES AND THEIR CONJUNCTION DOES NOT, which is
+# the one defect under all four of `MISSING.md` M-79's findings. The meter is
+# drawn from a derived cycle space, the density band is a corpus calibration,
+# the schemes are exact-uniform over completions, the placements are bounded
+# by a reachable token index — and NO LAYER HOLDS THE CONJUNCTION, so a plan
+# whose constraints cannot be met together is emitted, graded as legal, and
+# handed to a writer who discovers it three revise rounds in.
+#
+# `capacity.ADOPTED_MAX_GROUP` (above) was the only joint check that existed:
+# it refuses a rhyme group larger than any family in the lexicon is measured
+# to fill. This is the same shape, per LINE rather than per group.
+
+#: THE WORD A PLACEMENT BINDS, and the sentinel for the last one. RE-EXPORTED
+#: FROM `quality/slots.py` AND NOT RE-IMPLEMENTED: that module is the one
+#: place a placement name is bound to a rule, and a second answer here to
+#: "which word is `headrime`?" is exactly the shape doctrine 1 names. Bound to
+#: module-level names so this file reads as though they were local, which is
+#: what a re-export is for.
+LAST_WORD = _SL.LAST_WORD
+placement_word = _SL.placement_word
+
+#: The codes this gate can emit, DECLARED (doctrine 58 — an exclusion nobody
+#: writes down is a threshold nobody wrote down). Every one is a REFUSAL and
+#: not a note: a plan is the one artifact in this pipeline nobody has spent
+#: any writing on yet, so refusing here costs a seed and refusing later costs
+#: a draft.
+JOINT_CODES = ("SPAN_BELOW_DENSITY_FLOOR", "TOKEN_INDEX_UNREACHABLE",
+               "WORDS_EXCEED_SPAN", "TWO_GROUPS_ONE_WORD",
+               "HOOK_IN_NONRECURRING_SECTION")
+
+
+def line_syllable_ceiling(slots):
+    """-> the most syllables a line of `slots` slots may LEGALLY carry.
+
+    The conjunction of two layers that never met. `quality/fit.py` refuses
+    more units than slots (`SLOTS_EXCEEDED`, `satisfiable=False`); the
+    calibrated density band refuses more than its ceiling. A line may carry
+    what BOTH admit, which is the smaller — and that is the number every
+    placement demand below is measured against.
+
+    THE OTHER DIRECTION IS NOT A CEILING AND MUST NOT BE READ AS ONE. A line
+    given MORE slots than the band's ceiling is a legitimately SLOWER line —
+    `SPARSE`'s own gloss is *"fewer units than pulses"*, so slots are a
+    CAPACITY and never a requirement. M-79's Finding 1 read 24 slots against a
+    ceiling of 12 as a bar the writer could not legally fill and measured 78%
+    of plans that way; the honest reading is that those plans are sparse and
+    the unsatisfiable ones are elsewhere (see this module's own gate below).
+    """
+    return min(slots, MB.ADOPTED["DENSITY"][1])
+
+
+def joint_findings(plan):
+    """-> [(code, line, detail)] every per-line CONJUNCTION this plan asks for
+    and cannot get.
+
+    A PURE FUNCTION OF THE EMITTED PLAN, so it checks a hand-written one on
+    the same terms as a generated one and so `make_plan`'s own draw cannot be
+    what makes it pass. `make_plan` calls it on the finished dict and REFUSES
+    on any finding; the generator is separately arranged to satisfy it by
+    construction, which is what makes a mutation the only way to fire it —
+    the same relationship `ADOPTED_MAX_GROUP` has to the scheme sampler.
+
+    THE FOUR CAUSES ARE REPORTED APART AND NEVER SUMMED (doctrine 79). They
+    ask different things of whoever closes them: the first is a meter that
+    left no room after its own pickup, the second and third are a placement
+    reaching past what the line can hold, and the fourth is two declared rhyme
+    groups landing on ONE word — which is not an arithmetic impossibility at
+    all but the joint question `joint_field` answers WITH WORDS, and a plan
+    has none.
+
+    IT READS `groups` AND NOT `returns`, and that is a fact about the shape
+    rather than an omission. A return class demands the later instance be the
+    EARLIER LINE, so it adds no binding of its own and no placement to collide
+    with: `make_plan` emits groups for a returning function's FIRST instance
+    only, and the later ones carry the identical constraints by being the
+    identical words. The span question is settled the same way — anacrusis and
+    meter are per function KIND, so two instances of one kind have the same
+    slots by construction, and a drift there is `RETURN_SLOT_DRIFT`'s to
+    report rather than this gate's to refuse.
+    """
+    lo = MB.ADOPTED["DENSITY"][0]
+    sub = plan["subdivision"]
+    span = {s["line"]: float(s["duration"]) * sub
+            for s in plan["line_slots"]}
+    at = {}
+    for group in str(plan.get("groups") or "").split(";"):
+        for member in group.split(","):
+            member = member.strip()
+            if not member:
+                continue
+            num, _, place = member.partition(".")
+            at.setdefault(int(num), []).append(place or "end")
+
+    out = []
+    for ln in sorted(span):
+        slots = span[ln]
+        ceiling = line_syllable_ceiling(slots)
+        if ceiling < lo:
+            out.append((
+                "SPAN_BELOW_DENSITY_FLOOR", ln,
+                f"the line is given {slots:g} slot(s) and the calibrated "
+                f"density band's floor is {lo} syllable(s), so every legal "
+                f"line overflows its own bar: below the floor the band flags "
+                f"it and at or above it `fit.SLOTS_EXCEEDED` does. No draft "
+                f"clears both."))
+            continue
+        places = at.get(ln, [])
+        words = [placement_word(p) for p in places]
+        landed = {}
+        for place, word in zip(places, words):
+            landed.setdefault(word, []).append(place)
+        for word in sorted(landed, key=str):
+            names = landed[word]
+            if len(names) > 1:
+                where = ("the last word" if word == LAST_WORD
+                         else f"word {word}")
+                out.append((
+                    "TWO_GROUPS_ONE_WORD", ln,
+                    f"{len(names)} declared rhyme groups bind {where} of this "
+                    f"line ({', '.join(sorted(names))}). Whether one word "
+                    f"answers every family at once is `joint_field`'s "
+                    f"question and it needs WORDS; a plan has none, so this "
+                    f"is volunteered homework nobody has checked."))
+        indices = [w for w in words if w != LAST_WORD]
+        top = max(indices) if indices else 0
+        if top > ceiling:
+            out.append((
+                "TOKEN_INDEX_UNREACHABLE", ln,
+                f"a placement names word {top} of a line that may carry at "
+                f"most {ceiling:g} syllable(s) — {slots:g} slot(s) against a "
+                f"band ceiling of {MB.ADOPTED['DENSITY'][1]} — and a line has "
+                f"no more words than syllables."))
+            continue
+        need = top
+        if LAST_WORD in words:
+            # The last word must be a DIFFERENT word from every numbered one,
+            # or the two groups meet on it — the collision above, arrived at
+            # by arithmetic instead of by name.
+            need = max(1, top + 1 if top else 1)
+        if need > ceiling:
+            out.append((
+                "WORDS_EXCEED_SPAN", ln,
+                f"the placements on this line need {need} distinct words and "
+                f"the line may carry at most {ceiling:g} syllable(s) "
+                f"({slots:g} slot(s) against a band ceiling of "
+                f"{MB.ADOPTED['DENSITY'][1]}); a word is at least one "
+                f"syllable."))
+
+    # THE FIFTH CAUSE, and it is not per-word at all — it is the one
+    # conjunction on this list a writer cannot answer BY WRITING (2026-08-23,
+    # `MISSING.md` M-84). A hook slot is legal; a pattern drawing its section
+    # once is legal; together they declare a hook in a section that never
+    # comes back, and `grid.HOOK_DOES_NOT_RECUR` — a FLAG since the owner's
+    # ruling — then charges the draft for it. No choice of words makes a
+    # section recur, so this must be refused where it is DECIDABLE, which is
+    # here. The line reported is the slot itself, so the refusal names the
+    # position the plan was about to hand over.
+    hook = plan.get("hook_slot")
+    if hook:
+        fn = next((s["function"] for s in plan["line_slots"]
+                   if s["line"] == hook), "")
+        n = sum(1 for s in plan["sections"] if s["function"] == fn)
+        if n < 2:
+            out.append((
+                "HOOK_IN_NONRECURRING_SECTION", hook,
+                f"the hook is declared at line {hook}, in {fn!r}, and this "
+                f"plan draws {fn!r} {n} time(s) — a hook is defined by "
+                f"RETURN, so this asks the writer for something no choice of "
+                f"words can supply. Declare no hook instead (doctrine 20: "
+                f"the plan says WHY in `hook_slot_refused`)."))
+    return out
+
+
 # ---------------------------------------------------------------- pattern
 
 #: WHICH FUNCTIONS THE GENERATOR REACHES, with each row's semantics taken
@@ -446,7 +1057,32 @@ GENERATOR_ROSTER = _derive_roster()
 
 #: Instrumental spans: bars with no lines. `fit.py` reports their bars as
 #: uncovered — a note, a rest is not a defect.
+#: Functions that carry NO SUNG WORDS. They are NOT zero-structure sections
+#: — see `WORDLESS_FUNCTIONS` and the paragraph below it — and the name is
+#: kept because `plan.py`'s own API exports it and callers read it.
 ZERO_LINE_FUNCTIONS = frozenset({"interlude", "solo"})
+
+#: THE SAME SET, NAMED FOR WHAT IT ACTUALLY MEANS (2026-08-23).
+#:
+#: A SECTION WITH NO WORDS IS NOT A SECTION WITH NO CONSTRAINTS, and modelling
+#: it as one was a hole an optimiser could drive through. The owner named it:
+#: *"instrumental is not free of lines. what have you that idea?"* — and the
+#: idea came from this module's own v2 paragraph, "instrumental functions
+#: carry bars with no lines", repeated uncritically.
+#:
+#: MUSICALLY IT IS FALSE: an instrumental has bars, a meter, and phrase
+#: structure; what it lacks is words. STRUCTURALLY IT IS DANGEROUS: a section
+#: carrying no constraint mass is a free token, the cheapest possible version
+#: of the two-line outro that "technically satisfied" a variety rule while
+#: gaming it. Any structural requirement over sections could be answered by
+#: appending constraint-free instrumentals.
+#:
+#: SO EVERY SECTION CARRIES PHRASES. A wordless section draws a PHRASE count
+#: from the same per-section envelope every other section draws its line
+#: count from, and its bars follow from that count exactly as a sung
+#: section's do. What "wordless" removes is the LYRIC half — no line slots,
+#: no rhyme group, nothing for the writer to fill — and nothing else.
+WORDLESS_FUNCTIONS = ZERO_LINE_FUNCTIONS
 
 #: Functions whose later instances RETURN VERBATIM (their contract's
 #: `returns_as`): the plan realises them as return classes.
@@ -535,7 +1171,7 @@ def _edges():
 PATTERN_ATTEMPTS = 200
 
 
-def _sample_pattern(rng, roster=None, form=None):
+def _sample_pattern(rng, roster=None, form=None, max_cells=None):
     """-> ordered tuple of function names. Once-functions once, edges at
     the edges, everything else free.
 
@@ -593,6 +1229,8 @@ def _sample_pattern(rng, roster=None, form=None):
                               if roster is None or f in roster)
     enders = (None,) + tuple(f for f in last_fns
                              if roster is None or f in roster)
+    max_cells = ENVELOPE["sections"][1] if max_cells is None \
+        else max_cells
     for _ in range(PATTERN_ATTEMPTS):
         funcs = []
         # An opener, drawn uniformly over the boundary='first' rows plus the
@@ -600,7 +1238,18 @@ def _sample_pattern(rng, roster=None, form=None):
         opener = rng.choice(openers)
         if opener:
             funcs.append(opener)
-        n_cells = rng.randint(*ENVELOPE["body_cells"])
+        # THE CELL COUNT IS BOUNDED BY THE SONG THIS PLAN IS ALREADY
+        # COMMITTED TO. `max_cells` comes from the drawn total: every sung
+        # section carries at least one line, so a song of T lines cannot
+        # hold more than T sung sections and therefore not more than T
+        # cells. That is the derivation the old literal `(2, 6)` stood in
+        # for — and it stood in for something real, since the placement
+        # vocabulary's admissible fraction decays smoothly with length
+        # (measured: 71% of one-cell patterns are admissible, 18% at six,
+        # 0.12% at twenty-four). There is no admissible CEILING to derive,
+        # only a decay, so the bound comes from the song and the placement
+        # layer keeps doing the rejecting.
+        n_cells = rng.randint(1, max(1, max_cells))
         bridge_used = False
         for _ in range(n_cells):
             while True:
@@ -641,6 +1290,222 @@ def _sample_pattern(rng, roster=None, form=None):
 
 
 # ---------------------------------------------------------------- plan
+
+# ------------------------------------------------------- the seed sweep
+#
+# THE LAST PRIVATE INSTRUMENT, MADE A VERB (2026-08-23, `MISSING.md` M-82,
+# owner's ruling *"make it a verb"*). CLAUDE.md's standing rule 3 named this
+# one and left it: *"The seed-sweep instrument (looping `make_plan` with
+# filters to find a shape) stays manual for now BY THE OWNER'S PENDING
+# RULING, and is named here so it cannot become a quiet fourth instrument."*
+# The ruling has been made.
+#
+# WHY IT IS NEEDED AT ALL, and the answer is a property of the planner rather
+# than a defect in it. `--functions` is an ALLOW-LIST: it PERMITS a roster and
+# cannot COMPEL a draw to use it, because compelling would mean weighting the
+# dice, which is the "move 37" ban. The honest way to turn a permit into a
+# compel is to DRAW AGAIN — and rejection sampling from a uniform proposal is
+# uniform over the accepted set, which is the same argument `_sample_pattern`
+# already makes for the placement layer. A sweep is that argument spelled as
+# a command.
+#
+# IT DOES NOT RANK, AND THAT IS THE LOAD-BEARING REFUSAL. Doctrine 7 —
+# *"enforce a floor, do not order the permitted region"* — and doctrine 19,
+# on an argmax over a swept parameter being biased toward whichever end of the
+# sweep has more degrees of freedom. A sweep that returned "the best seed"
+# would be exactly that argmax, and the score it ranked by would be the
+# weighted quality score doctrine 6 forbids. So this returns the ACCEPTED SET
+# in seed order, with its acceptance RATE, and nothing else.
+#
+# AND IT INVENTS NO CRITERIA. Every predicate reads a coordinate the plan
+# ALREADY DISCLOSES, the vocabulary is CLOSED, and there are NO DEFAULTS: a
+# sweep with no predicates accepts every seed that plans at all, which is
+# honest and useless and is the correct behaviour. The numbers in a predicate
+# are the CALLER's — `M-55`'s own principle, that a writer saying *"I want a
+# chorus and a postchorus"* is making a declaration about THIS song — and the
+# owner's ban on hard numbers is a ban on them in the GENERATOR, not on a
+# writer stating what they want.
+
+#: WHAT A SWEEP MAY ASK ABOUT — CLOSED (doctrine 58: an exclusion nobody
+#: writes down is a threshold nobody wrote down), and every entry a
+#: coordinate the emitted plan already carries. A name outside this table
+#: REFUSES and prints the table, rather than being read as a filter that
+#: silently matched nothing.
+#:
+#: The NUMERIC measures answer `<=`, `>=` and `=`; the two SET measures answer
+#: `=` alone and take a comma-separated list. `before` is the one ORDER
+#: measure and takes exactly two function names.
+SWEEP_MEASURES = {
+    "lines": ("the song's total line count",
+              lambda p: p["total_lines"]),
+    "sections": ("how many sections the pattern drew",
+                 lambda p: len(p["sections"])),
+    "lines_per_section": ("the SMALLEST sung section's line count — sections "
+                          "carrying no lines are not counted, because a "
+                          "wordless section is not a short one",
+                          lambda p: min(_sweep_sung(p).values() or [0])),
+    "group": ("the deepest rhyme group's member count",
+              lambda p: max([len(g.split(",")) for g in
+                             str(p.get("groups") or "").split(";") if g]
+                            or [0])),
+    "bars_per_line": ("bars per lyric line, as drawn",
+                      lambda p: p["choices"]["bars_per_line"]),
+    "beats_per_line": ("how many beats a lyric line runs — the length a "
+                       "listener hears (`MISSING.md` M-81(B))",
+                       lambda p: p["choices"]["meter"]["beats_per_line"]),
+    "slots_per_line": ("the widest line's slot capacity",
+                       lambda p: max([float(s["duration"]) * p["subdivision"]
+                                      for s in p["line_slots"]] or [0])),
+    "hook": ("the hook's line number, or 0 where this shape declares none. "
+             "`hook>=1` asks for a song that HAS a hook, which since "
+             "`MISSING.md` M-84 means a shape whose hook sits in a function "
+             "the plan drew more than once — a hook is defined by RETURN, so "
+             "before that repair this coordinate could not be asked for "
+             "honestly",
+             lambda p: p.get("hook_slot") or 0),
+    "returns": ("how many RETURN CLASSES this plan declares — sets of lines "
+                "that must come back WORD FOR WORD. `returns>=1` asks for a "
+                "shape whose repeat is structural rather than something the "
+                "writer has to arrange by hand, which is what makes a hook "
+                "recur without a second set of rhyme pins fighting the first",
+                lambda p: len([g for g in str(p.get("returns") or "").split(";")
+                               if g.strip()])),
+    "pins_per_line": ("the most words any one line is bound at — the "
+                      "coordinate `M-79`'s Finding 3 says has none",
+                      lambda p: max(_sweep_pins(p).values() or [0])),
+}
+
+#: SET measures: `uses=chorus,bridge` asks that the draw REACHED them, which
+#: is the compel a roster cannot be.
+SWEEP_SETS = {
+    "uses": ("the functions the pattern actually drew — a roster PERMITS and "
+             "this is how a caller COMPELS, by drawing again rather than by "
+             "weighting the dice",
+             lambda p: {s["function"] for s in p["sections"]}),
+}
+
+#: ORDER measures: `before=verse,chorus` asks that the first instance of the
+#: first name precedes the first instance of the second.
+#:
+#: NOTE WHAT THIS IS NOT. `FORM_TENDENCIES` records that a verse precedes the
+#: first chorus in 137 of 178 corpus songs and is DELIBERATELY NOT ENFORCED,
+#: because a planner refusing the other 41 would refuse a quarter of the
+#: corpus it was measured on. Nothing here changes that: the planner still
+#: draws both orders, and a CALLER asking for one is declaring what they want
+#: for THIS song. A default here would be the rate-matching that paragraph
+#: refuses.
+SWEEP_ORDERS = {
+    "before": "the first instance of A precedes the first instance of B",
+}
+
+SWEEP_OPS = ("<=", ">=", "=")
+
+
+def _sweep_sung(plan):
+    """-> {section name: line count} for sections that carry lines."""
+    out = {}
+    for s in plan["line_slots"]:
+        out[s["section"]] = out.get(s["section"], 0) + 1
+    return out
+
+
+def _sweep_pins(plan):
+    """-> {line: how many words this line is bound at}."""
+    out = {}
+    for group in str(plan.get("groups") or "").split(";"):
+        for member in group.split(","):
+            member = member.strip()
+            if member:
+                ln = int(member.partition(".")[0])
+                out[ln] = out.get(ln, 0) + 1
+    return out
+
+
+def parse_sweep_want(text):
+    """'sections<=6' -> ('sections', '<=', '6'). REFUSES anything else.
+
+    The refusal prints the vocabulary, because a predicate silently read as
+    matching nothing and a predicate that refuses look identical in the
+    accepted set — and the first would have a caller believe their
+    declaration was applied (doctrine 20).
+    """
+    raw = str(text).strip()
+    for op in SWEEP_OPS:
+        name, sep, val = raw.partition(op)
+        if not sep:
+            continue
+        name, val = name.strip(), val.strip()
+        known = set(SWEEP_MEASURES) | set(SWEEP_SETS) | set(SWEEP_ORDERS)
+        if name not in known:
+            raise PlanRefused(
+                f"{raw!r} asks about {name!r}, which is not a coordinate a "
+                f"sweep can read. Declared: "
+                f"{', '.join(sorted(known))}.")
+        if name in SWEEP_SETS or name in SWEEP_ORDERS:
+            if op != "=":
+                raise PlanRefused(
+                    f"{raw!r}: {name!r} answers '=' and nothing else — it "
+                    f"names functions, and functions do not compare.")
+        elif not val.lstrip("-").isdigit():
+            raise PlanRefused(
+                f"{raw!r}: {name!r} is a count and {val!r} is not an "
+                f"integer.")
+        if not val:
+            raise PlanRefused(f"{raw!r} declares no value.")
+        return name, op, val
+    raise PlanRefused(
+        f"{raw!r} carries none of {', '.join(SWEEP_OPS)}. A predicate is "
+        f"NAME<=N, NAME>=N or NAME=VALUE.")
+
+
+def sweep_holds(plan, want):
+    """-> True if this plan satisfies one parsed predicate."""
+    name, op, val = want
+    if name in SWEEP_ORDERS:
+        a, _, b = val.partition(",")
+        fns = [s["function"] for s in plan["sections"]]
+        if a.strip() not in fns or b.strip() not in fns:
+            return False
+        return fns.index(a.strip()) < fns.index(b.strip())
+    if name in SWEEP_SETS:
+        have = SWEEP_SETS[name][1](plan)
+        return all(x.strip() in have for x in val.split(",") if x.strip())
+    got, n = SWEEP_MEASURES[name][1](plan), int(val)
+    return got <= n if op == "<=" else got >= n if op == ">=" else got == n
+
+
+def sweep(seeds, wants=(), **plan_kw):
+    """-> {accepted, refused, planned, wants, seeds} over a declared range.
+
+    REJECTION, NOT SELECTION (doctrine 7). `accepted` is every seed whose
+    plan satisfies every predicate, IN SEED ORDER — no ranking, no score, no
+    "best". A sweep that ordered the permitted region would be the argmax
+    doctrine 19 refuses and the weighted quality score doctrine 6 forbids.
+
+    THREE COUNTS, NEVER SUMMED (doctrine 79): `planned` is how many seeds
+    produced a plan at all, `refused` how many `make_plan` itself turned down
+    (an unattainable request, or the joint gate), and `accepted` how many of
+    the planned ones the predicates kept. A refusal is not a rejection and
+    charging one to the other would blame the predicates for the envelope.
+
+    A PLAN IS A PURE FUNCTION OF ITS SEED, so this returns SEEDS and no
+    plans: the caller runs `plan --seed=N` on one and gets the artifact,
+    reproducibly, with nothing carried over from the search.
+    """
+    seeds = list(seeds)
+    accepted, planned, refused = [], 0, 0
+    for s in seeds:
+        try:
+            p = make_plan(seed=s, **plan_kw)
+        except PlanRefused:
+            refused += 1
+            continue
+        planned += 1
+        if all(sweep_holds(p, w) for w in wants):
+            accepted.append(s)
+    return {"accepted": accepted, "planned": planned, "refused": refused,
+            "wants": list(wants), "seeds": len(seeds)}
+
 
 def make_plan(seed, form="verse-chorus", lines=None, relation=None,
               functions=None):
@@ -743,20 +1608,98 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     # REJECTION SAMPLING over the generated grammar: uniform over the
     # space, CONDITIONED on the envelope (and on --lines when given).
     # Deterministic — the retries are the same rng stream.
+    _GRADEABLE = gradeable_line_counts()
+    k_lo, k_hi = ENVELOPE["lines_per_section"]
     for _attempt in range(500):
-        funcs = _sample_pattern(rng, roster, form=form)
+        # THE LENGTH FIRST. It is the coordinate that decides what the floor
+        # can grade, so it is drawn from the gradeable set before anything
+        # is conditioned on it — and it then BOUNDS the pattern, since a
+        # song of T lines cannot carry more than T sung sections.
+        total = rng.choice(sorted(_GRADEABLE))
+        try:
+            funcs = _sample_pattern(rng, roster, form=form, max_cells=total)
+        except PlanRefused:
+            # A REJECTED DRAW, NOT A REFUSED REQUEST. `_sample_pattern`
+            # raises when it cannot find an admissible pattern within the
+            # cell ceiling it was given, and that ceiling is THIS attempt's
+            # drawn total — a four-line song cannot carry a form that
+            # requires two sung sections and much else. The outer loop is the
+            # rejection sampler, so the honest move is to draw another total;
+            # letting the inner refusal escape would report a request as
+            # impossible on the strength of one unlucky length.
+            continue
         s_lo, s_hi = ENVELOPE["sections"]
         if not s_lo <= len(funcs) <= s_hi:
             continue
-        k_lo, k_hi = ENVELOPE["lines_per_section"]
-        ks = {}
+        # THE TOTAL FIRST, THEN THE PARTITION — the dimension-by-dimension
+        # derivation `_sample_meter` already follows, and it is not a
+        # convenience: drawing each kind's line count INDEPENDENTLY over the
+        # song's whole capacity blows the joint budget almost every time
+        # (measured at 6 plans in 200 seeds), and rejecting those draws would
+        # bias the survivors toward whichever shapes happen to fit. So the
+        # TOTAL is drawn uniform over the gradeable set — which is the
+        # distribution that matters, since it decides how long a song this
+        # planner volunteers — and the per-kind counts are then drawn to sum
+        # to it exactly.
+        #
+        # A kind appearing c times contributes c x k lines, so each draw is
+        # bounded by what remains after every LATER kind takes its minimum of
+        # one line per instance. The kind ORDER is shuffled from the same
+        # seeded stream, because a fixed order would hand the first kind the
+        # widest range on every plan — a bias in the sampler's own bookkeeping
+        # rather than in its declared space.
+        kinds = [f for f in dict.fromkeys(funcs)
+                 if f not in ZERO_LINE_FUNCTIONS]
+        counts = {fn: sum(1 for f in funcs if f == fn) for fn in kinds}
+        order = list(kinds)
+        rng.shuffle(order)
+        shape = tuple(counts[f] for f in order)
+        drawn = _partition_uniform(shape, total, rng)
+        if drawn is None:
+            # This (pattern, total) pair admits no assignment at all — every
+            # kind needs at least one line per instance and the total cannot
+            # cover them, or the arithmetic leaves no whole remainder.
+            # Rejected, never rounded: a rounded total is a length the floor
+            # was not asked about.
+            continue
+        ks = {f: 0 for f in dict.fromkeys(funcs)}
+        for fn, k in zip(order, drawn):
+            ks[fn] = k
+        # PHRASES FOR THE WORDLESS SECTIONS, from the SAME per-section
+        # envelope. They consume no lines — they carry no words — so they
+        # are not part of the partition above, but they are not free either:
+        # a wordless section's bars follow from its phrase count exactly as
+        # a sung section's follow from its line count, so it cannot be a
+        # one-bar token an optimiser appends to satisfy a structural rule.
+        phrases = dict(ks)
+        # AT THIS SONG'S OWN SCALE, not at the envelope's. A wordless
+        # section consumes no lines, so nothing in the partition bounds it —
+        # and drawn against the global ceiling it produced instrumentals of
+        # 984 bars beside verses of four, which is the freebie inverted
+        # rather than closed. The scale that IS available is the song's own:
+        # the longest sung section this plan drew. An instrumental is as long
+        # as this song's sections are, which is a derivation from the plan
+        # rather than a number chosen for it.
+        _scale = max([v for f, v in ks.items()
+                      if f not in WORDLESS_FUNCTIONS] or [k_lo])
         for fn in dict.fromkeys(funcs):
-            ks[fn] = 0 if fn in ZERO_LINE_FUNCTIONS \
-                else rng.randint(k_lo, k_hi)
-        total = sum(ks[f] for f in funcs)
+            if fn in WORDLESS_FUNCTIONS:
+                phrases[fn] = rng.randint(k_lo, max(k_lo, _scale))
         # verbatim returners: later instances are copies, so they carry the
-        # SAME line count already (ks is per kind) — total stands.
-        if not t_lo <= total <= t_hi:
+        # SAME line count already (ks is per kind) — the drawn total stands.
+        assert total == sum(ks[f] for f in funcs), (
+            "the partition must sum to the drawn total; a mismatch here "
+            "would mean the plan's length is not the length the gradeable "
+            "set was asked about")
+        #
+        # THE SET, NOT THE SPAN. `gradeable_line_counts()` is not contiguous
+        # — 6 to 11 lines lands between the section profile's reach and the
+        # sonnet's, where every length-sensitive finding is downgraded to a
+        # note — so a span test would volunteer plans the floor cannot hold
+        # to anything. Rejection against the set keeps the draw uniform over
+        # what is ACCEPTED, which is the same argument the placement layer's
+        # rejection sampling makes.
+        if total not in _GRADEABLE:
             continue
         if lines is not None and total != lines:
             continue
@@ -770,11 +1713,14 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             f"500 seeded draws found no plan matching the request inside "
             f"the envelope (sections {ENVELOPE['sections']}, lines/section "
             f"{ENVELOPE['lines_per_section']}, total {ENVELOPE['total_lines']}"
+            f" MINUS the uncalibrated runs {line_count_gaps()}, which no "
+            f"floor profile grades with teeth"
             f"{', exact total ' + str(lines) if lines is not None else ''}) "
             f"— try another seed, drop --lines, or declare the shape by "
             f"hand.")
 
-    bars, sub, beats, groups_m, (n_pairs, b_lo, b_hi) = _sample_meter(rng)
+    bars, sub, beats, groups_m, (n_beats, n_fact, beats_pl) = \
+        _sample_meter(rng)
     meter = {"beats": beats, "unit": _unit_for(groups_m),
              "groups": list(groups_m)}
 
@@ -796,13 +1742,63 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     # grader's own shape layer a RETURN_SLOT_DRIFT on a return this very
     # plan mandates as verbatim (caught by the first round-trip probe,
     # 2026-08-18). Halves need a subdivided grid to land on.
-    ana_choices = [a for a in ENVELOPE["anacrusis"]
-                   if a == int(a) or sub >= 2]
+    # DERIVED FROM THE GRID THIS PLAN ACTUALLY DREW, not filtered out of a
+    # table: a pickup must land on a grid position, and a section at
+    # subdivision `sub` resolves k/sub of a beat. The old filter kept whole
+    # beats plus halves-if-subdivided, which is the sub=2 case written out —
+    # it denied a sub=4 section the quarter-beat pickups its own grid can
+    # land on, and no coordinate said so.
+    # AND THE PICKUP IS SUBTRACTED FROM THE SPAN THE ENVELOPE GUARANTEED, so
+    # the choices are filtered against what is LEFT (`MISSING.md` M-80). The
+    # envelope's floor is derived on `bars x beats x sub` — "fewer slots than
+    # the minimum band-legal syllable count is unsatisfiable BY CONSTRUCTION",
+    # this module's own docstring — and then every line is emitted with
+    # `duration = bars * beats - ana`, so a pickup of a whole beat at
+    # subdivision 4 removes four slots from a floor that was checked before
+    # they were taken. A derivation stated on one quantity and applied to
+    # another: measured at 1 plan in 400 landing a line UNDER the density
+    # floor, where every legal draft is flagged either by the band (too few
+    # syllables) or by `fit.SLOTS_EXCEEDED` (too many for the bar).
+    # THE FILTERED SET CANNOT BE EMPTY: `_anacrusis_choices` always contains
+    # 0.0, and the envelope has already cleared the un-pickedup span.
+    _floor = MB.ADOPTED["DENSITY"][0]
+    ana_choices = [a for a in _anacrusis_choices(sub)
+                   if (bars * beats - a) * sub >= _floor]
     anacrusis = {fn: rng.choice(ana_choices)
                  for fn in dict.fromkeys(funcs) if ks[fn] > 0}
 
+    # THE WORD INDEX A PLACEMENT MAY NAME. Two bounds, and the second is this
+    # plan's own (`MISSING.md` M-80): the floor's measured tokens-per-line
+    # floor says what a line of English verse RELIABLY carries, and the
+    # shortest line THIS PLAN drew says what it can carry AT ALL. A plan whose
+    # sections run seven slots after their pickup was still asking for the
+    # seventh word, because the ceiling was a module-level constant computed
+    # before the meter was even drawn — measured at 5 plans in 400 naming a
+    # word past what the line could hold and 4 more needing more distinct
+    # words than syllables.
+    # MINUS ONE, because a numbered word and the LAST word must be different
+    # words or the two groups binding them meet (`joint_findings`' fourth
+    # cause). Reserving the final word is what makes `end` co-drawable with
+    # any `T<n>` this pool holds.
+    _spans = [(bars * beats - a) * sub for a in anacrusis.values()] \
+        or [bars * beats * sub]
+    _cap_lo = min(int(line_syllable_ceiling(s)) for s in _spans)
+    _max_token = max(1, min(int(tokens_per_line_band()[0]), _cap_lo - 1))
+
     # Lay out sections and line slots.
     sections, line_slots = [], []
+    #: WHICH WORDS EACH LINE ALREADY BINDS. A line may join a further group
+    #: only at a word it does not already bind — see the overlap draw below
+    #: for why that is what makes an overlapping cover satisfiable without
+    #: words.
+    #: ~~WHICH PLACEMENTS EACH LINE ALREADY CARRIES~~ — the placement NAME was
+    #: the wrong coordinate and it is the whole of `MISSING.md` M-80's fourth
+    #: cause: four of the names this pool draws denote only TWO words (`end`
+    #: and `endword` are the last, `head`, `headrime` and `T1` the first), so
+    #: the invariant this comment states was tested against something that
+    #: does not answer it, and 94% of plans landed two declared rhyme groups
+    #: on one word. `placement_word` is the coordinate that answers it.
+    used = {}
     bar, line_no = 1, 1
     counts = {}
     first_seen = {}
@@ -811,7 +1807,12 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         counts[fn] = counts.get(fn, 0) + 1
         name = f"{fn.upper()}{counts[fn]}"
         k = ks[fn]
-        n_bars = max(k, 1) * bars
+        # BARS FOLLOW THE PHRASE COUNT, which for a sung section IS its line
+        # count and for a wordless one is its own draw. `max(k, 1)` used to
+        # stand here and it is what made an instrumental exactly one line's
+        # worth of music whatever else the plan did — the freebie this
+        # section's own comment now records.
+        n_bars = phrases[fn] * bars
         ana = anacrusis.get(fn, 0.0)
         sections.append({"name": name, "function": fn,
                          "bars": n_bars, "start_bar": bar,
@@ -832,18 +1833,173 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         else:
             if fn in VERBATIM_RETURNERS:
                 first_seen[fn] = first
-            groups.extend(_abs_groups(by_func[fn], first))
+            for _g in _abs_groups(by_func[fn], first):
+                # THE CAPACITY GATE (`MISSING.md` M-41). A rhyme group of k
+                # members needs a family the grader accepts k members of AT
+                # ONCE, and `quality/capacity.py` is what measured that: the
+                # deepest CERTIFIED chain is 40, a witness clique graded
+                # through `Reviser.inspect`. A plan volunteering a larger
+                # group is asking for something no family in this lexicon is
+                # measured to fill — unfillable homework, refused here rather
+                # than discovered three revise rounds in.
+                if len(_g) > _CAP.ADOPTED_MAX_GROUP:
+                    raise PlanRefused(
+                        f"this seed's scheme puts {len(_g)} lines in one "
+                        f"rhyme group, and the lexicon is measured to "
+                        f"sustain at most {_CAP.ADOPTED_MAX_GROUP} "
+                        f"(quality/capacity.py: the deepest CERTIFIED chain, "
+                        f"a witness clique graded through the reviser). The "
+                        f"tier-1 ceiling reaches further and is ungraded, so "
+                        f"this refuses where the MEASUREMENT stops rather "
+                        f"than where the arithmetic does.")
+                groups.append(_place_group(_g, rng, _max_token, used))
+            # OVERLAPPING GROUPS, DRAWN AND NOT ONLY DECLARABLE (2026-08-23).
+            #
+            # Doctrine 2's own sentence is that maximal cliques MAY OVERLAP —
+            # "structures with no letter representation" — and the mandate
+            # layer has accepted overlapping groups since it was written.
+            # The GENERATOR could not produce one: its groups come from an
+            # RGS code, which is a PARTITION, so a whole class of structure
+            # was declarable and never drawable. On this repository's own
+            # rule that the planner is the front door and hand-written
+            # mandates are for tests, that is the class of song the system
+            # WORKING AS INTENDED can never write — probability exactly zero,
+            # which is the "move 37" ban committed by omission rather than by
+            # weighting.
+            #
+            # AND THE PLACEMENT COORDINATE IS WHAT MAKES IT SATISFIABLE. Two
+            # groups binding one line at the SAME WORD are a joint constraint
+            # on ONE word, and whether any word answers both is
+            # `joint_field`'s question — which needs words, and a plan has
+            # none. At DIFFERENT words they constrain different words of the
+            # line and no such question arises. So a line may join a second
+            # group only at a WORD it does not already bind: satisfiable BY
+            # CONSTRUCTION rather than by a search a plan cannot run.
+            # ~~at a PLACEMENT it does not already carry~~ — struck 2026-08-23
+            # (`MISSING.md` M-80). The placement name is not the word: `end`
+            # and `endword` are one word between them, `head`, `headrime` and
+            # `T1` another, and `headrime`/`T1` are the IDENTICAL SPAN of it.
+            # Under the name test this paragraph's own conclusion was false in
+            # 94% of plans, which is why `used` keys on `placement_word` and
+            # why `joint_findings` checks the conclusion rather than asserting
+            # it.
+            #
+            # DIMENSION BY DIMENSION, never uniform over the leaves: the
+            # count first, then each group's size, then its members. Uniform
+            # over covers would weight a shape by how many memberships it
+            # admits, which is the enumeration bias v2's own smoke run found
+            # in the meter sampler.
+            sec_lines = list(range(first, line_no))
+            if len(sec_lines) >= 2:
+                # HOW MUCH WEB, and it is a PER-LINE draw. The owner's
+                # framing: *"I don't think that literally every word need N
+                # pairs of rhymes but there's just no way that we can only be
+                # contemplating the last word of every line."* Both ends of
+                # that sentence are refusals — of a plan that binds only line
+                # ends, and of one that binds everything — so the count is
+                # drawn rather than chosen at either extreme.
+                #
+                # EACH LINE DRAWS ITS OWN PARTICIPATION, uniform over what
+                # the placement pool admits. Uniform over [1, |pool|]
+                # privileges no count: a line carrying exactly one binding —
+                # the classic end rhyme and nothing else — is as likely as
+                # any other, and so is a line woven into several. Drawing a
+                # number of extra GROUPS instead was measured at 100% of
+                # plans overlapping with a median of 22 groups a song, which
+                # is the density decided by the shape of the loop rather than
+                # by a coordinate.
+                # THE CEILING IS WHAT A LINE CAN CARRY, not how many names
+                # the placement table happens to hold. A binding occupies a
+                # SPAN, and distinct bindings on one line need distinct
+                # spans, so the number a line can carry is bounded by its
+                # syllables — and the number it is GUARANTEED to carry is
+                # bounded by the fewest syllables a band-legal line may have,
+                # which is the calibrated density band's floor
+                # (`meter_bands.ADOPTED`, the same constant the slots
+                # envelope derives from). Bounding by the pool size instead
+                # would let a plan ask a five-syllable line for eleven
+                # distinct bound spans — arithmetic the line cannot satisfy
+                # at its own minimum legal length.
+                # AND THE POOL IS COUNTED IN WORDS, not in names: `end` and
+                # `endword` are one word between them and so are `head`,
+                # `headrime` and `T1`, so the number of names overstates what
+                # a line can carry (M-80).
+                pool_n = max(1, min(len({placement_word(p)
+                                         for p in _PLACE_POOL(_max_token)}),
+                                    MB.ADOPTED["DENSITY"][0]))
+                want = {ln: rng.randint(1, pool_n) for ln in sec_lines}
+                have = {ln: sum(1 for g in groups
+                                for m in g
+                                if int(str(m).split(".")[0]) == ln)
+                        for ln in sec_lines}
+                for _ in range(len(sec_lines) * pool_n):
+                    short = [ln for ln in sec_lines
+                             if have[ln] < want[ln]]
+                    if len(short) < 2:
+                        break
+                    hi = min(len(short), _CAP.ADOPTED_MAX_GROUP)
+                    members = rng.sample(short, rng.randint(2, hi))
+                    spelled = _place_group(sorted(members), rng,
+                                           _max_token, used)
+                    if not spelled:
+                        break
+                    if spelled in groups:
+                        continue
+                    groups.append(spelled)
+                    for ln in members:
+                        have[ln] += 1
 
     total = line_no - 1
 
-    # The hook SLOT: the first chorus's first line, when a chorus exists.
-    # The plan writes no words, so it declares a POSITION; fill_plan
-    # realises the text into the blueprint's hooks list.
-    hook_slot = None
-    for s in line_slots:
-        if s["function"] == "chorus":
-            hook_slot = s["line"]
+    # The hook SLOT: the first line of the first instance of a function this
+    # plan actually DREW MORE THAN ONCE. The plan writes no words, so it
+    # declares a POSITION; fill_plan realises the text into the blueprint's
+    # hooks list.
+    #
+    # RECURRENCE IS THE WHOLE CONDITION (2026-08-23, `MISSING.md` M-84, owner's
+    # ruling *"promote HOOK_DOES_NOT_RECUR to a flag"*). This read
+    # ~~`s["function"] == "chorus"`~~ and stopped, never asking whether that
+    # chorus COMES BACK — so a hook was declared in a section drawn once in
+    # **219 of 400 seeds (54.8%)**, every one of them a chorus. Once the code
+    # is a flag that is a requirement NO WRITER CAN MEET: no choice of words
+    # makes a section recur, and `grid`'s own message says so — *"A hook is
+    # defined by RETURN; one occurrence is a phrase."* Individually the hook
+    # slot is legal and the one-chorus pattern is legal; their CONJUNCTION is
+    # unwritable, which is `joint_findings`' subject one layer out.
+    #
+    # THE PREFERENCE IS THE VOCABULARY'S, NOT A LITERAL. `chorus` wins when a
+    # recurring one is present because `FunctionSpec.returns_as` says it
+    # returns VERBATIM — its gloss is *"the returning section; the one place
+    # where REPEAT is the requirement rather than the violation"* — and any
+    # other actually-recurring sung function is taken over declaring nothing.
+    # Reading the drawn `sections` costs no entropy, so every seed's groups,
+    # meter and schemes are byte-identical either side of this repair.
+    from quality import grid as _GR   # lazy, as everywhere else in this file
+    drawn = {}
+    for s in sections:
+        drawn[s["function"]] = drawn.get(s["function"], 0) + 1
+    recurs = {fn for fn, n in drawn.items()
+              if n > 1 and fn not in WORDLESS_FUNCTIONS}
+    verbatim = {fn for fn in recurs
+                if getattr(_GR.SECTION_FUNCTIONS.get(fn), "returns_as", "")
+                == "verbatim"}
+    hook_slot, hook_refused = None, ""
+    for pool in (verbatim, recurs):
+        for s in line_slots:
+            if s["function"] in pool:
+                hook_slot = s["line"]
+                break
+        if hook_slot:
             break
+    if hook_slot is None:
+        # A REFUSAL IS NOT AN ABSENCE (doctrine 20). Silence here would read
+        # as "this shape has no hook worth naming"; the truth is that nothing
+        # in it comes back, so no position can carry one.
+        hook_refused = (
+            "no function this pattern drew occurs more than once, and a hook "
+            "is defined by RETURN — so this shape declares no hook rather "
+            "than naming a position no writer could make recur "
+            "(`grid.HOOK_DOES_NOT_RECUR`)")
 
     # Structures: the pool is rows calibrated FOR ENGLISH — this planner
     # plans English songs, and a table fitted on one tradition is not
@@ -874,16 +2030,63 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                                         f"roster {len(GENERATOR_ROSTER)} "
                                         f"of 21 functions")},
             "meter": {"value": dict(meter),
+                      "beats_per_line": beats_pl,
+                      "slots_per_line": beats_pl * sub,
                       "chosen_from": f"{meter_space_size()} derived cycles "
-                                     f"(slots envelope "
+                                     f"(beats envelope "
+                                     f"{list(ENVELOPE['beats_per_line'])}, "
+                                     f"slots envelope "
                                      f"{list(ENVELOPE['slots_per_line'])}), "
-                                     f"measured BY DERIVATION: 1 of "
-                                     f"{n_pairs} bars x subdivision "
-                                     f"pairs, beats {b_lo}-{b_hi} within "
-                                     f"the pair, 1 of "
-                                     f"{_n_compositions_23(beats)} "
-                                     f"groupings of {beats}; unit is "
+                                     f"measured BY DERIVATION ON THE "
+                                     f"DECLARED COORDINATE: 1 of {n_beats} "
+                                     f"beats-per-line values, then 1 of "
+                                     f"{n_fact} bars x subdivision "
+                                     f"factorisation(s) of {beats_pl} beats, "
+                                     f"then 1 of {_n_compositions_23(beats)} "
+                                     f"groupings of {beats}. The line runs "
+                                     f"{beats_pl} beat(s) — at most the "
+                                     f"density band's ceiling, since a sung "
+                                     f"line carries at least one syllable a "
+                                     f"beat — and holds {beats_pl * sub} "
+                                     f"slot(s), at least the band's floor. "
+                                     f"Both ends are the same calibrated "
+                                     f"band in different units; the pair "
+                                     f"share follows from how many ways each "
+                                     f"beat count factorises. Unit is "
                                      f"notation, never enforced"},
+            # WHERE EACH REQUIREMENT BINDS, and the MEASURE it was drawn
+            # under — disclosed because it is the coordinate that stopped
+            # this generator being end-rhyme-only, and because the measure
+            # is a ruling the owner has not made yet.
+            #
+            # UNIFORM OVER THE POOL means `end` is one placement among the
+            # ones this harness can grade rather than the axis everything
+            # else is measured against. The consequence is stated rather
+            # than buried: a two-member group is all-ends with probability
+            # 1/|pool|^2, so a plain end-rhyme plan becomes RARE. That is
+            # the correction taken literally; whether a song's placements
+            # should instead be drawn with end as a first-class outcome is a
+            # taste question, and the pool and its measure are printed here
+            # so the answer can be given to a coordinate rather than to a
+            # rewrite.
+            "placements": {"pool": list(_PLACE_POOL(_max_token)),
+                           "words": sorted(
+                               {str(placement_word(p))
+                                for p in _PLACE_POOL(_max_token)}),
+                           "measure": "uniform per MEMBER over the pool; "
+                                      "per member and not per group because "
+                                      "8 of the 77 registered schemas anchor "
+                                      "one member at each end of a word",
+                           "token_ceiling": _max_token,
+                           "token_ceiling_from":
+                               "the smaller of the floor's measured "
+                               f"tokens-per-line floor "
+                               f"{tokens_per_line_band()[0]:.2f} and this "
+                               f"plan's own shortest line ({_cap_lo} "
+                               f"syllable(s) after its pickup) less one for "
+                               f"the last word — a plan asks for the n-th "
+                               f"word only where BOTH the calibration and "
+                               f"this meter say a line carries that many"},
             "schemes": scheme_meta,
             "structures": struct_meta,
             "anacrusis": {fn: {"value": v, "chosen_from": ana_choices}
@@ -895,6 +2098,10 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         "sections": sections,
         "line_slots": line_slots,
         "hook_slot": hook_slot,
+        # WHY there is none, when there is none — never silence (doctrine 20).
+        # "" means a hook WAS declared; a sentence means the shape could not
+        # carry one and says what about the shape stopped it.
+        "hook_slot_refused": hook_refused,
         # THE WRITER'S DECLARATION, echoed so the grading command can name
         # it and so a reader of a stored plan can see what was asked for --
         # `""` and `[]` mean NOBODY SAID, never "the default was chosen".
@@ -905,10 +2112,32 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         #: not to reach `bridge` this seed has not disobeyed anything. Silence
         #: here would let a writer believe they got a section they did not.
         "functions_unused": sorted(set(roster) - set(funcs)) if roster else [],
+        # MEMBERS CARRY THEIR PLACEMENT since 2026-08-23: `3` is the end of
+        # line 3 (what a bare number has always meant) and `3.head` is its
+        # first word. `--groups=` parses both, so a plan that drew all-ends
+        # is byte-identical to what this line always emitted.
         "groups": ";".join(",".join(str(x) for x in g) for g in groups),
         "returns": ";".join(f"{a},{b}" for a, b in returns),
         "subdivision": sub,
     }
+    # THE JOINT GATE (`MISSING.md` M-80). Every constraint above is
+    # individually legal and their CONJUNCTION is what nothing held. Asked of
+    # the FINISHED dict rather than of the draw, so it is the same check a
+    # hand-written plan gets and so no repair upstream can make it pass by
+    # not being asked. Refused BEFORE the brief is built: a brief is what a
+    # writer reads, and handing one out is the moment the plan stops costing
+    # a seed and starts costing a draft.
+    joint = joint_findings(plan)
+    if joint:
+        codes = sorted({c for c, _, _ in joint})
+        raise PlanRefused(
+            "this seed's constraints cannot be satisfied together — "
+            + f"{len(joint)} finding(s) over {len({ln for _, ln, _ in joint})}"
+            + f" line(s), {', '.join(codes)}:\n"
+            + "\n".join(f"  L{ln} {code}: {detail}"
+                        for code, ln, detail in joint)
+            + "\nEach gate this plan passed is a separate layer and no layer "
+              "held their conjunction; this one does. Try another seed.")
     plan["writer_brief"] = writer_brief(plan)
     return plan
 
@@ -940,6 +2169,36 @@ def fill_plan(plan, lines):
     }
 
 
+def _pickup_phrase(beats):
+    """-> the pickup clause for an anacrusis of `beats` beats.
+
+    DERIVED FROM THE FRACTION, not looked up. It was a dict literal
+    `{0.0: "", 0.5: ", half-beat pickup", 1.0: ", one-beat pickup"}`, which
+    is the sub=2 grid written out — and the moment the anacrusis became a
+    function of the section's OWN subdivision (2026-08-23) a legitimate
+    quarter-beat pickup raised `KeyError: 0.75` from inside the report
+    builder. A table standing in for arithmetic, found by widening the space
+    it was silently bounding.
+
+    Renders exact fractions rather than decimals because a pickup is a
+    position on a grid: `three-quarter-beat`, not `0.75-beat`.
+    """
+    if not beats:
+        return ""
+    frac = Fraction(beats).limit_denominator(64)
+    if frac.denominator == 1:
+        names = {1: "one", 2: "two", 3: "three", 4: "four"}
+        n = names.get(frac.numerator, str(frac.numerator))
+        return f", {n}-beat pickup"
+    parts = {2: "half", 3: "third", 4: "quarter", 6: "sixth", 8: "eighth"}
+    unit = parts.get(frac.denominator, f"1/{frac.denominator}")
+    if frac.numerator == 1:
+        return f", {unit}-beat pickup"
+    words = {2: "two", 3: "three", 5: "five", 7: "seven"}
+    n = words.get(frac.numerator, str(frac.numerator))
+    return f", {n}-{unit}-beat pickup"
+
+
 def section_header(sec, slots):
     """The bracket header for one section — measurements SURFACED from the
     section's own dict and its own line slots, the same numbers the grid
@@ -953,8 +2212,7 @@ def section_header(sec, slots):
             f"of {im['beats']}/{im['unit']}")
     if not slots:
         return f"[{sec['function'].upper()} — instrumental — {size}, no words]"
-    pickup = {0.0: "", 0.5: ", half-beat pickup",
-              1.0: ", one-beat pickup"}[slots[0]["beat"] - 1]
+    pickup = _pickup_phrase(slots[0]["beat"] - 1)
     n = len(slots)
     return (f"[{sec['function'].upper()} — {n} "
             f"line{'s' if n != 1 else ''} — {size}{pickup}]")
@@ -1010,6 +2268,8 @@ def writer_brief(plan):
     if plan.get("hook_slot"):
         out.append(f"Line {plan['hook_slot']} is the hook — make it the "
                    f"line someone leaves humming.")
+    elif plan.get("hook_slot_refused"):
+        out.append(f"NO HOOK IS DECLARED: {plan['hook_slot_refused']}.")
     return "\n".join(out)
 
 

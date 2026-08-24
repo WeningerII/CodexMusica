@@ -120,6 +120,16 @@ class B:
         #: printed "must rhyme with" over a declared verbatim return.
         self.return_groups = kw.get("return_groups", ())
         self.joint_conflict = kw.get("joint_conflict", False)
+        #: THE PLACEMENT, added 2026-08-24 — and it was §7c below that found
+        #: it, on the first CI run after the workflow started parsing again.
+        #: `Brief` grew `slot`/`slot_conflict` at `9ad2dad` (`MISSING.md`
+        #: M-67, placement stops being the end-rhyme projection) and
+        #: `quality/propose.py` read NEITHER, so every prompt told the writer
+        #: to change the END word whatever the mandate bound. Defaulted to
+        #: None, which `slot_phrase` renders exactly as this module always
+        #: rendered it.
+        self.slot = kw.get("slot")
+        self.slot_conflict = kw.get("slot_conflict", False)
         self.field_declaration = kw.get(
             "field_declaration", "field_depth=complete pool, "
                                  "field_band='grader'")
@@ -792,6 +802,38 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
           "which is what stops a new rule rendering as an empty block with "
           "the suite green",
           b_declared <= b_used, sorted(b_declared - b_used))
+
+    # AND THE GUARD'S OWN PREDICTION CAME TRUE, so the fix is checked here
+    # rather than only the field list. Carrying the field is necessary and is
+    # not sufficient: `render_line` reads through `getattr`, so a stand-in
+    # that HAS `slot` and a renderer that never asks for it produce exactly
+    # the same prompt. These three checks read the PROMPT.
+    from quality import slots as _SL                    # noqa: PLC0415
+    from quality.propose import slot_phrase             # noqa: PLC0415
+    p_end = render_line(PLAIN_BRIEF, DRAFT)
+    head = B(**{**vars(PLAIN_BRIEF), "slot": _SL.parse_slot("1.head")})
+    t4 = B(**{**vars(PLAIN_BRIEF), "slot": _SL.parse_slot("1.T4")})
+    p_head, p_t4 = render_line(head, DRAFT), render_line(t4, DRAFT)
+    check("the DEFAULT placement renders 'end word' — every mandate written "
+          "before placement existed is a bare int, so this repair moves no "
+          "prompt this repo has ever produced",
+          slot_phrase(PLAIN_BRIEF) == "end word"
+          and slot_phrase(B(slot=_SL.parse_slot("1.end"))) == "end word"
+          and "end word" in p_end,
+          f"{slot_phrase(PLAIN_BRIEF)!r}")
+    check("a HEAD-anchored mandate no longer tells the writer to change the "
+          "END word — the one word it does not bind",
+          slot_phrase(head) == "first word" and "first word" in p_head
+          and "THE BOUND WORD IS THE FIRST WORD" in p_head,
+          f"{slot_phrase(head)!r}")
+    check("...and a numbered token says WHICH, so `1.T4` reads as the fourth "
+          "word rather than as the end of the line",
+          slot_phrase(t4) == "word 4" and "word 4" in p_t4,
+          f"{slot_phrase(t4)!r}")
+    check("the three prompts DIFFER — a coordinate that changes no output is "
+          "a coordinate the writer cannot act on (doctrine 1)",
+          len({p_end, p_head, p_t4}) == 3,
+          f"{len({p_end, p_head, p_t4})} distinct prompt(s)")
 
 
 def test_model_proposer_serves_a_real_tier_2():

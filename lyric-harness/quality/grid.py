@@ -945,11 +945,128 @@ def song_from_blueprint(obj, assume_meter=None):
 # THE ANTI-CLICHE CHECK
 # ---------------------------------------------------------------------------
 
+#: WHAT EACH SHAPE FINDING IS WORTH — the SEVERITY, declared HERE, in the
+#: module that owns the codes.
+#:
+#: IT USED TO LIVE IN A CONSUMER, AS ONE INLINE CONDITIONAL. `revise.
+#: _function_findings` read `"flag" if f.code == "HOOK_ABSENT" else "note"`,
+#: with thirty lines of docstring in THAT module arguing why — so the whole
+#: SHAPE layer's severity was a string comparison in a file that does not
+#: define a single one of these codes, and the reasoning was prose (doctrine
+#: 48). `quality/gate_census.py` measured the consequence: 21 codes whose
+#: severity could not be read at the emitter at all, reported as UNDECIDABLE
+#: because that is what they were.
+#:
+#: THE RULE, and it is one rule with one exception:
+#: everything here is measured against `POPULAR_SONG`, a labelled CONVENTION
+#: (`FormConvention`, the same move `Meter.conventional_grouping` makes) and
+#: NOT a mandate the writer declared. **Doctrine 6: a convention a writer is
+#: free to depart from cannot be the thing that fails `verify()`.** 5/4 and an
+#: eleven-bar bridge are choices. So: note.
+#:
+#: `HOOK_ABSENT` is the exception and is different IN KIND: the writer
+#: supplied the exact hook TEXT, and whether it occurs in the draft is a
+#: factual question with no convention in it — the same shape as
+#: `RETURN_NOT_VERBATIM` being a flag while its sibling `RETURN_OUT_OF_RANGE`
+#: is a note.
+#:
+#: `RETURN_SCHEME_DRIFT` IS THE ONE A LATER READER WILL WANT TO PROMOTE, and
+#: must not. It is about RHYME, and rhyme is what the mandate flags — but
+#: `return_findings` is never handed a mandate, so every answer it gives is
+#: against the convention. THE FLAG ALREADY EXISTS ONE LAYER DOWN: a writer
+#: who REQUIRES a return declares `schemes.Return(verbatim=True)` and
+#: `Mandate.returns_check` breaks it as `RETURN_NOT_VERBATIM`. Promoting this
+#: one would fail an undeclared return on a convention AND fail a declared one
+#: twice under two names.
+SEVERITY = {
+    # THE ONE FLAG — a fact about the writer's own supplied text.
+    "HOOK_ABSENT": "flag",
+    # THE CONVENTION MEASUREMENTS — notes on purpose, every one.
+    "BRIDGE_IS_A_VERSE": "note",
+    "CROSS_FUNCTION_REPRISE": "note",
+    "DOWNBEAT_LOCKED": "note",
+    "ELABORATION_UNGROUNDED": "note",
+    "HOOK_CONFINED": "note",
+    "HOOK_DOES_NOT_RECUR": "flag",
+    "METER_LOCKED": "note",
+    "PHRASE_LENGTH_LOCKED": "note",
+    "QUATRAIN_LOCK": "note",
+    "RETURNS_WITH_SAME_WORDS": "note",
+    "RETURN_LENGTH_DRIFT": "note",
+    "RETURN_LOCKED": "note",
+    "RETURN_METER_DRIFT": "note",
+    "RETURN_NEVER_RETURNS": "note",
+    "RETURN_SCHEME_DRIFT": "note",
+    "RETURN_SLOT_DRIFT": "note",
+    "SECTION_LENGTH_LOCKED": "note",
+    "SINGLE_USE_RECURRED": "note",
+    "TITLE_NOT_IN_HOOK": "flag",
+    "UNIFORM_ANACRUSIS": "note",
+    # THE PLACEMENT LAYER (M-54). These four reach `GridFinding` through the
+    # ONE site that passes a VARIABLE code, so neither a reader nor
+    # `gate_census.py` could see them by scanning for literals — the census
+    # counted 67 codes and these are the 68th through 71st.
+    #
+    # AND THIS TABLE'S REFUSAL IS WHAT FOUND THEM. The four were absent from
+    # the first draft, so `severity_of` would have RAISED on any draft that
+    # tripped a placement rule — a crash where the old `else "note"` silently
+    # gave the right answer for the wrong reason. No suite caught it: the
+    # shipped blueprints trip 0 placement rules (M-54's own measurement), so
+    # no fixture reaches the site. The gate caught what the tests could not,
+    # which is the argument for a refusal over a default.
+    #
+    # NOTES, and M-54 settled why: a section's position is a fact about the
+    # DECLARATION, not about any line's words, so no rewrite moves it and a
+    # flag would spend every round of `max_rounds` and report ROUND_LIMIT —
+    # the `uncovered_bars` precedent verbatim.
+    "SECTION_AT_EDGE": "note",
+    "SECTION_NOT_ADJACENT": "note",
+    "SECTION_NOT_AT_BOUNDARY": "note",
+    "SECTION_REQUIREMENT_ABSENT": "note",
+}
+
+#: The severity a code carries when this table has never heard of it. NOT
+#: "note": a code nobody has ruled on is an OPEN QUESTION, and answering it
+#: with the lenient default is how a finding joins the silent majority without
+#: anybody deciding it should (doctrine 20). `severity_of` REFUSES instead.
+UNRULED = None
+
+
+def severity_of(code):
+    """-> "flag" | "note" for one shape code. THE one definition.
+
+    REFUSES on a code no one has ruled on rather than defaulting it, because
+    a default here is a ruling nobody made. A new `GridFinding` therefore
+    cannot ship until its severity is decided in the table above — which is
+    the gate this module did not have, and the reason 21 codes were
+    undecidable.
+    """
+    sev = SEVERITY.get(code, UNRULED)
+    if sev is None:
+        raise KeyError(
+            f"{code!r} has no declared severity in grid.SEVERITY. A shape "
+            f"finding is a measurement against a CONVENTION and is almost "
+            f"always a note (doctrine 6) — but 'almost always' is not a "
+            f"ruling, and defaulting it here would be this module deciding "
+            f"by omission. Add the row.")
+    return sev
+
+
 @dataclass
 class GridFinding:
     code: str
     message: str
     evidence: str
+
+    @property
+    def severity(self):
+        """The declared severity, read from `SEVERITY` at the point of use.
+
+        A PROPERTY rather than a field, deliberately: a field would let a
+        caller construct a finding whose severity disagrees with the table,
+        which is the second-opinion problem this table exists to end.
+        """
+        return severity_of(self.code)
 
     def __str__(self):
         return f"[{self.code}] {self.message}\n    {self.evidence}"
@@ -1012,14 +1129,64 @@ def uniformity(song):
     # the worse instance -- a song could clear METER_LOCKED by declaring a
     # grouping, which is a coordinate about where the BEATS are and says
     # nothing whatever about whether the song is in four.
-    out["four_four"] = (sum(1 for s in secs
-                            if (s.meter.beats, s.meter.unit) == (4, 4))
-                        / len(secs)) if secs else 0.0
-    out["bars_multiple_of_four"] = (sum(1 for s in secs if s.bars % 4 == 0)
-                                    / len(secs)) if secs else 0.0
+    # EVERY SECTION STATISTIC IS WEIGHTED BY THE MASS THAT SECTION CARRIES
+    # (`MISSING.md` M-75, 2026-08-23) — bars for the metric locks, lines for
+    # the lyric ones. ~~a plain fraction of SECTIONS~~ is what the owner's
+    # anecdote defeats: *"it made all quatrains and ended with a 2 line outro
+    # which technically satisfied it but that's blatantly just gaming the
+    # system."* A count of sections gives every section the same vote, so
+    # appending ONE two-line tag moves the denominator by 1/n and silences
+    # every lock in a song of fewer than ten sections — a duck that costs
+    # nothing and adds nothing.
+    #
+    # WHAT THE WEIGHT CHANGES IS THE PRICE OF THE DUCK, and that is the whole
+    # claim. Under a section count the duck costs exactly one section however
+    # long the song is; under mass it costs a share of the song, so silencing
+    # a lock means giving the form a section big enough to be heard — which
+    # is the thing `SECTION_LENGTH_LOCKED`'s own message asks for ("a section
+    # that ARRIVES early or overstays is where structure becomes audible").
+    # It is NOT un-duckable and must not be described as such: a large enough
+    # off-modal section still clears it, and at that size the form does have
+    # a shape of its own. Doctrine 22 — the honest statement is what the duck
+    # COSTS, not that it is impossible.
+    #
+    # AND IT IS A DERIVATION, NOT A CALIBRATION (owner's ruling 2026-08-23,
+    # *"derived envelope not rate-matching"*). No corpus rate is consulted
+    # and `threshold` does not move; retuning 0.90 would be doctrine 58's
+    # error and would only move the duck from one section to two. What
+    # changes is which population the fraction is taken OVER, and the
+    # argument is internal: a lock is a property of the song's MASS, and the
+    # two statistics that were already right — `downbeat_locked` and
+    # `uniform_anacrusis`, both per-LINE — stop being exceptions and become
+    # instances of one rule.
+    bars = [max(0, s.bars) for s in secs]
+    b_tot = sum(bars)
+    lines_in = [len(song.lines_in(s)) for s in secs]
+    l_tot = sum(lines_in)
+
+    def _by(mass, total, keep):
+        """-> the share of `mass` carried by the sections `keep` admits.
+
+        Falls back to the SECTION COUNT when the mass is zero, because a
+        weight of nothing is not a reading: a song whose sections declare no
+        bars at all has not thereby cleared every metric lock, and answering
+        0.0 there would be the silence this entry exists to close.
+        """
+        if not secs:
+            return 0.0
+        if total <= 0:
+            return sum(1 for i, _s in enumerate(secs) if keep(i)) / len(secs)
+        return sum(m for i, m in enumerate(mass) if keep(i)) / total
+
+    out["four_four"] = _by(
+        bars, b_tot,
+        lambda i: (secs[i].meter.beats, secs[i].meter.unit) == (4, 4))
+    out["bars_multiple_of_four"] = _by(
+        bars, b_tot, lambda i: secs[i].bars % 4 == 0)
     lens = [s.bars for s in secs]
-    out["equal_section_length"] = (
-        max(lens.count(v) for v in set(lens)) / len(lens)) if lens else 0.0
+    _modal_bars = (max(set(lens), key=lens.count) if lens else None)
+    out["equal_section_length"] = _by(
+        bars, b_tot, lambda i: lens[i] == _modal_bars)
     durs = [l.duration for l in lines]
     out["equal_line_duration"] = (
         max(durs.count(v) for v in set(durs)) / len(durs)) if durs else 0.0
@@ -1029,9 +1196,14 @@ def uniformity(song):
     out["uniform_anacrusis"] = (
         max(picks.count(v) for v in set(picks)) / len(picks)) if picks \
         else 1.0
-    counts = [len(song.lines_in(s)) for s in secs]
-    out["four_lines_per_section"] = (
-        sum(1 for c in counts if c == 4) / len(counts)) if counts else 0.0
+    counts = list(lines_in)
+    # WEIGHTED BY LINES, for the reason above: this is the statistic the
+    # owner's two-line outro was aimed at, and it is the lyric lock, so the
+    # mass that counts is the mass of WORDS. Five quatrains and a two-line
+    # tag is 20 of 22 lines in quatrains — 0.909, still locked — where by
+    # section count it was 5 of 6 and silent.
+    out["four_lines_per_section"] = _by(
+        lines_in, l_tot, lambda i: counts[i] == 4)
     return out
 
 
@@ -1899,6 +2071,29 @@ def hook_findings(song, hooks=(), title=None):
     tkey = tokens(title)
     for h in hooks:
         hk = h.key.split()
+        # UNSATISFIABLE AS DECLARED, so it REFUSES rather than charging the
+        # draft (2026-08-23, `MISSING.md` M-86). `TITLE_NOT_IN_HOOK` is a FLAG
+        # by the owner's ruling, and a flag must name something the writer can
+        # answer. A title with MORE TOKENS than the hook cannot be contained
+        # in it by any writing at all — the containment test below is a
+        # subsequence check in both directions, and a longer string is not a
+        # subsequence of a shorter one. That is a contradiction between two
+        # DECLARATIONS, not a defect in the words, so it is recorded as a
+        # refusal and the flag is not raised (doctrine 20/79: a refusal is not
+        # a failure, and putting it in the numerator charges the wrong layer).
+        # The same shape `M-84` gave the hook slot, one layer over: a gate may
+        # only demand what some draft could supply.
+        if len(tkey) > len(hk):
+            refusals.append(Refusal(
+                "TITLE_LONGER_THAN_HOOK",
+                "'is the title in the hook?' cannot be answered YES by any "
+                "draft: the title has more words than the hook it would have "
+                "to sit inside",
+                f"title {title!r} is {len(tkey)} token(s); hook {h.text!r} is "
+                f"{len(hk)}. Containment is a subsequence test, so no choice "
+                f"of words makes the longer fit in the shorter — shorten the "
+                f"title or declare a longer hook."))
+            continue
         if any(tkey[k:k + len(hk)] == hk
                for k in range(len(tkey) - len(hk) + 1)) or \
            any(hk[k:k + len(tkey)] == tkey

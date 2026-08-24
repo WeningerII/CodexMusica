@@ -95,6 +95,7 @@ from quality import grid as GR  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
 from quality import readability as RD  # noqa: E402
 from quality import schemes as SC  # noqa: E402
+from quality import slots as _SL  # noqa: E402
 from quality.floor import Finding, SlopFloor  # noqa: E402
 from quality.schemes import Mandate, NoMandate  # noqa: E402
 
@@ -381,6 +382,25 @@ class Brief:
     line_no: int
     text: str
     findings: list = field(default_factory=list)
+    #: WHERE IN THIS LINE THE REQUIREMENT BINDS (`quality/slots.py`), and the
+    #: field that keeps this brief from naming the wrong word. `None` means
+    #: the default slot — the end of the line — which is what every brief
+    #: meant before the coordinate existed.
+    #:
+    #: THE COST OF NOT HAVING IT, which is why it is a field and not a
+    #: renderer's guess: `grade()` can flag a binding at a line's HEAD, and
+    #: every word in this object — `must_rhyme_with`, the candidate `calls`,
+    #: the incumbent — was read off `endwords[x - 1]`. A writer told to fix
+    #: L3's opening would have been handed L3's ENDING, its rhyme partners
+    #: and a field computed against the wrong call word: one question, two
+    #: readings, with the loop acting on the wrong one (doctrine 1). The
+    #: loop's own move follows it through `loop.swap_at_slot`.
+    slot: object = None
+    #: True when this line binds at DIFFERENT places in different groups, so
+    #: no single word swap can answer them all. Reported rather than resolved
+    #: — the same shape `joint_conflict` has, one axis over: it is a fact
+    #: about the MANDATE, and the loop has no move for it.
+    slot_conflict: bool = False
     must_rhyme_with: tuple = None       # (line_no, endword) — the FIRST group
     candidates: list = field(default_factory=list)
     #: THE MODAL HEAD, AND NOTHING ELSE — doctrine 9's own set: the most
@@ -550,9 +570,15 @@ class Brief:
                        f"these is the slop direction): "
                        f"{', '.join(self.forbidden_modal)}")
         if self.forbidden_incumbent:
+            # THE SECOND RENDERER OF THE SAME SENTENCE (`MISSING.md` M-91).
+            # It said "end word" whatever `self.slot` bound; `slots
+            # .word_phrase` is the one definition and answers "end word" for
+            # every default member, so this line is byte-identical on every
+            # mandate written before placement existed.
             out.append(f"    ALREADY THERE (not a modal word — re-proposing "
-                       f"the end word that is already on this line is not a "
-                       f"revision): {self.forbidden_incumbent}")
+                       f"the {_SL.word_phrase(self.slot)} that is already on "
+                       f"this line is not a revision): "
+                       f"{self.forbidden_incumbent}")
         if self.candidates:
             out.append(f"    offered: {', '.join(self.candidates[:12])}"
                        + (" ..." if len(self.candidates) > 12 else ""))
@@ -612,6 +638,11 @@ class Reviser:
         self.floor = floor or SlopFloor()
         self._engine = None
         self._matrix_cache = {}
+        #: per-PAIR scores for declared slots. Separate from
+        #: `_matrix_cache` because the matrix is an n x n object
+        #: over LINES and a slot pair is not a cell of it; only a
+        #: mandate that declares a slot ever fills this.
+        self._slot_cache = {}
         self._field_cache = {}
         self._anchor_cache = {}
 
@@ -880,6 +911,61 @@ class Reviser:
         self._matrix_cache[key] = out
         return out
 
+    def _slot_word(self, lines, m, k, line, endwords):
+        """-> the word one LINE carries at its binding site in one GROUP.
+
+        The end word when the group binds at the default slot — read off the
+        `endwords` array the caller already holds, so the ordinary path costs
+        nothing and is byte-identical — and the resolved span's own label
+        otherwise. One definition, so `must_answer`, `must_rhyme_with` and the
+        candidate field's call words cannot disagree about which word this
+        line is being asked about (doctrine 1).
+        """
+        if not m.slots_declared():
+            return endwords[line - 1]
+        slot = m.slot_of(k, line)
+        if _SL.is_default(slot):
+            return endwords[line - 1]
+        return _SL.resolve(self.lex, lines[line - 1], slot)[1]
+
+    def _slot_score(self, lines, slot_a, slot_b, profile=None):
+        """-> (score, label_a, label_b) for one DECLARED-SLOT pair.
+
+        THE SAME COMPARATOR, A DIFFERENT SPAN. `best_score` is what the band
+        and every threshold in this repository were calibrated on, so a
+        binding that is not at a line's end is scored by it too — the
+        placement moves, the judge does not. Anything else would put a
+        second comparator behind one verdict (doctrine 1), and the whole
+        point of the slot coordinate is that WHERE is declared while WHAT
+        COUNTS stays one answer.
+
+        NOT FOLDED INTO `_matrix`, which is a per-LINE object: the matrix is
+        n x n over lines and a slot pair is not a cell of it. It is computed
+        per pair and cached on the pair, because only a mandate that declares
+        a slot pays for one — an ordinary end-rhyme mandate never reaches
+        this method.
+
+        The two labels are what a finding NAMES. For a default slot that is
+        the line's end word, byte-identically; for any other it is the words
+        the resolved span actually covers, so a report about a mid-line
+        binding quotes text a reader can find in the line rather than a
+        syllable index.
+        """
+        key = (tuple(lines), slot_a, slot_b, self._promote(), profile)
+        hit = self._slot_cache.get(key)
+        if hit is not None:
+            return hit
+        anc_a, lab_a, _ = _SL.resolve(self.lex, lines[slot_a.line - 1],
+                                      slot_a, promote=self._promote())
+        anc_b, lab_b, _ = _SL.resolve(self.lex, lines[slot_b.line - 1],
+                                      slot_b, promote=self._promote())
+        s = best_score(anc_a, anc_b, self.decl, lab_a, lab_b, profile=profile)
+        out = (s, lab_a, lab_b)
+        if len(self._slot_cache) > 512:
+            self._slot_cache.clear()
+        self._slot_cache[key] = out
+        return out
+
     # -- grading the mandate ----------------------------------------------
 
     def grade(self, lines, mandate=None, profile=None, sections=None):
@@ -1031,12 +1117,33 @@ class Reviser:
                     _canon = _schema_name_of(_RT, w)
                     _sch_pairs[w] = _R_mod.line_pairs_for(
                         _R_mod.REGISTRY[_canon], _stream)
+        # THE SLOT PATH, and it is entered only by a mandate that declares
+        # one. `slots_declared()` is False for every mandate written before
+        # the coordinate existed and for every ordinary end-rhyme mandate, so
+        # those runs take the cached `matrix` exactly as they always have —
+        # byte-identical, and cheaply, since the matrix is computed once per
+        # draft while a slot pair is scored per pair.
+        _slotted = m.slots_declared()
         for (i, j, k) in pairs:
             if (i, j) in refused:
                 unknown.add((i, k))
                 unknown.add((j, k))
                 continue
-            s = matrix[i - 1][j - 1]
+            # WHERE THIS PAIR BINDS. Default slots read the precomputed
+            # matrix; a declared slot is resolved and scored on its own span,
+            # through the SAME comparator — `best_score` — so a mid-line or
+            # line-initial binding is judged by the instrument the band was
+            # calibrated on rather than by a second reading invented for it.
+            slot_i = slot_j = None
+            if _slotted:
+                slot_i, slot_j = m.slot_of(k, i), m.slot_of(k, j)
+            if slot_i is not None and not (_SL.is_default(slot_i)
+                                           and _SL.is_default(slot_j)):
+                s, ew_i, ew_j = self._slot_score(
+                    lines, slot_i, slot_j, profile=profile)
+            else:
+                s = matrix[i - 1][j - 1]
+                ew_i, ew_j = endwords[i - 1], endwords[j - 1]
             rel = s["relation"]
             why = None
             struct = m.structure_of(k) if _ST is not None else None
@@ -1056,22 +1163,33 @@ class Reviser:
                 # ASSONANCE is not satisfied by a perfect rhyme.
                 #
                 # POSITION IS DECLARED, NOT ASSUMED. 31 of the 49 named types
-                # require one and `classify_pair` cannot know it (M-34). A
-                # mandate's groups are end-rhyme groups by construction, so
-                # 'end' is the honest value here and is passed explicitly —
-                # a checker picking it silently would be the bug (doctrine
+                # require one and `classify_pair` cannot know it (M-34).
+                # ~~A mandate's groups are end-rhyme groups by construction,
+                # so 'end' is the honest value here and is passed explicitly
+                # — a checker picking it silently would be the bug (doctrine
                 # 45), and it is exactly the wrong value for the internal,
                 # head, leonine, cross and holorhyme relations, which this
-                # path therefore cannot yet mandate.
+                # path therefore cannot yet mandate.~~
+                # SUPERSEDED 2026-08-23 (doctrine 17, the strike stays
+                # visible): the first clause stopped being true when
+                # `Mandate.loci` shipped, and the sentence's own second half
+                # is the specification it was superseded by. A group's
+                # members now DECLARE where they bind, so the position comes
+                # from the declaration — `slots.position_of` — and 'end' is
+                # what a default slot resolves to rather than what every
+                # group is assumed to be. The head, internal and cross
+                # relations this comment named as unreachable are reachable
+                # by declaring the placement their own definitions require.
                 try:
                     ok = _RT.satisfies_relation(
-                        want, rel, endwords[i - 1], endwords[j - 1],
-                        _relation_phonology(), position="end",
+                        want, rel, ew_i, ew_j,
+                        _relation_phonology(),
+                        position=_SL.position_of(slot_i or i),
                         lines=(i, j), instances=_sch_pairs.get(want))
                 except _RT.RelationRefused as e:
                     refusals.append({
                         "lines": (i, j),
-                        "endwords": (endwords[i - 1], endwords[j - 1]),
+                        "endwords": (ew_i, ew_j),
                         "unreadable": [],
                         "groups": [m.labels[k]],
                         "reason": (f"the declared relation {want!r} cannot be "
@@ -1088,7 +1206,7 @@ class Reviser:
                     # the engine cannot pronounce (doctrine 79).
                     refusals.append({
                         "lines": (i, j),
-                        "endwords": (endwords[i - 1], endwords[j - 1]),
+                        "endwords": (ew_i, ew_j),
                         "unreadable": [],
                         "groups": [m.labels[k]],
                         "reason": (f"the declared relation {want!r} has no "
@@ -1106,11 +1224,11 @@ class Reviser:
                            f"relation's own coordinate, not by the scalar "
                            f"comparator's admit set")
             elif _ST is not None and struct != _ST.DEFAULT:
-                sv = _ST.judge(struct, endwords[i - 1], endwords[j - 1])
+                sv = _ST.judge(struct, ew_i, ew_j)
                 if sv is None:
                     refusals.append({
                         "lines": (i, j),
-                        "endwords": (endwords[i - 1], endwords[j - 1]),
+                        "endwords": (ew_i, ew_j),
                         "unreadable": [],
                         # The scalar refusals get their "groups" annotated
                         # in one pass above, BEFORE this loop runs — a
@@ -1176,12 +1294,12 @@ class Reviser:
             verdicts.append({"lines": (i, j), "group": k,
                              "label": m.labels[k],
                              "members": list(m.groups[k]),
-                             "endwords": (endwords[i - 1], endwords[j - 1]),
+                             "endwords": (ew_i, ew_j),
                              "score": s["total"], "relation": rel,
                              # BACKLOG 1.2 — "" unless the two end words this
                              # verdict names are NOT what produced the score.
                              "attribution": self._attribution(
-                                 s, endwords[i - 1], endwords[j - 1]),
+                                 s, ew_i, ew_j),
                              # WHICH JUDGE ANSWERED. A catalog row name when
                              # the mandate declared the coordinate (the
                              # DEFAULT name for its undeclared groups), and
@@ -1702,7 +1820,7 @@ class Reviser:
                 if f.conditional_on:
                     ev += f" CONDITIONAL ON: {f.conditional_on}"
                 per.setdefault(ln, []).append(Finding(
-                    f.code, "flag" if not f.satisfiable else "note",
+                    f.code, f.severity,
                     f.message, ev, [ln]))
             for r in lf.refusals:
                 refusals.setdefault(r.code, []).append((ln, r))
@@ -1751,7 +1869,7 @@ class Reviser:
         # counts and not verdicts for the same reason.
         for f in FT.uncovered_bar_findings(fits, secs):
             whole.append(Finding(
-                f.code, "flag" if not f.satisfiable else "note",
+                f.code, f.severity,
                 f.message, f.evidence, []))
         return per, whole
 
@@ -1925,7 +2043,7 @@ class Reviser:
         whole = []
         for f in rep["findings"]:
             whole.append(Finding(
-                f.code, "flag" if f.code == "HOOK_ABSENT" else "note",
+                f.code, f.severity,
                 f.message, f.evidence, []))
         for r in rep["refusals"]:
             whole.append(Finding(r.code, "note", r.message, r.evidence, []))
@@ -3151,11 +3269,21 @@ class Reviser:
             # EVERY group, not one. The old `_partner` picked the first
             # mate of the line's single letter, which is all a letter
             # scheme can express and is wrong for a pivot by construction.
+            # THE BINDING SITE, resolved once for this line and read by
+            # every word this brief names. A line in several groups that
+            # declare DIFFERENT places cannot be answered by one swap, and
+            # that is reported (`slot_conflict`) rather than resolved by
+            # picking the first — picking would hand the writer a rewrite
+            # that satisfies one group and silently breaks the other.
+            _mine = {str(m.slot_of(k, ln)) for k, _ in groups}
+            b.slot = m.slot_of(groups[0][0], ln) if groups else None
+            b.slot_conflict = len(_mine) > 1
             _returns = []
             for k, mates in groups:
                 b.must_answer.append(
                     (m.labels[k], list(m.groups[k]),
-                     [(x, endwords[x - 1]) for x in mates]))
+                     [(x, self._slot_word(lines, m, k, x, endwords))
+                      for x in mates]))
                 # WHICH KIND OF REQUIREMENT THIS GROUP IS. Asked of the
                 # MANDATE, never inferred from the words: `Mandate.
                 # requirement` is the one object that holds both kinds, and
@@ -3167,16 +3295,27 @@ class Reviser:
             b.return_groups = tuple(_returns)
             if groups and groups[0][1]:
                 _first = groups[0][1]
-                b.must_rhyme_with = (_first[0], endwords[_first[0] - 1])
+                b.must_rhyme_with = (
+                    _first[0],
+                    self._slot_word(lines, m, groups[0][0], _first[0],
+                                    endwords))
             # ANY rhyme-implicating finding earns a candidate field, not just
             # a broken scheme. The cliche and predictable-rhyme cases are
             # precisely where a writer reaches for the obvious replacement, so
             # they are precisely where the modal exclusion has to be applied.
             wants = any(f.code in RHYME_FINDINGS for f in fs)
             if wants and groups:
-                calls = [endwords[x - 1] for _, mates in groups for x in mates]
+                calls = [self._slot_word(lines, m, k, x, endwords)
+                         for k, mates in groups for x in mates]
                 calls = [c for c in dict.fromkeys(calls) if c]
-                cur = self.floor.qf._endword(lines[ln - 1])
+                # THE INCUMBENT AT THIS LINE'S OWN BINDING SITE. For a
+                # default slot this is `qf._endword` exactly as before —
+                # which `verify()`'s RULE 3 compares against, so the two must
+                # stay the same function or the corollary that makes "took
+                # the modal candidate" true of every entry stops holding.
+                cur = (self.floor.qf._endword(lines[ln - 1])
+                       if b.slot is None or _SL.is_default(b.slot)
+                       else _SL.resolve(self.lex, lines[ln - 1], b.slot)[1])
                 if calls:
                     b.candidates, b.forbidden_modal = self.joint_field(
                         calls, exclude=(cur,), profile=profile)

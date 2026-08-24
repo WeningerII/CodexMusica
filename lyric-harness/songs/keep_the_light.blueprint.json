@@ -1,0 +1,255 @@
+{
+  "hooks": ["Go on. I'll keep the light."],
+  "lines": [
+    {
+      "bar": 1,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "VERSE1",
+      "text": "Hold it dry. I'll do the pour."
+    },
+    {
+      "bar": 3,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "VERSE1",
+      "text": "Stone in the road where the frost tore"
+    },
+    {
+      "bar": 5,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "VERSE1",
+      "text": "The house we built is leaning nigh, and let it groan"
+    },
+    {
+      "bar": 7,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "VERSE1",
+      "text": "Some knots I never learned to tie"
+    },
+    {
+      "bar": 9,
+      "beat": 2.0,
+      "duration": 5.0,
+      "section": "PRECHORUS1",
+      "text": "Bags by the step, and the taxi's late"
+    },
+    {
+      "bar": 11,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "CHORUS1",
+      "text": "Go on. I'll keep the light."
+    },
+    {
+      "bar": 13,
+      "beat": 1.5,
+      "duration": 5.5,
+      "section": "FALSE_ENDING1",
+      "text": "And that was the last of it. Nearly."
+    },
+    {
+      "bar": 15,
+      "beat": 2.0,
+      "duration": 5.0,
+      "section": "PRECHORUS2",
+      "text": "You turn at the corner. You always turn."
+    },
+    {
+      "bar": 17,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "CHORUS2",
+      "text": "Go on. I'll keep the light."
+    },
+    {
+      "bar": 19,
+      "beat": 1.5,
+      "duration": 5.5,
+      "section": "TAG1",
+      "text": "I have nothing else to spare"
+    },
+    {
+      "bar": 21,
+      "beat": 1.5,
+      "duration": 5.5,
+      "section": "TAG1",
+      "text": "Take the coat. It cost me nothing."
+    },
+    {
+      "bar": 23,
+      "beat": 1.5,
+      "duration": 5.5,
+      "section": "TAG1",
+      "text": "You crossed the yard and stood at the stair"
+    },
+    {
+      "bar": 25,
+      "beat": 2.0,
+      "duration": 5.0,
+      "section": "PRECHORUS3",
+      "text": "The engine turning over in the dark"
+    },
+    {
+      "bar": 27,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "CHORUS3",
+      "text": "Go on. I'll keep the light."
+    },
+    {
+      "bar": 29,
+      "beat": 1.5,
+      "duration": 5.5,
+      "section": "POSTCHORUS1",
+      "text": "Ache holds the doorframe, hear my plea"
+    },
+    {
+      "bar": 31,
+      "beat": 1.5,
+      "duration": 5.5,
+      "section": "POSTCHORUS1",
+      "text": "Red light, quake in the glass, down to the quay"
+    },
+    {
+      "bar": 33,
+      "beat": 1.5,
+      "duration": 5.5,
+      "section": "POSTCHORUS1",
+      "text": "Thread the tree line down to the stake"
+    },
+    {
+      "bar": 35,
+      "beat": 1.0,
+      "duration": 6.0,
+      "section": "CODA1",
+      "text": "And the light stays on all night."
+    }
+  ],
+  "sections": [
+    {
+      "bars": 8,
+      "function": "verse",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "VERSE1",
+      "start_bar": 1
+    },
+    {
+      "bars": 2,
+      "function": "prechorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "PRECHORUS1",
+      "start_bar": 9
+    },
+    {
+      "bars": 2,
+      "function": "chorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "CHORUS1",
+      "start_bar": 11
+    },
+    {
+      "bars": 2,
+      "function": "false_ending",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "FALSE_ENDING1",
+      "start_bar": 13
+    },
+    {
+      "bars": 2,
+      "function": "prechorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "PRECHORUS2",
+      "start_bar": 15
+    },
+    {
+      "bars": 2,
+      "function": "chorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "CHORUS2",
+      "start_bar": 17
+    },
+    {
+      "bars": 6,
+      "function": "tag",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "TAG1",
+      "start_bar": 19
+    },
+    {
+      "bars": 2,
+      "function": "prechorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "PRECHORUS3",
+      "start_bar": 25
+    },
+    {
+      "bars": 2,
+      "function": "chorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "CHORUS3",
+      "start_bar": 27
+    },
+    {
+      "bars": 6,
+      "function": "postchorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "POSTCHORUS1",
+      "start_bar": 29
+    },
+    {
+      "bars": 2,
+      "function": "coda",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "CODA1",
+      "start_bar": 35
+    }
+  ],
+  "title": "keep the light"
+}

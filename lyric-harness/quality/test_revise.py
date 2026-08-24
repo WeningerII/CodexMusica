@@ -1745,6 +1745,15 @@ def test_modal_rhyme_fires_on_a_passing_pair():
 #: stems: 15 pairs, all homeoteleuton, and `SHARED_SUFFIX.locations` comes
 #: back [1,1,1,1,1,2,2,2,2,3,3,3,4,4,5] -- one entry per PAIR, which is
 #: exactly the shape that printed line 1's paragraph six times.
+#: SIX `-ing` LINES, EVERY PAIR HOMEOTELEUTON. Their spelled rime is `ing` on
+#: all six, so under the M-90 ruling all 15 mandated pairs fire and every line
+#: appears 5x. RESTORED 2026-08-24 after a detour: an intermediate reading of
+#: the ruling asked whether the STEMS rhyme, which made `sing`/`ring` and
+#: `burn`/`turn` read as clean and dropped the fan-out to 3x, and the fixture
+#: was rewritten to chase it. The owner refused that reading — *"sing/ring and
+#: burn/turn. both of those fail"* — so the predicate moved and the witness did
+#: not need to. Whether it still fans out is READ off the floor in §16 check 1
+#: rather than assumed here.
 SUFFIX_PILEUP = [
     "the kettle on the windowsill is singing",
     "a neighbour up the stairwell keeps on running",
@@ -2468,17 +2477,33 @@ def test_stanza_lock_reaches_the_loop_not_only_the_grid_verb():
             os.path.join(HERE, "fixtures", name + ".blueprint.json"))
         ship[name] = {f.code for f in GR.stanza_lock(s)}
     tripped = set().union(*ship.values())
+    # ~~{DOWNBEAT_LOCKED, PHRASE_LENGTH_LOCKED}~~ and ~~FOUR of the six~~ —
+    # REPOINTED 2026-08-23 (`MISSING.md` M-75), and the movement makes this
+    # section's own claim STRONGER rather than weaker. Every lock was a
+    # fraction of SECTIONS, so appending one short section moved the
+    # denominator and silenced it; weighting each statistic by the MASS its
+    # sections carry brings two more codes out of exactly that hiding place,
+    # on these same fixtures, with no threshold touched:
+    #   `function_fixture` — eight 2-bar sections and a ONE-BAR outro.
+    #       `equal_section_length` read 8/9 = 0.889 and missed by a
+    #       hundredth; by bars it is 16/17 = 0.941.
+    #   `mandate_song`      — 24/8/24/8 bars of 4/4 and a ONE-BAR outro.
+    #       `bars_multiple_of_four` read 4/5 = 0.800, so ONE BAR IN
+    #       SIXTY-FIVE was worth a fifth of the statistic; by bars it is
+    #       64/65 = 0.985.
+    # So "firing on the repo's own fixtures and reporting to nobody" was true
+    # of FOUR codes, not two, and the two extra were hidden by the duck this
+    # very section is about.
     check("the shipped fixtures were ALREADY tripping this layer and "
           "reporting it nowhere — not an untested check, a silent one",
-          tripped == {"DOWNBEAT_LOCKED", "PHRASE_LENGTH_LOCKED"},
+          tripped == {"DOWNBEAT_LOCKED", "PHRASE_LENGTH_LOCKED",
+                      "SECTION_LENGTH_LOCKED", "METER_LOCKED"},
           "; ".join(f"{k}: {sorted(v) or '(none)'}" for k, v in ship.items()))
-    check("and FOUR of the six are tripped by no shipped fixture at all, "
+    check("and TWO of the six are tripped by no shipped fixture at all, "
           "which is why this test had to construct the cliché rather than "
-          "reach for one",
-          not (SHAPE - tripped - {"UNIFORM_ANACRUSIS"}) & tripped
-          and sorted(SHAPE - tripped) == ["METER_LOCKED", "QUATRAIN_LOCK",
-                                          "SECTION_LENGTH_LOCKED",
-                                          "UNIFORM_ANACRUSIS"],
+          "reach for one — it was four before the weighting, and the two that "
+          "moved were being silenced by a single one-bar tag",
+          sorted(SHAPE - tripped) == ["QUATRAIN_LOCK", "UNIFORM_ANACRUSIS"],
           sorted(SHAPE - tripped))
 
     # DOCTRINE 17, FOUND ON THE WAY IN AND DELIBERATELY NOT "FIXED".
@@ -3331,8 +3356,25 @@ def test_rule_three_asks_whether_a_word_was_taken():
     from quality import loop as _LP
     import quality.fit as _FT
 
+    # THE PAIR WENT SINGULAR 2026-08-24, AND THE REASON IS A RULING, NOT A
+    # REPAIR. `stairs`/`glares` share the plural `-s`, so `SHARED_SUFFIX`
+    # fires on them — and that note joined `loop.MANDATORY_PURSUE` on
+    # 2026-08-23 by the owner's ruling (`MISSING.md` M-85). A pursued note
+    # holds the line open, this fixture's proposer has exactly two answers,
+    # and the loop therefore stopped at `no_progress` with the PREMISE below
+    # red. Nothing about RULE 3 — this section's actual subject — moved.
+    # `stair`/`glare` carry no shared ending, so the pursue does not fire and
+    # the section grades the rule it was written for.
+    #
+    # AND THE PURSUE WAS UNANSWERABLE ON THE OLD PAIR, RECORDED HERE BECAUSE
+    # IT IS A FINDING ABOUT THE RULING AND NOT ABOUT THIS TEST: every one of
+    # the 24 words `brief()` offered L1 for `stairs` ends in `-s` — 24 of 24 —
+    # because that is what rhyming with a plural means, so the loop was asking
+    # for a word the field cannot contain. `MISSING.md` M-90 holds that
+    # measurement and the question it puts to the owner; this fixture answers
+    # it in neither direction.
     before = ["the kitchen light is burning at half past four",
-              "and nobody came back to climb the stairs"]
+              "and nobody came back to climb the stair"]
     bp = {"_note": "constructed inline for this regression, not a fixture",
           "sections": [{"name": "V1", "bars": 2, "start_bar": 1,
                         "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
@@ -3342,17 +3384,17 @@ def test_rule_three_asks_whether_a_word_was_taken():
     sub = _FT.Subdivision(2, source="constructed for this regression")
     kw = dict(blueprint=bp, subdivision=sub)
 
-    # 'four' ~ 'stairs' fails the mandate; L1 answering on 'glares' repairs
+    # 'four' ~ 'stair' fails the mandate; L1 answering on 'glare' repairs
     # the pair AND its own SLOTS_EXCEEDED, so L2 then needs only its meter.
-    ANSWERS = ["at four the kitchen light still glares",
-               "and nobody climbed the stairs"]
+    ANSWERS = ["at four the kitchen light still glare",
+               "and nobody climbed the stair"]
 
-    off, forb_ex = R.modal_field("four", exclude=("stairs",))
+    off, forb_ex = R.modal_field("four", exclude=("stair",))
     _o2, forb_raw = R.modal_field("four")
-    check("PREMISE: 'stairs' is NOT a modal candidate for 'four' under "
+    check("PREMISE: 'stair' is NOT a modal candidate for 'four' under "
           "either spelling — it reaches `forbidden_modal` only as the "
           "INCUMBENT, so the old message named the rule that did not fire",
-          "stairs" not in forb_ex and "stairs" not in forb_raw,
+          "stair" not in forb_ex and "stair" not in forb_raw,
           f"excluded={forb_ex} raw={forb_raw}")
 
     seq = list(ANSWERS)
@@ -3373,7 +3415,7 @@ def test_rule_three_asks_whether_a_word_was_taken():
     check("...and the skip is DISCLOSED rather than swallowed: 'kept a "
           "forbidden word' and 'was never on the list' are different "
           "outcomes (doctrine 20)",
-          v.get("modal_endword_unchanged") == [(2, "stairs")]
+          v.get("modal_endword_unchanged") == [(2, "stair")]
           and any("KEPT its end word" in r for r in v["reasons"])
           and not any("took the modal candidate" in r for r in v["reasons"]),
           f"{v.get('modal_endword_unchanged')}")

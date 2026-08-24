@@ -1861,6 +1861,14 @@ def line_anchors(lex, text, promote=False):
     return uniq, last, oov
 
 
+#: EVERY TAG `span_provenance` READS, named once so the guard and the body
+#: cannot disagree about the set. `_tag_span_words` and `word_syllable_map`
+#: are the two taggers and both write all six; a reader that writes fewer
+#: gets `None` from `span_provenance`, which is its documented answer.
+_PROVENANCE_KEYS = ("widx", "word", "syl_in_word", "word_syllables",
+                    "word_read", "word_unread")
+
+
 def span_provenance(anc):
     """Which WORDS a scored span covers -> dict, or None when it cannot say.
 
@@ -1871,7 +1879,14 @@ def span_provenance(anc):
     """
     if not anc:
         return None
-    if any("widx" not in s for s in anc):
+    # THE GUARD TESTS EVERY KEY THE BODY READS, since 2026-08-23. It tested
+    # `widx` alone and the body reads six, so a span tagged by a reader that
+    # supplies `widx` and not the rest passed the gate and raised `KeyError`
+    # three frames down, inside `best_score`. "Cannot say" is this function's
+    # documented answer for an untagged span and a traceback is not a way of
+    # saying it (doctrine 20); the one-key guard made the difference between
+    # those two outcomes depend on WHICH tagger had run.
+    if any(any(k not in s for k in _PROVENANCE_KEYS) for s in anc):
         return None
     runs = []
     for s in anc:
@@ -2756,16 +2771,146 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
             out["flags"].append("band_edge: identical sound, different word")
         if frozenset((la, lb)) in CLICHE_PAIRS:
             out["flags"].append("cliche_pair")
-        for suf in SUFFIXES:
-            if (la.endswith(suf) and lb.endswith(suf)
-                    and len(la) > len(suf) + 1 and len(lb) > len(suf) + 1):
-                if len(suf) <= 2 and not (
-                        la[: -len(suf)] in _KNOWN_WORDS
-                        and lb[: -len(suf)] in _KNOWN_WORDS):
-                    continue   # -er/-ed/-es/-s only count on real stems
-                out["flags"].append(f"shared_suffix: -{suf}")
-                break
+        # ONE DEFINITION, 2026-08-24 (`MISSING.md` M-90). This block was a
+        # byte-identical second copy of `quality/floor.py`'s test. It stays an
+        # ORTHOGRAPHIC observation here — a `flags` entry is a fact about the
+        # spelling and gates nothing — while the graded finding asks the
+        # stronger question `ending_carries_the_rhyme` answers.
+        _suf = shared_ending(la, lb)
+        if _suf:
+            out["flags"].append(f"shared_suffix: -{_suf}")
     return out
+
+
+def shared_ending(word_a, word_b):
+    """-> the shared grammatical ending of two words, or None.
+
+    THE ONE DEFINITION. This test was spelled TWICE — here in `score`'s value
+    flags and again in `quality/floor.py`'s `SHARED_SUFFIX` — byte-identical
+    and drifting by nothing only because nobody had touched either. Doctrine 1:
+    a second copy of a rule is how two layers start answering differently
+    about one pair.
+
+    THE STEM GUARD ON SHORT ENDINGS is the correctness engine's own and is
+    kept verbatim: without it `-ed`/`-er`/`-es`/`-s` fire on words that merely
+    END in those letters — `shed`/`bred` share no morpheme, and calling that
+    homeoteleuton is a false accusation about craft.
+
+    THIS ANSWERS ONLY *IS THERE A SHARED ENDING*. Whether that ending is the
+    WHOLE of the rhyme is `ending_carries_the_rhyme`, and the two are separate
+    functions because they are separate questions — see `MISSING.md` M-90.
+    """
+    if not word_a or not word_b:
+        return None
+    a = word_a.lower().strip().split()[-1] if word_a.strip() else ""
+    b = word_b.lower().strip().split()[-1] if word_b.strip() else ""
+    for suf in SUFFIXES:
+        if (a.endswith(suf) and b.endswith(suf)
+                and len(a) > len(suf) + 1 and len(b) > len(suf) + 1):
+            if len(suf) <= 2 and not (a[: -len(suf)] in _KNOWN_WORDS
+                                      and b[: -len(suf)] in _KNOWN_WORDS):
+                continue
+            return suf
+    return None
+
+
+#: The two answers `ending_carries_the_rhyme` can give.
+ENDING_IS_THE_RHYME = "carries"
+ENDING_IS_NOT_THE_RHYME = "survives"
+
+
+#: WORKED PAIRS AND THEIR RULED VERDICTS — the gate, and it exists because
+#: this rule was got wrong three times in one sitting by choosing example
+#: pairs BY EYE. The owner's words: *"you keep screwing this up you need to
+#: be gating this stuff instead of shooting from the hip"*. Every pair a test
+#: or a document uses as a worked case is declared HERE with its verdict, and
+#: `quality/test_floor.py` §5 drives the whole table, so a new example means
+#: declaring what it should do and having the suite check it rather than
+#: asserting it in prose. Each row is (a, b, verdict, why).
+SHARED_ENDING_CASES = (
+    # --- the ending IS the whole of the rhyme -------------------------------
+    ("singing", "ringing", ENDING_IS_THE_RHYME,
+     "sing/ring is `ing` against `ing` — the stems rhyme on nothing but an "
+     "ending of their own (owner, 2026-08-24)"),
+    ("burning", "turning", ENDING_IS_THE_RHYME,
+     "burn/turn is `urn` against `urn` — same shape one layer down"),
+    ("walking", "talking", ENDING_IS_THE_RHYME,
+     "walk/talk is `alk` against `alk`; the owner refused this pair as a "
+     "clean rhyme twice — *\"alk all my guy\"*"),
+    ("affecting", "objecting", ENDING_IS_THE_RHYME,
+     "affect/object share nothing at all, so `-ing` is plainly the whole"),
+    ("nation", "station", ENDING_IS_THE_RHYME, "`ion` against `ion`"),
+    ("admiration", "nation", ENDING_IS_THE_RHYME, "`ion` against `ion`"),
+    # --- the rhyme SURVIVES the ending --------------------------------------
+    ("glares", "stairs", ENDING_IS_NOT_THE_RHYME,
+     "`es` against `airs` — the rhyme is carried by are/air and the plural "
+     "`-s` is incidental agreement. `MISSING.md` M-90 opened on this pair"),
+    ("cares", "affairs", ENDING_IS_NOT_THE_RHYME, "`es` against `airs`"),
+    ("abhors", "doors", ENDING_IS_NOT_THE_RHYME, "`ors` against `oors`"),
+    ("adores", "roars", ENDING_IS_NOT_THE_RHYME, "`es` against `oars`"),
+    ("aches", "breaks", ENDING_IS_NOT_THE_RHYME, "`es` against `eaks`"),
+    # --- no shared ending at all, which is a third thing and not a verdict
+    #     about rhyme: the stem guard refuses `sh`/`br` as morphemes.
+    ("shed", "bred", ENDING_IS_NOT_THE_RHYME,
+     "no shared grammatical ending — neither `sh` nor `br` is a word, and "
+     "calling that homeoteleuton is a false accusation about craft"),
+)
+
+
+def ending_carries_the_rhyme(word_a, word_b, lex=None, decl=None, suffix=None):
+    """Is the shared ending the WHOLE of the rhyme? -> (verdict, ending, why).
+
+    THE OWNER'S RULING, 2026-08-24 (`MISSING.md` M-90), verbatim: the finding
+    should fire *"only when the ending is the whole of the rhyme"*.
+
+    WHAT WAS WRONG. `SHARED_SUFFIX`'s message has always read *"rhyme ONLY on
+    a shared grammatical ending"* and its test was `shared_ending` alone —
+    nothing asked whether the pair still rhymes once the ending comes off,
+    which is what the word ONLY claims. `glare`/`stair` rhyme perfectly, so on
+    `glares`/`stairs` the `-s` carries nothing and the sentence was false.
+
+    TWO CONDITIONS, AND NEITHER NEEDS A STEM: the pair shares a grammatical
+    ending, AND their SPELLED RIMES are identical. The second is tier 1's own
+    test (`spelled_rime`), which is the one definition in this repository of a
+    shared spelled ending — so "the ending is the whole of the rhyme" is read
+    as "the agreement adds nothing the ending did not already give".
+
+    THE STEM ROUTE WAS BUILT FIRST AND IS REFUTED, recorded because the
+    refutation is the reason this function is shaped the way it is. Stripping
+    the ending and re-scoring the stems needs a stemmer, and every stemmer
+    available here manufactures spellings CMUdict happens to list: measured,
+    `g2p.stem_candidates` offers `ringe`, `burne`, `walke`, `porr`, `na` and
+    `sta`, and **all six are in the lexicon and in `_KNOWN_WORDS`**, because
+    CMUdict carries surnames. So no readability filter can tell a real stem
+    from a surname, and a junk spelling defeats any guard placed after it —
+    `sing`/`ringe` reads as a clean rhyme. `morphology.segment` fails the same
+    way from the other side (`cares`->`car`, `fired`->`fir`, `boast`->`boa`).
+    A test that cannot be made sound is not made sound by being conservative.
+
+    `lex`/`decl` ARE ACCEPTED AND UNUSED, on purpose: the callers already hold
+    them and a signature that drops them would have to be chased through
+    `quality/floor.py` for no gain, while keeping them documents that this
+    answer needs NO phonology — it is decided in the orthography, where the
+    ending is declared.
+
+    EVERY WORKED PAIR IS IN `SHARED_ENDING_CASES` AND THE SUITE DRIVES IT.
+    That table is the gate: this rule was got wrong three times in one sitting
+    by picking examples by eye, and a pair chosen by eye is exactly what it
+    now forbids.
+    """
+    suf = suffix if suffix is not None else shared_ending(word_a, word_b)
+    if not suf:
+        return (ENDING_IS_NOT_THE_RHYME, None, "no shared grammatical ending")
+    a = word_a.lower().strip().split()[-1]
+    b = word_b.lower().strip().split()[-1]
+    ra, rb = spelled_rime(a), spelled_rime(b)
+    if ra == rb:
+        return (ENDING_IS_THE_RHYME, suf,
+                f"the spelled rime is {ra!r} on both sides, so the agreement "
+                f"adds nothing the shared -{suf} did not already give")
+    return (ENDING_IS_NOT_THE_RHYME, suf,
+            f"the spelled rimes differ ({ra!r} against {rb!r}), so the rhyme "
+            f"is carried by more than the shared -{suf}")
 
 
 # ---------------------------------------------------------------------------
@@ -3367,6 +3512,24 @@ def word_syllable_map(lex, text):
     is the last word the dictionary could READ, which is not in general the
     line's last word. Anything that wants the rhyme word must use
     `raw_final_token`, and `widx` is kept so a caller can see the gap.
+
+    THE FULL PROVENANCE TAG SET SINCE 2026-08-23, and it was a CRASH before.
+    This function tagged `word` and `widx`; `_tag_span_words` \u2014 the tagger on
+    the `line_anchors` path \u2014 tags those plus `syl_in_word`, `word_syllables`,
+    `word_read` and `word_unread`. `span_provenance` GUARDS on `widx` and then
+    READS all six, so a span built from this map passed the guard and died on
+    `KeyError: 'syl_in_word'` inside `best_score`. Nothing had ever handed it
+    one: `internal_matches` is this map's only in-tree consumer and it calls
+    `score()` directly, never `best_score`. The slot layer
+    (`quality/slots.py`) is the first caller to route a non-final span through
+    the full comparator, and it found this on its first probe.
+    TAGGED HERE RATHER THAN AT THE NEW CALLER, because the alternative is a
+    second tagging implementation beside `_tag_span_words` (doctrine 1), and
+    because this map is the one object that already knows every value: it
+    syllabifies word by word, so the count and the position within the word
+    are what its own loop is holding. `span_provenance`'s guard is widened in
+    the same commit to test every key it reads, so a span from a THIRD reader
+    gets the documented `None` \u2014 "cannot say" \u2014 instead of a traceback.
     """
     words = line_tokens(text, strip_parens=lex.strip_parens)
     out = []
@@ -3381,10 +3544,25 @@ def word_syllable_map(lex, text):
         final = (k == len(words) - 1)
         if lw in WEAK_ALWAYS or (lw in WEAK_NONFINAL and not final):
             phones = [re.sub(r"[12]$", "0", ph) for ph in phones]
-        for s in syllabify(phones):
+        # The hyphen halves, read exactly as `_tag_span_words` reads them:
+        # a span may name a token that is only partly the string it was built
+        # from, and a provenance record that cannot say so is the defect
+        # `token_pieces` exists to close.
+        rd, un = (token_pieces(lex, w) if HYPHEN_SPLIT.search(w)
+                  else (None, None))
+        sylls = syllabify(phones)
+        for n, s in enumerate(sylls):
             s = dict(s)
             s["word"] = w
             s["widx"] = k
+            #: 1-BASED within its word, matching `_tag_span_words`' own
+            #: `seen[w]` counter \u2014 `span_provenance.partial_word` tests
+            #: `first_syllable > 1`, so a 0-based count here would report
+            #: every span as partial.
+            s["syl_in_word"] = n + 1
+            s["word_syllables"] = len(sylls)
+            s["word_read"] = tuple(rd) if rd is not None else ()
+            s["word_unread"] = tuple(un) if un is not None else ()
             out.append(s)
     return out
 
@@ -4397,6 +4575,24 @@ the quality layer (each says which module answered):
                           (count mismatch REFUSED, never zipped). Unknown
                           forms, blocked forms and unattainable lengths
                           refuse by name with the alternatives listed
+  plan --sweep=LO-HI [--want=PRED;PRED] [the same declarations]
+                          THE SEED SWEEP, a verb since 2026-08-23 (the last
+                          instrument standing rule 3 named and left manual).
+                          A roster PERMITS and cannot COMPEL a draw to use
+                          it -- compelling would weight the dice -- so the
+                          honest way to compel is to DRAW AGAIN, and
+                          rejection sampling from a uniform proposal is
+                          uniform over the accepted set. It RETURNS SEEDS
+                          and no plan: a plan is a pure function of its
+                          seed, so run `plan --seed=N` on one and nothing
+                          carries over from the search. IT DOES NOT RANK
+                          (doctrine 7/19) and it has NO DEFAULT PREDICATE:
+                          the numbers in a --want are the caller's
+                          declaration about THIS song. Three counts, never
+                          summed -- swept, planned, REFUSED-by-the-planner
+                          -- and an empty accepted set REFUSES at exit 2
+                          with the rate, because unreachable and merely
+                          rare are different answers
   readability FILE        what the ingestion layer could not read"""
 
 
@@ -6177,6 +6373,14 @@ def main():
         # into the plan artifact and into the GRADE IT line.
         relation = _flag_value(rest, "--relation")
         funcs_raw = _flag_value(rest, "--functions")
+        # THE SEED SWEEP, A VERB SINCE 2026-08-23 (`MISSING.md` M-82, owner's
+        # ruling "make it a verb"). It was the last instrument standing rule 3
+        # named and left manual, and a song delivered through it was a song
+        # delivered through a scratch script.
+        sweep_raw = _flag_value(rest, "--sweep")
+        want_raw = _flag_value(rest, "--want")
+        rest = _strip_flag(rest, "--sweep")
+        rest = _strip_flag(rest, "--want")
         rest = _strip_flag(rest, "--relation")
         rest = _strip_flag(rest, "--functions")
         rest = _strip_flag(rest, "--seed")
@@ -6190,10 +6394,92 @@ def main():
                             "[--lines=N] [--relation=NAME] "
                             "[--functions=a,b,c] [--fill=DRAFT] "
                             "[--out=PATH]",
+                            "   or: plan --sweep=LO-HI [--want=PRED;PRED] "
+                            "[the same declarations]",
                             "an unrecognised flag is refused rather than "
                             "ignored -- a flag silently not read leaves a "
                             "plan that looks exactly like one you never "
                             "asked for"])
+        plan_kw = dict(
+            form=form,
+            lines=int(nlines) if nlines is not None else None,
+            relation=relation,
+            functions=[x for x in (funcs_raw or "").split(",") if x.strip()]
+            or None)
+        if sweep_raw is not None:
+            if seed is not None:
+                _refuse("plan takes --seed OR --sweep, never both",
+                        detail=["a sweep FINDS seeds and a seed NAMES one; "
+                                "reading both would leave a caller unable to "
+                                "tell which produced the answer"])
+            if fill is not None or out_path is not None:
+                _refuse("plan --sweep does not take --fill or --out",
+                        detail=["a sweep returns SEEDS and no plan, because "
+                                "a plan is a pure function of its seed — run "
+                                "`plan --seed=N` on one of them and the "
+                                "artifact is reproducible with nothing "
+                                "carried over from the search"])
+            lo_hi = str(sweep_raw).split("-")
+            try:
+                lo, hi = int(lo_hi[0]), int(lo_hi[-1])
+            except (ValueError, IndexError):
+                _refuse(f"--sweep={sweep_raw!r} is not a range",
+                        detail=["--sweep=LO-HI over integer seeds, e.g. "
+                                "--sweep=0-600"])
+            if hi < lo:
+                _refuse(f"--sweep={sweep_raw!r} runs backwards")
+            try:
+                wants = [PLN.parse_sweep_want(w)
+                         for w in str(want_raw or "").split(";") if w.strip()]
+                res = PLN.sweep(range(lo, hi), wants=wants, **plan_kw)
+            except PLN.PlanRefused as e:
+                _refuse(str(e))
+            print(f"  SWEEP: seeds {lo}..{hi - 1} ({res['seeds']}), "
+                  f"form={form}"
+                  + (f", lines={nlines}" if nlines else "")
+                  + (f", roster={funcs_raw}" if funcs_raw else ""))
+            if wants:
+                for nm, op, val in wants:
+                    gloss = (PLN.SWEEP_MEASURES.get(nm)
+                             or PLN.SWEEP_SETS.get(nm)
+                             or (PLN.SWEEP_ORDERS.get(nm),))[0]
+                    print(f"    WANT {nm}{op}{val} — {gloss}")
+            else:
+                print("    (no predicate declared, so every seed that plans "
+                      "at all is accepted — honest and useless, and there is "
+                      "no default: a sweep does not decide what you want)")
+            # THREE COUNTS, NEVER SUMMED (doctrine 79). `refused` is the
+            # planner turning a request down — an unattainable length, the
+            # joint gate — and charging it to the predicates would blame the
+            # declaration for the envelope.
+            print(f"    swept {res['seeds']}  planned {res['planned']}  "
+                  f"REFUSED by the planner {res['refused']}  "
+                  f"accepted {len(res['accepted'])}"
+                  + (f" ({100.0 * len(res['accepted']) / res['planned']:.1f}%"
+                     f" of the planned)" if res["planned"] else ""))
+            if not res["accepted"]:
+                _refuse(
+                    f"no seed in {lo}..{hi - 1} satisfies every declared "
+                    f"predicate",
+                    detail=[f"{res['planned']} seed(s) planned and none was "
+                            f"kept, so the declaration is unreachable in this "
+                            f"range rather than merely rare",
+                            "widen the range, or drop a predicate — and the "
+                            "acceptance rate above is the measurement that "
+                            "says which"])
+            print(f"    ACCEPTED (in seed order — this does NOT rank them; "
+                  f"doctrine 7 enforces a floor and does not order the "
+                  f"permitted region, and an argmax over a swept parameter "
+                  f"is doctrine 19's own bias):")
+            print(f"      {', '.join(str(x) for x in res['accepted'][:40])}"
+                  + (f" ... and {len(res['accepted']) - 40} more"
+                     if len(res["accepted"]) > 40 else ""))
+            print(f"    NEXT: python3 lyric_harness.py plan "
+                  f"--seed={res['accepted'][0]}"
+                  + (f" --form={form}" if form != "verse-chorus" else "")
+                  + (f" --lines={nlines}" if nlines else "")
+                  + (f" --functions={funcs_raw}" if funcs_raw else ""))
+            return 0
         try:
             the_plan = PLN.make_plan(
                 seed=int(seed) if seed is not None else None,
@@ -6247,8 +6533,26 @@ def main():
         print(the_plan["writer_brief"])
         print()
         if fill:
-            with open(fill, encoding="utf-8") as fh:
-                draft_lines = [l.rstrip("\n") for l in fh if l.strip()]
+            # THE ONE DEFINITION OF SUNG TEXT, and this verb was the SIXTH
+            # holdout from it (2026-08-23, `MISSING.md` M-83). It read the
+            # draft with a bare `open()` + `if l.strip()`, so `[SECTION]`,
+            # `#` and `--- TITLE:` all counted as LYRIC -- and the plan's
+            # own `writer_brief`, printed six lines above this one, tells
+            # the writer to lay the song out in exactly those sections. A
+            # draft that follows the brief was refused BY THE LINE COUNT,
+            # naming the draft ("declares 18 ... carries 24") for a
+            # miscount this reader made (doctrine 20). `render_song` takes
+            # the same list, so the performance-order artifact -- the
+            # no-private-instruments deliverable -- would have printed the
+            # headers as sung lines. `load_lyric_lines` also carries the
+            # strict decode, so an undecodable draft now refuses by name
+            # rather than through a third inline `encoding="utf-8"`.
+            try:
+                draft_lines = load_lyric_lines(fill)
+            except UndecodableLyricFile as e:
+                _refuse(str(e))
+            except OSError as e:
+                _refuse(f"cannot read the draft: {e}")
             try:
                 bp = PLN.fill_plan(the_plan, draft_lines)
             except PLN.PlanRefused as e:
@@ -7314,8 +7618,19 @@ def main():
                 _refuse("mandate flags were found and none was named")
 
             def _groups(raw):
-                # 1-based, ';'-separated, MAY OVERLAP
-                return [[int(x) for x in g.split(",") if x.strip()]
+                # 1-based, ';'-separated, MAY OVERLAP.
+                #
+                # MEMBERS ARE LEFT AS STRINGS since 2026-08-23 and the `int()`
+                # that stood here is gone: a member may now name WHERE in its
+                # line the requirement binds (`3.head`, `3.T2` —
+                # `quality/slots.py`), and `int()` refused those in the
+                # CLI's own words rather than the slot layer's. `mandate()`
+                # is the one definition of what a member may be — it parses
+                # a bare number and a placement alike, and refuses an unknown
+                # placement by name — so parsing here would be a second
+                # statement of it (doctrine 1). A bare number reaches
+                # `_normalise_groups` and is int()ed there exactly as before.
+                return [[x.strip() for x in g.split(",") if x.strip()]
                         for g in raw.split(";") if g.strip()]
 
             def _structs(raw):
@@ -7694,11 +8009,58 @@ def main():
                 and `song` says both out loud rather than a sum when it
                 chooses its exit code.
                 """
+                # THE LENGTH GATE, counted APART from flags and notes
+                # (doctrine 79 — three counts, never a sum). A draft whose
+                # length reaches no calibrated profile has had every
+                # length-sensitive check SKIPPED, and before 2026-08-23 that
+                # was a NOTE beside an exit 0, so "nothing could be checked"
+                # and "nothing was wrong" were the same answer to a caller
+                # reading the code. It is not promoted to a flag: a whole-
+                # draft flag would spend every round of the revise loop on a
+                # defect the loop has no move for and then report
+                # ROUND_LIMIT (the failure mode CLAUDE.md records for
+                # exactly three codes). It moves the EXIT CODE instead.
+                # LAZY, like every other `quality` import in this file: the
+                # quality package imports THIS module, so a top-level import
+                # here is a cycle.
+                from quality.floor import LENGTH_GATE_CODES
+                ungraded = [f for f in whole
+                            if f.code in LENGTH_GATE_CODES]
+                # THE BAN, COUNTED APART FROM BOTH (doctrine 79 — now four
+                # counts and still never a sum). `loop.MANDATORY_PURSUE` is
+                # the two-tier ban plus the codes the owner has since made
+                # unskippable, and its enforcement lived ONLY inside the
+                # revise loop: a line is held open there until it clears.
+                # MEASURED 2026-08-23 on `hair`/`chair` under `--groups=1,2`
+                # — the canonical tier-1 pair — the grading verb exited **0**
+                # with `HOMEOTELEUTON` printed as a note, while `revise` on
+                # the identical draft exited **3**, NO_PROGRESS, L2 held.
+                # So CLAUDE.md's own sentence, *"the ban is unskippable at
+                # any exit code"*, was true of the loop and false of the
+                # verb, and a song could be certified without the ban ever
+                # being applied to it (`MISSING.md` M-88).
+                #
+                # IT MOVES THE EXIT CODE AND NOTHING ELSE, which is the whole
+                # design. The severity is untouched and `verify()` is
+                # untouched, because re-typing one of these as a FLAG is the
+                # `MODAL_RHYME` error this repo already paid for: doctrine 7
+                # says a floor may not order the region it already passed,
+                # and a pair that RHYMES is inside it. `LENGTH_GATE_CODES`
+                # above is the precedent — a note the verb may not exit 0 on.
+                from quality.loop import MANDATORY_PURSUE
+                banned_lines = sorted({ln for (c, _sv), items in groups.items()
+                                       if c in MANDATORY_PURSUE
+                                       for ln, _f in items})
+                banned_codes = sorted({c for (c, _sv) in groups
+                                       if c in MANDATORY_PURSUE})
                 return {"briefed": len(briefs), "flags": n_flag,
                         "notes": n_note, "flagged_lines": flagged_lines,
                         "rolled_codes": len(rolled),
                         "rolled_findings": rolled_n,
-                        "whole": len(whole), "whole_flags": len(whole_flags)}
+                        "whole": len(whole), "whole_flags": len(whole_flags),
+                        "ungraded_length": len(ungraded),
+                        "banned_lines": banned_lines,
+                        "banned_codes": banned_codes}
 
             def _print_whole():
                 """BELOW the per-line half on purpose: `inspect()`'s own
@@ -8322,6 +8684,24 @@ def main():
         # Computed from the finding set, never from the rendering — the
         # rollup above collapses 48 findings into 3 rows and does not move
         # this by one (`quality/test_verbs.py` §15).
+        # THE LENGTH GATE IS CHECKED FIRST AND EXITS 2, not 3. Exit 3 means
+        # "answered, and a finding stands"; this is the harness saying it
+        # COULD NOT ANSWER about a whole layer, which is exit 2's meaning and
+        # the code `NoMandate` and an undecodable file already take. A caller
+        # in a pipeline can tell "your song has a defect" from "I cannot
+        # grade a song this length" — which is the distinction doctrine 20
+        # exists for, and which a note beside exit 0 destroyed.
+        if cmd == "song" and song_counts and song_counts.get(
+                "ungraded_length"):
+            print(f"\n  EXIT 2 — this draft's length reaches no calibrated "
+                  f"profile, so every length-sensitive check was SKIPPED. "
+                  f"The rhyme, meter and structure layers above DID report "
+                  f"and their findings stand; what is missing is the floor, "
+                  f"and a run that cannot certify may not exit 0 (doctrine "
+                  f"20). Write inside a calibrated length, calibrate this "
+                  f"one, or declare "
+                  f"`FloorDeclaration(uncalibrated_length='note')`.")
+            sys.exit(2)
         if cmd == "song" and song_counts and (song_counts["flags"]
                                               or song_counts["whole_flags"]):
             per_line = (f"{song_counts['flags']} FLAG finding(s) on "
@@ -8340,6 +8720,34 @@ def main():
                   f"measurement handed back, never a defect (doctrine 6/79)")
             sys.exit(3)
 
+        # THE BAN GATE (2026-08-23, `MISSING.md` M-88). A draft with no flag
+        # and a standing banned pair used to exit 0, which made the ban
+        # skippable by choosing the grading verb over the loop.
+        #
+        # IT SITS AFTER THE FLAG GATE, AND FOR A DAY THE COMMENT SAYING SO
+        # SAT ABOVE CODE THAT PUT IT FIRST — caught by `test_verbs.py` §16
+        # on the first CI run that could start jobs. Both gates exit 3, so
+        # the ORDER decides only which sentence a caller reads, and a
+        # flagged draft must read its flags: a flag is a defect the writer
+        # can act on line by line, while the ban names a pair to screen.
+        # Preempting the stronger signal with the narrower one is a
+        # rendering decision moving what a verdict SAYS (doctrine 91).
+        if cmd == "song" and song_counts and song_counts.get("banned_lines"):
+            _bc = ", ".join(song_counts["banned_codes"])
+            _bl = line_range(song_counts["banned_lines"])
+            print(f"\n  EXIT 3 — the two-tier ban STANDS on "
+                  f"{len(song_counts['banned_lines'])} line(s) {_bl}: {_bc}. "
+                  f"These are NOTES and stay notes — the severity is not "
+                  f"changed and `verify()` is untouched, because a pair that "
+                  f"RHYMES sits inside the region a floor may not re-order "
+                  f"(doctrine 7). What changes is that a run carrying one "
+                  f"MAY NOT EXIT 0, the same shape `LENGTH_GATE_CODES` "
+                  f"already has. Until now the ban was enforced only inside "
+                  f"`revise`, so a song could be certified here without it "
+                  f"ever being applied. Clear them with "
+                  f"`revise FILE MANDATE`, or screen the pair before writing "
+                  f"with `screen WORD WORD`.")
+            sys.exit(3)
     elif cmd == "demo":
         print("DECLARATION")
         print(decl.show())
