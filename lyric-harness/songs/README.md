@@ -132,55 +132,70 @@ without editing the planner's own output by hand.
         '--groups=1.head,2.endword;1.T2,2.T1;3,4.T2;5.T6,6.head;5.T3,6.T6;9.T4,10.headrime;9,10.T3;9.T5,10.T6;11.T6,12.headrime' \
         '--returns=7,17;7,20' --subdivision 1
 
-`song` exit 0, 0 FLAG. **`revise` SUCCESS in 0 rounds, draft UNCHANGED**
-(md5 `5e07000b0d6e`), 11 pairs mandated / 11 judged / 0 refused. The first
-song here to need no revision at all, and the reason is the screen.
-
-The sweep planned all 699 seeds in `1-699`, refused none, and accepted **6**
-(0.9%). 394 is one of them, named in seed order because a sweep does not rank.
+`song` exit 0, 0 FLAG. `revise` SUCCESS in 0 rounds, draft UNCHANGED
+(md5 `89bcde433fbe`), 11 pairs mandated / 11 judged / 0 refused.
 
 **25 lines, 23 sections, 8/8 grouped 3+3+2** — an additive limp rather than a
 march, one bar to a line, so the lines are SHORT: 8 slots on a downbeat and
-**7 on the one-beat pickup**, which is the constraint the whole draft is cut
-to. Three instrumental INTERLUDEs carry bars and no words. The hook is line 7
-and returns verbatim at 17 and 20. This is also the first song here to declare
-a `bridge`, so it does not carry `FUNCTION_UNDECLARED`, and the second to
-declare a title — "Carry It" is IN the hook, so that question is answered
-rather than refused (`MISSING.md` M-93).
+**7 on the one-beat pickup**. Three instrumental INTERLUDEs carry bars and no
+words. Hook at line 7, verbatim at 17 and 20. First song here to declare a
+`bridge`, and the second to declare a title — "Carry It" is in the hook.
 
-**THE SCREEN'S BEST DAY, AND IT COST THE WHOLE FIRST DESIGN.** Nine mandated
-pairs were drafted and screened before a line was written. **Eight came back
-BANNED as MODAL_RHYME** — `deep~leap`, `morning~warning`, `light~white`,
-`stroke~oak`, `gone~dawn`, `water~daughter`, `thunder~wonder`, `line~sign`.
-Only `strokes~oaks` survived. Every pair a writer reaches for first is
-somebody's modal answer, which is doctrine 9 enforced before a word ships
-rather than argued about after.
+**THE FIRST DRAFT PASSED EVERY GATE AND WAS NOT A SONG.** It is worth
+recording what it looked like, because nothing in this repository can tell
+the difference and a reader will otherwise assume exit 0 means the writing is
+fine:
 
-So the design was rebuilt from screened families instead of from taste. Nine
-families went through `screen`, and the yield is the measurement:
+| first draft | rewrite |
+|---|---|
+| `Tide is cussed, iron, salt, mourn` | `Father crossed tide, ice and war` |
+| `Over. Over. The far bank.` | `He went last winter. Quick, they said.` |
+| `A name on every crate` | `He said that. Now I say it.` |
 
-| family | clean pairs | of |
-|---|---|---|
-| `-eight/-ait` (freight, strait…) | 1 | 15 |
-| `-ay` (weigh, grey, prey, sleigh…) | 5 | 15 |
-| `-ide` (tide, sighed, dyed, wide…) | 6 | 15 |
-| `-ell` (bell, knell, quell, gel…) | 7 | 15 |
-| `-ust` (rust, dust, cussed…) | 4 | 15 |
-| `-ark` (spark, arc, hark, lark…) | 3 | 15 |
-| `-or` (oar, shore, soar, war, door…) | 3 | 15 |
-| `-orn` (torn, borne, mourn…) | 1 | 15 |
-| `-old` (cold, rolled, tolled, hauled…) | **0** | 15 |
+The left column is atmosphere stacked into token positions. It happened
+because the order got inverted: eight of nine screened pairs came back
+BANNED, so the design was rebuilt by shopping for rhyme WORDS and then
+building lines backwards from *token 6 must be `arc`, at most 7 syllables*.
+The words chose the sentences. `Tide is cussed, iron, salt, mourn` is what
+falls out when a line needs six tokens with rhymes pinned at 3 and 6 and the
+writer stops insisting it be a sentence.
 
-`-old` is the `hedge` case again: **not one usable pair in the whole family**
-— every member is either homoeoteleuton with the others or somebody's modal
-answer. A family can have a rhyme CEILING of zero, and `screen` says so for
-the price of one command.
+**THE REWRITE KEEPS EVERY CONSTRAINT AND CHANGES THE ORDER OF WORK.** Same
+seed, same 9 groups, same slot budget, every pair still screened first — but
+each line is written as something a person says, and the pin word is chosen
+from the clean set that *fits that sentence*. Three people now: a father who
+crossed in the war, the speaker he taught, and the boy being taught tonight.
+The hook is inherited rather than stated — `He said that. Now I say it.` —
+and the last line is what happens to an inherited instruction when the person
+who gave it is gone.
 
-The three flags the grader did raise were all `SLOTS_EXCEEDED`, and all of
-them were the pickup: a one-beat pickup eats a slot, so a CHORUS line has
-seven and not eight. `wire` cost one on its own — CMUdict reads it as two
-syllables (`W AY1 ER0`), which is exactly the kind of thing a syllable count
-in the head gets wrong and a grader does not.
+**WHAT THE SCREEN COST, AND THE TWO FAMILIES THAT COST EVERYTHING.** Eleven
+families went through `screen`; the clean yield per family is the
+measurement:
+
+| family | clean pairs of 15 |
+|---|---|
+| `-ell` (bell, knell, quell, gel…) | 7 |
+| `-ear` (year, here, near, fear, clear, sheer) | 7 |
+| `-ide` (tide, sighed, dyed, wide…) | 6 |
+| `-ay` (weigh, grey, prey, sleigh…) | 5 |
+| `-ust` (rust, dust, bust ~ cussed) | 4 |
+| `-ark` (spark, arc, hark, lark) | 3 |
+| `-or` (oar, shore, soar, war, door) | 3 |
+| `-orn` (torn, borne, mourn…) | 1 |
+| `-eight/-ait` (freight, strait…) | 1 |
+| `-old` (cold, rolled, tolled, hauled…) | **0** |
+| `-ame` (name, came, blame, shame…) | **0** |
+
+Two families have a rhyme CEILING of zero: every member is either
+homoeoteleuton with the others or somebody's modal answer. `-ame` is the
+starker case — `name`, `came`, `blame`, `shame`, `claim`, `flame`, and not
+one usable pair among all fifteen.
+
+**AND THE SLOT FLAGS WERE ALL THE PICKUP.** Every `SLOTS_EXCEEDED` came from
+a one-beat pickup eating a slot, so a CHORUS line has seven and not eight.
+`wire` cost one on its own — CMUdict reads it as two syllables (`W AY1 ER0`),
+which is what a count in the head gets wrong and a grader does not.
 
 ---
 
