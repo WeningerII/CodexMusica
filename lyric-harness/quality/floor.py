@@ -1478,7 +1478,6 @@ class SlopFloor:
         if sev is None:
             sev = lambda default: default  # noqa: E731
         out, cliche, suffix, repeat = [], [], [], []
-        suffix_refused = []
         stripped, runs = [], {}
         for i, j in pairs:
             if i >= len(lines) or j >= len(lines):
@@ -1650,23 +1649,17 @@ class SlopFloor:
             # the field cannot contain (39 of 39 words that rhyme with
             # `stairs` end in `-s`).
             #
-            # MEASURED over `data/song_rhymepair_en.tsv`'s 23,853 pairs:
-            # 3,884 fired before, 152 fire now, 3,510 are rhymes that survive
-            # their ending, 222 are REFUSED for an unreadable stem. A refusal
-            # is not a firing and is not a clean pair — it is counted apart
-            # (doctrine 79) and reported as its own note.
-            #
-            # THE 3,510 IS NOT WHAT THIS FREES, and the difference was the
-            # owner's correction rather than a rounding: 2,776 of them are
-            # TIER-1 HOMEOTELEUTON and stay banned outright, so **734** is
-            # the population this ruling actually releases. A pair a stronger
-            # gate still refuses was never freed by a weaker one.
+            # THE TEST IS ORTHOGRAPHIC AND HAS NO STEMMER IN IT. Two
+            # conditions: a shared grammatical ending, AND the same SPELLED
+            # RIME on both sides. The second is tier 1's own `spelled_rime`,
+            # so "the ending is the whole of the rhyme" reads as "the
+            # agreement adds nothing the ending did not already give".
+            # `lyric_harness.ending_carries_the_rhyme` carries the argument,
+            # including why the stem route was built and then refuted.
             verdict, suf, why = _lh.ending_carries_the_rhyme(
                 a, b, self.qf.lex, self.qf.decl)
             if verdict == _lh.ENDING_IS_THE_RHYME:
                 suffix.append((i + 1, j + 1, f"-{suf} ({why})"))
-            elif verdict == _lh.ENDING_UNREADABLE:
-                suffix_refused.append((i + 1, j + 1, f"-{suf}: {why}"))
         if cliche:
             n_list = len(self.decl.cliche_pairs)
             shipped = self.decl.cliche_pairs == frozenset(CLICHE_PAIRS)
@@ -1760,20 +1753,6 @@ class SlopFloor:
                   "incidental agreement, not the rhyme (owner's ruling, "
                   "`MISSING.md` M-90)",
                 [i for i, _, _ in suffix]))
-        if suffix_refused:
-            # NOT SILENCE AND NOT A CHARGE. The stem could not be read, so
-            # whether the rhyme survives its ending was never measured;
-            # reporting nothing would read as a clean pair (doctrine 20) and
-            # firing would enforce a claim nobody tested. Counted apart from
-            # SHARED_SUFFIX and never summed with it (doctrine 79).
-            out.append(Finding(
-                "SHARED_SUFFIX_UNJUDGED", "note",
-                f"{len(suffix_refused)} pair(s) share a grammatical ending "
-                f"whose stems this phonology cannot read",
-                "; ".join(s for _, _, s in suffix_refused)
-                + ". So whether the rhyme survives the ending is UNKNOWN "
-                  "here rather than answered either way. Nothing is charged",
-                [i for i, _, _ in suffix_refused]))
         # `rsev` again, for the same reason: this loop variable shadowed the
         # gate too. REPEAT_IN_VERSE does NOT go through it — see the
         # docstring — so the severity here is the one decided above.

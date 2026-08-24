@@ -10122,59 +10122,61 @@ whole of the rhyme?
 **RULED THE SAME DAY — _"only when the ending is the whole of the rhyme"_, and
 the code now tests the sentence its own message has always made.**
 
-**`lyric_harness.ending_carries_the_rhyme` IS THE PREDICATE.** Strip the shared
-ending, read the stems, ask the harness's own comparator whether they still
-rhyme. Three answers, never two: the ending CARRIES the rhyme (fire), the rhyme
-SURVIVES the ending (silent), or a stem is UNREADABLE (refused).
+**TWO CONDITIONS, AND NEITHER NEEDS A STEM.** The pair shares a grammatical
+ending, AND their SPELLED RIMES are identical. The second is tier 1's own
+`spelled_rime`, the one definition in this repository of a shared spelled
+ending, so _the ending is the whole of the rhyme_ reads as _the agreement adds
+nothing the ending did not already give_.
 
-**CONSERVATIVE OVER STEM FORMS, AND THAT IS THE LOAD-BEARING CHOICE.** A
-residue has several plausible spellings and `g2p.stem_candidates` is the
-declared table of them; if ANY readable pairing rhymes, the rhyme survives.
-Taking the first candidate is what makes a stemmer accuse a good rhyme, and it
-was MEASURED rather than feared: `morphology.segment` reads `cares` as `car`,
-`fired` as `fir`, `hides` as `hid` and `boast` as `boa`+`-st`, and a
-first-candidate rule charges `affairs`/`cares` and `admired`/`fired` — both of
-which rhyme at the stem. That reading was built, run over all 23,853 pairs, and
-**refuted**; the record of it is here rather than in a deleted branch.
+**THE STEM ROUTE WAS BUILT FIRST, SHIPPED, AND REFUTED BY THE OWNER TWICE —
+recorded in full because the refutation is why the shipped rule has the shape
+it has.** Strip the ending, re-score the stems, call the ending incidental if
+they still rhyme. It was wrong at BOTH ends:
 
-**AN UNREADABLE STEM IS REFUSED, NEVER FIRED** (doctrine 20/79).
-`admiration`/`constellation` leaves `admir`/`constell`, which CMUdict cannot
-read, so whether the rhyme survives was not measured. `SHARED_SUFFIX_UNJUDGED`
-is its own code, counted apart and never summed with the finding beside it —
-firing there would enforce an unmeasured claim, and silence would read as a
-clean pair.
+1. **The stems rhyming is not enough.** _"sing/ring and burn/turn. both of
+   those fail."_ `sing`/`ring` is `ing` against `ing` and `burn`/`turn` is
+   `urn` against `urn` — those stems rhyme on nothing but an ending of their
+   own, so the reading answered the question one layer down and stopped. The
+   same correction had already been given once, on `walk`/`talk` — _"alk all
+   my guy"_ — and the first response was to change the EXAMPLE rather than the
+   rule, which is the error this entry exists to record.
+2. **No stemmer here can be made sound.** MEASURED: `g2p.stem_candidates`
+   offers `ringe`, `burne`, `walke`, `porr`, `na` and `sta`, and **all six are
+   in `Lexicon.entries` AND in `_KNOWN_WORDS`**, because CMUdict carries
+   surnames. So no readability filter separates a real stem from a surname and
+   a fabricated spelling defeats any guard placed after it — `sing` against
+   `ringe` reads clean. `morphology.segment` fails the same way from the other
+   side (`cares`->`car`, `fired`->`fir`, `boast`->`boa`+`-st`), charging
+   `affairs`/`cares` and `admired`/`fired`, which rhyme at the stem. A test
+   that cannot be made sound is not rescued by being conservative.
 
-**MEASURED, over the same 23,853 pairs: ~~3,884 (16.28%)~~ -> 152 (0.64%).**
-**3,510** are rhymes that survive their ending and **222** are refused. By
-ending, the firings are `-ation` 44, `-s` 40, `-ing` 23, `-er` 11, `-ly` 8,
-`-ed` 7, `-sion` 7, `-tion` 4, `-ity` 4, `-ition` 2, `-ous` 2 — the
-derivational, stress-bearing endings, which is the classic complaint and not a
-slice of ordinary verse.
+**MEASURED, over `data/song_rhymepair_en.tsv`'s 23,853 pairs:
+~~3,884 (16.28%)~~ -> 3,132 (13.13%). 752 stop firing.** Tier-1 HOMEOTELEUTON
+bans 13,710 of the same population (57.48%).
 
-**AND ~~3,510~~ IS NOT WHAT THE RULING FREES — THE OWNER CAUGHT THAT THE HOUR
-IT SHIPPED.** The first fixture offered `walking`/`talking` as "a real rhyme
-this ruling stops charging"; the ruling: _"walk/talk does not pass. alk all my
-guy"_. Measured, and they are right in the coordinate rather than in the
-wording: `spelled_rime` reads `walk` and `talk` both as `alk` and
-`walking`/`talking` both as `ing`, so the pair is TIER-1 HOMEOTELEUTON and
-stays banned outright. **A pair a stronger gate still refuses was never freed
-by this one.**
-**THE HONEST FIGURE IS 734** — silenced here AND not banned by tier 1 —
-against 3,510 silenced in total, the other **2,776** of which tier 1 bans
-anyway. `abhors`/`doors`, `adores`/`roars`, `affairs`/`cares`, `aches`/`breaks`
-are what that population actually looks like.
+**AND THE HONEST CONSEQUENCE IS THAT THE NOTE IS NOW A STRICT SUBSET OF TIER 1
+— 0 of its 3,132 firings are pairs the outright ban does not already refuse,
+BY CONSTRUCTION**, since the rule is tier 1 restricted to pairs that also share
+a grammatical ending. It survives on doctrine 24: it RELABELS, naming a
+morphological reading of a pair the ban names sonically. What it stops doing is
+charging `abhors`/`doors`, `adores`/`roars`, `aches`/`breaks` — pairs whose
+rime spellings differ, where the plural was incidental.
 
-**WHAT IT COSTS, STATED RATHER THAN BURIED: of the 152 that fire, tier-1
-HOMEOTELEUTON already bans 134 outright and 18 it does not.** So the note is
-close to redundant with a stronger gate. That is a fact about the ruling and
-not an argument against it — the 734 it frees are the point, and doctrine 24 is
-why it stays: it RELABELS, naming a morphological reading of a pair the tier-1
-ban names sonically.
+**THE ENFORCEMENT PROBLEM THIS ENTRY OPENED ON IS CLOSED BY CONSTRUCTION.**
+`glares`/`stairs` is `es` against `airs`, so it answers `survives` and the
+pursue that had 0 legal answers in a 39-word field never fires. The promotion
+(`M-85`) is untouched and `loop.MANDATORY_PURSUE` is unchanged.
 
-**AND THE ENFORCEMENT PROBLEM THIS ENTRY OPENED ON IS CLOSED BY CONSTRUCTION.**
-`glares`/`stairs` now answers `survives` (`glare`/`stair` rhyme without the
-`-s`), so the pursue that had 0 legal answers in a 39-word field never fires.
-The promotion (`M-85`) is untouched and `loop.MANDATORY_PURSUE` is unchanged.
+**AND THE GATE IS THE POINT, in the owner's words: _"you keep screwing this up
+you need to be gating this stuff instead of shooting from the hip"_.** Three
+worked pairs were chosen by eye in one sitting and all three were wrong.
+`lyric_harness.SHARED_ENDING_CASES` is a DECLARED TABLE of worked pairs and
+their ruled verdicts; `quality/test_floor.py` §5 drives the whole of it and
+writes no pair of its own, so adding an example means declaring what it must do
+and having the suite check it. The section also asserts the table carries BOTH
+verdicts, and that the survivors really do share an ending — so only the
+spelled-rime condition is holding them back and the check cannot pass
+vacuously.
 
 **ONE DEFINITION, WHICH IS THE OTHER HALF.** The ending test was spelled TWICE
 — `lyric_harness.score`'s value flags and `quality/floor.py`'s finding, byte
@@ -10183,16 +10185,11 @@ proves it: **M29 and QF3 were both re-anchored onto it** and 58/58 mutations
 apply, where before each moved one copy and could pass while the two halves of
 the repository disagreed about one pair.
 
-**BOOKKEEPING**: `gate_census.PINNED` ~~codes 71 / disclosed_only 48~~ ->
-**72 / 49** (`SHARED_SUFFIX_UNJUDGED`, ruled `REFUSAL`); gated is unmoved at 23. `quality/test_floor.py` §5 is repointed onto `cares`/`stairs`, and it now
-ASSERTS its control is tier-1 clean — a control the stronger gate bans is not
-a control, which is precisely what `walking`/`talking` was.
+**BOOKKEEPING**: `gate_census.PINNED` is UNMOVED at 71 codes / 23 gated / 48
+disclosed-only — an intermediate version added a `SHARED_SUFFIX_UNJUDGED`
+refusal for an unreadable stem, and the stemless rule cannot produce one, so
+the code was removed rather than left declared and dead.
 
-~~**TESTED WHILE OPEN** — `quality/test_revise.py` §41 names this entry and
-guards nothing in it.~~ **STRUCK the same day: the entry is CLOSED, so the
-declaration it needed while open no longer applies** (`triage.py` only asks it
-of an OPEN entry). The citation stands and is still a pointer, not a guard —
-§41 grades RULE 3 and would grade it identically under either answer.
 
 ### M-91 · the tier-1 prompt said "end word" whatever the mandate bound `CLOSED` — 2026-08-24
 **FOUND BY `test_propose.py` §7c, EXACTLY AS THAT GUARD PREDICTED.** It

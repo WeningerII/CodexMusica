@@ -591,15 +591,6 @@ DISPOSITION = {
     # error verbatim: `verify()` gates on flags, so it would start rejecting
     # revisions for introducing one.
     "SHARED_SUFFIX": "PROMOTED",
-    # ITS COMPANION REFUSAL, 2026-08-24 (`MISSING.md` M-90). The owner ruled
-    # that `SHARED_SUFFIX` fires only when the ending is the WHOLE of the
-    # rhyme, which means the stems have to be read — and on 222 of the 3,884
-    # pairs the old test fired on, CMUdict cannot read one
-    # (`admiration`/`constellation` leaves `admir`/`constell`). Charging those
-    # would enforce a claim nobody measured; staying silent would read as a
-    # clean pair. It is a REFUSAL and is counted apart from the finding it
-    # sits beside, never summed with it (doctrine 79).
-    "SHARED_SUFFIX_UNJUDGED": "REFUSAL",
 
     # --- quality/revise.py: almost none of these is about the DRAFT.
     "BAND_UNJUDGED": "REFUSAL",
@@ -707,7 +698,7 @@ def by_disposition(c=None):
 #: planner emitted a hook into a section it drew once in 219 of 400 seeds, and
 #: that derivation is repaired in the same commit, so the flag's live target
 #: is a hand-written blueprint or a recovered song rather than a plan.
-PINNED = {'codes': 72, 'gated': 23, 'disclosed_only': 49, 'undecidable': 0,
+PINNED = {'codes': 71, 'gated': 23, 'disclosed_only': 48, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 
