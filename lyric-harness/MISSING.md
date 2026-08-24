@@ -10396,3 +10396,42 @@ with `[INTRO — 2 lines — 2 bars of 8/8, one-beat pickup]` flattened to
 the artifact, and `plan --fill` already prints them. That is a standing
 instruction, not a gate, and it is recorded here as the part that has no
 enforcement rather than left to look enforced.
+
+### M-97 · the flattened section bracket had no jurisdiction over it — now it has a Stop hook `CLOSED` — 2026-08-24
+**M-96 CLOSED THE FILE AND LEFT THE MESSAGE OPEN, AND THAT WAS THE HALF THAT
+KEPT COSTING THE OWNER A TRIP BACK IN HERE.** Its own last paragraph said no
+check in a repository can read a chat reply, and treated *never retype a
+song* as a standing instruction. A standing instruction is a note. The owner's
+rule is that a note is a RECORD and only a gate is an ENFORCEMENT, and this
+one had been broken six or seven times.
+
+**IT IS NOT TRUE THAT NOTHING CAN READ THE MESSAGE.** A Claude Code **Stop
+hook is handed the transcript path**. That is precisely the jurisdiction the
+tree does not have, and it was available the whole time.
+
+`quality/check_render_form.py` finds every section bracket in a blob and
+refuses the ones whose INSIDE carries no ` — ` apparatus clause — the form
+`quality/plan.py:section_header` builds and every renderer uses. Wired at
+`.claude/settings.json` → `Stop` → `.claude/render_form_hook.sh`, it runs
+against the turn about to be delivered and **exits 2, which blocks it** and
+feeds the reason back. Measured end to end in `test_render_form.py` §6:
+flattened turn → 2, built turn → 0, and `stop_hook_active` honoured so it
+blocks ONCE and can never trap a session.
+
+**ONE DECLARED ESCAPE, DECLARED IN THE TEXT** (the shape `triage.py` uses for
+`TESTED WHILE OPEN`): a lyric FILE legitimately carries bare `[VERSE1]`
+markers — that is the form `songs/*.txt` stores and M-96 requires — so text
+saying `RAW LYRIC FILE` is passed. A single bracketed word is prose (`[NOTE]`)
+and is not refused; the floor is two.
+
+**THE INSTRUMENT'S OWN SUITE CAUGHT THE INSTRUMENT.** The first regex was
+`\[([A-Z][A-Z0-9_]*)\]` — it matched ONLY the bare form, so the CORRECT form
+was not recognised as a bracket at all and §2 measured **zero headers on a
+seed that builds twenty-three**. A detector that cannot see the right answer
+cannot report the wrong one as a minority; the count it printed was a count
+of defects wearing the name of a count of sections. Fixed to capture the
+bracket's interior, and the apparatus is now tested against that interior
+rather than the whole line, so a dash in a LYRIC can no longer excuse a
+stripped bracket. The suite also drives the real `section_header` for all 23
+sections of seed 394, so a change to the separator goes red here rather than
+in a message weeks later.
