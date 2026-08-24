@@ -1356,6 +1356,20 @@ SWEEP_MEASURES = {
     "slots_per_line": ("the widest line's slot capacity",
                        lambda p: max([float(s["duration"]) * p["subdivision"]
                                       for s in p["line_slots"]] or [0])),
+    "hook": ("the hook's line number, or 0 where this shape declares none. "
+             "`hook>=1` asks for a song that HAS a hook, which since "
+             "`MISSING.md` M-84 means a shape whose hook sits in a function "
+             "the plan drew more than once — a hook is defined by RETURN, so "
+             "before that repair this coordinate could not be asked for "
+             "honestly",
+             lambda p: p.get("hook_slot") or 0),
+    "returns": ("how many RETURN CLASSES this plan declares — sets of lines "
+                "that must come back WORD FOR WORD. `returns>=1` asks for a "
+                "shape whose repeat is structural rather than something the "
+                "writer has to arrange by hand, which is what makes a hook "
+                "recur without a second set of rhyme pins fighting the first",
+                lambda p: len([g for g in str(p.get("returns") or "").split(";")
+                               if g.strip()])),
     "pins_per_line": ("the most words any one line is bound at — the "
                       "coordinate `M-79`'s Finding 3 says has none",
                       lambda p: max(_sweep_pins(p).values() or [0])),

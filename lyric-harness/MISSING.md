@@ -9887,3 +9887,50 @@ for. `audit_register.PINNED["coverage_entries"]` ~~143~~ -> **144**.
 `HOOK_DOES_NOT_RECUR`, `TITLE_NOT_IN_HOOK`) and `test_grid.py` pins it as a
 DECLARED SET, so a fourth cannot drift in; the five convention locks beside
 them are asserted still notes, so promoting three did not open the family.
+
+### M-87 · the sweep gained the two coordinates a hook needs, because `M-84` made one askable `CLOSED` — 2026-08-23
+**FOUND BY WRITING THE NEXT SONG.** `M-84` made `HOOK_DOES_NOT_RECUR` a flag
+and repaired the planner so a hook is only ever declared in a function drawn
+more than once. That changed what a writer must ask the sweep for: a shape
+with a REAL hook. `SWEEP_MEASURES` could not express it, and finding one by
+looping `make_plan` in a scratch script is the defect standing rule 3 exists
+to end — the more so in the very verb that rule produced.
+
+**TWO MEMBERS, BOTH READING A COORDINATE THE PLAN ALREADY DISCLOSES**, which
+is the vocabulary's own admission rule (`M-82`): `hook` is `hook_slot` or 0,
+and `returns` counts the declared return classes. Neither invents a
+measurement, so neither is a second planner (doctrine 58).
+
+**AND `hook>=1` COULD NOT HAVE BEEN ASKED HONESTLY BEFORE `M-84`.** Under the
+old derivation every plan with a chorus declared a hook, so the predicate
+would have selected 100% of them while 54.8% named a section drawn once — it
+would have answered a question about a coordinate that did not yet mean what
+its name says.
+
+**MEASURED WHILE USING THEM, and the number is the useful part.** Over 600
+seeds: **412 declare a hook, 304 declare returns, and 304 declare BOTH** —
+every returns-bearing plan has a hook, which follows, since a declared return
+IS a recurring function. What killed the first search was none of those:
+`lines_per_section>=2` passes only **17 of the 304**, because a declared
+return almost always arrives with a one-line section beside it. That is a
+real fact about the pattern grammar and it is recorded here rather than
+worked around, since the honest fix for a caller is to drop the predicate,
+which the sweep's own refusal already tells them (*"widen the range, or drop
+a predicate — and the acceptance rate above is the measurement that says
+which"*).
+
+**COVERED BY THE EXISTING GATE RATHER THAN A NEW ONE**: `test_plan.py` §10
+walks `SWEEP_MEASURES` and requires every member to read a real plan without
+inventing anything, so a new coordinate is exercised the moment it is
+declared — which is what that check was built for.
+
+**AND ONE TEST WENT RED FOR THE RIGHT REASON, REPOINTED NOT RELAXED.**
+`test_loop.py`'s whole-draft check compared `LoopResult.whole_flags` against a
+HAND-LISTED pair and went red when `TITLE_NOT_IN_HOOK` joined the family
+(`M-86`): the result read `['LEXICAL_MONOTONY', 'HOOK_ABSENT',
+'TITLE_NOT_IN_HOOK']`. The check's INTENT is doctrine 1 — the writer is shown
+the SAME object the result discloses, not a second derivation — and a literal
+pair never expressed that; it expressed the family's size on the day it was
+written. It compares the FULL SETS now, which is strictly stronger: a fourth
+whole-draft flag is covered automatically instead of breaking the section.
+115/0.

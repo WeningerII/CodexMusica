@@ -769,14 +769,25 @@ def test_propose_sees_the_whole_draft_rubric():
     check("so does LEXICAL_MONOTONY -- the floor's whole-draft flag, and the "
           "other half of the pair this loop can never ask for",
           "LEXICAL_MONOTONY" in seen_whole)
+    # REPOINTED 2026-08-23 (`MISSING.md` M-86). This compared `whole_flags`
+    # against a HAND-LISTED pair, so it went red the moment the whole-draft
+    # flag family grew — `TITLE_NOT_IN_HOOK` joined it by owner ruling and the
+    # result became `['LEXICAL_MONOTONY', 'HOOK_ABSENT', 'TITLE_NOT_IN_HOOK']`.
+    # The check's INTENT is doctrine 1 — the writer is shown the SAME object
+    # the result discloses, not a second derivation of it — and a literal pair
+    # never expressed that; it expressed the family's size on the day it was
+    # written. Comparing the FULL SETS is what the intent actually says, and
+    # it is strictly stronger: a fourth whole-draft flag is covered
+    # automatically instead of breaking the section.
+    shown_flags = {f.code for _b, w in seen for f in w
+                   if getattr(f, "severity", "") == "flag"}
     check("what the writer was shown is EXACTLY what the result discloses: "
           "one source (`inspect()['whole']`), not two derivations of it "
           "(doctrine 1)",
-          {f.code for f in res.whole_flags} == {c for c in seen_whole
-                                                if c in ("HOOK_ABSENT",
-                                                         "LEXICAL_MONOTONY")}
-          == {"HOOK_ABSENT", "LEXICAL_MONOTONY"},
-          f"result {[f.code for f in res.whole_flags]}")
+          {f.code for f in res.whole_flags} == shown_flags
+          and {"HOOK_ABSENT", "LEXICAL_MONOTONY"} <= shown_flags,
+          f"result {sorted(f.code for f in res.whole_flags)} vs shown "
+          f"{sorted(shown_flags)}")
     # AND IT IS NOT ON THE `Brief`, which is the point of passing it
     # separately: a Brief is per-LINE, and these findings name no line.
     per_line = {f.code for b, _w in seen for f in b.findings}
