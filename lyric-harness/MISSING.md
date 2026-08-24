@@ -9934,3 +9934,62 @@ pair never expressed that; it expressed the family's size on the day it was
 written. It compares the FULL SETS now, which is strictly stronger: a fourth
 whole-draft flag is covered automatically instead of breaking the section.
 115/0.
+
+### M-88 · the two-tier ban was enforced in the loop and skippable at the grading verb `CLOSED` — 2026-08-23
+**FOUND BY THE OWNER ASKING WHY A DELIVERED SONG HAD NOT BEEN RUN THROUGH
+`revise`.** The first answer is a confession: the session skipped it. The
+second is the defect, and it is the larger one — **nothing stopped it.**
+
+**`revise` IS THE BAN'S ENFORCEMENT.** `loop.MANDATORY_PURSUE` holds a line
+open until the pair clears and the CLI exits nonzero if it does not; that is
+mechanism 2 of `gate_census`'s three. The GRADING verb read the identical
+finding as a NOTE and exited 0.
+
+**MEASURED on `hair`/`chair`** — the canonical tier-1 pair, one of the three
+CLAUDE.md records as beating the single top-N cliff and forcing the two tiers
+— under `--groups=1,2`:
+
+| verb | exit | verdict |
+|---|---:|---|
+| `brief` | **0** | `HOMEOTELEUTON` printed as a note; passes |
+| `revise` | **3** | NO_PROGRESS after 2 rounds, L2 held open |
+
+**SO CLAUDE.md'S OWN SENTENCE WAS HALF FALSE.** *"The instructions now say the
+ban is unskippable at any exit code"* (2026-08-19, the connector's field
+failure) was true of the LOOP and false of the VERB, and the same paragraph
+records what that costs: a site's chat planned, wrote and graded a song whose
+every intended rhyme was on the ban, **43 banned pairs**, and presented it as
+finished. That was diagnosed as the wrap not carrying the loop. It is wider
+than the wrap — the CLI has the identical hole, and any caller who reaches for
+the grader instead of the loop skips the ban.
+
+**THE FIX MOVES THE EXIT CODE AND NOTHING ELSE.** The severity is untouched
+and `verify()` is untouched, because re-typing one of these as a FLAG is the
+`MODAL_RHYME` error this repository already paid for: doctrine 7 says a floor
+may not order the region it already passed, and a pair that RHYMES is inside
+it. `floor.LENGTH_GATE_CODES` is the precedent verbatim — *"the codes a verb
+may not exit 0 on"* — and this is the second member of that species. The
+refusal NAMES the code and the lines, and points at both remedies (`revise` to
+clear, `screen` to avoid).
+
+**COUNTED APART FROM FLAGS, NOTES AND THE LENGTH GATE** — four counts now and
+still never a sum (doctrine 79). The ban gate is checked AFTER the flag gate
+so a flagged draft still reports its flags; both exit 3 and the stronger
+signal keeps the message.
+
+**NO DELIVERED SONG MOVES**: both songs written this sitting re-grade at
+**exit 0** — they carry no banned pair, which is what the pre-writing `screen`
+was for. The gate fires on the ban, not on the fixture.
+
+**THE CONTROL WAS WRONG FIRST AND THAT IS WORTH RECORDING.** `test_verbs.py`
+§42's clean fixture began as `hair`/`floor`, which do not rhyme — so it exited
+3 on `SCHEME_VIOLATION` and would have "passed" the section for entirely the
+wrong reason, certifying a gate that fires on everything. It is `stair`/`spare`
+now, a screened-clean perfect rhyme, so the ONLY difference between the two
+fixtures is the ban itself.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~145~~ -> **146**.
+`gate_census` is UNMOVED at 23/48: these codes were already counted as GATED
+through `MANDATORY_PURSUE`, and this entry adds a second mechanism to codes
+that had one rather than a gate to codes that had none — which is why the
+census is right not to move and why the hole was invisible to it.

@@ -7896,12 +7896,41 @@ def main():
                 from quality.floor import LENGTH_GATE_CODES
                 ungraded = [f for f in whole
                             if f.code in LENGTH_GATE_CODES]
+                # THE BAN, COUNTED APART FROM BOTH (doctrine 79 — now four
+                # counts and still never a sum). `loop.MANDATORY_PURSUE` is
+                # the two-tier ban plus the codes the owner has since made
+                # unskippable, and its enforcement lived ONLY inside the
+                # revise loop: a line is held open there until it clears.
+                # MEASURED 2026-08-23 on `hair`/`chair` under `--groups=1,2`
+                # — the canonical tier-1 pair — the grading verb exited **0**
+                # with `HOMEOTELEUTON` printed as a note, while `revise` on
+                # the identical draft exited **3**, NO_PROGRESS, L2 held.
+                # So CLAUDE.md's own sentence, *"the ban is unskippable at
+                # any exit code"*, was true of the loop and false of the
+                # verb, and a song could be certified without the ban ever
+                # being applied to it (`MISSING.md` M-88).
+                #
+                # IT MOVES THE EXIT CODE AND NOTHING ELSE, which is the whole
+                # design. The severity is untouched and `verify()` is
+                # untouched, because re-typing one of these as a FLAG is the
+                # `MODAL_RHYME` error this repo already paid for: doctrine 7
+                # says a floor may not order the region it already passed,
+                # and a pair that RHYMES is inside it. `LENGTH_GATE_CODES`
+                # above is the precedent — a note the verb may not exit 0 on.
+                from quality.loop import MANDATORY_PURSUE
+                banned_lines = sorted({ln for (c, _sv), items in groups.items()
+                                       if c in MANDATORY_PURSUE
+                                       for ln, _f in items})
+                banned_codes = sorted({c for (c, _sv) in groups
+                                       if c in MANDATORY_PURSUE})
                 return {"briefed": len(briefs), "flags": n_flag,
                         "notes": n_note, "flagged_lines": flagged_lines,
                         "rolled_codes": len(rolled),
                         "rolled_findings": rolled_n,
                         "whole": len(whole), "whole_flags": len(whole_flags),
-                        "ungraded_length": len(ungraded)}
+                        "ungraded_length": len(ungraded),
+                        "banned_lines": banned_lines,
+                        "banned_codes": banned_codes}
 
             def _print_whole():
                 """BELOW the per-line half on purpose: `inspect()`'s own
@@ -8543,6 +8572,27 @@ def main():
                   f"one, or declare "
                   f"`FloorDeclaration(uncalibrated_length='note')`.")
             sys.exit(2)
+        # THE BAN GATE (2026-08-23, `MISSING.md` M-88). Checked AFTER the
+        # flag gate so a flagged draft still reports its flags — both exit 3,
+        # and the stronger signal keeps the message. A draft with no flag and
+        # a standing banned pair used to exit 0, which made the ban skippable
+        # by choosing the grading verb over the loop.
+        if cmd == "song" and song_counts and song_counts.get("banned_lines"):
+            _bc = ", ".join(song_counts["banned_codes"])
+            _bl = line_range(song_counts["banned_lines"])
+            print(f"\n  EXIT 3 — the two-tier ban STANDS on "
+                  f"{len(song_counts['banned_lines'])} line(s) {_bl}: {_bc}. "
+                  f"These are NOTES and stay notes — the severity is not "
+                  f"changed and `verify()` is untouched, because a pair that "
+                  f"RHYMES sits inside the region a floor may not re-order "
+                  f"(doctrine 7). What changes is that a run carrying one "
+                  f"MAY NOT EXIT 0, the same shape `LENGTH_GATE_CODES` "
+                  f"already has. Until now the ban was enforced only inside "
+                  f"`revise`, so a song could be certified here without it "
+                  f"ever being applied. Clear them with "
+                  f"`revise FILE MANDATE`, or screen the pair before writing "
+                  f"with `screen WORD WORD`.")
+            sys.exit(3)
         if cmd == "song" and song_counts and (song_counts["flags"]
                                               or song_counts["whole_flags"]):
             per_line = (f"{song_counts['flags']} FLAG finding(s) on "

@@ -3968,6 +3968,75 @@ def test_fill_reads_a_draft_the_way_every_other_verb_does():
         os.unlink(path)
 
 
+def test_the_ban_is_unskippable_at_the_grading_verb_too():
+    print("\n42. THE TWO-TIER BAN GATES `song`, not only `revise` "
+          "(`MISSING.md` M-88)")
+    # FOUND BY BEING ASKED WHY A SONG HAD NOT GONE THROUGH `revise`. The
+    # honest answer was that the session skipped it — and the sharper one is
+    # that NOTHING STOPPED IT. `loop.MANDATORY_PURSUE` holds a line open
+    # inside the loop; the grading verb read the same finding as a note and
+    # exited 0. CLAUDE.md's own sentence — "the ban is unskippable at any
+    # exit code" — was true of the loop and false of the verb.
+    #
+    # `hair`/`chair` is the canonical tier-1 pair: CLAUDE.md records it as one
+    # of the three that beat the single top-N cliff and forced the two tiers.
+    banned = "I ran my fingers through her hair\nand set the bottle on the chair\n"
+    # THE CONTROL PAIR MUST RHYME AND BE CLEAN, which is a real constraint
+    # and not a detail: the first draft of this check used `hair`/`floor`,
+    # which do not rhyme, so it exited 3 on `SCHEME_VIOLATION` and would have
+    # "passed" the section for entirely the wrong reason. `stair`/`spare` is
+    # a screened-clean perfect rhyme (different spelled rime, neither in the
+    # other's modal head), so the only thing separating the two fixtures is
+    # the ban itself.
+    clean = "She met me halfway up the stair\nand had no second breath to spare\n"
+    bp = {"sections": [{"name": "V1", "function": "verse", "bars": 2,
+                        "start_bar": 1,
+                        "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
+          "lines": [{"text": "x", "bar": 1, "beat": 1.0, "duration": 4.0},
+                    {"text": "x", "bar": 2, "beat": 1.0, "duration": 4.0}]}
+    with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False,
+                                     encoding="utf-8") as fh:
+        json.dump(bp, fh)
+        bpath = fh.name
+    paths = [bpath]
+
+    def _draft(text):
+        with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False,
+                                         encoding="utf-8") as f2:
+            f2.write(text)
+            paths.append(f2.name)
+            return f2.name
+    try:
+        rc, out, err = run("song", bpath, _draft(banned), "--groups=1,2",
+                           expect_rc=3)
+        blob = out + err
+        check("a draft carrying a TIER-1 banned pair may not exit 0 from the "
+              "GRADING verb — until now the ban was enforced only inside "
+              "`revise`, so choosing the other verb skipped it",
+              rc == 3 and "HOMEOTELEUTON" in blob, f"rc={rc}")
+        check("...and the refusal NAMES the code and the line rather than "
+              "saying a count, so a writer knows which pair to screen",
+              "the two-tier ban STANDS" in blob and "L2" in blob,
+              [l for l in blob.splitlines() if "ban STANDS" in l][:1])
+        check("...and it says out loud that the SEVERITY did not move — the "
+              "note stays a note and `verify()` is untouched, because a pair "
+              "that RHYMES sits inside the region doctrine 7 forbids a floor "
+              "to re-order. Re-typing it as a flag is the `MODAL_RHYME` "
+              "error this repo already paid for",
+              "stay notes" in blob and "verify()" in blob)
+        # THE CONTROL, and it must pass on BOTH trees: an unbanned pair on the
+        # identical fixture still exits 0. Without it this section would pass
+        # on a build that refused every draft.
+        rc2, _o2, _e2 = run("song", bpath, _draft(clean), "--groups=1,2",
+                            expect_rc=0)
+        check("CONTROL — the same two lines with an UNBANNED partner exit 0, "
+              "so the gate fires on the ban and not on the fixture",
+              rc2 == 0, f"rc={rc2}")
+    finally:
+        for q in paths:
+            os.unlink(q)
+
+
 if __name__ == "__main__":
     _SECTIONS = (
         test_the_map_is_not_stale,
@@ -4011,6 +4080,7 @@ if __name__ == "__main__":
         test_the_structures_spelling_reaches_the_verbs,
         test_the_seed_sweep_is_reachable_from_the_command_line,
         test_fill_reads_a_draft_the_way_every_other_verb_does,
+        test_the_ban_is_unskippable_at_the_grading_verb_too,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —
     # measured 21-22 minutes on CI run #524, and after the pool went
