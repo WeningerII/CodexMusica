@@ -1,0 +1,76 @@
+song	step	measured	harness_commit	verb	exit	fact	value
+stay_awake.txt	1	2026-08-24	34149de-WORKING	plan --sweep	0	sweep_range	1..899
+stay_awake.txt	1	2026-08-24	34149de-WORKING	plan --sweep	0	swept	899
+stay_awake.txt	1	2026-08-24	34149de-WORKING	plan --sweep	0	form	verse-chorus
+stay_awake.txt	1	2026-08-24	34149de-WORKING	plan --sweep	0	want	slots_per_line>=10;pins_per_line<=3;lines>=16;lines<=30
+stay_awake.txt	1	2026-08-24	34149de-WORKING	plan --sweep	0	planned	899
+stay_awake.txt	1	2026-08-24	34149de-WORKING	plan --sweep	0	planner_refused	0
+stay_awake.txt	1	2026-08-24	34149de-WORKING	plan --sweep	0	accepted	23
+stay_awake.txt	1	2026-08-24	34149de-WORKING	plan --sweep	0	accepted_rate	2.6
+stay_awake.txt	1	2026-08-24	34149de-WORKING	plan --sweep	0	accepted_seeds	1,2,18,22,102,140,232,326,335,503,510,521,568,614,645,658,685,716,767,801,815,830,844
+stay_awake.txt	2	2026-08-24	34149de-WORKING	plan	0	form	verse-chorus
+stay_awake.txt	2	2026-08-24	34149de-WORKING	plan	0	seed	568
+stay_awake.txt	2	2026-08-24	34149de-WORKING	plan	0	lines	16
+stay_awake.txt	2	2026-08-24	34149de-WORKING	plan	0	sections	10
+stay_awake.txt	2	2026-08-24	34149de-WORKING	plan	0	pattern	intro-build-chorus-false_ending-turnaround-verse-prechorus-chorus-reprise-coda
+stay_awake.txt	2	2026-08-24	34149de-WORKING	plan	0	meter	2/4 as (2,)
+stay_awake.txt	2	2026-08-24	34149de-WORKING	plan	0	subdivision	2
+stay_awake.txt	2	2026-08-24	34149de-WORKING	plan	0	groups	1.T3,2.endword;1.T1,2.T1;1.T5,2.T5;5.T6,7.T5;5,6.T4;5.T1,6.T3;9.T7,10.T4,11.T6;9.T4,10.T5,11.headrime;15.headrime,16.headrime;15.T2,16;15.T3,16.T4
+stay_awake.txt	2	2026-08-24	34149de-WORKING	plan	0	returns	4,13
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:hedge~ledge	BANNED: HOMEOTELEUTON
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:hedge~wedge	BANNED: HOMEOTELEUTON
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:hedge~pledge	BANNED: HOMEOTELEUTON
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:hedge~sledge	BANNED: HOMEOTELEUTON
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:hedge~dredge	BANNED: HOMEOTELEUTON
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:hedge~allege	CLEAN
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:ledge~wedge	BANNED: HOMEOTELEUTON
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:ledge~pledge	BANNED: HOMEOTELEUTON
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:ledge~sledge	BANNED: HOMEOTELEUTON
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:ledge~dredge	BANNED: HOMEOTELEUTON
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:ledge~allege	CLEAN
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:wedge~pledge	BANNED: HOMEOTELEUTON
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:wedge~sledge	BANNED: HOMEOTELEUTON
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:wedge~dredge	BANNED: HOMEOTELEUTON
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:wedge~allege	CLEAN
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:pledge~sledge	BANNED: HOMEOTELEUTON
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:pledge~dredge	BANNED: HOMEOTELEUTON
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:pledge~allege	CLEAN
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:sledge~dredge	BANNED: HOMEOTELEUTON
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:sledge~allege	CLEAN
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:dredge~allege	CLEAN
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	banned	15
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	refused	0
+stay_awake.txt	3	2026-08-24	34149de-WORKING	screen	0	clean_or_non_rhyme	6
+stay_awake.txt	4	2026-08-24	34149de-WORKING	screen	0	pair:metal~nettle	CLEAN
+stay_awake.txt	4	2026-08-24	34149de-WORKING	screen	0	banned	0
+stay_awake.txt	4	2026-08-24	34149de-WORKING	screen	0	refused	0
+stay_awake.txt	4	2026-08-24	34149de-WORKING	screen	0	clean_or_non_rhyme	1
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	mandate_groups	12
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	lines	16
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	mandated_pairs	16
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	mandate_source	declared
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	md5	df36634e2601
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	briefed	15
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	per_line_flag	0
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	per_line_note	48
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	whole_draft	6
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	whole_draft_flag	0
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	finding:ANACRUSIS	NOTE x11
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	finding:CROWDED	NOTE x8
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	finding:FUNCTION_UNDECLARED	NOTE x1
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	finding:NO_SETTING	NOTE x1
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	finding:PROMINENCE_CANNOT_ALIGN	NOTE x9
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x9
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	finding:REFRAIN_REPEAT	NOTE x1
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	finding:RETURN_LOCKED	NOTE x1
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	finding:SCHEME_COLLISION	NOTE x4
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	finding:SINGLE_INSTANCE	NOTE x3
+stay_awake.txt	5	2026-08-24	34149de-WORKING	song	0	finding:SPARSE	NOTE x6
+stay_awake.txt	6	2026-08-24	34149de-WORKING	revise	0	stop_reason	SUCCESS
+stay_awake.txt	6	2026-08-24	34149de-WORKING	revise	0	rounds	0
+stay_awake.txt	6	2026-08-24	34149de-WORKING	revise	0	md5_in	df36634e2601
+stay_awake.txt	6	2026-08-24	34149de-WORKING	revise	0	md5_out	df36634e2601
+stay_awake.txt	6	2026-08-24	34149de-WORKING	revise	0	unchanged	yes
+stay_awake.txt	6	2026-08-24	34149de-WORKING	revise	0	mandated	16
+stay_awake.txt	6	2026-08-24	34149de-WORKING	revise	0	judged	16
+stay_awake.txt	6	2026-08-24	34149de-WORKING	revise	0	pairs_refused	0

@@ -514,14 +514,22 @@ try {
   const lyric = tools.filter((t) => t.name.startsWith('lyric_'));
   assert.deepEqual(
     lyric.map((t) => t.name).sort(),
-    ['lyric_check', 'lyric_grade', 'lyric_plan', 'lyric_screen', 'lyric_types'],
-    'the five lyric tools are advertised'
+    [
+      'lyric_check',
+      'lyric_grade',
+      'lyric_plan',
+      'lyric_screen',
+      'lyric_sweep',
+      'lyric_types',
+      'lyric_verify',
+    ],
+    'the seven lyric tools are advertised'
   );
   for (const t of lyric) {
     assert.equal(t.annotations?.readOnlyHint, true, `${t.name} read-only`);
     assert.equal(t.annotations?.openWorldHint, false, `${t.name} closed-world`);
   }
-  console.log('  ok  lyric family advertised: 5 tools, read-only, closed-world');
+  console.log('  ok  lyric family advertised: 7 tools, read-only, closed-world');
   passed++;
 
   // LIVE: stage the lexicon exactly as the Docker build does, then drive
@@ -654,6 +662,53 @@ try {
     console.log('  ok  lyric_grade live: two blocks — the song plain, the verdict JSON');
     passed++;
 
+    // `title` REACHES THE PLAN (MISSING.md M-93), and the only shape that
+    // proves it is a DIFFERENCE between runs — accepting a field and
+    // dropping it looks identical from the outside. Three runs, because the
+    // coordinate moves TWO codes in opposite directions: undeclared leaves
+    // the question REFUSED, a title inside the hook answers it YES, and a
+    // title outside the hook answers NO and that answer is a FLAG.
+    //
+    // Every draft line here is `we carry the morning to the <word>` and the
+    // blueprint's hook is the draft line at the plan's own hook slot, so
+    // `carry the morning` is a contiguous run of words inside it under any
+    // seed. Containment is a normalised WORD-subsequence test, not a
+    // substring match, which is why the in-hook title is three whole words.
+    const titleReport = async (title) => {
+      const res = await client.callTool({
+        name: 'lyric_grade',
+        arguments: title === null ? { seed: 55, draft } : { seed: 55, draft, title },
+      });
+      assert.ok(!res.isError, `lyric_grade answered without isError (title=${title})`);
+      return JSON.parse(res.content[1].text);
+    };
+    const noTitle = await titleReport(null);
+    assert.ok(
+      noTitle.report.includes('TITLE_UNDECLARED'),
+      'with no title the question is REFUSED, not answered'
+    );
+    const inHook = await titleReport('carry the morning');
+    assert.ok(
+      !inHook.report.includes('TITLE_UNDECLARED'),
+      'declaring a title REMOVES the refusal — the field is read, not dropped'
+    );
+    assert.ok(
+      !inHook.report.includes('TITLE_NOT_IN_HOOK'),
+      'and a title that is a run of words inside the hook answers YES'
+    );
+    const outOfHook = await titleReport('zzz nowhere');
+    assert.ok(
+      outOfHook.report.includes('TITLE_NOT_IN_HOOK'),
+      'a title outside the hook answers NO'
+    );
+    assert.equal(
+      outOfHook.exit_code,
+      3,
+      'and that answer is a FLAG (M-86) — the connector can now trip it AND fix it'
+    );
+    console.log('  ok  lyric_grade live: --title reaches the plan, both directions');
+    passed++;
+
     // The two-tier ban reaches the verdict as banned_pairs — UNSKIPPABLE
     // disclosure at the one surface with no revise loop. mass/pass is the
     // demonstrative pair: it RHYMES, so it grades exit 0, and it is
@@ -676,6 +731,69 @@ try {
     console.log('  ok  lyric_check live: banned_pairs surfaces the ban at exit 0');
     passed++;
 
+    // `structures` REACHES lyric_check (MISSING.md M-103's flag, wired here).
+    // Mirrors quality/test_verbs.py §39: the binding assertion is a
+    // DIFFERENCE between two runs on ONE draft, because a field accepted and
+    // dropped is byte-identical to one never sent.
+    const stLines = [
+      'the night was cold and bright',
+      'we held each other tight',
+      'we walked beneath the sun',
+      'and rivers ran with silver',
+    ];
+    const plain = await callText('lyric_check', { lines: stLines, groups: '1,2;3,4' });
+    assert.ok(
+      plain.report.includes('SCHEME_VIOLATION'),
+      'sun/silver is a violation under the default end-rhyme question'
+    );
+    const structured = await callText('lyric_check', {
+      lines: stLines,
+      groups: '1,2;3,4',
+      structures: 'B:kalevala-alliteration',
+    });
+    assert.ok(
+      !structured.report.includes('SCHEME_VIOLATION'),
+      'and NOT one under the declared alliteration — the field is read, not dropped'
+    );
+    // THE DISCLOSURE IS THE REASON THE FIELD IS SAFE TO EXPOSE. Every
+    // declarable row is uncalibrated for English, so the two-tier ban is
+    // skipped on the structured group and an absent banned_pairs means the
+    // question was not asked.
+    assert.ok(
+      structured.structures_uncalibrated &&
+        structured.structures_uncalibrated.includes('kalevala-alliteration'),
+      'the verdict carries structures_uncalibrated, naming the row'
+    );
+    assert.ok(
+      /laziness is NOT/i.test(structured.structures_uncalibrated_meaning || ''),
+      'and its meaning says correctness is graded and laziness is not'
+    );
+    const bogus = await callText('lyric_check', {
+      lines: stLines,
+      groups: '1,2',
+      structures: 'A:vibes',
+    });
+    assert.equal(bogus.exit_code, 2, 'an unknown row REFUSES rather than defaulting');
+    assert.ok(
+      bogus.report.includes('not a declared structure') && bogus.report.includes('58 structures'),
+      "...through the catalog's own message, with the vocabulary size in it"
+    );
+    // M-102: both judge the same pairs and the relation would win on every
+    // group, so the HARNESS refuses — not a second copy of the rule here.
+    const collide = await callText('lyric_check', {
+      lines: stLines,
+      groups: '1,2;3,4',
+      structures: 'B:kalevala-alliteration',
+      relation: 'type:pararhyme',
+    });
+    assert.equal(collide.exit_code, 2, 'a song-wide relation beside a structure REFUSES');
+    assert.ok(
+      collide.report.includes('song-wide relation') && collide.report.includes('--relations='),
+      '...naming the collision and the per-group spelling that expresses the intent'
+    );
+    console.log('  ok  lyric_check live: --structures reaches the mandate, with its disclosure');
+    passed++;
+
     // The SAME plan the draft above was built from -- re-calling the tool
     // here ran the planner a second time on one seed and then asserted a
     // remembered `[CHORUS — 3 lines —` against it, which is the stale
@@ -693,6 +811,165 @@ try {
       'plan verdict block reports exit 0'
     );
     console.log('  ok  lyric_plan live: two blocks — the report plain, the verdict JSON');
+    passed++;
+
+    // `lyric_sweep` — the seed search, bounded. The claims this tool makes
+    // that nothing else checks are: the bound is real, the windows COMPOSE
+    // (which is what makes a bound pagination rather than truncation), the
+    // vocabulary description is a checked restatement rather than a second
+    // copy, and it does not rank.
+    // The predicate is TIGHT on purpose: the harness truncates its printed
+    // ACCEPTED list at 40, so a loose want makes the spanning window show
+    // fewer seeds than its two halves and the membership check below would
+    // fail on the truncation rather than on composition. 240 seeds accept 28
+    // here, under the cap. The truncation itself is checked separately.
+    const sweepA = await callText('lyric_sweep', {
+      seed_from: 1,
+      count: 120,
+      want: ['lines>=24', 'lines<=28'],
+    });
+    assert.equal(sweepA.swept, 120, 'the window is the one that was asked for');
+    assert.ok(sweepA.accepted_count > 0, 'and it found seeds, so this check is not vacuous');
+    assert.equal(sweepA.window.next_seed_from, 121, 'the next window starts where this one ended');
+    const sweepB = await callText('lyric_sweep', {
+      seed_from: 121,
+      count: 120,
+      want: ['lines>=24', 'lines<=28'],
+    });
+    const sweepAB = await callText('lyric_sweep', {
+      seed_from: 1,
+      count: 240,
+      want: ['lines>=24', 'lines<=28'],
+    });
+    // COMPOSITION IS THE LOAD-BEARING CLAIM. A plan is a pure function of
+    // its seed, so two windows must equal the one that spans them — counts
+    // and membership both. Without this the bound is just truncation with a
+    // friendly name.
+    assert.equal(
+      sweepA.accepted_count + sweepB.accepted_count,
+      sweepAB.accepted_count,
+      'two windows accept exactly what the window spanning them accepts'
+    );
+    assert.equal(sweepA.planned + sweepB.planned, sweepAB.planned, '...and the planned counts add');
+    assert.deepEqual(
+      [...sweepA.accepted_shown, ...sweepB.accepted_shown],
+      sweepAB.accepted_shown,
+      '...and the seeds themselves are the same, in the same order'
+    );
+    // IT DOES NOT RANK, and the report says so in its own words.
+    assert.ok(
+      sweepAB.report.includes('does NOT rank') && sweepAB.report.includes('doctrine 19'),
+      'the report carries its own not-ranked disclosure'
+    );
+    for (const k of ['best', 'top', 'score', 'ranked'])
+      assert.ok(!(k in sweepAB), `the verdict carries no '${k}' key`);
+    assert.deepEqual(
+      [...sweepAB.accepted_shown].sort((x, y) => x - y),
+      sweepAB.accepted_shown,
+      'and the accepted seeds are in seed order'
+    );
+    // THE BOUND IS REAL AND NAMED.
+    const over = await client.callTool({
+      name: 'lyric_sweep',
+      arguments: { seed_from: 1, count: 513 },
+    });
+    assert.ok(over.isError, 'a window past the ceiling is refused');
+    // THE VOCABULARY DESCRIPTION IS CHECKED, NOT TRUSTED. The harness prints
+    // the whole closed table when it refuses an undeclared name; every name
+    // it lists must appear in this tool's own `want` description, or the
+    // description is a second copy that has drifted.
+    const bogusWant = await callText('lyric_sweep', {
+      seed_from: 1,
+      count: 4,
+      want: ['zzz<=1'],
+    });
+    assert.equal(bogusWant.exit_code, 2, 'an undeclared predicate name REFUSES');
+    const declared = (bogusWant.report.match(/Declared: ([^.]*)\./) || [])[1];
+    assert.ok(declared, 'and the refusal prints the whole declared vocabulary');
+    // Read the ADVERTISED schema, not the module's export: what a client
+    // sees is what has to agree with the harness, and the SDK rewrites the
+    // schema on the way out.
+    const sweepTool = tools.find((t) => t.name === 'lyric_sweep');
+    const described = sweepTool.inputSchema.properties.want.description || '';
+    const missing = declared
+      .split(',')
+      .map((x) => x.trim())
+      .filter((x) => x && !described.includes(x));
+    assert.deepEqual(
+      missing,
+      [],
+      `every declared predicate name appears in the tool description (missing: ${missing})`
+    );
+    // TRUNCATION IS DISCLOSED, NOT SILENT. A no-predicate window accepts
+    // every seed that plans, so the printed list is cut at 40 and the count
+    // is not — a field holding 40 of N with no flag would be the silent
+    // substitution this repo refuses.
+    const wide = await callText('lyric_sweep', { seed_from: 1, count: 64 });
+    assert.equal(wide.accepted_count, 64, 'with no predicate every seed that plans is accepted');
+    assert.ok(wide.accepted_shown.length < wide.accepted_count, 'and the printed list is shorter');
+    assert.equal(wide.accepted_truncated, true, '...which the verdict says out loud');
+    console.log('  ok  lyric_sweep live: bounded, composes, and does not rank');
+    passed++;
+
+    // `lyric_verify` — the other half of a revision round. The claims that
+    // needed their own checks are the two that would have been silently
+    // wrong under a reused verdictOf: the exit code does NOT carry the
+    // verdict, and this verb reports no banned pairs BY CONSTRUCTION.
+    const vBefore = [
+      'Lights cut, and the bass came down in a pour',
+      'Half the room gone quiet where the sound stone',
+    ];
+    const vGood = [vBefore[0], 'Half the room gone quiet where the sound tore'];
+    const ok = await callText('lyric_verify', {
+      before: vBefore,
+      after: vGood,
+      groups: '1,2',
+    });
+    assert.equal(ok.accepted, true, 'a revision that fixes the violation is ACCEPTED');
+    assert.equal(ok.fixed_count, 1, '...and the fixed count is reported');
+    // THE EXIT CODE IS 0 EITHER WAY. A connector reading exit_code would
+    // call a refused revision "no flag stands".
+    const bad = await callText('lyric_verify', {
+      before: vBefore,
+      after: vBefore,
+      groups: '1,2',
+    });
+    assert.equal(bad.accepted, false, 'a no-op revision is REJECTED');
+    assert.equal(bad.exit_code, ok.exit_code, 'and BOTH exit with the same code');
+    assert.equal(bad.exit_code, 0, '...which is 0 — the verdict is an answer, not an error');
+    assert.ok(
+      /accepted.*not.*exit_code/i.test(bad.meaning),
+      'so the meaning tells the caller to read accepted, not exit_code'
+    );
+    // IT IS A DIFF AND SAYS SO. verify cannot speak about a defect that
+    // survived the change untouched, so it must not carry banned_pairs —
+    // an absent banned_pairs here would read as "no banned pairs".
+    assert.ok(!('banned_pairs' in ok), 'no banned_pairs field: verify cannot answer that');
+    assert.ok(
+      /does not report banned pairs/i.test(ok.scope) && /lyric_grade/.test(ok.scope),
+      '...and the scope field says so, pointing at the verb that can'
+    );
+    // TARGETED IS THE SOLE GATE on the untargeted-rewrite rejection, and
+    // the only shape that proves it is read is OPPOSITE verdicts on one diff.
+    const untargeted = [vGood[0].replace('Lights cut', 'Lights fell'), vGood[1]];
+    const free = await callText('lyric_verify', {
+      before: vBefore,
+      after: untargeted,
+      groups: '1,2',
+    });
+    const scoped = await callText('lyric_verify', {
+      before: vBefore,
+      after: untargeted,
+      groups: '1,2',
+      targeted: [2],
+    });
+    assert.notEqual(
+      free.accepted,
+      scoped.accepted,
+      'declaring targeted changes the verdict on the identical diff — the field is read'
+    );
+    assert.equal(scoped.accepted, false, '...and the run that named line 2 refuses the L1 rewrite');
+    console.log('  ok  lyric_verify live: accepted is the verdict, and targeted is read');
     passed++;
   }
 } catch (err) {

@@ -1508,21 +1508,32 @@ def sweep(seeds, wants=(), **plan_kw):
 
 
 def make_plan(seed, form="verse-chorus", lines=None, relation=None,
-              functions=None):
+              functions=None, title=None):
     """A request -> the plan dict. Refuses rather than guessing.
 
-    `relation` and `functions` are THE WRITER'S DECLARATION (`MISSING.md`
-    M-55) and neither is sampled. The planner does not pick a relation: doing
-    so would put `type:pararhyme` on a group nobody asked for, which is the
-    "move 37" ban pointed at rhyme instead of at shape. What the planner does
-    is CARRY a declaration into the plan artifact, so the one command that
-    grades the draft names the relation the writer chose.
+    `relation`, `functions` and `title` are THE WRITER'S DECLARATION
+    (`MISSING.md` M-55) and none of them is sampled. The planner does not
+    pick a relation: doing so would put `type:pararhyme` on a group nobody
+    asked for, which is the "move 37" ban pointed at rhyme instead of at
+    shape. What the planner does is CARRY a declaration into the plan
+    artifact, so the one command that grades the draft names the relation
+    the writer chose.
 
     THREE LAYERS, AND ONLY THE MIDDLE ONE IS HERE (design doc §2):
     the VOCABULARY says a prechorus requires a chorus and that is
     definitional; the CONVENTION says verse-chorus-verse-chorus and is never
     enforced; and this is the DECLARATION — "chorus and postchorus, no
     prechorus" — which is neither, and had no way to be spelled at all.
+
+    `title` JOINED 2026-08-24. `grid.py`'s `hook_findings` asks "is the title
+    in the hook?" and refuses (`TITLE_UNDECLARED`) when `Song.title` is
+    empty, and `fill_plan` wrote `"title": ""` into every blueprint it has
+    ever built -- so the ONLY way to answer that question was to hand-patch
+    the JSON after the planner wrote it. That is standing rule 3's own case:
+    a step used in producing a delivered song, with no entrance the system
+    owns. It is carried, never inferred: guessing a title off the first line
+    is exactly the inference `TITLE_UNDECLARED` exists to refuse, so `None`
+    stays `""` and the finding stays.
     """
     if seed is None:
         raise PlanRefused(
@@ -2106,6 +2117,10 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         # it and so a reader of a stored plan can see what was asked for --
         # `""` and `[]` mean NOBODY SAID, never "the default was chosen".
         "relation": relation or "",
+        #: `""` means NOBODY DECLARED A TITLE, and `fill_plan` writes that
+        #: straight through so `TITLE_UNDECLARED` fires exactly as it did
+        #: before this coordinate existed.
+        "title": title or "",
         "functions": list(roster) if roster else [],
         #: requested functions the sampled pattern did NOT use. A DISCLOSURE,
         #: not a failure: a roster is an allow-list, and a plan that happens
@@ -2159,7 +2174,12 @@ def fill_plan(plan, lines):
     if plan.get("hook_slot"):
         hooks = [got[plan["hook_slot"] - 1]]
     return {
-        "title": "",
+        # CARRIED FROM THE PLAN, not re-derived and never guessed: this was
+        # the literal `""` that made `TITLE_UNDECLARED` unanswerable through
+        # the verbs (see `make_plan`). A plan with no declared title still
+        # writes `""` here, so the finding is unchanged for anyone who does
+        # not declare one.
+        "title": plan.get("title") or "",
         "hooks": hooks,
         "sections": [dict(s) for s in plan["sections"]],
         "lines": [{"text": got[s["line"] - 1], "bar": s["bar"],

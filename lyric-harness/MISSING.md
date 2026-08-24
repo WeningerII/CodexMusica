@@ -10239,3 +10239,531 @@ beside nltk — a coordinate of the TEST JOB and never of the harness, and
 is guarded so a missing parser is a FAILING CHECK naming the install rather
 than a traceback naming a check nobody wrote: CANNOT RUN is never PASS
 (doctrine 20), and it may not be silent either.
+
+### M-93 · the blueprint's `title` had no entrance, so one question could only be answered by hand `CLOSED` — 2026-08-24
+**`grid.hook_findings` ASKS "IS THE TITLE IN THE HOOK?" AND REFUSES ON AN EMPTY
+`Song.title`** — `TITLE_UNDECLARED`, whose own message says guessing one off the
+first line is the inference the cell exists to avoid. It reads exactly one
+place: the blueprint's `"title"` key. And `plan.fill_plan` wrote **`"title":
+""`** into every blueprint the planner has ever built, with no flag anywhere to
+say otherwise. So the only way to answer that question was to open the JSON the
+planner had just written and edit it — a step in producing a delivered song
+with no entrance the system owns, which is standing rule 3's own case. Three of
+the four songs in `songs/` carry the refusal for this reason and nothing else.
+
+**`plan --title=TEXT`, CARRIED AND NEVER SAMPLED**, on the same footing
+`--relation` and `--functions` have had since M-55: the planner does not pick a
+title, because naming a song nobody named is the "move 37" ban pointed at the
+one field whose whole purpose is to record what the writer said. No flag still
+leaves `""` and `TITLE_UNDECLARED` still stands — the finding is byte-identical
+for anyone who does not declare one.
+
+**THE DEFECT THE GATE WAS WRITTEN FOR IS THE ONE THIS SITTING SHIPPED FIRST.**
+The CLI's `plan` branch spelled its own `make_plan(...)` argument list beside
+the identical `plan_kw` the sweep branch passes, so `--title` parsed, the usage
+line advertised it, and the blueprint came out `""` anyway — one coordinate,
+two spellings of the call, doctrine 1. `test_plan.py` §9 now drives the CLI as
+a subprocess and reads the title back off the written blueprint, so carrying it
+in the library is not what is asserted; carrying it THROUGH THE VERB is. The
+same block flips the finding both ways on one song — declared, and with the
+title removed — because two checks that pin a field nothing reads are worth
+nothing.
+
+### M-94 · the planner writes a blueprint the repository's own formatter rejects `OPEN`
+**`plan --out=PATH` WRITES `json.dump(payload, fh, indent=1, sort_keys=True)`,
+AND `prettier --check .` REFUSES IT.** Caught by the `gate` job on the very
+commit that added `songs/stay_awake.blueprint.json` — the one job that failed
+in an otherwise green run, on that one file. This is not the song's problem
+and it is not new: **all four blueprints in `songs/` are prettier-formatted
+and none of them is what its own documented `--out` command writes**, so
+re-running any of the four reproduction commands in `songs/README.md` dirties
+the tree against a gate.
+
+**AND `.prettierignore` HAS ALREADY RULED ON THE QUESTION**, in as many words:
+_"The BLUEPRINTS are deliberately NOT excluded. They are authored
+declarations, they are parsed rather than byte-compared, and they should be
+formatted like any other source we write."_ So the resolution is NOT to
+exclude them — the tree decided that — it is that the writer should emit what
+the formatter accepts.
+
+**MEASURED, BECAUSE `indent=1 -> indent=2` LOOKS LIKE THE WHOLE FIX AND IS
+NOT.** Rewritten at `indent=2, sort_keys=True`, this blueprint is still
+refused, and the residual is **66 diff lines, every one of them prettier's
+fits-in-80-columns collapse** (`"hooks": ["Somebody has to stay awake"]`,
+`"groups": [2]`). Matching that from `json.dump` means reimplementing a
+line-breaking algorithm the repository already owns a copy of, which is the
+trade this entry is OPEN to record rather than to guess at.
+
+**WHAT IS NOT AT RISK:** the reformat is VERDICT-NEUTRAL, and that was
+checked rather than assumed — `song` on the prettier-written blueprint returns
+a finding set BYTE-IDENTICAL to the run on the planner-written one, exit 0
+both times. A blueprint is parsed, so whitespace cannot reach a grade; what is
+broken is the loop between the verb that writes the artifact and the gate that
+reads it, not any measurement taken from it.
+
+### M-95 · `tandem` and `nightly` have not been green once in a week, for four separate reasons `PARTIAL` — 2026-08-24
+**FOURTEEN SCHEDULED RUNS SINCE 2026-08-03, NOT ONE SUCCESS** (Actions API,
+`event=schedule`): 11 `failure`, 3 `cancelled`. The two jobs only these crons
+reach are the two nobody was watching, and "red for a week" turned out to be
+four unrelated defects stacked in a way that hid three of them.
+
+**`tandem` (weekly) — ONE CHECK, AND IT WAS A REAL DEFECT.** `scripts/
+tandem.js`'s "CSS/JS — no hardcoded font-size or font-weight" named 7 literals,
+all in the chat panel of `src/index.template.html`: 10px, 11px and 12px. Not
+house style — Tier 3 declares a phone legibility floor by overriding three
+tokens (`:root { --fs-nano: 12px; --fs-code: 12px; --fs-micro: 12px; }`,
+_"nothing below 12px on a phone"_), and a literal cannot be overridden, so the
+chat panel rendered tool pills at 10px and meta lines at 11px on a 390px screen
+under a floor the rest of the app honours. 11px is not a step on the ramp at
+all. FIXED: every one maps to the token that names what it is — `--fs-code` for
+the monospace recipe block, `--fs-nano` for the pill, `--fs-micro` for the rest.
+
+**`nightly` — THREE DEFECTS, AND THE FIRST ONE HID THE OTHER TWO.**
+
+1. **The mutation sweep had no bound and ate the job.** Measured: 2026-08-23 it
+   ran **7,627 s (2 h 07 m) and PASSED**; 2026-08-24 it was still inside at
+   **12,949 s (3 h 36 m)** when `timeout-minutes: 240` cancelled everything.
+   Eleven suites were added between those runs and this file re-runs the suite
+   once per mutation, so its cost tracks the suite's. **The arithmetic says the
+   job never fitted**: 16 m cache warm + ~18 m discrimination + ~12 m Kalevala
+   + a song-profile slice budgeted at 150 m is ~196 m before the sweep is asked
+   for a second. FIXED as its own JOB (`mutation`), sharded `--shard=I/N` at
+   N=2 on a date rotation, with the bound INSIDE the step so an overrun reports
+   instead of cancelling the job. `test_mutation.py` §3e proves the shard sets
+   partition the declared list for every N.
+
+2. **A cancelled job skips its `actions/cache` post step**, so the song-profile
+   memo's 150-minute slice was computed and DISCARDED every night — the exact
+   deadlock that step's own comment warns about, reached from a sibling step
+   rather than from its own overrun. Fixed by (1): the sweep can no longer
+   cancel the job it does not live in.
+
+3. **Two steps were missing `if: always()`** — the rhyme-capacity and Kalevala
+   adoption checks — so they reported `skipped` whenever anything earlier went
+   red. Two adoption checks were not asked for a week and read as fine
+   (doctrine 20). Every other step in that job already had the guard.
+
+**STILL OPEN, AND THIS IS WHY THE ENTRY IS `PARTIAL`.** On 2026-08-23 the
+`Joint AUC null` step failed in **1 second** and `Every discrimination AUC`
+in **under one**, both against a feature cache the step before had just spent
+16 minutes warming. Too fast to be a run and too fast to be a drift; the logs
+of a cancelled job are not retained and the failing run's are not readable at
+that offset, so the cause is NOT diagnosed here. `nightly` already accepts
+`workflow_dispatch`, so it is reproducible on demand — that is the next move,
+not a guess written down as a finding.
+
+### M-96 · five songs shipped and nothing in the repository read one `CLOSED` — 2026-08-24
+**`songs/` HELD FIVE DELIVERED SONGS AND NO CHECK ANYWHERE TOUCHED THEM** —
+zero Python checks under `quality/`, zero mentions in
+`.github/workflows/ci.yml`, measured by grep before this entry was written.
+So a song could ship with its structure gone and every gate in the tree would
+stay green. Two of the five did: `stay_awake.txt` carried **0 markers against
+10 declared sections** and `carry_it_over.txt` **0 against 23**. The three
+that predate them carry it correctly — `keep_the_light.txt`'s eleven `[NAME]`
+markers ARE its blueprint's eleven section names.
+
+**THE GATE THAT EXISTED WAS AIMED ONE STEP UPSTREAM, AND IT PASSES.**
+`test_plan.py` §6 proves `render_song` puts a section's apparatus INSIDE its
+bracket — `[VERSE — 4 lines — 8 bars of 3/8]` — and its mutation proves the
+same apparatus split onto its own line is scored as LYRIC with end word
+`pickup`. That check has never been red. It gates the RENDERER. It cannot see
+`songs/*.txt`, and it cannot see a rendered song RETYPED BY HAND with the
+apparatus dropped to a bare `[VERSE]`. Both failures happened where the gate
+had no jurisdiction, and *the renderer is correct* is not the same claim as
+*the shipped song is correct* — doctrine 1's shape one step out: two
+artifacts, one of them checked.
+
+**`quality/test_songs.py`, AND IT WAS WRITTEN RED.** Four sections: the
+population is non-empty and every song has its blueprint; every song carries
+markers; the markers ARE the blueprint's sections in order with each
+section's line count; and a MUTATION that strips a good song's brackets and
+requires the match to fail. Its first run reported **6 FAILING** — and found
+two more than the two it was written for: `one_more.txt` was missing
+`INTERLUDE1` and `turn_the_wheel.txt` `SOLO1`, both zero-line instrumentals,
+which task #100's ruling already settles (*a section with no words is not a
+section with no constraints*) and which `render_song` already emits a bracket
+for. All four repaired from their blueprints.
+
+**VERDICT-NEUTRAL, CHECKED RATHER THAN ASSUMED.** `song` on both repaired
+songs returns a finding set BYTE-IDENTICAL to the pre-marker grade, exit 0
+both times: `load_lyric_lines` drops apparatus, so restoring the structure
+cannot reach a grade. What was broken is the artifact a person opens.
+
+**WHAT THIS ENTRY DOES NOT CLOSE.** No check in a repository can read a chat
+reply. The second half of this defect — a song retyped by hand into a message
+with `[INTRO — 2 lines — 2 bars of 8/8, one-beat pickup]` flattened to
+`[INTRO]` — is bounded only by never retyping one: the renderer's bytes are
+the artifact, and `plan --fill` already prints them. That is a standing
+instruction, not a gate, and it is recorded here as the part that has no
+enforcement rather than left to look enforced.
+
+### M-97 · the flattened section bracket had no jurisdiction over it — now it has a Stop hook `CLOSED` — 2026-08-24
+**M-96 CLOSED THE FILE AND LEFT THE MESSAGE OPEN, AND THAT WAS THE HALF THAT
+KEPT COSTING THE OWNER A TRIP BACK IN HERE.** Its own last paragraph said no
+check in a repository can read a chat reply, and treated *never retype a
+song* as a standing instruction. A standing instruction is a note. The owner's
+rule is that a note is a RECORD and only a gate is an ENFORCEMENT, and this
+one had been broken six or seven times.
+
+**IT IS NOT TRUE THAT NOTHING CAN READ THE MESSAGE.** A Claude Code **Stop
+hook is handed the transcript path**. That is precisely the jurisdiction the
+tree does not have, and it was available the whole time.
+
+`quality/check_render_form.py` finds every section bracket in a blob and
+refuses the ones whose INSIDE carries no ` — ` apparatus clause — the form
+`quality/plan.py:section_header` builds and every renderer uses. Wired at
+`.claude/settings.json` → `Stop` → `.claude/render_form_hook.sh`, it runs
+against the turn about to be delivered and **exits 2, which blocks it** and
+feeds the reason back. Measured end to end in `test_render_form.py` §6:
+flattened turn → 2, built turn → 0, and `stop_hook_active` honoured so it
+blocks ONCE and can never trap a session.
+
+**ONE DECLARED ESCAPE, DECLARED IN THE TEXT** (the shape `triage.py` uses for
+`TESTED WHILE OPEN`): a lyric FILE legitimately carries bare `[VERSE1]`
+markers — that is the form `songs/*.txt` stores and M-96 requires — so text
+saying `RAW LYRIC FILE` is passed. A single bracketed word is prose (`[NOTE]`)
+and is not refused; the floor is two.
+
+**THE INSTRUMENT'S OWN SUITE CAUGHT THE INSTRUMENT.** The first regex was
+`\[([A-Z][A-Z0-9_]*)\]` — it matched ONLY the bare form, so the CORRECT form
+was not recognised as a bracket at all and §2 measured **zero headers on a
+seed that builds twenty-three**. A detector that cannot see the right answer
+cannot report the wrong one as a minority; the count it printed was a count
+of defects wearing the name of a count of sections. Fixed to capture the
+bracket's interior, and the apparatus is now tested against that interior
+rather than the whole line, so a dash in a LYRIC can no longer excuse a
+stripped bracket. The suite also drives the real `section_header` for all 23
+sections of seed 394, so a change to the separator goes red here rather than
+in a message weeks later.
+
+### M-98 · the songs had no series, and every report about them was a pass/fail bit `CLOSED` — 2026-08-24
+**FIVE SONGS AND NOTHING COMPARED ANY OF THEM TO ANY OTHER.** `song` exit 0
+and `revise` 0 rounds were reported repeatedly as if they were judgements of
+QUALITY. They are not, and the proof is in this repository: **BOTH drafts of
+`carry_it_over` were exit 0 with 0 rounds** — the one written as fragments and
+the one written as speech — and no gate in this tree separates them. A bit
+that cannot tell those two apart cannot support a sentence containing "best".
+
+**`quality/song_record.py`, THREE VERBS.** `--write` banks the ten
+pre-registered features per song, keyed on **(song, harness commit, date)`.
+`--check` re-derives and FAILS on any moved value. `--claims` reads
+`songs/README.md` and fails on a comparison with no `[RESULTS: column song]`
+citation that resolves.
+
+**THE COMMIT IS A KEY COLUMN BECAUSE THE SONGS ARE FIXED WITNESSES.** Their
+bytes never change, so a moved number means THE TREE moved — a corpus load, a
+recalibrated band, a changed tokeniser. `--check` is therefore a regression
+detector for the whole quality layer, using our own songs as calibration
+standards, and a dirty tree is stamped `<sha>-WORKING` rather than passing as
+a commit.
+
+**WHAT IS REFUSED, AND THE REFUSAL IS STRUCTURAL.** No corpus-relative
+"quality score". `quality/discriminate.py` is fitted on **152 sonnets** —
+`quality/corpus.py` exposes only `load_sonnets`, `labelled_sonnets` and
+`load_generated`, and every extraction passes one fixed `SONNET_SCHEME`.
+Scoring a 25-line song in 8/8 through it would be a measurement laundered out
+of its domain (doctrine 13/14). `song_record.py` does not import it, and
+`test_songs_record.py` §5 checks the ABSENCE rather than trusting the
+docstring. The corpus-relative verdict our songs DO get is
+`quality/floor.py`'s song profile, calibrated on **1,421** staged songs in
+`corpus/song/`, which already runs inside `song`.
+
+**THE FIRST RUN DID NOT FLATTER THE NEWEST SONG**, which is the point of
+banking before claiming: on concreteness (pre-registered HIGHER in the
+survived class) `carry_it_over.txt` is the LOWEST of the five at 3.043667; on
+rhyme predictability (pre-registered LOWER) `keep_the_light.txt` is lowest at
+0.816206 — the song the owner pointed at as the good one.
+
+### M-99 · there is no human-vs-generated discriminator for SONGS `OPEN`
+**THE SONNET ARM HAS ONE AND THE SONG ARM DOES NOT.** `discriminate.py` runs
+three fitted experiments — survived vs forgotten, human vs generated,
+anthologized vs not — all on the 152-sonnet population. `corpus/song/` holds
+**1,421** staged songs and supports NO equivalent, because nothing labels
+them: there is no survived/forgotten split and no matched generated set. What
+the song corpus supports today is CALIBRATION (the floor's song profile,
+`song_profile_calibration.py`) — bands that say *is this inside the corpus's
+range*, never *is this any good*.
+
+**SO THE QUESTION "IS THIS SONG GOOD" IS UNANSWERED HERE AND IS RECORDED AS
+UNANSWERED**, rather than being approximated by exit codes. Closing it needs a
+labelled song population, and the label is the hard part — the sonnet arm got
+one from anthologisation, which has no clean analogue for song. Filed on
+2026-08-24 when M-98's build made the gap explicit: the series can now show
+DRIFT and can refuse an uncited claim; it still cannot show MERIT.
+
+### M-100 · the SONGS had a series and no PROCESS record `CLOSED`
+Filed and closed 2026-08-24.
+
+**M-98 BANKED WHAT A SONG IS AND NOTHING BANKED HOW IT GOT THERE.**
+`songs/RESULTS.tsv` carries ten features over the committed bytes; the making
+of the song — which pairs `screen` refused, which seed the sweep accepted,
+what `song` said on the first pass, how many rounds `revise` took — lived
+entirely in `songs/README.md` as PROSE, written from a session's memory. The
+owner asked for exactly this half: *"are you proposing that you also record
+the process you took along with and assumed successes and known failures you
+had to solve along the way?"*
+
+**A SENTENCE NOBODY CAN CHECK IS A STORY**, and this repository's own record
+of that failure mode is long. Worse, the prose was the ONLY witness to the
+half that matters most here: the zero-ceiling rhyme families. `-old` and
+`-ame` yield 0 clean pairs of 15, which is a measurement about ENGLISH taken
+through this harness's own ban, and it was a table in a README that no command
+could re-derive.
+
+**`quality/song_log.py` — THREE VERBS, AND IT GRADES NOTHING.**
+
+    --record SONG -- CMD...   run a verb, bank what it PRINTED
+    --show SONG               render one song's log
+    --verdicts                the README's process claims vs the rows
+
+**IT RECORDS EMITTED TEXT AND NOTHING ELSE.** `--record` runs the command,
+keeps the exit code, and parses stdout with a parser DECLARED for that verb.
+It cannot record an intention, a reason or a regret — everything a session
+BELIEVES stays in the README, where `--verdicts` can charge it against a row.
+`quality/test_songs_log.py` §5 checks by ABSENCE that the module reaches no
+grader: no `discriminate`, no `floor`, no `Reviser`, no `QualityFeatures`.
+Every verdict it holds arrives through `subprocess`, which is the only route
+that cannot become a second opinion about the draft (doctrine 1).
+
+**TWO REFUSALS, AND THEY ARE THE INSTRUMENT.** A command with no declared
+parser REFUSES at exit 2 naming the vocabulary; a command whose parser reads
+NOTHING from a real run refuses too, and prints the tail of the output. Both
+matter for the same reason: an invocation whose output nothing read looks
+exactly like an invocation that went well (doctrine 20), and a verb whose
+format has drifted would otherwise bank a silently empty row forever.
+
+**THE SHAPE IS LONG, NOT WIDE.** One row per (invocation, fact). `screen`
+emits a verdict per pair and `revise` emits a stop reason; a wide table would
+invent an empty cell for every fact the other verb does not answer, and an
+empty cell reads as a measurement that came back zero. A fact a verb does not
+emit has NO ROW — the only spelling of *not asked* that cannot be misread as
+*asked and clean*. `step` is the ordinal within one song's log, so the
+SEQUENCE survives: the order in which a session asked its questions is itself
+part of the record.
+
+**`--verdicts` IS THE GATE AND IT IS TWO-SIDED.** Every process claim in the
+README that names an exit code, a stop reason, a round count, an md5 or a
+mandated/judged/refused triple must resolve to a row. Three counts, never
+summed: RESOLVED, MISMATCHED, REFUSED — a claim the log cannot answer is
+REFUSED and never quietly passed. `test_songs_log.py` §4 rewrites one
+committed claim off its row and requires exit 3, then restores the file.
+
+**WHAT THE LOG DOES NOT CLAIM, STATED SO IT CANNOT BE MISREAD.** A row is
+stamped with the commit and date it was RECORDED at, not with the moment of
+the original writing session — the rows banked on 2026-08-24 are
+re-derivations of the same commands against the same committed bytes. That is
+the stronger property, not a weaker one: a log nobody can re-run is the
+memoir this file was written to replace. The genuinely unrepeatable half — a
+superseded draft that was never committed — has no rows and cannot get any,
+so `--verdicts` REFUSES those claims rather than failing them, and says how
+many it refused.
+
+**AND IT FOUND A DEFECT IN THE PROSE IT WAS BUILT TO GATE, ON ITS FIRST RUN.**
+`songs/README.md` carried an eleven-row table headed
+~~`| family | clean pairs of 15 |`~~ — one denominator over eleven
+populations. 15 is `C(6, 2)`, the pair count of a SIX-member family, and five
+of the eleven rows name four or five members, where the pair count is 6 or 10:
+~~`-ark (spark, arc, hark, lark) | 3`~~ claimed three clean pairs out of
+fifteen in a family that has six. **Five rows were arithmetically impossible
+and every one of them had been read as a measurement.** The denominator was
+written once and carried across (doctrine 91 — a count is a coordinate of the
+RENDERING, not only of the threshold), and nothing could catch it because
+nothing could re-derive a single cell.
+**THE REPLACEMENT IS NOT A CORRECTION AND THE ENTRY SAYS SO.** The old member
+sets were hidden behind ellipses and were never recorded, so the re-derived
+`-ide` and `-ay` counts are taken over SMALLER, DECLARED sets — two
+measurements over two populations, not a repin of one. What survives
+unchanged is the finding: `-old` and `-ame` have a rhyme ceiling of zero.
+
+**THE CITATION IS KEYED ON A WORD, NOT A ROW NUMBER.**
+`[LOG: clean_or_non_rhyme carry_it_over.txt bell]` names the screen run that
+screened `bell`; the value written immediately before it must EQUAL the banked
+one, so the gate charges the number and not merely the existence of a row. A
+step ordinal was the obvious key and is refused for the reason this register
+already records against `data/sources.tsv:NNN` citations: a position into an
+append-only file is an offset from a moving origin, and an unrelated insertion
+makes a true sentence false without one character of it changing. A word
+screened by TWO runs REFUSES as ambiguous rather than resolving to whichever
+came first (`test_songs_log.py` §6 plants exactly that log and requires the
+refusal).
+
+### M-101 · a CONVENTION asks about four function names nobody derived `OPEN`
+Filed 2026-08-24, by the owner catching a sweep predicate and asking what
+stood behind it.
+
+**`quality/grid.py`'s `song_profile` LOOPS OVER A HAND-WRITTEN TUPLE.**
+
+    for fn in ("chorus", "prechorus", "bridge", "hook"):
+
+Four names out of the twenty-one `SECTION_FUNCTIONS` declares. Those four
+drive `has_<fn>` and `bars_until_first_<fn>` on every profile the shape layer
+reads, and `FUNCTION_UNDECLARED` fires for each one a draft does not declare —
+`turn_the_wheel.log.tsv` carries `finding:FUNCTION_UNDECLARED NOTE x1`, whose
+message is *"no section declares 'bridge'"*.
+
+**NOTHING SAYS WHY THOSE FOUR.** There is no measurement, no corpus rate, no
+gloss-derived rule and no owner ruling behind the membership; `verse`,
+`outro`, `postchorus`, `refrain` and the other seventeen are absent for no
+recorded reason. This is the owner's *"we do not want hard numbers anywhere"*
+in the species the tree cannot see: a TUPLE OF STRINGS is a threshold nobody
+wrote down (doctrine 58), and every instrument here that hunts hard numbers
+hunts integers.
+
+**AND IT ALREADY STEERED A PLAN.** `songs/carry_it_over.txt` was planned from
+a seed accepted by `--want=uses=bridge;...`, and the note above fires on a
+song with no bridge. Whether that predicate was written to silence the note
+cannot be established from the record — what IS established is that the note
+exists, the predicate answers it, and the two sit one layer apart. Steering
+the PLAN to satisfy the CHECKER is doctrine 9's failure mode pointed at
+structure rather than rhyme, and doctrine 7 forbids a floor ordering the
+region it already passed. The README section for that song now says so.
+
+**WHAT IS NOT DONE HERE, DELIBERATELY.** The tuple is UNTOUCHED. Which
+functions a convention profile asks about is a RULING and not a cleanup — the
+honest options are to derive the membership from `SECTION_FUNCTIONS`' own
+recurrence contracts, to measure which functions `corpus/song/`'s marked songs
+actually declare, or for the owner to name the four (or twenty-one) by hand.
+Picking one of those silently is how the current four got there.
+
+### M-102 · a song-wide relation outranked every declared structure `CLOSED`
+Filed and closed 2026-08-24, found by specifying the connector's `--structures`
+wiring and reproduced before anything was changed.
+
+**`_normalise_relations` REFUSES A GROUP THAT DECLARES BOTH** a structure and a
+relation, on the argument this repository keeps making: two judges over one set
+of pairs would let `grade()`'s branch order decide the mandate's meaning
+(doctrine 1). That check reads the PER-GROUP `relations` tuple. It cannot see
+`Mandate.default_relation` — the coordinate `--relation=NAME` sets — and
+`relation_of` FALLS BACK to it for every group that declares none of its own.
+So the identical collision reappeared one coordinate over, at a wider scope,
+and nothing refused it.
+
+**MEASURED BEFORE THE REPAIR**, on a four-line draft under `--groups=1,2;3,4`:
+
+| declared | SCHEME_VIOLATION | STRUCTURE_UNCALIBRATED |
+|---|---|---|
+| `--structures=B:kalevala-alliteration` | 0 | 1 |
+| ...and `--relation=type:pararhyme` beside it | **4** | 1 |
+
+The structure was judged in the first row and NOT judged in the second — the
+relation branch fires first for every group — while the disclosure fired in
+BOTH, because it reads `m.structures` and not what actually answered.
+
+**SO THE FAILING SHAPE WAS DECLARED, DISCLOSED, BAN-SKIPPED AND NEVER JUDGED,
+WITH ITS OWN DISCLOSURE VOUCHING FOR IT.** That is worse than a silent drop. A
+caller reading *"laziness is NOT graded under your declared structure"* would
+conclude the structure graded CORRECTNESS, and it graded nothing; and the
+proactive HOMEOTELEUTON/MODAL_RHYME check skips a pair whose verdict carries a
+non-default `structure`, so those pairs were not screened either.
+
+**REFUSED RATHER THAN ORDERED, AND THE REFUSAL COSTS NO CAPABILITY.** Making
+the structure win would be a precedence rule, and this file's own argument
+against branch order applies to any rule invented here. The mixed intent — this
+relation on those groups, that structure on this one — is exactly what the
+PER-GROUP `--relations=LABEL:NAME` spelling already says, so the refusal names
+it and `test_verbs.py` §44 asserts that spelling still passes: advice that is a
+dead end is not advice.
+
+**AND THE REFUSAL WAS PRINTED IN THE WRONG LAYER'S WORDS, WHICH IS THE SECOND
+HALF.** `NoMandate` covers two different answers — NOTHING was declared, and
+something WAS and this reader refused it — and `lyric_harness.py` printed one
+headline over both: **`REFUSED — this verb was given nothing to check
+against`**, at a caller who had handed in groups, a structure AND a relation.
+The loudest line of the report named the wrong cause (doctrine 20). `empty` is
+now set at the ONE raise site that means it, the headline is chosen from it,
+and §44's control requires the genuinely-empty case to still say exactly what
+it always said — a split that silently widened would be the same defect
+inverted.
+
+### M-103 · two catalog rows could not be spelled through `--structures=` `CLOSED`
+Filed and closed 2026-08-24, found while specifying the connector wiring for
+the same flag.
+
+**`--structures=LABEL:NAME,LABEL:NAME` SPLIT ON EVERY COMMA**, and two of the
+58 rows carry one INSIDE the name:
+`Kalevala-alliteration-(strong,-closed-syllable)` and
+`Kalevala-alliteration-(weak,-framed)`. The names are built by `_build`, which
+hyphenates spaces and appends a disambiguating index, so the comma comes from
+the coordinate's own gloss and is not a typo anyone can fix by renaming.
+
+**AND THE REFUSAL NAMED THE FRAGMENT**, which is what made it a defect rather
+than a limitation: `--structures entry '-closed-syllable)' has no ':'`. The
+report blamed the caller's syntax for a name the catalog itself declares, and a
+caller reading it would look for their own missing colon rather than conclude
+the row is unreachable. Two of 58 rows, through the only spelling that reaches
+them.
+
+**THE SPLIT IS ON A COMMA THAT BEGINS AN ENTRY.** A LABEL is a letter or a
+1–3 digit index and is ALWAYS followed by `:`, so an entry boundary is a comma
+followed by `LABEL:`; inside both affected names the comma is followed by `-`.
+The rule is CHECKED over the whole vocabulary rather than against the two known
+rows — `test_verbs.py` §45 asserts that NO row name contains the pattern the
+splitter treats as a boundary, so a row added later whose name would re-open
+this turns the suite red instead of failing silently.
+
+**THE CONTROL IS THE HALF THAT MATTERS**: a splitter that stopped splitting
+would also make the comma-bearing row work, so §45 requires two entries to
+still separate and an unknown name to still refuse through the catalog's own
+message.
+
+**THE SIBLING IS NOT CLAIMED CLEAN.** `--relations=` has the identical
+`raw.split(",")` one function away. Whether any declarable relation name
+carries a comma was NOT established here — two attempts to enumerate that
+vocabulary read the wrong structure — so the site is named as UNEXAMINED rather
+than reported as fine. Deciding it needs the relation vocabulary enumerated
+properly, which is a separate sitting.
+
+### M-104 · `verify` was refused on `revise`'s measurement `CLOSED`
+Filed and closed 2026-08-24, by re-examining a recorded decision rather than
+inheriting it.
+
+**ONE VERB'S NUMBER WAS DOING DUTY FOR TWO.** `CLAUDE.md` records
+*"`revise`/`loop` and `verify` are deliberately NOT wrapped yet (a 40-90s
+synchronous call is the wrong shape for chat)"*. That 40–90s is
+`test_loop.py`'s own figure and its subject is **`revise_loop`**. `verify`
+runs no loop, no proposer and no rounds — it is one `brief` plus two
+`inspect`s — and its cost was never measured when that sentence was written.
+
+**MEASURED NOW:** `revise` on a 28-line draft that actually needs work is
+**92.3s** (ROUND_LIMIT after 4 rounds); `verify` on the same draft is
+**32.2s**, and **22.1s** on a 12-line one. A factor of three, and the wrap
+decision falls on opposite sides of it.
+
+**THE CLOCK THAT DECIDES IT IS NOT THIS CONNECTOR'S.** `SUBPROCESS_TIMEOUT_MS`
+is 90_000, but the vendored MCP SDK's `DEFAULT_REQUEST_TIMEOUT_MSEC` is
+**60_000**, nothing here emits the progress notifications that would reset it,
+and a cancelled request does **not** free the serial python queue. So a call
+past 60s is abandoned by the client while the subprocess runs on, blocking
+every other lyric and recipe call for the remainder of its own 90s. `verify`
+fits with headroom; `revise` does not fit at all.
+
+**AND THE DEFER ROUND-TRIP FAILS FOR A REASON THAT IS NOT SIZE.** The state is
+~22 KB, which round-trips fine. It fails on COUNT: a 28-line draft made ~81
+proposal requests, and the ceiling is `max_rounds` × flagged lines ×
+`attempts_per_line`. Each resume REPLAYS FROM ROUND 1, so the total is
+quadratic in answers given — against a serial queue and a per-IP rate limit.
+It also fails on FIDELITY, since resume is sound only because the loop is
+deterministic, and passing state through tool parameters makes the model the
+storage medium for ~81 exact-match records whose tier-2 key is a 4-tuple of
+full line texts.
+**MOST OF ALL IT SOLVES A PROBLEM THAT DOES NOT EXIST HERE.** `defer:` was
+built because a CHILD PROCESS cannot re-enter the agent that spawned it — the
+caller is BLOCKED inside `revise_loop`. In MCP the caller is not blocked: the
+tool returns and the model gets its turn back. The round-level brief → write →
+verify cycle IS chat's native answer, and `lyric_check` + `lyric_verify` are
+now both halves of it.
+
+**SO `revise` STAYS ON THE CLI**, where a writer with a terminal, a file and no
+60-second clock is the caller it was built for — and the refusal is recorded
+with the numbers rather than the adjective.
+
+**TWO THINGS THE WRAP HAD TO GET RIGHT, both of which a reused `verdictOf`
+would have got wrong.** (1) The `verify` report emits **zero** `FINDING`
+lines, so `extractBannedPairs` returns `[]` on every call and `banned_pairs`
+would be ABSENT on a draft full of banned pairs — absent reads as clean, which
+is the 2026-08-19 failure a third time. `lyric_verify` has its own verdict and
+a `scope` field saying it is a DIFF that cannot speak about defects surviving
+untouched. (2) `verify` exits **0 for ACCEPTED and REJECTED alike**, so a
+caller reading `exit_code` would hear "no flag stands" about a revision the
+harness just refused; `accepted` carries the verdict and the meaning says to
+read it.

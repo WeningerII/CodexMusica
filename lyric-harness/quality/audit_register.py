@@ -2184,7 +2184,28 @@ PINNED = {
     # filed and repinned in the commit that shipped `quality/recover.py`,
     # which is the rule this repo keeps — the register moves in the same
     # commit as the entry, not in a bookkeeping sitting afterwards.)
-    "coverage_entries": 150,  # M-90..M-92 filed 2026-08-24 CI-green sitting
+    # ~~150~~ -> ~~151~~ -> ~~152~~ -> 153: M-93 (the blueprint `title` had no
+    # entrance), M-94 (the planner writes a blueprint `prettier --check`
+    # refuses) and M-95 (tandem and nightly, red for a week on four separate
+    # defects), all filed 2026-08-24. ~~150~~ was M-90..M-92, the CI-green
+    # sitting the same day.
+    # ~~153~~ -> ~~154~~ -> ~~155~~ -> ~~157~~ -> 158: M-96 (the delivered
+    # songs had no gate at all) and M-97 (the flattened bracket now has a Stop
+    # hook), then M-98 (the songs had no series) and M-99 (no human-vs-
+    # generated discriminator for songs), then M-100 (the songs had a series
+    # and no PROCESS record) and M-101 (a convention asks about four function
+    # names nobody derived — the owner catching a sweep predicate and asking
+    # what stood behind it), then M-102 (a song-wide relation outranked every
+    # declared structure — found by specifying the connector wiring for
+    # `--structures` and reproduced before anything was changed). M-98 was
+    # FILED AS A SECOND M-97 and caught by this pin refusing to reconcile —
+    # the count is a check on the numbering as well as on the total.
+    # ~~160~~ -> 161: M-103 (two catalog rows could not be spelled through
+    # `--structures=` at all — the same connector specification turning up a
+    # second defect one function away from the first), then M-104 (`verify`
+    # was refused on `revise`'s measurement — one verb's number doing duty
+    # for two, and they are a factor of three apart).
+    "coverage_entries": 162,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

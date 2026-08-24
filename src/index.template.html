@@ -1555,12 +1555,22 @@ body.is-dnd-active * { cursor: grabbing !important; }
   background: var(--surface-2);
   flex: 0 0 auto;
 }
+/* EVERY font-size IN THIS PANEL IS A TOKEN, and that is not only house style.
+   The seven literals that used to be here — 10px, 11px and 12px — sat OUTSIDE
+   the type scale, so the phone legibility floor at the bottom of Tier 3
+   (`:root { --fs-nano: 12px; --fs-code: 12px; --fs-micro: 12px; }`, "nothing
+   below 12px on a phone") could not reach them: the chat panel rendered its
+   tool pills at 10px and its meta lines at 11px on a 390px screen, under a
+   floor the rest of the app honours. `scripts/tandem.js`'s "no hardcoded
+   font-size or font-weight" check is what named them, and it is the reason
+   that check exists rather than being a lint preference. 11px is not a step on
+   the ramp at all; it maps to --fs-micro, the nearest one the floor lifts. */
 .chat-panel-title { font-weight: var(--fw-semibold); font-size: var(--fs-body); white-space: nowrap; flex: 0 0 auto; }
 /* min-width:0 so this is the element that gives when the head is narrow — the
    title wrapped to two lines on a 390px phone otherwise, because a flex item
    will not shrink below its content without it. */
-.chat-panel-meta { flex: 1 1 auto; min-width: 0; color: var(--text-3); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.chat-reset { padding: 4px 8px; font-size: 12px; }
+.chat-panel-meta { flex: 1 1 auto; min-width: 0; color: var(--text-3); font-size: var(--fs-micro); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chat-reset { padding: 4px 8px; font-size: var(--fs-micro); }
 .chat-log {
   flex: 1 1 auto;
   overflow-y: auto;
@@ -1573,7 +1583,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .chat-msg-you { align-self: flex-end; max-width: 85%; background: var(--surface-3); border-radius: 10px 10px 2px 10px; padding: var(--s2) var(--s3); }
 .chat-msg-engine { align-self: flex-start; max-width: 100%; color: var(--text); }
 .chat-msg-error { align-self: stretch; color: var(--accent); border-left: 2px solid var(--accent); padding-left: var(--s3); }
-.chat-msg-note { align-self: stretch; color: var(--text-3); font-size: 12px; }
+.chat-msg-note { align-self: stretch; color: var(--text-3); font-size: var(--fs-micro); }
 
 /* The recipe is the deliverable, so it gets a block of its own rather than
    living inside the prose: monospace, selectable, and copyable in one action.
@@ -1590,7 +1600,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
   margin: 0;
   padding: var(--s3);
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 12px;
+  font-size: var(--fs-code);
   line-height: 1.55;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
@@ -1603,10 +1613,10 @@ body.is-dnd-active * { cursor: grabbing !important; }
   gap: var(--s2);
   padding: var(--s2) var(--s3);
   border-top: 1px solid var(--border);
-  font-size: 11px;
+  font-size: var(--fs-micro);
   color: var(--text-3);
 }
-.chat-recipe-foot .btn { padding: 3px 8px; font-size: 12px; margin-left: auto; }
+.chat-recipe-foot .btn { padding: 3px 8px; font-size: var(--fs-micro); margin-left: auto; }
 
 /* The tool trace. Shown because this app's whole claim is that the recipe is
    derived, not invented — naming the calls that produced it is the cheapest
@@ -1614,7 +1624,7 @@ body.is-dnd-active * { cursor: grabbing !important; }
 .chat-tools { display: flex; flex-wrap: wrap; gap: 4px; margin-top: var(--s2); }
 .chat-tool {
   font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 10px;
+  font-size: var(--fs-nano);
   padding: 2px 6px;
   border-radius: 999px;
   background: var(--surface-3);

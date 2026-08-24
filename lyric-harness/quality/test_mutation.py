@@ -5,6 +5,7 @@
     python3 quality/test_mutation.py --static   # the list and the anchors, ~0.3s
     python3 quality/test_mutation.py --core     # M1 and the two controls only
     python3 quality/test_mutation.py --full     # every mutation vs every green test
+    python3 quality/test_mutation.py --shard=2/4  # one rotation slice of the list
 
 WHAT THIS FILE ASSERTS
 ----------------------
@@ -412,6 +413,43 @@ def test_the_reported_cause_is_the_suites_own():
         shutil.rmtree(d, ignore_errors=True)
 
 
+def test_the_shards_partition_the_list():
+    """3e. EVERY SHARD SET IS A PARTITION — nothing dropped, nothing twice.
+
+    `--shard=I/N` exists so the nightly can pay the sweep in slices, and the
+    whole value of that is the claim "shards 1..N together are the whole
+    sweep". That claim is arithmetic, so it is CHECKED rather than asserted in
+    a comment — and it is checked here, in the static half, so `record` proves
+    it on every push for 0.0 s rather than only where the sweep runs.
+
+    THE FAILURE THIS FORBIDS IS SILENT. A stride that dropped one mutation per
+    round would leave that mutation unasked FOREVER while every night reported
+    a clean shard, which is precisely the shape doctrine 20 names: a check
+    that cannot run reading exactly like one that passed.
+    """
+    print("\n3e. the shard sets partition the declared list")
+    names = [m.name for m in mutate.MUTATIONS]
+    for n in range(1, len(names) + 1):
+        union = []
+        for i in range(1, n + 1):
+            union.extend(names[i - 1::n])
+        if sorted(union) != sorted(names):
+            check(f"N={n}: shards 1..N are exactly the declared list",
+                  False, f"{len(union)} member(s) against {len(names)}")
+            return
+    check(f"for EVERY N from 1 to {len(names)}, shards 1..N together are "
+          f"exactly the {len(names)} declared mutation(s), each once — the "
+          f"stride is swept, not spot-checked, so no N can be the one that "
+          f"drops a member", True, f"N=1..{len(names)}")
+    # AND THE SLICES ARE BALANCED, which is what makes a bound predictable:
+    # round-robin differs by at most one, contiguous chunking does not.
+    n = 4
+    sizes = [len(names[i - 1::n]) for i in range(1, n + 1)]
+    check(f"the round-robin stride balances: at N={n} the slice sizes are "
+          f"{sizes}, max-min <= 1, so a per-shard time bound means the same "
+          f"thing on every shard", max(sizes) - min(sizes) <= 1, str(sizes))
+
+
 def test_the_bounds_are_declared_and_reachable():
     """3d. THE BOUND IS A PER-SUITE TABLE, AND IT MAY ONLY RAISE.
 
@@ -742,6 +780,36 @@ if __name__ == "__main__":
                     help=f"only {', '.join(CORE)} -- the acceptance triple")
     ap.add_argument("--full", action="store_true",
                     help="every mutation against every green test")
+    # THE SLICE, ADDED 2026-08-24 BECAUSE THE SWEEP OUTGREW ITS NIGHT.
+    # MEASURED on the runner, from the Actions API and not from memory: the
+    # 2026-08-23 nightly ran this file in 7,627 s (2 h 07 m) and PASSED; the
+    # 2026-08-24 nightly was still inside it at 12,949 s (3 h 36 m) when the
+    # job's own `timeout-minutes` cancelled the whole thing. Eleven test
+    # suites were added between those two runs -- `suites` names "the 54
+    # cheap suites" on the first and "the 65" on the second -- and this file
+    # re-runs the suite once per mutation, so its cost tracks the suite's and
+    # will keep doing so.
+    #
+    # WHAT THE CANCELLATION COST WAS NOT THE SWEEP. Three later steps never
+    # ran, and the `actions/cache` post step that banks the song-profile memo
+    # was skipped, so that night's 150-minute slice was computed and thrown
+    # away -- the deadlock the nightly's own comment warns about, one level
+    # up: "If the JOB hits `timeout-minutes` it is cancelled and the cache's
+    # post step can be skipped."
+    #
+    # A SHARD IS A COMPLETE ANSWER ABOUT ITS OWN MEMBERS, which a truncated
+    # sweep is not: every mutation is verified independently, so `MUTATIONS
+    # [i-1::n]` is a real verdict on those and says nothing about the rest.
+    # The stride is round-robin rather than contiguous ON PURPOSE -- the list
+    # is grouped by target file, so a contiguous block would put a whole
+    # module's mutations in one shard and leave it unasked for n-1 nights.
+    # The verdict line below says which shard ran; it may not say "every
+    # declared mutation is caught" when it has only asked a quarter of them
+    # (doctrine 20).
+    ap.add_argument("--shard", metavar="I/N",
+                    help="run mutation slice I of N (1-based, round-robin "
+                         "over the declared list). Full coverage takes N "
+                         "runs; the verdict names the slice it asked about")
     ap.add_argument("--jobs", type=int, default=max(1, (os.cpu_count() or 2)))
     ap.add_argument("--mutation-jobs", type=int, default=2)
     ap.add_argument("--confirm-all", action="store_true")
@@ -753,12 +821,34 @@ if __name__ == "__main__":
                          "them")
     a = ap.parse_args()
 
+    # THE SLICE IS RESOLVED BEFORE ANYTHING RUNS, so a malformed one costs a
+    # refusal and not two hours. `--shard` and `--core` name two different
+    # subsets and reading both would leave nobody able to say which produced
+    # the answer -- the same refusal `plan` makes for `--seed` with `--sweep`.
+    shard = None
+    if a.shard:
+        if a.core:
+            print("test_mutation.py: --shard and --core name two different "
+                  "subsets; pass one")
+            sys.exit(2)
+        try:
+            _i, _n = (int(x) for x in str(a.shard).split("/"))
+        except ValueError:
+            print(f"test_mutation.py: --shard={a.shard!r} is not I/N")
+            sys.exit(2)
+        if _n < 1 or not 1 <= _i <= _n:
+            print(f"test_mutation.py: --shard={a.shard!r} is out of range — "
+                  f"I/N with N >= 1 and 1 <= I <= N")
+            sys.exit(2)
+        shard = (_i, _n)
+
     test_the_mutation_list_is_well_formed()
     test_every_mutation_still_applies()
     test_M1_is_declared_verbatim()
     test_the_three_way_outcome()
     test_the_reported_cause_is_the_suites_own()
     test_the_bounds_are_declared_and_reachable()
+    test_the_shards_partition_the_list()
     if a.static:
         # THE TRIPWIRE WAS WELDED TO THE SWEEP, WHICH IS WHY NOBODY RAN IT.
         # Sections 1-3 read the mutation list and seven source files and cost
@@ -788,12 +878,28 @@ if __name__ == "__main__":
                   "-- and this file is `test_*.py`, so every sibling's "
                   "`for f in quality/test_*.py` invokes it.")
         else:
-            test_the_run("full" if a.full else "subset",
-                         CORE if a.core else None,
+            only = CORE if a.core else None
+            if shard:
+                i, n = shard
+                names = [m.name for m in mutate.MUTATIONS]
+                only = names[i - 1::n]
+                print(f"\n   SHARD {i}/{n} — {len(only)} of {len(names)} "
+                      f"declared mutation(s) this run, round-robin over the "
+                      f"list: {', '.join(only)}")
+                print(f"        The other {len(names) - len(only)} are NOT "
+                      f"asked here and this run says nothing about them; "
+                      f"shards 1..{n} together are the whole sweep.")
+            test_the_run("full" if a.full else "subset", only,
                          a.jobs, a.mutation_jobs, a.confirm_all, a.timeout)
 
     print("=" * 78)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
         sys.exit(1)
-    print("adversary 4 holds: every declared mutation is caught")
+    if shard:
+        # NOT "every declared mutation is caught" — this run asked a slice,
+        # and a line that overclaims is worse than one that reports less.
+        print(f"adversary 4 holds ON SHARD {shard[0]}/{shard[1]}: every "
+              f"mutation in this slice is caught. The slice is the claim.")
+    else:
+        print("adversary 4 holds: every declared mutation is caught")

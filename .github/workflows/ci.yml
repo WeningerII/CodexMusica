@@ -1687,7 +1687,7 @@ jobs:
       # caught `nc_census` on the run that added it — and `structures` on
       # the run that added THAT. `comm -23 <(ls quality/test_*.py | sed 's|quality/test_||;s|\.py$||'
       # | sort) <(the names in this file, sorted)` is that command.
-      - name: "The 65 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate and recover the same day with the second door into the pipeline, each added in the same commit as the module it gates so neither joins the census below; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census 2026-08-23 with the census of which findings can refuse anything, added in the same commit as the module it gates — and the instrument's own first run is why it is here rather than a sitting later: it named two constructors, measured 46 codes, and omitted `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated)"
+      - name: "The 69 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate and recover the same day with the second door into the pipeline, each added in the same commit as the module it gates so neither joins the census below; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census 2026-08-23 with the census of which findings can refuse anything, added in the same commit as the module it gates — and the instrument's own first run is why it is here rather than a sitting later: it named two constructors, measured 46 codes, and omitted `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated; songs 2026-08-24 — the DELIVERED songs, which until that day nothing in this repository read at all: zero checks under quality/, zero mentions here, and two of the five had shipped with their section structure missing while every gate in the tree stayed green; render_form the same day — the check that reads a MESSAGE, which no other gate can, plus the Stop hook that hands it the transcript and BLOCKS a turn carrying a section bracket with its apparatus stripped; songs_record the same day — the SERIES, because every report about these songs had been a PASS/FAIL bit read aloud as a judgement, and its claim check is the one gate in this tree aimed at the narrator rather than the code; songs_log the same day — the PROCESS beside the product, because the series banks what a song IS and nothing banked how it got there, and the zero-ceiling rhyme families were a markdown table no command could re-derive)"
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1722,7 +1722,7 @@ jobs:
                    nc_census plan positive_control propose provenance \
                    readability readings_seam register_audit relations \
                    relation_shapes relations_null \
-                   recover screen slots song_function spans structure_census structures \
+                   recover render_form screen slots song_function songs songs_log songs_record spans structure_census structures \
                    taxonomy time_layer \
                    verify_entries; do
             while [ "$(jobs -rp | wc -l)" -ge 4 ]; do
@@ -1924,6 +1924,114 @@ jobs:
       - name: test_verbs shard ${{ matrix.shard }}/2 (the whole file, halved by section residue)
         run: python3 quality/test_verbs.py
 
+  # ── The mutation sweep: adversary 4, in its own job and on a rotation ─────
+  #
+  # A JOB AND NOT A STEP, SINCE 2026-08-24. It was step 11 of `nightly` and it
+  # is the reason that job has not been green in a week: uncapped, it ran past
+  # the job's own `timeout-minutes`, and a cancelled job skips the rest of its
+  # steps AND its `actions/cache` post step. Three adoption checks went unrun
+  # and the song-profile memo's nightly slice was computed and discarded, every
+  # night, because ONE sibling step had no bound. Parallel jobs are how this
+  # file already answers that everywhere else — `catalog` runs 4 shards,
+  # `verbs` runs 2 — and the sweep is the last serial giant that was not.
+  #
+  # SHARDED, AND THE SHARD COUNT IS ANCHORED TO A MEASUREMENT rather than
+  # picked. Measured on the runner from the Actions API:
+  #
+  #   2026-08-23   the whole sweep, 58 mutations   7,627 s (2 h 07 m), PASSED
+  #   2026-08-24   the whole sweep, 58 mutations   >12,949 s, never finished
+  #
+  # At N=2 a shard is 29 of the 58. The cost is `baseline + 29 x per-mutation`,
+  # and ONE TERM OF THAT IS NOT MEASURED: the sweep prints a single wall clock
+  # and never splits the baseline out, so how much of the 12,949 s above was
+  # the one-off baseline is not known from any run on record. Stated rather
+  # than quietly assumed away — under any baseline at all, a shard at N=2 is
+  # strictly cheaper than the whole sweep, and lands near the 2 h 07 m this
+  # runner IS known to complete. That is the argument for 2: not a guess at
+  # what fits, but the largest slice with a completed run behind it. The step
+  # below prints its own wall clock, so the FIRST run of this job is the
+  # measurement that settles N — and if a shard overruns it says so with the
+  # number attached instead of taking the job down with it.
+  #
+  # Full coverage takes two nights, and `test_mutation.py` §3e proves the two
+  # shards are exactly the declared list with nothing dropped or doubled.
+  #
+  # THE ROTATION IS THE DATE, so it needs no stored state and cannot drift:
+  # even day-of-year runs shard 1, odd runs shard 2. A `workflow_dispatch`
+  # gets whichever the day says, which is also what makes the slice
+  # reproducible from the run's own date.
+  #
+  # THE STEP CARRIES ITS OWN `timeout`, INSIDE THE JOB'S. This is the trick the
+  # song-profile step documents and the sweep did not have: a step that exits
+  # cleanly at its bound reports "the shard outgrew its budget" with the
+  # numbers attached, where a job cancelled at ITS bound reports nothing and
+  # takes the post steps with it. A truncated sweep is NOT a pass here (there
+  # is no memo to bank, unlike the song-profile slice), so 124 fails — loudly,
+  # naming the two levers, so the next person raises N on evidence instead of
+  # rediscovering this from an empty log.
+  mutation:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'schedule' && github.event.schedule == '17 4 * * *')
+    runs-on: ubuntu-latest
+    # 2 h 07 m measured + headroom, and the STEP bound below is what actually
+    # fires: this exists so a hung fork cannot hold a runner for six hours.
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # THE SAME THREE PACKAGES `nightly` INSTALLS, AND FOR A REASON THAT COST
+      # THIS SWEEP ITS MEANING ONCE BEFORE. With nltk absent, nine test files
+      # are RED AT BASELINE, `baseline()` excludes them — correctly — and the
+      # sweep then reports SURVIVED for mutations whose detectors were the
+      # excluded files. An environment defect wearing the costume of a coverage
+      # hole (see the long note in `nightly`). This job forks the whole suite,
+      # so it needs the suite's environment exactly.
+      - name: Install the packages the suite reaches lazily
+        run: python3 -m pip install --disable-pip-version-check numpy scikit-learn nltk
+
+      - name: Stage the pronunciation dictionary
+        working-directory: lyric-harness
+        run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
+
+      - name: Stage the tagger model and the concreteness norms
+        working-directory: lyric-harness
+        run: python3 quality/fetch_data.py
+
+      - name: One shard of the mutation sweep (adversary 4, rotating by date)
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: |
+          # `10#` FORCES BASE TEN. `date +%j` is zero-padded, so day 008 and
+          # day 009 are invalid octal and abort the arithmetic — a bug that
+          # would wait until January to fire and then look like a shard defect.
+          N=2
+          I=$(( (10#$(date -u +%j) % N) + 1 ))
+          echo "day-of-year $(date -u +%j) -> shard $I of $N"
+          set +e
+          timeout 200m python3 quality/test_mutation.py --shard=$I/$N
+          rc=$?
+          set -e
+          case $rc in
+            0) echo "SHARD $I/$N HOLDS — every mutation in this slice is caught." ;;
+            124) echo "THE SHARD OUTGREW ITS BUDGET at 200m, and that is a"
+                 echo "FAILURE and not a slice: unlike the song-profile memo"
+                 echo "there is nothing banked, so a truncated sweep answers"
+                 echo "nothing (doctrine 20). Two levers, both in this file:"
+                 echo "raise N above $N so each night asks fewer mutations, or"
+                 echo "raise the 200m bound and the job cap together. Measure"
+                 echo "first — the wall clock this file prints is the number."
+                 exit 1 ;;
+            *) exit $rc ;;
+          esac
+
   # ── Nightly: the checks the measurement above prices out of a pull request ─
   #
   # Named to the nightly cron, not to `schedule` -- see the two-crons comment
@@ -2049,17 +2157,36 @@ jobs:
           OPENBLAS_NUM_THREADS: '1'
         run: python3 quality/test_discriminate.py
 
-      # Adversary 4 for real: the suite re-run once per mutation. ~53 CPU-min.
+      # ~~Adversary 4 for real: the suite re-run once per mutation. ~53 CPU-min.
       # `record` runs --static (0.06 CPU-s) to prove the anchors still attach;
-      # this proves the tests still CATCH. Two questions, two costs.
-      - name: The full mutation sweep (~53 CPU-min — adversary 4 for real)
-        if: always()
-        working-directory: lyric-harness
-        env:
-          OMP_NUM_THREADS: '1'
-          MKL_NUM_THREADS: '1'
-          OPENBLAS_NUM_THREADS: '1'
-        run: python3 quality/test_mutation.py
+      # this proves the tests still CATCH. Two questions, two costs.~~
+      #
+      # MOVED OUT TO ITS OWN JOB 2026-08-24 (`mutation`, below), and the "~53
+      # CPU-min" was wrong by a factor of four when it was moved. Struck rather
+      # than deleted (doctrine 17) because the number is the reason:
+      #
+      #   2026-08-23 nightly   this step ran  7,627 s (2 h 07 m) and PASSED
+      #   2026-08-24 nightly   still inside it at 12,949 s (3 h 36 m) when the
+      #                        job's `timeout-minutes: 240` cancelled everything
+      #
+      # Eleven suites were added between those two runs (`suites` names "the 54
+      # cheap suites" on the first and "the 65" on the second) and this file
+      # re-runs the suite once per mutation, so its cost tracks the suite's.
+      #
+      # WHAT THE CANCELLATION COST WAS NOT THE SWEEP. Three later steps in this
+      # job never ran, and `actions/cache`'s post step was SKIPPED — so that
+      # night's 150-minute song-profile slice was computed and thrown away. The
+      # step below warns about exactly this ("If the JOB hits `timeout-minutes`
+      # it is cancelled and the cache's post step can be skipped"); what nobody
+      # noticed is that a SIBLING STEP can trip it just as well as the step's
+      # own overrun. A serial step with no bound of its own is a bound on
+      # everything after it.
+      #
+      # AND THE ARITHMETIC SAYS THIS JOB NEVER FITTED. Measured on 2026-08-23:
+      # cache warm 16 m + discrimination ~18 m + kalevala ~12 m + a song-profile
+      # slice budgeted at 150 m is ~196 m before the sweep is asked for a
+      # second, inside a 240-minute cap. The sweep did not outgrow its budget;
+      # it never had one.
 
       # 2.0-2.2 CPU-hours cold, ~85 CPU-s warm off the cache restored above.
       # `record` runs --without-predictability at 64s; this is the whole thing.
@@ -2070,11 +2197,22 @@ jobs:
       # A full remeasurement (~12 min: two arms + 200 null resamples), so
       # it lives here and not in the per-push pool, the same reasoning
       # that keeps the predictability check nightly.
+      # `if: always()` LIKE EVERY OTHER STEP IN THIS JOB, AND THESE TWO WERE THE
+      # EXCEPTIONS — ADDED 2026-08-24. Without it a failure anywhere earlier
+      # SKIPS them, and a skipped step reports as neither pass nor fail: on the
+      # 2026-08-23 nightly both showed `skipped` because the two AUC steps above
+      # had gone red, so two adoption checks that might themselves have been
+      # red were simply not asked. That is doctrine 20's own shape — CANNOT RUN
+      # is never PASS — arrived at by omission rather than by argument, and it
+      # is why this job has been red for a week without anybody being able to
+      # say how many things were wrong with it.
       - name: Rhyme capacity adoption check (tier 1 in full + every sample witness re-graded)
+        if: always()
         working-directory: lyric-harness
         run: python3 quality/capacity.py --check
 
       - name: Kalevala alliteration adoption check (full remeasurement)
+        if: always()
         working-directory: lyric-harness
         run: python3 quality/kalevala_calibration.py --check
 

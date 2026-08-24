@@ -14,6 +14,14 @@ terms of that cell.
 The blueprint beside each lyric is the FILLED plan (`plan --fill`), so the
 grading command below runs without re-deriving anything.
 
+**THE COMMITTED BLUEPRINTS ARE PRETTIER-FORMATTED AND `plan --out` IS NOT**
+(`MISSING.md` M-94). Re-running any reproduction command below rewrites its
+blueprint at `indent=1` and the repository's `gate` job refuses that file, so
+the re-derived artifact is byte-different from the committed one. It is not a
+different DECLARATION: whitespace cannot reach a grade through a parser, and
+`song` returns a byte-identical finding set on either spelling. Run
+`npx prettier --write` on the file after re-deriving it.
+
 ---
 
 ## `keep_the_light.txt` — seed 22, 3/8 grouped 3
@@ -55,6 +63,237 @@ is for.
 `song` exit 0, 0 FLAG. `revise` SUCCESS in 0 rounds, md5 `f5ed3b7d8cea`,
 10 pairs mandated / 10 judged / 0 refused.
 
+## `stay_awake.txt` — seed 568, 2/4 grouped 2, title DECLARED
+
+    python3 lyric_harness.py plan --seed=568
+    python3 lyric_harness.py plan --seed=568 --title='Stay Awake' \
+        --fill=songs/stay_awake.txt --out=songs/stay_awake.blueprint.json
+    python3 lyric_harness.py song songs/stay_awake.blueprint.json \
+        songs/stay_awake.txt \
+        '--groups=1.T3,2.endword;1.T1,2.T1;1.T5,2.T5;5.T6,7.T5;5,6.T4;5.T1,6.T3;9.T7,10.T4,11.T6;9.T4,10.T5,11.headrime;15.headrime,16.headrime;15.T2,16;15.T3,16.T4' \
+        '--returns=4,13' --subdivision 2
+
+`song` exit 0, 0 FLAG. `revise` SUCCESS in 0 rounds on the committed draft,
+UNCHANGED (md5 `df36634e2601`), 16 pairs mandated / 16 judged / 0 refused.
+
+The seed came from the sweep verb, not from taste — the sweep plans all 899
+seeds in `1-899`, refuses none, and **accepts 23** (2.6%). 568 is one of them,
+named in seed order because a sweep does not rank (doctrine 7/19):
+
+    python3 lyric_harness.py plan --sweep=1-900 \
+        --want='slots_per_line>=10;pins_per_line<=3;lines>=16;lines<=30'
+
+Ten sections — `intro-build-chorus-false_ending-turnaround-verse-prechorus-`
+`chorus-reprise-coda` — 10 beats a line over 5 bars of 2/4, 20 slots at
+subdivision 2, hook at line 4 returning verbatim at line 13.
+
+**THE FIRST GREEN DRAFT WAS NOT THE FIRST DRAFT, AND THE LOOP SAID WHY.**
+`song` came back exit 3 on the M-88 ban gate: `PREDICTABLE_RHYME`, 6 of 7
+rhymes above 0.90 predictability against a `predictable_pair_fraction_max` of
+0.8333. Two hand-picked swaps did not move it, which is the point at which
+guessing stops being work — so the fix went through `revise --propose=defer:`
+instead, and the loop asked for two COUPLED rewrites it could not make itself
+(both pivots whose complete-pool joint search came back empty). The writer
+answered both, and the second draft is what shipped:
+
+| line | was | became |
+|---|---|---|
+| L5 | `Cinder goes down to one ember, night lifts siege` | `Cinder goes down to one ember in the metal` |
+| L6 | `Down below, winter hedge holds its own dark` | `Down below, winter nettle holds its own vigil` |
+| L16 | `Siren in the weather takes what we offer` | `Siren in the weather empties the coffer` |
+
+The loop scored the first pair **fixed 8, introduced 0** and the second
+**fixed 2, introduced 0**, and closed L7 without asking about it — an earlier
+fix in the same round had already resolved it.
+
+`hedge` is why the loop had to backtrack rather than swap one word. Screened
+before anything was rewritten: `ledge`, `wedge`, `pledge`, `sledge` and
+`dredge` all come back BANNED as tier-1 HOMEOTELEUTON — one spelled rime
+`edge` on both sides — and the only clean answer the pool had was `allege`,
+which is not a word this song can end a line on. A family whose members all
+spell their rime the same way has a rhyme CEILING near one, and `screen` says
+so before a word is written. `metal ~ nettle` scores the same 1.000 and is
+CLEAN, because `etal` and `ettle` are two spellings of one sound.
+
+Its blueprint carries a declared `title`, so `TITLE_UNDECLARED` is answered
+here rather than reported —
+`MISSING.md` M-93, and `plan --title=` is the entrance that made it possible
+without editing the planner's own output by hand.
+
+## `carry_it_over.txt` — "Carry It", seed 394, 8/8 grouped 3+3+2
+
+    python3 lyric_harness.py plan --sweep=1-700 \
+        --want='uses=bridge;lines>=20;lines<=28;slots_per_line>=8;pins_per_line<=3'
+    python3 lyric_harness.py plan --seed=394
+    python3 lyric_harness.py plan --seed=394 --title='Carry It' \
+        --fill=songs/carry_it_over.txt --out=songs/carry_it_over.blueprint.json
+    python3 lyric_harness.py song songs/carry_it_over.blueprint.json \
+        songs/carry_it_over.txt \
+        '--groups=1.head,2.endword;1.T2,2.T1;3,4.T2;5.T6,6.head;5.T3,6.T6;9.T4,10.headrime;9,10.T3;9.T5,10.T6;11.T6,12.headrime' \
+        '--returns=7,17;7,20' --subdivision 1
+
+`song` exit 0, 0 FLAG. `revise` SUCCESS in 0 rounds, draft UNCHANGED
+(md5 `89bcde433fbe`), 11 pairs mandated / 11 judged / 0 refused.
+
+The seed came from the sweep and not from taste: it plans all 699 seeds in
+`1-700`, is refused by the planner on 0 of them, and accepts 6 (0.9%) —
+`2,232,394,503,510,614` [LOG: accepted_seeds carry_it_over.txt], named in seed
+order because a sweep does not rank (doctrine 7/19).
+
+**THE FIVE PREDICATES ARE ONE SESSION'S DECLARATION AND NO RULE IN THIS TREE
+STANDS BEHIND ANY OF THEM.** `uses=bridge;lines>=20;lines<=28;slots_per_line>=8;pins_per_line<=3`
+was typed on a command line while this song was being written. Checked rather
+than remembered: `--want` has NO default (omit it and every seed is accepted,
+and the verb says so out loud); no section function REQUIRES a bridge — the
+only `requires` edges in the vocabulary are `burden`->`verse`,
+`postchorus`->`chorus` and `prechorus`->`chorus`; and the string `uses=bridge`
+occurs in exactly ONE place in this repository, which is the command line
+above. A sweep does not decide what you want, so what a sweep accepted is a
+fact about the want and never a fact about songs.
+**AND THE BRIDGE PREDICATE HAS A NOTE STANDING BEHIND IT THAT IT SHOULD NOT
+BE ANSWERING** (`MISSING.md` M-101). `song_function_report` emits
+`FUNCTION_UNDECLARED: no section declares 'bridge'` — visible as
+`finding:FUNCTION_UNDECLARED` in `turn_the_wheel.log.tsv` — and a sweep
+predicate demanding a bridge silences it by steering the PLAN to satisfy the
+CHECKER. That is doctrine 9's failure mode pointed at structure instead of
+rhyme, and doctrine 7 says a floor may not order the region it already passed.
+The note measures a CONVENTION a writer is free to depart from; designing the
+plan around it is the error, whatever the note says.
+
+**THOSE ARE THREE COUNTS AND ONLY ONE OF THEM IS ABOUT LEGALITY** (doctrine
+79). `planned 699` beside `REFUSED by the planner 0` says every seed in the
+range produced a WRITABLE plan — which is not luck but the plan-time joint
+satisfiability gate working, since that gate went from 376 of 400 plans
+failing to 0 of 400 when the three derivations behind it were repaired, and a
+MUTATION is now the only way to fire it. The 0.9% is the acceptance rate for
+the FIVE PREDICATES declared above and says nothing about legality: declare
+fewer and it rises, declare none and it is 100%, which the verb itself calls
+honest and useless. Reading the acceptance rate as a legality rate would put
+the writer's own narrow want in the numerator and charge it to the planner.
+
+**25 lines, 23 sections, 8/8 grouped 3+3+2** — an additive limp rather than a
+march, one bar to a line, so the lines are SHORT: 8 slots on a downbeat and
+**7 on the one-beat pickup**. Three instrumental INTERLUDEs carry bars and no
+words. Hook at line 7, verbatim at 17 and 20. Its roster declares a
+`bridge`, and its blueprint a title — "Carry It" is in the hook.
+
+**THE FIRST DRAFT PASSED EVERY GATE AND WAS NOT A SONG.** It is worth
+recording what it looked like, because nothing in this repository can tell
+the difference and a reader will otherwise assume exit 0 means the writing is
+fine:
+
+| first draft | rewrite |
+|---|---|
+| `Tide is cussed, iron, salt, mourn` | `Father crossed tide, ice and war` |
+| `Over. Over. The far bank.` | `He went last winter. Quick, they said.` |
+| `A name on every crate` | `He said that. Now I say it.` |
+
+The left column is atmosphere stacked into token positions. It happened
+because the order got inverted: eight of nine screened pairs came back
+BANNED, so the design was rebuilt by shopping for rhyme WORDS and then
+building lines backwards from *token 6 must be `arc`, at most 7 syllables*.
+The words chose the sentences. `Tide is cussed, iron, salt, mourn` is what
+falls out when a line needs six tokens with rhymes pinned at 3 and 6 and the
+writer stops insisting it be a sentence.
+
+**THE REWRITE KEEPS EVERY CONSTRAINT AND CHANGES THE ORDER OF WORK.** Same
+seed, same 9 groups, same slot budget, every pair still screened first — but
+each line is written as something a person says, and the pin word is chosen
+from the clean set that *fits that sentence*. Three people now: a father who
+crossed in the war, the speaker he taught, and the boy being taught tonight.
+The hook is inherited rather than stated — `He said that. Now I say it.` —
+and the last line is what happens to an inherited instruction when the person
+who gave it is gone.
+
+**WHAT THE SCREEN COST, AND THE TWO FAMILIES THAT COST EVERYTHING.** Eleven
+families went through `screen`. Every row below is re-derived from
+`carry_it_over.log.tsv` and each cell carries a `[LOG:]` citation, so a number
+here that stops matching the log FAILS `--verdicts`. Three counts, never
+summed (doctrine 79) — a BAN is the grader answering and a REFUSAL is the
+grader saying it cannot read the word:
+
+| family (members screened) | banned | refused | clean |
+|---|---|---|---|
+| `-ell` bell knell quell gel swell shell | 8 [LOG: banned carry_it_over.txt bell] | 0 [LOG: refused carry_it_over.txt bell] | 7 [LOG: clean_or_non_rhyme carry_it_over.txt bell] |
+| `-ear` year here near fear clear sheer | 8 [LOG: banned carry_it_over.txt year] | 0 [LOG: refused carry_it_over.txt year] | 7 [LOG: clean_or_non_rhyme carry_it_over.txt year] |
+| `-ide` tide sighed dyed wide | 2 [LOG: banned carry_it_over.txt tide] | 0 [LOG: refused carry_it_over.txt tide] | 4 [LOG: clean_or_non_rhyme carry_it_over.txt tide] |
+| `-ay` weigh grey prey sleigh | 2 [LOG: banned carry_it_over.txt weigh] | 0 [LOG: refused carry_it_over.txt weigh] | 4 [LOG: clean_or_non_rhyme carry_it_over.txt weigh] |
+| `-ust` rust dust bust cussed | 3 [LOG: banned carry_it_over.txt rust] | 0 [LOG: refused carry_it_over.txt rust] | 3 [LOG: clean_or_non_rhyme carry_it_over.txt rust] |
+| `-ark` spark arc hark lark | 3 [LOG: banned carry_it_over.txt spark] | 0 [LOG: refused carry_it_over.txt spark] | 3 [LOG: clean_or_non_rhyme carry_it_over.txt spark] |
+| `-or` oar shore soar war door | 7 [LOG: banned carry_it_over.txt oar] | 0 [LOG: refused carry_it_over.txt oar] | 3 [LOG: clean_or_non_rhyme carry_it_over.txt oar] |
+| `-orn` torn borne mourn | 2 [LOG: banned carry_it_over.txt torn] | 0 [LOG: refused carry_it_over.txt torn] | 1 [LOG: clean_or_non_rhyme carry_it_over.txt torn] |
+| `-eight/-ait` freight strait | 0 [LOG: banned carry_it_over.txt freight] | 0 [LOG: refused carry_it_over.txt freight] | 1 [LOG: clean_or_non_rhyme carry_it_over.txt freight] |
+| `-old` cold rolled tolled hauled bowled scrolled | 10 [LOG: banned carry_it_over.txt cold] | 5 [LOG: refused carry_it_over.txt cold] | 0 [LOG: clean_or_non_rhyme carry_it_over.txt cold] |
+| `-ame` name came blame shame claim flame | 15 [LOG: banned carry_it_over.txt name] | 0 [LOG: refused carry_it_over.txt name] | 0 [LOG: clean_or_non_rhyme carry_it_over.txt name] |
+
+**THE TABLE THIS REPLACES HAD ONE DENOMINATOR AND ELEVEN POPULATIONS, AND
+FIVE OF ITS ROWS WERE ARITHMETICALLY IMPOSSIBLE.** It read
+~~`| family | clean pairs of 15 |`~~ with the members abbreviated behind an
+ellipsis, and 15 is `C(6, 2)` — the pair count of a SIX-member family. Five
+rows name four or five members, where the pair count is 6 or 10, so
+~~`-ark (spark, arc, hark, lark) | 3`~~ claimed three clean pairs out of
+fifteen in a family that has six. The denominator was written once and
+carried across every row (doctrine 91: a count is a coordinate of the
+RENDERING, not only of the threshold).
+
+**THE NEW NUMBERS ARE NOT A CORRECTION OF THE OLD ONES**, and saying so
+matters more than the numbers. The old table's member sets were never
+recorded — the ellipses hid them — so ~~6~~ for `-ide` and ~~5~~ for `-ay`
+were taken over LARGER sets than the four members named here. Two
+measurements over two populations are two measurements; only the ones with a
+`[LOG:]` citation are re-derivable, and that is exactly the property the old
+table lacked.
+
+**WHAT SURVIVES UNCHANGED IS THE FINDING.** Two families have a rhyme CEILING
+of zero: every member is either homoeoteleuton with the others or somebody's
+modal answer. `-ame` is the
+starker case — `name`, `came`, `blame`, `shame`, `claim`, `flame`, and not
+one usable pair among all fifteen.
+
+**AND THE SLOT FLAGS WERE ALL THE PICKUP.** Every `SLOTS_EXCEEDED` came from
+a one-beat pickup eating a slot, so a CHORUS line has seven and not eight.
+`wire` cost one on its own — CMUdict reads it as two syllables (`W AY1 ER0`),
+which is what a count in the head gets wrong and a grader does not.
+
+## What the first measurement says, including about me
+
+`songs/RESULTS.tsv` is the series: one row per (song, harness commit, date),
+carrying the ten pre-registered features from `quality/features.py`. It exists
+because every report about these songs until 2026-08-24 was a PASS/FAIL bit —
+`song` exit 0, `revise` 0 rounds — read aloud as a judgement of quality. It is
+not one. BOTH drafts of `carry_it_over` were exit 0 with 0 rounds, the
+fragment version and the rewrite, and no gate in this tree can tell them apart.
+
+    python3 quality/song_record.py --write    # score every song, append rows
+    python3 quality/song_record.py --check    # re-derive; FAIL on drift
+    python3 quality/song_record.py --claims   # README claims vs the numbers
+
+**THE SONGS ARE FIXED WITNESSES.** Their bytes never change, so when a number
+moves, THE TREE MOVED — a corpus load, a recalibrated band, a changed
+tokeniser. That is why `harness_commit` is a key column and why `--check` is a
+regression detector for the whole quality layer rather than a check on the
+writing.
+
+**WHAT IS REFUSED HERE:** a corpus-relative "quality score".
+`quality/discriminate.py` fits its discriminator on SONNETS at a fixed 14-line
+scheme; pushing a 25-line song in 8/8 through it and printing the number is a
+measurement laundered out of its domain. The features are recorded; the
+verdict against the song corpus is `quality/floor.py`'s song profile, which
+already runs inside `song`.
+
+**AND THE FIRST RUN DID NOT FLATTER THE NEWEST SONG.** On concreteness —
+pre-registered as HIGHER in the survived/human class — `carry_it_over.txt` is
+the lowest of the five at 3.043667 [RESULTS: concreteness_mean
+carry_it_over.txt], against 3.909818 for `turn_the_wheel.txt`
+[RESULTS: concreteness_mean turn_the_wheel.txt]. On rhyme predictability —
+pre-registered as LOWER — `keep_the_light.txt` sits lowest at 0.816206
+[RESULTS: rhyme_predictability_mean keep_the_light.txt]. Both readings run
+against the story I had been telling, which is the point of writing the
+numbers down before making the claim.
+
+A comparison in this file must carry a `[RESULTS: <column> <song>]` citation
+that resolves, or `--claims` fails. That check is aimed at the narrator.
+
 ---
 
 ## What the screen cost, measured
@@ -65,3 +304,55 @@ predictable partner in its family. Two whole sound families, `/OW/` and
 `/AA-R-K/`, turned out unusable: every pair inside them is somebody's modal
 answer. That is doctrine 9 enforced before a word ships rather than argued
 about afterwards.
+
+---
+
+## The process beside the product
+
+`RESULTS.tsv` says what a song IS. `songs/<name>.log.tsv` says what the verbs
+SAID while it was being written — one row per (invocation, fact), in the order
+the questions were asked.
+
+    python3 quality/song_log.py --record SONG -- CMD...   # run a verb, bank what it printed
+    python3 quality/song_log.py --show SONG               # render one song's log
+    python3 quality/song_log.py --verdicts                # this file's process claims vs the rows
+
+**IT RECORDS EMITTED TEXT AND NOTHING ELSE.** `--record` runs the command,
+keeps its exit code, and parses stdout with a parser declared for that verb. A
+command with no declared parser REFUSES at exit 2; so does a declared verb
+whose output the parser reads nothing from, because an invocation whose output
+nothing read looks exactly like an invocation that went well. It cannot bank
+an intention, a reason or a regret — everything a session BELIEVES stays in
+this README, where `--verdicts` charges it against a row.
+
+**EVERY PROCESS CLAIM ABOVE IS NOW GATED.** An exit code, a stop reason, a
+round count, an md5, a mandated/judged/refused triple — each must resolve to a
+row in that song's log or `--verdicts` fails. Three counts, never summed:
+RESOLVED, MISMATCHED and REFUSED, the third being a claim the log cannot
+answer, which is not the same thing as a claim it agrees with (doctrine 20).
+
+**WHAT THE LOG DOES NOT CLAIM.** A row is stamped with the commit and date it
+was RECORDED at, not with the hour of the original writing session. The rows
+banked on 2026-08-24 are re-derivations of the same commands against the same
+committed bytes — the stronger property, because a log nobody can re-run is
+the memoir this file was written to replace. The genuinely unrepeatable half —
+a superseded draft that was never committed, the two hand-picked swaps that
+did not move `stay_awake`'s ban gate — has no rows and cannot get any. Those
+sentences stay prose and are REFUSED by the gate rather than passed by it.
+
+**THE ZERO-CEILING FAMILIES ARE ROWS NOW, NOT A TABLE.** `-old` and `-ame`
+each yield zero clean pairs, and that is a measurement about English taken
+through this harness's own two-tier ban. It sat in a markdown table nothing
+could re-derive — a table whose single denominator was impossible for five of
+its own rows, which is what a number nobody can re-run does. `screen`'s own
+verdict per pair is banked now, `scrolled`'s five refusals included, each one
+naming the word CMUdict could not read.
+
+**A CITATION IS KEYED ON A WORD, NOT A ROW NUMBER.**
+`[LOG: clean_or_non_rhyme carry_it_over.txt bell]` names the screen run that
+screened `bell`, so it survives re-recording, reordering and insertion. A
+citation into an append-only log keyed on POSITION is an offset from a moving
+origin — the defect this repository already found in its own
+`data/sources.tsv` line-number citations, where an unrelated insertion made a
+true sentence false without one character of it changing. A word screened by
+two runs REFUSES as ambiguous rather than resolving to whichever came first.

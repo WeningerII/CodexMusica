@@ -114,7 +114,19 @@ const EXPECTED_TOOLS = [
   'lyric_grade',
   'lyric_plan',
   'lyric_screen',
+  // `lyric_sweep` joined 2026-08-24: `plan --sweep` became a verb on
+  // 2026-08-23 and the connector predated it, so a caller could NAME a seed
+  // and not FIND one. Its window is bounded because the SDK's own request
+  // timeout is tighter than this connector's subprocess kill.
+  'lyric_sweep',
   'lyric_types',
+  // `lyric_verify` joined 2026-08-24. `revise` stays OFF the connector — it
+  // is measured at 92s on a 28-line draft, past the SDK's own 60s request
+  // timeout, and it holds the serial python queue while the client has
+  // already given up. `verify` runs no loop and no proposer: 22-32s, one
+  // subprocess. The recorded argument covered both verbs with one verb's
+  // number; they are a factor of three apart (`MISSING.md` M-104).
+  'lyric_verify',
   'render_recipe',
   'search_catalog',
   'search_prefaces',

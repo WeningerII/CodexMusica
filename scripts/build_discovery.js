@@ -73,7 +73,7 @@ anything you want to change, and do not expect the two strings to match.
   registering the endpoint is the only setup.
 - Server card (capabilities, for auto-discovery): https://codex-musica-mcp.onrender.com/.well-known/mcp.json
 - Tools: start_recipe, edit_recipe, render_recipe, search_catalog, search_prefaces, get_instrument, get_tradition, list_traditions, list_options.
-- Lyric tools (disjoint family; songwriting plan/grade, writes no words): lyric_screen, lyric_plan, lyric_grade, lyric_check, lyric_types.
+- Lyric tools (disjoint family; songwriting plan/grade, writes no words): lyric_screen, lyric_sweep, lyric_plan, lyric_grade, lyric_check, lyric_verify, lyric_types.
 
 Do NOT fetch codex.html: it is a multi-megabyte browser GUI, it will blow your context or
 fail to load, and it contains no instructions for you.

@@ -766,7 +766,12 @@ def shape_hasattr(seg):
 
 # --- shape 3: REPO_PATH_EXISTS --------------------------------------------
 
-PATH_RE = re.compile(r"`([\w.-]+/[\w./-]+\.(?:py|md|tsv|txt|json))`")
+#: `yml` and `js` JOINED 2026-08-24 with the two-root resolution below. They
+#: were absent for no recorded reason and their absence was silent: every
+#: `.github/workflows/ci.yml` and `mcp/*.js` citation in this register went
+#: UNCHECKED while looking exactly like a checked one (doctrine 20).
+PATH_RE = re.compile(
+    r"`([\w.-]+/[\w./-]+\.(?:py|md|tsv|txt|json|yml|yaml|js|mjs|sh))`")
 
 #: The ONLY phrases that flip this shape's polarity. Declared as a closed list,
 #: exactly like `HASATTR`'s stated `is True` / `is False`, because reading
@@ -847,8 +852,22 @@ def shape_repo_path(seg):
         window = _absence_window(low, m.end())
         if any(ph.lower() in window for ph in PATH_ABSENT_PHRASES):
             asserted_absent.add(m.group(1))
+    # TWO ROOTS, AND THE SECOND ONE IS NOT A LOOSENING. `ROOT` is the
+    # harness; MISSING.md legitimately cites files in SIBLING directories of
+    # it -- `.github/workflows/ci.yml`, `mcp/lyric_tools.js`,
+    # `.claude/settings.json` -- because the register describes the whole
+    # repository and not only this subtree. Resolving against the harness
+    # alone made every such citation either INVISIBLE (PATH_RE's extension
+    # list happens to omit .yml and .js, so those were never checked at all)
+    # or FALSE (M-97's `.claude/settings.json` is the first .json outside the
+    # harness, and it is on disk). Found 2026-08-24 by that entry going red
+    # for existing in the wrong directory.
+    #
+    # A path present at NEITHER root is still FALSE, so this widens what can
+    # be CHECKED without widening what can PASS.
+    roots = [ROOT, os.path.dirname(ROOT)]
     present = [h for h in hits
-               if os.path.exists(os.path.join(ROOT, h))]
+               if any(os.path.exists(os.path.join(r, h)) for r in roots)]
     wrong = [h for h in hits
              if (h in present) is (h in asserted_absent)]
     if wrong:

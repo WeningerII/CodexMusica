@@ -1,0 +1,185 @@
+song	step	measured	harness_commit	verb	exit	fact	value
+carry_it_over.txt	1	2026-08-24	34149de-WORKING	screen	0	pair:freight~strait	CLEAN
+carry_it_over.txt	1	2026-08-24	34149de-WORKING	screen	0	banned	0
+carry_it_over.txt	1	2026-08-24	34149de-WORKING	screen	0	refused	0
+carry_it_over.txt	1	2026-08-24	34149de-WORKING	screen	0	clean_or_non_rhyme	1
+carry_it_over.txt	2	2026-08-24	34149de-WORKING	screen	0	pair:weigh~grey	CLEAN
+carry_it_over.txt	2	2026-08-24	34149de-WORKING	screen	0	pair:weigh~prey	CLEAN
+carry_it_over.txt	2	2026-08-24	34149de-WORKING	screen	0	pair:weigh~sleigh	BANNED: HOMEOTELEUTON
+carry_it_over.txt	2	2026-08-24	34149de-WORKING	screen	0	pair:grey~prey	BANNED: HOMEOTELEUTON
+carry_it_over.txt	2	2026-08-24	34149de-WORKING	screen	0	pair:grey~sleigh	CLEAN
+carry_it_over.txt	2	2026-08-24	34149de-WORKING	screen	0	pair:prey~sleigh	CLEAN
+carry_it_over.txt	2	2026-08-24	34149de-WORKING	screen	0	banned	2
+carry_it_over.txt	2	2026-08-24	34149de-WORKING	screen	0	refused	0
+carry_it_over.txt	2	2026-08-24	34149de-WORKING	screen	0	clean_or_non_rhyme	4
+carry_it_over.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:rust~dust	BANNED: HOMEOTELEUTON
+carry_it_over.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:rust~bust	BANNED: HOMEOTELEUTON
+carry_it_over.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:rust~cussed	CLEAN
+carry_it_over.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:dust~bust	BANNED: HOMEOTELEUTON
+carry_it_over.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:dust~cussed	CLEAN
+carry_it_over.txt	3	2026-08-24	34149de-WORKING	screen	0	pair:bust~cussed	CLEAN
+carry_it_over.txt	3	2026-08-24	34149de-WORKING	screen	0	banned	3
+carry_it_over.txt	3	2026-08-24	34149de-WORKING	screen	0	refused	0
+carry_it_over.txt	3	2026-08-24	34149de-WORKING	screen	0	clean_or_non_rhyme	3
+carry_it_over.txt	4	2026-08-24	34149de-WORKING	screen	0	pair:tide~sighed	CLEAN
+carry_it_over.txt	4	2026-08-24	34149de-WORKING	screen	0	pair:tide~dyed	BANNED: MODAL_RHYME
+carry_it_over.txt	4	2026-08-24	34149de-WORKING	screen	0	pair:tide~wide	BANNED: HOMEOTELEUTON
+carry_it_over.txt	4	2026-08-24	34149de-WORKING	screen	0	pair:sighed~dyed	CLEAN
+carry_it_over.txt	4	2026-08-24	34149de-WORKING	screen	0	pair:sighed~wide	CLEAN
+carry_it_over.txt	4	2026-08-24	34149de-WORKING	screen	0	pair:dyed~wide	CLEAN
+carry_it_over.txt	4	2026-08-24	34149de-WORKING	screen	0	banned	2
+carry_it_over.txt	4	2026-08-24	34149de-WORKING	screen	0	refused	0
+carry_it_over.txt	4	2026-08-24	34149de-WORKING	screen	0	clean_or_non_rhyme	4
+carry_it_over.txt	5	2026-08-24	34149de-WORKING	screen	0	pair:oar~shore	BANNED: MODAL_RHYME
+carry_it_over.txt	5	2026-08-24	34149de-WORKING	screen	0	pair:oar~soar	BANNED: HOMEOTELEUTON
+carry_it_over.txt	5	2026-08-24	34149de-WORKING	screen	0	pair:oar~war	BANNED: MODAL_RHYME
+carry_it_over.txt	5	2026-08-24	34149de-WORKING	screen	0	pair:oar~door	BANNED: MODAL_RHYME
+carry_it_over.txt	5	2026-08-24	34149de-WORKING	screen	0	pair:shore~soar	BANNED: MODAL_RHYME
+carry_it_over.txt	5	2026-08-24	34149de-WORKING	screen	0	pair:shore~war	BANNED: MODAL_RHYME
+carry_it_over.txt	5	2026-08-24	34149de-WORKING	screen	0	pair:shore~door	BANNED: MODAL_RHYME
+carry_it_over.txt	5	2026-08-24	34149de-WORKING	screen	0	pair:soar~war	CLEAN
+carry_it_over.txt	5	2026-08-24	34149de-WORKING	screen	0	pair:soar~door	CLEAN
+carry_it_over.txt	5	2026-08-24	34149de-WORKING	screen	0	pair:war~door	CLEAN
+carry_it_over.txt	5	2026-08-24	34149de-WORKING	screen	0	banned	7
+carry_it_over.txt	5	2026-08-24	34149de-WORKING	screen	0	refused	0
+carry_it_over.txt	5	2026-08-24	34149de-WORKING	screen	0	clean_or_non_rhyme	3
+carry_it_over.txt	6	2026-08-24	34149de-WORKING	screen	0	pair:torn~borne	BANNED: MODAL_RHYME
+carry_it_over.txt	6	2026-08-24	34149de-WORKING	screen	0	pair:torn~mourn	BANNED: MODAL_RHYME
+carry_it_over.txt	6	2026-08-24	34149de-WORKING	screen	0	pair:borne~mourn	CLEAN
+carry_it_over.txt	6	2026-08-24	34149de-WORKING	screen	0	banned	2
+carry_it_over.txt	6	2026-08-24	34149de-WORKING	screen	0	refused	0
+carry_it_over.txt	6	2026-08-24	34149de-WORKING	screen	0	clean_or_non_rhyme	1
+carry_it_over.txt	7	2026-08-24	34149de-WORKING	screen	0	pair:spark~arc	CLEAN
+carry_it_over.txt	7	2026-08-24	34149de-WORKING	screen	0	pair:spark~hark	BANNED: HOMEOTELEUTON
+carry_it_over.txt	7	2026-08-24	34149de-WORKING	screen	0	pair:spark~lark	BANNED: HOMEOTELEUTON
+carry_it_over.txt	7	2026-08-24	34149de-WORKING	screen	0	pair:arc~hark	CLEAN
+carry_it_over.txt	7	2026-08-24	34149de-WORKING	screen	0	pair:arc~lark	CLEAN
+carry_it_over.txt	7	2026-08-24	34149de-WORKING	screen	0	pair:hark~lark	BANNED: HOMEOTELEUTON
+carry_it_over.txt	7	2026-08-24	34149de-WORKING	screen	0	banned	3
+carry_it_over.txt	7	2026-08-24	34149de-WORKING	screen	0	refused	0
+carry_it_over.txt	7	2026-08-24	34149de-WORKING	screen	0	clean_or_non_rhyme	3
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	pair:cold~rolled	BANNED: MODAL_RHYME
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	pair:cold~tolled	BANNED: MODAL_RHYME
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	pair:cold~hauled	BANNED: MODAL_RHYME
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	pair:cold~bowled	BANNED: MODAL_RHYME
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	pair:cold~scrolled	REFUSED — CMUdict has no pronunciation for the end word 'scrolled'
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	pair:rolled~tolled	BANNED: HOMEOTELEUTON
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	pair:rolled~hauled	BANNED: HOMEOTELEUTON
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	pair:rolled~bowled	BANNED: HOMEOTELEUTON
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	pair:rolled~scrolled	REFUSED — CMUdict has no pronunciation for the end word 'scrolled'
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	pair:tolled~hauled	BANNED: HOMEOTELEUTON
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	pair:tolled~bowled	BANNED: HOMEOTELEUTON
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	pair:tolled~scrolled	REFUSED — CMUdict has no pronunciation for the end word 'scrolled'
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	pair:hauled~bowled	BANNED: HOMEOTELEUTON
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	pair:hauled~scrolled	REFUSED — CMUdict has no pronunciation for the end word 'scrolled'
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	pair:bowled~scrolled	REFUSED — CMUdict has no pronunciation for the end word 'scrolled'
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	banned	10
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	refused	5
+carry_it_over.txt	8	2026-08-24	34149de-WORKING	screen	0	clean_or_non_rhyme	0
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	pair:name~came	BANNED: HOMEOTELEUTON
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	pair:name~blame	BANNED: HOMEOTELEUTON
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	pair:name~shame	BANNED: HOMEOTELEUTON
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	pair:name~claim	BANNED: MODAL_RHYME
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	pair:name~flame	BANNED: HOMEOTELEUTON
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	pair:came~blame	BANNED: HOMEOTELEUTON
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	pair:came~shame	BANNED: HOMEOTELEUTON
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	pair:came~claim	BANNED: MODAL_RHYME
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	pair:came~flame	BANNED: HOMEOTELEUTON
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	pair:blame~shame	BANNED: HOMEOTELEUTON
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	pair:blame~claim	BANNED: MODAL_RHYME
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	pair:blame~flame	BANNED: HOMEOTELEUTON
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	pair:shame~claim	BANNED: MODAL_RHYME
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	pair:shame~flame	BANNED: HOMEOTELEUTON
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	pair:claim~flame	BANNED: MODAL_RHYME
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	banned	15
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	refused	0
+carry_it_over.txt	9	2026-08-24	34149de-WORKING	screen	0	clean_or_non_rhyme	0
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	pair:bell~knell	BANNED: HOMEOTELEUTON
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	pair:bell~quell	CLEAN
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	pair:bell~gel	CLEAN
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	pair:bell~swell	BANNED: HOMEOTELEUTON
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	pair:bell~shell	BANNED: HOMEOTELEUTON
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	pair:knell~quell	CLEAN
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	pair:knell~gel	CLEAN
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	pair:knell~swell	BANNED: HOMEOTELEUTON
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	pair:knell~shell	BANNED: HOMEOTELEUTON
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	pair:quell~gel	CLEAN
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	pair:quell~swell	BANNED: MODAL_RHYME
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	pair:quell~shell	BANNED: MODAL_RHYME
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	pair:gel~swell	CLEAN
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	pair:gel~shell	CLEAN
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	pair:swell~shell	BANNED: HOMEOTELEUTON
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	banned	8
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	refused	0
+carry_it_over.txt	10	2026-08-24	34149de-WORKING	screen	0	clean_or_non_rhyme	7
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	pair:year~here	CLEAN
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	pair:year~near	BANNED: MODAL_RHYME
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	pair:year~fear	BANNED: MODAL_RHYME
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	pair:year~clear	BANNED: MODAL_RHYME
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	pair:year~sheer	CLEAN
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	pair:here~near	CLEAN
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	pair:here~fear	CLEAN
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	pair:here~clear	CLEAN
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	pair:here~sheer	BANNED: MODAL_RHYME
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	pair:near~fear	BANNED: HOMEOTELEUTON
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	pair:near~clear	BANNED: HOMEOTELEUTON
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	pair:near~sheer	CLEAN
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	pair:fear~clear	BANNED: HOMEOTELEUTON
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	pair:fear~sheer	BANNED: MODAL_RHYME
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	pair:clear~sheer	CLEAN
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	banned	8
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	refused	0
+carry_it_over.txt	11	2026-08-24	34149de-WORKING	screen	0	clean_or_non_rhyme	7
+carry_it_over.txt	12	2026-08-24	34149de-WORKING	plan --sweep	0	sweep_range	1..699
+carry_it_over.txt	12	2026-08-24	34149de-WORKING	plan --sweep	0	swept	699
+carry_it_over.txt	12	2026-08-24	34149de-WORKING	plan --sweep	0	form	verse-chorus
+carry_it_over.txt	12	2026-08-24	34149de-WORKING	plan --sweep	0	want	uses=bridge;lines>=20;lines<=28;slots_per_line>=8;pins_per_line<=3
+carry_it_over.txt	12	2026-08-24	34149de-WORKING	plan --sweep	0	planned	699
+carry_it_over.txt	12	2026-08-24	34149de-WORKING	plan --sweep	0	planner_refused	0
+carry_it_over.txt	12	2026-08-24	34149de-WORKING	plan --sweep	0	accepted	6
+carry_it_over.txt	12	2026-08-24	34149de-WORKING	plan --sweep	0	accepted_rate	0.9
+carry_it_over.txt	12	2026-08-24	34149de-WORKING	plan --sweep	0	accepted_seeds	2,232,394,503,510,614
+carry_it_over.txt	13	2026-08-24	34149de-WORKING	plan	0	form	verse-chorus
+carry_it_over.txt	13	2026-08-24	34149de-WORKING	plan	0	seed	394
+carry_it_over.txt	13	2026-08-24	34149de-WORKING	plan	0	lines	25
+carry_it_over.txt	13	2026-08-24	34149de-WORKING	plan	0	sections	23
+carry_it_over.txt	13	2026-08-24	34149de-WORKING	plan	0	pattern	intro-interlude-vamp-verse-chorus-bridge-interlude-build-false_ending-drop-interlude-tag-reprise-prechorus-chorus-reprise-drop-chorus-postchorus-reprise-drop-turnaround-coda
+carry_it_over.txt	13	2026-08-24	34149de-WORKING	plan	0	meter	8/8 as (3, 3, 2)
+carry_it_over.txt	13	2026-08-24	34149de-WORKING	plan	0	subdivision	1
+carry_it_over.txt	13	2026-08-24	34149de-WORKING	plan	0	groups	1.head,2.endword;1.T2,2.T1;3,4.T2;5.T6,6.head;5.T3,6.T6;9.T4,10.headrime;9,10.T3;9.T5,10.T6;11.T6,12.headrime
+carry_it_over.txt	13	2026-08-24	34149de-WORKING	plan	0	returns	7,17;7,20
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	mandate_groups	11
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	lines	25
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	mandated_pairs	11
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	mandate_source	declared
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	md5	89bcde433fbe
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	briefed	25
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	per_line_flag	0
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	per_line_note	92
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	whole_draft	16
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	whole_draft_flag	0
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:COLLISION_CUT_IS_SCALAR_ONLY	NOTE x1
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:HOOK_CONFINED	NOTE x1
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:LATE_ENTRY	NOTE x12
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:NEAR_COLLISION	NOTE x7
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:NO_SETTING	NOTE x1
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:PROMINENCE_CANNOT_ALIGN	NOTE x25
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x23
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:REFRAIN_REPEAT	NOTE x2
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:REPEAT_ACROSS_GROUPS	NOTE x11
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:RETURN_LOCKED	NOTE x1
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:RETURN_NEVER_RETURNS	NOTE x2
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:SCHEME_COLLISION	NOTE x5
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:SINGLE_INSTANCE	NOTE x5
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:SINGLE_USE_RECURRED	NOTE x1
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:SPARSE	NOTE x7
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:UNCOVERED_BARS	NOTE x3
+carry_it_over.txt	14	2026-08-24	34149de-WORKING	song	0	finding:UNIFORM_ANACRUSIS	NOTE x1
+carry_it_over.txt	15	2026-08-24	34149de-WORKING	revise	0	stop_reason	SUCCESS
+carry_it_over.txt	15	2026-08-24	34149de-WORKING	revise	0	rounds	0
+carry_it_over.txt	15	2026-08-24	34149de-WORKING	revise	0	md5_in	89bcde433fbe
+carry_it_over.txt	15	2026-08-24	34149de-WORKING	revise	0	md5_out	89bcde433fbe
+carry_it_over.txt	15	2026-08-24	34149de-WORKING	revise	0	unchanged	yes
+carry_it_over.txt	15	2026-08-24	34149de-WORKING	revise	0	mandated	11
+carry_it_over.txt	15	2026-08-24	34149de-WORKING	revise	0	judged	11
+carry_it_over.txt	15	2026-08-24	34149de-WORKING	revise	0	pairs_refused	0
