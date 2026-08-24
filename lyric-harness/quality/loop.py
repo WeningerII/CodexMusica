@@ -390,7 +390,30 @@ def swap_at_slot(text, slot, new_word):
 #: fires only where a measured profile declared its threshold, so a draft
 #: inside the band is asked nothing.
 MANDATORY_PURSUE = frozenset({"MODAL_RHYME", "HOMEOTELEUTON",
-                              "PREDICTABLE_RHYME"})
+                              "PREDICTABLE_RHYME", "SHARED_SUFFIX"})
+#: `SHARED_SUFFIX` JOINED 2026-08-23 (`MISSING.md` M-85, owner's ruling to
+#: promote it out of disclosed-only). `gate_census` had it as a
+#: PROMOTE_CANDIDATE on an argument that is doctrine 1's own: it names THE SAME
+#: SONIC EVENT `HOMEOTELEUTON` names — its message says "(homeoteleuton)" in as
+#: many words — and that one has been gated through this set since the ban went
+#: unskippable, while this one was silent. One repository, two answers about
+#: one event.
+#:
+#: PURSUED AND NOT PROMOTED TO A FLAG, and the tree already paid to learn why.
+#: CLAUDE.md on `MODAL_RHYME`: *"re-typing MODAL_RHYME as a flag was wrong
+#: twice over: doctrine 7 says a floor may not order the region it already
+#: passed and a pair that RHYMES is inside that region, and verify() gates on
+#: flags, so a promoted note would begin REJECTING revisions for introducing
+#: one — the exact regression new_flags was split out to end."* A shared-suffix
+#: pair rhymes, so it sits inside the permitted region on the identical
+#: argument. A flag would also make `floor.py`'s own user-facing sentence
+#: false — it tells a reader, twice, that *"RADIF_LICENSED and SHARED_SUFFIX
+#: are notes at every length"* — and pursuing keeps that true.
+#:
+#: SO IT CHANGES WHAT THE LOOP ASKS FOR AND NEVER WHAT IT REJECTS: `verify()`
+#: is untouched, and this is a GATE by `gate_census`'s own mechanism 2 (a line
+#: held open on a pursued note, the CLI exiting nonzero if it stands). The
+#: finding already carries its `locations`, so the loop has lines to hold.
 
 
 def _open_lines(briefs, pursue=frozenset()):

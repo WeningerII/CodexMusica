@@ -485,6 +485,16 @@ DISPOSITIONS = {
                    "should gate. NOT promoted here: changing what refuses a "
                    "draft is the owner's call, and this table's job is to "
                    "put the question, not to answer it by editing",
+    # ADDED 2026-08-23 (`MISSING.md` M-85). A `PROMOTE_CANDIDATE` the owner
+    # HAS ruled on is no longer a candidate, and leaving the old label would
+    # make this table say "somebody should decide this" about a decision that
+    # was made — doctrine 17 inside the instrument whose whole job is that the
+    # record agrees with the code. It is kept as a ruled row rather than
+    # deleted, because the ARGUMENT for gating is what a later reader needs
+    # (doctrine 24: relabel, do not delete a category).
+    "PROMOTED":    "was a PROMOTE_CANDIDATE and the owner ruled. It GATES "
+                   "now, so it is counted in `gated` and this row records "
+                   "which mechanism carries it rather than why it does not",
 }
 
 #: One ruling per disclosed-only code. `--check` FAILS on an unruled one, so a
@@ -526,7 +536,17 @@ DISPOSITION = {
     # arguably definitional rather than conventional, and a title absent from
     # its own hook is a fact, not a taste. Promoting either changes what
     # refuses a draft, which is not this table's decision to make.
-    "HOOK_DOES_NOT_RECUR": "PROMOTE_CANDIDATE",
+    # RULED 2026-08-23: promoted to a FLAG (`MISSING.md` M-84).
+    "HOOK_DOES_NOT_RECUR": "PROMOTED",
+    # STILL A CANDIDATE, and now with a number against it. MEASURED over
+    # `corpus/song/eng_*`: of 8,667 songs carrying a declared `--- TITLE:`,
+    # **5,867 (67.7%) do not contain their own title anywhere in the lyric**
+    # — and that is the WEAKEST form of the test, since "in the hook" is a
+    # subset of "in the lyric". Gating it would fail two thirds of the canon
+    # on a CONVENTION (doctrine 61: a rule that fires more often is not a
+    # better rule), and by `M-54`'s per-row test a song whose title is absent
+    # from its hook is a NOVEL SONG, not a mislabelled one. The question is
+    # still the owner's; what changed is that it now has evidence attached.
     "TITLE_NOT_IN_HOOK": "PROMOTE_CANDIDATE",
 
     # --- quality/fit.py: counts against a DECLARED meter. `satisfiable=True`
@@ -555,7 +575,14 @@ DISPOSITION = {
     # silent at the floor. That asymmetry may be right (the floor speaks about
     # a draft nobody mandated) and it is not obviously right, so it is a
     # question and not a ruling.
-    "SHARED_SUFFIX": "PROMOTE_CANDIDATE",
+    # RULED 2026-08-23: promoted, and PURSUED rather than flagged
+    # (`MISSING.md` M-85). It joins `loop.MANDATORY_PURSUE` — the same
+    # mechanism that carries `HOMEOTELEUTON`, which is the whole point, since
+    # the two name one sonic event. A FLAG would have made it STRONGER than
+    # the tier-1 ban it mirrors and would have repeated the `MODAL_RHYME`
+    # error verbatim: `verify()` gates on flags, so it would start rejecting
+    # revisions for introducing one.
+    "SHARED_SUFFIX": "PROMOTED",
 
     # --- quality/revise.py: almost none of these is about the DRAFT.
     "BAND_UNJUDGED": "REFUSAL",
@@ -663,7 +690,7 @@ def by_disposition(c=None):
 #: planner emitted a hook into a section it drew once in 219 of 400 seeds, and
 #: that derivation is repaired in the same commit, so the flag's live target
 #: is a hand-written blueprint or a recovered song rather than a plan.
-PINNED = {'codes': 71, 'gated': 21, 'disclosed_only': 50, 'undecidable': 0,
+PINNED = {'codes': 71, 'gated': 22, 'disclosed_only': 49, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 

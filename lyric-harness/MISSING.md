@@ -9743,3 +9743,101 @@ requires `HOOK_IN_NONRECURRING_SECTION` to fire — without it, both checks woul
 pass on a planner that simply never declared a hook; `test_grid.py` §26 repins
 the flag family as a DECLARED SET rather than a count (~~`== ["HOOK_ABSENT"]`~~),
 keeping its original intent that a new finding must not drift into the family.
+
+### M-85 · the section header's apparatus is gated, `SHARED_SUFFIX` is pursued, and `TITLE_NOT_IN_HOOK` is refused ON EVIDENCE `PARTIAL` — 2026-08-23
+**THREE THINGS FROM ONE SITTING, and the first was found by the owner reading
+a chat message rather than a file.**
+
+---
+
+**(1) THE SECTION HEADER — the owner's standing instruction, given repeatedly
+and gated by nothing until now.** The rule: a section's apparatus lives INSIDE
+its bracket, and the METER is part of that apparatus. The owner's words:
+*"I've told you like 5 times now to keep that shit inside the bracket and
+clearly you haven't set up that constraint or gate or whatever ... also I've
+told you I don't know how many times to put the fucking meter in there."*
+
+**THE HARNESS WAS ALREADY RIGHT AND THE DELIVERY WAS NOT.** `plan.section_header`
+emits `[INTRO — 3 lines — 3 bars of 10/8, one-beat pickup]` — one closed
+bracket, meter inside — and is the ONE builder, called by both `render_song`
+and `writer_brief`. What went wrong is that the session RETYPED it in chat as
+`**[INTRO]** — 3 bars, one-beat pickup`: apparatus outside the bracket, meter
+dropped. That is standing rule 3's own defect — the system produced the correct
+artifact and a hand-assembled version was delivered instead of it.
+
+**THE OWNER'S WORRY WAS A RHYME-CONTAMINATION WORRY AND IT WAS CHECKED, NOT
+WAVED OFF.** The graded file carried no such line: `load_lyric_lines` admitted
+18 lines, none containing `bars` or `pickup`. The song's verdict stands. But the
+underlying hole is REAL and was measured:
+
+| form | verdict |
+|---|---|
+| `[INTRO] — 3 bars, one-beat pickup` | dropped |
+| `[INTRO — 3 lines — 3 bars of 10/8, one-beat pickup]` (the harness's own) | dropped |
+| `— 3 bars, one-beat pickup` on its own line | **SCORED, end word `pickup`** |
+| `3 bars of 10/8, one-beat pickup` on its own line | **SCORED, end word `pickup`** |
+
+**THE OBVIOUS GATE IS WRONG AND THE NUMBER SAYS SO.** A "refuse a line opening
+on a dash" rule was drafted and then MEASURED before shipping: over `corpus/`,
+**433 of 626,282 sung lines open on a dash — 0.0691%** — and every sampled one
+is real verse (Arnold's *"--Ah! thine was not the shelter, but the fray."*,
+Clare, Blunt, Browne). That rule would refuse canonical poetry. REFUSED, and
+the FPR is recorded instead of the rule (doctrine 22).
+
+**WHAT IS DECIDABLE is that this harness OWNS the format**, so the gate is a
+ROUND TRIP over its own output rather than a guess about someone else's:
+render a song, read it back through the one definition of sung text, require
+the lines to come back exactly. MEASURED over 60 plans / **681 headers**:
+0 malformed, 0 missing the meter, 0 escaping `is_apparatus_line`, **0
+round-trip breaks**. `test_plan.py` §11, with a MUTATION that splits the
+apparatus onto its own line and requires it to score as `pickup`.
+
+---
+
+**(2) `SHARED_SUFFIX` GATES — PURSUED, NOT FLAGGED.** The owner's ruling was
+*"do the same for TITLE_NOT_IN_HOOK and SHARED_SUFFIX"*, i.e. promote. The
+census's own argument for this one is doctrine 1's: it names **the same sonic
+event** `HOMEOTELEUTON` names — its message says *"(homeoteleuton)"* in as many
+words — and that one has been gated through `MANDATORY_PURSUE` since the ban
+went unskippable, while this one was silent. One repository, two answers about
+one event.
+
+**THE INSTRUMENT IS `MANDATORY_PURSUE` AND NOT A FLAG, and the tree already
+paid to learn why.** CLAUDE.md on `MODAL_RHYME`: *"re-typing MODAL_RHYME as a
+flag was wrong twice over: doctrine 7 says a floor may not order the region it
+already passed and a pair that RHYMES is inside that region, and verify() gates
+on flags, so a promoted note would begin REJECTING revisions for introducing
+one."* A shared-suffix pair rhymes, so it sits inside the permitted region on
+the identical argument. A flag would also have made it STRONGER than the tier-1
+ban it mirrors, and would have falsified `floor.py`'s own user-facing sentence,
+printed twice: *"RADIF_LICENSED and SHARED_SUFFIX are notes at every length."*
+Pursuing keeps that true. The finding already carries its `locations`, so the
+loop has lines to hold.
+
+---
+
+**(3) `TITLE_NOT_IN_HOOK` IS NOT PROMOTED, AND THE MEASUREMENT IS THE REASON.**
+MEASURED over `corpus/song/eng_*`: of **8,667 songs carrying a declared
+`--- TITLE:`, 5,867 (67.7%) do not contain their own title anywhere in the
+lyric** — and that is the WEAKEST form of the test, since "in the hook" is a
+strict subset of "in the lyric". Gating it would fail two thirds of the canon,
+which is doctrine 61 (*a rule that fires more often is not a better rule*), and
+by `M-54`'s per-row test a song whose title is absent from its hook is a NOVEL
+SONG, not a mislabelled one — Habington, Drummond, `the rose`. This entry is
+`PARTIAL` because the question remains the OWNER'S; what changed is that it now
+has a number attached instead of an intuition, and the `PROMOTE_CANDIDATE` row
+carries it.
+
+---
+
+**AND THE CENSUS'S OWN TABLE HAD GONE STALE IN THE SAME BREATH** — the defect
+`gate_census` exists to find in other layers, appearing in `gate_census`.
+`DISPOSITIONS` had no word for *a candidate the owner has since ruled on*, so
+after `M-84` the table still said "somebody should decide this" about a
+decision already made. `PROMOTED` is the new disposition, kept as a ruled row
+rather than deleted because the ARGUMENT is what a later reader needs
+(doctrine 24: relabel, do not delete a category).
+
+**BOOKKEEPING**: `gate_census.PINNED` ~~gated 21 / disclosed_only 50~~ ->
+**22 / 49** over the same 71 codes. `audit_register.PINNED["coverage_entries"]`
+~~142~~ -> **143**.

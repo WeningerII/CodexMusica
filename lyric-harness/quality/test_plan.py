@@ -40,6 +40,7 @@ import json
 import os
 import random
 import sys
+import tempfile
 from collections import Counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -52,6 +53,7 @@ from quality.plan import (BLOCKED_FORMS, ENVELOPE,  # noqa: E402
                           grading_command, make_plan, meter_dims,
                           meter_space_size)
 import quality.plan as PLN  # noqa: E402
+import lyric_harness as LH  # noqa: E402
 from quality import capacity as CAP  # noqa: E402
 from quality import meter_bands as MB  # noqa: E402
 from quality import slots as SL  # noqa: E402
@@ -60,6 +62,11 @@ from quality import slots as SL  # noqa: E402
 #: call, because the blind-draw mutation below has to sweep the SAME set as
 #: the clean draw or the two rates are not comparable.
 JOINT_SWEEP = 40
+
+#: HOW MANY SEEDS §11 renders and reads back. Declared for the same reason
+#: `JOINT_SWEEP` is: the round-trip and the shape checks must walk the same
+#: population, or "0 breaks" and "681 headers" describe different sweeps.
+HEADER_SWEEP = 60
 real_word = SL.placement_word
 
 FAILURES = []
@@ -1467,6 +1474,90 @@ def test_the_seed_sweep_is_a_verb():
           "acceptance rate is what separates them",
           empty["accepted"] == [] and empty["planned"] > 0,
           f"planned {empty['planned']}, accepted 0")
+
+
+def test_the_section_header_keeps_its_apparatus_inside_the_bracket():
+    print("\n11. THE SECTION HEADER — everything inside the bracket, meter "
+          "included, and what the harness WRITES it EXCLUDES (`MISSING.md` "
+          "M-85)")
+    # THE OWNER'S STANDING INSTRUCTION, given more than once and never gated:
+    # a section's apparatus lives INSIDE its bracket, and the METER is part of
+    # that apparatus. `section_header` has always done both; nothing checked
+    # it, so a regression there would be silent and would land in the one
+    # place it must not — the rhyme calculation.
+    #
+    # WHY THE OBVIOUS GATE IS NOT THE ONE WRITTEN HERE. The tempting rule is
+    # "refuse a line that opens on a dash", since `— 3 bars, one-beat pickup`
+    # is what escapes. MEASURED over `corpus/`: 626,282 sung lines, 433 open
+    # on a dash — an 0.0691% false-positive rate, and every sample is real
+    # verse (Arnold's `--Ah! thine was not the shelter, but the fray.`,
+    # Clare, Blunt, Browne). That rule would refuse canonical poetry, so it is
+    # REFUSED here and the number is recorded instead (doctrine 22: state a
+    # threshold as an FPR, not as an argument about how apparatus tends to
+    # look).
+    #
+    # WHAT IS DECIDABLE is that the harness OWNS this format, so the gate is a
+    # ROUND TRIP over its own output rather than a guess about someone else's.
+    shapes = meters = drops = 0
+    total = 0
+    for seed in range(HEADER_SWEEP):
+        p = make_plan(seed=seed)
+        for sec in p["sections"]:
+            slots = [s for s in p["line_slots"] if s["section"] == sec["name"]]
+            h = PLN.section_header(sec, slots)
+            total += 1
+            shapes += (h.startswith("[") and h.endswith("]")
+                       and "\n" not in h
+                       and h.count("[") == 1 and h.count("]") == 1)
+            im = sec["meter"]
+            meters += f"{im['beats']}/{im['unit']}" in h
+            drops += bool(LH.is_apparatus_line(h))
+    check("the population is real, so this section cannot pass by examining "
+          "nothing", total > 0, f"{total} headers over {HEADER_SWEEP} plans")
+    check("every header is ONE closed bracket with NOTHING outside it — the "
+          "owner's rule, and the reason a header cannot leak into the rhyme "
+          "calculation", shapes == total, f"{total - shapes} malformed")
+    check("...and every header CARRIES ITS METER inside that bracket, read "
+          "from the section's own dict rather than trusted to prose",
+          meters == total, f"{total - meters} missing beats/unit")
+    check("...and `is_apparatus_line` DROPS every one of them, which is the "
+          "half that matters: what this harness WRITES, this harness "
+          "EXCLUDES from the rhyme calculation",
+          drops == total, f"{total - drops} would be scored as lyric")
+    # THE ROUND TRIP, and it is the strongest statement available: render a
+    # song, read it back through the ONE definition of sung text, and require
+    # the lines to come back exactly. Anything the renderer emits that is not
+    # a lyric — header, blank, apparatus of any kind — must vanish.
+    breaks = 0
+    for seed in range(HEADER_SWEEP):
+        p = make_plan(seed=seed)
+        body = [f"line {i} holds its own place" for i in
+                range(1, p["total_lines"] + 1)]
+        with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False,
+                                         encoding="utf-8") as fh:
+            fh.write(PLN.render_song(p, body) + "\n")
+            path = fh.name
+        try:
+            breaks += (LH.load_lyric_lines(path) != body)
+        finally:
+            os.unlink(path)
+    check("RENDER -> LOAD ROUND-TRIPS: the rendered song read back through "
+          "`load_lyric_lines` is EXACTLY the lines that went in, so no "
+          "header, blank or pickup phrase the renderer writes can reach the "
+          "grader as a word", breaks == 0,
+          f"{breaks} of {HEADER_SWEEP} songs did not round-trip")
+    # THE MUTATION: move the apparatus outside the bracket, exactly as it was
+    # rendered in chat, and require the round-trip to BREAK. Without this the
+    # checks above pass on any tree whose renderer emits nothing at all.
+    sec = make_plan(seed=108)["sections"][0]
+    escaped = f"[{sec['function'].upper()}] — {sec['bars']} bars, one-beat pickup"
+    check("MUTATION — the same header with its apparatus moved OUTSIDE the "
+          "bracket, split onto its own line, is SCORED AS LYRIC with end "
+          "word 'pickup', which is the defect this section exists to keep "
+          "out", not LH.is_apparatus_line("— 3 bars, one-beat pickup")
+          and LH.line_tokens("— 3 bars, one-beat pickup")[-1] == "pickup"
+          and LH.is_apparatus_line(escaped),
+          "same-line stays apparatus; split onto its own line it is not")
 
 
 if __name__ == "__main__":
