@@ -105,7 +105,7 @@ const MANDATE_RE = new RegExp(`^${MEMBER_RE}(,${MEMBER_RE})*(;${MEMBER_RE}(,${ME
 // to a letter so nothing input-shaped can grow into a flag.
 const WANT_RE = /^[a-z][a-z_]{0,23}(<=|>=|=)[A-Za-z0-9_,-]{1,48}$/;
 const STRUCTURES_RE =
-  /^[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. \/-]{1,64}(,[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. \/-]{1,64})*$/;
+  /^[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. /-]{1,64}(,[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. /-]{1,64})*$/;
 const RETURNS_RE = /^[0-9]+(,[0-9]+)*(;[0-9]+(,[0-9]+)*)*$/;
 const SCHEME_RE = /^[A-Za-z]{1,64}$/;
 
