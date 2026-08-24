@@ -639,7 +639,31 @@ def by_disposition(c=None):
 #: the useful signal is "the enforcing fraction changed", and pinning every
 #: code's name would make every new finding a merge conflict rather than a
 #: question.
-PINNED = {'codes': 71, 'gated': 20, 'disclosed_only': 51, 'undecidable': 0,
+#: REPINNED 2026-08-23, ~~'gated': 20, 'disclosed_only': 51~~ -> 21 / 50, and
+#: the code that moved is `HOOK_DOES_NOT_RECUR` (`MISSING.md` M-84, owner's
+#: ruling *"promote HOOK_DOES_NOT_RECUR to a flag"*). It is the FIRST code
+#: this instrument's own list caused to be promoted: M-77 produced the
+#: disclosed-only roster precisely so "should this one gate?" is asked of each
+#: code by a person rather than answered by whoever last edited the file, and
+#: this is that question being answered.
+#:
+#: WHY IT IS NOT DOCTRINE 6's CASE, which is the objection M-77 raised against
+#: promoting the shape layer's notes. `DOWNBEAT_LOCKED` and `QUATRAIN_LOCK`
+#: measure a draft against `POPULAR_SONG` at an uncalibrated threshold — a
+#: CONVENTION a writer may depart from, and a convention cannot be what fails
+#: a check. `HOOK_DOES_NOT_RECUR` is definitional in M-54's own sense: apply
+#: that entry's per-row test — *violate it, is the result a NOVEL SONG or a
+#: MISLABELLED SECTION?* — and a hook occurring once is not an experimental
+#: song, it is a phrase somebody called a hook. The finding's own message has
+#: said so all along: *"A hook is defined by RETURN; one occurrence is a
+#: phrase."* It joins `HOOK_ABSENT`, whose flag rests on the same footing —
+#: a factual question with no convention in it.
+#:
+#: The count moves and NO DRAFT NEWLY FAILS from the promotion alone: the
+#: planner emitted a hook into a section it drew once in 219 of 400 seeds, and
+#: that derivation is repaired in the same commit, so the flag's live target
+#: is a hand-written blueprint or a recovered song rather than a plan.
+PINNED = {'codes': 71, 'gated': 21, 'disclosed_only': 50, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 

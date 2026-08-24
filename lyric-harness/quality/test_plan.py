@@ -765,46 +765,52 @@ def test_the_disclosure():
           and all(v["value"] in v["chosen_from"]
                   for v in ch["anacrusis"].values()))
 
-    # The hook slot points at the first chorus's first line when a chorus
-    # exists, and is honest about absence otherwise.
-    seen_with, seen_without = False, False
-    ok = True
+    # THE HOOK SLOT — REPOINTED 2026-08-23 (`MISSING.md` M-84, owner's ruling
+    # *"promote HOOK_DOES_NOT_RECUR to a flag"*). This asserted
+    # ~~`p["hook_slot"] == the first chorus's first line`~~ and went red on the
+    # promotion, correctly: that WAS the rule, and it was the defect. A hook is
+    # defined by RETURN, so once the code can refuse a draft, a slot in a
+    # section drawn ONCE asks the writer for something no words can supply —
+    # measured at 219 of 400 seeds before the repair, every one a chorus.
+    #
+    # THE NEW CLAIM IS STRICTLY STRONGER AND ITS SECOND BRANCH IS NOW REACHABLE
+    # OVER THE SWEEP. The old check had to prove `hook_slot is None` on a
+    # hand-mutilated plan, because `FORM_REQUIRES["verse-chorus"]` makes a
+    # chorus mandatory so `first` was never None. Recurrence is not mandatory,
+    # so both branches occur naturally and neither is asserted on a shape
+    # nothing produces.
+    seen_with, seen_without, ok = False, False, True
     for seed in range(40):
         p = make_plan(seed=seed)
-        first = next((s["line"] for s in p["line_slots"]
-                      if s["function"] == "chorus"), None)
-        ok = ok and p["hook_slot"] == first
-        seen_with = seen_with or first is not None
-        seen_without = seen_without or first is None
-    check("hook_slot is the first chorus's first line, None when no chorus "
-          "— both cases exercised over the sweep",
-          # `seen_without` IS UNREACHABLE UNDER THE ONLY DECLARED FORM, and
-          # saying so is better than asserting it (doctrine 20). This read
-          # `ok and seen_with and seen_without` and went red on 2026-08-23,
-          # correctly: `FORM_REQUIRES["verse-chorus"]` makes a chorus
-          # mandatory, so every plan has a first chorus line and `hook_slot`
-          # is never None. Measured 300 of 300 with a hook slot.
-          #
-          # The None BRANCH is still right and still reachable — by a form
-          # that does not require a chorus, of which `PLAN_FORMS` declares
-          # none today. Asserting `seen_without` over a sweep would be
-          # asserting that the form is not enforced, which is the defect
-          # this file's own §8 exists to pin. So the sweep asserts what it
-          # can see, and the None case is proved DIRECTLY against a plan
-          # whose chorus lines are removed, which is the shape a
-          # chorus-free form would produce.
-          ok and seen_with and not seen_without)
-    _no_chorus = dict(make_plan(seed=3))
-    _no_chorus["line_slots"] = [s for s in _no_chorus["line_slots"]
-                                if s["function"] != "chorus"]
-    check("...and the None branch is reachable and correct — it is the "
-          "answer for a form that requires no chorus, which no declared "
-          "form is today, so it is proved on the shape rather than waited "
-          "for over a sweep",
-          next((s["line"] for s in _no_chorus["line_slots"]
-                if s["function"] == "chorus"), None) is None
-          and seen_without is False,
-          f"{len(_no_chorus['line_slots'])} non-chorus slot(s); "
+        drawn = {}
+        for sec in p["sections"]:
+            drawn[sec["function"]] = drawn.get(sec["function"], 0) + 1
+        recurs = {fn for fn, n in drawn.items()
+                  if n > 1 and fn not in PLN.WORDLESS_FUNCTIONS}
+        want = next((s2["line"] for s2 in p["line_slots"]
+                     if s2["function"] in recurs), None)
+        got = p["hook_slot"]
+        if want is None:
+            ok = ok and got is None
+            seen_without = True
+        else:
+            # The slot must sit in a function drawn MORE THAN ONCE; which of
+            # them is preferred is the vocabulary's business (`returns_as`),
+            # so this asserts the INVARIANT rather than the preference order.
+            fn = next(s2["function"] for s2 in p["line_slots"]
+                      if s2["line"] == got) if got else None
+            ok = ok and got is not None and drawn.get(fn, 0) > 1
+            seen_with = True
+    check("hook_slot sits in a function this plan drew MORE THAN ONCE, and is "
+          "None when nothing recurs — BOTH branches exercised over the sweep, "
+          "neither asserted on a shape the planner cannot produce",
+          ok and seen_with and seen_without,
+          f"with {seen_with}, without {seen_without}")
+    check("...and a plan declaring no hook says WHY, so 'nothing recurs' and "
+          "'nobody asked' stop looking identical in an empty field "
+          "(doctrine 20)",
+          all(make_plan(seed=k).get("hook_slot_refused")
+              for k in range(40) if not make_plan(seed=k).get("hook_slot")),
           f"declared forms: {PLN.PLAN_FORMS}")
 
     check("the writer brief carries shape and rhyme plan and NEVER names "
@@ -1189,6 +1195,41 @@ def test_the_joint_gate():
           all(PLN.joint_findings(p) == [] for p in plans),
           f"{sum(len(PLN.joint_findings(p)) for p in plans)} findings over "
           f"{len(plans)} plans")
+    # THE FIFTH CAUSE — a hook declared in a section drawn once (`MISSING.md`
+    # M-84). It is the one entry on this list a writer cannot answer BY
+    # WRITING, which is exactly why it belongs to a PLAN-TIME gate: no choice
+    # of words makes a section recur. Before the repair the planner emitted it
+    # in 219 of 400 seeds, all chorus.
+    hooked = [p for p in plans if p.get("hook_slot")]
+    check("plans that DO declare a hook declare it in a function this plan "
+          "drew MORE THAN ONCE — a hook is defined by RETURN, so a slot in a "
+          "section heard once is a requirement no writer can meet",
+          hooked and all(
+              sum(1 for s in p["sections"]
+                  if s["function"] == next(r["function"]
+                                           for r in p["line_slots"]
+                                           if r["line"] == p["hook_slot"]))
+              > 1 for p in hooked),
+          f"{len(hooked)} of {len(plans)} plans declare a hook")
+    check("...and a plan that declares NONE says WHY rather than going "
+          "silent, because a shape with nothing recurring and a shape nobody "
+          "asked about a hook look identical in an empty field (doctrine 20)",
+          all(p.get("hook_slot_refused") for p in plans
+              if not p.get("hook_slot")),
+          f"{len(plans) - len(hooked)} plans declare no hook, each with a "
+          f"stated reason")
+    # THE MUTATION: force the hook into a section drawn once and require the
+    # gate to fire. Without this the two checks above pass on any tree whose
+    # planner simply never declares a hook at all.
+    victim = next((p for p in plans if not p.get("hook_slot")), None)
+    if victim is not None:
+        mutant = dict(victim)
+        mutant["hook_slot"] = victim["line_slots"][0]["line"]
+        codes = [c for c, _ln, _d in PLN.joint_findings(mutant)]
+        check("MUTATION — a hook forced into a section this plan drew once "
+              "FIRES `HOOK_IN_NONRECURRING_SECTION`, so the two checks above "
+              "are not passing on a planner that merely never declares one",
+              "HOOK_IN_NONRECURRING_SECTION" in codes, f"{codes}")
     check("the codes are a DECLARED closed set, so a new one is added "
           "deliberately rather than by somebody typing a new string "
           "(doctrine 58)",

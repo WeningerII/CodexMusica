@@ -240,6 +240,33 @@ def test_the_hook():
     f2, _ = G.hook_findings(song, hooks=["a counted step a counted breath"])
     check("a fragment that occurs once is named a line, not a hook",
           "HOOK_DOES_NOT_RECUR" in {x.code for x in f2})
+    # PROMOTED TO A FLAG 2026-08-23 (`MISSING.md` M-84, owner's ruling). The
+    # code has fired since it was written; what it could not do was STOP
+    # anything. Asserting the severity here — at the emission site, from the
+    # finding the layer actually builds — is what makes the promotion a GATE
+    # rather than a table entry: `verify()` rejects on `new_flags` and
+    # `song`/`revise` exit 3 while one stands.
+    #
+    # IT IS NOT DOCTRINE 6's CASE, which is why this one and not its
+    # neighbours. Every other shape code measures a draft against
+    # `POPULAR_SONG`, a convention a writer may depart from. This asks whether
+    # a hook the WRITER DECLARED occurs more than once, and the answer is a
+    # fact with no convention in it — the same footing `HOOK_ABSENT` stands on.
+    hdnr = [x for x in f2 if x.code == "HOOK_DOES_NOT_RECUR"]
+    check("...and it is a FLAG, so it can refuse rather than only report — "
+          "the severity read off the FINDING the layer built, not off the "
+          "table it was read from (doctrine 1: one definition, checked where "
+          "it is used)",
+          hdnr and hdnr[0].severity == "flag" and G.SEVERITY[
+              "HOOK_DOES_NOT_RECUR"] == "flag",
+          f"{hdnr[0].severity if hdnr else 'NOT EMITTED'}")
+    check("...while the CONVENTION codes beside it stay notes, so the "
+          "promotion moved one code and did not open the family (doctrine 6)",
+          all(G.SEVERITY[c] == "note" for c in
+              ("DOWNBEAT_LOCKED", "QUATRAIN_LOCK", "METER_LOCKED",
+               "SECTION_LENGTH_LOCKED", "RETURN_LOCKED")),
+          "the locks are measurements against POPULAR_SONG at an "
+          "uncalibrated threshold and a writer may depart from them")
     f3, _ = G.hook_findings(song, hooks=["there is no such phrase"])
     check("a hook that is not in the lyric is named",
           "HOOK_ABSENT" in {x.code for x in f3})

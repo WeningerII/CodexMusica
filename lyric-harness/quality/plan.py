@@ -863,7 +863,8 @@ placement_word = _SL.placement_word
 #: any writing on yet, so refusing here costs a seed and refusing later costs
 #: a draft.
 JOINT_CODES = ("SPAN_BELOW_DENSITY_FLOOR", "TOKEN_INDEX_UNREACHABLE",
-               "WORDS_EXCEED_SPAN", "TWO_GROUPS_ONE_WORD")
+               "WORDS_EXCEED_SPAN", "TWO_GROUPS_ONE_WORD",
+               "HOOK_IN_NONRECURRING_SECTION")
 
 
 def line_syllable_ceiling(slots):
@@ -982,6 +983,29 @@ def joint_findings(plan):
                 f"({slots:g} slot(s) against a band ceiling of "
                 f"{MB.ADOPTED['DENSITY'][1]}); a word is at least one "
                 f"syllable."))
+
+    # THE FIFTH CAUSE, and it is not per-word at all — it is the one
+    # conjunction on this list a writer cannot answer BY WRITING (2026-08-23,
+    # `MISSING.md` M-84). A hook slot is legal; a pattern drawing its section
+    # once is legal; together they declare a hook in a section that never
+    # comes back, and `grid.HOOK_DOES_NOT_RECUR` — a FLAG since the owner's
+    # ruling — then charges the draft for it. No choice of words makes a
+    # section recur, so this must be refused where it is DECIDABLE, which is
+    # here. The line reported is the slot itself, so the refusal names the
+    # position the plan was about to hand over.
+    hook = plan.get("hook_slot")
+    if hook:
+        fn = next((s["function"] for s in plan["line_slots"]
+                   if s["line"] == hook), "")
+        n = sum(1 for s in plan["sections"] if s["function"] == fn)
+        if n < 2:
+            out.append((
+                "HOOK_IN_NONRECURRING_SECTION", hook,
+                f"the hook is declared at line {hook}, in {fn!r}, and this "
+                f"plan draws {fn!r} {n} time(s) — a hook is defined by "
+                f"RETURN, so this asks the writer for something no choice of "
+                f"words can supply. Declare no hook instead (doctrine 20: "
+                f"the plan says WHY in `hook_slot_refused`)."))
     return out
 
 
@@ -1913,14 +1937,55 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
 
     total = line_no - 1
 
-    # The hook SLOT: the first chorus's first line, when a chorus exists.
-    # The plan writes no words, so it declares a POSITION; fill_plan
-    # realises the text into the blueprint's hooks list.
-    hook_slot = None
-    for s in line_slots:
-        if s["function"] == "chorus":
-            hook_slot = s["line"]
+    # The hook SLOT: the first line of the first instance of a function this
+    # plan actually DREW MORE THAN ONCE. The plan writes no words, so it
+    # declares a POSITION; fill_plan realises the text into the blueprint's
+    # hooks list.
+    #
+    # RECURRENCE IS THE WHOLE CONDITION (2026-08-23, `MISSING.md` M-84, owner's
+    # ruling *"promote HOOK_DOES_NOT_RECUR to a flag"*). This read
+    # ~~`s["function"] == "chorus"`~~ and stopped, never asking whether that
+    # chorus COMES BACK — so a hook was declared in a section drawn once in
+    # **219 of 400 seeds (54.8%)**, every one of them a chorus. Once the code
+    # is a flag that is a requirement NO WRITER CAN MEET: no choice of words
+    # makes a section recur, and `grid`'s own message says so — *"A hook is
+    # defined by RETURN; one occurrence is a phrase."* Individually the hook
+    # slot is legal and the one-chorus pattern is legal; their CONJUNCTION is
+    # unwritable, which is `joint_findings`' subject one layer out.
+    #
+    # THE PREFERENCE IS THE VOCABULARY'S, NOT A LITERAL. `chorus` wins when a
+    # recurring one is present because `FunctionSpec.returns_as` says it
+    # returns VERBATIM — its gloss is *"the returning section; the one place
+    # where REPEAT is the requirement rather than the violation"* — and any
+    # other actually-recurring sung function is taken over declaring nothing.
+    # Reading the drawn `sections` costs no entropy, so every seed's groups,
+    # meter and schemes are byte-identical either side of this repair.
+    from quality import grid as _GR   # lazy, as everywhere else in this file
+    drawn = {}
+    for s in sections:
+        drawn[s["function"]] = drawn.get(s["function"], 0) + 1
+    recurs = {fn for fn, n in drawn.items()
+              if n > 1 and fn not in WORDLESS_FUNCTIONS}
+    verbatim = {fn for fn in recurs
+                if getattr(_GR.SECTION_FUNCTIONS.get(fn), "returns_as", "")
+                == "verbatim"}
+    hook_slot, hook_refused = None, ""
+    for pool in (verbatim, recurs):
+        for s in line_slots:
+            if s["function"] in pool:
+                hook_slot = s["line"]
+                break
+        if hook_slot:
             break
+    if hook_slot is None:
+        # A REFUSAL IS NOT AN ABSENCE (doctrine 20). Silence here would read
+        # as "this shape has no hook worth naming"; the truth is that nothing
+        # in it comes back, so no position can carry one.
+        hook_refused = (
+            "no function this pattern drew occurs more than once, and a hook "
+            "is defined by RETURN — so this shape declares no hook rather "
+            "than naming a position no writer could make recur "
+            "(`grid.HOOK_DOES_NOT_RECUR`)")
 
     # Structures: the pool is rows calibrated FOR ENGLISH — this planner
     # plans English songs, and a table fitted on one tradition is not
@@ -2019,6 +2084,10 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         "sections": sections,
         "line_slots": line_slots,
         "hook_slot": hook_slot,
+        # WHY there is none, when there is none — never silence (doctrine 20).
+        # "" means a hook WAS declared; a sentence means the shape could not
+        # carry one and says what about the shape stopped it.
+        "hook_slot_refused": hook_refused,
         # THE WRITER'S DECLARATION, echoed so the grading command can name
         # it and so a reader of a stored plan can see what was asked for --
         # `""` and `[]` mean NOBODY SAID, never "the default was chosen".
@@ -2185,6 +2254,8 @@ def writer_brief(plan):
     if plan.get("hook_slot"):
         out.append(f"Line {plan['hook_slot']} is the hook — make it the "
                    f"line someone leaves humming.")
+    elif plan.get("hook_slot_refused"):
+        out.append(f"NO HOOK IS DECLARED: {plan['hook_slot_refused']}.")
     return "\n".join(out)
 
 

@@ -1947,14 +1947,28 @@ def test_a_returns_broken_rhyme_scheme_reaches_the_report():
           f"mandate, so nothing it says is a requirement the writer declared. "
           f"The flag for a REQUIRED return is RETURN_NOT_VERBATIM, from "
           f"`Mandate.returns_check`, one layer down.")
-    check("...and the table rules on EVERY shape code with exactly one flag, "
-          "so a new finding cannot join the convention family by default — "
-          "`severity_of` REFUSES an unruled code rather than defaulting it, "
-          "which is the gate this layer did not have (doctrine 20)",
-          [c for c, v in SEVERITY.items() if v == "flag"] == ["HOOK_ABSENT"]
+    # REPOINTED 2026-08-23 from ~~`== ["HOOK_ABSENT"]`~~ (`MISSING.md` M-84,
+    # owner's ruling *"promote HOOK_DOES_NOT_RECUR to a flag"*). The check's
+    # INTENT is unchanged and is the reason it is not simply relaxed to a
+    # count: a new finding must not join the flag family by drifting into it.
+    # So the pin is on the SET, and the set is now TWO — and the two are the
+    # same KIND, which is what makes this a repin rather than a hole. Both are
+    # facts about a declared hook and neither is a convention: `HOOK_ABSENT`
+    # asks whether the writer's own supplied text occurs at all,
+    # `HOOK_DOES_NOT_RECUR` whether it occurs more than once. Apply M-54's
+    # per-row test — violate it, NOVEL SONG or MISLABELLED SECTION? — and a
+    # hook heard once is a phrase somebody called a hook.
+    check("...and the table rules on EVERY shape code, with the flag family "
+          "held to a DECLARED SET rather than a count, so a new finding "
+          "cannot join it by default — `severity_of` REFUSES an unruled code "
+          "rather than defaulting it (doctrine 20)",
+          sorted(c for c, v in SEVERITY.items() if v == "flag")
+          == ["HOOK_ABSENT", "HOOK_DOES_NOT_RECUR"]
           and _unruled_refuses(),
-          f"{len(SEVERITY)} codes ruled; the one flag is a fact about the "
-          f"writer's own supplied hook text, not a convention")
+          f"{len(SEVERITY)} codes ruled; both flags are facts about the "
+          f"writer's own supplied hook text, not conventions — every other "
+          f"shape code is measured against {POPULAR_SONG.name!r} and stays a "
+          f"note (doctrine 6)")
 
 
 def _unruled_refuses():

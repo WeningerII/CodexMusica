@@ -384,7 +384,10 @@ counts (doctrine 1).
 ~~of 67 finding codes, 8 CAN definitely refuse something, 15 definitely
 CANNOT, and 44 depend on where they are constructed — 23 `computed` and 21
 `consumer-assigned`~~ **STRUCK 2026-08-23 (`MISSING.md` M-77): the standing
-figure is 20 GATED / 51 DISCLOSED-ONLY / 0 UNDECIDABLE, over 71 codes and
+figure is ~~20 GATED / 51 DISCLOSED-ONLY~~ **21 GATED / 50 DISCLOSED-ONLY
+(repinned 2026-08-23, `MISSING.md` M-84 — `HOOK_DOES_NOT_RECUR` promoted by
+owner ruling, the first code this roster caused to be asked about)** /
+0 UNDECIDABLE, over 71 codes and
 not 67 — the placement layer builds `GridFinding` from a VARIABLE at one
 site, so four codes this tree emits were counted by nothing, and the same
 gap would have crashed `severity_of` on any draft that tripped one.** Never summed past
@@ -1182,11 +1185,16 @@ THREE STOP CONDITIONS, and they are not one thing. SUCCESS — nothing left
 carries a flag finding **ON A LINE. That qualifier is load-bearing and was
 missing until 2026-08-13.** Every stop condition reads `brief()`, `brief()` is
 built from `inspect()`'s `per_line` half, and a WHOLE-DRAFT finding names no
-line — so it is in no `Brief` and no stop condition can see it. Exactly three
-codes are whole-draft AND a flag: `LEXICAL_MONOTONY` and `FUNCTION_WORD_HEAVY`
+line — so it is in no `Brief` and no stop condition can see it. ~~Exactly three
+codes are~~ **FOUR codes are** whole-draft AND a flag: `LEXICAL_MONOTONY` and
+`FUNCTION_WORD_HEAVY`
 (the floor, and only inside a calibrated profile's MEASURED range) and
-`HOOK_ABSENT` — which is the song-function layer's ONLY flag, so the layer
-wired in above can never stop this loop. `verify()` reads all three, because
+`HOOK_ABSENT` — ~~which is the song-function layer's ONLY flag~~ **joined
+2026-08-23 by `HOOK_DOES_NOT_RECUR` (`MISSING.md` M-84, owner's ruling), so the
+song-function layer now has TWO and they are the same kind: both are facts
+about a hook the WRITER DECLARED, not measurements against `POPULAR_SONG`** —
+so the layer
+wired in above can never stop this loop. `verify()` reads all four, because
 its diff covers `whole` as well as `per_line`. **So a whole-draft flag can
 REJECT a revision and can never ASK for one**, and `revise_loop` on a four-line
 draft with a declared blueprint returns SUCCESS with `LEXICAL_MONOTONY` and
@@ -3511,6 +3519,16 @@ rather than this paragraph — a roster copied into two files drifts in both.
    wiring: this is a measurement against a CONVENTION at an uncalibrated 0.90
    threshold, and doctrine 6 says a convention a writer may depart from cannot
    be what fails `verify()`. 5/4 and an 11-bar bridge are choices, not repairs.
+   **THAT HOLDS FOR THE SIX LOCKS AND STOPPED BEING TRUE OF THE LAYER
+   2026-08-23 (`MISSING.md` M-84).** `HOOK_DOES_NOT_RECUR` is a FLAG by the
+   owner's ruling, and the distinction it turns on is the one this paragraph
+   already draws: the locks measure a draft against `POPULAR_SONG` at an
+   uncalibrated threshold, while a hook occurring once fails `M-54`'s own
+   per-row test — *NOVEL SONG or MISLABELLED SECTION?* — as a mislabelled one.
+   Promoting it exposed that **the PLANNER could not satisfy it**: 219 of 400
+   seeds declared a hook in a section drawn once, a defect no writer can clear
+   by writing, so the slot derivation and a fifth `JOINT_CODES` member shipped
+   in the same commit. 0 of 400 after, 0 seeds lost.
    **AND EVERY ONE OF THOSE STATISTICS WAS SILENCED BY APPENDING ONE SHORT
    SECTION — FIXED 2026-08-23, `MISSING.md` M-75, owner's ruling *"derived
    envelope not rate-matching"*.** The owner's anecdote: *"it made all

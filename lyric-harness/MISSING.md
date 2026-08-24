@@ -9657,3 +9657,89 @@ apparatus spellings at once and requires the plan to accept it; reverting the
 reader to the inline `open()` reds it.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~140~~ -> **141**.
+
+### M-84 · `HOOK_DOES_NOT_RECUR` gates now, and promoting it exposed a planner that could not satisfy it `CLOSED` — 2026-08-23
+**THE OWNER'S RULING, in five words: *"promote HOOK_DOES_NOT_RECUR to a flag."***
+`M-77` produced the disclosed-only roster precisely so that *"should this one
+gate?"* is asked of each code BY A PERSON rather than answered by whoever last
+edited the file. This is the first code that roster caused to be promoted.
+
+**IT IS NOT DOCTRINE 6's CASE, and that is the whole argument for taking this
+one and not its neighbours.** `M-77` warned that a CONVENTION a writer may
+depart from cannot be what fails a check, so `DOWNBEAT_LOCKED` and
+`QUATRAIN_LOCK` are notes ON PURPOSE — they measure a draft against
+`POPULAR_SONG` at an uncalibrated threshold. Apply `M-54`'s own per-row test to
+this one — *violate it: is the result a NOVEL SONG or a MISLABELLED SECTION?* —
+and a hook heard once is not an experimental song, it is a phrase somebody
+called a hook. The finding's own message has said so since it was written:
+*"A hook is defined by RETURN; one occurrence is a phrase."* It joins
+`HOOK_ABSENT`, whose flag rests on identical footing — a factual question about
+the writer's OWN declared text, with no convention in it.
+
+**AND THE PROMOTION IMMEDIATELY FAILED THE PLANNER, which is the half worth
+recording.** MEASURED over 400 seeds BEFORE anything was changed: **219 plans
+(54.8%) declared a hook in a section drawn exactly once**, every one of them a
+chorus. The derivation was three lines and asked the wrong question —
+~~`if s["function"] == "chorus": hook_slot = s["line"]; break`~~ — taking the
+first chorus's first line unconditionally, never asking whether that chorus
+COMES BACK.
+
+**SO THE FLAG WOULD HAVE CHARGED A WRITER FOR SOMETHING NO WRITING CAN FIX.**
+This is `M-80`'s joint-satisfiability shape one layer out: a hook slot is
+legal, a one-chorus pattern is legal, and their CONJUNCTION is unwritable
+because **no choice of words makes a section recur**. Shipping the severity
+change alone would have handed better than half of all plans a defect with no
+move — the precise error `line_syllable_ceiling` exists to prevent, and worse
+than the `SPARSE` misreading `M-79`'s Finding 1 made, because that one at least
+had a rewrite available.
+
+**BOTH HALVES, THEREFORE.** The slot is derived from what the plan ACTUALLY
+DREW — the first line of the first instance of a function occurring more than
+once — with the preference taken from the vocabulary rather than a literal:
+`FunctionSpec.returns_as == "verbatim"` wins, which is why `chorus` still gets
+it when a recurring one is present (its gloss: *"the returning section; the one
+place where REPEAT is the requirement rather than the violation"*). When
+NOTHING recurs, the plan declares **no hook** and says why in
+`hook_slot_refused`, because silence and "this shape cannot carry one" look
+identical in an empty field (doctrine 20). `writer_brief` prints the reason
+instead of going quiet.
+
+**`HOOK_IN_NONRECURRING_SECTION` is the fifth `JOINT_CODES` member** and makes
+it CHECKED rather than asserted. **AFTER: 0 findings over 400 plans, 0 seeds
+lost** — satisfied by construction, so a MUTATION is the only way to fire it,
+the same relationship `ADOPTED_MAX_GROUP` has to the scheme sampler. 264 of 400
+plans declare a hook (all in a function drawn 2–4 times); 136 declare none and
+each states its reason.
+
+**THE REPAIR COSTS NO ENTROPY, MEASURED.** It reads the already-drawn
+`sections`, so seed 108's groups string is **byte-identical**, its meter is
+10/8 (2,3,2,3) and its line count 18, either side. No plan's rhyme web, meter
+or scheme moved; only the hook coordinate did.
+
+**THE DELIVERED SONG SURVIVES ITS OWN RULING.** The 18-line flood song written
+this sitting was graded before the promotion at 0 FLAG. Seed 108 draws six
+sections with six DISTINCT functions — nothing in it recurs at all — so under
+the repair it declares no hook, `HOOK_DOES_NOT_RECUR` cannot fire, and
+`HOOK_UNDECLARED` (a note: the question was not asked) takes its place. Re-graded:
+**exit 0, 0 FLAG, 0 banned pairs, 0 SCHEME_VIOLATION**, whole-draft findings
+10 -> 9. The planner had been telling that song's writer *"Line 7 is the hook —
+make it the line someone leaves humming"* in a song where nothing comes back.
+
+**WHAT THE FLAG'S LIVE TARGET IS, stated so the promotion is not read as
+bigger than it is**: the planner can no longer emit it, so nothing this
+generator produces newly fails. It fires on a HAND-WRITTEN blueprint or a
+recovered song — the `recover.py` door — which is where an undeclared-but-real
+hook problem actually arrives.
+
+**BOOKKEEPING**: `gate_census.PINNED` ~~gated 20 / disclosed_only 51~~ ->
+**21 / 50** over the same 71 codes, repinned deliberately and naming the code
+that moved. `audit_register.PINNED["coverage_entries"]` ~~141~~ -> **142**.
+
+**GATES**: `test_song_function.py` §11 reads the severity off the FINDING the
+layer builds (not off the table it came from) and asserts the five neighbouring
+locks stay notes, so the promotion cannot open the family; `test_plan.py` §7
+adds two checks and a MUTATION that forces a hook into a once-drawn section and
+requires `HOOK_IN_NONRECURRING_SECTION` to fire — without it, both checks would
+pass on a planner that simply never declared a hook; `test_grid.py` §26 repins
+the flag family as a DECLARED SET rather than a count (~~`== ["HOOK_ABSENT"]`~~),
+keeping its original intent that a new finding must not drift into the family.

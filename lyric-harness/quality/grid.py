@@ -987,7 +987,7 @@ SEVERITY = {
     "DOWNBEAT_LOCKED": "note",
     "ELABORATION_UNGROUNDED": "note",
     "HOOK_CONFINED": "note",
-    "HOOK_DOES_NOT_RECUR": "note",
+    "HOOK_DOES_NOT_RECUR": "flag",
     "METER_LOCKED": "note",
     "PHRASE_LENGTH_LOCKED": "note",
     "QUATRAIN_LOCK": "note",
