@@ -115,8 +115,8 @@ spell their rime the same way has a rhyme CEILING near one, and `screen` says
 so before a word is written. `metal ~ nettle` scores the same 1.000 and is
 CLEAN, because `etal` and `ettle` are two spellings of one sound.
 
-This is the first song here whose blueprint carries a `title`, so it is the
-first whose `TITLE_UNDECLARED` refusal is answered rather than reported —
+Its blueprint carries a declared `title`, so `TITLE_UNDECLARED` is answered
+here rather than reported —
 `MISSING.md` M-93, and `plan --title=` is the entrance that made it possible
 without editing the planner's own output by hand.
 
@@ -138,8 +138,8 @@ without editing the planner's own output by hand.
 **25 lines, 23 sections, 8/8 grouped 3+3+2** — an additive limp rather than a
 march, one bar to a line, so the lines are SHORT: 8 slots on a downbeat and
 **7 on the one-beat pickup**. Three instrumental INTERLUDEs carry bars and no
-words. Hook at line 7, verbatim at 17 and 20. First song here to declare a
-`bridge`, and the second to declare a title — "Carry It" is in the hook.
+words. Hook at line 7, verbatim at 17 and 20. Its roster declares a
+`bridge`, and its blueprint a title — "Carry It" is in the hook.
 
 **THE FIRST DRAFT PASSED EVERY GATE AND WAS NOT A SONG.** It is worth
 recording what it looked like, because nothing in this repository can tell
@@ -196,6 +196,45 @@ one usable pair among all fifteen.
 a one-beat pickup eating a slot, so a CHORUS line has seven and not eight.
 `wire` cost one on its own — CMUdict reads it as two syllables (`W AY1 ER0`),
 which is what a count in the head gets wrong and a grader does not.
+
+## What the first measurement says, including about me
+
+`songs/RESULTS.tsv` is the series: one row per (song, harness commit, date),
+carrying the ten pre-registered features from `quality/features.py`. It exists
+because every report about these songs until 2026-08-24 was a PASS/FAIL bit —
+`song` exit 0, `revise` 0 rounds — read aloud as a judgement of quality. It is
+not one. BOTH drafts of `carry_it_over` were exit 0 with 0 rounds, the
+fragment version and the rewrite, and no gate in this tree can tell them apart.
+
+    python3 quality/song_record.py --write    # score every song, append rows
+    python3 quality/song_record.py --check    # re-derive; FAIL on drift
+    python3 quality/song_record.py --claims   # README claims vs the numbers
+
+**THE SONGS ARE FIXED WITNESSES.** Their bytes never change, so when a number
+moves, THE TREE MOVED — a corpus load, a recalibrated band, a changed
+tokeniser. That is why `harness_commit` is a key column and why `--check` is a
+regression detector for the whole quality layer rather than a check on the
+writing.
+
+**WHAT IS REFUSED HERE:** a corpus-relative "quality score".
+`quality/discriminate.py` fits its discriminator on SONNETS at a fixed 14-line
+scheme; pushing a 25-line song in 8/8 through it and printing the number is a
+measurement laundered out of its domain. The features are recorded; the
+verdict against the song corpus is `quality/floor.py`'s song profile, which
+already runs inside `song`.
+
+**AND THE FIRST RUN DID NOT FLATTER THE NEWEST SONG.** On concreteness —
+pre-registered as HIGHER in the survived/human class — `carry_it_over.txt` is
+the lowest of the five at 3.043667 [RESULTS: concreteness_mean
+carry_it_over.txt], against 3.909818 for `turn_the_wheel.txt`
+[RESULTS: concreteness_mean turn_the_wheel.txt]. On rhyme predictability —
+pre-registered as LOWER — `keep_the_light.txt` sits lowest at 0.816206
+[RESULTS: rhyme_predictability_mean keep_the_light.txt]. Both readings run
+against the story I had been telling, which is the point of writing the
+numbers down before making the claim.
+
+A comparison in this file must carry a `[RESULTS: <column> <song>]` citation
+that resolves, or `--claims` fails. That check is aimed at the narrator.
 
 ---
 

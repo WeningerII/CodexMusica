@@ -2189,9 +2189,13 @@ PINNED = {
     # refuses) and M-95 (tandem and nightly, red for a week on four separate
     # defects), all filed 2026-08-24. ~~150~~ was M-90..M-92, the CI-green
     # sitting the same day.
-    # ~~153~~ -> ~~154~~ -> 155: M-96 (the delivered songs had no gate
-    # at all) and M-97 (the flattened bracket now has a Stop hook).
-    "coverage_entries": 155,
+    # ~~153~~ -> ~~154~~ -> ~~155~~ -> 157: M-96 (the delivered songs had
+    # no gate at all) and M-97 (the flattened bracket now has a Stop hook),
+    # then M-98 (the songs had no series) and M-99 (no human-vs-generated
+    # discriminator for songs). M-98 was FILED AS A SECOND M-97 and caught by
+    # this pin refusing to reconcile — the count is a check on the numbering
+    # as well as on the total.
+    "coverage_entries": 157,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

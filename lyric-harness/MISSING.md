@@ -10435,3 +10435,58 @@ rather than the whole line, so a dash in a LYRIC can no longer excuse a
 stripped bracket. The suite also drives the real `section_header` for all 23
 sections of seed 394, so a change to the separator goes red here rather than
 in a message weeks later.
+
+### M-98 · the songs had no series, and every report about them was a pass/fail bit `CLOSED` — 2026-08-24
+**FIVE SONGS AND NOTHING COMPARED ANY OF THEM TO ANY OTHER.** `song` exit 0
+and `revise` 0 rounds were reported repeatedly as if they were judgements of
+QUALITY. They are not, and the proof is in this repository: **BOTH drafts of
+`carry_it_over` were exit 0 with 0 rounds** — the one written as fragments and
+the one written as speech — and no gate in this tree separates them. A bit
+that cannot tell those two apart cannot support a sentence containing "best".
+
+**`quality/song_record.py`, THREE VERBS.** `--write` banks the ten
+pre-registered features per song, keyed on **(song, harness commit, date)`.
+`--check` re-derives and FAILS on any moved value. `--claims` reads
+`songs/README.md` and fails on a comparison with no `[RESULTS: column song]`
+citation that resolves.
+
+**THE COMMIT IS A KEY COLUMN BECAUSE THE SONGS ARE FIXED WITNESSES.** Their
+bytes never change, so a moved number means THE TREE moved — a corpus load, a
+recalibrated band, a changed tokeniser. `--check` is therefore a regression
+detector for the whole quality layer, using our own songs as calibration
+standards, and a dirty tree is stamped `<sha>-WORKING` rather than passing as
+a commit.
+
+**WHAT IS REFUSED, AND THE REFUSAL IS STRUCTURAL.** No corpus-relative
+"quality score". `quality/discriminate.py` is fitted on **152 sonnets** —
+`quality/corpus.py` exposes only `load_sonnets`, `labelled_sonnets` and
+`load_generated`, and every extraction passes one fixed `SONNET_SCHEME`.
+Scoring a 25-line song in 8/8 through it would be a measurement laundered out
+of its domain (doctrine 13/14). `song_record.py` does not import it, and
+`test_songs_record.py` §5 checks the ABSENCE rather than trusting the
+docstring. The corpus-relative verdict our songs DO get is
+`quality/floor.py`'s song profile, calibrated on **1,421** staged songs in
+`corpus/song/`, which already runs inside `song`.
+
+**THE FIRST RUN DID NOT FLATTER THE NEWEST SONG**, which is the point of
+banking before claiming: on concreteness (pre-registered HIGHER in the
+survived class) `carry_it_over.txt` is the LOWEST of the five at 3.043667; on
+rhyme predictability (pre-registered LOWER) `keep_the_light.txt` is lowest at
+0.816206 — the song the owner pointed at as the good one.
+
+### M-99 · there is no human-vs-generated discriminator for SONGS `OPEN`
+**THE SONNET ARM HAS ONE AND THE SONG ARM DOES NOT.** `discriminate.py` runs
+three fitted experiments — survived vs forgotten, human vs generated,
+anthologized vs not — all on the 152-sonnet population. `corpus/song/` holds
+**1,421** staged songs and supports NO equivalent, because nothing labels
+them: there is no survived/forgotten split and no matched generated set. What
+the song corpus supports today is CALIBRATION (the floor's song profile,
+`song_profile_calibration.py`) — bands that say *is this inside the corpus's
+range*, never *is this any good*.
+
+**SO THE QUESTION "IS THIS SONG GOOD" IS UNANSWERED HERE AND IS RECORDED AS
+UNANSWERED**, rather than being approximated by exit codes. Closing it needs a
+labelled song population, and the label is the hard part — the sonnet arm got
+one from anthologisation, which has no clean analogue for song. Filed on
+2026-08-24 when M-98's build made the gap explicit: the series can now show
+DRIFT and can refuse an uncited claim; it still cannot show MERIT.
