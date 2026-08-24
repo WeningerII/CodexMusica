@@ -1,0 +1,198 @@
+{
+ "hooks": [
+  "Turn the wheel, stone to the blade, and hold"
+ ],
+ "lines": [
+  {
+   "bar": 1,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "CHORUS1",
+   "text": "Turn the wheel, stone to the blade, and hold"
+  },
+  {
+   "bar": 3,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "CHORUS1",
+   "text": "Hear the iron in the dark begin to groan"
+  },
+  {
+   "bar": 5,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "VERSE1",
+   "text": "Nothing in this trade a man can spare"
+  },
+  {
+   "bar": 7,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "VERSE1",
+   "text": "Stair to the street and the barrow at the door"
+  },
+  {
+   "bar": 9,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "CHORUS2",
+   "text": "Turn the wheel, stone to the blade, and hold"
+  },
+  {
+   "bar": 11,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "CHORUS2",
+   "text": "Hear the iron in the dark begin to groan"
+  },
+  {
+   "bar": 13,
+   "beat": 1.25,
+   "duration": 5.75,
+   "section": "POSTCHORUS1",
+   "text": "Sharpen, sharpen, and the day comes round"
+  },
+  {
+   "bar": 19,
+   "beat": 2.0,
+   "duration": 5.0,
+   "section": "PRECHORUS1",
+   "text": "Dry as red rust, cost of ache in the wrist"
+  },
+  {
+   "bar": 21,
+   "beat": 2.0,
+   "duration": 5.0,
+   "section": "PRECHORUS1",
+   "text": "Thread of it thin, brake crossed, and the hour drawn nigh"
+  },
+  {
+   "bar": 23,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "CHORUS3",
+   "text": "Turn the wheel, stone to the blade, and hold"
+  },
+  {
+   "bar": 25,
+   "beat": 1.0,
+   "duration": 6.0,
+   "section": "CHORUS3",
+   "text": "Hear the iron in the dark begin to groan"
+  },
+  {
+   "bar": 27,
+   "beat": 1.25,
+   "duration": 5.75,
+   "section": "POSTCHORUS2",
+   "text": "Sharpen, sharpen, and the day comes round"
+  }
+ ],
+ "sections": [
+  {
+   "bars": 4,
+   "function": "chorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS1",
+   "start_bar": 1
+  },
+  {
+   "bars": 4,
+   "function": "verse",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "VERSE1",
+   "start_bar": 5
+  },
+  {
+   "bars": 4,
+   "function": "chorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS2",
+   "start_bar": 9
+  },
+  {
+   "bars": 2,
+   "function": "postchorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "POSTCHORUS1",
+   "start_bar": 13
+  },
+  {
+   "bars": 4,
+   "function": "solo",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "SOLO1",
+   "start_bar": 15
+  },
+  {
+   "bars": 4,
+   "function": "prechorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "PRECHORUS1",
+   "start_bar": 19
+  },
+  {
+   "bars": 4,
+   "function": "chorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS3",
+   "start_bar": 23
+  },
+  {
+   "bars": 2,
+   "function": "postchorus",
+   "meter": {
+    "beats": 3,
+    "groups": [
+     3
+    ],
+    "unit": 8
+   },
+   "name": "POSTCHORUS2",
+   "start_bar": 27
+  }
+ ],
+ "title": "turn the wheel"
+}
