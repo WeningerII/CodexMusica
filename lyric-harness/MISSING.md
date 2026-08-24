@@ -9993,3 +9993,44 @@ fixtures is the ban itself.
 through `MANDATORY_PURSUE`, and this entry adds a second mechanism to codes
 that had one rather than a gate to codes that had none — which is why the
 census is right not to move and why the hole was invisible to it.
+
+### M-89 · the CI workflow had been INVALID YAML, so every run started zero jobs `CLOSED` — 2026-08-24
+**FOUND BY BEING TOLD TO GET CI GREEN.** `.github/workflows/ci.yml` did not
+parse. A `- name:` scalar was unquoted and contained `": "` — which YAML reads
+as a nested mapping — at line 1690, column 1983: *"rather than a sitting
+later: it named two constructors"*. `yaml.safe_load` raises
+`ScannerError: mapping values are not allowed here`.
+
+**SO GITHUB STARTED NO JOBS AND REPORTED `failure`.** Measured: the last
+twelve runs on this branch are all `failure`, and
+`actions_list(list_workflow_jobs)` on the newest returns
+`{"total_count": 0, "jobs": []}`. **Eleven jobs** parse once the scalar is
+quoted.
+
+**IT BROKE AT `18835a4`** (*"The gate census: how much of this harness can
+refuse anything, measured"*), `git log -L 1690,1690`. Every red since was the
+workflow refusing to parse rather than a check failing, so **the repository
+had no CI signal at all for that stretch** — and every commit pushed into it,
+including this session's, was pushed past a light that could not turn green.
+
+**THE FAILURE MODE IS WORSE THAN SILENCE, which is why this is not filed as
+housekeeping.** A gate that cannot RUN normally looks like a gate that PASSES
+(doctrine 48's usual shape, and `MISSING.md` is full of it). This one looked
+like a gate that FAILS — permanently, on every commit, for reasons no job log
+could explain because there were no jobs. That trains a reader to ignore the
+light, which is strictly worse than a false green: a false green is believed
+once, a permanent false red is believed never.
+
+**THE GATE CANNOT LIVE IN CI AND THAT IS THE WHOLE POINT.** A workflow that
+does not parse runs nothing, including a step that would validate it. The
+check has to fire BEFORE the push, so it is `test_verbs.py` §43: every file
+under `.github/workflows/` must parse AND declare at least one job — the
+second half because a file that parses to something structurally empty would
+otherwise read as fine. It names its population first, so it cannot pass by
+examining nothing.
+
+**WHAT IS NOT CLAIMED**: this says nothing about whether the eleven jobs PASS.
+It says they can now be started, which they could not be. Whatever CI reports
+next is the first real verdict this branch has had since `18835a4`.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~146~~ -> **147**.

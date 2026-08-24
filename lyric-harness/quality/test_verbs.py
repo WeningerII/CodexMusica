@@ -4037,6 +4037,48 @@ def test_the_ban_is_unskippable_at_the_grading_verb_too():
             os.unlink(q)
 
 
+def test_every_workflow_file_is_parseable_yaml():
+    print("\n43. THE CI WORKFLOW PARSES — checked HERE because a broken one "
+          "cannot run the check that catches it (`MISSING.md` M-89)")
+    # FOUND BY BEING TOLD TO GET CI GREEN. `.github/workflows/ci.yml` had been
+    # INVALID YAML since `18835a4` — a `- name:` whose unquoted value contained
+    # `": "`, which YAML reads as a nested mapping. GitHub could not parse the
+    # workflow, so every run since started with ZERO JOBS and reported
+    # `failure`. The repository had no CI signal at all for that stretch, and
+    # the failure looked identical to a real one, so it trained everybody to
+    # ignore the light.
+    #
+    # THE CHECK CANNOT LIVE IN CI, which is the whole point and the reason it
+    # is in a local suite. A workflow that does not parse runs nothing —
+    # including a step that would have validated it. The only place this can
+    # fail usefully is before the push.
+    import glob
+    import yaml                                        # noqa: PLC0415
+    root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    files = sorted(glob.glob(os.path.join(root, "..", ".github", "workflows",
+                                          "*.yml"))
+                   + glob.glob(os.path.join(root, "..", ".github", "workflows",
+                                            "*.yaml")))
+    check("there are workflow files to check, so this section cannot pass by "
+          "examining nothing", bool(files),
+          [os.path.basename(f) for f in files])
+    for f in files:
+        name = os.path.basename(f)
+        try:
+            doc = yaml.safe_load(open(f, encoding="utf-8"))
+            err = ""
+        except Exception as exc:                        # noqa: BLE001
+            doc, err = None, f"{type(exc).__name__}: {exc}"
+        check(f"`{name}` is parseable YAML — GitHub starts ZERO jobs on one "
+              f"that is not, and reports `failure`, which is "
+              f"indistinguishable from a real red",
+              not err, err or "parses")
+        check(f"...and `{name}` declares at least one job, so a file that "
+              f"parses to something structurally empty is not read as green",
+              isinstance(doc, dict) and bool(doc.get("jobs")),
+              f"{len((doc or {}).get('jobs', {}))} job(s)")
+
+
 if __name__ == "__main__":
     _SECTIONS = (
         test_the_map_is_not_stale,
@@ -4081,6 +4123,7 @@ if __name__ == "__main__":
         test_the_seed_sweep_is_reachable_from_the_command_line,
         test_fill_reads_a_draft_the_way_every_other_verb_does,
         test_the_ban_is_unskippable_at_the_grading_verb_too,
+        test_every_workflow_file_is_parseable_yaml,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —
     # measured 21-22 minutes on CI run #524, and after the pool went
