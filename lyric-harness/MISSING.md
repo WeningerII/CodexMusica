@@ -9842,6 +9842,17 @@ rather than deleted because the ARGUMENT is what a later reader needs
 **22 / 49** over the same 71 codes. `audit_register.PINNED["coverage_entries"]`
 ~~142~~ -> **143**.
 
+**TESTED WHILE OPEN — `quality/test_revise.py` §41 names this entry and does
+NOT guard it, declared 2026-08-24 after reading the entry.** §41's subject is
+`verify()`'s RULE 3 (was a modal candidate TAKEN?), which has nothing to do
+with any of this entry's three parts. It cites part (2) — `SHARED_SUFFIX`
+joining `loop.MANDATORY_PURSUE` — because that ruling is WHY its fixture pair
+went from `glares`/`stairs` to the singular `glare`/`stair`: a pursued note
+holds a line open, and the plural pair could not converge. A comment
+explaining a fixture move is not a regression on the entry, and nothing in
+§41 goes red if any open half of M-85 changes. What that pursue costs is
+`M-90`'s subject, and it is OPEN there rather than answered here.
+
 ### M-86 · `TITLE_NOT_IN_HOOK` gates, on reaffirmation against the number `CLOSED` — 2026-08-23
 **THE OWNER RULED TWICE, AND THE SECOND TIME IS THE ONE THAT COUNTS.** `M-85`
 recorded a REFUSAL to promote this code and put a measurement behind it: over
@@ -10089,6 +10100,14 @@ grades RULE 3 — its actual subject — and this entry carries the finding.
 **THE QUESTION FOR THE OWNER, in one line:** should `SHARED_SUFFIX` fire when
 the pair rhymes without the shared ending, or only when the ending is the
 whole of the rhyme?
+
+**TESTED WHILE OPEN — `quality/test_revise.py` §41 names this entry and
+guards nothing in it.** The citation is a POINTER: §41's fixture comment says
+where the 39-of-39 measurement lives, and states in its own words that the
+fixture "answers it in neither direction". The section grades RULE 3 and would
+grade RULE 3 identically under either ruling on this entry. Nothing here goes
+red when the question is answered — which is the point, because a test that
+pinned today's behaviour would be an argument for keeping it.
 
 ### M-91 · the tier-1 prompt said "end word" whatever the mandate bound `CLOSED` — 2026-08-24
 **FOUND BY `test_propose.py` §7c, EXACTLY AS THAT GUARD PREDICTED.** It
