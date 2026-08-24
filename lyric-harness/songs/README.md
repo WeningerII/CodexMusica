@@ -14,6 +14,14 @@ terms of that cell.
 The blueprint beside each lyric is the FILLED plan (`plan --fill`), so the
 grading command below runs without re-deriving anything.
 
+**THE COMMITTED BLUEPRINTS ARE PRETTIER-FORMATTED AND `plan --out` IS NOT**
+(`MISSING.md` M-94). Re-running any reproduction command below rewrites its
+blueprint at `indent=1` and the repository's `gate` job refuses that file, so
+the re-derived artifact is byte-different from the committed one. It is not a
+different DECLARATION: whitespace cannot reach a grade through a parser, and
+`song` returns a byte-identical finding set on either spelling. Run
+`npx prettier --write` on the file after re-deriving it.
+
 ---
 
 ## `keep_the_light.txt` — seed 22, 3/8 grouped 3

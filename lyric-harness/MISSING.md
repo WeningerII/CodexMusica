@@ -10268,3 +10268,35 @@ in the library is not what is asserted; carrying it THROUGH THE VERB is. The
 same block flips the finding both ways on one song — declared, and with the
 title removed — because two checks that pin a field nothing reads are worth
 nothing.
+
+### M-94 · the planner writes a blueprint the repository's own formatter rejects `OPEN`
+**`plan --out=PATH` WRITES `json.dump(payload, fh, indent=1, sort_keys=True)`,
+AND `prettier --check .` REFUSES IT.** Caught by the `gate` job on the very
+commit that added `songs/stay_awake.blueprint.json` — the one job that failed
+in an otherwise green run, on that one file. This is not the song's problem
+and it is not new: **all four blueprints in `songs/` are prettier-formatted
+and none of them is what its own documented `--out` command writes**, so
+re-running any of the four reproduction commands in `songs/README.md` dirties
+the tree against a gate.
+
+**AND `.prettierignore` HAS ALREADY RULED ON THE QUESTION**, in as many words:
+_"The BLUEPRINTS are deliberately NOT excluded. They are authored
+declarations, they are parsed rather than byte-compared, and they should be
+formatted like any other source we write."_ So the resolution is NOT to
+exclude them — the tree decided that — it is that the writer should emit what
+the formatter accepts.
+
+**MEASURED, BECAUSE `indent=1 -> indent=2` LOOKS LIKE THE WHOLE FIX AND IS
+NOT.** Rewritten at `indent=2, sort_keys=True`, this blueprint is still
+refused, and the residual is **66 diff lines, every one of them prettier's
+fits-in-80-columns collapse** (`"hooks": ["Somebody has to stay awake"]`,
+`"groups": [2]`). Matching that from `json.dump` means reimplementing a
+line-breaking algorithm the repository already owns a copy of, which is the
+trade this entry is OPEN to record rather than to guess at.
+
+**WHAT IS NOT AT RISK:** the reformat is VERDICT-NEUTRAL, and that was
+checked rather than assumed — `song` on the prettier-written blueprint returns
+a finding set BYTE-IDENTICAL to the run on the planner-written one, exit 0
+both times. A blueprint is parsed, so whitespace cannot reach a grade; what is
+broken is the loop between the verb that writes the artifact and the gate that
+reads it, not any measurement taken from it.
