@@ -723,6 +723,69 @@ try {
     console.log('  ok  lyric_check live: banned_pairs surfaces the ban at exit 0');
     passed++;
 
+    // `structures` REACHES lyric_check (MISSING.md M-103's flag, wired here).
+    // Mirrors quality/test_verbs.py §39: the binding assertion is a
+    // DIFFERENCE between two runs on ONE draft, because a field accepted and
+    // dropped is byte-identical to one never sent.
+    const stLines = [
+      'the night was cold and bright',
+      'we held each other tight',
+      'we walked beneath the sun',
+      'and rivers ran with silver',
+    ];
+    const plain = await callText('lyric_check', { lines: stLines, groups: '1,2;3,4' });
+    assert.ok(
+      plain.report.includes('SCHEME_VIOLATION'),
+      'sun/silver is a violation under the default end-rhyme question'
+    );
+    const structured = await callText('lyric_check', {
+      lines: stLines,
+      groups: '1,2;3,4',
+      structures: 'B:kalevala-alliteration',
+    });
+    assert.ok(
+      !structured.report.includes('SCHEME_VIOLATION'),
+      'and NOT one under the declared alliteration — the field is read, not dropped'
+    );
+    // THE DISCLOSURE IS THE REASON THE FIELD IS SAFE TO EXPOSE. Every
+    // declarable row is uncalibrated for English, so the two-tier ban is
+    // skipped on the structured group and an absent banned_pairs means the
+    // question was not asked.
+    assert.ok(
+      structured.structures_uncalibrated &&
+        structured.structures_uncalibrated.includes('kalevala-alliteration'),
+      'the verdict carries structures_uncalibrated, naming the row'
+    );
+    assert.ok(
+      /laziness is NOT/i.test(structured.structures_uncalibrated_meaning || ''),
+      'and its meaning says correctness is graded and laziness is not'
+    );
+    const bogus = await callText('lyric_check', {
+      lines: stLines,
+      groups: '1,2',
+      structures: 'A:vibes',
+    });
+    assert.equal(bogus.exit_code, 2, 'an unknown row REFUSES rather than defaulting');
+    assert.ok(
+      bogus.report.includes('not a declared structure') && bogus.report.includes('58 structures'),
+      "...through the catalog's own message, with the vocabulary size in it"
+    );
+    // M-102: both judge the same pairs and the relation would win on every
+    // group, so the HARNESS refuses — not a second copy of the rule here.
+    const collide = await callText('lyric_check', {
+      lines: stLines,
+      groups: '1,2;3,4',
+      structures: 'B:kalevala-alliteration',
+      relation: 'type:pararhyme',
+    });
+    assert.equal(collide.exit_code, 2, 'a song-wide relation beside a structure REFUSES');
+    assert.ok(
+      collide.report.includes('song-wide relation') && collide.report.includes('--relations='),
+      '...naming the collision and the per-group spelling that expresses the intent'
+    );
+    console.log('  ok  lyric_check live: --structures reaches the mandate, with its disclosure');
+    passed++;
+
     // The SAME plan the draft above was built from -- re-calling the tool
     // here ran the planner a second time on one seed and then asserted a
     // remembered `[CHORUS — 3 lines —` against it, which is the stale

@@ -57,6 +57,9 @@ const WORD_RE = /^[A-Za-z][A-Za-z''-]*$/;
 // coordinate: a declared coordinate the outermost layer cannot spell is this
 // repository's single most-repeated defect (CLAUDE.md's `--structures`
 // paragraph, M-55, and doctrine 48 at the connector).
+// ~~`--structures` is the standing example of that defect~~ -- STRUCK
+// 2026-08-24: it is a `lyric_check` field now, and specifying the wiring
+// turned up two live harness defects on the way (M-102, M-103).
 //
 // The place is matched as a BOUNDED alternation rather than `\w+` so nothing
 // input-shaped can grow into a flag; the harness refuses an unknown place by
@@ -66,6 +69,12 @@ const MEMBER_RE = `[0-9]+(?:\\.${SLOT_PLACE})?`;
 const MANDATE_RE = new RegExp(`^${MEMBER_RE}(,${MEMBER_RE})*(;${MEMBER_RE}(,${MEMBER_RE})*)*$`);
 // `--returns=` names LINES that are the same line, so a place has no meaning
 // there — a return is a whole line repeated, not a span inside one.
+// A structures entry is LABEL:NAME. The NAME charset is wide on purpose —
+// catalog rows are spelled `Kalevala-alliteration-(strong,-closed-syllable)`
+// — and the leading character of the whole string is pinned to a label so
+// nothing input-shaped can grow into a flag.
+const STRUCTURES_RE =
+  /^[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. \/-]{1,64}(,[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. \/-]{1,64})*$/;
 const RETURNS_RE = /^[0-9]+(,[0-9]+)*(;[0-9]+(,[0-9]+)*)*$/;
 const SCHEME_RE = /^[A-Za-z]{1,64}$/;
 
@@ -137,8 +146,27 @@ function extractBannedPairs(report) {
   return out;
 }
 
+// THE UNCALIBRATED-STRUCTURE DISCLOSURE, and it rides beside banned_pairs
+// for the same reason banned_pairs exists. Declaring any catalog row makes
+// `grade()` judge that group by the row's own judge AND makes the proactive
+// two-tier ban SKIP those pairs — the spelled-rime class and the eng-song
+// modal table are end-rhyme instruments and charging them to a coda-only
+// hending would grade the wrong axis. Exactly two of the 58 rows carry a
+// measured laziness regime, `english-end-rhyme` for eng (whose judge refuses,
+// so it cannot be declared) and `kalevala-alliteration` for fin — so on an
+// English draft EVERY declarable row is uncalibrated, the ban is skipped, and
+// `banned_pairs` is absent because the question was never asked. Absent reads
+// as clean. That is the 2026-08-19 site failure exactly, one coordinate over.
+function extractUncalibrated(report) {
+  const m = report.match(
+    /FINDING \[NOTE\] STRUCTURE_UNCALIBRATED: declared structure\(s\) ([^\n]*?) have no measured laziness tier[^\n]*/
+  );
+  return m ? m[1].trim() : null;
+}
+
 function verdictOf(r) {
   const banned = extractBannedPairs(r.stdout);
+  const uncalibrated = extractUncalibrated(r.stdout);
   const v = {
     exit_code: r.code,
     meaning: EXIT_MEANING[r.code] || `subprocess failure (${r.code}): ${r.stderr.slice(0, 400)}`,
@@ -153,6 +181,16 @@ function verdictOf(r) {
       'A song presented with banned pairs standing is NOT finished: replace the end words ' +
       'on the named lines (screen replacements with lyric_screen first) and grade again.';
     v.banned = banned;
+  }
+  if (uncalibrated) {
+    v.structures_uncalibrated = uncalibrated;
+    v.structures_uncalibrated_meaning =
+      'CORRECTNESS is graded for these declared structure(s) — the catalog row judges the ' +
+      'pair at its own anchors — but LAZINESS is NOT, because no preregistered calibration ' +
+      "has adopted a predictability table for them in this draft's language. The two-tier " +
+      'ban (HOMEOTELEUTON / MODAL_RHYME) is SKIPPED on those pairs and nothing stands in for ' +
+      'it, so an absent banned_pairs here means the question was NOT ASKED, not that the ' +
+      'answer was clean. Screen those pairs with lyric_screen yourself.';
   }
   v.report = r.stdout;
   return v;
@@ -202,6 +240,13 @@ function planArgs(a) {
   // is unreachable from this connector -- which is what `--structures` was
   // from the day it shipped, and what makes a coordinate built-and-tested
   // but not reachable.
+  //
+  // `--structures` IS REACHABLE SINCE 2026-08-24, and NOT from here: it is a
+  // field on `lyric_check`, because the `plan` verb does not accept the flag
+  // and the planner emits no top-level `structures` key for `lyric_grade` to
+  // read it off. Wiring it through planArgs would mean taking a mandate
+  // coordinate off the tool call while groups and returns come off the plan
+  // artifact -- a second statement of the mandate (doctrine 1).
   if (a.relation) args.push(`--relation=${a.relation}`);
   if (a.functions) args.push(`--functions=${a.functions}`);
   // The `=` spelling is mandatory here and not a style choice: the harness's
@@ -335,6 +380,21 @@ export const LYRIC_TOOL_SCHEMAS = {
     // off the plan artifact. Same coordinate, and the difference is which
     // object is the mandate (doctrine 1).
     relation: relationField,
+    // `--structures` WAS THE ARCHETYPE THIS FILE NAMES (see planArgs's
+    // comment): a coordinate built, tested, and reachable from the outermost
+    // layer by nothing. It lands HERE and not on lyric_plan/lyric_grade
+    // because the `plan` verb does not accept it and the planner emits no
+    // top-level `structures` key — taking it off the tool call while groups
+    // and returns come off the plan artifact would be a second statement of
+    // the mandate (doctrine 1). `lyric_check` builds its own mandate, so
+    // there is no artifact to disagree with.
+    structures: z
+      .string()
+      .max(MAX_MANDATE_CHARS)
+      .optional()
+      .describe(
+        "Declare a catalog STRUCTURE per group, e.g. 'B:kalevala-alliteration' — the group's pairs are then judged by that row's own judge at its own anchors, not by the end-rhyme comparator. Comma-separated for several: 'A:pararhyme,B:skothending'. 58 rows and 33 world aliases; an unknown name refuses BY NAME. TWO CONSEQUENCES a caller must expect: the two-tier ban is SKIPPED on a structured group (the ban's tables are end-rhyme instruments), and on an English draft every declarable row is UNCALIBRATED, which the verdict says out loud in structures_uncalibrated — correctness is judged, laziness is not. Cannot be combined with a song-wide `relation`: both judge the same pairs and the relation would win on every group, so the harness refuses rather than letting a declared structure grade nothing."
+      ),
     returns: z
       .string()
       .max(MAX_MANDATE_CHARS)
@@ -532,6 +592,19 @@ export function registerLyricTools(server, tool) {
           );
         if (a.returns && !RETURNS_RE.test(a.returns))
           throw refuse("returns must be line numbers like '5,13;6,14'");
+        // CHARSET ONLY, and the vocabulary is deliberately NOT restated here.
+        // The catalog is 58 rows and 33 aliases whose names carry '(', ')',
+        // ',' and '-'; a second copy of a closed vocabulary in JS is the copy
+        // that goes stale (doctrine 1), and the harness already refuses an
+        // unknown name BY NAME and prints the catalog's size. This guard is
+        // argv safety: a leading '-' would become a flag.
+        if (a.structures && !STRUCTURES_RE.test(a.structures))
+          throw refuse(
+            'structures must be LABEL:NAME entries, e.g. ' +
+              "'B:kalevala-alliteration' or 'A:pararhyme,B:skothending' — a " +
+              'label is a group letter or a 1-based index, and a name is a ' +
+              'catalog row or world alias (ask lyric_types for the vocabulary)'
+          );
         const draftPath = path.join(dir, 'draft.txt');
         await writeFile(draftPath, a.lines.join('\n') + '\n', 'utf8');
         const args = ['brief', draftPath];
@@ -539,6 +612,11 @@ export function registerLyricTools(server, tool) {
         if (hasGroups) args.push(`--groups=${a.groups}`);
         if (a.returns) args.push(`--returns=${a.returns}`);
         if (a.relation) args.push(`--relation=${a.relation}`);
+        // The relation/structures collision is REFUSED BY THE HARNESS
+        // (`MISSING.md` M-102), not re-decided here: a second copy of that
+        // rule in JS is a second place for it to drift, and the harness's
+        // refusal names both coordinates and the spelling that works.
+        if (a.structures) args.push(`--structures=${a.structures}`);
         const r = await runVerb(args);
         return verdictOf(r);
       })
@@ -587,5 +665,8 @@ export const LYRIC_INSTRUCTIONS =
   'restyling them to bare [CHORUS] deletes what the format exists to carry, and the [GRADED — seed …] ' +
   'stamp line under the song is part of the block and reaches the user with it. For lyrics a user ' +
   'pastes, lyric_check with their declared scheme or groups. FLAGS are defects; banned pairs are ' +
-  'unskippable whatever their severity; other NOTES are measurements and are not to be "fixed". Recipes ' +
+  'unskippable whatever their severity; other NOTES are measurements and are not to be "fixed". A verdict ' +
+  'carrying structures_uncalibrated is the third thing to read: correctness IS graded for that declared ' +
+  'structure and laziness is NOT, the two-tier ban is skipped on its pairs, and an absent banned_pairs ' +
+  'there means the question was not asked rather than answered clean. Recipes ' +
   'describe the SOUND, lyric tools govern the WORDS; the conversation is the only place they meet.';
