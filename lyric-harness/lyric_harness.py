@@ -2771,16 +2771,131 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
             out["flags"].append("band_edge: identical sound, different word")
         if frozenset((la, lb)) in CLICHE_PAIRS:
             out["flags"].append("cliche_pair")
-        for suf in SUFFIXES:
-            if (la.endswith(suf) and lb.endswith(suf)
-                    and len(la) > len(suf) + 1 and len(lb) > len(suf) + 1):
-                if len(suf) <= 2 and not (
-                        la[: -len(suf)] in _KNOWN_WORDS
-                        and lb[: -len(suf)] in _KNOWN_WORDS):
-                    continue   # -er/-ed/-es/-s only count on real stems
-                out["flags"].append(f"shared_suffix: -{suf}")
-                break
+        # ONE DEFINITION, 2026-08-24 (`MISSING.md` M-90). This block was a
+        # byte-identical second copy of `quality/floor.py`'s test. It stays an
+        # ORTHOGRAPHIC observation here — a `flags` entry is a fact about the
+        # spelling and gates nothing — while the graded finding asks the
+        # stronger question `ending_carries_the_rhyme` answers.
+        _suf = shared_ending(la, lb)
+        if _suf:
+            out["flags"].append(f"shared_suffix: -{_suf}")
     return out
+
+
+def shared_ending(word_a, word_b):
+    """-> the shared grammatical ending of two words, or None.
+
+    THE ONE DEFINITION. This test was spelled TWICE — here in `score`'s value
+    flags and again in `quality/floor.py`'s `SHARED_SUFFIX` — byte-identical
+    and drifting by nothing only because nobody had touched either. Doctrine 1:
+    a second copy of a rule is how two layers start answering differently
+    about one pair.
+
+    THE STEM GUARD ON SHORT ENDINGS is the correctness engine's own and is
+    kept verbatim: without it `-ed`/`-er`/`-es`/`-s` fire on words that merely
+    END in those letters — `shed`/`bred` share no morpheme, and calling that
+    homeoteleuton is a false accusation about craft.
+
+    THIS ANSWERS ONLY *IS THERE A SHARED ENDING*. Whether that ending is the
+    WHOLE of the rhyme is `ending_carries_the_rhyme`, and the two are separate
+    functions because they are separate questions — see `MISSING.md` M-90.
+    """
+    if not word_a or not word_b:
+        return None
+    a = word_a.lower().strip().split()[-1] if word_a.strip() else ""
+    b = word_b.lower().strip().split()[-1] if word_b.strip() else ""
+    for suf in SUFFIXES:
+        if (a.endswith(suf) and b.endswith(suf)
+                and len(a) > len(suf) + 1 and len(b) > len(suf) + 1):
+            if len(suf) <= 2 and not (a[: -len(suf)] in _KNOWN_WORDS
+                                      and b[: -len(suf)] in _KNOWN_WORDS):
+                continue
+            return suf
+    return None
+
+
+#: The three answers `ending_carries_the_rhyme` can give. REFUSED is not a
+#: quiet NO: it is the harness saying it could not read a stem, and doctrine 20
+#: is the reason it may not be folded into either of the other two.
+ENDING_IS_THE_RHYME = "carries"
+ENDING_IS_NOT_THE_RHYME = "survives"
+ENDING_UNREADABLE = "refused"
+
+
+def ending_carries_the_rhyme(word_a, word_b, lex, decl, suffix=None):
+    """Is the shared ending the WHOLE of the rhyme? -> (verdict, ending, why).
+
+    THE OWNER'S RULING, 2026-08-24 (`MISSING.md` M-90), verbatim: the finding
+    should fire *"only when the ending is the whole of the rhyme"*.
+
+    WHAT WAS WRONG. `SHARED_SUFFIX`'s message has always read *"rhyme ONLY on
+    a shared grammatical ending"* and its test was `shared_ending` alone —
+    nothing asked whether the pair still rhymes once the ending comes off,
+    which is what the word ONLY claims. `glare`/`stair` rhyme perfectly, so on
+    `glares`/`stairs` the `-s` carries nothing and the sentence was false.
+    MEASURED over the 23,853 perfect-rhyme pairs of
+    `data/song_rhymepair_en.tsv`: the old test fired on 3,884 (16.28%); under
+    this one **152** fire, **3,510** are rhymes that survive their ending, and
+    **222** are refused for an unreadable stem.
+
+    CONSERVATIVE OVER STEM FORMS, AND THAT IS THE LOAD-BEARING CHOICE. A
+    residue has several plausible spellings — `car`/`carr`/`care`,
+    `hid`/`hidd`/`hide` — and `g2p.stem_candidates` is the declared table of
+    them. If ANY readable pairing rhymes, the rhyme survives the ending and
+    this returns `survives`. Taking the first candidate instead is what makes
+    a stemmer accuse a good rhyme: measured, it reads `cares` as `car`,
+    `fired` as `fir` and `hides` as `hid`, and would charge `affairs`/`cares`
+    and `admired`/`fired` — both of which rhyme at the stem.
+
+    AN UNREADABLE STEM IS REFUSED, NEVER FIRED. `admiration`/`constellation`
+    leaves `admir`/`constell`, which CMUdict cannot read, so whether the rhyme
+    survives is a question this harness did not answer. Firing there would
+    enforce an unmeasured claim on a writer (doctrine 20), and it is the
+    direction that flatters the instrument.
+
+    WHAT THIS COSTS, STATED RATHER THAN BURIED: of the 152 that fire, **134
+    are already banned outright by tier-1 HOMEOTELEUTON** and 18 are not. The
+    note is therefore close to redundant with a stronger gate, which is a fact
+    about the ruling and not an argument against it.
+
+    AND WHAT IT FREES IS **734**, NOT 3,510. Of the pairs this silences,
+    2,776 are tier-1 homeoteleuton and stay banned outright — a pair a
+    stronger gate still refuses was never freed by a weaker one. The first
+    draft of this docstring quoted the larger number and the owner refused it
+    on `walk`/`talk`, whose spelled rime is `alk` on both sides.
+    """
+    suf = suffix if suffix is not None else shared_ending(word_a, word_b)
+    if not suf:
+        return (ENDING_IS_NOT_THE_RHYME, None, "no shared ending")
+    from quality.g2p import stem_candidates          # noqa: PLC0415
+    a = word_a.lower().strip().split()[-1]
+    b = word_b.lower().strip().split()[-1]
+
+    def _forms(residue):
+        out = []
+        for c in stem_candidates(residue) or []:
+            w = c[0] if isinstance(c, tuple) else c
+            prons = lex.entries.get(w)
+            if prons:
+                anc = anchor(syllabify(prons[0]))
+                if anc:
+                    out.append((w, anc))
+        return out
+
+    fa, fb = _forms(a[: -len(suf)]), _forms(b[: -len(suf)])
+    if not fa or not fb:
+        return (ENDING_UNREADABLE, suf,
+                f"{a[: -len(suf)]!r}/{b[: -len(suf)]!r} — no readable stem, so "
+                f"whether the rhyme survives the ending was not measured")
+    for wa, anc_a in fa:
+        for wb, anc_b in fb:
+            if admits(score(anc_a, anc_b, decl, word_a=wa, word_b=wb),
+                      decl.theta_rhyme):
+                return (ENDING_IS_NOT_THE_RHYME, suf,
+                        f"{wa}/{wb} rhyme without the -{suf}")
+    return (ENDING_IS_THE_RHYME, suf,
+            f"{'|'.join(w for w, _ in fa)} / {'|'.join(w for w, _ in fb)} "
+            f"do not rhyme, so -{suf} is the whole of it")
 
 
 # ---------------------------------------------------------------------------

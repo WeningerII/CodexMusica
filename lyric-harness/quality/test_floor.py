@@ -16,6 +16,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
+import lyric_harness as _lh  # noqa: E402
 from quality import floor as FL  # noqa: E402
 from quality.floor import (CALIBRATION, Finding, FloorDeclaration,  # noqa: E402
                            PROFILES, SlopFloor, declaration_for)
@@ -124,17 +125,70 @@ def test_radif_is_not_a_repeat():
 
 
 def test_shared_suffix_needs_a_real_stem():
-    print("\n5. -ed/-er/-es/-s only count on real stems")
-    real = ["Down the empty road the band kept walking",
-            "Carrying her load, the girl kept talking"]
-    check("a genuine shared participle fires",
-          "SHARED_SUFFIX" in codes(real, "AA"))
+    print("\n5. the ending must be the WHOLE of the rhyme, and the stem must "
+          "be real")
+    # THE OWNER'S RULING, 2026-08-24 (`MISSING.md` M-90), verbatim: the
+    # finding fires *"only when the ending is the whole of the rhyme"*. Before
+    # it, the test was a shared ending ALONE while the message said *"rhyme
+    # ONLY on a shared grammatical ending"* — one of the two had to move, and
+    # the message is the half a writer acts on.
+    #
+    # `walking`/`talking` WAS THIS SECTION'S POSITIVE CASE AND IS NOT ITS
+    # CONTROL EITHER — the owner caught that on the day the ruling landed:
+    # *"walk/talk does not pass. alk all my guy"*. Measured, they are right
+    # and it is not a wording problem: `spelled_rime` reads both `walk` and
+    # `talk` as `alk`, so the STEMS are themselves tier-1 HOMEOTELEUTON, and
+    # `walking`/`talking` reads `ing`/`ing`, which the tier-1 ban already
+    # refuses outright. Calling it "a real rhyme this ruling frees" counted a
+    # pair that stays banned by a stronger gate. The control has to be a pair
+    # NOTHING else charges, so it is `glares`/`stairs` — spelled rimes `es`
+    # and `airs`, tier-1 clean — which is also the pair `MISSING.md` M-90
+    # opened on.
+    carries = ["The board reviewed the clauses it was affecting",
+               "The lawyer read them back and kept objecting"]
+    f = find(carries, "SHARED_SUFFIX", "AA")
+    check("a pair whose stems do NOT rhyme fires — `affect`/`object` share "
+          "nothing, so `-ing` is the whole of the rhyme",
+          f is not None, f.evidence[:90] if f else "no SHARED_SUFFIX finding")
+    check("...and the evidence NAMES the stems it read, so the claim is "
+          "checkable rather than asserted (doctrine 45)",
+          f is not None and "affect" in f.evidence and "object" in f.evidence,
+          f.evidence[:110] if f else "")
+    survives = ["The kitchen light still burns and no one cares",
+                "and nobody came back to climb the stairs"]
+    check("CONTROL — a pair NOTHING else charges does NOT fire: `care` and "
+          "`stair` rhyme without the `-s`, and the spelled rimes `es`/`airs` "
+          "differ so tier 1 does not ban it either. **734** corpus pairs are "
+          "in this state — freed by the ruling and charged by nothing else — "
+          "against the 3,510 silenced here in total, the other 2,776 of "
+          "which tier-1 HOMEOTELEUTON bans anyway",
+          "SHARED_SUFFIX" not in codes(survives, "AA"))
+    check("...and the control is REALLY tier-1 clean, asserted rather than "
+          "assumed — a control the stronger gate bans is not a control "
+          "(`walking`/`talking` was exactly that, and reads `ing`/`ing`)",
+          _lh.spelled_rime("cares") != _lh.spelled_rime("stairs")
+          and _lh.spelled_rime("walking") == _lh.spelled_rime("talking"),
+          f"cares/stairs {_lh.spelled_rime('cares')}/"
+          f"{_lh.spelled_rime('stairs')}; "
+          f"walking/talking {_lh.spelled_rime('walking')}/"
+          f"{_lh.spelled_rime('talking')}")
     fake = ["The tired horse was standing in the shed",
             "The heavy cloth that she had woven, bred"]
     check("shed/bred does not fire",
           "SHARED_SUFFIX" not in codes(fake, "AA"),
           "neither 'sh' nor 'br' is a word; this was a false accusation "
           "about craft in the drafted version")
+    # THE REFUSAL IS ITS OWN CODE AND IS NOT SILENCE. An unreadable stem
+    # means the question was not answered, and both of the other two answers
+    # would be a claim (doctrine 20).
+    unread = ["She spoke of him with open admiration",
+              "and traced his name across the constellation"]
+    codes_u = codes(unread, "AA")
+    check("an UNREADABLE stem is refused by name, not charged and not "
+          "silent — `admir`/`constell` is not in this phonology, so whether "
+          "the rhyme survives its ending was never measured",
+          "SHARED_SUFFIX_UNJUDGED" in codes_u
+          and "SHARED_SUFFIX" not in codes_u, f"{sorted(set(codes_u))}")
 
 
 def test_cliche_pair():

@@ -740,13 +740,18 @@ MUTATIONS = [
     ),
     Mutation(
         name="M29", layer="value", file=LH,
-        old='                out["flags"].append(f"shared_suffix: -{suf}")',
-        new='                pass',
+        old='            out["flags"].append(f"shared_suffix: -{_suf}")',
+        new='            pass',
         subset=T_VALUE,
         rationale=(
             "The shared-suffix stem check silenced, so `running`/`gunning` "
             "stops being flagged as grammatical rather than phonetic rhyme. A "
-            "value-layer finding, deleted without changing any score."),
+            "value-layer finding, deleted without changing any score. "
+            "RE-ANCHORED 2026-08-24: the inline test `score` carried became a "
+            "call to `lyric_harness.shared_ending`, which is now the ONE "
+            "definition this and `quality/floor.py` both read (`MISSING.md` "
+            "M-90). The planted defect is unchanged — only its coordinates "
+            "moved, which is repair 1 of the two this instrument names."),
     ),
 
     # =======================================================================
@@ -816,9 +821,9 @@ MUTATIONS = [
             "nothing that asserts a clean text stays clean can see it."),
     ),
     Mutation(
-        name="QF3", layer="value", file=FLOOR,
-        old="                    if len(suf) <= 2 and not (",
-        new="                    if len(suf) <= 0 and not (",
+        name="QF3", layer="value", file=LH,
+        old="            if len(suf) <= 2 and not (a[: -len(suf)] in _KNOWN_WORDS",
+        new="            if len(suf) <= 0 and not (a[: -len(suf)] in _KNOWN_WORDS",
         subset=T_FLOOR,
         rationale=(
             "The same-stem guard on SHARED_SUFFIX disabled, so `-ed`/`-er`/"
@@ -827,7 +832,14 @@ MUTATIONS = [
             "share no morpheme. The comment on the line calls that a false "
             "accusation about craft. Unlike QF1/QF2 this one is generous in "
             "the OTHER direction (more findings, not fewer), and it is here to "
-            "keep the set from testing only one sign."),
+            "keep the set from testing only one sign. "
+            "RE-ANCHORED 2026-08-24 FROM `quality/floor.py` ONTO "
+            "`lyric_harness.shared_ending`, and the move is the point: the "
+            "guard was spelled TWICE and this mutation reached one copy, so "
+            "it could pass while the other half of the repo disagreed about "
+            "one pair (`MISSING.md` M-90, the same shape QR6 was re-anchored "
+            "for). There is one definition now and both readers move with "
+            "it."),
     ),
     Mutation(
         name="QF4", layer="value", file=FLOOR,
