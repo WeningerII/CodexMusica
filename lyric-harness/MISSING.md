@@ -10300,3 +10300,54 @@ a finding set BYTE-IDENTICAL to the run on the planner-written one, exit 0
 both times. A blueprint is parsed, so whitespace cannot reach a grade; what is
 broken is the loop between the verb that writes the artifact and the gate that
 reads it, not any measurement taken from it.
+
+### M-95 · `tandem` and `nightly` have not been green once in a week, for four separate reasons `PARTIAL` — 2026-08-24
+**FOURTEEN SCHEDULED RUNS SINCE 2026-08-03, NOT ONE SUCCESS** (Actions API,
+`event=schedule`): 11 `failure`, 3 `cancelled`. The two jobs only these crons
+reach are the two nobody was watching, and "red for a week" turned out to be
+four unrelated defects stacked in a way that hid three of them.
+
+**`tandem` (weekly) — ONE CHECK, AND IT WAS A REAL DEFECT.** `scripts/
+tandem.js`'s "CSS/JS — no hardcoded font-size or font-weight" named 7 literals,
+all in the chat panel of `src/index.template.html`: 10px, 11px and 12px. Not
+house style — Tier 3 declares a phone legibility floor by overriding three
+tokens (`:root { --fs-nano: 12px; --fs-code: 12px; --fs-micro: 12px; }`,
+_"nothing below 12px on a phone"_), and a literal cannot be overridden, so the
+chat panel rendered tool pills at 10px and meta lines at 11px on a 390px screen
+under a floor the rest of the app honours. 11px is not a step on the ramp at
+all. FIXED: every one maps to the token that names what it is — `--fs-code` for
+the monospace recipe block, `--fs-nano` for the pill, `--fs-micro` for the rest.
+
+**`nightly` — THREE DEFECTS, AND THE FIRST ONE HID THE OTHER TWO.**
+
+1. **The mutation sweep had no bound and ate the job.** Measured: 2026-08-23 it
+   ran **7,627 s (2 h 07 m) and PASSED**; 2026-08-24 it was still inside at
+   **12,949 s (3 h 36 m)** when `timeout-minutes: 240` cancelled everything.
+   Eleven suites were added between those runs and this file re-runs the suite
+   once per mutation, so its cost tracks the suite's. **The arithmetic says the
+   job never fitted**: 16 m cache warm + ~18 m discrimination + ~12 m Kalevala
+   + a song-profile slice budgeted at 150 m is ~196 m before the sweep is asked
+   for a second. FIXED as its own JOB (`mutation`), sharded `--shard=I/N` at
+   N=2 on a date rotation, with the bound INSIDE the step so an overrun reports
+   instead of cancelling the job. `test_mutation.py` §3e proves the shard sets
+   partition the declared list for every N.
+
+2. **A cancelled job skips its `actions/cache` post step**, so the song-profile
+   memo's 150-minute slice was computed and DISCARDED every night — the exact
+   deadlock that step's own comment warns about, reached from a sibling step
+   rather than from its own overrun. Fixed by (1): the sweep can no longer
+   cancel the job it does not live in.
+
+3. **Two steps were missing `if: always()`** — the rhyme-capacity and Kalevala
+   adoption checks — so they reported `skipped` whenever anything earlier went
+   red. Two adoption checks were not asked for a week and read as fine
+   (doctrine 20). Every other step in that job already had the guard.
+
+**STILL OPEN, AND THIS IS WHY THE ENTRY IS `PARTIAL`.** On 2026-08-23 the
+`Joint AUC null` step failed in **1 second** and `Every discrimination AUC`
+in **under one**, both against a feature cache the step before had just spent
+16 minutes warming. Too fast to be a run and too fast to be a drift; the logs
+of a cancelled job are not retained and the failing run's are not readable at
+that offset, so the cause is NOT diagnosed here. `nightly` already accepts
+`workflow_dispatch`, so it is reproducible on demand — that is the next move,
+not a guess written down as a finding.
