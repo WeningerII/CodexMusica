@@ -1520,6 +1520,46 @@ class Mandate:
             object.__setattr__(self, "default_relation",
                                _resolve_relation(_RT, self.default_relation))
 
+        # AND THE SONG-WIDE RELATION MAY NOT STAND BESIDE ANY DECLARED
+        # STRUCTURE (2026-08-24, `MISSING.md` M-102). `_normalise_relations`
+        # already refuses a GROUP that declares both, on the argument that two
+        # judges over one set of pairs would let `grade()`'s branch order
+        # decide the mandate's meaning. That check reads the per-group tuple
+        # and CANNOT SEE THIS FIELD, and `relation_of` falls back to it for
+        # every group that declares no relation of its own -- so the identical
+        # collision reappeared one coordinate over and nothing refused it.
+        #
+        # MEASURED on a four-line draft under `--groups=1,2;3,4`: with
+        # `--structures=B:kalevala-alliteration` alone the structure is judged
+        # and 0 SCHEME_VIOLATION stands; adding `--relation=type:pararhyme`
+        # gives 4, because `relation_of` answers non-empty for every group and
+        # `grade()` takes the relation branch first. The structure was never
+        # judged -- and `STRUCTURE_UNCALIBRATED` fired in BOTH runs, because it
+        # reads `m.structures` and not what answered. So the failing shape was
+        # DECLARED, DISCLOSED, ban-skipped and never judged, with its own
+        # disclosure vouching for it. That is worse than a silent drop: a
+        # caller reading "laziness is NOT graded under your declared structure"
+        # would conclude the structure graded correctness, and it graded
+        # nothing.
+        #
+        # REFUSED RATHER THAN ORDERED, and the refusal costs no capability:
+        # a mixed intent -- this relation on those groups, that structure on
+        # this one -- is exactly what the PER-GROUP `--relations=LABEL:NAME`
+        # spelling says, and the refusal names it.
+        if self.default_relation and any(self.structures or ()):
+            _named = ", ".join(repr(x) for x in self.structures if x)
+            raise NoMandate(
+                f"a song-wide relation ({self.default_relation!r}) was "
+                f"declared beside structure(s) {_named}. Both judge the same "
+                f"pairs, and the relation would win on every group -- "
+                f"including the ones the structure was declared for -- "
+                f"because a group with no relation of its own falls back to "
+                f"the song's. The structure would be declared, disclosed and "
+                f"never judged. Declare the relation PER GROUP instead "
+                f"(`--relations=A:NAME,C:NAME`), which leaves the structured "
+                f"group to its structure -- REFUSED, not silently resolved "
+                f"(doctrine 1).")
+
     def relation_of(self, group_index):
         """-> the declared relation NAME for one group, or "" for default.
 
@@ -2546,7 +2586,15 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
                                       len(spec.groups), _st_spec)))
 
     if spec is None:
-        raise NoMandate(
+        # `empty=True` MARKS THE ONE REFUSAL THAT MEANS "NOTHING WAS
+        # DECLARED". Every other `NoMandate` in this module means the caller
+        # DID declare something and this reader refused it, and a consumer
+        # that cannot tell the two apart prints one headline over both --
+        # which is how "this verb was given nothing to check against" came to
+        # be printed at a caller who had handed in groups, a structure AND a
+        # relation (`MISSING.md` M-102). The attribute rides the exception so
+        # the distinction survives the raise (doctrine 20).
+        _e = NoMandate(
             "no mandate was declared, so there is NOTHING to check this draft "
             "against.\n"
             "This is a REFUSAL, not a pass. Returning 'nothing flagged' here "
@@ -2561,6 +2609,8 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
             "A song whose maximal cliques overlap has NO letter scheme "
             "(doctrine 2); declare the Cover, which is exactly why Cover "
             "exists.")
+        _e.empty = True
+        raise _e
 
     if isinstance(spec, Mandate):
         if n_lines is not None and n_lines != spec.n_lines:

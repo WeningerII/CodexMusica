@@ -4051,6 +4051,73 @@ def test_the_ban_is_unskippable_at_the_grading_verb_too():
             os.unlink(q)
 
 
+def test_a_song_wide_relation_may_not_stand_beside_a_structure():
+    """44. DECLARED, DISCLOSED, BAN-SKIPPED AND NEVER JUDGED.
+
+    `_normalise_relations` refuses a GROUP that declares both a structure
+    and a relation, on the argument that two judges over one set of pairs
+    would let `grade()`'s branch order decide the mandate's meaning. That
+    check reads the per-group tuple and cannot see `default_relation` —
+    the coordinate `--relation=NAME` sets — while `relation_of` falls back
+    to it for every group that declares none of its own. So the identical
+    collision reappeared one coordinate over and nothing refused it.
+
+    The binding assertion is the MEASUREMENT that named it: the same draft
+    under the same groups grades 0 SCHEME_VIOLATION with the structure
+    alone and 4 with a song-wide relation beside it — the structure never
+    judged — while STRUCTURE_UNCALIBRATED fires in BOTH, so the disclosure
+    vouched for a coordinate that graded nothing.
+    """
+    print("\n44. a song-wide relation beside a declared structure REFUSES")
+    import tempfile
+    lines = ["the night was cold and bright", "we held each other tight",
+             "we walked beneath the sun", "and rivers ran with silver"]
+    with tempfile.NamedTemporaryFile("w", suffix=".txt",
+                                     delete=False) as fh:
+        fh.write("\n".join(lines) + "\n")
+        path = fh.name
+    try:
+        rc_s, out_s, _ = run("brief", path, "--groups=1,2;3,4",
+                             "--structures=B:kalevala-alliteration")
+        check("the structure ALONE still grades — this section cannot pass "
+              "by refusing everything",
+              rc_s == 0 and "SCHEME_VIOLATION" not in out_s
+              and "STRUCTURE_UNCALIBRATED" in out_s)
+        rc, out, _ = run("brief", path, "--groups=1,2;3,4",
+                         "--structures=B:kalevala-alliteration",
+                         "--relation=type:pararhyme")
+        check("...and declaring a SONG-WIDE relation beside it REFUSES at "
+              "exit 2 rather than letting the relation win in silence",
+              rc == 2 and "song-wide relation" in out)
+        check("...naming both coordinates, so the caller can see which two "
+              "collided", "'type:pararhyme'" in out
+              and "'kalevala-alliteration'" in out)
+        check("...and naming the spelling that DOES express the mixed "
+              "intent, so the refusal costs no capability",
+              "--relations=" in out)
+        # THE HEADLINE IS THE OTHER HALF. `NoMandate` covers two different
+        # answers and one headline over both said the wrong one.
+        check("the refusal does NOT claim the caller declared nothing — "
+              "they declared groups, a structure and a relation "
+              "(doctrine 20)",
+              "given nothing to check against" not in out)
+        rc_e, out_e, _ = run("brief", path)
+        check("...while a genuinely empty mandate DOES still say exactly "
+              "that, which is the control that keeps the split honest",
+              rc_e == 2
+              and "given nothing to check against" in out_e)
+        # A PER-GROUP relation beside a structure on ANOTHER group is the
+        # intent the refusal points at, and it must still be reachable.
+        rc_p, out_p, _ = run("brief", path, "--groups=1,2;3,4",
+                             "--structures=B:kalevala-alliteration",
+                             "--relations=A:type:pararhyme")
+        check("...and the per-group spelling the refusal recommends is "
+              "ACCEPTED, so the advice is not a dead end",
+              rc_p == 0 and "STRUCTURE_UNCALIBRATED" in out_p)
+    finally:
+        os.unlink(path)
+
+
 def test_every_workflow_file_is_parseable_yaml():
     print("\n43. THE CI WORKFLOW PARSES — checked HERE because a broken one "
           "cannot run the check that catches it (`MISSING.md` M-89)")
@@ -4158,6 +4225,7 @@ if __name__ == "__main__":
         test_the_seed_sweep_is_reachable_from_the_command_line,
         test_fill_reads_a_draft_the_way_every_other_verb_does,
         test_the_ban_is_unskippable_at_the_grading_verb_too,
+        test_a_song_wide_relation_may_not_stand_beside_a_structure,
         test_every_workflow_file_is_parseable_yaml,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —

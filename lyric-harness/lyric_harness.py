@@ -8609,7 +8609,22 @@ def main():
             # so this clause has to sit ahead of the one below or every
             # missing mandate would print the generic refusal instead of the
             # one that names what is missing.
-            print("  REFUSED — this verb was given nothing to check against.")
+            #
+            # TWO REFUSALS UNDER ONE NAME, AND ONE HEADLINE OVER BOTH WAS
+            # FALSE FOR THE SECOND (2026-08-24, `MISSING.md` M-102).
+            # `NoMandate` is raised both when NOTHING was declared and when
+            # something WAS and this reader refused it -- an unknown structure
+            # row, a label naming no group, a song-wide relation standing
+            # beside a structure. Printing "given nothing to check against" at
+            # a caller who handed in groups, a structure and a relation names
+            # the wrong cause in the loudest line of the report, which is the
+            # shape doctrine 20 is about. `empty` is set at the one raise site
+            # that means it.
+            if getattr(e, "empty", False):
+                print("  REFUSED — this verb was given nothing to check "
+                      "against.")
+            else:
+                print("  REFUSED — the mandate was not accepted.")
             for ln in str(e).splitlines():
                 print(f"  {ln}")
             sys.exit(2)

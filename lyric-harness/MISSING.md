@@ -10624,3 +10624,53 @@ honest options are to derive the membership from `SECTION_FUNCTIONS`' own
 recurrence contracts, to measure which functions `corpus/song/`'s marked songs
 actually declare, or for the owner to name the four (or twenty-one) by hand.
 Picking one of those silently is how the current four got there.
+
+### M-102 · a song-wide relation outranked every declared structure `CLOSED`
+Filed and closed 2026-08-24, found by specifying the connector's `--structures`
+wiring and reproduced before anything was changed.
+
+**`_normalise_relations` REFUSES A GROUP THAT DECLARES BOTH** a structure and a
+relation, on the argument this repository keeps making: two judges over one set
+of pairs would let `grade()`'s branch order decide the mandate's meaning
+(doctrine 1). That check reads the PER-GROUP `relations` tuple. It cannot see
+`Mandate.default_relation` — the coordinate `--relation=NAME` sets — and
+`relation_of` FALLS BACK to it for every group that declares none of its own.
+So the identical collision reappeared one coordinate over, at a wider scope,
+and nothing refused it.
+
+**MEASURED BEFORE THE REPAIR**, on a four-line draft under `--groups=1,2;3,4`:
+
+| declared | SCHEME_VIOLATION | STRUCTURE_UNCALIBRATED |
+|---|---|---|
+| `--structures=B:kalevala-alliteration` | 0 | 1 |
+| ...and `--relation=type:pararhyme` beside it | **4** | 1 |
+
+The structure was judged in the first row and NOT judged in the second — the
+relation branch fires first for every group — while the disclosure fired in
+BOTH, because it reads `m.structures` and not what actually answered.
+
+**SO THE FAILING SHAPE WAS DECLARED, DISCLOSED, BAN-SKIPPED AND NEVER JUDGED,
+WITH ITS OWN DISCLOSURE VOUCHING FOR IT.** That is worse than a silent drop. A
+caller reading *"laziness is NOT graded under your declared structure"* would
+conclude the structure graded CORRECTNESS, and it graded nothing; and the
+proactive HOMEOTELEUTON/MODAL_RHYME check skips a pair whose verdict carries a
+non-default `structure`, so those pairs were not screened either.
+
+**REFUSED RATHER THAN ORDERED, AND THE REFUSAL COSTS NO CAPABILITY.** Making
+the structure win would be a precedence rule, and this file's own argument
+against branch order applies to any rule invented here. The mixed intent — this
+relation on those groups, that structure on this one — is exactly what the
+PER-GROUP `--relations=LABEL:NAME` spelling already says, so the refusal names
+it and `test_verbs.py` §44 asserts that spelling still passes: advice that is a
+dead end is not advice.
+
+**AND THE REFUSAL WAS PRINTED IN THE WRONG LAYER'S WORDS, WHICH IS THE SECOND
+HALF.** `NoMandate` covers two different answers — NOTHING was declared, and
+something WAS and this reader refused it — and `lyric_harness.py` printed one
+headline over both: **`REFUSED — this verb was given nothing to check
+against`**, at a caller who had handed in groups, a structure AND a relation.
+The loudest line of the report named the wrong cause (doctrine 20). `empty` is
+now set at the ONE raise site that means it, the headline is chosen from it,
+and §44's control requires the genuinely-empty case to still say exactly what
+it always said — a split that silently widened would be the same defect
+inverted.
