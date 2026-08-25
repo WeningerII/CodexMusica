@@ -614,8 +614,8 @@ try {
     }
     assert.ok(
       plannedRes !== null,
-      'NO candidate seed declares a hook -- the premise of the title checks '
-      + 'below, and a fact about the PATTERN rather than about titles'
+      'NO candidate seed declares a hook -- the premise of the title checks ' +
+        'below, and a fact about the PATTERN rather than about titles'
     );
     assert.equal(plannedRes.content.length, 2, 'plan returns two blocks: report, then verdict');
     const planReport = plannedRes.content[0].text;
@@ -678,8 +678,9 @@ try {
     // verbatim block: seed + exit + banned-pair count reach the user even
     // through a client that relays nothing else.
     assert.ok(
-      new RegExp(`\\[GRADED — seed ${planSeed} — exit [03], .+ — \\d+ banned pair\\(s\\)`)
-        .test(song),
+      new RegExp(`\\[GRADED — seed ${planSeed} — exit [03], .+ — \\d+ banned pair\\(s\\)`).test(
+        song
+      ),
       'block 0 carries the [GRADED — seed …] stamp line'
     );
     const gradeVerdict = JSON.parse(gradedRes.content[1].text);
@@ -706,9 +707,7 @@ try {
     const titleReport = async (title) => {
       const res = await client.callTool({
         name: 'lyric_grade',
-        arguments: title === null
-          ? { seed: planSeed, draft }
-          : { seed: planSeed, draft, title },
+        arguments: title === null ? { seed: planSeed, draft } : { seed: planSeed, draft, title },
       });
       assert.ok(!res.isError, `lyric_grade answered without isError (title=${title})`);
       return JSON.parse(res.content[1].text);
