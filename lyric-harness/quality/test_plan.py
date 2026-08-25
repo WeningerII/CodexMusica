@@ -646,7 +646,12 @@ def test_the_measure():
     # `lyric_harness`, so an unrestricted admission would hand the planner
     # transitive reach to a frequency table — which is the corpus arriving at
     # the dice by a longer road (the owner's move-37 ban).
-    ALLOWED_FROM_FLOOR = {"PROFILES"}
+    ALLOWED_FROM_FLOOR = {"PROFILES", "FloorDeclaration"}
+    # `FloorDeclaration` joined with M-125(b): the gate reads the floor's
+    # own `anaphora_max` through the declaration's `resolve`, so the
+    # forced-opener ceiling and ANAPHORA_OVERLOAD cannot hold two
+    # thresholds (doctrine 1). It is the declaration CLASS, not a reader
+    # — constructing one opens no file and reaches no feature table.
     # `capacity` AND `slots` JOINED 2026-08-23, each with its own argument
     # and each RE-TIGHTENED the way `grid` and `floor` were.
     #
@@ -2133,6 +2138,30 @@ def test_the_relation_draw():
           in traits["monorhyme / leash"]["claims"]
           and len(RL.CHANNEL_DOMAINS["coda_presence"]) == 2,
           f"subtractive {traits['subtractive rhyme']['claims']}")
+    check("M-125: span LENGTH is a hidden equality channel and the "
+          "schema's own `unmatched` coordinate declares it — perfect "
+          "rhyme and rime riche (forbid) claim length-Agree at the ends, "
+          "semirhyme (require_b) claims length-Differ, so the "
+          "Equal-Equal-Differ triangle {perfect 13~14, rime riche 13~17, "
+          "semirhyme 14~17} that no words can close is caught by the "
+          "existing closure with no new machinery",
+          ("span_length", "end", "Agree")
+          in traits["perfect rhyme"]["claims"]
+          and ("span_length", "end", "Agree")
+          in traits["rime riche"]["claims"]
+          and ("span_length", "end", "Differ")
+          in traits["semirhyme"]["claims"]
+          and not any(c[0] == "span_length"
+                      for c in traits["assonance"]["claims"]),
+          f"semirhyme {traits['semirhyme']['claims']}")
+    from quality import floor as FLR
+    _aprof = next(p for p in FLR.PROFILES if p.n_lines == 0)
+    _amax = FLR.FloorDeclaration().resolve("anaphora_max", _aprof)
+    check("M-125(b): the forced-opener ceiling is READ from the floor's "
+          "own lyric-sheet profile (n_lines == 0, never by name — the "
+          "M-106 idiom), so the gate and ANAPHORA_OVERLOAD cannot hold "
+          "two thresholds",
+          _amax is not None and 0 < _amax < 1, _amax)
     from quality import phonology as PHON
     _eng = PHON.get("eng")
     _pvals = {s.prominence for w in ("spring", "raining", "carpenter",
@@ -2151,7 +2180,7 @@ def test_the_relation_draw():
                 return x, p
             x, p = nx, p ^ xp
 
-    n_adj = n_pair = n_trans = n_over = n_parity = 0
+    n_adj = n_pair = n_trans = n_over = n_parity = n_open = 0
     for sd in (4, 7, 11, 19, 23, 31):
         p3 = PLN.make_plan(sd)
         r3 = p3.get("relations") or {}
@@ -2201,17 +2230,30 @@ def test_the_relation_draw():
                 rb, pb = _pfind(par, b)
                 if ra == rb and not (pa ^ pb):
                     n_trans += 1
+        par = eqp.get(("token", "head"), {})
+        _nodes = set(par) | {pp[0] for pp in par.values()}
+        _szs = {}
+        for _n in _nodes:
+            _r, _ = _pfind(par, _n)
+            _szs[_r] = _szs.get(_r, 0) + 1
+        _cap = int(_amax * int(p3["total_lines"]) + 1e-9)
+        if _szs and max(_szs.values()) > _cap:
+            n_open += 1
     check("no drawn conjunction violates a schema's own gap ceiling, puts "
           "opposite predicates on one (pair, channel, coordinate), closes "
           "an equality chain a Differ claim demands open, outnumbers a "
-          "finite channel domain, or forces a parity cycle on a binary "
-          "one — the measured 39-of-40 (M-118), 53-of-60 (M-122: 117 "
-          "adjacency, 32 transitive) and 40-of-60 (M-123: 74 impossible "
-          "prominence cliques) defects all read ZERO through the gate",
+          "finite channel domain, forces a parity cycle on a binary one, "
+          "or forces more identical line-openers than the floor's own "
+          "ANAPHORA_OVERLOAD share admits — the measured 39-of-40 "
+          "(M-118), 53-of-60 (M-122: 117 adjacency, 32 transitive), "
+          "40-of-60 (M-123: 74 impossible prominence cliques) and M-125 "
+          "(seed 32's forced 9-of-21 openers and its length triangle) "
+          "defects all read ZERO through the gate",
           n_adj == 0 and n_pair == 0 and n_trans == 0
-          and n_over == 0 and n_parity == 0,
+          and n_over == 0 and n_parity == 0 and n_open == 0,
           f"adjacency {n_adj}, pairwise {n_pair}, transitive {n_trans}, "
-          f"oversize {n_over}, parity {n_parity} over six seeds")
+          f"oversize {n_over}, parity {n_parity}, opener {n_open} over "
+          f"six seeds")
 
 
 if __name__ == "__main__":

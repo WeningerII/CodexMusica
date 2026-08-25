@@ -6571,6 +6571,22 @@ def drawable_traits():
                         _emit(c.channel, "post", "Agree")
                 else:
                     _emit(c.channel, "anchor", pred)
+            # M-125: SPAN LENGTH IS A HIDDEN EQUALITY CHANNEL, and the
+            # schema's own `unmatched` coordinate declares it — `forbid`
+            # rejects any overhang (perfect rhyme, rime riche: the end
+            # spans must be the SAME length), `require_a`/`require_b`
+            # demand one (semirhyme: the lengths must DIFFER — measured:
+            # grow~growing fires, tide~ride and sane~champagne do not),
+            # and `exclude` ignores the overhang and claims nothing.
+            # Without this claim the drawn conjunction {perfect 13~14,
+            # rime riche 13~17, semirhyme 14~17} read satisfiable while
+            # being an Equal-Equal-Differ triangle no words can close;
+            # with it, the existing Agree-union + disequality closure
+            # catches the cycle with no new machinery.
+            if sch.unmatched == "forbid":
+                claims.append(("span_length", "end", "Agree"))
+            elif sch.unmatched in ("require_a", "require_b"):
+                claims.append(("span_length", "end", "Differ"))
         if (any(p.kind == "both_line_initial" and p.polarity
                 for p in sch.placement)
                 or (sch.spans and all(s.locus in ("line_initial_token",

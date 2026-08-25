@@ -652,12 +652,57 @@ def test_the_schema_namespace_is_judged():
 
 
 
+def test_identity_is_the_schemas_own_ruling():
+    """§9 — M-124 (2026-08-25): a declared schema's IdentityRule outranks
+    the bare REPEAT pre-emption.
+
+    `grade()` charged "REPEAT not rhyme (identical word)" on any pair whose
+    bound words were identical, BEFORE the schema route was consulted — so
+    a group declaring `schema:anaphora`, whose IdentityRule is token-AGREE
+    and whose whole definition is identical line-openers, was refused for
+    satisfying its own mandate (one repository, two answers about one pair
+    — the M-59 shape at the identity coordinate). Found on the first
+    paired-experiment draft: the drawn anaphora unions forced "Here" onto
+    nine heads and the grader flagged the two pairs whose SLOTS both bound
+    it. A schema group now routes to the schema judge, whose own
+    IdentityRule adjudicates on the schema's own spans; a BARE group keeps
+    the REPEAT charge byte-identically (doctrine 3 stands)."""
+    print("\n9. identity is the schema's own ruling (M-124)")
+    rv = Reviser()
+    lines = ["Here the boats lie sober",
+             "Here the tide writes charters",
+             "Here the winter lays its table"]
+    m = mandate([[1, 2, 3]], n_lines=3, relations={"A": "schema:anaphora"})
+    g = rv.grade(lines, m)
+    check("an anaphora group whose bound words are IDENTICAL is "
+          "SATISFIED — the schema's token-Agree identity rule is the "
+          "declared ruling, and identity here is the requirement",
+          not g["violations"], g["violations"])
+    m2 = mandate([[1, 2]], n_lines=2)
+    g2 = rv.grade(["the tide is high", "the tide is high"], m2)
+    check("a BARE group with identical end words still charges REPEAT — "
+          "doctrine 3 is untouched where nothing declared otherwise",
+          any("REPEAT" in str(v) for v in g2["violations"]),
+          g2["violations"])
+    m3 = mandate([[1, 2]], n_lines=2,
+                 relations={"A": "schema:internal rhyme"})
+    g3 = rv.grade(["the tide runs in the bay all night",
+                   "the guide walks out the bay at dawn"], m3)
+    check("a Differ-identity schema judged on SEARCHED spans reads "
+          "nothing off the bound end words — internal rhyme with "
+          "identical end words is satisfied by its tide~guide spans, "
+          "because the schema's identity rule binds the spans it "
+          "matches, not the slots the mandate drew",
+          not g3["violations"], g3["violations"])
+
+
 if __name__ == "__main__":
     for fn in (test_vocabulary, test_judge, test_mandate_coordinate,
                test_grade_routing, test_position_is_declared,
                test_mandate_level_default,
                test_reopen_carries_what_it_is_not_declaring,
-               test_the_schema_namespace_is_judged):
+               test_the_schema_namespace_is_judged,
+               test_identity_is_the_schemas_own_ruling):
         fn()
     print("=" * 62)
     if FAILURES:

@@ -2576,6 +2576,22 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         # which also catches cross-group odd cycles no clique cap sees.
         # A channel absent from the table stays a plain disequality
         # edge, so the gate can only miss a cap, never invent one.
+        # M-125(b): THE FLOOR'S OWN CEILING BOUNDS THE DRAW. An anaphora
+        # group forces every one of its lines to OPEN with one word — the
+        # schema judges line-initial tokens, whatever the slots say — and
+        # groups sharing a line UNION into one forced-opener class, so the
+        # draw was able to force 9 of 21 identical openers while the
+        # floor's calibrated ANAPHORA_OVERLOAD (a FLAG at the human 95th
+        # percentile) refuses anything past its `anaphora_max` share: a
+        # demand sheet no writing could pass, found on this seed 32 draft.
+        # The ceiling is READ from the floor's lyric-sheet profile — the
+        # one identified by its own n_lines == 0, never by name (M-106) —
+        # so there is exactly one definition of the threshold, and the
+        # forced-opener classes are the (token, head) Agree components the
+        # claim ledger already carries (M-119's head claims).
+        _aprof = next(p for p in _FL.PROFILES if p.n_lines == 0)
+        _acap = int(_FL.FloorDeclaration().resolve("anaphora_max", _aprof)
+                    * total + 1e-9)
         _pairc = {}
         _eqp = {}
         _nep = {}
@@ -2645,6 +2661,21 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                             break
                     if _bad:
                         break
+                    if _key == ("token", "head") and "Agree" in _prs:
+                        # M-125(b): forced-opener classes may not outgrow
+                        # the floor's own ANAPHORA_OVERLOAD share. A root
+                        # appears only as a parent VALUE, so the node set
+                        # is keys + parents + this candidate's endpoints.
+                        _nodes = (set(_par)
+                                  | {pp[0] for pp in _par.values()}
+                                  | {x for pp in _pairs for x in pp})
+                        _sz = {}
+                        for _n in _nodes:
+                            _r, _ = _pfind(_par, _n)
+                            _sz[_r] = _sz.get(_r, 0) + 1
+                        if _sz and max(_sz.values()) > _acap:
+                            _bad = True
+                            break
                 if _bad:
                     continue
                 _ok.append(_cand)

@@ -1149,11 +1149,27 @@ class Reviser:
             why = None
             struct = m.structure_of(k) if _ST is not None else None
             want = m.relation_of(k) if _RT is not None else ""
-            if rel == "REPEAT":
+            if rel == "REPEAT" and not (want and _schema_name_of(_RT, want)):
                 # Identity is its own question under EVERY structure — the
                 # returns/licence machinery owns it, and an identical word
                 # trivially "satisfying" an alliteration demand is exactly
                 # the laziness that machinery exists to adjudicate.
+                # EXCEPT WHERE THE GROUP DECLARED A SCHEMA (M-124,
+                # 2026-08-25): a `RelationSchema` carries its own
+                # `IdentityRule`, which IS the declared identity ruling for
+                # that group — anaphora's is token-AGREE, so identical bound
+                # words are the requirement, not the laziness, and charging
+                # REPEAT here made the grader refuse exactly what the
+                # mandate asked for (one repository, two answers about one
+                # pair — the M-59 shape at the identity coordinate). And a
+                # Differ-identity schema judged on SEARCHED spans (internal
+                # rhyme) reads nothing off the bound words at all, so the
+                # pre-emption was answering a question the schema does not
+                # ask there. The schema route below adjudicates identity on
+                # the schema's own spans through `realise()`'s IdentityRule;
+                # a BARE group and a class/type relation keep this branch
+                # byte-identically (doctrine 3 stands: REPEAT is still not
+                # rhyme where nothing declared otherwise).
                 why = "REPEAT not rhyme (identical word)"
             elif want:
                 # THE GROUP DECLARED WHAT RELATION IT WANTS. This is the

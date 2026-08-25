@@ -11716,3 +11716,71 @@ over, which no amount of edge bookkeeping can recover from the
 predicate's name alone.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~180~~ -> **181**.
+
+### M-124 · the identity machinery refused what the mandate asked for — a schema's IdentityRule is the declared ruling `CLOSED`
+Filed and closed 2026-08-25, found grading the first paired-experiment
+draft (seed 32, bare twin): the drawn anaphora unions forced "Here"
+onto nine line-openers, and `grade()` flagged the two pairs whose
+SLOTS both bound that word — "REPEAT not rhyme (identical word)" —
+BEFORE the schema route was consulted. Anaphora's IdentityRule is
+token-AGREE: identical openers are its entire definition, so the
+grader was refusing a mandate for being satisfied — one repository
+giving two opposite answers about one pair, the M-59 shape at the
+identity coordinate. And the pre-emption was equally wrong one
+schema over: internal rhyme's identity rule is token-DIFFER over the
+SPANS ITS SEARCH MATCHES, not over the mandate's bound words, so a
+slot pair forced identical by the anaphora unions charged a schema
+that reads nothing at those positions. The repair is one guard in
+`quality/revise.py`'s REPEAT branch: a pair whose group declares a
+`schema:` relation routes to the schema judge, whose own
+IdentityRule adjudicates identity on the schema's own spans through
+`realise()`; a BARE group and a class/type relation keep the branch
+byte-identically — doctrine 3 stands, REPEAT is still not rhyme
+where nothing declared otherwise. MEASURED both directions:
+a 3-line anaphora group with identical heads grades 0 violations, a
+bare pair on identical end words still charges REPEAT, and internal
+rhyme over identical end words is satisfied by its own mid-line
+spans. `test_mandate_relation.py` §9 pins all three answers.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~181~~ -> **182**.
+
+### M-125 · span length and the floor's own ceiling join the claim graph `CLOSED`
+Filed and closed 2026-08-25, the same sitting as M-124 — the same
+seed-32 demand sheet carried two more unsatisfiable conjunctions the
+gate could not see, and the sitting closed both. **(a) SPAN LENGTH
+IS A HIDDEN EQUALITY CHANNEL, and the schema's own `unmatched`
+coordinate declares it.** The chorus drew {perfect rhyme 13~14, rime
+riche 13~17, semirhyme 14~17}: perfect rhyme and rime riche carry
+`unmatched="forbid"` — any overhang refuses, so their end spans must
+be the SAME length — while semirhyme carries `require_b`, the
+overhang is REQUIRED (measured: grow~growing fires, tide~ride and
+sane~champagne do not). Equal, equal, different: a triangle no words
+can close, invisible to a ledger with no length coordinate.
+`drawable_traits` now emits ("span_length","end","Agree") for
+`forbid` and ("span_length","end","Differ") for `require_a/b` —
+read from the declared coordinate, never a hand list — and the
+existing Agree-union + disequality closure catches the cycle with no
+new machinery. **(b) THE FLOOR'S OWN CEILING BOUNDS THE DRAW.** An
+anaphora group forces every one of its lines to OPEN with one word,
+groups sharing a line union into one forced-opener class, and the
+draw had forced 9 of 21 identical openers while the floor's
+calibrated ANAPHORA_OVERLOAD (a FLAG at the human 95th percentile,
+`anaphora_max` 0.30 on the lyric-sheet profile) refuses anything
+past its share — a demand sheet no writing could pass, wearing the
+gate's own approval. The gate now reads the ceiling from the floor's
+lyric-sheet profile (identified by its own `n_lines == 0`, never by
+name — the M-106 idiom, one definition of the threshold) and refuses
+any candidate whose head-token Agree component — the (token, head)
+classes M-119's claims already carry — outgrows it. **MEASURED with
+the full seven-rule gate, seeds 1–60: 0 unsatisfiable, 0 refused,
+all six replay counts zero** (adjacency, pairwise, transitive,
+oversize, parity, opener). Seed 31's §6 pins survive unchanged this
+time; `test_plan.py` §14 gains the span-length and ceiling pins and
+the seven-rule replay. The ladder these three entries climb, stated
+once: M-122 taught the ledger that equality composes, M-123 that a
+predicate's satisfiability depends on its value domain, and M-125
+that the coordinates a schema constrains are not only its channels —
+a span has a LENGTH, a song has a FLOOR, and both were load-bearing
+walls the dice could walk through.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~182~~ -> **183**.
