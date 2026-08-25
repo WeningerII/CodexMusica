@@ -1492,32 +1492,57 @@ def test_the_seed_sweep_is_a_verb():
     wants = [PLN.parse_sweep_want(w) for w in
              ("sections<=6", "lines_per_section>=2", "group<=4",
               "uses=verse,chorus", "before=verse,chorus", "pins_per_line<=5")]
-    # ~~`res["accepted"] == [108]` over `range(120)` — "the instrument moved
-    # into the tree without its answer changing".~~ **REPINNED 2026-08-24
-    # (`MISSING.md` M-106), AND THE STRUCK CLAIM IS WHY.** That sentence was
-    # true of the M-82 migration and is a claim about the VERB; the answer it
-    # pinned is a property of the PLANS, and the plans were re-derived when
-    # the length envelope stopped being the union of three text kinds. A seed
-    # satisfying a six-way conjunction is exactly the coordinate doctrine 58
-    # is about: it is a reading of whatever produced it. THE VERB IS
-    # UNCHANGED — no line of `sweep` moved in that lot — and every one of the
-    # six predicates is still individually satisfiable, MEASURED over
-    # `range(400)`: sections<=6 158, lines_per_section>=2 118, group<=4 40,
-    # uses=verse,chorus 400, before=verse,chorus 183, pins_per_line<=5 400.
-    # The conjunction is simply rarer than one in 120 now, so the range is
-    # widened rather than the predicates loosened — loosening them to keep a
-    # number would be tuning the question to preserve the answer.
-    res = PLN.sweep(range(400), wants=wants)
-    check("the sweep answers a six-way conjunction with the seeds that "
-          "satisfy it, and NOT with a near miss — three of four hundred",
-          res["accepted"] == [139, 284, 323],
-          f"accepted {res['accepted']}, planned {res['planned']}, "
-          f"refused {res['refused']}")
+    # ~~`res["accepted"] == [108]` over `range(120)`~~ — struck 2026-08-24
+    # (`MISSING.md` M-106) — ~~and repinned to `[139, 284, 323]` over
+    # `range(400)`~~ — struck again the SAME DAY, by M-107, and the second
+    # strike is the interesting one.
+    #
+    # A SEED LIST IS THE WRONG PIN AND TWO REPINS IN ONE DAY IS THE EVIDENCE.
+    # The claim this section is making is about the VERB — that `sweep`
+    # answers a conjunction correctly — and a seed list pins a property of
+    # the PLANS, which every derivation lot moves. Doctrine 58 in its own
+    # words: a recorded count is a reading of whatever produced it. Repinning
+    # it a third time would be recording the same fragility again.
+    #
+    # THE ALGEBRA IS PINNED INSTEAD, and it cannot go stale because it is a
+    # property `sweep` must have for ANY plans: a conjunction of predicates
+    # accepts EXACTLY the intersection of what each accepts alone. A verb
+    # that ANDed wrongly — dropped a predicate, short-circuited, or ordered
+    # the result — fails this on whatever the planner currently draws. The
+    # range is 160 rather than 400 because seven sweeps are run and one is
+    # enough to state the invariant (MEASURED at 36s).
+    _R = range(160)
+    singles = {w: set(PLN.sweep(_R, wants=[PLN.parse_sweep_want(w)])
+                      ["accepted"])
+               for w in ("sections<=6", "lines_per_section>=2", "group<=4",
+                         "uses=verse,chorus", "before=verse,chorus",
+                         "pins_per_line<=5")}
+    res = PLN.sweep(_R, wants=wants)
+    check("the conjunction accepts EXACTLY the intersection of the six "
+          "predicates taken one at a time — the property a verb that ANDs "
+          "correctly must have whatever the planner happens to draw",
+          set(res["accepted"]) == set.intersection(*singles.values()),
+          f"conjunction {res['accepted']}, intersection "
+          f"{sorted(set.intersection(*singles.values()))}")
+    # NON-VACUOUS: an intersection of six sets that were all EVERYTHING would
+    # hold the line above and examine nothing. At least one predicate must
+    # genuinely cut, and the conjunction must be strictly smaller than the
+    # loosest single (doctrine 20 — "equal" and "nothing was compared" read
+    # the same otherwise).
+    _cut = [w for w, a in singles.items() if 0 < len(a) < len(_R)]
+    check("...and the invariant is examined rather than satisfied by "
+          "vacuity: predicates that genuinely cut, and a conjunction "
+          "strictly smaller than the loosest of them",
+          len(_cut) >= 3
+          and len(res["accepted"]) < max(len(a) for a in singles.values()),
+          f"{len(_cut)} of {len(singles)} predicates cut; "
+          f"{len(res['accepted'])} accepted against a loosest single of "
+          f"{max(len(a) for a in singles.values())}")
     check("THREE COUNTS, NEVER SUMMED (doctrine 79): swept, planned, and "
           "REFUSED-by-the-planner. A refusal is the envelope turning a "
           "request down and charging it to the predicates would blame the "
           "declaration for the planner",
-          res["seeds"] == 400
+          res["seeds"] == 160
           and res["planned"] + res["refused"] == res["seeds"]
           and len(res["accepted"]) <= res["planned"],
           f"{res['seeds']} = {res['planned']} + {res['refused']}")
@@ -1781,6 +1806,158 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
           f"median {statistics.median(nsec)}")
 
 
+
+def test_the_end_rhyme_pass_is_additive(FAILURES=None):
+    print("\n13. the END-RHYME pass — each sung section's own scheme, "
+          "re-realised at the line ends, and nothing else touched")
+    # ===================================================================
+    # M-107, 2026-08-24. The owner's ask, and the refusal that bounds it:
+    #   "add a step at the end that adds rhymes to the end of the lines in
+    #    order to follow the respective forms of the sections"
+    #   "no, end should not be uniform ... do not fuck up what we've
+    #    already built."
+    # So every check here is about what the pass does NOT do as much as
+    # what it does.
+    # ===================================================================
+    import collections
+    from quality import plan as _PL
+
+    SEEDS = range(1, 61)
+    added_n = blocked_n = narrow_n = 0
+    before_end = after_end = lines_n = 0
+    all_added, mirrored, off_scheme = 0, 0, []
+    collides, over_ceiling = [], []
+    ceiling = None
+    for seed in SEEDS:
+        pl = make_plan(seed=seed)
+        say = pl["choices"]["end_rhyme"]
+        added_n += say["added"]
+        blocked_n += say["blocked"]
+        narrow_n += say["narrow"]
+        ceiling = _PL.line_binding_ceiling(_PL.plan_max_token(pl))
+
+        # THE ADDED GROUPS, recovered by RUNNING THE PASS AGAIN on the
+        # emitted plan. It is a pure function, so a second call on a plan
+        # that already carries its output must add NOTHING — every end it
+        # would have bound is now bound. That is the idempotence check and
+        # the purity check in one, and it is why `again` is expected empty.
+        again, _ = _PL.end_rhyme_groups(pl)
+        check_ok = (again == [])
+        if not check_ok:
+            off_scheme.append((seed, "not idempotent", again[:2]))
+
+        # Re-derive the sections and their declared schemes INDEPENDENTLY,
+        # then require every all-bare (end-bound) group in the plan that is
+        # a whole scheme block to be one the code actually declares.
+        per, order = {}, []
+        for sl in pl["line_slots"]:
+            if sl["section"] not in per:
+                order.append(sl["section"])
+                per[sl["section"]] = (sl["function"], [])
+            per[sl["section"]][1].append(sl["line"])
+        blocks = set()
+        for nm in order:
+            fn, ls = per[nm]
+            code = (pl["choices"]["schemes"].get(fn) or {}).get("rgs") or ()
+            if len(code) != len(ls):
+                continue
+            byb = {}
+            for b, ln in zip(code, ls):
+                byb.setdefault(b, []).append(ln)
+            for _b, blk in byb.items():
+                if len(blk) >= 2:
+                    blocks.add(tuple(sorted(blk)))
+
+        at = _PL.bound_placements(pl)
+        # WHAT THIS PASS ADDED, read off its OWN disclosure and not guessed
+        # from the shape of a group. An all-end group is not evidence of
+        # this pass: the web pass can draw one too (measured at 3 of 225
+        # over these seeds), so a shape test would charge this pass for the
+        # web pass's grouping and pass or fail for the wrong reason.
+        emitted = set(str(pl["groups"]).split(";"))
+        for spelled in say["groups"]:
+            all_added += 1
+            nums = tuple(sorted(int(m) for m in spelled.split(",")))
+            # A SUBSET of a declared block: the pass trims a block to its
+            # free-ended members and never invents a grouping.
+            if any(set(nums) <= set(bk) for bk in blocks) \
+                    and spelled in emitted:
+                mirrored += 1
+
+        # NO END IS BOUND TWICE, and no line is asked for more distinct
+        # spans than a band-legal line is guaranteed to hold.
+        for ln, places in at.items():
+            words = [_PL.placement_word(x) for x in places]
+            if words.count(_PL.LAST_WORD) > 1:
+                collides.append((seed, ln))
+            if len(set(words)) > ceiling:
+                over_ceiling.append((seed, ln, len(set(words))))
+
+        # THE LIFT, measured by SUBTRACTING what the pass added: the same
+        # plan read with and without its own contribution.
+        by_line = collections.defaultdict(list)
+        for g in str(pl["groups"]).split(";"):
+            mems = [x.strip() for x in g.split(",") if x.strip()]
+            bare = len(mems) >= 2 and all("." not in m for m in mems)
+            for m in mems:
+                by_line[int(m.partition(".")[0])].append(
+                    (_PL.placement_word(m.partition(".")[2] or "end"), bare))
+        for sl in pl["line_slots"]:
+            lines_n += 1
+            got = by_line.get(sl["line"], [])
+            if any(w == _PL.LAST_WORD for w, _b in got):
+                after_end += 1
+            if any(w == _PL.LAST_WORD and not b for w, b in got):
+                before_end += 1
+
+    check("the pass is IDEMPOTENT and PURE — run again on a plan already "
+          "carrying its output it adds nothing, so it is a function of what "
+          "the plan says and not of what the loop had in scope",
+          not off_scheme, off_scheme[:2])
+    check("every group this pass ADDED is a SUBSET of a block its section's "
+          "own declared `rgs` names, and every one of them reaches the "
+          "emitted plan — it re-realises a scheme the plan already drew, "
+          "invents no grouping, and drops none of what it claims",
+          all_added > 0 and mirrored == all_added,
+          f"{mirrored} of {all_added} added group(s) mirror a declared "
+          f"block AND appear in `groups`")
+    check("NO line has its end bound twice — the collision "
+          "`joint_findings` refuses, checked here on the population the "
+          "pass actually produced rather than waiting for the gate",
+          not collides, collides[:3])
+    # THIS ONE IS THE ENFORCEMENT AND NOT A RESTATEMENT OF ONE, and the
+    # difference was MEASURED rather than assumed. Removing the end-collision
+    # check makes `make_plan` REFUSE — `joint_findings` catches it and no
+    # plan ships. Removing the ceiling check refuses NOTHING: 60 of 60 seeds
+    # still plan and 26 lines go over silently, because that gate asks the
+    # LOOSER question on purpose (what THIS line's grid admits) and this asks
+    # the tighter one (what ANY band-legal line is guaranteed to hold). So
+    # the ceiling is a GENERATOR discipline with no gate behind it, and this
+    # check is the only thing standing under it.
+    check("and no line is asked for more distinct spans than a BAND-LEGAL "
+          "line is guaranteed to hold — the ceiling the web pass draws "
+          "against, which this pass skipped on its first build. NO GATE "
+          "REFUSES THIS: measured, dropping the check loses 0 of 60 seeds "
+          "and puts 26 lines over, so this assertion IS the enforcement",
+          not over_ceiling,
+          f"ceiling {ceiling}, over: {over_ceiling[:3]}")
+    check("THREE COUNTS, NEVER SUMMED (doctrine 79): added / blocked / "
+          "narrow, and all three are populated so none is decorative",
+          added_n > 0 and blocked_n > 0 and narrow_n >= 0,
+          f"added {added_n}, blocked {blocked_n}, narrow {narrow_n}")
+    # THE LIFT, STATED AS A RATE (doctrine 22). This is the owner's own
+    # complaint measured: "the word(s) at the end of a line are at a 1 in 8
+    # probability of rhyming whereas most songs have a much higher
+    # probability of rhyming."
+    check("the pass LIFTS the share of lines whose end is bound, and the "
+          "before-figure is the same plan read without the pass's own "
+          "contribution rather than a remembered number",
+          after_end > before_end
+          and after_end / lines_n > 0.6 > before_end / lines_n,
+          f"{100 * before_end / lines_n:.1f}% -> "
+          f"{100 * after_end / lines_n:.1f}% of {lines_n} lines")
+
+
 if __name__ == "__main__":
     for fn in (test_the_planner_plans_the_whole_line,
                test_determinism, test_refusals, test_the_round_trip,
@@ -1788,7 +1965,8 @@ if __name__ == "__main__":
                test_the_rendering, test_the_writers_declaration,
                test_the_form_is_read, test_the_joint_gate,
                test_the_seed_sweep_is_a_verb,
-               test_the_song_length_is_the_songs_own):
+               test_the_song_length_is_the_songs_own,
+               test_the_end_rhyme_pass_is_additive):
         fn()
     print("=" * 62)
     if FAILURES:

@@ -461,6 +461,33 @@ rather than buried: a two-member group is all-ends with probability 1/|pool|²,
 so a plain end-rhyme plan becomes rare, and whether `end` should be a
 first-class outcome instead is a taste question printed for the owner to
 answer into a coordinate.
+**THE OWNER ANSWERED IT 2026-08-24 AND THE ANSWER IS NEITHER OF THE TWO ON
+OFFER (`MISSING.md` M-107).** Not "leave it rare" and not "weight the draw":
+*"add a step at the end that adds rhymes to the end of the lines in order to
+follow the respective forms of the sections"* — with the draw itself put out
+of bounds in the same sitting, *"no, end should not be uniform ... do not fuck
+up what we've already built."* So `_place_group`'s uniform draw is UNTOUCHED
+and the **8.5% stands**; what is added is a SECOND realisation, at the ends, of
+a scheme each sung section had already drawn. `plan.end_rhyme_groups` is a
+PURE FUNCTION OF THE EMITTED PLAN — it reads `choices["schemes"][fn]["rgs"]`,
+`line_slots`, `returns` and `groups`, consumes NO seed entropy, is idempotent,
+and runs before the joint gate so whatever it adds passes the same refusal
+everything else did. **MEASURED over 240 seeds, the before-figure being the
+same plan read without the pass's own contribution: lines whose END is bound
+47.8% -> 71.1%, group members binding the last word 18.4% -> 25.1%, 0 seeds
+lost, 0 joint findings.** Three counts, never summed: added 889, blocked 1601
+(the draw had already spent that end), narrow 29 (the line cannot carry one
+more distinct span). **CROSS-SECTION COHERENCE IS A NON-BUILD AND IS RECORDED
+AS ONE**: a sung function carries ONE code, so every instance already shares
+the scheme SHAPE, and binding instance 1's line i to instance 2's line i would
+be the planner deciding two verses share their RHYMES — which most songs do
+not. **AND THE TWO MUTATIONS ARE NOT SYMMETRIC**, which is the half worth
+carrying: dropping the end-collision check makes `make_plan` REFUSE
+(`TWO_GROUPS_ONE_WORD`, no plan ships), while dropping the participation
+ceiling refuses NOTHING — 60 of 60 seeds still plan with 26 lines over it —
+because `joint_findings` asks the LOOSER question on purpose. So that ceiling
+is a GENERATOR discipline with no gate behind it and `test_plan.py` §13's
+check IS its enforcement, which the check's own message says.
 **OVERLAP IS SATISFIABLE BECAUSE PLACEMENT EXISTS.** Two groups on one line at
 the SAME placement constrain ONE word — `joint_field`'s question, which needs
 words a plan does not have. At DIFFERENT placements they constrain different

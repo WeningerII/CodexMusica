@@ -10998,3 +10998,113 @@ has already proved are wired.
 is untouched: widening it is a re-calibration against the corpus — preregister,
 measure, adopt, re-snapshot the manifest — and not a code change. The owner has
 that ruling.
+
+### M-107 · the plan's rhyme web reached the line ends by accident `CLOSED`
+Filed and closed 2026-08-24/25, by the owner's instruction *"start the
+end-rhyme pass"*.
+
+**THE ASK AND THE REFUSAL THAT BOUNDS IT, both the owner's and both in the
+same sitting.** The ask: *"would it not be possible to take what we have and
+add a step at the end that adds rhymes to the end of the lines in order to
+follow the respective forms of the sections in a way that is derived from how
+the sections line up in our structure of the song as a whole for coherence?"*
+The refusal, about the same subject: *"no, end should not be uniform, you
+misunderstood, I was just asking a question. do not fuck up what we've already
+built."* So this is ADDITIVE and nothing else: `_place_group`'s uniform draw
+over the placement vocabulary is untouched — `end` is still one placement
+among the ones this harness can grade, at the rate M-71 measured — and the
+pass never removes, re-places or re-weights a binding that draw produced.
+
+**AND THE OWNER HAD ALREADY STATED THE RATE THE PASS EXISTS TO MOVE:** *"the
+word(s) at the end of a line are at a 1 in 8 probability of rhyming whereas
+most songs have a much higher probability of rhyming."*
+
+**WHAT IT ADDS IS A SECOND REALISATION OF A SCHEME THE PLAN ALREADY DREW.**
+Each sung section carries one drawn RGS code; the placement draw realises its
+blocks at whatever words it happens to pick. `end_rhyme_groups` realises the
+SAME blocks at the line ENDS, wherever the end is free. It needs no new dice
+and **consumes no seed entropy**, which is what makes "additive" checkable
+rather than asserted.
+
+**IT IS A PURE FUNCTION OF THE EMITTED PLAN**, like `joint_findings`, and for
+the same two reasons: it runs against a hand-written plan on the same terms,
+and `make_plan`'s own draw cannot be what makes it work. Every coordinate it
+reads is one the plan already discloses — `choices["schemes"][fn]["rgs"]`,
+`line_slots`, `returns`, `groups`, `subdivision`. It is idempotent: run again
+on a plan already carrying its output it adds nothing.
+
+**WHAT "THE RESPECTIVE FORMS OF THE SECTIONS" RESOLVES TO, and the half that
+is a NON-BUILD.** A sung function carries ONE code, so every instance of that
+function already has the same scheme SHAPE — the cross-section coherence the
+ask names is a property the planner has, not one this pass had to invent.
+Binding instance 1's line i to instance 2's line i would be this pass deciding
+that two verses share their RHYMES, which most songs do not do, so it is
+recorded as refused rather than built.
+
+**A LATER INSTANCE OF A VERBATIM RETURNER IS SKIPPED**, read from `returns`
+rather than by naming a function: those lines must be the earlier line word
+for word, so a rhyme group on them declares a requirement about words already
+fixed — `joint_findings`' own argument for reading `groups` and not `returns`.
+
+**MEASURED over 240 seeds, and the before-figure is the same plan read
+without the pass's own contribution rather than a remembered number:**
+
+| | before | after |
+|---|---:|---:|
+| lines whose END is bound | **47.8%** | **71.1%** |
+| group members binding the last word | 18.4% | 25.1% |
+| seeds lost | — | **0 of 240** |
+| plans with a `joint_findings` finding | — | **0** |
+
+Three counts, never summed (doctrine 79): **added 889**, **blocked 1601** (the
+placement draw had already spent an end), **narrow 29** (the line cannot carry
+one more distinct span).
+
+**THE PASS'S OWN FIRST DEFECT, AND AN EXISTING CHECK CAUGHT IT.** It skipped
+the participation ceiling — the bound the web pass draws against — and pushed
+lines to **SIX** distinct bound spans against a density floor of **five**.
+`test_plan.py`'s pre-existing participation check went red on the first full
+run. The repair is `line_binding_ceiling()`, ONE definition both passes call:
+the bound was spelled inline in the web pass, so a pass written beside it did
+not consult it, which is doctrine 1's shape exactly.
+
+**AND THE TWO MUTATIONS ARE NOT SYMMETRIC, WHICH IS THE FINDING WORTH
+KEEPING.** Removing the end-collision check makes `make_plan` **REFUSE** —
+`joint_findings` catches it, `TWO_GROUPS_ONE_WORD`, no plan ships. Removing
+the ceiling check refuses **NOTHING**: 60 of 60 seeds still plan and **26
+lines go over silently**, because that gate asks the LOOSER question on
+purpose (what THIS line's grid admits at its declared duration) while the
+planner volunteers against the tighter one (what ANY band-legal line is
+guaranteed to hold). The two are kept apart rather than reconciled — a gate
+that refused the merely-tight would refuse the arithmetically fine — so **the
+participation ceiling is a GENERATOR discipline with no gate behind it, and
+`test_plan.py` §13's own check IS the enforcement.** That sentence is in the
+check's message, not only here.
+
+**THE PASS DISCLOSES WHICH GROUPS IT PUT THERE** (`choices.end_rhyme.groups`),
+and that is a disclosure rather than bookkeeping: the WEB pass can draw a
+group whose members all land on `end`, MEASURED at 3 of 225 all-end groups
+over 60 seeds, so an all-end group in the emitted plan is not evidence of this
+pass. Without the record a reader — and a check — can only guess at
+provenance, which is what the whole `choices` block exists to end. §13's
+mirror check reads that field and went from a false 222-of-225 to a true
+221-of-221 when it did.
+
+**AND A PIN WAS REPLACED RATHER THAN REPINNED A THIRD TIME.** `test_plan.py`
+§10 pinned the seed sweep's answer as a seed LIST — `[108]`, then M-106's
+`[139, 284, 323]`, and this lot moved it again inside one day. The claim the
+section makes is about the VERB and a seed list pins a property of the PLANS,
+which every derivation lot moves (doctrine 58). What is pinned now is the
+ALGEBRA: **a conjunction accepts exactly the intersection of what each
+predicate accepts alone** — a property `sweep` must have for any plans, which
+a verb that dropped a predicate or short-circuited would fail on whatever the
+planner currently draws — with a non-vacuity check beside it, because an
+intersection of six sets that were all everything examines nothing
+(doctrine 20).
+
+**WHAT THIS DOES NOT DO.** It does not touch the placement draw, does not add
+a relation or a structure to any group, and does not bind across section
+instances. Whether a given section FUNCTION should have its ends bound at all
+— a rap verse that deliberately does not end-rhyme is a real form — is a taste
+question this pass does not ask: it realises whatever scheme the section was
+already given.
