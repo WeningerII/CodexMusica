@@ -6487,31 +6487,36 @@ def derive_drawable_schemas(phon=None):
 
 
 def drawable_traits():
-    """-> {name: {"gap": int|None, "endclaims": {...}, "headclaims": {...}}}
+    """-> {name: {"gap": int|None, "claims": ((channel, coord, pred),...)}}
     for every drawable schema — the coordinates the PLANNER's conjunction
-    gate reads (M-118, widened by M-119): the schema's own line-gap
-    ceiling, the channel predicates it demands of a line-FINAL claim, and
-    the channel-plus-identity predicates it demands of a line-INITIAL one.
-    Derived from the registry rows here, in the module that owns them, so
-    the planner never reads a row itself — its import guard narrows it to
-    this vocabulary (doctrine 1: one reader of the rows per question).
+    gate reads (M-118, widened by M-119, rebuilt by M-122).
 
-    M-119, found by WRITING seed 31: a schema can spell its line-finality
-    in the span LOCUS instead of a placement row — cluster consonance /
-    skothending has `placement=()` and both spans on `line_final_token`,
-    so the first derivation (placement-keyed only) gave it `endclaims {}`
-    and the gate let its nucleus-Differ land on end words other groups had
-    already claimed nucleus-Agree. And the line HEAD had no coordinate at
-    all: anaphora REQUIRES token identity there (its IdentityRule is
-    Agree) while head rhyme (positional) and monai REFUSE it (Differ), so
-    two groups sharing a pair could demand a first word that is and is not
-    the same word. Identity rides under the key "token" in `headclaims`;
-    it is deliberately NOT collected at the ends, because
-    `derive_drawable_schemas` rule 3 already bars Agree-identity at a
-    line-final placement, so every drawable end schema's identity is
-    Differ and a claim that cannot vary cannot conflict. Measured over
-    seeds 1-40 before the widening: 33 plans drew a conjunction these
-    coordinates call unsatisfiable; 0 after.
+    M-122, found designing the first song of the paired experiment: two
+    more facts the registry states that the pairwise dict could not
+    carry. (1) `adjacent_lines` is a GAP constraint spelled as a
+    placement KIND — interlaced rhyme's whole reach — so `gap` now reads
+    it as 1. (2) A claim's SYLLABLE COORDINATE decides what composes:
+    rime riche equates the anchor coda (scope `each` covers the anchor),
+    semirhyme equates it again one pair over, and assonance demands it
+    DIFFER across the ends of the chain — every pair individually legal,
+    the conjunction impossible, because EQUALITY IS TRANSITIVE and a
+    per-pair ledger cannot see a chain. So claims are now triples over a
+    named coordinate: `anchor` (the last-stressed syllable of the end
+    span — scope `anchor`, and scope `each`, which covers it), `post`
+    (post-anchor syllables — scope `post_anchor`, plus the projection of
+    an `each`-scope Agree), `final` (the written-out last syllable —
+    `word_end`-anchored spans and `last` scope; light rhyme's own
+    coordinate, which genuinely composes where anchor claims do not),
+    and `head` (line-initial spans, with the token IdentityRule riding
+    as channel "token" — M-119's store, re-keyed). An `each`-scope
+    Differ projects onto `anchor` only (every aligned position differs,
+    and the anchor position always exists); the dict this replaces
+    silently collapsed perfect rhyme's TWO onset rules (Agree@post,
+    Differ@anchor) into one. Identity is still not collected at the
+    ends (`derive_drawable_schemas` rule 3 bars Agree-identity there).
+    Measured over seeds 1-60 before the rebuild, with this keying:
+    53 seeds drew an unsatisfiable conjunction — 117 adjacency
+    violations, 32 transitive contradictions; 0 after.
     """
     out = {}
     for name in DRAWABLE_SCHEMAS:
@@ -6520,14 +6525,28 @@ def drawable_traits():
         for p in sch.placement:
             if p.kind == "line_gap_at_most" and p.polarity:
                 gap = p.args[0]
-        end, head = {}, {}
+            if p.kind == "adjacent_lines" and p.polarity:
+                gap = 1
+        claims = []
         if (any(p.kind == "both_line_final" and p.polarity
                 for p in sch.placement)
                 or (sch.spans and all(s.locus == "line_final_token"
                                       for s in sch.spans))):
+            final_span = bool(sch.spans) and sch.spans[0].anchor == "word_end"
             for c in sch.channels or ():
-                if c.required:
-                    end[c.channel] = type(c.predicate).__name__
+                if not c.required:
+                    continue
+                pred = type(c.predicate).__name__
+                if final_span or c.scope == "last":
+                    claims.append((c.channel, "final", pred))
+                elif c.scope == "post_anchor":
+                    claims.append((c.channel, "post", pred))
+                elif c.scope == "each":
+                    claims.append((c.channel, "anchor", pred))
+                    if pred == "Agree":
+                        claims.append((c.channel, "post", "Agree"))
+                else:
+                    claims.append((c.channel, "anchor", pred))
         if (any(p.kind == "both_line_initial" and p.polarity
                 for p in sch.placement)
                 or (sch.spans and all(s.locus in ("line_initial_token",
@@ -6535,11 +6554,13 @@ def drawable_traits():
                                       for s in sch.spans))):
             for c in sch.channels or ():
                 if c.required:
-                    head[c.channel] = type(c.predicate).__name__
+                    claims.append((c.channel, "head",
+                                   type(c.predicate).__name__))
             for i in sch.identity or ():
                 if i.level == "token":
-                    head["token"] = type(i.predicate).__name__
-        out[name] = {"gap": gap, "endclaims": end, "headclaims": head}
+                    claims.append(("token", "head",
+                                   type(i.predicate).__name__))
+        out[name] = {"gap": gap, "claims": tuple(claims)}
     return out
 
 

@@ -2052,64 +2052,106 @@ def test_the_relation_draw():
           "groups, returns and meter unmoved between the two calls above",
           pl["groups"] == pl2["groups"] and pl["returns"] == pl2["returns"],
           "shape moved with the relation coordinate")
-    # THE CONJUNCTION GATE (M-118): before it, 39 of 40 seeds drew a
-    # jointly unsatisfiable schema conjunction — a gap-limited schema on a
-    # pair its own placement forbids, or two groups sharing a line pair
-    # with opposite channel predicates. The check replays the gate's own
-    # two rules over fresh draws with the registry's own coordinates, so a
-    # schema whose traits move re-asks the question rather than trusting
-    # the draw-time filter.
+    # THE CONJUNCTION GATE (M-118, widened by M-119, rebuilt as a GRAPH by
+    # M-122): before M-118, 39 of 40 seeds drew a jointly unsatisfiable
+    # schema conjunction; after M-119's locus-derived widening, 53 of 60
+    # STILL did (117 adjacency violations, 32 transitive contradictions),
+    # because `adjacent_lines` is a gap constraint spelled as a placement
+    # KIND and EQUALITY IS TRANSITIVE where a per-pair ledger is not. The
+    # check replays the gate's own three rules — gap, pairwise exact-match
+    # on (pair, channel, coord), and the union-find closure — over fresh
+    # draws with the registry's own coordinates, so a schema whose traits
+    # move re-asks the question rather than trusting the draw-time filter.
     from itertools import combinations
     traits = RL.drawable_traits()
-    # M-119's derivation pin: the two coordinates the widening was filed
-    # on must survive re-derivation — cluster consonance's end claims
-    # (finality spelled in the span LOCUS, no placement row) and the head
-    # token claims that put anaphora's REQUIRED identity against head
-    # rhyme's REFUSED one. Without this pin, a derivation that quietly
-    # drops either coordinate leaves the replay below vacuously green.
+    # THE DERIVATION PINS. Without these, a derivation that quietly drops
+    # a coordinate leaves the replay below vacuously green. M-119's two
+    # survive re-expressed in the triples format; M-122 adds the three
+    # facts its rebuild was filed on.
     cc = traits["cluster consonance / skothending span"]
-    check("the widened derivation reads finality out of the span locus "
-          "and identity out of the head — cluster consonance claims "
-          "nucleus-Differ at the ends, anaphora token-Agree at the head, "
-          "head rhyme (positional) token-Differ at the head (M-119)",
-          cc["endclaims"].get("nucleus") == "Differ"
-          and traits["anaphora"]["headclaims"].get("token") == "Agree"
-          and traits["head rhyme (positional)"]["headclaims"].get("token")
-          == "Differ",
-          f"cc {cc}, anaphora {traits['anaphora']['headclaims']}, "
-          f"head rhyme {traits['head rhyme (positional)']['headclaims']}")
-    bad = 0
+    check("M-119's coordinates survive the M-122 rekeying — cluster "
+          "consonance claims nucleus-Differ at the anchor (finality read "
+          "from the span locus, no placement row), anaphora token-Agree "
+          "at the head, head rhyme (positional) token-Differ at the head",
+          ("nucleus", "anchor", "Differ") in cc["claims"]
+          and ("token", "head", "Agree") in traits["anaphora"]["claims"]
+          and ("token", "head", "Differ")
+          in traits["head rhyme (positional)"]["claims"],
+          f"cc {cc}, anaphora {traits['anaphora']}, "
+          f"head rhyme {traits['head rhyme (positional)']}")
+    check("M-122(a): `adjacent_lines` is read as gap 1 — interlaced "
+          "rhyme's whole reach, a placement KIND the flat dict could not "
+          "carry (117 violations over sixty seeds before this)",
+          traits["interlaced rhyme"]["gap"] == 1,
+          traits["interlaced rhyme"])
+    pr = traits["perfect rhyme"]["claims"]
+    check("M-122(b): perfect rhyme carries TWO onset rules at two "
+          "coordinates — Agree at post, Differ at the anchor — which the "
+          "old per-channel dict collapsed into one, inflating the honest "
+          "pre-fix count from 53 to a false 56",
+          ("onset", "post", "Agree") in pr
+          and ("onset", "anchor", "Differ") in pr, pr)
+    check("M-122(c): the syllable coordinate SPLITS what the dict "
+          "conflated — semirhyme's coda claim rides the anchor while "
+          "light rhyme's rides the written-out final syllable, so only "
+          "the first composes into rime riche's transitive chain",
+          ("coda", "anchor", "Agree") in traits["semirhyme"]["claims"]
+          and ("coda", "final", "Agree") in traits["light rhyme"]["claims"]
+          and ("coda", "anchor", "Agree")
+          not in traits["light rhyme"]["claims"],
+          f"semirhyme {traits['semirhyme']}, "
+          f"light {traits['light rhyme']}")
+
+    def _find(par, x):
+        while par.get(x, x) != x:
+            x = par[x]
+        return x
+
+    n_adj = n_pair = n_trans = 0
     for sd in (4, 7, 11, 19, 23, 31):
         p3 = PLN.make_plan(sd)
         r3 = p3.get("relations") or {}
         gl3 = [tuple(sorted({int(str(m).split(".")[0])
                              for m in g.split(",")}))
                for g in p3["groups"].split(";")]
-        owner = {}
-        howner = {}
+        pairc = {}
+        eqp = {}
+        nep = {}
         for gi, g in enumerate(gl3):
             nm = r3.get(PLN.SC.label((gi,)))
             if not nm:
                 continue
             t = traits[nm.split(":", 1)[1]]
-            for a, b in combinations(g, 2):
-                if t["gap"] is not None and b - a > t["gap"]:
-                    bad += 1
-                for ch, pred in t["endclaims"].items():
-                    if owner.get((a, b), {}).get(ch) not in (None, pred):
-                        bad += 1
-                if t["endclaims"]:
-                    owner.setdefault((a, b), {}).update(t["endclaims"])
-                for ch, pred in t["headclaims"].items():
-                    if howner.get((a, b), {}).get(ch) not in (None, pred):
-                        bad += 1
-                if t["headclaims"]:
-                    howner.setdefault((a, b), {}).update(t["headclaims"])
-    check("no drawn conjunction violates a schema's own gap ceiling or "
-          "puts opposite predicates on one shared pair, at the ends OR at "
-          "the head — the measured 39-of-40 (M-118) and 33-of-40 (M-119) "
-          "defects both read ZERO through the gate",
-          bad == 0, f"{bad} violation(s) over six seeds")
+            pairs = list(combinations(g, 2))
+            if t["gap"] is not None and any(
+                    b - a > t["gap"] for a, b in pairs):
+                n_adj += 1
+            for ch, co, pred in t["claims"]:
+                for p in pairs:
+                    if pairc.get((p, ch, co)) not in (None, pred):
+                        n_pair += 1
+                    pairc[(p, ch, co)] = pred
+                key = (ch, co)
+                if pred == "Agree":
+                    par = eqp.setdefault(key, {})
+                    for a, b in pairs:
+                        ra, rb = _find(par, a), _find(par, b)
+                        if ra != rb:
+                            par[ra] = rb
+                elif pred == "Differ":
+                    nep.setdefault(key, []).extend(pairs)
+        for key, ne in nep.items():
+            par = eqp.get(key, {})
+            n_trans += sum(1 for a, b in ne
+                           if _find(par, a) == _find(par, b))
+    check("no drawn conjunction violates a schema's own gap ceiling, puts "
+          "opposite predicates on one (pair, channel, coordinate), or "
+          "closes an equality chain a Differ claim demands open — the "
+          "measured 39-of-40 (M-118) and 53-of-60 (M-122: 117 adjacency, "
+          "32 transitive) defects all read ZERO through the gate",
+          n_adj == 0 and n_pair == 0 and n_trans == 0,
+          f"adjacency {n_adj}, pairwise {n_pair}, transitive {n_trans} "
+          f"over six seeds")
 
 
 if __name__ == "__main__":

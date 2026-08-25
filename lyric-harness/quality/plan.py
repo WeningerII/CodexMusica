@@ -2547,16 +2547,28 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                       for g in ";".join(
                           ",".join(str(x) for x in g) for g in groups
                       ).split(";")]
-        # M-119 widened the claim ledger to TWO stores, found by writing
-        # seed 31: cluster consonance spells its line-finality in the span
-        # LOCUS (placement row empty), so the placement-keyed derivation
-        # gave it no end claim and its nucleus-Differ drew onto end words
-        # other groups held nucleus-Agree; and the line HEAD had no store
-        # at all, so anaphora's REQUIRED token identity and head rhyme's
-        # REFUSED one shared a pair. 33 of 40 seeds drew one of the two
-        # shapes; 0 through the widened traits.
-        _pair_claims = {}
-        _pair_heads = {}
+        # M-119 widened the claim ledger to two stores; M-122 REBUILT IT
+        # AS A GRAPH, found designing the first paired-experiment song:
+        # `adjacent_lines` is a gap constraint spelled as a placement
+        # KIND (interlaced rhyme drew onto non-adjacent groups on 117
+        # pairs over sixty seeds), and EQUALITY IS TRANSITIVE where a
+        # per-pair ledger is not — rime riche equated an anchor coda,
+        # semirhyme equated it one pair over, and assonance demanded the
+        # chain's two ends differ (32 such contradictions over the same
+        # sixty seeds; 53 of 60 seeds carried one shape or the other).
+        # Claims now ride (channel, syllable-coordinate) keys from
+        # `drawable_traits`; Agree edges union per key, Differ edges are
+        # checked against the closure, and everything that is neither
+        # keeps the old exact-match rule per pair.
+        _pairc = {}
+        _eqp = {}
+        _nep = {}
+
+        def _find(par, x):
+            while par.get(x, x) != x:
+                x = par[x]
+            return x
+
         for _gi in range(len(groups)):
             _lines = _grp_lines[_gi]
             _pairs = [(a, b) for i2, a in enumerate(_lines)
@@ -2567,28 +2579,50 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                 if _t["gap"] is not None and any(
                         b - a > _t["gap"] for a, b in _pairs):
                     continue
-                _ec = _t["endclaims"]
-                if _ec and any(
-                        _pair_claims.get(p, {}).get(ch) not in (None, pred)
-                        for p in _pairs for ch, pred in _ec.items()):
+                _bad = False
+                for _ch, _co, _pr in _t["claims"]:
+                    if any(_pairc.get((_p, _ch, _co)) not in (None, _pr)
+                           for _p in _pairs):
+                        _bad = True
+                        break
+                if _bad:
                     continue
-                _hc = _t["headclaims"]
-                if _hc and any(
-                        _pair_heads.get(p, {}).get(ch) not in (None, pred)
-                        for p in _pairs for ch, pred in _hc.items()):
+                _by = {}
+                for _ch, _co, _pr in _t["claims"]:
+                    if _pr in ("Agree", "Differ"):
+                        _by.setdefault((_ch, _co), set()).add(_pr)
+                for _key, _prs in sorted(_by.items()):
+                    _par = dict(_eqp.get(_key, ()))
+                    _ne2 = list(_nep.get(_key, ()))
+                    if "Agree" in _prs:
+                        for _a, _b in _pairs:
+                            _ra, _rb = _find(_par, _a), _find(_par, _b)
+                            if _ra != _rb:
+                                _par[_ra] = _rb
+                    if "Differ" in _prs:
+                        _ne2.extend(_pairs)
+                    if any(_find(_par, _a) == _find(_par, _b)
+                           for _a, _b in _ne2):
+                        _bad = True
+                        break
+                if _bad:
                     continue
                 _ok.append(_cand)
             _pick = _ok[rng.randrange(len(_ok))]
             if _pick:
                 drawn_relations[SC.label((_gi,))] = "schema:" + _pick
-                _ec = _traits[_pick]["endclaims"]
-                if _ec:
-                    for p in _pairs:
-                        _pair_claims.setdefault(p, {}).update(_ec)
-                _hc = _traits[_pick]["headclaims"]
-                if _hc:
-                    for p in _pairs:
-                        _pair_heads.setdefault(p, {}).update(_hc)
+                for _ch, _co, _pr in _traits[_pick]["claims"]:
+                    for _p in _pairs:
+                        _pairc[(_p, _ch, _co)] = _pr
+                    _key = (_ch, _co)
+                    if _pr == "Agree":
+                        _par = _eqp.setdefault(_key, {})
+                        for _a, _b in _pairs:
+                            _ra, _rb = _find(_par, _a), _find(_par, _b)
+                            if _ra != _rb:
+                                _par[_ra] = _rb
+                    elif _pr == "Differ":
+                        _nep.setdefault(_key, []).extend(_pairs)
     plan["relations"] = drawn_relations
     plan["choices"]["relations"] = {
         "chosen_from": (

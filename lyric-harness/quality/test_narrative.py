@@ -132,11 +132,23 @@ def test_the_wired_draw():
     import random
     from quality import plan as P
     pl = P.make_plan(31)
-    check("seed 31's RELATION draw is byte-identical to the banked "
-          "crooked_waltz mandate (B light rhyme, K anaphora) — the "
-          "narrative draw consumes entropy AFTER every existing draw",
-          pl["relations"]["B"] == "schema:light rhyme"
-          and pl["relations"]["K"] == "schema:anaphora")
+    # REPINNED 2026-08-25 under M-122: the gate rebuild changed each
+    # group's ACCEPTED pool, so seed 31's relation draw legitimately
+    # moved (K anaphora -> monai; D now perfect rhyme). The banked
+    # crooked_waltz mandate is NOT held by HEAD's dice and never was —
+    # it lives in the song's own recorded log and blueprint
+    # (songs/crooked_waltz.log.tsv, .blueprint.json), which is what a
+    # bank is FOR. What this check holds is that the draw is a stable
+    # pin at all, and that shape-entropy-before-relation-entropy still
+    # reads (test_plan §14 holds the byte-identical-shape half).
+    check("seed 31's RELATION draw re-derives exactly under the M-122 "
+          "gate (A anaphora, D perfect rhyme, K monai) — a moved pin "
+          "here means the pools or the dice moved, which is a question, "
+          "not a merge conflict",
+          pl["relations"]["A"] == "schema:anaphora"
+          and pl["relations"]["D"] == "schema:perfect rhyme"
+          and pl["relations"]["K"] == "schema:monai",
+          {k: pl["relations"][k] for k in ("A", "D", "K")})
     nar = pl["narrative"]
     check("the collapse is RECORDED: mode drawn, the exact line-up "
           "count disclosed, one atom per sung section, one junction "

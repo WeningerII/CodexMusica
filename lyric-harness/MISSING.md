@@ -11602,3 +11602,51 @@ are one-row edits in `quality/narrative.py`, the one definition, with
 `test_narrative.py`'s pins moving loudly on any later reversal.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~178~~ -> **179**.
+
+### M-122 · the gate's claim ledger could not see a chain — equality is transitive and a placement KIND is a gap `CLOSED`
+Filed and closed 2026-08-25, found designing the first song of the
+paired experiment (M-116 step 6): seed 32's demand sheet was DOUBLY
+unsatisfiable and the M-119 gate had passed it. (a) Group G drew
+interlaced rhyme onto lines {5, 8, 10} — `adjacent_lines` is a GAP
+constraint spelled as a placement KIND, so the gap reader (which knew
+only `line_gap_at_most`) never saw it; verified empirically that
+`realise()` answers interlaced rhyme on adjacent pairs only. (b) Rime
+riche on 13~14 equates the anchor coda (scope `each` covers the
+anchor), semirhyme on 14~17 equates it one pair over, and assonance on
+13~17 demands the chain's two ends DIFFER — every pair individually
+legal, the conjunction impossible, because EQUALITY IS TRANSITIVE and
+a per-pair ledger cannot see a chain. **MEASURED pre-fix, seeds 1–60:
+53 of 60 seeds drew an unsatisfiable conjunction — 117 adjacency
+violations, 32 transitive contradictions, 0 pairwise.** And the first
+reading was a false 56, because the measuring instrument carried the
+same defect it was measuring: claims keyed per CHANNEL collapsed
+perfect rhyme's TWO onset rules (Agree at post-anchor, Differ at the
+anchor) into one self-contradiction. The honest key is (channel,
+SYLLABLE-COORDINATE), and it is also the fix. `relations.
+drawable_traits()` now returns `{gap, claims}` with claims as
+(channel, coord, pred) triples over four coordinates — `anchor` (the
+last-stressed syllable; scopes `anchor` and `each`), `post`
+(post-anchor; scope `post_anchor` plus the projection of an
+`each`-scope Agree), `final` (the written-out last syllable —
+`word_end` anchors and `last` scope, light rhyme's own coordinate),
+`head` (line-initial spans, the token IdentityRule riding as channel
+`token`) — and an `each`-scope Differ projects onto `anchor` alone.
+`plan.py`'s draw-time gate keeps exact-match per (pair, channel,
+coord) and adds the closure: per (channel, coord), Agree edges union
+by find/union, Differ pairs are disequality edges, and a candidate
+whose closure identifies a Differ pair's ends is filtered before the
+dice see it — rejection keeps the draw uniform over the accepted set.
+**MEASURED post-fix, the same sixty seeds: 0 unsatisfiable, 0 seeds
+refused (none lost), all three counts zero.** The draws legitimately
+SHIFTED because the accepted pools changed (seed 31: K anaphora →
+monai, D → perfect rhyme); shapes are byte-identical (shape entropy
+precedes relation entropy), so the experiment's procession stands and
+the banked crooked_waltz mandate is untouched — it lives in the song's
+own recorded log and blueprint, which is what a bank is for.
+`test_plan.py` §14 is rewritten to the triples format with four
+derivation pins (interlaced gap 1; perfect rhyme's dual onset; the
+semirhyme-anchor/light-final coda split; M-119's coordinates rekeyed)
+and a replay that runs all three rules including the closure;
+`test_narrative.py` §6 is repinned to the re-derived draw.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~179~~ -> **180**.
