@@ -11511,3 +11511,37 @@ stays the final word; `test_plan.py` §14 replays the gate's two rules
 over fresh draws and pins the defect at zero.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~175~~ -> **176**.
+
+### M-119 · the conjunction gate read placement rows and the schemas do not all spell themselves there `CLOSED`
+Filed and closed 2026-08-25, found by WRITING the first song under the
+drawn relations (seed 31) — the round-1 grade returned nine
+SCHEME_VIOLATIONs of which seven were not writing defects but mandate
+contradictions no words can satisfy. Two shapes, one cause: the M-118
+gate derived a schema's claims from its PLACEMENT rows, and the registry
+spells the same facts in two other coordinates. (1) **Finality can live
+in the span LOCUS**: cluster consonance / skothending has `placement=()`
+and both spans on `line_final_token`, so `drawable_traits()` gave it
+`endclaims {}` and its nucleus-Differ was drawn onto the postchorus end
+words that family rhyme (10,12) and pantun (12,13) already held
+nucleus-Agree — K∧M and K∧J jointly unsatisfiable on the same four end
+words. (2) **The line HEAD had no claim store at all**: anaphora's
+IdentityRule REQUIRES token identity at the head and head rhyme
+(positional)'s REFUSES it, so H∧I sharing pair (4,8) demanded a first
+word that is and is not the same word. **MEASURED before the widening:
+33 of 40 seeds (1-40) drew a conjunction the extended coordinates call
+unsatisfiable — worse than M-118's own 39-of-40 pre-gate figure reads,
+because these two shapes survived that gate. After: 0 of 40, 0 seeds
+lost, seed shapes byte-identical** (the draw still consumes entropy
+last). The derivation now reads finality out of `both_line_final` OR an
+all-`line_final_token` span set, and adds `headclaims` —
+channels plus the token IdentityRule — for `both_line_initial` /
+`line_initial_token` / `line_head_index` schemas; identity is NOT
+collected at the ends because `derive_drawable_schemas` rule 3 already
+bars Agree-identity there, so every drawable end schema is Differ and a
+claim that cannot vary cannot conflict. `plan.py` tracks the two stores
+per pair; `test_plan.py` §14 pins the derivation's three load-bearing
+claims by name and replays BOTH stores over six seeds. The grader stays
+the final word: chain rhyme's (4,7) failure on the same draft was a
+WRITING defect (no shared nucleus run) and correctly stays one.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~176~~ -> **177**.

@@ -6487,15 +6487,31 @@ def derive_drawable_schemas(phon=None):
 
 
 def drawable_traits():
-    """-> {name: {"gap": int|None, "endclaims": {channel: predicate name}}}
-    for every drawable schema — the two coordinates the PLANNER's
-    conjunction gate reads (M-118): the schema's own line-gap ceiling, and
-    the channel predicates it demands of a line-FINAL claim (polarity-True
-    `both_line_final` only; a line-initial or negated-final schema claims
-    no end and conflicts with none). Derived from the registry rows here,
-    in the module that owns them, so the planner never reads a row itself
-    — its import guard narrows it to this vocabulary (doctrine 1: one
-    reader of the rows per question).
+    """-> {name: {"gap": int|None, "endclaims": {...}, "headclaims": {...}}}
+    for every drawable schema — the coordinates the PLANNER's conjunction
+    gate reads (M-118, widened by M-119): the schema's own line-gap
+    ceiling, the channel predicates it demands of a line-FINAL claim, and
+    the channel-plus-identity predicates it demands of a line-INITIAL one.
+    Derived from the registry rows here, in the module that owns them, so
+    the planner never reads a row itself — its import guard narrows it to
+    this vocabulary (doctrine 1: one reader of the rows per question).
+
+    M-119, found by WRITING seed 31: a schema can spell its line-finality
+    in the span LOCUS instead of a placement row — cluster consonance /
+    skothending has `placement=()` and both spans on `line_final_token`,
+    so the first derivation (placement-keyed only) gave it `endclaims {}`
+    and the gate let its nucleus-Differ land on end words other groups had
+    already claimed nucleus-Agree. And the line HEAD had no coordinate at
+    all: anaphora REQUIRES token identity there (its IdentityRule is
+    Agree) while head rhyme (positional) and monai REFUSE it (Differ), so
+    two groups sharing a pair could demand a first word that is and is not
+    the same word. Identity rides under the key "token" in `headclaims`;
+    it is deliberately NOT collected at the ends, because
+    `derive_drawable_schemas` rule 3 already bars Agree-identity at a
+    line-final placement, so every drawable end schema's identity is
+    Differ and a claim that cannot vary cannot conflict. Measured over
+    seeds 1-40 before the widening: 33 plans drew a conjunction these
+    coordinates call unsatisfiable; 0 after.
     """
     out = {}
     for name in DRAWABLE_SCHEMAS:
@@ -6504,13 +6520,26 @@ def drawable_traits():
         for p in sch.placement:
             if p.kind == "line_gap_at_most" and p.polarity:
                 gap = p.args[0]
-        claims = {}
-        if any(p.kind == "both_line_final" and p.polarity
-               for p in sch.placement):
+        end, head = {}, {}
+        if (any(p.kind == "both_line_final" and p.polarity
+                for p in sch.placement)
+                or (sch.spans and all(s.locus == "line_final_token"
+                                      for s in sch.spans))):
             for c in sch.channels or ():
                 if c.required:
-                    claims[c.channel] = type(c.predicate).__name__
-        out[name] = {"gap": gap, "endclaims": claims}
+                    end[c.channel] = type(c.predicate).__name__
+        if (any(p.kind == "both_line_initial" and p.polarity
+                for p in sch.placement)
+                or (sch.spans and all(s.locus in ("line_initial_token",
+                                                  "line_head_index")
+                                      for s in sch.spans))):
+            for c in sch.channels or ():
+                if c.required:
+                    head[c.channel] = type(c.predicate).__name__
+            for i in sch.identity or ():
+                if i.level == "token":
+                    head["token"] = type(i.predicate).__name__
+        out[name] = {"gap": gap, "endclaims": end, "headclaims": head}
     return out
 
 

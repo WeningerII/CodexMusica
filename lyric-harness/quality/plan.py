@@ -2541,7 +2541,16 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                       for g in ";".join(
                           ",".join(str(x) for x in g) for g in groups
                       ).split(";")]
+        # M-119 widened the claim ledger to TWO stores, found by writing
+        # seed 31: cluster consonance spells its line-finality in the span
+        # LOCUS (placement row empty), so the placement-keyed derivation
+        # gave it no end claim and its nucleus-Differ drew onto end words
+        # other groups held nucleus-Agree; and the line HEAD had no store
+        # at all, so anaphora's REQUIRED token identity and head rhyme's
+        # REFUSED one shared a pair. 33 of 40 seeds drew one of the two
+        # shapes; 0 through the widened traits.
         _pair_claims = {}
+        _pair_heads = {}
         for _gi in range(len(groups)):
             _lines = _grp_lines[_gi]
             _pairs = [(a, b) for i2, a in enumerate(_lines)
@@ -2557,6 +2566,11 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                         _pair_claims.get(p, {}).get(ch) not in (None, pred)
                         for p in _pairs for ch, pred in _ec.items()):
                     continue
+                _hc = _t["headclaims"]
+                if _hc and any(
+                        _pair_heads.get(p, {}).get(ch) not in (None, pred)
+                        for p in _pairs for ch, pred in _hc.items()):
+                    continue
                 _ok.append(_cand)
             _pick = _ok[rng.randrange(len(_ok))]
             if _pick:
@@ -2565,6 +2579,10 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                 if _ec:
                     for p in _pairs:
                         _pair_claims.setdefault(p, {}).update(_ec)
+                _hc = _traits[_pick]["headclaims"]
+                if _hc:
+                    for p in _pairs:
+                        _pair_heads.setdefault(p, {}).update(_hc)
     plan["relations"] = drawn_relations
     plan["choices"]["relations"] = {
         "chosen_from": (

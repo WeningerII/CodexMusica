@@ -2032,6 +2032,23 @@ def test_the_relation_draw():
     # the draw-time filter.
     from itertools import combinations
     traits = RL.drawable_traits()
+    # M-119's derivation pin: the two coordinates the widening was filed
+    # on must survive re-derivation — cluster consonance's end claims
+    # (finality spelled in the span LOCUS, no placement row) and the head
+    # token claims that put anaphora's REQUIRED identity against head
+    # rhyme's REFUSED one. Without this pin, a derivation that quietly
+    # drops either coordinate leaves the replay below vacuously green.
+    cc = traits["cluster consonance / skothending span"]
+    check("the widened derivation reads finality out of the span locus "
+          "and identity out of the head — cluster consonance claims "
+          "nucleus-Differ at the ends, anaphora token-Agree at the head, "
+          "head rhyme (positional) token-Differ at the head (M-119)",
+          cc["endclaims"].get("nucleus") == "Differ"
+          and traits["anaphora"]["headclaims"].get("token") == "Agree"
+          and traits["head rhyme (positional)"]["headclaims"].get("token")
+          == "Differ",
+          f"cc {cc}, anaphora {traits['anaphora']['headclaims']}, "
+          f"head rhyme {traits['head rhyme (positional)']['headclaims']}")
     bad = 0
     for sd in (4, 7, 11, 19, 23, 31):
         p3 = PLN.make_plan(sd)
@@ -2040,6 +2057,7 @@ def test_the_relation_draw():
                              for m in g.split(",")}))
                for g in p3["groups"].split(";")]
         owner = {}
+        howner = {}
         for gi, g in enumerate(gl3):
             nm = r3.get(PLN.SC.label((gi,)))
             if not nm:
@@ -2053,9 +2071,15 @@ def test_the_relation_draw():
                         bad += 1
                 if t["endclaims"]:
                     owner.setdefault((a, b), {}).update(t["endclaims"])
+                for ch, pred in t["headclaims"].items():
+                    if howner.get((a, b), {}).get(ch) not in (None, pred):
+                        bad += 1
+                if t["headclaims"]:
+                    howner.setdefault((a, b), {}).update(t["headclaims"])
     check("no drawn conjunction violates a schema's own gap ceiling or "
-          "puts opposite channel predicates on one shared pair — the "
-          "measured 39-of-40 defect reads ZERO through the gate",
+          "puts opposite predicates on one shared pair, at the ends OR at "
+          "the head — the measured 39-of-40 (M-118) and 33-of-40 (M-119) "
+          "defects both read ZERO through the gate",
           bad == 0, f"{bad} violation(s) over six seeds")
 
 
