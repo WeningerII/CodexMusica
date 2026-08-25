@@ -301,14 +301,14 @@ def test_the_oracle_does_not_move():
     # RANGE rather than a point so it fails on a structural change and not on
     # a corpus edit -- but it must never be zero, because zero would mean the
     # instrument is not looking.
-    # REPINNED 2026-08-23: ~~9 of 81~~ -> 8 of 35 (doctrine 17). The
-    # denominator moved because the default admit set widened on 2026-08-22
-    # (M-59) and 47 pairs stopped violating — a DOOR change, not a span
-    # change. The two checks above pin `battery.EXPECTED["violations"]` and
-    # both pass, so the oracle already carried 35 and only these literals
-    # were behind.
-    check("8 of the 35 violations were scored on a span that is NOT the "
-          "end word", mosaic_scored == 8, f"{mosaic_scored} / {viol} "
+    # REPINNED 2026-08-23: ~~9 of 81~~ -> ~~8 of 35~~ (doctrine 17), and
+    # AGAIN 2026-08-25 -> 4 of 12: the whole-vocabulary default (M-116)
+    # retired 23 more violations — a DOOR change, not a span change, the
+    # same ladder step M-59 was. The two checks above pin
+    # `battery.EXPECTED["violations"]` and both pass, so the oracle
+    # already carried 12 and only these literals were behind.
+    check("4 of the 12 violations were scored on a span that is NOT the "
+          "end word", mosaic_scored == 4, f"{mosaic_scored} / {viol} "
           f"= {mosaic_scored / viol:.1%} of the oracle's violations named a "
           f"pair of words that did not produce their number")
 
@@ -525,18 +525,24 @@ def test_the_sweep_runs_and_reports_three_counts():
     # is exactly the population that DOES name the words that produced its
     # number. Widening the door retires those first and leaves the mosaic
     # and reach cases standing.
-    check("7 of the 35 VIOLATIONS do — this is the number that decides "
+    # REPINNED 2026-08-25 with the M-116 ladder step: ~~7 of 35~~ -> 2 of
+    # 12, the same direction M-59's repin took and for the stated reason —
+    # a pair demoted to an ordinary end-word comparison is the population
+    # that DOES name its own words, so the door retires those first and
+    # leaves the mosaic and reach cases standing.
+    check("2 of the 12 VIOLATIONS do — this is the number that decides "
           "whether a triage lands on the right layer",
-          r["violations_claimed"] == 7,
+          r["violations_claimed"] == 2,
           f"{r['violations_claimed']} / {r['violations']}")
     severe = sum(v for k, v in r["viol_kinds"].items()
                  if any(x in (lh.SPAN_REACH, lh.SPAN_SUBSTITUTED,
                               lh.SPAN_UNATTRIBUTED) for x in k))
-    # REPINNED 2026-08-23: ~~9~~ -> 8. One of the nine left with the 47 the
-    # widened door retired; the other eight are the residue this check
-    # exists to keep visible.
-    check("8 of them could not be reconstructed from the printed words even "
-          "in principle (reach / substituted / unattributed)", severe == 8,
+    # REPINNED 2026-08-23: ~~9~~ -> ~~8~~, and 2026-08-25 -> 4 with the
+    # M-116 door: the widened default retired reconstructable violations
+    # faster than unreconstructable ones, so the residue this check keeps
+    # visible is now a THIRD of the total rather than a quarter.
+    check("4 of them could not be reconstructed from the printed words even "
+          "in principle (reach / substituted / unattributed)", severe == 4,
           f"{severe} / {r['violations']}; the remaining "
           f"{r['violations'] - r['violations_claimed'] - severe} are the "
           f"declared anchor cut, visible in the label")

@@ -1319,7 +1319,15 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
     from quality.revise import Reviser as _R
 
     RV = _R()
-    m = _SC.mandate(ANCHOR_GROUPS, n_lines=6)
+    # Every mandate in this section DECLARES `class:RHYME` since 2026-08-25
+    # (M-116): the subject is TIER 2's search discipline, which only runs
+    # when a mandated pair fails — and under the whole-vocabulary default
+    # this fixture's failing pairs stand in searched schemas, so the loop
+    # never reached tier 2 and the section crashed selecting an attempt
+    # that was never made. The declared relation restores the failing
+    # pairs; the search discipline under test is unchanged.
+    m = _SC.mandate(_SC.mandate(ANCHOR_GROUPS, n_lines=6),
+                    default_relation="class:RHYME")
     calls, rets = _anchor_obligations(RV, m, ANCHOR_IS_A_PIVOT, 1, 3)
     check("the anchor's OWN call words are read off the mandate, and the "
           "group being backtracked is the only one dropped",
@@ -1374,8 +1382,9 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
     # verbatim return. Every word this tier could offer it is illegal, so no
     # pair is put to a proposer at all.
     PIN = ANCHOR_IS_A_PIVOT + [ANCHOR_IS_A_PIVOT[2]]
-    mp = _SC.mandate([[1, 2], [1, 3], [3, 4], [5, 6], [3, 7]], n_lines=7,
-                     returns=[[3, 7]])
+    mp = _SC.mandate(_SC.mandate([[1, 2], [1, 3], [3, 4], [5, 6], [3, 7]],
+                                 n_lines=7, returns=[[3, 7]]),
+                     default_relation="class:RHYME")
     asked = []
     res2 = revise_loop(RV, PIN, mp, propose=lambda *a, **k: None,
                        propose_group=lambda pb: asked.append(pb))
@@ -1396,7 +1405,8 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
     # asked to move a word without being told what it owed.
     seen = []
     revise_loop(RV, ANCHOR_HAS_A_LIVE_GROUP,
-                _SC.mandate(LIVE_GROUPS, n_lines=4),
+                _SC.mandate(_SC.mandate(LIVE_GROUPS, n_lines=4),
+                            default_relation="class:RHYME"),
                 propose=lambda *a, **k: None,
                 propose_group=lambda pb: seen.append(pb))
     withc = [pb for pb in seen if any(a.calls for a in pb.anchors)]

@@ -267,23 +267,41 @@ def test_readable_pairs_are_untouched():
     # set widens past a scalar. What moves is WHICH clause says so, and
     # that is worth an assertion of its own rather than a claim of
     # sameness — the reason string is what a writer acts on.
-    check("the demo's single violation is unchanged, and it now refuses on "
-          "the SCALAR rather than on the relation — 0.729 is under "
-          "theta_rhyme, which no declared door widens past",
-          d["violations"] == [(1, 2, 0.729, "below theta_rhyme=0.75")],
-          str(d["violations"]))
+    # REPINNED AGAIN 2026-08-25 (M-116): under the whole-vocabulary
+    # DEFAULT the pair no longer violates at all — dawn/again stand in the
+    # consonance schema, judged categorically, and the rescue moves the
+    # pair to `pairs_schema_satisfied` with the schemas that answered. The
+    # scalar-vs-relation distinction the ladder above records is still
+    # real and is now measured where it still exists: under DECLARED
+    # doors, which the rescue does not override
+    # (`lyric_harness.admit_is_default`, doctrine 1). A 3-relation
+    # narrowing that still admits CONSONANCE refuses on the SCALAR; the
+    # 2-relation rhyme-only door refuses on the RELATION.
+    check("under the whole-vocabulary DEFAULT the demo's old violation is "
+          "SATISFIED by schema, and the rescue says which one answered",
+          d["violations"] == []
+          and any(s["lines"] == (1, 2) and "consonance" in s["satisfied_by"]
+                  for s in d["pairs_schema_satisfied"]),
+          str(d["violations"]) + " :: "
+          + str(d.get("pairs_schema_satisfied")))
     from lyric_harness import Declaration as _Decl
+    _scal = check_scheme(LEX, demo, "AABB",
+                         _Decl(admit=("CONSONANCE", "RHYME", "RIME_RICHE")))
     _narrow = check_scheme(LEX, demo, "AABB",
                            _Decl(admit=("RHYME", "RIME_RICHE")))
-    check("...and NARROWING the door keeps the SAME pair at the SAME score "
-          "while changing WHICH clause refuses it — relation under a "
-          "rhyme-only door, scalar under the default; a writer acts on the "
-          "reason, so the two are not one answer",
-          [v[:3] for v in _narrow["violations"]] == [v[:3] for v in d["violations"]]
+    check("...and under a DECLARED door the SAME pair still violates at "
+          "the SAME score, with WHICH clause refusing it set by the door — "
+          "relation under a rhyme-only door, scalar under one that admits "
+          "CONSONANCE; a writer acts on the reason, so the two are not one "
+          "answer, and neither is silently overridden by the default's "
+          "rescue (doctrine 1)",
+          [v[:3] for v in _narrow["violations"]]
+          == [v[:3] for v in _scal["violations"]]
+          == [(1, 2, 0.729)]
           and "admit set" in _narrow["violations"][0][3]
-          and "theta_rhyme" in d["violations"][0][3],
+          and "theta_rhyme" in _scal["violations"][0][3],
           f"narrowed: {_narrow['violations'][0][3]!r}; "
-          f"default: {d['violations'][0][3]!r}")
+          f"scalar-door: {_scal['violations'][0][3]!r}")
     check("the demo refuses nothing", d["pairs_refused"] == 0)
 
     g = rhyme_graph(LEX, demo, DECL)

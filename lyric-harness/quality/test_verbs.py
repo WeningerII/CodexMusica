@@ -1835,10 +1835,17 @@ NOISY_LINES = [
 NOISY_SECTIONS = [("verse1", 4), ("chorus", 2), ("verse2", 4),
                   ("bridge", 4), ("chorus2", 2)]
 
-#: store/own and four/gone — two mandated pairs that do NOT rhyme, so the
-#: draft carries two SCHEME_VIOLATION flags on named lines beside the
+#: four/own and gone/fire — two mandated pairs that stand in NO schema, so
+#: the draft carries two SCHEME_VIOLATION flags on named lines beside the
 #: saturated SLOTS_EXCEEDED. One rolls up, the others must not.
-MANDATE_THAT_FAILS = "--groups=1,3;2,4"
+#: REPINNED 2026-08-25 (M-116) from ~~1,3;2,4~~ (store/own and four/gone):
+#: under the whole-vocabulary default store~own is SATISFIED by 'chain rhyme
+#: (rap)' and four~gone by 'assonance', so the old mandate stopped failing
+#: at all. These two pairs are MEASURED unsatisfied over the full 16-line
+#: fixture (relations.whole_vocabulary_pairs), so the mandate fails for the
+#: same reason it always did — the pairs do not stand in any relation the
+#: vocabulary names — rather than by grace of a narrower door.
+MANDATE_THAT_FAILS = "--groups=2,3;4,9"
 
 
 def _noisy_song(d):
@@ -1980,17 +1987,19 @@ def test_the_report_rolls_up_without_dropping_anything():
           and per_code.get(("NOTE", "CROWDED")) == 16
           and per_code.get(("NOTE", "PROMINENCE_EXCEEDS_HEADS")) == 16,
           str(sorted(per_code.items())))
-    # ~~two~~ ONE, REPINNED 2026-08-22. The widened default admit set
-    # (`MISSING.md` M-59) means a pair this fixture used to fail as ASSONANCE
-    # now SATISFIES, so one of the two violations is gone from the draft
-    # entirely. That is the door working, not the rollup: what this check is
-    # about is whether an UNSATURATED code survives the collapse of 48
-    # findings into 3 rows, and one surviving proves that exactly as well as
-    # two did. Pinned at >= 1 rather than at 1 so the next movement in the
-    # comparator does not re-break a check whose subject is the ROLLUP.
-    check("the SCHEME_VIOLATION flag survives the rollup — ~~two~~ one since "
-          "the door widened; it is the craft criticism the 48 were burying, "
-          "and it is NOT saturated, so the rule had to leave it alone",
+    # ~~two~~ ~~ONE, REPINNED 2026-08-22~~ TWO AGAIN, REPINNED 2026-08-25.
+    # The 2026-08-22 repin recorded the widened admit set (M-59) retiring
+    # one of the fixture's two violations; the M-116 whole-vocabulary
+    # default then retired the OTHER, and the mandate above was repinned
+    # onto two pairs that stand in no schema at all — so the fixture
+    # carries two violations once more, for the original reason. What this
+    # check is about is unchanged: whether an UNSATURATED code survives the
+    # collapse of 48 findings into 3 rows. Pinned at >= 1 rather than at
+    # the count so the next movement in the comparator does not re-break a
+    # check whose subject is the ROLLUP.
+    check("the SCHEME_VIOLATION flag survives the rollup — it is the craft "
+          "criticism the 48 were burying, and it is NOT saturated, so the "
+          "rule had to leave it alone",
           (per_code.get(("FLAG", "SCHEME_VIOLATION")) or 0) >= 1,
           str(per_code.get(("FLAG", "SCHEME_VIOLATION"))))
     check("the counts are printed as TWO, by kind, and never summed "
@@ -2154,10 +2163,18 @@ def test_propose_selects_who_writes_the_line():
     # declared seam can fail to be met, each one printed and exit 2.
     d = tempfile.mkdtemp()
     quat = os.path.join(d, "q.txt")
+    # L3 REPINNED 2026-08-25 (M-116): it read "the cattle waded through the
+    # silt", and under the whole-vocabulary default that pair with L1 is
+    # SATISFIED — 'anaphora' (both heads are "the") and 'chain rhyme (rap)'
+    # ("the bridge" ~ "the silt", a shared AH-IH nucleus run) — so the loop
+    # never asked about L3 and every proposer check below went vacuous. This
+    # spelling is MEASURED to stand in no schema against L1
+    # (relations.whole_vocabulary_pairs), so the pair is refused on the
+    # scalar and L3 is asked, which is the premise of the whole section.
     with open(quat, "w") as fh:
         fh.write("The river took the bridge at dawn\n"
                  "and no one saw the water again\n"
-                 "the cattle waded through the silt\n"
+                 "our cattle waded knee deep in silt\n"
                  "past every fence the county rebuilt\n")
 
     # THE DEFAULT IS THE STUB AND IT MUST STAY THE STUB. A default that
@@ -2524,7 +2541,16 @@ def test_the_loop_suspends_instead_of_guessing():
     state = os.path.join(d, "state.json")
     with open(draft, "w") as fh:
         fh.write("\n".join(NOISY_LINES[:4]) + "\n")
-    mand = "--groups=1,3;2,4"
+    # REPINNED 2026-08-25 (M-116) from ~~--groups=1,3;2,4~~: under the
+    # whole-vocabulary default BOTH old pairs are satisfied — store~own by
+    # 'chain rhyme (rap)' and four~gone by 'assonance' — so the loop had no
+    # question to ask and the whole section went vacuous (the first run
+    # completed at rc 0 instead of suspending at 4). Group A below,
+    # four~own, is MEASURED to stand in no schema over this draft
+    # (relations.whole_vocabulary_pairs), so it is refused and asked; group
+    # B, store~gone, is the door's satisfied pair, kept so the one-question
+    # pin still has its contrast.
+    mand = "--groups=2,3;1,4"
 
     rc, out, _ = run("revise", draft, mand, f"--propose=defer:{state}",
                      expect_rc=4)
@@ -2568,20 +2594,21 @@ def test_the_loop_suspends_instead_of_guessing():
     # converged after the first it CRASHED on `st["pending"]["answer"]` with
     # `pending` already None — a test that assumed its own subject's shape
     # instead of reading it.
-    #
-    # WHY: the mandate is `--groups=1,3;2,4` and group B is L2 'four' against
-    # L4 'gone' — AO nucleus agreeing, R against N coda, which the band types
-    # ASSONANCE. The default admit set widened to all four relations on
-    # 2026-08-22 (M-59), so that pair now SATISFIES and never becomes a
-    # question. Group A, 'store' against 'own', is below theta_rhyme at 0.736
-    # and is refused on the SCALAR, which no door widens past — so it is
-    # still asked, and it is the one the section needs.
+    # RESTATED 2026-08-25 (M-116): the question's PARTNER moved with the
+    # mandate repin above — L3 answers L2's 'four' now, not L1's 'store'.
+    # 'pour' against 'four' is the -our spelling family, HOMEOTELEUTON, and
+    # the first replacement attempt ('...swept the kitchen floor') was
+    # REJECTED for introducing LEXICAL_MONOTONY, which is the floor doing
+    # its job. 'floor' is measured clean against 'four' (screen: RHYME
+    # 1.000 CLEAN; not in the field's 14-word modal head), and the line
+    # below carries enough new types to keep the draft's MATTR above the
+    # calibrated floor.
     #
     # The walk is driven by the STATE now rather than by the answer list, so
     # it cannot crash on a loop that converges early; the count of questions
     # is then asserted separately, with the reason, because a walk that
     # silently tolerates any number would stop pinning this at all.
-    answers = ["we packed the truck and watched the last rain pour",
+    answers = ["we stacked our boxes on the hardwood floor",
                "and drove until the county line was far"]
     asked = []
     for want in answers:
@@ -2594,10 +2621,11 @@ def test_the_loop_suspends_instead_of_guessing():
         rc, out, _ = run("revise", draft, mand, f"--propose=defer:{state}")
     check("answering drives the loop to a stop condition",
           rc == 0 and "SUCCESS" in out, f"rc {rc}")
-    check("EXACTLY ONE line was ever asked about — L3, whose pair is refused "
-          "on the SCALAR. L2/L4 is ASSONANCE and the widened door admits it, "
+    check("EXACTLY ONE line was ever asked about — L3, whose pair (four~own) "
+          "stands in NO schema. L1/L4 stands in 'assonance' and 'chain "
+          "rhyme (rap)' and the whole-vocabulary default (M-116) admits it, "
           "so it is not a question (doctrine 17: this asked TWO until "
-          "2026-08-22)",
+          "2026-08-22, and the pairs moved 2026-08-25)",
           asked == [3], f"lines asked: {asked}")
     check("only the answered line changed",
           "* L3: " + answers[0] in out

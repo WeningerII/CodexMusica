@@ -314,6 +314,23 @@ NEAR_RELATIONS = {"ASSONANCE", "CONSONANCE"}
 ADMITTABLE_RELATIONS = frozenset(RHYME_RELATIONS | NEAR_RELATIONS)
 
 
+def admit_is_default(decl):
+    """True when the declaration's admit set is the derived default.
+
+    THE ONE GATE ON THE WHOLE-VOCABULARY RESCUE (M-116, refined
+    2026-08-25 under the owner's M-121 delegation): the rescue is the
+    reading of a mandate that declared NOTHING, and a caller who NARROWED
+    `Declaration.admit` has declared a door — "a cell that genuinely wants
+    perfect rhyme only says so and gets exactly the old behaviour" has
+    been this file's standing sentence since the ban shipped, and a rescue
+    that overrode the narrowing would be a declared coordinate silently
+    outranked by another layer's default (doctrine 1). One definition,
+    consulted by BOTH readers of the default (`check_scheme` here and
+    `quality.revise.grade`), so they cannot drift about when it applies.
+    """
+    return frozenset(decl.admit) == ADMITTABLE_RELATIONS
+
+
 # Declaration
 # ---------------------------------------------------------------------------
 
@@ -3168,8 +3185,12 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
     # `pairs_schema_satisfied` with the schemas that answered, because a
     # pass under an uncalibrated-laziness relation must stay tellable from
     # a scalar pass (the `STRUCTURE_UNCALIBRATED` contract).
+    # ...AND ONLY UNDER THE DEFAULT DOOR (2026-08-25): a caller who
+    # NARROWED `decl.admit` has declared what satisfies them, and the
+    # rescue does not override a declaration — `admit_is_default` is the
+    # one definition of the gate, shared with `quality.revise.grade`.
     schema_satisfied = []
-    if violations:
+    if violations and admit_is_default(decl):
         from quality import phonology as _PH
         from quality.relations import whole_vocabulary_pairs as _WVP
         _wvp = _WVP(list(lines), _PH.get("eng"),

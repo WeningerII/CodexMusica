@@ -80,7 +80,15 @@ def test_the_controls():
 def test_honesty_and_the_split():
     print("\n2. non-rhymes are answered honestly, and banned is not "
           "refused (doctrine 28)")
-    r = rows_for("stone", "window")[0]
+    # PAIR REPINNED 2026-08-25 (M-116) from ~~stone/window~~: under the
+    # whole-vocabulary default that pair SATISFIES — its line-final spans
+    # stand in the assonance schema — so the screen (which IS the song
+    # grader, §3's NO DRIFT) now answers it CLEAN with no why, correctly.
+    # four/own is typed ASSONANCE by the k-span comparator but its
+    # line-final nuclei DIFFER (AO against OW), so no schema answers and
+    # the why survives — which is the shape this check needs: an honest
+    # non-rhyme, not a ban and not a refusal.
+    r = rows_for("four", "own")[0]
     check("a non-rhyme reports the grader's own relation and why — never "
           "a ban, never a refusal",
           not r["refused"] and r["codes"] == [] and r["why"] is not None,

@@ -1362,8 +1362,15 @@ class Reviser:
         # answered (`satisfied_by`), because a pass under a relation with no
         # measured modal regime must be tellable from a calibrated pass
         # (the `STRUCTURE_UNCALIBRATED` contract, one layer over).
+        # ...AND ONLY UNDER THE DEFAULT DOOR (2026-08-25): a caller who
+        # NARROWED `Declaration.admit` has declared what satisfies them,
+        # and the rescue does not override a declaration.
+        # `lyric_harness.admit_is_default` is the one definition of this
+        # gate, shared with `check_scheme` (doctrine 1).
+        from lyric_harness import admit_is_default as _AID
         _fan = [v for v in verdicts
                 if v["why"] and v["relation"] != "REPEAT"
+                and _AID(self.decl)
                 and not (m.relation_of(v["group"])
                          if hasattr(m, "relation_of") else "")
                 and (v["structure"] is None

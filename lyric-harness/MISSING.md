@@ -11784,3 +11784,35 @@ a span has a LENGTH, a song has a FLOOR, and both were load-bearing
 walls the dice could walk through.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~182~~ -> **183**.
+
+### M-126 · the whole-vocabulary rescue outranked a declared admit set `CLOSED`
+Found and closed 2026-08-25, the sitting that drove M-116's blast
+radius out of the suites, under the owner's M-121 delegation. M-116
+made the whole vocabulary the reading of a mandate that declared
+NOTHING — and its rescue was firing even when the caller HAD declared
+something: a `Declaration.admit` narrowed below the derived default
+was still being overridden, so `check_scheme` under a rhyme-only
+declaration reported a consonant pair SATISFIED by the consonance
+schema the caller had just declined to admit. That is a declared
+coordinate silently outranked by another layer's default (doctrine 1),
+and it contradicted the standing sentence the ban has carried since
+2026-08-18 — *"a cell that genuinely wants perfect rhyme only says so
+and gets exactly the old behaviour."* The fix is ONE gate with ONE
+definition: `lyric_harness.admit_is_default` answers whether the
+declaration's admit set is the derived default, and BOTH readers of
+the default — `check_scheme` and `quality.revise.grade`'s `_fan`
+filter — consult it before rescuing, so they cannot drift about when
+the rescue applies (the M-116 contract, extended by one clause).
+MEASURED either side on bone~bin (score 0.671, coda N agreeing):
+default door SATISFIED with `satisfied_by` listing the consonance
+schema; a declared three-relation door refuses on the SCALAR
+(`below theta_rhyme=0.75`); the two-name door refuses on the
+RELATION. NO ADOPTED FIGURE MOVES: the battery, the M-116 rescue
+counts and every planner pin were measured under the DEFAULT
+declaration, which this gate reads as default. The demonstrations
+that needed a visible cost moved to declared doors in the same
+sitting — `test_g2p.py` §10 re-measures the letter-layer comparison
+under the two-name door and reproduces the recorded 50.0%-vs-5.1%
+(9.8x) to the decimal, and `test_capacity.py`/`test_readability.py`
+now pin the satisfied-by-schema default beside the refusing declared
+doors rather than a sentence the door had overtaken.
