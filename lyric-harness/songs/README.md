@@ -478,6 +478,72 @@ that resolves, or `--claims` fails. That check is aimed at the narrator.
 
 ---
 
+## `matinee.txt` — "Matinee", seed 3, series song 4: the mandate was the defect
+
+    python3 lyric_harness.py plan --seed=3
+    python3 lyric_harness.py song songs/matinee.blueprint.json \
+        songs/matinee.txt \
+        '--groups=1.T2,3.T6;2.T6,3.T1;1.T3,2.T3,3.T2;4.T3,5.T6;8.T3,9.T1;7.T4,9.T4,10.T5;7,9.T7,10.headrime;9.T3,10.T4;12,14,23.T4;13,22.T1;15.T5,16.T1,19.headrime;17.T7,20;12.T3,13.T1,16,18.T4,19.T6,20.T1,22.T4;18.T6,21.T3,22;12.T1,13.T2,20.T2,21,22.T6;12.T7,21.T7;12.T6,13.T6,14.T3,21.T1;13.T4,14.T1,16.T7,21.T6;14.T2,18.T2;24.T4,27.T6,28.T7;26.T5,32.T3;25.T6,26,28.T3,29.headrime,31.T3;25.T5,28.T1,31;25.T2,29,30.T6,31.T1,32.T5;25,26.headrime,30.T3;25.T1,29.T2,32.T6;26.T7,30.T7,31.T7,32.headrime;1,3;4,5;8,9;15,19;24,27,28' --subdivision 1
+
+`song` exit 0, md5 `c64331aba1ba`, 116 pairs mandated / 116 judged / 0
+refused, 0 banned pairs; `revise` SUCCESS in 0 rounds, draft unchanged.
+Four grading rounds to get there — the inverse of wheat_mane's opening-pass
+green — and the words were almost never the problem: THE MANDATE WAS.
+
+**ROUND 1 CHARGED 22 SCHEME VIOLATIONS AND 19 OF THEM WERE ONE SPELLING
+ERROR (M-114).** The hand mandate bound eight members at `.head` and seven
+at `.endword`, written as if they meant "the first word's rime" and "the
+end rhyme" — and the slot vocabulary declares both as WHOLE-WORD spans
+(`word_start -> to_word_end`), where `T<n>` and `headrime` read the rime
+from the last stressed syllable. `deceit` at `21.endword` is scored on
+both its syllables, head-aligned, and reads 0.13 against a partner the
+bare pair scores 1.0. Respelling the loci — `.head` -> `.T1`, `.endword`
+-> the bare line number — removed 19 of the 22 violations with ZERO word
+changes — the round-1 row in the log (step 54, fingerprint
+`707c48614794`) and the green row bind the identical slot words. Filed as `MISSING.md` M-114: a whole-word locus in a rime
+family refuses nothing at declaration time, and the writer discovers it a
+hundred mandated pairs later.
+
+**THE THREE SURVIVING VIOLATIONS WERE ALL ONE WORD, AND THE SCREEN HAD
+CALLED IT CLEAN (M-113).** `haiku` is `HH AY1 K UW0` — final syllable
+unstressed, so its rime span reaches back to `AY1` and no `UW` family can
+answer it. The screen printed `pair:haiku~taboo CLEAN` because CLEAN
+answers the BAN question only; the log fact is honestly named
+`clean_or_non_rhyme`, and the printed word is what a writer reads. The
+replacement `revue` was screened against the family first —
+clean 15 [LOG: clean_or_non_rhyme matinee.txt revue] with
+banned 0 [LOG: banned matinee.txt revue] and
+refused 0 [LOG: refused matinee.txt revue] — and the re-grade went green.
+
+**THE BANDS PRICED THE REST.** The early rounds also charged 11
+`PROMINENCE_OUT_OF_BAND` lines (eight or more prominent syllables against
+the calibrated ceiling of seven) and 2 `SLOTS_EXCEEDED`; every repair was
+a function-word dilution or a one-syllable trim that held every bound word
+at its declared token index, verified against the mandate before
+re-grading. The banked text carries 2 stacked lines (L7, L21) at 0.0625 —
+under the 0.125 `STACKED_DRAFT` ceiling, and no other banked song has
+carried one since the sentencehood gate shipped; both lines hold a real
+verb, and the fraction is the coordinate that decides. The witness is
+pinned in `quality/sentencehood.py`.
+
+**WHAT THE BANKED NUMBERS SAY, cited not remembered.** At 32 lines this is the longest banked song [RESULTS: n_lines matinee.txt],
+and its rhyme predictability 0.787907 is the second-lowest of the nine [RESULTS: rhyme_predictability_mean matinee.txt],
+with only wheat_mane's 0.609665 lower [RESULTS: rhyme_predictability_mean wheat_mane.txt]
+— the screen-first direction holding on a second consecutive song. MATTR
+0.896166 [RESULTS: mattr matinee.txt] and concreteness 3.658712
+[RESULTS: concreteness_mean matinee.txt] sit inside the banked range on
+both sides.
+
+**AND THE FUNNEL RECEIPT, THIRD CONSECUTIVE SONG.** Fifteen of this song's
+95 bound words were sung in earlier banked songs whose clean lists this
+session never consulted — eight of them in `long_bridge.txt` alone (buy,
+door, height, heir, high, prayer, rye, weigh), the same song wheat_mane's
+eleven landed in. Fixed ban tables and a fixed lexicon keep converging on
+the same short survivors whatever the writer avoids; M-111 stays the open
+remedy.
+
+---
+
 ## What the screen cost, measured
 
 The first draft of the flood song (seed 108, since superseded) had **15 of
