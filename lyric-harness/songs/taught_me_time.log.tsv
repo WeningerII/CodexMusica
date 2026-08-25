@@ -751,3 +751,12 @@ taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stack~knack	BANNED: H
 taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	banned	10
 taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
 taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	0
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	form	verse-chorus
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	seed	1
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	lines	25
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	sections	8
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	pattern	intro-verse-prechorus-chorus-verse-false_ending-false_ending-coda
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	meter	3/8 as (3,)
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	subdivision	4
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	groups	2.T5,3.T6,5.T3;4.T7,5.T2;1.T5,2.endword,3.T1;1.head,3.T7;6.T6,7.T7;8.headrime,9.T3;9.headrime,10.endword,11.T3;8.T3,9.T4,10.T7,11;9.T6,11.head;12,13.T7;12.T7,14.headrime;13.T4,14.T2,15.T5;12.T2,14.T5,15.T3;16.headrime,17.T1;18.endword,20.T6;19.T6,20.T1;19,20;21.T4,23.T4;21.T3,22.T3,23.headrime;21.T6,22.T7;22.T5,23.T5;24.T7,25.T5;24.T3,25.T2;3,5;6,7;8,9;16,17;21,23;24,25
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	returns	(none)

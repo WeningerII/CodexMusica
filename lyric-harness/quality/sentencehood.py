@@ -256,7 +256,11 @@ def main(argv=None):
         # pins their features: a moved reading means the INSTRUMENT moved.
         from lyric_harness import load_lyric_lines
         witness = {"long_bridge": 4, "one_more": 0, "turn_the_wheel": 0,
-                   "stay_awake": 0, "carry_it_over": 0, "keep_the_light": 0}
+                   "stay_awake": 0, "carry_it_over": 0, "keep_the_light": 0,
+                   # the forward-validation song (M-110): written WITH the
+                   # gate live, banked at 0 stacked lines — the pinned proof
+                   # the gate changed the writing and not only the grading.
+                   "taught_me_time": 0}
         for s, want in sorted(witness.items()):
             p = os.path.join(ROOT, "songs", s + ".txt")
             if not os.path.exists(p):
