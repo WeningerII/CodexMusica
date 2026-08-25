@@ -1,13 +1,13 @@
 """The narrative vocabulary and the story line-up counter — step 4's
 standalone half.
 
-STATUS: the tables below transcribe `quality/NARRATIVE_DESIGN.md` (a
-DRAFT under the owner's red pen). From this file on, THIS MODULE is the
-one definition and the design document is the argument for it (doctrine
-1: two spellings of one table is how registers start disagreeing) — a
-red-pen ruling edits a row HERE and the tests re-derive. Nothing in
-`quality/plan.py` imports this yet: binding the planner is the wired
-half of step 4 and waits on the ruling.
+STATUS: RULED 2026-08-25. The owner delegated the five §F rulings to
+this session in their own words; the rulings and their reasons are
+recorded in `quality/NARRATIVE_DESIGN.md` §F and `MISSING.md` M-121.
+THIS MODULE is the one definition and the design document is the
+argument for it (doctrine 1: two spellings of one table is how
+registers start disagreeing) — a later ruling edits a row HERE and the
+tests re-derive.
 
 WHAT THIS ANSWERS, and only this: given an emitted plan's SHAPE — the
 ordered section functions, nothing about words — which assignments of
@@ -25,10 +25,10 @@ inbound BUT — no intervening material, nothing re-lit the card:
 `NARRATIVE_DESIGN.md` §D, whose corpus rate `narrative_bands` measured
 at 0.0048), and the rest stay prose because encoding them would mean
 reading MEANING, which no gate here may do (doctrine 6). The doc's §C
-"any" cells compose with the one hard edge rule: TURN appears in
-exactly BUT's enter set, so "any" reads "any except as the TURN rule
-narrows" — stated here because the doc's table and its note could be
-read apart.
+"any" cells compose with the TURN rule: TURN appears in exactly the
+BUT and JUXTAPOSE enter sets (softened from BUT-only by ruling — see
+the ENTER table's own comment), so "any" reads "any except as the TURN
+rule narrows".
 
 WORDLESS AND ATOMLESS SECTIONS are transparent to the atom sequence and
 OPAQUE to adjacency: an interlude carries no lyric atom (a lyric layer
@@ -55,8 +55,11 @@ ATOMS = ("ESTABLISH", "COMPLICATE", "TURN", "DWELL",
          "ANCHOR", "JUDGE", "RESOLVE", "DEPART")
 
 #: NARRATIVE_DESIGN.md §B, one row per section function. Empty tuple =
-#: atomless (transparent-but-intervening). The `drop` row keeps BOTH of
-#: the doc's hesitant readings until the red pen rules.
+#: atomless (transparent-but-intervening). RULED (M-121): `drop` is
+#: ANCHOR alone — the "arrival" quality lives in its inbound edge, not
+#: a second face; `breakdown` stays DWELL; `reprise` stays ANCHOR with
+#: its "changed" half owned by grid's reprise machinery, not respelled
+#: here.
 FUNCTION_ATOMS = {
     "verse": ("ESTABLISH", "COMPLICATE", "TURN", "JUDGE", "RESOLVE"),
     "chorus": ("ANCHOR",),
@@ -67,7 +70,7 @@ FUNCTION_ATOMS = {
     "outro": ("DEPART",),
     "coda": ("RESOLVE", "DEPART", "JUDGE"),
     "build": ("COMPLICATE",),
-    "drop": ("ANCHOR", "RESOLVE"),
+    "drop": ("ANCHOR",),
     "vamp": ("DWELL",),
     "breakdown": ("DWELL",),
     "false_ending": ("RESOLVE",),
@@ -85,10 +88,14 @@ JUNCTIONS = ("THEREFORE", "BUT", "AND_THEN",
              "MEANWHILE", "ELABORATE", "JUXTAPOSE")
 
 #: NARRATIVE_DESIGN.md §C — which atoms each junction may ENTER. TURN
-#: appears in exactly one set (BUT's): that IS the hard edge rule, held
-#: structurally rather than as a special case, so the mutation that
-#: breaks it is one membership edit and the test that kills the
-#: mutation is one membership check.
+#: appears in exactly TWO sets (BUT and JUXTAPOSE): the draft's hard
+#: rule was TURN-only-by-BUT, and the ruling SOFTENED it (M-121) on the
+#: kishotenketsu witness — the `ten` is a turn entered by juxtaposition,
+#: not opposition, and a rule that deletes that family must relabel
+#: instead (doctrine 24). THEREFORE and AND_THEN stay excluded: a turn
+#: caused by the last section is consequence, and "and then everything
+#: changed" is the unearned reversal. Held structurally, so the
+#: mutation is one membership edit and the killing test one check.
 ENTER = {
     "THEREFORE": ("ESTABLISH", "COMPLICATE", "DWELL", "ANCHOR",
                   "JUDGE", "RESOLVE", "DEPART"),
@@ -97,8 +104,8 @@ ENTER = {
                  "JUDGE", "RESOLVE", "DEPART"),
     "MEANWHILE": ("ESTABLISH", "DWELL"),
     "ELABORATE": ("DWELL", "JUDGE"),
-    "JUXTAPOSE": ("ESTABLISH", "COMPLICATE", "DWELL", "ANCHOR",
-                  "JUDGE", "RESOLVE", "DEPART"),
+    "JUXTAPOSE": ("ESTABLISH", "COMPLICATE", "TURN", "DWELL",
+                  "ANCHOR", "JUDGE", "RESOLVE", "DEPART"),
 }
 
 #: The functions whose TEXT returns, so their instances share ONE card

@@ -1,7 +1,16 @@
-# The narrative vocabulary — DRAFT FOR THE OWNER'S RED PEN
+# The narrative vocabulary — RULED 2026-08-25
 
-**STATUS: DRAFT. Adopted by nothing, read by nothing, enforced by
-nothing.** This document exists so the owner can strike rows before a
+**STATUS: RULED.** The owner declined the red pen and delegated the §F
+rulings to this session in their own words ("I'm not going to answer on
+those rulings ... believe in yourself, you can figure out the right
+answers and you've been testing and gating this whole time"). The
+rulings below §F are therefore THE SESSION'S, made on the merits and
+under that delegation, reversible the way every table row here is —
+one edit in `quality/narrative.py`, which is the one definition, with
+the tests moving loudly. `MISSING.md` M-121 is the register entry.
+
+**The original draft framing, kept under the strike (doctrine 17):**
+~~DRAFT. Adopted by nothing, read by nothing, enforced by nothing.~~ This document exists so the owner can strike rows before a
 line of code depends on them (the `quality/SECTION_CONSTRAINTS_DESIGN.md`
 pattern: the argument ships before the table binds). The experiment that
 decides whether any of this survives is already registered —
@@ -79,7 +88,7 @@ imported, and it is closed.
 | junction | reading | may enter | conventions (notes, never gates) |
 |---|---|---|---|
 | THEREFORE | this section because of the last | any atom except TURN | |
-| BUT | this section against the last | TURN (mandatory inbound), ANCHOR, RESOLVE, DEPART | a TURN may ONLY be entered by BUT — the one hard edge rule proposed |
+| BUT | this section against the last | TURN, ANCHOR, RESOLVE, DEPART | ~~a TURN may ONLY be entered by BUT — the one hard edge rule proposed~~ SOFTENED by ruling (§F·4): TURN enters by BUT or JUXTAPOSE — the *ten* witness |
 | AND-THEN | mere succession | any | legal and conventionally limited — the writers-room ban is a CONVENTION (doctrine 6); a chain of them is what the panel calls an inventory |
 | MEANWHILE | elsewhere, same time | ESTABLISH, DWELL | |
 | ELABORATE | deeper into the same moment | DWELL (natural home), JUDGE | |
@@ -112,12 +121,49 @@ declared by the writer, declared-silences-drawn — M-117's precedence
 whole). Enforcement is NOT in this document's scope: the split between
 gate, disclosure, and panel is step 5's, after calibration.
 
-## F · Questions for the red pen, tersely answerable
+## F · Questions for the red pen — RULED 2026-08-25 under the owner's delegation
 
-1. The eight atoms — right list? In particular: is JUDGE a real atom or
-   a species of DWELL?
-2. chorus = ANCHOR alone, or admit DWELL as a second face?
-3. The drop / breakdown / reprise hesitations in §B.
-4. TURN-only-by-BUT — keep as the one hard edge rule, or soften?
-5. Default collapse: drawn (planner's dice, M-117 style) or
-   writer-declared, when the writer says nothing?
+1. The eight atoms — right list? Is JUDGE real or a species of DWELL?
+   **RULED: the eight stand, JUDGE is real.** The external witness is
+   Labov's natural-narrative schema, where EVALUATION is the component
+   that separates a story from a report — and it maps onto this table
+   nearly one-to-one (orientation→ESTABLISH, complicating
+   action→COMPLICATE, evaluation→JUDGE, result→RESOLVE, coda→DEPART).
+   A section can dwell without judging and judge without dwelling; the
+   banked one-line verse of `crooked_waltz.txt` judges and dwells on
+   nothing.
+2. chorus = ANCHOR alone, or admit DWELL?
+   **RULED: ANCHOR alone.** The atoms name STRUCTURAL roles, not
+   content registers — a purely sensory chorus is still the fixed
+   point the song returns to — and two faces indistinguishable without
+   reading meaning must be one face (the same parsimony that keeps
+   doctrine 6 out of this layer).
+3. The drop / breakdown / reprise hesitations.
+   **RULED: drop = ANCHOR alone** (the "arrival" quality lives in the
+   inbound edge, not a second face; no new edge rule — the build→drop
+   THEREFORE stays prose); **breakdown = DWELL stands** (the gloss is
+   an arrangement fact; a writer wanting the quiet reveal has the
+   bridge); **reprise = ANCHOR with no junction mandate** — the
+   "changed" half is already graded by grid's reprise machinery, and a
+   second spelling of it here would be doctrine 1's own defect.
+4. TURN-only-by-BUT — keep or soften?
+   **RULED: SOFTENED to {BUT, JUXTAPOSE}, and the draft was wrong.**
+   Kishōtenketsu's *ten* is a turn entered by juxtaposition, not
+   opposition — a master tradition, and the hard rule would have
+   structurally banned that family, which is doctrine 24's forbidden
+   move (a rule that deletes a category must relabel instead).
+   THEREFORE and AND-THEN stay excluded from TURN: a turn caused by
+   the previous section is consequence, and "and then everything
+   changed" is the unearned reversal.
+5. Default collapse: drawn or writer-declared?
+   **RULED: drawn, declared-silences-drawn** — M-117's precedence
+   pattern, the owner's own standing ruling one coordinate over.
+   Entropy consumed after every existing draw, so seed shapes and
+   relation draws stay byte-identical.
+
+One post-sweep addendum ruled in the same sitting: **tag stays JUDGE.**
+The tag-first zero-shapes hang on that row, and they should — a tag
+opening the song contradicts its own gloss ("closing a section or the
+song"), and the cold-open fragment songwriting actually uses is the
+hook, which is ANCHOR and legal. The narrative layer here rules on the
+case M-54's placement layer recorded as `placement_refused`.

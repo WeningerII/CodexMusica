@@ -11571,3 +11571,34 @@ versus those that agree on some other channel set. Panel verdicts are
 non-reproducible; nothing in CI gates on the finding that raised this.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~177~~ -> **178**.
+
+### M-121 · the narrative vocabulary's five rulings, made under the owner's delegation `CLOSED`
+Filed and closed 2026-08-25. The owner declined `NARRATIVE_DESIGN.md`
+§F's red pen and delegated the rulings to the session in their own
+words ("I'm not going to answer on those rulings ... believe in
+yourself ... you've been testing and gating this whole time; if you
+fuck up then alarms will go off and you can fix it or pivot"). The
+five, ruled on the merits and recorded with reasons in §F: (1) the
+eight atoms stand and JUDGE is real — Labov's evaluation component is
+the external witness, and the schema maps onto the atom table nearly
+one-to-one; (2) chorus = ANCHOR alone — atoms name structural roles,
+not content registers, and faces indistinguishable without reading
+meaning must be one face; (3) drop = ANCHOR alone, breakdown = DWELL,
+reprise = ANCHOR with its "changed" half owned by grid's reprise
+machinery (doctrine 1, one definition); (4) **the draft's one hard
+edge rule was WRONG and is softened**: TURN enters by {BUT, JUXTAPOSE},
+not BUT alone — kishōtenketsu's *ten* is a turn entered by
+juxtaposition, a master tradition the hard rule would have structurally
+banned, which is doctrine 24's forbidden move; (5) the collapse is
+drawn by default, declared-silences-drawn — M-117's precedence, the
+owner's own standing ruling one coordinate over. Post-sweep addendum:
+tag stays JUDGE, so tag-first shapes admit no story — a tag opening
+the song contradicts its own "closing" gloss, and this rules the case
+M-54 recorded as `placement_refused`. **MEASURED either side of the
+softening, seeds 1–40: the five zero-shapes STAND (every one fails at
+the OPENING, where no inbound junction exists to soften) and every
+admitting shape's count rose — seed 31 3,888 → 4,176.** All rulings
+are one-row edits in `quality/narrative.py`, the one definition, with
+`test_narrative.py`'s pins moving loudly on any later reversal.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~178~~ -> **179**.

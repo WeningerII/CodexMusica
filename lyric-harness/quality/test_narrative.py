@@ -1,8 +1,8 @@
 """Tests for quality/narrative.py — the vocabulary tables and the exact
-line-up counter. The tables transcribe NARRATIVE_DESIGN.md (DRAFT, under
-the owner's red pen); these tests hold the MODULE's internal consistency
-and the counter's behavior, so a red-pen row edit moves pins loudly
-instead of silently."""
+line-up counter. The tables transcribe NARRATIVE_DESIGN.md as RULED
+2026-08-25 under the owner's delegation (M-121); these tests hold the
+MODULE's internal consistency and the counter's behavior, so a later
+ruling's row edit moves pins loudly instead of silently."""
 
 import os
 import sys
@@ -30,12 +30,13 @@ def test_tables():
           "and every junction has one",
           set(N.ENTER) == set(N.JUNCTIONS)
           and all(set(v) <= set(N.ATOMS) for v in N.ENTER.values()))
-    only = [j for j in N.JUNCTIONS if "TURN" in N.ENTER[j]]
-    check("the one hard edge rule is held STRUCTURALLY: TURN appears in "
-          "exactly BUT's enter set — the doc's 'any' cells compose with "
-          "this narrowing, and a membership edit is the mutation that "
-          "kills this check",
-          only == ["BUT"], f"TURN enterable by {only}")
+    only = sorted(j for j in N.JUNCTIONS if "TURN" in N.ENTER[j])
+    check("the TURN rule is held STRUCTURALLY: TURN appears in exactly "
+          "the BUT and JUXTAPOSE enter sets — softened from BUT-only by "
+          "the M-121 ruling on the kishotenketsu witness (the ten is a "
+          "turn entered by juxtaposition); THEREFORE and AND_THEN stay "
+          "out, and a membership edit is the mutation that kills this",
+          only == ["BUT", "JUXTAPOSE"], f"TURN enterable by {only}")
     check("every invariant-return function is a declared function with a "
           "non-empty candidate set (a card must have at least one face)",
           all(N.FUNCTION_ATOMS.get(f) for f in N.INVARIANT_RETURNS))
@@ -67,13 +68,12 @@ def test_position_rules():
 
 def test_returning_sections():
     print("\n3. the card rule and the room-between-returns rule (§D)")
-    # [drop, drop]: card ANCHOR -> back-to-back second instance may not
-    # take an inbound BUT; ANCHOR is otherwise enterable by THEREFORE,
-    # AND_THEN, JUXTAPOSE = 3 junctions. Card RESOLVE -> refused at the
-    # opening (no prior COMPLICATE). Hand-derived total: 3.
+    # [drop, drop]: the ruled row is ANCHOR alone. Back-to-back second
+    # instance may not take an inbound BUT; ANCHOR is otherwise
+    # enterable by THEREFORE, AND_THEN, JUXTAPOSE = 3. Hand-derived: 3.
     check("[drop, drop] counts exactly 3 — the ANCHOR card's three "
-          "non-BUT inbound junctions, the RESOLVE card refused at the "
-          "open; both drops share one card by construction",
+          "non-BUT inbound junctions; both drops share one card by "
+          "construction",
           N.count_lineups(["drop", "drop"]) == 3,
           N.count_lineups(["drop", "drop"]))
     n_b2b = N.count_lineups(["verse", "chorus", "chorus"])
@@ -102,8 +102,8 @@ def test_refusal_and_determinism():
     check("the count is deterministic — two calls agree exactly "
           "(doctrine 66: no RNG, no set-order dependence)",
           N.count_lineups(shape) == N.count_lineups(shape))
-    check("the classic verse-chorus-bridge shape admits, and its bridge "
-          "TURN is reachable only through the mandated inbound BUT",
+    check("the classic verse-chorus-bridge shape admits, its bridge "
+          "TURN entered by BUT or JUXTAPOSE per the ruled edge rule",
           N.admits(shape))
 
 
@@ -112,15 +112,18 @@ def test_measured_seeds():
           "(2026-08-25, seeds 1-40: 35 admit, 5 admit zero, every zero "
           "failing at the OPENING)")
     from quality import plan as P
-    pins = {31: 3888, 1: 730368, 7: 414720, 4: 0, 11: 0, 20: 0}
+    pins = {31: 4176, 1: 820224, 7: 881280, 4: 0, 11: 0, 20: 0}
     got = {}
     for seed, want in sorted(pins.items()):
         fns = [s["function"] for s in P.make_plan(seed)["sections"]]
         got[seed] = N.count_lineups(fns)
     check("six pinned seeds re-derive exactly — three shapes with "
-          "line-ups (seed 31, Crooked Waltz's shape, at 3,888) and the "
-          "three zero-shapes (bridge-first x1, false_ending-first x1, "
-          "tag-first x1)", got == pins, got)
+          "line-ups (seed 31, Crooked Waltz's shape, at 4,176 under the "
+          "ruled tables) and the three zero-shapes (bridge-first, "
+          "false_ending-first, tag-first — all five sweep zeros stand "
+          "under the softened TURN rule, since every one fails at the "
+          "OPENING where no inbound junction exists to soften)",
+          got == pins, got)
 
 
 if __name__ == "__main__":
