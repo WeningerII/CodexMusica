@@ -11489,3 +11489,25 @@ declared route still judge them — they are only not drawn, so a richer
 witness is the one honest way to widen the dice.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~174~~ -> **175**.
+
+### M-118 · the relation draw needed its own conjunction gate `CLOSED`
+Filed and closed 2026-08-25, the hour the first drawn plan was read for
+writing. Seed 4's ungated draw put pantun ABAB — whose own placement rule
+spans at most two lines — on a group with a gap of eight, and monorhyme's
+coda-Agree against assonance's coda-Differ on the same shared line pair
+(1,6): every constraint individually legal, the conjunction held by
+nothing, which is M-79's finding replayed on the relation coordinate.
+**MEASURED before the gate: 39 of 40 seeds (4-43) drew a jointly
+unsatisfiable schema conjunction. After: 0 of 40.** The gate filters each
+group's pool by what is decidable WITHOUT WORDS — the schema's own
+line-gap ceiling over the group's pairs, and channel compatibility with
+schemas already drawn on shared pairs — reading both coordinates through
+`relations.drawable_traits()` (derived from the registry rows in the
+module that owns them; the planner's import guard admits only the
+vocabulary). Rejection keeps the dice uniform over the accepted set, and
+the bare default keeps every pool non-empty by construction. The channel
+signature is approximate on purpose (scopes are not read) and the GRADER
+stays the final word; `test_plan.py` §14 replays the gate's two rules
+over fresh draws and pins the defect at zero.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~175~~ -> **176**.

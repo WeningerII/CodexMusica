@@ -6486,6 +6486,34 @@ def derive_drawable_schemas(phon=None):
     return tuple(out)
 
 
+def drawable_traits():
+    """-> {name: {"gap": int|None, "endclaims": {channel: predicate name}}}
+    for every drawable schema — the two coordinates the PLANNER's
+    conjunction gate reads (M-118): the schema's own line-gap ceiling, and
+    the channel predicates it demands of a line-FINAL claim (polarity-True
+    `both_line_final` only; a line-initial or negated-final schema claims
+    no end and conflicts with none). Derived from the registry rows here,
+    in the module that owns them, so the planner never reads a row itself
+    — its import guard narrows it to this vocabulary (doctrine 1: one
+    reader of the rows per question).
+    """
+    out = {}
+    for name in DRAWABLE_SCHEMAS:
+        sch = REGISTRY[name]
+        gap = None
+        for p in sch.placement:
+            if p.kind == "line_gap_at_most" and p.polarity:
+                gap = p.args[0]
+        claims = {}
+        if any(p.kind == "both_line_final" and p.polarity
+               for p in sch.placement):
+            for c in sch.channels or ():
+                if c.required:
+                    claims[c.channel] = type(c.predicate).__name__
+        out[name] = {"gap": gap, "endclaims": claims}
+    return out
+
+
 #: ADOPTED 2026-08-25 from `derive_drawable_schemas()` (owner ruling "now do
 #: the planner too", M-117). Re-derived by `quality/test_plan.py`; a moved
 #: pool is a moved witness or a moved registry, and either fails loud.

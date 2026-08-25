@@ -681,7 +681,11 @@ def test_the_measure():
     # phonology reach, so an unrestricted admission would hand the planner
     # a stream builder, which is the corpus arriving at the dice by a
     # longer road.
-    ALLOWED_FROM_RELATIONS = {"DRAWABLE_SCHEMAS"}
+    ALLOWED_FROM_RELATIONS = {"DRAWABLE_SCHEMAS", "drawable_traits"}
+    # `drawable_traits` joined with M-118's conjunction gate: the
+    # gap ceiling and end-channel signature per drawable schema,
+    # derived in relations.py from its own rows so the planner
+    # never reads a row itself.
     grid_names, floor_names = set(), set()
     cap_names, slot_names, rel_names = set(), set(), set()
     for n in ast.walk(tree):
@@ -1989,7 +1993,7 @@ def test_the_relation_draw():
           "adoption pattern)",
           tuple(RL.DRAWABLE_SCHEMAS) == RL.derive_drawable_schemas(),
           "adoption drifted from derivation")
-    pl = P.make_plan(7)
+    pl = PLN.make_plan(7)
     n_groups = len(pl["groups"].split(";"))
     drawn = pl.get("relations") or {}
     check("a plan draws relations for its groups and every drawn name "
@@ -1998,18 +2002,18 @@ def test_the_relation_draw():
                         for v in drawn.values()),
           f"{len(drawn)} drawn over {n_groups} groups")
     check("every drawn label is a label the mandate itself would generate "
-          "— `SC.label`, one definition, no respelling",
-          set(drawn) <= {SC.label((k,)) for k in range(n_groups)},
+          "— `PLN.SC.label`, one definition, no respelling",
+          set(drawn) <= {PLN.SC.label((k,)) for k in range(n_groups)},
           f"labels {sorted(drawn)[:6]}")
     check("the grading command CARRIES the draw — a declared coordinate "
           "read by nothing is the defect this repo has an instrument for",
-          "--relations=" in P.grading_command(pl),
-          P.grading_command(pl)[-80:])
+          "--relations=" in PLN.grading_command(pl),
+          PLN.grading_command(pl)[-80:])
     check("the draw is DISCLOSED in choices, like every other draw",
           "relations" in pl["choices"]
           and pl["choices"]["relations"]["value"] == drawn,
           "choices.relations missing or diverged")
-    pl2 = P.make_plan(7, relation="class:ASSONANCE")
+    pl2 = PLN.make_plan(7, relation="class:ASSONANCE")
     check("a writer's own --relation SILENCES the draw — a declared "
           "coordinate is carried, never sampled over (M-55)",
           pl2.get("relations") == {} and pl2["relation"],
@@ -2019,6 +2023,40 @@ def test_the_relation_draw():
           "groups, returns and meter unmoved between the two calls above",
           pl["groups"] == pl2["groups"] and pl["returns"] == pl2["returns"],
           "shape moved with the relation coordinate")
+    # THE CONJUNCTION GATE (M-118): before it, 39 of 40 seeds drew a
+    # jointly unsatisfiable schema conjunction — a gap-limited schema on a
+    # pair its own placement forbids, or two groups sharing a line pair
+    # with opposite channel predicates. The check replays the gate's own
+    # two rules over fresh draws with the registry's own coordinates, so a
+    # schema whose traits move re-asks the question rather than trusting
+    # the draw-time filter.
+    from itertools import combinations
+    traits = RL.drawable_traits()
+    bad = 0
+    for sd in (4, 7, 11, 19, 23, 31):
+        p3 = PLN.make_plan(sd)
+        r3 = p3.get("relations") or {}
+        gl3 = [tuple(sorted({int(str(m).split(".")[0])
+                             for m in g.split(",")}))
+               for g in p3["groups"].split(";")]
+        owner = {}
+        for gi, g in enumerate(gl3):
+            nm = r3.get(PLN.SC.label((gi,)))
+            if not nm:
+                continue
+            t = traits[nm.split(":", 1)[1]]
+            for a, b in combinations(g, 2):
+                if t["gap"] is not None and b - a > t["gap"]:
+                    bad += 1
+                for ch, pred in t["endclaims"].items():
+                    if owner.get((a, b), {}).get(ch) not in (None, pred):
+                        bad += 1
+                if t["endclaims"]:
+                    owner.setdefault((a, b), {}).update(t["endclaims"])
+    check("no drawn conjunction violates a schema's own gap ceiling or "
+          "puts opposite channel predicates on one shared pair — the "
+          "measured 39-of-40 defect reads ZERO through the gate",
+          bad == 0, f"{bad} violation(s) over six seeds")
 
 
 if __name__ == "__main__":

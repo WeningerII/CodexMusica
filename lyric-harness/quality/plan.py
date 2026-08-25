@@ -2515,13 +2515,56 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     # This runs AFTER the end-rhyme pass so the added end groups draw too,
     # and consumes entropy strictly AFTER every existing draw, so a seed's
     # shape under the old planner is byte-identical under this one.
+    # THE CONJUNCTION GATE ON THE DRAW ITSELF (M-118, filed the hour the
+    # first drawn plan was read): measured over seeds 4-43 before this
+    # filter, 39 OF 40 seeds drew a jointly unsatisfiable schema
+    # conjunction — a gap-limited schema on a pair its own placement rule
+    # forbids (pantun ABAB spans at most 2 lines and the draw put it on a
+    # gap of 8), or two groups SHARING a line pair whose schemas demand
+    # opposite predicates on one channel (monorhyme's coda-Agree against
+    # assonance's coda-Differ on the same two end words). Every constraint
+    # was individually legal and nothing held their conjunction — M-79's
+    # finding replayed one coordinate over, and the same repair: filter
+    # the pool per group by what is decidable WITHOUT WORDS, draw uniform
+    # over the ACCEPTED subset (rejection keeps the dice flat — the
+    # planner's own idiom), and let the bare default — compatible with
+    # everything, since the whole-vocabulary fan satisfies it on any
+    # relation — keep the pool non-empty by construction. The channel
+    # signature is approximate on purpose (scope subtleties are not read);
+    # the GRADER stays the final word, and this gate only removes draws
+    # that are unsatisfiable on the registry's own declared coordinates.
     drawn_relations = {}
     if not relation:
-        _pool = ("",) + tuple(_RL.DRAWABLE_SCHEMAS)
+        _traits = _RL.drawable_traits()
+        _grp_lines = [sorted({int(str(m).split(".")[0])
+                              for m in g.split(",")})
+                      for g in ";".join(
+                          ",".join(str(x) for x in g) for g in groups
+                      ).split(";")]
+        _pair_claims = {}
         for _gi in range(len(groups)):
-            _pick = _pool[rng.randrange(len(_pool))]
+            _lines = _grp_lines[_gi]
+            _pairs = [(a, b) for i2, a in enumerate(_lines)
+                      for b in _lines[i2 + 1:]]
+            _ok = [""]
+            for _cand in _RL.DRAWABLE_SCHEMAS:
+                _t = _traits[_cand]
+                if _t["gap"] is not None and any(
+                        b - a > _t["gap"] for a, b in _pairs):
+                    continue
+                _ec = _t["endclaims"]
+                if _ec and any(
+                        _pair_claims.get(p, {}).get(ch) not in (None, pred)
+                        for p in _pairs for ch, pred in _ec.items()):
+                    continue
+                _ok.append(_cand)
+            _pick = _ok[rng.randrange(len(_ok))]
             if _pick:
                 drawn_relations[SC.label((_gi,))] = "schema:" + _pick
+                _ec = _traits[_pick]["endclaims"]
+                if _ec:
+                    for p in _pairs:
+                        _pair_claims.setdefault(p, {}).update(_ec)
     plan["relations"] = drawn_relations
     plan["choices"]["relations"] = {
         "chosen_from": (
