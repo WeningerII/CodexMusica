@@ -544,6 +544,59 @@ remedy.
 
 ---
 
+## The series to date — four songs under one set of instruments, 2026-08-25
+
+The forward loop closed today on the owner's instruction, four songs in:
+`long_bridge` (the defect record), `taught_me_time` (the forward
+validation), `wheat_mane` (seed 2), `matinee` (seed 3). Seed 4's plan is
+drawn and recorded (`songs/song5.log.tsv`, plan step 1 plus the first
+family screens) and stops there — a stub for whichever session reopens the
+loop. What four points support, stated as four points and not a slope:
+
+**The cause profile moved even where the round count did not.**
+taught_me_time needed four grading rounds of WRITING repairs;
+matinee also needed four rounds, and nineteen of its twenty-two round-1
+scheme violations fell to a mandate respelling with zero word changes
+(M-114), with the screen's verdict vocabulary supplying the rest (M-113).
+The gates are catching authoring errors upstream of the words now, which
+is where wheat_mane's opening-pass green said the words had stopped
+needing them.
+
+**Screen-first pushes predictability the pre-registered direction, twice.**
+The two screen-first songs hold the floor of the banked set: wheat_mane lowest at 0.609665 [RESULTS: rhyme_predictability_mean wheat_mane.txt]
+and matinee second-lowest at 0.787907 [RESULTS: rhyme_predictability_mean matinee.txt].
+
+**The glossary stays confined to the pre-gate songs, on every instrument.**
+Panel runs 3 and 4 both return STRONG at 3/3 with every evidence list
+locating the iron/groan/ache/stone/spare cluster in the first six songs;
+the mechanical DF agrees (fifteen content types shared by four or more of
+the nine, matinee in two of them, wheat_mane in two of sixteen at the
+eight-song count). Avoidance works on the words a writer watches.
+
+**And the funnel operates on the words the screen hands out.** Fifteen of
+matinee's 95 bound words were sung in earlier banked songs never
+consulted; eleven of wheat_mane's 52; and run 4 produced the first
+PHRASE-level receipt — "dried salt" verbatim in both sea songs. M-111's
+reuse disclosure remains the open remedy, awaiting the owner's ruling.
+
+**Each closed gate moves the pressure one surface over, which is the
+series' core finding.** Verbless stacks were gated (M-110) and did not
+recur; the binding pressure that produced them moved into semantics in the
+maximally bound sections (wheat_mane CHORUS1 2/3, matinee VAMP1 3/3
+unanimous — M-112, third reproduction); and the prominence band's repairs
+were then heard by a blind judge as padding and clot the count cannot see
+(M-115). Grammar gate live, drift into semantics; count band live, drift
+into adjacency. The quantity underneath all three is the mandate's local
+weight on a section, and M-112's disclosure is the named next instrument.
+
+**Green and good stay different claims.** Run 4's three set judges, asked
+to name one song to cut, all three named wheat_mane — the series' only
+opening-pass green — for its drawn SHAPE ("never returns to a chorus"), a
+taste question about the planner's form draw that belongs to the owner,
+not to a gate.
+
+---
+
 ## What the screen cost, measured
 
 The first draft of the flood song (seed 108, since superseded) had **15 of

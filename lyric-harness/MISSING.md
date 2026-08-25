@@ -11395,3 +11395,28 @@ byte-identical to `T1` and refusing it would be a false positive by
 construction).
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~171~~ -> **172**.
+
+### M-115 · the prominence band is a count, and both of its evasions are audible `OPEN`
+Filed 2026-08-25, from panel run 4 (`quality/RESULTS_PANEL.md` §7).
+`matinee.txt`'s eleven PROMINENCE_OUT_OF_BAND flags were cleared by
+function-word dilution — every bound word held, prominent syllables
+brought to seven or fewer, the band green — and a blind prosody judge
+then quoted the repairs themselves: "'and the' strings two limp function
+words together as audible padding", on the exact line the dilution took
+from nine prominent to seven. The judge's other rejection is the same
+instrument's other blind spot inverted: "six stressed monosyllables stack
+with no unstressed syllable to hang a phrase on" — on a line the band
+PASSES at seven, because seven prominent of nine syllables with the
+stresses ADJACENT is a clot the count cannot see. One coordinate, two
+audible evasions: pad down into the band, or clot inside it. The band
+itself is correct and stays (its calibration is over counts, and a count
+was the right first instrument); what is missing is any disclosure of
+ADJACENCY — a run of N consecutive prominent syllables, or a run of N
+consecutive weak ones, is derivable from the same reader that counts, and
+today neither is said by anything. Whether a calibrated ceiling on stress
+runs can gate without charging deliberate emphasis (a chant line WANTS
+the clot) is a band question needing its own corpus measurement, stated
+as an FPR (doctrine 22); until then the panel stays the only instrument
+that can hear it, per §4's subtle-mode refusal.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~172~~ -> **173**.

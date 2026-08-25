@@ -190,3 +190,59 @@ A=turn_the_wheel B=keep_the_light C=matinee D=stay_awake E=long_bridge
 F=wheat_mane G=one_more H=carry_it_over I=taught_me_time (suspect C
 neither first nor last). Results below were appended after the ballots
 returned; nothing above this sentence moved after launch.
+
+**Section lens (3 judges — sentences, imagery, prosody — every ballot
+quoting its section):** VAMP1 REJECTED **3/3** — the first unanimous
+section rejection since run 2's three. Sentences: "Prayer kites, curator
+quips, and all July" — "a three-item noun list with no verb anywhere in
+the line". Imagery: "'ballet receipt' is a nonsense object, and the
+section as a whole strings in dukes, an heir, a museum curator, an arcade,
+and a hotel suite ... words chosen to hit the -ay/-eat sound family rather
+than to build one scene". Prosody: "'Bronze dukes nod' collides three
+heavy stressed monosyllables". VAMP1 is the song's largest and most bound
+section (twelve lines carrying the seven-member EY clique and the
+five-member IY-T clique among others) — M-112's local-binding pressure
+reproducing for the third consecutive measured song, now with the grammar
+gate live and the drift split between semantics and a verbless line the
+STACKED predicate did not read (its commas are light). Majority rejection:
+CODA1 at 2/3 (imagery: "a giraffe appears out of nowhere ... imported to
+rhyme with 'carafe'"; prosody: "the highest density of unphraseable
+lines"). Minority: CHORUS1 1/3 and VERSE1 1/3, both prosody — and both
+quotes name the PROMINENCE REPAIRS: "'and the' strings two limp function
+words together as audible padding" (the dilution that took L10 from nine
+prominent to seven) and "six stressed monosyllables stack with no
+unstressed syllable to hang a phrase on" (a line the band PASSES at
+seven). Filed as M-115: the band is a COUNT, and both of its evasions are
+audible — padding down into it, and clotting inside it.
+
+**Set lens (3 judges, all nine songs):** glossary verdict 3/3 STRONG, and
+all three evidence lists confine the core cluster (iron, groan, stone,
+ache, spare, cost, crossed, nigh, thread, brake, stair, quay, cinder,
+freight, spark, dark) to the six pre-gate songs — one judge: "seven of
+nine songs draw on this same lexicon", counting the two sea songs' freight
+/tide/opaque rows in. C (matinee) odd-one-out **3/3** — "the only song
+built entirely on French-loanword, urban-leisure diction ... with none of
+the iron/stone/ache/dark/freight glossary". Weakest: F (wheat_mane) at
+**3/3** — a NEW convergence, and the reason is SHAPE, not words: "it never
+returns to a chorus or hook and simply stops mid-thought after a single
+verse", which is seed 2's own drawn form (the song ends on a fresh
+two-line verse) read blind as an unfinished song. Run 3's weakest
+(long_bridge, 2/3) now sits inside the glossary cluster unremarked — a
+different panel, a different set, and the disagreement is kept as data.
+One judge also produced a PHRASE-level funnel receipt across the two sea
+songs: "dried salt" verbatim in long_bridge and wheat_mane, two songs
+written months of tree-time apart with no shared session.
+
+**The mechanical half, re-derived here:** content types in >= 4 of the
+nine songs: 15, and matinee appears in two (all, door). The core cluster
+stays confined to the first five songs; all three gate-era songs sit
+outside it. The panel's verdicts are model output at nonzero temperature;
+nothing in CI gates on this section.
+
+**What run 4 changes:** the padding finding is new and is filed
+(`MISSING.md` M-115); the maximally-bound-section finding is M-112's
+third reproduction and strengthens the case for its disclosure; and the
+weakest-song verdict moving to a SHAPE cause hands the planner a taste
+question — whether a drawn form that ends on unreturned new material
+should disclose itself — that is the owner's to rule on, not a gate to
+build.
