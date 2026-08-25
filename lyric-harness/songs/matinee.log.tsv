@@ -142,3 +142,396 @@ matinee	7	2026-08-25	60b6c30-WORKING	screen	0	pair:equator~crater	CLEAN
 matinee	7	2026-08-25	60b6c30-WORKING	screen	0	banned	1
 matinee	7	2026-08-25	60b6c30-WORKING	screen	0	refused	0
 matinee	7	2026-08-25	60b6c30-WORKING	screen	0	clean_or_non_rhyme	9
+matinee	8	2026-08-25	13d96a9	screen	0	pair:flat~matte	CLEAN
+matinee	8	2026-08-25	13d96a9	screen	0	banned	0
+matinee	8	2026-08-25	13d96a9	screen	0	refused	0
+matinee	8	2026-08-25	13d96a9	screen	0	clean_or_non_rhyme	1
+matinee	9	2026-08-25	13d96a9-WORKING	screen	0	pair:cheap~sleep	BANNED: MODAL_RHYME
+matinee	9	2026-08-25	13d96a9-WORKING	screen	0	banned	1
+matinee	9	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	9	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	0
+matinee	10	2026-08-25	13d96a9-WORKING	screen	0	pair:late~await	CLEAN
+matinee	10	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	10	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	10	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	1
+matinee	11	2026-08-25	13d96a9-WORKING	screen	0	pair:pane~champagne	CLEAN
+matinee	11	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	11	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	11	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	1
+matinee	12	2026-08-25	13d96a9-WORKING	screen	0	pair:screen~scene	BANNED: MODAL_RHYME
+matinee	12	2026-08-25	13d96a9-WORKING	screen	0	banned	1
+matinee	12	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	12	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	0
+matinee	13	2026-08-25	13d96a9-WORKING	screen	0	pair:pours~outdoors	CLEAN
+matinee	13	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	13	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	13	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	1
+matinee	14	2026-08-25	13d96a9-WORKING	screen	0	pair:gold~cajoled	BANNED: MODAL_RHYME
+matinee	14	2026-08-25	13d96a9-WORKING	screen	0	pair:gold~bowled	BANNED: MODAL_RHYME
+matinee	14	2026-08-25	13d96a9-WORKING	screen	0	pair:cajoled~bowled	BANNED: HOMEOTELEUTON
+matinee	14	2026-08-25	13d96a9-WORKING	screen	0	banned	3
+matinee	14	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	14	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	0
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:repeat~receipt	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:repeat~elite	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:repeat~deceit	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:repeat~street	BANNED: MODAL_RHYME
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:repeat~suite	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:repeat~complete	BANNED: MODAL_RHYME
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:receipt~elite	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:receipt~deceit	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:receipt~street	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:receipt~suite	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:receipt~complete	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:elite~deceit	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:elite~street	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:elite~suite	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:elite~complete	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:deceit~street	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:deceit~suite	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:deceit~complete	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:street~suite	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:street~complete	BANNED: MODAL_RHYME
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	pair:suite~complete	CLEAN
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	banned	3
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	15	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	18
+matinee	16	2026-08-25	13d96a9-WORKING	screen	0	pair:tonight~invite	CLEAN
+matinee	16	2026-08-25	13d96a9-WORKING	screen	0	pair:tonight~height	CLEAN
+matinee	16	2026-08-25	13d96a9-WORKING	screen	0	pair:tonight~polite	CLEAN
+matinee	16	2026-08-25	13d96a9-WORKING	screen	0	pair:tonight~alight	BANNED: HOMEOTELEUTON
+matinee	16	2026-08-25	13d96a9-WORKING	screen	0	pair:invite~height	CLEAN
+matinee	16	2026-08-25	13d96a9-WORKING	screen	0	pair:invite~polite	BANNED: HOMEOTELEUTON
+matinee	16	2026-08-25	13d96a9-WORKING	screen	0	pair:invite~alight	CLEAN
+matinee	16	2026-08-25	13d96a9-WORKING	screen	0	pair:height~polite	CLEAN
+matinee	16	2026-08-25	13d96a9-WORKING	screen	0	pair:height~alight	CLEAN
+matinee	16	2026-08-25	13d96a9-WORKING	screen	0	pair:polite~alight	CLEAN
+matinee	16	2026-08-25	13d96a9-WORKING	screen	0	banned	2
+matinee	16	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	16	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	8
+matinee	17	2026-08-25	13d96a9-WORKING	screen	0	pair:later~greater	CLEAN
+matinee	17	2026-08-25	13d96a9-WORKING	screen	0	pair:later~waiter	CLEAN
+matinee	17	2026-08-25	13d96a9-WORKING	screen	0	pair:later~curator	CLEAN
+matinee	17	2026-08-25	13d96a9-WORKING	screen	0	pair:greater~waiter	CLEAN
+matinee	17	2026-08-25	13d96a9-WORKING	screen	0	pair:greater~curator	CLEAN
+matinee	17	2026-08-25	13d96a9-WORKING	screen	0	pair:waiter~curator	CLEAN
+matinee	17	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	17	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	17	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	6
+matinee	18	2026-08-25	13d96a9-WORKING	screen	0	pair:beam~theme	BANNED: MODAL_RHYME
+matinee	18	2026-08-25	13d96a9-WORKING	screen	0	banned	1
+matinee	18	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	18	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	0
+matinee	19	2026-08-25	13d96a9-WORKING	screen	0	pair:sweet~repeat	BANNED: MODAL_RHYME
+matinee	19	2026-08-25	13d96a9-WORKING	screen	0	pair:sweet~petite	CLEAN
+matinee	19	2026-08-25	13d96a9-WORKING	screen	0	pair:repeat~petite	CLEAN
+matinee	19	2026-08-25	13d96a9-WORKING	screen	0	banned	1
+matinee	19	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	19	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	2
+matinee	20	2026-08-25	13d96a9-WORKING	screen	0	pair:loose~spruce	CLEAN
+matinee	20	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	20	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	20	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	1
+matinee	21	2026-08-25	13d96a9-WORKING	screen	0	pair:appear~severe	BANNED: MODAL_RHYME
+matinee	21	2026-08-25	13d96a9-WORKING	screen	0	pair:appear~premier	CLEAN
+matinee	21	2026-08-25	13d96a9-WORKING	screen	0	pair:appear~souvenir	CLEAN
+matinee	21	2026-08-25	13d96a9-WORKING	screen	0	pair:appear~veneer	CLEAN
+matinee	21	2026-08-25	13d96a9-WORKING	screen	0	pair:severe~premier	CLEAN
+matinee	21	2026-08-25	13d96a9-WORKING	screen	0	pair:severe~souvenir	CLEAN
+matinee	21	2026-08-25	13d96a9-WORKING	screen	0	pair:severe~veneer	CLEAN
+matinee	21	2026-08-25	13d96a9-WORKING	screen	0	pair:premier~souvenir	CLEAN
+matinee	21	2026-08-25	13d96a9-WORKING	screen	0	pair:premier~veneer	CLEAN
+matinee	21	2026-08-25	13d96a9-WORKING	screen	0	pair:souvenir~veneer	CLEAN
+matinee	21	2026-08-25	13d96a9-WORKING	screen	0	banned	1
+matinee	21	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	21	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	9
+matinee	22	2026-08-25	13d96a9-WORKING	screen	0	pair:sky~rye	BANNED: MODAL_RHYME
+matinee	22	2026-08-25	13d96a9-WORKING	screen	0	pair:sky~awry	BANNED: HOMEOTELEUTON
+matinee	22	2026-08-25	13d96a9-WORKING	screen	0	pair:rye~awry	CLEAN
+matinee	22	2026-08-25	13d96a9-WORKING	screen	0	banned	2
+matinee	22	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	22	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	1
+matinee	23	2026-08-25	13d96a9-WORKING	screen	0	pair:fatigue~league	BANNED: HOMEOTELEUTON
+matinee	23	2026-08-25	13d96a9-WORKING	screen	0	banned	1
+matinee	23	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	23	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	0
+matinee	24	2026-08-25	13d96a9-WORKING	screen	0	pair:swans~bronze	CLEAN
+matinee	24	2026-08-25	13d96a9-WORKING	screen	0	pair:swans~response	CLEAN
+matinee	24	2026-08-25	13d96a9-WORKING	screen	0	pair:bronze~response	CLEAN
+matinee	24	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	24	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	24	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	3
+matinee	25	2026-08-25	13d96a9-WORKING	screen	0	pair:lawn~gone	BANNED: MODAL_RHYME
+matinee	25	2026-08-25	13d96a9-WORKING	screen	0	banned	1
+matinee	25	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	25	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	0
+matinee	26	2026-08-25	13d96a9-WORKING	screen	0	pair:kites~heights	CLEAN
+matinee	26	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	26	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	26	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	1
+matinee	27	2026-08-25	13d96a9-WORKING	screen	0	pair:spoons~tunes	CLEAN
+matinee	27	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	27	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	27	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	1
+matinee	28	2026-08-25	13d96a9-WORKING	screen	0	pair:crumbs~drums	CLEAN
+matinee	28	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	28	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	28	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	1
+matinee	29	2026-08-25	13d96a9-WORKING	screen	0	pair:plateau~woe	CLEAN
+matinee	29	2026-08-25	13d96a9-WORKING	screen	0	pair:plateau~bestow	CLEAN
+matinee	29	2026-08-25	13d96a9-WORKING	screen	0	pair:woe~bestow	BANNED: MODAL_RHYME
+matinee	29	2026-08-25	13d96a9-WORKING	screen	0	banned	1
+matinee	29	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	29	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	2
+matinee	30	2026-08-25	13d96a9-WORKING	screen	0	pair:debut~undo	CLEAN
+matinee	30	2026-08-25	13d96a9-WORKING	screen	0	pair:debut~canoe	CLEAN
+matinee	30	2026-08-25	13d96a9-WORKING	screen	0	pair:debut~taboo	CLEAN
+matinee	30	2026-08-25	13d96a9-WORKING	screen	0	pair:debut~haiku	CLEAN
+matinee	30	2026-08-25	13d96a9-WORKING	screen	0	pair:undo~canoe	CLEAN
+matinee	30	2026-08-25	13d96a9-WORKING	screen	0	pair:undo~taboo	CLEAN
+matinee	30	2026-08-25	13d96a9-WORKING	screen	0	pair:undo~haiku	CLEAN
+matinee	30	2026-08-25	13d96a9-WORKING	screen	0	pair:canoe~taboo	CLEAN
+matinee	30	2026-08-25	13d96a9-WORKING	screen	0	pair:canoe~haiku	CLEAN
+matinee	30	2026-08-25	13d96a9-WORKING	screen	0	pair:taboo~haiku	CLEAN
+matinee	30	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	30	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	30	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	10
+matinee	31	2026-08-25	13d96a9-WORKING	screen	0	pair:shade~afraid	BANNED: MODAL_RHYME
+matinee	31	2026-08-25	13d96a9-WORKING	screen	0	pair:shade~weighed	CLEAN
+matinee	31	2026-08-25	13d96a9-WORKING	screen	0	pair:afraid~weighed	CLEAN
+matinee	31	2026-08-25	13d96a9-WORKING	screen	0	banned	1
+matinee	31	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	31	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	2
+matinee	32	2026-08-25	13d96a9-WORKING	screen	0	pair:maps~collapse	CLEAN
+matinee	32	2026-08-25	13d96a9-WORKING	screen	0	pair:maps~taps	BANNED: HOMEOTELEUTON
+matinee	32	2026-08-25	13d96a9-WORKING	screen	0	pair:collapse~taps	CLEAN
+matinee	32	2026-08-25	13d96a9-WORKING	screen	0	banned	1
+matinee	32	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	32	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	2
+matinee	33	2026-08-25	13d96a9-WORKING	screen	0	pair:coats~notes	BANNED: MODAL_RHYME
+matinee	33	2026-08-25	13d96a9-WORKING	screen	0	pair:coats~quotes	CLEAN
+matinee	33	2026-08-25	13d96a9-WORKING	screen	0	pair:notes~quotes	BANNED: HOMEOTELEUTON
+matinee	33	2026-08-25	13d96a9-WORKING	screen	0	banned	2
+matinee	33	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	33	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	1
+matinee	34	2026-08-25	13d96a9-WORKING	screen	0	pair:grace~bass	CLEAN
+matinee	34	2026-08-25	13d96a9-WORKING	screen	0	pair:grace~chase	BANNED: MODAL_RHYME
+matinee	34	2026-08-25	13d96a9-WORKING	screen	0	pair:grace~vase	CLEAN
+matinee	34	2026-08-25	13d96a9-WORKING	screen	0	pair:bass~chase	CLEAN
+matinee	34	2026-08-25	13d96a9-WORKING	screen	0	pair:bass~vase	CLEAN
+matinee	34	2026-08-25	13d96a9-WORKING	screen	0	pair:chase~vase	BANNED: HOMEOTELEUTON
+matinee	34	2026-08-25	13d96a9-WORKING	screen	0	banned	2
+matinee	34	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	34	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	4
+matinee	35	2026-08-25	13d96a9-WORKING	screen	0	pair:hotel~farewell	CLEAN
+matinee	35	2026-08-25	13d96a9-WORKING	screen	0	pair:hotel~noel	CLEAN
+matinee	35	2026-08-25	13d96a9-WORKING	screen	0	pair:hotel~gazelle	CLEAN
+matinee	35	2026-08-25	13d96a9-WORKING	screen	0	pair:farewell~noel	CLEAN
+matinee	35	2026-08-25	13d96a9-WORKING	screen	0	pair:farewell~gazelle	CLEAN
+matinee	35	2026-08-25	13d96a9-WORKING	screen	0	pair:noel~gazelle	CLEAN
+matinee	35	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	35	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	35	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	6
+matinee	36	2026-08-25	13d96a9-WORKING	screen	0	pair:appeal~reel	CLEAN
+matinee	36	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	36	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	36	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	1
+matinee	37	2026-08-25	13d96a9-WORKING	screen	0	pair:conceit~sweet	CLEAN
+matinee	37	2026-08-25	13d96a9-WORKING	screen	0	pair:conceit~petite	CLEAN
+matinee	37	2026-08-25	13d96a9-WORKING	screen	0	pair:sweet~petite	CLEAN
+matinee	37	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	37	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	37	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	3
+matinee	38	2026-08-25	13d96a9-WORKING	screen	0	pair:july~rye	CLEAN
+matinee	38	2026-08-25	13d96a9-WORKING	screen	0	pair:july~awry	BANNED: HOMEOTELEUTON
+matinee	38	2026-08-25	13d96a9-WORKING	screen	0	pair:rye~awry	CLEAN
+matinee	38	2026-08-25	13d96a9-WORKING	screen	0	banned	1
+matinee	38	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	38	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	2
+matinee	39	2026-08-25	13d96a9-WORKING	screen	0	pair:arcade~afraid	CLEAN
+matinee	39	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	39	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	39	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	1
+matinee	40	2026-08-25	13d96a9-WORKING	screen	0	pair:pond~wand	BANNED: MODAL_RHYME
+matinee	40	2026-08-25	13d96a9-WORKING	screen	0	pair:pond~beyond	BANNED: MODAL_RHYME
+matinee	40	2026-08-25	13d96a9-WORKING	screen	0	pair:wand~beyond	BANNED: MODAL_RHYME
+matinee	40	2026-08-25	13d96a9-WORKING	screen	0	banned	3
+matinee	40	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	40	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	0
+matinee	41	2026-08-25	13d96a9-WORKING	screen	0	pair:shade~weighed	CLEAN
+matinee	41	2026-08-25	13d96a9-WORKING	screen	0	pair:shade~swayed	CLEAN
+matinee	41	2026-08-25	13d96a9-WORKING	screen	0	pair:weighed~swayed	CLEAN
+matinee	41	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	41	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	41	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	3
+matinee	42	2026-08-25	13d96a9-WORKING	screen	0	pair:half~staff	BANNED: MODAL_RHYME
+matinee	42	2026-08-25	13d96a9-WORKING	screen	0	pair:half~carafe	BANNED: MODAL_RHYME
+matinee	42	2026-08-25	13d96a9-WORKING	screen	0	pair:half~giraffe	BANNED: MODAL_RHYME
+matinee	42	2026-08-25	13d96a9-WORKING	screen	0	pair:staff~carafe	CLEAN
+matinee	42	2026-08-25	13d96a9-WORKING	screen	0	pair:staff~giraffe	CLEAN
+matinee	42	2026-08-25	13d96a9-WORKING	screen	0	pair:carafe~giraffe	CLEAN
+matinee	42	2026-08-25	13d96a9-WORKING	screen	0	banned	3
+matinee	42	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	42	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	3
+matinee	43	2026-08-25	13d96a9-WORKING	screen	0	pair:disguise~goodbyes	CLEAN
+matinee	43	2026-08-25	13d96a9-WORKING	screen	0	pair:disguise~skies	BANNED: MODAL_RHYME
+matinee	43	2026-08-25	13d96a9-WORKING	screen	0	pair:disguise~surprise	BANNED: MODAL_RHYME
+matinee	43	2026-08-25	13d96a9-WORKING	screen	0	pair:goodbyes~skies	CLEAN
+matinee	43	2026-08-25	13d96a9-WORKING	screen	0	pair:goodbyes~surprise	CLEAN
+matinee	43	2026-08-25	13d96a9-WORKING	screen	0	pair:skies~surprise	BANNED: MODAL_RHYME
+matinee	43	2026-08-25	13d96a9-WORKING	screen	0	banned	3
+matinee	43	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	43	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	3
+matinee	44	2026-08-25	13d96a9-WORKING	screen	0	pair:motes~coats	CLEAN
+matinee	44	2026-08-25	13d96a9-WORKING	screen	0	pair:motes~quotes	BANNED: HOMEOTELEUTON
+matinee	44	2026-08-25	13d96a9-WORKING	screen	0	pair:motes~devotes	BANNED: HOMEOTELEUTON
+matinee	44	2026-08-25	13d96a9-WORKING	screen	0	pair:coats~quotes	CLEAN
+matinee	44	2026-08-25	13d96a9-WORKING	screen	0	pair:coats~devotes	CLEAN
+matinee	44	2026-08-25	13d96a9-WORKING	screen	0	pair:quotes~devotes	BANNED: HOMEOTELEUTON
+matinee	44	2026-08-25	13d96a9-WORKING	screen	0	banned	3
+matinee	44	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	44	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	3
+matinee	45	2026-08-25	13d96a9-WORKING	screen	0	pair:july~rye	CLEAN
+matinee	45	2026-08-25	13d96a9-WORKING	screen	0	pair:july~high	CLEAN
+matinee	45	2026-08-25	13d96a9-WORKING	screen	0	pair:rye~high	CLEAN
+matinee	45	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	45	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	45	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	3
+matinee	46	2026-08-25	13d96a9-WORKING	screen	0	pair:affair~declare	CLEAN
+matinee	46	2026-08-25	13d96a9-WORKING	screen	0	pair:affair~elsewhere	CLEAN
+matinee	46	2026-08-25	13d96a9-WORKING	screen	0	pair:affair~solitaire	CLEAN
+matinee	46	2026-08-25	13d96a9-WORKING	screen	0	pair:declare~elsewhere	CLEAN
+matinee	46	2026-08-25	13d96a9-WORKING	screen	0	pair:declare~solitaire	CLEAN
+matinee	46	2026-08-25	13d96a9-WORKING	screen	0	pair:elsewhere~solitaire	CLEAN
+matinee	46	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	46	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	46	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	6
+matinee	47	2026-08-25	13d96a9-WORKING	screen	0	pair:gleam~redeem	CLEAN
+matinee	47	2026-08-25	13d96a9-WORKING	screen	0	pair:gleam~extreme	CLEAN
+matinee	47	2026-08-25	13d96a9-WORKING	screen	0	pair:redeem~extreme	CLEAN
+matinee	47	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	47	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	47	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	3
+matinee	48	2026-08-25	13d96a9-WORKING	screen	0	pair:fair~pear	BANNED: MODAL_RHYME
+matinee	48	2026-08-25	13d96a9-WORKING	screen	0	pair:fair~prayer	BANNED: MODAL_RHYME
+matinee	48	2026-08-25	13d96a9-WORKING	screen	0	pair:fair~heir	BANNED: MODAL_RHYME
+matinee	48	2026-08-25	13d96a9-WORKING	screen	0	pair:pear~prayer	CLEAN
+matinee	48	2026-08-25	13d96a9-WORKING	screen	0	pair:pear~heir	CLEAN
+matinee	48	2026-08-25	13d96a9-WORKING	screen	0	pair:prayer~heir	CLEAN
+matinee	48	2026-08-25	13d96a9-WORKING	screen	0	banned	3
+matinee	48	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	48	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	3
+matinee	49	2026-08-25	13d96a9-WORKING	screen	0	pair:scheme~gleam	CLEAN
+matinee	49	2026-08-25	13d96a9-WORKING	screen	0	pair:scheme~redeem	CLEAN
+matinee	49	2026-08-25	13d96a9-WORKING	screen	0	pair:gleam~redeem	CLEAN
+matinee	49	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	49	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	49	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	3
+matinee	50	2026-08-25	13d96a9-WORKING	screen	0	pair:bell~gazelle	BANNED: MODAL_RHYME
+matinee	50	2026-08-25	13d96a9-WORKING	screen	0	pair:bell~hotel	CLEAN
+matinee	50	2026-08-25	13d96a9-WORKING	screen	0	pair:gazelle~hotel	CLEAN
+matinee	50	2026-08-25	13d96a9-WORKING	screen	0	banned	1
+matinee	50	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	50	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	2
+matinee	51	2026-08-25	13d96a9-WORKING	screen	0	pair:flair~pear	CLEAN
+matinee	51	2026-08-25	13d96a9-WORKING	screen	0	pair:flair~prayer	CLEAN
+matinee	51	2026-08-25	13d96a9-WORKING	screen	0	pair:flair~heir	CLEAN
+matinee	51	2026-08-25	13d96a9-WORKING	screen	0	pair:pear~prayer	CLEAN
+matinee	51	2026-08-25	13d96a9-WORKING	screen	0	pair:pear~heir	CLEAN
+matinee	51	2026-08-25	13d96a9-WORKING	screen	0	pair:prayer~heir	CLEAN
+matinee	51	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	51	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	51	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	6
+matinee	52	2026-08-25	13d96a9-WORKING	screen	0	pair:clientele~bell	CLEAN
+matinee	52	2026-08-25	13d96a9-WORKING	screen	0	pair:clientele~hotel	CLEAN
+matinee	52	2026-08-25	13d96a9-WORKING	screen	0	pair:bell~hotel	CLEAN
+matinee	52	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	52	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	52	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	3
+matinee	53	2026-08-25	13d96a9-WORKING	plan	0	form	verse-chorus
+matinee	53	2026-08-25	13d96a9-WORKING	plan	0	seed	3
+matinee	53	2026-08-25	13d96a9-WORKING	plan	0	lines	32
+matinee	53	2026-08-25	13d96a9-WORKING	plan	0	sections	8
+matinee	53	2026-08-25	13d96a9-WORKING	plan	0	pattern	hook-verse-prechorus-chorus-interlude-turnaround-vamp-coda
+matinee	53	2026-08-25	13d96a9-WORKING	plan	0	meter	5/8 as (3, 2)
+matinee	53	2026-08-25	13d96a9-WORKING	plan	0	subdivision	1
+matinee	53	2026-08-25	13d96a9-WORKING	plan	0	groups	1.T2,3.T6;2.T6,3.head;1.T3,2.T3,3.T2;4.T3,5.T6;8.T3,9.head;7.T4,9.T4,10.T5;7.endword,9.T7,10.headrime;9.T3,10.T4;12,14,23.T4;13.endword,22.head;15.T5,16.T1,19.headrime;17.T7,20;12.T3,13.T1,16,18.T4,19.T6,20.head,22.T4;18.T6,21.T3,22;12.head,13.T2,20.T2,21.endword,22.T6;12.T7,21.T7;12.T6,13.T6,14.T3,21.T1;13.T4,14.head,16.T7,21.T6;14.T2,18.T2;24.T4,27.T6,28.T7;26.T5,32.T3;25.T6,26.endword,28.T3,29.headrime,31.T3;25.T5,28.T1,31.endword;25.T2,29.endword,30.T6,31.head,32.T5;25.endword,26.headrime,30.T3;25.head,29.T2,32.T6;26.T7,30.T7,31.T7,32.headrime;1,3;4,5;8,9;15,19;24,27,28
+matinee	53	2026-08-25	13d96a9-WORKING	plan	0	returns	(none)
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	mandate_groups	32
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	lines	32
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	mandated_pairs	116
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	mandate_source	declared
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	md5	707c48614794
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	briefed	32
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	per_line_flag	35
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	per_line_note	86
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	whole_draft	14
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	whole_draft_flag	0
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:PROMINENCE_OUT_OF_BAND	FLAG x11
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:SCHEME_VIOLATION	FLAG x22
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:SLOTS_EXCEEDED	FLAG x2
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:ANACRUSIS	NOTE x3
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:COLLISION_CUT_IS_SCALAR_ONLY	NOTE x1
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:CROWDED	NOTE x2
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:DOWNBEAT_LOCKED	NOTE x1
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:FUNCTION_UNDECLARED	NOTE x1
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:HOOK_UNDECLARED	NOTE x1
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:NEAR_COLLISION	NOTE x4
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:NO_SETTING	NOTE x1
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:PHRASE_LENGTH_LOCKED	NOTE x1
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:PROMINENCE_CANNOT_ALIGN	NOTE x30
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x32
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:RETURN_NEVER_RETURNS	NOTE x1
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:SCHEME_COLLISION	NOTE x7
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:SINGLE_INSTANCE	NOTE x5
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:SPARSE	NOTE x6
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:STACKED_LINE	NOTE x2
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:UNCOVERED_BARS	NOTE x1
+matinee	54	2026-08-25	13d96a9-WORKING	song	3	finding:UNIFORM_LINE_LENGTH	NOTE x1
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	mandate_groups	32
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	lines	32
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	mandated_pairs	116
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	mandate_source	declared
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	md5	04065bbbcdd9
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	briefed	32
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	per_line_flag	14
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	per_line_note	86
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	whole_draft	14
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	whole_draft_flag	0
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:PROMINENCE_OUT_OF_BAND	FLAG x11
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:SCHEME_VIOLATION	FLAG x3
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:ANACRUSIS	NOTE x3
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:COLLISION_CUT_IS_SCALAR_ONLY	NOTE x1
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:DOWNBEAT_LOCKED	NOTE x1
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:FUNCTION_UNDECLARED	NOTE x1
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:HOOK_UNDECLARED	NOTE x1
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:NEAR_COLLISION	NOTE x4
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:NO_SETTING	NOTE x1
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:PHRASE_LENGTH_LOCKED	NOTE x1
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:PROMINENCE_CANNOT_ALIGN	NOTE x32
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x32
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:RETURN_NEVER_RETURNS	NOTE x1
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:SCHEME_COLLISION	NOTE x7
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:SINGLE_INSTANCE	NOTE x5
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:SPARSE	NOTE x6
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:STACKED_LINE	NOTE x2
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:UNCOVERED_BARS	NOTE x1
+matinee	55	2026-08-25	13d96a9-WORKING	song	3	finding:UNIFORM_LINE_LENGTH	NOTE x1
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:revue~adieu	CLEAN
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:revue~debut	CLEAN
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:revue~undo	CLEAN
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:revue~canoe	CLEAN
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:revue~taboo	CLEAN
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:adieu~debut	CLEAN
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:adieu~undo	CLEAN
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:adieu~canoe	CLEAN
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:adieu~taboo	CLEAN
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:debut~undo	CLEAN
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:debut~canoe	CLEAN
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:debut~taboo	CLEAN
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:undo~canoe	CLEAN
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:undo~taboo	CLEAN
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:canoe~taboo	CLEAN
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	banned	0
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	refused	0
+matinee	56	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	15
