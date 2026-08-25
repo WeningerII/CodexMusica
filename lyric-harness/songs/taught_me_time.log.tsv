@@ -1,0 +1,74 @@
+song	step	measured	harness_commit	verb	exit	fact	value
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:son~done	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:son~run	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:son~one	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:son~won	BANNED: HOMEOTELEUTON
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:son~stun	CLEAN
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:son~begun	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:done~run	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:done~one	BANNED: HOMEOTELEUTON
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:done~won	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:done~stun	CLEAN
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:done~begun	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:run~one	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:run~won	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:run~stun	BANNED: HOMEOTELEUTON
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:run~begun	BANNED: HOMEOTELEUTON
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:one~won	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:one~stun	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:one~begun	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:won~stun	CLEAN
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:won~begun	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:stun~begun	BANNED: HOMEOTELEUTON
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	banned	18
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	refused	0
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	clean_or_non_rhyme	3
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:chain~lane	BANNED: MODAL_RHYME
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:chain~rein	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:chain~reign	BANNED: MODAL_RHYME
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:chain~crane	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:chain~sprain	BANNED: HOMEOTELEUTON
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:lane~rein	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:lane~reign	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:lane~crane	BANNED: HOMEOTELEUTON
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:lane~sprain	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:rein~reign	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:rein~crane	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:rein~sprain	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:reign~crane	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:reign~sprain	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:crane~sprain	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	banned	4
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	refused	0
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	clean_or_non_rhyme	11
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:shed~head	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:shed~bread	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:shed~said	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:shed~fled	BANNED: HOMEOTELEUTON
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:shed~sled	BANNED: HOMEOTELEUTON
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:head~bread	BANNED: HOMEOTELEUTON
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:head~said	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:head~fled	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:head~sled	CLEAN
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:bread~said	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:bread~fled	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:bread~sled	CLEAN
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:said~fled	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:said~sled	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:fled~sled	BANNED: HOMEOTELEUTON
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	banned	13
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	refused	0
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	clean_or_non_rhyme	2
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:go~slow	BANNED: MODAL_RHYME
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:go~grow	BANNED: MODAL_RHYME
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:go~tow	BANNED: MODAL_RHYME
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:go~dough	BANNED: MODAL_RHYME
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:slow~grow	BANNED: HOMEOTELEUTON
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:slow~tow	BANNED: HOMEOTELEUTON
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:slow~dough	CLEAN
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:grow~tow	BANNED: HOMEOTELEUTON
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:grow~dough	BANNED: MODAL_RHYME
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:tow~dough	CLEAN
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	banned	8
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	refused	0
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	clean_or_non_rhyme	2
