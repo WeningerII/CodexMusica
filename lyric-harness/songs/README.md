@@ -657,6 +657,41 @@ sheet and not yet a trend.
 
 ---
 
+## `the_river_keeps_the_score.txt` — "The River Keeps the Score", seed 32, pair 1's NARRATIVE twin: the joker card played on a real song
+
+    python3 lyric_harness.py plan --seed=32 --title='The River Keeps the Score'
+    # identical GROUPS, RELATIONS and meter to the_frost_ledger.txt — one seed,
+    # two drafts — plus the drawn story plan the bare twin was never shown
+
+`song` exit 0, md5 `73f4f1b6ff80`, 71 pairs mandated / 71 judged / 0
+refused; `revise` SUCCESS in 0 rounds, draft unchanged. The SECOND HALF OF
+PAIR 1 of the preregistered narrative harm check
+(`quality/NARRATIVE_PREREGISTRATION.md`): same seed, same demand sheet,
+written AGAINST the drawn story line-up the bare twin was written without —
+the intro puts the world in place, the drop states the claim it earns
+("The river keeps the score"), the verse lets the pressure in because of
+it (the drought), the chorus returns the claim AGAINST that pressure
+("Drought is just another way to steal / Still the water owes its turn"),
+and the postchorus holds the moment without advancing. The writing paid
+three grading rounds: a mixed-length compound phrase ("the summer eel"
+carries an ER syllable where the web wants a schwa), the Q pair's -ing
+ending falling to the suffix stemmer (morning~spring read as rhyming on
+the shared ending alone), and the modal table catching 'Under' as a
+top-six answer to 'silver' on Q's own bound words — each cleared by
+rewriting the line, never by moving a threshold.
+
+**WHAT THE BANKED NUMBERS SAY, cited not remembered.** Rhyme
+predictability 0.768832 is the third-lowest of the twelve banked songs [RESULTS: rhyme_predictability_mean the_river_keeps_the_score.txt],
+above wheat_mane and crooked_waltz [RESULTS: rhyme_predictability_mean crooked_waltz.txt],
+and concreteness 3.907971 sits third-highest [RESULTS: concreteness_mean the_river_keeps_the_score.txt],
+under long_bridge and turn_the_wheel [RESULTS: concreteness_mean long_bridge.txt].
+The registration's own question about the story plan's effect on the
+writing is reserved for the blind panel after at least three completed
+pairs — no sentence here answers it, and the feature register is the
+deterministic control, not the verdict.
+
+---
+
 ## The series to date — four songs under one set of instruments, 2026-08-25
 
 The forward loop closed today on the owner's instruction, four songs in:
