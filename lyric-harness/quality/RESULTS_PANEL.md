@@ -171,3 +171,22 @@ bound sections read as words chosen for sound with the grammar intact. That
 is filed as `MISSING.md` M-112 (the bound-token share of a section is
 disclosed by nothing), and the panel remains the only instrument for the
 semantic half, per §4's subtle-mode refusal.
+
+---
+
+## 7 · Run 4 — series song 4 measured, 2026-08-25 (MEASUREMENT)
+
+Question, declared before launch: does a context-free reader find any
+section of `matinee.txt` defective — in particular, do its maximally bound
+sections read as words chosen for sound (M-112's pressure), do its two
+stacked lines read as catalogue rather than sung phrase, and do its
+function-word prominence dilutions read as audible padding — and does the
+NINE-song set still read as one writer's glossary? Type: MEASUREMENT (no
+pass condition). Six sonnet-class judges, independent ballots, zero
+cross-talk: three section judges (sentences, imagery, prosody — every
+ballot quoting its own section, a quoteless verdict DISCARDED) and three
+set judges. Set-lens shuffle key, recorded before launch:
+A=turn_the_wheel B=keep_the_light C=matinee D=stay_awake E=long_bridge
+F=wheat_mane G=one_more H=carry_it_over I=taught_me_time (suspect C
+neither first nor last). Results below were appended after the ballots
+returned; nothing above this sentence moved after launch.
