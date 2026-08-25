@@ -11239,6 +11239,9 @@ word entering it is a decision somebody makes, and the alternative — inferring
 comparison from sentence structure — would refuse and admit sentences by a
 rule nobody could read (doctrine 1).
 
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~165~~ -> **167**
+(M-108 and this entry landed in one commit, 2026-08-25).
+
 ### M-110 · no layer asked whether a line has a verb in it `CLOSED`
 Filed and closed 2026-08-25, by the owner's instruction *"bank it all and
 build the sentencehood check"* — the engineering half of the blind-panel
@@ -11310,3 +11313,7 @@ calibrating ON it, but that is an argument and not a ruling, and the ruling
 is the owner's. Until then the cross-song question has exactly two
 instruments: the DF measurement in `quality/RESULTS_PANEL.md` §4, and a
 panel with a set lens.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~167~~ -> **169**
+(M-110 and this entry landed in one commit, 2026-08-25; this entry counts while
+OPEN — the count is entries, not closures).
