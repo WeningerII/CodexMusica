@@ -564,12 +564,18 @@ def sweep_record(lex, decl, verbose=True):
 #: and repin; do not tune anything to meet them.
 PINNED = {
     "mandated": 1064, "judged": 1014, "refused": 50,
-    #: ~~82~~ under the two-name door; 35 since it widened (M-59)
-    "violations": 35,
+    #: ~~82~~ under the two-name door; ~~35~~ when it widened to all four
+    #: relations (M-59); 12 since the whole schema vocabulary joined the
+    #: default (M-116, owner ruling 2026-08-25 — 23 pairs stopped
+    #: violating, 0 newly violate; CLAUDE.md's Test discipline carries the
+    #: same ladder, so this stays a second instrument reproducing the
+    #: battery's figure rather than a file tuned to it)
+    "violations": 12,
     #: report lines that name the two words that actually produced the number
     "claimed": 632,
-    #: the same question asked of the violations alone. ~~36~~ of ~~82~~
-    "violations_claimed": 7,
+    #: the same question asked of the violations alone.
+    #: ~~36~~ of ~~82~~; ~~7~~ of ~~35~~; 2 of 12 under M-116
+    "violations_claimed": 2,
 }
 
 

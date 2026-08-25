@@ -488,8 +488,17 @@ MUTATIONS = [
     ),
     Mutation(
         name="M12", layer="comparator", file=LH,
-        old="        if i == 0:",
-        new="        if False:",
+        # RE-ANCHORED 2026-08-25: the bare `if i == 0:` went ambiguous when
+        # the `--narrative` CLI parser (M-121's spelling) grew its own
+        # first-cell branch at the same substring. The anchor now carries the
+        # comparator's own comment line, which names the decision this
+        # mutation deletes and occurs nowhere else.
+        old=("        if i == 0:\n"
+             "            # first onset is the rhyme-defining exclusion: "
+             "shown, not scored"),
+        new=("        if False:\n"
+             "            # first onset is the rhyme-defining exclusion: "
+             "shown, not scored"),
         subset=T_CMP,
         rationale=(
             "The first onset stops being the rhyme-defining EXCLUSION and "
