@@ -30,6 +30,7 @@ import re
 import unicodedata
 import sys
 import textwrap
+import types
 import urllib.request
 from dataclasses import dataclass, field, asdict
 
@@ -7853,7 +7854,7 @@ def main():
                                           structures=st, relations=rl), tail)
             return _finish(g, tail)              # --groups= alone, as before
 
-        def _say_derived(m):
+        def _say_derived(m, n_lines=None):
             """Doctrine 14, out loud. A cover read off the rhyme graph is
             mutually band-passing BY CONSTRUCTION, so a clean rhyme result
             against it is an identity and not a verdict. `Mandate.describe`
@@ -7883,20 +7884,43 @@ def main():
             # `--structures=` / `--relations=` is also given. Disclosing one
             # shape and not the other would leave the plainest call — the
             # one a writer actually types — as the silent one.
+            #
+            # AND FOR TWO DAYS IT DID, ONE FIELD IN (`MISSING.md` M-108).
+            # The sentence above is about whether a mandate is MENTIONED and
+            # both shapes mentioned one; what the bare-list branch never
+            # said is HOW MUCH it declared. Measured on a four-line fixture:
+            # `--groups=1,3;2,4` printed `2 group(s) declared` while the
+            # identical cover with a `--returns=` beside it printed `2
+            # group(s) over 4 lines, 2 mandated pair(s)`. So the mandated
+            # PAIR COUNT — the numerator of doctrine 79's own triple, and
+            # the only one of the three a report can state before grading —
+            # was disclosed for the decorated call and withheld from the
+            # plain one. It is ONE SHAPE now.
             if isinstance(m, (str, type(None))):
                 return                     # a letter scheme: the page has it
             if hasattr(m, "groups"):
                 _grps = list(m.groups)
                 _lab = list(getattr(m, "labels", ()))
-                _head = (f"  MANDATE: {len(_grps)} group(s) over "
-                         f"{m.n_lines} lines, {len(m.pairs())} mandated "
-                         f"pair(s), source={m.source} ({m.origin})")
+                _n, _src = m.n_lines, f"{m.source} ({m.origin})"
+                _prs = m.pairs()
             elif isinstance(m, list) and m and isinstance(m[0], list):
                 _grps, _lab = list(m), []
-                _head = (f"  MANDATE: {len(_grps)} group(s) declared, "
-                         f"source=declared (--groups=)")
+                _n, _src = n_lines, "declared (--groups=)"
+                # `Mandate.pairs` CALLED, never respelled. It is a pure
+                # function of `.groups` and a bare cover has those, so the
+                # count here and the count on the decorated call move
+                # together by construction rather than by agreement
+                # (doctrine 1) — a second spelling of "the pairs of a cover"
+                # is how one report starts disagreeing with the other.
+                _prs = SC.Mandate.pairs(types.SimpleNamespace(groups=_grps))
             else:
                 return
+            # A caller that did not hand the line count down gets the count
+            # REFUSED by name rather than a zero, which would read as a
+            # four-line song (doctrine 20).
+            _over = f"{_n} lines" if _n is not None else "UNDECLARED lines"
+            _head = (f"  MANDATE: {len(_grps)} group(s) over {_over}, "
+                     f"{len(_prs)} mandated pair(s), source={_src}")
             while len(_lab) < len(_grps):          # A, B, C ... as the
                 _lab.append(chr(65 + len(_lab)))   # report letters them
             # `group A`, UNQUOTED — the house spelling everywhere a group is
@@ -8364,7 +8388,7 @@ def main():
                 sides.append(("HANDED IN brief's FILE", args[1]))
                 lines = load_lyric_lines(args[1])
                 scheme, _tail = _mandate_arg(args, 2, lines)
-                _say_derived(scheme)
+                _say_derived(scheme, len(lines))
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
@@ -8482,7 +8506,7 @@ def main():
                         [l.strip() for l in lyric_text.splitlines()
                          if l.strip() and not is_apparatus_line(l)])
                 scheme, _tail = _mandate_arg(args, 3, lines)
-                _say_derived(scheme)
+                _say_derived(scheme, len(lines))
                 _say_relation(scheme)
                 if scheme is not None:
                     print(f"  BLUEPRINT: {song_bp_path} — meter and "
@@ -8512,7 +8536,7 @@ def main():
                 before = load_lyric_lines(args[1])
                 after = load_lyric_lines(args[2])
                 scheme, tail = _mandate_arg(args, 3, before)
-                _say_derived(scheme)
+                _say_derived(scheme, len(before))
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
@@ -8594,7 +8618,7 @@ def main():
                 sides.append(("HANDED IN revise's FILE", args[1]))
                 lines = load_lyric_lines(args[1])
                 scheme, _tail = _mandate_arg(args, 2, lines)
-                _say_derived(scheme)
+                _say_derived(scheme, len(lines))
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()

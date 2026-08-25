@@ -11108,3 +11108,133 @@ instances. Whether a given section FUNCTION should have its ends bound at all
 — a rap verse that deliberately does not end-rhyme is a real form — is a taste
 question this pass does not ask: it realises whatever scheme the section was
 already given.
+
+### M-108 · the plainest mandate spelling never said how much it mandated `CLOSED`
+Filed and closed 2026-08-25, found by BANKING a song rather than by reading
+the code — `songs/long_bridge.txt` is the first delivered song whose plan
+draws NO returns, so its grading command is `--groups=` and nothing else.
+
+**MEASURED, on a four-line fixture, one cover, two spellings:**
+
+    brief FILE --groups=1,3;2,4
+      MANDATE: 2 group(s) declared, source=declared (--groups=)
+
+    brief FILE --groups=1,3;2,4 --structures=A:kalevala-alliteration
+      MANDATE: 2 group(s) over 4 lines, 2 mandated pair(s),
+               source=declared (declared line groups)
+
+The cover is IDENTICAL — `--structures=` annotates the groups it is handed
+and adds none — so the two lines are two readings of one object. What the
+plain spelling withheld is the mandated PAIR COUNT and the line count it is
+over.
+
+**WHY THAT NUMBER AND NOT ANOTHER.** It is the numerator of doctrine 79's own
+triple (mandated / judged / refused) and the only one of the three a report
+can state BEFORE grading — the other two are verdicts. A reader of the plain
+report could see 29 groups declared and could not see that they expand to 46
+mandated pairs, which is the quantity every later count is read against.
+
+**THE BRANCH IS THE CAUSE AND IT IS NOT A MISTAKE ANYWHERE.** `--groups=`
+ALONE hands `_say_derived` a bare LIST of line-lists and never builds a
+`Mandate`; `--returns=`, `--structures=` and `--relations=` each grow one
+first, because a `Mandate` is the only object that holds two requirement
+kinds at once. So `m.n_lines` and `m.pairs()` were reachable on one branch
+and not on the other, and the header was written twice to match.
+
+**AND THE COMMENT DIRECTLY ABOVE IT ALREADY NAMED THIS FAILURE ONE FIELD
+OUT** — *"Disclosing one shape and not the other would leave the plainest
+call — the one a writer actually types — as the silent one."* True of whether
+a mandate is MENTIONED, which both branches did. The sentence was correct
+about the axis and was never checked on the next one over (doctrine 17).
+
+**IT COST A LOG ROW ITS FACTS, SILENTLY, WHICH IS HOW IT SURFACED.**
+`quality/song_log.py`'s DECLARED `song` parser reads
+`mandate_groups` / `lines` / `mandated_pairs` / `mandate_source` off that one
+line with a regex written to the long shape. Against the short shape it
+matched nothing and banked none of the four — and the row was NOT refused for
+it, because the same invocation banked 18 other facts. `--record` refuses an
+invocation whose output the parser read NOTHING from, on the argument that it
+"looks exactly like an invocation that went well"; a PARTIAL read has no such
+guard, so four facts nobody asked for and four facts a verb declined to emit
+are the same empty set in the log. All five previously banked songs declare
+`--returns=` and every one of them carries the four facts, which is exactly
+why five songs went by without this being visible.
+
+**THE FIX IS ONE HEADER, NOT TWO.** Both branches build `_grps`, `_n`, `_src`
+and `_prs` and the f-string is written once. `Mandate.pairs` is CALLED for the
+bare cover rather than respelled — it is a pure function of `.groups` and a
+bare cover has those — so the two counts move together by construction and not
+by agreement (doctrine 1); a second spelling of *the pairs of a cover* is how
+one report starts disagreeing with the other. A caller that hands down no line
+count gets `over UNDECLARED lines`, never `over 0 lines`, because a zero there
+reads as a song with no lines (doctrine 20).
+
+**THE GATE.** `quality/test_verbs.py` §6 runs ONE cover through BOTH routes
+and requires everything left of `source=` to be equal — `source=` is the one
+field that must differ, since it names the route. The premise is asserted
+first (both routes print a `MANDATE:` line at all), so the invariant cannot
+pass by comparing two empty strings. Against the pre-fix tree the pair-count
+check and the invariance check both fail.
+
+**WHAT THIS DOES NOT CHANGE.** No verdict, no finding, no exit code: the
+header is disclosure and nothing reads it but a person and `song_log.py`'s
+parser. `song`'s report on `songs/long_bridge.txt` is byte-identical either
+side of the fix apart from that one line, and the four facts it newly banks
+were true of the run before they were printed.
+
+### M-109 · the gate aimed at the narrator could not see `highest` or `lowest` `CLOSED`
+Filed and closed 2026-08-25, in the sitting that banked `songs/long_bridge.txt`
+— found by trying to write a superlative and checking whether the gate would
+catch it if the citation were left off.
+
+**`song_record.cmd_claims` IS THE CHECK AIMED AT THE NARRATOR** (M-98): a line
+of `songs/README.md` that COMPARES songs must carry a `[RESULTS: <column>
+<song>]` citation that resolves, or the run fails. Its vocabulary is
+`COMPARATIVE`, a declared alternation of fourteen words — and neither
+`highest` nor `lowest` was in it.
+
+**THOSE ARE THE TWO WORDS THE CLAIM ACTUALLY REACHES FOR, AND THE FILE WAS
+ALREADY USING ONE OF THEM.** `songs/README.md` §*What the first measurement
+says* has said *"is the lowest of the five"* and *"sits lowest at"* since it
+was written, with `[RESULTS:]` citations beside both — supplied VOLUNTARILY,
+which is precisely the property a gate exists so that nobody has to supply
+voluntarily. A gate whose subject is superlatives, blind to the two commonest
+spellings of one, is doctrine 48 inside the instrument built to enforce
+doctrine 48 on somebody else.
+
+**AND WIDENING IT ALONE WOULD HAVE REDDED BOTH OF THOSE TRUE SENTENCES, FOR A
+REASON THAT IS NOT ABOUT THE CLAIM AT ALL.** `cmd_claims` scans a LINE, and
+markdown here is hard-wrapped, so both citations sat on the line AFTER their
+own claim:
+
+    the lowest of the five at 3.043667 [RESULTS: concreteness_mean
+    carry_it_over.txt], against 3.909818 ...
+
+The claim is on line n and the citation resolves on line n+1, so the moment
+`lowest` became visible the gate would have charged a sentence that carries
+its evidence one line down. **THE WRAPPING IS WHAT WAS REPAIRED, NOT THE
+GATE'S UNIT.** Making the scan paragraph-scoped was the other candidate and
+is a WEAKENING: a paragraph making three comparisons on one citation would
+then pass, where a line-scoped gate asks for evidence beside each claim. Both
+sentences are rewrapped so claim and citation share a line, and every new
+comparison in the `long_bridge` section is written that way.
+
+**A NOTATION LINE IS DATA AND IS SPELLED AS DATA.** The README paragraph
+recording this had to name the two words, and naming them inside prose trips
+the widened gate on a line that is teaching the vocabulary rather than making
+a claim — the same escape `song_log.LOG_CITE` needed and solved by ADJACENCY.
+Here the file's existing convention already answers it: `cmd_claims` skips a
+four-space-indented line as data, which is how every reproduction command in
+that file is already written, so the two words sit in an indented block.
+
+**MEASURED AFTER: 0 uncited comparatives over the whole README**, with the
+vocabulary widened and the `long_bridge` section added — and the section adds
+four new cited comparisons, so the zero is not the zero of a file that stopped
+comparing.
+
+**WHAT IS NOT CLAIMED.** The vocabulary is still a hand-declared list and a
+comparison spelled some fifteenth way still slips it. That is the shape of
+this instrument and not a defect this entry closes: the list is DECLARED, so a
+word entering it is a decision somebody makes, and the alternative — inferring
+comparison from sentence structure — would refuse and admit sentences by a
+rule nobody could read (doctrine 1).

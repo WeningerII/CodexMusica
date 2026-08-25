@@ -484,6 +484,49 @@ def test_brief_refuses_instead_of_tracebacking():
           "one group cannot demonstrate that the labels track the "
           "declaration")
 
+    # ONE COVER, TWO BRANCHES, ONE DISCLOSURE — `MISSING.md` M-108,
+    # 2026-08-25, found by BANKING a song whose mandate carries no returns.
+    # `--groups=` ALONE hands a bare list of line-lists down `_say_derived`
+    # and anything else (`--returns=`, `--structures=`, `--relations=`)
+    # grows a real `Mandate` first, so the two branches were two spellings
+    # of one header: the decorated one stated `N group(s) over L lines, P
+    # mandated pair(s)` and the plain one — the spelling a writer actually
+    # types — stated the group count and stopped. The withheld number is the
+    # numerator of doctrine 79's own triple and the only one of the three a
+    # report can state BEFORE grading, and `quality/song_log.py`'s declared
+    # `song` parser reads all four of its mandate facts off that line, so a
+    # groups-only song banked ZERO of them and the row was not refused for
+    # it (18 other facts carried it) — a fact not asked, filed as a fact not
+    # emitted.
+    #
+    # THE FIXTURE IS THE SAME COVER BOTH TIMES, which is what makes this an
+    # invariant rather than two measurements: `--structures=` annotates the
+    # groups it is handed and adds none, so the cover under both branches is
+    # byte-identical and only the ROUTE differs. Comparing `--groups=` with
+    # `--groups= --returns=` would compare two different covers that happen
+    # to agree.
+    _mline = lambda t: next((l.strip() for l in t.splitlines()
+                             if l.strip().startswith("MANDATE:")), "")
+    _rcA, _bare, _ = run("brief", EXAMPLE_TXT, "--groups=2,4;1,3")
+    _rcB, _deco, _ = run("brief", EXAMPLE_TXT, "--groups=2,4;1,3",
+                         "--structures=A:kalevala-alliteration")
+    _a, _b = _mline(_bare), _mline(_deco)
+    check("the premise — both routes print a MANDATE line at all, so this "
+          "check cannot pass by comparing two empty strings",
+          _rcA == 0 and _rcB == 0 and bool(_a) and bool(_b),
+          f"bare={_a!r} decorated={_b!r}")
+    # `source=` is the one field that MUST differ: it names the route, and
+    # the two routes are genuinely different origins. Everything to its left
+    # is a fact about the COVER and cannot depend on which branch read it.
+    check("`--groups=` ALONE discloses its own mandated PAIR COUNT — the "
+          "plainest call is not the silent one (doctrine 20/79, M-108)",
+          "mandated pair(s)" in _a, _a or "(no MANDATE line)")
+    check("and the cover's counts are BRANCH-INVARIANT: one cover read two "
+          "ways states the same groups, lines and pairs, differing only in "
+          "the `source=` that names the route",
+          _a.split(", source=")[0] == _b.split(", source=")[0],
+          f"bare      {_a}\n          decorated {_b}")
+
     rc, out, _ = run("brief", EXAMPLE_TXT, "--cliques")
     check("--cliques grades the song's OWN structure",
           rc == 0 and "source=derived" in out)
