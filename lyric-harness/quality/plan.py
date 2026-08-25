@@ -134,6 +134,7 @@ from fractions import Fraction
 from functools import lru_cache
 
 from quality import schemes as SC
+from quality import relations as _RL
 from quality import capacity as _CAP
 from quality import floor as _FL
 from quality import slots as _SL
@@ -1830,12 +1831,18 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     """A request -> the plan dict. Refuses rather than guessing.
 
     `relation`, `functions` and `title` are THE WRITER'S DECLARATION
-    (`MISSING.md` M-55) and none of them is sampled. The planner does not
-    pick a relation: doing so would put `type:pararhyme` on a group nobody
-    asked for, which is the "move 37" ban pointed at rhyme instead of at
-    shape. What the planner does is CARRY a declaration into the plan
-    artifact, so the one command that grades the draft names the relation
-    the writer chose.
+    (`MISSING.md` M-55) and none of them is sampled. ~~The planner does
+    not pick a relation: doing so would put `type:pararhyme` on a group
+    nobody asked for, which is the "move 37" ban pointed at rhyme instead
+    of at shape.~~ SUPERSEDED BY OWNER RULING 2026-08-25 (M-117, doctrine
+    17 keeps the strike visible): when the writer declares NOTHING, each
+    group now DRAWS its relation uniformly over the certified pool
+    (`relations.DRAWABLE_SCHEMAS`) — a uniform draw over a witness-
+    certified vocabulary is the planner's ordinary dice, not move 37,
+    which bans sampling MEASURED corpus distributions. The struck
+    sentence's live half survives as precedence: a writer's declaration
+    is CARRIED into the plan artifact and SILENCES the draw, so the one
+    command that grades the draft names the relation the writer chose.
 
     THREE LAYERS, AND ONLY THE MIDDLE ONE IS HERE (design doc §2):
     the VOCABULARY says a prechorus requires a chorus and that is
@@ -2490,6 +2497,45 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                     "placement draw had already spent; `narrow` blocks whose "
                     "lines cannot carry one more DISTINCT word.")
 
+    # THE RELATION DRAW — 2026-08-25, OWNER RULING ("now do the planner
+    # too"; `MISSING.md` M-117, the planner half of M-116's
+    # whole-vocabulary default). Each group draws its relation uniformly
+    # over the bare default plus the CERTIFIED drawable pool —
+    # `relations.DRAWABLE_SCHEMAS`, the schemas a declared English witness
+    # proves a writer can satisfy (the capacity layer's certification
+    # idiom: the pool grows by growing the witness, never by hand-editing
+    # the tuple; `derive_drawable_schemas` is the derivation and
+    # `test_plan.py` re-derives the adoption). THE WRITER'S OWN
+    # `--relation=` WINS: when one is declared the planner draws nothing,
+    # because a declared coordinate is carried, never sampled over (M-55).
+    # Uniform means the bare default is RARE — one draw in
+    # len(pool)+1 — which is the same consequence the placement draw's
+    # `end` share carries, disclosed the same way; reweighting it is the
+    # owner's call, not this draw's (doctrine 19: the dice stay flat).
+    # This runs AFTER the end-rhyme pass so the added end groups draw too,
+    # and consumes entropy strictly AFTER every existing draw, so a seed's
+    # shape under the old planner is byte-identical under this one.
+    drawn_relations = {}
+    if not relation:
+        _pool = ("",) + tuple(_RL.DRAWABLE_SCHEMAS)
+        for _gi in range(len(groups)):
+            _pick = _pool[rng.randrange(len(_pool))]
+            if _pick:
+                drawn_relations[SC.label((_gi,))] = "schema:" + _pick
+    plan["relations"] = drawn_relations
+    plan["choices"]["relations"] = {
+        "chosen_from": (
+            "NOT DRAWN — the writer declared --relation and a declared "
+            "coordinate is carried, never sampled over (M-55)" if relation
+            else f"uniform per group over the bare default plus the "
+                 f"{len(_RL.DRAWABLE_SCHEMAS)} certified drawable schemas "
+                 f"(relations.DRAWABLE_SCHEMAS, witness-certified — "
+                 f"M-117). The bare default lands on 1 draw in "
+                 f"{len(_RL.DRAWABLE_SCHEMAS) + 1}, a rarity this "
+                 f"disclosure exists to hand the owner, exactly as the "
+                 f"placement draw's `end` share was"),
+        "value": dict(drawn_relations)}
+
     # THE JOINT GATE (`MISSING.md` M-80). Every constraint above is
     # individually legal and their CONJUNCTION is what nothing held. Asked of
     # the FINISHED dict rather than of the draw, so it is the same check a
@@ -2637,9 +2683,16 @@ def writer_brief(plan):
     out.append(f"Feel: {m['beats']}/{m['unit']} grouped "
                f"{'+'.join(str(g) for g in m['groups'])}.")
     if plan["groups"]:
+        rels = plan.get("relations") or {}
         out.append("Rhyme plan (line numbers over the whole song):")
-        for g in plan["groups"].split(";"):
-            out.append(f"  lines {g.replace(',', ' & ')} rhyme")
+        for gi, g in enumerate(plan["groups"].split(";")):
+            name = rels.get(SC.label((gi,)))
+            if name:
+                out.append(f"  lines {g.replace(',', ' & ')} stand in "
+                           f"{name.split(':', 1)[1]} — a NAMED relation, "
+                           f"judged as itself, not as plain rhyme")
+            else:
+                out.append(f"  lines {g.replace(',', ' & ')} rhyme")
     rets = {fn for fn in VERBATIM_RETURNERS
             if sum(1 for s in plan["sections"]
                    if s["function"] == fn) >= 2}
@@ -2667,5 +2720,15 @@ def grading_command(plan, draft_path="DRAFT.txt", bp_path="BP.json"):
     # a declared coordinate read by nothing, one layer out from M-54's.
     if plan.get("relation"):
         parts.append(f"'--relation={plan['relation']}'")
+    # THE DRAWN PER-GROUP RELATIONS REACH THE GRADE (M-117) — the same
+    # carry M-55 built for the writer's own declaration, one coordinate
+    # over: a plan that drew `schema:pararhyme` for group C and did not
+    # put it in this command would be a declared coordinate read by
+    # nothing. Sorted by label so the command is deterministic
+    # (doctrine 66).
+    if plan.get("relations"):
+        _spec = ",".join(f"{k}:{v}"
+                         for k, v in sorted(plan["relations"].items()))
+        parts.append(f"'--relations={_spec}'")
     parts.append(f"--subdivision {plan['subdivision']}")
     return " ".join(parts)

@@ -6401,6 +6401,120 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None):
     return out
 
 
+#: THE DRAW WITNESS — sixteen plain English lines carrying the common
+#: figures (two perfect-rhyme pairs, an assonance pair sun/much, a
+#: consonance pair love/prove, a pararhyme pair gate/goat, a mosaic tail
+#: curator/grate-her, a rime-riche pair sole/soul, a subtractive pair
+#: grow/growing). DECLARED, in the capacity layer's certification idiom: a
+#: schema joins `DRAWABLE_SCHEMAS` by ANSWERING ON AN EXHIBIT HERE, and the
+#: pool grows by growing the witness — never by hand-editing the tuple. A
+#: schema absent from the pool is not refused as a relation (the default
+#: fan and the declared route still judge it); it is only not DRAWN, because
+#: a planner must not mandate what no witness proves a writer can satisfy
+#: in plain English (M-79's founding rule, M-117).
+DRAWABLE_WITNESS_LINES = (
+    "The kitchen light was fading fast",
+    "He walked alone across the field",
+    "A silver ship went sailing past",
+    "The morning broke across the shield",
+    "We stood beneath the winter sun",
+    "The cold had never asked for much",
+    "She wrote a letter full of love",
+    "A thing the years could never prove",
+    "He waited by the garden gate",
+    "And fed a wandering mountain goat",
+    "She traded quips with the curator",
+    "His cold reviews began to grate her",
+    "He patched his boot along the sole",
+    "And swore it cost him half his soul",
+    "He told the sapling: reach and grow",
+    "The rings inside it kept on growing",
+)
+DRAWABLE_WITNESS_SECTIONS = ("a",) * 4 + ("b",) * 4 + ("c",) * 4 + ("d",) * 4
+
+
+def derive_drawable_schemas(phon=None):
+    """-> the sorted names a planner may DRAW a group's relation from.
+
+    Three rules, each derived from a coordinate the registry itself
+    declares, none hand-listed (doctrine 1):
+
+    1. THE SCHEMA ANSWERS ON THE WITNESS — `line_pairs_for` over the
+       declared witness stream returns a NON-EMPTY frozenset. A refusal
+       means the plain grade-time stream cannot supply it; an empty set
+       means no exhibit proves a writer can satisfy it in plain English —
+       either way a drawn mandate would be unwritable or unjudgeable
+       (M-79: no unwritable plan ships).
+    2. NOT INTRA-LINE ONLY — a figure whose every placement is
+       same_line/same_token is a property of one line and can never
+       satisfy a mandated pair (`rhyme_types.satisfies_relation`'s own
+       refusal, read here from the same placement rows).
+    3. NO IDENTITY AT THE LINE END — a schema whose identity rule demands
+       token AGREEMENT at a line-final placement mandates exactly what
+       `grade()`'s REPEAT branch charges (doctrine 3), so a drawn group
+       could only be satisfied by what the grader refuses.
+
+    The planner reads the ADOPTED tuple below, never this function — the
+    derivation costs a stream build and the planner opens no file — and
+    `quality/test_plan.py` re-derives the tuple against this function so
+    drift fails loud (the meter-bands adoption pattern).
+    """
+    if phon is None:
+        from quality import phonology as _PH
+        phon = _PH.get("eng")
+    intra = {"same_line", "same_token", "same_word"}
+    final = {"both_line_final", "a_line_final", "exactly_one_line_final"}
+    stream = build_stream(
+        list(DRAWABLE_WITNESS_LINES), phon,
+        sections=list(DRAWABLE_WITNESS_SECTIONS),
+        stanzas=stanzas_from_sections(list(DRAWABLE_WITNESS_SECTIONS)),
+        stanza_source="declared_sections",
+        declaration={"language": "eng"})
+    out = []
+    for name in sorted(REGISTRY):
+        sch = REGISTRY[name]
+        ps = line_pairs_for(sch, stream)
+        if isinstance(ps, Refusal) or not ps:
+            continue
+        pk = {p.kind for p in sch.placement}
+        if pk and pk <= intra:
+            continue
+        if any(type(r.predicate).__name__ == "Agree" for r in sch.identity) \
+                and (not pk or pk & final):
+            continue
+        out.append(name)
+    return tuple(out)
+
+
+#: ADOPTED 2026-08-25 from `derive_drawable_schemas()` (owner ruling "now do
+#: the planner too", M-117). Re-derived by `quality/test_plan.py`; a moved
+#: pool is a moved witness or a moved registry, and either fails loud.
+DRAWABLE_SCHEMAS = (
+    "Scots vowel-length rhyme (Aitken's Law)",
+    "analysed rhyme",
+    "anaphora",
+    "assonance",
+    "chain rhyme (rap)",
+    "cluster consonance / skothending span",
+    "compound / phrasal rhyme",
+    "consonance",
+    "family rhyme",
+    "head rhyme (positional)",
+    "interlaced rhyme",
+    "internal rhyme",
+    "light rhyme",
+    "monai",
+    "monorhyme / leash",
+    "multisyllabic rhyme",
+    "pantun ABAB",
+    "pararhyme",
+    "perfect rhyme",
+    "rime riche",
+    "semirhyme",
+    "subtractive rhyme",
+)
+
+
 def line_pairs_for(schema, stream, keep_refusal=True):
     """Every LINE PAIR this schema is true of, 1-based.  -> frozenset or a
     `Refusal`.

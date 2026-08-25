@@ -884,13 +884,28 @@ because of that a prechorus would mess that up"* is neither definitional nor
 conventional — it is a DECLARATION about THIS song, and there was no way to
 spell it. `make_plan` took a seed, a form and a line count; the roster came
 from `GENERATOR_ROSTER` and nothing else.
-**`--relation=NAME` AND `--functions=a,b,c`, AND NEITHER IS SAMPLED.** The
-planner does not pick a relation: putting `type:pararhyme` on a group nobody
-asked for is the "move 37" ban pointed at rhyme instead of at shape. It
-CARRIES what was declared — into `plan["relation"]`, into the `GRADE IT` line
-`grading_command` prints, and into the report as its own disclosure, because
-a plan that dropped the coordinate would otherwise look exactly like one that
-never had it.
+**`--relation=NAME` AND `--functions=a,b,c`, AND NEITHER IS SAMPLED.**
+~~The planner does not pick a relation: putting `type:pararhyme` on a group
+nobody asked for is the "move 37" ban pointed at rhyme instead of at
+shape.~~ **SUPERSEDED BY OWNER RULING 2026-08-25 (`MISSING.md` M-117, the
+planner half of M-116, doctrine 17 keeps the strike visible): when the
+writer declares NOTHING, each group now DRAWS its relation uniformly over
+the bare default plus `relations.DRAWABLE_SCHEMAS` — the 22 schemas a
+declared sixteen-line English witness certifies a writer can satisfy
+(answers on the witness; not intra-line-only; no token identity at a
+line-final placement). A uniform draw over a witness-certified vocabulary
+is the planner's ordinary dice; move 37 bans sampling MEASURED corpus
+distributions, which this is not. The pool grows by growing the witness,
+never by hand; `test_plan.py` §14 re-derives the adoption; drawn
+relations ride `--relations=LABEL:schema:NAME` in the grading command and
+are named per group in the writer's brief; seed SHAPES are byte-identical
+to the pre-draw planner because the draw consumes entropy last.** What
+survives of the struck sentence is PRECEDENCE: a writer's `--relation=`
+SILENCES the draw, because the planner still CARRIES what was declared —
+into `plan["relation"]`, into the `GRADE IT` line `grading_command`
+prints, and into the report as its own disclosure, because a plan that
+dropped the coordinate would otherwise look exactly like one that never
+had it.
 **THE ROSTER IS AN ALLOW-LIST CHECKED AGAINST M-54's `requires` BEFORE ANY
 SHAPE IS DRAWN**, which is what makes the two entries one mechanism rather
 than two tables: `plan --functions=prechorus,verse` REFUSES, quoting the

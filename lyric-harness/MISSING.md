@@ -11454,3 +11454,38 @@ against the end-rhyme calibration only, correctly, for the same reason it
 skips non-default structures.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~173~~ -> **174**.
+
+### M-117 · the planner draws relations from the certified pool `CLOSED (built)`
+Filed and closed 2026-08-25, on the owner's instruction "now do the planner
+too" — the planner half of M-116. Each drawn group now draws its RELATION
+uniformly over the bare default plus `relations.DRAWABLE_SCHEMAS`, and the
+grading command carries the draw as `--relations=LABEL:schema:NAME,...`
+(M-55's carry, one coordinate over); the writer's brief names each group's
+relation in place; a writer's own `--relation=` silences the draw entirely,
+because a declared coordinate is carried, never sampled over.
+**THE POOL IS CERTIFIED, NOT ENUMERATED BY HAND** — the capacity layer's
+witness idiom applied to relations: `derive_drawable_schemas()` keeps a
+schema only if (1) it ANSWERS ON THE DECLARED WITNESS (sixteen plain
+English lines carrying the common figures — a schema no exhibit proves
+satisfiable would make an unwritable mandate, M-79's founding rule), (2)
+it is not intra-line-only (a one-line figure can never satisfy a mandated
+pair — the judge's own refusal), and (3) it demands no token IDENTITY at a
+line-final placement (that mandates exactly what the REPEAT branch
+charges, doctrine 3). Twenty-two of the 77 certify today; the pool grows
+by growing the witness, never by editing the tuple, and `test_plan.py`
+§14 re-derives the adoption so drift fails loud. The uniform draw makes
+the bare default RARE (one draw in twenty-three) — the same consequence
+the placement draw's `end` share carried, disclosed in
+`choices.relations` for the owner to reweight or not; seed SHAPES are
+byte-identical to the pre-draw planner because the draw consumes entropy
+after every existing draw.
+**NAMED FOLLOW-UPS, not silent gaps**: the MCP connector
+(`mcp/lyric_tools.js`) reads `plan.groups`/`plan.returns`/`plan.relation`
+off the artifact and does not yet carry `plan.relations` — a chat-graded
+draft loses the drawn coordinate until that wiring lands (the
+grading_command remains the honest carrier meanwhile); and rows excluded
+by rule (1) are not refused as relations — the default fan and the
+declared route still judge them — they are only not drawn, so a richer
+witness is the one honest way to widen the dice.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~174~~ -> **175**.

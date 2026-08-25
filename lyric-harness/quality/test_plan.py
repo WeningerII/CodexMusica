@@ -672,8 +672,18 @@ def test_the_measure():
     ALLOWED_FROM_CAPACITY = {"ADOPTED_MAX_GROUP"}
     ALLOWED_FROM_SLOTS = {"PLANNABLE_PLACEMENTS", "placement_word",
                           "LAST_WORD"}
+    # `relations` JOINED 2026-08-25 (M-117, the owner's "now do the planner
+    # too") ON THE SAME ARGUMENT AS `slots` AND WITH THE SAME NARROWING:
+    # `DRAWABLE_SCHEMAS` is an ADOPTED tuple of the same species as
+    # `meter_bands.ADOPTED` — certified against the declared witness by
+    # `derive_drawable_schemas()`, which §14 re-derives — and the planner
+    # may name ONLY it. `relations` holds `build_stream`/`realise` and a
+    # phonology reach, so an unrestricted admission would hand the planner
+    # a stream builder, which is the corpus arriving at the dice by a
+    # longer road.
+    ALLOWED_FROM_RELATIONS = {"DRAWABLE_SCHEMAS"}
     grid_names, floor_names = set(), set()
-    cap_names, slot_names = set(), set()
+    cap_names, slot_names, rel_names = set(), set(), set()
     for n in ast.walk(tree):
         if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name):
             if n.value.id in ("_GR", "grid", "GR"):
@@ -684,13 +694,20 @@ def test_the_measure():
                 cap_names.add(n.attr)
             elif n.value.id in ("_SL", "slots", "SL"):
                 slot_names.add(n.attr)
+            elif n.value.id in ("_RL", "relations", "RL"):
+                rel_names.add(n.attr)
     check("plan.py imports exactly {schemes, meter_bands, structures, grid, "
-          "floor, capacity, slots} from quality and opens NO file — the "
-          "corpus cannot reach the dice (the owner's move-37 rule)",
+          "floor, capacity, slots, relations} from quality and opens NO "
+          "file — the corpus cannot reach the dice (the owner's move-37 "
+          "rule)",
           subs == {"schemes", "meter_bands", "structures", "grid", "floor",
-                   "capacity", "slots"}
+                   "capacity", "slots", "relations"}
           and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
+    check("...and from `relations` ONLY the adopted drawable pool, never "
+          "the stream builder or a realiser — `relations` reaches the "
+          "phonology, which opens the dictionary",
+          rel_names <= ALLOWED_FROM_RELATIONS, f"names {sorted(rel_names)}")
     check("...and from `floor` it names ONLY the adopted calibration table, "
           "never a feature reader — `floor.py` reaches `quality.features` "
           "and `lyric_harness`, so an unrestricted admission is the corpus "
@@ -1958,6 +1975,52 @@ def test_the_end_rhyme_pass_is_additive(FAILURES=None):
           f"{100 * after_end / lines_n:.1f}% of {lines_n} lines")
 
 
+def test_the_relation_draw():
+    """§14 — the planner draws each group's relation from the certified
+    pool (M-117, the owner's "now do the planner too"), and the adoption
+    re-derives against the declared witness so the pool cannot drift."""
+    print("\n-- 14. the relation draw: certified pool, carried to the "
+          "grade, silent under a writer's declaration --")
+    from quality import relations as RL
+    from quality import rhyme_types as RT
+    check("the ADOPTED drawable pool re-derives from the declared witness "
+          "— a moved pool is a moved witness or a moved registry, and "
+          "either must fail loud rather than drift (the meter-bands "
+          "adoption pattern)",
+          tuple(RL.DRAWABLE_SCHEMAS) == RL.derive_drawable_schemas(),
+          "adoption drifted from derivation")
+    pl = P.make_plan(7)
+    n_groups = len(pl["groups"].split(";"))
+    drawn = pl.get("relations") or {}
+    check("a plan draws relations for its groups and every drawn name "
+          "resolves in the `schema` namespace",
+          drawn and all(RT.resolve_relation(v)[1] == "schema"
+                        for v in drawn.values()),
+          f"{len(drawn)} drawn over {n_groups} groups")
+    check("every drawn label is a label the mandate itself would generate "
+          "— `SC.label`, one definition, no respelling",
+          set(drawn) <= {SC.label((k,)) for k in range(n_groups)},
+          f"labels {sorted(drawn)[:6]}")
+    check("the grading command CARRIES the draw — a declared coordinate "
+          "read by nothing is the defect this repo has an instrument for",
+          "--relations=" in P.grading_command(pl),
+          P.grading_command(pl)[-80:])
+    check("the draw is DISCLOSED in choices, like every other draw",
+          "relations" in pl["choices"]
+          and pl["choices"]["relations"]["value"] == drawn,
+          "choices.relations missing or diverged")
+    pl2 = P.make_plan(7, relation="class:ASSONANCE")
+    check("a writer's own --relation SILENCES the draw — a declared "
+          "coordinate is carried, never sampled over (M-55)",
+          pl2.get("relations") == {} and pl2["relation"],
+          f"drew {len(pl2.get('relations') or {})} despite a declaration")
+    check("the draw consumes entropy AFTER every existing draw, so the "
+          "seed's SHAPE is byte-identical to the pre-draw planner's — "
+          "groups, returns and meter unmoved between the two calls above",
+          pl["groups"] == pl2["groups"] and pl["returns"] == pl2["returns"],
+          "shape moved with the relation coordinate")
+
+
 if __name__ == "__main__":
     for fn in (test_the_planner_plans_the_whole_line,
                test_determinism, test_refusals, test_the_round_trip,
@@ -1966,7 +2029,8 @@ if __name__ == "__main__":
                test_the_form_is_read, test_the_joint_gate,
                test_the_seed_sweep_is_a_verb,
                test_the_song_length_is_the_songs_own,
-               test_the_end_rhyme_pass_is_additive):
+               test_the_end_rhyme_pass_is_additive,
+               test_the_relation_draw):
         fn()
     print("=" * 62)
     if FAILURES:
