@@ -246,3 +246,27 @@ weakest-song verdict moving to a SHAPE cause hands the planner a taste
 question — whether a drawn form that ends on unreturned new material
 should disclose itself — that is the owner's to rule on, not a gate to
 build.
+
+---
+
+## 8 · Run 5 — series song 5 measured, 2026-08-25 (MEASUREMENT)
+
+Question, declared before launch: does a context-free reader find any
+section of `crooked_waltz.txt` defective — in particular, do its maximally
+bound sections read as words chosen for sound (M-112's pressure, a fourth
+measurement), do the DRAWN relation figures read as sung figures or as
+mechanical compliance (the four-line "We" anaphora quartet, the open-AY
+chain through the chorus, the Guy/Sky/Pylons head-rhyme triple — the first
+banked song whose relations came from the planner's dice, M-117), and do
+its function-word prominence dilutions read as audible padding (M-115's
+pressure, measured on matinee and repaired the same way here) — and does
+the TEN-song set still read as one writer's glossary? Type: MEASUREMENT
+(no pass condition). Six sonnet-class judges, independent ballots, zero
+cross-talk: three section judges (sentences, imagery, prosody — every
+ballot quoting its own section, a quoteless verdict DISCARDED) and three
+set judges. Set-lens shuffle key, recorded before launch:
+A=taught_me_time B=one_more C=carry_it_over D=crooked_waltz
+E=turn_the_wheel F=long_bridge G=stay_awake H=keep_the_light
+I=wheat_mane J=matinee (suspect D neither first nor last). Results below
+were appended after the ballots returned; nothing above this sentence
+moved after launch.
