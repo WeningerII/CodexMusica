@@ -603,6 +603,60 @@ yet to compare it against.
 
 ---
 
+## `the_frost_ledger.txt` — "The Frost Ledger", seed 32, pair 1's BARE twin: the experiment begins by breaking the gate three more times
+
+    python3 lyric_harness.py plan --seed=32 --narrative=off --title='The Frost Ledger'
+    python3 lyric_harness.py song songs/the_frost_ledger.blueprint.json \
+        songs/the_frost_ledger.txt \
+        '--groups=1.head,5.headrime,6.T5,10.endword;2.endword,4.head,8;2.headrime,3.T7,6.headrime,7.T3,8.T6,9,10.T7;4.T3,5.T4,6;3.head,4.T7,5.T5,7.headrime,10.T6;3.T6,5.T3,10.headrime;5,8.T7,10.T3;13.head,14;13.T4,17.head;15.T2,16.T4,17;14.T4,15.T3,17.T6;14.T2,17.T2;14.T7,17.T5;19.T1,20.endword;18.T7,20.T5,21.T2;18.T3,19.T3,20.T1,21.endword;19.T4,21.headrime;19.endword,20.T6' \
+        '--relations=A:schema:perfect rhyme,B:schema:multisyllabic rhyme,C:schema:compound / phrasal rhyme,D:schema:anaphora,E:schema:internal rhyme,F:schema:anaphora,G:schema:perfect rhyme,H:schema:perfect rhyme,I:schema:rime riche,K:schema:Scots vowel-length rhyme (Aitken'"'"'s Law),L:schema:anaphora,M:schema:compound / phrasal rhyme,N:schema:head rhyme (positional),O:schema:anaphora,P:schema:chain rhyme (rap),Q:schema:light rhyme,R:schema:multisyllabic rhyme' --subdivision 2
+
+`song` exit 0, md5 `5f2a1371b4d8`, 71 pairs mandated / 71 judged / 0
+refused; `revise` SUCCESS in 0 rounds, draft unchanged. Twenty-one lines of
+10/8 grouped 2+3+2+3, and this is the FIRST HALF OF PAIR 1 of the
+preregistered narrative harm check (`quality/NARRATIVE_PREREGISTRATION.md`):
+the BARE twin, planned with `--narrative=off` and written before the story
+draw for this seed was ever read, per the registration's ordering rule.
+ONE DISCLOSURE ON THAT RULE, recorded rather than omitted: during the
+M-122/M-123/M-125 gate measurements, `make_plan(32)` was called without
+`narrative="off"`, which draws a story line-up as a side effect. The draw
+was consumed into no report and read by nobody — the scripts read only
+`relations` and `groups` — but "never generated" is not a sentence this
+bank can carry, so the sentence it carries is "generated in memory by an
+instrument, never surfaced, never read."
+
+**THREE OF THE FIVE GATE DEFECTS THIS SONG'S DEMAND SHEETS EXPOSED WERE
+FOUND BEFORE A WORD WAS WRITTEN, AND TWO MORE BY WRITING IT.** Seed 32's
+first drawn sheet was doubly unsatisfiable (M-122: `adjacent_lines` read as
+no gap at all, and a rime-riche/semirhyme/assonance chain whose equality is
+transitive); the re-drawn sheet put light rhyme — whose `prominence Differ`
+rides a BINARY channel — on a seven-line group (M-123, the pigeonhole);
+the third sheet forced nine identical line-openers against the floor's own
+calibrated ANAPHORA_OVERLOAD share and drew a perfect/rime-riche/semirhyme
+length triangle (M-125), while grading the first actual draft found the
+identity machinery charging REPEAT on the anaphora its own mandate demanded
+(M-124). Every one of those closes in `MISSING.md` with measurements either
+side; this file records only what the WRITING then owed: the two-tier ban
+turned the intro's rhyme family over twice (days~strays and weighs~sleighs
+fell to SHARED_SUFFIX, haze~glaze to HOMEOTELEUTON on group B's own bound
+end pair), and the compound/phrasal web across seven intro ends settled on
+uniform two-syllable "the/a + monosyllable" closes after the mixed-length
+spans measured unjudgeable.
+
+**WHAT THE BANKED NUMBERS SAY, cited not remembered.** Rhyme
+predictability 0.790336 is the fourth-lowest of the eleven banked songs [RESULTS: rhyme_predictability_mean the_frost_ledger.txt],
+above wheat_mane, crooked_waltz and matinee [RESULTS: rhyme_predictability_mean matinee.txt]
+— the screen-first direction holding on a fourth consecutive song — and
+concreteness 3.750000 sits third-highest [RESULTS: concreteness_mean the_frost_ledger.txt],
+under long_bridge and turn_the_wheel [RESULTS: concreteness_mean turn_the_wheel.txt].
+MATTR 0.726486 is the third-lowest [RESULTS: mattr the_frost_ledger.txt],
+above turn_the_wheel and keep_the_light [RESULTS: mattr keep_the_light.txt]
+— the visible price of a mandate that forces five lines to open on one
+word and four more on two homophones, which is a fact about THIS drawn
+sheet and not yet a trend.
+
+---
+
 ## The series to date — four songs under one set of instruments, 2026-08-25
 
 The forward loop closed today on the owner's instruction, four songs in:
