@@ -11350,3 +11350,48 @@ private-instrument shape standing rule 3 exists to end — the disclosure
 should be built even while the gate waits.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~169~~ -> **170**.
+
+### M-113 · the screen's CLEAN conflates a clean rhyme with a clean non-rhyme `OPEN`
+Filed 2026-08-25, from the series' fourth song, and the log fact already
+knew. `screen haiku taboo` prints `pair:haiku~taboo CLEAN`, and `song` then
+charges the same pair `SCHEME_VIOLATION` at **0.435** — `haiku` is
+`HH AY1 K UW0`, its final syllable unstressed, so its rime span reaches back
+to `AY1` and no `UW` family can answer it. Both verdicts are correct:
+`screen`'s question is the two-tier BAN (a banned pair is an answer; a
+non-rhyming pair is not banned), and the grader's question is the mandate.
+The defect is the printed vocabulary at the writer-facing surface — the
+fact name is `clean_or_non_rhyme`, one bucket honestly labelled in the LOG
+and rendered `CLEAN` to the person deciding whether to bind a family on it.
+`matinee.txt`'s round-3 grade carried exactly three violations, all of them
+`haiku` against members the screen had called CLEAN, which is the cost
+measured: a family built on the conflation, discovered 116 mandated pairs
+later. The fix is a disclosure, not a severity change: the screen already
+runs the song grader on a minimal mandated pair, so the rhyme verdict is
+computed and dropped — print it (`CLEAN — RHYME 1.0` / `CLEAN — DOES NOT
+RHYME 0.435`), and the one word stops answering two questions (doctrine 79
+at a verdict instead of a count).
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~170~~ -> **171**.
+
+### M-114 · a whole-word locus in a rime family refuses nothing at declaration time `OPEN`
+Filed 2026-08-25, the same song's other half. The slot vocabulary declares
+`head` and `endword` as WHOLE-WORD spans (`word_start` -> `to_word_end`)
+while `T<n>` and `headrime` read the rime (`last_stressed` -> word end) —
+all four correctly, per `quality/slots.py`'s own rules. A hand mandate that
+binds `deceit` at `21.endword` into a family of one-syllable rimes is
+therefore unsatisfiable BY CONSTRUCTION for any non-initial-stress
+polysyllable — `-deceit` scored head-aligned against `suite` reads **0.13**
+where the bare pair reads 1.0 — and the declaration is accepted in silence.
+`matinee.txt`'s round-1 grade measured the cost: **22** scheme violations,
+of which the locus respelling alone (`.head` -> `.T1`, `.endword` -> the
+bare line number) removed **19** with zero word changes. The planner's own
+door has `joint_findings` for exactly this class of unwritable declaration
+(M-79/M-80), and the owner's M-72 ruling is that the human door gets the
+same steps — so the buildable half is a declaration-time note from
+`_normalise_groups`' own path naming a group that mixes whole-word spans
+with rime spans, and the open half is whether it can gate without charging
+the legitimate uses the vocabulary exists for (a monosyllable at `head` is
+byte-identical to `T1` and refusing it would be a false positive by
+construction).
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~171~~ -> **172**.

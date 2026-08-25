@@ -535,3 +535,44 @@ matinee	56	2026-08-25	13d96a9-WORKING	screen	0	pair:canoe~taboo	CLEAN
 matinee	56	2026-08-25	13d96a9-WORKING	screen	0	banned	0
 matinee	56	2026-08-25	13d96a9-WORKING	screen	0	refused	0
 matinee	56	2026-08-25	13d96a9-WORKING	screen	0	clean_or_non_rhyme	15
+matinee	57	2026-08-25	14569be	song	0	mandate_groups	32
+matinee	57	2026-08-25	14569be	song	0	lines	32
+matinee	57	2026-08-25	14569be	song	0	mandated_pairs	116
+matinee	57	2026-08-25	14569be	song	0	mandate_source	declared
+matinee	57	2026-08-25	14569be	song	0	md5	c64331aba1ba
+matinee	57	2026-08-25	14569be	song	0	briefed	32
+matinee	57	2026-08-25	14569be	song	0	per_line_flag	0
+matinee	57	2026-08-25	14569be	song	0	per_line_note	86
+matinee	57	2026-08-25	14569be	song	0	whole_draft	14
+matinee	57	2026-08-25	14569be	song	0	whole_draft_flag	0
+matinee	57	2026-08-25	14569be	song	0	finding:ANACRUSIS	NOTE x3
+matinee	57	2026-08-25	14569be	song	0	finding:COLLISION_CUT_IS_SCALAR_ONLY	NOTE x1
+matinee	57	2026-08-25	14569be	song	0	finding:DOWNBEAT_LOCKED	NOTE x1
+matinee	57	2026-08-25	14569be	song	0	finding:FUNCTION_UNDECLARED	NOTE x1
+matinee	57	2026-08-25	14569be	song	0	finding:HOOK_UNDECLARED	NOTE x1
+matinee	57	2026-08-25	14569be	song	0	finding:NEAR_COLLISION	NOTE x4
+matinee	57	2026-08-25	14569be	song	0	finding:NO_SETTING	NOTE x1
+matinee	57	2026-08-25	14569be	song	0	finding:PHRASE_LENGTH_LOCKED	NOTE x1
+matinee	57	2026-08-25	14569be	song	0	finding:PROMINENCE_CANNOT_ALIGN	NOTE x32
+matinee	57	2026-08-25	14569be	song	0	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x32
+matinee	57	2026-08-25	14569be	song	0	finding:RETURN_NEVER_RETURNS	NOTE x1
+matinee	57	2026-08-25	14569be	song	0	finding:SCHEME_COLLISION	NOTE x7
+matinee	57	2026-08-25	14569be	song	0	finding:SINGLE_INSTANCE	NOTE x5
+matinee	57	2026-08-25	14569be	song	0	finding:SPARSE	NOTE x6
+matinee	57	2026-08-25	14569be	song	0	finding:STACKED_LINE	NOTE x2
+matinee	57	2026-08-25	14569be	song	0	finding:UNCOVERED_BARS	NOTE x1
+matinee	57	2026-08-25	14569be	song	0	finding:UNIFORM_LINE_LENGTH	NOTE x1
+matinee	58	2026-08-25	14569be-WORKING	screen	0	pair:haiku~taboo	CLEAN
+matinee	58	2026-08-25	14569be-WORKING	screen	0	pair:haiku~canoe	CLEAN
+matinee	58	2026-08-25	14569be-WORKING	screen	0	pair:taboo~canoe	CLEAN
+matinee	58	2026-08-25	14569be-WORKING	screen	0	banned	0
+matinee	58	2026-08-25	14569be-WORKING	screen	0	refused	0
+matinee	58	2026-08-25	14569be-WORKING	screen	0	clean_or_non_rhyme	3
+matinee	59	2026-08-25	14569be-WORKING	revise	0	stop_reason	SUCCESS
+matinee	59	2026-08-25	14569be-WORKING	revise	0	rounds	0
+matinee	59	2026-08-25	14569be-WORKING	revise	0	md5_in	c64331aba1ba
+matinee	59	2026-08-25	14569be-WORKING	revise	0	md5_out	c64331aba1ba
+matinee	59	2026-08-25	14569be-WORKING	revise	0	unchanged	yes
+matinee	59	2026-08-25	14569be-WORKING	revise	0	mandated	116
+matinee	59	2026-08-25	14569be-WORKING	revise	0	judged	116
+matinee	59	2026-08-25	14569be-WORKING	revise	0	pairs_refused	0

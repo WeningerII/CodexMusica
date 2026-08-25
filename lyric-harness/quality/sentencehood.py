@@ -263,7 +263,15 @@ def main(argv=None):
                    "taught_me_time": 0,
                    # series song #3 (seed 2), written screen-first under the
                    # same live gate: 0 stacked lines on its first grading.
-                   "wheat_mane": 0}
+                   "wheat_mane": 0,
+                   # series song #4 (seed 3), screen-first under the same
+                   # live gate: 2 stacked lines (L7, L21) at green — 0.0625,
+                   # under the 0.125 ceiling. The first banked song to carry
+                   # any stacked line since the gate shipped, which is the
+                   # ceiling doing its job rather than the predicate never
+                   # firing: both lines carry a real verb and the fraction
+                   # is the coordinate that decides.
+                   "matinee": 2}
         for s, want in sorted(witness.items()):
             p = os.path.join(ROOT, "songs", s + ".txt")
             if not os.path.exists(p):
