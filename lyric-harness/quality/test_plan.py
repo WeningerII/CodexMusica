@@ -980,20 +980,27 @@ def test_the_rendering():
 def test_the_writers_declaration():
     """M-55: `--relation` and `--functions` are the WRITER'S declaration.
 
-    Neither is sampled. The planner does not pick a relation -- putting
+    Neither is sampled. ~~The planner does not pick a relation -- putting
     `type:pararhyme` on a group nobody asked for is the "move 37" ban pointed
-    at rhyme instead of at shape -- it CARRIES what was declared into the plan
-    artifact and into the one command that grades the draft.
+    at rhyme instead of at shape~~ -- SUPERSEDED BY OWNER RULING 2026-08-25
+    (M-117, §14 below): when the writer declares nothing, each group DRAWS
+    its relation from the certified pool, and the drawn coordinate rides the
+    grading command as `--relations=` (plural, per group). What survives is
+    PRECEDENCE: the writer's own `--relation=` (singular, global) is CARRIED,
+    never sampled over, and declaring it silences the draw.
     """
     print("\n9. the writer's declaration (M-55)")
     import quality.plan as P
 
     base = P.make_plan(11)
-    check("a plan with NO declaration carries empty ones, and its GRADE IT "
-          "line names no relation — every caller that never learned this "
-          "field is unchanged",
+    check("a plan with NO declaration carries empty WRITER coordinates — "
+          "`relation` and `functions` stay unimputed — and its GRADE IT "
+          "line carries no `--relation=` (the writer's singular spelling); "
+          "what it does carry is `--relations=`, the DRAWN per-group "
+          "coordinate (M-117), which is the planner's, not the writer's",
           base["relation"] == "" and base["functions"] == []
-          and "--relation" not in P.grading_command(base))
+          and "--relation=" not in P.grading_command(base)
+          and "--relations=" in P.grading_command(base))
 
     m = P.make_plan(11, relation="type:rime riche")
     check("a declared relation is STORED NAMESPACED, so the value the plan "
