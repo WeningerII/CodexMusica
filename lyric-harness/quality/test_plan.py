@@ -686,8 +686,18 @@ def test_the_measure():
     # gap ceiling and end-channel signature per drawable schema,
     # derived in relations.py from its own rows so the planner
     # never reads a row itself.
+    # `narrative` JOINED 2026-08-25 (M-121, the wired half of the
+    # narrative layer) AND IS THE EASIEST ADMISSION THIS GUARD HAS EVER
+    # RULED ON: quality/narrative.py imports NOTHING from quality and
+    # opens NO file — it is hand-declared vocabulary plus arithmetic,
+    # the same species as `structures`, with no transitive reach to any
+    # reader. The planner may name only the counter, the draw, the
+    # validator and the refusal.
+    ALLOWED_FROM_NARRATIVE = {"count_lineups", "draw_lineup",
+                              "validate_lineup", "NarrativeRefused"}
     grid_names, floor_names = set(), set()
     cap_names, slot_names, rel_names = set(), set(), set()
+    nar_names = set()
     for n in ast.walk(tree):
         if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name):
             if n.value.id in ("_GR", "grid", "GR"):
@@ -700,14 +710,25 @@ def test_the_measure():
                 slot_names.add(n.attr)
             elif n.value.id in ("_RL", "relations", "RL"):
                 rel_names.add(n.attr)
+            # the BARE name `narrative` is deliberately NOT collected:
+            # it is make_plan's own KWARG (the writer's declared
+            # line-up, a dict), so attribute reads on it are dict
+            # operations, not module reads — the module travels as _NV.
+            elif n.value.id in ("_NV", "NV"):
+                nar_names.add(n.attr)
     check("plan.py imports exactly {schemes, meter_bands, structures, grid, "
-          "floor, capacity, slots, relations} from quality and opens NO "
-          "file — the corpus cannot reach the dice (the owner's move-37 "
-          "rule)",
+          "floor, capacity, slots, relations, narrative} from quality and "
+          "opens NO file — the corpus cannot reach the dice (the owner's "
+          "move-37 rule)",
           subs == {"schemes", "meter_bands", "structures", "grid", "floor",
-                   "capacity", "slots", "relations"}
+                   "capacity", "slots", "relations", "narrative"}
           and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
+    check("...and from `narrative` ONLY the counter, the draw, the "
+          "validator and the refusal — the module itself imports nothing "
+          "from quality and opens no file, which is why it is the "
+          "easiest admission this guard has ruled on",
+          nar_names <= ALLOWED_FROM_NARRATIVE, f"names {sorted(nar_names)}")
     check("...and from `relations` ONLY the adopted drawable pool, never "
           "the stream builder or a realiser — `relations` reaches the "
           "phonology, which opens the dictionary",

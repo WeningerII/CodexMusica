@@ -126,9 +126,69 @@ def test_measured_seeds():
           got == pins, got)
 
 
+def test_the_wired_draw():
+    print("\n6. the wired half — the planner plays the joker card "
+          "(M-121), entropy last, declared-silences-drawn")
+    import random
+    from quality import plan as P
+    pl = P.make_plan(31)
+    check("seed 31's RELATION draw is byte-identical to the banked "
+          "crooked_waltz mandate (B light rhyme, K anaphora) — the "
+          "narrative draw consumes entropy AFTER every existing draw",
+          pl["relations"]["B"] == "schema:light rhyme"
+          and pl["relations"]["K"] == "schema:anaphora")
+    nar = pl["narrative"]
+    check("the collapse is RECORDED: mode drawn, the exact line-up "
+          "count disclosed, one atom per sung section, one junction "
+          "per seam", nar["mode"] == "drawn" and nar["lineups"] == 4176
+          and len(nar["atoms"]) == 5 and len(nar["junctions"]) == 4)
+    check("the drawn line-up VALIDATES under the one shared validator",
+          N.validate_lineup([sec["function"] for sec in pl["sections"]],
+                            nar["atoms"], nar["junctions"]) == [])
+    check("the draw is deterministic with the seed",
+          P.make_plan(31)["narrative"] == nar)
+    check("the brief carries the story plan in writer's words, nothing "
+          "about the harness",
+          "Story plan" in pl["writer_brief"]
+          and "ANCHOR" not in pl["writer_brief"])
+    p4 = P.make_plan(4)
+    check("a zero-shape seed DISCLOSES and still ships: mode none, "
+          "lineups 0, the brief says nothing is asked of the meaning "
+          "axis, and the sound plan is intact",
+          p4["narrative"]["mode"] == "none"
+          and p4["narrative"]["lineups"] == 0
+          and "NO STORY PLAN" in p4["writer_brief"] and p4["groups"])
+    lu = {"atoms": nar["atoms"], "junctions": nar["junctions"]}
+    pd = P.make_plan(31, narrative=lu)
+    check("a DECLARED line-up is carried, never resampled",
+          pd["narrative"]["mode"] == "declared"
+          and pd["narrative"]["atoms"] == nar["atoms"])
+    try:
+        bad = {"atoms": [[a[0], a[1], "TURN"] for a in nar["atoms"]],
+               "junctions": nar["junctions"]}
+        P.make_plan(31, narrative=bad)
+        check("an illegal declared line-up refuses", False, "accepted")
+    except P.PlanRefused:
+        check("an illegal declared line-up REFUSES at plan time, while "
+              "the writer is still holding the declaration", True)
+    poff = P.make_plan(31, narrative="off")
+    check("narrative='off' silences the layer and moves nothing else",
+          poff["narrative"]["mode"] == "off"
+          and poff["relations"] == pl["relations"]
+          and poff["groups"] == pl["groups"])
+    res = P.sweep(range(3, 6),
+                  wants=[P.parse_sweep_want("story_lineups>=1")])
+    check("the SEED FILTER is a sweep predicate: story_lineups>=1 over "
+          "seeds 3-5 accepts 3 and 5 and rejects 4 (the bridge-first "
+          "zero-shape) — rejection sampling, no ranking",
+          4 not in res["accepted"] and 3 in res["accepted"]
+          and 5 in res["accepted"], res["accepted"])
+
+
 if __name__ == "__main__":
     for fn in (test_tables, test_position_rules, test_returning_sections,
-               test_refusal_and_determinism, test_measured_seeds):
+               test_refusal_and_determinism, test_measured_seeds,
+               test_the_wired_draw):
         fn()
     print("=" * 62)
     if FAILURES:

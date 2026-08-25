@@ -139,6 +139,7 @@ from quality import capacity as _CAP
 from quality import floor as _FL
 from quality import slots as _SL
 from quality import meter_bands as MB
+from quality import narrative as _NV
 
 __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "tokens_per_line_band", "gradeable_line_counts",
@@ -1655,6 +1656,11 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
 #: `=` alone and take a comma-separated list. `before` is the one ORDER
 #: measure and takes exactly two function names.
 SWEEP_MEASURES = {
+    "story_lineups": ("how many legal story line-ups the shape admits "
+                      "(quality/narrative.py, M-121) — `>=1` is the seed "
+                      "filter for shapes that can carry a story at all",
+                      lambda p: (p.get("narrative") or {}).get(
+                          "lineups", 0)),
     "lines": ("the song's total line count",
               lambda p: p["total_lines"]),
     "sections": ("how many sections the pattern drew",
@@ -1827,7 +1833,7 @@ def sweep(seeds, wants=(), **plan_kw):
 
 
 def make_plan(seed, form="verse-chorus", lines=None, relation=None,
-              functions=None, title=None):
+              functions=None, title=None, narrative=None):
     """A request -> the plan dict. Refuses rather than guessing.
 
     `relation`, `functions` and `title` are THE WRITER'S DECLARATION
@@ -2621,6 +2627,65 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                         for code, ln, detail in joint)
             + "\nEach gate this plan passed is a separate layer and no layer "
               "held their conjunction; this one does. Try another seed.")
+
+    # THE NARRATIVE COLLAPSE (M-121, the joker card played). One atom per
+    # sung section, one junction per seam, drawn UNIFORM over the legal
+    # story line-ups of THIS shape — or carried from the writer, who
+    # silences the draw (M-117's precedence, ruled again for this
+    # coordinate). Entropy is consumed LAST, after every existing draw
+    # and after the joint gate, so seed shapes, relation draws and
+    # refusals are byte-identical to the pre-narrative planner. A shape
+    # admitting NO line-up is DISCLOSED and still ships: the sound plan
+    # is writable, the story layer simply has nothing to ask, and the
+    # harm-check registration records such seeds as refused-by-layer for
+    # the experiment without costing the planner one (doctrine 20 — a
+    # disclosure, not an absence). No grader reads this coordinate: the
+    # brief is the carrier and the enforcement split is step 5's, after
+    # its own sitting.
+    _fns = [s["function"] for s in plan["sections"]]
+    if narrative == "off":
+        plan["narrative"] = {"mode": "off"}
+    elif narrative is not None:
+        _probs = _NV.validate_lineup(
+            _fns, narrative.get("atoms", ()), narrative.get("junctions", ()))
+        if _probs:
+            raise PlanRefused(
+                "the declared narrative line-up is illegal for this "
+                "shape:\n" + "\n".join("  " + p for p in _probs)
+                + "\nA declared coordinate is carried, never resampled — "
+                  "fix the declaration or drop it and the planner draws.")
+        plan["narrative"] = {
+            "mode": "declared",
+            "lineups": _NV.count_lineups(_fns),
+            "atoms": [list(a) for a in narrative["atoms"]],
+            "junctions": [list(j) for j in narrative["junctions"]]}
+    else:
+        _n_lineups = _NV.count_lineups(_fns)
+        if _n_lineups:
+            _lu = _NV.draw_lineup(_fns, rng)
+            plan["narrative"] = {"mode": "drawn", "lineups": _n_lineups,
+                                 "atoms": _lu["atoms"],
+                                 "junctions": _lu["junctions"]}
+        else:
+            plan["narrative"] = {
+                "mode": "none", "lineups": 0,
+                "reason": "this shape admits NO story line-up under the "
+                          "ruled vocabulary — its opening section demands "
+                          "an atom that needs a past, or no legal junction "
+                          "chain survives. The sound plan is unaffected; "
+                          "the writer writes unguided on this axis."}
+    plan["choices"]["narrative"] = {
+        "chosen_from": (
+            "NOT DRAWN — the writer declared the line-up and a declared "
+            "coordinate is carried, never sampled over" if narrative
+            not in (None,) and narrative != "off" else
+            "narrative=off — the writer silenced the layer" if
+            narrative == "off" else
+            f"uniform over the {plan['narrative'].get('lineups', 0)} "
+            f"legal story line-ups of this shape (quality/narrative.py, "
+            f"M-121; the count is exact and the draw is entropy-last)"),
+        "value": {k: v for k, v in plan["narrative"].items()
+                  if k != "reason"}}
     plan["writer_brief"] = writer_brief(plan)
     return plan
 
@@ -2754,6 +2819,35 @@ def writer_brief(plan):
                            f"judged as itself, not as plain rhyme")
             else:
                 out.append(f"  lines {g.replace(',', ' & ')} rhyme")
+    nar = plan.get("narrative") or {}
+    if nar.get("mode") in ("drawn", "declared"):
+        atom_say = {
+            "ESTABLISH": "puts the world and its cast in place",
+            "COMPLICATE": "lets the pressure in",
+            "TURN": "flips the reading of everything before it",
+            "DWELL": "holds the moment and deepens it, without advancing",
+            "ANCHOR": "is the fixed claim the song keeps returning to",
+            "JUDGE": "is a compressed verdict on what has happened",
+            "RESOLVE": "cashes the standing pressure",
+            "DEPART": "is the leave-taking — the walk home"}
+        junc_say = {
+            "THEREFORE": "because of", "BUT": "against",
+            "AND_THEN": "after", "MEANWHILE": "elsewhere during",
+            "ELABORATE": "deeper into",
+            "JUXTAPOSE": "set beside (connection unstated)"}
+        names = [s["name"] for s in plan["sections"]]
+        inbound = {b: (a, j) for a, b, j in nar["junctions"]}
+        out.append("Story plan (one job per sung section; each enters "
+                   "from the section before it as stated):")
+        for idx, _fn, atom in nar["atoms"]:
+            line = f"  {names[idx]} {atom_say[atom]}"
+            if idx in inbound:
+                a, j = inbound[idx]
+                line += f" — {junc_say[j]} {names[a]}"
+            out.append(line)
+    elif nar.get("mode") == "none":
+        out.append("NO STORY PLAN: this shape carries no legal story "
+                   "line-up, so nothing is asked of the meaning axis.")
     rets = {fn for fn in VERBATIM_RETURNERS
             if sum(1 for s in plan["sections"]
                    if s["function"] == fn) >= 2}
