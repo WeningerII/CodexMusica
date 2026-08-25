@@ -72,3 +72,14 @@ in the same sitting it is first measured.
 ---
 **RESULTS BELOW THIS LINE ONLY. Nothing above it moves after this
 commit.**
+
+First recorded run, 2026-08-25 — full account in
+`quality/RESULTS_NARRATIVE_BANDS.md`, counts pinned in
+`quality/narrative_bands.py`. Headlines: 8,667 songs / 40,970 seams;
+P1 separates from its shuffle null (0.5902 against a 0.5805–0.5862
+null range) and is REFUSED as an enforcement instrument on size
+(+0.78pp), with the salvage being that continuity is a function-pair
+coordinate (verse→verse 0.61 against verse→refrain 0.35); P2's
+back-to-back rate over 1,676 invariant-return pairs is 0.0048 — the
+reframe precondition is a near-universal law of the corpus. P3
+deferred as registered. Nothing adopted this sitting, per §6.

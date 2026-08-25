@@ -58,14 +58,19 @@ NULL_DRAWS = 10
 #: are still reported for every function, so the exclusion hides nothing.
 P2_INVARIANT_RETURNS = ("burden", "chorus", "hook", "refrain", "tag")
 
-#: Filled from the FIRST RECORDED RUN and never typed ahead of it
-#: (doctrine 58: a count written before the measurement is a threshold
-#: nobody calibrated). Measured facts, not thresholds — the registration
-#: forbids adopting a threshold the sitting it is first measured.
-#: `--check` re-derives these exactly and exits 3 on drift; empty means
-#: the first run has not been banked and `--check` REFUSES rather than
-#: passing vacuously (doctrine 20).
-PINNED = {}
+#: PINNED 2026-08-25 from the first recorded run
+#: (quality/RESULTS_NARRATIVE_BANDS.md). Measured facts, not thresholds —
+#: the registration forbids adopting a threshold the sitting it is first
+#: measured. `--check` re-derives these exactly and exits 3 on drift.
+PINNED = {
+    "songs_measured": 8667,
+    "songs_refused_unmarked": 0,
+    "seams": 40970,
+    "p1_nonzero_rate": 0.5902,
+    "p1_null_median_rate": 0.5824,
+    "p2_pairs": 1676,
+    "p2_back_to_back_rate": 0.0048,
+}
 
 
 def _content_types(lines, tag):
