@@ -117,3 +117,57 @@ five INTRO lines as verbed via embedded VBDs inside lists); the adopted
 gate therefore catches the FLAGRANT mode only, and says so in its module
 docstring. The blinding was enforced by instruction (read exactly one
 file), not by sandbox.
+
+---
+
+## 6 · Run 3 — series song 3 measured, 2026-08-25 (MEASUREMENT)
+
+Question, declared before launch: does a context-free reader find any section
+of `wheat_mane.txt` defective, and does the eight-song set still read as one
+writer's glossary now that a song written under the live gates has joined it?
+Type: MEASUREMENT (no pass condition). Six sonnet-class judges, independent
+ballots, zero cross-talk. Set-lens shuffle key, recorded before launch:
+A=stay_awake B=wheat_mane C=keep_the_light D=long_bridge E=one_more
+F=taught_me_time G=carry_it_over H=turn_the_wheel (suspect B neither first
+nor last).
+
+**Section lens (3 judges — sentences, imagery, prosody — every ballot
+quoting its section):** no unanimous rejection anywhere, which run 2's three
+3/3 rejections make worth saying. Majority rejection: CHORUS1 at 2/3 —
+sentences ("Sheet, row, read dune grain — three verbs crammed ... forcing a
+guess") and imagery ("'dune grain' and 'wheat mane' import a desert/farmland
+landscape into a rain-lashed sailing scene; the chain reads as
+sound-matching"). Minority rejections: DROP1 1/3 (prosody: "stacked
+stop-consonant collisions ... no vowel space anywhere in the section") and
+PRECHORUS1 1/3 (imagery: "Zeal pulls more than praise" as an abstract maxim
+present for its sound). CHORUS1 is the song's densest section by bound
+members per line (23 bound words over 6 lines against a song mean of 2.6 per
+line) — the local-density pressure of §4 reproducing on a fresh song, on a
+new surface: grammar intact, verbs present, and the drift moved into the
+SEMANTICS instead.
+
+**Set lens (3 judges, all eight songs):** glossary verdict 3/3 STRONG — and
+every evidence list locates the core cluster (light, ache, groan, stone,
+stair, thread, spare, crossed, dark, cost, nothing, dry) in the first six
+songs, with one judge writing "C, E, and H alone share seven-plus words ...
+one writer drawing from the same word-bank." The two gate-era songs sit
+outside that cluster: B (wheat_mane) enters only common song-stock rows
+(tide, freight, hands, night, rain, wind, keep). Odd-one-out: B at 2/3 —
+"abandons narrative and emotion entirely for dense ... sound-play", "pure
+nautical-jargon sound-texture". Weakest of the set: D (long_bridge) at 2/3,
+the control still converging blind; 1/3 named F's FALSE_ENDING2 bridge
+("disconnected grab-bag of images").
+
+**The mechanical half, re-derived here:** content types in >= 4 of the eight
+songs: 16, and wheat_mane appears in two of them (hands, all). Eleven of
+wheat_mane's 52 bound words were sung in long_bridge although its lists were
+never consulted — the funnel receipt now in that song's README entry, filed
+under M-111. The panel's verdicts are model output at nonzero temperature;
+nothing in CI gates on this section.
+
+**What run 3 changes:** the defect the gates closed (verbless stacks) did
+not recur; the pressure that produced it did, one surface over — maximally
+bound sections read as words chosen for sound with the grammar intact. That
+is filed as `MISSING.md` M-112 (the bound-token share of a section is
+disclosed by nothing), and the panel remains the only instrument for the
+semantic half, per §4's subtle-mode refusal.

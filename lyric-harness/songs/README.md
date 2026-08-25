@@ -402,9 +402,27 @@ died at the dictionary, refused 4 [LOG: refused wheat_mane.txt furl]
 because CMUdict cannot read `furl`. What survived is fresh inventory —
 the 4-clique row/toe/though/sew, the 3-cliques squalls/hauls/crawls,
 grain/mane/feign, freight/gait/slate, break/opaque/quake, tide/sighed/dried,
-keel/zeal/squeal, haze/praise/phase, noon/dune/strewn — none of it shopped
-from the earlier songs' clean lists, and none of the M-111 glossary words
-appears in the lyric.
+keel/zeal/squeal, haze/praise/phase, noon/dune/strewn — screened as fresh
+candidate pools with the earlier songs' clean lists deliberately
+unconsulted, and none of the M-111 glossary words appears in the lyric.
+
+**AND THE FUNNEL DELIVERED ANYWAY, WHICH IS M-111'S MECHANISM STRIPPED
+OF ITS LAST INNOCENT READING.** Measured after banking: eleven of this song's 52
+bound words — row, sew, though, tide, slate, freight, opaque, feign,
+four, core, dried — were SUNG in `long_bridge.txt`, a song whose lists
+this session never opened. No shopping happened and the overlap arrived
+anyway, because the ban tables and the lexicon are fixed: two
+independent sessions screening different candidate pools converge on
+the same short clean survivors. The prior receipt (16 of
+`carry_it_over`'s 50 screened words sung in `long_bridge`) could still
+be read as shopping; this one cannot. The old tic glossary itself did
+rotate out — of the sixteen content types now shared by four or more
+banked songs, this song appears in two (`hands`, `all`), and
+light/ache/groan/stair/stone/crossed/dark stay confined to the first
+five songs — so avoidance works on the WORDS a writer watches, and the
+funnel keeps operating on the words the SCREEN hands out. M-111's
+reuse-disclosure check remains the open remedy, awaiting the owner's
+ruling on the songs-are-not-corpus boundary.
 
 **WHAT THE BANKED NUMBERS SAY, cited not remembered.** Rhyme predictability
 came in at 0.609665, the lowest of the eight banked songs [RESULTS: rhyme_predictability_mean wheat_mane.txt]

@@ -1,0 +1,144 @@
+song	step	measured	harness_commit	verb	exit	fact	value
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:weigh~obey	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:weigh~cafe	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:weigh~ballet	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:weigh~matinee	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:weigh~parfait	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:weigh~astray	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:weigh~sleigh	BANNED: HOMEOTELEUTON
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:weigh~bouquet	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:obey~cafe	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:obey~ballet	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:obey~matinee	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:obey~parfait	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:obey~astray	BANNED: MODAL_RHYME
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:obey~sleigh	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:obey~bouquet	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:cafe~ballet	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:cafe~matinee	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:cafe~parfait	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:cafe~astray	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:cafe~sleigh	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:cafe~bouquet	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:ballet~matinee	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:ballet~parfait	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:ballet~astray	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:ballet~sleigh	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:ballet~bouquet	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:matinee~parfait	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:matinee~astray	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:matinee~sleigh	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:matinee~bouquet	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:parfait~astray	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:parfait~sleigh	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:parfait~bouquet	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:astray~sleigh	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:astray~bouquet	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	pair:sleigh~bouquet	CLEAN
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	banned	2
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	refused	0
+matinee	1	2026-08-25	60b6c30-WORKING	screen	0	clean_or_non_rhyme	34
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	pair:below~ago	BANNED: MODAL_RHYME
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	pair:below~plateau	CLEAN
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	pair:below~woe	BANNED: MODAL_RHYME
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	pair:below~owe	BANNED: MODAL_RHYME
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	pair:below~foe	BANNED: MODAL_RHYME
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	pair:ago~plateau	CLEAN
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	pair:ago~woe	CLEAN
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	pair:ago~owe	CLEAN
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	pair:ago~foe	CLEAN
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	pair:plateau~woe	CLEAN
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	pair:plateau~owe	CLEAN
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	pair:plateau~foe	BANNED: MODAL_RHYME
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	pair:woe~owe	CLEAN
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	pair:woe~foe	BANNED: HOMEOTELEUTON
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	pair:owe~foe	CLEAN
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	banned	6
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	refused	0
+matinee	2	2026-08-25	60b6c30-WORKING	screen	0	clean_or_non_rhyme	9
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	pair:decree~sea	BANNED: MODAL_RHYME
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	pair:decree~ski	CLEAN
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	pair:decree~key	CLEAN
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	pair:decree~debris	CLEAN
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	pair:decree~marquee	CLEAN
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	pair:sea~ski	CLEAN
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	pair:sea~key	BANNED: MODAL_RHYME
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	pair:sea~debris	CLEAN
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	pair:sea~marquee	CLEAN
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	pair:ski~key	CLEAN
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	pair:ski~debris	CLEAN
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	pair:ski~marquee	CLEAN
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	pair:key~debris	CLEAN
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	pair:key~marquee	CLEAN
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	pair:debris~marquee	CLEAN
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	banned	2
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	refused	0
+matinee	3	2026-08-25	60b6c30-WORKING	screen	0	clean_or_non_rhyme	13
+matinee	4	2026-08-25	60b6c30-WORKING	screen	0	pair:blue~brew	CLEAN
+matinee	4	2026-08-25	60b6c30-WORKING	screen	0	pair:blue~canoe	BANNED: MODAL_RHYME
+matinee	4	2026-08-25	60b6c30-WORKING	screen	0	pair:blue~taboo	CLEAN
+matinee	4	2026-08-25	60b6c30-WORKING	screen	0	pair:blue~haiku	CLEAN
+matinee	4	2026-08-25	60b6c30-WORKING	screen	0	pair:brew~canoe	CLEAN
+matinee	4	2026-08-25	60b6c30-WORKING	screen	0	pair:brew~taboo	CLEAN
+matinee	4	2026-08-25	60b6c30-WORKING	screen	0	pair:brew~haiku	CLEAN
+matinee	4	2026-08-25	60b6c30-WORKING	screen	0	pair:canoe~taboo	CLEAN
+matinee	4	2026-08-25	60b6c30-WORKING	screen	0	pair:canoe~haiku	CLEAN
+matinee	4	2026-08-25	60b6c30-WORKING	screen	0	pair:taboo~haiku	CLEAN
+matinee	4	2026-08-25	60b6c30-WORKING	screen	0	banned	1
+matinee	4	2026-08-25	60b6c30-WORKING	screen	0	refused	0
+matinee	4	2026-08-25	60b6c30-WORKING	screen	0	clean_or_non_rhyme	9
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:reply~thigh	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:reply~buy	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:reply~dye	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:reply~alibi	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:reply~rye	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:reply~awry	BANNED: HOMEOTELEUTON
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:thigh~buy	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:thigh~dye	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:thigh~alibi	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:thigh~rye	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:thigh~awry	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:buy~dye	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:buy~alibi	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:buy~rye	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:buy~awry	BANNED: MODAL_RHYME
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:dye~alibi	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:dye~rye	BANNED: HOMEOTELEUTON
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:dye~awry	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:alibi~rye	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:alibi~awry	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	pair:rye~awry	CLEAN
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	banned	3
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	refused	0
+matinee	5	2026-08-25	60b6c30-WORKING	screen	0	clean_or_non_rhyme	18
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	pair:door~pour	BANNED: MODAL_RHYME
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	pair:door~shore	BANNED: MODAL_RHYME
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	pair:door~roar	BANNED: MODAL_RHYME
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	pair:door~rapport	CLEAN
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	pair:door~encore	CLEAN
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	pair:pour~shore	BANNED: MODAL_RHYME
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	pair:pour~roar	BANNED: MODAL_RHYME
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	pair:pour~rapport	CLEAN
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	pair:pour~encore	CLEAN
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	pair:shore~roar	BANNED: MODAL_RHYME
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	pair:shore~rapport	CLEAN
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	pair:shore~encore	CLEAN
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	pair:roar~rapport	CLEAN
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	pair:roar~encore	BANNED: MODAL_RHYME
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	pair:rapport~encore	CLEAN
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	banned	7
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	refused	0
+matinee	6	2026-08-25	60b6c30-WORKING	screen	0	clean_or_non_rhyme	8
+matinee	7	2026-08-25	60b6c30-WORKING	screen	0	pair:later~greater	CLEAN
+matinee	7	2026-08-25	60b6c30-WORKING	screen	0	pair:later~freighter	CLEAN
+matinee	7	2026-08-25	60b6c30-WORKING	screen	0	pair:later~equator	CLEAN
+matinee	7	2026-08-25	60b6c30-WORKING	screen	0	pair:later~crater	BANNED: HOMEOTELEUTON
+matinee	7	2026-08-25	60b6c30-WORKING	screen	0	pair:greater~freighter	CLEAN
+matinee	7	2026-08-25	60b6c30-WORKING	screen	0	pair:greater~equator	CLEAN
+matinee	7	2026-08-25	60b6c30-WORKING	screen	0	pair:greater~crater	CLEAN
+matinee	7	2026-08-25	60b6c30-WORKING	screen	0	pair:freighter~equator	CLEAN
+matinee	7	2026-08-25	60b6c30-WORKING	screen	0	pair:freighter~crater	CLEAN
+matinee	7	2026-08-25	60b6c30-WORKING	screen	0	pair:equator~crater	CLEAN
+matinee	7	2026-08-25	60b6c30-WORKING	screen	0	banned	1
+matinee	7	2026-08-25	60b6c30-WORKING	screen	0	refused	0
+matinee	7	2026-08-25	60b6c30-WORKING	screen	0	clean_or_non_rhyme	9

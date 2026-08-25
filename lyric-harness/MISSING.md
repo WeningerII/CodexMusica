@@ -11317,3 +11317,36 @@ panel with a set lens.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~167~~ -> **169**
 (M-110 and this entry landed in one commit, 2026-08-25; this entry counts while
 OPEN — the count is entries, not closures).
+
+### M-112 · the mandate's own weight on a section is disclosed by nothing `OPEN`
+Filed 2026-08-25, from the series' third song. `wheat_mane.txt` (seed 2)
+cleared every gate on its first grading round — 0 flags, 0 stacked lines, 0
+banned pairs — and the blind panel still rejected its CHORUS1 at 2/3, with
+the imagery ballot reading the section's rhyme chain as "sound-matching
+rather than a single picture" (`quality/RESULTS_PANEL.md` §6).
+
+**THE MEASURED COORDINATE.** That chorus binds 23 of its ~31 sung tokens —
+the plan's 21 overlapping groups put five bound positions on each of lines 9
+and 10, every token of a five-token line — while the song's mean is 2.6
+bound members a line. Run 2 already ranked the three rejected sections 1st,
+6th and 10th of 62 by members-per-line; this song reproduces the pressure on
+a NEW SURFACE: M-110's gate closed the verbless-stack spelling, the writing
+kept its verbs, and the drift moved into semantics (a farmland register
+imported into a sea scene because grain/mane/feign was the clean family the
+screen had left).
+
+**WHY IT IS OPEN AND NOT BUILT.** The buildable half is a DISCLOSURE: the
+planner and `song` could print each section's bound-token share (bound
+members over token capacity), which is derivable from the mandate and the
+slot budget alone. What is NOT buildable today is the gate: a ceiling needs
+a calibration, the corpus carries no mandates, and the honest route —
+`quality/recover.py` covers over corpus songs, then the share's
+distribution — is a preregistration, not an afternoon. Density is also NOT
+sufficient (run 2: ranks 2–5 equally dense and passed), so any future
+ceiling is a band question, stated as an FPR (doctrine 22), and the
+semantic half stays the panel's (§4's subtle-mode refusal). Until then the
+share is a number a session computes by hand, which is exactly the
+private-instrument shape standing rule 3 exists to end — the disclosure
+should be built even while the gate waits.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~169~~ -> **170**.
