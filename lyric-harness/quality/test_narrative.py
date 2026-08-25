@@ -132,22 +132,23 @@ def test_the_wired_draw():
     import random
     from quality import plan as P
     pl = P.make_plan(31)
-    # REPINNED 2026-08-25 under M-122: the gate rebuild changed each
-    # group's ACCEPTED pool, so seed 31's relation draw legitimately
-    # moved (K anaphora -> monai; D now perfect rhyme). The banked
-    # crooked_waltz mandate is NOT held by HEAD's dice and never was —
-    # it lives in the song's own recorded log and blueprint
-    # (songs/crooked_waltz.log.tsv, .blueprint.json), which is what a
-    # bank is FOR. What this check holds is that the draw is a stable
-    # pin at all, and that shape-entropy-before-relation-entropy still
-    # reads (test_plan §14 holds the byte-identical-shape half).
-    check("seed 31's RELATION draw re-derives exactly under the M-122 "
-          "gate (A anaphora, D perfect rhyme, K monai) — a moved pin "
+    # REPINNED 2026-08-25 under M-122 and again under M-123: each gate
+    # widening changes some group's ACCEPTED pool, and a moved pool
+    # moves that group's randrange and every draw downstream, so these
+    # pins legitimately move whenever the conjunction gate learns a new
+    # rule. The banked crooked_waltz mandate is NOT held by HEAD's dice
+    # and never was — it lives in the song's own recorded log and
+    # blueprint (songs/crooked_waltz.log.tsv, .blueprint.json), which
+    # is what a bank is FOR. What this check holds is that the draw is
+    # a stable pin at all, and that shape-entropy-before-relation-
+    # entropy still reads (test_plan §14 holds the shape half).
+    check("seed 31's RELATION draw re-derives exactly under the M-123 "
+          "gate (A anaphora, D rime riche, K assonance) — a moved pin "
           "here means the pools or the dice moved, which is a question, "
           "not a merge conflict",
           pl["relations"]["A"] == "schema:anaphora"
-          and pl["relations"]["D"] == "schema:perfect rhyme"
-          and pl["relations"]["K"] == "schema:monai",
+          and pl["relations"]["D"] == "schema:rime riche"
+          and pl["relations"]["K"] == "schema:assonance",
           {k: pl["relations"][k] for k in ("A", "D", "K")})
     nar = pl["narrative"]
     check("the collapse is RECORDED: mode drawn, the exact line-up "

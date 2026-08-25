@@ -11650,3 +11650,69 @@ and a replay that runs all three rules including the closure;
 `test_narrative.py` §6 is repinned to the re-derived draw.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~179~~ -> **180**.
+
+### M-123 · a Differ claim is a disequality clique, and a binary channel caps the clique at two `CLOSED`
+Filed and closed 2026-08-25, found the hour the M-122 gate first
+emitted seed 32's demand sheet: group C drew light rhyme onto SEVEN
+lines. Light rhyme's third channel rule is `prominence Differ` on the
+written-out final syllable, the eng phonology constructs prominence
+BINARY (`1 if s["stress"] in (1, 2) else 0` — its own one line), and
+a pairwise-Differ group is a disequality CLIQUE needing one distinct
+value per member, so no three lines in the language can satisfy it —
+pigeonhole, not vocabulary. The production judge confirmed it before
+the repair was designed: a declared 3-member `schema:light rhyme`
+group flags SCHEME_VIOLATION on its same-prominence pair. **MEASURED
+pre-fix, seeds 1–60: 74 impossible prominence-Differ cliques across
+40 of 60 seeds** — two thirds of all seeds carried a demand no words
+can meet, passed by a gate that reasons over predicates with no idea
+what a channel's VALUE DOMAIN is. The repair is a declared table and
+two rules. `relations.CHANNEL_DOMAINS` (adopted) carries the finite
+domains of the channels the gate reads, **measured over all 126,052
+syllabifiable words of the shipped lexicon: prominence exactly
+{0, 1}, nucleus exactly the 15 ARPABET vowels**; a channel absent
+from the table is unbounded on purpose (sequences and tokens), so
+absence can only make the gate MISS a cap, never invent one. Rule
+one, the clique cap: a candidate whose Differ claim rides a finite
+channel refuses any group larger than that channel's domain. Rule
+two, the parity closure: for a BINARY domain the union-find becomes
+a PARITY union-find — Agree is a parity-0 edge, Differ a parity-1
+edge, and a cycle that forces both refuses the candidate — which
+also catches cross-group odd cycles (three light-rhyme PAIRS in a
+triangle demand a 3-colouring of a 2-valued channel) that no
+per-group cap can see. **AND THE SAME PIGEONHOLE WEARS A SECOND PREDICATE NAME, found by
+sweeping the drawable pool's predicates before trusting the fix:
+`PresentVsAbsent` IS a Differ on a presence BIT** — binary by
+construction, a coda is there or it is not — and subtractive rhyme
+had drawn it onto a three-member group in the very demand sheet that
+raised this entry. A three-clique on a two-valued attribute is the
+identical impossibility; the cap could not see it because it keyed
+on the predicate name "Differ". `drawable_traits` now TRANSLATES:
+each PresentVsAbsent claim emits Differ on a derived
+`<channel>_presence` channel (registered binary in the table —
+nothing to measure), and every Agree on a channel any drawable
+schema tests for presence projects an Agree edge onto the same
+derived channel, because equal codas are equally present — which is
+what lets the parity closure see a monorhyme coda-Agree contradict
+a subtractive presence-Differ across a chain. The presence-channel
+set is derived from the registry, never hand-listed; the raw claim
+stays in the exact-match store, so the same-pair conflict
+(subtractive against monorhyme on one pair) was already refused and
+the translation adds the transitive half. The remaining non-binary
+predicates in the pool were swept and are safe: ClassEqual and
+SequenceEqual are equalities no drawable schema opposes with a
+Differ on the same coordinate. **MEASURED post-fix with both faces
+in, the same sixty seeds: 0 unsatisfiable, 0 refused, all five
+counts zero** (adjacency, pairwise, transitive, oversize, parity).
+Draws shifted again because pools did — light rhyme and subtractive
+rhyme now land only on pair-sized groups — so `test_narrative.py`
+§6 is repinned a second time (A anaphora, D rime riche, K
+assonance) and `test_plan.py` §14's replay runs all five rules with
+three new derivation pins (the domain table against the phonology;
+light rhyme's capping claim; the presence translation with its
+projected Agree). This is M-122's family one axis over: that entry
+taught the ledger that equality composes; this one teaches it that
+a predicate's SATISFIABILITY depends on the value space it ranges
+over, which no amount of edge bookkeeping can recover from the
+predicate's name alone.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~180~~ -> **181**.

@@ -2560,14 +2560,33 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         # `drawable_traits`; Agree edges union per key, Differ edges are
         # checked against the closure, and everything that is neither
         # keeps the old exact-match rule per pair.
+        # M-123, found the hour the M-122 gate first emitted seed 32's
+        # demand sheet: a DIFFER CLAIM IS A DISEQUALITY CLIQUE AND A
+        # CLIQUE NEEDS ONE VALUE PER MEMBER, so a channel's finite value
+        # domain caps the group — light rhyme's `prominence Differ`
+        # rides a channel the eng phonology constructs BINARY, capping
+        # its groups at TWO, and the draw had put it on a group of
+        # seven (74 impossible cliques over seeds 1-60, 40 of 60 seeds;
+        # the production judge confirmed the pigeonhole on a declared
+        # 3-member group before the repair was designed). The cap reads
+        # `relations.CHANNEL_DOMAINS` (adopted, measured over the full
+        # lexicon), and for a BINARY domain the closure is a PARITY
+        # union-find — Agree is a parity-0 edge, Differ a parity-1
+        # edge, and a cycle that forces both refuses the candidate —
+        # which also catches cross-group odd cycles no clique cap sees.
+        # A channel absent from the table stays a plain disequality
+        # edge, so the gate can only miss a cap, never invent one.
         _pairc = {}
         _eqp = {}
         _nep = {}
 
-        def _find(par, x):
-            while par.get(x, x) != x:
-                x = par[x]
-            return x
+        def _pfind(par, x):
+            p = 0
+            while True:
+                nx, xp = par.get(x, (x, 0))
+                if nx == x:
+                    return x, p
+                x, p = nx, p ^ xp
 
         for _gi in range(len(groups)):
             _lines = _grp_lines[_gi]
@@ -2585,6 +2604,11 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                            for _p in _pairs):
                         _bad = True
                         break
+                    _dom = _RL.CHANNEL_DOMAINS.get(_ch)
+                    if (_pr == "Differ" and _dom is not None
+                            and len(_lines) > len(_dom)):
+                        _bad = True
+                        break
                 if _bad:
                     continue
                 _by = {}
@@ -2594,16 +2618,32 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                 for _key, _prs in sorted(_by.items()):
                     _par = dict(_eqp.get(_key, ()))
                     _ne2 = list(_nep.get(_key, ()))
-                    if "Agree" in _prs:
+                    _dom = _RL.CHANNEL_DOMAINS.get(_key[0])
+                    _binary = _dom is not None and len(_dom) == 2
+                    for _w, _on in ((0, "Agree" in _prs),
+                                    (1, "Differ" in _prs and _binary)):
+                        if _bad or not _on:
+                            continue
                         for _a, _b in _pairs:
-                            _ra, _rb = _find(_par, _a), _find(_par, _b)
-                            if _ra != _rb:
-                                _par[_ra] = _rb
-                    if "Differ" in _prs:
+                            _ra, _pa = _pfind(_par, _a)
+                            _rb, _pb = _pfind(_par, _b)
+                            if _ra == _rb:
+                                if _pa ^ _pb != _w:
+                                    _bad = True
+                                    break
+                            else:
+                                _par[_ra] = (_rb, _pa ^ _pb ^ _w)
+                    if _bad:
+                        break
+                    if "Differ" in _prs and not _binary:
                         _ne2.extend(_pairs)
-                    if any(_find(_par, _a) == _find(_par, _b)
-                           for _a, _b in _ne2):
-                        _bad = True
+                    for _a, _b in _ne2:
+                        _ra, _pa = _pfind(_par, _a)
+                        _rb, _pb = _pfind(_par, _b)
+                        if _ra == _rb and not (_pa ^ _pb):
+                            _bad = True
+                            break
+                    if _bad:
                         break
                 if _bad:
                     continue
@@ -2615,12 +2655,16 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                     for _p in _pairs:
                         _pairc[(_p, _ch, _co)] = _pr
                     _key = (_ch, _co)
-                    if _pr == "Agree":
+                    _dom = _RL.CHANNEL_DOMAINS.get(_ch)
+                    _binary = _dom is not None and len(_dom) == 2
+                    if _pr == "Agree" or (_pr == "Differ" and _binary):
+                        _w = 0 if _pr == "Agree" else 1
                         _par = _eqp.setdefault(_key, {})
                         for _a, _b in _pairs:
-                            _ra, _rb = _find(_par, _a), _find(_par, _b)
+                            _ra, _pa = _pfind(_par, _a)
+                            _rb, _pb = _pfind(_par, _b)
                             if _ra != _rb:
-                                _par[_ra] = _rb
+                                _par[_ra] = (_rb, _pa ^ _pb ^ _w)
                     elif _pr == "Differ":
                         _nep.setdefault(_key, []).extend(_pairs)
     plan["relations"] = drawn_relations

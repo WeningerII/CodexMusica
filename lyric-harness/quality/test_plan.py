@@ -681,11 +681,17 @@ def test_the_measure():
     # phonology reach, so an unrestricted admission would hand the planner
     # a stream builder, which is the corpus arriving at the dice by a
     # longer road.
-    ALLOWED_FROM_RELATIONS = {"DRAWABLE_SCHEMAS", "drawable_traits"}
+    ALLOWED_FROM_RELATIONS = {"DRAWABLE_SCHEMAS", "drawable_traits",
+                              "CHANNEL_DOMAINS"}
     # `drawable_traits` joined with M-118's conjunction gate: the
     # gap ceiling and end-channel signature per drawable schema,
     # derived in relations.py from its own rows so the planner
     # never reads a row itself.
+    # `CHANNEL_DOMAINS` joined with M-123: an ADOPTED table of finite
+    # channel value domains (prominence binary, the vowel inventory, the
+    # derived presence bit) — the same declared-constant species as
+    # `DRAWABLE_SCHEMAS`, no reader and no stream behind the name, and
+    # the clique cap and parity closure are what read it.
     # `narrative` JOINED 2026-08-25 (M-121, the wired half of the
     # narrative layer) AND IS THE EASIEST ADMISSION THIS GUARD HAS EVER
     # RULED ON: quality/narrative.py imports NOTHING from quality and
@@ -2102,12 +2108,50 @@ def test_the_relation_draw():
           f"semirhyme {traits['semirhyme']}, "
           f"light {traits['light rhyme']}")
 
-    def _find(par, x):
-        while par.get(x, x) != x:
-            x = par[x]
-        return x
+    # M-123's derivation pins: a Differ claim is a disequality clique, a
+    # clique needs one distinct value per member, and the adopted
+    # CHANNEL_DOMAINS table is what tells the gate a channel is finite.
+    check("M-123: the adopted domain table says prominence is BINARY and "
+          "nucleus is the 15-vowel inventory (measured over all 126,052 "
+          "syllabifiable lexicon words; the eng adapter constructs "
+          "prominence as `1 if stress in (1,2) else 0`), and light rhyme "
+          "carries the prominence-Differ claim that caps its groups at 2",
+          len(RL.CHANNEL_DOMAINS["prominence"]) == 2
+          and len(RL.CHANNEL_DOMAINS["nucleus"]) == 15
+          and ("prominence", "final", "Differ")
+          in traits["light rhyme"]["claims"],
+          f"domains {[(k, len(v)) for k, v in RL.CHANNEL_DOMAINS.items()]}")
+    check("M-123's second face: `PresentVsAbsent` IS a Differ on a "
+          "presence bit — subtractive rhyme's claims carry the derived "
+          "(coda_presence, anchor, Differ) with a binary domain, and a "
+          "coda-Agree schema projects the Agree edge onto the same "
+          "derived channel so the parity closure can see equal codas "
+          "contradict a presence split",
+          ("coda_presence", "anchor", "Differ")
+          in traits["subtractive rhyme"]["claims"]
+          and ("coda_presence", "anchor", "Agree")
+          in traits["monorhyme / leash"]["claims"]
+          and len(RL.CHANNEL_DOMAINS["coda_presence"]) == 2,
+          f"subtractive {traits['subtractive rhyme']['claims']}")
+    from quality import phonology as PHON
+    _eng = PHON.get("eng")
+    _pvals = {s.prominence for w in ("spring", "raining", "carpenter",
+                                     "understand", "overflow", "tell")
+              for s in _eng.syllabify(w)}
+    check("M-123: the phonology the judge grades through emits prominence "
+          "values from exactly the adopted domain — a probe over stressed "
+          "and unstressed syllables reaches both values and nothing else",
+          _pvals == set(RL.CHANNEL_DOMAINS["prominence"]), _pvals)
 
-    n_adj = n_pair = n_trans = 0
+    def _pfind(par, x):
+        p = 0
+        while True:
+            nx, xp = par.get(x, (x, 0))
+            if nx == x:
+                return x, p
+            x, p = nx, p ^ xp
+
+    n_adj = n_pair = n_trans = n_over = n_parity = 0
     for sd in (4, 7, 11, 19, 23, 31):
         p3 = PLN.make_plan(sd)
         r3 = p3.get("relations") or {}
@@ -2127,31 +2171,47 @@ def test_the_relation_draw():
                     b - a > t["gap"] for a, b in pairs):
                 n_adj += 1
             for ch, co, pred in t["claims"]:
+                dom = RL.CHANNEL_DOMAINS.get(ch)
+                if pred == "Differ" and dom is not None \
+                        and len(g) > len(dom):
+                    n_over += 1
                 for p in pairs:
                     if pairc.get((p, ch, co)) not in (None, pred):
                         n_pair += 1
                     pairc[(p, ch, co)] = pred
                 key = (ch, co)
-                if pred == "Agree":
+                binary = dom is not None and len(dom) == 2
+                if pred == "Agree" or (pred == "Differ" and binary):
+                    w = 0 if pred == "Agree" else 1
                     par = eqp.setdefault(key, {})
                     for a, b in pairs:
-                        ra, rb = _find(par, a), _find(par, b)
-                        if ra != rb:
-                            par[ra] = rb
+                        ra, pa = _pfind(par, a)
+                        rb, pb = _pfind(par, b)
+                        if ra == rb:
+                            if pa ^ pb != w:
+                                n_parity += 1
+                        else:
+                            par[ra] = (rb, pa ^ pb ^ w)
                 elif pred == "Differ":
                     nep.setdefault(key, []).extend(pairs)
         for key, ne in nep.items():
             par = eqp.get(key, {})
-            n_trans += sum(1 for a, b in ne
-                           if _find(par, a) == _find(par, b))
+            for a, b in ne:
+                ra, pa = _pfind(par, a)
+                rb, pb = _pfind(par, b)
+                if ra == rb and not (pa ^ pb):
+                    n_trans += 1
     check("no drawn conjunction violates a schema's own gap ceiling, puts "
-          "opposite predicates on one (pair, channel, coordinate), or "
-          "closes an equality chain a Differ claim demands open — the "
-          "measured 39-of-40 (M-118) and 53-of-60 (M-122: 117 adjacency, "
-          "32 transitive) defects all read ZERO through the gate",
-          n_adj == 0 and n_pair == 0 and n_trans == 0,
-          f"adjacency {n_adj}, pairwise {n_pair}, transitive {n_trans} "
-          f"over six seeds")
+          "opposite predicates on one (pair, channel, coordinate), closes "
+          "an equality chain a Differ claim demands open, outnumbers a "
+          "finite channel domain, or forces a parity cycle on a binary "
+          "one — the measured 39-of-40 (M-118), 53-of-60 (M-122: 117 "
+          "adjacency, 32 transitive) and 40-of-60 (M-123: 74 impossible "
+          "prominence cliques) defects all read ZERO through the gate",
+          n_adj == 0 and n_pair == 0 and n_trans == 0
+          and n_over == 0 and n_parity == 0,
+          f"adjacency {n_adj}, pairwise {n_pair}, transitive {n_trans}, "
+          f"oversize {n_over}, parity {n_parity} over six seeds")
 
 
 if __name__ == "__main__":

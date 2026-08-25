@@ -6518,6 +6518,22 @@ def drawable_traits():
     53 seeds drew an unsatisfiable conjunction — 117 adjacency
     violations, 32 transitive contradictions; 0 after.
     """
+    # M-123's second face, found the same hour: `PresentVsAbsent` IS a
+    # Differ on a presence BIT — binary BY CONSTRUCTION, a coda is there
+    # or it is not — wearing a predicate name the cap could not read
+    # (subtractive rhyme drew onto a three-member group, the same
+    # pigeonhole as light rhyme's one axis over). Each such claim is
+    # translated to Differ on a derived `<channel>_presence` channel,
+    # and every Agree on a channel ANY drawable schema tests for
+    # presence projects an Agree edge onto the same derived channel,
+    # because equal codas are equally present — that projection is what
+    # lets the parity closure see monorhyme's coda-Agree contradict a
+    # subtractive presence-Differ across a chain. The channel set is
+    # derived from the registry, never hand-listed.
+    presence_channels = {
+        c.channel for name in DRAWABLE_SCHEMAS
+        for c in (REGISTRY[name].channels or ())
+        if type(c.predicate).__name__ == "PresentVsAbsent"}
     out = {}
     for name in DRAWABLE_SCHEMAS:
         sch = REGISTRY[name]
@@ -6528,6 +6544,14 @@ def drawable_traits():
             if p.kind == "adjacent_lines" and p.polarity:
                 gap = 1
         claims = []
+
+        def _emit(ch, co, pred):
+            claims.append((ch, co, pred))
+            if pred == "PresentVsAbsent":
+                claims.append((ch + "_presence", co, "Differ"))
+            elif pred == "Agree" and ch in presence_channels:
+                claims.append((ch + "_presence", co, "Agree"))
+
         if (any(p.kind == "both_line_final" and p.polarity
                 for p in sch.placement)
                 or (sch.spans and all(s.locus == "line_final_token"
@@ -6538,15 +6562,15 @@ def drawable_traits():
                     continue
                 pred = type(c.predicate).__name__
                 if final_span or c.scope == "last":
-                    claims.append((c.channel, "final", pred))
+                    _emit(c.channel, "final", pred)
                 elif c.scope == "post_anchor":
-                    claims.append((c.channel, "post", pred))
+                    _emit(c.channel, "post", pred)
                 elif c.scope == "each":
-                    claims.append((c.channel, "anchor", pred))
+                    _emit(c.channel, "anchor", pred)
                     if pred == "Agree":
-                        claims.append((c.channel, "post", "Agree"))
+                        _emit(c.channel, "post", "Agree")
                 else:
-                    claims.append((c.channel, "anchor", pred))
+                    _emit(c.channel, "anchor", pred)
         if (any(p.kind == "both_line_initial" and p.polarity
                 for p in sch.placement)
                 or (sch.spans and all(s.locus in ("line_initial_token",
@@ -6562,6 +6586,34 @@ def drawable_traits():
                                    type(i.predicate).__name__))
         out[name] = {"gap": gap, "claims": tuple(claims)}
     return out
+
+
+#: ADOPTED 2026-08-25 (M-123): the FINITE VALUE DOMAINS of the channels the
+#: planner's conjunction gate reads, for the English phonology the mandate
+#: judge grades through (`revise._relation_phonology` -> `phonology.get
+#: ("eng")`). A pairwise-Differ claim is a disequality clique, and a clique
+#: needs one distinct value per member, so a group may not outnumber its
+#: channel's domain — light rhyme's `prominence Differ` on a BINARY channel
+#: caps its group at TWO, which the M-122 gate could not see (measured:
+#: 74 impossible cliques over seeds 1-60, 40 of 60 seeds). MEASURED over
+#: all 126,052 syllabifiable words of the shipped lexicon: prominence
+#: emits exactly {0, 1} — binary BY CONSTRUCTION, the eng adapter's own
+#: `prominence=1 if s["stress"] in (1, 2) else 0` — and nucleus exactly
+#: the 15 ARPABET vowels. A channel ABSENT here is unbounded on purpose
+#: (onset/coda/consonants are sequences over an open combinatorial space,
+#: token is the vocabulary): absence can only make the gate MISS a cap,
+#: never invent one, so the table errs toward emitting a plan and the
+#: judge stays the final word. Re-derivation command in `MISSING.md`
+#: M-123; `test_plan.py` §14 pins the two rows against the phonology.
+CHANNEL_DOMAINS = {
+    "prominence": (0, 1),
+    "nucleus": ("AA", "AE", "AH", "AO", "AW", "AY", "EH", "ER",
+                "EY", "IH", "IY", "OW", "OY", "UH", "UW"),
+    # A derived channel: `drawable_traits` translates PresentVsAbsent to
+    # Differ on `<channel>_presence`, and a presence bit is binary BY
+    # CONSTRUCTION — nothing to measure, a coda is there or it is not.
+    "coda_presence": (0, 1),
+}
 
 
 #: ADOPTED 2026-08-25 from `derive_drawable_schemas()` (owner ruling "now do
