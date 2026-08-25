@@ -1,0 +1,411 @@
+song	step	measured	harness_commit	verb	exit	fact	value
+wheat_mane	1	2026-08-25	1bed312	screen	0	pair:sail~gale	BANNED: MODAL_RHYME
+wheat_mane	1	2026-08-25	1bed312	screen	0	pair:sail~veil	BANNED: MODAL_RHYME
+wheat_mane	1	2026-08-25	1bed312	screen	0	pair:sail~bale	CLEAN
+wheat_mane	1	2026-08-25	1bed312	screen	0	pair:sail~rail	BANNED: HOMEOTELEUTON
+wheat_mane	1	2026-08-25	1bed312	screen	0	pair:sail~whale	BANNED: MODAL_RHYME
+wheat_mane	1	2026-08-25	1bed312	screen	0	pair:gale~veil	CLEAN
+wheat_mane	1	2026-08-25	1bed312	screen	0	pair:gale~bale	BANNED: HOMEOTELEUTON
+wheat_mane	1	2026-08-25	1bed312	screen	0	pair:gale~rail	BANNED: MODAL_RHYME
+wheat_mane	1	2026-08-25	1bed312	screen	0	pair:gale~whale	BANNED: HOMEOTELEUTON
+wheat_mane	1	2026-08-25	1bed312	screen	0	pair:veil~bale	CLEAN
+wheat_mane	1	2026-08-25	1bed312	screen	0	pair:veil~rail	CLEAN
+wheat_mane	1	2026-08-25	1bed312	screen	0	pair:veil~whale	CLEAN
+wheat_mane	1	2026-08-25	1bed312	screen	0	pair:bale~rail	CLEAN
+wheat_mane	1	2026-08-25	1bed312	screen	0	pair:bale~whale	BANNED: HOMEOTELEUTON
+wheat_mane	1	2026-08-25	1bed312	screen	0	pair:rail~whale	CLEAN
+wheat_mane	1	2026-08-25	1bed312	screen	0	banned	8
+wheat_mane	1	2026-08-25	1bed312	screen	0	refused	0
+wheat_mane	1	2026-08-25	1bed312	screen	0	clean_or_non_rhyme	7
+wheat_mane	2	2026-08-25	1bed312-WORKING	screen	0	pair:row~toe	CLEAN
+wheat_mane	2	2026-08-25	1bed312-WORKING	screen	0	pair:row~dough	CLEAN
+wheat_mane	2	2026-08-25	1bed312-WORKING	screen	0	pair:row~sew	CLEAN
+wheat_mane	2	2026-08-25	1bed312-WORKING	screen	0	pair:row~though	CLEAN
+wheat_mane	2	2026-08-25	1bed312-WORKING	screen	0	pair:toe~dough	CLEAN
+wheat_mane	2	2026-08-25	1bed312-WORKING	screen	0	pair:toe~sew	CLEAN
+wheat_mane	2	2026-08-25	1bed312-WORKING	screen	0	pair:toe~though	CLEAN
+wheat_mane	2	2026-08-25	1bed312-WORKING	screen	0	pair:dough~sew	CLEAN
+wheat_mane	2	2026-08-25	1bed312-WORKING	screen	0	pair:dough~though	BANNED: HOMEOTELEUTON
+wheat_mane	2	2026-08-25	1bed312-WORKING	screen	0	pair:sew~though	CLEAN
+wheat_mane	2	2026-08-25	1bed312-WORKING	screen	0	banned	1
+wheat_mane	2	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	2	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	9
+wheat_mane	3	2026-08-25	1bed312-WORKING	screen	0	pair:oar~pour	CLEAN
+wheat_mane	3	2026-08-25	1bed312-WORKING	screen	0	pair:oar~core	CLEAN
+wheat_mane	3	2026-08-25	1bed312-WORKING	screen	0	pair:oar~door	BANNED: MODAL_RHYME
+wheat_mane	3	2026-08-25	1bed312-WORKING	screen	0	pair:oar~four	CLEAN
+wheat_mane	3	2026-08-25	1bed312-WORKING	screen	0	pair:pour~core	BANNED: MODAL_RHYME
+wheat_mane	3	2026-08-25	1bed312-WORKING	screen	0	pair:pour~door	BANNED: MODAL_RHYME
+wheat_mane	3	2026-08-25	1bed312-WORKING	screen	0	pair:pour~four	BANNED: HOMEOTELEUTON
+wheat_mane	3	2026-08-25	1bed312-WORKING	screen	0	pair:core~door	BANNED: MODAL_RHYME
+wheat_mane	3	2026-08-25	1bed312-WORKING	screen	0	pair:core~four	CLEAN
+wheat_mane	3	2026-08-25	1bed312-WORKING	screen	0	pair:door~four	BANNED: MODAL_RHYME
+wheat_mane	3	2026-08-25	1bed312-WORKING	screen	0	banned	6
+wheat_mane	3	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	3	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	4
+wheat_mane	4	2026-08-25	1bed312-WORKING	screen	0	pair:sleet~wheat	CLEAN
+wheat_mane	4	2026-08-25	1bed312-WORKING	screen	0	pair:sleet~sheet	BANNED: HOMEOTELEUTON
+wheat_mane	4	2026-08-25	1bed312-WORKING	screen	0	pair:sleet~pleat	CLEAN
+wheat_mane	4	2026-08-25	1bed312-WORKING	screen	0	pair:sleet~heat	CLEAN
+wheat_mane	4	2026-08-25	1bed312-WORKING	screen	0	pair:wheat~sheet	CLEAN
+wheat_mane	4	2026-08-25	1bed312-WORKING	screen	0	pair:wheat~pleat	BANNED: HOMEOTELEUTON
+wheat_mane	4	2026-08-25	1bed312-WORKING	screen	0	pair:wheat~heat	BANNED: HOMEOTELEUTON
+wheat_mane	4	2026-08-25	1bed312-WORKING	screen	0	pair:sheet~pleat	CLEAN
+wheat_mane	4	2026-08-25	1bed312-WORKING	screen	0	pair:sheet~heat	CLEAN
+wheat_mane	4	2026-08-25	1bed312-WORKING	screen	0	pair:pleat~heat	BANNED: HOMEOTELEUTON
+wheat_mane	4	2026-08-25	1bed312-WORKING	screen	0	banned	4
+wheat_mane	4	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	4	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	6
+wheat_mane	5	2026-08-25	1bed312-WORKING	screen	0	pair:furl~swirl	REFUSED — CMUdict has no pronunciation for the end word 'furl'
+wheat_mane	5	2026-08-25	1bed312-WORKING	screen	0	pair:furl~pearl	REFUSED — CMUdict has no pronunciation for the end word 'furl'
+wheat_mane	5	2026-08-25	1bed312-WORKING	screen	0	pair:furl~curl	REFUSED — CMUdict has no pronunciation for the end word 'furl'
+wheat_mane	5	2026-08-25	1bed312-WORKING	screen	0	pair:furl~whirl	REFUSED — CMUdict has no pronunciation for the end word 'furl'
+wheat_mane	5	2026-08-25	1bed312-WORKING	screen	0	pair:swirl~pearl	BANNED: MODAL_RHYME
+wheat_mane	5	2026-08-25	1bed312-WORKING	screen	0	pair:swirl~curl	BANNED: MODAL_RHYME
+wheat_mane	5	2026-08-25	1bed312-WORKING	screen	0	pair:swirl~whirl	BANNED: HOMEOTELEUTON
+wheat_mane	5	2026-08-25	1bed312-WORKING	screen	0	pair:pearl~curl	BANNED: MODAL_RHYME
+wheat_mane	5	2026-08-25	1bed312-WORKING	screen	0	pair:pearl~whirl	BANNED: MODAL_RHYME
+wheat_mane	5	2026-08-25	1bed312-WORKING	screen	0	pair:curl~whirl	BANNED: MODAL_RHYME
+wheat_mane	5	2026-08-25	1bed312-WORKING	screen	0	banned	6
+wheat_mane	5	2026-08-25	1bed312-WORKING	screen	0	refused	4
+wheat_mane	5	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	6	2026-08-25	1bed312-WORKING	screen	0	pair:noon~dune	CLEAN
+wheat_mane	6	2026-08-25	1bed312-WORKING	screen	0	pair:noon~strewn	CLEAN
+wheat_mane	6	2026-08-25	1bed312-WORKING	screen	0	pair:noon~hewn	CLEAN
+wheat_mane	6	2026-08-25	1bed312-WORKING	screen	0	pair:noon~soon	BANNED: HOMEOTELEUTON
+wheat_mane	6	2026-08-25	1bed312-WORKING	screen	0	pair:dune~strewn	CLEAN
+wheat_mane	6	2026-08-25	1bed312-WORKING	screen	0	pair:dune~hewn	CLEAN
+wheat_mane	6	2026-08-25	1bed312-WORKING	screen	0	pair:dune~soon	BANNED: MODAL_RHYME
+wheat_mane	6	2026-08-25	1bed312-WORKING	screen	0	pair:strewn~hewn	BANNED: HOMEOTELEUTON
+wheat_mane	6	2026-08-25	1bed312-WORKING	screen	0	pair:strewn~soon	CLEAN
+wheat_mane	6	2026-08-25	1bed312-WORKING	screen	0	pair:hewn~soon	BANNED: MODAL_RHYME
+wheat_mane	6	2026-08-25	1bed312-WORKING	screen	0	banned	4
+wheat_mane	6	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	6	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	6
+wheat_mane	7	2026-08-25	1bed312-WORKING	screen	0	pair:deck~trek	CLEAN
+wheat_mane	7	2026-08-25	1bed312-WORKING	screen	0	pair:deck~wreck	BANNED: HOMEOTELEUTON
+wheat_mane	7	2026-08-25	1bed312-WORKING	screen	0	pair:deck~fleck	BANNED: HOMEOTELEUTON
+wheat_mane	7	2026-08-25	1bed312-WORKING	screen	0	pair:trek~wreck	CLEAN
+wheat_mane	7	2026-08-25	1bed312-WORKING	screen	0	pair:trek~fleck	CLEAN
+wheat_mane	7	2026-08-25	1bed312-WORKING	screen	0	pair:wreck~fleck	BANNED: HOMEOTELEUTON
+wheat_mane	7	2026-08-25	1bed312-WORKING	screen	0	banned	3
+wheat_mane	7	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	7	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	3
+wheat_mane	8	2026-08-25	1bed312-WORKING	screen	0	pair:mist~missed	CLEAN
+wheat_mane	8	2026-08-25	1bed312-WORKING	screen	0	pair:mist~kissed	BANNED: MODAL_RHYME
+wheat_mane	8	2026-08-25	1bed312-WORKING	screen	0	pair:mist~wrist	BANNED: HOMEOTELEUTON
+wheat_mane	8	2026-08-25	1bed312-WORKING	screen	0	pair:missed~kissed	BANNED: HOMEOTELEUTON
+wheat_mane	8	2026-08-25	1bed312-WORKING	screen	0	pair:missed~wrist	BANNED: MODAL_RHYME
+wheat_mane	8	2026-08-25	1bed312-WORKING	screen	0	pair:kissed~wrist	BANNED: MODAL_RHYME
+wheat_mane	8	2026-08-25	1bed312-WORKING	screen	0	banned	5
+wheat_mane	8	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	8	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	1
+wheat_mane	9	2026-08-25	1bed312-WORKING	screen	0	pair:crew~blue	BANNED: MODAL_RHYME
+wheat_mane	9	2026-08-25	1bed312-WORKING	screen	0	pair:crew~through	CLEAN
+wheat_mane	9	2026-08-25	1bed312-WORKING	screen	0	pair:crew~canoe	CLEAN
+wheat_mane	9	2026-08-25	1bed312-WORKING	screen	0	pair:crew~shoe	CLEAN
+wheat_mane	9	2026-08-25	1bed312-WORKING	screen	0	pair:blue~through	BANNED: MODAL_RHYME
+wheat_mane	9	2026-08-25	1bed312-WORKING	screen	0	pair:blue~canoe	BANNED: MODAL_RHYME
+wheat_mane	9	2026-08-25	1bed312-WORKING	screen	0	pair:blue~shoe	BANNED: MODAL_RHYME
+wheat_mane	9	2026-08-25	1bed312-WORKING	screen	0	pair:through~canoe	BANNED: MODAL_RHYME
+wheat_mane	9	2026-08-25	1bed312-WORKING	screen	0	pair:through~shoe	CLEAN
+wheat_mane	9	2026-08-25	1bed312-WORKING	screen	0	pair:canoe~shoe	BANNED: HOMEOTELEUTON
+wheat_mane	9	2026-08-25	1bed312-WORKING	screen	0	banned	6
+wheat_mane	9	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	9	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	4
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	pair:bird~word	BANNED: MODAL_RHYME
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	pair:bird~heard	BANNED: MODAL_RHYME
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	pair:bird~third	BANNED: HOMEOTELEUTON
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	pair:bird~absurd	BANNED: MODAL_RHYME
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	pair:bird~blurred	CLEAN
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	pair:word~heard	BANNED: MODAL_RHYME
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	pair:word~third	BANNED: MODAL_RHYME
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	pair:word~absurd	BANNED: MODAL_RHYME
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	pair:word~blurred	CLEAN
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	pair:heard~third	BANNED: MODAL_RHYME
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	pair:heard~absurd	BANNED: MODAL_RHYME
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	pair:heard~blurred	CLEAN
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	pair:third~absurd	BANNED: MODAL_RHYME
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	pair:third~blurred	CLEAN
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	pair:absurd~blurred	CLEAN
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	banned	10
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	10	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	5
+wheat_mane	11	2026-08-25	1bed312-WORKING	screen	0	pair:tide~sighed	CLEAN
+wheat_mane	11	2026-08-25	1bed312-WORKING	screen	0	pair:tide~guide	BANNED: MODAL_RHYME
+wheat_mane	11	2026-08-25	1bed312-WORKING	screen	0	pair:tide~dried	CLEAN
+wheat_mane	11	2026-08-25	1bed312-WORKING	screen	0	pair:tide~glide	BANNED: HOMEOTELEUTON
+wheat_mane	11	2026-08-25	1bed312-WORKING	screen	0	pair:sighed~guide	BANNED: MODAL_RHYME
+wheat_mane	11	2026-08-25	1bed312-WORKING	screen	0	pair:sighed~dried	CLEAN
+wheat_mane	11	2026-08-25	1bed312-WORKING	screen	0	pair:sighed~glide	CLEAN
+wheat_mane	11	2026-08-25	1bed312-WORKING	screen	0	pair:guide~dried	BANNED: MODAL_RHYME
+wheat_mane	11	2026-08-25	1bed312-WORKING	screen	0	pair:guide~glide	BANNED: MODAL_RHYME
+wheat_mane	11	2026-08-25	1bed312-WORKING	screen	0	pair:dried~glide	CLEAN
+wheat_mane	11	2026-08-25	1bed312-WORKING	screen	0	banned	5
+wheat_mane	11	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	11	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	5
+wheat_mane	12	2026-08-25	1bed312-WORKING	screen	0	pair:grain~mane	CLEAN
+wheat_mane	12	2026-08-25	1bed312-WORKING	screen	0	pair:grain~feign	CLEAN
+wheat_mane	12	2026-08-25	1bed312-WORKING	screen	0	pair:grain~pane	CLEAN
+wheat_mane	12	2026-08-25	1bed312-WORKING	screen	0	pair:mane~feign	CLEAN
+wheat_mane	12	2026-08-25	1bed312-WORKING	screen	0	pair:mane~pane	BANNED: HOMEOTELEUTON
+wheat_mane	12	2026-08-25	1bed312-WORKING	screen	0	pair:feign~pane	CLEAN
+wheat_mane	12	2026-08-25	1bed312-WORKING	screen	0	banned	1
+wheat_mane	12	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	12	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	5
+wheat_mane	13	2026-08-25	1bed312-WORKING	screen	0	pair:keel~zeal	CLEAN
+wheat_mane	13	2026-08-25	1bed312-WORKING	screen	0	pair:keel~heal	CLEAN
+wheat_mane	13	2026-08-25	1bed312-WORKING	screen	0	pair:keel~squeal	CLEAN
+wheat_mane	13	2026-08-25	1bed312-WORKING	screen	0	pair:keel~reveal	CLEAN
+wheat_mane	13	2026-08-25	1bed312-WORKING	screen	0	pair:zeal~heal	BANNED: HOMEOTELEUTON
+wheat_mane	13	2026-08-25	1bed312-WORKING	screen	0	pair:zeal~squeal	CLEAN
+wheat_mane	13	2026-08-25	1bed312-WORKING	screen	0	pair:zeal~reveal	BANNED: HOMEOTELEUTON
+wheat_mane	13	2026-08-25	1bed312-WORKING	screen	0	pair:heal~squeal	CLEAN
+wheat_mane	13	2026-08-25	1bed312-WORKING	screen	0	pair:heal~reveal	BANNED: HOMEOTELEUTON
+wheat_mane	13	2026-08-25	1bed312-WORKING	screen	0	pair:squeal~reveal	CLEAN
+wheat_mane	13	2026-08-25	1bed312-WORKING	screen	0	banned	3
+wheat_mane	13	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	13	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	7
+wheat_mane	14	2026-08-25	1bed312-WORKING	screen	0	pair:salt~fault	BANNED: MODAL_RHYME
+wheat_mane	14	2026-08-25	1bed312-WORKING	screen	0	pair:salt~halt	BANNED: HOMEOTELEUTON
+wheat_mane	14	2026-08-25	1bed312-WORKING	screen	0	pair:salt~vault	BANNED: MODAL_RHYME
+wheat_mane	14	2026-08-25	1bed312-WORKING	screen	0	pair:fault~halt	BANNED: MODAL_RHYME
+wheat_mane	14	2026-08-25	1bed312-WORKING	screen	0	pair:fault~vault	BANNED: HOMEOTELEUTON
+wheat_mane	14	2026-08-25	1bed312-WORKING	screen	0	pair:halt~vault	BANNED: MODAL_RHYME
+wheat_mane	14	2026-08-25	1bed312-WORKING	screen	0	banned	6
+wheat_mane	14	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	14	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	15	2026-08-25	1bed312-WORKING	screen	0	pair:freight~gait	CLEAN
+wheat_mane	15	2026-08-25	1bed312-WORKING	screen	0	pair:freight~straight	CLEAN
+wheat_mane	15	2026-08-25	1bed312-WORKING	screen	0	pair:freight~late	BANNED: MODAL_RHYME
+wheat_mane	15	2026-08-25	1bed312-WORKING	screen	0	pair:freight~slate	CLEAN
+wheat_mane	15	2026-08-25	1bed312-WORKING	screen	0	pair:gait~straight	BANNED: MODAL_RHYME
+wheat_mane	15	2026-08-25	1bed312-WORKING	screen	0	pair:gait~late	CLEAN
+wheat_mane	15	2026-08-25	1bed312-WORKING	screen	0	pair:gait~slate	CLEAN
+wheat_mane	15	2026-08-25	1bed312-WORKING	screen	0	pair:straight~late	BANNED: MODAL_RHYME
+wheat_mane	15	2026-08-25	1bed312-WORKING	screen	0	pair:straight~slate	BANNED: MODAL_RHYME
+wheat_mane	15	2026-08-25	1bed312-WORKING	screen	0	pair:late~slate	BANNED: HOMEOTELEUTON
+wheat_mane	15	2026-08-25	1bed312-WORKING	screen	0	banned	5
+wheat_mane	15	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	15	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	5
+wheat_mane	16	2026-08-25	1bed312-WORKING	screen	0	pair:tool~rule	BANNED: MODAL_RHYME
+wheat_mane	16	2026-08-25	1bed312-WORKING	screen	0	pair:tool~ghoul	CLEAN
+wheat_mane	16	2026-08-25	1bed312-WORKING	screen	0	pair:tool~stool	BANNED: HOMEOTELEUTON
+wheat_mane	16	2026-08-25	1bed312-WORKING	screen	0	pair:rule~ghoul	CLEAN
+wheat_mane	16	2026-08-25	1bed312-WORKING	screen	0	pair:rule~stool	BANNED: MODAL_RHYME
+wheat_mane	16	2026-08-25	1bed312-WORKING	screen	0	pair:ghoul~stool	CLEAN
+wheat_mane	16	2026-08-25	1bed312-WORKING	screen	0	banned	3
+wheat_mane	16	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	16	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	3
+wheat_mane	17	2026-08-25	1bed312-WORKING	screen	0	pair:swung~young	BANNED: MODAL_RHYME
+wheat_mane	17	2026-08-25	1bed312-WORKING	screen	0	pair:swung~tongue	BANNED: MODAL_RHYME
+wheat_mane	17	2026-08-25	1bed312-WORKING	screen	0	pair:swung~among	BANNED: MODAL_RHYME
+wheat_mane	17	2026-08-25	1bed312-WORKING	screen	0	pair:swung~clung	BANNED: HOMEOTELEUTON
+wheat_mane	17	2026-08-25	1bed312-WORKING	screen	0	pair:young~tongue	BANNED: MODAL_RHYME
+wheat_mane	17	2026-08-25	1bed312-WORKING	screen	0	pair:young~among	BANNED: MODAL_RHYME
+wheat_mane	17	2026-08-25	1bed312-WORKING	screen	0	pair:young~clung	CLEAN
+wheat_mane	17	2026-08-25	1bed312-WORKING	screen	0	pair:tongue~among	BANNED: MODAL_RHYME
+wheat_mane	17	2026-08-25	1bed312-WORKING	screen	0	pair:tongue~clung	BANNED: MODAL_RHYME
+wheat_mane	17	2026-08-25	1bed312-WORKING	screen	0	pair:among~clung	CLEAN
+wheat_mane	17	2026-08-25	1bed312-WORKING	screen	0	banned	8
+wheat_mane	17	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	17	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	2
+wheat_mane	18	2026-08-25	1bed312-WORKING	screen	0	pair:line~align	CLEAN
+wheat_mane	18	2026-08-25	1bed312-WORKING	screen	0	pair:line~brine	BANNED: HOMEOTELEUTON
+wheat_mane	18	2026-08-25	1bed312-WORKING	screen	0	pair:line~benign	CLEAN
+wheat_mane	18	2026-08-25	1bed312-WORKING	screen	0	pair:line~twine	BANNED: HOMEOTELEUTON
+wheat_mane	18	2026-08-25	1bed312-WORKING	screen	0	pair:align~brine	CLEAN
+wheat_mane	18	2026-08-25	1bed312-WORKING	screen	0	pair:align~benign	BANNED: HOMEOTELEUTON
+wheat_mane	18	2026-08-25	1bed312-WORKING	screen	0	pair:align~twine	CLEAN
+wheat_mane	18	2026-08-25	1bed312-WORKING	screen	0	pair:brine~benign	CLEAN
+wheat_mane	18	2026-08-25	1bed312-WORKING	screen	0	pair:brine~twine	BANNED: HOMEOTELEUTON
+wheat_mane	18	2026-08-25	1bed312-WORKING	screen	0	pair:benign~twine	CLEAN
+wheat_mane	18	2026-08-25	1bed312-WORKING	screen	0	banned	4
+wheat_mane	18	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	18	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	6
+wheat_mane	19	2026-08-25	1bed312-WORKING	screen	0	pair:wake~break	BANNED: MODAL_RHYME
+wheat_mane	19	2026-08-25	1bed312-WORKING	screen	0	pair:wake~opaque	CLEAN
+wheat_mane	19	2026-08-25	1bed312-WORKING	screen	0	pair:wake~quake	BANNED: MODAL_RHYME
+wheat_mane	19	2026-08-25	1bed312-WORKING	screen	0	pair:break~opaque	CLEAN
+wheat_mane	19	2026-08-25	1bed312-WORKING	screen	0	pair:break~quake	CLEAN
+wheat_mane	19	2026-08-25	1bed312-WORKING	screen	0	pair:opaque~quake	CLEAN
+wheat_mane	19	2026-08-25	1bed312-WORKING	screen	0	banned	2
+wheat_mane	19	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	19	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	4
+wheat_mane	20	2026-08-25	1bed312-WORKING	screen	0	pair:hold~rolled	BANNED: MODAL_RHYME
+wheat_mane	20	2026-08-25	1bed312-WORKING	screen	0	pair:hold~bowled	BANNED: MODAL_RHYME
+wheat_mane	20	2026-08-25	1bed312-WORKING	screen	0	pair:hold~scold	BANNED: HOMEOTELEUTON
+wheat_mane	20	2026-08-25	1bed312-WORKING	screen	0	pair:hold~cajoled	BANNED: MODAL_RHYME
+wheat_mane	20	2026-08-25	1bed312-WORKING	screen	0	pair:rolled~bowled	BANNED: HOMEOTELEUTON
+wheat_mane	20	2026-08-25	1bed312-WORKING	screen	0	pair:rolled~scold	CLEAN
+wheat_mane	20	2026-08-25	1bed312-WORKING	screen	0	pair:rolled~cajoled	BANNED: HOMEOTELEUTON
+wheat_mane	20	2026-08-25	1bed312-WORKING	screen	0	pair:bowled~scold	CLEAN
+wheat_mane	20	2026-08-25	1bed312-WORKING	screen	0	pair:bowled~cajoled	BANNED: HOMEOTELEUTON
+wheat_mane	20	2026-08-25	1bed312-WORKING	screen	0	pair:scold~cajoled	CLEAN
+wheat_mane	20	2026-08-25	1bed312-WORKING	screen	0	banned	7
+wheat_mane	20	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	20	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	3
+wheat_mane	21	2026-08-25	1bed312-WORKING	screen	0	pair:drift~sniffed	CLEAN
+wheat_mane	21	2026-08-25	1bed312-WORKING	screen	0	pair:drift~lift	BANNED: HOMEOTELEUTON
+wheat_mane	21	2026-08-25	1bed312-WORKING	screen	0	pair:sniffed~lift	BANNED: MODAL_RHYME
+wheat_mane	21	2026-08-25	1bed312-WORKING	screen	0	banned	2
+wheat_mane	21	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	21	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	1
+wheat_mane	22	2026-08-25	1bed312-WORKING	screen	0	pair:haze~praise	CLEAN
+wheat_mane	22	2026-08-25	1bed312-WORKING	screen	0	pair:haze~days	BANNED: MODAL_RHYME
+wheat_mane	22	2026-08-25	1bed312-WORKING	screen	0	pair:haze~phase	CLEAN
+wheat_mane	22	2026-08-25	1bed312-WORKING	screen	0	pair:haze~ablaze	BANNED: HOMEOTELEUTON
+wheat_mane	22	2026-08-25	1bed312-WORKING	screen	0	pair:praise~days	BANNED: MODAL_RHYME
+wheat_mane	22	2026-08-25	1bed312-WORKING	screen	0	pair:praise~phase	CLEAN
+wheat_mane	22	2026-08-25	1bed312-WORKING	screen	0	pair:praise~ablaze	CLEAN
+wheat_mane	22	2026-08-25	1bed312-WORKING	screen	0	pair:days~phase	CLEAN
+wheat_mane	22	2026-08-25	1bed312-WORKING	screen	0	pair:days~ablaze	CLEAN
+wheat_mane	22	2026-08-25	1bed312-WORKING	screen	0	pair:phase~ablaze	CLEAN
+wheat_mane	22	2026-08-25	1bed312-WORKING	screen	0	banned	3
+wheat_mane	22	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	22	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	7
+wheat_mane	23	2026-08-25	1bed312-WORKING	screen	0	pair:turn~stern	BANNED: MODAL_RHYME
+wheat_mane	23	2026-08-25	1bed312-WORKING	screen	0	banned	1
+wheat_mane	23	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	23	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	24	2026-08-25	1bed312-WORKING	screen	0	pair:aligns~lines	BANNED: MODAL_RHYME
+wheat_mane	24	2026-08-25	1bed312-WORKING	screen	0	banned	1
+wheat_mane	24	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	24	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	25	2026-08-25	1bed312-WORKING	screen	0	pair:squalls~trawls	REFUSED — CMUdict has no pronunciation for the end word 'trawls'
+wheat_mane	25	2026-08-25	1bed312-WORKING	screen	0	pair:squalls~hauls	CLEAN
+wheat_mane	25	2026-08-25	1bed312-WORKING	screen	0	pair:trawls~hauls	REFUSED — CMUdict has no pronunciation for the end word 'trawls'
+wheat_mane	25	2026-08-25	1bed312-WORKING	screen	0	banned	0
+wheat_mane	25	2026-08-25	1bed312-WORKING	screen	0	refused	2
+wheat_mane	25	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	1
+wheat_mane	26	2026-08-25	1bed312-WORKING	screen	0	pair:come~drum	BANNED: MODAL_RHYME
+wheat_mane	26	2026-08-25	1bed312-WORKING	screen	0	banned	1
+wheat_mane	26	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	26	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	27	2026-08-25	1bed312-WORKING	screen	0	pair:seas~breeze	BANNED: MODAL_RHYME
+wheat_mane	27	2026-08-25	1bed312-WORKING	screen	0	pair:seas~ease	BANNED: MODAL_RHYME
+wheat_mane	27	2026-08-25	1bed312-WORKING	screen	0	pair:breeze~ease	BANNED: MODAL_RHYME
+wheat_mane	27	2026-08-25	1bed312-WORKING	screen	0	banned	3
+wheat_mane	27	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	27	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	28	2026-08-25	1bed312-WORKING	screen	0	pair:winds~skinned	CLEAN
+wheat_mane	28	2026-08-25	1bed312-WORKING	screen	0	banned	0
+wheat_mane	28	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	28	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	1
+wheat_mane	29	2026-08-25	1bed312-WORKING	screen	0	pair:loud~crowd	BANNED: MODAL_RHYME
+wheat_mane	29	2026-08-25	1bed312-WORKING	screen	0	banned	1
+wheat_mane	29	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	29	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	30	2026-08-25	1bed312-WORKING	screen	0	pair:heave~reprieve	CLEAN
+wheat_mane	30	2026-08-25	1bed312-WORKING	screen	0	banned	0
+wheat_mane	30	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	30	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	1
+wheat_mane	31	2026-08-25	1bed312-WORKING	screen	0	pair:beat~sleet	BANNED: MODAL_RHYME
+wheat_mane	31	2026-08-25	1bed312-WORKING	screen	0	banned	1
+wheat_mane	31	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	31	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	32	2026-08-25	1bed312-WORKING	screen	0	pair:shoals~rolls	BANNED: MODAL_RHYME
+wheat_mane	32	2026-08-25	1bed312-WORKING	screen	0	banned	1
+wheat_mane	32	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	32	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	33	2026-08-25	1bed312-WORKING	screen	0	pair:row~toe	CLEAN
+wheat_mane	33	2026-08-25	1bed312-WORKING	screen	0	pair:row~sew	CLEAN
+wheat_mane	33	2026-08-25	1bed312-WORKING	screen	0	pair:row~though	CLEAN
+wheat_mane	33	2026-08-25	1bed312-WORKING	screen	0	pair:toe~sew	CLEAN
+wheat_mane	33	2026-08-25	1bed312-WORKING	screen	0	pair:toe~though	CLEAN
+wheat_mane	33	2026-08-25	1bed312-WORKING	screen	0	pair:sew~though	CLEAN
+wheat_mane	33	2026-08-25	1bed312-WORKING	screen	0	banned	0
+wheat_mane	33	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	33	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	6
+wheat_mane	34	2026-08-25	1bed312-WORKING	screen	0	pair:days~ablaze	CLEAN
+wheat_mane	34	2026-08-25	1bed312-WORKING	screen	0	banned	0
+wheat_mane	34	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	34	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	1
+wheat_mane	35	2026-08-25	1bed312-WORKING	screen	0	pair:old~rolled	BANNED: MODAL_RHYME
+wheat_mane	35	2026-08-25	1bed312-WORKING	screen	0	pair:old~bowled	BANNED: MODAL_RHYME
+wheat_mane	35	2026-08-25	1bed312-WORKING	screen	0	pair:rolled~bowled	BANNED: HOMEOTELEUTON
+wheat_mane	35	2026-08-25	1bed312-WORKING	screen	0	banned	3
+wheat_mane	35	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	35	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	36	2026-08-25	1bed312-WORKING	screen	0	pair:boards~cords	CLEAN
+wheat_mane	36	2026-08-25	1bed312-WORKING	screen	0	banned	0
+wheat_mane	36	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	36	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	1
+wheat_mane	37	2026-08-25	1bed312-WORKING	screen	0	pair:oars~shores	BANNED: MODAL_RHYME
+wheat_mane	37	2026-08-25	1bed312-WORKING	screen	0	pair:oars~pours	BANNED: MODAL_RHYME
+wheat_mane	37	2026-08-25	1bed312-WORKING	screen	0	pair:shores~pours	BANNED: MODAL_RHYME
+wheat_mane	37	2026-08-25	1bed312-WORKING	screen	0	banned	3
+wheat_mane	37	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	37	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	38	2026-08-25	1bed312-WORKING	screen	0	pair:white~tight	BANNED: MODAL_RHYME
+wheat_mane	38	2026-08-25	1bed312-WORKING	screen	0	banned	1
+wheat_mane	38	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	38	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	39	2026-08-25	1bed312-WORKING	screen	0	pair:broke~oak	BANNED: MODAL_RHYME
+wheat_mane	39	2026-08-25	1bed312-WORKING	screen	0	banned	1
+wheat_mane	39	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	39	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	40	2026-08-25	1bed312-WORKING	screen	0	pair:gloom~plume	BANNED: MODAL_RHYME
+wheat_mane	40	2026-08-25	1bed312-WORKING	screen	0	banned	1
+wheat_mane	40	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	40	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	41	2026-08-25	1bed312-WORKING	screen	0	pair:squalls~hauls	CLEAN
+wheat_mane	41	2026-08-25	1bed312-WORKING	screen	0	pair:squalls~crawls	CLEAN
+wheat_mane	41	2026-08-25	1bed312-WORKING	screen	0	pair:hauls~crawls	CLEAN
+wheat_mane	41	2026-08-25	1bed312-WORKING	screen	0	banned	0
+wheat_mane	41	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	41	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	3
+wheat_mane	42	2026-08-25	1bed312-WORKING	screen	0	pair:pine~benign	CLEAN
+wheat_mane	42	2026-08-25	1bed312-WORKING	screen	0	banned	0
+wheat_mane	42	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	42	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	1
+wheat_mane	43	2026-08-25	1bed312-WORKING	screen	0	pair:wet~sweat	BANNED: MODAL_RHYME
+wheat_mane	43	2026-08-25	1bed312-WORKING	screen	0	banned	1
+wheat_mane	43	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	43	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	44	2026-08-25	1bed312-WORKING	screen	0	pair:dark~arc	BANNED: MODAL_RHYME
+wheat_mane	44	2026-08-25	1bed312-WORKING	screen	0	banned	1
+wheat_mane	44	2026-08-25	1bed312-WORKING	screen	0	refused	0
+wheat_mane	44	2026-08-25	1bed312-WORKING	screen	0	clean_or_non_rhyme	0
+wheat_mane	45	2026-08-25	1bed312-WORKING	plan	0	form	verse-chorus
+wheat_mane	45	2026-08-25	1bed312-WORKING	plan	0	seed	2
+wheat_mane	45	2026-08-25	1bed312-WORKING	plan	0	lines	20
+wheat_mane	45	2026-08-25	1bed312-WORKING	plan	0	sections	7
+wheat_mane	45	2026-08-25	1bed312-WORKING	plan	0	pattern	intro-prechorus-chorus-drop-interlude-reprise-verse
+wheat_mane	45	2026-08-25	1bed312-WORKING	plan	0	meter	3/8 as (3,)
+wheat_mane	45	2026-08-25	1bed312-WORKING	plan	0	subdivision	2
+wheat_mane	45	2026-08-25	1bed312-WORKING	plan	0	groups	1.T2,2.headrime;1.headrime,2.T3,3.T1;1.endword,2.T2;4.T2,5.head,6.endword;4.T4,5.endword,6.headrime;7.T1,9.T3;8.T3,11.T2;10.T1,12.T2;7.T2,8.headrime,10.T3,12;7,9,10.T2;7.T4,9.head,12.T4;8.T4,9.T2,10.endword;9.T4,10.T4;13.headrime,14.T2,15.T1;13.endword,14.T3,15.endword;14.T4,15.T4;16,17.head;16.T1,18.endword;19.T2,20.T3;8,11;19,20
+wheat_mane	45	2026-08-25	1bed312-WORKING	plan	0	returns	(none)
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	mandate_groups	21
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	lines	20
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	mandated_pairs	42
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	mandate_source	declared
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	md5	9d305ba7768f
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	briefed	20
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	per_line_flag	0
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	per_line_note	69
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	whole_draft	12
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	whole_draft_flag	0
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	finding:COLLISION_CUT_IS_SCALAR_ONLY	NOTE x1
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	finding:CROWDED	NOTE x20
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	finding:EXTRAPOLATED_LENGTH	NOTE x1
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	finding:FUNCTION_UNDECLARED	NOTE x1
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	finding:HOOK_UNDECLARED	NOTE x1
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	finding:LATE_ENTRY	NOTE x5
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	finding:NEAR_COLLISION	NOTE x1
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	finding:NO_SETTING	NOTE x1
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	finding:PROMINENCE_CANNOT_ALIGN	NOTE x20
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x20
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	finding:RETURN_NEVER_RETURNS	NOTE x1
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	finding:SCHEME_COLLISION	NOTE x3
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	finding:SINGLE_INSTANCE	NOTE x4
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	finding:UNCOVERED_BARS	NOTE x1
+wheat_mane	46	2026-08-25	1bed312-WORKING	song	0	finding:UNIFORM_ANACRUSIS	NOTE x1
+wheat_mane	47	2026-08-25	1bed312-WORKING	revise	0	stop_reason	SUCCESS
+wheat_mane	47	2026-08-25	1bed312-WORKING	revise	0	rounds	0
+wheat_mane	47	2026-08-25	1bed312-WORKING	revise	0	md5_in	9d305ba7768f
+wheat_mane	47	2026-08-25	1bed312-WORKING	revise	0	md5_out	9d305ba7768f
+wheat_mane	47	2026-08-25	1bed312-WORKING	revise	0	unchanged	yes
+wheat_mane	47	2026-08-25	1bed312-WORKING	revise	0	mandated	42
+wheat_mane	47	2026-08-25	1bed312-WORKING	revise	0	judged	42
+wheat_mane	47	2026-08-25	1bed312-WORKING	revise	0	pairs_refused	0

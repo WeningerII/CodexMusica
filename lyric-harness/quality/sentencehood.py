@@ -251,7 +251,7 @@ def main(argv=None):
             ok = False
             print("  DRIFT: the sample's p99 no longer equals the adopted "
                   "ceiling — re-adopt deliberately, do not average")
-        # the six banked songs are fixed witnesses (their bytes never move),
+        # the banked songs are fixed witnesses (their bytes never move),
         # so their readings are pinned here the way `song_record --check`
         # pins their features: a moved reading means the INSTRUMENT moved.
         from lyric_harness import load_lyric_lines
@@ -260,7 +260,10 @@ def main(argv=None):
                    # the forward-validation song (M-110): written WITH the
                    # gate live, banked at 0 stacked lines — the pinned proof
                    # the gate changed the writing and not only the grading.
-                   "taught_me_time": 0}
+                   "taught_me_time": 0,
+                   # series song #3 (seed 2), written screen-first under the
+                   # same live gate: 0 stacked lines on its first grading.
+                   "wheat_mane": 0}
         for s, want in sorted(witness.items()):
             p = os.path.join(ROOT, "songs", s + ".txt")
             if not os.path.exists(p):
