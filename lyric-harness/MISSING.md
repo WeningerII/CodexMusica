@@ -11421,7 +11421,7 @@ that can hear it, per §4's subtle-mode refusal.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~172~~ -> **173**.
 
-### M-116 · all 77 schemas join the default — the owner's ruling, shipped `CLOSED (built)`
+### M-116 · all 77 schemas join the default — the owner's ruling, shipped `CLOSED`
 Filed and closed 2026-08-25, on the owner's direct instruction ("put all 77
 in the default now" — the second half of the instruction whose first half
 widened `Declaration.admit` to all four classes on 2026-08-22, M-59; task
@@ -11455,7 +11455,7 @@ skips non-default structures.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~173~~ -> **174**.
 
-### M-117 · the planner draws relations from the certified pool `CLOSED (built)`
+### M-117 · the planner draws relations from the certified pool `CLOSED`
 Filed and closed 2026-08-25, on the owner's instruction "now do the planner
 too" — the planner half of M-116. Each drawn group now draws its RELATION
 uniformly over the bare default plus `relations.DRAWABLE_SCHEMAS`, and the
