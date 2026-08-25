@@ -484,6 +484,49 @@ def test_brief_refuses_instead_of_tracebacking():
           "one group cannot demonstrate that the labels track the "
           "declaration")
 
+    # ONE COVER, TWO BRANCHES, ONE DISCLOSURE — `MISSING.md` M-108,
+    # 2026-08-25, found by BANKING a song whose mandate carries no returns.
+    # `--groups=` ALONE hands a bare list of line-lists down `_say_derived`
+    # and anything else (`--returns=`, `--structures=`, `--relations=`)
+    # grows a real `Mandate` first, so the two branches were two spellings
+    # of one header: the decorated one stated `N group(s) over L lines, P
+    # mandated pair(s)` and the plain one — the spelling a writer actually
+    # types — stated the group count and stopped. The withheld number is the
+    # numerator of doctrine 79's own triple and the only one of the three a
+    # report can state BEFORE grading, and `quality/song_log.py`'s declared
+    # `song` parser reads all four of its mandate facts off that line, so a
+    # groups-only song banked ZERO of them and the row was not refused for
+    # it (18 other facts carried it) — a fact not asked, filed as a fact not
+    # emitted.
+    #
+    # THE FIXTURE IS THE SAME COVER BOTH TIMES, which is what makes this an
+    # invariant rather than two measurements: `--structures=` annotates the
+    # groups it is handed and adds none, so the cover under both branches is
+    # byte-identical and only the ROUTE differs. Comparing `--groups=` with
+    # `--groups= --returns=` would compare two different covers that happen
+    # to agree.
+    _mline = lambda t: next((l.strip() for l in t.splitlines()
+                             if l.strip().startswith("MANDATE:")), "")
+    _rcA, _bare, _ = run("brief", EXAMPLE_TXT, "--groups=2,4;1,3")
+    _rcB, _deco, _ = run("brief", EXAMPLE_TXT, "--groups=2,4;1,3",
+                         "--structures=A:kalevala-alliteration")
+    _a, _b = _mline(_bare), _mline(_deco)
+    check("the premise — both routes print a MANDATE line at all, so this "
+          "check cannot pass by comparing two empty strings",
+          _rcA == 0 and _rcB == 0 and bool(_a) and bool(_b),
+          f"bare={_a!r} decorated={_b!r}")
+    # `source=` is the one field that MUST differ: it names the route, and
+    # the two routes are genuinely different origins. Everything to its left
+    # is a fact about the COVER and cannot depend on which branch read it.
+    check("`--groups=` ALONE discloses its own mandated PAIR COUNT — the "
+          "plainest call is not the silent one (doctrine 20/79, M-108)",
+          "mandated pair(s)" in _a, _a or "(no MANDATE line)")
+    check("and the cover's counts are BRANCH-INVARIANT: one cover read two "
+          "ways states the same groups, lines and pairs, differing only in "
+          "the `source=` that names the route",
+          _a.split(", source=")[0] == _b.split(", source=")[0],
+          f"bare      {_a}\n          decorated {_b}")
+
     rc, out, _ = run("brief", EXAMPLE_TXT, "--cliques")
     check("--cliques grades the song's OWN structure",
           rc == 0 and "source=derived" in out)
@@ -2096,7 +2139,7 @@ def test_song_exits_on_a_flag():
 def test_propose_selects_who_writes_the_line():
     print("\n17. `revise --propose=stub|replay:PATH|call:MODULE:FACTORY` — "
           "who writes the line, declared (BUILT 2026-08-14)")
-    # `revise_loop` has taken `propose=`/`propose_pair=` since it was
+    # `revise_loop` has taken `propose=`/`propose_group=` since it was
     # written and nothing on this command line could hand it one, so the only
     # reachable proposer was `default_propose` -- a single-word splice that
     # produces "waded through the on". Same built-and-tested-was-not-the-
@@ -2170,7 +2213,7 @@ def test_propose_selects_who_writes_the_line():
              "text": "the cattle waded past the muddy lawn"},
             {"line": 4, "attempt": 0,
              "text": "past every fence the county left to rot"}],
-            "propose_pair": []}, fh)
+            "propose_group": []}, fh)
     # rc 3 since 2026-08-17 — same fixture, same mandatory-pursuit residue.
     rc, out, err = run("revise", quat, "ABAB", f"--propose=replay:{rp}",
                        expect_rc=3)
@@ -2197,7 +2240,7 @@ def test_propose_selects_who_writes_the_line():
           and "Traceback" not in err, out.strip().splitlines()[:1])
     empty = os.path.join(d, "empty.json")
     with open(empty, "w") as fh:
-        json.dump({"propose": [], "propose_pair": []}, fh)
+        json.dump({"propose": [], "propose_group": []}, fh)
     rc, out, _ = run("revise", quat, "ABAB", f"--propose=replay:{empty}",
                      expect_rc=2)
     check("a replay recording NOTHING refuses rather than reporting the "
@@ -3846,27 +3889,52 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
     # script used twice is a defect report, not a convenience."
     WANT = ("--want=sections<=6;lines_per_section>=2;group<=4;"
             "uses=verse,chorus;before=verse,chorus;pins_per_line<=5")
-    rc, out, _ = run("plan", "--sweep=0-120", WANT, expect_rc=0)
-    check("the sweep RUNS from the command line and finds the seed the "
-          "private script found", rc == 0 and " 108" in out,
-          [l for l in out.splitlines() if "108" in l][:1])
+    # ~~`--sweep=0-120` and `" 108" in out`.~~ **REPINNED 2026-08-24
+    # (`MISSING.md` M-106), the CLI mirror of `test_plan.py` §10's repin and
+    # for the same reason.** The seed that satisfies a six-way conjunction is
+    # a property of the PLANS, and the plans were re-derived when the length
+    # envelope stopped being the union of three kinds of text; the VERB is
+    # untouched and every predicate is still individually satisfiable. The
+    # range is widened rather than the predicates loosened — loosening them
+    # to keep a number would be tuning the question to preserve the answer.
+    # WHAT THIS SECTION IS ABOUT IS REACHABILITY, so what it asserts is that
+    # a person running the command GETS AN ANSWER: a non-empty accepted list
+    # that agrees with the header's own count, which is a stronger property
+    # than one remembered integer and cannot go stale when the planner moves.
+    rc, out, _ = run("plan", "--sweep=0-400", WANT, expect_rc=0)
+    _acc = [l for l in out.splitlines() if "accepted" in l and "swept" in l]
+    _n = int(re.search(r"accepted (\d+)", _acc[0]).group(1)) if _acc else 0
+    check("the sweep RUNS from the command line and comes back with seeds — "
+          "and the header's count agrees with the list it printed",
+          rc == 0 and _n > 0 and "ACCEPTED (in seed order" in out
+          and len([x for x in out.split("ACCEPTED (in seed order")[1]
+                   .splitlines()[1].split(",") if x.strip()]) == _n,
+          f"{_n} accepted :: {_acc[:1]}")
     check("...and it ECHOES every predicate with the coordinate's own gloss, "
           "so a caller can see which declaration was applied rather than "
           "inferring it from the answer",
           out.count("WANT ") == 6 and "the SMALLEST sung section" in out,
           f"{out.count('WANT ')} predicates echoed")
     check("...and prints THREE COUNTS, never summed (doctrine 79)",
-          "swept 120" in out and "planned" in out
+          "swept 400" in out and "planned" in out
           and "REFUSED by the planner" in out and "accepted" in out,
           [l for l in out.splitlines() if "swept" in l][:1])
     check("...and says OUT LOUD that it does not rank, which is the whole "
           "refusal: doctrine 7 enforces a floor and does not order the "
           "permitted region",
           "does NOT rank" in out and "doctrine 19" in out)
-    check("...and hands over the NEXT command rather than a plan, because a "
-          "plan is a pure function of its seed and nothing should carry over "
-          "from the search",
-          "NEXT: python3 lyric_harness.py plan --seed=108" in out)
+    # THE FIRST ACCEPTED SEED, READ OFF THE OUTPUT — not the remembered 108
+    # (M-106). What is under test is that the handover names a seed the sweep
+    # ACTUALLY accepted, which is checkable against the list the same run
+    # printed and is what a literal could never assert.
+    _first = out.split("ACCEPTED (in seed order")[1].splitlines()[1].split(
+        ",")[0].strip()
+    check("...and hands over the NEXT command rather than a plan, naming the "
+          "FIRST accepted seed, because a plan is a pure function of its seed "
+          "and nothing should carry over from the search",
+          f"NEXT: python3 lyric_harness.py plan --seed={_first}" in out,
+          f"first accepted {_first!r} :: "
+          f"{[l for l in out.splitlines() if 'NEXT:' in l][:1]}")
     # NO DEFAULT PREDICATE — and the verb says so instead of quietly
     # accepting everything as though that had been asked for.
     rc, out, _ = run("plan", "--sweep=0-8", expect_rc=0)

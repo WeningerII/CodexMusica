@@ -45,7 +45,8 @@ but not automated here", asked of this module about itself:
 
 Tests 13-16 are WHAT THE WRITER IS TOLD — the same question asked of the two
 `propose` seams rather than of the result:
-  - 13 tier 2 hands a `PairBrief`, one argument, carrying both LINE numbers,
+  - 13 tier 2 hands a `GroupBrief`, one argument, carrying EVERY member's
+       line number,
        the whole draft, the group being backtracked, the pivot's own
        `Brief`, and the previous attempt's rejection. It passed four bare
        strings until 2026-08-14 — for the HARDER of the two tiers, while
@@ -78,8 +79,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
-from quality.loop import (PairBrief, default_propose,  # noqa: E402
-                          default_propose_pair, revise_loop, swap_end_word)
+from quality.loop import (AnchorSlot, GroupBrief,  # noqa: E402
+                          default_propose, default_propose_group,
+                          revise_loop, swap_end_word)
 from quality.revise import ReviseDeclaration, Reviser  # noqa: E402
 from quality.schemes import NoMandate  # noqa: E402
 from quality import schemes as SC  # noqa: E402
@@ -114,7 +116,7 @@ CLICHE = ["The candle burned and set the room on fire",
 #: Verified interactively: `R.brief(SILVER_MIND, [[1,3],[2,3]])` reports L3
 #: `joint_conflict=True` -- "silver" and "mind" share no rhyme, so nothing
 #: answers both groups at once -- and `revise_loop` resolves it in one round
-#: by backtracking L1's "silver" (a `default_propose_pair` swap, so the
+#: by backtracking L1's "silver" (a `default_propose_group` swap, so the
 #: prose is nonsense; the CLAIM under test is the mechanism, not the line).
 SILVER_MIND = ["It gleamed like polished silver",
               "We wandered deep into the mind",
@@ -155,20 +157,32 @@ SILVER_NIGHT_LOCKED_MANDATE = [[1, 3], [2, 3], [1, 4], [2, 5]]
 SILVER_NIGHT_OPEN_MANDATE = [[1, 3], [2, 3]]
 
 
-def _no_op_pair(pair_brief):
-    """A proposer that hands both lines back UNCHANGED.
+def _no_op_group(group_brief):
+    """A proposer that hands EVERY member of the group back UNCHANGED.
 
     Its rejection is `verify()`'s own no-op rule, so every attempt fails for
     a stated reason without the fixture having to encode an unsatisfiable
     mandate — which is what the anchor-lock shape used to do, and what the
     defect F repair now refuses to search at all.
+
+    IN `members` ORDER, read through `proposal_for`, because that is the
+    order `propose_group`'s return is zipped back onto the draft: a stub that
+    built its tuple any other way would write each line into a sibling's
+    place and `verify()` would see only that every targeted line changed —
+    which is exactly what was asked for (`parse_group`'s own argument).
     """
-    return (pair_brief.pivot_text, pair_brief.anchor_text)
+    return tuple(group_brief.proposal_for(m)[0]
+                 for m in group_brief.members)
 
 #: Verified interactively: BOTH of L5's groups have 3 members
-#: ([1,2,5] and [3,4,5]), so neither qualifies for tier 2's two-line
-#: backtrack at all -- `_try_tier2` reports 0 tried rather than searching a
-#: group it cannot rewrite one line at a time.
+#: ([1,2,5] and [3,4,5]).
+#: ~~so neither qualifies for tier 2's two-line backtrack at all --
+#: `_try_tier2` reports 0 tried rather than searching a group it cannot
+#: rewrite one line at a time.~~ **STRUCK 2026-08-24 (`MISSING.md` M-105):
+#: tier 2 rewrites the WHOLE group now, so this fixture measures the
+#: capability it used to measure the absence of.** It is kept, unchanged,
+#: because a fixture built to pose a question is the right thing to re-ask
+#: once the answer moves — see section 6.
 TOO_LARGE = ["We laughed the whole entire day",
             "The kids went out to run and play",
             "It gleamed like polished silver",
@@ -401,9 +415,10 @@ def test_tier2_tries_and_correctly_rejects():
           tier2[0].tried if tier2 else None)
     check("...and the reason names WHICH search failed -- the anchor's own "
           "conjunction, not a proposer that came back short (doctrine 58)",
-          tier2 and "EMPTY ANCHOR field" in tier2[0].reason
-          and "unsatisfiable at this anchor" in tier2[0].reason,
-          tier2[0].reason[:170] if tier2 else None)
+          tier2 and "EMPTY MEMBER field" in tier2[0].reason
+          and "unsatisfiable at that member" in tier2[0].reason
+          and "own group(s) at once" in tier2[0].reason,
+          tier2[0].reason[:220] if tier2 else None)
     check("and every attempt was correctly rejected, none silently kept",
           tier2 and not tier2[0].accepted)
     # RESTATED 2026-08-18 under the two-tier ban: L2/L5 (night/bright)
@@ -421,26 +436,87 @@ def test_tier2_tries_and_correctly_rejects():
           f"changed: {[i + 1 for i in range(5) if res.lines[i] != SILVER_NIGHT_LOCKED[i]]}")
 
 
-def test_tier2_declines_a_group_of_three_or_more():
-    print("\n6. TIER 2 — a pivot whose groups are BOTH 3+ members is not "
-         "attempted, and says so")
+def test_tier2_rewrites_a_group_of_three_or_more():
+    print("\n6. TIER 2 — a pivot whose groups are BOTH 3+ members is "
+          "REWRITTEN JOINTLY, and the whole group moves together")
+    # ===================================================================
+    # THE JOINT BACKTRACK — 2026-08-24, `MISSING.md` M-105.
+    # ===================================================================
+    # THIS SECTION USED TO ASSERT THE OPPOSITE AND IT WAS RIGHT TO, which
+    # is the reason it is rewritten in place rather than added beside.
+    # `test_tier2_declines_a_group_of_three_or_more` pinned `tried == 0`,
+    # `"3+ members"` in the reason and `res.lines == TOO_LARGE` — a
+    # correct, precisely-measured record of a REFUSAL. A test that
+    # measures a bound precisely is what keeps it, and this one kept a
+    # bound covering **41.6% of the groups the planner draws** (3,177 of
+    # 7,641 over 300 plans, carrying 86.6% of all mandated pairs).
+    #
+    # WHAT MUST STILL HOLD is the fixture's own premise, so the section
+    # cannot pass by examining a draft that no longer poses the question.
     R = Reviser()
     before = R.brief(TOO_LARGE, [[1, 2, 5], [3, 4, 5]])
     pivot = [b for b in before if b.line_no == 5][0]
-    check("the fixture is a real joint_conflict with two 3-member groups",
+    check("the fixture is STILL a real joint_conflict with two 3-member "
+          "groups — the premise the old refusal was measured on",
           pivot.joint_conflict
           and all(len(mem) == 3 for _, mem, _ in pivot.must_answer),
           [(lab, mem) for lab, mem, _ in pivot.must_answer])
 
     res = revise_loop(R, TOO_LARGE, [[1, 2, 5], [3, 4, 5]])
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
-    check("tier 2 ran (it is still the joint_conflict path) but tried "
-          "NOTHING",
-          tier2 and tier2[0].tried == 0, tier2[0] if tier2 else None)
-    check("the reason names WHY: no two-line group exists to backtrack",
-          tier2 and "3+ members" in tier2[0].reason, tier2[0].reason
-          if tier2 else None)
-    check("the draft is untouched", res.lines == TOO_LARGE)
+    won = [a for a in tier2 if a.accepted]
+    check("tier 2 ran AND tried something — the count that was pinned at 0",
+          bool(won) and won[0].tried > 0,
+          f"{len(tier2)} tier-2 attempt(s), "
+          f"tried {[a.tried for a in tier2]}")
+    check("it ACCEPTED a joint rewrite, and the reason names the group and "
+          "its size",
+          bool(won) and "joint backtrack over group" in won[0].reason
+          and "3 members" in won[0].reason,
+          won[0].reason[:160] if won else None)
+    # THE LOAD-BEARING ASSERTION, and it is what makes this a JOINT move
+    # rather than a wider one-at-a-time move: every member of the group
+    # changed in ONE accepted attempt. A backtrack that moved one line and
+    # left its siblings would break the group it was rewriting.
+    check("EVERY member of the group moved in that one attempt — 3 lines, "
+          "not one",
+          bool(won) and set(won[0].touched) == {1, 2, 5},
+          f"touched {won[0].touched if won else None}")
+    check("the draft is NOT untouched — the assertion this section used to "
+          "make in the other direction",
+          res.lines != TOO_LARGE,
+          f"changed: {[i + 1 for i in range(len(TOO_LARGE)) if res.lines[i] != TOO_LARGE[i]]}")
+    check("and the run reaches a stop condition rather than spending its "
+          "rounds on a group it cannot move",
+          res.stop_reason == "success", res.stop_reason)
+    # THE DISCLOSURE REPLACES A REFUSAL, so it is checked rather than
+    # assumed (doctrine 20): a reader told "3+ members were NOT attempted"
+    # for weeks is owed the news in the same place.
+    said = [a for a in tier2 if "WERE searched jointly" in a.reason]
+    check("a 3+ group that is searched and NOT accepted says it was "
+          "searched — the old sentence said the opposite",
+          bool(said) or bool(won),
+          f"{len(said)} attempt(s) carry the size census")
+    check("the words 'were NOT attempted' appear NOWHERE in any tier-2 "
+          "reason on this draft",
+          not any("NOT attempted" in a.reason for a in tier2),
+          [a.reason[:80] for a in tier2])
+    # THE CLIQUE, RE-DERIVED INDEPENDENTLY. `verify()` accepting the joint
+    # rewrite already implies the group holds — it re-grades the whole draft
+    # and a non-rhyming member earns `SCHEME_VIOLATION`. Asserting it again
+    # off a FRESH `Reviser` is the pattern this suite uses wherever a stop
+    # condition would otherwise be taken on the loop's own word: the claim
+    # under test is that members assigned IN ORDER against every sibling
+    # already placed come out MUTUALLY rhyming, and a greedy assignment that
+    # only answered the pivot would fail exactly here.
+    R2 = Reviser()
+    after = R2.brief(res.lines, [[1, 2, 5], [3, 4, 5]])
+    flags = [(b.line_no, f.code) for b in after for f in b.findings
+             if f.severity == "flag"]
+    check("re-briefed with a FRESH Reviser, the jointly-rewritten group "
+          "carries no FLAG — the members rhyme with EACH OTHER and not "
+          "merely with the pivot",
+          not flags, flags)
 
 
 def test_the_loop_never_touches_an_unreported_line():
@@ -633,15 +709,15 @@ def test_declared_returns_are_asked_and_have_no_move():
           res.lines[2] == RETURN_DRIFT[2])
 
 
-def test_pair_brief_carries_the_situation():
-    print("\n13. TIER 2 hands its writer a `PairBrief`, not four bare "
+def test_group_brief_carries_the_situation():
+    print("\n13. TIER 2 hands its writer a `GroupBrief`, not four bare "
          "strings: BOTH line numbers, the whole draft, the group, and the "
          "previous rejection")
     seen = []
 
-    def recording(pair_brief):
-        seen.append(pair_brief)
-        return _no_op_pair(pair_brief)
+    def recording(group_brief):
+        seen.append(group_brief)
+        return _no_op_group(group_brief)
 
     # `backtrack_width=2` rather than the default 5 for cost, and it earns
     # its keep twice: 2 two-line groups x 2 x 2 = 8 proposals, which is the
@@ -652,31 +728,36 @@ def test_pair_brief_carries_the_situation():
     # Under the locked mandate this fixture now proposes ZERO pairs -- the
     # anchors are locked to families of their own, which the defect F repair
     # refuses to search rather than searching and rejecting (test 5). This
-    # section is about what a `PairBrief` CARRIES, so it needs pairs; the
+    # section is about what a `GroupBrief` CARRIES, so it needs proposals; the
     # rejection that populates `reasons` comes from `verify()`'s no-op rule
     # instead of from a mandate rigged to be unsatisfiable. Same 8, same two
     # labels, same pivot.
     R = Reviser(rdecl=ReviseDeclaration(backtrack_width=2))
     res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_OPEN_MANDATE,
-                      propose=lambda *a, **k: None, propose_pair=recording)
-    check("tier 2 ran and actually proposed pairs", bool(seen), len(seen))
-    check("ONE argument, and it is a PairBrief -- not four positional "
+                      propose=lambda *a, **k: None, propose_group=recording)
+    check("tier 2 ran and actually proposed groups", bool(seen), len(seen))
+    check("ONE argument, and it is a GroupBrief -- not four positional "
           "strings, which is what this tier passed until 2026-08-14",
-          all(isinstance(pb, PairBrief) for pb in seen),
+          all(isinstance(pb, GroupBrief) for pb in seen),
           [type(pb).__name__ for pb in seen[:1]])
 
     first = seen[0]
     check("the PIVOT's line number is on it: L3, the line whose conjunction "
           "`joint_field` proved unsatisfiable",
           first.pivot_line_no == 3, first.pivot_line_no)
-    check("...and the ANCHOR's, which is the OTHER line this move rewrites "
-          "-- a writer told only two texts cannot say which lines of the "
-          "song they are, and tier 2 changes two",
-          first.anchor_line_no in (1, 2), first.anchor_line_no)
-    check("the two line numbers ARE the named group's two members, so the "
-          "brief is internally checkable rather than merely populated",
-          all(set(pb.members) == {pb.pivot_line_no, pb.anchor_line_no}
-              and len(pb.members) == 2 for pb in seen),
+    check("...and EVERY other member's, one `AnchorSlot` each -- a writer "
+          "told only the texts cannot say which lines of the song they are, "
+          "and tier 2 changes all of them",
+          all(isinstance(a, AnchorSlot) for a in first.anchors)
+          and [a.line_no for a in first.anchors] and
+          first.anchors[0].line_no in (1, 2),
+          [a.line_no for a in first.anchors])
+    check("the pivot plus its anchors ARE exactly the named group's "
+          "members, so the brief is internally checkable rather than merely "
+          "populated -- the invariant that keeps a joint rewrite from "
+          "silently leaving a member behind",
+          all({pb.pivot_line_no, *(a.line_no for a in pb.anchors)}
+              == set(pb.members) for pb in seen),
           sorted({pb.members for pb in seen}))
     check("the group being backtracked is NAMED (`label`), which is the one "
           "fact that says WHY these two lines and not two others",
@@ -692,18 +773,24 @@ def test_pair_brief_carries_the_situation():
           first.brief.line_no == 3 and first.brief.joint_conflict is True,
           f"L{first.brief.line_no} joint_conflict="
           f"{first.brief.joint_conflict}")
-    check("both candidate FIELDS are carried, and the two words this "
-          "attempt asks for are drawn from the front of them",
+    check("every candidate FIELD is carried, and the word each member is "
+          "asked for is drawn from the front of its own",
           all(pb.pivot_word in pb.pivot_offered[:2]
-              and pb.anchor_word in pb.anchor_offered[:2] for pb in seen),
+              and all(a.word in a.offered[:2] for a in pb.anchors)
+              for pb in seen),
           f"{first.pivot_word!r} from {first.pivot_offered[:2]}; "
-          f"{first.anchor_word!r} from {first.anchor_offered[:2]}")
+          f"{first.anchors[0].word!r} from {first.anchors[0].offered[:2]}")
     check("the offered fields are the COMPLETE ones (24 = "
           "`ReviseDeclaration.offered`), not the 2 the search walks -- a "
           "bound on effort is not a claim about the field",
-          len(first.pivot_offered) == len(first.anchor_offered)
+          len(first.pivot_offered) == len(first.anchors[0].offered)
           == R.rdecl.offered == 24,
-          f"{len(first.pivot_offered)} / {len(first.anchor_offered)}")
+          f"{len(first.pivot_offered)} / {len(first.anchors[0].offered)}")
+    check("`proposal_for` resolves the pivot/anchor split for EVERY member, "
+          "so a proposer answering in `members` order never re-derives it",
+          all(all(pb.proposal_for(m) is not None for m in pb.members)
+              and pb.proposal_for(max(pb.members) + 99) is None
+              for pb in seen))
 
     check("`attempt` counts this pivot's proposals, 0-based and gapless, "
           "the same way tier 1's does",
@@ -728,7 +815,7 @@ def test_pair_brief_carries_the_situation():
           and {f.code for pb in seen for f in pb.whole}
           == {"EXTRAPOLATED_LENGTH"},
           sorted({f.code for pb in seen for f in pb.whole}))
-    check("8 pairs proposed = 2 two-line group(s) x width 2 x width 2",
+    check("8 groups proposed = 2 two-line group(s) x width 2 x width 2",
           len(seen) == 8 == 2 * R.rdecl.backtrack_width ** 2, len(seen))
     # HANDED TO TEST 16, which compares this run against its own. Recorded
     # as a (width, count) PAIR rather than a bare number, so the comparison
@@ -801,25 +888,28 @@ def test_propose_sees_the_whole_draft_rubric():
           res.stop_reason)
 
 
-def test_tier2_still_resolves_a_joint_conflict_through_pair_brief():
-    print("\n15. TIER 2 through the `PairBrief` contract still CLEARS a real "
-         "joint_conflict -- the mechanism, not merely the signature")
+def test_tier2_still_resolves_a_joint_conflict_through_group_brief():
+    print("\n15. TIER 2 through the `GroupBrief` contract still CLEARS a "
+          "real joint_conflict -- the mechanism, not merely the signature")
     seen = []
 
-    def writes_from_the_pair_brief(pair_brief):
+    def writes_from_the_group_brief(group_brief):
         # A caller-supplied proposer that reads the brief rather than
         # positional strings. Same splice as the stub, so what is under test
         # is the contract carrying enough to do the job at all.
-        seen.append(pair_brief)
-        pivot = swap_end_word(pair_brief.pivot_text, pair_brief.pivot_word)
-        anchor = swap_end_word(pair_brief.anchor_text, pair_brief.anchor_word)
-        if pivot is None or anchor is None:
-            return None
-        return pivot, anchor
+        seen.append(group_brief)
+        out = []
+        for mem in group_brief.members:
+            text, word, _slot = group_brief.proposal_for(mem)
+            new = swap_end_word(text, word)
+            if new is None:
+                return None
+            out.append(new)
+        return tuple(out)
 
     R = Reviser()
     res = revise_loop(R, SILVER_MIND, [[1, 3], [2, 3]],
-                      propose_pair=writes_from_the_pair_brief)
+                      propose_group=writes_from_the_group_brief)
     # RESTATED 2026-08-17: same outcome as test 4 under mandatory pursuit —
     # the backtrack clears the joint conflict, its accepted word is
     # directionally modal, and the loop refuses to call that success.
@@ -830,12 +920,12 @@ def test_tier2_still_resolves_a_joint_conflict_through_pair_brief():
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
     check("exactly one tier-2 attempt ran, and it was accepted",
           len(tier2) == 1 and tier2[0].accepted, tier2[0] if tier2 else None)
-    check("the lines it touched are the two the `PairBrief` NAMED, and no "
-          "third line -- the brief and the outcome agree",
-          set(tier2[0].touched)
-          == {seen[0].pivot_line_no, seen[0].anchor_line_no} == {1, 3},
-          f"touched {tier2[0].touched}, brief named "
-          f"L{seen[0].pivot_line_no}/L{seen[0].anchor_line_no}")
+    check("the lines it touched are exactly the members the `GroupBrief` "
+          "NAMED, and no other line -- the brief and the outcome agree",
+          set(tier2[0].touched) == set(seen[0].members)
+          == {seen[0].pivot_line_no, *(a.line_no for a in seen[0].anchors)}
+          == {1, 3},
+          f"touched {tier2[0].touched}, brief named {seen[0].members}")
     check("L2 (the untouched anchor) is byte-identical",
           res.lines[1] == SILVER_MIND[1])
     R2 = Reviser()
@@ -849,18 +939,19 @@ def test_tier2_still_resolves_a_joint_conflict_through_pair_brief():
 
 def test_backtrack_width_still_bounds_the_search():
     print("\n16. `backtrack_width` still bounds tier 2's search to the same "
-         "count it did before the `PairBrief` -- width^2 per two-line group")
+          "count it did before the `GroupBrief` -- width^2 per two-line "
+          "group, and the JOINT widening did not move it")
     seen = []
 
-    def counting(pair_brief):
-        seen.append(pair_brief)
-        return _no_op_pair(pair_brief)
+    def counting(group_brief):
+        seen.append(group_brief)
+        return _no_op_group(group_brief)
 
     # `..._OPEN_` AND THE NO-OP PROPOSER, 2026-08-17 — same reason as test
     # 13. The number this section exists to pin is unmoved: 2 x 5^2 = 50.
     R = Reviser()                       # the DECLARED default, width 5
     res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_OPEN_MANDATE,
-                      propose=lambda *a, **k: None, propose_pair=counting)
+                      propose=lambda *a, **k: None, propose_group=counting)
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
     check("50 pairs proposed = 2 two-line group(s) x width 5 x width 5 -- "
           "the number this fixture's own comment recorded before the "
@@ -1181,7 +1272,7 @@ ANCHOR_GROUPS = [[1, 2], [1, 3], [3, 4], [5, 6]]
 #: the pivot's remaining call do not rhyme, so the folded field is EMPTY and
 #: no prompt is ever built — which is the right outcome and the wrong fixture
 #: for asking what the prompt says. Here L4's `door` rhymes with L1's `four`,
-#: so the anchor's conjunction is non-empty and a `PairBrief` is actually
+#: so the anchor's conjunction is non-empty and a `GroupBrief` is actually
 #: rendered: pivot L2, anchor L3, and L3 owes `door` to a group the backtrack
 #: does not touch.
 ANCHOR_HAS_A_LIVE_GROUP = ["the kitchen light is burning at half past four",
@@ -1269,14 +1360,15 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
     # anchor field was never empty here, so this sentence was unsayable.
     res = revise_loop(RV, ANCHOR_IS_A_PIVOT, m,
                       propose=lambda *a, **k: None,
-                      propose_pair=lambda *a, **k: None)
+                      propose_group=lambda *a, **k: None)
     # `attempts[-1]` stopped being the tier-2 attempt when mandatory pursuit
     # added tier-1 attempts for the pursued lines after it; select by tier.
     det = [a for a in res.rounds[0].attempts if a.tier == 2][-1].reason
     check("an EMPTY ANCHOR conjunction is reported as its own outcome, not "
           "as a search that came back short",
-          "EMPTY ANCHOR field" in det and "unsatisfiable at this anchor" in det
-          and "L1's own group(s)" in det, det[:200])
+          "EMPTY MEMBER field" in det
+          and "unsatisfiable at that member" in det
+          and "L1's own group(s)" in det, det[:220])
 
     # THE RETURN PIN — rung 3's own shape, with the PIVOT (L3) in a declared
     # verbatim return. Every word this tier could offer it is illegal, so no
@@ -1286,7 +1378,7 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
                      returns=[[3, 7]])
     asked = []
     res2 = revise_loop(RV, PIN, mp, propose=lambda *a, **k: None,
-                       propose_pair=lambda pb: asked.append(pb))
+                       propose_group=lambda pb: asked.append(pb))
     pinned_det = [a.reason for r in res2.rounds for a in r.attempts
                   if a.tier == 2]
     check("a pivot pinned by a declared verbatim return is NOT SEARCHED, and "
@@ -1294,10 +1386,10 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
           any("PINNED by return group" in d for d in pinned_det)
           and any("is itself a RETURN" in d for d in pinned_det),
           pinned_det[:1])
-    check("...and no pair is put to a proposer at all — a refusal is not a "
+    check("...and no group is put to a proposer at all — a refusal is not a "
           "failed search (doctrine 20)",
           asked == [] and any("NOT ATTEMPTED" in d for d in pinned_det),
-          f"{len(asked)} pair prompt(s) asked :: {pinned_det[:1]}")
+          f"{len(asked)} group prompt(s) asked :: {pinned_det[:1]}")
 
     # THE WRITER IS TOLD. The prompt renders THE RHYME MANDATE ON THE PIVOT;
     # until this fix it rendered no block for the anchor, so the writer was
@@ -1306,31 +1398,32 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
     revise_loop(RV, ANCHOR_HAS_A_LIVE_GROUP,
                 _SC.mandate(LIVE_GROUPS, n_lines=4),
                 propose=lambda *a, **k: None,
-                propose_pair=lambda pb: seen.append(pb))
-    withc = [pb for pb in seen if pb.anchor_calls]
-    check("`PairBrief.anchor_calls` carries the anchor's own call words to "
-          "the renderer, and the prompt says so in its own block",
-          withc and withc[0].anchor_calls == ("door",)
-          and "AND THE ANCHOR HAS GROUPS OF ITS OWN — L3 is a pivot too"
-          in _PR.render_pair(withc[0])
-          and "L3 must also answer: 'door'" in _PR.render_pair(withc[0]),
-          f"{len(withc)} of {len(seen)} pair brief(s) carry anchor_calls")
+                propose_group=lambda pb: seen.append(pb))
+    withc = [pb for pb in seen if any(a.calls for a in pb.anchors)]
+    check("`AnchorSlot.calls` carries each member's own call words to the "
+          "renderer, and the prompt says so in that member's own block",
+          withc and withc[0].anchors[0].calls == ("door",)
+          and "AND L3 HAS GROUPS OF ITS OWN — it is a pivot too"
+          in _PR.render_group(withc[0])
+          and "L3 must also answer: 'door'" in _PR.render_group(withc[0]),
+          f"{len(withc)} of {len(seen)} group brief(s) carry member calls")
 
     # CONTROL — THE ORDINARY SHAPE IS UNTOUCHED. An anchor in one group has
-    # no other obligation, so `anchor_calls` is empty and the block does not
+    # no other obligation, so its `AnchorSlot.calls` is empty and the block
+    # does not
     # render. A fix that also fired here would be a second defect.
     plain = []
     revise_loop(Reviser(), SILVER_MIND, [[1, 3], [2, 3]],
                 propose=lambda *a, **k: None,
-                propose_pair=lambda pb: plain.append(pb))
-    check("CONTROL: an anchor in ONE group carries no extra calls and the "
+                propose_group=lambda pb: plain.append(pb))
+    check("CONTROL: a member in ONE group carries no extra calls and the "
           "new block does not render — the fix is inert where the defect is "
           "not",
-          plain and all(pb.anchor_calls == () for pb in plain)
-          and "AND THE ANCHOR HAS GROUPS OF ITS OWN"
-          not in _PR.render_pair(plain[0]),
-          f"{len(plain)} pair brief(s), anchor_calls "
-          f"{[pb.anchor_calls for pb in plain[:3]]}")
+          plain and all(a.calls == () for pb in plain for a in pb.anchors)
+          and "HAS GROUPS OF ITS OWN"
+          not in _PR.render_group(plain[0]),
+          f"{len(plain)} group brief(s), member calls "
+          f"{[tuple(a.calls for a in pb.anchors) for pb in plain[:3]]}")
 
 
 #: Clean rhymes that ARE the modal answers — town/down, four/more — so the
@@ -1407,16 +1500,16 @@ if __name__ == "__main__":
                test_round_limit_stop,
                test_tier2_backtrack_resolves_a_joint_conflict,
                test_tier2_tries_and_correctly_rejects,
-               test_tier2_declines_a_group_of_three_or_more,
+               test_tier2_rewrites_a_group_of_three_or_more,
                test_the_loop_never_touches_an_unreported_line,
                test_swap_end_word_refuses_a_disagreeing_reading,
                test_no_mandate_is_a_refusal_not_a_pass,
                test_strip_parens_is_a_declared_coordinate,
                test_optin_layers_are_disclosed_and_success_is_per_line,
                test_declared_returns_are_asked_and_have_no_move,
-               test_pair_brief_carries_the_situation,
+               test_group_brief_carries_the_situation,
                test_propose_sees_the_whole_draft_rubric,
-               test_tier2_still_resolves_a_joint_conflict_through_pair_brief,
+               test_tier2_still_resolves_a_joint_conflict_through_group_brief,
                test_backtrack_width_still_bounds_the_search,
                test_a_dead_end_and_an_open_line_each_name_their_own_rule,
                test_a_line_is_briefed_against_the_draft_as_it_now_stands,

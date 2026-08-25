@@ -255,6 +255,121 @@ a one-beat pickup eating a slot, so a CHORUS line has seven and not eight.
 `wire` cost one on its own — CMUdict reads it as two syllables (`W AY1 ER0`),
 which is what a count in the head gets wrong and a grader does not.
 
+## `long_bridge.txt` — "Where the Long Bridge Is Shown", seed 1, 3/8 grouped 3
+
+    python3 lyric_harness.py plan --seed=1
+    python3 lyric_harness.py plan --seed=1 --title='Where the Long Bridge Is Shown' \
+        --fill=songs/long_bridge.txt --out=songs/long_bridge.blueprint.json
+    python3 lyric_harness.py song songs/long_bridge.blueprint.json \
+        songs/long_bridge.txt \
+        '--groups=2.T5,3.T6,5.T3;4.T7,5.T2;1.T5,2.endword,3.T1;1.head,3.T7;6.T6,7.T7;8.headrime,9.T3;9.headrime,10.endword,11.T3;8.T3,9.T4,10.T7,11;9.T6,11.head;12,13.T7;12.T7,14.headrime;13.T4,14.T2,15.T5;12.T2,14.T5,15.T3;16.headrime,17.T1;18.endword,20.T6;19.T6,20.T1;19,20;21.T4,23.T4;21.T3,22.T3,23.headrime;21.T6,22.T7;22.T5,23.T5;24.T7,25.T5;24.T3,25.T2;3,5;6,7;8,9;16,17;21,23;24,25' --subdivision 4
+
+`song` exit 0, 0 FLAG. `revise` SUCCESS in 0 rounds, draft UNCHANGED
+(md5 `496d29cf7c02`), 46 pairs mandated / 46 judged / 0 refused.
+
+**25 lines, 8 sections**, 3 beats a line over 1 bar of 3/8, 12 slots at
+subdivision 4. Seed 1, no sweep and no `--want=`, so nothing about this shape
+was selected for.
+
+**AND IT IS NOT A GOOD SONG.** Recorded because that is the whole use of this
+file: every gate above passed it, and the gates cannot hear it. The lines are
+runs of short concrete nouns with the connective tissue squeezed out — the
+same failure `carry_it_over`'s first draft is kept here for, and the note
+under it applies unchanged: exit 0 is not a verdict about the writing, and no
+measurement in this tree separates a stacked line from a sung one.
+
+**I BLAMED THE PLAN FOR IT AND THE MEASUREMENT REFUSED THE BLAME.** The first
+version of this paragraph read *"the plan is the suspect — 29 groups over 25
+lines is 46 mandated pairs"*, i.e. that the line was too pinned to be written
+as a sentence. Over the planner's first 120 seeds, mandated pairs per line
+runs **min 0.88, p25 2.69, median 3.77, p75 5.04, max 10.14** — and this plan
+is **1.84**, with **108 of 120 (90.0%)** at or above it. Line length does not
+rescue the story either: median slots per line across those plans is **11**
+and this plan's is **11**, dead on it, with 51.7% at or below. So the shape
+was ORDINARY-TO-LOOSE on both axes and the writing still came out as
+fragments. The pressure I described is real at the writing desk and it is not
+what this plan applied.
+
+**WHICH LEAVES THE FINDING WHERE IT IS LEAST CONVENIENT: THE DRAFT.** There is
+no instrument here that could have told me so — that is the gap, and it is the
+same one M-99 records for songs. The question this song does raise about the
+planner is a different one and is not answered by it: if a plan in the bottom
+decile of binding density reads like this, the median at 3.77 pairs per line
+is worth looking at as a distribution rather than seed by seed.
+
+**WHAT WENT WRONG BEFORE IT SHIPPED**, neither draft committed, so neither
+has a row and `song_log.CLAIMS` charges nothing here. Draft 1: `SLOTS_EXCEEDED`
+on L9 — `wire` is two syllables in CMUdict (`W AY1 ER0`) — plus a whole-draft
+`FUNCTION_WORD_HEAVY`, from padding with `the`/`of`/`it` to reach a bound token
+position. Draft 2 over-corrected into the opposite defect and the band caught
+it: nine lines at 8–9 prominent syllables against the calibrated PROMINENCE
+band's `[2, 7]`. The third shipped. The pair is the argument for the band
+having two ends, and the direction of the over-correction is the same pressure
+the paragraph above names.
+
+**ITS PLAN DRAWS NO RETURNS, WHICH NO OTHER SONG HERE CAN SAY**, so the
+grading command is `--groups=` and nothing else — 29 groups, **6 of them bare
+line-number pairs** (`3,5`, `6,7`, `8,9`, `16,17`, `21,23`, `24,25`) added by
+the end-rhyme pass (`MISSING.md` M-107). `RETURN_NEVER_RETURNS` therefore
+stands as a NOTE, correctly: a plan with no declared return has nothing to
+bring back.
+
+**AND BANKING IT FOUND A LIVE DEFECT** (`MISSING.md` M-108). Every song above
+declares `--returns=` beside its groups, which builds a real `Mandate` and
+prints `N group(s) over L lines, P mandated pair(s)`. The bare `--groups=`
+branch printed the group count and stopped, so `quality/song_log.py`'s
+declared `song` parser banked NONE of its four mandate facts for this row and
+did not refuse the row for it. Five songs went by without that being visible,
+because all five decorate their groups. One header now; the 46-pair figure
+above is the count it was withholding.
+
+## `taught_me_time.txt` — "Wheels Hum", seed 1 AGAIN, the forward validation
+
+    python3 lyric_harness.py plan --seed=1
+    python3 lyric_harness.py plan --seed=1 --title='Wheels Hum' \
+        --fill=songs/taught_me_time.txt --out=songs/taught_me_time.blueprint.json
+    python3 lyric_harness.py song songs/taught_me_time.blueprint.json \
+        songs/taught_me_time.txt \
+        '--groups=2.T5,3.T6,5.T3;4.T7,5.T2;1.T5,2.endword,3.T1;1.head,3.T7;6.T6,7.T7;8.headrime,9.T3;9.headrime,10.endword,11.T3;8.T3,9.T4,10.T7,11;9.T6,11.head;12,13.T7;12.T7,14.headrime;13.T4,14.T2,15.T5;12.T2,14.T5,15.T3;16.headrime,17.T1;18.endword,20.T6;19.T6,20.T1;19,20;21.T4,23.T4;21.T3,22.T3,23.headrime;21.T6,22.T7;22.T5,23.T5;24.T7,25.T5;24.T3,25.T2;3,5;6,7;8,9;16,17;21,23;24,25' --subdivision 4
+
+`song` exit 0, 0 FLAG. `revise` SUCCESS in 0 rounds, draft UNCHANGED
+(md5 `09ff4ea8c521`), 46 pairs mandated / 46 judged / 0 refused.
+
+**THE SEED IS 1 ON PURPOSE: THIS IS `long_bridge`'s PLAN, WRITTEN AGAIN WITH
+THE GATES ITS FAILURE BUILT.** A plan is a pure function of its seed, so the
+two songs are a matched pair — identical 29 groups, identical 3/8 bar,
+identical pins — differing in exactly one thing: this one was written with
+the sentencehood gate live (`MISSING.md` M-110) and every mandated pair
+screened before a word went down. `long_bridge` reads 4 stacked lines and
+grades exit 3 at head; this one reads 0 and grades exit 0. That pair is the
+strong-form control the blind panel lacked, and the M-99 training shape.
+
+**IT TOOK FOUR GRADING ROUNDS AND EVERY CATCH WAS A DIFFERENT LAYER'S.**
+Round 1: 19 flags — the writer (me) ignored the pickups (a one-beat pickup
+leaves a PRECHORUS line 8 slots, not 12 — the arithmetic error
+`keep_the_light` has on record), and four pins sat on weak function words
+(`out/We/I/Are`), which the anchor refuses: A RHYME PIN MUST BE A CONTENT
+WORD. Round 2: 2 flags — `cruel` is two syllables and cannot answer
+`school/rule`. Round 3: 0 flags and REFUSED anyway — the two-tier ban gate
+stood on 15 lines of unscreened modal pairs, the exact price of skipping
+`screen`, paid in full: 42 screen invocations follow in this song's log.
+Round 4: one prominence flag, then green.
+
+**WHAT THE SCREENS SAID ABOUT ENGLISH, banked as rows:** `taught~thought`,
+`time~climb`, `home~roam`, `wait~straight` and the whole `guide/ride/wide`
+family are BANNED — the obvious pairs are the modal pairs, which is doctrine
+9 doing its job on the writer's first instincts. Seven common monosyllable
+families (`-ap -ip -ump -ance -ill -op -ack`) measured ZERO clean pairs,
+every member one spelled rime — the `-ame` ceiling again, five families
+wider. What survived instead: a true 4-clique (`beware~midair~square~wear`)
+and the odd couples (`hop~swap`, `again~zen`, `far~bizarre`).
+
+**AND THE M-111 GLOSSARY WAS AVOIDED ON PURPOSE, MEASURED:** zero of the
+twelve tic words the panel and the DF measurement flagged (`light, ache,
+groan, nigh, thread, spare, stair, stone, crossed, quay, plea, grey`) appear
+in this lyric. That is a writer discipline, not a gate — M-111 stays open,
+and the next song should not need the discipline to be remembered.
+
 ## What the first measurement says, including about me
 
 `songs/RESULTS.tsv` is the series: one row per (song, harness commit, date),
@@ -283,13 +398,14 @@ already runs inside `song`.
 
 **AND THE FIRST RUN DID NOT FLATTER THE NEWEST SONG.** On concreteness —
 pre-registered as HIGHER in the survived/human class — `carry_it_over.txt` is
-the lowest of the five at 3.043667 [RESULTS: concreteness_mean
-carry_it_over.txt], against 3.909818 for `turn_the_wheel.txt`
-[RESULTS: concreteness_mean turn_the_wheel.txt]. On rhyme predictability —
-pre-registered as LOWER — `keep_the_light.txt` sits lowest at 0.816206
-[RESULTS: rhyme_predictability_mean keep_the_light.txt]. Both readings run
-against the story I had been telling, which is the point of writing the
-numbers down before making the claim.
+the lowest of the six at 3.043667 [RESULTS: concreteness_mean carry_it_over.txt].
+~~against 3.909818 for `turn_the_wheel.txt`~~ — that was the top of FIVE and a
+sixth has since been banked; turn_the_wheel's own 3.909818 has not moved
+[RESULTS: concreteness_mean turn_the_wheel.txt]. On
+rhyme predictability — pre-registered as LOWER —
+`keep_the_light.txt` sits lowest at 0.816206 [RESULTS: rhyme_predictability_mean keep_the_light.txt].
+Both readings ran against the story I had been telling, which is the point of
+writing the numbers down before making the claim.
 
 A comparison in this file must carry a `[RESULTS: <column> <song>]` citation
 that resolves, or `--claims` fails. That check is aimed at the narrator.

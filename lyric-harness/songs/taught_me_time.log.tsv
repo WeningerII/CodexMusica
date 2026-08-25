@@ -1,0 +1,794 @@
+song	step	measured	harness_commit	verb	exit	fact	value
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:son~done	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:son~run	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:son~one	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:son~won	BANNED: HOMEOTELEUTON
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:son~stun	CLEAN
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:son~begun	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:done~run	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:done~one	BANNED: HOMEOTELEUTON
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:done~won	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:done~stun	CLEAN
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:done~begun	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:run~one	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:run~won	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:run~stun	BANNED: HOMEOTELEUTON
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:run~begun	BANNED: HOMEOTELEUTON
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:one~won	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:one~stun	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:one~begun	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:won~stun	CLEAN
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:won~begun	BANNED: MODAL_RHYME
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	pair:stun~begun	BANNED: HOMEOTELEUTON
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	banned	18
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	refused	0
+taught_me_time	1	2026-08-25	fb2b1af	screen	0	clean_or_non_rhyme	3
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:chain~lane	BANNED: MODAL_RHYME
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:chain~rein	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:chain~reign	BANNED: MODAL_RHYME
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:chain~crane	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:chain~sprain	BANNED: HOMEOTELEUTON
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:lane~rein	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:lane~reign	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:lane~crane	BANNED: HOMEOTELEUTON
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:lane~sprain	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:rein~reign	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:rein~crane	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:rein~sprain	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:reign~crane	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:reign~sprain	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	pair:crane~sprain	CLEAN
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	banned	4
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	refused	0
+taught_me_time	2	2026-08-25	fb2b1af-WORKING	screen	0	clean_or_non_rhyme	11
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:shed~head	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:shed~bread	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:shed~said	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:shed~fled	BANNED: HOMEOTELEUTON
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:shed~sled	BANNED: HOMEOTELEUTON
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:head~bread	BANNED: HOMEOTELEUTON
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:head~said	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:head~fled	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:head~sled	CLEAN
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:bread~said	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:bread~fled	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:bread~sled	CLEAN
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:said~fled	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:said~sled	BANNED: MODAL_RHYME
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	pair:fled~sled	BANNED: HOMEOTELEUTON
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	banned	13
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	refused	0
+taught_me_time	3	2026-08-25	fb2b1af-WORKING	screen	0	clean_or_non_rhyme	2
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:go~slow	BANNED: MODAL_RHYME
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:go~grow	BANNED: MODAL_RHYME
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:go~tow	BANNED: MODAL_RHYME
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:go~dough	BANNED: MODAL_RHYME
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:slow~grow	BANNED: HOMEOTELEUTON
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:slow~tow	BANNED: HOMEOTELEUTON
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:slow~dough	CLEAN
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:grow~tow	BANNED: HOMEOTELEUTON
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:grow~dough	BANNED: MODAL_RHYME
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	pair:tow~dough	CLEAN
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	banned	8
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	refused	0
+taught_me_time	4	2026-08-25	fb2b1af-WORKING	screen	0	clean_or_non_rhyme	2
+taught_me_time	5	2026-08-25	0e4a7e6	screen	0	pair:doubt~shout	BANNED: MODAL_RHYME
+taught_me_time	5	2026-08-25	0e4a7e6	screen	0	pair:doubt~sprout	CLEAN
+taught_me_time	5	2026-08-25	0e4a7e6	screen	0	pair:doubt~scout	CLEAN
+taught_me_time	5	2026-08-25	0e4a7e6	screen	0	pair:doubt~drought	CLEAN
+taught_me_time	5	2026-08-25	0e4a7e6	screen	0	pair:shout~sprout	BANNED: HOMEOTELEUTON
+taught_me_time	5	2026-08-25	0e4a7e6	screen	0	pair:shout~scout	BANNED: HOMEOTELEUTON
+taught_me_time	5	2026-08-25	0e4a7e6	screen	0	pair:shout~drought	CLEAN
+taught_me_time	5	2026-08-25	0e4a7e6	screen	0	pair:sprout~scout	BANNED: HOMEOTELEUTON
+taught_me_time	5	2026-08-25	0e4a7e6	screen	0	pair:sprout~drought	CLEAN
+taught_me_time	5	2026-08-25	0e4a7e6	screen	0	pair:scout~drought	CLEAN
+taught_me_time	5	2026-08-25	0e4a7e6	screen	0	banned	4
+taught_me_time	5	2026-08-25	0e4a7e6	screen	0	refused	0
+taught_me_time	5	2026-08-25	0e4a7e6	screen	0	clean_or_non_rhyme	6
+taught_me_time	6	2026-08-25	0e4a7e6-WORKING	screen	0	pair:taught~thought	BANNED: MODAL_RHYME
+taught_me_time	6	2026-08-25	0e4a7e6-WORKING	screen	0	pair:taught~fought	BANNED: MODAL_RHYME
+taught_me_time	6	2026-08-25	0e4a7e6-WORKING	screen	0	pair:taught~sought	BANNED: MODAL_RHYME
+taught_me_time	6	2026-08-25	0e4a7e6-WORKING	screen	0	pair:thought~fought	BANNED: HOMEOTELEUTON
+taught_me_time	6	2026-08-25	0e4a7e6-WORKING	screen	0	pair:thought~sought	BANNED: HOMEOTELEUTON
+taught_me_time	6	2026-08-25	0e4a7e6-WORKING	screen	0	pair:fought~sought	BANNED: HOMEOTELEUTON
+taught_me_time	6	2026-08-25	0e4a7e6-WORKING	screen	0	banned	6
+taught_me_time	6	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	6	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	0
+taught_me_time	7	2026-08-25	0e4a7e6-WORKING	screen	0	pair:time~climb	BANNED: MODAL_RHYME
+taught_me_time	7	2026-08-25	0e4a7e6-WORKING	screen	0	pair:time~rhyme	BANNED: MODAL_RHYME
+taught_me_time	7	2026-08-25	0e4a7e6-WORKING	screen	0	pair:time~prime	BANNED: HOMEOTELEUTON
+taught_me_time	7	2026-08-25	0e4a7e6-WORKING	screen	0	pair:climb~rhyme	CLEAN
+taught_me_time	7	2026-08-25	0e4a7e6-WORKING	screen	0	pair:climb~prime	BANNED: MODAL_RHYME
+taught_me_time	7	2026-08-25	0e4a7e6-WORKING	screen	0	pair:rhyme~prime	BANNED: MODAL_RHYME
+taught_me_time	7	2026-08-25	0e4a7e6-WORKING	screen	0	banned	5
+taught_me_time	7	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	7	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	1
+taught_me_time	8	2026-08-25	0e4a7e6-WORKING	screen	0	pair:steer~near	BANNED: MODAL_RHYME
+taught_me_time	8	2026-08-25	0e4a7e6-WORKING	screen	0	pair:steer~clear	BANNED: MODAL_RHYME
+taught_me_time	8	2026-08-25	0e4a7e6-WORKING	screen	0	pair:steer~veer	BANNED: HOMEOTELEUTON
+taught_me_time	8	2026-08-25	0e4a7e6-WORKING	screen	0	pair:steer~pier	BANNED: MODAL_RHYME
+taught_me_time	8	2026-08-25	0e4a7e6-WORKING	screen	0	pair:near~clear	BANNED: HOMEOTELEUTON
+taught_me_time	8	2026-08-25	0e4a7e6-WORKING	screen	0	pair:near~veer	CLEAN
+taught_me_time	8	2026-08-25	0e4a7e6-WORKING	screen	0	pair:near~pier	BANNED: MODAL_RHYME
+taught_me_time	8	2026-08-25	0e4a7e6-WORKING	screen	0	pair:clear~veer	CLEAN
+taught_me_time	8	2026-08-25	0e4a7e6-WORKING	screen	0	pair:clear~pier	CLEAN
+taught_me_time	8	2026-08-25	0e4a7e6-WORKING	screen	0	pair:veer~pier	CLEAN
+taught_me_time	8	2026-08-25	0e4a7e6-WORKING	screen	0	banned	6
+taught_me_time	8	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	8	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	4
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:air~there	BANNED: MODAL_RHYME
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:air~square	BANNED: MODAL_RHYME
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:air~bear	BANNED: MODAL_RHYME
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:air~flare	BANNED: MODAL_RHYME
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:air~wear	BANNED: MODAL_RHYME
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:air~swear	CLEAN
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:there~square	BANNED: MODAL_RHYME
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:there~bear	BANNED: MODAL_RHYME
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:there~flare	BANNED: MODAL_RHYME
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:there~wear	BANNED: MODAL_RHYME
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:there~swear	BANNED: MODAL_RHYME
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:square~bear	CLEAN
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:square~flare	CLEAN
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:square~wear	CLEAN
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:square~swear	CLEAN
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bear~flare	CLEAN
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bear~wear	BANNED: HOMEOTELEUTON
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bear~swear	BANNED: HOMEOTELEUTON
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:flare~wear	CLEAN
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:flare~swear	CLEAN
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	pair:wear~swear	BANNED: HOMEOTELEUTON
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	banned	13
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	9	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	8
+taught_me_time	10	2026-08-25	0e4a7e6-WORKING	screen	0	pair:see~free	BANNED: HOMEOTELEUTON
+taught_me_time	10	2026-08-25	0e4a7e6-WORKING	screen	0	pair:see~key	BANNED: MODAL_RHYME
+taught_me_time	10	2026-08-25	0e4a7e6-WORKING	screen	0	pair:see~sea	BANNED: MODAL_RHYME
+taught_me_time	10	2026-08-25	0e4a7e6-WORKING	screen	0	pair:see~tea	CLEAN
+taught_me_time	10	2026-08-25	0e4a7e6-WORKING	screen	0	pair:free~key	BANNED: MODAL_RHYME
+taught_me_time	10	2026-08-25	0e4a7e6-WORKING	screen	0	pair:free~sea	BANNED: MODAL_RHYME
+taught_me_time	10	2026-08-25	0e4a7e6-WORKING	screen	0	pair:free~tea	BANNED: MODAL_RHYME
+taught_me_time	10	2026-08-25	0e4a7e6-WORKING	screen	0	pair:key~sea	BANNED: MODAL_RHYME
+taught_me_time	10	2026-08-25	0e4a7e6-WORKING	screen	0	pair:key~tea	CLEAN
+taught_me_time	10	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sea~tea	BANNED: HOMEOTELEUTON
+taught_me_time	10	2026-08-25	0e4a7e6-WORKING	screen	0	banned	8
+taught_me_time	10	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	10	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	2
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	pair:high~sky	BANNED: MODAL_RHYME
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	pair:high~lie	BANNED: MODAL_RHYME
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	pair:high~tie	BANNED: MODAL_RHYME
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	pair:high~sigh	BANNED: HOMEOTELEUTON
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	pair:high~fly	BANNED: MODAL_RHYME
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sky~lie	BANNED: MODAL_RHYME
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sky~tie	BANNED: MODAL_RHYME
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sky~sigh	BANNED: MODAL_RHYME
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sky~fly	BANNED: HOMEOTELEUTON
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lie~tie	BANNED: HOMEOTELEUTON
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lie~sigh	CLEAN
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lie~fly	BANNED: MODAL_RHYME
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	pair:tie~sigh	BANNED: MODAL_RHYME
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	pair:tie~fly	BANNED: MODAL_RHYME
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sigh~fly	CLEAN
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	banned	13
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	11	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	2
+taught_me_time	12	2026-08-25	0e4a7e6-WORKING	screen	0	pair:let~sweat	BANNED: MODAL_RHYME
+taught_me_time	12	2026-08-25	0e4a7e6-WORKING	screen	0	pair:let~debt	BANNED: MODAL_RHYME
+taught_me_time	12	2026-08-25	0e4a7e6-WORKING	screen	0	pair:let~threat	CLEAN
+taught_me_time	12	2026-08-25	0e4a7e6-WORKING	screen	0	pair:let~net	BANNED: HOMEOTELEUTON
+taught_me_time	12	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sweat~debt	BANNED: MODAL_RHYME
+taught_me_time	12	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sweat~threat	BANNED: HOMEOTELEUTON
+taught_me_time	12	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sweat~net	CLEAN
+taught_me_time	12	2026-08-25	0e4a7e6-WORKING	screen	0	pair:debt~threat	BANNED: MODAL_RHYME
+taught_me_time	12	2026-08-25	0e4a7e6-WORKING	screen	0	pair:debt~net	CLEAN
+taught_me_time	12	2026-08-25	0e4a7e6-WORKING	screen	0	pair:threat~net	BANNED: MODAL_RHYME
+taught_me_time	12	2026-08-25	0e4a7e6-WORKING	screen	0	banned	7
+taught_me_time	12	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	12	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	3
+taught_me_time	13	2026-08-25	0e4a7e6-WORKING	screen	0	pair:use~loose	BANNED: MODAL_RHYME
+taught_me_time	13	2026-08-25	0e4a7e6-WORKING	screen	0	pair:use~truce	BANNED: MODAL_RHYME
+taught_me_time	13	2026-08-25	0e4a7e6-WORKING	screen	0	pair:use~juice	BANNED: MODAL_RHYME
+taught_me_time	13	2026-08-25	0e4a7e6-WORKING	screen	0	pair:loose~truce	BANNED: MODAL_RHYME
+taught_me_time	13	2026-08-25	0e4a7e6-WORKING	screen	0	pair:loose~juice	CLEAN
+taught_me_time	13	2026-08-25	0e4a7e6-WORKING	screen	0	pair:truce~juice	CLEAN
+taught_me_time	13	2026-08-25	0e4a7e6-WORKING	screen	0	banned	4
+taught_me_time	13	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	13	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	2
+taught_me_time	14	2026-08-25	0e4a7e6-WORKING	screen	0	pair:gone~dawn	BANNED: MODAL_RHYME
+taught_me_time	14	2026-08-25	0e4a7e6-WORKING	screen	0	pair:gone~drawn	BANNED: MODAL_RHYME
+taught_me_time	14	2026-08-25	0e4a7e6-WORKING	screen	0	pair:gone~lawn	BANNED: MODAL_RHYME
+taught_me_time	14	2026-08-25	0e4a7e6-WORKING	screen	0	pair:gone~on	BANNED: MODAL_RHYME
+taught_me_time	14	2026-08-25	0e4a7e6-WORKING	screen	0	pair:dawn~drawn	BANNED: HOMEOTELEUTON
+taught_me_time	14	2026-08-25	0e4a7e6-WORKING	screen	0	pair:dawn~lawn	BANNED: HOMEOTELEUTON
+taught_me_time	14	2026-08-25	0e4a7e6-WORKING	screen	0	pair:dawn~on	BANNED: MODAL_RHYME
+taught_me_time	14	2026-08-25	0e4a7e6-WORKING	screen	0	pair:drawn~lawn	BANNED: HOMEOTELEUTON
+taught_me_time	14	2026-08-25	0e4a7e6-WORKING	screen	0	pair:drawn~on	BANNED: MODAL_RHYME
+taught_me_time	14	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lawn~on	BANNED: MODAL_RHYME
+taught_me_time	14	2026-08-25	0e4a7e6-WORKING	screen	0	banned	10
+taught_me_time	14	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	14	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	0
+taught_me_time	15	2026-08-25	0e4a7e6-WORKING	screen	0	pair:first~worst	BANNED: MODAL_RHYME
+taught_me_time	15	2026-08-25	0e4a7e6-WORKING	screen	0	pair:first~burst	BANNED: MODAL_RHYME
+taught_me_time	15	2026-08-25	0e4a7e6-WORKING	screen	0	pair:first~cursed	BANNED: MODAL_RHYME
+taught_me_time	15	2026-08-25	0e4a7e6-WORKING	screen	0	pair:worst~burst	BANNED: MODAL_RHYME
+taught_me_time	15	2026-08-25	0e4a7e6-WORKING	screen	0	pair:worst~cursed	CLEAN
+taught_me_time	15	2026-08-25	0e4a7e6-WORKING	screen	0	pair:burst~cursed	CLEAN
+taught_me_time	15	2026-08-25	0e4a7e6-WORKING	screen	0	banned	4
+taught_me_time	15	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	15	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	2
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:through~two	BANNED: MODAL_RHYME
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:through~knew	CLEAN
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:through~blue	BANNED: MODAL_RHYME
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:through~clue	BANNED: MODAL_RHYME
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:through~drew	BANNED: MODAL_RHYME
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:through~grew	CLEAN
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:two~knew	CLEAN
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:two~blue	CLEAN
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:two~clue	CLEAN
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:two~drew	CLEAN
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:two~grew	CLEAN
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:knew~blue	BANNED: MODAL_RHYME
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:knew~clue	CLEAN
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:knew~drew	BANNED: HOMEOTELEUTON
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:knew~grew	BANNED: HOMEOTELEUTON
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:blue~clue	BANNED: HOMEOTELEUTON
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:blue~drew	BANNED: MODAL_RHYME
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:blue~grew	BANNED: MODAL_RHYME
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:clue~drew	CLEAN
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:clue~grew	CLEAN
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	pair:drew~grew	BANNED: HOMEOTELEUTON
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	banned	11
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	16	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	10
+taught_me_time	17	2026-08-25	0e4a7e6-WORKING	screen	0	pair:wait~late	BANNED: MODAL_RHYME
+taught_me_time	17	2026-08-25	0e4a7e6-WORKING	screen	0	pair:wait~straight	BANNED: MODAL_RHYME
+taught_me_time	17	2026-08-25	0e4a7e6-WORKING	screen	0	pair:wait~gate	BANNED: MODAL_RHYME
+taught_me_time	17	2026-08-25	0e4a7e6-WORKING	screen	0	pair:wait~eight	CLEAN
+taught_me_time	17	2026-08-25	0e4a7e6-WORKING	screen	0	pair:late~straight	BANNED: MODAL_RHYME
+taught_me_time	17	2026-08-25	0e4a7e6-WORKING	screen	0	pair:late~gate	BANNED: HOMEOTELEUTON
+taught_me_time	17	2026-08-25	0e4a7e6-WORKING	screen	0	pair:late~eight	BANNED: MODAL_RHYME
+taught_me_time	17	2026-08-25	0e4a7e6-WORKING	screen	0	pair:straight~gate	BANNED: MODAL_RHYME
+taught_me_time	17	2026-08-25	0e4a7e6-WORKING	screen	0	pair:straight~eight	CLEAN
+taught_me_time	17	2026-08-25	0e4a7e6-WORKING	screen	0	pair:gate~eight	BANNED: MODAL_RHYME
+taught_me_time	17	2026-08-25	0e4a7e6-WORKING	screen	0	banned	8
+taught_me_time	17	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	17	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	2
+taught_me_time	18	2026-08-25	0e4a7e6-WORKING	screen	0	pair:wheels~steals	CLEAN
+taught_me_time	18	2026-08-25	0e4a7e6-WORKING	screen	0	pair:wheels~kneels	BANNED: HOMEOTELEUTON
+taught_me_time	18	2026-08-25	0e4a7e6-WORKING	screen	0	pair:wheels~peels	BANNED: HOMEOTELEUTON
+taught_me_time	18	2026-08-25	0e4a7e6-WORKING	screen	0	pair:steals~kneels	CLEAN
+taught_me_time	18	2026-08-25	0e4a7e6-WORKING	screen	0	pair:steals~peels	CLEAN
+taught_me_time	18	2026-08-25	0e4a7e6-WORKING	screen	0	pair:kneels~peels	BANNED: HOMEOTELEUTON
+taught_me_time	18	2026-08-25	0e4a7e6-WORKING	screen	0	banned	3
+taught_me_time	18	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	18	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	3
+taught_me_time	19	2026-08-25	0e4a7e6-WORKING	screen	0	pair:home~roam	BANNED: MODAL_RHYME
+taught_me_time	19	2026-08-25	0e4a7e6-WORKING	screen	0	pair:home~foam	BANNED: MODAL_RHYME
+taught_me_time	19	2026-08-25	0e4a7e6-WORKING	screen	0	pair:home~comb	BANNED: MODAL_RHYME
+taught_me_time	19	2026-08-25	0e4a7e6-WORKING	screen	0	pair:home~dome	BANNED: HOMEOTELEUTON
+taught_me_time	19	2026-08-25	0e4a7e6-WORKING	screen	0	pair:roam~foam	BANNED: HOMEOTELEUTON
+taught_me_time	19	2026-08-25	0e4a7e6-WORKING	screen	0	pair:roam~comb	CLEAN
+taught_me_time	19	2026-08-25	0e4a7e6-WORKING	screen	0	pair:roam~dome	BANNED: MODAL_RHYME
+taught_me_time	19	2026-08-25	0e4a7e6-WORKING	screen	0	pair:foam~comb	BANNED: MODAL_RHYME
+taught_me_time	19	2026-08-25	0e4a7e6-WORKING	screen	0	pair:foam~dome	BANNED: MODAL_RHYME
+taught_me_time	19	2026-08-25	0e4a7e6-WORKING	screen	0	pair:comb~dome	CLEAN
+taught_me_time	19	2026-08-25	0e4a7e6-WORKING	screen	0	banned	8
+taught_me_time	19	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	19	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	2
+taught_me_time	20	2026-08-25	0e4a7e6-WORKING	screen	0	pair:far~bizarre	CLEAN
+taught_me_time	20	2026-08-25	0e4a7e6-WORKING	screen	0	pair:far~car	BANNED: HOMEOTELEUTON
+taught_me_time	20	2026-08-25	0e4a7e6-WORKING	screen	0	pair:far~star	BANNED: HOMEOTELEUTON
+taught_me_time	20	2026-08-25	0e4a7e6-WORKING	screen	0	pair:far~guitar	BANNED: HOMEOTELEUTON
+taught_me_time	20	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bizarre~car	BANNED: MODAL_RHYME
+taught_me_time	20	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bizarre~star	CLEAN
+taught_me_time	20	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bizarre~guitar	CLEAN
+taught_me_time	20	2026-08-25	0e4a7e6-WORKING	screen	0	pair:car~star	BANNED: HOMEOTELEUTON
+taught_me_time	20	2026-08-25	0e4a7e6-WORKING	screen	0	pair:car~guitar	BANNED: HOMEOTELEUTON
+taught_me_time	20	2026-08-25	0e4a7e6-WORKING	screen	0	pair:star~guitar	BANNED: HOMEOTELEUTON
+taught_me_time	20	2026-08-25	0e4a7e6-WORKING	screen	0	banned	7
+taught_me_time	20	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	20	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	3
+taught_me_time	21	2026-08-25	0e4a7e6-WORKING	screen	0	pair:small~crawl	CLEAN
+taught_me_time	21	2026-08-25	0e4a7e6-WORKING	screen	0	pair:small~drawl	CLEAN
+taught_me_time	21	2026-08-25	0e4a7e6-WORKING	screen	0	pair:small~sprawl	BANNED: MODAL_RHYME
+taught_me_time	21	2026-08-25	0e4a7e6-WORKING	screen	0	pair:small~shawl	BANNED: MODAL_RHYME
+taught_me_time	21	2026-08-25	0e4a7e6-WORKING	screen	0	pair:crawl~drawl	BANNED: HOMEOTELEUTON
+taught_me_time	21	2026-08-25	0e4a7e6-WORKING	screen	0	pair:crawl~sprawl	BANNED: HOMEOTELEUTON
+taught_me_time	21	2026-08-25	0e4a7e6-WORKING	screen	0	pair:crawl~shawl	BANNED: HOMEOTELEUTON
+taught_me_time	21	2026-08-25	0e4a7e6-WORKING	screen	0	pair:drawl~sprawl	BANNED: HOMEOTELEUTON
+taught_me_time	21	2026-08-25	0e4a7e6-WORKING	screen	0	pair:drawl~shawl	BANNED: HOMEOTELEUTON
+taught_me_time	21	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sprawl~shawl	BANNED: HOMEOTELEUTON
+taught_me_time	21	2026-08-25	0e4a7e6-WORKING	screen	0	banned	8
+taught_me_time	21	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	21	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	2
+taught_me_time	22	2026-08-25	0e4a7e6-WORKING	screen	0	pair:term~firm	BANNED: MODAL_RHYME
+taught_me_time	22	2026-08-25	0e4a7e6-WORKING	screen	0	pair:term~squirm	CLEAN
+taught_me_time	22	2026-08-25	0e4a7e6-WORKING	screen	0	pair:term~worm	BANNED: MODAL_RHYME
+taught_me_time	22	2026-08-25	0e4a7e6-WORKING	screen	0	pair:term~germ	BANNED: HOMEOTELEUTON
+taught_me_time	22	2026-08-25	0e4a7e6-WORKING	screen	0	pair:firm~squirm	CLEAN
+taught_me_time	22	2026-08-25	0e4a7e6-WORKING	screen	0	pair:firm~worm	BANNED: MODAL_RHYME
+taught_me_time	22	2026-08-25	0e4a7e6-WORKING	screen	0	pair:firm~germ	CLEAN
+taught_me_time	22	2026-08-25	0e4a7e6-WORKING	screen	0	pair:squirm~worm	CLEAN
+taught_me_time	22	2026-08-25	0e4a7e6-WORKING	screen	0	pair:squirm~germ	CLEAN
+taught_me_time	22	2026-08-25	0e4a7e6-WORKING	screen	0	pair:worm~germ	CLEAN
+taught_me_time	22	2026-08-25	0e4a7e6-WORKING	screen	0	banned	4
+taught_me_time	22	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	22	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	6
+taught_me_time	23	2026-08-25	0e4a7e6-WORKING	screen	0	pair:starts~hearts	BANNED: MODAL_RHYME
+taught_me_time	23	2026-08-25	0e4a7e6-WORKING	screen	0	pair:starts~darts	BANNED: HOMEOTELEUTON
+taught_me_time	23	2026-08-25	0e4a7e6-WORKING	screen	0	pair:starts~charts	BANNED: HOMEOTELEUTON
+taught_me_time	23	2026-08-25	0e4a7e6-WORKING	screen	0	pair:starts~parts	BANNED: HOMEOTELEUTON
+taught_me_time	23	2026-08-25	0e4a7e6-WORKING	screen	0	pair:hearts~darts	BANNED: MODAL_RHYME
+taught_me_time	23	2026-08-25	0e4a7e6-WORKING	screen	0	pair:hearts~charts	BANNED: MODAL_RHYME
+taught_me_time	23	2026-08-25	0e4a7e6-WORKING	screen	0	pair:hearts~parts	BANNED: MODAL_RHYME
+taught_me_time	23	2026-08-25	0e4a7e6-WORKING	screen	0	pair:darts~charts	BANNED: HOMEOTELEUTON
+taught_me_time	23	2026-08-25	0e4a7e6-WORKING	screen	0	pair:darts~parts	BANNED: HOMEOTELEUTON
+taught_me_time	23	2026-08-25	0e4a7e6-WORKING	screen	0	pair:charts~parts	BANNED: HOMEOTELEUTON
+taught_me_time	23	2026-08-25	0e4a7e6-WORKING	screen	0	banned	10
+taught_me_time	23	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	23	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	0
+taught_me_time	24	2026-08-25	0e4a7e6-WORKING	screen	0	pair:alone~own	BANNED: MODAL_RHYME
+taught_me_time	24	2026-08-25	0e4a7e6-WORKING	screen	0	pair:alone~throne	BANNED: HOMEOTELEUTON
+taught_me_time	24	2026-08-25	0e4a7e6-WORKING	screen	0	pair:alone~cone	BANNED: HOMEOTELEUTON
+taught_me_time	24	2026-08-25	0e4a7e6-WORKING	screen	0	pair:alone~zone	BANNED: HOMEOTELEUTON
+taught_me_time	24	2026-08-25	0e4a7e6-WORKING	screen	0	pair:own~throne	BANNED: MODAL_RHYME
+taught_me_time	24	2026-08-25	0e4a7e6-WORKING	screen	0	pair:own~cone	BANNED: MODAL_RHYME
+taught_me_time	24	2026-08-25	0e4a7e6-WORKING	screen	0	pair:own~zone	BANNED: MODAL_RHYME
+taught_me_time	24	2026-08-25	0e4a7e6-WORKING	screen	0	pair:throne~cone	BANNED: HOMEOTELEUTON
+taught_me_time	24	2026-08-25	0e4a7e6-WORKING	screen	0	pair:throne~zone	BANNED: HOMEOTELEUTON
+taught_me_time	24	2026-08-25	0e4a7e6-WORKING	screen	0	pair:cone~zone	BANNED: HOMEOTELEUTON
+taught_me_time	24	2026-08-25	0e4a7e6-WORKING	screen	0	banned	10
+taught_me_time	24	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	24	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	0
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	pair:guide~ride	BANNED: MODAL_RHYME
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	pair:guide~wide	BANNED: MODAL_RHYME
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	pair:guide~glide	BANNED: MODAL_RHYME
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	pair:guide~stride	BANNED: MODAL_RHYME
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	pair:guide~pride	BANNED: MODAL_RHYME
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	pair:ride~wide	BANNED: HOMEOTELEUTON
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	pair:ride~glide	BANNED: HOMEOTELEUTON
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	pair:ride~stride	BANNED: HOMEOTELEUTON
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	pair:ride~pride	BANNED: HOMEOTELEUTON
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	pair:wide~glide	BANNED: HOMEOTELEUTON
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	pair:wide~stride	BANNED: HOMEOTELEUTON
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	pair:wide~pride	BANNED: HOMEOTELEUTON
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	pair:glide~stride	BANNED: HOMEOTELEUTON
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	pair:glide~pride	BANNED: HOMEOTELEUTON
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stride~pride	BANNED: HOMEOTELEUTON
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	banned	15
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	25	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	0
+taught_me_time	26	2026-08-25	0e4a7e6-WORKING	screen	0	pair:steep~leap	BANNED: MODAL_RHYME
+taught_me_time	26	2026-08-25	0e4a7e6-WORKING	screen	0	pair:steep~deep	BANNED: HOMEOTELEUTON
+taught_me_time	26	2026-08-25	0e4a7e6-WORKING	screen	0	pair:steep~keep	BANNED: HOMEOTELEUTON
+taught_me_time	26	2026-08-25	0e4a7e6-WORKING	screen	0	pair:steep~sweep	BANNED: HOMEOTELEUTON
+taught_me_time	26	2026-08-25	0e4a7e6-WORKING	screen	0	pair:leap~deep	BANNED: MODAL_RHYME
+taught_me_time	26	2026-08-25	0e4a7e6-WORKING	screen	0	pair:leap~keep	BANNED: MODAL_RHYME
+taught_me_time	26	2026-08-25	0e4a7e6-WORKING	screen	0	pair:leap~sweep	BANNED: MODAL_RHYME
+taught_me_time	26	2026-08-25	0e4a7e6-WORKING	screen	0	pair:deep~keep	BANNED: HOMEOTELEUTON
+taught_me_time	26	2026-08-25	0e4a7e6-WORKING	screen	0	pair:deep~sweep	BANNED: HOMEOTELEUTON
+taught_me_time	26	2026-08-25	0e4a7e6-WORKING	screen	0	pair:keep~sweep	BANNED: HOMEOTELEUTON
+taught_me_time	26	2026-08-25	0e4a7e6-WORKING	screen	0	banned	10
+taught_me_time	26	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	26	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	0
+taught_me_time	27	2026-08-25	0e4a7e6-WORKING	screen	0	pair:half~laugh	BANNED: MODAL_RHYME
+taught_me_time	27	2026-08-25	0e4a7e6-WORKING	screen	0	pair:half~calf	BANNED: HOMEOTELEUTON
+taught_me_time	27	2026-08-25	0e4a7e6-WORKING	screen	0	pair:half~graph	BANNED: MODAL_RHYME
+taught_me_time	27	2026-08-25	0e4a7e6-WORKING	screen	0	pair:half~staff	BANNED: MODAL_RHYME
+taught_me_time	27	2026-08-25	0e4a7e6-WORKING	screen	0	pair:laugh~calf	BANNED: MODAL_RHYME
+taught_me_time	27	2026-08-25	0e4a7e6-WORKING	screen	0	pair:laugh~graph	CLEAN
+taught_me_time	27	2026-08-25	0e4a7e6-WORKING	screen	0	pair:laugh~staff	BANNED: MODAL_RHYME
+taught_me_time	27	2026-08-25	0e4a7e6-WORKING	screen	0	pair:calf~graph	CLEAN
+taught_me_time	27	2026-08-25	0e4a7e6-WORKING	screen	0	pair:calf~staff	CLEAN
+taught_me_time	27	2026-08-25	0e4a7e6-WORKING	screen	0	pair:graph~staff	CLEAN
+taught_me_time	27	2026-08-25	0e4a7e6-WORKING	screen	0	banned	6
+taught_me_time	27	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	27	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	4
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	pair:mine~sign	BANNED: MODAL_RHYME
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	pair:mine~line	BANNED: HOMEOTELEUTON
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	pair:mine~shine	BANNED: HOMEOTELEUTON
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	pair:mine~spine	BANNED: HOMEOTELEUTON
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	pair:mine~vine	BANNED: HOMEOTELEUTON
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sign~line	BANNED: MODAL_RHYME
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sign~shine	BANNED: MODAL_RHYME
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sign~spine	CLEAN
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sign~vine	CLEAN
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	pair:line~shine	BANNED: HOMEOTELEUTON
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	pair:line~spine	BANNED: HOMEOTELEUTON
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	pair:line~vine	BANNED: HOMEOTELEUTON
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shine~spine	BANNED: HOMEOTELEUTON
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shine~vine	BANNED: HOMEOTELEUTON
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	pair:spine~vine	BANNED: HOMEOTELEUTON
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	banned	13
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	28	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	2
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shoe~few	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shoe~crew	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shoe~stew	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shoe~canoe	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shoe~threw	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shoe~blue	BANNED: MODAL_RHYME
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shoe~clue	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shoe~drew	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shoe~grew	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shoe~two	BANNED: MODAL_RHYME
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shoe~knew	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:few~crew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:few~stew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:few~canoe	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:few~threw	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:few~blue	BANNED: MODAL_RHYME
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:few~clue	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:few~drew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:few~grew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:few~two	BANNED: MODAL_RHYME
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:few~knew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:crew~stew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:crew~canoe	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:crew~threw	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:crew~blue	BANNED: MODAL_RHYME
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:crew~clue	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:crew~drew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:crew~grew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:crew~two	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:crew~knew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stew~canoe	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stew~threw	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stew~blue	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stew~clue	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stew~drew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stew~grew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stew~two	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stew~knew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:canoe~threw	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:canoe~blue	BANNED: MODAL_RHYME
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:canoe~clue	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:canoe~drew	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:canoe~grew	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:canoe~two	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:canoe~knew	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:threw~blue	BANNED: MODAL_RHYME
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:threw~clue	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:threw~drew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:threw~grew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:threw~two	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:threw~knew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:blue~clue	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:blue~drew	BANNED: MODAL_RHYME
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:blue~grew	BANNED: MODAL_RHYME
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:blue~two	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:blue~knew	BANNED: MODAL_RHYME
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:clue~drew	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:clue~grew	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:clue~two	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:clue~knew	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:drew~grew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:drew~two	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:drew~knew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:grew~two	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:grew~knew	BANNED: HOMEOTELEUTON
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	pair:two~knew	CLEAN
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	banned	33
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	29	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	33
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lair~affair	BANNED: HOMEOTELEUTON
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lair~beware	BANNED: MODAL_RHYME
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lair~midair	BANNED: HOMEOTELEUTON
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lair~despair	BANNED: HOMEOTELEUTON
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lair~square	BANNED: MODAL_RHYME
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lair~flare	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lair~wear	BANNED: MODAL_RHYME
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lair~bear	BANNED: MODAL_RHYME
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lair~swear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:affair~beware	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:affair~midair	BANNED: HOMEOTELEUTON
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:affair~despair	BANNED: HOMEOTELEUTON
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:affair~square	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:affair~flare	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:affair~wear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:affair~bear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:affair~swear	BANNED: MODAL_RHYME
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:beware~midair	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:beware~despair	BANNED: MODAL_RHYME
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:beware~square	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:beware~flare	BANNED: HOMEOTELEUTON
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:beware~wear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:beware~bear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:beware~swear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:midair~despair	BANNED: HOMEOTELEUTON
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:midair~square	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:midair~flare	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:midair~wear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:midair~bear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:midair~swear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:despair~square	BANNED: MODAL_RHYME
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:despair~flare	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:despair~wear	BANNED: MODAL_RHYME
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:despair~bear	BANNED: MODAL_RHYME
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:despair~swear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:square~flare	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:square~wear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:square~bear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:square~swear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:flare~wear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:flare~bear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:flare~swear	CLEAN
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:wear~bear	BANNED: HOMEOTELEUTON
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:wear~swear	BANNED: HOMEOTELEUTON
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bear~swear	BANNED: HOMEOTELEUTON
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	banned	19
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	30	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	26
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bowl~roll	BANNED: MODAL_RHYME
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bowl~soul	BANNED: MODAL_RHYME
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bowl~whole	CLEAN
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bowl~coal	CLEAN
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bowl~goal	CLEAN
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bowl~stroll	CLEAN
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:roll~soul	BANNED: MODAL_RHYME
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:roll~whole	BANNED: MODAL_RHYME
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:roll~coal	BANNED: MODAL_RHYME
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:roll~goal	BANNED: MODAL_RHYME
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:roll~stroll	BANNED: HOMEOTELEUTON
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:soul~whole	BANNED: MODAL_RHYME
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:soul~coal	BANNED: MODAL_RHYME
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:soul~goal	BANNED: MODAL_RHYME
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:soul~stroll	BANNED: MODAL_RHYME
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:whole~coal	BANNED: MODAL_RHYME
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:whole~goal	CLEAN
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:whole~stroll	BANNED: MODAL_RHYME
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:coal~goal	BANNED: HOMEOTELEUTON
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:coal~stroll	CLEAN
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	pair:goal~stroll	CLEAN
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	banned	14
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	31	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	7
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:see~tea	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:see~key	BANNED: MODAL_RHYME
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:see~ski	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:see~three	BANNED: HOMEOTELEUTON
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:see~agree	BANNED: MODAL_RHYME
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:see~pea	BANNED: MODAL_RHYME
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:tea~key	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:tea~ski	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:tea~three	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:tea~agree	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:tea~pea	BANNED: HOMEOTELEUTON
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:key~ski	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:key~three	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:key~agree	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:key~pea	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:ski~three	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:ski~agree	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:ski~pea	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:three~agree	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:three~pea	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	pair:agree~pea	CLEAN
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	banned	5
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	32	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	16
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sigh~lie	CLEAN
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sigh~fly	CLEAN
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sigh~tie	BANNED: MODAL_RHYME
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sigh~buy	BANNED: MODAL_RHYME
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sigh~guy	CLEAN
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sigh~shy	BANNED: MODAL_RHYME
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:sigh~deny	BANNED: MODAL_RHYME
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lie~fly	BANNED: MODAL_RHYME
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lie~tie	BANNED: HOMEOTELEUTON
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lie~buy	CLEAN
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lie~guy	CLEAN
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lie~shy	BANNED: MODAL_RHYME
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lie~deny	BANNED: MODAL_RHYME
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:fly~tie	BANNED: MODAL_RHYME
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:fly~buy	CLEAN
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:fly~guy	CLEAN
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:fly~shy	BANNED: HOMEOTELEUTON
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:fly~deny	BANNED: HOMEOTELEUTON
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:tie~buy	CLEAN
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:tie~guy	CLEAN
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:tie~shy	CLEAN
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:tie~deny	CLEAN
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:buy~guy	BANNED: HOMEOTELEUTON
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:buy~shy	CLEAN
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:buy~deny	CLEAN
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:guy~shy	CLEAN
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:guy~deny	CLEAN
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shy~deny	BANNED: HOMEOTELEUTON
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	banned	13
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	33	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	15
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:son~stun	CLEAN
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:son~begun	BANNED: MODAL_RHYME
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:son~ton	BANNED: HOMEOTELEUTON
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:son~spun	BANNED: MODAL_RHYME
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:son~shun	BANNED: MODAL_RHYME
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:son~run	BANNED: MODAL_RHYME
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:son~one	BANNED: MODAL_RHYME
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stun~begun	BANNED: HOMEOTELEUTON
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stun~ton	CLEAN
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stun~spun	BANNED: HOMEOTELEUTON
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stun~shun	BANNED: HOMEOTELEUTON
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stun~run	BANNED: HOMEOTELEUTON
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stun~one	BANNED: MODAL_RHYME
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:begun~ton	CLEAN
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:begun~spun	BANNED: HOMEOTELEUTON
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:begun~shun	BANNED: HOMEOTELEUTON
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:begun~run	BANNED: HOMEOTELEUTON
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:begun~one	BANNED: MODAL_RHYME
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:ton~spun	CLEAN
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:ton~shun	CLEAN
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:ton~run	BANNED: MODAL_RHYME
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:ton~one	BANNED: MODAL_RHYME
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:spun~shun	BANNED: HOMEOTELEUTON
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:spun~run	BANNED: HOMEOTELEUTON
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:spun~one	BANNED: MODAL_RHYME
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shun~run	BANNED: HOMEOTELEUTON
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:shun~one	BANNED: MODAL_RHYME
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	pair:run~one	BANNED: MODAL_RHYME
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	banned	23
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	34	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	5
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:again~then	BANNED: MODAL_RHYME
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:again~when	BANNED: MODAL_RHYME
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:again~den	BANNED: MODAL_RHYME
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:again~pen	BANNED: MODAL_RHYME
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:again~glen	BANNED: MODAL_RHYME
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:again~wren	BANNED: MODAL_RHYME
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:again~zen	CLEAN
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:then~when	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:then~den	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:then~pen	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:then~glen	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:then~wren	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:then~zen	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:when~den	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:when~pen	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:when~glen	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:when~wren	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:when~zen	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:den~pen	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:den~glen	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:den~wren	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:den~zen	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:pen~glen	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:pen~wren	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:pen~zen	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:glen~wren	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:glen~zen	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	pair:wren~zen	BANNED: HOMEOTELEUTON
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	banned	27
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	35	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	1
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	pair:map~lap	BANNED: HOMEOTELEUTON
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	pair:map~gap	BANNED: HOMEOTELEUTON
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	pair:map~trap	BANNED: HOMEOTELEUTON
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	pair:map~snap	BANNED: HOMEOTELEUTON
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	pair:map~wrap	BANNED: HOMEOTELEUTON
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lap~gap	BANNED: HOMEOTELEUTON
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lap~trap	BANNED: HOMEOTELEUTON
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lap~snap	BANNED: HOMEOTELEUTON
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	pair:lap~wrap	BANNED: HOMEOTELEUTON
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	pair:gap~trap	BANNED: HOMEOTELEUTON
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	pair:gap~snap	BANNED: HOMEOTELEUTON
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	pair:gap~wrap	BANNED: HOMEOTELEUTON
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	pair:trap~snap	BANNED: HOMEOTELEUTON
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	pair:trap~wrap	BANNED: HOMEOTELEUTON
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	pair:snap~wrap	BANNED: HOMEOTELEUTON
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	banned	15
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	36	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	0
+taught_me_time	37	2026-08-25	0e4a7e6-WORKING	screen	0	pair:grip~trip	BANNED: HOMEOTELEUTON
+taught_me_time	37	2026-08-25	0e4a7e6-WORKING	screen	0	pair:grip~slip	BANNED: HOMEOTELEUTON
+taught_me_time	37	2026-08-25	0e4a7e6-WORKING	screen	0	pair:grip~skip	BANNED: HOMEOTELEUTON
+taught_me_time	37	2026-08-25	0e4a7e6-WORKING	screen	0	pair:grip~flip	BANNED: HOMEOTELEUTON
+taught_me_time	37	2026-08-25	0e4a7e6-WORKING	screen	0	pair:trip~slip	BANNED: HOMEOTELEUTON
+taught_me_time	37	2026-08-25	0e4a7e6-WORKING	screen	0	pair:trip~skip	BANNED: HOMEOTELEUTON
+taught_me_time	37	2026-08-25	0e4a7e6-WORKING	screen	0	pair:trip~flip	BANNED: HOMEOTELEUTON
+taught_me_time	37	2026-08-25	0e4a7e6-WORKING	screen	0	pair:slip~skip	BANNED: HOMEOTELEUTON
+taught_me_time	37	2026-08-25	0e4a7e6-WORKING	screen	0	pair:slip~flip	BANNED: HOMEOTELEUTON
+taught_me_time	37	2026-08-25	0e4a7e6-WORKING	screen	0	pair:skip~flip	BANNED: HOMEOTELEUTON
+taught_me_time	37	2026-08-25	0e4a7e6-WORKING	screen	0	banned	10
+taught_me_time	37	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	37	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	0
+taught_me_time	38	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bump~jump	BANNED: HOMEOTELEUTON
+taught_me_time	38	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bump~pump	BANNED: HOMEOTELEUTON
+taught_me_time	38	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bump~stump	BANNED: HOMEOTELEUTON
+taught_me_time	38	2026-08-25	0e4a7e6-WORKING	screen	0	pair:bump~thump	BANNED: HOMEOTELEUTON
+taught_me_time	38	2026-08-25	0e4a7e6-WORKING	screen	0	pair:jump~pump	BANNED: HOMEOTELEUTON
+taught_me_time	38	2026-08-25	0e4a7e6-WORKING	screen	0	pair:jump~stump	BANNED: HOMEOTELEUTON
+taught_me_time	38	2026-08-25	0e4a7e6-WORKING	screen	0	pair:jump~thump	BANNED: HOMEOTELEUTON
+taught_me_time	38	2026-08-25	0e4a7e6-WORKING	screen	0	pair:pump~stump	BANNED: HOMEOTELEUTON
+taught_me_time	38	2026-08-25	0e4a7e6-WORKING	screen	0	pair:pump~thump	BANNED: HOMEOTELEUTON
+taught_me_time	38	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stump~thump	BANNED: HOMEOTELEUTON
+taught_me_time	38	2026-08-25	0e4a7e6-WORKING	screen	0	banned	10
+taught_me_time	38	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	38	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	0
+taught_me_time	39	2026-08-25	0e4a7e6-WORKING	screen	0	pair:chance~dance	BANNED: HOMEOTELEUTON
+taught_me_time	39	2026-08-25	0e4a7e6-WORKING	screen	0	pair:chance~glance	BANNED: HOMEOTELEUTON
+taught_me_time	39	2026-08-25	0e4a7e6-WORKING	screen	0	pair:chance~stance	BANNED: HOMEOTELEUTON
+taught_me_time	39	2026-08-25	0e4a7e6-WORKING	screen	0	pair:dance~glance	BANNED: HOMEOTELEUTON
+taught_me_time	39	2026-08-25	0e4a7e6-WORKING	screen	0	pair:dance~stance	BANNED: HOMEOTELEUTON
+taught_me_time	39	2026-08-25	0e4a7e6-WORKING	screen	0	pair:glance~stance	BANNED: HOMEOTELEUTON
+taught_me_time	39	2026-08-25	0e4a7e6-WORKING	screen	0	banned	6
+taught_me_time	39	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	39	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	0
+taught_me_time	40	2026-08-25	0e4a7e6-WORKING	screen	0	pair:hill~still	BANNED: HOMEOTELEUTON
+taught_me_time	40	2026-08-25	0e4a7e6-WORKING	screen	0	pair:hill~spill	BANNED: HOMEOTELEUTON
+taught_me_time	40	2026-08-25	0e4a7e6-WORKING	screen	0	pair:hill~drill	BANNED: HOMEOTELEUTON
+taught_me_time	40	2026-08-25	0e4a7e6-WORKING	screen	0	pair:hill~thrill	BANNED: HOMEOTELEUTON
+taught_me_time	40	2026-08-25	0e4a7e6-WORKING	screen	0	pair:still~spill	BANNED: HOMEOTELEUTON
+taught_me_time	40	2026-08-25	0e4a7e6-WORKING	screen	0	pair:still~drill	BANNED: HOMEOTELEUTON
+taught_me_time	40	2026-08-25	0e4a7e6-WORKING	screen	0	pair:still~thrill	BANNED: HOMEOTELEUTON
+taught_me_time	40	2026-08-25	0e4a7e6-WORKING	screen	0	pair:spill~drill	BANNED: HOMEOTELEUTON
+taught_me_time	40	2026-08-25	0e4a7e6-WORKING	screen	0	pair:spill~thrill	BANNED: HOMEOTELEUTON
+taught_me_time	40	2026-08-25	0e4a7e6-WORKING	screen	0	pair:drill~thrill	BANNED: HOMEOTELEUTON
+taught_me_time	40	2026-08-25	0e4a7e6-WORKING	screen	0	banned	10
+taught_me_time	40	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	40	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	0
+taught_me_time	41	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stop~drop	BANNED: HOMEOTELEUTON
+taught_me_time	41	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stop~top	BANNED: HOMEOTELEUTON
+taught_me_time	41	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stop~hop	BANNED: HOMEOTELEUTON
+taught_me_time	41	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stop~swap	BANNED: MODAL_RHYME
+taught_me_time	41	2026-08-25	0e4a7e6-WORKING	screen	0	pair:drop~top	BANNED: HOMEOTELEUTON
+taught_me_time	41	2026-08-25	0e4a7e6-WORKING	screen	0	pair:drop~hop	BANNED: HOMEOTELEUTON
+taught_me_time	41	2026-08-25	0e4a7e6-WORKING	screen	0	pair:drop~swap	BANNED: MODAL_RHYME
+taught_me_time	41	2026-08-25	0e4a7e6-WORKING	screen	0	pair:top~hop	BANNED: HOMEOTELEUTON
+taught_me_time	41	2026-08-25	0e4a7e6-WORKING	screen	0	pair:top~swap	BANNED: MODAL_RHYME
+taught_me_time	41	2026-08-25	0e4a7e6-WORKING	screen	0	pair:hop~swap	CLEAN
+taught_me_time	41	2026-08-25	0e4a7e6-WORKING	screen	0	banned	9
+taught_me_time	41	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	41	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	1
+taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	pair:back~track	BANNED: HOMEOTELEUTON
+taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	pair:back~crack	BANNED: HOMEOTELEUTON
+taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	pair:back~stack	BANNED: HOMEOTELEUTON
+taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	pair:back~knack	BANNED: HOMEOTELEUTON
+taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	pair:track~crack	BANNED: HOMEOTELEUTON
+taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	pair:track~stack	BANNED: HOMEOTELEUTON
+taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	pair:track~knack	BANNED: HOMEOTELEUTON
+taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	pair:crack~stack	BANNED: HOMEOTELEUTON
+taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	pair:crack~knack	BANNED: HOMEOTELEUTON
+taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	pair:stack~knack	BANNED: HOMEOTELEUTON
+taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	banned	10
+taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	refused	0
+taught_me_time	42	2026-08-25	0e4a7e6-WORKING	screen	0	clean_or_non_rhyme	0
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	form	verse-chorus
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	seed	1
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	lines	25
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	sections	8
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	pattern	intro-verse-prechorus-chorus-verse-false_ending-false_ending-coda
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	meter	3/8 as (3,)
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	subdivision	4
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	groups	2.T5,3.T6,5.T3;4.T7,5.T2;1.T5,2.endword,3.T1;1.head,3.T7;6.T6,7.T7;8.headrime,9.T3;9.headrime,10.endword,11.T3;8.T3,9.T4,10.T7,11;9.T6,11.head;12,13.T7;12.T7,14.headrime;13.T4,14.T2,15.T5;12.T2,14.T5,15.T3;16.headrime,17.T1;18.endword,20.T6;19.T6,20.T1;19,20;21.T4,23.T4;21.T3,22.T3,23.headrime;21.T6,22.T7;22.T5,23.T5;24.T7,25.T5;24.T3,25.T2;3,5;6,7;8,9;16,17;21,23;24,25
+taught_me_time	43	2026-08-25	7051d7e-WORKING	plan	0	returns	(none)
+taught_me_time	44	2026-08-25	e38cdee	song	0	mandate_groups	29
+taught_me_time	44	2026-08-25	e38cdee	song	0	lines	25
+taught_me_time	44	2026-08-25	e38cdee	song	0	mandated_pairs	46
+taught_me_time	44	2026-08-25	e38cdee	song	0	mandate_source	declared
+taught_me_time	44	2026-08-25	e38cdee	song	0	md5	09ff4ea8c521
+taught_me_time	44	2026-08-25	e38cdee	song	0	briefed	25
+taught_me_time	44	2026-08-25	e38cdee	song	0	per_line_flag	0
+taught_me_time	44	2026-08-25	e38cdee	song	0	per_line_note	99
+taught_me_time	44	2026-08-25	e38cdee	song	0	whole_draft	20
+taught_me_time	44	2026-08-25	e38cdee	song	0	whole_draft_flag	0
+taught_me_time	44	2026-08-25	e38cdee	song	0	finding:COLLISION_CUT_IS_SCALAR_ONLY	NOTE x1
+taught_me_time	44	2026-08-25	e38cdee	song	0	finding:CROWDED	NOTE x25
+taught_me_time	44	2026-08-25	e38cdee	song	0	finding:FUNCTION_UNDECLARED	NOTE x1
+taught_me_time	44	2026-08-25	e38cdee	song	0	finding:LATE_ENTRY	NOTE x15
+taught_me_time	44	2026-08-25	e38cdee	song	0	finding:MANDATE_GROUPS_INDISTINGUISHABLE	NOTE x12
+taught_me_time	44	2026-08-25	e38cdee	song	0	finding:NEAR_COLLISION	NOTE x2
+taught_me_time	44	2026-08-25	e38cdee	song	0	finding:NO_SETTING	NOTE x1
+taught_me_time	44	2026-08-25	e38cdee	song	0	finding:PROMINENCE_CANNOT_ALIGN	NOTE x25
+taught_me_time	44	2026-08-25	e38cdee	song	0	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x25
+taught_me_time	44	2026-08-25	e38cdee	song	0	finding:RETURN_NEVER_RETURNS	NOTE x1
+taught_me_time	44	2026-08-25	e38cdee	song	0	finding:RETURN_SCHEME_DRIFT	NOTE x1
+taught_me_time	44	2026-08-25	e38cdee	song	0	finding:SCHEME_COLLISION	NOTE x7
+taught_me_time	44	2026-08-25	e38cdee	song	0	finding:SINGLE_INSTANCE	NOTE x2
+taught_me_time	44	2026-08-25	e38cdee	song	0	finding:SINGLE_USE_RECURRED	NOTE x1
+taught_me_time	45	2026-08-25	e38cdee-WORKING	revise	0	stop_reason	SUCCESS
+taught_me_time	45	2026-08-25	e38cdee-WORKING	revise	0	rounds	0
+taught_me_time	45	2026-08-25	e38cdee-WORKING	revise	0	md5_in	09ff4ea8c521
+taught_me_time	45	2026-08-25	e38cdee-WORKING	revise	0	md5_out	09ff4ea8c521
+taught_me_time	45	2026-08-25	e38cdee-WORKING	revise	0	unchanged	yes
+taught_me_time	45	2026-08-25	e38cdee-WORKING	revise	0	mandated	46
+taught_me_time	45	2026-08-25	e38cdee-WORKING	revise	0	judged	46
+taught_me_time	45	2026-08-25	e38cdee-WORKING	revise	0	pairs_refused	0

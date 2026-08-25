@@ -215,6 +215,15 @@ COMPARATIVE = re.compile(
     # detector. Widening it back would make the instrument something people
     # route around, which is the failure mode a false positive causes.
     r"improved|improvement|regressed|first song|only song|"
+    # `highest` / `lowest` JOINED 2026-08-25 (`MISSING.md` M-109), and they
+    # are the two words a superlative about a SERIES most naturally reaches
+    # for. The gate could not see either, and this file's own §"What the
+    # first measurement says" was already using `lowest` TWICE — voluntarily
+    # cited, which is exactly the property a gate exists so nobody has to
+    # supply voluntarily. A vocabulary that misses the commonest spelling of
+    # the claim it polices is doctrine 48 inside the instrument aimed at the
+    # narrator.
+    r"highest|lowest|"
     r"never needed|no revision at all)\b", re.I)
 #: The declared citation, in the TEXT beside the claim — the shape
 #: `quality/triage.py` uses for `TESTED WHILE OPEN`.

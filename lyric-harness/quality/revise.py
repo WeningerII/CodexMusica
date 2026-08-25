@@ -94,6 +94,7 @@ from quality import fit as FT  # noqa: E402
 from quality import grid as GR  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
 from quality import readability as RD  # noqa: E402
+from quality import sentencehood as SH  # noqa: E402
 from quality import schemes as SC  # noqa: E402
 from quality import slots as _SL  # noqa: E402
 from quality.floor import Finding, SlopFloor  # noqa: E402
@@ -2682,6 +2683,30 @@ class Reviser:
                     add(ln, note)
             else:
                 whole.append(note)
+        # THE SENTENCEHOOD LAYER (2026-08-25, `MISSING.md` M-110) — the one
+        # question no sound layer asks: is this line an utterance or a stack
+        # of nouns. `quality/sentencehood.py` owns the predicate and the
+        # calibration; severities are CONSTRUCTED there and not re-decided
+        # here (`STACKED_LINE` a per-line note, `STACKED_DRAFT` a whole-draft
+        # flag of the floor's own species — it fails `song` and rejects a
+        # regressing revision through `new_flags`, and it cannot stop the
+        # loop, exactly as `FUNCTION_WORD_HEAVY` cannot). An environment
+        # with no tagger gets `sentencehood_checked=False` and ZERO findings
+        # — a disclosed refusal, never a silent pass, the same shape
+        # `blueprint_declared` already has (doctrine 20).
+        try:
+            _sh = SH.report(lines)
+        except Exception:                                 # noqa: BLE001
+            _sh = {"available": False, "findings": []}
+        _sh_checked = bool(_sh.get("available"))
+        for f in _sh["findings"]:
+            g = Finding(f.code, f.severity, f.message, f.evidence,
+                        list(f.locations))
+            if g.locations:
+                for ln in dict.fromkeys(g.locations):
+                    add(ln, g)
+            else:
+                whole.append(g)
         # THE COLLISION SET, PARTITIONED. Two moves and neither changes the
         # SET: it is still every pair at or above `THETA_COLLISION` sharing no
         # group, still exactly `check_scheme`'s. What changes is which LAYER
@@ -2912,7 +2937,8 @@ class Reviser:
         # its own disclosure separately; see `_say_blueprint` in
         # lyric_harness.py) has no other way to tell the two apart.
         return {"per_line": per, "whole": whole, "mandate": m, "grade": rep,
-                "merges": merges, "blueprint_declared": blueprint is not None}
+                "merges": merges, "blueprint_declared": blueprint is not None,
+                "sentencehood_checked": _sh_checked}
 
     # -- the brief --------------------------------------------------------
 

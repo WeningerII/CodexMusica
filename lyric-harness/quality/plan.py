@@ -141,7 +141,7 @@ from quality import meter_bands as MB
 
 __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "tokens_per_line_band", "gradeable_line_counts",
-           "line_count_gaps",
+           "line_count_gaps", "song_line_counts", "stanza_line_floor",
            "GENERATOR_ROSTER", "ZERO_LINE_FUNCTIONS", "PlanRefused",
            "make_plan", "fill_plan", "writer_brief", "grading_command",
            "render_song", "section_header",
@@ -152,6 +152,7 @@ __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "sweep",
            "BEATS_PER_SYLLABLE_MAX",
            "JOINT_CODES", "LAST_WORD", "placement_word",
+           "bound_placements", "end_rhyme_groups",
            "line_syllable_ceiling", "joint_findings"]
 
 
@@ -347,10 +348,17 @@ def gradeable_line_counts():
     return frozenset(out)
 
 
-def line_count_gaps():
-    """-> [(lo, hi)] runs of line counts INSIDE the envelope's span that no
-    profile grades with teeth. Disclosed, never silently skipped."""
-    ok = gradeable_line_counts()
+def line_count_gaps(ok=None):
+    """-> [(lo, hi)] runs of line counts INSIDE a set's span that no profile
+    grades with teeth. Disclosed, never silently skipped.
+
+    TAKES THE SET SINCE 2026-08-24 (`MISSING.md` M-106), defaulting to the
+    union so every earlier caller reads unchanged. It has to, because the
+    planner no longer draws from the union: asking this of one set and
+    printing the answer beside a draw from another is the shape of defect
+    doctrine 1 is about.
+    """
+    ok = gradeable_line_counts() if ok is None else ok
     gaps, run = [], None
     for n in range(min(ok), max(ok) + 1):
         if n in ok:
@@ -362,6 +370,95 @@ def line_count_gaps():
     if run:
         gaps.append(run)
     return gaps
+
+
+@lru_cache(maxsize=None)
+def song_line_counts():
+    """-> frozenset of line counts THE SONG PROFILE CAN GRADE WITH TEETH.
+
+    THE HOLE IN `gradeable_line_counts()` IS AN ARTEFACT OF UNIONING THREE
+    KINDS OF TEXT, AND THIS IS THE REPAIR (2026-08-24, `MISSING.md` M-106,
+    the owner's standing rule *"we do not want hard numbers anywhere ... we're
+    not supposed to have hard coded numbers for the line count or section
+    count or the total length of the song"*).
+
+    `gradeable_line_counts()` answers *"what line counts can ANY floor profile
+    grade"* over `section` (a 4-line quatrain), `sonnet` (14 lines) and `song`
+    (a lyric sheet). MEASURED, the three reach **4–5**, **12–17** and
+    **17–55** lines — so the union is `{4, 5} | {12..55}` and the famous
+    **6–11 hole is the space between a quatrain and a sonnet**, which is not
+    a fact about songs at all. A SONG planner drawing its length from that
+    union was drawing from a set that contains "lengths a QUATRAIN can be"
+    and "lengths a SONNET can be", and the hole it then had to reject around
+    was one it created by asking the wrong question.
+
+    THE SONG PROFILE ALONE IS CONTIGUOUS — **17..55, 39 values, no hole** —
+    and it is the profile that grades the object this planner emits. The
+    profile is identified by `n_lines == 0`, which is its own declaration
+    that a lyric sheet has no fixed line count, and not by its name: a name
+    test would be a second statement of which profile means what (doctrine
+    1), and `tokens_per_line_band()` one screen up already keys on the same
+    field for the opposite reason.
+
+    WHAT THIS COSTS, SAID PLAINLY: a song of fewer than 17 lines is now
+    outside the planner's envelope. That is not a narrowing of the harness —
+    a writer hand-declares any length and the graders grade it — it is the
+    planner declining to volunteer a length the song profile cannot hold to
+    anything. `gradeable_line_counts()` is UNCHANGED and still answers its
+    own (different) question for any caller that wants the union.
+    """
+    tlo, thi = tokens_per_line_band()
+    lyric = [p for p in _FL.PROFILES if not p.n_lines]
+    if not lyric:
+        raise PlanRefused(
+            "no floor profile declares itself a whole lyric sheet "
+            "(`n_lines == 0`), so a SONG length cannot be derived and this "
+            "planner has no envelope to volunteer inside. A REFUSAL, not a "
+            "fallback to the union: grading a song against a quatrain's "
+            "calibration is the laundering doctrine 13/14 forbids.")
+    out = set()
+    for prof in lyric:
+        out.update(range(max(1, math.ceil(prof.lo / thi)),
+                         int(prof.hi // tlo) + 1))
+    if not out:
+        raise PlanRefused(
+            "no line count lands inside the song profile's measured range.")
+    return frozenset(out)
+
+
+@lru_cache(maxsize=None)
+def stanza_line_floor():
+    """-> the fewest lines a section can carry and still BE a stanza the
+    floor has calibrated.
+
+    THE SECTION-COUNT CEILING WAS A SOUND BOUND USED AS A UNIFORM DRAW, and
+    that is verbatim the error `MISSING.md` M-81(A) named one layer over.
+    `_sample_pattern` took `max_cells = total` under the argument *"a song of
+    T lines cannot hold more than T sung sections"* — TRUE, and never a claim
+    that all T values are equally musical. MEASURED over 240 seeds: sections
+    per song reached **22**, and since the total was drawn INDEPENDENTLY of
+    the section count, lines-per-section is `total / sections` — a hyperbola.
+    **31.5% of sung sections came out with exactly ONE line.**
+
+    THE DERIVATION IS THE `section` PROFILE'S OWN REACH. That profile grades
+    a stanza at `lo` tokens; at the derived tokens-per-line band that is
+    `ceil(lo / thi)` lines — **4**. So a song of T lines can carry at most
+    `T // 4` sung sections without every section being a fragment the floor
+    has no calibration for. Read from the profile, never respelled.
+
+    NOT A FLOOR ON ANY SECTION. Sections shorter than this are still
+    reachable — the partition puts them there, and a one-line tag or vamp is
+    a real section. What is bounded is the COUNT, which is the quantity that
+    was blowing up.
+    """
+    tlo, thi = tokens_per_line_band()
+    stanza = [p for p in _FL.PROFILES if p.n_lines]
+    if not stanza:
+        raise PlanRefused(
+            "no floor profile declares a line count, so the size of a graded "
+            "stanza cannot be derived and the section-count ceiling would be "
+            "a literal.")
+    return max(1, min(math.ceil(p.lo / thi) for p in stanza))
 
 
 #: The planner's envelope — what it volunteers by default. NOT the system's
@@ -377,7 +474,13 @@ def line_count_gaps():
 #: should we change it to a variable?"*. It is a variable now, and so are the
 #: other five.
 def _envelope():
-    ok = gradeable_line_counts()
+    # THE SONG'S OWN BAND, NOT THE UNION OF THREE TEXT KINDS (M-106). What
+    # this planner emits is a lyric sheet, so the lengths it volunteers come
+    # from the profile that grades one. `gradeable_line_counts()` still
+    # answers its own question and is still exported; it is simply not the
+    # question a SONG planner is asking.
+    ok = song_line_counts()
+    stanza = stanza_line_floor()
     d_lo, d_hi = MB.ADOPTED["DENSITY"]
     # TWO ENDS, ONE CALIBRATED BAND, TWO UNITS (`MISSING.md` M-81(B)). The
     # ceiling bounds TIME and the floor bounds CAPACITY, which is why the old
@@ -410,12 +513,19 @@ def _envelope():
         # one would be the literal this replaced wearing a derivation. 1 is a
         # real section (a tag, a one-line vamp).
         "lines_per_section": (1, max(ok)),
-        # SECTIONS: a sung section carries at least one line, so a song of at
-        # most `max(ok)` lines carries at most that many sung sections. 1 is
-        # a real song.
-        "sections": (1, max(ok)),
-        # TOTAL LINES: the span of the gradeable set. The set itself is what
-        # the sampler rejects against, because the span is not contiguous.
+        # SECTIONS: ~~a sung section carries at least one line, so a song of
+        # at most `max(ok)` lines carries at most that many sung sections.~~
+        # **REPINNED 2026-08-24 (M-106): that is a SOUND bound and it was
+        # being used as a UNIFORM DRAW, which is M-81(A)'s error one layer
+        # over.** The ceiling is now what the song can afford at the
+        # calibrated stanza size — `max(ok) // stanza_line_floor()` — so a
+        # section count is bounded by what makes a section a stanza rather
+        # than by what makes it non-empty. 1 is still a real song.
+        "sections": (1, max(1, max(ok) // stanza)),
+        # TOTAL LINES: the span of the song profile's own set. The set itself
+        # is what the sampler rejects against; it is CONTIGUOUS now, and the
+        # 6-11 hole it used to carry belonged to the gap between a quatrain
+        # and a sonnet rather than to songs (M-106).
         "total_lines": (min(ok), max(ok)),
         # subdivisions the fit layer's grid models (eighth/sixteenth pulse
         # against the beat) — a data-type set, not taste.
@@ -887,6 +997,221 @@ def line_syllable_ceiling(slots):
     return min(slots, MB.ADOPTED["DENSITY"][1])
 
 
+def line_binding_ceiling(max_token):
+    """-> the most DISTINCT bound spans one line may be asked for.
+
+    A binding occupies a SPAN and distinct bindings need distinct spans, so
+    the number a line can carry is bounded by its syllables — and the number
+    it is GUARANTEED to carry is bounded by the fewest syllables a band-legal
+    line may have, which is the calibrated density band's FLOOR. A writer may
+    legally write a five-syllable line wherever the grid allows twelve, so a
+    plan asking for six distinct spans has forced that writer above the band
+    floor to satisfy it.
+
+    NOT `joint_findings`' PER-LINE CEILING, WHICH IS A DIFFERENT AND WEAKER
+    QUESTION. That gate asks what THIS line's own grid admits at its declared
+    duration; this asks what ANY band-legal line is guaranteed to hold. The
+    gate is right to use the looser one — it refuses only the arithmetically
+    impossible — and the planner is right to volunteer against the tighter
+    one, and the two are kept apart rather than reconciled.
+
+    COUNTED IN WORDS, not in placement names: `end` and `endword` are one
+    word between them and so are `head`, `headrime` and `T1` (M-80).
+
+    EXTRACTED 2026-08-24 (`MISSING.md` M-107). It was spelled inline in the
+    web pass, so the END-RHYME pass added beside it did not consult it and
+    pushed a line to SIX bindings against a floor of five — caught by
+    `test_plan.py`'s own participation check, which is exactly the shape a
+    second spelling of one bound produces (doctrine 1).
+    """
+    return max(1, min(len({placement_word(p) for p in _PLACE_POOL(max_token)}),
+                      MB.ADOPTED["DENSITY"][0]))
+
+
+def plan_max_token(plan):
+    """-> the highest token index this plan's lines are asked for.
+
+    The same derivation `make_plan` makes, read off the plan so a pure
+    function of the emitted dict can ask the same question: the floor's own
+    measured tokens-per-line FLOOR, held under the tightest line's syllable
+    ceiling so a placement never names a word past what the shortest line can
+    reach.
+    """
+    sub = plan["subdivision"]
+    caps = [line_syllable_ceiling(float(s["duration"]) * sub)
+            for s in plan["line_slots"]] or [1]
+    return max(1, min(int(tokens_per_line_band()[0]), int(min(caps)) - 1))
+
+
+def bound_placements(plan):
+    """-> {line: [placement, ...]} — every placement each line already binds.
+
+    THE ONE READING OF `plan["groups"]` AS A PER-LINE MAP. `joint_findings`
+    parsed this inline and `end_rhyme_groups` needs exactly the same answer,
+    so it is a function rather than a second parse (doctrine 1): the pass that
+    ADDS a binding and the gate that REFUSES one have to agree about what is
+    already bound, and two spellings of "which words does this line carry" is
+    how they stop agreeing.
+
+    A member with no `.placement` is the DEFAULT SLOT — the end of the line —
+    which is what a bare line number has always meant.
+    """
+    at = {}
+    for group in str(plan.get("groups") or "").split(";"):
+        for member in group.split(","):
+            member = member.strip()
+            if not member:
+                continue
+            num, _, place = member.partition(".")
+            at.setdefault(int(num), []).append(place or "end")
+    return at
+
+
+def end_rhyme_groups(plan):
+    """-> ([[line, ...]], disclosure) — END-bound groups realising each sung
+    section's OWN declared scheme at the line ends, wherever the end is free.
+
+    THE OWNER'S ASK, 2026-08-24: *"would it not be possible to take what we
+    have and add a step at the end that adds rhymes to the end of the lines in
+    order to follow the respective forms of the sections in a way that is
+    derived from how the sections line up in our structure of the song as a
+    whole for coherence?"* — and, in the same sitting and about the same
+    subject, the refusal that bounds it: *"no, end should not be uniform, you
+    misunderstood ... do not fuck up what we've already built."*
+
+    SO THIS IS ADDITIVE AND NOTHING ELSE. `_place_group`'s uniform draw over
+    the placement vocabulary is untouched: `end` is still one placement among
+    the ones this harness can grade, drawn at the rate M-71 measured, and this
+    pass never removes, re-places or re-weights a binding that draw produced.
+    What it adds is a SECOND realisation of a scheme the plan has ALREADY
+    DRAWN — at the ends — which is why it needs no new dice and consumes no
+    seed entropy.
+
+    IT IS A PURE FUNCTION OF THE EMITTED PLAN, like `joint_findings`, and for
+    the same two reasons: it can be run against a hand-written plan on the
+    same terms, and `make_plan`'s own draw cannot be what makes it work. Every
+    coordinate it reads is one the plan already discloses —
+    `choices["schemes"][fn]["rgs"]`, `line_slots`, `returns`, `groups`,
+    `subdivision`.
+
+    WHAT "THE RESPECTIVE FORMS OF THE SECTIONS" RESOLVES TO. Each sung
+    function carries ONE drawn RGS code, so every instance of that function
+    already has the same scheme SHAPE — the cross-section coherence the ask
+    names is a property the planner has, not one this pass has to invent, and
+    inventing a binding BETWEEN instances would be this pass deciding that two
+    verses share their rhymes, which most songs do not. What is added is
+    within-section: the block structure the section's own code declares,
+    written at the ends where the ends are free.
+
+    A LATER INSTANCE OF A VERBATIM RETURNER IS SKIPPED, and it is skipped by
+    reading `returns` rather than by naming a function. Those lines must be
+    the EARLIER LINE word for word, so a rhyme group on them declares a
+    requirement about words that are already fixed — and the earlier instance
+    carries the identical constraint by being the identical words, which is
+    `joint_findings`' own argument for reading `groups` and not `returns`.
+
+    THREE COUNTS, NEVER SUMMED (doctrine 79), and the last two are different
+    refusals: `added` is groups emitted; `blocked` is blocks where the
+    placement draw had already spent an end, which is a fact about that draw;
+    `narrow` is blocks whose lines cannot carry one more distinct span — the
+    participation ceiling or the line's own grid — which is a fact about the
+    meter and the density band. Summing them would report a crowded line and
+    a spent placement as one thing, and they are closed by different repairs.
+    """
+    schemes = (plan.get("choices") or {}).get("schemes") or {}
+    at = bound_placements(plan)
+    sub = plan["subdivision"]
+    span = {s["line"]: float(s["duration"]) * sub
+            for s in plan["line_slots"]}
+    # THE LINES A DECLARED RETURN PINS — the LATER member of each pair.
+    pinned = set()
+    for cls in str(plan.get("returns") or "").split(";"):
+        mem = [int(x) for x in cls.split(",") if x.strip()]
+        pinned.update(mem[1:])
+
+    ceiling = line_binding_ceiling(plan_max_token(plan))
+
+    def _free_end(ln):
+        """Can this line take an END binding it does not already carry?"""
+        places = at.get(ln, [])
+        words = [placement_word(p) for p in places]
+        if LAST_WORD in words:
+            return False
+        # THE PARTICIPATION CEILING, and skipping it was this pass's own
+        # first defect. A line already carrying every span a band-legal line
+        # is GUARANTEED to hold cannot take another, whatever its own grid
+        # admits — see `line_binding_ceiling`.
+        if len(set(words)) >= ceiling:
+            return False
+        # THE SAME ARITHMETIC `joint_findings` REFUSES ON, asked BEFORE the
+        # binding is proposed rather than after it is emitted. The last word
+        # must be a different word from every numbered one, so a line already
+        # naming word `top` needs `top + 1` distinct words to take an end too.
+        indices = [w for w in words if w != LAST_WORD]
+        top = max(indices) if indices else 0
+        return max(1, top + 1) <= line_syllable_ceiling(span.get(ln, 0))
+
+    # SECTION INSTANCES IN ORDER, keyed on the instance NAME, because the
+    # scheme applies to each instance's own lines and two instances of one
+    # function are two sections.
+    order, per = [], {}
+    for s in plan["line_slots"]:
+        if s["section"] not in per:
+            order.append(s["section"])
+            per[s["section"]] = (s["function"], [])
+        per[s["section"]][1].append(s["line"])
+
+    out = []
+    added = blocked = narrow = 0
+    for name in order:
+        fn, lines = per[name]
+        code = (schemes.get(fn) or {}).get("rgs") or ()
+        if len(lines) < 2 or len(code) != len(lines):
+            continue
+        if any(ln in pinned for ln in lines):
+            continue
+        blocks = {}
+        for b, ln in zip(code, lines):
+            blocks.setdefault(b, []).append(ln)
+        for _b, block in sorted(blocks.items()):
+            if len(block) < 2:
+                continue
+            room = [ln for ln in block if _free_end(ln)]
+            if len(room) < 2:
+                # WHICH REFUSAL, named apart. A block whose members are all
+                # crowded is a meter fact; one whose ends are already spoken
+                # for is a fact about the placement draw.
+                if any(LAST_WORD in [placement_word(p)
+                                     for p in at.get(ln, [])]
+                       for ln in block):
+                    blocked += 1
+                else:
+                    narrow += 1
+                continue
+            if len(room) > _CAP.ADOPTED_MAX_GROUP:
+                # THE CAPACITY GATE AGAIN, and it binds here for the same
+                # reason it binds the scheme sampler: a group of k members
+                # needs a family the lexicon is measured to fill k of at
+                # once. Trimmed rather than refused — this pass is additive,
+                # so asking for less of it is a real answer where refusing
+                # the whole plan would not be.
+                room = room[:_CAP.ADOPTED_MAX_GROUP]
+            out.append([str(ln) for ln in room])
+            for ln in room:
+                at.setdefault(ln, []).append("end")
+            added += 1
+    return out, {"added": added, "blocked": blocked, "narrow": narrow,
+                 # WHICH GROUPS THIS PASS PUT THERE, and it is a disclosure
+                 # rather than bookkeeping. The web pass can draw a group
+                 # whose members all land on `end`, so an all-end group in
+                 # the emitted plan is NOT evidence this pass produced it —
+                 # MEASURED at 3 of 225 on 60 seeds. Without this a reader
+                 # (and a check) can only guess which provenance a group has,
+                 # and guessing is what the whole `choices` block exists to
+                 # end.
+                 "groups": [",".join(g) for g in out]}
+
+
 def joint_findings(plan):
     """-> [(code, line, detail)] every per-line CONJUNCTION this plan asks for
     and cannot get.
@@ -920,14 +1245,7 @@ def joint_findings(plan):
     sub = plan["subdivision"]
     span = {s["line"]: float(s["duration"]) * sub
             for s in plan["line_slots"]}
-    at = {}
-    for group in str(plan.get("groups") or "").split(";"):
-        for member in group.split(","):
-            member = member.strip()
-            if not member:
-                continue
-            num, _, place = member.partition(".")
-            at.setdefault(int(num), []).append(place or "end")
+    at = bound_placements(plan)
 
     out = []
     for ln in sorted(span):
@@ -1619,7 +1937,8 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     # REJECTION SAMPLING over the generated grammar: uniform over the
     # space, CONDITIONED on the envelope (and on --lines when given).
     # Deterministic — the retries are the same rng stream.
-    _GRADEABLE = gradeable_line_counts()
+    _GRADEABLE = song_line_counts()
+    _STANZA = stanza_line_floor()
     k_lo, k_hi = ENVELOPE["lines_per_section"]
     for _attempt in range(500):
         # THE LENGTH FIRST. It is the coordinate that decides what the floor
@@ -1627,8 +1946,18 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         # is conditioned on it — and it then BOUNDS the pattern, since a
         # song of T lines cannot carry more than T sung sections.
         total = rng.choice(sorted(_GRADEABLE))
+        # THE CELL CEILING IS WHAT THIS SONG CAN AFFORD AT THE CALIBRATED
+        # STANZA SIZE, not what it can afford at one line each (M-106).
+        # `total` alone is a SOUND bound — a song of T lines cannot hold more
+        # than T sung sections — and using it as the ceiling of a uniform
+        # draw made 31.5% of sung sections one line long, because the total
+        # was drawn INDEPENDENTLY of the count it was then divided among.
+        # `stanza_line_floor()` is read from the `section` profile's own
+        # measured range, so this is a derivation and not a tuning.
+        _cells_hi = max(1, total // _STANZA)
         try:
-            funcs = _sample_pattern(rng, roster, form=form, max_cells=total)
+            funcs = _sample_pattern(rng, roster, form=form,
+                                    max_cells=_cells_hi)
         except PlanRefused:
             # A REJECTED DRAW, NOT A REFUSED REQUEST. `_sample_pattern`
             # raises when it cannot find an admissible pattern within the
@@ -1703,13 +2032,17 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             "would mean the plan's length is not the length the gradeable "
             "set was asked about")
         #
-        # THE SET, NOT THE SPAN. `gradeable_line_counts()` is not contiguous
-        # — 6 to 11 lines lands between the section profile's reach and the
-        # sonnet's, where every length-sensitive finding is downgraded to a
-        # note — so a span test would volunteer plans the floor cannot hold
-        # to anything. Rejection against the set keeps the draw uniform over
-        # what is ACCEPTED, which is the same argument the placement layer's
-        # rejection sampling makes.
+        # THE SET, NOT THE SPAN. ~~`gradeable_line_counts()` is not
+        # contiguous — 6 to 11 lines lands between the section profile's
+        # reach and the sonnet's~~ — **and `song_line_counts()` IS contiguous
+        # (M-106): that hole was the gap between a quatrain and a sonnet and
+        # was never a fact about songs.** The set test is KEPT anyway, because
+        # what makes it correct is that the set is the authority and the span
+        # is a rendering of it — a span test would go wrong silently the day
+        # a second lyric-sheet profile is calibrated at another length.
+        # Rejection against the set keeps the draw uniform over what is
+        # ACCEPTED, the same argument the placement layer's rejection
+        # sampling makes.
         if total not in _GRADEABLE:
             continue
         if lines is not None and total != lines:
@@ -1724,8 +2057,9 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             f"500 seeded draws found no plan matching the request inside "
             f"the envelope (sections {ENVELOPE['sections']}, lines/section "
             f"{ENVELOPE['lines_per_section']}, total {ENVELOPE['total_lines']}"
-            f" MINUS the uncalibrated runs {line_count_gaps()}, which no "
-            f"floor profile grades with teeth"
+            f" MINUS the uncalibrated runs "
+            f"{line_count_gaps(song_line_counts())}, which the song profile "
+            f"does not grade with teeth"
             f"{', exact total ' + str(lines) if lines is not None else ''}) "
             f"— try another seed, drop --lines, or declare the shape by "
             f"hand.")
@@ -1935,9 +2269,7 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                 # `endword` are one word between them and so are `head`,
                 # `headrime` and `T1`, so the number of names overstates what
                 # a line can carry (M-80).
-                pool_n = max(1, min(len({placement_word(p)
-                                         for p in _PLACE_POOL(_max_token)}),
-                                    MB.ADOPTED["DENSITY"][0]))
+                pool_n = line_binding_ceiling(_max_token)
                 want = {ln: rng.randint(1, pool_n) for ln in sec_lines}
                 have = {ln: sum(1 for g in groups
                                 for m in g
@@ -2135,6 +2467,29 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         "returns": ";".join(f"{a},{b}" for a, b in returns),
         "subdivision": sub,
     }
+    # THE END-RHYME PASS (`MISSING.md` M-107, the owner's ask). A SECOND
+    # realisation of each sung section's own already-drawn scheme, written at
+    # the line ENDS wherever the end is free — additive, seedless, and
+    # touching no coordinate the placement draw produced. It runs HERE, on
+    # the finished dict and before the joint gate, for the two reasons that
+    # gate itself runs where it does: it is then a pure function of what the
+    # plan says rather than of what the loop had in scope, and whatever it
+    # adds is put through the SAME refusal everything else passed.
+    _end_add, _end_say = end_rhyme_groups(plan)
+    if _end_add:
+        groups = list(groups) + _end_add
+        plan["groups"] = ";".join(",".join(str(x) for x in g)
+                                  for g in groups)
+    plan["choices"]["end_rhyme"] = dict(
+        _end_say,
+        chosen_from="NOT A DRAW — each sung section's own `schemes[fn].rgs` "
+                    "re-realised at the line ends, so this consumes no seed "
+                    "entropy and the placement draw above is untouched. "
+                    "Three counts, never summed (doctrine 79): `added` "
+                    "groups emitted; `blocked` blocks whose ends the "
+                    "placement draw had already spent; `narrow` blocks whose "
+                    "lines cannot carry one more DISTINCT word.")
+
     # THE JOINT GATE (`MISSING.md` M-80). Every constraint above is
     # individually legal and their CONJUNCTION is what nothing held. Asked of
     # the FINISHED dict rather than of the draw, so it is the same check a
@@ -2142,6 +2497,12 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     # not being asked. Refused BEFORE the brief is built: a brief is what a
     # writer reads, and handing one out is the moment the plan stops costing
     # a seed and starts costing a draft.
+    #
+    # AND IT IS WHAT GATES THE END PASS TOO. That pass proposes; this
+    # refuses. Its own precondition is arranged to satisfy this by
+    # construction — the same relationship the placement draw has — so a
+    # finding here from an added end group is a defect in the pass and not a
+    # property of the seed.
     joint = joint_findings(plan)
     if joint:
         codes = sorted({c for c, _, _ in joint})

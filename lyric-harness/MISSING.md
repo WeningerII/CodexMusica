@@ -10767,3 +10767,553 @@ untouched. (2) `verify` exits **0 for ACCEPTED and REJECTED alike**, so a
 caller reading `exit_code` would hear "no flag stands" about a revision the
 harness just refused; `accepted` carries the verdict and the meaning says to
 read it.
+
+### M-105 · tier 2 could only backtrack a PAIR, and 41.6% of the planner's groups are bigger `CLOSED`
+Filed and closed 2026-08-24, by the owner's instruction *"build the joint
+backtrack"*, after a traced investigation into where this harness looks at
+rhyme pairs one at a time.
+
+**FOUR LAYERS, AND ONLY ONE OF THEM WAS THE DEFECT.** The question put was
+whether the tree evaluates rhyme pairs one at a time where it could evaluate
+them together, and at how many layers. Traced:
+
+  1. **`Mandate.pairs()` expands a group into `C(k, 2)` pairs**
+     (`quality/schemes.py:1624`). NOT a defect and not changed: "these five
+     lines rhyme" MEANS all ten pairings hold, so the expansion is the
+     definition (doctrine 2).
+  2. **`grade()` writes one verdict per pair** (`quality/revise.py:999`).
+     Also correct, and required: `pairs_mandated`/`pairs_judged`/
+     `pairs_refused` are three counts that are never summed (doctrine 79),
+     which needs a per-pair verdict to count.
+  3. **The SEARCH was already joint.** `Reviser.joint_field(calls)`
+     (`quality/revise.py:3027`) returns the INTERSECTION over every call a
+     line must answer, and `modal_field(w)` is literally
+     `joint_field([w])` — one definition, not two.
+  4. **The tier-2 BACKTRACK was pairwise, and that was the whole finding.**
+     `quality/loop.py`'s `two_member = [... if len(mem) == 2]` filtered every
+     group of three or more out of the search and reported them as
+     `too_large`.
+
+**MEASURED over 300 plans, 7,641 declared groups:** sizes run 2 to 19;
+**3,177 groups (41.6%) have three or more members**, and those carry
+**28,912 of the 33,376 mandated pairs (86.6%)**. Tier 2 refused all of them.
+So the loop's only backtrack could not reach the population the planner spends
+most of its declarations on — and the refusal was correctly disclosed the
+whole time, which is why nothing went red.
+
+**THE BOUND WAS TRUE WHEN IT WAS WRITTEN AND STOPPED BEING TRUE UNDER IT.**
+`loop.py`'s own argument was that a group of three or more *"would mean
+rewriting the whole group at once to keep its members mutually rhyming, which
+is a bigger and structurally different move"*. The first half is right and the
+second is wrong: rewriting the group at once IS how the members stay mutually
+rhyming, and it is one more member on the same search. The bound dates from
+when a group came from an RGS partition and was almost always a pair; it
+stopped fitting when placement drawing (M-71/M-80) began emitting overlapping
+covers at a median of 26 groups a song, and nothing re-asked it.
+
+**THE CLIQUE IS BY CONSTRUCTION, NOT BY A SECOND PREDICATE.** Members are
+assigned IN ORDER and each one's field is searched against the pivot's word
+PLUS every sibling already placed, so `joint_field`'s intersection is what
+holds the group together. There is no separate mutual-rhyme check to drift
+from the grader's own predicate (doctrine 1), and the loop's own proposal
+cannot be a set of words that each rhyme with the pivot and not with each
+other.
+
+**THE COST IS LINEAR IN THE GROUP.** `backtrack_width` pivot words are walked;
+under each, the first `k-2` members take their field's own top candidate and
+only the LAST is walked over `backtrack_width` — `width * (k - 1)` searches
+plus `width ** 2` proposals, never `width ** k`. **At k=2 that is byte-identical
+to the pair search it replaces**, which `test_loop.py` §16 pins by measuring
+two widths on one fixture rather than asserting it.
+
+**WHAT A WRITER IS OWED, AND IT IS DISCLOSED RATHER THAN RELIED ON.** A
+writer reaching past the loop's own pick into a late member's `offered` field
+is picking from a field computed against every member BEFORE it and none
+after, so two late picks can answer the pivot and not each other.
+`GroupBrief`'s docstring and the rendered prompt both say so; `verify()`
+grades the whole group and rejects such a set with a named reason, which
+reaches the next attempt through `reasons`. An offer never put through the
+check that judges the answer cannot report its own impossibility (doctrine 48,
+defect F).
+
+**THE CONTRACT MOVED RATHER THAN GREW A SECOND SHAPE.** A pair is a group of
+two, so two contracts for one move would be two statements of it (doctrine 1):
+`PairBrief` -> **`GroupBrief` + `AnchorSlot`** (one per non-pivot member),
+`propose_pair(pair_brief) -> (str, str)` ->
+**`propose_group(group_brief) -> tuple[str, ...]`**, one line per member in
+`GroupBrief.members` order. `render_pair`/`parse_pair` ->
+`render_group`/`parse_group`, and the response marker is **`L<n>:`** rather
+than `PIVOT:`/`ANCHOR:` — two role names cannot address a group of nine, and
+numbering the roles would put the role-to-line mapping back in the reader's
+head, which is the guess that parser exists to refuse. The
+`--propose=replay:`/`defer:` record is three parallel lists
+(`members`/`texts`/`words`) whose lengths must agree; a ragged record REFUSES.
+**THE BREAK SET WAS ENUMERATED AND MOVED IN THE SAME COMMIT**, the way the
+2026-08-14 arity break was: `default_propose_group`,
+`quality/propose.py`'s `ModelProposer`, `lyric_harness.py`'s two file-backed
+proposers, and the inline proposers in
+`test_loop.py`/`test_propose.py`/`test_verbs.py`.
+
+**AND THE STUB WAS SPLICING THE WRONG WORD.** `default_propose_pair` called
+`swap_end_word` on both lines unconditionally, so a group binding at a line's
+HEAD was answered by rewriting its ENDING — the identical defect
+`swap_at_slot` was written to close for tier 1 on 2026-08-23, still live in
+tier 2 because the two stubs were repaired a lot apart. `default_propose_group`
+splices at each member's own `Mandate.slot_of`. Invisible on any end-bound
+group, which is every group written before `Mandate.loci` existed, and that is
+exactly why it survived.
+
+**THE TEST THAT PINNED THE BOUND IS REWRITTEN IN PLACE, NOT ADDED BESIDE.**
+`test_loop.py` §6 was `test_tier2_declines_a_group_of_three_or_more` and
+asserted `tried == 0`, `"3+ members"` in the reason, and `res.lines ==
+TOO_LARGE` — a correct, precisely-measured record of a REFUSAL. A test that
+measures a bound precisely is what keeps it. It is now
+`test_tier2_rewrites_a_group_of_three_or_more` on the SAME fixture, and its
+load-bearing assertion is that **every member of the group moved in ONE
+accepted attempt** (`set(touched) == {1, 2, 5}`) — a backtrack that moved one
+line and left its siblings would break the group it was rewriting. MEASURED on
+that fixture: the loop went from `0 tried, draft untouched` to SUCCESS in 3
+rounds.
+
+**THE DISCLOSURE REPLACES A REFUSAL AND IS CHECKED AS ONE** (doctrine 20). The
+sentence *"N group(s) have 3+ members and were NOT attempted"* is gone and a
+size census stands in its place — a reader told the old sentence for weeks is
+owed the news in the same place, and a silent widening reads exactly like a
+tier that never had the bound. §6 asserts the phrase "were NOT attempted"
+appears in no tier-2 reason on that draft.
+
+**WHAT THIS DOES NOT CLOSE.** `_anchor_obligations` still drops EVERY group
+containing the pivot when computing a member's outside obligations, not only
+the one being rewritten. That is pre-existing, unexamined here, and is not
+claimed clean.
+
+### M-106 · the SONG's length was drawn from a set that is three kinds of text `CLOSED`
+Filed and closed 2026-08-24, by the owner's instruction *"start on 1-3 now"*,
+after the length bias was traced to its source.
+
+**THE OWNER'S COMPLAINT, VERBATIM:** *"I've noticed there's a pretty strong
+bias we've got going in the outputs towards shorter. shorter lines and fewer
+lines per section."* And the standing rule it rests on: *"we're not supposed to
+have hard coded numbers for the line count or section count or the total length
+of the song."*
+
+**HALF THE COMPLAINT WAS THE HARNESS AND HALF WAS THE WRITING, MEASURED.** Line
+LENGTH is not biased short by the planner: the calibrated density band is 5–12
+syllables and **0.0% of lines are handed a ceiling below the floor, while 51.7%
+can carry the full 12** — the planner offers more than half of all lines the
+maximum the calibration permits. Short lines in the delivered songs are the
+WRITER reaching for six syllables out of a twelve-syllable allowance. Lines per
+SECTION is a real harness defect and is what this entry closes.
+
+**DEFECT 1 — THE LENGTH CAME FROM A UNION OF THREE KINDS OF TEXT.**
+`gradeable_line_counts()` answers *"what line counts can ANY floor profile
+grade"* over `section` (a 4-line quatrain), `sonnet` (14 lines) and `song` (a
+lyric sheet). MEASURED at the derived tokens-per-line band (7.25–9.25), the
+three reach **4–5**, **12–17** and **17–55** lines. So the union is
+`{4,5} | {12..55}` — and **the famous 6–11 hole is the space between a quatrain
+and a sonnet**, which is not a fact about songs at all. A song planner drawing
+its total from that set was drawing from lengths a QUATRAIN can be and lengths
+a SONNET can be, then rejecting around a hole it had created by asking the
+wrong question. `song_line_counts()` reads the profile that grades a lyric
+sheet: **17..55, 39 values, CONTIGUOUS, no hole.** The profile is identified by
+`n_lines == 0` — its own declaration that a lyric sheet has no fixed line count
+— never by its name, which would be a second statement of which profile means
+what (doctrine 1).
+
+**DEFECT 2 — A SOUND BOUND WAS BEING USED AS A UNIFORM DRAW, AND IT IS
+`MISSING.md` M-81(A)'s ERROR ONE LAYER OVER.** `_sample_pattern` took
+`max_cells = total` under the argument *"a song of T lines cannot hold more
+than T sung sections"* — TRUE, and never a claim that all T values are equally
+musical, exactly as `bars_per_line` running to `hi // 2` was true and produced
+a median of eight bars per lyric line. Since the total was drawn INDEPENDENTLY
+of the section count and then divided among it, lines-per-section is
+`total / sections`: a hyperbola. `stanza_line_floor()` is the derivation that
+replaces it — the `section` profile's own reach, **4 lines** — so a song of T
+lines carries at most `T // 4` sung sections rather than `T`. It is NOT a floor
+on any section: a one-line tag or vamp is a real section and the partition
+still puts them there. What is bounded is the COUNT, which is the quantity that
+was blowing up.
+
+**MEASURED over 240 seeds, on the instrument that found the bias — per SECTION
+INSTANCE off the emitted plan, not per kind:**
+
+| | before | after |
+|---|---:|---:|
+| total lines | median 32, range **5**–55 | median 35, range **17**–55 |
+| sections per song | median 10, max **31** | median 8, max **13** |
+| lines per sung section | median 2 | median 3 |
+| **ONE-LINE sung sections** | **39.4%** | **20.2%** |
+| plans lost to the narrower band | — | **0 of 240** |
+
+**IT IS NOT ZERO AND MUST NOT BE READ AS ZERO.** 1 is the modal part of any
+exact-uniform composition — a property of the measure `_partition_uniform`
+deliberately chose, whose own docstring records the sequential alternative
+leaving **52%** of sections at one line. The ladder is 52% → 39.4% → 20.2%, all
+three on the same instrument, and the remaining 20.2% is not tuned away because
+tuning it would mean barring a one-line tag.
+
+**WHAT THIS COSTS, SAID PLAINLY:** a song of fewer than 17 lines is now outside
+the planner's envelope. That is not a narrowing of the harness — a writer
+hand-declares any length and the graders grade it — it is the planner declining
+to volunteer a length the song profile cannot hold to anything.
+`gradeable_line_counts()` is UNCHANGED, still exported, and still answers its
+own different question.
+
+**A CONTROL, RECORDED SO A LATER SESSION DOES NOT BLAME THIS LOT.** The share
+of plans declaring a HOOK is **59.6% before and 56.2% after** — a hook is
+defined by RETURN, so it depends on whether any function recurs, and fewer
+cells could have collapsed it. It did not move.
+
+**THE TEST CHURN, AND TWO OF THE THREE PIECES ARE REPINS OF CLAIMS THAT WENT
+STALE UNDER THE DERIVATION.** (a) `test_plan.py`'s `len(totals) >= 40` was 40
+of the union's 46 values (87%) and is unreachable against a 39-value envelope —
+restated as a FRACTION of the derived set, which cannot go stale when the set
+moves. (b) The sweep's `res["accepted"] == [108]` over `range(120)` pinned
+*"the instrument moved into the tree without its answer changing"* — a claim
+about the VERB, pinned by a property of the PLANS. The verb is untouched and
+all six predicates are still individually satisfiable (MEASURED over
+`range(400)`: 158 / 118 / 40 / 400 / 183 / 400); the conjunction is rarer than
+one in 120 now, so the RANGE is widened and the answer repinned to
+`[139, 284, 323]` rather than the predicates loosened — loosening them to keep
+a number would be tuning the question to preserve the answer. (c)
+`mcp/test.mjs` hardcoded `seed: 55` for three TITLE checks that are only asked
+of a plan DECLARING A HOOK; seed 55 now draws six sections with no repeat, and
+the failure read *"with no title the question is REFUSED, not answered"* —
+naming the title layer for a fact about the pattern. The seed is SEARCHED FOR
+now, with the premise asserted, so the same staleness cannot recur.
+
+**THE NEW SECTION IS `test_plan.py` §12** — 10 checks, two in-process
+MUTATIONS of `floor.PROFILES` proving both derivations are WIRED and not
+written down (widen the song profile's token band, the line band widens; triple
+the stanza's `lo`, the floor rises; both restored and the restoration
+asserted). Restoring the union band and `max_cells = total` as a production
+mutation **kills 4 of the 10**, and reproduces the pre-fix figures exactly:
+44.2% one-line sections, median 2 lines, 30 sections, totals down to 5. One
+check originally survived that mutant — it compared the observed section count
+to `ENVELOPE["sections"][1]`, which the mutant also moves — and is now
+compared against the ceiling recomputed from the two derivations the section
+has already proved are wired.
+
+**WHAT THIS DOES NOT CLOSE.** The token band itself (`song` profile 150–400)
+is untouched: widening it is a re-calibration against the corpus — preregister,
+measure, adopt, re-snapshot the manifest — and not a code change. The owner has
+that ruling.
+
+### M-107 · the plan's rhyme web reached the line ends by accident `CLOSED`
+Filed and closed 2026-08-24/25, by the owner's instruction *"start the
+end-rhyme pass"*.
+
+**THE ASK AND THE REFUSAL THAT BOUNDS IT, both the owner's and both in the
+same sitting.** The ask: *"would it not be possible to take what we have and
+add a step at the end that adds rhymes to the end of the lines in order to
+follow the respective forms of the sections in a way that is derived from how
+the sections line up in our structure of the song as a whole for coherence?"*
+The refusal, about the same subject: *"no, end should not be uniform, you
+misunderstood, I was just asking a question. do not fuck up what we've already
+built."* So this is ADDITIVE and nothing else: `_place_group`'s uniform draw
+over the placement vocabulary is untouched — `end` is still one placement
+among the ones this harness can grade, at the rate M-71 measured — and the
+pass never removes, re-places or re-weights a binding that draw produced.
+
+**AND THE OWNER HAD ALREADY STATED THE RATE THE PASS EXISTS TO MOVE:** *"the
+word(s) at the end of a line are at a 1 in 8 probability of rhyming whereas
+most songs have a much higher probability of rhyming."*
+
+**WHAT IT ADDS IS A SECOND REALISATION OF A SCHEME THE PLAN ALREADY DREW.**
+Each sung section carries one drawn RGS code; the placement draw realises its
+blocks at whatever words it happens to pick. `end_rhyme_groups` realises the
+SAME blocks at the line ENDS, wherever the end is free. It needs no new dice
+and **consumes no seed entropy**, which is what makes "additive" checkable
+rather than asserted.
+
+**IT IS A PURE FUNCTION OF THE EMITTED PLAN**, like `joint_findings`, and for
+the same two reasons: it runs against a hand-written plan on the same terms,
+and `make_plan`'s own draw cannot be what makes it work. Every coordinate it
+reads is one the plan already discloses — `choices["schemes"][fn]["rgs"]`,
+`line_slots`, `returns`, `groups`, `subdivision`. It is idempotent: run again
+on a plan already carrying its output it adds nothing.
+
+**WHAT "THE RESPECTIVE FORMS OF THE SECTIONS" RESOLVES TO, and the half that
+is a NON-BUILD.** A sung function carries ONE code, so every instance of that
+function already has the same scheme SHAPE — the cross-section coherence the
+ask names is a property the planner has, not one this pass had to invent.
+Binding instance 1's line i to instance 2's line i would be this pass deciding
+that two verses share their RHYMES, which most songs do not do, so it is
+recorded as refused rather than built.
+
+**A LATER INSTANCE OF A VERBATIM RETURNER IS SKIPPED**, read from `returns`
+rather than by naming a function: those lines must be the earlier line word
+for word, so a rhyme group on them declares a requirement about words already
+fixed — `joint_findings`' own argument for reading `groups` and not `returns`.
+
+**MEASURED over 240 seeds, and the before-figure is the same plan read
+without the pass's own contribution rather than a remembered number:**
+
+| | before | after |
+|---|---:|---:|
+| lines whose END is bound | **47.8%** | **71.1%** |
+| group members binding the last word | 18.4% | 25.1% |
+| seeds lost | — | **0 of 240** |
+| plans with a `joint_findings` finding | — | **0** |
+
+Three counts, never summed (doctrine 79): **added 889**, **blocked 1601** (the
+placement draw had already spent an end), **narrow 29** (the line cannot carry
+one more distinct span).
+
+**THE PASS'S OWN FIRST DEFECT, AND AN EXISTING CHECK CAUGHT IT.** It skipped
+the participation ceiling — the bound the web pass draws against — and pushed
+lines to **SIX** distinct bound spans against a density floor of **five**.
+`test_plan.py`'s pre-existing participation check went red on the first full
+run. The repair is `line_binding_ceiling()`, ONE definition both passes call:
+the bound was spelled inline in the web pass, so a pass written beside it did
+not consult it, which is doctrine 1's shape exactly.
+
+**AND THE TWO MUTATIONS ARE NOT SYMMETRIC, WHICH IS THE FINDING WORTH
+KEEPING.** Removing the end-collision check makes `make_plan` **REFUSE** —
+`joint_findings` catches it, `TWO_GROUPS_ONE_WORD`, no plan ships. Removing
+the ceiling check refuses **NOTHING**: 60 of 60 seeds still plan and **26
+lines go over silently**, because that gate asks the LOOSER question on
+purpose (what THIS line's grid admits at its declared duration) while the
+planner volunteers against the tighter one (what ANY band-legal line is
+guaranteed to hold). The two are kept apart rather than reconciled — a gate
+that refused the merely-tight would refuse the arithmetically fine — so **the
+participation ceiling is a GENERATOR discipline with no gate behind it, and
+`test_plan.py` §13's own check IS the enforcement.** That sentence is in the
+check's message, not only here.
+
+**THE PASS DISCLOSES WHICH GROUPS IT PUT THERE** (`choices.end_rhyme.groups`),
+and that is a disclosure rather than bookkeeping: the WEB pass can draw a
+group whose members all land on `end`, MEASURED at 3 of 225 all-end groups
+over 60 seeds, so an all-end group in the emitted plan is not evidence of this
+pass. Without the record a reader — and a check — can only guess at
+provenance, which is what the whole `choices` block exists to end. §13's
+mirror check reads that field and went from a false 222-of-225 to a true
+221-of-221 when it did.
+
+**AND A PIN WAS REPLACED RATHER THAN REPINNED A THIRD TIME.** `test_plan.py`
+§10 pinned the seed sweep's answer as a seed LIST — `[108]`, then M-106's
+`[139, 284, 323]`, and this lot moved it again inside one day. The claim the
+section makes is about the VERB and a seed list pins a property of the PLANS,
+which every derivation lot moves (doctrine 58). What is pinned now is the
+ALGEBRA: **a conjunction accepts exactly the intersection of what each
+predicate accepts alone** — a property `sweep` must have for any plans, which
+a verb that dropped a predicate or short-circuited would fail on whatever the
+planner currently draws — with a non-vacuity check beside it, because an
+intersection of six sets that were all everything examines nothing
+(doctrine 20).
+
+**WHAT THIS DOES NOT DO.** It does not touch the placement draw, does not add
+a relation or a structure to any group, and does not bind across section
+instances. Whether a given section FUNCTION should have its ends bound at all
+— a rap verse that deliberately does not end-rhyme is a real form — is a taste
+question this pass does not ask: it realises whatever scheme the section was
+already given.
+
+### M-108 · the plainest mandate spelling never said how much it mandated `CLOSED`
+Filed and closed 2026-08-25, found by BANKING a song rather than by reading
+the code — `songs/long_bridge.txt` is the first delivered song whose plan
+draws NO returns, so its grading command is `--groups=` and nothing else.
+
+**MEASURED, on a four-line fixture, one cover, two spellings:**
+
+    brief FILE --groups=1,3;2,4
+      MANDATE: 2 group(s) declared, source=declared (--groups=)
+
+    brief FILE --groups=1,3;2,4 --structures=A:kalevala-alliteration
+      MANDATE: 2 group(s) over 4 lines, 2 mandated pair(s),
+               source=declared (declared line groups)
+
+The cover is IDENTICAL — `--structures=` annotates the groups it is handed
+and adds none — so the two lines are two readings of one object. What the
+plain spelling withheld is the mandated PAIR COUNT and the line count it is
+over.
+
+**WHY THAT NUMBER AND NOT ANOTHER.** It is the numerator of doctrine 79's own
+triple (mandated / judged / refused) and the only one of the three a report
+can state BEFORE grading — the other two are verdicts. A reader of the plain
+report could see 29 groups declared and could not see that they expand to 46
+mandated pairs, which is the quantity every later count is read against.
+
+**THE BRANCH IS THE CAUSE AND IT IS NOT A MISTAKE ANYWHERE.** `--groups=`
+ALONE hands `_say_derived` a bare LIST of line-lists and never builds a
+`Mandate`; `--returns=`, `--structures=` and `--relations=` each grow one
+first, because a `Mandate` is the only object that holds two requirement
+kinds at once. So `m.n_lines` and `m.pairs()` were reachable on one branch
+and not on the other, and the header was written twice to match.
+
+**AND THE COMMENT DIRECTLY ABOVE IT ALREADY NAMED THIS FAILURE ONE FIELD
+OUT** — *"Disclosing one shape and not the other would leave the plainest
+call — the one a writer actually types — as the silent one."* True of whether
+a mandate is MENTIONED, which both branches did. The sentence was correct
+about the axis and was never checked on the next one over (doctrine 17).
+
+**IT COST A LOG ROW ITS FACTS, SILENTLY, WHICH IS HOW IT SURFACED.**
+`quality/song_log.py`'s DECLARED `song` parser reads
+`mandate_groups` / `lines` / `mandated_pairs` / `mandate_source` off that one
+line with a regex written to the long shape. Against the short shape it
+matched nothing and banked none of the four — and the row was NOT refused for
+it, because the same invocation banked 18 other facts. `--record` refuses an
+invocation whose output the parser read NOTHING from, on the argument that it
+"looks exactly like an invocation that went well"; a PARTIAL read has no such
+guard, so four facts nobody asked for and four facts a verb declined to emit
+are the same empty set in the log. All five previously banked songs declare
+`--returns=` and every one of them carries the four facts, which is exactly
+why five songs went by without this being visible.
+
+**THE FIX IS ONE HEADER, NOT TWO.** Both branches build `_grps`, `_n`, `_src`
+and `_prs` and the f-string is written once. `Mandate.pairs` is CALLED for the
+bare cover rather than respelled — it is a pure function of `.groups` and a
+bare cover has those — so the two counts move together by construction and not
+by agreement (doctrine 1); a second spelling of *the pairs of a cover* is how
+one report starts disagreeing with the other. A caller that hands down no line
+count gets `over UNDECLARED lines`, never `over 0 lines`, because a zero there
+reads as a song with no lines (doctrine 20).
+
+**THE GATE.** `quality/test_verbs.py` §6 runs ONE cover through BOTH routes
+and requires everything left of `source=` to be equal — `source=` is the one
+field that must differ, since it names the route. The premise is asserted
+first (both routes print a `MANDATE:` line at all), so the invariant cannot
+pass by comparing two empty strings. Against the pre-fix tree the pair-count
+check and the invariance check both fail.
+
+**WHAT THIS DOES NOT CHANGE.** No verdict, no finding, no exit code: the
+header is disclosure and nothing reads it but a person and `song_log.py`'s
+parser. `song`'s report on `songs/long_bridge.txt` is byte-identical either
+side of the fix apart from that one line, and the four facts it newly banks
+were true of the run before they were printed.
+
+### M-109 · the gate aimed at the narrator could not see `highest` or `lowest` `CLOSED`
+Filed and closed 2026-08-25, in the sitting that banked `songs/long_bridge.txt`
+— found by trying to write a superlative and checking whether the gate would
+catch it if the citation were left off.
+
+**`song_record.cmd_claims` IS THE CHECK AIMED AT THE NARRATOR** (M-98): a line
+of `songs/README.md` that COMPARES songs must carry a `[RESULTS: <column>
+<song>]` citation that resolves, or the run fails. Its vocabulary is
+`COMPARATIVE`, a declared alternation of fourteen words — and neither
+`highest` nor `lowest` was in it.
+
+**THOSE ARE THE TWO WORDS THE CLAIM ACTUALLY REACHES FOR, AND THE FILE WAS
+ALREADY USING ONE OF THEM.** `songs/README.md` §*What the first measurement
+says* has said *"is the lowest of the five"* and *"sits lowest at"* since it
+was written, with `[RESULTS:]` citations beside both — supplied VOLUNTARILY,
+which is precisely the property a gate exists so that nobody has to supply
+voluntarily. A gate whose subject is superlatives, blind to the two commonest
+spellings of one, is doctrine 48 inside the instrument built to enforce
+doctrine 48 on somebody else.
+
+**AND WIDENING IT ALONE WOULD HAVE REDDED BOTH OF THOSE TRUE SENTENCES, FOR A
+REASON THAT IS NOT ABOUT THE CLAIM AT ALL.** `cmd_claims` scans a LINE, and
+markdown here is hard-wrapped, so both citations sat on the line AFTER their
+own claim:
+
+    the lowest of the five at 3.043667 [RESULTS: concreteness_mean
+    carry_it_over.txt], against 3.909818 ...
+
+The claim is on line n and the citation resolves on line n+1, so the moment
+`lowest` became visible the gate would have charged a sentence that carries
+its evidence one line down. **THE WRAPPING IS WHAT WAS REPAIRED, NOT THE
+GATE'S UNIT.** Making the scan paragraph-scoped was the other candidate and
+is a WEAKENING: a paragraph making three comparisons on one citation would
+then pass, where a line-scoped gate asks for evidence beside each claim. Both
+sentences are rewrapped so claim and citation share a line, and every new
+comparison in the `long_bridge` section is written that way.
+
+**A NOTATION LINE IS DATA AND IS SPELLED AS DATA.** The README paragraph
+recording this had to name the two words, and naming them inside prose trips
+the widened gate on a line that is teaching the vocabulary rather than making
+a claim — the same escape `song_log.LOG_CITE` needed and solved by ADJACENCY.
+Here the file's existing convention already answers it: `cmd_claims` skips a
+four-space-indented line as data, which is how every reproduction command in
+that file is already written, so the two words sit in an indented block.
+
+**MEASURED AFTER: 0 uncited comparatives over the whole README**, with the
+vocabulary widened and the `long_bridge` section added — and the section adds
+four new cited comparisons, so the zero is not the zero of a file that stopped
+comparing.
+
+**WHAT IS NOT CLAIMED.** The vocabulary is still a hand-declared list and a
+comparison spelled some fifteenth way still slips it. That is the shape of
+this instrument and not a defect this entry closes: the list is DECLARED, so a
+word entering it is a decision somebody makes, and the alternative — inferring
+comparison from sentence structure — would refuse and admit sentences by a
+rule nobody could read (doctrine 1).
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~165~~ -> **167**
+(M-108 and this entry landed in one commit, 2026-08-25).
+
+### M-110 · no layer asked whether a line has a verb in it `CLOSED`
+Filed and closed 2026-08-25, by the owner's instruction *"bank it all and
+build the sentencehood check"* — the engineering half of the blind-panel
+sitting recorded in `quality/RESULTS_PANEL.md`.
+
+**THE DEFECT.** Every enforcement layer in this tree checks SOUND — rhyme,
+meter, the calibrated syllable and prominence bands, predictability, density.
+None asked whether a line is an utterance, so `songs/long_bridge.txt`
+satisfied every constraint while its lines were comma-spliced noun
+inventories, shipped at exit 0, was banked, and was caught by the OWNER'S
+EAR — the only instrument in existence that could. A five-judge blind panel
+then converged 5/5 on the cause from five different lenses: lines without
+verbs.
+
+**WHAT SHIPPED.** `quality/sentencehood.py`: a STACKED-line predicate
+(verbless, function-word-poor, comma-dense, >= 4 tokens — every threshold a
+measured coordinate, FPR-stated per doctrine 22) and a calibrated draft gate:
+`STACKED_DRAFT`, a whole-draft FLAG of the floor's own species, fires when
+the stacked-line fraction reaches the p99 of a fixed-protocol 500-song human
+calibration (0.125; 1.4% of the canon sits there). Per-line `STACKED_LINE`
+notes name the lines so the brief can say WHERE. Wired into
+`Reviser.inspect` on the seam `readability.report` already rides; an
+environment with no tagger gets `sentencehood_checked=False` and zero
+findings — a disclosed refusal, never a silent pass (doctrine 20).
+`gate_census` repinned 71 -> 73 codes, 23 -> 24 gated, 48 -> 49
+disclosed-only with `STACKED_LINE` ruled DISCLOSURE. The whole-draft flag
+roster in `CLAUDE.md` goes FIVE -> SIX.
+
+**MEASURED.** `long_bridge` reads 4 stacked lines of 25 (0.16, over the
+ceiling) and now grades **exit 3** — its banked log row records the exit 0
+of the tree it was graded on, which is what a log is. The five other banked
+songs read 0 stacked lines and grade as before. Zero shipped fixtures carry
+even one stacked line, so the suites moved nowhere. The four flagged lines
+are the ones the blind judges quoted.
+
+**WHAT IS DELIBERATELY NOT GATED, WITH THE NUMBER THAT REFUSED IT.** The
+subtle mode — merely verbless lines, even two adjacent — is carried by 33%
+of human lines and 32% of human sections, and the panel's three
+subtly-rejected sections are surface-indistinguishable from human verbless
+lines (function share 0.40 vs 0.38, commas/token 0.143 vs 0.143). A gate
+there would charge a third of the canon (doctrine 7). The refusal is in the
+module docstring so it reads as refused, not forgotten.
+
+### M-111 · the ban's clean lists are one glossary, and every song shops it `OPEN`
+Filed 2026-08-25. The owner's finding, made before any instrument had it:
+*"you use 'light' and 'burn' in basically every song ... way outside their
+Zipfian distribution."*
+
+**MEASURED, twice over.** Content words shared by >= 4 of the six banked
+songs: 10, where 300 matched null draws of six human songs give median 1 and
+never exceed 8 (`light` alone is in 5 of 6). And the mechanism has receipts
+in the process logs: 16 of the 50 words screened during `carry_it_over`'s
+session are sung in `long_bridge` — three of the `-ay` family's four clean
+members among them. The ban tables and the lexicon are deterministic, so the
+clean survivors of any family are the SAME SHORT LIST in every session:
+doctrine 9's push away from the modal candidate has manufactured a second
+mode one rank out, which is M-88's finding operating ACROSS songs instead of
+within a draft. A blind set-lens judge, with no access to any log, named it
+independently: "a rhyme-word bank reused like one glossary." Beside it and
+separable: a register collapse (light/dark/stone/ache/groan) that no screen
+produced — the writer's own prior.
+
+**WHY IT IS OPEN AND NOT BUILT.** The natural check reads `songs/` at screen
+or grade time to disclose reuse ("clean, but this word rhymes in 3 of your
+banked songs") — and the songs register's first rule is that the songs are
+NOT corpus: nothing samples them (doctrine 13/14). A self-repetition
+disclosure arguably checks novelty AGAINST own output rather than
+calibrating ON it, but that is an argument and not a ruling, and the ruling
+is the owner's. Until then the cross-song question has exactly two
+instruments: the DF measurement in `quality/RESULTS_PANEL.md` §4, and a
+panel with a set lens.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~167~~ -> **169**
+(M-110 and this entry landed in one commit, 2026-08-25; this entry counts while
+OPEN — the count is entries, not closures).

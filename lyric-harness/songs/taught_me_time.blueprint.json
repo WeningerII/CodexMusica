@@ -1,0 +1,271 @@
+{
+  "hooks": ["Wheels hum; you pass the goal \u2014 I sigh"],
+  "lines": [
+    {
+      "bar": 1,
+      "beat": 1.25,
+      "duration": 2.75,
+      "section": "INTRO1",
+      "text": "Doubt creeps from its lair to watch my son"
+    },
+    {
+      "bar": 2,
+      "beat": 1.25,
+      "duration": 2.75,
+      "section": "INTRO1",
+      "text": "Kneeling, he checks the chain; cuffs flare"
+    },
+    {
+      "bar": 3,
+      "beat": 1.25,
+      "duration": 2.75,
+      "section": "INTRO1",
+      "text": "Swear to me you will crane, scout for the sled"
+    },
+    {
+      "bar": 4,
+      "beat": 1.25,
+      "duration": 2.75,
+      "section": "INTRO1",
+      "text": "I call out stop; he circles near"
+    },
+    {
+      "bar": 5,
+      "beat": 1.25,
+      "duration": 2.75,
+      "section": "INTRO1",
+      "text": "We veer, rein tight, before he cracks his head"
+    },
+    {
+      "bar": 6,
+      "beat": 1.75,
+      "duration": 2.25,
+      "section": "VERSE1",
+      "text": "Wheels hum; you pass the goal \u2014 I sigh"
+    },
+    {
+      "bar": 7,
+      "beat": 1.75,
+      "duration": 2.25,
+      "section": "VERSE1",
+      "text": "You turn the hill to a stroll \u2014 no lie"
+    },
+    {
+      "bar": 8,
+      "beat": 2.0,
+      "duration": 2.0,
+      "section": "PRECHORUS1",
+      "text": "Clear it midair; fear has no juice"
+    },
+    {
+      "bar": 9,
+      "beat": 2.0,
+      "duration": 2.0,
+      "section": "PRECHORUS1",
+      "text": "Three round Pier Square; hands let loose"
+    },
+    {
+      "bar": 10,
+      "beat": 2.0,
+      "duration": 2.0,
+      "section": "PRECHORUS1",
+      "text": "Wind rips off the cap you wear, pea"
+    },
+    {
+      "bar": 11,
+      "beat": 2.0,
+      "duration": 2.0,
+      "section": "PRECHORUS1",
+      "text": "Threat won't agree, so beware"
+    },
+    {
+      "bar": 12,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "CHORUS1",
+      "text": "The lane unrolls; you shake the worst by eight"
+    },
+    {
+      "bar": 13,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "CHORUS1",
+      "text": "Fear has no clue; it should wait"
+    },
+    {
+      "bar": 14,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "CHORUS1",
+      "text": "Cursed \u2014 two falls, one sprain \u2014 still you rise"
+    },
+    {
+      "bar": 15,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "CHORUS1",
+      "text": "Begin your reign; you knew the way"
+    },
+    {
+      "bar": 16,
+      "beat": 1.75,
+      "duration": 2.25,
+      "section": "VERSE2",
+      "text": "Wheels hum; you pass the goal \u2014 I sigh"
+    },
+    {
+      "bar": 17,
+      "beat": 1.75,
+      "duration": 2.25,
+      "section": "VERSE2",
+      "text": "Steals both my breath and learns to fly"
+    },
+    {
+      "bar": 18,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "FALSE_ENDING1",
+      "text": "We wheel the bike home; night builds its dome"
+    },
+    {
+      "bar": 19,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "FALSE_ENDING1",
+      "text": "At dusk the lot looks bizarre and small"
+    },
+    {
+      "bar": 20,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "FALSE_ENDING1",
+      "text": "Far down the block, you comb for jumps; I crawl"
+    },
+    {
+      "bar": 21,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "FALSE_ENDING2",
+      "text": "Shake hands firm; swap seats; shy again"
+    },
+    {
+      "bar": 22,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "FALSE_ENDING2",
+      "text": "Dodge every germ; sip tea; straighten tie"
+    },
+    {
+      "bar": 23,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "FALSE_ENDING2",
+      "text": "Squirm out; just hop, see \u2014 instant zen"
+    },
+    {
+      "bar": 24,
+      "beat": 2.0,
+      "duration": 2.0,
+      "section": "CODA1",
+      "text": "Your growth graph writes one last rhyme \u2014 sign"
+    },
+    {
+      "bar": 25,
+      "beat": 2.0,
+      "duration": 2.0,
+      "section": "CODA1",
+      "text": "That laugh returns to climb my spine"
+    }
+  ],
+  "sections": [
+    {
+      "bars": 5,
+      "function": "intro",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "INTRO1",
+      "start_bar": 1
+    },
+    {
+      "bars": 2,
+      "function": "verse",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "VERSE1",
+      "start_bar": 6
+    },
+    {
+      "bars": 4,
+      "function": "prechorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "PRECHORUS1",
+      "start_bar": 8
+    },
+    {
+      "bars": 4,
+      "function": "chorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "CHORUS1",
+      "start_bar": 12
+    },
+    {
+      "bars": 2,
+      "function": "verse",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "VERSE2",
+      "start_bar": 16
+    },
+    {
+      "bars": 3,
+      "function": "false_ending",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "FALSE_ENDING1",
+      "start_bar": 18
+    },
+    {
+      "bars": 3,
+      "function": "false_ending",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "FALSE_ENDING2",
+      "start_bar": 21
+    },
+    {
+      "bars": 2,
+      "function": "coda",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "CODA1",
+      "start_bar": 24
+    }
+  ],
+  "title": "Wheels Hum"
+}

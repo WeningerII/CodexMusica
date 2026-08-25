@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Regressions for the brief-to-prompt renderer (quality/propose.py).
 
-WHAT IS UNDER TEST IS A CONTRACT, NOT A STYLE. `render_line`/`render_pair`
+WHAT IS UNDER TEST IS A CONTRACT, NOT A STYLE. `render_line`/`render_group`
 produce prose, and prose cannot be asserted word for word without pinning
 every future edit. What IS asserted here is the part a proposer would be
 crippled without: that the prompt is REPRODUCIBLE, that every forbidden word
@@ -33,7 +33,7 @@ Sections:
   7  tier 2: the pair prompt states the situation `Brief.joint_conflict`
      actually describes (the MANDATE is what needs revising), carries both
      lines and both option lists, and round-trips through
-     `ModelProposer.propose_pair`.
+     `ModelProposer.propose_group`.
 
 THE FORBIDDEN BLOCK IS LOAD-BEARING, AND THAT WAS MEASURED, NOT ASSERTED.
 Replacing `render_line`'s `FORBIDDEN — do not end L{n} on any of these`
@@ -68,7 +68,8 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from quality.propose import (ModelProposer, OFFERED_SHOWN,  # noqa: E402
-                             parse_line, parse_pair, render_line, render_pair)
+                             parse_line, parse_group, render_line,
+                             render_group)
 
 FAILURES = []
 
@@ -135,13 +136,35 @@ class B:
                                  "field_band='grader'")
 
 
-class PB:
-    """A `quality.loop.PairBrief` stand-in — the field list agreed with the
-    sibling that owns `loop.py`. Built here rather than imported so this
-    suite does not depend on that module's dataclass having landed."""
+class AS:
+    """A `quality.loop.AnchorSlot` stand-in — one non-pivot member."""
     def __init__(self, **kw):
         for k, v in kw.items():
             setattr(self, k, v)
+
+
+class PB:
+    """A `quality.loop.GroupBrief` stand-in — the field list agreed with the
+    sibling that owns `loop.py`. Built here rather than imported so this
+    suite does not depend on that module's dataclass having landed.
+
+    `proposal_for` is implemented rather than stubbed, because it is the ONE
+    place the pivot/anchor split is resolved and a stand-in that answered it
+    differently would let `render_group`/`parse_group` pass against a mapping
+    production does not use (doctrine 1)."""
+    def __init__(self, **kw):
+        self.anchors = ()
+        self.pivot_slot = None
+        for k, v in kw.items():
+            setattr(self, k, v)
+
+    def proposal_for(self, line_no):
+        if line_no == getattr(self, "pivot_line_no", None):
+            return (self.pivot_text, self.pivot_word, self.pivot_slot)
+        for a in self.anchors:
+            if a.line_no == line_no:
+                return (a.text, a.word, getattr(a, "slot", None))
+        return None
 
 
 DRAFT = ["It gleamed like polished silver",
@@ -517,26 +540,40 @@ def test_parse_accepts_the_supported_shapes():
         check(f"REFUSES {name} (returns None)", got is None, repr(got))
 
 
-def test_parse_pair_needs_both_markers():
-    print("\n5b. PARSE PAIR — two lines are only two lines when it is said "
-          "which is which")
-    p, a = "The pivot line now ends here", "The anchor line ends there"
-    ok = parse_pair(f"PIVOT: {p}\nANCHOR: {a}")
-    check("accepts the two-marker shape, pivot first", ok == (p, a), ok)
+def test_parse_group_needs_every_marker():
+    print("\n5b. PARSE GROUP — k lines are only k lines when it is said "
+          "which is which, and the marker is the LINE NUMBER")
+    # ~~`PIVOT:`/`ANCHOR:`~~ — `L<n>:` since 2026-08-24 (`MISSING.md`
+    # M-105). Two role names cannot address a group of nine, and numbering
+    # the roles would put the role-to-line mapping back in the reader's
+    # head, which is the guess this parser exists to refuse.
+    MEM = (1, 3, 5)
+    x, y, z = ("The first line ends here", "The second ends there",
+               "The third ends elsewhere")
+    ok = parse_group(f"L1: {x}\nL3: {y}\nL5: {z}", MEM)
+    check("accepts one marker per member, in members order",
+          ok == (x, y, z), ok)
     check("accepts it inside a fence",
-          parse_pair(f"```\nPIVOT: {p}\nANCHOR: {a}\n```") == (p, a))
-    check("accepts the markers in the OTHER order -- the marker decides, "
-          "not the position",
-          parse_pair(f"ANCHOR: {a}\nPIVOT: {p}") == (p, a))
-    for name, raw in [
-            ("two bare lines", f"{p}\n{a}"),
-            ("only a pivot", f"PIVOT: {p}"),
-            ("only an anchor", f"ANCHOR: {a}"),
-            ("a repeated marker", f"PIVOT: {p}\nPIVOT: {p}\nANCHOR: {a}"),
-            ("two fences", f"```\nPIVOT: {p}\n```\n```\nANCHOR: {a}\n```"),
-            ("a quoted half", f'PIVOT: "{p}"\nANCHOR: {a}'),
-            ("nothing", "")]:
-        check(f"REFUSES {name}", parse_pair(raw) is None, repr(raw[:40]))
+          parse_group(f"```\nL1: {x}\nL3: {y}\nL5: {z}\n```", MEM)
+          == (x, y, z))
+    check("accepts the markers in ANY order and returns them in MEMBERS "
+          "order -- the marker decides, never the position",
+          parse_group(f"L5: {z}\nL1: {x}\nL3: {y}", MEM) == (x, y, z))
+    check("a two-member group is just k=2, the case this replaced",
+          parse_group(f"L1: {x}\nL3: {y}", (1, 3)) == (x, y))
+    for name, raw, mem in [
+            ("bare lines", f"{x}\n{y}\n{z}", MEM),
+            ("a MISSING member", f"L1: {x}\nL3: {y}", MEM),
+            ("a repeated marker", f"L1: {x}\nL1: {x}\nL3: {y}\nL5: {z}", MEM),
+            ("a marker for a line OUTSIDE the group",
+             f"L1: {x}\nL3: {y}\nL5: {z}\nL9: {z}", MEM),
+            ("two fences",
+             f"```\nL1: {x}\n```\n```\nL3: {y}\nL5: {z}\n```", MEM),
+            ("a quoted member", f'L1: "{x}"\nL3: {y}\nL5: {z}', MEM),
+            ("an EMPTY members list", f"L1: {x}", ()),
+            ("nothing", "", MEM)]:
+        check(f"REFUSES {name}", parse_group(raw, mem) is None,
+              repr(raw[:44]))
 
 
 # -- 6. end to end, through a real loop ---------------------------------
@@ -667,12 +704,12 @@ def test_a_forbidden_word_is_rejected_by_the_grader():
 
 # -- 7. tier 2 ----------------------------------------------------------
 
-def test_pair_prompt_states_the_tier2_situation():
-    print("\n7. TIER 2 — the pair prompt says the MANDATE is what needs "
+def test_group_prompt_states_the_tier2_situation():
+    print("\n7. TIER 2 — the group prompt says the MANDATE is what needs "
           "revising, and round-trips through ModelProposer")
     # THE `_word` FIELDS ARE THE PROPOSAL. This fixture used to set them to
     # "dream" and "silver" — the words the two lines ALREADY end on — which
-    # made the suite agree with a `render_pair` that printed them as
+    # made the suite agree with a `render_group` that printed them as
     # `(ends on 'dream')` and read as correct. On a real `revise_loop` they
     # are the words the search is ASKING FOR, so the rendering was wrong on
     # both lines at once and no test could see it, because the fixture
@@ -680,39 +717,45 @@ def test_pair_prompt_states_the_tier2_situation():
     # here on purpose: that is the only way this section can fail.
     pb = PB(pivot_line_no=3, pivot_text=DRAFT[2], pivot_word="mankind",
             pivot_offered=["mankind", "signed", "kind"],
-            anchor_line_no=1, anchor_text=DRAFT[0], anchor_word="deliver",
-            anchor_offered=["deliver", "river", "quiver"],
+            anchors=(AS(line_no=1, text=DRAFT[0], word="deliver",
+                        offered=("deliver", "river", "quiver"), calls=()),),
             label="A", members=[1, 3], brief=PIVOT_BRIEF, lines=DRAFT,
             attempt=0, reasons=None, whole=WHOLE)
-    p = render_pair(pb)
+    p = render_group(pb)
     check("it says the search has ALREADY come back empty, so this is not "
           "'try harder' on the same line",
           "came back empty" in p and "no better word" in p)
     check("...and names what actually needs revising",
           "MANDATE is" in p, [r for r in p.split("\n") if "MANDATE" in r])
     check("both lines are present and both numbered",
-          all(s in p for s in ("PIVOT   L3:", "ANCHOR  L1:")))
-    check("the two `_word` fields are labelled as the SEARCH'S PROPOSAL and "
-          "not as what the lines end on",
-          "THE PAIR THE GRADER'S OWN SEARCH IS PROPOSING" in p
-          and "L3 to end on 'mankind'" in p
-          and "L1 to end on 'deliver'" in p)
+          all(s in p for s in ("PIVOT   L3:", "MEMBER  L1:")))
+    check("the `word` fields are labelled as the SEARCH'S PROPOSAL and "
+          "not as what the lines bind on now",
+          "THE SET THE GRADER'S OWN SEARCH IS PROPOSING" in p
+          and "L3 to bind on 'mankind'" in p
+          and "L1 to bind on 'deliver'" in p)
+    check("...and the prompt DISCLOSES that the offered lists are ordered, "
+          "which is the honest half of the clique-by-construction claim",
+          "MUTUALLY rhyming by" in p and "listed BEFORE it" in p)
     _bad7, _seen7 = _end_word_claims(p)
     check("...and the prompt makes NO claim about a current end word at all "
           "— which is a stronger statement than making none it gets wrong",
           _bad7 == [] and _seen7 == 0,
           f"{_seen7} status-quo claim(s) inspected, {len(_bad7)} false")
-    check("both option lists are present and attributed to the right line",
+    check("every option list is present and attributed to the right line "
+          "BY LINE NUMBER -- a role name cannot address a group of nine",
           "mankind" in p and "deliver" in p
-          and "PIVOT OPTIONS" in p and "ANCHOR OPTIONS" in p)
+          and "PIVOT OPTIONS" in p and "L1 OPTIONS" in p
+          and "ANCHOR OPTIONS" not in p)
     check("the coupling is stated: the two picks must rhyme with each other",
           "must rhyme" in p and "COUPLED" in p)
     check("the whole draft and the whole-draft findings ride along, still "
           "labelled not-these-lines'",
           all(t in p for t in DRAFT) and "NOT THESE LINES' TO FIX" in p)
-    check("the response format demands both markers and says why bare lines "
-          "are discarded",
-          "PIVOT: <the new L3>" in p and "discarded unread" in p)
+    check("the response format demands one L<n>: marker per MEMBER and says "
+          "why bare lines are discarded",
+          "L1: <the new L1>" in p and "L3: <the new L3>" in p
+          and "discarded" in p and "guessing wrong" in p)
     check("the pivot's own findings and evidence are carried",
           "SCHEME_VIOLATION" in p and "score 0.118" in p)
 
@@ -720,25 +763,25 @@ def test_pair_prompt_states_the_tier2_situation():
 
     def call(prompt):
         got["prompt"] = prompt
-        return ("PIVOT: The whole thing felt like mankind\n"
-                "ANCHOR: It gleamed like polished deliver")
-    out = ModelProposer(call).propose_pair(pb)
-    check("ModelProposer.propose_pair returns the two lines in (pivot, "
-          "anchor) order",
-          out == ("The whole thing felt like mankind",
-                  "It gleamed like polished deliver"), out)
-    check("...off the prompt render_pair produced", got["prompt"] == p)
+        return ("L1: It gleamed like polished deliver\n"
+                "L3: The whole thing felt like mankind")
+    out = ModelProposer(call).propose_group(pb)
+    check("ModelProposer.propose_group returns the lines in `members` "
+          "order, NOT in the order the response happened to list them",
+          out == ("It gleamed like polished deliver",
+                  "The whole thing felt like mankind"), out)
+    check("...off the prompt render_group produced", got["prompt"] == p)
 
     def declines(prompt):
         return "I would rather rewrite the whole verse, honestly."
-    check("an unparseable pair response is None, not a guess",
-          ModelProposer(declines).propose_pair(pb) is None)
+    check("an unparseable group response is None, not a guess",
+          ModelProposer(declines).propose_group(pb) is None)
 
     def one_line(prompt):
         return "LINE: The whole thing felt like mankind"
-    check("a single-line response to a PAIR request is refused rather than "
-          "written into one of the two slots",
-          ModelProposer(one_line).propose_pair(pb) is None)
+    check("a single-line response to a GROUP request is refused rather "
+          "than written into one of the k slots",
+          ModelProposer(one_line).propose_group(pb) is None)
 
 
 #: The same three lines `quality/test_loop.py` carries under this name, and
@@ -754,34 +797,48 @@ SILVER_MIND = ["It gleamed like polished silver",
 
 
 def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
-    print("\n7c. `PB` is a SECOND statement of `loop.PairBrief`, and it is "
-          "pinned to the first")
+    print("\n7c. `PB`/`AS` are a SECOND statement of `loop.GroupBrief`/"
+          "`loop.AnchorSlot`, and they are pinned to the first")
     import dataclasses
 
-    from quality.loop import PairBrief
+    from quality.loop import AnchorSlot, GroupBrief
 
     # `PB`'s own docstring says it exists so this suite need not wait on the
     # sibling's dataclass to land. IT HAS LANDED, so that reason has expired
     # and what is left is doctrine 1: two statements of one contract, which
     # drift. Keep `PB` — it builds odd cases a frozen dataclass makes
     # awkward — and make the drift a failing test rather than a surprise.
-    declared = {f.name for f in dataclasses.fields(PairBrief)}
+    declared = {f.name for f in dataclasses.fields(GroupBrief)}
     used = {"pivot_line_no", "pivot_text", "pivot_word", "pivot_offered",
-            "anchor_line_no", "anchor_text", "anchor_word", "anchor_offered",
+            # `anchors` — one `AnchorSlot` per NON-pivot member. It replaced
+            # four scalar `anchor_*` fields on 2026-08-24 (`MISSING.md`
+            # M-105), because one anchor was tier 2's BOUND and not the
+            # shape of the request.
+            "anchors",
             "label", "members", "brief", "lines", "attempt", "reasons",
-            # `anchor_calls` — the anchor's OWN groups, added 2026-08-17 for
-            # defect F and caught here by this very guard on the same run.
-            "whole", "anchor_calls"}
+            "whole", "pivot_slot"}
     check("every field this suite builds a `PB` out of is a real "
-          "`PairBrief` field", used <= declared, sorted(used - declared))
-    check("...and `PairBrief` has grown no field this suite is blind to",
+          "`GroupBrief` field", used <= declared, sorted(used - declared))
+    check("...and `GroupBrief` has grown no field this suite is blind to",
           declared <= used, sorted(declared - used))
-    check("`render_pair` reads the REAL dataclass, not just the stand-in",
-          render_pair(PairBrief(
+    # THE SAME GUARD ONE LEVEL IN. `AS` is read by `render_group` through
+    # `getattr`, so an `AnchorSlot` field the stand-in has not grown renders
+    # as an EMPTY BLOCK — no error, no red — which is exactly the failure
+    # mode the `B`/`Brief` guard below was written for after it happened.
+    a_declared = {f.name for f in dataclasses.fields(AnchorSlot)}
+    a_used = {"line_no", "text", "word", "offered", "calls", "slot"}
+    check("every field this suite builds an `AS` out of is a real "
+          "`AnchorSlot` field", a_used <= a_declared,
+          sorted(a_used - a_declared))
+    check("...and `AnchorSlot` has grown no field this suite is blind to",
+          a_declared <= a_used, sorted(a_declared - a_used))
+    check("`render_group` reads the REAL dataclasses, not just the stand-ins",
+          render_group(GroupBrief(
               pivot_line_no=3, pivot_text=DRAFT[2], pivot_word="dream",
-              pivot_offered=["mankind"], anchor_line_no=1,
-              anchor_text=DRAFT[0], anchor_word="silver",
-              anchor_offered=["deliver"], label="A", members=[1, 3],
+              pivot_offered=["mankind"],
+              anchors=(AnchorSlot(line_no=1, text=DRAFT[0], word="silver",
+                                  offered=("deliver",)),),
+              label="A", members=[1, 3],
               brief=PIVOT_BRIEF, lines=DRAFT, attempt=0)).count("PIVOT") > 0)
 
     # THE SAME GUARD FOR `B`/`Brief`, ADDED 2026-08-16 — and the reason is
@@ -837,8 +894,9 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
 
 
 def test_model_proposer_serves_a_real_tier_2():
-    print("\n7d. END TO END — TIER 2. `propose_pair` is a DIFFERENT contract "
-          "from `propose`, and until now NOTHING crossed the two modules on it")
+    print("\n7d. END TO END — TIER 2. `propose_group` is a DIFFERENT "
+          "contract from `propose`, and until 2026-08-14 NOTHING crossed the "
+          "two modules on it")
     from quality.loop import revise_loop, swap_end_word
     from quality.revise import Reviser
 
@@ -856,31 +914,42 @@ def test_model_proposer_serves_a_real_tier_2():
 
     def call(prompt):
         seen.append(prompt)
-        pivot = _labelled_line(prompt, "PIVOT   L")
-        anchor = _labelled_line(prompt, "ANCHOR  L")
-        # Take the pair the prompt says the SEARCH is proposing, which is
-        # what `loop.default_propose_pair` takes off the object. Taking the
-        # first OFFERED word instead reaches `no_progress` over all 50
-        # attempts -- the offered field is the whole pool the search walks,
-        # so its head is not the pair being tried this attempt and
-        # `verify()` turns every one of them down. That is a true fact
-        # about the two fields and it is why they are rendered apart.
-        p_word = _proposed_word(prompt, "PIVOT   L")
-        a_word = _proposed_word(prompt, "ANCHOR  L")
-        if not all((pivot, anchor, p_word, a_word)):
+        # EVERY MEMBER ROW, read off the prompt generically rather than off
+        # two role names — because a group can have nineteen members and the
+        # stub must not encode the bound this tier no longer has.
+        rows = [_ROLE_ROW.match(r) for r in prompt.split("\n")]
+        got = []
+        for m in [x for x in rows if x]:
+            n, text = m.group(1), m.group(2).strip()
+            # Take the word the prompt says the SEARCH is proposing, which
+            # is what `loop.default_propose_group` takes off the object.
+            # Taking the first OFFERED word instead reaches `no_progress`
+            # over every attempt -- the offered field is the whole pool the
+            # search walks, so its head is not the set being tried this
+            # attempt and `verify()` turns every one of them down. That is a
+            # true fact about the two fields and it is why they are
+            # rendered apart.
+            w = re.search(r"^\s*L%s to bind on '([^']*)'$" % n, prompt,
+                          re.MULTILINE)
+            if not (text and w):
+                return "I cannot answer that."
+            spliced = swap_end_word(text, w.group(1))
+            if spliced is None:
+                return "I cannot answer that."
+            got.append(f"L{n}: {spliced}")
+        if not got:
             return "I cannot answer that."
-        return (f"PIVOT: {swap_end_word(pivot, p_word)}\n"
-                f"ANCHOR: {swap_end_word(anchor, a_word)}")
+        return "\n".join(got)
 
     R = Reviser()
     res = revise_loop(R, SILVER_MIND, [[1, 3], [2, 3]],
-                      propose_pair=ModelProposer(call).propose_pair)
+                      propose_group=ModelProposer(call).propose_group)
     check("the loop reaches tier 2 through `ModelProposer` at all -- an "
           "arity mismatch here is a TypeError, not a quiet no-op",
-          seen, f"{len(seen)} pair prompt(s)")
-    check("the prompt it was handed is the one `render_pair` builds, so the "
-          "stub answered off the PROMPT and never saw a PairBrief",
-          all("PIVOT OPTIONS" in p and "ANCHOR OPTIONS" in p for p in seen))
+          seen, f"{len(seen)} group prompt(s)")
+    check("the prompt it was handed is the one `render_group` builds, so "
+          "the stub answered off the PROMPT and never saw a GroupBrief",
+          all("PIVOT OPTIONS" in p and "L1 OPTIONS" in p for p in seen))
     # THIS IS WHERE THE MISREADING SHOWED, and only here: section 7 builds
     # its own `PB`, so it could only ever be as right as the fixture. On a
     # REAL run the loop fills the two `_word` fields with its search's
@@ -918,7 +987,7 @@ def test_model_proposer_serves_a_real_tier_2():
           f"examined {examined_p}, flagged {len(bad_p)}")
 
     # THE PROPERTY THE MISREADING ACTUALLY BROKE, asserted directly and on
-    # every prompt: `pivot_word`/`anchor_word` are the PROPOSAL. A search
+    # every prompt: the `word` fields are the PROPOSAL. A search
     # proposing the word a line already ends on is proposing a no-op, so the
     # two rendered words must DIFFER from the two lines' current end words —
     # and under the old reading they were printed as those very words. This
@@ -926,7 +995,7 @@ def test_model_proposer_serves_a_real_tier_2():
     proposals = 0
     mismatched = []
     for p in seen:
-        for marker in ("PIVOT   L", "ANCHOR  L"):
+        for marker in ("PIVOT   L", "MEMBER  L"):
             text = _labelled_line(p, marker)
             word = _proposed_word(p, marker)
             if not (text and word):
@@ -945,20 +1014,20 @@ def test_model_proposer_serves_a_real_tier_2():
     # directionally modal and the pair proposer has no further move. The
     # subject of this check is that the PROMPT carries what the object does,
     # and it still does: one prompt, one accepted backtrack, byte-identical
-    # final lines to `default_propose_pair`'s run in test_loop §4.
+    # final lines to `default_propose_group`'s run in test_loop §4.
     check("a proposer reading ONLY the prompt lands the ONE backtrack -- "
-          "the same result `loop.default_propose_pair` gets off the object, "
-          "then the same loud refusal to bless the modal residue",
+          "the same result `loop.default_propose_group` gets off the "
+          "object, then the same loud refusal to bless the modal residue",
           res.stop_reason == "no_progress" and len(seen) == 1,
           f"{res.stop_reason} after {len(seen)} prompt(s)")
     check("L2 -- in neither backtracked group -- is untouched, so tier 2 "
-          "stayed inside its two-line group",
+          "stayed inside the group it named",
           res.lines[1] == SILVER_MIND[1], res.lines)
 
 
-_ROLE_ROW = re.compile(r"^\s*(?:PIVOT|ANCHOR)\s+L(\d+): (.*)$")
+_ROLE_ROW = re.compile(r"^\s*(?:PIVOT|MEMBER)\s+L(\d+): (.*)$")
 #: A STATUS-QUO claim, and the `s`/`ing` is what makes it one. The shipped
-#: rendering says `L3 to end on 'mankind'` and `words L1 could end on` — both
+#: rendering says `L3 to bind on 'mankind'` and `words L1 could bind on` — both
 #: PROPOSALS, and both use the bare infinitive, so neither matches. What
 #: matches is the present indicative quoting a word: the 2026-08-14 defect's
 #: `(ends on 'mankind')`, and any later re-phrasing of it (`L3 currently ends
@@ -980,8 +1049,8 @@ def _end_word_claims(prompt):
     THE INVARIANT. A tier-2 prompt may say whatever it likes about what a
     line SHOULD end on; it may not misstate what a line DOES end on, because
     a writer answering it is then working from a draft that does not exist.
-    Scanned over the RENDERED text rather than the `PairBrief`, so it holds
-    for however `render_pair` phrases a claim.
+    Scanned over the RENDERED text rather than the `GroupBrief`, so it holds
+    for however `render_group` phrases a claim.
 
     IT RETURNS ITS OWN DENOMINATOR, and that is the 2026-08-15 repair. The
     previous version returned only the bad list, and the shipped rendering
@@ -1033,8 +1102,8 @@ def _labelled_line(prompt, marker):
 def _proposed_word(prompt, marker):
     """-> the word the prompt says the search proposes for `marker`'s line.
 
-    Read out of the rendered `THE PAIR THE GRADER'S OWN SEARCH IS PROPOSING`
-    block by LINE NUMBER, so it cannot accidentally pick up the other role's
+    Read out of the rendered `THE SET THE GRADER'S OWN SEARCH IS PROPOSING`
+    block by LINE NUMBER, so it cannot accidentally pick up another member's
     word, and so a rendering that stopped carrying the proposal at all makes
     the stub decline rather than silently answer from somewhere else.
     """
@@ -1047,7 +1116,7 @@ def _proposed_word(prompt, marker):
             break
     if line_no is None:
         return None
-    m = re.search(r"^\s*L%s to end on '([^']*)'$" % line_no, prompt,
+    m = re.search(r"^\s*L%s to bind on '([^']*)'$" % line_no, prompt,
                   re.MULTILINE)
     return m.group(1) if m else None
 
@@ -1056,7 +1125,7 @@ def _first_option(prompt, heading):
     """-> the first word offered under `heading`, or None.
 
     Reads the RENDERED prompt, the same way `_reads_the_prompt` does for
-    tier 1: a stub that reached into the `PairBrief` instead would prove
+    tier 1: a stub that reached into the `GroupBrief` instead would prove
     nothing about what the prompt actually carries.
     """
     rows = prompt.split("\n")
@@ -1142,8 +1211,8 @@ if __name__ == "__main__":
                test_whole_draft_findings_are_context_not_a_task,
                test_a_pivot_and_a_joint_conflict_are_stated,
                test_parse_accepts_the_supported_shapes,
-               test_parse_pair_needs_both_markers,
-               test_pair_prompt_states_the_tier2_situation,
+               test_parse_group_needs_every_marker,
+               test_group_prompt_states_the_tier2_situation,
                test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for,
                test_model_proposer_surface,
                test_model_proposer_serves_a_real_tier_2,

@@ -1379,6 +1379,8 @@ proposer), `pinned` (groups refused unsearched), `starved` (groups whose
 anchor conjunction came back empty) — the last unsayable before the fold,
 because `modal_field(w)` was never empty here.
 
+**RENAMED 2026-08-24 (`MISSING.md` M-105), CONTENT UNCHANGED:** `PairBrief.anchor_calls` is `GroupBrief.anchors[i].calls` and `render_pair` is `render_group` — tier 2 rewrites a WHOLE group now, so one anchor became a list. Every claim above holds per member.
+
 `quality/test_loop.py` §19 is 8 checks over three fixtures, one per half:
 `ANCHOR_IS_A_PIVOT` carries no returns at all, `ANCHOR_HAS_A_LIVE_GROUP` gives
 the anchor's conjunction a non-empty answer so a prompt is actually built, and
@@ -1581,10 +1583,10 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 62 OPEN / 33 PARTIAL / 2 BLOCKED / 65 CLOSED = 162 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 63 OPEN / 33 PARTIAL / 2 BLOCKED / 71 CLOSED = 169 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 3 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1303** DECLARED-public top-level functions/classes under `quality/` and the root — **228** named by another production module, **386** by tests only, **609** only inside their own module, **12** by nothing anywhere, **68** REFUSED (45 ambiguous, 16 dynamic, 7 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **38** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1313** DECLARED-public top-level functions/classes under `quality/` and the root — **229** named by another production module, **394** by tests only, **609** only inside their own module, **12** by nothing anywhere, **69** REFUSED (46 ambiguous, 16 dynamic, 7 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **40** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |

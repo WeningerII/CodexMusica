@@ -3629,7 +3629,7 @@ def test_a_return_is_not_rendered_as_a_rhyme():
     from quality import propose as _PR
     import quality.schemes as _SC
     from quality.schemes import Return
-    from quality.loop import PairBrief
+    from quality.loop import AnchorSlot, GroupBrief
 
     DEC = ["we counted every reason we were given",
            "the kettle on the stove had caught the light",
@@ -3661,7 +3661,7 @@ def test_a_return_is_not_rendered_as_a_rhyme():
           f"return_groups={b3l.return_groups}")
 
     # BOTH RENDERERS. `Brief.__str__` is the API-facing one; `render_line`
-    # and `render_pair` are the two that reach a writer, and rung 3 found
+    # and `render_group` are the two that reach a writer, and rung 3 found
     # this in the TIER 2 prompt, so all three are pinned.
     s = str(b3)
     check("`Brief.__str__` says the line must BE the other one, word for "
@@ -3689,12 +3689,14 @@ def test_a_return_is_not_rendered_as_a_rhyme():
               "write" in flat,
           [l.strip() for l in p1.splitlines() if "rule 2" in l])
 
-    pb = PairBrief(pivot_line_no=3, pivot_text=DEC[2], pivot_word="given",
-                   pivot_offered=["risen"], anchor_line_no=1,
-                   anchor_text=DEC[0], anchor_word="given",
-                   anchor_offered=["driven"], label="A", members=[1, 3],
-                   brief=b3, lines=DEC, attempt=0)
-    p2 = _PR.render_pair(pb)
+    pb = GroupBrief(pivot_line_no=3, pivot_text=DEC[2], pivot_word="given",
+                    pivot_offered=["risen"],
+                    anchors=(AnchorSlot(line_no=1, text=DEC[0],
+                                        word="given",
+                                        offered=("driven",)),),
+                    label="A", members=[1, 3],
+                    brief=b3, lines=DEC, attempt=0)
+    p2 = _PR.render_group(pb)
     check("the TIER 2 prompt says the same — this is the channel rung 3 "
           "found it on, and it renders the mandate through the SAME block",
           "group A [1, 3] is a RETURN" in p2

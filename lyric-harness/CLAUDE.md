@@ -461,6 +461,33 @@ rather than buried: a two-member group is all-ends with probability 1/|pool|²,
 so a plain end-rhyme plan becomes rare, and whether `end` should be a
 first-class outcome instead is a taste question printed for the owner to
 answer into a coordinate.
+**THE OWNER ANSWERED IT 2026-08-24 AND THE ANSWER IS NEITHER OF THE TWO ON
+OFFER (`MISSING.md` M-107).** Not "leave it rare" and not "weight the draw":
+*"add a step at the end that adds rhymes to the end of the lines in order to
+follow the respective forms of the sections"* — with the draw itself put out
+of bounds in the same sitting, *"no, end should not be uniform ... do not fuck
+up what we've already built."* So `_place_group`'s uniform draw is UNTOUCHED
+and the **8.5% stands**; what is added is a SECOND realisation, at the ends, of
+a scheme each sung section had already drawn. `plan.end_rhyme_groups` is a
+PURE FUNCTION OF THE EMITTED PLAN — it reads `choices["schemes"][fn]["rgs"]`,
+`line_slots`, `returns` and `groups`, consumes NO seed entropy, is idempotent,
+and runs before the joint gate so whatever it adds passes the same refusal
+everything else did. **MEASURED over 240 seeds, the before-figure being the
+same plan read without the pass's own contribution: lines whose END is bound
+47.8% -> 71.1%, group members binding the last word 18.4% -> 25.1%, 0 seeds
+lost, 0 joint findings.** Three counts, never summed: added 889, blocked 1601
+(the draw had already spent that end), narrow 29 (the line cannot carry one
+more distinct span). **CROSS-SECTION COHERENCE IS A NON-BUILD AND IS RECORDED
+AS ONE**: a sung function carries ONE code, so every instance already shares
+the scheme SHAPE, and binding instance 1's line i to instance 2's line i would
+be the planner deciding two verses share their RHYMES — which most songs do
+not. **AND THE TWO MUTATIONS ARE NOT SYMMETRIC**, which is the half worth
+carrying: dropping the end-collision check makes `make_plan` REFUSE
+(`TWO_GROUPS_ONE_WORD`, no plan ships), while dropping the participation
+ceiling refuses NOTHING — 60 of 60 seeds still plan with 26 lines over it —
+because `joint_findings` asks the LOOSER question on purpose. So that ceiling
+is a GENERATOR discipline with no gate behind it and `test_plan.py` §13's
+check IS its enforcement, which the check's own message says.
 **OVERLAP IS SATISFIABLE BECAUSE PLACEMENT EXISTS.** Two groups on one line at
 the SAME placement constrain ONE word — `joint_field`'s question, which needs
 words a plan does not have. At DIFFERENT placements they constrain different
@@ -540,11 +567,36 @@ tokens-per-line band agreeing to a fifth of a token (7.25–9.25 against
 **SO THE ENVELOPE IS WHAT THE ENFORCEMENT CAN ENFORCE.** MEASURED over
 1–699 tokens: **39.9% of lengths can produce a FLAG, 29.8% sit in a tolerance
 band where every length-sensitive finding is downgraded to a note, and 30.3%
-reach no profile at all.** `gradeable_line_counts()` is the surviving set and
+reach no profile at all.** ~~`gradeable_line_counts()` is the surviving set and
 it is NOT contiguous — **a song of 6 to 11 lines cannot be graded with teeth
 at any length-sensitive check** — and `line_count_gaps()` prints that hole in
 every plan's own disclosure, so it is a calibration request rather than a
-discovery. Three more literals fell out while widening what they silently
+discovery.~~
+**STRUCK 2026-08-24 (`MISSING.md` M-106): THE HOLE WAS AN ARTEFACT OF ASKING
+THE WRONG QUESTION, AND THE PLANNER WAS DRAWING ITS LENGTH FROM THREE KINDS OF
+TEXT.** `gradeable_line_counts()` unions `section` (a 4-line quatrain),
+`sonnet` and `song`, whose reaches at the derived tokens-per-line band are
+**4–5**, **12–17** and **17–55** lines — so 6 to 11 is the space between a
+QUATRAIN and a SONNET and was never a fact about songs. `song_line_counts()`
+reads the profile that grades a lyric sheet, identified by its own
+`n_lines == 0` and never by name: **17..55, 39 values, CONTIGUOUS.** The
+function above is unchanged and still answers its own different question.
+**AND THE SECTION CEILING WAS M-81(A)'s ERROR ONE LAYER OVER** —
+`_sample_pattern` took `max_cells = total` on the argument that a song of T
+lines cannot hold more than T sung sections, TRUE and never a claim that all T
+values are equally musical. With the total drawn INDEPENDENTLY of the count it
+was then divided among, lines-per-section is a hyperbola.
+`stanza_line_floor()` — the `section` profile's own reach, 4 lines — bounds the
+count at `T // 4` instead. **MEASURED over 240 seeds, per section instance:
+ONE-LINE sung sections 39.4% -> 20.2%, sections per song median 10 -> 8 and max
+31 -> 13, totals median 32 -> 35 with the floor 5 -> 17, 0 seeds lost.** It is
+NOT zero and must not be read as zero: 1 is the modal part of any exact-uniform
+composition (the ladder is 52% under the sequential draw, 39.4%, 20.2%), and a
+one-line tag is a real section. **THE OTHER HALF OF THE OWNER'S COMPLAINT WAS
+THE WRITING, MEASURED**: line LENGTH is not biased short by the planner — 0.0%
+of lines get a ceiling under the density floor and **51.7% can carry the full
+12 syllables**, so a six-syllable line out of a twelve-syllable allowance is
+the writer's choice, not the harness's. Three more literals fell out while widening what they silently
 bounded: a pickup-phrase lookup table that raised `KeyError: 0.75` the moment
 anacrusis became a function of the section's own subdivision; an independent
 per-kind line draw that produced **6 plans in 200 seeds** (replaced by
@@ -1085,9 +1137,9 @@ loud. `quality/test_meter_bands.py` sections 9–10.
 **THE LOOP IS AUTOMATED: quality/loop.py, tests in test_loop.py.**
 `brief`/`verify` graded one round at a time by hand; `revise_loop(reviser,
 lines, mandate, ...)` drives them to convergence. It still never writes: text
-generation is a `propose`/`propose_pair` callable the caller supplies, and
-the one shipped here (`swap_end_word`, a single-word splice) exists to prove
-the loop's OWN control flow, not to write a good line.
+generation is a `propose`/`propose_group` callable the caller supplies, and
+the one shipped here (`swap_at_slot`, a single-word splice at the binding
+site) exists to prove the loop's OWN control flow, not to write a good line.
 
 **THE TWO SEAMS ARE NOT ONE SEAM, AND TIER 2's WAS STARVED — FIXED
 2026-08-14.** `propose(brief, lines, attempt, reasons=None, whole=())` and
@@ -1180,18 +1232,49 @@ BACKTRACKS: `Brief.joint_conflict` means `joint_field` already searched the
 complete pool and nothing answers every group a pivot is in at once —
 retrying tier 1 there is re-running a search already proven empty, which is
 why the brief says "the mandate, not the line, is what needs revising."
-Tier 2 instead revises the WORD of the line the pivot has to match, bounded
+Tier 2 instead revises the WORD of the line the pivot has to match, ~~bounded
 to a two-line group (the pivot and one anchor): a group of three or more
 would mean rewriting the whole group to keep it mutually rhyming, which is a
 bigger move this tier does not attempt, and it says so rather than pretend
-the search was wider than it was.
+the search was wider than it was.~~
+**AND THE BOUND IS GONE — IT REWRITES THE WHOLE GROUP AT ONCE (2026-08-24,
+`MISSING.md` M-105, owner's instruction *"build the joint backtrack"*).** The
+struck sentence has two halves and only the first is true: rewriting the group
+at once IS how its members stay mutually rhyming, and that is one more member
+on the same search, not a bigger move. **MEASURED over 300 plans, 7,641
+declared groups: 3,177 (41.6%) have three or more members, carrying 28,912 of
+the 33,376 mandated pairs (86.6%)** — every one of them refused by this tier,
+correctly disclosed, which is why nothing ever went red. The bound dates from
+when a group came from an RGS partition and was almost always a pair; it
+stopped fitting when placement drawing (M-71/M-80) began emitting overlapping
+covers at a median of 26 groups a song, and nothing re-asked it. **THE CLIQUE
+IS BY CONSTRUCTION**: members are assigned IN ORDER, each one's field searched
+against the pivot's word PLUS every sibling already placed, so `joint_field`'s
+intersection holds the group together and there is no second mutual-rhyme
+predicate to drift from the grader (doctrine 1). **THE COST IS LINEAR IN THE
+GROUP** — `width * (k - 1)` searches and `width ** 2` proposals, never
+`width ** k` — and **at k=2 it is byte-identical to the pair search it
+replaces**, pinned by `test_loop.py` §16 measuring two widths on one fixture.
+The contract moved rather than grew a second shape (a pair IS a group of two,
+doctrine 1): `PairBrief` -> `GroupBrief` + `AnchorSlot`, `propose_pair` ->
+`propose_group(group_brief) -> tuple[str, ...]` in `GroupBrief.members` order,
+`render_pair`/`parse_pair` -> `render_group`/`parse_group`, and the response
+marker is `L<n>:` because two role names cannot address a group of nine.
+**AND THE STUB WAS SPLICING THE WRONG WORD**: `default_propose_pair` called
+`swap_end_word` unconditionally, so a HEAD-bound group was answered by
+rewriting its ENDING — the defect `swap_at_slot` closed for tier 1 on
+2026-08-23, still live here because the two stubs were repaired a lot apart.
+`test_loop.py` §6 was the test that PINNED the bound (`tried == 0`, `"3+
+members"`, draft untouched) and is rewritten in place on the same fixture: its
+load-bearing assertion is now that EVERY member moved in ONE accepted attempt,
+and that draft goes from `0 tried, untouched` to SUCCESS in 3 rounds.
 
 THREE STOP CONDITIONS, and they are not one thing. SUCCESS — nothing left
 carries a flag finding **ON A LINE. That qualifier is load-bearing and was
 missing until 2026-08-13.** Every stop condition reads `brief()`, `brief()` is
 built from `inspect()`'s `per_line` half, and a WHOLE-DRAFT finding names no
 line — so it is in no `Brief` and no stop condition can see it. ~~Exactly three
-codes are~~ ~~FOUR codes are~~ **FIVE codes are** whole-draft AND a flag:
+codes are~~ ~~FOUR codes are~~ ~~FIVE codes are~~ **SIX codes are (2026-08-25: `STACKED_DRAFT` joined — the sentencehood layer's calibrated noun-stack ceiling, `MISSING.md` M-110, same species as the floor's two and priced by the same argument below)** whole-draft AND a flag:
 `LEXICAL_MONOTONY` and
 `FUNCTION_WORD_HEAVY`
 (the floor, and only inside a calibrated profile's MEASURED range) and

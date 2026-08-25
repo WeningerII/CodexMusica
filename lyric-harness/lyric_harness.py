@@ -30,6 +30,7 @@ import re
 import unicodedata
 import sys
 import textwrap
+import types
 import urllib.request
 from dataclasses import dataclass, field, asdict
 
@@ -5016,7 +5017,7 @@ def _blueprint_or_refuse(fn, *a, **k):
 # `default_propose`, a single-word splice whose output reads "boarded up the
 # main". That proposer exists to prove the control flow and says so in its own
 # docstring; it is not a way to get a line. `revise_loop` has taken
-# `propose=`/`propose_pair=` since it was written and NOTHING on this command
+# `propose=`/`propose_group=` since it was written and NOTHING on this command
 # line could hand it one -- the same built-and-tested-was-not-the-reachable
 # shape `--blueprint` and `--fallback` were, one layer further in.
 #
@@ -5088,28 +5089,79 @@ def _first_attr(mod, names):
     return None, None
 
 
+def _group_key(members, texts, words):
+    """-> the hashable identity of ONE tier-2 proposal request.
+
+    THE THREE LISTS TOGETHER, and none of them alone. `members` says which
+    lines the record answers, so a record cannot be replayed onto a group it
+    was not written for; `texts` pins the draft AS IT STANDS, so a later
+    attempt on the same lines after an earlier one moved them is a different
+    request; `words` pins what the loop is ASKING FOR, so the several
+    attempts inside one backtrack search are several records rather than one
+    replayed forever.
+
+    A RAGGED RECORD REFUSES. Three lists of different lengths cannot name a
+    proposal — position is the only thing tying a member to its text and its
+    word — and silently zipping to the shortest would replay a set nobody
+    proposed onto a group nobody asked about (doctrine 20).
+    """
+    m, t, w = list(members), list(texts), list(words)
+    if not (len(m) == len(t) == len(w)) or not m:
+        raise ValueError(
+            f"a propose_group record needs members/texts/words all the same "
+            f"non-zero length; got {len(m)}/{len(t)}/{len(w)}")
+    return (tuple(int(x) for x in m), tuple(t), tuple(w))
+
+
+def _brief_key(group_brief):
+    """-> `_group_key` read off a `quality.loop.GroupBrief` BY ATTRIBUTE.
+
+    Duck-typed the same way `quality/propose.py` is, so a hand-built stand-in
+    in a test replays exactly as the real one does. The pivot and the anchors
+    are folded into ONE ordered pair of lists keyed on `members`, which is
+    the mandate's own order — the same order `propose_group`'s return is in,
+    so the record and the answer cannot be zipped differently (doctrine 1).
+    """
+    members = list(getattr(group_brief, "members", ()) or ())
+    texts, words = [], []
+    for n in members:
+        got = group_brief.proposal_for(n)
+        texts.append(None if got is None else got[0])
+        words.append(None if got is None else got[1])
+    return _group_key(members, texts, words)
+
+
 def _replay_proposer(path):
-    """-> (propose, propose_pair, disclosure) reading recorded proposals.
+    """-> (propose, propose_group, disclosure) reading recorded proposals.
 
     THE FILE IS THE RECORD OF A RUN, not a script: JSON, one object.
 
         {"propose": [{"line": 3, "attempt": 0, "text": "..."}],
-         "propose_pair": [{"pivot": "...", "anchor": "...",
-                           "pivot_word": "...", "anchor_word": "...",
-                           "new_pivot": "...", "new_anchor": "..."}]}
+         "propose_group": [{"members": [3, 7, 11],
+                            "texts": ["...", "...", "..."],
+                            "words": ["...", "...", "..."],
+                            "new": ["...", "...", "..."]}]}
 
     THE TWO ARE KEYED DIFFERENTLY BECAUSE THE LOOP CALLS THEM DIFFERENTLY.
     Tier 1's `propose(brief, lines, attempt, reasons=None, whole=())` has a
     line number, so (line, attempt) is its key. Tier 2's
-    `propose_pair(pair_brief)` is handed ONE `quality.loop.PairBrief`, whose
-    two `_word` fields are THE WORDS THIS ATTEMPT IS ASKING FOR rather than
-    the ones currently at the two line ends — so the key is the four
-    coordinates that identify the proposal: the two texts as they stand and
-    the two words being asked for. Keying on the pivot's line number alone
-    would collapse every attempt in one backtrack search into a single
-    record and replay the first one forever.
+    `propose_group(group_brief)` is handed ONE `quality.loop.GroupBrief`,
+    whose `word` fields are THE WORDS THIS ATTEMPT IS ASKING FOR rather than
+    the ones currently bound — so the key is the three parallel lists that
+    identify the proposal: the members, their texts as they stand and the
+    words being asked for. Keying on the pivot's line number alone would
+    collapse every attempt in one backtrack search into a single record and
+    replay the first one forever.
 
-    READ OFF THE `PairBrief` BY ATTRIBUTE, never by unpacking. The contract
+    ~~"pivot"/"anchor", four scalar coordinates.~~ **THREE PARALLEL LISTS
+    SINCE 2026-08-24 (`MISSING.md` M-105)**, because tier 2 rewrites a whole
+    group now and a group of nine has no anchor. `members` is stored so a
+    record says which lines it answers rather than leaving that to position,
+    and the three lists are required to be the same length — a record whose
+    lists disagree is malformed and REFUSES rather than replaying a set
+    nobody proposed.
+
+    READ OFF THE `GroupBrief` BY ATTRIBUTE, never by unpacking. The contract
     moved on 2026-08-14 from four positional strings to one object, and this
     reader is duck-typed the same way `quality/propose.py` is: it takes
     `getattr`s off whatever it is handed, so a hand-built stand-in in a test
@@ -5133,27 +5185,26 @@ def _replay_proposer(path):
     except ValueError as e:                    # json.JSONDecodeError IS-A this
         _refuse(f"--propose=replay:{path} — not readable as JSON: {e}",
                 detail=['expected {"propose": [{"line": N, "attempt": N, '
-                 '"text": "..."}], "propose_pair": [...]}'])
+                 '"text": "..."}], "propose_group": [...]}'])
     if not isinstance(rec, dict):
         _refuse(f"--propose=replay:{path} — the top level is "
                 f"{type(rec).__name__}, not an object",
-                detail=['expected {"propose": [...], "propose_pair": [...]}'])
-    ones, pairs = {}, {}
+                detail=['expected {"propose": [...], "propose_group": [...]}'])
+    ones, groups = {}, {}
     try:
         for r in rec.get("propose", []):
             ones[(int(r["line"]), int(r["attempt"]))] = r["text"]
-        for r in rec.get("propose_pair", []):
-            pairs[(r["pivot"], r["anchor"],
-                   r["pivot_word"], r["anchor_word"])] = (r["new_pivot"],
-                                                          r["new_anchor"])
+        for r in rec.get("propose_group", []):
+            groups[_group_key(r["members"], r["texts"], r["words"])] = \
+                tuple(r["new"])
     except (KeyError, TypeError, ValueError) as e:
         _refuse(f"--propose=replay:{path} — a record is malformed: {e!r}",
-                detail=["`propose` records need line/attempt/text; `propose_pair` "
-                 "records need pivot/anchor/pivot_word/anchor_word/"
-                 "new_pivot/new_anchor"])
-    if not ones and not pairs:
+                detail=["`propose` records need line/attempt/text; "
+                 "`propose_group` records need members/texts/words/new, all "
+                 "four the same length"])
+    if not ones and not groups:
         _refuse(f"--propose=replay:{path} — the file parses and records "
-                f"NOTHING (0 propose, 0 propose_pair)",
+                f"NOTHING (0 propose, 0 propose_group)",
                 detail=["an empty replay would drive the loop with a proposer that "
                  "gives up on every line, and report that as the loop's "
                  "verdict on the draft. Doctrine 20: that is a refusal, not "
@@ -5169,18 +5220,14 @@ def _replay_proposer(path):
         tally["hit" if text is not None else "miss"] += 1
         return text
 
-    def propose_pair(pair_brief):
-        key = (getattr(pair_brief, "pivot_text", None),
-               getattr(pair_brief, "anchor_text", None),
-               getattr(pair_brief, "pivot_word", None),
-               getattr(pair_brief, "anchor_word", None))
-        hit = pairs.get(key)
+    def propose_group(group_brief):
+        hit = groups.get(_brief_key(group_brief))
         tally["hit" if hit is not None else "miss"] += 1
         return hit
 
     def disclosure(done=False):
         head = (f"  PROPOSER: replay:{path} — {len(ones)} recorded line "
-                f"proposal(s), {len(pairs)} recorded pair(s)")
+                f"proposal(s), {len(groups)} recorded group(s)")
         if not done:
             return head + "; nothing outside this process is reached by " \
                           "this spelling"
@@ -5192,7 +5239,7 @@ def _replay_proposer(path):
                    ". NOT ONE recorded proposal matched what the loop asked "
                    "for, so every line below is the loop's verdict on the "
                    "draft it was handed and no recorded text was tried"))
-    return propose, propose_pair, disclosure
+    return propose, propose_group, disclosure
 
 
 class _NeedProposal(Exception):
@@ -5214,7 +5261,7 @@ class _NeedProposal(Exception):
 
 def _defer_state(path):
     """-> the deferred-run state at `path`, or an empty one. Never raises."""
-    empty = {"version": 1, "answered": {"propose": [], "propose_pair": []},
+    empty = {"version": 1, "answered": {"propose": [], "propose_group": []},
              "pending": None}
     if not os.path.exists(path):
         return empty
@@ -5232,12 +5279,12 @@ def _defer_state(path):
                 detail=['expected {"answered": {...}, "pending": {...}}'])
     st.setdefault("pending", None)
     st["answered"].setdefault("propose", [])
-    st["answered"].setdefault("propose_pair", [])
+    st["answered"].setdefault("propose_group", [])
     return st
 
 
 def _defer_proposer(path):
-    """-> (propose, propose_pair, disclosure) that SUSPENDS instead of guessing.
+    """-> (propose, propose_group, disclosure) that SUSPENDS rather than guess.
 
     THE PROBLEM THIS SOLVES, stated plainly because it is not a Python
     problem and the first diagnosis of it in this project said it was. A
@@ -5303,23 +5350,27 @@ def _defer_proposer(path):
             rec["text"] = parsed
             st["answered"]["propose"].append(rec)
         else:
-            parsed = PR.parse_pair(ans) if isinstance(ans, str) else None
+            parsed = (PR.parse_group(ans, rec.get("members") or ())
+                      if isinstance(ans, str) else None)
             if parsed is None:
                 _refuse(f"--propose=defer:{path} — `pending.answer` is not a "
-                        f"readable PIVOT/ANCHOR pair",
-                        detail=["tier 2 has TWO slots and their order is not "
-                                "something a response format can be trusted "
-                                "to have got right, so both markers are "
-                                "required (quality/propose.py `parse_pair`)."])
-            rec["new_pivot"], rec["new_anchor"] = parsed
-            st["answered"]["propose_pair"].append(rec)
+                        f"readable set of L<n>: lines for "
+                        f"{rec.get('members')}",
+                        detail=["tier 2 has one slot PER MEMBER and their "
+                                "order is not something a response format "
+                                "can be trusted to have got right, so every "
+                                "L<n>: marker is required and each may "
+                                "appear once (quality/propose.py "
+                                "`parse_group`)."])
+            rec["new"] = list(parsed)
+            st["answered"]["propose_group"].append(rec)
         st["pending"] = None
 
     ones = {(int(r["line"]), int(r["attempt"])): r["text"]
             for r in st["answered"]["propose"]}
-    pairs = {(r["pivot"], r["anchor"], r["pivot_word"], r["anchor_word"]):
-             (r["new_pivot"], r["new_anchor"])
-             for r in st["answered"]["propose_pair"]}
+    groups = {_group_key(r["members"], r["texts"], r["words"]):
+              tuple(r["new"])
+              for r in st["answered"]["propose_group"]}
     tally = {"hit": 0}
 
     def _suspend(kind, record, prompt):
@@ -5337,23 +5388,19 @@ def _defer_proposer(path):
                  PR.render_line(brief, lines, whole=whole, attempt=attempt,
                                 reasons=reasons))
 
-    def propose_pair(pair_brief):
-        key = (getattr(pair_brief, "pivot_text", None),
-               getattr(pair_brief, "anchor_text", None),
-               getattr(pair_brief, "pivot_word", None),
-               getattr(pair_brief, "anchor_word", None))
-        hit = pairs.get(key)
+    def propose_group(group_brief):
+        members, texts, words = _brief_key(group_brief)
+        hit = groups.get((members, texts, words))
         if hit is not None:
             tally["hit"] += 1
             return hit
-        _suspend("propose_pair",
-                 {"pivot": key[0], "anchor": key[1], "pivot_word": key[2],
-                  "anchor_word": key[3], "new_pivot": None,
-                  "new_anchor": None},
-                 PR.render_pair(pair_brief))
+        _suspend("propose_group",
+                 {"members": list(members), "texts": list(texts),
+                  "words": list(words), "new": None},
+                 PR.render_group(group_brief))
 
     def disclosure(done=False):
-        n = len(ones) + len(pairs)
+        n = len(ones) + len(groups)
         head = (f"  PROPOSER: defer:{path} — {n} answer(s) already given, "
                 f"replayed in order")
         if not done:
@@ -5365,11 +5412,11 @@ def _defer_proposer(path):
                 f"`answered` block is a valid --propose=replay: file")
 
     disclosure.state = st                    # the verb writes it on suspension
-    return propose, propose_pair, disclosure
+    return propose, propose_group, disclosure
 
 
 def _resolve_proposer(spec):
-    """`--propose=`'s value -> (propose, propose_pair, disclosure).
+    """`--propose=`'s value -> (propose, propose_group, disclosure).
 
     `disclosure(done=False)` is printed TWICE — once before the loop, for
     the identity, and once after it with `done=True`, because `replay:` only
@@ -5502,12 +5549,12 @@ def _resolve_proposer(spec):
                 f"did not accept it: {e}",
                 detail=["quality/propose.py's ModelProposer takes one `call`"])
     one = getattr(proposer, "propose", None)
-    two = getattr(proposer, "propose_pair", None)
+    two = getattr(proposer, "propose_group", None)
     if one is None:
         _refuse("--propose=call: — the ModelProposer has no `.propose`",
                 detail=["quality/loop.py calls propose(brief, lines, attempt, "
                         "reasons=None, whole=()) and "
-                        "propose_pair(pair_brief)"])
+                        "propose_group(group_brief)"])
 
     def disclosure(done=False):
         return (f"  PROPOSER: call:{mod_name}:{attr_path} — DECLARED on the "
@@ -5516,8 +5563,8 @@ def _resolve_proposer(spec):
                 f"{Proposer.__name__}. Whatever that call reaches, and what "
                 f"it costs, is on the far side of this seam"
                 + ("" if two is not None else
-                   ". NO `.propose_pair`: tier 2 (the backtrack) fell back "
-                   "to quality/loop.py's own stub pair-swap, so any "
+                   ". NO `.propose_group`: tier 2 (the backtrack) fell "
+                   "back to quality/loop.py's own stub slot-swap, so any "
                    "backtracked line is a SPLICE and not proposed text"))
     return one, two, disclosure
 
@@ -7807,7 +7854,7 @@ def main():
                                           structures=st, relations=rl), tail)
             return _finish(g, tail)              # --groups= alone, as before
 
-        def _say_derived(m):
+        def _say_derived(m, n_lines=None):
             """Doctrine 14, out loud. A cover read off the rhyme graph is
             mutually band-passing BY CONSTRUCTION, so a clean rhyme result
             against it is an identity and not a verdict. `Mandate.describe`
@@ -7837,20 +7884,43 @@ def main():
             # `--structures=` / `--relations=` is also given. Disclosing one
             # shape and not the other would leave the plainest call — the
             # one a writer actually types — as the silent one.
+            #
+            # AND FOR TWO DAYS IT DID, ONE FIELD IN (`MISSING.md` M-108).
+            # The sentence above is about whether a mandate is MENTIONED and
+            # both shapes mentioned one; what the bare-list branch never
+            # said is HOW MUCH it declared. Measured on a four-line fixture:
+            # `--groups=1,3;2,4` printed `2 group(s) declared` while the
+            # identical cover with a `--returns=` beside it printed `2
+            # group(s) over 4 lines, 2 mandated pair(s)`. So the mandated
+            # PAIR COUNT — the numerator of doctrine 79's own triple, and
+            # the only one of the three a report can state before grading —
+            # was disclosed for the decorated call and withheld from the
+            # plain one. It is ONE SHAPE now.
             if isinstance(m, (str, type(None))):
                 return                     # a letter scheme: the page has it
             if hasattr(m, "groups"):
                 _grps = list(m.groups)
                 _lab = list(getattr(m, "labels", ()))
-                _head = (f"  MANDATE: {len(_grps)} group(s) over "
-                         f"{m.n_lines} lines, {len(m.pairs())} mandated "
-                         f"pair(s), source={m.source} ({m.origin})")
+                _n, _src = m.n_lines, f"{m.source} ({m.origin})"
+                _prs = m.pairs()
             elif isinstance(m, list) and m and isinstance(m[0], list):
                 _grps, _lab = list(m), []
-                _head = (f"  MANDATE: {len(_grps)} group(s) declared, "
-                         f"source=declared (--groups=)")
+                _n, _src = n_lines, "declared (--groups=)"
+                # `Mandate.pairs` CALLED, never respelled. It is a pure
+                # function of `.groups` and a bare cover has those, so the
+                # count here and the count on the decorated call move
+                # together by construction rather than by agreement
+                # (doctrine 1) — a second spelling of "the pairs of a cover"
+                # is how one report starts disagreeing with the other.
+                _prs = SC.Mandate.pairs(types.SimpleNamespace(groups=_grps))
             else:
                 return
+            # A caller that did not hand the line count down gets the count
+            # REFUSED by name rather than a zero, which would read as a
+            # four-line song (doctrine 20).
+            _over = f"{_n} lines" if _n is not None else "UNDECLARED lines"
+            _head = (f"  MANDATE: {len(_grps)} group(s) over {_over}, "
+                     f"{len(_prs)} mandated pair(s), source={_src}")
             while len(_lab) < len(_grps):          # A, B, C ... as the
                 _lab.append(chr(65 + len(_lab)))   # report letters them
             # `group A`, UNQUOTED — the house spelling everywhere a group is
@@ -8318,7 +8388,7 @@ def main():
                 sides.append(("HANDED IN brief's FILE", args[1]))
                 lines = load_lyric_lines(args[1])
                 scheme, _tail = _mandate_arg(args, 2, lines)
-                _say_derived(scheme)
+                _say_derived(scheme, len(lines))
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
@@ -8436,7 +8506,7 @@ def main():
                         [l.strip() for l in lyric_text.splitlines()
                          if l.strip() and not is_apparatus_line(l)])
                 scheme, _tail = _mandate_arg(args, 3, lines)
-                _say_derived(scheme)
+                _say_derived(scheme, len(lines))
                 _say_relation(scheme)
                 if scheme is not None:
                     print(f"  BLUEPRINT: {song_bp_path} — meter and "
@@ -8466,7 +8536,7 @@ def main():
                 before = load_lyric_lines(args[1])
                 after = load_lyric_lines(args[2])
                 scheme, tail = _mandate_arg(args, 3, before)
-                _say_derived(scheme)
+                _say_derived(scheme, len(before))
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
@@ -8548,11 +8618,11 @@ def main():
                 sides.append(("HANDED IN revise's FILE", args[1]))
                 lines = load_lyric_lines(args[1])
                 scheme, _tail = _mandate_arg(args, 2, lines)
-                _say_derived(scheme)
+                _say_derived(scheme, len(lines))
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
-                propose, propose_pair, say_proposer = _resolve_proposer(
+                propose, propose_group, say_proposer = _resolve_proposer(
                     propose_spec)
                 # DISCLOSED BEFORE THE RUN AS WELL AS AFTER IT, and the two
                 # are the same callable. Which proposer wrote the draft is
@@ -8567,7 +8637,7 @@ def main():
                                             assume=assume,
                                             profile=rv_profile,
                                             propose=propose,
-                                            propose_pair=propose_pair)
+                                            propose_group=propose_group)
                 except _NeedProposal as need:
                     # EXIT 4 — SUSPENDED, and it is a fourth code for the same
                     # reason `song`'s flag verdict needed a third: 0 is "the

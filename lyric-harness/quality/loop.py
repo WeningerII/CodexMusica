@@ -6,8 +6,9 @@ Run: python3 lyric_harness.py revise FILE MANDATE
 
 WHAT THIS IS NOT. It does not write lyrics. "The model proposes, this
 grades" (CLAUDE.md, first page) is not relaxed here — text generation is a
-PLUGGABLE `propose`/`propose_pair` callable the caller supplies. The default
-shipped here (`swap_end_word`, `default_propose`, `default_propose_pair`) is
+PLUGGABLE `propose`/`propose_group` callable the caller supplies. The default
+shipped here (`swap_end_word`, `swap_at_slot`, `default_propose`,
+`default_propose_group`) is
 a MECHANICAL stub: it substitutes exactly one word and touches nothing else.
 That is enough to prove the loop's own control flow — accept, reject, retry,
 backtrack, stop — actually works, without a live model anywhere in the run.
@@ -28,12 +29,32 @@ TWO TIERS, matching what a person backspacing through a draft actually does.
   `Brief.joint_conflict` says plainly "the mandate, not the line, is what
   needs revising." The fix, when one exists, is upstream: change the word of
   the line THIS one has to match, which changes what the pivot must satisfy.
-  Bounded to groups of exactly two lines (the pivot and one ANCHOR) — a
+  ~~Bounded to groups of exactly two lines (the pivot and one ANCHOR) — a
   group of three or more would mean rewriting the whole group at once to
   keep its members mutually rhyming, which is a bigger and structurally
   different move than backtracking one step, and this tier does not attempt
   it. It says so in the result rather than pretending the search was wider
-  than it was.
+  than it was.~~
+  **THE BOUND IS GONE — 2026-08-24, `MISSING.md` M-105. THE WHOLE GROUP IS
+  REWRITTEN AT ONCE AND IT IS THE SAME MOVE, NOT A DIFFERENT ONE.** The
+  struck sentence has two halves and only the first is true: rewriting the
+  group at once IS what keeps its members mutually rhyming, and that turns
+  out to be one more member on the same search rather than a structurally
+  different one. MEASURED over 300 plans before the widening — 7,641
+  declared groups, of which **3,177 (41.6%) have three or more members**,
+  carrying **28,912 of the 33,376 mandated pairs (86.6%)**, every one of
+  them refused by this tier with the refusal correctly disclosed. The bound
+  was written when a group came from an RGS partition and was almost always
+  a pair; it stopped being true when placement drawing (M-71/M-80) began
+  emitting overlapping covers at a median of 26 groups a song, and nothing
+  re-asked it. THE MUTUAL RHYME IS BY CONSTRUCTION rather than by a second
+  predicate: members are assigned IN ORDER and each one's field is searched
+  against the pivot's word PLUS every sibling already placed, so
+  `joint_field`'s intersection is what holds the clique together and there
+  is no separate check to drift from the grader (doctrine 1). The cost is
+  `width * (k - 1)` searches and `width ** 2` proposals — linear in the
+  group, so a group of nineteen is affordable — and the two-member case is
+  byte-identical to the pair search it replaces.
 
 TIER 2 ASKED A WRITER TO COMPOSE BLIND, AND IT IS THE HARDER TIER — FIXED
 2026-08-14. This module called `propose_pair(pivot_text, anchor_text,
@@ -50,6 +71,13 @@ only fires once `joint_field` has PROVED that no single word answers every
 group at once, which is the one thing a writer most needs told and the one
 thing four strings cannot say. It is a `PairBrief` now, one argument, and
 `propose_pair(pair_brief) -> (str, str) | None` is the contract.
+**RENAMED WITH THE BOUND, 2026-08-24: `GroupBrief` and
+`propose_group(group_brief) -> tuple[str, ...] | None`, one line per
+member in `GroupBrief.members` order.** A pair is a group of two, so two
+contracts for one move would be two statements of it (doctrine 1); the
+paragraph above is kept unedited because it is the record of why the
+argument object exists at all, and every word of it still applies
+(doctrine 17).
 
   THE FOUR-STRING ARITY IS GONE RATHER THAN KEPT BESIDE IT, and that is a
   decision with an argument rather than a shim by reflex. A compatibility
@@ -68,7 +96,20 @@ thing four strings cannot say. It is a `PairBrief` now, one argument, and
   is a DECLARED COORDINATE (`strip_parens`, `fallback`, `subdivision`), not
   a silent adapter, and an adapter is the only shape available here.
 
-  WHAT BREAKS, NAMED RATHER THAN HOPED ABOUT. Any callable passed as
+  WHAT BREAKS, NAMED RATHER THAN HOPED ABOUT — AND A SECOND SET WAS ADDED
+  2026-08-24 BY THE SAME RULE. The `propose_pair=` PARAMETER is gone, not
+  deprecated: a caller still passing it gets `TypeError: revise_loop() got
+  an unexpected keyword argument`, at the call itself, before a brief is
+  built. A callable passed as `propose_group=` that reads `.anchor_line_no`
+  / `.anchor_word` / `.anchor_offered` / `.anchor_calls` raises
+  `AttributeError` at its first proposal — those four fields are now
+  `GroupBrief.anchors[i].line_no` / `.word` / `.offered` / `.calls`, one per
+  non-pivot member, because one anchor was the bound and not the shape. The
+  set in this repo was enumerated and moved in the same commit:
+  `default_propose_group`, `quality/propose.py`'s `ModelProposer`,
+  `lyric_harness.py`'s `replay:`/`defer:` proposers, and the inline
+  proposers in `test_loop.py`/`test_propose.py`/`test_verbs.py`.
+  THE ORIGINAL 2026-08-14 SET, unchanged: any callable passed as
   `propose_pair=` taking four positionals, and any passed as `propose=`
   taking exactly four (`whole` is new and positional-fifth). Both raise
   `TypeError` naming the callable, at the FIRST proposal, before a single
@@ -204,7 +245,7 @@ side. From the WRITER's side the same asymmetry is worse, because
 codes `_function_findings`/`_meter_findings` file with empty `locations` —
 is REJECTED for it, and until now nothing ever told the proposer those
 codes existed. `propose(brief, lines, attempt, reasons=None, whole=())` and
-`PairBrief.whole` close that: the rubric a proposal is marked against is
+`GroupBrief.whole` close that: the rubric a proposal is marked against is
 handed to whoever writes it.
 
   NOT ON `Brief`, and this module's own argument above is why. A `Brief` is
@@ -236,6 +277,7 @@ handed to whoever writes it.
   whole four-line run is 10.3s.
 """
 
+import collections
 import os
 import re
 import sys
@@ -251,9 +293,10 @@ from quality import slots as _SL  # noqa: E402
 from quality.revise import (ReviseDeclaration, Reviser,  # noqa: E402
                             draft_fingerprint)
 
-__all__ = ["LineAttempt", "PairBrief", "RoundResult", "LoopResult",
+__all__ = ["LineAttempt", "AnchorSlot", "GroupBrief", "RoundResult",
+           "LoopResult",
           "revise_loop", "swap_end_word", "default_propose",
-          "default_propose_pair"]
+           "default_propose_group"]
 
 #: The CRUDER reading `swap_end_word` uses to find a token's character span.
 #: It must carry the SAME letter repertoire as `lyric_harness.line_tokens`, or
@@ -484,108 +527,186 @@ def default_propose(brief, lines, attempt, reasons=None, whole=()):
                         brief.candidates[attempt])
 
 
-def default_propose_pair(pair_brief):
-    """-> (new_pivot_text, new_anchor_text), or `None`. Tier 2's stub,
-    same mechanism as `default_propose`: one word swapped on each line.
+def default_propose_group(group_brief):
+    """-> one replacement line per member of the group, or `None`.
 
-    It reads exactly the four fields the old four-string signature carried
-    (`pivot_text`, `anchor_text`, `pivot_word`, `anchor_word`) and ignores
-    the other eleven, so the SEARCH this stub drives is byte-identical to
-    what it drove before the `PairBrief` existed — the contract widened and
-    the shipped behaviour did not move. Every other field is there for a
-    proposer that writes rather than splices.
+    Tier 2's stub, the same mechanism `default_propose` is for tier 1: one
+    word spliced on each line of the group. The return is a tuple ordered by
+    `group_brief.members` — the MANDATE'S own order, never pivot-first — so
+    a proposer never has to work out which index the pivot occupies before it
+    can answer, and the loop never has to state that order twice.
+
+    AT EACH MEMBER'S OWN BINDING SLOT, which is a repair this stub needed
+    from the day placement became a coordinate. `default_propose_pair`, the
+    two-line predecessor, called `swap_end_word` on both lines
+    unconditionally — so a group binding at a line's HEAD was answered by
+    rewriting its ENDING, the identical defect `swap_at_slot` was written to
+    close for tier 1 and which stayed live here because the two stubs were
+    repaired a lot apart. It is invisible on any end-bound group, which is
+    every group anyone wrote before `Mandate.loci` existed, and that is
+    exactly why it survived.
+
+    It reads only `members`, each member's text, its proposed word and its
+    slot, and ignores every other field, so the SEARCH this stub drives is
+    byte-identical to what it drove as a pair wherever the group has two
+    end-bound members. Every other field is there for a proposer that WRITES
+    rather than splices.
     """
-    new_pivot = swap_end_word(pair_brief.pivot_text, pair_brief.pivot_word)
-    new_anchor = swap_end_word(pair_brief.anchor_text, pair_brief.anchor_word)
-    if new_pivot is None or new_anchor is None:
-        return None
-    return new_pivot, new_anchor
+    out = []
+    for m in group_brief.members:
+        prop = group_brief.proposal_for(m)
+        if prop is None:
+            return None
+        text, word, slot = prop
+        new = swap_at_slot(text, m if slot is None else slot, word)
+        if new is None:
+            return None
+        out.append(new)
+    return tuple(out)
 
 
 @dataclass
-class PairBrief:
-    """What a TIER-2 writer is asked to do: TWO coupled lines, at once.
+class AnchorSlot:
+    """ONE non-pivot member of the group a joint backtrack is rewriting.
+
+    The pivot is asked for a word that answers its OTHER groups; every other
+    member of the shared group then has to move to match it, and each of them
+    is a line with obligations of its own. This carries what a writer needs
+    about ONE of them and nothing about the others, so a group of nine is
+    nine of these rather than one field holding nine of everything.
+
+    `word` IS THE PROPOSAL. The status quo is `text`'s own final token, read
+    the one way this project reads an end word — the same reading
+    `GroupBrief` documents for the pivot, and the same one
+    `quality/propose.py` printed backwards for every real run until
+    2026-08-14.
+
+    `offered` is the COMPLETE field `word` was drawn from, in
+    `joint_field`'s own ranking with the modal head already excluded
+    (doctrine 9). `calls` is every call word this member must STILL answer
+    from groups OTHER than the one being rewritten — empty is the ordinary
+    case, a member in one group only, and is not a disclosure gap. `slot` is
+    where this member BINDS inside the group being rewritten, read from
+    `Mandate.slot_of`, so a head-bound member is asked for its head.
+    """
+    line_no: int
+    text: str
+    word: str
+    offered: tuple
+    calls: tuple = ()
+    slot: object = None
+
+
+@dataclass
+class GroupBrief:
+    """What a TIER-2 writer is asked to do: a WHOLE rhyme group, at once.
 
     The tier-1 counterpart is `quality/revise.py`'s `Brief`, and this is
-    deliberately NOT one. A `Brief` is per-LINE — one line, its findings,
-    its candidate field — and a backtrack is a statement about a PAIR: the
-    pivot cannot be fixed on its own, so the word of the line it has to
-    match moves too. Two lines, two words, one group, and a reason the
-    single-line move was already proven impossible.
+    deliberately NOT one. A `Brief` is per-LINE — one line, its findings, its
+    candidate field — and a backtrack is a statement about a GROUP: the pivot
+    cannot be fixed on its own, so every line it has to match moves with it.
 
-    WHAT IS BEING ASKED, in the fields' own terms. The pivot (`pivot_line_no`
-    / `pivot_text`) is in more than one mandated group and `joint_field` has
-    already searched the COMPLETE pool and found nothing that answers all of
-    them at once — that is `brief.joint_conflict`, and it is why this is
-    tier 2 and not another tier-1 retry. So the loop proposes to move the
-    ANCHOR (`anchor_line_no` / `anchor_text`), which is one of the words the
-    pivot must answer: with the anchor on `anchor_word`, the pivot's
-    conjunction is satisfiable again and `pivot_word` satisfies it. Both new
-    lines must scan as writing; the two words are what makes the mandate
-    hold.
+    ~~`PairBrief`, and TWO coupled lines.~~ **SUPERSEDED 2026-08-24, AND THE
+    PAIR WAS THE WHOLE LIMITATION (`MISSING.md` M-105).** This tier was
+    bounded to groups of exactly two on the argument, written into its own
+    module docstring, that "a group of three or more would mean rewriting the
+    whole group at once to keep its members mutually rhyming, which is a
+    bigger and structurally different move". The first half is true and the
+    second is false: rewriting the whole group at once is what this does now,
+    and it is the SAME move with one more member, not a different one.
+    MEASURED over 300 plans before the widening — 7,641 declared groups, of
+    which **3,177 (41.6%) have three or more members**, carrying **28,912 of
+    the 33,376 mandated pairs (86.6%)**. Tier 2 refused every one of them and
+    said so; the loop's only backtrack could not reach the population the
+    planner spends most of its declarations on. The bound was written when a
+    group came from an RGS partition and was mostly a pair, and it stopped
+    being true when placement drawing (M-71/M-80) started emitting overlapping
+    covers with a median of 26 groups a song.
 
-    THE TWO `_word` FIELDS ARE THE PROPOSAL, NOT THE STATUS QUO.
-    `pivot_word`/`anchor_word` are the words THIS attempt is asking for; the
-    words currently at the ends of the two lines are the last tokens of
-    `pivot_text`/`anchor_text` and are read the one way this project reads
-    an end word (`lyric_harness.raw_final_token`). A proposer is free to
-    return lines ending elsewhere — `verify()` re-derives the true finding
-    set either way and rejects a pair that does not actually hold — but the
-    two offered fields are what the loop's own search believes will.
+    WHAT IS BEING ASKED, in the fields' own terms. The pivot
+    (`pivot_line_no`/`pivot_text`) is in more than one mandated group and
+    `joint_field` has already searched the COMPLETE pool and found nothing
+    that answers all of them at once — that is `brief.joint_conflict`, and it
+    is why this is tier 2 and not another tier-1 retry. So the loop proposes
+    to move every OTHER member of one of those groups: with the anchors on
+    their proposed words, the pivot's conjunction is satisfiable again and
+    `pivot_word` satisfies it. Every line must scan as writing; the words are
+    what makes the mandate hold.
 
-    `pivot_offered`/`anchor_offered` are the COMPLETE fields those two words
-    were drawn from, in `joint_field`/`modal_field`'s own ranking with the
-    modal head already excluded (doctrine 9). The loop's search itself walks
-    only the first `ReviseDeclaration.backtrack_width` of each — a bound on
-    effort, not a claim about the field — so a writer holding the whole
-    field can reach past where the mechanical search stops.
+    `pivot_word` IS THE PROPOSAL, NOT THE STATUS QUO — the word currently at
+    the end of the pivot is `pivot_text`'s own last token. A proposer is free
+    to return lines ending elsewhere; `verify()` re-derives the true finding
+    set either way and rejects a group that does not actually hold.
 
-    `label`/`members` are the two-line group being backtracked;
-    `brief` is the pivot's own `Brief` (its findings, `must_answer`,
-    `joint_conflict` and `field_declaration` — the coordinates the empty
-    intersection is a fact ABOUT, doctrine 58); `lines` is the whole draft
-    as a snapshot tuple, so a proposer can see what the two lines sit
-    between; `attempt` is the 0-based index of this proposal within this
-    pivot's tier-2 search this round, counting every call including the ones
-    a proposer refused, exactly as tier 1's `attempt` does; `reasons` is
-    `verify()`'s rejection of the PREVIOUS attempt (`None` on the first),
-    the feedback path tier 1 has had since it was written and this tier had
-    not; `whole` is `inspect()`'s whole-draft findings — the half no `Brief`
-    can carry and `verify()` grades this pair against anyway (see the module
-    docstring).
+    THE OFFERED FIELDS ARE ORDERED, AND SAYING SO IS THE HONEST HALF. The
+    loop assembles its own proposal so that it is a CLIQUE BY CONSTRUCTION:
+    the pivot's word answers the pivot's other groups, the first anchor's
+    field is searched against that word, the second anchor's against both,
+    and so on — `joint_field`'s intersection semantics doing the work at each
+    step, which is why no post-hoc mutual-rhyme check is needed on what this
+    loop itself puts forward. A WRITER reaching past the loop's own pick into
+    `anchors[i].offered` is picking from a field computed against every
+    member BEFORE i and none after, so two late members can be offered words
+    that answer the pivot and not each other. That is disclosed rather than
+    silently relied on, and it is not a hole: `verify()` grades the whole
+    group and rejects such a pick with a named reason, which reaches the next
+    attempt through `reasons`.
+
+    `label`/`members` are the group being rewritten, `members` in the
+    mandate's own order and INCLUDING the pivot — which is what
+    `propose_group`'s return is ordered by. `brief` is the pivot's own
+    `Brief` (its findings, `must_answer`, `joint_conflict` and
+    `field_declaration` — the coordinates the empty intersection is a fact
+    ABOUT, doctrine 58); `lines` is the whole draft as a snapshot tuple;
+    `attempt` is the 0-based index of this proposal within this pivot's
+    tier-2 search this round, counting every call including the ones a
+    proposer refused, exactly as tier 1's does; `reasons` is `verify()`'s
+    rejection of the PREVIOUS attempt (`None` on the first); `whole` is
+    `inspect()`'s whole-draft findings — the half no `Brief` can carry and
+    `verify()` grades this group against anyway.
 
     `reasons` and `whole` default the way `LoopResult`'s disclosure fields
-    do, and for the same reason: a `PairBrief` built by hand in a test — a
-    renderer's test, say — is still a legal one, and the defaults are what a
-    first attempt on a clean-at-the-draft-level song actually gets.
+    do, and for the same reason: a `GroupBrief` built by hand in a test is
+    still a legal one, and the defaults are what a first attempt on a
+    clean-at-the-draft-level song actually gets.
 
-    NO `__str__` HERE ON PURPOSE. Rendering a `PairBrief` for a human is
-    another cell's file; two renderings of one object is what doctrine 1
-    forbids, and a dataclass's own repr is enough to debug the loop with.
+    NO `__str__` HERE ON PURPOSE. Rendering one for a human is another
+    cell's file (`quality/propose.py`); two renderings of one object is what
+    doctrine 1 forbids, and a dataclass's own repr is enough to debug the
+    loop with.
     """
     pivot_line_no: int
     pivot_text: str
     pivot_word: str
     pivot_offered: tuple
-    anchor_line_no: int
-    anchor_text: str
-    anchor_word: str
-    anchor_offered: tuple
+    anchors: tuple               # AnchorSlot, one per NON-pivot member
     label: str
-    members: tuple
+    members: tuple               # the whole group, pivot included
     brief: object                # the pivot's own `quality.revise.Brief`
     lines: tuple                 # the whole draft, this attempt's snapshot
     attempt: int
     reasons: tuple = None        # the PREVIOUS attempt's rejection
     whole: tuple = ()            # `inspect()`'s whole-draft findings
-    #: THE ANCHOR'S OWN CALL WORDS — every group the anchor is in APART from
-    #: the one being backtracked, added 2026-08-17 for defect F. `brief`
-    #: above is the PIVOT's, and it says nothing about the other line; a
-    #: writer asked to move the anchor's end word was never told what else
-    #: that end word has to answer, and the rejection it earned named a line
-    #: the prompt had not mentioned. Empty is the ordinary case — an anchor
-    #: in one group only — and is not a disclosure gap.
-    anchor_calls: tuple = ()
+    #: WHERE THE PIVOT BINDS inside the group being rewritten, from
+    #: `Mandate.slot_of`. `None` is the default slot — the end of the line —
+    #: and is what every mandate written before `Mandate.loci` means.
+    pivot_slot: object = None
+
+    def proposal_for(self, line_no):
+        """-> (text, proposed word, slot) for one member, or `None`.
+
+        THE ONE PLACE THE PIVOT/ANCHOR SPLIT IS RESOLVED. A proposer answers
+        in `members` order and does not care which index the pivot sits at;
+        without this every caller would re-derive that split, and a stub that
+        got it backwards would splice the pivot's word onto an anchor with no
+        error anywhere (doctrine 1).
+        """
+        if line_no == self.pivot_line_no:
+            return self.pivot_text, self.pivot_word, self.pivot_slot
+        for a in self.anchors:
+            if a.line_no == line_no:
+                return a.text, a.word, a.slot
+        return None
 
 
 @dataclass
@@ -972,56 +1093,104 @@ def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line):
     return calls, sorted(rets)
 
 
+def _slot_for(mandate, group_index, line):
+    """-> where `line` binds inside one group, or `None` for the default.
+
+    ASKED OF THE MANDATE (`Mandate.slot_of`), never re-derived: that method
+    already resolves an undeclared group, an undeclared member and a `None`
+    entry to the same default, and a second copy of that resolution is how a
+    loop starts rewriting a different word from the one the grader scored
+    (doctrine 1). A group this mandate cannot name answers `None`, which is
+    the default slot and is what every mandate written before `Mandate.loci`
+    existed means.
+    """
+    if group_index is None:
+        return None
+    try:
+        return mandate.slot_of(group_index, line)
+    except Exception:
+        return None
+
+
 def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
-               assume, profile, propose_pair, whole=()):
-    two_member = [(lab, mem, calls) for lab, mem, calls in b.must_answer
-                  if len(mem) == 2]
-    too_large = len(b.must_answer) - len(two_member)
+               assume, profile, propose_group, whole=()):
+    """THE JOINT BACKTRACK — rewrite a WHOLE mandated group at once.
+
+    ~~Bounded to groups of exactly two.~~ **WIDENED 2026-08-24
+    (`MISSING.md` M-105).** See `GroupBrief` for the measurement that closed
+    the argument; the short form is that 41.6% of the groups this planner
+    draws have three or more members and this tier refused all of them.
+
+    THE SEARCH, and it is the two-line one with the members generalised. The
+    pivot is asked for a word `w` answering its OTHER groups; then every
+    remaining member of the shared group is searched IN ORDER, each against
+    `w` PLUS every word already chosen PLUS its own outside obligations. That
+    ordering is what makes the loop's own proposal a CLIQUE BY CONSTRUCTION
+    rather than a set of words that each rhyme with the pivot and not with
+    each other — `joint_field`'s intersection doing the work at every step,
+    so no separate mutual-rhyme check exists to drift from the grader's own
+    predicate (doctrine 1).
+
+    THE COST IS LINEAR IN THE GROUP AND QUADRATIC IN THE WIDTH, which is why
+    a group of nineteen is affordable at all. `backtrack_width` pivot words
+    are walked; under each, the first k-2 members take their field's own top
+    candidate and only the LAST is walked over `backtrack_width` — so the
+    call count is `width * (k - 1)` searches plus `width * width` proposals,
+    not `width ** k`. At k=2 that is `width` searches and `width ** 2`
+    proposals, which is what this tier has always done: **the two-member case
+    is byte-identical to the pair search it replaces**, and
+    `test_loop.py` pins that rather than asserting it.
+
+    A WRITER REACHING PAST THE LOOP'S OWN PICK is picking from a field
+    computed against every member before it and none after, so a late pick
+    can answer the pivot and not a sibling. `GroupBrief`'s docstring
+    discloses that; `verify()` grades the whole group and rejects it with a
+    named reason, which reaches the next attempt through `reasons`. An offer
+    that is never put through the check that judges the answer cannot report
+    its own impossibility (doctrine 48, defect F).
+
+    FOUR COUNTS, NEVER SUMMED (doctrine 79): `tried` — groups actually put to
+    a proposer; `pinned` — groups REFUSED unsearched because a declared
+    verbatim return fixes one of their lines; `starved` — groups where every
+    walked pivot word left some member with an EMPTY field, which is a fact
+    about the mandate's conjunction and not about a search that came back
+    short; and the group-size census, which exists because the sentence this
+    tier used to print — "3+ members and were NOT attempted" — was the
+    disclosure of a refusal, and a reader owed the news that it now searches
+    them is owed it in the same place (doctrine 20).
+    """
+    groups = [(lab, tuple(mem), cl) for lab, mem, cl in b.must_answer]
     tried = 0
     # ATTEMPT AND REASONS ARE THE PIVOT'S, NOT THE GROUP'S. `attempt` counts
-    # every call to `propose_pair` this pivot makes this round — including
+    # every call to `propose_group` this pivot makes this round — including
     # the ones the proposer refused, exactly as tier 1's `attempt` counts a
     # refused candidate — and `reasons` carries the last rejection forward
     # across groups, because the writer is being asked about ONE pivot the
-    # whole way down and a rejection is about the pair that was tried, not
+    # whole way down and a rejection is about the group that was tried, not
     # about which group's turn it was.
     attempt = 0
     reasons = None
     pinned = []
     starved = []
-    for label, members, calls in two_member:
-        # `anchor_current`/`pivot_current` are the words ALREADY THERE, and
-        # they are here to be EXCLUDED from the two searches: re-proposing
-        # the word that is already at the end of the line is not a revision.
-        # The words being PROPOSED are `w` and `v` below, which is what
-        # `PairBrief.pivot_word`/`.anchor_word` carry.
-        anchor_line, anchor_current = calls[0]
-        anchor_text = lines[anchor_line - 1]
-        # BOTH SEARCHES USED TO READ THE PIVOT'S GROUP LIST AND NOTHING ELSE
-        # — defect F of the rung-3 coverage experiment, and it made the pair
-        # this tier OFFERS one its own `verify()` REJECTS. MEASURED on that
-        # draft: the offered pair came back `new_flags [(5,
-        # 'SCHEME_VIOLATION'), (19, 'RETURN_NOT_VERBATIM')]`. An offer that
-        # is never put through the check that judges the answer cannot
-        # report its own impossibility (doctrine 48), so both halves are
-        # asked of the MANDATE here before either search runs.
-        #
-        # (a) A RETURN PINS THE PIVOT. If another of this pivot's groups is a
-        # declared verbatim return, the only legal end word is the one
-        # already there — which `exclude` removes — so every word the search
-        # could offer breaks the return. Refused with a reason rather than
-        # searched: the writer is owed "no legal answer exists", not 24 words
-        # each of which is illegal.
+    # THE SPEC MAY STILL BE A SPEC — `revise_loop` hands its caller's mandate
+    # down unresolved, and `slot_of`/`partners` need the built object.
+    if not hasattr(mandate, "partners"):
+        mandate = reviser.mandate(list(lines), mandate)
+    labels = list(getattr(mandate, "labels", ()))
+    for label, members, calls in groups:
+        gi = labels.index(label) if label in labels else None
+        # (a) A RETURN PINS A LINE. If this group IS a declared verbatim
+        # return, or another of the pivot's groups is, the only legal end
+        # word is the one already there — which `exclude` removes — so every
+        # word the search could offer breaks the return. Refused with a
+        # reason rather than searched: the writer is owed "no legal answer
+        # exists", not a field of words each of which is illegal.
         rets = set(getattr(b, "return_groups", ()) or ())
         if label in rets:
-            # THE GROUP BEING BACKTRACKED IS ITSELF A RETURN. There is no
-            # backtrack here at all: the move is to change the anchor so the
-            # pivot can move, and both of those break a requirement that the
-            # two lines be THE SAME LINE.
             pinned.append(
-                f"group {label} {list(members)} is itself a RETURN — the two "
-                f"lines must be identical, so neither end of it is a line "
-                f"this tier can move")
+                f"group {label} {list(members)} is itself a RETURN — its "
+                f"lines must be identical, so no member of it is a line this "
+                f"tier can move")
             continue
         pivot_ret = sorted(rets - {label})
         if pivot_ret:
@@ -1031,121 +1200,177 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 f"fixes the whole line, so no word this tier could offer it "
                 f"is legal")
             continue
-        other_calls = [w for lab2, _m2, cl2 in b.must_answer if lab2 != label
+        other_calls = [w for lab2, _m2, cl2 in groups if lab2 != label
                        for _, w in cl2]
         if not other_calls:
             continue
-        # (b) THE ANCHOR HAS ITS OWN GROUPS, and `modal_field(w)` never asked
-        # about them: an anchor that is itself a pivot was searched as though
-        # the shared group were its only obligation. Asked of the mandate,
-        # not inferred from the pivot's brief, because the pivot's brief is
-        # written about the pivot.
-        a_other, anchor_ret = _anchor_obligations(
-            reviser, mandate, lines, anchor_line, b.line_no)
-        if anchor_ret:
+        # (b) EVERY OTHER MEMBER HAS ITS OWN GROUPS, and they are asked of
+        # the MANDATE before any search runs (defect F, generalised from the
+        # single anchor: a member that is itself a pivot was searched as
+        # though the shared group were its only obligation).
+        others, pin_hit = [], None
+        for m_line, m_current in calls:
+            m_other, m_rets = _anchor_obligations(
+                reviser, mandate, lines, m_line, b.line_no)
+            if m_rets:
+                pin_hit = (m_line, m_rets)
+                break
+            others.append((m_line, m_current, tuple(m_other)))
+        if pin_hit is not None:
+            m_line, m_rets = pin_hit
             pinned.append(
-                f"group {label} {list(members)}: L{anchor_line} is PINNED by "
-                f"return group(s) {', '.join(anchor_ret)} — the anchor "
-                f"cannot move either, so this group has no backtrack "
-                f"available")
+                f"group {label} {list(members)}: L{m_line} is PINNED by "
+                f"return group(s) {', '.join(m_rets)} — that member cannot "
+                f"move either, so this group has no joint rewrite available")
+            continue
+        if not others:
             continue
         pivot_current = raw_final_token(b.text) or ""
         p_offered, _p_forbidden = reviser.joint_field(
             other_calls, exclude=(pivot_current,))
         walked = p_offered[:rdecl.backtrack_width]
-        empty_anchor = 0
+        empty_member = collections.Counter()
         for w in walked:
-            a_offered, _a_forbidden = reviser.joint_field(
-                [w] + a_other, exclude=(anchor_current,))
-            if not a_offered:
-                # THE ANCHOR'S OWN CONJUNCTION CAME BACK EMPTY, which is a
-                # sentence only the folded field can form — `modal_field(w)`
-                # alone was never empty here and offered 24 illegal words
-                # instead. Counted, so the dead end below can say WHICH
-                # search failed rather than "none accepted" (doctrine 58: it
-                # is a fact about the mandate at a declared field depth).
-                empty_anchor += 1
+            # THE CHAIN. `chosen` grows as members are assigned, and each
+            # member's field is searched against ALL of it — so member i
+            # answers the pivot AND every sibling already placed, which is
+            # what keeps the group mutually rhyming without a second
+            # predicate. The LAST member is the one walked, so the k=2 case
+            # walks its single anchor exactly as the pair search did.
+            chosen = [w]
+            assigned, broke = [], None
+            for idx, (m_line, m_current, m_other) in enumerate(others):
+                field, _mf = reviser.joint_field(
+                    chosen + list(m_other), exclude=(m_current,))
+                if not field:
+                    # THIS MEMBER'S OWN CONJUNCTION CAME BACK EMPTY, a
+                    # sentence only the folded field can form — the
+                    # unfolded search was never empty here and offered
+                    # words that all broke a group nobody had mentioned.
+                    # Counted PER MEMBER, so the dead end below can name
+                    # WHICH line the conjunction failed at.
+                    broke = m_line
+                    break
+                assigned.append((m_line, m_current, m_other, field))
+                if idx < len(others) - 1:
+                    chosen.append(field[0])
+            if broke is not None:
+                empty_member[broke] += 1
                 continue
-            for v in a_offered[:rdecl.backtrack_width]:
-                pair = propose_pair(PairBrief(
+            last_field = assigned[-1][3]
+            for v in last_field[:rdecl.backtrack_width]:
+                anchors = []
+                for j, (m_line, _m_cur, m_calls, m_field) in enumerate(
+                        assigned):
+                    word = v if j == len(assigned) - 1 else chosen[j + 1]
+                    anchors.append(AnchorSlot(
+                        line_no=m_line, text=lines[m_line - 1], word=word,
+                        offered=tuple(m_field), calls=tuple(m_calls),
+                        slot=_slot_for(mandate, gi, m_line)))
+                got = propose_group(GroupBrief(
                     pivot_line_no=b.line_no, pivot_text=b.text,
                     pivot_word=w, pivot_offered=tuple(p_offered),
-                    anchor_line_no=anchor_line, anchor_text=anchor_text,
-                    anchor_word=v, anchor_offered=tuple(a_offered),
-                    label=label, members=tuple(members),
+                    pivot_slot=_slot_for(mandate, gi, b.line_no),
+                    anchors=tuple(anchors), label=label, members=members,
                     brief=b, lines=tuple(lines), attempt=attempt,
-                    reasons=reasons, whole=whole,
-                    anchor_calls=tuple(a_other)))
+                    reasons=reasons, whole=whole))
                 attempt += 1
-                if pair is None:
+                if got is None:
                     continue
                 tried += 1
-                new_pivot, new_anchor = pair
+                got = tuple(got)
+                if len(got) != len(members):
+                    # A CONTRACT BREACH IS A REJECTION WITH A REASON, not a
+                    # crash and not a silent skip: the proposer answered a
+                    # different question and the next attempt is told so
+                    # through the channel every other rejection uses.
+                    reasons = (f"proposer returned {len(got)} line(s) for "
+                               f"group {label}, which has {len(members)} "
+                               f"member(s) — the return is ordered by "
+                               f"`GroupBrief.members`, one line each",)
+                    continue
                 after = list(lines)
-                after[b.line_no - 1] = new_pivot
-                after[anchor_line - 1] = new_anchor
+                for m_line, text in zip(members, got):
+                    after[m_line - 1] = text
                 res = reviser.verify(
                     lines, after, mandate,
-                    targeted={b.line_no, anchor_line}, profile=profile,
+                    targeted=set(members), profile=profile,
                     blueprint=blueprint, subdivision=subdivision,
                     assume=assume)
                 if res["accepted"]:
+                    moved = ", ".join(f"L{a.line_no} -> {a.word!r}"
+                                      for a in anchors)
                     return LineAttempt(
                         b.line_no, 2, True, tried,
-                        f"backtracked: L{anchor_line} -> {v!r} so "
-                        f"L{b.line_no} could take {w!r}; "
+                        f"joint backtrack over group {label} "
+                        f"{list(members)} ({len(members)} members): {moved} "
+                        f"so L{b.line_no} could take {w!r}; "
                         + "; ".join(res["reasons"]),
-                        (b.line_no, anchor_line)), after
+                        tuple(members)), after
                 reasons = tuple(res["reasons"])
-        if walked and empty_anchor == len(walked):
+        if walked and sum(empty_member.values()) == len(walked):
+            where = ", ".join(f"L{ln} x{n}" for ln, n
+                              in sorted(empty_member.items()))
+            # NAMING THE MEMBERS IS THE POINT, not decoration: this sentence
+            # exists to say WHICH search failed, and "a member" says only
+            # that one did. The pair version named its single anchor; the
+            # joint version names every member the conjunction died at, with
+            # the count of pivot words it died under beside each.
+            names = " / ".join(f"L{ln}" for ln in sorted(empty_member))
             starved.append(
                 f"group {label} {list(members)}: every one of the "
-                f"{len(walked)} pivot word(s) walked left L{anchor_line} "
-                f"with an EMPTY field — nothing answers the new pivot word "
-                f"AND L{anchor_line}'s own group(s) at once")
+                f"{len(walked)} pivot word(s) walked left a member with an "
+                f"EMPTY field ({where}) — nothing answers the new pivot "
+                f"word AND {names}'s own group(s) at once, so the "
+                f"conjunction is unsatisfiable at that member and this is "
+                f"not a search that came back short")
     # PINNED IS ITS OWN COUNT AND IS NEVER FOLDED INTO `tried` (doctrine 79):
     # a group the loop REFUSED to search because no legal answer exists is
     # not a group it searched and failed. Reporting them together would say
     # the loop looked and came back empty, which is a claim about the
     # lexicon rather than about the mandate.
-    if pinned and len(pinned) == len(two_member):
+    if not groups:
+        detail = ("this pivot is in no mandated group, so there is no group "
+                  "to rewrite")
+    elif pinned and len(pinned) == len(groups):
         # EVERY group refused, so "none accepted" would be the wrong lead: no
-        # pair was ever put to a proposer, and the outcome is a fact about
+        # group was ever put to a proposer, and the outcome is a fact about
         # the MANDATE (doctrine 20 — a refusal is not a failed search).
-        detail = (f"NOT ATTEMPTED — all {len(two_member)} two-line group(s) "
-                  f"are pinned by a declared verbatim return, so this tier "
-                  f"has no legal move and the MANDATE is what needs "
-                  f"revising: " + "; ".join(pinned))
+        detail = (f"NOT ATTEMPTED — all {len(groups)} group(s) are pinned by "
+                  f"a declared verbatim return, so this tier has no legal "
+                  f"move and the MANDATE is what needs revising: "
+                  + "; ".join(pinned))
     else:
-        detail = (f"tried {tried} anchor/pivot pair(s) across "
-                 f"{len(two_member) - len(pinned)} two-line group(s), none "
-                 f"accepted")
+        detail = (f"tried {tried} joint rewrite(s) across "
+                  f"{len(groups) - len(pinned)} group(s), none accepted")
         if pinned:
             detail += (f"; a further {len(pinned)} group(s) NOT SEARCHED "
                        f"because a declared verbatim return pins a line: "
                        + "; ".join(pinned))
-    # STARVED IS A THIRD COUNT, and it is the one the anchor's own groups
-    # made sayable: before they were folded in, `modal_field(w)` came back
-    # full of words that all broke a group nobody had mentioned, so this
-    # dead end was reported as a proposer that could not find anything.
+    # STARVED IS A THIRD COUNT, and it is the one each member's own groups
+    # made sayable: before they were folded in, the search came back full of
+    # words that all broke a group nobody had mentioned, so this dead end was
+    # reported as a proposer that could not find anything.
     if starved:
-        detail += (f"; {len(starved)} group(s) reached an EMPTY ANCHOR "
-                   f"field — the conjunction is unsatisfiable at this "
-                   f"anchor, not a search that came back short: "
+        detail += (f"; {len(starved)} group(s) reached an EMPTY MEMBER "
+                   f"field — the conjunction is unsatisfiable at that "
+                   f"member, not a search that came back short: "
                    + "; ".join(starved))
-    if too_large:
-        detail += (f"; {too_large} of {len(b.must_answer)} group(s) have "
-                  f"3+ members and were NOT attempted — fixing those means "
-                  f"rewriting a whole group, not backtracking one line")
-    if not two_member:
-        detail = (f"no two-line group to backtrack — all "
-                 f"{len(b.must_answer)} of this pivot's groups have 3+ "
-                 f"members, which this tier does not rewrite")
+    # THE SIZE CENSUS, and it is here because the sentence it replaces was a
+    # REFUSAL. This tier used to print "N group(s) have 3+ members and were
+    # NOT attempted"; a reader owed the news that they are searched now is
+    # owed it in the same place, and a silent widening reads exactly like a
+    # tier that never had the bound (doctrine 20).
+    big = [m for _l, m, _c in groups if len(m) > 2]
+    if big:
+        detail += (f"; {len(big)} of {len(groups)} group(s) have 3+ members "
+                   f"(largest {max(len(m) for m in big)}) and WERE searched "
+                   f"jointly — the whole group is rewritten at once")
     return LineAttempt(b.line_no, 2, False, tried, detail, ()), lines
 
 
 def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
-                assume=None, profile=None, propose=None, propose_pair=None):
+                assume=None, profile=None, propose=None, propose_group=None):
     """Drive `reviser.brief`/`verify` to convergence. -> `LoopResult`.
 
     `reviser` is a caller-supplied `Reviser` (its `.rdecl` supplies
@@ -1201,7 +1426,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     left to be read off a call site:
 
         propose(brief, lines, attempt, reasons=None, whole=()) -> str | None
-        propose_pair(pair_brief) -> (str, str) | None
+        propose_group(group_brief) -> tuple[str, ...] | None
 
     Neither is arity-compatible with what this module called before
     2026-08-14, on purpose and with an argument — see the module docstring,
@@ -1209,13 +1434,13 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     of the old shape raises `TypeError` at its first call, before any line
     of the draft has been touched.
 
-    `whole` and `PairBrief.whole` are read ONCE PER ROUND, off
+    `whole` and `GroupBrief.whole` are read ONCE PER ROUND, off
     `inspect()["whole"]` — the same key `_close` reads to fill
     `LoopResult.whole`, not a second derivation of it — and only on a round
     that has something flagged, since the success path returns above it.
     """
     propose = propose or default_propose
-    propose_pair = propose_pair or default_propose_pair
+    propose_group = propose_group or default_propose_group
     rdecl = reviser.rdecl
     # READ OFF THE DECLARATION, never a parameter of its own: a caller tunes
     # this the way it tunes `modal_exclusion`, and one coordinate has one
@@ -1341,7 +1566,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
             if b.joint_conflict:
                 attempt, lines = _try_tier2(
                     reviser, b, lines, mandate, rdecl, blueprint,
-                    subdivision, assume, profile, propose_pair, whole)
+                    subdivision, assume, profile, propose_group, whole)
             else:
                 attempt, lines = _try_tier1(
                     reviser, b, lines, mandate, rdecl, blueprint,
