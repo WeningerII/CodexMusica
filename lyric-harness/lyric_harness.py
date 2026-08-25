@@ -6471,8 +6471,17 @@ def main():
         # ruling "make it a verb"). It was the last instrument standing rule 3
         # named and left manual, and a song delivered through it was a song
         # delivered through a scratch script.
+        # THE NARRATIVE COLLAPSE, A FLAG SINCE 2026-08-25 (M-121, the
+        # M-55 lesson: a coordinate the API carries and the CLI cannot
+        # spell is built-but-unreachable). `--narrative=off` silences
+        # the layer; `--narrative=ATOM,ATOM/JUNCTION,...` declares the
+        # line-up — one atom per SUNG section in order, the first bare,
+        # each later one carrying its inbound junction after a slash.
+        # No flag leaves the default: the planner draws.
+        narrative_raw = _flag_value(rest, "--narrative")
         sweep_raw = _flag_value(rest, "--sweep")
         want_raw = _flag_value(rest, "--want")
+        rest = _strip_flag(rest, "--narrative")
         rest = _strip_flag(rest, "--sweep")
         rest = _strip_flag(rest, "--want")
         rest = _strip_flag(rest, "--relation")
@@ -6488,6 +6497,7 @@ def main():
                     detail=["usage: plan --seed=N [--form=verse-chorus] "
                             "[--lines=N] [--relation=NAME] "
                             "[--functions=a,b,c] [--title=TEXT] "
+                            "[--narrative=off|ATOM,ATOM/JUNCTION,...] "
                             "[--fill=DRAFT] [--out=PATH]",
                             "   or: plan --sweep=LO-HI [--want=PRED;PRED] "
                             "[the same declarations]",
@@ -6495,11 +6505,36 @@ def main():
                             "ignored -- a flag silently not read leaves a "
                             "plan that looks exactly like one you never "
                             "asked for"])
+        narrative = None
+        if narrative_raw is not None:
+            if narrative_raw.strip().lower() == "off":
+                narrative = "off"
+            else:
+                atoms, juncs = [], []
+                for i, cell in enumerate(narrative_raw.split(",")):
+                    atom, _, junc = cell.strip().partition("/")
+                    atoms.append(atom.strip().upper())
+                    if i == 0:
+                        if junc:
+                            _refuse("the FIRST section takes no inbound "
+                                    "junction — nothing precedes it",
+                                    detail=["--narrative=ATOM,ATOM/JUNCTION,"
+                                            "... — the opening cell is a "
+                                            "bare atom"])
+                    else:
+                        if not junc:
+                            _refuse(f"cell {i + 1} ({cell.strip()!r}) "
+                                    "declares no inbound junction",
+                                    detail=["every section after the first "
+                                            "is ATOM/JUNCTION"])
+                        juncs.append(junc.strip().upper())
+                narrative = {"atoms": atoms, "junctions": juncs}
         plan_kw = dict(
             form=form,
             lines=int(nlines) if nlines is not None else None,
             relation=relation,
             title=title,
+            narrative=narrative,
             functions=[x for x in (funcs_raw or "").split(",") if x.strip()]
             or None)
         if sweep_raw is not None:

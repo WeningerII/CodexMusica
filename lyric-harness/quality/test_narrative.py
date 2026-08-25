@@ -176,6 +176,32 @@ def test_the_wired_draw():
           poff["narrative"]["mode"] == "off"
           and poff["relations"] == pl["relations"]
           and poff["groups"] == pl["groups"])
+    import subprocess
+    HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    off = subprocess.run(
+        [sys.executable, "lyric_harness.py", "plan", "--seed=31",
+         "--narrative=off"], cwd=HERE, capture_output=True, text=True)
+    dec = subprocess.run(
+        [sys.executable, "lyric_harness.py", "plan", "--seed=31",
+         "--narrative=ESTABLISH,ANCHOR/JUXTAPOSE,DWELL/ELABORATE,"
+         "COMPLICATE/AND_THEN,JUDGE/THEREFORE"],
+        cwd=HERE, capture_output=True, text=True)
+    bad = subprocess.run(
+        [sys.executable, "lyric_harness.py", "plan", "--seed=31",
+         "--narrative=TURN,ANCHOR/JUXTAPOSE,DWELL/ELABORATE,"
+         "COMPLICATE/AND_THEN,JUDGE/THEREFORE"],
+        cwd=HERE, capture_output=True, text=True)
+    check("the CLI spelling is REACHABLE (the M-55 lesson): "
+          "--narrative=off prints no story plan, the declared grammar "
+          "lands in the brief, and an illegal declaration refuses at "
+          "exit 2 naming the row",
+          off.returncode == 0 and "Story plan" not in off.stdout
+          and dec.returncode == 0
+          and "compressed verdict" in dec.stdout
+          and bad.returncode == 2
+          and "cannot carry TURN" in bad.stdout + bad.stderr,
+          f"off rc={off.returncode}, dec rc={dec.returncode}, "
+          f"bad rc={bad.returncode}")
     res = P.sweep(range(3, 6),
                   wants=[P.parse_sweep_want("story_lineups>=1")])
     check("the SEED FILTER is a sweep predicate: story_lineups>=1 over "

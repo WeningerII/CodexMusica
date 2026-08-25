@@ -2654,11 +2654,21 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                 "shape:\n" + "\n".join("  " + p for p in _probs)
                 + "\nA declared coordinate is carried, never resampled — "
                   "fix the declaration or drop it and the planner draws.")
+        _pos, _sfns = _NV.sung_sequence(_fns)
         plan["narrative"] = {
             "mode": "declared",
             "lineups": _NV.count_lineups(_fns),
-            "atoms": [list(a) for a in narrative["atoms"]],
-            "junctions": [list(j) for j in narrative["junctions"]]}
+            # a declaration may spell bare atoms/junctions (the CLI's
+            # grammar) or full triples (the API's); both are stored as
+            # the triples the brief and the validator read.
+            "atoms": [
+                list(a) if isinstance(a, (list, tuple))
+                else [_pos[k], _sfns[k], a]
+                for k, a in enumerate(narrative["atoms"])],
+            "junctions": [
+                list(j) if isinstance(j, (list, tuple))
+                else [_pos[k], _pos[k + 1], j]
+                for k, j in enumerate(narrative["junctions"])]}
     else:
         _n_lineups = _NV.count_lineups(_fns)
         if _n_lineups:

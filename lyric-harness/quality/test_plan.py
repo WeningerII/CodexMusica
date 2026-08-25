@@ -694,7 +694,8 @@ def test_the_measure():
     # reader. The planner may name only the counter, the draw, the
     # validator and the refusal.
     ALLOWED_FROM_NARRATIVE = {"count_lineups", "draw_lineup",
-                              "validate_lineup", "NarrativeRefused"}
+                              "validate_lineup", "sung_sequence",
+                              "NarrativeRefused"}
     grid_names, floor_names = set(), set()
     cap_names, slot_names, rel_names = set(), set(), set()
     nar_names = set()
