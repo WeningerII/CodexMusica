@@ -270,3 +270,74 @@ E=turn_the_wheel F=long_bridge G=stay_awake H=keep_the_light
 I=wheat_mane J=matinee (suspect D neither first nor last). Results below
 were appended after the ballots returned; nothing above this sentence
 moved after launch.
+
+**Section lens (3 judges — sentences, imagery, prosody — every ballot
+quoting its section):** POSTCHORUS1 REJECTED **3/3** — the second unanimous
+section rejection of the measured series (run 4's VAMP1 was the first).
+Sentences: "We suit up in spades, a liter down, the etch" — "'a liter
+down' and 'the etch' trail off as verbless fragments strung together like
+a catalogue". Imagery: the same line — "'spades,' 'a liter down,' and
+'the etch' don't resolve into any single readable object or place; they
+scan as filler shapes chosen to land the rhyme with 'edge'". Prosody:
+"'man quit' and the closing 'dogs fetch' both stack stressed monosyllables
+back to back". POSTCHORUS1 is the song's most bound section — four lines
+carrying the drawn anaphora quartet, the internal-rhyme triple, the pantun
+pair, the family-rhyme pair and their slot web at once — so this is
+M-112's local-binding pressure reproducing for the FOURTH consecutive
+measured song, at its sharpest yet. Majority rejections: INTRO1 2/3
+(sentences and imagery both quoting "Come to the square, the charmer, the
+carpenter" — a verbless trade-figure list) and CHORUS1 2/3 (sentences:
+"the inverted 'the scales, we tell' forces a listener to guess whether
+the scales are telling or being told" — a construction written to service
+the drawn chain and pararhyme at once; prosody: "'Sky wheels' and 'stilt
+men' each clot two stressed monosyllables", M-115's clotting-inside-the-
+band evasion, on a song whose dilutions went the other way). Minority:
+VERSE1 1/3 (sentences, the "bows" attachment ambiguity). CODA1 PASS 3/3
+— the only clean section. Weakest section: POSTCHORUS1 at 2/3, CHORUS1
+1/3. One disagreement kept as data: the imagery judge PASSED CHORUS1 as
+"one carnival-at-night scene" while a set judge called the same seven
+lines an unresolved inventory.
+
+**Set lens (3 judges, all ten songs):** glossary STRONG 2/3, PARTIAL 1/3
+— and all three evidence lists confine the core bank (iron, groan, ache,
+cinder, stair, thread, brake, spare, cost, crossed, quay, stone, tide,
+freight, salt) to the pre-gate songs, with two judges independently
+producing PHRASE-level funnel receipts: "ache in the wrist" near-verbatim
+in turn_the_wheel and long_bridge, and "Thread the brake ... cost" /
+"Thread of it thin, brake crossed" as a near-duplicate line pair in
+keep_the_light and turn_the_wheel. D (crooked_waltz) touches the bank
+only at common song-stock ("wheel", "home", "bells") — the mechanical
+half below agrees. Odd-one-out: J (matinee) **3/3**, the same 3/3 it took
+as suspect C in run 4 — a different key, a different set, the same
+verdict, which is the closest thing this instrument has to a replication.
+Weakest of the set: **D — the suspect — at 2/3**, and both ballots name
+the same cause in different vocabularies: "a seven-line list of
+fairground images with no consistent rhyme scheme holding it together
+(bait/tell, wind/tall, wide/toll all fail to rhyme)" and "imagery and
+grammar repeatedly strain past sense in service of rhyme/meter". The
+third weakest vote went to I (wheat_mane) for run 4's own shape cause
+("no repeated hook, no narrative arc").
+
+**The mechanical half, re-derived here** (this run's spelling: types
+whose in-context POS tag falls outside `features.FUNCTION_TAGS`, over
+`line_tokens` of each banked file — recorded because run 4's spelling was
+not, and the two disagree by one on the nine-song set): content types in
+>= 4 of the ten songs: 23; crooked_waltz enters seven, every one common
+song-stock (home, night, late, last, thin, turning, is), and carries
+**zero of the sixteen core-cluster words** — the fourth consecutive
+gate-era song outside the cluster. The panel's verdicts are model output
+at nonzero temperature; nothing in CI gates on this section.
+
+**What run 5 changes.** The new finding is about the DICE, and it is
+filed as `MISSING.md` M-120: both weakest-D ballots heard the drawn
+relation web as the ABSENCE of rhyme — a blind ear judges the line ENDS,
+and seed 31's ends carry pararhyme (tell/tall/toll), light rhyme
+(stir/carpenter) and subtractive rhyme (trade/tray), relations that are
+satisfied at the registry and inaudible as rhyme to a listener expecting
+the ends to bind. Schema satisfaction and audible scheme are different
+coordinates and nothing discloses the second. M-112 reproduces for the
+fourth time on the maximally bound section, now unanimously; M-115's
+clot evasion reproduces (the padding evasion, this song's own repair
+direction, drew no vote — the clots did); and the glossary verdicts plus
+two phrase-level receipts strengthen M-111's case that the pre-gate six
+are one funnel's output.

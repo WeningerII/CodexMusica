@@ -11545,3 +11545,29 @@ the final word: chain rhyme's (4,7) failure on the same draft was a
 WRITING defect (no shared nucleus run) and correctly stays one.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~176~~ -> **177**.
+
+### M-120 · schema satisfaction and audible scheme are different coordinates, and nothing discloses the second `OPEN`
+Filed 2026-08-25 from panel run 5 (`quality/RESULTS_PANEL.md` §8), the
+first measurement of a song whose relations the planner DREW (M-117).
+Both weakest-of-set ballots against the suspect heard the drawn web as
+the ABSENCE of rhyme — "bait/tell, wind/tall, wide/toll all fail to
+rhyme" and "grammar repeatedly strain[s] past sense in service of
+rhyme/meter" — while every one of those pairs is SATISFIED at the
+registry: seed 31's chorus ends carry pararhyme (tell/tall/toll), its
+intro ends light rhyme (stir/carpenter), its coda subtractive rhyme
+(trade/tray). A blind listener judges the line ENDS and expects them to
+bind audibly; a subtle relation drawn onto the end positions passes every
+gate and reads as no scheme at all. The grader is CORRECT and stays the
+final word on satisfaction — this entry is about a missing DISCLOSURE,
+the same species as M-71's `end` share and run 4's shape question: which
+of the 22 drawable schemas are AUDIBLE AS RHYME at a line end is a
+declaration nobody has made, and whether the draw should say out loud
+"this plan's ends are organized by relations a listener will not hear as
+rhyme" — or whether that is the sound the owner wants the dice to risk —
+is the owner's ruling to give, not a gate to build. Decidable-without-
+taste half, measurable now: the per-plan share of END-bound groups whose
+drawn relation agrees on nucleus+coda at the ends (the audible family)
+versus those that agree on some other channel set. Panel verdicts are
+non-reproducible; nothing in CI gates on the finding that raised this.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~177~~ -> **178**.
