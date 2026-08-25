@@ -11238,3 +11238,75 @@ this instrument and not a defect this entry closes: the list is DECLARED, so a
 word entering it is a decision somebody makes, and the alternative — inferring
 comparison from sentence structure — would refuse and admit sentences by a
 rule nobody could read (doctrine 1).
+
+### M-110 · no layer asked whether a line has a verb in it `CLOSED`
+Filed and closed 2026-08-25, by the owner's instruction *"bank it all and
+build the sentencehood check"* — the engineering half of the blind-panel
+sitting recorded in `quality/RESULTS_PANEL.md`.
+
+**THE DEFECT.** Every enforcement layer in this tree checks SOUND — rhyme,
+meter, the calibrated syllable and prominence bands, predictability, density.
+None asked whether a line is an utterance, so `songs/long_bridge.txt`
+satisfied every constraint while its lines were comma-spliced noun
+inventories, shipped at exit 0, was banked, and was caught by the OWNER'S
+EAR — the only instrument in existence that could. A five-judge blind panel
+then converged 5/5 on the cause from five different lenses: lines without
+verbs.
+
+**WHAT SHIPPED.** `quality/sentencehood.py`: a STACKED-line predicate
+(verbless, function-word-poor, comma-dense, >= 4 tokens — every threshold a
+measured coordinate, FPR-stated per doctrine 22) and a calibrated draft gate:
+`STACKED_DRAFT`, a whole-draft FLAG of the floor's own species, fires when
+the stacked-line fraction reaches the p99 of a fixed-protocol 500-song human
+calibration (0.125; 1.4% of the canon sits there). Per-line `STACKED_LINE`
+notes name the lines so the brief can say WHERE. Wired into
+`Reviser.inspect` on the seam `readability.report` already rides; an
+environment with no tagger gets `sentencehood_checked=False` and zero
+findings — a disclosed refusal, never a silent pass (doctrine 20).
+`gate_census` repinned 71 -> 73 codes, 23 -> 24 gated, 48 -> 49
+disclosed-only with `STACKED_LINE` ruled DISCLOSURE. The whole-draft flag
+roster in `CLAUDE.md` goes FIVE -> SIX.
+
+**MEASURED.** `long_bridge` reads 4 stacked lines of 25 (0.16, over the
+ceiling) and now grades **exit 3** — its banked log row records the exit 0
+of the tree it was graded on, which is what a log is. The five other banked
+songs read 0 stacked lines and grade as before. Zero shipped fixtures carry
+even one stacked line, so the suites moved nowhere. The four flagged lines
+are the ones the blind judges quoted.
+
+**WHAT IS DELIBERATELY NOT GATED, WITH THE NUMBER THAT REFUSED IT.** The
+subtle mode — merely verbless lines, even two adjacent — is carried by 33%
+of human lines and 32% of human sections, and the panel's three
+subtly-rejected sections are surface-indistinguishable from human verbless
+lines (function share 0.40 vs 0.38, commas/token 0.143 vs 0.143). A gate
+there would charge a third of the canon (doctrine 7). The refusal is in the
+module docstring so it reads as refused, not forgotten.
+
+### M-111 · the ban's clean lists are one glossary, and every song shops it `OPEN`
+Filed 2026-08-25. The owner's finding, made before any instrument had it:
+*"you use 'light' and 'burn' in basically every song ... way outside their
+Zipfian distribution."*
+
+**MEASURED, twice over.** Content words shared by >= 4 of the six banked
+songs: 10, where 300 matched null draws of six human songs give median 1 and
+never exceed 8 (`light` alone is in 5 of 6). And the mechanism has receipts
+in the process logs: 16 of the 50 words screened during `carry_it_over`'s
+session are sung in `long_bridge` — three of the `-ay` family's four clean
+members among them. The ban tables and the lexicon are deterministic, so the
+clean survivors of any family are the SAME SHORT LIST in every session:
+doctrine 9's push away from the modal candidate has manufactured a second
+mode one rank out, which is M-88's finding operating ACROSS songs instead of
+within a draft. A blind set-lens judge, with no access to any log, named it
+independently: "a rhyme-word bank reused like one glossary." Beside it and
+separable: a register collapse (light/dark/stone/ache/groan) that no screen
+produced — the writer's own prior.
+
+**WHY IT IS OPEN AND NOT BUILT.** The natural check reads `songs/` at screen
+or grade time to disclose reuse ("clean, but this word rhymes in 3 of your
+banked songs") — and the songs register's first rule is that the songs are
+NOT corpus: nothing samples them (doctrine 13/14). A self-repetition
+disclosure arguably checks novelty AGAINST own output rather than
+calibrating ON it, but that is an argument and not a ruling, and the ruling
+is the owner's. Until then the cross-song question has exactly two
+instruments: the DF measurement in `quality/RESULTS_PANEL.md` §4, and a
+panel with a set lens.

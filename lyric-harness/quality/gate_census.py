@@ -522,6 +522,12 @@ DISPOSITION = {
     # with no chorus is mislabelled, not novel. It still cannot gate, and
     # M-54 settled why in those words: a section's position is a fact about
     # the declaration, no rewrite moves it, and a flag spends max_rounds.
+    # --- quality/sentencehood.py (M-110): the per-line half of a gate that
+    # fires at the DRAFT. One stacked line is a writer's choice (the human
+    # calibration carries them at 0.9%); the calibrated fraction ceiling is
+    # what refuses, as `STACKED_DRAFT`, a flag. The note exists so the brief
+    # can say WHERE — an aggregate flag naming no line is not actionable.
+    "STACKED_LINE": "DISCLOSURE",
     "SECTION_AT_EDGE": "NO_MOVE",
     "SECTION_NOT_ADJACENT": "NO_MOVE",
     "SECTION_NOT_AT_BOUNDARY": "NO_MOVE",
@@ -698,7 +704,9 @@ def by_disposition(c=None):
 #: planner emitted a hook into a section it drew once in 219 of 400 seeds, and
 #: that derivation is repaired in the same commit, so the flag's live target
 #: is a hand-written blueprint or a recovered song rather than a plan.
-PINNED = {'codes': 71, 'gated': 23, 'disclosed_only': 48, 'undecidable': 0,
+# REPINNED 2026-08-25: sentencehood joined (M-110) — `STACKED_DRAFT` a
+# flag (gated), `STACKED_LINE` a ruled disclosure. 71 -> 73.
+PINNED = {'codes': 73, 'gated': 24, 'disclosed_only': 49, 'undecidable': 0,
           'computed': 0, 'consumer_assigned': 0}
 
 

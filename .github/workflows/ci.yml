@@ -2216,6 +2216,11 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/kalevala_calibration.py --check
 
+      - name: Sentencehood calibration check (M-110 — ceiling + the six banked witnesses)
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/sentencehood.py --check
+
       # THE IN-LINE RHYME CHECK WAS HERE AND WAS REMOVED 2026-08-23, in the
       # commit that withdrew its registration: the owner stopped that
       # calibration mid-run (it calibrated ONE cell of a 77-schema

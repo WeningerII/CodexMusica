@@ -1274,7 +1274,7 @@ carries a flag finding **ON A LINE. That qualifier is load-bearing and was
 missing until 2026-08-13.** Every stop condition reads `brief()`, `brief()` is
 built from `inspect()`'s `per_line` half, and a WHOLE-DRAFT finding names no
 line — so it is in no `Brief` and no stop condition can see it. ~~Exactly three
-codes are~~ ~~FOUR codes are~~ **FIVE codes are** whole-draft AND a flag:
+codes are~~ ~~FOUR codes are~~ ~~FIVE codes are~~ **SIX codes are (2026-08-25: `STACKED_DRAFT` joined — the sentencehood layer's calibrated noun-stack ceiling, `MISSING.md` M-110, same species as the floor's two and priced by the same argument below)** whole-draft AND a flag:
 `LEXICAL_MONOTONY` and
 `FUNCTION_WORD_HEAVY`
 (the floor, and only inside a calibrated profile's MEASURED range) and
