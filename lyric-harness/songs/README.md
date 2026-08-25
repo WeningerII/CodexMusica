@@ -370,7 +370,52 @@ groan, nigh, thread, spare, stair, stone, crossed, quay, plea, grey`) appear
 in this lyric. That is a writer discipline, not a gate — M-111 stays open,
 and the next song should not need the discipline to be remembered.
 
-## What the first measurement says, including about me
+## `wheat_mane.txt` — "Wheat Mane", seed 2, series song 3: first-round green
+
+    python3 lyric_harness.py plan --seed=2
+    python3 lyric_harness.py plan --seed=2 --title='Wheat Mane' \
+        --fill=songs/wheat_mane.txt --out=songs/wheat_mane.blueprint.json
+    python3 lyric_harness.py song songs/wheat_mane.blueprint.json \
+        songs/wheat_mane.txt \
+        '--groups=1.T2,2.headrime;1.headrime,2.T3,3.T1;1.endword,2.T2;4.T2,5.head,6.endword;4.T4,5.endword,6.headrime;7.T1,9.T3;8.T3,11.T2;10.T1,12.T2;7.T2,8.headrime,10.T3,12;7,9,10.T2;7.T4,9.head,12.T4;8.T4,9.T2,10.endword;9.T4,10.T4;13.headrime,14.T2,15.T1;13.endword,14.T3,15.endword;14.T4,15.T4;16,17.head;16.T1,18.endword;19.T2,20.T3;8,11;19,20' --subdivision 2
+
+`song` exit 0, 0 FLAG **on the first grading round**. `revise` SUCCESS in 0
+rounds, draft unchanged (md5 `9d305ba7768f`), 42 pairs mandated / 42 judged /
+0 refused, 0 banned pairs, 0 stacked lines. The two forward-loop predecessors
+priced the same gates at four grading rounds (`taught_me_time`) and a
+post-hoc exit 3 (`long_bridge`); no other banked song has cleared them on
+its opening pass, which is the per-song trend the series exists to measure
+— one song is a point, not a slope.
+
+**THE SCREEN DID THE WRITING'S HARD HALF, AND THE LOG SHOWS IT.** Seed 2's
+plan is 20 six-slot lines in 3/8 at subdivision 2 — five to six syllables a
+line — carrying 21 overlapping groups whose 42 mandated pairs bind HALF the
+song's tokens, with chorus lines 9 and 10 bound at EVERY token position. All
+21 families were screened before a line was written, and the ban refused the
+first-choice family in seven groups: turn~stern, aligns~lines, come~drum,
+seas~breeze~ease, loud~crowd, beat~sleet, shoals~rolls, oars~shores~pours,
+old~rolled, broke~oak, wet~sweat, dark~arc and gloom~plume all came
+back MODAL_RHYME — the seas/breeze/ease run screened three pairs and
+banned 3 [LOG: banned wheat_mane.txt ease] with clean
+0 [LOG: clean_or_non_rhyme wheat_mane.txt ease] — and the -url family
+died at the dictionary, refused 4 [LOG: refused wheat_mane.txt furl]
+because CMUdict cannot read `furl`. What survived is fresh inventory —
+the 4-clique row/toe/though/sew, the 3-cliques squalls/hauls/crawls,
+grain/mane/feign, freight/gait/slate, break/opaque/quake, tide/sighed/dried,
+keel/zeal/squeal, haze/praise/phase, noon/dune/strewn — none of it shopped
+from the earlier songs' clean lists, and none of the M-111 glossary words
+appears in the lyric.
+
+**WHAT THE BANKED NUMBERS SAY, cited not remembered.** Rhyme predictability
+came in at 0.609665, the lowest of the eight banked songs [RESULTS: rhyme_predictability_mean wheat_mane.txt]
+— a fifth of a unit under the prior floor — which is the direction the two-tier ban pushes when every
+family is screened first rather than repaired after. MATTR is the
+highest of the eight at 0.994286 [RESULTS: mattr wheat_mane.txt]: twenty short lines
+with almost no repeated vocabulary. Concreteness sits mid-pack at 3.644821
+[RESULTS: concreteness_mean wheat_mane.txt]. Whether first-round green plus
+whether those extremes read as a better song [RESULTS: rhyme_predictability_mean wheat_mane.txt]
+is the owner's ear's question, not these instruments' — the panel measures it separately, and `long_bridge` is
+the standing proof that green and good are different claims.
 
 `songs/RESULTS.tsv` is the series: one row per (song, harness commit, date),
 carrying the ten pre-registered features from `quality/features.py`. It exists
@@ -403,7 +448,10 @@ the lowest of the six at 3.043667 [RESULTS: concreteness_mean carry_it_over.txt]
 sixth has since been banked; turn_the_wheel's own 3.909818 has not moved
 [RESULTS: concreteness_mean turn_the_wheel.txt]. On
 rhyme predictability — pre-registered as LOWER —
-`keep_the_light.txt` sits lowest at 0.816206 [RESULTS: rhyme_predictability_mean keep_the_light.txt].
+~~`keep_the_light.txt` sits lowest at 0.816206~~ [RESULTS: rhyme_predictability_mean keep_the_light.txt]
+(SUPERSEDED 2026-08-25: it held that floor among the six then banked;
+`wheat_mane.txt` now sits lowest at 0.609665 [RESULTS: rhyme_predictability_mean wheat_mane.txt],
+and keep_the_light's own reading has not moved).
 Both readings ran against the story I had been telling, which is the point of
 writing the numbers down before making the claim.
 
