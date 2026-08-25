@@ -254,7 +254,37 @@ def whitman_battery():
 # ~~"The rise is the typed residue"~~ (2026-08-13, when this pin went 81 -> 82
 # and the residue was still being charged) — the residue is now the point, not
 # the price. Superseded text kept visible, doctrine 17.
-EXPECTED = {"mandated": 1064, "judged": 1014, "refused": 50, "violations": 35}
+#
+# REPINNED 2026-08-25, violations 35 -> 12. THE PRICE, STATED.
+# ---------------------------------------------------------------------------
+# WHICH LAYER MOVED: the DEFAULT, and nothing else. On the owner's ruling
+# ("put all 77 in the default now", `MISSING.md` M-116, the second half of
+# the instruction whose first half widened the admit set above), a mandated
+# pair that declares no relation is satisfied when its two lines stand in
+# ANY schema the vocabulary names — judged by ONE shared function,
+# `relations.whole_vocabulary_pairs`, consulted by `check_scheme` and
+# `quality.revise.grade` alike so the two readers cannot drift. Ingestion,
+# projection, anchor, comparator and band are untouched:
+# `mandated 1064, judged 1014, refused 50` are unchanged.
+#
+# THE MOVEMENT IS ONE-DIRECTIONAL BY CONSTRUCTION — the default fan can only
+# SATISFY a charged pair, never charge a satisfied one — and was measured per
+# (sonnet, line_i, line_j):
+#     STOPPED violating  23      NEWLY violating  0
+# with every rescue attributed to the schemas that answered (a pair can
+# stand in several):
+#     chain rhyme (rap) 16   internal rhyme 11   consonance 10
+#     assonance 3   multisyllabic rhyme 2   anaphora 2
+#     additive rhyme 1   subtractive rhyme 1
+# REPEAT is still excluded (identity has its own licence machinery,
+# doctrine 3), which is part of why 12 is not zero: the survivors are pairs
+# standing in NO named relation anywhere between their lines.
+#
+# LAZINESS AT THESE RELATIONS IS UNCALIBRATED and each satisfied pair is
+# carried in `pairs_schema_satisfied` with its schema names, never summed
+# into `violations` (doctrine 79) — a pass under an uncalibrated relation
+# stays tellable from a scalar pass.
+EXPECTED = {"mandated": 1064, "judged": 1014, "refused": 50, "violations": 12}
 
 
 def assert_pinned(got, expected=EXPECTED):

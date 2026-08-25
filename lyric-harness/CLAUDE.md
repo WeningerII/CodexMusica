@@ -2984,9 +2984,21 @@ the repaired check now fails and the old one did not.
   as a LEGACY arm and is explicitly not the control**, because
   `corpus/whitman.txt` carries the property under test as epistrophe and was
   never eligible for the role (`K-3`, still OPEN as a finding).
-- Current baselines: sonnets **3.5% violations (35/1014 JUDGED pairs)** —
-  MEASURED 2026-08-22, not recalled: `python3 battery.py` prints
-  `mandated 1064, judged 1014, refused 50` and `violations 35`.
+- Current baselines: sonnets **1.2% violations (12/1014 JUDGED pairs)** —
+  MEASURED 2026-08-25, not recalled: `python3 battery.py` prints
+  `mandated 1064, judged 1014, refused 50` and `violations 12`.
+  **REPINNED 2026-08-25 from ~~3.5% (35/1014)~~ when ALL 77 SCHEMAS joined
+  the DEFAULT on the owner's ruling (`MISSING.md` M-116): a mandated pair
+  that declares no relation is satisfied when its lines stand in ANY schema
+  the vocabulary names, judged by ONE shared function —
+  `relations.whole_vocabulary_pairs`, consulted by `check_scheme` and
+  `quality.revise.grade` alike. One-directional by construction, measured
+  per pair: 23 STOPPED violating, 0 newly violate (chain rhyme 16, internal
+  rhyme 11, consonance 10, assonance 3, multisyllabic 2, anaphora 2,
+  additive 1, subtractive 1 — a pair can carry several). REPEAT is still
+  excluded (doctrine 3) and laziness at these relations is UNCALIBRATED,
+  disclosed per pair in `pairs_schema_satisfied` and in the report's
+  `SCHEMA DEFAULT` line. The earlier ladder, kept visible (doctrine 17):**
   **REPINNED 2026-08-22 from ~~8.1% (82/1014)~~** when the default admit set
   widened to all four relations (`MISSING.md` M-59, owner ruling). The
   superseded ladder stays visible (doctrine 17): ~~82/1014 = 8.1%~~,

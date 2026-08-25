@@ -3155,6 +3155,34 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                          if s["relation"] in ("RHYME", "RIME_RICHE")
                          else f"unintended {s['relation']} across scheme "
                               f"letters, NOT a rhyme"))
+    # ALL 77 SCHEMAS ARE IN THE DEFAULT — 2026-08-25, OWNER RULING
+    # (`MISSING.md` M-116, task #86's second half). A mandated pair the
+    # scalar chain above charged is satisfied when its two lines stand in
+    # ANY schema the vocabulary names, judged by
+    # `relations.whole_vocabulary_pairs` — THE SAME CALL
+    # `quality.revise.grade` makes, so the standing two-copy defect this
+    # block's own comment names cannot add a third copy: both readers
+    # consult one judge (doctrine 1). REPEAT stays a violation — identity
+    # has its own licence machinery (doctrine 3). LAZY: a draft with no
+    # scalar-chain violations pays nothing. Satisfied pairs move to
+    # `pairs_schema_satisfied` with the schemas that answered, because a
+    # pass under an uncalibrated-laziness relation must stay tellable from
+    # a scalar pass (the `STRUCTURE_UNCALIBRATED` contract).
+    schema_satisfied = []
+    if violations:
+        from quality import phonology as _PH
+        from quality.relations import whole_vocabulary_pairs as _WVP
+        _wvp = _WVP(list(lines), _PH.get("eng"),
+                    bearing={x for pr in mandated for x in pr})
+        _kept = []
+        for v in violations:
+            if (not v[3].startswith("REPEAT")) and (v[0], v[1]) in _wvp:
+                schema_satisfied.append(
+                    {"lines": (v[0], v[1]),
+                     "satisfied_by": sorted(_wvp[(v[0], v[1])])})
+            else:
+                _kept.append(v)
+        violations = _kept
     # transitivity defect within letter groups: a~b, b~c, a!~c.
     # A triangle containing a refused edge is UNKNOWN, not defective: a missing
     # edge there is a missing measurement. Counting it would manufacture a
@@ -3215,6 +3243,12 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                      endwords[v[0] - 1], endwords[v[1] - 1]),
                  "note": spans_note(matrix[v[0] - 1][v[1] - 1])}
                 for v in violations],
+            # THE WHOLE-VOCABULARY DEFAULT'S OWN COUNT (M-116): mandated
+            # pairs the scalar chain charged and a schema satisfied, with
+            # the names that answered. Never summed into `violations`
+            # (doctrine 79) — this key is what keeps the two passes
+            # tellable apart.
+            "pairs_schema_satisfied": schema_satisfied,
             "collisions": collisions,
             "refusals": refusals,
             "readability": records,
@@ -8066,6 +8100,25 @@ def main():
                                blueprint=blueprint,
                                subdivision=subdivision, assume=assume)
             whole = dedupe_findings(found["whole"])
+            # THE WHOLE-VOCABULARY DEFAULT, DISCLOSED (M-116, owner ruling
+            # 2026-08-25). A pair the scalar door failed and a schema
+            # satisfied is a PASS, and a silent one reads exactly like a
+            # scalar pass — so each is named here with the schema that
+            # answered, because laziness at these relations is UNCALIBRATED
+            # and a reader must be able to tell the two passes apart.
+            _sch_sat = (found.get("grade") or {}).get(
+                "pairs_schema_satisfied") or []
+            if _sch_sat:
+                _egs = "; ".join(
+                    f"L{r['lines'][0]}~L{r['lines'][1]} (group "
+                    f"{r['label']}) via {r['satisfied_by'][0]}"
+                    for r in _sch_sat[:4])
+                print(f"  SCHEMA DEFAULT: {len(_sch_sat)} mandated pair(s) "
+                      f"satisfied by the whole-vocabulary default, not the "
+                      f"scalar door — {_egs}"
+                      + (" …" if len(_sch_sat) > 4 else "")
+                      + " — laziness at these relations is UNCALIBRATED; "
+                      "declaring a relation narrows (M-116)")
             # THE SPANS THAT PRODUCED EACH FAILING NUMBER, beside it.
             # BACKLOG 1.2's acceptance names `brief` as well as
             # `check_scheme`, and a brief is where the misattribution

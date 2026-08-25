@@ -11420,3 +11420,37 @@ as an FPR (doctrine 22); until then the panel stays the only instrument
 that can hear it, per §4's subtle-mode refusal.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~172~~ -> **173**.
+
+### M-116 · all 77 schemas join the default — the owner's ruling, shipped `CLOSED (built)`
+Filed and closed 2026-08-25, on the owner's direct instruction ("put all 77
+in the default now" — the second half of the instruction whose first half
+widened `Declaration.admit` to all four classes on 2026-08-22, M-59; task
+#86). A mandated pair that declares NO relation and NO structure is now
+satisfied when its two lines stand in ANY schema the vocabulary names.
+**ONE JUDGE, TWO READERS**: `relations.whole_vocabulary_pairs` realises the
+whole registry over one stream and both graders — `quality.revise.grade`
+and `lyric_harness.check_scheme`, whose two-copy chain has been "the
+standing defect" in its own comment since 2026-08-15 — consult that one
+function, so a pair cannot be satisfied by one and charged by the other
+(doctrine 1). Declaring a relation stays the NARROWING move; REPEAT stays
+excluded (identity's licence machinery owns it, doctrine 3); intra-line
+figures cannot satisfy a cross-line mandate (`line_pairs_for`'s own rule);
+refusing schemas are silent, never a pass and never a charge (doctrine 79).
+**MEASURED**: the sonnet oracle moves 35 -> 12 violations (3.5% -> 1.2% of
+judged), one-directional by construction — 23 pairs stopped violating, 0
+newly violate — every rescue attributed (chain rhyme 16, internal rhyme 11,
+consonance 10, assonance 3, multisyllabic 2, anaphora 2, additive 1,
+subtractive 1). Repinned in `battery.py` with the price stated and in
+`CLAUDE.md`'s baseline ladder.
+**WHAT STAYS OPEN, recorded rather than implied**: (a) laziness at the 77
+is UNCALIBRATED — every satisfied pair says so (`pairs_schema_satisfied`,
+the report's `SCHEMA DEFAULT` line) and a modal regime per relation is
+demand-driven future measurement (the Kalevala precedent, whose tier 1 was
+REFUSED by measurement — the ban does not transpose by analogy); (b) the
+PLANNER still draws bindings from its calibration-gated pool — whether it
+should sample all 77 is task #87's question and the owner's, not a silent
+side effect of this ruling; (c) the proactive pair check still types
+against the end-rhyme calibration only, correctly, for the same reason it
+skips non-default structures.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~173~~ -> **174**.

@@ -6348,6 +6348,59 @@ def print_relation_report(rep, limit=None):
 # placement named.
 
 
+def stanzas_from_sections(sections):
+    """-> a per-line stanza index derived from a declared section list, or
+    None when no sections were declared. A contiguous run of one declared
+    section IS a stanza boundary (M-39); ONE spelling of that derivation,
+    shared by `quality.revise`'s stream builder and `whole_vocabulary_pairs`
+    below, because two spellings is how the two routes drift (doctrine 1).
+    """
+    if not sections:
+        return None
+    out, k, prev = [], -1, object()
+    for sec in sections:
+        if sec != prev:
+            k += 1
+            prev = sec
+        out.append(k)
+    return out
+
+
+def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None):
+    """Every 1-based line pair ANY registered schema is true of, with the
+    names that answered -> {(i, j): [canonical schema names, sorted]}.
+
+    THE WHOLE-VOCABULARY DEFAULT'S ONE JUDGE (owner ruling 2026-08-25,
+    `MISSING.md` M-116, task #86's second half). Both readers of the default
+    — `quality.revise.grade` and `lyric_harness.check_scheme` — consult THIS
+    function, so a mandated pair cannot be satisfied by one grader and
+    charged by the other (doctrine 1; `check_scheme`'s own comment has
+    called the two-copy chain "the standing defect" since 2026-08-15).
+
+    `bearing` is the declared rhyme-bearing subset as 0-BASED line indices
+    (a mandate's own groups); it feeds `mark_refrain_tail`, whose docstring
+    records why `lines=None` answers zero on every ghazal. Refusing schemas
+    contribute nothing (`keep_refusal=False` — a schema this draft cannot
+    supply is silent here, not a violation and not a pass), and same-line
+    instances are dropped by `line_pairs_for`'s own rule, so an intra-line
+    figure can never satisfy a cross-line mandate.
+    """
+    stream = build_stream(text_lines, phon,
+                          sections=sections,
+                          stanzas=stanzas_from_sections(sections),
+                          stanza_source=("declared_sections"
+                                         if sections else ""),
+                          declaration={"language": "eng"})
+    if bearing:
+        mark_refrain_tail(stream, lines=sorted(bearing))
+    out = {}
+    for name in sorted(REGISTRY):
+        ps = line_pairs_for(REGISTRY[name], stream, keep_refusal=False)
+        for pair in ps:
+            out.setdefault(pair, []).append(name)
+    return out
+
+
 def line_pairs_for(schema, stream, keep_refusal=True):
     """Every LINE PAIR this schema is true of, 1-based.  -> frozenset or a
     `Refusal`.
