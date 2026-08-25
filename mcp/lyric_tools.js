@@ -63,7 +63,7 @@ const MAX_MANDATE_CHARS = 400;
 // (carry_it_over); at the HARDER of those, 0.86%, a 512-seed window holds at
 // least one acceptance 98.8% of the time, so one call usually answers.
 const MAX_SWEEP_SEEDS = 512;
-const MAX_WANTS = 12; // = |SWEEP_MEASURES| + |SWEEP_SETS| + |SWEEP_ORDERS|
+const MAX_WANTS = 13; // = |SWEEP_MEASURES| + |SWEEP_SETS| + |SWEEP_ORDERS|
 const MAX_WANT_CHARS = 80;
 
 const SUBPROCESS_TIMEOUT_MS = 90_000;
@@ -493,7 +493,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_WANTS)
       .optional()
       .describe(
-        "What you want the shape to be, as predicates: NAME<=N, NAME>=N, or NAME=VALUE. The vocabulary is CLOSED and an undeclared name refuses BY NAME, printing the whole table. Counts (answer <=, >=, =): lines, sections, lines_per_section (smallest SUNG section), group (deepest rhyme group), bars_per_line, beats_per_line, slots_per_line, hook (line number, 0 if none), returns (how many verbatim-return classes), pins_per_line (most words any line is bound at). Function-valued (answer '=' only, comma-separated names): uses=verse,chorus means BOTH were drawn; before=verse,chorus means the first verse precedes the first chorus, and is FALSE rather than an error if either is absent. Omit entirely and every seed that plans is accepted, which is honest and useless — there is no default, because a sweep does not decide what you want."
+        "What you want the shape to be, as predicates: NAME<=N, NAME>=N, or NAME=VALUE. The vocabulary is CLOSED and an undeclared name refuses BY NAME, printing the whole table. Counts (answer <=, >=, =): lines, sections, lines_per_section (smallest SUNG section), group (deepest rhyme group), bars_per_line, beats_per_line, slots_per_line, hook (line number, 0 if none), returns (how many verbatim-return classes), pins_per_line (most words any line is bound at), story_lineups (how many legal story line-ups the shape admits — story_lineups>=1 filters for shapes that can carry a story at all). Function-valued (answer '=' only, comma-separated names): uses=verse,chorus means BOTH were drawn; before=verse,chorus means the first verse precedes the first chorus, and is FALSE rather than an error if either is absent. Omit entirely and every seed that plans is accepted, which is honest and useless — there is no default, because a sweep does not decide what you want."
       ),
     form: formField,
     lines: linesField,
