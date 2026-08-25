@@ -544,6 +544,65 @@ remedy.
 
 ---
 
+## `crooked_waltz.txt` — "Crooked Waltz", seed 31, series song 5: the dice drew the relations
+
+    python3 lyric_harness.py plan --seed=31 --title='Crooked Waltz'
+    python3 lyric_harness.py song songs/crooked_waltz.blueprint.json \
+        songs/crooked_waltz.txt \
+        '--groups=1.T7,2.T4;1.T5,2.T5;3.T4,5.T2;4.head,6.T3,8.T4;7.head,9;3.T6,4.T2,5.T1,7.T2;3.endword,4.T6,5.T5,6.head,7.endword,8.head;4.T4,6.endword,8.endword;4.T5,8.T6;12.headrime,13.T4;10.T1,11.head,12.T3,13.endword;10.T2,12.T7,13.headrime;10,12;15,16.T2;16.T4,17.T1;15.headrime,17.endword;1,2' \
+        '--relations=A:schema:anaphora,B:schema:light rhyme,C:schema:chain rhyme (rap),D:schema:pararhyme,E:schema:family rhyme,F:schema:chain rhyme (rap),H:schema:head rhyme (positional),I:schema:chain rhyme (rap),J:schema:pantun ABAB,K:schema:anaphora,L:schema:internal rhyme,M:schema:family rhyme,N:schema:subtractive rhyme,O:schema:anaphora,P:schema:head rhyme (positional),Q:schema:chain rhyme (rap)' --subdivision 2
+
+`song` exit 0, md5 `2673775a65a1`, 47 pairs mandated / 47 judged / 0
+refused; `revise` SUCCESS in 0 rounds, draft unchanged. Seventeen lines of
+11/8 grouped 3+3+2+3, and the relation coordinates came from the PLANNER'S
+OWN DICE (M-117), which no banked song before this one could say: sixteen
+of the seventeen groups carry a drawn `schema:` name — light rhyme,
+pararhyme, pantun, subtractive, head rhyme, chain, anaphora, internal,
+family — and the writer declared none of them. The one bare group (G, six
+loci across the chorus) rode the M-116 whole-vocabulary default.
+
+**THE FIRST DRAWN PLAN COULD NOT BE WRITTEN, AND THE DEFECT WAS THE
+GATE'S, NOT THE DICE'S (M-119).** Grading the first draft returned nine
+scheme violations of which seven were mandate contradictions no words can
+satisfy: the draw had put cluster consonance — whose registry row demands
+pairwise-DIFFERENT nuclei on the very end words — onto the postchorus
+group whose ends family rhyme and pantun already held nucleus-AGREE, and
+head rhyme (positional), which REFUSES token identity at the line head,
+onto a pair that anaphora required to OPEN ON THE SAME WORD. The M-118
+conjunction gate saw neither, because cluster consonance spells its
+line-finality in the span LOCUS (its placement row is empty) and the line
+HEAD had no claim store at all. `MISSING.md` M-119 carries the account and
+the measurement — 33 of 40 seeds drew one of the two shapes through the
+old gate, 0 of 40 through the widened one, 0 seeds lost, seed shapes
+byte-identical — and `test_plan.py` §14 pins the widened derivation by
+name. Seed 31 was then re-planned: same seventeen lines, same groups, five
+groups' relations re-drawn.
+
+**THE ONE ROUND THE WORDS OWNED WAS A MODAL TRAP OF MY OWN MAKING.** Head
+rhyme on the chorus triple needs three DIFFERENT line-opening words
+sharing an open-AY first syllable; the first repair opened L8 on "High"
+beside L6's "Sky" — and those two words are G's own slot pair, a bare
+group where the two-tier ban is live, and sky/high is the canonical modal
+pair. The grade refused at exit 3 on exactly that note. The replacement
+head was screened against "sky" and against "guy" before it was written —
+the working order the screen exists for; both runs are banked in the
+log's own rows, unbanned in each — and "Pylons at the stiles swing" took
+the head. The intro's light-rhyme pair was screened the same way —
+clean 1 [LOG: clean_or_non_rhyme crooked_waltz.txt carpenter] — before
+either end word was sung.
+
+**WHAT THE BANKED NUMBERS SAY, cited not remembered.** Rhyme
+predictability 0.718198 is the second-lowest of the ten banked songs [RESULTS: rhyme_predictability_mean crooked_waltz.txt],
+above only wheat_mane's 0.609665 [RESULTS: rhyme_predictability_mean wheat_mane.txt]
+— the screen-first direction holding on a third consecutive song — and
+concreteness 3.715714 sits in the banked range's upper half [RESULTS: concreteness_mean crooked_waltz.txt],
+under long_bridge's 3.945395 [RESULTS: concreteness_mean long_bridge.txt].
+At 17 lines [RESULTS: n_lines crooked_waltz.txt] its column records what
+the dice asked a writer to do, with no second drawn-relation song banked
+yet to compare it against.
+
+---
+
 ## The series to date — four songs under one set of instruments, 2026-08-25
 
 The forward loop closed today on the owner's instruction, four songs in:
