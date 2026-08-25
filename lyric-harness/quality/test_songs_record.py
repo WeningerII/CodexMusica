@@ -69,11 +69,24 @@ def test_the_drift_check_is_two_sided():
     backup = open(real, encoding="utf-8").read()
     try:
         lines = backup.splitlines()
-        head, first = lines[0].split("\t"), lines[1].split("\t")
+        head = lines[0].split("\t")
         i = head.index("concreteness_mean")
-        first[i] = "9.999999"               # the tree "moved"
-        open(real, "w", encoding="utf-8").write(
-            "\n".join([lines[0], "\t".join(first)] + lines[2:]) + "\n")
+        # The perturbed row must be one --check READS. The series is
+        # append-only and GENERATIONAL — a song re-banked at a newer harness
+        # commit gets a new row, and cmd_check consults newest_per_song only
+        # (last occurrence wins). Perturbing lines[1] flat mutated a row the
+        # detector never consults the day a second generation landed, and
+        # this check sat green at rc=0 with the mutation in place. The row is
+        # picked by the same last-wins rule the instrument applies, so a
+        # later generation moves the target with it instead of vacating it.
+        s = head.index("song")
+        song0 = lines[1].split("\t")[s]
+        idx = max(k for k in range(1, len(lines))
+                  if lines[k].split("\t")[s] == song0)
+        row = lines[idx].split("\t")
+        row[i] = "9.999999"               # the tree "moved"
+        lines[idx] = "\t".join(row)
+        open(real, "w", encoding="utf-8").write("\n".join(lines) + "\n")
         rc_bad = R.cmd_check()
     finally:
         open(real, "w", encoding="utf-8").write(backup)
