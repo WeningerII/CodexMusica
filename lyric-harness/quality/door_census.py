@@ -233,15 +233,40 @@ RULINGS = {
     ("lyric_harness.py", "rhyme_graph"): (
         ARGUED,
         "The pairwise GRAPH and its `theta` — doctrine 2's primary object, "
-        "read by `chains`, `graph` and `--cliques`. OPEN under M-139: the "
-        "argument for the narrow door here has never been written down, and "
-        "an unwritten argument is what this column is for. Filed, not "
-        "closed."),
+        "read by `chains` and `graph`. ~~read by `--cliques`~~ STRUCK "
+        "2026-08-26: `Reviser.mandate_from_graph` does NOT call this — it "
+        "builds its own matrix, by its own docstring's argument about "
+        "`promote`. ~~the argument has never been written down~~ — IT IS "
+        "WRITTEN NOW AND IT IS MEASURED. Widening this door takes known-"
+        "answer chain precision against the sonnet oracle's OWN scheme from "
+        "0.902 to 0.401 for +9.3 points of recall, and `battery.py` prints "
+        "this layer under the header `false chains (should be near zero)`; "
+        "126 of Shakespeare's 152 sonnets lose letter-representability; and "
+        "the 77 SATURATE — 65.3% of all sonnet line pairs become edges, 536 "
+        "of 1189 typed NO_RELATION by the comparator. THE DOORS ARE NOT "
+        "NESTED: this site spells {RHYME, RIME_RICHE} plus an explicit "
+        "`or REPEAT`, and REPEAT is deliberately ABSENT from "
+        "`ADMITTABLE_RELATIONS`, so neither set contains the other and "
+        "'move it to the default' is a TWO-WAY move that would delete the "
+        "epiphora capability. Figures attributed to a lane, not re-derived "
+        "by me; the non-nesting I verified. `MISSING.md` M-139."),
     ("lyric_harness.py", "infer_chains.match"): (
         ARGUED,
         "Chain promotion at `theta_chain`, a DIFFERENT threshold answering a "
-        "different question (does this line join a running chain). Same "
-        "OPEN status as `rhyme_graph`: narrow, and the reason is unwritten. "
+        "different question (does this line join a running chain). ~~the "
+        "reason is unwritten~~ — WRITTEN 2026-08-26 and it is the strongest "
+        "in the census: widening moves the negative control's empirical p "
+        "from 0.0199 to 0.0796, OUT of significance, because the door "
+        "raises the chance rate faster than the observation (doctrine 71's "
+        "own sentence, which `audit_band_control.py` already states); and "
+        "it would make `audit_band_control` read the conjunctive band as "
+        "removing 1 sonnet pair where it reads 38, since the band's whole "
+        "action is relabelling RHYME to ASSONANCE/CONSONANCE and a door "
+        "admitting the relabelled pairs undoes it AT THE POINT OF "
+        "MEASUREMENT — a control defined in terms of what it controls "
+        "(doctrine 14). These sites are UNMIGRATED rather than narrowed: "
+        "all three arrive in `0c3a0b1`, the commit that CREATED `admits()`, "
+        "when no other door existed. Figures attributed to a lane. "
         "`MISSING.md` M-139."),
     ("quality/negative_control.py", "Quatrain.__init__"): (
         ARGUED,

@@ -12948,6 +12948,45 @@ that was never written — the NARROW set is that layer's discriminant, and
 provenance names alignment, theta_coda, theta, window and null_samples, and
 not the relation set.
 
+**AND MY OWN COST TABLE UNDERSTATES THE CONSTRAINT: THERE IS A WALL, NOT A
+SLOPE.** This entry records `whole_vocabulary_pairs` at 2.94s over 14 lines,
+4.74s over 28, 14.73s over 56 — which reads as expensive. Measured on FREE
+VERSE it **raises `RuntimeError("candidate explosion; tighten the schema")`**
+(`quality/relations.py:2686`, `max_pairs=2_000_000`): 90 lines take 129.1s and
+**110 lines ABORT in 8.5s**. The wall sits between 90 and 110 lines and it is a
+wall rather than a slope. **And cost is a coordinate of the TEXT, not only of
+the line count** — the same lane measured 17.1s at 28 lines and 49.4s at 56 on
+Whitman against this entry's 4.74s and 14.73s on sonnets, 3–4x higher at
+matched length. So the table above is a SONNET table and must not be read as a
+bound for any other input. Attributed to a lane; the ceiling itself I verified
+at the cited line.
+
+**AND THE CENSUS'S OWN AXIS HIDES A CASE — THE DOORS ARE NOT ALWAYS NESTED.**
+`rhyme_graph` and `infer_chains.match` spell `{RHYME, RIME_RICHE}` plus an
+explicit `or s["relation"] == "REPEAT"`, and **REPEAT is deliberately ABSENT
+from `ADMITTABLE_RELATIONS`** — verified: `sorted(ADMITTABLE_RELATIONS)` is the
+four, `'REPEAT' in ADMITTABLE_RELATIONS` is False. So the door those sites
+apply is `{RHYME, RIME_RICHE, REPEAT}` and the default is
+`{RHYME, RIME_RICHE, ASSONANCE, CONSONANCE}`: **neither contains the other.**
+The census measures a site on ONE axis — is this the default? — and reports
+`NARROW`, which reads as *a subset*. At these two sites it is not a subset, so
+"move it to the default" is a TWO-WAY move that would DELETE the epiphora
+capability (`infer_chains` types `figure: "epiphora"` from identical end words,
+and the single chain `battery.py` prints is `now / now / now / now`). REPEAT is
+26.4% of Whitman's edges. That is a limitation of this instrument's framing,
+recorded here rather than papered over.
+
+**AND THE TWO CHAIN SITES ARE UNMIGRATED, NOT NARROWED**, which is a different
+fact and a better one: all three spellings arrive in ONE commit — `0c3a0b1`,
+the commit that CREATED `admits()` — when `relations=` and `Declaration.admit`
+did not exist and there was no other door to choose. Their arguments are
+written into the census now and they are measured, not asserted: widening takes
+known-answer chain precision against the sonnet oracle's own scheme from
+**0.902 to 0.401**, and moves the negative control's empirical p from
+**0.0199 to 0.0796 — out of significance**, because the door raises the chance
+rate faster than the observation. That is doctrine 71's own sentence, which
+`audit_band_control.py` already states about a different filter.
+
 **TESTED WHILE OPEN, and the split is exactly the entry's own two halves.**
 Three regressions name this entry — `quality/test_door_census.py`,
 `quality/test_loop.py`, `quality/test_revise.py` — and every one of them tests
