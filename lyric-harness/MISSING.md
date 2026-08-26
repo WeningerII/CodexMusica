@@ -11979,8 +11979,11 @@ git would restore the defect exactly where nobody could notice it.
 
 **THE CHANGE IS SCOPED, MEASURED BY DIFFING THE TWO POPULATIONS RATHER THAN BY
 READING THE CODE**: 91 markdowns -> 87, and the four dropped are
-`graphify-out/GRAPH_REPORT.md` and its `2026-08-23`, `2026-08-24`, `2026-08-26`
-siblings. **0 real documents lost, 0 newly covered.** `check_docs.js` exits 0
+the graphify report and its three dated siblings — paths written WITHOUT
+backticks here on purpose, because they are absent from a clean checkout and
+`quality/verify_entries.py` is right to fail a sentence that cites them as
+repo paths; it failed this entry's own first draft on exactly that, which is
+the defect this entry is about arriving one register over. **0 real documents lost, 0 newly covered.** `check_docs.js` exits 0
 with the artifact present, and `npm run tandem` is green.
 
 **THE SWEEP FOR THE SAME SHAPE FOUND ONE SIBLING AND IT IS NOT CHANGED.**
@@ -11991,3 +11994,32 @@ edited: there is no failing case, and changing it on the strength of this one
 would be speculative. Every other `readdirSync` under `scripts/` walks a
 bounded directory it was handed (`ICONS_DIR`, `SCRIPTS`, `mcp/`, an artifact
 dir, a temp dir), not the tree.
+
+**THE COVERAGE COUNTER'S OWN SUPERSEDED VALUES, RECORDED HERE ON PURPOSE
+(doctrine 17).** `quality/audit_register.py`'s `coverage_entries` moved four
+times in this one sitting as its four entries landed: ~~184~~ -> ~~185~~
+(2026-08-26, M-127, the deployment freshness gate) -> ~~186~~ (M-128, the
+renderer's memory-address ordering) -> ~~187~~ (M-129, the mutation shard's
+count-for-time claim) -> **188** (M-130, this entry).
+
+**IT IS WRITTEN DOWN BECAUSE THE PIN-HISTORY CHECK FOUND IT MISSING AND THEN
+STOPPED FINDING IT, FOR THE WRONG REASON.** `verify_entries.py` FAILED CI run
+#968 with *"185 -> 186 … it WAS on the page at fdea503d^ and is in NONE of
+MISSING.md … now — doctrine 17: keep it visible, with the date it was
+superseded"*, and the very next commit turned that FAIL into a passing note —
+not because anything recorded the supersession, but because M-130's prose above
+happens to quote *"185 instruments"* about an unrelated graph report. **A gate
+satisfied by a numeral that means something else is a gate passing for the wrong
+reason**, and the same coincidence runs backwards through this counter's
+history: the transition the checker marks `[ok]` cites `MISSING.md:218`, which
+is `fit._no_tempo`'s LINE NUMBER `:184` and not the value 184 at all.
+
+**THE WEAKNESS IS THE CHECKER'S AND IT IS NOT REPAIRED HERE.** Distinguishing
+*this numeral IS the superseded pinned value* from *this numeral occurs* needs
+the check to read a supersession MARKER bound to the pin's name rather than to
+scan for a bare integer, which is a rebuild of `verify_entries.py`'s pin-history
+arm and not this lot's to take on the strength of one counter. What is fixed is
+the honesty of THIS record: the four values above are struck, dated and bound to
+the entries that moved them, so the chain is satisfied by intent. The scanning
+weakness is stated so the next lot that touches that arm knows what it is
+looking at.
