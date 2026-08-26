@@ -13037,8 +13037,35 @@ both shipped consumers gate it lazily on a pair already charged.
     claim is that every recovered edge is band-passing BY CONSTRUCTION. Under
     the complete default it UNDER-recovers, so a human's song is structured
     against a narrower reading than the one it is then graded at.
-    **AND IT IS NOT A COST PROBLEM, IT IS A UNIT PROBLEM — read before
-    assuming this one is the easy one.** `whole_vocabulary_pairs` answers in
+    **~~AND IT IS NOT A COST PROBLEM, IT IS A UNIT PROBLEM~~ — REFUTED
+    2026-08-26, BY MEASUREMENT, AND THE REFUTATION IS THE MOST VALUABLE THING
+    IN THIS ENTRY.** I recorded the obstacle below as STRUCTURAL — that
+    folding a line-level verdict into a placement web "means inventing a
+    placement the judge never supplied". **The judge supplies it.**
+    `relations.realise()` returns `Instance` objects whose two `Span`s each
+    carry `origin`, spelled `L<0-based>.<locus>` (`'L0.final'`, `'L1.T4'`),
+    and `line_pairs_for` throws the locus away three lines after receiving
+    it: `_origin_line` takes `o.split(".", 1)[0][1:]` — everything BEFORE the
+    dot — while that function's own docstring spells out the full form it is
+    discarding. The placement is not ABSENT, it is DROPPED BY THE BRIDGE, and
+    `whole_vocabulary_pairs` is lossy for that reason alone.
+    **MEASURED over 33 real pasted-song drafts, 589 sung lines, 25,568 member
+    spans: the bound WORD is available on 25,568 of 25,568 (100.0%) off
+    `Unit.token_text`, and a `slots`-spellable placement NAME on 80.8% of
+    distinct schema edges.** A fold invents nothing. The defect is LIVE on 33
+    of 33 drafts (+55.1% line pairs), and the two doors are NOT NESTED — on 2
+    of 33 the narrow projection is larger — so the union spelling this entry
+    uses is the only correct one. So `recover` is repairable through
+    `realise()` directly, NOT blocked; what it costs is a ~15x unconditional
+    stream (median 1.78s against recover's 0.09–0.59s), because recover has no
+    violation set to be lazy against. The refuting lane also names the trap a
+    fold must avoid: `relations.tokenise` and `line_tokens` disagree on 479 of
+    22,697 sung lines (2.110%), so a fold must READ `Unit.token_text` and
+    never re-tokenise. **Those figures are a lane's and are carried as
+    attributed; what I re-derived myself is the mechanism — `_origin_line`
+    discarding the locus — which is what makes the structural claim false.**
+
+    ~~THE SUPERSEDED ARGUMENT, kept visible (doctrine 17):~~ `whole_vocabulary_pairs` answers in
     LINE PAIRS. The recovered web is over SITES — `(line, placement)` — which
     is the entire reason M-72 wrote this module instead of reusing
     `mandate_from_graph`, whose cliques are cliques of `words[-1]`. A
