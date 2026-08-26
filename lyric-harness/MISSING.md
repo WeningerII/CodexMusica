@@ -12132,3 +12132,15 @@ region silently would have been the defect; registering it and PINNING it is
 what this lot does instead. `test_floor.py` 19 asserts the handoff at 150 and
 163, and that 164 is where `song` takes over, so the region is bounded by a
 check and goes red if either band or the tie-break moves again.
+
+**TESTED WHILE OPEN.** `quality/test_floor.py` §19 names this entry and the
+entry stays OPEN, which `quality/triage.py` is right to contest by default —
+a regression naming an open gap usually means the gap shut or the test is
+misnamed. Neither holds here. The checks assert the handoff HAPPENS: that a
+sheet at 150 and at 163 falls to `sonnet`, extrapolated, and that 164 is where
+`song` takes over. **They pin the defect's SHAPE and its BOUNDS, not its
+repair.** Their whole purpose is to go red if the region moves before anyone
+has decided what the tie-break should weigh, so the day this is fixed those
+three checks are expected to fail and must be rewritten with it. A gap that is
+measured and bounded is still a gap; the test is what stops it drifting while
+it waits.
