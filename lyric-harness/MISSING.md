@@ -12350,3 +12350,64 @@ between the two layers.
 **ONE CORPUS, ONE THRESHOLD, ONE NULL DESIGN** — sonnets at theta_rhyme with a
 same-vocabulary re-pairing. It has NOT been re-run on `corpus/song/`, at the
 other thresholds, or under a permutation null, and no claim is made for those.
+
+**AMENDED THE SAME SITTING — ALL THREE STATED LIMITS ANSWERED, AND THE FINDING
+IS SHARPER AND SMALLER THAN THE FIRST VERSION.** ~~ONE CORPUS, ONE THRESHOLD,
+ONE NULL DESIGN~~ — struck. A second null, a threshold sweep and a second
+corpus were run, and the honest result is NOT "the search is a wash". It is
+that **the search's value is a MONOTONE FUNCTION OF THE THRESHOLD, and the
+shipped theta sits just above its break-even point.**
+
+**A — the null design was not carrying the result.** Under a WITHIN-SONNET LINE
+PERMUTATION null (the repo's own design; controls for poem and author
+vocabulary, which random re-pairing does not) the finding STRENGTHENS: the
+share of the search's lift reproduced by chance goes **75.8% -> 83.4%** and
+what it buys falls **+1.35 -> +1.26 pp**.
+
+**B — THE THRESHOLD SWEEP IS THE REAL FINDING.** Sonnets, permutation null:
+
+| theta | REAL lift | NULL lift | search buys | reproduced by chance |
+|---|---|---|---|---|
+| 0.60 | +14.98 | +18.30 | **-3.32** | 122.1% |
+| 0.65 | +10.65 | +13.09 | **-2.46** | 122.9% |
+| 0.70 | +7.40 | +8.51 | **-0.85** | 115.0% |
+| **0.75 (SHIPPED)** | +5.42 | +4.53 | **+1.14** | 83.6% |
+| 0.80 | +4.33 | +2.49 | +1.85 | 57.5% |
+| 0.85 | +3.43 | +1.18 | +2.13 | 34.3% |
+| 0.90 | +2.89 | +0.50 | +2.30 | 17.3% |
+
+**BELOW theta ~ 0.72 THE SEARCH IS NET HARMFUL** — it lifts the null MORE than
+it lifts the signal, so a looser band is made looser still by a mechanism
+nobody declared. The shipped 0.75 is roughly the break-even point.
+
+**C — THE CROSSOVER REPLICATES; THE HIGH-THETA TREND DOES NOT.** Second corpus:
+12 `corpus/song/eng_*` files, 172 printed blocks, **708 ADJACENT-line pairs** —
+a signal set defined by PRINTED ADJACENCY and therefore not derived from the
+grader's own graph (doctrine 14) — under a within-block permutation null:
+
+| theta | REAL lift | NULL lift | search buys | reproduced by chance |
+|---|---|---|---|---|
+| 0.60 | +12.01 | +14.88 | **-3.05** | 123.9% |
+| 0.70 | +7.91 | +8.40 | **-0.94** | 106.2% |
+| 0.75 | +5.51 | +4.80 | +0.78 | 87.2% |
+| 0.80 | +3.81 | +3.11 | +0.64 | 81.5% |
+| 0.90 | +3.11 | +2.40 | +0.57 | 77.4% |
+
+The sign change near **0.72** holds across two corpora, two signal-set
+definitions and two null designs — that is the durable half. **The sonnet
+column's rising value at high theta is NOT reproduced**: song verse plateaus at
+77-87% chance and buys ~+0.5 pp throughout. So the sentence "the search earns
+its keep above 0.80" is TRUE OF SONNETS AND UNSUPPORTED IN GENERAL, and is not
+claimed here — an adjacent-pair signal set is also weaker than a mandated one
+(not every adjacent line rhymes), which cuts the other way and is stated rather
+than resolved.
+
+**WHAT THIS CHANGES ABOUT THE REPAIR.** The first version implied the search
+might be removable. It is not: at the shipped theta it is roughly neutral, and
+at tighter thresholds it is positive. What the sweep shows is that **theta and
+the span search are COUPLED and were calibrated as though independent** — the
+band was measured over scores that were already maxima over k, with no
+coordinate recording that, so moving either one moves the other's value. That
+is the doctrine 1 shape (a coordinate that decides an answer and is not in the
+declaration) rather than a defect in the search itself, and it is why the entry
+stays OPEN rather than proposing a number.
