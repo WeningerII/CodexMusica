@@ -12204,3 +12204,43 @@ the check passes by accepting all three, and **a filter that rejects nothing
 renders identically to a filter that works** (doctrine 48). Repointed to
 38-40, which restores the shape the check was built on: two accepted, one
 rejected, and the rejection still a bridge-first zero-shape (seed 39).
+
+**AND THE INSTRUMENT THAT WOULD HAVE CAUGHT THIS ALREADY SHIPS — IT WAS
+SKIPPED, NOT MISSING, WHICH IS THE ONLY HONEST READING.** The tempting
+conclusion from the above is that the tree needs something new: a map from a
+calibrated constant to the suites downstream of it, so a re-adoption sitting
+can be told what else to re-run. **It does not.** `quality/suite_sweep.py`
+exists for exactly this, its own docstring calls it the before-you-push
+command, and it says in capitals that it takes over an hour so nobody
+discovers that by waiting. The M-131 sitting ran the suites it could think of
+— `test_floor`, `test_propose`, `test_revise`, `test_loop`, `test_verbs`,
+`test_songs`, `test_songs_record`, `test_recover`, `test_slots` — and a
+thought-of subset is precisely the improvised instrument standing rule 3
+bans, one layer up from a script: **the sitting re-derived from memory which
+suites a band could reach, and memory is what got `test_narrative` wrong.**
+
+**WHAT THE BLAST RADIUS ACTUALLY IS, measured by perturbation rather than by
+reading imports**: restoring the pre-M-131 band reds `test_floor` (the direct
+pin holder), `test_narrative` (four checks) and `test_plan` §12's new
+disjointness check. `test_placement`, `test_structures`, `test_render_form`
+and `test_songs` are green either side. **Three suites, and the sitting named
+one of them.** Reading imports would not have answered it either — nearly
+every suite imports `floor` transitively, and the three that MOVE are not
+distinguishable from the rest by any import graph. Only running them says.
+
+**SO THE REMEDY IS A DEFINITION OF DONE, NOT A BUILD**: a sitting that
+re-adopts a calibrated constant is not closed by the suites it thought to
+run, and CI's `suites` job is not a substitute for the sweep — it is the
+thing that catches what the sweep would have caught first, one push later,
+which is exactly what happened here.
+
+**THE COVERAGE COUNTER'S SUPERSEDED VALUE, RECORDED HERE (doctrine 17).**
+`quality/audit_register.py`'s `coverage_entries` goes ~~190~~ -> **191**
+(2026-08-26, this entry). The chain before it is kept at M-130's own
+paragraph above: ~~184~~ -> ~~185~~ -> ~~186~~ -> ~~187~~ -> ~~188~~, then
+~~190~~ at M-131/M-132, which landed two entries in one commit. Written down
+because `verify_entries.py`'s pin-history check FAILED on this very commit
+for exactly the omission it exists to catch: the counters table is REWRITTEN
+in place by `counters.py --write`, so the superseded figure leaves the page
+unless an entry states it, and a value that merely vanishes is not a
+judgement.
