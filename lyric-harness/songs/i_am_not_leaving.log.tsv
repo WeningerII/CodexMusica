@@ -89,3 +89,27 @@ i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:feel~every	not a
 i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	banned	0
 i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	refused	0
 i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	clean_or_non_rhyme	15
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	mandate_groups	12
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	lines	20
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	mandated_pairs	65
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	mandate_source	declared
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	md5	e2160b4aa830
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	briefed	20
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	per_line_flag	1
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	per_line_note	86
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	whole_draft	7
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	whole_draft_flag	0
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	finding:SCHEME_VIOLATION	FLAG x1
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	finding:CROWDED	NOTE x20
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	finding:EXTRAPOLATED_LENGTH	NOTE x1
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	finding:FUNCTION_UNDECLARED	NOTE x1
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	finding:LATE_ENTRY	NOTE x18
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	finding:MODAL_RHYME	NOTE x1
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	finding:NO_SETTING	NOTE x1
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	finding:PROMINENCE_CANNOT_ALIGN	NOTE x20
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x20
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	finding:REFRAIN_REPEAT	NOTE x3
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	finding:RETURN_LOCKED	NOTE x1
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	finding:SCHEME_COLLISION	NOTE x4
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	finding:SINGLE_INSTANCE	NOTE x2
+i_am_not_leaving.txt	7	2026-08-26	f19895d	song	3	finding:UNCOVERED_BARS	NOTE x1
