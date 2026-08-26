@@ -1848,6 +1848,13 @@ jobs:
       # MORE than it lifts real verse -- the band gets loosened by a mechanism
       # no coordinate declares. The margin today is +0.03, which is why this
       # runs rather than sitting in a document.
+      #
+      # COST, MEASURED before it was added rather than discovered by a
+      # timeout: **3s** single-threaded (1,108 sonnet pairs scored once, then
+      # 10 permutation replicates, swept over 7 thetas off the stored totals
+      # so the sweep costs no extra scoring). It is a rounding error against
+      # this job's budget -- which is stated here because M-129's whole
+      # subject was a shard whose cost nobody had written down.
       - name: Span-search null, the shipped band against the measured crossover
         if: always()
         working-directory: lyric-harness
