@@ -11940,3 +11940,54 @@ last shard to FINISH took 171m41s, so that figure described a sweep two
 sizes ago (doctrine 58). The cap stays 240 on its own stated argument — the
 step bound is what fires, and the cap exists so a hung fork cannot hold a
 runner for six hours.
+
+### M-130 · a docs gate whose population was whatever the machine had built `CLOSED`
+`scripts/check_docs.js` discovered its documents by walking the filesystem
+from the repo root with `fs.readdirSync`, skipping `node_modules`, `.git` and
+dotfiles — **and nothing else**. So it also collected GITIGNORED BUILD
+ARTIFACTS.
+
+**IT FAILED ON A FILE NOBODY WROTE AND NOTHING TRACKS.** A container carrying
+a `graphify-out/` build (gitignored at `.gitignore:33`, tracked by nothing)
+failed the check on `GRAPH_REPORT.md:582` claiming *"185 instruments"* against
+a catalog of **1406**. That report is a machine summary of a graph, not
+documentation anybody maintains, and `CLAUDE.md` already says in as many words
+that its path is deliberately not written as a repo-path citation *because it
+is absent from a clean checkout*.
+
+**SO ONE COMMIT GOT TWO ANSWERS: 90 active docs and FAIL locally, 89 and PASS
+in CI.** A gate whose population depends on what a developer happens to have
+built is not reporting on the tree. And it fails in the direction that costs a
+round trip to diagnose, because CI can never reproduce it — this entry exists
+because that round trip was paid: the `tandem` job was reported RED on a tree
+where it is green.
+
+**THE REPO HAD ALREADY RULED ON THIS EXACT QUESTION, ONE INSTRUMENT OVER.**
+`quality/test_provenance.py` §12 *"uses `git ls-files` and REFUSES if it cannot
+read the population, because globbing would fold in the gitignored artifacts …
+which have no row BECAUSE THEY ARE NOT COMMITTED, and reporting those as
+defects punishes the table for working (doctrine 20)."* Same argument, same
+remedy, applied here.
+
+**THE POPULATION IS `--cached --others --exclude-standard`, AND THE `--others`
+HALF IS LOAD-BEARING.** It keeps a document that has been WRITTEN but not yet
+committed inside the population; tracked-only would make this gate silently
+ignore a new document until somebody committed it, which is the same doctrine-20
+defect pointed the other way — clean because it never looked. **AND IT REFUSES
+RATHER THAN FALLING BACK**: a silent filesystem fallback on a machine without
+git would restore the defect exactly where nobody could notice it.
+
+**THE CHANGE IS SCOPED, MEASURED BY DIFFING THE TWO POPULATIONS RATHER THAN BY
+READING THE CODE**: 91 markdowns -> 87, and the four dropped are
+`graphify-out/GRAPH_REPORT.md` and its `2026-08-23`, `2026-08-24`, `2026-08-26`
+siblings. **0 real documents lost, 0 newly covered.** `check_docs.js` exits 0
+with the artifact present, and `npm run tandem` is green.
+
+**THE SWEEP FOR THE SAME SHAPE FOUND ONE SIBLING AND IT IS NOT CHANGED.**
+`scripts/check_build_closure.js`'s `repoFiles()` already asks git FIRST and
+keeps a filesystem walk only as a `catch` fallback, so the defect there is
+latent and unreachable in any checkout where git answers. Recorded rather than
+edited: there is no failing case, and changing it on the strength of this one
+would be speculative. Every other `readdirSync` under `scripts/` walks a
+bounded directory it was handed (`ICONS_DIR`, `SCRIPTS`, `mcp/`, an artifact
+dir, a temp dir), not the tree.
