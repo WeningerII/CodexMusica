@@ -12884,6 +12884,34 @@ per-WORD field can never list the words a per-LINE-PAIR route would accept, so
 the disclosure can only NAME the route and say a pair may satisfy without any
 offered word being taken.
 
+**AND THE SECOND COPY OF THAT FALSE SENTENCE WAS IN THE CENSUS ITSELF.**
+`quality/door_census.py`'s PER_WORD ruling also read *"The schema half is
+DISCLOSED through `Brief.field_declaration`"*. Striking it in `revise.py` and
+leaving it standing there is the two-copy defect this tree names oftenest —
+here inside the instrument whose entire job is to be authoritative about what
+each site does, and whose `--check` treats a ruling as the authority. Struck.
+
+**MEASURED, AND IT IS WHY THE PER_WORD DISPOSITION SURVIVES THE STRIKE.** Of
+the 23 sonnet pairs the default accepts ONLY by the 77-schema rescue, **0 are
+offerable** from the repaired field — fields 207 to 6,880 words deep, median
+1,845, complete pool, grader band, four relations. Spot-checked independently
+on six of the named pairs (`eye`/`majesty`, `herd`/`beard`, `art`/`convert`,
+`sky`/`memory`, `worth`/`forth`, `brow`/`mow`): 6 of 6 absent.
+
+**AND THE REASON IS SHARPER THAN "UNREACHABLE AT ANY DEPTH", WHICH IS WHAT THE
+DISCLOSURE'S WORDING TURNS ON.** Every one of those six scores **BELOW
+`theta_rhyme` 0.75** — 0.621 to 0.746 — so `admits()` refuses them ON THE
+SCALAR, not on the relation. The field is built from words that CLEAR the
+band; these pairs never clear it. The 77-schema route accepts them on an
+entirely different basis — chain rhyme 16, internal rhyme 11, consonance 10,
+assonance 3, multisyllabic 2, anaphora 2, additive 1, subtractive 1 over the
+23 (46 hits, 8 names, never summed; ten of the 23 hang on ONE name) — which
+are properties of the LINE PAIR, not of the end-word pair.
+**So a disclosure must not say the field is incomplete.** It must say the pair
+may satisfy on a route that has nothing to do with the word at this site. A
+wording implying schema-satisfying words could have been offered would be
+worse than no disclosure at all, and 0 of 23 is the measurement that says so.
+
 **TESTED WHILE OPEN, and the split is exactly the entry's own two halves.**
 Three regressions name this entry — `quality/test_door_census.py`,
 `quality/test_loop.py`, `quality/test_revise.py` — and every one of them tests

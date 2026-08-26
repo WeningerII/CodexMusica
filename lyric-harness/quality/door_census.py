@@ -179,8 +179,21 @@ RULINGS = {
         "The writer's candidate field. It holds ONE WORD and the 77 judge "
         "LINE PAIRS over a built stream, so the schema half is not askable "
         "here at any price. The relation half is, and is now read from "
-        "`decl.admit`. The schema half is DISCLOSED through "
-        "`Brief.field_declaration`. `MISSING.md` M-139."),
+        "`decl.admit`. ~~The schema half is DISCLOSED through "
+        "`Brief.field_declaration`.~~ STRUCK 2026-08-26, THE SAME DAY, AND "
+        "THIS WAS THE SECOND COPY: `field_declaration` renders "
+        "`field_depth=..., field_band=...` and nothing else, so the schema "
+        "half is SILENTLY DROPPED at that site today. The first copy was "
+        "struck in `revise.py`'s own docstring and THIS ONE SURVIVED -- a "
+        "claim corrected in one place and left standing in another, which "
+        "is the two-copy defect this tree names oftenest, here inside the "
+        "instrument whose whole job is to be authoritative about what each "
+        "site does. MEASURED and it is why the disposition still holds: of "
+        "the 23 sonnet pairs the default accepts ONLY by the 77-schema "
+        "rescue, **0 are offerable** from fields 207-6,880 words deep -- the "
+        "route is not under-served by the field, it is unreachable from it "
+        "at any depth. A DISCLOSURE is owed and is not yet built. "
+        "`MISSING.md` M-139."),
 
     # ----------------------------------------------------------- RENDERING
     # `check_scheme`'s own naming test is NOT keyed here: this table is keyed
