@@ -1062,6 +1062,18 @@ class Reviser:
         # stream, and takes the byte-identical old path — the same lazy
         # discipline the structure and named-relation routes above take.
         _sch_pairs, _stream = {}, None
+
+        def _grade_stream(_RRm):
+            # ONE stream builder for BOTH schema routes — the declared route
+            # below and the whole-vocabulary default fan after the pair loop
+            # (owner ruling 2026-08-25, M-116). Two spellings of the stanza
+            # derivation is how the two routes would drift (doctrine 1).
+            return _RRm.build_stream(
+                lines, _relation_phonology(),
+                sections=sections,
+                stanzas=_RRm.stanzas_from_sections(sections),
+                stanza_source="declared_sections" if sections else "",
+                declaration={"language": "eng"})
         if _RT is not None:
             _wants = {w for w in
                       (list(getattr(m, "relations", ()) or [])
@@ -1079,19 +1091,7 @@ class Reviser:
                 # `declared_sections` so the provenance survives into every
                 # report (M-39: a declared list gets a source name, and the
                 # name is what tells a reader this was not blank lines).
-                _stanzas = None
-                if sections:
-                    _stanzas, _k, _prev = [], -1, object()
-                    for sec in sections:
-                        if sec != _prev:
-                            _k += 1
-                            _prev = sec
-                        _stanzas.append(_k)
-                _stream = _R_mod.build_stream(
-                    lines, _relation_phonology(),
-                    sections=sections, stanzas=_stanzas,
-                    stanza_source="declared_sections" if _stanzas else "",
-                    declaration={"language": "eng"})
+                _stream = _grade_stream(_R_mod)
                 # THE REFRAIN-TAIL FRAME, DERIVED FROM THE DECLARATION AND
                 # NOT FROM A DEFAULT. `epistrophe / radif` and
                 # `qafiya (before the radif)` refuse without
@@ -1149,11 +1149,27 @@ class Reviser:
             why = None
             struct = m.structure_of(k) if _ST is not None else None
             want = m.relation_of(k) if _RT is not None else ""
-            if rel == "REPEAT":
+            if rel == "REPEAT" and not (want and _schema_name_of(_RT, want)):
                 # Identity is its own question under EVERY structure — the
                 # returns/licence machinery owns it, and an identical word
                 # trivially "satisfying" an alliteration demand is exactly
                 # the laziness that machinery exists to adjudicate.
+                # EXCEPT WHERE THE GROUP DECLARED A SCHEMA (M-124,
+                # 2026-08-25): a `RelationSchema` carries its own
+                # `IdentityRule`, which IS the declared identity ruling for
+                # that group — anaphora's is token-AGREE, so identical bound
+                # words are the requirement, not the laziness, and charging
+                # REPEAT here made the grader refuse exactly what the
+                # mandate asked for (one repository, two answers about one
+                # pair — the M-59 shape at the identity coordinate). And a
+                # Differ-identity schema judged on SEARCHED spans (internal
+                # rhyme) reads nothing off the bound words at all, so the
+                # pre-emption was answering a question the schema does not
+                # ask there. The schema route below adjudicates identity on
+                # the schema's own spans through `realise()`'s IdentityRule;
+                # a BARE group and a class/type relation keep this branch
+                # byte-identically (doctrine 3 stands: REPEAT is still not
+                # rhyme where nothing declared otherwise).
                 why = "REPEAT not rhyme (identical word)"
             elif want:
                 # THE GROUP DECLARED WHAT RELATION IT WANTS. This is the
@@ -1328,6 +1344,53 @@ class Reviser:
         # mandate itself -- was flagged as a violation under the default
         # "unlicensed" setting, and `revise_loop` would then try to "fix" a
         # refrain that was already correct.
+        # ALL 77 SCHEMAS ARE IN THE DEFAULT — 2026-08-25, OWNER RULING, the
+        # second half of the instruction whose first half widened the admit
+        # set to all four classes on 2026-08-22 (`MISSING.md` M-116, task
+        # #86). A mandated pair that declared NO relation and NO structure is
+        # satisfied when its two lines stand in ANY schema the vocabulary
+        # names, judged by the SAME instrument the declared route uses —
+        # `relations.line_pairs_for` over one shared stream — so there is no
+        # second judge to drift from (doctrine 1). Declaring a relation
+        # remains the NARROWING move and is untouched: a group that says
+        # `class:ASSONANCE` or `schema:pararhyme` is satisfied by exactly
+        # that. REPEAT is excluded — identity has its own licence machinery
+        # (doctrine 3) and this ruling is about rhyme relations. LAZY: a
+        # draft whose every undeclared pair already satisfies the scalar
+        # door pays nothing — no import, no stream, no realise. LAZINESS AT
+        # THESE RELATIONS IS UNCALIBRATED: a rescue records WHICH schemas
+        # answered (`satisfied_by`), because a pass under a relation with no
+        # measured modal regime must be tellable from a calibrated pass
+        # (the `STRUCTURE_UNCALIBRATED` contract, one layer over).
+        # ...AND ONLY UNDER THE DEFAULT DOOR (2026-08-25): a caller who
+        # NARROWED `Declaration.admit` has declared what satisfies them,
+        # and the rescue does not override a declaration.
+        # `lyric_harness.admit_is_default` is the one definition of this
+        # gate, shared with `check_scheme` (doctrine 1).
+        from lyric_harness import admit_is_default as _AID
+        _fan = [v for v in verdicts
+                if v["why"] and v["relation"] != "REPEAT"
+                and _AID(self.decl)
+                and not (m.relation_of(v["group"])
+                         if hasattr(m, "relation_of") else "")
+                and (v["structure"] is None
+                     or (_ST is not None and v["structure"] == _ST.DEFAULT))]
+        if _fan:
+            from quality import relations as _RF
+            # ONE JUDGE FOR BOTH READERS: `relations.whole_vocabulary_pairs`
+            # is the same call `lyric_harness.check_scheme` makes, so the
+            # two graders cannot drift about which pair the default
+            # satisfies (doctrine 1).
+            _wvp = _RF.whole_vocabulary_pairs(
+                lines, _relation_phonology(), sections=sections,
+                bearing={ln - 1 for g in m.groups for ln in g
+                         if 1 <= ln <= len(lines)})
+            for v in _fan:
+                _hit = _wvp.get(tuple(sorted(v["lines"])))
+                if _hit:
+                    v["why"] = None
+                    v["satisfied_by"] = sorted(_hit)
+
         default_licensed = self.rdecl.repeat_licence == "refrain"
         violations = []
         for v in verdicts:
@@ -1542,7 +1605,15 @@ class Reviser:
                 "refusals": refusals, "collisions": collisions,
                 "pairs_mandated": len(pairs),
                 "pairs_refused": len(refusals),
-                "pairs_judged": len(pairs) - len(refusals)}
+                "pairs_judged": len(pairs) - len(refusals),
+                # THE WHOLE-VOCABULARY DEFAULT'S OWN COUNT (M-116): pairs the
+                # scalar door failed and a schema satisfied, with the names.
+                # Not summed into any other count (doctrine 79) — a schema
+                # pass is a pass, and this key is what makes it TELLABLE.
+                "pairs_schema_satisfied": [
+                    {"lines": v["lines"], "label": v["label"],
+                     "satisfied_by": v["satisfied_by"]}
+                    for v in verdicts if v.get("satisfied_by")]}
 
     # -- the collision set, partitioned -----------------------------------
 

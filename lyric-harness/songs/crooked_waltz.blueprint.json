@@ -1,0 +1,207 @@
+{
+ "hooks": [],
+ "lines": [
+  {
+   "bar": 1,
+   "beat": 1.0,
+   "duration": 11.0,
+   "section": "INTRO1",
+   "text": "Come to the fair, by the farmer's stall, and stir"
+  },
+  {
+   "bar": 2,
+   "beat": 1.0,
+   "duration": 11.0,
+   "section": "INTRO1",
+   "text": "Come to the square, the charmer, the carpenter"
+  },
+  {
+   "bar": 3,
+   "beat": 1.0,
+   "duration": 11.0,
+   "section": "CHORUS1",
+   "text": "The night is a ring toss, try your lucky bait"
+  },
+  {
+   "bar": 4,
+   "beat": 1.0,
+   "duration": 11.0,
+   "section": "CHORUS1",
+   "text": "Guy lines are singing tonight, and the scales, we tell"
+  },
+  {
+   "bar": 5,
+   "beat": 1.0,
+   "duration": 11.0,
+   "section": "CHORUS1",
+   "text": "The tents of the bonsai man tilt in the wind"
+  },
+  {
+   "bar": 6,
+   "beat": 1.0,
+   "duration": 11.0,
+   "section": "CHORUS1",
+   "text": "Sky wheels are turning, stilt men striding tall"
+  },
+  {
+   "bar": 7,
+   "beat": 1.0,
+   "duration": 11.0,
+   "section": "CHORUS1",
+   "text": "The bright booths lean to the west, doors gliding wide"
+  },
+  {
+   "bar": 8,
+   "beat": 1.0,
+   "duration": 11.0,
+   "section": "CHORUS1",
+   "text": "Pylons at the stiles swing, and the bells count toll"
+  },
+  {
+   "bar": 9,
+   "beat": 1.0,
+   "duration": 11.0,
+   "section": "CHORUS1",
+   "text": "And we all fall in line, dressed up in white"
+  },
+  {
+   "bar": 10,
+   "beat": 2.0,
+   "duration": 10.0,
+   "section": "POSTCHORUS1",
+   "text": "We sat where the heater sighs, on the edge"
+  },
+  {
+   "bar": 11,
+   "beat": 2.0,
+   "duration": 10.0,
+   "section": "POSTCHORUS1",
+   "text": "We set out late; the crowd drifts thin"
+  },
+  {
+   "bar": 12,
+   "beat": 2.0,
+   "duration": 10.0,
+   "section": "POSTCHORUS1",
+   "text": "We suit up in spades, a liter down, the etch"
+  },
+  {
+   "bar": 13,
+   "beat": 2.0,
+   "duration": 10.0,
+   "section": "POSTCHORUS1",
+   "text": "We watch the meter man quit; the dogs fetch"
+  },
+  {
+   "bar": 14,
+   "beat": 1.5,
+   "duration": 10.5,
+   "section": "VERSE1",
+   "text": "A crooked waltz counts to eleven, bows"
+  },
+  {
+   "bar": 15,
+   "beat": 1.5,
+   "duration": 10.5,
+   "section": "CODA1",
+   "text": "Homeward we carry the last of the trade"
+  },
+  {
+   "bar": 16,
+   "beat": 1.5,
+   "duration": 10.5,
+   "section": "CODA1",
+   "text": "Home is the fair at half-price, an empty tray"
+  },
+  {
+   "bar": 17,
+   "beat": 1.5,
+   "duration": 10.5,
+   "section": "CODA1",
+   "text": "Home down the lane, whistling the crooked tune"
+  }
+ ],
+ "sections": [
+  {
+   "bars": 2,
+   "function": "intro",
+   "meter": {
+    "beats": 11,
+    "groups": [
+     3,
+     3,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "INTRO1",
+   "start_bar": 1
+  },
+  {
+   "bars": 7,
+   "function": "chorus",
+   "meter": {
+    "beats": 11,
+    "groups": [
+     3,
+     3,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS1",
+   "start_bar": 3
+  },
+  {
+   "bars": 4,
+   "function": "postchorus",
+   "meter": {
+    "beats": 11,
+    "groups": [
+     3,
+     3,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "POSTCHORUS1",
+   "start_bar": 10
+  },
+  {
+   "bars": 1,
+   "function": "verse",
+   "meter": {
+    "beats": 11,
+    "groups": [
+     3,
+     3,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "VERSE1",
+   "start_bar": 14
+  },
+  {
+   "bars": 3,
+   "function": "coda",
+   "meter": {
+    "beats": 11,
+    "groups": [
+     3,
+     3,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CODA1",
+   "start_bar": 15
+  }
+ ],
+ "title": "Crooked Waltz"
+}

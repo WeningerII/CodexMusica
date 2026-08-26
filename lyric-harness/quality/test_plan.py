@@ -646,7 +646,12 @@ def test_the_measure():
     # `lyric_harness`, so an unrestricted admission would hand the planner
     # transitive reach to a frequency table — which is the corpus arriving at
     # the dice by a longer road (the owner's move-37 ban).
-    ALLOWED_FROM_FLOOR = {"PROFILES"}
+    ALLOWED_FROM_FLOOR = {"PROFILES", "FloorDeclaration"}
+    # `FloorDeclaration` joined with M-125(b): the gate reads the floor's
+    # own `anaphora_max` through the declaration's `resolve`, so the
+    # forced-opener ceiling and ANAPHORA_OVERLOAD cannot hold two
+    # thresholds (doctrine 1). It is the declaration CLASS, not a reader
+    # — constructing one opens no file and reaches no feature table.
     # `capacity` AND `slots` JOINED 2026-08-23, each with its own argument
     # and each RE-TIGHTENED the way `grid` and `floor` were.
     #
@@ -672,8 +677,39 @@ def test_the_measure():
     ALLOWED_FROM_CAPACITY = {"ADOPTED_MAX_GROUP"}
     ALLOWED_FROM_SLOTS = {"PLANNABLE_PLACEMENTS", "placement_word",
                           "LAST_WORD"}
+    # `relations` JOINED 2026-08-25 (M-117, the owner's "now do the planner
+    # too") ON THE SAME ARGUMENT AS `slots` AND WITH THE SAME NARROWING:
+    # `DRAWABLE_SCHEMAS` is an ADOPTED tuple of the same species as
+    # `meter_bands.ADOPTED` — certified against the declared witness by
+    # `derive_drawable_schemas()`, which §14 re-derives — and the planner
+    # may name ONLY it. `relations` holds `build_stream`/`realise` and a
+    # phonology reach, so an unrestricted admission would hand the planner
+    # a stream builder, which is the corpus arriving at the dice by a
+    # longer road.
+    ALLOWED_FROM_RELATIONS = {"DRAWABLE_SCHEMAS", "drawable_traits",
+                              "CHANNEL_DOMAINS"}
+    # `drawable_traits` joined with M-118's conjunction gate: the
+    # gap ceiling and end-channel signature per drawable schema,
+    # derived in relations.py from its own rows so the planner
+    # never reads a row itself.
+    # `CHANNEL_DOMAINS` joined with M-123: an ADOPTED table of finite
+    # channel value domains (prominence binary, the vowel inventory, the
+    # derived presence bit) — the same declared-constant species as
+    # `DRAWABLE_SCHEMAS`, no reader and no stream behind the name, and
+    # the clique cap and parity closure are what read it.
+    # `narrative` JOINED 2026-08-25 (M-121, the wired half of the
+    # narrative layer) AND IS THE EASIEST ADMISSION THIS GUARD HAS EVER
+    # RULED ON: quality/narrative.py imports NOTHING from quality and
+    # opens NO file — it is hand-declared vocabulary plus arithmetic,
+    # the same species as `structures`, with no transitive reach to any
+    # reader. The planner may name only the counter, the draw, the
+    # validator and the refusal.
+    ALLOWED_FROM_NARRATIVE = {"count_lineups", "draw_lineup",
+                              "validate_lineup", "sung_sequence",
+                              "NarrativeRefused"}
     grid_names, floor_names = set(), set()
-    cap_names, slot_names = set(), set()
+    cap_names, slot_names, rel_names = set(), set(), set()
+    nar_names = set()
     for n in ast.walk(tree):
         if isinstance(n, ast.Attribute) and isinstance(n.value, ast.Name):
             if n.value.id in ("_GR", "grid", "GR"):
@@ -684,13 +720,31 @@ def test_the_measure():
                 cap_names.add(n.attr)
             elif n.value.id in ("_SL", "slots", "SL"):
                 slot_names.add(n.attr)
+            elif n.value.id in ("_RL", "relations", "RL"):
+                rel_names.add(n.attr)
+            # the BARE name `narrative` is deliberately NOT collected:
+            # it is make_plan's own KWARG (the writer's declared
+            # line-up, a dict), so attribute reads on it are dict
+            # operations, not module reads — the module travels as _NV.
+            elif n.value.id in ("_NV", "NV"):
+                nar_names.add(n.attr)
     check("plan.py imports exactly {schemes, meter_bands, structures, grid, "
-          "floor, capacity, slots} from quality and opens NO file — the "
-          "corpus cannot reach the dice (the owner's move-37 rule)",
+          "floor, capacity, slots, relations, narrative} from quality and "
+          "opens NO file — the corpus cannot reach the dice (the owner's "
+          "move-37 rule)",
           subs == {"schemes", "meter_bands", "structures", "grid", "floor",
-                   "capacity", "slots"}
+                   "capacity", "slots", "relations", "narrative"}
           and opens == 0,
           f"imports {sorted(subs)}, open() calls {opens}")
+    check("...and from `narrative` ONLY the counter, the draw, the "
+          "validator and the refusal — the module itself imports nothing "
+          "from quality and opens no file, which is why it is the "
+          "easiest admission this guard has ruled on",
+          nar_names <= ALLOWED_FROM_NARRATIVE, f"names {sorted(nar_names)}")
+    check("...and from `relations` ONLY the adopted drawable pool, never "
+          "the stream builder or a realiser — `relations` reaches the "
+          "phonology, which opens the dictionary",
+          rel_names <= ALLOWED_FROM_RELATIONS, f"names {sorted(rel_names)}")
     check("...and from `floor` it names ONLY the adopted calibration table, "
           "never a feature reader — `floor.py` reaches `quality.features` "
           "and `lyric_harness`, so an unrestricted admission is the corpus "
@@ -959,20 +1013,27 @@ def test_the_rendering():
 def test_the_writers_declaration():
     """M-55: `--relation` and `--functions` are the WRITER'S declaration.
 
-    Neither is sampled. The planner does not pick a relation -- putting
+    Neither is sampled. ~~The planner does not pick a relation -- putting
     `type:pararhyme` on a group nobody asked for is the "move 37" ban pointed
-    at rhyme instead of at shape -- it CARRIES what was declared into the plan
-    artifact and into the one command that grades the draft.
+    at rhyme instead of at shape~~ -- SUPERSEDED BY OWNER RULING 2026-08-25
+    (M-117, §14 below): when the writer declares nothing, each group DRAWS
+    its relation from the certified pool, and the drawn coordinate rides the
+    grading command as `--relations=` (plural, per group). What survives is
+    PRECEDENCE: the writer's own `--relation=` (singular, global) is CARRIED,
+    never sampled over, and declaring it silences the draw.
     """
     print("\n9. the writer's declaration (M-55)")
     import quality.plan as P
 
     base = P.make_plan(11)
-    check("a plan with NO declaration carries empty ones, and its GRADE IT "
-          "line names no relation — every caller that never learned this "
-          "field is unchanged",
+    check("a plan with NO declaration carries empty WRITER coordinates — "
+          "`relation` and `functions` stay unimputed — and its GRADE IT "
+          "line carries no `--relation=` (the writer's singular spelling); "
+          "what it does carry is `--relations=`, the DRAWN per-group "
+          "coordinate (M-117), which is the planner's, not the writer's",
           base["relation"] == "" and base["functions"] == []
-          and "--relation" not in P.grading_command(base))
+          and "--relation=" not in P.grading_command(base)
+          and "--relations=" in P.grading_command(base))
 
     m = P.make_plan(11, relation="type:rime riche")
     check("a declared relation is STORED NAMESPACED, so the value the plan "
@@ -1958,6 +2019,243 @@ def test_the_end_rhyme_pass_is_additive(FAILURES=None):
           f"{100 * after_end / lines_n:.1f}% of {lines_n} lines")
 
 
+def test_the_relation_draw():
+    """§14 — the planner draws each group's relation from the certified
+    pool (M-117, the owner's "now do the planner too"), and the adoption
+    re-derives against the declared witness so the pool cannot drift."""
+    print("\n-- 14. the relation draw: certified pool, carried to the "
+          "grade, silent under a writer's declaration --")
+    from quality import relations as RL
+    from quality import rhyme_types as RT
+    check("the ADOPTED drawable pool re-derives from the declared witness "
+          "— a moved pool is a moved witness or a moved registry, and "
+          "either must fail loud rather than drift (the meter-bands "
+          "adoption pattern)",
+          tuple(RL.DRAWABLE_SCHEMAS) == RL.derive_drawable_schemas(),
+          "adoption drifted from derivation")
+    pl = PLN.make_plan(7)
+    n_groups = len(pl["groups"].split(";"))
+    drawn = pl.get("relations") or {}
+    check("a plan draws relations for its groups and every drawn name "
+          "resolves in the `schema` namespace",
+          drawn and all(RT.resolve_relation(v)[1] == "schema"
+                        for v in drawn.values()),
+          f"{len(drawn)} drawn over {n_groups} groups")
+    check("every drawn label is a label the mandate itself would generate "
+          "— `PLN.SC.label`, one definition, no respelling",
+          set(drawn) <= {PLN.SC.label((k,)) for k in range(n_groups)},
+          f"labels {sorted(drawn)[:6]}")
+    check("the grading command CARRIES the draw — a declared coordinate "
+          "read by nothing is the defect this repo has an instrument for",
+          "--relations=" in PLN.grading_command(pl),
+          PLN.grading_command(pl)[-80:])
+    check("the draw is DISCLOSED in choices, like every other draw",
+          "relations" in pl["choices"]
+          and pl["choices"]["relations"]["value"] == drawn,
+          "choices.relations missing or diverged")
+    pl2 = PLN.make_plan(7, relation="class:ASSONANCE")
+    check("a writer's own --relation SILENCES the draw — a declared "
+          "coordinate is carried, never sampled over (M-55)",
+          pl2.get("relations") == {} and pl2["relation"],
+          f"drew {len(pl2.get('relations') or {})} despite a declaration")
+    check("the draw consumes entropy AFTER every existing draw, so the "
+          "seed's SHAPE is byte-identical to the pre-draw planner's — "
+          "groups, returns and meter unmoved between the two calls above",
+          pl["groups"] == pl2["groups"] and pl["returns"] == pl2["returns"],
+          "shape moved with the relation coordinate")
+    # THE CONJUNCTION GATE (M-118, widened by M-119, rebuilt as a GRAPH by
+    # M-122): before M-118, 39 of 40 seeds drew a jointly unsatisfiable
+    # schema conjunction; after M-119's locus-derived widening, 53 of 60
+    # STILL did (117 adjacency violations, 32 transitive contradictions),
+    # because `adjacent_lines` is a gap constraint spelled as a placement
+    # KIND and EQUALITY IS TRANSITIVE where a per-pair ledger is not. The
+    # check replays the gate's own three rules — gap, pairwise exact-match
+    # on (pair, channel, coord), and the union-find closure — over fresh
+    # draws with the registry's own coordinates, so a schema whose traits
+    # move re-asks the question rather than trusting the draw-time filter.
+    from itertools import combinations
+    traits = RL.drawable_traits()
+    # THE DERIVATION PINS. Without these, a derivation that quietly drops
+    # a coordinate leaves the replay below vacuously green. M-119's two
+    # survive re-expressed in the triples format; M-122 adds the three
+    # facts its rebuild was filed on.
+    cc = traits["cluster consonance / skothending span"]
+    check("M-119's coordinates survive the M-122 rekeying — cluster "
+          "consonance claims nucleus-Differ at the anchor (finality read "
+          "from the span locus, no placement row), anaphora token-Agree "
+          "at the head, head rhyme (positional) token-Differ at the head",
+          ("nucleus", "anchor", "Differ") in cc["claims"]
+          and ("token", "head", "Agree") in traits["anaphora"]["claims"]
+          and ("token", "head", "Differ")
+          in traits["head rhyme (positional)"]["claims"],
+          f"cc {cc}, anaphora {traits['anaphora']}, "
+          f"head rhyme {traits['head rhyme (positional)']}")
+    check("M-122(a): `adjacent_lines` is read as gap 1 — interlaced "
+          "rhyme's whole reach, a placement KIND the flat dict could not "
+          "carry (117 violations over sixty seeds before this)",
+          traits["interlaced rhyme"]["gap"] == 1,
+          traits["interlaced rhyme"])
+    pr = traits["perfect rhyme"]["claims"]
+    check("M-122(b): perfect rhyme carries TWO onset rules at two "
+          "coordinates — Agree at post, Differ at the anchor — which the "
+          "old per-channel dict collapsed into one, inflating the honest "
+          "pre-fix count from 53 to a false 56",
+          ("onset", "post", "Agree") in pr
+          and ("onset", "anchor", "Differ") in pr, pr)
+    check("M-122(c): the syllable coordinate SPLITS what the dict "
+          "conflated — semirhyme's coda claim rides the anchor while "
+          "light rhyme's rides the written-out final syllable, so only "
+          "the first composes into rime riche's transitive chain",
+          ("coda", "anchor", "Agree") in traits["semirhyme"]["claims"]
+          and ("coda", "final", "Agree") in traits["light rhyme"]["claims"]
+          and ("coda", "anchor", "Agree")
+          not in traits["light rhyme"]["claims"],
+          f"semirhyme {traits['semirhyme']}, "
+          f"light {traits['light rhyme']}")
+
+    # M-123's derivation pins: a Differ claim is a disequality clique, a
+    # clique needs one distinct value per member, and the adopted
+    # CHANNEL_DOMAINS table is what tells the gate a channel is finite.
+    check("M-123: the adopted domain table says prominence is BINARY and "
+          "nucleus is the 15-vowel inventory (measured over all 126,052 "
+          "syllabifiable lexicon words; the eng adapter constructs "
+          "prominence as `1 if stress in (1,2) else 0`), and light rhyme "
+          "carries the prominence-Differ claim that caps its groups at 2",
+          len(RL.CHANNEL_DOMAINS["prominence"]) == 2
+          and len(RL.CHANNEL_DOMAINS["nucleus"]) == 15
+          and ("prominence", "final", "Differ")
+          in traits["light rhyme"]["claims"],
+          f"domains {[(k, len(v)) for k, v in RL.CHANNEL_DOMAINS.items()]}")
+    check("M-123's second face: `PresentVsAbsent` IS a Differ on a "
+          "presence bit — subtractive rhyme's claims carry the derived "
+          "(coda_presence, anchor, Differ) with a binary domain, and a "
+          "coda-Agree schema projects the Agree edge onto the same "
+          "derived channel so the parity closure can see equal codas "
+          "contradict a presence split",
+          ("coda_presence", "anchor", "Differ")
+          in traits["subtractive rhyme"]["claims"]
+          and ("coda_presence", "anchor", "Agree")
+          in traits["monorhyme / leash"]["claims"]
+          and len(RL.CHANNEL_DOMAINS["coda_presence"]) == 2,
+          f"subtractive {traits['subtractive rhyme']['claims']}")
+    check("M-125: span LENGTH is a hidden equality channel and the "
+          "schema's own `unmatched` coordinate declares it — perfect "
+          "rhyme and rime riche (forbid) claim length-Agree at the ends, "
+          "semirhyme (require_b) claims length-Differ, so the "
+          "Equal-Equal-Differ triangle {perfect 13~14, rime riche 13~17, "
+          "semirhyme 14~17} that no words can close is caught by the "
+          "existing closure with no new machinery",
+          ("span_length", "end", "Agree")
+          in traits["perfect rhyme"]["claims"]
+          and ("span_length", "end", "Agree")
+          in traits["rime riche"]["claims"]
+          and ("span_length", "end", "Differ")
+          in traits["semirhyme"]["claims"]
+          and not any(c[0] == "span_length"
+                      for c in traits["assonance"]["claims"]),
+          f"semirhyme {traits['semirhyme']['claims']}")
+    from quality import floor as FLR
+    _aprof = next(p for p in FLR.PROFILES if p.n_lines == 0)
+    _amax = FLR.FloorDeclaration().resolve("anaphora_max", _aprof)
+    check("M-125(b): the forced-opener ceiling is READ from the floor's "
+          "own lyric-sheet profile (n_lines == 0, never by name — the "
+          "M-106 idiom), so the gate and ANAPHORA_OVERLOAD cannot hold "
+          "two thresholds",
+          _amax is not None and 0 < _amax < 1, _amax)
+    from quality import phonology as PHON
+    _eng = PHON.get("eng")
+    _pvals = {s.prominence for w in ("spring", "raining", "carpenter",
+                                     "understand", "overflow", "tell")
+              for s in _eng.syllabify(w)}
+    check("M-123: the phonology the judge grades through emits prominence "
+          "values from exactly the adopted domain — a probe over stressed "
+          "and unstressed syllables reaches both values and nothing else",
+          _pvals == set(RL.CHANNEL_DOMAINS["prominence"]), _pvals)
+
+    def _pfind(par, x):
+        p = 0
+        while True:
+            nx, xp = par.get(x, (x, 0))
+            if nx == x:
+                return x, p
+            x, p = nx, p ^ xp
+
+    n_adj = n_pair = n_trans = n_over = n_parity = n_open = 0
+    for sd in (4, 7, 11, 19, 23, 31):
+        p3 = PLN.make_plan(sd)
+        r3 = p3.get("relations") or {}
+        gl3 = [tuple(sorted({int(str(m).split(".")[0])
+                             for m in g.split(",")}))
+               for g in p3["groups"].split(";")]
+        pairc = {}
+        eqp = {}
+        nep = {}
+        for gi, g in enumerate(gl3):
+            nm = r3.get(PLN.SC.label((gi,)))
+            if not nm:
+                continue
+            t = traits[nm.split(":", 1)[1]]
+            pairs = list(combinations(g, 2))
+            if t["gap"] is not None and any(
+                    b - a > t["gap"] for a, b in pairs):
+                n_adj += 1
+            for ch, co, pred in t["claims"]:
+                dom = RL.CHANNEL_DOMAINS.get(ch)
+                if pred == "Differ" and dom is not None \
+                        and len(g) > len(dom):
+                    n_over += 1
+                for p in pairs:
+                    if pairc.get((p, ch, co)) not in (None, pred):
+                        n_pair += 1
+                    pairc[(p, ch, co)] = pred
+                key = (ch, co)
+                binary = dom is not None and len(dom) == 2
+                if pred == "Agree" or (pred == "Differ" and binary):
+                    w = 0 if pred == "Agree" else 1
+                    par = eqp.setdefault(key, {})
+                    for a, b in pairs:
+                        ra, pa = _pfind(par, a)
+                        rb, pb = _pfind(par, b)
+                        if ra == rb:
+                            if pa ^ pb != w:
+                                n_parity += 1
+                        else:
+                            par[ra] = (rb, pa ^ pb ^ w)
+                elif pred == "Differ":
+                    nep.setdefault(key, []).extend(pairs)
+        for key, ne in nep.items():
+            par = eqp.get(key, {})
+            for a, b in ne:
+                ra, pa = _pfind(par, a)
+                rb, pb = _pfind(par, b)
+                if ra == rb and not (pa ^ pb):
+                    n_trans += 1
+        par = eqp.get(("token", "head"), {})
+        _nodes = set(par) | {pp[0] for pp in par.values()}
+        _szs = {}
+        for _n in _nodes:
+            _r, _ = _pfind(par, _n)
+            _szs[_r] = _szs.get(_r, 0) + 1
+        _cap = int(_amax * int(p3["total_lines"]) + 1e-9)
+        if _szs and max(_szs.values()) > _cap:
+            n_open += 1
+    check("no drawn conjunction violates a schema's own gap ceiling, puts "
+          "opposite predicates on one (pair, channel, coordinate), closes "
+          "an equality chain a Differ claim demands open, outnumbers a "
+          "finite channel domain, forces a parity cycle on a binary one, "
+          "or forces more identical line-openers than the floor's own "
+          "ANAPHORA_OVERLOAD share admits — the measured 39-of-40 "
+          "(M-118), 53-of-60 (M-122: 117 adjacency, 32 transitive), "
+          "40-of-60 (M-123: 74 impossible prominence cliques) and M-125 "
+          "(seed 32's forced 9-of-21 openers and its length triangle) "
+          "defects all read ZERO through the gate",
+          n_adj == 0 and n_pair == 0 and n_trans == 0
+          and n_over == 0 and n_parity == 0 and n_open == 0,
+          f"adjacency {n_adj}, pairwise {n_pair}, transitive {n_trans}, "
+          f"oversize {n_over}, parity {n_parity}, opener {n_open} over "
+          f"six seeds")
+
+
 if __name__ == "__main__":
     for fn in (test_the_planner_plans_the_whole_line,
                test_determinism, test_refusals, test_the_round_trip,
@@ -1966,7 +2264,8 @@ if __name__ == "__main__":
                test_the_form_is_read, test_the_joint_gate,
                test_the_seed_sweep_is_a_verb,
                test_the_song_length_is_the_songs_own,
-               test_the_end_rhyme_pass_is_additive):
+               test_the_end_rhyme_pass_is_additive,
+               test_the_relation_draw):
         fn()
     print("=" * 62)
     if FAILURES:

@@ -1,0 +1,235 @@
+{
+ "hooks": [],
+ "lines": [
+  {
+   "bar": 1,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "INTRO1",
+   "text": "Salt keeps the ledger of the shortest days"
+  },
+  {
+   "bar": 2,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "INTRO1",
+   "text": "Harbor wives trade weather for a phrase"
+  },
+  {
+   "bar": 3,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "INTRO1",
+   "text": "Here the tide writes charters in the haze"
+  },
+  {
+   "bar": 4,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "INTRO1",
+   "text": "Here the larger guide ropes hold the pier"
+  },
+  {
+   "bar": 5,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "INTRO1",
+   "text": "Here the dyed nets lift and the anchor weighs"
+  },
+  {
+   "bar": 6,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "INTRO1",
+   "text": "Here the ice locks the river in the phase"
+  },
+  {
+   "bar": 7,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "INTRO1",
+   "text": "Paint applied in spring is still the craze"
+  },
+  {
+   "bar": 8,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "INTRO1",
+   "text": "The carver sands a hull against the glaze"
+  },
+  {
+   "bar": 9,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "INTRO1",
+   "text": "Every window gathers in the blaze"
+  },
+  {
+   "bar": 10,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "INTRO1",
+   "text": "Here the storm has sighed inside the maze"
+  },
+  {
+   "bar": 11,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "DROP1",
+   "text": "The weather turns its coat"
+  },
+  {
+   "bar": 12,
+   "beat": 1.0,
+   "duration": 10.0,
+   "section": "VERSE1",
+   "text": "Nobody sails in the teeth of a freeze"
+  },
+  {
+   "bar": 13,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "CHORUS1",
+   "text": "Half the town owns shares in one long seine"
+  },
+  {
+   "bar": 14,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "CHORUS1",
+   "text": "Cold in the fall of the year begins the reign"
+  },
+  {
+   "bar": 15,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "CHORUS1",
+   "text": "The ice runs silver down along the vein"
+  },
+  {
+   "bar": 16,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "CHORUS1",
+   "text": "The mayor saves one bottle of champagne"
+  },
+  {
+   "bar": 17,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "CHORUS1",
+   "text": "Cold keeps the winter souls among the sane"
+  },
+  {
+   "bar": 18,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "POSTCHORUS1",
+   "text": "Morning lays the season out like glass"
+  },
+  {
+   "bar": 19,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "POSTCHORUS1",
+   "text": "Mourning keeps its beacon candle"
+  },
+  {
+   "bar": 20,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "POSTCHORUS1",
+   "text": "Morning finds no reason in the scandal"
+  },
+  {
+   "bar": 21,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "POSTCHORUS1",
+   "text": "Morning leaves the eagle in a lull"
+  }
+ ],
+ "sections": [
+  {
+   "bars": 10,
+   "function": "intro",
+   "meter": {
+    "beats": 10,
+    "groups": [
+     2,
+     3,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "INTRO1",
+   "start_bar": 1
+  },
+  {
+   "bars": 1,
+   "function": "drop",
+   "meter": {
+    "beats": 10,
+    "groups": [
+     2,
+     3,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "DROP1",
+   "start_bar": 11
+  },
+  {
+   "bars": 1,
+   "function": "verse",
+   "meter": {
+    "beats": 10,
+    "groups": [
+     2,
+     3,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "VERSE1",
+   "start_bar": 12
+  },
+  {
+   "bars": 5,
+   "function": "chorus",
+   "meter": {
+    "beats": 10,
+    "groups": [
+     2,
+     3,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS1",
+   "start_bar": 13
+  },
+  {
+   "bars": 4,
+   "function": "postchorus",
+   "meter": {
+    "beats": 10,
+    "groups": [
+     2,
+     3,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "POSTCHORUS1",
+   "start_bar": 18
+  }
+ ],
+ "title": "The Frost Ledger"
+}

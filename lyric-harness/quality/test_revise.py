@@ -365,9 +365,20 @@ def test_a_revision_may_not_trade_one_defect_for_another():
     print("\n3. REJECT — fixing the flagged line by breaking another")
     before = CLICHE
     # fixes the cliche on L1/L3 and introduces a self-rhyme with L2
+    #
+    # THE MANDATE DECLARES ITS RELATION SINCE 2026-08-25 (M-116). Under the
+    # whole-vocabulary default the broken pair go~desire STANDS IN a schema
+    # ('internal rhyme' answers on a searched schwa span), so the bare
+    # letter scheme stopped charging it and the rejection this section
+    # exists to prove went unreachable. Declaring `class:RHYME` — the
+    # narrowing route M-59 built — restores the comparator this section
+    # always meant: the subject here is verify()'s trade rejection, not the
+    # width of the undeclared door.
+    m = SC.mandate(SC.mandate("ABAB", n_lines=len(CLICHE)),
+                   default_relation="class:RHYME")
     after = list(before)
     after[0] = "The candle burned and left the evening go"
-    res = R.verify(before, after, "ABAB", targeted={1})
+    res = R.verify(before, after, m, targeted={1})
     check("the revision is rejected", not res["accepted"],
           "; ".join(res["reasons"])[:110])
 
@@ -506,8 +517,16 @@ def test_every_way_of_declaring_the_same_mandate_agrees():
 
 def test_an_overlapping_cover_is_gradeable():
     print("\n12. doctrine 2 — a cover with NO letter scheme, graded")
+    # Every mandate in this section DECLARES `class:RHYME` since 2026-08-25
+    # (M-116): the subject is the COVER SHAPE — overlap, pivots, excusal —
+    # and under the whole-vocabulary default the pivot's failing pair
+    # go~fire stands in a searched schema, so there was no failure left to
+    # report against a named group. The declared relation restores the
+    # comparator the section was written against; the shape claims are
+    # untouched by which judge grades the pairs.
     cov = SC.Cover(n_lines=4, groups=[[1, 3], [2, 3]])
-    m = SC.mandate(cov, n_lines=4)
+    m = SC.mandate(SC.mandate(cov, n_lines=4),
+                   default_relation="class:RHYME")
     check("the cover has no letter representation",
           m.to_letters() is None and m.overlapping_lines() == [3],
           "L3 is in two groups; a letter is a property of a LINE")
@@ -531,7 +550,8 @@ def test_an_overlapping_cover_is_gradeable():
           "in two classes to begin with")
     # verify() has to take the same object brief() took, or the loop is only
     # half converted and a caller has to keep a letter string around anyway.
-    ok = SC.Cover(n_lines=4, groups=[[1, 3], [2, 4]])
+    ok = SC.mandate(SC.mandate(SC.Cover(n_lines=4, groups=[[1, 3], [2, 4]]),
+                               n_lines=4), default_relation="class:RHYME")
     after = list(CLICHE)
     after[0] = "The candle burned and set the room to power"
     res = R.verify(CLICHE, after, ok, targeted={1})
@@ -540,8 +560,11 @@ def test_an_overlapping_cover_is_gradeable():
           f"{'ACCEPTED' if res['accepted'] else 'REJECTED'}: "
           + "; ".join(res["reasons"])[:80])
     check("and it agrees with the letter string that means the same thing",
-          res["accepted"] == R.verify(CLICHE, after, "ABAB",
-                                      targeted={1})["accepted"])
+          res["accepted"] == R.verify(
+              CLICHE, after,
+              SC.mandate(SC.mandate("ABAB", n_lines=4),
+                         default_relation="class:RHYME"),
+              targeted={1})["accepted"])
     dis = Reviser(lex=R.lex, decl=R.decl, floor=R.floor,
                   rdecl=ReviseDeclaration(overlap_rule="disjunctive"))
     dis._engine = R.engine
@@ -554,8 +577,9 @@ def test_an_overlapping_cover_is_gradeable():
     # success. The cover below adds C={2,4} so BOTH endpoints of the failing
     # pair are pivots that answer another of their own groups, which is the
     # shape the disjunctive reading actually names.
-    dm = SC.mandate(SC.Cover(n_lines=4, groups=[[1, 3], [2, 3], [2, 4]]),
-                    n_lines=4)
+    dm = SC.mandate(
+        SC.mandate(SC.Cover(n_lines=4, groups=[[1, 3], [2, 3], [2, 4]]),
+                   n_lines=4), default_relation="class:RHYME")
     rep1 = R.grade(CLICHE, dm)
     rep2 = dis.grade(CLICHE, dm)
     check("the disjunctive reading is REACHABLE and is weaker",
@@ -925,8 +949,16 @@ def test_the_field_is_the_graders_own_field():
                    rdecl=ReviseDeclaration(field_band="scalar",
                                            field_depth=200))
     scal._engine = R.engine
+    # THE DEMONSTRATION MANDATE DECLARES `class:RHYME` SINCE 2026-08-25
+    # (M-116): under the whole-vocabulary default the derived cover's
+    # failing pairs are satisfied by searched schemas, so no brief carried
+    # a candidate field and the leak count was 0 VACUOUSLY — a
+    # demonstration examining nothing (doctrine 48). The declared relation
+    # keeps the flagged lines flagged; the leak is then measured on a
+    # field that exists (23 words on this fixture, > 0 being the pin).
+    m_scal = SC.mandate(m, default_relation="class:RHYME")
     leak = 0
-    for b in scal.brief(lines, m):
+    for b in scal.brief(lines, m_scal):
         calls = [w for _, _, cl in b.must_answer for _, w in cl]
         calls = [c for c in dict.fromkeys(calls) if c]
         for w in b.candidates:
@@ -1002,7 +1034,14 @@ def test_no_joint_candidate_was_a_coordinate_of_a_literal():
 def test_the_four_rejections_on_the_songs_own_shape():
     print("\n20. doctrine 47/94 — the four rejections, on 41 real lines")
     lines = song_lines()
-    m = R.mandate_from_graph(lines)
+    # DECLARES `class:RHYME` SINCE 2026-08-25 (M-116): the NET-NEGATIVE
+    # case rewrites L33 to end 'kitchen', and under the whole-vocabulary
+    # default that broken pair stands in a searched schema, so the trade
+    # this section exists to reject was ACCEPTED. The four rejections are
+    # verify()'s control flow, not the width of the undeclared door; the
+    # declared relation restores the comparator they were proven against.
+    m = SC.mandate(R.mandate_from_graph(lines),
+                   default_relation="class:RHYME")
     b33 = [x for x in R.brief(lines, m) if x.line_no == 33][0]
 
     def sub(idx, text):
@@ -1859,8 +1898,17 @@ def test_excused_by_overlap_is_a_per_line_condition():
     dis = Reviser(lex=R.lex, decl=R.decl, floor=R.floor,
                   rdecl=ReviseDeclaration(overlap_rule="disjunctive"))
     dis._engine = R.engine
-    m_both = SC.mandate(OVERLAP_BOTH, n_lines=4)
-    m_one = SC.mandate(OVERLAP_ONE, n_lines=4)
+    # Every mandate here DECLARES `class:RHYME` since 2026-08-25 (M-116):
+    # the section's subject is the EXCUSAL machinery, which only has work
+    # when a pair fails — and under the whole-vocabulary default the
+    # fixture's failing pair mat~moon stands in a searched schema, so
+    # nothing violated and nothing could be excused. The declared relation
+    # restores the failing pair; the per-line excusal claims are untouched
+    # by which judge grades it.
+    m_both = SC.mandate(SC.mandate(OVERLAP_BOTH, n_lines=4),
+                        default_relation="class:RHYME")
+    m_one = SC.mandate(SC.mandate(OVERLAP_ONE, n_lines=4),
+                       default_relation="class:RHYME")
 
     # THE DEFAULT IS UNTOUCHED. `excused` is populated only inside the
     # disjunctive branch, so a conjunctive run cannot emit this code at all.
@@ -1918,7 +1966,8 @@ def test_excused_by_overlap_is_a_per_line_condition():
     # A PARTITION HAS NO OVERLAP, so it can never reach this code however the
     # rule reads: `answers_another` searches the line's OTHER groups and a
     # line in a partition has none.
-    part = SC.mandate([[1, 2], [3, 4]], n_lines=4)
+    part = SC.mandate(SC.mandate([[1, 2], [3, 4]], n_lines=4),
+                      default_relation="class:RHYME")
     check("a mandate with no overlapping line excuses nothing under the "
           "disjunctive reading either — the code is named for the overlap "
           "and needs one",
@@ -1935,7 +1984,8 @@ def test_excused_by_overlap_is_a_per_line_condition():
              "the rat wore a hat",             # 5  B
              "the bat also wore a hat",        # 6  B — REPEAT of 'hat'
              "the loon sang a tune"]           # 7  D
-    m_inner = SC.mandate([[1, 2], [2, 5, 6], [1, 7]], n_lines=7)
+    m_inner = SC.mandate(SC.mandate([[1, 2], [2, 5, 6], [1, 7]], n_lines=7),
+                         default_relation="class:RHYME")
     rep_i = dis.grade(inner, m_inner)
     ex_i = [(v["lines"], v["label"]) for v in rep_i["excused"]]
     check("L2 answers every member of B in full, so its failure in A is "
@@ -3402,12 +3452,20 @@ def test_rule_three_asks_whether_a_word_was_taken():
     def propose(brief, lines, attempt, reasons=None, whole=()):
         return seq.pop(0) if seq else None
 
-    res = _LP.revise_loop(R, before, "AA", propose=propose, **kw)
+    # The mandate DECLARES `class:RHYME` since 2026-08-25 (M-116): under
+    # the whole-vocabulary default four~stair stands in a schema, so L2
+    # carried no rhyme finding, earned no candidate field, and RULE 3 —
+    # this section's whole subject — had nothing to enforce against. The
+    # declared relation restores the failing pair the section was written
+    # on; RULE 3's mechanics are untouched.
+    m_aa = SC.mandate(SC.mandate("AA", n_lines=2),
+                      default_relation="class:RHYME")
+    res = _LP.revise_loop(R, before, m_aa, propose=propose, **kw)
     check("PREMISE: the loop converges on this pair",
           res.stop_reason == "success" and list(res.lines) == ANSWERS,
           f"{res.stop_reason} -> {list(res.lines)}")
 
-    v = R.verify(before, list(res.lines), "AA", **kw)
+    v = R.verify(before, list(res.lines), m_aa, **kw)
     check("`verify` on the draft the LOOP emitted now ACCEPTS it — the two "
           "surfaces answer one question the same way",
           v["accepted"] is True,
@@ -3424,7 +3482,7 @@ def test_rule_three_asks_whether_a_word_was_taken():
     # written for: a revision that lands ON a modal candidate is refused,
     # in the same words, before anything else about the line is looked at.
     took = [before[0], "and nobody came back to open the door"]
-    v2 = R.verify(before, took, "AA", **kw)
+    v2 = R.verify(before, took, m_aa, **kw)
     check("CONTROL: a revision that genuinely TAKES a modal candidate is "
           "still rejected outright, and still says so",
           v2["accepted"] is False
@@ -3716,11 +3774,18 @@ def test_a_return_is_not_rendered_as_a_rhyme():
 
 
 #: BACKLOG 1.2's own example, rebuilt as two lines. `best_score` takes a max
-#: over k span pairs; here the winner on the right is the LAST SYLLABLE of
-#: `receipt`, so a report naming `'go' ~ 'receipt'` names a pair that had
-#: nothing to do with the number.
+#: over k span pairs; here the winner reaches back past BOTH end words
+#: (`let it go` ~ `folded receipt`), so a report naming `'go' ~ 'receipt'`
+#: names a pair that had nothing to do with the number.
+#: L2 REPINNED 2026-08-25 (M-116): it read "she signed her name across the
+#: bottom of receipt", whose pair with L1 stands in 'chain rhyme (rap)'
+#: ("got the" ~ "bottom", a shared AA-AH nucleus run) under the
+#: whole-vocabulary default — so no SCHEME_VIOLATION carried the evidence
+#: this section reads. This spelling is MEASURED to stand in no schema
+#: (relations.whole_vocabulary_pairs) while keeping the mosaic attribution
+#: the section is about.
 GO_RECEIPT = ["i never got the chance to let it go",
-              "she signed her name across the bottom of receipt"]
+              "her pen was scratching at the folded receipt"]
 #: The control: both winners are whole end words, so the ordinary sentence is
 #: TRUE and the extra one would be noise.
 EXACT_PAIR = ["the kitchen light is burning at half past four",
@@ -3766,7 +3831,7 @@ def test_a_report_says_when_the_named_pair_is_not_the_evidence():
     check("...and the finding a WRITER is handed now says so, in the same "
           "string that makes the claim",
           ev and "NAMED PAIR IS NOT THE EVIDENCE" in ev[0]
-          and "last 1 of 2 syllables of 'receipt'" in ev[0],
+          and "let it go" in ev[0] and "folded receipt" in ev[0],
           ev[0] if ev else "no SCHEME_VIOLATION")
 
     # THE GATE. The same code path on a pair whose end words ARE the winners

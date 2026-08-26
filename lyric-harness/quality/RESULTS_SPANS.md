@@ -20,9 +20,27 @@ its first instrument and its first measurement.
 ## Headline
 
 **Of the 1,014 sonnet pairs the harness JUDGES, 632 name the two words that
-produced their number and 382 do not. Of the ~~82~~ **35** violations,
-~~36~~ **7** do and ~~46~~ **28** do not; ~~9 of those 46~~ **8 of those 28**
-could not be reconstructed from the printed words even in principle.**
+produced their number and 382 do not. Of the ~~82~~ ~~35~~ **12** violations,
+~~36~~ ~~7~~ **2** do and ~~46~~ ~~28~~ **10** do not; ~~9 of those 46~~
+~~8 of those 28~~ **4 of those 10** could not be reconstructed from the
+printed words even in principle.**
+
+*THE VIOLATION HALF IS REPINNED A SECOND TIME, 2026-08-25, AND THE DOOR IS
+AGAIN THE WHOLE REASON (`MISSING.md` M-116, owner ruling "put all 77 into
+the fucking default").* A mandated pair that declares no relation is now
+satisfied when its lines stand in ANY schema the vocabulary names, so 23
+more pairs stopped being charged (chain rhyme 16, internal rhyme 11,
+consonance 10, assonance 3, multisyllabic 2, anaphora 2, additive 1,
+subtractive 1 — a pair can carry several; 0 newly violate). 35 − 23 = 12,
+the same figure the battery prints (`CLAUDE.md` Test discipline, repinned
+the same day), so this file remains a second instrument reproducing the
+battery rather than being tuned to it. The control half — 632 / 382 /
+1014, `mandated` 1064, `refused` 50 — is again unmoved: the door and only
+the door. This repin was MISSED in the M-116 sitting itself and surfaced
+only when the CI record job ran for the first time in fifteen pushes (the
+gate job ahead of it was red on an unrelated formatting check, so every
+drift behind it accumulated unseen — the stacked-failure shape this file's
+own 2026-08-13 note describes).*
 
 *THE VIOLATION HALF IS REPINNED 2026-08-23 AND THE DOOR IS THE WHOLE REASON
 (`MISSING.md` M-59, owner ruling 2026-08-22).* `Declaration.admit`'s default

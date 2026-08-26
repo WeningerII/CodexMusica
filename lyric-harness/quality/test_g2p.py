@@ -338,10 +338,11 @@ def test_heldout_split_is_declared_and_reproducible():
 # 9. THE REAL POPULATION — ground truth nobody here supplied
 # ---------------------------------------------------------------------------
 
-def _patched_battery(mode, extra=None):
+def _patched_battery(mode, extra=None, decl=None):
     """Run the sonnet scheme check with `Lexicon.transcribe_word` routed
     through the fallback. Returns (mandated, judged, refused, violations,
-    newly-judged pairs, violations among them)."""
+    newly-judged pairs, violations among them). `decl` declares the door
+    the arms grade under; None is the shipped default."""
     import battery
     orig = lh.Lexicon.transcribe_word
     cache = {}
@@ -363,7 +364,8 @@ def _patched_battery(mode, extra=None):
         total = 0
         viol, refused = set(), set()
         for idx, sn in enumerate(sonnets, 1):
-            res = lh.check_scheme(LEX, sn, "ABABCDCDEFEFGG", lh.Declaration())
+            res = lh.check_scheme(LEX, sn, "ABABCDCDEFEFGG",
+                                  decl or lh.Declaration())
             for v in res["violations"]:
                 viol.add((idx, v[0], v[1]))
             for r in res.get("refusals", []):
@@ -391,9 +393,12 @@ def test_real_population_against_shakespeares_own_form():
     # door and not the ingestion: mandated/judged/refused are 1064/1014/50
     # before and after, because a refusal is an INGESTION verdict reached
     # before any comparison and no admit set touches it (doctrine 79).
+    # REPINNED AGAIN 2026-08-25 from ~~35~~ to 12: the whole-vocabulary
+    # default (M-116) retired 23 more, the same ladder step M-59's 82->35
+    # was. Same shape both times — a DOOR movement this literal was behind.
     check("off reproduces the battery — mandated/judged/refused unmoved, "
           "violations at the widened door",
-          (m0, j0, len(r0), len(v0)) == (1064, 1014, 50, 35),
+          (m0, j0, len(r0), len(v0)) == (1064, 1014, 50, 12),
           f"{(m0, j0, len(r0), len(v0))}")
     check("the derived layers turn 39 of the 50 refusals into judgements",
           len(newly) == 39, f"{len(newly)}; refused 50 -> {len(r1)}")
@@ -420,19 +425,21 @@ def test_real_population_against_shakespeares_own_form():
     # the form as ground truth, and it moved because the door moved, so it
     # is not a clean fallback-accuracy figure across the two dates. The
     # 38/39 is against the CURRENT door.
-    check("and 38 of those 39 RHYME, as the sonnet mandates",
-          len(new_viol) == 1,
+    # REPINNED 2026-08-25 from ~~1~~ to 0 (doctrine 17): the last
+    # standing residue, `recur'd`/`assur'd`, stands in a schema under the
+    # whole-vocabulary default (M-116) and leaves the count the same way
+    # `impannelled`/`determined` left it at M-59. Both remain what they
+    # always were — declared-dialect residue, not bad guesses — and both
+    # come BACK, measured, under the declared two-name door §10 now runs
+    # its cost comparison on: new_viol there is exactly [(45,9,11),
+    # (46,9,11)].
+    check("and all 39 SATISFY the current door, as the sonnet mandates",
+          len(new_viol) == 0,
           f"{len(newly) - len(new_viol)}/{len(newly)} = "
           f"{1 - len(new_viol)/len(newly):.1%}. This is the only clean "
           f"accuracy number available on the real population: the form is "
           f"ground truth about the sound and no resource of ours supplied it "
-          f"(doctrine 37). The two that fail are "
-          f"{sorted(new_viol)}: (45,9,11) recur'd/assur'd, both readings "
-          f"composed from the CMUdict headwords `recur` and `assure`; "
-          f"(46,9,11) impannelled/determined, an L-vs-N coda. Both are "
-          f"correct General American readings, and the non-rhyme in each "
-          f"case is the declared-dialect residue that love/prove already "
-          f"is, not a bad guess")
+          f"(doctrine 37)")
     check("no pair that was JUDGED before changed its verdict",
           v0 <= v1 and not (v0 - v1),
           "the fallback fires only on words the dictionary refused, so a "
@@ -447,9 +454,21 @@ def test_real_population_against_shakespeares_own_form():
 
 def test_letter_layer_costs_more_than_it_buys():
     print("\n10. what the LETTER layer does to the same 50 pairs")
-    m0, j0, r0, v0 = _patched_battery(None)
-    m1, j1, r1, v1 = _patched_battery("high")
-    m2, j2, r2, v2 = _patched_battery("low")
+    # UNDER THE DECLARED TWO-NAME DOOR SINCE 2026-08-25 (M-116). This
+    # comparison decides a shipped default by measuring how often each
+    # fallback layer answers Shakespeare's real refusals WRONG — and under
+    # the whole-vocabulary default both rates are 0/39 and 0/10, because
+    # the door rescues the wrong answers along with the right ones, so the
+    # ratio the check asserts is 0/0. A demonstration of a cost has to run
+    # where the cost is visible (the same argument §18 of test_revise.py
+    # makes): the two-name door is a DECLARED narrowing, the rescue defers
+    # to it (`lyric_harness.admit_is_default`), and it is the door the
+    # original 50.0%-vs-5.1% measurement was made under — re-measured
+    # here, it reproduces to the decimal (5/10 against 2/39, 9.8x).
+    _door = lh.Declaration(admit=("RHYME", "RIME_RICHE"))
+    m0, j0, r0, v0 = _patched_battery(None, decl=_door)
+    m1, j1, r1, v1 = _patched_battery("high", decl=_door)
+    m2, j2, r2, v2 = _patched_battery("low", decl=_door)
     only_letter = r1 - r2                       # judged by the letter layer
     lv = [p for p in only_letter if p in v2]
     # BOTH RATES ARE COMPUTED, NEITHER IS QUOTED. This message used to carry

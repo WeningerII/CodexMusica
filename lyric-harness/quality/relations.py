@@ -6348,6 +6348,319 @@ def print_relation_report(rep, limit=None):
 # placement named.
 
 
+def stanzas_from_sections(sections):
+    """-> a per-line stanza index derived from a declared section list, or
+    None when no sections were declared. A contiguous run of one declared
+    section IS a stanza boundary (M-39); ONE spelling of that derivation,
+    shared by `quality.revise`'s stream builder and `whole_vocabulary_pairs`
+    below, because two spellings is how the two routes drift (doctrine 1).
+    """
+    if not sections:
+        return None
+    out, k, prev = [], -1, object()
+    for sec in sections:
+        if sec != prev:
+            k += 1
+            prev = sec
+        out.append(k)
+    return out
+
+
+def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None):
+    """Every 1-based line pair ANY registered schema is true of, with the
+    names that answered -> {(i, j): [canonical schema names, sorted]}.
+
+    THE WHOLE-VOCABULARY DEFAULT'S ONE JUDGE (owner ruling 2026-08-25,
+    `MISSING.md` M-116, task #86's second half). Both readers of the default
+    — `quality.revise.grade` and `lyric_harness.check_scheme` — consult THIS
+    function, so a mandated pair cannot be satisfied by one grader and
+    charged by the other (doctrine 1; `check_scheme`'s own comment has
+    called the two-copy chain "the standing defect" since 2026-08-15).
+
+    `bearing` is the declared rhyme-bearing subset as 0-BASED line indices
+    (a mandate's own groups); it feeds `mark_refrain_tail`, whose docstring
+    records why `lines=None` answers zero on every ghazal. Refusing schemas
+    contribute nothing (`keep_refusal=False` — a schema this draft cannot
+    supply is silent here, not a violation and not a pass), and same-line
+    instances are dropped by `line_pairs_for`'s own rule, so an intra-line
+    figure can never satisfy a cross-line mandate.
+    """
+    stream = build_stream(text_lines, phon,
+                          sections=sections,
+                          stanzas=stanzas_from_sections(sections),
+                          stanza_source=("declared_sections"
+                                         if sections else ""),
+                          declaration={"language": "eng"})
+    if bearing:
+        mark_refrain_tail(stream, lines=sorted(bearing))
+    out = {}
+    for name in sorted(REGISTRY):
+        ps = line_pairs_for(REGISTRY[name], stream, keep_refusal=False)
+        for pair in ps:
+            out.setdefault(pair, []).append(name)
+    return out
+
+
+#: THE DRAW WITNESS — sixteen plain English lines carrying the common
+#: figures (two perfect-rhyme pairs, an assonance pair sun/much, a
+#: consonance pair love/prove, a pararhyme pair gate/goat, a mosaic tail
+#: curator/grate-her, a rime-riche pair sole/soul, a subtractive pair
+#: grow/growing). DECLARED, in the capacity layer's certification idiom: a
+#: schema joins `DRAWABLE_SCHEMAS` by ANSWERING ON AN EXHIBIT HERE, and the
+#: pool grows by growing the witness — never by hand-editing the tuple. A
+#: schema absent from the pool is not refused as a relation (the default
+#: fan and the declared route still judge it); it is only not DRAWN, because
+#: a planner must not mandate what no witness proves a writer can satisfy
+#: in plain English (M-79's founding rule, M-117).
+DRAWABLE_WITNESS_LINES = (
+    "The kitchen light was fading fast",
+    "He walked alone across the field",
+    "A silver ship went sailing past",
+    "The morning broke across the shield",
+    "We stood beneath the winter sun",
+    "The cold had never asked for much",
+    "She wrote a letter full of love",
+    "A thing the years could never prove",
+    "He waited by the garden gate",
+    "And fed a wandering mountain goat",
+    "She traded quips with the curator",
+    "His cold reviews began to grate her",
+    "He patched his boot along the sole",
+    "And swore it cost him half his soul",
+    "He told the sapling: reach and grow",
+    "The rings inside it kept on growing",
+)
+DRAWABLE_WITNESS_SECTIONS = ("a",) * 4 + ("b",) * 4 + ("c",) * 4 + ("d",) * 4
+
+
+def derive_drawable_schemas(phon=None):
+    """-> the sorted names a planner may DRAW a group's relation from.
+
+    Three rules, each derived from a coordinate the registry itself
+    declares, none hand-listed (doctrine 1):
+
+    1. THE SCHEMA ANSWERS ON THE WITNESS — `line_pairs_for` over the
+       declared witness stream returns a NON-EMPTY frozenset. A refusal
+       means the plain grade-time stream cannot supply it; an empty set
+       means no exhibit proves a writer can satisfy it in plain English —
+       either way a drawn mandate would be unwritable or unjudgeable
+       (M-79: no unwritable plan ships).
+    2. NOT INTRA-LINE ONLY — a figure whose every placement is
+       same_line/same_token is a property of one line and can never
+       satisfy a mandated pair (`rhyme_types.satisfies_relation`'s own
+       refusal, read here from the same placement rows).
+    3. NO IDENTITY AT THE LINE END — a schema whose identity rule demands
+       token AGREEMENT at a line-final placement mandates exactly what
+       `grade()`'s REPEAT branch charges (doctrine 3), so a drawn group
+       could only be satisfied by what the grader refuses.
+
+    The planner reads the ADOPTED tuple below, never this function — the
+    derivation costs a stream build and the planner opens no file — and
+    `quality/test_plan.py` re-derives the tuple against this function so
+    drift fails loud (the meter-bands adoption pattern).
+    """
+    if phon is None:
+        from quality import phonology as _PH
+        phon = _PH.get("eng")
+    intra = {"same_line", "same_token", "same_word"}
+    final = {"both_line_final", "a_line_final", "exactly_one_line_final"}
+    stream = build_stream(
+        list(DRAWABLE_WITNESS_LINES), phon,
+        sections=list(DRAWABLE_WITNESS_SECTIONS),
+        stanzas=stanzas_from_sections(list(DRAWABLE_WITNESS_SECTIONS)),
+        stanza_source="declared_sections",
+        declaration={"language": "eng"})
+    out = []
+    for name in sorted(REGISTRY):
+        sch = REGISTRY[name]
+        ps = line_pairs_for(sch, stream)
+        if isinstance(ps, Refusal) or not ps:
+            continue
+        pk = {p.kind for p in sch.placement}
+        if pk and pk <= intra:
+            continue
+        if any(type(r.predicate).__name__ == "Agree" for r in sch.identity) \
+                and (not pk or pk & final):
+            continue
+        out.append(name)
+    return tuple(out)
+
+
+def drawable_traits():
+    """-> {name: {"gap": int|None, "claims": ((channel, coord, pred),...)}}
+    for every drawable schema — the coordinates the PLANNER's conjunction
+    gate reads (M-118, widened by M-119, rebuilt by M-122).
+
+    M-122, found designing the first song of the paired experiment: two
+    more facts the registry states that the pairwise dict could not
+    carry. (1) `adjacent_lines` is a GAP constraint spelled as a
+    placement KIND — interlaced rhyme's whole reach — so `gap` now reads
+    it as 1. (2) A claim's SYLLABLE COORDINATE decides what composes:
+    rime riche equates the anchor coda (scope `each` covers the anchor),
+    semirhyme equates it again one pair over, and assonance demands it
+    DIFFER across the ends of the chain — every pair individually legal,
+    the conjunction impossible, because EQUALITY IS TRANSITIVE and a
+    per-pair ledger cannot see a chain. So claims are now triples over a
+    named coordinate: `anchor` (the last-stressed syllable of the end
+    span — scope `anchor`, and scope `each`, which covers it), `post`
+    (post-anchor syllables — scope `post_anchor`, plus the projection of
+    an `each`-scope Agree), `final` (the written-out last syllable —
+    `word_end`-anchored spans and `last` scope; light rhyme's own
+    coordinate, which genuinely composes where anchor claims do not),
+    and `head` (line-initial spans, with the token IdentityRule riding
+    as channel "token" — M-119's store, re-keyed). An `each`-scope
+    Differ projects onto `anchor` only (every aligned position differs,
+    and the anchor position always exists); the dict this replaces
+    silently collapsed perfect rhyme's TWO onset rules (Agree@post,
+    Differ@anchor) into one. Identity is still not collected at the
+    ends (`derive_drawable_schemas` rule 3 bars Agree-identity there).
+    Measured over seeds 1-60 before the rebuild, with this keying:
+    53 seeds drew an unsatisfiable conjunction — 117 adjacency
+    violations, 32 transitive contradictions; 0 after.
+    """
+    # M-123's second face, found the same hour: `PresentVsAbsent` IS a
+    # Differ on a presence BIT — binary BY CONSTRUCTION, a coda is there
+    # or it is not — wearing a predicate name the cap could not read
+    # (subtractive rhyme drew onto a three-member group, the same
+    # pigeonhole as light rhyme's one axis over). Each such claim is
+    # translated to Differ on a derived `<channel>_presence` channel,
+    # and every Agree on a channel ANY drawable schema tests for
+    # presence projects an Agree edge onto the same derived channel,
+    # because equal codas are equally present — that projection is what
+    # lets the parity closure see monorhyme's coda-Agree contradict a
+    # subtractive presence-Differ across a chain. The channel set is
+    # derived from the registry, never hand-listed.
+    presence_channels = {
+        c.channel for name in DRAWABLE_SCHEMAS
+        for c in (REGISTRY[name].channels or ())
+        if type(c.predicate).__name__ == "PresentVsAbsent"}
+    out = {}
+    for name in DRAWABLE_SCHEMAS:
+        sch = REGISTRY[name]
+        gap = None
+        for p in sch.placement:
+            if p.kind == "line_gap_at_most" and p.polarity:
+                gap = p.args[0]
+            if p.kind == "adjacent_lines" and p.polarity:
+                gap = 1
+        claims = []
+
+        def _emit(ch, co, pred):
+            claims.append((ch, co, pred))
+            if pred == "PresentVsAbsent":
+                claims.append((ch + "_presence", co, "Differ"))
+            elif pred == "Agree" and ch in presence_channels:
+                claims.append((ch + "_presence", co, "Agree"))
+
+        if (any(p.kind == "both_line_final" and p.polarity
+                for p in sch.placement)
+                or (sch.spans and all(s.locus == "line_final_token"
+                                      for s in sch.spans))):
+            final_span = bool(sch.spans) and sch.spans[0].anchor == "word_end"
+            for c in sch.channels or ():
+                if not c.required:
+                    continue
+                pred = type(c.predicate).__name__
+                if final_span or c.scope == "last":
+                    _emit(c.channel, "final", pred)
+                elif c.scope == "post_anchor":
+                    _emit(c.channel, "post", pred)
+                elif c.scope == "each":
+                    _emit(c.channel, "anchor", pred)
+                    if pred == "Agree":
+                        _emit(c.channel, "post", "Agree")
+                else:
+                    _emit(c.channel, "anchor", pred)
+            # M-125: SPAN LENGTH IS A HIDDEN EQUALITY CHANNEL, and the
+            # schema's own `unmatched` coordinate declares it — `forbid`
+            # rejects any overhang (perfect rhyme, rime riche: the end
+            # spans must be the SAME length), `require_a`/`require_b`
+            # demand one (semirhyme: the lengths must DIFFER — measured:
+            # grow~growing fires, tide~ride and sane~champagne do not),
+            # and `exclude` ignores the overhang and claims nothing.
+            # Without this claim the drawn conjunction {perfect 13~14,
+            # rime riche 13~17, semirhyme 14~17} read satisfiable while
+            # being an Equal-Equal-Differ triangle no words can close;
+            # with it, the existing Agree-union + disequality closure
+            # catches the cycle with no new machinery.
+            if sch.unmatched == "forbid":
+                claims.append(("span_length", "end", "Agree"))
+            elif sch.unmatched in ("require_a", "require_b"):
+                claims.append(("span_length", "end", "Differ"))
+        if (any(p.kind == "both_line_initial" and p.polarity
+                for p in sch.placement)
+                or (sch.spans and all(s.locus in ("line_initial_token",
+                                                  "line_head_index")
+                                      for s in sch.spans))):
+            for c in sch.channels or ():
+                if c.required:
+                    claims.append((c.channel, "head",
+                                   type(c.predicate).__name__))
+            for i in sch.identity or ():
+                if i.level == "token":
+                    claims.append(("token", "head",
+                                   type(i.predicate).__name__))
+        out[name] = {"gap": gap, "claims": tuple(claims)}
+    return out
+
+
+#: ADOPTED 2026-08-25 (M-123): the FINITE VALUE DOMAINS of the channels the
+#: planner's conjunction gate reads, for the English phonology the mandate
+#: judge grades through (`revise._relation_phonology` -> `phonology.get
+#: ("eng")`). A pairwise-Differ claim is a disequality clique, and a clique
+#: needs one distinct value per member, so a group may not outnumber its
+#: channel's domain — light rhyme's `prominence Differ` on a BINARY channel
+#: caps its group at TWO, which the M-122 gate could not see (measured:
+#: 74 impossible cliques over seeds 1-60, 40 of 60 seeds). MEASURED over
+#: all 126,052 syllabifiable words of the shipped lexicon: prominence
+#: emits exactly {0, 1} — binary BY CONSTRUCTION, the eng adapter's own
+#: `prominence=1 if s["stress"] in (1, 2) else 0` — and nucleus exactly
+#: the 15 ARPABET vowels. A channel ABSENT here is unbounded on purpose
+#: (onset/coda/consonants are sequences over an open combinatorial space,
+#: token is the vocabulary): absence can only make the gate MISS a cap,
+#: never invent one, so the table errs toward emitting a plan and the
+#: judge stays the final word. Re-derivation command in `MISSING.md`
+#: M-123; `test_plan.py` §14 pins the two rows against the phonology.
+CHANNEL_DOMAINS = {
+    "prominence": (0, 1),
+    "nucleus": ("AA", "AE", "AH", "AO", "AW", "AY", "EH", "ER",
+                "EY", "IH", "IY", "OW", "OY", "UH", "UW"),
+    # A derived channel: `drawable_traits` translates PresentVsAbsent to
+    # Differ on `<channel>_presence`, and a presence bit is binary BY
+    # CONSTRUCTION — nothing to measure, a coda is there or it is not.
+    "coda_presence": (0, 1),
+}
+
+
+#: ADOPTED 2026-08-25 from `derive_drawable_schemas()` (owner ruling "now do
+#: the planner too", M-117). Re-derived by `quality/test_plan.py`; a moved
+#: pool is a moved witness or a moved registry, and either fails loud.
+DRAWABLE_SCHEMAS = (
+    "Scots vowel-length rhyme (Aitken's Law)",
+    "analysed rhyme",
+    "anaphora",
+    "assonance",
+    "chain rhyme (rap)",
+    "cluster consonance / skothending span",
+    "compound / phrasal rhyme",
+    "consonance",
+    "family rhyme",
+    "head rhyme (positional)",
+    "interlaced rhyme",
+    "internal rhyme",
+    "light rhyme",
+    "monai",
+    "monorhyme / leash",
+    "multisyllabic rhyme",
+    "pantun ABAB",
+    "pararhyme",
+    "perfect rhyme",
+    "rime riche",
+    "semirhyme",
+    "subtractive rhyme",
+)
+
+
 def line_pairs_for(schema, stream, keep_refusal=True):
     """Every LINE PAIR this schema is true of, 1-based.  -> frozenset or a
     `Refusal`.

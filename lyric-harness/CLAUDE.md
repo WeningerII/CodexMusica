@@ -884,13 +884,28 @@ because of that a prechorus would mess that up"* is neither definitional nor
 conventional — it is a DECLARATION about THIS song, and there was no way to
 spell it. `make_plan` took a seed, a form and a line count; the roster came
 from `GENERATOR_ROSTER` and nothing else.
-**`--relation=NAME` AND `--functions=a,b,c`, AND NEITHER IS SAMPLED.** The
-planner does not pick a relation: putting `type:pararhyme` on a group nobody
-asked for is the "move 37" ban pointed at rhyme instead of at shape. It
-CARRIES what was declared — into `plan["relation"]`, into the `GRADE IT` line
-`grading_command` prints, and into the report as its own disclosure, because
-a plan that dropped the coordinate would otherwise look exactly like one that
-never had it.
+**`--relation=NAME` AND `--functions=a,b,c`, AND NEITHER IS SAMPLED.**
+~~The planner does not pick a relation: putting `type:pararhyme` on a group
+nobody asked for is the "move 37" ban pointed at rhyme instead of at
+shape.~~ **SUPERSEDED BY OWNER RULING 2026-08-25 (`MISSING.md` M-117, the
+planner half of M-116, doctrine 17 keeps the strike visible): when the
+writer declares NOTHING, each group now DRAWS its relation uniformly over
+the bare default plus `relations.DRAWABLE_SCHEMAS` — the 22 schemas a
+declared sixteen-line English witness certifies a writer can satisfy
+(answers on the witness; not intra-line-only; no token identity at a
+line-final placement). A uniform draw over a witness-certified vocabulary
+is the planner's ordinary dice; move 37 bans sampling MEASURED corpus
+distributions, which this is not. The pool grows by growing the witness,
+never by hand; `test_plan.py` §14 re-derives the adoption; drawn
+relations ride `--relations=LABEL:schema:NAME` in the grading command and
+are named per group in the writer's brief; seed SHAPES are byte-identical
+to the pre-draw planner because the draw consumes entropy last.** What
+survives of the struck sentence is PRECEDENCE: a writer's `--relation=`
+SILENCES the draw, because the planner still CARRIES what was declared —
+into `plan["relation"]`, into the `GRADE IT` line `grading_command`
+prints, and into the report as its own disclosure, because a plan that
+dropped the coordinate would otherwise look exactly like one that never
+had it.
 **THE ROSTER IS AN ALLOW-LIST CHECKED AGAINST M-54's `requires` BEFORE ANY
 SHAPE IS DRAWN**, which is what makes the two entries one mechanism rather
 than two tables: `plan --functions=prechorus,verse` REFUSES, quoting the
@@ -2984,9 +2999,21 @@ the repaired check now fails and the old one did not.
   as a LEGACY arm and is explicitly not the control**, because
   `corpus/whitman.txt` carries the property under test as epistrophe and was
   never eligible for the role (`K-3`, still OPEN as a finding).
-- Current baselines: sonnets **3.5% violations (35/1014 JUDGED pairs)** —
-  MEASURED 2026-08-22, not recalled: `python3 battery.py` prints
-  `mandated 1064, judged 1014, refused 50` and `violations 35`.
+- Current baselines: sonnets **1.2% violations (12/1014 JUDGED pairs)** —
+  MEASURED 2026-08-25, not recalled: `python3 battery.py` prints
+  `mandated 1064, judged 1014, refused 50` and `violations 12`.
+  **REPINNED 2026-08-25 from ~~3.5% (35/1014)~~ when ALL 77 SCHEMAS joined
+  the DEFAULT on the owner's ruling (`MISSING.md` M-116): a mandated pair
+  that declares no relation is satisfied when its lines stand in ANY schema
+  the vocabulary names, judged by ONE shared function —
+  `relations.whole_vocabulary_pairs`, consulted by `check_scheme` and
+  `quality.revise.grade` alike. One-directional by construction, measured
+  per pair: 23 STOPPED violating, 0 newly violate (chain rhyme 16, internal
+  rhyme 11, consonance 10, assonance 3, multisyllabic 2, anaphora 2,
+  additive 1, subtractive 1 — a pair can carry several). REPEAT is still
+  excluded (doctrine 3) and laziness at these relations is UNCALIBRATED,
+  disclosed per pair in `pairs_schema_satisfied` and in the report's
+  `SCHEMA DEFAULT` line. The earlier ladder, kept visible (doctrine 17):**
   **REPINNED 2026-08-22 from ~~8.1% (82/1014)~~** when the default admit set
   widened to all four relations (`MISSING.md` M-59, owner ruling). The
   superseded ladder stays visible (doctrine 17): ~~82/1014 = 8.1%~~,

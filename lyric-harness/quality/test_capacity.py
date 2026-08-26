@@ -100,11 +100,36 @@ def test_the_anchor():
           ok,
           f"hair={fam('hair')} hire={fam('hire')}; "
           f"bone={fam('bone')} bin={fam('bin')}")
+    # REPINNED 2026-08-25 (M-116): under the whole-vocabulary DEFAULT the
+    # pair now SATISFIES — bone/bin stand in the consonance schema (coda N
+    # agrees) and the schema route is categorical, so the scalar 0.671 no
+    # longer decides at the bare door. The scalar claim is still true and
+    # is measured where admit sets exist: a DECLARED door (any narrowing,
+    # here one that still admits CONSONANCE so the relation clause cannot
+    # answer first) is not overridden by the rescue
+    # (`lyric_harness.admit_is_default`), and the pair then refuses on
+    # theta. The family half never moved: satisfied-by-schema does not put
+    # the two words in one family.
     v_bin, _ = pair_verdict("bone", "bin")
-    check("`bone`/`bin` does not grade as a satisfied rhyme under ANY door "
-          "— it fails on the SCALAR, which no admit set can widen past",
-          v_bin is None or "theta_rhyme" in (v_bin["why"] or ""),
-          str(v_bin and v_bin["why"]))
+    check("under the whole-vocabulary DEFAULT `bone`/`bin` SATISFIES by "
+          "schema, and the rescue DISCLOSES which schemas answered — an "
+          "uncalibrated pass stays tellable from a scalar pass",
+          v_bin is not None and v_bin["why"] is None
+          and "consonance" in (v_bin.get("satisfied_by") or []),
+          str(v_bin and (v_bin["why"], v_bin.get("satisfied_by"))))
+    nr3 = Reviser(decl=Declaration(admit=("CONSONANCE", "RHYME",
+                                          "RIME_RICHE")))
+    f_bin = nr3.inspect(["we carry the evening to the bone",
+                         "and no one had to tell us about bin"],
+                        SC.mandate([[1, 2]], n_lines=2))
+    v_bin_n = (f_bin["grade"]["verdicts"] or [None])[0]
+    check("`bone`/`bin` does not grade as a satisfied rhyme under any "
+          "DECLARED door — it fails on the SCALAR, which no admit set can "
+          "widen past, and a declared narrowing is not overridden by the "
+          "whole-vocabulary default (doctrine 1)",
+          v_bin_n is not None
+          and "theta_rhyme" in (v_bin_n["why"] or ""),
+          str(v_bin_n and v_bin_n["why"]))
     v_hair, _ = pair_verdict("hair", "hire")
     narrow = Reviser(decl=Declaration(admit=("RHYME", "RIME_RICHE")))
     f_n = narrow.inspect(["we carry the evening to the hair",

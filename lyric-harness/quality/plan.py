@@ -134,10 +134,12 @@ from fractions import Fraction
 from functools import lru_cache
 
 from quality import schemes as SC
+from quality import relations as _RL
 from quality import capacity as _CAP
 from quality import floor as _FL
 from quality import slots as _SL
 from quality import meter_bands as MB
+from quality import narrative as _NV
 
 __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "tokens_per_line_band", "gradeable_line_counts",
@@ -1654,6 +1656,11 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
 #: `=` alone and take a comma-separated list. `before` is the one ORDER
 #: measure and takes exactly two function names.
 SWEEP_MEASURES = {
+    "story_lineups": ("how many legal story line-ups the shape admits "
+                      "(quality/narrative.py, M-121) — `>=1` is the seed "
+                      "filter for shapes that can carry a story at all",
+                      lambda p: (p.get("narrative") or {}).get(
+                          "lineups", 0)),
     "lines": ("the song's total line count",
               lambda p: p["total_lines"]),
     "sections": ("how many sections the pattern drew",
@@ -1826,16 +1833,22 @@ def sweep(seeds, wants=(), **plan_kw):
 
 
 def make_plan(seed, form="verse-chorus", lines=None, relation=None,
-              functions=None, title=None):
+              functions=None, title=None, narrative=None):
     """A request -> the plan dict. Refuses rather than guessing.
 
     `relation`, `functions` and `title` are THE WRITER'S DECLARATION
-    (`MISSING.md` M-55) and none of them is sampled. The planner does not
-    pick a relation: doing so would put `type:pararhyme` on a group nobody
-    asked for, which is the "move 37" ban pointed at rhyme instead of at
-    shape. What the planner does is CARRY a declaration into the plan
-    artifact, so the one command that grades the draft names the relation
-    the writer chose.
+    (`MISSING.md` M-55) and none of them is sampled. ~~The planner does
+    not pick a relation: doing so would put `type:pararhyme` on a group
+    nobody asked for, which is the "move 37" ban pointed at rhyme instead
+    of at shape.~~ SUPERSEDED BY OWNER RULING 2026-08-25 (M-117, doctrine
+    17 keeps the strike visible): when the writer declares NOTHING, each
+    group now DRAWS its relation uniformly over the certified pool
+    (`relations.DRAWABLE_SCHEMAS`) — a uniform draw over a witness-
+    certified vocabulary is the planner's ordinary dice, not move 37,
+    which bans sampling MEASURED corpus distributions. The struck
+    sentence's live half survives as precedence: a writer's declaration
+    is CARRIED into the plan artifact and SILENCES the draw, so the one
+    command that grades the draft names the relation the writer chose.
 
     THREE LAYERS, AND ONLY THE MIDDLE ONE IS HERE (design doc §2):
     the VOCABULARY says a prechorus requires a chorus and that is
@@ -2490,6 +2503,215 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                     "placement draw had already spent; `narrow` blocks whose "
                     "lines cannot carry one more DISTINCT word.")
 
+    # THE RELATION DRAW — 2026-08-25, OWNER RULING ("now do the planner
+    # too"; `MISSING.md` M-117, the planner half of M-116's
+    # whole-vocabulary default). Each group draws its relation uniformly
+    # over the bare default plus the CERTIFIED drawable pool —
+    # `relations.DRAWABLE_SCHEMAS`, the schemas a declared English witness
+    # proves a writer can satisfy (the capacity layer's certification
+    # idiom: the pool grows by growing the witness, never by hand-editing
+    # the tuple; `derive_drawable_schemas` is the derivation and
+    # `test_plan.py` re-derives the adoption). THE WRITER'S OWN
+    # `--relation=` WINS: when one is declared the planner draws nothing,
+    # because a declared coordinate is carried, never sampled over (M-55).
+    # Uniform means the bare default is RARE — one draw in
+    # len(pool)+1 — which is the same consequence the placement draw's
+    # `end` share carries, disclosed the same way; reweighting it is the
+    # owner's call, not this draw's (doctrine 19: the dice stay flat).
+    # This runs AFTER the end-rhyme pass so the added end groups draw too,
+    # and consumes entropy strictly AFTER every existing draw, so a seed's
+    # shape under the old planner is byte-identical under this one.
+    # THE CONJUNCTION GATE ON THE DRAW ITSELF (M-118, filed the hour the
+    # first drawn plan was read): measured over seeds 4-43 before this
+    # filter, 39 OF 40 seeds drew a jointly unsatisfiable schema
+    # conjunction — a gap-limited schema on a pair its own placement rule
+    # forbids (pantun ABAB spans at most 2 lines and the draw put it on a
+    # gap of 8), or two groups SHARING a line pair whose schemas demand
+    # opposite predicates on one channel (monorhyme's coda-Agree against
+    # assonance's coda-Differ on the same two end words). Every constraint
+    # was individually legal and nothing held their conjunction — M-79's
+    # finding replayed one coordinate over, and the same repair: filter
+    # the pool per group by what is decidable WITHOUT WORDS, draw uniform
+    # over the ACCEPTED subset (rejection keeps the dice flat — the
+    # planner's own idiom), and let the bare default — compatible with
+    # everything, since the whole-vocabulary fan satisfies it on any
+    # relation — keep the pool non-empty by construction. The channel
+    # signature is approximate on purpose (scope subtleties are not read);
+    # the GRADER stays the final word, and this gate only removes draws
+    # that are unsatisfiable on the registry's own declared coordinates.
+    drawn_relations = {}
+    if not relation:
+        _traits = _RL.drawable_traits()
+        _grp_lines = [sorted({int(str(m).split(".")[0])
+                              for m in g.split(",")})
+                      for g in ";".join(
+                          ",".join(str(x) for x in g) for g in groups
+                      ).split(";")]
+        # M-119 widened the claim ledger to two stores; M-122 REBUILT IT
+        # AS A GRAPH, found designing the first paired-experiment song:
+        # `adjacent_lines` is a gap constraint spelled as a placement
+        # KIND (interlaced rhyme drew onto non-adjacent groups on 117
+        # pairs over sixty seeds), and EQUALITY IS TRANSITIVE where a
+        # per-pair ledger is not — rime riche equated an anchor coda,
+        # semirhyme equated it one pair over, and assonance demanded the
+        # chain's two ends differ (32 such contradictions over the same
+        # sixty seeds; 53 of 60 seeds carried one shape or the other).
+        # Claims now ride (channel, syllable-coordinate) keys from
+        # `drawable_traits`; Agree edges union per key, Differ edges are
+        # checked against the closure, and everything that is neither
+        # keeps the old exact-match rule per pair.
+        # M-123, found the hour the M-122 gate first emitted seed 32's
+        # demand sheet: a DIFFER CLAIM IS A DISEQUALITY CLIQUE AND A
+        # CLIQUE NEEDS ONE VALUE PER MEMBER, so a channel's finite value
+        # domain caps the group — light rhyme's `prominence Differ`
+        # rides a channel the eng phonology constructs BINARY, capping
+        # its groups at TWO, and the draw had put it on a group of
+        # seven (74 impossible cliques over seeds 1-60, 40 of 60 seeds;
+        # the production judge confirmed the pigeonhole on a declared
+        # 3-member group before the repair was designed). The cap reads
+        # `relations.CHANNEL_DOMAINS` (adopted, measured over the full
+        # lexicon), and for a BINARY domain the closure is a PARITY
+        # union-find — Agree is a parity-0 edge, Differ a parity-1
+        # edge, and a cycle that forces both refuses the candidate —
+        # which also catches cross-group odd cycles no clique cap sees.
+        # A channel absent from the table stays a plain disequality
+        # edge, so the gate can only miss a cap, never invent one.
+        # M-125(b): THE FLOOR'S OWN CEILING BOUNDS THE DRAW. An anaphora
+        # group forces every one of its lines to OPEN with one word — the
+        # schema judges line-initial tokens, whatever the slots say — and
+        # groups sharing a line UNION into one forced-opener class, so the
+        # draw was able to force 9 of 21 identical openers while the
+        # floor's calibrated ANAPHORA_OVERLOAD (a FLAG at the human 95th
+        # percentile) refuses anything past its `anaphora_max` share: a
+        # demand sheet no writing could pass, found on this seed 32 draft.
+        # The ceiling is READ from the floor's lyric-sheet profile — the
+        # one identified by its own n_lines == 0, never by name (M-106) —
+        # so there is exactly one definition of the threshold, and the
+        # forced-opener classes are the (token, head) Agree components the
+        # claim ledger already carries (M-119's head claims).
+        _aprof = next(p for p in _FL.PROFILES if p.n_lines == 0)
+        _acap = int(_FL.FloorDeclaration().resolve("anaphora_max", _aprof)
+                    * total + 1e-9)
+        _pairc = {}
+        _eqp = {}
+        _nep = {}
+
+        def _pfind(par, x):
+            p = 0
+            while True:
+                nx, xp = par.get(x, (x, 0))
+                if nx == x:
+                    return x, p
+                x, p = nx, p ^ xp
+
+        for _gi in range(len(groups)):
+            _lines = _grp_lines[_gi]
+            _pairs = [(a, b) for i2, a in enumerate(_lines)
+                      for b in _lines[i2 + 1:]]
+            _ok = [""]
+            for _cand in _RL.DRAWABLE_SCHEMAS:
+                _t = _traits[_cand]
+                if _t["gap"] is not None and any(
+                        b - a > _t["gap"] for a, b in _pairs):
+                    continue
+                _bad = False
+                for _ch, _co, _pr in _t["claims"]:
+                    if any(_pairc.get((_p, _ch, _co)) not in (None, _pr)
+                           for _p in _pairs):
+                        _bad = True
+                        break
+                    _dom = _RL.CHANNEL_DOMAINS.get(_ch)
+                    if (_pr == "Differ" and _dom is not None
+                            and len(_lines) > len(_dom)):
+                        _bad = True
+                        break
+                if _bad:
+                    continue
+                _by = {}
+                for _ch, _co, _pr in _t["claims"]:
+                    if _pr in ("Agree", "Differ"):
+                        _by.setdefault((_ch, _co), set()).add(_pr)
+                for _key, _prs in sorted(_by.items()):
+                    _par = dict(_eqp.get(_key, ()))
+                    _ne2 = list(_nep.get(_key, ()))
+                    _dom = _RL.CHANNEL_DOMAINS.get(_key[0])
+                    _binary = _dom is not None and len(_dom) == 2
+                    for _w, _on in ((0, "Agree" in _prs),
+                                    (1, "Differ" in _prs and _binary)):
+                        if _bad or not _on:
+                            continue
+                        for _a, _b in _pairs:
+                            _ra, _pa = _pfind(_par, _a)
+                            _rb, _pb = _pfind(_par, _b)
+                            if _ra == _rb:
+                                if _pa ^ _pb != _w:
+                                    _bad = True
+                                    break
+                            else:
+                                _par[_ra] = (_rb, _pa ^ _pb ^ _w)
+                    if _bad:
+                        break
+                    if "Differ" in _prs and not _binary:
+                        _ne2.extend(_pairs)
+                    for _a, _b in _ne2:
+                        _ra, _pa = _pfind(_par, _a)
+                        _rb, _pb = _pfind(_par, _b)
+                        if _ra == _rb and not (_pa ^ _pb):
+                            _bad = True
+                            break
+                    if _bad:
+                        break
+                    if _key == ("token", "head") and "Agree" in _prs:
+                        # M-125(b): forced-opener classes may not outgrow
+                        # the floor's own ANAPHORA_OVERLOAD share. A root
+                        # appears only as a parent VALUE, so the node set
+                        # is keys + parents + this candidate's endpoints.
+                        _nodes = (set(_par)
+                                  | {pp[0] for pp in _par.values()}
+                                  | {x for pp in _pairs for x in pp})
+                        _sz = {}
+                        for _n in _nodes:
+                            _r, _ = _pfind(_par, _n)
+                            _sz[_r] = _sz.get(_r, 0) + 1
+                        if _sz and max(_sz.values()) > _acap:
+                            _bad = True
+                            break
+                if _bad:
+                    continue
+                _ok.append(_cand)
+            _pick = _ok[rng.randrange(len(_ok))]
+            if _pick:
+                drawn_relations[SC.label((_gi,))] = "schema:" + _pick
+                for _ch, _co, _pr in _traits[_pick]["claims"]:
+                    for _p in _pairs:
+                        _pairc[(_p, _ch, _co)] = _pr
+                    _key = (_ch, _co)
+                    _dom = _RL.CHANNEL_DOMAINS.get(_ch)
+                    _binary = _dom is not None and len(_dom) == 2
+                    if _pr == "Agree" or (_pr == "Differ" and _binary):
+                        _w = 0 if _pr == "Agree" else 1
+                        _par = _eqp.setdefault(_key, {})
+                        for _a, _b in _pairs:
+                            _ra, _pa = _pfind(_par, _a)
+                            _rb, _pb = _pfind(_par, _b)
+                            if _ra != _rb:
+                                _par[_ra] = (_rb, _pa ^ _pb ^ _w)
+                    elif _pr == "Differ":
+                        _nep.setdefault(_key, []).extend(_pairs)
+    plan["relations"] = drawn_relations
+    plan["choices"]["relations"] = {
+        "chosen_from": (
+            "NOT DRAWN — the writer declared --relation and a declared "
+            "coordinate is carried, never sampled over (M-55)" if relation
+            else f"uniform per group over the bare default plus the "
+                 f"{len(_RL.DRAWABLE_SCHEMAS)} certified drawable schemas "
+                 f"(relations.DRAWABLE_SCHEMAS, witness-certified — "
+                 f"M-117). The bare default lands on 1 draw in "
+                 f"{len(_RL.DRAWABLE_SCHEMAS) + 1}, a rarity this "
+                 f"disclosure exists to hand the owner, exactly as the "
+                 f"placement draw's `end` share was"),
+        "value": dict(drawn_relations)}
+
     # THE JOINT GATE (`MISSING.md` M-80). Every constraint above is
     # individually legal and their CONJUNCTION is what nothing held. Asked of
     # the FINISHED dict rather than of the draw, so it is the same check a
@@ -2514,6 +2736,75 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                         for code, ln, detail in joint)
             + "\nEach gate this plan passed is a separate layer and no layer "
               "held their conjunction; this one does. Try another seed.")
+
+    # THE NARRATIVE COLLAPSE (M-121, the joker card played). One atom per
+    # sung section, one junction per seam, drawn UNIFORM over the legal
+    # story line-ups of THIS shape — or carried from the writer, who
+    # silences the draw (M-117's precedence, ruled again for this
+    # coordinate). Entropy is consumed LAST, after every existing draw
+    # and after the joint gate, so seed shapes, relation draws and
+    # refusals are byte-identical to the pre-narrative planner. A shape
+    # admitting NO line-up is DISCLOSED and still ships: the sound plan
+    # is writable, the story layer simply has nothing to ask, and the
+    # harm-check registration records such seeds as refused-by-layer for
+    # the experiment without costing the planner one (doctrine 20 — a
+    # disclosure, not an absence). No grader reads this coordinate: the
+    # brief is the carrier and the enforcement split is step 5's, after
+    # its own sitting.
+    _fns = [s["function"] for s in plan["sections"]]
+    if narrative == "off":
+        plan["narrative"] = {"mode": "off"}
+    elif narrative is not None:
+        _probs = _NV.validate_lineup(
+            _fns, narrative.get("atoms", ()), narrative.get("junctions", ()))
+        if _probs:
+            raise PlanRefused(
+                "the declared narrative line-up is illegal for this "
+                "shape:\n" + "\n".join("  " + p for p in _probs)
+                + "\nA declared coordinate is carried, never resampled — "
+                  "fix the declaration or drop it and the planner draws.")
+        _pos, _sfns = _NV.sung_sequence(_fns)
+        plan["narrative"] = {
+            "mode": "declared",
+            "lineups": _NV.count_lineups(_fns),
+            # a declaration may spell bare atoms/junctions (the CLI's
+            # grammar) or full triples (the API's); both are stored as
+            # the triples the brief and the validator read.
+            "atoms": [
+                list(a) if isinstance(a, (list, tuple))
+                else [_pos[k], _sfns[k], a]
+                for k, a in enumerate(narrative["atoms"])],
+            "junctions": [
+                list(j) if isinstance(j, (list, tuple))
+                else [_pos[k], _pos[k + 1], j]
+                for k, j in enumerate(narrative["junctions"])]}
+    else:
+        _n_lineups = _NV.count_lineups(_fns)
+        if _n_lineups:
+            _lu = _NV.draw_lineup(_fns, rng)
+            plan["narrative"] = {"mode": "drawn", "lineups": _n_lineups,
+                                 "atoms": _lu["atoms"],
+                                 "junctions": _lu["junctions"]}
+        else:
+            plan["narrative"] = {
+                "mode": "none", "lineups": 0,
+                "reason": "this shape admits NO story line-up under the "
+                          "ruled vocabulary — its opening section demands "
+                          "an atom that needs a past, or no legal junction "
+                          "chain survives. The sound plan is unaffected; "
+                          "the writer writes unguided on this axis."}
+    plan["choices"]["narrative"] = {
+        "chosen_from": (
+            "NOT DRAWN — the writer declared the line-up and a declared "
+            "coordinate is carried, never sampled over" if narrative
+            not in (None,) and narrative != "off" else
+            "narrative=off — the writer silenced the layer" if
+            narrative == "off" else
+            f"uniform over the {plan['narrative'].get('lineups', 0)} "
+            f"legal story line-ups of this shape (quality/narrative.py, "
+            f"M-121; the count is exact and the draw is entropy-last)"),
+        "value": {k: v for k, v in plan["narrative"].items()
+                  if k != "reason"}}
     plan["writer_brief"] = writer_brief(plan)
     return plan
 
@@ -2637,9 +2928,45 @@ def writer_brief(plan):
     out.append(f"Feel: {m['beats']}/{m['unit']} grouped "
                f"{'+'.join(str(g) for g in m['groups'])}.")
     if plan["groups"]:
+        rels = plan.get("relations") or {}
         out.append("Rhyme plan (line numbers over the whole song):")
-        for g in plan["groups"].split(";"):
-            out.append(f"  lines {g.replace(',', ' & ')} rhyme")
+        for gi, g in enumerate(plan["groups"].split(";")):
+            name = rels.get(SC.label((gi,)))
+            if name:
+                out.append(f"  lines {g.replace(',', ' & ')} stand in "
+                           f"{name.split(':', 1)[1]} — a NAMED relation, "
+                           f"judged as itself, not as plain rhyme")
+            else:
+                out.append(f"  lines {g.replace(',', ' & ')} rhyme")
+    nar = plan.get("narrative") or {}
+    if nar.get("mode") in ("drawn", "declared"):
+        atom_say = {
+            "ESTABLISH": "puts the world and its cast in place",
+            "COMPLICATE": "lets the pressure in",
+            "TURN": "flips the reading of everything before it",
+            "DWELL": "holds the moment and deepens it, without advancing",
+            "ANCHOR": "is the fixed claim the song keeps returning to",
+            "JUDGE": "is a compressed verdict on what has happened",
+            "RESOLVE": "cashes the standing pressure",
+            "DEPART": "is the leave-taking — the walk home"}
+        junc_say = {
+            "THEREFORE": "because of", "BUT": "against",
+            "AND_THEN": "after", "MEANWHILE": "elsewhere during",
+            "ELABORATE": "deeper into",
+            "JUXTAPOSE": "set beside (connection unstated)"}
+        names = [s["name"] for s in plan["sections"]]
+        inbound = {b: (a, j) for a, b, j in nar["junctions"]}
+        out.append("Story plan (one job per sung section; each enters "
+                   "from the section before it as stated):")
+        for idx, _fn, atom in nar["atoms"]:
+            line = f"  {names[idx]} {atom_say[atom]}"
+            if idx in inbound:
+                a, j = inbound[idx]
+                line += f" — {junc_say[j]} {names[a]}"
+            out.append(line)
+    elif nar.get("mode") == "none":
+        out.append("NO STORY PLAN: this shape carries no legal story "
+                   "line-up, so nothing is asked of the meaning axis.")
     rets = {fn for fn in VERBATIM_RETURNERS
             if sum(1 for s in plan["sections"]
                    if s["function"] == fn) >= 2}
@@ -2667,5 +2994,15 @@ def grading_command(plan, draft_path="DRAFT.txt", bp_path="BP.json"):
     # a declared coordinate read by nothing, one layer out from M-54's.
     if plan.get("relation"):
         parts.append(f"'--relation={plan['relation']}'")
+    # THE DRAWN PER-GROUP RELATIONS REACH THE GRADE (M-117) — the same
+    # carry M-55 built for the writer's own declaration, one coordinate
+    # over: a plan that drew `schema:pararhyme` for group C and did not
+    # put it in this command would be a declared coordinate read by
+    # nothing. Sorted by label so the command is deterministic
+    # (doctrine 66).
+    if plan.get("relations"):
+        _spec = ",".join(f"{k}:{v}"
+                         for k, v in sorted(plan["relations"].items()))
+        parts.append(f"'--relations={_spec}'")
     parts.append(f"--subdivision {plan['subdivision']}")
     return " ".join(parts)

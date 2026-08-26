@@ -1,0 +1,225 @@
+{
+  "hooks": [],
+  "lines": [
+    {
+      "bar": 1,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "INTRO1",
+      "text": "Tide, benign, licks slack cords"
+    },
+    {
+      "bar": 2,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "INTRO1",
+      "text": "Pine boards sighed all night"
+    },
+    {
+      "bar": 3,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "INTRO1",
+      "text": "Dried salt streaks the planks"
+    },
+    {
+      "bar": 4,
+      "beat": 1.5,
+      "duration": 2.5,
+      "section": "PRECHORUS1",
+      "text": "Bare keel parts haze slow"
+    },
+    {
+      "bar": 5,
+      "beat": 1.5,
+      "duration": 2.5,
+      "section": "PRECHORUS1",
+      "text": "Zeal pulls more than praise"
+    },
+    {
+      "bar": 6,
+      "beat": 1.5,
+      "duration": 2.5,
+      "section": "PRECHORUS1",
+      "text": "Phase two: blocks will squeal"
+    },
+    {
+      "bar": 7,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "CHORUS1",
+      "text": "Sheet, row, read dune grain"
+    },
+    {
+      "bar": 8,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "CHORUS1",
+      "text": "Toe the rail; hauls heave"
+    },
+    {
+      "bar": 9,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "CHORUS1",
+      "text": "Noon squalls pleat wheat mane"
+    },
+    {
+      "bar": 10,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "CHORUS1",
+      "text": "Winds feign, though \u2014 sleet crawls"
+    },
+    {
+      "bar": 11,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "CHORUS1",
+      "text": "Rains veil our reprieve"
+    },
+    {
+      "bar": 12,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "CHORUS1",
+      "text": "Palms skinned, decks strewn \u2014 sew"
+    },
+    {
+      "bar": 13,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "DROP1",
+      "text": "Slate skies bend, then break"
+    },
+    {
+      "bar": 14,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "DROP1",
+      "text": "Draped freight; opaque mist swirls"
+    },
+    {
+      "bar": 15,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "DROP1",
+      "text": "Gait slows; strokes missed; ribs quake"
+    },
+    {
+      "bar": 21,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "REPRISE1",
+      "text": "Four hands gripped and clung"
+    },
+    {
+      "bar": 22,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "REPRISE1",
+      "text": "Young backs earn their keep"
+    },
+    {
+      "bar": 23,
+      "beat": 1.0,
+      "duration": 3.0,
+      "section": "REPRISE1",
+      "text": "Pull deep from the core"
+    },
+    {
+      "bar": 24,
+      "beat": 1.5,
+      "duration": 2.5,
+      "section": "VERSE1",
+      "text": "We align lean days"
+    },
+    {
+      "bar": 25,
+      "beat": 1.5,
+      "duration": 2.5,
+      "section": "VERSE1",
+      "text": "Dusk swells twine, ablaze"
+    }
+  ],
+  "sections": [
+    {
+      "bars": 3,
+      "function": "intro",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "INTRO1",
+      "start_bar": 1
+    },
+    {
+      "bars": 3,
+      "function": "prechorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "PRECHORUS1",
+      "start_bar": 4
+    },
+    {
+      "bars": 6,
+      "function": "chorus",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "CHORUS1",
+      "start_bar": 7
+    },
+    {
+      "bars": 3,
+      "function": "drop",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "DROP1",
+      "start_bar": 13
+    },
+    {
+      "bars": 5,
+      "function": "interlude",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "INTERLUDE1",
+      "start_bar": 16
+    },
+    {
+      "bars": 3,
+      "function": "reprise",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "REPRISE1",
+      "start_bar": 21
+    },
+    {
+      "bars": 2,
+      "function": "verse",
+      "meter": {
+        "beats": 3,
+        "groups": [3],
+        "unit": 8
+      },
+      "name": "VERSE1",
+      "start_bar": 24
+    }
+  ],
+  "title": "Wheat Mane"
+}

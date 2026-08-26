@@ -370,7 +370,70 @@ groan, nigh, thread, spare, stair, stone, crossed, quay, plea, grey`) appear
 in this lyric. That is a writer discipline, not a gate — M-111 stays open,
 and the next song should not need the discipline to be remembered.
 
-## What the first measurement says, including about me
+## `wheat_mane.txt` — "Wheat Mane", seed 2, series song 3: first-round green
+
+    python3 lyric_harness.py plan --seed=2
+    python3 lyric_harness.py plan --seed=2 --title='Wheat Mane' \
+        --fill=songs/wheat_mane.txt --out=songs/wheat_mane.blueprint.json
+    python3 lyric_harness.py song songs/wheat_mane.blueprint.json \
+        songs/wheat_mane.txt \
+        '--groups=1.T2,2.headrime;1.headrime,2.T3,3.T1;1.endword,2.T2;4.T2,5.head,6.endword;4.T4,5.endword,6.headrime;7.T1,9.T3;8.T3,11.T2;10.T1,12.T2;7.T2,8.headrime,10.T3,12;7,9,10.T2;7.T4,9.head,12.T4;8.T4,9.T2,10.endword;9.T4,10.T4;13.headrime,14.T2,15.T1;13.endword,14.T3,15.endword;14.T4,15.T4;16,17.head;16.T1,18.endword;19.T2,20.T3;8,11;19,20' --subdivision 2
+
+`song` exit 0, 0 FLAG **on the first grading round**. `revise` SUCCESS in 0
+rounds, draft unchanged (md5 `9d305ba7768f`), 42 pairs mandated / 42 judged /
+0 refused, 0 banned pairs, 0 stacked lines. The two forward-loop predecessors
+priced the same gates at four grading rounds (`taught_me_time`) and a
+post-hoc exit 3 (`long_bridge`); no other banked song has cleared them on
+its opening pass, which is the per-song trend the series exists to measure
+— one song is a point, not a slope.
+
+**THE SCREEN DID THE WRITING'S HARD HALF, AND THE LOG SHOWS IT.** Seed 2's
+plan is 20 six-slot lines in 3/8 at subdivision 2 — five to six syllables a
+line — carrying 21 overlapping groups whose 42 mandated pairs bind HALF the
+song's tokens, with chorus lines 9 and 10 bound at EVERY token position. All
+21 families were screened before a line was written, and the ban refused the
+first-choice family in seven groups: turn~stern, aligns~lines, come~drum,
+seas~breeze~ease, loud~crowd, beat~sleet, shoals~rolls, oars~shores~pours,
+old~rolled, broke~oak, wet~sweat, dark~arc and gloom~plume all came
+back MODAL_RHYME — the seas/breeze/ease run screened three pairs and
+banned 3 [LOG: banned wheat_mane.txt ease] with clean
+0 [LOG: clean_or_non_rhyme wheat_mane.txt ease] — and the -url family
+died at the dictionary, refused 4 [LOG: refused wheat_mane.txt furl]
+because CMUdict cannot read `furl`. What survived is fresh inventory —
+the 4-clique row/toe/though/sew, the 3-cliques squalls/hauls/crawls,
+grain/mane/feign, freight/gait/slate, break/opaque/quake, tide/sighed/dried,
+keel/zeal/squeal, haze/praise/phase, noon/dune/strewn — screened as fresh
+candidate pools with the earlier songs' clean lists deliberately
+unconsulted, and none of the M-111 glossary words appears in the lyric.
+
+**AND THE FUNNEL DELIVERED ANYWAY, WHICH IS M-111'S MECHANISM STRIPPED
+OF ITS LAST INNOCENT READING.** Measured after banking: eleven of this song's 52
+bound words — row, sew, though, tide, slate, freight, opaque, feign,
+four, core, dried — were SUNG in `long_bridge.txt`, a song whose lists
+this session never opened. No shopping happened and the overlap arrived
+anyway, because the ban tables and the lexicon are fixed: two
+independent sessions screening different candidate pools converge on
+the same short clean survivors. The prior receipt (16 of
+`carry_it_over`'s 50 screened words sung in `long_bridge`) could still
+be read as shopping; this one cannot. The old tic glossary itself did
+rotate out — of the sixteen content types now shared by four or more
+banked songs, this song appears in two (`hands`, `all`), and
+light/ache/groan/stair/stone/crossed/dark stay confined to the first
+five songs — so avoidance works on the WORDS a writer watches, and the
+funnel keeps operating on the words the SCREEN hands out. M-111's
+reuse-disclosure check remains the open remedy, awaiting the owner's
+ruling on the songs-are-not-corpus boundary.
+
+**WHAT THE BANKED NUMBERS SAY, cited not remembered.** Rhyme predictability
+came in at 0.609665, the lowest of the eight banked songs [RESULTS: rhyme_predictability_mean wheat_mane.txt]
+— a fifth of a unit under the prior floor — which is the direction the two-tier ban pushes when every
+family is screened first rather than repaired after. MATTR is the
+highest of the eight at 0.994286 [RESULTS: mattr wheat_mane.txt]: twenty short lines
+with almost no repeated vocabulary. Concreteness sits mid-pack at 3.644821
+[RESULTS: concreteness_mean wheat_mane.txt]. Whether first-round green plus
+whether those extremes read as a better song [RESULTS: rhyme_predictability_mean wheat_mane.txt]
+is the owner's ear's question, not these instruments' — the panel measures it separately, and `long_bridge` is
+the standing proof that green and good are different claims.
 
 `songs/RESULTS.tsv` is the series: one row per (song, harness commit, date),
 carrying the ten pre-registered features from `quality/features.py`. It exists
@@ -403,12 +466,282 @@ the lowest of the six at 3.043667 [RESULTS: concreteness_mean carry_it_over.txt]
 sixth has since been banked; turn_the_wheel's own 3.909818 has not moved
 [RESULTS: concreteness_mean turn_the_wheel.txt]. On
 rhyme predictability — pre-registered as LOWER —
-`keep_the_light.txt` sits lowest at 0.816206 [RESULTS: rhyme_predictability_mean keep_the_light.txt].
+~~`keep_the_light.txt` sits lowest at 0.816206~~ [RESULTS: rhyme_predictability_mean keep_the_light.txt]
+(SUPERSEDED 2026-08-25: it held that floor among the six then banked;
+`wheat_mane.txt` now sits lowest at 0.609665 [RESULTS: rhyme_predictability_mean wheat_mane.txt],
+and keep_the_light's own reading has not moved).
 Both readings ran against the story I had been telling, which is the point of
 writing the numbers down before making the claim.
 
 A comparison in this file must carry a `[RESULTS: <column> <song>]` citation
 that resolves, or `--claims` fails. That check is aimed at the narrator.
+
+---
+
+## `matinee.txt` — "Matinee", seed 3, series song 4: the mandate was the defect
+
+    python3 lyric_harness.py plan --seed=3
+    python3 lyric_harness.py song songs/matinee.blueprint.json \
+        songs/matinee.txt \
+        '--groups=1.T2,3.T6;2.T6,3.T1;1.T3,2.T3,3.T2;4.T3,5.T6;8.T3,9.T1;7.T4,9.T4,10.T5;7,9.T7,10.headrime;9.T3,10.T4;12,14,23.T4;13,22.T1;15.T5,16.T1,19.headrime;17.T7,20;12.T3,13.T1,16,18.T4,19.T6,20.T1,22.T4;18.T6,21.T3,22;12.T1,13.T2,20.T2,21,22.T6;12.T7,21.T7;12.T6,13.T6,14.T3,21.T1;13.T4,14.T1,16.T7,21.T6;14.T2,18.T2;24.T4,27.T6,28.T7;26.T5,32.T3;25.T6,26,28.T3,29.headrime,31.T3;25.T5,28.T1,31;25.T2,29,30.T6,31.T1,32.T5;25,26.headrime,30.T3;25.T1,29.T2,32.T6;26.T7,30.T7,31.T7,32.headrime;1,3;4,5;8,9;15,19;24,27,28' --subdivision 1
+
+`song` exit 0, md5 `c64331aba1ba`, 116 pairs mandated / 116 judged / 0
+refused, 0 banned pairs; `revise` SUCCESS in 0 rounds, draft unchanged.
+Four grading rounds to get there — the inverse of wheat_mane's opening-pass
+green — and the words were almost never the problem: THE MANDATE WAS.
+
+**ROUND 1 CHARGED 22 SCHEME VIOLATIONS AND 19 OF THEM WERE ONE SPELLING
+ERROR (M-114).** The hand mandate bound eight members at `.head` and seven
+at `.endword`, written as if they meant "the first word's rime" and "the
+end rhyme" — and the slot vocabulary declares both as WHOLE-WORD spans
+(`word_start -> to_word_end`), where `T<n>` and `headrime` read the rime
+from the last stressed syllable. `deceit` at `21.endword` is scored on
+both its syllables, head-aligned, and reads 0.13 against a partner the
+bare pair scores 1.0. Respelling the loci — `.head` -> `.T1`, `.endword`
+-> the bare line number — removed 19 of the 22 violations with ZERO word
+changes — the round-1 row in the log (step 54, fingerprint
+`707c48614794`) and the green row bind the identical slot words. Filed as `MISSING.md` M-114: a whole-word locus in a rime
+family refuses nothing at declaration time, and the writer discovers it a
+hundred mandated pairs later.
+
+**THE THREE SURVIVING VIOLATIONS WERE ALL ONE WORD, AND THE SCREEN HAD
+CALLED IT CLEAN (M-113).** `haiku` is `HH AY1 K UW0` — final syllable
+unstressed, so its rime span reaches back to `AY1` and no `UW` family can
+answer it. The screen printed `pair:haiku~taboo CLEAN` because CLEAN
+answers the BAN question only; the log fact is honestly named
+`clean_or_non_rhyme`, and the printed word is what a writer reads. The
+replacement `revue` was screened against the family first —
+clean 15 [LOG: clean_or_non_rhyme matinee.txt revue] with
+banned 0 [LOG: banned matinee.txt revue] and
+refused 0 [LOG: refused matinee.txt revue] — and the re-grade went green.
+
+**THE BANDS PRICED THE REST.** The early rounds also charged 11
+`PROMINENCE_OUT_OF_BAND` lines (eight or more prominent syllables against
+the calibrated ceiling of seven) and 2 `SLOTS_EXCEEDED`; every repair was
+a function-word dilution or a one-syllable trim that held every bound word
+at its declared token index, verified against the mandate before
+re-grading. The banked text carries 2 stacked lines (L7, L21) at 0.0625 —
+under the 0.125 `STACKED_DRAFT` ceiling, and no other banked song has
+carried one since the sentencehood gate shipped; both lines hold a real
+verb, and the fraction is the coordinate that decides. The witness is
+pinned in `quality/sentencehood.py`.
+
+**WHAT THE BANKED NUMBERS SAY, cited not remembered.** At 32 lines this is the longest banked song [RESULTS: n_lines matinee.txt],
+and its rhyme predictability 0.787907 is the second-lowest of the nine [RESULTS: rhyme_predictability_mean matinee.txt],
+with only wheat_mane's 0.609665 lower [RESULTS: rhyme_predictability_mean wheat_mane.txt]
+— the screen-first direction holding on a second consecutive song. MATTR
+0.896166 [RESULTS: mattr matinee.txt] and concreteness 3.658712
+[RESULTS: concreteness_mean matinee.txt] sit inside the banked range on
+both sides.
+
+**AND THE FUNNEL RECEIPT, THIRD CONSECUTIVE SONG.** Fifteen of this song's
+95 bound words were sung in earlier banked songs whose clean lists this
+session never consulted — eight of them in `long_bridge.txt` alone (buy,
+door, height, heir, high, prayer, rye, weigh), the same song wheat_mane's
+eleven landed in. Fixed ban tables and a fixed lexicon keep converging on
+the same short survivors whatever the writer avoids; M-111 stays the open
+remedy.
+
+---
+
+## `crooked_waltz.txt` — "Crooked Waltz", seed 31, series song 5: the dice drew the relations
+
+    python3 lyric_harness.py plan --seed=31 --title='Crooked Waltz'
+    python3 lyric_harness.py song songs/crooked_waltz.blueprint.json \
+        songs/crooked_waltz.txt \
+        '--groups=1.T7,2.T4;1.T5,2.T5;3.T4,5.T2;4.head,6.T3,8.T4;7.head,9;3.T6,4.T2,5.T1,7.T2;3.endword,4.T6,5.T5,6.head,7.endword,8.head;4.T4,6.endword,8.endword;4.T5,8.T6;12.headrime,13.T4;10.T1,11.head,12.T3,13.endword;10.T2,12.T7,13.headrime;10,12;15,16.T2;16.T4,17.T1;15.headrime,17.endword;1,2' \
+        '--relations=A:schema:anaphora,B:schema:light rhyme,C:schema:chain rhyme (rap),D:schema:pararhyme,E:schema:family rhyme,F:schema:chain rhyme (rap),H:schema:head rhyme (positional),I:schema:chain rhyme (rap),J:schema:pantun ABAB,K:schema:anaphora,L:schema:internal rhyme,M:schema:family rhyme,N:schema:subtractive rhyme,O:schema:anaphora,P:schema:head rhyme (positional),Q:schema:chain rhyme (rap)' --subdivision 2
+
+`song` exit 0, md5 `2673775a65a1`, 47 pairs mandated / 47 judged / 0
+refused; `revise` SUCCESS in 0 rounds, draft unchanged. Seventeen lines of
+11/8 grouped 3+3+2+3, and the relation coordinates came from the PLANNER'S
+OWN DICE (M-117), which no banked song before this one could say: sixteen
+of the seventeen groups carry a drawn `schema:` name — light rhyme,
+pararhyme, pantun, subtractive, head rhyme, chain, anaphora, internal,
+family — and the writer declared none of them. The one bare group (G, six
+loci across the chorus) rode the M-116 whole-vocabulary default.
+
+**THE FIRST DRAWN PLAN COULD NOT BE WRITTEN, AND THE DEFECT WAS THE
+GATE'S, NOT THE DICE'S (M-119).** Grading the first draft returned nine
+scheme violations of which seven were mandate contradictions no words can
+satisfy: the draw had put cluster consonance — whose registry row demands
+pairwise-DIFFERENT nuclei on the very end words — onto the postchorus
+group whose ends family rhyme and pantun already held nucleus-AGREE, and
+head rhyme (positional), which REFUSES token identity at the line head,
+onto a pair that anaphora required to OPEN ON THE SAME WORD. The M-118
+conjunction gate saw neither, because cluster consonance spells its
+line-finality in the span LOCUS (its placement row is empty) and the line
+HEAD had no claim store at all. `MISSING.md` M-119 carries the account and
+the measurement — 33 of 40 seeds drew one of the two shapes through the
+old gate, 0 of 40 through the widened one, 0 seeds lost, seed shapes
+byte-identical — and `test_plan.py` §14 pins the widened derivation by
+name. Seed 31 was then re-planned: same seventeen lines, same groups, five
+groups' relations re-drawn.
+
+**THE ONE ROUND THE WORDS OWNED WAS A MODAL TRAP OF MY OWN MAKING.** Head
+rhyme on the chorus triple needs three DIFFERENT line-opening words
+sharing an open-AY first syllable; the first repair opened L8 on "High"
+beside L6's "Sky" — and those two words are G's own slot pair, a bare
+group where the two-tier ban is live, and sky/high is the canonical modal
+pair. The grade refused at exit 3 on exactly that note. The replacement
+head was screened against "sky" and against "guy" before it was written —
+the working order the screen exists for; both runs are banked in the
+log's own rows, unbanned in each — and "Pylons at the stiles swing" took
+the head. The intro's light-rhyme pair was screened the same way —
+clean 1 [LOG: clean_or_non_rhyme crooked_waltz.txt carpenter] — before
+either end word was sung.
+
+**WHAT THE BANKED NUMBERS SAY, cited not remembered.** Rhyme
+predictability 0.718198 is the second-lowest of the ten banked songs [RESULTS: rhyme_predictability_mean crooked_waltz.txt],
+above only wheat_mane's 0.609665 [RESULTS: rhyme_predictability_mean wheat_mane.txt]
+— the screen-first direction holding on a third consecutive song — and
+concreteness 3.715714 sits in the banked range's upper half [RESULTS: concreteness_mean crooked_waltz.txt],
+under long_bridge's 3.945395 [RESULTS: concreteness_mean long_bridge.txt].
+At 17 lines [RESULTS: n_lines crooked_waltz.txt] its column records what
+the dice asked a writer to do, with no second drawn-relation song banked
+yet to compare it against.
+
+---
+
+## `the_frost_ledger.txt` — "The Frost Ledger", seed 32, pair 1's BARE twin: the experiment begins by breaking the gate three more times
+
+    python3 lyric_harness.py plan --seed=32 --narrative=off --title='The Frost Ledger'
+    python3 lyric_harness.py song songs/the_frost_ledger.blueprint.json \
+        songs/the_frost_ledger.txt \
+        '--groups=1.head,5.headrime,6.T5,10.endword;2.endword,4.head,8;2.headrime,3.T7,6.headrime,7.T3,8.T6,9,10.T7;4.T3,5.T4,6;3.head,4.T7,5.T5,7.headrime,10.T6;3.T6,5.T3,10.headrime;5,8.T7,10.T3;13.head,14;13.T4,17.head;15.T2,16.T4,17;14.T4,15.T3,17.T6;14.T2,17.T2;14.T7,17.T5;19.T1,20.endword;18.T7,20.T5,21.T2;18.T3,19.T3,20.T1,21.endword;19.T4,21.headrime;19.endword,20.T6' \
+        '--relations=A:schema:perfect rhyme,B:schema:multisyllabic rhyme,C:schema:compound / phrasal rhyme,D:schema:anaphora,E:schema:internal rhyme,F:schema:anaphora,G:schema:perfect rhyme,H:schema:perfect rhyme,I:schema:rime riche,K:schema:Scots vowel-length rhyme (Aitken'"'"'s Law),L:schema:anaphora,M:schema:compound / phrasal rhyme,N:schema:head rhyme (positional),O:schema:anaphora,P:schema:chain rhyme (rap),Q:schema:light rhyme,R:schema:multisyllabic rhyme' --subdivision 2
+
+`song` exit 0, md5 `5f2a1371b4d8`, 71 pairs mandated / 71 judged / 0
+refused; `revise` SUCCESS in 0 rounds, draft unchanged. Twenty-one lines of
+10/8 grouped 2+3+2+3, and this is the FIRST HALF OF PAIR 1 of the
+preregistered narrative harm check (`quality/NARRATIVE_PREREGISTRATION.md`):
+the BARE twin, planned with `--narrative=off` and written before the story
+draw for this seed was ever read, per the registration's ordering rule.
+ONE DISCLOSURE ON THAT RULE, recorded rather than omitted: during the
+M-122/M-123/M-125 gate measurements, `make_plan(32)` was called without
+`narrative="off"`, which draws a story line-up as a side effect. The draw
+was consumed into no report and read by nobody — the scripts read only
+`relations` and `groups` — but "never generated" is not a sentence this
+bank can carry, so the sentence it carries is "generated in memory by an
+instrument, never surfaced, never read."
+
+**THREE OF THE FIVE GATE DEFECTS THIS SONG'S DEMAND SHEETS EXPOSED WERE
+FOUND BEFORE A WORD WAS WRITTEN, AND TWO MORE BY WRITING IT.** Seed 32's
+first drawn sheet was doubly unsatisfiable (M-122: `adjacent_lines` read as
+no gap at all, and a rime-riche/semirhyme/assonance chain whose equality is
+transitive); the re-drawn sheet put light rhyme — whose `prominence Differ`
+rides a BINARY channel — on a seven-line group (M-123, the pigeonhole);
+the third sheet forced nine identical line-openers against the floor's own
+calibrated ANAPHORA_OVERLOAD share and drew a perfect/rime-riche/semirhyme
+length triangle (M-125), while grading the first actual draft found the
+identity machinery charging REPEAT on the anaphora its own mandate demanded
+(M-124). Every one of those closes in `MISSING.md` with measurements either
+side; this file records only what the WRITING then owed: the two-tier ban
+turned the intro's rhyme family over twice (days~strays and weighs~sleighs
+fell to SHARED_SUFFIX, haze~glaze to HOMEOTELEUTON on group B's own bound
+end pair), and the compound/phrasal web across seven intro ends settled on
+uniform two-syllable "the/a + monosyllable" closes after the mixed-length
+spans measured unjudgeable.
+
+**WHAT THE BANKED NUMBERS SAY, cited not remembered.** Rhyme
+predictability 0.790336 is the fourth-lowest of the eleven banked songs [RESULTS: rhyme_predictability_mean the_frost_ledger.txt],
+above wheat_mane, crooked_waltz and matinee [RESULTS: rhyme_predictability_mean matinee.txt]
+— the screen-first direction holding on a fourth consecutive song — and
+concreteness 3.750000 sits third-highest [RESULTS: concreteness_mean the_frost_ledger.txt],
+under long_bridge and turn_the_wheel [RESULTS: concreteness_mean turn_the_wheel.txt].
+MATTR 0.726486 is the third-lowest [RESULTS: mattr the_frost_ledger.txt],
+above turn_the_wheel and keep_the_light [RESULTS: mattr keep_the_light.txt]
+— the visible price of a mandate that forces five lines to open on one
+word and four more on two homophones, which is a fact about THIS drawn
+sheet and not yet a trend.
+
+---
+
+## `the_river_keeps_the_score.txt` — "The River Keeps the Score", seed 32, pair 1's NARRATIVE twin: the joker card played on a real song
+
+    python3 lyric_harness.py plan --seed=32 --title='The River Keeps the Score'
+    # identical GROUPS, RELATIONS and meter to the_frost_ledger.txt — one seed,
+    # two drafts — plus the drawn story plan the bare twin was never shown
+
+`song` exit 0, md5 `73f4f1b6ff80`, 71 pairs mandated / 71 judged / 0
+refused; `revise` SUCCESS in 0 rounds, draft unchanged. The SECOND HALF OF
+PAIR 1 of the preregistered narrative harm check
+(`quality/NARRATIVE_PREREGISTRATION.md`): same seed, same demand sheet,
+written AGAINST the drawn story line-up the bare twin was written without —
+the intro puts the world in place, the drop states the claim it earns
+("The river keeps the score"), the verse lets the pressure in because of
+it (the drought), the chorus returns the claim AGAINST that pressure
+("Drought is just another way to steal / Still the water owes its turn"),
+and the postchorus holds the moment without advancing. The writing paid
+three grading rounds: a mixed-length compound phrase ("the summer eel"
+carries an ER syllable where the web wants a schwa), the Q pair's -ing
+ending falling to the suffix stemmer (morning~spring read as rhyming on
+the shared ending alone), and the modal table catching 'Under' as a
+top-six answer to 'silver' on Q's own bound words — each cleared by
+rewriting the line, never by moving a threshold.
+
+**WHAT THE BANKED NUMBERS SAY, cited not remembered.** Rhyme
+predictability 0.768832 is the third-lowest of the twelve banked songs [RESULTS: rhyme_predictability_mean the_river_keeps_the_score.txt],
+above wheat_mane and crooked_waltz [RESULTS: rhyme_predictability_mean crooked_waltz.txt],
+and concreteness 3.907971 sits third-highest [RESULTS: concreteness_mean the_river_keeps_the_score.txt],
+under long_bridge and turn_the_wheel [RESULTS: concreteness_mean long_bridge.txt].
+The registration's own question about the story plan's effect on the
+writing is reserved for the blind panel after at least three completed
+pairs — no sentence here answers it, and the feature register is the
+deterministic control, not the verdict.
+
+---
+
+## The series to date — four songs under one set of instruments, 2026-08-25
+
+The forward loop closed today on the owner's instruction, four songs in:
+`long_bridge` (the defect record), `taught_me_time` (the forward
+validation), `wheat_mane` (seed 2), `matinee` (seed 3). Seed 4's plan is
+drawn and recorded (`songs/song5.log.tsv`, plan step 1 plus the first
+family screens) and stops there — a stub for whichever session reopens the
+loop. What four points support, stated as four points and not a slope:
+
+**The cause profile moved even where the round count did not.**
+taught_me_time needed four grading rounds of WRITING repairs;
+matinee also needed four rounds, and nineteen of its twenty-two round-1
+scheme violations fell to a mandate respelling with zero word changes
+(M-114), with the screen's verdict vocabulary supplying the rest (M-113).
+The gates are catching authoring errors upstream of the words now, which
+is where wheat_mane's opening-pass green said the words had stopped
+needing them.
+
+**Screen-first pushes predictability the pre-registered direction, twice.**
+The two screen-first songs hold the floor of the banked set: wheat_mane lowest at 0.609665 [RESULTS: rhyme_predictability_mean wheat_mane.txt]
+and matinee second-lowest at 0.787907 [RESULTS: rhyme_predictability_mean matinee.txt].
+
+**The glossary stays confined to the pre-gate songs, on every instrument.**
+Panel runs 3 and 4 both return STRONG at 3/3 with every evidence list
+locating the iron/groan/ache/stone/spare cluster in the first six songs;
+the mechanical DF agrees (fifteen content types shared by four or more of
+the nine, matinee in two of them, wheat_mane in two of sixteen at the
+eight-song count). Avoidance works on the words a writer watches.
+
+**And the funnel operates on the words the screen hands out.** Fifteen of
+matinee's 95 bound words were sung in earlier banked songs never
+consulted; eleven of wheat_mane's 52; and run 4 produced the first
+PHRASE-level receipt — "dried salt" verbatim in both sea songs. M-111's
+reuse disclosure remains the open remedy, awaiting the owner's ruling.
+
+**Each closed gate moves the pressure one surface over, which is the
+series' core finding.** Verbless stacks were gated (M-110) and did not
+recur; the binding pressure that produced them moved into semantics in the
+maximally bound sections (wheat_mane CHORUS1 2/3, matinee VAMP1 3/3
+unanimous — M-112, third reproduction); and the prominence band's repairs
+were then heard by a blind judge as padding and clot the count cannot see
+(M-115). Grammar gate live, drift into semantics; count band live, drift
+into adjacency. The quantity underneath all three is the mandate's local
+weight on a section, and M-112's disclosure is the named next instrument.
+
+**Green and good stay different claims.** Run 4's three set judges, asked
+to name one song to cut, all three named wheat_mane — the series' only
+opening-pass green — for its drawn SHAPE ("never returns to a chorus"), a
+taste question about the planner's form draw that belongs to the owner,
+not to a gate.
 
 ---
 

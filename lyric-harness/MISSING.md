@@ -11317,3 +11317,502 @@ panel with a set lens.
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~167~~ -> **169**
 (M-110 and this entry landed in one commit, 2026-08-25; this entry counts while
 OPEN — the count is entries, not closures).
+
+### M-112 · the mandate's own weight on a section is disclosed by nothing `OPEN`
+Filed 2026-08-25, from the series' third song. `wheat_mane.txt` (seed 2)
+cleared every gate on its first grading round — 0 flags, 0 stacked lines, 0
+banned pairs — and the blind panel still rejected its CHORUS1 at 2/3, with
+the imagery ballot reading the section's rhyme chain as "sound-matching
+rather than a single picture" (`quality/RESULTS_PANEL.md` §6).
+
+**THE MEASURED COORDINATE.** That chorus binds 23 of its ~31 sung tokens —
+the plan's 21 overlapping groups put five bound positions on each of lines 9
+and 10, every token of a five-token line — while the song's mean is 2.6
+bound members a line. Run 2 already ranked the three rejected sections 1st,
+6th and 10th of 62 by members-per-line; this song reproduces the pressure on
+a NEW SURFACE: M-110's gate closed the verbless-stack spelling, the writing
+kept its verbs, and the drift moved into semantics (a farmland register
+imported into a sea scene because grain/mane/feign was the clean family the
+screen had left).
+
+**WHY IT IS OPEN AND NOT BUILT.** The buildable half is a DISCLOSURE: the
+planner and `song` could print each section's bound-token share (bound
+members over token capacity), which is derivable from the mandate and the
+slot budget alone. What is NOT buildable today is the gate: a ceiling needs
+a calibration, the corpus carries no mandates, and the honest route —
+`quality/recover.py` covers over corpus songs, then the share's
+distribution — is a preregistration, not an afternoon. Density is also NOT
+sufficient (run 2: ranks 2–5 equally dense and passed), so any future
+ceiling is a band question, stated as an FPR (doctrine 22), and the
+semantic half stays the panel's (§4's subtle-mode refusal). Until then the
+share is a number a session computes by hand, which is exactly the
+private-instrument shape standing rule 3 exists to end — the disclosure
+should be built even while the gate waits.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~169~~ -> **170**.
+
+### M-113 · the screen's CLEAN conflates a clean rhyme with a clean non-rhyme `OPEN`
+Filed 2026-08-25, from the series' fourth song, and the log fact already
+knew. `screen haiku taboo` prints `pair:haiku~taboo CLEAN`, and `song` then
+charges the same pair `SCHEME_VIOLATION` at **0.435** — `haiku` is
+`HH AY1 K UW0`, its final syllable unstressed, so its rime span reaches back
+to `AY1` and no `UW` family can answer it. Both verdicts are correct:
+`screen`'s question is the two-tier BAN (a banned pair is an answer; a
+non-rhyming pair is not banned), and the grader's question is the mandate.
+The defect is the printed vocabulary at the writer-facing surface — the
+fact name is `clean_or_non_rhyme`, one bucket honestly labelled in the LOG
+and rendered `CLEAN` to the person deciding whether to bind a family on it.
+`matinee.txt`'s round-3 grade carried exactly three violations, all of them
+`haiku` against members the screen had called CLEAN, which is the cost
+measured: a family built on the conflation, discovered 116 mandated pairs
+later. The fix is a disclosure, not a severity change: the screen already
+runs the song grader on a minimal mandated pair, so the rhyme verdict is
+computed and dropped — print it (`CLEAN — RHYME 1.0` / `CLEAN — DOES NOT
+RHYME 0.435`), and the one word stops answering two questions (doctrine 79
+at a verdict instead of a count).
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~170~~ -> **171**.
+
+### M-114 · a whole-word locus in a rime family refuses nothing at declaration time `OPEN`
+Filed 2026-08-25, the same song's other half. The slot vocabulary declares
+`head` and `endword` as WHOLE-WORD spans (`word_start` -> `to_word_end`)
+while `T<n>` and `headrime` read the rime (`last_stressed` -> word end) —
+all four correctly, per `quality/slots.py`'s own rules. A hand mandate that
+binds `deceit` at `21.endword` into a family of one-syllable rimes is
+therefore unsatisfiable BY CONSTRUCTION for any non-initial-stress
+polysyllable — `-deceit` scored head-aligned against `suite` reads **0.13**
+where the bare pair reads 1.0 — and the declaration is accepted in silence.
+`matinee.txt`'s round-1 grade measured the cost: **22** scheme violations,
+of which the locus respelling alone (`.head` -> `.T1`, `.endword` -> the
+bare line number) removed **19** with zero word changes. The planner's own
+door has `joint_findings` for exactly this class of unwritable declaration
+(M-79/M-80), and the owner's M-72 ruling is that the human door gets the
+same steps — so the buildable half is a declaration-time note from
+`_normalise_groups`' own path naming a group that mixes whole-word spans
+with rime spans, and the open half is whether it can gate without charging
+the legitimate uses the vocabulary exists for (a monosyllable at `head` is
+byte-identical to `T1` and refusing it would be a false positive by
+construction).
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~171~~ -> **172**.
+
+### M-115 · the prominence band is a count, and both of its evasions are audible `OPEN`
+Filed 2026-08-25, from panel run 4 (`quality/RESULTS_PANEL.md` §7).
+`matinee.txt`'s eleven PROMINENCE_OUT_OF_BAND flags were cleared by
+function-word dilution — every bound word held, prominent syllables
+brought to seven or fewer, the band green — and a blind prosody judge
+then quoted the repairs themselves: "'and the' strings two limp function
+words together as audible padding", on the exact line the dilution took
+from nine prominent to seven. The judge's other rejection is the same
+instrument's other blind spot inverted: "six stressed monosyllables stack
+with no unstressed syllable to hang a phrase on" — on a line the band
+PASSES at seven, because seven prominent of nine syllables with the
+stresses ADJACENT is a clot the count cannot see. One coordinate, two
+audible evasions: pad down into the band, or clot inside it. The band
+itself is correct and stays (its calibration is over counts, and a count
+was the right first instrument); what is missing is any disclosure of
+ADJACENCY — a run of N consecutive prominent syllables, or a run of N
+consecutive weak ones, is derivable from the same reader that counts, and
+today neither is said by anything. Whether a calibrated ceiling on stress
+runs can gate without charging deliberate emphasis (a chant line WANTS
+the clot) is a band question needing its own corpus measurement, stated
+as an FPR (doctrine 22); until then the panel stays the only instrument
+that can hear it, per §4's subtle-mode refusal.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~172~~ -> **173**.
+
+### M-116 · all 77 schemas join the default — the owner's ruling, shipped `CLOSED`
+Filed and closed 2026-08-25, on the owner's direct instruction ("put all 77
+in the default now" — the second half of the instruction whose first half
+widened `Declaration.admit` to all four classes on 2026-08-22, M-59; task
+#86). A mandated pair that declares NO relation and NO structure is now
+satisfied when its two lines stand in ANY schema the vocabulary names.
+**ONE JUDGE, TWO READERS**: `relations.whole_vocabulary_pairs` realises the
+whole registry over one stream and both graders — `quality.revise.grade`
+and `lyric_harness.check_scheme`, whose two-copy chain has been "the
+standing defect" in its own comment since 2026-08-15 — consult that one
+function, so a pair cannot be satisfied by one and charged by the other
+(doctrine 1). Declaring a relation stays the NARROWING move; REPEAT stays
+excluded (identity's licence machinery owns it, doctrine 3); intra-line
+figures cannot satisfy a cross-line mandate (`line_pairs_for`'s own rule);
+refusing schemas are silent, never a pass and never a charge (doctrine 79).
+**MEASURED**: the sonnet oracle moves 35 -> 12 violations (3.5% -> 1.2% of
+judged), one-directional by construction — 23 pairs stopped violating, 0
+newly violate — every rescue attributed (chain rhyme 16, internal rhyme 11,
+consonance 10, assonance 3, multisyllabic 2, anaphora 2, additive 1,
+subtractive 1). Repinned in `battery.py` with the price stated and in
+`CLAUDE.md`'s baseline ladder.
+**WHAT STAYS OPEN, recorded rather than implied**: (a) laziness at the 77
+is UNCALIBRATED — every satisfied pair says so (`pairs_schema_satisfied`,
+the report's `SCHEMA DEFAULT` line) and a modal regime per relation is
+demand-driven future measurement (the Kalevala precedent, whose tier 1 was
+REFUSED by measurement — the ban does not transpose by analogy); (b) the
+PLANNER still draws bindings from its calibration-gated pool — whether it
+should sample all 77 is task #87's question and the owner's, not a silent
+side effect of this ruling; (c) the proactive pair check still types
+against the end-rhyme calibration only, correctly, for the same reason it
+skips non-default structures.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~173~~ -> **174**.
+
+### M-117 · the planner draws relations from the certified pool `CLOSED`
+Filed and closed 2026-08-25, on the owner's instruction "now do the planner
+too" — the planner half of M-116. Each drawn group now draws its RELATION
+uniformly over the bare default plus `relations.DRAWABLE_SCHEMAS`, and the
+grading command carries the draw as `--relations=LABEL:schema:NAME,...`
+(M-55's carry, one coordinate over); the writer's brief names each group's
+relation in place; a writer's own `--relation=` silences the draw entirely,
+because a declared coordinate is carried, never sampled over.
+**THE POOL IS CERTIFIED, NOT ENUMERATED BY HAND** — the capacity layer's
+witness idiom applied to relations: `derive_drawable_schemas()` keeps a
+schema only if (1) it ANSWERS ON THE DECLARED WITNESS (sixteen plain
+English lines carrying the common figures — a schema no exhibit proves
+satisfiable would make an unwritable mandate, M-79's founding rule), (2)
+it is not intra-line-only (a one-line figure can never satisfy a mandated
+pair — the judge's own refusal), and (3) it demands no token IDENTITY at a
+line-final placement (that mandates exactly what the REPEAT branch
+charges, doctrine 3). Twenty-two of the 77 certify today; the pool grows
+by growing the witness, never by editing the tuple, and `test_plan.py`
+§14 re-derives the adoption so drift fails loud. The uniform draw makes
+the bare default RARE (one draw in twenty-three) — the same consequence
+the placement draw's `end` share carried, disclosed in
+`choices.relations` for the owner to reweight or not; seed SHAPES are
+byte-identical to the pre-draw planner because the draw consumes entropy
+after every existing draw.
+**NAMED FOLLOW-UPS, not silent gaps**: the MCP connector
+(`mcp/lyric_tools.js`) reads `plan.groups`/`plan.returns`/`plan.relation`
+off the artifact and does not yet carry `plan.relations` — a chat-graded
+draft loses the drawn coordinate until that wiring lands (the
+grading_command remains the honest carrier meanwhile); and rows excluded
+by rule (1) are not refused as relations — the default fan and the
+declared route still judge them — they are only not drawn, so a richer
+witness is the one honest way to widen the dice.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~174~~ -> **175**.
+
+### M-118 · the relation draw needed its own conjunction gate `CLOSED`
+Filed and closed 2026-08-25, the hour the first drawn plan was read for
+writing. Seed 4's ungated draw put pantun ABAB — whose own placement rule
+spans at most two lines — on a group with a gap of eight, and monorhyme's
+coda-Agree against assonance's coda-Differ on the same shared line pair
+(1,6): every constraint individually legal, the conjunction held by
+nothing, which is M-79's finding replayed on the relation coordinate.
+**MEASURED before the gate: 39 of 40 seeds (4-43) drew a jointly
+unsatisfiable schema conjunction. After: 0 of 40.** The gate filters each
+group's pool by what is decidable WITHOUT WORDS — the schema's own
+line-gap ceiling over the group's pairs, and channel compatibility with
+schemas already drawn on shared pairs — reading both coordinates through
+`relations.drawable_traits()` (derived from the registry rows in the
+module that owns them; the planner's import guard admits only the
+vocabulary). Rejection keeps the dice uniform over the accepted set, and
+the bare default keeps every pool non-empty by construction. The channel
+signature is approximate on purpose (scopes are not read) and the GRADER
+stays the final word; `test_plan.py` §14 replays the gate's two rules
+over fresh draws and pins the defect at zero.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~175~~ -> **176**.
+
+### M-119 · the conjunction gate read placement rows and the schemas do not all spell themselves there `CLOSED`
+Filed and closed 2026-08-25, found by WRITING the first song under the
+drawn relations (seed 31) — the round-1 grade returned nine
+SCHEME_VIOLATIONs of which seven were not writing defects but mandate
+contradictions no words can satisfy. Two shapes, one cause: the M-118
+gate derived a schema's claims from its PLACEMENT rows, and the registry
+spells the same facts in two other coordinates. (1) **Finality can live
+in the span LOCUS**: cluster consonance / skothending has `placement=()`
+and both spans on `line_final_token`, so `drawable_traits()` gave it
+`endclaims {}` and its nucleus-Differ was drawn onto the postchorus end
+words that family rhyme (10,12) and pantun (12,13) already held
+nucleus-Agree — K∧M and K∧J jointly unsatisfiable on the same four end
+words. (2) **The line HEAD had no claim store at all**: anaphora's
+IdentityRule REQUIRES token identity at the head and head rhyme
+(positional)'s REFUSES it, so H∧I sharing pair (4,8) demanded a first
+word that is and is not the same word. **MEASURED before the widening:
+33 of 40 seeds (1-40) drew a conjunction the extended coordinates call
+unsatisfiable — worse than M-118's own 39-of-40 pre-gate figure reads,
+because these two shapes survived that gate. After: 0 of 40, 0 seeds
+lost, seed shapes byte-identical** (the draw still consumes entropy
+last). The derivation now reads finality out of `both_line_final` OR an
+all-`line_final_token` span set, and adds `headclaims` —
+channels plus the token IdentityRule — for `both_line_initial` /
+`line_initial_token` / `line_head_index` schemas; identity is NOT
+collected at the ends because `derive_drawable_schemas` rule 3 already
+bars Agree-identity there, so every drawable end schema is Differ and a
+claim that cannot vary cannot conflict. `plan.py` tracks the two stores
+per pair; `test_plan.py` §14 pins the derivation's three load-bearing
+claims by name and replays BOTH stores over six seeds. The grader stays
+the final word: chain rhyme's (4,7) failure on the same draft was a
+WRITING defect (no shared nucleus run) and correctly stays one.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~176~~ -> **177**.
+
+### M-120 · schema satisfaction and audible scheme are different coordinates, and nothing discloses the second `OPEN`
+Filed 2026-08-25 from panel run 5 (`quality/RESULTS_PANEL.md` §8), the
+first measurement of a song whose relations the planner DREW (M-117).
+Both weakest-of-set ballots against the suspect heard the drawn web as
+the ABSENCE of rhyme — "bait/tell, wind/tall, wide/toll all fail to
+rhyme" and "grammar repeatedly strain[s] past sense in service of
+rhyme/meter" — while every one of those pairs is SATISFIED at the
+registry: seed 31's chorus ends carry pararhyme (tell/tall/toll), its
+intro ends light rhyme (stir/carpenter), its coda subtractive rhyme
+(trade/tray). A blind listener judges the line ENDS and expects them to
+bind audibly; a subtle relation drawn onto the end positions passes every
+gate and reads as no scheme at all. The grader is CORRECT and stays the
+final word on satisfaction — this entry is about a missing DISCLOSURE,
+the same species as M-71's `end` share and run 4's shape question: which
+of the 22 drawable schemas are AUDIBLE AS RHYME at a line end is a
+declaration nobody has made, and whether the draw should say out loud
+"this plan's ends are organized by relations a listener will not hear as
+rhyme" — or whether that is the sound the owner wants the dice to risk —
+is the owner's ruling to give, not a gate to build. Decidable-without-
+taste half, measurable now: the per-plan share of END-bound groups whose
+drawn relation agrees on nucleus+coda at the ends (the audible family)
+versus those that agree on some other channel set. Panel verdicts are
+non-reproducible; nothing in CI gates on the finding that raised this.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~177~~ -> **178**.
+
+### M-121 · the narrative vocabulary's five rulings, made under the owner's delegation `CLOSED`
+Filed and closed 2026-08-25. The owner declined `NARRATIVE_DESIGN.md`
+§F's red pen and delegated the rulings to the session in their own
+words ("I'm not going to answer on those rulings ... believe in
+yourself ... you've been testing and gating this whole time; if you
+fuck up then alarms will go off and you can fix it or pivot"). The
+five, ruled on the merits and recorded with reasons in §F: (1) the
+eight atoms stand and JUDGE is real — Labov's evaluation component is
+the external witness, and the schema maps onto the atom table nearly
+one-to-one; (2) chorus = ANCHOR alone — atoms name structural roles,
+not content registers, and faces indistinguishable without reading
+meaning must be one face; (3) drop = ANCHOR alone, breakdown = DWELL,
+reprise = ANCHOR with its "changed" half owned by grid's reprise
+machinery (doctrine 1, one definition); (4) **the draft's one hard
+edge rule was WRONG and is softened**: TURN enters by {BUT, JUXTAPOSE},
+not BUT alone — kishōtenketsu's *ten* is a turn entered by
+juxtaposition, a master tradition the hard rule would have structurally
+banned, which is doctrine 24's forbidden move; (5) the collapse is
+drawn by default, declared-silences-drawn — M-117's precedence, the
+owner's own standing ruling one coordinate over. Post-sweep addendum:
+tag stays JUDGE, so tag-first shapes admit no story — a tag opening
+the song contradicts its own "closing" gloss, and this rules the case
+M-54 recorded as `placement_refused`. **MEASURED either side of the
+softening, seeds 1–40: the five zero-shapes STAND (every one fails at
+the OPENING, where no inbound junction exists to soften) and every
+admitting shape's count rose — seed 31 3,888 → 4,176.** All rulings
+are one-row edits in `quality/narrative.py`, the one definition, with
+`test_narrative.py`'s pins moving loudly on any later reversal.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~178~~ -> **179**.
+
+### M-122 · the gate's claim ledger could not see a chain — equality is transitive and a placement KIND is a gap `CLOSED`
+Filed and closed 2026-08-25, found designing the first song of the
+paired experiment (M-116 step 6): seed 32's demand sheet was DOUBLY
+unsatisfiable and the M-119 gate had passed it. (a) Group G drew
+interlaced rhyme onto lines {5, 8, 10} — `adjacent_lines` is a GAP
+constraint spelled as a placement KIND, so the gap reader (which knew
+only `line_gap_at_most`) never saw it; verified empirically that
+`realise()` answers interlaced rhyme on adjacent pairs only. (b) Rime
+riche on 13~14 equates the anchor coda (scope `each` covers the
+anchor), semirhyme on 14~17 equates it one pair over, and assonance on
+13~17 demands the chain's two ends DIFFER — every pair individually
+legal, the conjunction impossible, because EQUALITY IS TRANSITIVE and
+a per-pair ledger cannot see a chain. **MEASURED pre-fix, seeds 1–60:
+53 of 60 seeds drew an unsatisfiable conjunction — 117 adjacency
+violations, 32 transitive contradictions, 0 pairwise.** And the first
+reading was a false 56, because the measuring instrument carried the
+same defect it was measuring: claims keyed per CHANNEL collapsed
+perfect rhyme's TWO onset rules (Agree at post-anchor, Differ at the
+anchor) into one self-contradiction. The honest key is (channel,
+SYLLABLE-COORDINATE), and it is also the fix. `relations.
+drawable_traits()` now returns `{gap, claims}` with claims as
+(channel, coord, pred) triples over four coordinates — `anchor` (the
+last-stressed syllable; scopes `anchor` and `each`), `post`
+(post-anchor; scope `post_anchor` plus the projection of an
+`each`-scope Agree), `final` (the written-out last syllable —
+`word_end` anchors and `last` scope, light rhyme's own coordinate),
+`head` (line-initial spans, the token IdentityRule riding as channel
+`token`) — and an `each`-scope Differ projects onto `anchor` alone.
+`plan.py`'s draw-time gate keeps exact-match per (pair, channel,
+coord) and adds the closure: per (channel, coord), Agree edges union
+by find/union, Differ pairs are disequality edges, and a candidate
+whose closure identifies a Differ pair's ends is filtered before the
+dice see it — rejection keeps the draw uniform over the accepted set.
+**MEASURED post-fix, the same sixty seeds: 0 unsatisfiable, 0 seeds
+refused (none lost), all three counts zero.** The draws legitimately
+SHIFTED because the accepted pools changed (seed 31: K anaphora →
+monai, D → perfect rhyme); shapes are byte-identical (shape entropy
+precedes relation entropy), so the experiment's procession stands and
+the banked crooked_waltz mandate is untouched — it lives in the song's
+own recorded log and blueprint, which is what a bank is for.
+`test_plan.py` §14 is rewritten to the triples format with four
+derivation pins (interlaced gap 1; perfect rhyme's dual onset; the
+semirhyme-anchor/light-final coda split; M-119's coordinates rekeyed)
+and a replay that runs all three rules including the closure;
+`test_narrative.py` §6 is repinned to the re-derived draw.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~179~~ -> **180**.
+
+### M-123 · a Differ claim is a disequality clique, and a binary channel caps the clique at two `CLOSED`
+Filed and closed 2026-08-25, found the hour the M-122 gate first
+emitted seed 32's demand sheet: group C drew light rhyme onto SEVEN
+lines. Light rhyme's third channel rule is `prominence Differ` on the
+written-out final syllable, the eng phonology constructs prominence
+BINARY (`1 if s["stress"] in (1, 2) else 0` — its own one line), and
+a pairwise-Differ group is a disequality CLIQUE needing one distinct
+value per member, so no three lines in the language can satisfy it —
+pigeonhole, not vocabulary. The production judge confirmed it before
+the repair was designed: a declared 3-member `schema:light rhyme`
+group flags SCHEME_VIOLATION on its same-prominence pair. **MEASURED
+pre-fix, seeds 1–60: 74 impossible prominence-Differ cliques across
+40 of 60 seeds** — two thirds of all seeds carried a demand no words
+can meet, passed by a gate that reasons over predicates with no idea
+what a channel's VALUE DOMAIN is. The repair is a declared table and
+two rules. `relations.CHANNEL_DOMAINS` (adopted) carries the finite
+domains of the channels the gate reads, **measured over all 126,052
+syllabifiable words of the shipped lexicon: prominence exactly
+{0, 1}, nucleus exactly the 15 ARPABET vowels**; a channel absent
+from the table is unbounded on purpose (sequences and tokens), so
+absence can only make the gate MISS a cap, never invent one. Rule
+one, the clique cap: a candidate whose Differ claim rides a finite
+channel refuses any group larger than that channel's domain. Rule
+two, the parity closure: for a BINARY domain the union-find becomes
+a PARITY union-find — Agree is a parity-0 edge, Differ a parity-1
+edge, and a cycle that forces both refuses the candidate — which
+also catches cross-group odd cycles (three light-rhyme PAIRS in a
+triangle demand a 3-colouring of a 2-valued channel) that no
+per-group cap can see. **AND THE SAME PIGEONHOLE WEARS A SECOND PREDICATE NAME, found by
+sweeping the drawable pool's predicates before trusting the fix:
+`PresentVsAbsent` IS a Differ on a presence BIT** — binary by
+construction, a coda is there or it is not — and subtractive rhyme
+had drawn it onto a three-member group in the very demand sheet that
+raised this entry. A three-clique on a two-valued attribute is the
+identical impossibility; the cap could not see it because it keyed
+on the predicate name "Differ". `drawable_traits` now TRANSLATES:
+each PresentVsAbsent claim emits Differ on a derived
+`<channel>_presence` channel (registered binary in the table —
+nothing to measure), and every Agree on a channel any drawable
+schema tests for presence projects an Agree edge onto the same
+derived channel, because equal codas are equally present — which is
+what lets the parity closure see a monorhyme coda-Agree contradict
+a subtractive presence-Differ across a chain. The presence-channel
+set is derived from the registry, never hand-listed; the raw claim
+stays in the exact-match store, so the same-pair conflict
+(subtractive against monorhyme on one pair) was already refused and
+the translation adds the transitive half. The remaining non-binary
+predicates in the pool were swept and are safe: ClassEqual and
+SequenceEqual are equalities no drawable schema opposes with a
+Differ on the same coordinate. **MEASURED post-fix with both faces
+in, the same sixty seeds: 0 unsatisfiable, 0 refused, all five
+counts zero** (adjacency, pairwise, transitive, oversize, parity).
+Draws shifted again because pools did — light rhyme and subtractive
+rhyme now land only on pair-sized groups — so `test_narrative.py`
+§6 is repinned a second time (A anaphora, D rime riche, K
+assonance) and `test_plan.py` §14's replay runs all five rules with
+three new derivation pins (the domain table against the phonology;
+light rhyme's capping claim; the presence translation with its
+projected Agree). This is M-122's family one axis over: that entry
+taught the ledger that equality composes; this one teaches it that
+a predicate's SATISFIABILITY depends on the value space it ranges
+over, which no amount of edge bookkeeping can recover from the
+predicate's name alone.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~180~~ -> **181**.
+
+### M-124 · the identity machinery refused what the mandate asked for — a schema's IdentityRule is the declared ruling `CLOSED`
+Filed and closed 2026-08-25, found grading the first paired-experiment
+draft (seed 32, bare twin): the drawn anaphora unions forced "Here"
+onto nine line-openers, and `grade()` flagged the two pairs whose
+SLOTS both bound that word — "REPEAT not rhyme (identical word)" —
+BEFORE the schema route was consulted. Anaphora's IdentityRule is
+token-AGREE: identical openers are its entire definition, so the
+grader was refusing a mandate for being satisfied — one repository
+giving two opposite answers about one pair, the M-59 shape at the
+identity coordinate. And the pre-emption was equally wrong one
+schema over: internal rhyme's identity rule is token-DIFFER over the
+SPANS ITS SEARCH MATCHES, not over the mandate's bound words, so a
+slot pair forced identical by the anaphora unions charged a schema
+that reads nothing at those positions. The repair is one guard in
+`quality/revise.py`'s REPEAT branch: a pair whose group declares a
+`schema:` relation routes to the schema judge, whose own
+IdentityRule adjudicates identity on the schema's own spans through
+`realise()`; a BARE group and a class/type relation keep the branch
+byte-identically — doctrine 3 stands, REPEAT is still not rhyme
+where nothing declared otherwise. MEASURED both directions:
+a 3-line anaphora group with identical heads grades 0 violations, a
+bare pair on identical end words still charges REPEAT, and internal
+rhyme over identical end words is satisfied by its own mid-line
+spans. `test_mandate_relation.py` §9 pins all three answers.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~181~~ -> **182**.
+
+### M-125 · span length and the floor's own ceiling join the claim graph `CLOSED`
+Filed and closed 2026-08-25, the same sitting as M-124 — the same
+seed-32 demand sheet carried two more unsatisfiable conjunctions the
+gate could not see, and the sitting closed both. **(a) SPAN LENGTH
+IS A HIDDEN EQUALITY CHANNEL, and the schema's own `unmatched`
+coordinate declares it.** The chorus drew {perfect rhyme 13~14, rime
+riche 13~17, semirhyme 14~17}: perfect rhyme and rime riche carry
+`unmatched="forbid"` — any overhang refuses, so their end spans must
+be the SAME length — while semirhyme carries `require_b`, the
+overhang is REQUIRED (measured: grow~growing fires, tide~ride and
+sane~champagne do not). Equal, equal, different: a triangle no words
+can close, invisible to a ledger with no length coordinate.
+`drawable_traits` now emits ("span_length","end","Agree") for
+`forbid` and ("span_length","end","Differ") for `require_a/b` —
+read from the declared coordinate, never a hand list — and the
+existing Agree-union + disequality closure catches the cycle with no
+new machinery. **(b) THE FLOOR'S OWN CEILING BOUNDS THE DRAW.** An
+anaphora group forces every one of its lines to OPEN with one word,
+groups sharing a line union into one forced-opener class, and the
+draw had forced 9 of 21 identical openers while the floor's
+calibrated ANAPHORA_OVERLOAD (a FLAG at the human 95th percentile,
+`anaphora_max` 0.30 on the lyric-sheet profile) refuses anything
+past its share — a demand sheet no writing could pass, wearing the
+gate's own approval. The gate now reads the ceiling from the floor's
+lyric-sheet profile (identified by its own `n_lines == 0`, never by
+name — the M-106 idiom, one definition of the threshold) and refuses
+any candidate whose head-token Agree component — the (token, head)
+classes M-119's claims already carry — outgrows it. **MEASURED with
+the full seven-rule gate, seeds 1–60: 0 unsatisfiable, 0 refused,
+all six replay counts zero** (adjacency, pairwise, transitive,
+oversize, parity, opener). Seed 31's §6 pins survive unchanged this
+time; `test_plan.py` §14 gains the span-length and ceiling pins and
+the seven-rule replay. The ladder these three entries climb, stated
+once: M-122 taught the ledger that equality composes, M-123 that a
+predicate's satisfiability depends on its value domain, and M-125
+that the coordinates a schema constrains are not only its channels —
+a span has a LENGTH, a song has a FLOOR, and both were load-bearing
+walls the dice could walk through.
+
+**BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~182~~ -> **183**.
+
+### M-126 · the whole-vocabulary rescue outranked a declared admit set `CLOSED`
+Found and closed 2026-08-25, the sitting that drove M-116's blast
+radius out of the suites, under the owner's M-121 delegation. M-116
+made the whole vocabulary the reading of a mandate that declared
+NOTHING — and its rescue was firing even when the caller HAD declared
+something: a `Declaration.admit` narrowed below the derived default
+was still being overridden, so `check_scheme` under a rhyme-only
+declaration reported a consonant pair SATISFIED by the consonance
+schema the caller had just declined to admit. That is a declared
+coordinate silently outranked by another layer's default (doctrine 1),
+and it contradicted the standing sentence the ban has carried since
+2026-08-18 — *"a cell that genuinely wants perfect rhyme only says so
+and gets exactly the old behaviour."* The fix is ONE gate with ONE
+definition: `lyric_harness.admit_is_default` answers whether the
+declaration's admit set is the derived default, and BOTH readers of
+the default — `check_scheme` and `quality.revise.grade`'s `_fan`
+filter — consult it before rescuing, so they cannot drift about when
+the rescue applies (the M-116 contract, extended by one clause).
+MEASURED either side on bone~bin (score 0.671, coda N agreeing):
+default door SATISFIED with `satisfied_by` listing the consonance
+schema; a declared three-relation door refuses on the SCALAR
+(`below theta_rhyme=0.75`); the two-name door refuses on the
+RELATION. NO ADOPTED FIGURE MOVES: the battery, the M-116 rescue
+counts and every planner pin were measured under the DEFAULT
+declaration, which this gate reads as default. The demonstrations
+that needed a visible cost moved to declared doors in the same
+sitting — `test_g2p.py` §10 re-measures the letter-layer comparison
+under the two-name door and reproduces the recorded 50.0%-vs-5.1%
+(9.8x) to the decimal, and `test_capacity.py`/`test_readability.py`
+now pin the satisfied-by-schema default beside the refusing declared
+doors rather than a sentence the door had overtaken.

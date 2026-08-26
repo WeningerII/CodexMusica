@@ -1,0 +1,39 @@
+song	step	measured	harness_commit	verb	exit	fact	value
+the_frost_ledger	1	2026-08-25	3333d67-WORKING	plan	0	form	verse-chorus
+the_frost_ledger	1	2026-08-25	3333d67-WORKING	plan	0	seed	32
+the_frost_ledger	1	2026-08-25	3333d67-WORKING	plan	0	lines	21
+the_frost_ledger	1	2026-08-25	3333d67-WORKING	plan	0	sections	5
+the_frost_ledger	1	2026-08-25	3333d67-WORKING	plan	0	pattern	intro-drop-verse-chorus-postchorus
+the_frost_ledger	1	2026-08-25	3333d67-WORKING	plan	0	meter	10/8 as (2, 3, 2, 3)
+the_frost_ledger	1	2026-08-25	3333d67-WORKING	plan	0	subdivision	2
+the_frost_ledger	1	2026-08-25	3333d67-WORKING	plan	0	groups	1.head,5.headrime,6.T5,10.endword;2.endword,4.head,8;2.headrime,3.T7,6.headrime,7.T3,8.T6,9,10.T7;4.T3,5.T4,6;3.head,4.T7,5.T5,7.headrime,10.T6;3.T6,5.T3,10.headrime;5,8.T7,10.T3;13.head,14;13.T4,17.head;15.T2,16.T4,17;14.T4,15.T3,17.T6;14.T2,17.T2;14.T7,17.T5;19.T1,20.endword;18.T7,20.T5,21.T2;18.T3,19.T3,20.T1,21.endword;19.T4,21.headrime;19.endword,20.T6
+the_frost_ledger	1	2026-08-25	3333d67-WORKING	plan	0	returns	(none)
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	mandate_groups	18
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	lines	21
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	mandated_pairs	71
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	mandate_source	declared
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	md5	5f2a1371b4d8
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	briefed	21
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	per_line_flag	0
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	per_line_note	88
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	whole_draft	9
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	whole_draft_flag	0
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	finding:CROWDED	NOTE x10
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	finding:FUNCTION_UNDECLARED	NOTE x1
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	finding:HOOK_UNDECLARED	NOTE x1
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	finding:LATE_ENTRY	NOTE x20
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	finding:NO_SETTING	NOTE x1
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	finding:PROMINENCE_CANNOT_ALIGN	NOTE x20
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x20
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	finding:RETURN_NEVER_RETURNS	NOTE x2
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	finding:SCHEME_COLLISION	NOTE x10
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	finding:SINGLE_INSTANCE	NOTE x4
+the_frost_ledger	2	2026-08-25	3333d67-WORKING	song	0	finding:SPARSE	NOTE x8
+the_frost_ledger	3	2026-08-25	3333d67-WORKING	revise	0	stop_reason	SUCCESS
+the_frost_ledger	3	2026-08-25	3333d67-WORKING	revise	0	rounds	0
+the_frost_ledger	3	2026-08-25	3333d67-WORKING	revise	0	md5_in	5f2a1371b4d8
+the_frost_ledger	3	2026-08-25	3333d67-WORKING	revise	0	md5_out	5f2a1371b4d8
+the_frost_ledger	3	2026-08-25	3333d67-WORKING	revise	0	unchanged	yes
+the_frost_ledger	3	2026-08-25	3333d67-WORKING	revise	0	mandated	71
+the_frost_ledger	3	2026-08-25	3333d67-WORKING	revise	0	judged	71
+the_frost_ledger	3	2026-08-25	3333d67-WORKING	revise	0	pairs_refused	0

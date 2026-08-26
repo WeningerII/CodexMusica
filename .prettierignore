@@ -43,9 +43,19 @@ src/app.js
 #                  author, a build report, and a feature cache.
 # matrix_eval.json generated eval output, rewritten by quality/eval_matrix.py.
 #
-# The BLUEPRINTS are deliberately NOT excluded. They are authored declarations,
-# they are parsed rather than byte-compared, and they should be formatted like
-# any other source we write.
+# ~~The BLUEPRINTS are deliberately NOT excluded. They are authored
+# declarations, they are parsed rather than byte-compared, and they should be
+# formatted like any other source we write.~~ STRUCK 2026-08-25, and only for
+# the SONG BANK: that rationale was written when every blueprint was
+# hand-authored, and songs/*.blueprint.json stopped being that — they are
+# EMITTED by `plan --fill --out` and REWRITTEN byte-for-byte by every
+# `song_log --record` replay of the plan verb, so a prettier reflow is churned
+# back by the harness on the next recorded run. Same class as
+# matrix_eval.json: generated output, owned by the tool that writes it. This
+# line ended a 15-run red streak on the CI gate job that began the hour the
+# first drawn-relation song was banked. Hand-authored blueprints elsewhere
+# (examples/, fixtures) keep the old rationale and stay formatted.
+lyric-harness/songs/*.blueprint.json
 lyric-harness/corpus
 lyric-harness/data
 lyric-harness/quality/matrix_eval.json
