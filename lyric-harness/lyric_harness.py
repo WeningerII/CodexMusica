@@ -3217,6 +3217,18 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
     # A triangle containing a refused edge is UNKNOWN, not defective: a missing
     # edge there is a missing measurement. Counting it would manufacture a
     # structural finding out of an unreadable word.
+    #
+    # AND IT MANUFACTURED ONE OUT OF A PAIR THIS FUNCTION HAD ALREADY PASSED,
+    # UNTIL 2026-08-26 (`MISSING.md` M-139). `ok()` asked `admits()` at
+    # `decl.admit` — four relations — thirty lines under the block that
+    # rescues a pair on ANY of the 77 schemas (M-116). So a mandated pair the
+    # whole-vocabulary default satisfied was an ABSENT EDGE here, and a
+    # triangle with two scalar edges and one schema edge was counted as a
+    # transitivity defect: the same function reporting the pair satisfied and
+    # the triangle broken, on one run. `_schema_ok` is the rescued set, read
+    # from `schema_satisfied` above rather than re-derived, so the two
+    # readings cannot drift (doctrine 1) and no second stream is built.
+    _schema_ok = {tuple(d["lines"]) for d in schema_satisfied}
     defect = 0
     unknown_triangles = 0
     groups = {}
@@ -3230,7 +3242,8 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     def ok(x, y):
                         s = matrix[min(x, y)][max(x, y)]
                         return admits(s, decl.theta_rhyme,
-                                      relations=frozenset(decl.admit))
+                                      relations=frozenset(decl.admit)) \
+                            or (min(x, y) + 1, max(x, y) + 1) in _schema_ok
                     if any((min(x, y) + 1, max(x, y) + 1) in refused
                            for x, y in ((i1, i2), (i2, i3), (i1, i3))):
                         unknown_triangles += 1

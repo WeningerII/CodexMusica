@@ -2225,7 +2225,10 @@ PINNED = {
     # ~~195~~ -> 196: M-138, the widened door made theta_rhyme the sole
     # gate on two relations it was never priced on -- and both instruments
     # pointed at that door still spell the pre-widening one.
-    "coverage_entries": 196,
+    # ~~196~~ -> 197: M-139, the door moved TWICE (M-59's four relations,
+    # M-116's 77 schemas) and 17 of 19 pair-satisfaction sites moved
+    # neither time. `quality/door_census.py` is the census and the gate.
+    "coverage_entries": 197,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

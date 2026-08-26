@@ -1039,6 +1039,31 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                       f"the proposer for this line. This is inconclusive by "
                       f"construction, not a line the loop could not fix "
                       f"(doctrine 20)")
+        elif not b.candidates and b.forbidden_modal:
+            # THE FOURTH RULE, ADDED 2026-08-26 (`MISSING.md` M-139). The
+            # branch below states a CAUSE — "a fact about the MANDATE and the
+            # lexicon" — and it is FALSE whenever the field was non-empty and
+            # the two-tier ban took all of it: the lexicon answered, and
+            # doctrine 9's own exclusion is what emptied the offer. Measured
+            # on three pivots, `joint_field` returning `offered=0` with
+            # `forbidden` NON-empty every time — `['find','one']` at 2 of 2
+            # banned, `['sorrow','pleasure']` at 1 of 1 — because
+            # `modal_exclusion` is an ABSOLUTE count (6) applied to a field of
+            # any size, so a field smaller than the cut is eaten whole.
+            #
+            # `joint_conflict` cannot cover this: it requires
+            # `not b.forbidden_modal`, so the case where the ban ate the
+            # field is precisely the case it excludes. Same family as
+            # `BACKLOG.md` §4.8 — one message over several rules — with the
+            # third rule never entering the enumeration.
+            detail = (f"the candidate field was EMPTIED BY THE BAN, not by "
+                      f"the lexicon — {len(b.forbidden_modal)} word(s) "
+                      f"answered every call and all of them are forbidden "
+                      f"(homoeoteleuton, or inside the top "
+                      f"{rdecl.modal_exclusion} most predictable). This is a "
+                      f"fact about `modal_exclusion` meeting a field smaller "
+                      f"than itself, NOT about the mandate being "
+                      f"unsatisfiable: {', '.join(b.forbidden_modal[:6])}")
         elif not b.candidates:
             detail = ("no candidate field was offered — the harness had "
                       "nothing for the proposer to choose from, so this is "

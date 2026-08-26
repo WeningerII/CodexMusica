@@ -3039,9 +3039,9 @@ class Reviser:
         """-> ordered candidate words for each call word, under the GRADER'S
         OWN PREDICATE.
 
-        THE BRIEF AND THE VERDICT HAVE TO ASK THE SAME QUESTION. `grade()`
+        THE BRIEF AND THE VERDICT HAVE TO ASK THE SAME QUESTION. ~~`grade()`
         accepts a mandated pair when `admits()` does: the scalar clears
-        `theta_rhyme` AND the relation is in `RHYME_RELATIONS`. This function
+        `theta_rhyme` AND the relation is in `RHYME_RELATIONS`.~~ This function
         used to keep the first half and drop the second, so it offered a
         writer words that the verdict following the brief calls ASSONANCE or
         CONSONANCE and counts as a violation. Measured on this repo's own
@@ -3050,6 +3050,33 @@ class Reviser:
         the same defect in two directions, because the FORBIDDEN list is the
         head of this same population: 29 of 101 forbidden entries were words
         no writer could have taken.
+
+        **THE STRIKE IS 2026-08-26 AND THE INVARIANT IS THE SAME ONE — THE
+        VERDICT MOVED TWICE AND THIS FUNCTION MOVED NEITHER TIME
+        (`MISSING.md` M-139).** `RHYME_RELATIONS` stopped being the verdict's
+        door on 2026-08-22, when M-59's owner ruling widened
+        `Declaration.admit` to all four; and it stopped being the whole
+        question at all on 2026-08-25, when M-116 put ALL 77 SCHEMAS in the
+        default, so `grade()` accepts a mandated pair on
+        `admits(s, theta, decl.admit)` **OR** on
+        `relations.whole_vocabulary_pairs`. This function kept spelling the
+        pre-widening set — `admits(s, theta)` with `relations=` OMITTED,
+        whose own docstring says None means the historical two — under a
+        paragraph claiming it asks the verdict's question. The paragraph was
+        the promise and the call was the defect, which is the ONLY reason
+        this reads as a regression rather than as a policy.
+
+        **THE TWO HALVES ARE NOT THE SAME KIND OF GAP AND ARE NOT CLOSED THE
+        SAME WAY.** The RELATION half is a coordinate this function can carry
+        and now does: the check below reads `self.decl.admit`, so a caller
+        who NARROWS the door narrows the field with it and a later per-
+        relation ruling (`MISSING.md` M-138) flows here for free rather than
+        needing a second edit. The SCHEMA half is not expressible here at
+        all — `whole_vocabulary_pairs` judges a LINE PAIR over a built
+        stream and this function holds one WORD — so it is DISCLOSED rather
+        than silently dropped (`Brief.field_declaration`, and doctrine 20: a
+        field that stays quiet about a whole acceptance route reads as
+        though nothing else could answer).
 
         `CandidateEngine` scores with `score()` on one pronunciation; the
         grader scores with `best_score()` over every variant of both sides.
@@ -3061,8 +3088,13 @@ class Reviser:
 
     def _field_one(self, word, profile=None):
         rd = self.rdecl
+        # `decl.admit` IS PART OF THE KEY since 2026-08-26 (M-139). It became
+        # a coordinate of this function's answer the moment the check below
+        # started reading it, and a cache keyed on the old tuple would serve
+        # one door's field to the other's caller — the silent comparator
+        # substitution doctrine 1 exists for.
         key = (word, self._promote(), rd.field_depth, rd.field_band, profile,
-               self.decl.theta_rhyme)
+               self.decl.theta_rhyme, frozenset(self.decl.admit))
         hit = self._field_cache.get(key)
         if hit is not None:
             return hit
@@ -3081,7 +3113,11 @@ class Reviser:
                 anc_c, w_c = self._word_anchors(cand)
                 s = best_score(anc_q, anc_c, self.decl, w_q, w_c,
                                profile=profile)
-                if admits(s, self.decl.theta_rhyme):
+                # `decl.admit`, NOT the omitted default. Omitting it spelled
+                # the pre-M-59 two-name door in the one function whose
+                # docstring promises it asks the verdict's question (M-139).
+                if admits(s, self.decl.theta_rhyme,
+                          relations=frozenset(self.decl.admit)):
                     passing.append(cand)
         else:
             # An undeclared value must be loud, not silently one of the two.

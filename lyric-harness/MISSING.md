@@ -12659,3 +12659,190 @@ false-positive rate is accepted and say so where the rate can be read. Tuning
 both should read `decl.admit` rather than spelling or omitting it — but that
 changes what two recorded measurements mean, so it belongs in the same sitting
 that takes the ruling.
+
+### M-139 · the door moved twice and 17 of 19 sites are short of it `OPEN`
+The doctrine-9 lane of the comparator audit, opened on the candidate field and
+widened by the owner's ruling mid-sitting. **The first draft of this entry had
+the finding and the wrong ceiling**, and the correction is the entry: it read
+the gap as *two relations against four*, and the owner's answer was *"you're
+using 4 instead of 77. we've talked about this. you told me all 77 were in the
+default."* That is right, it is recorded here rather than quietly fixed
+(doctrine 17), and the honest gap is a whole coordinate larger than the one
+first measured.
+
+**THE DEFAULT DOOR HAS MOVED TWICE, IN TWO DIFFERENT COORDINATES.**
+
+| when | entry | what moved |
+|---|---|---|
+| 2026-08-22 | M-59 | `Declaration.admit` widened from the historical `{RHYME, RIME_RICHE}` to all FOUR of `ADMITTABLE_RELATIONS` |
+| 2026-08-25 | M-116 | ALL 77 SCHEMAS joined the default — a mandated pair declaring no relation is satisfied when its lines stand in ANY schema the vocabulary names, judged by `relations.whole_vocabulary_pairs` |
+
+So the complete default is **`admits(s, theta, decl.admit)` OR
+`whole_vocabulary_pairs`**, and a site reading only the first is not slightly
+strict — it is answering in August 22nd's vocabulary. A site reading neither is
+answering in the vocabulary of the first commit.
+
+**THE CENSUS, and it is the finding: `quality/door_census.py`, derived on the
+AST and never by reading. 19 pair-satisfaction sites. TWO reached the complete
+default.** By SPELLING, and the three-way split matters more than the headline
+— *"17 moved neither time"* was this entry's own first title and it is wrong:
+
+    DECLARED(admit)          7   reads `decl.admit`; 3 of the 7 also
+                                 consult the 77 and are the FULL sites
+    NARROW(RHYME_RELATIONS)  5   moved with neither ruling
+    NARROW(literal 2)        3   moved with neither, and unfindable by a
+                                 grep for the constant's NAME
+    NARROW(omitted)          4   moved with neither
+
+Read as movement, at the state this sitting leaves the tree in: **12 sites
+moved with neither ruling, 4 moved with M-59 only, and 3 moved with both.**
+(Before this sitting's repairs it was 13 / 4 / 2.) A site that took M-59 and
+not M-116 looks maintained and is still a door behind, which is the harder half
+to see — and it is why the census reports a DOOR SPELLING and a 77-consult as
+two columns rather than one verdict.
+
+    FULL         2   `check_scheme`, `Reviser.grade` — and they are two
+                     because they are ONE judge deliberately called twice
+    INCOMPLETE   4   judges mandate satisfaction and stops at four
+    PER_WORD     1   holds a WORD; the 77 judge LINE PAIRS, so it cannot ask
+    RENDERING    3   names or counts a relation, gates nothing
+    VALIDATION   1   validates a declared set at declaration time
+    ARGUED       8   deliberately narrower — 6 of them OPEN, see below
+
+**THE WITNESS IS THE FIELD'S OWN DOCSTRING, and it is exact.**
+`Reviser._field` promises, in capitals, *"THE BRIEF AND THE VERDICT HAVE TO ASK
+THE SAME QUESTION"*, and `_field_one` under it called `admits(s, theta)` with
+`relations=` **omitted** — whose own docstring says None means the historical
+two. `joint_field`'s worked example is the proof rather than the argument. That
+docstring records a pivot answering `does`, `five`, `drive`, `of` and `alive`
+at once, and names six words that answer all five: `love`, `above`, `thereof`,
+`buzz`, `glove`, `gov`. Measured at head, before the repair:
+
+    joint_field(['does','five','drive','of','alive'])  offered=0  forbidden=0
+    love ~ does    total 0.983   ASSONANCE   narrow=False   shipped=True
+    above ~ does   total 0.983   ASSONANCE   narrow=False   shipped=True
+    glove ~ does   total 0.983   ASSONANCE   narrow=False   shipped=True
+
+**0.983 is not near the band, it is 0.23 above it.** Five of the six answer 4
+of the 5 calls and are refused on the fifth *by the door and by nothing else* —
+not by the lexicon, not by `field_depth`, which is what that docstring's whole
+argument was about. The example that justified raising the field depth off 200
+stopped reproducing on 2026-08-22 and nothing could see it.
+
+**AND THE STARVATION IS NOT ONE PIVOT.** Measured on four, `offered=0` on 4 of
+4, and the shape differs in a way that decides which message the writer gets:
+
+    ['does','five']         intersection 0   offered 0  forbidden 0
+    ['find','one']          intersection 2   offered 0  forbidden 2
+    ['sorrow','pleasure']   intersection 1   offered 0  forbidden 1
+
+The last two are the interesting ones: the intersection was NON-EMPTY and the
+two-tier ban took all of it, because `modal_exclusion` is an **absolute count**
+(6) applied to a field of any size, so a field smaller than the cut is eaten
+whole. `modal_exclusion: int = 6` is an unswept literal —
+`git log -G"modal_exclusion: int = [0-9]"` returns exactly ONE commit,
+`6005021` *"Build the revision loop"* — so doctrine 58's sentence applies to it
+verbatim: a recorded COUNT is a threshold nobody wrote down.
+
+**THE CONSEQUENCE IS A WRITER-FACING SENTENCE THAT IS FALSE.**
+`quality/loop.py`'s tier-1 dead end told the writer the empty field is *"a fact
+about the MANDATE and the lexicon, not about the proposer"*. When the ban ate
+the field that is false on both counts — the lexicon answered and doctrine 9's
+own exclusion emptied the offer — and `joint_conflict` cannot cover the case,
+because it requires `not b.forbidden_modal` and this is exactly the branch
+where `forbidden_modal` is non-empty. Same family as `BACKLOG.md` §4.8, one
+message over several rules, with the third rule never entering the enumeration.
+
+**MEASURED ON THE CANON, and the decomposition is the useful part — the door
+is real and it is NOT the largest cause.** Over the sonnet oracle's own 1064
+mandated pairs, of every pair the DEFAULT accepts, is the partner word in the
+field the brief would have offered for the call word? Pre-repair:
+
+    ACCEPTED mandated pairs                          1002
+      by the scalar+relation door                     979
+      by the 77-schema rescue                          23
+    NOT OFFERABLE by the brief's own field    144 / 1002 = 14.37%
+
+**Roughly one accepted pair in seven was one the brief could not have
+proposed**, and it splits into THREE causes that are three different entries:
+
+| n | cause | status |
+|---|---|---|
+| **47** | the RELATION door — CONSONANCE **38 of 38** and ASSONANCE **9 of 9**, every single one, exactly as an omitted `relations=` predicts | REPAIRED this sitting |
+| **23** | the 77-schema rescue, **23 of 23** — not askable per word at any price | PER_WORD, disclosed |
+| **74** | RHYME 71 + RIME_RICHE 3 — **not the door at all** | NEW, see below |
+
+**THE 74 ARE A THIRD GAP AND THEY ARE THE BIGGEST SLICE.** Three witnesses,
+each scoring **1.000 RHYME** with `admits=True` at the shipped door and absent
+from the field anyway: `legacy`~`free`, `usury`~`thee`, `husbandry`~
+`posterity`. Two of the three are absent from `CandidateEngine`'s POOL
+outright; the third is in the pool and filtered before the grader-agreeing
+check ever runs, because `_field_one` pre-filters on
+`c["score"] >= theta_rhyme` — **the ENGINE's single-pronunciation score** —
+and only survivors reach `best_score`. `_field`'s own docstring names that
+asymmetry (*"`CandidateEngine` scores with `score()` on one pronunciation; the
+grader scores with `best_score()` over every variant"*) and then presents it as
+RESOLVED — *"the check below uses `best_score`, so the field agrees with the
+verdict"* — which is true only of what the engine already passed. A pair the
+engine underscores is dropped one line above the check that would have caught
+it. The split of the 74 between the index gap and the pre-filter gap is NOT
+measured here and is not guessed.
+
+**WHAT SHIPPED THIS SITTING, and it is three repairs and one gate.**
+
+  - **`Reviser._field_one` reads `decl.admit`.** The relation half is a
+    coordinate this function can carry, so a later narrowing — or M-138's
+    per-relation ruling — flows here without a second edit. The schema half is
+    NOT expressible per word and is disclosed rather than dropped.
+  - **`check_scheme.ok` consults the rescued set.** The transitivity counter
+    asked satisfaction at four THIRTY LINES UNDER the 77-schema rescue in the
+    same function, so a pair that function had just passed read as an absent
+    edge and a triangle carrying one schema edge was counted a transitivity
+    defect — the same run reporting the pair satisfied and the triangle
+    broken. It reads `schema_satisfied` rather than re-deriving it, so no
+    second stream is built and the two readings cannot drift.
+  - **`quality/loop.py` enumerates the fourth rule**, naming the ban and the
+    count that ate the field instead of blaming the mandate.
+  - **`quality/door_census.py --check`, in CI at 1.9s.** An UNRULED site
+    fails, so a new `admits()` written at the narrow door is a red check
+    rather than a later audit's discovery; and a `FULL` ruling is checked
+    against the code, so a site cannot be talked into compliance by editing
+    its own row. That is the half that answers the owner's *"then we have to
+    come back and do all of this all over again."*
+
+**THE BATTERY IS BYTE-IDENTICAL EITHER SIDE — 1064 / 1014 / 50 / 12.** The
+repairs move what the harness OFFERS and what it COUNTS as a structural
+defect; no sonnet violation moves, which is the control that says the door
+work did not quietly re-grade the canon.
+
+**WHAT IS STILL OPEN, and this entry does not bank its hits and stop.** Three
+INCOMPLETE sites remain and each needs its own measurement before it moves,
+because each pays a real cost: `whole_vocabulary_pairs` builds a full 77-schema
+stream, MEASURED at **2.94s over 14 lines, 4.74s over 28, 14.73s over 56**, and
+both shipped consumers gate it lazily on a pair already charged.
+
+  - **`Reviser.mandate_from_graph`** — `--cliques`, the derived cover. It has
+    no mandate to be lazy against, so the 77 call would land on every
+    invocation of `brief`/`verify`/`revise`/`song` that uses it.
+  - **`Reviser.group_merges`** — inside `inspect()`, which runs every round of
+    the loop, so an ungated call multiplies by the round count.
+  - **`recover.recover`** — the pasted-song door (M-72), whose doctrine-14
+    claim is that every recovered edge is band-passing BY CONSTRUCTION. Under
+    the complete default it UNDER-recovers, so a human's song is structured
+    against a narrower reading than the one it is then graded at.
+
+And 6 of the 8 ARGUED sites are argued only in the sense that this entry now
+writes the argument down: `rhyme_graph` and `infer_chains.match` are narrow
+with **no recorded reason at all**, `negative_control` and `redteam_band` are
+M-138's, `structure_census` understates a chance rate, and `time_layer` is on
+a layer doctrine 4 records as MUTE. A door nobody argued for is not a declared
+coordinate (doctrine 1).
+
+**THE INSTRUMENT'S OWN FIRST TWO DRAFTS WERE WRONG, IN THE FLATTERING
+DIRECTION BOTH TIMES.** It saw only `admits(...)` and not `LH.admits(...)`, so
+it reported 15 sites against 19 and missed `quality/redteam_band.py` entirely —
+verbatim the shape `gate_census.py` had when it was blind to `quality/grid.py`
+and therefore reported that layer as fully gated. Then it attributed each site
+to its enclosing CLASS rather than its innermost function, which credited all
+ten of `Reviser`'s sites with the two judges `Reviser` contains. A census blind
+to a site reports that site as compliant.

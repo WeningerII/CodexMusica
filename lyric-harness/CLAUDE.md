@@ -773,6 +773,41 @@ only path past the door, which is why `MISSING.md` M-58 (the named judge is
 monosyllable-only for 69 of its 76 names) outranks both the null sweep and any
 widening of `admit`.
 
+**AND WHICH DOOR EACH SITE ACTUALLY READS IS A COMMAND NOW, NOT A MEMORY
+(2026-08-26, `MISSING.md` M-139).** The owner's ruling, verbatim: *"go find
+everywhere it still has the incorrect 4 and make sure all 77 are there ... 4 is
+poisonous as fuck. without all 77 we're going to be racking up the wrong
+numbers and then we have to come back and do all of this all over again."*
+**THE DEFAULT DOOR MOVED TWICE AND IN TWO DIFFERENT COORDINATES** — M-59
+widened `Declaration.admit` to four relations on 2026-08-22, M-116 put ALL 77
+SCHEMAS in the default on 2026-08-25 — so the complete default is
+**`admits(s, theta, decl.admit)` OR `relations.whole_vocabulary_pairs`**, and a
+site reading only the first is answering in August 22nd's vocabulary while
+looking exactly like a site that never needed to move.
+**MEASURED, `quality/door_census.py`, derived on the AST: 19
+pair-satisfaction sites and TWO reached the complete default** — `check_scheme`
+and `Reviser.grade`, which are two because they are ONE judge deliberately
+called twice (doctrine 1). Six dispositions, never summed past the partition:
+FULL / INCOMPLETE / PER_WORD (holds a word, and the 77 judge LINE PAIRS, so it
+cannot ask) / RENDERING / VALIDATION / ARGUED.
+**THE SHARPEST INSTANCE WAS THE WRITER'S OWN CANDIDATE FIELD.**
+`Reviser._field` promises in capitals that *"THE BRIEF AND THE VERDICT HAVE TO
+ASK THE SAME QUESTION"*, and `_field_one` under it called `admits(s, theta)`
+with `relations=` OMITTED — the historical two. `joint_field`'s own worked
+example is the proof: the six words its docstring names as answering all five
+of a pivot's calls came back `offered=0`, because `love ~ does` scores **0.983
+ASSONANCE** — a fifth of a point ABOVE the band — and the pre-widening door
+refuses it. The example that justified raising `field_depth` off 200 stopped
+reproducing four days later and nothing could see it.
+**AN UNRULED SITE FAILS `--check`, AND A `FULL` RULING IS CHECKED AGAINST THE
+CODE** — a site cannot be talked into compliance by editing its own row. That
+is the half that answers the ruling's last clause; the census costs 1.9s and
+runs in the cheap CI job. Three INCOMPLETE sites are still open, each priced:
+`whole_vocabulary_pairs` builds a full 77-schema stream at **2.94s over 14
+lines, 4.74s over 28, 14.73s over 56**, and both shipped consumers gate it
+lazily on a pair already charged, so the remaining three need a lazy design
+rather than a one-line widening.
+
 **THE RELATION IS THE DEFAULT ROUTE NOW (2026-08-22, owner's instruction).**
 ~~"...AND THE DOOR IT REPLACES ADMITTED TWO. `Declaration.admit` is ONE
 global set answering 'what satisfies ANY mandate anywhere', so widening it

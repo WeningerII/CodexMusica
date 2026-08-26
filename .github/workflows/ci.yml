@@ -1713,6 +1713,7 @@ jobs:
                    corpus_taxonomy data_row_claims declared_inputs english_text \
                    expected_drift \
                    pin_sweep suite_sweep \
+                   door_census \
                    fit floor fwer g2p gate_census grid placement section_marks \
                    homeoteleuton homograph ipa ltc mandate_language \
                    mandate_relation \
@@ -1863,6 +1864,30 @@ jobs:
           MKL_NUM_THREADS: '1'
           OPENBLAS_NUM_THREADS: '1'
         run: python3 quality/search_null.py --check
+
+      # WHICH DOOR EACH SITE JUDGES A PAIR AT (`MISSING.md` M-139, owner's
+      # ruling 2026-08-26: *"go find everywhere it still has the incorrect 4
+      # and make sure all 77 are there ... 4 is poisonous as fuck"*).
+      #
+      # The default door moved TWICE and in two different coordinates -- M-59
+      # widened `Declaration.admit` to four relations, M-116 put ALL 77
+      # SCHEMAS in the default -- and a site that moved with neither looks
+      # exactly like a site that never needed to. The census's first run
+      # measured **2 of 19 sites reaching the complete default**; two were
+      # repaired in the same sitting and it stands at 3.
+      #
+      # THIS IS THE STEP THAT STOPS THE REDISCOVERY. An unruled site FAILS,
+      # so a new `admits()` call written at the narrow door is a red check
+      # rather than something a later audit finds by hand -- and a FULL
+      # ruling is checked against the code, so a site cannot be talked into
+      # compliance by editing its own row.
+      #
+      # COST, MEASURED before it was added: **1.9s**, pure AST, no corpus and
+      # no scoring.
+      - name: Door census, every pair-satisfaction site against the 77
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/door_census.py --check
 
       # The revision loop itself. 374.87 CPU-s for the pair, MEASURED, both
       # green -- against the "15+ minutes each" that kept them out until today.

@@ -543,11 +543,38 @@ def test_an_overlapping_cover_is_gradeable():
     check("the brief tells the pivot it must answer EVERY group",
           len(b.must_answer) == 2,
           "; ".join(f"{lab} {mem}" for lab, mem, _ in b.must_answer))
-    check("and says so when the conjunction is unsatisfiable",
-          b.joint_conflict,
-          "no word in the lexicon rhymes with both 'fire' and 'go' — a "
-          "sentence no letter scheme can form, because it cannot put a line "
-          "in two classes to begin with")
+    # ~~"and says so when the conjunction is unsatisfiable" / `b.joint_conflict`
+    # / "no word in the lexicon rhymes with both 'fire' and 'go'"~~ — STRUCK
+    # 2026-08-26 (`MISSING.md` M-139), and the strike is the finding.
+    #
+    # THAT PREMISE WAS NEVER A FACT ABOUT THE LEXICON. It was a fact about the
+    # pre-M-59 two-name door, which `_field_one` was still spelling four days
+    # after the verdict stopped using it. MEASURED once the field asks
+    # `decl.admit`: `joint_field(['fire','go'])` returns **14 offered, 6
+    # forbidden** where it returned 0 and 0, and every one of the twenty
+    # answers `go` at **CONSONANCE 0.850** — a tenth of a point ABOVE
+    # `theta_rhyme` — while answering `fire` at RHYME 0.910 or RIME_RICHE
+    # 1.000. So the loop had been telling writers to revise their MANDATE
+    # over a conjunction the grader would have accepted.
+    #
+    # THE FIELD IS WIDER, NOT UNIFORMLY BETTER, and saying so is the honest
+    # half: `lower`, `slower`, `mower` are words a writer can use;
+    # `balboa`, `figueroa`, `quinoa`, `ochoa` are proper nouns and loanwords
+    # riding the same CONSONANCE cut. That is a question about what the
+    # near relations should COST (`MISSING.md` M-138's open ruling), not a
+    # reason to keep a door the verdict abandoned.
+    #
+    # The claim is repointed rather than deleted: what this section is about
+    # is that the brief can SAY the conjunction is unsatisfiable, and the
+    # honest pin today is that on this fixture it is SATISFIABLE and the
+    # brief offers the answer. `joint_conflict`'s own mechanism is pinned
+    # where it can still fire — §19, on a constructed pair.
+    check("...and the conjunction is SATISFIABLE at the grader's own door, "
+          "which is what the pre-M-139 field could not see",
+          not b.joint_conflict and len(b.candidates) > 0,
+          f"{len(b.candidates)} offered, {len(b.forbidden_modal)} forbidden "
+          f"for a pivot answering 'fire' and 'go' — 0 and 0 under the "
+          f"two-name door this field spelled until 2026-08-26")
     # verify() has to take the same object brief() took, or the loop is only
     # half converted and a caller has to keep a letter string around anyway.
     ok = SC.mandate(SC.mandate(SC.Cover(n_lines=4, groups=[[1, 3], [2, 4]]),
@@ -919,8 +946,17 @@ def test_the_field_is_the_graders_own_field():
             for c in calls:
                 ax, wa = R._word_anchors(c)
                 ay, wb = R._word_anchors(w)
+                # `R.decl.admit`, NOT the omitted default — REPAIRED
+                # 2026-08-26 (`MISSING.md` M-139). This section is NAMED
+                # "the brief and the verdict ask the same question" and it
+                # asked the verdict's question at the PRE-M-59 door, so it
+                # was ASSERTING THE DEFECT: the field was correct only while
+                # it stayed two-name, and a repair that widened it to the
+                # grader's own door turned this check RED. Fourth instance
+                # of the shape M-59 recorded in `test_homeoteleuton.py` §5.
                 if not admits(best_score(ax, ay, R.decl, wa, wb),
-                              R.decl.theta_rhyme):
+                              R.decl.theta_rhyme,
+                              relations=frozenset(R.decl.admit)):
                     bad.append((b.line_no, c, w))
                     break
     check("no offered candidate is one the grader would reject",
@@ -1010,8 +1046,14 @@ def test_no_joint_candidate_was_a_coordinate_of_a_literal():
         for c in calls:
             ax, wa = R._word_anchors(c)
             ay, wb = R._word_anchors(w)
+            # `R.decl.admit` — THIRD INSTANCE OF THE SAME DEFECT IN THIS FILE
+            # (`MISSING.md` M-139), after §12's premise and §18's invariant.
+            # A check that verifies the field against a door the verdict
+            # abandoned on 2026-08-22 passes exactly while the field is
+            # broken, which is what all three were doing.
             if not admits(best_score(ax, ay, R.decl, wa, wb),
-                          R.decl.theta_rhyme):
+                          R.decl.theta_rhyme,
+                          relations=frozenset(R.decl.admit)):
                 FAILURES.append("joint field member fails the grader")
                 break
     check("every one of them passes the grader against every call",

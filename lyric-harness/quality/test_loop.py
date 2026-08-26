@@ -85,7 +85,39 @@ from quality.loop import (AnchorSlot, GroupBrief,  # noqa: E402
 from quality.revise import ReviseDeclaration, Reviser  # noqa: E402
 from quality.schemes import NoMandate  # noqa: E402
 from quality import schemes as SC  # noqa: E402
-from lyric_harness import line_tokens, raw_final_token, Lexicon  # noqa: E402
+from lyric_harness import (line_tokens, raw_final_token,  # noqa: E402
+                           Lexicon, RHYME_RELATIONS)
+import dataclasses as _dc  # noqa: E402
+
+
+def perfect_rhyme_reviser():
+    """A `Reviser` whose mandate DECLARES it wants perfect rhyme only.
+
+    ADDED 2026-08-26 (`MISSING.md` M-139), and it restores a comparator
+    rather than weakening a check. Sections 5 and 6 are about TIER-2 CONTROL
+    FLOW — does the backtrack fire, does the whole group move — and both rest
+    on a premise about the candidate field: that the pivot's conjunction comes
+    back EMPTY. That premise was never a fact about the lexicon. It was a fact
+    about `_field_one` spelling the pre-M-59 two-name door, and when the field
+    was repaired to ask `decl.admit` the conjunction became SATISFIABLE and
+    both sections went red — §5 reaching SUCCESS where it asserts it cannot,
+    §6 finding `tried == 0` where it pins a joint rewrite.
+
+    NARROWING `admit` IS THE DECLARED MOVE AND THE USEFUL DIRECTION — CLAUDE.md
+    says so in as many words: *"a cell that genuinely wants perfect rhyme only
+    says so and gets exactly the old behaviour"*. So the fixtures are not
+    repinned against a wider door and the tier-2 findings they encode (M-105's
+    joint backtrack among them) are not rewritten; the comparator they were
+    measured under is DECLARED instead of assumed. `RHYME_RELATIONS` is
+    imported rather than spelled, so this cannot drift from the constant it
+    names (doctrine 1) — the same treatment `test_revise.py` §18's
+    demonstration arm already takes.
+    """
+    R = Reviser()
+    return Reviser(lex=R.lex,
+                   decl=_dc.replace(R.decl,
+                                    admit=tuple(sorted(RHYME_RELATIONS))),
+                   floor=R.floor, rdecl=R.rdecl)
 
 FAILURES = []
 
@@ -401,7 +433,11 @@ def test_tier2_tries_and_correctly_rejects():
     """
     print("\n5. TIER 2 — an anchor locked to a family of its own is REFUSED, "
          "not searched (restated 2026-08-17: this asserted the opposite)")
-    R = Reviser()
+    # THE COMPARATOR IS DECLARED SINCE 2026-08-26 (`MISSING.md` M-139) —
+    # see `perfect_rhyme_reviser`. Under the repaired field this fixture
+    # reaches SUCCESS, because the conjunction its premise calls empty is
+    # answerable once the field asks the grader's own door.
+    R = perfect_rhyme_reviser()
     res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_LOCKED_MANDATE)
     check("cannot reach SUCCESS -- L1 and L2 are each locked to their own "
           "mandated rhyme family (L4, L5), so backtracking either one to "
@@ -453,7 +489,10 @@ def test_tier2_rewrites_a_group_of_three_or_more():
     #
     # WHAT MUST STILL HOLD is the fixture's own premise, so the section
     # cannot pass by examining a draft that no longer poses the question.
-    R = Reviser()
+    # THE COMPARATOR IS DECLARED SINCE 2026-08-26 (`MISSING.md` M-139) —
+    # see `perfect_rhyme_reviser`. The premise below is a claim about an
+    # EMPTY conjunction and that was a property of the two-name field.
+    R = perfect_rhyme_reviser()
     before = R.brief(TOO_LARGE, [[1, 2, 5], [3, 4, 5]])
     pivot = [b for b in before if b.line_no == 5][0]
     check("the fixture is STILL a real joint_conflict with two 3-member "
