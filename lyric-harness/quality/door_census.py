@@ -90,6 +90,16 @@ NARROW_LITERAL = frozenset({"RHYME", "RIME_RICHE"})
 #: through a local alias (`_RF.whole_vocabulary_pairs`, `_WVP`).
 SCHEMA_JUDGE = "whole_vocabulary_pairs"
 
+#: WHERE THE DOOR LIVES. `admits()` is defined in `lyric_harness.py`, so a
+#: BARE `admits(...)` there is the door itself. Anywhere else, a file that
+#: defines its own `admits` is defining something unrelated — `quality/
+#: narrative.py` has `def admits(functions)` about section rosters — and this
+#: detector matches a bare name with no import resolution, so it would count a
+#: call to that as a pair-satisfaction site. Declared rather than inferred
+#: (doctrine 1), because the first draft of this guard suppressed the door in
+#: its OWN HOME MODULE and took the census from 19 sites to 15.
+DOOR_HOME = "lyric_harness.py"
+
 #: Directories that are not production Python.
 SKIP_DIRS = {".git", "corpus", "data", "node_modules", "graphify-out",
              "__pycache__", "examples", "songs", "mcp"}
@@ -254,11 +264,25 @@ RULINGS = {
         "`MISSING.md` M-138/M-139."),
     ("quality/time_layer.py", "_raw_score"): (
         ARGUED,
-        "The time layer, which doctrine 4 records as MUTE — 18 of 20 items "
-        "cannot fire at the honest candidate family. Widening a door on a "
-        "layer that cannot look changes no measurement, so this is recorded "
-        "rather than repaired, and it must move if the layer is ever "
-        "powered."),
+        "The time layer, which doctrine 4 records as MUTE — `audit_fwer_fpr.py "
+        "--check` confirms cannot_tell 18 / refused 0 / answered 2, never "
+        "summed. ~~Widening a door on a layer that cannot look changes no "
+        "measurement, so this is recorded rather than repaired.~~ **STRUCK 2026-08-26 "
+        "— I ASSERTED THAT WITHOUT MEASURING IT, which is the whole defect this "
+        "census exists to catch, committed inside the census.** Measured on a "
+        "patched harness whose narrow arm reproduces 18/0/2 exactly as its own "
+        "control, widening to `decl.admit` moves the REAL arm to cannot_tell 0 / "
+        "refused 20 / answered 0 — **20 of 20 items change verdict**, because the "
+        "within-item null band-pass rate goes from a median 0.042 to 0.513 and "
+        "doctrine 28's tripwire `max_null_band_pass = 0.152` then fires on every "
+        "item. So the door does NOT leave this layer untouched: it silences it "
+        "HARDER. That figure is a lane measurement I have not re-derived myself "
+        "and is carried as attributed, not as mine. The disposition stays "
+        "ARGUED and the honest argument is the one that was never written: the "
+        "NARROW set is this layer's discriminant, and `max_null_band_pass` is an "
+        "unwritten coordinate OF THIS DOOR (doctrine 58) whose own provenance "
+        "names alignment, theta_coda, theta, window and null_samples — and not "
+        "the relation set. `MISSING.md` M-139."),
 }
 
 #: The two RENDERING sites inside `check_scheme` cannot be keyed by function
@@ -380,13 +404,25 @@ def _is_narrow_literal(node):
     return False
 
 
-def _door_of(node):
-    """-> the door this node reads, or None if it is not a site."""
+def _door_of(node, shadowed=False):
+    """-> the door this node reads, or None if it is not a site.
+
+    `shadowed` is True when the FILE defines its own `admits`, in which case a
+    bare `admits(...)` in it is NOT this tree's door. `quality/narrative.py`
+    defines `def admits(functions)` about section rosters — an unrelated
+    function with the same name — and this detector matches a bare name with
+    no import resolution, so without the guard a call to it would be counted
+    as a pair-satisfaction site. Zero such calls today; the guard is here
+    because a census that invents a site is the mirror of one that misses a
+    site, and this file has already been wrong three times in the missing
+    direction.
+    """
     if isinstance(node, ast.Call):
         f = node.func
         name = (f.id if isinstance(f, ast.Name)
                 else f.attr if isinstance(f, ast.Attribute) else None)
-        if name == "admits":
+        if name == "admits" and not (shadowed
+                                     and isinstance(f, ast.Name)):
             given = (any(k.arg == "relations" for k in node.keywords)
                      or len(node.args) >= 3)
             return "DECLARED(admit)" if given else "NARROW(omitted)"
@@ -394,7 +430,17 @@ def _door_of(node):
     if isinstance(node, ast.Compare) and \
             any(isinstance(o, (ast.In, ast.NotIn)) for o in node.ops):
         for c in node.comparators:
-            if isinstance(c, ast.Name) and c.id == "RHYME_RELATIONS":
+            # ATTRIBUTE FORM TOO — `LH.RHYME_RELATIONS`, not only the bare
+            # name. The CALL branch above was taught this and the COMPARE
+            # branch was not, so the first blindness this file records
+            # survived at the other half of the same detector. LATENT today
+            # (0 hits) and not hypothetical: thirteen production modules
+            # already `import lyric_harness as LH`, and the module the first
+            # draft actually lost — `quality/structure_census.py` — is the
+            # attribute-idiom one.
+            nm = (c.id if isinstance(c, ast.Name)
+                  else c.attr if isinstance(c, ast.Attribute) else None)
+            if nm == "RHYME_RELATIONS":
                 return "NARROW(RHYME_RELATIONS)"
             if _is_narrow_literal(c):
                 return "NARROW(literal 2)"
@@ -441,8 +487,11 @@ def census(root=None):
         bare = {}
         for qual in set(enc.values()):
             bare.setdefault(qual.split(".")[-1], set()).add(qual)
+        shadowed = (rel != DOOR_HOME and any(
+            isinstance(d, (ast.FunctionDef, ast.AsyncFunctionDef))
+            and d.name == "admits" for d in ast.walk(tree)))
         for n in ast.walk(tree):
-            door = _door_of(n)
+            door = _door_of(n, shadowed)
             if not door:
                 continue
             func = enc.get(n, "<module>")

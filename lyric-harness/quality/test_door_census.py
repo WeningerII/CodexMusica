@@ -54,13 +54,13 @@ def main():
     real = DC._door_of
     seen = len(rows)
 
-    def blind(node):
+    def blind(node, shadowed=False):
         # The first draft: `admits(...)` only, never `LH.admits(...)`.
         import ast as _ast
         if isinstance(node, _ast.Call) and not isinstance(node.func,
                                                           _ast.Name):
             return None
-        return real(node)
+        return real(node, shadowed)
 
     DC._door_of = blind
     try:
@@ -91,11 +91,11 @@ def main():
     print("\n2b. MUTATION — and a census blind to the LITERAL "
           "`('RHYME', 'RIME_RICHE')` loses a different module again")
 
-    def literal_blind(node):
+    def literal_blind(node, shadowed=False):
         import ast as _ast
         if isinstance(node, _ast.Compare):
             return None
-        return real(node)
+        return real(node, shadowed)
 
     DC._door_of = literal_blind
     try:

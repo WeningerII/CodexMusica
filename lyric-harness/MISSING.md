@@ -12912,6 +12912,42 @@ may satisfy on a route that has nothing to do with the word at this site. A
 wording implying schema-satisfying words could have been offered would be
 worse than no disclosure at all, and 0 of 23 is the measurement that says so.
 
+**THE FOURTH BLINDNESS, AND IT IS THE FIRST ONE AT THE OTHER HALF OF THE
+DETECTOR.** `_door_of`'s CALL branch was taught the attribute spelling
+(`LH.admits(...)`) and its COMPARE branch never was: it still tested
+`isinstance(c, ast.Name) and c.id == "RHYME_RELATIONS"`, so
+`s["relation"] in LH.RHYME_RELATIONS` was invisible. **Zero hits today and
+LATENT, not hypothetical**: thirteen production modules already
+`import lyric_harness as LH`, and `quality/structure_census.py` — the module
+the FIRST blindness actually lost — is the attribute-idiom one. Taught.
+
+**AND A PHANTOM IN THE OTHER DIRECTION, WHICH IS THE MIRROR DEFECT.**
+`quality/narrative.py:240` defines `def admits(functions)` — an unrelated
+function about section rosters — and the detector matches a BARE NAME with no
+import resolution, so a call to it would be counted as a door.
+`quality/plan.py` already imports that module. Guarded on a DECLARED
+`DOOR_HOME` rather than inferred, because the first draft of the guard
+suppressed the door in its OWN HOME MODULE and took the census from 19 sites
+to 15 — a census that invents a site is the mirror of one that misses a site,
+and this instrument has now been wrong in both directions.
+
+**AND THE `time_layer` RULING I WROTE WAS FALSE, MEASURED BY A LANE AND STRUCK
+ON ITS OWN TERMS.** It read *"widening a door on a layer that cannot look
+changes no measurement"* — **and I asserted that without measuring it**, which
+is the whole defect this census exists to catch, committed inside the census.
+Measured on a patched harness whose narrow arm reproduces the shipped
+18 cannot_tell / 0 refused / 2 answered exactly as its own control, widening to
+`decl.admit` moves the REAL arm to **0 / 20 / 0 — all 20 items change
+verdict** — because the within-item null band-pass rate goes from a median
+0.0420 to 0.5131 and doctrine 28's tripwire `max_null_band_pass = 0.152` then
+fires on every item. **The door does not leave that layer untouched: it
+silences it HARDER.** The figure is a lane's and is carried as attributed, not
+re-derived by me. The disposition stays ARGUED and the argument is now the one
+that was never written — the NARROW set is that layer's discriminant, and
+`0.152` is an unwritten coordinate OF THIS DOOR (doctrine 58) whose own
+provenance names alignment, theta_coda, theta, window and null_samples, and
+not the relation set.
+
 **TESTED WHILE OPEN, and the split is exactly the entry's own two halves.**
 Three regressions name this entry — `quality/test_door_census.py`,
 `quality/test_loop.py`, `quality/test_revise.py` — and every one of them tests
