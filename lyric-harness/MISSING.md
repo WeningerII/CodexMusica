@@ -12035,3 +12035,100 @@ actually calls — come back clean. **THE TWO SURFACES ARE WHY THIS TOOK A SECON
 ROUND**: the plain run was green while `--json` was red, because the prose that
 breaks it was written AFTER the plain run had been used to declare the fix
 verified. Verify the surface the caller uses.
+
+### M-131 · the band was chosen by a rule the profile had stopped stating `CLOSED`
+`quality/floor.py`'s `song` profile shipped **150-400 tokens**, and its note
+said the band is "the widest contiguous token range in which every 50-token
+sub-bin holds >=100 items and every sub-bin threshold sits within **0.02 (0.03
+for anaphora)** of the band-wide one."
+
+**THAT IS THE FOUR-CHECK RULE.** `song_profile_calibration.HOM` has been a
+FIVE-check rule since `predictable_pair_fraction_max` joined on 2026-08-13 —
+mattr 0.02, fwr 0.02, cv 0.02, anaphora 0.03, **predictability 0.05** — and
+the note named no tolerance for the fifth check at all. The fifth check is
+the one that moves the band: sub-bin **150-200 answers predictability 1.0000
+against a band-wide 0.9375, |d| 0.0625 > 0.05**. So the shipped band was the
+answer to a rule the profile no longer ran, and the sentence describing it was
+the last place still stating the old one (doctrine 17/58).
+
+**THE BAND IS 200-400 NOW**, 2,261 items over 663 authors, and every candidate
+is refused by a NAMED sub-bin — 50-400 and 100-800 and 200-500 on mattr,
+100-400 on anaphora, ~~150-400~~ and 150-450 on predictability.
+
+**ONE THING MOVED AND SIX FOLLOWED IT, WHICH IS MEASURED RATHER THAN
+ASSERTED.** `--check --without-predictability` computes over the SHIPPED band,
+and against 150-400 `mattr` 0.7118, `fwr` 0.4773 and `cv` 0.1094 re-derive
+EXACTLY. Nothing drifted against the population it was adopted on; the
+population changed. Re-adopted as a set: mattr **0.7172**, fwr **0.4783**,
+anaphora **0.3000** (unmoved, third band running), cv **0.1111**,
+predictability **0.9333**, `n_human` **2,261**, seven FPR tuples, and both
+anaphora period constants.
+
+**THE MEDIANS BARELY MOVE AND THAT IS WHAT MAKES IT AN ADOPTION RATHER THAN A
+RETUNING** — per check 4.85-5.18% against a nominal 5%, union 20.22%
+[15.33-24.55]. **One figure is not a wash and is stated rather than smoothed**:
+`CLICHE_PAIR` rises 6.69% -> **7.70%**, because longer sheets carry more pairs
+and more chances to land on the stock list, so narrowing the band drops the
+short items that were diluting it.
+
+**TWO UNGATED STALENESSES FELL OUT OF THE SAME READ.** The profile's `source=`
+claimed **283,534** sung lines against a measured 283,520, and `n_human` had
+already drifted **3,571 -> 3,575** against its own band — neither is in the
+checked constant set, so both are quoted-and-re-derived-by-nothing. Repinned
+with the rest.
+
+**AND THE FOUR-CHECK MODE WAS JUDGING WHAT IT REFUSES TO DECIDE.**
+`--without-predictability` already refuses `band lo`/`band hi` by name, on this
+runner's own argument that a four-check rule "is a DIFFERENT rule" and that
+judging on this run's `lo` "would manufacture a DRIFT out of a mode". Both
+sentences were true and the refusal reached exactly ONE downstream value — the
+MATTR window admissibility check, deliberately keyed to the shipped `p.lo`.
+The four THRESHOLDS were left measured over whatever band the four-check rule
+returned. **That was harmless only while the two rules agreed**, and they now
+never will: the check that moves the band is precisely the one this mode
+drops, so it still returns 150-400 and always would — measuring thresholds on
+3,575 items and judging them against constants adopted on 2,261, reporting
+mattr/fwr/cv as DRIFT on a tree where nothing had drifted. A red manufactured
+out of a mode, exactly as the comment three hundred lines away predicted. The
+mode measures over the SHIPPED band now and says so on the line; the band
+constants stay refused, because this mode still cannot decide them.
+
+**VERIFIED, WARM, ON THE COMMAND THE NIGHTLY RUNS**: `--check` reports
+**asked 20, answered 20, refused 0 — every shipped constant reproduces**, exit
+0 in 90s; `expected_drift.py song_profile_calibration-fast` observes 0 drifted
+against 0 declared; `test_floor.py` all green. Run twice at 8,238s of cold
+population work, the second reproducing every figure of the first.
+
+### M-132 · a lyric sheet at 150-163 tokens is judged by a sonnet `OPEN`
+The cost of M-131, measured with the shipped selector rather than argued.
+`declaration_for` swept over 100-260 tokens, before and after the band moved:
+
+| tokens | before | after |
+|---|---|---|
+| 139-149 | song, extrapolated | sonnet, extrapolated |
+| **150-163** | **song, EXACT** | **sonnet, extrapolated** |
+| 164-199 | song, EXACT | song, extrapolated |
+| 200+ | song, EXACT | song, EXACT |
+
+**NO SILENT GAP OPENS AND TASK #102's GUARANTEE HOLDS** — every length still
+reaches a profile, `EXTRAPOLATED_LENGTH` fires, and a reader is told the
+finding rests on an extrapolation. What it costs is REJECTION POWER at
+150-199, and at the bottom of that span something sharper: a whole lyric sheet
+is graded against a **14-line sonnet's** percentiles, because
+`declaration_for`'s tie-break minimises the extrapolation in TOKENS and knows
+nothing about FORM.
+
+**IT IS NOT NEW, ONLY WIDER.** The same handoff ran 127-149 before this
+re-adoption and runs 127-163 now — 23 tokens' worth of lengths became 37.
+`L-4`'s close already prices extrapolation-to-note as DESIGN and it is right
+to; what neither it nor anything else addresses is WHICH profile an
+extrapolated length falls to.
+
+**WHY IT IS OPEN RATHER THAN FIXED.** The candidate repair — prefer a profile
+whose `n_lines == 0` for a whole sheet, or weight the gap by form rather than
+by tokens — changes which thresholds grade real text at every length in the
+handoff, so it needs its own measurement and its own argument. Widening the
+region silently would have been the defect; registering it and PINNING it is
+what this lot does instead. `test_floor.py` 19 asserts the handoff at 150 and
+163, and that 164 is where `song` takes over, so the region is bounded by a
+check and goes red if either band or the tie-break moves again.

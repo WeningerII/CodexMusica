@@ -213,7 +213,8 @@ constant that has stopped describing its corpus.
 
 | | `mattr_min` | `function_word_ratio_max` | `anaphora_max` | `line_length_cv_min` | `predictable_pair_fraction_max` |
 |---|---:|---:|---:|---:|---:|
-| song profile | 0.7118 | 0.4773 | 0.3000 | 0.1094 | 0.9286 |
+| song profile | 0.7172 | 0.4783 | 0.3000 | 0.1111 | 0.9333 |
+| ~~song profile, to 2026-08-26~~ | ~~0.7118~~ | ~~0.4773~~ | 0.3000 | ~~0.1094~~ | ~~0.9286~~ |
 | ~~song profile, to 2026-08-22~~ | ~~0.7128~~ | 0.4773 | 0.3000 | 0.1094 | 0.9286 |
 | ~~song profile, to 2026-08-21~~ | ~~0.7226~~ | ~~0.4716~~ | ~~0.3000~~ | ~~0.1123~~ | ~~0.9286~~ |
 | (sonnet, for contrast) | 0.7557 | 0.4788 | 0.2857 | 0.0939 | 0.8333 |
@@ -833,3 +834,100 @@ Stated so the next cell does not have to rediscover the boundary.
 None of the remaining three is a reason to withhold the profile. A gate that
 had no reading at all on the two songs this project has written was the worse
 state, and the new one states exactly what it does and does not know.
+
+## 10. RE-ADOPTED 2026-08-26 — the band moved, and one sentence in the note is why
+
+`lo` **150 → 200**. Every other constant in the `song` profile follows from
+that, and the distinction is measurable rather than asserted: run
+`song_profile_calibration.py --check --without-predictability`, which computes
+over the **shipped** band, and `mattr` / `fwr` / `cv` re-derive **exactly**
+(0.7118 / 0.4773 / 0.1094). Nothing drifted against the population it was
+adopted on. The population changed.
+
+### Why the band moved
+
+The rule is `HOM` in `quality/song_profile_calibration.py` and it is a
+**five**-check rule: mattr 0.02, fwr 0.02, cv 0.02, anaphora 0.03,
+predictability 0.05. `floor.py`'s own bullet stated it as ~~"within 0.02 (0.03
+for anaphora)"~~ — the **four**-check version, from before
+`predictable_pair_fraction_max` joined on 2026-08-13 — and named no tolerance
+for the fifth check at all.
+
+The fifth check is the one that moves the band. Sub-bin **150–200 answers
+predictability 1.0000 against a band-wide 0.9375, |d| 0.0625 > 0.05.** So the
+band this profile shipped was chosen by a rule the profile no longer ran, and
+the note describing it was the last place still stating the old one.
+
+Every candidate is refused by a **named** sub-bin — the rule is swept, not
+spot-checked:
+
+| candidate | n | verdict |
+|---|---:|---|
+| 50–400 | 7241 | no — mattr at 50–100 |
+| 100–400 | 5683 | no — anaphora at 100–150 |
+| ~~150–400~~ | 3575 | no — **predictability at 150–200** |
+| 150–450 | 3785 | no — predictability at 150–200 |
+| **200–400** | **2261** | **OK** |
+| 200–500 | 2614 | no — mattr at 400–450 |
+| 100–800 | 6420 | no — mattr at 100–150 |
+
+### The set, re-adopted together
+
+| | shipped to 2026-08-26 | **re-adopted** | |
+|---|---:|---:|---|
+| `mattr_min` | 0.7118 | **0.7172** | moved |
+| `function_word_ratio_max` | 0.4773 | **0.4783** | moved |
+| `anaphora_max` | 0.3000 | 0.3000 | **unmoved, third band running** |
+| `line_length_cv_min` | 0.1094 | **0.1111** | moved |
+| `predictable_pair_fraction_max` | 0.9286 | **0.9333** | moved |
+| held-out FPR ANY | 19.71% | **20.22%** | moved |
+| `n_human` | 3571 | **2261** | moved |
+
+**The medians barely move and that is what makes the band change safe to
+adopt rather than a retuning.** Per check 4.85–5.18% against a nominal 5%; the
+union 20.22% [15.33–24.55]. The gate interrupts a human songwriter at the same
+rate on the narrower band.
+
+**One figure is not a wash and it is stated rather than smoothed.**
+`CLICHE_PAIR` rises **6.69% → 7.70%** (174/2261). Longer sheets carry more
+pairs and more chances to land on the stock list, so restricting to 200–400
+drops the short items that were diluting the rate. It is a property of the
+population, not of the check.
+
+### The period reading relocated again
+
+`anaphora` is dead here — rho −0.025, p_perm 0.6605, nowhere near the
+Bonferroni cut — so the withdrawal recorded in §4·R stands and ~~0.275~~ stays
+struck. What changed is which check carries the signal: **`mattr` now survives
+Bonferroni (rho −0.177, p_perm 0.0029)** where it did not before. **It is not
+adopted as a caution**, for the reason §4·R already gives: 351 of the band's
+663 authors are UNDATED and not missing at random, so a correlation on a 47%
+subsample is not a clean finding in either direction (doctrine 20).
+
+### What it costs, measured with the shipped selector
+
+`declaration_for` swept over 100–260 tokens, before and after:
+
+| tokens | before | after |
+|---|---|---|
+| 127–138 | sonnet, extrapolated | sonnet, extrapolated |
+| 139–149 | song, extrapolated | sonnet, extrapolated |
+| 150–163 | **song, EXACT** | **sonnet, extrapolated** |
+| 164–199 | **song, EXACT** | song, extrapolated |
+| 200+ | song, EXACT | song, EXACT |
+
+No **silent** gap opens — `EXTRAPOLATED_LENGTH` still fires, which is what
+task #102 required. What it costs is rejection power at 150–199, and at
+150–163 a lyric sheet is now judged against a 14-line **sonnet** profile,
+because `gap()` minimises the extrapolation in TOKENS and knows nothing about
+form. That region widens 127–149 → 127–163. Filed as `MISSING.md` M-132
+rather than absorbed here: it is a fact about the SELECTOR, not about this
+band.
+
+### Provenance
+
+Run twice. The first run was lost with its container; the re-run reproduces
+every banked figure exactly — band, five thresholds, seven FPR medians, the
+author table and both period constants. 8,238s of population work from a cold
+memo, both times. Warm, the full `--check` is 90s and reports **asked 20,
+answered 20, refused 0 — every shipped constant reproduces.**
