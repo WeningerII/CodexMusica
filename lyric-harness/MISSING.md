@@ -12830,6 +12830,20 @@ both shipped consumers gate it lazily on a pair already charged.
     claim is that every recovered edge is band-passing BY CONSTRUCTION. Under
     the complete default it UNDER-recovers, so a human's song is structured
     against a narrower reading than the one it is then graded at.
+    **AND IT IS NOT A COST PROBLEM, IT IS A UNIT PROBLEM — read before
+    assuming this one is the easy one.** `whole_vocabulary_pairs` answers in
+    LINE PAIRS. The recovered web is over SITES — `(line, placement)` — which
+    is the entire reason M-72 wrote this module instead of reusing
+    `mandate_from_graph`, whose cliques are cliques of `words[-1]`. A
+    schema-satisfied line pair does not say WHICH placement carries the
+    relation, so folding it into a placement web means inventing a placement
+    the judge never supplied, and spelling it at the line end (the `str(la)`
+    convention this function already uses for `end`) would CLAIM the end
+    placement for a schema that may be about neither line's ending. That is
+    the `PER_WORD` obstacle one axis over: the judge's unit is coarser than
+    the consumer's, and the honest repair is a DECLARED convention for a
+    line-level edge with the placement unspecified — a coordinate this tree
+    does not have yet — not a widening.
 
 And 6 of the 8 ARGUED sites are argued only in the sense that this entry now
 writes the argument down: `rhyme_graph` and `infer_chains.match` are narrow
