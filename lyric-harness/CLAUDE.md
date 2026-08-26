@@ -802,11 +802,34 @@ reproducing four days later and nothing could see it.
 **AN UNRULED SITE FAILS `--check`, AND A `FULL` RULING IS CHECKED AGAINST THE
 CODE** — a site cannot be talked into compliance by editing its own row. That
 is the half that answers the ruling's last clause; the census costs 1.9s and
-runs in the cheap CI job. Three INCOMPLETE sites are still open, each priced:
+runs in the cheap CI job. ~~Three INCOMPLETE sites are still open, each priced:
 `whole_vocabulary_pairs` builds a full 77-schema stream at **2.94s over 14
-lines, 4.74s over 28, 14.73s over 56**, and both shipped consumers gate it
-lazily on a pair already charged, so the remaining three need a lazy design
-rather than a one-line widening.
+lines, 4.74s over 28, 14.73s over 56**~~ **REPINNED 2026-08-26: TWO are open,
+and that ladder is an ORDER OF MAGNITUDE and not a bound.** The text is an
+undeclared coordinate of it in two directions at once — Whitman runs 3-4x
+higher at matched length, and *within sonnets* three separate readings of the
+same three lengths give 2.94/4.74/14.73, 1.60/6.00/25.00 and 1.83/4.26/13.72,
+moving in OPPOSITE directions at the two ends, because "the sonnets" is a
+family of texts and which fourteen lines was never said. There is also a WALL
+rather than a slope: free verse `raises RuntimeError("candidate explosion")`
+between 90 and 110 lines. And
+both shipped consumers gate it
+lazily on a pair already charged, so the remaining two need a lazy design
+rather than a one-line widening — **except that `Reviser.mandate_from_graph`
+is not a cost problem at all.** Its lazy gate is measured to fire on **170 of
+170 drafts** (a draft where the narrow door admits every line pair does not
+exist here), it has no mandate so `bearing=` has no honest value, and widening
+it takes a 41-line draft's derived cover from 19 groups to 41 and its mandated
+pair-slots from 242 to 10,626. What it owes is an owner ruling on whether
+`--cliques` means the RHYME graph or the whole-vocabulary relation graph, not
+a door edit. **AND THE CHANCE RATE OF BOTH DOORS IS A COMMAND NOW** —
+`quality/chance_rate.py`, built the same day out of M-138's strike, because the
+figures that entry recorded came from an uncommitted script and do not
+reproduce: the SAMPLER's population and reader were never declared. Measured
+against random CMUdict pairs, the ADMIT door admits **8.48%** and the SCHEMA
+door **23.30%**, against **1.18%** of Shakespeare's mandated pairs failing —
+**7.16x and 19.69x**, where the gap that got `theta_coda` recalibrated was
+1.5x. Neither is priced (`MISSING.md` M-138, M-140).
 
 **THE RELATION IS THE DEFAULT ROUTE NOW (2026-08-22, owner's instruction).**
 ~~"...AND THE DOOR IT REPLACES ADMITTED TWO. `Declaration.admit` is ONE

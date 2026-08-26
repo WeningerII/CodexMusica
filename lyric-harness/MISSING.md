@@ -12594,19 +12594,88 @@ that got `theta_coda` recalibrated 0.60 -> 0.80:
 
 That is a **1.5x** gap and it was treated as disqualifying.
 
-**MEASURED TODAY, shipped `Declaration()`, 4,000 random CMUdict word pairs,
-seed 20260810** — re-run by hand before being written down:
+~~**MEASURED TODAY, shipped `Declaration()`, 4,000 random CMUdict word pairs,
+seed 20260810** — re-run by hand before being written down:~~
 
 | door | admitted | rate |
 |---|---|---|
-| SHIPPED (`decl.admit`, all four relations) | 350 / 4000 | **8.75%** |
-| NARROWED (`RHYME`, `RIME_RICHE`) | 50 / 4000 | 1.25% |
+| ~~SHIPPED (`decl.admit`, all four relations)~~ | ~~350 / 4000~~ | ~~**8.75%**~~ |
+| ~~NARROWED (`RHYME`, `RIME_RICHE`)~~ | ~~50 / 4000~~ | ~~1.25%~~ |
 
-against the battery's **12/1014 = 1.18%** of Shakespeare's mandated pairs
+~~against the battery's **12/1014 = 1.18%** of Shakespeare's mandated pairs
 failing. **The ratio is 7.4x.** And the breakdown says where it comes from:
 the 350 are **228 ASSONANCE + 72 CONSONANCE + 50 RHYME**, so **300 of 350
-(85.7%) are near relations** — admitted on a scalar cut that was never priced
+(85.7%) are near relations**~~ — admitted on a scalar cut that was never priced
 on them.
+
+**STRUCK 2026-08-26. NOT ONE OF THOSE FIGURES REPRODUCES, AND THE PHRASE
+"re-run by hand before being written down" IS THE CAUSE RATHER THAN THE
+DEFENCE** — the hand was a script that lived in one session and was never
+committed, so nothing could re-run it and nothing did until two separate
+re-derivations were attempted four days later. **THEY DISAGREE WITH THE ENTRY
+AND WITH EACH OTHER**, which is the sharper half.
+
+**THE UNDECLARED COORDINATE IS THE SAMPLER, and it has two fields this entry
+named neither of: the POPULATION and the READER.** `quality/chance_rate.py`
+declares both and sweeps their 2x2 at the entry's own seed and n — and **both
+disagreeing re-derivations fall out as exact cells of it**, which is what turns
+*"the figures do not reproduce"* into an attribution rather than a shrug:
+
+| population | reader | ADMIT | NARROW | ratio | which re-derivation |
+|---|---|---|---|---|---|
+| `redteam(isalpha,2..12)` | word anchor + `score` | 316 / 7.90% | 40 / 1.00% | 6.68x | **B, exactly** |
+| `redteam(isalpha,2..12)` | line anchor + `best_score` | **339 / 8.48%** | **46 / 1.15%** | **7.16x** | — (the SHIPPED cell) |
+| all CMUdict entries | word anchor + `score` | 289 / 7.23% | 36 / 0.90% | 6.11x | — |
+| all CMUdict entries | line anchor + `best_score` | 324 / 8.10% | 37 / 0.93% | 6.85x | **A, exactly** |
+
+**350 / 50 IS NO CELL OF THAT GRID**, and the entry gave no coordinate by which
+to find one where it would be.
+
+**THE READER IS THE FIELD THAT MATTERS AND IT IS NOT A DETAIL OF THE DRAW — IT
+IS WHICH COMPARATOR ANSWERED.** `redteam_band.anchor_of` + `score` reads ONE
+anchor per word; `line_anchors` + `best_score` reads the SPAN DICT and takes a
+max over span pairs, which is the mosaic reach adversary 7 exists for. **The
+second is production**: `Reviser._matrix` builds its matrix that way and
+`check_scheme` reads the same. So the cell that answers *"how often does the
+SHIPPED GRADER call two random words a rhyme"* is the second row — **8.48%,
+7.16x the canon arm** — and the first row is the number adversary 3's own
+instrument would print, which is why the grid holds both rather than picking.
+The two readers are not interchangeable at the call: `best_score` handed
+`anchor_of`'s single anchor raises `KeyError: 0`, so a session reaching for one
+and scoring with the other gets an exception, not a quieter number.
+
+**TWO COORDINATES WERE TESTED AND FOUND INERT, AND THAT IS RECORDED RATHER THAN
+OMITTED (doctrine 20).** The first draft of the instrument declared ORDER
+(`sorted` against the dict's insertion order) and DRAW (`rng.sample(w, 2)`
+against two `rng.choice` calls) as sampler fields, on the reasoning that they
+must move the sample. **The sweep came back with three of four cells
+BYTE-IDENTICAL and refuted both**: CMUdict's keys are all but sorted already,
+so `sorted` moves a handful of adjacent entries (`sepulveda`/`sepultura`,
+`stilton`/`stilted`) that 8,000 draws never land on; and `rng.sample` at k=2
+consumes `_randbelow` exactly twice over a population this size, so it is
+byte-identical to the `choice` pair, verified pair for pair on all 4,000. Both
+were dropped as fields and are named in `INERT` — a coordinate measured inert
+is a measurement, and deleting it silently would leave the next session to
+guess it again.
+
+**THE FINDING SURVIVES AND IS NOT DENTED.** The claim was never the third
+decimal: it is that a gap treated as disqualifying at **1.5x** is
+**6.68x–7.16x** depending on which of two instruments asks, and the
+near-relation share at the shipped cell is **293 of 339 (86.4%)** against the
+recorded 85.7%. Nothing was tuned — the ratio is computed from the battery's
+own `12/1014 = 1.18%` and from a draw this entry does not control.
+
+**AND THE INSTRUMENT IS THE REPAIR, not the corrected table.**
+`quality/chance_rate.py` makes the sampler a declared frozen `Sampler` — seed,
+n, population, reader — reads the door from `decl.admit` rather than from a
+literal, reports drawn/refused/judged as three counts never summed, and adopts
+a **BAND over the grid** (`admit 289..339`, `narrow 36..46`) rather than a cell,
+because one seed on one sampler is a coin flip reported as a verdict (doctrine
+57/73). `--check` re-derives all four cells, exits 3 on drift, and asserts that
+the shipped cell's DRAW still reproduces `redteam_band.sample_pairs` pair for
+pair so the two instruments cannot drift apart again (doctrine 1). 45s. This
+entry's figures are a COMMAND now — `python3 quality/chance_rate.py` — rather
+than a memory, which is the whole content of standing rule 3.
 
 **THIS IS NOT AN ARGUMENT THAT M-59 WAS WRONG.** The widening was an owner
 ruling and it was right on its own terms: doctrines 3/24 make ASSONANCE and
@@ -12645,7 +12714,7 @@ has moved twice since (coda -> identity 2026-08-11, admit -> four 2026-08-22).
 So this is the same SHAPE of finding, **not the same statistic**, and the two
 percentages are not directly comparable. What IS comparable is the RATIO of
 random-admission to canon-failure, because both arms move together under a
-comparator change, and it has gone from 1.5x to 7.4x.
+comparator change, and it has gone from 1.5x to ~~7.4x~~ **6.68x-7.16x, re-derived 2026-08-26 through `quality/chance_rate.py` after the struck table above** (doctrine 17).
 
 **TESTED WHILE OPEN.** `quality/test_revise.py` names this entry, and it names
 it for the one thing that IS settled: §12's comment records that the widened
@@ -12666,6 +12735,13 @@ false-positive rate is accepted and say so where the rate can be read. Tuning
 both should read `decl.admit` rather than spelling or omitting it — but that
 changes what two recorded measurements mean, so it belongs in the same sitting
 that takes the ruling.
+
+**AND THE INSTRUMENT MEASURED A SECOND DOOR THE ENTRY NEVER ASKED ABOUT, WHICH
+IS FILED APART AS M-140** — the 77-schema half of the default (M-116) admits
+**932 of 4,000 random word pairs, 23.30%, 19.69x the canon arm**, against this
+entry's 8.48%. Never summed with the ADMIT count: 204 pairs are admitted by
+both doors, 135 by the ADMIT door alone and 728 by the SCHEMA door alone, and
+the three are reported apart because they answer different questions.
 
 ### M-139 · the door moved twice and 17 of 19 sites are short of it `OPEN`
 The doctrine-9 lane of the comparator audit, opened on the candidate field and
@@ -13133,3 +13209,181 @@ and therefore reported that layer as fully gated. Then it attributed each site
 to its enclosing CLASS rather than its innermost function, which credited all
 ten of `Reviser`'s sites with the two judges `Reviser` contains. A census blind
 to a site reports that site as compliant.
+**AND THE `mandate_from_graph` SITE IS MEASURED NOW, 2026-08-26 — THE DEFECT
+IS LIVE ON EVERY DRAFT IN THE TREE AND THE ONE-LINE REPAIR IS STILL THE WRONG
+MOVE.** Over 170 drafts (`quality/fixtures/`, `songs/`, and the 152 sonnets as
+14-line units), 18,507 possible line pairs: the narrow door admits **4,291
+(23.19%)** and narrow-OR-77 admits **13,526 (73.09%)** — a **3.15x** cover,
+with **0 of 170 drafts unmoved** and **0 whose group list is byte-unchanged.**
+So this is not a latent site.
+
+**AND THE DOCTRINE-14 TAUTOLOGY IS EXACTLY TRUE RATHER THAN APPROXIMATELY, IN
+THE DIRECTION THAT MEANS NOTHING IS MIS-GRADED.** The method's docstring argues
+against deriving a cover under one setting and grading it under another,
+because the cover becomes an approximate fixed point of its own grader. That
+argument was applied to the ANCHOR coordinate (`promote`) and not to the DOOR,
+which is what the census ruling caught — but the two coordinates are not the
+same shape. `promote` is NOT nested, so a mismatch there really does give the
+useless middle the docstring warns about; the door IS nested,
+`admits(...) or REPEAT` being a strict subset of that OR
+`whole_vocabulary_pairs`. **Measured: 0 RHYME violations under either door on
+`mandate_song.txt` and on sonnet 1 — every violation is `REPEAT`.** So the
+narrow door makes this cover STRICTER than its consumer, never looser, and
+`--cliques` cannot mandate something the grader then charges. What it does is
+hand back **23% of the line pairs this harness sees as related, under a name
+that promises the song's OWN structure**, where the grader accepts 73%.
+
+**THE ONE-LINE WIDENING IS PRICED AND IT IS NOT A ROUNDING ERROR.** On
+`quality/fixtures/mandate_song.txt` (41 lines) the cover goes **19 -> 41 groups
+and 242 -> 10,626 mandated pair-slots**; on `songs/matinee.txt` (32 lines)
+**19 -> 206 groups**; on sonnet 1, **9 -> 21 groups and 13 -> 253 pair-slots**.
+`brief()` would then ask nearly every line to answer nearly every other, and
+doctrine 2's *"maximal cliques may OVERLAP"* stops being a structural
+observation about the song and becomes an artefact of a near-complete graph.
+Cost: **329.0s of `whole_vocabulary_pairs` against 4.3s of the adjacency loop
+it bolts onto over those 170 drafts, a 77x multiplier**; on
+`quality/test_revise.py`, **+99s on 973.8s (+10.2%)** ungated, or **+14.6s
+(+1.5%)** with a memo keyed on draft CONTENT — and the shipped
+`_schema_satisfies` memo keys on `id(lines)`, which would collapse **none** of
+that suite's nine calls, since its fixture returns a fresh list each time.
+
+**AND `group_merges`' LAZINESS DOES NOT TRANSFER, MEASURED.** That site can
+gate the stream behind a cheap pre-filter (every cross pair a COLLISION at
+`THETA_COLLISION`), read off the matrix for free. `mandate_from_graph`'s loop
+has ONE test, so every pair failing it is a rescue candidate and the only gate
+available is *build the stream iff at least one pair fails the narrow door* —
+which fires on **170 of 170 drafts**, because a draft where the narrow door
+admits every line pair does not exist in this tree. **The gate buys exactly
+nothing; the cost is unconditional.**
+
+**AND THERE IS A SEAM THE COST TABLE CANNOT SEE: `bearing=` HAS NO HONEST VALUE
+AT THAT SITE.** Both shipped consumers pass the mandate's own rhyme-bearing
+lines, because `mark_refrain_tail`'s docstring records `lines=None` answering
+zero on 495 of 495 ghazals. **`mandate_from_graph` has no mandate — the cover
+is what it is deriving.** So a repair here would call the ONE JUDGE with an
+argument neither `grade()` nor `check_scheme` ever passes it, which is a
+doctrine-1 seam rather than a rounding error, and how much the answer moves
+with `bearing` set is UNMEASURED.
+
+**SO THE DISPOSITION STAYS `INCOMPLETE` AND WHAT IS OWED IS A RULING, NOT A
+DOOR EDIT**: does `--cliques` mean the RHYME graph — doctrine 2's primary
+object, which is what `rhyme_graph` is and what this method's own name says —
+or the WHOLE-VOCABULARY relation graph? `grade()`'s 77-consult is a RESCUE on a
+pair somebody already mandated; using the same judge as a GENERATOR of the
+mandate is a different use of it, and 23% -> 73% is what the difference costs.
+Attributed to a lane; the edge counts and the tautology I have not re-derived
+myself and they are recorded as that lane's measurement.
+
+**AND ITS COST LADDER DOES NOT REPRODUCE WITHIN ITS OWN CORPUS EITHER —
+THE TEXT IS UNDECLARED TWICE OVER.** The paragraph above already strikes the
+sonnet table as a SONNET table (Whitman runs 3-4x higher at matched length).
+Measured again 2026-08-26, on sonnet lines both times, **three readings of one
+ladder**: this entry's recorded **2.94 / 4.74 / 14.73s**, a lane's
+**1.60 / 6.00 / 25.00s** on *"the sonnets concatenated and cut to length"*, and
+mine at **1.83 / 4.26 / 13.72s** on the file's own first 14 / 28 / 56 countable
+lines. The 14-line end and the 56-line end move in OPPOSITE directions between
+the three, so this is not a machine-speed offset — **"sonnets" is not a text,
+it is a family of texts, and which 14 lines is a coordinate none of the three
+declared.** Exactly M-138's sampler defect in the cost register. The ladder is
+kept as an ORDER OF MAGNITUDE and nothing in the tree should read a threshold
+off it.
+
+### M-140 · the 77-schema door has no chance rate, and the judge does not read `normative` `OPEN`
+Opened 2026-08-26 out of M-138's strike, and it is the larger of the two: that
+entry priced the door M-59 widened, and **nobody has ever priced the door M-116
+widened.**
+
+**THE PRECEDENT IS M-138's OWN** (`quality/RESULTS_REDTEAM.md:75-76`): the
+harness being likelier to call two random dictionary words a rhyme than to fail
+one of Shakespeare's mandated pairs was treated as disqualifying, at **1.5x**,
+and it recalibrated `theta_coda`. M-138 re-derives that ratio for the ADMIT
+door at **6.68x-7.16x**. This entry asks the same question of the SCHEMA door
+and the answer is another order of magnitude out.
+
+**MEASURED, `quality/chance_rate.py`, the shipped cell** (seed 20260810, 4,000
+random CMUdict pairs, `redteam(isalpha,2..12)`, production's own
+`line_anchors`+`best_score` reader) — three doors of ONE sample, reported apart
+because a pair can pass more than one and summing them would destroy the
+comparison (doctrine 79):
+
+| door | admitted | rate | against canon 1.18% |
+|---|---|---|---|
+| NARROW `{RHYME, RIME_RICHE}` | 46 / 4000 | 1.15% | 0.97x |
+| ADMIT `decl.admit` (M-59) | 339 / 4000 | 8.48% | 7.16x |
+| **SCHEMA all 77 (M-116)** | **932 / 4000** | **23.30%** | **19.69x** |
+
+and the three-way split of who admits what: **ADMIT only 135, SCHEMA only 728,
+both 204.** The schema door is not a widening of the admit door — it is a
+mostly DISJOINT door that admits five times as many random pairs as the one
+M-138 is about, and **more than three quarters of what it admits, the admit
+door refuses.**
+
+**WHAT THIS ARM IS AND IS NOT, STATED BEFORE IT IS QUOTED** (doctrine 20). Each
+pair is judged as a TWO-LINE STREAM OF ONE WORD EACH. That is the question the
+default asks per pair, and it is the most PERMISSIVE frame available to the
+gap-limited schemas — `pantun ABAB` carries `line_gap_at_most(2)` and
+`chain rhyme (rap)` carries `line_gap_at_most(4)`, both trivially true at a
+gap of one — while it is the least permissive frame for the stanza-framed and
+refrain-framed ones, which have no context to read. So **23.30% is a chance
+rate for one-word lines and is not transferable to a song**, and the direction
+of the bias is not one-signed.
+
+**AND ON REAL DRAFTS THE SAME DOOR ANSWERS ON THREE LINE PAIRS IN FOUR.**
+Measured independently in the M-139 lane over 170 drafts — `quality/fixtures/`,
+`songs/`, and the 152 sonnets as 14-line units, 18,507 possible line pairs:
+the narrow door admits **4,291 (23.19%)** and narrow-OR-77 admits **13,526
+(73.09%)**, a **3.15x** cover, with **0 of 170 drafts unmoved**. Sonnets alone:
+`whole_vocabulary_pairs` answers on a median **73.6%** of a sonnet's 91 line
+pairs.
+
+**THAT 73.09% IS AN OBSERVED RATE AND IT HAS NO NULL, WHICH IS WHY THIS ENTRY
+IS OPEN RATHER THAN A FINDING** (doctrine 71/76). It is not comparable to the
+23.30%: those are one-word lines and these are full English lines, so the span
+opportunities differ by an order of magnitude and the two numbers answer
+different questions. What is owed is a MATCHED null — the line-permutation
+control `quality/negative_control.py` already implements for the band, run
+under the whole-vocabulary door instead — because a door that answers on 73% of
+real line pairs and on 73% of permuted ones has not found anything, and this
+tree has been bitten by exactly that shape before (the Whitman arm, doctrine
+71's own instance). **The null is NOT run here and no separation is claimed.**
+
+**AND THE JUDGE DOES NOT READ `normative`, WHICH IS A DOCTRINE-1 GAP MEASURED
+LATENT RATHER THAN LIVE.** `RelationSchema.normative` is a declared field and
+the registry disowns four of its own names with it: `forbidden` on
+`homoioteleuton` and on `fourth lift must not alliterate`, `deprecated` on two
+more. `relations.whole_vocabulary_pairs` iterates `sorted(REGISTRY)` and
+filters on nothing, so **a schema the registry marks a FAULT counts as
+satisfying a mandate at the default door.** The sharpest instance is the one
+this repository has an owner ruling about: `homoioteleuton`'s own note calls it
+*"THE SINGLE MOST IMPORTANT FALSE-POSITIVE CLASS for any tail comparator"*, its
+spelled-rime class is the TIER-1 OUTRIGHT BAN, and `running`/`singing` comes
+back from the judge as `['consonance', 'homoioteleuton', 'pantun ABAB',
+'syllabic rhyme']` — the ban's own canonical example, satisfying the default,
+with the ban's own name in the list of reasons.
+
+**MEASURED, AND IT DENTS THE HEADLINE, WHICH IS WHY IT IS THE MEASUREMENT AND
+NOT THE ARGUMENT: a disowned schema answered on 110 of the 932, and was the
+SOLE satisfier on 0.** So no verdict moves today — every pair a fault admits is
+already admitted by an attested schema, which is what a strict class like
+`homoioteleuton` (nucleus AND coda AND prominence, on a shared morpheme affix)
+should be expected to do. **The gap is real, the exposure is zero on this
+population, and it is filed LATENT rather than closed** — the field exists, the
+judge does not read it, and nothing in the tree would notice the day a
+`forbidden` schema became somebody's only reason.
+
+**WHAT IS OWED, and it is three separable things.** (1) The matched null above,
+which is what turns 73.09% into a finding or into nothing. (2) A ruling on
+`normative`: should the ONE JUDGE filter `forbidden`/`deprecated`, or is
+"the vocabulary NAMES this relation" the whole of what the default claims? The
+second is defensible — M-59's argument was precisely that the mandate layer
+must not say a named sonic event satisfies nothing — but it is a ruling, and
+right now it is a `for` loop. (3) The near-relation pricing M-138 is open on,
+which this entry does not duplicate and does not settle.
+
+**TESTED WHILE OPEN.** `quality/chance_rate.py --check` re-derives all four
+sampler cells and holds the band (`admit 289..339`, `narrow 36..46`,
+`schema 897..932`), exits 3 on drift, and asserts that its shipped cell's draw
+still reproduces `redteam_band.sample_pairs` pair for pair. The DISOWNED split
+is printed on every run. What the check asserts is that the rates have not
+MOVED; it asserts nothing about what they should be, which is the ruling above.
+

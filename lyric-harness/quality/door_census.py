@@ -159,7 +159,20 @@ RULINGS = {
         "applied to the anchor coordinate and not to this one. Doctrine 14 "
         "governs whether a derived cover may be used as a control; it does "
         "not license the cover disagreeing with the grader. "
-        "`MISSING.md` M-139."),
+        "MEASURED 2026-08-26 over 170 drafts and 18,507 line pairs: the "
+        "narrow door admits 4,291 (23.19%), narrow-OR-77 admits 13,526 "
+        "(73.09%), and 0 of 170 covers are unmoved -- so this is LIVE, not "
+        "latent. But the door coordinate is NESTED where `promote` is not, "
+        "so the tautology here is EXACTLY true rather than approximately (0 "
+        "RHYME violations under either door; every violation is REPEAT) and "
+        "the cover is STRICTER than its consumer, never looser. The one-line "
+        "widening takes a 41-line draft from 19 groups / 242 mandated "
+        "pair-slots to 41 / 10,626, the lazy gate `group_merges` uses fires "
+        "on 170 of 170 drafts so it buys nothing, and this site has no "
+        "mandate, so `bearing=` -- which both shipped consumers pass -- has "
+        "no honest value here. IT STAYS INCOMPLETE AND WHAT IS OWED IS A "
+        "RULING: does `--cliques` mean the RHYME graph or the "
+        "whole-vocabulary relation graph? `MISSING.md` M-139."),
     ("quality/revise.py", "Reviser.group_merges"): (
         FULL,
         "The merge detector asks, in its own words, whether every cross pair "
@@ -268,6 +281,19 @@ RULINGS = {
         "all three arrive in `0c3a0b1`, the commit that CREATED `admits()`, "
         "when no other door existed. Figures attributed to a lane. "
         "`MISSING.md` M-139."),
+    ("quality/chance_rate.py", "measure"): (
+        ARGUED,
+        "THE CHANCE-RATE INSTRUMENT, and its narrow expression is the "
+        "measurement rather than a lag. It asks all three doors of one "
+        "sample and reports them APART — `decl.admit`, the historical two, "
+        "and `whole_vocabulary_pairs` — because a pair can be admitted by "
+        "two of them at once and summing the counts would destroy the very "
+        "comparison the module exists for (doctrine 79; it prints ADMIT-only "
+        "/ SCHEMA-only / both). Folding the 77 into the `admits()` call "
+        "would make the ADMIT arm unreadable and leave nothing measuring "
+        "the door M-138 is about. Built 2026-08-26 with `MISSING.md` M-138's "
+        "strike; the 77 ARE consulted in the same function, which is why "
+        "this site reads YES on the schema column."),
     ("quality/negative_control.py", "Quatrain.__init__"): (
         ARGUED,
         "The negative control's own door, and it is NARROWER than the "
@@ -338,8 +364,8 @@ _BY_DOOR = {
 #: the same sitting and the pins moved with it, which is what a repair is
 #: supposed to do to this table. Every remaining INCOMPLETE is OPEN under
 #: `MISSING.md` M-139 and each needs its own measurement before it moves.
-PINNED = {"sites": 19, "full": 4, "incomplete": 2, "per_word": 1,
-          "rendering": 3, "validation": 1, "argued": 8}
+PINNED = {"sites": 21, "full": 4, "incomplete": 2, "per_word": 1,
+          "rendering": 3, "validation": 1, "argued": 10}
 
 
 def _innermost(tree):
