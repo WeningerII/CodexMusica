@@ -65,3 +65,27 @@ i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:save~grace	CLEAN
 i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	banned	0
 i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	refused	0
 i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	clean_or_non_rhyme	36
+i_am_not_leaving.txt	5	2026-08-26	4daa5fe	screen	0	pair:share~swear	CLEAN
+i_am_not_leaving.txt	5	2026-08-26	4daa5fe	screen	0	pair:share~unfair	CLEAN
+i_am_not_leaving.txt	5	2026-08-26	4daa5fe	screen	0	pair:swear~unfair	CLEAN
+i_am_not_leaving.txt	5	2026-08-26	4daa5fe	screen	0	banned	0
+i_am_not_leaving.txt	5	2026-08-26	4daa5fe	screen	0	refused	0
+i_am_not_leaving.txt	5	2026-08-26	4daa5fe	screen	0	clean_or_non_rhyme	3
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:prayer~bare	CLEAN
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:prayer~swear	CLEAN
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:prayer~elsewhere	CLEAN
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:prayer~feel	CLEAN
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:prayer~every	CLEAN
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:bare~swear	CLEAN
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:bare~elsewhere	CLEAN
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:bare~feel	CLEAN
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:bare~every	CLEAN
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:swear~elsewhere	CLEAN
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:swear~feel	CLEAN
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:swear~every	CLEAN
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:elsewhere~feel	CLEAN
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:elsewhere~every	CLEAN
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	pair:feel~every	not a usable rhyme — below theta_rhyme=0.75
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	banned	0
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	refused	0
+i_am_not_leaving.txt	6	2026-08-26	4daa5fe-WORKING	screen	0	clean_or_non_rhyme	15
