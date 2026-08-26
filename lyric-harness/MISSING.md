@@ -11816,3 +11816,36 @@ under the two-name door and reproduces the recorded 50.0%-vs-5.1%
 (9.8x) to the decimal, and `test_capacity.py`/`test_readability.py`
 now pin the satisfied-by-schema default beside the refusing declared
 doors rather than a sentence the door had overtaken.
+
+### M-127 · the deployment could drift from the tree and nothing could say so `CLOSED`
+Found and closed 2026-08-26, raised by the owner's own question — "the
+connector and the MCP and everything are all up and running and doing
+what we need them to do?" — which no command in this repository could
+answer. Every gate here runs against the TREE: `mcp/test.mjs` builds
+the server in-process and proves its shape, CI proves the code, and
+NOTHING ever asked the RUNNING process what it is actually serving.
+Measured, and the gap was live: a running server was advertising
+`lyric_sweep` with a 12-want ceiling and no `story_lineups` predicate
+— one commit (`0e1ef17`) behind the tree that deploys it — and the
+only detector was a person reading a schema. A staleness only a person
+can notice is standing rule 3's defect wearing a deployment hat, and
+the loop it leaves open is the exact shape this repo names elsewhere:
+built, tested, green, and not what anyone is actually being served.
+The fix is an INSTRUMENT, not a redeploy: `mcp/check_live.mjs` asks a
+live endpoint for the tool surface a CLIENT sees — name, description,
+inputSchema, read through the same SDK listTools path on both sides so
+the SDK's own rewriting cancels — and byte-compares it under canonical
+key order against the surface this tree's `buildServer()` advertises.
+Three answers, never collapsed (doctrine 20/79): exit 0 MATCH, exit 3
+DRIFT with every drifted tool named beside the coordinate that moved,
+exit 2 REFUSED when the server cannot be asked — a server nobody can
+reach is not a server that matches. It gates in the NIGHTLY job and
+deliberately not per-push: `render.yaml` deploys from main, so a
+feature branch that edits the connector LEGITIMATELY differs from the
+deployment until it merges, and a per-push gate would charge every
+honest connector change with the drift it is about to fix. The
+comparator is proven refutable in `mcp/test.mjs` — missing tool, extra
+tool, drifted description, drifted schema each named, and reordering
+proven NOT to be drift — and the transport half was proven against a
+locally spawned `mcp/server_http.js`: MATCH at exit 0 over the full
+16-tool surface.
