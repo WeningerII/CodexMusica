@@ -11896,3 +11896,47 @@ exactly like having ordered it. A class with a real `__repr__` still orders,
 so the rule costs nothing to a type that can answer it. `test_propose.py` §1,
 four checks: the value ordering, the refusal, the not-overbroad control, and
 the three-seed digest — now agreeing over **18 consecutive runs**.
+
+### M-129 · equal shard COUNTS were read as equal shard TIME `CLOSED`
+The nightly mutation sweep pays itself in one shard a night, chosen by
+day-of-year residue, and `test_mutation.py` §3e pinned the round-robin
+stride with the sentence **"max-min <= 1, so a per-shard time bound means
+the same thing on every shard."** The first clause is true and worth
+pinning. The second is a TIME guarantee read off a COUNT, and CI refuted it
+on consecutive nights:
+
+| run | shard | wall clock | verdict |
+|---|---|---|---|
+| #909, 2026-08-25 | 2 of 2 | **171m 41s** | exit 0, holds |
+| #966, 2026-08-26 | 1 of 2 | **>200m** | killed at the step bound |
+
+Lists differing by at most one member, times differing by at least 16%. A
+mutation costs what its detectors' SUITES cost, and those run from
+milliseconds to minutes, so the stride balances the cheap coordinate and
+says nothing about the expensive one.
+
+**THE STEP'S OWN REFUSAL ASKED FOR THE MEASUREMENT AND COULD NOT SUPPLY
+IT.** Its message names two levers and ends *"Measure first — the wall clock
+this file prints is the number"*, but `timeout 200m` kills the run before
+any wall clock prints, so the only way to size shard 1 was to read a
+SIBLING shard's runtime out of a DIFFERENT CI run. `run_suite` now prints a
+flushed `k of n resolved (Ns elapsed)` line per mutation, so a truncated log
+bounds itself and the next N is picked on its own evidence.
+
+**N RAISED 2 -> 4, AND NOT THE BOUND.** Raising the 200m step bound and the
+job cap buys one night and pays it again the next time the suite grows. And
+widening parallelism is not available: the runner is ALREADY saturated at
+`--mutation-jobs 2` x `--jobs 4` on 4 vCPUs, so more concurrency
+oversubscribes into the inner per-suite `--timeout 420` — and **a suite
+killed inside a mutation reports SURVIVED**, which is a coverage hole
+manufactured by a scheduling change, the one outcome worse than a slow
+sweep. **THE COST IS CADENCE AND IT IS DISCLOSED**: 58 mutations split
+`[15, 15, 14, 14]`, so each is asked every FOURTH night rather than every
+second. The stride is round-robin, so N=4 splits each old half in two and
+the heavy half's mass splits with it.
+
+**~~2 h 07 m measured + headroom~~** on the job cap is repinned with it: the
+last shard to FINISH took 171m41s, so that figure described a sweep two
+sizes ago (doctrine 58). The cap stays 240 on its own stated argument — the
+step bound is what fires, and the cap exists so a hung fork cannot hold a
+runner for six hours.

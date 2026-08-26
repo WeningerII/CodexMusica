@@ -1975,8 +1975,13 @@ jobs:
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'schedule' && github.event.schedule == '17 4 * * *')
     runs-on: ubuntu-latest
-    # 2 h 07 m measured + headroom, and the STEP bound below is what actually
-    # fires: this exists so a hung fork cannot hold a runner for six hours.
+    # ~~2 h 07 m measured + headroom~~ — REPINNED 2026-08-26: the last
+    # shard to FINISH took 171m41s (shard 2/2, run #909) and its sibling was
+    # killed at the 200m step bound, so 2h07m described a sweep two sizes
+    # ago. At N=4 the expected shard is roughly half of either, and this cap
+    # is left at 240 on its own stated argument — the STEP bound below is
+    # what actually fires, and this exists so a hung fork cannot hold a
+    # runner for six hours.
     timeout-minutes: 240
     steps:
       - uses: actions/checkout@v5
@@ -2013,7 +2018,32 @@ jobs:
           # `10#` FORCES BASE TEN. `date +%j` is zero-padded, so day 008 and
           # day 009 are invalid octal and abort the arithmetic — a bug that
           # would wait until January to fire and then look like a shard defect.
-          N=2
+          # N=4 SINCE 2026-08-26, RAISED FROM 2 ON THE MEASUREMENT THE
+          # REFUSAL BELOW ASKED FOR — "measure first, the wall clock this
+          # file prints is the number":
+          #   shard 2/2  run #909, 2026-08-25  04:53:47 -> 07:45:28  171m41s, exit 0
+          #   shard 1/2  run #966, 2026-08-26  04:55:40 -> 08:15:40  killed at 200m
+          # so the whole sweep is >372m and one half of it no longer fits.
+          # THE TWO SHARDS ARE BALANCED BY COUNT AND NOT BY TIME — that is
+          # the finding, and `test_mutation.py` §3e carried the opposite
+          # claim ("a per-shard time bound means the same thing on every
+          # shard") until this lot struck it. A mutation costs what its
+          # detectors' SUITES cost, and those run from milliseconds to
+          # minutes.
+          # RAISING N AND NOT THE BOUND, deliberately. The other lever
+          # (raise 200m and the job cap together) buys one night and pays it
+          # again the next time the suite grows, and the runner is ALREADY
+          # saturated — `--mutation-jobs 2` x `--jobs 4` on 4 vCPUs — so
+          # widening parallelism instead would oversubscribe into the inner
+          # per-suite `--timeout 420`, and a suite killed inside a mutation
+          # reports SURVIVED. That is a coverage hole manufactured by a
+          # scheduling change, which is the one outcome worse than a slow
+          # sweep.
+          # THE COST IS CADENCE AND IS NOT HIDDEN: 58 mutations at N=4 is
+          # ~14-15 a night, and each is asked every FOURTH night rather than
+          # every second. The stride is round-robin, so N=4 splits each old
+          # half in two and the heavy half's mass splits with it.
+          N=4
           I=$(( (10#$(date -u +%j) % N) + 1 ))
           echo "day-of-year $(date -u +%j) -> shard $I of $N"
           set +e
