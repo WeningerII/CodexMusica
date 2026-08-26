@@ -11949,7 +11949,7 @@ ARTIFACTS.
 
 **IT FAILED ON A FILE NOBODY WROTE AND NOTHING TRACKS.** A container carrying
 a `graphify-out/` build (gitignored at `.gitignore:33`, tracked by nothing)
-failed the check on `GRAPH_REPORT.md:582` claiming *"185 instruments"* against
+failed the check on `GRAPH_REPORT.md:582` claiming *"185 instruments"* against <!-- check_docs:ignore -->
 a catalog of **1406**. That report is a machine summary of a graph, not
 documentation anybody maintains, and `CLAUDE.md` already says in as many words
 that its path is deliberately not written as a repo-path citation *because it
@@ -12008,7 +12008,7 @@ STOPPED FINDING IT, FOR THE WRONG REASON.** `verify_entries.py` FAILED CI run
 MISSING.md … now — doctrine 17: keep it visible, with the date it was
 superseded"*, and the very next commit turned that FAIL into a passing note —
 not because anything recorded the supersession, but because M-130's prose above
-happens to quote *"185 instruments"* about an unrelated graph report. **A gate
+happens to quote *"185 instruments"* about an unrelated graph report. **A gate <!-- check_docs:ignore -->
 satisfied by a numeral that means something else is a gate passing for the wrong
 reason**, and the same coincidence runs backwards through this counter's
 history: the transition the checker marks `[ok]` cites `MISSING.md:218`, which
@@ -12023,3 +12023,15 @@ the honesty of THIS record: the four values above are struck, dated and bound to
 the entries that moved them, so the chain is satisfied by intent. The scanning
 weakness is stated so the next lot that touches that arm knows what it is
 looking at.
+
+**AND THE ESCAPE HATCH'S FIRST REAL USE IS HERE.** Quoting a wrong figure on
+purpose is exactly what `scripts/check_docs.js`'s `<!-- check_docs:ignore -->`
+pragma exists for — and until this entry NO markdown in the repository carried
+one. A documented escape with no users is an escape nobody has exercised, which
+is this file's own recurring shape wearing a very small hat. It is honoured at
+five places in the scanner, it does suppress the two quoted-figure lines above,
+and both surfaces — plain and `--json`, which is the one `npm run tandem`
+actually calls — come back clean. **THE TWO SURFACES ARE WHY THIS TOOK A SECOND
+ROUND**: the plain run was green while `--json` was red, because the prose that
+breaks it was written AFTER the plain run had been used to declare the fix
+verified. Verify the surface the caller uses.
