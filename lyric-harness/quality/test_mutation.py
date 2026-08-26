@@ -578,8 +578,26 @@ def run_suite(mode, only, jobs, mutation_jobs, confirm_all, timeout=420):
     tests = mutate.discover_tests()
     t0 = time.time()
     before = mutate.root_hashes()
+    # THE BASELINE IS A PHASE AND IT IS BOUNDED TOO — ADDED 2026-08-26 AFTER
+    # THE FIRST VERSION OF THIS DISCLOSURE MISSED THE CASE IT WAS WRITTEN FOR.
+    # The `k of n` line below sits inside `as_completed`, so it says nothing
+    # until the FIRST MUTATION RESOLVES. A kill that lands in the unmutated
+    # baseline therefore produced a log with no bound at all — which is the
+    # exact archaeology this disclosure exists to end, surviving in the one
+    # phase nobody checked. MEASURED, not hypothesised: a local run killed at
+    # 1500s cleared the static sections (98 checks) and died with its last
+    # line `baseline: running 77 checks unmutated (...)`, carrying no elapsed
+    # figure and no phase count.
+    # So the phase ANNOUNCES ITSELF and then reports its own cost. Two lines,
+    # both flushed: a truncated log now names WHICH PHASE it died in, and a
+    # completed baseline hands the next person the baseline's share of the
+    # shard budget, which is what sizing N actually turns on.
+    print(f"   ... phase 1 of 2: unmutated baseline over {len(tests)} test "
+          f"file(s), 0 of {len(muts)} mutation(s) started", flush=True)
     bl = mutate.baseline(tests, jobs, os.path.join(base, "baseline.json"),
                          confirm_all=confirm_all, timeout=timeout)
+    print(f"   ... phase 1 of 2 done ({time.time() - t0:.0f}s elapsed); "
+          f"phase 2 is {len(muts)} mutation(s)", flush=True)
     green = [t for t, r in bl.items() if r["status"] == "PASS"]
     results = []
     import concurrent.futures as futures
@@ -592,9 +610,18 @@ def run_suite(mode, only, jobs, mutation_jobs, confirm_all, timeout=420):
         # nothing about how far it got, so the only way to learn that shard
         # 1/2 needed more than 200m was to read a sibling shard's runtime out
         # of a different CI run and subtract. Reconstructing a shard's size
-        # from another shard's log is the archaeology this line ends: a
-        # truncated log now carries `k of n` and the elapsed seconds at the
-        # kill, which is what the next person needs to pick N on evidence.
+        # from another shard's log is the archaeology this line ends.
+        # ~~a truncated log now carries `k of n` and the elapsed seconds at
+        # the kill~~ — STRUCK THE SAME DAY IT WAS WRITTEN, because it was
+        # true of this LOOP and false of the RUN. This line cannot fire until
+        # the first mutation RESOLVES, and the unmutated baseline runs first
+        # and is the expensive phase: a local run killed at 1500s never
+        # reached here at all, so the log it left carried no bound and the
+        # sentence above described a disclosure the run had not made. The
+        # baseline announces itself and reports its cost up in `run_suite`
+        # now; between the two, every kill lands inside a phase that has
+        # already named itself. The claim this comment may make is about the
+        # MUTATION phase only.
         for f in futures.as_completed(fs):
             results.append(f.result())
             print(f"   ... {len(results)} of {len(muts)} mutation(s) resolved "

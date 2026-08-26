@@ -12244,3 +12244,46 @@ for exactly the omission it exists to catch: the counters table is REWRITTEN
 in place by `counters.py --write`, so the superseded figure leaves the page
 unless an entry states it, and a value that merely vanishes is not a
 judgement.
+
+### M-134 · the kill-bound disclosure missed the phase that gets killed `CLOSED`
+M-129's own repair, one phase short, found 2026-08-26 by running
+`test_mutation.py` locally under the 13-agent fan-out and reading the
+TRUNCATED log rather than the verdict.
+
+M-129 added a flushed `... k of n mutation(s) resolved` line so that a shard
+killed by `timeout Nm` would leave a bound behind instead of the archaeology of
+reading a sibling shard's runtime out of a different CI run. The comment above
+it claimed *"a truncated log now carries `k of n` and the elapsed seconds at
+the kill."*
+
+**THAT SENTENCE WAS TRUE OF THE LOOP AND FALSE OF THE RUN.** The line sits
+inside `futures.as_completed(fs)`, so it cannot fire until the FIRST MUTATION
+RESOLVES — and `mutate.baseline()` runs before any of them, over 77 test files,
+and is the expensive phase. **MEASURED**: a local run killed at 1500s cleared
+the static sections (98 checks) and died with its last line
+`baseline: running 77 checks unmutated (...)`, carrying no elapsed figure, no
+phase name and no mutation count. The disclosure written to end the archaeology
+was absent in the one case that produces it.
+
+**THE PHASE ANNOUNCES ITSELF NOW, AND REPORTS ITS OWN COST.** Two flushed lines
+in `run_suite` around the baseline call: `phase 1 of 2: unmutated baseline over
+N test file(s), 0 of M mutation(s) started` before, and `phase 1 of 2 done (Ns
+elapsed); phase 2 is M mutation(s)` after. Between those and the existing
+`k of n` line, **every kill now lands inside a phase that has already named
+itself**, and a completed baseline hands the next person the baseline's share
+of the shard budget — which is the quantity sizing N actually turns on, and
+which no log carried before.
+
+**PROVEN BY KILLING ONE.** `timeout 150 python3 quality/test_mutation.py
+--shard 1/58` exits 124 and its truncated log now ends:
+`... phase 1 of 2: unmutated baseline over 77 test file(s), 0 of 1 mutation(s)
+started` / `baseline: running 77 checks unmutated (f0d771f8021c6d2d) ...`.
+Against the pre-fix tree the same command's last line is the `baseline:` line
+alone. `--static` is unaffected at 98 checks, exit 0.
+
+**THE CLAIM IS NARROWED RATHER THAN RESTATED (doctrine 17):** the struck
+sentence stays visible at its own site, and what the loop's comment may now
+claim is scoped to the MUTATION phase, because that is the phase it observes.
+A disclosure that describes a run it did not make is the defect M-129 existed
+to close, and it reappeared inside M-129's own repair — the same shape as
+M-133's vacuous first gate draft, in the neighbouring file, on the same day.

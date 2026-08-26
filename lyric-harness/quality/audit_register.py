@@ -2210,7 +2210,9 @@ PINNED = {
     # `plan.song_line_counts()` READS moves the planner's length envelope
     # and therefore its dice, so a repin of `test_floor.py` alone was
     # never the whole reconciliation.
-    "coverage_entries": 191,
+    # ~~191~~ -> 192: M-134, M-129's own repair one phase short — the
+    # kill-bound disclosure could not fire in the phase that gets killed.
+    "coverage_entries": 192,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;
