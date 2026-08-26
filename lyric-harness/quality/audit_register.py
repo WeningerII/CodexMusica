@@ -2212,7 +2212,11 @@ PINNED = {
     # never the whole reconciliation.
     # ~~191~~ -> 192: M-134, M-129's own repair one phase short — the
     # kill-bound disclosure could not fire in the phase that gets killed.
-    "coverage_entries": 192,
+    # ~~192~~ -> 193: M-135, the comparator audit — doctrine 56
+    # honoured in `relations.py` and recorded-but-unapplied in
+    # `best_score`, measured at 75.8% of the search's lift
+    # reproduced by a null under the same search.
+    "coverage_entries": 193,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

@@ -12287,3 +12287,66 @@ claim is scoped to the MUTATION phase, because that is the phase it observes.
 A disclosure that describes a run it did not make is the defect M-129 existed
 to close, and it reappeared inside M-129's own repair — the same shape as
 M-133's vacuous first gate draft, in the neighbouring file, on the same day.
+
+### M-135 · the comparator's span search has no null under the same search `OPEN`
+The audit the owner asked for, run against the site every rhyme number passes
+through. **DOCTRINE 56 IS HONOURED IN ONE LAYER AND RECORDED-BUT-UNAPPLIED IN
+THE OTHER, and the two layers are one screen apart.**
+
+`relations.py` obeys it: `search_k` is consumed by `search_burden()`, disclosed
+per locus, and `quality/relations_null.py` supplies a null under the same
+search — which is how `line_permutation` was caught being the IDENTITY MAP and
+`internal rhyme` caught sitting BELOW chance at lift 0.897.
+
+`lyric_harness.best_score` records the identical precondition — `"search_k": k`
+under a comment reading *"doctrine 56: k is the size of the search the max was
+taken over. Recording it is the precondition for a null under the same
+search"* — **and nothing consumes it.** Its only other reader is a print
+(`best of k=…`). The precondition is banked, disclosed, and never applied: the
+comparator takes a max over k span readings and compares the winner to a
+threshold calibrated without reference to k.
+
+**MEASURED, 152 sonnets, 1,108 mandated pairs, theta_rhyme 0.75, 10 null
+replicates (random end-word pairs from the same sonnets — matched vocabulary,
+same reader, the `audit_band_control.py` null design).** The no-search arm
+restricts both sides to the `endword_only` span, i.e. k=1.
+
+| arm | full k-search | endword-only | the search's lift |
+|---|---|---|---|
+| REAL | 41.88% | 36.46% | **+5.42 pp** |
+| NULL (median of 10) | 14.85% | 10.79% | **+4.11 pp** |
+
+  excess over null, full search : **+27.03 pp**
+  excess over null, no search   : **+25.68 pp**
+  what the search BUYS          : **+1.35 pp**
+
+**THREE QUARTERS OF THE SEARCH'S LIFT ON REAL VERSE IS REPRODUCED BY THE NULL
+(75.8%)**, and the real arm's lift (+5.42 pp) barely clears the null's own
+replicate MAXIMUM (+5.14 pp, range +3.07 to +5.14). Doctrine 71's sentence,
+pointed at a search instead of a corpus: a lift that does not separate from its
+own null is not a lift.
+
+**WHAT THIS IS NOT, AND THE DISTINCTION IS LOAD-BEARING.** 41.88% is the
+SCALAR gate alone (`total >= theta_rhyme`), NOT this harness's verdict.
+`admits()` types the relation and, since M-59/M-116, accepts ASSONANCE,
+CONSONANCE and the whole-vocabulary schema default — which is why the battery
+reports **1.2% violations of judged pairs** and not 58%. Nothing here restates
+the battery, and no violation count moves.
+
+**AND IT IS NOT A CASE FOR DELETING THE SEARCH.** The mosaic reach earns its
+place on ATTRIBUTION, which is a different question from admission: adversary
+7 built it because a consumer holding a number could not say which spans
+produced it, and `report_pair`'s `NAMED PAIR IS NOT THE EVIDENCE` banner
+depends on it. What is unproven is the search's contribution to ADMISSION, and
+that is the only thing measured above.
+
+**FILED OPEN.** The repair is not a threshold change — retuning theta to absorb
+a search is doctrine 58's error, and the honest options (correct for k the way
+doctrine 19/56 asks, or declare the search as a coordinate and calibrate the
+band under it) each re-grade every pair in the repository and need their own
+preregistration. What is bankable today is the measurement and the asymmetry
+between the two layers.
+
+**ONE CORPUS, ONE THRESHOLD, ONE NULL DESIGN** — sonnets at theta_rhyme with a
+same-vocabulary re-pairing. It has NOT been re-run on `corpus/song/`, at the
+other thresholds, or under a permutation null, and no claim is made for those.
