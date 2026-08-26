@@ -135,6 +135,29 @@ def main():
           "`Reviser.grade` consulting the judge must not license "
           "`Reviser.mandate_from_graph`")
 
+    print("\n3b. the ONE-HOP call resolution is exactly one hop")
+    # A site can reach the judge through a HELPER — `Reviser.group_merges`
+    # asks the 77 via `Reviser._schema_satisfies`, memoised, and a scope-chain
+    # detector reported it blind. Unlimited depth would credit half the module
+    # through any path, so the bound is asserted here rather than trusted.
+    check("3b", "a helper the site CALLS counts",
+          DC._reaches_judge("Reviser.group_merges",
+                            {"Reviser._schema_satisfies"},
+                            {"Reviser.group_merges": {"_schema_satisfies"}},
+                            {"_schema_satisfies": {"Reviser._schema_satisfies"}}),
+          "group_merges -> _schema_satisfies -> the judge")
+    check("3b", "...a SIBLING it does not call does NOT",
+          not DC._reaches_judge("Reviser.mandate_from_graph",
+                                {"Reviser.grade"},
+                                {"Reviser.mandate_from_graph": {"foo"}},
+                                {"grade": {"Reviser.grade"}}),
+          "calling `foo` must not inherit `grade`'s judge")
+    check("3b", "...and TWO hops do not, which is what keeps this bounded",
+          not DC._reaches_judge("A.a", {"A.c"},
+                                {"A.a": {"b"}, "A.b": {"c"}},
+                                {"b": {"A.b"}, "c": {"A.c"}}),
+          "a -> b -> c reaching the judge at c must NOT credit a")
+
     print("\n4. the INCOMPLETE sites are named, not merely counted")
     inc = sorted((r["path"], r["func"]) for r in rows
                  if r["disposition"] == DC.INCOMPLETE)

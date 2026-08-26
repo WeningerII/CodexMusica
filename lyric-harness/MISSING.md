@@ -12880,7 +12880,28 @@ this entry — so a test naming M-139 is not a test claiming M-139 is finished;
 one of them fails if anybody quietly closes it. What stays open is the three
 sites below, and no check asserts a verdict on any of them.
 
-**WHAT IS STILL OPEN, and this entry does not bank its hits and stop.** Three
+**AND `group_merges` IS REPAIRED — 4 FULL / 2 INCOMPLETE.** Its two conditions
+were one `or` and one `break`, which is what made the schema half unaskable
+there. They are separated now: **(a)** every cross pair a COLLISION is checked
+first and cheaply, and a pair that is not a collision fails outright with no
+rescue — the merge only ever re-describes findings the loop was already
+emitting, which is this method's own honesty argument. **(b)**'s survivors, and
+only those, go to `Reviser._schema_satisfies`, which calls the SAME judge both
+graders already use and MEMOISES it per (draft, mandate) so several candidate
+merges share one stream rather than paying `width²` builds. It is gated on
+`admit_is_default` exactly as `grade()` is: a caller who narrowed the door has
+declared what satisfies them, and the rescue does not override a declaration.
+
+**THE CENSUS UNDER-CREDITED THE REPAIR AND THAT FORCED A SECOND DETECTOR
+FIX** — the third time this instrument has been wrong in the flattering
+direction, and the third time a mutation caught it. `group_merges` names no
+judge in its own body; it calls a helper. A scope-chain detector reported it
+blind. `_reaches_judge` now resolves **ONE HOP** through the call graph, and
+one hop is the whole discipline: unlimited depth credits half a module through
+any path. `quality/test_door_census.py` §3b pins all three edges — a called
+helper counts, an uncalled sibling does not, and two hops do not.
+
+**WHAT IS STILL OPEN, and this entry does not bank its hits and stop.** Two
 INCOMPLETE sites remain and each needs its own measurement before it moves,
 because each pays a real cost: `whole_vocabulary_pairs` builds a full 77-schema
 stream, MEASURED at **2.94s over 14 lines, 4.74s over 28, 14.73s over 56**, and

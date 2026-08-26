@@ -37,6 +37,17 @@ stands in a relation, found on the AST and never by reading:
     `quality/redteam_band.py` writes it, and a grep for the constant name
     cannot see it.
 
+HOW A SITE "REACHES THE 77", and both extensions were forced by a repair this
+detector then under-credited. A site reaches the judge when it is named in the
+site's own function, in an ENCLOSING one (a nested function sees its enclosing
+scope — `check_scheme.ok` sits inside a function that calls the judge thirty
+lines above it), or in a HELPER THE SITE CALLS, resolved ONE HOP
+(`Reviser.group_merges` asks through `Reviser._schema_satisfies`, which is the
+right shape because the stream is memoised across candidate merges).
+**EXACTLY ONE HOP**: unlimited depth would credit half a module through any
+path, and `quality/test_door_census.py` §3b pins all three edges of that —
+a called helper counts, an uncalled sibling does not, and two hops do not.
+
 SIX DISPOSITIONS, and the split is what keeps this from being a demand that
 every site widen. Not every site is judging a mandate.
 
@@ -140,10 +151,20 @@ RULINGS = {
         "not license the cover disagreeing with the grader. "
         "`MISSING.md` M-139."),
     ("quality/revise.py", "Reviser.group_merges"): (
-        INCOMPLETE,
+        FULL,
         "The merge detector asks, in its own words, whether every cross pair "
-        "would SATISFY the mandate. That is the satisfaction question at "
-        "four. `MISSING.md` M-139."),
+        "would SATISFY the mandate. REPAIRED 2026-08-26 (M-139) by splitting "
+        "its two conditions, which used to be one `or` and one `break`: (a) "
+        "every cross pair a COLLISION is checked first and cheaply, and the "
+        "77 are asked -- through `_schema_satisfies`, memoised per (draft, "
+        "mandate) -- only for the pairs that clear (a) and fail (b). "
+        "MEASURED, that branch is nearly unreachable: of 400,000 random "
+        "CMUdict pairs, 2,576 clear `THETA_COLLISION` and exactly 2 (0.08%) "
+        "type NO_RELATION, which is the only way (b) can fail once (a) "
+        "holds. So `inspect()` -- which calls this every round of the loop "
+        "-- pays nothing on a draft that never reaches it. ~~That is the "
+        "satisfaction question at "
+        "four.~~ `MISSING.md` M-139."),
     ("quality/recover.py", "recover"): (
         INCOMPLETE,
         "The pasted-song door (M-72). Its doctrine-14 claim is that every "
@@ -255,7 +276,7 @@ _BY_DOOR = {
 #: the same sitting and the pins moved with it, which is what a repair is
 #: supposed to do to this table. Every remaining INCOMPLETE is OPEN under
 #: `MISSING.md` M-139 and each needs its own measurement before it moves.
-PINNED = {"sites": 19, "full": 3, "incomplete": 3, "per_word": 1,
+PINNED = {"sites": 19, "full": 4, "incomplete": 2, "per_word": 1,
           "rendering": 3, "validation": 1, "argued": 8}
 
 
@@ -285,9 +306,32 @@ def _innermost(tree):
     return out
 
 
-def _reaches_judge(func, sees):
-    """Does this site's scope reach the 77 judge — its own, or an ENCLOSING
-    one's?
+def _callees(tree, enc):
+    """-> {qualified function name: {names it calls}}.
+
+    ONE HOP, and the bound is the point. A site can reach the judge through a
+    HELPER rather than in its own body — `Reviser.group_merges` asks the 77
+    through `Reviser._schema_satisfies`, which is the right shape (the stream
+    is memoised across candidate merges) and which a scope-chain detector
+    cannot see. Following the call graph to unlimited depth would credit half
+    the module through any path, so exactly one hop is resolved and the
+    module docstring says so.
+    """
+    out = {}
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.Call):
+            continue
+        f = node.func
+        name = (f.id if isinstance(f, ast.Name)
+                else f.attr if isinstance(f, ast.Attribute) else None)
+        if name:
+            out.setdefault(enc.get(node, "<module>"), set()).add(name)
+    return out
+
+
+def _reaches_judge(func, sees, calls=None, bare=None):
+    """Does this site's scope reach the 77 judge — its own, an ENCLOSING
+    one's, or a HELPER it calls (one hop)?
 
     A NESTED function sees its enclosing scope, and the first draft of this
     detector did not, so it reported `check_scheme.ok` as blind to a judge
@@ -302,7 +346,17 @@ def _reaches_judge(func, sees):
     sites and two judges and this rule credits neither of the ten.
     """
     parts = func.split(".")
-    return any(".".join(parts[:i]) in sees for i in range(len(parts), 0, -1))
+    if any(".".join(parts[:i]) in sees for i in range(len(parts), 0, -1)):
+        return True
+    # ONE HOP. `bare` maps a plain function name to every qualified name
+    # ending in it, so `self._schema_satisfies` resolves to
+    # `Reviser._schema_satisfies` without this file modelling attribute
+    # binding.
+    for name in (calls or {}).get(func, ()):
+        for qual in (bare or {}).get(name, ()):
+            if qual in sees:
+                return True
+    return False
 
 
 def _is_narrow_literal(node):
@@ -370,6 +424,10 @@ def census(root=None):
                   else n.name if isinstance(n, ast.alias) else None)
             if nm == SCHEMA_JUDGE:
                 sees.add(enc.get(n, "<module>"))
+        calls = _callees(tree, enc)
+        bare = {}
+        for qual in set(enc.values()):
+            bare.setdefault(qual.split(".")[-1], set()).add(qual)
         for n in ast.walk(tree):
             door = _door_of(n)
             if not door:
@@ -380,7 +438,7 @@ def census(root=None):
             ruled = _BY_DOOR.get(key3) or RULINGS.get(key2)
             rows.append({
                 "path": rel, "line": n.lineno, "func": func, "door": door,
-                "sees_77": _reaches_judge(func, sees),
+                "sees_77": _reaches_judge(func, sees, calls, bare),
                 "disposition": ruled[0] if ruled else None,
                 "ruling": ruled[1] if ruled else "",
             })

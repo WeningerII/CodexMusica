@@ -1730,16 +1730,43 @@ class Reviser:
                                 for i in ga for j in gb})
                 if not cross:
                     continue
-                ok = True
+                # CONDITION (a) AND CONDITION (b), SEPARATED — 2026-08-26
+                # (`MISSING.md` M-139). They used to be one `or` and one
+                # `break`, which made the SCHEMA half of the default
+                # unaskable here: (b) asked `decl.admit` alone, four
+                # relations, while `grade()` accepts on those OR on any of
+                # the 77 schemas since M-116.
+                #
+                # (a) IS THE CHEAP ONE AND IT IS CHECKED FIRST. A pair that
+                # is not a collision fails outright and no rescue applies --
+                # the merge only ever re-describes findings the loop was
+                # already emitting, which is the honesty argument this
+                # method's docstring makes.
+                #
+                # THE 77 ARE ASKED ONLY FOR (b)'s SURVIVORS, and MEASURED
+                # that is almost never: over 400,000 random CMUdict pairs
+                # (seed 20260810) 2,576 clear `THETA_COLLISION`, and of
+                # those exactly **2 (0.08%)** type NO_RELATION -- which is
+                # the ONLY way (b) can fail once (a) holds, since all four
+                # named relations are in `decl.admit` and REPEAT is allowed
+                # explicitly. So the stream is built for a branch that fires
+                # on roughly one collision pair in twelve hundred, and
+                # `inspect()` -- which calls this every round of the loop --
+                # pays nothing on a draft that never reaches it.
+                ok, unresolved = True, []
                 for i, j in cross:
                     s = matrix[i - 1][j - 1]
-                    if (i, j) not in edges or not (
-                            admits(s, th,
+                    if (i, j) not in edges:
+                        ok = False          # (a) fails: not a collision
+                        break
+                    if not (admits(s, th,
                                    relations=frozenset(self.decl.admit))
                             or s["relation"] == "REPEAT"):
-                        ok = False
-                        break
+                        unresolved.append((i, j))
                 if not ok:
+                    continue
+                if unresolved and not self._schema_satisfies(
+                        lines, m, unresolved):
                     continue
                 declared, how = self._declared_return(m, a, b)
                 out.append({
@@ -1755,6 +1782,47 @@ class Reviser:
                     "how": how or ("derived from the rhyme graph; the mandate "
                                    "cannot state a return")})
         return out
+
+    def _schema_satisfies(self, lines, m, pairs):
+        """Do ALL these mandated line pairs stand in some registered schema?
+
+        THE 77-SCHEMA HALF OF THE DEFAULT (owner ruling 2026-08-25, M-116),
+        reached from `group_merges` since 2026-08-26 (`MISSING.md` M-139).
+        `relations.whole_vocabulary_pairs` is the ONE judge both graders
+        already consult, so this cannot become a third opinion about which
+        pair the default satisfies (doctrine 1) -- it is the same call
+        `grade()` and `lyric_harness.check_scheme` make, with the same
+        `bearing` derived from the mandate's own groups.
+
+        MEMOISED PER (draft, mandate). The stream costs 2.94s over 14 lines
+        and 14.73s over 56, and a draft can offer several candidate merges;
+        building one stream per candidate would multiply a rare cost by the
+        square of the group count. Keyed on the draft's identity and the
+        mandate's groups because those are what the answer depends on.
+
+        AND ONLY UNDER THE DEFAULT DOOR, the same gate `grade()` uses: a
+        caller who NARROWED `Declaration.admit` has declared what satisfies
+        them, and the rescue does not override a declaration.
+        `lyric_harness.admit_is_default` is the one definition.
+        """
+        from lyric_harness import admit_is_default as _AID
+        if not _AID(self.decl):
+            return False
+        key = (id(lines), len(lines),
+               tuple(tuple(g) for g in getattr(m, "groups", ())))
+        hit = getattr(self, "_wvp_cache", None)
+        if hit is None:
+            hit = self._wvp_cache = {}
+        if key not in hit:
+            from quality import relations as _RF
+            if len(hit) > 8:
+                hit.clear()
+            hit[key] = _RF.whole_vocabulary_pairs(
+                lines, _relation_phonology(),
+                bearing={ln - 1 for g in getattr(m, "groups", ())
+                         for ln in g if 1 <= ln <= len(lines)})
+        wvp = hit[key]
+        return all(tuple(sorted(p)) in wvp for p in pairs)
 
     @staticmethod
     def _collision_code(relation, undeclared=False):
