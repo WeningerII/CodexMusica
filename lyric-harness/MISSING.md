@@ -13336,16 +13336,88 @@ the narrow door admits **4,291 (23.19%)** and narrow-OR-77 admits **13,526
 `whole_vocabulary_pairs` answers on a median **73.6%** of a sonnet's 91 line
 pairs.
 
-**THAT 73.09% IS AN OBSERVED RATE AND IT HAS NO NULL, WHICH IS WHY THIS ENTRY
-IS OPEN RATHER THAN A FINDING** (doctrine 71/76). It is not comparable to the
-23.30%: those are one-word lines and these are full English lines, so the span
-opportunities differ by an order of magnitude and the two numbers answer
-different questions. What is owed is a MATCHED null — the line-permutation
+**THAT 73.09% IS AN OBSERVED RATE AND IT NEEDED A NULL** (doctrine 71/76). It
+is not comparable to the 23.30%: those are one-word lines and these are full
+English lines, so the span opportunities differ by an order of magnitude and
+the two numbers answer different questions.
+
+~~What is owed is a MATCHED null — the line-permutation
 control `quality/negative_control.py` already implements for the band, run
-under the whole-vocabulary door instead — because a door that answers on 73% of
-real line pairs and on 73% of permuted ones has not found anything, and this
-tree has been bitten by exactly that shape before (the Whitman arm, doctrine
-71's own instance). **The null is NOT run here and no separation is claimed.**
+under the whole-vocabulary door instead~~ **STRUCK WITHIN THE HOUR IT WAS
+WRITTEN, BY MEASURING IT: THE NULL I NAMED IS THE IDENTITY MAP** (doctrine 63,
+and doctrine 68 — the trap has more than one shape). Line permutation is this
+tree's reflex null and it does NOTHING to this door. Nearly every registered
+schema is PAIR-LOCAL — `both_line_final` on the two end words — so permuting
+WHICH line sits WHERE leaves the set of unordered line pairs **identical**, and
+only the handful of gap-bounded schemas (`pantun ABAB` at
+`line_gap_at_most(2)`, `chain rhyme (rap)` at 4) move at all. **Measured on
+sonnet 1: the real order answers 58 of 91 pairs; three permutations answer 62,
+59 and 57.** A null centred on the observation is not a null, and I proposed it
+because it is the one this repository already owns — which is exactly how
+doctrine 63's trap is walked into.
+
+**THE NULL THAT ACTUALLY BREAKS THE RELATIONSHIP IS A MATCHED REDEAL**, and it
+is what `quality/chance_rate.py --null` runs: fourteen lines, **each from a
+DIFFERENT sonnet at the SAME position index**, so the positional marginals are
+held fixed by construction and the only thing that varies is whether the
+fourteen lines came from one poem (doctrine 14 — the control is not defined in
+terms of the quantity it controls).
+
+**AND IT REPORTS TWO POPULATIONS THAT ARE NEVER SUMMED AND NEVER READ AS ONE**
+(doctrine 79), because the first draft of this arm measured only the first and
+the second is the one the mandate layer actually asks:
+
+  - **ALL 91 line pairs** — how much of the relation graph the door lights up.
+    This is the population the 73.09% above is over.
+  - **The 7 pairs the POET declared** (ABAB CDCD EFEF GG) — whether *"the
+    default satisfied it"* carries information about a pair somebody DECLARED.
+    **This is the ENFORCEMENT question.** A door can light up an arbitrary pair
+    at chance and still discriminate a declared one, and only the second
+    licenses anything the grader says.
+
+**MEASURED, AND THE TWO POPULATIONS GIVE OPPOSITE ANSWERS — WHICH IS THE WHOLE
+RESULT.** `python3 quality/chance_rate.py --null`, 24 sonnets, 20 null draws,
+14 lines each:
+
+| population | R_obs | null median / min / max | over MEDIAN | over MAX | p |
+|---|---|---|---|---|---|
+| ALL 91 line pairs | 69.05% | 71.02% / 67.58% / 72.57% | **-1.97 pp** | -3.53 pp | 0.9048 |
+| the 7 DECLARED pairs | **96.43%** | 79.17% / 73.21% / 83.93% | **+17.26 pp** | **+12.50 pp** | 0.0476 |
+
+**THE GRAPH-COVERAGE HEADLINE IS AT CHANCE AND MUST NOT BE QUOTED AS A FINDING
+ABOUT THE TEXT.** 73.09% of line pairs answered, 69.05% here on a smaller
+panel — and a matched redeal answers on **71.02%**, so the observation sits
+*below* its own null and p is 0.90. Doctrine 71 in as many words: a rate that
+does not separate from its null is not a finding. The 77-schema door lights up
+roughly seven line pairs in ten **of any fourteen English lines**, and that
+number is about the vocabulary's coverage, not about the poem.
+
+**AND THE ENFORCEMENT QUESTION SEPARATES, ABOVE THE NULL'S MAXIMUM.** The pairs
+Shakespeare DECLARED are answered at 96.43% against a null whose *best of
+twenty draws* is 83.93% — **+12.50 pp clear of the maximum**, not merely of the
+median, and the two are reported under two labels because this file records
+what quoting them under one word cost last time. So M-116's default is doing
+real work on the population the mandate layer actually asks about.
+
+**THE p IS AT ITS FLOOR AND IS THE WEAKEST NUMBER IN THE TABLE** (doctrine 57):
+`0.0476` is exactly `1/(20+1)`, so it reports the RESOLUTION of a 20-draw null
+and not the size of the effect. **Read the +12.50 pp over the null MAX**, which
+is resolution-free. More draws would move the p and not the separation.
+
+**ONE THING IS MEASURED AND UNEXPLAINED, AND IT IS RECORDED AS UNEXPLAINED**
+(doctrine 20): the ALL arm does not merely fail to separate, it sits BELOW the
+null on 20 of 20 draws — a real sonnet's UNDECLARED line pairs stand in a named
+relation *less* often than lines pulled from fourteen different sonnets. A
+plausible story is that a sonnet spends its sonic material on the seven pairs
+it declared and differentiates the rest, but this entry has not tested that and
+does not assert it.
+
+**WHAT THIS DOES AND DOES NOT SETTLE.** It settles that the M-139 lane's
+73.09% carries no signal about relatedness and must never be quoted as though
+it did — including in this entry, where it now appears with that label. It does
+NOT settle the pricing question, which is still M-138's and is still open: a
+door can separate on declared pairs AND admit 23.30% of random word pairs, and
+those are compatible. The `normative` ruling below is also untouched by it.
 
 **AND THE JUDGE DOES NOT READ `normative`, WHICH IS A DOCTRINE-1 GAP MEASURED
 LATENT RATHER THAN LIVE.** `RelationSchema.normative` is a declared field and

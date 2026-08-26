@@ -47,6 +47,7 @@ grid and `--check` requires every cell to sit inside it.
     python3 quality/chance_rate.py            # the shipped cell, both doors
     python3 quality/chance_rate.py --sweep    # every declared sampler cell
     python3 quality/chance_rate.py --check    # re-derive the band, exit 3 on drift
+    python3 quality/chance_rate.py --null     # does the 77-door separate from a matched redeal?
 """
 import os
 import random
@@ -269,6 +270,143 @@ ADOPTED = {
 
 
 # ---------------------------------------------------------------------------
+# THE SEPARATION ARM — does the whole-vocabulary door find anything?
+# ---------------------------------------------------------------------------
+
+#: The positive corpus and the null design, DECLARED (doctrine 14: a control
+#: may not be defined in terms of the quantity it controls).
+#:
+#: POSITIVE — a sonnet's own 14 lines, the item this repository's oracle is
+#:   built on.
+#: NULL — a MATCHED REDEAL: 14 lines, each taken from a DIFFERENT sonnet AT
+#:   THE SAME POSITION INDEX. Position is held fixed by construction, so the
+#:   null and the observation share their positional marginals and differ only
+#:   in whether the fourteen lines came from one poem.
+#:
+#: **THE OBVIOUS NULL IS THE IDENTITY MAP AND IT WAS TRIED FIRST** (doctrine
+#: 63). `quality/negative_control.py`'s line permutation is the null this tree
+#: reaches for, and it does NOTHING here: nearly every registered schema is
+#: pair-local (`both_line_final` on two words), so permuting WHICH line sits
+#: WHERE leaves the set of unordered pairs identical and only jiggles the few
+#: gap-bounded schemas. Measured on sonnet 1: real order answers 58 of 91
+#: pairs, three permutations answer 62 / 59 / 57. A null centred on the
+#: observation is not a null.
+NULL_ITEMS = 24
+NULL_DRAWS = 20
+NULL_LINES = 14
+
+
+def _sonnets(path="corpus/sonnets.txt"):
+    import battery
+    out = [s["lines"] if isinstance(s, dict) else s
+           for s in battery.parse_sonnets(path)]
+    return [s for s in out if len(s) == NULL_LINES]
+
+
+#: The sonnet oracle's own scheme, ABAB CDCD EFEF GG, as 1-based line pairs.
+#: These are the pairs the POET declared; everything else in the 91 is a pair
+#: nobody asked about. The two populations answer DIFFERENT questions and are
+#: never summed (doctrine 79):
+#:   ALL PAIRS - how much of the relation graph this door lights up. This is
+#:     the population the M-139 lane's 73.09% is over.
+#:   MANDATED  - whether "the default satisfied it" carries information about
+#:     a pair somebody DECLARED. This is the ENFORCEMENT question, and it is
+#:     the one the mandate layer actually asks.
+SONNET_MANDATED = ((1, 3), (2, 4), (5, 7), (6, 8), (9, 11), (10, 12), (13, 14))
+
+
+def _answered(lines, phon, RF):
+    """-> (all-pairs rate, mandated-pairs rate) off ONE stream build."""
+    n = len(lines)
+    got = RF.whole_vocabulary_pairs(list(lines), phon)
+    allr = len(got) / (n * (n - 1) / 2)
+    hit = sum(1 for pr in SONNET_MANDATED if pr in got)
+    return allr, hit / len(SONNET_MANDATED)
+
+
+def separation(seed=None, items=NULL_ITEMS, draws=NULL_DRAWS, log=None):
+    """-> dict. The whole-vocabulary door's observed rate against its matched
+    redeal. Reports the excess over the null MEDIAN and over the null MAX as
+    TWO statistics under two labels, because this repository has quoted those
+    two under one word before and `CLAUDE.md` records what it cost."""
+    import random as _r
+    import statistics
+    from quality import relations as RF
+    from quality.revise import _relation_phonology
+    phon = _relation_phonology()
+    son = _sonnets()
+    rng = _r.Random(RB.SEED if seed is None else seed)
+    pos = son[:items]
+    obs = [_answered(s, phon, RF) for s in pos]
+    r_all = statistics.mean(x[0] for x in obs)
+    r_man = statistics.mean(x[1] for x in obs)
+    n_all, n_man = [], []
+    for d in range(draws):
+        va, vm = [], []
+        for _ in pos:
+            picks = rng.sample(range(len(son)), NULL_LINES)
+            a, m = _answered([son[p][i] for i, p in enumerate(picks)],
+                             phon, RF)
+            va.append(a)
+            vm.append(m)
+        n_all.append(statistics.mean(va))
+        n_man.append(statistics.mean(vm))
+        if log:
+            log(f"    null draw {d + 1}/{draws}: all {n_all[-1]:.4f}  "
+                f"mandated {n_man[-1]:.4f}")
+    out = {"items": len(pos), "draws": draws}
+    for key, r_obs, null in (("all", r_all, n_all),
+                             ("mandated", r_man, n_man)):
+        null = sorted(null)
+        # An empirical p at 1/(n+1) reports the RESOLUTION, not the effect
+        # (doctrine 57), so the draw count is carried beside it.
+        at_least = sum(1 for x in null if x >= r_obs)
+        out[key] = {"r_obs": r_obs, "median": statistics.median(null),
+                    "min": null[0], "max": null[-1],
+                    "excess_over_median": r_obs - statistics.median(null),
+                    "excess_over_max": r_obs - null[-1],
+                    "p_empirical": (at_least + 1) / (draws + 1)}
+    return out
+
+
+def _print_separation(r):
+    print("  SEPARATION - the 77-schema door against a MATCHED REDEAL")
+    print(f"    {r['items']} sonnets, {r['draws']} null draws, "
+          f"{NULL_LINES} lines each; null = each line from a DIFFERENT "
+          f"sonnet at the SAME position index")
+    for key, gloss in (("all", "ALL 91 line pairs - how much of the graph "
+                               "this door lights up"),
+                       ("mandated", "the 7 pairs the POET declared - the "
+                                    "ENFORCEMENT question")):
+        d = r[key]
+        print()
+        print(f"    {key.upper()}: {gloss}")
+        print(f"      R_obs                   : {100 * d['r_obs']:.2f}%")
+        print(f"      null median / min / max : "
+              f"{100 * d['median']:.2f}% / {100 * d['min']:.2f}% / "
+              f"{100 * d['max']:.2f}%")
+        print(f"      excess over null MEDIAN : "
+              f"{100 * d['excess_over_median']:+.2f} pp")
+        print(f"      excess over null MAX    : "
+              f"{100 * d['excess_over_max']:+.2f} pp   "
+              f"(TWO statistics, two labels - never one word for both)")
+        print(f"      empirical p             : {d['p_empirical']:.4f} at "
+              f"{r['draws']} draws (doctrine 57: a p at "
+              f"{1 / (r['draws'] + 1):.4f} is the resolution, not the effect)")
+        if d["excess_over_median"] <= 0:
+            print("      VERDICT: does NOT separate from its own null - it "
+                  "sits AT OR BELOW it. Doctrine 71: a rate that does not "
+                  "separate from its null is not a finding about the text.")
+        else:
+            print(f"      VERDICT: separates by "
+                  f"{100 * d['excess_over_median']:+.2f} pp over the median "
+                  f"and {100 * d['excess_over_max']:+.2f} pp over the max.")
+    print()
+    print("    THE TWO ARE NEVER SUMMED AND NEVER READ AS ONE (doctrine 79): "
+          "a door can light up an arbitrary pair at chance and still "
+          "discriminate a DECLARED one, and only the second is what the "
+          "mandate layer asks.")
+
 
 def _print(m, decl):
     s = m["sampler"]
@@ -306,6 +444,11 @@ def main(argv):
     print(f"  canon arm: {CANON_VIOLATIONS}/{CANON_JUDGED} = "
           f"{100 * CANON_RATE:.2f}% of Shakespeare's mandated pairs fail")
     print()
+    if "--null" in argv:
+        r = separation(log=lambda t: print(t, flush=True))
+        print()
+        _print_separation(r)
+        return 0
     cells = GRID if (sweep or check) else (SHIPPED,)
     rows = []
     for s in cells:
