@@ -1770,6 +1770,76 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
           and _PL.line_count_gaps(union) != [],
           f"song gaps {_PL.line_count_gaps(song)}, "
           f"union gaps {_PL.line_count_gaps(union)}")
+    # ===================================================================
+    # M-133, 2026-08-26. The union's holes were DISCLOSED in the evidence
+    # string above and asserted by nothing stronger than `!= []`, so when
+    # the M-131 band re-adoption manufactured a SECOND one (18-21, once
+    # the song floor rose past the sonnet ceiling) the check went on
+    # passing and said so only in prose a reader had to notice. The
+    # standing rule is that a measurement ends in a gate.
+    #
+    # THE FIRST DRAFT OF THIS CHECK WAS VACUOUS AND IS RECORDED RATHER
+    # THAN QUIETLY REPLACED. It asserted that every hole is a SEAM — the
+    # value under it topping one profile's reach, the value over it
+    # bottoming another's. That is TRUE BY CONSTRUCTION: each profile
+    # contributes one contiguous `range`, so any hole in a union of ranges
+    # is bounded that way on every possible tree, and the check could not
+    # fail. It is the exact defect this repo runs an AST sweep for, met
+    # while writing the check meant to close a disclosure-without-a-gate.
+    # What is asserted instead is the CONTINGENT property, below.
+    #
+    # The per-profile reach is obtained by calling `gradeable_line_counts`
+    # against one profile at a time rather than respelling its arithmetic
+    # here — one definition, exercised per profile (doctrine 1).
+    #
+    # THE TOKENS-PER-LINE BAND IS PINNED TO THE FULL TABLE ON PURPOSE and
+    # this is not a convenience: `tokens_per_line_band()` derives from the
+    # profiles that DECLARE a line count, so asking it under a
+    # one-profile table REFUSES (correctly — a `song` alone declares
+    # `n_lines == 0` and there is nothing to divide). The band is a
+    # property of the calibration as a whole; only the RANGE is per
+    # profile, so the band is read once, from its own proper domain, and
+    # held while the reaches are taken.
+    band = _PL.tokens_per_line_band()
+
+    def reach_of(prof):
+        keep = list(FL.PROFILES)
+        FL.PROFILES[:] = [prof]
+        real = _PL.tokens_per_line_band
+        _PL.tokens_per_line_band = lambda: band
+        try:
+            _PL.gradeable_line_counts.cache_clear()
+            return set(_PL.gradeable_line_counts())
+        except _PL.PlanRefused:
+            return set()
+        finally:
+            _PL.tokens_per_line_band = real
+            FL.PROFILES[:] = keep
+            _PL.gradeable_line_counts.cache_clear()
+
+    reaches = {p.name: r for p in FL.PROFILES for r in [reach_of(p)] if r}
+    holes = _PL.line_count_gaps(union)
+    #: THE CONTINGENT CLAIM, and the one M-133 actually turns on: the
+    #: three reaches are PAIRWISE DISJOINT AND NON-ABUTTING, which forces
+    #: the hole count to len(profiles) - 1.
+    #:
+    #: THAT DISCRIMINATES THE BAND, which is what makes it worth checking:
+    #: under the pre-M-131 band the song reach was 17..55 and the sonnet's
+    #: 12..17 OVERLAPPED it at 17, so the union had ONE hole. The floor
+    #: rising to 22 pulled them apart and MANUFACTURED the second (18-21).
+    #: Move the band back and this check goes red on the count.
+    ordered = sorted(reaches.items(), key=lambda kv: min(kv[1]))
+    touching = [(a, b) for (a, ra), (b, rb) in zip(ordered, ordered[1:])
+                if max(ra) + 1 >= min(rb)]
+    check("...and the three reaches are pairwise DISJOINT and "
+          "NON-ABUTTING, which FORCES one hole per seam — so the union's "
+          "hole count is len(profiles) - 1, and the second hole (18-21) "
+          "exists because M-131's band lifted the song floor clear of the "
+          "sonnet ceiling it used to overlap at 17",
+          not touching and len(holes) == len(reaches) - 1 == 2,
+          f"{len(holes)} hole(s) {holes} over {len(reaches)} reaches "
+          f"{ {k: (min(v), max(v)) for k, v in ordered} }; "
+          f"touching {touching}")
     # THE PROFILE IS IDENTIFIED BY ITS OWN DECLARATION, not by its name. A
     # name test would be a second statement of which profile means what
     # (doctrine 1). Proven by ASKING the table rather than by reading the

@@ -10909,16 +10909,28 @@ SECTION is a real harness defect and is what this entry closes.
 `gradeable_line_counts()` answers *"what line counts can ANY floor profile
 grade"* over `section` (a 4-line quatrain), `sonnet` (14 lines) and `song` (a
 lyric sheet). MEASURED at the derived tokens-per-line band (7.25–9.25), the
-three reach **4–5**, **12–17** and **17–55** lines. So the union is
-`{4,5} | {12..55}` — and **the famous 6–11 hole is the space between a quatrain
+three reach **4–5**, **12–17** and ~~**17–55**~~ **22–55** lines. So the union
+is ~~`{4,5} | {12..55}`~~ `{4,5} | {12..17} | {22..55}` — and **the famous 6–11
+hole is the space between a quatrain
 and a sonnet**, which is not a fact about songs at all. A song planner drawing
 its total from that set was drawing from lengths a QUATRAIN can be and lengths
 a SONNET can be, then rejecting around a hole it had created by asking the
 wrong question. `song_line_counts()` reads the profile that grades a lyric
-sheet: **17..55, 39 values, CONTIGUOUS, no hole.** The profile is identified by
+sheet: ~~**17..55, 39 values, CONTIGUOUS, no hole.**~~ **22..55, 34 values,
+CONTIGUOUS, no hole.** The profile is identified by
 `n_lines == 0` — its own declaration that a lyric sheet has no fixed line count
 — never by its name, which would be a second statement of which profile means
 what (doctrine 1).
+
+**REPINNED 2026-08-26 BY M-131's BAND RE-ADOPTION (M-133), AND THE REPIN
+CONFIRMS THIS ENTRY RATHER THAN DENTING IT.** The song profile's `lo` went 150
+-> 200 tokens; this function reads that band, so the reach followed it and the
+planner's floor rose five lines. **The union gained a SECOND hole, 18–21** —
+the space between a SONNET and a SONG once the song floor climbed past the
+sonnet ceiling. That is the identical species as 6–11 at the next seam out, and
+it is the strongest available evidence for this entry's diagnosis: the holes
+are artefacts of unioning three KINDS of text, so moving one profile's band
+manufactures another hole in the union while leaving the song set contiguous.
 
 **DEFECT 2 — A SOUND BOUND WAS BEING USED AS A UNIFORM DRAW, AND IT IS
 `MISSING.md` M-81(A)'s ERROR ONE LAYER OVER.** `_sample_pattern` took
@@ -12144,3 +12156,51 @@ has decided what the tie-break should weigh, so the day this is fixed those
 three checks are expected to fail and must be rewritten with it. A gap that is
 measured and bounded is still a gap; the test is what stops it drifting while
 it waits.
+
+### M-133 · the band move re-swept the planner's dice, and one suite was missed `CLOSED`
+The second cost of M-131, found by CI rather than by the sitting that caused
+it. `floor.PROFILES["song"].lo` went 150 -> 200 tokens; `plan.song_line_counts()`
+READS that band (by M-106's `n_lines == 0` idiom, never by name), so the set a
+seed draws its length from went **17..55 (39 values) -> 22..55 (34)**. A seed's
+length is uniform over that set, so every seed drawing near the old floor draws
+a longer song, and a longer song draws a different section roster. The
+re-adoption sitting repinned `test_floor.py` and did not ask which OTHER suites
+read that band. `quality/test_narrative.py` does, transitively, and went red on
+four checks.
+
+**THE MOVE IS NARROW, AND THAT IS MEASURED RATHER THAN HOPED.** Over seeds
+1-40 the census is **35 admit / 5 admit zero — unmoved**, and seeds 1, 7 and 31
+re-derive BYTE-IDENTICALLY (820224, 881280, 4176). Of 29 checks in the suite,
+**25 hold on both trees**; the pre-M-131 tree runs the repinned suite and fails
+exactly the four band-sensitive ones, which is the mutation proving the new
+pins are load-bearing on the coordinate they name.
+
+**ONE CAUSE CHANGED KIND, AND IT IS A FINDING AND NOT A REPIN (doctrine 17,
+the old text struck in place).** The old §5 asserted *"every zero failing at
+the OPENING"*, true of all five zeros under the old envelope. Under this one,
+**seed 10 is a zero that collapses at POSITION 2**: its roster opens
+`[intro, false_ending]`, and `false_ending`'s only atom is RESOLVE while
+`intro`'s only atom is ESTABLISH — the RESOLVE-needs-a-prior-COMPLICATE clause
+§2 of that suite proves on a CONSTRUCTED shape, reached from the planner's own
+dice for the first time. It is pinned as its own case, with the collapse
+POSITION asserted (1 for the three opening refusals, 2 for seed 10), because a
+zero is a zero and only the position tells the two kinds apart.
+
+**AND SEED 31 SEPARATES TWO LAYERS THAT MOVE INDEPENDENTLY.** Its relation
+draw moved (A anaphora/D rime riche/K assonance -> A consonance/D semirhyme/K
+Scots vowel-length) while its `lineups` stayed at 4,176 and its section roster
+stayed byte-identical. The cause: **seed 31 draws the envelope's FLOOR**, so
+its `total_lines` goes **17 -> 22** with the floor, and more lines is more
+binding sites — the cover goes **281 -> 413 groups** carrying **16 -> 27
+relation labels**. A different number of draws off one seed is a different
+sequence of draws. The narrative layer reads the FUNCTION ROSTER and the
+relation layer reads the GROUPS, so this seed moved the second without moving
+the first, and the repin asserts that split rather than narrating it.
+
+**A WINDOW THAT STOPPED CUTTING WAS THE NEAR MISS.** §6's seed filter swept
+`range(3, 6)` and rejected seed 4 as the one zero-shape in it. The band move
+took seed 4 out of the zero class, leaving a window with NO zeros — under which
+the check passes by accepting all three, and **a filter that rejects nothing
+renders identically to a filter that works** (doctrine 48). Repointed to
+38-40, which restores the shape the check was built on: two accepted, one
+rejected, and the rejection still a bridge-first zero-shape (seed 39).

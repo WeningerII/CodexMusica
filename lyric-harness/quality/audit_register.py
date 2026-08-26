@@ -2205,7 +2205,12 @@ PINNED = {
     # second defect one function away from the first), then M-104 (`verify`
     # was refused on `revise`'s measurement — one verb's number doing duty
     # for two, and they are a factor of three apart).
-    "coverage_entries": 190,
+    # ~~190~~ -> 191: M-133, the SECOND cost of M-131's band re-adoption —
+    # the suite the re-adoption sitting did not ask about. A band that
+    # `plan.song_line_counts()` READS moves the planner's length envelope
+    # and therefore its dice, so a repin of `test_floor.py` alone was
+    # never the whole reconciliation.
+    "coverage_entries": 191,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

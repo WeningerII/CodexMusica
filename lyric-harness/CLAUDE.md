@@ -576,11 +576,23 @@ discovery.~~
 THE WRONG QUESTION, AND THE PLANNER WAS DRAWING ITS LENGTH FROM THREE KINDS OF
 TEXT.** `gradeable_line_counts()` unions `section` (a 4-line quatrain),
 `sonnet` and `song`, whose reaches at the derived tokens-per-line band are
-**4–5**, **12–17** and **17–55** lines — so 6 to 11 is the space between a
-QUATRAIN and a SONNET and was never a fact about songs. `song_line_counts()`
-reads the profile that grades a lyric sheet, identified by its own
-`n_lines == 0` and never by name: **17..55, 39 values, CONTIGUOUS.** The
-function above is unchanged and still answers its own different question.
+**4–5**, **12–17** and ~~**17–55**~~ **22–55** lines — so 6 to 11 is the space
+between a QUATRAIN and a SONNET and was never a fact about songs.
+`song_line_counts()` reads the profile that grades a lyric sheet, identified by
+its own `n_lines == 0` and never by name: ~~**17..55, 39 values,
+CONTIGUOUS.**~~ **22..55, 34 values, STILL CONTIGUOUS** — REPINNED 2026-08-26
+by the M-131 re-adoption (`MISSING.md` M-133), which took the song profile's
+band `lo` from 150 to 200 tokens; this function READS that band, so the
+envelope followed it and every seed's drawn length moved with it. **The
+ARGUMENT is untouched and the endpoints are all that moved**: the set is still
+the one profile that grades the object the planner emits, and it is still
+contiguous. The
+function above is unchanged and still answers its own different question —
+**and it now has TWO holes, which is this entry's own diagnosis confirmed
+rather than dented.** The union gained **18–21**, the space between a SONNET
+and a SONG once the song floor rose past the sonnet ceiling: the identical
+species as 6–11, at the next seam out, and one more length that is a fact about
+which KINDS of text were unioned rather than a fact about songs.
 **AND THE SECTION CEILING WAS M-81(A)'s ERROR ONE LAYER OVER** —
 `_sample_pattern` took `max_cells = total` on the argument that a song of T
 lines cannot hold more than T sung sections, TRUE and never a claim that all T

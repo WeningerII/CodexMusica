@@ -387,23 +387,35 @@ def song_line_counts():
     `gradeable_line_counts()` answers *"what line counts can ANY floor profile
     grade"* over `section` (a 4-line quatrain), `sonnet` (14 lines) and `song`
     (a lyric sheet). MEASURED, the three reach **4–5**, **12–17** and
-    **17–55** lines — so the union is `{4, 5} | {12..55}` and the famous
+    ~~**17–55**~~ **22–55** lines — so the union is
+    ~~`{4, 5} | {12..55}`~~ `{4, 5} | {12..17} | {22..55}` and the famous
     **6–11 hole is the space between a quatrain and a sonnet**, which is not
     a fact about songs at all. A SONG planner drawing its length from that
     union was drawing from a set that contains "lengths a QUATRAIN can be"
     and "lengths a SONNET can be", and the hole it then had to reject around
     was one it created by asking the wrong question.
 
-    THE SONG PROFILE ALONE IS CONTIGUOUS — **17..55, 39 values, no hole** —
-    and it is the profile that grades the object this planner emits. The
+    REPINNED 2026-08-26 BY M-131's RE-ADOPTION (`MISSING.md` M-133): the song
+    profile's band `lo` went 150 -> 200 tokens and this function READS that
+    band, so the reach followed. **THE UNION GAINED A SECOND HOLE, 18–21**,
+    once the song floor rose past the sonnet ceiling — the identical species
+    as 6–11 at the next seam out, which is this docstring's own argument
+    confirmed rather than dented: the holes are facts about which KINDS of
+    text were unioned, and a moved band adds one without touching the case.
+
+    THE SONG PROFILE ALONE IS CONTIGUOUS — ~~**17..55, 39 values**~~
+    **22..55, 34 values, still no hole** — and it is the profile that grades
+    the object this planner emits. The
     profile is identified by `n_lines == 0`, which is its own declaration
     that a lyric sheet has no fixed line count, and not by its name: a name
     test would be a second statement of which profile means what (doctrine
     1), and `tokens_per_line_band()` one screen up already keys on the same
     field for the opposite reason.
 
-    WHAT THIS COSTS, SAID PLAINLY: a song of fewer than 17 lines is now
-    outside the planner's envelope. That is not a narrowing of the harness —
+    WHAT THIS COSTS, SAID PLAINLY: a song of fewer than ~~17~~ **22** lines is
+    now outside the planner's envelope — the cost ROSE by five lines with the
+    band (M-133), and it rose in the direction this paragraph already priced.
+    That is not a narrowing of the harness —
     a writer hand-declares any length and the graders grade it — it is the
     planner declining to volunteer a length the song profile cannot hold to
     anything. `gradeable_line_counts()` is UNCHANGED and still answers its
