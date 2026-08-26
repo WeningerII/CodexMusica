@@ -1,0 +1,228 @@
+{
+ "hooks": [
+  "I am not leaving"
+ ],
+ "lines": [
+  {
+   "bar": 1,
+   "beat": 1.0,
+   "duration": 2.0,
+   "section": "BUILD1",
+   "text": "I have been leaving all my life"
+  },
+  {
+   "bar": 7,
+   "beat": 1.0,
+   "duration": 2.0,
+   "section": "VERSE1",
+   "text": "and I got good at it"
+  },
+  {
+   "bar": 8,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "CHORUS1",
+   "text": "I am not leaving"
+  },
+  {
+   "bar": 9,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "CHORUS1",
+   "text": "so hang your hat there"
+  },
+  {
+   "bar": 10,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "CHORUS1",
+   "text": "and let your bag drop"
+  },
+  {
+   "bar": 11,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "PRECHORUS1",
+   "text": "you know that I'm delayed"
+  },
+  {
+   "bar": 12,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "PRECHORUS1",
+   "text": "never made me feel the wait"
+  },
+  {
+   "bar": 13,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "PRECHORUS1",
+   "text": "days unfair to you"
+  },
+  {
+   "bar": 14,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "PRECHORUS1",
+   "text": "prayer is the same as peace"
+  },
+  {
+   "bar": 15,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "PRECHORUS1",
+   "text": "you came home without your coat"
+  },
+  {
+   "bar": 16,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "PRECHORUS1",
+   "text": "letters age elsewhere"
+  },
+  {
+   "bar": 17,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "PRECHORUS1",
+   "text": "the bread you made is cut"
+  },
+  {
+   "bar": 18,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "PRECHORUS1",
+   "text": "there is another plate"
+  },
+  {
+   "bar": 19,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "PRECHORUS1",
+   "text": "every word laid bare"
+  },
+  {
+   "bar": 20,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "PRECHORUS1",
+   "text": "you save every last piece"
+  },
+  {
+   "bar": 21,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "PRECHORUS1",
+   "text": "this is the common grace"
+  },
+  {
+   "bar": 22,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "PRECHORUS1",
+   "text": "I swear it, now at last"
+  },
+  {
+   "bar": 23,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "CHORUS2",
+   "text": "I am not leaving"
+  },
+  {
+   "bar": 24,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "CHORUS2",
+   "text": "so hang your hat there"
+  },
+  {
+   "bar": 25,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "CHORUS2",
+   "text": "and let your bag drop"
+  }
+ ],
+ "sections": [
+  {
+   "bars": 1,
+   "function": "build",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "BUILD1",
+   "start_bar": 1
+  },
+  {
+   "bars": 5,
+   "function": "interlude",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "INTERLUDE1",
+   "start_bar": 2
+  },
+  {
+   "bars": 1,
+   "function": "verse",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "VERSE1",
+   "start_bar": 7
+  },
+  {
+   "bars": 3,
+   "function": "chorus",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "CHORUS1",
+   "start_bar": 8
+  },
+  {
+   "bars": 12,
+   "function": "prechorus",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "PRECHORUS1",
+   "start_bar": 11
+  },
+  {
+   "bars": 3,
+   "function": "chorus",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "CHORUS2",
+   "start_bar": 23
+  }
+ ],
+ "title": "I Am Not Leaving"
+}
