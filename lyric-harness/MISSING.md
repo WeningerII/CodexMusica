@@ -12647,6 +12647,13 @@ percentages are not directly comparable. What IS comparable is the RATIO of
 random-admission to canon-failure, because both arms move together under a
 comparator change, and it has gone from 1.5x to 7.4x.
 
+**TESTED WHILE OPEN.** `quality/test_revise.py` names this entry, and it names
+it for the one thing that IS settled: §12's comment records that the widened
+field offers `lower`/`slower`/`mower` beside `balboa`/`figueroa`/`quinoa`,
+and points at THIS entry as the place the pricing question lives. The test
+asserts nothing about the price. What stays open is the ruling below — what a
+near relation should COST — and no check in this tree asserts an answer to it.
+
 **FILED OPEN, and the repair is a ruling rather than a number.** Three honest
 options and they are not equivalent: price 0.75 on the near relations and
 re-adopt per relation (the `theta_coda` pattern, and the most defensible);
@@ -12861,6 +12868,18 @@ repairs move what the harness OFFERS and what it COUNTS as a structural
 defect; no sonnet violation moves, which is the control that says the door
 work did not quietly re-grade the canon.
 
+**TESTED WHILE OPEN, and the split is exactly the entry's own two halves.**
+Three regressions name this entry — `quality/test_door_census.py`,
+`quality/test_loop.py`, `quality/test_revise.py` — and every one of them tests
+the CLOSED half: the census itself and its four mutations, the repaired
+`_field_one` reading `decl.admit`, the repaired `check_scheme.ok`, the two
+thresholds replaced with derived claims, and the three `test_loop` sections
+now taking a declared comparator. **`test_door_census.py` §4 asserts the OPEN
+half is still open** — `INCOMPLETE > 0`, and every INCOMPLETE ruling citing
+this entry — so a test naming M-139 is not a test claiming M-139 is finished;
+one of them fails if anybody quietly closes it. What stays open is the three
+sites below, and no check asserts a verdict on any of them.
+
 **WHAT IS STILL OPEN, and this entry does not bank its hits and stop.** Three
 INCOMPLETE sites remain and each needs its own measurement before it moves,
 because each pays a real cost: `whole_vocabulary_pairs` builds a full 77-schema
@@ -12881,10 +12900,21 @@ both shipped consumers gate it lazily on a pair already charged.
     needed only for a candidate merge whose cross pairs are ALL collisions
     and where (b) nonetheless fails, which is a narrow and checkable
     condition. Build (a) first, ask `whole_vocabulary_pairs` once and only
-    inside that branch. The RATE at which the branch fires is unmeasured and
-    is the first thing the next sitting should measure, because if it is zero
-    on the shipped fixtures the repair is free and if it is not, the number
-    is the argument for paying.
+    inside that branch.
+    **THE RATE IS MEASURED AND THE BRANCH IS REACHABLE — 400,000 random
+    CMUdict pairs, seed 20260810.** 2,576 clear `THETA_COLLISION` 0.9, typing
+    RHYME 53.73%, ASSONANCE 42.51%, CONSONANCE 2.76%, RIME_RICHE 0.93% and
+    **NO_RELATION 2, at 0.08%**. All four named relations are in `decl.admit`
+    and REPEAT is allowed explicitly by the `or`, so NO_RELATION is the ONLY
+    way (b) can fail once (a) holds — those 2 pairs ARE the whole branch:
+    `overwrought`/`overlaps` at 0.912 and `malathion`/`natural` at 0.905.
+    **THAT REFUTES A HYPOTHESIS THIS ENTRY WAS ENTERTAINING**: (a)'s stronger
+    scalar does NOT make the door irrelevant, so `group_merges` is genuinely
+    INCOMPLETE rather than already equivalent to the complete default — and
+    the rarity is exactly what makes the lazy call affordable. Note the
+    DIRECTION, because it decides what the repair can do: (b) failing REJECTS
+    a merge, so asking the 77 in that branch can only ADD
+    `MANDATE_GROUPS_INDISTINGUISHABLE` findings, never remove one.
   - **`recover.recover`** — the pasted-song door (M-72), whose doctrine-14
     claim is that every recovered edge is band-passing BY CONSTRUCTION. Under
     the complete default it UNDER-recovers, so a human's song is structured
