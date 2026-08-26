@@ -1,2 +1,132 @@
 CACHE  /root/.cache/lyric-harness/song_predictability_v1.tsv
        fingerprint 5f8f9a6149c7 | DISCARDED: comparator fingerprint moved (file 1ca985c44f5a, now 5f8f9a6149c7) -- recomputing from scratch | hits 0, misses 0
+POPULATION  1297 files, 1294 distinct authors, 8667 items, 283520 sung lines
+CACHE  after population: hits 4, misses 8663
+
+1. THE BAND, from the rule declared at the top of this file
+   widest range satisfying it: 200-400 tokens, 2261 items, 663 authors
+       50- 400 n= 7241  no  sub-bin 50-100 mattr 0.6485 vs band 0.6874, |d| 0.0388 > 0.02
+      100- 400 n= 5683  no  sub-bin 100-150 anaphora 0.3500 vs band 0.3158, |d| 0.0342 > 0.03
+      150- 400 n= 3575  no  sub-bin 150-200 predictability 1.0000 vs band 0.9375, |d| 0.0625 > 0.05
+      150- 450 n= 3785  no  sub-bin 150-200 predictability 1.0000 vs band 0.9333, |d| 0.0667 > 0.05
+      200- 400 n= 2261  OK  ok
+      200- 500 n= 2614  no  sub-bin 400-450 mattr 0.7395 vs band 0.7191, |d| 0.0204 > 0.02
+      100- 800 n= 6420  no  sub-bin 100-150 mattr 0.6829 vs band 0.7048, |d| 0.0219 > 0.02
+   the drift the rule is refusing, 5th/95th percentile by token bin:
+     tokens         n   mattr5    fwr95  anaph95      cv5
+     50-80        798   0.6442   0.5088   0.3869   0.0841
+     80-110      1212   0.6538   0.4902   0.3750   0.1051
+     110-150     1656   0.6867   0.4854   0.3333   0.0971
+     150-200     1314   0.6994   0.4766   0.3000   0.1072
+     200-250      877   0.7191   0.4793   0.3231   0.1079
+     250-300      646   0.7134   0.4845   0.2857   0.1135
+     300-350      440   0.7161   0.4725   0.3000   0.1107
+     350-400      292   0.7277   0.4749   0.2737   0.1203
+     400-500      354   0.7399   0.4780   0.2660   0.1222
+     500-700      309   0.7316   0.4868   0.2659   0.1279
+     700-1200     188   0.7579   0.4619   0.2307   0.1289
+
+2. THE THRESHOLDS AND THEIR HELD-OUT FALSE-POSITIVE RATE (doctrine 22)
+   band 200-400 tokens: 2261 items, 663 authors
+   SHIPPED thresholds (5th/95th percentile of the whole band): mattr 0.7172  fwr 0.4783  anaphora 0.3000  cv 0.1111  predictability 0.9333
+   AUTHOR-held out — the honest split, 200 seeds, 50% held out
+      FPR mattr     median   5.12%  [5th-95th percentile of seeds  2.68- 7.87%]  min  1.62% max  9.87%
+      FPR fwr       median   5.18%  [5th-95th percentile of seeds  3.19- 8.19%]  min  2.53% max 11.34%
+      FPR anaphora  median   4.85%  [5th-95th percentile of seeds  2.89- 7.74%]  min  1.94% max  9.95%
+      FPR cv        median   5.14%  [5th-95th percentile of seeds  3.35- 7.14%]  min  2.32% max  9.20%
+      FPR predictability median   5.14%  [5th-95th percentile of seeds  2.64- 7.47%]  min  2.03% max  8.71%
+      FPR ANY       median  20.22%  [5th-95th percentile of seeds 15.33-24.55%]  min 13.44% max 26.99%
+   item-held out — the WRONG split, priced, 200 seeds, 50% held out
+      FPR mattr     median   4.91%  [5th-95th percentile of seeds  3.71- 6.70%]  min  2.64% max  7.54%
+      FPR fwr       median   5.05%  [5th-95th percentile of seeds  3.78- 6.55%]  min  2.91% max  7.50%
+      FPR anaphora  median   4.76%  [5th-95th percentile of seeds  3.45- 6.80%]  min  2.57% max  7.14%
+      FPR cv        median   5.00%  [5th-95th percentile of seeds  3.55- 6.80%]  min  2.89% max  7.96%
+      FPR predictability median   5.03%  [5th-95th percentile of seeds  3.55- 6.17%]  min  2.92% max  7.42%
+      FPR ANY       median  19.55%  [5th-95th percentile of seeds 16.76-22.12%]  min 14.64% max 23.14%
+   CLICHE_PAIR (no threshold, not in ANY), 200 seeds, AUTHOR-held out
+      FPR cliche    median   7.64%  [5th-95th percentile of seeds  5.99- 9.04%]  min  5.21% max 10.23%
+      point estimate over the whole band 174/2261 = 7.70%. It has no percentile to fit, so the split buys the SPREAD and not the threshold.
+   The two splits agree on the MEDIAN and disagree on the SPREAD by about a factor of two. That gap is doctrine 13's price: the item split reports an interval that is roughly half as wide as the evidence supports, because it lets an author's other songs vouch for this one.
+
+   author concentration in the band, since the percentiles are ITEM-weighted:
+      median items per author 1; top five 27.1% of the band: hall_william_barnes 170, british_felicia_hemans 163, hymn_watts 102, celtic_robert_burns 92, hall_thomas_durfey 86
+      leave-one-author-out mattr     max |shift| 0.0017
+      leave-one-author-out fwr       max |shift| 0.0022
+      leave-one-author-out anaphora  max |shift| 0.0083
+      leave-one-author-out cv        max |shift| 0.0007
+      leave-one-author-out predictability max |shift| 0.0103
+      author-weighted alternative (one median per author, n=663): mattr 0.7214  fwr 0.4786  anaphora 0.2799  cv 0.1134  predictability 0.8750
+
+3. THE TOLERANCE, which floor.py had at 2.0 with no measurement anywhere behind it
+   thresholds calibrated on half the in-band authors, applied to held-out authors' items across the whole applied band
+   factor applied      mattr      fwr        anaphora   cv         predictability  ANY
+   1.00   200-400          5.12%     5.18%     4.85%     5.14%     5.14%    20.22%
+   1.10   181-440          5.19%     5.42%     4.66%     4.93%     4.80%    20.17%
+   1.25   160-500          5.61%     5.27%     4.80%     5.06%     5.05%    20.52%
+   1.50   133-600          6.11%     5.62%     5.13%     5.66%     5.55%    22.03%
+   2.00   100-800          6.83%     5.62%     6.03%     7.16%     6.32%    24.28%
+   3.00   66-1200          7.61%     6.31%     6.88%     7.33%     7.95%    26.70%
+   Every check gets worse monotonically, so the tolerance is a real cost and not a free courtesy. The song profile declares 1.25. The other two profiles keep 2.0 because re-measuring them needs the sonnet classes, and that is a different cell's to move.
+
+4. PERIOD (doctrine 11), inside the provenance gate
+   312 of 663 authors carry printed dates and are correlated below; 351 are UNDATED and dropped from this check alone (counted apart, never as a zero). Dated: born 1340-1887, median 1809; latest death 1928. No song here is by anyone alive after 1929 — that is the safe-subset gate's doing and not an accident of sampling, so nothing below extrapolates to a lyric written now.
+   4a. author-level Spearman against birth year, with a label-permutation null over authors (10000 draws). Bonferroni over the 5 checks cuts at 0.0100.
+      mattr           rho -0.177  p_perm 0.0029  SURVIVES Bonferroni
+      fwr             rho +0.125  p_perm 0.0265  does not survive Bonferroni
+      anaphora        rho -0.025  p_perm 0.6605  does not survive Bonferroni
+      cv              rho +0.068  p_perm 0.2226  does not survive Bonferroni
+      predictability  rho +0.083  p_perm 0.1497  does not survive Bonferroni  (1/312 authors had no decidable value)
+   4b. cross-cohort threshold transfer at the median birth year 1809: EARLY 159 authors / 1100 items, LATE 153 authors / 491 items. The control permutes the COHORT LABEL over the same authors at the same partition sizes, 2000 draws — it varies only the thing under test (doctrine 14). Bonferroni over the 12 comparisons cuts at 0.00417.
+      EARLY -> LATE
+         mattr     observed 10.18%   null median  7.06% [5th-95th  4.03- 9.88%]   p 0.0350
+         fwr       observed 10.79%   null median  5.85% [5th-95th  3.60- 9.06%]   p 0.0035  SURVIVES
+         anaphora  observed  4.07%   null median  4.72% [5th-95th  2.75- 7.74%]   p 0.6857
+         cv        observed  5.70%   null median  6.66% [5th-95th  4.82- 9.34%]   p 0.7451
+         predictability observed  4.48%   null median  5.05% [5th-95th  2.92- 7.13%]   p 0.6602
+         ANY       observed 25.25%   null median 22.81% [5th-95th 17.78-27.85%]   p 0.2344
+      LATE -> EARLY
+         mattr     observed  2.82%   null median  3.72% [5th-95th  2.23- 6.05%]   p 0.8191
+         fwr       observed  3.18%   null median  4.38% [5th-95th  2.42- 7.16%]   p 0.8231
+         anaphora  observed  5.91%   null median  4.84% [5th-95th  2.62- 7.87%]   p 0.3878
+         cv        observed  4.36%   null median  3.74% [5th-95th  2.43- 5.29%]   p 0.2534
+         predictability observed  5.18%   null median  5.03% [5th-95th  2.60- 7.42%]   p 0.4493
+         ANY       observed 16.82%   null median 17.05% [5th-95th 12.76-21.72%]   p 0.5262
+      The direction is the part that matters and it is not symmetric: thresholds fitted on earlier-born authors OVER-flag later-born ones, and the reverse runs at or below nominal. A 2026 lyric sits further along that same axis than any author here.
+
+5. THE TWO EXAMPLE SONGS, which are NOT in the calibration set
+
+6. WHAT floor.py SHIPS, against what the corpus says today
+   band lo (tokens)                   shipped 150.0000   measured 200.0000   DRIFT
+   band hi (tokens)                   shipped 400.0000   measured 400.0000   ok
+   MATTR window admissibility         shipped lo 150 > window 50 (this run's band lo 200): every item is a genuine moving average
+   threshold mattr                    shipped 0.7118     measured 0.7172     DRIFT
+   threshold fwr                      shipped 0.4773     measured 0.4783     DRIFT
+   threshold anaphora                 shipped 0.3000     measured 0.3000     ok
+   threshold cv                       shipped 0.1094     measured 0.1111     DRIFT
+   threshold predictability           shipped 0.9286     measured 0.9333     DRIFT
+   held-out FPR mattr (%)             shipped 5.0200     measured 5.1200     ok
+   held-out FPR function_word_ratio (%) shipped 5.0400     measured 5.1800     ok
+   held-out FPR anaphora (%)          shipped 4.8900     measured 4.8500     ok
+   held-out FPR line_length_cv (%)    shipped 5.1100     measured 5.1400     ok
+   held-out FPR predictability (%)    shipped 4.9300     measured 5.1400     ok
+   held-out FPR ANY (%)               shipped 19.7100    measured 20.2200    ok
+   held-out FPR cliche (%)            shipped 6.7100     measured 7.6400     ok
+   profile n_generated                shipped 0.0000     measured 0.0000     ok
+   anaphora period slope rho          shipped -0.0080    measured -0.0250    DRIFT
+   anaphora period slope p_perm       shipped 0.8695     measured 0.6605     DRIFT
+
+   asked 20, answered 20, refused 0 (doctrine 79)
+   7 value(s) DRIFTED: band lo (tokens), threshold mattr, threshold fwr, threshold cv, threshold predictability, anaphora period slope rho, anaphora period slope p_perm
+   `corpus/song/` is volatile by design, so a drift here is a corpus change, not automatically a defect. Argue it and repin; do not tune to it (doctrine 58).
+CACHE  /root/.cache/lyric-harness/song_predictability_v1.tsv
+       fingerprint 5f8f9a6149c7 | DISCARDED: comparator fingerprint moved (file 1ca985c44f5a, now 5f8f9a6149c7) -- recomputing from scratch | hits 4, misses 8663
+
+PHASE COST  (wall / cpu seconds; they are not the same number and neither is the other's estimate)
+   population                     8238.0    8199.4
+   pick_band                         1.1       1.1
+   report_fpr                       11.5      11.5
+   report_tolerance                  7.8       7.8
+   report_period                    29.8      29.8
+   report_examples                   0.0       0.0
+   check_shipped                     0.0       0.0
+   TOTAL                          8288.2    8249.6
