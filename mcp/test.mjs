@@ -963,6 +963,20 @@ try {
     // needed their own checks are the two that would have been silently
     // wrong under a reused verdictOf: the exit code does NOT carry the
     // verdict, and this verb reports no banned pairs BY CONSTRUCTION.
+    //
+    // RELATION DECLARED 2026-08-26 (M-116 repin): under the
+    // whole-vocabulary default the pour/stone pair SATISFIES — its lines
+    // stand in the chain-rhyme schema — so the "violation" these checks
+    // revise stopped existing and the fix was correctly rejected as
+    // repairing nothing. These are LOOP-MECHANICS checks (accepted,
+    // fixed_count, targeted), so they declare class:RHYME, the same
+    // narrowing every loop-mechanics fixture in quality/ took: a declared
+    // relation silences the vocabulary default (M-126 defers to it), and
+    // it also makes `relation` a READ field on this verb rather than a
+    // parsed one. Validated at the CLI: violation restored, fix ACCEPTED
+    // (fixed 1, changed only [2]), no-op REJECTED, targeted flips the
+    // untargeted-rewrite verdict.
+    const V_RELATION = 'class:RHYME';
     const vBefore = [
       'Lights cut, and the bass came down in a pour',
       'Half the room gone quiet where the sound stone',
@@ -972,6 +986,7 @@ try {
       before: vBefore,
       after: vGood,
       groups: '1,2',
+      relation: V_RELATION,
     });
     assert.equal(ok.accepted, true, 'a revision that fixes the violation is ACCEPTED');
     assert.equal(ok.fixed_count, 1, '...and the fixed count is reported');
@@ -981,6 +996,7 @@ try {
       before: vBefore,
       after: vBefore,
       groups: '1,2',
+      relation: V_RELATION,
     });
     assert.equal(bad.accepted, false, 'a no-op revision is REJECTED');
     assert.equal(bad.exit_code, ok.exit_code, 'and BOTH exit with the same code');
@@ -1004,11 +1020,13 @@ try {
       before: vBefore,
       after: untargeted,
       groups: '1,2',
+      relation: V_RELATION,
     });
     const scoped = await callText('lyric_verify', {
       before: vBefore,
       after: untargeted,
       groups: '1,2',
+      relation: V_RELATION,
       targeted: [2],
     });
     assert.notEqual(
