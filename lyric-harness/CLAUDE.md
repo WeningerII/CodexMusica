@@ -742,16 +742,55 @@ rhyme and rime riche", and the question was fair: this file and this session
 both kept saying *"still at the door with 2 and 4"* as though `admit` were the
 binding constraint, in the same sitting that built the thing which BYPASSES
 it. Those two sentences do not sit together.
-**MEASURED, and it settles it.** `sun`/`much` is `ASSONANCE`:
+~~**MEASURED, and it settles it.** `sun`/`much` is `ASSONANCE`:
 `brief FILE --groups=1,2` reports `SCHEME_VIOLATION`; the identical command
-with `--relation=class:ASSONANCE` **PASSES**. When a mandate declares a
+with `--relation=class:ASSONANCE` **PASSES**.~~ **STRUCK 2026-08-26 — THIS
+PARAGRAPH'S OWN WORKED EXAMPLE STOPPED REPRODUCING, AND IT IS THE HALF THAT
+WAS DOING THE SETTLING.** Re-run today, BOTH commands pass: `sun`/`much` earns
+NO `SCHEME_VIOLATION` at the default door, because M-59 put ASSONANCE inside
+`decl.admit` four days after this sentence was written. **The contrast is
+zero, so the example demonstrates nothing** — a fact about the door, recorded
+as a fact about the route, and left standing while the door moved twice
+underneath it (doctrine 17; this is the same species as the `joint_field`
+worked example M-139 found, and it is the second in one file).
+**THE CLAIM SURVIVES AND ITS EVIDENCE MOVES TO THE OTHER ROW OF THE SAME 2x2**,
+which is the honest repair and is a sharper demonstration than the struck one,
+because it shows the route being STRICTER rather than merely different:
+
+| pair | default door | `--relation=class:ASSONANCE` |
+|---|---|---|
+| `cat`/`hat` — perfect rhyme | passes | **SCHEME_VIOLATION** |
+| `sun`/`much` — assonance | passes | passes |
+
+Read down the second column and the route is a real coordinate: a group
+declaring `class:ASSONANCE` is NOT satisfied by a perfect rhyme. Read across
+the second row and the DOOR has caught up with the route on exactly the case
+this paragraph was written about.
+**AND BOTH ROWS WERE ALREADY MECHANICAL — THE PROSE WAS SIMPLY WIRED TO
+NEITHER, WHICH IS WHY IT COULD GO STALE WITH EVERY SUITE GREEN.** The door
+row is `quality/test_homeoteleuton.py` §5 (*"DEFAULT now SATISFIES sun/much"*,
+repaired at M-59 — it had been ASSERTING the defect); the route row is
+`quality/test_mandate_relation.py` §8 (`schema:consonance` VIOLATING on a
+perfect rhyme). No third check is written here: a second copy of a pin is how
+two pins start disagreeing (doctrine 1). What this paragraph owed was the
+CITATION, so the next reader of a sentence like the struck one can find the
+check that would have told them. When a mandate declares a
 relation, `grade()` routes through `satisfies_relation` and **never consults
-`admits()`**. The 2-name door governs exactly one case — the one where nobody
-said anything.
+`admits()`**. ~~The 2-name door governs exactly one case — the one where nobody
+said anything.~~ **STRUCK with the same date and for the same reason, twice
+over**: the door is not 2-name (M-59, all four of `ADMITTABLE_RELATIONS`), and
+the one case it governs — where nobody said anything — is precisely the case
+M-116 then handed ALL 77 SCHEMAS, so the silent case is now judged by
+`admits(s, theta, decl.admit)` OR `relations.whole_vocabulary_pairs` and is the
+WIDEST door in the tree rather than the narrowest. Its chance rate is
+`quality/chance_rate.py` and is priced by nothing (`MISSING.md` M-138, M-140).
 **TWO MECHANISMS, FOUR DAYS APART, ANSWERING ONE COMPLAINT.**
 `Declaration.admit` (2026-08-18) is the counterweight to the homoeoteleuton
 ban: a declared set, maximum FOUR (`ADMITTABLE_RELATIONS`), so the ban cannot
-quietly close rhyme classes. The relation route is the other answer and is
+quietly close rhyme classes. **`admit`'s own ceiling of four is unchanged and
+is NOT the ceiling of the default any more (amended 2026-08-26): M-116 put the
+77 schemas beside it, so a pair `admit` refuses can still satisfy a silent
+mandate. Read this sentence as being about `admit` and not about the door.** The relation route is the other answer and is
 richer AND stricter at once: per group, so a group declaring
 `class:ASSONANCE` is NOT satisfied by a perfect rhyme.
 ~~"It stays at two on purpose — it is ONE GLOBAL SET answering 'what
