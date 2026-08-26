@@ -532,6 +532,64 @@ try {
   console.log('  ok  lyric family advertised: 7 tools, read-only, closed-world');
   passed++;
 
+  // DEPLOYMENT FRESHNESS HAS AN INSTRUMENT (M-127): check_live.mjs compares
+  // the surface a RUNNING server advertises against this tree's own, because
+  // on 2026-08-26 a live server was found serving a one-commit-stale
+  // lyric_sweep schema (12-want ceiling, no story_lineups) and NOTHING could
+  // have said so — every check in this repo ran against the code, none against
+  // the deployment. These checks prove the comparator FAILS in every direction
+  // it claims to detect; a differ that cannot fail is the vacuous-check defect
+  // this suite's own history warns about. The transport half (a real server
+  // answering over HTTP) is proven by running the instrument, not simulated
+  // here — the comparator is the half a network cannot exercise.
+  const { surfaceDrift } = await import('./check_live.mjs');
+  const surf = tools.map((t) => ({
+    name: t.name,
+    description: t.description,
+    inputSchema: t.inputSchema,
+  }));
+  assert.deepEqual(surfaceDrift(surf, surf), [], 'a surface matches itself — MATCH is reachable');
+  const dropped = surf.slice(1);
+  assert.ok(
+    surfaceDrift(surf, dropped).some((d) => d.tool === surf[0].name && /missing/.test(d.what)),
+    'a tool the live server lost is named as missing'
+  );
+  assert.ok(
+    surfaceDrift(dropped, surf).some(
+      (d) => d.tool === surf[0].name && /not in the tree/.test(d.what)
+    ),
+    'a tool only the live server has is named as extra'
+  );
+  const reworded = surf.map((t, i) => (i ? t : { ...t, description: `${t.description} (stale)` }));
+  assert.ok(
+    surfaceDrift(surf, reworded).some(
+      (d) => d.tool === surf[0].name && d.what === 'description differs'
+    ),
+    'a drifted description is named with its coordinate'
+  );
+  const reshaped = surf.map((t, i) =>
+    i ? t : { ...t, inputSchema: { ...t.inputSchema, maxItems: 999 } }
+  );
+  assert.ok(
+    surfaceDrift(surf, reshaped).some(
+      (d) => d.tool === surf[0].name && d.what === 'inputSchema differs'
+    ),
+    'a drifted schema is named with its coordinate — the exact shape the stale server wore'
+  );
+  const reordered = surf.map((t) => ({
+    ...t,
+    inputSchema: JSON.parse(JSON.stringify(t.inputSchema)),
+  }));
+  assert.deepEqual(
+    surfaceDrift(surf, reordered.reverse()),
+    [],
+    'neither tool order nor key order is drift — the comparison is canonical'
+  );
+  console.log(
+    '  ok  check_live: the freshness comparator fails in all four directions, and only those'
+  );
+  passed++;
+
   // LIVE: stage the lexicon exactly as the Docker build does, then drive
   // the bridge with the control pair the ban was taught on, and one full
   // plan->fill->grade round trip. These are the checks that catch a

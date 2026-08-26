@@ -2316,3 +2316,40 @@ jobs:
                  [ "$after" -gt "$before" ] || { echo "NO PROGRESS BANKED"; exit 1; } ;;
             *) echo "UNEXPECTED exit $rc"; exit $rc ;;
           esac
+
+      # ─────────── deployment freshness (M-127) ───────────
+      #
+      # THE ONE LOOP NOTHING ABOVE CLOSES. Every step in this file runs against
+      # the TREE; none ever asks the DEPLOYED process what it is actually
+      # serving, so the deployment could drift from main silently — and did:
+      # 2026-08-26, a live server advertising a one-commit-stale lyric_sweep
+      # schema (12-want ceiling, no story_lineups), found by a person reading a
+      # schema rather than by anything that gates. mcp/check_live.mjs asks the
+      # live endpoint for its advertised tool surface and byte-compares it
+      # (canonical key order, tools keyed by name) against the surface this
+      # tree's own buildServer() advertises through the same SDK path.
+      #
+      # IT GATES HERE AND DELIBERATELY NOT IN THE PER-PUSH JOBS: render.yaml
+      # deploys from main, so a feature branch that edits the connector
+      # LEGITIMATELY differs from the deployment until it merges, and a
+      # per-push gate would charge every honest connector change with the
+      # drift it is about to fix. The nightly runs on main, where tree !=
+      # deployment is always a defect: autoDeploy failed, or has not caught up.
+      #
+      # THREE ANSWERS, NEVER COLLAPSED: exit 0 MATCH, exit 3 DRIFT (each
+      # drifted tool named with the coordinate that moved), exit 2 REFUSED —
+      # the server could not be asked, which is a red worth having since a
+      # connector nobody can reach is not a connector that matches.
+      - uses: actions/setup-node@v5
+        if: always()
+        with:
+          node-version: '22'
+
+      - name: Install connector dependencies (check_live builds the expected surface in-process)
+        if: always()
+        run: npm ci --prefix mcp
+
+      - name: Deployment freshness — the live connector's advertised surface against the tree's
+        if: always()
+        working-directory: mcp
+        run: node check_live.mjs
