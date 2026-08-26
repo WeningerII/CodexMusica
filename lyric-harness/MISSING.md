@@ -12868,6 +12868,22 @@ repairs move what the harness OFFERS and what it COUNTS as a structural
 defect; no sonnet violation moves, which is the control that says the door
 work did not quietly re-grade the canon.
 
+**AND THIS ENTRY'S OWN REPAIR SHIPPED A FALSE SENTENCE — CAUGHT AND STRUCK THE
+SAME DAY, 2026-08-26.** The `_field_one` docstring written above said the
+schema half *"is DISCLOSED rather than silently dropped
+(`Brief.field_declaration`, and doctrine 20)"*. It is not.
+`Reviser.field_declaration` renders `field_depth=..., field_band=...` and
+nothing else — grep it, and every renderer that prints it prints those two
+coordinates alone. **The schema half is SILENTLY DROPPED at that site today**,
+and the sentence claiming otherwise was doctrine 48 inside the docstring of the
+function this entry's own repair is about, written by the lot that had just
+finished naming that failure mode two paragraphs earlier. It is struck rather
+than quietly corrected (doctrine 17), and the docstring now records a GAP where
+it used to record a feature. What is owed is bounded and stated at the site: a
+per-WORD field can never list the words a per-LINE-PAIR route would accept, so
+the disclosure can only NAME the route and say a pair may satisfy without any
+offered word being taken.
+
 **TESTED WHILE OPEN, and the split is exactly the entry's own two halves.**
 Three regressions name this entry — `quality/test_door_census.py`,
 `quality/test_loop.py`, `quality/test_revise.py` — and every one of them tests
@@ -12910,6 +12926,23 @@ both shipped consumers gate it lazily on a pair already charged.
   - **`Reviser.mandate_from_graph`** — `--cliques`, the derived cover. It has
     no mandate to be lazy against, so the 77 call would land on every
     invocation of `brief`/`verify`/`revise`/`song` that uses it.
+    **AND THE FIRST MEASUREMENT POINTS AWAY FROM THE REPAIR, WHICH IS WHY IT
+    IS RECORDED BEFORE ANY CODE MOVED.** Over 12 of this repo's own drafts —
+    every fixture and shipped song between 16 and 41 lines, 3,579 possible
+    line pairs — the shipped narrow door makes **763 edges (21.3% of all
+    possible pairs)** and narrow-plus-`whole_vocabulary_pairs` makes **2,795
+    (78.1%)**. The defect is LIVE, not latent: **12 of 12 drafts move.** But
+    the useful coordinate is DENSITY, not the +266% edge count. At 78% the
+    graph is nearly complete and `mandate_song.txt` reaches **92%** — and a
+    MAXIMAL-CLIQUE cover derived from a graph that dense is not a more
+    correct cover, it is ONE GIANT CLIQUE asserting that every line rhymes
+    with every line. So the live question is no longer "when do we pay for
+    the stream" but whether **the 77 are the right door for a DERIVED COVER
+    AT ALL**, which is doctrine 14's question and is NOT the same question as
+    whether the GRADER should accept them. **PROVISIONAL**: this sweep
+    counted every pair `whole_vocabulary_pairs` returns, which is wider than
+    the set a cover consults, so the figure is an upper bound and is pending
+    an independent narrower pass before anything is ruled on it.
   - **`Reviser.group_merges`** — inside `inspect()`, which runs every round of
     the loop, so an ungated call multiplies by the round count.
     **AND ITS OWN STRUCTURE SUPPLIES THE LAZY GATE, which is why this is the

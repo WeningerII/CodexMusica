@@ -3141,10 +3141,27 @@ class Reviser:
         relation ruling (`MISSING.md` M-138) flows here for free rather than
         needing a second edit. The SCHEMA half is not expressible here at
         all — `whole_vocabulary_pairs` judges a LINE PAIR over a built
-        stream and this function holds one WORD — so it is DISCLOSED rather
-        than silently dropped (`Brief.field_declaration`, and doctrine 20: a
-        field that stays quiet about a whole acceptance route reads as
-        though nothing else could answer).
+        stream and this function holds one WORD — ~~so it is DISCLOSED
+        rather than silently dropped (`Brief.field_declaration`, and
+        doctrine 20: a field that stays quiet about a whole acceptance route
+        reads as though nothing else could answer)~~.
+
+        **THAT LAST CLAUSE WAS FALSE WHEN IT WAS WRITTEN AND IS STRUCK THE
+        SAME DAY — 2026-08-26.** `Brief.field_declaration` renders
+        `field_depth=..., field_band=...` and NOTHING about the schema
+        route; grep it and every renderer prints those two coordinates
+        alone. So the sentence asserted a disclosure that was never built,
+        which is doctrine 48 inside the docstring of the function this
+        entry's own repair is about — a principle living only in prose,
+        written by the lot that had just finished naming that failure mode.
+        The schema half is at present SILENTLY DROPPED here.
+
+        WHAT IS OWED, stated so it cannot be mistaken for done: the field is
+        per-WORD and the schema route is per-LINE-PAIR, so the disclosure
+        can never list words — it can only name the route and say that a
+        pair may satisfy without any offered word being taken. Until that
+        ships, this docstring records a GAP and not a feature
+        (`MISSING.md` M-139).
 
         `CandidateEngine` scores with `score()` on one pronunciation; the
         grader scores with `best_score()` over every variant of both sides.
