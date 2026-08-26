@@ -131,6 +131,53 @@ def void_reason(row):
 
 OUT_DEFAULT = os.path.join(ROOT, "data", "structure_census_eng.tsv")
 
+#: EVERY FIGURE `quality/RESULTS_STRUCTURE_CENSUS.md` RECORDS, AND WHICH ARM
+#: MEASURES IT. Two arms, never one, because they have different lifetimes:
+#:
+#:   ARTIFACT — re-derived from the COMMITTED table. True forever; the md5 is
+#:     the address. 36 figures, 0.26s, and all 36 held on 2026-08-26.
+#:   D1       — re-derived from the LIVE TREE, because `d1_diagnostic()`
+#:     re-globs `corpus/song/eng_*.txt`. True only of a DECLARED corpus state.
+#:
+#: Run 1 recorded both under one heading and the second drifted for eight days
+#: under a 100%-green suite, because `quality/test_structure_census.py` pins
+#: the INSTRUMENT and reads no figure out of the results document. That is
+#: doctrine 58 with the unwritten threshold being WHICH FILES.
+ARTIFACT_RECORDED = {
+    "md5": "7d4daf7928cf7c973fdea04e17d06088",
+    "cells": 16530, "corpus_files": 145, "rows": 57,
+    "n_pairs": 417020664, "n_true": 7710997,
+    "n_false": 233898661, "n_refused": 175411006,
+}
+
+#: D1's POPULATION IS A DECLARED COORDINATE NOW. The run-1 row is kept and
+#: CANNOT be re-derived at head — 3 of its 143 files were deleted at `76f978f`
+#: and 140 changed content — which is exactly why it is spelled as a dated
+#: record rather than as a live expectation (doctrine 17: the superseded
+#: measurement stays visible, it just stops being quotable as current).
+D1_RECORDED = {
+    "pool": 4436096,
+    "measured": "2026-08-26",
+    "population": "the 1,297 eng_ files at the 2026-08-22 manifest snapshot",
+    "table": {("true", "admits"): 11, ("true", "rejects"): 2,
+              ("false", "admits"): 10, ("false", "rejects"): 696,
+              ("refused", "admits"): 5, ("refused", "rejects"): 276},
+    "agree": (707, 719),
+}
+
+#: HISTORICAL, and unreachable from this tree by any population.
+D1_RUN1 = {
+    "pool": 2408735, "measured": "2026-08-18",
+    "population": "143 eng_ files",
+    "table": {("true", "admits"): 8, ("true", "rejects"): 7,
+              ("false", "admits"): 11, ("false", "rejects"): 714,
+              ("refused", "admits"): 5, ("refused", "rejects"): 255},
+    "agree": (722, 740),
+    "unreachable": ("3 of the 143 files were deleted at 76f978f and 140 "
+                    "changed content; reproduce with "
+                    "`git archive 2ff4e51 lyric-harness`"),
+}
+
 
 # --- THE TOKENISER IS A DECLARED COORDINATE (MISSING.md M-22) --------------
 #
@@ -161,8 +208,11 @@ OUT_DEFAULT = os.path.join(ROOT, "data", "structure_census_eng.tsv")
 # AMBIGUOUS FOR ENGLISH, which is the one language that matters for
 # reproducing run 1.  `English._tokens` and `LH.line_tokens` are DIFFERENT
 # FUNCTIONS: the second erases `(...)` spans first (`strip_parens=True`).
-# MEASURED over the 283,515 eng sung lines, they disagree on **1,061 lines
-# (0.374%) across 192 files** -- small, and not zero, so a naive swap would
+# MEASURED over the ~~283,515~~ **283,501** eng sung lines, they disagree on
+# ~~**1,061 lines (0.374%) across 192 files**~~ **1,059 lines (0.3735%) across
+# 190 files** -- REPINNED 2026-08-26; `2ca1880` repaired three
+# eng_celtic_msm_* files 93 minutes AFTER this comment was written, so the
+# figure was stale within the hour and nothing could see it -- small, and not zero, so a naive swap would
 # have moved `data/structure_census_eng.tsv` and its md5 while looking like a
 # pure refactor.
 #
@@ -586,6 +636,92 @@ def d1_diagnostic():
     if judged:
         print(f"  agreement over judged: {agree}/{judged} "
               f"({agree / judged:.1%}); refusals apart (doctrine 79)")
+    # RETURNED, not only printed: a figure a checker cannot READ is a figure
+    # only a human can compare, which is how this section drifted.
+    return {"pool": len(pool), "table": dict(tab), "agree": (agree, judged)}
+    return 0
+
+
+def check():
+    """Re-derive every recorded figure. THREE VERDICTS, NEVER SUMMED
+    (doctrine 79): HOLDS / MOVED / CANNOT RUN. Exits **3** on drift rather
+    than 2 — a moved figure is an ANSWER, not a refusal, which is the
+    convention `quality/corpus_manifest.py` already uses."""
+    holds, moved, cannot = [], [], []
+
+    print("=" * 70)
+    print("ARTIFACT ARM — re-derived from the COMMITTED table, true forever")
+    print("=" * 70)
+    if not os.path.exists(OUT_DEFAULT):
+        cannot.append(f"{OUT_DEFAULT} is absent — the artifact arm cannot run")
+    else:
+        import hashlib
+        got = {"md5": hashlib.md5(open(OUT_DEFAULT, "rb").read()).hexdigest()}
+        rows = [l.rstrip("\n").split("\t")
+                for l in open(OUT_DEFAULT, encoding="utf-8")]
+        head, body = rows[0], rows[1:]
+        col = {n: i for i, n in enumerate(head)}
+        got["cells"] = len(body)
+        got["corpus_files"] = len({r[col["corpus_file"]] for r in body})
+        got["rows"] = len({r[col["structure"]] for r in body})
+        for k, c in (("n_pairs", "n_pairs"), ("n_true", "n_true"),
+                     ("n_false", "n_false"), ("n_refused", "n_refused")):
+            got[k] = sum(int(r[col[c]]) for r in body) if c in col else None
+        for k, want in sorted(ARTIFACT_RECORDED.items()):
+            g = got.get(k)
+            if g is None:
+                cannot.append(f"artifact {k}: not readable from the table")
+            elif g == want:
+                holds.append(f"artifact {k:<14} {want}")
+            else:
+                moved.append(f"artifact {k}: recorded {want}, measured {g}")
+
+    print()
+    print("=" * 70)
+    print("D1 ARM — re-derived from the LIVE TREE; true only of a DECLARED")
+    print("         corpus state, which is the whole reason this arm exists")
+    print("=" * 70)
+    d1 = d1_diagnostic()
+    if d1["pool"] == D1_RECORDED["pool"]:
+        holds.append(f"D1 pool           {D1_RECORDED['pool']:,}")
+    else:
+        moved.append(
+            f"D1 pool: recorded {D1_RECORDED['pool']:,} over "
+            f"{D1_RECORDED['population']}, measured {d1['pool']:,}. THE "
+            f"POPULATION MOVED — re-derive DELIBERATELY and strike the "
+            f"recorded table with its date (doctrine 58: the repair is aimed "
+            f"at the measurement, never at the number)")
+    for key, want in sorted(D1_RECORDED["table"].items()):
+        g = d1["table"].get(key, 0)
+        label = f"D1 {key[0]}/{key[1]}"
+        (holds if g == want else moved).append(
+            f"{label:<22} {want}" if g == want
+            else f"{label}: recorded {want}, measured {g}")
+    if tuple(d1["agree"]) == tuple(D1_RECORDED["agree"]):
+        holds.append("D1 agreement      %d/%d" % D1_RECORDED["agree"])
+    else:
+        moved.append("D1 agreement: recorded %d/%d, measured %d/%d"
+                     % (D1_RECORDED["agree"] + tuple(d1["agree"])))
+
+    print()
+    for label, rows_ in (("HOLDS", holds), ("MOVED", moved),
+                         ("CANNOT RUN", cannot)):
+        print(f"  {label} {len(rows_)}")
+        for r in rows_:
+            print(f"    {r}")
+    print()
+    print("  THREE VERDICTS, NEVER SUMMED (doctrine 79). The run-1 D1 table "
+          "is HISTORICAL and is not checked: it cannot be re-derived at head "
+          f"at any population — {D1_RUN1['unreachable']}.")
+    if moved:
+        print()
+        print(f"RESULT: DRIFT — {len(moved)} recorded figure(s) moved.")
+        return 3
+    if cannot:
+        print()
+        print(f"RESULT: CANNOT RUN — {len(cannot)} figure(s) unmeasured.")
+        return 2
+    print("RESULT: PASS — every recorded figure re-derives.")
     return 0
 
 
@@ -594,6 +730,8 @@ def main():
     ap.add_argument("--pilot", action="store_true")
     ap.add_argument("--full", action="store_true")
     ap.add_argument("--d1", action="store_true")
+    ap.add_argument("--check", action="store_true",
+                    help="re-derive every recorded figure; exit 3 on drift")
     ap.add_argument("--shard", default=None,
                     help="k/n over the sorted file list (--full only)")
     ap.add_argument("--out", default=None)
@@ -602,6 +740,8 @@ def main():
     ap.add_argument("--dedup-verify", default=None, metavar="FILE")
     a = ap.parse_args()
 
+    if a.check:
+        return check()
     if a.d1:
         return d1_diagnostic()
     if a.dedup_verify:

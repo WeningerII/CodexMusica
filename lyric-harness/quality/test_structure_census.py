@@ -387,7 +387,10 @@ def test_tokeniser_is_declared():
     # must be BYTE-IDENTICAL through the new path.  eng resolves to
     # `line_tokens` BY DECLARATION, not by accident -- `English._tokens` is
     # a DIFFERENT function (it does not strip `(...)`) and the two disagree
-    # on 1,061 of 283,515 eng sung lines, so "ask the phonology" would have
+    # on ~~1,061 of 283,515~~ 1,059 of 283,501 eng sung lines (REPINNED
+    # 2026-08-26 with the module comment it mirrors -- a figure pinned in two
+    # media with no instrument between them is `MISSING.md` M-21's own
+    # subject), so "ask the phonology" would have
     # moved the committed artifact while looking like a refactor.
     #
     # THE FIXTURE IS `PARENS`, NOT `SMALL`, AND THAT IS THE WHOLE CHECK.

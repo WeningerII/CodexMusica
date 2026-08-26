@@ -13459,3 +13459,87 @@ still reproduces `redteam_band.sample_pairs` pair for pair. The DISOWNED split
 is printed on every run. What the check asserts is that the rates have not
 MOVED; it asserts nothing about what they should be, which is the ruling above.
 
+### M-141 · the census's one live figure drifted 84% under a green suite `CLOSED`
+Opened and closed 2026-08-26. **`quality/RESULTS_STRUCTURE_CENSUS.md`'s
+disclosure box asserts in bold that *"Every figure in this document is PINNED
+TO ITS ARTIFACT and stands."* It is true of 36 figures and false of exactly
+one** — and the false one is §D1, which is precisely what that box exists to
+warn about. `d1_diagnostic()` re-globs `corpus/song/eng_*.txt` at RUN TIME, so
+its population is the live tree; the sentence written to reassure a reader that
+the glob drift was harmless is the sentence that hid the one place it was not.
+
+**MEASURED, and every cell moved.** `python3 quality/structure_census.py --d1`
+at head against the recorded run-1 table:
+
+| cell | recorded 2026-08-18 | head 2026-08-26 | move |
+|---|---:|---:|---:|
+| pool (unique pairs) | 2,408,735 | **4,436,096** | **+2,027,361 (+84.2%)** |
+| true/admits | 8 | 11 | +3 |
+| true/rejects | 7 | 2 | −5 |
+| false/admits | 11 | 10 | −1 |
+| false/rejects | 714 | 696 | −18 |
+| refused/rejects | 255 | 276 | +21 |
+| agreement over judged | 722/740 (97.6%) | 707/719 (98.3%) | +0.7 pp |
+
+**AND NOT ONE OF THE SIX EXAMPLE PAIRS THE PROSE NAMES BY WORD SURVIVES** into
+the re-derived sample, which is the sharpest single statement of how far the
+population moved.
+
+**THE MOVE IS DECOMPOSED INTO FOUR MEASUREMENTS AND NEVER SUMMED AS ONE
+CAUSE** (doctrine 79): run-1 code × run-1 corpus **2,408,735** -> head code ×
+run-1 corpus **2,436,641** (+1.16%, `1580d11`, `line_tokens` onto the declared
+`LATIN_SCRIPT` repertoire) -> head code × head corpus over the 140 surviving
+files **2,881,757** (+18.4%, content top-ups) -> head code × head corpus over
+all 1,297 files **4,436,096** (+53.9%, the four 2026-08-20 loads). **3 of the
+143 run-1 files were DELETED**, so the recorded table is not re-derivable at
+head at any population — it is struck and re-derived rather than restored.
+
+**IT RAN FOR EIGHT DAYS UNDER A 100%-GREEN SUITE, AND THAT IS THE ENTRY.**
+`quality/test_structure_census.py` pins the INSTRUMENT — 57 rows, the item
+readers, F1, the three-state tag, the TSV round-trip — and **reads no figure
+out of the results document and never calls `d1_diagnostic`.** The sibling
+calibration `quality/kalevala_calibration.py` has had a `--check` wired nightly
+since the week both were written; the census never got one. Doctrine 48 at the
+instrument layer: the principle was mechanical for one half of the phase and a
+memory for the other.
+
+**AND THE MECHANISM THE DISCLOSURE BOX POINTS AT AS THE FIX CANNOT SEE IT
+EITHER.** `quality/corpus_manifest.py --check` is green, and its `CALIBRATED`
+table asks `structure_census.corpus_files()` for the census's population —
+which answers with the **live glob**, not the 145 files the artifact describes.
+So it currently certifies the census as in sync with a population it never
+measured.
+
+**CLOSED BY A GATE, and the repair is aimed at the MEASUREMENT** (doctrine 58 —
+nothing is retuned and no cell is re-tagged to make a figure return).
+`structure_census.py --check` re-derives every recorded figure in **TWO ARMS
+WITH DIFFERENT LIFETIMES, never summed**: the ARTIFACT arm from the committed
+table, true forever (0.26s, 16 figures); the D1 arm from the LIVE TREE, true
+only of a DECLARED corpus state, keyed to the manifest snapshot. Three
+verdicts — HOLDS / MOVED / CANNOT RUN — and it exits **3** on drift, because a
+moved figure is an ANSWER and not a refusal. **17.8s**, wired nightly beside
+its sibling. Mutating the recorded pool by ONE unit takes it to exit 3 with the
+figure named, which is the proof it is not vacuous.
+
+**TWO MORE RECORDED FIGURES DID NOT REPRODUCE AND ARE STRUCK WITH IT.**
+*"Rhyme-constrained verse out-rhymes free verse at its own question by 4-9x on
+every live row"* — re-derived from the table directly above it, the spread is
+**1.37x to 38.94x**, and the gloss rounds away both ends including the
+rime-riche row where constrained verse barely separates from the negative
+control, which is the row a phase-2 consumer most needs. **E1's PASS is
+untouched**: the registration asks only EXCEEDS and all ten comparisons exceed.
+And *"0 exceptions over 7 phonologies"* was never true — **9** were registered
+on the day it was written (re-derived: 57 rows × 9 = 513 calls, 0 exceptions).
+
+**AND A PREREGISTRATION BLOCKER CLEARED FIVE DAYS AGO AND NOTHING SAID SO.**
+`STRUCTURE_CENSUS_PREREGISTRATION.md` still reads *"Run 2 may not begin until
+`pair_counters` asks the phonology"*; `77b5b10` gave it a declared per-language
+tokeniser table **42 minutes after that box was committed**. Its `fin 41.6%`
+shred rate also does not reproduce under ANY definition — eight
+(definition × population) combinations over the same 41,805 lines span
+21.3%–51.0% and none is 41.6%, and the measuring script was never committed,
+which is standing rule 3's shape. Both are recorded here; the preregistration's
+own strikes are owed and are NOT written in this sitting, which is stated
+rather than left to be discovered (doctrine 20).
+
+Attributed to a lane; the D1 table, the pool and the gate I re-derived myself.
