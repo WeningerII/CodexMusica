@@ -13538,8 +13538,13 @@ tokeniser table **42 minutes after that box was committed**. Its `fin 41.6%`
 shred rate also does not reproduce under ANY definition — eight
 (definition × population) combinations over the same 41,805 lines span
 21.3%–51.0% and none is 41.6%, and the measuring script was never committed,
-which is standing rule 3's shape. Both are recorded here; the preregistration's
-own strikes are owed and are NOT written in this sitting, which is stated
-rather than left to be discovered (doctrine 20).
+which is standing rule 3's shape. ~~Both are recorded here; the preregistration's
+own strikes are owed and are NOT written in this sitting~~ **WRITTEN IN THE
+SAME SITTING AFTER ALL, and all three verified at head before being struck**:
+`pair_counters` calls `tokeniser_for(language or language_of(path))`;
+`constrained()` returns `"yes" | "no" | "undeclared"` under a docstring citing
+doctrine 20; and `quality.phonology.declared()` answers nine. A cleared blocker
+nobody records is the same defect as an uncleared one nobody records, one sign
+flipped — which is why it did not survive being named as owed.
 
 Attributed to a lane; the D1 table, the pool and the gate I re-derived myself.
