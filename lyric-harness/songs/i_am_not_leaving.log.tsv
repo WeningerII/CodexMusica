@@ -1,0 +1,67 @@
+song	step	measured	harness_commit	verb	exit	fact	value
+i_am_not_leaving.txt	1	2026-08-26	365949f	plan --sweep	0	sweep_range	1..255
+i_am_not_leaving.txt	1	2026-08-26	365949f	plan --sweep	0	swept	255
+i_am_not_leaving.txt	1	2026-08-26	365949f	plan --sweep	0	form	verse-chorus
+i_am_not_leaving.txt	1	2026-08-26	365949f	plan --sweep	0	want	lines>=20;lines<=30;uses=verse,chorus;returns>=1;story_lineups>=1;pins_per_line<=3
+i_am_not_leaving.txt	1	2026-08-26	365949f	plan --sweep	0	planned	255
+i_am_not_leaving.txt	1	2026-08-26	365949f	plan --sweep	0	planner_refused	0
+i_am_not_leaving.txt	1	2026-08-26	365949f	plan --sweep	0	accepted	1
+i_am_not_leaving.txt	1	2026-08-26	365949f	plan --sweep	0	accepted_rate	0.4
+i_am_not_leaving.txt	1	2026-08-26	365949f	plan --sweep	0	accepted_seeds	198
+i_am_not_leaving.txt	2	2026-08-26	365949f-WORKING	plan	0	form	verse-chorus
+i_am_not_leaving.txt	2	2026-08-26	365949f-WORKING	plan	0	seed	198
+i_am_not_leaving.txt	2	2026-08-26	365949f-WORKING	plan	0	lines	20
+i_am_not_leaving.txt	2	2026-08-26	365949f-WORKING	plan	0	sections	6
+i_am_not_leaving.txt	2	2026-08-26	365949f-WORKING	plan	0	pattern	build-interlude-verse-chorus-prechorus-chorus
+i_am_not_leaving.txt	2	2026-08-26	365949f-WORKING	plan	0	meter	2/4 as (2,)
+i_am_not_leaving.txt	2	2026-08-26	365949f-WORKING	plan	0	subdivision	4
+i_am_not_leaving.txt	2	2026-08-26	365949f-WORKING	plan	0	groups	4.T4,5.head;3.T2,5.endword;8,14.head,17.headrime;9,15.headrime;10.T4,12.headrime;6,7,8.headrime,9.T4,11.T2,12.T4,13.endword,15.T2,16;7.T4,9.headrime,11,14,15.T3,17.T2;7.T2,11.head,14.T3;10,12
+i_am_not_leaving.txt	2	2026-08-26	365949f-WORKING	plan	0	returns	3,18;4,19;5,20
+i_am_not_leaving.txt	3	2026-08-26	365949f-WORKING	plan	0	form	verse-chorus
+i_am_not_leaving.txt	3	2026-08-26	365949f-WORKING	plan	0	seed	198
+i_am_not_leaving.txt	3	2026-08-26	365949f-WORKING	plan	0	lines	20
+i_am_not_leaving.txt	3	2026-08-26	365949f-WORKING	plan	0	sections	6
+i_am_not_leaving.txt	3	2026-08-26	365949f-WORKING	plan	0	pattern	build-interlude-verse-chorus-prechorus-chorus
+i_am_not_leaving.txt	3	2026-08-26	365949f-WORKING	plan	0	meter	2/4 as (2,)
+i_am_not_leaving.txt	3	2026-08-26	365949f-WORKING	plan	0	subdivision	4
+i_am_not_leaving.txt	3	2026-08-26	365949f-WORKING	plan	0	groups	4.T4,5.head;3.T2,5.endword;8,14.head,17.headrime;9,15.headrime;10.T4,12.headrime;6,7,8.headrime,9.T4,11.T2,12.T4,13.endword,15.T2,16;7.T4,9.headrime,11,14,15.T3,17.T2;7.T2,11.head,14.T3;10,12
+i_am_not_leaving.txt	3	2026-08-26	365949f-WORKING	plan	0	returns	3,18;4,19;5,20
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:delayed~wait	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:delayed~days	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:delayed~same	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:delayed~age	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:delayed~made	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:delayed~plate	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:delayed~save	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:delayed~grace	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:wait~days	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:wait~same	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:wait~age	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:wait~made	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:wait~plate	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:wait~save	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:wait~grace	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:days~same	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:days~age	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:days~made	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:days~plate	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:days~save	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:days~grace	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:same~age	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:same~made	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:same~plate	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:same~save	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:same~grace	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:age~made	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:age~plate	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:age~save	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:age~grace	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:made~plate	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:made~save	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:made~grace	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:plate~save	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:plate~grace	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	pair:save~grace	CLEAN
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	banned	0
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	refused	0
+i_am_not_leaving.txt	4	2026-08-26	365949f-WORKING	screen	0	clean_or_non_rhyme	36
