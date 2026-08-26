@@ -11849,3 +11849,50 @@ tool, drifted description, drifted schema each named, and reordering
 proven NOT to be drift — and the transport half was proven against a
 locally spawned `mcp/server_http.js`: MATCH at exit 0 over the full
 16-tool surface.
+
+### M-128 · the renderer's reproducible order was a memory address `CLOSED`
+`quality/propose.py`'s `_ordered` is the module's whole answer to doctrine 66
+— a list arrives ranked and is printed as given, a set has no order and is
+sorted. Its fallback for a set of un-orderable objects was
+`sorted(seq, key=str)` under a docstring calling that **"still
+reproducible"**, and it is not. `str(x)` on a class inheriting
+`object.__repr__` is `<quality.revise.Finding object at 0x7f3c…>` — the
+MEMORY ADDRESS — so a set of findings was ordered by where the allocator
+happened to put them.
+
+**IT VARIED RUN TO RUN, NOT BY HASH SEED, WHICH IS WHY THE CHECK WRITTEN TO
+CATCH IT COULD NOT.** `quality/test_propose.py` §1 renders one brief in three
+subprocesses under `PYTHONHASHSEED` 0/1/4242 and compares digests. Address
+layout is not a function of that coordinate, so the check went red
+INTERMITTENTLY instead of naming anything: **CI run #966's `suites` job on
+main, `1 FAILING`, against four clean local trials on the same tree an hour
+later.** Reproduced by running the three subprocesses directly — seed 4242
+returned a different digest at exit 0, empty stderr, stdout exactly 64 chars,
+so it was neither a crash nor stray output on the stream.
+
+**IT SURVIVED IN PRODUCTION BY ACCIDENT AND NOTHING ASSERTED THE ACCIDENT.**
+Every finding type this repo ships is a `@dataclass` — `floor.Finding`,
+`revise.Finding`, `fit.FitFinding`, `grid.GridFinding` — so each has a
+field-based `__repr__` and `key=str` happened to be a value key. The suite's
+own stand-in `F` is a plain class, deliberately, because a plain class is what
+exercises the fallback; the defect arrived with the fixture.
+
+**AND THE LIVE BLAST RADIUS IS ZERO, MEASURED RATHER THAN ARGUED.** `_ordered`
+was instrumented and a real `Reviser.brief` + `render_line` run driven through
+it on a four-line draft under `ABAB`: **no set of any type reaches it at all**
+— production passes lists, which take the `return list(seq)` path this lot did
+not touch. Three of the four finding types are unhashable dataclasses and
+cannot be put in a set even in principle. So the defect was LATENT in the
+shipped path and LIVE in the gate, which is the direction that turns a CI job
+red without a draft ever grading differently.
+
+**THE ORDER IS READ OFF THE PRINTED VALUES NOW** — `_ORDER_KEYS` is
+`(code, severity, message, evidence)` plus `locations`, which is exactly what
+`_finding_lines` prints, so the printed order is a function of the printed
+content and of nothing else. **AND THE DOCTRINE-20 HALF IS THE REFUSAL**: a
+member carrying none of those and inheriting `object.__repr__` raises
+`UnorderableMember` naming the cause, because ordering it by address looks
+exactly like having ordered it. A class with a real `__repr__` still orders,
+so the rule costs nothing to a type that can answer it. `test_propose.py` §1,
+four checks: the value ordering, the refusal, the not-overbroad control, and
+the three-seed digest — now agreeing over **18 consecutive runs**.

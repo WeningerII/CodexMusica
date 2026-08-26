@@ -114,6 +114,56 @@ _HAS_LETTER_RE = re.compile(r"[^\W\d_]", re.UNICODE)
 _QUOTE_CHARS = "\"“”«»`"
 
 
+#: The coordinates `_finding_lines` PRINTS, in the order it prints them.
+#: Ordering on these makes the printed order a function of the printed
+#: content and of nothing else — which is the property doctrine 66 asks for
+#: and the property `key=str` only ever had by accident.
+_ORDER_KEYS = ("code", "severity", "message", "evidence")
+
+
+class UnorderableMember(TypeError):
+    """A set member that can be put in no reproducible order."""
+
+
+def _order_key(x):
+    """-> a VALUE key for one un-orderable set member, or a REFUSAL.
+
+    ~~`sorted(seq, key=str)`, which is still reproducible.~~ STRUCK
+    2026-08-26: it is not, and the claim was false for exactly the objects
+    the fallback exists to handle. `str(x)` on a class that inherits
+    `object.__repr__` is `<quality.revise.Finding object at 0x7f3c...>` —
+    THE MEMORY ADDRESS — so the fallback sorted a set of findings by where
+    the allocator happened to put them. That order varies run to run and has
+    nothing to do with `PYTHONHASHSEED`, so the check written to catch a
+    hash-seed tie could not catch it and went red intermittently instead:
+    `quality/test_propose.py` §1 disagreed on CI run #966 and passes four
+    times running locally.
+
+    IT SURVIVED IN PRODUCTION BY ACCIDENT. Every finding type this repo
+    ships is a `@dataclass`, so each has a field-based `__repr__` and
+    `key=str` happened to be a value key. Nothing anywhere asserted that,
+    and a plain finding-shaped class — which is what the suite's own
+    stand-in is — reintroduced the defect the moment it was written.
+
+    So the key is read from the coordinates the prompt PRINTS, and a member
+    exposing none of them and carrying no value `__repr__` is REFUSED rather
+    than ordered by address: silence and a reproducible order must not look
+    alike (doctrine 20).
+    """
+    printed = tuple(str(getattr(x, k, "")) for k in _ORDER_KEYS)
+    if any(printed):
+        locs = getattr(x, "locations", ()) or ()
+        return printed + (",".join(str(v) for v in _ordered(locs)),)
+    if type(x).__repr__ is object.__repr__:
+        raise UnorderableMember(
+            f"{type(x).__name__} carries none of {_ORDER_KEYS} and inherits "
+            f"object.__repr__, so `str(x)` is its MEMORY ADDRESS and sorting "
+            f"a set of these orders them by where the allocator put them — an "
+            f"order that changes run to run. Give the type the coordinates "
+            f"the prompt prints, or a value `__repr__`.")
+    return ("",) * len(_ORDER_KEYS) + (repr(x),)
+
+
 def _ordered(seq):
     """-> `list(seq)`, except that a `set` is SORTED first.
 
@@ -121,15 +171,16 @@ def _ordered(seq):
     `candidates` and `forbidden_modal` are RANKED, and sorting them
     alphabetically would throw the ranking away — so a list is printed as
     given. A set has no order at all, and iterating one is exactly the tie
-    that does not reproduce across `PYTHONHASHSEED`, so it is sorted.
-    `sorted` on a set of un-orderable objects (a set of `Finding`s) falls
-    back to sorting by `str`, which is still reproducible.
+    that does not reproduce across `PYTHONHASHSEED`, so it is sorted. A set
+    of un-orderable objects (a set of `Finding`s) falls back to
+    `_order_key`, which orders on printed VALUES and refuses what it cannot
+    order — see that function for why `key=str` was not reproducible.
     """
     if isinstance(seq, (set, frozenset)):
         try:
             return sorted(seq)
         except TypeError:
-            return sorted(seq, key=str)
+            return sorted(seq, key=_order_key)
     return list(seq)
 
 

@@ -67,6 +67,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
+from quality import propose  # noqa: E402
 from quality.propose import (ModelProposer, OFFERED_SHOWN,  # noqa: E402
                              parse_line, parse_group, render_line,
                              render_group)
@@ -297,6 +298,48 @@ def test_render_is_deterministic():
            forbidden_modal=["z"], findings=[])
     check("two sets built in opposite orders render the same text",
           render_line(s1, ["x", "y"]) == render_line(s2, ["x", "y"]))
+
+    # AND THE ORDER IS READ OFF THE PRINTED VALUES, NEVER OFF AN ADDRESS.
+    # `_ordered`'s fallback was `sorted(seq, key=str)` under a docstring
+    # calling that "still reproducible"; `str(x)` on a class inheriting
+    # `object.__repr__` is its MEMORY ADDRESS, so a set of findings sorted by
+    # where the allocator put them. It varied run to run rather than by hash
+    # seed, so the three-seed check above could not name it and went red
+    # intermittently instead (CI run #966). The stand-in `F` here is exactly
+    # such a class, on purpose -- it is what exercises the fallback.
+    a = F("B_CODE", "flag", "m", "e")
+    b = F("A_CODE", "note", "m", "e")
+    check("the fallback orders un-orderable members by their PRINTED "
+          "coordinates, so the same two findings sort the same way whatever "
+          "their addresses",
+          [f.code for f in propose._ordered({a, b})] == ["A_CODE", "B_CODE"]
+          and [f.code for f in propose._ordered({b, a})] == ["A_CODE", "B_CODE"])
+
+    # THE DOCTRINE-20 HALF. A member carrying none of those coordinates and no
+    # value `__repr__` can be put in NO reproducible order, and the honest
+    # answer is a refusal -- ordering it by address would look exactly like
+    # having ordered it.
+    class Opaque:
+        pass
+    try:
+        propose._ordered({Opaque(), Opaque()})
+        refused, why = False, "returned an order"
+    except propose.UnorderableMember as exc:
+        refused, why = True, str(exc)[:60]
+    check("a member with no printed coordinate and no value __repr__ is "
+          "REFUSED rather than ordered by where it happens to sit in memory",
+          refused, why)
+
+    # ...and the refusal is NOT overbroad: a class with a real `__repr__` is
+    # a value and still orders, so the rule costs nothing to types that can
+    # answer it.
+    class Valued:
+        def __init__(self, n):
+            self.n = n
+        def __repr__(self):
+            return f"Valued({self.n})"
+    check("a member with a value __repr__ and no coordinates still orders",
+          [v.n for v in propose._ordered({Valued(2), Valued(1)})] == [1, 2])
 
     # A RANKED list is NOT sorted, and that is the deliberate other side of
     # doctrine 66: `candidates`/`forbidden_modal` arrive ranked by the field,
