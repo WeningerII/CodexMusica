@@ -2219,7 +2219,13 @@ PINNED = {
     # 193 holds: M-135's gate is an amendment to M-135, not a
     # new entry -- the instrument closes the measurement the
     # entry already opened.
-    "coverage_entries": 193,
+    # ~~193~~ -> 195: M-136 (identity-is-not-rhyme rides an optional
+    # argument) and M-137 (M-135's dead coordinate has siblings, and two
+    # are deader), both from the comparator audit.
+    # ~~195~~ -> 196: M-138, the widened door made theta_rhyme the sole
+    # gate on two relations it was never priced on -- and both instruments
+    # pointed at that door still spell the pre-widening one.
+    "coverage_entries": 196,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

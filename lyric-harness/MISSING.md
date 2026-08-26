@@ -12438,3 +12438,224 @@ It grades nothing and repairs nothing, and its own docstring says the sweep is
 the SCALAR gate rather than `admits()`, so no reader can mistake these rates
 for the battery's. Wired into the `suites` job beside `meter_bands.py --check`,
 the sibling adoption gate it is modelled on.
+
+### M-136 · identity-is-not-rhyme rides an optional argument `OPEN`
+Found by the comparator audit's band-typing lane and **verified independently
+before being banked** — the lane's two headline claims did NOT survive that
+check and are recorded below as refuted, which is why the three here are stated
+with the commands that reproduce them.
+
+**(1) DOCTRINE 3 IS OFF FOR ANY CALLER THAT OMITS THE WORDS.** `score()` gates
+the whole identity block on `if word_a and word_b:` — so REPEAT and RIME_RICHE,
+the two relations that exist to say *identity is not rhyme*, are unreachable
+when a caller passes anchors alone. MEASURED:
+
+    light / light    with words: REPEAT      | words omitted: RHYME
+    night / knight   with words: RIME_RICHE  | words omitted: RHYME
+
+The project's oldest rule is carried by an optional parameter, and a caller who
+drops it gets the answer the rule was written to forbid — silently, with no
+refusal and no flag. `best_score(a, b, decl)` is a legal call: the signature
+declares `word_a=None, word_b=None`.
+
+**(2) `profile="assonance"` DISABLES THE CONJUNCTIVE BAND, so the profile named
+for the near relation is the one that can never emit it.** MEASURED:
+
+    sun / much      default 0.772 ASSONANCE   | assonance 1.000 RHYME
+    silver / dream  default 0.680 NO_RELATION | assonance 0.767 RHYME
+
+The second row is the sharp one: a pair the default types as an UNADMITTABLE
+non-relation becomes an ADMITTED rhyme. The switch is coherent on its own terms
+(a nucleus-only comparator cannot apply a coda requirement) and the consequence
+is still that the one profile a writer would reach for to ask about assonance
+answers RHYME to everything it scores. `PROFILES` is
+`['full', 'assonance', 'rawi']` — there is no `consonance`, so the escape hatch
+exists for ONE ARM of a two-armed band.
+
+**(3) THE BAND-SWITCH COMMENT NAMED A COORDINATE THAT DOES NOT EXIST — FIXED
+IN THIS COMMIT, and it is the only one of the three repaired here.** It read
+*"The `assonance` profile turns the rule OFF by declaring theta_coda 0"*.
+`PROFILES["assonance"]` carries **no `theta_coda` key**, `score()` reads no
+`theta_*` from a profile anywhere, and the live test is
+`weights.coda == 0.0`. The behaviour was always right; a caller who wrote a
+profile declaring `theta_coda: 0` — doing exactly what the comment said —
+would get the band left ON and nothing would say why. Struck in place.
+
+**(4) `full_identity` OMITS STRESS — a code fact, REACH NOT ESTABLISHED.** The
+RIME_RICHE test compares nucleus, coda and onset and not stress, while stress
+is a scored channel. So two words agreeing on the first three and differing on
+stress would be typed *"identical sound, different word"*. The lane offered
+`decree`/`mckree` and `um`/`'em` as live witnesses and **NEITHER REPRODUCES**
+here — the first types RHYME at 0.884 under an ordinary `line_anchors`
+construction, and `'em` transcribes `EH1 M`, not the `AH0 M` the lane quoted.
+Recorded as a code fact with the reachability OPEN rather than as a measured
+defect, because the difference between those two is the whole of doctrine 20.
+
+**TWO CLAIMS FROM THE SAME LANES ARE REFUTED AND SAID SO HERE, because an
+audit that banks only its hits is not an audit.**
+  - *"the scalar aligns HEAD while the typing aligns TAIL, so 23.8% of pairs
+    are judged on different syllables"* — the MECHANISM is real and it is
+    **DECLARED, MEASURED AND PINNED**: `Declaration.scalar_alignment`, an
+    explicit argument at the site (*"The scalar is a magnitude and the band is
+    a verdict; they are allowed to read the same anchors differently as long as
+    which one does what is DECLARED"*), a held-out figure of 0.00pp FPR
+    difference, and `quality/test_align.py` holding it. A design choice with a
+    measurement behind it, not a defect.
+  - *"`nucleus_licence` is read by nothing, the `theta_repeat_onset` shape
+    again"* — `nucleus_agrees` IS called, at `lyric_harness.py:2658`, inside
+    the `nucleus_agreement != "scalar"` branch. The licence is live under the
+    `licensed` and `identity` readings and dead only at the shipped default,
+    which makes it a coordinate of a declared non-default mode (the `fallback`
+    shape) and NOT the removed-field shape.
+
+**WHY (1) AND (2) ARE FILED RATHER THAN FIXED.** Both change verdicts. Making
+the words mandatory refuses calls that work today; defaulting the identity
+block on absent words invents a relation from anchors that cannot distinguish
+`night` from `knight`. Whether `assonance` should emit ASSONANCE is a question
+about what a profile IS. Each needs a ruling, and neither is this sitting's to
+take.
+
+### M-137 · M-135's dead coordinate has siblings, and two are deader `OPEN`
+A census for the SHAPE M-135 found — a value computed and stored under a
+comment implying it is consumed, which nothing consumes. Every figure below was
+re-verified by hand before being written down.
+
+**THE INSTRUMENT HAD TO BE BUILT WIDER THAN `test_declared_inputs.py` §15, AND
+THE REASON IS THE KNOWN DEFECT ITSELF.** §15 censuses `*Declaration` dataclass
+fields. `search_k` is a DICT KEY in an `Attribution`, and `relations.Span` has a
+LIVE attribute of the same name — so a name-keyed sweep calls the dead one
+alive. Judging each key by its own ACCESS FORM (`x["k"]`, `.get("k")`,
+`getattr(x, "k")`) reproduces the known defect exactly, which is how the census
+was validated before it was trusted.
+
+**THE TWO WORST ARE IN THE SAME DICT LITERAL AS `search_k`, UNDER THE SAME
+COMMENT.**
+
+    "search_k": k, "beat": k - 1,
+    "candidates_a": len(cand_a), "candidates_b": len(cand_b),
+
+  - **`Attribution["beat"]` — ZERO production readers, not even a print.**
+    Its own comment says *"`beat` is how many candidates the winner beat."*
+    `search_k` at least reaches the report at `lyric_harness.py:2233`; this one
+    is banked and not disclosed anywhere. VERIFIED: the four non-test
+    subscript reads of `"beat"` are all the MUSICAL beat — `fit.py:1798`,
+    `grid.py:937`, `plan.py:2850`, `plan.py:2899` — reading a line or slot
+    dict, none of them an `Attribution`.
+  - **`Attribution["candidates_a"]` / `["candidates_b"]` — 0 non-test
+    readers.** These are the FACTORS of the doctrine-56 coordinate, the
+    decomposition of k into the two side-searches, and no production path can
+    see either. `Attribution` exposes derived properties for `kind_a`,
+    `kind_b`, `kinds`, `exact`, `differs`, `mosaic` and `tied` and none for
+    these — under its own docstring reading *"a derived value stored as a bare
+    key is a value someone recomputes differently. Doctrine 45."*
+
+**AND ONE THAT DECLARES AN ENFORCEMENT ORDER NOTHING READS.**
+`lyric_harness.py:1978`:
+
+    #: The order the kinds are checked in, worst first. Exhaustive and disjoint.
+    SPAN_KINDS = (SPAN_UNATTRIBUTED, SPAN_SUBSTITUTED, SPAN_REACH, SPAN_PART,
+                  SPAN_EXACT)
+
+VERIFIED: **one reference in the repository, its own definition.** `span_kind()`
+hard-codes that same order as a chain of `if`s, so the constant naming the
+precedence of a live five-way decision is consulted by nothing and the two can
+drift apart in silence. This is precisely the shape §15 REMOVED
+`rhyme_constraints.Declaration.tie_break` for — *"a REAL rule that the code
+implements implicitly"* — reintroduced one file over, and it is load-bearing:
+`kind_a`/`kind_b` are read at `lyric_harness.py:2087/2091/2095/2101`.
+
+**ITS NEIGHBOURING COMMENT IS ALREADY STALE IN EXACTLY THAT WAY.** Line 1970
+reads *"These **four** names are the partition adversary 7 measures over; they
+are exhaustive and disjoint by construction in `span_kind`"* — above **FIVE**
+constants, over a function whose own docstring opens *"-> which of the five
+SPAN_* names"*, in a repo whose `CLAUDE.md` says *"`kind_*` is the five-way
+partition adversary 7 sweeps."* Three sites say five and this one says four.
+
+**WHY THESE ARE FILED AND NOT DELETED.** A dead coordinate has two honest
+repairs and they are opposite: CONSUME it, or REMOVE it and strike the sentence
+that promised it. Which applies is a per-item ruling — `candidates_a`/`_b` want
+consuming (they are the null's own decomposition, and `search_null.py` could
+report the two side-searches separately), while `SPAN_KINDS` wants either
+`span_kind` rewritten to iterate it or the constant struck. `schemes.py`'s
+`Requirement.rhyme_required` is the model for a THIRD answer and is already
+annotated as one: *"NO PRODUCTION READER … DELIBERATELY RESERVED"*. A dead
+coordinate that says it is reserved is not this defect; a dead coordinate whose
+comment says it governs something is.
+
+### M-138 · the widened door made theta_rhyme the sole gate on two relations it was never priced on `OPEN`
+The largest finding of the comparator audit, and the one the repo has already
+ruled on ONCE — in the opposite direction, against a gap a fifth the size.
+
+**THE PRECEDENT, VERBATIM** (`quality/RESULTS_REDTEAM.md:75-76`), the sentence
+that got `theta_coda` recalibrated 0.60 -> 0.80:
+
+> **The harness was more likely to call two random dictionary words a rhyme
+> (11.10%) than to fail one of Shakespeare's mandated pairs (7.2%).**
+
+That is a **1.5x** gap and it was treated as disqualifying.
+
+**MEASURED TODAY, shipped `Declaration()`, 4,000 random CMUdict word pairs,
+seed 20260810** — re-run by hand before being written down:
+
+| door | admitted | rate |
+|---|---|---|
+| SHIPPED (`decl.admit`, all four relations) | 350 / 4000 | **8.75%** |
+| NARROWED (`RHYME`, `RIME_RICHE`) | 50 / 4000 | 1.25% |
+
+against the battery's **12/1014 = 1.18%** of Shakespeare's mandated pairs
+failing. **The ratio is 7.4x.** And the breakdown says where it comes from:
+the 350 are **228 ASSONANCE + 72 CONSONANCE + 50 RHYME**, so **300 of 350
+(85.7%) are near relations** — admitted on a scalar cut that was never priced
+on them.
+
+**THIS IS NOT AN ARGUMENT THAT M-59 WAS WRONG.** The widening was an owner
+ruling and it was right on its own terms: doctrines 3/24 make ASSONANCE and
+CONSONANCE real named sonic events, and the mandate layer was giving those
+names a verdict of "satisfies nothing" — one repository, two opposite answers
+about one pair. What the ruling did NOT come with is a price. `MISSING.md`
+M-59 measures the BENEFIT in detail (355 of 726 flagged pairs typed as near
+relations, 47 sonnet pairs stopping violating, 0 newly violating) and records
+**no cost figure at all**. Before the widening, `theta_rhyme` only ever decided
+pairs the band had already typed RHYME; after it, 0.75 is the SOLE NUMERIC GATE
+on assonance and consonance, and it was calibrated on neither.
+
+**AND BOTH INSTRUMENTS THAT WOULD HAVE CAUGHT IT ARE STILL MEASURING THE OLD
+DOOR.** This is the half that makes it a finding rather than a number, and both
+sites are verified:
+
+  - **`quality/redteam_band.py:421`** — adversary 3, the instrument whose
+    output IS the `theta_coda` recalibration above — tests
+    `L.score(...)["relation"] in ("RHYME", "RIME_RICHE")`, a LITERAL, rather
+    than reading `decl.admit`. So the adversary that priced one threshold
+    cannot see what happened to its sibling.
+  - **`quality/negative_control.py:299`** — `admits(s, decl.theta_rhyme)` with
+    `relations=` OMITTED. `admits()`'s own docstring settles what that means:
+    *"None means the historical {RHYME, RIME_RICHE}, so every caller that never
+    learned the coordinate behaves byte-for-byte as it always has."* Correct
+    for compatibility, and it makes the NEGATIVE CONTROL's door narrower than
+    the grader's — understating the chance rate, which is the flattering
+    direction (doctrine 14/71).
+
+So the widening moved the door and the two instruments pointed at the door did
+not move with it. That is why a 7.4x gap has sat unmeasured since 2026-08-22.
+
+**WHAT IS NOT CLAIMED.** The 11.10% precedent was measured under
+`coda_agreement="scalar"` against a strict-identity reference; the comparator
+has moved twice since (coda -> identity 2026-08-11, admit -> four 2026-08-22).
+So this is the same SHAPE of finding, **not the same statistic**, and the two
+percentages are not directly comparable. What IS comparable is the RATIO of
+random-admission to canon-failure, because both arms move together under a
+comparator change, and it has gone from 1.5x to 7.4x.
+
+**FILED OPEN, and the repair is a ruling rather than a number.** Three honest
+options and they are not equivalent: price 0.75 on the near relations and
+re-adopt per relation (the `theta_coda` pattern, and the most defensible);
+give ASSONANCE and CONSONANCE their own thresholds, since a relation that
+agrees on one channel is not the same claim as one that agrees on both; or
+rule that a near relation satisfying a mandate is a DECLARED policy whose
+false-positive rate is accepted and say so where the rate can be read. Tuning
+0.75 to make the number smaller is doctrine 58's error and is not on the list.
+**The two instruments are repairable today and independently of the ruling** —
+both should read `decl.admit` rather than spelling or omitting it — but that
+changes what two recorded measurements mean, so it belongs in the same sitting
+that takes the ruling.

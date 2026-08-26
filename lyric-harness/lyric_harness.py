@@ -2750,11 +2750,20 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
     # one the nucleus does not support is CONSONANCE. Both are named members of
     # the taxonomy, so this relabels rather than rejects.
     #
-    # The `assonance` profile turns the rule OFF by declaring theta_coda 0 --
-    # that profile exists precisely to score nucleus-only agreement, and
+    # The `assonance` profile turns the rule OFF by declaring a coda WEIGHT of
+    # 0.0 -- that profile exists precisely to score nucleus-only agreement, and
     # applying a coda requirement to it would be incoherent. `rawi` already
     # carries require_final_consonant, which is this rule's stricter special
     # case for a form that demands one.
+    #
+    # ~~by declaring theta_coda 0~~ -- STRUCK 2026-08-26. That named the wrong
+    # coordinate: `PROFILES["assonance"]` carries NO `theta_coda` key, `score()`
+    # reads no `theta_*` from a profile anywhere, and the line below tests
+    # `weights.coda == 0.0`. The behaviour was always right; the sentence
+    # described a mechanism that does not exist, so a caller who wrote a
+    # profile declaring `theta_coda: 0` -- doing exactly what this comment
+    # said -- would get the band left ON with no indication why. One question,
+    # two spellings, and only one of them real (doctrine 1).
     conj = decl.conjunctive_band and not (prof and prof.get("weights", {})
                                           .get("coda", 1.0) == 0.0)
     if conj and out["relation"] == "RHYME":
