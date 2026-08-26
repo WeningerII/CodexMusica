@@ -12411,3 +12411,30 @@ coordinate recording that, so moving either one moves the other's value. That
 is the doctrine 1 shape (a coordinate that decides an answer and is not in the
 declaration) rather than a defect in the search itself, and it is why the entry
 stays OPEN rather than proposing a number.
+
+**THE MEASUREMENT ENDS IN A GATE — `quality/search_null.py`, ADDED THE SAME
+SITTING.** The owner's standing rule is that work ending in a note has not
+closed its loop, and the first version of this entry was a note: a sweep in a
+register with nothing re-asking it. The instrument is the null `best_score`'s
+own comment has been waiting for since it was written.
+
+**WHAT IT GATES IS ONE SENTENCE, and deliberately not the coupling.** The
+repair for the coupling re-grades every pair in the repository and needs its
+own preregistration — that stays OPEN. What is refusable TODAY without
+deciding any of it is the one state that is indefensible under either answer:
+**`theta_rhyme` must sit ABOVE the measured crossover.** Below it the
+comparator's own search lifts a permutation null more than it lifts real
+verse, so the band is being loosened by a mechanism no coordinate declares.
+Exit 3 on drift, and the shipped margin is **+0.03** — printed as *"thin, and
+that is the finding, not a comfort"* rather than as a pass.
+
+**PROVEN BY MUTATION**: `theta_rhyme` 0.75 -> 0.70 takes the gate to **exit
+3**, refusing by name. The pins are held to a **1.5 pp** tolerance rather than
+exactly, because the null is a Monte Carlo median and doctrine 57 says a figure
+fed by a draw is pinned as a band, not a point; ten replicates, median
+reported, range printed beside it so the spread is visible.
+
+It grades nothing and repairs nothing, and its own docstring says the sweep is
+the SCALAR gate rather than `admits()`, so no reader can mistake these rates
+for the battery's. Wired into the `suites` job beside `meter_bands.py --check`,
+the sibling adoption gate it is modelled on.

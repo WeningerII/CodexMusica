@@ -2216,6 +2216,9 @@ PINNED = {
     # honoured in `relations.py` and recorded-but-unapplied in
     # `best_score`, measured at 75.8% of the search's lift
     # reproduced by a null under the same search.
+    # 193 holds: M-135's gate is an amendment to M-135, not a
+    # new entry -- the instrument closes the measurement the
+    # entry already opened.
     "coverage_entries": 193,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI

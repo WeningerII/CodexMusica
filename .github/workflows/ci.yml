@@ -1835,6 +1835,28 @@ jobs:
           OPENBLAS_NUM_THREADS: '1'
         run: python3 quality/meter_bands.py --check
 
+      # THE COMPARATOR'S SPAN SEARCH AGAINST A NULL UNDER THE SAME SEARCH.
+      # `best_score` records `search_k` under a comment calling it "the
+      # precondition for a null under the same search" (doctrine 56) and,
+      # until 2026-08-26, nothing consumed it -- the only other reader was a
+      # print. `relations.py` honours the same doctrine one screen away, via
+      # `search_burden()` + `relations_null.py`. This is that null for the
+      # OTHER search (`MISSING.md` M-135).
+      #
+      # The gate is ONE SENTENCE: `theta_rhyme` must sit above the measured
+      # crossover, because BELOW it the span search lifts a permutation null
+      # MORE than it lifts real verse -- the band gets loosened by a mechanism
+      # no coordinate declares. The margin today is +0.03, which is why this
+      # runs rather than sitting in a document.
+      - name: Span-search null, the shipped band against the measured crossover
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/search_null.py --check
+
       # The revision loop itself. 374.87 CPU-s for the pair, MEASURED, both
       # green -- against the "15+ minutes each" that kept them out until today.
   # ── The revision pair, its own runner (SPLIT OUT 2026-08-18) ─────────────
