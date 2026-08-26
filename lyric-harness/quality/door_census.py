@@ -127,9 +127,18 @@ RULINGS = {
         "`--cliques`: the DERIVED cover. It asks which lines this harness "
         "sees as standing in a relation, then hands that cover to `grade()` "
         "— which accepts on a strictly wider door, so the cover omits edges "
-        "its own consumer would have passed. Doctrine 14 governs whether a "
-        "derived cover may be used as a control; it does not license the "
-        "cover disagreeing with the grader. `MISSING.md` M-139."),
+        "its own consumer would have passed. AND ITS OWN DOCSTRING IS THE "
+        "ARGUMENT FOR REPAIRING IT: that method deliberately does NOT call "
+        "`rhyme_graph`, because `rhyme_graph` reads anchors at "
+        "`promote=False` and the grader reads them at "
+        "`decl.final_promotion`, and — its words — *'deriving a cover under "
+        "one setting and grading it under the other would make the cover an "
+        "approximate fixed point of the grader'*. The DOOR is one of those "
+        "settings. The principle is already stated at the site; it was "
+        "applied to the anchor coordinate and not to this one. Doctrine 14 "
+        "governs whether a derived cover may be used as a control; it does "
+        "not license the cover disagreeing with the grader. "
+        "`MISSING.md` M-139."),
     ("quality/revise.py", "Reviser.group_merges"): (
         INCOMPLETE,
         "The merge detector asks, in its own words, whether every cross pair "

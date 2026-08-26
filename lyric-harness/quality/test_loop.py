@@ -1357,7 +1357,14 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
     from quality.loop import _anchor_obligations
     from quality.revise import Reviser as _R
 
-    RV = _R()
+    # THE COMPARATOR IS DECLARED SINCE 2026-08-26 (`MISSING.md` M-139), for
+    # the reason §5 and §6 are — see `perfect_rhyme_reviser`. This section's
+    # subject is defect F, the tier-2 SEARCH, and it needs tier 2 to RUN;
+    # under the repaired field the pivot's conjunction is answerable, tier 1
+    # settles it and tier 2 is never entered. Restoring the door the section
+    # was measured under keeps the defect-F regression alive instead of
+    # repinning a finding away.
+    RV = perfect_rhyme_reviser()
     # Every mandate in this section DECLARES `class:RHYME` since 2026-08-25
     # (M-116): the subject is TIER 2's search discipline, which only runs
     # when a mandated pair fails — and under the whole-vocabulary default
@@ -1410,7 +1417,26 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
                       propose_group=lambda *a, **k: None)
     # `attempts[-1]` stopped being the tier-2 attempt when mandatory pursuit
     # added tier-1 attempts for the pursued lines after it; select by tier.
-    det = [a for a in res.rounds[0].attempts if a.tier == 2][-1].reason
+    #
+    # AND THE INDEX IS CHECKED RATHER THAN TAKEN — 2026-08-26 (`MISSING.md`
+    # M-139). This was a bare `[-1]`, so when the M-139 field repair let tier
+    # 1 settle the pivot and tier 2 stopped running, the section did not fail
+    # a check: it raised `IndexError` and KILLED THE WHOLE SUITE, taking every
+    # section after it with it. That is the masking shape `.github/workflows/
+    # ci.yml` already records ("shard 1 died at §20's M-116 breakage two
+    # sections in front of it, so a crash in one section hid an orphan in
+    # another"). A premise that stops holding must produce a red CHECK with
+    # its reason printed, never a traceback.
+    t2 = [a for a in res.rounds[0].attempts if a.tier == 2]
+    check("the premise holds: tier 2 RAN, so there is a dead-end reason to "
+          "read",
+          bool(t2),
+          f"{len(t2)} tier-2 attempt(s) in round 0 over "
+          f"{len(res.rounds[0].attempts)} attempt(s) total. If this is 0 the "
+          f"pivot's conjunction became answerable and the section is "
+          f"measuring a search that no longer runs — restore the comparator, "
+          f"do not delete the claim")
+    det = t2[-1].reason if t2 else ""
     check("an EMPTY ANCHOR conjunction is reported as its own outcome, not "
           "as a search that came back short",
           "EMPTY MEMBER field" in det

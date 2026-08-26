@@ -12810,6 +12810,52 @@ measured here and is not guessed.
     its own row. That is the half that answers the owner's *"then we have to
     come back and do all of this all over again."*
 
+**AND TWO PINNED FRACTIONS MOVED, BOTH REPLACED RATHER THAN RETUNED.** The
+repaired field roughly TRIPLES every rhyme field, and two of `test_revise.py`'s
+own thresholds turned out to be coordinates of the door that nobody had written
+down (doctrine 58 in its own words):
+
+  - **§22, `ident * 4 >= tot`** — the share of the FORBIDDEN set that is a
+    strict-identity rhyme, pinned at a quarter and measured at **9.5%**
+    (126/1323). The mechanism is not a regression and is worth stating: a
+    wider door admits more phonetically-SLANT words that share a call's
+    SPELLED ending, which is exactly the homoeoteleuton class tier 1 bans at
+    any rank, so the forbidden set grows by material that is same-spelling
+    and different-sound — non-identity BY CONSTRUCTION. The ban got better at
+    its own target and the share fell because of it. Replaced by a CONTRAST
+    with no number in it: the words the ban FORBIDS must be denser in strict
+    identity than the words it still OFFERS. That is the claim the section
+    was always making, it cannot go stale when the door moves again, and it
+    is harder to satisfy by accident than a one-sided fraction.
+  - **§24, `worst > 0.95`** — the share of the lexicon OUTSIDE a rhyme field,
+    pinned at 95% and measured at **91.41%** (`will`). A share of the lexicon
+    is a coordinate of the door by definition. The section's argument is
+    about RENDERABILITY — a collision's satisfying set cannot be handed to a
+    writer — so the bound is now stated against `ReviseDeclaration.offered`,
+    the declared size of a field a writer actually receives: even the
+    smallest complement is over a thousand menus deep. Derived, not guessed.
+
+Both are the owner's standing rule applied to a test rather than to the tree:
+a threshold that has to be retuned every time a door moves is a hard number
+in a check's clothing.
+
+**AND ONE PREMISE DID NOT FAIL — IT CRASHED, AND TOOK THE SUITE WITH IT.**
+`test_loop.py` §19 (defect F, the tier-2 search) read
+`[a for a in res.rounds[0].attempts if a.tier == 2][-1].reason`. Under the
+repaired field the pivot's conjunction is answerable, tier 1 settles it, tier
+2 never runs, the list is empty — and the section raised `IndexError` after
+112 green checks instead of failing a check, **so every section after it never
+ran at all.** That is verbatim the masking shape `.github/workflows/ci.yml`
+already records in its own suite-list comment: *"shard 1 died at §20's M-116
+breakage two sections in front of it, so a crash in one section hid an orphan
+in another."* The index is now a CHECKED PRECONDITION that prints what it
+found and says what to do about it — restore the comparator, do not delete the
+claim — because a premise that stops holding must be readable as a red check
+and never as a traceback. Three of `test_loop.py`'s sections (§5, §6, §19) now
+take the declared perfect-rhyme comparator for the same reason: their subject
+is tier-2 CONTROL FLOW, their premise is an empty conjunction, and narrowing
+`admit` is the declared move CLAUDE.md calls the useful direction.
+
 **THE BATTERY IS BYTE-IDENTICAL EITHER SIDE — 1064 / 1014 / 50 / 12.** The
 repairs move what the harness OFFERS and what it COUNTS as a structural
 defect; no sonnet violation moves, which is the control that says the door
@@ -12826,6 +12872,19 @@ both shipped consumers gate it lazily on a pair already charged.
     invocation of `brief`/`verify`/`revise`/`song` that uses it.
   - **`Reviser.group_merges`** — inside `inspect()`, which runs every round of
     the loop, so an ungated call multiplies by the round count.
+    **AND ITS OWN STRUCTURE SUPPLIES THE LAZY GATE, which is why this is the
+    most tractable of the three.** A merge needs BOTH (a) every cross pair a
+    COLLISION at `THETA_COLLISION` 0.9 and (b) every cross pair satisfying
+    the mandate. (a) is read off the matrix and costs nothing, and 0.9 is a
+    far stronger scalar than `theta_rhyme` 0.75 — so a pair clearing (a) will
+    almost always clear (b) at the four-relation door already. The 77 are
+    needed only for a candidate merge whose cross pairs are ALL collisions
+    and where (b) nonetheless fails, which is a narrow and checkable
+    condition. Build (a) first, ask `whole_vocabulary_pairs` once and only
+    inside that branch. The RATE at which the branch fires is unmeasured and
+    is the first thing the next sitting should measure, because if it is zero
+    on the shipped fixtures the repair is free and if it is not, the number
+    is the argument for paying.
   - **`recover.recover`** — the pasted-song door (M-72), whose doctrine-14
     claim is that every recovered edge is band-passing BY CONSTRUCTION. Under
     the complete default it UNDER-recovers, so a human's song is structured

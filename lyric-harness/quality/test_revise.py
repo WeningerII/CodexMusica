@@ -1354,15 +1354,31 @@ def test_why_a_collision_earns_no_field():
     for w in ("does", "ear", "will", "floor"):
         f = R._field_one(w)
         rows.append((w, len(f), n - len(f)))
-    worst = min(r[2] / n for r in rows)
+    # ~~`worst > 0.95`~~ -- STRUCK 2026-08-26 (`MISSING.md` M-139). 0.95 was
+    # a SHARE, and a share of the lexicon is a coordinate of the door: the
+    # repaired `_field_one` roughly tripled every rhyme field, so the
+    # complement fell to 91.41% at its worst (`will`) and a threshold nobody
+    # had derived went red on a change that did not touch this argument.
+    #
+    # THE ARGUMENT IS ABOUT RENDERABILITY, SO THE BOUND IS THE OFFER. This
+    # section's claim is that the complement of a rhyme field cannot be
+    # HANDED TO A WRITER -- and what a writer is handed is
+    # `ReviseDeclaration.offered`, a declared coordinate. Stated as a
+    # multiple of it the bound is derived rather than guessed, it cannot go
+    # stale when the door moves again, and it says what it means: even the
+    # smallest complement here is over a thousand menus deep.
+    worst_n = min(r[2] for r in rows)
+    menus = worst_n / R.rdecl.offered
     check("a collision's constraint is NEGATIVE, and its satisfying set is "
-          "the dictionary",
-          worst > 0.95,
+          "the dictionary -- orders of magnitude past anything offerable",
+          menus >= 100,
           "; ".join(f"{w}: rhyme field {a}, NOT-rhyme {b} "
                     f"({100.0 * b / n:.2f}% of {n})" for w, a, b in rows)
-          + ". `joint_field` intersects POSITIVE calls and gets a set a "
-            "writer can read; the complement of one is a copy of the "
-            "lexicon, so there is no field to hand over")
+          + f". The smallest complement is {worst_n} words = {menus:.0f}x "
+            f"`offered`={R.rdecl.offered}, the size of a field a writer is "
+            f"actually handed. `joint_field` intersects POSITIVE calls and "
+            f"gets a set a writer can read; the complement of one is a copy "
+            f"of the lexicon, so there is no field to hand over")
     top = sorted(R.lex.freq_rank, key=lambda w: R.lex.freq_rank[w])[:6]
     check("and doctrine 9's mechanism on top of it forbids the six commonest "
           "words in English",
@@ -1405,6 +1421,7 @@ def test_the_modal_set_against_a_declared_reference():
             else None
 
     seen, tot, ident = set(), 0, 0
+    off_tot, off_ident = 0, 0
     for b in R.brief(lines, m):
         calls = tuple(dict.fromkeys(
             w for _, _, cl in b.must_answer for _, w in cl if w))
@@ -1422,6 +1439,12 @@ def test_the_modal_set_against_a_declared_reference():
             tot += 1
             if all(tail(c) is not None and tail(c) == tail(w) for c in calls):
                 ident += 1
+        # THE OFFERED HALF, ADDED 2026-08-26 (`MISSING.md` M-139) so the
+        # claim below can be a CONTRAST rather than a share. See there.
+        for w in b.candidates:
+            off_tot += 1
+            if all(tail(c) is not None and tail(c) == tail(w) for c in calls):
+                off_ident += 1
     check("the modal set is real: it is the head of the grader's own field",
           tot >= 40, f"{tot} forbidden words over {len(seen)} distinct fields")
     # WIRED 2026-08-11: the ranking is now primarily the call-conditional
@@ -1436,22 +1459,47 @@ def test_the_modal_set_against_a_declared_reference():
     # freq_rank for unobserved candidates keeps some non-identity words in
     # the forbidden set), so the bar here is the OLD threshold's mirror
     # image rather than a claim of near-total identity.
-    check("and now AT LEAST A QUARTER of it is a strict-identity rhyme, up "
-          "from the old mechanism's under-a-quarter",
-          ident * 4 >= tot,
-          f"{ident}/{tot} ({100.0 * ident / tot:.1f}%) of the words "
-          f"doctrine 9 names as the slop direction agree with their call on "
-          f"the tail-aligned nucleus AND coda by strict identity. The "
+    # ~~"and now AT LEAST A QUARTER of it is a strict-identity rhyme" /
+    # `ident * 4 >= tot`~~ -- STRUCK 2026-08-26 (`MISSING.md` M-139), and it
+    # is REPLACED BY A CONTRAST rather than retuned, because the quarter was
+    # a coordinate of the DOOR and nobody had written that down.
+    #
+    # WHAT MOVED AND WHY, measured: repairing `_field_one` to ask
+    # `decl.admit` took this share from over a quarter to **9.5%**
+    # (126/1323), and the mechanism is not a regression. A wider door admits
+    # more phonetically-SLANT words that share a call's spelled ending --
+    # exactly the homoeoteleuton class tier 1 bans at any rank -- so the
+    # forbidden set grows by material that is same-SPELLING and
+    # different-SOUND, which is non-identity by construction. The ban got
+    # better at its own target and the identity share fell for that reason.
+    #
+    # SO AN ABSOLUTE SHARE WAS NEVER THE CLAIM. What this section exists to
+    # prove is that doctrine 9's exclusion points at the RHYME a writer
+    # reaches for rather than merely at common words, and that is a
+    # statement ABOUT THE BAN RELATIVE TO THE MENU: the words it FORBIDS
+    # must be denser in strict identity than the words it still OFFERS. That
+    # is checkable with no number in it (the owner's standing rule -- "we do
+    # not want hard numbers anywhere"), it cannot go stale when the door
+    # moves again, and it is strictly harder to satisfy by accident than a
+    # one-sided fraction.
+    check("the ban is denser in strict identity than the menu it leaves -- "
+          "doctrine 9 pointed at the rhyme, not at common words",
+          off_tot > 0 and tot > 0
+          and (ident / tot) > (off_ident / off_tot),
+          f"FORBIDDEN {ident}/{tot} ({100.0 * ident / tot:.1f}%) against "
+          f"OFFERED {off_ident}/{off_tot} "
+          f"({100.0 * off_ident / off_tot:.1f}%) agreeing with their call "
+          f"on the tail-aligned nucleus AND coda by strict identity. The "
           f"reference is declared as a REFERENCE, not as truth (doctrine "
-          f"94) -- the band exists to admit slant rhyme, and the fraction "
-          f"is not 100% because the conditional table is sparse and falls "
-          f"back to freq_rank for candidates it has no data on. What the "
-          f"residual non-identity share prices, unchanged from before: on "
-          f"group H six forbidden words include will/their/there/here/year/"
-          f"email against 'ear' when the conditional has no data for it, "
-          f"because cluster_sim(['R'],['L']) = 0.9875, so the conjunctive "
-          f"coda rule cannot separate a lateral coda from a rhotic one, and "
-          f"no value of theta_coda reaches it. Not this cell's file to fix")
+          f"94) -- the band exists to admit slant rhyme, so neither share "
+          f"should be 100% and the CONTRAST is what carries the claim. What "
+          f"the residual non-identity share prices, unchanged from before: "
+          f"on group H six forbidden words include will/their/there/here/"
+          f"year/email against 'ear' when the conditional has no data for "
+          f"it, because cluster_sim(['R'],['L']) = 0.9875, so the "
+          f"conjunctive coda rule cannot separate a lateral coda from a "
+          f"rhotic one, and no value of theta_coda reaches it. Not this "
+          f"cell's file to fix")
 
 
 def test_meter_folds_into_the_same_finding_set():
