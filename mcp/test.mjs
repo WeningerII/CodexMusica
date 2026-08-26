@@ -552,8 +552,19 @@ try {
     );
   }
   if (staged) {
+    // THE LIVE CHECKS DECLARE THEIR OWN CLOCK (2026-08-26). The SDK's
+    // DEFAULT_REQUEST_TIMEOUT_MSEC is 60_000 and the bridge emits no
+    // progress notifications to reset it — and the whole-vocabulary
+    // default (M-116) put a full plan->fill->grade round trip AT that
+    // cliff: ~61s wall on the CI runner that passed, MCP error -32001 on
+    // the one that didn't, the same call both times. A regression gate
+    // may not flip coins on runner speed, so every live lyric call rides
+    // an explicit 300s RequestOptions timeout. This is the TEST's clock
+    // only: production clients keep the SDK default, and the sweep-window
+    // budget in lyric_tools.js is still derived against 60s on purpose.
+    const LIVE_OPTS = { timeout: 300_000 };
     const callText = async (name, args) => {
-      const res = await client.callTool({ name, arguments: args });
+      const res = await client.callTool({ name, arguments: args }, undefined, LIVE_OPTS);
       assert.ok(!res.isError, `${name} answered without isError`);
       return JSON.parse(res.content[0].text);
     };
@@ -601,10 +612,11 @@ try {
     let plannedRes = null;
     let planSeed = null;
     for (const candidate of [55, 1, 4, 5, 11, 16, 17, 19]) {
-      const tryRes = await client.callTool({
-        name: 'lyric_plan',
-        arguments: { seed: candidate },
-      });
+      const tryRes = await client.callTool(
+        { name: 'lyric_plan', arguments: { seed: candidate } },
+        undefined,
+        LIVE_OPTS
+      );
       assert.ok(!tryRes.isError, `lyric_plan answered without isError (seed ${candidate})`);
       if (/is the hook/.test(tryRes.content[0].text)) {
         plannedRes = tryRes;
@@ -661,10 +673,11 @@ try {
     // report — and carry the JSON verdict second, because a render buried
     // as an escaped JSON field is what a client model restyled to bare
     // [SECTION] headers. Block 0 must parse as a song, not as JSON.
-    const gradedRes = await client.callTool({
-      name: 'lyric_grade',
-      arguments: { seed: planSeed, draft },
-    });
+    const gradedRes = await client.callTool(
+      { name: 'lyric_grade', arguments: { seed: planSeed, draft } },
+      undefined,
+      LIVE_OPTS
+    );
     assert.ok(!gradedRes.isError, 'lyric_grade answered without isError');
     assert.equal(gradedRes.content.length, 2, 'grade returns two blocks: song, then verdict');
     const song = gradedRes.content[0].text;
@@ -705,10 +718,14 @@ try {
     // seed. Containment is a normalised WORD-subsequence test, not a
     // substring match, which is why the in-hook title is three whole words.
     const titleReport = async (title) => {
-      const res = await client.callTool({
-        name: 'lyric_grade',
-        arguments: title === null ? { seed: planSeed, draft } : { seed: planSeed, draft, title },
-      });
+      const res = await client.callTool(
+        {
+          name: 'lyric_grade',
+          arguments: title === null ? { seed: planSeed, draft } : { seed: planSeed, draft, title },
+        },
+        undefined,
+        LIVE_OPTS
+      );
       assert.ok(!res.isError, `lyric_grade answered without isError (title=${title})`);
       return JSON.parse(res.content[1].text);
     };
@@ -899,10 +916,11 @@ try {
       'and the accepted seeds are in seed order'
     );
     // THE BOUND IS REAL AND NAMED.
-    const over = await client.callTool({
-      name: 'lyric_sweep',
-      arguments: { seed_from: 1, count: 513 },
-    });
+    const over = await client.callTool(
+      { name: 'lyric_sweep', arguments: { seed_from: 1, count: 513 } },
+      undefined,
+      LIVE_OPTS
+    );
     assert.ok(over.isError, 'a window past the ceiling is refused');
     // THE VOCABULARY DESCRIPTION IS CHECKED, NOT TRUSTED. The harness prints
     // the whole closed table when it refuses an undeclared name; every name

@@ -43,12 +43,12 @@ const MAX_LINES = 64; // the planner envelope's own total_lines ceiling
 const MAX_LINE_CHARS = 200;
 const MAX_MANDATE_CHARS = 400;
 // THE SWEEP WINDOW, DERIVED AGAINST THE TIGHTER OF THE TWO CLOCKS. This
-// connector kills a subprocess at SUBPROCESS_TIMEOUT_MS (90s) but the MCP
+// connector kills a subprocess at SUBPROCESS_TIMEOUT_MS (180s) but the MCP
 // SDK's own DEFAULT_REQUEST_TIMEOUT_MSEC is 60_000, nothing here emits the
 // progress notifications that would reset it, and a cancelled request does
 // NOT free the serial python queue -- so the client gives up first and the
-// box stays blocked. 60s is the budget, not 90s; deriving against the looser
-// clock is the flattering direction.
+// box stays blocked. 60s is the budget, not 180s; deriving against the
+// looser clock is the flattering direction.
 //
 // Budget = 60s minus the lexicon load this connector already declares on the
 // deploy target (~10s) = 50s of planning. MEASURED here, warm: 128 seeds in
@@ -66,7 +66,13 @@ const MAX_SWEEP_SEEDS = 512;
 const MAX_WANTS = 13; // = |SWEEP_MEASURES| + |SWEEP_SETS| + |SWEEP_ORDERS|
 const MAX_WANT_CHARS = 80;
 
-const SUBPROCESS_TIMEOUT_MS = 90_000;
+// RAISED 90s -> 180s 2026-08-26: the whole-vocabulary default (M-116) made
+// a full plan->fill->grade round trip measurably slower — ~61s wall on a CI
+// runner — so a runner half again as slow was one kill away from turning a
+// real answer into a refusal. The serial-queue argument in the sweep-window
+// note is unchanged: a 60s client still gives up first, and this cap's only
+// job is to eventually free the box, which 180s still does.
+const SUBPROCESS_TIMEOUT_MS = 180_000;
 const MAX_OUTPUT_BYTES = 4 * 1024 * 1024;
 
 // A word that reaches argv: letters, apostrophes, internal hyphens. The
