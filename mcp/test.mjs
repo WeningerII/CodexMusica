@@ -780,8 +780,7 @@ try {
     // measured at 0 grade rows against 28 brief rows on seed 1. Adds no
     // subprocess; both reports are already in hand.
     const drawnInBrief = (planReport.match(/a NAMED relation/g) || []).length;
-    const judgedInGrade = (gradeVerdict.report.match(/RELATION: group /g) || [])
-      .length;
+    const judgedInGrade = (gradeVerdict.report.match(/RELATION: group /g) || []).length;
     assert.ok(
       drawnInBrief > 0,
       'the planner drew at least one per-group relation — a 0 here is the ' +
