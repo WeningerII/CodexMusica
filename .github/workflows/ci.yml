@@ -2099,6 +2099,15 @@ jobs:
           #   shard 2/2  run #909, 2026-08-25  04:53:47 -> 07:45:28  171m41s, exit 0
           #   shard 1/2  run #966, 2026-08-26  04:55:40 -> 08:15:40  killed at 200m
           # so the whole sweep is >372m and one half of it no longer fits.
+          # N=4 IS MEASURED NOW AND IT FITS -- 2026-08-27, which is what this
+          # comment's own last line asks for and what it did not yet have:
+          #   shard 1/4  15 mutations, 8984s = 149m44s, exit 0,
+          #              13/15 caught, 0 SURVIVED, 2 INDETERMINATE
+          # on a 4-vCPU box AND under contention (a `npm run tandem` shared it
+          # for the first 26m), so a clean runner is the optimistic side of
+          # that number rather than the pessimistic one. 149m against the 200m
+          # bound is ~50m of margin. Shard 1/4 is the half of old shard 1/2
+          # that overran, so this is the expensive quarter and not a lucky one.
           # THE TWO SHARDS ARE BALANCED BY COUNT AND NOT BY TIME — that is
           # the finding, and `test_mutation.py` §3e carried the opposite
           # claim ("a per-shard time bound means the same thing on every
