@@ -14,7 +14,30 @@ services:
     branch: main
     plan: starter
     healthCheckPath: /health
-    autoDeploy: true
+    # OFF SINCE 2026-08-27, AND THE REPLACEMENT IS A WORKFLOW, NOT A DASHBOARD.
+    #
+    # `autoDeploy: true` fires on PUSH and knows nothing about GitHub Actions,
+    # so a red main reached the live connector while the identical red main
+    # could not reach the live page — sync-pages.yml has held the WEBSITE to
+    # "green before live" since it was written, and this service had no
+    # equivalent. The connector is the surface with the harness inside it (see
+    # mcp/Dockerfile: it COPYs lyric-harness and runs it as python3
+    # subprocesses), so it was the half where shipping a red tree costs more,
+    # and it was the ungated half.
+    #
+    # NOT Render's own "deploy only after CI passes" toggle, for the reason
+    # this file already gives twice below: a setting that lives only in the
+    # dashboard is invisible to this repository. GEMINI_MODEL is pinned here
+    # precisely because the deployed model used to be whatever the dashboard
+    # happened to hold, and CHAT_DAILY_USD sat disarmed the same way.
+    #
+    # .github/workflows/deploy-connector.yml is the only path to a deploy now:
+    # it triggers on CI *completion* for main, runs only when that run
+    # SUCCEEDED, and POSTs the Render deploy hook pinned to the validated
+    # commit. It needs the repository secret RENDER_DEPLOY_HOOK_URL (Render
+    # dashboard -> this service -> Settings -> Deploy Hook), and it FAILS LOUD
+    # rather than quietly not deploying if that secret is unset.
+    autoDeploy: false
     # /mcp needs none of these — it is pure deterministic compute over the
     # bundled catalog. They exist for /chat, which is the one surface that
     # spends money. `sync: false` means Render PROMPTS for the value instead of
