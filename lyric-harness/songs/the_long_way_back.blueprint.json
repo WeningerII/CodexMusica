@@ -1,0 +1,311 @@
+{
+ "hooks": [
+  "Every night the long way back returning"
+ ],
+ "lines": [
+  {
+   "bar": 1,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CHORUS1",
+   "text": "Every night the long way back returning"
+  },
+  {
+   "bar": 3,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CHORUS1",
+   "text": "Every night another notch is carved"
+  },
+  {
+   "bar": 5,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CHORUS1",
+   "text": "Turning every step to one last night"
+  },
+  {
+   "bar": 7,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CHORUS1",
+   "text": "Carved like a sentence set in stone"
+  },
+  {
+   "bar": 9,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CHORUS1",
+   "text": "Nothing but the lost hours counting out"
+  },
+  {
+   "bar": 11,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "VAMP1",
+   "text": "Hold the hour and hold it here a while"
+  },
+  {
+   "bar": 13,
+   "beat": 1.5,
+   "duration": 9.5,
+   "section": "VAMP1",
+   "text": "Told the empty room I would not fold"
+  },
+  {
+   "bar": 15,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CHORUS2",
+   "text": "Every night the long way back returning"
+  },
+  {
+   "bar": 17,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CHORUS2",
+   "text": "Every night another notch is carved"
+  },
+  {
+   "bar": 19,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CHORUS2",
+   "text": "Turning every step to one last night"
+  },
+  {
+   "bar": 21,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CHORUS2",
+   "text": "Carved like a sentence set in stone"
+  },
+  {
+   "bar": 23,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CHORUS2",
+   "text": "Nothing but the lost hours counting out"
+  },
+  {
+   "bar": 25,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "POSTCHORUS1",
+   "text": "Twelve nights running and the count is nothing"
+  },
+  {
+   "bar": 27,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "POSTCHORUS1",
+   "text": "Nothing counted nothing kept and nothing back"
+  },
+  {
+   "bar": 29,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CHORUS3",
+   "text": "Every night the long way back returning"
+  },
+  {
+   "bar": 31,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CHORUS3",
+   "text": "Every night another notch is carved"
+  },
+  {
+   "bar": 33,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CHORUS3",
+   "text": "Turning every step to one last night"
+  },
+  {
+   "bar": 35,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CHORUS3",
+   "text": "Carved like a sentence set in stone"
+  },
+  {
+   "bar": 37,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CHORUS3",
+   "text": "Nothing but the lost hours counting out"
+  },
+  {
+   "bar": 39,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "VERSE1",
+   "text": "I wrote the road down on my open hand"
+  },
+  {
+   "bar": 41,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "VERSE1",
+   "text": "I woke and found the writing washed away"
+  },
+  {
+   "bar": 43,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CODA1",
+   "text": "But something kept the place tonight"
+  },
+  {
+   "bar": 45,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CODA1",
+   "text": "Something stayed and held the light for me"
+  },
+  {
+   "bar": 47,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CODA1",
+   "text": "Something in the ink was still unsigned"
+  },
+  {
+   "bar": 49,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CODA1",
+   "text": "Set the roadway down once more engraved"
+  },
+  {
+   "bar": 51,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CODA1",
+   "text": "Something walked me back around the door"
+  },
+  {
+   "bar": 53,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CODA1",
+   "text": "Built it for the ground I lost before"
+  },
+  {
+   "bar": 55,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CODA1",
+   "text": "Something that the morning did not reclaim"
+  },
+  {
+   "bar": 57,
+   "beat": 2.0,
+   "duration": 9.0,
+   "section": "CODA1",
+   "text": "And I did not start again"
+  }
+ ],
+ "sections": [
+  {
+   "bars": 10,
+   "function": "chorus",
+   "meter": {
+    "beats": 5,
+    "groups": [
+     3,
+     2
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS1",
+   "start_bar": 1
+  },
+  {
+   "bars": 4,
+   "function": "vamp",
+   "meter": {
+    "beats": 5,
+    "groups": [
+     3,
+     2
+    ],
+    "unit": 8
+   },
+   "name": "VAMP1",
+   "start_bar": 11
+  },
+  {
+   "bars": 10,
+   "function": "chorus",
+   "meter": {
+    "beats": 5,
+    "groups": [
+     3,
+     2
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS2",
+   "start_bar": 15
+  },
+  {
+   "bars": 4,
+   "function": "postchorus",
+   "meter": {
+    "beats": 5,
+    "groups": [
+     3,
+     2
+    ],
+    "unit": 8
+   },
+   "name": "POSTCHORUS1",
+   "start_bar": 25
+  },
+  {
+   "bars": 10,
+   "function": "chorus",
+   "meter": {
+    "beats": 5,
+    "groups": [
+     3,
+     2
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS3",
+   "start_bar": 29
+  },
+  {
+   "bars": 4,
+   "function": "verse",
+   "meter": {
+    "beats": 5,
+    "groups": [
+     3,
+     2
+    ],
+    "unit": 8
+   },
+   "name": "VERSE1",
+   "start_bar": 39
+  },
+  {
+   "bars": 16,
+   "function": "coda",
+   "meter": {
+    "beats": 5,
+    "groups": [
+     3,
+     2
+    ],
+    "unit": 8
+   },
+   "name": "CODA1",
+   "start_bar": 43
+  }
+ ],
+ "title": "The Long Way Back"
+}

@@ -846,3 +846,55 @@ mandated, 76 judged, 0 refused. The loop reports SUCCESS after 0 rounds with
 the draft unchanged. No MODAL_RHYME, HOMEOTELEUTON or PREDICTABLE_RHYME note
 stands anywhere in the report, because the screening happened before the
 writing rather than after it.
+
+## the_long_way_back — the song M-148 parked, finished the day the judge was repaired
+
+**"The Long Way Back", seed 28 of the verse-chorus form, 29 lines in 7
+sections, graded at exit 0 with 0 per-line flags and 0 whole-draft flags on
+md5 687eaa34c949; 75 pairs mandated, 36 judged, 39 refused. The loop reports
+SUCCESS after 0 rounds with the draft unchanged.** [RESULTS: n_lines
+the_long_way_back]
+
+**THIS IS THE SONG `MISSING.md` M-148 PARKED OPEN AT EXIT 3**, when the
+schema judge refused canonical answers to the planner's own drawn relations
+and eight flags stood that no word available to a writer could clear. It was
+not presented then, on the owner's standing rule that nothing skips a step;
+it is presented now because the judge was repaired, not because the gate was
+argued down. The finishing order after the repair: re-grade, rewrite to the
+repaired judge's honest coordinates, grade to exit 0, revise to SUCCESS,
+render, bank.
+
+**THE REWRITE THE REPAIRED JUDGE ASKED FOR IS THE OPPOSITE OF THE ONE THE
+BROKEN JUDGE GOT.** The parked draft had been written TO the defect: every
+chorus line opened with one word because the anaphora verdict was read at
+the lines' initial tokens rather than at the declared slots — which
+satisfied the broken judge and tripped the floor's calibrated
+ANAPHORA_OVERLOAD at 12 of 29 openings. Under the repaired judge the
+anaphora groups bind the DECLARED tokens (a chorus line's second word
+answering another's last), the skothending groups take post-vocalic
+clusters with differing stressed vowels at their declared placements, and
+the chorus that satisfies them carries four distinct opening words — the
+overload flag cleared in the same rewrite that closed the scheme
+violations, because writing to the real coordinates is less repetitive
+than writing to the broken ones.
+
+**39 OF THE 75 MANDATED PAIRS ARE REFUSALS AND EVERY ONE IS NAMED, NOT
+FAILED.** The plan drew `multisyllabic rhyme`, `compound / phrasal rhyme`,
+`chain rhyme (rap)` and `monai` onto declared token slots, and those span
+shapes search windows or read their own magnitudes — one declared token
+cannot bind them, so the repaired judge refuses by name instead of
+answering a different question under the schema's name (doctrine 20/79).
+Under the broken judge three of those groups' pairs graded as VIOLATIONS no
+writing could fix; the refusal is the honest state and `MISSING.md` M-149
+records the seam (the relation draw and the placement draw compose into
+conjunctions nothing prices) as an open entry rather than a footnote.
+
+**THE BAN GATE DID THE LAST THIRD OF THE WORK.** The first exit-0-shaped
+draft still carried PREDICTABLE_RHYME (97% of the mandate-class pairs above
+0.90 predictability, driven by high-frequency line-end words) and one
+SHARED_SUFFIX pair whose spelled rimes were identical at every level. The
+gate held exit 0 back until the line-ends moved to the rare tail —
+non-modal content words in the outro, a chorus couplet re-pivoted off the
+shared spelled ending — which is doctrine 9 doing the writing at the layer
+the screen could not reach, since these were incidental class pairs rather
+than declared rhyme families.
