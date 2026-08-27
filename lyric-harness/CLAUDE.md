@@ -1032,6 +1032,10 @@ planner half of M-116, doctrine 17 keeps the strike visible): when the
 writer declares NOTHING, each group now DRAWS its relation uniformly over
 the bare default plus `relations.DRAWABLE_SCHEMAS` — the 22 schemas a
 declared sixteen-line English witness certifies a writer can satisfy
+(**a certificate M-148, 2026-08-27, measures as issued on the wrong
+ROUTE: it answers on the realise() stream, and at least one drawn name
+refuses its own canonical answers on the mandate's word-pair route,
+monosyllables included — the judge repair and its gate are what M-148 owes**)
 (answers on the witness; not intra-line-only; no token identity at a
 line-final placement). A uniform draw over a witness-certified vocabulary
 is the planner's ordinary dice; move 37 bans sampling MEASURED corpus

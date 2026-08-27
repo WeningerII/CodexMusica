@@ -7702,6 +7702,15 @@ different question than the one that will grade them.
    command the planner tells a writer to run REFUSES on the plan-first path.
    Filed here because it was found in the same run; it is independent.
 
+
+**ADDENDUM 2026-08-27 (M-148): 22 OF THE BROKEN NAMES ARE IN THE PLANNER'S
+CERTIFIED DRAW POOL, SO THE DEFECT THIS ENTRY RECORDS IS NOW MANDATED BY THE
+FRONT DOOR.** M-117 put `relations.DRAWABLE_SCHEMAS` — 22 names, certified
+satisfiable on a witness — into the default draw, and this entry's judge is
+what grades every pair those draws mandate. Measured in the field the day the
+collision was found: canonical MONOSYLLABLE answers fail too, so for at least
+one drawn name the hole is wider than this entry's own headline. The full
+accounting is M-148.
 ## Add below this line
 
 ### M-60 · CI could not tell a REFUSAL from a MOVED pin, and the refusal took two working checks down with it `CLOSED` 2026-08-23
@@ -14116,3 +14125,73 @@ the only cache in the file whose contents are the OUTPUT of the step it feeds.
 205** across this sitting (doctrine 17, every superseded value kept visible):
 202 -> 203 with M-145, then 203 -> 205 with M-146 and M-147, because that
 counter counts register entries and this sitting wrote three.
+
+### M-148 · the certified draw pool and the mandate judge disagree about at least one name — canonical answers to a drawn relation grade VIOLATED `OPEN`
+
+**Found 2026-08-27 by WRITING A SONG through the full working order — sweep,
+screen, plan, write, grade, revise — after the owner's ruling that no step may
+be skipped. The skipped-step complaint is what surfaced this: a pass that
+stopped before the revise loop would never have reached the brief that named
+it.**
+
+**THE COLLISION, STATED ONCE.** M-117's `relations.DRAWABLE_SCHEMAS` is 22
+names *"a declared sixteen-line English witness certifies a writer can
+satisfy"*, drawn by the planner into ordinary mandates. M-58 records that the
+named-relation judge is monosyllable-only for 69 of 76 names. Nothing checked
+the two against each other: membership in the certified pool was never tested
+against the route a MANDATED pair actually takes —
+`satisfies_relation` on two declared words — and at least one drawn name
+refuses its own canonical answers there, monosyllables included.
+
+**MEASURED, seed 28 of the verse-chorus form, and on minimal two-line
+fixtures through `brief --groups=1.T2,2 --relations=A:schema:...`:**
+
+  - `cluster consonance / skothending span` — six textbook pairs, each with
+    the post-stress consonant sequence agreeing and the stressed nucleus
+    differing, ALL SIX VIOLATED: fast/lost, best/last, hand/wind, milk/walk,
+    night/gate, heart/short. fast/lost is the canonical English instance of
+    the relation. All monosyllables, so this is not M-58's stated shape — for
+    this name the judge refuses at ONE syllable too.
+  - `hurried ~ carried` at the declared placements (3.T6/5.T4): the `screen`
+    verb types it RHYME 1.000 CLEAN and the schema route grades it VIOLATED.
+    One pair, two verdicts, two instruments in one repository (doctrine 1).
+  - `returning ~ running` (post-stress N-NG agreeing, nuclei ER/AH
+    differing — the relation's own definition): VIOLATED.
+  - Membership: `cluster consonance / skothending span`, `multisyllabic
+    rhyme` and `compound / phrasal rhyme` — the three names that refused
+    every reasonable answer across five graded drafts — are all in
+    `relations.DRAWABLE_SCHEMAS` (22 names, verified by import on the day).
+
+**THE SUSPECTED MECHANISM, named so the repair can test it rather than
+rediscover it: the certificate and the judge run different routes.** The
+witness certification asks whether the schema REALISES over a witness stream
+(`relations.realise`); a mandated pair asks whether TWO DECLARED WORDS stand
+in the relation. The certificate was issued on the route a mandate never
+takes. Same species as M-59's shape/policy split, one layer over.
+
+**WHAT THE SITTING ESTABLISHED BESIDE IT, so the field evidence is not
+re-derived:** the anaphora verdict turns on the LINES' initial tokens
+matching, not on the words at the declared placements (measured: identical
+declared words fail while lines opening on one word pass); the skothending
+verdict IS read at the declared placements (the report's own pair text names
+them). Five graded drafts of one song moved 62 -> 9 -> 11 -> 7 -> 8 flags,
+the chorus anaphora groups closing by measurement and the remainder blocked
+by this entry's judge, not by any word available to a writer.
+
+**WHAT IS OWED.** (1) The judge repaired for the 22 drawn names — M-58's
+repair scoped to the pool the planner actually reaches. (2) The gate that
+belongs with it: every name in `relations.DRAWABLE_SCHEMAS` must accept its
+own canonical answer THROUGH THE GRADE ROUTE, a check that would have gone
+red the day M-117 shipped. The gate ships with the repair, not before it — a
+gate born red is a gate people learn to skip. (3) Until then a writer's
+documented precedence move (`--relation=` silences the draw) is the honest
+route for a song, DECLARED and disclosed, never a quiet workaround.
+
+**THE SONG THIS CAME FROM IS PARKED OPEN, not presented:** exit 3, 8 flags,
+its state banked in the session record. Songs are not corpus and this entry
+cites no line of it as evidence; every measurement above is a fixture or an
+import.
+
+`audit_register.PINNED["coverage_entries"]` is repinned **~~205~~ -> 206**
+with this entry (doctrine 17, the superseded value kept visible), because
+that counter counts register entries and this sitting wrote one.
