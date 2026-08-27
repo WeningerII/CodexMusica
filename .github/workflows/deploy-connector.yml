@@ -1,0 +1,148 @@
+name: Deploy connector to Render
+
+# Deploys the MCP connector (render.yaml's `codex-musica-mcp`) — but ONLY after
+# CI passes on main, which is what `autoDeploy: true` could not express.
+#
+# WHAT THIS CLOSES. Two surfaces ship from this repo and until now only one of
+# them was gated. The WEBSITE goes live through sync-pages.yml, which triggers
+# on CI *completion* and publishes only when that run SUCCEEDED — "green before
+# live", enforced in the repo. The CONNECTOR shipped through Render's own
+# `autoDeploy`, which fires on PUSH and knows nothing about GitHub Actions, so
+# a red main reached the live MCP server while the identical red main could not
+# reach the live page. The connector is the surface with the harness inside it
+# (mcp/Dockerfile COPYs lyric-harness and runs it as python3 subprocesses), so
+# it was the half where shipping a red tree costs more, and it was the ungated
+# half.
+#
+# WHY NOT RENDER'S OWN "deploy only after CI passes" TOGGLE. Because it lives
+# in a dashboard. render.yaml already makes this argument against itself, twice
+# — GEMINI_MODEL was pinned here precisely so "the deployed model was whatever
+# the dashboard happened to hold, with no trace anywhere in this repo" stopped
+# being true, and CHAT_DAILY_USD sat disarmed for the same reason. A gate only
+# a dashboard remembers is a gate nobody can review, diff or test.
+#
+# THE ORDERING HAZARD IS REAL AND IS scripts/deploy_guard.sh's SUBJECT: runs
+# are serialized but NOT ordered, so an older run completing last would deploy
+# an older tree and roll the connector backwards. The guard stands the job down
+# when the commit CI validated is no longer main's tip.
+
+on:
+  workflow_run:
+    workflows: ['CI']
+    types: [completed]
+    branches: [main] # the branch render.yaml deploys from
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+# Serialized, and NOT cancel-in-progress: a deploy POST that has been accepted
+# cannot be un-sent, so cancelling a run mid-flight would leave Render building
+# a tree this workflow believes it abandoned.
+concurrency:
+  group: deploy-connector
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    # A CI run that FAILED, was cancelled, or was skipped must not deploy —
+    # that is the whole point of the file. `workflow_dispatch` is allowed
+    # through for the manual case (a deploy hook rotated, a Render build lost),
+    # and it still passes the guard below.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # fetch-depth 0 is load-bearing: deploy_guard.sh asks `merge-base` and
+      # `rev-list --count` about the distance between two commits, and a
+      # shallow clone answers neither.
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Resolve the commit CI validated
+        id: sha
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            SHA=$(git rev-parse HEAD)
+            echo "manual dispatch — using checked-out HEAD"
+          else
+            SHA="${{ github.event.workflow_run.head_sha }}"
+            echo "CI run ${{ github.event.workflow_run.id }} succeeded on $SHA"
+          fi
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+
+      # THREE ANSWERS, NEVER COLLAPSED (the shape mcp/check_live.mjs uses):
+      # 0 DEPLOY, 10 STAND DOWN — a newer commit's run will deploy — and any
+      # other code a real error. A stand-down is not a failure and must not
+      # paint the run red, or people learn to ignore the colour.
+      - name: May this commit be deployed? (the ordering guard)
+        id: guard
+        run: |
+          set +e
+          BUILT_SHA="${{ steps.sha.outputs.sha }}" scripts/deploy_guard.sh --verbose
+          rc=$?
+          set -e
+          case $rc in
+            0)  echo "go=yes" >> "$GITHUB_OUTPUT" ;;
+            10) echo "go=no"  >> "$GITHUB_OUTPUT" ;;
+            *)  echo "deploy_guard failed with $rc"; exit $rc ;;
+          esac
+
+      # A MISSING SECRET MUST BE LOUD. Without this step an unset hook makes
+      # curl POST to the empty string, and the most likely outcome is a job
+      # that looks like it deployed and did not — the silent-failure class this
+      # whole file exists to end. It is checked only on the path that would use
+      # it, so a stand-down never fails for a secret it was never going to send.
+      - name: The deploy hook must be configured
+        if: steps.guard.outputs.go == 'yes'
+        env:
+          HOOK: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "REFUSED — the repository secret RENDER_DEPLOY_HOOK_URL is unset."
+            echo
+            echo "  render.yaml sets autoDeploy: false, so this workflow is the ONLY"
+            echo "  path to a deploy. With no hook the connector silently stops"
+            echo "  tracking main — which the nightly's mcp/check_live.mjs would"
+            echo "  eventually report as DRIFT, hours later and one layer away."
+            echo
+            echo "  Render dashboard -> codex-musica-mcp -> Settings -> Deploy Hook,"
+            echo "  then add the URL as the repository secret RENDER_DEPLOY_HOOK_URL."
+            exit 1
+          fi
+
+      # `?ref=` pins the deploy to the exact commit CI validated. THE GUARD IS
+      # WHAT MAKES THIS SAFE RATHER THAN THE PARAMETER: it has just established
+      # that this sha IS main's tip, so a Render that honours `ref` and a Render
+      # that ignores it and builds the branch tip deploy the same tree. The
+      # parameter narrows the window between the guard and the build; it is not
+      # what the correctness rests on.
+      - name: Deploy
+        if: steps.guard.outputs.go == 'yes'
+        env:
+          HOOK: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+          SHA: ${{ steps.sha.outputs.sha }}
+        run: |
+          sep='?'; case "$HOOK" in *\?*) sep='&';; esac
+          code=$(curl -sS -o /tmp/deploy.json -w '%{http_code}' -X POST "${HOOK}${sep}ref=${SHA}")
+          echo "HTTP $code"
+          cat /tmp/deploy.json 2>/dev/null || true
+          echo
+          if [ "$code" != "200" ] && [ "$code" != "201" ]; then
+            echo "REFUSED — Render did not accept the deploy (HTTP $code)."
+            echo "  The connector is still serving whatever it served before this run."
+            exit 1
+          fi
+          echo "Render accepted a deploy of $SHA."
+          echo "  ACCEPTED IS NOT DEPLOYED: this is the build being queued, not"
+          echo "  finished. What checks that the live process actually matches"
+          echo "  this tree is mcp/check_live.mjs in the nightly."
+
+      - name: Stood down
+        if: steps.guard.outputs.go == 'no'
+        run: |
+          echo "No deploy: main has moved past the commit this run validated."
+          echo "The newer commit's own CI run is what deploys it."
