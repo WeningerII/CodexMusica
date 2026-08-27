@@ -13965,3 +13965,88 @@ digits and the citation from one ARGUED reason reds 2 checks;
 `quality/test_recover.py` §9 is killed 3 checks deep by a `placements=` that
 is parsed and dropped, and 3 deep again by a `parse_placements` that stops
 validating.
+
+`audit_register.PINNED["coverage_entries"]` is repinned **~~202~~ -> 203**
+with this entry (doctrine 17, the superseded value kept visible): the
+register grew by one because M-145 is one more entry, which is what that
+counter counts.
+
+### M-146 · the round trip pinned the miscount M-144 repaired `CLOSED (a fixture half OPEN)`
+Found 2026-08-27 by CI going red on `quality/test_plan.py` one commit after
+M-144 shipped, and it is **my own defect from the previous sitting**: the fix
+was measured, mutation-tested and committed without running the suite that
+asserts the OLD counting.
+
+`test_plan.py` §3 — THE ROUND TRIP, *"the graders accept what the planner
+emits ... by the real readers refusing nothing"* — asserted, over twenty
+seeds:
+
+```
+g["pairs_mandated"] == g["pairs_judged"] > 0 and g["pairs_refused"] == 0
+```
+
+**`pairs_refused == 0` WAS TRUE ONLY BECAUSE THE COUNT WAS WRONG.** M-144
+stopped counting a declared slot that resolves to **NO ANCHOR** as JUDGED —
+57 of 422 mandated pairs on the slot-declaring drafts, 13.5%, a refusal
+sitting in the judged column of a shipped headline triple. The moment that
+was repaired, the round trip's `== 0` began asserting the defect.
+
+**AND THE REFUSAL HERE IS NOT ABOUT THE PLANNER, WHICH IS THE WHOLE POINT OF
+THE SECTION.** A slot resolves against the **DRAFT's words**, and this
+section's draft is `dummy_draft` — a filler line built from this test file's
+own `BANK`. So a NO-ANCHOR refusal at a declared slot is a fact about that
+filler vocabulary, not about the shape the planner emitted, and charging it
+to the planner is the layer confusion this repository has an instrument for.
+
+**THE REPAIR IS A PARTITION PLUS A CAUSE, AND IT IS STRICTER THAN THE COUNT
+IT REPLACES** — never a widened tolerance:
+
+* `pairs_mandated == pairs_judged + pairs_refused` and `pairs_judged > 0`:
+  the three counts still partition and the graders still judged something.
+* **every refusal must carry `slot_refusal`** — M-144's own kind. Any OTHER
+  refusal (an unreadable end word, a schema the judge cannot read) IS the
+  planner emitting something the graders cannot take, and that is exactly
+  the failure this section exists to catch. The old `== 0` could not tell
+  those apart; it merely required their sum to vanish.
+
+**THE FAMILY, STATED ONCE, BECAUSE IT IS THIS REPOSITORY'S OWN SHAPE
+(doctrine 17):** a check written against a number can only ever be as right
+as that number was, and repairing the number turns the check into an
+assertion of the defect. `test_homeoteleuton.py` §5 did this exact thing to
+the two-name door (`MISSING.md` M-59, *"a check was ASSERTING the defect"*),
+and `test_door_census.py` §4's `incomplete > 0` needed the same treatment on
+the same day as this one (M-145). Three instances now, and the remedy is the
+same each time: **repoint the guard onto what the repair did NOT change**,
+never delete it and never loosen it.
+
+**AND THE REPAIR REVEALED WHAT THE `== 0` HAD BEEN HIDING: HALF THIS
+SECTION'S MANDATED PAIRS ARE NEVER GRADED, AND THE CAUSE IS THIS FILE'S OWN
+FILLER.** Measured over four seeds — mandated / judged / refused —
+**231/62/169, 66/31/35, 94/46/48, 116/34/82**, so the judged share runs
+**26.8% to 48.9%** and the partition holds on all four with every refusal of
+the slot kind. The cause is exact and is a fact about seven words:
+`dummy_draft`'s line is `we carry the morning to the {BANK}`, and of its
+**7 token positions only 3 anchor** — `carry`, `morning` and the bank word.
+`we`, `the`, `to`, `the` are function words the phonology will not anchor,
+which is **doctrine 46's list working correctly**, not a defect in it. So
+`head` reads `we` and refuses, `headrime` refuses with it, and every `T<n>`
+landing on an article refuses too. Under the old `== 0` this was invisible
+because the count it was reading was wrong in the compensating direction.
+
+**THAT IS GATED RATHER THAN NOTED, AND THE GATE CARRIES NO NUMBER.** The
+section now derives a floor from its own fixture: the anchorable-position
+share **SQUARED**, because a pair needs both ends to anchor — 3/7 squared is
+**18.4%**, and the observed 26.8–48.9% clears it because the planner also
+draws `end`/`endword`, which do anchor. It is deliberately a LOWER bound.
+What it catches is the direction worth catching — **the GRADER beginning to
+refuse pairs it ought to judge** — and it cannot be satisfied by weakening
+the fixture, because a weaker filler moves its own prediction down with it.
+
+**WHAT IS LEFT OPEN, NAMED SO IT IS NOT MISTAKEN FOR DONE:** the filler
+itself. A content-word-only line of the same syllable count would anchor at
+every position and hand this section back the half of its grading power the
+function words cost it. That is a FIXTURE change with a real blast radius —
+it moves every band, syllable and monotony reading in `test_plan.py` and
+would let head-bound groups be judged (and violate) for the first time — so
+it is not taken here on the strength of a hunch at the end of a sitting. The
+measurement above is what a later sitting needs to size it.
