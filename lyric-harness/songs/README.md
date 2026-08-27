@@ -805,3 +805,44 @@ origin — the defect this repository already found in its own
 `data/sources.tsv` line-number citations, where an unrelated insertion made a
 true sentence false without one character of it changing. A word screened by
 two runs REFUSES as ambiguous rather than resolving to whichever came first.
+
+## `till_the_light_comes_home.txt` — "Till the Light Comes Home", seed 143: banked the day M-148 was recorded, written entirely on the writer's declared route
+
+    python3 lyric_harness.py plan --seed=143 --relation=class:RHYME \
+        --title="Till the Light Comes Home"
+
+**THE DECLARATION IS THE POINT OF THIS ENTRY.** M-148 (recorded the same day)
+measures that at least one relation in the planner's certified draw pool
+refuses its own canonical answers through the mandate route, so this song does
+what that entry's "until then" clause prescribes: `--relation=class:RHYME`
+silences the draw — a writer's declaration, disclosed here, never a quiet
+workaround. Every mandated pair in the song is judged as strict RHYME by the
+scalar comparator's named class: identity refused, rime riche refused,
+assonance refused.
+
+**SCREEN-FIRST IS WHY THE LOOP HAD NOTHING TO DO.** Every rhyme family was
+certified through `screen` before a line was written, and the banked screens
+are the certificates: the reprise's eight end words, the vamp's five, the
+tag's four, the coda's six, the intro's three. The screens that FAILED are
+the story the log cannot hold — the first-choice pair in nearly every family
+came back MODAL_RHYME (the most predictable partner in its own field), so the
+committed words are the field's non-modal tail, which is doctrine 9 doing the
+writing. Two banked screens carry banned pairs and that is BY CONSTRUCTION,
+not an oversight: the reprise and coda components are not complete graphs, so
+their word sets were assigned so that every banned pair lands on a slot pair
+the mandate never binds — `raid`/`afraid` share a spelled ending and no group
+holds lines 7 and 10 together.
+
+**ONE REWRITE BETWEEN FIRST GRADE OF THIS DESIGN AND EXIT 0.** The grader
+caught `blockade`/`decayed` at score 1.000 and refused it — identical anchor
+syllable, RIME_RICHE, which `class:RHYME` correctly rejects and the screen
+correctly does not ban (rime riche is a relation, not a laziness). `decayed`
+became `displayed`, screened clean against all five of its mandated partners
+before the line was retyped.
+
+**THE VERDICTS, CHARGED AGAINST THE LOG.** The grade is exit 0 with 0
+per-line flags and 0 whole-draft flags on md5 9100acec755a; 76 pairs
+mandated, 76 judged, 0 refused. The loop reports SUCCESS after 0 rounds with
+the draft unchanged. No MODAL_RHYME, HOMEOTELEUTON or PREDICTABLE_RHYME note
+stands anywhere in the report, because the screening happened before the
+writing rather than after it.

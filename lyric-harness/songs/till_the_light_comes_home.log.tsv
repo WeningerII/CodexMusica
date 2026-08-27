@@ -1,0 +1,121 @@
+song	step	measured	harness_commit	verb	exit	fact	value
+till_the_light_comes_home	1	2026-08-27	e61757e-WORKING	plan	0	form	verse-chorus
+till_the_light_comes_home	1	2026-08-27	e61757e-WORKING	plan	0	seed	143
+till_the_light_comes_home	1	2026-08-27	e61757e-WORKING	plan	0	lines	33
+till_the_light_comes_home	1	2026-08-27	e61757e-WORKING	plan	0	sections	12
+till_the_light_comes_home	1	2026-08-27	e61757e-WORKING	plan	0	pattern	intro-build-chorus-postchorus-reprise-verse-breakdown-vamp-chorus-postchorus-tag-coda
+till_the_light_comes_home	1	2026-08-27	e61757e-WORKING	plan	0	meter	12/8 as (3, 3, 3, 3)
+till_the_light_comes_home	1	2026-08-27	e61757e-WORKING	plan	0	subdivision	2
+till_the_light_comes_home	1	2026-08-27	e61757e-WORKING	plan	0	groups	1.T3,3.head;1.T4,3.T2;1.T7,2.T3;7.T1,8.T6,11.headrime,13.headrime;9.head,14.T6;10.T1,12.T1;8.T3,10.T4,11.T5,13.T5,14.T5;8.T7,14.endword;8.T4,12.T2,14.T3;8.headrime,12.T4,14.T4;17.headrime,18.T7,19.head,20.T5;17.T3,19.T3,20.T2,21.head;17.endword,18.T3,21.T2;19.T7,21;17.T5,18.T6;24.headrime,26.T4;25.endword,27.T4;24.T4,26.T5,27.endword;24.T2,27.T2;24.endword,26.headrime,27.T6;24.T3,27.T1;28.T1,30,31.T1;32.T7,33.T3;28.T2,29.headrime,32.T6;28.T7,32.T1,33;28,33.headrime;28.T3,33.T4;1,3;7,11,13;10,12;18,19,20
+till_the_light_comes_home	1	2026-08-27	e61757e-WORKING	plan	0	returns	5,22
+till_the_light_comes_home	2	2026-08-27	e61757e-WORKING	screen	0	pair:blown~groan	CLEAN
+till_the_light_comes_home	2	2026-08-27	e61757e-WORKING	screen	0	pair:blown~sewn	CLEAN
+till_the_light_comes_home	2	2026-08-27	e61757e-WORKING	screen	0	pair:groan~sewn	CLEAN
+till_the_light_comes_home	2	2026-08-27	e61757e-WORKING	screen	0	banned	0
+till_the_light_comes_home	2	2026-08-27	e61757e-WORKING	screen	0	refused	0
+till_the_light_comes_home	2	2026-08-27	e61757e-WORKING	screen	0	clean_or_non_rhyme	3
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:raid~blockade	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:raid~parade	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:raid~afraid	BANNED: HOMEOTELEUTON
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:raid~displayed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:raid~portrayed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:raid~conveyed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:raid~weighed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:blockade~parade	BANNED: HOMEOTELEUTON
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:blockade~afraid	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:blockade~displayed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:blockade~portrayed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:blockade~conveyed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:blockade~weighed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:parade~afraid	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:parade~displayed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:parade~portrayed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:parade~conveyed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:parade~weighed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:afraid~displayed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:afraid~portrayed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:afraid~conveyed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:afraid~weighed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:displayed~portrayed	BANNED: HOMEOTELEUTON
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:displayed~conveyed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:displayed~weighed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:portrayed~conveyed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:portrayed~weighed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	pair:conveyed~weighed	CLEAN
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	banned	3
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	refused	0
+till_the_light_comes_home	3	2026-08-27	e61757e-WORKING	screen	0	clean_or_non_rhyme	25
+till_the_light_comes_home	4	2026-08-27	e61757e-WORKING	screen	0	pair:retain~crane	CLEAN
+till_the_light_comes_home	4	2026-08-27	e61757e-WORKING	screen	0	pair:retain~reign	CLEAN
+till_the_light_comes_home	4	2026-08-27	e61757e-WORKING	screen	0	pair:retain~campaign	CLEAN
+till_the_light_comes_home	4	2026-08-27	e61757e-WORKING	screen	0	pair:retain~vein	CLEAN
+till_the_light_comes_home	4	2026-08-27	e61757e-WORKING	screen	0	pair:crane~reign	CLEAN
+till_the_light_comes_home	4	2026-08-27	e61757e-WORKING	screen	0	pair:crane~campaign	CLEAN
+till_the_light_comes_home	4	2026-08-27	e61757e-WORKING	screen	0	pair:crane~vein	CLEAN
+till_the_light_comes_home	4	2026-08-27	e61757e-WORKING	screen	0	pair:reign~campaign	CLEAN
+till_the_light_comes_home	4	2026-08-27	e61757e-WORKING	screen	0	pair:reign~vein	CLEAN
+till_the_light_comes_home	4	2026-08-27	e61757e-WORKING	screen	0	pair:campaign~vein	CLEAN
+till_the_light_comes_home	4	2026-08-27	e61757e-WORKING	screen	0	banned	0
+till_the_light_comes_home	4	2026-08-27	e61757e-WORKING	screen	0	refused	0
+till_the_light_comes_home	4	2026-08-27	e61757e-WORKING	screen	0	clean_or_non_rhyme	10
+till_the_light_comes_home	5	2026-08-27	e61757e-WORKING	screen	0	pair:marine~unseen	CLEAN
+till_the_light_comes_home	5	2026-08-27	e61757e-WORKING	screen	0	pair:marine~intervene	CLEAN
+till_the_light_comes_home	5	2026-08-27	e61757e-WORKING	screen	0	pair:marine~foreseen	CLEAN
+till_the_light_comes_home	5	2026-08-27	e61757e-WORKING	screen	0	pair:unseen~intervene	CLEAN
+till_the_light_comes_home	5	2026-08-27	e61757e-WORKING	screen	0	pair:unseen~foreseen	BANNED: HOMEOTELEUTON
+till_the_light_comes_home	5	2026-08-27	e61757e-WORKING	screen	0	pair:intervene~foreseen	CLEAN
+till_the_light_comes_home	5	2026-08-27	e61757e-WORKING	screen	0	banned	1
+till_the_light_comes_home	5	2026-08-27	e61757e-WORKING	screen	0	refused	0
+till_the_light_comes_home	5	2026-08-27	e61757e-WORKING	screen	0	clean_or_non_rhyme	5
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	pair:lagoon~immune	CLEAN
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	pair:lagoon~hewn	CLEAN
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	pair:lagoon~dune	CLEAN
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	pair:lagoon~tune	CLEAN
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	pair:lagoon~strewn	CLEAN
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	pair:immune~hewn	CLEAN
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	pair:immune~dune	BANNED: HOMEOTELEUTON
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	pair:immune~tune	BANNED: HOMEOTELEUTON
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	pair:immune~strewn	CLEAN
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	pair:hewn~dune	CLEAN
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	pair:hewn~tune	CLEAN
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	pair:hewn~strewn	BANNED: HOMEOTELEUTON
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	pair:dune~tune	BANNED: HOMEOTELEUTON
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	pair:dune~strewn	CLEAN
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	pair:tune~strewn	CLEAN
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	banned	4
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	refused	0
+till_the_light_comes_home	6	2026-08-27	e61757e-WORKING	screen	0	clean_or_non_rhyme	11
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	mandate_groups	32
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	lines	33
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	mandated_pairs	76
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	mandate_source	declared
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	md5	9100acec755a
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	briefed	33
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	per_line_flag	0
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	per_line_note	170
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	whole_draft	65
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	whole_draft_flag	0
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:COLLISION_CUT_IS_SCALAR_ONLY	NOTE x1
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:FUNCTION_UNDECLARED	NOTE x1
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:LATE_ENTRY	NOTE x31
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:MANDATE_GROUPS_INDISTINGUISHABLE	NOTE x58
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:NEAR_COLLISION	NOTE x9
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:NO_SETTING	NOTE x1
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:PROMINENCE_CANNOT_ALIGN	NOTE x33
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x33
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:REFRAIN_REPEAT	NOTE x1
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:REPEAT_ACROSS_GROUPS	NOTE x1
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:RETURN_LOCKED	NOTE x1
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:RETURN_NEVER_RETURNS	NOTE x1
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:SCHEME_COLLISION	NOTE x27
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:SINGLE_INSTANCE	NOTE x2
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:SPARSE	NOTE x33
+till_the_light_comes_home	7	2026-08-27	e61757e-WORKING	song	0	finding:STACKED_LINE	NOTE x2
+till_the_light_comes_home	8	2026-08-27	e61757e-WORKING	revise	0	stop_reason	SUCCESS
+till_the_light_comes_home	8	2026-08-27	e61757e-WORKING	revise	0	rounds	0
+till_the_light_comes_home	8	2026-08-27	e61757e-WORKING	revise	0	md5_in	9100acec755a
+till_the_light_comes_home	8	2026-08-27	e61757e-WORKING	revise	0	md5_out	9100acec755a
+till_the_light_comes_home	8	2026-08-27	e61757e-WORKING	revise	0	unchanged	yes
+till_the_light_comes_home	8	2026-08-27	e61757e-WORKING	revise	0	mandated	76
+till_the_light_comes_home	8	2026-08-27	e61757e-WORKING	revise	0	judged	76
+till_the_light_comes_home	8	2026-08-27	e61757e-WORKING	revise	0	pairs_refused	0

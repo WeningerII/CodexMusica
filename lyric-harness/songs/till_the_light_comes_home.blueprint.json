@@ -1,0 +1,433 @@
+{
+ "hooks": [
+  "Nothing leaves the harbor till the light comes home"
+ ],
+ "lines": [
+  {
+   "bar": 1,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "INTRO1",
+   "text": "Night comes in with the weather blown"
+  },
+  {
+   "bar": 2,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "INTRO1",
+   "text": "The mooring lines pull tight and groan"
+  },
+  {
+   "bar": 3,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "INTRO1",
+   "text": "Sails down, canvas patched and sewn"
+  },
+  {
+   "bar": 4,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "BUILD1",
+   "text": "The glass is falling and the swell is up"
+  },
+  {
+   "bar": 5,
+   "beat": 1.0,
+   "duration": 12.0,
+   "section": "CHORUS1",
+   "text": "Nothing leaves the harbor till the light comes home"
+  },
+  {
+   "bar": 6,
+   "beat": 1.5,
+   "duration": 11.5,
+   "section": "POSTCHORUS1",
+   "text": "Hold fast; the morning knows its own"
+  },
+  {
+   "bar": 7,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "REPRISE1",
+   "text": "Gulls come down in a slow grey raid"
+  },
+  {
+   "bar": 8,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "REPRISE1",
+   "text": "Fog on the bar like a soft blockade"
+  },
+  {
+   "bar": 9,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "REPRISE1",
+   "text": "Lanterns pass in a small parade"
+  },
+  {
+   "bar": 10,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "REPRISE1",
+   "text": "Someone's rowing and someone's afraid"
+  },
+  {
+   "bar": 11,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "REPRISE1",
+   "text": "Every scar on the hull displayed"
+  },
+  {
+   "bar": 12,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "REPRISE1",
+   "text": "Old storms hang in the charts, portrayed"
+  },
+  {
+   "bar": 13,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "REPRISE1",
+   "text": "More than the wireless ever conveyed"
+  },
+  {
+   "bar": 14,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "REPRISE1",
+   "text": "Every hull at the anchorage weighed"
+  },
+  {
+   "bar": 15,
+   "beat": 1.5,
+   "duration": 11.5,
+   "section": "VERSE1",
+   "text": "I keep the ledger of the boats that stay"
+  },
+  {
+   "bar": 16,
+   "beat": 1.5,
+   "duration": 11.5,
+   "section": "BREAKDOWN1",
+   "text": "No one asks the water for its name"
+  },
+  {
+   "bar": 17,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "VAMP1",
+   "text": "Half the night hangs off the loading crane"
+  },
+  {
+   "bar": 18,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "VAMP1",
+   "text": "Winter runs its long campaign"
+  },
+  {
+   "bar": 19,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "VAMP1",
+   "text": "The sea maintains its patient reign"
+  },
+  {
+   "bar": 20,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "VAMP1",
+   "text": "I hold what daylight can't retain"
+  },
+  {
+   "bar": 21,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "VAMP1",
+   "text": "Cold moves through me like a vein"
+  },
+  {
+   "bar": 22,
+   "beat": 1.0,
+   "duration": 12.0,
+   "section": "CHORUS2",
+   "text": "Nothing leaves the harbor till the light comes home"
+  },
+  {
+   "bar": 23,
+   "beat": 1.5,
+   "duration": 11.5,
+   "section": "POSTCHORUS2",
+   "text": "Hold fast; the morning keeps its own"
+  },
+  {
+   "bar": 24,
+   "beat": 1.5,
+   "duration": 11.5,
+   "section": "TAG1",
+   "text": "First light thins the dark marine"
+  },
+  {
+   "bar": 25,
+   "beat": 1.5,
+   "duration": 11.5,
+   "section": "TAG1",
+   "text": "The tide turns just as it was foreseen"
+  },
+  {
+   "bar": 26,
+   "beat": 1.5,
+   "duration": 11.5,
+   "section": "TAG1",
+   "text": "The bar goes quiet, the reef unseen"
+  },
+  {
+   "bar": 27,
+   "beat": 1.5,
+   "duration": 11.5,
+   "section": "TAG1",
+   "text": "No more weather to intervene"
+  },
+  {
+   "bar": 28,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "CODA1",
+   "text": "Sun spreads flat across the still lagoon"
+  },
+  {
+   "bar": 29,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "CODA1",
+   "text": "Flat calm water, cool, immune"
+  },
+  {
+   "bar": 30,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "CODA1",
+   "text": "The keeper hums a wordless tune"
+  },
+  {
+   "bar": 31,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "CODA1",
+   "text": "Nets lie drying, empty, strewn"
+  },
+  {
+   "bar": 32,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "CODA1",
+   "text": "Stone steps shining, roughly hewn"
+  },
+  {
+   "bar": 33,
+   "beat": 2.0,
+   "duration": 11.0,
+   "section": "CODA1",
+   "text": "Boats go out past the farthest dune"
+  }
+ ],
+ "sections": [
+  {
+   "bars": 3,
+   "function": "intro",
+   "meter": {
+    "beats": 12,
+    "groups": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "INTRO1",
+   "start_bar": 1
+  },
+  {
+   "bars": 1,
+   "function": "build",
+   "meter": {
+    "beats": 12,
+    "groups": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "BUILD1",
+   "start_bar": 4
+  },
+  {
+   "bars": 1,
+   "function": "chorus",
+   "meter": {
+    "beats": 12,
+    "groups": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS1",
+   "start_bar": 5
+  },
+  {
+   "bars": 1,
+   "function": "postchorus",
+   "meter": {
+    "beats": 12,
+    "groups": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "POSTCHORUS1",
+   "start_bar": 6
+  },
+  {
+   "bars": 8,
+   "function": "reprise",
+   "meter": {
+    "beats": 12,
+    "groups": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "REPRISE1",
+   "start_bar": 7
+  },
+  {
+   "bars": 1,
+   "function": "verse",
+   "meter": {
+    "beats": 12,
+    "groups": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "VERSE1",
+   "start_bar": 15
+  },
+  {
+   "bars": 1,
+   "function": "breakdown",
+   "meter": {
+    "beats": 12,
+    "groups": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "BREAKDOWN1",
+   "start_bar": 16
+  },
+  {
+   "bars": 5,
+   "function": "vamp",
+   "meter": {
+    "beats": 12,
+    "groups": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "VAMP1",
+   "start_bar": 17
+  },
+  {
+   "bars": 1,
+   "function": "chorus",
+   "meter": {
+    "beats": 12,
+    "groups": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS2",
+   "start_bar": 22
+  },
+  {
+   "bars": 1,
+   "function": "postchorus",
+   "meter": {
+    "beats": 12,
+    "groups": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "POSTCHORUS2",
+   "start_bar": 23
+  },
+  {
+   "bars": 4,
+   "function": "tag",
+   "meter": {
+    "beats": 12,
+    "groups": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "TAG1",
+   "start_bar": 24
+  },
+  {
+   "bars": 6,
+   "function": "coda",
+   "meter": {
+    "beats": 12,
+    "groups": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CODA1",
+   "start_bar": 28
+  }
+ ],
+ "title": "Till the Light Comes Home"
+}
