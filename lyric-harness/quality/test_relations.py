@@ -2357,8 +2357,15 @@ def test_refrain_tail_documented_call_was_impossible():
 # ---------------------------------------------------------------------------
 
 #: The staged English item the defect was measured on. 24 lines, 204 units,
-#: and the split 30 FIRED / 26 REFUSED / 21 RAN AND FOUND NOTHING before
-#: either frame-supplier is called.
+#: and the split ~~30 FIRED / 26 REFUSED / 21 RAN AND FOUND NOTHING~~
+#: **31 / 26 / 20** before either frame-supplier is called — REPINNED
+#: 2026-08-27 (doctrine 17, the superseded figures kept visible): the M-148
+#: P1 repair made `_seq` read the post-vocalic CLUSTER for the skothending
+#: schema's vowel-anchored sequence, and that one schema crossed from
+#: RAN-AND-FOUND-NOTHING to FIRED on this item (12 true instances,
+#: oppression~constellation the first — shared post-stress SH, EH/EY nuclei
+#: differing). One schema moved and it is the repaired one; the REFUSED
+#: count is untouched, which is this section's own subject.
 VACUITY_ITEM = "song/eng_american_dan_e_townsend.txt"
 
 #: The six schemas that rode the two shipped frame-suppliers into a silent
@@ -2442,9 +2449,10 @@ def test_vacuous_frame_is_not_a_null():
           "(doctrine 20)")
     raw, st = _eng_corpus_stream(VACUITY_ITEM)
     before = _split(st)
-    check("the staged item reproduces the measured split 30 FIRED / 26 "
-          "REFUSED / 21 RAN AND FOUND NOTHING",
-          before == (30, 26, 21),
+    check("the staged item reproduces the measured split 31 FIRED / 26 "
+          "REFUSED / 20 RAN AND FOUND NOTHING (repinned from 30/26/21 at "
+          "M-148: the repaired skothending schema now fires here)",
+          before == (31, 26, 20),
           f"{before} on corpus/{VACUITY_ITEM}: {len(raw)} raw lines, "
           f"{len(st.units)} units. PREMISE — it must hold on both trees.")
 
@@ -2492,8 +2500,8 @@ def test_vacuous_frame_is_not_a_null():
           _shown)
     after = _split(st)
     check("...so calling both markers moves NOTHING: the split is still "
-          "30/26/21, where it used to become 30/20/27",
-          after == before == (30, 26, 21),
+          "31/26/20, where it used to become 31/20/26",
+          after == before == (31, 26, 20),
           f"before {before} after {after}. Six schemas crossing from REFUSED "
           f"to RAN AND FOUND NOTHING is the collapse; the counts are the "
           f"cheapest place to see it.")
@@ -2586,11 +2594,11 @@ def test_vacuous_frame_is_not_a_null():
         mut_rep = R.relation_report(st)
         mut_state = st.supply("caesura").state
     check("MUTANT: with `provides` reading the SOURCE again, all six stop "
-          "refusing and return an empty list, the split moves to 30/20/27, "
+          "refusing and return an empty list, the split moves to 31/20/26, "
           "and the fourth count goes to zero",
           all(not isinstance(o, R.Refusal) and len(o) == 0
               for o in mut_outs.values())
-          and mut_split == (30, 20, 27) and mut_rep["refused_vacuous"] == 0
+          and mut_split == (31, 20, 26) and mut_rep["refused_vacuous"] == 0
           and mut_state == "present",
           f"{mut_split} under the mutant against {after} at head; "
           f"{ {n: len(o) for n, o in mut_outs.items()} }. Six schemas, six "

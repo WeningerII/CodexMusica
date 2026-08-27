@@ -1032,10 +1032,21 @@ planner half of M-116, doctrine 17 keeps the strike visible): when the
 writer declares NOTHING, each group now DRAWS its relation uniformly over
 the bare default plus `relations.DRAWABLE_SCHEMAS` — the 22 schemas a
 declared sixteen-line English witness certifies a writer can satisfy
-(**a certificate M-148, 2026-08-27, measures as issued on the wrong
-ROUTE: it answers on the realise() stream, and at least one drawn name
-refuses its own canonical answers on the mandate's word-pair route,
-monosyllables included — the judge repair and its gate are what M-148 owes**)
+(**a certificate M-148, 2026-08-27, measured as issued on the wrong
+ROUTE — it answered on the realise() stream while at least one drawn name
+refused its own canonical answers on the mandate's word-pair route,
+monosyllables included. REPAIRED the same day, in the sitting the entry
+demanded: `relations._seq` reads the vowel-anchored consonant sequence as
+the post-vocalic CLUSTER (fast~lost was [F,S,T] vs [L,S,T]; an EMPTY
+cluster answers False with the reason rather than vacuously true), and
+`relations.pair_satisfies` judges a schema at the DECLARED tokens where a
+mandate binds non-default slots, refusing by name the span shapes one
+token cannot bind. The gate ships with it — `test_mandate_relation.py`
+§10: every drawable name accepts its answer THROUGH `Reviser.grade`, the
+canonical monosyllable battery, and the declared-token contrast, each half
+killed by its own hand-proven mutation. The certificate and the judge now
+agree; M-148 records what moved (one test_relations pin, 30/26/21 ->
+31/26/20) and what did not (the pool, the battery's 12/1014)**)
 (answers on the witness; not intra-line-only; no token identity at a
 line-final placement). A uniform draw over a witness-certified vocabulary
 is the planner's ordinary dice; move 37 bans sampling MEASURED corpus

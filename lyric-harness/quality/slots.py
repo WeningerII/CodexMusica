@@ -97,7 +97,8 @@ __all__ = ["Slot", "SlotUnsupported", "DEFAULT_RULE", "GRADEABLE_LOCI",
            "PLANNABLE_PLACEMENTS", "LAST_WORD", "placement_word",
            "GRADEABLE_ANCHORS", "FRAME_LOCI", "NAMED_SLOTS",
            "as_slot", "slot_line", "is_default", "check", "resolve",
-           "parse_slot", "spell_slot", "position_of", "word_phrase"]
+           "parse_slot", "spell_slot", "position_of", "word_phrase",
+           "token_of"]
 
 
 class SlotUnsupported(ValueError):
@@ -293,6 +294,30 @@ def position_of(member):
     if locus == "line":
         return "internal"
     return "internal"
+
+
+def token_of(member):
+    """-> the token a slot binds, in STREAM coordinates: -1 for the line's
+    last token, 0 for its first, n0 (0-based) for a declared `T<n>`, and
+    None for a slot that binds no single token (the whole-line slot).
+
+    THE SCHEMA ROUTE'S HALF OF THE SLOT (M-148 P2): `relations.
+    pair_satisfies` takes `(line, token)` and builds the member spans from
+    the SCHEMA's own rules there, so on that route the slot contributes
+    exactly WHICH WORD — its own anchor and magnitude are the scalar
+    comparator's business (`resolve`, above) and are deliberately not read
+    here.  Derived from the rule's locus, the same way `placement_word` is,
+    and living in this module for the same reason: the ONLY place a name is
+    bound to a rule.
+    """
+    rule = as_slot(member).rule
+    if rule.locus == "line_final_token":
+        return -1
+    if rule.locus == "line_initial_token":
+        return 0
+    if rule.locus == "any_token":
+        return _declared_token(rule)
+    return None
 
 
 def parse_slot(text):

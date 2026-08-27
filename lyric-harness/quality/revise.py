@@ -1187,7 +1187,7 @@ class Reviser:
         # never says `schema:` does not import `relations`, does not build a
         # stream, and takes the byte-identical old path — the same lazy
         # discipline the structure and named-relation routes above take.
-        _sch_pairs, _stream = {}, None
+        _sch_pairs, _stream, _R_ref = {}, None, None
 
         def _grade_stream(_RRm):
             # ONE stream builder for BOTH schema routes — the declared route
@@ -1218,6 +1218,7 @@ class Reviser:
                 # report (M-39: a declared list gets a source name, and the
                 # name is what tells a reader this was not blank lines).
                 _stream = _grade_stream(_R_mod)
+                _R_ref = _R_mod
                 # THE REFRAIN-TAIL FRAME, DERIVED FROM THE DECLARATION AND
                 # NOT FROM A DEFAULT. `epistrophe / radif` and
                 # `qafiya (before the radif)` refuse without
@@ -1323,25 +1324,80 @@ class Reviser:
                 # group is assumed to be. The head, internal and cross
                 # relations this comment named as unreachable are reachable
                 # by declaring the placement their own definitions require.
-                try:
-                    ok = _RT.satisfies_relation(
-                        want, rel, ew_i, ew_j,
-                        _relation_phonology(),
-                        position=_SL.position_of(slot_i or i),
-                        lines=(i, j), instances=_sch_pairs.get(want))
-                except _RT.RelationRefused as e:
-                    refusals.append({
-                        "lines": (i, j),
-                        "endwords": (ew_i, ew_j),
-                        "unreadable": [],
-                        "groups": [m.labels[k]],
-                        "reason": (f"the declared relation {want!r} cannot be "
-                                   f"judged here: {e} — REFUSED, not failed "
-                                   f"(doctrine 79)")})
-                    refused.add((i, j))
-                    unknown.add((i, k))
-                    unknown.add((j, k))
-                    continue
+                # M-148 (P2): A SCHEMA RELATION AT A DECLARED SLOT IS JUDGED
+                # AT THE DECLARED TOKENS. The instances route below hands the
+                # judge `line_pairs_for`'s answer, and `realise()` enumerates
+                # spans at the schema's OWN loci — measured (M-148 E2), the
+                # CLASS route reads a `1.T2`-to-`2.end` binding correctly
+                # while the schema route judged placements the writer never
+                # declared. `relations.pair_satisfies` keeps the schema's own
+                # anchors, channels and identity rules and takes only WHICH
+                # word from the slot; a default-slot mandate keeps the
+                # instances route, whose loci for an end-anchored schema ARE
+                # the declared placement.
+                _sch_name = _schema_name_of(_RT, want)
+                _via_pair = bool(
+                    _sch_name and _stream is not None and slot_i is not None
+                    and not (_SL.is_default(slot_i)
+                             and _SL.is_default(slot_j)))
+                if _via_pair:
+                    _ti = _SL.token_of(slot_i)
+                    _tj = _SL.token_of(slot_j)
+                    if _ti is None or _tj is None:
+                        refusals.append({
+                            "lines": (i, j),
+                            "endwords": (ew_i, ew_j),
+                            "unreadable": [],
+                            "groups": [m.labels[k]],
+                            "reason": (f"the declared relation {want!r} is a "
+                                       f"schema and a member's slot binds no "
+                                       f"single token (a whole-line slot), "
+                                       f"so the declared-token route cannot "
+                                       f"bind it — REFUSED, not failed "
+                                       f"(doctrine 79)")})
+                        refused.add((i, j))
+                        unknown.add((i, k))
+                        unknown.add((j, k))
+                        continue
+                    _out = _R_ref.pair_satisfies(
+                        _R_ref.REGISTRY[_sch_name], _stream,
+                        (i - 1, _ti), (j - 1, _tj))
+                    if isinstance(_out, _R_ref.Refusal):
+                        refusals.append({
+                            "lines": (i, j),
+                            "endwords": (ew_i, ew_j),
+                            "unreadable": [],
+                            "groups": [m.labels[k]],
+                            "reason": (f"the declared relation {want!r} "
+                                       f"cannot be judged at the declared "
+                                       f"tokens: {_out.detail} — REFUSED, "
+                                       f"not failed (doctrine 79)")})
+                        refused.add((i, j))
+                        unknown.add((i, k))
+                        unknown.add((j, k))
+                        continue
+                    ok = _out
+                else:
+                    try:
+                        ok = _RT.satisfies_relation(
+                            want, rel, ew_i, ew_j,
+                            _relation_phonology(),
+                            position=_SL.position_of(slot_i or i),
+                            lines=(i, j), instances=_sch_pairs.get(want))
+                    except _RT.RelationRefused as e:
+                        refusals.append({
+                            "lines": (i, j),
+                            "endwords": (ew_i, ew_j),
+                            "unreadable": [],
+                            "groups": [m.labels[k]],
+                            "reason": (f"the declared relation {want!r} "
+                                       f"cannot be judged here: {e} — "
+                                       f"REFUSED, not failed "
+                                       f"(doctrine 79)")})
+                        refused.add((i, j))
+                        unknown.add((i, k))
+                        unknown.add((j, k))
+                        continue
                 if ok is None:
                     # The phonology could not read a member, or the
                     # classification is indeterminate. A refusal, never a no
@@ -1363,9 +1419,14 @@ class Reviser:
                     continue
                 if not ok:
                     why = (f"does not satisfy the declared relation {want!r} "
-                           f"— judged by the named-type engine at that "
-                           f"relation's own coordinate, not by the scalar "
-                           f"comparator's admit set")
+                           + (f"— judged by the schema's own channels at the "
+                              f"DECLARED tokens "
+                              f"(relations.pair_satisfies), not at the "
+                              f"schema's own loci"
+                              if _via_pair else
+                              f"— judged by the named-type engine at that "
+                              f"relation's own coordinate, not by the scalar "
+                              f"comparator's admit set"))
             elif _ST is not None and struct != _ST.DEFAULT:
                 sv = _ST.judge(struct, ew_i, ew_j)
                 if sv is None:

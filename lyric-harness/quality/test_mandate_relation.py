@@ -31,6 +31,10 @@ Sections:
      and the gate in grade() that has to ask for it
   7  the re-open path carries every coordinate it is not re-declaring —
      the dropped ReturnRule (M-53) and the dropped relations (M-50)
+  8  the `schema:` namespace is judged — over the stream, per pair
+  9  identity is the schema's own ruling (M-124)
+  10 the M-148 gate — every drawable name accepts its canonical answer
+     through the grade route, at default AND at declared slots
 """
 
 import sys
@@ -696,13 +700,152 @@ def test_identity_is_the_schemas_own_ruling():
           not g3["violations"], g3["violations"])
 
 
+def test_the_drawable_pool_holds_through_the_grade_route():
+    """§10 — THE M-148 GATE. The certified draw pool and the mandate judge
+    must agree: every name in `relations.DRAWABLE_SCHEMAS` accepts an answer
+    THROUGH THE GRADE ROUTE — `Reviser.grade` on a mandate declaring the
+    schema — never only through the `realise()` stream the certificate was
+    issued on. M-148's finding is that the two routes disagreed and nothing
+    checked them against each other: the skothending schema certified into
+    the pool (its witness exhibit `gate~goat` has agreeing ONSETS, so the
+    `_seq` onset-inclusion defect could not show there) while refusing 0/6
+    of its canonical monosyllable pairs on the route a mandated pair takes.
+
+    Three halves, three different mutations, each named at its check:
+      * the WITNESS half — all 22 names grade satisfied on the witness
+        (kills a plumbing regression: schema resolution, instances
+        threading, a refusal drifting into the route);
+      * the CANONICAL-ANSWER half — the skothending battery at default
+        slots, which is the check that would have gone red the day M-117
+        shipped (kills restoring the whole-syllable `_seq` flatten), and
+        `day~sea` VIOLATED (kills dropping the empty-cluster rule, without
+        which the 77-schema default door goes vacuous-true on every pair
+        of open syllables);
+      * the DECLARED-TOKEN half (P2) — the schema judge reads the slot the
+        writer bound, proven by CONTRAST: the same schema on the same
+        draft satisfied at one declared token and violated at another
+        (kills unwiring `pair_satisfies` — under the instances route both
+        slots would be judged at the schema's own loci and answer alike).
+    """
+    print("\n10. the M-148 gate — the drawable pool answers through the "
+          "grade route")
+    from quality import relations as RL
+    rv = Reviser()
+    wlines = list(RL.DRAWABLE_WITNESS_LINES)
+    wsections = list(RL.DRAWABLE_WITNESS_SECTIONS)
+    from quality import phonology as PH
+    wstream = RL.build_stream(
+        wlines, PH.get("eng"), sections=wsections,
+        stanzas=RL.stanzas_from_sections(wsections),
+        stanza_source="declared_sections",
+        declaration={"language": "eng"})
+    bad = []
+    for name in RL.DRAWABLE_SCHEMAS:
+        ps = RL.line_pairs_for(RL.REGISTRY[name], wstream)
+        if isinstance(ps, RL.Refusal) or not ps:
+            bad.append((name, "no witness instance"))
+            continue
+        i, j = min(ps)
+        g = rv.grade(wlines,
+                     mandate([[i, j]], n_lines=len(wlines),
+                             default_relation=f"schema:{name}"),
+                     sections=wsections)
+        if g["violations"] or g["refusals"]:
+            bad.append((name, g["violations"]
+                        or [r["reason"][:90] for r in g["refusals"]]))
+    check("every drawable name is SATISFIED on its own witness exhibit "
+          "through `Reviser.grade` — the route a planned mandate takes, "
+          "not the route the certificate was issued on",
+          not bad, bad)
+
+    # THE CANONICAL-ANSWER HALF. Five monosyllable pairs with the
+    # post-vocalic cluster agreeing in the DECLARED dialect and the nucleus
+    # differing — the relation's own definition, and 0/5 before the P1
+    # repair. `milk~walk`, which M-148's field battery listed, is
+    # deliberately in the VIOLATED arm: CMUdict General American reads
+    # `walk` as W-AO-K with the L silent, so that pair is skothending in
+    # SPELLING and not in the declared phonology (doctrine 1 — the
+    # disagreement is located in the dialect coordinate).
+    SK = "schema:cluster consonance / skothending span"
+
+    def _sk(a, b):
+        g = rv.grade([f"she kept the {a}", f"he lost the {b}"],
+                     mandate("AA", n_lines=2, default_relation=SK))
+        if g["refusals"]:
+            return "REFUSED: " + g["refusals"][0]["reason"][:80]
+        return "violated" if g["violations"] else "satisfied"
+
+    canon = [("fast", "lost"), ("best", "last"), ("hand", "wind"),
+             ("night", "gate"), ("heart", "short")]
+    wrong = [(a, b, _sk(a, b)) for a, b in canon
+             if _sk(a, b) != "satisfied"]
+    check("the five canonical monosyllable pairs are SATISFIED at default "
+          "slots — fast~lost is the canonical English instance, and this "
+          "arm is the check that reds on the whole-syllable `_seq` flatten "
+          "(M-148 P1: [F,S,T] vs [L,S,T])",
+          not wrong, wrong)
+    check("`milk~walk` is VIOLATED — walk's L is silent in the declared "
+          "dialect, so the spelling-skothending pair honestly fails the "
+          "phonology the mandate grades through",
+          _sk("milk", "walk") == "violated", _sk("milk", "walk"))
+    check("`day~sea` is VIOLATED, not vacuously satisfied — two open "
+          "syllables share an EMPTY post-vocalic cluster, and a cluster "
+          "relation over zero consonants must answer False with the reason, "
+          "or the 77-schema default door satisfies every such pair silently",
+          _sk("day", "sea") == "violated", _sk("day", "sea"))
+
+    # THE DECLARED-TOKEN HALF (P2), BY CONTRAST. One draft, one schema,
+    # two slots: `fast` (T3) answers `lost`, `held` (T2) does not. Under
+    # the instances route both mandates would be judged at the schema's
+    # own line-final loci and answer identically — the contrast is what
+    # proves the declared token is READ.
+    draft = ["he held fast against the wind", "the thing he loved and lost"]
+    g_hit = rv.grade(draft, mandate([["1.T3", 2]], n_lines=2,
+                                    default_relation=SK))
+    g_miss = rv.grade(draft, mandate([["1.T2", 2]], n_lines=2,
+                                     default_relation=SK))
+    check("a schema at a DECLARED token is judged AT that token — "
+          "`fast`@1.T3 ~ `lost`@2.end SATISFIED",
+          not g_hit["violations"] and not g_hit["refusals"],
+          (g_hit["violations"], g_hit["refusals"]))
+    check("...and the NEIGHBOURING token under the same schema is "
+          "VIOLATED (`held`@1.T2), which is the contrast that proves the "
+          "slot is read — both answer alike through the instances route",
+          len(g_miss["violations"]) == 1 and not g_miss["refusals"],
+          (g_miss["violations"], g_miss["refusals"]))
+
+    # A SPAN SHAPE ONE TOKEN CANNOT BIND REFUSES BY NAME (doctrine 20/79):
+    # `free_run` searches windows, and reinterpreting it as "this one word"
+    # would judge a different schema under the declared one's name.
+    g_fr = rv.grade(draft, mandate([["1.T3", 2]], n_lines=2,
+                                   default_relation="schema:multisyllabic "
+                                                    "rhyme"))
+    check("a free_run schema at a declared slot REFUSES with the locus "
+          "named — a refusal, never a wrong answer",
+          len(g_fr["refusals"]) == 1 and not g_fr["violations"]
+          and "free_run" in g_fr["refusals"][0]["reason"],
+          g_fr["refusals"][0]["reason"][:120] if g_fr["refusals"] else g_fr)
+
+    # THE CLASS-ROUTE CONTROL (M-148 E2): the route that already read
+    # declared slots correctly still does.
+    d3 = ["I saw the cat go slipping out", "he went and tipped his hat"]
+    g_cls = rv.grade(d3, mandate([["1.T4", 2]], n_lines=2,
+                                 default_relation="class:RHYME"))
+    check("the CLASS route at a declared slot is unmoved — cat@1.T4 ~ "
+          "hat@2.end still satisfies `class:RHYME` (the measured E2 "
+          "control)",
+          not g_cls["violations"] and not g_cls["refusals"],
+          (g_cls["violations"], g_cls["refusals"]))
+
+
 if __name__ == "__main__":
     for fn in (test_vocabulary, test_judge, test_mandate_coordinate,
                test_grade_routing, test_position_is_declared,
                test_mandate_level_default,
                test_reopen_carries_what_it_is_not_declaring,
                test_the_schema_namespace_is_judged,
-               test_identity_is_the_schemas_own_ruling):
+               test_identity_is_the_schemas_own_ruling,
+               test_the_drawable_pool_holds_through_the_grade_route):
         fn()
     print("=" * 62)
     if FAILURES:

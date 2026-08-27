@@ -7711,6 +7711,16 @@ what grades every pair those draws mandate. Measured in the field the day the
 collision was found: canonical MONOSYLLABLE answers fail too, so for at least
 one drawn name the hole is wider than this entry's own headline. The full
 accounting is M-148.
+**SECOND ADDENDUM, SAME DAY, ON M-148's CLOSE: the SCHEMA-route half of the
+pool is repaired and this entry's headline is UNTOUCHED BY IT.** The
+monosyllable-only judge this entry records is the `type:` namespace's
+(`classify_pair` and the cells' 1-syllable keys); M-148's repair is in the
+OTHER route — `relations._seq`'s vowel-anchored cluster read and
+`relations.pair_satisfies` at declared tokens — which a `schema:` relation
+takes and a `type:` relation never reaches. The 22 drawn names all resolve
+in the `schema` namespace, so the POOL is out from under this entry's
+defect; the 69-of-76 `type:` figure stands exactly as measured, and items
+1–4 above are still owed.
 ## Add below this line
 
 ### M-60 · CI could not tell a REFUSAL from a MOVED pin, and the refusal took two working checks down with it `CLOSED` 2026-08-23
@@ -14126,7 +14136,7 @@ the only cache in the file whose contents are the OUTPUT of the step it feeds.
 202 -> 203 with M-145, then 203 -> 205 with M-146 and M-147, because that
 counter counts register entries and this sitting wrote three.
 
-### M-148 · the certified draw pool and the mandate judge disagree about at least one name — canonical answers to a drawn relation grade VIOLATED `OPEN`
+### M-148 · the certified draw pool and the mandate judge disagree about at least one name — canonical answers to a drawn relation grade VIOLATED `RESOLVED` 2026-08-27
 
 **Found 2026-08-27 by WRITING A SONG through the full working order — sweep,
 screen, plan, write, grade, revise — after the owner's ruling that no step may
@@ -14195,3 +14205,138 @@ import.
 `audit_register.PINNED["coverage_entries"]` is repinned **~~205~~ -> 206**
 with this entry (doctrine 17, the superseded value kept visible), because
 that counter counts register entries and this sitting wrote one.
+
+**RESOLVED 2026-08-27, TWO DEFECTS AND THE GATE, in the same sitting the
+entry demanded them.** The "suspected mechanism" above was measured true and
+was TWO defects, named P1 and P2 when they were localised:
+
+**P1 — `relations._seq` flattened the whole anchor syllable, ONSET
+included.** The skothending schema's sequence is declared FROM the anchor
+vowel (its own note: Snorri's jörð:fyrðum share 'rð' — not 'j…rð', which is
+what flattening the anchor syllable read, and not 'rð…m', which is what
+running to the word end would read), and `_seq` read `fast` as [F,S,T]
+against `lost`'s [L,S,T]. The certificate never saw it because the witness
+exhibit `gate~goat` has agreeing onsets. REPAIRED as the post-vocalic
+CLUSTER read (`_cluster_scoped`/`_post_vocalic`): for a vowel-keyed anchor
+(`last_stressed`/`penult_stressed`/`final_unstressed`, direction > 0) on the
+`consonants` channel, the anchor unit contributes its CODA, the walk crosses
+the syllable boundary through the next onset, and the next NUCLEUS ends the
+cluster. Measured over the registry: skothending is the ONLY schema the
+condition touches — parechesis and the three cynghanedd skeletons anchor
+`word_start` and are byte-identical, pinned by the parechesis control and
+the untouched suites. **An EMPTY cluster is False WITH THE REASON, never
+vacuously true**: two open syllables (day~sea) share an empty sequence, and
+`SequenceEqual((), ())` through the 77-schema default door would have
+satisfied every such pair silently. The bucket index is threaded the same
+`rule` so it keys on what the verdict reads — without that, fast~lost land
+in different buckets and the repaired judge never sees the pair.
+
+**P2 — the schema branch of `satisfies_relation` never read the declared
+placements.** It answers `(i, j) in instances`, and `instances` is
+`realise()` at the schema's OWN loci — while the class route (E2, measured
+above) reads declared slots correctly. REPAIRED as
+`relations.pair_satisfies(schema, stream, (line, token), (line, token))`:
+the DECLARATION names the token (`slots.token_of` derives it from the
+slot's own locus), the SCHEMA keeps its member anchors, magnitudes,
+channels, identity rules and unmatched treatment (`_spans_at` builds,
+`evaluate` judges — the same two functions `realise` uses), and only the
+schema's PLACEMENT rules are stripped, because a declared slot is the
+writer overriding exactly that coordinate. `Reviser.grade` routes a
+schema-namespace relation through it exactly when the pair's slots are
+non-default; default slots keep the instances route, whose loci for an
+end-anchored schema ARE the declared placement. Span shapes one token
+cannot bind REFUSE BY NAME — `free_run` (chain rhyme (rap), compound /
+phrasal, multisyllabic: a searched window, doctrine 56), `line_head_index`
+(monai), whole-line spans — a `Refusal` returned, never a wrong answer, so
+18 of the 22 drawn names judge in pair mode and 4 refuse with the reason.
+
+**THE GATE SHIPPED WITH THE REPAIR: `test_mandate_relation.py` §10.** Three
+halves, each killed by its own hand-proven mutation: all 22 drawable names
+SATISFIED on their own witness exhibits through `Reviser.grade` (the route
+a planned mandate takes); the canonical monosyllable battery at default
+slots — the check that reds on restoring the whole-syllable flatten (2
+checks red under that mutation) — with `day~sea` VIOLATED killing the
+dropped empty rule (1 check); and the declared-token CONTRAST — the same
+schema on the same draft satisfied at `fast`@1.T3 and violated at
+`held`@1.T2 — killing the unwired pair route (2 checks), because through
+the instances route both slots answer alike.
+
+**TWO OF THIS ENTRY'S OWN BATTERY CLAIMS ARE AMENDED ON MEASUREMENT, and
+the amendments are the repair being honest rather than incomplete.**
+(1) `milk~walk` is NOT skothending in the declared dialect: CMUdict General
+American reads `walk` as W-AO-K with the L silent, so the pair agrees in
+SPELLING and not in the phonology the mandate grades through — the battery
+is 5/6 SATISFIED (fast/lost, best/last, hand/wind, night/gate, heart/short)
+and milk~walk correctly VIOLATED, which is doctrine 1 locating the
+disagreement in the dialect coordinate. (2) `hurried~carried` is NOT
+skothending either — hurried's post-stress cluster is EMPTY (hur.ried has
+no consonant between ER and IY) while carried's is R — so the doctrine-1
+charge above ("one pair, two verdicts") is withdrawn: `screen`'s RHYME
+1.000 answers the CLASS question and the schema route answers a DIFFERENT
+one, and both verdicts are now correct. `returning~running` — the entry's
+polysyllable exemplar — is SATISFIED (clusters (N)~(N), nuclei ER/AH).
+
+**WHAT MOVED AND WHAT DID NOT, measured.** The witness pool re-derives
+byte-identical (22 names — `derive_drawable_schemas()` still equals the
+adopted tuple, `test_plan.py` §14's own pin). The sonnet battery is
+UNMOVED at 1064/1014/50, violations 12 (1.2%) — no sonnet pair's verdict
+turns on a vowel-anchored cluster. ONE pin repinned (doctrine 17, strike
+kept visible in place): `test_relations.py` §X6's staged-item split
+~~30 FIRED / 26 REFUSED / 21 RAN AND FOUND NOTHING~~ -> **31/26/20** — the
+schema that crossed from found-nothing to FIRED is skothending itself, 12
+true instances on the staged item (oppression~constellation the first),
+which is the repaired read finding what the onset-inclusive flatten could
+not. `door_census --check`, `gate_census --check`, `test_homeoteleuton`,
+`test_capabilities`, `test_slots` all green and unmoved.
+
+**WHAT THIS DOES NOT CLOSE:** M-58's headline — the `type:` namespace's
+monosyllable-only judge — is untouched by construction (the repair is in
+the route a `schema:` relation takes and a `type:` relation never
+reaches); M-58's addendum records that the drawn pool is out from under it
+and its four owed items stand. And the two seams the repair made VISIBLE
+are M-149, filed the same day rather than buried in this close.
+
+### M-149 · the pool meets the slots: a drawn free_run schema on a token slot is unjudgeable as declared, and one group's refusal silences its siblings on the pair `OPEN`
+
+**Found finishing the song M-148 parked, in the first grade the repaired
+judge ever ran over a full plan. Two facets of one seam — the certified
+draw pool and the placement draw compose into conjunctions the grade route
+can only refuse — plus one pre-existing sharing defect the slot coordinate
+turned live.**
+
+**(a) THE PLANNER BINDS FREE_RUN SCHEMAS TO DECLARED TOKENS.** Seed 28's
+verse-chorus plan drew `multisyllabic rhyme` onto `1.T7,2.T7,3.head,4.T3`,
+`compound / phrasal rhyme` onto a seven-member token web, `monai` and
+`chain rhyme (rap)` onto T-slots — 8 of its 25 groups. The relation draw
+(M-117) and the placement draw (M-71/M-80) are independent, and no layer
+holds their conjunction: a `free_run` span SEARCHES windows and a
+`line_head_index` span takes its position from its own magnitude, so at a
+declared token the repaired judge refuses BY NAME
+(`relations.pair_satisfies`, M-148 P2) — correctly, but every such group
+now grades as a disclosed refusal that no writing can close and no writer
+asked for. Before the repair these graded as VIOLATIONS a writer could
+not fix (three of the parked song's eight standing flags), which is how
+the seam was found. NOT M-79's unwritability — the words exist — and not
+a judge defect: the CONJUNCTION is drawn and nothing prices it. What it
+owes: the placement draw (or the joint gate) consults the schema's span
+shape, so a schema whose members cannot bind one token is drawn at
+default slots only, where the instances route judges it at its own loci.
+
+**(b) `grade()`'s REFUSED SET IS KEYED ON THE LINE PAIR, NOT THE (PAIR,
+GROUP).** A refusal minted while judging one group adds `(i, j)` to a set
+every later group's copy of that pair is skipped through. That sharing
+predates slots and was harmless when every group read the same two end
+words; a slot web puts several groups on one line pair READING DIFFERENT
+WORDS. Measured on the finished song's own mandate: groups H
+(`schema:perfect rhyme`) and I (`schema:anaphora`) on lines (6, 7) were
+never judged at all — J's scalar slot-refusal on the same pair landed
+first, and both siblings' questions were silently converted to UNKNOWN.
+A refusal about one group's reading is not an answer about another's
+(doctrine 79, at the key's own granularity). What it owes: key the skip
+on `(i, j, k)` — or measure that per-group re-judging costs nothing and
+mint per-group records — without disturbing the scalar path, whose
+refusals genuinely do speak for every default-slot group of the pair.
+
+`audit_register.PINNED["coverage_entries"]` is repinned **~~206~~ -> 207**
+with this entry (the counter counts register entries and this sitting
+wrote one).
