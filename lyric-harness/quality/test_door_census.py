@@ -15,6 +15,7 @@ own most-repeated defect (doctrine 48) and the reason `test_gate_census.py`
 §5 drops a constructor rather than asserting a number.
 """
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -158,17 +159,38 @@ def main():
                                 {"b": {"A.b"}, "c": {"A.c"}}),
           "a -> b -> c reaching the judge at c must NOT credit a")
 
-    print("\n4. the INCOMPLETE sites are named, not merely counted")
+    print("\n4. a narrow site is named and MEASURED, not merely counted")
+    # THIS SECTION'S SECOND CHECK USED TO BE `c["incomplete"] > 0`, and it was
+    # there to stop a site being RULED AWAY instead of repaired. On 2026-08-27
+    # both INCOMPLETE sites were ruled ARGUED (`MISSING.md` M-145) — no door
+    # moved, the questions were ANSWERED — so `incomplete` is 0 and that guard
+    # would now be a check nobody can pass. It is REPOINTED, never deleted:
+    # ARGUED is the disposition a site could be TALKED into, so what has to
+    # bite is that every ARGUED reason carries a NUMBER and a register
+    # citation. A ruling written as pure prose fails here.
     inc = sorted((r["path"], r["func"]) for r in rows
                  if r["disposition"] == DC.INCOMPLETE)
     check("4", "every INCOMPLETE site's ruling cites the register entry that "
           "holds it open",
           all("M-139" in DC.RULINGS[(p, f)][1] for p, f in inc),
           f"{inc}")
-    check("4", "INCOMPLETE is not zero, and the census says so out loud "
-          "rather than reporting a clean tree",
-          c["incomplete"] > 0,
-          f"{c['incomplete']} site(s) still short of the complete default")
+    arg = sorted({(r["path"], r["func"]) for r in rows
+                  if r["disposition"] == DC.ARGUED})
+    check("4", "there ARE ARGUED sites to check — the guard is not vacuous",
+          len(arg) > 0, f"{len(arg)} ARGUED site(s)")
+    unmeasured = [k for k in arg
+                  if not re.search(r"\d", DC.RULINGS[k][1])]
+    check("4", "every ARGUED ruling carries a MEASUREMENT — the narrowness is "
+          "argued with numbers, never talked into",
+          not unmeasured, f"{unmeasured or 'all measured'}")
+    uncited = [k for k in arg
+               if not re.search(r"M-\d+", DC.RULINGS[k][1])]
+    check("4", "...and cites the register entry the argument lives in",
+          not uncited, f"{uncited or 'all cited'}")
+    check("4", "the census may never report every site FULL — a tree where "
+          "nothing is narrow is a tree that stopped asking",
+          c["full"] < c["sites"],
+          f"full {c['full']} of {c['sites']} sites")
 
     print()
     if FAILED:

@@ -13852,3 +13852,116 @@ of four gaps, so a song was skipped and the skip rendered as a DOCUMENT gap
 rather than as the parser's brittleness (doctrine 20). Both corrected before
 anything was recorded; the seven-moved and the one-cannot-run readings are
 **not** findings and are written here so nobody quotes them.
+
+### M-145 · the two rulings the door census was holding open `CLOSED`
+Made 2026-08-27. `MISSING.md` M-139 built `quality/door_census.py` and it
+found two sites it could not rule: **`Reviser.mandate_from_graph`** (does
+`--cliques` mean the RHYME graph or the whole-vocabulary relation graph?) and
+**`recover`** (may a RECOVERED cover mandate a binding at a placement
+`quality/slots.py` says a PLANNER may not volunteer?). Both were `INCOMPLETE`
+and both were waiting on a decision rather than on a build. The owner's
+delegation, verbatim: *"you're more than capable of making those rulings
+correctly. keep going."*
+
+**BOTH DOORS ARE UNCHANGED. NOT ONE BYTE MOVED**, so no draft grades
+differently and the battery is `1064 / 1014 / 50 / 12` either side. What
+changed is that the argument each site was being held open FOR is now written
+at the site and measured.
+
+**RULING 1 — `--cliques` MEANS THE RHYME GRAPH.**
+The argument is a GENERATOR/RESCUE distinction and it is measured, not
+asserted. `mandate_from_graph`'s loop is `for i in range(n): for j in
+range(i + 1, n)` — it puts the door to **every** pair — and that is exactly
+the population `quality/chance_rate.py --null` measures. On it the 77-schema
+door **does not separate from its own null**: R_obs 69.05% against a null
+median 71.02% and a null MAX 72.57%, below its own null on **20 of 20** draws,
+empirical p 0.9048. On DECLARED pairs the same door separates hard: 96.43%
+against a null median 79.17% and a null MAX 83.93% — **+17.26 pp over the
+median and +12.50 pp over the MAXIMUM**, two statistics under two labels and
+never one word for both.
+
+Doctrine 71 settles it: a rate that does not separate from its own null is not
+a finding about the text. `Reviser.grade`'s 77-consult is a **RESCUE** on a
+pair a WRITER declared; running the same judge as a **GENERATOR** over
+undeclared pairs manufactures structure rather than finding it — the owner's
+"move 37" ban one layer over. The two rates are never summed and never read as
+one (doctrine 79): a door may light an arbitrary pair at chance and still
+discriminate a declared one, and only the second is what a derived cover is
+for.
+
+**RULING 2 — `recover`: TWO ANSWERS, BECAUSE IT WAS TWO QUESTIONS.**
+
+**(a) The door stays narrow**, for ruling 1's reason and not a second one:
+this site is a generator too (`for a in range(n): ... for b in range(a + 1,
+n)`), so the same null applies. M-139's objections **(1)** — the 497
+un-nested pairs — and **(3)** — the 97 added pairs with no spellable
+placement — are therefore MOOT rather than answered: they are properties of a
+fold this ruling does not make. The cost of the ruling is M-139's own +32.0%
+of line pairs on 18 of 18 drafts, and it is **stated in the report rather than
+netted away**.
+
+**(b) The placement question is answered THE OTHER WAY, and it is a separate
+question from the door.** `slots.PLANNABLE_PLACEMENTS` excludes `T<n>` because
+*"a planner draws it with the index bounded by what a line reliably HAS, which
+is a coordinate of the plan and not of this table"* — an argument about
+**VOLUNTEERING** an index. **Recovery does not volunteer; it OBSERVES a text
+that already exists**, so the index is READ and not drawn, and the exclusion's
+own argument does not transfer. A recovered `T4` binding is **ADMISSIBLE**
+where a planned one is not. Objection **(2)** — that 88.2% of the added
+placement edges name a `T<n>` — is not an objection to a recovered cover at
+all.
+
+**AND (b) SHIPS AS A COORDINATE RATHER THAN AS THIS PARAGRAPH, because a
+ruling that ends in prose is the note-not-gate failure this repository has a
+standing rule against.** `recover()` has taken `placements=` since it was
+written and its default was `slots.PLANNABLE_PLACEMENTS` — **another module's
+tuple, scoped by its own docstring to "WHAT A PLANNER MAY VOLUNTEER", read
+here as a bound on what a READER may observe.** `RECOVERABLE_PLACEMENTS` is
+this module's own default now, **IMPORTED from `slots` rather than respelled**
+so the two cannot drift (doctrine 1) and **byte-identical in value**, so no
+recovered cover moves.
+
+**AND THE COORDINATE REACHED THE COMMAND LINE FROM NOTHING** — `__main__` took
+a path and no flag — which is this repository's most-repeated defect sitting at
+the outermost layer, in a module whose whole subject is the second front door.
+`--placements=` ships, and an unresolvable name **REFUSES at declaration time
+naming itself**, because `_slot_words` SKIPS a placement that names nothing in
+a given line (correct, and a different question) and leaning on that skip would
+let a mistyped `--placements=T4x` silently NARROW the search and report the
+smaller web as the text's (doctrine 20).
+
+**MEASURED, and the flag is read rather than tolerated** — over 12 lines of
+`songs/crooked_waltz.txt`: default **41 binding sites / 113 edges, 0 naming a
+`T<n>`**; with `T2,T3,T4` declared, **60 sites / 256 edges, 143 naming one**.
+`render()` now prints the set it swept, because a placement not searched is
+not a placement the text lacks.
+
+**THE LIMIT ON BOTH RULINGS, STATED RATHER THAN BURIED.** M-140's null was
+measured on **14-line SONNETS**. Carrying it to a recovered draft or to
+`mandate_from_graph`'s 41-line drafts is an **INFERENCE from one item shape to
+another**. It is the strongest evidence in the tree and it is not a
+measurement on either site's own population; a null over recovered drafts
+would settle it and **has not been run**. That is the one thing that could
+overturn either ruling, and it is named here so a later sitting knows what to
+go and measure.
+
+**WHAT THE PINS DO, AND WHY A 0 HERE READS DIFFERENTLY.**
+`door_census.PINNED` moves `incomplete` **2 -> 0** and `argued` **10 -> 12**.
+That 0 was reached **by ruling and not by repair**, so it means "no site is
+waiting on a ruling" and it does **not** mean every site reaches the complete
+default — 4 of 21 do, and 12 of 21 are ARGUED, which is the count that now
+carries this tree's deliberate narrowness.
+
+**AND THE GUARD THAT EXISTED TO STOP EXACTLY THIS IS REPOINTED, NEVER
+DELETED.** `quality/test_door_census.py` §4 asserted `c["incomplete"] > 0`
+— *"INCOMPLETE is not zero, and the census says so out loud rather than
+reporting a clean tree"* — and that check was there to stop a site being ruled
+away instead of repaired. Ruling both sites takes it to a check nobody can
+pass. It is replaced by the guard that bites on the same failure: **ARGUED is
+the disposition a site could be TALKED into, so every ARGUED reason must carry
+a MEASUREMENT (a number) and a register citation**, plus a floor that the
+census may never report every site FULL. Proven by mutation: stripping the
+digits and the citation from one ARGUED reason reds 2 checks;
+`quality/test_recover.py` §9 is killed 3 checks deep by a `placements=` that
+is parsed and dropped, and 3 deep again by a `parse_placements` that stops
+validating.
