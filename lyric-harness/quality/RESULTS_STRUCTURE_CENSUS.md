@@ -16,19 +16,43 @@ negative-control slice). 57 catalog rows × 2 populations × 145 files.
 > **silently census a 9× population under run 1's filename**, which is the
 > `M-21` shape with a corpus underneath it instead of prose.
 >
-> **Every figure in this document is PINNED TO ITS ARTIFACT and stands**: the
-> md5 is the address, the file is committed, and a claim about a fixed table
-> re-derives forever. What has to move is the RUN-2 registration, which must
+> ~~**Every figure in this document is PINNED TO ITS ARTIFACT and stands**~~
+> **STRUCK 2026-08-26 — TRUE OF EVERY FIGURE BUT ONE, AND THE EXCEPTION IS THE
+> ONE THIS BOX EXISTS TO WARN ABOUT.** Every figure derived from
+> `data/structure_census_eng.tsv` is pinned to it and re-derives forever — all
+> 36 of them re-derived 2026-08-26 in 0.26s with zero drift: the md5 is the
+> address, the file is committed, and a claim about a fixed table re-derives
+> forever. **§D1 IS NOT ONE OF THEM.** `d1_diagnostic()` re-globs
+> `corpus/song/eng_*.txt` at RUN TIME, so D1's population is the live tree and
+> not the artifact — and it moved, by 84.2%. See §D1's own strike below. The
+> sentence written to reassure a reader that the glob drift this box warns
+> about was harmless is precisely the sentence that hid the one place it was
+> not.
+> What has to move is the RUN-2 registration, which must
 > say which `eng` population it means rather than inheriting a glob —
 > `data/calibration_manifest.tsv` is the mechanism that exists for exactly this
-> and is why it exists. Run 2 also owes an `eng` re-census if it wants an
-> English null that describes the live tree; that is ~11 core-hours and is a
+> and is why it exists — **though NOT AS IT STANDS (measured 2026-08-26): its
+> snapshot was taken 2026-08-22, AFTER the growth below, and it asks
+> `structure_census.corpus_files()` for its population, which answers with the
+> LIVE glob. So it reads green over a population the artifact never measured.**
+> Run 2 also owes an `eng` re-census if it wants an
+> English null that describes the live tree; ~~that is ~11 core-hours~~
+> **MEASURED 2026-08-26 at 6.8 core-hours** (24,389 judge calls/s over
+> 599,682,180 calls — the estimate was conservative, not falsified) and is a
 > separate decision from the cross-tradition arm, which is under 1.
 >
 > **AND THE REGISTRATION'S WORLD-SHAPE PROMISE IS NOT KEPT BY THE CODE** —
 > `MISSING.md` `M-22`. The judge layer is genuinely language-neutral (0
-> exceptions over 7 phonologies) and `pair_counters` tokenises with an
-> ASCII-only reader that shreds `fin`/`san` and empties `ltc`/`fas`. That is
+> exceptions over ~~7~~ **9** phonologies — REPINNED 2026-08-26, 57 rows × 9
+> declared phonologies = 513 calls, 0 exceptions, and NINE were already
+> registered on the day "7" was written, so that figure never held) and
+> ~~`pair_counters` tokenises with an
+> ASCII-only reader that shreds `fin`/`san` and empties `ltc`/`fas`~~
+> **STRUCK 2026-08-26 — REPAIRED 42 MINUTES AFTER THIS BOX WAS COMMITTED**
+> (`77b5b10` gave `pair_counters` a declared per-language tokeniser table and a
+> refusal for languages without one; `1580d11` moved `line_tokens` itself onto
+> the declared `LATIN_SCRIPT` repertoire). Kept because it is the reason that
+> table exists, not because it is still true (doctrine 17). That is
 > the defect that voided Kalevala run 1, latent here because the glob has never
 > reached a non-Latin file.
 
@@ -79,8 +103,16 @@ end-rhyme family, against the Whitman negative control:
 | rime-riche-(last-stressed-syllable) | 0.0007 | 0.0007 | 0.0005 | PASS |
 | dactylic-rhyme | 0.0000084 (29 true) | 0 of 12,926 | 0 of 9,870 | **FAIL** |
 
-Rhyme-constrained verse out-rhymes free verse at its own question by 4-9x
-on every live row — the direction the instrument exists to detect, and it
+~~Rhyme-constrained verse out-rhymes free verse at its own question by 4-9x
+on every live row~~ **STRUCK 2026-08-26 — RE-DERIVED FROM THE TABLE DIRECTLY
+ABOVE AND IT DOES NOT REPRODUCE. The DIRECTION holds on all ten comparisons
+and E1's PASS is untouched; the RANGE does not.** eng_song and sonnets against
+whitman: masculine 3.98x / 8.46x, perfect 3.48x / 5.52x, perfect-lss 4.06x /
+8.67x, feminine 14.11x / **38.94x**, rime-riche **1.38x / 1.37x**. The spread
+is **1.37x to 38.94x**, and "4-9x on every live row" rounds away both ends —
+including the rime-riche row, where rhyme-constrained verse barely separates
+from the negative control, which is the row a phase-2 consumer most needs to
+see. E1 as registered asks only EXCEEDS, and all ten exceed — the direction the instrument exists to detect, and it
 detects it.
 
 **The dactylic failure, diagnosed before anything is quoted (the
@@ -110,26 +142,67 @@ so artifact and code re-agree. The other five rows' tags stand.
 
 ## D1 — the seeded diagnostic (recorded, not a falsifier)
 
-1,000 pairs sampled at seed 20260818 from 2,408,735 unique eng_song
-endword-cross pairs; the `masculine-rhyme` judge against the engine's
-`admits()` (RHYME/RIME_RICHE at theta):
+> **STRUCK 2026-08-26 — THIS SECTION'S POPULATION WAS NEVER A DECLARED
+> COORDINATE, AND THE TREE MOVED UNDER IT (doctrine 58).** `d1_diagnostic()`
+> re-globs `corpus/song/eng_*.txt`, so unlike every other figure in this
+> document D1 is not pinned to `data/structure_census_eng.tsv`. Re-run at head
+> the pool is **4,436,096**, not 2,408,735 (**+84.2%**), and **every cell of
+> the run-1 table moved.** The run-1 numbers are NOT withdrawn as
+> measurements — they reproduce byte-for-byte from
+> `git archive 2ff4e51 lyric-harness` — but they may not be quoted as current,
+> and **they cannot be re-derived at head at any population**: 3 of the 143
+> run-1 files were DELETED at `76f978f` and 140 changed content. That is why
+> the repair is a strike and a re-derivation rather than a restoration.
+>
+> **THE MOVE, DECOMPOSED — four measurements, not one attribution:**
+> run-1 code × run-1 corpus **2,408,735** -> head code × run-1 corpus
+> **2,436,641** (+27,906, **+1.16%**, commit `1580d11`: `line_tokens` onto the
+> declared `LATIN_SCRIPT` repertoire) -> head code × head corpus, the 140
+> surviving files **2,881,757** (+447,388, **+18.4%**, content top-ups) ->
+> head code × head corpus, all 1,297 files **4,436,096** (+1,554,339,
+> **+53.9%**, the four 2026-08-20 loads `550dfb1`/`810cc5e`/`5286812`/
+> `76f978f`, 1,170 files added). **Never summed as one cause.**
+>
+> **THE REPAIR IS AIMED AT THE MEASUREMENT, NOT AT THE NUMBER** (doctrine 58).
+> Nothing is retuned and no cell is re-tagged to make a figure return: D1's
+> population is a DECLARED coordinate now. `structure_census.py` carries
+> `D1_RECORDED` keyed on the `data/calibration_manifest.tsv` snapshot, and
+> `--check` re-derives it and exits **3** on drift, so the next corpus load
+> turns this RED instead of moving it in silence.
+
+**RUN 1, 2026-08-18 — the record, reproducible only at `2ff4e51`.**
+1,000 pairs at seed 20260818 from **2,408,735** unique eng_song endword-cross
+pairs over the 143-file population; the `masculine-rhyme` judge against the
+engine's `admits()` (RHYME/RIME_RICHE at theta): true/admits 8 (`sold`/`hold`),
+true/rejects 7 (`neighbour`/`play`), false/admits 11 (`key`/`may`),
+false/rejects 714 (`note`/`pursuits`), refused/admits 5 (`rhine--`/`rhine`),
+refused/rejects 255 (`common`/`mither`). Agreement over judged **722/740
+(97.6%)**, refusals apart, 18 disagreements.
+
+**RE-DERIVED 2026-08-26** — same seed, same judge, **DECLARED population: the
+1,297 `eng_*` files at the `data/calibration_manifest.tsv` snapshot of
+2026-08-22**, **4,436,096** unique eng_song endword-cross pairs:
 
 | masculine-rhyme | admits() | n | example |
 |---|---|---|---|
-| true | admits | 8 | sold/hold |
-| true | rejects | 7 | neighbour/play |
-| false | admits | 11 | key/may |
-| false | rejects | 714 | note/pursuits |
-| refused | admits | 5 | rhine--/rhine |
-| refused | rejects | 255 | common/mither |
+| true | admits | 11 | find/kind |
+| true | rejects | 2 | thinkin'/finger |
+| false | admits | 10 | house/brass |
+| false | rejects | 696 | plot/feet |
+| refused | admits | 5 | dream/flame-- |
+| refused | rejects | 276 | daddie/douked |
 
-Agreement over judged: **722/740 (97.6%)**, refusals apart. The 18
+Agreement over judged: **707/719 (98.3%)**, refusals apart. The 12
 disagreements are the two questions being DIFFERENT questions, which is
-why the row exists: `neighbour`/`play` rhymes on the stressed syllable
+why the row exists: `thinkin'`/`finger` rhymes on the stressed syllable
 alone (the masculine cell's whole demand) while the to-end scalar
-comparator correctly rejects it over the trailing syllable; `key`/`may`
+comparator correctly rejects it over the trailing syllable; `house`/`brass`
 clears the scalar band the strict cell refuses. No threshold was
-preregistered and none is invented here.
+preregistered and none is invented here — and **the 97.6% -> 98.3% move is
+RECORDED, not adopted**: nothing in this tree reads either figure.
+**NOT ONE of the six example pairs run 1 names by word survives into the
+re-derived sample**, which is the sharpest single statement of how far the
+population moved.
 
 ## The null table this run banks (the point of the census)
 

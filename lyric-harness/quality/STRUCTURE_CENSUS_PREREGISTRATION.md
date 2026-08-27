@@ -37,28 +37,61 @@ adds ROWS, never changes the instrument.
 
 > **THE SCHEMA KEEPS THAT PROMISE AND THE TOKENISER DOES NOT — AMENDED
 > 2026-08-21, before run 2 rather than after it.** Measured: the judge layer is
-> genuinely language-neutral, all 57 non-comparator rows through all 7
-> phonologies with **0 exceptions**, and `items_of()` splits on the literal
+> genuinely language-neutral, all 57 non-comparator rows through all ~~7~~
+> **9** phonologies with **0 exceptions** — REPINNED 2026-08-26, and it NEVER
+> HELD: `quality.phonology.declared()` answers
+> `cym eng fas fin ltc msa non san som` and answered nine on the day "7" was
+> written, so the figure was wrong when recorded rather than gone stale. The
+> claim it supports is unchanged and slightly stronger (57 x 9 = 513 calls, 0
+> exceptions) — and `items_of()` splits on the literal
 > `--- TITLE:` prefix that every tradition already carries — so **section marks
 > are not a blocker for any tradition**, and `language`/`phonology` are already
 > columns in the output schema. That half of the promise is real.
 >
-> **`pair_counters()` calls `lyric_harness.line_tokens`, which is ASCII-only
-> and never asks the phonology for its tokens.** `ltc` yields zero tokens on
-> 99.9% of lines, `fas` on 100.0%, `san` mis-tokenises 96.6% of lines into
-> plausible-looking Latin fragments, `fin` 41.6%. **This is the exact
+> ~~**`pair_counters()` calls `lyric_harness.line_tokens`, which is ASCII-only
+> and never asks the phonology for its tokens.**~~ **STRUCK 2026-08-26 —
+> REPAIRED 42 MINUTES AFTER THIS BOX WAS COMMITTED, by `77b5b10`, which gave
+> `pair_counters` a declared per-language tokeniser table and a `NoTokeniser`
+> refusal; `1580d11` then moved `line_tokens` itself onto the declared
+> `LATIN_SCRIPT` repertoire. Verified at head: `pair_counters` calls
+> `tokeniser_for(language or language_of(path))`. Kept because it is the reason
+> that table exists, not because it is still true (doctrine 17).** The rates it
+> recorded, re-derived 2026-08-26 against a frozen ASCII control: `ltc` yields
+> zero tokens on 99.9% of lines (107,743/107,868), `fas` on 100.0%
+> (141,731/141,732), `san` mis-tokenises 96.6% of lines (765/792) into
+> plausible-looking Latin fragments, ~~`fin` 41.6%~~ — **`fin` STRUCK
+> 2026-08-26: IT REPRODUCES UNDER NO DEFINITION. Eight
+> (definition x population) combinations over the same 41,805 lines span
+> 21.3%-51.0% — count-differs 37.2%, any-difference 50.5%, endword-differs
+> 21.3% — and none is 41.6%. The measuring script was never committed, which is
+> standing rule 3's own shape: a figure from a private instrument is a figure
+> nobody can check, and this is the second such figure this file has had to
+> strike in one day (`MISSING.md` M-138 is the first).** **This is the exact
 > substitution that VOIDED Kalevala alliteration run 1** (`CLAUDE.md`: *"the
 > ASCII tokenizer had shredded ä/ö, and the fin phonology's `_tokens` was the
 > one definition all along"*), and adding a language would therefore change
 > the instrument after all.
 >
-> **Run 2 may not begin until `pair_counters` asks the phonology.** Recorded
+> ~~**Run 2 may not begin until `pair_counters` asks the phonology.**~~
+> **CONDITION MET 2026-08-21 by `77b5b10` — RECORDED HERE 2026-08-26, FIVE DAYS
+> LATE.** The registration named a blocker, the blocker cleared 42 minutes
+> later, and nothing wrote it down, so for five days this document read as
+> though run 2 were still barred by a defect the tree had already repaired. A
+> cleared blocker that nobody records is the same defect as an uncleared one
+> nobody records, one sign flipped. Recorded
 > here rather than in the results, because this is a registration promise and a
 > registration is the right place to discover it cannot be kept.
 > `MISSING.md` `M-22` holds the measurement; `M-23` holds the second
-> obligation — `RHYME_CONSTRAINED_FAMILIES` names only `eng_song`/`sonnets`,
-> so every non-English cell would emit `constrained=no`, false for a ghazal's
-> radif and a cywydd's cynghanedd.
+> obligation — ~~`RHYME_CONSTRAINED_FAMILIES` names only `eng_song`/`sonnets`,
+> so every non-English cell would emit `constrained=no`~~ **STRUCK 2026-08-26:
+> `6f8fc0c` gave the tag THREE states and a non-English cell emits
+> `undeclared` — verified at head, `constrained()` returns
+> `"yes" | "no" | "undeclared"` under a docstring citing doctrine 20. THE
+> OBLIGATION ITSELF STANDS**: a ghazal's radif and a cywydd's cynghanedd still
+> owe a `RHYME_CONSTRAINED` row before run 2 tags them. What changed is the
+> failure mode — from a false `no`, which is a claim about a tradition nobody
+> examined, to an honest `undeclared`, which is the refusal doctrine 20 asks
+> for.
 
 ## The reading — one judge, the grader's own
 

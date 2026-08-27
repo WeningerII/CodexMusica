@@ -110,18 +110,70 @@ function isExcluded(relpath, content) {
 
 // ───────────────────────── Markdown discovery ─────────────────────────
 
-function findMarkdowns(dir, results = []) {
-  for (const entry of fs.readdirSync(dir)) {
-    if (entry === 'node_modules' || entry === '.git' || entry.startsWith('.')) continue;
-    const full = path.join(dir, entry);
-    const stat = fs.statSync(full);
-    if (stat.isDirectory()) findMarkdowns(full, results);
-    else if (entry.endsWith('.md')) results.push(full);
+// THE POPULATION IS WHAT GIT CONSIDERS PART OF THE PROJECT, NOT WHAT HAPPENS
+// TO BE LYING IN THE WORKING DIRECTORY.
+//
+// ~~`fs.readdirSync` from ROOT, skipping node_modules/.git/dotfiles~~ — that
+// walk also collected GITIGNORED BUILD ARTIFACTS, and on 2026-08-26 a
+// container carrying a `graphify-out/` build (gitignored at `.gitignore:33`,
+// tracked by nothing) failed this check on `GRAPH_REPORT.md:582` claiming
+// "185 instruments" against a catalog of 1406. That report is a machine
+// summary of a graph, not documentation anybody maintains, and CLAUDE.md
+// says in as many words that its path is deliberately not a repo-path
+// citation because it is absent from a clean checkout.
+//
+// SO THE CHECK ANSWERED DIFFERENTLY ON TWO MACHINES: 90 active docs and FAIL
+// here, 89 and PASS in CI, on one commit. A gate whose population depends on
+// what a developer happens to have built is not reporting on the tree — and
+// it fails in the direction that costs a round trip to diagnose, because CI
+// can never reproduce it.
+//
+// THIS REPO HAS ALREADY RULED ON THIS EXACT QUESTION, one instrument over:
+// `quality/test_provenance.py` §12 "uses `git ls-files` and REFUSES if it
+// cannot read the population, because globbing would fold in the gitignored
+// artifacts ... which have no row BECAUSE THEY ARE NOT COMMITTED, and
+// reporting those as defects punishes the table for working (doctrine 20)."
+// Same argument, same remedy.
+//
+// `--cached --others --exclude-standard` IS THE PRECISE SET, and the
+// `--others` half is load-bearing: it keeps a doc that has been WRITTEN but
+// not yet committed inside the population. Tracked-only would make this
+// check silently ignore a new document until somebody committed it, which is
+// the same doctrine-20 defect pointed the other way — clean because it never
+// looked.
+//
+// AND IT REFUSES RATHER THAN FALLING BACK. A silent filesystem fallback on a
+// machine without git would restore the defect exactly where it cannot be
+// noticed.
+function findMarkdowns() {
+  let raw;
+  try {
+    raw = execSync("git ls-files -z --cached --others --exclude-standard -- '*.md'", {
+      cwd: ROOT,
+      encoding: 'utf-8',
+      maxBuffer: 1 << 28,
+    });
+  } catch (err) {
+    console.error(
+      'REFUSED — check_docs could not ask git for the document population ' +
+        `(${err.message.split('\n')[0]}).\n` +
+        'The population is `git ls-files --cached --others --exclude-standard`, ' +
+        'so that gitignored build artifacts are not reported as documentation ' +
+        'drift. Walking the filesystem instead would silently restore that ' +
+        'defect, so this refuses rather than guessing (doctrine 20).'
+    );
+    process.exit(2);
   }
-  return results;
+  // A staged-but-deleted path is listed and is not readable; drop it here
+  // rather than at every reader.
+  return raw
+    .split('\0')
+    .filter(Boolean)
+    .map((rel) => path.join(ROOT, rel))
+    .filter((abs) => fs.existsSync(abs));
 }
 
-const allMarkdowns = findMarkdowns(ROOT);
+const allMarkdowns = findMarkdowns();
 const activeMarkdowns = [];
 for (const md of allMarkdowns) {
   const rel = path.relative(ROOT, md);

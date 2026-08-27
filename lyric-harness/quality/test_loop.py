@@ -85,7 +85,39 @@ from quality.loop import (AnchorSlot, GroupBrief,  # noqa: E402
 from quality.revise import ReviseDeclaration, Reviser  # noqa: E402
 from quality.schemes import NoMandate  # noqa: E402
 from quality import schemes as SC  # noqa: E402
-from lyric_harness import line_tokens, raw_final_token, Lexicon  # noqa: E402
+from lyric_harness import (line_tokens, raw_final_token,  # noqa: E402
+                           Lexicon, RHYME_RELATIONS)
+import dataclasses as _dc  # noqa: E402
+
+
+def perfect_rhyme_reviser():
+    """A `Reviser` whose mandate DECLARES it wants perfect rhyme only.
+
+    ADDED 2026-08-26 (`MISSING.md` M-139), and it restores a comparator
+    rather than weakening a check. Sections 5 and 6 are about TIER-2 CONTROL
+    FLOW — does the backtrack fire, does the whole group move — and both rest
+    on a premise about the candidate field: that the pivot's conjunction comes
+    back EMPTY. That premise was never a fact about the lexicon. It was a fact
+    about `_field_one` spelling the pre-M-59 two-name door, and when the field
+    was repaired to ask `decl.admit` the conjunction became SATISFIABLE and
+    both sections went red — §5 reaching SUCCESS where it asserts it cannot,
+    §6 finding `tried == 0` where it pins a joint rewrite.
+
+    NARROWING `admit` IS THE DECLARED MOVE AND THE USEFUL DIRECTION — CLAUDE.md
+    says so in as many words: *"a cell that genuinely wants perfect rhyme only
+    says so and gets exactly the old behaviour"*. So the fixtures are not
+    repinned against a wider door and the tier-2 findings they encode (M-105's
+    joint backtrack among them) are not rewritten; the comparator they were
+    measured under is DECLARED instead of assumed. `RHYME_RELATIONS` is
+    imported rather than spelled, so this cannot drift from the constant it
+    names (doctrine 1) — the same treatment `test_revise.py` §18's
+    demonstration arm already takes.
+    """
+    R = Reviser()
+    return Reviser(lex=R.lex,
+                   decl=_dc.replace(R.decl,
+                                    admit=tuple(sorted(RHYME_RELATIONS))),
+                   floor=R.floor, rdecl=R.rdecl)
 
 FAILURES = []
 
@@ -401,7 +433,11 @@ def test_tier2_tries_and_correctly_rejects():
     """
     print("\n5. TIER 2 — an anchor locked to a family of its own is REFUSED, "
          "not searched (restated 2026-08-17: this asserted the opposite)")
-    R = Reviser()
+    # THE COMPARATOR IS DECLARED SINCE 2026-08-26 (`MISSING.md` M-139) —
+    # see `perfect_rhyme_reviser`. Under the repaired field this fixture
+    # reaches SUCCESS, because the conjunction its premise calls empty is
+    # answerable once the field asks the grader's own door.
+    R = perfect_rhyme_reviser()
     res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_LOCKED_MANDATE)
     check("cannot reach SUCCESS -- L1 and L2 are each locked to their own "
           "mandated rhyme family (L4, L5), so backtracking either one to "
@@ -453,7 +489,10 @@ def test_tier2_rewrites_a_group_of_three_or_more():
     #
     # WHAT MUST STILL HOLD is the fixture's own premise, so the section
     # cannot pass by examining a draft that no longer poses the question.
-    R = Reviser()
+    # THE COMPARATOR IS DECLARED SINCE 2026-08-26 (`MISSING.md` M-139) —
+    # see `perfect_rhyme_reviser`. The premise below is a claim about an
+    # EMPTY conjunction and that was a property of the two-name field.
+    R = perfect_rhyme_reviser()
     before = R.brief(TOO_LARGE, [[1, 2, 5], [3, 4, 5]])
     pivot = [b for b in before if b.line_no == 5][0]
     check("the fixture is STILL a real joint_conflict with two 3-member "
@@ -1318,7 +1357,14 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
     from quality.loop import _anchor_obligations
     from quality.revise import Reviser as _R
 
-    RV = _R()
+    # THE COMPARATOR IS DECLARED SINCE 2026-08-26 (`MISSING.md` M-139), for
+    # the reason §5 and §6 are — see `perfect_rhyme_reviser`. This section's
+    # subject is defect F, the tier-2 SEARCH, and it needs tier 2 to RUN;
+    # under the repaired field the pivot's conjunction is answerable, tier 1
+    # settles it and tier 2 is never entered. Restoring the door the section
+    # was measured under keeps the defect-F regression alive instead of
+    # repinning a finding away.
+    RV = perfect_rhyme_reviser()
     # Every mandate in this section DECLARES `class:RHYME` since 2026-08-25
     # (M-116): the subject is TIER 2's search discipline, which only runs
     # when a mandated pair fails — and under the whole-vocabulary default
@@ -1371,7 +1417,26 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
                       propose_group=lambda *a, **k: None)
     # `attempts[-1]` stopped being the tier-2 attempt when mandatory pursuit
     # added tier-1 attempts for the pursued lines after it; select by tier.
-    det = [a for a in res.rounds[0].attempts if a.tier == 2][-1].reason
+    #
+    # AND THE INDEX IS CHECKED RATHER THAN TAKEN — 2026-08-26 (`MISSING.md`
+    # M-139). This was a bare `[-1]`, so when the M-139 field repair let tier
+    # 1 settle the pivot and tier 2 stopped running, the section did not fail
+    # a check: it raised `IndexError` and KILLED THE WHOLE SUITE, taking every
+    # section after it with it. That is the masking shape `.github/workflows/
+    # ci.yml` already records ("shard 1 died at §20's M-116 breakage two
+    # sections in front of it, so a crash in one section hid an orphan in
+    # another"). A premise that stops holding must produce a red CHECK with
+    # its reason printed, never a traceback.
+    t2 = [a for a in res.rounds[0].attempts if a.tier == 2]
+    check("the premise holds: tier 2 RAN, so there is a dead-end reason to "
+          "read",
+          bool(t2),
+          f"{len(t2)} tier-2 attempt(s) in round 0 over "
+          f"{len(res.rounds[0].attempts)} attempt(s) total. If this is 0 the "
+          f"pivot's conjunction became answerable and the section is "
+          f"measuring a search that no longer runs — restore the comparator, "
+          f"do not delete the claim")
+    det = t2[-1].reason if t2 else ""
     check("an EMPTY ANCHOR conjunction is reported as its own outcome, not "
           "as a search that came back short",
           "EMPTY MEMBER field" in det

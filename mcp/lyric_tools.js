@@ -323,8 +323,17 @@ function planArgs(a) {
   const args = [`--seed=${a.seed}`];
   if (a.form) args.push(`--form=${a.form}`);
   if (a.lines != null) args.push(`--lines=${a.lines}`);
-  // THE WRITER'S DECLARATION (MISSING.md M-55). Neither is sampled: the
-  // planner never picks a relation, it carries the one that was declared.
+  // THE WRITER'S DECLARATION (MISSING.md M-55). Neither FIELD is sampled
+  // here: this flag is a CARRY of what the caller declared.
+  // ~~the planner never picks a relation, it carries the one that was
+  // declared~~ -- STRUCK 2026-08-26. True when written (2026-08-22 21:50,
+  // `9de8031b`) and false since `b0070e1` (2026-08-25 16:12, M-117): with no
+  // `--relation=` the planner DRAWS one schema per group from the certified
+  // pool and records the draw in `plan.relations` -- MEASURED at 28, 25 and
+  // 32 relations on seeds 1, 2 and 5. A declared `--relation=` still silences
+  // the draw entirely (`plan.relations` comes back `{}`), which is why this
+  // flag is still a carry; what changed is that the PLAN now has a relation
+  // coordinate of its own, and `lyric_grade` has to read it.
   // Without these two lines every relation and every roster the CLI accepts
   // is unreachable from this connector -- which is what `--structures` was
   // from the day it shipped, and what makes a coordinate built-and-tested
@@ -407,15 +416,33 @@ const linesField = z
   .optional()
   .describe('Exact total line count to request (4-64). Omit to let the planner choose.');
 
-// THE WRITER'S DECLARATION (MISSING.md M-55). Neither is sampled and neither
-// has a default: an omitted field means NOBODY SAID, and the harness then
-// grades under the coarse two-name admit set exactly as it always has.
+// THE WRITER'S DECLARATION (MISSING.md M-55). Neither field is sampled here
+// and neither has a default: an omitted field means NOBODY SAID.
+// ~~and the harness then grades under the coarse two-name admit set exactly
+// as it always has~~ -- STRUCK 2026-08-26, AND THE DATES ARE THE WHOLE POINT.
+// This comment was written 2026-08-22 21:50:42 (`9de8031b`) and was TRUE.
+// It was false 2 HOURS 18 MINUTES LATER: `d0b3a5d1` (2026-08-23 00:08:19) is
+// M-59's commit, "Open every gate: default admits all four" -- and its ONLY
+// change to this file was 1 insertion and 1 deletion, the `describe` string
+// THREE LINES BELOW. One sentence, two copies, three lines apart; the commit
+// that moved the door edited the copy it could see and left this one
+// standing. It is struck rather than rewritten because the interesting fact
+// is not what the door is, it is that a commit which KNEW the door had moved
+// updated one copy (doctrine 17 -- deleting the sentence deletes the
+// evidence).
+// WHAT "NOBODY SAID" MEANS TODAY IS THREE THINGS AND NONE OF THEM IS THE
+// TWO-NAME SET: the coarse band admits all FOUR classes (M-59); a pair with
+// no declared relation is ALSO satisfied by ANY of the 77 schemas the
+// vocabulary names (M-116, 2026-08-25, judged by
+// `relations.whole_vocabulary_pairs`); and on lyric_plan / lyric_grade the
+// PLANNER DRAWS a relation per group (M-117), so an omitted field selects the
+// dice rather than the bare door.
 const relationField = z
   .string()
   .max(64)
   .optional()
   .describe(
-    'Declare ONE rhyme relation every mandated group is judged under, e.g. "type:rime riche", "type:pararhyme", "class:ASSONANCE", "schema:perfect rhyme". Namespace it (type: / class: / schema:) — 26 names live in two namespaces and a bare one refuses by name. All three namespaces are judged: class: is the coarse band, type: is the named-cell engine, schema: is realised over the whole draft (29 of the 77 schemas are end-rhyme and fit a group directly; an INTRA-LINE figure like schema:alliteration REFUSES and names its placement, because it is a property of one line and no pair of lines can stand in it). Omit and the coarse default applies — which since 2026-08-22 admits ALL FOUR classes, so a near relation the band typed is no longer charged as a violation. Ask lyric_types for the vocabulary.'
+    'Declare ONE rhyme relation every mandated group is judged under, e.g. "type:rime riche", "type:pararhyme", "class:ASSONANCE", "schema:perfect rhyme". Namespace it (type: / class: / schema:) — 26 names live in two namespaces and a bare one refuses by name. All three namespaces are judged: class: is the coarse band, type: is the named-cell engine, schema: is realised over the whole draft (29 of the 77 schemas are end-rhyme and fit a group directly; an INTRA-LINE figure like schema:alliteration REFUSES and names its placement, because it is a property of one line and no pair of lines can stand in it). Omit and the COMPLETE default applies, and it is TWO doors and not one: the coarse band admits ALL FOUR classes (since 2026-08-22, so a near relation the band typed is no longer charged as a violation) OR the two lines stand in ANY of the 77 named schemas (since 2026-08-25) — laziness at the 77 is UNCALIBRATED and every pair rescued that way is named on the report\'s SCHEMA DEFAULT line. This description carried only the first half from 2026-08-25 to 2026-08-26. AND ON lyric_plan / lyric_grade AN OMITTED RELATION IS NOT "NO RELATION": the planner DRAWS one schema per group and the grade judges the draw — the plan report names each group\'s relation. Declaring one NARROWS, everywhere. Ask lyric_types for the vocabulary.'
   );
 
 const functionsField = z
@@ -685,6 +712,12 @@ export function registerLyricTools(server, tool) {
         if (p2.code !== 0) return verdictOf(p2);
 
         // 3. The grade, exactly as the plan's own GRADE IT line spells it.
+        // THAT SENTENCE WAS FALSE FROM 2026-08-25 TO 2026-08-26 and the two
+        // lines are worth it: `b0070e1` added `--relations=` to that line
+        // (M-117) and this block went on picking THREE coordinates off the
+        // artifact, so the comment kept asserting a correspondence that had
+        // stopped holding. It is an EQUALITY, not a description, and
+        // `mcp/test.mjs` pins it now rather than trusting it (doctrine 48).
         const songArgs = ['song', bpPath, draftPath];
         if (plan.groups) songArgs.push(`--groups=${plan.groups}`);
         if (plan.returns) songArgs.push(`--returns=${plan.returns}`);
@@ -693,6 +726,39 @@ export function registerLyricTools(server, tool) {
         // that records what was asked for, and grading against anything else
         // would be a second statement of the mandate (doctrine 1).
         if (plan.relation) songArgs.push(`--relation=${plan.relation}`);
+        // AND SO DOES THE PER-GROUP DRAW (M-117, shipped 2026-08-25). With no
+        // `--relation=` the planner DRAWS one schema per group and records it
+        // in `plan.relations`. From that day until 2026-08-26 the draw reached
+        // the writer's BRIEF -- `lyric_plan` prints "... stand in X, a NAMED
+        // relation, judged as itself, not as plain rhyme", 27 rows on seed 31
+        // -- and reached the GRADE through NOTHING, so a plan graded here was
+        // graded against a mandate the plan does not state. That is
+        // `Reviser._field`'s own capitalised promise broken one layer out:
+        // THE BRIEF AND THE VERDICT HAVE TO ASK THE SAME QUESTION.
+        //
+        // MEASURED over three fresh seeds against filler drafts, unpatched
+        // against patched: 226 FLAG findings SUPPRESSED and 1 MANUFACTURED.
+        // THE DROP WAS NEVER ONE-SIGNED, and the exception is the instructive
+        // half: seed 1's group O is `schema:anaphora`, where token identity at
+        // the head is the REQUIREMENT, and a bare `--groups=` defaults every
+        // pair to REQUIRE_RHYME, where REPEAT is a violation (doctrine 3's
+        // inverting band). So the connector was not grading a LOOSER mandate,
+        // it was grading a DIFFERENT one.
+        //
+        // Sorted by label, byte-identical to `quality/plan.py`'s
+        // `grading_command()` spelling (doctrine 66, and doctrine 1 -- one
+        // definition of the mandate, read twice, never restated). `execFile`
+        // passes ONE argv token and there is no shell, so the parentheses and
+        // the apostrophe in `Scots vowel-length rhyme (Aitken's Law)` need no
+        // quoting here -- unlike the printed GRADE IT line, which they broke
+        // on 48 of 100 seeds until it was given `shlex.quote` the same day.
+        if (plan.relations && Object.keys(plan.relations).length)
+          songArgs.push(
+            `--relations=${Object.keys(plan.relations)
+              .sort()
+              .map((k) => `${k}:${plan.relations[k]}`)
+              .join(',')}`
+          );
         songArgs.push('--subdivision', String(plan.subdivision));
         const p3 = await runVerb(songArgs);
         const render = extractRender(p2.stdout);

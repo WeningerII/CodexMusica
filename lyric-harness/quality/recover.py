@@ -257,13 +257,76 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
                               "words": (wa, wb),
                               "score": round(s["total"], 3),
                               "relation": s["relation"]})
+    # THE COVER AS THE CLI'S OWN MANDATE FLAGS, split on each edge's OWN
+    # `relation` and never re-derived. THIS IS NOT A CONVENIENCE — it is the
+    # coordinate that makes the doctrine-14 sentence below TRUE, and without
+    # it that sentence was FALSE through this module's only documented
+    # handoff. A `--groups=` group is REQUIRE_RHYME: identity FORBIDDEN,
+    # REPEAT a VIOLATION. This function admits REPEAT edges eleven lines
+    # above, so the cover holds TWO demands and they are not the same demand
+    # (doctrine 3's second half). MEASURED on `quality/fixtures/song.txt`:
+    # the whole web handed to `--groups=` charges **34 SCHEME_VIOLATION**,
+    # exactly its 34 REPEAT edges, about pairs this module admitted FOR BEING
+    # IDENTICAL — and the same web with the REPEAT edges split off charges
+    # **0**. Over 18 pasted-song drafts a lane measured 984 REPEAT edges of
+    # 8,673 on 17 of 18 drafts and 972 violations charged.
+    repeats = [e for e in edges if e["relation"] == "REPEAT"]
+    rhymes = [e for e in edges if e["relation"] != "REPEAT"]
+    placed_repeats = [e for e in repeats
+                      if "." in str(e["a"]) or "." in str(e["b"])]
+    bare_repeats = [e for e in repeats
+                    if "." not in str(e["a"]) and "." not in str(e["b"])]
+    r.put("mandate_spelling",
+          {"--groups=": ";".join(f"{e['a']},{e['b']}" for e in rhymes),
+           "--returns=": ";".join(f"{e['a']},{e['b']}"
+                                  for e in bare_repeats)},
+          "derived",
+          f"the cover as the two CLI mandate flags, split on each edge's own "
+          f"`relation`: {len(rhymes)} band edge(s) to `--groups=` and "
+          f"{len(bare_repeats)} line-level REPEAT class(es) to `--returns=`, "
+          f"which is the ONLY spelling under which identity is the "
+          f"REQUIREMENT rather than the violation. Handing the WHOLE web to "
+          f"`--groups=` charges one SCHEME_VIOLATION per REPEAT edge; this "
+          f"split is what makes the doctrine-14 claim below true")
+    if placed_repeats:
+        r.put("repeats_at_a_placement", len(placed_repeats), "REFUSED",
+              f"{len(placed_repeats)} recovered REPEAT edge(s) bind at a "
+              f"PLACEMENT, and NO mandate spelling in this harness can hold "
+              f"them: `--groups=` charges a REPEAT as a violation, and "
+              f"`--returns=` REFUSES any member carrying a locus — "
+              f"`quality/schemes.py`'s `_normalise_returns` coerces every "
+              f"member with `int(x)`, the SAME `int()` M-72 removed from "
+              f"`_normalise_groups` when placement became spellable, one "
+              f"function over and unmigrated (measured: "
+              f"`--returns=1.head,3` refuses with `invalid literal for "
+              f"int() with base 10: '1.head'`). They are NOT flattened to "
+              f"their line numbers: `4.head ~ 8.head` spelled `4 ~ 8` "
+              f"declares an identity between two line ENDS this module never "
+              f"measured. The remedy is `_normalise_returns` taking the slot "
+              f"spelling `_normalise_groups` already takes. REFUSED rather "
+              f"than dropped, because a silently unspellable binding reads "
+              f"as a song with fewer relations in it (doctrine 20)")
     r.put("web", edges, "derived",
           f"every admitted pair over {n} binding sites at {len(places)} "
-          f"placements per line, at theta {theta}. NOT INDEPENDENT OF THE "
+          f"placements per line, at theta {theta}, at the ADMIT door "
+          f"(`decl.admit`) PLUS REPEAT — and neither set contains the other, "
+          f"so this is not a NARROWING of the default but a DIFFERENT door. "
+          f"NOT INDEPENDENT OF THE "
           f"GRADER (doctrine 14): every edge is a band-passing pair BY "
           f"CONSTRUCTION, so grading this cover against the same band at the "
-          f"same theta cannot produce a rhyme violation. What it CAN say "
-          f"non-trivially is everything the band did not decide")
+          f"same theta cannot produce a rhyme violation — THROUGH "
+          f"`mandate_spelling` ABOVE, and NOT through `--groups=` alone, "
+          f"which charges every REPEAT edge. What it CAN say "
+          f"non-trivially is everything the band did not decide. AND THIS IS "
+          f"THE ADMIT DOOR ONLY: the grader that will judge this cover also "
+          f"accepts a pair whose two lines stand in ANY of the 77 registered "
+          f"schemas (`relations.whole_vocabulary_pairs`, `MISSING.md` M-116) "
+          f"whenever `admit_is_default` holds, and that route is NOT "
+          f"consulted here — so this cover UNDER-recovers against its own "
+          f"consumer, measured at +32.0% of line pairs on 18 of 18 drafts. "
+          f"Disclosed rather than silent (doctrine 20); "
+          f"`quality/door_census.py` rules this site INCOMPLETE and "
+          f"`MISSING.md` M-139 holds the measurement")
     r.put("binding_sites", n, "counted",
           "line x placement, skipping placements that name nothing in "
           "their line")

@@ -1447,8 +1447,22 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
     #: withdrawal arriving at the constants, months after it arrived at the
     #: prose. The struck pair stays visible in the note (doctrine 17) and the
     #: structural gate below is what keeps it there.
-    cmp("anaphora period slope rho", -0.008, rho, 0.01)
-    cmp("anaphora period slope p_perm", 0.8695, pp, 0.05)
+    #:
+    #: REPINNED AGAIN 2026-08-26 from ~~-0.008~~ / ~~0.8695~~ with the band.
+    #: These are a correlation over the DATED authors of the band, so moving
+    #: the band moves them by construction: 312 of the 200-400 band's 663
+    #: authors carry printed dates, against 407 of the 150-400 band's 879.
+    #: The WITHDRAWAL IS UNAFFECTED and that is the point of repinning rather
+    #: than re-adopting -- anaphora reads no period signal on this band either
+    #: (p_perm 0.6605, nowhere near the Bonferroni cut at 0.0100), so the
+    #: struck 0.275 stays struck. What DID change is which check carries the
+    #: signal: `mattr` now survives Bonferroni here (rho -0.177, p_perm
+    #: 0.0029) where it did not before, and it is NOT adopted as a caution
+    #: for the reason the note gives -- 351 of 663 in-band authors are UNDATED
+    #: and not missing at random, so a correlation on a 47% subsample is not
+    #: a clean finding in either direction (doctrine 20).
+    cmp("anaphora period slope rho", -0.025, rho, 0.01)
+    cmp("anaphora period slope p_perm", 0.6605, pp, 0.05)
     # The two below are STRUCTURAL, not statistical: they read floor.py alone
     # and owe nothing to how many items were scored, so a sampled run judges
     # them exactly as a full one does. They are the whole of what `--sample`
@@ -1652,6 +1666,43 @@ def main():
                   % (MIN_BIN, len(rows)))
         ph.report()
         sys.exit(EXIT_NO_VERDICT if sampled else EXIT_DRIFT)
+
+    # A FOUR-CHECK BAND IS A DIFFERENT BAND, AND EVERY THRESHOLD MEASURED OVER
+    # IT INHERITS THAT (2026-08-26, MISSING.md M-131).
+    #
+    # `--without-predictability` already REFUSES `band lo`/`band hi` by name,
+    # on the argument this file states twice: the rule "reads every CHECK's
+    # sub-bin homogeneity and is therefore a DIFFERENT rule with four", and
+    # judging on this run's `lo` "would manufacture a DRIFT out of a mode".
+    # Both sentences were true and the refusal was applied to ONE downstream
+    # value -- the MATTR window admissibility check, which was deliberately
+    # keyed to the SHIPPED `p.lo`. The four THRESHOLDS were left measured over
+    # whatever band the four-check rule returned.
+    #
+    # THAT WAS HARMLESS ONLY WHILE THE TWO RULES AGREED. On 2026-08-26 the
+    # five-check rule moved the band 150-400 -> 200-400 -- and the check that
+    # moved it is precisely the one this mode drops, so the four-check rule
+    # still returns 150-400 and always will. The mode then measured
+    # thresholds on 3,575 items and judged them against constants adopted on
+    # 2,261, reporting mattr/fwr/cv as DRIFT on a tree where nothing had
+    # drifted: a red manufactured out of a mode, which is the outcome the
+    # comment three hundred lines down already names.
+    #
+    # So the SHIPPED band is what this mode measures over. The band constants
+    # stay refused -- this mode cannot decide them and does not pretend to --
+    # but their consequences are no longer judged against a population the
+    # shipped set was never adopted on (doctrine 20/79).
+    if a.without_predictability:
+        song = [p for p in PROFILES if p.name == "song"]
+        if song:
+            derived = (lo, hi)
+            lo, hi = song[0].lo, song[0].hi
+            if derived != (lo, hi):
+                print("   BAND: measuring over the SHIPPED %d-%d, not this "
+                      "mode's own %d-%d — a four-check band rule is a "
+                      "different rule, and its answer may not be the "
+                      "population the shipped thresholds are judged on."
+                      % (lo, hi, derived[0], derived[1]))
 
     ph("report_fpr")
     full, fprs = report_fpr(rows, lo, hi, a.seeds)

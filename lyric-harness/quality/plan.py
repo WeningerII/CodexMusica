@@ -128,6 +128,7 @@ Test: python3 quality/test_plan.py
 """
 
 import json
+import shlex
 import math
 import random
 from fractions import Fraction
@@ -387,23 +388,35 @@ def song_line_counts():
     `gradeable_line_counts()` answers *"what line counts can ANY floor profile
     grade"* over `section` (a 4-line quatrain), `sonnet` (14 lines) and `song`
     (a lyric sheet). MEASURED, the three reach **4–5**, **12–17** and
-    **17–55** lines — so the union is `{4, 5} | {12..55}` and the famous
+    ~~**17–55**~~ **22–55** lines — so the union is
+    ~~`{4, 5} | {12..55}`~~ `{4, 5} | {12..17} | {22..55}` and the famous
     **6–11 hole is the space between a quatrain and a sonnet**, which is not
     a fact about songs at all. A SONG planner drawing its length from that
     union was drawing from a set that contains "lengths a QUATRAIN can be"
     and "lengths a SONNET can be", and the hole it then had to reject around
     was one it created by asking the wrong question.
 
-    THE SONG PROFILE ALONE IS CONTIGUOUS — **17..55, 39 values, no hole** —
-    and it is the profile that grades the object this planner emits. The
+    REPINNED 2026-08-26 BY M-131's RE-ADOPTION (`MISSING.md` M-133): the song
+    profile's band `lo` went 150 -> 200 tokens and this function READS that
+    band, so the reach followed. **THE UNION GAINED A SECOND HOLE, 18–21**,
+    once the song floor rose past the sonnet ceiling — the identical species
+    as 6–11 at the next seam out, which is this docstring's own argument
+    confirmed rather than dented: the holes are facts about which KINDS of
+    text were unioned, and a moved band adds one without touching the case.
+
+    THE SONG PROFILE ALONE IS CONTIGUOUS — ~~**17..55, 39 values**~~
+    **22..55, 34 values, still no hole** — and it is the profile that grades
+    the object this planner emits. The
     profile is identified by `n_lines == 0`, which is its own declaration
     that a lyric sheet has no fixed line count, and not by its name: a name
     test would be a second statement of which profile means what (doctrine
     1), and `tokens_per_line_band()` one screen up already keys on the same
     field for the opposite reason.
 
-    WHAT THIS COSTS, SAID PLAINLY: a song of fewer than 17 lines is now
-    outside the planner's envelope. That is not a narrowing of the harness —
+    WHAT THIS COSTS, SAID PLAINLY: a song of fewer than ~~17~~ **22** lines is
+    now outside the planner's envelope — the cost ROSE by five lines with the
+    band (M-133), and it rose in the direction this paragraph already priced.
+    That is not a narrowing of the harness —
     a writer hand-declares any length and the graders grade it — it is the
     planner declining to volunteer a length the song profile cannot hold to
     anything. `gradeable_line_counts()` is UNCHANGED and still answers its
@@ -2982,18 +2995,37 @@ def writer_brief(plan):
 
 
 def grading_command(plan, draft_path="DRAFT.txt", bp_path="BP.json"):
-    """The exact invocation that grades a draft against this plan."""
+    """The exact invocation that grades a draft against this plan.
+
+    **SHELL-QUOTED WITH `shlex.quote`, BECAUSE A DRAWN RELATION NAME CAN
+    CONTAIN AN APOSTROPHE AND THE HAND-ROLLED `'...'` THEN CLOSES ON IT.**
+    `schema:Scots vowel-length rhyme (Aitken's Law)` is one of the 22
+    `DRAWABLE_SCHEMAS`, so once M-117 made the planner DRAW a relation per
+    group this line began emitting commands no shell can parse: MEASURED over
+    `make_plan(1..100)`, **48 of 100 seeds print a `GRADE IT:` line
+    `shlex.split` REFUSES**, and `bash -n` gives `syntax error near unexpected
+    token ')'`.
+    **AND THE DEFECT WAS MET BEFORE AND FIXED IN THE WRONG PLACE**:
+    `songs/README.md` carries a hand-escaped `(Aitken'"'"'s Law)` for
+    `the_frost_ledger`, so somebody hit this, repaired the DOCUMENT, and left
+    the INSTRUMENT emitting it — standing rule 3's own shape, and the reason
+    this is a code fix rather than another escaped string.
+    `shlex.quote` is BYTE-IDENTICAL to the old spelling for every value with
+    no apostrophe, so no other printed command moves.
+    The connector is immune either way (`execFile`, one argv token, no shell),
+    which is exactly why the honest carrier is the half that broke.
+    """
     parts = [f"python3 lyric_harness.py song {bp_path} {draft_path}"]
     if plan["groups"]:
-        parts.append(f"'--groups={plan['groups']}'")
+        parts.append(shlex.quote(f"--groups={plan['groups']}"))
     if plan["returns"]:
-        parts.append(f"'--returns={plan['returns']}'")
+        parts.append(shlex.quote(f"--returns={plan['returns']}"))
     # THE DECLARED RELATION REACHES THE GRADE (M-55). Without this line the
     # writer declares a relation, the plan records it, and the one command
     # that grades the draft asks the coarse `Declaration.admit` set instead —
     # a declared coordinate read by nothing, one layer out from M-54's.
     if plan.get("relation"):
-        parts.append(f"'--relation={plan['relation']}'")
+        parts.append(shlex.quote(f"--relation={plan['relation']}"))
     # THE DRAWN PER-GROUP RELATIONS REACH THE GRADE (M-117) — the same
     # carry M-55 built for the writer's own declaration, one coordinate
     # over: a plan that drew `schema:pararhyme` for group C and did not
@@ -3003,6 +3035,6 @@ def grading_command(plan, draft_path="DRAFT.txt", bp_path="BP.json"):
     if plan.get("relations"):
         _spec = ",".join(f"{k}:{v}"
                          for k, v in sorted(plan["relations"].items()))
-        parts.append(f"'--relations={_spec}'")
+        parts.append(shlex.quote(f"--relations={_spec}"))
     parts.append(f"--subdivision {plan['subdivision']}")
     return " ".join(parts)

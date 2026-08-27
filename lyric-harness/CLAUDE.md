@@ -576,11 +576,23 @@ discovery.~~
 THE WRONG QUESTION, AND THE PLANNER WAS DRAWING ITS LENGTH FROM THREE KINDS OF
 TEXT.** `gradeable_line_counts()` unions `section` (a 4-line quatrain),
 `sonnet` and `song`, whose reaches at the derived tokens-per-line band are
-**4–5**, **12–17** and **17–55** lines — so 6 to 11 is the space between a
-QUATRAIN and a SONNET and was never a fact about songs. `song_line_counts()`
-reads the profile that grades a lyric sheet, identified by its own
-`n_lines == 0` and never by name: **17..55, 39 values, CONTIGUOUS.** The
-function above is unchanged and still answers its own different question.
+**4–5**, **12–17** and ~~**17–55**~~ **22–55** lines — so 6 to 11 is the space
+between a QUATRAIN and a SONNET and was never a fact about songs.
+`song_line_counts()` reads the profile that grades a lyric sheet, identified by
+its own `n_lines == 0` and never by name: ~~**17..55, 39 values,
+CONTIGUOUS.**~~ **22..55, 34 values, STILL CONTIGUOUS** — REPINNED 2026-08-26
+by the M-131 re-adoption (`MISSING.md` M-133), which took the song profile's
+band `lo` from 150 to 200 tokens; this function READS that band, so the
+envelope followed it and every seed's drawn length moved with it. **The
+ARGUMENT is untouched and the endpoints are all that moved**: the set is still
+the one profile that grades the object the planner emits, and it is still
+contiguous. The
+function above is unchanged and still answers its own different question —
+**and it now has TWO holes, which is this entry's own diagnosis confirmed
+rather than dented.** The union gained **18–21**, the space between a SONNET
+and a SONG once the song floor rose past the sonnet ceiling: the identical
+species as 6–11, at the next seam out, and one more length that is a fact about
+which KINDS of text were unioned rather than a fact about songs.
 **AND THE SECTION CEILING WAS M-81(A)'s ERROR ONE LAYER OVER** —
 `_sample_pattern` took `max_cells = total` on the argument that a song of T
 lines cannot hold more than T sung sections, TRUE and never a claim that all T
@@ -730,16 +742,55 @@ rhyme and rime riche", and the question was fair: this file and this session
 both kept saying *"still at the door with 2 and 4"* as though `admit` were the
 binding constraint, in the same sitting that built the thing which BYPASSES
 it. Those two sentences do not sit together.
-**MEASURED, and it settles it.** `sun`/`much` is `ASSONANCE`:
+~~**MEASURED, and it settles it.** `sun`/`much` is `ASSONANCE`:
 `brief FILE --groups=1,2` reports `SCHEME_VIOLATION`; the identical command
-with `--relation=class:ASSONANCE` **PASSES**. When a mandate declares a
+with `--relation=class:ASSONANCE` **PASSES**.~~ **STRUCK 2026-08-26 — THIS
+PARAGRAPH'S OWN WORKED EXAMPLE STOPPED REPRODUCING, AND IT IS THE HALF THAT
+WAS DOING THE SETTLING.** Re-run today, BOTH commands pass: `sun`/`much` earns
+NO `SCHEME_VIOLATION` at the default door, because M-59 put ASSONANCE inside
+`decl.admit` four days after this sentence was written. **The contrast is
+zero, so the example demonstrates nothing** — a fact about the door, recorded
+as a fact about the route, and left standing while the door moved twice
+underneath it (doctrine 17; this is the same species as the `joint_field`
+worked example M-139 found, and it is the second in one file).
+**THE CLAIM SURVIVES AND ITS EVIDENCE MOVES TO THE OTHER ROW OF THE SAME 2x2**,
+which is the honest repair and is a sharper demonstration than the struck one,
+because it shows the route being STRICTER rather than merely different:
+
+| pair | default door | `--relation=class:ASSONANCE` |
+|---|---|---|
+| `cat`/`hat` — perfect rhyme | passes | **SCHEME_VIOLATION** |
+| `sun`/`much` — assonance | passes | passes |
+
+Read down the second column and the route is a real coordinate: a group
+declaring `class:ASSONANCE` is NOT satisfied by a perfect rhyme. Read across
+the second row and the DOOR has caught up with the route on exactly the case
+this paragraph was written about.
+**AND BOTH ROWS WERE ALREADY MECHANICAL — THE PROSE WAS SIMPLY WIRED TO
+NEITHER, WHICH IS WHY IT COULD GO STALE WITH EVERY SUITE GREEN.** The door
+row is `quality/test_homeoteleuton.py` §5 (*"DEFAULT now SATISFIES sun/much"*,
+repaired at M-59 — it had been ASSERTING the defect); the route row is
+`quality/test_mandate_relation.py` §8 (`schema:consonance` VIOLATING on a
+perfect rhyme). No third check is written here: a second copy of a pin is how
+two pins start disagreeing (doctrine 1). What this paragraph owed was the
+CITATION, so the next reader of a sentence like the struck one can find the
+check that would have told them. When a mandate declares a
 relation, `grade()` routes through `satisfies_relation` and **never consults
-`admits()`**. The 2-name door governs exactly one case — the one where nobody
-said anything.
+`admits()`**. ~~The 2-name door governs exactly one case — the one where nobody
+said anything.~~ **STRUCK with the same date and for the same reason, twice
+over**: the door is not 2-name (M-59, all four of `ADMITTABLE_RELATIONS`), and
+the one case it governs — where nobody said anything — is precisely the case
+M-116 then handed ALL 77 SCHEMAS, so the silent case is now judged by
+`admits(s, theta, decl.admit)` OR `relations.whole_vocabulary_pairs` and is the
+WIDEST door in the tree rather than the narrowest. Its chance rate is
+`quality/chance_rate.py` and is priced by nothing (`MISSING.md` M-138, M-140).
 **TWO MECHANISMS, FOUR DAYS APART, ANSWERING ONE COMPLAINT.**
 `Declaration.admit` (2026-08-18) is the counterweight to the homoeoteleuton
 ban: a declared set, maximum FOUR (`ADMITTABLE_RELATIONS`), so the ban cannot
-quietly close rhyme classes. The relation route is the other answer and is
+quietly close rhyme classes. **`admit`'s own ceiling of four is unchanged and
+is NOT the ceiling of the default any more (amended 2026-08-26): M-116 put the
+77 schemas beside it, so a pair `admit` refuses can still satisfy a silent
+mandate. Read this sentence as being about `admit` and not about the door.** The relation route is the other answer and is
 richer AND stricter at once: per group, so a group declaring
 `class:ASSONANCE` is NOT satisfied by a perfect rhyme.
 ~~"It stays at two on purpose — it is ONE GLOBAL SET answering 'what
@@ -760,6 +811,64 @@ two-name default survived every green run (a check in
 only path past the door, which is why `MISSING.md` M-58 (the named judge is
 monosyllable-only for 69 of its 76 names) outranks both the null sweep and any
 widening of `admit`.
+
+**AND WHICH DOOR EACH SITE ACTUALLY READS IS A COMMAND NOW, NOT A MEMORY
+(2026-08-26, `MISSING.md` M-139).** The owner's ruling, verbatim: *"go find
+everywhere it still has the incorrect 4 and make sure all 77 are there ... 4 is
+poisonous as fuck. without all 77 we're going to be racking up the wrong
+numbers and then we have to come back and do all of this all over again."*
+**THE DEFAULT DOOR MOVED TWICE AND IN TWO DIFFERENT COORDINATES** — M-59
+widened `Declaration.admit` to four relations on 2026-08-22, M-116 put ALL 77
+SCHEMAS in the default on 2026-08-25 — so the complete default is
+**`admits(s, theta, decl.admit)` OR `relations.whole_vocabulary_pairs`**, and a
+site reading only the first is answering in August 22nd's vocabulary while
+looking exactly like a site that never needed to move.
+**MEASURED, `quality/door_census.py`, derived on the AST: 19
+pair-satisfaction sites and TWO reached the complete default** — `check_scheme`
+and `Reviser.grade`, which are two because they are ONE judge deliberately
+called twice (doctrine 1). Six dispositions, never summed past the partition:
+FULL / INCOMPLETE / PER_WORD (holds a word, and the 77 judge LINE PAIRS, so it
+cannot ask) / RENDERING / VALIDATION / ARGUED.
+**THE SHARPEST INSTANCE WAS THE WRITER'S OWN CANDIDATE FIELD.**
+`Reviser._field` promises in capitals that *"THE BRIEF AND THE VERDICT HAVE TO
+ASK THE SAME QUESTION"*, and `_field_one` under it called `admits(s, theta)`
+with `relations=` OMITTED — the historical two. `joint_field`'s own worked
+example is the proof: the six words its docstring names as answering all five
+of a pivot's calls came back `offered=0`, because `love ~ does` scores **0.983
+ASSONANCE** — a fifth of a point ABOVE the band — and the pre-widening door
+refuses it. The example that justified raising `field_depth` off 200 stopped
+reproducing four days later and nothing could see it.
+**AN UNRULED SITE FAILS `--check`, AND A `FULL` RULING IS CHECKED AGAINST THE
+CODE** — a site cannot be talked into compliance by editing its own row. That
+is the half that answers the ruling's last clause; the census costs 1.9s and
+runs in the cheap CI job. ~~Three INCOMPLETE sites are still open, each priced:
+`whole_vocabulary_pairs` builds a full 77-schema stream at **2.94s over 14
+lines, 4.74s over 28, 14.73s over 56**~~ **REPINNED 2026-08-26: TWO are open,
+and that ladder is an ORDER OF MAGNITUDE and not a bound.** The text is an
+undeclared coordinate of it in two directions at once — Whitman runs 3-4x
+higher at matched length, and *within sonnets* three separate readings of the
+same three lengths give 2.94/4.74/14.73, 1.60/6.00/25.00 and 1.83/4.26/13.72,
+moving in OPPOSITE directions at the two ends, because "the sonnets" is a
+family of texts and which fourteen lines was never said. There is also a WALL
+rather than a slope: free verse `raises RuntimeError("candidate explosion")`
+between 90 and 110 lines. And
+both shipped consumers gate it
+lazily on a pair already charged, so the remaining two need a lazy design
+rather than a one-line widening — **except that `Reviser.mandate_from_graph`
+is not a cost problem at all.** Its lazy gate is measured to fire on **170 of
+170 drafts** (a draft where the narrow door admits every line pair does not
+exist here), it has no mandate so `bearing=` has no honest value, and widening
+it takes a 41-line draft's derived cover from 19 groups to 41 and its mandated
+pair-slots from 242 to 10,626. What it owes is an owner ruling on whether
+`--cliques` means the RHYME graph or the whole-vocabulary relation graph, not
+a door edit. **AND THE CHANCE RATE OF BOTH DOORS IS A COMMAND NOW** —
+`quality/chance_rate.py`, built the same day out of M-138's strike, because the
+figures that entry recorded came from an uncommitted script and do not
+reproduce: the SAMPLER's population and reader were never declared. Measured
+against random CMUdict pairs, the ADMIT door admits **8.48%** and the SCHEMA
+door **23.30%**, against **1.18%** of Shakespeare's mandated pairs failing —
+**7.16x and 19.69x**, where the gap that got `theta_coda` recalibrated was
+1.5x. Neither is priced (`MISSING.md` M-138, M-140).
 
 **THE RELATION IS THE DEFAULT ROUTE NOW (2026-08-22, owner's instruction).**
 ~~"...AND THE DOOR IT REPLACES ADMITTED TWO. `Declaration.admit` is ONE

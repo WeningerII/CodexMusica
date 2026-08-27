@@ -1730,16 +1730,43 @@ class Reviser:
                                 for i in ga for j in gb})
                 if not cross:
                     continue
-                ok = True
+                # CONDITION (a) AND CONDITION (b), SEPARATED — 2026-08-26
+                # (`MISSING.md` M-139). They used to be one `or` and one
+                # `break`, which made the SCHEMA half of the default
+                # unaskable here: (b) asked `decl.admit` alone, four
+                # relations, while `grade()` accepts on those OR on any of
+                # the 77 schemas since M-116.
+                #
+                # (a) IS THE CHEAP ONE AND IT IS CHECKED FIRST. A pair that
+                # is not a collision fails outright and no rescue applies --
+                # the merge only ever re-describes findings the loop was
+                # already emitting, which is the honesty argument this
+                # method's docstring makes.
+                #
+                # THE 77 ARE ASKED ONLY FOR (b)'s SURVIVORS, and MEASURED
+                # that is almost never: over 400,000 random CMUdict pairs
+                # (seed 20260810) 2,576 clear `THETA_COLLISION`, and of
+                # those exactly **2 (0.08%)** type NO_RELATION -- which is
+                # the ONLY way (b) can fail once (a) holds, since all four
+                # named relations are in `decl.admit` and REPEAT is allowed
+                # explicitly. So the stream is built for a branch that fires
+                # on roughly one collision pair in twelve hundred, and
+                # `inspect()` -- which calls this every round of the loop --
+                # pays nothing on a draft that never reaches it.
+                ok, unresolved = True, []
                 for i, j in cross:
                     s = matrix[i - 1][j - 1]
-                    if (i, j) not in edges or not (
-                            admits(s, th,
+                    if (i, j) not in edges:
+                        ok = False          # (a) fails: not a collision
+                        break
+                    if not (admits(s, th,
                                    relations=frozenset(self.decl.admit))
                             or s["relation"] == "REPEAT"):
-                        ok = False
-                        break
+                        unresolved.append((i, j))
                 if not ok:
+                    continue
+                if unresolved and not self._schema_satisfies(
+                        lines, m, unresolved):
                     continue
                 declared, how = self._declared_return(m, a, b)
                 out.append({
@@ -1755,6 +1782,47 @@ class Reviser:
                     "how": how or ("derived from the rhyme graph; the mandate "
                                    "cannot state a return")})
         return out
+
+    def _schema_satisfies(self, lines, m, pairs):
+        """Do ALL these mandated line pairs stand in some registered schema?
+
+        THE 77-SCHEMA HALF OF THE DEFAULT (owner ruling 2026-08-25, M-116),
+        reached from `group_merges` since 2026-08-26 (`MISSING.md` M-139).
+        `relations.whole_vocabulary_pairs` is the ONE judge both graders
+        already consult, so this cannot become a third opinion about which
+        pair the default satisfies (doctrine 1) -- it is the same call
+        `grade()` and `lyric_harness.check_scheme` make, with the same
+        `bearing` derived from the mandate's own groups.
+
+        MEMOISED PER (draft, mandate). The stream costs 2.94s over 14 lines
+        and 14.73s over 56, and a draft can offer several candidate merges;
+        building one stream per candidate would multiply a rare cost by the
+        square of the group count. Keyed on the draft's identity and the
+        mandate's groups because those are what the answer depends on.
+
+        AND ONLY UNDER THE DEFAULT DOOR, the same gate `grade()` uses: a
+        caller who NARROWED `Declaration.admit` has declared what satisfies
+        them, and the rescue does not override a declaration.
+        `lyric_harness.admit_is_default` is the one definition.
+        """
+        from lyric_harness import admit_is_default as _AID
+        if not _AID(self.decl):
+            return False
+        key = (id(lines), len(lines),
+               tuple(tuple(g) for g in getattr(m, "groups", ())))
+        hit = getattr(self, "_wvp_cache", None)
+        if hit is None:
+            hit = self._wvp_cache = {}
+        if key not in hit:
+            from quality import relations as _RF
+            if len(hit) > 8:
+                hit.clear()
+            hit[key] = _RF.whole_vocabulary_pairs(
+                lines, _relation_phonology(),
+                bearing={ln - 1 for g in getattr(m, "groups", ())
+                         for ln in g if 1 <= ln <= len(lines)})
+        wvp = hit[key]
+        return all(tuple(sorted(p)) in wvp for p in pairs)
 
     @staticmethod
     def _collision_code(relation, undeclared=False):
@@ -3039,9 +3107,9 @@ class Reviser:
         """-> ordered candidate words for each call word, under the GRADER'S
         OWN PREDICATE.
 
-        THE BRIEF AND THE VERDICT HAVE TO ASK THE SAME QUESTION. `grade()`
+        THE BRIEF AND THE VERDICT HAVE TO ASK THE SAME QUESTION. ~~`grade()`
         accepts a mandated pair when `admits()` does: the scalar clears
-        `theta_rhyme` AND the relation is in `RHYME_RELATIONS`. This function
+        `theta_rhyme` AND the relation is in `RHYME_RELATIONS`.~~ This function
         used to keep the first half and drop the second, so it offered a
         writer words that the verdict following the brief calls ASSONANCE or
         CONSONANCE and counts as a violation. Measured on this repo's own
@@ -3050,6 +3118,50 @@ class Reviser:
         the same defect in two directions, because the FORBIDDEN list is the
         head of this same population: 29 of 101 forbidden entries were words
         no writer could have taken.
+
+        **THE STRIKE IS 2026-08-26 AND THE INVARIANT IS THE SAME ONE — THE
+        VERDICT MOVED TWICE AND THIS FUNCTION MOVED NEITHER TIME
+        (`MISSING.md` M-139).** `RHYME_RELATIONS` stopped being the verdict's
+        door on 2026-08-22, when M-59's owner ruling widened
+        `Declaration.admit` to all four; and it stopped being the whole
+        question at all on 2026-08-25, when M-116 put ALL 77 SCHEMAS in the
+        default, so `grade()` accepts a mandated pair on
+        `admits(s, theta, decl.admit)` **OR** on
+        `relations.whole_vocabulary_pairs`. This function kept spelling the
+        pre-widening set — `admits(s, theta)` with `relations=` OMITTED,
+        whose own docstring says None means the historical two — under a
+        paragraph claiming it asks the verdict's question. The paragraph was
+        the promise and the call was the defect, which is the ONLY reason
+        this reads as a regression rather than as a policy.
+
+        **THE TWO HALVES ARE NOT THE SAME KIND OF GAP AND ARE NOT CLOSED THE
+        SAME WAY.** The RELATION half is a coordinate this function can carry
+        and now does: the check below reads `self.decl.admit`, so a caller
+        who NARROWS the door narrows the field with it and a later per-
+        relation ruling (`MISSING.md` M-138) flows here for free rather than
+        needing a second edit. The SCHEMA half is not expressible here at
+        all — `whole_vocabulary_pairs` judges a LINE PAIR over a built
+        stream and this function holds one WORD — ~~so it is DISCLOSED
+        rather than silently dropped (`Brief.field_declaration`, and
+        doctrine 20: a field that stays quiet about a whole acceptance route
+        reads as though nothing else could answer)~~.
+
+        **THAT LAST CLAUSE WAS FALSE WHEN IT WAS WRITTEN AND IS STRUCK THE
+        SAME DAY — 2026-08-26.** `Brief.field_declaration` renders
+        `field_depth=..., field_band=...` and NOTHING about the schema
+        route; grep it and every renderer prints those two coordinates
+        alone. So the sentence asserted a disclosure that was never built,
+        which is doctrine 48 inside the docstring of the function this
+        entry's own repair is about — a principle living only in prose,
+        written by the lot that had just finished naming that failure mode.
+        The schema half is at present SILENTLY DROPPED here.
+
+        WHAT IS OWED, stated so it cannot be mistaken for done: the field is
+        per-WORD and the schema route is per-LINE-PAIR, so the disclosure
+        can never list words — it can only name the route and say that a
+        pair may satisfy without any offered word being taken. Until that
+        ships, this docstring records a GAP and not a feature
+        (`MISSING.md` M-139).
 
         `CandidateEngine` scores with `score()` on one pronunciation; the
         grader scores with `best_score()` over every variant of both sides.
@@ -3061,8 +3173,13 @@ class Reviser:
 
     def _field_one(self, word, profile=None):
         rd = self.rdecl
+        # `decl.admit` IS PART OF THE KEY since 2026-08-26 (M-139). It became
+        # a coordinate of this function's answer the moment the check below
+        # started reading it, and a cache keyed on the old tuple would serve
+        # one door's field to the other's caller — the silent comparator
+        # substitution doctrine 1 exists for.
         key = (word, self._promote(), rd.field_depth, rd.field_band, profile,
-               self.decl.theta_rhyme)
+               self.decl.theta_rhyme, frozenset(self.decl.admit))
         hit = self._field_cache.get(key)
         if hit is not None:
             return hit
@@ -3081,7 +3198,11 @@ class Reviser:
                 anc_c, w_c = self._word_anchors(cand)
                 s = best_score(anc_q, anc_c, self.decl, w_q, w_c,
                                profile=profile)
-                if admits(s, self.decl.theta_rhyme):
+                # `decl.admit`, NOT the omitted default. Omitting it spelled
+                # the pre-M-59 two-name door in the one function whose
+                # docstring promises it asks the verdict's question (M-139).
+                if admits(s, self.decl.theta_rhyme,
+                          relations=frozenset(self.decl.admit)):
                     passing.append(cand)
         else:
             # An undeclared value must be loud, not silently one of the two.

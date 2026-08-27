@@ -694,19 +694,22 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
     # `expected_drift.py`, which re-DERIVES. A pin and a re-derivation are
     # different instruments and this file holds the first kind.
     check("the five song thresholds are the recorded corpus percentiles",
-          song.percentiles == {"mattr_min": 0.7118,
-                               "function_word_ratio_max": 0.4773,
+          song.percentiles == {"mattr_min": 0.7172,
+                               "function_word_ratio_max": 0.4783,
                                "anaphora_max": 0.3000,
-                               "line_length_cv_min": 0.1094,
-                               "predictable_pair_fraction_max": 0.9286},
-          "ADOPTED 2026-08-21 over the loaded corpus: 150-400 tokens, 3,571 "
-          "items, 879 authors, MATTR window 50 (~~1,859 items, 108 "
-          "authors~~). Three moved -- mattr 0.7226 -> 0.7128 -> 0.7118 (the "
-          "second step is the 2026-08-22 tokeniser repin), fwr 0.4716 -> "
-          "0.4773, cv 0.1123 -> 0.1094 -- and TWO DID NOT, which is what made "
-          "the set adoptable: predictability re-derived to 0.9286 against a "
-          "shipped 0.9286 and anaphora to 0.3000 against 0.3000. "
-          "quality/RESULTS_SONG_FLOOR.md carries the commands")
+                               "line_length_cv_min": 0.1111,
+                               "predictable_pair_fraction_max": 0.9333},
+          "RE-ADOPTED 2026-08-26: 200-400 tokens, 2,261 items, 663 authors, "
+          "MATTR window 50 (~~150-400, 3,571 items, 879 authors~~; "
+          "~~1,859 items, 108 authors~~). THE BAND IS WHAT MOVED and the "
+          "four thresholds follow it -- over the SHIPPED 150-400 they "
+          "re-derive EXACTLY, which `--without-predictability` measures. The "
+          "band moved because the rule is FIVE-check and sub-bin 150-200 "
+          "answers predictability 1.0000 against a band-wide 0.9375, "
+          "|d| 0.0625 > 0.05; floor.py's own note had been stating the rule "
+          "in its FOUR-check form. anaphora is unmoved at 0.3000 for the "
+          "third band running. quality/RESULTS_SONG_FLOOR.md 10 carries the "
+          "argument and the commands")
 
 
 def test_the_song_profile_makes_no_separation_claim():
@@ -875,22 +878,28 @@ def test_the_two_mutants_this_suite_could_not_see():
     print("\n19. the two mutants this suite could not see (doctrine 94)")
 
     # QF4 -- `declaration_for` returned `min(reach, key=gap)`; the mutant
-    # returned `reach[0]`. PROFILES is ordered section, sonnet, song, so at 150
-    # tokens the mutant grades a real song on the SECTION profile's 29-37 token
-    # percentiles: an extrapolation of 113 tokens past a measured edge, at a
-    # length the song profile actually MEASURED. This suite asserted which
-    # profile is chosen only at lengths where every rule agrees, so the
-    # difference was invisible to it.
+    # returned `reach[0]`. PROFILES is ordered section, sonnet, song, so at a
+    # song length the mutant grades a real song on the SECTION profile's 29-37
+    # token percentiles: an extrapolation of a hundred-odd tokens past a
+    # measured edge, at a length the song profile actually MEASURED. This
+    # suite asserted which profile is chosen only at lengths where every rule
+    # agrees, so the difference was invisible to it.
     # THE LENGTH MATTERS, and getting this wrong once is why it is spelled
-    # out. At 150 tokens `declaration_for` returns from its `covers` loop and
-    # never reaches the mutated line at all, so a test at 150 passes under the
-    # mutant too. The discriminating lengths are the ones where NO profile
-    # covers and two REACH -- there the rule picks the smallest extrapolation
-    # and `reach[0]` picks whichever comes first in PROFILES.
+    # out. At a COVERED length `declaration_for` returns from its `covers`
+    # loop and never reaches the mutated line at all, so a test there passes
+    # under the mutant too. The discriminating lengths are the ones where NO
+    # profile covers and two REACH -- there the rule picks the smallest
+    # extrapolation and `reach[0]` picks whichever comes first in PROFILES.
+    # REPOINTED 2026-08-26 FROM ~~149, 140~~ WITH THE BAND (MISSING.md M-131).
+    # The song profile's measured range is 200-400 now, so its tolerance band
+    # opens at 160 and 140/149 no longer reach it at all -- at those lengths
+    # only the sonnet reaches and the discriminating condition is simply
+    # false. 199 and 180 are the same question at the band that ships.
     order = [p.name for p in PROFILES]
     check("PROFILES is ordered section, sonnet, song",
           order == ["section", "sonnet", "song"], " -> ".join(order))
-    for n in (149, 140):
+    song_lo = [p for p in PROFILES if p.name == "song"][0].lo
+    for n in (199, 180):
         reach = [p.name for p in PROFILES if p.reaches(n)]
         got, exact = declaration_for(n)
         check(f"at {n} tokens two profiles REACH and neither COVERS -- the "
@@ -900,9 +909,31 @@ def test_the_two_mutants_this_suite_could_not_see():
               got.name == "song",
               f"got {got.name!r}. `reach[0]` would give {reach[0]!r} -- "
               f"{n - 126} tokens past the sonnet's measured 126, against "
-              f"{150 - n} short of the song's 150. This is the worked case "
-              f"`declaration_for`'s own comment records")
-    for n, want in ((150, "song"), (400, "song"), (37, "section"),
+              f"{song_lo - n} short of the song's {song_lo}. This is the "
+              f"worked case `declaration_for`'s own comment records")
+
+    # AND THE COST OF THE 2026-08-26 REPIN IS PINNED HERE RATHER THAN LEFT TO
+    # BE REDISCOVERED (MISSING.md M-132). Narrowing the song band to 200-400
+    # handed 150-163 to the SONNET profile: `gap()` minimises the
+    # extrapolation in TOKENS and knows nothing about FORM, so a whole lyric
+    # sheet is judged against a 14-line profile's percentiles there. It is
+    # NOT silent -- `EXTRAPOLATED_LENGTH` fires and nothing can reject -- and
+    # it is not new, only wider: the same handoff ran 127-149 before. This
+    # check is the record that it is known, and it goes red if the selector
+    # or either band moves again.
+    for n in (150, 163):
+        got, exact = declaration_for(n)
+        check(f"at {n} tokens a lyric sheet falls to `sonnet`, extrapolated "
+              f"-- the measured cost of the 200-400 repin, not a silent gap",
+              got is not None and got.name == "sonnet" and not exact,
+              f"got {got.name if got else None!r}, exact={exact}")
+    got_164, _ = declaration_for(164)
+    check("...and 164 is where `song` takes over again, so the handoff "
+          "region is 127-163 and is bounded",
+          got_164 is not None and got_164.name == "song",
+          f"got {got_164.name if got_164 else None!r}")
+
+    for n, want in ((200, "song"), (400, "song"), (37, "section"),
                     (126, "sonnet")):
         got, exact = declaration_for(n)
         check(f"...and at {n} tokens it is `{want}`, EXACT",
@@ -1068,10 +1099,19 @@ def test_the_length_gate_is_a_gate():
                   if all(FL.declaration_for(k)))
     none_n = sum(1 for k in range(1, 700)
                  if FL.declaration_for(k)[0] is None)
+    # REPINNED 2026-08-26 with the song band (MISSING.md M-131). The
+    # flaggable share falls ~~39.9%~~ -> 32.8% because the song profile's
+    # MEASURED range narrowed 150-400 -> 200-400, and only a measured range
+    # can flag. The no-profile share is UNMOVED at 30.3%, and that is the
+    # check on the direction: the profile's tolerance BAND (160-500 against
+    # 120-500) still reaches almost everything it used to, so nothing fell
+    # out of coverage entirely -- 50 tokens' worth of lengths moved from
+    # "can reject" to "can only note", which is exactly the cost the
+    # re-adoption priced and nothing more.
     check("AND THE SIZE OF THE HOLE IS MEASURED, not asserted: over 1-699 "
-          "tokens the floor can FLAG at 39.9% of lengths and reaches no "
+          "tokens the floor can FLAG at 32.8% of lengths and reaches no "
           "profile at all at 30.3%, with everything between downgraded",
-          abs(exact_n / 699 - 0.399) < 0.01
+          abs(exact_n / 699 - 0.328) < 0.01
           and abs(none_n / 699 - 0.303) < 0.01,
           f"flaggable {exact_n / 699:.1%}, no profile {none_n / 699:.1%}")
 

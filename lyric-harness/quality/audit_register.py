@@ -2205,7 +2205,30 @@ PINNED = {
     # second defect one function away from the first), then M-104 (`verify`
     # was refused on `revise`'s measurement — one verb's number doing duty
     # for two, and they are a factor of three apart).
-    "coverage_entries": 185,
+    # ~~190~~ -> 191: M-133, the SECOND cost of M-131's band re-adoption —
+    # the suite the re-adoption sitting did not ask about. A band that
+    # `plan.song_line_counts()` READS moves the planner's length envelope
+    # and therefore its dice, so a repin of `test_floor.py` alone was
+    # never the whole reconciliation.
+    # ~~191~~ -> 192: M-134, M-129's own repair one phase short — the
+    # kill-bound disclosure could not fire in the phase that gets killed.
+    # ~~192~~ -> 193: M-135, the comparator audit — doctrine 56
+    # honoured in `relations.py` and recorded-but-unapplied in
+    # `best_score`, measured at 75.8% of the search's lift
+    # reproduced by a null under the same search.
+    # 193 holds: M-135's gate is an amendment to M-135, not a
+    # new entry -- the instrument closes the measurement the
+    # entry already opened.
+    # ~~193~~ -> 195: M-136 (identity-is-not-rhyme rides an optional
+    # argument) and M-137 (M-135's dead coordinate has siblings, and two
+    # are deader), both from the comparator audit.
+    # ~~195~~ -> 196: M-138, the widened door made theta_rhyme the sole
+    # gate on two relations it was never priced on -- and both instruments
+    # pointed at that door still spell the pre-widening one.
+    # ~~196~~ -> 197: M-139, the door moved TWICE (M-59's four relations,
+    # M-116's 77 schemas) and 17 of 19 pair-satisfaction sites moved
+    # neither time. `quality/door_census.py` is the census and the gate.
+    "coverage_entries": 200,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

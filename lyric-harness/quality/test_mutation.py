@@ -441,13 +441,25 @@ def test_the_shards_partition_the_list():
           f"exactly the {len(names)} declared mutation(s), each once — the "
           f"stride is swept, not spot-checked, so no N can be the one that "
           f"drops a member", True, f"N=1..{len(names)}")
-    # AND THE SLICES ARE BALANCED, which is what makes a bound predictable:
-    # round-robin differs by at most one, contiguous chunking does not.
+    # AND THE SLICES ARE BALANCED BY COUNT, which is what makes the stride
+    # worth preferring over contiguous chunking.
+    #
+    # ~~so a per-shard time bound means the same thing on every shard~~ —
+    # STRUCK 2026-08-26, REFUTED BY CI. Equal COUNTS are not equal TIME, and
+    # the two shards of the nightly's own N=2 measured **171m41s (shard 2/2,
+    # run #909, exit 0)** against **>200m (shard 1/2, run #966, killed at the
+    # bound)** on lists differing by at most one member. A mutation's cost is
+    # the cost of the SUITES its detectors live in, and those run from
+    # milliseconds to minutes, so the stride balances the cheap coordinate and
+    # says nothing about the expensive one. The count claim is still worth
+    # pinning; what is gone is the sentence that read a time guarantee off it.
     n = 4
     sizes = [len(names[i - 1::n]) for i in range(1, n + 1)]
-    check(f"the round-robin stride balances: at N={n} the slice sizes are "
-          f"{sizes}, max-min <= 1, so a per-shard time bound means the same "
-          f"thing on every shard", max(sizes) - min(sizes) <= 1, str(sizes))
+    check(f"the round-robin stride balances BY COUNT: at N={n} the slice "
+          f"sizes are {sizes}, max-min <= 1 — a claim about how many "
+          f"mutations a shard asks, NOT about how long it takes (measured "
+          f"171m41s against >200m on two equal-count shards)",
+          max(sizes) - min(sizes) <= 1, str(sizes))
 
 
 def test_the_bounds_are_declared_and_reachable():
@@ -566,16 +578,54 @@ def run_suite(mode, only, jobs, mutation_jobs, confirm_all, timeout=420):
     tests = mutate.discover_tests()
     t0 = time.time()
     before = mutate.root_hashes()
+    # THE BASELINE IS A PHASE AND IT IS BOUNDED TOO — ADDED 2026-08-26 AFTER
+    # THE FIRST VERSION OF THIS DISCLOSURE MISSED THE CASE IT WAS WRITTEN FOR.
+    # The `k of n` line below sits inside `as_completed`, so it says nothing
+    # until the FIRST MUTATION RESOLVES. A kill that lands in the unmutated
+    # baseline therefore produced a log with no bound at all — which is the
+    # exact archaeology this disclosure exists to end, surviving in the one
+    # phase nobody checked. MEASURED, not hypothesised: a local run killed at
+    # 1500s cleared the static sections (98 checks) and died with its last
+    # line `baseline: running 77 checks unmutated (...)`, carrying no elapsed
+    # figure and no phase count.
+    # So the phase ANNOUNCES ITSELF and then reports its own cost. Two lines,
+    # both flushed: a truncated log now names WHICH PHASE it died in, and a
+    # completed baseline hands the next person the baseline's share of the
+    # shard budget, which is what sizing N actually turns on.
+    print(f"   ... phase 1 of 2: unmutated baseline over {len(tests)} test "
+          f"file(s), 0 of {len(muts)} mutation(s) started", flush=True)
     bl = mutate.baseline(tests, jobs, os.path.join(base, "baseline.json"),
                          confirm_all=confirm_all, timeout=timeout)
+    print(f"   ... phase 1 of 2 done ({time.time() - t0:.0f}s elapsed); "
+          f"phase 2 is {len(muts)} mutation(s)", flush=True)
     green = [t for t, r in bl.items() if r["status"] == "PASS"]
     results = []
     import concurrent.futures as futures
     with futures.ThreadPoolExecutor(max_workers=mutation_jobs) as ex:
         fs = {ex.submit(mutate.run_mutation, m, green, jobs, mode, base,
                         confirm_all, timeout): m for m in muts}
+        # A PROGRESS LINE, FLUSHED, SO A KILLED RUN STILL BOUNDS ITSELF.
+        # `timeout Nm` leaves no verdict and no wall clock — the sweep banks
+        # nothing, correctly (doctrine 20), but until 2026-08-26 it also SAID
+        # nothing about how far it got, so the only way to learn that shard
+        # 1/2 needed more than 200m was to read a sibling shard's runtime out
+        # of a different CI run and subtract. Reconstructing a shard's size
+        # from another shard's log is the archaeology this line ends.
+        # ~~a truncated log now carries `k of n` and the elapsed seconds at
+        # the kill~~ — STRUCK THE SAME DAY IT WAS WRITTEN, because it was
+        # true of this LOOP and false of the RUN. This line cannot fire until
+        # the first mutation RESOLVES, and the unmutated baseline runs first
+        # and is the expensive phase: a local run killed at 1500s never
+        # reached here at all, so the log it left carried no bound and the
+        # sentence above described a disclosure the run had not made. The
+        # baseline announces itself and reports its cost up in `run_suite`
+        # now; between the two, every kill lands inside a phase that has
+        # already named itself. The claim this comment may make is about the
+        # MUTATION phase only.
         for f in futures.as_completed(fs):
             results.append(f.result())
+            print(f"   ... {len(results)} of {len(muts)} mutation(s) resolved "
+                  f"({time.time() - t0:.0f}s elapsed)", flush=True)
     order = {m.name: i for i, m in enumerate(muts)}
     results.sort(key=lambda r: order[r["name"]])
     elapsed = time.time() - t0

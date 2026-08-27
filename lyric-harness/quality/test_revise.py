@@ -543,11 +543,38 @@ def test_an_overlapping_cover_is_gradeable():
     check("the brief tells the pivot it must answer EVERY group",
           len(b.must_answer) == 2,
           "; ".join(f"{lab} {mem}" for lab, mem, _ in b.must_answer))
-    check("and says so when the conjunction is unsatisfiable",
-          b.joint_conflict,
-          "no word in the lexicon rhymes with both 'fire' and 'go' — a "
-          "sentence no letter scheme can form, because it cannot put a line "
-          "in two classes to begin with")
+    # ~~"and says so when the conjunction is unsatisfiable" / `b.joint_conflict`
+    # / "no word in the lexicon rhymes with both 'fire' and 'go'"~~ — STRUCK
+    # 2026-08-26 (`MISSING.md` M-139), and the strike is the finding.
+    #
+    # THAT PREMISE WAS NEVER A FACT ABOUT THE LEXICON. It was a fact about the
+    # pre-M-59 two-name door, which `_field_one` was still spelling four days
+    # after the verdict stopped using it. MEASURED once the field asks
+    # `decl.admit`: `joint_field(['fire','go'])` returns **14 offered, 6
+    # forbidden** where it returned 0 and 0, and every one of the twenty
+    # answers `go` at **CONSONANCE 0.850** — a tenth of a point ABOVE
+    # `theta_rhyme` — while answering `fire` at RHYME 0.910 or RIME_RICHE
+    # 1.000. So the loop had been telling writers to revise their MANDATE
+    # over a conjunction the grader would have accepted.
+    #
+    # THE FIELD IS WIDER, NOT UNIFORMLY BETTER, and saying so is the honest
+    # half: `lower`, `slower`, `mower` are words a writer can use;
+    # `balboa`, `figueroa`, `quinoa`, `ochoa` are proper nouns and loanwords
+    # riding the same CONSONANCE cut. That is a question about what the
+    # near relations should COST (`MISSING.md` M-138's open ruling), not a
+    # reason to keep a door the verdict abandoned.
+    #
+    # The claim is repointed rather than deleted: what this section is about
+    # is that the brief can SAY the conjunction is unsatisfiable, and the
+    # honest pin today is that on this fixture it is SATISFIABLE and the
+    # brief offers the answer. `joint_conflict`'s own mechanism is pinned
+    # where it can still fire — §19, on a constructed pair.
+    check("...and the conjunction is SATISFIABLE at the grader's own door, "
+          "which is what the pre-M-139 field could not see",
+          not b.joint_conflict and len(b.candidates) > 0,
+          f"{len(b.candidates)} offered, {len(b.forbidden_modal)} forbidden "
+          f"for a pivot answering 'fire' and 'go' — 0 and 0 under the "
+          f"two-name door this field spelled until 2026-08-26")
     # verify() has to take the same object brief() took, or the loop is only
     # half converted and a caller has to keep a letter string around anyway.
     ok = SC.mandate(SC.mandate(SC.Cover(n_lines=4, groups=[[1, 3], [2, 4]]),
@@ -919,8 +946,17 @@ def test_the_field_is_the_graders_own_field():
             for c in calls:
                 ax, wa = R._word_anchors(c)
                 ay, wb = R._word_anchors(w)
+                # `R.decl.admit`, NOT the omitted default — REPAIRED
+                # 2026-08-26 (`MISSING.md` M-139). This section is NAMED
+                # "the brief and the verdict ask the same question" and it
+                # asked the verdict's question at the PRE-M-59 door, so it
+                # was ASSERTING THE DEFECT: the field was correct only while
+                # it stayed two-name, and a repair that widened it to the
+                # grader's own door turned this check RED. Fourth instance
+                # of the shape M-59 recorded in `test_homeoteleuton.py` §5.
                 if not admits(best_score(ax, ay, R.decl, wa, wb),
-                              R.decl.theta_rhyme):
+                              R.decl.theta_rhyme,
+                              relations=frozenset(R.decl.admit)):
                     bad.append((b.line_no, c, w))
                     break
     check("no offered candidate is one the grader would reject",
@@ -1010,8 +1046,14 @@ def test_no_joint_candidate_was_a_coordinate_of_a_literal():
         for c in calls:
             ax, wa = R._word_anchors(c)
             ay, wb = R._word_anchors(w)
+            # `R.decl.admit` — THIRD INSTANCE OF THE SAME DEFECT IN THIS FILE
+            # (`MISSING.md` M-139), after §12's premise and §18's invariant.
+            # A check that verifies the field against a door the verdict
+            # abandoned on 2026-08-22 passes exactly while the field is
+            # broken, which is what all three were doing.
             if not admits(best_score(ax, ay, R.decl, wa, wb),
-                          R.decl.theta_rhyme):
+                          R.decl.theta_rhyme,
+                          relations=frozenset(R.decl.admit)):
                 FAILURES.append("joint field member fails the grader")
                 break
     check("every one of them passes the grader against every call",
@@ -1312,15 +1354,31 @@ def test_why_a_collision_earns_no_field():
     for w in ("does", "ear", "will", "floor"):
         f = R._field_one(w)
         rows.append((w, len(f), n - len(f)))
-    worst = min(r[2] / n for r in rows)
+    # ~~`worst > 0.95`~~ -- STRUCK 2026-08-26 (`MISSING.md` M-139). 0.95 was
+    # a SHARE, and a share of the lexicon is a coordinate of the door: the
+    # repaired `_field_one` roughly tripled every rhyme field, so the
+    # complement fell to 91.41% at its worst (`will`) and a threshold nobody
+    # had derived went red on a change that did not touch this argument.
+    #
+    # THE ARGUMENT IS ABOUT RENDERABILITY, SO THE BOUND IS THE OFFER. This
+    # section's claim is that the complement of a rhyme field cannot be
+    # HANDED TO A WRITER -- and what a writer is handed is
+    # `ReviseDeclaration.offered`, a declared coordinate. Stated as a
+    # multiple of it the bound is derived rather than guessed, it cannot go
+    # stale when the door moves again, and it says what it means: even the
+    # smallest complement here is over a thousand menus deep.
+    worst_n = min(r[2] for r in rows)
+    menus = worst_n / R.rdecl.offered
     check("a collision's constraint is NEGATIVE, and its satisfying set is "
-          "the dictionary",
-          worst > 0.95,
+          "the dictionary -- orders of magnitude past anything offerable",
+          menus >= 100,
           "; ".join(f"{w}: rhyme field {a}, NOT-rhyme {b} "
                     f"({100.0 * b / n:.2f}% of {n})" for w, a, b in rows)
-          + ". `joint_field` intersects POSITIVE calls and gets a set a "
-            "writer can read; the complement of one is a copy of the "
-            "lexicon, so there is no field to hand over")
+          + f". The smallest complement is {worst_n} words = {menus:.0f}x "
+            f"`offered`={R.rdecl.offered}, the size of a field a writer is "
+            f"actually handed. `joint_field` intersects POSITIVE calls and "
+            f"gets a set a writer can read; the complement of one is a copy "
+            f"of the lexicon, so there is no field to hand over")
     top = sorted(R.lex.freq_rank, key=lambda w: R.lex.freq_rank[w])[:6]
     check("and doctrine 9's mechanism on top of it forbids the six commonest "
           "words in English",
@@ -1363,6 +1421,7 @@ def test_the_modal_set_against_a_declared_reference():
             else None
 
     seen, tot, ident = set(), 0, 0
+    off_tot, off_ident = 0, 0
     for b in R.brief(lines, m):
         calls = tuple(dict.fromkeys(
             w for _, _, cl in b.must_answer for _, w in cl if w))
@@ -1380,6 +1439,12 @@ def test_the_modal_set_against_a_declared_reference():
             tot += 1
             if all(tail(c) is not None and tail(c) == tail(w) for c in calls):
                 ident += 1
+        # THE OFFERED HALF, ADDED 2026-08-26 (`MISSING.md` M-139) so the
+        # claim below can be a CONTRAST rather than a share. See there.
+        for w in b.candidates:
+            off_tot += 1
+            if all(tail(c) is not None and tail(c) == tail(w) for c in calls):
+                off_ident += 1
     check("the modal set is real: it is the head of the grader's own field",
           tot >= 40, f"{tot} forbidden words over {len(seen)} distinct fields")
     # WIRED 2026-08-11: the ranking is now primarily the call-conditional
@@ -1394,22 +1459,47 @@ def test_the_modal_set_against_a_declared_reference():
     # freq_rank for unobserved candidates keeps some non-identity words in
     # the forbidden set), so the bar here is the OLD threshold's mirror
     # image rather than a claim of near-total identity.
-    check("and now AT LEAST A QUARTER of it is a strict-identity rhyme, up "
-          "from the old mechanism's under-a-quarter",
-          ident * 4 >= tot,
-          f"{ident}/{tot} ({100.0 * ident / tot:.1f}%) of the words "
-          f"doctrine 9 names as the slop direction agree with their call on "
-          f"the tail-aligned nucleus AND coda by strict identity. The "
+    # ~~"and now AT LEAST A QUARTER of it is a strict-identity rhyme" /
+    # `ident * 4 >= tot`~~ -- STRUCK 2026-08-26 (`MISSING.md` M-139), and it
+    # is REPLACED BY A CONTRAST rather than retuned, because the quarter was
+    # a coordinate of the DOOR and nobody had written that down.
+    #
+    # WHAT MOVED AND WHY, measured: repairing `_field_one` to ask
+    # `decl.admit` took this share from over a quarter to **9.5%**
+    # (126/1323), and the mechanism is not a regression. A wider door admits
+    # more phonetically-SLANT words that share a call's spelled ending --
+    # exactly the homoeoteleuton class tier 1 bans at any rank -- so the
+    # forbidden set grows by material that is same-SPELLING and
+    # different-SOUND, which is non-identity by construction. The ban got
+    # better at its own target and the identity share fell for that reason.
+    #
+    # SO AN ABSOLUTE SHARE WAS NEVER THE CLAIM. What this section exists to
+    # prove is that doctrine 9's exclusion points at the RHYME a writer
+    # reaches for rather than merely at common words, and that is a
+    # statement ABOUT THE BAN RELATIVE TO THE MENU: the words it FORBIDS
+    # must be denser in strict identity than the words it still OFFERS. That
+    # is checkable with no number in it (the owner's standing rule -- "we do
+    # not want hard numbers anywhere"), it cannot go stale when the door
+    # moves again, and it is strictly harder to satisfy by accident than a
+    # one-sided fraction.
+    check("the ban is denser in strict identity than the menu it leaves -- "
+          "doctrine 9 pointed at the rhyme, not at common words",
+          off_tot > 0 and tot > 0
+          and (ident / tot) > (off_ident / off_tot),
+          f"FORBIDDEN {ident}/{tot} ({100.0 * ident / tot:.1f}%) against "
+          f"OFFERED {off_ident}/{off_tot} "
+          f"({100.0 * off_ident / off_tot:.1f}%) agreeing with their call "
+          f"on the tail-aligned nucleus AND coda by strict identity. The "
           f"reference is declared as a REFERENCE, not as truth (doctrine "
-          f"94) -- the band exists to admit slant rhyme, and the fraction "
-          f"is not 100% because the conditional table is sparse and falls "
-          f"back to freq_rank for candidates it has no data on. What the "
-          f"residual non-identity share prices, unchanged from before: on "
-          f"group H six forbidden words include will/their/there/here/year/"
-          f"email against 'ear' when the conditional has no data for it, "
-          f"because cluster_sim(['R'],['L']) = 0.9875, so the conjunctive "
-          f"coda rule cannot separate a lateral coda from a rhotic one, and "
-          f"no value of theta_coda reaches it. Not this cell's file to fix")
+          f"94) -- the band exists to admit slant rhyme, so neither share "
+          f"should be 100% and the CONTRAST is what carries the claim. What "
+          f"the residual non-identity share prices, unchanged from before: "
+          f"on group H six forbidden words include will/their/there/here/"
+          f"year/email against 'ear' when the conditional has no data for "
+          f"it, because cluster_sim(['R'],['L']) = 0.9875, so the "
+          f"conjunctive coda rule cannot separate a lateral coda from a "
+          f"rhotic one, and no value of theta_coda reaches it. Not this "
+          f"cell's file to fix")
 
 
 def test_meter_folds_into_the_same_finding_set():

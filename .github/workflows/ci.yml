@@ -1688,7 +1688,7 @@ jobs:
       # caught `nc_census` on the run that added it — and `structures` on
       # the run that added THAT. `comm -23 <(ls quality/test_*.py | sed 's|quality/test_||;s|\.py$||'
       # | sort) <(the names in this file, sorted)` is that command.
-      - name: "The 71 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate and recover the same day with the second door into the pipeline, each added in the same commit as the module it gates so neither joins the census below; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census 2026-08-23 with the census of which findings can refuse anything, added in the same commit as the module it gates — and the instrument's own first run is why it is here rather than a sitting later: it named two constructors, measured 46 codes, and omitted `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated; songs 2026-08-24 — the DELIVERED songs, which until that day nothing in this repository read at all: zero checks under quality/, zero mentions here, and two of the five had shipped with their section structure missing while every gate in the tree stayed green; render_form the same day — the check that reads a MESSAGE, which no other gate can, plus the Stop hook that hands it the transcript and BLOCKS a turn carrying a section bracket with its apparatus stripped; songs_record the same day — the SERIES, because every report about these songs had been a PASS/FAIL bit read aloud as a judgement, and its claim check is the one gate in this tree aimed at the narrator rather than the code; songs_log the same day — the PROCESS beside the product, because the series banks what a song IS and nothing banked how it got there, and the zero-ceiling rhyme families were a markdown table no command could re-derive; sentencehood 2026-08-25 with the M-110 noun-stack layer — the nightly gained `sentencehood.py --check` in the same commit as the module and its SUITE joined nothing, the census's own defect one more time, caught by the census; narrative 2026-08-25 — the paired blind experiment's own suite, written across the M-121 narrative-layer sittings and never added here, and the census's finding was MASKED for a day: the orphan check is test_verbs §24, shard 1 died at §20's M-116 breakage two sections in front of it, so a crash in one section hid an orphan in another — the fix that cleared the crash is what let the census speak)"
+      - name: "The 73 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate and recover the same day with the second door into the pipeline, each added in the same commit as the module it gates so neither joins the census below; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census 2026-08-23 with the census of which findings can refuse anything, added in the same commit as the module it gates — and the instrument's own first run is why it is here rather than a sitting later: it named two constructors, measured 46 codes, and omitted `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated; songs 2026-08-24 — the DELIVERED songs, which until that day nothing in this repository read at all: zero checks under quality/, zero mentions here, and two of the five had shipped with their section structure missing while every gate in the tree stayed green; render_form the same day — the check that reads a MESSAGE, which no other gate can, plus the Stop hook that hands it the transcript and BLOCKS a turn carrying a section bracket with its apparatus stripped; songs_record the same day — the SERIES, because every report about these songs had been a PASS/FAIL bit read aloud as a judgement, and its claim check is the one gate in this tree aimed at the narrator rather than the code; songs_log the same day — the PROCESS beside the product, because the series banks what a song IS and nothing banked how it got there, and the zero-ceiling rhyme families were a markdown table no command could re-derive; sentencehood 2026-08-25 with the M-110 noun-stack layer — the nightly gained `sentencehood.py --check` in the same commit as the module and its SUITE joined nothing, the census's own defect one more time, caught by the census; narrative 2026-08-25 — the paired blind experiment's own suite, written across the M-121 narrative-layer sittings and never added here, and the census's finding was MASKED for a day: the orphan check is test_verbs §24, shard 1 died at §20's M-116 breakage two sections in front of it, so a crash in one section hid an orphan in another — the fix that cleared the crash is what let the census speak; door_census 2026-08-26 with the M-139 census of which DOOR each pair-satisfaction site judges at, added in the same commit as the module it gates -- and this label went from 71 to 72 with it, which `test_verbs.py` §43's own check is what caught: the label a reader trusts must equal the list it labels, and a suite added without moving the number is a list that is short looking exactly like a list that is complete; chance_rate 2026-08-26 with M-138's strike and M-140 -- the chance-rate measurement had by then been improvised TWICE from uncommitted scripts, which standing rule 3 calls a defect report, and its suite is here in the same commit as the module so it never joins the orphan census above)"
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1713,6 +1713,7 @@ jobs:
                    corpus_taxonomy data_row_claims declared_inputs english_text \
                    expected_drift \
                    pin_sweep suite_sweep \
+                   door_census chance_rate \
                    fit floor fwer g2p gate_census grid placement section_marks \
                    homeoteleuton homograph ipa ltc mandate_language \
                    mandate_relation \
@@ -1834,6 +1835,80 @@ jobs:
           MKL_NUM_THREADS: '1'
           OPENBLAS_NUM_THREADS: '1'
         run: python3 quality/meter_bands.py --check
+
+      # THE COMPARATOR'S SPAN SEARCH AGAINST A NULL UNDER THE SAME SEARCH.
+      # `best_score` records `search_k` under a comment calling it "the
+      # precondition for a null under the same search" (doctrine 56) and,
+      # until 2026-08-26, nothing consumed it -- the only other reader was a
+      # print. `relations.py` honours the same doctrine one screen away, via
+      # `search_burden()` + `relations_null.py`. This is that null for the
+      # OTHER search (`MISSING.md` M-135).
+      #
+      # The gate is ONE SENTENCE: `theta_rhyme` must sit above the measured
+      # crossover, because BELOW it the span search lifts a permutation null
+      # MORE than it lifts real verse -- the band gets loosened by a mechanism
+      # no coordinate declares. The margin today is +0.03, which is why this
+      # runs rather than sitting in a document.
+      #
+      # COST, MEASURED before it was added rather than discovered by a
+      # timeout: **3s** single-threaded (1,108 sonnet pairs scored once, then
+      # 10 permutation replicates, swept over 7 thetas off the stored totals
+      # so the sweep costs no extra scoring). It is a rounding error against
+      # this job's budget -- which is stated here because M-129's whole
+      # subject was a shard whose cost nobody had written down.
+      - name: Span-search null, the shipped band against the measured crossover
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/search_null.py --check
+
+      # WHICH DOOR EACH SITE JUDGES A PAIR AT (`MISSING.md` M-139, owner's
+      # ruling 2026-08-26: *"go find everywhere it still has the incorrect 4
+      # and make sure all 77 are there ... 4 is poisonous as fuck"*).
+      #
+      # The default door moved TWICE and in two different coordinates -- M-59
+      # widened `Declaration.admit` to four relations, M-116 put ALL 77
+      # SCHEMAS in the default -- and a site that moved with neither looks
+      # exactly like a site that never needed to. The census's first run
+      # measured **2 of 19 sites reaching the complete default**; two were
+      # repaired in the same sitting and it stands at 3.
+      #
+      # THIS IS THE STEP THAT STOPS THE REDISCOVERY. An unruled site FAILS,
+      # so a new `admits()` call written at the narrow door is a red check
+      # rather than something a later audit finds by hand -- and a FULL
+      # ruling is checked against the code, so a site cannot be talked into
+      # compliance by editing its own row.
+      #
+      # COST, MEASURED before it was added: **1.9s**, pure AST, no corpus and
+      # no scoring.
+      - name: Door census, every pair-satisfaction site against the 77
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/door_census.py --check
+
+      # THE CHANCE RATE OF THE SHIPPED DOOR (`MISSING.md` M-138's strike and
+      # M-140). This repository's oldest comparator argument is the one that
+      # recalibrated `theta_coda`: the harness was likelier to call two random
+      # dictionary words a rhyme than to fail one of Shakespeare's mandated
+      # pairs. Nothing has re-asked it since the door moved TWICE, and M-138's
+      # own figures came from an uncommitted script and do not reproduce --
+      # the sampler's POPULATION and READER were never declared, so two later
+      # re-derivations disagreed with the entry and with each other. This
+      # gates the band (`admit 289..339`, `narrow 36..46`, `schema 897..932`)
+      # over a declared 2x2 grid, and asserts that its shipped cell's draw
+      # still reproduces `redteam_band.sample_pairs` pair for pair, so the two
+      # instruments cannot drift apart again (doctrine 1).
+      #
+      # COST, MEASURED before it was added: **45s** -- four cells of 4,000
+      # pairs, each judged at three doors. It is here rather than in the
+      # cheap-suite pool for exactly that reason.
+      - name: Chance rate, the shipped door against random pairs
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/chance_rate.py --check
 
       # The revision loop itself. 374.87 CPU-s for the pair, MEASURED, both
       # green -- against the "15+ minutes each" that kept them out until today.
@@ -1975,8 +2050,13 @@ jobs:
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'schedule' && github.event.schedule == '17 4 * * *')
     runs-on: ubuntu-latest
-    # 2 h 07 m measured + headroom, and the STEP bound below is what actually
-    # fires: this exists so a hung fork cannot hold a runner for six hours.
+    # ~~2 h 07 m measured + headroom~~ — REPINNED 2026-08-26: the last
+    # shard to FINISH took 171m41s (shard 2/2, run #909) and its sibling was
+    # killed at the 200m step bound, so 2h07m described a sweep two sizes
+    # ago. At N=4 the expected shard is roughly half of either, and this cap
+    # is left at 240 on its own stated argument — the STEP bound below is
+    # what actually fires, and this exists so a hung fork cannot hold a
+    # runner for six hours.
     timeout-minutes: 240
     steps:
       - uses: actions/checkout@v5
@@ -2013,7 +2093,32 @@ jobs:
           # `10#` FORCES BASE TEN. `date +%j` is zero-padded, so day 008 and
           # day 009 are invalid octal and abort the arithmetic — a bug that
           # would wait until January to fire and then look like a shard defect.
-          N=2
+          # N=4 SINCE 2026-08-26, RAISED FROM 2 ON THE MEASUREMENT THE
+          # REFUSAL BELOW ASKED FOR — "measure first, the wall clock this
+          # file prints is the number":
+          #   shard 2/2  run #909, 2026-08-25  04:53:47 -> 07:45:28  171m41s, exit 0
+          #   shard 1/2  run #966, 2026-08-26  04:55:40 -> 08:15:40  killed at 200m
+          # so the whole sweep is >372m and one half of it no longer fits.
+          # THE TWO SHARDS ARE BALANCED BY COUNT AND NOT BY TIME — that is
+          # the finding, and `test_mutation.py` §3e carried the opposite
+          # claim ("a per-shard time bound means the same thing on every
+          # shard") until this lot struck it. A mutation costs what its
+          # detectors' SUITES cost, and those run from milliseconds to
+          # minutes.
+          # RAISING N AND NOT THE BOUND, deliberately. The other lever
+          # (raise 200m and the job cap together) buys one night and pays it
+          # again the next time the suite grows, and the runner is ALREADY
+          # saturated — `--mutation-jobs 2` x `--jobs 4` on 4 vCPUs — so
+          # widening parallelism instead would oversubscribe into the inner
+          # per-suite `--timeout 420`, and a suite killed inside a mutation
+          # reports SURVIVED. That is a coverage hole manufactured by a
+          # scheduling change, which is the one outcome worse than a slow
+          # sweep.
+          # THE COST IS CADENCE AND IS NOT HIDDEN: 58 mutations at N=4 is
+          # ~14-15 a night, and each is asked every FOURTH night rather than
+          # every second. The stride is round-robin, so N=4 splits each old
+          # half in two and the heavy half's mass splits with it.
+          N=4
           I=$(( (10#$(date -u +%j) % N) + 1 ))
           echo "day-of-year $(date -u +%j) -> shard $I of $N"
           set +e
@@ -2216,6 +2321,45 @@ jobs:
         if: always()
         working-directory: lyric-harness
         run: python3 quality/kalevala_calibration.py --check
+
+      # THE STRUCTURE CENSUS, RE-DERIVED (`MISSING.md` M-141). Its sibling
+      # above has had a --check since the week both were written and the
+      # census never got one -- so when `d1_diagnostic()`'s population grew
+      # 84.2% under it, the figure drifted for eight days while
+      # `test_structure_census.py` ran 100% green beside it. That suite pins
+      # the INSTRUMENT and reads no figure out of the results document, which
+      # is exactly the gap doctrine 48 names.
+      #
+      # TWO ARMS WITH DIFFERENT LIFETIMES, never summed: the ARTIFACT arm
+      # re-derives from the committed table and is true forever; the D1 arm
+      # re-derives from the LIVE TREE and is true only of a declared corpus
+      # state. Exits 3 on drift -- a moved figure is an ANSWER, not a refusal.
+      #
+      # COST, MEASURED before it was added: **17.8s**, of which the artifact
+      # arm is 0.26s.
+      - name: The structure census, every recorded figure re-derived
+        working-directory: lyric-harness
+        run: python3 quality/structure_census.py --check
+
+      # DOES THE 77-SCHEMA DOOR FIND ANYTHING? (`MISSING.md` M-140.) The two
+      # populations give OPPOSITE answers and neither may be read as the
+      # other: over ALL 91 line pairs the observation sits BELOW its own
+      # matched redeal (69.05% against a null median of 71.02%, p 0.90), so
+      # the "the door answers on three line pairs in four" headline is at
+      # chance; over the 7 pairs the POET DECLARED it is 96.43% against a null
+      # whose best of twenty draws is 83.93% -- clear of the MAXIMUM.
+      #
+      # The VERDICTS are pinned as well as the numbers, because a tree where
+      # both arms moved to the same side would hold every figure and mean
+      # something else entirely.
+      #
+      # GATED BECAUSE THE UNGATED VERSION IS THE DEFECT THIS SITTING SPENT
+      # ITSELF ON: M-138's figures came from an uncommitted script and did not
+      # reproduce. Recording these and gating them with nothing would be the
+      # same lesson unlearned. ~15 minutes, which is why it is nightly.
+      - name: The 77-schema door against its matched redeal
+        working-directory: lyric-harness
+        run: python3 quality/chance_rate.py --null --check
 
       - name: Sentencehood calibration check (M-110 — ceiling + the six banked witnesses)
         if: always()
