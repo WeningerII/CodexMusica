@@ -13971,7 +13971,7 @@ with this entry (doctrine 17, the superseded value kept visible): the
 register grew by one because M-145 is one more entry, which is what that
 counter counts.
 
-### M-146 · the round trip pinned the miscount M-144 repaired `CLOSED (a fixture half OPEN)`
+### M-146 · the round trip pinned the miscount M-144 repaired `CLOSED` — the fixture half is a separate finding and stays open
 Found 2026-08-27 by CI going red on `quality/test_plan.py` one commit after
 M-144 shipped, and it is **my own defect from the previous sitting**: the fix
 was measured, mutation-tested and committed without running the suite that
@@ -14111,3 +14111,8 @@ The others cache DERIVED, cheap-to-rebuild things (Playwright browsers,
 CMUdict) where losing a save costs a download, not a night's work — so they
 are left alone deliberately rather than overlooked. The predictability memo is
 the only cache in the file whose contents are the OUTPUT of the step it feeds.
+
+`audit_register.PINNED["coverage_entries"]` is repinned **~~202~~ -> ~~203~~ ->
+205** across this sitting (doctrine 17, every superseded value kept visible):
+202 -> 203 with M-145, then 203 -> 205 with M-146 and M-147, because that
+counter counts register entries and this sitting wrote three.
