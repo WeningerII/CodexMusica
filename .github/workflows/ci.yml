@@ -2361,6 +2361,20 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/chance_rate.py --null --check
 
+      # EVERY BANKED VERDICT, RE-DERIVED AGAINST THIS TREE (`MISSING.md`
+      # M-144). `song_log.py --verdicts` already charges the narrator's prose
+      # against a BANKED ROW — did the narrator report what the verb SAID —
+      # and that is the right question and not this one. Nothing re-derived a
+      # banked VERDICT against the current tree: `song_record.py --check` does
+      # exactly that for FEATURES and there was no verdict equivalent, which
+      # is how a 13.5% miscount sat inside a headline triple with every gate
+      # green. Exits 3 on a fresh move; a KNOWN move is adopted in
+      # `REGRADE_MOVED` with its cause, never by editing the banked prose,
+      # which `--verdicts` reads as history (doctrine 17).
+      - name: Every banked song verdict, re-derived
+        working-directory: lyric-harness
+        run: python3 quality/regrade_verdicts.py
+
       - name: Sentencehood calibration check (M-110 — ceiling + the six banked witnesses)
         if: always()
         working-directory: lyric-harness

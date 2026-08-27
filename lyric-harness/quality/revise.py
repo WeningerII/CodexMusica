@@ -1072,6 +1072,66 @@ class Reviser:
             r["groups"] = [m.labels[k] for k in
                            sorted(set(m.groups_of(i)) & set(m.groups_of(j)))]
 
+        # AND A DECLARED SLOT THAT RESOLVES TO NO ANCHOR IS ALSO A REFUSAL,
+        # and it was counted as JUDGED until 2026-08-26 (`MISSING.md` M-144).
+        # `refusals_for_pairs` asks the readability record of the END WORD,
+        # which is the right question for a group binding at the default slot
+        # and THE WRONG WORD for one binding at `1.T5` — `slots.resolve`'s own
+        # comment says "the honest answer is NO ANCHOR, the same answer an
+        # unreadable end word already gets, and the readability layer already
+        # reports", and the readability layer does not report it here because
+        # it is looking somewhere else.
+        #
+        # MEASURED on `songs/crooked_waltz.txt` before the repair: 12 of its
+        # 45 binding sites resolve to NO ANCHOR (L1 `T5` is `by`, a function
+        # word the phonology cannot anchor), **22 of 47 mandated pairs touch
+        # one**, and the triple read `mandated 47, judged 47, refused 0`.
+        # `songs/README.md` records that line. A refusal in the JUDGED column
+        # is doctrine 79's own error, in a shipped headline count.
+        #
+        # KEYED PER (PAIR, GROUP), because a slot is a coordinate OF THE GROUP:
+        # the same two lines can bind at their ends in one group and at an
+        # unanchorable token in another, and those are different questions.
+        # Resolution is memoised per (group, line) so a group of nine costs
+        # nine resolves and not thirty-six.
+        if m.slots_declared():
+            _seen, _slot_ref = {}, []
+
+            def _anchorless(k, line):
+                key = (k, line)
+                if key not in _seen:
+                    slot = m.slot_of(k, line)
+                    if _SL.is_default(slot):
+                        _seen[key] = None
+                    else:
+                        anc, label, _ = _SL.resolve(self.lex,
+                                                    lines[line - 1], slot)
+                        _seen[key] = None if (anc and label) else slot
+                return _seen[key]
+
+            for i, j, k in pairs:
+                bad = [(ln, sl) for ln, sl in
+                       ((i, _anchorless(k, i)), (j, _anchorless(k, j))) if sl]
+                if not bad:
+                    continue
+                _slot_ref.append({
+                    "lines": (i, j),
+                    "endwords": (endwords[i - 1], endwords[j - 1]),
+                    "unreadable": [str(sl) for _, sl in bad],
+                    "slot_refusal": True,
+                    "groups": [m.labels[k]],
+                    "reason": (
+                        f"the declared slot resolves to NO ANCHOR on "
+                        f"{', '.join('L%d' % ln for ln, _ in bad)} — the "
+                        f"token that slot names is a word this phonology "
+                        f"cannot anchor, so the pair was never compared. "
+                        f"NOT a violation and NOT a pass (doctrine 20/79); "
+                        f"the end words are shown for orientation and are "
+                        f"NOT what this group asked about"),
+                })
+            refusals.extend(_slot_ref)
+            refused |= {r["lines"] for r in _slot_ref}
+
         # WHICH (LINE, GROUP) PAIRS WERE NEVER JUDGED. A refusal is not a
         # failure (doctrine 79) and it is not a pass either (doctrine 20), so
         # it is kept apart from `unanswered` below rather than folded into it:

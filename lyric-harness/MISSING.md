@@ -13767,7 +13767,7 @@ Controls on the patched tree: battery **1064 / 1014 / 50 / 12** unmoved,
 `door_census --check` PASS with every count unmoved, `test_propose` green
 INCLUDING its imports guard.
 
-### M-144 · a slot that resolves to no anchor is counted as JUDGED `OPEN`
+### M-144 · a slot that resolves to no anchor is counted as JUDGED `CLOSED`
 Found 2026-08-26 while measuring M-143, in the coordinate next door, and
 **recorded rather than fixed** because it is not that lane's subject.
 
@@ -13791,4 +13791,64 @@ does not report it here**, because it is looking at the wrong word. The
 three-count triple this repository quotes everywhere is wrong by 13.5% on the
 drafts that use the placement coordinate M-67 built.
 
-Attributed to a lane; not re-derived independently and marked so.
+~~Attributed to a lane; not re-derived independently and marked so.~~
+**RE-DERIVED AND CLOSED 2026-08-26.** Independently measured: `crooked_waltz`
+has **12 of its 45 binding sites resolving to NO ANCHOR** and **22 of its 47
+mandated pairs touch one**, with the grade triple reading `mandated 47, judged
+47, refused 0` — the lane's figure exactly.
+
+**THE REPAIR.** `Reviser.grade` now counts a declared slot that resolves to no
+anchor as a REFUSAL, keyed **per (pair, GROUP)** because a slot is a
+coordinate OF THE GROUP: the same two lines can bind at their ends in one
+group and at an unanchorable token in another, and those are different
+questions. Resolution is memoised per (group, line), so a group of nine costs
+nine resolves and not thirty-six. `crooked_waltz` now reads **47 / 25 / 22**
+and `the_frost_ledger` **71 / 36 / 35**.
+
+**THE BATTERY IS BYTE-IDENTICAL AT 1064 / 1014 / 50 / 12**, as it must be: the
+sonnet oracle is a LETTER scheme, `slots_declared()` is False, and the new
+branch is never entered. `test_revise`, `test_slots`, `test_recover`,
+`test_songs`, `test_door_census` all green.
+
+**AND THE REAL GAP WAS THAT NOTHING RE-DERIVED A BANKED VERDICT.**
+`song_log.py --verdicts` charges the narrator's prose against a BANKED ROW —
+*did the narrator report what the verb SAID* — and that is the right question
+and not this one. `song_record.py --check` re-derives FEATURES against the
+current tree and there was **no verdict equivalent**, which is how a 13.5%
+miscount sat inside a headline triple with every gate green.
+`quality/regrade_verdicts.py` is that arm: it re-derives every banked
+mandated/judged/refused triple in `songs/README.md` against THIS tree.
+**11 HOLDS, 0 MOVED, 0 CANNOT RUN** — three verdicts, never summed. Nightly.
+
+**AND IT IS ITS OWN MODULE BECAUSE THE FIRST DRAFT WAS AN ARM OF
+`song_log.py` AND TURNED THAT MODULE'S OWN GUARD RED.** `song_log.py` reaches
+every verdict through `subprocess` and **imports no grader at all** — asserted
+BY ABSENCE in `quality/test_songs_log.py` §5, which bans `Reviser`,
+`discriminate`, `floor` and `QualityFeatures` from its source, because a
+RECORD that grades has become a second grader. Adding a re-derivation there
+imported `Reviser` and the check said so. **That is the guard working**, and
+the arm moved out rather than the guard being widened.
+
+**TWO GATES, TWO QUESTIONS, AND THEY ARE NOT MADE TO FIGHT.** The banked prose
+is left exactly as written, because it is a true record of a run at its own
+commit and `--verdicts` reads it that way (doctrine 17); the two moved triples
+are adopted in `REGRADE_MOVED` **with their cause**, and a fresh move is exit
+3. Mutating one adopted triple by ONE pair takes it red, naming the song and
+both readings.
+
+**AND MY OWN INSTRUMENT WAS WRONG TWICE BEFORE IT WAS RIGHT, WHICH IS THE PART
+WORTH KEEPING.** Its first run reported **seven** moved triples. Five of those
+were its own defect: it read `--returns=` as ADDING groups, where
+`lyric_harness.py`'s `_mandate_arg` puts BOTH spellings into **one** cover with
+`returns=` naming which of its groups are the return classes — so
+`turn_the_wheel` came back 6 pairs against a banked 10 (6 rhyme groups + 4
+return groups) and the arm reported a drift **it had invented**. A
+re-derivation that restates the mandate is a second mandate (doctrine 1), and
+this is the exact defect class the sitting was built to close, reproduced
+inside the instrument built to check for it. Its second run then reported
+`wheat_mane.txt: the block states no triple` — also false, and also mine: the
+prose wraps after the second slash and the regex allowed a newline in only one
+of four gaps, so a song was skipped and the skip rendered as a DOCUMENT gap
+rather than as the parser's brittleness (doctrine 20). Both corrected before
+anything was recorded; the seven-moved and the one-cannot-run readings are
+**not** findings and are written here so nobody quotes them.
