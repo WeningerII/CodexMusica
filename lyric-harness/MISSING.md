@@ -13611,3 +13611,76 @@ nobody records is the same defect as an uncleared one nobody records, one sign
 flipped — which is why it did not survive being named as owed.
 
 Attributed to a lane; the D1 table, the pool and the gate I re-derived myself.
+
+### M-142 · the recovered cover could not be spelled as a mandate `OPEN`
+Opened and half-closed 2026-08-26, out of M-139's `recover` lane. **The module
+that structures a PASTED song makes one claim about itself and it was FALSE
+through the only handoff it documents.**
+
+`quality/recover.py`'s `web` disclosure says grading the recovered cover
+"against the same band at the same theta cannot produce a rhyme violation"
+(doctrine 14). `CLAUDE.md` says "a recovered cover hands straight to
+`--groups=`". **MEASURED on `quality/fixtures/song.txt`: handing the whole web
+to `--groups=` charges 34 `SCHEME_VIOLATION` — exactly its 34 REPEAT edges —
+about pairs this module admitted FOR BEING IDENTICAL.** A lane measured the
+same shape over 18 pasted-song drafts: 984 REPEAT edges of 8,673 on 17 of 18
+drafts, 972 violations charged.
+
+**THE CAUSE IS THAT THE COVER HOLDS TWO DEMANDS AND `--groups=` CAN STATE
+ONE.** A `--groups=` group is `REQUIRE_RHYME`: identity FORBIDDEN, REPEAT a
+violation. `recover` admits REPEAT edges deliberately — a pasted song is full
+of refrains — so the cover carries both "these rhyme" and "these are the same
+line", which is doctrine 3's second half, and the handoff flattened them.
+
+**AND THE SPELLING THAT WOULD HOLD THEM REFUSES.** `--returns=` is the only
+flag under which identity is the REQUIREMENT, and
+`quality/schemes.py`'s `_normalise_returns` still does
+`sorted({int(x) for x in r})` — **the same `int()` M-72 removed from
+`_normalise_groups` when placement became spellable, one function over and
+unmigrated.** Verified at head: `--returns=1.head,3` refuses with
+`invalid literal for int() with base 10: '1.head'` while `--returns=1,3` is
+accepted. **934 of 984 REPEAT edges (94.9%) carry a locus**, so there is NO
+mandate spelling in this harness that can hold them: `--groups=` charges them
+and `--returns=` refuses them.
+
+**CLOSED HALF: `mandate_spelling`, and the doctrine-14 sentence is TRUE now
+rather than asserted.** `recover` emits the cover as the CLI's own two flags,
+split on each edge's OWN `relation` and never re-derived — 146 band edges to
+`--groups=`, the bare REPEAT classes to `--returns=`. **MEASURED: 34
+SCHEME_VIOLATION through the old whole-web handoff, 0 through
+`mandate_spelling['--groups=']`.** The placed REPEAT edges are **REFUSED** by
+name with the remedy stated (32 on that fixture), because a silently
+unspellable binding reads as a song with fewer relations in it (doctrine 20),
+and flattening `4.head ~ 8.head` to `4 ~ 8` would declare an identity between
+two line ENDS this module never measured.
+
+**AND NOTHING COULD SEE ANY OF IT, WHICH IS THE ENTRY.**
+`quality/test_recover.py` §6 checks the doctrine-14 claim **by grepping its
+own sentence** for `doctrine 14`, `CONSTRUCTION`, `non-trivially` and `theta`
+— so a FALSE sentence passed four greps — and §5's *"a recovered cover can be
+handed straight to `--groups=`"* asserts only that each member `parse_slot`s.
+Neither ever graded anything. **§8 GRADES**, through the same `Mandate` +
+`Reviser.inspect` path `brief` uses, and it carries its own control: the WHOLE
+web must charge violations (4 on the suite's fixture) or the next check
+examined nothing. **The mutation `rhymes = list(edges)` — the pre-fix
+behaviour — kills exactly one check and the restored tree passes.**
+
+**WHAT STAYS OPEN, and it is two separate things.** (1) The `int()` in
+`_normalise_returns`: until it takes the slot spelling its sibling already
+takes, 94.9% of recovered REPEAT edges are unspellable and this module can
+only refuse them. (2) The door itself — `recover` is still `INCOMPLETE` in the
+census and still owes a ruling, for reasons the ruling now states in full: the
+doors are NOT NESTED here (497 narrow-only line pairs on 18 of 18, so the move
+is a union and not a widening), 88.2% of the added placement edges land at a
+`T<n>` that `slots.PLANNABLE_PLACEMENTS` excludes by a written argument, 10.2%
+carry no spellable placement at all, and any fold must be gated on
+`admit_is_default` or it hands a narrowed caller edges the grader then charges.
+
+**AND ONE THING IS SMALLER THAN IT LOOKS, STATED SO IT IS NOT OVERSOLD**
+(doctrine 20): nothing in `lyric_harness.py`'s verb table, `battery.py`,
+`mcp/` or `api/` imports `recover` — its only importer is its own suite — so
+the door defect is live at the PYTHON API and reaches no shipped verb today.
+The `mandate_spelling` repair is what a caller needs the day it does.
+
+Attributed to a lane; the 34/0 grading contrast, the `--returns=` refusal and
+the mutation I re-derived myself.

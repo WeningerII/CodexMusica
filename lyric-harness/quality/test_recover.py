@@ -195,12 +195,88 @@ def test_the_bound_is_declared():
           "3" in why and "binding sites" in why, why[:110])
 
 
+def test_the_doctrine_14_claim_is_GRADED_not_grepped():
+    """§8. THE CLAIM THIS MODULE MAKES ABOUT ITSELF, PUT TO THE GRADER.
+
+    `web`'s own `why` says grading this cover against the same band at the
+    same theta "cannot produce a rhyme violation". Until 2026-08-26 that was
+    FALSE through this module's only documented handoff, and NOTHING HERE
+    COULD SEE IT: §6 checks the sentence by grepping for `doctrine 14`,
+    `CONSTRUCTION`, `non-trivially` and `theta`, so a false sentence passed
+    four greps. MEASURED at the time on `quality/fixtures/song.txt`: the whole
+    web handed to `--groups=` charges 34 SCHEME_VIOLATION — exactly its 34
+    REPEAT edges — about pairs this module admitted FOR BEING IDENTICAL,
+    because a `--groups=` group is REQUIRE_RHYME and REPEAT is a violation
+    there (doctrine 3's second half).
+
+    So this section GRADES. It is the only check in the file that runs a
+    judge, and it is the mutation guard for the split: restoring
+    `rhymes = list(edges)` in `recover` takes it red.
+    """
+    print("\n8. the doctrine-14 claim is GRADED, not grepped")
+    import lyric_harness as LH
+    lines = _sung(MARKED)
+    r = RC.recover(lines, raw_lines=MARKED)
+    ms = r.get("mandate_spelling")
+    check("the cover is offered as the CLI's OWN two mandate flags, because "
+          "it holds two DIFFERENT demands and `--groups=` can state only one",
+          isinstance(ms, dict) and set(ms) == {"--groups=", "--returns="},
+          str(sorted(ms))[:90] if isinstance(ms, dict) else repr(ms))
+
+    reps = [e for e in r["web"] if e["relation"] == "REPEAT"]
+    band = [e for e in r["web"] if e["relation"] != "REPEAT"]
+    check("the fixture HAS both kinds — a section that graded a REPEAT-free "
+          "cover would pass against the defect and prove nothing",
+          reps and band, f"{len(reps)} REPEAT, {len(band)} band")
+
+    from quality import schemes as SC
+    from quality.revise import Reviser
+
+    def _violations(spec):
+        """The SAME judge `brief FILE --groups=SPEC` runs, reached the same
+        way the CLI reaches it: one `Mandate` off the spec, one `inspect`."""
+        if not spec:
+            return 0
+        m = SC.mandate([g.split(",") for g in spec.split(";")],
+                       n_lines=len(lines))
+        rv = Reviser(LH.Lexicon(), LH.Declaration())
+        found = rv.inspect(list(lines), mandate=m)["per_line"]
+        return sum(1 for fs in found.values() for f in fs
+                   if getattr(f, "code", "") == "SCHEME_VIOLATION")
+
+    # The WHOLE web is what the module used to hand over, and it is the
+    # control: if this is 0 the fixture cannot discriminate and the check
+    # below examined nothing (doctrine 48's own failure mode).
+    whole = ";".join(f"{e['a']},{e['b']}" for e in r["web"])
+    check("the WHOLE web DOES charge violations — this is the defect, "
+          "measured, and it is the control that makes the next check "
+          "non-vacuous",
+          _violations(whole) > 0, f"{_violations(whole)} SCHEME_VIOLATION")
+    check("and `mandate_spelling['--groups=']` charges NONE, which is the "
+          "doctrine-14 sentence made TRUE rather than asserted",
+          _violations(ms["--groups="]) == 0,
+          f"{_violations(ms['--groups='])} SCHEME_VIOLATION")
+
+    placed = [e for e in reps
+              if "." in str(e["a"]) or "." in str(e["b"])]
+    if placed:
+        check("a REPEAT edge binding at a PLACEMENT is REFUSED and names its "
+              "remedy — no mandate spelling in this harness can hold one, "
+              "and flattening it to line numbers would declare an identity "
+              "between two line ENDS this module never measured",
+              r.how.get("repeats_at_a_placement", ("", ""))[0] == "REFUSED"
+              and "_normalise_returns" in
+              r.how.get("repeats_at_a_placement", ("", ""))[1],
+              f"{len(placed)} placed REPEAT edge(s)")
+
+
 def main():
     for fn in (test_provenance_is_closed, test_sections_prefer_the_declaration,
                test_what_is_counted, test_meter_is_refused,
                test_the_web_is_over_placements,
                test_the_cover_declares_its_dependence,
-               test_the_bound_is_declared):
+               test_the_bound_is_declared,
+               test_the_doctrine_14_claim_is_GRADED_not_grepped):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0
