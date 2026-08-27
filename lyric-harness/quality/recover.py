@@ -62,12 +62,68 @@ from lyric_harness import (Declaration, Lexicon, is_apparatus_line,  # noqa: E40
 from quality import slots as SL                                     # noqa: E402
 
 __all__ = ["Recovered", "recover", "recover_file", "PROVENANCE",
-           "render"]
+           "RECOVERABLE_PLACEMENTS", "parse_placements", "render"]
 
 #: The four answers a recovered coordinate may carry. Declared as a closed set
 #: so a fifth cannot appear by someone writing a new string (the shape
 #: `SUPPLY_STATES` and `REQUIREMENTS` already use).
 PROVENANCE = ("counted", "declared", "derived", "REFUSED")
+
+#: WHAT A RECOVERED COVER SEARCHES BY DEFAULT — this module's own
+#: coordinate since 2026-08-27, and IMPORTED from `slots` rather than
+#: respelled, so the two cannot drift (doctrine 1). The value is
+#: byte-identical to what this function already used, so no recovered
+#: cover moves; what changes is whose question it answers.
+#:
+#: IT WAS `slots.PLANNABLE_PLACEMENTS` READ AS A BOUND ON OBSERVATION, and
+#: that tuple's own docstring scopes it to *"WHAT A PLANNER MAY
+#: VOLUNTEER"*. Its exclusion of `T<n>` is argued there as *"a planner
+#: draws it with the index bounded by what a line reliably HAS, which is a
+#: coordinate of the plan and not of this table"* — an argument about
+#: VOLUNTEERING an index. **RECOVERY DOES NOT VOLUNTEER: it OBSERVES a
+#: text that already exists, so the index is READ and not drawn, and the
+#: exclusion's own argument does not transfer** (`MISSING.md` M-145, the
+#: ruling; `quality/door_census.py`'s `recover` row carries it in full).
+#: So a RECOVERED `T4` binding is ADMISSIBLE where a PLANNED one is not.
+#:
+#: THE DEFAULT STAYS AT THE FOUR ANYWAY, and that is not a contradiction:
+#: admissible is not the same as searched-unasked. A default sweeping
+#: every `T<n>` would be recovery volunteering a maximal web, which is the
+#: same move one layer over. MEASURED over 12 lines of
+#: `songs/crooked_waltz.txt`: the default gives 41 binding sites and 113
+#: edges, 0 naming a `T<n>`; `--placements=end,endword,head,headrime,T2,
+#: T3,T4` gives 60 sites and 256 edges of which 143 name one. So the
+#: coordinate is real, it is DECLARED, and it is the caller's.
+RECOVERABLE_PLACEMENTS = SL.PLANNABLE_PLACEMENTS
+
+
+def parse_placements(spec):
+    """`"end,head,T4"` -> a tuple, REFUSING an unresolvable name by name.
+
+    The refusal is here and not in `_slot_words`, which SKIPS a placement
+    naming nothing IN A GIVEN LINE — a different question, and a correct
+    skip. Leaning on it would make a mistyped `--placements=T4x` silently
+    NARROW the search and report the smaller web as the text's (doctrine
+    20: a refusal is not an absence). Validated ONCE, at declaration.
+    """
+    out = []
+    for raw in spec.split(","):
+        name = raw.strip()
+        if not name:
+            continue
+        try:
+            SL.parse_slot(f"1.{name}")
+        except SL.SlotUnsupported as exc:
+            raise SL.SlotUnsupported(
+                f"--placements names {name!r}, which this module cannot "
+                f"resolve to a span of a line: {exc}") from None
+        out.append(name)
+    if not out:
+        raise SL.SlotUnsupported(
+            "--placements was declared and names no placement. An empty "
+            "declaration is not the default; say nothing to get "
+            f"{list(RECOVERABLE_PLACEMENTS)}.")
+    return tuple(out)
 
 
 class Recovered(dict):
@@ -172,8 +228,15 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
     lex = lex or Lexicon()
     decl = decl or Declaration()
     theta = decl.theta_rhyme if theta is None else theta
-    places = tuple(placements or SL.PLANNABLE_PLACEMENTS)
+    places = tuple(placements or RECOVERABLE_PLACEMENTS)
     r = Recovered()
+    r.put("placements_searched", list(places),
+          "declared" if placements else "derived",
+          "the caller named this set"
+          if placements else
+          "the caller declared no placement set, so this is "
+          "`RECOVERABLE_PLACEMENTS` — a default of this module's, not a fact "
+          "about the text (`MISSING.md` M-145)")
 
     # 1. THE LINE COUNT. Counted, and the least disputable thing here.
     r.put("total_lines", len(lines), "counted",
@@ -324,9 +387,20 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
           f"whenever `admit_is_default` holds, and that route is NOT "
           f"consulted here — so this cover UNDER-recovers against its own "
           f"consumer, measured at +32.0% of line pairs on 18 of 18 drafts. "
-          f"Disclosed rather than silent (doctrine 20); "
-          f"`quality/door_census.py` rules this site INCOMPLETE and "
-          f"`MISSING.md` M-139 holds the measurement")
+          f"Disclosed rather than silent (doctrine 20). RULED "
+          f"2026-08-27 (`MISSING.md` M-145): THE NARROW DOOR IS KEPT "
+          f"ON PURPOSE and `quality/door_census.py` rules this site "
+          f"ARGUED. This function is a GENERATOR — it puts the door "
+          f"to EVERY pair — and on that population "
+          f"`quality/chance_rate.py --null` measures the 77-schema "
+          f"door AT CHANCE (69.05% against a null median 71.02%, "
+          f"p 0.9048) while the same door separates by +12.50 pp "
+          f"over the null MAX on the DECLARED pairs a writer wrote. "
+          f"The grader's 77-consult is a RESCUE on a declared pair; "
+          f"running it as a GENERATOR here would manufacture "
+          f"structure rather than find it (doctrine 71). The +32.0% "
+          f"above is what that ruling COSTS, and it is stated rather "
+          f"than netted away")
     r.put("binding_sites", n, "counted",
           "line x placement, skipping placements that name nothing in "
           "their line")
@@ -350,6 +424,15 @@ def render(r):
            "  derived = the harness inferred it (NOT independent of the "
            "grader, doctrine 14) | REFUSED = not obtainable, not guessed",
            ""]
+    places = r.get("placements_searched")
+    if places:
+        out.append(f"  PLACEMENTS SEARCHED: {', '.join(places)}")
+        out.append("      the web is over these and no others — a placement "
+                   "not searched is not a placement the text lacks "
+                   "(doctrine 20). `--placements=` declares otherwise; "
+                   "`quality/recover.py`'s `RECOVERABLE_PLACEMENTS` is the "
+                   "default and the argument for it.")
+        out.append("")
     for key in ("total_lines", "sections", "syllables_per_line",
                 "binding_sites", "web", "meter"):
         if key not in r:
@@ -379,9 +462,29 @@ def render(r):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("usage: python3 quality/recover.py LYRIC.txt")
+    args = sys.argv[1:]
+    spec = None
+    rest = []
+    for a in args:
+        if a.startswith("--placements="):
+            spec = a.split("=", 1)[1]
+        elif a.startswith("-"):
+            print(f"REFUSED — this runner has no flag {a!r}. It takes one "
+                  f"LYRIC.txt and, optionally, --placements=a,b,c.")
+            raise SystemExit(2)
+        else:
+            rest.append(a)
+    if len(rest) != 1:
+        print("usage: python3 quality/recover.py LYRIC.txt "
+              "[--placements=end,head,T4]")
+        print(f"       default placements: "
+              f"{','.join(RECOVERABLE_PLACEMENTS)}")
         raise SystemExit(2)
-    rec = recover_file(sys.argv[1])
+    try:
+        declared = parse_placements(spec) if spec is not None else None
+    except SL.SlotUnsupported as exc:
+        print(f"REFUSED — {exc}")
+        raise SystemExit(2)
+    rec = recover_file(rest[0], placements=declared)
     print(render(rec))
     raise SystemExit(3 if rec.refusals() else 0)

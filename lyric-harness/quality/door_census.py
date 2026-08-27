@@ -142,9 +142,20 @@ RULINGS = {
         "re-derived, so no second stream is built and the two readings "
         "cannot drift."),
 
-    # ---------------------------------------------------------- INCOMPLETE
+    # ------------------------------------------- RULED 2026-08-27 (M-145)
+    # `Reviser.mandate_from_graph` and `recover` — the two INCOMPLETE sites
+    # — are ARGUED now. (`Reviser.group_merges` sits between them because
+    # it is the third site M-139 repaired, and it is FULL.) THE DOOR AT
+    # EACH RULED SITE IS BYTE-IDENTICAL: nothing was widened and nothing was
+    # repaired, and ARGUED never claimed a site reaches the complete
+    # default. What changed
+    # is that the argument each was holding open FOR is written and measured
+    # here. `incomplete` therefore goes 2 -> 0 by RULING and not by repair,
+    # which is the one way this table can be talked into looking clean, so
+    # `test_door_census.py` §4 repoints its guard onto the ARGUED reasons
+    # rather than losing it. `MISSING.md` M-145.
     ("quality/revise.py", "Reviser.mandate_from_graph"): (
-        INCOMPLETE,
+        ARGUED,
         "`--cliques`: the DERIVED cover. It asks which lines this harness "
         "sees as standing in a relation, then hands that cover to `grade()` "
         "— which accepts on a strictly wider door, so the cover omits edges "
@@ -170,9 +181,38 @@ RULINGS = {
         "pair-slots to 41 / 10,626, the lazy gate `group_merges` uses fires "
         "on 170 of 170 drafts so it buys nothing, and this site has no "
         "mandate, so `bearing=` -- which both shipped consumers pass -- has "
-        "no honest value here. IT STAYS INCOMPLETE AND WHAT IS OWED IS A "
-        "RULING: does `--cliques` mean the RHYME graph or the "
-        "whole-vocabulary relation graph? `MISSING.md` M-139."),
+        "no honest value here. "
+        "RULED 2026-08-27 (`MISSING.md` M-145): **`--cliques` MEANS THE "
+        "RHYME GRAPH.** The narrow door is kept ON PURPOSE, the site is "
+        "unchanged, and the disposition moves INCOMPLETE -> ARGUED because "
+        "what was owed was the ARGUMENT and the argument is below. "
+        "IT IS A GENERATOR/RESCUE DISTINCTION AND IT IS MEASURED RATHER "
+        "THAN ASSERTED. This site is a GENERATOR: its loop is `for i in "
+        "range(n): for j in range(i + 1, n)`, so it puts the door to EVERY "
+        "pair — which is exactly the population `quality/chance_rate.py "
+        "--null` measures. On that population the 77-schema door does NOT "
+        "separate from its own null: R_obs 69.05% against a null median "
+        "71.02% and a null MAX 72.57%, below its own null on 20 of 20 "
+        "draws, empirical p 0.9048. On DECLARED pairs the same door "
+        "separates hard: 96.43% against a null median 79.17% and a null "
+        "MAX 83.93% — +17.26 pp over the median and +12.50 pp over the "
+        "MAXIMUM, two statistics under two labels and never one word for "
+        "both. Doctrine 71: a rate that does not separate from its own "
+        "null is not a finding about the text. So `grade()`'s 77-consult "
+        "is a RESCUE on a pair a WRITER declared, and running the same "
+        "judge as a GENERATOR over undeclared pairs MANUFACTURES structure "
+        "rather than finding it — the owner's 'move 37' ban one layer "
+        "over. The two rates are never summed and never read as one "
+        "(doctrine 79): a door may light an arbitrary pair at chance and "
+        "still discriminate a declared one, and only the second is what a "
+        "derived cover is for. "
+        "THE LIMIT ON THIS RULING, STATED RATHER THAN BURIED: that null "
+        "was measured on 14-line SONNETS, so carrying it to this site's "
+        "drafts is an INFERENCE from one item shape to another. It is the "
+        "strongest evidence in the tree and it is not a measurement on "
+        "this site's own population; a null over recovered drafts would "
+        "settle it and has not been run. `MISSING.md` M-139, M-140, "
+        "M-145."),
     ("quality/revise.py", "Reviser.group_merges"): (
         FULL,
         "The merge detector asks, in its own words, whether every cross pair "
@@ -189,7 +229,7 @@ RULINGS = {
         "satisfaction question at "
         "four.~~ `MISSING.md` M-139."),
     ("quality/recover.py", "recover"): (
-        INCOMPLETE,
+        ARGUED,
         "The pasted-song door (M-72). Its doctrine-14 claim is that every "
         "edge of the recovered cover is a band-passing pair BY "
         "CONSTRUCTION; under the complete default the cover UNDER-recovers, "
@@ -221,13 +261,51 @@ RULINGS = {
         "grader's 77-rescue is, so an ungated fold hands a NARROWED caller "
         "edges the grader then CHARGES -- strictly worse than the present "
         "defect. `bearing=` has no honest value here (no mandate) and, "
-        "measured, no value moves the answer on any of the 18. WHAT IS OWED "
-        "IS A RULING, and NOT `mandate_from_graph`'s: may a RECOVERED cover "
-        "mandate a binding at a placement `slots` says a planner may not "
-        "volunteer? A SEPARATE DEFECT AT THIS SITE WAS FIXED 2026-08-26 and "
-        "is not what holds it open -- the module's doctrine-14 sentence was "
+        "measured, no value moves the answer on any of the 18. "
+        "RULED 2026-08-27 (`MISSING.md` M-145), AND IT IS TWO ANSWERS "
+        "BECAUSE IT WAS TWO QUESTIONS. "
+        "(a) THE DOOR STAYS NARROW, for `mandate_from_graph`'s reason and "
+        "not a second one: this site is a GENERATOR too — `for a in "
+        "range(n): ... for b in range(a + 1, n)` over every pair — and "
+        "`chance_rate.py --null` measures that population AT CHANCE (all "
+        "pairs 69.05% against a null median 71.02%, p 0.9048) while the "
+        "same door separates by +12.50 pp over the null MAX on DECLARED "
+        "pairs. A cover built by asking an undeclared pair a question it "
+        "answers at chance is manufactured structure (doctrine 71). "
+        "Objections (1) and (3) above are then MOOT rather than answered: "
+        "the un-nested 497 pairs and the 97 unspellable placements are "
+        "properties of a fold this ruling does not make. "
+        "(b) THE PLACEMENT QUESTION IS ANSWERED THE OTHER WAY, and it is a "
+        "separate question from the door. `slots.PLANNABLE_PLACEMENTS` "
+        "excludes `T<n>` because 'a planner draws it with the index "
+        "bounded by what a line reliably HAS, which is a coordinate of the "
+        "plan and not of this table' — an argument about VOLUNTEERING an "
+        "index. RECOVERY DOES NOT VOLUNTEER; it OBSERVES a text that "
+        "already exists, so the index is READ and not drawn and the "
+        "exclusion's own argument does not transfer. A RECOVERED `T4` "
+        "binding is therefore ADMISSIBLE where a PLANNED one is not, and "
+        "the answer to objection (2) is that the 88.2% is not an objection "
+        "to a recovered cover at all. "
+        "AND THE RULING SHIPS AS A COORDINATE RATHER THAN AS THIS "
+        "PARAGRAPH. `recover()` already took `placements=` and its DEFAULT "
+        "was `slots.PLANNABLE_PLACEMENTS` — another module's tuple, scoped "
+        "by its own docstring to 'WHAT A PLANNER MAY VOLUNTEER', read here "
+        "as though it bounded what a reader may OBSERVE. MEASURED on 12 "
+        "lines of `songs/crooked_waltz.txt`: default 41 binding sites and "
+        "113 edges, 0 naming a `T<n>`; with `T2,T3,T4` declared, 60 sites "
+        "and 256 edges of which 143 name one. So the coordinate WORKS and "
+        "reached the command line from NOTHING — `__main__` took a path "
+        "and no flag — which is this repository's most-repeated defect at "
+        "the outermost layer. `RECOVERABLE_PLACEMENTS` is this module's "
+        "own default now, IMPORTED from `slots` rather than respelled so "
+        "the two cannot drift (doctrine 1), byte-identical in value so no "
+        "recovered cover moves, and `--placements=` declares otherwise "
+        "with an unresolvable name REFUSING at declaration time instead of "
+        "being silently skipped per line (doctrine 20). "
+        "A SEPARATE DEFECT AT THIS SITE WAS FIXED 2026-08-26 and "
+        "is not what held it open -- the module's doctrine-14 sentence was "
         "FALSE through its only documented handoff, and `mandate_spelling` "
-        "makes it true. `MISSING.md` M-139."),
+        "makes it true. `MISSING.md` M-139, M-140, M-145."),
 
     # ------------------------------------------------------------ PER_WORD
     ("quality/revise.py", "Reviser._field_one"): (
@@ -248,8 +326,17 @@ RULINGS = {
         "the 23 sonnet pairs the default accepts ONLY by the 77-schema "
         "rescue, **0 are offerable** from fields 207-6,880 words deep -- the "
         "route is not under-served by the field, it is unreachable from it "
-        "at any depth. A DISCLOSURE is owed and is not yet built. "
-        "`MISSING.md` M-139."),
+        "at any depth. ~~A DISCLOSURE is owed and is not yet built.~~ **THE "
+        "DISCLOSURE SHIPPED 2026-08-26**: `Brief.schema_route_note` carries "
+        "it, `relations.SCHEMA_ROUTE_NOTE` is its ONE definition, and all "
+        "SIX renderers of a `Brief` print it. THREE STATES, never two -- "
+        "`None` (not recorded) is rendered apart from `\"\"` (the route is "
+        "SHUT for this line's groups), because a bool default would make "
+        "ABSENCE mean SHUT and reproduce doctrine 20 inside the fix. "
+        "MEASURED on the drafts this repo ships, not only on the sonnets: "
+        "15 of 452 mandated pairs over 15 drafts are accepted ONLY by the "
+        "77, on 3 of 15 drafts, and 0 of the 10 with two readable spans are "
+        "offerable. `MISSING.md` M-139."),
 
     # ----------------------------------------------------------- RENDERING
     # `check_scheme`'s own naming test is NOT keyed here: this table is keyed
@@ -380,9 +467,10 @@ _BY_DOOR = {
         "verdict is settled above it."),
 }
 
-#: MEASURED 2026-08-26 on this tree, and the INCOMPLETE count is a DEFECT
-#: count rather than a target — it is pinned so it cannot grow quietly, and
-#: the repairs that lower it repin it downward in the same commit.
+#: MEASURED 2026-08-26 on this tree, REPINNED 2026-08-27, and the INCOMPLETE
+#: count is a DEFECT count rather than a target — it is pinned so it cannot
+#: grow quietly, and the repairs that lower it repin it downward in the
+#: same commit.
 #:
 #: THE COUNTS ARE PER SITE, NOT PER RULING, and the first draft pinned
 #: `argued` at 6 because it counted the RULINGS table's rows. Two functions
@@ -396,9 +484,24 @@ _BY_DOOR = {
 #: nineteen reached the complete default. `check_scheme.ok` was repaired in
 #: the same sitting and the pins moved with it, which is what a repair is
 #: supposed to do to this table. Every remaining INCOMPLETE is OPEN under
-#: `MISSING.md` M-139 and each needs its own measurement before it moves.
-PINNED = {"sites": 21, "full": 4, "incomplete": 2, "per_word": 1,
-          "rendering": 3, "validation": 1, "argued": 10}
+#: ~~`MISSING.md` M-139 and each needs its own measurement before it
+#: moves.~~
+#:
+#: **`incomplete` IS 0 SINCE 2026-08-27 AND IT GOT THERE BY RULING, NOT BY
+#: REPAIR (`MISSING.md` M-145) — SO READ IT AS A DIFFERENT STATEMENT.** The
+#: two INCOMPLETE sites were each holding open a QUESTION rather than a
+#: defect (does `--cliques` mean the rhyme graph; may a RECOVERED cover
+#: bind at a placement a PLANNER may not volunteer), both are ruled, and
+#: NEITHER DOOR MOVED A BYTE. A 0 here therefore means "no site is waiting
+#: on a ruling", and it does NOT mean every site reaches the complete
+#: default: 12 of 21 are ARGUED, and that is the count carrying this
+#: tree's deliberate narrowness now. The guard that used to read
+#: `incomplete > 0` is REPOINTED rather than deleted —
+#: `test_door_census.py` §4 now requires every ARGUED reason to carry a
+#: MEASUREMENT and a register citation, because ARGUED is the disposition
+#: a site could otherwise be TALKED into.
+PINNED = {"sites": 21, "full": 4, "incomplete": 0, "per_word": 1,
+          "rendering": 3, "validation": 1, "argued": 12}
 
 
 def _innermost(tree):

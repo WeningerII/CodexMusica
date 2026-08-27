@@ -2099,6 +2099,15 @@ jobs:
           #   shard 2/2  run #909, 2026-08-25  04:53:47 -> 07:45:28  171m41s, exit 0
           #   shard 1/2  run #966, 2026-08-26  04:55:40 -> 08:15:40  killed at 200m
           # so the whole sweep is >372m and one half of it no longer fits.
+          # N=4 IS MEASURED NOW AND IT FITS -- 2026-08-27, which is what this
+          # comment's own last line asks for and what it did not yet have:
+          #   shard 1/4  15 mutations, 8984s = 149m44s, exit 0,
+          #              13/15 caught, 0 SURVIVED, 2 INDETERMINATE
+          # on a 4-vCPU box AND under contention (a `npm run tandem` shared it
+          # for the first 26m), so a clean runner is the optimistic side of
+          # that number rather than the pessimistic one. 149m against the 200m
+          # bound is ~50m of margin. Shard 1/4 is the half of old shard 1/2
+          # that overran, so this is the expensive quarter and not a lucky one.
           # THE TWO SHARDS ARE BALANCED BY COUNT AND NOT BY TIME — that is
           # the finding, and `test_mutation.py` §3e carried the opposite
           # claim ("a per-shard time bound means the same thing on every
@@ -2172,8 +2181,24 @@ jobs:
       # 8,667 items, and the per-item cost was MEASURED at ~7.5 CPU-s over two
       # flush intervals -- so cold is ~18 hours, not two, and the step below
       # pays it in bounded nightly slices rather than pretending it fits.
+      # RESTORE AND SAVE ARE SPLIT, AND THE SAVE IS `if: always()` — 2026-08-27.
+      # `actions/cache@v4` declares `post-if: success()`, so its save runs ONLY
+      # when the job passed. That turned the memo into a PERMANENT DEADLOCK and
+      # the evidence is run #966 (2026-08-26): the song-profile step banked
+      # `memo: 0 -> 8663 items (+8663 banked this run)` after 146 minutes of
+      # work, the job then failed on the drift the same step reported, the save
+      # was skipped, and the next night started cold and paid the 146 minutes
+      # again. Every scheduled run from 2026-08-15 to 2026-08-26 is red, and
+      # this is why none of them could ever get further than the last.
+      #
+      # THE STEP'S OWN CONTRACT ALREADY ASSUMED THIS AND COULD NOT GET IT: its
+      # `124` arm reads "the run hit its 150m budget with the memo advanced and
+      # banked. The next nightly resumes from it" — true of the file on disk,
+      # false of the cache, because a timeout is not a success either. A
+      # resumable slice whose resume point is discarded on every failure is not
+      # resumable; it is the same first slice, forever.
       - name: Restore the predictability memo
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: ~/.cache/lyric-harness
           key: lyric-harness-predictability-v1-${{ github.run_id }}
@@ -2361,6 +2386,20 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/chance_rate.py --null --check
 
+      # EVERY BANKED VERDICT, RE-DERIVED AGAINST THIS TREE (`MISSING.md`
+      # M-144). `song_log.py --verdicts` already charges the narrator's prose
+      # against a BANKED ROW — did the narrator report what the verb SAID —
+      # and that is the right question and not this one. Nothing re-derived a
+      # banked VERDICT against the current tree: `song_record.py --check` does
+      # exactly that for FEATURES and there was no verdict equivalent, which
+      # is how a 13.5% miscount sat inside a headline triple with every gate
+      # green. Exits 3 on a fresh move; a KNOWN move is adopted in
+      # `REGRADE_MOVED` with its cause, never by editing the banked prose,
+      # which `--verdicts` reads as history (doctrine 17).
+      - name: Every banked song verdict, re-derived
+        working-directory: lyric-harness
+        run: python3 quality/regrade_verdicts.py
+
       - name: Sentencehood calibration check (M-110 — ceiling + the six banked witnesses)
         if: always()
         working-directory: lyric-harness
@@ -2497,3 +2536,31 @@ jobs:
         if: always()
         working-directory: mcp
         run: node check_live.mjs
+
+      # THE JOB'S OWN TIME BUDGET, MEASURED 2026-08-27 rather than argued,
+      # because three steps joined this job (structure_census, chance_rate
+      # --null, regrade_verdicts) and nothing had re-added it up. Run #966's
+      # wall clock for the steps that were already here is 200m of the 240m
+      # cap, of which the song-profile slice is 147m ON A COLD MEMO. The three
+      # additions measure 0.3m + 8.3m + 8.2m = 16.8m on a 4-vCPU box, so the
+      # cold-memo worst case is ~217m and the margin is ~23m.
+      #
+      # THE 150m SLICE BUDGET IS LEFT ALONE ON THAT MARGIN, and the reason is
+      # the save step above rather than the arithmetic: an overrun now BANKS
+      # its memo, so a night that runs out resumes the next night and
+      # completes, instead of restarting cold forever. Cutting the slice to
+      # buy margin would trade a self-healing overrun for a check that never
+      # reaches its verdict. Re-measure before adding a fourth step here.
+
+      # THE OTHER HALF OF THE SPLIT ABOVE, and it is the half that ends the
+      # deadlock: the memo is banked whatever the job's verdict, so a DRIFT
+      # (exit 1) or a bounded slice that overran (exit 124) still advances the
+      # resume point. The key carries `github.run_id`, so it never hits exactly
+      # and this step always writes a new entry — the restore-keys prefix is
+      # what picks up the newest one next night.
+      - name: Bank the predictability memo — whatever this job's verdict was
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: ~/.cache/lyric-harness
+          key: lyric-harness-predictability-v1-${{ github.run_id }}

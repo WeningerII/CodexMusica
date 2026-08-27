@@ -13684,3 +13684,435 @@ The `mandate_spelling` repair is what a caller needs the day it does.
 
 Attributed to a lane; the 34/0 grading contrast, the `--returns=` refusal and
 the mutation I re-derived myself.
+
+### M-143 · the candidate field was built at one door and said so to nobody `CLOSED`
+Closed 2026-08-26, the `PER_WORD` half of M-139. **`Reviser._field_one` holds a
+WORD and the 77-schema judge holds LINE PAIRS, so the second half of the
+default is not askable there at any depth. That is a real structural limit —
+and a limit a site does not STATE reads exactly like a question asked and
+answered no** (doctrine 20). The site said nothing, and the field it produces
+carries `_field`'s own capitalised promise that THE BRIEF AND THE VERDICT HAVE
+TO ASK THE SAME QUESTION.
+
+**THE GAP IS NOT ZERO, MEASURED ON FIFTEEN DRAFTS UNDER THEIR OWN COMMITTED
+MANDATES** (the four fixtures with their suites' mandates, eleven songs with
+the exact `--groups=` / `--relations=` strings from `songs/README.md`):
+**452 mandated / 452 judged / 0 refused, 0 violations — and 15 pairs (3.32%)
+accepted ONLY by the 77-schema route, on 3 of 15 drafts.** Cross-checked
+against the shipped verb rather than a reconstruction: the banked
+`crooked_waltz` command prints `SCHEMA DEFAULT: 12 mandated pair(s) satisfied
+by the whole-vocabulary default`, all twelve in group **G**, its single bare
+group of seventeen. Re-derived here.
+
+**AND NOT ONE OF THEM IS REACHABLE BY A DEEPER FIELD, WHICH IS THE WARRANT FOR
+A DISCLOSURE RATHER THAN A FIX.** Complete-pool fields **1,434–3,981 words
+deep**: the partner is in neither side's field in every case, and every score
+sits **below `theta_rhyme` 0.75 (0.395–0.705)** — so `admits()` refuses on the
+SCALAR, and a field built from words that CLEAR the band cannot hold them at
+any depth. The alternative is priced and is not a candidate: a per-word answer
+needs one full stream build PER CANDIDATE WORD, because each candidate changes
+the LINE — **1–2.7 hours per briefed line**.
+
+**MY OWN SKETCH FOR THIS WAS WRONG IN TWO PLACES AND A LANE MEASURED BOTH.**
+(1) It routed the sentence as an IMPORT from `quality/relations.py`.
+`quality/test_propose.py` asserts on the source that `propose.py` *"imports
+`re` and nothing else"* — a hard no-network guard — and `quality.relations`
+opens `quality/canon_index.tsv` at import. The sketch's design **turns an
+existing check red**, so the sentence travels as DATA on the `Brief`, exactly
+as `field_declaration` already does. (2) It proposed `getattr(..., False)`.
+The half I feared is unfounded — `test_propose.py` §7c DOES catch a stand-in
+that has not grown the field. **The real objection is doctrine 20 reproduced
+inside the fix: a BOOL makes ABSENCE render as CLOSED**, collapsing "nobody
+recorded whether the 77 were consulted" into "the route is shut, so nothing is
+owed" — the very conflation the disclosure exists to end. **THREE STATES, NOT
+TWO**: `None` not recorded, `""` route shut, the sentence route open and
+unasked. `Brief.field_computed`'s docstring is the precedent.
+
+**AND "SIX RENDER SITES" WAS RIGHT AS CALL SITES AND WRONG AS PLACES TO EDIT,
+AND THE TWO ARE NEVER SUMMED** (doctrine 79): **4 functions, 6 call sites**,
+because `propose._offered_block` is one function called three times. Folding
+those leaves **3 places to write the block**. `schema_note` is a REQUIRED
+POSITIONAL there, so a fourth call site that forgets it is a `TypeError` and
+not a silent empty block. The one dangerous site is
+`lyric_harness._print_brief_report`, which RESTATES `Brief.__str__`'s per-line
+block rather than calling it — a rule added to one and not the other vanishes
+from the verb a writer actually runs.
+
+**THE GATE IS SHARED, WHICH IS THE HALF THAT MAKES `_field`'s PROMISE
+MECHANICAL**: `Reviser.schema_route_open(m, group_index)` is extracted from
+`grade()`'s own inline three-condition fan filter, so the brief cannot call
+the route open on a pair the verdict treats as closed (doctrine 1).
+
+**TESTED BY MUTATION, AND `§7c` IS NOT THE GUARD.** `test_revise.py` §45 (16
+checks) and `test_propose.py` §7e (3). Nine mutations driven; **§7c stays green
+on all seven mutations of this repair**, because a field list says nothing
+about whether a renderer asks for the field — which §7c's own comment says.
+The one to lead with is **M3, the sketch's `getattr` default collapsed to
+`""`**: no crash, no error, one stand-in silently rendering a state it is not
+in, invisible to §7c and to `door_census --check`. Re-run here, it fails
+**exactly one** check — *"a stand-in that has NOT grown the coordinate renders
+the UNKNOWN sentence and never silence — the `getattr` default is not `""`"*.
+
+**AND THE TWO POPULATIONS ARE DISJOINT ON THIS TREE, SAID BEFORE ANYONE QUOTES
+THE 3.32%.** The 3 drafts carrying 77-only pairs have **0** field-bearing
+briefed lines (they grade clean, so no brief, so no field); the 4 drafts with
+field-bearing lines carry **0** 77-only pairs. So the sentence prints on 42
+lines where no rescue occurred and beside none of the 15. **That is not a
+defect** — it is a claim about how the field was BUILT, not about an observed
+rescue, and a rescued pair is silent by construction because it passes. But
+**"how often a writer is misled" is NOT what 3.32% measures**, and quoting it
+that way would be wrong.
+
+Controls on the patched tree: battery **1064 / 1014 / 50 / 12** unmoved,
+`door_census --check` PASS with every count unmoved, `test_propose` green
+INCLUDING its imports guard.
+
+### M-144 · a slot that resolves to no anchor is counted as JUDGED `CLOSED`
+Found 2026-08-26 while measuring M-143, in the coordinate next door, and
+**recorded rather than fixed** because it is not that lane's subject.
+
+`Reviser._slot_word` -> `slots.resolve` answers **NO ANCHOR** when a declared
+token index lands on a word the phonology cannot anchor — an unstressed
+function word. `crooked_waltz` L1 `T5` is `token:4` is `"by"`.
+**`refusals_for_pairs` reads the readability records of END WORDS**, so such a
+pair is never counted as refused.
+
+**MEASURED over the 11 slot-declaring drafts: 57 of 422 mandated pairs (13.5%)
+bind at a declared slot resolving to NO ANCHOR, and every one is reported
+`judged`, with `refused = 0`.** `crooked_waltz` 22 of 47,
+`the_frost_ledger` 35 of 71 — and `songs/README.md` records both as
+`N mandated / N judged / 0 refused`.
+
+**IT IS DOCTRINE 79 IN A SHIPPED HEADLINE COUNT.** A refusal in the judged
+column is the error that entry names: `slots.resolve`'s own comment says *"the
+honest answer is NO ANCHOR — the same answer an unreadable end word already
+gets, and the readability layer already reports"*, and **the readability layer
+does not report it here**, because it is looking at the wrong word. The
+three-count triple this repository quotes everywhere is wrong by 13.5% on the
+drafts that use the placement coordinate M-67 built.
+
+~~Attributed to a lane; not re-derived independently and marked so.~~
+**RE-DERIVED AND CLOSED 2026-08-26.** Independently measured: `crooked_waltz`
+has **12 of its 45 binding sites resolving to NO ANCHOR** and **22 of its 47
+mandated pairs touch one**, with the grade triple reading `mandated 47, judged
+47, refused 0` — the lane's figure exactly.
+
+**THE REPAIR.** `Reviser.grade` now counts a declared slot that resolves to no
+anchor as a REFUSAL, keyed **per (pair, GROUP)** because a slot is a
+coordinate OF THE GROUP: the same two lines can bind at their ends in one
+group and at an unanchorable token in another, and those are different
+questions. Resolution is memoised per (group, line), so a group of nine costs
+nine resolves and not thirty-six. `crooked_waltz` now reads **47 / 25 / 22**
+and `the_frost_ledger` **71 / 36 / 35**.
+
+**THE BATTERY IS BYTE-IDENTICAL AT 1064 / 1014 / 50 / 12**, as it must be: the
+sonnet oracle is a LETTER scheme, `slots_declared()` is False, and the new
+branch is never entered. `test_revise`, `test_slots`, `test_recover`,
+`test_songs`, `test_door_census` all green.
+
+**AND THE REAL GAP WAS THAT NOTHING RE-DERIVED A BANKED VERDICT.**
+`song_log.py --verdicts` charges the narrator's prose against a BANKED ROW —
+*did the narrator report what the verb SAID* — and that is the right question
+and not this one. `song_record.py --check` re-derives FEATURES against the
+current tree and there was **no verdict equivalent**, which is how a 13.5%
+miscount sat inside a headline triple with every gate green.
+`quality/regrade_verdicts.py` is that arm: it re-derives every banked
+mandated/judged/refused triple in `songs/README.md` against THIS tree.
+**11 HOLDS, 0 MOVED, 0 CANNOT RUN** — three verdicts, never summed. Nightly.
+
+**AND IT IS ITS OWN MODULE BECAUSE THE FIRST DRAFT WAS AN ARM OF
+`song_log.py` AND TURNED THAT MODULE'S OWN GUARD RED.** `song_log.py` reaches
+every verdict through `subprocess` and **imports no grader at all** — asserted
+BY ABSENCE in `quality/test_songs_log.py` §5, which bans `Reviser`,
+`discriminate`, `floor` and `QualityFeatures` from its source, because a
+RECORD that grades has become a second grader. Adding a re-derivation there
+imported `Reviser` and the check said so. **That is the guard working**, and
+the arm moved out rather than the guard being widened.
+
+**TWO GATES, TWO QUESTIONS, AND THEY ARE NOT MADE TO FIGHT.** The banked prose
+is left exactly as written, because it is a true record of a run at its own
+commit and `--verdicts` reads it that way (doctrine 17); the two moved triples
+are adopted in `REGRADE_MOVED` **with their cause**, and a fresh move is exit
+3. Mutating one adopted triple by ONE pair takes it red, naming the song and
+both readings.
+
+**AND MY OWN INSTRUMENT WAS WRONG TWICE BEFORE IT WAS RIGHT, WHICH IS THE PART
+WORTH KEEPING.** Its first run reported **seven** moved triples. Five of those
+were its own defect: it read `--returns=` as ADDING groups, where
+`lyric_harness.py`'s `_mandate_arg` puts BOTH spellings into **one** cover with
+`returns=` naming which of its groups are the return classes — so
+`turn_the_wheel` came back 6 pairs against a banked 10 (6 rhyme groups + 4
+return groups) and the arm reported a drift **it had invented**. A
+re-derivation that restates the mandate is a second mandate (doctrine 1), and
+this is the exact defect class the sitting was built to close, reproduced
+inside the instrument built to check for it. Its second run then reported
+`wheat_mane.txt: the block states no triple` — also false, and also mine: the
+prose wraps after the second slash and the regex allowed a newline in only one
+of four gaps, so a song was skipped and the skip rendered as a DOCUMENT gap
+rather than as the parser's brittleness (doctrine 20). Both corrected before
+anything was recorded; the seven-moved and the one-cannot-run readings are
+**not** findings and are written here so nobody quotes them.
+
+### M-145 · the two rulings the door census was holding open `CLOSED`
+Made 2026-08-27. `MISSING.md` M-139 built `quality/door_census.py` and it
+found two sites it could not rule: **`Reviser.mandate_from_graph`** (does
+`--cliques` mean the RHYME graph or the whole-vocabulary relation graph?) and
+**`recover`** (may a RECOVERED cover mandate a binding at a placement
+`quality/slots.py` says a PLANNER may not volunteer?). Both were `INCOMPLETE`
+and both were waiting on a decision rather than on a build. The owner's
+delegation, verbatim: *"you're more than capable of making those rulings
+correctly. keep going."*
+
+**BOTH DOORS ARE UNCHANGED. NOT ONE BYTE MOVED**, so no draft grades
+differently and the battery is `1064 / 1014 / 50 / 12` either side. What
+changed is that the argument each site was being held open FOR is now written
+at the site and measured.
+
+**RULING 1 — `--cliques` MEANS THE RHYME GRAPH.**
+The argument is a GENERATOR/RESCUE distinction and it is measured, not
+asserted. `mandate_from_graph`'s loop is `for i in range(n): for j in
+range(i + 1, n)` — it puts the door to **every** pair — and that is exactly
+the population `quality/chance_rate.py --null` measures. On it the 77-schema
+door **does not separate from its own null**: R_obs 69.05% against a null
+median 71.02% and a null MAX 72.57%, below its own null on **20 of 20** draws,
+empirical p 0.9048. On DECLARED pairs the same door separates hard: 96.43%
+against a null median 79.17% and a null MAX 83.93% — **+17.26 pp over the
+median and +12.50 pp over the MAXIMUM**, two statistics under two labels and
+never one word for both.
+
+Doctrine 71 settles it: a rate that does not separate from its own null is not
+a finding about the text. `Reviser.grade`'s 77-consult is a **RESCUE** on a
+pair a WRITER declared; running the same judge as a **GENERATOR** over
+undeclared pairs manufactures structure rather than finding it — the owner's
+"move 37" ban one layer over. The two rates are never summed and never read as
+one (doctrine 79): a door may light an arbitrary pair at chance and still
+discriminate a declared one, and only the second is what a derived cover is
+for.
+
+**RULING 2 — `recover`: TWO ANSWERS, BECAUSE IT WAS TWO QUESTIONS.**
+
+**(a) The door stays narrow**, for ruling 1's reason and not a second one:
+this site is a generator too (`for a in range(n): ... for b in range(a + 1,
+n)`), so the same null applies. M-139's objections **(1)** — the 497
+un-nested pairs — and **(3)** — the 97 added pairs with no spellable
+placement — are therefore MOOT rather than answered: they are properties of a
+fold this ruling does not make. The cost of the ruling is M-139's own +32.0%
+of line pairs on 18 of 18 drafts, and it is **stated in the report rather than
+netted away**.
+
+**(b) The placement question is answered THE OTHER WAY, and it is a separate
+question from the door.** `slots.PLANNABLE_PLACEMENTS` excludes `T<n>` because
+*"a planner draws it with the index bounded by what a line reliably HAS, which
+is a coordinate of the plan and not of this table"* — an argument about
+**VOLUNTEERING** an index. **Recovery does not volunteer; it OBSERVES a text
+that already exists**, so the index is READ and not drawn, and the exclusion's
+own argument does not transfer. A recovered `T4` binding is **ADMISSIBLE**
+where a planned one is not. Objection **(2)** — that 88.2% of the added
+placement edges name a `T<n>` — is not an objection to a recovered cover at
+all.
+
+**AND (b) SHIPS AS A COORDINATE RATHER THAN AS THIS PARAGRAPH, because a
+ruling that ends in prose is the note-not-gate failure this repository has a
+standing rule against.** `recover()` has taken `placements=` since it was
+written and its default was `slots.PLANNABLE_PLACEMENTS` — **another module's
+tuple, scoped by its own docstring to "WHAT A PLANNER MAY VOLUNTEER", read
+here as a bound on what a READER may observe.** `RECOVERABLE_PLACEMENTS` is
+this module's own default now, **IMPORTED from `slots` rather than respelled**
+so the two cannot drift (doctrine 1) and **byte-identical in value**, so no
+recovered cover moves.
+
+**AND THE COORDINATE REACHED THE COMMAND LINE FROM NOTHING** — `__main__` took
+a path and no flag — which is this repository's most-repeated defect sitting at
+the outermost layer, in a module whose whole subject is the second front door.
+`--placements=` ships, and an unresolvable name **REFUSES at declaration time
+naming itself**, because `_slot_words` SKIPS a placement that names nothing in
+a given line (correct, and a different question) and leaning on that skip would
+let a mistyped `--placements=T4x` silently NARROW the search and report the
+smaller web as the text's (doctrine 20).
+
+**MEASURED, and the flag is read rather than tolerated** — over 12 lines of
+`songs/crooked_waltz.txt`: default **41 binding sites / 113 edges, 0 naming a
+`T<n>`**; with `T2,T3,T4` declared, **60 sites / 256 edges, 143 naming one**.
+`render()` now prints the set it swept, because a placement not searched is
+not a placement the text lacks.
+
+**THE LIMIT ON BOTH RULINGS, STATED RATHER THAN BURIED.** M-140's null was
+measured on **14-line SONNETS**. Carrying it to a recovered draft or to
+`mandate_from_graph`'s 41-line drafts is an **INFERENCE from one item shape to
+another**. It is the strongest evidence in the tree and it is not a
+measurement on either site's own population; a null over recovered drafts
+would settle it and **has not been run**. That is the one thing that could
+overturn either ruling, and it is named here so a later sitting knows what to
+go and measure.
+
+**WHAT THE PINS DO, AND WHY A 0 HERE READS DIFFERENTLY.**
+`door_census.PINNED` moves `incomplete` **2 -> 0** and `argued` **10 -> 12**.
+That 0 was reached **by ruling and not by repair**, so it means "no site is
+waiting on a ruling" and it does **not** mean every site reaches the complete
+default — 4 of 21 do, and 12 of 21 are ARGUED, which is the count that now
+carries this tree's deliberate narrowness.
+
+**AND THE GUARD THAT EXISTED TO STOP EXACTLY THIS IS REPOINTED, NEVER
+DELETED.** `quality/test_door_census.py` §4 asserted `c["incomplete"] > 0`
+— *"INCOMPLETE is not zero, and the census says so out loud rather than
+reporting a clean tree"* — and that check was there to stop a site being ruled
+away instead of repaired. Ruling both sites takes it to a check nobody can
+pass. It is replaced by the guard that bites on the same failure: **ARGUED is
+the disposition a site could be TALKED into, so every ARGUED reason must carry
+a MEASUREMENT (a number) and a register citation**, plus a floor that the
+census may never report every site FULL. Proven by mutation: stripping the
+digits and the citation from one ARGUED reason reds 2 checks;
+`quality/test_recover.py` §9 is killed 3 checks deep by a `placements=` that
+is parsed and dropped, and 3 deep again by a `parse_placements` that stops
+validating.
+
+`audit_register.PINNED["coverage_entries"]` is repinned **~~202~~ -> 203**
+with this entry (doctrine 17, the superseded value kept visible): the
+register grew by one because M-145 is one more entry, which is what that
+counter counts.
+
+### M-146 · the round trip pinned the miscount M-144 repaired `CLOSED` — the fixture half is a separate finding and stays open
+Found 2026-08-27 by CI going red on `quality/test_plan.py` one commit after
+M-144 shipped, and it is **my own defect from the previous sitting**: the fix
+was measured, mutation-tested and committed without running the suite that
+asserts the OLD counting.
+
+`test_plan.py` §3 — THE ROUND TRIP, *"the graders accept what the planner
+emits ... by the real readers refusing nothing"* — asserted, over twenty
+seeds:
+
+```
+g["pairs_mandated"] == g["pairs_judged"] > 0 and g["pairs_refused"] == 0
+```
+
+**`pairs_refused == 0` WAS TRUE ONLY BECAUSE THE COUNT WAS WRONG.** M-144
+stopped counting a declared slot that resolves to **NO ANCHOR** as JUDGED —
+57 of 422 mandated pairs on the slot-declaring drafts, 13.5%, a refusal
+sitting in the judged column of a shipped headline triple. The moment that
+was repaired, the round trip's `== 0` began asserting the defect.
+
+**AND THE REFUSAL HERE IS NOT ABOUT THE PLANNER, WHICH IS THE WHOLE POINT OF
+THE SECTION.** A slot resolves against the **DRAFT's words**, and this
+section's draft is `dummy_draft` — a filler line built from this test file's
+own `BANK`. So a NO-ANCHOR refusal at a declared slot is a fact about that
+filler vocabulary, not about the shape the planner emitted, and charging it
+to the planner is the layer confusion this repository has an instrument for.
+
+**THE REPAIR IS A PARTITION PLUS A CAUSE, AND IT IS STRICTER THAN THE COUNT
+IT REPLACES** — never a widened tolerance:
+
+* `pairs_mandated == pairs_judged + pairs_refused` and `pairs_judged > 0`:
+  the three counts still partition and the graders still judged something.
+* **every refusal must carry `slot_refusal`** — M-144's own kind. Any OTHER
+  refusal (an unreadable end word, a schema the judge cannot read) IS the
+  planner emitting something the graders cannot take, and that is exactly
+  the failure this section exists to catch. The old `== 0` could not tell
+  those apart; it merely required their sum to vanish.
+
+**THE FAMILY, STATED ONCE, BECAUSE IT IS THIS REPOSITORY'S OWN SHAPE
+(doctrine 17):** a check written against a number can only ever be as right
+as that number was, and repairing the number turns the check into an
+assertion of the defect. `test_homeoteleuton.py` §5 did this exact thing to
+the two-name door (`MISSING.md` M-59, *"a check was ASSERTING the defect"*),
+and `test_door_census.py` §4's `incomplete > 0` needed the same treatment on
+the same day as this one (M-145). Three instances now, and the remedy is the
+same each time: **repoint the guard onto what the repair did NOT change**,
+never delete it and never loosen it.
+
+**AND THE REPAIR REVEALED WHAT THE `== 0` HAD BEEN HIDING: HALF THIS
+SECTION'S MANDATED PAIRS ARE NEVER GRADED, AND THE CAUSE IS THIS FILE'S OWN
+FILLER.** Measured over four seeds — mandated / judged / refused —
+**231/62/169, 66/31/35, 94/46/48, 116/34/82**, so the judged share runs
+**26.8% to 48.9%** and the partition holds on all four with every refusal of
+the slot kind. The cause is exact and is a fact about seven words:
+`dummy_draft`'s line is `we carry the morning to the {BANK}`, and of its
+**7 token positions only 3 anchor** — `carry`, `morning` and the bank word.
+`we`, `the`, `to`, `the` are function words the phonology will not anchor,
+which is **doctrine 46's list working correctly**, not a defect in it. So
+`head` reads `we` and refuses, `headrime` refuses with it, and every `T<n>`
+landing on an article refuses too. Under the old `== 0` this was invisible
+because the count it was reading was wrong in the compensating direction.
+
+**THAT IS GATED RATHER THAN NOTED, AND THE GATE CARRIES NO NUMBER.** The
+section now derives a floor from its own fixture: the anchorable-position
+share **SQUARED**, because a pair needs both ends to anchor — 3/7 squared is
+**18.4%**, and the observed 26.8–48.9% clears it because the planner also
+draws `end`/`endword`, which do anchor. It is deliberately a LOWER bound.
+What it catches is the direction worth catching — **the GRADER beginning to
+refuse pairs it ought to judge** — and it cannot be satisfied by weakening
+the fixture, because a weaker filler moves its own prediction down with it.
+
+**WHAT IS LEFT OPEN, NAMED SO IT IS NOT MISTAKEN FOR DONE:** the filler
+itself. A content-word-only line of the same syllable count would anchor at
+every position and hand this section back the half of its grading power the
+function words cost it. That is a FIXTURE change with a real blast radius —
+it moves every band, syllable and monotony reading in `test_plan.py` and
+would let head-bound groups be judged (and violate) for the first time — so
+it is not taken here on the strength of a hunch at the end of a sitting. The
+measurement above is what a later sitting needs to size it.
+
+### M-147 · the nightly banked its resume point and threw it away, every night `CLOSED`
+Found 2026-08-27 by being asked whether tonight's scheduled jobs are in good
+shape, and the honest first answer was that **no scheduled run has passed
+since 2026-08-15** — twelve consecutive nights, every one `failure` or
+`cancelled`. Nobody was reading them.
+
+**THE SONG-PROFILE STEP IS THE FAILING ONE AND ITS DRIFT IS REAL.** Run #966
+(2026-08-26) reports, in the step's own words:
+
+```
+7 value(s) DRIFTED: band lo (tokens), threshold mattr, threshold fwr,
+threshold cv, threshold predictability, anaphora period slope rho,
+anaphora period slope p_perm
+DRIFT — the constants no longer describe corpus/song/.
+```
+
+with `band lo (tokens) shipped 150.0000 measured 200.0000`. **Every one of
+those seven is repinned in this tree** by the M-131/M-133 re-adoption, which
+had not reached `main` — so this half closes by MERGING and not by editing:
+the nightly was measuring a `main` the re-adoption never landed on.
+
+**THE HALF THAT WOULD HAVE SURVIVED THE MERGE IS A DEADLOCK, AND IT IS THE
+ENTRY.** `actions/cache@v4` declares `post-if: success()`, so its save runs
+only when the job PASSED. Run #966's own log:
+
+```
+memo: 0 -> 8663 items (+8663 banked this run)
+...
+Post Restore the predictability memo   skipped
+```
+
+**146 minutes of work banked to a file, and the file discarded because the
+step that produced it then reported the drift it exists to report.** The next
+night restores nothing (`fingerprint 5f8f9a6149c7 | new (no file yet) | hits
+4, misses 8663`), pays the 146 minutes again, and fails again. A permanent
+deadlock in which the resume point can only ever be written by a run that did
+not need it.
+
+**AND THE STEP'S OWN CONTRACT ALREADY ASSUMED THE SAVE IT COULD NOT GET.** Its
+`124` arm reads *"the run hit its 150m budget with the memo advanced and
+banked. The next nightly resumes from it"* — true of the file on disk and
+false of the cache, because a TIMEOUT is not a success either. So the one arm
+written to make this instrument resumable is the arm that guaranteed it never
+resumed. A bounded slice whose resume point is dropped on every non-success is
+not a slice; it is the same first slice, forever.
+
+**THE REPAIR IS THE SPLIT**: `actions/cache/restore@v4` at the top,
+`actions/cache/save@v4` with `if: always()` at the end, so the memo is banked
+whatever the verdict — a DRIFT (exit 1) and an overrun (exit 124) both advance
+the resume point now. The key already carries `github.run_id` and so never
+hits exactly; the `restore-keys` prefix is what picks up the newest entry.
+The three steps at the end of that job were already `if: always()`, so the
+idiom was in the file — it had simply never been pointed at the cache.
+
+**WHAT THIS DOES NOT CLOSE, NAMED SO IT IS NOT READ AS FIXED:** the same
+`post-if: success()` applies to every other `actions/cache` in this workflow.
+The others cache DERIVED, cheap-to-rebuild things (Playwright browsers,
+CMUdict) where losing a save costs a download, not a night's work — so they
+are left alone deliberately rather than overlooked. The predictability memo is
+the only cache in the file whose contents are the OUTPUT of the step it feeds.
+
+`audit_register.PINNED["coverage_entries"]` is repinned **~~202~~ -> ~~203~~ ->
+205** across this sitting (doctrine 17, every superseded value kept visible):
+202 -> 203 with M-145, then 203 -> 205 with M-146 and M-147, because that
+counter counts register entries and this sitting wrote three.

@@ -8511,6 +8511,14 @@ def main():
                           f"{b.forbidden_incumbent}")
                 if b.candidates:
                     print(f"      offered: {', '.join(b.candidates[:12])}")
+                    # RENDER SITE 6 OF 6. `_print_brief_report` is a SECOND
+                    # renderer of a `Brief` -- it restates `Brief.__str__`'s
+                    # per-line block rather than calling it -- so a rule
+                    # added to one and not the other vanishes from the verb
+                    # a writer actually runs (`MISSING.md` M-139).
+                    from quality.revise import schema_route_lines as _SRL
+                    for _l in _SRL(b.schema_route_note, "      "):
+                        print(_l)
             _print_whole()
             return _counts()
 

@@ -270,13 +270,95 @@ def test_the_doctrine_14_claim_is_GRADED_not_grepped():
               f"{len(placed)} placed REPEAT edge(s)")
 
 
+def test_the_placement_set_is_the_CALLERS_and_it_is_reachable():
+    """§9. M-145(b) — a recovered `T<n>` binding is ADMISSIBLE, and the
+    coordinate that says so has to be REACHABLE or the ruling is prose.
+
+    `recover()` has taken `placements=` since it was written and its default
+    was `slots.PLANNABLE_PLACEMENTS` — a tuple whose own docstring scopes it
+    to *"WHAT A PLANNER MAY VOLUNTEER"*, read here as a bound on what a
+    reader may OBSERVE. `__main__` took a path and no flag, so the only way
+    to declare anything else was to drop to Python: built, tested and
+    unreachable, which is this repository's most-repeated defect at the
+    outermost layer.
+
+    THE CHECKS ARE DIFFERENCES, NOT STRING MATCHES. A flag that is parsed
+    and dropped renders BYTE-IDENTICALLY to one that is read, which is how
+    `--returns=` went three days unread (`test_verbs.py` §19's own lesson),
+    so the load-bearing assertion here is that two runs DISAGREE.
+    """
+    print("\n9. the placement set is the CALLER'S, and it is reachable")
+    check("the default is this module's own constant, IMPORTED from `slots` "
+          "rather than respelled, so the two cannot drift (doctrine 1)",
+          RC.RECOVERABLE_PLACEMENTS is SL.PLANNABLE_PLACEMENTS,
+          f"{RC.RECOVERABLE_PLACEMENTS}")
+    base = _rec(MARKED)
+    wide = RC.recover(_sung(MARKED), raw_lines=MARKED,
+                      placements=("end", "endword", "head", "headrime",
+                                  "T2", "T3", "T4"))
+    check("...and it is BYTE-IDENTICAL in value to what this function "
+          "already searched, so the ruling moves no recovered cover",
+          base["placements_searched"] == ["end", "endword", "head",
+                                          "headrime"],
+          f"{base['placements_searched']}")
+    check("a declared `T<n>` set is READ — the two covers DISAGREE, which a "
+          "dropped flag could not do",
+          wide["binding_sites"] > base["binding_sites"]
+          and len(wide["web"]) != len(base["web"]),
+          f"default {base['binding_sites']} sites / {len(base['web'])} edges "
+          f"-> declared {wide['binding_sites']} / {len(wide['web'])}")
+    tn = [e for e in wide["web"]
+          if "T" in str(e["a"]) or "T" in str(e["b"])]
+    check("...and the added edges NAME the placement, so a recovered `T<n>` "
+          "binding is spellable and not merely counted",
+          tn and all("T" not in str(e["a"]) and "T" not in str(e["b"])
+                     for e in base["web"]),
+          f"{len(tn)} of {len(wide['web'])} declared-run edges name a T<n>, "
+          f"against 0 of {len(base['web'])} by default")
+    check("the coordinate is RECORDED on the result with its provenance — "
+          "`declared` when the caller said so, `derived` when it is this "
+          "module's default and not a fact about the text",
+          base.how["placements_searched"][0] == "derived"
+          and wide.how["placements_searched"][0] == "declared",
+          f"{base.how['placements_searched'][0]} / "
+          f"{wide.how['placements_searched'][0]}")
+    check("...and RENDERED, because a placement not searched is not a "
+          "placement the text lacks (doctrine 20)",
+          "PLACEMENTS SEARCHED" in RC.render(base),
+          "render() names the set it swept")
+
+    # THE REFUSAL IS AT DECLARATION AND NOT PER LINE. `_slot_words` SKIPS a
+    # placement naming nothing in a given line — correct, and a different
+    # question. Leaning on that skip would let a mistyped `--placements=T4x`
+    # silently NARROW the search and report the smaller web as the text's.
+    for bad in ("T4x", "endwrod", ""):
+        try:
+            RC.parse_placements(bad)
+            check(f"an unresolvable placement {bad!r} REFUSES by name", False,
+                  "it was accepted")
+        except SL.SlotUnsupported as exc:
+            check(f"an unresolvable placement {bad!r} REFUSES by name",
+                  bad in str(exc) or "names no placement" in str(exc),
+                  str(exc)[:90])
+    check("...and a resolvable one does NOT refuse — the guard is not "
+          "refusing everything",
+          RC.parse_placements("end, head ,T4") == ("end", "head", "T4"),
+          "whitespace tolerated, order kept")
+    check("`line` stays DECLARABLE, which is `PLANNABLE_PLACEMENTS`' own "
+          "word for it — its exclusion is about volunteering a holorhyme, "
+          "not about a reader being unable to name one",
+          RC.parse_placements("line") == ("line",),
+          "declarable, never volunteered")
+
+
 def main():
     for fn in (test_provenance_is_closed, test_sections_prefer_the_declaration,
                test_what_is_counted, test_meter_is_refused,
                test_the_web_is_over_placements,
                test_the_cover_declares_its_dependence,
                test_the_bound_is_declared,
-               test_the_doctrine_14_claim_is_GRADED_not_grepped):
+               test_the_doctrine_14_claim_is_GRADED_not_grepped,
+               test_the_placement_set_is_the_CALLERS_and_it_is_reachable):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0

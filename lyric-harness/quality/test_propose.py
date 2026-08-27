@@ -135,6 +135,16 @@ class B:
         self.field_declaration = kw.get(
             "field_declaration", "field_depth=complete pool, "
                                  "field_band='grader'")
+        #: THE DOOR, added 2026-08-26 (`MISSING.md` M-139) and §7c below is
+        #: what forces it: `Brief` grew `schema_route_note`, `render_line`
+        #: reads it through `getattr`, and a stand-in without it would render
+        #: the UNKNOWN sentence on every fixture in this file -- no error, no
+        #: red, and the suite pinning a prompt nobody produces. Defaulted to
+        #: the REAL disclosure because every fixture here is a bare-group
+        #: line under a default declaration, which is the state
+        #: `Reviser.field_note` returns it for.
+        from quality.relations import SCHEMA_ROUTE_NOTE as _SRN
+        self.schema_route_note = kw.get("schema_route_note", _SRN)
 
 
 class AS:
@@ -1247,6 +1257,35 @@ def _imports_of_propose():
     return mods
 
 
+def test_the_door_sentence_has_one_definition():
+    """§7e — `propose.py` renders the M-139 door disclosure and does not
+    OWN it, and the one copy its declared purity costs is pinned.
+
+    THE DESIGN THIS FORECLOSES, and it is the obvious one. A `bool` on the
+    `Brief` plus `from quality.relations import SCHEMA_ROUTE_NOTE` at each
+    renderer would put the sentence in the module that owns the judge and
+    read it everywhere — except that `test_model_proposer_surface` above
+    asserts ON THE SOURCE that this file imports `re` and nothing else, so
+    that design turns an EXISTING check red. (`quality.relations` also opens
+    `canon_index.tsv` at import, in a module whose docstring says it touches
+    no filesystem.) So the sentence travels as DATA on the `Brief`, exactly
+    as `field_declaration` does, and what stops that being a second copy is
+    the pair of checks below.
+    """
+    print("\n7e. the door sentence has ONE definition, and it is not here")
+    from quality.relations import (SCHEMA_ROUTE_NOTE as NOTE,
+                                   SCHEMA_ROUTE_UNKNOWN as UNK)
+    from quality.propose import _SCHEMA_ROUTE_UNKNOWN as HERE_UNK
+    src = open(os.path.join(HERE, "propose.py"), encoding="utf-8").read()
+    check("`propose.py` contains no copy of the disclosure — it reads it off "
+          "the brief (doctrine 1)", NOTE[:60] not in src, NOTE[:60])
+    check("its UNKNOWN fallback is byte-equal to `relations`' — the one "
+          "duplicated string this module's import guard costs, held here "
+          "rather than left to drift", HERE_UNK == UNK)
+    check("and the two sentences say DIFFERENT things: 'not recorded' is "
+          "not 'not consulted' (doctrine 20/28)", HERE_UNK != NOTE)
+
+
 if __name__ == "__main__":
     for fn in (test_render_is_deterministic,
                test_forbidden_words_are_present_and_labelled,
@@ -1257,6 +1296,7 @@ if __name__ == "__main__":
                test_parse_group_needs_every_marker,
                test_group_prompt_states_the_tier2_situation,
                test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for,
+               test_the_door_sentence_has_one_definition,
                test_model_proposer_surface,
                test_model_proposer_serves_a_real_tier_2,
                test_model_proposer_drives_a_real_loop_to_success,

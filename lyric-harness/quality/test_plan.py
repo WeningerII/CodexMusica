@@ -190,6 +190,7 @@ def test_the_round_trip():
 
     R = Reviser()
     bad = []
+    judged_total = refused_total = 0
     for seed in range(20):
         plan = make_plan(seed=seed)
         draft = dummy_draft(plan)
@@ -220,11 +221,35 @@ def test_the_round_trip():
             codes = {f.code for f in found["whole"]}
             for _ln, fs in found["per_line"].items():
                 codes |= {f.code for f in fs}
-            if not (g["pairs_mandated"] == g["pairs_judged"] > 0
-                    and g["pairs_refused"] == 0):
+            # THREE COUNTS, NEVER SUMMED — and the assertion is the
+            # PARTITION plus a CAUSE, not `refused == 0`.
+            # ~~`pairs_refused == 0`~~ STRUCK 2026-08-27: that spelling was
+            # true only until M-144 stopped counting a declared slot that
+            # resolves to NO ANCHOR as JUDGED. It resolves against the
+            # DRAFT's words, and the draft here is `dummy_draft` — so a
+            # refusal at a declared slot is a fact about this file's filler
+            # vocabulary and NOT about the planner's shape, which is what
+            # this section is for. Keeping `== 0` would have made the
+            # round trip pin the very miscount M-144 repaired (doctrine 17).
+            # WHAT STILL BITES, and it is stricter than a count: every
+            # refusal must BE that kind. Any OTHER refusal — an unreadable
+            # end word, a schema the judge cannot read — IS the planner
+            # emitting something the graders cannot take, and that is
+            # exactly the failure this section exists to catch.
+            judged_total += g["pairs_judged"]
+            refused_total += g["pairs_refused"]
+            unexplained = [r for r in g["refusals"]
+                           if not r.get("slot_refusal")]
+            if not (g["pairs_mandated"] == g["pairs_judged"]
+                    + g["pairs_refused"] and g["pairs_judged"] > 0):
                 bad.append((seed, f"counts m{g['pairs_mandated']} "
                                   f"j{g['pairs_judged']} "
                                   f"r{g['pairs_refused']}"))
+            elif unexplained:
+                bad.append((seed, "refusal(s) the DRAFT's words do not "
+                                  "explain: " + str(sorted(
+                                      {r.get("reason", "?")[:44]
+                                       for r in unexplained}))))
             elif codes & FORBIDDEN:
                 bad.append((seed, sorted(codes & FORBIDDEN)))
             for s in plan["sections"]:
@@ -236,10 +261,44 @@ def test_the_round_trip():
                                       f"{n} line(s), {s['bars']} bar(s)"))
         except Exception as e:  # noqa: BLE001 — any raise is the failure
             bad.append((seed, f"{type(e).__name__}: {e}"))
-    check("20 seeds: blueprint READS, mandate PARSES, mandated == judged "
-          "> 0, refused 0 (three counts, never summed: doctrine 79), and "
-          "no verbatim/drift finding stands on a planner shape",
-          not bad, f"bad: {bad or 'none'}")
+    check("20 seeds: blueprint READS, mandate PARSES, mandated == judged + "
+          "REFUSED with judged > 0 (three counts, never summed: doctrine "
+          "79), every refusal is a NO-ANCHOR slot on the dummy draft's own "
+          "words rather than a shape the graders cannot take, and no "
+          "verbatim/drift finding stands on a planner shape",
+          not bad, f"bad: {bad or 'none'}; "
+                   f"judged {judged_total}, slot-refused {refused_total}")
+
+    # AND THE SECTION'S GRADING POWER HAS A FLOOR IT DERIVES FROM ITS OWN
+    # FIXTURE, so `judged > 0` cannot decay to "one pair answered".
+    # MEASURED: `dummy_draft`'s filler line anchors at 3 of its 7 token
+    # positions — `we`, `the`, `to`, `the` are function words the phonology
+    # will not anchor (doctrine 46's list doing its job), so `head` reads
+    # `we` and refuses, and so does every `T<n>` landing on an article.
+    # A pair needs BOTH its slots to anchor, so if placements were uniform
+    # over token positions the judged share would be that fraction SQUARED.
+    # It is a LOWER BOUND and deliberately loose: the planner also draws
+    # `end`/`endword`, which do anchor, so the observed share sits well
+    # above it. What it catches is the direction that matters — the GRADER
+    # starting to refuse pairs it should judge — and it carries no literal,
+    # because a filler that changes moves its own prediction with it.
+    lex = R.lex
+    filler = "we carry the morning to the " + BANK[0]
+    ntok = len(filler.split())
+    anchored = 0
+    for t in range(1, ntok + 1):
+        a, lab, _ = SL.resolve(lex, filler, SL.parse_slot(f"1.T{t}"))
+        anchored += bool(a and lab)
+    floor = (anchored / ntok) ** 2
+    share = judged_total / max(1, judged_total + refused_total)
+    check("...and the section's grading POWER clears the floor its own "
+          "fixture predicts — the filler's anchorable-position share, "
+          "squared, because a pair needs both ends. No literal: a weaker "
+          "filler moves the prediction with it, and what this catches is "
+          "the GRADER refusing what it ought to judge",
+          share >= floor,
+          f"judged share {share:.1%} against a derived floor {floor:.1%} "
+          f"({anchored} of {ntok} token positions anchor on the filler)")
 
     # One EXACT-length request rides the same rails.
     plan = make_plan(seed=7, lines=22)

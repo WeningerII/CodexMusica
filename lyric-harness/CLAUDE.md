@@ -844,7 +844,9 @@ is the half that answers the ruling's last clause; the census costs 1.9s and
 runs in the cheap CI job. ~~Three INCOMPLETE sites are still open, each priced:
 `whole_vocabulary_pairs` builds a full 77-schema stream at **2.94s over 14
 lines, 4.74s over 28, 14.73s over 56**~~ **REPINNED 2026-08-26: TWO are open,
-and that ladder is an ORDER OF MAGNITUDE and not a bound.** The text is an
+and that ladder is an ORDER OF MAGNITUDE and not a bound.** **REPINNED AGAIN
+2026-08-27: ZERO are open — both were RULED rather than repaired, and the
+cost each ruling declines to pay is priced below (`MISSING.md` M-145).** The text is an
 undeclared coordinate of it in two directions at once — Whitman runs 3-4x
 higher at matched length, and *within sonnets* three separate readings of the
 same three lengths give 2.94/4.74/14.73, 1.60/6.00/25.00 and 1.83/4.26/13.72,
@@ -859,9 +861,38 @@ is not a cost problem at all.** Its lazy gate is measured to fire on **170 of
 170 drafts** (a draft where the narrow door admits every line pair does not
 exist here), it has no mandate so `bearing=` has no honest value, and widening
 it takes a 41-line draft's derived cover from 19 groups to 41 and its mandated
-pair-slots from 242 to 10,626. What it owes is an owner ruling on whether
+pair-slots from 242 to 10,626. ~~What it owes is an owner ruling on whether
 `--cliques` means the RHYME graph or the whole-vocabulary relation graph, not
-a door edit. **AND THE CHANCE RATE OF BOTH DOORS IS A COMMAND NOW** —
+a door edit.~~
+**BOTH RULINGS WERE MADE 2026-08-27 ON THE OWNER'S DELEGATION — *"you're
+more than capable of making those rulings correctly"* — AND `incomplete` IS
+**0** (`MISSING.md` M-145). NOT ONE BYTE OF EITHER DOOR MOVED.** `--cliques`
+MEANS THE RHYME GRAPH, and `recover` keeps the narrow door too, on ONE
+argument that fits both: each site is a **GENERATOR** sweeping every pair,
+and that is the population `chance_rate.py --null` measures the 77-schema
+door **at chance** on — 69.05% against a null median 71.02%, below its own
+null on 20 of 20 draws, p 0.9048 — while the same door separates by **+12.50
+pp over the null MAX** on the pairs a WRITER declared. `grade()`'s
+77-consult is a **RESCUE** on a declared pair; the same judge run as a
+**GENERATOR** manufactures structure rather than finding it (doctrine 71,
+and the "move 37" ban one layer over). The two rates are never summed
+(doctrine 79). **THE LIMIT IS STATED, NOT BURIED: that null was measured on
+14-line SONNETS, so carrying it to either site's drafts is an INFERENCE from
+one item shape to another** — the strongest evidence in the tree and not a
+measurement on those populations. **`recover`'S SECOND QUESTION IS ANSWERED
+THE OTHER WAY**: `slots.PLANNABLE_PLACEMENTS` excludes `T<n>` by an argument
+about what a planner may **VOLUNTEER**, and recovery does not volunteer — it
+OBSERVES a text that already exists, so the index is READ and not drawn and a
+recovered `T4` binding is admissible where a planned one is not. That ships
+as a coordinate rather than as a paragraph: `recover.RECOVERABLE_PLACEMENTS`
+is the module's own default (imported from `slots`, byte-identical, so no
+cover moves) and `--placements=` reaches it from the command line, which it
+did from NOTHING before — measured on 12 lines, 41 sites / 113 edges by
+default against 60 / 256 with `T2,T3,T4` declared, 143 of them naming one.
+**AND `test_door_census.py` §4's `incomplete > 0` GUARD IS REPOINTED, NEVER
+DELETED** — every ARGUED reason must now carry a MEASUREMENT and a register
+citation, because ARGUED is the disposition a site could be TALKED into.
+**AND THE CHANCE RATE OF BOTH DOORS IS A COMMAND NOW** —
 `quality/chance_rate.py`, built the same day out of M-138's strike, because the
 figures that entry recorded came from an uncommitted script and do not
 reproduce: the SAMPLER's population and reader were never declared. Measured
