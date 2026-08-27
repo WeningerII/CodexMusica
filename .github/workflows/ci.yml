@@ -2528,6 +2528,21 @@ jobs:
         working-directory: mcp
         run: node check_live.mjs
 
+      # THE JOB'S OWN TIME BUDGET, MEASURED 2026-08-27 rather than argued,
+      # because three steps joined this job (structure_census, chance_rate
+      # --null, regrade_verdicts) and nothing had re-added it up. Run #966's
+      # wall clock for the steps that were already here is 200m of the 240m
+      # cap, of which the song-profile slice is 147m ON A COLD MEMO. The three
+      # additions measure 0.3m + 8.3m + 8.2m = 16.8m on a 4-vCPU box, so the
+      # cold-memo worst case is ~217m and the margin is ~23m.
+      #
+      # THE 150m SLICE BUDGET IS LEFT ALONE ON THAT MARGIN, and the reason is
+      # the save step above rather than the arithmetic: an overrun now BANKS
+      # its memo, so a night that runs out resumes the next night and
+      # completes, instead of restarting cold forever. Cutting the slice to
+      # buy margin would trade a self-healing overrun for a check that never
+      # reaches its verdict. Re-measure before adding a fourth step here.
+
       # THE OTHER HALF OF THE SPLIT ABOVE, and it is the half that ends the
       # deadlock: the memo is banked whatever the job's verdict, so a DRIFT
       # (exit 1) or a bounded slice that overran (exit 124) still advances the
