@@ -3964,6 +3964,150 @@ def test_a_report_says_when_the_named_pair_is_not_the_evidence():
           f"score={v['score']:.3f} relation={v['relation']} why={v['why']!r}")
 
 
+def test_the_field_says_which_door_it_was_read_at():
+    """§45 — `MISSING.md` M-139's PER_WORD disclosure, and it is checked at
+    every site that renders a candidate field.
+
+    WHY THIS IS NOT §7c's JOB, stated because the two look alike.
+    `quality/test_propose.py` §7c pins the STAND-IN's field list to `Brief`'s,
+    so a coordinate `Brief` grows and a stub does not is a red check. That is
+    necessary and it is not sufficient, and §7c's own comment says so: the
+    renderers read through `getattr`, so a renderer that never ASKS for the
+    field produces exactly the prompt it produced before. MEASURED on seven
+    mutations of this repair — a renderer dropped, the coordinate forced
+    shut, the `getattr` default collapsed to `""`, the third state deleted —
+    §7c stays GREEN on 7 of 7 and this section fails on 7 of 7.
+    """
+    print("\n45. the candidate field says which DOOR it was read at "
+          "(M-139)")
+    import io as _io
+    import subprocess as _sp
+    from quality.revise import schema_route_lines
+    from quality.relations import (SCHEMA_ROUTE_NOTE as NOTE,
+                                   SCHEMA_ROUTE_UNKNOWN as UNK)
+    from quality import propose as PR
+    from quality.loop import GroupBrief, AnchorSlot
+    from lyric_harness import Declaration
+
+    def flat(t):
+        return " ".join(t.split())
+
+    KEY, UKEY = NOTE[:44], UNK[:44]
+
+    # -- 45a THE TWO ARMS, and NO NUMBER IN THE CHECK. One draft, two
+    # declarations, opposite renderings. The disclosure is true exactly when
+    # `grade()`'s rescue is live, which is what "the brief and the verdict
+    # ask the same question" means for this coordinate -- and both readings
+    # come from ONE function, `Reviser.schema_route_open`.
+    A = Reviser()
+    B = Reviser(decl=Declaration(admit=frozenset({"RHYME"})))
+    ba = [x for x in A.brief(CLICHE, "ABAB") if x.candidates][0]
+    bb = [x for x in B.brief(CLICHE, "ABAB") if x.candidates][0]
+    check("a field built under the DEFAULT door says the 77 were not asked",
+          ba.schema_route_note == NOTE)
+    check("a field built under a NARROWED `admit` says NOTHING -- the route "
+          "is shut and the field's door IS the verdict's door",
+          bb.schema_route_note == "")
+    check("the two arms RENDER differently: a coordinate that changes no "
+          "output is one the writer cannot act on (doctrine 1)",
+          PR.render_line(ba, CLICHE) != PR.render_line(bb, CLICHE))
+
+    # -- 45b THE RENDERER CENSUS, DRIVEN. Not a count read off the source:
+    # every site is run and its output read.
+    buf = _io.StringIO()
+    A.report(CLICHE, "ABAB", stream=buf)
+    gb = GroupBrief(pivot_line_no=3, pivot_text=CLICHE[2],
+                    pivot_word="desire", pivot_offered=["attire"],
+                    anchors=(AnchorSlot(line_no=1, text=CLICHE[0],
+                                        word="fire", offered=("choir",),
+                                        calls=("go",)),),
+                    label="A", members=[1, 3], brief=ba, lines=CLICHE,
+                    attempt=0)
+    tmp = os.path.join(tempfile.gettempdir(), "m139_cliche.txt")
+    with open(tmp, "w", encoding="utf-8") as fh:
+        fh.write("\n".join(CLICHE) + "\n")
+    cli = _sp.run([sys.executable,
+                   os.path.join(HERE, "..", "lyric_harness.py"),
+                   "brief", tmp, "ABAB"],
+                  capture_output=True, text=True, timeout=900).stdout
+    sites = {
+        "revise.Brief.__str__": flat(str(ba)).count(KEY),
+        "revise.Reviser.report": flat(buf.getvalue()).count(KEY),
+        "propose.render_line": flat(PR.render_line(ba, CLICHE)).count(KEY),
+        "propose.render_group": flat(PR.render_group(gb)).count(KEY),
+        "lyric_harness._print_brief_report": flat(cli).count(KEY),
+    }
+    for name in sorted(sites):
+        check(f"{name} discloses the door", sites[name] >= 1,
+              f"{sites[name]} occurrence(s)")
+    # THE ONE COUNT THAT IS ONE QUESTION. The others are NOT summed
+    # (doctrine 79): `report` prints the report-level line and every brief's
+    # own, the CLI prints one per field-bearing line, and those denominators
+    # differ. A tier-2 prompt renders TWO options lists through one
+    # `_offered_block`, and both must carry it.
+    check("`render_group` discloses on BOTH of its options lists -- the "
+          "pivot's and the member's",
+          sites["propose.render_group"] == 2,
+          f"{sites['propose.render_group']} of 2")
+    check("every renderer of a candidate field discloses the door; none is "
+          "silent", all(sites.values()), f"{sites}")
+
+    # -- 45c THREE STATES, AND THE THIRD IS THE ONE A `bool` WOULD EAT.
+    check("`None` renders the UNKNOWN sentence, not silence",
+          bool(schema_route_lines(None))
+          and UKEY in flat(" ".join(schema_route_lines(None))))
+    check("`\"\"` renders silence -- the route is SHUT and nothing is owed",
+          schema_route_lines("") == [])
+    check("the two are DIFFERENT renderings: inconclusive is not null "
+          "(doctrine 20)",
+          schema_route_lines(None) != schema_route_lines(""))
+
+    class Stale:
+        """A stand-in that predates the coordinate -- §7c's own hazard."""
+        line_no, text, findings, keep = 1, "x", [], []
+        candidates = ["a", "b"]
+        forbidden_modal, must_answer, joint_conflict = [], [], False
+        must_rhyme_with = None
+        field_declaration = "field_depth=?, field_band=?"
+
+    stale = flat(PR.render_line(Stale(), CLICHE))
+    check("a stand-in that has NOT grown the coordinate renders the UNKNOWN "
+          "sentence and never silence -- the `getattr` default is not `\"\"`",
+          UKEY in stale and KEY not in stale)
+
+    # -- 45d THE SENTENCE'S CLAIM IS TRUE OF THE POPULATION IT IS MADE
+    # ABOUT. It says a 77-rescued pair may be unreachable from the field AT
+    # ANY DEPTH; the warrant is that such a pair fails on the SCALAR, and a
+    # field is built from words that CLEAR the band. Measured here rather
+    # than asserted, on a shipped fixture, with its own denominator printed
+    # so an empty population cannot read as a pass (doctrine 20).
+    lines = [l.rstrip() for l in
+             open(os.path.join(HERE, "fixtures", "song.txt"),
+                  encoding="utf-8").read().splitlines()
+             if l.strip() and not l.strip().startswith("[")]
+    cover = [[2, 4], [1, 3]]
+    rep = A.grade(lines, cover)
+    ss = rep["pairs_schema_satisfied"]
+    check("the fixture still REACHES the 77-only route -- an empty "
+          "population would make the check below vacuous",
+          len(ss) >= 1, f"{len(ss)} of {rep['pairs_mandated']} mandated")
+    m = A.mandate(lines, cover)
+    _a, endwords, _r, _mx = A._matrix(lines)
+    unreachable = 0
+    for e in ss:
+        i, j = e["lines"]
+        k = [x for x in range(len(m.groups)) if m.labels[x] == e["label"]][0]
+        wi = A._slot_word(lines, m, k, i, endwords)
+        wj = A._slot_word(lines, m, k, j, endwords)
+        fi = {w.lower() for w in A._field_one(wi)}
+        fj = {w.lower() for w in A._field_one(wj)}
+        if wj.lower() not in fi and wi.lower() not in fj:
+            unreachable += 1
+    check("every 77-only pair is ABSENT from the complete-pool field of "
+          "BOTH its words, so 'not askable at any depth' is measured",
+          unreachable == len(ss), f"{unreachable} of {len(ss)}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -4011,7 +4155,8 @@ if __name__ == "__main__":
                test_rule_three_asks_whether_a_word_was_taken,
                test_the_forbidden_list_is_two_rules_in_two_fields,
                test_a_return_is_not_rendered_as_a_rhyme,
-               test_a_report_says_when_the_named_pair_is_not_the_evidence):
+               test_a_report_says_when_the_named_pair_is_not_the_evidence,
+               test_the_field_says_which_door_it_was_read_at):
         fn()
     print("=" * 62)
     if FAILURES:

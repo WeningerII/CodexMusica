@@ -13684,3 +13684,111 @@ The `mandate_spelling` repair is what a caller needs the day it does.
 
 Attributed to a lane; the 34/0 grading contrast, the `--returns=` refusal and
 the mutation I re-derived myself.
+
+### M-143 · the candidate field was built at one door and said so to nobody `CLOSED`
+Closed 2026-08-26, the `PER_WORD` half of M-139. **`Reviser._field_one` holds a
+WORD and the 77-schema judge holds LINE PAIRS, so the second half of the
+default is not askable there at any depth. That is a real structural limit —
+and a limit a site does not STATE reads exactly like a question asked and
+answered no** (doctrine 20). The site said nothing, and the field it produces
+carries `_field`'s own capitalised promise that THE BRIEF AND THE VERDICT HAVE
+TO ASK THE SAME QUESTION.
+
+**THE GAP IS NOT ZERO, MEASURED ON FIFTEEN DRAFTS UNDER THEIR OWN COMMITTED
+MANDATES** (the four fixtures with their suites' mandates, eleven songs with
+the exact `--groups=` / `--relations=` strings from `songs/README.md`):
+**452 mandated / 452 judged / 0 refused, 0 violations — and 15 pairs (3.32%)
+accepted ONLY by the 77-schema route, on 3 of 15 drafts.** Cross-checked
+against the shipped verb rather than a reconstruction: the banked
+`crooked_waltz` command prints `SCHEMA DEFAULT: 12 mandated pair(s) satisfied
+by the whole-vocabulary default`, all twelve in group **G**, its single bare
+group of seventeen. Re-derived here.
+
+**AND NOT ONE OF THEM IS REACHABLE BY A DEEPER FIELD, WHICH IS THE WARRANT FOR
+A DISCLOSURE RATHER THAN A FIX.** Complete-pool fields **1,434–3,981 words
+deep**: the partner is in neither side's field in every case, and every score
+sits **below `theta_rhyme` 0.75 (0.395–0.705)** — so `admits()` refuses on the
+SCALAR, and a field built from words that CLEAR the band cannot hold them at
+any depth. The alternative is priced and is not a candidate: a per-word answer
+needs one full stream build PER CANDIDATE WORD, because each candidate changes
+the LINE — **1–2.7 hours per briefed line**.
+
+**MY OWN SKETCH FOR THIS WAS WRONG IN TWO PLACES AND A LANE MEASURED BOTH.**
+(1) It routed the sentence as an IMPORT from `quality/relations.py`.
+`quality/test_propose.py` asserts on the source that `propose.py` *"imports
+`re` and nothing else"* — a hard no-network guard — and `quality.relations`
+opens `quality/canon_index.tsv` at import. The sketch's design **turns an
+existing check red**, so the sentence travels as DATA on the `Brief`, exactly
+as `field_declaration` already does. (2) It proposed `getattr(..., False)`.
+The half I feared is unfounded — `test_propose.py` §7c DOES catch a stand-in
+that has not grown the field. **The real objection is doctrine 20 reproduced
+inside the fix: a BOOL makes ABSENCE render as CLOSED**, collapsing "nobody
+recorded whether the 77 were consulted" into "the route is shut, so nothing is
+owed" — the very conflation the disclosure exists to end. **THREE STATES, NOT
+TWO**: `None` not recorded, `""` route shut, the sentence route open and
+unasked. `Brief.field_computed`'s docstring is the precedent.
+
+**AND "SIX RENDER SITES" WAS RIGHT AS CALL SITES AND WRONG AS PLACES TO EDIT,
+AND THE TWO ARE NEVER SUMMED** (doctrine 79): **4 functions, 6 call sites**,
+because `propose._offered_block` is one function called three times. Folding
+those leaves **3 places to write the block**. `schema_note` is a REQUIRED
+POSITIONAL there, so a fourth call site that forgets it is a `TypeError` and
+not a silent empty block. The one dangerous site is
+`lyric_harness._print_brief_report`, which RESTATES `Brief.__str__`'s per-line
+block rather than calling it — a rule added to one and not the other vanishes
+from the verb a writer actually runs.
+
+**THE GATE IS SHARED, WHICH IS THE HALF THAT MAKES `_field`'s PROMISE
+MECHANICAL**: `Reviser.schema_route_open(m, group_index)` is extracted from
+`grade()`'s own inline three-condition fan filter, so the brief cannot call
+the route open on a pair the verdict treats as closed (doctrine 1).
+
+**TESTED BY MUTATION, AND `§7c` IS NOT THE GUARD.** `test_revise.py` §45 (16
+checks) and `test_propose.py` §7e (3). Nine mutations driven; **§7c stays green
+on all seven mutations of this repair**, because a field list says nothing
+about whether a renderer asks for the field — which §7c's own comment says.
+The one to lead with is **M3, the sketch's `getattr` default collapsed to
+`""`**: no crash, no error, one stand-in silently rendering a state it is not
+in, invisible to §7c and to `door_census --check`. Re-run here, it fails
+**exactly one** check — *"a stand-in that has NOT grown the coordinate renders
+the UNKNOWN sentence and never silence — the `getattr` default is not `""`"*.
+
+**AND THE TWO POPULATIONS ARE DISJOINT ON THIS TREE, SAID BEFORE ANYONE QUOTES
+THE 3.32%.** The 3 drafts carrying 77-only pairs have **0** field-bearing
+briefed lines (they grade clean, so no brief, so no field); the 4 drafts with
+field-bearing lines carry **0** 77-only pairs. So the sentence prints on 42
+lines where no rescue occurred and beside none of the 15. **That is not a
+defect** — it is a claim about how the field was BUILT, not about an observed
+rescue, and a rescued pair is silent by construction because it passes. But
+**"how often a writer is misled" is NOT what 3.32% measures**, and quoting it
+that way would be wrong.
+
+Controls on the patched tree: battery **1064 / 1014 / 50 / 12** unmoved,
+`door_census --check` PASS with every count unmoved, `test_propose` green
+INCLUDING its imports guard.
+
+### M-144 · a slot that resolves to no anchor is counted as JUDGED `OPEN`
+Found 2026-08-26 while measuring M-143, in the coordinate next door, and
+**recorded rather than fixed** because it is not that lane's subject.
+
+`Reviser._slot_word` -> `slots.resolve` answers **NO ANCHOR** when a declared
+token index lands on a word the phonology cannot anchor — an unstressed
+function word. `crooked_waltz` L1 `T5` is `token:4` is `"by"`.
+**`refusals_for_pairs` reads the readability records of END WORDS**, so such a
+pair is never counted as refused.
+
+**MEASURED over the 11 slot-declaring drafts: 57 of 422 mandated pairs (13.5%)
+bind at a declared slot resolving to NO ANCHOR, and every one is reported
+`judged`, with `refused = 0`.** `crooked_waltz` 22 of 47,
+`the_frost_ledger` 35 of 71 — and `songs/README.md` records both as
+`N mandated / N judged / 0 refused`.
+
+**IT IS DOCTRINE 79 IN A SHIPPED HEADLINE COUNT.** A refusal in the judged
+column is the error that entry names: `slots.resolve`'s own comment says *"the
+honest answer is NO ANCHOR — the same answer an unreadable end word already
+gets, and the readability layer already reports"*, and **the readability layer
+does not report it here**, because it is looking at the wrong word. The
+three-count triple this repository quotes everywhere is wrong by 13.5% on the
+drafts that use the placement coordinate M-67 built.
+
+Attributed to a lane; not re-derived independently and marked so.

@@ -526,6 +526,37 @@ class Brief:
     #: printable string. A count with no setting beside it is the defect
     #: doctrine 58 is about, and this flag is a count of zero.
     field_declaration: str = "field_depth=?, field_band=?"
+    #: THE DOOR THE FIELD WAS READ AT, as a printable string, carried beside
+    #: the depth/band the same way and for a harder reason (`MISSING.md`
+    #: M-139). `grade()` accepts a mandated pair on `admits(...)` OR on the
+    #: 77 schemas; `_field_one` holds one WORD and the 77 judge LINE PAIRS,
+    #: so the second half is unaskable at that site -- and until this field
+    #: existed the brief said NOTHING about it, which reads as "asked, and
+    #: nothing else could answer" (doctrine 20).
+    #:
+    #: THREE STATES AND `None` IS THE POINT, exactly as `field_computed`
+    #: three fields up: `relations.SCHEMA_ROUTE_NOTE` = the route is open and
+    #: this field did not consult it; `""` = the route is SHUT for every
+    #: group this line is in (the caller narrowed `decl.admit`, or every
+    #: group declares its own relation or structure), so the field's door IS
+    #: the whole verdict door and there is nothing to disclose; `None` =
+    #: nobody asked. A `bool` here would make ABSENCE mean SHUT and collapse
+    #: the last two, which is the collapse this field exists to end.
+    #:
+    #: A STRING AND NOT A FLAG, AND THAT IS FORCED RATHER THAN PREFERRED.
+    #: `quality/propose.py` renders this at three of the six sites, and
+    #: `quality/test_propose.py`'s module-surface section asserts ON THE
+    #: SOURCE that its import set is exactly `{"re"}` -- so the obvious
+    #: design, a `bool` here plus `from quality.relations import
+    #: SCHEMA_ROUTE_NOTE` at each renderer, is not merely against that
+    #: module's docstring: it turns an existing check RED. (`relations` also
+    #: reads `canon_index.tsv` at import, which is a filesystem access in a
+    #: module that declares it has none.) So the sentence travels as DATA,
+    #: exactly as `field_declaration` does. What stops that becoming a
+    #: second copy is that its ONE definition is the constant in the module
+    #: that owns the judge, and `quality/test_propose.py` §7e pins that
+    #: `propose.py` contains no substring of it.
+    schema_route_note: str = None
 
     def __str__(self):
         out = [f"L{self.line_no}: {self.text}"]
@@ -583,10 +614,45 @@ class Brief:
         if self.candidates:
             out.append(f"    offered: {', '.join(self.candidates[:12])}"
                        + (" ..." if len(self.candidates) > 12 else ""))
+            # RENDER SITE 1 OF 6 (`MISSING.md` M-139). Every site reads the
+            # note off the brief; none of them writes prose about the 77.
+            out.extend(schema_route_lines(self.schema_route_note, "    "))
         if self.keep:
             out.append(f"    keep unchanged: {', '.join(map(str, self.keep))}")
         return "\n".join(out)
 
+
+
+def schema_route_lines(note, indent="  "):
+    """-> [str], the door disclosure for ONE rendered candidate field.
+
+    THE ONE READER of `Brief.schema_route_note` in this module and in
+    `lyric_harness.py`, and the one place its three states are turned into
+    lines. `None` -> the UNKNOWN sentence; `""` -> nothing, BECAUSE THE
+    ROUTE IS SHUT and the field's door is the whole verdict door; anything
+    else -> that sentence. Collapsing the first two is doctrine 20 (see the
+    field's own docstring), and this function is where that collapse would
+    be written if anyone wrote it.
+
+    THE IMPORT IS LAZY for the reason every `quality` import in this file is:
+    `relations` reads `canon_index.tsv` at import, and only the UNKNOWN arm
+    needs it.
+
+    WRAPPED AT THE SAME COLUMN EVERY OTHER BLOCK IN THIS FILE IS. The
+    constant is stored unwrapped because the indent is the caller's, and a
+    500-character line dropped into a hand-wrapped report is a rendering
+    regression in the one artifact this disclosure exists to improve.
+    `textwrap.fill` is deterministic and takes no argument this function does
+    not hold, so doctrine 66 is untouched.
+    """
+    import textwrap
+    if note is None:
+        from quality.relations import SCHEMA_ROUTE_UNKNOWN as _U
+        note = _U
+    if not note:
+        return []
+    return textwrap.fill(note, width=76, initial_indent=indent,
+                         subsequent_indent=indent).splitlines()
 
 
 def _relation_phonology():
@@ -1366,15 +1432,18 @@ class Reviser:
         # NARROWED `Declaration.admit` has declared what satisfies them,
         # and the rescue does not override a declaration.
         # `lyric_harness.admit_is_default` is the one definition of this
-        # gate, shared with `check_scheme` (doctrine 1).
-        from lyric_harness import admit_is_default as _AID
+        # gate, shared with `check_scheme` (doctrine 1) -- and it is read
+        # through `self.schema_route_open` since 2026-08-26.
+        # THE GROUP-LEVEL GATE IS `self.schema_route_open` AND NOTHING ELSE
+        # (`MISSING.md` M-139). It was spelled inline here -- the admit gate,
+        # the group's declared relation and the group's structure, three
+        # conditions -- and `brief()` had to answer the SAME question to
+        # disclose that the candidate field skips this route. Two spellings
+        # of one gate is the drift `_field`'s own docstring is named after,
+        # so the import moved into the method with the gate.
         _fan = [v for v in verdicts
                 if v["why"] and v["relation"] != "REPEAT"
-                and _AID(self.decl)
-                and not (m.relation_of(v["group"])
-                         if hasattr(m, "relation_of") else "")
-                and (v["structure"] is None
-                     or (_ST is not None and v["structure"] == _ST.DEFAULT))]
+                and self.schema_route_open(m, v["group"])]
         if _fan:
             from quality import relations as _RF
             # ONE JUDGE FOR BOTH READERS: `relations.whole_vocabulary_pairs`
@@ -3081,6 +3150,49 @@ class Reviser:
 
     # -- the brief --------------------------------------------------------
 
+    def schema_route_open(self, m, group_index):
+        """Is the 77-schema half of the default LIVE for one GROUP?
+
+        THE ONE DEFINITION OF THE FAN'S GROUP-LEVEL GATE (M-116/M-139).
+        `grade()`'s rescue turns on three facts about a GROUP -- the
+        declaration sits at the default door, the group declares no relation
+        of its own, and it declares no non-default structure -- and `brief()`
+        must answer that same question to say whether the candidate field
+        skipped the route. Two spellings of one gate is exactly how the brief
+        and the verdict come to disagree, which is the defect `_field`'s own
+        docstring is named after (doctrine 1).
+
+        THE PER-PAIR HALF STAYS IN `grade()`: `v["why"]` and
+        `relation != "REPEAT"` are facts about a PAIR, and a brief has no
+        pair to ask them of.
+
+        LAZY EXACTLY AS `grade()` IS -- a mandate declaring no structure
+        anywhere never imports `quality.structures`, which is what that
+        gate is for there.
+        """
+        from lyric_harness import admit_is_default as _AID
+        if not _AID(self.decl):
+            return False
+        if (m.relation_of(group_index)
+                if hasattr(m, "relation_of") else ""):
+            return False
+        if not any(getattr(m, "structures", ()) or ()):
+            return True
+        from quality import structures as _ST_mod
+        return m.structure_of(group_index) == _ST_mod.DEFAULT
+
+    def field_note(self, m, groups):
+        """-> `Brief.schema_route_note` for one line's groups.
+
+        ANY open group is enough, and that is the honest reading: the field
+        is ONE list answering every group at once (`joint_field` intersects
+        them), so a single group leaving the route open means the list was
+        built without the 77 for a pair the grader will apply them to.
+        """
+        from quality.relations import SCHEMA_ROUTE_NOTE as _N
+        return _N if any(self.schema_route_open(m, k)
+                         for k, _mates in groups) else ""
+
     def field_declaration(self):
         """The candidate field's own coordinates, as one printable string.
 
@@ -3154,14 +3266,36 @@ class Reviser:
         which is doctrine 48 inside the docstring of the function this
         entry's own repair is about — a principle living only in prose,
         written by the lot that had just finished naming that failure mode.
-        The schema half is at present SILENTLY DROPPED here.
 
-        WHAT IS OWED, stated so it cannot be mistaken for done: the field is
-        per-WORD and the schema route is per-LINE-PAIR, so the disclosure
-        can never list words — it can only name the route and say that a
-        pair may satisfy without any offered word being taken. Until that
-        ships, this docstring records a GAP and not a feature
-        (`MISSING.md` M-139).
+        ~~The schema half is at present SILENTLY DROPPED here.~~ **THE
+        DISCLOSURE SHIPPED 2026-08-26, ON ITS OWN COORDINATE AND NOT ON
+        `field_declaration`'s.** `Brief.schema_route_note` carries it,
+        `relations.SCHEMA_ROUTE_NOTE` is its ONE definition (the module that
+        owns the judge owns the sentence), and every one of the SIX sites
+        that renders a candidate field prints it — `Brief.__str__`,
+        `Reviser.report`, `propose._offered_block` from its three call sites,
+        and `lyric_harness._print_brief_report`, which restates
+        `Brief.__str__` rather than calling it and would otherwise have lost
+        the rule in the verb a writer actually runs.
+
+        WHAT IT CLAIMS IS BOUNDED BY WHAT WAS MEASURED. The field is
+        per-WORD and the schema route is per-LINE-PAIR, so the disclosure can
+        never list words: it names the ROUTE and says a pair may satisfy
+        without any offered word being taken. MEASURED over
+        `quality/fixtures/` and `songs/` — 15 drafts under their own
+        committed mandates, 452 mandated pairs — **15 pairs (3.32%) on 3
+        drafts are accepted ONLY by the 77**, and of the 10 whose bound spans
+        both read, **0 are offerable** from complete-pool fields
+        1,434–3,981 words deep, every one scoring BELOW `theta_rhyme` 0.75
+        (0.395–0.705). So the route is refused ON THE SCALAR and no depth
+        reaches it, which is why the sentence must not imply the field is
+        merely incomplete.
+
+        AND THE GATE IS ONE FUNCTION NOW, WHICH IS THE OTHER HALF OF THIS
+        DOCSTRING'S OWN PROMISE. `Reviser.schema_route_open` is read by
+        `grade()`'s rescue fan and by `brief()`'s disclosure alike, so the
+        brief cannot say the route is open on a pair the verdict treats as
+        closed (`MISSING.md` M-139).
 
         `CandidateEngine` scores with `score()` on one pronunciation; the
         grader scores with `best_score()` over every variant of both sides.
@@ -3541,6 +3675,10 @@ class Reviser:
                     # that `joint_field` ran, so an EMPTY head can be told
                     # apart from a head nobody asked for. See the field.
                     b.field_computed = True
+                    # THE DOOR THE FIELD WAS READ AT, SET WHERE THE FIELD IS
+                    # SET AND NOWHERE ELSE (`MISSING.md` M-139) -- the same
+                    # discipline `field_computed` one line up is under.
+                    b.schema_route_note = self.field_note(m, groups)
                     b.joint_conflict = (len(calls) > 1
                                         and not b.candidates
                                         and not b.forbidden_modal)
@@ -3955,6 +4093,14 @@ class Reviser:
                   f"None of them earns a candidate field and that is a "
                   f"decision, not a gap: see `brief`'s 'WHY A COLLISION "
                   f"EARNS NO FIELD'.", file=stream)
+        # RENDER SITE 2 OF 6 -- the REPORT-level statement of what the
+        # field is, beside the coordinates it was read at. Whole-report and
+        # therefore DECLARATION-level: the report cannot speak for one line's
+        # groups, so it states the half a report can state and says so by
+        # asking group 0. A report with no group says nothing.
+        for _l in schema_route_lines(
+                self.field_note(m, [(0, ())]) if m.groups else None, "  "):
+            print(_l, file=stream)
         print(f"  candidate field: {self.field_declaration()}; "
               f"modal_exclusion={self.rdecl.modal_exclusion}; "
               f"group_merge={self.rdecl.group_merge!r}; "

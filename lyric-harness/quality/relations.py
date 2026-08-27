@@ -6401,6 +6401,50 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None):
     return out
 
 
+#: THE ONE SENTENCE THIS TREE SAYS ABOUT THE ROUTE ABOVE, SAID ONCE
+#: (doctrine 1/48, `MISSING.md` M-139). The candidate field
+#: (`quality.revise.Reviser._field_one`) is built per WORD and the judge
+#: above answers per LINE PAIR, so the schema half of the default is not
+#: askable at that site at any depth -- and a field silent about a whole
+#: acceptance route reads as though nothing else could answer (doctrine 20).
+#:
+#: THE WORDING IS THE MEASUREMENT'S AND IT CLAIMS EXACTLY ONE THING.
+#: MEASURED 2026-08-26 over `quality/fixtures/` and `songs/` -- 15 drafts
+#: under their own committed mandates, 452 mandated pairs -- **15 pairs
+#: (3.32%) on 3 drafts are accepted ONLY by this judge**, and of the 10 whose
+#: bound spans both read, **0 are offerable** from fields 1,434-3,981 words
+#: deep. Every one scores BELOW `theta_rhyme` 0.75 (0.395-0.705), so
+#: `admits()` refuses them ON THE SCALAR and a field built from words that
+#: CLEAR the band can never hold them at any depth. So the sentence must NOT
+#: say these words fail the 77 and must NOT imply a deeper field would reach
+#: them: it names the ROUTE and says a pair may satisfy on it with no offered
+#: word taken. A wording implying schema-satisfying words could have been
+#: offered would be worse than no disclosure at all.
+SCHEMA_ROUTE_NOTE = (
+    "THE 77-SCHEMA HALF OF THE DEFAULT WAS NOT CONSULTED FOR THIS FIELD. "
+    "A mandated pair declaring no relation is satisfied when `admits()` "
+    "passes it OR when the two LINES stand in any schema the vocabulary "
+    "names (`relations.whole_vocabulary_pairs`, all 77). This field was "
+    "built at the first door only: the second judges LINE PAIRS over a "
+    "built stream and this site holds one WORD, so it is not askable here "
+    "at any depth. That is a limit of the field and not a verdict on these "
+    "words -- a pair can satisfy the mandate on the schema route with none "
+    "of them taken, and a word absent from this list has not been refused "
+    "by the 77.")
+
+#: WHAT A RENDERER SAYS WHEN THE OBJECT DOES NOT CARRY THE COORDINATE, and
+#: it is a DIFFERENT CLAIM rather than a second copy of the one above. THREE
+#: STATES, NEVER TWO: a `Brief` stand-in that predates the field renders
+#: through `getattr`, and a default of `""` would make ABSENCE render as
+#: "the route is shut" -- doctrine 20's own collapse reproduced inside the
+#: disclosure that exists to end it.
+SCHEMA_ROUTE_UNKNOWN = (
+    "WHETHER THE 77-SCHEMA HALF OF THE DEFAULT WAS CONSULTED FOR THIS FIELD "
+    "IS NOT RECORDED HERE -- this brief does not carry the coordinate, which "
+    "is inconclusive by construction and is not a statement that it was "
+    "consulted (doctrine 20).")
+
+
 #: THE DRAW WITNESS — sixteen plain English lines carrying the common
 #: figures (two perfect-rhyme pairs, an assonance pair sun/much, a
 #: consonance pair love/prove, a pararhyme pair gate/goat, a mosaic tail

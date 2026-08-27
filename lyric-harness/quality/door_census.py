@@ -248,8 +248,17 @@ RULINGS = {
         "the 23 sonnet pairs the default accepts ONLY by the 77-schema "
         "rescue, **0 are offerable** from fields 207-6,880 words deep -- the "
         "route is not under-served by the field, it is unreachable from it "
-        "at any depth. A DISCLOSURE is owed and is not yet built. "
-        "`MISSING.md` M-139."),
+        "at any depth. ~~A DISCLOSURE is owed and is not yet built.~~ **THE "
+        "DISCLOSURE SHIPPED 2026-08-26**: `Brief.schema_route_note` carries "
+        "it, `relations.SCHEMA_ROUTE_NOTE` is its ONE definition, and all "
+        "SIX renderers of a `Brief` print it. THREE STATES, never two -- "
+        "`None` (not recorded) is rendered apart from `\"\"` (the route is "
+        "SHUT for this line's groups), because a bool default would make "
+        "ABSENCE mean SHUT and reproduce doctrine 20 inside the fix. "
+        "MEASURED on the drafts this repo ships, not only on the sonnets: "
+        "15 of 452 mandated pairs over 15 drafts are accepted ONLY by the "
+        "77, on 3 of 15 drafts, and 0 of the 10 with two readable spans are "
+        "offerable. `MISSING.md` M-139."),
 
     # ----------------------------------------------------------- RENDERING
     # `check_scheme`'s own naming test is NOT keyed here: this table is keyed
