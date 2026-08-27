@@ -14050,3 +14050,64 @@ it moves every band, syllable and monotony reading in `test_plan.py` and
 would let head-bound groups be judged (and violate) for the first time — so
 it is not taken here on the strength of a hunch at the end of a sitting. The
 measurement above is what a later sitting needs to size it.
+
+### M-147 · the nightly banked its resume point and threw it away, every night `CLOSED`
+Found 2026-08-27 by being asked whether tonight's scheduled jobs are in good
+shape, and the honest first answer was that **no scheduled run has passed
+since 2026-08-15** — twelve consecutive nights, every one `failure` or
+`cancelled`. Nobody was reading them.
+
+**THE SONG-PROFILE STEP IS THE FAILING ONE AND ITS DRIFT IS REAL.** Run #966
+(2026-08-26) reports, in the step's own words:
+
+```
+7 value(s) DRIFTED: band lo (tokens), threshold mattr, threshold fwr,
+threshold cv, threshold predictability, anaphora period slope rho,
+anaphora period slope p_perm
+DRIFT — the constants no longer describe corpus/song/.
+```
+
+with `band lo (tokens) shipped 150.0000 measured 200.0000`. **Every one of
+those seven is repinned in this tree** by the M-131/M-133 re-adoption, which
+had not reached `main` — so this half closes by MERGING and not by editing:
+the nightly was measuring a `main` the re-adoption never landed on.
+
+**THE HALF THAT WOULD HAVE SURVIVED THE MERGE IS A DEADLOCK, AND IT IS THE
+ENTRY.** `actions/cache@v4` declares `post-if: success()`, so its save runs
+only when the job PASSED. Run #966's own log:
+
+```
+memo: 0 -> 8663 items (+8663 banked this run)
+...
+Post Restore the predictability memo   skipped
+```
+
+**146 minutes of work banked to a file, and the file discarded because the
+step that produced it then reported the drift it exists to report.** The next
+night restores nothing (`fingerprint 5f8f9a6149c7 | new (no file yet) | hits
+4, misses 8663`), pays the 146 minutes again, and fails again. A permanent
+deadlock in which the resume point can only ever be written by a run that did
+not need it.
+
+**AND THE STEP'S OWN CONTRACT ALREADY ASSUMED THE SAVE IT COULD NOT GET.** Its
+`124` arm reads *"the run hit its 150m budget with the memo advanced and
+banked. The next nightly resumes from it"* — true of the file on disk and
+false of the cache, because a TIMEOUT is not a success either. So the one arm
+written to make this instrument resumable is the arm that guaranteed it never
+resumed. A bounded slice whose resume point is dropped on every non-success is
+not a slice; it is the same first slice, forever.
+
+**THE REPAIR IS THE SPLIT**: `actions/cache/restore@v4` at the top,
+`actions/cache/save@v4` with `if: always()` at the end, so the memo is banked
+whatever the verdict — a DRIFT (exit 1) and an overrun (exit 124) both advance
+the resume point now. The key already carries `github.run_id` and so never
+hits exactly; the `restore-keys` prefix is what picks up the newest entry.
+The three steps at the end of that job were already `if: always()`, so the
+idiom was in the file — it had simply never been pointed at the cache.
+
+**WHAT THIS DOES NOT CLOSE, NAMED SO IT IS NOT READ AS FIXED:** the same
+`post-if: success()` applies to every other `actions/cache` in this workflow.
+The others cache DERIVED, cheap-to-rebuild things (Playwright browsers,
+CMUdict) where losing a save costs a download, not a night's work — so they
+are left alone deliberately rather than overlooked. The predictability memo is
+the only cache in the file whose contents are the OUTPUT of the step it feeds.

@@ -2172,8 +2172,24 @@ jobs:
       # 8,667 items, and the per-item cost was MEASURED at ~7.5 CPU-s over two
       # flush intervals -- so cold is ~18 hours, not two, and the step below
       # pays it in bounded nightly slices rather than pretending it fits.
+      # RESTORE AND SAVE ARE SPLIT, AND THE SAVE IS `if: always()` — 2026-08-27.
+      # `actions/cache@v4` declares `post-if: success()`, so its save runs ONLY
+      # when the job passed. That turned the memo into a PERMANENT DEADLOCK and
+      # the evidence is run #966 (2026-08-26): the song-profile step banked
+      # `memo: 0 -> 8663 items (+8663 banked this run)` after 146 minutes of
+      # work, the job then failed on the drift the same step reported, the save
+      # was skipped, and the next night started cold and paid the 146 minutes
+      # again. Every scheduled run from 2026-08-15 to 2026-08-26 is red, and
+      # this is why none of them could ever get further than the last.
+      #
+      # THE STEP'S OWN CONTRACT ALREADY ASSUMED THIS AND COULD NOT GET IT: its
+      # `124` arm reads "the run hit its 150m budget with the memo advanced and
+      # banked. The next nightly resumes from it" — true of the file on disk,
+      # false of the cache, because a timeout is not a success either. A
+      # resumable slice whose resume point is discarded on every failure is not
+      # resumable; it is the same first slice, forever.
       - name: Restore the predictability memo
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: ~/.cache/lyric-harness
           key: lyric-harness-predictability-v1-${{ github.run_id }}
@@ -2511,3 +2527,16 @@ jobs:
         if: always()
         working-directory: mcp
         run: node check_live.mjs
+
+      # THE OTHER HALF OF THE SPLIT ABOVE, and it is the half that ends the
+      # deadlock: the memo is banked whatever the job's verdict, so a DRIFT
+      # (exit 1) or a bounded slice that overran (exit 124) still advances the
+      # resume point. The key carries `github.run_id`, so it never hits exactly
+      # and this step always writes a new entry — the restore-keys prefix is
+      # what picks up the newest one next night.
+      - name: Bank the predictability memo — whatever this job's verdict was
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: ~/.cache/lyric-harness
+          key: lyric-harness-predictability-v1-${{ github.run_id }}
