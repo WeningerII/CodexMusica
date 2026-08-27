@@ -763,6 +763,43 @@ try {
     console.log('  ok  lyric_grade live: two blocks — the song plain, the verdict JSON');
     passed++;
 
+    // THE PLAN'S DRAWN RELATIONS REACH THE GRADE (MISSING.md M-117). With no
+    // `relation` declared, the planner DRAWS one schema per group, and the
+    // grade has to be asked the question the plan states. It was wired at the
+    // plan and at NOTHING ELSE from 2026-08-25 to 2026-08-26: the brief told
+    // the writer a group was "judged as itself, not as plain rhyme" and the
+    // grade judged it under the whole-vocabulary default. Measured over three
+    // seeds at the time, 226 FLAG findings suppressed and 1 MANUFACTURED —
+    // the drop was never one-signed, because `schema:anaphora` REQUIRES the
+    // token identity a bare `--groups=` charges as REPEAT.
+    //
+    // THE PIN IS AN EQUALITY BETWEEN THE HARNESS'S OWN TWO REPORTS — the
+    // brief's `a NAMED relation` rows against the grade's `RELATION: group`
+    // rows — so no vocabulary and no `--relations=` spelling is restated in
+    // JS (doctrine 1). It goes red on a connector that drops the coordinate:
+    // measured at 0 grade rows against 28 brief rows on seed 1. Adds no
+    // subprocess; both reports are already in hand.
+    const drawnInBrief = (planReport.match(/a NAMED relation/g) || []).length;
+    const judgedInGrade = (gradeVerdict.report.match(/RELATION: group /g) || [])
+      .length;
+    assert.ok(
+      drawnInBrief > 0,
+      'the planner drew at least one per-group relation — a 0 here is the ' +
+        'certified pool going empty (M-117), not this wiring'
+    );
+    assert.equal(
+      judgedInGrade,
+      drawnInBrief,
+      'every relation the PLAN drew is a relation the GRADE judged — the ' +
+        'brief and the verdict have to ask the same question'
+    );
+    console.log(
+      '  ok  lyric_grade live: the plan drew ' +
+        drawnInBrief +
+        ' relation(s) and the grade judged all of them (M-117)'
+    );
+    passed++;
+
     // `title` REACHES THE PLAN (MISSING.md M-93), and the only shape that
     // proves it is a DIFFERENCE between runs — accepting a field and
     // dropping it looks identical from the outside. Three runs, because the

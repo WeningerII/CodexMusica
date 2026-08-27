@@ -11491,11 +11491,74 @@ the placement draw's `end` share carried, disclosed in
 `choices.relations` for the owner to reweight or not; seed SHAPES are
 byte-identical to the pre-draw planner because the draw consumes entropy
 after every existing draw.
-**NAMED FOLLOW-UPS, not silent gaps**: the MCP connector
+**NAMED FOLLOW-UPS, not silent gaps**: ~~the MCP connector
 (`mcp/lyric_tools.js`) reads `plan.groups`/`plan.returns`/`plan.relation`
 off the artifact and does not yet carry `plan.relations` — a chat-graded
 draft loses the drawn coordinate until that wiring lands (the
-grading_command remains the honest carrier meanwhile); and rows excluded
+grading_command remains the honest carrier meanwhile)~~ **WIRED 2026-08-26,
+AND THE PRICE OF THE DAY IT WAS OPEN IS RECORDED RATHER THAN DROPPED.**
+
+**THE DROP WAS NOT ONE-SIGNED, which is the correction worth carrying.**
+Measured over three fresh seeds against filler drafts, the unpatched connector
+against a patched copy: **226 FLAG findings SUPPRESSED and 1 MANUFACTURED.**
+The exception is the instructive half — seed 1's group O is
+`schema:anaphora`, where token identity at the head is the REQUIREMENT, and a
+bare `--groups=` defaults every pair to `REQUIRE_RHYME`, where REPEAT is a
+violation (doctrine 3's inverting band). So the connector was never grading a
+LOOSER mandate; it was grading a **DIFFERENT** one, and 226-to-1 is the shape
+rather than the rule. Counting flags instead of set-diffing them would have
+reported the wrong shape.
+**ON THE TWO BANKED DRAWN-RELATION SONGS**, the share of mandated pairs riding
+the whole-vocabulary default instead of their own drawn schema went **12 -> 40
+of 47** (`crooked_waltz`) and **2 -> 66 of 71** (`the_frost_ledger`) when the
+coordinate is dropped; on a fresh `plan --seed=31`, 55 of 57 mandated pairs sit
+in a relation-declaring group. **AND ONE WORD FLIPS A VERDICT**: changing
+`crooked_waltz` L13's head `We` -> `They` breaks group K's `schema:anaphora`
+and grades **exit 3 with three `SCHEME_VIOLATION` flags** under the plan's own
+command, and **exit 0, no flag** under what the connector sent — with the
+server-written stamp reading `no FLAG stands`.
+**IT IS `Reviser._field`'s CAPITALISED PROMISE BROKEN ONE LAYER OUT**: the
+connector's `lyric_plan` prints 27 rows of *"...stand in consonance — a NAMED
+relation, judged as itself, not as plain rhyme"* and the grade then judged it
+as plain rhyme. THE BRIEF AND THE VERDICT HAVE TO ASK THE SAME QUESTION.
+`mcp/test.mjs` pins it now as an EQUALITY between the harness's own two
+reports — brief `a NAMED relation` rows against grade `RELATION: group` rows —
+so no vocabulary is restated in JavaScript (doctrine 1), and the pin reads 0
+against 28 on the unpatched connector.
+
+**AND THE MITIGATION THIS SENTENCE NAMED WAS ITSELF BROKEN.**
+*"the grading_command remains the honest carrier meanwhile"* — measured over
+`make_plan(1..100)`, **48 of 100 seeds printed a `GRADE IT:` line
+`shlex.split` REFUSES**, because `schema:Scots vowel-length rhyme (Aitken's
+Law)` is one of the 22 `DRAWABLE_SCHEMAS` and its apostrophe CLOSES the
+hand-rolled `'--relations=...'`. `bash -n` gives `syntax error near unexpected
+token ')'`. **AND THE DEFECT HAD BEEN MET BEFORE AND FIXED IN THE WRONG
+PLACE**: `songs/README.md` carries a hand-escaped `(Aitken'"'"'s Law)`, so
+somebody hit this, repaired the DOCUMENT and left the INSTRUMENT emitting it —
+standing rule 3's own shape. Repaired with `shlex.quote`, **48 -> 0 of 100**,
+byte-identical for every value with no apostrophe so no other printed command
+moves. The connector was immune throughout (`execFile`, one argv token, no
+shell), which is why the half that broke was the honest carrier and not the
+wiring. **THE SAME DEFECT THEN BIT THE REPAIR**: my first draft of the
+connector's own struck `describe` string carried `report's` and `group's`
+inside a single-quoted JavaScript literal and would not parse — one file over
+from the fix, in the same sitting.
+
+**WHAT THIS DOES NOT DO**: it makes the connector ask the plan's question. It
+does not PRICE it. M-138's near-relation pricing and M-140's 23.30% /
+19.69x schema-door chance rate are exactly as open after this as before.
+Attributed to a lane; the argv drop, the byte-identical spelling and the 48-of-
+100 figure I re-derived myself.
+
+**AND TWO THINGS THAT LANE COULD NOT SETTLE ARE RECORDED AS UNSETTLED**
+(doctrine 20): the MANUFACTURED direction is bounded by ONE observation — no
+census of which of the 22 `DRAWABLE_SCHEMAS` demand identity was built — and
+`songs/README.md`'s banked `crooked_waltz` plan command **no longer
+round-trips** (it declares 22 lines today against the banked 17, and `--fill`
+REFUSES at exit 2). That is consistent with M-133's `17..55 -> 22..55` band
+move and **was not bisected**, and only one banked song was checked.
+
+And rows excluded
 by rule (1) are not refused as relations — the default fan and the
 declared route still judge them — they are only not drawn, so a richer
 witness is the one honest way to widen the dice.

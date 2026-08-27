@@ -2341,6 +2341,26 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/structure_census.py --check
 
+      # DOES THE 77-SCHEMA DOOR FIND ANYTHING? (`MISSING.md` M-140.) The two
+      # populations give OPPOSITE answers and neither may be read as the
+      # other: over ALL 91 line pairs the observation sits BELOW its own
+      # matched redeal (69.05% against a null median of 71.02%, p 0.90), so
+      # the "the door answers on three line pairs in four" headline is at
+      # chance; over the 7 pairs the POET DECLARED it is 96.43% against a null
+      # whose best of twenty draws is 83.93% -- clear of the MAXIMUM.
+      #
+      # The VERDICTS are pinned as well as the numbers, because a tree where
+      # both arms moved to the same side would hold every figure and mean
+      # something else entirely.
+      #
+      # GATED BECAUSE THE UNGATED VERSION IS THE DEFECT THIS SITTING SPENT
+      # ITSELF ON: M-138's figures came from an uncommitted script and did not
+      # reproduce. Recording these and gating them with nothing would be the
+      # same lesson unlearned. ~15 minutes, which is why it is nightly.
+      - name: The 77-schema door against its matched redeal
+        working-directory: lyric-harness
+        run: python3 quality/chance_rate.py --null --check
+
       - name: Sentencehood calibration check (M-110 — ceiling + the six banked witnesses)
         if: always()
         working-directory: lyric-harness

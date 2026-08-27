@@ -48,6 +48,7 @@ grid and `--check` requires every cell to sit inside it.
     python3 quality/chance_rate.py --sweep    # every declared sampler cell
     python3 quality/chance_rate.py --check    # re-derive the band, exit 3 on drift
     python3 quality/chance_rate.py --null     # does the 77-door separate from a matched redeal?
+    python3 quality/chance_rate.py --null --check   # ...and has that answer moved? (exit 3)
 """
 import os
 import random
@@ -296,6 +297,75 @@ NULL_DRAWS = 20
 NULL_LINES = 14
 
 
+#: THE SEPARATION, ADOPTED (`MISSING.md` M-140). Pinned EXACTLY rather than as
+#: a band, and the reason is the opposite of doctrine 57's: this arm draws from
+#: a FIXED seed over a FIXED corpus, so it is deterministic and a band would be
+#: pretending to a spread it does not have. Drift here means the CORPUS or the
+#: COMPARATOR moved, which is an answer.
+#:
+#: **TWO POPULATIONS, TWO OPPOSITE VERDICTS, NEVER SUMMED** (doctrine 79).
+#: The `all` arm does not separate — it sits BELOW its own null — so the
+#: "the door answers on three line pairs in four" headline is at chance. The
+#: `mandated` arm separates clear of the null's MAXIMUM, so the default is
+#: doing real work on the pairs a writer actually declared.
+#:
+#: GATED BECAUSE THE UNGATED VERSION IS THE DEFECT THIS MODULE WAS BUILT OVER:
+#: M-138's figures were recorded from an uncommitted script and did not
+#: reproduce. Recording these and gating them with nothing would be the same
+#: sitting's own lesson unlearned.
+ADOPTED_SEPARATION = {
+    "all": {"r_obs": 0.6905, "median": 0.7102, "max": 0.7257},
+    "mandated": {"r_obs": 0.9643, "median": 0.7917, "max": 0.8393},
+}
+
+#: How far a re-derivation may sit from the pin before it is DRIFT. The figures
+#: are means over 24 items, so the fourth decimal is rendering; this is a
+#: rounding tolerance and NOT a band (doctrine 58 — a tolerance nobody writes
+#: down is a threshold nobody wrote down).
+SEPARATION_TOL = 0.0001
+
+
+def check_separation(log=None):
+    """-> exit code. Re-derive the separation arm against `ADOPTED_SEPARATION`.
+    Exits 3 on drift, matching this module's other check: a moved figure is an
+    ANSWER, not a refusal."""
+    r = separation(log=log)
+    print()
+    _print_separation(r)
+    print()
+    bad = []
+    for key, want in sorted(ADOPTED_SEPARATION.items()):
+        got = r[key]
+        for field, w in sorted(want.items()):
+            g = got[field]
+            if abs(g - w) > SEPARATION_TOL:
+                bad.append(f"{key}.{field}: adopted {w:.4f}, "
+                           f"measured {g:.4f}")
+            else:
+                print(f"  HOLDS  {key + '.' + field:<18} {w:.4f}")
+    # THE VERDICT IS PINNED TOO, not only the numbers: the whole point of the
+    # entry is that one arm separates and the other does not, and a tree where
+    # both moved to the same side would hold every number above and mean
+    # something else entirely.
+    for key, want_sep in (("all", False), ("mandated", True)):
+        got_sep = r[key]["excess_over_median"] > 0
+        if got_sep != want_sep:
+            bad.append(f"{key}: adopted separates={want_sep}, "
+                       f"measured separates={got_sep} — THE VERDICT MOVED, "
+                       f"which is a different finding from a moved number")
+        else:
+            print(f"  HOLDS  {key} separates={want_sep}")
+    if bad:
+        print()
+        print(f"MOVED {len(bad)}:")
+        for b in bad:
+            print(f"  - {b}")
+        return 3
+    print()
+    print("the separation holds, and so does each arm's verdict")
+    return 0
+
+
 def _sonnets(path="corpus/sonnets.txt"):
     import battery
     out = [s["lines"] if isinstance(s, dict) else s
@@ -445,7 +515,10 @@ def main(argv):
           f"{100 * CANON_RATE:.2f}% of Shakespeare's mandated pairs fail")
     print()
     if "--null" in argv:
-        r = separation(log=lambda t: print(t, flush=True))
+        lg = (lambda t: print(t, flush=True))
+        if check:
+            return check_separation(log=lg)
+        r = separation(log=lg)
         print()
         _print_separation(r)
         return 0
