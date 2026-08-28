@@ -665,11 +665,28 @@ export const LYRIC_TOOL_SCHEMAS = {
       .describe(
         "The writer's answer to the pending question in `state` — exactly one line of song text for a single-line question, or one `L<n>: <line>` per member for a group question, markers required. It is parsed strictly and a malformed answer REFUSES rather than guessing which line goes where. Omit on the first call (there is no question yet)."
       ),
-    max_rounds: z.number().int().min(1).max(8).optional()
-      .describe('The loop\'s round budget (ReviseDeclaration.max_rounds, default 4). Keep it CONSTANT across one song\'s calls — the run replays from zero each call, and a moved budget re-derives which questions arise.'),
-    attempts: z.number().int().min(0).max(6).optional()
+    max_rounds: z
+      .number()
+      .int()
+      .min(1)
+      .max(8)
+      .optional()
+      .describe(
+        "The loop's round budget (ReviseDeclaration.max_rounds, default 4). Keep it CONSTANT across one song's calls — the run replays from zero each call, and a moved budget re-derives which questions arise."
+      ),
+    attempts: z
+      .number()
+      .int()
+      .min(0)
+      .max(6)
+      .optional()
       .describe('Tier-1 attempts per flagged line (default 3). Same constancy rule as max_rounds.'),
-    backtrack: z.number().int().min(0).max(8).optional()
+    backtrack: z
+      .number()
+      .int()
+      .min(0)
+      .max(8)
+      .optional()
       .describe('Tier-2 backtrack width (default 5). Same constancy rule as max_rounds.'),
   },
   lyric_sweep: {
@@ -974,10 +991,10 @@ export function registerLyricTools(server, tool) {
     {
       title: 'Drive the revise loop to a stop condition (the finishing step)',
       description:
-        'THE WORKING ORDER\'S LAST STEP, and the only tool whose output contains a FINISHED song. It drives the ' +
+        "THE WORKING ORDER'S LAST STEP, and the only tool whose output contains a FINISHED song. It drives the " +
         "harness's revise loop over the draft against the SAME plan lyric_plan drew (same seed, same declarations, " +
         'or a DIFFERENT plan is revised): the loop grades, holds every flagged and banned line open, and ASKS — the ' +
-        'first content block of a suspended call is the writer\'s brief for ONE question (which lines, what they ' +
+        "first content block of a suspended call is the writer's brief for ONE question (which lines, what they " +
         'must answer, which words are FORBIDDEN as too predictable). Answer it by calling again with the SAME ' +
         'arguments plus `state` (returned verbatim by every call — the server keeps nothing) and `answer` (the new ' +
         'line, or `L<n>:` lines for a group). THERE IS NO SONG IN ANY RESPONSE UNTIL THE LOOP REACHES A STOP ' +
@@ -989,7 +1006,7 @@ export function registerLyricTools(server, tool) {
         '(MANDATORY_PURSUE), not by a stamp: banned pairs hold their lines open and the loop keeps asking for ' +
         'replacements. Each call re-runs the loop from its record (deterministic, so the same questions arrive in ' +
         'the same order) — expect ~60-120s per call, growing with answers on record; keep any budget fields ' +
-        'constant across one song\'s calls.',
+        "constant across one song's calls.",
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_revise,
     },
     (a) =>
@@ -1034,10 +1051,8 @@ export function registerLyricTools(server, tool) {
           // render call sits after the loop's return — so this branch has
           // nothing to leak even if it tried.
           const st = JSON.parse(await readFile(statePath, 'utf8'));
-          const onRecord =
-            st.answered.propose.length + st.answered.propose_group.length;
-          const head =
-            `[AWAITING PROPOSAL — seed ${a.seed} — ${onRecord} answer(s) on record — NO SONG YET]`;
+          const onRecord = st.answered.propose.length + st.answered.propose_group.length;
+          const head = `[AWAITING PROPOSAL — seed ${a.seed} — ${onRecord} answer(s) on record — NO SONG YET]`;
           return {
             content: [
               { type: 'text', text: `${head}\n\n${(st.pending && st.pending.prompt) || r.stdout}` },
@@ -1055,9 +1070,7 @@ export function registerLyricTools(server, tool) {
           };
         }
         if (r.code === 0 || r.code === 3) {
-          const m = r.stdout.match(
-            /THE SONG, PERFORMANCE ORDER:\n\n([\s\S]*?\[FINISHED[^\]]*\])/
-          );
+          const m = r.stdout.match(/THE SONG, PERFORMANCE ORDER:\n\n([\s\S]*?\[FINISHED[^\]]*\])/);
           const verdict = verdictOf(r);
           verdict.status = r.code === 0 ? 'finished_clean' : 'stopped_with_open_lines';
           try {

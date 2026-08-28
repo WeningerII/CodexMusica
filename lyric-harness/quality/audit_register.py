@@ -2239,7 +2239,13 @@ PINNED = {
     # SUNG text inside `[...]` blocks (Watts's optional stanzas the
     # sharpest), the opposite defect from the wrapped-note leak, carried
     # as check L NOTEs until its own sitting declares the keep rule.
-    "coverage_entries": 210,
+    # ~~210~~ -> 213, 2026-08-28: M-153 (editorial text under bare
+    # [VERSE n] marks, opened by M-152's close), M-154 (the seam — the
+    # finish verb and the lyric_revise wrap), M-155 (the judge's memo
+    # and the warm worker). Three closes in one day and this pin was
+    # told by none of them until CI said so — the lag the check exists
+    # to catch, caught.
+    "coverage_entries": 213,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

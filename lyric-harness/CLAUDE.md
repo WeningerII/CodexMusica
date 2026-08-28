@@ -933,8 +933,12 @@ citation, because ARGUED is the disposition a site could be TALKED into.
 figures that entry recorded came from an uncommitted script and do not
 reproduce: the SAMPLER's population and reader were never declared. Measured
 against random CMUdict pairs, the ADMIT door admits **8.48%** and the SCHEMA
-door **23.30%**, against **1.18%** of Shakespeare's mandated pairs failing —
-**7.16x and 19.69x**, where the gap that got `theta_coda` recalibrated was
+door ~~23.30%~~ **24.0–24.9% (repinned 2026-08-28: the M-148 `_seq`
+cluster repair moved which random pairs the consonance-family schemas
+answer, so the door's chance rate rose WITH its correctness — measured
+960..994 of 4,000 over the adopted grid, the admit and narrow arms
+HELD)**, against **1.18%** of Shakespeare's mandated pairs failing —
+**7.16x and ~20x**, where the gap that got `theta_coda` recalibrated was
 1.5x. Neither is priced (`MISSING.md` M-138, M-140).
 
 **THE RELATION IS THE DEFAULT ROUTE NOW (2026-08-22, owner's instruction).**

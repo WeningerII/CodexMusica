@@ -823,7 +823,11 @@ try {
       'NO render reaches a suspended response — the seam holds'
     );
     const rv1 = JSON.parse(rev1.content[1].text);
-    assert.equal(rv1.exit_code, 4, 'suspension is exit 4, its own code — neither verdict nor failure');
+    assert.equal(
+      rv1.exit_code,
+      4,
+      'suspension is exit 4, its own code — neither verdict nor failure'
+    );
     assert.equal(rv1.status, 'awaiting_proposal', 'and says so in its own field');
     const st1 = JSON.parse(rv1.state);
     assert.ok(st1.pending && st1.pending.kind, 'the state carries the pending question');
@@ -849,7 +853,9 @@ try {
       LIVE_OPTS
     );
     assert.ok(revBad.isError, '`answer` without `state` refuses — there is no question it answers');
-    console.log('  ok  lyric_revise live: suspends with the question, no render, state round-trips');
+    console.log(
+      '  ok  lyric_revise live: suspends with the question, no render, state round-trips'
+    );
     passed++;
 
     // THE WARM WORKER (M-155). The one claim that licenses it: the warm
@@ -877,14 +883,20 @@ try {
     }
     const pidBefore = WK.pid();
     await WK.runWarm(['screen', 'fire', 'desire']);
-    assert.ok(pidBefore !== null && WK.pid() === pidBefore,
-      'the worker persists across requests — the memos live in it');
+    assert.ok(
+      pidBefore !== null && WK.pid() === pidBefore,
+      'the worker persists across requests — the memos live in it'
+    );
     WK.kill();
     const after = await WK.runWarm(['screen', 'fire', 'desire']).catch(() => null);
     const afterCold = await WK.runCold(['screen', 'fire', 'desire']);
-    assert.ok(after && after.stdout === afterCold.stdout,
-      'a killed worker respawns and still answers with the cold bytes');
-    console.log('  ok  warm worker: byte-identical to cold on the battery, persists, survives a kill');
+    assert.ok(
+      after && after.stdout === afterCold.stdout,
+      'a killed worker respawns and still answers with the cold bytes'
+    );
+    console.log(
+      '  ok  warm worker: byte-identical to cold on the battery, persists, survives a kill'
+    );
     passed++;
 
     // `title` REACHES THE PLAN (MISSING.md M-93), and the only shape that
@@ -1096,7 +1108,11 @@ try {
       sweepAB.accepted_shown,
       '...and the shown seeds are the same, in the same order (the span is a prefix of its halves)'
     );
-    for (const [label, w] of [['A', sweepA], ['B', sweepB], ['AB', sweepAB]])
+    for (const [label, w] of [
+      ['A', sweepA],
+      ['B', sweepB],
+      ['AB', sweepAB],
+    ])
       assert.equal(
         w.accepted_truncated === true,
         w.accepted_shown.length < w.accepted_count,
