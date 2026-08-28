@@ -1064,13 +1064,49 @@ class Reviser:
         m = self.mandate(lines, mandate)
         _, endwords, records, matrix = self._matrix(lines, profile=profile)
         pairs = m.pairs()
-        refusals = refusals_for_pairs(records, [(i - 1, j - 1)
-                                                for i, j, _ in pairs])
-        refused = {r["lines"] for r in refusals}
+        refusals = refusals_for_pairs(records, sorted({(i - 1, j - 1)
+                                                       for i, j, _ in pairs}))
+        # M-149(b): THE SKIP SET IS KEYED PER (PAIR, GROUP), NEVER PER PAIR.
+        # It held bare `(i, j)` keys, so a refusal minted while judging ONE
+        # group's reading of a pair silenced every sibling group's DIFFERENT
+        # reading of the same two lines — measured on the first full plan the
+        # repaired schema judge graded: groups H (`schema:perfect rhyme`) and
+        # I (`schema:anaphora`) on lines (6, 7) were never judged at all,
+        # because group J's slot refusal on the same pair landed first. That
+        # sharing predates slots and was harmless while every group read the
+        # same two end words; a slot web puts several groups on one pair
+        # reading different words, and a refusal about one reading is not an
+        # answer about another (doctrine 79, at the key's own granularity).
+        #
+        # A SCALAR end-word refusal poisons exactly the groups that READ the
+        # end word: the member's slot is DEFAULT on a line whose end word is
+        # unreadable. A group binding the same pair at readable declared
+        # tokens keeps its question. The record keeps one entry per pair for
+        # rendering and its `groups` names ONLY the poisoned groups — naming
+        # a group whose question survived would claim a refusal nobody made.
+        # A pair whose unreadable end word no group reads mints NO record.
+        refused = set()                     # (i, j, k) triples
+        _slotted_scalar = m.slots_declared()
+        _kept_refusals = []
         for r in refusals:
             i, j = r["lines"]
-            r["groups"] = [m.labels[k] for k in
-                           sorted(set(m.groups_of(i)) & set(m.groups_of(j)))]
+            ks = sorted(set(m.groups_of(i)) & set(m.groups_of(j)))
+            hit = []
+            for k in ks:
+                if _slotted_scalar:
+                    reads_bad = (
+                        (records[i - 1]["final_unreadable"]
+                         and _SL.is_default(m.slot_of(k, i)))
+                        or (records[j - 1]["final_unreadable"]
+                            and _SL.is_default(m.slot_of(k, j))))
+                    if not reads_bad:
+                        continue
+                refused.add((i, j, k))
+                hit.append(k)
+            if hit:
+                r["groups"] = [m.labels[k] for k in hit]
+                _kept_refusals.append(r)
+        refusals = _kept_refusals
 
         # AND A DECLARED SLOT THAT RESOLVES TO NO ANCHOR IS ALSO A REFUSAL,
         # and it was counted as JUDGED until 2026-08-26 (`MISSING.md` M-144).
@@ -1114,6 +1150,7 @@ class Reviser:
                        ((i, _anchorless(k, i)), (j, _anchorless(k, j))) if sl]
                 if not bad:
                     continue
+                refused.add((i, j, k))     # this GROUP's reading, M-149(b)
                 _slot_ref.append({
                     "lines": (i, j),
                     "endwords": (endwords[i - 1], endwords[j - 1]),
@@ -1130,7 +1167,6 @@ class Reviser:
                         f"NOT what this group asked about"),
                 })
             refusals.extend(_slot_ref)
-            refused |= {r["lines"] for r in _slot_ref}
 
         # WHICH (LINE, GROUP) PAIRS WERE NEVER JUDGED. A refusal is not a
         # failure (doctrine 79) and it is not a pass either (doctrine 20), so
@@ -1253,7 +1289,7 @@ class Reviser:
         # draft while a slot pair is scored per pair.
         _slotted = m.slots_declared()
         for (i, j, k) in pairs:
-            if (i, j) in refused:
+            if (i, j, k) in refused:
                 unknown.add((i, k))
                 unknown.add((j, k))
                 continue
@@ -1355,7 +1391,7 @@ class Reviser:
                                        f"so the declared-token route cannot "
                                        f"bind it — REFUSED, not failed "
                                        f"(doctrine 79)")})
-                        refused.add((i, j))
+                        refused.add((i, j, k))
                         unknown.add((i, k))
                         unknown.add((j, k))
                         continue
@@ -1372,7 +1408,7 @@ class Reviser:
                                        f"cannot be judged at the declared "
                                        f"tokens: {_out.detail} — REFUSED, "
                                        f"not failed (doctrine 79)")})
-                        refused.add((i, j))
+                        refused.add((i, j, k))
                         unknown.add((i, k))
                         unknown.add((j, k))
                         continue
@@ -1394,7 +1430,7 @@ class Reviser:
                                        f"cannot be judged here: {e} — "
                                        f"REFUSED, not failed "
                                        f"(doctrine 79)")})
-                        refused.add((i, j))
+                        refused.add((i, j, k))
                         unknown.add((i, k))
                         unknown.add((j, k))
                         continue
@@ -1413,7 +1449,7 @@ class Reviser:
                                    f"phonology refuses, or an indeterminate "
                                    f"classification) — REFUSED, not failed "
                                    f"(doctrine 79)")})
-                    refused.add((i, j))
+                    refused.add((i, j, k))
                     unknown.add((i, k))
                     unknown.add((j, k))
                     continue
@@ -1447,7 +1483,7 @@ class Reviser:
                                    f"refused anchor or an unreadable "
                                    f"member) — REFUSED, not failed "
                                    f"(doctrine 79)")})
-                    refused.add((i, j))
+                    refused.add((i, j, k))
                     unknown.add((i, k))
                     unknown.add((j, k))
                     continue
@@ -1793,9 +1829,16 @@ class Reviser:
                 "verdicts": verdicts, "violations": violations,
                 "repeats": repeats, "excused": excused,
                 "refusals": refusals, "collisions": collisions,
+                # M-149(b): THE COUNTS READ THE TRIPLE SET, NOT THE RECORD
+                # LIST. A record exists for rendering and can cover several
+                # groups (the scalar end-word case) or share a triple with a
+                # sibling cause; the (pair, group) triples are what the loop
+                # actually skipped, so they are the only honest denominator
+                # complement — `mandated = judged + refused` holds by
+                # construction instead of by coincidence.
                 "pairs_mandated": len(pairs),
-                "pairs_refused": len(refusals),
-                "pairs_judged": len(pairs) - len(refusals),
+                "pairs_refused": len(refused),
+                "pairs_judged": len(pairs) - len(refused),
                 # THE WHOLE-VOCABULARY DEFAULT'S OWN COUNT (M-116): pairs the
                 # scalar door failed and a schema satisfied, with the names.
                 # Not summed into any other count (doctrine 79) — a schema

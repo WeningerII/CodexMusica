@@ -14340,3 +14340,45 @@ refusals genuinely do speak for every default-slot group of the pair.
 `audit_register.PINNED["coverage_entries"]` is repinned **~~206~~ -> 207**
 with this entry (the counter counts register entries and this sitting
 wrote one).
+
+**FACET (b) IS REPAIRED — 2026-08-28, the first sitting of the systematic
+repair campaign — and the entry stays OPEN on facet (a) alone.** The skip
+set holds `(i, j, k)` triples now; a SCALAR end-word refusal poisons
+exactly the groups whose member slot is DEFAULT on an unreadable line (the
+record keeps one entry per pair and its `groups` names only the poisoned
+groups — a pair no group reads mints no record); the slot and relation
+refusals poison only their own group; and the doctrine-79 triple reads the
+TRIPLE SET, not the record list, so `mandated = judged + refused` holds by
+construction — before, `judged` subtracted refusal RECORDS while the skip
+consumed refusal PAIRS, which is M-144's refusal-in-the-judged-column
+shape surviving at the sharing seam.
+
+**WHAT THE REPAIR REVEALED, measured on the one banked song whose mandate
+is a slot web.** `songs/the_long_way_back.txt`'s recorded triple
+65/27/38 (returns excluded) reads honestly as **65 mandated / 16 judged /
+49 refused** — eleven group-pairs sat silently skipped in the judged
+column — and of the newly-asked questions **TEN were real unsatisfied
+obligations**: nine violations across the vamp, postchorus and coda
+(anaphora I; consonance K; skothending M; light rhyme X; the perfect-rhyme
+triple R; head rhyme Y; internal rhyme W), plus monorhyme E(1,3), which
+only the blueprint's stanza frame can even ask. Every one had been
+silenced by a SIBLING group's refusal on the same line pair. The song was
+rewritten through the full order — screen (the ban caught five candidate
+pairs on the way: returning~burning, Hold~fold, Lined~unsigned,
+frost~lost spelled-identical, and alone poisoning every partner as their
+modal head), grade to exit 0, revise to SUCCESS in 0 rounds — and
+re-banked; the sibling commit carries it. The other banked songs'
+rows are HISTORICAL RECORDS keyed to their harness commits (songs are
+not corpus and `RESULTS.tsv` is commit-keyed by design); any of them
+with a slot-webbed mandate may likewise hold silenced questions under
+the current tree, and that is a fact about those trees' judges, not
+about the banked verdicts, which were true when banked.
+
+**THE GATE:** `test_revise.py` §46 — the sibling-judged check (a T-slot
+refusal on one group beside a default-slot group on the same pair, the
+sibling judged), the scalar scoping check (an unreadable end word refuses
+BOTH default-slot groups of its pair and nothing else), both count
+identities, and the record-dedupe check. The mutation — restoring
+pair-keyed skips — reds the load-bearing check by hand-proof. Battery
+unmoved at 1064/1014/50, violations 12: every sonnet pair is in exactly
+one group, so the key change is invisible there by construction.
