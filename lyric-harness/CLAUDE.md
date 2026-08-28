@@ -83,8 +83,14 @@ These outrank any inference a session draws from the code.
    lines per section uniform over the envelope;
    schemes exact-uniform via Bell-triangle completion counts above the
    enumeration bound, so large stanzas are reachable; patterns generated
-   from the section-function vocabulary's recurrence contracts, 14 of 21
-   functions including instrumentals (zero-line sections) and verbatim
+   from the section-function vocabulary's recurrence contracts —
+   ~~14 of 21~~ **every SECTION-kind function, 20 of the 22 as of
+   2026-08-28** (the 14 was v2's launch coverage; M-54's derived cells
+   took it to 19 on 2026-08-22 and this sentence was never told — an
+   inherited staleness found and repinned by M-52's close, the same day
+   `patter` entered as the 22nd function; the two out are `refrain` and
+   `burden`, line-kind by M-56's ruling, which a span grammar can never
+   draw) — including instrumentals (zero-line sections) and verbatim
    returners; anacrusis per function KIND (the pickup is part of the tune —
    per-instance draws handed the shape layer a RETURN_SLOT_DRIFT on the
    planner's own verbatim returns). THE CORPUS SAMPLES NOTHING — measured

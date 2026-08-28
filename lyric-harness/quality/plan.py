@@ -1440,6 +1440,15 @@ def _derive_roster():
 
 GENERATOR_ROSTER = _derive_roster()
 
+
+def _vocab_size():
+    """The section-function vocabulary's size, read from the table that
+    owns it — the disclosure line printed `of 21 functions` as a LITERAL
+    until 2026-08-28, when PATTER's entry (M-52) made it stale in the
+    one string a plan's reader is told the roster fraction in."""
+    from quality import grid as _GR
+    return len(_GR.SECTION_FUNCTIONS)
+
 #: Instrumental spans: bars with no lines. `fit.py` reports their bars as
 #: uncovered — a note, a rest is not a defect.
 #: Functions that carry NO SUNG WORDS. They are NOT zero-structure sections
@@ -2467,7 +2476,7 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                                         f"{ENVELOPE['body_cells']} cells, "
                                         f"optional intro/outro/coda, "
                                         f"roster {len(GENERATOR_ROSTER)} "
-                                        f"of 21 functions")},
+                                        f"of {_vocab_size()} functions")},
             "meter": {"value": dict(meter),
                       "beats_per_line": beats_pl,
                       "slots_per_line": beats_pl * sub,

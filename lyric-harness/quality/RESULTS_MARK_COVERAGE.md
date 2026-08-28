@@ -1,5 +1,16 @@
 # RESULTS — mark coverage: what the section vocabulary cannot type
 
+> **REPINNED 2026-08-28 (M-52's close): typed ~~77,090~~ 77,093, decided
+> ~~125,504~~ 125,501, declared functions ~~21~~ 22, witnessed ~~4~~ 5 —
+> every unit of the delta is `patter` entering the vocabulary on its
+> printed Ruddigore witness (the three `[PATTER]` blocks move DECIDED ->
+> TYPED, and their old refusal reason "a function this vocabulary does
+> not declare" stopped being true by declaration). `undecided` and
+> `apparatus` are unmoved, which is still the half that matters. The
+> percentages and per-mark tables below this block are the 2026-08-22
+> reading and are ~0.004% away; they are left as history rather than
+> re-derived, since the delta is three blocks in one file.**
+
 `quality/mark_coverage.py`, run 2026-08-20 over `corpus/song/` at
 ~~1,423~~ **1,414** files (1,423 was the count BEFORE the same commit's
 23 twin merges; `corpus/song/` has not changed since). **REPINNED 2026-08-20** after the Home Book of Verse safe subset

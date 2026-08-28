@@ -640,9 +640,16 @@ def test_the_corpus_holds():
           f"first 11 that went were marks inside the duplicated Lyrical "
           f"Ballads poems and the next 12 inside near-duplicate items, so "
           f"they were being counted twice and no rate over them was right.")
+    # REPINNED 2026-08-28 (M-52's close): eng ~~2,467~~ **2,470**, and the
+    # +3 is `patter` — a returns-recurrence function since it entered the
+    # vocabulary, so its three Ruddigore blocks join the eng repeat
+    # census. Chorus/burden/refrain are untouched, and the whole-corpus
+    # total above holds because its family list predates patter, which
+    # this dict-rendered detail names rather than hides.
     check("the register's `2,454 marked repeat blocks` reproduces, and the "
           "unwritten coordinate was LANGUAGE SCOPE",
-          eng_total == 2467 and c["eng_repeat"]["chorus"] == 290,
+          eng_total == 2470 and c["eng_repeat"]["chorus"] == 290
+          and c["eng_repeat"].get("patter") == 3,
           f"eng_* only gives {eng_total:,} "
           f"({dict(c['eng_repeat'])}); the recorded 1,603/604/247 is the "
           f"state at commit ef0baa4 restricted to `eng_*`, and the whole "

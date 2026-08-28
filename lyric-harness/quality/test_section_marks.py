@@ -86,13 +86,20 @@ def test_what_the_vocabulary_lacks():
     print("\n4. the rows the vocabulary cannot yet answer")
     rs = SM.rows()
     unmapped = [r for r in rs if r["kind"] == "function" and not r["maps_to"]]
-    check("exactly ONE mark is a genuine section FUNCTION the 21-name "
-          "vocabulary does not contain: `[PATTER]`. Its file's own note "
-          "records the printed heading 'PATTER-TRIO.' AND records that "
-          "nothing else in the file was tagged because that would be an "
-          "editorial guess — which is the evidence rule working",
-          [r["mark"] for r in unmapped] == ["PATTER"],
-          str([r["mark"] for r in unmapped]))
+    check("ZERO function-kind marks lack a `maps_to` — `[PATTER]` was the "
+          "one such row from this table's first derivation until "
+          "2026-08-28, when M-52's close entered `patter` as the "
+          "vocabulary's 22nd function on its printed witness (the "
+          "source's own 'PATTER-TRIO.' heading; the file's note records "
+          "that nothing else was tagged because that would be an "
+          "editorial guess — the evidence rule working in both "
+          "directions)",
+          unmapped == [], str([r["mark"] for r in unmapped]))
+    check("...and the PATTER row now maps to the function it witnessed, "
+          "which `--check`'s maps_to validation holds against the "
+          "vocabulary",
+          next(r["maps_to"] for r in rs if r["mark"] == "PATTER")
+          == "patter")
     voice = [r for r in rs if r["kind"] == "voice"]
     check("the `PART:` marks are a VOICE coordinate and there are 12 of "
           "them — WHO sings, not what the span is for. `--voices` already "
@@ -126,10 +133,40 @@ def test_radif_meets_its_function():
           > 0.9 * SM.by_kind()["form"][1])
 
 
+def test_the_cap_is_a_counted_exclusion():
+    """§6 — M-52's close (2026-08-28): the census's 40-character cap was a
+    SILENT exclusion, found when the voice build read 13 part labels out
+    of the Kanteletar against this table's 12 — the thirteenth is 41
+    characters long and the scanner never saw it. The cap is declared,
+    its population is pinned, and the check turns red when it moves."""
+    print("\n6. the mark-length cap is a counted exclusion, not a "
+          "silence (M-52, 2026-08-28)")
+    check("the cap is a DECLARED constant with a pinned population — "
+          "24 distinct marks / 50 lines beyond it, all annotation-"
+          "bearing heads (staging CHORUS annotations, Byron's and "
+          "Shelley's publication notes, Coleridge's marginal glosses, "
+          "one long part label), keyed by nothing on purpose",
+          SM.MARK_CONTENT_CAP == 40
+          and SM.census_beyond_cap() == (SM.PINNED_BEYOND_CAP["marks"],
+                                         SM.PINNED_BEYOND_CAP["lines"]),
+          str(SM.census_beyond_cap()))
+    long_label = "PART: Vähäonnisen naisen neuo morsiamelle"
+    check("...and the exemplar that exposed it is measurably past the "
+          "cap: the Kanteletar's thirteenth part label at 41 characters, "
+          "which `grid.section_census` DOES read (its voices key has 13 "
+          "labels where this table's voice rows have 12)",
+          len(long_label) == SM.MARK_CONTENT_CAP + 1)
+    check("the gate is wired: `check()` compares the beyond-cap census "
+          "against the pin, so a newly staged long mark moves a number "
+          "instead of vanishing",
+          not [c for c in SM.check() if "beyond-cap" in c])
+
+
 if __name__ == "__main__":
     for fn in (test_the_table_is_closed, test_the_kinds_are_kept_apart,
                test_the_movement_level, test_what_the_vocabulary_lacks,
-               test_radif_meets_its_function):
+               test_radif_meets_its_function,
+               test_the_cap_is_a_counted_exclusion):
         fn()
     print("=" * 62)
     if FAILURES:

@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Mark coverage: how much of the corpus the section vocabulary cannot type.
 
-`grid.SECTION_FUNCTIONS` declares 21 section functions and every one of
-them is a word of Anglo-American popular-song analysis.  `MARK_FUNCTION`
-maps the marks a printed source actually carries onto those functions,
-and it has five keys.  Everything else a source prints is REFUSED --
+`grid.SECTION_FUNCTIONS` declares the section functions (22 since
+2026-08-28, when `patter` entered on its printed witness — M-52; the
+count is derived live below, never restated) and every one of them is a
+word of Anglo-American popular-song analysis.  `MARK_FUNCTION`
+maps the marks a printed source actually carries onto those functions
+(six keys now).  Everything else a source prints is REFUSED --
 correctly, and with a written reason in `MARK_REFUSED`: calling a bayt a
 `verse` would be "this vocabulary claiming a form it does not describe"
 (doctrine 43).
@@ -231,8 +233,19 @@ PINNED = {
     #: `CORPUS_LOADING_PROTOCOL.md` already requires `suite_sweep.py` in the
     #: closing sitting for exactly that reason; `mark_coverage --check` is not
     #: in it and re-derives from the corpus, so it drifts silently on any load.
-    "typed": 77090, "decided": 125504, "undecided": 32, "apparatus": 59,
-    "declared_functions": 21, "witnessed": 4,
+    #: REPINNED 2026-08-28 (M-52's close): typed ~~77,090~~ **77,093**,
+    #: decided ~~125,504~~ **125,501**, declared_functions ~~21~~ **22**,
+    #: witnessed ~~4~~ **5** — EXACTLY +3/-3/+1/+1, and every unit of it
+    #: is `patter` entering the vocabulary on its printed Ruddigore
+    #: witness: the three `[PATTER]` blocks move from DECIDED (refused
+    #: with the reason "a function this vocabulary does not declare",
+    #: which stopped being true) to TYPED, and patter becomes the fifth
+    #: function with a printed witness. `undecided` is UNMOVED at 32,
+    #: which is still the half that matters — the vocabulary grew by
+    #: considering a mark somebody HAD thought about, not by reaching
+    #: into the pile nobody has.
+    "typed": 77093, "decided": 125501, "undecided": 32, "apparatus": 59,
+    "declared_functions": 22, "witnessed": 5,
 }
 
 

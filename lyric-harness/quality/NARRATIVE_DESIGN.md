@@ -78,6 +78,7 @@ hesitation deliberately left for the red pen, Greimas-style.
 | hook / refrain / burden | returning invariants (three marks, one behavior) | ANCHOR | |
 | reprise | "a declared return of earlier material, later and changed" | ANCHOR | with a MANDATORY changed inbound junction — return-transformed is a trajectory fact, not a ninth atom (red pen: agree?) |
 | interlude / solo | wordless spans | REFUSED | a lyric layer assigns no atom to a section with no words — refusal, not assignment (doctrine 20) |
+| patter | "music-hall rapid-delivery solo verse … returns with NEW WORDS on the same tune" | ESTABLISH, COMPLICATE, TURN, JUDGE, RESOLVE | ADDED 2026-08-28 with the function itself (M-52): its differentia from verse is delivery DENSITY, not a narrative coordinate, so it takes the mover card's faces; the Ruddigore witness exercises three of them in three stanzas |
 
 ## C · The junction grammar — six edges between adjacent sections
 

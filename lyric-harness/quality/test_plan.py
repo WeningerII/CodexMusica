@@ -72,6 +72,15 @@ real_word = SL.placement_word
 FAILURES = []
 
 
+def _n_section_kind():
+    """The vocabulary's own section-kind count — the roster's expected
+    size, derived so a 23rd function moves this suite's SUBJECT and not
+    a literal (the ~~14~~ ~~19~~ ladder is at the roster check)."""
+    from quality import grid as _GR
+    return sum(1 for sp in _GR.SECTION_FUNCTIONS.values()
+               if sp.kind == "section")
+
+
 def check(name, cond, detail=""):
     print(f"  {'PASS' if cond else 'FAIL'}  {name}")
     if detail:
@@ -600,19 +609,20 @@ def test_the_measure():
           ks[4] / k_total < 0.20 and len(ks) >= 12 and max(ks) > 8,
           f"{len(ks)} distinct k in [{min(ks)}, {max(ks)}], "
           f"k=4 at {ks[4] / k_total:.3f}")
-    check("the whole GENERATOR_ROSTER is reached — 14 functions, not "
-          "v1's five",
-          # ~~14~~ 19 — REPINNED 2026-08-22. `GENERATOR_ROSTER` is no
-          # longer a hand-typed tuple: it DERIVES from the
-          # section-kind functions in `grid.SECTION_FUNCTIONS`
-          # (`FunctionSpec.kind`, M-56), so this number is now a
-          # property of the vocabulary rather than of a literal, and
-          # the seven that were excluded by a prose comment — hook,
-          # postchorus, reprise, turnaround, false_ending among them —
-          # are drawn. The ASSERTION that matters is the equality: the
-          # sampler reaches the WHOLE roster, whatever size it is.
-          funcs == set(GENERATOR_ROSTER) and len(GENERATOR_ROSTER) == 19,
-          f"reached {len(funcs)}")
+    check("the whole GENERATOR_ROSTER is reached — every section-kind "
+          "function, not v1's five",
+          # ~~14~~ ~~19~~ DERIVED — REPINNED 2026-08-22 when the roster
+          # began deriving from the section-kind functions
+          # (`FunctionSpec.kind`, M-56), and DE-LITERALIZED 2026-08-28
+          # when `patter` (M-52) took it to 20 and the pinned 19 went
+          # red — the exact literal defect this check's own comment
+          # warned about while carrying one. The ASSERTION that matters
+          # is unchanged and is now the whole condition: the sampler
+          # reaches the WHOLE roster, whose size is the vocabulary's own
+          # section-kind count and never a number typed here.
+          funcs == set(GENERATOR_ROSTER)
+          and len(GENERATOR_ROSTER) == _n_section_kind(),
+          f"reached {len(funcs)} of {len(GENERATOR_ROSTER)}")
     # THE FLOOR MOVED 2026-08-23 AND THE FORM IS WHY (doctrine 17). This
     # read `min(totals) <= 8`. `FORM_REQUIRES` makes a verse AND a chorus
     # mandatory for `verse-chorus`, so the shortest drawable song is now two

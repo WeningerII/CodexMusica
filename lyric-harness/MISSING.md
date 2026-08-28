@@ -7256,7 +7256,7 @@ The gate is M-102's own (`quality/test_verbs.py` asserts the split);
 nothing was built for this close, and the close's work was the
 RE-MEASUREMENT, not a repair.
 
-### M-52 · 17 of the 21 declared section functions are printed NOWHERE, and 62% of the marks that ARE printed reach no function at all `PARTIAL`
+### M-52 · 17 of the 21 declared section functions are printed NOWHERE, and 62% of the marks that ARE printed reach no function at all `CLOSED` 2026-08-28 — patter is the 22nd function, the voice is a carried coordinate, and the two rulings that answered the rest are named
 **Raised by the owner 2026-08-22 — "is it possible to work on getting us the
 '17 declared and never printed' parsed and working instead of just the 4
 section functions currently in use?" — and MEASURED before answering, because
@@ -7426,6 +7426,95 @@ joining the 62%.
 
 TESTED WHILE OPEN: `quality/test_section_marks.py`, and
 `quality/section_marks.py --check` in CI.
+
+**CLOSED 2026-08-28 — the four open items, each resolved in its own
+kind: two BUILT, one RULED-AND-PARKED, one RECORDED.**
+
+**(1) `PATTER` IS THE 22nd FUNCTION, entered on its printed witness.**
+`grid.SECTION_FUNCTIONS` gains the row (gloss quoting the source's own
+centred 'PATTER-TRIO.' heading, Ruddigore Act II; recurrence
+"returns/new words" — the three solo stanzas return on one tune with
+new words apiece; no placement claim, the verse rule; its defining
+density contrast named as G-1's uncalibrated gap rather than guessed);
+`MARK_FUNCTION` gains `PATTER -> patter` in the same commit as its
+member, the taxonomy protocol's own rule; the `("eng","PATTER")` row
+LEAVES `MARK_REFUSED` because its reason ("a function this vocabulary
+does not declare") stopped being true — with the ùrlar's cross-
+reference to that refusal's argument repointed, since the ùrlar still
+lacks a MOVEMENT layer, not a witness. `narrative.FUNCTION_ATOMS`
+gains patter with the mover card's faces (its differentia from verse
+is DELIVERY density, not a narrative coordinate — `NARRATIVE_DESIGN.md`
+§B row added). The table's PATTER row carries `maps_to=patter` now and
+`test_section_marks` §4 asserts ZERO unmapped function marks.
+**MEASURED CONSEQUENCES, the vocabulary member's full price:**
+`mark_coverage` typed 77,090 -> 77,093 / decided 125,504 -> 125,501 /
+declared_functions 21 -> 22 / witnessed 4 -> 5 (exactly the three
+blocks moving DECIDED -> TYPED); the eng repeat-block census 2,467 ->
+2,470 (`test_song_function` repinned, patter being returns-recurrence);
+`plan._CELLS` 21 -> 22 cells, so **EVERY undeclared seed's body draw
+re-arithmetics — measured 60 of 60 patterns moved** (the M-133 species
+at full width; `test_narrative`'s seed pins repinned as generation
+three, the 35/5 admit census UNMOVED a second time across a fully
+remapped space, and a NEW exemplar surfaced: seed 27 collapses at
+position THREE on the RESOLVE clause, a depth nothing had witnessed
+from the planner's own dice); the planner emits patter in 12 of 60
+undeclared seeds and on `--functions=` declaration; `test_placement`'s
+emission pin is DE-LITERALIZED to the vocabulary's own section-kind
+count (20 of 20 emitted); `plan`'s disclosure line derives its
+vocabulary size (`_vocab_size()`) instead of printing the literal 21;
+and CLAUDE.md's v2 coverage sentence — stale at "14 of 21" since the
+derived cells took it to 19 on 2026-08-22 — is repinned with its
+ladder.
+
+**(2) THE MOVEMENT LAYER IS A RECORDED NON-BUILD, unchanged and now
+the close's own statement:** three pìobaireachd marks in three files
+group verses at a level this model has no layer for; twelve lines is
+not a layer's worth of evidence, and the level ENTERS when a corpus
+supplies it or the owner asks — until then `movement` rows stand in
+the table and `MARK_OPENS_GROUP` carries their span-hood.
+
+**(3) THE VOICE IS A CARRIED COORDINATE.** `grid.Block.voice` — the
+antiphonal part label in force when the block opened, threaded by
+`read_marked_songs` from each `[PART: X]` mark to the next (reset at
+every `--- TITLE:`; the PART block itself keeps its function-refusal,
+so NO block count anywhere moves), and read by `section_census`'s new
+`voices` key, its one reader. Carried, never interpreted: nothing
+grades a voice (`--voices` set that precedent). Measured on the
+Kanteletar: 148 voiced blocks, the printed alternation (Kosiomiehen
+puoli <-> Kaason puoli) reproduced exactly, zero songs opening with an
+inherited voice, English files all-empty. `test_grid` §36.
+**AND THE BUILD FOUND THE CENSUS'S OWN BLIND SPOT:** grid reads 13
+part labels where `data/section_marks.tsv` holds 12 voice rows — the
+thirteenth (`[PART: Vähäonnisen naisen neuo morsiamelle]`, 41 chars)
+sat past the census scanner's SILENT 40-character cap, so "every
+printed mark has a row" was true only of the marks the scanner could
+see. The cap is DECLARED now (`MARK_CONTENT_CAP`), its population
+measured (**24 distinct marks / 50 lines** — annotation-bearing heads:
+21 staging `[CHORUS: abbreviated...]` lines, Byron's and Shelley's
+publication notes, Coleridge's Ancient Mariner marginal glosses, one
+Durfey sidenote, the one long part label), PINNED
+(`PINNED_BEYOND_CAP`) and GATED in `--check`, so a newly staged long
+mark moves a number instead of vanishing. `test_section_marks` §6.
+
+**(4) BURDEN/REFRAIN "STILL DO NOT REACH THE PLANNER" WAS ANSWERED BY
+A LATER RULING AND THE TWO ENTRIES CONTRADICTED EACH OTHER IN THE
+RECORD — resolved here, for the ruling.** This entry's item 4 said the
+gap "needs no new text" and was owed; M-56 (same day, later) ruled
+`refrain` and `burden` LINE-kind off their own glosses, and
+`plan.py`'s roster comment has said since then that a span grammar
+"can never draw one, and that is not a gap." Two register statements,
+one question, opposite answers — doctrine 1's own case, standing since
+2026-08-22 and named by nobody until this close. RESOLVED FOR M-56:
+the kinds are read off the glosses and the cell grammar's refusal is
+correct. What SURVIVES of item 4 is a writer's route, which EXISTS at
+the mandate layer today — a hand blueprint declares a burden section
+(the placement layer enforces its measured adjacent-after-verse), and
+`--returns=` declares the verbatim line-group obligations — and a
+GENERATOR that volunteers an attached burden line-group (the hook-slot
+/ `end_rhyme_groups` species: a line-layer pass, never a span cell)
+is a design the owner has not asked for, parked as `BACKLOG.md`
+RULINGS WANTED row 17 with the attestation beside it (1,580 printed
+burdens, the most-attested function in the corpus).
 
 ### M-53 · `mandate()`'s re-open path re-defaulted the `ReturnRule`, so re-opening a mandate to add any coordinate silently replaced the rule its writer declared `CLOSED` 2026-08-22
 **Found in the same sitting as M-50, by testing that the CLI's new

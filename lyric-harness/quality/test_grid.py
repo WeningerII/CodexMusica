@@ -3399,6 +3399,62 @@ def test_one_short_section_no_longer_silences_the_locks():
           f"{len(CHANNELS)} channels")
 
 
+def test_the_voice_is_a_carried_coordinate():
+    """§36 — M-52's close (2026-08-28): `[PART: X]` is a VOICE, carried on
+    `Block.voice` and read by `section_census` — WHO sings, never what the
+    span is for. And `[PATTER]` reaches the vocabulary's 22nd function
+    through `MARK_FUNCTION`, entered on its printed Ruddigore witness."""
+    print("\n36. the voice coordinate, and the 22nd function "
+          "(M-52, 2026-08-28)")
+    import os as _os
+    KANT = _os.path.join(_os.path.dirname(__file__), "..",
+                         "corpus", "song", "fin_kanteletar.txt")
+    GILB = _os.path.join(_os.path.dirname(__file__), "..",
+                         "corpus", "song", "eng_hall_ws_gilbert.txt")
+    songs = _G.read_marked_songs(KANT)
+    voiced = [b for s in songs for b in s.blocks if b.voice]
+    check("Lönnrot's antiphonal part labels ride `Block.voice` — the "
+          "label holds from its `[PART: X]` mark to the next one",
+          len(voiced) > 100
+          and any(b.base == "VERSE" and b.voice == "Kaason puoli"
+                  for b in voiced))
+    wed = next(s for s in songs
+               if any(b.base == "PART" for b in s.blocks))
+    seq = [(b.base, b.voice) for b in wed.blocks[:4]]
+    check("...and the alternation reads exactly as printed: each PART "
+          "mark re-voices the blocks that follow it",
+          seq[0][1] != seq[2][1] and seq[1][1] == seq[0][1]
+          and seq[3][1] == seq[2][1], repr(seq))
+    check("a new `--- TITLE:` inherits NOBODY's voice — no song opens "
+          "with a voice unless its own first mark declares one",
+          not any(s.blocks and s.blocks[0].voice
+                  and s.blocks[0].base != "PART" for s in songs))
+    check("the PART block itself keeps its function-refusal — a voice "
+          "is still not a section function, and no block count moved",
+          all(b.refusal is not None for s in songs for b in s.blocks
+              if b.base == "PART"))
+    cen = _G.section_census(
+        open(KANT, encoding="utf-8").read().splitlines(), "fin")
+    check("`section_census` reports the voices as their own key, beside "
+          "— never inside — the refused count (doctrine 79); an English "
+          "file that prints no parts reports none. Deleting the PART "
+          "branch empties this dict, which is the mutation that kills "
+          "this section",
+          cen["voices"].get("Kaason puoli", 0) > 10
+          and len(cen["voices"]) == 13
+          and _G.section_census(
+              open(GILB, encoding="utf-8").read().splitlines(),
+              "eng")["voices"] == {})
+    gsongs = _G.read_marked_songs(GILB)
+    pat = [b for s in gsongs for b in s.blocks if b.base == "PATTER"]
+    check("the three [PATTER] blocks reach the declared 22nd function — "
+          "no longer refused, and each carries its sung stanza",
+          len(pat) == 3 and all(b.function == "patter" for b in pat)
+          and all(b.refusal is None for b in pat)
+          and all(len(b.lines) >= 8 for b in pat),
+          f"{[(b.function, len(b.lines)) for b in pat]}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -3441,7 +3497,8 @@ if __name__ == "__main__":
                test_the_section_coordinate_is_supplied,
                test_the_stanza_ground_is_printed_or_refused,
                test_the_cli_reads_the_marks_it_used_to_delete,
-               test_one_short_section_no_longer_silences_the_locks):
+               test_one_short_section_no_longer_silences_the_locks,
+               test_the_voice_is_a_carried_coordinate):
         fn()
     print("=" * 62)
     if FAILURES:

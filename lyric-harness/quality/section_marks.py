@@ -51,6 +51,44 @@ KINDS = ("function", "movement", "form", "voice", "apparatus", "refused")
 #: are one mark -- which is what makes a table of 55 rows rather than 1,400.
 _MARK = re.compile(r"^\s*\[([^\]]{1,40})\]\s*$")
 
+#: THE CAP IS A DECLARED EXCLUSION NOW, WITH ITS POPULATION COUNTED
+#: (M-52's close, 2026-08-28). The 40-character bound above was silent: a
+#: mark longer than it simply never reached the census, so `--check`'s
+#: "every printed mark has a row" was true only of the marks the scanner
+#: could see -- found when the voice build read 13 part labels out of the
+#: Kanteletar against this table's 12, the thirteenth being
+#: `[PART: Vähäonnisen naisen neuo morsiamelle]` at 41 characters.
+#: MEASURED over the whole corpus: **24 distinct marks / 50 lines** beyond
+#: the cap, and they are annotation-bearing heads, not new vocabulary --
+#: 21 lines of `[CHORUS: abbreviated return ...]` staging marks, Byron's
+#: and Shelley's bracketed publication notes, Coleridge's Ancient Mariner
+#: marginal glosses, one Durfey sidenote, and the one long part label.
+#: Keying THESE by full content would put every distinct sidenote in the
+#: table, so they stay out of the rows and IN a counted bucket the check
+#: verifies: a new long mark moves a number instead of vanishing.
+MARK_CONTENT_CAP = 40
+_MARK_LONG = re.compile(r"^\s*\[([^\]]{41,400})\]\s*$")
+PINNED_BEYOND_CAP = {"marks": 24, "lines": 50}
+
+
+def census_beyond_cap(root=None):
+    """-> (n_distinct_marks, n_lines) past `MARK_CONTENT_CAP` -- the
+    population the row census DECLARES it does not key."""
+    root = root or CORPUS
+    seen, n = set(), 0
+    for p in sorted(glob.glob(os.path.join(root, "**", "*.txt"),
+                              recursive=True)):
+        try:
+            with open(p, encoding="utf-8") as fh:
+                for ln in fh:
+                    m = _MARK_LONG.match(ln)
+                    if m:
+                        seen.add(normalise(m.group(1)))
+                        n += 1
+        except (UnicodeDecodeError, OSError):
+            continue
+    return len(seen), n
+
 
 def normalise(raw):
     """-> the table's key for one bracket's contents."""
@@ -115,6 +153,20 @@ def check(root=None):
     rs = rows()
     seen = {r["mark"]: r for r in rs}
     lines, files = census(root)
+
+    # THE DECLARED EXCLUSION IS GATED (M-52): the marks past
+    # MARK_CONTENT_CAP are not keyed by this table, and the check holds
+    # their COUNT so a newly staged long mark turns this red instead of
+    # vanishing the way the Kanteletar's thirteenth part label did.
+    beyond = census_beyond_cap(root)
+    if root is None and beyond != (PINNED_BEYOND_CAP["marks"],
+                                   PINNED_BEYOND_CAP["lines"]):
+        bad.append(f"beyond-cap population moved: pinned "
+                   f"{PINNED_BEYOND_CAP['marks']} marks / "
+                   f"{PINNED_BEYOND_CAP['lines']} lines, measured "
+                   f"{beyond[0]} / {beyond[1]} -- a mark longer than "
+                   f"{MARK_CONTENT_CAP} chars was staged or removed; "
+                   f"inspect it and repin")
 
     for r in rs:
         if r["kind"] not in KINDS:

@@ -523,6 +523,21 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           # was buying
           ),
     _spec("vamp", "a repeating figure held open", "open", "varied"),
+    # THE 22nd FUNCTION, ENTERED ON A PRINTED WITNESS (M-52, 2026-08-28).
+    # The evidence rule the corpus taxonomy demands, satisfied twice over by
+    # one file: `eng_hall_ws_gilbert.txt` carries the SOURCE'S OWN centred
+    # heading 'PATTER-TRIO.' (Ruddigore Act II) over three [PATTER]-marked
+    # solo stanzas alternating with [CHORUS] ensemble tags — and the same
+    # file's note records that NOTHING ELSE in it was tagged, "because that
+    # would be an editorial guess". No placement claim: nothing in the
+    # gloss denies a position, so nothing here does (the verse rule). Its
+    # defining density contrast (syllables against beats) is measurable and
+    # UNCALIBRATED — G-1's gap, named rather than guessed at.
+    _spec("patter", "music-hall rapid-delivery solo verse, the syllable-"
+          "dense half of a patter song; returns with NEW WORDS on the same "
+          "tune (Ruddigore's 'PATTER-TRIO.': three [PATTER] solo stanzas "
+          "against [CHORUS] ensemble tags)",
+          "returns", "new words", ("chorus",)),
     # THE KEYWORD DERIVATION READ THIS AS `last`, on "the end of one section".
     # It is a SEAM: it needs a section on BOTH sides, so it can be neither
     # first nor last, which is the opposite of what an absolute reading gave.
@@ -2346,7 +2361,9 @@ class FormConvention:
     #: different functions (CLAUDE.md known gap 7).
     #:
     #: WHY A DECLARED SET AND NOT EVERY PAIR, MEASURED RATHER THAN ARGUED.
-    #: 21 functions give 420 ordered pairs, and a verse does not "reprise" a
+    #: 22 functions give 462 ordered pairs (21/420 when this was written;
+    #: patter joined 2026-08-28 and the argument is arithmetic over the
+    #: vocabulary, unchanged), and a verse does not "reprise" a
     #: chorus -- it shares a language with it. Over `corpus/song/`, on the
     #: only cross-function pairs the printed marks can supply (verse, chorus,
     #: burden, refrain -- `MARK_FUNCTION`'s whole range), 889 unordered pairs
@@ -3183,6 +3200,12 @@ MARK_FUNCTION = {
     "CHORUS": "chorus",
     "BURDEN": "burden",
     "BURDEN-TAIL": "burden",
+    # ENTERED WITH ITS FUNCTION IN THE SAME COMMIT (M-52, 2026-08-28): the
+    # taxonomy protocol's rule — a value enters by a defined table row in
+    # the same commit as its first member, and [PATTER]'s three blocks in
+    # eng_hall_ws_gilbert.txt are the member (the source's own
+    # 'PATTER-TRIO.' heading).
+    "PATTER": "patter",
     "REFRAIN": "refrain",
 }
 
@@ -3235,9 +3258,12 @@ MARK_REFUSED = {
                "it as one would count editorial apparatus as structure.",
     ("fin", "PART"): "a speaker or role attribution in the Kalevala wedding songs "
             "(`[PART: Kaason puoli]`), not a section function.",
-    ("eng", "PATTER"): "a music-hall function this vocabulary does not declare. It is "
-              "refused rather than folded into `verse`, because folding it in "
-              "would delete the distinction the printer made.",
+    # `("eng", "PATTER")` LEFT THIS TABLE 2026-08-28 (M-52): the vocabulary
+    # declares `patter` now, so the mark resolves through `MARK_FUNCTION`
+    # and its old refusal reason ("a function this vocabulary does not
+    # declare") stopped being true. The refusal's own argument — do not
+    # fold it into `verse`, that deletes the printer's distinction — is
+    # exactly why it entered as its OWN row rather than an alias.
     ("fin", "NOTE"): "editorial apparatus.",
     ("eng", "SIDENOTE"): "editorial apparatus.",
     ("eng", "MUSIC"): "editorial apparatus.",
@@ -3248,7 +3274,10 @@ MARK_REFUSED = {
              "a mark at all; what this vocabulary has no member for is a "
              "movement in a VARIATION LADDER, and folding it into `verse` "
              "would say the theme and its ornamented restatements are the "
-             "same kind of thing (`PATTER`'s argument, one tradition over).",
+             "same kind of thing (the argument PATTER's old refusal made, "
+             "one tradition over — PATTER itself entered the vocabulary "
+             "2026-08-28 because a printed witness supplied its function; "
+             "the ùrlar still lacks a MOVEMENT layer, not a witness).",
     ("eng", "SIUBHAL"): "a pìobaireachd variation on the ùrlar. Refused for the same "
                "reason and with the same regret: the relation it needs is a "
                "POINTER at the section it elaborates, and the section "
@@ -3408,6 +3437,19 @@ class Block:
     indents: list = field(default_factory=list)
     refusal: Refusal = None
     source_line: int = 0
+    #: THE VOICE COORDINATE (M-52, 2026-08-28): the antiphonal part label
+    #: in force when this block opened — WHO sings, never what the span is
+    #: for. Lönnrot's wedding songs print `[PART: Kaason puoli]` ahead of
+    #: the `[VERSE n]` blocks that part sings, and the file's own header
+    #: declares the convention; the label holds until the next `[PART: X]`
+    #: or the next `--- TITLE:` (a new song inherits nobody's voice).
+    #: Empty = no part declared, which is every block of every file that
+    #: prints no parts. CARRIED, NOT INTERPRETED: a voice is a declared
+    #: reading (`--voices` set that precedent), the PART mark itself keeps
+    #: its function-refusal (a voice is still not a section function), and
+    #: nothing grades this field — `section_census` reports it, which is
+    #: its one reader.
+    voice: str = ""
     #: text printed on the MARK's own line. In this corpus's convention that
     #: is apparatus, never sung text -- `[CHORUS 2] (differs from CHORUS 1 --
     #: repetition with variation)` is an editor speaking. Reading it as a
@@ -3633,6 +3675,12 @@ def read_marked_songs(path, language=""):
     # doctrine 45.
     language = language or language_of_path(path)
     songs, cur = [], None
+    # THE VOICE IN FORCE (M-52): a `[PART: X]` mark declares WHO sings
+    # the blocks that follow it, until the next part label or the next
+    # song. The PART block itself is appended exactly as before (its
+    # function-refusal stands — a voice is not a function), so no block
+    # count anywhere moves; the label rides `Block.voice` alongside.
+    cur_voice = ""
     with open(path, encoding="utf-8", errors="replace") as f:
         raw_lines = f.read().splitlines()
     # The DECLARED bracket-apparatus rules (M-47/M-27/M-152), the same
@@ -3654,6 +3702,7 @@ def read_marked_songs(path, language=""):
             cur = MarkedSong(title=_t, air=_air,
                              path=path, language=language)
             songs.append(cur)
+            cur_voice = ""
             continue
         if line.startswith("#") or line.startswith("--- "):
             continue
@@ -3663,9 +3712,11 @@ def read_marked_songs(path, language=""):
         m = _MARK_RE.match(s)
         if m:
             base, idx, fn, ref = ingest_mark(m.group(1), language)
+            if base == "PART" and ":" in m.group(1):
+                cur_voice = m.group(1).split(":", 1)[1].strip()
             cur.blocks.append(Block(mark=m.group(1), base=base, index=idx,
                                     function=fn, refusal=ref,
-                                    source_line=n))
+                                    source_line=n, voice=cur_voice))
             cur.blocks[-1].annotation = s[m.end():].strip()
         elif s and cur.blocks and not LH.is_apparatus_line(s):
             s2 = LH.normalise_bracket_spans(s, path).strip()
@@ -3797,10 +3848,10 @@ def sections_from_marks(text_lines, language=""):
 #: happen to be declared: a stanza vector that is right about four marks and
 #: silent about a fifth is not a partial answer, it is a wrong one.
 MARK_OPENS_GROUP = {
-    # spans of the song — `MARK_FUNCTION`'s five, which are functions
-    # precisely because they are spans.
+    # spans of the song — `MARK_FUNCTION`'s six, which are functions
+    # precisely because they are spans (PATTER joined 2026-08-28, M-52).
     "VERSE": True, "CHORUS": True, "BURDEN": True, "BURDEN-TAIL": True,
-    "REFRAIN": True,
+    "REFRAIN": True, "PATTER": True,
     # metrical units, each quoting its own `MARK_REFUSED` reason.
     "BAYT": True,        # "the couplet-unit of a ghazal"
     "SLOKA": True,       # "a metrical stanza-unit"
@@ -3811,7 +3862,6 @@ MARK_OPENS_GROUP = {
     # span of the performance, which is why it is a mark at all"; the other
     # three are refused "for the same reason".
     "URLAR": True, "SIUBHAL": True, "TAORLUATH": True, "CRUNLUATH": True,
-    "PATTER": True,      # "a music-hall function" — a function is a span
     # NOT a span, and each says so.
     "RADIF": False,      # "not a span of the song. It has no bars and no
     #                      return."
@@ -3944,7 +3994,7 @@ def section_census(text_lines, language=""):
     lines that sit under no mark at all.
     """
     marks = funcs = 0
-    refused, fn = {}, {}
+    refused, fn, voices = {}, {}, {}
     before, seen = 0, False
     for raw in text_lines:
         m = SECTION_MARK.match(raw or "")
@@ -3954,7 +4004,16 @@ def section_census(text_lines, language=""):
             continue
         seen = True
         marks += 1
-        base, _n, function, ref = ingest_mark(m.group(1).strip(), language)
+        mark_text = m.group(1).strip()
+        base, _n, function, ref = ingest_mark(mark_text, language)
+        # THE VOICE COORDINATE (M-52): a `[PART: X]` label is counted by
+        # WHO it names, beside — never inside — the refused count its
+        # function-refusal already earns (doctrine 79: a voice mark is
+        # both "not a function" and "a declared part", and the two
+        # answers go in two keys).
+        if base == "PART" and ":" in mark_text:
+            v = mark_text.split(":", 1)[1].strip()
+            voices[v] = voices.get(v, 0) + 1
         if ref is not None:
             refused[base] = refused.get(base, 0) + 1
         elif function:
@@ -3962,6 +4021,7 @@ def section_census(text_lines, language=""):
             fn[function] = fn.get(function, 0) + 1
     return {"marks": marks, "sections": marks, "functions": fn,
             "declared_functions": funcs, "refused": refused,
+            "voices": voices,
             "lines_before_first_mark": before}
 
 
