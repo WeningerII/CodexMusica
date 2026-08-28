@@ -26,6 +26,18 @@ every requested measurement ran; exit 2 means the plan itself refused.
 
 Usage:
   python3 scripts/measure_verb_memory.py --seed=N [--verb=grade|revise|both]
+  python3 scripts/measure_verb_memory.py --seed=N --verb=grade --heap
+
+THE `--heap` MODE is the finer instrument: WHERE do the megabytes live?
+It runs ONE verb in-process (the worker's own cli() swap, so the code path
+is the production one) under `tracemalloc`, samples the traced total on a
+thread, keeps the snapshot nearest the peak, and prints the top allocation
+sites at PEAK and what stays RETAINED after the call returns (the memo
+residue the warm worker carries between requests). Two honesty notes are
+part of the output: tracemalloc's traced total UNDERCOUNTS the process RSS
+(interpreter, allocator slack, anything C-level), so the process VmHWM is
+printed beside it as the bracket; and tracing slows the run several-fold,
+so `--heap` wall times are not comparable to the plain mode's.
 """
 
 import json
@@ -76,8 +88,88 @@ def _run_plain(argv):
     return r.returncode, r.stdout + r.stderr
 
 
+def _vm_hwm_mb():
+    try:
+        with open("/proc/self/status") as f:
+            for line in f:
+                if line.startswith("VmHWM"):
+                    return int(line.split()[1]) / 1024.0
+    except OSError:
+        pass
+    return None
+
+
+def _print_stats(title, snapshot, limit=15):
+    print(f"\n{title}")
+    for label, key in (("by line", "lineno"), ("by file", "filename")):
+        stats = snapshot.statistics(key)
+        total = sum(s.size for s in stats)
+        print(f"  top {limit} {label} (traced total {total / 1048576:.0f} MB):")
+        for s in stats[:limit]:
+            frame = s.traceback[0]
+            where = f"{os.path.relpath(frame.filename, ROOT)}:{frame.lineno}" if key == "lineno" else os.path.relpath(frame.filename, ROOT)
+            print(f"    {s.size / 1048576:7.1f} MB  {s.count:>9} objs  {where}")
+
+
+def _heap_profile(argv):
+    """One in-process verb run under tracemalloc: peak owners + retained."""
+    import io
+    import threading
+    import tracemalloc
+
+    os.chdir(HARNESS)
+    sys.path.insert(0, HARNESS)
+    import lyric_harness
+
+    # Depth 1: the allocating line alone. statistics('lineno') reads only the
+    # top frame, and deeper traces multiply both the tracer's slowdown and
+    # every snapshot's own footprint — on a ~650 MB working set that margin
+    # is the difference between profiling the box and OOMing it.
+    tracemalloc.start(1)
+    best = {"bytes": 0, "snap": None}
+    stop = threading.Event()
+
+    def sampler():
+        while not stop.wait(2.0):
+            cur, _ = tracemalloc.get_traced_memory()
+            # Snapshot only on a real climb: each snapshot copies the whole
+            # trace table, so sampling the NUMBER is cheap and the snapshot
+            # is rationed to genuine new peaks.
+            if cur > best["bytes"] * 1.10 or (cur > best["bytes"] and best["snap"] is None):
+                best["bytes"] = cur
+                best["snap"] = tracemalloc.take_snapshot()
+
+    t = threading.Thread(target=sampler, daemon=True)
+    t.start()
+
+    old_argv, old_out, old_err = sys.argv, sys.stdout, sys.stderr
+    sys.argv = ["lyric_harness.py"] + list(argv)
+    sys.stdout, sys.stderr = io.StringIO(), io.StringIO()
+    code, t0 = 0, time.time()
+    try:
+        rc = lyric_harness.cli()
+        code = int(rc) if isinstance(rc, int) else 0
+    except SystemExit as e:
+        code = e.code if isinstance(e.code, int) else (0 if e.code is None else 1)
+    finally:
+        sys.argv, sys.stdout, sys.stderr = old_argv, old_out, old_err
+    wall = time.time() - t0
+    stop.set()
+    t.join()
+
+    retained = tracemalloc.take_snapshot()
+    cur, peak = tracemalloc.get_traced_memory()
+    hwm = _vm_hwm_mb()
+    print(f"verb exit={code} wall={wall:.1f}s (traced — several-fold slower than untraced)")
+    print(f"traced: current {cur / 1048576:.0f} MB, peak {peak / 1048576:.0f} MB; process VmHWM {hwm:.0f} MB" if hwm else f"traced: current {cur / 1048576:.0f} MB, peak {peak / 1048576:.0f} MB")
+    if best["snap"] is not None:
+        _print_stats(f"AT PEAK (best sample, {best['bytes'] / 1048576:.0f} MB traced):", best["snap"])
+    _print_stats("RETAINED after the call (what a warm worker keeps):", retained)
+    return 0
+
+
 def main(argv):
-    seed, verb = None, "both"
+    seed, verb, heap = None, "both", False
     for a in argv:
         m = re.fullmatch(r"--seed=(\d+)", a)
         if m:
@@ -85,8 +177,13 @@ def main(argv):
         m = re.fullmatch(r"--verb=(grade|revise|both)", a)
         if m:
             verb = m.group(1)
+        if a == "--heap":
+            heap = True
     if seed is None:
         print("REFUSED — --seed=N is required: a measurement with no declared seed is not reproducible")
+        return 2
+    if heap and verb == "both":
+        print("REFUSED — --heap profiles ONE verb per process (the tracer and the memos are process-global); pass --verb=grade or --verb=revise")
         return 2
 
     with tempfile.TemporaryDirectory() as td:
@@ -119,7 +216,7 @@ def main(argv):
                 print(f"REFUSED — plan --fill exited {code}:\n{out[-500:]}")
                 return 2
             plan = json.load(open(plan_path))
-            args = ["python3", "lyric_harness.py", "song", bp_path, draft_path]
+            args = ["song", bp_path, draft_path]
             if plan.get("groups"):
                 args.append(f"--groups={plan['groups']}")
             if plan.get("returns"):
@@ -130,16 +227,21 @@ def main(argv):
             if rel:
                 args.append("--relations=" + ",".join(f"{k}:{rel[k]}" for k in sorted(rel)))
             args += ["--subdivision", str(plan["subdivision"])]
-            code, wall, peak = _run_measured(args, os.path.join(td, "grade.out"))
+            if heap:
+                return _heap_profile(args)
+            code, wall, peak = _run_measured(
+                ["python3", "lyric_harness.py"] + args, os.path.join(td, "grade.out")
+            )
             print(f"verb=grade  seed={seed} lines={n_lines} exit={code} wall={wall:.1f}s peak_mb={peak:.0f}")
 
         if verb in ("revise", "both"):
             state_path = os.path.join(td, "state.json")
-            args = [
-                "python3", "lyric_harness.py", "finish", draft_path,
-                f"--seed={seed}", f"--propose=defer:{state_path}",
-            ]
-            code, wall, peak = _run_measured(args, os.path.join(td, "revise.out"))
+            args = ["finish", draft_path, f"--seed={seed}", f"--propose=defer:{state_path}"]
+            if heap:
+                return _heap_profile(args)
+            code, wall, peak = _run_measured(
+                ["python3", "lyric_harness.py"] + args, os.path.join(td, "revise.out")
+            )
             print(f"verb=revise seed={seed} lines={n_lines} exit={code} wall={wall:.1f}s peak_mb={peak:.0f}")
 
     return 0
