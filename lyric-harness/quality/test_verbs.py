@@ -3947,11 +3947,18 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
     # untouched and every predicate is still individually satisfiable. The
     # range is widened rather than the predicates loosened — loosening them
     # to keep a number would be tuning the question to preserve the answer.
+    # ~~`--sweep=0-400`~~ **WIDENED AGAIN 2026-08-28, same rule, third rung
+    # of the same ladder: M-52's patter row remapped all 60 measured seed
+    # patterns, and 0..400 now holds NO seed satisfying the conjunction —
+    # the sweep's own empty-set refusal (exit 2 with the rate) fired,
+    # which is the verb working. Measured: 0..1600 accepts 2 (1105, 1540,
+    # 0.1% of the planned), so the range is 0-1600 and the acceptance
+    # stays read off the run, never remembered.**
     # WHAT THIS SECTION IS ABOUT IS REACHABILITY, so what it asserts is that
     # a person running the command GETS AN ANSWER: a non-empty accepted list
     # that agrees with the header's own count, which is a stronger property
     # than one remembered integer and cannot go stale when the planner moves.
-    rc, out, _ = run("plan", "--sweep=0-400", WANT, expect_rc=0)
+    rc, out, _ = run("plan", "--sweep=0-1600", WANT, expect_rc=0)
     _acc = [l for l in out.splitlines() if "accepted" in l and "swept" in l]
     _n = int(re.search(r"accepted (\d+)", _acc[0]).group(1)) if _acc else 0
     check("the sweep RUNS from the command line and comes back with seeds — "
@@ -3966,7 +3973,7 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
           out.count("WANT ") == 6 and "the SMALLEST sung section" in out,
           f"{out.count('WANT ')} predicates echoed")
     check("...and prints THREE COUNTS, never summed (doctrine 79)",
-          "swept 400" in out and "planned" in out
+          "swept 1600" in out and "planned" in out
           and "REFUSED by the planner" in out and "accepted" in out,
           [l for l in out.splitlines() if "swept" in l][:1])
     check("...and says OUT LOUD that it does not rank, which is the whole "
