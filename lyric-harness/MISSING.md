@@ -15816,3 +15816,64 @@ precedent). **DELIBERATELY NOT BUILT**: no server-side state store — the
 and the workspace's last-write-wins limitation is inherited knowingly
 (one revise run per conversation per seed). The live end-to-end half is
 the Flash battery's opening measurement, not a unit test's.
+
+### M-157 · The deployed instance was sized below its own instrument: one working-order call needs ~830 MB and the box had 512 `BUILT` 2026-08-28 — the gate and the instrument ship; the plan line awaits the owner's merge
+**THE FLASH BATTERY'S FIRST LIVE FINDING, and it was about the SERVICE,
+not the model.** Both battery rounds of 2026-08-28 died 4/4 at ~79s as
+bare 502s, and the first analysis charged the MCP SDK's 60s default
+tool timeout (real, fixed in PR #204 — 240s + turn-surviving tool
+errors). The owner's Render dashboard screenshot then showed the other
+half: **"Instance failed: Ran out of memory (used over 512MB)" at
+21:33Z and 21:48Z — one event per battery round.** The Starter
+instance's whole allowance is 512 MB, and the timeout fix cannot save a
+box that dies under the call it is waiting on.
+
+**MEASURED with the connector's exact argv** (wait4 ru_maxrss of the
+reaped child; deterministic filler drafts sized to each seed's own
+declared line count):
+
+  lyric_grade  (song step)   seed 55, 27 lines  exit 3  88.4s   829 MB
+  lyric_revise (first call)  seed 31, 22 lines  exit 4  78.9s   826 MB
+  lyric_revise (first call)  seed 55, 27 lines  exit 4  88.5s   829 MB
+  lyric_revise (first call)  seed 11, 50 lines  exit 4  205.5s  882 MB
+
+**FLAT ACROSS THE ENVELOPE** — 826 MB at the planner's 22-line floor
+against 882 MB at 50 lines — so the peak is the lexicon-wide candidate
+machinery, not the draft, and NO song the planner can emit fits 512 MB.
+Not a concurrency story: every verb call runs strictly serial through
+`mcp/lyric_tools.js`'s one `enqueue` chain, and the warm worker measures
+181 MB resident after a single light call — this is ONE ordinary call's
+own cost. The ~79s the live requests survived matches the measured
+wall to the first suspension, so every recorded 502 now has a
+sufficient cause with a number on it.
+
+**THE LEAK BECOMES A GATE, AND THE SCRATCH SCRIPT BECOMES A VERB'S
+KIN (standing rule 3):** the sitting's wait4 wrapper had been improvised
+and run four times in one afternoon — the private-instrument defect by
+its own definition — so it ships as `scripts/measure_verb_memory.py`
+(plan the seed, build the deterministic filler draft, run the two heavy
+verbs byte-for-byte as the connector spells them, print exit/wall/peak).
+`scripts/check_deploy_memory.js` is the gate, in the `test:connector`
+chain: render.yaml's DECLARED plan must provide the measured peak times
+a declared margin (the margin is a band covering the serving Node
+process and worker residual beside the child, allocator variance, and
+the unmeasured growth of a revise call's replay — moving it is a ruling,
+not a repair). Proven both ways in the sitting: PASS on `standard`
+(2048 ≥ 1764), FAIL on the `starter` mutant with the measurement in the
+message. An unknown plan tier REFUSES by name rather than guessing.
+
+**THE RULING IS THE MERGE:** render.yaml carries `plan: standard`
+(2 GB) with the finding in its comment. Changing that line changes what
+the service costs when the Blueprint syncs, which is the owner's
+decision and nobody else's — the branch hands it to them as a diff, and
+the gate holds whichever answer is merged to the measured band.
+**DELIBERATELY NOT DONE:** no memory diet of the harness (weeks of work
+on the candidate-stream architecture with a real risk of moving
+verdicts — a cut wearing an optimisation's hat until proven otherwise);
+no re-dispatch of the battery until the box fits (a round against the
+known-too-small instance re-proves a measured number with real money).
+**NAMED OPEN, NOT FIXED:** the 50-line first call's 205.5s wall brushes
+`SUBPROCESS_TIMEOUT_MS` (180s — warm kill, cold re-run, cold kill), so
+large-song revise calls may hit a structural timeout wall on the
+deployed box; the next battery round is the instrument that says
+whether it is real, and it gets its own entry if it is.
