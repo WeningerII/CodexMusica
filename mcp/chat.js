@@ -154,7 +154,16 @@ export async function createChatRouter({
   const client = new Client({ name: 'codex-musica-chat', version: '1.0.0' }, { capabilities: {} });
   await Promise.all([server.connect(serverSide), client.connect(clientSide)]);
   const surface = await buildSurface(client);
-  const callTool = (name, args) => client.callTool({ name, arguments: args });
+  // The SDK's default request timeout is 60s and the lyric verbs' own
+  // descriptions advertise more — lyric_revise says "expect ~60-120s per
+  // call", and the FIRST call on a cold Starter instance also pays the
+  // worker spawn and the lexicon load. Under the default, the first heavy
+  // call of a conversation threw McpError(timeout) and 502'd the whole
+  // turn: the flash battery's finding #1, reproduced 4/4 at 79s per death.
+  // 240s covers the advertised worst case with cold-instance headroom.
+  const TOOL_TIMEOUT_MS = num('CHAT_TOOL_TIMEOUT_MS', 240_000);
+  const callTool = (name, args) =>
+    client.callTool({ name, arguments: args }, undefined, { timeout: TOOL_TIMEOUT_MS });
 
   const windows = new Windows();
   // The daily counters, behind a store that persists them when the deployment
