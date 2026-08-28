@@ -351,7 +351,10 @@ function scanSchema(toolName, schema) {
   // exists to verify had stopped happening. `workspace` is the name the SERVER
   // publishes — that is the contract, and a contract gate spells it out.
   const WORKSPACE_PROPERTY = 'workspace';
-  const { declarations, workspaceTools } = toGeminiDeclarations(tools);
+  // Same argument, same spelling rule, for the second carried property: the
+  // literal, not the adapter's own STATE_PROPERTY.
+  const STATE_PROPERTY = 'state';
+  const { declarations, workspaceTools, stateTools } = toGeminiDeclarations(tools);
   check(
     `all ${tools.length} tools become declarations`,
     declarations.length === tools.length,
@@ -384,6 +387,30 @@ function scanSchema(toolName, schema) {
     'every workspace-taking tool is flagged for injection',
     JSON.stringify(workspaceTools.slice().sort()) === JSON.stringify(publishWorkspace),
     `${JSON.stringify(workspaceTools)} vs ${JSON.stringify(publishWorkspace)}`
+  );
+
+  // The revise state gets the workspace treatment (2026-08-28): the record is
+  // ~262KB on a real run, the agent's own maxOutputTokens is 2,048, so a
+  // declaration that exposes `state` is asking the model to type an argument
+  // no model can type through this adapter. Gone, not merely tolerated — and
+  // the tools that DO take one must be recognised, or the adapter silently
+  // stops injecting and every second revise call refuses "answer without
+  // state".
+  const stateLeaked = declarations.filter((d) => d.parameters?.properties?.[STATE_PROPERTY]);
+  check(
+    `no declaration exposes \`${STATE_PROPERTY}\``,
+    stateLeaked.length === 0,
+    stateLeaked.map((d) => d.name).join(', ')
+  );
+  const publishState = tools
+    .filter((t) => t.inputSchema?.properties?.[STATE_PROPERTY])
+    .map((t) => t.name)
+    .sort();
+  check(
+    'every state-taking tool is flagged for state carriage',
+    JSON.stringify(stateTools.slice().sort()) === JSON.stringify(publishState) &&
+      publishState.length > 0,
+    `${JSON.stringify(stateTools)} vs ${JSON.stringify(publishState)}`
   );
 
   // ── a chain id is usable, not merely findable ─────────────────────────────

@@ -432,6 +432,96 @@ check('validation: actionable errors', () => {
   });
 }
 
+// ── the revise state is carried, never typed (2026-08-28) ───────────────────
+//
+// `lyric_revise`'s state blob measured ~262KB on a real run and the agent's
+// maxOutputTokens is 2,048, so a declaration exposing `state` asks the model
+// to type an argument no model can type through this adapter. The workspace
+// invented the treatment; these checks hold the second family to it: the
+// declaration must not expose it, the adapter must recognise the tool, and
+// the model-facing view of a result must not contain the blob in either the
+// two-block (presentation + verdict) or one-block shape.
+{
+  const { toGeminiDeclarations } = await import('./gemini_tools.js');
+  const fixtureTools = [
+    {
+      name: 'lyric_revise',
+      description: 'revise',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          seed: { type: 'integer' },
+          draft: { type: 'array', items: { type: 'string' } },
+          state: { type: 'string' },
+          answer: { type: 'string' },
+        },
+        required: ['seed', 'draft'],
+      },
+    },
+    {
+      name: 'edit_recipe',
+      description: 'edit',
+      inputSchema: {
+        type: 'object',
+        properties: { workspace: {}, edits: { type: 'array', items: { type: 'string' } } },
+        required: ['workspace', 'edits'],
+      },
+    },
+  ];
+  const derived = toGeminiDeclarations(fixtureTools);
+  check('the state-taking tool is recognised for carriage, by derivation not by list', () => {
+    assert.deepEqual(derived.stateTools, ['lyric_revise']);
+    assert.deepEqual(derived.workspaceTools, ['edit_recipe']);
+  });
+  const revise = derived.declarations.find((d) => d.name === 'lyric_revise');
+  check('the revise declaration exposes no `state` and keeps every other parameter', () => {
+    assert.ok(!revise.parameters.properties.state, 'state must be stripped');
+    assert.ok(revise.parameters.properties.answer, 'answer must survive');
+    assert.ok(revise.parameters.properties.seed, 'seed must survive');
+    assert.ok(revise.parameters.properties.draft, 'draft must survive');
+    assert.ok(
+      revise.description.includes('carried for you automatically'),
+      'the description must say the state is carried, or a model that read the MCP ' +
+        'instructions will call the declaration malformed'
+    );
+  });
+
+  const { _agentInternals } = await import('./gemini_agent.js');
+  check('a two-block verdict reaches the model without the blob', () => {
+    const fr = _agentInternals.toFunctionResponse('lyric_revise', 'id1', {
+      content: [
+        {
+          type: 'text',
+          text: '[AWAITING PROPOSAL — seed 7 — 0 answer(s) on record — NO SONG YET]\n\nQ',
+        },
+        {
+          type: 'text',
+          text: JSON.stringify({
+            exit_code: 4,
+            status: 'awaiting_proposal',
+            state: 'x'.repeat(64),
+          }),
+        },
+      ],
+    });
+    assert.ok(fr.response.presentation.includes('AWAITING PROPOSAL'), 'the question must survive');
+    assert.equal(fr.response.verdict.exit_code, 4, 'the verdict must survive');
+    assert.ok(!('state' in fr.response.verdict), 'the blob must not reach the model');
+  });
+  check('a one-block payload reaches the model without state or workspace', () => {
+    const fr = _agentInternals.toFunctionResponse('lyric_revise', 'id2', {
+      content: [
+        {
+          type: 'text',
+          text: JSON.stringify({ exit_code: 2, state: 'blob', workspace: { a: 1 } }),
+        },
+      ],
+    });
+    assert.equal(fr.response.exit_code, 2);
+    assert.ok(!('state' in fr.response) && !('workspace' in fr.response));
+  });
+}
+
 // SDK-dependent: only runs if @modelcontextprotocol/sdk is installed.
 try {
   const { buildServer } = await import('./tools.js');

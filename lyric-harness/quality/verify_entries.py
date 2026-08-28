@@ -1432,7 +1432,15 @@ def shape_capacity_figure(seg):
                 wrong.append("held-by-%d: prose names %s; artifact %s"
                              % (depth, ", ".join(named),
                                 ", ".join(want) or "no certified family"))
-        cw = CAP_COUNTWORD_RE.search(after[:60])
+        #: The count is read off a CLEANED window (2026-08-28): a repinned
+        #: sentence writes `~~NINE~~ **TWELVE** families`, and the raw match
+        #: failed on the bold's own asterisks — so the document's LIVE tie
+        #: count was verified by nothing while the struck one stayed visible.
+        #: Struck spans are removed FIRST (a superseded value is not a live
+        #: claim — the same rule the historical guard already applies), then
+        #: the emphasis marks, then the ordinary search.
+        cleaned = re.sub(r"~~.*?~~", " ", after[:90]).replace("*", "")
+        cw = CAP_COUNTWORD_RE.search(cleaned[:60])
         if cw:
             said = _WORDNUM[cw.group(1).lower()]
             claims.append("%d held by %s families" % (depth, cw.group(1)))

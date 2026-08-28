@@ -63,7 +63,13 @@ export const CHAT_LIMITS = {
   // per-turn ceiling maxTurnUsd already enforces. The cap that actually bounds
   // spend is that one, not this.
   maxMessageChars: num('CHAT_MAX_MESSAGE', 5000),
-  maxHistoryBytes: num('CHAT_MAX_HISTORY_BYTES', 400_000),
+  // 400_000 until 2026-08-28, sized for history alone. The envelope now also
+  // carries the revise state (`lyric` — measured at ~262KB on a real 28-line
+  // run, capped at 2MiB by the tool's own MAX_STATE_CHARS), so the old ceiling
+  // would have ended a revise conversation mid-run with "grown too long".
+  // 1.5MB holds the measured state plus a long transcript and stays under the
+  // 2MiB express.json body limit the POST must fit inside.
+  maxHistoryBytes: num('CHAT_MAX_HISTORY_BYTES', 1_500_000),
   maxTurns: num('CHAT_MAX_TURNS', 12),
   // A SECOND daily ceiling, in turns, deliberately independent of the first.
   //
@@ -273,7 +279,7 @@ export async function createChatRouter({
         .json({ error: 'Busy — a couple of recipes are already cooking. Try again in a moment.' });
     }
 
-    const { message, history, workspace, sig } = req.body || {};
+    const { message, history, workspace, lyric, sig } = req.body || {};
     if (typeof message !== 'string' || !message.trim()) {
       return res.status(400).json({ error: 'Say something first.' });
     }
@@ -284,8 +290,14 @@ export async function createChatRouter({
     // An envelope is either absent (a new conversation) or signed by us.
     let priorHistory = [];
     let priorWorkspace = null;
+    let priorLyric = null;
     if (history !== undefined || workspace !== undefined || sig !== undefined) {
       const envelope = { history: history || [], workspace: workspace ?? null };
+      // `lyric` (the carried revise state) joins the envelope ONLY when it is
+      // actually carried, on both the sign side and this rebuild side — so an
+      // envelope from before the field existed, or from a conversation that
+      // never ran the revise loop, keeps its old shape and its old signature.
+      if (lyric != null) envelope.lyric = lyric;
       if (!verify(envelope, sig)) {
         return res
           .status(400)
@@ -298,6 +310,7 @@ export async function createChatRouter({
       }
       priorHistory = envelope.history;
       priorWorkspace = envelope.workspace;
+      priorLyric = envelope.lyric ?? null;
       const userTurns = priorHistory.filter(
         (c) => c.role === 'user' && (c.parts || []).some((p) => typeof p.text === 'string')
       ).length;
@@ -317,6 +330,7 @@ export async function createChatRouter({
         callTool,
         history: priorHistory,
         workspace: priorWorkspace,
+        lyric: priorLyric,
         userText: message,
         // One retry, and ONLY on a transient 5xx. Previously this was
         // `retries: 0`, which meant a single blip from Google — a 500 on one hop
@@ -358,6 +372,7 @@ export async function createChatRouter({
       spendStore.save();
 
       const envelope = { history: run.history, workspace: run.workspace };
+      if (run.lyric != null) envelope.lyric = run.lyric;
       const lastRecipe = [...run.calls].reverse().find((c) => c.recipe && !c.isError);
       res.json({
         reply: run.reply,

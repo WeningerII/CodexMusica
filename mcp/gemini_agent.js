@@ -12,7 +12,7 @@
 // browser → server → engine and back, and the model neither sees nor writes it.
 // See WORKSPACE_PROPERTY in gemini_tools.js for why it cannot be a parameter.
 
-import { toGeminiDeclarations, WORKSPACE_PROPERTY } from './gemini_tools.js';
+import { toGeminiDeclarations, WORKSPACE_PROPERTY, STATE_PROPERTY } from './gemini_tools.js';
 
 export const API_BASE = 'https://generativelanguage.googleapis.com/v1beta';
 
@@ -137,6 +137,15 @@ function toFunctionResponse(name, id, result) {
     } catch {
       verdict = blocks[1];
     }
+    // The revise state comes back out here, exactly as the workspace does
+    // below: `lyric_revise`'s verdict block carries the deferred-run record
+    // (~262KB measured), the adapter has already harvested it, and every
+    // later hop would re-send it. The model reads the question and the
+    // verdict, never the blob.
+    if (verdict && typeof verdict === 'object' && !Array.isArray(verdict)) {
+      const { [STATE_PROPERTY]: _state, ...visible } = verdict;
+      verdict = visible;
+    }
     return { name, ...(id ? { id } : {}), response: { presentation: text, verdict } };
   }
   let parsed;
@@ -165,7 +174,7 @@ function toFunctionResponse(name, id, result) {
   // Nothing needs it here. The adapter has already harvested `workspace` into
   // its own variable by the time this runs, and injects it on the way back out.
   // The model was reading a value it cannot act on and cannot address.
-  const { workspace: _workspace, ...visible } = parsed;
+  const { workspace: _workspace, [STATE_PROPERTY]: _state, ...visible } = parsed;
   return { name, ...(id ? { id } : {}), response: visible };
 }
 
@@ -195,6 +204,11 @@ function retryDelayMs(json, attempt) {
 // 429 immediately as "busy".
 export const RETRY_TRANSIENT = [500, 502, 503, 504];
 export const RETRY_ALL = [429, ...RETRY_TRANSIENT];
+
+// Test seam (the `_workerInternals` precedent): what the model is SHOWN is a
+// verdict this function computes, and a suite that cannot reach it can only
+// grep for the strip instead of proving it.
+export const _agentInternals = { toFunctionResponse };
 
 async function generate({
   apiKey,
@@ -234,23 +248,33 @@ async function generate({
  */
 export async function buildSurface(client) {
   const { tools } = await client.listTools();
-  const { declarations, workspaceTools } = toGeminiDeclarations(tools);
+  const { declarations, workspaceTools, stateTools } = toGeminiDeclarations(tools);
   // The server's own instructions, not a paraphrase kept in sync by hand. They
   // are the text every other MCP client already receives, so the chat bar and a
   // Claude connector are driving the engine off one description.
   const instructions =
     typeof client.getInstructions === 'function' ? client.getInstructions() : undefined;
-  return { declarations, workspaceTools: new Set(workspaceTools), instructions, tools };
+  return {
+    declarations,
+    workspaceTools: new Set(workspaceTools),
+    stateTools: new Set(stateTools),
+    instructions,
+    tools,
+  };
 }
 
 /**
  * Run one user turn to completion: the model calls tools until it answers.
  *
- * @returns {{reply:string, history:Array, workspace:object|null, calls:Array,
+ * @returns {{reply:string, history:Array, workspace:object|null,
+ *            lyric:{seed:number,state:string}|null, calls:Array,
  *            usage:object, cost:number|null, stopped:string|null}}
  *   `history` is the full contents[] to hand back on the next turn — model parts
  *   are appended VERBATIM, which is what preserves Gemini 3's thoughtSignatures
  *   across hops (dropping them degrades multi-step tool use).
+ *   `lyric` is the carried revise state: the record the last state-bearing tool
+ *   result returned, keyed on the seed it was returned FOR, so a call about a
+ *   different seed starts a fresh run instead of inheriting a stale record.
  */
 export async function runTurn({
   apiKey,
@@ -259,6 +283,7 @@ export async function runTurn({
   callTool,
   history = [],
   workspace = null,
+  lyric = null,
   userText,
   thinking = DEFAULT_THINKING,
   limits = LIMITS,
@@ -271,6 +296,7 @@ export async function runTurn({
   const usage = { promptTokens: 0, candidatesTokens: 0, thoughtsTokens: 0, requests: 0 };
   const calls = [];
   let ws = workspace;
+  let lyr = lyric && typeof lyric.state === 'string' ? lyric : null;
   let stopped = null;
   let reply = '';
 
@@ -342,6 +368,24 @@ export async function runTurn({
         }
         args[WORKSPACE_PROPERTY] = ws;
       }
+      // Inject the carried revise state, KEYED ON THE SEED: a call about the
+      // seed the record belongs to continues that run; any other seed is a
+      // different song and starts clean. No carried state is not an error the
+      // way an absent workspace is — the FIRST lyric_revise call of a song
+      // legitimately has none, and the tool itself refuses an `answer` with
+      // no state, in its own words.
+      let injectedState = false;
+      if (surface.stateTools?.has(fc.name)) {
+        if (lyr && args.seed === lyr.seed) {
+          args[STATE_PROPERTY] = lyr.state;
+          injectedState = true;
+        } else {
+          // The declaration does not expose `state`, so anything here is
+          // model-fabricated; the harness would replay it through verify()
+          // and refuse honestly, but a clean first call is the better run.
+          delete args[STATE_PROPERTY];
+        }
+      }
       result = await callTool(fc.name, args);
       const isError = !!result?.isError;
       // Harvest the workspace on the way past. The model is never shown it, so
@@ -372,14 +416,27 @@ export async function runTurn({
         if (!lyricVerdict && payload && typeof payload.exit_code === 'number') {
           lyricVerdict = payload;
         }
+        // Harvest the revise state the way the workspace is harvested above:
+        // the verdict block is the only place it rides, the model is never
+        // shown it, and the envelope carries it to the next turn.
+        if (
+          surface.stateTools?.has(fc.name) &&
+          typeof lyricVerdict?.[STATE_PROPERTY] === 'string' &&
+          typeof args.seed === 'number'
+        ) {
+          lyr = { seed: args.seed, state: lyricVerdict[STATE_PROPERTY] };
+        }
       }
       calls.push({
         name: fc.name,
         // The workspace is the bulk of an edit call and is not the model's
-        // output; logging it would bury the argument that IS.
+        // output; logging it would bury the argument that IS. The injected
+        // revise state is the same bulk one family over.
         args: surface.workspaceTools.has(fc.name)
           ? { ...args, [WORKSPACE_PROPERTY]: '<injected>' }
-          : args,
+          : injectedState
+            ? { ...args, [STATE_PROPERTY]: '<injected>' }
+            : args,
         isError,
         error: isError ? (result?.content?.[0]?.text ?? '') : null,
         cards: payload?.cards ?? null,
@@ -416,6 +473,7 @@ export async function runTurn({
     reply,
     history: contents,
     workspace: ws,
+    lyric: lyr,
     calls,
     usage,
     cost: costOf(usage, model),

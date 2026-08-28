@@ -15763,3 +15763,56 @@ refusal is byte-unchanged, and the worker now answers the same command
 with the same code and the same first line. The counters' public-symbol
 row moved 1365→1366 with the new def and is repinned. This is the
 battery doing the one job it was built for, on day one.
+
+### M-156 · The chat model was the carrier of a blob no model can carry `CLOSED` 2026-08-28 — the revise state takes the workspace treatment: envelope-carried, seed-keyed, never typed
+**FOUND BY THE FLASH BATTERY'S PRE-FLIGHT, before a cent was spent**: the
+owner asked whether Gemini 3.1 Flash Lite can drive `lyric_revise` at all,
+and the answer was that NO model can, through the site's own adapter —
+which is a sharper finding than any live run would have produced, because
+a live run would have died at the first revise round-trip and read as a
+model weakness. `lyric_revise`'s contract says THE CALLER CARRIES THE
+STATE BLOB, and on the site the caller is the chat model: the record
+(measured 261,614 bytes on a real 28-line run — ~65k tokens) comes back
+in the tool result and must be RE-EMITTED VERBATIM as a function argument
+on the next call, through `gemini_agent.js`'s own
+`maxOutputTokens: 2048`. 32x over the adapter's cap, at the model's
+absolute 65,536 ceiling even if the cap were lifted, ~$0.10 of output
+tokens per re-emission against a $0.10 turn allowance, and one
+transcription slip corrupts the run (the harness replays answers through
+`verify()`, so a mangled record fails honestly — every round, forever).
+The model's own limits are NOT the blocker and the owner's fear inverted:
+1M context and 65,536 output tokens (checked against the model card
+2026-08-28) hold the whole loop comfortably once the blob is off the
+model's plate.
+
+**THE FIX IS THE REPO'S OWN PATTERN, EXTENDED, NOT A CUT** — the recipe
+`workspace` solved this exact problem in this exact adapter: strip the
+property from the declaration, carry the value in the signed envelope the
+browser posts back verbatim, inject it server-side on the way out,
+harvest and HIDE it on the way back. `STATE_PROPERTY = 'state'` rides
+beside `WORKSPACE_PROPERTY` in `mcp/gemini_tools.js` (derived per tool
+from the published schema, never listed by name); the envelope grows a
+`lyric` field ({seed, state}, present ONLY when a run is in flight, so
+every pre-existing envelope keeps its shape and its signature); injection
+is KEYED ON THE SEED — a call about the carried record's seed continues
+that run, any other seed starts clean, because a different seed is a
+different song; `toFunctionResponse` strips `state` from both result
+shapes, so the model reads the QUESTION and types only `answer`
+(<=4000 chars, inside every cap). The MCP path is byte-untouched: Claude
+carries state exactly as before. One ceiling moved WITH its reason:
+`CHAT_MAX_HISTORY_BYTES` 400,000 -> 1,500,000, sized for the measured
+state plus a long transcript under the 2MiB express body limit — the old
+value would have ended every revise conversation mid-run with "grown too
+long", which is the hand-wash wearing a resource limit's hat.
+
+**GATES**: `scripts/check_connector_contract.js` — no declaration exposes
+`state`, and every state-taking tool is flagged for carriage (nonempty,
+so the check cannot pass by the family vanishing); `mcp/test.mjs` — the
+declaration strip is surgical (seed/draft/answer survive), the carriage
+note rides the description, and BOTH result shapes reach the model
+without the blob (via the `_agentInternals` seam, the `_workerInternals`
+precedent). **DELIBERATELY NOT BUILT**: no server-side state store — the
+`connector-tools-read-only` promise holds, the envelope IS the store;
+and the workspace's last-write-wins limitation is inherited knowingly
+(one revise run per conversation per seed). The live end-to-end half is
+the Flash battery's opening measurement, not a unit test's.
