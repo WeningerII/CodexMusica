@@ -111,9 +111,12 @@ def test_the_row_is_what_the_verb_printed():
           "pair the ban never looks at",
           "HOMEOTELEUTON" in facts.get("pair:hair~chair", ""))
     check("...and the summary counts come off the verb's own tail line, "
-          "never re-counted here (doctrine 1)",
-          facts.get("banned") == "1" and facts.get("clean_or_non_rhyme") == "0",
-          f"banned={facts.get('banned')} clean={facts.get('clean_or_non_rhyme')}")
+          "never re-counted here (doctrine 1) — M-113 split the clean "
+          "bucket, so the two halves are two facts",
+          facts.get("banned") == "1" and facts.get("clean_rhyming") == "0"
+          and facts.get("clean_non_rhyme") == "0",
+          f"banned={facts.get('banned')} rhyming={facts.get('clean_rhyming')} "
+          f"non={facts.get('clean_non_rhyme')}")
 
 
 def test_the_claim_gate_is_two_sided():

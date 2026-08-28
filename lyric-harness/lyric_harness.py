@@ -4424,7 +4424,11 @@ def screen_pairs(words, lex=None, decl=None):
 
     -> list of dicts, one per pair in declared order:
        a, b, relation, score, why, codes (the SCREEN_PAIR_CODES present),
-       refused (bool), reason (the grader's own refusal sentence or None).
+       refused (bool), reason (the grader's own refusal sentence or None),
+       schema_scaffold (M-113: the schema names when the pair was satisfied
+       by the 77-schema default rather than the door — evidence read off
+       the CARRIER LINES, which are scaffolding, so at this surface it is
+       not evidence about the pair).
     A banned pair is an ANSWER (refused=False, codes non-empty); refusal
     is reserved for what the grader itself refuses to judge (doctrine 28).
     """
@@ -4444,7 +4448,7 @@ def screen_pairs(words, lex=None, decl=None):
                             for f in fs if f.code in SCREEN_PAIR_CODES})
             row = {"a": a, "b": b, "codes": codes, "refused": False,
                    "reason": None, "relation": None, "score": None,
-                   "why": None}
+                   "why": None, "schema_scaffold": []}
             if g["refusals"]:
                 row["refused"] = True
                 row["reason"] = g["refusals"][0]["reason"]
@@ -4453,6 +4457,15 @@ def screen_pairs(words, lex=None, decl=None):
                 row["relation"] = v["relation"]
                 row["score"] = v["score"]
                 row["why"] = v["why"]
+                # M-113: `pairs_schema_satisfied` is the RESCUE set — the
+                # scalar door failed and a schema satisfied. On carrier
+                # lines the schemas' evidence is the SCAFFOLD ("we carry
+                # the evening to the ..."), so a rescue here says nothing
+                # about the pair, and the caller renders it as a non-rhyme
+                # with the names disclosed rather than as CLEAN.
+                if g["pairs_schema_satisfied"]:
+                    row["schema_scaffold"] = list(
+                        g["pairs_schema_satisfied"][0]["satisfied_by"])
             out.append(row)
     return out
 
@@ -6384,6 +6397,15 @@ def main():
         rows = screen_pairs(words, lex=lex, decl=decl)
         n_banned = sum(1 for r in rows if r["codes"])
         n_ref = sum(1 for r in rows if r["refused"])
+        # M-113: CLEAN answered two questions — a clean RHYME and a clean
+        # NON-RHYME — and a family got built on the conflation (matinee's
+        # round-3 grade: three violations, all screened CLEAN). The two are
+        # separate counts now and the status says which (doctrine 79 at a
+        # verdict instead of a count).
+        n_rhyme = sum(1 for r in rows
+                      if not r["codes"] and not r["refused"]
+                      and r["why"] is None and not r["schema_scaffold"])
+        n_non = len(rows) - n_banned - n_ref - n_rhyme
         print(f"  SCREEN: {len(rows)} pair(s) from {len(words)} word(s) — "
               f"the song grader on a minimal mandated pair each, under "
               f"the active declaration; only pair-scoped findings are "
@@ -6399,17 +6421,25 @@ def main():
                 # `why is None` is the GRADE's own satisfaction marker —
                 # read it rather than re-listing the admit set here, so a
                 # widened `Declaration.admit` flows through untouched.
+                # `schema_scaffold` non-empty means the satisfaction came
+                # from the 77-schema default reading the CARRIER lines,
+                # which are scaffolding — not evidence about the pair.
                 if r["codes"]:
                     status = f"BANNED: {', '.join(r['codes'])}"
-                elif r["why"] is None:
-                    status = "CLEAN"
+                elif r["why"] is None and not r["schema_scaffold"]:
+                    status = "CLEAN — RHYMES"
+                elif r["schema_scaffold"]:
+                    status = (f"CLEAN — DOES NOT RHYME as a pair (the "
+                              f"schema default answered on the SCAFFOLD: "
+                              f"{', '.join(r['schema_scaffold'])})")
                 else:
-                    status = f"not a usable rhyme — {r['why']}"
+                    status = f"CLEAN — DOES NOT RHYME ({r['why']})"
                 print(f"  {pair}  {verdict}  {status}")
-        print(f"  {n_banned} banned, {n_ref} refused, "
-              f"{len(rows) - n_banned - n_ref} clean or non-rhyme — a "
-              f"banned pair is an ANSWER; refusal is the grader's own "
-              f"(doctrine 28)")
+        print(f"  {n_banned} banned, {n_ref} refused, {n_rhyme} clean and "
+              f"rhyming, {n_non} clean but not a rhyme — a banned pair is "
+              f"an ANSWER; a clean non-rhyme is not banned AND not a "
+              f"family (the mandate will charge it); refusal is the "
+              f"grader's own (doctrine 28)")
 
     elif cmd == "capacity":
         from quality import capacity as CAP

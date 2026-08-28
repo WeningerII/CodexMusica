@@ -619,8 +619,9 @@ export function registerLyricTools(server, tool) {
       title: 'Screen rhyme pairs before writing',
       description:
         'Is this rhyme pair USABLE? Judged by the song grader itself on a minimal mandated pair — every unordered pair among ' +
-        'the words gets a verdict: CLEAN, BANNED (HOMEOTELEUTON — same spelled ending, the laziest true rhyme; MODAL_RHYME — ' +
-        "the most predictable partner), an honest non-rhyme, or the grader's own refusal for an unreadable word. A banned " +
+        'the words gets a verdict: CLEAN — RHYMES, CLEAN — DOES NOT RHYME (clean means not banned; whether it rhymes is its ' +
+        'own answer), BANNED (HOMEOTELEUTON — same spelled ending, the laziest true rhyme; MODAL_RHYME — ' +
+        "the most predictable partner), or the grader's own refusal for an unreadable word. A banned " +
         'pair is an ANSWER, not an error. USE THIS BEFORE WRITING: screening end words first is how songs pass grading in one ' +
         'draft. ~10s per call (the pronunciation lexicon loads per process).',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_screen,

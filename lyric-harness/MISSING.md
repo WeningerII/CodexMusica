@@ -11382,7 +11382,7 @@ should be built even while the gate waits.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~169~~ -> **170**.
 
-### M-113 · the screen's CLEAN conflates a clean rhyme with a clean non-rhyme `OPEN`
+### M-113 · the screen's CLEAN conflates a clean rhyme with a clean non-rhyme `RESOLVED` 2026-08-28
 Filed 2026-08-25, from the series' fourth song, and the log fact already
 knew. `screen haiku taboo` prints `pair:haiku~taboo CLEAN`, and `song` then
 charges the same pair `SCHEME_VIOLATION` at **0.435** — `haiku` is
@@ -11403,6 +11403,43 @@ RHYME 0.435`), and the one word stops answering two questions (doctrine 79
 at a verdict instead of a count).
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~170~~ -> **171**.
+
+**RESOLVED 2026-08-28, in the repair campaign — and the premise was
+half-stale in the flattering direction, which the repair states rather
+than absorbs.** The verdict was never dropped at the CLI: `screen` has
+printed `{relation} {score}` beside the status since it shipped
+(2026-08-18), so on the filing day `haiku ~ taboo` read `RHYME 1.000
+CLEAN` — a verdict column that DISAGREES with the entry's 0.435, because
+`best_score` on the bare pair admits the unstressed-tail span `-ku ~ -boo`
+at 1.0 while `matinee`'s mandate bound the pair at a whole-word `endword`
+locus (that is M-114's coordinate, not this entry's). What this entry
+correctly named survives in two places and both are repaired:
+**(1) the STATUS word answered two questions** — `NO_RELATION 0.389
+CLEAN` (taboo~suite) beside `RHYME 1.000 CLEAN` (suite~deceit) — and now
+answers one: `CLEAN — RHYMES` / `CLEAN — DOES NOT RHYME (<the grader's
+own why>)`, with the tail line counting the two kinds apart
+(`clean and rhyming` / `clean but not a rhyme`, never summed).
+**(2) THE SCAFFOLD WAS DECIDING CLEAN, which nothing had measured until
+this close**: under M-116's 77-schema default, `taboo ~ suite` graded
+satisfied because `chain rhyme (rap)`, `cross rhyme` and `internal rhyme`
+fire on the CARRIER LINES ("we carry the evening to the ...") — the text
+the screen's own headline calls scaffolding — while the equally
+non-rhyming `haiku ~ suite`, which no scaffold schema rescues, honestly
+read below-theta. Two equal pairs, opposite verdicts, decided by the
+scaffold. `screen_pairs` rows now carry `schema_scaffold` (read from
+`grade()`'s own `pairs_schema_satisfied`, the rescue set — one
+definition, doctrine 1) and the CLI renders a rescued pair `CLEAN — DOES
+NOT RHYME as a pair (the schema default answered on the SCAFFOLD:
+<names>)`. The log splits with the verb: `quality/song_log.py`'s screen
+parser banks `clean_rhyming` and `clean_non_rhyme` as two facts (the
+pre-split transcript shape still parses to its own `clean_or_non_rhyme`,
+so banked logs stay citable). **THE GATE**: `quality/test_screen.py` §6 —
+both sides asserted (a true rhyme must read RHYMES, the measured
+scaffold-rescue pair must read DOES NOT RHYME with the schema names, a
+door-failed pair carries the grader's why, and the tail line names both
+counts), so the section cannot pass by relabelling everything one way;
+`quality/test_songs_log.py` §3 repointed at the two facts. The banked
+songs' logs are historical records of the pre-split verb, unedited.
 
 ### M-114 · a whole-word locus in a rime family refuses nothing at declaration time `OPEN`
 Filed 2026-08-25, the same song's other half. The slot vocabulary declares
