@@ -6416,7 +6416,7 @@ def main():
             from quality import rhyme_types as _RT_s
             try:
                 _canon_s, _kind_s = _RT_s.resolve_relation(screen_rel)
-            except Exception as e:
+            except _RT_s.RelationRefused as e:
                 _refuse(f"screen --relation={screen_rel!r} names no "
                         f"declarable relation: {e}")
             if _kind_s == "schema":
