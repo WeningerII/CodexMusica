@@ -2245,7 +2245,11 @@ PINNED = {
     # and the warm worker). Three closes in one day and this pin was
     # told by none of them until CI said so — the lag the check exists
     # to catch, caught.
-    "coverage_entries": 213,
+    # ~~213~~ -> 214, same day: M-156 (the revise state takes the
+    # workspace treatment on the Gemini path — the Flash battery's
+    # pre-flight finding), and this time the pin was told in the same
+    # sitting as the entry.
+    "coverage_entries": 214,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

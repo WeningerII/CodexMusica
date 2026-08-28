@@ -48,6 +48,26 @@
 // to hold"), which is a promise gated in CI, not a preference.
 export const WORKSPACE_PROPERTY = 'workspace';
 
+// The second carried property, and the same argument one tool over (2026-08-28).
+//
+// `lyric_revise`'s `state` is the deferred-run record — measured at ~262KB on a
+// real 28-line run. The MCP contract says THE CALLER CARRIES IT, and on this
+// path the caller is the chat model: the blob would come back in a tool result
+// and have to be RE-EMITTED VERBATIM as a function argument on the next call.
+// That is ~65k output tokens through an agent whose maxOutputTokens is 2,048 —
+// structurally impossible before any question of model quality, and at
+// $1.50/M output tokens it would cost more than the whole turn's allowance
+// even if it fit. So it takes the workspace treatment: removed from the
+// declaration, carried in the signed envelope by the adapter, injected on the
+// way out, harvested and hidden on the way back. The model types only
+// `answer`, which is bounded at 4,000 chars and fits every cap.
+//
+// KNOWN LIMITATION, inherited from the workspace: last-write-wins, one revise
+// run per conversation. The injection is keyed on the SEED (a different seed
+// is a different song, so a fresh run starts clean), but two interleaved runs
+// of the SAME seed cannot be held apart. Nothing today needs that.
+export const STATE_PROPERTY = 'state';
+
 // The keys Gemini's Schema type accepts. An ALLOWLIST, not a denylist: a
 // denylist has to be updated every time the SDK learns a new keyword, and the
 // failure mode of forgetting is an opaque 400 from Google at runtime. Forgetting
@@ -144,40 +164,60 @@ const WORKSPACE_NOTE =
   ' The recipe state is carried for you automatically — there is no workspace parameter to pass. ' +
   'Call start_recipe once first; every later call operates on that same recipe.';
 
+// Same sentence, other family. Without it a model that read the server's own
+// instructions ("pass `state` back VERBATIM") would conclude the declaration is
+// broken and refuse the call — the instructions describe the MCP contract, and
+// on this path the adapter fulfils that contract on the model's behalf.
+const STATE_NOTE =
+  ' The revise state is carried for you automatically — there is no state parameter to pass. ' +
+  'Keep seed and the other declarations identical across one song’s calls, and put your ' +
+  'proposal in `answer`.';
+
 /**
  * @param {Array<{name:string,description?:string,inputSchema?:object}>} tools
  *   Exactly what `client.listTools()` returned.
- * @returns {{declarations: Array<object>, workspaceTools: string[]}}
- *   `workspaceTools` is derived, not listed: whichever tools published a
- *   top-level `workspace` are the ones the adapter must inject it into. A tenth
- *   tool that takes one is handled without editing this file.
+ * @returns {{declarations: Array<object>, workspaceTools: string[], stateTools: string[]}}
+ *   `workspaceTools` and `stateTools` are derived, not listed: whichever tools
+ *   published a top-level `workspace` (or `state`) are the ones the adapter
+ *   must inject it into. A tenth tool that takes one is handled without
+ *   editing this file.
  */
 export function toGeminiDeclarations(tools) {
   const declarations = [];
   const workspaceTools = [];
+  const stateTools = [];
   for (const tool of tools) {
     const schema = tool.inputSchema || {};
     const takesWorkspace = !!(schema.properties && schema.properties[WORKSPACE_PROPERTY]);
     if (takesWorkspace) workspaceTools.push(tool.name);
+    const takesState = !!(schema.properties && schema.properties[STATE_PROPERTY]);
+    if (takesState) stateTools.push(tool.name);
 
     const stripped = isPlainObject(schema) ? { ...schema } : {};
-    if (takesWorkspace) {
+    if (takesWorkspace || takesState) {
       stripped.properties = { ...stripped.properties };
-      delete stripped.properties[WORKSPACE_PROPERTY];
+      if (takesWorkspace) delete stripped.properties[WORKSPACE_PROPERTY];
+      if (takesState) delete stripped.properties[STATE_PROPERTY];
       if (Array.isArray(stripped.required)) {
-        stripped.required = stripped.required.filter((n) => n !== WORKSPACE_PROPERTY);
+        stripped.required = stripped.required.filter(
+          (n) =>
+            !(takesWorkspace && n === WORKSPACE_PROPERTY) && !(takesState && n === STATE_PROPERTY)
+        );
       }
     }
     const parameters = sanitize(stripped);
     declarations.push({
       name: tool.name,
-      description: (tool.description || '') + (takesWorkspace ? WORKSPACE_NOTE : ''),
+      description:
+        (tool.description || '') +
+        (takesWorkspace ? WORKSPACE_NOTE : '') +
+        (takesState ? STATE_NOTE : ''),
       // A tool whose every parameter was stripped gets no `parameters` key at
       // all — Gemini rejects `{"type":"object"}` with no properties.
       ...(parameters ? { parameters } : {}),
     });
   }
-  return { declarations, workspaceTools };
+  return { declarations, workspaceTools, stateTools };
 }
 
 /**
