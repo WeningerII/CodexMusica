@@ -917,6 +917,19 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/counters.py --check
 
+      # THE PROSE ANSWERS TO THE PIN (M-33, 2026-08-28). One joint AUC pair
+      # was written in twelve places in quality/RESULTS.md and a careful
+      # repin left seven stale — one labelled "COLD, current". The
+      # instrument derives the current spelling from
+      # test_discriminate.PINNED (so a measurement repin goes red HERE
+      # until the prose moves with it) and polices the immediately-prior
+      # reading against the two declared history forms (struck or
+      # blockquote); older generations are retired — listed, not policed.
+      - name: Tracked figures in prose against the pin (live/history declared, M-33)
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/verify_figures.py --check
+
       # HOW MUCH OF THIS HARNESS CAN REFUSE ANYTHING. Added 2026-08-23 under
       # the owner's standing rule that a note is a RECORD and only a gate is
       # an ENFORCEMENT. `quality/gate_census.py` classifies every finding code

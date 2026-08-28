@@ -5447,7 +5447,7 @@ vocabulary while sounding like it has thought about it.
 and that is a real bound on step 1 rather than a defect — recorded so the
 count 40, not 49, is the one quoted.
 
-### M-33 · One joint AUC pair lives in twelve places in one document, and a careful repin left seven of them stale `OPEN`
+### M-33 · One joint AUC pair lives in twelve places in one document, and a careful repin left seven of them stale `CLOSED` 2026-08-28 — the prose answers to the pin, and the live/history distinction has a declared form
 **Found 2026-08-22 while repinning `quality/RESULTS.md` for M-32, by grepping
 for a figure I was about to cite beside and finding it stale in seven sentences
 that were not marked superseded.**
@@ -5503,6 +5503,55 @@ declared form, which is a sitting of its own.
 **Missing:** an instrument that relates `test_discriminate.PINNED` to the prose
 that cites it, and a declared way for a document to say "this figure is quoted
 as a superseded reading" that the instrument can read.
+
+**CLOSED 2026-08-28: `quality/verify_figures.py`, and both asked-for halves
+ship as declarations.** The RELATION: each tracked quantity's current prose
+spelling is DERIVED from `test_discriminate.PINNED` at the precision the
+prose quotes (this file holds no second copy of the number — doctrine 1), so
+a measurement repin reds `--check` until the prose, the superseded ladder
+and the spelling move in one sitting. The DECLARED FORM: a figure is quoted
+as history iff it is `~~struck~~` on its own line or its line is a
+blockquote — exactly two markers, and the refusal of anything softer is
+MEASURED rather than aesthetic: two of this entry's own seven stale sites
+sat BESIDE the word "SUPERSEDED" in a sentence about a different figure's
+supersession, so keyword marking would have passed the defect the rule
+exists to catch (the test plants that exact site shape and requires the
+VIOLATION).
+
+**THE LIFECYCLE IS THE DESIGN DECISION THE FIRST RUN FORCED.** Policing
+every old value at the two-marker rule charged 25 sites quoting the
+pre-fix and warm readings (0.709/0.971, 0.659/0.975, 0.262) in LABELLED
+narrative — which is the doctrine-17 record itself and must not be forced
+into strikethrough. The line is drawn from this entry's own measurement:
+every stale site it adjudicated quoted the IMMEDIATELY-PRIOR generation,
+none quoted an older one, because the danger is the value that was current
+when the sentence was written. So `superseded` (policed at the two-marker
+rule) holds the prior generation only — 0.717 / 0.964 / 0.247, verified 22
+occurrences all in history form, 0 violations — and `retired` (listed, 47
+occurrences, policed by nothing) holds the rest. On the next repin the
+sitting moves the table with the pin: current -> superseded, superseded ->
+retired.
+
+**SCOPE IS DECLARED PER DOCUMENT AND `CLAUDE.md` IS OUT, NAMED (doctrine
+20/17):** doctrine 7's ladder sentence quotes the whole supersession chain
+in running prose — a legitimate form the two-marker rule cannot admit, and
+admitting it by keyword would re-open the measured hole. The test holds
+the exclusion to its reason: it checks the ladder is still there, so the
+exclusion cannot outlive its cause in silence.
+
+**GATES:** `test_verify_figures.py`, 13 checks over 4 sections — the
+shipped document clean AND the scan non-vacuous, every planted form
+classified (the SUPERSEDED-keyword leak a VIOLATION, struck and blockquote
+history, retired listed-not-charged, the longer-decimal guard), the
+derivation red under a moved pin with the real pin as control, the scope
+declaration held to its reason. MUTATION hand-proven: `is_history`
+stubbed True fails exactly the leak check (1 red, every control green).
+`--check` exits 3; joined the CI record-integrity job beside
+`verify_entries`, and `pin_sweep` discovers it by its own `--check` string
+with no roster edit. The suite's own first draft went red on its fixture
+— "0.964's business" matches, an apostrophe is not a digit — kept as a
+comment in the fixture because the guard is against longer NUMBERS, not
+possessives.
 **Why it matters:** every headline number in this repo is repinned by hand
 across documents that are the deliverable. M-31's sweep was careful and still
 missed six sites plus an arithmetic slip; the next one will miss a different
