@@ -1283,9 +1283,22 @@ def test_bracket_guard_l():
           len(by.get("corpus/song/eng_planted_leak.txt", [])) == 1
           and all(f.severity == AC.NOTE for f in got),
           str([(f.path, f.severity) for f in got]))
+    # REPOINTED 2026-08-28: M-152's close added question 3 (the orphan-`]`
+    # sweep) to check L, and on THIS fixture both questions fire — the
+    # unclosed opener is named, and the continuation line `runs on to
+    # 1818.]` is a KEPT sung line ending on an orphan `]`, which is the
+    # very leak the fixture plants, now seen from both ends. The old
+    # `== 1` pinned the count and was never told; the repin asserts each
+    # note by SUBJECT so a question can join without a silent re-pin.
+    _wrap = by.get("corpus/song/eng_planted_wrap.txt", [])
     check("an unclosed `[` block in a file with no wrapped-note "
           "declaration NOTEs — the continuation may be leaking as verse",
-          len(by.get("corpus/song/eng_planted_wrap.txt", [])) == 1)
+          any("unclosed" in f.what for f in _wrap),
+          str([f.what[:60] for f in _wrap]))
+    check("...and since M-152 the SAME leak is named from its other end — "
+          "the kept continuation line ends on an orphan `]`",
+          any("orphan" in f.what for f in _wrap) and len(_wrap) == 2,
+          str([f.what[:60] for f in _wrap]))
     check("a numeric span is measured harmless and earns NOTHING — a "
           "letters-only tokeniser reads no word in `[10]`",
           "corpus/song/eng_planted_clean.txt" not in by)
