@@ -8552,7 +8552,12 @@ def main():
             if src is not None:
                 try:
                     _rows = load_lyric_lines(src, with_indent=True)
-                except Exception:
+                except (OSError, UndecodableLyricFile):
+                    # best-effort re-read for a DISCLOSURE: a vanished or
+                    # undecodable file cannot break the report that is
+                    # already printing. Narrow on purpose — test_verbs §12
+                    # pins the spine to exactly ONE broad handler, and this
+                    # is not it.
                     _rows = []
                 _ia = indent_agreement(getattr(m, "groups", []),
                                        [d for d, _t in _rows]) \

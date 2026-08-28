@@ -358,9 +358,24 @@ def test_function_is_not_section_name():
     # and `FunctionSpec.aliases` made the claim resolvable. So `middle8` is
     # the POSITIVE control now (pinning the alias), and the refusal case
     # uses a name no tradition claims.
+    # RESTATED AGAIN 2026-08-28 (M-57): `middle8` stopped being an alias and
+    # became a SPECIALISATION with a differentia (`bars == 8`), so declaring
+    # it on this fixture's 2-bar chorus now REFUSES quoting the claim —
+    # which is the repaired door, not a regression: this check's rc==0 pass
+    # was the measured defect (the door accepting the specialisation and
+    # storing the genus). The resolves-control the check exists for moves to
+    # `departure-section`, a TRUE synonym with no differentia to fail.
     rc, out, err = run("function", EXAMPLE_BP, "--function=chorus:middle8")
-    check("`middle8` RESOLVES now — the bridge row's own alias, so the old "
-          "refusal fixture is this section's positive control",
+    check("`middle8` on a 2-bar section REFUSES quoting its differentia — "
+          "the door keeps the claim now (M-57), where this check's old "
+          "rc==0 was the measured defect",
+          rc == 2 and "bars == 8" in out and "middle-eight" in out
+          and "Traceback" not in err,
+          (out.strip().splitlines() or [""])[0][:120])
+    rc, out, err = run("function", EXAMPLE_BP,
+                       "--function=chorus:departure-section")
+    check("a TRUE synonym still RESOLVES — the bridge row's own alias, the "
+          "claim this check has pinned since 2026-08-18",
           rc == 0 and "Traceback" not in err,
           (out.strip().splitlines() or [""])[0][:120])
     rc, out, err = run("function", EXAMPLE_BP, "--function=chorus:vibes")
