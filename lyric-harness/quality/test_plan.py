@@ -2428,6 +2428,70 @@ def test_the_relation_draw():
           set(unbindable) <= set(RL.DRAWABLE_SCHEMAS))
 
 
+def test_the_bound_share():
+    """15. M-112 — THE MANDATE'S OWN WEIGHT ON A SECTION IS DISCLOSED.
+
+    The series' third song cleared every gate with a chorus binding 23 of
+    ~31 sung tokens, and the share was a number a session computed by hand
+    (the private-instrument shape standing rule 3 ends). `bound_token_share`
+    is that computation as a pure function of the plan, and the `plan` verb
+    prints it. A DISCLOSURE, NOT A GATE — the ceiling needs a calibration
+    the corpus cannot yet give — and the non-gate half is pinned by AST.
+    """
+    print("\n15. M-112 — the bound-token share is a pure disclosure")
+    p = make_plan(2)
+    shares = PLN.bound_token_share(p)
+    order = list(dict.fromkeys(s["section"] for s in p["line_slots"]))
+    check("every sung section instance appears exactly once, in plan order",
+          [s["section"] for s in shares] == order,
+          f"{len(shares)} section(s)")
+    at = PLN.bound_placements(p)
+    total = sum(len({real_word(x) for x in v}) for v in at.values())
+    check("the numerators sum to the plan's own word-keyed binding count — "
+          "the same `bound_placements` + `placement_word` reading every "
+          "other consumer of the groups string uses (doctrine 1)",
+          sum(s["bound"] for s in shares) == total, f"total {total}")
+    sub = p["subdivision"]
+    cap = {}
+    for ls in p["line_slots"]:
+        cap[ls["section"]] = cap.get(ls["section"], 0) + int(
+            PLN.line_syllable_ceiling(float(ls["duration"]) * sub))
+    check("each denominator is the sum of its lines' syllable ceilings — "
+          "capacity, never a requirement (a sparse line is a slower line)",
+          all(s["capacity"] == cap[s["section"]] for s in shares))
+    # THE MUTATION, HAND-BUILT SO IT IS KILLABLE ON ANY SEED: a toy plan
+    # whose line 1 carries `end` AND `endword` (one word between them) and
+    # whose line 3 carries `head`, `headrime` AND `T1` (one word between
+    # THEM — M-80's finding). Counting placement NAMES instead of WORDS
+    # reads 3+1 and 3 where the honest counts are 2 and 1.
+    toy = {"subdivision": 2,
+           "line_slots": [
+               {"section": "VERSE1", "function": "verse", "line": 1,
+                "duration": 3.0},
+               {"section": "VERSE1", "function": "verse", "line": 2,
+                "duration": 3.0},
+               {"section": "CHORUS1", "function": "chorus", "line": 3,
+                "duration": 3.0}],
+           "groups": "1,1.endword,2.T3;3.head,3.headrime,3.T1"}
+    got = PLN.bound_token_share(toy)
+    check("the numerator counts WORDS and not placement names — end+endword "
+          "is one word, head+headrime+T1 is one word (M-80), so the toy "
+          "reads 2/12 and 1/6 and a name-counting mutant reads 3 and 3",
+          [(s["bound"], s["capacity"]) for s in got] == [(2, 12), (1, 6)],
+          str([(s["bound"], s["capacity"]) for s in got]))
+    # A DISCLOSURE, NOT A GATE, pinned rather than remembered: `make_plan`
+    # never calls it, so no share can refuse a plan.
+    import inspect as _ins
+    tree = ast.parse(_ins.getsource(PLN.make_plan))
+    calls = {n.func.attr if isinstance(n.func, ast.Attribute)
+             else getattr(n.func, "id", "")
+             for n in ast.walk(tree) if isinstance(n, ast.Call)}
+    check("`make_plan` does not consult `bound_token_share` — the share "
+          "gates nothing, by design, until a calibration exists "
+          "(the entry's own accounting; doctrine 22 for the future gate)",
+          "bound_token_share" not in calls)
+
+
 if __name__ == "__main__":
     for fn in (test_the_planner_plans_the_whole_line,
                test_determinism, test_refusals, test_the_round_trip,
@@ -2437,7 +2501,7 @@ if __name__ == "__main__":
                test_the_seed_sweep_is_a_verb,
                test_the_song_length_is_the_songs_own,
                test_the_end_rhyme_pass_is_additive,
-               test_the_relation_draw):
+               test_the_relation_draw, test_the_bound_share):
         fn()
     print("=" * 62)
     if FAILURES:

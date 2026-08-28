@@ -6734,6 +6734,20 @@ def main():
                   f"{note}")
         print(f"  GROUPS : {the_plan['groups']}")
         print(f"  RETURNS: {the_plan['returns'] or '(none)'}")
+        # M-112: the mandate's own weight on each section, said out loud.
+        # The series' third song cleared every gate with a chorus binding
+        # 23 of ~31 sung tokens and nothing had disclosed the share — it
+        # was a number a session computed by hand, which is the
+        # private-instrument shape standing rule 3 ends. A DISCLOSURE,
+        # not a gate: the ceiling needs a calibration the corpus cannot
+        # yet give (no corpus mandates), so nothing here refuses.
+        _shares = PLN.bound_token_share(the_plan)
+        if _shares:
+            print("  BOUND  : distinct bound words / token capacity, per "
+                  "section (a disclosure — no calibrated ceiling exists):")
+            for _sh in _shares:
+                print(f"    {_sh['section']:<12} {_sh['bound']:>3} of "
+                      f"{_sh['capacity']:>3}  ({_sh['share']:.2f})")
         print()
         print(the_plan["writer_brief"])
         print()

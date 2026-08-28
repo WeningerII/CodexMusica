@@ -11349,7 +11349,7 @@ panel with a set lens.
 (M-110 and this entry landed in one commit, 2026-08-25; this entry counts while
 OPEN — the count is entries, not closures).
 
-### M-112 · the mandate's own weight on a section is disclosed by nothing `OPEN`
+### M-112 · the mandate's own weight on a section is disclosed by nothing `RESOLVED` 2026-08-28
 Filed 2026-08-25, from the series' third song. `wheat_mane.txt` (seed 2)
 cleared every gate on its first grading round — 0 flags, 0 stacked lines, 0
 banned pairs — and the blind panel still rejected its CHORUS1 at 2/3, with
@@ -11381,6 +11381,37 @@ private-instrument shape standing rule 3 exists to end — the disclosure
 should be built even while the gate waits.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~169~~ -> **170**.
+
+**RESOLVED 2026-08-28, in the repair campaign — the disclosure half,
+exactly as this entry scoped it; the gate stays unbuilt for the entry's
+own reasons (a ceiling needs a calibration, the corpus carries no
+mandates, and density is measured not sufficient).**
+`quality/plan.py:bound_token_share(plan)` is the hand computation as a
+pure function of the emitted plan: per section instance, distinct bound
+WORDS (numerator through `bound_placements` + `placement_word` — the one
+reading of the groups string and the one word-key, so `end`+`endword`
+and `head`+`headrime`+`T1` each count once, M-80; returns deliberately
+NOT counted — a verbatim return fixes whole lines, a different
+constraint, doctrine 79) over the section's token CAPACITY (each line's
+`line_syllable_ceiling` summed — a capacity, never a requirement). The
+`plan` verb prints it beside GROUPS/RETURNS as `BOUND :`, labelled a
+disclosure with no calibrated ceiling. **THE SECOND DOOR IS REACHED
+THROUGH THE SHAPE, NOT THROUGH A SECOND DERIVATION**: the function reads
+the plan dict, which is the shape BOTH front halves emit (`recover.py`
+exists so the human door produces it, M-72) — deriving the same count a
+second time off a built `Mandate` for the `song` verb would be a second
+spelling of one question (doctrine 1) and was declined; a recovered
+text's denominator is additionally a different QUANTITY (counted
+syllables, not derived capacity) and folding the two into one column
+would sum two provenances. **THE GATE'S GATE**: `quality/test_plan.py`
+§15 — section order and coverage, the numerator identity against
+`bound_placements`' own reading, the denominator identity against
+`line_syllable_ceiling`, a hand-built toy whose lines carry `end`+
+`endword` and `head`+`headrime`+`T1` so the names-for-words mutation is
+killable on any seed (mutant reads 3/3 where the honest counts are 2/1 —
+hand-proven), and an AST pin that `make_plan` never consults the
+function, so the share can refuse nothing until a calibration licenses a
+ceiling (doctrine 22 for that future band).
 
 ### M-113 · the screen's CLEAN conflates a clean rhyme with a clean non-rhyme `RESOLVED` 2026-08-28
 Filed 2026-08-25, from the series' fourth song, and the log fact already

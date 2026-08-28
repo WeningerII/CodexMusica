@@ -155,7 +155,7 @@ __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "sweep",
            "BEATS_PER_SYLLABLE_MAX",
            "JOINT_CODES", "LAST_WORD", "placement_word",
-           "bound_placements", "end_rhyme_groups",
+           "bound_placements", "bound_token_share", "end_rhyme_groups",
            "line_syllable_ceiling", "joint_findings"]
 
 
@@ -1056,6 +1056,58 @@ def plan_max_token(plan):
     caps = [line_syllable_ceiling(float(s["duration"]) * sub)
             for s in plan["line_slots"]] or [1]
     return max(1, min(int(tokens_per_line_band()[0]), int(min(caps)) - 1))
+
+
+def bound_token_share(plan):
+    """-> per section instance, in plan order: {"section", "function",
+    "bound", "capacity", "share"} — how much of the section's token capacity
+    the mandate has already spoken for (`MISSING.md` M-112).
+
+    THE NUMBER A SESSION HAD BEEN COMPUTING BY HAND, which is the
+    private-instrument shape standing rule 3 exists to end: the series'
+    third song cleared every gate and the panel rejected its chorus, and
+    the coordinate that separated that chorus from the rest — 23 of ~31
+    sung tokens bound, against a song mean of 2.6 bound members a line —
+    was derivable from the plan and disclosed by nothing.
+
+    NUMERATOR: distinct bound WORDS per line, summed over the section —
+    `bound_placements` is the one reading of `plan["groups"]` and
+    `placement_word` is the one word-key (M-80: `end` and `endword` are one
+    word, `head`/`headrime`/`T1` are one word). Returns are NOT counted: a
+    verbatim return fixes whole LINES, a different constraint, and summing
+    the two would hide which layer is heavy (doctrine 79).
+
+    DENOMINATOR: the section's token CAPACITY — each line's
+    `line_syllable_ceiling` over its own slots, summed — because a binding
+    occupies a token and the ceiling is the most tokens the line may
+    legally carry.
+
+    A DISCLOSURE, NOT A GATE, and deliberately so: a ceiling needs a
+    calibration, the corpus carries no mandates, and the honest route
+    (recovered covers, then the share's distribution, stated as an FPR —
+    doctrine 22) is a preregistration this function does not presume.
+    Density is measured NOT sufficient to stand in for it (panel run 2:
+    ranks 2-5 equally dense and passed), so nothing here refuses.
+    """
+    at = bound_placements(plan)
+    sub = plan["subdivision"]
+    order, per = [], {}
+    for s in plan["line_slots"]:
+        if s["section"] not in per:
+            order.append(s["section"])
+            per[s["section"]] = (s["function"], [])
+        per[s["section"]][1].append(s)
+    out = []
+    for name in order:
+        fn, ss = per[name]
+        bound = sum(len({placement_word(p) for p in at.get(s["line"], [])})
+                    for s in ss)
+        cap = sum(int(line_syllable_ceiling(float(s["duration"]) * sub))
+                  for s in ss)
+        out.append({"section": name, "function": fn, "bound": bound,
+                    "capacity": cap,
+                    "share": round(bound / cap, 4) if cap else 0.0})
+    return out
 
 
 def bound_placements(plan):
