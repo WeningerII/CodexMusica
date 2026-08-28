@@ -554,6 +554,19 @@ class Result:
     #: `p` and `resolution` already divide by `len(values)`, so they are
     #: honest; what was invisible is HOW MANY draws never reached them.
     refused_replicates: int = 0
+    #: REPLICATES WHERE `realise()` ANSWERED AND THIS STATISTIC DID NOT
+    #: (M-45, 2026-08-28) — a FOURTH count, and it is never summed with the
+    #: one above because they are different questions (doctrine 79): a
+    #: refused replicate is the SCHEMA's gate closing on the whole draw,
+    #: while a void one is THIS statistic finding no denominator on a draw
+    #: the schema answered (`_local_fraction` on zero instances, exactly the
+    #: event the OBSERVATION path files as a `denominator` Refusal).  Before
+    #: this field the void kind was dropped with no counter touched, so a
+    #: row could print `n=200 used=50 refused=0` and the missing 150 draws
+    #: were invisible AS A KIND — `refused=0` said none were refused, which
+    #: was true, and nothing said what the shortfall was instead.  Doctrine
+    #: 27 one layer in: a count kept apart, reported as zero.
+    void_replicates: int = 0
 
     @property
     def differing(self):
@@ -612,7 +625,7 @@ class Result:
                 f"    replicates differing from the observation "
                 f"{self.differing * 100:.1f}%{deg}   n={self.replicates} "
                 f"used={len(self.values)} refused={self.refused_replicates} "
-                f"seed={self.seed}")
+                f"void={self.void_replicates} seed={self.seed}")
 
 
 def _stream_of(toks, phon, language, prepare=None, stanzas=None,
@@ -765,7 +778,15 @@ def run_many(lines, phon, schema, statistics, null="line_permutation",
                     r.refused_replicates += 1
             continue
         for r, v in zip(out, vals):
-            if not isinstance(r, R.Refusal) and v is not None:
+            if isinstance(r, R.Refusal):
+                continue
+            if v is None:
+                # M-45: the statistic had no denominator on THIS replicate
+                # while realise() answered — the same event the observation
+                # path files as a `denominator` Refusal.  Counted, never
+                # summed with `refused_replicates` (doctrine 79).
+                r.void_replicates += 1
+            else:
                 r.values.append(v)
     return out
 
@@ -1465,7 +1486,13 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
                             r.refused_replicates += 1
                     continue
                 for r, v in zip(row, vals):
-                    if not isinstance(r, R.Refusal) and v is not None:
+                    if isinstance(r, R.Refusal):
+                        continue
+                    if v is None:
+                        # M-45: no denominator on this replicate — see
+                        # `run_many`, the identical shape, one counter.
+                        r.void_replicates += 1
+                    else:
                         r.values.append(v)
         for sname, (_s, _st, row) in sorted(rows.items()):
             results += row
@@ -1689,6 +1716,21 @@ def menu_pairs(cov):
 #: and sending someone hunting for a text when what they need is a declared
 #: lexicon is the wrong errand. Row count 77 before and after; nothing added,
 #: nothing dropped, and the tuple carries one row per schema in the registry.
+#:
+#: ONE MORE MOVED 2026-08-28, BY A COMPARATOR REPAIR RATHER THAN A RESOURCE
+#: (M-148, found by `test_null_shapes` §9 while verifying M-45):
+#:
+#:   cluster consonance / skothending span  ~~no_instance~~ -> extendable
+#:
+#: M-148's repair made `relations._seq` read the post-vocalic CLUSTER
+#: (fast~lost was [F,S,T] vs [L,S,T] under the old sequence reading — no
+#: match; both are [S,T] under the cluster reading — a match), so the
+#: cluster-consonance schema now finds instances on the ledger slice where
+#: it found none. Green at `1794e6d`, red at `0593fa1` (the repair commit),
+#: verified in scratch worktrees either side. The repair was correct; this
+#: row was simply not re-read in that sitting — `test_null_shapes` was not
+#: in its run list, the same species as the `test_grid` fixture pin M-47's
+#: sitting repinned. EXTENDABLE count follows the tuple: 33 -> 34.
 EXTENSION_LEDGER = (
     ('perfect rhyme',                           'controlled',      6,  4),
     ('rime riche',                              'extendable',      6,  0),
@@ -1696,7 +1738,7 @@ EXTENSION_LEDGER = (
     ('antanaclasis',                            'cannot_obtain',   4,  0),
     ('assonance',                               'extendable',      6,  0),
     ('consonance',                              'extendable',      6,  0),
-    ('cluster consonance / skothending span',   'no_instance',     4,  0),
+    ('cluster consonance / skothending span',   'extendable',      4,  0),
     ('parechesis / general consonance',         'no_instance',     2,  0),
     ('pararhyme',                               'extendable',      6,  0),
     ('reverse rhyme',                           'extendable',      6,  0),
@@ -2771,10 +2813,13 @@ def expected_false_clears(rows, replicates):
 
 def expected_false_clears_over(rows):
     """The same arithmetic PER ROW, because `len(values)` is not always the n
-    that was asked for: a null that destroys the frame a schema requires makes
-    that replicate REFUSE, and the row's distribution is then smaller than the
-    run's n (`Result.refused_replicates`).  Summing 1/(used+1) over the rows
-    charges each row its own resolution instead of the run's nominal one."""
+    that was asked for — for TWO reasons, counted apart (M-45): a null that
+    destroys the frame a schema requires makes that replicate REFUSE
+    (`Result.refused_replicates`), and a replicate the schema answers can
+    still give a statistic no denominator (`Result.void_replicates`).  Either
+    way the row's distribution is smaller than the run's n, so summing
+    1/(used+1) over the rows charges each row its own resolution instead of
+    the run's nominal one."""
     return sum(expected_false_clears(1, len(r.values)) for r in rows
                if not isinstance(r, R.Refusal) and r.values)
 
@@ -2813,6 +2858,9 @@ class PanelRow:
     moved_rows: int = 0          # of those, rows where the null moved
     cleared_rows: int = 0        # of those, rows above the null's max
     refused_replicates: int = 0  # draws the schema refused on, summed
+    void_replicates: int = 0     # draws a statistic had no denominator on
+    #                              (M-45) — beside the one above, never summed
+    #                              with it: two kinds, two counts
     instances: int = -1          # max over the panel
     detail: str = ""
 
@@ -3022,7 +3070,8 @@ def panel_census(rows, per_slice):
             slices_refused=refused,
             rows=len(rows_here), moved_rows=len(moved),
             cleared_rows=len(clears), instances=inst,
-            refused_replicates=sum(r.refused_replicates for r in rows_here))
+            refused_replicates=sum(r.refused_replicates for r in rows_here),
+            void_replicates=sum(r.void_replicates for r in rows_here))
         if in_trad:
             pr.verdict = "admissible_in_tradition"
         elif clears:
@@ -3110,6 +3159,7 @@ def report_panel(rows, per_slice, cens, n):
             if not isinstance(r, R.Refusal) and r.values
             and r.differing > 0.0]
     refused_reps = sum(c.refused_replicates for c in cens)
+    void_reps = sum(c.void_replicates for c in cens)
     print("\n" + "=" * 74)
     print("THE EIGHT-WAY SPLIT — one verdict per declared schema")
     print("=" * 74)
@@ -3123,6 +3173,9 @@ def report_panel(rows, per_slice, cens, n):
     print(f"  replicate draws the schema REFUSED on, over the whole panel: "
           f"{refused_reps} (doctrine 27/79 — a draw the instrument could not "
           f"answer is a third count, never a silent drop)")
+    print(f"  replicate draws a STATISTIC had no denominator on: {void_reps} "
+          f"(M-45 — the schema answered and the statistic did not; a fourth "
+          f"count beside the one above, never summed with it)")
     for v in PANEL_VERDICTS:
         got = by[v]
         print(f"\n  -- {v.upper()}  ({len(got)})")

@@ -482,9 +482,17 @@ def s11_refused_replicates():
           bool(live), f"{len(live)} rows")
     if not live:
         return
-    check("§11 used + refused == the n that was asked for, on EVERY row",
-          all(len(r.values) + r.refused_replicates == n for r in live),
-          str(sorted({(len(r.values), r.refused_replicates) for r in live})))
+    # THREE terms since M-45: a draw is used, or the whole realise() refused,
+    # or THIS statistic had no denominator on it (void).  The two-term
+    # identity this check held before M-45 was already false whenever a
+    # local_fraction voided — the shortfall existed and was attributed to
+    # nothing.
+    check("§11 used + refused + void == the n that was asked for, on EVERY "
+          "row",
+          all(len(r.values) + r.refused_replicates + r.void_replicates == n
+              for r in live),
+          str(sorted({(len(r.values), r.refused_replicates,
+                       r.void_replicates) for r in live})))
     check("§11 at least one null DOES destroy the frame, so the counter is "
           "exercised rather than decorative",
           any(r.refused_replicates > 0 for r in live),
@@ -573,6 +581,98 @@ def s13_the_census_keeps_the_refusal_kind():
           f"`declaring it again changes nothing`.)")
 
 
+def s14_the_void_replicate_is_its_own_count():
+    """M-45, 2026-08-28.  A replicate whose whole realise() refuses has been
+    counted since the `refused_replicates` field was written; a replicate the
+    schema ANSWERS on which a statistic finds no denominator was dropped with
+    no counter touched, so a row could print `n=200 used=50 refused=0` and
+    the missing 150 draws were invisible as a KIND.  The worst recorded row —
+    `monai · local_fraction@2 · global_redeal · fas` — reproduces exactly:
+    used 50, refused 0, and the counter now attributes the other 150 as void.
+
+    Two halves.  The first drives `run_many` with a statistic whose None
+    returns are DETERMINISTIC, so the attribution is checked to the draw:
+    void counts exactly the None returns, refused stays 0, and `p`/
+    `resolution` divide by the used count.  The second drives `sweep` — the
+    other copy of the loop — on the real fas row at small n, where
+    `local_fraction@2` genuinely voids (a redeal that scatters the pair off
+    the line-final slots leaves no instance to take a fraction of).
+
+    TWO MUTATIONS, hand-proven before this section shipped, each killed by
+    its OWN half: reverting `run_many`'s `v is None` branch to the pre-M-45
+    bare append fails exactly the two run_many attribution checks (void==5
+    and the three-term identity) while the sweep half stays green; reverting
+    `sweep`'s copy fails exactly the sweep-half check (the fas row reads
+    `used=6 refused=0 void=0` — the pre-M-45 rendering, refused by name).
+    §11 stays green under BOTH mutants, which is itself a measurement: its
+    radif rows carry zero void draws, so the identity there never had a
+    shortfall to hide and this section's fixtures are the ones doing the
+    work."""
+    print("\n§14 a void replicate is COUNTED, apart from a refused one "
+          "(M-45)")
+    from quality.phonology import get as _gp
+    lines = ["the day was cold and grey",
+             "she walked the long dark way",
+             "no bird would sing or stay"]
+    # Half 1: run_many with a deterministic None schedule.  run_many computes
+    # the observation FIRST, then replicates k=0..n-1 in order (doctrine 66:
+    # the loop is sequential and seeded), so a call counter attributes each
+    # None to a known draw.
+    calls = {"k": -1}
+
+    def fn(inst, findings, stream):
+        calls["k"] += 1
+        if calls["k"] == 0:
+            return 1.0            # the observation must yield a VALUE
+        return None if calls["k"] % 2 else 0.5   # odd draws void
+    stat = N.Statistic("void_probe", fn, reads=("line_membership",))
+    n = 10
+    r = N.run_many(lines, _gp("eng"), "perfect rhyme", [stat],
+                   null="line_permutation", n=n, language="eng")[0]
+    ok = not isinstance(r, R.Refusal)
+    check("§14 the probe row is live (the observation yielded a value)", ok)
+    if not ok:
+        return
+    check("§14 void counts EXACTLY the draws the statistic answered None on",
+          r.void_replicates == 5 and len(r.values) == 5,
+          f"used={len(r.values)} void={r.void_replicates}")
+    check("§14 ...and refused is UNTOUCHED by them — two kinds, two counts, "
+          "never summed (doctrine 79)",
+          r.refused_replicates == 0)
+    check("§14 used + refused + void == n",
+          len(r.values) + r.refused_replicates + r.void_replicates == n)
+    check("§14 `p` and `resolution` divide by the USED count — they were "
+          "always honest; the counter makes the shortfall attributable",
+          abs(r.resolution - 1.0 / (len(r.values) + 1)) < 1e-12)
+    check("§14 the row's own rendering carries the count",
+          f"void={r.void_replicates}" in r.line(), r.line().split("\n")[-1])
+    # Half 2: the sweep runner's copy, on the REAL row the register names.
+    sl = {x.name: x for x in N.PANEL}.get("fas")
+    if sl is None:
+        return check("§14 fas slice declared", False)
+    glines, stanzas, src, _ref, refusal = sl.read_grounded(ROOT)
+    if refusal is not None:
+        return check("§14 fas slice readable", False, refusal.detail)
+    got, _c = N.sweep(glines, _gp("fas"), "fas",
+                      schemas={"monai": R.REGISTRY["monai"]},
+                      statistics=["local_fraction@2"],
+                      nulls=["global_redeal"],
+                      n=12, budget=None, prepare=sl.prepare(),
+                      stanzas=stanzas, stanza_source=src)
+    live = [x for x in got if not isinstance(x, R.Refusal)]
+    check("§14 the register's own row is reachable at small n", bool(live),
+          f"{len(live)} rows")
+    if not live:
+        return
+    m = live[0]
+    check("§14 sweep's copy of the loop counts the void kind too — the row "
+          "that printed refused=0 over a shortfall now attributes it",
+          m.void_replicates > 0 and m.refused_replicates == 0
+          and len(m.values) + m.void_replicates == 12,
+          f"used={len(m.values)} refused={m.refused_replicates} "
+          f"void={m.void_replicates}")
+
+
 def main():
     print("=" * 74)
     print("RELATIONS NULLS · SECTION 9 (THE PANEL) — regressions")
@@ -590,6 +690,7 @@ def main():
     s11_refused_replicates()
     s12_the_page_derivation_never_runs_on_a_token_join()
     s13_the_census_keeps_the_refusal_kind()
+    s14_the_void_replicate_is_its_own_count()
     print("\n" + "=" * 74)
     print(f"  {len(PASS)} passed, {len(FAIL)} failed")
     if FAIL:

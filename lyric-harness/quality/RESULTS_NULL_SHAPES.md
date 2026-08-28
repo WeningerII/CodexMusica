@@ -598,7 +598,17 @@ two extra being `chain rhyme (rap)` and `compound / phrasal rhyme`.
 > `monorhyme / leash`, `dvitiyakshara-prasa` and `monai` moved from EXTENDABLE
 > to CANNOT OBTAIN and `blues AAB stanza` from NO INSTANCE to the same place.
 > That is five schemas whose printed numbers here were taken over a frame that
-> could not vary, and the remedy named is the right one: declare the ground. And the sweep line
+> could not vary, and the remedy named is the right one: declare the ground.
+
+> **REPINNED AGAIN 2026-08-28 (M-148, found while verifying M-45): the
+> ledger's EXTENDABLE stands at 34.** `cluster consonance / skothending
+> span` moved NO INSTANCE -> EXTENDABLE because M-148's repair made
+> `relations._seq` read the post-vocalic CLUSTER, so the schema now finds
+> instances on the ledger slice where the old sequence reading found none
+> (fast~lost: [F,S,T] vs [L,S,T], no match; [S,T] vs [S,T] under the
+> cluster reading, a match). Attributed by worktree: `verify_extension`
+> green at `1794e6d`, red at `0593fa1`, the repair commit. The comparator
+> repair was correct; the frozen row was not re-read in that sitting. And the sweep line
 below (34 live schemas, 268 rows in 199 s) is the same budgeted reading; at
 `budget=None` it is **36 live / 292 rows**. Superseded figures kept visible
 (doctrine 17). `relations_null.py --verify` now pins the unbudgeted reading,

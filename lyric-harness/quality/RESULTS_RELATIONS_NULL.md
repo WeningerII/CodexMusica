@@ -131,6 +131,22 @@ restated.
    §B reports this schema as ADMISSIBLE on 6 of 6 moved rows; at n=200 it is
    **at or below chance**, and §A.4 below is why that row should not be
    believed in either direction.
+   **AMENDED 2026-08-28 (`MISSING.md` M-45): this sentence is true of the
+   COUNTED kind of missing draw and was silent about an uncounted one.** A
+   replicate the schema ANSWERS on which a single statistic finds no
+   denominator was dropped with no counter touched, so "all 1,508 are one
+   schema" could not see it — 1,225 such draws over 55 of this run's 368
+   rows, per the agents' own count. The runners count it now
+   (`Result.void_replicates`, rendered `void=`, beside `refused=` and never
+   summed with it), and the worst row reproduces with the shortfall
+   attributed: `monai · local_fraction@2 · global_redeal · fas` reads
+   `n=200 used=50 refused=0 void=150`, and its 50 surviving values never
+   moved — a p=1.0000 drawn on a quarter-strength distribution whose null
+   could not even ask the question on three draws of four. The recorded
+   figures in this file's tables are NOT re-derived by this amendment: every
+   p was already computed over the used n, so no verdict moves; what was
+   wrong was the attribution, and rows recorded before the counter simply do
+   not carry the `void=` field.
 7. **28 admissible names are at most 26 admissible measurements.** Two pairs
    collapse — see §A.4.
 

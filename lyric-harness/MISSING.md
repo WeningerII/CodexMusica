@@ -4257,7 +4257,7 @@ fragments sat in its lines — so those banked cell figures predate the
 reader and say so here; re-measuring them is M-40's business on its next
 sitting, not a silent edit to banked rows.
 
-### M-45 · A replicate draw that produced no VALUE is counted nowhere, so a p is drawn at an n nobody printed `OPEN`
+### M-45 · A replicate draw that produced no VALUE is counted nowhere, so a p is drawn at an n nobody printed `CLOSED` 2026-08-28 — the void kind has its own counter, and the worst recorded row reproduces with the shortfall attributed
 **Found independently by TWO agents in the same batch — one re-running the
 stanza-framed schemas, one measuring the poet cells — which is why it is filed
 at this weight. Mechanism confirmed here by reading both runners; the sweep was
@@ -4304,6 +4304,60 @@ counted kind and silent about the uncounted one.
 different questions and must never be summed — and `p` reported against the
 `used` n rather than the requested one. Neither is applied; both move recorded
 rows.
+
+**CLOSED 2026-08-28.** `Result.void_replicates` is the second counter,
+incremented in BOTH runners (`run_many` and `sweep` carry the identical loop,
+and both moved in one sitting so the two copies cannot disagree — doctrine 1),
+rendered in every row as `void=` beside `refused=`, summed into
+`PanelRow.void_replicates` and printed by `report_panel` as its own line —
+four counts on a row now (asked / used / refused / void), never summed past
+the partition (doctrine 79).
+
+**THE WORST RECORDED ROW REPRODUCES EXACTLY, AND THE ATTRIBUTION SHARPENS
+IT.** `monai · local_fraction@2 · global_redeal · fas` on the grounded panel
+slice at n=200, default seed: `used=50 refused=0` — the agents' own figures,
+now with `void=150` beside them and the accounting closing at 200. And the
+50 values that DID survive never moved (observed 1, null min/med/max 1/1/1,
+differing 0.0% — the row's own render says NULL IS THE IDENTITY MAP), so the
+p=1.0000 this row recorded was drawn on a quarter-strength distribution
+whose null could not even ask the question on three draws of four. The
+shortfall was never noise around a healthy row; it was the row's finding.
+
+**WHAT THE SECOND REMEDY CLAUSE TURNED OUT TO NEED: NOTHING MOVED.** `p` and
+`resolution` have always divided by `len(values)` — the entry's own
+"PARTIALLY DISCLOSED" paragraph says so — so no recorded verdict is
+re-derived and no recorded figure moves. What was wrong was the ATTRIBUTION
+(`refused=0` over a shortfall), and that is a rendering-and-counting repair
+(doctrine 91). Rows recorded before the counter simply do not carry the
+`void=` field; `RESULTS_RELATIONS_NULL.md` §A item 6 — the sentence this
+entry named as blind to the uncounted kind — carries the dated amendment.
+
+**GATES:** `test_relations_null.py` §11's identity is the THREE-term one now
+(used + refused + void == n, on every row — the two-term identity it held
+before was TRUE on §11's own radif fixture, which is exactly why that
+section could not see this defect: its rows carry zero void draws); new §14
+drives `run_many` with a deterministic None schedule (void counts EXACTLY
+the None draws, refused untouched, p at the used n, the render carries the
+count) and drives `sweep`'s copy on the register's own fas row at small n
+(`used=6 refused=0 void=6` at n=12). TWO MUTATIONS, hand-proven and each
+killed by its OWN half: reverting `run_many`'s branch fails exactly the two
+run_many attribution checks with the sweep half green (measured: 10 pass /
+2 fail); reverting `sweep`'s copy fails exactly the sweep-half check, the
+fas row reading `used=6 refused=0 void=0` — the pre-M-45 rendering, refused
+by name (11 pass / 1 fail). §11 stays green under BOTH mutants, which is
+the measurement above restated: the defect was invisible to every fixture
+whose statistics always had a denominator, and §14's fixtures are the ones
+doing the work. `expected_false_clears_over` — which already charged each
+row its own used-n resolution — names both kinds in its docstring.
+
+**NOT DONE, NAMED (doctrine 20):** the agents' full panel runs (368 and 232
+rows) are NOT re-run; their per-row figures stay quoted as theirs, and every
+row of the recorded panel that voided draws still reads `refused=0` with the
+shortfall visible only as used < n. The counter exists from this tree
+forward; a future panel re-draw inherits it for free. M-46 — the OTHER way a
+row looks like a clean null, `local_fraction@0` on `both_line_final` schemas
+with no `_GAP_FORCED` row — is untouched and still owed its own sitting
+(the frozen `EXTENSION_LEDGER` reads `forced_gap`).
 
 ### M-46 · `local_fraction@0` runs on 20 of 77 schemas where it cannot move, and looks like a clean null `OPEN`
 **Found by the re-null agent. `_GAP_FORCED` (`relations_null.py:950-958`) has
@@ -14730,6 +14784,25 @@ the route a `schema:` relation takes and a `type:` relation never
 reaches); M-58's addendum records that the drawn pool is out from under it
 and its four owed items stand. And the two seams the repair made VISIBLE
 are M-149, filed the same day rather than buried in this close.
+
+**ADDENDUM 2026-08-28 — A THIRD RECORDED FIGURE MOVED AND WAS FOUND A DAY
+LATER, found by `test_null_shapes` §9 while the M-45 sitting was verifying
+its own edits to the same module.** The close above records "one
+test_relations pin" as what moved; the frozen `EXTENSION_LEDGER` held a
+second casualty nothing re-read: `cluster consonance / skothending span`
+recorded NO_INSTANCE and measures EXTENDABLE on the ledger slice, because
+the repaired `_seq` reads the post-vocalic CLUSTER and the
+cluster-consonance schema now finds instances where the sequence reading
+found none — the repair's own worked example (fast~lost) is the mechanism.
+Attributed by worktree, not inference: `verify_extension` is green at
+`1794e6d` and red at `0593fa1`, this entry's repair commit, with the
+identical red at `beb9a6a` and `f235954` either side of the two sittings
+between. `test_null_shapes` was not in this sitting's run list — the same
+species as the `test_grid` fixture pin M-47's sitting repinned, and the
+second inherited casualty of this entry found by a later sitting's sweep.
+The row is repinned EXTENDABLE with the ladder in the ledger's own header
+(EXTENDABLE 33 -> 34), `RESULTS_NULL_SHAPES.md` §4b carries the dated
+repin, and `verify_extension` returns empty again.
 
 ### M-149 · the pool meets the slots: a drawn free_run schema on a token slot is unjudgeable as declared, and one group's refusal silences its siblings on the pair `RESOLVED` 2026-08-28
 
