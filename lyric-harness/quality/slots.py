@@ -379,6 +379,29 @@ def spell_slot(slot):
 #: The sentinel for the line's LAST word, whose index no declaration knows.
 #: It is a WORD and not an index, and keeping it un-numbered is what stops a
 #: caller asserting a line length nobody measured.
+def span_kind(member):
+    """-> "front" | "rime" | "line" — which part of the word this slot's
+    span reads, derived from the slot's own RULE and never from the
+    placement's name (`MISSING.md` M-114).
+
+    `endword` and `head` anchor at `word_start` — the spelling-class /
+    alliteration question, read from the FRONT of the word. `end`,
+    `headrime` and `T<n>` anchor at `last_stressed` — the rhyme question,
+    the RIME. `line` is its own kind. The two word kinds are not
+    interchangeable inside one scalar-judged family: a non-initial-stress
+    polysyllable's front span cannot answer a rime family (`-deceit`
+    head-aligned against `suite` reads 0.13 where the bare pair reads
+    1.0), while a monosyllable's front IS its rime — which is why this is
+    a COORDINATE a disclosure reads, never a refusal: refusing the mix
+    would charge every monosyllable at `head`, a false positive by
+    construction (the entry's own accounting).
+    """
+    s = as_slot(member)
+    if s.rule.locus == "line":
+        return "line"
+    return "front" if s.rule.anchor == "word_start" else "rime"
+
+
 LAST_WORD = "last"
 
 

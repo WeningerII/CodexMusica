@@ -588,6 +588,20 @@ FAILs — E's two duplications (§0) and D's one mislabelled file. The audit tak
 19 seconds over 26 MB; the calibration takes half a second, with the real
 trees present or absent, so there is no excuse for skipping it.
 
+> **REPINNED 2026-08-28: 1,569 findings — 1 FAIL, 340 WARN, 1,228 NOTE**,
+> over **1,430 files**. Check J shipped (`MISSING.md` F-5: which enclitic
+> convention each `eng_` edition sets — attached-only 1,048, spaced-only 3,
+> both 242; 59 spaced-DOMINANT editions named per file) and its 60 NOTES
+> are the whole delta from the `.py`'s prior pin (~~NOTE 1,168~~); files,
+> FAIL and WARN are unmoved. Measured by re-running `--verify-shape`,
+> never by editing a number to meet the gate. **AND THE PRIOR PIN WAS IN
+> THE `.py` ALONE**: `PINNED_SHAPE` stood at 1,430/1/340/1,168 while this
+> file's newest block still read 1,423 files / 1,085 NOTE from 2026-08-21
+> — the two-records-with-one-name defect the 2026-08-16 block below warns
+> about, recurred between that warning and today. This block closes the
+> gap by recording BOTH the missing intermediate reading (as the `.py`
+> held it) and today's; nothing was silenced to meet either.
+>
 > **REPINNED 2026-08-21: 1,321 findings — 1 FAIL, 235 WARN, 1,085 NOTE**,
 > over **1,423 files** (~~233 WARN~~ earlier the same day). THIS ONE IS A
 > READER CHANGE, NOT A LOAD, and the signature is that `files`, `FAIL` and

@@ -644,8 +644,23 @@ which compositor set the type. It inflates a line's word count by up to 25%,
 the same defect class as counting a bare hyphen as a word.
 `lyric_harness.join_spaced_enclitics()` re-attaches a CLOSED set, each of which
 must be the whole token, so Dorset apheresis (`'ithin`, `'twer`) and Scots
-elision (`a'`, `o'`) are untouched. **Still open:** nothing detects WHICH
-convention an edition uses, so a corpus mixing both is silently inconsistent.
+elision (`a'`, `o'`) are untouched. ~~**Still open:** nothing detects WHICH
+convention an edition uses, so a corpus mixing both is silently
+inconsistent.~~
+
+**RESOLVED 2026-08-28, in the repair campaign — the detector is
+`quality/audit_corpus.py` Check J.** Per `eng_` file it counts SPACED
+enclitic settings through the joiner's own `_SPACED_ENCLITIC` (one
+definition, doctrine 1) beside ATTACHED ones, reports the corpus-wide
+partition (attached-only / spaced-only / both — three counts, never
+summed), and names per file every SPACED-DOMINANT edition — dominance a
+comparison between the file's own two counts, never a declared threshold
+(doctrine 58), so Burns's 13 stray spaced settings do not put him beside
+Rogers. All NOTE, charging nothing: a convention is the printer's, and
+what was defective was only that it was unsayable — a per-edition rate
+computed over the mixed corpus was partly a measure of the compositor.
+The audit's committed shape is repinned with the check's own notes in
+the same sitting (the `--verify-shape` discipline: re-run, not edited).
 
 ### F-6 · The best PD source can be the one that loses the metadata `OPEN`
 **Verified 2026-08-10.** Moore's _Irish Melodies_ were written to named airs.
@@ -655,7 +670,7 @@ obvious source is the lossy one. But Kalliope is NOT uniform: its Scots Ramsay
 substitutes the Danish **æ ligature for Scots `ae`** (`sae` → `sæ`), so Ramsay
 is recorded CONTESTED and was not staged. Check per-file, never per-repository.
 
-### F-4 · A transcription can invent a letter `OPEN` — the instance is closed, the guard is not
+### F-4 · A transcription can invent a letter `RESOLVED` 2026-08-28 — the instance was closed 2026-08-10, the guard 2026-08-28
 **Verified 2026-08-10, inside a single Gutenberg record.** Barnes exists as two
 files: `21785.txt` (ASCII) flattens the a-diaeresis to the two-letter sequence
 `ae`, printing `Greaeve` and `Feaeir` — **inventing a letter in every affected
@@ -684,6 +699,31 @@ every existing check. **Owed:** a declared non-ASCII-letter count for the
 number to zero and Check F goes red, plus a `check_data_rows` assertion that
 a row declaring ISO-8859-1 stages bytes that are actually non-ASCII. ~2–4 h
 including the eng-range repin.
+
+**THE GUARD SHIPPED 2026-08-28 (repair campaign), on the entry's own
+second alternative — the per-file orthography assertion — and the entry
+closes.** `quality/audit_corpus.py` Check K: a file whose
+`# orthography:` header names LATIN-1 / ISO-8859 is CLAIMING a
+non-ASCII letter is load-bearing in its bytes, and a file making that
+claim with ZERO non-ASCII letters in its verse has been flattened —
+FAIL. Healthy files are silent (Check F's own shape), so the audit's
+committed shape does not move while nothing is wrong; the recurrence —
+a re-stage from the ASCII transcription under the unchanged header —
+now goes red instead of passing every check. **Two scope decisions,
+stated:** (1) the eng CHANNEL was NOT given a corpus-wide non-ASCII
+count — most English files are honestly pure ASCII and a channel
+declaration would either fire on all of them or need a per-file
+coordinate anyway, which the header IS; (2) the `check_data_rows` row
+assertion was DECLINED as a second spelling of one claim (doctrine 1) —
+that instrument checks `data/` artifacts, the claim lives nearest the
+bytes in the staged file's own header, and 260 MSM files that merely
+record an ISO-8859-1 SOURCE in a `# file:` line make no orthography
+claim and are correctly out of scope. **THE GATE'S GATE**:
+`quality/test_corpus_audit.py` `test_encoding_guard_k` plants both
+sides — the flattened file FAILS, the letter-keeping twin and the
+source-recording file are silent — and checks the real staged Barnes is
+healthy under K. F-4a (the READER flattening the letter) is its own
+entry and is not closed by this.
 
 **AND THE SAME DOCTRINE IS VIOLATED ONE LAYER DOWN, ON THIS VERY FILE — split
 out as F-4a** because it is a different actor with a different blast radius.
@@ -1133,6 +1173,25 @@ stratifying by source type will be reading the editor.
 **Corroborating notation finding:** `etc.` is used exactly as `&c.` is — a
 verbatim-repeat pointer (`CHORUS. Who's now the traitor? etc.`). Two cells
 found it independently in different centuries and countries.
+
+**ADDENDUM 2026-08-28 (repair campaign): the smallest honest fix is
+COMPLETE on both surfaces, and the entry stays OPEN on exactly the half
+that is the owner's.** `_d_repeat_blocks` has printed the top-3
+concentration since the M-21 sitting; what remained was the RENDERER —
+`quality/counters.py`'s `english_corpus` cell parsed D3's triple and
+rendered the bare total, so the biased number was still quotable naked
+from the one surface built to be quoted. The cell now APPENDS D3's own
+`CONCENTRATION (K-1a):` substring and REFUSES to render at all if D3
+ever stops printing it — the total is not renderable without its
+stratification, by construction. The live reading, repinned in passing
+because the corpus has grown since this entry's own figures: **2,467
+blocks in 101 carrying files, top three D'Urfey 567 (23.0%), Burns 369
+(15.0%), Hemans 280 (11.3%)** — the one-file share fell from 35.9% as
+loading added carriers, and the diagnosis (an unstratified rate reads
+the editor) is unchanged. **WHAT STAYS OPEN is the declared
+`source_type` third axis — a vocabulary decision, the owner's by the
+`mark_coverage.py` precedent — and it is on the campaign's ruling sheet
+rather than in its build queue.**
 
 ### K-2 · ~~English is single-author on BOTH sides~~ — both halves retired `CLOSED`
 **Was:** positive = Shakespeare alone; negative = Whitman alone.
@@ -11472,7 +11531,7 @@ counts), so the section cannot pass by relabelling everything one way;
 `quality/test_songs_log.py` §3 repointed at the two facts. The banked
 songs' logs are historical records of the pre-split verb, unedited.
 
-### M-114 · a whole-word locus in a rime family refuses nothing at declaration time `OPEN`
+### M-114 · a whole-word locus in a rime family refuses nothing at declaration time `RESOLVED` 2026-08-28
 Filed 2026-08-25, the same song's other half. The slot vocabulary declares
 `head` and `endword` as WHOLE-WORD spans (`word_start` -> `to_word_end`)
 while `T<n>` and `headrime` read the rime (`last_stressed` -> word end) —
@@ -11495,7 +11554,39 @@ construction).
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~171~~ -> **172**.
 
-### M-115 · the prominence band is a count, and both of its evasions are audible `OPEN`
+**RESOLVED 2026-08-28, in the repair campaign — the disclosure half; the
+gate stays unbuilt for the entry's own reason (a monosyllable at `head`
+IS its rime, so a wordless gate has a false positive by construction).**
+One correction to this entry's own coordinate, stated rather than
+absorbed: `head` is not a whole-word span — `HEAD_LINE` is `word_start`
+magnitude 1, the alliteration syllable — so the honest kind coordinate is
+the ANCHOR: `endword` and `head` read the FRONT of the word
+(`word_start`), `end`/`headrime`/`T<n>` read the RIME (`last_stressed`),
+and that is what `quality/slots.py:span_kind` derives from each slot's
+own RULE, never from the placement's name.
+`Mandate.mixed_span_groups()` (`quality/schemes.py`) names every
+DEFAULT-relation group whose members mix the two kinds, with the slot
+spellings per kind — SCOPED TO THE SCALAR ROUTE on purpose, because a
+group declaring a relation is judged by the pair judge at each member's
+own slot (M-148) and crossing kinds there is the schema's own vocabulary
+(head rhyme WANTS a front span). `Reviser.inspect` carries it as
+`"mixed_span_groups"` — CALL metadata on the `blueprint_declared`
+precedent, a key and never a Finding, because the mixing is a fact about
+the DECLARATION and not the draft (and not a new finding code, so the
+gate census's 23/48 partition is unmoved). The report shared by `brief`
+and `song` prints one `MIXED SPANS:` line per named group beside the
+`SCHEMA DEFAULT` disclosure, telling the writer which members answer the
+spelling-class question and which the rhyme question — matinee's
+round-1 defect (`-deceit` head-aligned against `suite` at 0.13, 19 of 22
+violations removed by respelling loci alone) would have been named on
+its first grade. **THE GATE'S GATE**: `quality/test_slots.py` §12 — the
+kind table derived per placement, the bare-number default, the mixed
+group named beside its silent uniform sibling, the declared-relation
+scoping control, the inspect key, and the hand-proven mutation
+(flattening `span_kind` to one value silences the disclosure, so the
+check is the coordinate doing the work).
+
+### M-115 · the prominence band is a count, and both of its evasions are audible `RESOLVED` 2026-08-28
 Filed 2026-08-25, from panel run 4 (`quality/RESULTS_PANEL.md` §7).
 `matinee.txt`'s eleven PROMINENCE_OUT_OF_BAND flags were cleared by
 function-word dilution — every bound word held, prominent syllables
@@ -11519,6 +11610,32 @@ as an FPR (doctrine 22); until then the panel stays the only instrument
 that can hear it, per §4's subtle-mode refusal.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~172~~ -> **173**.
+
+**RESOLVED 2026-08-28, in the repair campaign — the disclosure half; the
+band is untouched and the gate stays with the calibration this entry
+already scoped (a ceiling on stress runs needs its own corpus
+measurement, stated as an FPR, doctrine 22 — a chant line WANTS the
+clot).** `quality/fit.py:LineUnits.prominence_runs` derives (longest
+prominent run, longest weak run) from the SAME ordered units the counts
+read — an UNDECIDED unit breaks both runs rather than joining either,
+because counting it either way would decide a reading the phonology
+refused (doctrine 20). Three surfaces, one derivation:
+`Reviser._band_findings` fills a per-line map off the read it already
+makes (no second pass), `inspect()` returns it as `"prominence_runs"` —
+CALL metadata, a key and never a Finding, so the gate census is
+unmoved — and appends the two runs to `PROMINENCE_OUT_OF_BAND`'s own
+evidence (both branches), so a diluting repair sees the weak run on the
+very flag it is clearing; and the report shared by `brief` and `song`
+prints an `ADJACENCY:` rollup naming the extremes — the line with the
+longest stress run and the line with the longest weak run — never per
+line (noise) and never charged. Both of the panel's quoted evasions are
+now readable: the clot fixture ("six stressed monosyllables") reads a
+run of 6 on a line the band passes, and strung function words read as
+the weak run. **THE GATE'S GATE**: `quality/test_meter_bands.py` §11 —
+clot vs alternating control under the adopted reader, the weak-run half,
+the undecided-breaks-both-runs pin, the inspect key for every line, and
+the hand-proven mutation (the property flattened to (0,0) silences the
+disclosure, so the checks are the derivation doing the work).
 
 ### M-116 · all 77 schemas join the default — the owner's ruling, shipped `CLOSED`
 Filed and closed 2026-08-25, on the owner's direct instruction ("put all 77
@@ -13771,6 +13888,27 @@ The `mandate_spelling` repair is what a caller needs the day it does.
 
 Attributed to a lane; the 34/0 grading contrast, the `--returns=` refusal and
 the mutation I re-derived myself.
+
+**ADDENDUM 2026-08-28 (repair campaign): the open half's REFUSAL is in the
+right layer's words now, and the acceptance was DECLINED on inspection.**
+The campaign's build slot for (1) was "take the slot spelling the sibling
+takes" — and reading the identity machinery refused it: `Return.lines` is
+a tuple of ints and EVERY judge reads lines — `returns_check`'s verbatim
+comparison, the loop's pinning (`_anchor_obligations` refuses to search a
+return-pinned line), `repeat_is_violation` — so accepting `1.head` into
+`_normalise_returns` would take a declaration about one WORD and judge a
+different one about its whole line: accept-and-misjudge, worse than the
+refusal. What shipped instead: `_normalise_returns` refuses a placed
+member BY NAME with the remedy stated (it was `invalid literal for int()
+with base 10: '1.head'` — a `ValueError` from three frames down, caught
+by the CLI's mismatch handler and printed in the wrong layer's words),
+and a non-numeric member gets its own named refusal beside it.
+`quality/test_mandate_language.py` §7 pins both. **The entry's (1) now
+owes exactly one thing, stated: a placed word-identity JUDGE** — a
+`Return` that carries loci and a `returns_check` that compares the words
+at them, with every line-keyed consumer audited — which is a build, not a
+spelling, and is why 94.9% of recovered REPEAT edges remain refused
+(loudly, with the remedy) rather than accepted.
 
 ### M-143 · the candidate field was built at one door and said so to nobody `CLOSED`
 Closed 2026-08-26, the `PER_WORD` half of M-139. **`Reviser._field_one` holds a

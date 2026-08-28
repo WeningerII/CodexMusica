@@ -8241,6 +8241,43 @@ def main():
                       + (" …" if len(_sch_sat) > 4 else "")
                       + " — laziness at these relations is UNCALIBRATED; "
                       "declaring a relation narrows (M-116)")
+            # A GROUP THAT MIXES SPAN KINDS, SAID OUT LOUD (M-114).
+            # `endword`/`head` read the FRONT of a word, `end`/`headrime`/
+            # `T<n>` read its RIME, and a scalar-judged family mixing the
+            # two was accepted in silence — measured at 22 scheme
+            # violations of which respelling the loci alone removed 19
+            # with zero word changes. A disclosure about the DECLARATION,
+            # never a Finding and never a refusal: a monosyllable at
+            # `head` is byte-identical to `T1`, so a gate here has a
+            # false positive by construction. Groups declaring a relation
+            # are not named — the pair judge binds each member at its own
+            # slot there, and crossing kinds is the schema's vocabulary.
+            for _lab, _kinds in found.get("mixed_span_groups") or ():
+                print(f"  MIXED SPANS: group {_lab!r} binds front-of-word "
+                      f"span(s) ({', '.join(_kinds.get('front', []))}) "
+                      f"beside rime span(s) "
+                      f"({', '.join(_kinds.get('rime', []))}) in one "
+                      f"scalar-judged family — a non-initial-stress "
+                      f"polysyllable's front span cannot answer a rime "
+                      f"family (a monosyllable's can). Check the words at "
+                      f"the front spans, or respell the locus (M-114).")
+            # THE ADJACENCY ROLLUP (M-115). The prominence band is a COUNT,
+            # and both of its evasions are audible: pad function words down
+            # into the band, or clot the stresses inside it — a blind
+            # prosody judge quoted both back on lines the band had cleared.
+            # The extremes are printed, never per line (noise) and never
+            # charged (whether a run is a defect needs its own corpus
+            # measurement, stated as an FPR — doctrine 22).
+            _runs = found.get("prominence_runs") or {}
+            if _runs:
+                _lp = max(_runs, key=lambda l: _runs[l][0])
+                _lw = max(_runs, key=lambda l: _runs[l][1])
+                print(f"  ADJACENCY: longest stress run "
+                      f"{_runs[_lp][0]} (L{_lp}), longest weak run "
+                      f"{_runs[_lw][1]} (L{_lw}) — the prominence band "
+                      f"counts and cannot hear a clot inside it or padding "
+                      f"down into it; disclosed, uncalibrated, never "
+                      f"charged (M-115).")
             # THE SPANS THAT PRODUCED EACH FAILING NUMBER, beside it.
             # BACKLOG 1.2's acceptance names `brief` as well as
             # `check_scheme`, and a brief is where the misattribution

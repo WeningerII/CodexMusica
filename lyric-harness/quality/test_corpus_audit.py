@@ -1193,6 +1193,58 @@ def test_check_I_reads_the_indent_and_charges_nothing():
 # ---------------------------------------------------------------------------
 
 
+def test_encoding_guard_k():
+    """K (F-4): a Latin-1 orthography claim over flattened bytes FAILS,
+    and the healthy staged Barnes is silent.
+
+    The recurrence this guards: a re-stage from the ASCII transcription
+    (which invents a letter — `Greaeve` for `Greäve`) under a header
+    still claiming the Latin-1 transcription would have passed every
+    check before this one existed, because flattening `ä` to `ae` RAISES
+    the English vowel count. Both sides are planted so the check cannot
+    pass by firing on everything or on nothing.
+    """
+    with tempfile.TemporaryDirectory() as td:
+        flat = os.path.join(td, "eng_planted_flat.txt")
+        with open(flat, "w", encoding="utf-8") as fh:
+            fh.write("# orthography: DORSET. This is the LATIN-1 "
+                     "transcription and it is the one to use.\n"
+                     "--- TITLE: PLANTED\n"
+                     "The greaeve wer wide, my Jeaene\n")
+        kept = os.path.join(td, "eng_planted_kept.txt")
+        with open(kept, "w", encoding="utf-8") as fh:
+            fh.write("# orthography: DORSET. This is the LATIN-1 "
+                     "transcription and it is the one to use.\n"
+                     "--- TITLE: PLANTED\n"
+                     "The greäve wer wide, my Jeäne\n")
+        plain = os.path.join(td, "eng_planted_plain.txt")
+        with open(plain, "w", encoding="utf-8") as fh:
+            fh.write("# file 22515-8.txt (ISO-8859-1)\n"
+                     "--- TITLE: PLANTED\n"
+                     "A plain ascii verse line\n")
+        fs = [(os.path.basename(p), AC.CorpusFile(p))
+              for p in (flat, kept, plain)]
+        got = AC.check_encoding(fs, None)
+    check("the FLATTENED file under a Latin-1 orthography claim FAILS — "
+          "the letter the declaration exists to keep is gone",
+          len(got) == 1 and got[0].severity == AC.FAIL
+          and got[0].path == "eng_planted_flat.txt",
+          str([(f.path, f.severity) for f in got]))
+    check("...and the file that KEEPS the letter is silent, and a file "
+          "that merely records an ISO-8859-1 SOURCE makes no claim and "
+          "is out of scope (260 MSM files name one and many are honestly "
+          "pure ASCII)",
+          all(f.path == "eng_planted_flat.txt" for f in got))
+    real = os.path.join(AC.CORPUS_DIR, "song", "eng_hall_william_barnes.txt")
+    if os.path.exists(real):
+        got = AC.check_encoding(
+            [("eng_hall_william_barnes.txt", AC.CorpusFile(real))], None)
+        check("the REAL staged Barnes is healthy — its declaration is "
+              "populated (3,058 staged lines carry the letter) and K "
+              "emits nothing, so the corpus shape does not move",
+              got == [])
+
+
 def main():
     tests = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     for t in tests:

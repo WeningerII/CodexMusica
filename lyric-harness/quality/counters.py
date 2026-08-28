@@ -1354,23 +1354,38 @@ def english_corpus():
     out, _ = _once("register", ["quality/audit_register.py", "--slow"])
     songs = int(_derivation(out, "D1"))
     lines = int(_derivation(out, "D2"))
+    d3 = _derivation(out, "D3")
     rb = _grab(r"BURDEN (\d+) REFRAIN (\d+) CHORUS (\d+) \(sum (\d+)\)",
-               _derivation(out, "D3"), "the repeat-block breakdown")
+               d3, "the repeat-block breakdown")
     b, r, c, tot = (int(rb.group(i)) for i in (1, 2, 3, 4))
     if b + r + c != tot:
         raise ValueError("repeat blocks %d + %d + %d != %d" % (b, r, c, tot))
+    # K-1a: THE TOTAL MAY NOT BE RENDERED WITHOUT ITS CONCENTRATION. One
+    # file carries a third of all burdens and only 101 of 1,297 files carry
+    # any repeat block, so the bare total measures editorial practice as
+    # much as the songs — D3 prints the top contributors for exactly this
+    # reason, and a D3 that stopped printing them must fail this cell
+    # loudly rather than hand the biased number back out alone.
+    conc = re.search(r"CONCENTRATION \(K-1a\):[^\n]*", d3)
+    if not conc:
+        raise ValueError(
+            "D3 no longer prints its CONCENTRATION (K-1a) — the "
+            "repeat-block total is the biased number K-1a is about and is "
+            "not renderable without its stratification")
     nfiles = len(
         [f for f in os.listdir(os.path.join(ROOT, "corpus", "song"))
          if f.startswith("eng_") and f.endswith(".txt")])
     cell = ("%d files, %s songs, %s sung lines; %s repeat blocks "
-            "(%s BURDEN / %s REFRAIN / %s CHORUS)"
+            "(%s BURDEN / %s REFRAIN / %s CHORUS); %s"
             % (nfiles, "{:,}".format(songs), "{:,}".format(lines),
                "{:,}".format(tot), "{:,}".format(b),
-               "{:,}".format(r), "{:,}".format(c)))
+               "{:,}".format(r), "{:,}".format(c), conc.group(0)))
     return Answered(cell,
                     "rule: a song is a `--- TITLE:` line; a sung line is "
                     "non-blank and does not begin `#`, `---` or `[`; a repeat "
-                    "block is a `[TAG` line with its trailing index stripped")
+                    "block is a `[TAG` line with its trailing index stripped; "
+                    "the concentration rides the cell because the total "
+                    "alone is the biased number (K-1a)")
 
 
 def _tsv_rows(rel):

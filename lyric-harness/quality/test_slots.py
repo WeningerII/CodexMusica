@@ -400,13 +400,75 @@ def test_the_writer_facing_spelling():
           f"{[l for l in str(b_t4).splitlines() if 'ALREADY THERE' in l]}")
 
 
+def test_the_span_kind_is_disclosed():
+    """12. M-114 — A GROUP MIXING FRONT SPANS WITH RIME SPANS IS SAID.
+
+    `21.endword` in a family of rime slots is unsatisfiable by
+    construction for any non-initial-stress polysyllable, and the
+    declaration was accepted in silence — measured at 22 scheme
+    violations of which the locus respelling alone removed 19 with zero
+    word changes. A DISCLOSURE and never a refusal: a monosyllable at
+    `head` is byte-identical to `T1`, so a gate here has a false
+    positive by construction (the entry's own open half).
+    """
+    print("\n12. M-114 — the span-kind coordinate, and the mixed-group "
+          "disclosure")
+    kinds = {p: SL.span_kind(SL.parse_slot(f"1.{p}"))
+             for p in ("end", "endword", "head", "headrime", "T3", "line")}
+    check("the kind is derived from each slot's own RULE anchor — endword "
+          "and head read the FRONT, end/headrime/T<n> read the RIME, line "
+          "is its own kind — never from the placement's name",
+          kinds == {"end": "rime", "endword": "front", "head": "front",
+                    "headrime": "rime", "T3": "rime", "line": "line"},
+          str(kinds))
+    check("...and a bare line number is the default slot, a rime",
+          SL.span_kind(1) == "rime")
+    m = SC.mandate([["1.endword", 2], [1, 2]], n_lines=2)
+    mixed = m.mixed_span_groups()
+    check("a scalar group mixing endword with a default slot is NAMED, "
+          "with the kinds spelled per member; the uniform sibling is not",
+          [lab for lab, _ in mixed] == ["A"]
+          and mixed[0][1] == {"front": ["1.endword"], "rime": ["2"]},
+          str(mixed))
+    m2 = SC.mandate([["1.endword", 2]], n_lines=2,
+                    relations={"A": "type:rime riche"})
+    check("a group DECLARING a relation is not named — the pair judge "
+          "binds each member at its own slot there, so crossing kinds is "
+          "the schema's own vocabulary, not the scalar comparator's",
+          m2.mixed_span_groups() == [])
+    rv = Reviser()
+    found = rv.inspect(["the cat sat on the mat",
+                        "he tipped his fine new hat"],
+                       SC.mandate([["1.endword", 2]], n_lines=2))
+    check("`inspect()` carries the disclosure as CALL metadata — a key, "
+          "never a Finding (the `blueprint_declared` precedent): the "
+          "mixing is a fact about the declaration, not the draft",
+          found.get("mixed_span_groups")
+          and found["mixed_span_groups"][0][0] == "A",
+          str(found.get("mixed_span_groups")))
+    # THE MUTATION, hand-proven: flatten the kind coordinate and the
+    # disclosure must go silent — so the check above is the coordinate
+    # doing the work, not the fixture.
+    keep = SL.span_kind
+    try:
+        SL.span_kind = lambda member: "rime"
+        check("MUTATION: with the kind flattened to one value, the mixed "
+              "group is not named — the disclosure reads the coordinate",
+              m.mixed_span_groups() == [])
+    finally:
+        SL.span_kind = keep
+    check("...and the mutation is reverted",
+          [lab for lab, _ in m.mixed_span_groups()] == ["A"])
+
+
 def main():
     for fn in (test_default_is_line_anchors, test_spelling_round_trips,
                test_anchor_with_no_referent, test_refusals,
                test_mandate_carries_placement, test_within_line_refusal,
                test_grade_reads_the_slot, test_untouched_path,
                test_provenance_guard, test_which_word_a_placement_binds,
-               test_the_writer_facing_spelling):
+               test_the_writer_facing_spelling,
+               test_the_span_kind_is_disclosed):
         fn()
     print(f"\n{'ALL PASS' if not FAILURES else 'FAILURES: ' + str(FAILURES)}")
     return 1 if FAILURES else 0

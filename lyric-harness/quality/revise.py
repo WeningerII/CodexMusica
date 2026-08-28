@@ -2248,8 +2248,18 @@ class Reviser:
 
     # -- the calibrated bands ----------------------------------------------
 
-    def _band_findings(self, lines):
+    def _band_findings(self, lines, runs_out=None):
         """-> {line_no: [Finding]}. The ADOPTED meter bands, enforced.
+
+        `runs_out` (M-115): pass a dict and it is filled with
+        {line_no: (longest prominent run, longest weak run)} for EVERY
+        line, read off the same `LineUnits` the counts are — the
+        adjacency the band cannot see, captured here so the caller does
+        not pay a second full read of the draft. Never a Finding and
+        never charged: whether a stress clot or a weak string is a
+        defect is a band question needing its own corpus measurement,
+        stated as an FPR (doctrine 22), and until that calibration
+        exists the runs are disclosed and nothing more.
 
         DENSITY [5, 12] syllables/line and PROMINENCE [2, 7] prominent/line
         — measured over 139,694 sung English lines, adopted by the
@@ -2296,6 +2306,8 @@ class Reviser:
             lu = FT.read_line(text, phon=phon)
             syl, prom = lu.syllables, len(lu.prominent)
             undecided = len(lu.prominence_undecided)
+            if runs_out is not None:
+                runs_out[ln] = lu.prominence_runs
             refused = [r.token for r in lu.refused]
             complete = not refused and bool(lu.units)
             fs = []
@@ -2319,13 +2331,21 @@ class Reviser:
                     f"over the ceiling is a violation no missing token can "
                     f"undo.", [ln]))
             prom_certain = complete and not undecided
+            # M-115: the runs beside the count, on the finding a diluting
+            # repair is aimed at — "and the" strung as padding shows up
+            # here as the weak run the count cannot see.
+            _rp, _rw = lu.prominence_runs
+            _adj = (f" Adjacency, disclosed and uncalibrated: longest "
+                    f"stress run {_rp}, longest weak run {_rw} — the "
+                    f"band counts and cannot hear a clot or padding "
+                    f"(M-115).")
             if prom_certain and not (p_lo <= prom <= p_hi):
                 fs.append(Finding(
                     "PROMINENCE_OUT_OF_BAND", "flag",
                     f"{prom} prominent syllable(s) — outside the calibrated "
                     f"[{p_lo}, {p_hi}] band for a sung English line",
                     f"{basis}. Too few and too many are both refused, for "
-                    f"the reason above.", [ln]))
+                    f"the reason above." + _adj, [ln]))
             elif not prom_certain and prom > p_hi:
                 fs.append(Finding(
                     "PROMINENCE_OUT_OF_BAND", "flag",
@@ -2334,7 +2354,7 @@ class Reviser:
                     f"read with certainty",
                     f"{basis}. A lower bound over the ceiling is a "
                     f"violation no refused token or undecided reading can "
-                    f"undo.", [ln]))
+                    f"undo." + _adj, [ln]))
             if not complete or undecided:
                 why = []
                 if refused:
@@ -3296,7 +3316,8 @@ class Reviser:
         # block above there is no opt-in coordinate to disclose and their
         # silence genuinely means the draft's lines sit inside what 139,694
         # sung English lines do (see `_band_findings`).
-        for ln, fs in self._band_findings(lines).items():
+        _prom_runs = {}
+        for ln, fs in self._band_findings(lines, runs_out=_prom_runs).items():
             for f in fs:
                 add(ln, f)
         # `blueprint_declared` is NOT a Finding. Meter/function are an OPT-IN
@@ -3308,9 +3329,23 @@ class Reviser:
         # clean, and a caller reading this dict alone (the CLI already prints
         # its own disclosure separately; see `_say_blueprint` in
         # lyric_harness.py) has no other way to tell the two apart.
+        # `mixed_span_groups` is call metadata on the same argument (M-114):
+        # a DEFAULT-relation group mixing front-of-word spans with rime
+        # spans is a fact about the DECLARATION — the writer must know that
+        # `21.endword` asks the spelling-class question while its siblings
+        # ask the rhyme question — and it is not a defect on the draft, so
+        # it is a key and never a Finding.
+        # `prominence_runs` (M-115) is the same kind of key: per line, the
+        # (longest stress run, longest weak run) the band's COUNT cannot
+        # see — captured off the same read the band findings made, disclosed
+        # and uncalibrated, never a Finding and never charged.
         return {"per_line": per, "whole": whole, "mandate": m, "grade": rep,
                 "merges": merges, "blueprint_declared": blueprint is not None,
-                "sentencehood_checked": _sh_checked}
+                "sentencehood_checked": _sh_checked,
+                "mixed_span_groups": (m.mixed_span_groups()
+                                      if hasattr(m, "mixed_span_groups")
+                                      else []),
+                "prominence_runs": _prom_runs}
 
     # -- the brief --------------------------------------------------------
 

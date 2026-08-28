@@ -2190,6 +2190,127 @@ def check_indent(files, src):
     return out
 
 
+def check_enclitic_convention(files, src):
+    """J · which enclitic-setting convention each English edition uses
+    (`MISSING.md` F-5).
+
+    Rogers's 1855 Modern Scottish Minstrel sets a SPACE before enclitics
+    (`There 's high and low`) 189 times in Nairne against 13 in all of
+    Burns — same language, opposite tokenisation, decided by the
+    compositor. `join_spaced_enclitics` NORMALISES the spaced form at
+    read time; what nothing did was SAY which convention an edition uses,
+    so a corpus mixing both was silently inconsistent and any per-edition
+    rate was unstratifiable. This check answers it per file, reading the
+    SAME closed set the joiner reads (`lyric_harness.ENCLITICS` via
+    `_SPACED_ENCLITIC` — one definition, doctrine 1), and it charges
+    NOTHING: a convention is the printer's, not a defect (doctrine 6's
+    shape one layer down). Dominance is a COMPARISON between the file's
+    own two counts, never a declared threshold (doctrine 58): a file is
+    noted per-file only when the spaced spellings OUTNUMBER the attached
+    ones, which names the Rogers-convention editions without burying them
+    under every file that carries a stray compositor's slip.
+    """
+    import lyric_harness as LH
+    out = []
+    attached_re = re.compile(r"\w('(?:s|ll|re|ve|d|m|t|n))\b", re.I)
+    spaced_only, attached_only, both, dominant = 0, 0, 0, []
+    for rel, cf in files:
+        lang, _ = declared_language(cf, rel)
+        if lang != "eng":
+            continue
+        text = LH.fold_apostrophes(cf.text)
+        spaced = len(LH._SPACED_ENCLITIC.findall(text))
+        attached = len(attached_re.findall(text)) - spaced
+        if not spaced and not attached:
+            continue
+        if spaced and attached:
+            both += 1
+        elif spaced:
+            spaced_only += 1
+        else:
+            attached_only += 1
+        if spaced > attached:
+            dominant.append((rel, spaced, attached))
+    if not (spaced_only or attached_only or both):
+        return out
+    out.append(Finding(
+        "J", NOTE, "corpus/song/ (every eng_ file with enclitic evidence)",
+        "which enclitic convention each edition sets — attached-only %d, "
+        "spaced-only %d, both %d file(s); three counts, never summed"
+        % (attached_only, spaced_only, both),
+        "the SPACED convention (`There 's`) is the edition's, not the "
+        "language's; `join_spaced_enclitics` normalises it at read time "
+        "and this check makes the convention SAYABLE per file so a "
+        "per-edition rate can be stratified. %d file(s) are "
+        "spaced-DOMINANT (spaced > attached) and are named below"
+        % len(dominant),
+        "a convention is not a defect and nothing here charges one; what "
+        "was silent is WHICH convention a file carries, and silence there "
+        "made every mixed-corpus rate partly a measure of the compositor",
+        "1"))
+    for rel, spaced, attached in sorted(dominant):
+        out.append(Finding(
+            "J", NOTE, rel,
+            "this edition sets enclitics SPACED — %d spaced against %d "
+            "attached" % (spaced, attached),
+            "the file's dominant convention is the compositor's spaced "
+            "setting; `join_spaced_enclitics` re-attaches the closed set "
+            "at read time, so no measurement counts the split tokens",
+            "named so a reader computing a per-edition rate knows this "
+            "file's tokenisation was set by its printer, not its poet",
+            "1"))
+    return out
+
+
+def check_encoding(files, src):
+    """K · a declared transcription's letter must survive in the bytes
+    (`MISSING.md` F-4, doctrine 50).
+
+    Barnes exists on Gutenberg twice: the Latin-1 transcription keeps his
+    a-diaeresis and the ASCII sibling flattens `ä` to the two-letter
+    sequence `ae`, INVENTING A LETTER in every affected word. The staged
+    file's own `# orthography:` header says which transcription it is and
+    why the other must not be used — and nothing READ that declaration,
+    so a re-stage from the ASCII transcription that repinned its own md5
+    would have passed every existing check (the English vowel count
+    RISES under the flattening, so Check F points the wrong way here).
+
+    THE PREDICATE IS THE FILE'S OWN DECLARATION, not an encoding sniff: a
+    `# orthography:` header line naming LATIN-1 / ISO-8859 is a claim
+    that a non-ASCII letter is load-bearing in these bytes, and a file
+    making that claim with ZERO non-ASCII letters in its verse has been
+    flattened — FAIL. Healthy files are SILENT (Check F's own shape:
+    silence means the declared channel is populated), so the corpus
+    shape does not move when nothing is wrong. Files that merely record
+    an ISO-8859-1 SOURCE in a `# file:` line make no such claim — 260
+    Modern Scottish Minstrel files name one and many are honestly pure
+    ASCII — and are deliberately out of scope.
+    """
+    out = []
+    for rel, cf in files:
+        decl = [l for l in cf.text.split("\n")
+                if l.startswith("#") and "orthography" in l.lower()
+                and ("latin-1" in l.lower() or "iso-8859" in l.lower())]
+        if not decl:
+            continue
+        n = sum(1 for ch in cf.verse_text
+                if ch.isalpha() and ord(ch) > 127)
+        if n == 0:
+            out.append(Finding(
+                "K", FAIL, rel,
+                "the header declares a LATIN-1 transcription and the "
+                "verse carries ZERO non-ASCII letters — the flattening "
+                "the declaration exists to forbid has recurred",
+                "declaration: %r; non-ASCII letters in verse: 0"
+                % decl[0].strip()[:100],
+                "the ASCII sibling transcription invents a letter in "
+                "every affected word (`Greaeve`, `Feaeir`) and must not "
+                "be staged; re-stage from the transcription the header "
+                "names, or correct the header if the orthography claim "
+                "is no longer true", "50"))
+    return out
+
+
 CHECKS = collections.OrderedDict([
     ("A", ("ROW — every file has a sources.tsv row, every row a file", check_row)),
     ("B", ("HEADER — the file's own header against its row", check_header)),
@@ -2200,6 +2321,8 @@ CHECKS = collections.OrderedDict([
     ("G", ("ORTHOGRAPHY — doctrines 50/70, the destroying alternant", check_orthography)),
     ("H", ("STAGING — a `[VERSE]` mark on something that is not a stanza", check_staging)),
     ("I", ("INDENT — doctrine 14, the printing as an independent witness", check_indent)),
+    ("J", ("ENCLITIC — F-5, which convention the edition sets", check_enclitic_convention)),
+    ("K", ("ENCODING — F-4, the declared letter survives in the bytes", check_encoding)),
 ])
 
 
@@ -2889,7 +3012,12 @@ def main(argv=None):
 #: ones** (`maðr` 6, `sonr` 2, `konungr` 2, `Þórólfr` 1, `Egill` 103), against
 #: 1,534/0 in the prose it was cut from. The channel the hending measurement
 #: needs is intact, measured rather than hoped.
-PINNED_SHAPE = {"files": 1430, "FAIL": 1, "WARN": 340, "NOTE": 1168}
+#: REPINNED 2026-08-28 (~~NOTE 1168~~): Check J shipped (F-5's enclitic
+#: convention detector) and its 60 notes — one corpus-wide partition and 59
+#: spaced-DOMINANT editions named per file — are the whole delta; files,
+#: FAIL and WARN are unmoved. Measured by re-running `--verify-shape`,
+#: never by editing a number to meet the gate.
+PINNED_SHAPE = {"files": 1430, "FAIL": 1, "WARN": 340, "NOTE": 1228}
 
 
 def _verify_shape(files, findings):
