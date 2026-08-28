@@ -386,7 +386,19 @@ export async function runTurn({
           delete args[STATE_PROPERTY];
         }
       }
-      result = await callTool(fc.name, args);
+      // A tool that fails — a timeout, a dropped transport — becomes an
+      // ERROR RESULT the model can see and react to, never an exception
+      // that kills the whole turn: under the old shape one slow call
+      // turned the entire conversation into a bare 502 with the record
+      // of every earlier call discarded (flash battery finding #1).
+      try {
+        result = await callTool(fc.name, args);
+      } catch (err) {
+        result = {
+          isError: true,
+          content: [{ type: 'text', text: `Error: ${err?.message || 'tool call failed'}` }],
+        };
+      }
       const isError = !!result?.isError;
       // Harvest the workspace on the way past. The model is never shown it, so
       // this is the only place it can be captured.
