@@ -47,6 +47,19 @@ jobs:
             --songs=${{ inputs.songs }} \
             --turns=${{ inputs.turns }} \
             --pace=${{ inputs.pace }}
+      # The analyst's container cannot reach the artifact blob store either
+      # (same egress policy that motivated this workflow), but it CAN read job
+      # logs — so the transcripts are also printed here, size-guarded. The
+      # artifact remains the canonical full record.
+      - name: Print the transcripts into the log (the analyst reads logs)
+        if: always()
+        run: |
+          for f in battery-out/summary.json battery-out/*.jsonl; do
+            [ -f "$f" ] || continue
+            echo "═══ $f ═══"
+            head -c 400000 "$f"
+            echo
+          done
       - name: Upload the transcripts (the record IS the deliverable)
         if: always()
         uses: actions/upload-artifact@v4
