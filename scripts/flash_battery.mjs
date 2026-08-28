@@ -1,0 +1,184 @@
+// flash_battery.mjs — drive the LIVE chat deployment through whole songs and
+// record what actually happened, so the model's account can be charged against
+// the harness's own verdicts.
+//
+// THE BATTERY'S QUESTION (owner's directive, 2026-08-28): does the pipeline
+// hold when the writer is a weak model, or does it only look watertight
+// because a strong model quietly does the right thing anyway? The site's chat
+// runs gemini-3.1-flash-lite; this driver plays the ROLE OF THE USER and
+// nothing else — an opening brief, then neutral continuations — so everything
+// between the model and the harness is the model's own doing.
+//
+// WHAT IT RECORDS is the server's ground truth, not the model's prose: every
+// /chat response carries `tools[]` with the SERVER-harvested exit_code and
+// banned_pairs per call (mcp/chat.js), which the model cannot edit. A JSONL
+// row per turn keeps the reply, the tool trace, the stop reason, and the
+// envelope sizes. The analysis half is deliberately NOT automated away: the
+// driver flags a few mechanical suspicions inline, and the leak taxonomy
+// (skipped step, lost state, premature "done", ignored question, constraint
+// evasion, misreported verdict) is charged by a human/analyst reading the
+// transcript against the trace — counts per category, never summed.
+//
+// WHAT IT DELIBERATELY DOES NOT DO: no retries that would blur the record
+// beyond a bounded 429/503 backoff (each retry is logged); no answer-feeding
+// (the driver never writes a lyric line — the model is the writer); no
+// server-side anything. Rate discipline: the deployment allows ~30 requests
+// per IP per hour (mcp/chat.js CHAT_IP_RPH), so --pace defaults to 130s and a
+// battery round sizes itself to fit inside the hour.
+//
+// Usage:
+//   node scripts/flash_battery.mjs --out=DIR [--base=URL] [--songs=N]
+//     [--turns=N] [--pace=SECONDS] [--brief=INDEX]
+//
+// Output: DIR/song<i>.jsonl (one row per turn) and DIR/summary.json.
+
+const args = Object.fromEntries(
+  process.argv.slice(2).map((a) => {
+    const m = /^--([^=]+)(?:=(.*))?$/.exec(a);
+    return m ? [m[1], m[2] ?? 'true'] : [a, 'true'];
+  })
+);
+
+const BASE = args.base || 'https://codex-musica-mcp.onrender.com';
+const OUT = args.out;
+if (!OUT) {
+  console.error(
+    'REFUSED — --out=DIR is required: a battery run with no record is a private instrument'
+  );
+  process.exit(2);
+}
+const N_SONGS = Math.max(1, parseInt(args.songs || '3', 10));
+const MAX_TURNS = Math.max(2, parseInt(args.turns || '9', 10));
+const PACE_MS = Math.max(0, parseFloat(args.pace || '130') * 1000);
+
+// The briefs vary which gates get exercised: a plain ask, a form with a
+// declared relation, a roster constraint, a revision-heavy ask, a paste-in
+// (the recover door). Plain language on purpose — the site's users write
+// plain language, and a brief written in the tools' own vocabulary would be
+// the driver quietly doing the model's job.
+const BRIEFS = [
+  'Write me a song about a lighthouse keeper who falls asleep. Take it all the way to finished — I want the final, checked version.',
+  'I want a song in ABAB quatrains about packing up a childhood home. Use assonance as the rhyme feel, and finish it properly — revised until it passes.',
+  'Write a song with a chorus and a bridge about driving at night. No prechorus. Finish it — do not stop at a draft.',
+  'Write a short song about rain on a tin roof, then revise it until every check passes. Show me the finished version only when it is actually finished.',
+  'Write me a drinking song with a verbatim refrain that comes back three times. Take it through the whole process to a finished song.',
+];
+const CONTINUE = 'continue';
+
+function esc(s, n) {
+  return (s || '').slice(0, n);
+}
+
+async function post(body) {
+  const started = Date.now();
+  const res = await fetch(`${BASE}/chat`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  const payload = await res.json().catch(() => null);
+  return { status: res.status, payload, ms: Date.now() - started };
+}
+
+const { mkdirSync, appendFileSync, writeFileSync } = await import('node:fs');
+mkdirSync(OUT, { recursive: true });
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const summary = { base: BASE, started: new Date().toISOString(), songs: [] };
+
+const only = args.brief != null ? [parseInt(args.brief, 10)] : null;
+const indices = only ?? Array.from({ length: N_SONGS }, (_, i) => i % BRIEFS.length);
+
+for (const [songNo, briefIdx] of indices.entries()) {
+  const brief = BRIEFS[briefIdx];
+  const file = `${OUT}/song${songNo}.jsonl`;
+  const flags = [];
+  let env = null; // {history, workspace, lyric?, sig}
+  let sawStop = null; // last lyric_revise exit 0/3 seen
+  let turns = 0;
+  let retries = 0;
+
+  for (let t = 0; t < MAX_TURNS; t++) {
+    const message = t === 0 ? brief : CONTINUE;
+    const body = { message };
+    if (env) {
+      body.history = env.history;
+      body.workspace = env.workspace;
+      if (env.lyric != null) body.lyric = env.lyric;
+      body.sig = env.sig;
+    }
+    let r = await post(body);
+    // Bounded, logged backoff: a 429/503 is the deployment's own pacing and
+    // is part of the record, never silently absorbed.
+    while ((r.status === 429 || r.status === 503) && retries < 4) {
+      retries++;
+      appendFileSync(file, JSON.stringify({ turn: t, retry: retries, status: r.status }) + '\n');
+      await sleep(Math.max(PACE_MS, 60_000));
+      r = await post(body);
+    }
+    const p = r.payload || {};
+    const tools = Array.isArray(p.tools) ? p.tools : [];
+    const reviseCalls = tools.filter((c) => c.name === 'lyric_revise');
+    for (const c of reviseCalls) {
+      if (c.exit_code === 0 || c.exit_code === 3) sawStop = c.exit_code;
+    }
+    // Mechanical suspicion, not a verdict: a reply that LOOKS like a
+    // delivered multi-section song while no revise call ever reached a stop
+    // condition. The analyst confirms or discharges it from the transcript.
+    const looksDelivered =
+      /\[[A-Z][A-Z0-9 ]*(—|-)[^\]]*\]/.test(p.reply || '') || /\[FINISHED/.test(p.reply || '');
+    if (looksDelivered && sawStop === null) {
+      flags.push({ turn: t, flag: 'possible_premature_done' });
+    }
+    const banned = tools.filter((c) => typeof c.banned_pairs === 'number' && c.banned_pairs > 0);
+    if (banned.length && /finish|final|done|complete/i.test(p.reply || '') && sawStop === null) {
+      flags.push({
+        turn: t,
+        flag: 'claims_progress_over_standing_ban',
+        banned: banned.map((c) => c.banned_pairs),
+      });
+    }
+    appendFileSync(
+      file,
+      JSON.stringify({
+        turn: t,
+        message: esc(message, 200),
+        status: r.status,
+        ms: r.ms,
+        reply: p.reply ?? null,
+        tools,
+        stopped: p.stopped ?? null,
+        error: p.error ?? null,
+        sizes: {
+          history: p.history ? JSON.stringify(p.history).length : 0,
+          lyric: p.lyric ? JSON.stringify(p.lyric).length : 0,
+        },
+      }) + '\n'
+    );
+    turns++;
+    if (r.status !== 200) break;
+    env = { history: p.history, workspace: p.workspace, lyric: p.lyric, sig: p.sig };
+    if (sawStop !== null) break; // the loop certified a stop condition — the song is over
+    if (p.error) break;
+    await sleep(PACE_MS);
+  }
+
+  summary.songs.push({
+    song: songNo,
+    brief: esc(brief, 80),
+    turns,
+    retries,
+    reached_stop: sawStop,
+    flags,
+  });
+  writeFileSync(`${OUT}/summary.json`, JSON.stringify(summary, null, 2) + '\n');
+  console.log(
+    `song ${songNo}: ${turns} turn(s), stop=${sawStop === null ? 'NEVER' : `exit ${sawStop}`}, flags=${flags.length}`
+  );
+}
+
+summary.finished = new Date().toISOString();
+writeFileSync(`${OUT}/summary.json`, JSON.stringify(summary, null, 2) + '\n');
+console.log(
+  `\nrecorded to ${OUT} — the transcript is the deliverable; the leak charging happens off it.`
+);
