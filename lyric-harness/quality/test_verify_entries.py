@@ -320,8 +320,14 @@ CAPACITY_MUTANTS = [
     ("quality/RESULTS_RHYME_CAPACITY.md",
      "34 classes, certified", "35 classes, certified",
      "AY-ER's spelling-class ceiling off by one"),
+    # The four rows below were REPOINTED 2026-08-28: the M-41 re-derivation
+    # under the M-47/M-152-rebuilt judge rewrote the capacity document (the
+    # tie at 40 went ~~NINE~~ TWELVE, EH-R's floor moved back UP to 37), so
+    # the old anchors matched nothing and every row reported "the mutation
+    # could not be applied". The instrument went stale exactly the way it
+    # polices others for, and its own "found 0" refusal is what caught it.
     ("quality/RESULTS_RHYME_CAPACITY.md",
-     "certified ~~33~~ **31**", "certified ~~33~~ **30**",
+     "**37** (the 2026-08-28 judge", "**36** (the 2026-08-28 judge",
      "EH-R's certified floor off by one"),
     ("quality/RESULTS_RHYME_CAPACITY.md",
      "IY: attempts 40", "IY: attempts 41",
@@ -333,14 +339,14 @@ CAPACITY_MUTANTS = [
      "IY: 228 classes", "IY: 229 classes",
      "the second family of a semicolon list, which is the elliptical form"),
     ("quality/RESULTS_RHYME_CAPACITY.md",
-     "`EY-T-IH-NG` and `IH-Z-AH-M`", "and `IH-Z-AH-M`",
+     "`IH-Z-AH-M` and `OW-N`", "and `OW-N`",
      "one family dropped from the tie at 40"),
     ("quality/RESULTS_RHYME_CAPACITY.md",
-     "held by NINE families", "held by EIGHT families",
+     "held by ~~NINE~~ **TWELVE** families", "held by ~~NINE~~ **ELEVEN** families",
      "the spelled tie count wrong while the named list stays right"),
     ("CLAUDE.md",
-     "chain is 40, held by NINE", "chain is 39, held by NINE",
-     "the tie DEPTH moved, so those nine no longer hold it"),
+     "chain is 40, held by TWELVE", "chain is 39, held by TWELVE",
+     "the tie DEPTH moved, so those twelve no longer hold it"),
 ]
 
 
