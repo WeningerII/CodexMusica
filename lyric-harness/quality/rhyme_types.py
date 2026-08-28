@@ -1870,6 +1870,60 @@ def _all_same_line(canon):
     return bool(kinds) and set(kinds) <= INTRA_LINE_PLACEMENTS
 
 
+#: M-58 ITEM 2: NAMES WHOSE DEFINITION DOES NOT TURN ON SYLLABLE COUNT.
+#: The registry keys most names at ONE-syllable cells — an accident of how
+#: the cells were enumerated, never a claim anyone made — so every
+#: polysyllabic pair standing in the declared relation was graded a flat
+#: VIOLATION (`cellar`/`seller` under `type:rime riche`, measured, while
+#: `types` called it rime riche on every channel of every syllable).
+#:
+#: THE EXTENSION RULE IS THE REGISTRY'S OWN, read off its polysyllabic
+#: keys rather than invented: feminine is ((0,1,1),(1,1,1)), dactylic is
+#: ((0,1,1),(1,1,1),(1,1,1)) — the ANCHOR CELL, then full identity to the
+#: end of the word. A name in this set registered at a single cell is
+#: satisfied by a longer pair whose first (anchor) cell matches the
+#: registered one and whose every following syllable is fully identical.
+#:
+#: MEMBERSHIP IS DECLARED PER NAME WITH ITS DEFINITIONAL ARGUMENT, never
+#: inferred from the key (the SECTION_CONSTRAINTS discipline):
+#:   * rime riche / rich rhyme / homophone rhyme — IDENTICAL SOUND,
+#:     DIFFERENT WORD; length is nowhere in the definition.
+#:   * repetition / identical rhyme / refrain rhyme / burden / radif /
+#:     radif-adjacent — the SAME WORD; a word has whatever length it has.
+#:   * internal / cross / interlaced / leonine rhyme — a perfect rhyme at
+#:     a declared POSITION; the position is the claim, not the count.
+EXTENSIBLE = frozenset({
+    "rime riche", "rich rhyme", "homophone rhyme",
+    "repetition", "identical rhyme", "refrain rhyme", "burden",
+    "radif", "radif-adjacent",
+    "internal rhyme", "cross rhyme", "interlaced rhyme", "leonine rhyme",
+})
+
+#: M-58's OTHER SIDE: names whose count IS the claim. `masculine rhyme`
+#: MEANS the final stressed monosyllable; a feminine pair asked of it is a
+#: REAL no, not a registry gap, and refusing it would tell a writer the
+#: harness cannot answer a question it answers with its own vocabulary
+#: (the same pair IS `feminine rhyme`). Kept apart from EXTENSIBLE so the
+#: fall-through can tell "the definition says no" from "the registry has
+#: no key at this length" (doctrine 79 — the second is a refusal).
+COUNT_DEFINITIONAL = frozenset({
+    "masculine rhyme", "single rhyme",
+    "feminine rhyme", "double rhyme",
+    "dactylic rhyme", "triple rhyme",
+    "semirhyme",
+})
+
+
+def _extends(observed, registered):
+    """The anchored-tail rule: a longer observed agreement carries a
+    single-cell registered name when its anchor cell matches and every
+    following syllable is fully identical — the exact shape the registry
+    itself uses for feminine/dactylic/multisyllabic perfect rhymes."""
+    return (len(registered) == 1 and len(observed) > 1
+            and tuple(observed[0]) == tuple(registered[0])
+            and all(tuple(c) == RICH for c in observed[1:]))
+
+
 def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
                        position=None, lines=None, instances=None):
     """Does this pair stand in the declared relation?
@@ -2040,6 +2094,18 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
         return None
 
     import dataclasses as _dc
+    # M-58 ITEM 1: A LENGTH THE REGISTRY CANNOT REPRESENT REFUSES, NEVER
+    # FAILS. `examined` records that at least one registered key put the
+    # question at the pair's own span (or the extension rule did); a
+    # canon whose every classified key read a DIFFERENT span than its
+    # cells was never actually asked, and the old fall-through answered
+    # False for it — doctrine 79's exact failure mode, charging the
+    # writer for the registry's own gap. Keys skipped for POSITION stay a
+    # real no (M-44's ruling: a registered position that differs is a
+    # finding), and Indeterminate keys keep their skip (an out-of-range
+    # anchor means this name cannot apply, which is what a False says).
+    examined = False
+    length_gap = []
     for key, val in NAMED.items():
         names_here = val if isinstance(val, (list, tuple, set, frozenset)) \
             else (val,)
@@ -2064,6 +2130,40 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
             continue
         if canon in _dc.replace(t, position=reg_position).names():
             return True
+        # M-58 ITEM 2: the anchored-tail extension, for names whose
+        # definition does not turn on syllable count. The observed
+        # agreement is reduced to the registered cell and the other axes
+        # are asked exactly as before — so identity, stress, boundary and
+        # the anchors still judge, and only the accidental length key
+        # stops deciding. An EXTENSIBLE name at a longer span is FULLY
+        # decidable either way: a failed extension means the pair's own
+        # sound refutes the name (the anchor cell differs, or the tail is
+        # not identical — `cellar`/`teller` is a perfect rhyme and not
+        # rime riche), which is a real no and never a registry gap.
+        if canon in EXTENSIBLE and len(key[0]) == 1 \
+                and len(t.agreement) > 1:
+            examined = True
+            if (_extends(t.agreement, key[0])
+                    and canon in _dc.replace(t, agreement=tuple(key[0]),
+                                             position=reg_position).names()):
+                return True
+            continue
+        if len(t.agreement) == len(key[0]):
+            examined = True
+        else:
+            length_gap.append((len(key[0]), len(t.agreement)))
+    if not examined and length_gap and canon not in COUNT_DEFINITIONAL:
+        regs = sorted({r for r, _ in length_gap})
+        obs = sorted({o for _, o in length_gap})
+        raise RelationRefused(
+            f"{canon!r} is registered only at "
+            f"{'/'.join(str(r) for r in regs)}-syllable cells and this "
+            f"pair reads {'/'.join(str(o) for o in obs)} syllable(s) at "
+            f"every registered coordinate — the registry cannot represent "
+            f"the pair at this length, so it is REFUSED rather than "
+            f"failed (doctrine 79; MISSING M-58). The pair may well stand "
+            f"in the relation; the missing key is the registry's gap, not "
+            f"the writer's.")
     return False
 
 

@@ -224,10 +224,53 @@ def test_clean_answers_one_question():
           "clean and rhyming" in out and "clean but not a rhyme" in out)
 
 
+def test_the_screen_asks_the_grades_question():
+    """7. M-58 ITEM 3 — THE SCREEN CAN ASK THE NAMED QUESTION.
+
+    A writer screening before writing (mandatory, standing rule 3) was
+    answered from the COARSE class while the grade asks the NAMED cell —
+    both directions live on one draft (`rain`/`reign` screens RHYME and
+    satisfies `type:rime riche`; `cellar`/`seller` screened RIME_RICHE
+    and, before the judge repair, violated it). `--relation=NAME` asks
+    the grade's own question through the same `satisfies_relation`, and
+    without it the header says out loud which question is being answered.
+    """
+    print("\n7. M-58 — the screen asks the question the grade will ask")
+    rc, out, _ = run("screen", "cellar", "seller", "teller",
+                     "--relation=type:rime riche")
+    check("the declared relation is judged per pair, and the entry's own "
+          "measured defect answers SATISFIES now",
+          rc == 0 and "SATISFIES type:rime riche" in out
+          and "cellar ~ seller" in out, f"rc {rc}")
+    check("...and a pair that RHYMES but is not the declared relation "
+          "says VIOLATES with the consequence named — the screen and the "
+          "grade cannot disagree, which is the whole ask",
+          "VIOLATES type:rime riche" in out)
+    check("...and the header names the question being asked",
+          "NAMED" in out and "the question a mandate declaring it will "
+          "ask" in out)
+    rc, out, _ = run("screen", "hair", "chair")
+    check("WITHOUT a relation the header says the verdict column is the "
+          "COARSE class and points at --relation — disclosure, so the "
+          "two questions stop wearing one word",
+          rc == 0 and "COARSE class" in out and "--relation=NAME" in out)
+    rc, out, err = run("screen", "cellar", "seller",
+                       "--relation=schema:anaphora")
+    check("a schema-namespace relation REFUSES at exit 2 with the reason "
+          "— a schema is judged over LINES, which do not exist at the "
+          "screen; type:/class: names are the screenable ones",
+          rc == 2 and "schema" in (out + err), f"rc {rc}")
+    rc, out, err = run("screen", "cellar", "seller",
+                       "--relation=type:zzznotarelation")
+    check("an unknown relation name refuses at exit 2 by name",
+          rc == 2, f"rc {rc}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_controls, test_honesty_and_the_split,
                test_no_drift, test_the_scaffold, test_the_cli,
-               test_clean_answers_one_question):
+               test_clean_answers_one_question,
+               test_the_screen_asks_the_grades_question):
         fn()
     print("=" * 62)
     if FAILURES:

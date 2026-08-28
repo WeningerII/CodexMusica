@@ -4412,7 +4412,7 @@ _SCREEN_CARRIERS = ("we carry the evening to the {w}",
                     "and no one had to tell us about {w}")
 
 
-def screen_pairs(words, lex=None, decl=None):
+def screen_pairs(words, lex=None, decl=None, relation=None):
     """Every unordered pair among `words`, judged by the REAL grader on a
     minimal mandated pair — the same `Reviser.inspect` the `song` verb
     runs, on two carrier lines whose only degree of freedom is the end
@@ -4421,6 +4421,17 @@ def screen_pairs(words, lex=None, decl=None):
     trick pre-screened both zero-flag songs before a word was drafted,
     and a step that decides which words even get tried must have an
     entrance the system owns.
+
+    `relation` (M-58 item 3): a declared `type:`/`class:` relation name.
+    When set, every pair is ALSO judged by `satisfies_relation` at
+    position 'end' — THE QUESTION THE GRADE WILL ASK of a mandate
+    declaring that relation — and the row carries `named`
+    (True/False/None) and `named_reason` (the judge's own refusal
+    sentence when None). Without it the verdict column is the COARSE
+    class, which is a different question: measured on one draft,
+    `rain`/`reign` screens RHYME and satisfies `type:rime riche` while
+    `cellar`/`seller` screened RIME_RICHE and (before M-58's judge
+    repair) violated it — both directions live at once.
 
     -> list of dicts, one per pair in declared order:
        a, b, relation, score, why, codes (the SCREEN_PAIR_CODES present),
@@ -4434,6 +4445,10 @@ def screen_pairs(words, lex=None, decl=None):
     """
     from quality.revise import Reviser
     from quality import schemes as SC
+    if relation is not None:
+        from quality import rhyme_types as _RT
+        from quality.revise import _relation_phonology as _RP
+        _phon = _RP()
     rv = Reviser(lex=lex, decl=decl) if (lex or decl) else Reviser()
     out = []
     for i in range(len(words)):
@@ -4448,7 +4463,8 @@ def screen_pairs(words, lex=None, decl=None):
                             for f in fs if f.code in SCREEN_PAIR_CODES})
             row = {"a": a, "b": b, "codes": codes, "refused": False,
                    "reason": None, "relation": None, "score": None,
-                   "why": None, "schema_scaffold": []}
+                   "why": None, "schema_scaffold": [],
+                   "named": None, "named_reason": None}
             if g["refusals"]:
                 row["refused"] = True
                 row["reason"] = g["refusals"][0]["reason"]
@@ -4466,6 +4482,18 @@ def screen_pairs(words, lex=None, decl=None):
                 if g["pairs_schema_satisfied"]:
                     row["schema_scaffold"] = list(
                         g["pairs_schema_satisfied"][0]["satisfied_by"])
+            # M-58 item 3: the NAMED verdict, judged exactly as a mandate
+            # declaring this relation will judge the pair — same function,
+            # same position, so the screen's answer and the grade's cannot
+            # drift (doctrine 1).
+            if relation is not None and not row["refused"]:
+                try:
+                    row["named"] = _RT.satisfies_relation(
+                        relation, row["relation"], a, b, _phon,
+                        position="end")
+                except _RT.RelationRefused as e:
+                    row["named"] = None
+                    row["named_reason"] = str(e)
             out.append(row)
     return out
 
@@ -6372,9 +6400,36 @@ def main():
 
     elif cmd == "screen":
         rest = args[1:]
-        _usage = ("usage: screen WORD WORD [WORD...] — every unordered "
-                  "pair among the words, judged by the song grader on a "
-                  "minimal mandated pair")
+        _usage = ("usage: screen WORD WORD [WORD...] [--relation=NAME] — "
+                  "every unordered pair among the words, judged by the "
+                  "song grader on a minimal mandated pair; --relation "
+                  "ALSO asks the named question a mandate declaring it "
+                  "will ask (M-58)")
+        # M-58 ITEM 3: THE SCREEN CAN ASK THE QUESTION THE GRADE WILL ASK.
+        # Without this, a writer screening before writing (mandatory,
+        # standing rule 3) was answered from the COARSE class while the
+        # grade asks the NAMED cell — both directions measured live on
+        # one draft.
+        screen_rel = _flag_value(rest, "--relation")
+        rest = _strip_flag(rest, "--relation")
+        if screen_rel is not None:
+            from quality import rhyme_types as _RT_s
+            try:
+                _canon_s, _kind_s = _RT_s.resolve_relation(screen_rel)
+            except Exception as e:
+                _refuse(f"screen --relation={screen_rel!r} names no "
+                        f"declarable relation: {e}")
+            if _kind_s == "schema":
+                _refuse(f"screen --relation={screen_rel!r} resolves in the "
+                        f"`schema` namespace, and a schema is judged over "
+                        f"LINES — which do not exist yet at the screen. "
+                        f"The screen judges two WORDS",
+                        detail=["declare the schema in the mandate and the "
+                                "grade will judge it over the draft; or "
+                                "screen the words' ban alone, which needs "
+                                "no relation.",
+                                "`type:`/`class:` names ARE screenable — "
+                                "they judge word pairs."])
         bad_flag = [a for a in rest if a.startswith("--")]
         if bad_flag:
             _refuse(f"screen does not take {bad_flag[0]!r}",
@@ -6394,7 +6449,7 @@ def main():
                     detail=[_usage,
                             "the screen judges END WORDS; a phrase's "
                             "rhyme is graded in a draft, by `brief`/`song`"])
-        rows = screen_pairs(words, lex=lex, decl=decl)
+        rows = screen_pairs(words, lex=lex, decl=decl, relation=screen_rel)
         n_banned = sum(1 for r in rows if r["codes"])
         n_ref = sum(1 for r in rows if r["refused"])
         # M-113: CLEAN answered two questions — a clean RHYME and a clean
@@ -6411,6 +6466,17 @@ def main():
               f"the active declaration; only pair-scoped findings are "
               f"relayed ({', '.join(SCREEN_PAIR_CODES)}), the carrier "
               f"lines are scaffolding")
+        if screen_rel:
+            print(f"  NAMED  : every pair is ALSO judged under "
+                  f"{screen_rel!r} at position 'end' — the question a "
+                  f"mandate declaring it will ask (same judge, same "
+                  f"coordinate, so screen and grade cannot drift)")
+        else:
+            print(f"  (the verdict column is the COARSE class; a mandate "
+                  f"declaring a NAMED relation is judged by that name's "
+                  f"own cell, which can answer differently in both "
+                  f"directions — screen with --relation=NAME to ask the "
+                  f"grade's question, M-58)")
         w = max(len(f"{r['a']} ~ {r['b']}") for r in rows)
         for r in rows:
             pair = f"{r['a']} ~ {r['b']}".ljust(w)
@@ -6434,6 +6500,18 @@ def main():
                               f"{', '.join(r['schema_scaffold'])})")
                 else:
                     status = f"CLEAN — DOES NOT RHYME ({r['why']})"
+                if screen_rel:
+                    if r["named"] is True:
+                        status += f"  |  SATISFIES {screen_rel}"
+                    elif r["named"] is False:
+                        status += (f"  |  VIOLATES {screen_rel} — a "
+                                   f"mandate declaring it will charge "
+                                   f"this pair")
+                    else:
+                        _nr = (r["named_reason"]
+                               or "the judge could not read the pair")
+                        status += (f"  |  {screen_rel} REFUSED: "
+                                   f"{_nr[:110]}")
                 print(f"  {pair}  {verdict}  {status}")
         print(f"  {n_banned} banned, {n_ref} refused, {n_rhyme} clean and "
               f"rhyming, {n_non} clean but not a rhyme — a banned pair is "
@@ -6795,9 +6873,40 @@ def main():
         else:
             print(json.dumps(payload, indent=1, sort_keys=True))
         print()
-        print("  GRADE IT: " + PLN.grading_command(
-            the_plan, draft_path=fill or "DRAFT.txt",
-            bp_path=out_path or "BP.json"))
+        if fill:
+            print("  GRADE IT: " + PLN.grading_command(
+                the_plan, draft_path=fill,
+                bp_path=out_path or "BP.json"))
+        else:
+            # M-58 ITEM 4: THE ONE COMMAND THE PLANNER TELLS A WRITER TO
+            # RUN MUST RUN. On the plan-first path `--out=` writes a PLAN,
+            # and `song` reads a BLUEPRINT — so the old single GRADE IT
+            # line named a file `song` refuses. The honest instruction is
+            # two steps: fill (the same plan invocation, which re-derives
+            # the identical plan because a plan is a pure function of its
+            # seed, plus --fill/--out — that run also renders the song and
+            # writes the blueprint), then grade against the blueprint.
+            import shlex as _shlex
+            _refill = [f"python3 lyric_harness.py plan --seed={seed}",
+                       f"--form={form}"]
+            if nlines:
+                _refill.append(f"--lines={nlines}")
+            if relation:
+                _refill.append(_shlex.quote(f"--relation={relation}"))
+            if funcs_raw:
+                _refill.append(_shlex.quote(f"--functions={funcs_raw}"))
+            if title:
+                _refill.append(_shlex.quote(f"--title={title}"))
+            if narrative_raw:
+                _refill.append(_shlex.quote(f"--narrative={narrative_raw}"))
+            _refill.append("--fill=DRAFT.txt --out=BP.json")
+            print("  GRADE IT — TWO STEPS on the plan-first path (the "
+                  "file --out wrote is a PLAN; `song` reads a BLUEPRINT):")
+            print("    1. write the draft to DRAFT.txt, then render and "
+                  "get the blueprint:")
+            print("       " + " ".join(_refill))
+            print("    2. " + PLN.grading_command(
+                the_plan, draft_path="DRAFT.txt", bp_path="BP.json"))
     elif cmd == "partition":
         from quality import schemes as SC
         src = args[1:]

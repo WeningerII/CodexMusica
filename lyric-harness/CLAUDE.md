@@ -810,7 +810,15 @@ two-name default survived every green run (a check in
 **SO A HOLE IN THE ROUTE IS NOT A SECOND-ORDER PROBLEM** — it is a hole in the
 only path past the door, which is why `MISSING.md` M-58 (the named judge is
 monosyllable-only for 69 of its 76 names) outranks both the null sweep and any
-widening of `admit`.
+widening of `admit`. **AND M-58 CLOSED 2026-08-28**: the `type:` judge holds
+three declared dispositions past the monosyllable key — 13 `EXTENSIBLE` names
+take the anchored-tail rule (the registry's own polysyllabic spelling), 7
+count-definitional names answer a real no, and the rest REFUSE naming the
+registry's gap instead of failing the writer; `screen --relation=NAME` asks
+the grade's own question through the same judge, and the plan-first `GRADE
+IT` prints the two-step instruction that actually runs. `cellar`/`seller`
+satisfies `type:rime riche` now, as the engine's own `types` analysis always
+said it did.
 
 **AND WHICH DOOR EACH SITE ACTUALLY READS IS A COMMAND NOW, NOT A MEMORY
 (2026-08-26, `MISSING.md` M-139).** The owner's ruling, verbatim: *"go find

@@ -7671,7 +7671,7 @@ that entry governs what the harness may assert, this one governs what a
 writer may ask for. And `plan._CELLS` reaches 11 of `grid`'s 21 section
 functions (M-54 item 2), which is this same shape one layer up.
 
-### M-58 · the named-relation judge is MONOSYLLABLE-ONLY — 69 of 76 names are reachable at a 1-syllable key and nowhere else, so every polysyllabic pair that stands in the declared relation is graded a VIOLATION `OPEN`
+### M-58 · the named-relation judge is MONOSYLLABLE-ONLY — 69 of 76 names are reachable at a 1-syllable key and nowhere else, so every polysyllabic pair that stands in the declared relation is graded a VIOLATION `RESOLVED` 2026-08-28
 **Found 2026-08-22 by WRITING A SONG through the path M-55 had just opened,
 after the owner asked whether anything besides the null sweep bars us from
 using this. Something does, and it is larger than the null sweep.**
@@ -7780,6 +7780,73 @@ takes and a `type:` relation never reaches. The 22 drawn names all resolve
 in the `schema` namespace, so the POOL is out from under this entry's
 defect; the 69-of-76 `type:` figure stands exactly as measured, and items
 1–4 above are still owed.
+
+**RESOLVED 2026-08-28, in the repair campaign — all four owed items,
+each with its gate.**
+
+**ITEMS 1+2, ONE JUDGE, THREE DISPOSITIONS** (`quality/rhyme_types.py`):
+a name past the monosyllable key is now one of three declared things,
+never a flat False. **(a) `EXTENSIBLE`** — 13 names whose definition does
+not turn on syllable count, each carrying its definitional argument in
+the set's own comment (rime riche / rich rhyme / homophone rhyme:
+identical sound, different word; the repetition–radif identity family:
+the same word at whatever length it has; internal / cross / interlaced /
+leonine: a perfect rhyme at a declared POSITION). These take the
+ANCHORED-TAIL rule — the observed anchor cell matches the registered one
+and every following syllable is fully identical — which is not invented:
+it is the registry's OWN polysyllabic spelling, read off its
+feminine ((0,1,1),(1,1,1)), dactylic and multisyllabic keys. The other
+axes (identity, stress, boundary, anchors) still judge exactly as
+before; only the accidental length key stops deciding. An extensible
+name at a longer span is FULLY decidable either way, so a failed
+extension is a REAL no (`cellar`/`teller` is a perfect rhyme and not
+rime riche). **(b) `COUNT_DEFINITIONAL`** — 7 names whose count IS the
+claim (masculine/single at 1, feminine/double at 2, dactylic/triple at
+3, semirhyme's own shape): the wrong length is a real no, because the
+vocabulary itself answers the pair (`cellar`/`seller` is not masculine
+rhyme; it IS feminine rhyme, and the judge says so). **(c) everything
+else REFUSES** naming the registry's gap — `RelationRefused` spelling
+the registered cell lengths against the observed span, with "the pair
+may well stand in the relation; the missing key is the registry's gap,
+not the writer's" — which `grade()` already renders as a refusal record,
+never a violation (doctrine 79). **THE ENTRY'S OWN TABLE RE-RUN:** all
+four monosyllable rows hold True; `cellar`/`seller` and `flour`/`flower`
+are **True** under `type:rime riche`. Gate:
+`quality/test_mandate_relation.py` §11 — the table, the three
+dispositions each pinned with a counter-side, and TWO hand-proven
+mutations (EXTENSIBLE emptied → the headline pair REFUSES, proving items
+1 and 2 are separate repairs; pararhyme forced count-definitional → its
+refusal collapses to the old flat False).
+
+**ITEM 3 — THE SCREEN ASKS THE GRADE'S QUESTION.**
+`screen ... --relation=NAME` judges every pair through the SAME
+`satisfies_relation` at position `end` a mandate declaring that name
+uses (doctrine 1 — screen and grade cannot drift), rendered per pair as
+`SATISFIES` / `VIOLATES ... will charge this pair` / `REFUSED: <the
+judge's own sentence>`. A `schema:` name refuses at the flag with the
+reason (a schema is judged over LINES, which do not exist at the
+screen). WITHOUT the flag the header now says out loud that the verdict
+column is the COARSE class and points at `--relation=` — the disclosure
+half of the entry's ask. Gate: `quality/test_screen.py` §7, both
+directions live (`cellar ~ seller` SATISFIES where it was the measured
+violation; a rhyming non-riche pair VIOLATES with the consequence
+named), plus the schema and unknown-name refusals at exit 2.
+
+**ITEM 4 — THE PRINTED `GRADE IT` RUNS.** On the plan-first path the
+`plan` verb prints the honest TWO-STEP instruction — step 1 the same
+plan invocation plus `--fill`/`--out` (a plan is a pure function of its
+seed, so the refill re-derives the identical plan AND writes the
+blueprint), step 2 `grading_command` against that blueprint — instead of
+one command that named a PLAN file to a verb that reads a BLUEPRINT and
+refused. The fill path keeps its single line, because one step is true
+there. Gate: `quality/test_plan.py` §16, both paths driven through the
+CLI.
+
+**WHAT THIS DOES NOT CLAIM** (doctrine 20): the 56 names in neither
+declared set still have no polysyllabic KEY — they refuse honestly at
+the gap rather than answer, and each moves to answering only by a
+per-name definitional ruling of the kind EXTENSIBLE's comment records.
+The refusal message names this entry so the trail leads here.
 ## Add below this line
 
 ### M-60 · CI could not tell a REFUSAL from a MOVED pin, and the refusal took two working checks down with it `CLOSED` 2026-08-23

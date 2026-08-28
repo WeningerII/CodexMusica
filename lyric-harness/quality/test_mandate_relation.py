@@ -838,6 +838,87 @@ def test_the_drawable_pool_holds_through_the_grade_route():
           (g_cls["violations"], g_cls["refusals"]))
 
 
+def test_the_type_judge_past_one_syllable():
+    """§11. M-58 — THE NAMED-TYPE JUDGE PAST THE MONOSYLLABLE KEY.
+
+    The registry keys most names at one-syllable cells — an enumeration
+    accident, not a claim — so `cellar`/`seller` under `type:rime riche`
+    was graded a VIOLATION while `types` called it rime riche on every
+    channel of every syllable. Three dispositions now, each pinned:
+    EXTENSIBLE names take the anchored-tail rule (the registry's own
+    polysyllabic spelling — feminine is (0,1,1)+(1,1,1)); a
+    COUNT-DEFINITIONAL name at the wrong length is a REAL no; everything
+    else REFUSES naming the registry's gap (doctrine 79 — the writer is
+    never charged for a key nobody wrote).
+    """
+    print("\n§11. M-58 — the type judge past one syllable")
+    from quality.revise import _relation_phonology
+    phon = _relation_phonology()
+
+    def ask(name, a, b):
+        try:
+            return RT.satisfies_relation(name, None, a, b, phon,
+                                         position="end")
+        except RT.RelationRefused:
+            return "REFUSED"
+
+    check("the entry's own measured defect: cellar/seller satisfies "
+          "`type:rime riche` — identical sound, different word, and "
+          "length is nowhere in the definition",
+          ask("type:rime riche", "cellar", "seller") is True)
+    check("...and flour/flower, the entry's other measured False",
+          ask("type:rime riche", "flour", "flower") is True)
+    check("...while the four monosyllable answers hold exactly as before",
+          all(ask("type:rime riche", a, b) is True
+              for a, b in (("rain", "reign"), ("rain", "rein"),
+                           ("hoard", "horde"), ("bore", "boar"))))
+    check("a failed extension is a REAL no, never a refusal — "
+          "cellar/teller is a perfect rhyme (onset differs at the "
+          "anchor) and not rime riche",
+          ask("type:rime riche", "cellar", "teller") is False)
+    check("a COUNT-DEFINITIONAL name at the wrong length is a real no: "
+          "masculine rhyme MEANS the final stressed monosyllable, and "
+          "the same pair IS feminine rhyme — the vocabulary answers, so "
+          "refusing would be false modesty",
+          ask("type:masculine rhyme", "cellar", "seller") is False
+          and ask("type:feminine rhyme", "cellar", "teller") is True)
+    check("a name that is NEITHER refuses naming the registry's gap — "
+          "pararhyme has no 2-syllable key and no ruled extension, and "
+          "the pair may well stand in it (doctrine 79)",
+          ask("type:pararhyme", "cellar", "seller") == "REFUSED")
+    check("the identity family extends too: a repeated word is "
+          "`type:identical rhyme` at any length",
+          ask("type:identical rhyme", "cellar", "cellar") is True)
+    # MUTATION 1, hand-proven: empty the EXTENSIBLE set and the entry's
+    # headline defect returns as a REFUSAL (not the old False — item 1's
+    # honesty holds even under the mutation, which is itself the proof
+    # the two repairs are separate).
+    keep = RT.EXTENSIBLE
+    try:
+        RT.EXTENSIBLE = frozenset()
+        check("MUTATION: with EXTENSIBLE emptied, cellar/seller stops "
+              "satisfying and REFUSES — the extension is what answers, "
+              "and item 1's refusal is what catches the gap",
+              ask("type:rime riche", "cellar", "seller") == "REFUSED")
+    finally:
+        RT.EXTENSIBLE = keep
+    # MUTATION 2, hand-proven: put pararhyme in COUNT_DEFINITIONAL and
+    # its refusal collapses to the old flat False — so the refusal path
+    # is the disposition set doing the work, not the fixture.
+    keep2 = RT.COUNT_DEFINITIONAL
+    try:
+        RT.COUNT_DEFINITIONAL = keep2 | {"pararhyme"}
+        check("MUTATION: with pararhyme marked count-definitional, the "
+              "refusal collapses to a flat False — the three-way "
+              "disposition is what keeps the registry's gap honest",
+              ask("type:pararhyme", "cellar", "seller") is False)
+    finally:
+        RT.COUNT_DEFINITIONAL = keep2
+    check("...and both mutations are reverted",
+          ask("type:rime riche", "cellar", "seller") is True
+          and ask("type:pararhyme", "cellar", "seller") == "REFUSED")
+
+
 if __name__ == "__main__":
     for fn in (test_vocabulary, test_judge, test_mandate_coordinate,
                test_grade_routing, test_position_is_declared,
@@ -845,7 +926,8 @@ if __name__ == "__main__":
                test_reopen_carries_what_it_is_not_declaring,
                test_the_schema_namespace_is_judged,
                test_identity_is_the_schemas_own_ruling,
-               test_the_drawable_pool_holds_through_the_grade_route):
+               test_the_drawable_pool_holds_through_the_grade_route,
+               test_the_type_judge_past_one_syllable):
         fn()
     print("=" * 62)
     if FAILURES:

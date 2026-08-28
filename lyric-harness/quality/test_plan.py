@@ -2492,6 +2492,55 @@ def test_the_bound_share():
           "bound_token_share" not in calls)
 
 
+def test_the_grade_it_line_runs():
+    """16. M-58 ITEM 4 — THE ONE COMMAND THE PLANNER PRINTS MUST RUN.
+
+    On the plan-first path `--out=` writes a PLAN and `song` reads a
+    BLUEPRINT, so the old single `GRADE IT:` line named a file `song`
+    refuses — the planner telling a writer to run a command that cannot
+    run. The verb prints the honest TWO-STEP instruction there now (fill
+    first — the same plan invocation, since a plan is a pure function of
+    its seed — then grade against the blueprint that run writes), and
+    the fill path keeps the single line.
+    """
+    print("\n16. M-58 — the printed GRADE IT runs on both paths")
+    import subprocess
+    r = subprocess.run(
+        [sys.executable, "lyric_harness.py", "plan", "--seed=7"],
+        capture_output=True, text=True,
+        cwd=os.path.join(HERE, ".."), timeout=560)
+    out = r.stdout
+    check("the plan-first path prints TWO STEPS and says why — the file "
+          "--out wrote is a PLAN and `song` reads a BLUEPRINT",
+          r.returncode == 0 and "TWO STEPS" in out
+          and "is a PLAN" in out, f"rc {r.returncode}")
+    check("...step 1 is the SAME plan invocation plus --fill/--out, so "
+          "it re-derives the identical plan (a plan is a pure function "
+          "of its seed) and writes the blueprint step 2 grades against",
+          "plan --seed=7 --form=verse-chorus --fill=DRAFT.txt "
+          "--out=BP.json" in out)
+    check("...and step 2 is the grading command against BP.json, which "
+          "step 1 actually writes",
+          "song BP.json DRAFT.txt" in out)
+    with tempfile.TemporaryDirectory() as td:
+        import json as _json
+        p = make_plan(7)
+        draft = os.path.join(td, "d.txt")
+        with open(draft, "w", encoding="utf-8") as fh:
+            fh.write("\n".join("word " * 5 for _ in
+                               range(p["total_lines"])))
+        r2 = subprocess.run(
+            [sys.executable, "lyric_harness.py", "plan", "--seed=7",
+             f"--fill={draft}", f"--out={os.path.join(td, 'bp.json')}"],
+            capture_output=True, text=True,
+        cwd=os.path.join(HERE, ".."), timeout=560)
+        check("the FILL path keeps the single GRADE IT line, naming the "
+              "blueprint that run just wrote — one step because one step "
+              "is true there",
+              r2.returncode == 0 and "GRADE IT: " in r2.stdout
+              and "TWO STEPS" not in r2.stdout, f"rc {r2.returncode}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_planner_plans_the_whole_line,
                test_determinism, test_refusals, test_the_round_trip,
@@ -2501,7 +2550,8 @@ if __name__ == "__main__":
                test_the_seed_sweep_is_a_verb,
                test_the_song_length_is_the_songs_own,
                test_the_end_rhyme_pass_is_additive,
-               test_the_relation_draw, test_the_bound_share):
+               test_the_relation_draw, test_the_bound_share,
+               test_the_grade_it_line_runs):
         fn()
     print("=" * 62)
     if FAILURES:
