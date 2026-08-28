@@ -153,12 +153,15 @@ _PAIR_RE = re.compile(r"L(\d+)/L(\d+)")
 #:   * the tier-1 CEILING reaches 228 (family `IY`) — a spelling-class count,
 #:     an upper bound nobody has graded;
 #:   * the deepest CERTIFIED chain is 40 — a witness clique stored word for
-#:     word and graded THROUGH `Reviser.inspect`, held by nine families at
-#:     the declared construction cap.
+#:     word and graded THROUGH `Reviser.inspect`, held by TWELVE families at
+#:     the declared construction cap (~~nine~~ REPINNED 2026-08-28: the
+#:     re-derivation under the M-47/M-152 judge moved 15 chain_lo values,
+#:     every one UP, and AY-Z-D, EY-Z and OW-N joined the cap tie —
+#:     `MISSING.md` M-41's close holds the delta).
 #: 40 is adopted because it is the one a run can stand on. It measures the
-#: CAP rather than the language — those nine families are bounded BELOW at 40
-#: and their true ceilings are unmeasured — so a generator refusing above it
-#: is refusing where the MEASUREMENT stops, which is the honest place.
+#: CAP rather than the language — those twelve families are bounded BELOW at
+#: 40 and their true ceilings are unmeasured — so a generator refusing above
+#: it is refusing where the MEASUREMENT stops, which is the honest place.
 #:
 #: WHY A CONSTANT AND NOT A CALL: `quality/plan.py` may open no file (the
 #: owner's move-37 ban), and `read_table()` opens one. This is the same

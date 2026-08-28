@@ -4665,7 +4665,7 @@ second is presentational and could land immediately. **Neither is done, and
 the seven rows above are flagged in `RESULTS_RELATIONS_NULL.md` rather than
 re-stated.**
 
-### M-41 · The capacity ceiling is derived under ONE relation, and its headline says "English" `OPEN`
+### M-41 · The capacity ceiling is derived under ONE relation, and its headline says "English" `CLOSED` 2026-08-28 — the coordinate is carried and refused-without, the certified half stays RHYME-only by priced deferral
 **Found 2026-08-22 while looking for ladder step 5 ("capacity per relation").
 `quality/capacity.py` contains ZERO occurrences of `relation`, `ASSONANCE`,
 `CONSONANCE` or `RIME_RICHE` — the whole layer is relation-blind, and its own
@@ -4732,6 +4732,57 @@ sustain. Told under perfect rhyme alone it says the language is narrow and the
 dense verse is forced to switch families. That is true, and it is one road of
 several, and the owner's whole complaint about the grader admitting two
 relations out of 601 is the same complaint arriving at the capacity layer.
+
+**CLOSED 2026-08-28 — the cheap half built exactly as this entry priced
+it, and the expensive half parked exactly where it said.**
+`capacity.RELATION_KEYS` is the four keys of this entry's own comparison
+table, promoted from the one-off script to the implementation — the
+vocabulary is checked equal to `ADMITTABLE_RELATIONS` at import, because
+a capacity under a relation no mandate can admit would be a number about
+nothing a writer can declare. `families(reviser, relation=...)` takes the
+coordinate (default `ADOPTED_RELATION = "RHYME"`, reproducing the
+shipped partition family-for-family); `family_summary` +
+`--families=RELATION` make this entry's measurement a COMMAND, and on the
+build day every cell of its table reproduced exactly — 12,387 / 15 /
+3,527 / 37,462 families with matching singletons, maxima, means and
+medians (`test_capacity` §7 pins all four rows). The artifact's rows now
+LEAD with a `relation` column, `read_table` REFUSES a table that lacks it
+(the mutation: yesterday's schema is unreadable, not silently read as
+RHYME), `check()` verifies every row names the adopted relation, the
+`capacity` verb prints the coordinate on both its surfaces, and the
+module docstring's own copy of the narrowness sentence — the same
+dropped-coordinate rendering this entry charged the RESULTS doc with —
+now names the relation. **The certified half is deliberately NOT
+widened**: a certified `chain_lo` under a non-RHYME relation prices at
+hours of grading per relation, and which are worth paying for is the
+owner's ruling — `BACKLOG.md` RULINGS WANTED row 16, with assonance's
+15 families at median 2,382 words named as the extreme case nobody has
+graded.
+**AND THE SITTING DISCHARGED A DEBT TWO EARLIER CLOSES LEFT UNNAMED.**
+The schema change forced a full `--derive`, which is exactly the re-run
+`capacity.py --check` had been demanding since f235954: the M-47 and
+M-152 frequency-table rebuilds each moved the judge fingerprint the
+artifact records, and neither close named the capacity artifact among
+its re-runs (the M-47 addendum above holds that finding). Re-derived
+under the current judge, resumed once across a container restart on its
+own checkpoints: **every ADOPTED constant reproduces exactly**
+(population 39,969, families 12,387, the whole chain_hi ladder,
+certified 81, max_chain_lo 40 — so `ADOPTED_MAX_GROUP` stands and no
+planner bound moves), while **15 of 81 certified chains moved, every one
+UP** (`UW-M` 14 → 27 the largest), 8 witnesses re-worded at unchanged
+depth, and the 40-cap tie grew nine → twelve (`AY-Z-D`, `EY-Z`, `OW-N`
+joined; the original nine all held). The uniform upward direction is a
+fact about the rebuilt modal tables and spans both judge moves at once —
+the superseded witnesses dated from the 2026-08-20 tables.
+`RESULTS_RHYME_CAPACITY.md` carries the full delta and the finding-1
+amendment; the three nine-family citations (capacity.py, CLAUDE.md, the
+RESULTS headline) are repinned with the ladder.
+**WHAT IS NOT CLAIMED (this entry's own caveats, kept):** the four keys
+are the declared phonological rendering, not `classify_pair`'s — a finer
+cut is a different measurement; and a family count under any relation is
+a CEILING's raw material, never a count of usable partners — the ban,
+the modal tier and the judge all still cut it, and none of that has
+been run under a non-RHYME relation.
 
 ### M-40 · Eight admissible-set failures are eight facts about the TEXT, and the survey already names a chain rhyme nobody built `OPEN`
 **Raised 2026-08-22 by the owner, reading the n=200 admissible set and asking

@@ -57,9 +57,40 @@ families**. Ceilings: 2,817 families sustain even a 2-chain, 593 a
 5-chain, 162 a 12-chain, **81 a 20-chain**. All 81 of the >=20-class
 tier are certified; the deepest verified chain is **40, at the
 construction cap** — every class the cap admitted survived the modal
-tier. That 40 is held by NINE families, not one; ~~40 (EY:
+tier. That 40 is held by ~~NINE~~ **TWELVE** families, not one
+(REPINNED 2026-08-28: the re-derivation under the M-47/M-152 judge —
+the §below block's own discipline, third rebuild — moved 15 of 81
+certified chains, every one UP, and `AY-Z-D`, `EY-Z` and `OW-N` joined
+the cap tie; `MISSING.md` M-41's close holds the full delta); ~~40 (EY:
 day/weigh/bouquet…)~~ named the first of a sorted tie, and the section
-below names all nine and says what the cap does and does not measure.
+below names the original nine and says what the cap does and does not
+measure.
+
+## RE-DERIVED 2026-08-28 against the M-47/M-152 judge, and AGAIN not one
+ADOPTED constant moved — but 15 certified chains did, every one UP
+
+The block below is the precedent and this is its third occurrence: the
+bracket-apparatus reader (M-47/M-27) and the bracketed-verse convention
+(M-152) each rebuilt the two modal tables on 2026-08-28, the judge
+fingerprint moved twice, and `--check` reported THE JUDGE MOVED into the
+nightly lane until M-41's sitting re-derived (the alarm worked; the
+looking failed — recorded as an M-47 addendum). The full re-derivation,
+resumed once across a container restart on its own checkpoints:
+**population 39,969, families 12,387, the whole `chain_hi` ladder,
+certified 81, max_chain_lo 40 — every ADOPTED constant reproduces
+exactly.** What moved is the certified floor's DETAIL: **15 of 81
+`chain_lo` values, every one UP** (`UW-M` 14 → 27 the largest, `AY-Z-D`
+24 → 40; also `AA-R` 35→37, `AA-R-D` 21→24, `AO-R` 30→32, `AO-R-D`
+29→33, `EH-R` 31→37, `EY-Z` 39→40, `IH-K` 25→26, `IH-N` 23→26, `IH-P`
+36→37, `IY-L-D` 20→21, `IY-Z` 33→36, `OW-N` 37→40, `OW-Z` 34→38), 8
+more witnesses re-worded at an unchanged depth, and the 40-cap tie
+grew NINE → TWELVE. The uniform direction is a fact about the rebuilt
+modal tables — under the corrected reader the call-conditional ban
+falls differently across these families' top members and the repair
+search finds deeper surviving cliques — and it spans BOTH judge moves
+at once, since the superseded witnesses dated from the 2026-08-20
+tables. The relation column (M-41) rode in on the same emit, so this
+is also the first artifact whose every row names its relation.
 
 ## RE-DERIVED 2026-08-21 against the rebuilt modal tables, and NOT ONE
 ADOPTED CONSTANT MOVED
@@ -103,11 +134,15 @@ of 64 (22%). A deeper family has more pairs for the ban to land on. The three
 families this document quotes by name all moved: `AY-ER` (fire's) 28 → **27**,
 `IY` 37 → **34**, `EH-R` 33 → **31**.
 
-**AND `max_chain_lo_family` NAMES ONE OF NINE.** 40 is held by `AE-K`, `AE-N`,
-`AO-L`, `EH-L`, `EY`, `EY-T-AH-D`, `EY-T-ER`, `EY-T-IH-NG` and `IH-Z-AH-M` —
-every one of them at `CERTIFY_ATTEMPT_CAP`. Saying "the deepest verified chain
-is 40 (EY)" reads as though EY were special; it is first in a sorted tie. What
-40 actually measures is THE CONSTRUCTION BOUND, not the language: those nine
+**AND `max_chain_lo_family` NAMES ONE OF ~~NINE~~ TWELVE.** 40 is held by
+`AE-K`, `AE-N`, `AO-L`, `AY-Z-D`, `EH-L`, `EY`, `EY-T-AH-D`, `EY-T-ER`,
+`EY-T-IH-NG`, `EY-Z`, `IH-Z-AH-M` and `OW-N` — every one of them at
+`CERTIFY_ATTEMPT_CAP` (the last three joined at the 2026-08-28
+re-derivation under the M-47/M-152 judge; the original nine all held).
+Saying "the deepest verified chain
+is 40 (EY)" reads as though EY were special; it is first-by-depth in a
+tie. What 40 actually measures is THE CONSTRUCTION BOUND, not the
+language: those twelve
 families are bounded BELOW at 40 and their true ceilings are unmeasured. The
 constant is kept because it is honest about what was attempted, and this
 paragraph exists so the singular is never read as a discovery.
@@ -185,10 +220,13 @@ cause this time took re-grading the witnesses under both tables.
    -otate). Tier 1 barely binds there; the modal tier is what pinches.
 3. **The modal tier costs real chain length.** AY-ER (fire's family):
    34 classes, certified ~~28~~ **27**. IY: attempts 40, certified ~~37~~
-   **34**. EH-R (there/care/hair): 47 classes, certified ~~33~~ **31**.
-   (Re-derived 2026-08-21 against the rebuilt modal tables — see the
-   section above.) The chain_hi/chain_lo gap is the ban system working,
-   family by family.
+   **34**. EH-R (there/care/hair): 47 classes, certified ~~33~~ ~~31~~
+   **37** (the 2026-08-28 judge moved it back UP — the rebuilt modal
+   tables ban a different set of its top pairs; AY-ER and IY are
+   unmoved by that re-derivation).
+   (Re-derived 2026-08-21 against the rebuilt modal tables and again
+   2026-08-28 — see the sections above.) The chain_hi/chain_lo gap is
+   the ban system working, family by family.
 4. **The witness cliques are usable objects, not just numbers.** Each
    certified row carries the words the grader accepted — `capacity
    fire` prints the ~~28~~ **27**-word clique a writer could actually
