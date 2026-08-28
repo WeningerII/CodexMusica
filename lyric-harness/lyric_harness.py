@@ -10150,37 +10150,20 @@ def main():
                 f"list; `wiring` prints which verb runs on which layer.")
 
 
-if __name__ == "__main__":
-    # ONE FILE, TWO MODULE OBJECTS — and the first thing this branch has to
-    # do is stop being two, because an `except` clause below cannot catch a
-    # class raised by the other copy.
-    #
-    # Run as a script this file is `__main__`. Every module under `quality/`
-    # does `from lyric_harness import ...`, which finds no `lyric_harness` in
-    # `sys.modules`, RE-EXECUTES this whole file under that name, and binds a
-    # SECOND, unrelated set of every class and function in it. Two
-    # `Lexicon`s, two `Declaration`s, two of everything, differing by
-    # identity and by nothing else — which is invisible until identity is
-    # what a statement rests on. It rests on it here: `read_lyric_text`
-    # reached through `quality/readability.py` raises
-    # `lyric_harness.UndecodableLyricFile` and this block catches
-    # `__main__.UndecodableLyricFile`, so the refusal added in this same
-    # commit was caught for seven verbs and MISSED for the eighth —
-    # `readability`, which kept exiting 1 with a traceback whose last line
-    # reads `lyric_harness.UndecodableLyricFile: ... not valid UTF-8`. The
-    # message was right, the handler was right, and they were about two
-    # different classes.
-    #
-    # `setdefault` rather than assignment, and BEFORE `main()`, which is
-    # where every `from quality import ...` happens: any importer arriving
-    # afterwards is handed this module instead of re-running the file. It
-    # also stops the double execution (47.9ms, `-X importtime`) and collapses
-    # the two copies of every module-level cache into the one the CLI is
-    # actually using. `setdefault` is not paranoia about a race — it says
-    # that if something has ALREADY imported this file under its own name,
-    # that copy wins and this branch does not swap it out underneath it.
-    sys.modules.setdefault("lyric_harness", sys.modules["__main__"])
+def cli():
+    """`main()` under the script's own refusal handlers — ONE dispatch,
+    TWO entrances (`MISSING.md` M-155).
 
+    Extracted from the `__main__` block the day the warm worker's
+    byte-equality battery caught the seam it closes: `mcp/worker.py`
+    called `main()` directly, so a missing file answered exit 1 with a
+    traceback through the worker and `REFUSED` exit 2 through the
+    script — the same command, two different answers, which is the
+    drift a second copy of these handlers would have made permanent
+    (doctrine 1). Both entrances call THIS function now; the
+    `__main__` block keeps only what is script-only (the module-alias
+    line, which an import-entrance never needs).
+    """
     # THE LAST TWO SHAPES THAT STILL REACHED A USER AS A TRACEBACK — FIXED
     # 2026-08-15. Every verb in this file was given ONE refusal shape
     # (`REFUSED — ...`, exit 2) a piece at a time — `candidates` on an OOV
@@ -10237,3 +10220,37 @@ if __name__ == "__main__":
                         f"in lyric_harness.py and not your mistake — the "
                         f"exception was {e!r}. Please report it with the "
                         f"command you ran."])
+
+
+if __name__ == "__main__":
+    # ONE FILE, TWO MODULE OBJECTS — and the first thing this branch has to
+    # do is stop being two, because an `except` clause below cannot catch a
+    # class raised by the other copy.
+    #
+    # Run as a script this file is `__main__`. Every module under `quality/`
+    # does `from lyric_harness import ...`, which finds no `lyric_harness` in
+    # `sys.modules`, RE-EXECUTES this whole file under that name, and binds a
+    # SECOND, unrelated set of every class and function in it. Two
+    # `Lexicon`s, two `Declaration`s, two of everything, differing by
+    # identity and by nothing else — which is invisible until identity is
+    # what a statement rests on. It rests on it here: `read_lyric_text`
+    # reached through `quality/readability.py` raises
+    # `lyric_harness.UndecodableLyricFile` and this block catches
+    # `__main__.UndecodableLyricFile`, so the refusal added in this same
+    # commit was caught for seven verbs and MISSED for the eighth —
+    # `readability`, which kept exiting 1 with a traceback whose last line
+    # reads `lyric_harness.UndecodableLyricFile: ... not valid UTF-8`. The
+    # message was right, the handler was right, and they were about two
+    # different classes.
+    #
+    # `setdefault` rather than assignment, and BEFORE `main()`, which is
+    # where every `from quality import ...` happens: any importer arriving
+    # afterwards is handed this module instead of re-running the file. It
+    # also stops the double execution (47.9ms, `-X importtime`) and collapses
+    # the two copies of every module-level cache into the one the CLI is
+    # actually using. `setdefault` is not paranoia about a race — it says
+    # that if something has ALREADY imported this file under its own name,
+    # that copy wins and this branch does not swap it out underneath it.
+    sys.modules.setdefault("lyric_harness", sys.modules["__main__"])
+
+    cli()

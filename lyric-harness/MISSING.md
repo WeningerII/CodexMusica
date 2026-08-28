@@ -15746,3 +15746,20 @@ write files (`--out`, `--fill`) and a byte-replay of a side-effecting
 call is not a pure hit. (3) The Lexicon rebuild per request (0.5s)
 stays — measured too small to justify a cache with a flag-keyed
 identity.
+
+**ADDENDUM, the same sitting — THE BATTERY CAUGHT A REAL SEAM ON ITS
+FIRST FULL RUN, AND THE FIX IS ONE DISPATCH FOR TWO ENTRANCES.** The
+byte-equality battery's refusal case (`brief no_such_file.txt ABAB`)
+answered **exit 2, `REFUSED — no_such_file.txt`** cold and **exit 1
+with a traceback** warm: the script's refusal handlers (`OSError`,
+`IndexError`, `UndecodableLyricFile` — the 2026-08-15 "last two
+traceback shapes" work) wrapped the `main()` CALL inside the
+`__main__` block, and the worker called `main()` bare. A second copy of
+the handlers in the worker would have been the drift doctrine 1 exists
+to end, so the guarded dispatch is extracted as `lyric_harness.cli()`
+— the `__main__` block keeps only the script-only module-alias line and
+calls it; the worker calls it too. Verified both ways: the script's
+refusal is byte-unchanged, and the worker now answers the same command
+with the same code and the same first line. The counters' public-symbol
+row moved 1365→1366 with the new def and is repinned. This is the
+battery doing the one job it was built for, on day one.

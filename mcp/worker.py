@@ -56,6 +56,12 @@ def run_one(argv):
     protocol writes to the real stdout and a leaked swap would deadlock the
     parent. `SystemExit` is the harness's ordinary voice (every refusal is
     a printed message and an exit code), so it is read, never re-raised.
+
+    `cli()`, NOT `main()` — the byte-equality battery's first full run
+    caught the difference: the script wraps `main()` in refusal handlers
+    (a missing file is `REFUSED` exit 2, a missing positional exit 2 with
+    the count), and calling `main()` bare answered the same command exit 1
+    with a traceback. One dispatch, two entrances (M-155).
     """
     out, err = io.StringIO(), io.StringIO()
     old_argv, old_out, old_err = sys.argv, sys.stdout, sys.stderr
@@ -63,7 +69,7 @@ def run_one(argv):
     sys.stdout, sys.stderr = out, err
     code = 0
     try:
-        rc = lyric_harness.main()
+        rc = lyric_harness.cli()
         code = int(rc) if isinstance(rc, int) else 0
     except SystemExit as e:
         code = e.code if isinstance(e.code, int) else (0 if e.code is None
