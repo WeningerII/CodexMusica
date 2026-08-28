@@ -852,6 +852,41 @@ try {
     console.log('  ok  lyric_revise live: suspends with the question, no render, state round-trips');
     passed++;
 
+    // THE WARM WORKER (M-155). The one claim that licenses it: the warm
+    // path answers with the COLD PATH'S EXACT BYTES — same stdout, same
+    // exit code — for every argv, including refusals, and a request served
+    // AFTER another verb's request is not poisoned by it (the cross-verb
+    // ordering below is the control). Then the operational half: the
+    // worker PERSISTS between requests (that persistence is the entire
+    // point — the memos live in it), and a killed worker costs one
+    // fallback answer, never a wrong one.
+    const { _workerInternals: WK } = await import('./lyric_tools.js');
+    assert.ok(WK.enabled, 'the warm path is on by default (LYRIC_WORKER=0 disables)');
+    const battery = [
+      ['screen', 'fire', 'desire'],
+      ['plan', '--seed=7', '--lines=22'],
+      ['screen', 'hair', 'chair'],
+      ['brief', 'no_such_file.txt', 'ABAB'], // a refusal, through both paths
+    ];
+    for (const argv of battery) {
+      const warm = await WK.runWarm(argv).catch(() => null);
+      const cold = await WK.runCold(argv);
+      assert.ok(warm, `warm path answered for ${argv[0]}`);
+      assert.equal(warm.code, cold.code, `${argv.join(' ')}: same exit code`);
+      assert.equal(warm.stdout, cold.stdout, `${argv.join(' ')}: byte-identical stdout`);
+    }
+    const pidBefore = WK.pid();
+    await WK.runWarm(['screen', 'fire', 'desire']);
+    assert.ok(pidBefore !== null && WK.pid() === pidBefore,
+      'the worker persists across requests — the memos live in it');
+    WK.kill();
+    const after = await WK.runWarm(['screen', 'fire', 'desire']).catch(() => null);
+    const afterCold = await WK.runCold(['screen', 'fire', 'desire']);
+    assert.ok(after && after.stdout === afterCold.stdout,
+      'a killed worker respawns and still answers with the cold bytes');
+    console.log('  ok  warm worker: byte-identical to cold on the battery, persists, survives a kill');
+    passed++;
+
     // `title` REACHES THE PLAN (MISSING.md M-93), and the only shape that
     // proves it is a DIFFERENCE between runs — accepting a field and
     // dropping it looks identical from the outside. Three runs, because the

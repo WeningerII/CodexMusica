@@ -2237,7 +2237,9 @@ def test_propose_selects_who_writes_the_line():
         rc, out, _ = run(*argv, "--propose=call:x:y", expect_rc=2)
         check(f"--propose on `{verb}` REFUSES instead of being a silent "
               f"no-op on a flag about who wrote the words",
-              rc == 2 and "only `revise` runs a proposer" in out,
+              # "revise and finish" since 2026-08-28 (M-154): `finish` runs
+              # the same loop, so the refusal names both loop verbs now.
+              rc == 2 and "only `revise` and `finish` run a proposer" in out,
               out.strip().splitlines()[:1])
 
     # `replay:PATH` -- the loop driven over REAL proposed text, reaching

@@ -2905,6 +2905,49 @@ def _spearman(xs, ys):
     return num / den
 
 
+def test_the_judge_memo_answers_identical_calls_only():
+    """X9. `whole_vocabulary_pairs`' memo (M-155): a hit is the recorded
+    answer to an IDENTICAL call, the key reads every coordinate that moves
+    the answer, and the memo is demonstrably LIVE — a check that could not
+    tell a memo from a recompute would be the vacuous-check family.
+
+    SIX CHECKS. The poison check is the non-vacuity proof: a planted wrong
+    value COMES BACK for its own key (so the memo is read, not decoration)
+    and for NO OTHER key (so a nearby call cannot be served a stale answer).
+    """
+    import quality.relations as RT
+    from quality import phonology as PH
+    phon = PH.get("eng")
+    lines = ("the river took the bridge at dawn",
+             "and no one saw the water again",
+             "the cattle waded through the silt",
+             "past every fence the county rebuilt")
+    RT._WVP_MEMO.clear()
+    a = RT.whole_vocabulary_pairs(lines, phon)
+    check("the first call computes and records exactly one entry",
+          len(RT._WVP_MEMO) == 1, f"{len(RT._WVP_MEMO)} entries")
+    b = RT.whole_vocabulary_pairs(lines, phon)
+    check("a hit equals the fresh compute, key for key and name for name",
+          a == b)
+    check("...and is a fresh copy, not the stored object — a caller's "
+          "mutation cannot poison a later reader",
+          a is not b and all(a[k] is not b[k] for k in a))
+    c = RT.whole_vocabulary_pairs(lines, phon, bearing={0, 1})
+    check("a changed bearing is a DIFFERENT call and records its own entry",
+          len(RT._WVP_MEMO) == 2, f"{len(RT._WVP_MEMO)} entries")
+    # THE POISON: plant a wrong answer under the bare key and ask again.
+    key = RT._wvp_key(lines, phon, None, None)
+    check("the key is spellable for the phonology's own declaration",
+          key is not None)
+    RT._WVP_MEMO[key] = {(1, 99): ("planted",)}
+    poisoned = RT.whole_vocabulary_pairs(lines, phon)
+    with_bearing = RT.whole_vocabulary_pairs(lines, phon, bearing={0, 1})
+    check("the memo is LIVE (the planted answer comes back for its own "
+          "key) and SCOPED (the bearing call is untouched by it)",
+          poisoned == {(1, 99): ["planted"]} and with_bearing == c)
+    RT._WVP_MEMO.clear()
+
+
 if __name__ == "__main__":
     test_inventory()
     test_p0_unreadable_final_token()
@@ -2937,6 +2980,7 @@ if __name__ == "__main__":
     test_vacuous_frame_is_not_a_null()
     test_orthography_surface_is_declarable()
     test_frequency_refusal_is_measured_against_the_shipped_tables()
+    test_the_judge_memo_answers_identical_calls_only()
     print("=" * 66)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")

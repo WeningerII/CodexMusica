@@ -144,6 +144,7 @@ value took the default path in silence.  See `ClassEqual` and `UNMATCHED`.
 """
 
 import itertools
+import json
 import re
 from dataclasses import dataclass, field, replace
 
@@ -6471,6 +6472,44 @@ def stanzas_from_sections(sections):
     return out
 
 
+#: THE JUDGE'S MEMO (2026-08-28, `MISSING.md` M-155). `whole_vocabulary_pairs`
+#: is a PURE function of its four arguments — the loop's determinism was
+#: verified by inspection and across three processes (doctrine 66), and this
+#: function iterates `sorted(REGISTRY)` over a stream built from its own
+#: inputs — so an identical call may return the recorded answer.
+#: MEASURED before the memo, one `song` grade on seed 16's 23-line draft:
+#: this function ran FIVE times on the IDENTICAL arguments, 99.6s of a
+#: 177.1s profile (1.15M schema evaluations), because five sites of one
+#: report each honestly consult the one judge (doctrine 1) and nothing
+#: remembered the answer. The key is DECLARED coordinates, never object
+#: identity: the phonology's own (language, name) declaration, the line
+#: tuple, the sections spelled by a stable serialisation, the sorted
+#: bearing. An argument the key cannot spell (a phon with no declaration,
+#: an unserialisable sections shape) DISABLES the memo for that call rather
+#: than guessing a key — a wrong hit here would be a silently wrong verdict,
+#: which is the one failure mode worse than the cost. Entries are stored
+#: immutably and returned as fresh copies, so no caller's mutation can
+#: poison a later reader. Bounded FIFO because the population is drafts a
+#: session is actively grading, not a corpus.
+_WVP_MEMO = {}
+_WVP_MEMO_CAP = 32
+
+
+def _wvp_key(text_lines, phon, sections, bearing):
+    """-> a hashable key for the memo, or None when one cannot be spelled."""
+    try:
+        d = phon.declaration()
+        pk = (d["language"], d["name"])
+    except (AttributeError, KeyError, TypeError):
+        return None
+    try:
+        sk = json.dumps(sections, sort_keys=True) if sections else None
+        return (pk, tuple(text_lines), sk,
+                tuple(sorted(bearing)) if bearing else None)
+    except TypeError:
+        return None
+
+
 def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None):
     """Every 1-based line pair ANY registered schema is true of, with the
     names that answered -> {(i, j): [canonical schema names, sorted]}.
@@ -6489,7 +6528,14 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None):
     supply is silent here, not a violation and not a pass), and same-line
     instances are dropped by `line_pairs_for`'s own rule, so an intra-line
     figure can never satisfy a cross-line mandate.
+
+    MEMOISED on declared coordinates — see `_WVP_MEMO` above. A hit is a
+    fresh copy of a recorded answer to an IDENTICAL call, never a nearby
+    one; a call whose key cannot be spelled runs the judge in full.
     """
+    memo_key = _wvp_key(text_lines, phon, sections, bearing)
+    if memo_key is not None and memo_key in _WVP_MEMO:
+        return {k: list(v) for k, v in _WVP_MEMO[memo_key].items()}
     stream = build_stream(text_lines, phon,
                           sections=sections,
                           stanzas=stanzas_from_sections(sections),
@@ -6503,6 +6549,10 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None):
         ps = line_pairs_for(REGISTRY[name], stream, keep_refusal=False)
         for pair in ps:
             out.setdefault(pair, []).append(name)
+    if memo_key is not None:
+        if len(_WVP_MEMO) >= _WVP_MEMO_CAP:
+            _WVP_MEMO.pop(next(iter(_WVP_MEMO)))
+        _WVP_MEMO[memo_key] = {k: tuple(v) for k, v in out.items()}
     return out
 
 

@@ -26,7 +26,7 @@
 // "-"; line text never reaches argv — it travels by temp file, deleted in
 // finally.
 
-import { execFile } from 'node:child_process';
+import { execFile, spawn } from 'node:child_process';
 import { mkdtemp, writeFile, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -138,31 +138,158 @@ function enqueue(fn) {
   return run;
 }
 
+// ── THE WARM WORKER (`MISSING.md` M-155) ──────────────────────────────────
+// One persistent `worker.py` serves verb requests over line-JSON, so the
+// interpreter and the harness's declared memos live between calls — the
+// lever that matters is `relations._WVP_MEMO`, which makes lyric_revise's
+// replay stop re-paying streams for drafts the process already judged.
+// STATELESSNESS IS UNCHANGED AT THE REQUEST BOUNDARY: every request is a
+// full `main()` on its own argv, and the memo answers only IDENTICAL calls
+// (declared-coordinate keys; quality/relations.py owns the argument).
+// FAILURE IS ALWAYS A FALLBACK, NEVER A WRONG ANSWER: a timeout, a dead
+// worker, or an unreadable reply kills the worker and re-runs THAT request
+// on the cold execFile path — one slow answer, byte-identical semantics.
+// `LYRIC_WORKER=0` disables the warm path entirely.
+const WORKER_PATH = path.join(path.dirname(fileURLToPath(import.meta.url)), 'worker.py');
+const WORKER_ENABLED = process.env.LYRIC_WORKER !== '0';
+let _worker = null;
+let _workerBuf = '';
+let _workerNextId = 1;
+let _workerWaiter = null; // {id, resolve, reject} — the queue is serial, so at most one
+
+function _killWorker() {
+  if (_worker) {
+    try {
+      _worker.kill('SIGKILL');
+    } catch {
+      /* already gone */
+    }
+  }
+  _worker = null;
+  _workerBuf = '';
+  if (_workerWaiter) {
+    const w = _workerWaiter;
+    _workerWaiter = null;
+    w.reject(new Error('worker died'));
+  }
+}
+
+function _spawnWorker() {
+  const w = spawn(PYTHON, [WORKER_PATH], {
+    cwd: HARNESS_DIR,
+    stdio: ['pipe', 'pipe', 'ignore'],
+    env: { ...process.env, PYTHONDONTWRITEBYTECODE: '1' },
+  });
+  // UNREF'd so the worker never holds the parent open: node exits when its
+  // own work is done, the worker's stdin sees EOF, and worker.py's read
+  // loop ends — the shutdown ordering is the pipe's, not a signal's.
+  w.unref();
+  if (w.stdin.unref) w.stdin.unref();
+  if (w.stdout.unref) w.stdout.unref();
+  w.stdout.setEncoding('utf8');
+  w.stdout.on('data', (chunk) => {
+    _workerBuf += chunk;
+    if (_workerBuf.length > MAX_OUTPUT_BYTES) return _killWorker();
+    let nl;
+    while ((nl = _workerBuf.indexOf('\n')) >= 0) {
+      const line = _workerBuf.slice(0, nl);
+      _workerBuf = _workerBuf.slice(nl + 1);
+      if (!line.trim() || !_workerWaiter) continue;
+      let reply;
+      try {
+        reply = JSON.parse(line);
+      } catch {
+        return _killWorker(); // protocol corruption: cold path takes over
+      }
+      if (reply.id !== _workerWaiter.id) continue; // stale reply from a killed request
+      const wtr = _workerWaiter;
+      _workerWaiter = null;
+      wtr.resolve({
+        code: typeof reply.code === 'number' ? reply.code : -1,
+        stdout: reply.stdout || '',
+        stderr: reply.stderr || '',
+      });
+    }
+  });
+  w.on('exit', () => {
+    if (_worker === w) _killWorker();
+  });
+  w.on('error', () => {
+    if (_worker === w) _killWorker();
+  });
+  _worker = w;
+  return w;
+}
+
+function _runVerbWarm(args) {
+  return new Promise((resolve, reject) => {
+    const w = _worker || _spawnWorker();
+    const id = _workerNextId++;
+    const timer = setTimeout(() => {
+      // A wedged request wedges the worker (it is serial), so the worker
+      // goes with it; the caller falls back cold.
+      _killWorker();
+    }, SUBPROCESS_TIMEOUT_MS);
+    _workerWaiter = {
+      id,
+      resolve: (r) => {
+        clearTimeout(timer);
+        resolve(r);
+      },
+      reject: (e) => {
+        clearTimeout(timer);
+        reject(e);
+      },
+    };
+    try {
+      w.stdin.write(JSON.stringify({ id, argv: args }) + '\n');
+    } catch (e) {
+      _killWorker();
+      reject(e);
+    }
+  });
+}
+
+function _runVerbCold(args) {
+  return new Promise((resolve) => {
+    execFile(
+      PYTHON,
+      ['lyric_harness.py', ...args],
+      {
+        cwd: HARNESS_DIR,
+        timeout: SUBPROCESS_TIMEOUT_MS,
+        maxBuffer: MAX_OUTPUT_BYTES,
+        env: { ...process.env, PYTHONDONTWRITEBYTECODE: '1' },
+      },
+      (err, stdout, stderr) => {
+        // The CLI's exit codes are the contract: 0 answered clean,
+        // 2 REFUSED (the harness did not answer), 3 answered with a
+        // FLAG standing, 4 SUSPENDED. execFile treats any nonzero as
+        // `err`, so the codes are read back off the error object.
+        const code = err ? (typeof err.code === 'number' ? err.code : -1) : 0;
+        resolve({ code, stdout: stdout || '', stderr: stderr || '' });
+      }
+    );
+  });
+}
+
 function runVerb(args) {
-  return enqueue(
-    () =>
-      new Promise((resolve) => {
-        execFile(
-          PYTHON,
-          ['lyric_harness.py', ...args],
-          {
-            cwd: HARNESS_DIR,
-            timeout: SUBPROCESS_TIMEOUT_MS,
-            maxBuffer: MAX_OUTPUT_BYTES,
-            env: { ...process.env, PYTHONDONTWRITEBYTECODE: '1' },
-          },
-          (err, stdout, stderr) => {
-            // The CLI's exit codes are the contract: 0 answered clean,
-            // 2 REFUSED (the harness did not answer), 3 answered with a
-            // FLAG standing. execFile treats any nonzero as `err`, so the
-            // codes are read back off the error object.
-            const code = err ? (typeof err.code === 'number' ? err.code : -1) : 0;
-            resolve({ code, stdout: stdout || '', stderr: stderr || '' });
-          }
-        );
-      })
+  return enqueue(() =>
+    WORKER_ENABLED ? _runVerbWarm(args).catch(() => _runVerbCold(args)) : _runVerbCold(args)
   );
 }
+
+// TEST SEAM (M-155): mcp/test.mjs drives the two paths directly for its
+// byte-equality battery — the claim that the warm worker answers with the
+// COLD PATH'S EXACT BYTES is only checkable by running both on one argv.
+// Production code reaches both only through `runVerb`'s fallback.
+export const _workerInternals = {
+  runWarm: _runVerbWarm,
+  runCold: _runVerbCold,
+  kill: _killWorker,
+  pid: () => (_worker ? _worker.pid : null),
+  enabled: WORKER_ENABLED,
+};
 
 const EXIT_MEANING = {
   0: 'answered — no flag stands',

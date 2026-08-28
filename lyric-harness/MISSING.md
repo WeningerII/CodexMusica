@@ -15672,3 +15672,77 @@ with the question and NO render anywhere in the response, the state
 round-trips and re-asks the IDENTICAL question, `answer` without
 `state` refuses). `wiring` holds the three sets equal at 32 verbs with
 `finish` on the map.
+
+### M-155 · Every call paid for work the process had already done, and the connector re-paid it per call `CLOSED` 2026-08-28 — the judge's memo and the warm worker: the same bytes, several times faster
+
+**The owner's directive, after the seam: *"once it's green do the warm
+worker."* And the first measurement OVERTURNED the diagnosis the build
+was named for.** The working theory (this campaign's own prose included)
+blamed the connector's subprocess-per-call cold start. Measured: `import
+lyric_harness` is **0.04s** and `Lexicon()` **0.5s** — the cold start is
+noise. The cost is COMPUTE, and it is concentrated: a cProfile of one
+`song` grade under seed 16's plan (177.1s profiled, 60s unprofiled) put
+**99.6s in `relations.whole_vocabulary_pairs` — called FIVE times on the
+IDENTICAL arguments** (1.15M schema `evaluate` calls, five report sites
+each honestly consulting the one judge per doctrine 1, nothing
+remembering the answer), and 46s in `joint_field`'s candidate search
+(named here, untouched — the next lever if one is wanted).
+
+**BUILD 1 — the judge's memo (`relations._WVP_MEMO`).**
+`whole_vocabulary_pairs` is a pure function of its four arguments and
+the tree's determinism is verified (doctrine 66, three-process check),
+so an identical call may return the recorded answer. The key is DECLARED
+coordinates, never object identity — the phonology's own
+`declaration()` (language, name), the line tuple, sections by stable
+JSON, the sorted bearing — and an argument the key cannot spell DISABLES
+the memo for that call, because a wrong hit is a silently wrong verdict,
+the one failure worse than the cost. Entries stored immutably, returned
+as fresh copies, FIFO-bounded at 32. **PROVEN BYTE-IDENTICAL, not
+argued:** the identical seed-16 grade, stash-baseline against memo,
+`cmp` clean — **59.9s → 43.9s** under identical load.
+`test_relations.py` X9 is the guard, and its poison check is the
+non-vacuity proof: a planted wrong value comes back for its own key (the
+memo is READ) and for no other (a nearby call cannot be served a stale
+answer). The instance-level `_wvp_cache` precedent (`Reviser` group
+merges) stays — it keys on `id(lines)` for one object's life; this memo
+is the cross-call species.
+
+**BUILD 2 — the warm worker (`mcp/worker.py` + the connector's warm
+path).** One persistent process serves verb requests over line-JSON
+(request `{"id", "argv"}`, reply `{"id", "code", "stdout", "stderr"}`,
+the harness's stdout captured per request so a verb cannot interleave
+with the protocol). STATELESSNESS IS UNCHANGED AT THE REQUEST BOUNDARY:
+every request is a full `main()` on its own argv; what persists is the
+interpreter and the memo — which is exactly what makes `lyric_revise`'s
+replay stop re-paying streams for drafts the process already judged.
+FAILURE IS A FALLBACK, NEVER A WRONG ANSWER: a timeout, a dead worker,
+or a corrupt reply kills the worker and re-runs THAT request on the cold
+`execFile` path; `LYRIC_WORKER=0` disables the warm path. The worker is
+unref'd so it never holds the parent open (shutdown is the pipe's EOF,
+not a signal), and the per-request timer keeps the event loop alive
+exactly while a reply is owed.
+
+**MEASURED, the number the owner asked for:** the `lyric_revise`
+fold-an-answer call — the loop's per-turn cost in a chat — went
+**92s → 32s (2.9x)** through the warm worker, because the replay's
+re-brief of the unchanged draft hits the memo recorded by the previous
+call. The first-question call went 34s → (worker-warm) with the same
+bytes; the plain grade is 43.9s from 59.9s.
+
+**Checks:** `test_relations.py` X9 (six checks, poison-proven);
+`mcp/test.mjs`'s worker battery — warm vs cold BYTE-IDENTICAL stdout
+and exit code over four argv including a refusal, with a cross-verb
+ordering as the state-leak control; the worker PERSISTS across requests
+(same pid — the persistence is the point); a killed worker respawns and
+still answers with the cold bytes. The whole live half of the mcp suite
+now runs through the warm path, so every existing check is a regression
+on it.
+
+**WHAT IS DELIBERATELY NOT BUILT:** (1) no memo on `joint_field` — its
+46s is a per-word search whose inputs (draft + mandate + declaration)
+churn per attempt; the honest lever there is a design question, not a
+dict. (2) No result-level caching of whole verb invocations — verbs
+write files (`--out`, `--fill`) and a byte-replay of a side-effecting
+call is not a pure hit. (3) The Lexicon rebuild per request (0.5s)
+stays — measured too small to justify a cache with a flag-keyed
+identity.
