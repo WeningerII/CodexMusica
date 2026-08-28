@@ -805,3 +805,117 @@ origin — the defect this repository already found in its own
 `data/sources.tsv` line-number citations, where an unrelated insertion made a
 true sentence false without one character of it changing. A word screened by
 two runs REFUSES as ambiguous rather than resolving to whichever came first.
+
+## `till_the_light_comes_home.txt` — "Till the Light Comes Home", seed 143: banked the day M-148 was recorded, written entirely on the writer's declared route
+
+    python3 lyric_harness.py plan --seed=143 --relation=class:RHYME \
+        --title="Till the Light Comes Home"
+
+**THE DECLARATION IS THE POINT OF THIS ENTRY.** M-148 (recorded the same day)
+measures that at least one relation in the planner's certified draw pool
+refuses its own canonical answers through the mandate route, so this song does
+what that entry's "until then" clause prescribes: `--relation=class:RHYME`
+silences the draw — a writer's declaration, disclosed here, never a quiet
+workaround. Every mandated pair in the song is judged as strict RHYME by the
+scalar comparator's named class: identity refused, rime riche refused,
+assonance refused.
+
+**SCREEN-FIRST IS WHY THE LOOP HAD NOTHING TO DO.** Every rhyme family was
+certified through `screen` before a line was written, and the banked screens
+are the certificates: the reprise's eight end words, the vamp's five, the
+tag's four, the coda's six, the intro's three. The screens that FAILED are
+the story the log cannot hold — the first-choice pair in nearly every family
+came back MODAL_RHYME (the most predictable partner in its own field), so the
+committed words are the field's non-modal tail, which is doctrine 9 doing the
+writing. Two banked screens carry banned pairs and that is BY CONSTRUCTION,
+not an oversight: the reprise and coda components are not complete graphs, so
+their word sets were assigned so that every banned pair lands on a slot pair
+the mandate never binds — `raid`/`afraid` share a spelled ending and no group
+holds lines 7 and 10 together.
+
+**ONE REWRITE BETWEEN FIRST GRADE OF THIS DESIGN AND EXIT 0.** The grader
+caught `blockade`/`decayed` at score 1.000 and refused it — identical anchor
+syllable, RIME_RICHE, which `class:RHYME` correctly rejects and the screen
+correctly does not ban (rime riche is a relation, not a laziness). `decayed`
+became `displayed`, screened clean against all five of its mandated partners
+before the line was retyped.
+
+**THE VERDICTS, CHARGED AGAINST THE LOG.** The grade is exit 0 with 0
+per-line flags and 0 whole-draft flags on md5 9100acec755a; 76 pairs
+mandated, 76 judged, 0 refused. The loop reports SUCCESS after 0 rounds with
+the draft unchanged. No MODAL_RHYME, HOMEOTELEUTON or PREDICTABLE_RHYME note
+stands anywhere in the report, because the screening happened before the
+writing rather than after it.
+
+## the_long_way_back — the song M-148 parked, finished the day the judge was repaired
+
+**"The Long Way Back", seed 28 of the verse-chorus form, 29 lines in 7
+sections, graded at exit 0 with 0 per-line flags and 0 whole-draft flags on
+md5 687eaa34c949; 75 pairs mandated, 36 judged, 39 refused. The loop reports
+SUCCESS after 0 rounds with the draft unchanged.** [RESULTS: n_lines
+the_long_way_back]
+
+**THIS IS THE SONG `MISSING.md` M-148 PARKED OPEN AT EXIT 3**, when the
+schema judge refused canonical answers to the planner's own drawn relations
+and eight flags stood that no word available to a writer could clear. It was
+not presented then, on the owner's standing rule that nothing skips a step;
+it is presented now because the judge was repaired, not because the gate was
+argued down. The finishing order after the repair: re-grade, rewrite to the
+repaired judge's honest coordinates, grade to exit 0, revise to SUCCESS,
+render, bank.
+
+**THE REWRITE THE REPAIRED JUDGE ASKED FOR IS THE OPPOSITE OF THE ONE THE
+BROKEN JUDGE GOT.** The parked draft had been written TO the defect: every
+chorus line opened with one word because the anaphora verdict was read at
+the lines' initial tokens rather than at the declared slots — which
+satisfied the broken judge and tripped the floor's calibrated
+ANAPHORA_OVERLOAD at 12 of 29 openings. Under the repaired judge the
+anaphora groups bind the DECLARED tokens (a chorus line's second word
+answering another's last), the skothending groups take post-vocalic
+clusters with differing stressed vowels at their declared placements, and
+the chorus that satisfies them carries four distinct opening words — the
+overload flag cleared in the same rewrite that closed the scheme
+violations, because writing to the real coordinates is less repetitive
+than writing to the broken ones.
+
+**39 OF THE 75 MANDATED PAIRS ARE REFUSALS AND EVERY ONE IS NAMED, NOT
+FAILED.** The plan drew `multisyllabic rhyme`, `compound / phrasal rhyme`,
+`chain rhyme (rap)` and `monai` onto declared token slots, and those span
+shapes search windows or read their own magnitudes — one declared token
+cannot bind them, so the repaired judge refuses by name instead of
+answering a different question under the schema's name (doctrine 20/79).
+Under the broken judge three of those groups' pairs graded as VIOLATIONS no
+writing could fix; the refusal is the honest state and `MISSING.md` M-149
+records the seam (the relation draw and the placement draw compose into
+conjunctions nothing prices) as an open entry rather than a footnote.
+
+**THE BAN GATE DID THE LAST THIRD OF THE WORK.** The first exit-0-shaped
+draft still carried PREDICTABLE_RHYME (97% of the mandate-class pairs above
+0.90 predictability, driven by high-frequency line-end words) and one
+SHARED_SUFFIX pair whose spelled rimes were identical at every level. The
+gate held exit 0 back until the line-ends moved to the rare tail —
+non-modal content words in the outro, a chorus couplet re-pivoted off the
+shared spelled ending — which is doctrine 9 doing the writing at the layer
+the screen could not reach, since these were incidental class pairs rather
+than declared rhyme families.
+
+### the_long_way_back, re-banked the day M-149(b) un-silenced its siblings
+
+**Re-graded and re-banked 2026-08-28 at exit 0 with 0 per-line and 0
+whole-draft flags on md5 794df4513589; 75 pairs mandated, 27 judged, 48
+refused. The loop reports SUCCESS after 0 rounds with the draft
+unchanged.** The bank-day verdict above was true of the bank-day tree and
+stays recorded; what changed is the JUDGE: `MISSING.md` M-149(b) repaired
+the refused-set key that had let one group's refusal on a line pair
+silence every sibling group's different reading of the same two lines,
+and under the honest key TEN of this song's mandated questions were asked
+for the first time — nine came back violations and one (a stanza-framed
+monorhyme) could only be asked under the blueprint's own frame. The
+rewrite went through the full order: the screen banned five candidate
+pairs on the way (a spelled-identical skothending, two homeoteleuta, and
+one word that is the modal head of every partner's field), the grade came
+back to exit 0, and the loop closed at SUCCESS with nothing left to hold
+open. The vamp now answers its own echo, the postchorus counts what the
+dark hours lost, and the coda's ledger is sewn, on loan, and unknown —
+which is to say the mandated web finally says what the plan drew, at the
+placements it drew them.

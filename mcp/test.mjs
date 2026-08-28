@@ -518,18 +518,19 @@ try {
       'lyric_check',
       'lyric_grade',
       'lyric_plan',
+      'lyric_revise',
       'lyric_screen',
       'lyric_sweep',
       'lyric_types',
       'lyric_verify',
     ],
-    'the seven lyric tools are advertised'
+    'the eight lyric tools are advertised'
   );
   for (const t of lyric) {
     assert.equal(t.annotations?.readOnlyHint, true, `${t.name} read-only`);
     assert.equal(t.annotations?.openWorldHint, false, `${t.name} closed-world`);
   }
-  console.log('  ok  lyric family advertised: 7 tools, read-only, closed-world');
+  console.log('  ok  lyric family advertised: 8 tools, read-only, closed-world');
   passed++;
 
   // DEPLOYMENT FRESHNESS HAS AN INSTRUMENT (M-127): check_live.mjs compares
@@ -799,6 +800,105 @@ try {
     );
     passed++;
 
+    // `lyric_revise` — THE SEAM (M-154). The claims only this tool makes:
+    // a suspended call contains NO SONG anywhere in its output (the render
+    // exists structurally only past a stop condition of the loop), the
+    // question is the writer's brief, and the `state` blob round-trips —
+    // the server keeps nothing, so a re-call with the same unanswered state
+    // re-asks the SAME question rather than advancing or inventing one.
+    const rev1 = await client.callTool(
+      { name: 'lyric_revise', arguments: { seed: planSeed, draft } },
+      undefined,
+      LIVE_OPTS
+    );
+    assert.ok(!rev1.isError, 'lyric_revise answered without isError');
+    assert.equal(rev1.content.length, 2, 'revise returns two blocks: question, then verdict');
+    const q1 = rev1.content[0].text;
+    assert.ok(
+      q1.startsWith(`[AWAITING PROPOSAL — seed ${planSeed} — 0 answer(s) on record — NO SONG YET]`),
+      'a fresh revision suspends awaiting the first proposal'
+    );
+    assert.ok(
+      !q1.includes('[FINISHED') && !q1.includes('THE SONG, PERFORMANCE ORDER'),
+      'NO render reaches a suspended response — the seam holds'
+    );
+    const rv1 = JSON.parse(rev1.content[1].text);
+    assert.equal(
+      rv1.exit_code,
+      4,
+      'suspension is exit 4, its own code — neither verdict nor failure'
+    );
+    assert.equal(rv1.status, 'awaiting_proposal', 'and says so in its own field');
+    const st1 = JSON.parse(rv1.state);
+    assert.ok(st1.pending && st1.pending.kind, 'the state carries the pending question');
+    // Round-trip: same state, no answer -> the SAME question, fast (the
+    // harness refuses to advance past an unanswered pending — that refusal
+    // IS the enforcement, and it must be idempotent or a retry would skip).
+    const rev2 = await client.callTool(
+      { name: 'lyric_revise', arguments: { seed: planSeed, draft, state: rv1.state } },
+      undefined,
+      LIVE_OPTS
+    );
+    const rv2 = JSON.parse(rev2.content[1].text);
+    assert.equal(rv2.exit_code, 4, 'an unanswered state re-suspends');
+    assert.equal(
+      JSON.parse(rv2.state).pending.prompt,
+      st1.pending.prompt,
+      'and re-asks the IDENTICAL question — the loop is resumed, not re-imagined'
+    );
+    // An answer with no state to answer is refused by the tool itself.
+    const revBad = await client.callTool(
+      { name: 'lyric_revise', arguments: { seed: planSeed, draft, answer: 'a line' } },
+      undefined,
+      LIVE_OPTS
+    );
+    assert.ok(revBad.isError, '`answer` without `state` refuses — there is no question it answers');
+    console.log(
+      '  ok  lyric_revise live: suspends with the question, no render, state round-trips'
+    );
+    passed++;
+
+    // THE WARM WORKER (M-155). The one claim that licenses it: the warm
+    // path answers with the COLD PATH'S EXACT BYTES — same stdout, same
+    // exit code — for every argv, including refusals, and a request served
+    // AFTER another verb's request is not poisoned by it (the cross-verb
+    // ordering below is the control). Then the operational half: the
+    // worker PERSISTS between requests (that persistence is the entire
+    // point — the memos live in it), and a killed worker costs one
+    // fallback answer, never a wrong one.
+    const { _workerInternals: WK } = await import('./lyric_tools.js');
+    assert.ok(WK.enabled, 'the warm path is on by default (LYRIC_WORKER=0 disables)');
+    const battery = [
+      ['screen', 'fire', 'desire'],
+      ['plan', '--seed=7', '--lines=22'],
+      ['screen', 'hair', 'chair'],
+      ['brief', 'no_such_file.txt', 'ABAB'], // a refusal, through both paths
+    ];
+    for (const argv of battery) {
+      const warm = await WK.runWarm(argv).catch(() => null);
+      const cold = await WK.runCold(argv);
+      assert.ok(warm, `warm path answered for ${argv[0]}`);
+      assert.equal(warm.code, cold.code, `${argv.join(' ')}: same exit code`);
+      assert.equal(warm.stdout, cold.stdout, `${argv.join(' ')}: byte-identical stdout`);
+    }
+    const pidBefore = WK.pid();
+    await WK.runWarm(['screen', 'fire', 'desire']);
+    assert.ok(
+      pidBefore !== null && WK.pid() === pidBefore,
+      'the worker persists across requests — the memos live in it'
+    );
+    WK.kill();
+    const after = await WK.runWarm(['screen', 'fire', 'desire']).catch(() => null);
+    const afterCold = await WK.runCold(['screen', 'fire', 'desire']);
+    assert.ok(
+      after && after.stdout === afterCold.stdout,
+      'a killed worker respawns and still answers with the cold bytes'
+    );
+    console.log(
+      '  ok  warm worker: byte-identical to cold on the battery, persists, survives a kill'
+    );
+    passed++;
+
     // `title` REACHES THE PLAN (MISSING.md M-93), and the only shape that
     // proves it is a DIFFERENCE between runs — accepting a field and
     // dropping it looks identical from the outside. Three runs, because the
@@ -959,11 +1059,15 @@ try {
     // (which is what makes a bound pagination rather than truncation), the
     // vocabulary description is a checked restatement rather than a second
     // copy, and it does not rank.
-    // The predicate is TIGHT on purpose: the harness truncates its printed
-    // ACCEPTED list at 40, so a loose want makes the spanning window show
-    // fewer seeds than its two halves and the membership check below would
-    // fail on the truncation rather than on composition. 240 seeds accept 28
-    // here, under the cap. The truncation itself is checked separately.
+    // The predicate is TIGHT so accepted_count > 0 keeps the checks
+    // non-vacuous. It does NOT promise to sit under the harness's printed
+    // ACCEPTED cap of 40: this comment used to say "240 seeds accept 28
+    // here, under the cap", and the 2026-08-28 seed remap (M-52's patter
+    // row) moved that to 41 — one over the cap on the spanning window while
+    // both halves fit, which is exactly the remembered-rate staleness the
+    // two-block check above was rebuilt to end. The membership check below
+    // therefore reads the verdict's own truncation disclosure instead of
+    // assuming the rate.
     const sweepA = await callText('lyric_sweep', {
       seed_from: 1,
       count: 120,
@@ -992,11 +1096,34 @@ try {
       'two windows accept exactly what the window spanning them accepts'
     );
     assert.equal(sweepA.planned + sweepB.planned, sweepAB.planned, '...and the planned counts add');
+    // MEMBERSHIP, under the disclosed cap. Every shown list is a PREFIX of
+    // its window's accepted seeds in seed order, so the span's shown list
+    // must be a prefix of its halves' concatenation whatever the cap cuts —
+    // strict equality is the cap-free special case, not a separate claim.
+    // The flag is charged per window against the two counts it relates, so
+    // a truncation can neither hide nor be claimed idly.
+    const concatShown = [...sweepA.accepted_shown, ...sweepB.accepted_shown];
     assert.deepEqual(
-      [...sweepA.accepted_shown, ...sweepB.accepted_shown],
+      concatShown.slice(0, sweepAB.accepted_shown.length),
       sweepAB.accepted_shown,
-      '...and the seeds themselves are the same, in the same order'
+      '...and the shown seeds are the same, in the same order (the span is a prefix of its halves)'
     );
+    for (const [label, w] of [
+      ['A', sweepA],
+      ['B', sweepB],
+      ['AB', sweepAB],
+    ])
+      assert.equal(
+        w.accepted_truncated === true,
+        w.accepted_shown.length < w.accepted_count,
+        `window ${label}'s truncation flag agrees with its own two counts`
+      );
+    if (!sweepAB.accepted_truncated)
+      assert.equal(
+        concatShown.length,
+        sweepAB.accepted_shown.length,
+        'no truncation claimed, so the halves and the span show identical lists'
+      );
     // IT DOES NOT RANK, and the report says so in its own words.
     assert.ok(
       sweepAB.report.includes('does NOT rank') && sweepAB.report.includes('doctrine 19'),

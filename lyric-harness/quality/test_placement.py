@@ -150,18 +150,22 @@ def test_planner_derives():
           "closing the song — a span whose gloss is \"between sung sections\"",
           bad == 0, f"{plans} plans, {bad} violating")
     check("...and the constraint pruned nothing legitimate: the planner "
-          "still emits 14 of the 21 declared functions",
-          # ~~14~~ 19 — REPINNED 2026-08-22 for the same reason as
-          # `test_plan.py` §? above: `plan._CELLS` derives from the
-          # vocabulary now, so every section-kind function is
-          # drawable and the placement layer — not a hardcoded tuple
-          # — is what prunes. That is this check's own subject, and
-          # the number rising is the constraint proving it pruned
-          # nothing legitimate over a WIDER roster, not a narrower.
-          # The remaining 2 of 21 are `refrain` and `burden`, which
-          # are line-kind and cannot be drawn as spans at all.
-          len(emitted & set(GR.SECTION_FUNCTIONS)) == 19,
-          f"{len(emitted)} functions emitted")
+          "still emits every SECTION-kind function the vocabulary "
+          "declares",
+          # ~~14~~ ~~19~~ DERIVED — REPINNED 2026-08-22 because
+          # `plan._CELLS` derives from the vocabulary, and DE-LITERALIZED
+          # 2026-08-28 when `patter` entered as the 22nd function (M-52)
+          # and the pinned 19 went stale the way every vocabulary-count
+          # literal does: the expected value is now the vocabulary's own
+          # section-kind count, so a 23rd function moves this check's
+          # SUBJECT and not its spelling. The line-kind functions
+          # (`refrain`, `burden`) cannot be drawn as spans at all, which
+          # is what subtracting them from the vocabulary size states.
+          len(emitted & set(GR.SECTION_FUNCTIONS))
+          == sum(1 for sp in GR.SECTION_FUNCTIONS.values()
+                 if sp.kind == "section"),
+          f"{len(emitted)} functions emitted of "
+          f"{sum(1 for sp in GR.SECTION_FUNCTIONS.values() if sp.kind == 'section')} section-kind")
     check("the sampler REFUSES rather than hanging if the constraints and "
           "the cell grammar do not intersect — rejection sampling is uniform "
           "over the accepted set, and a bound is what keeps it terminating",

@@ -556,7 +556,15 @@ LAYER.declare(FrequencySource(
     #: `capacity.check()` now re-reads that file's md5 on every run, so a
     #: rebuild is at least VISIBLE from one instrument even though this
     #: integer is still hand-kept.
-    n_types=13990,
+    #: REPINNED 2026-08-28 from ~~13,990~~: the bracket conventions rebuilt
+    #: the table under the pin — `f235954` (M-47/M-27) took 38 types OUT
+    #: (wrapped editorial prose and footnote letters had been END WORDS:
+    #: `cb cc cd ce j k r y`, `mm`, `blackwood`, `telegram`, `antiquities`)
+    #: and `13cadc4` (M-152) netted -4 more while recovering 5 sung types
+    #: the old reader dropped (`barnes`, `hesper`, `indulgence`). 47 out,
+    #: 5 in, all verified by re-running distinct0 at each of the three
+    #: commits (13990 -> 13952 -> 13948). The check below is what caught it.
+    n_types=13948,
     n_types_from="distinct0:data/song_endword_en.tsv",
     pool="corpus/song/eng_*",
     loo_unit="author",

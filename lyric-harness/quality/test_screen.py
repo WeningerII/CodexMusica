@@ -181,9 +181,96 @@ def test_the_cli():
           "brief/song for phrase rhymes", rc == 2, f"rc {rc}")
 
 
+def test_clean_answers_one_question():
+    """6. M-113 — CLEAN CONFLATED A CLEAN RHYME WITH A CLEAN NON-RHYME.
+
+    `matinee.txt`'s family was built on the conflation: the screen said
+    CLEAN, the mandate charged three violations 116 pairs later. The
+    status names which CLEAN it is now, and the 77-schema default's
+    rescue — whose evidence on carrier lines is the SCAFFOLD, not the
+    pair — is rendered as a non-rhyme with the schema names disclosed.
+    Both sides are asserted, so the section cannot pass by relabelling
+    everything one way.
+    """
+    print("\n6. M-113 — CLEAN says WHICH clean, and the scaffold cannot "
+          "answer for the pair")
+    rc, out, _ = run("screen", "gasoline", "tambourine")
+    check("a true rhyme reads `CLEAN — RHYMES` — the affirmative half, "
+          "so the split cannot pass by calling everything a non-rhyme",
+          rc == 0 and "CLEAN — RHYMES" in out)
+    # taboo/suite is the MEASURED conflation: NO_RELATION 0.389, door
+    # failed, and three window-searching schemas fire on the carrier
+    # scaffold ("we carry the evening to the ..."), so the old rendering
+    # said bare CLEAN with the same word a 1.0 rhyme got.
+    r = LH.screen_pairs(["taboo", "suite"])[0]
+    check("the scaffold-rescued pair carries `schema_scaffold` in the API "
+          "row — the rescue is TELLABLE, not folded into why=None",
+          r["why"] is None and len(r["schema_scaffold"]) > 0,
+          f"scaffold={r['schema_scaffold']}")
+    rc, out, _ = run("screen", "taboo", "suite")
+    check("...and the CLI renders it DOES NOT RHYME with the schema names "
+          "— the scaffold's evidence is disclosed, never CLEAN's",
+          rc == 0 and "DOES NOT RHYME as a pair" in out
+          and "SCAFFOLD" in out, out.strip().splitlines()[1]
+          if out.strip() else "")
+    rc, out, _ = run("screen", "haiku", "suite")
+    check("a door-failed pair reads `CLEAN — DOES NOT RHYME` with the "
+          "grader's own why carried through",
+          rc == 0 and "CLEAN — DOES NOT RHYME (" in out)
+    rc, out, _ = run("screen", "gasoline", "tambourine", "taboo", "suite")
+    check("the tail line counts the two kinds APART, never summed "
+          "(doctrine 79): `clean and rhyming` and `clean but not a rhyme` "
+          "are both named",
+          "clean and rhyming" in out and "clean but not a rhyme" in out)
+
+
+def test_the_screen_asks_the_grades_question():
+    """7. M-58 ITEM 3 — THE SCREEN CAN ASK THE NAMED QUESTION.
+
+    A writer screening before writing (mandatory, standing rule 3) was
+    answered from the COARSE class while the grade asks the NAMED cell —
+    both directions live on one draft (`rain`/`reign` screens RHYME and
+    satisfies `type:rime riche`; `cellar`/`seller` screened RIME_RICHE
+    and, before the judge repair, violated it). `--relation=NAME` asks
+    the grade's own question through the same `satisfies_relation`, and
+    without it the header says out loud which question is being answered.
+    """
+    print("\n7. M-58 — the screen asks the question the grade will ask")
+    rc, out, _ = run("screen", "cellar", "seller", "teller",
+                     "--relation=type:rime riche")
+    check("the declared relation is judged per pair, and the entry's own "
+          "measured defect answers SATISFIES now",
+          rc == 0 and "SATISFIES type:rime riche" in out
+          and "cellar ~ seller" in out, f"rc {rc}")
+    check("...and a pair that RHYMES but is not the declared relation "
+          "says VIOLATES with the consequence named — the screen and the "
+          "grade cannot disagree, which is the whole ask",
+          "VIOLATES type:rime riche" in out)
+    check("...and the header names the question being asked",
+          "NAMED" in out and "the question a mandate declaring it will "
+          "ask" in out)
+    rc, out, _ = run("screen", "hair", "chair")
+    check("WITHOUT a relation the header says the verdict column is the "
+          "COARSE class and points at --relation — disclosure, so the "
+          "two questions stop wearing one word",
+          rc == 0 and "COARSE class" in out and "--relation=NAME" in out)
+    rc, out, err = run("screen", "cellar", "seller",
+                       "--relation=schema:anaphora")
+    check("a schema-namespace relation REFUSES at exit 2 with the reason "
+          "— a schema is judged over LINES, which do not exist at the "
+          "screen; type:/class: names are the screenable ones",
+          rc == 2 and "schema" in (out + err), f"rc {rc}")
+    rc, out, err = run("screen", "cellar", "seller",
+                       "--relation=type:zzznotarelation")
+    check("an unknown relation name refuses at exit 2 by name",
+          rc == 2, f"rc {rc}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_controls, test_honesty_and_the_split,
-               test_no_drift, test_the_scaffold, test_the_cli):
+               test_no_drift, test_the_scaffold, test_the_cli,
+               test_clean_answers_one_question,
+               test_the_screen_asks_the_grades_question):
         fn()
     print("=" * 62)
     if FAILURES:

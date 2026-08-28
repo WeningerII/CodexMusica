@@ -72,6 +72,15 @@ real_word = SL.placement_word
 FAILURES = []
 
 
+def _n_section_kind():
+    """The vocabulary's own section-kind count — the roster's expected
+    size, derived so a 23rd function moves this suite's SUBJECT and not
+    a literal (the ~~14~~ ~~19~~ ladder is at the roster check)."""
+    from quality import grid as _GR
+    return sum(1 for sp in _GR.SECTION_FUNCTIONS.values()
+               if sp.kind == "section")
+
+
 def check(name, cond, detail=""):
     print(f"  {'PASS' if cond else 'FAIL'}  {name}")
     if detail:
@@ -600,19 +609,20 @@ def test_the_measure():
           ks[4] / k_total < 0.20 and len(ks) >= 12 and max(ks) > 8,
           f"{len(ks)} distinct k in [{min(ks)}, {max(ks)}], "
           f"k=4 at {ks[4] / k_total:.3f}")
-    check("the whole GENERATOR_ROSTER is reached — 14 functions, not "
-          "v1's five",
-          # ~~14~~ 19 — REPINNED 2026-08-22. `GENERATOR_ROSTER` is no
-          # longer a hand-typed tuple: it DERIVES from the
-          # section-kind functions in `grid.SECTION_FUNCTIONS`
-          # (`FunctionSpec.kind`, M-56), so this number is now a
-          # property of the vocabulary rather than of a literal, and
-          # the seven that were excluded by a prose comment — hook,
-          # postchorus, reprise, turnaround, false_ending among them —
-          # are drawn. The ASSERTION that matters is the equality: the
-          # sampler reaches the WHOLE roster, whatever size it is.
-          funcs == set(GENERATOR_ROSTER) and len(GENERATOR_ROSTER) == 19,
-          f"reached {len(funcs)}")
+    check("the whole GENERATOR_ROSTER is reached — every section-kind "
+          "function, not v1's five",
+          # ~~14~~ ~~19~~ DERIVED — REPINNED 2026-08-22 when the roster
+          # began deriving from the section-kind functions
+          # (`FunctionSpec.kind`, M-56), and DE-LITERALIZED 2026-08-28
+          # when `patter` (M-52) took it to 20 and the pinned 19 went
+          # red — the exact literal defect this check's own comment
+          # warned about while carrying one. The ASSERTION that matters
+          # is unchanged and is now the whole condition: the sampler
+          # reaches the WHOLE roster, whose size is the vocabulary's own
+          # section-kind count and never a number typed here.
+          funcs == set(GENERATOR_ROSTER)
+          and len(GENERATOR_ROSTER) == _n_section_kind(),
+          f"reached {len(funcs)} of {len(GENERATOR_ROSTER)}")
     # THE FLOOR MOVED 2026-08-23 AND THE FORM IS WHY (doctrine 17). This
     # read `min(totals) <= 8`. `FORM_REQUIRES` makes a verse AND a chorus
     # mandatory for `verse-chorus`, so the shortest drawable song is now two
@@ -687,8 +697,14 @@ def test_the_measure():
     # nothing. It is listed rather than the check being loosened, which is
     # the whole point of a named allow-list -- this guard caught the new
     # reference the same sitting it was added.
+    # `specialisation_of` joined 2026-08-28 with M-57: it is the vocabulary's
+    # own subsumption lookup (pure, reads only the map derived from the
+    # rows) and the planner consults it to REFUSE a specialisation name
+    # (`middle-eight`) rather than silently widening it to the genus — the
+    # differentia (`bars == 8`) is a promise the envelope draw cannot make.
     ALLOWED_FROM_GRID = {"SECTION_FUNCTIONS", "FunctionSpec", "as_function",
-                         "placement_findings", "placement_of"}
+                         "placement_findings", "placement_of",
+                         "specialisation_of"}
     # `floor` JOINED THE ALLOW-LIST 2026-08-23, ON THE SAME ARGUMENT AS
     # `meter_bands` AND WITH THE SAME RE-TIGHTENING AS `grid`. The owner's
     # standing rule is that no hard number may sit in the generator, and the
@@ -745,8 +761,20 @@ def test_the_measure():
     # phonology reach, so an unrestricted admission would hand the planner
     # a stream builder, which is the corpus arriving at the dice by a
     # longer road.
+    # `pair_bindable` and `REGISTRY` joined 2026-08-28, REPINNING AN
+    # INHERITED RED: M-149(a) (commit cd026bf) had the draw consult the
+    # pair judge's own predicate — `_RL.pair_bindable(_RL.REGISTRY[name])`
+    # — so a group binding declared tokens draws only from schemas the
+    # judge can bind there, and this allow-list was never told; the guard
+    # was red at HEAD before the M-57 sitting touched this file (proven
+    # from the committed tree: plan.py at 1c3f3b4 names both, the list
+    # held three). Both are admissible on the check's own worry:
+    # `pair_bindable` is a pure predicate over a schema row and `REGISTRY`
+    # is the declared schema table — neither builds a stream, realises, or
+    # reaches the phonology.
     ALLOWED_FROM_RELATIONS = {"DRAWABLE_SCHEMAS", "drawable_traits",
-                              "CHANNEL_DOMAINS"}
+                              "CHANNEL_DOMAINS", "pair_bindable",
+                              "REGISTRY"}
     # `drawable_traits` joined with M-118's conjunction gate: the
     # gap ceiling and end-channel signature per drawable schema,
     # derived in relations.py from its own rows so the planner
@@ -2384,6 +2412,162 @@ def test_the_relation_draw():
           f"oversize {n_over}, parity {n_parity}, opener {n_open} over "
           f"six seeds")
 
+    # M-149(a): THE DRAW CONSULTS THE SPAN SHAPE. A group binding declared
+    # tokens is judged by the pair route (`relations.pair_satisfies`), and
+    # that route refuses by name every schema whose member spans cannot
+    # bind ONE token — so drawing one onto a slotted group manufactures a
+    # disclosed refusal no writing can close. MEASURED before the filter:
+    # 354 such (draw, placement) conjunctions over seeds 1-60, every seed
+    # affected. The draw consults the judge's own predicate
+    # (`relations.pair_bindable`, one definition — doctrine 1), so the
+    # conjunction is unsampleable BY CONSTRUCTION; the mutation is
+    # dropping the `_slotted_g` filter in `plan.py`, which reds the sweep
+    # check below (hand-proven on the day it shipped).
+    unbindable = tuple(n for n in RL.DRAWABLE_SCHEMAS
+                       if not RL.pair_bindable(RL.REGISTRY[n]))
+    check("the pair-unbindable subset of the drawable pool is DERIVED "
+          "from the registry's own span rules and is exactly the four "
+          "shapes the pair judge refuses by name — free_run's three "
+          "searchers and monai's head index",
+          unbindable == ("chain rhyme (rap)", "compound / phrasal rhyme",
+                         "monai", "multisyllabic rhyme"),
+          f"{unbindable}")
+    leaked = []
+    for _seed in (1, 2, 7, 23, 37, 56):
+        _pl = PLN.make_plan(_seed, form="verse-chorus")
+        _rels = _pl.get("relations") or {}
+        _gs = [g.split(",") for g in _pl["groups"].split(";")]
+        for _gi, _g in enumerate(_gs):
+            _want = _rels.get(PLN.SC.label((_gi,)), "")
+            if not _want.startswith("schema:"):
+                continue
+            if not any("." in m and m.split(".", 1)[1] != "end"
+                       for m in _g):
+                continue
+            if not RL.pair_bindable(RL.REGISTRY[_want[len("schema:"):]]):
+                leaked.append((_seed, _g, _want))
+    check("no slotted group draws a schema the pair route cannot bind "
+          "there — six seeds (including the four that leaked most before "
+          "the filter), zero conjunctions",
+          not leaked, leaked[:4])
+    check("...and the unbindable schemas STAY drawable at default slots — "
+          "the filter narrows the slotted pool, it does not delete four "
+          "names from the certified adoption",
+          set(unbindable) <= set(RL.DRAWABLE_SCHEMAS))
+
+
+def test_the_bound_share():
+    """15. M-112 — THE MANDATE'S OWN WEIGHT ON A SECTION IS DISCLOSED.
+
+    The series' third song cleared every gate with a chorus binding 23 of
+    ~31 sung tokens, and the share was a number a session computed by hand
+    (the private-instrument shape standing rule 3 ends). `bound_token_share`
+    is that computation as a pure function of the plan, and the `plan` verb
+    prints it. A DISCLOSURE, NOT A GATE — the ceiling needs a calibration
+    the corpus cannot yet give — and the non-gate half is pinned by AST.
+    """
+    print("\n15. M-112 — the bound-token share is a pure disclosure")
+    p = make_plan(2)
+    shares = PLN.bound_token_share(p)
+    order = list(dict.fromkeys(s["section"] for s in p["line_slots"]))
+    check("every sung section instance appears exactly once, in plan order",
+          [s["section"] for s in shares] == order,
+          f"{len(shares)} section(s)")
+    at = PLN.bound_placements(p)
+    total = sum(len({real_word(x) for x in v}) for v in at.values())
+    check("the numerators sum to the plan's own word-keyed binding count — "
+          "the same `bound_placements` + `placement_word` reading every "
+          "other consumer of the groups string uses (doctrine 1)",
+          sum(s["bound"] for s in shares) == total, f"total {total}")
+    sub = p["subdivision"]
+    cap = {}
+    for ls in p["line_slots"]:
+        cap[ls["section"]] = cap.get(ls["section"], 0) + int(
+            PLN.line_syllable_ceiling(float(ls["duration"]) * sub))
+    check("each denominator is the sum of its lines' syllable ceilings — "
+          "capacity, never a requirement (a sparse line is a slower line)",
+          all(s["capacity"] == cap[s["section"]] for s in shares))
+    # THE MUTATION, HAND-BUILT SO IT IS KILLABLE ON ANY SEED: a toy plan
+    # whose line 1 carries `end` AND `endword` (one word between them) and
+    # whose line 3 carries `head`, `headrime` AND `T1` (one word between
+    # THEM — M-80's finding). Counting placement NAMES instead of WORDS
+    # reads 3+1 and 3 where the honest counts are 2 and 1.
+    toy = {"subdivision": 2,
+           "line_slots": [
+               {"section": "VERSE1", "function": "verse", "line": 1,
+                "duration": 3.0},
+               {"section": "VERSE1", "function": "verse", "line": 2,
+                "duration": 3.0},
+               {"section": "CHORUS1", "function": "chorus", "line": 3,
+                "duration": 3.0}],
+           "groups": "1,1.endword,2.T3;3.head,3.headrime,3.T1"}
+    got = PLN.bound_token_share(toy)
+    check("the numerator counts WORDS and not placement names — end+endword "
+          "is one word, head+headrime+T1 is one word (M-80), so the toy "
+          "reads 2/12 and 1/6 and a name-counting mutant reads 3 and 3",
+          [(s["bound"], s["capacity"]) for s in got] == [(2, 12), (1, 6)],
+          str([(s["bound"], s["capacity"]) for s in got]))
+    # A DISCLOSURE, NOT A GATE, pinned rather than remembered: `make_plan`
+    # never calls it, so no share can refuse a plan.
+    import inspect as _ins
+    tree = ast.parse(_ins.getsource(PLN.make_plan))
+    calls = {n.func.attr if isinstance(n.func, ast.Attribute)
+             else getattr(n.func, "id", "")
+             for n in ast.walk(tree) if isinstance(n, ast.Call)}
+    check("`make_plan` does not consult `bound_token_share` — the share "
+          "gates nothing, by design, until a calibration exists "
+          "(the entry's own accounting; doctrine 22 for the future gate)",
+          "bound_token_share" not in calls)
+
+
+def test_the_grade_it_line_runs():
+    """16. M-58 ITEM 4 — THE ONE COMMAND THE PLANNER PRINTS MUST RUN.
+
+    On the plan-first path `--out=` writes a PLAN and `song` reads a
+    BLUEPRINT, so the old single `GRADE IT:` line named a file `song`
+    refuses — the planner telling a writer to run a command that cannot
+    run. The verb prints the honest TWO-STEP instruction there now (fill
+    first — the same plan invocation, since a plan is a pure function of
+    its seed — then grade against the blueprint that run writes), and
+    the fill path keeps the single line.
+    """
+    print("\n16. M-58 — the printed GRADE IT runs on both paths")
+    import subprocess
+    r = subprocess.run(
+        [sys.executable, "lyric_harness.py", "plan", "--seed=7"],
+        capture_output=True, text=True,
+        cwd=os.path.join(HERE, ".."), timeout=560)
+    out = r.stdout
+    check("the plan-first path prints TWO STEPS and says why — the file "
+          "--out wrote is a PLAN and `song` reads a BLUEPRINT",
+          r.returncode == 0 and "TWO STEPS" in out
+          and "is a PLAN" in out, f"rc {r.returncode}")
+    check("...step 1 is the SAME plan invocation plus --fill/--out, so "
+          "it re-derives the identical plan (a plan is a pure function "
+          "of its seed) and writes the blueprint step 2 grades against",
+          "plan --seed=7 --form=verse-chorus --fill=DRAFT.txt "
+          "--out=BP.json" in out)
+    check("...and step 2 is the grading command against BP.json, which "
+          "step 1 actually writes",
+          "song BP.json DRAFT.txt" in out)
+    with tempfile.TemporaryDirectory() as td:
+        import json as _json
+        p = make_plan(7)
+        draft = os.path.join(td, "d.txt")
+        with open(draft, "w", encoding="utf-8") as fh:
+            fh.write("\n".join("word " * 5 for _ in
+                               range(p["total_lines"])))
+        r2 = subprocess.run(
+            [sys.executable, "lyric_harness.py", "plan", "--seed=7",
+             f"--fill={draft}", f"--out={os.path.join(td, 'bp.json')}"],
+            capture_output=True, text=True,
+        cwd=os.path.join(HERE, ".."), timeout=560)
+        check("the FILL path keeps the single GRADE IT line, naming the "
+              "blueprint that run just wrote — one step because one step "
+              "is true there",
+              r2.returncode == 0 and "GRADE IT: " in r2.stdout
+              and "TWO STEPS" not in r2.stdout, f"rc {r2.returncode}")
+
 
 if __name__ == "__main__":
     for fn in (test_the_planner_plans_the_whole_line,
@@ -2394,7 +2578,8 @@ if __name__ == "__main__":
                test_the_seed_sweep_is_a_verb,
                test_the_song_length_is_the_songs_own,
                test_the_end_rhyme_pass_is_additive,
-               test_the_relation_draw):
+               test_the_relation_draw, test_the_bound_share,
+               test_the_grade_it_line_runs):
         fn()
     print("=" * 62)
     if FAILURES:

@@ -3964,6 +3964,73 @@ def test_a_report_says_when_the_named_pair_is_not_the_evidence():
           f"score={v['score']:.3f} relation={v['relation']} why={v['why']!r}")
 
 
+def test_a_refusal_speaks_for_one_group_not_the_pair():
+    """§46 — `MISSING.md` M-149(b): grade()'s refused set is keyed per
+    (pair, GROUP), never per pair.
+
+    It held bare `(i, j)` keys, so a refusal minted while judging ONE
+    group's reading of a pair silenced every sibling group's DIFFERENT
+    reading of the same two lines. Measured on the first full plan the
+    repaired schema judge ever graded: two groups on one line pair were
+    never judged at all because a third group's slot refusal on the same
+    pair landed first — and when the key was repaired, NINE violations
+    surfaced in a banked song that had graded clean, every one of them a
+    real obligation a sibling's refusal had been hiding. The counts were
+    skewed the same way (M-144's shape at the sharing seam): `judged`
+    subtracted refusal RECORDS while the skip consumed refusal PAIRS, so
+    silently-skipped group-pairs sat in the judged column.
+
+    THE MUTATION is restoring `(i, j)` keys at the skip; it reds the
+    sibling-judged check and both count identities.
+    """
+    print("\n46. a refusal speaks for one group, not for the pair "
+          "(M-149b)")
+    R46 = Reviser()
+
+    # ONE pair, two questions: group A binds L1's FIRST token — `the`, a
+    # word the phonology cannot anchor, so A's reading is REFUSED — and
+    # group B binds the same two lines at their ends, where mat~hat answers
+    # cleanly. B's question must survive A's refusal.
+    f1 = ["the cat sat on the mat", "he tipped his fine new hat"]
+    g1 = R46.grade(f1, SC.mandate([["1.T1", 2], [1, 2]], n_lines=2))
+    check("the sibling group IS judged — B has a verdict on the pair whose "
+          "other group was refused, where the pair-keyed set skipped it",
+          any(v["label"] == "B" and v["lines"] == (1, 2)
+              for v in g1["verdicts"]),
+          [(v["label"], v["lines"]) for v in g1["verdicts"]])
+    check("the refusal record names ONLY the refused group — naming B "
+          "would claim a refusal nobody made",
+          len(g1["refusals"]) == 1 and g1["refusals"][0]["groups"] == ["A"],
+          [r["groups"] for r in g1["refusals"]])
+    check("mandated = judged + refused, on the TRIPLE set (2 = 1 + 1)",
+          (g1["pairs_mandated"], g1["pairs_judged"], g1["pairs_refused"])
+          == (2, 1, 1),
+          (g1["pairs_mandated"], g1["pairs_judged"], g1["pairs_refused"]))
+
+    # THE SCALAR HALF: an unreadable END word speaks for every DEFAULT-slot
+    # group of its pair — here both A(1,2) and B(1,2) — and for nothing
+    # else: B(1,3) reads two clean end words and is judged.
+    f2 = ["she kept the light aglow", "he sang of zyxxian",
+          "the morning came up slow"]
+    g2 = R46.grade(f2, SC.mandate([[1, 2], [1, 2, 3]], n_lines=3))
+    check("an unreadable end word refuses every default-slot group of its "
+          "pair — (1,2) is refused for A AND B, and the record names both",
+          any(sorted(r["groups"]) == ["A", "B"] and r["lines"] == (1, 2)
+              for r in g2["refusals"]),
+          [(r["lines"], r["groups"]) for r in g2["refusals"]])
+    check("...and refuses nothing beyond it — B's (1,3) is judged, and the "
+          "triple arithmetic closes: 4 mandated = 1 judged + 3 refused",
+          any(v["label"] == "B" and v["lines"] == (1, 3)
+              for v in g2["verdicts"])
+          and (g2["pairs_mandated"], g2["pairs_judged"],
+               g2["pairs_refused"]) == (4, 1, 3),
+          (g2["pairs_mandated"], g2["pairs_judged"], g2["pairs_refused"]))
+    check("a pair recorded once is recorded ONCE — the record list carries "
+          "no duplicate for a pair two groups share",
+          len([r for r in g2["refusals"] if r["lines"] == (1, 2)]) == 1,
+          [r["lines"] for r in g2["refusals"]])
+
+
 def test_the_field_says_which_door_it_was_read_at():
     """§45 — `MISSING.md` M-139's PER_WORD disclosure, and it is checked at
     every site that renders a candidate field.
@@ -4156,7 +4223,8 @@ if __name__ == "__main__":
                test_the_forbidden_list_is_two_rules_in_two_fields,
                test_a_return_is_not_rendered_as_a_rhyme,
                test_a_report_says_when_the_named_pair_is_not_the_evidence,
-               test_the_field_says_which_door_it_was_read_at):
+               test_the_field_says_which_door_it_was_read_at,
+               test_a_refusal_speaks_for_one_group_not_the_pair):
         fn()
     print("=" * 62)
     if FAILURES:

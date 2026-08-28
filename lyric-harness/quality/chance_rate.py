@@ -263,10 +263,20 @@ CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 #: THE BAND, adopted over `GRID` (doctrine 57: a figure from a sampler is
 #: pinned as a band, never as a cell). Counts, not rates, so the arithmetic
 #: is checkable against the printed table.
+#:
+#: `schema` REPINNED 2026-08-28 from ~~(897, 932)~~ (doctrine 17): the
+#: M-148 repair — `relations._seq` reading the post-vocalic CLUSTER and
+#: `pair_satisfies` judging at declared tokens — moved which random pairs
+#: the consonance-family schemas answer, so the door's chance rate rose
+#: with its correctness. Measured 960..994 over the same grid (`--check`'s
+#: own MOVED line, reproduced locally the same day); `admit` and `narrow`
+#: HELD, which is the control that the sampler and the other two doors did
+#: not move. A higher chance rate is a fact about the door and stays
+#: unpriced exactly as M-138/M-140 record.
 ADOPTED = {
     "admit": (289, 339),
     "narrow": (36, 46),
-    "schema": (897, 932),
+    "schema": (960, 994),
 }
 
 

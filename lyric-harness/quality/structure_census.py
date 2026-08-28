@@ -29,6 +29,7 @@ Run:  python3 quality/structure_census.py --pilot
 import argparse
 import collections
 import glob
+import re
 import os
 import sys
 import time
@@ -129,7 +130,14 @@ def void_reason(row):
     """
     return VOID_CONSTRAINED_ROWS.get(row, "")
 
-OUT_DEFAULT = os.path.join(ROOT, "data", "structure_census_eng.tsv")
+def out_path(language):
+    """The census artifact for one language (M-22's rename): the eng
+    spelling is the committed run-1 table, and a run-2 language writes its
+    own file beside it rather than overwriting a recorded artifact."""
+    return os.path.join(ROOT, "data", "structure_census_%s.tsv" % language)
+
+
+OUT_DEFAULT = out_path("eng")
 
 #: EVERY FIGURE `quality/RESULTS_STRUCTURE_CENSUS.md` RECORDS, AND WHICH ARM
 #: MEASURES IT. Two arms, never one, because they have different lifetimes:
@@ -334,17 +342,41 @@ COLUMNS = ("language", "phonology", "corpus_file", "family", "structure",
            "n_false", "n_refused", "rate_judged")
 
 
-def corpus_files(root=None):
-    """The declared run-1 population: 143 eng_ song files + two controls."""
+def corpus_files(root=None, language="eng"):
+    """The census population for one LANGUAGE (M-22's rename, 2026-08-28).
+
+    The default reproduces the declared run-1 population byte-identically:
+    the eng_ song files plus the two English controls. Another language
+    globs its own `{language}_*.txt` prefix and gets NO controls appended —
+    `sonnets.txt` and `whitman.txt` are the ENGLISH run's declared positive
+    and negative arms, and carrying them into a Welsh or Finnish run would
+    be an English control laundered into another language's census
+    (doctrine 13/14). Run 2 declares its own controls per tradition; until
+    it does, a non-eng call returns the song files alone, which is honest
+    and incomplete rather than quietly wrong.
+    """
     root = root or os.path.join(ROOT, "corpus")
-    files = sorted(glob.glob(os.path.join(root, "song", "eng_*.txt")))
-    files.append(os.path.join(root, "sonnets.txt"))
-    files.append(os.path.join(root, "whitman.txt"))
+    files = sorted(glob.glob(os.path.join(root, "song",
+                                          "%s_*.txt" % language)))
+    if language == "eng":
+        files.append(os.path.join(root, "sonnets.txt"))
+        files.append(os.path.join(root, "whitman.txt"))
     return files
 
 
 def family_of(path):
+    """A corpus file -> its RHYME_CONSTRAINED family key. A `{lang}_*` song
+    file is that language's song family (`eng_song`, `cym_song`, ...) — the
+    prefix is the language, by the corpus's own naming convention (doctrine
+    45) — and anything else (the two English controls) keys on its own
+    stem. A non-eng family has no RHYME_CONSTRAINED row yet, which M-23's
+    three-state table reports as `undeclared` rather than as a measured
+    negative: run 2 owes the row, visibly.
+    """
     base = os.path.basename(path)
+    m = re.match(r"([a-z]{2,3})_", base)
+    if m and "/song/" in path.replace(os.sep, "/"):
+        return m.group(1) + "_song"
     if base.startswith("eng_"):
         return "eng_song"
     return base.rsplit(".", 1)[0]

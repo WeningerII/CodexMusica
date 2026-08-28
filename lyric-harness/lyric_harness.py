@@ -989,7 +989,457 @@ def is_apparatus_line(line):
     does not own them; `grep -rn 'startswith("--- ")'` is the whole list.
     """
     s = line.strip()
-    return s.startswith("[") or s.startswith("---") or s.startswith("#")
+    return (s.startswith("[") or s.startswith("---") or s.startswith("#")
+            or bool(_CAPTION_TAIL.search(s)))
+
+
+#: (M-47, 2026-08-28) THE TAIL OF A PROJECT GUTENBERG ILLUSTRATION CAPTION
+#: whose opening `[Illustration: ...` was lost at staging. MEASURED over the
+#: whole corpus: exactly 6 lines in 3 Welsh files match, every one a caption
+#: fragment quoting the song's own couplet and ending in the image FILENAME —
+#: `Un yn dwyn serchiadau 'nghalon.": alun105.jpg]` — whose tokens (`alun`,
+#: `jpg`) then read as sung Welsh, `jpg` as an END WORD. No song prints
+#: `.jpg]`. Only the measured extension is declared (doctrine 58): widen it
+#: when a staged file measures another.
+_CAPTION_TAIL = re.compile(r'\.jpg\]$')
+
+
+# ---------------------------------------------------------------------------
+# THE BRACKET-APPARATUS DECLARATIONS (M-47 / M-27, 2026-08-28)
+#
+# Two defects, one mechanism. M-47: `is_apparatus_line` drops a `[`-opening
+# row and KEEPS its continuation, so a wrapped Gutenberg note leaks its tail
+# into the sung stream (`1818.]` as the first kept line of Shelley). M-27: a
+# bracketed token inside a sung line is a WORD to a letters-only tokeniser,
+# and 68 of the 93 sized markers were the line's END WORD — Byron rhyming on
+# footnote letters `a b c d`.
+#
+# THE DISCRIMINATOR IS DECLARED, NEVER GUESSED. M-27 tested the obvious
+# positional rule and refuted it (`craving[me]` is an anchor glued to its
+# word; `to[o]` is an editor's supplied letter in the same position), so the
+# classes below are declared per CONTENT where the content is a printing
+# convention, and per FILE (or file+content) where it is a staging fact.
+# A file with no declaration reads exactly as before, and `audit_corpus`'s
+# check L names what leaks there — the claim M-27's close says was owed.
+#
+# THE CLASSES, each with its measured population:
+#   * `_BRACKET_DIACRITIC` — PG markup for a diacritic ASCII cannot print:
+#     `[=e]` is e-macron, `[:y]` is y-diaeresis. Content-declared,
+#     corpus-wide (38 spans, all Barnes, whose own header warns that
+#     flattening the diacritic breaks letter-counted measures — so the span
+#     becomes the REAL diacritic letter, `dr[=e]ve` -> `drēve`, one token).
+#   * `BRACKET_LIGATURES` — the `œ` ligature set as `[oe]`: `Ph[oe]bus`.
+#     Content-declared, corpus-wide (13 spans). Expands to the two letters.
+#   * `BRACKET_SUPPLIED` — an editor supplying what the copy lacks:
+#     `BARNE[S].`, `M[ontgomer]y`, `That['s]`, Shelley's `[Harriet]`.
+#     Declared per (file, exact content); the span becomes its contents.
+#   * `BRACKET_ANCHOR_FILES` — every OTHER bracketed span in a declared
+#     file is a footnote anchor or editorial tag (`see,[a]`, `[FN#1]`,
+#     `[_sic_]`, `[ASIDE]`) and is DROPPED with its brackets.
+#
+# A BRACKETED SPAN IS NOT A BRACKETED STANZA. Watts prints whole OPTIONAL
+# HYMN STANZAS in brackets — sung text — and Drake and Carroll wrap real
+# verse the same way; those are the OPPOSITE defect (verse read as
+# apparatus) and are deliberately NOT declared here: they are the THIRD
+# convention, `MISSING.md` M-152, declared below (`BRACKETED_VERSE_FILES`
+# / `BRACKET_BLOCK_ROWS` / `BRACKET_LINE_EDITS`) and closed 2026-08-28.
+# ---------------------------------------------------------------------------
+
+_BRACKET_SPAN = re.compile(r"\[([^\[\]]+)\]")
+_BRACKET_DIACRITIC = re.compile(r"^([=:])([A-Za-zÀ-ɏḀ-ỿ])$")
+_DIACRITIC_COMBINER = {"=": "̄", ":": "̈"}   # macron, diaeresis
+
+BRACKET_LIGATURES = frozenset({"oe"})
+
+#: file -> the exact bracketed contents an EDITOR SUPPLIED (kept, unbracketed).
+BRACKET_SUPPLIED = {
+    "eng_british_richard_lovelace.txt": ("S", "o", "un", "s", "NNE",
+                                         "OVELACE."),
+    "eng_celtic_robert_burns.txt": ("ontgomer", "undas"),
+    "eng_british_john_dowland.txt": ("e", "s"),
+    "eng_british_john_wilbye.txt": ("s", "be"),
+    "eng_british_thomas_campion.txt": ("d",),
+    "eng_british_robert_herrick.txt": ("'s", "'d", "t"),
+    "eng_british_percy_bysshe_shelley.txt": ("Harriet", "Percy"),
+    "msa_skeat_pantun.txt": ("mulut", "kampong", "Si Anu"),
+}
+
+#: files whose remaining bracketed spans are footnote anchors / editorial
+#: tags, dropped whole. Numeric spans (`[10]`, `[1816]`) were measured
+#: harmless — a letters-only tokeniser reads nothing in them — so a file
+#: carrying only those needs no row here.
+BRACKET_ANCHOR_FILES = frozenset({
+    "eng_british_lord_byron.txt",
+    "eng_hall_william_barnes.txt",
+    "eng_british_robert_herrick.txt",
+    "eng_british_richard_lovelace.txt",
+    "eng_british_percy_bysshe_shelley.txt",
+    "eng_celtic_robert_burns.txt",
+    "eng_american_maria_gowen_brooks.txt",
+    "eng_british_orlando_gibbons.txt",
+    "eng_celtic_thomas_moore.txt",
+    "eng_american_joseph_rodman_drake.txt",
+    "eng_british_thomas_campion.txt",
+    "eng_british_john_dowland.txt",
+    "eng_british_felicia_hemans.txt",
+    "msa_skeat_pantun.txt",
+})
+
+
+def normalise_bracket_spans(line, name=""):
+    """Resolve every `[...]` span in a sung line by its DECLARED class.
+
+    `name` is the source file's path or basename; "" (a draft, a fixture, a
+    caller with no file) reaches only the corpus-wide content classes, so a
+    user's draft is never touched by another file's staging convention.
+    An undeclared span is left byte-identical — the audit names it, this
+    function never guesses (doctrine 20).
+    """
+    base = os.path.basename(name) if name else ""
+
+    def _one(m):
+        c = m.group(1)
+        dm = _BRACKET_DIACRITIC.match(c)
+        if dm:
+            return unicodedata.normalize(
+                "NFC", dm.group(2) + _DIACRITIC_COMBINER[dm.group(1)])
+        if c in BRACKET_LIGATURES:
+            return c
+        if c in BRACKET_SUPPLIED.get(base, ()):
+            return c
+        if base in BRACKET_ANCHOR_FILES:
+            return " "
+        return m.group(0)
+
+    return _BRACKET_SPAN.sub(_one, line)
+
+
+#: files whose unclosed `[`-opening apparatus rows WRAP: the note runs on to
+#: a later line carrying the `]`, and every line through the close is
+#: apparatus. Declared per file because the same shape prints SUNG stanzas
+#: elsewhere (Watts's bracketed optional hymn stanzas — M-152), so a global
+#: rule would delete verse. Membership is by inspection of every unclosed
+#: block in the file, not by the shape alone.
+WRAPPED_APPARATUS_FOLLOW = frozenset({
+    "eng_american_henry_wadsworth_longfellow.txt",
+    "eng_american_john_greenleaf_whittier.txt",
+    "eng_british_christina_rossetti.txt",
+    "eng_british_edwin_arnold.txt",
+    "eng_british_felicia_hemans.txt",
+    "eng_british_jean_ingelow.txt",
+    "eng_british_lord_byron.txt",
+    "eng_british_percy_bysshe_shelley.txt",
+    "eng_british_robert_herrick.txt",
+    "eng_british_samuel_taylor_coleridge.txt",
+    "eng_parlour_charles_carroll_sawyer.txt",
+    "eng_parlour_henry_clay_work.txt",
+    "fin_eino_leino.txt",
+    "fin_paavo_cajander.txt",
+    "fin_wahanen_laulukirja.txt",
+    # NOT Durfey and NOT Gay, and the exclusions are the measured warning
+    # for this whole table. `eng_hall_thomas_durfey.txt` carries unclosed
+    # `[Music:` directions AND bracketed SUNG stanzas in the same file, so
+    # the scan from a `[Music:` opener reached a bracketed stanza's own
+    # `.]` and dropped thirteen lines of the song ("Let's sing of
+    # Stage-Coaches...") before its row was struck. `eng_hall_john_gay.txt`
+    # prints multi-line stage directions that NEVER close, so the scan ran
+    # through real air text (`_Polly._ The Boy, thus...`) to a later
+    # direction's `]`. A file declares this convention only when EVERY
+    # unclosed block in it has been inspected and closes on apparatus
+    # Both exclusions are DECLARED now instead of merely named:
+    # M-152's bracketed-verse tables below carry Durfey's three block
+    # kinds and Gay's follow-to-blank directions (closed 2026-08-28),
+    # and the import check under them refuses a file that declares
+    # both conventions. NOT the cym files either — their leak is the
+    # orphan caption tail `_CAPTION_TAIL` owns, with no opener to follow.
+})
+
+#: How far a wrapped note may run to its close. MEASURED over every unclosed
+#: block in the corpus: the histogram tops out at 17 lines and 0 blocks fail
+#: to close, so 20 bounds every real block. A block with no `]` inside the
+#: bound is treated as SELF-CONTAINED (only its opening row drops, exactly
+#: as before this rule existed) — the bound is what stops a `[Exeunt.` that
+#: never closes from swallowing the song after it.
+WRAPPED_FOLLOW_MAX = 20
+
+
+def wrapped_apparatus_drops(raw_lines, name):
+    """-> set of 0-based indices: continuation lines of wrapped apparatus.
+
+    Only the opening row's CONTINUATION is returned — the opening row is
+    already apparatus by `is_apparatus_line`, and a file not declared in
+    `WRAPPED_APPARATUS_FOLLOW` returns the empty set (today's behaviour,
+    named by the audit rather than guessed at here).
+    """
+    base = os.path.basename(name) if name else ""
+    if base not in WRAPPED_APPARATUS_FOLLOW:
+        return set()
+    drops = set()
+    for i, l in enumerate(raw_lines):
+        s = l.strip()
+        if not (s.startswith("[") and s.count("[") > s.count("]")):
+            continue
+        for k in range(i + 1, min(i + 1 + WRAPPED_FOLLOW_MAX,
+                                  len(raw_lines))):
+            t = raw_lines[k].strip()
+            # a `[VERSE n]` row INSIDE the note carries its own `]` and is
+            # not the note's close — measured on Hemans, where 7 of 54
+            # notes span a section marker and the first draft of this scan
+            # stopped at it, leaving the note's tail leaking. An
+            # intervening apparatus row needs no drop (its own rule drops
+            # it), so it is simply not the close.
+            if t.startswith("[") and t.count("[") >= t.count("]"):
+                continue
+            if t.count("]") > t.count("["):
+                # THE CLOSE ROW'S `]` MUST OUTNUMBER ITS `[` — AMENDED
+                # 2026-08-28 BY M-152's OWN MEASUREMENT, which swept the
+                # kept stream for surviving orphan closes and found ONE:
+                # Hemans's Chorley note carries a balanced footnote anchor
+                # (`... monumental character,[399]`) three rows before its
+                # real close, and the original `"]" in t` test stopped
+                # there, leaking the note's last three lines as verse.
+                # MEASURED over all fifteen declared files: this row is
+                # the whole delta (drops 260 -> 263 on Hemans, every
+                # other file byte-identical).
+                #
+                # Apparatus rows and blanks inside the span STAY OUT of the
+                # drop set: a `[VERSE n]` marker interleaved into a note is
+                # still the song's real section boundary to `grid`, and a
+                # blank still grounds a stanza break — each is handled by
+                # its own rule, and this one owns only the note's leaking
+                # text.
+                drops.update(k2 for k2 in range(i + 1, k + 1)
+                             if raw_lines[k2].strip()
+                             and not is_apparatus_line(raw_lines[k2]))
+                break
+    return drops
+
+
+# ---------------------------------------------------------------------------
+# THE BRACKETED-VERSE CONVENTION — KEEP THE BODY, STRIP THE BRACKETS
+# (`MISSING.md` M-152, 2026-08-28)
+#
+# The THIRD declared bracket convention, beside the span classes (M-27) and
+# the wrapped-note follow (M-47): a bracket that wraps SUNG TEXT. Watts
+# prints whole optional hymn stanzas in brackets, Drake wraps a quatrain,
+# Skeat's pantun edition brackets its own sung colophon, Durfey's `[Music:`
+# cues enclose 9-38 sung lines, and Carroll's "[later editions continued"
+# note opens a sung body. Under the two earlier rules the OPENING line was
+# apparatus (`startswith("[")`) and the body leaked or the opener was lost —
+# verse read as apparatus, the opposite defect from M-47's.
+#
+# EVERY BLOCK WAS READ BEFORE ITS FILE WAS DECLARED (the entry's own rule:
+# the two rows M-47 struck are the measured price of declaring by shape
+# alone). The census, per file: watts 14 blocks (all sung stanzas, one
+# spanning two stanzas to its close at +8), drake 1, msa_skeat 1 (a sung
+# colophon whose close sits 13 raw lines on, across a staged item
+# boundary), gay 8 (stage directions that never close; two carry
+# continuation lines of direction text), carroll 4 (two kinds), durfey 16
+# (three kinds). Plus six ORPHAN lines in three files where the printed
+# bracket has no folleable opener at all (`BRACKET_LINE_EDITS`).
+#
+# THE RULES ONLY EVER NAME WHAT WAS MEASURED. An unclosed opener in a
+# declared file that matches no row reads exactly as before, and
+# `audit_corpus` check L names it (doctrine 20).
+# ---------------------------------------------------------------------------
+
+#: file -> the file-wide reading of an UNCLOSED `[`-opening row.
+#:   'verse_opener': the bracket wraps SUNG text and the opening row is the
+#:       stanza's own first line — the `[` is stripped and the line KEPT;
+#:       the block closes on a later verse row ending `]` (apparatus and
+#:       blanks skipped, each handled by its own rule), whose close bracket
+#:       is stripped.
+#:   'direction_to_blank': the row opens a stage direction that never
+#:       closes; its continuation lines, to the first blank or apparatus
+#:       row, are direction text and DROP (Gay: measured, exactly three
+#:       continuation lines across eight openers — the other six are
+#:       followed directly by a blank).
+BRACKETED_VERSE_FILES = {
+    "eng_hymn_watts.txt": "verse_opener",
+    "eng_american_joseph_rodman_drake.txt": "verse_opener",
+    "msa_skeat_pantun.txt": "verse_opener",
+    "eng_hall_john_gay.txt": "direction_to_blank",
+}
+
+#: per-block rows for files where two or more KINDS of bracketed block
+#: share one file, keyed on the opener's own printed content — first row
+#: to match wins, and an `exact` row is listed before the `prefix` row it
+#: would otherwise shadow. Kinds:
+#:   'wrapped_note'           — opener and every line through the close are
+#:       apparatus (the opener already drops itself; the continuation
+#:       drops here, close line included)
+#:   'note_opener_verse_body' — the opener alone is apparatus; the body is
+#:       SUNG, and the close row's trailing `]` is stripped
+#:   'prefixed_verse_opener'  — the opener carries the first sung line
+#:       after a `NAME: ` prefix; the prefix is stripped, the rest kept,
+#:       the close as above (Durfey's one `[Music: The King is gone...`)
+BRACKET_BLOCK_ROWS = {
+    "eng_british_lewis_carroll.txt": (
+        ("prefix", "[later editions continued", "note_opener_verse_body"),
+        ("prefix", "[Sent to a friend", "wrapped_note"),
+        ("prefix", "[Affectionately dedicated", "wrapped_note"),
+    ),
+    "eng_hall_thomas_durfey.txt": (
+        ("exact", "[Music:", "note_opener_verse_body"),
+        ("prefix", "[Music: ", "prefixed_verse_opener"),
+        ("prefix", "[Sidenote:", "wrapped_note"),
+    ),
+}
+
+#: (file, exact stripped line) -> replacement. The ORPHAN brackets: a
+#: printed bracket with no opener any scan could follow — declared per
+#: line because there is nothing else to key on. "" drops the line
+#: (apparatus by content); non-empty text replaces it (the bracket
+#: characters stripped, the sung words kept). The population, adjudicated
+#: line by line in M-152's close: Emmett's `Mass.]` is the tail of a
+#: wrapped note whose opener the staging lost; Lovelace 1176 is a sung
+#: stanza's final line carrying the printer's quoted-song-end mark;
+#: Lovelace 2779-80 is a mid-line-opening wrapped editorial gloss
+#: (`... folio. [The words / are by Stanley.]`); Freneau 677-8 is an
+#: authorial parenthetical that is metrically part of the verse.
+BRACKET_LINE_EDITS = {
+    "eng_parlour_daniel_decatur_emmett.txt": {
+        "Mass.]": "",
+    },
+    "eng_british_richard_lovelace.txt": {
+        "Or wound it o're againe.]": "Or wound it o're againe.",
+        "Printed by William Godbid for the Author, 1656. folio. [The words":
+            "Printed by William Godbid for the Author, 1656. folio.",
+        "are by Stanley.]": "",
+    },
+    "eng_american_philip_freneau.txt": {
+        '"To you [the fat pot-valiant swain':
+            '"To you the fat pot-valiant swain',
+        "To Digby said], dear friend of mine,":
+            "To Digby said, dear friend of mine,",
+    },
+}
+
+#: How far a bracketed-verse block may run to its close. MEASURED over
+#: every declared block: the histogram tops out at +38 raw lines (Durfey's
+#: `[Music:` before "Fairings Pig, Pork, and a Clap"), so 40 bounds every
+#: real block; a block with no close inside the bound keeps only its
+#: opener edit. Deliberately its own constant: M-47's WRAPPED_FOLLOW_MAX
+#: (20) bounds NOTES, whose measured maximum is 17, and widening that one
+#: would loosen a different rule's own measurement (doctrine 58).
+BRACKET_VERSE_FOLLOW_MAX = 40
+
+# THE TWO FOLLOW CONVENTIONS ARE DISJOINT BY CONSTRUCTION — a file in both
+# would have M-47's scan dropping lines M-152 declares as sung (the exact
+# defect that struck Durfey's row from WRAPPED_APPARATUS_FOLLOW before
+# M-152 existed), so the overlap is refused at import.
+_M152_FILES = frozenset(BRACKETED_VERSE_FILES) | frozenset(BRACKET_BLOCK_ROWS)
+if _M152_FILES & WRAPPED_APPARATUS_FOLLOW:
+    raise AssertionError(
+        "a file declares BOTH bracket-follow conventions: %r — M-47's scan "
+        "would eat what M-152 declares as verse"
+        % sorted(_M152_FILES & WRAPPED_APPARATUS_FOLLOW))
+
+
+def _bracket_verse_close(raw_lines, i):
+    """The close row of a bracketed-verse block opened at `i`: the first
+    verse row within the bound whose text ends `]` unbalanced. Apparatus
+    rows and blanks are skipped, never candidates — a `[VERSE n]` marker
+    inside Watts's two-stanza bracketed passage is the song's real section
+    boundary and is not the close (the same rule M-47's note scan holds).
+    A balanced `[225]` page marker at a line end is not a close either:
+    the close bracket must OUTNUMBER the opens on its own row."""
+    for k in range(i + 1, min(i + 1 + BRACKET_VERSE_FOLLOW_MAX,
+                              len(raw_lines))):
+        t = raw_lines[k].strip()
+        if not t or is_apparatus_line(t):
+            continue
+        if t.endswith("]") and t.count("]") > t.count("["):
+            return k
+    return None
+
+
+def bracket_block_rule(name, stripped_line):
+    """-> the declared M-152 rule for an unclosed `[`-opening row, or None.
+
+    THE ONE MATCHER: `bracketed_verse_edits` below acts on it and
+    `audit_corpus` check L asks it whether an unclosed block is covered,
+    so the census and the reader cannot drift apart on which openers are
+    declared (doctrine 1)."""
+    base = os.path.basename(name) if name else ""
+    s = stripped_line
+    if not (s.startswith("[") and s.count("[") > s.count("]")):
+        return None
+    rule = BRACKETED_VERSE_FILES.get(base)
+    if rule is not None:
+        return rule
+    for mk, pat, r in BRACKET_BLOCK_ROWS.get(base, ()):
+        if (s == pat) if mk == "exact" else (s.startswith(pat) and s != pat):
+            return r
+    return None
+
+
+def bracketed_verse_edits(raw_lines, name):
+    """-> (drops, edits): the keep-the-body convention (M-152).
+
+    `drops` is a set of 0-based indices (direction continuations, wrapped
+    note bodies, orphan lines declared ""); `edits` maps 0-based index ->
+    the line's REPLACEMENT text, already stripped — a declared verse
+    opener with its `[` removed, a close row with its `]` removed, an
+    orphan line with its bracket characters removed. Every reader applies
+    the edit BEFORE its apparatus test, which is what turns a declared
+    opener from apparatus into the sung line it prints.
+
+    A file with no declaration returns `(set(), {})` and reads exactly as
+    before; an unclosed opener matching no declared rule in a declared
+    file is left alone and named by `audit_corpus` check L (doctrine 20).
+    """
+    base = os.path.basename(name) if name else ""
+    drops, edits = set(), {}
+    line_rows = BRACKET_LINE_EDITS.get(base)
+    fkind = BRACKETED_VERSE_FILES.get(base)
+    rows = BRACKET_BLOCK_ROWS.get(base, ())
+    if not line_rows and not fkind and not rows:
+        return drops, edits
+    for i, l in enumerate(raw_lines):
+        s = l.strip()
+        if line_rows and s in line_rows:
+            r = line_rows[s]
+            if r:
+                edits[i] = r
+            else:
+                drops.add(i)
+            continue
+        rule = bracket_block_rule(base, s)
+        if rule is None:
+            continue
+        if rule == "verse_opener":
+            edits[i] = s[1:].strip()
+            k = _bracket_verse_close(raw_lines, i)
+            if k is not None:
+                edits[k] = raw_lines[k].strip()[:-1].strip()
+        elif rule == "direction_to_blank":
+            for k in range(i + 1, len(raw_lines)):
+                t = raw_lines[k].strip()
+                if not t or is_apparatus_line(t):
+                    break
+                drops.add(k)
+        elif rule == "wrapped_note":
+            for k in range(i + 1, min(i + 1 + BRACKET_VERSE_FOLLOW_MAX,
+                                      len(raw_lines))):
+                t = raw_lines[k].strip()
+                if t.startswith("[") and t.count("[") >= t.count("]"):
+                    continue
+                if not t or is_apparatus_line(t):
+                    continue
+                drops.add(k)
+                if "]" in t:
+                    break
+        elif rule == "note_opener_verse_body":
+            k = _bracket_verse_close(raw_lines, i)
+            if k is not None:
+                edits[k] = raw_lines[k].strip()[:-1].strip()
+        elif rule == "prefixed_verse_opener":
+            edits[i] = s.split(": ", 1)[1].strip()
+            k = _bracket_verse_close(raw_lines, i)
+            if k is not None:
+                edits[k] = raw_lines[k].strip()[:-1].strip()
+    return drops, edits
 
 
 # ---------------------------------------------------------------------------
@@ -1287,11 +1737,91 @@ def load_lyric_lines(path, with_indent=False):
     default and the two can never select different lines. A second function
     walking the file again would be a second definition of what counts as
     sung text, which is the defect this one exists to prevent (doctrine 1).
+
+    SINCE 2026-08-28 (M-47/M-27) the walk also applies the DECLARED
+    bracket-apparatus rules: a wrapped Gutenberg note's continuation lines
+    are dropped in the files that declare the convention
+    (`wrapped_apparatus_drops`), and a bracketed span inside a kept line is
+    resolved by its declared class (`normalise_bracket_spans` — footnote
+    anchor, `[oe]` ligature, editor-supplied letter, PG diacritic markup).
+    SINCE the same day (M-152) the third convention rides beside them:
+    `bracketed_verse_edits` — a bracket that wraps SUNG text keeps the
+    body and loses the brackets, with the per-line edit applied BEFORE
+    the apparatus test so a declared verse opener is the sung line it
+    prints rather than an apparatus row.
+    A file with no declaration reads byte-identically to before.
     """
-    rows = [(line_indent(l), l.strip())
-            for l in read_lyric_text(path).splitlines()
-            if l.strip() and not is_apparatus_line(l)]
+    raw = read_lyric_text(path).splitlines()
+    drops = wrapped_apparatus_drops(raw, path)
+    vdrops, vedits = bracketed_verse_edits(raw, path)
+    drops |= vdrops
+    rows = []
+    for i, l in enumerate(raw):
+        if i in drops:
+            continue
+        s = vedits.get(i, l.strip())
+        if not s or is_apparatus_line(s):
+            continue
+        text = normalise_bracket_spans(s, path).strip()
+        if not text:
+            continue
+        rows.append((line_indent(l), text))
     return rows if with_indent else [t for _i, t in rows]
+
+
+def indent_agreement(groups, indents):
+    """Does a line grouping reproduce the PRINTED indent ladder?
+
+    -> (same_rate, diff_rate, n_same, n_diff), or None when the draft
+    prints no ladder (fewer than two distinct indent depths), because a
+    zero computed over no printing would read exactly like disagreement
+    (doctrine 20).
+
+    `groups` are 1-based line-number groups (a mandate's own coordinate —
+    placement suffixes like `3.T2` are read for their line number);
+    `indents` is `line_indent` per sung line, index-aligned, the
+    `load_lyric_lines(with_indent=True)` shape. A pair of lines is SAME
+    when some group holds both; the rates are the share of same-group and
+    cross-group pairs whose printed depths agree.
+
+    THE STATISTIC DISCLOSES AND NEVER DECIDES (M-28): the compositor's
+    ladder predicts a shared spelled rime at 6.19x corpus-wide, so a
+    DERIVED cover that reproduces the printing is a different claim from
+    one that does not — but an indent can mark the rhyme GROUP or the
+    rhyme BEARER (`eng_pah_francis_lieber.txt` prints ABCB indenting ONLY
+    the rhyming fourth line, ratio 0.06 and not damaged), so a low
+    same-rate is a fact about the typography, never a defect. Nothing here
+    derives a mandate from whitespace: a cover derived from the printing
+    would be exactly as DERIVED as `--cliques` (doctrine 14).
+    """
+    if len(set(indents)) < 2:
+        return None
+    n = len(indents)
+
+    def _lineno(member):
+        s = str(member)
+        return int(s.split(".", 1)[0])
+
+    same_pairs = set()
+    for g in groups:
+        nums = sorted({_lineno(m) for m in g})
+        for a in range(len(nums)):
+            for b in range(a + 1, len(nums)):
+                if 1 <= nums[a] <= n and 1 <= nums[b] <= n:
+                    same_pairs.add((nums[a], nums[b]))
+    n_same = n_diff = agree_same = agree_diff = 0
+    for i in range(1, n + 1):
+        for j in range(i + 1, n + 1):
+            agree = indents[i - 1] == indents[j - 1]
+            if (i, j) in same_pairs:
+                n_same += 1
+                agree_same += agree
+            else:
+                n_diff += 1
+                agree_diff += agree
+    if not n_same or not n_diff:
+        return None
+    return (agree_same / n_same, agree_diff / n_diff, n_same, n_diff)
 
 
 # A single `FILE|L...` token that is NOT on disk: is it a mistyped path, or a
@@ -3966,7 +4496,8 @@ def _final_bits(sylls):
     return fc, fv
 
 
-def check_cynghanedd(lex, text, decl, language="cym", caesura="marked"):
+def check_cynghanedd(lex, text, decl, language="cym", caesura="marked",
+                     marks=None):
     """Cynghanedd, on the phonology of the language it belongs to.
 
     THE DEFECT THIS FIXES. This function has existed since the first commit and
@@ -3992,23 +4523,38 @@ def check_cynghanedd(lex, text, decl, language="cym", caesura="marked"):
     word boundary and reports how many. A searched rate is not comparable with
     an unsearched one, which is why the caller has to name which it wanted.
 
+    `marks` is the DECLARED caesura mark set (M-7/M-151): `None` reads
+    `cym.CAESURA_MARKS` (`/` and `|`, never the dash unless declared), and a
+    dash-printed edition declares its own convention (`marks=("--",)`). CYM
+    ONLY: the eng imitation splits on commas and has no mark set, so a
+    declared `marks` under `language="eng"` is REFUSED naming the
+    conjunction rather than consumed and ignored — a coordinate accepted
+    and dropped is this repo's most-filed defect.
+
     -> {"language", "phonology", "found": [(type, why)], "why_not": str,
-        "positions_tried": int}
+        "positions_tried": int, "caesura": str, "marks": tuple (cym only)}
     """
     if language == "cym":
         from quality.phonology import get   # lazy: no base -> quality cycle
         w = get("cym")
         if caesura == "search":
-            hit = w.cynghanedd_scan(text)
+            hit = w.cynghanedd_scan(text, marks=marks)
             kind, detail, tried = (hit["type"], hit["detail"],
                                    hit["positions_tried"])
         else:
-            kind, detail = w.cynghanedd(text, caesura=caesura)
+            kind, detail = w.cynghanedd(text, caesura=caesura, marks=marks)
             tried = 1
         return {"language": "cym", "phonology": w.notation,
                 "found": [(kind, detail)] if kind else [],
                 "why_not": "" if kind else detail,
-                "positions_tried": tried}
+                "positions_tried": tried, "caesura": caesura,
+                "marks": tuple(w.CAESURA_MARKS if marks is None else marks)}
+    if marks is not None:
+        raise ValueError(
+            "marks= is a coordinate of the WELSH path: the eng imitation "
+            "splits on commas and has no caesura mark set to declare. "
+            "Refused rather than dropped (a declared coordinate consumed "
+            "and ignored is the defect this repo keeps filing).")
     if language != "eng":
         raise ValueError(
             f"no cynghanedd phonology for {language!r}. Declared: 'cym' "
@@ -4412,7 +4958,7 @@ _SCREEN_CARRIERS = ("we carry the evening to the {w}",
                     "and no one had to tell us about {w}")
 
 
-def screen_pairs(words, lex=None, decl=None):
+def screen_pairs(words, lex=None, decl=None, relation=None):
     """Every unordered pair among `words`, judged by the REAL grader on a
     minimal mandated pair — the same `Reviser.inspect` the `song` verb
     runs, on two carrier lines whose only degree of freedom is the end
@@ -4422,14 +4968,33 @@ def screen_pairs(words, lex=None, decl=None):
     and a step that decides which words even get tried must have an
     entrance the system owns.
 
+    `relation` (M-58 item 3): a declared `type:`/`class:` relation name.
+    When set, every pair is ALSO judged by `satisfies_relation` at
+    position 'end' — THE QUESTION THE GRADE WILL ASK of a mandate
+    declaring that relation — and the row carries `named`
+    (True/False/None) and `named_reason` (the judge's own refusal
+    sentence when None). Without it the verdict column is the COARSE
+    class, which is a different question: measured on one draft,
+    `rain`/`reign` screens RHYME and satisfies `type:rime riche` while
+    `cellar`/`seller` screened RIME_RICHE and (before M-58's judge
+    repair) violated it — both directions live at once.
+
     -> list of dicts, one per pair in declared order:
        a, b, relation, score, why, codes (the SCREEN_PAIR_CODES present),
-       refused (bool), reason (the grader's own refusal sentence or None).
+       refused (bool), reason (the grader's own refusal sentence or None),
+       schema_scaffold (M-113: the schema names when the pair was satisfied
+       by the 77-schema default rather than the door — evidence read off
+       the CARRIER LINES, which are scaffolding, so at this surface it is
+       not evidence about the pair).
     A banned pair is an ANSWER (refused=False, codes non-empty); refusal
     is reserved for what the grader itself refuses to judge (doctrine 28).
     """
     from quality.revise import Reviser
     from quality import schemes as SC
+    if relation is not None:
+        from quality import rhyme_types as _RT
+        from quality.revise import _relation_phonology as _RP
+        _phon = _RP()
     rv = Reviser(lex=lex, decl=decl) if (lex or decl) else Reviser()
     out = []
     for i in range(len(words)):
@@ -4444,7 +5009,8 @@ def screen_pairs(words, lex=None, decl=None):
                             for f in fs if f.code in SCREEN_PAIR_CODES})
             row = {"a": a, "b": b, "codes": codes, "refused": False,
                    "reason": None, "relation": None, "score": None,
-                   "why": None}
+                   "why": None, "schema_scaffold": [],
+                   "named": None, "named_reason": None}
             if g["refusals"]:
                 row["refused"] = True
                 row["reason"] = g["refusals"][0]["reason"]
@@ -4453,6 +5019,27 @@ def screen_pairs(words, lex=None, decl=None):
                 row["relation"] = v["relation"]
                 row["score"] = v["score"]
                 row["why"] = v["why"]
+                # M-113: `pairs_schema_satisfied` is the RESCUE set — the
+                # scalar door failed and a schema satisfied. On carrier
+                # lines the schemas' evidence is the SCAFFOLD ("we carry
+                # the evening to the ..."), so a rescue here says nothing
+                # about the pair, and the caller renders it as a non-rhyme
+                # with the names disclosed rather than as CLEAN.
+                if g["pairs_schema_satisfied"]:
+                    row["schema_scaffold"] = list(
+                        g["pairs_schema_satisfied"][0]["satisfied_by"])
+            # M-58 item 3: the NAMED verdict, judged exactly as a mandate
+            # declaring this relation will judge the pair — same function,
+            # same position, so the screen's answer and the grade's cannot
+            # drift (doctrine 1).
+            if relation is not None and not row["refused"]:
+                try:
+                    row["named"] = _RT.satisfies_relation(
+                        relation, row["relation"], a, b, _phon,
+                        position="end")
+                except _RT.RelationRefused as e:
+                    row["named"] = None
+                    row["named_reason"] = str(e)
             out.append(row)
     return out
 
@@ -4525,7 +5112,7 @@ commands (the fifteen spine verbs):
   density FILE            rhyme density per line
   weight "line"           syllable weights and matras
   qafiya FILE|L...        Arabic/Persian qafiya profile audit
-  cynghanedd [--lang=cym|eng] "line"   Welsh consonantal answer
+  cynghanedd [--lang=cym|eng] [--caesura=marked|search] [--marks=M,M] "line"   Welsh consonantal answer
   prasa  K L...           position-K consonant agreement
   demo                    run the acceptance suite
 
@@ -4676,6 +5263,29 @@ the quality layer (each says which module answered):
                           -- and an empty accepted set REFUSES at exit 2
                           with the rate, because unreachable and merely
                           rare are different answers
+  finish DRAFT --seed=N [--form=verse-chorus] [--lines=N] [--relation=NAME]
+         [--functions=a,b,c] [--title=TEXT] [--narrative=...]
+         [--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY]
+         [--pursue=CODE,CODE] [--profile=NAME]
+                          THE WORKING ORDER'S LAST STEP AS ONE DOOR
+                          (M-154). Re-derives the plan from --seed and the
+                          SAME declarations `plan` takes (a different
+                          declaration set grades a DIFFERENT plan), reads
+                          the mandate, blueprint and subdivision off that
+                          one artifact, runs the revise loop to a STOP
+                          CONDITION, and only then renders the song in
+                          performance order with a [FINISHED — seed N —
+                          exit E — ...] stamp. A suspended run (deferred
+                          proposer, unanswered question) exits 4 with the
+                          writer's brief and NO RENDER — the render call
+                          sits after the loop's return, so there is no
+                          path to a presented song that skipped the loop.
+                          The two-tier ban rides the loop's own
+                          MANDATORY_PURSUE, so banned pairs hold their
+                          lines open rather than riding out on a stamp.
+                          Exit 0 converged clean, 3 a stop condition with
+                          lines still open (the stamp names them), 4
+                          suspended awaiting an answer, 2 refused
   readability FILE        what the ingestion layer could not read"""
 
 
@@ -4704,6 +5314,9 @@ VERB_LAYERS = (
      "quality/grid.py, then shares this same report"),
     ("revise", "quality/loop.py", "the automated write-check-fix loop, "
      "driven on top of brief/verify"),
+    ("finish", "quality/loop.py", "the working order's last step as one "
+     "door: plan-derived mandate, the loop to a stop condition, and the "
+     "render exists only past one"),
     ("plan", "quality/plan.py", "the planning phase -- request to "
      "blueprint + mandate, generated from the enumerated scheme space"),
     ("readability", "quality/readability.py", "ingestion refusals"),
@@ -5686,6 +6299,42 @@ def _grid_song(GR, bp):
     return song
 
 
+def _parse_narrative_flag(raw):
+    """`--narrative=`'s value -> what `make_plan(narrative=)` accepts.
+
+    ONE definition for the two verbs that carry the flag — `plan`, where it
+    was born (M-121), and `finish`, which re-derives the SAME plan from the
+    same declarations and would silently derive a DIFFERENT one if this
+    spelling lived only in `plan`'s branch (the lyric_grade contract:
+    "every one that was declared there must be declared here, or a
+    DIFFERENT plan is graded"). `None` in, `None` out — no flag leaves the
+    planner drawing, exactly as before.
+    """
+    if raw is None:
+        return None
+    if raw.strip().lower() == "off":
+        return "off"
+    atoms, juncs = [], []
+    for i, cell in enumerate(raw.split(",")):
+        atom, _, junc = cell.strip().partition("/")
+        atoms.append(atom.strip().upper())
+        if i == 0:
+            if junc:
+                _refuse("the FIRST section takes no inbound "
+                        "junction — nothing precedes it",
+                        detail=["--narrative=ATOM,ATOM/JUNCTION,"
+                                "... — the opening cell is a "
+                                "bare atom"])
+        else:
+            if not junc:
+                _refuse(f"cell {i + 1} ({cell.strip()!r}) "
+                        "declares no inbound junction",
+                        detail=["every section after the first "
+                                "is ATOM/JUNCTION"])
+            juncs.append(junc.strip().upper())
+    return {"atoms": atoms, "junctions": juncs}
+
+
 def main():
     decl = Declaration()
     args = sys.argv[1:]
@@ -5907,8 +6556,47 @@ def main():
             "and 'eng' is a labelled English imitation (doctrine 45). "
             "Another language's phonology is refused, not substituted.")
         rest = _strip_flag(rest, "--lang")
-        res = check_cynghanedd(lex, " ".join(rest), decl, language=language)
+        # THE TWO COORDINATES THE VERB COULD NEVER SPELL (M-151, 2026-08-28).
+        # `check_cynghanedd` has implemented both caesura readings since
+        # 2026-08-15 and M-7 made the MARK SET declarable — and this arm
+        # passed only `language=`, so every CLI run was marked-mode by a
+        # default the caller could not see, and `positions_tried` (the k
+        # doctrine 19/56's correction needs) reached the command line
+        # through nothing. Both are the `--lang` pattern: eq_only, refused
+        # by vocabulary, cym-only for the mark set.
+        caesura = _flag_value(rest, "--caesura", eq_only=True) or "marked"
+        _value_in_vocabulary_or_refuse(
+            "--caesura", caesura, ("marked", "search"),
+            "'marked' refuses a line whose caesura is not printed; 'search' "
+            "tries every word boundary and reports how many (k), because a "
+            "searched rate is not comparable with an unsearched one "
+            "(doctrine 19/56). Which was wanted is the caller's to name.")
+        marks_raw = _flag_value(rest, "--marks", eq_only=True)
+        rest = _strip_flag(_strip_flag(rest, "--caesura"), "--marks")
+        marks = None
+        if marks_raw is not None:
+            marks = tuple(m for m in marks_raw.split(",") if m)
+            if not marks:
+                _refuse("--marks= declared an EMPTY mark set. Declare the "
+                        "edition's own marks (--marks=--  for a dash-printed "
+                        "edition; the default is / and |), or omit the flag.")
+        if language == "eng" and (marks is not None or caesura != "marked"):
+            _refuse(f"--lang=eng with "
+                    f"{'--marks' if marks is not None else '--caesura'}: the "
+                    f"English imitation splits on commas — it has no caesura "
+                    f"mark set and no placement search, so the coordinate "
+                    f"would be consumed and ignored, which is the silent "
+                    f"drop this CLI refuses by name everywhere else "
+                    f"(doctrine 20). The coordinates belong to --lang=cym.")
+        res = check_cynghanedd(lex, " ".join(rest), decl, language=language,
+                               caesura=caesura, marks=marks)
         print(f"  phonology: {res['language']} — {res['phonology']}")
+        if res["language"] == "cym":
+            # the declared reading, and the k the correction needs — the
+            # coordinate this verb existed to report and never printed.
+            print(f"  caesura: {res['caesura']} — {res['positions_tried']} "
+                  f"position(s) tried; marks: "
+                  f"{' '.join(res['marks'])}")
         if not res["found"]:
             print(f"  no cynghanedd detected"
                   + (f": {res['why_not']}" if res["why_not"] else ""))
@@ -6359,9 +7047,36 @@ def main():
 
     elif cmd == "screen":
         rest = args[1:]
-        _usage = ("usage: screen WORD WORD [WORD...] — every unordered "
-                  "pair among the words, judged by the song grader on a "
-                  "minimal mandated pair")
+        _usage = ("usage: screen WORD WORD [WORD...] [--relation=NAME] — "
+                  "every unordered pair among the words, judged by the "
+                  "song grader on a minimal mandated pair; --relation "
+                  "ALSO asks the named question a mandate declaring it "
+                  "will ask (M-58)")
+        # M-58 ITEM 3: THE SCREEN CAN ASK THE QUESTION THE GRADE WILL ASK.
+        # Without this, a writer screening before writing (mandatory,
+        # standing rule 3) was answered from the COARSE class while the
+        # grade asks the NAMED cell — both directions measured live on
+        # one draft.
+        screen_rel = _flag_value(rest, "--relation")
+        rest = _strip_flag(rest, "--relation")
+        if screen_rel is not None:
+            from quality import rhyme_types as _RT_s
+            try:
+                _canon_s, _kind_s = _RT_s.resolve_relation(screen_rel)
+            except _RT_s.RelationRefused as e:
+                _refuse(f"screen --relation={screen_rel!r} names no "
+                        f"declarable relation: {e}")
+            if _kind_s == "schema":
+                _refuse(f"screen --relation={screen_rel!r} resolves in the "
+                        f"`schema` namespace, and a schema is judged over "
+                        f"LINES — which do not exist yet at the screen. "
+                        f"The screen judges two WORDS",
+                        detail=["declare the schema in the mandate and the "
+                                "grade will judge it over the draft; or "
+                                "screen the words' ban alone, which needs "
+                                "no relation.",
+                                "`type:`/`class:` names ARE screenable — "
+                                "they judge word pairs."])
         bad_flag = [a for a in rest if a.startswith("--")]
         if bad_flag:
             _refuse(f"screen does not take {bad_flag[0]!r}",
@@ -6381,14 +7096,34 @@ def main():
                     detail=[_usage,
                             "the screen judges END WORDS; a phrase's "
                             "rhyme is graded in a draft, by `brief`/`song`"])
-        rows = screen_pairs(words, lex=lex, decl=decl)
+        rows = screen_pairs(words, lex=lex, decl=decl, relation=screen_rel)
         n_banned = sum(1 for r in rows if r["codes"])
         n_ref = sum(1 for r in rows if r["refused"])
+        # M-113: CLEAN answered two questions — a clean RHYME and a clean
+        # NON-RHYME — and a family got built on the conflation (matinee's
+        # round-3 grade: three violations, all screened CLEAN). The two are
+        # separate counts now and the status says which (doctrine 79 at a
+        # verdict instead of a count).
+        n_rhyme = sum(1 for r in rows
+                      if not r["codes"] and not r["refused"]
+                      and r["why"] is None and not r["schema_scaffold"])
+        n_non = len(rows) - n_banned - n_ref - n_rhyme
         print(f"  SCREEN: {len(rows)} pair(s) from {len(words)} word(s) — "
               f"the song grader on a minimal mandated pair each, under "
               f"the active declaration; only pair-scoped findings are "
               f"relayed ({', '.join(SCREEN_PAIR_CODES)}), the carrier "
               f"lines are scaffolding")
+        if screen_rel:
+            print(f"  NAMED  : every pair is ALSO judged under "
+                  f"{screen_rel!r} at position 'end' — the question a "
+                  f"mandate declaring it will ask (same judge, same "
+                  f"coordinate, so screen and grade cannot drift)")
+        else:
+            print(f"  (the verdict column is the COARSE class; a mandate "
+                  f"declaring a NAMED relation is judged by that name's "
+                  f"own cell, which can answer differently in both "
+                  f"directions — screen with --relation=NAME to ask the "
+                  f"grade's question, M-58)")
         w = max(len(f"{r['a']} ~ {r['b']}") for r in rows)
         for r in rows:
             pair = f"{r['a']} ~ {r['b']}".ljust(w)
@@ -6399,17 +7134,37 @@ def main():
                 # `why is None` is the GRADE's own satisfaction marker —
                 # read it rather than re-listing the admit set here, so a
                 # widened `Declaration.admit` flows through untouched.
+                # `schema_scaffold` non-empty means the satisfaction came
+                # from the 77-schema default reading the CARRIER lines,
+                # which are scaffolding — not evidence about the pair.
                 if r["codes"]:
                     status = f"BANNED: {', '.join(r['codes'])}"
-                elif r["why"] is None:
-                    status = "CLEAN"
+                elif r["why"] is None and not r["schema_scaffold"]:
+                    status = "CLEAN — RHYMES"
+                elif r["schema_scaffold"]:
+                    status = (f"CLEAN — DOES NOT RHYME as a pair (the "
+                              f"schema default answered on the SCAFFOLD: "
+                              f"{', '.join(r['schema_scaffold'])})")
                 else:
-                    status = f"not a usable rhyme — {r['why']}"
+                    status = f"CLEAN — DOES NOT RHYME ({r['why']})"
+                if screen_rel:
+                    if r["named"] is True:
+                        status += f"  |  SATISFIES {screen_rel}"
+                    elif r["named"] is False:
+                        status += (f"  |  VIOLATES {screen_rel} — a "
+                                   f"mandate declaring it will charge "
+                                   f"this pair")
+                    else:
+                        _nr = (r["named_reason"]
+                               or "the judge could not read the pair")
+                        status += (f"  |  {screen_rel} REFUSED: "
+                                   f"{_nr[:110]}")
                 print(f"  {pair}  {verdict}  {status}")
-        print(f"  {n_banned} banned, {n_ref} refused, "
-              f"{len(rows) - n_banned - n_ref} clean or non-rhyme — a "
-              f"banned pair is an ANSWER; refusal is the grader's own "
-              f"(doctrine 28)")
+        print(f"  {n_banned} banned, {n_ref} refused, {n_rhyme} clean and "
+              f"rhyming, {n_non} clean but not a rhyme — a banned pair is "
+              f"an ANSWER; a clean non-rhyme is not banned AND not a "
+              f"family (the mandate will charge it); refusal is the "
+              f"grader's own (doctrine 28)")
 
     elif cmd == "capacity":
         from quality import capacity as CAP
@@ -6433,11 +7188,16 @@ def main():
                 assert n > 0
             except (ValueError, AssertionError):
                 _refuse("--top takes a positive integer", detail=[_usage])
+            _rels = sorted({r.get("relation", "") for r in rows})
             print(f"  CAPACITY: the {min(n, len(rows))} deepest rhyme "
                   f"families of {len(rows)} — chain_hi is the spelling-"
                   f"class count (tier 1's ceiling: an earned scheme group "
                   f"needs distinct spellings), chain_lo is the size of a "
                   f"witness clique THE GRADER ITSELF accepted")
+            print(f"  relation: {', '.join(_rels)} — a capacity is a "
+                  f"coordinate of its relation (M-41); the other "
+                  f"partitions are `python3 quality/capacity.py "
+                  f"--families=RELATION`, uncertified")
             for r in rows[:n]:
                 lo = (f"chain_lo {r['chain_lo']}" if r["certified"]
                       else "uncertified (below the certification floor)")
@@ -6466,7 +7226,8 @@ def main():
             classes = fams.get(key, {})
             mine = rv._spelled_rime(word)
             mates = classes.get(mine, [])
-            print(f"  CAPACITY of {word!r}: family {label} — "
+            print(f"  CAPACITY of {word!r}: family {label} under "
+                  f"relation {CAP.ADOPTED_RELATION} — "
                   f"{sum(len(v) for v in classes.values())} word(s), "
                   f"{len(classes)} spelling class(es) = chain_hi "
                   f"{len(classes)}")
@@ -6548,30 +7309,10 @@ def main():
                             "ignored -- a flag silently not read leaves a "
                             "plan that looks exactly like one you never "
                             "asked for"])
-        narrative = None
-        if narrative_raw is not None:
-            if narrative_raw.strip().lower() == "off":
-                narrative = "off"
-            else:
-                atoms, juncs = [], []
-                for i, cell in enumerate(narrative_raw.split(",")):
-                    atom, _, junc = cell.strip().partition("/")
-                    atoms.append(atom.strip().upper())
-                    if i == 0:
-                        if junc:
-                            _refuse("the FIRST section takes no inbound "
-                                    "junction — nothing precedes it",
-                                    detail=["--narrative=ATOM,ATOM/JUNCTION,"
-                                            "... — the opening cell is a "
-                                            "bare atom"])
-                    else:
-                        if not junc:
-                            _refuse(f"cell {i + 1} ({cell.strip()!r}) "
-                                    "declares no inbound junction",
-                                    detail=["every section after the first "
-                                            "is ATOM/JUNCTION"])
-                        juncs.append(junc.strip().upper())
-                narrative = {"atoms": atoms, "junctions": juncs}
+        # Parsed by the ONE definition `finish` also reads —
+        # `_parse_narrative_flag`, extracted 2026-08-28 with the `finish`
+        # verb, byte-identical behaviour to the inline block it replaces.
+        narrative = _parse_narrative_flag(narrative_raw)
         plan_kw = dict(
             form=form,
             lines=int(nlines) if nlines is not None else None,
@@ -6704,6 +7445,20 @@ def main():
                   f"{note}")
         print(f"  GROUPS : {the_plan['groups']}")
         print(f"  RETURNS: {the_plan['returns'] or '(none)'}")
+        # M-112: the mandate's own weight on each section, said out loud.
+        # The series' third song cleared every gate with a chorus binding
+        # 23 of ~31 sung tokens and nothing had disclosed the share — it
+        # was a number a session computed by hand, which is the
+        # private-instrument shape standing rule 3 ends. A DISCLOSURE,
+        # not a gate: the ceiling needs a calibration the corpus cannot
+        # yet give (no corpus mandates), so nothing here refuses.
+        _shares = PLN.bound_token_share(the_plan)
+        if _shares:
+            print("  BOUND  : distinct bound words / token capacity, per "
+                  "section (a disclosure — no calibrated ceiling exists):")
+            for _sh in _shares:
+                print(f"    {_sh['section']:<12} {_sh['bound']:>3} of "
+                      f"{_sh['capacity']:>3}  ({_sh['share']:.2f})")
         print()
         print(the_plan["writer_brief"])
         print()
@@ -6751,9 +7506,40 @@ def main():
         else:
             print(json.dumps(payload, indent=1, sort_keys=True))
         print()
-        print("  GRADE IT: " + PLN.grading_command(
-            the_plan, draft_path=fill or "DRAFT.txt",
-            bp_path=out_path or "BP.json"))
+        if fill:
+            print("  GRADE IT: " + PLN.grading_command(
+                the_plan, draft_path=fill,
+                bp_path=out_path or "BP.json"))
+        else:
+            # M-58 ITEM 4: THE ONE COMMAND THE PLANNER TELLS A WRITER TO
+            # RUN MUST RUN. On the plan-first path `--out=` writes a PLAN,
+            # and `song` reads a BLUEPRINT — so the old single GRADE IT
+            # line named a file `song` refuses. The honest instruction is
+            # two steps: fill (the same plan invocation, which re-derives
+            # the identical plan because a plan is a pure function of its
+            # seed, plus --fill/--out — that run also renders the song and
+            # writes the blueprint), then grade against the blueprint.
+            import shlex as _shlex
+            _refill = [f"python3 lyric_harness.py plan --seed={seed}",
+                       f"--form={form}"]
+            if nlines:
+                _refill.append(f"--lines={nlines}")
+            if relation:
+                _refill.append(_shlex.quote(f"--relation={relation}"))
+            if funcs_raw:
+                _refill.append(_shlex.quote(f"--functions={funcs_raw}"))
+            if title:
+                _refill.append(_shlex.quote(f"--title={title}"))
+            if narrative_raw:
+                _refill.append(_shlex.quote(f"--narrative={narrative_raw}"))
+            _refill.append("--fill=DRAFT.txt --out=BP.json")
+            print("  GRADE IT — TWO STEPS on the plan-first path (the "
+                  "file --out wrote is a PLAN; `song` reads a BLUEPRINT):")
+            print("    1. write the draft to DRAFT.txt, then render and "
+                  "get the blueprint:")
+            print("       " + " ".join(_refill))
+            print("    2. " + PLN.grading_command(
+                the_plan, draft_path="DRAFT.txt", bp_path="BP.json"))
     elif cmd == "partition":
         from quality import schemes as SC
         src = args[1:]
@@ -7363,13 +8149,116 @@ def main():
                     lexicon_three_counts(lex, _words), what="word tokens"):
                 print(_out)
 
-    elif cmd in ("brief", "verify", "revise", "song"):
+    elif cmd in ("brief", "verify", "revise", "song", "finish"):
         from quality import loop as LP
         from quality.revise import Reviser
         from quality.schemes import NoMandate
         from quality import schemes as SC
         from quality.revise import (ReviseDeclaration, RHYME_FINDINGS,
                                     draft_fingerprint)
+
+        # `finish DRAFT --seed=N` — THE WORKING ORDER'S LAST STEP AS ONE
+        # DOOR (`MISSING.md` M-154, owner's directive 2026-08-28: "go,
+        # start on the seam"). The failure it closes is not that any layer
+        # was wrong — it is that the revise loop was a step a writer COULD
+        # RUN, and every layer of enforcement downstream of that word
+        # "could" was disclosure: M-150's gate makes an unconverged song
+        # SAY SO when presented, and nothing made the loop run at all.
+        # `finish` is the route with no such seam: the mandate, the
+        # blueprint and the subdivision are read off the PLAN the seed
+        # names (the one artifact that records what was asked for —
+        # doctrine 1, the same read `lyric_grade` does), the revise loop
+        # runs to a STOP CONDITION, and the rendered song exists ONLY past
+        # one — a suspended run (exit 4) emits the writer's question and
+        # no render, structurally, because the render call sits after the
+        # loop's return. The two-tier ban rides in for free: the loop's
+        # MANDATORY_PURSUE holds banned-pair lines open, so a draft whose
+        # rhymes are on the ban cannot converge onto them — the "banned
+        # pairs are unskippable" stamp made mechanical.
+        finish_plan = None
+        finish_seed = None
+        if cmd == "finish":
+            from quality import plan as PLN2
+            # THE PLAN IS THE ONE STATEMENT OF THE METER LAYER AND OF THE
+            # MANDATE, so a second spelling of either on this command line
+            # is refused rather than reconciled — the same "this reader
+            # will not choose between them" `_mandate_arg` gives two
+            # mandate spellings of one cover.
+            for _banned, _why in (
+                    ("--blueprint", "the plan derives the blueprint from "
+                                    "the draft (`fill_plan`)"),
+                    ("--subdivision", "the plan declares its own"),
+                    ("--isochronous", "a meter-layer assumption beside a "
+                                      "plan-declared meter is a second "
+                                      "statement of it"),
+                    ("--groups", "the plan's rhyme web IS the mandate"),
+                    ("--returns", "the plan's return classes ARE declared"),
+                    ("--cliques", "a derived cover beside the plan's "
+                                  "declared one grades a different song"),
+                    ("--structures", "declare structures through `song`/"
+                                     "`revise`; the planner samples its "
+                                     "own"),
+                    ("--relations", "the plan's per-group draw is carried; "
+                                    "silence it with --relation")):
+                if any(a == _banned or a.startswith(_banned + "=")
+                       for a in args):
+                    _refuse(f"{_banned} on `finish` — {_why}",
+                            detail=["`finish` re-derives the plan from "
+                                    "--seed and the SAME declarations "
+                                    "`plan` takes, then reads the mandate "
+                                    "and the meter off that artifact "
+                                    "(doctrine 1: one statement, read "
+                                    "twice, never restated)",
+                                    "declare a different shape by "
+                                    "declaring a different plan — the "
+                                    "flags are --form, --lines, "
+                                    "--relation, --functions, --title, "
+                                    "--narrative"])
+            _fseed = _flag_value(args, "--seed")
+            _fform = _flag_value(args, "--form") or "verse-chorus"
+            _fnlines = _flag_value(args, "--lines")
+            # `--relation` here is the PLAN declaration (it silences the
+            # per-group draw), consumed before `_mandate_arg` can read the
+            # same spelling as a mandate coordinate — it comes back through
+            # the plan artifact, which is the point.
+            _frel = _flag_value(args, "--relation", eq_only=True)
+            _ffuncs = _flag_value(args, "--functions")
+            _ftitle = _flag_value(args, "--title")
+            _fnarr = _flag_value(args, "--narrative")
+            for _f in ("--seed", "--form", "--lines", "--relation",
+                       "--functions", "--title", "--narrative"):
+                args = _strip_flag(args, _f)
+            if _fseed is None:
+                _refuse("finish requires --seed=N — the plan is the "
+                        "mandate's one statement, and a plan is a pure "
+                        "function of its seed",
+                        detail=["usage: finish DRAFT --seed=N "
+                                "[--form=verse-chorus] [--lines=N] "
+                                "[--relation=NAME] [--functions=a,b,c] "
+                                "[--title=TEXT] "
+                                "[--narrative=off|ATOM,ATOM/JUNCTION,...] "
+                                "[--propose=stub|replay:PATH|defer:PATH|"
+                                "call:MODULE:FACTORY] [--pursue=CODE,CODE] "
+                                "[--profile=NAME]",
+                                "every declaration given to `plan` must be "
+                                "given here too, or a DIFFERENT plan is "
+                                "graded — the same contract lyric_grade "
+                                "states"])
+            try:
+                finish_seed = int(_fseed)
+                finish_plan = PLN2.make_plan(
+                    seed=finish_seed,
+                    form=_fform,
+                    lines=int(_fnlines) if _fnlines is not None else None,
+                    relation=_frel,
+                    title=_ftitle,
+                    narrative=_parse_narrative_flag(_fnarr),
+                    functions=[x for x in (_ffuncs or "").split(",")
+                               if x.strip()] or None)
+            except PLN2.PlanRefused as e:
+                _refuse(str(e))
+            except ValueError:
+                _refuse("finish --seed and --lines take integers")
 
         # `--pursue=CODE,CODE` — WHICH NOTES THE LOOP KEEPS WORKING ON.
         # Omitted, `pursue` is empty and every run reads exactly as it did
@@ -7408,17 +8297,73 @@ def main():
         # `--propose` already had exactly this refusal one flag over — "only
         # `revise` runs a proposer" — so the shape was written, and this flag
         # was added to the shared block without it.
-        if _pur and cmd != "revise":
+        if _pur and cmd not in ("revise", "finish"):
             _refuse(f"--pursue={','.join(_pur)} on `{cmd}` — only `revise` "
-                    f"runs a loop, and `pursue` is read by `revise_loop` "
-                    f"alone",
+                    f"and `finish` run a loop, and `pursue` is read by "
+                    f"`revise_loop` alone",
                     detail=["`brief` reports what it finds and asks for "
                             "nothing; `verify` grades one revision and its "
                             "gate is deliberately UNCHANGED by pursuit; "
                             "`song` runs no loop. On all three this flag "
                             "would change no output.",
                             "run `revise FILE MANDATE --pursue=...` instead."])
-        rdecl = ReviseDeclaration(pursue=frozenset(_pur)) if _pur else None
+        # `--max-rounds=N` / `--attempts=N` — THE LOOP'S BUDGET, A DECLARED
+        # CHOICE AND NOT A CONSTANT SOMEONE ELSE PICKED (2026-08-28, with
+        # the `finish` verb). `ReviseDeclaration.max_rounds` and
+        # `.attempts_per_line` have been declared coordinates since the
+        # loop was written and reachable from this command line by NOTHING
+        # — the `--blueprint`-before-2026-08-11 species, on the two knobs
+        # that decide what a run COSTS. A chat-driven writer answering
+        # questions one turn at a time wants small rounds; a CI check wants
+        # the render path proven at one grade's price. `--attempts=0` is
+        # legal ON PURPOSE: it is the "question never put at all" case the
+        # tier-1 dead-end disclosure already names (a declared coordinate
+        # with no floor), and a round that asks nothing reaches NO_PROGRESS
+        # honestly — the loop still briefs, still stops, still refuses to
+        # call the draft finished.
+        _mr_raw = _flag_value(args, "--max-rounds")
+        _at_raw = _flag_value(args, "--attempts")
+        _bt_raw = _flag_value(args, "--backtrack")
+        args = _strip_flag(args, "--max-rounds")
+        args = _strip_flag(args, "--attempts")
+        args = _strip_flag(args, "--backtrack")
+        if (_mr_raw is not None or _at_raw is not None
+                or _bt_raw is not None) \
+                and cmd not in ("revise", "finish"):
+            _which = ("--max-rounds" if _mr_raw is not None
+                      else "--attempts" if _at_raw is not None
+                      else "--backtrack")
+            _refuse(f"{_which} on `{cmd}` — only `revise` and `finish` run "
+                    f"a loop, and the budget is the loop's own coordinate",
+                    detail=[f"`{cmd}` grades what it is handed in one pass; "
+                            f"a round budget on it would change no output, "
+                            f"and saying so is the point"])
+        _rd_kw = {}
+        if _pur:
+            _rd_kw["pursue"] = frozenset(_pur)
+        try:
+            if _mr_raw is not None:
+                _rd_kw["max_rounds"] = int(_mr_raw)
+                if _rd_kw["max_rounds"] < 1:
+                    _refuse(f"--max-rounds={_mr_raw} — a loop that may run "
+                            f"no round at all is not a loop, it is `brief`",
+                            detail=["1 is the smallest budget that still "
+                                    "asks; `brief FILE MANDATE` is the verb "
+                                    "that only reports"])
+            if _at_raw is not None:
+                _rd_kw["attempts_per_line"] = int(_at_raw)
+                if _rd_kw["attempts_per_line"] < 0:
+                    _refuse(f"--attempts={_at_raw} — a negative attempt "
+                            f"count declares nothing")
+            if _bt_raw is not None:
+                _rd_kw["backtrack_width"] = int(_bt_raw)
+                if _rd_kw["backtrack_width"] < 0:
+                    _refuse(f"--backtrack={_bt_raw} — a negative width "
+                            f"declares nothing")
+        except ValueError:
+            _refuse("--max-rounds, --attempts and --backtrack take "
+                    "integers")
+        rdecl = ReviseDeclaration(**_rd_kw) if _rd_kw else None
         rv = Reviser(lex=lex, decl=decl, rdecl=rdecl)
         if _pur:
             print(f"  PURSUING {len(_pur)} note code(s) beyond the flags: "
@@ -7525,9 +8470,9 @@ def main():
         # subject is who wrote the words. That is the "silent downgrade"
         # this flag's own shape exists to refuse.
         propose_spec = _flag_value(args, "--propose", eq_only=True)
-        if propose_spec is not None and cmd != "revise":
+        if propose_spec is not None and cmd not in ("revise", "finish"):
             _refuse(f"--propose={propose_spec} on `{cmd}` — only `revise` "
-                    f"runs a proposer",
+                    f"and `finish` run a proposer",
                     detail=[f"`{cmd}` grades a draft it is handed; nothing in it "
                      f"writes a line, so this flag would have had no effect "
                      f"and saying so is the point (it is not ignored)",
@@ -7966,7 +8911,7 @@ def main():
                                           structures=st, relations=rl), tail)
             return _finish(g, tail)              # --groups= alone, as before
 
-        def _say_derived(m, n_lines=None):
+        def _say_derived(m, n_lines=None, src=None):
             """Doctrine 14, out loud. A cover read off the rhyme graph is
             mutually band-passing BY CONSTRUCTION, so a clean rhyme result
             against it is an identity and not a verdict. `Mandate.describe`
@@ -8054,6 +8999,37 @@ def main():
                   "identity. What it can still say is everything the band did "
                   "not decide — unreadable lines, REPEAT, the slop floor, and "
                   "the joint field at a pivot.")
+            # THE PRINTING AS A CONTROL ON THE DERIVED COVER (M-28). The
+            # compositor's indent ladder predicts a shared spelled rime at
+            # 6.19x corpus-wide and is INDEPENDENT of the grader — the one
+            # property `--cliques` cannot have — so whether the derived
+            # cover reproduces the printing is worth a line whenever the
+            # draft prints one. A disclosure about the CALL, never a
+            # Finding: an indent can mark the rhyme GROUP or the rhyme
+            # BEARER (opposite conventions in one typography), so a low
+            # same-rate is a fact about the printing, not a defect.
+            if src is not None:
+                try:
+                    _rows = load_lyric_lines(src, with_indent=True)
+                except (OSError, UndecodableLyricFile):
+                    # best-effort re-read for a DISCLOSURE: a vanished or
+                    # undecodable file cannot break the report that is
+                    # already printing. Narrow on purpose — test_verbs §12
+                    # pins the spine to exactly ONE broad handler, and this
+                    # is not it.
+                    _rows = []
+                _ia = indent_agreement(getattr(m, "groups", []),
+                                       [d for d, _t in _rows]) \
+                    if _rows else None
+                if _ia is not None:
+                    _sr, _dr, _ns, _nd = _ia
+                    print(f"  THE PRINTING (M-28): same-group pairs share "
+                          f"the printed indent depth at {_sr:.0%} "
+                          f"({_ns} pair(s)), cross-group at {_dr:.0%} "
+                          f"({_nd}) — an independent channel the derived "
+                          f"cover {'reproduces' if _sr > _dr else 'does not reproduce'}, "
+                          f"disclosed and never graded (an indent can mark "
+                          f"the group or the bearer).")
             if not m.is_partition():
                 print(f"  NO LETTER SCHEME EXISTS: lines "
                       f"{m.overlapping_lines()} are in more than one group, "
@@ -8197,6 +9173,43 @@ def main():
                       + (" …" if len(_sch_sat) > 4 else "")
                       + " — laziness at these relations is UNCALIBRATED; "
                       "declaring a relation narrows (M-116)")
+            # A GROUP THAT MIXES SPAN KINDS, SAID OUT LOUD (M-114).
+            # `endword`/`head` read the FRONT of a word, `end`/`headrime`/
+            # `T<n>` read its RIME, and a scalar-judged family mixing the
+            # two was accepted in silence — measured at 22 scheme
+            # violations of which respelling the loci alone removed 19
+            # with zero word changes. A disclosure about the DECLARATION,
+            # never a Finding and never a refusal: a monosyllable at
+            # `head` is byte-identical to `T1`, so a gate here has a
+            # false positive by construction. Groups declaring a relation
+            # are not named — the pair judge binds each member at its own
+            # slot there, and crossing kinds is the schema's vocabulary.
+            for _lab, _kinds in found.get("mixed_span_groups") or ():
+                print(f"  MIXED SPANS: group {_lab!r} binds front-of-word "
+                      f"span(s) ({', '.join(_kinds.get('front', []))}) "
+                      f"beside rime span(s) "
+                      f"({', '.join(_kinds.get('rime', []))}) in one "
+                      f"scalar-judged family — a non-initial-stress "
+                      f"polysyllable's front span cannot answer a rime "
+                      f"family (a monosyllable's can). Check the words at "
+                      f"the front spans, or respell the locus (M-114).")
+            # THE ADJACENCY ROLLUP (M-115). The prominence band is a COUNT,
+            # and both of its evasions are audible: pad function words down
+            # into the band, or clot the stresses inside it — a blind
+            # prosody judge quoted both back on lines the band had cleared.
+            # The extremes are printed, never per line (noise) and never
+            # charged (whether a run is a defect needs its own corpus
+            # measurement, stated as an FPR — doctrine 22).
+            _runs = found.get("prominence_runs") or {}
+            if _runs:
+                _lp = max(_runs, key=lambda l: _runs[l][0])
+                _lw = max(_runs, key=lambda l: _runs[l][1])
+                print(f"  ADJACENCY: longest stress run "
+                      f"{_runs[_lp][0]} (L{_lp}), longest weak run "
+                      f"{_runs[_lw][1]} (L{_lw}) — the prominence band "
+                      f"counts and cannot hear a clot inside it or padding "
+                      f"down into it; disclosed, uncalibrated, never "
+                      f"charged (M-115).")
             # THE SPANS THAT PRODUCED EACH FAILING NUMBER, beside it.
             # BACKLOG 1.2's acceptance names `brief` as well as
             # `check_scheme`, and a brief is where the misattribution
@@ -8527,7 +9540,7 @@ def main():
                 sides.append(("HANDED IN brief's FILE", args[1]))
                 lines = load_lyric_lines(args[1])
                 scheme, _tail = _mandate_arg(args, 2, lines)
-                _say_derived(scheme, len(lines))
+                _say_derived(scheme, len(lines), src=args[1])
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
@@ -8645,7 +9658,7 @@ def main():
                         [l.strip() for l in lyric_text.splitlines()
                          if l.strip() and not is_apparatus_line(l)])
                 scheme, _tail = _mandate_arg(args, 3, lines)
-                _say_derived(scheme, len(lines))
+                _say_derived(scheme, len(lines), src=args[2])
                 _say_relation(scheme)
                 if scheme is not None:
                     print(f"  BLUEPRINT: {song_bp_path} — meter and "
@@ -8675,7 +9688,7 @@ def main():
                 before = load_lyric_lines(args[1])
                 after = load_lyric_lines(args[2])
                 scheme, tail = _mandate_arg(args, 3, before)
-                _say_derived(scheme, len(before))
+                _say_derived(scheme, len(before), src=args[1])
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
@@ -8754,10 +9767,61 @@ def main():
                 # anything outside this process, and why a `call:` that
                 # cannot be honoured refuses instead of quietly becoming
                 # this.
-                sides.append(("HANDED IN revise's FILE", args[1]))
+                sides.append((f"HANDED IN {cmd}'s FILE", args[1]))
                 lines = load_lyric_lines(args[1])
-                scheme, _tail = _mandate_arg(args, 2, lines)
-                _say_derived(scheme, len(lines))
+                if cmd == "finish":
+                    # THE MANDATE AND THE METER COME OFF THE PLAN, spelled
+                    # exactly as its own GRADE IT line spells them
+                    # (`quality/plan.py:grading_command` — doctrine 1: one
+                    # statement of the mandate, read here and never
+                    # restated) and handed to the SAME `_mandate_arg` every
+                    # hand-typed mandate goes through, so `finish` cannot
+                    # come to parse a spelling differently from `revise`.
+                    if [a for a in args[2:] if not a.startswith("-")]:
+                        _refuse(f"finish does not take a mandate argument "
+                                f"— got {args[2]!r}",
+                                detail=["the plan the seed names IS the "
+                                        "mandate; a second spelling beside "
+                                        "it would be two statements of one "
+                                        "cover"])
+                    from quality import plan as PLN2
+                    import tempfile
+                    try:
+                        _bp = PLN2.fill_plan(finish_plan, lines)
+                    except PLN2.PlanRefused as e:
+                        _refuse(str(e))
+                    _fd, bp_path = tempfile.mkstemp(
+                        prefix="finish_bp_", suffix=".json")
+                    with os.fdopen(_fd, "w", encoding="utf-8") as fh:
+                        json.dump(_bp, fh)
+                    _synth = []
+                    if finish_plan["groups"]:
+                        _synth.append(f"--groups={finish_plan['groups']}")
+                    if finish_plan["returns"]:
+                        _synth.append(f"--returns={finish_plan['returns']}")
+                    if finish_plan.get("relation"):
+                        _synth.append(
+                            f"--relation={finish_plan['relation']}")
+                    if finish_plan.get("relations"):
+                        _synth.append("--relations=" + ",".join(
+                            f"{k}:{v}" for k, v in
+                            sorted(finish_plan["relations"].items())))
+                    scheme, _tail = _mandate_arg(_synth, 0, lines)
+                    subdivision = FT.Subdivision(
+                        int(finish_plan["subdivision"]),
+                        source=f"the plan's own declared subdivision "
+                               f"(seed {finish_seed}), read off the "
+                               f"artifact `finish` derived the mandate "
+                               f"from")
+                    print(f"  MANDATE: read from the plan (seed "
+                          f"{finish_seed}) — groups, returns and relations "
+                          f"as its own GRADE IT line spells them; the "
+                          f"blueprint is the plan filled with THIS draft "
+                          f"and the subdivision is the plan's own. Nothing "
+                          f"on this command line restates any of it.")
+                else:
+                    scheme, _tail = _mandate_arg(args, 2, lines)
+                _say_derived(scheme, len(lines), src=args[1])
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
@@ -8816,6 +9880,33 @@ def main():
                     for i, l in enumerate(result.lines, 1):
                         mark = "*" if l != lines[i - 1] else " "
                         print(f"  {mark} L{i}: {l}")
+                if cmd == "finish":
+                    # THE RENDER EXISTS ONLY PAST A STOP CONDITION — this
+                    # call sits after `revise_loop` returned, so a
+                    # suspended run (exit 4, in the except above) emits the
+                    # writer's question and no song, STRUCTURALLY rather
+                    # than by anyone's discipline. It renders the LOOP'S
+                    # final lines, not the file's: the loop revises, and
+                    # rendering the input would present the draft the run
+                    # just improved on. The stamp is the convergence
+                    # declaration M-150 requires at presentation, emitted
+                    # by the verb itself so a faithful copy-paste carries
+                    # it — exit and stop reason in the verbs' own spelling,
+                    # unresolved lines named because a parked song shown
+                    # without its open lines reads as a finished one.
+                    _open = sorted(b.line_no for b in result.unresolved)
+                    _code = 3 if result.unresolved else 0
+                    print("\n  THE SONG, PERFORMANCE ORDER:\n")
+                    from quality import plan as PLN2
+                    print(PLN2.render_song(finish_plan,
+                                           result.lines).rstrip())
+                    print(f"\n  [FINISHED — seed {finish_seed} — "
+                          f"exit {_code} — {result.stop_reason.upper()} "
+                          f"after {len(result.rounds)} round(s) — "
+                          + (f"UNRESOLVED: "
+                             + ", ".join(f"L{n}" for n in _open)
+                             if _open else "no flag stands")
+                          + "]")
                 # EXIT 3 WHEN ANYTHING ACTIONABLE STANDS — 2026-08-17, the
                 # owner's order made a pipeline fact. `revise` used to exit 0
                 # on NO_PROGRESS with unresolved lines, so "the loop gave up"
@@ -9059,37 +10150,20 @@ def main():
                 f"list; `wiring` prints which verb runs on which layer.")
 
 
-if __name__ == "__main__":
-    # ONE FILE, TWO MODULE OBJECTS — and the first thing this branch has to
-    # do is stop being two, because an `except` clause below cannot catch a
-    # class raised by the other copy.
-    #
-    # Run as a script this file is `__main__`. Every module under `quality/`
-    # does `from lyric_harness import ...`, which finds no `lyric_harness` in
-    # `sys.modules`, RE-EXECUTES this whole file under that name, and binds a
-    # SECOND, unrelated set of every class and function in it. Two
-    # `Lexicon`s, two `Declaration`s, two of everything, differing by
-    # identity and by nothing else — which is invisible until identity is
-    # what a statement rests on. It rests on it here: `read_lyric_text`
-    # reached through `quality/readability.py` raises
-    # `lyric_harness.UndecodableLyricFile` and this block catches
-    # `__main__.UndecodableLyricFile`, so the refusal added in this same
-    # commit was caught for seven verbs and MISSED for the eighth —
-    # `readability`, which kept exiting 1 with a traceback whose last line
-    # reads `lyric_harness.UndecodableLyricFile: ... not valid UTF-8`. The
-    # message was right, the handler was right, and they were about two
-    # different classes.
-    #
-    # `setdefault` rather than assignment, and BEFORE `main()`, which is
-    # where every `from quality import ...` happens: any importer arriving
-    # afterwards is handed this module instead of re-running the file. It
-    # also stops the double execution (47.9ms, `-X importtime`) and collapses
-    # the two copies of every module-level cache into the one the CLI is
-    # actually using. `setdefault` is not paranoia about a race — it says
-    # that if something has ALREADY imported this file under its own name,
-    # that copy wins and this branch does not swap it out underneath it.
-    sys.modules.setdefault("lyric_harness", sys.modules["__main__"])
+def cli():
+    """`main()` under the script's own refusal handlers — ONE dispatch,
+    TWO entrances (`MISSING.md` M-155).
 
+    Extracted from the `__main__` block the day the warm worker's
+    byte-equality battery caught the seam it closes: `mcp/worker.py`
+    called `main()` directly, so a missing file answered exit 1 with a
+    traceback through the worker and `REFUSED` exit 2 through the
+    script — the same command, two different answers, which is the
+    drift a second copy of these handlers would have made permanent
+    (doctrine 1). Both entrances call THIS function now; the
+    `__main__` block keeps only what is script-only (the module-alias
+    line, which an import-entrance never needs).
+    """
     # THE LAST TWO SHAPES THAT STILL REACHED A USER AS A TRACEBACK — FIXED
     # 2026-08-15. Every verb in this file was given ONE refusal shape
     # (`REFUSED — ...`, exit 2) a piece at a time — `candidates` on an OOV
@@ -9146,3 +10220,37 @@ if __name__ == "__main__":
                         f"in lyric_harness.py and not your mistake — the "
                         f"exception was {e!r}. Please report it with the "
                         f"command you ran."])
+
+
+if __name__ == "__main__":
+    # ONE FILE, TWO MODULE OBJECTS — and the first thing this branch has to
+    # do is stop being two, because an `except` clause below cannot catch a
+    # class raised by the other copy.
+    #
+    # Run as a script this file is `__main__`. Every module under `quality/`
+    # does `from lyric_harness import ...`, which finds no `lyric_harness` in
+    # `sys.modules`, RE-EXECUTES this whole file under that name, and binds a
+    # SECOND, unrelated set of every class and function in it. Two
+    # `Lexicon`s, two `Declaration`s, two of everything, differing by
+    # identity and by nothing else — which is invisible until identity is
+    # what a statement rests on. It rests on it here: `read_lyric_text`
+    # reached through `quality/readability.py` raises
+    # `lyric_harness.UndecodableLyricFile` and this block catches
+    # `__main__.UndecodableLyricFile`, so the refusal added in this same
+    # commit was caught for seven verbs and MISSED for the eighth —
+    # `readability`, which kept exiting 1 with a traceback whose last line
+    # reads `lyric_harness.UndecodableLyricFile: ... not valid UTF-8`. The
+    # message was right, the handler was right, and they were about two
+    # different classes.
+    #
+    # `setdefault` rather than assignment, and BEFORE `main()`, which is
+    # where every `from quality import ...` happens: any importer arriving
+    # afterwards is handed this module instead of re-running the file. It
+    # also stops the double execution (47.9ms, `-X importtime`) and collapses
+    # the two copies of every module-level cache into the one the CLI is
+    # actually using. `setdefault` is not paranoia about a race — it says
+    # that if something has ALREADY imported this file under its own name,
+    # that copy wins and this branch does not swap it out underneath it.
+    sys.modules.setdefault("lyric_harness", sys.modules["__main__"])
+
+    cli()

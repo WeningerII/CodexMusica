@@ -1493,6 +1493,107 @@ facts. `python3 lyric_harness.py fit quality/fixtures/song.blueprint.json
 
 ---
 
+## RULINGS WANTED — every open decision that is the owner's, collected
+
+**Added 2026-08-28 by the repair campaign.** These decisions were scattered
+across `MISSING.md` entries as "parked for the owner" / bold **Decide:**
+lines, never collected — so nothing could say how many decisions were
+waiting, and a ruling nobody could enumerate was a ruling nobody made. Each
+row is ONE question with the entry's own options and the numbers that bear
+on it; the full argument lives in the named `MISSING.md` entry, which is the
+authority when this summary and the entry disagree. Nothing here is a
+recommendation unless marked as one; the campaign builds nothing on these
+until ruled.
+
+1. **N-3 — which Malay pantun count ships?** Keep `data/sources.tsv`'s
+   82/80, or record it superseded by 90/88 (the fresh run's
+   monorhyme-separated reading; 705 blocks / 5,555 lines reproduce
+   exactly either way). A decision, not a run.
+2. **M-18 — which reading did the Finnish 155→139 row mean?** Read,
+   refused, or defective — the three candidates D24 computes; the row
+   cannot be repaired without the pick.
+3. **M-78 — does the note-vs-flag convention rule get its own doctrine
+   number, or do the 22 miscitation sites repoint at doctrine 7?** The
+   rule decides severity for 51 of 71 codes; a doctrine number is owner
+   vocabulary.
+4. **M-101 — which section functions may a CONVENTION profile ask
+   about?** Derive from recurrence contracts, measure from the marked
+   corpus, or name them by hand — the current four are hardcoded with no
+   recorded reason.
+5. **M-111 — may a check read `songs/` at screen time to disclose
+   cross-song word reuse?** The songs register rules songs are NOT
+   corpus; the measured concentration (10 content words shared by ≥4 of
+   6 banked songs against a null median of 1) is what the check would
+   disclose.
+6. **M-120 — disclose that a drawn end-web can be inaudible as rhyme, or
+   accept that as the dice's intended risk?** Panel run 5 heard a fully
+   SATISFIED web as absence of rhyme; the disclosure needs an
+   audible-as-rhyme declaration over the 22 drawable schemas.
+7. **M-136 — two verdict-moving choices:** must `score()` take the words
+   (so identity-is-not-rhyme cannot be switched off), and may
+   `profile="assonance"` emit ASSONANCE instead of relabelling to RHYME?
+   Both change recorded verdicts, which is why both are parked.
+8. **M-137 — per dead coordinate: consume, remove, or mark RESERVED?**
+   Three coordinates, zero production readers each; the entry leans
+   consume for the null side-searches and remove for `SPAN_KINDS`.
+9. **M-138 — what does a near relation COST at the widened admit door?**
+   Price 0.75 per relation and re-adopt (the `theta_coda` pattern — the
+   entry calls this most defensible), split thresholds per relation, or
+   declare the measured 8.48%-of-random-pairs admission an accepted
+   policy. Tuning 0.75 to shrink the number is ruled out by doctrine 58.
+10. **M-140 — does the 77-schema default filter `forbidden`/`deprecated`
+    schemas?** Today `homoioteleuton` — the tier-1 ban — still satisfies
+    the default; exposure measured at zero sole-satisfier cases, so the
+    gap is latent, and the ruling is about what the default CLAIMS.
+11. **K-6 — name the `data/lyricists.tsv` status vocabulary** (nine
+    statuses measured where three columns fit) before anyone rebuilds
+    the table; and K-1a's sibling: **name the `source_type` third axis**
+    for the corpus taxonomy, without which refrain rates read the editor.
+12. **M-94 — which route makes the planner emit what prettier accepts?**
+    Shell out to prettier from `--out` (small), or reimplement the
+    80-column collapse (a sitting). The reformat is measured
+    verdict-neutral; picking the route is the work.
+13. **M-20 — which printing wins when a poem is staged twice in its own
+    file?** A reading question over ≥28 doubled songs; the mechanical
+    `RUN-ON`/`DOUBLE-STAGED` split is recorded as a route and waits on
+    the same sitting.
+14. **M-5 — may the Kanteletar's `w`→`v` allograph FOLD?** The fold
+    moves the ADOPTED Kalevala-alliteration calibration (0.3249,
+    re-derived nightly), so it re-opens an adoption; the detector that
+    charges nothing can ship without the ruling.
+15. **M-46 / M-42 — the frozen null panel's two repairs** (a
+    `both_line_final` forced-gap row; the second refused-replicate
+    counter): both move recorded panel rows and `EXTENSION_LEDGER`, and
+    M-46's premise contradicts `_GAP_FORCED`'s own recorded
+    counterexample (`door`/`the door` share the line-final unit at gap
+    0) — so the sitting that takes them must first measure whether the
+    sweep's pair enumeration can produce that gap-0 case at all.
+16. **M-41 — which relations deserve a CERTIFIED capacity table?** The
+    relation coordinate is carried since 2026-08-28 (the family counts
+    for all four of `ADMITTABLE_RELATIONS` are
+    `python3 quality/capacity.py --families=RELATION`, uncertified),
+    but a certified `chain_lo` — witness cliques graded through the
+    real Reviser — exists only under RHYME, and each further relation
+    prices at hours of grading (the RHYME derivation is ~an hour).
+    Assonance's 15 families with a median of 2,382 words are the
+    extreme case: the ban and the modal tier would cut them hard, and
+    nobody has measured to what. Rule which, if any, are worth paying
+    for; until then the artifact stays RHYME-only and says so on every
+    row.
+17. **M-52 — does the planner VOLUNTEER an attached burden?** `burden`
+    is the corpus's most-attested function (1,580 printed blocks, every
+    one after a verse) and `refrain` opens songs 709 times; both are
+    LINE-kind by M-56's ruling, so the span grammar correctly never
+    draws them, and a writer's route exists today (a hand blueprint's
+    burden section; `--returns=` for the verbatim line-group). The open
+    design: a LINE-layer generator pass (the hook-slot /
+    `end_rhyme_groups` species) that attaches a burden line-group to
+    each verse instance when declared. Rule whether it is wanted; until
+    then the two functions stay writer-declared and the M-52 close
+    records why that is not a gap.
+
+---
+
 ## Counters, so drift is visible
 
 **This table is OUTPUT. Do not edit it by hand.**
@@ -1583,10 +1684,10 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 76 OPEN / 33 PARTIAL / 2 BLOCKED / 94 CLOSED = 205 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 60 OPEN / 33 PARTIAL / 2 BLOCKED / 107 CLOSED / 11 RESOLVED = 213 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 3 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1342** DECLARED-public top-level functions/classes under `quality/` and the root — **237** named by another production module, **401** by tests only, **618** only inside their own module, **12** by nothing anywhere, **74** REFUSED (49 ambiguous, 17 dynamic, 8 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **46** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1366** DECLARED-public top-level functions/classes under `quality/` and the root — **246** named by another production module, **412** by tests only, **618** only inside their own module, **13** by nothing anywhere, **77** REFUSED (50 ambiguous, 17 dynamic, 10 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **50** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |

@@ -2228,7 +2228,24 @@ PINNED = {
     # ~~196~~ -> 197: M-139, the door moved TWICE (M-59's four relations,
     # M-116's 77 schemas) and 17 of 19 pair-satisfaction sites moved
     # neither time. `quality/door_census.py` is the census and the gate.
-    "coverage_entries": 205,
+    # ~~207~~ -> 208: M-150, the working order's LAST step had no gate —
+    # a rendered song presented with its convergence state unsaid reads
+    # as finished; `check_render_form.py` now asks the turn two questions.
+    # ~~208~~ -> 209: M-151, filed in M-7's close — the CLI `cynghanedd`
+    # verb reaches neither `caesura` nor the new `marks`, so the one verb
+    # whose subject is the coordinate cannot declare it (found, named,
+    # not folded into the closed sitting).
+    # ~~209~~ -> 210: M-152, filed in M-47/M-27's close — six files print
+    # SUNG text inside `[...]` blocks (Watts's optional stanzas the
+    # sharpest), the opposite defect from the wrapped-note leak, carried
+    # as check L NOTEs until its own sitting declares the keep rule.
+    # ~~210~~ -> 213, 2026-08-28: M-153 (editorial text under bare
+    # [VERSE n] marks, opened by M-152's close), M-154 (the seam — the
+    # finish verb and the lyric_revise wrap), M-155 (the judge's memo
+    # and the warm worker). Three closes in one day and this pin was
+    # told by none of them until CI said so — the lag the check exists
+    # to catch, caught.
+    "coverage_entries": 213,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

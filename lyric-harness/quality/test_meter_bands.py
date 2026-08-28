@@ -460,12 +460,79 @@ def test_the_enforcement():
           "registered instrument-match condition)", c1 == [], c1)
 
 
+def test_the_adjacency_is_disclosed():
+    """11. M-115 — THE BAND IS A COUNT AND BOTH OF ITS EVASIONS ARE
+    AUDIBLE. A blind prosody judge quoted them back on lines the band had
+    cleared: "'and the' strings two limp function words together as
+    audible padding" on a diluted repair, and "six stressed monosyllables
+    stack" on a line the band PASSES at seven — a clot the count cannot
+    see. The ADJACENCY is derivable from the same reader that counts, and
+    it is disclosed now: `LineUnits.prominence_runs`, carried per line
+    through `inspect()` and rolled up by the report. DISCLOSED AND NEVER
+    CHARGED — whether a run is a defect is a band question needing its
+    own corpus measurement, stated as an FPR (doctrine 22)."""
+    print("\n11. M-115 — the adjacency beside the count, disclosed")
+    from quality import fit as FT
+    from quality import meter_bands as MB
+    from quality.revise import Reviser
+
+    def units_of(text):
+        return FT.read_line(text, phon=MB.reader(MB.ADOPTED_READER))
+
+    # The clot: six stressed monosyllables in a row. The spread: the same
+    # KIND of count with the stresses alternated by function words.
+    clot = units_of("dark stone cold black night falls")
+    spread = units_of("the bells will ring across the town tonight")
+    rp_c, _ = clot.prominence_runs
+    rp_s, rw_s = spread.prominence_runs
+    check("a stress clot reads as a LONG run and the alternating line "
+          "does not — same reader, same counts, different adjacency",
+          rp_c >= 4 and rp_s <= 3, f"clot {rp_c}, spread {rp_s}")
+    check("...and the weak run reads the other evasion — strung function "
+          "words are a run of weak syllables the count cannot see",
+          rw_s >= 1, f"weak run {rw_s}")
+    # An UNDECIDED unit breaks BOTH runs (doctrine 20): counting it
+    # either way would decide a reading the phonology refused.
+    class _U:
+        def __init__(self, p):
+            self.prominence = p
+            self.prominent = p == 1
+    lu = FT.LineUnits(text="x", units=(
+        _U(1), _U(1), _U(None), _U(1), _U(1), _U(1)))
+    check("an undecided unit breaks both runs rather than joining either",
+          lu.prominence_runs == (3, 0), str(lu.prominence_runs))
+    # The whole path: inspect carries the per-line map as CALL metadata.
+    found = Reviser().inspect(
+        ["dark stone cold black night falls",
+         "the bells will ring across the town tonight"], "AA")
+    runs = found.get("prominence_runs") or {}
+    check("`inspect()` carries {line: (stress run, weak run)} for EVERY "
+          "line — a key, never a Finding, and nothing charges it",
+          set(runs) == {1, 2} and runs[1][0] >= 4,
+          str(runs))
+    # THE MUTATION, hand-proven: flatten the property and the map goes
+    # flat — so the checks above are the derivation doing the work.
+    keep = FT.LineUnits.prominence_runs
+    try:
+        FT.LineUnits.prominence_runs = property(lambda self: (0, 0))
+        check("MUTATION: with the runs flattened, the clot reads 0 — the "
+              "disclosure reads the property, not the fixture",
+              units_of("dark stone cold black night falls")
+              .prominence_runs == (0, 0))
+    finally:
+        FT.LineUnits.prominence_runs = keep
+    check("...and the mutation is reverted",
+          units_of("dark stone cold black night falls")
+          .prominence_runs[0] >= 4)
+
+
 if __name__ == "__main__":
     for fn in (test_nearest_rank, test_lyric_filter,
                test_exclusion_not_imputation, test_determinism,
                test_real_file, test_proposal_is_derived,
                test_the_amendment, test_the_reader_trial,
-               test_the_adoption_check, test_the_enforcement):
+               test_the_adoption_check, test_the_enforcement,
+               test_the_adjacency_is_disclosed):
         fn()
     print("=" * 62)
     if FAILURES:

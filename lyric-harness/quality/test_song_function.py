@@ -115,9 +115,22 @@ def test_function_is_declared_and_never_inferred():
           _raises(lambda: G.Section("x", 4, function="vibes"),
                   G.UnknownFunction),
           "the move check_cynghanedd made for `language` (doctrine 45)")
+    # RESTATED AGAIN 2026-08-28 (M-57): this check's fixture was
+    # `Section("x", 4, function="middle8")` and its pass was the MEASURED
+    # DEFECT — the door accepting a specialisation at bars=4 and storing
+    # the genus, the differentia (bars == 8, the bridge gloss's own claim)
+    # discarded. `middle8` is a Specialisation now, not an alias: at
+    # bars=8 it resolves to the bridge spec AND keeps the declared name;
+    # at bars=4 it REFUSES rather than silently widening. Both halves
+    # pinned here so the door cannot drift back either way.
+    s8 = G.Section("x", 8, function="middle8")
     check("...and `middle8` RESOLVES through the constructor to the bridge "
-          "spec — the row's own alias, stored canonical",
-          G.Section("x", 4, function="middle8").function == "bridge")
+          "spec — a SPECIALISATION now, kept and checked (M-57)",
+          s8.function == "bridge" and s8.specialised_as == "middle-eight")
+    check("...and `middle8` at bars=4 REFUSES — the differentia is the "
+          "claim, and this check's own pre-M-57 fixture was the defect",
+          _raises(lambda: G.Section("x", 4, function="middle8"),
+                  G.SpecialisationMismatch))
     check("THE ONE THAT MATTERS — a section NAMED 'chorus' is UNDECLARED",
           G.Section("chorus", 16).function == G.UNDECLARED
           and G.Section("chorus2", 16).function == G.UNDECLARED,
@@ -627,9 +640,16 @@ def test_the_corpus_holds():
           f"first 11 that went were marks inside the duplicated Lyrical "
           f"Ballads poems and the next 12 inside near-duplicate items, so "
           f"they were being counted twice and no rate over them was right.")
+    # REPINNED 2026-08-28 (M-52's close): eng ~~2,467~~ **2,470**, and the
+    # +3 is `patter` — a returns-recurrence function since it entered the
+    # vocabulary, so its three Ruddigore blocks join the eng repeat
+    # census. Chorus/burden/refrain are untouched, and the whole-corpus
+    # total above holds because its family list predates patter, which
+    # this dict-rendered detail names rather than hides.
     check("the register's `2,454 marked repeat blocks` reproduces, and the "
           "unwritten coordinate was LANGUAGE SCOPE",
-          eng_total == 2467 and c["eng_repeat"]["chorus"] == 290,
+          eng_total == 2470 and c["eng_repeat"]["chorus"] == 290
+          and c["eng_repeat"].get("patter") == 3,
           f"eng_* only gives {eng_total:,} "
           f"({dict(c['eng_repeat'])}); the recorded 1,603/604/247 is the "
           f"state at commit ef0baa4 restricted to `eng_*`, and the whole "
@@ -973,12 +993,20 @@ def test_the_apparatus_rule_is_the_centres_and_its_price_is_named():
           f"({dict(c['empty_by_language'])}) — 6,187 before this rule and "
           f"{c['empty_blocks']:,} after, so the rule added 14 to a population "
           f"of thousands rather than creating the case")
-    check("every one of the 14 additions is English, so no non-English arm "
-          "moved at all",
+    # REPINNED 2026-08-28 (M-47/M-27): fin ~~88~~ -> 92. The wrapped-note
+    # follow rule declares three fin files (`fin_eino_leino`,
+    # `fin_paavo_cajander`, `fin_wahanen_laulukirja`), and four of their
+    # blocks held NOTHING but a wrapped editorial note's tail — the block
+    # empties when the note leaves, which is the rule working. fas and san
+    # are still byte-identical, so the original claim survives one language
+    # wider: no arm moved that the follow set does not declare.
+    check("the 14 additions were English and the 4 from the follow rule are "
+          "Finnish — no UNDECLARED arm moved at all",
           c["empty_by_language"]["fas"] == 5884
-          and c["empty_by_language"]["fin"] == 88
+          and c["empty_by_language"]["fin"] == 92
           and c["empty_by_language"]["san"] == 47,
-          f"{dict(c['empty_by_language'])} — eng 168 -> 182, everything else "
+          f"{dict(c['empty_by_language'])} — eng 168 -> 182 (apparatus "
+          f"rule), fin 88 -> 92 (M-47 follow rule), everything else "
           f"byte-identical")
 
 
@@ -1021,9 +1049,15 @@ def test_which_pairs_may_be_asked_is_the_whole_design():
               f"{h/n:>6.1%}")
     print(f"     kinds: {dict(c['cross_kinds'].most_common(6))}")
 
+    # REPINNED 2026-08-28 (M-47/M-27): ~~922~~ -> 896. The 26 pairs that
+    # left were built on blocks whose lines were a wrapped note's leaking
+    # tail — editorial prose compared as though it were a section. NOT ONE
+    # of the 61 shared-line pairs left, so the false-positive story below
+    # sharpens: the rate RISES to 6.8% because the population shrank by
+    # exactly the pairs that were never songs.
     check("the corpus can supply cross-function pairs at all — four "
           "functions, so six possible pairings",
-          c["cross_pairs"] == 922 and len(c["cross_by_pair"]) == 5,
+          c["cross_pairs"] == 896 and len(c["cross_by_pair"]) == 5,
           f"{c['cross_pairs']:,} pairs over {len(c['cross_by_pair'])} of the "
           f"6 possible pairings ({sorted(c['cross_by_pair'])}); "
           f"burden/refrain never co-occur in one song, which is itself the "
@@ -1032,9 +1066,11 @@ def test_which_pairs_may_be_asked_is_the_whole_design():
     # The 10 new shared lines are the war-song shape — a chorus that sings
     # a line the verse also sings (Goober Peas's own refrain line) — and
     # the check below this one still holds: none lands in the asked set.
-    check("ASKING EVERY PAIR WOULD BE WRONG 6.6% OF THE TIME — this is the "
+    # REPINNED 2026-08-28: 61 of ~~922 (6.6%)~~ 896 (6.8%) — the shared
+    # count is UNMOVED and only the denominator fell (M-47's follow rule).
+    check("ASKING EVERY PAIR WOULD BE WRONG 6.8% OF THE TIME — this is the "
           "number the declared asked set exists for",
-          c["cross_shared"] == 61 and abs(rate - 0.0662) < 0.001,
+          c["cross_shared"] == 61 and abs(rate - 0.0681) < 0.001,
           f"{c['cross_shared']} of {c['cross_pairs']:,} pairs share a whole "
           f"line under the declared normalisation, and NOT ONE is a reprise: "
           f"they are refrain lines a printer set inside the verse, or a "

@@ -113,10 +113,23 @@ def _p_screen(out):
         else:
             verdict = tail
         facts.append(("pair:%s~%s" % (m.group(1), m.group(2)), verdict))
-    m = re.search(r"^\s*(\d+) banned, (\d+) refused, (\d+) clean", out, re.M)
+    # M-113 split the screen's third bucket: CLEAN answered two questions
+    # (a clean rhyme and a clean non-rhyme) and the verb now counts them
+    # apart, so the log records them apart — two facts, never summed
+    # (doctrine 79). The old one-bucket shape is kept as a fallback so a
+    # pre-split transcript still parses to its own honest fact name.
+    m = re.search(r"^\s*(\d+) banned, (\d+) refused, (\d+) clean and "
+                  r"rhyming, (\d+) clean but not a rhyme", out, re.M)
     if m:
         facts += [("banned", m.group(1)), ("refused", m.group(2)),
-                  ("clean_or_non_rhyme", m.group(3))]
+                  ("clean_rhyming", m.group(3)),
+                  ("clean_non_rhyme", m.group(4))]
+    else:
+        m = re.search(r"^\s*(\d+) banned, (\d+) refused, (\d+) clean",
+                      out, re.M)
+        if m:
+            facts += [("banned", m.group(1)), ("refused", m.group(2)),
+                      ("clean_or_non_rhyme", m.group(3))]
     return facts
 
 

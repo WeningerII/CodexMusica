@@ -79,6 +79,14 @@ FUNCTION_ATOMS = {
     "refrain": ("ANCHOR",),
     "burden": ("ANCHOR",),
     "reprise": ("ANCHOR",),
+    # ENTERED 2026-08-28 with the function itself (M-52's close): patter's
+    # differentia from verse is DELIVERY DENSITY — syllables against
+    # beats, G-1's uncalibrated gap — which is not a narrative coordinate,
+    # so the mover card's faces are its faces. The Ruddigore witness
+    # carries three of them in three stanzas: Robin ESTABLISHes his
+    # situation and plan, Margaret JUDGEs ("my opinion doesn't matter"),
+    # Despard runs the counterfactual COMPLICATE.
+    "patter": ("ESTABLISH", "COMPLICATE", "TURN", "JUDGE", "RESOLVE"),
     "turnaround": (),
     "interlude": (),
     "solo": (),

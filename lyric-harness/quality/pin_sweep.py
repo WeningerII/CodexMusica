@@ -61,6 +61,7 @@ because an instrument that has gone quiet must not read as one that passed.
 from __future__ import annotations
 
 import argparse
+import ast
 import fnmatch
 import json
 import os
@@ -118,6 +119,141 @@ CHECK_ARGV = {
     #: moved by the 2026-08-21 tokeniser repertoire fix).
     "quality/expected_drift.py": ["song_profile_calibration-fast"],
 }
+
+# ---------------------------------------------------------------------------
+# THE ARGV-CONSUMPTION PROOF (M-21's close, 2026-08-28).  The entry stayed
+# open on exactly this: "the rest are HOLDS on a flag that may or may not be
+# asking about a pin, and nothing yet proves which."  `CHECK_ARGV` was only
+# as complete as the defects already caught — one row per trap sprung — and
+# an instrument whose `--check` is not a bare boolean flag read as HOLDS or
+# CANNOT RUN with nothing distinguishing a certified answer from a dropped
+# flag.  `classify_consumption` settles it on the AST: for every discovered
+# instrument, either the flag the sweep passes is PROVABLY consumed as a
+# boolean flag, or the instrument is refused BY NAME until a human writes a
+# `CHECK_ARGV` row (a ruling with a reason) or extends the classifier.
+# ---------------------------------------------------------------------------
+
+def _argparse_takes_value(call):
+    """Does this `add_argument` call declare a VALUE-taking option?"""
+    action = None
+    nargs = None
+    for kw in call.keywords:
+        if kw.arg == "action" and isinstance(kw.value, ast.Constant):
+            action = kw.value.value
+        if kw.arg == "nargs" and isinstance(kw.value, ast.Constant):
+            nargs = kw.value.value
+    if action in ("store_true", "store_false", "store_const", "count",
+                  "help", "version"):
+        return False
+    if nargs == 0:
+        return False
+    return True
+
+
+def classify_consumption(src, flag):
+    """-> one of 'boolean', 'takes_value', 'unconsumed'.
+
+    'boolean': the flag is PROVABLY consumed as a bare boolean somewhere —
+    membership (`flag in sys.argv`), list/tuple equality (`argv ==
+    ["--check"]`), direct equality against an argv element, membership of a
+    literal collection compared with `in`, or `add_argument(flag,
+    action='store_true')` and kin.  'takes_value': every consumption found
+    is an `add_argument` that takes a value, so a bare flag is an argparse
+    error (the `audit_corpus.py` trap).  'unconsumed': the string occurs
+    (discovery found it) and NO consumption context does — a docstring
+    mention, or a style this classifier does not know; refused rather than
+    certified either way (doctrine 20).
+    """
+    try:
+        tree = ast.parse(src)
+    except SyntaxError:                                   # pragma: no cover
+        return "unconsumed"
+
+    def holds_flag(node):
+        if isinstance(node, ast.Constant) and node.value == flag:
+            return True
+        if isinstance(node, (ast.List, ast.Tuple, ast.Set)):
+            return any(isinstance(e, ast.Constant) and e.value == flag
+                       for e in node.elts)
+        return False
+
+    boolean = False
+    value_taking = False
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Compare):
+            sides = [node.left] + list(node.comparators)
+            if any(holds_flag(s) for s in sides):
+                # membership either way round, equality against anything —
+                # each is a bare-string consumption: the flag is compared,
+                # never given a value.
+                if any(isinstance(op, (ast.In, ast.NotIn, ast.Eq, ast.NotEq))
+                       for op in node.ops):
+                    boolean = True
+        elif (isinstance(node, ast.Call)
+              and isinstance(node.func, ast.Attribute)
+              and node.func.attr == "add_argument"
+              and node.args
+              and isinstance(node.args[0], ast.Constant)
+              and node.args[0].value == flag):
+            if _argparse_takes_value(node):
+                value_taking = True
+            else:
+                boolean = True
+    if boolean:
+        return "boolean"
+    if value_taking:
+        return "takes_value"
+    return "unconsumed"
+
+
+def verify_argv(root=ROOT, only=None):
+    """-> [complaint, ...].  Empty means every discovered instrument's sweep
+    argv is PROVEN consumable, or carried by a declared ruling.
+
+    For an instrument WITHOUT a `CHECK_ARGV` row, bare `--check` must
+    classify 'boolean'.  For one WITH a row, the row is a human ruling with
+    its reason beside it; what is still checked is every FLAG token the row
+    passes (a `-`-prefixed token must itself classify 'boolean' in that
+    module — `audit_corpus.py`'s `--verify-shape` is checked the same way
+    its `--check` was found broken).  A non-flag token (`expected_drift`'s
+    positional instrument name) is part of the ruling and is not
+    second-guessed here.
+    """
+    out = []
+    for rel in discover(root, only):
+        path = os.path.join(root, rel)
+        with open(path, encoding="utf-8", errors="replace") as f:
+            src = f.read()
+        row = CHECK_ARGV.get(rel)
+        if row is None:
+            got = classify_consumption(src, "--check")
+            if got == "takes_value":
+                out.append(
+                    f"{rel}: `--check` PROVABLY TAKES A VALUE, so the bare "
+                    f"flag the sweep passes is an argparse error and the "
+                    f"instrument is never asked its question — the "
+                    f"audit_corpus trap. Add its real invocation to "
+                    f"CHECK_ARGV, with the reason.")
+            elif got == "unconsumed":
+                out.append(
+                    f"{rel}: the string `--check` occurs (discovery found "
+                    f"it) and NO argv-consumption context does — a "
+                    f"docstring mention, or a style this classifier does "
+                    f"not know. A HOLDS on this instrument would certify "
+                    f"nothing; add a CHECK_ARGV row or extend the "
+                    f"classifier (a ruling either way, doctrine 20).")
+        else:
+            for tok in row:
+                if tok.startswith("-"):
+                    got = classify_consumption(src, tok)
+                    if got != "boolean":
+                        out.append(
+                            f"{rel}: its CHECK_ARGV row passes {tok!r}, "
+                            f"which classifies {got!r} in the module — the "
+                            f"declared ruling no longer matches the "
+                            f"instrument.")
+    return out
+
 
 #: An instrument's OWN word for "I could not answer".  Read from its output,
 #: because several of them say it in as many words and then exit non-zero:
@@ -289,6 +425,17 @@ def run_one(rel, root=ROOT, timeout=DEFAULT_TIMEOUT):
         # is not entitled to overrule it (doctrine 1, doctrine 20).
         v = "CANNOT RUN"
         lines, how = evidence(out)
+    elif code == 0 and not out.strip():
+        # M-21's close: exit 0 with NOTHING printed is indistinguishable
+        # from a flag that was silently dropped and a default path that ran
+        # instead — the `meter TEMPLATE` empty-stdout shape, aimed at the
+        # sweep. Every instrument here prints its verdict in its own words;
+        # silence certifies nothing (doctrine 20).
+        v = "CANNOT RUN"
+        lines = ["exit 0 and printed NOTHING — a silent pass is "
+                 "indistinguishable from a dropped flag; the instrument "
+                 "owes a verdict sentence"]
+        how = "silent exit 0"
     else:
         v = verdict_for(rel, code)
         lines, how = evidence(out) if v != "HOLDS" else ([], "")
@@ -332,7 +479,22 @@ def main(argv=None):
                     help="per-instrument bound in seconds (default %d)"
                          % DEFAULT_TIMEOUT)
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--verify-argv", action="store_true",
+                    help="prove every discovered instrument's sweep argv is "
+                         "consumable (M-21's close): no run, seconds not "
+                         "hours, exit 3 on any refusal")
     a = ap.parse_args(argv)
+
+    if a.verify_argv:
+        complaints = verify_argv(ROOT, a.only)
+        found = discover(ROOT, a.only)
+        print("ARGV-CONSUMPTION PROOF — %d instrument(s), classified on the "
+              "AST (M-21)" % len(found))
+        print("  certified: %d   refused: %d"
+              % (len(found) - len(complaints), len(complaints)))
+        for c in complaints:
+            print("  REFUSED  %s" % c)
+        return 3 if complaints else 0
 
     found = discover(ROOT, a.only)
     if not a.json:

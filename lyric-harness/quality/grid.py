@@ -204,6 +204,45 @@ class UnknownFunction(ValueError):
     """
 
 
+class SpecialisationMismatch(ValueError):
+    """A section declared a SPECIALISATION whose differentia it does not meet
+    (M-57, 2026-08-28).  `Section(bars=13, function='middle-eight')` used to
+    store `'bridge'` — the door accepted a specialisation and discarded it,
+    silently widening to the genus.  A mismatch is a contradiction between
+    two things the writer declared (the name and the bar count), so it
+    REFUSES with both quoted, the same family as a blueprint/draft length
+    mismatch — a `ValueError`, so every CLI path that turns those into
+    `REFUSED …` exit 2 catches this one identically.
+    """
+
+
+@dataclass(frozen=True)
+class Specialisation:
+    """One row-LESS specific name under a genus row (M-57).
+
+    `aliases` models SYNONYMY — symmetric, a dialect naming the SAME
+    function.  This models SUBSUMPTION — asymmetric: every middle-eight is a
+    bridge and not every bridge is a middle-eight.  The whole content of the
+    claim is the DIFFERENTIA, so it is recorded as a checkable coordinate
+    (`middle-eight` is `bridge` + `bars == 8`) rather than as prose, and the
+    `evidence` quotes the gloss that has argued the subsumption since the
+    row was written — checked at import against the genus row's own gloss,
+    the same discipline placement claims obey.
+
+    A record lives ON its genus row (`FunctionSpec.narrower`), never in a
+    hand-written map, so the claim cannot exist without a row behind it
+    (doctrine 1 — the rule the alias map already follows).  The other shape
+    of the same relation — a specific that HAS its own row (`burden` is a
+    kind of `refrain` and keeps its row because the corpus marks the two
+    differently) — is `FunctionSpec.specialises` on the specific's row.
+    """
+    name: str                 # the canonical specific name, e.g. "middle-eight"
+    spellings: tuple          # every spelling that declares it
+    differentia_field: str    # the Section field the claim reads, e.g. "bars"
+    differentia_value: int    # the value the claim requires
+    evidence: str             # quoted from the genus row's gloss
+
+
 @dataclass(frozen=True)
 class FunctionSpec:
     """What the harness DECLARES about a section function.
@@ -232,7 +271,30 @@ class FunctionSpec:
     #: the claim existed and was not resolvable, which is doctrine 48's
     #: shape one field over. Each alias is enumerated in its spellings the
     #: way `_FUNCTION_SPELLINGS` already enumerates, explicit over clever.
+    #: SYNONYMS ONLY since 2026-08-28 (M-57): three of this field's five
+    #: claims were SUBSUMPTION wearing synonymy's symmetric field —
+    #: `middle-eight` is not another name for a bridge, it is a KIND of
+    #: bridge with a differentia (`bars == 8`) the alias route accepted at
+    #: the door and discarded. Those claims moved to `narrower` below.
     aliases: tuple = ()
+    #: SPECIALISATIONS OF THIS ROW THAT CARRY NO ROW OF THEIR OWN (M-57) —
+    #: `Specialisation` records, asymmetric, each with its differentia and
+    #: the gloss quote that states the subsumption. Resolution KEEPS the
+    #: declared name (`Section.specialised_as`) and CHECKS the differentia;
+    #: a mismatch REFUSES rather than silently widening to the genus.
+    narrower: tuple = ()
+    #: THE OTHER SHAPE OF THE SAME RELATION (M-57): this row IS a kind of
+    #: the named row while keeping its own row. `burden` specialises
+    #: `refrain` — its own gloss says "a refrain sung by all" — and the two
+    #: stay separate rows because the corpus marks them differently
+    #: (doctrine 24). Before this field the table could only say the two
+    #: were UNRELATED; the alias route could only say they were IDENTICAL;
+    #: what is true is one is a kind of the other. Asymmetric: the SPECIFIC
+    #: names its genus, never the reverse.
+    specialises: str = ""
+    #: the quoted phrase from THIS row's own gloss stating the subsumption —
+    #: checked at import, the same discipline `placement_evidence` obeys.
+    specialises_evidence: str = ""
 
     # -- WHERE THIS FUNCTION CAN GO (2026-08-22, `MISSING.md` M-54) --------
     #
@@ -321,11 +383,18 @@ class FunctionSpec:
 def _spec(name, gloss, recurrence, returns_as, contrasts_with=(),
           aliases=(), boundary="", requires=(), adjacent_after="",
           adjacent_before="", needs_before=False, needs_after=False,
-          placement_evidence="", placement_refused="", kind="section"):
+          placement_evidence="", placement_refused="", kind="section",
+          narrower=(), specialises="", specialises_evidence=""):
     return FunctionSpec(name, gloss, recurrence, returns_as, contrasts_with,
-                        aliases, boundary, requires, adjacent_after,
-                        adjacent_before, needs_before, needs_after,
-                        placement_evidence, placement_refused, kind)
+                        aliases=aliases, narrower=narrower,
+                        specialises=specialises,
+                        specialises_evidence=specialises_evidence,
+                        boundary=boundary, requires=requires,
+                        adjacent_after=adjacent_after,
+                        adjacent_before=adjacent_before,
+                        needs_before=needs_before, needs_after=needs_after,
+                        placement_evidence=placement_evidence,
+                        placement_refused=placement_refused, kind=kind)
 
 
 #: THE VOCABULARY. D-1 asked for it by name. Every entry is declared here and
@@ -383,6 +452,13 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           # (after a verse, 1,580 of 1,580) is about where the LINE is
           # printed, not about a span the planner draws.
           kind="line",
+          # BOTH STATEMENTS AT ONCE (M-57): a burden is a KIND of refrain
+          # AND keeps its own row. The alias route could only say the two
+          # were identical; separate rows alone could only say they were
+          # unrelated; what is true is subsumption, stated asymmetrically
+          # here with the row's own gloss as the evidence.
+          specialises="refrain",
+          specialises_evidence="a refrain sung by all",
           requires=("verse",), adjacent_after="verse",
           # THE ONLY PLACEMENT CLAIM IN THIS TABLE BACKED BY A MEASURED RATE
           # RATHER THAN A DEFINITION -- 1,580 of 1,580, and the row already
@@ -394,10 +470,27 @@ SECTION_FUNCTIONS = {s.name: s for s in (
     _spec("bridge", "appears once and CONTRASTS; a middle-8 is a bridge whose "
           "bar count happens to be 8, which this model already records, so it "
           "is not a separate function", "once", "n/a", ("verse", "chorus"),
-          aliases=("middle-eight", "middle eight", "middle_eight",
-                   "middle-8", "middle 8", "middle8",
-                   "departure-section", "departure section",
-                   "departure_section")),
+          # TRUE SYNONYMS ONLY (M-57): the middle-eight family moved to
+          # `narrower` below, because "another name for" and "a kind of"
+          # are different claims and this field's own doc says it models
+          # the first. `departure-section` stays — it names the same
+          # function with no differentia.
+          aliases=("departure-section", "departure section",
+                   "departure_section"),
+          # THE GLOSS HAS ARGUED THIS SINCE THE ROW WAS WRITTEN and the
+          # alias route was accepting the claim and discarding it —
+          # `Section(bars=13, function='middle-eight')` stored 'bridge',
+          # measured in M-57. The differentia IS the claim, so it is a
+          # checkable coordinate now: kept on the section as
+          # `specialised_as`, checked against `bars`, a mismatch REFUSING
+          # rather than silently widening to the genus.
+          narrower=(Specialisation(
+              name="middle-eight",
+              spellings=("middle-eight", "middle eight", "middle_eight",
+                         "middle-8", "middle 8", "middle8"),
+              differentia_field="bars", differentia_value=8,
+              evidence="a middle-8 is a bridge whose bar count happens "
+                       "to be 8"),)),
     _spec("breakdown", "strips the arrangement back", "open", "varied"),
     _spec("build", "raises tension toward a return", "open", "varied"),
     # REFUSED IN BOTH DIRECTIONS, and the asymmetry is why. `drop`'s gloss
@@ -430,6 +523,21 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           # was buying
           ),
     _spec("vamp", "a repeating figure held open", "open", "varied"),
+    # THE 22nd FUNCTION, ENTERED ON A PRINTED WITNESS (M-52, 2026-08-28).
+    # The evidence rule the corpus taxonomy demands, satisfied twice over by
+    # one file: `eng_hall_ws_gilbert.txt` carries the SOURCE'S OWN centred
+    # heading 'PATTER-TRIO.' (Ruddigore Act II) over three [PATTER]-marked
+    # solo stanzas alternating with [CHORUS] ensemble tags — and the same
+    # file's note records that NOTHING ELSE in it was tagged, "because that
+    # would be an editorial guess". No placement claim: nothing in the
+    # gloss denies a position, so nothing here does (the verse rule). Its
+    # defining density contrast (syllables against beats) is measurable and
+    # UNCALIBRATED — G-1's gap, named rather than guessed at.
+    _spec("patter", "music-hall rapid-delivery solo verse, the syllable-"
+          "dense half of a patter song; returns with NEW WORDS on the same "
+          "tune (Ruddigore's 'PATTER-TRIO.': three [PATTER] solo stanzas "
+          "against [CHORUS] ensemble tags)",
+          "returns", "new words", ("chorus",)),
     # THE KEYWORD DERIVATION READ THIS AS `last`, on "the end of one section".
     # It is a SEAM: it needs a section on BOTH sides, so it can be neither
     # first nor last, which is the opposite of what an absolute reading gave.
@@ -489,6 +597,59 @@ for _s in SECTION_FUNCTIONS.values():
             raise UnknownFunction(
                 f"alias {_a!r} on {_s.name!r} shadows a declared function")
         _FUNCTION_ALIASES.setdefault(_a, _s.name)
+
+#: The specialisation map, derived from the rows' own `narrower` records the
+#: same way `_FUNCTION_ALIASES` is derived from `aliases` — never written by
+#: hand, so a subsumption claim cannot exist in the map without living on
+#: its genus row WITH the differentia and the gloss quote (doctrine 1).
+#: Keyed by every declared spelling; the value is (record, genus name).
+_SPECIALISATIONS = {}
+for _s in SECTION_FUNCTIONS.values():
+    for _n in _s.narrower:
+        if not _n.evidence or _n.evidence not in _s.gloss:
+            raise UnknownFunction(
+                f"specialisation {_n.name!r} on {_s.name!r} quotes evidence "
+                f"that does not occur in the genus row's own gloss — a "
+                f"subsumption claim with no gloss behind it (doctrine 45)")
+        for _sp in _n.spellings:
+            if _sp in SECTION_FUNCTIONS or _sp in _FUNCTION_ALIASES:
+                raise UnknownFunction(
+                    f"specialisation spelling {_sp!r} on {_s.name!r} shadows "
+                    f"a declared function or alias — one name, two claims")
+            _SPECIALISATIONS.setdefault(_sp, (_n, _s.name))
+
+def specialisation_of(name):
+    """-> (Specialisation, genus name) for a specialisation NAME, else None.
+
+    Pure and reads only the derived map — the accessor the planner consults
+    so it can REFUSE a specialisation by name rather than widening it to the
+    genus (M-57): the planner draws bars from the derived envelope and
+    cannot promise `bars == 8`, so accepting `middle-eight` there would be
+    the door-accepts-and-discards defect one layer out.
+    """
+    v = str(name).strip().lower()
+    v = _FUNCTION_SPELLINGS.get(v, v)
+    return _SPECIALISATIONS.get(v)
+
+
+# THE ROW-TO-ROW SHAPE CHECKS ITSELF AT IMPORT TOO (M-57): a `specialises`
+# must name a DIFFERENT declared row, and the evidence must be a phrase of
+# the specialising row's OWN gloss — the same discipline placement evidence
+# obeys, because a subsumption nobody can trace to a gloss is a claim
+# nobody can disagree with in a coordinate.
+for _s in SECTION_FUNCTIONS.values():
+    if _s.specialises:
+        if _s.specialises not in SECTION_FUNCTIONS:
+            raise UnknownFunction(
+                f"{_s.name!r} specialises {_s.specialises!r}, which is not a "
+                f"declared function")
+        if _s.specialises == _s.name:
+            raise UnknownFunction(f"{_s.name!r} cannot specialise itself")
+        if (not _s.specialises_evidence
+                or _s.specialises_evidence not in _s.gloss):
+            raise UnknownFunction(
+                f"{_s.name!r} specialises {_s.specialises!r} with evidence "
+                f"that does not occur in its own gloss")
 
 # THE PLACEMENT TABLE CHECKS ITSELF AT IMPORT (2026-08-22, M-54), the same
 # move the alias-shadow check one block up already makes. Every one of these
@@ -662,6 +823,12 @@ def as_function(value):
         return UNDECLARED
     v = _FUNCTION_SPELLINGS.get(v, v)
     v = _FUNCTION_ALIASES.get(v, v)
+    if v in _SPECIALISATIONS:
+        # A bare NAME resolves to its genus — this surface holds no bars, so
+        # the differentia cannot be asked here. The claim is KEPT and CHECKED
+        # where the bars are: `Section.__post_init__` records
+        # `specialised_as` and refuses a mismatch (M-57).
+        return _SPECIALISATIONS[v][1]
     if v in SECTION_FUNCTIONS:
         return v
     raise UnknownFunction(
@@ -689,9 +856,44 @@ class Section:
     meter: Meter = field(default_factory=Meter)
     start_bar: int = 1
     function: str = UNDECLARED
+    #: THE SPECIALISATION AS DECLARED (M-57) — DERIVED, never passed: a
+    #: section declared `middle-eight` resolves `function` to the genus
+    #: (`bridge`, so every consumer of the vocabulary key is unmoved) and
+    #: keeps the specific name here, so "was this declared as a
+    #: middle-eight?" is askable — the question nothing could answer while
+    #: the alias route discarded the claim. `""` means the function was
+    #: declared as itself or not at all.
+    specialised_as: str = ""
 
     def __post_init__(self):
-        self.function = as_function(self.function)
+        raw = self.function
+        self.function = as_function(raw)
+        self.specialised_as = ""
+        if raw is not None and not isinstance(raw, FunctionSpec):
+            v = str(raw).strip().lower()
+            v = _FUNCTION_SPELLINGS.get(v, v)
+            rec_genus = _SPECIALISATIONS.get(v)
+            if rec_genus is not None:
+                rec, genus = rec_genus
+                got = getattr(self, rec.differentia_field)
+                if got != rec.differentia_value:
+                    # The differentia IS the claim, so a section that
+                    # declares the name and fails the claim is contradicting
+                    # itself — refused with both halves quoted rather than
+                    # silently widened to the genus (M-57's own measurement:
+                    # bars=13 used to store 'bridge' and forget).
+                    raise SpecialisationMismatch(
+                        f"declared {rec.name!r} with "
+                        f"{rec.differentia_field}={got}, and the "
+                        f"specialisation's own claim is "
+                        f"{rec.differentia_field} == "
+                        f"{rec.differentia_value} (the {genus!r} gloss: "
+                        f"{rec.evidence!r}). REFUSED rather than silently "
+                        f"widened to {genus!r} — declare {genus!r} if that "
+                        f"is what this section is, or set "
+                        f"{rec.differentia_field}={rec.differentia_value} "
+                        f"if it is a {rec.name}.")
+                self.specialised_as = rec.name
 
     @property
     def end_bar(self):
@@ -2159,7 +2361,9 @@ class FormConvention:
     #: different functions (CLAUDE.md known gap 7).
     #:
     #: WHY A DECLARED SET AND NOT EVERY PAIR, MEASURED RATHER THAN ARGUED.
-    #: 21 functions give 420 ordered pairs, and a verse does not "reprise" a
+    #: 22 functions give 462 ordered pairs (21/420 when this was written;
+    #: patter joined 2026-08-28 and the argument is arithmetic over the
+    #: vocabulary, unchanged), and a verse does not "reprise" a
     #: chorus -- it shares a language with it. Over `corpus/song/`, on the
     #: only cross-function pairs the printed marks can supply (verse, chorus,
     #: burden, refrain -- `MARK_FUNCTION`'s whole range), 889 unordered pairs
@@ -2996,6 +3200,12 @@ MARK_FUNCTION = {
     "CHORUS": "chorus",
     "BURDEN": "burden",
     "BURDEN-TAIL": "burden",
+    # ENTERED WITH ITS FUNCTION IN THE SAME COMMIT (M-52, 2026-08-28): the
+    # taxonomy protocol's rule — a value enters by a defined table row in
+    # the same commit as its first member, and [PATTER]'s three blocks in
+    # eng_hall_ws_gilbert.txt are the member (the source's own
+    # 'PATTER-TRIO.' heading).
+    "PATTER": "patter",
     "REFRAIN": "refrain",
 }
 
@@ -3048,9 +3258,12 @@ MARK_REFUSED = {
                "it as one would count editorial apparatus as structure.",
     ("fin", "PART"): "a speaker or role attribution in the Kalevala wedding songs "
             "(`[PART: Kaason puoli]`), not a section function.",
-    ("eng", "PATTER"): "a music-hall function this vocabulary does not declare. It is "
-              "refused rather than folded into `verse`, because folding it in "
-              "would delete the distinction the printer made.",
+    # `("eng", "PATTER")` LEFT THIS TABLE 2026-08-28 (M-52): the vocabulary
+    # declares `patter` now, so the mark resolves through `MARK_FUNCTION`
+    # and its old refusal reason ("a function this vocabulary does not
+    # declare") stopped being true. The refusal's own argument — do not
+    # fold it into `verse`, that deletes the printer's distinction — is
+    # exactly why it entered as its OWN row rather than an alias.
     ("fin", "NOTE"): "editorial apparatus.",
     ("eng", "SIDENOTE"): "editorial apparatus.",
     ("eng", "MUSIC"): "editorial apparatus.",
@@ -3061,7 +3274,10 @@ MARK_REFUSED = {
              "a mark at all; what this vocabulary has no member for is a "
              "movement in a VARIATION LADDER, and folding it into `verse` "
              "would say the theme and its ornamented restatements are the "
-             "same kind of thing (`PATTER`'s argument, one tradition over).",
+             "same kind of thing (the argument PATTER's old refusal made, "
+             "one tradition over — PATTER itself entered the vocabulary "
+             "2026-08-28 because a printed witness supplied its function; "
+             "the ùrlar still lacks a MOVEMENT layer, not a witness).",
     ("eng", "SIUBHAL"): "a pìobaireachd variation on the ùrlar. Refused for the same "
                "reason and with the same regret: the relation it needs is a "
                "POINTER at the section it elaborates, and the section "
@@ -3221,6 +3437,19 @@ class Block:
     indents: list = field(default_factory=list)
     refusal: Refusal = None
     source_line: int = 0
+    #: THE VOICE COORDINATE (M-52, 2026-08-28): the antiphonal part label
+    #: in force when this block opened — WHO sings, never what the span is
+    #: for. Lönnrot's wedding songs print `[PART: Kaason puoli]` ahead of
+    #: the `[VERSE n]` blocks that part sings, and the file's own header
+    #: declares the convention; the label holds until the next `[PART: X]`
+    #: or the next `--- TITLE:` (a new song inherits nobody's voice).
+    #: Empty = no part declared, which is every block of every file that
+    #: prints no parts. CARRIED, NOT INTERPRETED: a voice is a declared
+    #: reading (`--voices` set that precedent), the PART mark itself keeps
+    #: its function-refusal (a voice is still not a section function), and
+    #: nothing grades this field — `section_census` reports it, which is
+    #: its one reader.
+    voice: str = ""
     #: text printed on the MARK's own line. In this corpus's convention that
     #: is apparatus, never sung text -- `[CHORUS 2] (differs from CHORUS 1 --
     #: repetition with variation)` is an editor speaking. Reading it as a
@@ -3446,29 +3675,53 @@ def read_marked_songs(path, language=""):
     # doctrine 45.
     language = language or language_of_path(path)
     songs, cur = [], None
+    # THE VOICE IN FORCE (M-52): a `[PART: X]` mark declares WHO sings
+    # the blocks that follow it, until the next part label or the next
+    # song. The PART block itself is appended exactly as before (its
+    # function-refusal stands — a voice is not a function), so no block
+    # count anywhere moves; the label rides `Block.voice` alongside.
+    cur_voice = ""
     with open(path, encoding="utf-8", errors="replace") as f:
-        for n, raw in enumerate(f, 1):
-            line = raw.rstrip("\n")
-            if line.startswith("--- TITLE:"):
-                _t, _air = split_named_air(line[len("--- TITLE:"):])
-                cur = MarkedSong(title=_t, air=_air,
-                                 path=path, language=language)
-                songs.append(cur)
-                continue
-            if line.startswith("#") or line.startswith("--- "):
-                continue
-            if cur is None:
-                continue
-            s = line.strip()
-            m = _MARK_RE.match(s)
-            if m:
-                base, idx, fn, ref = ingest_mark(m.group(1), language)
-                cur.blocks.append(Block(mark=m.group(1), base=base, index=idx,
-                                        function=fn, refusal=ref,
-                                        source_line=n))
-                cur.blocks[-1].annotation = s[m.end():].strip()
-            elif s and cur.blocks and not LH.is_apparatus_line(s):
-                cur.blocks[-1].lines.append(s)
+        raw_lines = f.read().splitlines()
+    # The DECLARED bracket-apparatus rules (M-47/M-27/M-152), the same
+    # calls `load_lyric_lines` makes, so the block reader and the CLI
+    # reader cannot disagree about which lines a wrapped Gutenberg note
+    # owns, what a bracketed span means, or which bracketed block is SUNG
+    # (doctrine 1). The M-152 edit is applied at the strip below, BEFORE
+    # `_MARK_RE` and the apparatus test, so a declared verse opener is a
+    # lyric line and never a mark.
+    _bracket_drops = LH.wrapped_apparatus_drops(raw_lines, path)
+    _vdrops, _vedits = LH.bracketed_verse_edits(raw_lines, path)
+    _bracket_drops |= _vdrops
+    for idx0, line in enumerate(raw_lines):
+        n = idx0 + 1
+        if idx0 in _bracket_drops:
+            continue
+        if line.startswith("--- TITLE:"):
+            _t, _air = split_named_air(line[len("--- TITLE:"):])
+            cur = MarkedSong(title=_t, air=_air,
+                             path=path, language=language)
+            songs.append(cur)
+            cur_voice = ""
+            continue
+        if line.startswith("#") or line.startswith("--- "):
+            continue
+        if cur is None:
+            continue
+        s = _vedits.get(idx0, line.strip())
+        m = _MARK_RE.match(s)
+        if m:
+            base, idx, fn, ref = ingest_mark(m.group(1), language)
+            if base == "PART" and ":" in m.group(1):
+                cur_voice = m.group(1).split(":", 1)[1].strip()
+            cur.blocks.append(Block(mark=m.group(1), base=base, index=idx,
+                                    function=fn, refusal=ref,
+                                    source_line=n, voice=cur_voice))
+            cur.blocks[-1].annotation = s[m.end():].strip()
+        elif s and cur.blocks and not LH.is_apparatus_line(s):
+            s2 = LH.normalise_bracket_spans(s, path).strip()
+            if s2:
+                cur.blocks[-1].lines.append(s2)
                 cur.blocks[-1].indents.append(LH.line_indent(line))
     return songs
 
@@ -3595,10 +3848,10 @@ def sections_from_marks(text_lines, language=""):
 #: happen to be declared: a stanza vector that is right about four marks and
 #: silent about a fifth is not a partial answer, it is a wrong one.
 MARK_OPENS_GROUP = {
-    # spans of the song — `MARK_FUNCTION`'s five, which are functions
-    # precisely because they are spans.
+    # spans of the song — `MARK_FUNCTION`'s six, which are functions
+    # precisely because they are spans (PATTER joined 2026-08-28, M-52).
     "VERSE": True, "CHORUS": True, "BURDEN": True, "BURDEN-TAIL": True,
-    "REFRAIN": True,
+    "REFRAIN": True, "PATTER": True,
     # metrical units, each quoting its own `MARK_REFUSED` reason.
     "BAYT": True,        # "the couplet-unit of a ghazal"
     "SLOKA": True,       # "a metrical stanza-unit"
@@ -3609,7 +3862,6 @@ MARK_OPENS_GROUP = {
     # span of the performance, which is why it is a mark at all"; the other
     # three are refused "for the same reason".
     "URLAR": True, "SIUBHAL": True, "TAORLUATH": True, "CRUNLUATH": True,
-    "PATTER": True,      # "a music-hall function" — a function is a span
     # NOT a span, and each says so.
     "RADIF": False,      # "not a span of the song. It has no bars and no
     #                      return."
@@ -3742,7 +3994,7 @@ def section_census(text_lines, language=""):
     lines that sit under no mark at all.
     """
     marks = funcs = 0
-    refused, fn = {}, {}
+    refused, fn, voices = {}, {}, {}
     before, seen = 0, False
     for raw in text_lines:
         m = SECTION_MARK.match(raw or "")
@@ -3752,7 +4004,16 @@ def section_census(text_lines, language=""):
             continue
         seen = True
         marks += 1
-        base, _n, function, ref = ingest_mark(m.group(1).strip(), language)
+        mark_text = m.group(1).strip()
+        base, _n, function, ref = ingest_mark(mark_text, language)
+        # THE VOICE COORDINATE (M-52): a `[PART: X]` label is counted by
+        # WHO it names, beside — never inside — the refused count its
+        # function-refusal already earns (doctrine 79: a voice mark is
+        # both "not a function" and "a declared part", and the two
+        # answers go in two keys).
+        if base == "PART" and ":" in mark_text:
+            v = mark_text.split(":", 1)[1].strip()
+            voices[v] = voices.get(v, 0) + 1
         if ref is not None:
             refused[base] = refused.get(base, 0) + 1
         elif function:
@@ -3760,6 +4021,7 @@ def section_census(text_lines, language=""):
             fn[function] = fn.get(function, 0) + 1
     return {"marks": marks, "sections": marks, "functions": fn,
             "declared_functions": funcs, "refused": refused,
+            "voices": voices,
             "lines_before_first_mark": before}
 
 

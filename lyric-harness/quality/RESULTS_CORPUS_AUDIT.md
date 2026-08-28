@@ -588,6 +588,49 @@ FAILs — E's two duplications (§0) and D's one mislabelled file. The audit tak
 19 seconds over 26 MB; the calibration takes half a second, with the real
 trees present or absent, so there is no excuse for skipping it.
 
+> **REPINNED 2026-08-28 (third, same day): 1,569 findings — 1 FAIL, 340
+> WARN, 1,228 NOTE**, over **1,430 files**. M-152 CLOSED — the six files
+> the block below carried as standing NOTEs are DECLARED in the
+> bracketed-verse tables now (`BRACKETED_VERSE_FILES` /
+> `BRACKET_BLOCK_ROWS` / `BRACKET_LINE_EDITS`), check L's second question
+> consults the reader's own matcher (`bracket_block_rule`), and the six
+> notes leave BY DECLARATION, which is the exit that block reserved for
+> them. Check L also gained a THIRD question — an orphan `]` close in the
+> kept sung stream that no declaration touches — measuring **0** after
+> the M-152 line edits and the Hemans balanced-close amendment to M-47's
+> follow scan, so both halves that can fire are new-staging guards,
+> silent on this tree. Files, FAIL and WARN are unmoved. Measured by
+> re-running `--verify-shape`, never by editing a number to meet the
+> gate.
+>
+> **REPINNED 2026-08-28 (second, same day): 1,575 findings — 1 FAIL, 340
+> WARN, 1,234 NOTE**, over **1,430 files**. Check L shipped (`MISSING.md`
+> M-47/M-27: every bracket in a sung line is read by a DECLARED class or
+> named) and its 6 NOTES are the whole delta — the six `corpus/song/`
+> files whose unclosed `[` blocks are NOT the wrapped-note convention
+> (Watts's bracketed optional stanzas, Drake's bracketed quatrain,
+> Carroll's later-editions block, Durfey's and Gay's never-closing stage
+> directions, one Skeat orphan): M-152's population, carried as notes ON
+> PURPOSE until that entry is ruled. The check's other half — a
+> token-yielding bracketed span no declared class resolves — measures
+> **0** today, so it is a guard on future staging, silent on this tree.
+> Files, FAIL and WARN are unmoved. Measured by re-running
+> `--verify-shape`, never by editing a number to meet the gate.
+>
+> **REPINNED 2026-08-28: 1,569 findings — 1 FAIL, 340 WARN, 1,228 NOTE**,
+> over **1,430 files**. Check J shipped (`MISSING.md` F-5: which enclitic
+> convention each `eng_` edition sets — attached-only 1,048, spaced-only 3,
+> both 242; 59 spaced-DOMINANT editions named per file) and its 60 NOTES
+> are the whole delta from the `.py`'s prior pin (~~NOTE 1,168~~); files,
+> FAIL and WARN are unmoved. Measured by re-running `--verify-shape`,
+> never by editing a number to meet the gate. **AND THE PRIOR PIN WAS IN
+> THE `.py` ALONE**: `PINNED_SHAPE` stood at 1,430/1/340/1,168 while this
+> file's newest block still read 1,423 files / 1,085 NOTE from 2026-08-21
+> — the two-records-with-one-name defect the 2026-08-16 block below warns
+> about, recurred between that warning and today. This block closes the
+> gap by recording BOTH the missing intermediate reading (as the `.py`
+> held it) and today's; nothing was silenced to meet either.
+>
 > **REPINNED 2026-08-21: 1,321 findings — 1 FAIL, 235 WARN, 1,085 NOTE**,
 > over **1,423 files** (~~233 WARN~~ earlier the same day). THIS ONE IS A
 > READER CHANGE, NOT A LOAD, and the signature is that `files`, `FAIL` and

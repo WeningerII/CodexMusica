@@ -113,6 +113,15 @@ const EXPECTED_TOOLS = [
   'lyric_check',
   'lyric_grade',
   'lyric_plan',
+  // `lyric_revise` joined 2026-08-28 by the owner's directive ("go, start
+  // on the seam" — `MISSING.md` M-154). The 92s objection two comments down
+  // named the SYNCHRONOUS-WAIT shape, and this tool never waits: one
+  // `finish --propose=defer:` step per call (measured 34s to the first
+  // question, 4s to re-ask, 32s warm to fold an answer), the CALLER carries
+  // the state blob, and no response contains a rendered song until the loop
+  // reaches a stop condition. This edit is the on-purpose decision this
+  // pin's own header demands.
+  'lyric_revise',
   'lyric_screen',
   // `lyric_sweep` joined 2026-08-24: `plan --sweep` became a verb on
   // 2026-08-23 and the connector predated it, so a caller could NAME a seed
@@ -120,12 +129,16 @@ const EXPECTED_TOOLS = [
   // timeout is tighter than this connector's subprocess kill.
   'lyric_sweep',
   'lyric_types',
-  // `lyric_verify` joined 2026-08-24. `revise` stays OFF the connector — it
-  // is measured at 92s on a 28-line draft, past the SDK's own 60s request
-  // timeout, and it holds the serial python queue while the client has
-  // already given up. `verify` runs no loop and no proposer: 22-32s, one
-  // subprocess. The recorded argument covered both verbs with one verb's
-  // number; they are a factor of three apart (`MISSING.md` M-104).
+  // `lyric_verify` joined 2026-08-24. ~~`revise` stays OFF the connector~~
+  // (STRUCK 2026-08-28 — the loop is wrapped as `lyric_revise` above, in the
+  // defer shape the 92s objection never applied to; the objection named the
+  // synchronous wait, and a deferred run suspends instead of waiting). The
+  // historical argument, kept: revise-as-one-call is measured at 92s on a
+  // 28-line draft, past the SDK's own 60s request timeout, and it holds the
+  // serial python queue while the client has already given up. `verify` runs
+  // no loop and no proposer: 22-32s, one subprocess. The recorded argument
+  // covered both verbs with one verb's number; they are a factor of three
+  // apart (`MISSING.md` M-104).
   'lyric_verify',
   'render_recipe',
   'search_catalog',

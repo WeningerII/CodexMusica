@@ -152,9 +152,15 @@ looking right.
    This is the `infer_chains` comparator bug in a new place: whatever advantage
    the hypothesis gets, the comparator gets too. `quality/cynghanedd_rate.py`.
    Note what the same file says about `caesura='marked'` on Twm o'r Nant --
-   3.2% observed against a 5.1% null, p=0.975, BELOW chance. That is not a
+   ~~3.2% observed against a 5.1% null, p=0.975~~ **2.6% against the same
+   5.1% null median, p=1.000 — REPINNED 2026-08-28 (`MISSING.md` M-7): the
+   dash left the default caesura mark set, taking with it the one dash-split
+   traws this mode had read out of the Pryse edition's paired editorial
+   dashes** -- BELOW chance either way. That is not a
    finding about Welsh. It is the mode reporting, correctly, that this edition
-   prints no caesura and it has nothing to read.
+   prints no caesura and it has nothing to read -- a sentence the repin makes
+   exact, since the surviving hits are all llusg, the one type that reads no
+   caesura at all.
 
 57. **An empirical p sitting at 1/(n+1) is reporting the resolution, not the
    effect.** With 200 shuffles the smallest p obtainable is 0.005, so p=0.005

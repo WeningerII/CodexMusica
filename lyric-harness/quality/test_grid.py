@@ -2259,9 +2259,181 @@ def test_function_aliases_are_claims_on_their_own_rows():
     except _GR.UnknownFunction:
         check("an unknown name still refuses — aliases widened the "
               "vocabulary's SPELLINGS, never its gate", True)
+    # REPOINTED 2026-08-28 (M-57): the claim still lives on the bridge row
+    # and it is no longer an ALIAS, because "another name for" and "a kind
+    # of" are different claims — middle-eight carries a differentia
+    # (bars == 8) that the symmetric field accepted at the door and
+    # discarded. It is a `Specialisation` record on the row's `narrower`
+    # field now, with the differentia as a checkable coordinate; §33 holds
+    # the door behaviour.
     check("the middle-8 claim lives on the bridge row itself, beside the "
-          "gloss that has argued it in prose since the row was written",
-          "middle-eight" in _GR.SECTION_FUNCTIONS["bridge"].aliases)
+          "gloss that has argued it in prose since the row was written — as "
+          "a SPECIALISATION with its differentia, not an alias (M-57)",
+          any(n.name == "middle-eight" and n.differentia_field == "bars"
+              and n.differentia_value == 8
+              for n in _GR.SECTION_FUNCTIONS["bridge"].narrower)
+          and "middle-eight" not in _GR.SECTION_FUNCTIONS["bridge"].aliases)
+
+
+def test_the_derived_cover_is_read_against_the_printing():
+    """M-28's remainder (2026-08-28): the mandate_from_graph control. The
+    compositor's ladder predicts a shared spelled rime at 6.19x and is the
+    one channel a derived cover CANNOT have manufactured (doctrine 14 —
+    `--cliques` band-passes by construction; the printing is the printer's),
+    so whether the cover reproduces it is worth a line whenever the draft
+    prints one. `lyric_harness.indent_agreement` is the one definition; the
+    CLI's `_say_derived` prints it for a DERIVED mandate only, gated on the
+    draft actually printing a ladder — a disclosure about the CALL, never a
+    Finding, and never a gate (an indent can mark the rhyme GROUP or the
+    rhyme BEARER, opposite conventions in one typography).
+
+    MUTATION, hand-proven: stubbing the disclosure block behind `if False`
+    fails exactly the CLI check here while the unit checks and both
+    controls stay green — the statistic existing and the verb printing it
+    are different halves (M-139's render-site lesson).
+    """
+    print("\n35. the derived cover is read against the printing (M-28)")
+    import subprocess
+    import sys as _sys
+    import tempfile
+    import lyric_harness as LH
+    # Unit half: the statistic, both conventions, and its refusals.
+    ia = LH.indent_agreement([[1, 3], [2, 4]], [0, 2, 0, 2])
+    check("a cover matching the ladder reads 100% same-group / 0% cross",
+          ia == (1.0, 0.0, 2, 4), ia)
+    # the BEARER convention (Lieber's ABCB indenting only the rhyming
+    # line): the rates INVERT and that is a fact, not a defect.
+    ib = LH.indent_agreement([[2, 4]], [0, 2, 0, 2])
+    check("the bearer convention inverts the rates and is still reported "
+          "— low same-rate is typography, never a charge",
+          ib is not None and ib[0] == 1.0 and ib[1] < 1.0, ib)
+    check("no ladder -> None, never a zero that reads as disagreement "
+          "(doctrine 20)",
+          LH.indent_agreement([[1, 2]], [0, 0, 0, 0]) is None)
+    check("one all-lines group -> None: no cross-group pairs to compare",
+          LH.indent_agreement([[1, 2, 3, 4]], [0, 2, 0, 2]) is None)
+    check("a placement-suffixed member reads its line number",
+          LH.indent_agreement([["1.T2", "3"], ["2", "4"]], [0, 2, 0, 2])
+          == (1.0, 0.0, 2, 4))
+    # CLI half: the verb prints it for a derived mandate, and only then.
+    with tempfile.TemporaryDirectory() as tmp:
+        ladder = os.path.join(tmp, "ladder.txt")
+        with open(ladder, "w", encoding="utf-8") as f:
+            f.write("the day was cold and grey\n"
+                    "  she sang beneath the moon\n"
+                    "the night came on to stay\n"
+                    "  the fiddler stopped too soon\n")
+        env = dict(os.environ)
+        root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+        def run(*argv):
+            return subprocess.run(
+                [_sys.executable, "lyric_harness.py"] + list(argv),
+                cwd=root, capture_output=True, text=True, env=env).stdout
+        got = run("brief", ladder, "--cliques")
+        check("`brief --cliques` on a printed ladder DISCLOSES the "
+              "agreement, in the derived block",
+              "THE PRINTING (M-28)" in got
+              and "reproduces" in got and "never graded" in got,
+              [l for l in got.splitlines() if "PRINTING" in l][:1])
+        got_decl = run("brief", ladder, "--groups=1,3;2,4")
+        check("a DECLARED mandate prints no printing line — the control is "
+              "on the derived cover, and a declaration is not derived",
+              "THE PRINTING (M-28)" not in got_decl)
+        flat = os.path.join(tmp, "flat.txt")
+        with open(flat, "w", encoding="utf-8") as f:
+            f.write("the day was cold and grey\n"
+                    "she sang beneath the moon\n"
+                    "the night came on to stay\n"
+                    "the fiddler stopped too soon\n")
+        got_flat = run("brief", flat, "--cliques")
+        check("a flat draft prints no line — no ladder, no comparison, "
+              "no vacuous zero",
+              "THE PRINTING (M-28)" not in got_flat
+              and "NOT INDEPENDENT" in got_flat)
+
+
+def test_a_specialisation_is_kept_and_checked():
+    """M-57 (2026-08-28). `FunctionSpec.aliases` models SYNONYMY — symmetric
+    — and it was carrying SUBSUMPTION: `Section(bars=13,
+    function='middle-eight')` stored 'bridge', the door accepting a
+    specialisation and discarding both the claim and its differentia
+    (bars == 8, argued in the bridge gloss since the row was written). The
+    repair is asymmetric and checkable: `Specialisation` records on the
+    genus row (`narrower`), resolution KEEPING the declared name
+    (`Section.specialised_as`) and REFUSING a differentia mismatch; and the
+    other shape of the same relation — `burden` IS a kind of `refrain`
+    while keeping its own row — stated as `specialises` with its own gloss
+    quoted, where the table could previously only call the two unrelated.
+
+    TWO MUTATIONS, hand-proven before this section shipped: (a) moving the
+    middle-eight family back to `aliases` and emptying `narrower` reds the
+    refusal checks (bars=13 stores 'bridge' again) and §31's repointed
+    row-claim check beside them; (b) deleting the differentia comparison in
+    `Section.__post_init__` alone reds exactly the two refusal checks here
+    while resolution and `specialised_as` stay green — the claim being KEPT
+    and the claim being CHECKED are different halves and each has its own
+    check.
+    """
+    print("\n34. a specialisation is kept and checked, never widened (M-57)")
+    import quality.grid as _GR
+    # The claim is KEPT: the very question M-57 records as unanswerable —
+    # "was this declared as a middle-eight?" — now has a coordinate.
+    s = _GR.Section("m8", 8, function="Middle_Eight")
+    check("a section declared 'middle-eight' with bars=8 resolves to the "
+          "genus AND keeps the declared name",
+          s.function == "bridge" and s.specialised_as == "middle-eight"
+          and s.spec is _GR.SECTION_FUNCTIONS["bridge"],
+          f"function={s.function!r} specialised_as={s.specialised_as!r}")
+    g = _GR.Section("b", 8, function="bridge")
+    check("declaring the GENUS makes no specialisation claim — "
+          "specialised_as stays empty even at bars=8",
+          g.specialised_as == "", repr(g.specialised_as))
+    # The claim is CHECKED: M-57's own measurement, inverted. bars=13 and
+    # bars=4 stored 'bridge' before; both REFUSE now, naming both halves of
+    # the contradiction.
+    for bars in (13, 4):
+        try:
+            _GR.Section("m8", bars, function="middle-eight")
+            check(f"bars={bars} declared 'middle-eight' REFUSES rather than "
+                  f"silently widening to 'bridge'", False,
+                  "accepted — the pre-M-57 behaviour")
+        except _GR.SpecialisationMismatch as e:
+            check(f"bars={bars} declared 'middle-eight' REFUSES rather than "
+                  f"silently widening to 'bridge'",
+                  "bars == 8" in str(e) and "middle-eight" in str(e)
+                  and "bridge" in str(e), str(e)[:90])
+    # The refusal is a ValueError, so every CLI path that renders a
+    # blueprint mismatch as `REFUSED …` exit 2 catches this identically.
+    check("the mismatch is a ValueError — the CLI refusal family",
+          issubclass(_GR.SpecialisationMismatch, ValueError))
+    # The other shape: burden ⊂ refrain, stated while staying its own row.
+    b = _GR.SECTION_FUNCTIONS["burden"]
+    check("burden SPECIALISES refrain while staying its own row — the two "
+          "statements the table used to make look exclusive",
+          b.specialises == "refrain"
+          and b.specialises_evidence in b.gloss
+          and _GR.as_function("burden") == "burden",
+          f"specialises={b.specialises!r}")
+    # Aliases are TRUE synonyms only now; the derived maps stay disjoint.
+    check("aliases carry no differentia claims — the middle-eight family "
+          "left, departure-section (no differentia) stayed",
+          "middle-eight" not in _GR._FUNCTION_ALIASES
+          and "departure-section" in _GR._FUNCTION_ALIASES
+          and not (set(_GR._SPECIALISATIONS) & set(_GR._FUNCTION_ALIASES)))
+    # The planner cannot promise a differentia its draw does not read: a
+    # roster naming the specialisation refuses BY NAME (the same defect one
+    # layer out — accepting the name and drawing arbitrary bars would be
+    # the door discarding the claim again).
+    from quality import plan as _PL
+    try:
+        _PL.make_plan(7, functions=["middle-eight"])
+        check("the planner refuses a specialisation in --functions rather "
+              "than widening it to the genus", False, "planned")
+    except _PL.PlanRefused as e:
+        check("the planner refuses a specialisation in --functions rather "
+              "than widening it to the genus",
+              "bars == 8" in str(e) and "bridge" in str(e), str(e)[:90])
 
 
 def test_the_printed_indent_survives_ingestion():
@@ -3059,11 +3231,21 @@ def test_the_cli_reads_the_marks_it_used_to_delete():
     # still refuse, because a stanza frame is GROUND and not a resource —
     # M-39(b) is why, and supplying it from an all-zero vector is the exact
     # defect that entry closed.
+    # REPINNED 2026-08-28: ~~(27, 24)~~ -> (28, 24), and the drift is
+    # INHERITED, not this sitting's — verified by running this suite in a
+    # worktree at `beb9a6a` (the commit before the bracket-apparatus
+    # reader), where it reads (28, 24) identically, and by swapping the
+    # pre-rebuild frequency tables back in, which moves nothing. The +1
+    # finding is the same one-directional movement M-148 recorded when
+    # `relations._seq` began reading the post-vocalic CLUSTER (its own
+    # test_relations pin went 30/26/21 -> 31/26/20 in that sitting); this
+    # suite was not in that sitting's run list, so its copy of the pin sat
+    # stale until the M-47/M-27 sitting ran it.
     check("on the fixture whose marks are REFUSED the refused count moves "
-          "instead: ~~25~~ ~~23~~ 27 finding, ~~26~~ ~~31~~ ~~25~~ 24 "
-          "refusing, and the five `frame=\"stanza\"` schemas are still among "
-          "the refused",
-          _split(fst) == (27, 24), _split(fst))
+          "instead: ~~25~~ ~~23~~ ~~27~~ 28 finding, ~~26~~ ~~31~~ ~~25~~ "
+          "24 refusing, and the five `frame=\"stanza\"` schemas are still "
+          "among the refused",
+          _split(fst) == (28, 24), _split(fst))
 
     # -- 8. THE CALL SITE, and not only the function. Everything above builds
     #    its own stream from `relation_ground`, so it would all still pass
@@ -3217,6 +3399,62 @@ def test_one_short_section_no_longer_silences_the_locks():
           f"{len(CHANNELS)} channels")
 
 
+def test_the_voice_is_a_carried_coordinate():
+    """§36 — M-52's close (2026-08-28): `[PART: X]` is a VOICE, carried on
+    `Block.voice` and read by `section_census` — WHO sings, never what the
+    span is for. And `[PATTER]` reaches the vocabulary's 22nd function
+    through `MARK_FUNCTION`, entered on its printed Ruddigore witness."""
+    print("\n36. the voice coordinate, and the 22nd function "
+          "(M-52, 2026-08-28)")
+    import os as _os
+    KANT = _os.path.join(_os.path.dirname(__file__), "..",
+                         "corpus", "song", "fin_kanteletar.txt")
+    GILB = _os.path.join(_os.path.dirname(__file__), "..",
+                         "corpus", "song", "eng_hall_ws_gilbert.txt")
+    songs = _G.read_marked_songs(KANT)
+    voiced = [b for s in songs for b in s.blocks if b.voice]
+    check("Lönnrot's antiphonal part labels ride `Block.voice` — the "
+          "label holds from its `[PART: X]` mark to the next one",
+          len(voiced) > 100
+          and any(b.base == "VERSE" and b.voice == "Kaason puoli"
+                  for b in voiced))
+    wed = next(s for s in songs
+               if any(b.base == "PART" for b in s.blocks))
+    seq = [(b.base, b.voice) for b in wed.blocks[:4]]
+    check("...and the alternation reads exactly as printed: each PART "
+          "mark re-voices the blocks that follow it",
+          seq[0][1] != seq[2][1] and seq[1][1] == seq[0][1]
+          and seq[3][1] == seq[2][1], repr(seq))
+    check("a new `--- TITLE:` inherits NOBODY's voice — no song opens "
+          "with a voice unless its own first mark declares one",
+          not any(s.blocks and s.blocks[0].voice
+                  and s.blocks[0].base != "PART" for s in songs))
+    check("the PART block itself keeps its function-refusal — a voice "
+          "is still not a section function, and no block count moved",
+          all(b.refusal is not None for s in songs for b in s.blocks
+              if b.base == "PART"))
+    cen = _G.section_census(
+        open(KANT, encoding="utf-8").read().splitlines(), "fin")
+    check("`section_census` reports the voices as their own key, beside "
+          "— never inside — the refused count (doctrine 79); an English "
+          "file that prints no parts reports none. Deleting the PART "
+          "branch empties this dict, which is the mutation that kills "
+          "this section",
+          cen["voices"].get("Kaason puoli", 0) > 10
+          and len(cen["voices"]) == 13
+          and _G.section_census(
+              open(GILB, encoding="utf-8").read().splitlines(),
+              "eng")["voices"] == {})
+    gsongs = _G.read_marked_songs(GILB)
+    pat = [b for s in gsongs for b in s.blocks if b.base == "PATTER"]
+    check("the three [PATTER] blocks reach the declared 22nd function — "
+          "no longer refused, and each carries its sung stanza",
+          len(pat) == 3 and all(b.function == "patter" for b in pat)
+          and all(b.refusal is None for b in pat)
+          and all(len(b.lines) >= 8 for b in pat),
+          f"{[(b.function, len(b.lines)) for b in pat]}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -3249,6 +3487,8 @@ if __name__ == "__main__":
                test_line_runs_is_surfaced_rather_than_computed_for_nobody,
                test_two_refusals_that_nothing_had_ever_asserted_can_fire,
                test_function_aliases_are_claims_on_their_own_rows,
+               test_the_derived_cover_is_read_against_the_printing,
+               test_a_specialisation_is_kept_and_checked,
                test_the_named_air_is_a_coordinate_not_a_substring,
                test_the_printed_indent_survives_ingestion,
                test_a_return_that_varies_off_the_text,
@@ -3257,7 +3497,8 @@ if __name__ == "__main__":
                test_the_section_coordinate_is_supplied,
                test_the_stanza_ground_is_printed_or_refused,
                test_the_cli_reads_the_marks_it_used_to_delete,
-               test_one_short_section_no_longer_silences_the_locks):
+               test_one_short_section_no_longer_silences_the_locks,
+               test_the_voice_is_a_carried_coordinate):
         fn()
     print("=" * 62)
     if FAILURES:

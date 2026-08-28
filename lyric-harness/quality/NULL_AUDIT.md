@@ -397,6 +397,18 @@ when the instrument's H0 output is ≥ 0.883.
 
 ### 2.1 Cynghanedd — doctrine 57 reproduces exactly; THREE OF THE FOUR BLOCKS BELOW DO NOT
 
+> **THE `marked` ROWS IN THE 2026-08-13 REPIN ARE THEMSELVES SUPERSEDED
+> 2026-08-28 (`MISSING.md` M-7).** The dash left the default caesura mark
+> set — `cym.CAESURA_MARKS` is `/` and `|`, and an edition that prints the
+> gwant declares it — so at head Alun `marked` reads **6.7% (104/1558,
+> all llusg) against null median 5.7%, max 7.3%: −0.6 pp BELOW its own
+> null max, p 0.040**, and Twm reads 2.6% (4/156), p 1.000. The 8.3% row's
+> +0.8-over-max was carried entirely by dash-split croes/traws, and the
+> old nulls carried 4–5 dash-artifact hits per replicate of their own
+> (`shuffled()` keeps dash-carrying raw tokens). The `search` rows are
+> untouched and still reproduce. `quality/RESULTS_CYM_RHYME.md` §11a holds
+> the full repin; `cynghanedd_rate.py --check` pins the counts.
+
 > **REPINNED 2026-08-13, MEASURED at n=200 on the shipped code.** This heading
 > read *"doctrines 56 and 57 reproduce exactly"* and the block below says *"All
 > four match ... to the decimal"*. Two claims, both false as written, and the

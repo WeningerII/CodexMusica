@@ -644,8 +644,23 @@ which compositor set the type. It inflates a line's word count by up to 25%,
 the same defect class as counting a bare hyphen as a word.
 `lyric_harness.join_spaced_enclitics()` re-attaches a CLOSED set, each of which
 must be the whole token, so Dorset apheresis (`'ithin`, `'twer`) and Scots
-elision (`a'`, `o'`) are untouched. **Still open:** nothing detects WHICH
-convention an edition uses, so a corpus mixing both is silently inconsistent.
+elision (`a'`, `o'`) are untouched. ~~**Still open:** nothing detects WHICH
+convention an edition uses, so a corpus mixing both is silently
+inconsistent.~~
+
+**RESOLVED 2026-08-28, in the repair campaign — the detector is
+`quality/audit_corpus.py` Check J.** Per `eng_` file it counts SPACED
+enclitic settings through the joiner's own `_SPACED_ENCLITIC` (one
+definition, doctrine 1) beside ATTACHED ones, reports the corpus-wide
+partition (attached-only / spaced-only / both — three counts, never
+summed), and names per file every SPACED-DOMINANT edition — dominance a
+comparison between the file's own two counts, never a declared threshold
+(doctrine 58), so Burns's 13 stray spaced settings do not put him beside
+Rogers. All NOTE, charging nothing: a convention is the printer's, and
+what was defective was only that it was unsayable — a per-edition rate
+computed over the mixed corpus was partly a measure of the compositor.
+The audit's committed shape is repinned with the check's own notes in
+the same sitting (the `--verify-shape` discipline: re-run, not edited).
 
 ### F-6 · The best PD source can be the one that loses the metadata `OPEN`
 **Verified 2026-08-10.** Moore's _Irish Melodies_ were written to named airs.
@@ -655,7 +670,7 @@ obvious source is the lossy one. But Kalliope is NOT uniform: its Scots Ramsay
 substitutes the Danish **æ ligature for Scots `ae`** (`sae` → `sæ`), so Ramsay
 is recorded CONTESTED and was not staged. Check per-file, never per-repository.
 
-### F-4 · A transcription can invent a letter `OPEN` — the instance is closed, the guard is not
+### F-4 · A transcription can invent a letter `RESOLVED` 2026-08-28 — the instance was closed 2026-08-10, the guard 2026-08-28
 **Verified 2026-08-10, inside a single Gutenberg record.** Barnes exists as two
 files: `21785.txt` (ASCII) flattens the a-diaeresis to the two-letter sequence
 `ae`, printing `Greaeve` and `Feaeir` — **inventing a letter in every affected
@@ -684,6 +699,31 @@ every existing check. **Owed:** a declared non-ASCII-letter count for the
 number to zero and Check F goes red, plus a `check_data_rows` assertion that
 a row declaring ISO-8859-1 stages bytes that are actually non-ASCII. ~2–4 h
 including the eng-range repin.
+
+**THE GUARD SHIPPED 2026-08-28 (repair campaign), on the entry's own
+second alternative — the per-file orthography assertion — and the entry
+closes.** `quality/audit_corpus.py` Check K: a file whose
+`# orthography:` header names LATIN-1 / ISO-8859 is CLAIMING a
+non-ASCII letter is load-bearing in its bytes, and a file making that
+claim with ZERO non-ASCII letters in its verse has been flattened —
+FAIL. Healthy files are silent (Check F's own shape), so the audit's
+committed shape does not move while nothing is wrong; the recurrence —
+a re-stage from the ASCII transcription under the unchanged header —
+now goes red instead of passing every check. **Two scope decisions,
+stated:** (1) the eng CHANNEL was NOT given a corpus-wide non-ASCII
+count — most English files are honestly pure ASCII and a channel
+declaration would either fire on all of them or need a per-file
+coordinate anyway, which the header IS; (2) the `check_data_rows` row
+assertion was DECLINED as a second spelling of one claim (doctrine 1) —
+that instrument checks `data/` artifacts, the claim lives nearest the
+bytes in the staged file's own header, and 260 MSM files that merely
+record an ISO-8859-1 SOURCE in a `# file:` line make no orthography
+claim and are correctly out of scope. **THE GATE'S GATE**:
+`quality/test_corpus_audit.py` `test_encoding_guard_k` plants both
+sides — the flattened file FAILS, the letter-keeping twin and the
+source-recording file are silent — and checks the real staged Barnes is
+healthy under K. F-4a (the READER flattening the letter) is its own
+entry and is not closed by this.
 
 **AND THE SAME DOCTRINE IS VIOLATED ONE LAYER DOWN, ON THIS VERY FILE — split
 out as F-4a** because it is a different actor with a different blast radius.
@@ -1133,6 +1173,25 @@ stratifying by source type will be reading the editor.
 **Corroborating notation finding:** `etc.` is used exactly as `&c.` is — a
 verbatim-repeat pointer (`CHORUS. Who's now the traitor? etc.`). Two cells
 found it independently in different centuries and countries.
+
+**ADDENDUM 2026-08-28 (repair campaign): the smallest honest fix is
+COMPLETE on both surfaces, and the entry stays OPEN on exactly the half
+that is the owner's.** `_d_repeat_blocks` has printed the top-3
+concentration since the M-21 sitting; what remained was the RENDERER —
+`quality/counters.py`'s `english_corpus` cell parsed D3's triple and
+rendered the bare total, so the biased number was still quotable naked
+from the one surface built to be quoted. The cell now APPENDS D3's own
+`CONCENTRATION (K-1a):` substring and REFUSES to render at all if D3
+ever stops printing it — the total is not renderable without its
+stratification, by construction. The live reading, repinned in passing
+because the corpus has grown since this entry's own figures: **2,467
+blocks in 101 carrying files, top three D'Urfey 567 (23.0%), Burns 369
+(15.0%), Hemans 280 (11.3%)** — the one-file share fell from 35.9% as
+loading added carriers, and the diagnosis (an unstratified rate reads
+the editor) is unchanged. **WHAT STAYS OPEN is the declared
+`source_type` third axis — a vocabulary decision, the owner's by the
+`mark_coverage.py` precedent — and it is on the campaign's ruling sheet
+rather than in its build queue.**
 
 ### K-2 · ~~English is single-author on BOTH sides~~ — both halves retired `CLOSED`
 **Was:** positive = Shakespeare alone; negative = Whitman alone.
@@ -2555,7 +2614,7 @@ directory is written by other cells, so the 11 is pinned to `debf64e` and
 re-derived rather than recorded; the live count is measured at run time by
 `python3 quality/verify_entries.py`.
 
-### M-7 · Doctrine 55's fix was right and its dash rule is over-general `OPEN` — sized 2026-08-21, and this entry's own proposed fix does not carry the load
+### M-7 · Doctrine 55's fix was right and its dash rule is over-general `CLOSED` 2026-08-28 — the mark set is a declared coordinate, and the marked mode's own separation was the dash artifact
 **SIZED 2026-08-21 (measured, not estimated).** The 72/72 reproduces exactly —
 6 llywelyn + 0 alun + 11 hwiangerddi + 54 mynyddog + 1 twm, medial dashes read
 as caesura by `cym._marked_parts()`. **But the positional rule this entry
@@ -2583,6 +2642,54 @@ englyn feature and a cywydd has none**, so any `caesura='marked'` result on a
 cywydd file is reading the typesetter by construction. Distinguishing feature is
 position and pairing: gwant single and usually line-final, editorial dash medial
 and often paired.
+
+**CLOSED 2026-08-28, built exactly as sized — demote-and-declare.**
+`cym.CAESURA_MARKS = ("/", "|")` is the declared default;
+`caesura_re(marks)` builds the split pattern for any declared set (a dash
+spelling — `--`, `-`, an em- or en-dash — means a RUN of dashes, everything
+else is literal, which also closes the sizing's side note that the gwant was
+INEXPRESSIBLE through the old single-string type); `_marked_parts` and both
+of `cynghanedd`/`cynghanedd_scan` take `marks=`, so an edition that prints
+the gwant declares `marks=("/", "|", "--")` — the same declared-mark-set
+shape `relations.mark_printed_caesura` has shipped since 2026-08-13, and the
+two defaults are now the SAME two marks (pinned in `test_relations.py` X4).
+**MEASURED, the sizing's predicted pin moves land exactly**
+(`cynghanedd_rate.py --check` repinned, superseded rows kept): Alun marked
+**129 → 104**, the surviving 104 all llusg — llusg reads no caesura — and
+the 25 dropped all dash-split croes/traws; Twm marked **5 → 4** (the 1 traws
+was a Pryse dash-pair). Both `search` rows are BYTE-IDENTICAL, so the 57.1%
+and 46.2% headlines do not move. **AND ONE FINDING PAST THE SIZING: the
+artifact was in the COMPARATOR too.** Alun's marked `null_hits` fell 4–5 per
+replicate — `shuffled()` keeps dash-carrying raw tokens (`--pa` off
+`ffrwd,--pa`), so the old default was finding "printed" caesurae in its own
+shuffled text. Re-run at the published n=200, the honest headline follows:
+Alun `marked` is **6.7% (104/1558) against null median 5.7%, max 7.3% —
+BELOW its own null max (−0.6 pp, p 0.040)**, where the superseded row's
++0.8-over-max was carried entirely by the dash-splits; Twm is 2.6% against
+a 5.1% median (p 1.000, unchanged in kind). So the marked mode currently
+separates from nothing on either staged edition, which is the honest outcome
+the sizing predicted: **neither edition prints `/` or `|`, and no edition
+attestation of the dash-as-gwant has been made** — Alun keeps a marked
+reading only by someone DECLARING its dashes, and that declaration is now a
+statement a caller makes rather than a default nobody chose.
+**A LATENT DEFECT FELL OUT OF MAKING THE COORDINATE DECLARABLE**: the scan's
+marked branch derived its cut indices from the RAW line's tokens, and a
+flush-set dash glues its neighbours into ONE raw token (`thi--tywyn`), so
+the cut landed a word early and `cynghanedd_scan` contradicted `cynghanedd()`
+under the same declaration — doctrine 1, the same family as the scan's own
+2026-08-15 fix. Fixed by tokenising the PARTS; latent the whole time the
+dash sat in the default because both staged editions set the gwant against
+punctuation, never flush. Gates: `test_phonology.py` §10m (the coordinate's
+own section — default refuses the dash, the declaration restores it on both
+readers at k=1, and the MUTATION is RUN, not described: the dash restored to
+the default flips the same call to croes), §10c/§10k rewritten to declare
+what they read, `test_relations.py` X4 repointed at `caesura_re` plus the
+shared-default pin. `RESULTS_CYM_RHYME.md` §11a and `NULL_AUDIT.md` §2.1
+carry dated repin notes; `relations.mark_printed_caesura`'s docstring no
+longer claims cym carries three marks. **One remainder is NAMED rather than
+silent (doctrine 20): the CLI `cynghanedd` verb reaches neither `caesura`
+nor the new `marks` — a pre-existing entrance gap M-7 widens by one
+coordinate — recorded as M-151.**
 
 ### M-8 · No metre index was found in any reachable Welsh edition `OPEN`
 Welsh hymnody is sung to named tunes with a declared metre (8.7.8.7 and so on),
@@ -3657,11 +3764,65 @@ reached through `song_profile_calibration.py --check`, and
 `phrase_commonplace.py` is drifted, so adding it would land a red job whose
 remedy is re-running a whole study.
 
-**THE ENTRY STAYS OPEN** on the half it names last: this is the QUESTION, and
+~~**THE ENTRY STAYS OPEN** on the half it names last: this is the QUESTION, and
 the sweep is only as complete as `CHECK_ARGV` is. Every instrument whose pin
 check is not a bare `--check` needs a row, and today exactly one is known
 because exactly one has been caught — the rest are `HOLDS` on a flag that may
-or may not be asking about a pin, and nothing yet proves which.
+or may not be asking about a pin, and nothing yet proves which.~~
+
+**CLOSED 2026-08-28 — the consumption is PROVEN on the AST, per instrument,
+and the proof is a CI step.** `pin_sweep.classify_consumption` classifies how
+a module consumes a flag — membership (`"--check" in sys.argv`), list
+equality (`argv == ["--check"]`), equality against an argv element, or
+`add_argument` split by whether it takes a value — and
+`pin_sweep.verify_argv` asks it of the whole discovered population: an
+instrument WITHOUT a `CHECK_ARGV` row must classify `boolean` for bare
+`--check`; provably-value-taking (the `audit_corpus` trap — its `--check`
+declares `default=None` and the classifier says `takes_value`, so the row
+that was earned by a false MOVED would now be DEMANDED before one) and
+UNCONSUMED (a docstring mention — discovery's string hit is not a
+consumption proof) both refuse BY NAME, and the remedy is a row or a
+classifier extension, a ruling either way (doctrine 20). A row's own flag
+tokens verify the same way (`--verify-shape` classifies `boolean` in
+`audit_corpus.py`); a non-flag token (`expected_drift`'s positional) is part
+of the declared ruling and is not second-guessed. **MEASURED over the
+population, which has grown 30 -> 43 since this entry's first run: 43 of 43
+certify, 0 refused.** `pin_sweep.py --verify-argv` runs it in seconds and
+exits 3 on any refusal; it joined the CI record-integrity job, so a new
+instrument whose flag the sweep cannot consume is red the push it lands.
+
+**AND THE SILENT PASS IS CLOSED WITH IT**: `run_one` now files exit 0 with
+NOTHING printed as CANNOT RUN (`evidence_kind: "silent exit 0"`) — a silent
+pass is indistinguishable from a dropped flag, the `meter TEMPLATE`
+empty-stdout shape aimed at the sweep itself.
+
+**THE PROOF'S FIRST TEST RUN FOUND THE ENTRY'S OWN DEFECT IN TWO MORE
+MEDIA.** `test_pin_sweep`'s end-to-end section runs `triage.py --check`, and
+it was RED AT HEAD: the register's closes had adopted the spelling
+`RESOLVED` (11 headings) and the status vocabulary existed in TWO copies
+that had diverged in two directions at once — `triage.MISSING_STATUS` knew
+`CLOSED` and not `WITHDRAWN`, `counters.MISSING_STATUSES` knew `WITHDRAWN`
+and not `RESOLVED` — so triage filed the resolved M-149 as CONTESTED while
+`counters.py`'s "MISSING entries by status" row CRASHED on the same
+headings. One fact, two media, the exact drift this entry names, in the
+instruments beside the one it was filed about. ONE DEFINITION NOW:
+`counters.MISSING_STATUSES` owns the vocabulary (it is the parser
+`verify_entries.py` already reads), `RESOLVED` joined it, and `triage.py`
+DERIVES its regex from that tuple — `RESOLVED` and `WITHDRAWN` are
+closed-family because `OPEN_STATUSES` does not name them, which also fixes
+a latent misfiling: a WITHDRAWN entry used to parse as no-status and
+surface as OPEN. The status counters row and the public-symbols row
+(1342 -> 1358 under this week's sittings) were re-derived by the row's own
+repair command, `counters.py --write`.
+
+**GATES:** `test_pin_sweep`'s new section classifies each REAL consumption
+style in this tree from the live sources (membership, list equality,
+store_true, the value-taking trap, the row's own flag), refuses the
+docstring-only mention, certifies the whole population non-vacuously, and
+runs the planted silent-exit-0 instrument through `run_one`. MUTATION,
+hand-proven: deleting `audit_corpus.py`'s `CHECK_ARGV` row makes
+`verify_argv` refuse that file by name with the takes-value complaint and
+reds the population check beside it.
 
 ~~**Owed: the question, not the answer.** A sweep that runs each instrument's
 own `--check` and prints the moved figures TOGETHER. It must not repair
@@ -3739,7 +3900,7 @@ cheapest possible demonstration and it is deliberate: if the two figures in
 the table above do not read 77 in the tree you are looking at, this entry has
 gone stale in exactly the way it is about.
 
-### M-22 · The structure census promises to be world-shaped and its tokeniser is ASCII `OPEN`
+### M-22 · The structure census promises to be world-shaped and its tokeniser is ASCII `PARTIAL` — the tokeniser closed 2026-08-21, the renames 2026-08-28; what stays open is run 2 itself, parked for the owner's ruling
 **Found 2026-08-21 by three concurrent recon agents on the cross-tradition
 structure question, and it is the defect that ALREADY VOIDED ONE ADOPTION
 RUN, reintroduced one layer over.**
@@ -3800,6 +3961,29 @@ columns and the once-per-run `PH.get("eng")` — are closed. The `eng_*` glob,
 `OUT_DEFAULT` and `RHYME_CONSTRAINED_FAMILIES` are run 2's to move, and
 `RHYME_CONSTRAINED_FAMILIES` is `M-23`'s second obligation rather than this
 one's. An entry whose dangerous half is shut is not a closed entry.
+
+**THE RENAMES CLOSED 2026-08-28, ahead of run 2 rather than as its first
+hour:** `corpus_files(root=None, language="eng")` globs the language's own
+prefix with the eng DEFAULT byte-identical to the declared run-1 population
+(pinned by identity against the old glob in
+`test_structure_census.py` §8) — and a NON-eng call gets NO controls
+appended, because `sonnets.txt` and `whitman.txt` are the ENGLISH run's
+declared arms and carrying them into a Welsh census would be an English
+control laundered into another language's figures (doctrine 13/14); run 2
+declares its own controls per tradition. `family_of` keys a `{lang}_*`
+song file to `{lang}_song`, which M-23's three-state table then reports as
+`undeclared` rather than a measured negative. `out_path(language)` derives
+the artifact per language with `OUT_DEFAULT = out_path("eng")` — one
+definition, and a run-2 language writes beside the committed table, never
+over it. `structure_census.py --check` PASSES after the rename: every
+recorded figure re-derives, which is what "no recorded figure moves under
+a rename" means as a measurement rather than a promise.
+`RHYME_CONSTRAINED_FAMILIES` stays M-23's obligation, as counted above.
+
+**WHAT STAYS OPEN IS THE RUN**: the multi-language census itself is a
+research sitting parked in BACKLOG's RULINGS WANTED for the owner's
+prioritisation, and this entry holds `PARTIAL` until it lands — an
+instrument ready for a run nobody has commissioned is ready, not done.
 
 **FIXED 2026-08-21, and the shape of the fix is a DECLARED TABLE rather than
 "ask the phonology", because asking is AMBIGUOUS for the one language that
@@ -4060,7 +4244,7 @@ precisely so that literal-translation collisions would surface rather than
 bite later. The survey collected it faithfully — and then recorded the
 collisions in a column no program can read.
 
-### M-47 · Apparatus survives into LINE-FINAL position in 35 corpus files, which is the one position end rhyme reads `OPEN`
+### M-47 · Apparatus survives into LINE-FINAL position in 35 corpus files, which is the one position end rhyme reads `CLOSED` 2026-08-28 — one sitting with M-27, the remedy DECLARED per file, and the sitting's own scan ate verse twice before the declarations caught it
 **Two instances found by the poet-cell agent, both reproduced here verbatim,
 then sized across the whole corpus rather than filed as two anecdotes.**
 
@@ -4105,7 +4289,68 @@ each, and both belong beside the existing one so the drop rule stays in one
 place (doctrine 1). Not applied: it moves every end-rhyme number on 35 files,
 including a panel cell, and wants its own sitting with the re-runs named.
 
-### M-45 · A replicate draw that produced no VALUE is counted nowhere, so a p is drawn at an n nobody printed `OPEN`
+**CLOSED 2026-08-28, one sitting with M-27, and "one rule each" was
+falsified by running it — the rule is PER-FILE DECLARED or it eats verse.**
+`lyric_harness.wrapped_apparatus_drops` follows an unclosed `[`-opening
+apparatus row to the line carrying its `]` — bounded at
+`WRAPPED_FOLLOW_MAX = 20` (measured: every real block closes within 17; a
+block with no close inside the bound is treated as self-contained, which is
+what stops a `[Exeunt.` from swallowing the song), skipping an intervening
+`[VERSE n]` row's own bracket (Hemans interleaves 7 of her 54 notes around
+one) and leaving apparatus rows and blanks OUT of the drop set (the marker
+is still `grid`'s section boundary, the blank still grounds a stanza). It
+runs only in `WRAPPED_APPARATUS_FOLLOW`, seventeen files inspected block by
+block, and **the two exclusions are the finding**: on Durfey the scan
+reached a bracketed SUNG stanza's own `.]` from an unclosed `[Music:` cue
+and dropped thirteen lines of "Let's sing of Stage-Coaches", and on Gay it
+ran through real air text (`_Polly._ The Boy, thus...`) to a later
+never-closing direction's `]` — both rows struck before shipping, both
+files now M-152's population, and `audit_corpus` check L NOTEs them.
+**MEASURED: 423 lines of editorial prose leave the sung stream** (Hemans
+260, Shelley 21, Cajander 17, Sawyer 15, Rossetti 11, the rest smaller),
+every dropped line reviewed by eye before the set was declared. The six
+orphan caption tails (`": alun105.jpg]"` — cym_song_alun 1, cym_song_
+mynyddog 3, cym_alun_strict 2) are content-declared apparatus in
+`is_apparatus_line` itself (`_CAPTION_TAIL`), because they have no opener
+to follow — and they were putting `jpg` into the WELSH corpus's end words,
+in the very file M-40(d) nominates. Three orphan closes with no opener
+(Emmett's `Mass.]`, one Skeat, two Lovelace) are NAMED remainders, as is
+Freneau's one mid-line-opening gloss (`[the fat pot-valiant swain / To
+Digby said],`) — four lines, no reader rule reaches them honestly.
+**THE RE-RUNS, NAMED AND RUN**: `test_readability`'s corpus pins repinned
+with ladders (countable 282731 → 282402; refusal 17702/6.2611% →
+17683/6.2616%; the substituted split 16710+2 → 16685+1, the −1 being
+known gap 8's own `turf,[mm]` exemplar leaving the unreachable class);
+`data/song_endword_en.tsv` / `song_rhymepair_en.tsv` REBUILT (462 / 182
+rows moved — sources.tsv rows repinned with the old md5s struck);
+`meter_bands --check` PASS with the bands re-deriving exactly;
+`battery.py` byte-identical (1064/1014/50/12 — sonnets carry no
+declaration, the control that the change landed where it aimed);
+`audit_corpus --verify-shape` repinned NOTE 1228 → 1234 (check L's six).
+**ONE RE-MEASURE IS OWED AND NAMED RATHER THAN RUN**: the M-40 poet cells
+measured before this repair read the corrupted end words — Byron's cell
+took 54 footnote letters as rhyme words and mynyddog's three caption
+fragments sat in its lines — so those banked cell figures predate the
+reader and say so here; re-measuring them is M-40's business on its next
+sitting, not a silent edit to banked rows.
+
+**ADDENDUM 2026-08-28 (found by M-41's sitting, the same day): the list
+of named re-runs above was SHORT BY ONE, and the missing one had its own
+alarm that nobody read.** This close's frequency-table rebuild moved the
+two md5s that `capacity.py`'s judge fingerprint records — the exact
+dependence the 66eb44e day cost a day to locate and the artifact was
+taught to CARRY so the next rebuild would be locatable. It was locatable;
+it was not LOOKED AT: `capacity.py --check` (nightly lane) has reported
+THE JUDGE MOVED since this commit, and neither this close nor M-152's
+(which rebuilt the tables again) named the capacity artifact among their
+re-runs. The fourth-or-fifth instance of a sitting's movement found by a
+later sitting's sweep, this time with the alarm already built and firing
+into a lane nobody was standing in. Being discharged by M-41's sitting —
+the full re-derivation under the current judge (and under M-41's new
+relation column) was IN FLIGHT at this addendum's commit, and its
+outcome lands in that entry, not here.
+
+### M-45 · A replicate draw that produced no VALUE is counted nowhere, so a p is drawn at an n nobody printed `CLOSED` 2026-08-28 — the void kind has its own counter, and the worst recorded row reproduces with the shortfall attributed
 **Found independently by TWO agents in the same batch — one re-running the
 stanza-framed schemas, one measuring the poet cells — which is why it is filed
 at this weight. Mechanism confirmed here by reading both runners; the sweep was
@@ -4152,6 +4397,60 @@ counted kind and silent about the uncounted one.
 different questions and must never be summed — and `p` reported against the
 `used` n rather than the requested one. Neither is applied; both move recorded
 rows.
+
+**CLOSED 2026-08-28.** `Result.void_replicates` is the second counter,
+incremented in BOTH runners (`run_many` and `sweep` carry the identical loop,
+and both moved in one sitting so the two copies cannot disagree — doctrine 1),
+rendered in every row as `void=` beside `refused=`, summed into
+`PanelRow.void_replicates` and printed by `report_panel` as its own line —
+four counts on a row now (asked / used / refused / void), never summed past
+the partition (doctrine 79).
+
+**THE WORST RECORDED ROW REPRODUCES EXACTLY, AND THE ATTRIBUTION SHARPENS
+IT.** `monai · local_fraction@2 · global_redeal · fas` on the grounded panel
+slice at n=200, default seed: `used=50 refused=0` — the agents' own figures,
+now with `void=150` beside them and the accounting closing at 200. And the
+50 values that DID survive never moved (observed 1, null min/med/max 1/1/1,
+differing 0.0% — the row's own render says NULL IS THE IDENTITY MAP), so the
+p=1.0000 this row recorded was drawn on a quarter-strength distribution
+whose null could not even ask the question on three draws of four. The
+shortfall was never noise around a healthy row; it was the row's finding.
+
+**WHAT THE SECOND REMEDY CLAUSE TURNED OUT TO NEED: NOTHING MOVED.** `p` and
+`resolution` have always divided by `len(values)` — the entry's own
+"PARTIALLY DISCLOSED" paragraph says so — so no recorded verdict is
+re-derived and no recorded figure moves. What was wrong was the ATTRIBUTION
+(`refused=0` over a shortfall), and that is a rendering-and-counting repair
+(doctrine 91). Rows recorded before the counter simply do not carry the
+`void=` field; `RESULTS_RELATIONS_NULL.md` §A item 6 — the sentence this
+entry named as blind to the uncounted kind — carries the dated amendment.
+
+**GATES:** `test_relations_null.py` §11's identity is the THREE-term one now
+(used + refused + void == n, on every row — the two-term identity it held
+before was TRUE on §11's own radif fixture, which is exactly why that
+section could not see this defect: its rows carry zero void draws); new §14
+drives `run_many` with a deterministic None schedule (void counts EXACTLY
+the None draws, refused untouched, p at the used n, the render carries the
+count) and drives `sweep`'s copy on the register's own fas row at small n
+(`used=6 refused=0 void=6` at n=12). TWO MUTATIONS, hand-proven and each
+killed by its OWN half: reverting `run_many`'s branch fails exactly the two
+run_many attribution checks with the sweep half green (measured: 10 pass /
+2 fail); reverting `sweep`'s copy fails exactly the sweep-half check, the
+fas row reading `used=6 refused=0 void=0` — the pre-M-45 rendering, refused
+by name (11 pass / 1 fail). §11 stays green under BOTH mutants, which is
+the measurement above restated: the defect was invisible to every fixture
+whose statistics always had a denominator, and §14's fixtures are the ones
+doing the work. `expected_false_clears_over` — which already charged each
+row its own used-n resolution — names both kinds in its docstring.
+
+**NOT DONE, NAMED (doctrine 20):** the agents' full panel runs (368 and 232
+rows) are NOT re-run; their per-row figures stay quoted as theirs, and every
+row of the recorded panel that voided draws still reads `refused=0` with the
+shortfall visible only as used < n. The counter exists from this tree
+forward; a future panel re-draw inherits it for free. M-46 — the OTHER way a
+row looks like a clean null, `local_fraction@0` on `both_line_final` schemas
+with no `_GAP_FORCED` row — is untouched and still owed its own sitting
+(the frozen `EXTENSION_LEDGER` reads `forced_gap`).
 
 ### M-46 · `local_fraction@0` runs on 20 of 77 schemas where it cannot move, and looks like a clean null `OPEN`
 **Found by the re-null agent. `_GAP_FORCED` (`relations_null.py:950-958`) has
@@ -4366,7 +4665,7 @@ second is presentational and could land immediately. **Neither is done, and
 the seven rows above are flagged in `RESULTS_RELATIONS_NULL.md` rather than
 re-stated.**
 
-### M-41 · The capacity ceiling is derived under ONE relation, and its headline says "English" `OPEN`
+### M-41 · The capacity ceiling is derived under ONE relation, and its headline says "English" `CLOSED` 2026-08-28 — the coordinate is carried and refused-without, the certified half stays RHYME-only by priced deferral
 **Found 2026-08-22 while looking for ladder step 5 ("capacity per relation").
 `quality/capacity.py` contains ZERO occurrences of `relation`, `ASSONANCE`,
 `CONSONANCE` or `RIME_RICHE` — the whole layer is relation-blind, and its own
@@ -4433,6 +4732,57 @@ sustain. Told under perfect rhyme alone it says the language is narrow and the
 dense verse is forced to switch families. That is true, and it is one road of
 several, and the owner's whole complaint about the grader admitting two
 relations out of 601 is the same complaint arriving at the capacity layer.
+
+**CLOSED 2026-08-28 — the cheap half built exactly as this entry priced
+it, and the expensive half parked exactly where it said.**
+`capacity.RELATION_KEYS` is the four keys of this entry's own comparison
+table, promoted from the one-off script to the implementation — the
+vocabulary is checked equal to `ADMITTABLE_RELATIONS` at import, because
+a capacity under a relation no mandate can admit would be a number about
+nothing a writer can declare. `families(reviser, relation=...)` takes the
+coordinate (default `ADOPTED_RELATION = "RHYME"`, reproducing the
+shipped partition family-for-family); `family_summary` +
+`--families=RELATION` make this entry's measurement a COMMAND, and on the
+build day every cell of its table reproduced exactly — 12,387 / 15 /
+3,527 / 37,462 families with matching singletons, maxima, means and
+medians (`test_capacity` §7 pins all four rows). The artifact's rows now
+LEAD with a `relation` column, `read_table` REFUSES a table that lacks it
+(the mutation: yesterday's schema is unreadable, not silently read as
+RHYME), `check()` verifies every row names the adopted relation, the
+`capacity` verb prints the coordinate on both its surfaces, and the
+module docstring's own copy of the narrowness sentence — the same
+dropped-coordinate rendering this entry charged the RESULTS doc with —
+now names the relation. **The certified half is deliberately NOT
+widened**: a certified `chain_lo` under a non-RHYME relation prices at
+hours of grading per relation, and which are worth paying for is the
+owner's ruling — `BACKLOG.md` RULINGS WANTED row 16, with assonance's
+15 families at median 2,382 words named as the extreme case nobody has
+graded.
+**AND THE SITTING DISCHARGED A DEBT TWO EARLIER CLOSES LEFT UNNAMED.**
+The schema change forced a full `--derive`, which is exactly the re-run
+`capacity.py --check` had been demanding since f235954: the M-47 and
+M-152 frequency-table rebuilds each moved the judge fingerprint the
+artifact records, and neither close named the capacity artifact among
+its re-runs (the M-47 addendum above holds that finding). Re-derived
+under the current judge, resumed once across a container restart on its
+own checkpoints: **every ADOPTED constant reproduces exactly**
+(population 39,969, families 12,387, the whole chain_hi ladder,
+certified 81, max_chain_lo 40 — so `ADOPTED_MAX_GROUP` stands and no
+planner bound moves), while **15 of 81 certified chains moved, every one
+UP** (`UW-M` 14 → 27 the largest), 8 witnesses re-worded at unchanged
+depth, and the 40-cap tie grew nine → twelve (`AY-Z-D`, `EY-Z`, `OW-N`
+joined; the original nine all held). The uniform upward direction is a
+fact about the rebuilt modal tables and spans both judge moves at once —
+the superseded witnesses dated from the 2026-08-20 tables.
+`RESULTS_RHYME_CAPACITY.md` carries the full delta and the finding-1
+amendment; the three nine-family citations (capacity.py, CLAUDE.md, the
+RESULTS headline) are repinned with the ladder.
+**WHAT IS NOT CLAIMED (this entry's own caveats, kept):** the four keys
+are the declared phonological rendering, not `classify_pair`'s — a finer
+cut is a different measurement; and a family count under any relation is
+a CEILING's raw material, never a count of usable partners — the ban,
+the modal tier and the judge all still cut it, and none of that has
+been run under a non-RHYME relation.
 
 ### M-40 · Eight admissible-set failures are eight facts about the TEXT, and the survey already names a chain rhyme nobody built `OPEN`
 **Raised 2026-08-22 by the owner, reading the n=200 admissible set and asking
@@ -5241,7 +5591,7 @@ vocabulary while sounding like it has thought about it.
 and that is a real bound on step 1 rather than a defect — recorded so the
 count 40, not 49, is the one quoted.
 
-### M-33 · One joint AUC pair lives in twelve places in one document, and a careful repin left seven of them stale `OPEN`
+### M-33 · One joint AUC pair lives in twelve places in one document, and a careful repin left seven of them stale `CLOSED` 2026-08-28 — the prose answers to the pin, and the live/history distinction has a declared form
 **Found 2026-08-22 while repinning `quality/RESULTS.md` for M-32, by grepping
 for a figure I was about to cite beside and finding it stale in seven sentences
 that were not marked superseded.**
@@ -5297,6 +5647,55 @@ declared form, which is a sitting of its own.
 **Missing:** an instrument that relates `test_discriminate.PINNED` to the prose
 that cites it, and a declared way for a document to say "this figure is quoted
 as a superseded reading" that the instrument can read.
+
+**CLOSED 2026-08-28: `quality/verify_figures.py`, and both asked-for halves
+ship as declarations.** The RELATION: each tracked quantity's current prose
+spelling is DERIVED from `test_discriminate.PINNED` at the precision the
+prose quotes (this file holds no second copy of the number — doctrine 1), so
+a measurement repin reds `--check` until the prose, the superseded ladder
+and the spelling move in one sitting. The DECLARED FORM: a figure is quoted
+as history iff it is `~~struck~~` on its own line or its line is a
+blockquote — exactly two markers, and the refusal of anything softer is
+MEASURED rather than aesthetic: two of this entry's own seven stale sites
+sat BESIDE the word "SUPERSEDED" in a sentence about a different figure's
+supersession, so keyword marking would have passed the defect the rule
+exists to catch (the test plants that exact site shape and requires the
+VIOLATION).
+
+**THE LIFECYCLE IS THE DESIGN DECISION THE FIRST RUN FORCED.** Policing
+every old value at the two-marker rule charged 25 sites quoting the
+pre-fix and warm readings (0.709/0.971, 0.659/0.975, 0.262) in LABELLED
+narrative — which is the doctrine-17 record itself and must not be forced
+into strikethrough. The line is drawn from this entry's own measurement:
+every stale site it adjudicated quoted the IMMEDIATELY-PRIOR generation,
+none quoted an older one, because the danger is the value that was current
+when the sentence was written. So `superseded` (policed at the two-marker
+rule) holds the prior generation only — 0.717 / 0.964 / 0.247, verified 22
+occurrences all in history form, 0 violations — and `retired` (listed, 47
+occurrences, policed by nothing) holds the rest. On the next repin the
+sitting moves the table with the pin: current -> superseded, superseded ->
+retired.
+
+**SCOPE IS DECLARED PER DOCUMENT AND `CLAUDE.md` IS OUT, NAMED (doctrine
+20/17):** doctrine 7's ladder sentence quotes the whole supersession chain
+in running prose — a legitimate form the two-marker rule cannot admit, and
+admitting it by keyword would re-open the measured hole. The test holds
+the exclusion to its reason: it checks the ladder is still there, so the
+exclusion cannot outlive its cause in silence.
+
+**GATES:** `test_verify_figures.py`, 13 checks over 4 sections — the
+shipped document clean AND the scan non-vacuous, every planted form
+classified (the SUPERSEDED-keyword leak a VIOLATION, struck and blockquote
+history, retired listed-not-charged, the longer-decimal guard), the
+derivation red under a moved pin with the real pin as control, the scope
+declaration held to its reason. MUTATION hand-proven: `is_history`
+stubbed True fails exactly the leak check (1 red, every control green).
+`--check` exits 3; joined the CI record-integrity job beside
+`verify_entries`, and `pin_sweep` discovers it by its own `--check` string
+with no roster edit. The suite's own first draft went red on its fixture
+— "0.964's business" matches, an apostrophe is not a digit — kept as a
+comment in the fixture because the guard is against longer NUMBERS, not
+possessives.
 **Why it matters:** every headline number in this repo is repinned by hand
 across documents that are the deliverable. M-31's sweep was careful and still
 missed six sites plus an arithmetic slip; the next one will miss a different
@@ -6314,7 +6713,7 @@ its messages said _"the fifteen kinds"_; the cardinality is struck rather than
 incremented, for the reason `CLAUDE.md`'s known gap 7 records — a commit written
 to repair a stale count once wrote one that was stale on arrival.
 
-### M-27 · A footnote letter is the end word of 68 rhyming lines, and 1,166 file headers declare it was stripped `OPEN`
+### M-27 · A footnote letter is the end word of 68 rhyming lines, and 1,166 file headers declare it was stripped `CLOSED` 2026-08-28 — four declared classes, not three, and the gate the entry said was owed
 **Found 2026-08-21 by the owner asking the right question after `M-25(a)`:
 poems carry LINE NUMBERS, usually by fives, and scores carry time signatures
 and tempo marks — is any of that being scored too? Three of the four answers
@@ -6443,7 +6842,41 @@ holding ONE line, and every one of these 93 sits inside an ordinary multi-line
 stanza. The population is _a token inside a sung line_, not _a block that is
 not a stanza_, and the check that would raise it is a different check.
 
-### M-28 · The printed indent carries the rhyme scheme at 6.19x, and every reader strips it `OPEN`
+**CLOSED 2026-08-28, one sitting with M-47 — the classes are DECLARED and
+there are FOUR, because the corpus grew one since the sizing.**
+`lyric_harness.normalise_bracket_spans(line, name)` resolves every `[...]`
+span by its declared class, in order: **PG diacritic markup** (`[=e]` ->
+`ē`, `[:y]` -> `ÿ` — content-declared corpus-wide, 38 spans, all Barnes,
+whose header's own warning against flattening the diacritic is why the span
+becomes the REAL letter and `dr[=e]ve` reads `drēve` as one token — this
+class postdates the sizing, which counted Barnes at 7); **the `[oe]`
+ligature** (content-declared, `Ph[oe]bus` -> `Phoebus`, 13 spans in 4
+files); **editor-supplied text** (`BRACKET_SUPPLIED`, per (file, exact
+content) — the sizing's 5 grew to 8 files' worth once Lovelace's small-caps
+completions `A[NNE] L[OVELACE.]`, Burns's censored names `M[ontgomer]y` /
+`D[undas]`, Shelley's supplied `[Harriet]`/`[Percy]` and Skeat's supplied
+Malay words were classified); and **the footnote anchor**
+(`BRACKET_ANCHOR_FILES`, per file: every remaining span drops whole —
+Byron's 54 letters, `[FN#1]`, `[_sic_]`, `[ASIDE]`, `[Image]`). Numeric
+spans were measured harmless (a letters-only tokeniser reads nothing in
+them) and need no row. A caller with NO file — a draft — reaches only the
+two content classes, so no draft is ever touched by another file's staging
+convention. The head census this table was built against: **146
+token-yielding spans in 16 files**, every one classified by eye; the
+entry's 93/9 was true at its sizing date and the corpus moved under it.
+**"WHAT IS OWED IS THE CLAIM" IS BUILT AS `audit_corpus` CHECK L**: a
+token-yielding span no declared class resolves, or an unclosed `[` block in
+a file that declares no wrapped-note convention, is a NOTE naming the file
+— 0 of the first kind and 6 of the second today (M-152's population), so a
+newly staged Byron cannot leak in silence again. Gates:
+`test_readability.py` §11 (each class proven on the real corpus, plus TWO
+mutations RUN in place — Byron's anchor row pulled brings `see,[a]` back,
+Shelley's follow row pulled brings `1818.]` back) and the repinned corpus
+rates in the same suite. The readers that moved: `load_lyric_lines`,
+`readability.read_lines`, `grid.read_marked_songs`,
+`build_song_frequency` — one definition, four call sites (doctrine 1).
+
+### M-28 · The printed indent carries the rhyme scheme at 6.19x, and every reader strips it `CLOSED` 2026-08-28 — the readers stopped stripping it in 2026-08-21's fix, and the three named uses are now two builds and one recorded non-build
 **Found 2026-08-21 when the owner, having seen the bracket and numeral
 findings, asked the general question: what about SPACING — indent, offset,
 caesura, end-stop. The answer is that one spacing channel is large, real, and
@@ -6600,6 +7033,56 @@ reads it — and they are the coordinate the meter layer would need before it
 could say anything about a line's boundary, so they belong with the time
 layer's gaps rather than here.
 
+**CLOSED 2026-08-28. The headline defect closed 2026-08-21 (the fix block
+above — `line_indent`, `Block.indents`, `indent_partition`, check I, TESTED
+WHILE OPEN) and the entry stayed open on the three named uses. Their
+accounting, one at a time:**
+
+**(2) THE DISAGREEMENT DISCLOSURE WAS ALREADY BUILT and this close only had
+to say so:** `audit_corpus` check I is it — per file, same-depth against
+different-depth spelled-rime rates, gated on the MEASURED within-block null
+(±2.71 pp) so an excess inside chance earns no note, 517 agree / 6 opposite
+/ 22 in-null, three counts never summed, the 6 disagreements the disclosed
+population. The M-20 false-unit detector one channel over, exactly as the
+use asked.
+
+**(3) THE `mandate_from_graph` CONTROL IS BUILT:**
+`lyric_harness.indent_agreement(groups, indents)` is the one definition —
+same-group against cross-group printed-depth agreement over a mandate's own
+1-based groups (placement suffixes read for their line number), `None` when
+the draft prints no ladder or the cover leaves no cross-group pair, because
+a zero computed over no printing reads exactly like disagreement (doctrine
+20). The CLI's `_say_derived` prints it as `THE PRINTING (M-28)` on a
+DERIVED mandate only — the printing is the one channel `--cliques` cannot
+have manufactured (doctrine 14), which is what makes it a control — with
+the draft path threaded from all four verbs (`brief`, `song`, `verify` on
+BEFORE, `revise`). A disclosure about the CALL, never a Finding and never a
+gate: an indent can mark the rhyme GROUP or the rhyme BEARER (the Lieber
+refutation above), so a cover that does not reproduce the printing is a
+different CLAIM, not a defect. `test_grid` §35 holds both halves — the
+statistic on both conventions and its two refusals, and the verb printing
+it for derived-with-ladder while staying silent for declared and for flat —
+with the disclosure-stub mutation hand-proven.
+
+**(1) THE `--- INDENT:` FIELD IS A NON-BUILD, RECORDED AS ONE, on the AIR
+lesson:** M-11's field turned out never to be missing — the tune was inside
+the TITLE value and adding a second line carrying the same string would
+have been the duplicate copy this codebase keeps deleting. The indent is
+the same shape one step simpler: the printing already survives IN THE
+BYTES through `line_indent` on every reader that matters
+(`load_lyric_lines(with_indent=True)`, `Block.indents`, check I), so a
+declared field would duplicate a coordinate the file itself carries. The
+one honest job left for a declaration is a staged source whose printing
+the transcription FLATTENED — a class with ZERO known members today, and a
+field with zero members is the declared-but-unread defect in a taxonomy
+hat (this file's own reserved-values rule). The field enters, per that
+rule, in the same commit as its first member: a stager who finds a
+flattened source declares it then.
+
+**The three spacing channels above keep their named homes** (Welsh caesura
+declared and closed by M-7/M-151's family; enjambment/end-stop with the
+time layer's gaps) — none of them was this entry's to close.
+
 ### M-29 · The corpus declares 11,099 periods and the time layer, which is mute for want of one, reads none of them `OPEN`
 **Filed 2026-08-21 at the owner's request, from the observation that some
 poems carry an amount of time they are meant to be performed in. Measured
@@ -6734,7 +7217,7 @@ them (a relations-only re-open printed `letter scheme 'ABAB' + ` — a trailing
 conjunction with nothing after it, which is what a provenance string looks
 like when it is describing something nobody told it about).
 
-### M-51 · a bad `--structures=` / `--relations=` name refuses under the headline "this verb was given nothing to check against" `OPEN`
+### M-51 · a bad `--structures=` / `--relations=` name refuses under the headline "this verb was given nothing to check against" `RESOLVED` 2026-08-28 — built by M-102 on 2026-08-24, and this entry was never told
 **Found 2026-08-22 exercising the new CLI refusals; PRE-EXISTING and not
 introduced by that work — `--structures=` has had it since it shipped.**
 
@@ -6757,7 +7240,23 @@ it is test churn that belongs in its own sitting rather than riding a wiring
 commit. The remedy is a second refusal shape — _the mandate is declared and a
 name in it is not_ — carrying the same exit code.
 
-### M-52 · 17 of the 21 declared section functions are printed NOWHERE, and 62% of the marks that ARE printed reach no function at all `PARTIAL`
+**RESOLVED 2026-08-28 (repair campaign), AND THE BUILD WAS M-102's ON
+2026-08-24 — this entry was never told, which is the register's own
+most-repeated defect shape.** The shared `NoMandate` handler in
+`lyric_harness.py` has carried exactly the two headlines this entry asked
+for since M-102: `empty` is set at the one raise site that means
+"nothing was declared", and every other `NoMandate` — an unknown
+structure row, a bad relation name, a label naming no group — prints
+`REFUSED — the mandate was not accepted.` over its own detail line.
+**RE-MEASURED at head with this entry's own command**: `brief FILE
+--groups=1,2 --structures=A:no-such-row` prints the second shape with
+the catalog detail beneath it, and a bare `brief FILE` keeps "given
+nothing to check against" — the two causes no longer share a headline.
+The gate is M-102's own (`quality/test_verbs.py` asserts the split);
+nothing was built for this close, and the close's work was the
+RE-MEASUREMENT, not a repair.
+
+### M-52 · 17 of the 21 declared section functions are printed NOWHERE, and 62% of the marks that ARE printed reach no function at all `CLOSED` 2026-08-28 — patter is the 22nd function, the voice is a carried coordinate, and the two rulings that answered the rest are named
 **Raised by the owner 2026-08-22 — "is it possible to work on getting us the
 '17 declared and never printed' parsed and working instead of just the 4
 section functions currently in use?" — and MEASURED before answering, because
@@ -6927,6 +7426,95 @@ joining the 62%.
 
 TESTED WHILE OPEN: `quality/test_section_marks.py`, and
 `quality/section_marks.py --check` in CI.
+
+**CLOSED 2026-08-28 — the four open items, each resolved in its own
+kind: two BUILT, one RULED-AND-PARKED, one RECORDED.**
+
+**(1) `PATTER` IS THE 22nd FUNCTION, entered on its printed witness.**
+`grid.SECTION_FUNCTIONS` gains the row (gloss quoting the source's own
+centred 'PATTER-TRIO.' heading, Ruddigore Act II; recurrence
+"returns/new words" — the three solo stanzas return on one tune with
+new words apiece; no placement claim, the verse rule; its defining
+density contrast named as G-1's uncalibrated gap rather than guessed);
+`MARK_FUNCTION` gains `PATTER -> patter` in the same commit as its
+member, the taxonomy protocol's own rule; the `("eng","PATTER")` row
+LEAVES `MARK_REFUSED` because its reason ("a function this vocabulary
+does not declare") stopped being true — with the ùrlar's cross-
+reference to that refusal's argument repointed, since the ùrlar still
+lacks a MOVEMENT layer, not a witness. `narrative.FUNCTION_ATOMS`
+gains patter with the mover card's faces (its differentia from verse
+is DELIVERY density, not a narrative coordinate — `NARRATIVE_DESIGN.md`
+§B row added). The table's PATTER row carries `maps_to=patter` now and
+`test_section_marks` §4 asserts ZERO unmapped function marks.
+**MEASURED CONSEQUENCES, the vocabulary member's full price:**
+`mark_coverage` typed 77,090 -> 77,093 / decided 125,504 -> 125,501 /
+declared_functions 21 -> 22 / witnessed 4 -> 5 (exactly the three
+blocks moving DECIDED -> TYPED); the eng repeat-block census 2,467 ->
+2,470 (`test_song_function` repinned, patter being returns-recurrence);
+`plan._CELLS` 21 -> 22 cells, so **EVERY undeclared seed's body draw
+re-arithmetics — measured 60 of 60 patterns moved** (the M-133 species
+at full width; `test_narrative`'s seed pins repinned as generation
+three, the 35/5 admit census UNMOVED a second time across a fully
+remapped space, and a NEW exemplar surfaced: seed 27 collapses at
+position THREE on the RESOLVE clause, a depth nothing had witnessed
+from the planner's own dice); the planner emits patter in 12 of 60
+undeclared seeds and on `--functions=` declaration; `test_placement`'s
+emission pin is DE-LITERALIZED to the vocabulary's own section-kind
+count (20 of 20 emitted); `plan`'s disclosure line derives its
+vocabulary size (`_vocab_size()`) instead of printing the literal 21;
+and CLAUDE.md's v2 coverage sentence — stale at "14 of 21" since the
+derived cells took it to 19 on 2026-08-22 — is repinned with its
+ladder.
+
+**(2) THE MOVEMENT LAYER IS A RECORDED NON-BUILD, unchanged and now
+the close's own statement:** three pìobaireachd marks in three files
+group verses at a level this model has no layer for; twelve lines is
+not a layer's worth of evidence, and the level ENTERS when a corpus
+supplies it or the owner asks — until then `movement` rows stand in
+the table and `MARK_OPENS_GROUP` carries their span-hood.
+
+**(3) THE VOICE IS A CARRIED COORDINATE.** `grid.Block.voice` — the
+antiphonal part label in force when the block opened, threaded by
+`read_marked_songs` from each `[PART: X]` mark to the next (reset at
+every `--- TITLE:`; the PART block itself keeps its function-refusal,
+so NO block count anywhere moves), and read by `section_census`'s new
+`voices` key, its one reader. Carried, never interpreted: nothing
+grades a voice (`--voices` set that precedent). Measured on the
+Kanteletar: 148 voiced blocks, the printed alternation (Kosiomiehen
+puoli <-> Kaason puoli) reproduced exactly, zero songs opening with an
+inherited voice, English files all-empty. `test_grid` §36.
+**AND THE BUILD FOUND THE CENSUS'S OWN BLIND SPOT:** grid reads 13
+part labels where `data/section_marks.tsv` holds 12 voice rows — the
+thirteenth (`[PART: Vähäonnisen naisen neuo morsiamelle]`, 41 chars)
+sat past the census scanner's SILENT 40-character cap, so "every
+printed mark has a row" was true only of the marks the scanner could
+see. The cap is DECLARED now (`MARK_CONTENT_CAP`), its population
+measured (**24 distinct marks / 50 lines** — annotation-bearing heads:
+21 staging `[CHORUS: abbreviated...]` lines, Byron's and Shelley's
+publication notes, Coleridge's Ancient Mariner marginal glosses, one
+Durfey sidenote, the one long part label), PINNED
+(`PINNED_BEYOND_CAP`) and GATED in `--check`, so a newly staged long
+mark moves a number instead of vanishing. `test_section_marks` §6.
+
+**(4) BURDEN/REFRAIN "STILL DO NOT REACH THE PLANNER" WAS ANSWERED BY
+A LATER RULING AND THE TWO ENTRIES CONTRADICTED EACH OTHER IN THE
+RECORD — resolved here, for the ruling.** This entry's item 4 said the
+gap "needs no new text" and was owed; M-56 (same day, later) ruled
+`refrain` and `burden` LINE-kind off their own glosses, and
+`plan.py`'s roster comment has said since then that a span grammar
+"can never draw one, and that is not a gap." Two register statements,
+one question, opposite answers — doctrine 1's own case, standing since
+2026-08-22 and named by nobody until this close. RESOLVED FOR M-56:
+the kinds are read off the glosses and the cell grammar's refusal is
+correct. What SURVIVES of item 4 is a writer's route, which EXISTS at
+the mandate layer today — a hand blueprint declares a burden section
+(the placement layer enforces its measured adjacent-after-verse), and
+`--returns=` declares the verbatim line-group obligations — and a
+GENERATOR that volunteers an attached burden line-group (the hook-slot
+/ `end_rhyme_groups` species: a line-layer pass, never a span cell)
+is a design the owner has not asked for, parked as `BACKLOG.md`
+RULINGS WANTED row 17 with the attestation beside it (1,580 printed
+burdens, the most-attested function in the corpus).
 
 ### M-53 · `mandate()`'s re-open path re-defaulted the `ReturnRule`, so re-opening a mandate to add any coordinate silently replaced the rule its writer declared `CLOSED` 2026-08-22
 **Found in the same sitting as M-50, by testing that the CLI's new
@@ -7281,7 +7869,7 @@ first (doctrine 1). `node mcp/test.mjs`: **34 checks, exit 0**. Proven
 non-vacuous by mutation — stubbing `extractRender` to `null` drops it to 31
 and red on exactly this check.
 
-### M-56 · two of the twenty-one "section functions" declare in their own glosses that they are NOT sections `OPEN`
+### M-56 · two of the twenty-one "section functions" declare in their own glosses that they are NOT sections `RESOLVED` 2026-08-28 — the KIND field shipped with the owner's "all 21 working" ruling, and this entry was never told
 **Found 2026-08-22 deriving the section-constraint table, by reading all 21
 glosses rather than the four the work needed.**
 
@@ -7311,7 +7899,26 @@ assume, and so M-54's coordinates are only applied to the rows they can mean
 anything for. `verify_entries`/`corpus_taxonomy` are the precedent: a closed
 vocabulary whose members carry their own definition.
 
-### M-57 · `FunctionSpec.aliases` models SYNONYMY, and three of its five claims are SUBSUMPTION — so the specialisation is accepted at the door and discarded `OPEN`
+**RESOLVED 2026-08-28 (repair campaign), AND THE BUILD SHIPPED WITH THE
+OWNER'S "all 21 working" RULING — this entry was never told.**
+`grid.FunctionSpec.kind` is the declared coordinate this entry asked for,
+citing M-56 by name at its own definition; `refrain` AND `burden` carry
+`kind="line"` (the second row going beyond this entry's own pair, on the
+same gloss evidence), and `plan._derive_roster` READS the coordinate
+(`sp.kind == "section"`), so the planner's roster is derived from the
+vocabulary rather than assumed — exactly "every downstream reader can
+ask". **THE `hook` HALF WAS RULED THE OTHER WAY, AND THE RULING IS
+WRITTEN AT THE ROSTER DERIVATION** (`quality/plan.py`, the `_derive_roster`
+comment): this entry read the gloss's first clause ("properly a
+FRAGMENT") and the roster comment reads its second — *"this entry covers
+the post-chorus-hook case where a WHOLE SECTION carries it"* — so `hook`
+stays `kind="section"` deliberately, and the fragment lives in the
+separate `Hook` object the gloss names. One row asked for, two shipped,
+one adjudicated against this entry's reading with the argument recorded
+where the roster is derived. Nothing was built for this close; the work
+was finding that the build existed.
+
+### M-57 · `FunctionSpec.aliases` models SYNONYMY, and three of its five claims are SUBSUMPTION — so the specialisation is accepted at the door and discarded `CLOSED` 2026-08-28 — the claim is kept, the differentia is checked, a mismatch refuses, and burden states its genus while keeping its row
 **Raised by the owner 2026-08-22: "While all middle eights are bridges, not all
 bridges are middle eights… same deal with refrain and chorus if I'm not
 mistaken… just for efficiency's sake." Measured, and the efficiency instinct is
@@ -7385,6 +7992,64 @@ declared, so a section declared `middle-eight` can be checked against its
 differentia and a mismatch REFUSES rather than silently widening to the genus.
 (4) `burden` gains `specialises='refrain'` while staying its own row — the two
 statements are compatible and the table currently makes them look exclusive.
+
+**CLOSED 2026-08-28, all four items, and the relation ships in TWO SHAPES
+because the two specifics are in two states.** A specific WITHOUT a row
+(`middle-eight`) is a `Specialisation` record on its GENUS row
+(`FunctionSpec.narrower` — name, six spellings, differentia as a checkable
+coordinate `bars == 8`, evidence quoting the bridge gloss verbatim); a
+specific WITH a row (`burden`) states `specialises="refrain"` on its OWN row
+with its own gloss as the evidence ("a refrain sung by all") — both
+statements at once, which the table could not previously make. `aliases`
+keeps only the true synonyms (`departure-section`, `instrumental-break`),
+and its field doc now says so.
+
+**THE ENTRY'S MEASUREMENT IS INVERTED.** `Section(bars=13,
+function='middle-eight')` and `bars=4` both REFUSE
+(`grid.SpecialisationMismatch`, a `ValueError` so every CLI path that
+renders a blueprint mismatch as `REFUSED …` exit 2 catches it identically),
+quoting both halves of the contradiction and both honest moves. `bars=8`
+resolves `function` to `'bridge'` — every consumer of the vocabulary key
+unmoved — and keeps `Section.specialised_as = 'middle-eight'`, so the
+question the entry records as unanswerable is a coordinate now. A bare NAME
+(`as_function('middle-eight')`) still resolves to the genus, because that
+surface holds no bars; the claim is checked where the bars are.
+
+**ONE DOOR MORE THAN THE ENTRY NAMED**: `plan --functions=middle-eight`
+REFUSES by name (`grid.specialisation_of`, the pure accessor test_plan §4's
+allow-list admits) rather than widening to `bridge` — the planner draws bars
+from the derived envelope and cannot promise the differentia, so accepting
+the name there would be the door-accepts-and-discards defect one layer out.
+
+**GATES.** Import-time checks in the same block as the alias-shadow check:
+a specialisation spelling may not shadow a function or alias, its evidence
+must occur in the genus row's own gloss, a `specialises` must name a
+different declared row with evidence from its own gloss. `test_grid` §31
+repointed (the middle-8 claim lives on the bridge row as a SPECIALISATION
+with its differentia, not an alias); new §34 holds the door: kept-name,
+genus-declared-makes-no-claim, both refusals, the ValueError family, the
+burden row's two compatible statements, disjoint maps, and the planner
+refusal. TWO MUTATIONS hand-proven, each killed by its own half: moving the
+family back to `aliases` reproduces the pre-M-57 behaviour exactly
+(bars=13 accepted, stored 'bridge', claim discarded — §34's refusal checks
+and §31's row-claim red); deleting the differentia comparison alone reds
+exactly the two refusal checks while resolution and the kept name stay
+green — the claim being KEPT and being CHECKED are separately enforced.
+Full `test_grid` green ("all grid regressions pass"). And the gate's first
+run caught a live instance IN THE SUITE ITSELF: `test_song_function` §1's
+alias-era positive control was `Section("x", 4, function="middle8")` —
+a check whose PASS was the measured defect, declaring the specialisation
+at half its own differentia and asserting the widened genus came back.
+Repointed to both halves (bars=8 resolves and keeps the name; bars=4
+refuses), with the restatement dated in place beside the section's two
+earlier ones.
+
+**NOT DONE, NAMED (doctrine 20):** no consumer yet READS `specialised_as`
+or `specialises` downstream of the door — the grader grades a middle-eight
+as the bridge it is, which is correct today; a future check that wants to
+ask "does this middle-eight behave as one" has the coordinate. And the
+five-row table in this entry stands as the census of the edges; no further
+subsumption edge was added beyond what it names.
 
 ### M-59 · the default admit set was TWO of four, and the `schema:` namespace refused all 77 of its names — ~~by design~~ by an instinct the owner has now overruled `CLOSED`
 **FINISHED 2026-08-22: 77 of 77 ASKABLE, 0 BLOCKED.** The table below records
@@ -7612,7 +8277,7 @@ that entry governs what the harness may assert, this one governs what a
 writer may ask for. And `plan._CELLS` reaches 11 of `grid`'s 21 section
 functions (M-54 item 2), which is this same shape one layer up.
 
-### M-58 · the named-relation judge is MONOSYLLABLE-ONLY — 69 of 76 names are reachable at a 1-syllable key and nowhere else, so every polysyllabic pair that stands in the declared relation is graded a VIOLATION `OPEN`
+### M-58 · the named-relation judge is MONOSYLLABLE-ONLY — 69 of 76 names are reachable at a 1-syllable key and nowhere else, so every polysyllabic pair that stands in the declared relation is graded a VIOLATION `RESOLVED` 2026-08-28
 **Found 2026-08-22 by WRITING A SONG through the path M-55 had just opened,
 after the owner asked whether anything besides the null sweep bars us from
 using this. Something does, and it is larger than the null sweep.**
@@ -7702,6 +8367,92 @@ different question than the one that will grade them.
    command the planner tells a writer to run REFUSES on the plan-first path.
    Filed here because it was found in the same run; it is independent.
 
+
+**ADDENDUM 2026-08-27 (M-148): 22 OF THE BROKEN NAMES ARE IN THE PLANNER'S
+CERTIFIED DRAW POOL, SO THE DEFECT THIS ENTRY RECORDS IS NOW MANDATED BY THE
+FRONT DOOR.** M-117 put `relations.DRAWABLE_SCHEMAS` — 22 names, certified
+satisfiable on a witness — into the default draw, and this entry's judge is
+what grades every pair those draws mandate. Measured in the field the day the
+collision was found: canonical MONOSYLLABLE answers fail too, so for at least
+one drawn name the hole is wider than this entry's own headline. The full
+accounting is M-148.
+**SECOND ADDENDUM, SAME DAY, ON M-148's CLOSE: the SCHEMA-route half of the
+pool is repaired and this entry's headline is UNTOUCHED BY IT.** The
+monosyllable-only judge this entry records is the `type:` namespace's
+(`classify_pair` and the cells' 1-syllable keys); M-148's repair is in the
+OTHER route — `relations._seq`'s vowel-anchored cluster read and
+`relations.pair_satisfies` at declared tokens — which a `schema:` relation
+takes and a `type:` relation never reaches. The 22 drawn names all resolve
+in the `schema` namespace, so the POOL is out from under this entry's
+defect; the 69-of-76 `type:` figure stands exactly as measured, and items
+1–4 above are still owed.
+
+**RESOLVED 2026-08-28, in the repair campaign — all four owed items,
+each with its gate.**
+
+**ITEMS 1+2, ONE JUDGE, THREE DISPOSITIONS** (`quality/rhyme_types.py`):
+a name past the monosyllable key is now one of three declared things,
+never a flat False. **(a) `EXTENSIBLE`** — 13 names whose definition does
+not turn on syllable count, each carrying its definitional argument in
+the set's own comment (rime riche / rich rhyme / homophone rhyme:
+identical sound, different word; the repetition–radif identity family:
+the same word at whatever length it has; internal / cross / interlaced /
+leonine: a perfect rhyme at a declared POSITION). These take the
+ANCHORED-TAIL rule — the observed anchor cell matches the registered one
+and every following syllable is fully identical — which is not invented:
+it is the registry's OWN polysyllabic spelling, read off its
+feminine ((0,1,1),(1,1,1)), dactylic and multisyllabic keys. The other
+axes (identity, stress, boundary, anchors) still judge exactly as
+before; only the accidental length key stops deciding. An extensible
+name at a longer span is FULLY decidable either way, so a failed
+extension is a REAL no (`cellar`/`teller` is a perfect rhyme and not
+rime riche). **(b) `COUNT_DEFINITIONAL`** — 7 names whose count IS the
+claim (masculine/single at 1, feminine/double at 2, dactylic/triple at
+3, semirhyme's own shape): the wrong length is a real no, because the
+vocabulary itself answers the pair (`cellar`/`seller` is not masculine
+rhyme; it IS feminine rhyme, and the judge says so). **(c) everything
+else REFUSES** naming the registry's gap — `RelationRefused` spelling
+the registered cell lengths against the observed span, with "the pair
+may well stand in the relation; the missing key is the registry's gap,
+not the writer's" — which `grade()` already renders as a refusal record,
+never a violation (doctrine 79). **THE ENTRY'S OWN TABLE RE-RUN:** all
+four monosyllable rows hold True; `cellar`/`seller` and `flour`/`flower`
+are **True** under `type:rime riche`. Gate:
+`quality/test_mandate_relation.py` §11 — the table, the three
+dispositions each pinned with a counter-side, and TWO hand-proven
+mutations (EXTENSIBLE emptied → the headline pair REFUSES, proving items
+1 and 2 are separate repairs; pararhyme forced count-definitional → its
+refusal collapses to the old flat False).
+
+**ITEM 3 — THE SCREEN ASKS THE GRADE'S QUESTION.**
+`screen ... --relation=NAME` judges every pair through the SAME
+`satisfies_relation` at position `end` a mandate declaring that name
+uses (doctrine 1 — screen and grade cannot drift), rendered per pair as
+`SATISFIES` / `VIOLATES ... will charge this pair` / `REFUSED: <the
+judge's own sentence>`. A `schema:` name refuses at the flag with the
+reason (a schema is judged over LINES, which do not exist at the
+screen). WITHOUT the flag the header now says out loud that the verdict
+column is the COARSE class and points at `--relation=` — the disclosure
+half of the entry's ask. Gate: `quality/test_screen.py` §7, both
+directions live (`cellar ~ seller` SATISFIES where it was the measured
+violation; a rhyming non-riche pair VIOLATES with the consequence
+named), plus the schema and unknown-name refusals at exit 2.
+
+**ITEM 4 — THE PRINTED `GRADE IT` RUNS.** On the plan-first path the
+`plan` verb prints the honest TWO-STEP instruction — step 1 the same
+plan invocation plus `--fill`/`--out` (a plan is a pure function of its
+seed, so the refill re-derives the identical plan AND writes the
+blueprint), step 2 `grading_command` against that blueprint — instead of
+one command that named a PLAN file to a verb that reads a BLUEPRINT and
+refused. The fill path keeps its single line, because one step is true
+there. Gate: `quality/test_plan.py` §16, both paths driven through the
+CLI.
+
+**WHAT THIS DOES NOT CLAIM** (doctrine 20): the 56 names in neither
+declared set still have no polysyllabic KEY — they refuse honestly at
+the gap rather than answer, and each moves to answering only by a
+per-name definitional ruling of the kind EXTENSIBLE's comment records.
+The refusal message names this entry so the trail leads here.
 ## Add below this line
 
 ### M-60 · CI could not tell a REFUSAL from a MOVED pin, and the refusal took two working checks down with it `CLOSED` 2026-08-23
@@ -11330,7 +12081,7 @@ panel with a set lens.
 (M-110 and this entry landed in one commit, 2026-08-25; this entry counts while
 OPEN — the count is entries, not closures).
 
-### M-112 · the mandate's own weight on a section is disclosed by nothing `OPEN`
+### M-112 · the mandate's own weight on a section is disclosed by nothing `RESOLVED` 2026-08-28
 Filed 2026-08-25, from the series' third song. `wheat_mane.txt` (seed 2)
 cleared every gate on its first grading round — 0 flags, 0 stacked lines, 0
 banned pairs — and the blind panel still rejected its CHORUS1 at 2/3, with
@@ -11363,7 +12114,38 @@ should be built even while the gate waits.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~169~~ -> **170**.
 
-### M-113 · the screen's CLEAN conflates a clean rhyme with a clean non-rhyme `OPEN`
+**RESOLVED 2026-08-28, in the repair campaign — the disclosure half,
+exactly as this entry scoped it; the gate stays unbuilt for the entry's
+own reasons (a ceiling needs a calibration, the corpus carries no
+mandates, and density is measured not sufficient).**
+`quality/plan.py:bound_token_share(plan)` is the hand computation as a
+pure function of the emitted plan: per section instance, distinct bound
+WORDS (numerator through `bound_placements` + `placement_word` — the one
+reading of the groups string and the one word-key, so `end`+`endword`
+and `head`+`headrime`+`T1` each count once, M-80; returns deliberately
+NOT counted — a verbatim return fixes whole lines, a different
+constraint, doctrine 79) over the section's token CAPACITY (each line's
+`line_syllable_ceiling` summed — a capacity, never a requirement). The
+`plan` verb prints it beside GROUPS/RETURNS as `BOUND :`, labelled a
+disclosure with no calibrated ceiling. **THE SECOND DOOR IS REACHED
+THROUGH THE SHAPE, NOT THROUGH A SECOND DERIVATION**: the function reads
+the plan dict, which is the shape BOTH front halves emit (`recover.py`
+exists so the human door produces it, M-72) — deriving the same count a
+second time off a built `Mandate` for the `song` verb would be a second
+spelling of one question (doctrine 1) and was declined; a recovered
+text's denominator is additionally a different QUANTITY (counted
+syllables, not derived capacity) and folding the two into one column
+would sum two provenances. **THE GATE'S GATE**: `quality/test_plan.py`
+§15 — section order and coverage, the numerator identity against
+`bound_placements`' own reading, the denominator identity against
+`line_syllable_ceiling`, a hand-built toy whose lines carry `end`+
+`endword` and `head`+`headrime`+`T1` so the names-for-words mutation is
+killable on any seed (mutant reads 3/3 where the honest counts are 2/1 —
+hand-proven), and an AST pin that `make_plan` never consults the
+function, so the share can refuse nothing until a calibration licenses a
+ceiling (doctrine 22 for that future band).
+
+### M-113 · the screen's CLEAN conflates a clean rhyme with a clean non-rhyme `RESOLVED` 2026-08-28
 Filed 2026-08-25, from the series' fourth song, and the log fact already
 knew. `screen haiku taboo` prints `pair:haiku~taboo CLEAN`, and `song` then
 charges the same pair `SCHEME_VIOLATION` at **0.435** — `haiku` is
@@ -11385,7 +12167,44 @@ at a verdict instead of a count).
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~170~~ -> **171**.
 
-### M-114 · a whole-word locus in a rime family refuses nothing at declaration time `OPEN`
+**RESOLVED 2026-08-28, in the repair campaign — and the premise was
+half-stale in the flattering direction, which the repair states rather
+than absorbs.** The verdict was never dropped at the CLI: `screen` has
+printed `{relation} {score}` beside the status since it shipped
+(2026-08-18), so on the filing day `haiku ~ taboo` read `RHYME 1.000
+CLEAN` — a verdict column that DISAGREES with the entry's 0.435, because
+`best_score` on the bare pair admits the unstressed-tail span `-ku ~ -boo`
+at 1.0 while `matinee`'s mandate bound the pair at a whole-word `endword`
+locus (that is M-114's coordinate, not this entry's). What this entry
+correctly named survives in two places and both are repaired:
+**(1) the STATUS word answered two questions** — `NO_RELATION 0.389
+CLEAN` (taboo~suite) beside `RHYME 1.000 CLEAN` (suite~deceit) — and now
+answers one: `CLEAN — RHYMES` / `CLEAN — DOES NOT RHYME (<the grader's
+own why>)`, with the tail line counting the two kinds apart
+(`clean and rhyming` / `clean but not a rhyme`, never summed).
+**(2) THE SCAFFOLD WAS DECIDING CLEAN, which nothing had measured until
+this close**: under M-116's 77-schema default, `taboo ~ suite` graded
+satisfied because `chain rhyme (rap)`, `cross rhyme` and `internal rhyme`
+fire on the CARRIER LINES ("we carry the evening to the ...") — the text
+the screen's own headline calls scaffolding — while the equally
+non-rhyming `haiku ~ suite`, which no scaffold schema rescues, honestly
+read below-theta. Two equal pairs, opposite verdicts, decided by the
+scaffold. `screen_pairs` rows now carry `schema_scaffold` (read from
+`grade()`'s own `pairs_schema_satisfied`, the rescue set — one
+definition, doctrine 1) and the CLI renders a rescued pair `CLEAN — DOES
+NOT RHYME as a pair (the schema default answered on the SCAFFOLD:
+<names>)`. The log splits with the verb: `quality/song_log.py`'s screen
+parser banks `clean_rhyming` and `clean_non_rhyme` as two facts (the
+pre-split transcript shape still parses to its own `clean_or_non_rhyme`,
+so banked logs stay citable). **THE GATE**: `quality/test_screen.py` §6 —
+both sides asserted (a true rhyme must read RHYMES, the measured
+scaffold-rescue pair must read DOES NOT RHYME with the schema names, a
+door-failed pair carries the grader's why, and the tail line names both
+counts), so the section cannot pass by relabelling everything one way;
+`quality/test_songs_log.py` §3 repointed at the two facts. The banked
+songs' logs are historical records of the pre-split verb, unedited.
+
+### M-114 · a whole-word locus in a rime family refuses nothing at declaration time `RESOLVED` 2026-08-28
 Filed 2026-08-25, the same song's other half. The slot vocabulary declares
 `head` and `endword` as WHOLE-WORD spans (`word_start` -> `to_word_end`)
 while `T<n>` and `headrime` read the rime (`last_stressed` -> word end) —
@@ -11408,7 +12227,39 @@ construction).
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~171~~ -> **172**.
 
-### M-115 · the prominence band is a count, and both of its evasions are audible `OPEN`
+**RESOLVED 2026-08-28, in the repair campaign — the disclosure half; the
+gate stays unbuilt for the entry's own reason (a monosyllable at `head`
+IS its rime, so a wordless gate has a false positive by construction).**
+One correction to this entry's own coordinate, stated rather than
+absorbed: `head` is not a whole-word span — `HEAD_LINE` is `word_start`
+magnitude 1, the alliteration syllable — so the honest kind coordinate is
+the ANCHOR: `endword` and `head` read the FRONT of the word
+(`word_start`), `end`/`headrime`/`T<n>` read the RIME (`last_stressed`),
+and that is what `quality/slots.py:span_kind` derives from each slot's
+own RULE, never from the placement's name.
+`Mandate.mixed_span_groups()` (`quality/schemes.py`) names every
+DEFAULT-relation group whose members mix the two kinds, with the slot
+spellings per kind — SCOPED TO THE SCALAR ROUTE on purpose, because a
+group declaring a relation is judged by the pair judge at each member's
+own slot (M-148) and crossing kinds there is the schema's own vocabulary
+(head rhyme WANTS a front span). `Reviser.inspect` carries it as
+`"mixed_span_groups"` — CALL metadata on the `blueprint_declared`
+precedent, a key and never a Finding, because the mixing is a fact about
+the DECLARATION and not the draft (and not a new finding code, so the
+gate census's 23/48 partition is unmoved). The report shared by `brief`
+and `song` prints one `MIXED SPANS:` line per named group beside the
+`SCHEMA DEFAULT` disclosure, telling the writer which members answer the
+spelling-class question and which the rhyme question — matinee's
+round-1 defect (`-deceit` head-aligned against `suite` at 0.13, 19 of 22
+violations removed by respelling loci alone) would have been named on
+its first grade. **THE GATE'S GATE**: `quality/test_slots.py` §12 — the
+kind table derived per placement, the bare-number default, the mixed
+group named beside its silent uniform sibling, the declared-relation
+scoping control, the inspect key, and the hand-proven mutation
+(flattening `span_kind` to one value silences the disclosure, so the
+check is the coordinate doing the work).
+
+### M-115 · the prominence band is a count, and both of its evasions are audible `RESOLVED` 2026-08-28
 Filed 2026-08-25, from panel run 4 (`quality/RESULTS_PANEL.md` §7).
 `matinee.txt`'s eleven PROMINENCE_OUT_OF_BAND flags were cleared by
 function-word dilution — every bound word held, prominent syllables
@@ -11432,6 +12283,32 @@ as an FPR (doctrine 22); until then the panel stays the only instrument
 that can hear it, per §4's subtle-mode refusal.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~172~~ -> **173**.
+
+**RESOLVED 2026-08-28, in the repair campaign — the disclosure half; the
+band is untouched and the gate stays with the calibration this entry
+already scoped (a ceiling on stress runs needs its own corpus
+measurement, stated as an FPR, doctrine 22 — a chant line WANTS the
+clot).** `quality/fit.py:LineUnits.prominence_runs` derives (longest
+prominent run, longest weak run) from the SAME ordered units the counts
+read — an UNDECIDED unit breaks both runs rather than joining either,
+because counting it either way would decide a reading the phonology
+refused (doctrine 20). Three surfaces, one derivation:
+`Reviser._band_findings` fills a per-line map off the read it already
+makes (no second pass), `inspect()` returns it as `"prominence_runs"` —
+CALL metadata, a key and never a Finding, so the gate census is
+unmoved — and appends the two runs to `PROMINENCE_OUT_OF_BAND`'s own
+evidence (both branches), so a diluting repair sees the weak run on the
+very flag it is clearing; and the report shared by `brief` and `song`
+prints an `ADJACENCY:` rollup naming the extremes — the line with the
+longest stress run and the line with the longest weak run — never per
+line (noise) and never charged. Both of the panel's quoted evasions are
+now readable: the clot fixture ("six stressed monosyllables") reads a
+run of 6 on a line the band passes, and strung function words read as
+the weak run. **THE GATE'S GATE**: `quality/test_meter_bands.py` §11 —
+clot vs alternating control under the adopted reader, the weak-run half,
+the undecided-breaks-both-runs pin, the inspect key for every line, and
+the hand-proven mutation (the property flattened to (0,0) silences the
+disclosure, so the checks are the derivation doing the work).
 
 ### M-116 · all 77 schemas join the default — the owner's ruling, shipped `CLOSED`
 Filed and closed 2026-08-25, on the owner's direct instruction ("put all 77
@@ -13685,6 +14562,27 @@ The `mandate_spelling` repair is what a caller needs the day it does.
 Attributed to a lane; the 34/0 grading contrast, the `--returns=` refusal and
 the mutation I re-derived myself.
 
+**ADDENDUM 2026-08-28 (repair campaign): the open half's REFUSAL is in the
+right layer's words now, and the acceptance was DECLINED on inspection.**
+The campaign's build slot for (1) was "take the slot spelling the sibling
+takes" — and reading the identity machinery refused it: `Return.lines` is
+a tuple of ints and EVERY judge reads lines — `returns_check`'s verbatim
+comparison, the loop's pinning (`_anchor_obligations` refuses to search a
+return-pinned line), `repeat_is_violation` — so accepting `1.head` into
+`_normalise_returns` would take a declaration about one WORD and judge a
+different one about its whole line: accept-and-misjudge, worse than the
+refusal. What shipped instead: `_normalise_returns` refuses a placed
+member BY NAME with the remedy stated (it was `invalid literal for int()
+with base 10: '1.head'` — a `ValueError` from three frames down, caught
+by the CLI's mismatch handler and printed in the wrong layer's words),
+and a non-numeric member gets its own named refusal beside it.
+`quality/test_mandate_language.py` §7 pins both. **The entry's (1) now
+owes exactly one thing, stated: a placed word-identity JUDGE** — a
+`Return` that carries loci and a `returns_check` that compares the words
+at them, with every line-keyed consumer audited — which is a build, not a
+spelling, and is why 94.9% of recovered REPEAT edges remain refused
+(loudly, with the remedy) rather than accepted.
+
 ### M-143 · the candidate field was built at one door and said so to nobody `CLOSED`
 Closed 2026-08-26, the `PER_WORD` half of M-139. **`Reviser._field_one` holds a
 WORD and the 77-schema judge holds LINE PAIRS, so the second half of the
@@ -14116,3 +15014,752 @@ the only cache in the file whose contents are the OUTPUT of the step it feeds.
 205** across this sitting (doctrine 17, every superseded value kept visible):
 202 -> 203 with M-145, then 203 -> 205 with M-146 and M-147, because that
 counter counts register entries and this sitting wrote three.
+
+### M-148 · the certified draw pool and the mandate judge disagree about at least one name — canonical answers to a drawn relation grade VIOLATED `RESOLVED` 2026-08-27
+
+**Found 2026-08-27 by WRITING A SONG through the full working order — sweep,
+screen, plan, write, grade, revise — after the owner's ruling that no step may
+be skipped. The skipped-step complaint is what surfaced this: a pass that
+stopped before the revise loop would never have reached the brief that named
+it.**
+
+**THE COLLISION, STATED ONCE.** M-117's `relations.DRAWABLE_SCHEMAS` is 22
+names *"a declared sixteen-line English witness certifies a writer can
+satisfy"*, drawn by the planner into ordinary mandates. M-58 records that the
+named-relation judge is monosyllable-only for 69 of 76 names. Nothing checked
+the two against each other: membership in the certified pool was never tested
+against the route a MANDATED pair actually takes —
+`satisfies_relation` on two declared words — and at least one drawn name
+refuses its own canonical answers there, monosyllables included.
+
+**MEASURED, seed 28 of the verse-chorus form, and on minimal two-line
+fixtures through `brief --groups=1.T2,2 --relations=A:schema:...`:**
+
+  - `cluster consonance / skothending span` — six textbook pairs, each with
+    the post-stress consonant sequence agreeing and the stressed nucleus
+    differing, ALL SIX VIOLATED: fast/lost, best/last, hand/wind, milk/walk,
+    night/gate, heart/short. fast/lost is the canonical English instance of
+    the relation. All monosyllables, so this is not M-58's stated shape — for
+    this name the judge refuses at ONE syllable too.
+  - `hurried ~ carried` at the declared placements (3.T6/5.T4): the `screen`
+    verb types it RHYME 1.000 CLEAN and the schema route grades it VIOLATED.
+    One pair, two verdicts, two instruments in one repository (doctrine 1).
+  - `returning ~ running` (post-stress N-NG agreeing, nuclei ER/AH
+    differing — the relation's own definition): VIOLATED.
+  - Membership: `cluster consonance / skothending span`, `multisyllabic
+    rhyme` and `compound / phrasal rhyme` — the three names that refused
+    every reasonable answer across five graded drafts — are all in
+    `relations.DRAWABLE_SCHEMAS` (22 names, verified by import on the day).
+
+**THE SUSPECTED MECHANISM, named so the repair can test it rather than
+rediscover it: the certificate and the judge run different routes.** The
+witness certification asks whether the schema REALISES over a witness stream
+(`relations.realise`); a mandated pair asks whether TWO DECLARED WORDS stand
+in the relation. The certificate was issued on the route a mandate never
+takes. Same species as M-59's shape/policy split, one layer over.
+
+**WHAT THE SITTING ESTABLISHED BESIDE IT, so the field evidence is not
+re-derived:** the anaphora verdict turns on the LINES' initial tokens
+matching, not on the words at the declared placements (measured: identical
+declared words fail while lines opening on one word pass); the skothending
+verdict IS read at the declared placements (the report's own pair text names
+them). Five graded drafts of one song moved 62 -> 9 -> 11 -> 7 -> 8 flags,
+the chorus anaphora groups closing by measurement and the remainder blocked
+by this entry's judge, not by any word available to a writer.
+
+**WHAT IS OWED.** (1) The judge repaired for the 22 drawn names — M-58's
+repair scoped to the pool the planner actually reaches. (2) The gate that
+belongs with it: every name in `relations.DRAWABLE_SCHEMAS` must accept its
+own canonical answer THROUGH THE GRADE ROUTE, a check that would have gone
+red the day M-117 shipped. The gate ships with the repair, not before it — a
+gate born red is a gate people learn to skip. (3) Until then a writer's
+documented precedence move (`--relation=` silences the draw) is the honest
+route for a song, DECLARED and disclosed, never a quiet workaround.
+
+**THE SONG THIS CAME FROM IS PARKED OPEN, not presented:** exit 3, 8 flags,
+its state banked in the session record. Songs are not corpus and this entry
+cites no line of it as evidence; every measurement above is a fixture or an
+import.
+
+`audit_register.PINNED["coverage_entries"]` is repinned **~~205~~ -> 206**
+with this entry (doctrine 17, the superseded value kept visible), because
+that counter counts register entries and this sitting wrote one.
+
+**RESOLVED 2026-08-27, TWO DEFECTS AND THE GATE, in the same sitting the
+entry demanded them.** The "suspected mechanism" above was measured true and
+was TWO defects, named P1 and P2 when they were localised:
+
+**P1 — `relations._seq` flattened the whole anchor syllable, ONSET
+included.** The skothending schema's sequence is declared FROM the anchor
+vowel (its own note: Snorri's jörð:fyrðum share 'rð' — not 'j…rð', which is
+what flattening the anchor syllable read, and not 'rð…m', which is what
+running to the word end would read), and `_seq` read `fast` as [F,S,T]
+against `lost`'s [L,S,T]. The certificate never saw it because the witness
+exhibit `gate~goat` has agreeing onsets. REPAIRED as the post-vocalic
+CLUSTER read (`_cluster_scoped`/`_post_vocalic`): for a vowel-keyed anchor
+(`last_stressed`/`penult_stressed`/`final_unstressed`, direction > 0) on the
+`consonants` channel, the anchor unit contributes its CODA, the walk crosses
+the syllable boundary through the next onset, and the next NUCLEUS ends the
+cluster. Measured over the registry: skothending is the ONLY schema the
+condition touches — parechesis and the three cynghanedd skeletons anchor
+`word_start` and are byte-identical, pinned by the parechesis control and
+the untouched suites. **An EMPTY cluster is False WITH THE REASON, never
+vacuously true**: two open syllables (day~sea) share an empty sequence, and
+`SequenceEqual((), ())` through the 77-schema default door would have
+satisfied every such pair silently. The bucket index is threaded the same
+`rule` so it keys on what the verdict reads — without that, fast~lost land
+in different buckets and the repaired judge never sees the pair.
+
+**P2 — the schema branch of `satisfies_relation` never read the declared
+placements.** It answers `(i, j) in instances`, and `instances` is
+`realise()` at the schema's OWN loci — while the class route (E2, measured
+above) reads declared slots correctly. REPAIRED as
+`relations.pair_satisfies(schema, stream, (line, token), (line, token))`:
+the DECLARATION names the token (`slots.token_of` derives it from the
+slot's own locus), the SCHEMA keeps its member anchors, magnitudes,
+channels, identity rules and unmatched treatment (`_spans_at` builds,
+`evaluate` judges — the same two functions `realise` uses), and only the
+schema's PLACEMENT rules are stripped, because a declared slot is the
+writer overriding exactly that coordinate. `Reviser.grade` routes a
+schema-namespace relation through it exactly when the pair's slots are
+non-default; default slots keep the instances route, whose loci for an
+end-anchored schema ARE the declared placement. Span shapes one token
+cannot bind REFUSE BY NAME — `free_run` (chain rhyme (rap), compound /
+phrasal, multisyllabic: a searched window, doctrine 56), `line_head_index`
+(monai), whole-line spans — a `Refusal` returned, never a wrong answer, so
+18 of the 22 drawn names judge in pair mode and 4 refuse with the reason.
+
+**THE GATE SHIPPED WITH THE REPAIR: `test_mandate_relation.py` §10.** Three
+halves, each killed by its own hand-proven mutation: all 22 drawable names
+SATISFIED on their own witness exhibits through `Reviser.grade` (the route
+a planned mandate takes); the canonical monosyllable battery at default
+slots — the check that reds on restoring the whole-syllable flatten (2
+checks red under that mutation) — with `day~sea` VIOLATED killing the
+dropped empty rule (1 check); and the declared-token CONTRAST — the same
+schema on the same draft satisfied at `fast`@1.T3 and violated at
+`held`@1.T2 — killing the unwired pair route (2 checks), because through
+the instances route both slots answer alike.
+
+**TWO OF THIS ENTRY'S OWN BATTERY CLAIMS ARE AMENDED ON MEASUREMENT, and
+the amendments are the repair being honest rather than incomplete.**
+(1) `milk~walk` is NOT skothending in the declared dialect: CMUdict General
+American reads `walk` as W-AO-K with the L silent, so the pair agrees in
+SPELLING and not in the phonology the mandate grades through — the battery
+is 5/6 SATISFIED (fast/lost, best/last, hand/wind, night/gate, heart/short)
+and milk~walk correctly VIOLATED, which is doctrine 1 locating the
+disagreement in the dialect coordinate. (2) `hurried~carried` is NOT
+skothending either — hurried's post-stress cluster is EMPTY (hur.ried has
+no consonant between ER and IY) while carried's is R — so the doctrine-1
+charge above ("one pair, two verdicts") is withdrawn: `screen`'s RHYME
+1.000 answers the CLASS question and the schema route answers a DIFFERENT
+one, and both verdicts are now correct. `returning~running` — the entry's
+polysyllable exemplar — is SATISFIED (clusters (N)~(N), nuclei ER/AH).
+
+**WHAT MOVED AND WHAT DID NOT, measured.** The witness pool re-derives
+byte-identical (22 names — `derive_drawable_schemas()` still equals the
+adopted tuple, `test_plan.py` §14's own pin). The sonnet battery is
+UNMOVED at 1064/1014/50, violations 12 (1.2%) — no sonnet pair's verdict
+turns on a vowel-anchored cluster. ONE pin repinned (doctrine 17, strike
+kept visible in place): `test_relations.py` §X6's staged-item split
+~~30 FIRED / 26 REFUSED / 21 RAN AND FOUND NOTHING~~ -> **31/26/20** — the
+schema that crossed from found-nothing to FIRED is skothending itself, 12
+true instances on the staged item (oppression~constellation the first),
+which is the repaired read finding what the onset-inclusive flatten could
+not. `door_census --check`, `gate_census --check`, `test_homeoteleuton`,
+`test_capabilities`, `test_slots` all green and unmoved.
+
+**WHAT THIS DOES NOT CLOSE:** M-58's headline — the `type:` namespace's
+monosyllable-only judge — is untouched by construction (the repair is in
+the route a `schema:` relation takes and a `type:` relation never
+reaches); M-58's addendum records that the drawn pool is out from under it
+and its four owed items stand. And the two seams the repair made VISIBLE
+are M-149, filed the same day rather than buried in this close.
+
+**ADDENDUM 2026-08-28 — A THIRD RECORDED FIGURE MOVED AND WAS FOUND A DAY
+LATER, found by `test_null_shapes` §9 while the M-45 sitting was verifying
+its own edits to the same module.** The close above records "one
+test_relations pin" as what moved; the frozen `EXTENSION_LEDGER` held a
+second casualty nothing re-read: `cluster consonance / skothending span`
+recorded NO_INSTANCE and measures EXTENDABLE on the ledger slice, because
+the repaired `_seq` reads the post-vocalic CLUSTER and the
+cluster-consonance schema now finds instances where the sequence reading
+found none — the repair's own worked example (fast~lost) is the mechanism.
+Attributed by worktree, not inference: `verify_extension` is green at
+`1794e6d` and red at `0593fa1`, this entry's repair commit, with the
+identical red at `beb9a6a` and `f235954` either side of the two sittings
+between. `test_null_shapes` was not in this sitting's run list — the same
+species as the `test_grid` fixture pin M-47's sitting repinned, and the
+second inherited casualty of this entry found by a later sitting's sweep.
+The row is repinned EXTENDABLE with the ladder in the ledger's own header
+(EXTENDABLE 33 -> 34), `RESULTS_NULL_SHAPES.md` §4b carries the dated
+repin, and `verify_extension` returns empty again.
+
+### M-149 · the pool meets the slots: a drawn free_run schema on a token slot is unjudgeable as declared, and one group's refusal silences its siblings on the pair `RESOLVED` 2026-08-28
+
+**Found finishing the song M-148 parked, in the first grade the repaired
+judge ever ran over a full plan. Two facets of one seam — the certified
+draw pool and the placement draw compose into conjunctions the grade route
+can only refuse — plus one pre-existing sharing defect the slot coordinate
+turned live.**
+
+**(a) THE PLANNER BINDS FREE_RUN SCHEMAS TO DECLARED TOKENS.** Seed 28's
+verse-chorus plan drew `multisyllabic rhyme` onto `1.T7,2.T7,3.head,4.T3`,
+`compound / phrasal rhyme` onto a seven-member token web, `monai` and
+`chain rhyme (rap)` onto T-slots — 8 of its 25 groups. The relation draw
+(M-117) and the placement draw (M-71/M-80) are independent, and no layer
+holds their conjunction: a `free_run` span SEARCHES windows and a
+`line_head_index` span takes its position from its own magnitude, so at a
+declared token the repaired judge refuses BY NAME
+(`relations.pair_satisfies`, M-148 P2) — correctly, but every such group
+now grades as a disclosed refusal that no writing can close and no writer
+asked for. Before the repair these graded as VIOLATIONS a writer could
+not fix (three of the parked song's eight standing flags), which is how
+the seam was found. NOT M-79's unwritability — the words exist — and not
+a judge defect: the CONJUNCTION is drawn and nothing prices it. What it
+owes: the placement draw (or the joint gate) consults the schema's span
+shape, so a schema whose members cannot bind one token is drawn at
+default slots only, where the instances route judges it at its own loci.
+
+**(b) `grade()`'s REFUSED SET IS KEYED ON THE LINE PAIR, NOT THE (PAIR,
+GROUP).** A refusal minted while judging one group adds `(i, j)` to a set
+every later group's copy of that pair is skipped through. That sharing
+predates slots and was harmless when every group read the same two end
+words; a slot web puts several groups on one line pair READING DIFFERENT
+WORDS. Measured on the finished song's own mandate: groups H
+(`schema:perfect rhyme`) and I (`schema:anaphora`) on lines (6, 7) were
+never judged at all — J's scalar slot-refusal on the same pair landed
+first, and both siblings' questions were silently converted to UNKNOWN.
+A refusal about one group's reading is not an answer about another's
+(doctrine 79, at the key's own granularity). What it owes: key the skip
+on `(i, j, k)` — or measure that per-group re-judging costs nothing and
+mint per-group records — without disturbing the scalar path, whose
+refusals genuinely do speak for every default-slot group of the pair.
+
+`audit_register.PINNED["coverage_entries"]` is repinned **~~206~~ -> 207**
+with this entry (the counter counts register entries and this sitting
+wrote one).
+
+**FACET (b) IS REPAIRED — 2026-08-28, the first sitting of the systematic
+repair campaign — and the entry stays OPEN on facet (a) alone.** The skip
+set holds `(i, j, k)` triples now; a SCALAR end-word refusal poisons
+exactly the groups whose member slot is DEFAULT on an unreadable line (the
+record keeps one entry per pair and its `groups` names only the poisoned
+groups — a pair no group reads mints no record); the slot and relation
+refusals poison only their own group; and the doctrine-79 triple reads the
+TRIPLE SET, not the record list, so `mandated = judged + refused` holds by
+construction — before, `judged` subtracted refusal RECORDS while the skip
+consumed refusal PAIRS, which is M-144's refusal-in-the-judged-column
+shape surviving at the sharing seam.
+
+**WHAT THE REPAIR REVEALED, measured on the one banked song whose mandate
+is a slot web.** `songs/the_long_way_back.txt`'s recorded triple
+65/27/38 (returns excluded) reads honestly as **65 mandated / 16 judged /
+49 refused** — eleven group-pairs sat silently skipped in the judged
+column — and of the newly-asked questions **TEN were real unsatisfied
+obligations**: nine violations across the vamp, postchorus and coda
+(anaphora I; consonance K; skothending M; light rhyme X; the perfect-rhyme
+triple R; head rhyme Y; internal rhyme W), plus monorhyme E(1,3), which
+only the blueprint's stanza frame can even ask. Every one had been
+silenced by a SIBLING group's refusal on the same line pair. The song was
+rewritten through the full order — screen (the ban caught five candidate
+pairs on the way: returning~burning, Hold~fold, Lined~unsigned,
+frost~lost spelled-identical, and alone poisoning every partner as their
+modal head), grade to exit 0, revise to SUCCESS in 0 rounds — and
+re-banked; the sibling commit carries it. The other banked songs'
+rows are HISTORICAL RECORDS keyed to their harness commits (songs are
+not corpus and `RESULTS.tsv` is commit-keyed by design); any of them
+with a slot-webbed mandate may likewise hold silenced questions under
+the current tree, and that is a fact about those trees' judges, not
+about the banked verdicts, which were true when banked.
+
+**THE GATE:** `test_revise.py` §46 — the sibling-judged check (a T-slot
+refusal on one group beside a default-slot group on the same pair, the
+sibling judged), the scalar scoping check (an unreadable end word refuses
+BOTH default-slot groups of its pair and nothing else), both count
+identities, and the record-dedupe check. The mutation — restoring
+pair-keyed skips — reds the load-bearing check by hand-proof. Battery
+unmoved at 1064/1014/50, violations 12: every sonnet pair is in exactly
+one group, so the key change is invisible there by construction.
+
+**FACET (a) IS REPAIRED the same day, which closes the entry.** The
+relation draw consults the pair judge's own predicate —
+`relations.pair_bindable`, the ONE definition (doctrine 1) of the span
+shapes `pair_satisfies` refuses by name: both member rules read a
+token-shaped locus and neither anchor is searched. A group binding any
+declared non-`end` slot draws only from the bindable subset; the four
+unbindable drawables — chain rhyme (rap), compound / phrasal rhyme,
+multisyllabic rhyme (free_run's three searchers) and monai (the head
+index) — stay drawable at DEFAULT slots, where the instances route
+judges them at their own loci, so no name leaves the certified adoption
+and the dice stay flat over the accepted subset (the planner's own
+rejection idiom). **MEASURED over seeds 1-60 of the verse-chorus form:
+354 unbindable (draw, placement) conjunctions before the filter, every
+one of the 60 seeds carrying at least one — and 0 after, 0 seeds lost.**
+The disclosure in `choices.relations` names the narrowing. The gate is
+`test_plan.py` §14's three added checks — the unbindable subset DERIVED
+from the registry (a moved registry moves it loudly), a six-seed sweep
+at zero conjunctions, and the stays-drawable control — with the mutation
+(dropping the `_slotted_g` filter) hand-proven to red the sweep. One
+consequence stated rather than buried: a plan is a pure function of
+(seed, tree), so a seed re-rendered under the repaired draw can carry
+different drawn relations than the same seed's banked artifacts — the
+banked blueprints and grading commands are internally consistent records
+of their own trees, exactly as the RESULTS rows are.
+
+**ADDENDUM 2026-08-28, found by the M-57 sitting's run of `test_plan`:
+this repair left §4's relations allow-list one sitting behind.** The (a)
+draw consults `_RL.pair_bindable(_RL.REGISTRY[name])` and
+`ALLOWED_FROM_RELATIONS` still held three names, so the guard — whose
+whole job is to catch a new grid/relations reference the sitting it
+lands in — was RED at HEAD and nothing had looked: `test_plan` was not
+in this sitting's run list, the third instance of that species found
+today (M-148's `test_grid` fixture pin, M-148's `EXTENSION_LEDGER` row,
+now this). Repinned with attribution in the list's own comment; both
+names are admissible on the check's own worry (a pure predicate over a
+schema row and the declared schema table — no stream, no realiser, no
+phonology).
+
+### M-150 · the working order's last step had no gate: a rendered song presented with its convergence state unsaid reads as finished `RESOLVED` 2026-08-28
+
+**Filed and repaired in the repair campaign's sweep of the operator seam,
+from the owner's standing rule — "nothing should be allowed to skip a
+step" — asked of the one step no verb could reach.** The working order is
+sweep -> screen -> plan -> write -> grade -> revise to a STOP CONDITION.
+Every step but the last ends in an instrument that refuses: the sweep
+refuses an empty accepted set, the screen bans the pair, the plan gates
+joint satisfiability, the grade exits 2, the loop exits 3 while a flag
+stands. The LAST step's fact — the run reached a stop condition — lives
+in a terminal, and the turn that then presents the rendered song could
+present it BARE: correctly rendered, apparatus intact, M-97's gate
+satisfied, and not one word about how the run ended. A rendered song
+shown bare reads as FINISHED with no instrument having said so. That is
+the skipped-steps defect at the seam where every earlier instance of it
+lived — the operator's message — and this repository's own history is
+the argument: the M-148 sitting parked a song at exit 2 and the parked
+state was carried in prose and memory, nothing mechanical, until the
+schema judge was repaired.
+
+**THE GATE EXTENDS THE INSTRUMENT ALREADY READING THE TURN.**
+`quality/check_render_form.py` gains `rendered_without_state(text)`
+beside `violations(text)`: a turn presenting `MIN_BRACKETS` or more
+BUILT section headers (apparatus-carrying — a bare-bracket turn is the
+other check's defect) with no `RAW LYRIC FILE` declaration must also
+match `STATE` — `exit N` in the spellings the verbs themselves print
+(`exit 0`, `exit=3`), or `UNCONVERGED` / `PARKED`, case-insensitive —
+anywhere in the turn text. Missing, the turn is refused through the same
+`main()` the Stop hook (`.claude/settings.json` -> `Stop` ->
+`.claude/render_form_hook.sh`) already wraps to exit 2, so the wiring
+cost is zero: one hook, two questions of the same text.
+
+**DISCLOSURE, NEVER ADJUDICATION — that is the design decision and the
+reason the gate is cheap.** The check requires the state be SAID and
+never that it be clean: an exit-3 draft presented WITH "exit 3" is a
+disclosed draft and passes; the same draft presented bare is refused.
+Adjudicating truth here would need the gate to re-run the verbs, and a
+false claim already has an owner — `quality/song_log.py --verdicts`
+charges every process claim against the banked log, three counts never
+summed. One instrument per question (doctrine 1): this gate owns
+"was the state said", `--verdicts` owns "was it true".
+
+**THE GATE'S GATE:** `quality/test_render_form.py` §7 — the stateless
+built render refused with every header named and `main()` at exit 1;
+the same render beside "exit 0" passing; beside "exit 3" ALSO passing
+(the disclosure-not-adjudication check); `UNCONVERGED` passing
+case-insensitively; the `RAW LYRIC FILE` escape; the one-bracket floor;
+and the hand-proven MUTATION — `STATE` blunted to match-anything
+accepts the stateless render, so the refusal is the state regex doing
+the work and not the fixture. §6's end-to-end good arm now presents the
+built form WITH its state, which is what a finished presentation looks
+like under both of this instrument's questions. Suite green, 7 sections.
+
+### M-151 · the `cynghanedd` verb reaches neither `caesura` nor `marks` — two declared coordinates with no command-line entrance `CLOSED` 2026-08-28 — both entrances built, the coordinate and its k printed on every cym run
+Found 2026-08-28 while M-7 made the mark set declarable, and it is the
+built-and-unreachable family at the one verb whose whole subject is the
+coordinate. `check_cynghanedd(lex, text, decl, language, caesura="marked")`
+has implemented BOTH caesura readings since 2026-08-15 (its docstring: *"the
+caller has to name which it wanted"*), and the verb dispatch at
+`lyric_harness.py` passes only `language=` — so no CLI caller has ever named
+one, every `cynghanedd` verb run is marked-mode by a default the caller
+cannot see, and `positions_tried` — the k that doctrine 19/56's correction
+needs — is reachable from the command line by nothing. M-7 widens the gap by
+one: `marks=` is now the coordinate that decides whether a dash-printed
+edition has ANY marked reading, and the CLI cannot spell it, so a caller
+grading Alun through the verb gets llusg-or-nothing with no way to declare
+the edition's own convention. The fix is the `--lang` pattern in the same
+dispatch arm: `--caesura=marked|search` and `--marks=M,M,...` (eq_only,
+value-vocabulary refusal for the first; the second splits on commas and
+refuses an empty set), threaded through `check_cynghanedd`, cym path only —
+the eng imitation splits on commas and has no mark set to declare, so a
+declared `--marks` under `--lang=eng` is REFUSED naming the conjunction, not
+dropped. Usage row, wiring map and `test_verbs` section move together (the
+three-sets-equal gate). Not folded into M-7's sitting: the entry's sized fix
+was the API coordinate and its measured blast radius (pins + three tests)
+landed exactly, so the entrance is its own small sitting rather than scope
+drift on a closed one — and this entry is the record that the omission is
+NAMED, not silent (doctrine 20).
+
+**CLOSED 2026-08-28, to the entry's own prescription plus one printed line
+it asked for implicitly.** `--caesura=marked|search` (eq_only, refused by
+vocabulary at exit 2 with both readings' meanings in the message) and
+`--marks=M,M,...` (comma split; an EMPTY set refuses rather than matching
+nothing) ride the `--lang` pattern in the same dispatch arm;
+`check_cynghanedd` gains `marks=` and threads both into `cym.cynghanedd` /
+`cynghanedd_scan`; `--lang=eng` with EITHER coordinate refuses naming the
+conjunction — extended past the entry's `--marks`-only prescription to
+`--caesura=search` too, on the same argument: the imitation ignores the
+caesura coordinate entirely, and accepted-and-dropped is the defect this
+CLI refuses by name everywhere else. And the coordinate is PRINTED now on
+every cym run — `caesura: search — 15 position(s) tried; marks: / |` —
+because `positions_tried` was computed on every call and reached the page
+through nothing, which was the entry's doctrine 19/56 headline. A non-CLI
+caller passing `marks=` with `language="eng"` gets the same refusal from
+`check_cynghanedd` itself (one definition, two doors).
+
+**GATES:** `test_verbs` §46 drives M-7's own measured contrasts through
+the verb — the Ust line SAIN at k=15 under `--caesura=search` and NOTHING
+at k=1 under the marked default (the type exists only under the sweep),
+the Och line answering TRAWS on the declared dash (`--marks=--`) — plus
+the three refusals, the plain `--lang=eng` control, and the usage row
+naming both flags (the three-sets-equal gate's own subject). Usage row
+and wiring updated together; `wiring` reports no strand.
+
+### M-152 · Bracketed VERSE: six files print sung text inside `[...]` blocks, and the reader can only lose it `CLOSED` 2026-08-28 — the keep-the-body convention, declared per block
+Found 2026-08-28 while building M-47's wrapped-note follow rule, and it is
+the OPPOSITE defect from the one that sitting closed: there, apparatus
+leaked in as verse; here, verse is read as apparatus, and the opening line
+is ALREADY lost today (`is_apparatus_line` drops any `[`-opening row).
+Measured populations, each inspected: **`eng_hymn_watts.txt`, 14 blocks** —
+whole OPTIONAL HYMN STANZAS in brackets (`[Let Papists trust what names
+they please, ... Nor pray to th' heavenly host.]`), a hymnal convention
+meaning "may be omitted in singing", four sung lines each with the first
+silently dropped; **`eng_american_joseph_rodman_drake.txt`, 1 block** — a
+bracketed quatrain the file's own editorial note explains (*"The
+penultimate quatrain [enclosed in brackets] ended the poem"*);
+**`eng_british_lewis_carroll.txt`, 4 blocks** — a MIXED shape whose opening
+line is a note (`[later editions continued as follows`) and whose body is
+verse, so neither a follow rule nor a keep rule fits whole;
+**`eng_hall_thomas_durfey.txt`** — bracketed sung stanzas AND spoken-
+dialogue brackets AND unclosed `[Music:` cues in one file (the follow scan
+ate thirteen lines of "Let's sing of Stage-Coaches" before its row was
+struck — M-47's close holds the ladder); **`eng_hall_john_gay.txt`** —
+multi-line stage directions that NEVER close, beside real air text; and
+one Skeat orphan. All six carry `audit_corpus` check L's NOTE on purpose.
+The remedy is a THIRD declared convention (keep-the-body, strip the
+brackets, with a per-file rule for whether the opening line is verse or a
+note), and it is its own sitting because every block must be read before
+its file is declared — the two rows M-47 struck are the measured price of
+declaring by shape alone. Until then the M-47-era behaviour stands: the
+opening `[` line drops, the body leaks as unbracketed verse, and the close
+line keeps a token-invisible `]`. Also in this class's orbit, named in
+M-47's close: three orphan closes with no opener (Emmett's `Mass.]`, one
+Skeat, two Lovelace) and Freneau's one mid-line-opening editorial gloss.
+
+**CLOSED 2026-08-28 — the THIRD declared convention shipped, and the
+census was corrected by its own rule before anything was declared.**
+`lyric_harness.bracketed_verse_edits(raw_lines, name) -> (drops, edits)`,
+consumed by all four readers (`load_lyric_lines`,
+`readability.read_lines`, `grid.read_marked_songs`,
+`build_song_frequency`) with the per-line EDIT applied BEFORE the
+apparatus test — which is what turns a declared opener from an apparatus
+row into the sung line it prints. Three tables, matched through ONE
+predicate (`bracket_block_rule`, which `audit_corpus` check L also asks,
+so the census and the reader cannot drift — doctrine 1):
+`BRACKETED_VERSE_FILES` (file-wide: watts/drake/msa_skeat `verse_opener`
+— strip the `[`, keep the line, strip the `]` off the close row found by
+`_bracket_verse_close`, which skips apparatus and blanks and requires the
+close row's `]` to OUTNUMBER its `[`; gay `direction_to_blank` — drop
+continuation lines to the first blank); `BRACKET_BLOCK_ROWS` (per-block,
+keyed on the opener's own content: carroll's "[later editions continued"
+note-opener-verse-body and two wrapped-note dedications; durfey's exact
+`[Music:` verse bodies, `[Music: <text>` prefixed-verse opener, and
+`[Sidenote:` wrapped dialogue notes); and `BRACKET_LINE_EDITS` (the six
+orphan lines, adjudicated one by one below). The two follow conventions
+are DISJOINT BY CONSTRUCTION — an import-time check refuses a file in
+both M-152's tables and `WRAPPED_APPARATUS_FOLLOW`, because M-47's scan
+would eat what M-152 declares as verse (the exact defect that struck
+Durfey's row from that set).
+**THE CENSUS WAS WRONG THREE TIMES AND THE TEXT SETTLED EACH.** This
+entry's own population figures said watts's block at 25178 "NEVER
+closes" — reading the text shows ONE bracketed passage spanning TWO
+stanzas, closing at +8 across its own `[VERSE 4]` marker (the census's
+scan had stopped at the marker; `_bracket_verse_close` skips it, the
+same rule M-47's note scan holds). Gay's direction at 251 carries TWO
+continuation lines, not one. And durfey's Sidenote at 5547 runs three
+rows. 14 watts / 1 drake / 1 skeat / 8 gay / 4 carroll / 16 durfey — the
+production function reproduces the corrected census block for block
+(`test_readability` §12).
+**THE ORBIT, ADJUDICATED LINE BY LINE:** Emmett's `Mass.]` is the tail
+of a wrapped note whose OPENER the staging lost (`[VERSE 2]`'s sole
+content) — apparatus by declared content, dropped. Lovelace 1176
+`Or wound it o're againe.]` is a sung stanza's final line carrying the
+printer's quoted-song-end mark, no opener anywhere — `]` stripped, verse
+KEPT. Lovelace 2779–80 `... 1656. folio. [The words` / `are by
+Stanley.]` is a mid-line-opening wrapped editorial gloss — the opener
+truncated at its `[`, the close line dropped. Freneau 677–8 `"To you
+[the fat pot-valiant swain` / `To Digby said], dear friend of mine,` is
+an AUTHORIAL parenthetical that is metrically part of the verse — the
+bracket characters stripped, every word kept. And "one Skeat orphan" and
+the skeat opener are ONE printed bracket: the sha`ir's own sung colophon
+(`[Tamat-lah ... penghabis-habis]`, PG source lines 23091–98,
+consecutive), split by staging into quatrains 101 and 102 — opener and
+close both stripped, both quatrains four sung lines again.
+**THE SWEEP THAT CLOSED THE CLASS FOUND A DEFECT IN M-47's OWN SCAN.**
+Asserting zero surviving orphan closes over the whole kept stream left
+exactly ONE: Hemans's Chorley note carries a balanced footnote anchor
+(`... monumental character,[399]`) three rows before its close, and the
+follow scan's `"]" in t` close test stopped there, leaking the note's
+last three lines as verse. AMENDED: the close row's `]` must OUTNUMBER
+its `[`s. Measured over all fifteen follow files: Hemans 260 -> 263
+drops is the whole delta. The sweep is now `test_readability` §12's
+zero-assertion AND check L's third question (orphan closes, 0 today,
+guarding new staging); check L's second question consults
+`bracket_block_rule` so the six standing NOTEs this entry carried leave
+by declaration, not by silencing.
+**MEASURED CONSEQUENCES, each carrying its sign:** `lines_countable`
+282402 -> 282397 = +16 sung lines recovered (watts 14, drake 1, durfey's
+`[Music: The King...`) − 18 editorial/direction lines dropped (durfey
+11, gay 3, carroll 2, emmett 1, lovelace 1) − 3 Hemans; EVERY refusal
+count in the §5 pins is byte-identical across the repin (the convention
+moved which lines are SUNG and moved no refusal — the control that it
+landed where it aimed). The frequency tables rebuilt:
+`data/song_endword_en.tsv` 131,219 -> 131,211 rows and
+`song_rhymepair_en.tsv` holds 97,099 with 23,826 -> 23,827 pair types
+(both provenance rows repinned with md5s). `test_readability` §12: 18
+checks, THREE mutations hand-proven in place — pull watts's file row
+(zero edits, the openers would be apparatus again), pull durfey's
+`[Sidenote:` block row (its eleven note lines leave the drop set), pull
+emmett's line row (`Mass.]` would sing again).
+**WHAT IS NOT FIXED, NAMED (doctrine 20):** the brackets were this
+entry's class, not the STAGING around them. Lovelace's `[VERSE 8]`–
+`[VERSE 10]` under "THE MAID'S TRAGEDY" are Hazlitt's editorial NOTES
+staged as verses (M-152 stripped only the bracket gloss inside them),
+and Emmett's `[VERSE 1]` holds the attribution line "By DAN D. EMMETT."
+— editorial text under a verse mark, with no bracket for this convention
+to key on. That class is M-153.
+
+### M-153 · Editorial text staged under `[VERSE n]` marks: two measured instances, no bracket to key on `OPEN`
+Found 2026-08-28 adjudicating M-152's orbit, and it is the staging class
+that convention CANNOT reach: text that is not sung, standing under a
+real verse mark, with no bracket for a declared span or block rule to
+key on. Measured instances, both read in place: (1)
+`corpus/song/eng_parlour_daniel_decatur_emmett.txt` — the first song's
+`[VERSE 1]` holds exactly the attribution line "By DAN D. EMMETT." (its
+`[VERSE 2]` held only the orphan note tail `Mass.]`, which M-152's line
+table now drops, so that block is EMPTY and this one is an attribution
+read as a one-line stanza); (2) `eng_british_richard_lovelace.txt`,
+under `--- TITLE: THE MAID'S TRAGEDY` — `[VERSE 8]`, `[VERSE 9]` and
+`[VERSE 10]` are Hazlitt's editorial NOTES ("Thomas Stanley, Esq.,
+author of the HISTORY OF PHILOSOPHY...", "Lovelace wrote these lines
+for AYRES AND DIALOGUES...", "Wood, in his account of this person...")
+staged as verse stanzas beside the song's own `<<AN.n>>` annotation
+anchors; M-152 stripped the one bracketed gloss inside them and the
+prose still sings. The remedy is a STAGING decision, not a reader rule:
+either re-stage the items (the notes belong under `#` rows or out of
+the file; the attribution belongs in the header) or declare a
+per-item apparatus convention for annotation blocks — and it is a
+corpus-loading question because the fix edits staged bytes, which
+every md5 row and count above then moves with. Until ruled, both
+instances stand and are named here rather than remembered.
+
+### M-154 · The revise loop was a step a writer COULD run, and nothing made it run `CLOSED` 2026-08-28 — the `finish` verb and the `lyric_revise` wrap: no rendered song without a stop condition
+
+**The owner's directive, verbatim: *"go, start on the seam"* — after
+naming the failure in their own words: the AI** *"will kind of just give
+up half way through and say something to the order of 'Here's the song
+as it is now, I found a ton of problems and here are the problems as
+well, would you like me to fix them'"* **— the revise phase left off, "several
+times."** The diagnosis that focused the build: every enforcement layer
+this tree had built around that failure was DISCLOSURE. M-150's gate
+makes an unconverged song say so when presented; the [GRADED] stamp
+carries the exit code; the ban's pair counts print unskippably — and
+nothing anywhere made the loop RUN. The loop was reachable from the CLI
+(`revise`) and reachable from the connector by NOTHING: `revise`/`loop`
+and `verify` were "deliberately NOT wrapped yet (a 40-90s synchronous
+call is the wrong shape for chat)" — CLAUDE.md's own record — so every
+song written through chat had the revise phase as a voluntary act of the
+model, which is exactly the population where it was watched being
+skipped.
+
+**THE BUILD, CLI half — `finish DRAFT --seed=N`, the working order's
+last step as one door.** It joins the shared grading block as a fifth
+verb: re-derives the plan from `--seed` and the SAME declarations `plan`
+takes (`--form/--lines/--relation/--functions/--title/--narrative` — the
+narrative spelling extracted to `_parse_narrative_flag`, ONE definition
+for both verbs, because a spelling living only in `plan`'s branch would
+have `finish` silently deriving a DIFFERENT plan), reads the mandate off
+the plan artifact spelled exactly as `grading_command` spells it and
+parsed by the SAME `_mandate_arg` every hand-typed mandate goes through,
+derives the blueprint by `fill_plan` and the subdivision from the plan's
+own declaration, and runs `revise_loop` to a STOP CONDITION. **THE
+RENDER CALL SITS AFTER THE LOOP'S RETURN**, so a suspended run (exit 4,
+the `defer:` proposer's question written to its state file) emits the
+writer's brief and NO song — structurally, not by discipline. Past a
+stop condition it renders `render_song` over the LOOP'S final lines
+(the loop revises; rendering the input would present the draft the run
+just improved on) under a `[FINISHED — seed N — exit E — STOP_REASON
+after R round(s) — UNRESOLVED: L…]` stamp — the convergence declaration
+M-150 requires, emitted by the verb itself so a faithful copy-paste
+carries it. Every second statement of a coordinate the plan owns REFUSES
+(`--blueprint`, `--subdivision`, `--groups`, a positional mandate…),
+because two statements of one cover is the drift doctrine 1 exists to
+end. **The two-tier ban rides in mechanically**: the loop's
+`MANDATORY_PURSUE` holds banned-pair lines open, so a draft cannot
+converge onto them — the "banned pairs are unskippable" stamp made a
+gate.
+
+**AND THE LOOP'S BUDGET IS A DECLARED CHOICE NOW — `--max-rounds`,
+`--attempts`, `--backtrack` on `revise` and `finish`.**
+`ReviseDeclaration.max_rounds`, `.attempts_per_line` and
+`.backtrack_width` were declared coordinates since the loop was written
+and reachable from the command line by NOTHING — the
+`--blueprint`-before-2026-08-11 species, on the three knobs that decide
+what a run COSTS. Measured on seed 16's 23-line filler draft: one grade
+is 60s; the default-budget loop exceeded 9m50s twice (the second time
+with `--attempts=0` alone, because tier 2's backtrack is `width**2`
+proposals each paying a verify); at `--attempts=0 --backtrack=0` the
+run reaches NO_PROGRESS in **65s** — an HONEST stop (the round asked
+nothing and fixed nothing; the stamp says NO_PROGRESS and names 12
+unresolved lines), never a shortcut through the gate. `--attempts=0` is
+legal on purpose: it is the "question never put at all" case the tier-1
+dead-end disclosure already names. `--max-rounds` floors at 1 — a loop
+that may run no round is `brief`.
+
+**THE BUILD, connector half — `lyric_revise`, the eighth lyric tool,
+and the deferral's own reason was the design's answer.** The 40-90s
+objection named the synchronous-WAIT shape; `defer:` never waits. Each
+call runs `finish --propose=defer:` ONCE: the CALLER carries the state
+blob (the harness's own deferred-run record — its `answered` block is a
+valid `--propose=replay:` file, so the song's provenance travels with
+the conversation and is replayable by anyone), and each call either
+returns `[AWAITING PROPOSAL — seed N — k answer(s) on record — NO SONG
+YET]` plus ONE question, or, past a stop condition, the rendered song
+under its `[FINISHED …]` stamp. **A forged state cannot yield a song**:
+every answer in the blob is REPLAYED through `verify()` on every call,
+and the render only ever comes from the verb's own run. MEASURED
+in-process: 34s to the first question, 4s to re-ask an unanswered one
+(the pre-loop suspension — the refusal to advance IS the enforcement,
+and it is idempotent), 92s to fold an answer and advance to the next
+question with `answers_on_record` 1. The state's bulk is
+`pending.prompt` (the FULL writer brief — 262KB measured), so the
+connector's cap is 2 MiB with the measurement beside it. Exit 4 joined
+the connector's `EXIT_MEANING` as its own code: a suspension is neither
+a verdict nor a failure. The instructions' working order gains step (4)
+and the sentence that names the failure: *"stopping at step (3) because
+the draft 'looks done' is the exact hand-wash the loop exists to end —
+the loop, not you, says when revision is over."* `lyric_grade`'s render
+is re-labelled the INTERIM graded draft in the same commit — finishing
+is `lyric_revise`'s stamp and nobody else's. Gemini needs no allowlist
+edit: its declarations derive from the live tool list.
+
+**WHAT IS DELIBERATELY NOT BUILT, recorded as non-builds:** (1)
+`lyric_grade` keeps its render — a graded interim draft must be
+showable, and its [GRADED] stamp already carries exit and ban counts;
+what moved is the CLAIM (interim, never finished). (2) Nothing gates
+`plan --fill` — it is the render PRIMITIVE and the tests' presentation
+route; the gate is that the FINISHED claim (the stamp vocabulary, the
+instructions, M-150's hook) belongs to the loop's verbs alone. (3) The
+per-call cost still pays subprocess-cold caches and a full replay per
+call — the warm-worker step the owner's wall-clock priority names next;
+this entry's measurements (60s/grade cold, 0.1s warm re-inspect in the
+record) are its opening figures.
+
+**Checks:** `test_verbs.py` §44 (refusals; the suspended run leaks no
+render — the seam's own claim; the stop-condition render stamped with
+the exit the process returns; the budget flags refuse off the loop
+verbs; the fixture built from the plan's own declared count),
+`mcp/test.mjs` (the eight-tool pin; live: a fresh revision suspends
+with the question and NO render anywhere in the response, the state
+round-trips and re-asks the IDENTICAL question, `answer` without
+`state` refuses). `wiring` holds the three sets equal at 32 verbs with
+`finish` on the map.
+
+### M-155 · Every call paid for work the process had already done, and the connector re-paid it per call `CLOSED` 2026-08-28 — the judge's memo and the warm worker: the same bytes, several times faster
+
+**The owner's directive, after the seam: *"once it's green do the warm
+worker."* And the first measurement OVERTURNED the diagnosis the build
+was named for.** The working theory (this campaign's own prose included)
+blamed the connector's subprocess-per-call cold start. Measured: `import
+lyric_harness` is **0.04s** and `Lexicon()` **0.5s** — the cold start is
+noise. The cost is COMPUTE, and it is concentrated: a cProfile of one
+`song` grade under seed 16's plan (177.1s profiled, 60s unprofiled) put
+**99.6s in `relations.whole_vocabulary_pairs` — called FIVE times on the
+IDENTICAL arguments** (1.15M schema `evaluate` calls, five report sites
+each honestly consulting the one judge per doctrine 1, nothing
+remembering the answer), and 46s in `joint_field`'s candidate search
+(named here, untouched — the next lever if one is wanted).
+
+**BUILD 1 — the judge's memo (`relations._WVP_MEMO`).**
+`whole_vocabulary_pairs` is a pure function of its four arguments and
+the tree's determinism is verified (doctrine 66, three-process check),
+so an identical call may return the recorded answer. The key is DECLARED
+coordinates, never object identity — the phonology's own
+`declaration()` (language, name), the line tuple, sections by stable
+JSON, the sorted bearing — and an argument the key cannot spell DISABLES
+the memo for that call, because a wrong hit is a silently wrong verdict,
+the one failure worse than the cost. Entries stored immutably, returned
+as fresh copies, FIFO-bounded at 32. **PROVEN BYTE-IDENTICAL, not
+argued:** the identical seed-16 grade, stash-baseline against memo,
+`cmp` clean — **59.9s → 43.9s** under identical load.
+`test_relations.py` X9 is the guard, and its poison check is the
+non-vacuity proof: a planted wrong value comes back for its own key (the
+memo is READ) and for no other (a nearby call cannot be served a stale
+answer). The instance-level `_wvp_cache` precedent (`Reviser` group
+merges) stays — it keys on `id(lines)` for one object's life; this memo
+is the cross-call species.
+
+**BUILD 2 — the warm worker (`mcp/worker.py` + the connector's warm
+path).** One persistent process serves verb requests over line-JSON
+(request `{"id", "argv"}`, reply `{"id", "code", "stdout", "stderr"}`,
+the harness's stdout captured per request so a verb cannot interleave
+with the protocol). STATELESSNESS IS UNCHANGED AT THE REQUEST BOUNDARY:
+every request is a full `main()` on its own argv; what persists is the
+interpreter and the memo — which is exactly what makes `lyric_revise`'s
+replay stop re-paying streams for drafts the process already judged.
+FAILURE IS A FALLBACK, NEVER A WRONG ANSWER: a timeout, a dead worker,
+or a corrupt reply kills the worker and re-runs THAT request on the cold
+`execFile` path; `LYRIC_WORKER=0` disables the warm path. The worker is
+unref'd so it never holds the parent open (shutdown is the pipe's EOF,
+not a signal), and the per-request timer keeps the event loop alive
+exactly while a reply is owed.
+
+**MEASURED, the number the owner asked for:** the `lyric_revise`
+fold-an-answer call — the loop's per-turn cost in a chat — went
+**92s → 32s (2.9x)** through the warm worker, because the replay's
+re-brief of the unchanged draft hits the memo recorded by the previous
+call. The first-question call went 34s → (worker-warm) with the same
+bytes; the plain grade is 43.9s from 59.9s.
+
+**Checks:** `test_relations.py` X9 (six checks, poison-proven);
+`mcp/test.mjs`'s worker battery — warm vs cold BYTE-IDENTICAL stdout
+and exit code over four argv including a refusal, with a cross-verb
+ordering as the state-leak control; the worker PERSISTS across requests
+(same pid — the persistence is the point); a killed worker respawns and
+still answers with the cold bytes. The whole live half of the mcp suite
+now runs through the warm path, so every existing check is a regression
+on it.
+
+**WHAT IS DELIBERATELY NOT BUILT:** (1) no memo on `joint_field` — its
+46s is a per-word search whose inputs (draft + mandate + declaration)
+churn per attempt; the honest lever there is a design question, not a
+dict. (2) No result-level caching of whole verb invocations — verbs
+write files (`--out`, `--fill`) and a byte-replay of a side-effecting
+call is not a pure hit. (3) The Lexicon rebuild per request (0.5s)
+stays — measured too small to justify a cache with a flag-keyed
+identity.
+
+**ADDENDUM, the same sitting — THE BATTERY CAUGHT A REAL SEAM ON ITS
+FIRST FULL RUN, AND THE FIX IS ONE DISPATCH FOR TWO ENTRANCES.** The
+byte-equality battery's refusal case (`brief no_such_file.txt ABAB`)
+answered **exit 2, `REFUSED — no_such_file.txt`** cold and **exit 1
+with a traceback** warm: the script's refusal handlers (`OSError`,
+`IndexError`, `UndecodableLyricFile` — the 2026-08-15 "last two
+traceback shapes" work) wrapped the `main()` CALL inside the
+`__main__` block, and the worker called `main()` bare. A second copy of
+the handlers in the worker would have been the drift doctrine 1 exists
+to end, so the guarded dispatch is extracted as `lyric_harness.cli()`
+— the `__main__` block keeps only the script-only module-alias line and
+calls it; the worker calls it too. Verified both ways: the script's
+refusal is byte-unchanged, and the worker now answers the same command
+with the same code and the same first line. The counters' public-symbol
+row moved 1365→1366 with the new def and is repinned. This is the
+battery doing the one job it was built for, on day one.

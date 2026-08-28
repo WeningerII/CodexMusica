@@ -1064,13 +1064,49 @@ class Reviser:
         m = self.mandate(lines, mandate)
         _, endwords, records, matrix = self._matrix(lines, profile=profile)
         pairs = m.pairs()
-        refusals = refusals_for_pairs(records, [(i - 1, j - 1)
-                                                for i, j, _ in pairs])
-        refused = {r["lines"] for r in refusals}
+        refusals = refusals_for_pairs(records, sorted({(i - 1, j - 1)
+                                                       for i, j, _ in pairs}))
+        # M-149(b): THE SKIP SET IS KEYED PER (PAIR, GROUP), NEVER PER PAIR.
+        # It held bare `(i, j)` keys, so a refusal minted while judging ONE
+        # group's reading of a pair silenced every sibling group's DIFFERENT
+        # reading of the same two lines — measured on the first full plan the
+        # repaired schema judge graded: groups H (`schema:perfect rhyme`) and
+        # I (`schema:anaphora`) on lines (6, 7) were never judged at all,
+        # because group J's slot refusal on the same pair landed first. That
+        # sharing predates slots and was harmless while every group read the
+        # same two end words; a slot web puts several groups on one pair
+        # reading different words, and a refusal about one reading is not an
+        # answer about another (doctrine 79, at the key's own granularity).
+        #
+        # A SCALAR end-word refusal poisons exactly the groups that READ the
+        # end word: the member's slot is DEFAULT on a line whose end word is
+        # unreadable. A group binding the same pair at readable declared
+        # tokens keeps its question. The record keeps one entry per pair for
+        # rendering and its `groups` names ONLY the poisoned groups — naming
+        # a group whose question survived would claim a refusal nobody made.
+        # A pair whose unreadable end word no group reads mints NO record.
+        refused = set()                     # (i, j, k) triples
+        _slotted_scalar = m.slots_declared()
+        _kept_refusals = []
         for r in refusals:
             i, j = r["lines"]
-            r["groups"] = [m.labels[k] for k in
-                           sorted(set(m.groups_of(i)) & set(m.groups_of(j)))]
+            ks = sorted(set(m.groups_of(i)) & set(m.groups_of(j)))
+            hit = []
+            for k in ks:
+                if _slotted_scalar:
+                    reads_bad = (
+                        (records[i - 1]["final_unreadable"]
+                         and _SL.is_default(m.slot_of(k, i)))
+                        or (records[j - 1]["final_unreadable"]
+                            and _SL.is_default(m.slot_of(k, j))))
+                    if not reads_bad:
+                        continue
+                refused.add((i, j, k))
+                hit.append(k)
+            if hit:
+                r["groups"] = [m.labels[k] for k in hit]
+                _kept_refusals.append(r)
+        refusals = _kept_refusals
 
         # AND A DECLARED SLOT THAT RESOLVES TO NO ANCHOR IS ALSO A REFUSAL,
         # and it was counted as JUDGED until 2026-08-26 (`MISSING.md` M-144).
@@ -1114,6 +1150,7 @@ class Reviser:
                        ((i, _anchorless(k, i)), (j, _anchorless(k, j))) if sl]
                 if not bad:
                     continue
+                refused.add((i, j, k))     # this GROUP's reading, M-149(b)
                 _slot_ref.append({
                     "lines": (i, j),
                     "endwords": (endwords[i - 1], endwords[j - 1]),
@@ -1130,7 +1167,6 @@ class Reviser:
                         f"NOT what this group asked about"),
                 })
             refusals.extend(_slot_ref)
-            refused |= {r["lines"] for r in _slot_ref}
 
         # WHICH (LINE, GROUP) PAIRS WERE NEVER JUDGED. A refusal is not a
         # failure (doctrine 79) and it is not a pass either (doctrine 20), so
@@ -1187,7 +1223,7 @@ class Reviser:
         # never says `schema:` does not import `relations`, does not build a
         # stream, and takes the byte-identical old path — the same lazy
         # discipline the structure and named-relation routes above take.
-        _sch_pairs, _stream = {}, None
+        _sch_pairs, _stream, _R_ref = {}, None, None
 
         def _grade_stream(_RRm):
             # ONE stream builder for BOTH schema routes — the declared route
@@ -1218,6 +1254,7 @@ class Reviser:
                 # report (M-39: a declared list gets a source name, and the
                 # name is what tells a reader this was not blank lines).
                 _stream = _grade_stream(_R_mod)
+                _R_ref = _R_mod
                 # THE REFRAIN-TAIL FRAME, DERIVED FROM THE DECLARATION AND
                 # NOT FROM A DEFAULT. `epistrophe / radif` and
                 # `qafiya (before the radif)` refuse without
@@ -1252,7 +1289,7 @@ class Reviser:
         # draft while a slot pair is scored per pair.
         _slotted = m.slots_declared()
         for (i, j, k) in pairs:
-            if (i, j) in refused:
+            if (i, j, k) in refused:
                 unknown.add((i, k))
                 unknown.add((j, k))
                 continue
@@ -1323,25 +1360,80 @@ class Reviser:
                 # group is assumed to be. The head, internal and cross
                 # relations this comment named as unreachable are reachable
                 # by declaring the placement their own definitions require.
-                try:
-                    ok = _RT.satisfies_relation(
-                        want, rel, ew_i, ew_j,
-                        _relation_phonology(),
-                        position=_SL.position_of(slot_i or i),
-                        lines=(i, j), instances=_sch_pairs.get(want))
-                except _RT.RelationRefused as e:
-                    refusals.append({
-                        "lines": (i, j),
-                        "endwords": (ew_i, ew_j),
-                        "unreadable": [],
-                        "groups": [m.labels[k]],
-                        "reason": (f"the declared relation {want!r} cannot be "
-                                   f"judged here: {e} — REFUSED, not failed "
-                                   f"(doctrine 79)")})
-                    refused.add((i, j))
-                    unknown.add((i, k))
-                    unknown.add((j, k))
-                    continue
+                # M-148 (P2): A SCHEMA RELATION AT A DECLARED SLOT IS JUDGED
+                # AT THE DECLARED TOKENS. The instances route below hands the
+                # judge `line_pairs_for`'s answer, and `realise()` enumerates
+                # spans at the schema's OWN loci — measured (M-148 E2), the
+                # CLASS route reads a `1.T2`-to-`2.end` binding correctly
+                # while the schema route judged placements the writer never
+                # declared. `relations.pair_satisfies` keeps the schema's own
+                # anchors, channels and identity rules and takes only WHICH
+                # word from the slot; a default-slot mandate keeps the
+                # instances route, whose loci for an end-anchored schema ARE
+                # the declared placement.
+                _sch_name = _schema_name_of(_RT, want)
+                _via_pair = bool(
+                    _sch_name and _stream is not None and slot_i is not None
+                    and not (_SL.is_default(slot_i)
+                             and _SL.is_default(slot_j)))
+                if _via_pair:
+                    _ti = _SL.token_of(slot_i)
+                    _tj = _SL.token_of(slot_j)
+                    if _ti is None or _tj is None:
+                        refusals.append({
+                            "lines": (i, j),
+                            "endwords": (ew_i, ew_j),
+                            "unreadable": [],
+                            "groups": [m.labels[k]],
+                            "reason": (f"the declared relation {want!r} is a "
+                                       f"schema and a member's slot binds no "
+                                       f"single token (a whole-line slot), "
+                                       f"so the declared-token route cannot "
+                                       f"bind it — REFUSED, not failed "
+                                       f"(doctrine 79)")})
+                        refused.add((i, j, k))
+                        unknown.add((i, k))
+                        unknown.add((j, k))
+                        continue
+                    _out = _R_ref.pair_satisfies(
+                        _R_ref.REGISTRY[_sch_name], _stream,
+                        (i - 1, _ti), (j - 1, _tj))
+                    if isinstance(_out, _R_ref.Refusal):
+                        refusals.append({
+                            "lines": (i, j),
+                            "endwords": (ew_i, ew_j),
+                            "unreadable": [],
+                            "groups": [m.labels[k]],
+                            "reason": (f"the declared relation {want!r} "
+                                       f"cannot be judged at the declared "
+                                       f"tokens: {_out.detail} — REFUSED, "
+                                       f"not failed (doctrine 79)")})
+                        refused.add((i, j, k))
+                        unknown.add((i, k))
+                        unknown.add((j, k))
+                        continue
+                    ok = _out
+                else:
+                    try:
+                        ok = _RT.satisfies_relation(
+                            want, rel, ew_i, ew_j,
+                            _relation_phonology(),
+                            position=_SL.position_of(slot_i or i),
+                            lines=(i, j), instances=_sch_pairs.get(want))
+                    except _RT.RelationRefused as e:
+                        refusals.append({
+                            "lines": (i, j),
+                            "endwords": (ew_i, ew_j),
+                            "unreadable": [],
+                            "groups": [m.labels[k]],
+                            "reason": (f"the declared relation {want!r} "
+                                       f"cannot be judged here: {e} — "
+                                       f"REFUSED, not failed "
+                                       f"(doctrine 79)")})
+                        refused.add((i, j, k))
+                        unknown.add((i, k))
+                        unknown.add((j, k))
+                        continue
                 if ok is None:
                     # The phonology could not read a member, or the
                     # classification is indeterminate. A refusal, never a no
@@ -1357,15 +1449,20 @@ class Reviser:
                                    f"phonology refuses, or an indeterminate "
                                    f"classification) — REFUSED, not failed "
                                    f"(doctrine 79)")})
-                    refused.add((i, j))
+                    refused.add((i, j, k))
                     unknown.add((i, k))
                     unknown.add((j, k))
                     continue
                 if not ok:
                     why = (f"does not satisfy the declared relation {want!r} "
-                           f"— judged by the named-type engine at that "
-                           f"relation's own coordinate, not by the scalar "
-                           f"comparator's admit set")
+                           + (f"— judged by the schema's own channels at the "
+                              f"DECLARED tokens "
+                              f"(relations.pair_satisfies), not at the "
+                              f"schema's own loci"
+                              if _via_pair else
+                              f"— judged by the named-type engine at that "
+                              f"relation's own coordinate, not by the scalar "
+                              f"comparator's admit set"))
             elif _ST is not None and struct != _ST.DEFAULT:
                 sv = _ST.judge(struct, ew_i, ew_j)
                 if sv is None:
@@ -1386,7 +1483,7 @@ class Reviser:
                                    f"refused anchor or an unreadable "
                                    f"member) — REFUSED, not failed "
                                    f"(doctrine 79)")})
-                    refused.add((i, j))
+                    refused.add((i, j, k))
                     unknown.add((i, k))
                     unknown.add((j, k))
                     continue
@@ -1732,9 +1829,16 @@ class Reviser:
                 "verdicts": verdicts, "violations": violations,
                 "repeats": repeats, "excused": excused,
                 "refusals": refusals, "collisions": collisions,
+                # M-149(b): THE COUNTS READ THE TRIPLE SET, NOT THE RECORD
+                # LIST. A record exists for rendering and can cover several
+                # groups (the scalar end-word case) or share a triple with a
+                # sibling cause; the (pair, group) triples are what the loop
+                # actually skipped, so they are the only honest denominator
+                # complement — `mandated = judged + refused` holds by
+                # construction instead of by coincidence.
                 "pairs_mandated": len(pairs),
-                "pairs_refused": len(refusals),
-                "pairs_judged": len(pairs) - len(refusals),
+                "pairs_refused": len(refused),
+                "pairs_judged": len(pairs) - len(refused),
                 # THE WHOLE-VOCABULARY DEFAULT'S OWN COUNT (M-116): pairs the
                 # scalar door failed and a schema satisfied, with the names.
                 # Not summed into any other count (doctrine 79) — a schema
@@ -2144,8 +2248,18 @@ class Reviser:
 
     # -- the calibrated bands ----------------------------------------------
 
-    def _band_findings(self, lines):
+    def _band_findings(self, lines, runs_out=None):
         """-> {line_no: [Finding]}. The ADOPTED meter bands, enforced.
+
+        `runs_out` (M-115): pass a dict and it is filled with
+        {line_no: (longest prominent run, longest weak run)} for EVERY
+        line, read off the same `LineUnits` the counts are — the
+        adjacency the band cannot see, captured here so the caller does
+        not pay a second full read of the draft. Never a Finding and
+        never charged: whether a stress clot or a weak string is a
+        defect is a band question needing its own corpus measurement,
+        stated as an FPR (doctrine 22), and until that calibration
+        exists the runs are disclosed and nothing more.
 
         DENSITY [5, 12] syllables/line and PROMINENCE [2, 7] prominent/line
         — measured over 139,694 sung English lines, adopted by the
@@ -2192,6 +2306,8 @@ class Reviser:
             lu = FT.read_line(text, phon=phon)
             syl, prom = lu.syllables, len(lu.prominent)
             undecided = len(lu.prominence_undecided)
+            if runs_out is not None:
+                runs_out[ln] = lu.prominence_runs
             refused = [r.token for r in lu.refused]
             complete = not refused and bool(lu.units)
             fs = []
@@ -2215,13 +2331,21 @@ class Reviser:
                     f"over the ceiling is a violation no missing token can "
                     f"undo.", [ln]))
             prom_certain = complete and not undecided
+            # M-115: the runs beside the count, on the finding a diluting
+            # repair is aimed at — "and the" strung as padding shows up
+            # here as the weak run the count cannot see.
+            _rp, _rw = lu.prominence_runs
+            _adj = (f" Adjacency, disclosed and uncalibrated: longest "
+                    f"stress run {_rp}, longest weak run {_rw} — the "
+                    f"band counts and cannot hear a clot or padding "
+                    f"(M-115).")
             if prom_certain and not (p_lo <= prom <= p_hi):
                 fs.append(Finding(
                     "PROMINENCE_OUT_OF_BAND", "flag",
                     f"{prom} prominent syllable(s) — outside the calibrated "
                     f"[{p_lo}, {p_hi}] band for a sung English line",
                     f"{basis}. Too few and too many are both refused, for "
-                    f"the reason above.", [ln]))
+                    f"the reason above." + _adj, [ln]))
             elif not prom_certain and prom > p_hi:
                 fs.append(Finding(
                     "PROMINENCE_OUT_OF_BAND", "flag",
@@ -2230,7 +2354,7 @@ class Reviser:
                     f"read with certainty",
                     f"{basis}. A lower bound over the ceiling is a "
                     f"violation no refused token or undecided reading can "
-                    f"undo.", [ln]))
+                    f"undo." + _adj, [ln]))
             if not complete or undecided:
                 why = []
                 if refused:
@@ -3192,7 +3316,8 @@ class Reviser:
         # block above there is no opt-in coordinate to disclose and their
         # silence genuinely means the draft's lines sit inside what 139,694
         # sung English lines do (see `_band_findings`).
-        for ln, fs in self._band_findings(lines).items():
+        _prom_runs = {}
+        for ln, fs in self._band_findings(lines, runs_out=_prom_runs).items():
             for f in fs:
                 add(ln, f)
         # `blueprint_declared` is NOT a Finding. Meter/function are an OPT-IN
@@ -3204,9 +3329,23 @@ class Reviser:
         # clean, and a caller reading this dict alone (the CLI already prints
         # its own disclosure separately; see `_say_blueprint` in
         # lyric_harness.py) has no other way to tell the two apart.
+        # `mixed_span_groups` is call metadata on the same argument (M-114):
+        # a DEFAULT-relation group mixing front-of-word spans with rime
+        # spans is a fact about the DECLARATION — the writer must know that
+        # `21.endword` asks the spelling-class question while its siblings
+        # ask the rhyme question — and it is not a defect on the draft, so
+        # it is a key and never a Finding.
+        # `prominence_runs` (M-115) is the same kind of key: per line, the
+        # (longest stress run, longest weak run) the band's COUNT cannot
+        # see — captured off the same read the band findings made, disclosed
+        # and uncalibrated, never a Finding and never charged.
         return {"per_line": per, "whole": whole, "mandate": m, "grade": rep,
                 "merges": merges, "blueprint_declared": blueprint is not None,
-                "sentencehood_checked": _sh_checked}
+                "sentencehood_checked": _sh_checked,
+                "mixed_span_groups": (m.mixed_span_groups()
+                                      if hasattr(m, "mixed_span_groups")
+                                      else []),
+                "prominence_runs": _prom_runs}
 
     # -- the brief --------------------------------------------------------
 

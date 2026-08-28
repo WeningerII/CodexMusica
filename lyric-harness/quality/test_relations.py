@@ -2249,7 +2249,7 @@ def test_printed_caesura_reads_none_of_welsh():
     print("\nX4. the printed caesura: doctrine 55's third mark, and what its "
           "absence from the default costs")
     from quality.phonology import get as _get
-    CAESURA_RE = _get("cym").CAESURA_RE
+    _cymphon = _get("cym")
     raw, alun = _cym_stream("cym_alun_strict.txt")
     R.mark_printed_caesura(alun)
     default_hits = len(alun.frames.caesura)
@@ -2270,13 +2270,25 @@ def test_printed_caesura_reads_none_of_welsh():
           f"the whole line unreadable.")
     check("`marks` can hold a multi-character mark at all — a bare string is "
           "still iterated per character, which is what '/|' meant",
-          all(CAESURA_RE.match(m) for m in ("--", "/", "|"))
-          and not CAESURA_RE.match("-"),
-          "cym.CAESURA_RE carries all three of doctrine 55's marks. A caller "
-          "spelling the gwant into the old string default got `-`, which "
-          "fires on every hyphenated compound in a language that JOINS on "
-          "the hyphen (doctrine 65) — so the mark was not merely absent from "
-          "the default, it was inexpressible through the documented type.")
+          bool(_cymphon.caesura_re(("--", "/", "|")).match("--"))
+          and bool(_cymphon.caesura_re(("--", "/", "|")).match("/"))
+          and not _cymphon.caesura_re(("--", "/", "|")).match("-"),
+          "cym.caesura_re builds the split pattern for any DECLARED mark set "
+          "(M-7): `--` means a RUN of dashes and never a single hyphen. A "
+          "caller spelling the gwant into the old string default got `-`, "
+          "which fires on every hyphenated compound in a language that JOINS "
+          "on the hyphen (doctrine 65) — so the mark was not merely absent "
+          "from the default, it was inexpressible through the documented "
+          "type.")
+    check("and since M-7 the TWO defaults are the SAME two marks — cym's own "
+          "`caesura='marked'` reads the dash only when an edition declares "
+          "it, the rule this function has carried since 2026-08-13",
+          _cymphon.CAESURA_MARKS == R.mark_printed_caesura.__defaults__[0]
+          == ("/", "|"),
+          f"cym.CAESURA_MARKS = {_cymphon.CAESURA_MARKS!r}; the dash was "
+          f"promoted to gwant on ONE edition's evidence, and across five "
+          f"further Welsh files it is punctuation 72 of 72 times "
+          f"(MISSING.md M-7).")
     check("the default stays TWO marks on purpose: an English em-dash is "
           "punctuation, and punctuation is not metre",
           R.mark_printed_caesura.__defaults__[0] == ("/", "|"),
@@ -2357,8 +2369,15 @@ def test_refrain_tail_documented_call_was_impossible():
 # ---------------------------------------------------------------------------
 
 #: The staged English item the defect was measured on. 24 lines, 204 units,
-#: and the split 30 FIRED / 26 REFUSED / 21 RAN AND FOUND NOTHING before
-#: either frame-supplier is called.
+#: and the split ~~30 FIRED / 26 REFUSED / 21 RAN AND FOUND NOTHING~~
+#: **31 / 26 / 20** before either frame-supplier is called — REPINNED
+#: 2026-08-27 (doctrine 17, the superseded figures kept visible): the M-148
+#: P1 repair made `_seq` read the post-vocalic CLUSTER for the skothending
+#: schema's vowel-anchored sequence, and that one schema crossed from
+#: RAN-AND-FOUND-NOTHING to FIRED on this item (12 true instances,
+#: oppression~constellation the first — shared post-stress SH, EH/EY nuclei
+#: differing). One schema moved and it is the repaired one; the REFUSED
+#: count is untouched, which is this section's own subject.
 VACUITY_ITEM = "song/eng_american_dan_e_townsend.txt"
 
 #: The six schemas that rode the two shipped frame-suppliers into a silent
@@ -2442,9 +2461,10 @@ def test_vacuous_frame_is_not_a_null():
           "(doctrine 20)")
     raw, st = _eng_corpus_stream(VACUITY_ITEM)
     before = _split(st)
-    check("the staged item reproduces the measured split 30 FIRED / 26 "
-          "REFUSED / 21 RAN AND FOUND NOTHING",
-          before == (30, 26, 21),
+    check("the staged item reproduces the measured split 31 FIRED / 26 "
+          "REFUSED / 20 RAN AND FOUND NOTHING (repinned from 30/26/21 at "
+          "M-148: the repaired skothending schema now fires here)",
+          before == (31, 26, 20),
           f"{before} on corpus/{VACUITY_ITEM}: {len(raw)} raw lines, "
           f"{len(st.units)} units. PREMISE — it must hold on both trees.")
 
@@ -2492,8 +2512,8 @@ def test_vacuous_frame_is_not_a_null():
           _shown)
     after = _split(st)
     check("...so calling both markers moves NOTHING: the split is still "
-          "30/26/21, where it used to become 30/20/27",
-          after == before == (30, 26, 21),
+          "31/26/20, where it used to become 31/20/26",
+          after == before == (31, 26, 20),
           f"before {before} after {after}. Six schemas crossing from REFUSED "
           f"to RAN AND FOUND NOTHING is the collapse; the counts are the "
           f"cheapest place to see it.")
@@ -2586,11 +2606,11 @@ def test_vacuous_frame_is_not_a_null():
         mut_rep = R.relation_report(st)
         mut_state = st.supply("caesura").state
     check("MUTANT: with `provides` reading the SOURCE again, all six stop "
-          "refusing and return an empty list, the split moves to 30/20/27, "
+          "refusing and return an empty list, the split moves to 31/20/26, "
           "and the fourth count goes to zero",
           all(not isinstance(o, R.Refusal) and len(o) == 0
               for o in mut_outs.values())
-          and mut_split == (30, 20, 27) and mut_rep["refused_vacuous"] == 0
+          and mut_split == (31, 20, 26) and mut_rep["refused_vacuous"] == 0
           and mut_state == "present",
           f"{mut_split} under the mutant against {after} at head; "
           f"{ {n: len(o) for n, o in mut_outs.items()} }. Six schemas, six "
@@ -2804,10 +2824,17 @@ def test_frequency_refusal_is_measured_against_the_shipped_tables():
         tot[w] += int(c)
         authors[w].add(a)
     top = [w for w, _ in tot.most_common(20)]
+    # REPINNED 2026-08-28 (M-47/M-27, the bracket-apparatus rebuild of the
+    # table): `me` ~~2948~~ -> 2947 and `thee` ~~2031~~ -> 2033, and BOTH
+    # moves are Byron's, measured in the table diff: the `me` that left was
+    # `craving[me]`'s FOOTNOTE ANCHOR counted as the word `me` (the line
+    # really ends on `craving`), and the two `thee`s that returned are
+    # lines whose printed end word had been a bracketed footnote letter.
+    # The head order and the author spread are unmoved.
     check("the ONLY line-final source is pre-1931 and its head is `me` and "
           "`thee`",
-          top[:2] == ["me", "thee"] and tot["me"] == 2948
-          and tot["thee"] == 2031 and len(authors["me"]) == 483,
+          top[:2] == ["me", "thee"] and tot["me"] == 2947
+          and tot["thee"] == 2033 and len(authors["me"]) == 483,
           f"data/song_endword_en.tsv: {len(tot)} distinct line-final words, "
           f"{sum(tot.values())} tokens. A commonness cut on it flags `thee` "
           f"as one of the two tritest line-endings in English.")
@@ -2878,6 +2905,49 @@ def _spearman(xs, ys):
     return num / den
 
 
+def test_the_judge_memo_answers_identical_calls_only():
+    """X9. `whole_vocabulary_pairs`' memo (M-155): a hit is the recorded
+    answer to an IDENTICAL call, the key reads every coordinate that moves
+    the answer, and the memo is demonstrably LIVE — a check that could not
+    tell a memo from a recompute would be the vacuous-check family.
+
+    SIX CHECKS. The poison check is the non-vacuity proof: a planted wrong
+    value COMES BACK for its own key (so the memo is read, not decoration)
+    and for NO OTHER key (so a nearby call cannot be served a stale answer).
+    """
+    import quality.relations as RT
+    from quality import phonology as PH
+    phon = PH.get("eng")
+    lines = ("the river took the bridge at dawn",
+             "and no one saw the water again",
+             "the cattle waded through the silt",
+             "past every fence the county rebuilt")
+    RT._WVP_MEMO.clear()
+    a = RT.whole_vocabulary_pairs(lines, phon)
+    check("the first call computes and records exactly one entry",
+          len(RT._WVP_MEMO) == 1, f"{len(RT._WVP_MEMO)} entries")
+    b = RT.whole_vocabulary_pairs(lines, phon)
+    check("a hit equals the fresh compute, key for key and name for name",
+          a == b)
+    check("...and is a fresh copy, not the stored object — a caller's "
+          "mutation cannot poison a later reader",
+          a is not b and all(a[k] is not b[k] for k in a))
+    c = RT.whole_vocabulary_pairs(lines, phon, bearing={0, 1})
+    check("a changed bearing is a DIFFERENT call and records its own entry",
+          len(RT._WVP_MEMO) == 2, f"{len(RT._WVP_MEMO)} entries")
+    # THE POISON: plant a wrong answer under the bare key and ask again.
+    key = RT._wvp_key(lines, phon, None, None)
+    check("the key is spellable for the phonology's own declaration",
+          key is not None)
+    RT._WVP_MEMO[key] = {(1, 99): ("planted",)}
+    poisoned = RT.whole_vocabulary_pairs(lines, phon)
+    with_bearing = RT.whole_vocabulary_pairs(lines, phon, bearing={0, 1})
+    check("the memo is LIVE (the planted answer comes back for its own "
+          "key) and SCOPED (the bearing call is untouched by it)",
+          poisoned == {(1, 99): ["planted"]} and with_bearing == c)
+    RT._WVP_MEMO.clear()
+
+
 if __name__ == "__main__":
     test_inventory()
     test_p0_unreadable_final_token()
@@ -2910,6 +2980,7 @@ if __name__ == "__main__":
     test_vacuous_frame_is_not_a_null()
     test_orthography_surface_is_declarable()
     test_frequency_refusal_is_measured_against_the_shipped_tables()
+    test_the_judge_memo_answers_identical_calls_only()
     print("=" * 66)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")

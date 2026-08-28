@@ -1234,7 +1234,41 @@ def _normalise_returns(raw, n_lines, rule):
         elif isinstance(r, str):
             items.extend(parse_returns(r, n_lines, rule))
         else:
-            mem = sorted({int(x) for x in r})
+            # M-142: a member carrying a PLACEMENT refused here as
+            # `invalid literal for int() with base 10: '1.head'` — the
+            # wrong layer's words, naming neither the placement nor the
+            # remedy. The refusal is NAMED now, and it stays a refusal
+            # rather than an acceptance: a return class declares whole
+            # LINES identical (REQUIRE_RETURN) and every identity judge
+            # here — `returns_check`'s verbatim comparison, the loop's
+            # pinning, `repeat_is_violation` — reads LINES, so accepting
+            # `1.head` would take a declaration about one WORD and judge
+            # a different one about its whole line. A placed word-identity
+            # judge is M-142's open half; until it exists the honest
+            # answer is this sentence, not a silent flattening.
+            mem = set()
+            for x in r:
+                s = str(x).strip()
+                try:
+                    mem.add(int(s))
+                except ValueError:
+                    if "." in s:
+                        raise NoMandate(
+                            f"return class member {s!r} carries a "
+                            f"placement — a return class declares whole "
+                            f"LINES identical, and every identity judge "
+                            f"here reads lines, so a PLACED identity "
+                            f"(the word at {s!r} repeats) has no judge "
+                            f"to hand it to (MISSING M-142). Declare the "
+                            f"bare line number for a whole-line return; "
+                            f"a word-level repeat is the rhyme layer's "
+                            f"REPEAT machinery's question, not a return.")
+                    raise NoMandate(
+                        f"return class member {s!r} is not a line "
+                        f"number — a return class is declared as 1-based "
+                        f"line numbers (`13,33`), whole lines being the "
+                        f"same line.")
+            mem = sorted(mem)
             if len(mem) < 2:
                 raise NoMandate(
                     f"return class {list(r)!r} has fewer than two lines; a "
@@ -1620,6 +1654,39 @@ class Mandate:
         each call site.
         """
         return any(bool(p) for p in self.loci)
+
+    def mixed_span_groups(self):
+        """-> [(label, {kind: [slot spellings]})] for DEFAULT-relation
+        groups whose members mix FRONT-of-word spans with RIME spans
+        (`MISSING.md` M-114).
+
+        The declaration this makes visible: `21.endword` in a family of
+        rime slots is unsatisfiable by construction for any
+        non-initial-stress polysyllable, and the declaration was accepted
+        in silence — measured at 22 scheme violations of which the locus
+        respelling alone removed 19 with zero word changes.
+
+        SCOPED TO THE SCALAR ROUTE on purpose: a group declaring a
+        relation is judged by the pair judge at each member's own slot
+        (M-148), so span kinds crossing there is the schema's own
+        vocabulary — head rhyme WANTS a front span. And a DISCLOSURE,
+        never a refusal: a monosyllable at `head` is byte-identical to
+        `T1`, so a gate here has a false positive by construction until a
+        words-aware calibration exists (the entry's open half).
+        """
+        from quality import slots as _SL
+        out = []
+        for k, g in enumerate(self.groups):
+            if self.relation_of(k):
+                continue
+            kinds = {}
+            for ln in g:
+                s = self.slot_of(k, ln)
+                kinds.setdefault(_SL.span_kind(s), []).append(
+                    _SL.spell_slot(s))
+            if "front" in kinds and "rime" in kinds:
+                out.append((self.labels[k], kinds))
+        return out
 
     def pairs(self):
         """-> [(i, j, group_index)], 1-based, i < j. THE mandate, expanded.

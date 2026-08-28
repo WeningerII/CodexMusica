@@ -667,9 +667,17 @@ PINNED = {"extracted": 22795,
 #: in them at all. `kalevala` is absent on purpose -- its counts are
 #: PINNED["all verse lines"] and pinning them twice is two numbers for one
 #: fact, which is the drift this whole file exists to catch.
+#: `literary7` REPINNED 2026-08-28 from ~~lines 15331, alliterating 9734~~
+#: (doctrine 17): two of its seven files — fin_paavo_cajander.txt and
+#: fin_eino_leino.txt — are in `WRAPPED_APPARATUS_FOLLOW` (M-47, the
+#: declared wrapped-editorial-note convention), so `read_lines` correctly
+#: drops their note tails now. Verified by running the pre-M-47 reader in a
+#: worktree at f235954^ over the identical corpus bytes: the FILES did not
+#: move, the READER did. The other three series points HELD, which is the
+#: control that only the declared-convention files moved.
 PINNED_SERIES = {"kanteletar": {"lines": 22110, "alliterating": 18094},
                  "uudempia": {"lines": 852, "alliterating": 612},
-                 "literary7": {"lines": 15331, "alliterating": 9734},
+                 "literary7": {"lines": 15313, "alliterating": 9719},
                  "kivi": {"lines": 2884, "alliterating": 1684}}
 
 #: THE ANALYTIC CHANCE RATE, MEASURED 2026-08-13 -- the first run of a report
@@ -696,7 +704,10 @@ PINNED_ANALYTIC = {"first 4000 lines (the recorded window)": 30.0772,
                    "all verse lines": 30.0108,
                    "kanteletar": 31.0587,
                    "uudempia": 56.1596,
-                   "literary7": 48.2890,
+                   # repinned 2026-08-28 with the series pin above —
+                   # same mover (M-47's wrapped-apparatus drop), same
+                   # two files, superseding ~~48.2890~~:
+                   "literary7": 48.2557,
                    "kivi": 46.8582}
 
 #: The pin above is to four decimal places of a percentage, so this tolerance

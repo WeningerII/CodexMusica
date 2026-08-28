@@ -244,7 +244,24 @@ def _blocks(path, header_re):
 #: with no status token at all (L-3, at the time of repair) is read as OPEN —
 #: an entry that has not said it is finished must surface, not vanish.
 MISSING_HEAD = re.compile(r"^### ([A-Z]-\d+[a-z]?) · (.*)$")
-MISSING_STATUS = re.compile(r"`(OPEN|PARTIAL|BLOCKED|CLOSED)[^`]*`")
+#: DERIVED FROM `counters.MISSING_STATUSES` SINCE 2026-08-28, found by the
+#: M-21 sitting's test run: the register's closes had adopted `RESOLVED`
+#: (11 headings by the day it was caught) and the two copies of this
+#: vocabulary had diverged in two directions at once — this regex knew
+#: CLOSED and not WITHDRAWN, counters' tuple knew WITHDRAWN and not
+#: RESOLVED — so a `RESOLVED` heading parsed here as NO STATUS, was read
+#: as OPEN by the fallback (which is right: an entry that has not said it
+#: is finished must surface), and M-149 — resolved, and named by
+#: `test_revise.py` — was filed CONTESTED with `triage --check` red at
+#: HEAD, while `counters.py`'s status row CRASHED on the same headings.
+#: One fact, two media — M-21's own subject, in the instrument row nobody
+#: suspected. One definition now; `RESOLVED` and `WITHDRAWN` are
+#: closed-family because `OPEN_STATUSES` above does not name them.
+try:
+    from quality.counters import MISSING_STATUSES as _STATUS_VOCAB
+except ImportError:                                   # pragma: no cover
+    from counters import MISSING_STATUSES as _STATUS_VOCAB
+MISSING_STATUS = re.compile(r"`(%s)[^`]*`" % "|".join(_STATUS_VOCAB))
 BACKLOG_HEAD = re.compile(r"^### (\d+\.\d+) · (.*)$")
 
 

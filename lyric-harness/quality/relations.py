@@ -144,6 +144,7 @@ value took the default path in silence.  See `ClassEqual` and `UNMATCHED`.
 """
 
 import itertools
+import json
 import re
 from dataclasses import dataclass, field, replace
 
@@ -2193,7 +2194,74 @@ class Instance:
                 f"L{stream.units[self.b.head()].line} -> {self.verdict}")
 
 
-def _seq(span, stream, channel, chans, surface):
+#: The anchor rules that name a VOWEL (`_anchor_pos` resolves each by
+#: scanning prominence, which is a property of the nucleus).  Read by
+#: `_cluster_scoped` below and by nothing else; `word_start`/`word_end`/
+#: `none`/`searched` anchor an EDGE, not a vowel, and general consonance's
+#: whole-line skeleton rides on those.
+_VOWEL_ANCHORS = ("last_stressed", "penult_stressed", "final_unstressed")
+
+
+def _cluster_scoped(channel, rule):
+    """Does this sequence read start AT A VOWEL?  (M-148, defect P1.)
+
+    True exactly when the member's own SpanRule keys its anchor on a vowel
+    and the channel is the cross-boundary consonant skeleton.  The declared
+    sequence then runs FROM that vowel: the anchor syllable's ONSET precedes
+    the vowel and is outside it, and the sequence ends with the post-vocalic
+    CLUSTER — the schema's own note is the specification (Snorri's
+    jörð:fyrðum share 'rð': not 'j…rð', which is what flattening the whole
+    anchor syllable read, and not 'rð…m', which is what running to the word
+    end would read).  Measured before the guard existed: the skothending
+    schema refused 0 of 6 of its own canonical monosyllable pairs
+    (fast~lost read [F,S,T] vs [L,S,T]) while `gate~goat` certified the
+    drawable pool only because its onsets happen to agree.
+
+    A `word_start`-anchored skeleton (parechesis, the three cynghanedd
+    rows) is deliberately outside this predicate: those sequences START at
+    the word edge, so the onset is declared material there.
+    """
+    return (channel == "consonants" and rule is not None
+            and rule.anchor in _VOWEL_ANCHORS and rule.direction > 0)
+
+
+def _post_vocalic(span, stream, chans, surface):
+    """The consonant CLUSTER from the anchor vowel: the anchor syllable's
+    coda, then across the syllable boundary until the next vowel stops it.
+
+    -> tuple (possibly EMPTY — an open syllable has no cluster, and the
+    caller decides what an empty cluster satisfies), or None where any
+    contributing channel is unreadable or uncertain (P11's rule, unchanged:
+    a skeleton built from one guessed homograph is a skeleton nobody
+    declared).
+    """
+    ap = span.anchor_pos
+    if ap >= len(span.idx):
+        return None
+    out = []
+    v = chans.read(stream.units[span.idx[ap]], "coda", stream, surface)
+    if v is None or uncertain(v):
+        return None
+    out.extend(v if isinstance(v, tuple) else [v])
+    for i in span.idx[ap + 1:]:
+        u = stream.units[i]
+        o = chans.read(u, "onset", stream, surface)
+        if o is None or uncertain(o):
+            return None
+        out.extend(o if isinstance(o, tuple) else [o])
+        n = chans.read(u, "nucleus", stream, surface)
+        if uncertain(n):
+            return None
+        if n:
+            break                    # the next vowel ends the cluster
+        c = chans.read(u, "coda", stream, surface)
+        if c is None or uncertain(c):
+            return None
+        out.extend(c if isinstance(c, tuple) else [c])
+    return tuple(out)
+
+
+def _seq(span, stream, channel, chans, surface, rule=None):
     """The span's derived element SEQUENCE for a sequence-scoped channel.
 
     This is how the Welsh skeleton, the Norse post-vocalic cluster and general
@@ -2202,7 +2270,15 @@ def _seq(span, stream, channel, chans, surface):
     the syllable boundary.  A checker keyed on the coda of a maximal-onset
     syllabification reads 'fyr' and 'of' out of jörð:fyrðum and friðrofs:ofsa
     and finds neither.
+
+    `rule` is the MEMBER's own SpanRule, when the caller holds it: a
+    vowel-anchored consonant sequence is the post-vocalic cluster and not the
+    whole-syllable flatten (M-148 defect P1 — see `_cluster_scoped`).  Passing
+    None keeps the flatten, which is every edge-anchored skeleton's correct
+    reading and every pre-M-148 caller's behaviour.
     """
+    if _cluster_scoped(channel, rule):
+        return _post_vocalic(span, stream, chans, surface)
     out = []
     for i in span.idx:
         v = chans.read(stream.units[i], channel, stream, surface)
@@ -2265,9 +2341,25 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
         # gets the predicate's own refusal instead of a verdict at the identity.
         pred = _bind_quotient(cr.predicate, stream)
         if cr.scope == "sequence":
-            xa = _seq(a, stream, cr.channel, chans, cr.surface)
-            xb = _seq(b, stream, cr.channel, chans, cr.surface)
-            mine.append((cr.channel, -1, pred(xa, xb)))
+            ra = schema.spans[0] if schema.spans else None
+            rb = schema.spans[-1] if schema.spans else None
+            xa = _seq(a, stream, cr.channel, chans, cr.surface, rule=ra)
+            xb = _seq(b, stream, cr.channel, chans, cr.surface, rule=rb)
+            if ((_cluster_scoped(cr.channel, ra) and xa == ())
+                    or (_cluster_scoped(cr.channel, rb) and xb == ())):
+                # M-148: an OPEN syllable has no post-vocalic cluster, and a
+                # cluster relation over zero consonants is vacuously true of
+                # any two open syllables — through the 77-schema default door
+                # that would satisfy every day~sea pair silently.  False WITH
+                # THE REASON, never None: the channel read fine and the
+                # material is absent, which is an answer (doctrine 20).
+                mine.append((cr.channel, -1, Read(
+                    False, True,
+                    "no post-vocalic cluster: the anchor syllable is open, "
+                    "and a cluster relation over zero consonants would be "
+                    "vacuously true of any two open syllables")))
+            else:
+                mine.append((cr.channel, -1, pred(xa, xb)))
         elif cr.scope in ("unmatched_a", "unmatched_b"):
             side = a if cr.scope.endswith("a") else b
             pos = (align.unmatched_a if cr.scope.endswith("a")
@@ -2393,7 +2485,7 @@ _CAP_OF_LEVEL = {
 }
 
 
-def _bucket_key(schema, span, stream, chans):
+def _bucket_key(schema, span, stream, chans, rule=None):
     """A cheap key from the schema's OWN first required AGREE channel, so the
     cross product is not |candidates|^2 over a whole song.
 
@@ -2401,6 +2493,12 @@ def _bucket_key(schema, span, stream, chans):
     joined against every bucket.  An index built on nuclei would otherwise
     delete exactly the pairs fas refuses on, which is 60.2% of real Hafez
     rhyme pairs and precisely the candidate rhymes.
+
+    `rule` is the SpanRule that produced `span`, threaded so a sequence key
+    is computed by the SAME read `evaluate()` will make (M-148): an index
+    keyed on the whole-syllable flatten while the verdict reads the
+    post-vocalic cluster would prune fast~lost into different buckets and
+    the repaired judge would never see the pair.
     """
     key = []
     for cr in schema.channels:
@@ -2416,7 +2514,7 @@ def _bucket_key(schema, span, stream, chans):
             # may narrow the search.
             continue
         if cr.scope == "sequence":
-            v = _seq(span, stream, cr.channel, chans, cr.surface)
+            v = _seq(span, stream, cr.channel, chans, cr.surface, rule=rule)
         else:
             pos = span.anchor_pos if cr.scope in ("anchor", "each") else \
                 (len(span) - 1 if cr.scope == "last" else 0)
@@ -2644,7 +2742,8 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
     idx = {}
     for s in B:
         idx.setdefault((_frame_key(schema, s, stream),
-                        _bucket_key(schema, s, stream, chans)), []).append(s)
+                        _bucket_key(schema, s, stream, chans,
+                                    rule=schema.spans[1])), []).append(s)
     wild = {}
     for (f, k), v in idx.items():
         if k is None:
@@ -2653,7 +2752,7 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
     out, seen, n = [], set(), 0
     for a in A:
         fk = _frame_key(schema, a, stream)
-        ka = _bucket_key(schema, a, stream, chans)
+        ka = _bucket_key(schema, a, stream, chans, rule=schema.spans[0])
         cands = []
         if ka is None:
             for (f, k), v in idx.items():
@@ -2968,8 +3067,15 @@ def mark_printed_caesura(stream, marks=("/", "|")):
     bare string still works and is iterated per character, which is what the
     old `"/|"` default meant.  THE DEFAULT IS TWO OF DOCTRINE 55's THREE, ON
     PURPOSE, and the omission is the whole reason this note exists: doctrine 55
-    names the caesura as PRINTED `/`, `|`, **or the gwant `--`**, and
-    `quality/phonology/cym.py`'s own `CAESURA_RE` carries all three.  This
+    names the caesura as PRINTED `/`, `|`, **or the gwant `--`**.  ~~and
+    `quality/phonology/cym.py`'s own `CAESURA_RE` carries all three~~ --
+    STALE SINCE M-7 (2026-08-28): cym's constant is `CAESURA_MARKS`, it
+    carries the SAME two marks this default does, and the gwant is a
+    DECLARATION there too (`marks=("/", "|", "--")` on the call), because
+    measured across five further Welsh files the dash is punctuation 72
+    times out of 72 and the gwant is an englyn feature a cywydd does not
+    have.  So this function's rule stopped being the strict minority
+    reading and became the shared one.  This
     default carries only the two that mean a caesura in every language a
     stream can be built for -- `--` is an em-dash in English, and reading
     ordinary punctuation as structure is the exact defect doctrine 55 was
@@ -6366,6 +6472,44 @@ def stanzas_from_sections(sections):
     return out
 
 
+#: THE JUDGE'S MEMO (2026-08-28, `MISSING.md` M-155). `whole_vocabulary_pairs`
+#: is a PURE function of its four arguments — the loop's determinism was
+#: verified by inspection and across three processes (doctrine 66), and this
+#: function iterates `sorted(REGISTRY)` over a stream built from its own
+#: inputs — so an identical call may return the recorded answer.
+#: MEASURED before the memo, one `song` grade on seed 16's 23-line draft:
+#: this function ran FIVE times on the IDENTICAL arguments, 99.6s of a
+#: 177.1s profile (1.15M schema evaluations), because five sites of one
+#: report each honestly consult the one judge (doctrine 1) and nothing
+#: remembered the answer. The key is DECLARED coordinates, never object
+#: identity: the phonology's own (language, name) declaration, the line
+#: tuple, the sections spelled by a stable serialisation, the sorted
+#: bearing. An argument the key cannot spell (a phon with no declaration,
+#: an unserialisable sections shape) DISABLES the memo for that call rather
+#: than guessing a key — a wrong hit here would be a silently wrong verdict,
+#: which is the one failure mode worse than the cost. Entries are stored
+#: immutably and returned as fresh copies, so no caller's mutation can
+#: poison a later reader. Bounded FIFO because the population is drafts a
+#: session is actively grading, not a corpus.
+_WVP_MEMO = {}
+_WVP_MEMO_CAP = 32
+
+
+def _wvp_key(text_lines, phon, sections, bearing):
+    """-> a hashable key for the memo, or None when one cannot be spelled."""
+    try:
+        d = phon.declaration()
+        pk = (d["language"], d["name"])
+    except (AttributeError, KeyError, TypeError):
+        return None
+    try:
+        sk = json.dumps(sections, sort_keys=True) if sections else None
+        return (pk, tuple(text_lines), sk,
+                tuple(sorted(bearing)) if bearing else None)
+    except TypeError:
+        return None
+
+
 def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None):
     """Every 1-based line pair ANY registered schema is true of, with the
     names that answered -> {(i, j): [canonical schema names, sorted]}.
@@ -6384,7 +6528,14 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None):
     supply is silent here, not a violation and not a pass), and same-line
     instances are dropped by `line_pairs_for`'s own rule, so an intra-line
     figure can never satisfy a cross-line mandate.
+
+    MEMOISED on declared coordinates — see `_WVP_MEMO` above. A hit is a
+    fresh copy of a recorded answer to an IDENTICAL call, never a nearby
+    one; a call whose key cannot be spelled runs the judge in full.
     """
+    memo_key = _wvp_key(text_lines, phon, sections, bearing)
+    if memo_key is not None and memo_key in _WVP_MEMO:
+        return {k: list(v) for k, v in _WVP_MEMO[memo_key].items()}
     stream = build_stream(text_lines, phon,
                           sections=sections,
                           stanzas=stanzas_from_sections(sections),
@@ -6398,6 +6549,10 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None):
         ps = line_pairs_for(REGISTRY[name], stream, keep_refusal=False)
         for pair in ps:
             out.setdefault(pair, []).append(name)
+    if memo_key is not None:
+        if len(_WVP_MEMO) >= _WVP_MEMO_CAP:
+            _WVP_MEMO.pop(next(iter(_WVP_MEMO)))
+        _WVP_MEMO[memo_key] = {k: tuple(v) for k, v in out.items()}
     return out
 
 
@@ -6676,6 +6831,24 @@ CHANNEL_DOMAINS = {
 }
 
 
+def pair_bindable(schema):
+    """Can ONE declared token stand in for each member's locus?  (M-149a.)
+
+    THE ONE DEFINITION of the span-shape condition `pair_satisfies` refuses
+    by and the planner's relation draw consults: both member rules read a
+    token-shaped locus (`_TOKEN_LOCI`) and neither anchor is SEARCHED.  A
+    `free_run` rule searches windows, a `line_head_index` rule takes its
+    position from its own magnitude, a `line`/`half_line` rule spans more
+    than a token, and a searched anchor tries k hypotheses a mandated pair
+    has nowhere to carry the correction for (doctrine 56) — so binding any
+    of them to a declared token would judge a different question under the
+    schema's name.  A schema failing this is still drawable at DEFAULT
+    slots, where the instances route judges it at its own loci.
+    """
+    return all(r.locus in _TOKEN_LOCI and r.anchor != "searched"
+               for r in (schema.spans[0], schema.spans[-1]))
+
+
 #: ADOPTED 2026-08-25 from `derive_drawable_schemas()` (owner ruling "now do
 #: the planner too", M-117). Re-derived by `quality/test_plan.py`; a moved
 #: pool is a moved witness or a moved registry, and either fails loud.
@@ -6749,6 +6922,111 @@ def _origin_line(span):
     return int(head) + 1 if head.isdigit() else None
 
 
+#: The loci a DECLARED token can stand in for.  `pair_satisfies` swaps the
+#: member rule's locus for one declared token, and that swap is only honest
+#: where the rule's own locus IS a token — a `free_run` rule searches
+#: windows, a `line_head_index` rule takes its position from its own
+#: magnitude, a `line`/`half_line` rule spans more than a token, and
+#: reinterpreting any of those as "this one word" would judge a different
+#: schema under the declared one's name.
+_TOKEN_LOCI = ("line_final_token", "line_initial_token", "any_token")
+
+
+def pair_satisfies(schema, stream, at_a, at_b, chans=DEFAULT_CHANNELS):
+    """Does the pair of DECLARED bindings stand in this schema?  (M-148 P2.)
+
+    `at_a`/`at_b` are `(line, token)` in STREAM coordinates — 0-based line,
+    0-based token ordinal, Python-negative allowed (`-1` is the line's last
+    token).  -> True / False / None / `Refusal`.
+
+    THE DEFECT THIS CLOSES: `rhyme_types.satisfies_relation`'s schema branch
+    answers `(i, j) in instances`, and `instances` comes from `realise()`,
+    which enumerates spans at the schema's OWN loci — so a mandate binding
+    `1.T4` to `2.end` under a `schema:` relation was judged at placements
+    the writer never declared, while the class route (measured, M-148 E2)
+    reads the declared slots correctly.  Here the DECLARATION names the
+    token and the SCHEMA keeps everything else: its own member anchors and
+    magnitudes build the spans (through `_spans_at`, the same builder
+    `enumerate_spans` uses), its channels, identity rules and unmatched
+    treatment judge them (through `evaluate`, the same judge `realise`
+    uses), and only its PLACEMENT rules are stripped — a placement is the
+    schema's own statement of where it expects to stand, and the declared
+    slot is the writer overriding exactly that coordinate.
+
+    None is a REFUSAL-shaped answer, never a no (doctrine 79): a line or
+    token the stream cannot supply, an anchor with no referent in the bound
+    token, or an evaluation no required channel could read.  A `Refusal` is
+    RETURNED, not raised (`line_pairs_for`'s convention), for the schema
+    shapes one token cannot bind — named, so a caller can say WHY the pair
+    route refuses where the instances route stands.
+    """
+    sup = {c: stream.supply(c) for c in schema.capabilities()}
+    miss = tuple(c for c in schema.capabilities()
+                 if sup[c].state != "present")
+    if miss:
+        return Refusal(
+            schema.name, miss[0],
+            f"{schema.name!r} needs "
+            f"{', '.join(repr(c) for c in miss)}, which this declaration "
+            f"does not supply — refused at the declared pair exactly as "
+            f"`realise()` refuses over the stream.",
+            missing=miss, kind="capability")
+    if not pair_bindable(schema):
+        # `pair_bindable` is the ONE definition of this condition (M-149a:
+        # the planner's relation draw consults it too); the loop below only
+        # NAMES which member coordinate failed it.
+        for rule in (schema.spans[0], schema.spans[-1]):
+            if rule.locus not in _TOKEN_LOCI:
+                return Refusal(
+                    schema.name, "span",
+                    f"{schema.name!r}'s member span reads locus "
+                    f"{rule.locus!r}, which does not bind ONE declared "
+                    f"token — judging it at a declared word would answer a "
+                    f"different question under this schema's name. The "
+                    f"realise() route (`line_pairs_for`) still judges it "
+                    f"at its own loci.",
+                    kind="span")
+            if rule.anchor == "searched":
+                return Refusal(
+                    schema.name, "span",
+                    f"{schema.name!r}'s member anchor is SEARCHED: it "
+                    f"tries k hypotheses and a mandated pair has nowhere "
+                    f"to carry the multiplicity correction doctrine 56 "
+                    f"requires — the same refusal `slots.check` gives the "
+                    f"locus.",
+                    kind="span")
+    members = []
+    for (li, t), rule in ((at_a, schema.spans[0]), (at_b, schema.spans[-1])):
+        if li < 0 or li >= len(stream.lines) or not stream.lines[li]:
+            return None
+        if t < 0:
+            t = stream.units[stream.lines[li][-1]].token + 1 + t
+        ids = stream.tokens.get((li, t))
+        if not ids:
+            return None            # the declared word reads to nothing
+        try:
+            cand = list(_spans_at(rule, stream, ids, f"L{li}.T{t}"))
+        except NoReferent:
+            return None            # the anchor names nothing in this token
+        if not cand:
+            return None
+        members.append(cand)
+    sch = replace(schema, placement=())
+    saw_none = False
+    for sa in members[0]:
+        for sb in members[1]:
+            if sa.idx == sb.idx:
+                continue           # one span twice is not a pair
+            inst = evaluate(sch, sa, sb, stream, chans)
+            if inst is None:
+                continue
+            if inst.verdict is True:
+                return True
+            if inst.verdict is None:
+                saw_none = True
+    return None if saw_none else False
+
+
 __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "stanzas_from_blank_lines",
            "Span", "SpanRule", "enumerate_spans", "Alignment", "ALIGNERS",
@@ -6759,7 +7037,8 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "SequenceSuffix", "SubsequenceOf", "Read", "ChannelSet",
            "DEFAULT_CHANNELS", "evaluate", "realise", "assemble",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",
-           "line_pairs_for", "declare_delivery",
+           "line_pairs_for", "pair_satisfies", "pair_bindable",
+           "declare_delivery",
            "declare_stub_resolution", "search_stub_resolution",
            "STUB_INCIPIT_LENGTHS", "declare_senses",
            "declare_period_surface", "declare_lifts",

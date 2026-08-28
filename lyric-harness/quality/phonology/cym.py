@@ -668,13 +668,36 @@ class Welsh(Phonology):
                                   f"rhymes {syl.text!r} in {w!r}")
         return False, f"nothing earlier rhymes the penult {pen.text!r}"
 
-    #: Marks an edition actually prints for the caesura. The gwant of a cywydd
-    #: line is set as `--`; `/` and `|` are the teaching and editorial marks.
-    #: A comma is NOT here, and see `cynghanedd` for why that mattered.
-    CAESURA_RE = re.compile(r"\s*(?:--+|/|\|)\s*")
+    #: THE MARKS AN EDITION PRINTS FOR THE CAESURA — A DECLARED COORDINATE
+    #: SINCE M-7 (2026-08-28). `/` and `|`, the teaching and editorial
+    #: marks, are the DEFAULT. **THE DASH IS NOT IN THE DEFAULT ANY MORE**:
+    #: it was promoted to gwant on the evidence of ONE edition, and across
+    #: five further Welsh files it is punctuation 72 times out of 72 — in
+    #: the 1862 Pryse cywydd it comes in MATCHED PAIRS around an
+    #: interjection, and the gwant is an ENGLYN feature a cywydd does not
+    #: have, so a dash-split `caesura='marked'` reading on a cywydd was
+    #: reading the typesetter by construction. An edition that truly
+    #: prints the gwant as a dash DECLARES it — `marks=("/", "|", "--")`,
+    #: where `"--"` matches a RUN of dashes — the same declared-mark-set
+    #: shape `relations.mark_printed_caesura(marks=...)` has always
+    #: shipped. A comma is NOT declarable here either, and see
+    #: `cynghanedd` for why that mattered.
+    CAESURA_MARKS = ("/", "|")
 
-    def _marked_parts(self, line):
+    @staticmethod
+    def caesura_re(marks):
+        """The split pattern for a declared mark set. `"--"` (or a single
+        dash spelling) means a run of one or more dashes, because that is
+        how a printed gwant is set; every other mark is literal."""
+        alts = ["--+" if m in ("--", "-", "—", "–")
+                else re.escape(m) for m in marks]
+        return re.compile(r"\s*(?:" + "|".join(alts) + r")\s*")
+
+    def _marked_parts(self, line, marks=None):
         """Split on a PRINTED caesura. None when the line has none.
+
+        `marks` is the declared mark set (M-7), defaulting to
+        `CAESURA_MARKS` — `/` and `|`, never the dash unless declared.
 
         A fragment with no letters in it is not a part. `Bryd a chorff yn
         ddiorffwys,--` used to split into a real half and a bare `--`, which
@@ -682,11 +705,13 @@ class Welsh(Phonology):
         whole line `unreadable` -- 14.6% of a real corpus lost to a trailing
         dash.
         """
-        raw = self.CAESURA_RE.split(normalise(line))
+        pat = self.caesura_re(self.CAESURA_MARKS if marks is None else marks)
+        raw = pat.split(normalise(line))
         parts = [p.strip() for p in raw if WORD_RE.findall(p or "")]
         return parts if len(parts) >= 2 else None
 
-    def cynghanedd_scan(self, line, caesura="search", dyrchafedig="refuse"):
+    def cynghanedd_scan(self, line, caesura="search", dyrchafedig="refuse",
+                        marks=None):
         """Search every word boundary for a caesura that makes the line work.
 
         -> {"type", "detail", "positions_tried", "caesura", "class"}
@@ -728,7 +753,7 @@ class Welsh(Phonology):
             return {"type": None, "detail": "fewer than two words",
                     "positions_tried": 0, "caesura": None, "class": None}
         if caesura == "marked":
-            parts = self._marked_parts(line)
+            parts = self._marked_parts(line, marks=marks)
             if parts is None:
                 # The refusal `cynghanedd(caesura="marked")` already gives, in
                 # this method's own return shape. `positions_tried` is 0 and
@@ -747,6 +772,19 @@ class Welsh(Phonology):
                         "positions_tried": 0, "caesura": None, "class": None}
             # The PRINTED placement, as word indices, so the same croes/traws/
             # sain code below judges it and the two readings cannot drift.
+            # THE WORDS ARE RE-TOKENISED FROM THE PARTS, not taken from the
+            # raw line: a FLUSH-set mark glues its neighbours into one token
+            # (`thi--tywyn` is ONE word to WORD_RE), so counting the raw line
+            # disagrees with the parts by a word and the cut lands on the
+            # wrong boundary — this method then contradicts `cynghanedd()`
+            # on the same declaration, which is doctrine 1 and is the exact
+            # family this method's own 2026-08-15 fix was about. Found
+            # 2026-08-28 while M-7 made the mark set declarable; latent the
+            # whole time the dash sat in the default, because both staged
+            # editions set the gwant against punctuation, never flush.
+            words = [w for p in parts
+                     for w in WORD_RE.findall(p) if w.strip("'-")]
+            n = len(words)
             counts, acc = [], 0
             for p in parts:
                 acc += len([w for w in WORD_RE.findall(p) if w.strip("'-")])
@@ -825,7 +863,8 @@ class Welsh(Phonology):
                             f"{parts[2].split()[-1]} on {b[0].onset[0]!r}")
         return None, f"sain needs rhyme AND alliteration; rhyme={rhyme} allit={allit}"
 
-    def cynghanedd(self, line, caesura="marked", dyrchafedig="refuse"):
+    def cynghanedd(self, line, caesura="marked", dyrchafedig="refuse",
+                   marks=None):
         """-> (type, detail) or (None, reason). Types: croes, traws, sain,
         llusg.
 
@@ -842,8 +881,13 @@ class Welsh(Phonology):
 
         `caesura` is a declared coordinate, not a default nobody chose:
 
-          "marked"  the caesura must be PRINTED (`/`, `|`, or the gwant `--`).
-                    A line without one is refused, because its caesura is not
+          "marked"  the caesura must be PRINTED, in a mark the declared set
+                    carries — `CAESURA_MARKS` (`/` and `|`) by default, and
+                    an edition that prints the gwant as a dash declares
+                    `marks=("/", "|", "--")` (M-7: the dash left the
+                    default because five further editions print it as
+                    punctuation 72 times out of 72). A line without a
+                    declared mark is refused, because its caesura is not
                     in the text. This is the honest reading of an ordinary
                     edition and it is the default.
           "search"  try every word boundary and report the best. This is a
@@ -870,7 +914,7 @@ class Welsh(Phonology):
         if caesura == "search":
             hit = self.cynghanedd_scan(line, dyrchafedig=dyrchafedig)
             return hit["type"], hit["detail"]
-        parts = self._marked_parts(line)
+        parts = self._marked_parts(line, marks=marks)
         if parts is None:
             ok, why = self.llusg(line)
             if ok:

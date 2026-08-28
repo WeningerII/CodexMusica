@@ -2190,6 +2190,238 @@ def check_indent(files, src):
     return out
 
 
+def check_enclitic_convention(files, src):
+    """J · which enclitic-setting convention each English edition uses
+    (`MISSING.md` F-5).
+
+    Rogers's 1855 Modern Scottish Minstrel sets a SPACE before enclitics
+    (`There 's high and low`) 189 times in Nairne against 13 in all of
+    Burns — same language, opposite tokenisation, decided by the
+    compositor. `join_spaced_enclitics` NORMALISES the spaced form at
+    read time; what nothing did was SAY which convention an edition uses,
+    so a corpus mixing both was silently inconsistent and any per-edition
+    rate was unstratifiable. This check answers it per file, reading the
+    SAME closed set the joiner reads (`lyric_harness.ENCLITICS` via
+    `_SPACED_ENCLITIC` — one definition, doctrine 1), and it charges
+    NOTHING: a convention is the printer's, not a defect (doctrine 6's
+    shape one layer down). Dominance is a COMPARISON between the file's
+    own two counts, never a declared threshold (doctrine 58): a file is
+    noted per-file only when the spaced spellings OUTNUMBER the attached
+    ones, which names the Rogers-convention editions without burying them
+    under every file that carries a stray compositor's slip.
+    """
+    import lyric_harness as LH
+    out = []
+    attached_re = re.compile(r"\w('(?:s|ll|re|ve|d|m|t|n))\b", re.I)
+    spaced_only, attached_only, both, dominant = 0, 0, 0, []
+    for rel, cf in files:
+        lang, _ = declared_language(cf, rel)
+        if lang != "eng":
+            continue
+        text = LH.fold_apostrophes(cf.text)
+        spaced = len(LH._SPACED_ENCLITIC.findall(text))
+        attached = len(attached_re.findall(text)) - spaced
+        if not spaced and not attached:
+            continue
+        if spaced and attached:
+            both += 1
+        elif spaced:
+            spaced_only += 1
+        else:
+            attached_only += 1
+        if spaced > attached:
+            dominant.append((rel, spaced, attached))
+    if not (spaced_only or attached_only or both):
+        return out
+    out.append(Finding(
+        "J", NOTE, "corpus/song/ (every eng_ file with enclitic evidence)",
+        "which enclitic convention each edition sets — attached-only %d, "
+        "spaced-only %d, both %d file(s); three counts, never summed"
+        % (attached_only, spaced_only, both),
+        "the SPACED convention (`There 's`) is the edition's, not the "
+        "language's; `join_spaced_enclitics` normalises it at read time "
+        "and this check makes the convention SAYABLE per file so a "
+        "per-edition rate can be stratified. %d file(s) are "
+        "spaced-DOMINANT (spaced > attached) and are named below"
+        % len(dominant),
+        "a convention is not a defect and nothing here charges one; what "
+        "was silent is WHICH convention a file carries, and silence there "
+        "made every mixed-corpus rate partly a measure of the compositor",
+        "1"))
+    for rel, spaced, attached in sorted(dominant):
+        out.append(Finding(
+            "J", NOTE, rel,
+            "this edition sets enclitics SPACED — %d spaced against %d "
+            "attached" % (spaced, attached),
+            "the file's dominant convention is the compositor's spaced "
+            "setting; `join_spaced_enclitics` re-attaches the closed set "
+            "at read time, so no measurement counts the split tokens",
+            "named so a reader computing a per-edition rate knows this "
+            "file's tokenisation was set by its printer, not its poet",
+            "1"))
+    return out
+
+
+def check_encoding(files, src):
+    """K · a declared transcription's letter must survive in the bytes
+    (`MISSING.md` F-4, doctrine 50).
+
+    Barnes exists on Gutenberg twice: the Latin-1 transcription keeps his
+    a-diaeresis and the ASCII sibling flattens `ä` to the two-letter
+    sequence `ae`, INVENTING A LETTER in every affected word. The staged
+    file's own `# orthography:` header says which transcription it is and
+    why the other must not be used — and nothing READ that declaration,
+    so a re-stage from the ASCII transcription that repinned its own md5
+    would have passed every existing check (the English vowel count
+    RISES under the flattening, so Check F points the wrong way here).
+
+    THE PREDICATE IS THE FILE'S OWN DECLARATION, not an encoding sniff: a
+    `# orthography:` header line naming LATIN-1 / ISO-8859 is a claim
+    that a non-ASCII letter is load-bearing in these bytes, and a file
+    making that claim with ZERO non-ASCII letters in its verse has been
+    flattened — FAIL. Healthy files are SILENT (Check F's own shape:
+    silence means the declared channel is populated), so the corpus
+    shape does not move when nothing is wrong. Files that merely record
+    an ISO-8859-1 SOURCE in a `# file:` line make no such claim — 260
+    Modern Scottish Minstrel files name one and many are honestly pure
+    ASCII — and are deliberately out of scope.
+    """
+    out = []
+    for rel, cf in files:
+        decl = [l for l in cf.text.split("\n")
+                if l.startswith("#") and "orthography" in l.lower()
+                and ("latin-1" in l.lower() or "iso-8859" in l.lower())]
+        if not decl:
+            continue
+        n = sum(1 for ch in cf.verse_text
+                if ch.isalpha() and ord(ch) > 127)
+        if n == 0:
+            out.append(Finding(
+                "K", FAIL, rel,
+                "the header declares a LATIN-1 transcription and the "
+                "verse carries ZERO non-ASCII letters — the flattening "
+                "the declaration exists to forbid has recurred",
+                "declaration: %r; non-ASCII letters in verse: 0"
+                % decl[0].strip()[:100],
+                "the ASCII sibling transcription invents a letter in "
+                "every affected word (`Greaeve`, `Feaeir`) and must not "
+                "be staged; re-stage from the transcription the header "
+                "names, or correct the header if the orthography claim "
+                "is no longer true", "50"))
+    return out
+
+
+def check_bracket_declarations(files, src):
+    """L · a bracket in a sung line is read by a DECLARATION or named here
+    (`MISSING.md` M-47/M-27).
+
+    Two questions of every file, and both exist because the repair for the
+    93 sized markers was DECLARED tables rather than a guessed rule — and a
+    declared table protects only what is in it. A newly staged file whose
+    footnote anchors leak into end words would otherwise read exactly like
+    a clean one, which is how Byron came to rhyme on the letters `a b c d`
+    in every table built before 2026-08-28.
+
+      1. a TOKEN-YIELDING bracketed span in a kept line that no declared
+         class resolves (`normalise_bracket_spans` returns it unchanged) —
+         the file needs a `BRACKET_SUPPLIED` / `BRACKET_ANCHOR_FILES` row
+         or the span is a new convention worth its own class. Numeric
+         spans (`[10]`) yield no token and are measured harmless, so they
+         do not fire.
+      2. an UNCLOSED `[`-opening apparatus row covered by NO declaration —
+         neither the wrapped-note convention (`WRAPPED_APPARATUS_FOLLOW`)
+         nor an M-152 bracketed-verse rule (`bracket_block_rule`, the
+         reader's own matcher, so this census cannot drift from what the
+         reader actually covers) — its continuation may be leaking as
+         verse, or the block may be bracketed VERSE; either way a person
+         has to look, which is what a NOTE is for. The six files this
+         question named on its first run are DECLARED since M-152's close
+         (2026-08-28) and are silent here now.
+
+      3. an ORPHAN CLOSE — a KEPT sung line ending on a `]` that
+         outnumbers its own `[`s, with no declaration touching the line
+         (M-152's adjudicated population: Emmett's lost note tail,
+         Lovelace's printer marks, a mid-line wrapped gloss). All six
+         measured lines are declared in `BRACKET_LINE_EDITS` or closed by
+         a block rule, so this question is 0 today and guards new
+         staging: it is the sweep that found the Hemans leak M-47's scan
+         had been closing on a balanced footnote anchor.
+
+    NOTES, never FAIL: the population is a staging question, not a broken
+    byte.
+
+    SCOPED TO `corpus/song/`, the population M-47/M-27 sized and the one
+    the declared tables key on. The legacy top-level files (`sonnets.txt`,
+    `whitman.txt`, the Hafez licence/json) carry Gutenberg boilerplate
+    brackets from before the header conventions existed — a different
+    staging question this check would only bury under standing notes.
+    """
+    import lyric_harness as LH_
+    out = []
+    for rel, cf in files:
+        if "corpus/song/" not in rel.replace(os.sep, "/"):
+            continue
+        base = os.path.basename(cf.path)
+        undeclared, unclosed, orphan = 0, 0, 0
+        sample, osample = "", ""
+        wdrops = LH_.wrapped_apparatus_drops(cf._lines, base)
+        vdrops, vedits = LH_.bracketed_verse_edits(cf._lines, base)
+        for i, l in enumerate(cf._lines):
+            s = l.strip()
+            if not s or "[" not in s and "]" not in s:
+                continue
+            if i in wdrops or i in vdrops or i in vedits:
+                continue
+            if LH_.is_apparatus_line(s):
+                if (s.startswith("[") and s.count("[") > s.count("]")
+                        and base not in LH_.WRAPPED_APPARATUS_FOLLOW
+                        and LH_.bracket_block_rule(base, s) is None):
+                    unclosed += 1
+                continue
+            if s.endswith("]") and s.count("]") > s.count("["):
+                orphan += 1
+                osample = osample or s[:80]
+            if "[" not in s:
+                continue
+            resolved = LH_.normalise_bracket_spans(s, base)
+            for m in LH_._BRACKET_SPAN.finditer(resolved):
+                if LH_.line_tokens(m.group(1)):
+                    undeclared += 1
+                    sample = sample or s[:80]
+        if undeclared:
+            out.append(Finding(
+                "L", NOTE, rel,
+                "%d token-yielding bracketed span(s) in sung lines are "
+                "covered by NO declared class" % undeclared,
+                "first: %r" % sample,
+                "classify each span (anchor / ligature / supplied / "
+                "diacritic markup) and declare it in lyric_harness's "
+                "bracket tables — an undeclared span tokenises, and 68 of "
+                "the 93 sized markers were END WORDS", "20"))
+        if unclosed:
+            out.append(Finding(
+                "L", NOTE, rel,
+                "%d unclosed `[`-opening apparatus row(s) covered by NO "
+                "declaration" % unclosed,
+                "the continuation lines after each such row are read as "
+                "verse today",
+                "inspect every unclosed block: all-apparatus files join "
+                "WRAPPED_APPARATUS_FOLLOW; bracketed VERSE takes an "
+                "M-152 rule (BRACKETED_VERSE_FILES / BRACKET_BLOCK_ROWS) "
+                "— every block read before its file is declared", "20"))
+        if orphan:
+            out.append(Finding(
+                "L", NOTE, rel,
+                "%d kept sung line(s) end on an orphan `]` no declaration "
+                "touches" % orphan,
+                "first: %r" % osample,
+                "adjudicate the line: a lost note tail or printer's mark "
+                "joins BRACKET_LINE_EDITS; a block close means the opener "
+                "needs its rule (M-152's population was six such lines, "
+                "all declared at its close)", "20"))
+    return out
+
+
 CHECKS = collections.OrderedDict([
     ("A", ("ROW — every file has a sources.tsv row, every row a file", check_row)),
     ("B", ("HEADER — the file's own header against its row", check_header)),
@@ -2200,6 +2432,9 @@ CHECKS = collections.OrderedDict([
     ("G", ("ORTHOGRAPHY — doctrines 50/70, the destroying alternant", check_orthography)),
     ("H", ("STAGING — a `[VERSE]` mark on something that is not a stanza", check_staging)),
     ("I", ("INDENT — doctrine 14, the printing as an independent witness", check_indent)),
+    ("J", ("ENCLITIC — F-5, which convention the edition sets", check_enclitic_convention)),
+    ("K", ("ENCODING — F-4, the declared letter survives in the bytes", check_encoding)),
+    ("L", ("BRACKET — M-47/M-27, a bracket is declared or named", check_bracket_declarations)),
 ])
 
 
@@ -2889,7 +3124,27 @@ def main(argv=None):
 #: ones** (`maðr` 6, `sonr` 2, `konungr` 2, `Þórólfr` 1, `Egill` 103), against
 #: 1,534/0 in the prose it was cut from. The channel the hending measurement
 #: needs is intact, measured rather than hoped.
-PINNED_SHAPE = {"files": 1430, "FAIL": 1, "WARN": 340, "NOTE": 1168}
+#: REPINNED 2026-08-28 (~~NOTE 1168~~): Check J shipped (F-5's enclitic
+#: convention detector) and its 60 notes — one corpus-wide partition and 59
+#: spaced-DOMINANT editions named per file — are the whole delta; files,
+#: FAIL and WARN are unmoved. Measured by re-running `--verify-shape`,
+#: never by editing a number to meet the gate.
+#: REPINNED AGAIN 2026-08-28 (~~NOTE 1228~~): Check L shipped (M-47/M-27's
+#: bracket-declaration gate) and its 6 notes are the whole delta — the six
+#: `corpus/song/` files whose unclosed `[` blocks are NOT the wrapped-note
+#: convention (Watts's bracketed hymn stanzas, Drake's bracketed quatrain,
+#: Carroll's later-editions block, Durfey's and Gay's never-closing stage
+#: directions, one Skeat orphan) — M-152's population, carried as notes ON
+#: PURPOSE until that entry is ruled. 0 undeclared token-yielding spans:
+#: the declared tables cover every one measured, so that half of the check
+#: guards new staging and is silent today.
+#: REPINNED AGAIN 2026-08-28 (~~NOTE 1234~~): M-152 CLOSED — the six files
+#: above are DECLARED in the bracketed-verse tables now, check L's second
+#: question consults the reader's own matcher (`bracket_block_rule`) and
+#: the six notes leave by declaration; its NEW third question (orphan `]`
+#: closes in the kept stream) measures 0, so the whole delta is -6 and
+#: both new-staging guards are silent today.
+PINNED_SHAPE = {"files": 1430, "FAIL": 1, "WARN": 340, "NOTE": 1228}
 
 
 def _verify_shape(files, findings):

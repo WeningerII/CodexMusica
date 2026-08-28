@@ -155,7 +155,7 @@ __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "sweep",
            "BEATS_PER_SYLLABLE_MAX",
            "JOINT_CODES", "LAST_WORD", "placement_word",
-           "bound_placements", "end_rhyme_groups",
+           "bound_placements", "bound_token_share", "end_rhyme_groups",
            "line_syllable_ceiling", "joint_findings"]
 
 
@@ -1058,6 +1058,58 @@ def plan_max_token(plan):
     return max(1, min(int(tokens_per_line_band()[0]), int(min(caps)) - 1))
 
 
+def bound_token_share(plan):
+    """-> per section instance, in plan order: {"section", "function",
+    "bound", "capacity", "share"} — how much of the section's token capacity
+    the mandate has already spoken for (`MISSING.md` M-112).
+
+    THE NUMBER A SESSION HAD BEEN COMPUTING BY HAND, which is the
+    private-instrument shape standing rule 3 exists to end: the series'
+    third song cleared every gate and the panel rejected its chorus, and
+    the coordinate that separated that chorus from the rest — 23 of ~31
+    sung tokens bound, against a song mean of 2.6 bound members a line —
+    was derivable from the plan and disclosed by nothing.
+
+    NUMERATOR: distinct bound WORDS per line, summed over the section —
+    `bound_placements` is the one reading of `plan["groups"]` and
+    `placement_word` is the one word-key (M-80: `end` and `endword` are one
+    word, `head`/`headrime`/`T1` are one word). Returns are NOT counted: a
+    verbatim return fixes whole LINES, a different constraint, and summing
+    the two would hide which layer is heavy (doctrine 79).
+
+    DENOMINATOR: the section's token CAPACITY — each line's
+    `line_syllable_ceiling` over its own slots, summed — because a binding
+    occupies a token and the ceiling is the most tokens the line may
+    legally carry.
+
+    A DISCLOSURE, NOT A GATE, and deliberately so: a ceiling needs a
+    calibration, the corpus carries no mandates, and the honest route
+    (recovered covers, then the share's distribution, stated as an FPR —
+    doctrine 22) is a preregistration this function does not presume.
+    Density is measured NOT sufficient to stand in for it (panel run 2:
+    ranks 2-5 equally dense and passed), so nothing here refuses.
+    """
+    at = bound_placements(plan)
+    sub = plan["subdivision"]
+    order, per = [], {}
+    for s in plan["line_slots"]:
+        if s["section"] not in per:
+            order.append(s["section"])
+            per[s["section"]] = (s["function"], [])
+        per[s["section"]][1].append(s)
+    out = []
+    for name in order:
+        fn, ss = per[name]
+        bound = sum(len({placement_word(p) for p in at.get(s["line"], [])})
+                    for s in ss)
+        cap = sum(int(line_syllable_ceiling(float(s["duration"]) * sub))
+                  for s in ss)
+        out.append({"section": name, "function": fn, "bound": bound,
+                    "capacity": cap,
+                    "share": round(bound / cap, 4) if cap else 0.0})
+    return out
+
+
 def bound_placements(plan):
     """-> {line: [placement, ...]} — every placement each line already binds.
 
@@ -1387,6 +1439,15 @@ def _derive_roster():
 
 
 GENERATOR_ROSTER = _derive_roster()
+
+
+def _vocab_size():
+    """The section-function vocabulary's size, read from the table that
+    owns it — the disclosure line printed `of 21 functions` as a LITERAL
+    until 2026-08-28, when PATTER's entry (M-52) made it stale in the
+    one string a plan's reader is told the roster fraction in."""
+    from quality import grid as _GR
+    return len(_GR.SECTION_FUNCTIONS)
 
 #: Instrumental spans: bars with no lines. `fit.py` reports their bars as
 #: uncovered — a note, a rest is not a defect.
@@ -1928,6 +1989,24 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             f = str(f).strip()
             if not f:
                 continue
+            # A SPECIALISATION NAME REFUSES HERE BY NAME (M-57): resolving
+            # `middle-eight` to `bridge` and drawing bars from the derived
+            # envelope would accept the differentia (bars == 8) and then
+            # ignore it — the door-accepts-and-discards defect this
+            # coordinate exists to end, one layer out. The planner cannot
+            # promise a differentia its own draw does not read, so it says
+            # so instead of silently widening to the genus.
+            _sp = _GR.specialisation_of(f)
+            if _sp is not None:
+                rec, genus = _sp
+                raise PlanRefused(
+                    f"--functions names {rec.name!r}, a specialisation of "
+                    f"{genus!r} whose claim is {rec.differentia_field} == "
+                    f"{rec.differentia_value}. This planner draws "
+                    f"{rec.differentia_field} from the derived envelope and "
+                    f"cannot promise that value, so accepting the name would "
+                    f"silently widen it to {genus!r} (M-57). Request "
+                    f"{genus!r}.")
             try:
                 want.append(_GR.as_function(f))
             except Exception:
@@ -2397,7 +2476,7 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                                         f"{ENVELOPE['body_cells']} cells, "
                                         f"optional intro/outro/coda, "
                                         f"roster {len(GENERATOR_ROSTER)} "
-                                        f"of 21 functions")},
+                                        f"of {_vocab_size()} functions")},
             "meter": {"value": dict(meter),
                       "beats_per_line": beats_pl,
                       "slots_per_line": beats_pl * sub,
@@ -2621,8 +2700,28 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             _lines = _grp_lines[_gi]
             _pairs = [(a, b) for i2, a in enumerate(_lines)
                       for b in _lines[i2 + 1:]]
+            # M-149(a): A GROUP BINDING DECLARED TOKENS IS JUDGED BY THE
+            # PAIR ROUTE, and that route refuses by name every schema whose
+            # member spans cannot bind ONE token (`free_run` searches
+            # windows, `line_head_index` reads its own magnitude, a
+            # searched anchor carries k hypotheses no mandated pair can
+            # correct for). Seed 28 drew 8 of its 25 groups into exactly
+            # that conjunction — disclosed refusals no writing can close
+            # and no writer asked for. The draw consults the judge's own
+            # predicate (`relations.pair_bindable`, the ONE definition —
+            # doctrine 1), so a shape-refused (draw, placement) pair is
+            # unsampleable BY CONSTRUCTION; the unbindable schemas stay
+            # drawable at DEFAULT slots, where the instances route judges
+            # them at their own loci. A member spelled `<line>.end` IS the
+            # default slot in a different coat and does not restrict.
+            _slotted_g = any(
+                "." in str(_m2) and str(_m2).split(".", 1)[1] != "end"
+                for _m2 in groups[_gi])
             _ok = [""]
             for _cand in _RL.DRAWABLE_SCHEMAS:
+                if _slotted_g and not _RL.pair_bindable(
+                        _RL.REGISTRY[_cand]):
+                    continue
                 _t = _traits[_cand]
                 if _t["gap"] is not None and any(
                         b - a > _t["gap"] for a, b in _pairs):
@@ -2722,7 +2821,10 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                  f"M-117). The bare default lands on 1 draw in "
                  f"{len(_RL.DRAWABLE_SCHEMAS) + 1}, a rarity this "
                  f"disclosure exists to hand the owner, exactly as the "
-                 f"placement draw's `end` share was"),
+                 f"placement draw's `end` share was. A group binding "
+                 f"declared tokens draws only from the schemas the pair "
+                 f"route can bind there (relations.pair_bindable, "
+                 f"M-149a); the rest stay drawable at default slots"),
         "value": dict(drawn_relations)}
 
     # THE JOINT GATE (`MISSING.md` M-80). Every constraint above is

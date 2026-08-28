@@ -358,9 +358,24 @@ def test_function_is_not_section_name():
     # and `FunctionSpec.aliases` made the claim resolvable. So `middle8` is
     # the POSITIVE control now (pinning the alias), and the refusal case
     # uses a name no tradition claims.
+    # RESTATED AGAIN 2026-08-28 (M-57): `middle8` stopped being an alias and
+    # became a SPECIALISATION with a differentia (`bars == 8`), so declaring
+    # it on this fixture's 2-bar chorus now REFUSES quoting the claim —
+    # which is the repaired door, not a regression: this check's rc==0 pass
+    # was the measured defect (the door accepting the specialisation and
+    # storing the genus). The resolves-control the check exists for moves to
+    # `departure-section`, a TRUE synonym with no differentia to fail.
     rc, out, err = run("function", EXAMPLE_BP, "--function=chorus:middle8")
-    check("`middle8` RESOLVES now — the bridge row's own alias, so the old "
-          "refusal fixture is this section's positive control",
+    check("`middle8` on a 2-bar section REFUSES quoting its differentia — "
+          "the door keeps the claim now (M-57), where this check's old "
+          "rc==0 was the measured defect",
+          rc == 2 and "bars == 8" in out and "middle-eight" in out
+          and "Traceback" not in err,
+          (out.strip().splitlines() or [""])[0][:120])
+    rc, out, err = run("function", EXAMPLE_BP,
+                       "--function=chorus:departure-section")
+    check("a TRUE synonym still RESOLVES — the bridge row's own alias, the "
+          "claim this check has pinned since 2026-08-18",
           rc == 0 and "Traceback" not in err,
           (out.strip().splitlines() or [""])[0][:120])
     rc, out, err = run("function", EXAMPLE_BP, "--function=chorus:vibes")
@@ -690,6 +705,11 @@ def test_every_verb_runs():
         # quality/test_plan.py — this row is the dispatch-reachability claim
         # only, same as every other verb's.
         "plan": ["plan", "--seed=7", "--lines=22"],
+        # The seam (2026-08-28, M-154). Behavioural coverage is §44 below —
+        # this row reaches the dispatch through the verb's own cheapest
+        # honest answer, the no-seed refusal, because a full run here would
+        # double §44's loop cost for a claim about reachability alone.
+        "finish": ["finish", quat],
     }
     missing = sorted(lh._dispatched_verbs() - set(cases))
     check("this test covers every verb main() dispatches",
@@ -2217,7 +2237,9 @@ def test_propose_selects_who_writes_the_line():
         rc, out, _ = run(*argv, "--propose=call:x:y", expect_rc=2)
         check(f"--propose on `{verb}` REFUSES instead of being a silent "
               f"no-op on a flag about who wrote the words",
-              rc == 2 and "only `revise` runs a proposer" in out,
+              # "revise and finish" since 2026-08-28 (M-154): `finish` runs
+              # the same loop, so the refusal names both loop verbs now.
+              rc == 2 and "only `revise` and `finish` run a proposer" in out,
               out.strip().splitlines()[:1])
 
     # `replay:PATH` -- the loop driven over REAL proposed text, reaching
@@ -3925,11 +3947,18 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
     # untouched and every predicate is still individually satisfiable. The
     # range is widened rather than the predicates loosened — loosening them
     # to keep a number would be tuning the question to preserve the answer.
+    # ~~`--sweep=0-400`~~ **WIDENED AGAIN 2026-08-28, same rule, third rung
+    # of the same ladder: M-52's patter row remapped all 60 measured seed
+    # patterns, and 0..400 now holds NO seed satisfying the conjunction —
+    # the sweep's own empty-set refusal (exit 2 with the rate) fired,
+    # which is the verb working. Measured: 0..1600 accepts 2 (1105, 1540,
+    # 0.1% of the planned), so the range is 0-1600 and the acceptance
+    # stays read off the run, never remembered.**
     # WHAT THIS SECTION IS ABOUT IS REACHABILITY, so what it asserts is that
     # a person running the command GETS AN ANSWER: a non-empty accepted list
     # that agrees with the header's own count, which is a stronger property
     # than one remembered integer and cannot go stale when the planner moves.
-    rc, out, _ = run("plan", "--sweep=0-400", WANT, expect_rc=0)
+    rc, out, _ = run("plan", "--sweep=0-1600", WANT, expect_rc=0)
     _acc = [l for l in out.splitlines() if "accepted" in l and "swept" in l]
     _n = int(re.search(r"accepted (\d+)", _acc[0]).group(1)) if _acc else 0
     check("the sweep RUNS from the command line and comes back with seeds — "
@@ -3944,7 +3973,7 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
           out.count("WANT ") == 6 and "the SMALLEST sung section" in out,
           f"{out.count('WANT ')} predicates echoed")
     check("...and prints THREE COUNTS, never summed (doctrine 79)",
-          "swept 400" in out and "planned" in out
+          "swept 1600" in out and "planned" in out
           and "REFUSED by the planner" in out and "accepted" in out,
           [l for l in out.splitlines() if "swept" in l][:1])
     check("...and says OUT LOUD that it does not rank, which is the whole "
@@ -4272,6 +4301,67 @@ def test_a_row_name_with_a_comma_is_still_reachable():
         os.unlink(path)
 
 
+def test_the_cynghanedd_verb_reaches_caesura_and_marks():
+    """M-151 (2026-08-28). `check_cynghanedd` has implemented both caesura
+    readings since 2026-08-15 and M-7 made the MARK SET declarable — and
+    the verb passed only `language=`, so every CLI run was marked-mode by
+    a default the caller could not see, and `positions_tried` (the k
+    doctrine 19/56's correction needs) reached the command line through
+    nothing. Both entrances now, `--lang`-shaped, with the coordinate and
+    its k PRINTED on every cym run.
+
+    The binding assertions are M-7's own measured contrasts driven through
+    the verb: the same dash-printed line answers SAIN at k=15 under
+    `--caesura=search` and NOTHING at k=1 under the marked default —
+    a type that exists only because the boundary was swept — and the
+    marked reading with the edition's dash DECLARED (`--marks=--`) reads
+    the printed gwant where the default marks cannot.
+    """
+    print("\n46. the cynghanedd verb reaches --caesura and --marks (M-151)")
+    ust = "Ust! y ffrwd,--pa sibrwd sydd?"
+    rc_s, out_s, _ = run("cynghanedd", "--caesura=search", ust)
+    check("`--caesura=search` is read, PRINTED, and reports its k — the "
+          "doctrine 19/56 coordinate reaches the page",
+          rc_s == 0 and "caesura: search" in out_s
+          and "15 position(s) tried" in out_s and "SAIN" in out_s,
+          [l for l in out_s.splitlines() if "caesura" in l][:1])
+    rc_m, out_m, _ = run("cynghanedd", ust)
+    check("the DEFAULT is marked-mode at k=1 and says so — the same line, "
+          "no sain, because the type exists only under the sweep (M-7's "
+          "own contrast, at the verb)",
+          rc_m == 0 and "caesura: marked" in out_m
+          and "1 position(s) tried" in out_m and "SAIN" not in out_m
+          and "marks: / |" in out_m,
+          [l for l in out_m.splitlines() if "caesura" in l][:1])
+    och = "Och o'u swn!--yn gasach sydd;"
+    rc_d, out_d, _ = run("cynghanedd", "--marks=--", och)
+    check("`--marks=--` declares a dash-printed edition's own convention "
+          "and the marked reading answers on the printed gwant",
+          rc_d == 0 and "marks: --" in out_d
+          and any(k in out_d for k in ("TRAWS", "CROES", "SAIN", "LLUSG")),
+          [l for l in out_d.splitlines()][-2:])
+    rc_b, out_b, _ = run("cynghanedd", "--caesura=bogus", "x")
+    check("an undeclared caesura value REFUSES by vocabulary at exit 2",
+          rc_b == 2 and "marked, search" in out_b)
+    rc_e, out_e, _ = run("cynghanedd", "--marks=", "x")
+    check("an EMPTY mark set REFUSES rather than matching nothing",
+          rc_e == 2 and "EMPTY" in out_e)
+    rc_c, out_c, _ = run("cynghanedd", "--lang=eng", "--marks=--", "a, b")
+    check("`--lang=eng` with `--marks` REFUSES naming the conjunction — "
+          "the imitation splits on commas and the coordinate would be "
+          "consumed and ignored (doctrine 20)",
+          rc_c == 2 and "--lang=eng" in out_c and "cym" in out_c)
+    rc_ok, out_ok, _ = run("cynghanedd", "--lang=eng",
+                           "the cattle waded, the kettle boiled")
+    check("...and plain `--lang=eng` still runs — the refusal is the "
+          "conjunction, never the language",
+          rc_ok == 0 and "IMITATION" in out_ok)
+    rc_h, out_h, _ = run("--help")
+    check("the usage row names both flags — the three-sets-equal gate's "
+          "own subject",
+          "--caesura=marked|search" in out_h and "--marks=M,M" in out_h)
+
+
 def test_every_workflow_file_is_parseable_yaml():
     print("\n43. THE CI WORKFLOW PARSES — checked HERE because a broken one "
           "cannot run the check that catches it (`MISSING.md` M-89)")
@@ -4335,6 +4425,110 @@ def test_every_workflow_file_is_parseable_yaml():
               f"{len((doc or {}).get('jobs', {}))} job(s)")
 
 
+def test_finish_is_the_one_door_from_draft_to_rendered_song():
+    print("\n44. `finish` — THE SEAM: no rendered song without a stop "
+          "condition (`MISSING.md` M-154, owner's directive 2026-08-28)")
+    # THE FAILURE THIS VERB CLOSES was never that a layer graded wrong — it
+    # is that the revise loop was a step a writer COULD run, and every
+    # enforcement downstream of "could" was disclosure. `finish` reads the
+    # mandate, blueprint and subdivision off the PLAN the seed names, runs
+    # the loop to a STOP CONDITION, and the render call sits AFTER the
+    # loop's return — so a suspended run emits the writer's question and no
+    # song, structurally. The checks here are the seam's own claims, and
+    # the two load-bearing ones are 5 (a suspended run leaks NO render) and
+    # 6 (the render exists exactly past a stop condition, stamped with the
+    # exit code the process actually returns).
+    #
+    # COST DISCIPLINE: seed 16 is the smallest shape in 1..80 (23 lines —
+    # found by `plan --sweep=1-80 --want=lines<=23`, re-derivable), the
+    # suspension run stops at the loop's FIRST question, and the
+    # convergence run declares a zero budget (`--attempts=0 --backtrack=0`)
+    # so it reaches NO_PROGRESS at roughly ONE grade's price — an honest
+    # stop condition (the round asked nothing and fixed nothing), never a
+    # shortcut through the gate.
+    d = tempfile.mkdtemp()
+    draft = os.path.join(d, "draft.txt")
+    state = os.path.join(d, "state.json")
+
+    # The draft is built from the PLAN'S OWN declared line count, never a
+    # remembered one — the same rule the connector's two-block check
+    # follows, and the reason this section survives a planner re-derivation.
+    rc, out, _ = run("plan", "--seed=16", expect_rc=0)
+    m = re.search(r"-> (\d+) line\(s\)", out)
+    check("the plan declares its own line count for the fixture to honor",
+          rc == 0 and m is not None, f"rc {rc}")
+    n = int(m.group(1))
+    bank = ("stone rain door light road name glass train hill salt wire "
+            "bell coat dust song tide map north paper").split()
+    with open(draft, "w") as fh:
+        for i in range(n):
+            fh.write(f"we carry the morning to the {bank[i % len(bank)]}\n")
+
+    # 1-4: THE REFUSALS, each pre-loop and each naming its own cause.
+    rc, out, _ = run("finish", draft, expect_rc=2)
+    check("no --seed REFUSES naming the flag — the plan is the mandate's "
+          "one statement", rc == 2 and "--seed" in out, f"rc {rc}")
+    rc, out, _ = run("finish", draft, "--seed=16", "--blueprint=x.json",
+                     expect_rc=2)
+    check("--blueprint on finish REFUSES — a second statement of the meter "
+          "layer beside the plan's own",
+          rc == 2 and "--blueprint" in out, f"rc {rc}")
+    rc, out, _ = run("finish", draft, "AABB", "--seed=16", expect_rc=2)
+    check("a positional mandate REFUSES — two statements of one cover",
+          rc == 2 and "mandate" in out, f"rc {rc}")
+    short = os.path.join(d, "short.txt")
+    with open(short, "w") as fh:
+        fh.write("one line\ntwo line\n")
+    rc, out, _ = run("finish", short, "--seed=16", expect_rc=2)
+    check("a draft of the wrong length REFUSES with the plan's own count",
+          rc == 2 and str(n) in out, f"rc {rc}")
+
+    # 5: THE SEAM ITSELF. A deferred run with no answers suspends at the
+    # loop's first question, and NO render reaches the output — not the
+    # frame, not a header, not the stamp. This is the check that the render
+    # call sits after the loop's return rather than beside it.
+    rc, out, _ = run("finish", draft, "--seed=16",
+                     f"--propose=defer:{state}", expect_rc=4)
+    check("a deferred run with no answers SUSPENDS at exit 4",
+          rc == 4 and "SUSPENDED" in out, f"rc {rc}")
+    check("...and NO render reaches a suspended run — the seam holds",
+          "[FINISHED" not in out and "THE SONG, PERFORMANCE ORDER" not in out,
+          "the render exists only past a stop condition")
+    check("...and the state file holds the question, so the run is resumable",
+          os.path.exists(state)
+          and json.load(open(state)).get("pending") is not None, state)
+
+    # 6: PAST A STOP CONDITION THE RENDER EXISTS, stamped with the exit the
+    # process actually returns. The zero budget reaches NO_PROGRESS
+    # honestly; whatever the stop, the stamp and the process must agree.
+    rc, out, _ = run("finish", draft, "--seed=16", "--attempts=0",
+                     "--backtrack=0")
+    stamp = re.search(r"\[FINISHED — seed 16 — exit (\d) — (\w+) after "
+                      r"(\d+) round\(s\) — ([^\]]+)\]", out)
+    check("a stop condition renders the song under its stamp",
+          rc in (0, 3) and "THE SONG, PERFORMANCE ORDER" in out
+          and stamp is not None, f"rc {rc}")
+    check("...the stamp's exit code IS the process's — it cannot say "
+          "finished about a run that is not",
+          stamp is not None and int(stamp.group(1)) == rc,
+          stamp.group(0) if stamp else "(no stamp)")
+    check("...and the stamp names the stop reason and the open lines, so a "
+          "parked song cannot read as a clean one",
+          stamp is not None
+          and stamp.group(2) in ("SUCCESS", "NO_PROGRESS", "ROUND_LIMIT")
+          and (("UNRESOLVED" in stamp.group(4)) == (rc == 3)),
+          stamp.group(0) if stamp else "(no stamp)")
+    check("...and the render carries the plan's own bracket headers",
+          re.search(r"\[[A-Z_]+ — \d+ lines? — ", out) is not None,
+          "the section header format is the measurement carrier (M-97)")
+
+    # 7: the budget flags are the loop's own and refuse elsewhere.
+    rc, out, _ = run("brief", draft, "--groups=1,2", "--max-rounds=2",
+                     expect_rc=2)
+    check("--max-rounds on `brief` REFUSES — only the loop verbs own a "
+          "budget", rc == 2 and "--max-rounds" in out, f"rc {rc}")
+
+
 if __name__ == "__main__":
     _SECTIONS = (
         test_the_map_is_not_stale,
@@ -4382,6 +4576,8 @@ if __name__ == "__main__":
         test_a_song_wide_relation_may_not_stand_beside_a_structure,
         test_a_row_name_with_a_comma_is_still_reachable,
         test_every_workflow_file_is_parseable_yaml,
+        test_finish_is_the_one_door_from_draft_to_rendered_song,
+        test_the_cynghanedd_verb_reaches_caesura_and_marks,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —
     # measured 21-22 minutes on CI run #524, and after the pool went

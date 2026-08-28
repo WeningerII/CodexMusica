@@ -28,7 +28,7 @@ SIUBHAL	movement		6	3	piobaireachd variation. Same measured shape as URLAR
 PART: KAASO	voice		5	1	a declared VOICE/ROLE part in a Finnish wedding song -- who sings, not what the section is for
 URLAR	movement		5	3	piobaireachd ground -- the theme. MEASURED: in 3 of 3 files every one of these marks is immediately followed by a [VERSE n], so it GROUPS verses rather than being one
 PART: MORSIAN LÄHTIESSÄNSÄ	voice		4	1	a declared VOICE/ROLE part in a Finnish wedding song -- who sings, not what the section is for
-PATTER	function		3	1	music-hall patter. A REAL section function the 21-name table does not contain -- the file's own note records the printed heading 'PATTER-TRIO.' and records that nothing else was tagged because that would be an editorial guess
+PATTER	function	patter	3	1	music-hall patter. ENTERED THE VOCABULARY 2026-08-28 (M-52 close) as its 22nd function -- the file's own note records the printed heading 'PATTER-TRIO.' and records that nothing else was tagged because that would be an editorial guess, which is the evidence rule working; until that date this row was the one function-kind mark with no maps_to
 1852.	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
 1853.	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
 CRUNLUATH	movement		1	1	piobaireachd crowning variation; printed [CRUNLUATH] (FINALE) and followed by a [VERSE n]

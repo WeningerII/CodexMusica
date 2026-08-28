@@ -354,6 +354,16 @@ def test_refusals():
        raises(lambda: S.parse_returns("13-20<=13-20"), "both sides"))
     ok("a return line outside the song REFUSES",
        raises(lambda: S.mandate("ABAB", returns="1,9"), "outside"))
+    ok("a PLACED return member REFUSES BY NAME with the remedy stated — "
+       "not `invalid literal for int()` from three frames down (M-142): "
+       "a return class declares whole LINES identical and the identity "
+       "judges read lines, so `1.head` has no judge to be handed to",
+       raises(lambda: S.mandate([["1.head", "3"]], n_lines=4,
+                                returns=[["1.head", "3"]]), "placement"))
+    ok("...and a member that is not a line number at all refuses in this "
+       "layer's own words too",
+       raises(lambda: S.mandate([[1, 3]], n_lines=4,
+                                returns=[["abc", "3"]]), "not a line"))
     ok("two declarations that transitively merge and DISAGREE about verbatim "
        "REFUSE",
        raises(lambda: S.mandate(

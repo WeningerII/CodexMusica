@@ -273,6 +273,32 @@ class LineUnits:
         LOWER BOUND and every density derived from it one too."""
         return not self.refused
 
+    @property
+    def prominence_runs(self):
+        """-> (longest prominent run, longest weak run) over the units IN
+        ORDER — the ADJACENCY the band's counts cannot see (`MISSING.md`
+        M-115). Seven prominent of nine with the stresses adjacent is a
+        clot the count passes, and function-word padding down into the
+        band strings weak syllables the count equally cannot see; both
+        evasions were quoted back by a blind prosody judge on lines the
+        band had cleared. An UNDECIDED unit breaks both runs rather than
+        joining either — counting it either way would decide a reading
+        the phonology refused (doctrine 20)."""
+        best_p = best_w = cur_p = cur_w = 0
+        for u in self.units:
+            if u.prominence is None:
+                cur_p = cur_w = 0
+                continue
+            if u.prominent:
+                cur_p += 1
+                cur_w = 0
+                best_p = max(best_p, cur_p)
+            else:
+                cur_w += 1
+                cur_p = 0
+                best_w = max(best_w, cur_w)
+        return best_p, best_w
+
     def pattern(self):
         """The declared prominence pattern. '/' prominent, '.' not, '?' the
         phonology declined. NOT a stress string unless the phonology's

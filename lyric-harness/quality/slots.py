@@ -97,7 +97,8 @@ __all__ = ["Slot", "SlotUnsupported", "DEFAULT_RULE", "GRADEABLE_LOCI",
            "PLANNABLE_PLACEMENTS", "LAST_WORD", "placement_word",
            "GRADEABLE_ANCHORS", "FRAME_LOCI", "NAMED_SLOTS",
            "as_slot", "slot_line", "is_default", "check", "resolve",
-           "parse_slot", "spell_slot", "position_of", "word_phrase"]
+           "parse_slot", "spell_slot", "position_of", "word_phrase",
+           "token_of"]
 
 
 class SlotUnsupported(ValueError):
@@ -295,6 +296,30 @@ def position_of(member):
     return "internal"
 
 
+def token_of(member):
+    """-> the token a slot binds, in STREAM coordinates: -1 for the line's
+    last token, 0 for its first, n0 (0-based) for a declared `T<n>`, and
+    None for a slot that binds no single token (the whole-line slot).
+
+    THE SCHEMA ROUTE'S HALF OF THE SLOT (M-148 P2): `relations.
+    pair_satisfies` takes `(line, token)` and builds the member spans from
+    the SCHEMA's own rules there, so on that route the slot contributes
+    exactly WHICH WORD — its own anchor and magnitude are the scalar
+    comparator's business (`resolve`, above) and are deliberately not read
+    here.  Derived from the rule's locus, the same way `placement_word` is,
+    and living in this module for the same reason: the ONLY place a name is
+    bound to a rule.
+    """
+    rule = as_slot(member).rule
+    if rule.locus == "line_final_token":
+        return -1
+    if rule.locus == "line_initial_token":
+        return 0
+    if rule.locus == "any_token":
+        return _declared_token(rule)
+    return None
+
+
 def parse_slot(text):
     """'3' | '3.end' | '3.head' | '3.line' | '3.T2' -> Slot.
 
@@ -354,6 +379,29 @@ def spell_slot(slot):
 #: The sentinel for the line's LAST word, whose index no declaration knows.
 #: It is a WORD and not an index, and keeping it un-numbered is what stops a
 #: caller asserting a line length nobody measured.
+def span_kind(member):
+    """-> "front" | "rime" | "line" — which part of the word this slot's
+    span reads, derived from the slot's own RULE and never from the
+    placement's name (`MISSING.md` M-114).
+
+    `endword` and `head` anchor at `word_start` — the spelling-class /
+    alliteration question, read from the FRONT of the word. `end`,
+    `headrime` and `T<n>` anchor at `last_stressed` — the rhyme question,
+    the RIME. `line` is its own kind. The two word kinds are not
+    interchangeable inside one scalar-judged family: a non-initial-stress
+    polysyllable's front span cannot answer a rime family (`-deceit`
+    head-aligned against `suite` reads 0.13 where the bare pair reads
+    1.0), while a monosyllable's front IS its rime — which is why this is
+    a COORDINATE a disclosure reads, never a refusal: refusing the mix
+    would charge every monosyllable at `head`, a false positive by
+    construction (the entry's own accounting).
+    """
+    s = as_slot(member)
+    if s.rule.locus == "line":
+        return "line"
+    return "front" if s.rule.anchor == "word_start" else "rime"
+
+
 LAST_WORD = "last"
 
 

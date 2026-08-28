@@ -165,6 +165,7 @@ hand	stand	eng_hymn_watts	41
 light	night	eng_british_felicia_hemans	41
 praise	ways	eng_hymn_watts	41
 sea	thee	eng_british_algernon_charles_swinburne	41
+throne	unknown	eng_hymn_watts	41
 away	obey	eng_hall_thomas_durfey	40
 bed	head	eng_hall_william_barnes	40
 blest	rest	eng_celtic_msm_daniel_weir	40
@@ -176,7 +177,6 @@ light	white	eng_hall_william_barnes	40
 me	see	eng_celtic_robert_burns	40
 me	thee	eng_celtic_msm_lady_anne_barnard	40
 me	thee	eng_hymn_sarah_flower_adams	40
-throne	unknown	eng_hymn_watts	40
 be	me	eng_british_arthur_hugh_clough	39
 be	me	eng_celtic_msm_lady_anne_barnard	39
 dead	spread	eng_british_felicia_hemans	39
@@ -257,6 +257,7 @@ face	place	eng_hymn_watts	32
 fair	there	eng_celtic_walter_scott	32
 fright	night	eng_celtic_robert_burns	32
 hand	land	eng_hymn_watts	32
+hands	stands	eng_hymn_watts	32
 heart	part	eng_hall_thomas_durfey	32
 hour	power	eng_british_felicia_hemans	32
 jo	o	eng_celtic_robert_burns	32
@@ -274,7 +275,6 @@ below	o	eng_hall_william_barnes	31
 care	fair	eng_celtic_robert_burns	31
 day	way	eng_hall_edwin_waugh	31
 die	eye	eng_british_felicia_hemans	31
-hands	stands	eng_hymn_watts	31
 lenore	more	eng_american_edgar_allan_poe	31
 own	throne	eng_hymn_watts	31
 pain	vain	eng_hall_john_clare	31
@@ -321,6 +321,7 @@ pray	way	eng_hall_edwin_waugh	29
 astray	way	eng_hall_edwin_waugh	28
 be	free	eng_british_felicia_hemans	28
 be	me	eng_oxford_william_morris	28
+be	see	eng_british_robert_herrick	28
 brooms	perfumes	eng_hall_thomas_durfey	28
 chin	in	eng_american_nora_perry	28
 dismay	way	eng_hall_edwin_waugh	28
@@ -338,7 +339,6 @@ roll	soul	eng_hymn_watts	28
 tee	wee	eng_british_edward_lear	28
 arms	charms	eng_hall_thomas_durfey	27
 away	day	eng_hall_john_clare	27
-be	see	eng_british_robert_herrick	27
 be	thee	eng_hymn_havergal	27
 be	thee	eng_oxford_richard_crashaw	27
 blue	you	eng_hbv_frank_l_stanton	27
@@ -361,6 +361,7 @@ be	me	eng_hall_ws_gilbert	26
 be	see	eng_british_william_wordsworth	26
 blest	rest	eng_hymn_watts	26
 breath	death	eng_american_henry_howard_brownell	26
+bring	king	eng_hymn_watts	26
 broom	doom	eng_hall_thomas_durfey	26
 broom	room	eng_hall_thomas_durfey	26
 day	pay	eng_hall_thomas_durfey	26
@@ -387,7 +388,6 @@ day	way	eng_british_christina_rossetti	25
 day	way	eng_hall_thomas_durfey	25
 dead	head	eng_celtic_robert_burns	25
 dead	head	eng_hall_william_barnes	25
-dead	said	eng_hall_thomas_durfey	25
 degree	me	eng_oxford_william_dunbar	25
 dip	ship	eng_pah_erastus_wolcott_ellsworth	25
 dove	love	eng_hymn_watts	25
@@ -429,7 +429,6 @@ birth	earth	eng_hymn_watts	24
 breast	rest	eng_hymn_watts	24
 bright	light	eng_hall_william_barnes	24
 bright	sight	eng_oxford_edmund_spenser	24
-bring	king	eng_hymn_watts	24
 brown	down	eng_hall_thomas_durfey	24
 d	free	eng_pah_h_s_cornwall	24
 daughter	water	eng_hbv_matthew_gregory_lewis	24
@@ -473,6 +472,7 @@ breast	rest	eng_celtic_robert_burns	23
 by	sky	eng_hall_john_clare	23
 cot	swat	eng_british_edward_lear	23
 dead	dread	eng_celtic_robert_burns	23
+dead	said	eng_hall_thomas_durfey	23
 disdain	pain	eng_hall_thomas_durfey	23
 dust	just	eng_hymn_watts	23
 fay	hay	eng_celtic_msm_alexander_hume_b1809	23
@@ -556,9 +556,11 @@ eyes	lies	eng_british_felicia_hemans	21
 flower	hour	eng_british_felicia_hemans	21
 free	glee	eng_british_felicia_hemans	21
 free	sea	eng_american_john_greenleaf_whittier	21
+free	thee	eng_british_lord_byron	21
 he	me	eng_hall_thomas_durfey	21
 hell	well	eng_hymn_watts	21
 hill	mill	eng_celtic_msm_allan_cunningham	21
+hill	still	eng_hall_william_barnes	21
 john	on	eng_hall_william_barnes	21
 lea	sea	eng_british_adelaide_anne_procter	21
 lee	me	eng_american_edgar_allan_poe	21
@@ -642,15 +644,14 @@ dismay	way	eng_pah_charles_graham_halpine	19
 done	sun	eng_british_elizabeth_barrett_browning	19
 dust	trust	eng_hymn_watts	19
 eye	sky	eng_hall_john_clare	19
-free	thee	eng_british_lord_byron	19
 gay	way	eng_pah_charles_graham_halpine	19
 go	o	eng_celtic_robert_burns	19
 grief	relief	eng_hymn_watts	19
 he	sea	eng_american_james_russell_lowell	19
 he	see	eng_hall_thomas_durfey	19
-hill	still	eng_hall_william_barnes	19
 jo	o	eng_celtic_msm_william_reid	19
 know	o	eng_celtic_robert_burns	19
+light	sight	eng_hymn_watts	19
 low	o	eng_celtic_robert_burns	19
 me	sea	eng_british_christina_rossetti	19
 me	see	eng_british_robert_louis_stevenson	19
@@ -727,7 +728,6 @@ knew	you	eng_hbv_elizabeth_akers	18
 know	o	eng_hall_william_barnes	18
 lea	thee	eng_british_jean_ingelow	18
 light	night	eng_celtic_thomas_moore	18
-light	sight	eng_hymn_watts	18
 light	sight	eng_oxford_edmund_spenser	18
 long	song	eng_celtic_thomas_moore	18
 man	plan	eng_celtic_robert_burns	18
@@ -929,6 +929,7 @@ away	gray	eng_celtic_james_hogg	15
 away	lay	eng_celtic_james_hogg	15
 away	stay	eng_british_robert_herrick	15
 be	sea	eng_british_william_wordsworth	15
+be	thee	eng_british_lord_byron	15
 be	tree	eng_british_edward_lear	15
 bee	me	eng_british_jean_ingelow	15
 bird	heard	eng_british_felicia_hemans	15
@@ -1090,7 +1091,6 @@ hair	there	eng_british_felicia_hemans	14
 height	night	eng_hall_william_barnes	14
 high	nigh	eng_hymn_watts	14
 hill	still	eng_british_matthew_arnold	14
-him	swim	eng_hall_thomas_durfey	14
 i	sigh	eng_british_elizabeth_barrett_browning	14
 i	sky	eng_british_elizabeth_barrett_browning	14
 i	try	eng_british_elizabeth_barrett_browning	14
@@ -1169,7 +1169,6 @@ be	sea	eng_celtic_robert_burns	13
 be	she	eng_hall_thomas_durfey	13
 be	thee	eng_american_james_russell_lowell	13
 be	thee	eng_british_jean_ingelow	13
-be	thee	eng_british_lord_byron	13
 beau	no	eng_oxford_winthrop_mackworth_praed	13
 bed	dead	eng_british_felicia_hemans	13
 below	no	eng_oxford_winthrop_mackworth_praed	13
@@ -1235,6 +1234,7 @@ heart	smart	eng_hall_thomas_durfey	13
 heather	weather	eng_celtic_msm_john_imlah	13
 hide	ride	eng_british_robert_browning	13
 hill	still	eng_american_henry_wadsworth_longfellow	13
+him	swim	eng_hall_thomas_durfey	13
 home	roam	eng_celtic_thomas_moore	13
 homicide	ride	eng_british_robert_browning	13
 kind	mind	eng_hall_william_barnes	13
@@ -1438,7 +1438,6 @@ he	she	eng_hbv_thomas_westwood	12
 he	ye	eng_hall_thomas_durfey	12
 head	said	eng_american_john_greenleaf_whittier	12
 hence	sense	eng_oxford_thomas_jordan	12
-her	ter	eng_hall_william_barnes	12
 hill	mill	eng_hall_william_barnes	12
 hill	still	eng_british_adelaide_anne_procter	12
 ho	know	eng_hall_thomas_durfey	12
@@ -1522,7 +1521,6 @@ shay	way	eng_pah_oliver_wendell_holmes	12
 she	thee	eng_british_elizabeth_barrett_browning	12
 shore	yore	eng_british_felicia_hemans	12
 song	strong	eng_british_felicia_hemans	12
-song	throng	eng_british_felicia_hemans	12
 spring	wing	eng_hall_john_clare	12
 sprung	young	eng_celtic_msm_james_little	12
 still	will	eng_american_john_greenleaf_whittier	12
@@ -1585,7 +1583,6 @@ brown	down	eng_hall_william_barnes	11
 brown	down	eng_hbv_dinah_maria_mulock_craik	11
 buy	eye	eng_pah_william_carleton	11
 by	eye	eng_pah_william_carleton	11
-by	high	eng_british_felicia_hemans	11
 call	hall	eng_hall_william_barnes	11
 came	flame	eng_american_philip_freneau	11
 can	man	eng_american_james_whitcomb_riley	11
@@ -1712,6 +1709,7 @@ say	way	eng_hall_ws_gilbert	11
 sea	thee	eng_british_matthew_arnold	11
 see	thee	eng_british_elizabeth_barrett_browning	11
 sell	well	eng_hall_thomas_durfey	11
+song	throng	eng_british_felicia_hemans	11
 spring	wing	eng_celtic_robert_burns	11
 strain	train	eng_british_felicia_hemans	11
 too	true	eng_hall_thomas_durfey	11
@@ -1799,6 +1797,7 @@ brown	frown	eng_american_louise_imogen_guiney	10
 brown	renown	eng_american_louise_imogen_guiney	10
 brown	town	eng_american_louise_imogen_guiney	10
 burn	discern	eng_oxford_sydney_dobell	10
+by	high	eng_british_felicia_hemans	10
 by	my	eng_hall_thomas_durfey	10
 cable	fable	eng_pah_john_godfrey_saxe	10
 cable	stable	eng_pah_john_godfrey_saxe	10
@@ -1916,7 +1915,6 @@ hat	that	eng_british_edward_lear	10
 he	tree	eng_british_charles_kingsley	10
 head	said	eng_british_christina_rossetti	10
 head	shed	eng_hall_william_barnes	10
-hear	here	eng_british_felicia_hemans	10
 height	white	eng_hall_william_barnes	10
 height	write	eng_british_elizabeth_barrett_browning	10
 hell	tell	eng_hymn_watts	10
@@ -2058,7 +2056,6 @@ ago	slow	eng_hbv_george_arnold	9
 ago	snow	eng_hbv_george_arnold	9
 agree	be	eng_hall_thomas_durfey	9
 aims	james	eng_american_annie_marie_neeby	9
-air	hair	eng_british_felicia_hemans	9
 air	mair	eng_celtic_james_hogg	9
 air	there	eng_celtic_thomas_moore	9
 air	there	eng_hall_thomas_durfey	9
@@ -2369,7 +2366,6 @@ knew	you	eng_hbv_frank_l_stanton	9
 know	show	eng_hall_william_barnes	9
 know	so	eng_hall_thomas_durfey	9
 known	own	eng_british_felicia_hemans	9
-known	tone	eng_british_felicia_hemans	9
 knows	repose	eng_hbv_james_thomas_fields	9
 knows	rose	eng_hbv_james_thomas_fields	9
 knows	toes	eng_hbv_james_thomas_fields	9
@@ -2505,6 +2501,7 @@ again	then	eng_hbv_edward_robert_bulwer_lytton	8
 again	when	eng_british_robert_herrick	8
 agree	free	eng_pah_jonathan_mitchell_sewall	8
 agree	tree	eng_pah_thomas_paine	8
+air	hair	eng_british_felicia_hemans	8
 air	mair	eng_celtic_robert_burns	8
 air	there	eng_pah_wallace_de_groot_cecil_rice	8
 alarms	arms	eng_celtic_robert_burns	8
@@ -2669,9 +2666,7 @@ brothers	others	eng_british_elizabeth_barrett_browning	8
 brown	town	eng_pah_thomas_dunn_english	8
 brows	cows	eng_celtic_james_clarence_mangan	8
 bun	one	eng_british_frederick_locker_lampson	8
-burn	return	eng_british_felicia_hemans	8
 buy	die	eng_british_thomas_lovell_beddoes	8
-by	cry	eng_british_felicia_hemans	8
 by	die	eng_british_felicia_hemans	8
 by	die	eng_hall_john_clare	8
 by	high	eng_hymn_watts	8
@@ -2832,6 +2827,7 @@ france	glance	eng_british_christina_rossetti	8
 france	lance	eng_british_christina_rossetti	8
 france	trance	eng_british_christina_rossetti	8
 free	liberty	eng_hymn_montgomery	8
+free	me	eng_british_lord_byron	8
 free	me	eng_celtic_msm_john_robertson	8
 free	sea	eng_celtic_thomas_moore	8
 free	see	eng_british_robert_herrick	8
@@ -2893,6 +2889,7 @@ he	tree	eng_hbv_thomas_westwood	8
 head	said	eng_american_henry_cuyler_bunner	8
 head	said	eng_hall_thomas_durfey	8
 head	tread	eng_british_felicia_hemans	8
+hear	here	eng_british_felicia_hemans	8
 heard	word	eng_british_richard_monckton_milnes	8
 heart	impart	eng_british_arthur_hugh_clough	8
 heels	wheels	eng_hall_william_barnes	8
@@ -2929,6 +2926,7 @@ knee	thee	eng_oxford_richard_crashaw	8
 knee	three	eng_celtic_msm_alexander_hume_b1809	8
 knew	you	eng_british_elizabeth_barrett_browning	8
 knock	pock	eng_celtic_msm_robert_leighton	8
+known	tone	eng_british_felicia_hemans	8
 knows	noes	eng_british_edward_fitzgerald	8
 land	sand	eng_british_christina_rossetti	8
 land	stand	eng_american_e_griswold	8
@@ -3142,6 +3140,7 @@ bay	day	eng_pah_thomas_dunn_english	7
 be	free	eng_american_sidney_lanier	7
 be	free	eng_celtic_msm_henry_scott_riddell	7
 be	free	eng_celtic_thomas_moore	7
+be	he	eng_british_robert_herrick	7
 be	me	eng_celtic_msm_william_wilson	7
 be	sea	eng_british_jean_ingelow	7
 be	sea	eng_british_robert_louis_stevenson	7
@@ -3222,6 +3221,7 @@ bring	thing	eng_hall_william_barnes	7
 bring	wing	eng_british_felicia_hemans	7
 brown	down	eng_british_charles_kingsley	7
 brown	down	eng_pah_thomas_dunn_english	7
+burn	return	eng_british_felicia_hemans	7
 by	dry	eng_hall_william_barnes	7
 by	eye	eng_british_lewis_carroll	7
 by	eye	eng_british_matthew_arnold	7
@@ -3229,7 +3229,6 @@ by	eye	eng_hall_thomas_durfey	7
 by	i	eng_american_major_mcknight	7
 by	i	eng_hall_thomas_durfey	7
 by	lie	eng_hall_thomas_durfey	7
-by	nigh	eng_british_felicia_hemans	7
 came	flame	eng_pah_thomas_dunn_english	7
 came	name	eng_pah_oliver_wendell_holmes	7
 can	man	eng_british_robert_herrick	7
@@ -3362,6 +3361,7 @@ ember	remember	eng_british_algernon_charles_swinburne	7
 end	friend	eng_celtic_robert_burns	7
 evermore	more	eng_american_edgar_allan_poe	7
 eye	i	eng_american_major_mcknight	7
+eye	lie	eng_hymn_watts	7
 fair	fare	eng_celtic_robert_burns	7
 fall	tall	eng_hall_william_barnes	7
 fame	name	eng_british_adelaide_anne_procter	7
@@ -3390,7 +3390,6 @@ fort	port	eng_american_henry_howard_brownell	7
 found	round	eng_hall_john_clare	7
 found	sound	eng_hymn_watts	7
 fountains	mountains	eng_british_percy_bysshe_shelley	7
-free	me	eng_british_lord_byron	7
 free	me	eng_celtic_msm_james_maclardy	7
 free	me	eng_celtic_msm_peter_still	7
 free	me	eng_pah_william_ernest_henley	7
@@ -3451,7 +3450,6 @@ hell	well	eng_hall_thomas_durfey	7
 high	nigh	eng_hall_william_barnes	7
 high	supply	eng_hymn_watts	7
 hill	will	eng_hymn_watts	7
-him	trim	eng_hall_thomas_durfey	7
 holiday	may	eng_british_jean_ingelow	7
 hours	powers	eng_british_felicia_hemans	7
 i	sigh	eng_american_major_mcknight	7
@@ -3558,7 +3556,6 @@ more	yore	eng_hbv_edward_robert_bulwer_lytton	7
 morn	thorn	eng_hall_john_clare	7
 much	such	eng_british_robert_herrick	7
 muse	shoes	eng_american_lucy_larcom	7
-name	same	eng_hall_thomas_durfey	7
 near	peer	eng_pah_john_townsend_trowbridge	7
 near	year	eng_hall_william_barnes	7
 nell	parallel	eng_hbv_laman_blanchard	7
@@ -3808,7 +3805,6 @@ be	free	eng_hall_ws_gilbert	6
 be	glee	eng_hall_john_clare	6
 be	glee	eng_hall_thomas_durfey	6
 be	he	eng_british_matthew_arnold	6
-be	he	eng_british_robert_herrick	6
 be	key	eng_british_edward_fitzgerald	6
 be	lea	eng_british_jean_ingelow	6
 be	lea	eng_celtic_james_hogg	6
@@ -3986,9 +3982,11 @@ brow	now	eng_celtic_thomas_moore	6
 brow	now	eng_hall_william_barnes	6
 brown	crown	eng_celtic_walter_scott	6
 brown	down	eng_hbv_james_thomas_fields	6
+by	cry	eng_british_felicia_hemans	6
 by	die	eng_british_thomas_ford	6
 by	dye	eng_hall_thomas_durfey	6
 by	fly	eng_british_edward_lear	6
+by	nigh	eng_british_felicia_hemans	6
 by	sigh	eng_british_felicia_hemans	6
 by	sky	eng_british_adelaide_anne_procter	6
 by	sky	eng_british_alfred_tennyson	6
@@ -4276,7 +4274,6 @@ entwine	tyne	eng_celtic_msm_george_scott	6
 ever	never	eng_british_robert_herrick	6
 evermore	shore	eng_american_charles_fenno_hoffman	6
 explore	more	eng_american_edgar_allan_poe	6
-eye	lie	eng_hymn_watts	6
 eye	nigh	eng_british_felicia_hemans	6
 eye	reply	eng_british_felicia_hemans	6
 eye	reply	eng_british_lewis_carroll	6
@@ -4483,6 +4480,7 @@ hill	still	eng_celtic_msm_alexander_maclagan	6
 hill	still	eng_celtic_msm_allan_cunningham	6
 hill	will	eng_celtic_msm_allan_cunningham	6
 him	lim	eng_hall_thomas_durfey	6
+him	trim	eng_hall_thomas_durfey	6
 ho	o	eng_hall_william_barnes	6
 home	roam	eng_hymn_montgomery	6
 hour	power	eng_celtic_robert_burns	6
@@ -4665,6 +4663,7 @@ miller	siller	eng_celtic_robert_burns	6
 mind	twined	eng_celtic_msm_daniel_weir	6
 mine	resign	eng_celtic_robert_burns	6
 mine	thine	eng_british_felicia_hemans	6
+mine	thine	eng_celtic_thomas_moore	6
 moans	stones	eng_british_edward_lear	6
 monterey	padre	eng_pah_richard_edward_white	6
 monterey	play	eng_american_charles_fenno_hoffman	6
@@ -4897,7 +4896,6 @@ vine	wine	eng_british_robert_herrick	6
 who	you	eng_hall_william_barnes	6
 woo	you	eng_celtic_msm_william_ferguson	6
 a	ca	eng_celtic_robert_burns	5
-a	the	eng_british_felicia_hemans	5
 able	cable	eng_pah_john_godfrey_saxe	5
 able	table	eng_british_edward_lear	5
 abound	found	eng_hymn_watts	5
@@ -4931,7 +4929,6 @@ aground	round	eng_hall_john_clare	5
 aim	name	eng_celtic_robert_burns	5
 air	bare	eng_british_christina_rossetti	5
 air	bear	eng_oxford_thomas_gray	5
-air	care	eng_british_felicia_hemans	5
 air	despair	eng_british_adelaide_anne_procter	5
 air	hair	eng_american_james_russell_lowell	5
 air	hair	eng_american_john_greenleaf_whittier	5
@@ -5540,7 +5537,6 @@ fair	there	eng_american_hannah_flagg_gould	5
 fair	there	eng_pah_hezekiah_butterworth	5
 fair	where	eng_celtic_james_hogg	5
 fame	flame	eng_american_philip_freneau	5
-fame	same	eng_hall_thomas_durfey	5
 fame	shame	eng_american_abram_joseph_ryan	5
 fan	man	eng_british_austin_dobson	5
 far	star	eng_british_christina_rossetti	5
@@ -5987,7 +5983,6 @@ mind	wind	eng_american_james_russell_lowell	5
 mine	shine	eng_british_adelaide_anne_procter	5
 mine	shrine	eng_british_adelaide_anne_procter	5
 mine	thine	eng_british_adelaide_anne_procter	5
-mine	thine	eng_celtic_thomas_moore	5
 mine	thine	eng_hall_thomas_durfey	5
 mine	wine	eng_british_lord_byron	5
 moon	noon	eng_hall_william_barnes	5
@@ -6007,6 +6002,7 @@ mouth	south	eng_british_algernon_charles_swinburne	5
 move	prove	eng_british_felicia_hemans	5
 mow	o	eng_hall_william_barnes	5
 name	same	eng_celtic_robert_burns	5
+name	same	eng_hall_thomas_durfey	5
 neet	sweet	eng_hall_edwin_waugh	5
 nest	rest	eng_celtic_robert_burns	5
 new	too	eng_british_austin_dobson	5
@@ -6313,6 +6309,7 @@ aim	flame	eng_american_henry_howard_brownell	4
 air	bare	eng_pah_hezekiah_butterworth	4
 air	bear	eng_british_algernon_charles_swinburne	4
 air	bear	eng_pah_edna_dean_proctor	4
+air	care	eng_british_felicia_hemans	4
 air	care	eng_hall_thomas_durfey	4
 air	dare	eng_celtic_robert_burns	4
 air	delaware	eng_pah_william_carleton	4
@@ -6788,7 +6785,6 @@ below	blow	eng_american_william_dean_howells	4
 below	blow	eng_british_frances_anne_kemble	4
 below	blow	eng_pah_william_henry_babcock	4
 below	flow	eng_british_adelaide_anne_procter	4
-below	flow	eng_british_percy_bysshe_shelley	4
 below	foe	eng_american_william_dean_howells	4
 below	foe	eng_pah_william_henry_babcock	4
 below	glow	eng_american_john_greenleaf_whittier	4
@@ -6976,7 +6972,6 @@ bower	tower	eng_british_christina_rossetti	4
 bowers	flowers	eng_american_john_greenleaf_whittier	4
 bowers	flowers	eng_pah_hezekiah_butterworth	4
 bowers	showers	eng_hall_john_clare	4
-bowers	towers	eng_british_felicia_hemans	4
 boy	cloy	eng_hall_ws_gilbert	4
 boy	coy	eng_hall_thomas_durfey	4
 boy	coy	eng_hall_ws_gilbert	4
@@ -7767,6 +7762,7 @@ dreams	seems	eng_british_alfred_tennyson	4
 dreams	seems	eng_british_felicia_hemans	4
 drew	flew	eng_american_richard_henry_stoddard	4
 drew	strew	eng_oxford_edmund_spenser	4
+drill	hill	eng_hall_william_barnes	4
 drill	till	eng_hall_william_barnes	4
 drink	think	eng_british_robert_herrick	4
 drinking	thinking	eng_hall_thomas_durfey	4
@@ -9655,6 +9651,7 @@ way	yesterday	eng_british_christina_rossetti	4
 win	within	eng_celtic_msm_james_ballantine	4
 you	zoo	eng_hall_william_barnes	4
 a	the	eng_american_george_henry_boker	3
+a	the	eng_british_felicia_hemans	3
 a	the	eng_pah_clinton_scollard	3
 aback	back	eng_hbv_charles_dibdin	3
 aberdeen	scene	eng_celtic_msm_alexander_laing	3
@@ -10373,6 +10370,7 @@ beloved	loved	eng_british_felicia_hemans	3
 below	blow	eng_american_john_greenleaf_whittier	3
 below	blow	eng_celtic_robert_burns	3
 below	blow	eng_oxford_john_milton	3
+below	flow	eng_british_percy_bysshe_shelley	3
 below	flow	eng_celtic_robert_burns	3
 below	foe	eng_american_henry_howard_brownell	3
 below	foe	eng_celtic_robert_burns	3
@@ -10591,6 +10589,7 @@ bowers	flowers	eng_british_percy_bysshe_shelley	3
 bowers	ours	eng_british_felicia_hemans	3
 bowers	ours	eng_celtic_thomas_moore	3
 bowers	powers	eng_british_matthew_arnold	3
+bowers	towers	eng_british_felicia_hemans	3
 box	frocks	eng_hall_william_barnes	3
 boy	destroy	eng_hall_john_clare	3
 boy	joy	eng_american_byron_forceythe_willson	3
@@ -10786,7 +10785,6 @@ by	lye	eng_hall_thomas_durfey	3
 by	reply	eng_hall_thomas_durfey	3
 by	sigh	eng_british_adelaide_anne_procter	3
 by	sigh	eng_british_christina_rossetti	3
-by	sigh	eng_british_lord_byron	3
 by	sky	eng_american_james_russell_lowell	3
 by	sky	eng_british_robert_louis_stevenson	3
 by	spy	eng_hall_william_barnes	3
@@ -10798,7 +10796,6 @@ by	why	eng_hall_thomas_durfey	3
 bye	lie	eng_celtic_james_hogg	3
 bye	sky	eng_celtic_james_hogg	3
 c	decree	eng_hall_thomas_durfey	3
-c	thee	eng_british_felicia_hemans	3
 call	fall	eng_american_edmund_clarence_stedman	3
 call	small	eng_hall_william_barnes	3
 call	tall	eng_hall_william_barnes	3
@@ -11242,6 +11239,7 @@ dead	head	eng_american_john_pierpont	3
 dead	head	eng_american_samuel_h_m_byers	3
 dead	head	eng_british_jean_ingelow	3
 dead	head	eng_british_lewis_carroll	3
+dead	head	eng_british_lord_byron	3
 dead	head	eng_british_percy_bysshe_shelley	3
 dead	head	eng_british_robert_herrick	3
 dead	head	eng_british_william_wordsworth	3
@@ -11813,6 +11811,7 @@ fame	name	eng_british_matthew_arnold	3
 fame	name	eng_celtic_msm_william_glen	3
 fame	proclaim	eng_american_harry_macarthy	3
 fame	same	eng_american_harry_macarthy	3
+fame	same	eng_hall_thomas_durfey	3
 fan	man	eng_american_james_whitcomb_riley	3
 far	star	eng_american_edmund_clarence_stedman	3
 far	star	eng_british_percy_bysshe_shelley	3
@@ -12443,6 +12442,7 @@ hair	there	eng_celtic_msm_william_thom	3
 hair	wear	eng_british_robert_herrick	3
 hall	wall	eng_american_henry_wadsworth_longfellow	3
 hall	wall	eng_british_felicia_hemans	3
+hall	wall	eng_british_lord_byron	3
 halls	walls	eng_british_felicia_hemans	3
 halls	walls	eng_hall_william_barnes	3
 hand	land	eng_american_abram_joseph_ryan	3
@@ -12538,6 +12538,7 @@ heard	word	eng_celtic_msm_francis_bennoch	3
 heart	impart	eng_celtic_robert_burns	3
 heart	part	eng_american_abram_joseph_ryan	3
 heart	part	eng_american_james_russell_lowell	3
+heart	part	eng_british_lord_byron	3
 heart	part	eng_british_thomas_hood	3
 heart	part	eng_british_walter_savage_landor	3
 heart	part	eng_celtic_msm_sir_alexander_boswell_bart	3
@@ -13345,7 +13346,6 @@ own	shone	eng_british_felicia_hemans	3
 own	stone	eng_british_william_wordsworth	3
 own	stone	eng_hall_thomas_durfey	3
 p	see	eng_british_richard_lovelace	3
-p	thee	eng_british_felicia_hemans	3
 page	rage	eng_celtic_robert_burns	3
 paid	shade	eng_hymn_watts	3
 pail	tale	eng_british_jean_ingelow	3
@@ -13644,6 +13644,7 @@ seat	sweet	eng_hall_john_clare	3
 seat	sweet	eng_oxford_john_milton	3
 see	thee	eng_british_alfred_tennyson	3
 see	thee	eng_british_edward_fitzgerald	3
+see	thee	eng_british_lord_byron	3
 see	thee	eng_british_percy_bysshe_shelley	3
 see	thee	eng_british_walter_savage_landor	3
 see	thee	eng_celtic_carolina_oliphant_lady_nairne	3
@@ -14581,6 +14582,7 @@ alone	moan	eng_oxford_nicholas_breton	2
 alone	own	eng_american_edward_coate_pinkney	2
 alone	own	eng_american_james_russell_lowell	2
 alone	own	eng_british_alfred_tennyson	2
+alone	own	eng_british_lord_byron	2
 alone	own	eng_celtic_msm_mrs_mary_macarthur	2
 alone	own	eng_celtic_robert_burns	2
 alone	own	eng_hall_john_clare	2
@@ -15532,7 +15534,6 @@ be	free	eng_pah_james_jeffrey_roche	2
 be	free	eng_pah_thomas_cogswell_upham	2
 be	free	eng_pah_thomas_dunn_english	2
 be	free	eng_pah_thomas_green_fessenden	2
-be	g	eng_british_lord_byron	2
 be	glee	eng_british_lewis_carroll	2
 be	glee	eng_celtic_carolina_oliphant_lady_nairne	2
 be	glee	eng_celtic_msm_joanna_baillie	2
@@ -15623,7 +15624,6 @@ be	me	eng_pah_madison_cawein	2
 be	me	eng_pah_silas_weir_mitchell	2
 be	me	eng_pah_walter_learned	2
 be	me	eng_pah_william_ernest_henley	2
-be	p	eng_british_felicia_hemans	2
 be	pharisee	eng_hymn_watts	2
 be	plea	eng_celtic_robert_burns	2
 be	plea	eng_hymn_cowper	2
@@ -15869,7 +15869,6 @@ bed	dead	eng_american_phoebe_cary	2
 bed	dead	eng_british_adelaide_anne_procter	2
 bed	dead	eng_celtic_msm_andrew_scott	2
 bed	dead	eng_celtic_thomas_moore	2
-bed	dead	eng_hall_thomas_durfey	2
 bed	dead	eng_hbv_eugene_lee_hamilton	2
 bed	dead	eng_oxford_john_davidson	2
 bed	dead	eng_oxford_william_drummond_of_hawthornden	2
@@ -16888,6 +16887,7 @@ born	morn	eng_british_percy_bysshe_shelley	2
 born	morn	eng_british_robert_herrick	2
 born	morn	eng_british_thomas_hood	2
 born	morn	eng_celtic_james_hogg	2
+born	morn	eng_hall_william_barnes	2
 born	morn	eng_oxford_william_drummond_of_hawthornden	2
 born	mourn	eng_oxford_john_milton	2
 born	mourn	eng_pah_jacob_steendam	2
@@ -16895,6 +16895,7 @@ born	scorn	eng_british_elizabeth_barrett_browning	2
 born	scorn	eng_celtic_james_hogg	2
 born	scorn	eng_celtic_robert_burns	2
 born	scorn	eng_hall_thomas_durfey	2
+born	scorn	eng_hall_william_barnes	2
 born	scorn	eng_hymn_watts	2
 born	shorn	eng_american_thomas_buchanan_read	2
 born	torn	eng_celtic_robert_burns	2
@@ -17157,7 +17158,6 @@ breast	rest	eng_hbv_margaret_sangster	2
 breast	rest	eng_hymn_doddridge	2
 breast	rest	eng_hymn_newton	2
 breast	rest	eng_oxford_roden_berkeley_wriothesley_noel	2
-breast	suppressed	eng_british_percy_bysshe_shelley	2
 breast	test	eng_pah_theodore_tilton	2
 breast	vest	eng_american_henry_wadsworth_longfellow	2
 breast	west	eng_american_henry_wadsworth_longfellow	2
@@ -17569,6 +17569,7 @@ by	shy	eng_british_jean_ingelow	2
 by	shy	eng_british_lewis_carroll	2
 by	shy	eng_celtic_robert_burns	2
 by	sigh	eng_american_james_whitcomb_riley	2
+by	sigh	eng_british_lord_byron	2
 by	sigh	eng_british_matthew_arnold	2
 by	sigh	eng_british_william_blake	2
 by	sigh	eng_celtic_robert_burns	2
@@ -19086,7 +19087,6 @@ dead	head	eng_american_henry_wadsworth_longfellow	2
 dead	head	eng_american_john_greenleaf_whittier	2
 dead	head	eng_american_mrs_henry_j_vose	2
 dead	head	eng_british_alfred_tennyson	2
-dead	head	eng_british_lord_byron	2
 dead	head	eng_celtic_msm_thomas_c_latto	2
 dead	head	eng_hbv_edward_robert_bulwer_lytton	2
 dead	head	eng_hbv_eugene_lee_hamilton	2
@@ -19206,7 +19206,6 @@ debt	met	eng_american_bayard_taylor	2
 debt	set	eng_american_bayard_taylor	2
 debt	yet	eng_american_bayard_taylor	2
 decay	gray	eng_british_christina_rossetti	2
-decay	gray	eng_british_felicia_hemans	2
 decay	lay	eng_british_felicia_hemans	2
 decay	may	eng_british_robert_jones	2
 decay	play	eng_british_christina_rossetti	2
@@ -20685,6 +20684,7 @@ eye	reply	eng_british_b_w_procter	2
 eye	reply	eng_british_emily_bronte	2
 eye	shy	eng_british_lewis_carroll	2
 eye	shy	eng_hall_john_clare	2
+eye	sigh	eng_british_lord_byron	2
 eye	sigh	eng_british_percy_bysshe_shelley	2
 eye	sigh	eng_british_thomas_lovell_beddoes	2
 eye	sigh	eng_celtic_msm_david_vedder	2
@@ -21004,6 +21004,7 @@ fame	frame	eng_oxford_samuel_daniel	2
 fame	name	eng_american_john_greenleaf_whittier	2
 fame	name	eng_british_emily_bronte	2
 fame	name	eng_british_jean_ingelow	2
+fame	name	eng_british_lord_byron	2
 fame	name	eng_british_robert_herrick	2
 fame	name	eng_celtic_james_hogg	2
 fame	name	eng_celtic_msm_henry_duncan_d_d	2
@@ -22087,7 +22088,6 @@ free	me	eng_oxford_robert_henryson	2
 free	me	eng_pah_james_jeffrey_roche	2
 free	me	eng_pah_james_kirke_paulding	2
 free	me	eng_pah_william_henry_babcock	2
-free	p	eng_british_felicia_hemans	2
 free	plea	eng_pah_h_s_cornwall	2
 free	reveille	eng_american_a_g_knight	2
 free	sea	eng_american_edgar_allan_poe	2
@@ -22243,8 +22243,6 @@ fun	sun	eng_british_lewis_carroll	2
 fun	sun	eng_hall_john_clare	2
 fun	sun	eng_hbv_thomas_constable	2
 fun	won	eng_hall_thomas_durfey	2
-g	hee	eng_hall_william_barnes	2
-g	thee	eng_british_lord_byron	2
 gael	pale	eng_celtic_msm_mrs_eliza_a_h_ogilvy	2
 gael	vale	eng_celtic_msm_mrs_eliza_a_h_ogilvy	2
 gag	lag	eng_pah_william_ernest_henley	2
@@ -23150,7 +23148,6 @@ hall	recall	eng_british_william_makepeace_thackeray	2
 hall	small	eng_british_william_allingham	2
 hall	small	eng_hall_william_barnes	2
 hall	tall	eng_british_william_wordsworth	2
-hall	wall	eng_british_lord_byron	2
 hall	wall	eng_british_william_allingham	2
 hall	wall	eng_celtic_msm_james_dodds	2
 hall	wall	eng_pah_robert_southey	2
@@ -23419,7 +23416,6 @@ heart	impart	eng_pah_william_vaughn_moody	2
 heart	mart	eng_american_henry_timrod	2
 heart	mart	eng_oxford_coventry_patmore	2
 heart	part	eng_british_algernon_charles_swinburne	2
-heart	part	eng_british_lord_byron	2
 heart	part	eng_british_robert_browning	2
 heart	part	eng_british_robert_jones	2
 heart	part	eng_british_sir_john_suckling	2
@@ -23511,6 +23507,7 @@ hell	tell	eng_pah_uriah_terry	2
 hell	well	eng_american_edmund_clarence_stedman	2
 hell	well	eng_american_george_henry_boker	2
 hell	well	eng_american_lucy_larcom	2
+hell	well	eng_british_lord_byron	2
 hell	well	eng_pah_clinton_scollard	2
 helm	realm	eng_british_felicia_hemans	2
 hem	them	eng_british_jean_ingelow	2
@@ -24046,6 +24043,7 @@ kind	refined	eng_celtic_msm_james_brown	2
 kind	unkind	eng_oxford_charles_sackville_earl_of_dorset	2
 kind	wind	eng_british_felicia_hemans	2
 kind	wind	eng_british_jean_ingelow	2
+kind	wind	eng_hymn_watts	2
 king	ring	eng_american_francis_o_ticknor	2
 king	ring	eng_british_felicia_hemans	2
 king	ring	eng_oxford_robert_henryson	2
@@ -24229,7 +24227,6 @@ knows	rose	eng_american_louise_chandler_moulton	2
 knows	rose	eng_british_algernon_charles_swinburne	2
 knows	rose	eng_british_christina_rossetti	2
 knows	woes	eng_hymn_watts	2
-l	well	eng_british_lord_byron	2
 labor	neighbor	eng_american_john_greenleaf_whittier	2
 labor	sabre	eng_american_john_greenleaf_whittier	2
 labour	neighbour	eng_hall_thomas_durfey	2
@@ -24772,6 +24769,7 @@ lord	reward	eng_pah_edna_dean_proctor	2
 lord	sword	eng_american_c_a_warfield	2
 lord	sword	eng_american_john_greenleaf_whittier	2
 lord	sword	eng_british_edward_fitzgerald	2
+lord	sword	eng_british_lord_byron	2
 lord	sword	eng_hymn_cowper	2
 lord	sword	eng_pah_virginia_woodward_cloud	2
 lore	more	eng_american_john_greenleaf_whittier	2
@@ -25008,6 +25006,7 @@ me	sea	eng_pah_jacob_steendam	2
 me	sea	eng_pah_james_jeffrey_roche	2
 me	sea	eng_pah_john_hay	2
 me	see	eng_american_henry_cuyler_bunner	2
+me	see	eng_british_lord_byron	2
 me	see	eng_british_william_byrd	2
 me	see	eng_celtic_gerald_griffin	2
 me	see	eng_celtic_msm_alexander_rodger	2
@@ -25858,6 +25857,7 @@ pat	that	eng_celtic_samuel_lover	2
 pate	sate	eng_british_matthew_arnold	2
 path	wrath	eng_american_henry_wadsworth_longfellow	2
 path	wrath	eng_british_felicia_hemans	2
+path	wrath	eng_british_lord_byron	2
 path	wrath	eng_hymn_montgomery	2
 path	wrath	eng_oxford_george_herbert	2
 pathway	railway	eng_pah_thomas_dunn_english	2
@@ -26015,6 +26015,7 @@ please	seas	eng_celtic_robert_burns	2
 please	seas	eng_hall_thomas_durfey	2
 please	seas	eng_hymn_watts	2
 please	these	eng_british_alfred_tennyson	2
+please	these	eng_hymn_watts	2
 please	these	eng_pah_uriah_terry	2
 pleasure	treasure	eng_american_samuel_woodworth	2
 pleasure	treasure	eng_british_adelaide_anne_procter	2
@@ -26031,7 +26032,6 @@ plight	sight	eng_oxford_michael_drayton	2
 plight	white	eng_oxford_edmund_spenser	2
 plough	thou	eng_hall_thomas_durfey	2
 plow	thou	eng_oxford_abraham_cowley	2
-plumes	tombs	eng_british_felicia_hemans	2
 plunder	under	eng_american_j_w_palmer	2
 plunder	wonder	eng_american_j_w_palmer	2
 poet's	poets	eng_british_richard_lovelace	2
@@ -26576,7 +26576,6 @@ run	shun	eng_american_herman_melville	2
 run	shun	eng_hymn_charles_wesley	2
 run	son	eng_american_herman_melville	2
 run	son	eng_british_alfred_tennyson	2
-run	son	eng_british_percy_bysshe_shelley	2
 run	son	eng_hall_thomas_durfey	2
 run	sun	eng_american_henry_wadsworth_longfellow	2
 run	sun	eng_american_ralph_waldo_emerson	2
@@ -26796,7 +26795,6 @@ see	slee	eng_oxford_william_dunbar	2
 see	t	eng_american_james_russell_lowell	2
 see	tea	eng_celtic_msm_james_brown	2
 see	thee	eng_british_dante_gabriel_rossetti	2
-see	thee	eng_british_lord_byron	2
 see	thee	eng_british_thomas_campion	2
 see	thee	eng_celtic_james_hogg	2
 see	thee	eng_celtic_msm_alexander_maclagan	2
@@ -27116,6 +27114,7 @@ skill	will	eng_american_richard_henry_stoddard	2
 skill	will	eng_celtic_james_hogg	2
 skill	will	eng_hall_john_clare	2
 skill	will	eng_hymn_cowper	2
+skill	will	eng_hymn_watts	2
 sky	spry	eng_hall_william_barnes	2
 sky	spy	eng_celtic_robert_burns	2
 sky	supply	eng_oxford_john_dryden	2
@@ -27575,7 +27574,6 @@ swore	whore	eng_hall_thomas_durfey	2
 swung	young	eng_celtic_james_hogg	2
 t	we	eng_american_james_russell_lowell	2
 t	ye	eng_celtic_robert_burns	2
-t	ye	eng_hall_william_barnes	2
 taken	unshaken	eng_british_felicia_hemans	2
 taken	waken	eng_british_jean_ingelow	2
 tale	vale	eng_british_christina_rossetti	2
@@ -30773,7 +30771,6 @@ alone	own	eng_american_john_greenleaf_whittier	1
 alone	own	eng_american_nora_perry	1
 alone	own	eng_american_phoebe_cary	1
 alone	own	eng_british_arthur_hugh_clough	1
-alone	own	eng_british_lord_byron	1
 alone	own	eng_british_richard_lovelace	1
 alone	own	eng_british_robert_browning	1
 alone	own	eng_british_robert_jones	1
@@ -31245,7 +31242,6 @@ ane	train	eng_celtic_msm_william_cadenhead	1
 ane	vain	eng_celtic_msm_alexander_maclagan	1
 ane	vain	eng_celtic_robert_burns	1
 anemone	throne	eng_british_jean_ingelow	1
-anew	blew	eng_british_samuel_taylor_coleridge	1
 anew	blue	eng_american_edmund_clarence_stedman	1
 anew	blue	eng_celtic_msm_hugh_miller	1
 anew	blue	eng_celtic_msm_thomas_lyle	1
@@ -31310,7 +31306,6 @@ anew	through	eng_hymn_charles_wesley	1
 anew	through	eng_pah_tom_taylor	1
 anew	too	eng_british_arthur_hugh_clough	1
 anew	too	eng_british_elizabeth_barrett_browning	1
-anew	too	eng_british_samuel_taylor_coleridge	1
 anew	too	eng_celtic_james_clarence_mangan	1
 anew	too	eng_celtic_msm_norman_macleod_tormaid_ban	1
 anew	too	eng_hall_john_clare	1
@@ -33235,6 +33230,7 @@ avail	sail	eng_british_jean_ingelow	1
 avail	sail	eng_hbv_george_macdonald	1
 avail	sail	eng_oxford_henry_howard_earl_of_surrey	1
 avail	tale	eng_american_edmund_clarence_stedman	1
+avail	tale	eng_british_lord_byron	1
 avail	wail	eng_hymn_bliss	1
 availed	failed	eng_american_philip_freneau	1
 availed	sailed	eng_american_philip_freneau	1
@@ -34151,11 +34147,8 @@ ayre	spare	eng_oxford_edmund_spenser	1
 ayre	spare	eng_oxford_john_milton	1
 azores	shores	eng_american_cincinnatus_hiner_miller	1
 b	be	eng_celtic_robert_burns	1
-b	c	eng_british_lord_byron	1
-b	d	eng_british_lord_byron	1
 b	he	eng_celtic_robert_burns	1
 b	lee	eng_pah_john_h_jewett	1
-b	me	eng_british_lord_byron	1
 b	me	eng_celtic_robert_burns	1
 b	three	eng_celtic_robert_burns	1
 b	we	eng_celtic_robert_burns	1
@@ -35253,9 +35246,6 @@ be	bree	eng_celtic_msm_william_wilson	1
 be	bree	eng_celtic_robert_burns	1
 be	brie	eng_celtic_robert_burns	1
 be	c	eng_hbv_james_kenneth_stephen	1
-be	cb	eng_british_lord_byron	1
-be	cc	eng_british_lord_byron	1
-be	cd	eng_british_lord_byron	1
 be	company	eng_american_edmund_clarence_stedman	1
 be	company	eng_british_jean_ingelow	1
 be	company	eng_british_lewis_carroll	1
@@ -35401,7 +35391,6 @@ be	free	eng_pah_robert_burns_wilson	1
 be	free	eng_pah_robert_underwood_johnson	1
 be	free	eng_pah_theodore_tilton	1
 be	free	eng_pah_william_ernest_henley	1
-be	g	eng_hall_william_barnes	1
 be	galilee	eng_american_john_greenleaf_whittier	1
 be	galilee	eng_british_lord_byron	1
 be	gee	eng_american_james_whitcomb_riley	1
@@ -36569,6 +36558,7 @@ bed	dead	eng_british_thomas_campion	1
 bed	dead	eng_celtic_msm_dugald_moore	1
 bed	dead	eng_celtic_msm_john_wilson	1
 bed	dead	eng_celtic_robert_burns	1
+bed	dead	eng_hall_thomas_durfey	1
 bed	dead	eng_hbv_dora_sigerson_shorter	1
 bed	dead	eng_hbv_edward_robert_bulwer_lytton	1
 bed	dead	eng_hbv_george_gordon_byron	1
@@ -38205,6 +38195,7 @@ below	know	eng_british_edward_fitzgerald	1
 below	know	eng_british_edwin_arnold	1
 below	know	eng_british_elizabeth_barrett_browning	1
 below	know	eng_british_felicia_hemans	1
+below	know	eng_british_lord_byron	1
 below	know	eng_british_matthew_arnold	1
 below	know	eng_british_percy_bysshe_shelley	1
 below	know	eng_british_richard_lovelace	1
@@ -39668,6 +39659,7 @@ blame	game	eng_pah_franklin_lushington	1
 blame	lame	eng_american_rossiter_johnson	1
 blame	lame	eng_british_robert_browning	1
 blame	lame	eng_pah_franklin_lushington	1
+blame	name	eng_british_lord_byron	1
 blame	name	eng_british_robert_browning	1
 blame	name	eng_british_william_wordsworth	1
 blame	name	eng_celtic_carolina_oliphant_lady_nairne	1
@@ -39997,12 +39989,14 @@ bleed	speed	eng_british_robert_herrick	1
 bleed	steed	eng_parlour_thomas_haynes_bayly	1
 bleed	succeed	eng_pah_peter_st_john	1
 bleeding	heeding	eng_british_adelaide_anne_procter	1
+bleeding	pleading	eng_british_lord_byron	1
 bleeding	pleading	eng_celtic_robert_burns	1
 bleeding	pleading	eng_hall_thomas_durfey	1
 bleeding	proceeding	eng_hall_thomas_durfey	1
 bleeding	reading	eng_hall_thomas_durfey	1
 bleeding	receding	eng_american_john_r_thompson	1
 bleeding	speeding	eng_celtic_msm_thomas_campbell	1
+bleeding	succeeding	eng_british_lord_byron	1
 bleeds	breeds	eng_american_james_russell_lowell	1
 bleeds	creeds	eng_american_james_russell_lowell	1
 bleeds	deeds	eng_american_harry_l_flash	1
@@ -40496,6 +40490,7 @@ bloom	gloom	eng_american_john_banister_tabb	1
 bloom	gloom	eng_american_phoebe_cary	1
 bloom	gloom	eng_american_william_dean_howells	1
 bloom	gloom	eng_british_john_keats	1
+bloom	gloom	eng_british_lord_byron	1
 bloom	gloom	eng_british_matthew_arnold	1
 bloom	gloom	eng_british_norman_gale	1
 bloom	gloom	eng_british_thomas_hood	1
@@ -41351,6 +41346,7 @@ blue	view	eng_oxford_john_fletcher	1
 blue	view	eng_oxford_rudyard_kipling	1
 blue	view	eng_oxford_thomas_lodge	1
 blue	whoo	eng_celtic_msm_thomas_lyle	1
+blue	woo	eng_british_lord_byron	1
 blue	woo	eng_celtic_msm_richard_gall	1
 blue	woo	eng_oxford_robert_cunninghame_graham_of_gartmore	1
 blue	yew	eng_celtic_walter_scott	1
@@ -41899,7 +41895,6 @@ born	morn	eng_celtic_msm_john_stuart_blackie	1
 born	morn	eng_celtic_msm_patrick_scott	1
 born	morn	eng_celtic_msm_william_stirling_m_p	1
 born	morn	eng_celtic_robert_burns	1
-born	morn	eng_hall_william_barnes	1
 born	morn	eng_hall_ws_gilbert	1
 born	morn	eng_hbv_bryan_waller_procter	1
 born	morn	eng_hbv_frederic_lawrence_knowles	1
@@ -41926,7 +41921,6 @@ born	scorn	eng_british_john_dowland	1
 born	scorn	eng_british_lewis_carroll	1
 born	scorn	eng_british_percy_bysshe_shelley	1
 born	scorn	eng_british_thomas_campion	1
-born	scorn	eng_hall_william_barnes	1
 born	scorn	eng_oxford_john_wilmot_earl_of_rochester	1
 born	scorn	eng_oxford_matthew_prior	1
 born	scorn	eng_oxford_michael_drayton	1
@@ -43401,6 +43395,7 @@ breast	rest	eng_pah_richard_le_gallienne	1
 breast	rest	eng_pah_richard_mansfield	1
 breast	rest	eng_pah_silas_weir_mitchell	1
 breast	suggest	eng_hymn_watts	1
+breast	suppressed	eng_british_percy_bysshe_shelley	1
 breast	suppressed	eng_british_robert_browning	1
 breast	test	eng_american_richard_henry_stoddard	1
 breast	test	eng_british_robert_browning	1
@@ -44473,6 +44468,7 @@ brink	drink	eng_hbv_catherine_m_fanshawe	1
 brink	drink	eng_hymn_watts	1
 brink	drink	eng_pah_john_townsend_trowbridge	1
 brink	jink	eng_celtic_robert_burns	1
+brink	link	eng_british_lord_byron	1
 brink	link	eng_oxford_alexander_smith	1
 brink	pink	eng_american_john_greenleaf_whittier	1
 brink	pink	eng_british_algernon_charles_swinburne	1
@@ -45645,7 +45641,6 @@ byte	plight	eng_oxford_edmund_spenser	1
 byte	quite	eng_oxford_edmund_spenser	1
 byte	white	eng_oxford_edmund_spenser	1
 byways	highways	eng_oxford_john_davidson	1
-c	d	eng_british_lord_byron	1
 c	d	eng_hall_ws_gilbert	1
 c	de	eng_oxford_robert_henryson	1
 c	degree	eng_hall_ws_gilbert	1
@@ -45653,9 +45648,7 @@ c	degree	eng_parlour_thomas_haynes_bayly	1
 c	free	eng_oxford_robert_henryson	1
 c	glee	eng_hbv_emma_huntington_nason	1
 c	key	eng_hbv_emma_huntington_nason	1
-c	me	eng_british_lord_byron	1
 c	me	eng_hbv_emma_huntington_nason	1
-c	sea	eng_british_felicia_hemans	1
 c	sea	eng_hbv_james_kenneth_stephen	1
 c	three	eng_hbv_james_kenneth_stephen	1
 c	we	eng_hall_thomas_durfey	1
@@ -46712,15 +46705,6 @@ caw	law	eng_hymn_cowper	1
 caw	maw	eng_hall_william_barnes	1
 caw	straw	eng_british_john_keats	1
 caw	straw	eng_hall_william_barnes	1
-cb	cc	eng_british_lord_byron	1
-cb	cd	eng_british_lord_byron	1
-cb	decree	eng_british_lord_byron	1
-cb	free	eng_british_lord_byron	1
-cc	cd	eng_british_lord_byron	1
-cc	decree	eng_british_lord_byron	1
-cc	free	eng_british_lord_byron	1
-cd	decree	eng_british_lord_byron	1
-cd	free	eng_british_lord_byron	1
 cease	decrease	eng_british_christina_rossetti	1
 cease	decrease	eng_hall_thomas_durfey	1
 cease	geese	eng_british_lewis_carroll	1
@@ -46838,6 +46822,7 @@ cell	well	eng_american_john_greenleaf_whittier	1
 cell	well	eng_american_thomas_buchanan_read	1
 cell	well	eng_british_john_dowland	1
 cell	well	eng_british_lewis_carroll	1
+cell	well	eng_british_lord_byron	1
 cell	well	eng_celtic_msm_john_roy_stuart	1
 cell	well	eng_celtic_msm_john_wilson	1
 cell	well	eng_celtic_robert_burns	1
@@ -48336,6 +48321,7 @@ clay	say	eng_pah_joyce_kilmer	1
 clay	slay	eng_oxford_andrew_lang	1
 clay	stay	eng_american_james_russell_lowell	1
 clay	stay	eng_british_elizabeth_barrett_browning	1
+clay	stay	eng_british_lord_byron	1
 clay	stay	eng_british_william_byrd	1
 clay	stay	eng_celtic_msm_william_finlay	1
 clay	stay	eng_celtic_robert_burns	1
@@ -48345,6 +48331,7 @@ clay	stray	eng_celtic_msm_henry_scott_riddell	1
 clay	stray	eng_hbv_philip_bourke_marston	1
 clay	stray	eng_oxford_rudyard_kipling	1
 clay	sunday	eng_american_edmund_clarence_stedman	1
+clay	survey	eng_british_lord_byron	1
 clay	sway	eng_oxford_john_milton	1
 clay	sway	eng_pah_william_vaughn_moody	1
 clay	they	eng_american_herman_melville	1
@@ -48358,6 +48345,7 @@ clay	way	eng_american_herman_melville	1
 clay	way	eng_american_john_greenleaf_whittier	1
 clay	way	eng_british_elizabeth_barrett_browning	1
 clay	way	eng_british_felicia_hemans	1
+clay	way	eng_british_lord_byron	1
 clay	way	eng_british_william_wordsworth	1
 clay	way	eng_celtic_james_clarence_mangan	1
 clay	way	eng_celtic_msm_john_bethune	1
@@ -50490,6 +50478,9 @@ craved	waved	eng_american_james_ryder_randall	1
 craven	haven	eng_pah_ernest_mcgaffey	1
 craven	unshaven	eng_pah_ernest_mcgaffey	1
 craves	graves	eng_pah_rupert_hughes	1
+craving	raving	eng_british_lord_byron	1
+craving	saving	eng_british_lord_byron	1
+craving	waving	eng_british_lord_byron	1
 craw	haw	eng_celtic_james_hogg	1
 craw	law	eng_celtic_james_hogg	1
 crawl	fall	eng_british_robert_herrick	1
@@ -50709,7 +50700,6 @@ crest	rest	eng_hall_thomas_durfey	1
 crest	rest	eng_hbv_caroline_elizabeth_sarah_norton	1
 crest	rest	eng_pah_clinton_scollard	1
 crest	rest	eng_pah_harvey_rice	1
-crest	suppressed	eng_british_percy_bysshe_shelley	1
 crest	test	eng_pah_theodore_tilton	1
 crest	vest	eng_british_william_wordsworth	1
 crest	west	eng_american_edmund_clarence_stedman	1
@@ -51613,7 +51603,6 @@ cry	why	eng_hbv_anne_barnard	1
 cry	why	eng_hymn_watts	1
 cry	why	eng_oxford_george_meredith	1
 cry	why	eng_pah_joseph_blynth_alston	1
-cry	y	eng_hall_william_barnes	1
 crying	denying	eng_british_robert_jones	1
 crying	denying	eng_british_william_corkine	1
 crying	drying	eng_british_robert_jones	1
@@ -51785,9 +51774,6 @@ cuts	shuts	eng_british_robert_browning	1
 cymbal	nimble	eng_american_john_r_thompson	1
 czars	mars	eng_hbv_alexander_macgregor_rose	1
 d	degree	eng_hall_ws_gilbert	1
-d	knee	eng_british_robert_herrick	1
-d	me	eng_british_lord_byron	1
-d	me	eng_british_robert_herrick	1
 d	p	eng_british_richard_lovelace	1
 d'or	four	eng_british_austin_dobson	1
 d'or	ignore	eng_british_austin_dobson	1
@@ -53723,6 +53709,7 @@ decay	gay	eng_celtic_msm_james_brown	1
 decay	gay	eng_celtic_msm_william_nicholson	1
 decay	gay	eng_hall_john_gay	1
 decay	gay	eng_hbv_isaac_bickerstaff	1
+decay	gray	eng_british_felicia_hemans	1
 decay	gray	eng_british_william_wordsworth	1
 decay	gray	eng_celtic_msm_james_dodds	1
 decay	gray	eng_celtic_robert_burns	1
@@ -53777,6 +53764,7 @@ decay	stay	eng_celtic_thomas_moore	1
 decay	stay	eng_oxford_william_drummond_of_hawthornden	1
 decay	stay	eng_pah_oliver_wendell_holmes	1
 decay	stray	eng_celtic_msm_henry_scott_riddell	1
+decay	sway	eng_british_lord_byron	1
 decay	sway	eng_british_percy_bysshe_shelley	1
 decay	sway	eng_celtic_msm_james_maclardy	1
 decay	sway	eng_celtic_robert_burns	1
@@ -54041,6 +54029,7 @@ decree	see	eng_pah_gulian_crommelin_verplanck	1
 decree	she	eng_pah_charles_dawson_shanly	1
 decree	tennessee	eng_pah_mrs_katherine_margaret_brownlee_sherwood	1
 decree	thee	eng_american_philip_freneau	1
+decree	thee	eng_british_lord_byron	1
 decree	thee	eng_celtic_msm_dougal_buchanan	1
 decree	thee	eng_hymn_watts	1
 decree	three	eng_hymn_watts	1
@@ -55733,6 +55722,7 @@ destroy	enjoy	eng_celtic_msm_charles_james_finlayson	1
 destroy	enjoy	eng_hbv_colley_cibber	1
 destroy	enjoy	eng_hymn_watts	1
 destroy	enjoy	eng_oxford_abraham_cowley	1
+destroy	joy	eng_british_lord_byron	1
 destroy	joy	eng_british_mortimer_collins	1
 destroy	joy	eng_celtic_msm_andrew_park	1
 destroy	joy	eng_celtic_msm_dugald_moore	1
@@ -55918,7 +55908,6 @@ dew	renew	eng_celtic_robert_burns	1
 dew	renew	eng_hymn_ken	1
 dew	renew	eng_oxford_john_dryden	1
 dew	renew	eng_oxford_laurence_binyon	1
-dew	review	eng_british_felicia_hemans	1
 dew	rue	eng_british_algernon_charles_swinburne	1
 dew	rue	eng_british_jean_ingelow	1
 dew	rue	eng_celtic_msm_hector_macneill	1
@@ -55944,7 +55933,6 @@ dew	through	eng_oxford_frederick_tennyson	1
 dew	through	eng_oxford_george_meredith	1
 dew	through	eng_pah_oliver_wendell_holmes	1
 dew	to	eng_british_emily_bronte	1
-dew	to	eng_british_felicia_hemans	1
 dew	to	eng_hall_william_barnes	1
 dew	too	eng_american_henry_david_thoreau	1
 dew	too	eng_american_john_greenleaf_whittier	1
@@ -56541,7 +56529,6 @@ died	unsatisfied	eng_hbv_rupert_brooke	1
 died	untied	eng_british_robert_herrick	1
 died	untied	eng_celtic_thomas_moore	1
 died	untried	eng_british_robert_browning	1
-died	wayside	eng_british_felicia_hemans	1
 died	wide	eng_american_john_r_thompson	1
 died	wide	eng_american_miss_mollie_e_moore	1
 died	wide	eng_british_alfred_austin	1
@@ -57227,7 +57214,6 @@ disparage	marriage	eng_pah_john_godfrey_saxe	1
 dispel	dwell	eng_celtic_msm_francis_bennoch	1
 dispel	dwell	eng_hymn_sf_smith	1
 dispel	fell	eng_celtic_msm_francis_bennoch	1
-dispel	l	eng_british_lord_byron	1
 dispel	repel	eng_american_s_r_ezzell	1
 dispel	snell	eng_celtic_msm_william_reid	1
 dispel	tell	eng_celtic_msm_francis_bennoch	1
@@ -59178,6 +59164,7 @@ drill	hill	eng_american_john_banister_tabb	1
 drill	skill	eng_american_john_r_thompson	1
 drills	hills	eng_british_robert_louis_stevenson	1
 drink	jink	eng_hall_ws_gilbert	1
+drink	link	eng_british_lord_byron	1
 drink	link	eng_celtic_thomas_moore	1
 drink	pink	eng_british_edward_lear	1
 drink	shrink	eng_british_algernon_charles_swinburne	1
@@ -59983,9 +59970,7 @@ dyke	pyke	eng_celtic_robert_burns	1
 dyke	tyke	eng_celtic_msm_john_skinner	1
 dyke	unlike	eng_celtic_robert_burns	1
 dykes	spikes	eng_american_j_w_de_forest	1
-e	he	eng_british_robert_herrick	1
 e	sea	eng_british_lewis_carroll	1
-e	see	eng_british_robert_herrick	1
 each	peach	eng_british_christina_rossetti	1
 each	peach	eng_hall_william_barnes	1
 each	peach	eng_hbv_william_wallace_harney	1
@@ -61552,7 +61537,6 @@ eye	sigh	eng_american_paul_laurence_dunbar	1
 eye	sigh	eng_british_christina_rossetti	1
 eye	sigh	eng_british_frederick_locker_lampson	1
 eye	sigh	eng_british_lewis_carroll	1
-eye	sigh	eng_british_lord_byron	1
 eye	sigh	eng_celtic_gerald_griffin	1
 eye	sigh	eng_celtic_msm_allan_cunningham	1
 eye	sigh	eng_celtic_msm_john_bethune	1
@@ -62847,7 +62831,6 @@ fame	name	eng_american_thomas_bailey_aldrich	1
 fame	name	eng_american_thomas_buchanan_read	1
 fame	name	eng_american_w_p_cunningham	1
 fame	name	eng_american_william_cullen_bryant	1
-fame	name	eng_british_lord_byron	1
 fame	name	eng_british_martin_peerson	1
 fame	name	eng_british_percy_bysshe_shelley	1
 fame	name	eng_british_thomas_carew	1
@@ -66970,6 +66953,7 @@ foe	know	eng_american_george_h_miles	1
 foe	know	eng_american_maurice_bell	1
 foe	know	eng_american_miss_maria_e_jones	1
 foe	know	eng_american_thomas_bailey_aldrich	1
+foe	know	eng_british_lord_byron	1
 foe	know	eng_celtic_charles_joseph_kickham	1
 foe	know	eng_celtic_james_hogg	1
 foe	know	eng_celtic_msm_george_allan	1
@@ -67475,6 +67459,7 @@ forget	unmet	eng_british_dante_gabriel_rossetti	1
 forget	wet	eng_american_henry_cuyler_bunner	1
 forget	wet	eng_american_margaret_junkin_preston	1
 forget	wet	eng_british_elizabeth_barrett_browning	1
+forget	wet	eng_british_lord_byron	1
 forget	wet	eng_pah_charles_graham_halpine	1
 forget	yet	eng_american_edmund_clarence_stedman	1
 forget	yet	eng_american_ethelinda_beers	1
@@ -68312,7 +68297,6 @@ free	me	eng_oxford_michael_drayton	1
 free	me	eng_oxford_samuel_daniel	1
 free	me	eng_oxford_t_sturge_moore	1
 free	me	eng_oxford_thomas_randolph	1
-free	p	eng_british_lord_byron	1
 free	p	eng_british_richard_lovelace	1
 free	plea	eng_celtic_robert_burns	1
 free	plea	eng_hymn_cowper	1
@@ -68387,6 +68371,7 @@ free	see	eng_american_john_d_phelan	1
 free	see	eng_american_l_virginia_french	1
 free	see	eng_british_alfred_tennyson	1
 free	see	eng_british_john_danyel	1
+free	see	eng_british_lord_byron	1
 free	see	eng_british_william_makepeace_thackeray	1
 free	see	eng_british_william_wordsworth	1
 free	see	eng_celtic_msm_alexander_stephen_wilson	1
@@ -68947,7 +68932,6 @@ fuss	us	eng_celtic_robert_burns	1
 fye	lye	eng_hall_thomas_durfey	1
 fye	spy	eng_celtic_robert_burns	1
 fyke	like	eng_celtic_robert_burns	1
-g	sea	eng_british_lord_byron	1
 g	tea	eng_american_philip_freneau	1
 gable	sable	eng_hbv_edmund_yates	1
 gad	lad	eng_hall_thomas_durfey	1
@@ -69356,6 +69340,7 @@ gateway	may	eng_oxford_george_meredith	1
 gateway	roadway	eng_oxford_george_meredith	1
 gateway	they	eng_oxford_george_meredith	1
 gateway	way	eng_oxford_george_meredith	1
+gath	path	eng_british_lord_byron	1
 gather	rather	eng_british_jean_ingelow	1
 gaul	hall	eng_oxford_andrew_marvell	1
 gaul	hall	eng_pah_joseph_stansbury	1
@@ -70101,7 +70086,6 @@ glee	me	eng_hbv_alexander_anderson	1
 glee	me	eng_hbv_emma_huntington_nason	1
 glee	me	eng_hbv_george_sigerson	1
 glee	me	eng_pah_virginia_woodward_cloud	1
-glee	p	eng_british_felicia_hemans	1
 glee	sea	eng_american_henry_timrod	1
 glee	sea	eng_american_richard_hovey	1
 glee	sea	eng_american_william_cullen_bryant	1
@@ -70335,6 +70319,7 @@ gloom	tomb	eng_american_mrs_wm_barnes	1
 gloom	tomb	eng_american_phoebe_cary	1
 gloom	tomb	eng_american_richard_henry_stoddard	1
 gloom	tomb	eng_british_emily_bronte	1
+gloom	tomb	eng_british_lord_byron	1
 gloom	tomb	eng_british_matthew_arnold	1
 gloom	tomb	eng_british_walter_savage_landor	1
 gloom	tomb	eng_british_william_wordsworth	1
@@ -71355,7 +71340,6 @@ gore	shore	eng_american_james_ryder_randall	1
 gore	shore	eng_american_mrs_c_a_ball	1
 gore	shore	eng_american_paul_h_hayne	1
 gore	shore	eng_british_charles_kingsley	1
-gore	shore	eng_british_felicia_hemans	1
 gore	shore	eng_celtic_thomas_moore	1
 gore	shore	eng_pah_david_humphreys	1
 gore	shore	eng_pah_james_gates_percival	1
@@ -71371,7 +71355,6 @@ gore	tore	eng_hymn_watts	1
 gore	war	eng_celtic_robert_burns	1
 gore	war	eng_hymn_watts	1
 gore	yore	eng_american_james_ryder_randall	1
-gore	yore	eng_british_felicia_hemans	1
 gore	yore	eng_celtic_msm_thomas_mounsey_cunningham	1
 gored	poured	eng_american_george_henry_boker	1
 gored	sword	eng_american_george_henry_boker	1
@@ -74319,6 +74302,7 @@ head	tread	eng_american_paul_laurence_dunbar	1
 head	tread	eng_american_phoebe_cary	1
 head	tread	eng_british_aubrey_de_vere	1
 head	tread	eng_british_austin_dobson	1
+head	tread	eng_british_lord_byron	1
 head	tread	eng_british_samuel_taylor_coleridge	1
 head	tread	eng_celtic_msm_alexander_balfour	1
 head	tread	eng_celtic_msm_kenneth_mackenzie	1
@@ -74931,7 +74915,6 @@ helicon	on	eng_oxford_margaret_l_woods	1
 heliotrope	hope	eng_british_christina_rossetti	1
 hell	html	eng_hymn_watts	1
 hell	knell	eng_pah_wallace_de_groot_cecil_rice	1
-hell	l	eng_british_lord_byron	1
 hell	nell	eng_pah_charlton_andrews	1
 hell	quell	eng_pah_william_henry_venable	1
 hell	sell	eng_british_austin_dobson	1
@@ -74981,7 +74964,6 @@ hell	well	eng_american_john_greenleaf_whittier	1
 hell	well	eng_american_richard_hovey	1
 hell	well	eng_american_rose_terry_cooke	1
 hell	well	eng_american_wm_neely	1
-hell	well	eng_british_lord_byron	1
 hell	well	eng_british_matthew_arnold	1
 hell	well	eng_british_percy_bysshe_shelley	1
 hell	well	eng_british_robert_browning	1
@@ -75097,6 +75079,7 @@ hers	stirs	eng_british_algernon_charles_swinburne	1
 hers	stirs	eng_british_jean_ingelow	1
 hers	stirs	eng_british_matthew_arnold	1
 hesitation	salvation	eng_american_john_w_paine	1
+hesper	vesper	eng_british_lord_byron	1
 hew	rew	eng_oxford_william_dunbar	1
 hew	shew	eng_oxford_john_milton	1
 hewe	shew	eng_oxford_edmund_spenser	1
@@ -75525,6 +75508,7 @@ hill	thrill	eng_celtic_robert_burns	1
 hill	thrill	eng_pah_james_jeffrey_roche	1
 hill	till	eng_american_john_greenleaf_whittier	1
 hill	till	eng_celtic_robert_burns	1
+hill	till	eng_hall_william_barnes	1
 hill	till	eng_hbv_john_williamson_palmer	1
 hill	till	eng_oxford_robert_henryson	1
 hill	till	eng_pah_edward_everett_hale	1
@@ -76277,6 +76261,7 @@ hue	view	eng_hymn_cowper	1
 hue	view	eng_oxford_john_milton	1
 hue	view	eng_oxford_robert_greene	1
 hue	view	eng_oxford_thomas_gray	1
+hue	woo	eng_british_lord_byron	1
 hue	yew	eng_british_william_wordsworth	1
 hue	yew	eng_celtic_carolina_oliphant_lady_nairne	1
 hue	you	eng_american_abram_joseph_ryan	1
@@ -77155,7 +77140,6 @@ it	writ	eng_british_robert_herrick	1
 it	writ	eng_oxford_coventry_patmore	1
 itch	which	eng_hall_ws_gilbert	1
 ivor	survivor	eng_british_william_wordsworth	1
-j	k	eng_british_lord_byron	1
 jack	lack	eng_hall_thomas_durfey	1
 jack	mack	eng_pah_james_jeffrey_roche	1
 jack	sack	eng_hall_thomas_durfey	1
@@ -77809,11 +77793,11 @@ kind	wind	eng_celtic_msm_ebenezer_picken	1
 kind	wind	eng_celtic_msm_james_ballantine	1
 kind	wind	eng_hall_ws_gilbert	1
 kind	wind	eng_hbv_richard_middleton	1
-kind	wind	eng_hymn_watts	1
 kind	wind	eng_oxford_andrew_lang	1
 kind	wind	eng_oxford_francis_beaumont	1
 kindle	spindle	eng_pah_oliver_wendell_holmes	1
 king	ring	eng_american_henry_cuyler_bunner	1
+king	ring	eng_british_lord_byron	1
 king	ring	eng_british_william_makepeace_thackeray	1
 king	ring	eng_celtic_msm_thomas_elliott	1
 king	ring	eng_celtic_msm_william_glen	1
@@ -78210,7 +78194,6 @@ knew	through	eng_celtic_msm_james_stirrat	1
 knew	through	eng_celtic_thomas_moore	1
 knew	through	eng_hbv_frank_l_stanton	1
 knew	through	eng_pah_john_jerome_rooney	1
-knew	to	eng_british_felicia_hemans	1
 knew	to	eng_oxford_thomas_traherne	1
 knew	too	eng_american_john_greenleaf_whittier	1
 knew	too	eng_american_phillis_wheatley	1
@@ -78622,6 +78605,7 @@ known	unknown	eng_celtic_msm_mrs_mary_macarthur	1
 known	unknown	eng_hall_thomas_durfey	1
 known	zone	eng_british_felicia_hemans	1
 known	zone	eng_celtic_robert_burns	1
+knows	oppose	eng_hymn_watts	1
 knows	owes	eng_oxford_richard_crashaw	1
 knows	repose	eng_american_bayard_taylor	1
 knows	repose	eng_american_james_russell_lowell	1
@@ -80865,6 +80849,7 @@ lining	shining	eng_american_w_a_haynes	1
 lining	shining	eng_celtic_robert_burns	1
 link	sink	eng_british_felicia_hemans	1
 link	sink	eng_celtic_thomas_moore	1
+link	think	eng_british_lord_byron	1
 link	think	eng_british_william_wordsworth	1
 link	think	eng_hbv_george_gordon_byron	1
 link	think	eng_oxford_alexander_smith	1
@@ -81249,7 +81234,6 @@ lord	sword	eng_british_algernon_charles_swinburne	1
 lord	sword	eng_british_christina_rossetti	1
 lord	sword	eng_british_elizabeth_barrett_browning	1
 lord	sword	eng_british_felicia_hemans	1
-lord	sword	eng_british_lord_byron	1
 lord	sword	eng_celtic_msm_james_dodds	1
 lord	sword	eng_celtic_msm_robert_white	1
 lord	sword	eng_celtic_thomas_moore	1
@@ -81682,6 +81666,7 @@ made	unpaid	eng_oxford_alexander_pope	1
 made	upbraid	eng_oxford_andrew_marvell	1
 made	wade	eng_british_edward_lear	1
 made	wade	eng_oxford_michael_drayton	1
+made	weighed	eng_british_lord_byron	1
 mademoiselle	tell	eng_hbv_emma_huntington_nason	1
 madly	sadly	eng_american_abram_joseph_ryan	1
 madly	sadly	eng_pah_silas_weir_mitchell	1
@@ -81747,9 +81732,11 @@ maids	shades	eng_american_william_cullen_bryant	1
 maids	shades	eng_british_felicia_hemans	1
 maids	shades	eng_british_walter_savage_landor	1
 mail	pale	eng_british_felicia_hemans	1
+mail	pale	eng_british_lord_byron	1
 mail	sail	eng_american_george_henry_boker	1
 mail	scale	eng_american_john_greenleaf_whittier	1
 mail	trail	eng_pah_john_james_meehan	1
+mail	wail	eng_british_lord_byron	1
 mailed	unveiled	eng_american_james_russell_lowell	1
 maim	shame	eng_british_john_keats	1
 main	maine	eng_american_george_henry_boker	1
@@ -82379,10 +82366,7 @@ maze	ways	eng_british_lewis_carroll	1
 maze	ways	eng_british_william_blake	1
 maze	ways	eng_hymn_watts	1
 mccook	shook	eng_pah_james_maurice_thompson	1
-md	me	eng_british_lord_byron	1
-md	thee	eng_british_lord_byron	1
 me	nee	eng_hall_edwin_waugh	1
-me	p	eng_british_lord_byron	1
 me	pea	eng_celtic_msm_william_laidlaw	1
 me	pharisee	eng_hall_thomas_durfey	1
 me	plea	eng_celtic_robert_burns	1
@@ -83878,6 +83862,7 @@ more	shore	eng_pah_william_banker_jr	1
 more	shore	eng_pah_william_haines_lytle	1
 more	shore	eng_pah_william_harrison_safford	1
 more	soar	eng_british_dante_gabriel_rossetti	1
+more	soar	eng_british_lord_byron	1
 more	soar	eng_british_thomas_lovell_beddoes	1
 more	soar	eng_celtic_carolina_oliphant_lady_nairne	1
 more	soar	eng_celtic_msm_john_grieve	1
@@ -85353,11 +85338,9 @@ nurses	verses	eng_oxford_winthrop_mackworth_praed	1
 nut	shut	eng_british_robert_herrick	1
 nut	slut	eng_hall_william_barnes	1
 o	sew	eng_celtic_msm_robert_hendry_m_d	1
-o	show	eng_british_lord_byron	1
 o	tho	eng_hall_edwin_waugh	1
 o	trow	eng_celtic_msm_joanna_baillie	1
 o	wo	eng_celtic_msm_james_ballantine	1
-o	woe	eng_british_lord_byron	1
 o'neill	steel	eng_celtic_thomas_osborne_davis	1
 oak	smoke	eng_american_henry_timrod	1
 oak	smoke	eng_american_henry_wadsworth_longfellow	1
@@ -85711,7 +85694,6 @@ or	ore	eng_hymn_watts	1
 or	sore	eng_hymn_watts	1
 or	store	eng_hymn_watts	1
 or	war	eng_hymn_watts	1
-or	wore	eng_british_felicia_hemans	1
 or	your	eng_celtic_james_clarence_mangan	1
 or	your	eng_hbv_george_canning	1
 orations	relations	eng_hall_ws_gilbert	1
@@ -86082,7 +86064,6 @@ owns	stones	eng_american_lucy_larcom	1
 owns	tones	eng_oxford_william_johnson_cory	1
 p	she	eng_british_richard_lovelace	1
 p	spirituality	eng_british_richard_lovelace	1
-p	thee	eng_british_lord_byron	1
 p	v	eng_british_richard_lovelace	1
 pace	place	eng_british_christina_rossetti	1
 pace	place	eng_british_lewis_carroll	1
@@ -86404,6 +86385,7 @@ pale	wail	eng_american_abram_joseph_ryan	1
 pale	wail	eng_american_george_henry_boker	1
 pale	wail	eng_american_miss_maria_e_jones	1
 pale	wail	eng_american_richard_henry_dana_sr	1
+pale	wail	eng_british_lord_byron	1
 pale	wail	eng_celtic_msm_charles_james_finlayson	1
 pale	wail	eng_celtic_msm_thomas_campbell	1
 pale	wail	eng_oxford_sydney_dobell	1
@@ -86538,7 +86520,6 @@ path	wrath	eng_american_john_r_thompson	1
 path	wrath	eng_american_william_tuckey_meredith	1
 path	wrath	eng_british_elizabeth_barrett_browning	1
 path	wrath	eng_british_lewis_carroll	1
-path	wrath	eng_british_lord_byron	1
 path	wrath	eng_celtic_james_clarence_mangan	1
 path	wrath	eng_celtic_msm_william_bennet	1
 path	wrath	eng_celtic_msm_william_thomson	1
@@ -87354,6 +87335,7 @@ plead	succeed	eng_pah_peter_st_john	1
 plead	weed	eng_pah_hilda_johnson	1
 pleading	reading	eng_hall_thomas_durfey	1
 pleading	receding	eng_american_paul_h_hayne	1
+pleading	succeeding	eng_british_lord_byron	1
 pleasant	present	eng_american_henry_wadsworth_longfellow	1
 pleasant	present	eng_british_edward_lear	1
 pleasant	present	eng_british_frederick_locker_lampson	1
@@ -87375,7 +87357,6 @@ please	these	eng_hall_thomas_durfey	1
 please	these	eng_hbv_charles_stuart_calverley	1
 please	these	eng_hbv_elizabeth_turner	1
 please	these	eng_hbv_violet_fane	1
-please	these	eng_hymn_watts	1
 please	these	eng_oxford_george_meredith	1
 please	these	eng_oxford_samuel_daniel	1
 please	these	eng_pah_oliver_wendell_holmes	1
@@ -87487,6 +87468,7 @@ plume	resume	eng_american_phillis_wheatley	1
 plume	resume	eng_hbv_john_addington_symonds	1
 plume	room	eng_british_alfred_tennyson	1
 plume	room	eng_oxford_andrew_marvell	1
+plumes	tombs	eng_british_felicia_hemans	1
 plump	stump	eng_hall_william_barnes	1
 plunder	thunder	eng_american_j_w_palmer	1
 plunder	thunder	eng_hall_thomas_durfey	1
@@ -88912,7 +88894,9 @@ raves	waves	eng_british_percy_bysshe_shelley	1
 raves	waves	eng_hymn_watts	1
 raves	waves	eng_oxford_john_boyle_o_reilly	1
 ravine	seen	eng_british_alfred_tennyson	1
+raving	saving	eng_british_lord_byron	1
 raving	saving	eng_british_percy_bysshe_shelley	1
+raving	waving	eng_british_lord_byron	1
 raving	waving	eng_celtic_msm_william_glen	1
 raving	waving	eng_pah_oliver_wendell_holmes	1
 ray	say	eng_celtic_thomas_moore	1
@@ -89479,14 +89463,12 @@ render	tender	eng_pah_daniel_bedinger_lucas	1
 render	tender	eng_pah_marion_couthouy_smith	1
 rendered	surrendered	eng_american_byron_forceythe_willson	1
 rending	unbending	eng_celtic_msm_james_hislop	1
-renew	review	eng_british_felicia_hemans	1
 renew	rue	eng_american_herman_melville	1
 renew	shew	eng_hymn_watts	1
 renew	subdue	eng_celtic_msm_henry_scott_riddell	1
 renew	subdue	eng_hymn_watts	1
 renew	subdue	eng_oxford_edmund_spenser	1
 renew	threw	eng_british_felicia_hemans	1
-renew	to	eng_british_felicia_hemans	1
 renew	to	eng_british_robert_herrick	1
 renew	too	eng_british_arthur_hugh_clough	1
 renew	too	eng_british_felicia_hemans	1
@@ -89928,7 +89910,6 @@ reveals	seals	eng_celtic_robert_burns	1
 reveals	seals	eng_hymn_sf_smith	1
 revere	severe	eng_american_james_russell_lowell	1
 review	through	eng_american_bret_harte	1
-review	to	eng_british_felicia_hemans	1
 review	you	eng_celtic_robert_burns	1
 reviewer	truer	eng_pah_francis_bret_harte	1
 reviewing	tattooing	eng_pah_francis_bret_harte	1
@@ -89973,6 +89954,7 @@ rhymes	sometimes	eng_american_james_whitcomb_riley	1
 rhymes	times	eng_american_william_cullen_bryant	1
 rhymes	times	eng_british_algernon_charles_swinburne	1
 rhymes	times	eng_british_edmund_gosse	1
+rhymes	times	eng_british_lord_byron	1
 rhymes	times	eng_british_mortimer_collins	1
 rhymes	times	eng_british_robert_browning	1
 rhymes	times	eng_british_robert_herrick	1
@@ -90812,6 +90794,7 @@ run	shun	eng_oxford_john_donne	1
 run	son	eng_american_john_greenleaf_whittier	1
 run	son	eng_british_elizabeth_barrett_browning	1
 run	son	eng_british_frederick_locker_lampson	1
+run	son	eng_british_percy_bysshe_shelley	1
 run	son	eng_celtic_msm_mrs_mary_macarthur	1
 run	son	eng_oxford_andrew_marvell	1
 run	son	eng_oxford_john_donne	1
@@ -92571,6 +92554,7 @@ shrine	sign	eng_british_dante_gabriel_rossetti	1
 shrine	sign	eng_pah_william_vaughn_moody	1
 shrine	thine	eng_american_bayard_taylor	1
 shrine	thine	eng_american_henry_timrod	1
+shrine	thine	eng_american_maria_gowen_brooks	1
 shrine	thine	eng_american_thomas_buchanan_read	1
 shrine	thine	eng_american_thomas_william_parsons	1
 shrine	thine	eng_british_algernon_charles_swinburne	1
@@ -92801,7 +92785,6 @@ sigh	why	eng_british_lord_byron	1
 sigh	why	eng_celtic_msm_john_hamilton	1
 sigh	why	eng_celtic_msm_robert_mackay_rob_donn	1
 sigh	why	eng_hbv_caroline_elizabeth_sarah_norton	1
-sigh	y	eng_hall_william_barnes	1
 sighed	tide	eng_american_n_g_shepherd	1
 sighed	tried	eng_british_elizabeth_barrett_browning	1
 sighed	tried	eng_british_lewis_carroll	1
@@ -93221,7 +93204,6 @@ skill	will	eng_celtic_msm_alexander_maclagan	1
 skill	will	eng_celtic_msm_william_ross	1
 skill	will	eng_hall_thomas_durfey	1
 skill	will	eng_hymn_charles_wesley	1
-skill	will	eng_hymn_watts	1
 skill	will	eng_oxford_sir_henry_wotton	1
 skill	will	eng_pah_fitz_james_o_brien	1
 skill	will	eng_pah_jacob_steendam	1
@@ -94716,6 +94698,7 @@ stay	they	eng_pah_william_haines_lytle	1
 stay	way	eng_british_algernon_charles_swinburne	1
 stay	way	eng_british_elizabeth_barrett_browning	1
 stay	way	eng_british_frances_anne_kemble	1
+stay	way	eng_british_lord_byron	1
 stay	way	eng_british_robert_louis_stevenson	1
 stay	way	eng_celtic_msm_charles_mackay_ll_d	1
 stay	way	eng_celtic_msm_william_glen	1
@@ -95449,6 +95432,7 @@ supplying	trying	eng_british_robert_jones	1
 suppose	those	eng_oxford_william_shakespeare	1
 sure	unsure	eng_british_robert_browning	1
 surf	turf	eng_american_henry_howard_brownell	1
+surf	turf	eng_british_lord_byron	1
 surf	turf	eng_oxford_francis_thompson	1
 surge	urge	eng_british_emily_bronte	1
 surge	verge	eng_british_percy_bysshe_shelley	1
@@ -95471,6 +95455,7 @@ surround	wound	eng_pah_stephen_tilden	1
 surrounded	unbounded	eng_american_a_e_blackmar	1
 survey	they	eng_celtic_robert_burns	1
 survey	today	eng_hbv_john_collins	1
+survey	way	eng_british_lord_byron	1
 survey	way	eng_hymn_doddridge	1
 surveyed	trade	eng_pah_francis_bret_harte	1
 survive	thrive	eng_hall_thomas_durfey	1
@@ -95590,6 +95575,7 @@ swept	wept	eng_american_abram_joseph_ryan	1
 swept	wept	eng_american_miss_maria_e_jones	1
 swept	wept	eng_american_theodore_ohara	1
 swept	wept	eng_british_christina_rossetti	1
+swept	wept	eng_british_lord_byron	1
 swim	trim	eng_american_john_greenleaf_whittier	1
 swim	trim	eng_hall_thomas_durfey	1
 swim	whim	eng_british_christina_rossetti	1
@@ -96404,7 +96390,6 @@ to	too	eng_british_emily_bronte	1
 to	too	eng_british_robert_browning	1
 to	too	eng_hall_ws_gilbert	1
 to	too	eng_pah_edward_bangs	1
-to	true	eng_british_felicia_hemans	1
 to	true	eng_british_frances_anne_kemble	1
 to	true	eng_hall_edwin_waugh	1
 to	true	eng_pah_charles_de_kay	1
@@ -96992,6 +96977,7 @@ vale	wail	eng_pah_hardwick_drummond_rawnsley	1
 valentine	wine	eng_british_william_wordsworth	1
 veil	wail	eng_pah_oliver_wendell_holmes	1
 vi	why	eng_hbv_barry_pain	1
+view	woo	eng_british_lord_byron	1
 view	woo	eng_hall_john_clare	1
 view	yew	eng_british_william_wordsworth	1
 view	you	eng_american_john_r_thompson	1

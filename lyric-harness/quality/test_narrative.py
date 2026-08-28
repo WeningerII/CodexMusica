@@ -109,8 +109,10 @@ def test_refusal_and_determinism():
 
 def test_measured_seeds():
     print("\n5. the measured seeds — re-swept 2026-08-26 under the "
-          "re-adopted song band (seeds 1-40: 35 admit, 5 admit zero — "
-          "the RATIO is unmoved and the CAUSES are not)")
+          "re-adopted song band and again 2026-08-28 under the "
+          "22-function vocabulary (seeds 1-40: 35 admit, 5 admit zero — "
+          "the RATIO is unmoved through BOTH moves and the exemplars "
+          "are not)")
     from quality import plan as P
     #: REPINNED 2026-08-26 (`MISSING.md` M-133) BY THE M-131 SONG-PROFILE
     #: RE-ADOPTION, AND THE PIN THAT MOVED IS NOT THE PIN THAT MATTERS.
@@ -148,42 +150,63 @@ def test_measured_seeds():
     #: refusal is carried by seeds 21 and 39 now. Seed 4 keeps its row at
     #: the new value: a seed that crossed a class boundary once is
     #: exactly the seed worth watching cross back.
+    #:
+    #: REPINNED A THIRD TIME 2026-08-28 (`MISSING.md` M-52's close), AND
+    #: THIS GENERATION'S CAUSE IS THE VOCABULARY, NOT THE ENVELOPE:
+    #: `patter` entered `grid.SECTION_FUNCTIONS` as the 22nd function on
+    #: its printed Ruddigore witness, `plan._CELLS` derives from the
+    #: vocabulary, and a 22-cell grammar arithmetics EVERY body draw
+    #: differently — measured, 60 of 60 seed patterns moved (against
+    #: M-133's move, which left three rosters standing). What SURVIVED
+    #: is the census: **35 admit / 5 zero over seeds 1-40, unmoved a
+    #: second time**, across a fully remapped seed space — the ratio is
+    #: a property of the grammar and the rules, not of which seeds carry
+    #: which shapes. Every exemplar below is re-chosen from the new
+    #: space: the opening refusals are seeds 9 (bridge-first), 25
+    #: (false_ending-first) and 39 (tag-first, the one carrier that
+    #: HELD); seed 28 is the RESOLVE-clause zero at position 2
+    #: ([intro, false_ending, ...]); and seed 27 is NEW EVIDENCE the
+    #: two-kinds claim undersold — it survives [intro, vamp] and dies at
+    #: POSITION 3 on the same RESOLVE clause, a third depth nothing had
+    #: yet witnessed from the planner's own dice. Seed 1's shape now
+    #: carries `patter` itself.
     pins = {
-        # shapes with line-ups — 1, 7 and 31 UNMOVED across the band
-        1: 820224, 7: 881280, 31: 4176,
-        # ...and the seed the band moved out of the zero class
-        4: 534528,
+        # shapes with line-ups — seed 1's roster carries `patter`
+        1: 924672, 7: 456576, 31: 16768, 4: 480,
         # zeros refused AT THE OPENING: bridge-, false_ending-, tag-first
-        21: 0, 11: 0, 20: 0,
-        # ...and the zero refused LATER, on [intro, false_ending]
-        10: 0,
+        9: 0, 25: 0, 39: 0,
+        # ...the RESOLVE-clause zero at position 2, and the NEW one at
+        # position 3
+        28: 0, 27: 0,
     }
     got = {}
     for seed, want in sorted(pins.items()):
         fns = [s["function"] for s in P.make_plan(seed)["sections"]]
         got[seed] = N.count_lineups(fns)
-    check("eight pinned seeds re-derive exactly — three shapes whose "
-          "line-ups the band move did NOT touch (seed 31, Crooked "
-          "Waltz's shape, still at 4,176), the one seed it moved out of "
-          "the zero class (seed 4), the three zero-shapes refused at the "
-          "OPENING (bridge-, false_ending-, tag-first) and the one "
-          "refused later, at [intro, false_ending], by the "
-          "RESOLVE-needs-a-prior-COMPLICATE clause",
+    check("nine pinned seeds re-derive exactly — four shapes with "
+          "line-ups (seed 1's roster carrying the new `patter`), the "
+          "three zero-shapes refused at the OPENING (bridge-, "
+          "false_ending-, tag-first) and the two refused LATER by the "
+          "RESOLVE-needs-a-prior-COMPLICATE clause, at positions 2 "
+          "and 3",
           got == pins, got)
-    #: The claim above is only worth making if the two KINDS of zero are
+    #: The claim above is only worth making if the KINDS of zero are
     #: actually distinguishable, so the position is asserted rather than
     #: described: an opening refusal collapses at prefix length 1, and
-    #: seed 10 does not.
+    #: the two RESOLVE-clause zeros do not — at DIFFERENT depths.
     def collapse_at(seed):
         fns = [s["function"] for s in P.make_plan(seed)["sections"]]
         return next((k for k in range(1, len(fns) + 1)
                      if N.count_lineups(fns[:k]) == 0), None)
-    at = {s: collapse_at(s) for s in (21, 11, 20, 10)}
-    check("...and the two kinds of zero are told apart by WHERE they "
+    at = {s: collapse_at(s) for s in (9, 25, 39, 28, 27)}
+    check("...and the kinds of zero are told apart by WHERE they "
           "collapse, not by the count they share: the three opening "
-          "refusals die on their first section, seed 10 survives its "
-          "own opening and dies on the second",
-          at[21] == 1 and at[11] == 1 and at[20] == 1 and at[10] == 2, at)
+          "refusals die on their first section, seed 28 survives its "
+          "opening and dies on the second, and seed 27 survives TWO "
+          "sections and dies on the third — the same clause, three "
+          "depths",
+          at[9] == 1 and at[25] == 1 and at[39] == 1
+          and at[28] == 2 and at[27] == 3, at)
 
 
 def test_the_wired_draw():
@@ -216,33 +239,40 @@ def test_the_wired_draw():
     # the same seed is a different sequence of draws.
     # THAT SPLIT IS THE INTERESTING PART AND IS ASSERTED BELOW RATHER
     # THAN NARRATED: the narrative layer reads the FUNCTION ROSTER, the
-    # relation layer reads the GROUPS, and this seed moved the second
-    # without moving the first — which is why `lineups` is still 4,176
-    # three lines down while every name on this line changed.
+    # relation layer reads the GROUPS, and under M-133's move this seed
+    # moved the second without moving the first.
+    #
+    # REPINNED A FOURTH TIME 2026-08-28 (`MISSING.md` M-52's close), and
+    # THIS time both layers moved together, because the cause is
+    # upstream of both: `patter` made the cell grammar 22 cells and
+    # every body draw re-arithmetics, so seed 31's ROSTER itself changed
+    # (intro, verse, prechorus, chorus, reprise, coda — six sections
+    # against the old five) and everything downstream follows. Its
+    # length still draws the SONG band's floor — the one coordinate of
+    # this seed that held through both generations, asserted below as
+    # the floor and not as a literal.
     check("seed 31's RELATION draw re-derives exactly (A consonance, "
-          "D semirhyme, K Scots vowel-length) — a moved pin here means "
-          "the pools, the dice or the ENVELOPE moved, which is a "
-          "question, not a merge conflict",
+          "D pararhyme, K consonance) — a moved pin here means the "
+          "pools, the dice, the ENVELOPE or the VOCABULARY moved, which "
+          "is a question, not a merge conflict",
           pl["relations"]["A"] == "schema:consonance"
-          and pl["relations"]["D"] == "schema:semirhyme"
-          and pl["relations"]["K"]
-          == "schema:Scots vowel-length rhyme (Aitken's Law)",
+          and pl["relations"]["D"] == "schema:pararhyme"
+          and pl["relations"]["K"] == "schema:consonance",
           {k: pl["relations"][k] for k in ("A", "D", "K")})
-    check("...and the envelope is what moved it: seed 31 draws the "
-          "SONG band's own floor, so its length is that floor and its "
-          "cover is sized by it — a pin that says WHICH layer moved, "
+    check("...and seed 31 still draws the SONG band's own floor, its "
+          "cover sized by it — a pin that says WHICH layer moved, "
           "where three relation names alone could not",
           pl["total_lines"] == min(P.song_line_counts())
-          and pl["total_lines"] == 22 and len(pl["groups"]) == 413
-          and len(pl["relations"]) == 27,
+          and pl["total_lines"] == 22 and len(pl["groups"]) == 388
+          and len(pl["relations"]) == 22,
           f"lines {pl['total_lines']} (floor "
           f"{min(P.song_line_counts())}), {len(pl['groups'])} groups, "
           f"{len(pl['relations'])} labels")
     nar = pl["narrative"]
     check("the collapse is RECORDED: mode drawn, the exact line-up "
           "count disclosed, one atom per sung section, one junction "
-          "per seam", nar["mode"] == "drawn" and nar["lineups"] == 4176
-          and len(nar["atoms"]) == 5 and len(nar["junctions"]) == 4)
+          "per seam", nar["mode"] == "drawn" and nar["lineups"] == 16768
+          and len(nar["atoms"]) == 6 and len(nar["junctions"]) == 5)
     check("the drawn line-up VALIDATES under the one shared validator",
           N.validate_lineup([sec["function"] for sec in pl["sections"]],
                             nar["atoms"], nar["junctions"]) == [])
@@ -252,18 +282,20 @@ def test_the_wired_draw():
           "about the harness",
           "Story plan" in pl["writer_brief"]
           and "ANCHOR" not in pl["writer_brief"])
-    #: SEED 4 -> SEED 11, 2026-08-26 (`MISSING.md` M-133): seed 4 stopped
-    #: being a zero-shape when the band moved (see §5), so the seed that
-    #: carries this check is the false_ending-first zero now. The check
-    #: itself is unchanged — what a zero-shape must do is disclose and
-    #: still ship a sound plan, whichever seed draws one.
-    p11 = P.make_plan(11)
+    #: SEED 4 -> SEED 11 (M-133) -> SEED 9, 2026-08-28 (M-52's close):
+    #: each vocabulary or envelope move re-deals which seed draws a
+    #: zero-shape, and the carrier is re-chosen from the measured zero
+    #: class each time (seed 9 is the bridge-first opening refusal
+    #: under the 22-function grammar). The check itself is unchanged —
+    #: what a zero-shape must do is disclose and still ship a sound
+    #: plan, whichever seed draws one.
+    p9 = P.make_plan(9)
     check("a zero-shape seed DISCLOSES and still ships: mode none, "
           "lineups 0, the brief says nothing is asked of the meaning "
           "axis, and the sound plan is intact",
-          p11["narrative"]["mode"] == "none"
-          and p11["narrative"]["lineups"] == 0
-          and "NO STORY PLAN" in p11["writer_brief"] and p11["groups"])
+          p9["narrative"]["mode"] == "none"
+          and p9["narrative"]["lineups"] == 0
+          and "NO STORY PLAN" in p9["writer_brief"] and p9["groups"])
     lu = {"atoms": nar["atoms"], "junctions": nar["junctions"]}
     pd = P.make_plan(31, narrative=lu)
     check("a DECLARED line-up is carried, never resampled",
@@ -287,15 +319,19 @@ def test_the_wired_draw():
     off = subprocess.run(
         [sys.executable, "lyric_harness.py", "plan", "--seed=31",
          "--narrative=off"], cwd=HERE, capture_output=True, text=True)
+    # The declared strings fit seed 31's CURRENT six-sung-section shape
+    # (re-spelled 2026-08-28 with the vocabulary repin above; the check's
+    # subject — the SPELLING is reachable — does not depend on which
+    # legal line-up is declared).
     dec = subprocess.run(
         [sys.executable, "lyric_harness.py", "plan", "--seed=31",
-         "--narrative=ESTABLISH,ANCHOR/JUXTAPOSE,DWELL/ELABORATE,"
-         "COMPLICATE/AND_THEN,JUDGE/THEREFORE"],
+         "--narrative=ESTABLISH,COMPLICATE/AND_THEN,DWELL/ELABORATE,"
+         "ANCHOR/THEREFORE,ANCHOR/JUXTAPOSE,JUDGE/THEREFORE"],
         cwd=HERE, capture_output=True, text=True)
     bad = subprocess.run(
         [sys.executable, "lyric_harness.py", "plan", "--seed=31",
-         "--narrative=TURN,ANCHOR/JUXTAPOSE,DWELL/ELABORATE,"
-         "COMPLICATE/AND_THEN,JUDGE/THEREFORE"],
+         "--narrative=TURN,COMPLICATE/AND_THEN,DWELL/ELABORATE,"
+         "ANCHOR/THEREFORE,ANCHOR/JUXTAPOSE,JUDGE/THEREFORE"],
         cwd=HERE, capture_output=True, text=True)
     check("the CLI spelling is REACHABLE (the M-55 lesson): "
           "--narrative=off prints no story plan, the declared grammar "
@@ -313,13 +349,16 @@ def test_the_wired_draw():
     #: emptied it of zeros altogether, which would have made this check
     #: pass by accepting all three — a filter that rejects nothing looks
     #: identical to a filter that works (doctrine 48). 38-40 restores the
-    #: shape the check was built on: two accepted, one rejected, and the
-    #: rejection is still a BRIDGE-FIRST zero-shape (seed 39).
+    #: shape the check was built on: two accepted, one rejected. Under
+    #: the 22-function vocabulary (M-52, 2026-08-28) seed 39 is still
+    #: the window's one zero — a TAG-first opening refusal now, where it
+    #: was bridge-first before; the window survived the remap by luck
+    #: and the label below is corrected to what it measures.
     res = P.sweep(range(38, 41),
                   wants=[P.parse_sweep_want("story_lineups>=1")])
     check("the SEED FILTER is a sweep predicate: story_lineups>=1 over "
           "seeds 38-40 accepts 38 and 40 and rejects 39 (the "
-          "bridge-first zero-shape) — rejection sampling, no ranking",
+          "tag-first zero-shape) — rejection sampling, no ranking",
           39 not in res["accepted"] and 38 in res["accepted"]
           and 40 in res["accepted"], res["accepted"])
 
