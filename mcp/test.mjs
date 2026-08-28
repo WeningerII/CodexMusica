@@ -959,11 +959,15 @@ try {
     // (which is what makes a bound pagination rather than truncation), the
     // vocabulary description is a checked restatement rather than a second
     // copy, and it does not rank.
-    // The predicate is TIGHT on purpose: the harness truncates its printed
-    // ACCEPTED list at 40, so a loose want makes the spanning window show
-    // fewer seeds than its two halves and the membership check below would
-    // fail on the truncation rather than on composition. 240 seeds accept 28
-    // here, under the cap. The truncation itself is checked separately.
+    // The predicate is TIGHT so accepted_count > 0 keeps the checks
+    // non-vacuous. It does NOT promise to sit under the harness's printed
+    // ACCEPTED cap of 40: this comment used to say "240 seeds accept 28
+    // here, under the cap", and the 2026-08-28 seed remap (M-52's patter
+    // row) moved that to 41 — one over the cap on the spanning window while
+    // both halves fit, which is exactly the remembered-rate staleness the
+    // two-block check above was rebuilt to end. The membership check below
+    // therefore reads the verdict's own truncation disclosure instead of
+    // assuming the rate.
     const sweepA = await callText('lyric_sweep', {
       seed_from: 1,
       count: 120,
@@ -992,11 +996,30 @@ try {
       'two windows accept exactly what the window spanning them accepts'
     );
     assert.equal(sweepA.planned + sweepB.planned, sweepAB.planned, '...and the planned counts add');
+    // MEMBERSHIP, under the disclosed cap. Every shown list is a PREFIX of
+    // its window's accepted seeds in seed order, so the span's shown list
+    // must be a prefix of its halves' concatenation whatever the cap cuts —
+    // strict equality is the cap-free special case, not a separate claim.
+    // The flag is charged per window against the two counts it relates, so
+    // a truncation can neither hide nor be claimed idly.
+    const concatShown = [...sweepA.accepted_shown, ...sweepB.accepted_shown];
     assert.deepEqual(
-      [...sweepA.accepted_shown, ...sweepB.accepted_shown],
+      concatShown.slice(0, sweepAB.accepted_shown.length),
       sweepAB.accepted_shown,
-      '...and the seeds themselves are the same, in the same order'
+      '...and the shown seeds are the same, in the same order (the span is a prefix of its halves)'
     );
+    for (const [label, w] of [['A', sweepA], ['B', sweepB], ['AB', sweepAB]])
+      assert.equal(
+        w.accepted_truncated === true,
+        w.accepted_shown.length < w.accepted_count,
+        `window ${label}'s truncation flag agrees with its own two counts`
+      );
+    if (!sweepAB.accepted_truncated)
+      assert.equal(
+        concatShown.length,
+        sweepAB.accepted_shown.length,
+        'no truncation claimed, so the halves and the span show identical lists'
+      );
     // IT DOES NOT RANK, and the report says so in its own words.
     assert.ok(
       sweepAB.report.includes('does NOT rank') && sweepAB.report.includes('doctrine 19'),
