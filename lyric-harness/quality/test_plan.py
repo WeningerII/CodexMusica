@@ -687,8 +687,14 @@ def test_the_measure():
     # nothing. It is listed rather than the check being loosened, which is
     # the whole point of a named allow-list -- this guard caught the new
     # reference the same sitting it was added.
+    # `specialisation_of` joined 2026-08-28 with M-57: it is the vocabulary's
+    # own subsumption lookup (pure, reads only the map derived from the
+    # rows) and the planner consults it to REFUSE a specialisation name
+    # (`middle-eight`) rather than silently widening it to the genus — the
+    # differentia (`bars == 8`) is a promise the envelope draw cannot make.
     ALLOWED_FROM_GRID = {"SECTION_FUNCTIONS", "FunctionSpec", "as_function",
-                         "placement_findings", "placement_of"}
+                         "placement_findings", "placement_of",
+                         "specialisation_of"}
     # `floor` JOINED THE ALLOW-LIST 2026-08-23, ON THE SAME ARGUMENT AS
     # `meter_bands` AND WITH THE SAME RE-TIGHTENING AS `grid`. The owner's
     # standing rule is that no hard number may sit in the generator, and the
@@ -745,8 +751,20 @@ def test_the_measure():
     # phonology reach, so an unrestricted admission would hand the planner
     # a stream builder, which is the corpus arriving at the dice by a
     # longer road.
+    # `pair_bindable` and `REGISTRY` joined 2026-08-28, REPINNING AN
+    # INHERITED RED: M-149(a) (commit cd026bf) had the draw consult the
+    # pair judge's own predicate — `_RL.pair_bindable(_RL.REGISTRY[name])`
+    # — so a group binding declared tokens draws only from schemas the
+    # judge can bind there, and this allow-list was never told; the guard
+    # was red at HEAD before the M-57 sitting touched this file (proven
+    # from the committed tree: plan.py at 1c3f3b4 names both, the list
+    # held three). Both are admissible on the check's own worry:
+    # `pair_bindable` is a pure predicate over a schema row and `REGISTRY`
+    # is the declared schema table — neither builds a stream, realises, or
+    # reaches the phonology.
     ALLOWED_FROM_RELATIONS = {"DRAWABLE_SCHEMAS", "drawable_traits",
-                              "CHANNEL_DOMAINS"}
+                              "CHANNEL_DOMAINS", "pair_bindable",
+                              "REGISTRY"}
     # `drawable_traits` joined with M-118's conjunction gate: the
     # gap ceiling and end-channel signature per drawable schema,
     # derived in relations.py from its own rows so the planner

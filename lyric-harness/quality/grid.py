@@ -204,6 +204,45 @@ class UnknownFunction(ValueError):
     """
 
 
+class SpecialisationMismatch(ValueError):
+    """A section declared a SPECIALISATION whose differentia it does not meet
+    (M-57, 2026-08-28).  `Section(bars=13, function='middle-eight')` used to
+    store `'bridge'` — the door accepted a specialisation and discarded it,
+    silently widening to the genus.  A mismatch is a contradiction between
+    two things the writer declared (the name and the bar count), so it
+    REFUSES with both quoted, the same family as a blueprint/draft length
+    mismatch — a `ValueError`, so every CLI path that turns those into
+    `REFUSED …` exit 2 catches this one identically.
+    """
+
+
+@dataclass(frozen=True)
+class Specialisation:
+    """One row-LESS specific name under a genus row (M-57).
+
+    `aliases` models SYNONYMY — symmetric, a dialect naming the SAME
+    function.  This models SUBSUMPTION — asymmetric: every middle-eight is a
+    bridge and not every bridge is a middle-eight.  The whole content of the
+    claim is the DIFFERENTIA, so it is recorded as a checkable coordinate
+    (`middle-eight` is `bridge` + `bars == 8`) rather than as prose, and the
+    `evidence` quotes the gloss that has argued the subsumption since the
+    row was written — checked at import against the genus row's own gloss,
+    the same discipline placement claims obey.
+
+    A record lives ON its genus row (`FunctionSpec.narrower`), never in a
+    hand-written map, so the claim cannot exist without a row behind it
+    (doctrine 1 — the rule the alias map already follows).  The other shape
+    of the same relation — a specific that HAS its own row (`burden` is a
+    kind of `refrain` and keeps its row because the corpus marks the two
+    differently) — is `FunctionSpec.specialises` on the specific's row.
+    """
+    name: str                 # the canonical specific name, e.g. "middle-eight"
+    spellings: tuple          # every spelling that declares it
+    differentia_field: str    # the Section field the claim reads, e.g. "bars"
+    differentia_value: int    # the value the claim requires
+    evidence: str             # quoted from the genus row's gloss
+
+
 @dataclass(frozen=True)
 class FunctionSpec:
     """What the harness DECLARES about a section function.
@@ -232,7 +271,30 @@ class FunctionSpec:
     #: the claim existed and was not resolvable, which is doctrine 48's
     #: shape one field over. Each alias is enumerated in its spellings the
     #: way `_FUNCTION_SPELLINGS` already enumerates, explicit over clever.
+    #: SYNONYMS ONLY since 2026-08-28 (M-57): three of this field's five
+    #: claims were SUBSUMPTION wearing synonymy's symmetric field —
+    #: `middle-eight` is not another name for a bridge, it is a KIND of
+    #: bridge with a differentia (`bars == 8`) the alias route accepted at
+    #: the door and discarded. Those claims moved to `narrower` below.
     aliases: tuple = ()
+    #: SPECIALISATIONS OF THIS ROW THAT CARRY NO ROW OF THEIR OWN (M-57) —
+    #: `Specialisation` records, asymmetric, each with its differentia and
+    #: the gloss quote that states the subsumption. Resolution KEEPS the
+    #: declared name (`Section.specialised_as`) and CHECKS the differentia;
+    #: a mismatch REFUSES rather than silently widening to the genus.
+    narrower: tuple = ()
+    #: THE OTHER SHAPE OF THE SAME RELATION (M-57): this row IS a kind of
+    #: the named row while keeping its own row. `burden` specialises
+    #: `refrain` — its own gloss says "a refrain sung by all" — and the two
+    #: stay separate rows because the corpus marks them differently
+    #: (doctrine 24). Before this field the table could only say the two
+    #: were UNRELATED; the alias route could only say they were IDENTICAL;
+    #: what is true is one is a kind of the other. Asymmetric: the SPECIFIC
+    #: names its genus, never the reverse.
+    specialises: str = ""
+    #: the quoted phrase from THIS row's own gloss stating the subsumption —
+    #: checked at import, the same discipline `placement_evidence` obeys.
+    specialises_evidence: str = ""
 
     # -- WHERE THIS FUNCTION CAN GO (2026-08-22, `MISSING.md` M-54) --------
     #
@@ -321,11 +383,18 @@ class FunctionSpec:
 def _spec(name, gloss, recurrence, returns_as, contrasts_with=(),
           aliases=(), boundary="", requires=(), adjacent_after="",
           adjacent_before="", needs_before=False, needs_after=False,
-          placement_evidence="", placement_refused="", kind="section"):
+          placement_evidence="", placement_refused="", kind="section",
+          narrower=(), specialises="", specialises_evidence=""):
     return FunctionSpec(name, gloss, recurrence, returns_as, contrasts_with,
-                        aliases, boundary, requires, adjacent_after,
-                        adjacent_before, needs_before, needs_after,
-                        placement_evidence, placement_refused, kind)
+                        aliases=aliases, narrower=narrower,
+                        specialises=specialises,
+                        specialises_evidence=specialises_evidence,
+                        boundary=boundary, requires=requires,
+                        adjacent_after=adjacent_after,
+                        adjacent_before=adjacent_before,
+                        needs_before=needs_before, needs_after=needs_after,
+                        placement_evidence=placement_evidence,
+                        placement_refused=placement_refused, kind=kind)
 
 
 #: THE VOCABULARY. D-1 asked for it by name. Every entry is declared here and
@@ -383,6 +452,13 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           # (after a verse, 1,580 of 1,580) is about where the LINE is
           # printed, not about a span the planner draws.
           kind="line",
+          # BOTH STATEMENTS AT ONCE (M-57): a burden is a KIND of refrain
+          # AND keeps its own row. The alias route could only say the two
+          # were identical; separate rows alone could only say they were
+          # unrelated; what is true is subsumption, stated asymmetrically
+          # here with the row's own gloss as the evidence.
+          specialises="refrain",
+          specialises_evidence="a refrain sung by all",
           requires=("verse",), adjacent_after="verse",
           # THE ONLY PLACEMENT CLAIM IN THIS TABLE BACKED BY A MEASURED RATE
           # RATHER THAN A DEFINITION -- 1,580 of 1,580, and the row already
@@ -394,10 +470,27 @@ SECTION_FUNCTIONS = {s.name: s for s in (
     _spec("bridge", "appears once and CONTRASTS; a middle-8 is a bridge whose "
           "bar count happens to be 8, which this model already records, so it "
           "is not a separate function", "once", "n/a", ("verse", "chorus"),
-          aliases=("middle-eight", "middle eight", "middle_eight",
-                   "middle-8", "middle 8", "middle8",
-                   "departure-section", "departure section",
-                   "departure_section")),
+          # TRUE SYNONYMS ONLY (M-57): the middle-eight family moved to
+          # `narrower` below, because "another name for" and "a kind of"
+          # are different claims and this field's own doc says it models
+          # the first. `departure-section` stays — it names the same
+          # function with no differentia.
+          aliases=("departure-section", "departure section",
+                   "departure_section"),
+          # THE GLOSS HAS ARGUED THIS SINCE THE ROW WAS WRITTEN and the
+          # alias route was accepting the claim and discarding it —
+          # `Section(bars=13, function='middle-eight')` stored 'bridge',
+          # measured in M-57. The differentia IS the claim, so it is a
+          # checkable coordinate now: kept on the section as
+          # `specialised_as`, checked against `bars`, a mismatch REFUSING
+          # rather than silently widening to the genus.
+          narrower=(Specialisation(
+              name="middle-eight",
+              spellings=("middle-eight", "middle eight", "middle_eight",
+                         "middle-8", "middle 8", "middle8"),
+              differentia_field="bars", differentia_value=8,
+              evidence="a middle-8 is a bridge whose bar count happens "
+                       "to be 8"),)),
     _spec("breakdown", "strips the arrangement back", "open", "varied"),
     _spec("build", "raises tension toward a return", "open", "varied"),
     # REFUSED IN BOTH DIRECTIONS, and the asymmetry is why. `drop`'s gloss
@@ -489,6 +582,59 @@ for _s in SECTION_FUNCTIONS.values():
             raise UnknownFunction(
                 f"alias {_a!r} on {_s.name!r} shadows a declared function")
         _FUNCTION_ALIASES.setdefault(_a, _s.name)
+
+#: The specialisation map, derived from the rows' own `narrower` records the
+#: same way `_FUNCTION_ALIASES` is derived from `aliases` — never written by
+#: hand, so a subsumption claim cannot exist in the map without living on
+#: its genus row WITH the differentia and the gloss quote (doctrine 1).
+#: Keyed by every declared spelling; the value is (record, genus name).
+_SPECIALISATIONS = {}
+for _s in SECTION_FUNCTIONS.values():
+    for _n in _s.narrower:
+        if not _n.evidence or _n.evidence not in _s.gloss:
+            raise UnknownFunction(
+                f"specialisation {_n.name!r} on {_s.name!r} quotes evidence "
+                f"that does not occur in the genus row's own gloss — a "
+                f"subsumption claim with no gloss behind it (doctrine 45)")
+        for _sp in _n.spellings:
+            if _sp in SECTION_FUNCTIONS or _sp in _FUNCTION_ALIASES:
+                raise UnknownFunction(
+                    f"specialisation spelling {_sp!r} on {_s.name!r} shadows "
+                    f"a declared function or alias — one name, two claims")
+            _SPECIALISATIONS.setdefault(_sp, (_n, _s.name))
+
+def specialisation_of(name):
+    """-> (Specialisation, genus name) for a specialisation NAME, else None.
+
+    Pure and reads only the derived map — the accessor the planner consults
+    so it can REFUSE a specialisation by name rather than widening it to the
+    genus (M-57): the planner draws bars from the derived envelope and
+    cannot promise `bars == 8`, so accepting `middle-eight` there would be
+    the door-accepts-and-discards defect one layer out.
+    """
+    v = str(name).strip().lower()
+    v = _FUNCTION_SPELLINGS.get(v, v)
+    return _SPECIALISATIONS.get(v)
+
+
+# THE ROW-TO-ROW SHAPE CHECKS ITSELF AT IMPORT TOO (M-57): a `specialises`
+# must name a DIFFERENT declared row, and the evidence must be a phrase of
+# the specialising row's OWN gloss — the same discipline placement evidence
+# obeys, because a subsumption nobody can trace to a gloss is a claim
+# nobody can disagree with in a coordinate.
+for _s in SECTION_FUNCTIONS.values():
+    if _s.specialises:
+        if _s.specialises not in SECTION_FUNCTIONS:
+            raise UnknownFunction(
+                f"{_s.name!r} specialises {_s.specialises!r}, which is not a "
+                f"declared function")
+        if _s.specialises == _s.name:
+            raise UnknownFunction(f"{_s.name!r} cannot specialise itself")
+        if (not _s.specialises_evidence
+                or _s.specialises_evidence not in _s.gloss):
+            raise UnknownFunction(
+                f"{_s.name!r} specialises {_s.specialises!r} with evidence "
+                f"that does not occur in its own gloss")
 
 # THE PLACEMENT TABLE CHECKS ITSELF AT IMPORT (2026-08-22, M-54), the same
 # move the alias-shadow check one block up already makes. Every one of these
@@ -662,6 +808,12 @@ def as_function(value):
         return UNDECLARED
     v = _FUNCTION_SPELLINGS.get(v, v)
     v = _FUNCTION_ALIASES.get(v, v)
+    if v in _SPECIALISATIONS:
+        # A bare NAME resolves to its genus — this surface holds no bars, so
+        # the differentia cannot be asked here. The claim is KEPT and CHECKED
+        # where the bars are: `Section.__post_init__` records
+        # `specialised_as` and refuses a mismatch (M-57).
+        return _SPECIALISATIONS[v][1]
     if v in SECTION_FUNCTIONS:
         return v
     raise UnknownFunction(
@@ -689,9 +841,44 @@ class Section:
     meter: Meter = field(default_factory=Meter)
     start_bar: int = 1
     function: str = UNDECLARED
+    #: THE SPECIALISATION AS DECLARED (M-57) — DERIVED, never passed: a
+    #: section declared `middle-eight` resolves `function` to the genus
+    #: (`bridge`, so every consumer of the vocabulary key is unmoved) and
+    #: keeps the specific name here, so "was this declared as a
+    #: middle-eight?" is askable — the question nothing could answer while
+    #: the alias route discarded the claim. `""` means the function was
+    #: declared as itself or not at all.
+    specialised_as: str = ""
 
     def __post_init__(self):
-        self.function = as_function(self.function)
+        raw = self.function
+        self.function = as_function(raw)
+        self.specialised_as = ""
+        if raw is not None and not isinstance(raw, FunctionSpec):
+            v = str(raw).strip().lower()
+            v = _FUNCTION_SPELLINGS.get(v, v)
+            rec_genus = _SPECIALISATIONS.get(v)
+            if rec_genus is not None:
+                rec, genus = rec_genus
+                got = getattr(self, rec.differentia_field)
+                if got != rec.differentia_value:
+                    # The differentia IS the claim, so a section that
+                    # declares the name and fails the claim is contradicting
+                    # itself — refused with both halves quoted rather than
+                    # silently widened to the genus (M-57's own measurement:
+                    # bars=13 used to store 'bridge' and forget).
+                    raise SpecialisationMismatch(
+                        f"declared {rec.name!r} with "
+                        f"{rec.differentia_field}={got}, and the "
+                        f"specialisation's own claim is "
+                        f"{rec.differentia_field} == "
+                        f"{rec.differentia_value} (the {genus!r} gloss: "
+                        f"{rec.evidence!r}). REFUSED rather than silently "
+                        f"widened to {genus!r} — declare {genus!r} if that "
+                        f"is what this section is, or set "
+                        f"{rec.differentia_field}={rec.differentia_value} "
+                        f"if it is a {rec.name}.")
+                self.specialised_as = rec.name
 
     @property
     def end_bar(self):

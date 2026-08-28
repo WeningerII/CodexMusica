@@ -7586,7 +7586,7 @@ one adjudicated against this entry's reading with the argument recorded
 where the roster is derived. Nothing was built for this close; the work
 was finding that the build existed.
 
-### M-57 · `FunctionSpec.aliases` models SYNONYMY, and three of its five claims are SUBSUMPTION — so the specialisation is accepted at the door and discarded `OPEN`
+### M-57 · `FunctionSpec.aliases` models SYNONYMY, and three of its five claims are SUBSUMPTION — so the specialisation is accepted at the door and discarded `CLOSED` 2026-08-28 — the claim is kept, the differentia is checked, a mismatch refuses, and burden states its genus while keeping its row
 **Raised by the owner 2026-08-22: "While all middle eights are bridges, not all
 bridges are middle eights… same deal with refrain and chorus if I'm not
 mistaken… just for efficiency's sake." Measured, and the efficiency instinct is
@@ -7660,6 +7660,64 @@ declared, so a section declared `middle-eight` can be checked against its
 differentia and a mismatch REFUSES rather than silently widening to the genus.
 (4) `burden` gains `specialises='refrain'` while staying its own row — the two
 statements are compatible and the table currently makes them look exclusive.
+
+**CLOSED 2026-08-28, all four items, and the relation ships in TWO SHAPES
+because the two specifics are in two states.** A specific WITHOUT a row
+(`middle-eight`) is a `Specialisation` record on its GENUS row
+(`FunctionSpec.narrower` — name, six spellings, differentia as a checkable
+coordinate `bars == 8`, evidence quoting the bridge gloss verbatim); a
+specific WITH a row (`burden`) states `specialises="refrain"` on its OWN row
+with its own gloss as the evidence ("a refrain sung by all") — both
+statements at once, which the table could not previously make. `aliases`
+keeps only the true synonyms (`departure-section`, `instrumental-break`),
+and its field doc now says so.
+
+**THE ENTRY'S MEASUREMENT IS INVERTED.** `Section(bars=13,
+function='middle-eight')` and `bars=4` both REFUSE
+(`grid.SpecialisationMismatch`, a `ValueError` so every CLI path that
+renders a blueprint mismatch as `REFUSED …` exit 2 catches it identically),
+quoting both halves of the contradiction and both honest moves. `bars=8`
+resolves `function` to `'bridge'` — every consumer of the vocabulary key
+unmoved — and keeps `Section.specialised_as = 'middle-eight'`, so the
+question the entry records as unanswerable is a coordinate now. A bare NAME
+(`as_function('middle-eight')`) still resolves to the genus, because that
+surface holds no bars; the claim is checked where the bars are.
+
+**ONE DOOR MORE THAN THE ENTRY NAMED**: `plan --functions=middle-eight`
+REFUSES by name (`grid.specialisation_of`, the pure accessor test_plan §4's
+allow-list admits) rather than widening to `bridge` — the planner draws bars
+from the derived envelope and cannot promise the differentia, so accepting
+the name there would be the door-accepts-and-discards defect one layer out.
+
+**GATES.** Import-time checks in the same block as the alias-shadow check:
+a specialisation spelling may not shadow a function or alias, its evidence
+must occur in the genus row's own gloss, a `specialises` must name a
+different declared row with evidence from its own gloss. `test_grid` §31
+repointed (the middle-8 claim lives on the bridge row as a SPECIALISATION
+with its differentia, not an alias); new §34 holds the door: kept-name,
+genus-declared-makes-no-claim, both refusals, the ValueError family, the
+burden row's two compatible statements, disjoint maps, and the planner
+refusal. TWO MUTATIONS hand-proven, each killed by its own half: moving the
+family back to `aliases` reproduces the pre-M-57 behaviour exactly
+(bars=13 accepted, stored 'bridge', claim discarded — §34's refusal checks
+and §31's row-claim red); deleting the differentia comparison alone reds
+exactly the two refusal checks while resolution and the kept name stay
+green — the claim being KEPT and being CHECKED are separately enforced.
+Full `test_grid` green ("all grid regressions pass"). And the gate's first
+run caught a live instance IN THE SUITE ITSELF: `test_song_function` §1's
+alias-era positive control was `Section("x", 4, function="middle8")` —
+a check whose PASS was the measured defect, declaring the specialisation
+at half its own differentia and asserting the widened genus came back.
+Repointed to both halves (bars=8 resolves and keeps the name; bars=4
+refuses), with the restatement dated in place beside the section's two
+earlier ones.
+
+**NOT DONE, NAMED (doctrine 20):** no consumer yet READS `specialised_as`
+or `specialises` downstream of the door — the grader grades a middle-eight
+as the bridge it is, which is correct today; a future check that wants to
+ask "does this middle-eight behave as one" has the coordinate. And the
+five-row table in this entry stands as the census of the edges; no further
+subsumption edge was added beyond what it names.
 
 ### M-59 · the default admit set was TWO of four, and the `schema:` namespace refused all 77 of its names — ~~by design~~ by an instinct the owner has now overruled `CLOSED`
 **FINISHED 2026-08-22: 77 of 77 ASKABLE, 0 BLOCKED.** The table below records
@@ -14915,6 +14973,19 @@ consequence stated rather than buried: a plan is a pure function of
 different drawn relations than the same seed's banked artifacts — the
 banked blueprints and grading commands are internally consistent records
 of their own trees, exactly as the RESULTS rows are.
+
+**ADDENDUM 2026-08-28, found by the M-57 sitting's run of `test_plan`:
+this repair left §4's relations allow-list one sitting behind.** The (a)
+draw consults `_RL.pair_bindable(_RL.REGISTRY[name])` and
+`ALLOWED_FROM_RELATIONS` still held three names, so the guard — whose
+whole job is to catch a new grid/relations reference the sitting it
+lands in — was RED at HEAD and nothing had looked: `test_plan` was not
+in this sitting's run list, the third instance of that species found
+today (M-148's `test_grid` fixture pin, M-148's `EXTENSION_LEDGER` row,
+now this). Repinned with attribution in the list's own comment; both
+names are admissible on the check's own worry (a pure predicate over a
+schema row and the declared schema table — no stream, no realiser, no
+phonology).
 
 ### M-150 · the working order's last step had no gate: a rendered song presented with its convergence state unsaid reads as finished `RESOLVED` 2026-08-28
 

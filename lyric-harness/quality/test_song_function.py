@@ -115,9 +115,22 @@ def test_function_is_declared_and_never_inferred():
           _raises(lambda: G.Section("x", 4, function="vibes"),
                   G.UnknownFunction),
           "the move check_cynghanedd made for `language` (doctrine 45)")
+    # RESTATED AGAIN 2026-08-28 (M-57): this check's fixture was
+    # `Section("x", 4, function="middle8")` and its pass was the MEASURED
+    # DEFECT — the door accepting a specialisation at bars=4 and storing
+    # the genus, the differentia (bars == 8, the bridge gloss's own claim)
+    # discarded. `middle8` is a Specialisation now, not an alias: at
+    # bars=8 it resolves to the bridge spec AND keeps the declared name;
+    # at bars=4 it REFUSES rather than silently widening. Both halves
+    # pinned here so the door cannot drift back either way.
+    s8 = G.Section("x", 8, function="middle8")
     check("...and `middle8` RESOLVES through the constructor to the bridge "
-          "spec — the row's own alias, stored canonical",
-          G.Section("x", 4, function="middle8").function == "bridge")
+          "spec — a SPECIALISATION now, kept and checked (M-57)",
+          s8.function == "bridge" and s8.specialised_as == "middle-eight")
+    check("...and `middle8` at bars=4 REFUSES — the differentia is the "
+          "claim, and this check's own pre-M-57 fixture was the defect",
+          _raises(lambda: G.Section("x", 4, function="middle8"),
+                  G.SpecialisationMismatch))
     check("THE ONE THAT MATTERS — a section NAMED 'chorus' is UNDECLARED",
           G.Section("chorus", 16).function == G.UNDECLARED
           and G.Section("chorus2", 16).function == G.UNDECLARED,

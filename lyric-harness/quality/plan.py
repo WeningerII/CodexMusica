@@ -1980,6 +1980,24 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             f = str(f).strip()
             if not f:
                 continue
+            # A SPECIALISATION NAME REFUSES HERE BY NAME (M-57): resolving
+            # `middle-eight` to `bridge` and drawing bars from the derived
+            # envelope would accept the differentia (bars == 8) and then
+            # ignore it — the door-accepts-and-discards defect this
+            # coordinate exists to end, one layer out. The planner cannot
+            # promise a differentia its own draw does not read, so it says
+            # so instead of silently widening to the genus.
+            _sp = _GR.specialisation_of(f)
+            if _sp is not None:
+                rec, genus = _sp
+                raise PlanRefused(
+                    f"--functions names {rec.name!r}, a specialisation of "
+                    f"{genus!r} whose claim is {rec.differentia_field} == "
+                    f"{rec.differentia_value}. This planner draws "
+                    f"{rec.differentia_field} from the derived envelope and "
+                    f"cannot promise that value, so accepting the name would "
+                    f"silently widen it to {genus!r} (M-57). Request "
+                    f"{genus!r}.")
             try:
                 want.append(_GR.as_function(f))
             except Exception:

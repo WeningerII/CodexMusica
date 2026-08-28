@@ -2259,9 +2259,103 @@ def test_function_aliases_are_claims_on_their_own_rows():
     except _GR.UnknownFunction:
         check("an unknown name still refuses — aliases widened the "
               "vocabulary's SPELLINGS, never its gate", True)
+    # REPOINTED 2026-08-28 (M-57): the claim still lives on the bridge row
+    # and it is no longer an ALIAS, because "another name for" and "a kind
+    # of" are different claims — middle-eight carries a differentia
+    # (bars == 8) that the symmetric field accepted at the door and
+    # discarded. It is a `Specialisation` record on the row's `narrower`
+    # field now, with the differentia as a checkable coordinate; §33 holds
+    # the door behaviour.
     check("the middle-8 claim lives on the bridge row itself, beside the "
-          "gloss that has argued it in prose since the row was written",
-          "middle-eight" in _GR.SECTION_FUNCTIONS["bridge"].aliases)
+          "gloss that has argued it in prose since the row was written — as "
+          "a SPECIALISATION with its differentia, not an alias (M-57)",
+          any(n.name == "middle-eight" and n.differentia_field == "bars"
+              and n.differentia_value == 8
+              for n in _GR.SECTION_FUNCTIONS["bridge"].narrower)
+          and "middle-eight" not in _GR.SECTION_FUNCTIONS["bridge"].aliases)
+
+
+def test_a_specialisation_is_kept_and_checked():
+    """M-57 (2026-08-28). `FunctionSpec.aliases` models SYNONYMY — symmetric
+    — and it was carrying SUBSUMPTION: `Section(bars=13,
+    function='middle-eight')` stored 'bridge', the door accepting a
+    specialisation and discarding both the claim and its differentia
+    (bars == 8, argued in the bridge gloss since the row was written). The
+    repair is asymmetric and checkable: `Specialisation` records on the
+    genus row (`narrower`), resolution KEEPING the declared name
+    (`Section.specialised_as`) and REFUSING a differentia mismatch; and the
+    other shape of the same relation — `burden` IS a kind of `refrain`
+    while keeping its own row — stated as `specialises` with its own gloss
+    quoted, where the table could previously only call the two unrelated.
+
+    TWO MUTATIONS, hand-proven before this section shipped: (a) moving the
+    middle-eight family back to `aliases` and emptying `narrower` reds the
+    refusal checks (bars=13 stores 'bridge' again) and §31's repointed
+    row-claim check beside them; (b) deleting the differentia comparison in
+    `Section.__post_init__` alone reds exactly the two refusal checks here
+    while resolution and `specialised_as` stay green — the claim being KEPT
+    and the claim being CHECKED are different halves and each has its own
+    check.
+    """
+    print("\n34. a specialisation is kept and checked, never widened (M-57)")
+    import quality.grid as _GR
+    # The claim is KEPT: the very question M-57 records as unanswerable —
+    # "was this declared as a middle-eight?" — now has a coordinate.
+    s = _GR.Section("m8", 8, function="Middle_Eight")
+    check("a section declared 'middle-eight' with bars=8 resolves to the "
+          "genus AND keeps the declared name",
+          s.function == "bridge" and s.specialised_as == "middle-eight"
+          and s.spec is _GR.SECTION_FUNCTIONS["bridge"],
+          f"function={s.function!r} specialised_as={s.specialised_as!r}")
+    g = _GR.Section("b", 8, function="bridge")
+    check("declaring the GENUS makes no specialisation claim — "
+          "specialised_as stays empty even at bars=8",
+          g.specialised_as == "", repr(g.specialised_as))
+    # The claim is CHECKED: M-57's own measurement, inverted. bars=13 and
+    # bars=4 stored 'bridge' before; both REFUSE now, naming both halves of
+    # the contradiction.
+    for bars in (13, 4):
+        try:
+            _GR.Section("m8", bars, function="middle-eight")
+            check(f"bars={bars} declared 'middle-eight' REFUSES rather than "
+                  f"silently widening to 'bridge'", False,
+                  "accepted — the pre-M-57 behaviour")
+        except _GR.SpecialisationMismatch as e:
+            check(f"bars={bars} declared 'middle-eight' REFUSES rather than "
+                  f"silently widening to 'bridge'",
+                  "bars == 8" in str(e) and "middle-eight" in str(e)
+                  and "bridge" in str(e), str(e)[:90])
+    # The refusal is a ValueError, so every CLI path that renders a
+    # blueprint mismatch as `REFUSED …` exit 2 catches this identically.
+    check("the mismatch is a ValueError — the CLI refusal family",
+          issubclass(_GR.SpecialisationMismatch, ValueError))
+    # The other shape: burden ⊂ refrain, stated while staying its own row.
+    b = _GR.SECTION_FUNCTIONS["burden"]
+    check("burden SPECIALISES refrain while staying its own row — the two "
+          "statements the table used to make look exclusive",
+          b.specialises == "refrain"
+          and b.specialises_evidence in b.gloss
+          and _GR.as_function("burden") == "burden",
+          f"specialises={b.specialises!r}")
+    # Aliases are TRUE synonyms only now; the derived maps stay disjoint.
+    check("aliases carry no differentia claims — the middle-eight family "
+          "left, departure-section (no differentia) stayed",
+          "middle-eight" not in _GR._FUNCTION_ALIASES
+          and "departure-section" in _GR._FUNCTION_ALIASES
+          and not (set(_GR._SPECIALISATIONS) & set(_GR._FUNCTION_ALIASES)))
+    # The planner cannot promise a differentia its draw does not read: a
+    # roster naming the specialisation refuses BY NAME (the same defect one
+    # layer out — accepting the name and drawing arbitrary bars would be
+    # the door discarding the claim again).
+    from quality import plan as _PL
+    try:
+        _PL.make_plan(7, functions=["middle-eight"])
+        check("the planner refuses a specialisation in --functions rather "
+              "than widening it to the genus", False, "planned")
+    except _PL.PlanRefused as e:
+        check("the planner refuses a specialisation in --functions rather "
+              "than widening it to the genus",
+              "bars == 8" in str(e) and "bridge" in str(e), str(e)[:90])
 
 
 def test_the_printed_indent_survives_ingestion():
@@ -3259,6 +3353,7 @@ if __name__ == "__main__":
                test_line_runs_is_surfaced_rather_than_computed_for_nobody,
                test_two_refusals_that_nothing_had_ever_asserted_can_fire,
                test_function_aliases_are_claims_on_their_own_rows,
+               test_a_specialisation_is_kept_and_checked,
                test_the_named_air_is_a_coordinate_not_a_substring,
                test_the_printed_indent_survives_ingestion,
                test_a_return_that_varies_off_the_text,
