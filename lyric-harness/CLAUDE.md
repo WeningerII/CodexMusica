@@ -1054,7 +1054,12 @@ distributions, which this is not. The pool grows by growing the witness,
 never by hand; `test_plan.py` §14 re-derives the adoption; drawn
 relations ride `--relations=LABEL:schema:NAME` in the grading command and
 are named per group in the writer's brief; seed SHAPES are byte-identical
-to the pre-draw planner because the draw consumes entropy last.** What
+to the pre-draw planner because the draw consumes entropy last; and since
+M-149(a) — 2026-08-28 — a group binding declared tokens draws only from
+the schemas the pair judge can bind there (`relations.pair_bindable`, the
+judge's own predicate: measured 354 unbindable draw-placement
+conjunctions over seeds 1-60 before, 0 after), the four window-searching
+and head-index names staying drawable at default slots.** What
 survives of the struck sentence is PRECEDENCE: a writer's `--relation=`
 SILENCES the draw, because the planner still CARRIES what was declared —
 into `plan["relation"]`, into the `GRADE IT` line `grading_command`

@@ -2384,6 +2384,49 @@ def test_the_relation_draw():
           f"oversize {n_over}, parity {n_parity}, opener {n_open} over "
           f"six seeds")
 
+    # M-149(a): THE DRAW CONSULTS THE SPAN SHAPE. A group binding declared
+    # tokens is judged by the pair route (`relations.pair_satisfies`), and
+    # that route refuses by name every schema whose member spans cannot
+    # bind ONE token — so drawing one onto a slotted group manufactures a
+    # disclosed refusal no writing can close. MEASURED before the filter:
+    # 354 such (draw, placement) conjunctions over seeds 1-60, every seed
+    # affected. The draw consults the judge's own predicate
+    # (`relations.pair_bindable`, one definition — doctrine 1), so the
+    # conjunction is unsampleable BY CONSTRUCTION; the mutation is
+    # dropping the `_slotted_g` filter in `plan.py`, which reds the sweep
+    # check below (hand-proven on the day it shipped).
+    unbindable = tuple(n for n in RL.DRAWABLE_SCHEMAS
+                       if not RL.pair_bindable(RL.REGISTRY[n]))
+    check("the pair-unbindable subset of the drawable pool is DERIVED "
+          "from the registry's own span rules and is exactly the four "
+          "shapes the pair judge refuses by name — free_run's three "
+          "searchers and monai's head index",
+          unbindable == ("chain rhyme (rap)", "compound / phrasal rhyme",
+                         "monai", "multisyllabic rhyme"),
+          f"{unbindable}")
+    leaked = []
+    for _seed in (1, 2, 7, 23, 37, 56):
+        _pl = PLN.make_plan(_seed, form="verse-chorus")
+        _rels = _pl.get("relations") or {}
+        _gs = [g.split(",") for g in _pl["groups"].split(";")]
+        for _gi, _g in enumerate(_gs):
+            _want = _rels.get(PLN.SC.label((_gi,)), "")
+            if not _want.startswith("schema:"):
+                continue
+            if not any("." in m and m.split(".", 1)[1] != "end"
+                       for m in _g):
+                continue
+            if not RL.pair_bindable(RL.REGISTRY[_want[len("schema:"):]]):
+                leaked.append((_seed, _g, _want))
+    check("no slotted group draws a schema the pair route cannot bind "
+          "there — six seeds (including the four that leaked most before "
+          "the filter), zero conjunctions",
+          not leaked, leaked[:4])
+    check("...and the unbindable schemas STAY drawable at default slots — "
+          "the filter narrows the slotted pool, it does not delete four "
+          "names from the certified adoption",
+          set(unbindable) <= set(RL.DRAWABLE_SCHEMAS))
+
 
 if __name__ == "__main__":
     for fn in (test_the_planner_plans_the_whole_line,

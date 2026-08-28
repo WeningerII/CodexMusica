@@ -6774,6 +6774,24 @@ CHANNEL_DOMAINS = {
 }
 
 
+def pair_bindable(schema):
+    """Can ONE declared token stand in for each member's locus?  (M-149a.)
+
+    THE ONE DEFINITION of the span-shape condition `pair_satisfies` refuses
+    by and the planner's relation draw consults: both member rules read a
+    token-shaped locus (`_TOKEN_LOCI`) and neither anchor is SEARCHED.  A
+    `free_run` rule searches windows, a `line_head_index` rule takes its
+    position from its own magnitude, a `line`/`half_line` rule spans more
+    than a token, and a searched anchor tries k hypotheses a mandated pair
+    has nowhere to carry the correction for (doctrine 56) — so binding any
+    of them to a declared token would judge a different question under the
+    schema's name.  A schema failing this is still drawable at DEFAULT
+    slots, where the instances route judges it at its own loci.
+    """
+    return all(r.locus in _TOKEN_LOCI and r.anchor != "searched"
+               for r in (schema.spans[0], schema.spans[-1]))
+
+
 #: ADOPTED 2026-08-25 from `derive_drawable_schemas()` (owner ruling "now do
 #: the planner too", M-117). Re-derived by `quality/test_plan.py`; a moved
 #: pool is a moved witness or a moved registry, and either fails loud.
@@ -6896,24 +6914,30 @@ def pair_satisfies(schema, stream, at_a, at_b, chans=DEFAULT_CHANNELS):
             f"does not supply — refused at the declared pair exactly as "
             f"`realise()` refuses over the stream.",
             missing=miss, kind="capability")
-    for rule in (schema.spans[0], schema.spans[-1]):
-        if rule.locus not in _TOKEN_LOCI:
-            return Refusal(
-                schema.name, "span",
-                f"{schema.name!r}'s member span reads locus "
-                f"{rule.locus!r}, which does not bind ONE declared token — "
-                f"judging it at a declared word would answer a different "
-                f"question under this schema's name. The realise() route "
-                f"(`line_pairs_for`) still judges it at its own loci.",
-                kind="span")
-        if rule.anchor == "searched":
-            return Refusal(
-                schema.name, "span",
-                f"{schema.name!r}'s member anchor is SEARCHED: it tries k "
-                f"hypotheses and a mandated pair has nowhere to carry the "
-                f"multiplicity correction doctrine 56 requires — the same "
-                f"refusal `slots.check` gives the locus.",
-                kind="span")
+    if not pair_bindable(schema):
+        # `pair_bindable` is the ONE definition of this condition (M-149a:
+        # the planner's relation draw consults it too); the loop below only
+        # NAMES which member coordinate failed it.
+        for rule in (schema.spans[0], schema.spans[-1]):
+            if rule.locus not in _TOKEN_LOCI:
+                return Refusal(
+                    schema.name, "span",
+                    f"{schema.name!r}'s member span reads locus "
+                    f"{rule.locus!r}, which does not bind ONE declared "
+                    f"token — judging it at a declared word would answer a "
+                    f"different question under this schema's name. The "
+                    f"realise() route (`line_pairs_for`) still judges it "
+                    f"at its own loci.",
+                    kind="span")
+            if rule.anchor == "searched":
+                return Refusal(
+                    schema.name, "span",
+                    f"{schema.name!r}'s member anchor is SEARCHED: it "
+                    f"tries k hypotheses and a mandated pair has nowhere "
+                    f"to carry the multiplicity correction doctrine 56 "
+                    f"requires — the same refusal `slots.check` gives the "
+                    f"locus.",
+                    kind="span")
     members = []
     for (li, t), rule in ((at_a, schema.spans[0]), (at_b, schema.spans[-1])):
         if li < 0 or li >= len(stream.lines) or not stream.lines[li]:
@@ -6956,7 +6980,8 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "SequenceSuffix", "SubsequenceOf", "Read", "ChannelSet",
            "DEFAULT_CHANNELS", "evaluate", "realise", "assemble",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",
-           "line_pairs_for", "pair_satisfies", "declare_delivery",
+           "line_pairs_for", "pair_satisfies", "pair_bindable",
+           "declare_delivery",
            "declare_stub_resolution", "search_stub_resolution",
            "STUB_INCIPIT_LENGTHS", "declare_senses",
            "declare_period_surface", "declare_lifts",

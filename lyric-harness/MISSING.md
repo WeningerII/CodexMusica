@@ -14296,7 +14296,7 @@ reaches); M-58's addendum records that the drawn pool is out from under it
 and its four owed items stand. And the two seams the repair made VISIBLE
 are M-149, filed the same day rather than buried in this close.
 
-### M-149 · the pool meets the slots: a drawn free_run schema on a token slot is unjudgeable as declared, and one group's refusal silences its siblings on the pair `OPEN`
+### M-149 · the pool meets the slots: a drawn free_run schema on a token slot is unjudgeable as declared, and one group's refusal silences its siblings on the pair `RESOLVED` 2026-08-28
 
 **Found finishing the song M-148 parked, in the first grade the repaired
 judge ever ran over a full plan. Two facets of one seam — the certified
@@ -14382,3 +14382,28 @@ identities, and the record-dedupe check. The mutation — restoring
 pair-keyed skips — reds the load-bearing check by hand-proof. Battery
 unmoved at 1064/1014/50, violations 12: every sonnet pair is in exactly
 one group, so the key change is invisible there by construction.
+
+**FACET (a) IS REPAIRED the same day, which closes the entry.** The
+relation draw consults the pair judge's own predicate —
+`relations.pair_bindable`, the ONE definition (doctrine 1) of the span
+shapes `pair_satisfies` refuses by name: both member rules read a
+token-shaped locus and neither anchor is searched. A group binding any
+declared non-`end` slot draws only from the bindable subset; the four
+unbindable drawables — chain rhyme (rap), compound / phrasal rhyme,
+multisyllabic rhyme (free_run's three searchers) and monai (the head
+index) — stay drawable at DEFAULT slots, where the instances route
+judges them at their own loci, so no name leaves the certified adoption
+and the dice stay flat over the accepted subset (the planner's own
+rejection idiom). **MEASURED over seeds 1-60 of the verse-chorus form:
+354 unbindable (draw, placement) conjunctions before the filter, every
+one of the 60 seeds carrying at least one — and 0 after, 0 seeds lost.**
+The disclosure in `choices.relations` names the narrowing. The gate is
+`test_plan.py` §14's three added checks — the unbindable subset DERIVED
+from the registry (a moved registry moves it loudly), a six-seed sweep
+at zero conjunctions, and the stays-drawable control — with the mutation
+(dropping the `_slotted_g` filter) hand-proven to red the sweep. One
+consequence stated rather than buried: a plan is a pure function of
+(seed, tree), so a seed re-rendered under the repaired draw can carry
+different drawn relations than the same seed's banked artifacts — the
+banked blueprints and grading commands are internally consistent records
+of their own trees, exactly as the RESULTS rows are.

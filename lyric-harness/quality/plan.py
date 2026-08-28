@@ -2621,8 +2621,28 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             _lines = _grp_lines[_gi]
             _pairs = [(a, b) for i2, a in enumerate(_lines)
                       for b in _lines[i2 + 1:]]
+            # M-149(a): A GROUP BINDING DECLARED TOKENS IS JUDGED BY THE
+            # PAIR ROUTE, and that route refuses by name every schema whose
+            # member spans cannot bind ONE token (`free_run` searches
+            # windows, `line_head_index` reads its own magnitude, a
+            # searched anchor carries k hypotheses no mandated pair can
+            # correct for). Seed 28 drew 8 of its 25 groups into exactly
+            # that conjunction — disclosed refusals no writing can close
+            # and no writer asked for. The draw consults the judge's own
+            # predicate (`relations.pair_bindable`, the ONE definition —
+            # doctrine 1), so a shape-refused (draw, placement) pair is
+            # unsampleable BY CONSTRUCTION; the unbindable schemas stay
+            # drawable at DEFAULT slots, where the instances route judges
+            # them at their own loci. A member spelled `<line>.end` IS the
+            # default slot in a different coat and does not restrict.
+            _slotted_g = any(
+                "." in str(_m2) and str(_m2).split(".", 1)[1] != "end"
+                for _m2 in groups[_gi])
             _ok = [""]
             for _cand in _RL.DRAWABLE_SCHEMAS:
+                if _slotted_g and not _RL.pair_bindable(
+                        _RL.REGISTRY[_cand]):
+                    continue
                 _t = _traits[_cand]
                 if _t["gap"] is not None and any(
                         b - a > _t["gap"] for a, b in _pairs):
@@ -2722,7 +2742,10 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                  f"M-117). The bare default lands on 1 draw in "
                  f"{len(_RL.DRAWABLE_SCHEMAS) + 1}, a rarity this "
                  f"disclosure exists to hand the owner, exactly as the "
-                 f"placement draw's `end` share was"),
+                 f"placement draw's `end` share was. A group binding "
+                 f"declared tokens draws only from the schemas the pair "
+                 f"route can bind there (relations.pair_bindable, "
+                 f"M-149a); the rest stay drawable at default slots"),
         "value": dict(drawn_relations)}
 
     # THE JOINT GATE (`MISSING.md` M-80). Every constraint above is
