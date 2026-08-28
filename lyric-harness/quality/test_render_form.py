@@ -36,6 +36,11 @@ CORRECT = ("[INTRO — 2 lines — 2 bars of 8/8]\n"
            "[INTERLUDE — instrumental — 2 bars of 8/8, no words]\n"
            "[VAMP — 2 lines — 2 bars of 8/8]\n"
            "Down in the engine, counting strokes\n")
+#: The built form WITH its convergence state declared — what a finished
+#: presentation looks like under BOTH gates (M-97's apparatus, M-150's
+#: operator seam). CORRECT alone is the §7 defect: rendered right, and not
+#: one word about how the run ended.
+CORRECT_STATED = CORRECT + "\nsong: exit 0 — revise SUCCESS in 0 rounds\n"
 
 
 def check(msg, ok, detail=""):
@@ -155,7 +160,7 @@ def test_the_hook_is_wired():
     env = dict(os.environ, CLAUDE_PROJECT_DIR=REPO)
     with tempfile.TemporaryDirectory() as td:
         outcomes = {}
-        for name, text in (("bad", FLATTENED), ("good", CORRECT)):
+        for name, text in (("bad", FLATTENED), ("good", CORRECT_STATED)):
             tp = os.path.join(td, f"{name}.jsonl")
             with open(tp, "w", encoding="utf-8") as fh:
                 fh.write(json.dumps({"type": "assistant", "message": {
@@ -170,18 +175,80 @@ def test_the_hook_is_wired():
     check("END TO END: a turn carrying the flattened render is BLOCKED "
           "(exit 2), which is the enforcement — not a note, not a reminder",
           outcomes[("bad", False)] == 2, str(outcomes))
-    check("...a turn carrying the built form is allowed (exit 0), so the "
-          "hook is two-sided and cannot pass by blocking everything",
+    check("...a turn carrying the built form WITH its state declared is "
+          "allowed (exit 0), so the hook is two-sided and cannot pass by "
+          "blocking everything",
           outcomes[("good", False)] == 0, str(outcomes))
     check("...and `stop_hook_active` is honoured, so the hook blocks ONCE "
           "and can never trap the session in a loop",
           outcomes[("bad", True)] == 0, str(outcomes))
 
 
+def test_the_operator_seam():
+    """7. A RENDERED SONG CARRIES ITS CONVERGENCE STATE (M-150).
+
+    The working order ends at a STOP CONDITION and every step but the last
+    is enforced by a verb that refuses; this is the last step's gate. The
+    check requires the state be DECLARED and never that it be clean — an
+    exit-3 draft disclosed as exit 3 is a disclosed draft, and whether the
+    claim is TRUE is `song_log.py --verdicts`' business, not this file's.
+    """
+    print("\n7. the operator seam — a rendered song carries its state")
+    got = C.rendered_without_state(CORRECT)
+    check("the built form presented with not one word about how the run "
+          "ended is REFUSED — rendered right and stateless is the defect, "
+          "and every built header is named",
+          len(got) == 3, f"{len(got)} stateless header(s)")
+    with tempfile.TemporaryDirectory() as td:
+        p = os.path.join(td, "stateless.txt")
+        with open(p, "w", encoding="utf-8") as fh:
+            fh.write(CORRECT)
+        check("...and `main()` refuses it at exit 1, so the Stop hook that "
+              "wraps this to exit 2 blocks the turn",
+              C.main(["--text", p]) == 1)
+    check("the same render beside \"exit 0\" passes — the state the verbs "
+          "print, quoted in the turn, is the whole ask",
+          C.rendered_without_state(CORRECT_STATED) == [])
+    check("...and beside \"exit 3\" it ALSO passes — disclosure, never "
+          "adjudication: a flagged draft presented AS flagged is a "
+          "disclosed draft",
+          C.rendered_without_state(
+              CORRECT + "\nrevise: exit 3 — one flag standing\n") == [])
+    check("...and UNCONVERGED passes too, case-insensitively — the honest "
+          "word for a draft with no stop condition reached is a state",
+          C.rendered_without_state(CORRECT + "\nstill unconverged.\n") == [])
+    check(f"`{C.DECLARED_RAW}` escapes this gate exactly as it escapes the "
+          f"apparatus gate — a quoted file is a record, not a presentation "
+          f"of finished work",
+          C.rendered_without_state(CORRECT + "\n" + C.DECLARED_RAW) == [])
+    check("prose carrying ONE built bracket is below the floor — this "
+          "instrument must not be something people route around",
+          C.rendered_without_state(
+              "the header reads [INTRO — 2 lines — 2 bars of 8/8] "
+              "here") == [])
+    # THE MUTATION, hand-proven: blunt STATE to match-anything and the
+    # stateless render is accepted — so the refusal above is the state
+    # regex doing the work, not the fixture or the bracket count.
+    keep = C.STATE
+    try:
+        C.STATE = __import__("re").compile("")   # search('') hits any text
+        got = C.rendered_without_state(CORRECT)
+        check("MUTATION: with STATE blunted to match-anything, the "
+              "stateless render is accepted — the state regex is what "
+              "does the refusing",
+              got == [], f"{len(got)} refused under the mutation")
+    finally:
+        C.STATE = keep
+    check("...and the mutation is reverted, so this file leaves the "
+          "instrument as it found it",
+          len(C.rendered_without_state(CORRECT)) == 3)
+
+
 if __name__ == "__main__":
     for fn in (test_the_predicate, test_the_builder_itself_passes,
                test_the_escapes_and_the_floor, test_the_transcript_reader,
-               test_the_mutation, test_the_hook_is_wired):
+               test_the_mutation, test_the_hook_is_wired,
+               test_the_operator_seam):
         fn()
     print("=" * 70)
     if FAILURES:

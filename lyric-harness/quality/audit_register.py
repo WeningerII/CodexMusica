@@ -2228,7 +2228,10 @@ PINNED = {
     # ~~196~~ -> 197: M-139, the door moved TWICE (M-59's four relations,
     # M-116's 77 schemas) and 17 of 19 pair-satisfaction sites moved
     # neither time. `quality/door_census.py` is the census and the gate.
-    "coverage_entries": 207,
+    # ~~207~~ -> 208: M-150, the working order's LAST step had no gate —
+    # a rendered song presented with its convergence state unsaid reads
+    # as finished; `check_render_form.py` now asks the turn two questions.
+    "coverage_entries": 208,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

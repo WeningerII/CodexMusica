@@ -14407,3 +14407,56 @@ consequence stated rather than buried: a plan is a pure function of
 different drawn relations than the same seed's banked artifacts — the
 banked blueprints and grading commands are internally consistent records
 of their own trees, exactly as the RESULTS rows are.
+
+### M-150 · the working order's last step had no gate: a rendered song presented with its convergence state unsaid reads as finished `RESOLVED` 2026-08-28
+
+**Filed and repaired in the repair campaign's sweep of the operator seam,
+from the owner's standing rule — "nothing should be allowed to skip a
+step" — asked of the one step no verb could reach.** The working order is
+sweep -> screen -> plan -> write -> grade -> revise to a STOP CONDITION.
+Every step but the last ends in an instrument that refuses: the sweep
+refuses an empty accepted set, the screen bans the pair, the plan gates
+joint satisfiability, the grade exits 2, the loop exits 3 while a flag
+stands. The LAST step's fact — the run reached a stop condition — lives
+in a terminal, and the turn that then presents the rendered song could
+present it BARE: correctly rendered, apparatus intact, M-97's gate
+satisfied, and not one word about how the run ended. A rendered song
+shown bare reads as FINISHED with no instrument having said so. That is
+the skipped-steps defect at the seam where every earlier instance of it
+lived — the operator's message — and this repository's own history is
+the argument: the M-148 sitting parked a song at exit 2 and the parked
+state was carried in prose and memory, nothing mechanical, until the
+schema judge was repaired.
+
+**THE GATE EXTENDS THE INSTRUMENT ALREADY READING THE TURN.**
+`quality/check_render_form.py` gains `rendered_without_state(text)`
+beside `violations(text)`: a turn presenting `MIN_BRACKETS` or more
+BUILT section headers (apparatus-carrying — a bare-bracket turn is the
+other check's defect) with no `RAW LYRIC FILE` declaration must also
+match `STATE` — `exit N` in the spellings the verbs themselves print
+(`exit 0`, `exit=3`), or `UNCONVERGED` / `PARKED`, case-insensitive —
+anywhere in the turn text. Missing, the turn is refused through the same
+`main()` the Stop hook (`.claude/settings.json` -> `Stop` ->
+`.claude/render_form_hook.sh`) already wraps to exit 2, so the wiring
+cost is zero: one hook, two questions of the same text.
+
+**DISCLOSURE, NEVER ADJUDICATION — that is the design decision and the
+reason the gate is cheap.** The check requires the state be SAID and
+never that it be clean: an exit-3 draft presented WITH "exit 3" is a
+disclosed draft and passes; the same draft presented bare is refused.
+Adjudicating truth here would need the gate to re-run the verbs, and a
+false claim already has an owner — `quality/song_log.py --verdicts`
+charges every process claim against the banked log, three counts never
+summed. One instrument per question (doctrine 1): this gate owns
+"was the state said", `--verdicts` owns "was it true".
+
+**THE GATE'S GATE:** `quality/test_render_form.py` §7 — the stateless
+built render refused with every header named and `main()` at exit 1;
+the same render beside "exit 0" passing; beside "exit 3" ALSO passing
+(the disclosure-not-adjudication check); `UNCONVERGED` passing
+case-insensitively; the `RAW LYRIC FILE` escape; the one-bracket floor;
+and the hand-proven MUTATION — `STATE` blunted to match-anything
+accepts the stateless render, so the refusal is the state regex doing
+the work and not the fixture. §6's end-to-end good arm now presents the
+built form WITH its state, which is what a finished presentation looks
+like under both of this instrument's questions. Suite green, 7 sections.
