@@ -534,11 +534,24 @@ def test_corpus_song_rate_is_pinned():
     # reason and carries its ladder; `unreadable_final_piece` (428) and
     # `rate_token`'s band are measured UNMOVED, which is the control that
     # the reader change landed where it aimed.
-    check("countable lines 282402 — VERSE ONLY, now that apparatus lines "
+    # REPINNED AGAIN 2026-08-28 (M-152, same day): the bracketed-VERSE
+    # convention — keep the body, strip the brackets. 282402 -> 282397,
+    # and the -5 is three deltas that carry their own signs: +16 sung
+    # lines RECOVERED (Watts's 14 stanza openers, Drake's one, Durfey's
+    # `[Music: The King...`), -18 editorial/direction lines dropped
+    # (Durfey's Sidenote dialogue 11, Gay's directions 3, Carroll's
+    # dedications 2, Emmett's orphan tail, Lovelace's gloss close), and
+    # -3 from the Hemans balanced-close amendment to M-47's own scan.
+    # EVERY refusal count below is measured byte-identical across this
+    # repin — the convention moved which lines are SUNG and moved no
+    # refusal, which is the control that it landed where it aimed (the
+    # rates move only in their sixth decimal, inside the pinned 1e-5).
+    check("countable lines 282397 — VERSE ONLY, now that apparatus lines "
           "are excluded at the source instead of subtracted by hand, and "
           "under the CENTRE's `---` rather than a second `--- ` of our own",
-          r["lines_countable"] == 282402,
-          f"{r['lines_countable']}  (282731 before the bracket-apparatus "
+          r["lines_countable"] == 282397,
+          f"{r['lines_countable']}  (282402 before the bracketed-verse "
+          f"repin; 282731 before the bracket-apparatus "
           f"repin; 282745 before the LATIN_SCRIPT repin; 179193 before the Tier-1 load; 153224 "
           f"before the mass load; 151894 before Pass-1)")
     check("unreadable end word, cause TOKEN, 17255 — the follow rule took "
@@ -669,7 +682,12 @@ def test_corpus_song_rate_is_pinned():
     # asserts `read_lines` equals their CONJUNCTION, not the bare predicate
     # — asserting the bare predicate would red on every declared file for
     # doing exactly what the rule says.
-    from lyric_harness import (is_apparatus_line, normalise_bracket_spans,
+    # AND A FOURTH SINCE M-152 (same date): `bracketed_verse_edits` — the
+    # keep-the-body convention. Its edit substitutes for the raw strip
+    # BEFORE the apparatus test, exactly as `read_lines` applies it, so
+    # the sweep and the reader still state one rule.
+    from lyric_harness import (bracketed_verse_edits, is_apparatus_line,
+                               normalise_bracket_spans,
                                wrapped_apparatus_drops)
     disagree, letters = [], 0
     for p in paths:
@@ -679,8 +697,10 @@ def test_corpus_song_rate_is_pinned():
         with open(p, encoding="utf-8", errors="replace") as fh:
             raw_lines = fh.read().splitlines()
         drops = wrapped_apparatus_drops(raw_lines, p)
+        vdrops, vedits = bracketed_verse_edits(raw_lines, p)
+        drops |= vdrops
         for ln0, raw in enumerate(raw_lines):
-            s = raw.strip()
+            s = vedits.get(ln0, raw.strip())
             if not s or not re.search(r"[A-Za-z]", s):
                 continue
             letters += 1
@@ -1305,6 +1325,199 @@ def test_the_bracket_rules_are_declared_and_read():
           and "eng_hall_john_gay.txt" not in LH.WRAPPED_APPARATUS_FOLLOW)
 
 
+def test_the_bracketed_verse_convention_keeps_the_body():
+    """§12 — M-152 (2026-08-28): a bracket that wraps SUNG text keeps the
+    body and loses the brackets. The THIRD declared bracket convention,
+    beside M-27's span classes and M-47's wrapped-note follow: per-file
+    opener rules (`BRACKETED_VERSE_FILES`), per-block rows keyed on the
+    opener's own content (`BRACKET_BLOCK_ROWS`), and per-line rows for
+    the orphan brackets no scan can follow (`BRACKET_LINE_EDITS`). Every
+    block was read before its file was declared, and each table is proven
+    load-bearing by a MUTATION run in place.
+    """
+    print("\n12. the bracketed-verse convention — keep the body, strip "
+          "the brackets (M-152, 2026-08-28)")
+    import lyric_harness as LH
+
+    watts = os.path.join(SONG, "eng_hymn_watts.txt")
+    wl = read_lines(watts)
+    check("Watts's bracketed optional stanza keeps its OPENING line — "
+          "sung verse that was apparatus for as long as the corpus has "
+          "been read (14 blocks in the file, every opener a stanza's own "
+          "first line)",
+          any(l.startswith("Let Papists trust what names") for l in wl))
+    check("...and its close line reads clean: no kept Watts line ends on "
+          "a close bracket",
+          not any(l.endswith("]") and l.count("]") > l.count("[")
+                  for l in wl)
+          and any(l.endswith("or pray to th' heavenly host.")
+                  for l in wl))
+    check("the two-stanza bracketed passage closes at +8 ACROSS its own "
+          "`[VERSE n]` marker — the census read this block as "
+          "never-closing because its scan stopped at the marker, and "
+          "reading the text refuted the census",
+          any(l == "T' allay his agonies." for l in wl))
+
+    skeat = os.path.join(SONG, "msa_skeat_pantun.txt")
+    import quality.grid as GR
+    songs = {s.title: s for s in GR.read_marked_songs(skeat)}
+    q101 = songs.get("quatrain 101")
+    check("Skeat's sung colophon quatrain is FOUR lines again through the "
+          "block reader — the bracketed opener was the quatrain's own "
+          "first line, and its declared `--- SYLLABLES: [10, 11, 10, 11]` "
+          "row always said so",
+          q101 is not None and len(q101.blocks) == 1
+          and len(q101.blocks[0].lines) == 4
+          and q101.blocks[0].lines[0].startswith("Tamat-lah"),
+          repr(q101.blocks[0].lines if q101 and q101.blocks else None))
+    check("...and the colophon's close, THIRTEEN raw lines on in the NEXT "
+          "staged item, reads clean",
+          any(l == "Terkenangkan sakit penghabis-habis"
+              for l in read_lines(skeat)))
+
+    durfey = os.path.join(SONG, "eng_hall_thomas_durfey.txt")
+    dl = read_lines(durfey)
+    check("Durfey's one `[Music: <text>` opener that CARRIES the first "
+          "sung line keeps it, prefix stripped",
+          any(l == "The King is gone to _Oxon_ Town," for l in dl))
+    check("Durfey's `[Sidenote:` dialogue notes leave the sung stream — "
+          "eleven continuation lines across ten notes",
+          not any("many a Maiden-head got" in l for l in dl)
+          and not any("I have heard a Ballad of him sang" in l
+                      for l in dl))
+    check("...while the bare `[Music:` cues' SUNG bodies stay, closing "
+          "clean on the burden",
+          any(l.endswith("with a hey, gee Dobin hey ho.") for l in dl))
+
+    gay = os.path.join(SONG, "eng_hall_john_gay.txt")
+    gl = read_lines(gay)
+    check("Gay's never-closing stage directions drop their continuation "
+          "lines to the first blank — three direction lines across eight "
+          "openers, and nothing else",
+          not any(l == "Part in Chorus." for l in gl)
+          and not any(l == "Door, she at the other." for l in gl))
+
+    em = read_lines(os.path.join(SONG,
+                                 "eng_parlour_daniel_decatur_emmett.txt"))
+    check("Emmett's `Mass.]` — the tail of a wrapped note whose opener "
+          "the staging lost — is apparatus by declared content",
+          not any("Mass.]" in l for l in em))
+
+    lv = read_lines(os.path.join(SONG, "eng_british_richard_lovelace.txt"))
+    check("Lovelace's printer's quoted-song-end mark is stripped and the "
+          "sung line KEPT",
+          any(l == "Or wound it o're againe." for l in lv))
+    check("...and the mid-line wrapped gloss `[The words / are by "
+          "Stanley.]` leaves: the opener truncated at its `[`, the close "
+          "line dropped",
+          any(l.endswith("1656. folio.") for l in lv)
+          and not any("are by Stanley" in l for l in lv))
+
+    fr = read_lines(os.path.join(SONG, "eng_american_philip_freneau.txt"))
+    check("Freneau's authorial parenthetical keeps EVERY word — the "
+          "bracket characters alone are stripped, because the gloss is "
+          "metrically part of the verse",
+          any(l == '"To you the fat pot-valiant swain' for l in fr)
+          and any(l == "To Digby said, dear friend of mine," for l in fr))
+
+    # THE SWEEP THAT CLOSES THE CLASS: no kept sung line anywhere in
+    # corpus/song/ still ends on an orphan `]`. This sweep is the
+    # instrument that found the Hemans leak below, so it is asserted at
+    # ZERO rather than remembered as small.
+    import glob as _glob
+    orphans = []
+    for p in sorted(_glob.glob(os.path.join(SONG, "*.txt"))):
+        for l in LH.load_lyric_lines(p):
+            if l.endswith("]") and l.count("]") > l.count("["):
+                orphans.append((os.path.basename(p), l[:60]))
+    check("ZERO kept sung lines in all of corpus/song/ end on an orphan "
+          "`]` — the class is closed, and audit_corpus check L guards "
+          "new staging", orphans == [], repr(orphans[:3]))
+
+    # AND THE SWEEP'S ONE FINDING OUTSIDE M-152's OWN FILES: Hemans's
+    # Chorley note carries a balanced footnote anchor (`character,[399]`)
+    # three rows before its close, and M-47's scan — whose close test was
+    # `"]" in t` — stopped there, leaking the note's last three lines as
+    # verse. The close row's `]` must OUTNUMBER its `[`s now; measured
+    # over all fifteen follow files, Hemans 260 -> 263 drops is the whole
+    # delta.
+    hemans = os.path.join(SONG, "eng_british_felicia_hemans.txt")
+    hraw = LH.read_lyric_text(hemans).splitlines()
+    hdrops = LH.wrapped_apparatus_drops(hraw, hemans)
+    tail = next(i for i, l in enumerate(hraw)
+                if l.strip() == "of Mrs Hemans_, p. 26-7.]")
+    anchor_row = next(i for i, l in enumerate(hraw)
+                      if l.strip().endswith("character,[399]"))
+    check("the Hemans note is followed PAST its balanced footnote anchor "
+          "to the real close — all three previously leaking lines drop",
+          {anchor_row, tail - 1, tail} <= hdrops
+          and not any(l == "of Mrs Hemans_, p. 26-7.]"
+                      for l in read_lines(hemans)))
+
+    check("a caller with NO FILE is untouched by every table — a draft's "
+          "unclosed `[Music:` line is nobody's convention",
+          LH.bracketed_verse_edits(["[Music:", "la la]"], "")
+          == (set(), {}))
+
+    check("the two follow conventions are DISJOINT — no file may declare "
+          "both, because M-47's scan would eat what M-152 declares as "
+          "verse (the import-time assertion's own subject)",
+          not ((frozenset(LH.BRACKETED_VERSE_FILES)
+                | frozenset(LH.BRACKET_BLOCK_ROWS))
+               & LH.WRAPPED_APPARATUS_FOLLOW))
+
+    wraw = LH.read_lyric_text(watts).splitlines()
+    # MUTATION 1: pull Watts's file rule — every opener reverts to
+    # apparatus and every close keeps its bracket.
+    _old = dict(LH.BRACKETED_VERSE_FILES)
+    try:
+        del LH.BRACKETED_VERSE_FILES["eng_hymn_watts.txt"]
+        d, e = LH.bracketed_verse_edits(wraw, watts)
+        check("MUTATION: Watts's row pulled from BRACKETED_VERSE_FILES -> "
+              "zero edits, so the 14 stanza openers would be apparatus "
+              "again — the table is the load-bearing declaration",
+              (d, e) == (set(), {}))
+    finally:
+        LH.BRACKETED_VERSE_FILES.clear()
+        LH.BRACKETED_VERSE_FILES.update(_old)
+    check("...and restored, the edits return",
+          len(LH.bracketed_verse_edits(wraw, watts)[1]) == 28)
+
+    # MUTATION 2: pull Durfey's `[Sidenote:` row — the dialogue notes'
+    # eleven continuation lines would sing again.
+    draw = LH.read_lyric_text(
+        os.path.join(SONG, "eng_hall_thomas_durfey.txt")).splitlines()
+    _oldrows = dict(LH.BRACKET_BLOCK_ROWS)
+    try:
+        LH.BRACKET_BLOCK_ROWS["eng_hall_thomas_durfey.txt"] = tuple(
+            r for r in _oldrows["eng_hall_thomas_durfey.txt"]
+            if r[1] != "[Sidenote:")
+        d, _e = LH.bracketed_verse_edits(draw, durfey)
+        check("MUTATION: the `[Sidenote:` row pulled from "
+              "BRACKET_BLOCK_ROWS -> its eleven note lines leave the "
+              "drop set and would leak as verse",
+              len(d) == 0, repr(len(d)))
+    finally:
+        LH.BRACKET_BLOCK_ROWS.clear()
+        LH.BRACKET_BLOCK_ROWS.update(_oldrows)
+
+    # MUTATION 3: pull Emmett's line row — the orphan tail sings again.
+    eraw = LH.read_lyric_text(
+        os.path.join(SONG,
+                     "eng_parlour_daniel_decatur_emmett.txt")).splitlines()
+    _oldle = dict(LH.BRACKET_LINE_EDITS)
+    try:
+        del LH.BRACKET_LINE_EDITS["eng_parlour_daniel_decatur_emmett.txt"]
+        d, e = LH.bracketed_verse_edits(
+            eraw, "eng_parlour_daniel_decatur_emmett.txt")
+        check("MUTATION: Emmett's row pulled from BRACKET_LINE_EDITS -> "
+              "nothing drops and `Mass.]` would be sung text again",
+              (d, e) == (set(), {}))
+    finally:
+        LH.BRACKET_LINE_EDITS.clear()
+        LH.BRACKET_LINE_EDITS.update(_oldle)
+
+
 if __name__ == "__main__":
     for fn in (test_readable_pairs_are_untouched,
                test_constructed_oov_final,
@@ -1316,7 +1529,8 @@ if __name__ == "__main__":
                test_the_manufactured_rhyme_is_refused,
                test_the_letter_repertoire_is_declared_and_the_two_sites_agree,
                test_interior_is_derived_by_position,
-               test_the_bracket_rules_are_declared_and_read):
+               test_the_bracket_rules_are_declared_and_read,
+               test_the_bracketed_verse_convention_keeps_the_body):
         fn()
     _every_section_runs((
         test_readable_pairs_are_untouched, test_constructed_oov_final,
@@ -1326,7 +1540,8 @@ if __name__ == "__main__":
         test_the_manufactured_rhyme_is_refused,
         test_the_letter_repertoire_is_declared_and_the_two_sites_agree,
         test_interior_is_derived_by_position,
-        test_the_bracket_rules_are_declared_and_read))
+        test_the_bracket_rules_are_declared_and_read,
+        test_the_bracketed_verse_convention_keeps_the_body))
     print("=" * 68)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")

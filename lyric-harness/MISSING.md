@@ -15267,7 +15267,7 @@ the three refusals, the plain `--lang=eng` control, and the usage row
 naming both flags (the three-sets-equal gate's own subject). Usage row
 and wiring updated together; `wiring` reports no strand.
 
-### M-152 · Bracketed VERSE: six files print sung text inside `[...]` blocks, and the reader can only lose it `OPEN`
+### M-152 · Bracketed VERSE: six files print sung text inside `[...]` blocks, and the reader can only lose it `CLOSED` 2026-08-28 — the keep-the-body convention, declared per block
 Found 2026-08-28 while building M-47's wrapped-note follow rule, and it is
 the OPPOSITE defect from the one that sitting closed: there, apparatus
 leaked in as verse; here, verse is read as apparatus, and the opening line
@@ -15297,3 +15297,110 @@ opening `[` line drops, the body leaks as unbracketed verse, and the close
 line keeps a token-invisible `]`. Also in this class's orbit, named in
 M-47's close: three orphan closes with no opener (Emmett's `Mass.]`, one
 Skeat, two Lovelace) and Freneau's one mid-line-opening editorial gloss.
+
+**CLOSED 2026-08-28 — the THIRD declared convention shipped, and the
+census was corrected by its own rule before anything was declared.**
+`lyric_harness.bracketed_verse_edits(raw_lines, name) -> (drops, edits)`,
+consumed by all four readers (`load_lyric_lines`,
+`readability.read_lines`, `grid.read_marked_songs`,
+`build_song_frequency`) with the per-line EDIT applied BEFORE the
+apparatus test — which is what turns a declared opener from an apparatus
+row into the sung line it prints. Three tables, matched through ONE
+predicate (`bracket_block_rule`, which `audit_corpus` check L also asks,
+so the census and the reader cannot drift — doctrine 1):
+`BRACKETED_VERSE_FILES` (file-wide: watts/drake/msa_skeat `verse_opener`
+— strip the `[`, keep the line, strip the `]` off the close row found by
+`_bracket_verse_close`, which skips apparatus and blanks and requires the
+close row's `]` to OUTNUMBER its `[`; gay `direction_to_blank` — drop
+continuation lines to the first blank); `BRACKET_BLOCK_ROWS` (per-block,
+keyed on the opener's own content: carroll's "[later editions continued"
+note-opener-verse-body and two wrapped-note dedications; durfey's exact
+`[Music:` verse bodies, `[Music: <text>` prefixed-verse opener, and
+`[Sidenote:` wrapped dialogue notes); and `BRACKET_LINE_EDITS` (the six
+orphan lines, adjudicated one by one below). The two follow conventions
+are DISJOINT BY CONSTRUCTION — an import-time check refuses a file in
+both M-152's tables and `WRAPPED_APPARATUS_FOLLOW`, because M-47's scan
+would eat what M-152 declares as verse (the exact defect that struck
+Durfey's row from that set).
+**THE CENSUS WAS WRONG THREE TIMES AND THE TEXT SETTLED EACH.** This
+entry's own population figures said watts's block at 25178 "NEVER
+closes" — reading the text shows ONE bracketed passage spanning TWO
+stanzas, closing at +8 across its own `[VERSE 4]` marker (the census's
+scan had stopped at the marker; `_bracket_verse_close` skips it, the
+same rule M-47's note scan holds). Gay's direction at 251 carries TWO
+continuation lines, not one. And durfey's Sidenote at 5547 runs three
+rows. 14 watts / 1 drake / 1 skeat / 8 gay / 4 carroll / 16 durfey — the
+production function reproduces the corrected census block for block
+(`test_readability` §12).
+**THE ORBIT, ADJUDICATED LINE BY LINE:** Emmett's `Mass.]` is the tail
+of a wrapped note whose OPENER the staging lost (`[VERSE 2]`'s sole
+content) — apparatus by declared content, dropped. Lovelace 1176
+`Or wound it o're againe.]` is a sung stanza's final line carrying the
+printer's quoted-song-end mark, no opener anywhere — `]` stripped, verse
+KEPT. Lovelace 2779–80 `... 1656. folio. [The words` / `are by
+Stanley.]` is a mid-line-opening wrapped editorial gloss — the opener
+truncated at its `[`, the close line dropped. Freneau 677–8 `"To you
+[the fat pot-valiant swain` / `To Digby said], dear friend of mine,` is
+an AUTHORIAL parenthetical that is metrically part of the verse — the
+bracket characters stripped, every word kept. And "one Skeat orphan" and
+the skeat opener are ONE printed bracket: the sha`ir's own sung colophon
+(`[Tamat-lah ... penghabis-habis]`, PG source lines 23091–98,
+consecutive), split by staging into quatrains 101 and 102 — opener and
+close both stripped, both quatrains four sung lines again.
+**THE SWEEP THAT CLOSED THE CLASS FOUND A DEFECT IN M-47's OWN SCAN.**
+Asserting zero surviving orphan closes over the whole kept stream left
+exactly ONE: Hemans's Chorley note carries a balanced footnote anchor
+(`... monumental character,[399]`) three rows before its close, and the
+follow scan's `"]" in t` close test stopped there, leaking the note's
+last three lines as verse. AMENDED: the close row's `]` must OUTNUMBER
+its `[`s. Measured over all fifteen follow files: Hemans 260 -> 263
+drops is the whole delta. The sweep is now `test_readability` §12's
+zero-assertion AND check L's third question (orphan closes, 0 today,
+guarding new staging); check L's second question consults
+`bracket_block_rule` so the six standing NOTEs this entry carried leave
+by declaration, not by silencing.
+**MEASURED CONSEQUENCES, each carrying its sign:** `lines_countable`
+282402 -> 282397 = +16 sung lines recovered (watts 14, drake 1, durfey's
+`[Music: The King...`) − 18 editorial/direction lines dropped (durfey
+11, gay 3, carroll 2, emmett 1, lovelace 1) − 3 Hemans; EVERY refusal
+count in the §5 pins is byte-identical across the repin (the convention
+moved which lines are SUNG and moved no refusal — the control that it
+landed where it aimed). The frequency tables rebuilt:
+`data/song_endword_en.tsv` 131,219 -> 131,211 rows and
+`song_rhymepair_en.tsv` holds 97,099 with 23,826 -> 23,827 pair types
+(both provenance rows repinned with md5s). `test_readability` §12: 18
+checks, THREE mutations hand-proven in place — pull watts's file row
+(zero edits, the openers would be apparatus again), pull durfey's
+`[Sidenote:` block row (its eleven note lines leave the drop set), pull
+emmett's line row (`Mass.]` would sing again).
+**WHAT IS NOT FIXED, NAMED (doctrine 20):** the brackets were this
+entry's class, not the STAGING around them. Lovelace's `[VERSE 8]`–
+`[VERSE 10]` under "THE MAID'S TRAGEDY" are Hazlitt's editorial NOTES
+staged as verses (M-152 stripped only the bracket gloss inside them),
+and Emmett's `[VERSE 1]` holds the attribution line "By DAN D. EMMETT."
+— editorial text under a verse mark, with no bracket for this convention
+to key on. That class is M-153.
+
+### M-153 · Editorial text staged under `[VERSE n]` marks: two measured instances, no bracket to key on `OPEN`
+Found 2026-08-28 adjudicating M-152's orbit, and it is the staging class
+that convention CANNOT reach: text that is not sung, standing under a
+real verse mark, with no bracket for a declared span or block rule to
+key on. Measured instances, both read in place: (1)
+`corpus/song/eng_parlour_daniel_decatur_emmett.txt` — the first song's
+`[VERSE 1]` holds exactly the attribution line "By DAN D. EMMETT." (its
+`[VERSE 2]` held only the orphan note tail `Mass.]`, which M-152's line
+table now drops, so that block is EMPTY and this one is an attribution
+read as a one-line stanza); (2) `eng_british_richard_lovelace.txt`,
+under `--- TITLE: THE MAID'S TRAGEDY` — `[VERSE 8]`, `[VERSE 9]` and
+`[VERSE 10]` are Hazlitt's editorial NOTES ("Thomas Stanley, Esq.,
+author of the HISTORY OF PHILOSOPHY...", "Lovelace wrote these lines
+for AYRES AND DIALOGUES...", "Wood, in his account of this person...")
+staged as verse stanzas beside the song's own `<<AN.n>>` annotation
+anchors; M-152 stripped the one bracketed gloss inside them and the
+prose still sings. The remedy is a STAGING decision, not a reader rule:
+either re-stage the items (the notes belong under `#` rows or out of
+the file; the attribution belongs in the header) or declare a
+per-item apparatus convention for annotation blocks — and it is a
+corpus-loading question because the fix edits staged bytes, which
+every md5 row and count above then moves with. Until ruled, both
+instances stand and are named here rather than remembered.

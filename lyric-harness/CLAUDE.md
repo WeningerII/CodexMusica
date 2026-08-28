@@ -2480,6 +2480,36 @@ repinned there carry the ladders (countable 282731 -> 282402, the
 substituted split 16710+2 -> 16685+1 — the −1 being known gap 8's own
 `turf,[mm]` exemplar).
 
+**AND THE THIRD CONVENTION CLOSED THE SAME DAY — A BRACKET THAT WRAPS SUNG
+TEXT KEEPS THE BODY AND LOSES THE BRACKETS (`MISSING.md` M-152).** Watts
+prints whole optional hymn stanzas in brackets, Drake a quatrain, Skeat's
+pantun edition its own sung colophon (split by staging across two items),
+Durfey's `[Music:` cues enclose 9–38 sung lines, Carroll's "[later editions
+continued" note opens a sung body, and Gay's stage directions never close —
+the OPPOSITE defect from M-47's, verse read as apparatus, with each
+block's opening line silently lost. `bracketed_verse_edits` -> (drops,
+edits) rides beside the two rules above through the SAME four readers,
+with the per-line edit applied BEFORE the apparatus test; three declared
+tables (`BRACKETED_VERSE_FILES` per file, `BRACKET_BLOCK_ROWS` per block
+keyed on the opener's own content, `BRACKET_LINE_EDITS` for the six
+orphan brackets no scan can follow — Emmett's lost note tail, Lovelace's
+printer marks and mid-line gloss, Freneau's authorial parenthetical kept
+word for word), matched through ONE predicate (`bracket_block_rule`) that
+check L also asks, and an import-time check refusing a file in both
+follow conventions. EVERY BLOCK WAS READ BEFORE ITS FILE WAS DECLARED,
+and the reading corrected the census three times (watts's "never-closing"
+block closes at +8 across its own `[VERSE 4]` marker). The zero-orphan
+sweep that closed the class found M-47's own scan stopping at a BALANCED
+footnote anchor inside a Hemans note (`character,[399]` read as the
+close) — the close row's `]` must OUTNUMBER its `[`s now, and the three
+leaked lines are the whole corpus-wide delta. Countable 282402 -> 282397
+(+16 recovered sung lines − 18 dropped editorial lines − 3 Hemans), with
+every refusal count in §5's pins measured byte-identical — the
+convention moved which lines are SUNG and moved no refusal.
+`test_readability.py` §12, three table mutations hand-proven in place;
+what it deliberately does NOT reach is staging: editorial text under a
+bare `[VERSE n]` mark with no bracket to key on is M-153, named open.
+
 **AND THE FIFTH SITE WAS NOT THE APPARATUS RULE — IT WAS THE DECODE, ONE LAYER
 EARLIER, FOUND 2026-08-15 BY SWEEPING THE VERBS RATHER THAN GREPPING THE
 PREDICATE.** The two checks that paragraph ends on find `startswith` and only

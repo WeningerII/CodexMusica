@@ -3635,11 +3635,16 @@ def read_marked_songs(path, language=""):
     songs, cur = [], None
     with open(path, encoding="utf-8", errors="replace") as f:
         raw_lines = f.read().splitlines()
-    # The DECLARED bracket-apparatus rules (M-47/M-27), the same two calls
-    # `load_lyric_lines` makes, so the block reader and the CLI reader
-    # cannot disagree about which lines a wrapped Gutenberg note owns or
-    # what a bracketed span means (doctrine 1).
+    # The DECLARED bracket-apparatus rules (M-47/M-27/M-152), the same
+    # calls `load_lyric_lines` makes, so the block reader and the CLI
+    # reader cannot disagree about which lines a wrapped Gutenberg note
+    # owns, what a bracketed span means, or which bracketed block is SUNG
+    # (doctrine 1). The M-152 edit is applied at the strip below, BEFORE
+    # `_MARK_RE` and the apparatus test, so a declared verse opener is a
+    # lyric line and never a mark.
     _bracket_drops = LH.wrapped_apparatus_drops(raw_lines, path)
+    _vdrops, _vedits = LH.bracketed_verse_edits(raw_lines, path)
+    _bracket_drops |= _vdrops
     for idx0, line in enumerate(raw_lines):
         n = idx0 + 1
         if idx0 in _bracket_drops:
@@ -3654,7 +3659,7 @@ def read_marked_songs(path, language=""):
             continue
         if cur is None:
             continue
-        s = line.strip()
+        s = _vedits.get(idx0, line.strip())
         m = _MARK_RE.match(s)
         if m:
             base, idx, fn, ref = ingest_mark(m.group(1), language)

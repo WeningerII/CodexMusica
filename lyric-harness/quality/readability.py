@@ -66,6 +66,7 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from lyric_harness import (Declaration, LATIN_SCRIPT, Lexicon,  # noqa: E402
+                           bracketed_verse_edits,
                            is_apparatus_line, line_anchors,
                            line_readability, line_tokens,
                            normalise_bracket_spans,
@@ -387,15 +388,19 @@ def read_lines(path):
     """
     out = []
     raw_lines = read_lyric_text(path).splitlines()
-    # The DECLARED bracket-apparatus rules (M-47/M-27) — the same two calls
-    # `lyric_harness.load_lyric_lines` makes, so this reader and the CLI's
-    # cannot disagree about a wrapped note's continuation or a bracketed
-    # span's class (doctrine 1). Test 5's sweep holds the equality.
+    # The DECLARED bracket-apparatus rules (M-47/M-27/M-152) — the same
+    # calls `lyric_harness.load_lyric_lines` makes, so this reader and the
+    # CLI's cannot disagree about a wrapped note's continuation, a
+    # bracketed span's class, or which bracketed block is SUNG (doctrine
+    # 1). Test 5's sweep holds the equality; the M-152 edit runs BEFORE
+    # the apparatus test, which is what keeps a declared verse opener.
     drops = wrapped_apparatus_drops(raw_lines, path)
+    vdrops, vedits = bracketed_verse_edits(raw_lines, path)
+    drops |= vdrops
     for i, raw in enumerate(raw_lines):
         if i in drops:
             continue
-        s = raw.strip()
+        s = vedits.get(i, raw.strip())
         if not s or not LATIN_SCRIPT.search(s):
             continue
         if is_apparatus_line(s):

@@ -122,6 +122,7 @@ ROOT = os.path.join(HERE, "..")
 sys.path.insert(0, ROOT)
 
 from lyric_harness import (Lexicon, line_tokens, fold_apostrophes,      # noqa
+                           bracketed_verse_edits,
                            normalise_bracket_spans, unread_final_piece,
                            syllabify, anchor, wrapped_apparatus_drops)
 
@@ -241,11 +242,16 @@ class SongFrequencyBuilder:
             item_ends = []
             with open(os.path.join(SONG, base), encoding="utf-8") as fh:
                 raw_lines = fh.read().splitlines()
-            # The DECLARED bracket-apparatus rules (M-47/M-27), same calls
-            # as `load_lyric_lines`: a wrapped Gutenberg note's tail must
-            # not supply an end word, and a footnote anchor must not BE one
-            # (Byron rhymed on `a b c d` in every table built before this).
+            # The DECLARED bracket-apparatus rules (M-47/M-27/M-152), same
+            # calls as `load_lyric_lines`: a wrapped Gutenberg note's tail
+            # must not supply an end word, a footnote anchor must not BE
+            # one (Byron rhymed on `a b c d` in every table built before
+            # this), and a bracketed SUNG stanza's own lines must (the
+            # M-152 edit runs before `_MARKER`, so a declared verse
+            # opener supplies its end word instead of being dropped).
             drops = wrapped_apparatus_drops(raw_lines, base)
+            vdrops, vedits = bracketed_verse_edits(raw_lines, base)
+            drops |= vdrops
             for i0, raw in enumerate(raw_lines):
                 if i0 in drops:
                     continue
@@ -255,6 +261,7 @@ class SongFrequencyBuilder:
                     self._pairs(item_ends, pair, author, stats)
                     item_ends = []
                     continue
+                s = vedits.get(i0, s)
                 if not s.strip() or _MARKER.match(s):
                     continue
                 stats["lines"] += 1

@@ -1040,8 +1040,9 @@ _CAPTION_TAIL = re.compile(r'\.jpg\]$')
 # A BRACKETED SPAN IS NOT A BRACKETED STANZA. Watts prints whole OPTIONAL
 # HYMN STANZAS in brackets — sung text — and Drake and Carroll wrap real
 # verse the same way; those are the OPPOSITE defect (verse read as
-# apparatus, the opening line already lost today) and are deliberately NOT
-# declared here: `MISSING.md` M-152 holds that class and its population.
+# apparatus) and are deliberately NOT declared here: they are the THIRD
+# convention, `MISSING.md` M-152, declared below (`BRACKETED_VERSE_FILES`
+# / `BRACKET_BLOCK_ROWS` / `BRACKET_LINE_EDITS`) and closed 2026-08-28.
 # ---------------------------------------------------------------------------
 
 _BRACKET_SPAN = re.compile(r"\[([^\[\]]+)\]")
@@ -1145,9 +1146,12 @@ WRAPPED_APPARATUS_FOLLOW = frozenset({
     # through real air text (`_Polly._ The Boy, thus...`) to a later
     # direction's `]`. A file declares this convention only when EVERY
     # unclosed block in it has been inspected and closes on apparatus
-    # (M-152 holds the bracketed-verse class and the never-closing
-    # directions). NOT the cym files either — their leak is the orphan
-    # caption tail `_CAPTION_TAIL` owns, with no opener to follow.
+    # Both exclusions are DECLARED now instead of merely named:
+    # M-152's bracketed-verse tables below carry Durfey's three block
+    # kinds and Gay's follow-to-blank directions (closed 2026-08-28),
+    # and the import check under them refuses a file that declares
+    # both conventions. NOT the cym files either — their leak is the
+    # orphan caption tail `_CAPTION_TAIL` owns, with no opener to follow.
 })
 
 #: How far a wrapped note may run to its close. MEASURED over every unclosed
@@ -1186,7 +1190,18 @@ def wrapped_apparatus_drops(raw_lines, name):
             # it), so it is simply not the close.
             if t.startswith("[") and t.count("[") >= t.count("]"):
                 continue
-            if "]" in t:
+            if t.count("]") > t.count("["):
+                # THE CLOSE ROW'S `]` MUST OUTNUMBER ITS `[` — AMENDED
+                # 2026-08-28 BY M-152's OWN MEASUREMENT, which swept the
+                # kept stream for surviving orphan closes and found ONE:
+                # Hemans's Chorley note carries a balanced footnote anchor
+                # (`... monumental character,[399]`) three rows before its
+                # real close, and the original `"]" in t` test stopped
+                # there, leaking the note's last three lines as verse.
+                # MEASURED over all fifteen declared files: this row is
+                # the whole delta (drops 260 -> 263 on Hemans, every
+                # other file byte-identical).
+                #
                 # Apparatus rows and blanks inside the span STAY OUT of the
                 # drop set: a `[VERSE n]` marker interleaved into a note is
                 # still the song's real section boundary to `grid`, and a
@@ -1198,6 +1213,233 @@ def wrapped_apparatus_drops(raw_lines, name):
                              and not is_apparatus_line(raw_lines[k2]))
                 break
     return drops
+
+
+# ---------------------------------------------------------------------------
+# THE BRACKETED-VERSE CONVENTION — KEEP THE BODY, STRIP THE BRACKETS
+# (`MISSING.md` M-152, 2026-08-28)
+#
+# The THIRD declared bracket convention, beside the span classes (M-27) and
+# the wrapped-note follow (M-47): a bracket that wraps SUNG TEXT. Watts
+# prints whole optional hymn stanzas in brackets, Drake wraps a quatrain,
+# Skeat's pantun edition brackets its own sung colophon, Durfey's `[Music:`
+# cues enclose 9-38 sung lines, and Carroll's "[later editions continued"
+# note opens a sung body. Under the two earlier rules the OPENING line was
+# apparatus (`startswith("[")`) and the body leaked or the opener was lost —
+# verse read as apparatus, the opposite defect from M-47's.
+#
+# EVERY BLOCK WAS READ BEFORE ITS FILE WAS DECLARED (the entry's own rule:
+# the two rows M-47 struck are the measured price of declaring by shape
+# alone). The census, per file: watts 14 blocks (all sung stanzas, one
+# spanning two stanzas to its close at +8), drake 1, msa_skeat 1 (a sung
+# colophon whose close sits 13 raw lines on, across a staged item
+# boundary), gay 8 (stage directions that never close; two carry
+# continuation lines of direction text), carroll 4 (two kinds), durfey 16
+# (three kinds). Plus six ORPHAN lines in three files where the printed
+# bracket has no folleable opener at all (`BRACKET_LINE_EDITS`).
+#
+# THE RULES ONLY EVER NAME WHAT WAS MEASURED. An unclosed opener in a
+# declared file that matches no row reads exactly as before, and
+# `audit_corpus` check L names it (doctrine 20).
+# ---------------------------------------------------------------------------
+
+#: file -> the file-wide reading of an UNCLOSED `[`-opening row.
+#:   'verse_opener': the bracket wraps SUNG text and the opening row is the
+#:       stanza's own first line — the `[` is stripped and the line KEPT;
+#:       the block closes on a later verse row ending `]` (apparatus and
+#:       blanks skipped, each handled by its own rule), whose close bracket
+#:       is stripped.
+#:   'direction_to_blank': the row opens a stage direction that never
+#:       closes; its continuation lines, to the first blank or apparatus
+#:       row, are direction text and DROP (Gay: measured, exactly three
+#:       continuation lines across eight openers — the other six are
+#:       followed directly by a blank).
+BRACKETED_VERSE_FILES = {
+    "eng_hymn_watts.txt": "verse_opener",
+    "eng_american_joseph_rodman_drake.txt": "verse_opener",
+    "msa_skeat_pantun.txt": "verse_opener",
+    "eng_hall_john_gay.txt": "direction_to_blank",
+}
+
+#: per-block rows for files where two or more KINDS of bracketed block
+#: share one file, keyed on the opener's own printed content — first row
+#: to match wins, and an `exact` row is listed before the `prefix` row it
+#: would otherwise shadow. Kinds:
+#:   'wrapped_note'           — opener and every line through the close are
+#:       apparatus (the opener already drops itself; the continuation
+#:       drops here, close line included)
+#:   'note_opener_verse_body' — the opener alone is apparatus; the body is
+#:       SUNG, and the close row's trailing `]` is stripped
+#:   'prefixed_verse_opener'  — the opener carries the first sung line
+#:       after a `NAME: ` prefix; the prefix is stripped, the rest kept,
+#:       the close as above (Durfey's one `[Music: The King is gone...`)
+BRACKET_BLOCK_ROWS = {
+    "eng_british_lewis_carroll.txt": (
+        ("prefix", "[later editions continued", "note_opener_verse_body"),
+        ("prefix", "[Sent to a friend", "wrapped_note"),
+        ("prefix", "[Affectionately dedicated", "wrapped_note"),
+    ),
+    "eng_hall_thomas_durfey.txt": (
+        ("exact", "[Music:", "note_opener_verse_body"),
+        ("prefix", "[Music: ", "prefixed_verse_opener"),
+        ("prefix", "[Sidenote:", "wrapped_note"),
+    ),
+}
+
+#: (file, exact stripped line) -> replacement. The ORPHAN brackets: a
+#: printed bracket with no opener any scan could follow — declared per
+#: line because there is nothing else to key on. "" drops the line
+#: (apparatus by content); non-empty text replaces it (the bracket
+#: characters stripped, the sung words kept). The population, adjudicated
+#: line by line in M-152's close: Emmett's `Mass.]` is the tail of a
+#: wrapped note whose opener the staging lost; Lovelace 1176 is a sung
+#: stanza's final line carrying the printer's quoted-song-end mark;
+#: Lovelace 2779-80 is a mid-line-opening wrapped editorial gloss
+#: (`... folio. [The words / are by Stanley.]`); Freneau 677-8 is an
+#: authorial parenthetical that is metrically part of the verse.
+BRACKET_LINE_EDITS = {
+    "eng_parlour_daniel_decatur_emmett.txt": {
+        "Mass.]": "",
+    },
+    "eng_british_richard_lovelace.txt": {
+        "Or wound it o're againe.]": "Or wound it o're againe.",
+        "Printed by William Godbid for the Author, 1656. folio. [The words":
+            "Printed by William Godbid for the Author, 1656. folio.",
+        "are by Stanley.]": "",
+    },
+    "eng_american_philip_freneau.txt": {
+        '"To you [the fat pot-valiant swain':
+            '"To you the fat pot-valiant swain',
+        "To Digby said], dear friend of mine,":
+            "To Digby said, dear friend of mine,",
+    },
+}
+
+#: How far a bracketed-verse block may run to its close. MEASURED over
+#: every declared block: the histogram tops out at +38 raw lines (Durfey's
+#: `[Music:` before "Fairings Pig, Pork, and a Clap"), so 40 bounds every
+#: real block; a block with no close inside the bound keeps only its
+#: opener edit. Deliberately its own constant: M-47's WRAPPED_FOLLOW_MAX
+#: (20) bounds NOTES, whose measured maximum is 17, and widening that one
+#: would loosen a different rule's own measurement (doctrine 58).
+BRACKET_VERSE_FOLLOW_MAX = 40
+
+# THE TWO FOLLOW CONVENTIONS ARE DISJOINT BY CONSTRUCTION — a file in both
+# would have M-47's scan dropping lines M-152 declares as sung (the exact
+# defect that struck Durfey's row from WRAPPED_APPARATUS_FOLLOW before
+# M-152 existed), so the overlap is refused at import.
+_M152_FILES = frozenset(BRACKETED_VERSE_FILES) | frozenset(BRACKET_BLOCK_ROWS)
+if _M152_FILES & WRAPPED_APPARATUS_FOLLOW:
+    raise AssertionError(
+        "a file declares BOTH bracket-follow conventions: %r — M-47's scan "
+        "would eat what M-152 declares as verse"
+        % sorted(_M152_FILES & WRAPPED_APPARATUS_FOLLOW))
+
+
+def _bracket_verse_close(raw_lines, i):
+    """The close row of a bracketed-verse block opened at `i`: the first
+    verse row within the bound whose text ends `]` unbalanced. Apparatus
+    rows and blanks are skipped, never candidates — a `[VERSE n]` marker
+    inside Watts's two-stanza bracketed passage is the song's real section
+    boundary and is not the close (the same rule M-47's note scan holds).
+    A balanced `[225]` page marker at a line end is not a close either:
+    the close bracket must OUTNUMBER the opens on its own row."""
+    for k in range(i + 1, min(i + 1 + BRACKET_VERSE_FOLLOW_MAX,
+                              len(raw_lines))):
+        t = raw_lines[k].strip()
+        if not t or is_apparatus_line(t):
+            continue
+        if t.endswith("]") and t.count("]") > t.count("["):
+            return k
+    return None
+
+
+def bracket_block_rule(name, stripped_line):
+    """-> the declared M-152 rule for an unclosed `[`-opening row, or None.
+
+    THE ONE MATCHER: `bracketed_verse_edits` below acts on it and
+    `audit_corpus` check L asks it whether an unclosed block is covered,
+    so the census and the reader cannot drift apart on which openers are
+    declared (doctrine 1)."""
+    base = os.path.basename(name) if name else ""
+    s = stripped_line
+    if not (s.startswith("[") and s.count("[") > s.count("]")):
+        return None
+    rule = BRACKETED_VERSE_FILES.get(base)
+    if rule is not None:
+        return rule
+    for mk, pat, r in BRACKET_BLOCK_ROWS.get(base, ()):
+        if (s == pat) if mk == "exact" else (s.startswith(pat) and s != pat):
+            return r
+    return None
+
+
+def bracketed_verse_edits(raw_lines, name):
+    """-> (drops, edits): the keep-the-body convention (M-152).
+
+    `drops` is a set of 0-based indices (direction continuations, wrapped
+    note bodies, orphan lines declared ""); `edits` maps 0-based index ->
+    the line's REPLACEMENT text, already stripped — a declared verse
+    opener with its `[` removed, a close row with its `]` removed, an
+    orphan line with its bracket characters removed. Every reader applies
+    the edit BEFORE its apparatus test, which is what turns a declared
+    opener from apparatus into the sung line it prints.
+
+    A file with no declaration returns `(set(), {})` and reads exactly as
+    before; an unclosed opener matching no declared rule in a declared
+    file is left alone and named by `audit_corpus` check L (doctrine 20).
+    """
+    base = os.path.basename(name) if name else ""
+    drops, edits = set(), {}
+    line_rows = BRACKET_LINE_EDITS.get(base)
+    fkind = BRACKETED_VERSE_FILES.get(base)
+    rows = BRACKET_BLOCK_ROWS.get(base, ())
+    if not line_rows and not fkind and not rows:
+        return drops, edits
+    for i, l in enumerate(raw_lines):
+        s = l.strip()
+        if line_rows and s in line_rows:
+            r = line_rows[s]
+            if r:
+                edits[i] = r
+            else:
+                drops.add(i)
+            continue
+        rule = bracket_block_rule(base, s)
+        if rule is None:
+            continue
+        if rule == "verse_opener":
+            edits[i] = s[1:].strip()
+            k = _bracket_verse_close(raw_lines, i)
+            if k is not None:
+                edits[k] = raw_lines[k].strip()[:-1].strip()
+        elif rule == "direction_to_blank":
+            for k in range(i + 1, len(raw_lines)):
+                t = raw_lines[k].strip()
+                if not t or is_apparatus_line(t):
+                    break
+                drops.add(k)
+        elif rule == "wrapped_note":
+            for k in range(i + 1, min(i + 1 + BRACKET_VERSE_FOLLOW_MAX,
+                                      len(raw_lines))):
+                t = raw_lines[k].strip()
+                if t.startswith("[") and t.count("[") >= t.count("]"):
+                    continue
+                if not t or is_apparatus_line(t):
+                    continue
+                drops.add(k)
+                if "]" in t:
+                    break
+        elif rule == "note_opener_verse_body":
+            k = _bracket_verse_close(raw_lines, i)
+            if k is not None:
+                edits[k] = raw_lines[k].strip()[:-1].strip()
+        elif rule == "prefixed_verse_opener":
+            edits[i] = s.split(": ", 1)[1].strip()
+            k = _bracket_verse_close(raw_lines, i)
+            if k is not None:
+                edits[k] = raw_lines[k].strip()[:-1].strip()
+    return drops, edits
 
 
 # ---------------------------------------------------------------------------
@@ -1502,15 +1744,25 @@ def load_lyric_lines(path, with_indent=False):
     (`wrapped_apparatus_drops`), and a bracketed span inside a kept line is
     resolved by its declared class (`normalise_bracket_spans` — footnote
     anchor, `[oe]` ligature, editor-supplied letter, PG diacritic markup).
+    SINCE the same day (M-152) the third convention rides beside them:
+    `bracketed_verse_edits` — a bracket that wraps SUNG text keeps the
+    body and loses the brackets, with the per-line edit applied BEFORE
+    the apparatus test so a declared verse opener is the sung line it
+    prints rather than an apparatus row.
     A file with no declaration reads byte-identically to before.
     """
     raw = read_lyric_text(path).splitlines()
     drops = wrapped_apparatus_drops(raw, path)
+    vdrops, vedits = bracketed_verse_edits(raw, path)
+    drops |= vdrops
     rows = []
     for i, l in enumerate(raw):
-        if i in drops or not l.strip() or is_apparatus_line(l):
+        if i in drops:
             continue
-        text = normalise_bracket_spans(l.strip(), path).strip()
+        s = vedits.get(i, l.strip())
+        if not s or is_apparatus_line(s):
+            continue
+        text = normalise_bracket_spans(s, path).strip()
         if not text:
             continue
         rows.append((line_indent(l), text))

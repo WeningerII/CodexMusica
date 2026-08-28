@@ -588,6 +588,21 @@ FAILs — E's two duplications (§0) and D's one mislabelled file. The audit tak
 19 seconds over 26 MB; the calibration takes half a second, with the real
 trees present or absent, so there is no excuse for skipping it.
 
+> **REPINNED 2026-08-28 (third, same day): 1,569 findings — 1 FAIL, 340
+> WARN, 1,228 NOTE**, over **1,430 files**. M-152 CLOSED — the six files
+> the block below carried as standing NOTEs are DECLARED in the
+> bracketed-verse tables now (`BRACKETED_VERSE_FILES` /
+> `BRACKET_BLOCK_ROWS` / `BRACKET_LINE_EDITS`), check L's second question
+> consults the reader's own matcher (`bracket_block_rule`), and the six
+> notes leave BY DECLARATION, which is the exit that block reserved for
+> them. Check L also gained a THIRD question — an orphan `]` close in the
+> kept sung stream that no declaration touches — measuring **0** after
+> the M-152 line edits and the Hemans balanced-close amendment to M-47's
+> follow scan, so both halves that can fire are new-staging guards,
+> silent on this tree. Files, FAIL and WARN are unmoved. Measured by
+> re-running `--verify-shape`, never by editing a number to meet the
+> gate.
+>
 > **REPINNED 2026-08-28 (second, same day): 1,575 findings — 1 FAIL, 340
 > WARN, 1,234 NOTE**, over **1,430 files**. Check L shipped (`MISSING.md`
 > M-47/M-27: every bracket in a sung line is read by a DECLARED class or

@@ -2328,15 +2328,27 @@ def check_bracket_declarations(files, src):
          or the span is a new convention worth its own class. Numeric
          spans (`[10]`) yield no token and are measured harmless, so they
          do not fire.
-      2. an UNCLOSED `[`-opening apparatus row in a file that does not
-         declare the wrapped-note convention (`WRAPPED_APPARATUS_FOLLOW`)
-         — its continuation may be leaking as verse, or the block may be
-         bracketed VERSE (Watts's optional stanzas, M-152); either way a
-         person has to look, which is what a NOTE is for.
+      2. an UNCLOSED `[`-opening apparatus row covered by NO declaration —
+         neither the wrapped-note convention (`WRAPPED_APPARATUS_FOLLOW`)
+         nor an M-152 bracketed-verse rule (`bracket_block_rule`, the
+         reader's own matcher, so this census cannot drift from what the
+         reader actually covers) — its continuation may be leaking as
+         verse, or the block may be bracketed VERSE; either way a person
+         has to look, which is what a NOTE is for. The six files this
+         question named on its first run are DECLARED since M-152's close
+         (2026-08-28) and are silent here now.
+
+      3. an ORPHAN CLOSE — a KEPT sung line ending on a `]` that
+         outnumbers its own `[`s, with no declaration touching the line
+         (M-152's adjudicated population: Emmett's lost note tail,
+         Lovelace's printer marks, a mid-line wrapped gloss). All six
+         measured lines are declared in `BRACKET_LINE_EDITS` or closed by
+         a block rule, so this question is 0 today and guards new
+         staging: it is the sweep that found the Hemans leak M-47's scan
+         had been closing on a balanced footnote anchor.
 
     NOTES, never FAIL: the population is a staging question, not a broken
-    byte, and the M-152 files carry these notes ON PURPOSE until that
-    entry's sitting rules on the bracketed-verse class.
+    byte.
 
     SCOPED TO `corpus/song/`, the population M-47/M-27 sized and the one
     the declared tables key on. The legacy top-level files (`sonnets.txt`,
@@ -2350,16 +2362,25 @@ def check_bracket_declarations(files, src):
         if "corpus/song/" not in rel.replace(os.sep, "/"):
             continue
         base = os.path.basename(cf.path)
-        undeclared, unclosed, sample = 0, 0, ""
-        for l in cf._lines:
+        undeclared, unclosed, orphan = 0, 0, 0
+        sample, osample = "", ""
+        wdrops = LH_.wrapped_apparatus_drops(cf._lines, base)
+        vdrops, vedits = LH_.bracketed_verse_edits(cf._lines, base)
+        for i, l in enumerate(cf._lines):
             s = l.strip()
             if not s or "[" not in s and "]" not in s:
                 continue
+            if i in wdrops or i in vdrops or i in vedits:
+                continue
             if LH_.is_apparatus_line(s):
                 if (s.startswith("[") and s.count("[") > s.count("]")
-                        and base not in LH_.WRAPPED_APPARATUS_FOLLOW):
+                        and base not in LH_.WRAPPED_APPARATUS_FOLLOW
+                        and LH_.bracket_block_rule(base, s) is None):
                     unclosed += 1
                 continue
+            if s.endswith("]") and s.count("]") > s.count("["):
+                orphan += 1
+                osample = osample or s[:80]
             if "[" not in s:
                 continue
             resolved = LH_.normalise_bracket_spans(s, base)
@@ -2380,14 +2401,24 @@ def check_bracket_declarations(files, src):
         if unclosed:
             out.append(Finding(
                 "L", NOTE, rel,
-                "%d unclosed `[`-opening apparatus row(s) in a file that "
-                "declares no wrapped-note convention" % unclosed,
+                "%d unclosed `[`-opening apparatus row(s) covered by NO "
+                "declaration" % unclosed,
                 "the continuation lines after each such row are read as "
                 "verse today",
                 "inspect every unclosed block: all-apparatus files join "
-                "WRAPPED_APPARATUS_FOLLOW; bracketed VERSE (optional "
-                "stanzas, never-closing stage directions) is M-152's "
-                "class and stays named here until ruled", "20"))
+                "WRAPPED_APPARATUS_FOLLOW; bracketed VERSE takes an "
+                "M-152 rule (BRACKETED_VERSE_FILES / BRACKET_BLOCK_ROWS) "
+                "— every block read before its file is declared", "20"))
+        if orphan:
+            out.append(Finding(
+                "L", NOTE, rel,
+                "%d kept sung line(s) end on an orphan `]` no declaration "
+                "touches" % orphan,
+                "first: %r" % osample,
+                "adjudicate the line: a lost note tail or printer's mark "
+                "joins BRACKET_LINE_EDITS; a block close means the opener "
+                "needs its rule (M-152's population was six such lines, "
+                "all declared at its close)", "20"))
     return out
 
 
@@ -3107,7 +3138,13 @@ def main(argv=None):
 #: PURPOSE until that entry is ruled. 0 undeclared token-yielding spans:
 #: the declared tables cover every one measured, so that half of the check
 #: guards new staging and is silent today.
-PINNED_SHAPE = {"files": 1430, "FAIL": 1, "WARN": 340, "NOTE": 1234}
+#: REPINNED AGAIN 2026-08-28 (~~NOTE 1234~~): M-152 CLOSED — the six files
+#: above are DECLARED in the bracketed-verse tables now, check L's second
+#: question consults the reader's own matcher (`bracket_block_rule`) and
+#: the six notes leave by declaration; its NEW third question (orphan `]`
+#: closes in the kept stream) measures 0, so the whole delta is -6 and
+#: both new-staging guards are silent today.
+PINNED_SHAPE = {"files": 1430, "FAIL": 1, "WARN": 340, "NOTE": 1228}
 
 
 def _verify_shape(files, findings):
