@@ -989,7 +989,215 @@ def is_apparatus_line(line):
     does not own them; `grep -rn 'startswith("--- ")'` is the whole list.
     """
     s = line.strip()
-    return s.startswith("[") or s.startswith("---") or s.startswith("#")
+    return (s.startswith("[") or s.startswith("---") or s.startswith("#")
+            or bool(_CAPTION_TAIL.search(s)))
+
+
+#: (M-47, 2026-08-28) THE TAIL OF A PROJECT GUTENBERG ILLUSTRATION CAPTION
+#: whose opening `[Illustration: ...` was lost at staging. MEASURED over the
+#: whole corpus: exactly 6 lines in 3 Welsh files match, every one a caption
+#: fragment quoting the song's own couplet and ending in the image FILENAME —
+#: `Un yn dwyn serchiadau 'nghalon.": alun105.jpg]` — whose tokens (`alun`,
+#: `jpg`) then read as sung Welsh, `jpg` as an END WORD. No song prints
+#: `.jpg]`. Only the measured extension is declared (doctrine 58): widen it
+#: when a staged file measures another.
+_CAPTION_TAIL = re.compile(r'\.jpg\]$')
+
+
+# ---------------------------------------------------------------------------
+# THE BRACKET-APPARATUS DECLARATIONS (M-47 / M-27, 2026-08-28)
+#
+# Two defects, one mechanism. M-47: `is_apparatus_line` drops a `[`-opening
+# row and KEEPS its continuation, so a wrapped Gutenberg note leaks its tail
+# into the sung stream (`1818.]` as the first kept line of Shelley). M-27: a
+# bracketed token inside a sung line is a WORD to a letters-only tokeniser,
+# and 68 of the 93 sized markers were the line's END WORD — Byron rhyming on
+# footnote letters `a b c d`.
+#
+# THE DISCRIMINATOR IS DECLARED, NEVER GUESSED. M-27 tested the obvious
+# positional rule and refuted it (`craving[me]` is an anchor glued to its
+# word; `to[o]` is an editor's supplied letter in the same position), so the
+# classes below are declared per CONTENT where the content is a printing
+# convention, and per FILE (or file+content) where it is a staging fact.
+# A file with no declaration reads exactly as before, and `audit_corpus`'s
+# check L names what leaks there — the claim M-27's close says was owed.
+#
+# THE CLASSES, each with its measured population:
+#   * `_BRACKET_DIACRITIC` — PG markup for a diacritic ASCII cannot print:
+#     `[=e]` is e-macron, `[:y]` is y-diaeresis. Content-declared,
+#     corpus-wide (38 spans, all Barnes, whose own header warns that
+#     flattening the diacritic breaks letter-counted measures — so the span
+#     becomes the REAL diacritic letter, `dr[=e]ve` -> `drēve`, one token).
+#   * `BRACKET_LIGATURES` — the `œ` ligature set as `[oe]`: `Ph[oe]bus`.
+#     Content-declared, corpus-wide (13 spans). Expands to the two letters.
+#   * `BRACKET_SUPPLIED` — an editor supplying what the copy lacks:
+#     `BARNE[S].`, `M[ontgomer]y`, `That['s]`, Shelley's `[Harriet]`.
+#     Declared per (file, exact content); the span becomes its contents.
+#   * `BRACKET_ANCHOR_FILES` — every OTHER bracketed span in a declared
+#     file is a footnote anchor or editorial tag (`see,[a]`, `[FN#1]`,
+#     `[_sic_]`, `[ASIDE]`) and is DROPPED with its brackets.
+#
+# A BRACKETED SPAN IS NOT A BRACKETED STANZA. Watts prints whole OPTIONAL
+# HYMN STANZAS in brackets — sung text — and Drake and Carroll wrap real
+# verse the same way; those are the OPPOSITE defect (verse read as
+# apparatus, the opening line already lost today) and are deliberately NOT
+# declared here: `MISSING.md` M-152 holds that class and its population.
+# ---------------------------------------------------------------------------
+
+_BRACKET_SPAN = re.compile(r"\[([^\[\]]+)\]")
+_BRACKET_DIACRITIC = re.compile(r"^([=:])([A-Za-zÀ-ɏḀ-ỿ])$")
+_DIACRITIC_COMBINER = {"=": "̄", ":": "̈"}   # macron, diaeresis
+
+BRACKET_LIGATURES = frozenset({"oe"})
+
+#: file -> the exact bracketed contents an EDITOR SUPPLIED (kept, unbracketed).
+BRACKET_SUPPLIED = {
+    "eng_british_richard_lovelace.txt": ("S", "o", "un", "s", "NNE",
+                                         "OVELACE."),
+    "eng_celtic_robert_burns.txt": ("ontgomer", "undas"),
+    "eng_british_john_dowland.txt": ("e", "s"),
+    "eng_british_john_wilbye.txt": ("s", "be"),
+    "eng_british_thomas_campion.txt": ("d",),
+    "eng_british_robert_herrick.txt": ("'s", "'d", "t"),
+    "eng_british_percy_bysshe_shelley.txt": ("Harriet", "Percy"),
+    "msa_skeat_pantun.txt": ("mulut", "kampong", "Si Anu"),
+}
+
+#: files whose remaining bracketed spans are footnote anchors / editorial
+#: tags, dropped whole. Numeric spans (`[10]`, `[1816]`) were measured
+#: harmless — a letters-only tokeniser reads nothing in them — so a file
+#: carrying only those needs no row here.
+BRACKET_ANCHOR_FILES = frozenset({
+    "eng_british_lord_byron.txt",
+    "eng_hall_william_barnes.txt",
+    "eng_british_robert_herrick.txt",
+    "eng_british_richard_lovelace.txt",
+    "eng_british_percy_bysshe_shelley.txt",
+    "eng_celtic_robert_burns.txt",
+    "eng_american_maria_gowen_brooks.txt",
+    "eng_british_orlando_gibbons.txt",
+    "eng_celtic_thomas_moore.txt",
+    "eng_american_joseph_rodman_drake.txt",
+    "eng_british_thomas_campion.txt",
+    "eng_british_john_dowland.txt",
+    "eng_british_felicia_hemans.txt",
+    "msa_skeat_pantun.txt",
+})
+
+
+def normalise_bracket_spans(line, name=""):
+    """Resolve every `[...]` span in a sung line by its DECLARED class.
+
+    `name` is the source file's path or basename; "" (a draft, a fixture, a
+    caller with no file) reaches only the corpus-wide content classes, so a
+    user's draft is never touched by another file's staging convention.
+    An undeclared span is left byte-identical — the audit names it, this
+    function never guesses (doctrine 20).
+    """
+    base = os.path.basename(name) if name else ""
+
+    def _one(m):
+        c = m.group(1)
+        dm = _BRACKET_DIACRITIC.match(c)
+        if dm:
+            return unicodedata.normalize(
+                "NFC", dm.group(2) + _DIACRITIC_COMBINER[dm.group(1)])
+        if c in BRACKET_LIGATURES:
+            return c
+        if c in BRACKET_SUPPLIED.get(base, ()):
+            return c
+        if base in BRACKET_ANCHOR_FILES:
+            return " "
+        return m.group(0)
+
+    return _BRACKET_SPAN.sub(_one, line)
+
+
+#: files whose unclosed `[`-opening apparatus rows WRAP: the note runs on to
+#: a later line carrying the `]`, and every line through the close is
+#: apparatus. Declared per file because the same shape prints SUNG stanzas
+#: elsewhere (Watts's bracketed optional hymn stanzas — M-152), so a global
+#: rule would delete verse. Membership is by inspection of every unclosed
+#: block in the file, not by the shape alone.
+WRAPPED_APPARATUS_FOLLOW = frozenset({
+    "eng_american_henry_wadsworth_longfellow.txt",
+    "eng_american_john_greenleaf_whittier.txt",
+    "eng_british_christina_rossetti.txt",
+    "eng_british_edwin_arnold.txt",
+    "eng_british_felicia_hemans.txt",
+    "eng_british_jean_ingelow.txt",
+    "eng_british_lord_byron.txt",
+    "eng_british_percy_bysshe_shelley.txt",
+    "eng_british_robert_herrick.txt",
+    "eng_british_samuel_taylor_coleridge.txt",
+    "eng_parlour_charles_carroll_sawyer.txt",
+    "eng_parlour_henry_clay_work.txt",
+    "fin_eino_leino.txt",
+    "fin_paavo_cajander.txt",
+    "fin_wahanen_laulukirja.txt",
+    # NOT Durfey and NOT Gay, and the exclusions are the measured warning
+    # for this whole table. `eng_hall_thomas_durfey.txt` carries unclosed
+    # `[Music:` directions AND bracketed SUNG stanzas in the same file, so
+    # the scan from a `[Music:` opener reached a bracketed stanza's own
+    # `.]` and dropped thirteen lines of the song ("Let's sing of
+    # Stage-Coaches...") before its row was struck. `eng_hall_john_gay.txt`
+    # prints multi-line stage directions that NEVER close, so the scan ran
+    # through real air text (`_Polly._ The Boy, thus...`) to a later
+    # direction's `]`. A file declares this convention only when EVERY
+    # unclosed block in it has been inspected and closes on apparatus
+    # (M-152 holds the bracketed-verse class and the never-closing
+    # directions). NOT the cym files either — their leak is the orphan
+    # caption tail `_CAPTION_TAIL` owns, with no opener to follow.
+})
+
+#: How far a wrapped note may run to its close. MEASURED over every unclosed
+#: block in the corpus: the histogram tops out at 17 lines and 0 blocks fail
+#: to close, so 20 bounds every real block. A block with no `]` inside the
+#: bound is treated as SELF-CONTAINED (only its opening row drops, exactly
+#: as before this rule existed) — the bound is what stops a `[Exeunt.` that
+#: never closes from swallowing the song after it.
+WRAPPED_FOLLOW_MAX = 20
+
+
+def wrapped_apparatus_drops(raw_lines, name):
+    """-> set of 0-based indices: continuation lines of wrapped apparatus.
+
+    Only the opening row's CONTINUATION is returned — the opening row is
+    already apparatus by `is_apparatus_line`, and a file not declared in
+    `WRAPPED_APPARATUS_FOLLOW` returns the empty set (today's behaviour,
+    named by the audit rather than guessed at here).
+    """
+    base = os.path.basename(name) if name else ""
+    if base not in WRAPPED_APPARATUS_FOLLOW:
+        return set()
+    drops = set()
+    for i, l in enumerate(raw_lines):
+        s = l.strip()
+        if not (s.startswith("[") and s.count("[") > s.count("]")):
+            continue
+        for k in range(i + 1, min(i + 1 + WRAPPED_FOLLOW_MAX,
+                                  len(raw_lines))):
+            t = raw_lines[k].strip()
+            # a `[VERSE n]` row INSIDE the note carries its own `]` and is
+            # not the note's close — measured on Hemans, where 7 of 54
+            # notes span a section marker and the first draft of this scan
+            # stopped at it, leaving the note's tail leaking. An
+            # intervening apparatus row needs no drop (its own rule drops
+            # it), so it is simply not the close.
+            if t.startswith("[") and t.count("[") >= t.count("]"):
+                continue
+            if "]" in t:
+                # Apparatus rows and blanks inside the span STAY OUT of the
+                # drop set: a `[VERSE n]` marker interleaved into a note is
+                # still the song's real section boundary to `grid`, and a
+                # blank still grounds a stanza break — each is handled by
+                # its own rule, and this one owns only the note's leaking
+                # text.
+                drops.update(k2 for k2 in range(i + 1, k + 1)
+                             if raw_lines[k2].strip()
+                             and not is_apparatus_line(raw_lines[k2]))
+                break
+    return drops
 
 
 # ---------------------------------------------------------------------------
@@ -1287,10 +1495,25 @@ def load_lyric_lines(path, with_indent=False):
     default and the two can never select different lines. A second function
     walking the file again would be a second definition of what counts as
     sung text, which is the defect this one exists to prevent (doctrine 1).
+
+    SINCE 2026-08-28 (M-47/M-27) the walk also applies the DECLARED
+    bracket-apparatus rules: a wrapped Gutenberg note's continuation lines
+    are dropped in the files that declare the convention
+    (`wrapped_apparatus_drops`), and a bracketed span inside a kept line is
+    resolved by its declared class (`normalise_bracket_spans` — footnote
+    anchor, `[oe]` ligature, editor-supplied letter, PG diacritic markup).
+    A file with no declaration reads byte-identically to before.
     """
-    rows = [(line_indent(l), l.strip())
-            for l in read_lyric_text(path).splitlines()
-            if l.strip() and not is_apparatus_line(l)]
+    raw = read_lyric_text(path).splitlines()
+    drops = wrapped_apparatus_drops(raw, path)
+    rows = []
+    for i, l in enumerate(raw):
+        if i in drops or not l.strip() or is_apparatus_line(l):
+            continue
+        text = normalise_bracket_spans(l.strip(), path).strip()
+        if not text:
+            continue
+        rows.append((line_indent(l), text))
     return rows if with_indent else [t for _i, t in rows]
 
 

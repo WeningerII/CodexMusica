@@ -3447,28 +3447,38 @@ def read_marked_songs(path, language=""):
     language = language or language_of_path(path)
     songs, cur = [], None
     with open(path, encoding="utf-8", errors="replace") as f:
-        for n, raw in enumerate(f, 1):
-            line = raw.rstrip("\n")
-            if line.startswith("--- TITLE:"):
-                _t, _air = split_named_air(line[len("--- TITLE:"):])
-                cur = MarkedSong(title=_t, air=_air,
-                                 path=path, language=language)
-                songs.append(cur)
-                continue
-            if line.startswith("#") or line.startswith("--- "):
-                continue
-            if cur is None:
-                continue
-            s = line.strip()
-            m = _MARK_RE.match(s)
-            if m:
-                base, idx, fn, ref = ingest_mark(m.group(1), language)
-                cur.blocks.append(Block(mark=m.group(1), base=base, index=idx,
-                                        function=fn, refusal=ref,
-                                        source_line=n))
-                cur.blocks[-1].annotation = s[m.end():].strip()
-            elif s and cur.blocks and not LH.is_apparatus_line(s):
-                cur.blocks[-1].lines.append(s)
+        raw_lines = f.read().splitlines()
+    # The DECLARED bracket-apparatus rules (M-47/M-27), the same two calls
+    # `load_lyric_lines` makes, so the block reader and the CLI reader
+    # cannot disagree about which lines a wrapped Gutenberg note owns or
+    # what a bracketed span means (doctrine 1).
+    _bracket_drops = LH.wrapped_apparatus_drops(raw_lines, path)
+    for idx0, line in enumerate(raw_lines):
+        n = idx0 + 1
+        if idx0 in _bracket_drops:
+            continue
+        if line.startswith("--- TITLE:"):
+            _t, _air = split_named_air(line[len("--- TITLE:"):])
+            cur = MarkedSong(title=_t, air=_air,
+                             path=path, language=language)
+            songs.append(cur)
+            continue
+        if line.startswith("#") or line.startswith("--- "):
+            continue
+        if cur is None:
+            continue
+        s = line.strip()
+        m = _MARK_RE.match(s)
+        if m:
+            base, idx, fn, ref = ingest_mark(m.group(1), language)
+            cur.blocks.append(Block(mark=m.group(1), base=base, index=idx,
+                                    function=fn, refusal=ref,
+                                    source_line=n))
+            cur.blocks[-1].annotation = s[m.end():].strip()
+        elif s and cur.blocks and not LH.is_apparatus_line(s):
+            s2 = LH.normalise_bracket_spans(s, path).strip()
+            if s2:
+                cur.blocks[-1].lines.append(s2)
                 cur.blocks[-1].indents.append(LH.line_indent(line))
     return songs
 

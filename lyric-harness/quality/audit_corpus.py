@@ -2311,6 +2311,86 @@ def check_encoding(files, src):
     return out
 
 
+def check_bracket_declarations(files, src):
+    """L · a bracket in a sung line is read by a DECLARATION or named here
+    (`MISSING.md` M-47/M-27).
+
+    Two questions of every file, and both exist because the repair for the
+    93 sized markers was DECLARED tables rather than a guessed rule — and a
+    declared table protects only what is in it. A newly staged file whose
+    footnote anchors leak into end words would otherwise read exactly like
+    a clean one, which is how Byron came to rhyme on the letters `a b c d`
+    in every table built before 2026-08-28.
+
+      1. a TOKEN-YIELDING bracketed span in a kept line that no declared
+         class resolves (`normalise_bracket_spans` returns it unchanged) —
+         the file needs a `BRACKET_SUPPLIED` / `BRACKET_ANCHOR_FILES` row
+         or the span is a new convention worth its own class. Numeric
+         spans (`[10]`) yield no token and are measured harmless, so they
+         do not fire.
+      2. an UNCLOSED `[`-opening apparatus row in a file that does not
+         declare the wrapped-note convention (`WRAPPED_APPARATUS_FOLLOW`)
+         — its continuation may be leaking as verse, or the block may be
+         bracketed VERSE (Watts's optional stanzas, M-152); either way a
+         person has to look, which is what a NOTE is for.
+
+    NOTES, never FAIL: the population is a staging question, not a broken
+    byte, and the M-152 files carry these notes ON PURPOSE until that
+    entry's sitting rules on the bracketed-verse class.
+
+    SCOPED TO `corpus/song/`, the population M-47/M-27 sized and the one
+    the declared tables key on. The legacy top-level files (`sonnets.txt`,
+    `whitman.txt`, the Hafez licence/json) carry Gutenberg boilerplate
+    brackets from before the header conventions existed — a different
+    staging question this check would only bury under standing notes.
+    """
+    import lyric_harness as LH_
+    out = []
+    for rel, cf in files:
+        if "corpus/song/" not in rel.replace(os.sep, "/"):
+            continue
+        base = os.path.basename(cf.path)
+        undeclared, unclosed, sample = 0, 0, ""
+        for l in cf._lines:
+            s = l.strip()
+            if not s or "[" not in s and "]" not in s:
+                continue
+            if LH_.is_apparatus_line(s):
+                if (s.startswith("[") and s.count("[") > s.count("]")
+                        and base not in LH_.WRAPPED_APPARATUS_FOLLOW):
+                    unclosed += 1
+                continue
+            if "[" not in s:
+                continue
+            resolved = LH_.normalise_bracket_spans(s, base)
+            for m in LH_._BRACKET_SPAN.finditer(resolved):
+                if LH_.line_tokens(m.group(1)):
+                    undeclared += 1
+                    sample = sample or s[:80]
+        if undeclared:
+            out.append(Finding(
+                "L", NOTE, rel,
+                "%d token-yielding bracketed span(s) in sung lines are "
+                "covered by NO declared class" % undeclared,
+                "first: %r" % sample,
+                "classify each span (anchor / ligature / supplied / "
+                "diacritic markup) and declare it in lyric_harness's "
+                "bracket tables — an undeclared span tokenises, and 68 of "
+                "the 93 sized markers were END WORDS", "20"))
+        if unclosed:
+            out.append(Finding(
+                "L", NOTE, rel,
+                "%d unclosed `[`-opening apparatus row(s) in a file that "
+                "declares no wrapped-note convention" % unclosed,
+                "the continuation lines after each such row are read as "
+                "verse today",
+                "inspect every unclosed block: all-apparatus files join "
+                "WRAPPED_APPARATUS_FOLLOW; bracketed VERSE (optional "
+                "stanzas, never-closing stage directions) is M-152's "
+                "class and stays named here until ruled", "20"))
+    return out
+
+
 CHECKS = collections.OrderedDict([
     ("A", ("ROW — every file has a sources.tsv row, every row a file", check_row)),
     ("B", ("HEADER — the file's own header against its row", check_header)),
@@ -2323,6 +2403,7 @@ CHECKS = collections.OrderedDict([
     ("I", ("INDENT — doctrine 14, the printing as an independent witness", check_indent)),
     ("J", ("ENCLITIC — F-5, which convention the edition sets", check_enclitic_convention)),
     ("K", ("ENCODING — F-4, the declared letter survives in the bytes", check_encoding)),
+    ("L", ("BRACKET — M-47/M-27, a bracket is declared or named", check_bracket_declarations)),
 ])
 
 
@@ -3017,7 +3098,16 @@ def main(argv=None):
 #: spaced-DOMINANT editions named per file — are the whole delta; files,
 #: FAIL and WARN are unmoved. Measured by re-running `--verify-shape`,
 #: never by editing a number to meet the gate.
-PINNED_SHAPE = {"files": 1430, "FAIL": 1, "WARN": 340, "NOTE": 1228}
+#: REPINNED AGAIN 2026-08-28 (~~NOTE 1228~~): Check L shipped (M-47/M-27's
+#: bracket-declaration gate) and its 6 notes are the whole delta — the six
+#: `corpus/song/` files whose unclosed `[` blocks are NOT the wrapped-note
+#: convention (Watts's bracketed hymn stanzas, Drake's bracketed quatrain,
+#: Carroll's later-editions block, Durfey's and Gay's never-closing stage
+#: directions, one Skeat orphan) — M-152's population, carried as notes ON
+#: PURPOSE until that entry is ruled. 0 undeclared token-yielding spans:
+#: the declared tables cover every one measured, so that half of the check
+#: guards new staging and is silent today.
+PINNED_SHAPE = {"files": 1430, "FAIL": 1, "WARN": 340, "NOTE": 1234}
 
 
 def _verify_shape(files, findings):

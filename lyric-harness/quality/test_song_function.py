@@ -973,12 +973,20 @@ def test_the_apparatus_rule_is_the_centres_and_its_price_is_named():
           f"({dict(c['empty_by_language'])}) — 6,187 before this rule and "
           f"{c['empty_blocks']:,} after, so the rule added 14 to a population "
           f"of thousands rather than creating the case")
-    check("every one of the 14 additions is English, so no non-English arm "
-          "moved at all",
+    # REPINNED 2026-08-28 (M-47/M-27): fin ~~88~~ -> 92. The wrapped-note
+    # follow rule declares three fin files (`fin_eino_leino`,
+    # `fin_paavo_cajander`, `fin_wahanen_laulukirja`), and four of their
+    # blocks held NOTHING but a wrapped editorial note's tail — the block
+    # empties when the note leaves, which is the rule working. fas and san
+    # are still byte-identical, so the original claim survives one language
+    # wider: no arm moved that the follow set does not declare.
+    check("the 14 additions were English and the 4 from the follow rule are "
+          "Finnish — no UNDECLARED arm moved at all",
           c["empty_by_language"]["fas"] == 5884
-          and c["empty_by_language"]["fin"] == 88
+          and c["empty_by_language"]["fin"] == 92
           and c["empty_by_language"]["san"] == 47,
-          f"{dict(c['empty_by_language'])} — eng 168 -> 182, everything else "
+          f"{dict(c['empty_by_language'])} — eng 168 -> 182 (apparatus "
+          f"rule), fin 88 -> 92 (M-47 follow rule), everything else "
           f"byte-identical")
 
 
@@ -1021,9 +1029,15 @@ def test_which_pairs_may_be_asked_is_the_whole_design():
               f"{h/n:>6.1%}")
     print(f"     kinds: {dict(c['cross_kinds'].most_common(6))}")
 
+    # REPINNED 2026-08-28 (M-47/M-27): ~~922~~ -> 896. The 26 pairs that
+    # left were built on blocks whose lines were a wrapped note's leaking
+    # tail — editorial prose compared as though it were a section. NOT ONE
+    # of the 61 shared-line pairs left, so the false-positive story below
+    # sharpens: the rate RISES to 6.8% because the population shrank by
+    # exactly the pairs that were never songs.
     check("the corpus can supply cross-function pairs at all — four "
           "functions, so six possible pairings",
-          c["cross_pairs"] == 922 and len(c["cross_by_pair"]) == 5,
+          c["cross_pairs"] == 896 and len(c["cross_by_pair"]) == 5,
           f"{c['cross_pairs']:,} pairs over {len(c['cross_by_pair'])} of the "
           f"6 possible pairings ({sorted(c['cross_by_pair'])}); "
           f"burden/refrain never co-occur in one song, which is itself the "
@@ -1032,9 +1046,11 @@ def test_which_pairs_may_be_asked_is_the_whole_design():
     # The 10 new shared lines are the war-song shape — a chorus that sings
     # a line the verse also sings (Goober Peas's own refrain line) — and
     # the check below this one still holds: none lands in the asked set.
-    check("ASKING EVERY PAIR WOULD BE WRONG 6.6% OF THE TIME — this is the "
+    # REPINNED 2026-08-28: 61 of ~~922 (6.6%)~~ 896 (6.8%) — the shared
+    # count is UNMOVED and only the denominator fell (M-47's follow rule).
+    check("ASKING EVERY PAIR WOULD BE WRONG 6.8% OF THE TIME — this is the "
           "number the declared asked set exists for",
-          c["cross_shared"] == 61 and abs(rate - 0.0662) < 0.001,
+          c["cross_shared"] == 61 and abs(rate - 0.0681) < 0.001,
           f"{c['cross_shared']} of {c['cross_pairs']:,} pairs share a whole "
           f"line under the declared normalisation, and NOT ONE is a reprise: "
           f"they are refrain lines a printer set inside the verse, or a "

@@ -1245,6 +1245,72 @@ def test_encoding_guard_k():
               got == [])
 
 
+def test_bracket_guard_l():
+    """L (M-47/M-27): a bracket in a sung line is read by a declaration or
+    NAMED. Both halves planted, both directions: an undeclared
+    token-yielding span NOTEs, an undeclared unclosed `[` block NOTEs, a
+    numeric span is measured harmless and silent, the REAL declared Byron
+    is silent — and the MUTATION is run, not described: Byron's row pulled
+    from the anchor table makes the same file NOTE, so the gate is the
+    DECLARATION and not the file list.
+    """
+    import lyric_harness as LH_
+    with tempfile.TemporaryDirectory() as td:
+        def plant(name, body):
+            p = os.path.join(td, name)
+            with open(p, "w", encoding="utf-8") as fh:
+                fh.write(body)
+            return p
+        leak = plant("eng_planted_leak.txt",
+                     "--- TITLE: PLANTED\n[VERSE 1]\n"
+                     "It has not been your lot to see,[a]\n")
+        wrap = plant("eng_planted_wrap.txt",
+                     "--- TITLE: PLANTED\n"
+                     "[Published by an editor, and the note\n"
+                     "runs on to 1818.]\n[VERSE 1]\nA real sung line\n")
+        clean = plant("eng_planted_clean.txt",
+                      "--- TITLE: PLANTED\n[VERSE 1]\n"
+                      "A plain line with a printed number [10]\n")
+        fs = [("corpus/song/eng_planted_leak.txt", AC.CorpusFile(leak)),
+              ("corpus/song/eng_planted_wrap.txt", AC.CorpusFile(wrap)),
+              ("corpus/song/eng_planted_clean.txt", AC.CorpusFile(clean))]
+        got = AC.check_bracket_declarations(fs, None)
+    by = {}
+    for f in got:
+        by.setdefault(f.path, []).append(f)
+    check("an undeclared token-yielding span NOTEs the file — the shape "
+          "that put footnote letters into Byron's end words",
+          len(by.get("corpus/song/eng_planted_leak.txt", [])) == 1
+          and all(f.severity == AC.NOTE for f in got),
+          str([(f.path, f.severity) for f in got]))
+    check("an unclosed `[` block in a file with no wrapped-note "
+          "declaration NOTEs — the continuation may be leaking as verse",
+          len(by.get("corpus/song/eng_planted_wrap.txt", [])) == 1)
+    check("a numeric span is measured harmless and earns NOTHING — a "
+          "letters-only tokeniser reads no word in `[10]`",
+          "corpus/song/eng_planted_clean.txt" not in by)
+    real = os.path.join(AC.CORPUS_DIR, "song", "eng_british_lord_byron.txt")
+    if os.path.exists(real):
+        rel = "corpus/song/eng_british_lord_byron.txt"
+        cf = AC.CorpusFile(real)
+        got = AC.check_bracket_declarations([(rel, cf)], None)
+        check("the REAL Byron is silent — every span it prints is resolved "
+              "by its declared class and its wrapped blocks are followed",
+              got == [], str([(f.path, f.what) for f in got])[:120])
+        _old = LH_.BRACKET_ANCHOR_FILES
+        try:
+            LH_.BRACKET_ANCHOR_FILES = _old - {
+                "eng_british_lord_byron.txt"}
+            got = AC.check_bracket_declarations([(rel, cf)], None)
+            check("MUTATION: Byron's row pulled from BRACKET_ANCHOR_FILES "
+                  "-> the same file NOTEs its spans, so the gate reads the "
+                  "declaration and cannot be satisfied by silence",
+                  any("span" in f.what for f in got) and len(got) >= 1,
+                  str([(f.path, f.severity) for f in got])[:120])
+        finally:
+            LH_.BRACKET_ANCHOR_FILES = _old
+
+
 def main():
     tests = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     for t in tests:

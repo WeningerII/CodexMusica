@@ -2824,10 +2824,17 @@ def test_frequency_refusal_is_measured_against_the_shipped_tables():
         tot[w] += int(c)
         authors[w].add(a)
     top = [w for w, _ in tot.most_common(20)]
+    # REPINNED 2026-08-28 (M-47/M-27, the bracket-apparatus rebuild of the
+    # table): `me` ~~2948~~ -> 2947 and `thee` ~~2031~~ -> 2033, and BOTH
+    # moves are Byron's, measured in the table diff: the `me` that left was
+    # `craving[me]`'s FOOTNOTE ANCHOR counted as the word `me` (the line
+    # really ends on `craving`), and the two `thee`s that returned are
+    # lines whose printed end word had been a bracketed footnote letter.
+    # The head order and the author spread are unmoved.
     check("the ONLY line-final source is pre-1931 and its head is `me` and "
           "`thee`",
-          top[:2] == ["me", "thee"] and tot["me"] == 2948
-          and tot["thee"] == 2031 and len(authors["me"]) == 483,
+          top[:2] == ["me", "thee"] and tot["me"] == 2947
+          and tot["thee"] == 2033 and len(authors["me"]) == 483,
           f"data/song_endword_en.tsv: {len(tot)} distinct line-final words, "
           f"{sum(tot.values())} tokens. A commonness cut on it flags `thee` "
           f"as one of the two tritest line-endings in English.")

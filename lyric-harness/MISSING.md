@@ -4167,7 +4167,7 @@ precisely so that literal-translation collisions would surface rather than
 bite later. The survey collected it faithfully — and then recorded the
 collisions in a column no program can read.
 
-### M-47 · Apparatus survives into LINE-FINAL position in 35 corpus files, which is the one position end rhyme reads `OPEN`
+### M-47 · Apparatus survives into LINE-FINAL position in 35 corpus files, which is the one position end rhyme reads `CLOSED` 2026-08-28 — one sitting with M-27, the remedy DECLARED per file, and the sitting's own scan ate verse twice before the declarations caught it
 **Two instances found by the poet-cell agent, both reproduced here verbatim,
 then sized across the whole corpus rather than filed as two anecdotes.**
 
@@ -4211,6 +4211,51 @@ trailing footnote marker from a line that is otherwise verse. Both are one rule
 each, and both belong beside the existing one so the drop rule stays in one
 place (doctrine 1). Not applied: it moves every end-rhyme number on 35 files,
 including a panel cell, and wants its own sitting with the re-runs named.
+
+**CLOSED 2026-08-28, one sitting with M-27, and "one rule each" was
+falsified by running it — the rule is PER-FILE DECLARED or it eats verse.**
+`lyric_harness.wrapped_apparatus_drops` follows an unclosed `[`-opening
+apparatus row to the line carrying its `]` — bounded at
+`WRAPPED_FOLLOW_MAX = 20` (measured: every real block closes within 17; a
+block with no close inside the bound is treated as self-contained, which is
+what stops a `[Exeunt.` from swallowing the song), skipping an intervening
+`[VERSE n]` row's own bracket (Hemans interleaves 7 of her 54 notes around
+one) and leaving apparatus rows and blanks OUT of the drop set (the marker
+is still `grid`'s section boundary, the blank still grounds a stanza). It
+runs only in `WRAPPED_APPARATUS_FOLLOW`, seventeen files inspected block by
+block, and **the two exclusions are the finding**: on Durfey the scan
+reached a bracketed SUNG stanza's own `.]` from an unclosed `[Music:` cue
+and dropped thirteen lines of "Let's sing of Stage-Coaches", and on Gay it
+ran through real air text (`_Polly._ The Boy, thus...`) to a later
+never-closing direction's `]` — both rows struck before shipping, both
+files now M-152's population, and `audit_corpus` check L NOTEs them.
+**MEASURED: 423 lines of editorial prose leave the sung stream** (Hemans
+260, Shelley 21, Cajander 17, Sawyer 15, Rossetti 11, the rest smaller),
+every dropped line reviewed by eye before the set was declared. The six
+orphan caption tails (`": alun105.jpg]"` — cym_song_alun 1, cym_song_
+mynyddog 3, cym_alun_strict 2) are content-declared apparatus in
+`is_apparatus_line` itself (`_CAPTION_TAIL`), because they have no opener
+to follow — and they were putting `jpg` into the WELSH corpus's end words,
+in the very file M-40(d) nominates. Three orphan closes with no opener
+(Emmett's `Mass.]`, one Skeat, two Lovelace) are NAMED remainders, as is
+Freneau's one mid-line-opening gloss (`[the fat pot-valiant swain / To
+Digby said],`) — four lines, no reader rule reaches them honestly.
+**THE RE-RUNS, NAMED AND RUN**: `test_readability`'s corpus pins repinned
+with ladders (countable 282731 → 282402; refusal 17702/6.2611% →
+17683/6.2616%; the substituted split 16710+2 → 16685+1, the −1 being
+known gap 8's own `turf,[mm]` exemplar leaving the unreachable class);
+`data/song_endword_en.tsv` / `song_rhymepair_en.tsv` REBUILT (462 / 182
+rows moved — sources.tsv rows repinned with the old md5s struck);
+`meter_bands --check` PASS with the bands re-deriving exactly;
+`battery.py` byte-identical (1064/1014/50/12 — sonnets carry no
+declaration, the control that the change landed where it aimed);
+`audit_corpus --verify-shape` repinned NOTE 1228 → 1234 (check L's six).
+**ONE RE-MEASURE IS OWED AND NAMED RATHER THAN RUN**: the M-40 poet cells
+measured before this repair read the corrupted end words — Byron's cell
+took 54 footnote letters as rhyme words and mynyddog's three caption
+fragments sat in its lines — so those banked cell figures predate the
+reader and say so here; re-measuring them is M-40's business on its next
+sitting, not a silent edit to banked rows.
 
 ### M-45 · A replicate draw that produced no VALUE is counted nowhere, so a p is drawn at an n nobody printed `OPEN`
 **Found independently by TWO agents in the same batch — one re-running the
@@ -6421,7 +6466,7 @@ its messages said _"the fifteen kinds"_; the cardinality is struck rather than
 incremented, for the reason `CLAUDE.md`'s known gap 7 records — a commit written
 to repair a stale count once wrote one that was stale on arrival.
 
-### M-27 · A footnote letter is the end word of 68 rhyming lines, and 1,166 file headers declare it was stripped `OPEN`
+### M-27 · A footnote letter is the end word of 68 rhyming lines, and 1,166 file headers declare it was stripped `CLOSED` 2026-08-28 — four declared classes, not three, and the gate the entry said was owed
 **Found 2026-08-21 by the owner asking the right question after `M-25(a)`:
 poems carry LINE NUMBERS, usually by fives, and scores carry time signatures
 and tempo marks — is any of that being scored too? Three of the four answers
@@ -6549,6 +6594,40 @@ question rather than the instrument: check H asks about a `[VERSE]` block
 holding ONE line, and every one of these 93 sits inside an ordinary multi-line
 stanza. The population is _a token inside a sung line_, not _a block that is
 not a stanza_, and the check that would raise it is a different check.
+
+**CLOSED 2026-08-28, one sitting with M-47 — the classes are DECLARED and
+there are FOUR, because the corpus grew one since the sizing.**
+`lyric_harness.normalise_bracket_spans(line, name)` resolves every `[...]`
+span by its declared class, in order: **PG diacritic markup** (`[=e]` ->
+`ē`, `[:y]` -> `ÿ` — content-declared corpus-wide, 38 spans, all Barnes,
+whose header's own warning against flattening the diacritic is why the span
+becomes the REAL letter and `dr[=e]ve` reads `drēve` as one token — this
+class postdates the sizing, which counted Barnes at 7); **the `[oe]`
+ligature** (content-declared, `Ph[oe]bus` -> `Phoebus`, 13 spans in 4
+files); **editor-supplied text** (`BRACKET_SUPPLIED`, per (file, exact
+content) — the sizing's 5 grew to 8 files' worth once Lovelace's small-caps
+completions `A[NNE] L[OVELACE.]`, Burns's censored names `M[ontgomer]y` /
+`D[undas]`, Shelley's supplied `[Harriet]`/`[Percy]` and Skeat's supplied
+Malay words were classified); and **the footnote anchor**
+(`BRACKET_ANCHOR_FILES`, per file: every remaining span drops whole —
+Byron's 54 letters, `[FN#1]`, `[_sic_]`, `[ASIDE]`, `[Image]`). Numeric
+spans were measured harmless (a letters-only tokeniser reads nothing in
+them) and need no row. A caller with NO file — a draft — reaches only the
+two content classes, so no draft is ever touched by another file's staging
+convention. The head census this table was built against: **146
+token-yielding spans in 16 files**, every one classified by eye; the
+entry's 93/9 was true at its sizing date and the corpus moved under it.
+**"WHAT IS OWED IS THE CLAIM" IS BUILT AS `audit_corpus` CHECK L**: a
+token-yielding span no declared class resolves, or an unclosed `[` block in
+a file that declares no wrapped-note convention, is a NOTE naming the file
+— 0 of the first kind and 6 of the second today (M-152's population), so a
+newly staged Byron cannot leak in silence again. Gates:
+`test_readability.py` §11 (each class proven on the real corpus, plus TWO
+mutations RUN in place — Byron's anchor row pulled brings `see,[a]` back,
+Shelley's follow row pulled brings `1818.]` back) and the repinned corpus
+rates in the same suite. The readers that moved: `load_lyric_lines`,
+`readability.read_lines`, `grid.read_marked_songs`,
+`build_song_frequency` — one definition, four call sites (doctrine 1).
 
 ### M-28 · The printed indent carries the rhyme scheme at 6.19x, and every reader strips it `OPEN`
 **Found 2026-08-21 when the owner, having seen the bracket and numeral
@@ -14842,3 +14921,34 @@ was the API coordinate and its measured blast radius (pins + three tests)
 landed exactly, so the entrance is its own small sitting rather than scope
 drift on a closed one — and this entry is the record that the omission is
 NAMED, not silent (doctrine 20).
+
+### M-152 · Bracketed VERSE: six files print sung text inside `[...]` blocks, and the reader can only lose it `OPEN`
+Found 2026-08-28 while building M-47's wrapped-note follow rule, and it is
+the OPPOSITE defect from the one that sitting closed: there, apparatus
+leaked in as verse; here, verse is read as apparatus, and the opening line
+is ALREADY lost today (`is_apparatus_line` drops any `[`-opening row).
+Measured populations, each inspected: **`eng_hymn_watts.txt`, 14 blocks** —
+whole OPTIONAL HYMN STANZAS in brackets (`[Let Papists trust what names
+they please, ... Nor pray to th' heavenly host.]`), a hymnal convention
+meaning "may be omitted in singing", four sung lines each with the first
+silently dropped; **`eng_american_joseph_rodman_drake.txt`, 1 block** — a
+bracketed quatrain the file's own editorial note explains (*"The
+penultimate quatrain [enclosed in brackets] ended the poem"*);
+**`eng_british_lewis_carroll.txt`, 4 blocks** — a MIXED shape whose opening
+line is a note (`[later editions continued as follows`) and whose body is
+verse, so neither a follow rule nor a keep rule fits whole;
+**`eng_hall_thomas_durfey.txt`** — bracketed sung stanzas AND spoken-
+dialogue brackets AND unclosed `[Music:` cues in one file (the follow scan
+ate thirteen lines of "Let's sing of Stage-Coaches" before its row was
+struck — M-47's close holds the ladder); **`eng_hall_john_gay.txt`** —
+multi-line stage directions that NEVER close, beside real air text; and
+one Skeat orphan. All six carry `audit_corpus` check L's NOTE on purpose.
+The remedy is a THIRD declared convention (keep-the-body, strip the
+brackets, with a per-file rule for whether the opening line is verse or a
+note), and it is its own sitting because every block must be read before
+its file is declared — the two rows M-47 struck are the measured price of
+declaring by shape alone. Until then the M-47-era behaviour stands: the
+opening `[` line drops, the body leaks as unbracketed verse, and the close
+line keeps a token-invisible `]`. Also in this class's orbit, named in
+M-47's close: three orphan closes with no opener (Emmett's `Mass.]`, one
+Skeat, two Lovelace) and Freneau's one mid-line-opening editorial gloss.

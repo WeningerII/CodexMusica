@@ -3059,11 +3059,21 @@ def test_the_cli_reads_the_marks_it_used_to_delete():
     # still refuse, because a stanza frame is GROUND and not a resource —
     # M-39(b) is why, and supplying it from an all-zero vector is the exact
     # defect that entry closed.
+    # REPINNED 2026-08-28: ~~(27, 24)~~ -> (28, 24), and the drift is
+    # INHERITED, not this sitting's — verified by running this suite in a
+    # worktree at `beb9a6a` (the commit before the bracket-apparatus
+    # reader), where it reads (28, 24) identically, and by swapping the
+    # pre-rebuild frequency tables back in, which moves nothing. The +1
+    # finding is the same one-directional movement M-148 recorded when
+    # `relations._seq` began reading the post-vocalic CLUSTER (its own
+    # test_relations pin went 30/26/21 -> 31/26/20 in that sitting); this
+    # suite was not in that sitting's run list, so its copy of the pin sat
+    # stale until the M-47/M-27 sitting ran it.
     check("on the fixture whose marks are REFUSED the refused count moves "
-          "instead: ~~25~~ ~~23~~ 27 finding, ~~26~~ ~~31~~ ~~25~~ 24 "
-          "refusing, and the five `frame=\"stanza\"` schemas are still among "
-          "the refused",
-          _split(fst) == (27, 24), _split(fst))
+          "instead: ~~25~~ ~~23~~ ~~27~~ 28 finding, ~~26~~ ~~31~~ ~~25~~ "
+          "24 refusing, and the five `frame=\"stanza\"` schemas are still "
+          "among the refused",
+          _split(fst) == (28, 24), _split(fst))
 
     # -- 8. THE CALL SITE, and not only the function. Everything above builds
     #    its own stream from `relation_ground`, so it would all still pass

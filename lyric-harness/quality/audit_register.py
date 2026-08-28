@@ -2235,7 +2235,11 @@ PINNED = {
     # verb reaches neither `caesura` nor the new `marks`, so the one verb
     # whose subject is the coordinate cannot declare it (found, named,
     # not folded into the closed sitting).
-    "coverage_entries": 209,
+    # ~~209~~ -> 210: M-152, filed in M-47/M-27's close — six files print
+    # SUNG text inside `[...]` blocks (Watts's optional stanzas the
+    # sharpest), the opposite defect from the wrapped-note leak, carried
+    # as check L NOTEs until its own sitting declares the keep rule.
+    "coverage_entries": 210,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

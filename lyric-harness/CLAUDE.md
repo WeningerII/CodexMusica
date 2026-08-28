@@ -2453,6 +2453,33 @@ drives `--fill` on a draft carrying all three apparatus spellings and requires
 it to fill, and restoring the inline reader reds exactly that check while both
 its controls hold.
 
+**AND THE RULE GREW THREE DECLARED COORDINATES 2026-08-28 (`MISSING.md`
+M-47/M-27), because "starts with `[`" was reading a third of the question.**
+A wrapped Gutenberg note leaked its TAIL as verse (`1818.]` the first kept
+line of a Shelley song — 423 lines of editorial prose across the corpus),
+and a bracketed token inside a sung line was a WORD to the tokeniser — 68 of
+the 93 sized markers were END WORDS, Byron rhyming on the footnote letters
+`a b c d`. The repair is DECLARED, never guessed, because the obvious
+positional rule was tested and refuted (`craving[me]` is an anchor,
+`to[o]` is an editor's supplied letter, same position):
+`wrapped_apparatus_drops` follows an unclosed `[` row to its close in the
+files that declare the convention (`WRAPPED_APPARATUS_FOLLOW` — and the two
+exclusions are the warning: on Durfey and Gay the scan measurably ate sung
+lines, so those files are M-152's bracketed-VERSE class instead);
+`normalise_bracket_spans` resolves a span by its class — footnote anchor
+(drop), `[oe]` ligature (`Ph[oe]bus` -> `Phoebus`), editor-supplied text
+(`BARNE[S].` -> `BARNES.`), PG diacritic markup (`dr[=e]ve` -> `drēve`); and
+the orphan caption tail (`": alun105.jpg]"`, which put `jpg` into WELSH end
+words) is apparatus by content. One definition, four readers
+(`load_lyric_lines`, `readability.read_lines`, `grid.read_marked_songs`,
+`build_song_frequency` — doctrine 1), a draft with no file untouched by any
+corpus file's convention, and `audit_corpus` check L NOTEs whatever no
+declaration covers, so a newly staged Byron cannot leak in silence.
+`test_readability.py` §11 runs both mutations in place; the corpus pins
+repinned there carry the ladders (countable 282731 -> 282402, the
+substituted split 16710+2 -> 16685+1 — the −1 being known gap 8's own
+`turf,[mm]` exemplar).
+
 **AND THE FIFTH SITE WAS NOT THE APPARATUS RULE — IT WAS THE DECODE, ONE LAYER
 EARLIER, FOUND 2026-08-15 BY SWEEPING THE VERBS RATHER THAN GREPPING THE
 PREDICATE.** The two checks that paragraph ends on find `startswith` and only
@@ -3750,12 +3777,17 @@ rather than this paragraph — a roster copied into two files drifts in both.
    still returns an anchor built on the PREVIOUS word, so `final_unreadable` is
    False and the whole module was silent. Byron's `...lay white on the turf,[mm]`
    is anchored on `turf` and reported READABLE: invented relation #4 of that
-   module's docstring, at a site `unread_final_piece` does not cover. Those 2
-   lines are the only population here no other finding reaches, and
+   module's docstring, at a site `unread_final_piece` does not cover. ~~Those 2
+   lines are the only population here no other finding reaches~~ **ONE line
+   since 2026-08-28 (`MISSING.md` M-27): `[mm]` is footnote anchor 47 of
+   Byron's 54, so the declared bracket-anchor class drops it at read time and
+   the line's end word IS `turf` — the edge case closed by reading the page's
+   apparatus correctly rather than by teaching `word_syllable_map` about it.
+   D'Urfey's `_Sh----_` is the class's one remaining member**, and
    `corpus_rate` now returns `substituted_flagged`/`substituted_silent` as two
    counts that are never summed. `quality/test_revise.py` test 36,
    `quality/test_readability.py` tests 2/5/7 (the [mm] line is test 7's
-   exemplar, and it fires that code and NO other).
+   exemplar, and it fires that code and NO other — repointed with the repin).
    ~~`quality/readability.py`'s own report never joins the revision loop, and
    the data is already on the path.** `Reviser._matrix` computes
    `readability_records` for EVERY line on EVERY run. The only readability

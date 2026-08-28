@@ -588,6 +588,20 @@ FAILs — E's two duplications (§0) and D's one mislabelled file. The audit tak
 19 seconds over 26 MB; the calibration takes half a second, with the real
 trees present or absent, so there is no excuse for skipping it.
 
+> **REPINNED 2026-08-28 (second, same day): 1,575 findings — 1 FAIL, 340
+> WARN, 1,234 NOTE**, over **1,430 files**. Check L shipped (`MISSING.md`
+> M-47/M-27: every bracket in a sung line is read by a DECLARED class or
+> named) and its 6 NOTES are the whole delta — the six `corpus/song/`
+> files whose unclosed `[` blocks are NOT the wrapped-note convention
+> (Watts's bracketed optional stanzas, Drake's bracketed quatrain,
+> Carroll's later-editions block, Durfey's and Gay's never-closing stage
+> directions, one Skeat orphan): M-152's population, carried as notes ON
+> PURPOSE until that entry is ruled. The check's other half — a
+> token-yielding bracketed span no declared class resolves — measures
+> **0** today, so it is a guard on future staging, silent on this tree.
+> Files, FAIL and WARN are unmoved. Measured by re-running
+> `--verify-shape`, never by editing a number to meet the gate.
+>
 > **REPINNED 2026-08-28: 1,569 findings — 1 FAIL, 340 WARN, 1,228 NOTE**,
 > over **1,430 files**. Check J shipped (`MISSING.md` F-5: which enclitic
 > convention each `eng_` edition sets — attached-only 1,048, spaced-only 3,

@@ -122,7 +122,8 @@ ROOT = os.path.join(HERE, "..")
 sys.path.insert(0, ROOT)
 
 from lyric_harness import (Lexicon, line_tokens, fold_apostrophes,      # noqa
-                           unread_final_piece, syllabify, anchor)
+                           normalise_bracket_spans, unread_final_piece,
+                           syllabify, anchor, wrapped_apparatus_drops)
 
 SONG = os.path.join(ROOT, "corpus", "song")
 
@@ -239,21 +240,29 @@ class SongFrequencyBuilder:
             author = base[:-4]
             item_ends = []
             with open(os.path.join(SONG, base), encoding="utf-8") as fh:
-                for raw in fh:
-                    s = raw.rstrip("\n").rstrip()
-                    if s.startswith("--- TITLE:"):
-                        stats["items"] += 1
-                        self._pairs(item_ends, pair, author, stats)
-                        item_ends = []
-                        continue
-                    if not s.strip() or _MARKER.match(s):
-                        continue
-                    stats["lines"] += 1
-                    w, st = self.endword(s)
-                    stats["end_" + st] += 1
-                    if st == "ok":
-                        end[(w, author)] += 1
-                        item_ends.append(w)
+                raw_lines = fh.read().splitlines()
+            # The DECLARED bracket-apparatus rules (M-47/M-27), same calls
+            # as `load_lyric_lines`: a wrapped Gutenberg note's tail must
+            # not supply an end word, and a footnote anchor must not BE one
+            # (Byron rhymed on `a b c d` in every table built before this).
+            drops = wrapped_apparatus_drops(raw_lines, base)
+            for i0, raw in enumerate(raw_lines):
+                if i0 in drops:
+                    continue
+                s = raw.rstrip()
+                if s.startswith("--- TITLE:"):
+                    stats["items"] += 1
+                    self._pairs(item_ends, pair, author, stats)
+                    item_ends = []
+                    continue
+                if not s.strip() or _MARKER.match(s):
+                    continue
+                stats["lines"] += 1
+                w, st = self.endword(normalise_bracket_spans(s, base))
+                stats["end_" + st] += 1
+                if st == "ok":
+                    end[(w, author)] += 1
+                    item_ends.append(w)
             self._pairs(item_ends, pair, author, stats)
             stats["authors"] += 1
         return end, pair, stats
