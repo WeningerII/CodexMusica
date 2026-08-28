@@ -898,3 +898,24 @@ non-modal content words in the outro, a chorus couplet re-pivoted off the
 shared spelled ending — which is doctrine 9 doing the writing at the layer
 the screen could not reach, since these were incidental class pairs rather
 than declared rhyme families.
+
+### the_long_way_back, re-banked the day M-149(b) un-silenced its siblings
+
+**Re-graded and re-banked 2026-08-28 at exit 0 with 0 per-line and 0
+whole-draft flags on md5 794df4513589; 75 pairs mandated, 27 judged, 48
+refused. The loop reports SUCCESS after 0 rounds with the draft
+unchanged.** The bank-day verdict above was true of the bank-day tree and
+stays recorded; what changed is the JUDGE: `MISSING.md` M-149(b) repaired
+the refused-set key that had let one group's refusal on a line pair
+silence every sibling group's different reading of the same two lines,
+and under the honest key TEN of this song's mandated questions were asked
+for the first time — nine came back violations and one (a stanza-framed
+monorhyme) could only be asked under the blueprint's own frame. The
+rewrite went through the full order: the screen banned five candidate
+pairs on the way (a spelled-identical skothending, two homeoteleuta, and
+one word that is the modal head of every partner's field), the grade came
+back to exit 0, and the loop closed at SUCCESS with nothing left to hold
+open. The vamp now answers its own echo, the postchorus counts what the
+dark hours lost, and the coda's ledger is sewn, on loan, and unknown —
+which is to say the mandated web finally says what the plan drew, at the
+placements it drew them.
