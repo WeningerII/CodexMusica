@@ -6786,7 +6786,7 @@ rates in the same suite. The readers that moved: `load_lyric_lines`,
 `readability.read_lines`, `grid.read_marked_songs`,
 `build_song_frequency` — one definition, four call sites (doctrine 1).
 
-### M-28 · The printed indent carries the rhyme scheme at 6.19x, and every reader strips it `OPEN`
+### M-28 · The printed indent carries the rhyme scheme at 6.19x, and every reader strips it `CLOSED` 2026-08-28 — the readers stopped stripping it in 2026-08-21's fix, and the three named uses are now two builds and one recorded non-build
 **Found 2026-08-21 when the owner, having seen the bracket and numeral
 findings, asked the general question: what about SPACING — indent, offset,
 caesura, end-stop. The answer is that one spacing channel is large, real, and
@@ -6942,6 +6942,56 @@ one — terminal punctuation is preserved in every staged line and no module
 reads it — and they are the coordinate the meter layer would need before it
 could say anything about a line's boundary, so they belong with the time
 layer's gaps rather than here.
+
+**CLOSED 2026-08-28. The headline defect closed 2026-08-21 (the fix block
+above — `line_indent`, `Block.indents`, `indent_partition`, check I, TESTED
+WHILE OPEN) and the entry stayed open on the three named uses. Their
+accounting, one at a time:**
+
+**(2) THE DISAGREEMENT DISCLOSURE WAS ALREADY BUILT and this close only had
+to say so:** `audit_corpus` check I is it — per file, same-depth against
+different-depth spelled-rime rates, gated on the MEASURED within-block null
+(±2.71 pp) so an excess inside chance earns no note, 517 agree / 6 opposite
+/ 22 in-null, three counts never summed, the 6 disagreements the disclosed
+population. The M-20 false-unit detector one channel over, exactly as the
+use asked.
+
+**(3) THE `mandate_from_graph` CONTROL IS BUILT:**
+`lyric_harness.indent_agreement(groups, indents)` is the one definition —
+same-group against cross-group printed-depth agreement over a mandate's own
+1-based groups (placement suffixes read for their line number), `None` when
+the draft prints no ladder or the cover leaves no cross-group pair, because
+a zero computed over no printing reads exactly like disagreement (doctrine
+20). The CLI's `_say_derived` prints it as `THE PRINTING (M-28)` on a
+DERIVED mandate only — the printing is the one channel `--cliques` cannot
+have manufactured (doctrine 14), which is what makes it a control — with
+the draft path threaded from all four verbs (`brief`, `song`, `verify` on
+BEFORE, `revise`). A disclosure about the CALL, never a Finding and never a
+gate: an indent can mark the rhyme GROUP or the rhyme BEARER (the Lieber
+refutation above), so a cover that does not reproduce the printing is a
+different CLAIM, not a defect. `test_grid` §35 holds both halves — the
+statistic on both conventions and its two refusals, and the verb printing
+it for derived-with-ladder while staying silent for declared and for flat —
+with the disclosure-stub mutation hand-proven.
+
+**(1) THE `--- INDENT:` FIELD IS A NON-BUILD, RECORDED AS ONE, on the AIR
+lesson:** M-11's field turned out never to be missing — the tune was inside
+the TITLE value and adding a second line carrying the same string would
+have been the duplicate copy this codebase keeps deleting. The indent is
+the same shape one step simpler: the printing already survives IN THE
+BYTES through `line_indent` on every reader that matters
+(`load_lyric_lines(with_indent=True)`, `Block.indents`, check I), so a
+declared field would duplicate a coordinate the file itself carries. The
+one honest job left for a declaration is a staged source whose printing
+the transcription FLATTENED — a class with ZERO known members today, and a
+field with zero members is the declared-but-unread defect in a taxonomy
+hat (this file's own reserved-values rule). The field enters, per that
+rule, in the same commit as its first member: a stager who finds a
+flattened source declares it then.
+
+**The three spacing channels above keep their named homes** (Welsh caesura
+declared and closed by M-7/M-151's family; enjambment/end-stop with the
+time layer's gaps) — none of them was this entry's to close.
 
 ### M-29 · The corpus declares 11,099 periods and the time layer, which is mute for want of one, reads none of them `OPEN`
 **Filed 2026-08-21 at the owner's request, from the observation that some

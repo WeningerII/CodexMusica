@@ -1517,6 +1517,61 @@ def load_lyric_lines(path, with_indent=False):
     return rows if with_indent else [t for _i, t in rows]
 
 
+def indent_agreement(groups, indents):
+    """Does a line grouping reproduce the PRINTED indent ladder?
+
+    -> (same_rate, diff_rate, n_same, n_diff), or None when the draft
+    prints no ladder (fewer than two distinct indent depths), because a
+    zero computed over no printing would read exactly like disagreement
+    (doctrine 20).
+
+    `groups` are 1-based line-number groups (a mandate's own coordinate —
+    placement suffixes like `3.T2` are read for their line number);
+    `indents` is `line_indent` per sung line, index-aligned, the
+    `load_lyric_lines(with_indent=True)` shape. A pair of lines is SAME
+    when some group holds both; the rates are the share of same-group and
+    cross-group pairs whose printed depths agree.
+
+    THE STATISTIC DISCLOSES AND NEVER DECIDES (M-28): the compositor's
+    ladder predicts a shared spelled rime at 6.19x corpus-wide, so a
+    DERIVED cover that reproduces the printing is a different claim from
+    one that does not — but an indent can mark the rhyme GROUP or the
+    rhyme BEARER (`eng_pah_francis_lieber.txt` prints ABCB indenting ONLY
+    the rhyming fourth line, ratio 0.06 and not damaged), so a low
+    same-rate is a fact about the typography, never a defect. Nothing here
+    derives a mandate from whitespace: a cover derived from the printing
+    would be exactly as DERIVED as `--cliques` (doctrine 14).
+    """
+    if len(set(indents)) < 2:
+        return None
+    n = len(indents)
+
+    def _lineno(member):
+        s = str(member)
+        return int(s.split(".", 1)[0])
+
+    same_pairs = set()
+    for g in groups:
+        nums = sorted({_lineno(m) for m in g})
+        for a in range(len(nums)):
+            for b in range(a + 1, len(nums)):
+                if 1 <= nums[a] <= n and 1 <= nums[b] <= n:
+                    same_pairs.add((nums[a], nums[b]))
+    n_same = n_diff = agree_same = agree_diff = 0
+    for i in range(1, n + 1):
+        for j in range(i + 1, n + 1):
+            agree = indents[i - 1] == indents[j - 1]
+            if (i, j) in same_pairs:
+                n_same += 1
+                agree_same += agree
+            else:
+                n_diff += 1
+                agree_diff += agree
+    if not n_same or not n_diff:
+        return None
+    return (agree_same / n_same, agree_diff / n_diff, n_same, n_diff)
+
+
 # A single `FILE|L...` token that is NOT on disk: is it a mistyped path, or a
 # one-word lyric line? Both readings are real, the verb cannot tell, and it
 # picked one silently -- so `qafiya nope.txt` GRADED THE PATH, reporting
@@ -8342,7 +8397,7 @@ def main():
                                           structures=st, relations=rl), tail)
             return _finish(g, tail)              # --groups= alone, as before
 
-        def _say_derived(m, n_lines=None):
+        def _say_derived(m, n_lines=None, src=None):
             """Doctrine 14, out loud. A cover read off the rhyme graph is
             mutually band-passing BY CONSTRUCTION, so a clean rhyme result
             against it is an identity and not a verdict. `Mandate.describe`
@@ -8430,6 +8485,32 @@ def main():
                   "identity. What it can still say is everything the band did "
                   "not decide — unreadable lines, REPEAT, the slop floor, and "
                   "the joint field at a pivot.")
+            # THE PRINTING AS A CONTROL ON THE DERIVED COVER (M-28). The
+            # compositor's indent ladder predicts a shared spelled rime at
+            # 6.19x corpus-wide and is INDEPENDENT of the grader — the one
+            # property `--cliques` cannot have — so whether the derived
+            # cover reproduces the printing is worth a line whenever the
+            # draft prints one. A disclosure about the CALL, never a
+            # Finding: an indent can mark the rhyme GROUP or the rhyme
+            # BEARER (opposite conventions in one typography), so a low
+            # same-rate is a fact about the printing, not a defect.
+            if src is not None:
+                try:
+                    _rows = load_lyric_lines(src, with_indent=True)
+                except Exception:
+                    _rows = []
+                _ia = indent_agreement(getattr(m, "groups", []),
+                                       [d for d, _t in _rows]) \
+                    if _rows else None
+                if _ia is not None:
+                    _sr, _dr, _ns, _nd = _ia
+                    print(f"  THE PRINTING (M-28): same-group pairs share "
+                          f"the printed indent depth at {_sr:.0%} "
+                          f"({_ns} pair(s)), cross-group at {_dr:.0%} "
+                          f"({_nd}) — an independent channel the derived "
+                          f"cover {'reproduces' if _sr > _dr else 'does not reproduce'}, "
+                          f"disclosed and never graded (an indent can mark "
+                          f"the group or the bearer).")
             if not m.is_partition():
                 print(f"  NO LETTER SCHEME EXISTS: lines "
                       f"{m.overlapping_lines()} are in more than one group, "
@@ -8940,7 +9021,7 @@ def main():
                 sides.append(("HANDED IN brief's FILE", args[1]))
                 lines = load_lyric_lines(args[1])
                 scheme, _tail = _mandate_arg(args, 2, lines)
-                _say_derived(scheme, len(lines))
+                _say_derived(scheme, len(lines), src=args[1])
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
@@ -9058,7 +9139,7 @@ def main():
                         [l.strip() for l in lyric_text.splitlines()
                          if l.strip() and not is_apparatus_line(l)])
                 scheme, _tail = _mandate_arg(args, 3, lines)
-                _say_derived(scheme, len(lines))
+                _say_derived(scheme, len(lines), src=args[2])
                 _say_relation(scheme)
                 if scheme is not None:
                     print(f"  BLUEPRINT: {song_bp_path} — meter and "
@@ -9088,7 +9169,7 @@ def main():
                 before = load_lyric_lines(args[1])
                 after = load_lyric_lines(args[2])
                 scheme, tail = _mandate_arg(args, 3, before)
-                _say_derived(scheme, len(before))
+                _say_derived(scheme, len(before), src=args[1])
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
@@ -9170,7 +9251,7 @@ def main():
                 sides.append(("HANDED IN revise's FILE", args[1]))
                 lines = load_lyric_lines(args[1])
                 scheme, _tail = _mandate_arg(args, 2, lines)
-                _say_derived(scheme, len(lines))
+                _say_derived(scheme, len(lines), src=args[1])
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()

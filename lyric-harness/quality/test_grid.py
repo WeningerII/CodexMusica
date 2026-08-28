@@ -2275,6 +2275,84 @@ def test_function_aliases_are_claims_on_their_own_rows():
           and "middle-eight" not in _GR.SECTION_FUNCTIONS["bridge"].aliases)
 
 
+def test_the_derived_cover_is_read_against_the_printing():
+    """M-28's remainder (2026-08-28): the mandate_from_graph control. The
+    compositor's ladder predicts a shared spelled rime at 6.19x and is the
+    one channel a derived cover CANNOT have manufactured (doctrine 14 —
+    `--cliques` band-passes by construction; the printing is the printer's),
+    so whether the cover reproduces it is worth a line whenever the draft
+    prints one. `lyric_harness.indent_agreement` is the one definition; the
+    CLI's `_say_derived` prints it for a DERIVED mandate only, gated on the
+    draft actually printing a ladder — a disclosure about the CALL, never a
+    Finding, and never a gate (an indent can mark the rhyme GROUP or the
+    rhyme BEARER, opposite conventions in one typography).
+
+    MUTATION, hand-proven: stubbing the disclosure block behind `if False`
+    fails exactly the CLI check here while the unit checks and both
+    controls stay green — the statistic existing and the verb printing it
+    are different halves (M-139's render-site lesson).
+    """
+    print("\n35. the derived cover is read against the printing (M-28)")
+    import subprocess
+    import sys as _sys
+    import tempfile
+    import lyric_harness as LH
+    # Unit half: the statistic, both conventions, and its refusals.
+    ia = LH.indent_agreement([[1, 3], [2, 4]], [0, 2, 0, 2])
+    check("a cover matching the ladder reads 100% same-group / 0% cross",
+          ia == (1.0, 0.0, 2, 4), ia)
+    # the BEARER convention (Lieber's ABCB indenting only the rhyming
+    # line): the rates INVERT and that is a fact, not a defect.
+    ib = LH.indent_agreement([[2, 4]], [0, 2, 0, 2])
+    check("the bearer convention inverts the rates and is still reported "
+          "— low same-rate is typography, never a charge",
+          ib is not None and ib[0] == 1.0 and ib[1] < 1.0, ib)
+    check("no ladder -> None, never a zero that reads as disagreement "
+          "(doctrine 20)",
+          LH.indent_agreement([[1, 2]], [0, 0, 0, 0]) is None)
+    check("one all-lines group -> None: no cross-group pairs to compare",
+          LH.indent_agreement([[1, 2, 3, 4]], [0, 2, 0, 2]) is None)
+    check("a placement-suffixed member reads its line number",
+          LH.indent_agreement([["1.T2", "3"], ["2", "4"]], [0, 2, 0, 2])
+          == (1.0, 0.0, 2, 4))
+    # CLI half: the verb prints it for a derived mandate, and only then.
+    with tempfile.TemporaryDirectory() as tmp:
+        ladder = os.path.join(tmp, "ladder.txt")
+        with open(ladder, "w", encoding="utf-8") as f:
+            f.write("the day was cold and grey\n"
+                    "  she sang beneath the moon\n"
+                    "the night came on to stay\n"
+                    "  the fiddler stopped too soon\n")
+        env = dict(os.environ)
+        root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+        def run(*argv):
+            return subprocess.run(
+                [_sys.executable, "lyric_harness.py"] + list(argv),
+                cwd=root, capture_output=True, text=True, env=env).stdout
+        got = run("brief", ladder, "--cliques")
+        check("`brief --cliques` on a printed ladder DISCLOSES the "
+              "agreement, in the derived block",
+              "THE PRINTING (M-28)" in got
+              and "reproduces" in got and "never graded" in got,
+              [l for l in got.splitlines() if "PRINTING" in l][:1])
+        got_decl = run("brief", ladder, "--groups=1,3;2,4")
+        check("a DECLARED mandate prints no printing line — the control is "
+              "on the derived cover, and a declaration is not derived",
+              "THE PRINTING (M-28)" not in got_decl)
+        flat = os.path.join(tmp, "flat.txt")
+        with open(flat, "w", encoding="utf-8") as f:
+            f.write("the day was cold and grey\n"
+                    "she sang beneath the moon\n"
+                    "the night came on to stay\n"
+                    "the fiddler stopped too soon\n")
+        got_flat = run("brief", flat, "--cliques")
+        check("a flat draft prints no line — no ladder, no comparison, "
+              "no vacuous zero",
+              "THE PRINTING (M-28)" not in got_flat
+              and "NOT INDEPENDENT" in got_flat)
+
+
 def test_a_specialisation_is_kept_and_checked():
     """M-57 (2026-08-28). `FunctionSpec.aliases` models SYNONYMY — symmetric
     — and it was carrying SUBSUMPTION: `Section(bars=13,
@@ -3353,6 +3431,7 @@ if __name__ == "__main__":
                test_line_runs_is_surfaced_rather_than_computed_for_nobody,
                test_two_refusals_that_nothing_had_ever_asserted_can_fire,
                test_function_aliases_are_claims_on_their_own_rows,
+               test_the_derived_cover_is_read_against_the_printing,
                test_a_specialisation_is_kept_and_checked,
                test_the_named_air_is_a_coordinate_not_a_substring,
                test_the_printed_indent_survives_ingestion,
