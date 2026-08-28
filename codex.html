@@ -66953,7 +66953,7 @@ const CHAT_BACKEND =
   (typeof window !== 'undefined' && window.CODEX_CHAT_ENDPOINT) ||
   'https://codex-musica-mcp.onrender.com';
 
-const chatState = { history: null, workspace: null, sig: null, busy: false };
+const chatState = { history: null, workspace: null, lyric: null, sig: null, busy: false };
 
 function _chatEl(id) { return document.getElementById(id); }
 
@@ -67113,6 +67113,7 @@ function _chatSetBusy(busy) {
 function _chatReset() {
   chatState.history = null;
   chatState.workspace = null;
+  chatState.lyric = null;
   chatState.sig = null;
   const log = _chatEl('chat-log');
   if (log) log.innerHTML = '';
@@ -67141,6 +67142,10 @@ async function _chatSubmit(e) {
     if (chatState.sig) {
       body.history = chatState.history;
       body.workspace = chatState.workspace;
+      // The carried revise state is part of the signed envelope only when a
+      // revise run is actually in flight; sending it when null would change
+      // the envelope's shape and fail the signature.
+      if (chatState.lyric != null) body.lyric = chatState.lyric;
       body.sig = chatState.sig;
     }
     const res = await fetch(`${CHAT_BACKEND}/chat`, {
@@ -67158,6 +67163,7 @@ async function _chatSubmit(e) {
     }
     chatState.history = payload.history;
     chatState.workspace = payload.workspace;
+    chatState.lyric = payload.lyric != null ? payload.lyric : null;
     chatState.sig = payload.sig;
     _chatRenderReply(payload);
   } catch (err) {
