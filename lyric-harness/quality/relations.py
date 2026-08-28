@@ -3066,8 +3066,15 @@ def mark_printed_caesura(stream, marks=("/", "|")):
     bare string still works and is iterated per character, which is what the
     old `"/|"` default meant.  THE DEFAULT IS TWO OF DOCTRINE 55's THREE, ON
     PURPOSE, and the omission is the whole reason this note exists: doctrine 55
-    names the caesura as PRINTED `/`, `|`, **or the gwant `--`**, and
-    `quality/phonology/cym.py`'s own `CAESURA_RE` carries all three.  This
+    names the caesura as PRINTED `/`, `|`, **or the gwant `--`**.  ~~and
+    `quality/phonology/cym.py`'s own `CAESURA_RE` carries all three~~ --
+    STALE SINCE M-7 (2026-08-28): cym's constant is `CAESURA_MARKS`, it
+    carries the SAME two marks this default does, and the gwant is a
+    DECLARATION there too (`marks=("/", "|", "--")` on the call), because
+    measured across five further Welsh files the dash is punctuation 72
+    times out of 72 and the gwant is an englyn feature a cywydd does not
+    have.  So this function's rule stopped being the strict minority
+    reading and became the shared one.  This
     default carries only the two that mean a caesura in every language a
     stream can be built for -- `--` is an em-dash in English, and reading
     ordinary punctuation as structure is the exact defect doctrine 55 was

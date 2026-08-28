@@ -489,12 +489,25 @@ def test_welsh_cynghanedd():
           t is None and "no caesura is printed" in d,
           "punctuation is not metre; the position of the caesura is either "
           "printed or it is not in the text")
+    # THE DASH LEFT THE DEFAULT 2026-08-28 (M-7). It was promoted to gwant on
+    # the evidence of ONE edition; across five further Welsh files it is
+    # punctuation 72 times out of 72, and the gwant is an ENGLYN feature a
+    # cywydd does not have. An edition that prints it DECLARES it — the
+    # declared-mark-set shape `relations.mark_printed_caesura` has always
+    # shipped. §10m holds the coordinate's own gate.
     t, d = c.cynghanedd("tan a thi--tywyn a thau")
-    check("the gwant `--` IS a caesura, and so are the dashes it is set with",
+    check("a dash is PUNCTUATION at the default — the caesura it might mark "
+          "is not in the text until an edition declares it",
+          t is None and "no caesura is printed" in d, d)
+    t, d = c.cynghanedd("tan a thi--tywyn a thau", marks=("/", "|", "--"))
+    check("the DECLARED gwant `--` IS a caesura, and the line reads croes",
           t == "croes", d)
     for dash in ("—", "–"):
-        t, _d = c.cynghanedd(f"tan a thi{dash}tywyn a thau")
-        check(f"the gwant set as {dash!r} reads the same", t == "croes")
+        t, _d = c.cynghanedd(f"tan a thi{dash}tywyn a thau",
+                             marks=("/", "|", "--"))
+        check(f"the gwant set as {dash!r} reads the same under the same "
+              f"declaration — `normalise` folds every dash spelling to `--`",
+              t == "croes")
     # `dan` is the PREPOSITION and therefore a proclitic, so a half-line
     # ending in it has its last stress on the FIRST word. Keying the skeleton
     # only on the last word ran past the end and swept in the final coda.
@@ -1022,12 +1035,17 @@ def test_the_scan_reads_the_caesura_it_was_given():
           "(FIXED 2026-08-15)")
     c = get("cym")
     # REAL LINES FROM THE STAGED EDITION, which prints the gwant as `--`.
+    # SINCE M-7 (2026-08-28) the dash is not in the DEFAULT mark set, so a
+    # marked reading of this edition DECLARES it — the same call this section
+    # always made, with the edition's own convention now stated as a
+    # coordinate instead of assumed for every text (§10m gates the default).
+    GWANT = ("/", "|", "--")
     both = "Och o'u swn!--yn gasach sydd;"
     swept_only = "Ust! y ffrwd,--pa sibrwd sydd?"
     unmarked = "Calon lân yn llawn daioni"
 
     s, m = (c.cynghanedd_scan(both),
-            c.cynghanedd_scan(both, caesura="marked"))
+            c.cynghanedd_scan(both, caesura="marked", marks=GWANT))
     check("a line whose PRINTED caesura works reads the same TYPE both ways",
           s["type"] == m["type"] == "traws", f"{s['type']} / {m['type']}")
     check("...and the two readings report DIFFERENT multiplicities, which is "
@@ -1037,7 +1055,7 @@ def test_the_scan_reads_the_caesura_it_was_given():
           f"marked k={m['positions_tried']}, search k={s['positions_tried']}")
 
     s2, m2 = (c.cynghanedd_scan(swept_only),
-              c.cynghanedd_scan(swept_only, caesura="marked"))
+              c.cynghanedd_scan(swept_only, caesura="marked", marks=GWANT))
     check("a type that exists ONLY because the boundary was swept is reported "
           "under `search` and REFUSED under `marked` — the edition does not "
           "print that placement",
@@ -1069,6 +1087,66 @@ def test_the_scan_reads_the_caesura_it_was_given():
           == s2["positions_tried"] - 5,
           f"{c.cynghanedd_scan(unmarked)['positions_tried']} placements on a "
           f"5-word line, 15 on a 6-word one")
+
+
+def test_the_mark_set_is_a_declared_coordinate():
+    """§10m — M-7 (2026-08-28): WHICH MARKS PRINT A CAESURA IS A DECLARATION.
+
+    The dash was promoted to gwant on the evidence of ONE edition (Alun,
+    1909); measured across five further Welsh files it is punctuation 72
+    times out of 72 — in the 1862 Pryse cywydd it comes in MATCHED PAIRS
+    around interjections — and the gwant is an ENGLYN feature a cywydd does
+    not have. So a dash-split `caesura='marked'` reading was reading the
+    TYPESETTER by construction, and `cynghanedd_rate.PINNED`'s repin says
+    what that cost: 25 of Alun's 129 marked hits were dash-split croes/traws,
+    and the marked nulls each carried 4-5 dash-artifact hits of their own.
+    `cym.CAESURA_MARKS` is the default; an edition that prints the gwant
+    declares `marks=("/", "|", "--")` on the call.
+    """
+    print("\n10m. the caesura mark set is a declared coordinate (M-7)")
+    c = get("cym")
+    GWANT = ("/", "|", "--")
+    dashline = "tan a thi--tywyn a thau"
+
+    check("the DEFAULT is `/` and `|` — the marks that mean a caesura in "
+          "every language a text can be staged in",
+          type(c).CAESURA_MARKS == ("/", "|"),
+          f"cym.CAESURA_MARKS = {type(c).CAESURA_MARKS!r}")
+    t, d = c.cynghanedd(dashline)
+    check("at the default a dash line has NO printed caesura — refused, "
+          "never searched",
+          t is None and "no caesura is printed" in d, d)
+    t, _ = c.cynghanedd(dashline, marks=GWANT)
+    check("the same line under the DECLARED gwant reads croes",
+          t == "croes")
+    m = c.cynghanedd_scan(dashline, caesura="marked", marks=GWANT)
+    check("...and `cynghanedd_scan` agrees under the SAME declaration, at "
+          "k=1 — the marked branch tokenises the PARTS, because a flush-set "
+          "dash glues `thi--tywyn` into one raw token and an index derived "
+          "from the raw line lands the cut a word early (doctrine 1; found "
+          "and fixed in this same sitting)",
+          m["type"] == "croes" and m["positions_tried"] == 1,
+          f"{m['type']} k={m['positions_tried']}")
+    t, _ = c.cynghanedd("tan a thi | tywyn a thau")
+    check("`|` and `/` are untouched — the default two still read",
+          t == "croes"
+          and c.cynghanedd("tan a thi / tywyn a thau")[0] == "croes")
+
+    # THE MUTATION, run rather than described: put the dash back in the
+    # default. If `CAESURA_MARKS` were not the one declaration both readers
+    # consult, this would change nothing and the checks above would be
+    # asserting a coincidence.
+    try:
+        c.CAESURA_MARKS = GWANT
+        t, _ = c.cynghanedd(dashline)
+        check("MUTATION: dash restored to the default -> the same call reads "
+              "croes, so the constant is the load-bearing declaration",
+              t == "croes")
+    finally:
+        del c.CAESURA_MARKS
+    t, d = c.cynghanedd(dashline)
+    check("restored: the default refuses the dash again",
+          t is None and "no caesura is printed" in d, d)
 
 
 def _raises_value(fn):
@@ -1171,6 +1249,7 @@ if __name__ == "__main__":
                test_welsh_rhyme_leaves_cynghanedd_alone,
                test_check_cynghanedd_defaults_to_welsh,
                test_the_scan_reads_the_caesura_it_was_given,
+               test_the_mark_set_is_a_declared_coordinate,
                test_every_module_declares_itself,
                test_no_module_consults_english):
         fn()

@@ -667,8 +667,32 @@ behaviour. §10j of `quality/test_phonology.py` pins it.
 
 ## 11a · That cross-reference is the number the repository carried under TWO values, and this is the record of it (doctrine 17)
 
+> **THE TWO `marked` ROWS BELOW ARE SUPERSEDED 2026-08-28 (`MISSING.md`
+> M-7); the two `search` rows still reproduce to the decimal.** The dash
+> left the default caesura mark set (`cym.CAESURA_MARKS` is `/` and `|`;
+> an edition that prints the gwant declares `marks=("/", "|", "--")`),
+> because across five further Welsh files the dash is punctuation 72 times
+> out of 72 and the gwant is an englyn feature a cywydd does not have.
+> Measured at the same n=200 under the new default:
+>
+> ```
+>   Alun  caesura='marked'  R_obs 6.7% (104/1558)  null median 5.7%, min 4.6%, max 7.3%
+>                           excess over null MAX -0.6 pp   p = 0.040
+>   Twm   caesura='marked'  R_obs 2.6% (4/156)     null median 5.1%, min 2.6%, max 9.6%
+>                           excess over null MAX -7.1 pp   p = 1.000
+> ```
+>
+> Alun's surviving 104 are ALL llusg (llusg reads no caesura); the 25
+> dropped hits were dash-split croes/traws — and the +0.8-over-max the
+> 8.3% row below records was carried ENTIRELY by them, so the marked
+> mode's apparent separation on Alun was the typesetter, not the poet.
+> The nulls moved too: `shuffled()` keeps dash-carrying raw tokens, so
+> the old default found "printed" caesurae in its own shuffled text.
+> `cynghanedd_rate.py --check` holds the repinned rows.
+
 **MEASURED 2026-08-14 at the published n=200, and the value below is the one
-that reproduces at head.**
+that reproduces at head** *(the two `search` rows; the `marked` rows are the
+old default's and are kept visible under the note above)*.
 
 ```
 corpus/cym_alun_strict.txt: 1558 lines

@@ -2231,7 +2231,11 @@ PINNED = {
     # ~~207~~ -> 208: M-150, the working order's LAST step had no gate —
     # a rendered song presented with its convergence state unsaid reads
     # as finished; `check_render_form.py` now asks the turn two questions.
-    "coverage_entries": 208,
+    # ~~208~~ -> 209: M-151, filed in M-7's close — the CLI `cynghanedd`
+    # verb reaches neither `caesura` nor the new `marks`, so the one verb
+    # whose subject is the coordinate cannot declare it (found, named,
+    # not folded into the closed sitting).
+    "coverage_entries": 209,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

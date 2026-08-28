@@ -221,23 +221,40 @@ CHECK_N = 5
 #: AND of a rendering. Argue them and repin with the superseded value visible
 #: and dated (doctrine 17); do not tune `cynghanedd_scan` to meet them.
 PINNED = {
-    # 890/1558 = 57.1% search, 129/1558 = 8.3% marked. MEASURED 2026-08-14.
+    # 890/1558 = 57.1% search, 104/1558 = 6.7% marked.
+    # MARKED REPINNED 2026-08-28 (M-7): the dash left the DEFAULT mark set
+    # (`cym.CAESURA_MARKS`), so a `caesura='marked'` reading no longer splits
+    # on the gwant unless an edition declares it. Superseded (doctrine 17):
+    # marked hits **129** with by_type {croes 9, llusg 104, traws 16} and
+    # null_hits (113, 90, 100, 91, 102), MEASURED 2026-08-14 under the old
+    # `CAESURA_RE` that carried `--+`. The 104 llusg survive because llusg
+    # reads no caesura; the 25 croes/traws were dash-split readings. AND THE
+    # NULLS FELL BY 4 OR 5 EACH: `shuffled()` keeps hyphen-carrying
+    # TOKENS (`--pa` off `ffrwd,--pa`), so the old default was finding
+    # "printed" caesurae in its own shuffled text — the artifact was in the
+    # comparator too, which is the drift `null_hits` is pinned to catch.
+    # The search row is BYTE-IDENTICAL: that path never read the mark set.
     "corpus/cym_alun_strict.txt": {
         "lines": 1558,
-        "marked": {"judged": 1558, "hits": 129, "tried": 1558,
-                   "by_type": {"croes": 9, "llusg": 104, "traws": 16},
-                   "null_hits": (113, 90, 100, 91, 102)},
+        "marked": {"judged": 1558, "hits": 104, "tried": 1558,
+                   "by_type": {"llusg": 104},
+                   "null_hits": (108, 85, 96, 87, 98)},
         "search": {"judged": 1558, "hits": 890, "tried": 16547,
                    "by_type": {"croes": 184, "llusg": 52, "sain": 279,
                                "traws": 375},
                    "null_hits": (310, 302, 290, 297, 319)},
     },
-    # 72/156 = 46.2% search, 5/156 = 3.2% marked. MEASURED 2026-08-14.
-    # Superseded: 80/156 = 51.3% search at cc08b43 (doctrine 17).
+    # 72/156 = 46.2% search, 4/156 = 2.6% marked.
+    # MARKED REPINNED 2026-08-28 (M-7), same change as Alun's: superseded
+    # marked hits **5** with by_type {llusg 4, traws 1}, MEASURED 2026-08-14
+    # — the 1 traws was a dash-split reading in the 1862 Pryse edition,
+    # whose dashes come in matched pairs around interjections (punctuation,
+    # not gwant). null_hits UNCHANGED: this corpus's shuffled tokens carry
+    # no leading dashes. Older ladder: 80/156 = 51.3% search at cc08b43.
     "corpus/cym_twm_or_nant_cywydd.txt": {
         "lines": 156,
-        "marked": {"judged": 156, "hits": 5, "tried": 156,
-                   "by_type": {"llusg": 4, "traws": 1},
+        "marked": {"judged": 156, "hits": 4, "tried": 156,
+                   "by_type": {"llusg": 4},
                    "null_hits": (6, 15, 11, 7, 4)},
         "search": {"judged": 156, "hits": 72, "tried": 1915,
                    "by_type": {"croes": 27, "llusg": 2, "sain": 28,

@@ -2249,7 +2249,7 @@ def test_printed_caesura_reads_none_of_welsh():
     print("\nX4. the printed caesura: doctrine 55's third mark, and what its "
           "absence from the default costs")
     from quality.phonology import get as _get
-    CAESURA_RE = _get("cym").CAESURA_RE
+    _cymphon = _get("cym")
     raw, alun = _cym_stream("cym_alun_strict.txt")
     R.mark_printed_caesura(alun)
     default_hits = len(alun.frames.caesura)
@@ -2270,13 +2270,25 @@ def test_printed_caesura_reads_none_of_welsh():
           f"the whole line unreadable.")
     check("`marks` can hold a multi-character mark at all — a bare string is "
           "still iterated per character, which is what '/|' meant",
-          all(CAESURA_RE.match(m) for m in ("--", "/", "|"))
-          and not CAESURA_RE.match("-"),
-          "cym.CAESURA_RE carries all three of doctrine 55's marks. A caller "
-          "spelling the gwant into the old string default got `-`, which "
-          "fires on every hyphenated compound in a language that JOINS on "
-          "the hyphen (doctrine 65) — so the mark was not merely absent from "
-          "the default, it was inexpressible through the documented type.")
+          bool(_cymphon.caesura_re(("--", "/", "|")).match("--"))
+          and bool(_cymphon.caesura_re(("--", "/", "|")).match("/"))
+          and not _cymphon.caesura_re(("--", "/", "|")).match("-"),
+          "cym.caesura_re builds the split pattern for any DECLARED mark set "
+          "(M-7): `--` means a RUN of dashes and never a single hyphen. A "
+          "caller spelling the gwant into the old string default got `-`, "
+          "which fires on every hyphenated compound in a language that JOINS "
+          "on the hyphen (doctrine 65) — so the mark was not merely absent "
+          "from the default, it was inexpressible through the documented "
+          "type.")
+    check("and since M-7 the TWO defaults are the SAME two marks — cym's own "
+          "`caesura='marked'` reads the dash only when an edition declares "
+          "it, the rule this function has carried since 2026-08-13",
+          _cymphon.CAESURA_MARKS == R.mark_printed_caesura.__defaults__[0]
+          == ("/", "|"),
+          f"cym.CAESURA_MARKS = {_cymphon.CAESURA_MARKS!r}; the dash was "
+          f"promoted to gwant on ONE edition's evidence, and across five "
+          f"further Welsh files it is punctuation 72 of 72 times "
+          f"(MISSING.md M-7).")
     check("the default stays TWO marks on purpose: an English em-dash is "
           "punctuation, and punctuation is not metre",
           R.mark_printed_caesura.__defaults__[0] == ("/", "|"),

@@ -2614,7 +2614,7 @@ directory is written by other cells, so the 11 is pinned to `debf64e` and
 re-derived rather than recorded; the live count is measured at run time by
 `python3 quality/verify_entries.py`.
 
-### M-7 · Doctrine 55's fix was right and its dash rule is over-general `OPEN` — sized 2026-08-21, and this entry's own proposed fix does not carry the load
+### M-7 · Doctrine 55's fix was right and its dash rule is over-general `CLOSED` 2026-08-28 — the mark set is a declared coordinate, and the marked mode's own separation was the dash artifact
 **SIZED 2026-08-21 (measured, not estimated).** The 72/72 reproduces exactly —
 6 llywelyn + 0 alun + 11 hwiangerddi + 54 mynyddog + 1 twm, medial dashes read
 as caesura by `cym._marked_parts()`. **But the positional rule this entry
@@ -2642,6 +2642,54 @@ englyn feature and a cywydd has none**, so any `caesura='marked'` result on a
 cywydd file is reading the typesetter by construction. Distinguishing feature is
 position and pairing: gwant single and usually line-final, editorial dash medial
 and often paired.
+
+**CLOSED 2026-08-28, built exactly as sized — demote-and-declare.**
+`cym.CAESURA_MARKS = ("/", "|")` is the declared default;
+`caesura_re(marks)` builds the split pattern for any declared set (a dash
+spelling — `--`, `-`, an em- or en-dash — means a RUN of dashes, everything
+else is literal, which also closes the sizing's side note that the gwant was
+INEXPRESSIBLE through the old single-string type); `_marked_parts` and both
+of `cynghanedd`/`cynghanedd_scan` take `marks=`, so an edition that prints
+the gwant declares `marks=("/", "|", "--")` — the same declared-mark-set
+shape `relations.mark_printed_caesura` has shipped since 2026-08-13, and the
+two defaults are now the SAME two marks (pinned in `test_relations.py` X4).
+**MEASURED, the sizing's predicted pin moves land exactly**
+(`cynghanedd_rate.py --check` repinned, superseded rows kept): Alun marked
+**129 → 104**, the surviving 104 all llusg — llusg reads no caesura — and
+the 25 dropped all dash-split croes/traws; Twm marked **5 → 4** (the 1 traws
+was a Pryse dash-pair). Both `search` rows are BYTE-IDENTICAL, so the 57.1%
+and 46.2% headlines do not move. **AND ONE FINDING PAST THE SIZING: the
+artifact was in the COMPARATOR too.** Alun's marked `null_hits` fell 4–5 per
+replicate — `shuffled()` keeps dash-carrying raw tokens (`--pa` off
+`ffrwd,--pa`), so the old default was finding "printed" caesurae in its own
+shuffled text. Re-run at the published n=200, the honest headline follows:
+Alun `marked` is **6.7% (104/1558) against null median 5.7%, max 7.3% —
+BELOW its own null max (−0.6 pp, p 0.040)**, where the superseded row's
++0.8-over-max was carried entirely by the dash-splits; Twm is 2.6% against
+a 5.1% median (p 1.000, unchanged in kind). So the marked mode currently
+separates from nothing on either staged edition, which is the honest outcome
+the sizing predicted: **neither edition prints `/` or `|`, and no edition
+attestation of the dash-as-gwant has been made** — Alun keeps a marked
+reading only by someone DECLARING its dashes, and that declaration is now a
+statement a caller makes rather than a default nobody chose.
+**A LATENT DEFECT FELL OUT OF MAKING THE COORDINATE DECLARABLE**: the scan's
+marked branch derived its cut indices from the RAW line's tokens, and a
+flush-set dash glues its neighbours into ONE raw token (`thi--tywyn`), so
+the cut landed a word early and `cynghanedd_scan` contradicted `cynghanedd()`
+under the same declaration — doctrine 1, the same family as the scan's own
+2026-08-15 fix. Fixed by tokenising the PARTS; latent the whole time the
+dash sat in the default because both staged editions set the gwant against
+punctuation, never flush. Gates: `test_phonology.py` §10m (the coordinate's
+own section — default refuses the dash, the declaration restores it on both
+readers at k=1, and the MUTATION is RUN, not described: the dash restored to
+the default flips the same call to croes), §10c/§10k rewritten to declare
+what they read, `test_relations.py` X4 repointed at `caesura_re` plus the
+shared-default pin. `RESULTS_CYM_RHYME.md` §11a and `NULL_AUDIT.md` §2.1
+carry dated repin notes; `relations.mark_printed_caesura`'s docstring no
+longer claims cym carries three marks. **One remainder is NAMED rather than
+silent (doctrine 20): the CLI `cynghanedd` verb reaches neither `caesura`
+nor the new `marks` — a pre-existing entrance gap M-7 widens by one
+coordinate — recorded as M-151.**
 
 ### M-8 · No metre index was found in any reachable Welsh edition `OPEN`
 Welsh hymnody is sung to named tunes with a declared metre (8.7.8.7 and so on),
@@ -14768,3 +14816,29 @@ accepts the stateless render, so the refusal is the state regex doing
 the work and not the fixture. §6's end-to-end good arm now presents the
 built form WITH its state, which is what a finished presentation looks
 like under both of this instrument's questions. Suite green, 7 sections.
+
+### M-151 · the `cynghanedd` verb reaches neither `caesura` nor `marks` — two declared coordinates with no command-line entrance `OPEN`
+Found 2026-08-28 while M-7 made the mark set declarable, and it is the
+built-and-unreachable family at the one verb whose whole subject is the
+coordinate. `check_cynghanedd(lex, text, decl, language, caesura="marked")`
+has implemented BOTH caesura readings since 2026-08-15 (its docstring: *"the
+caller has to name which it wanted"*), and the verb dispatch at
+`lyric_harness.py` passes only `language=` — so no CLI caller has ever named
+one, every `cynghanedd` verb run is marked-mode by a default the caller
+cannot see, and `positions_tried` — the k that doctrine 19/56's correction
+needs — is reachable from the command line by nothing. M-7 widens the gap by
+one: `marks=` is now the coordinate that decides whether a dash-printed
+edition has ANY marked reading, and the CLI cannot spell it, so a caller
+grading Alun through the verb gets llusg-or-nothing with no way to declare
+the edition's own convention. The fix is the `--lang` pattern in the same
+dispatch arm: `--caesura=marked|search` and `--marks=M,M,...` (eq_only,
+value-vocabulary refusal for the first; the second splits on commas and
+refuses an empty set), threaded through `check_cynghanedd`, cym path only —
+the eng imitation splits on commas and has no mark set to declare, so a
+declared `--marks` under `--lang=eng` is REFUSED naming the conjunction, not
+dropped. Usage row, wiring map and `test_verbs` section move together (the
+three-sets-equal gate). Not folded into M-7's sitting: the entry's sized fix
+was the API coordinate and its measured blast radius (pins + three tests)
+landed exactly, so the entrance is its own small sitting rather than scope
+drift on a closed one — and this entry is the record that the omission is
+NAMED, not silent (doctrine 20).
