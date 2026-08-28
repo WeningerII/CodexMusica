@@ -503,11 +503,59 @@ def _every_section_runs(listed):
           str(missing))
 
 
+def test_the_population_is_a_language_parameter():
+    """M-22's RENAMES (2026-08-28), the last of the entry's counted sites:
+    `corpus_files` globbed `eng_*` and `OUT_DEFAULT` spelled `_eng` as
+    literals, so run 2 would have started by editing the instrument — the
+    exact thing the registration's world-shape promise forbids. Both are a
+    language parameter now, with the eng DEFAULTS byte-identical to the
+    declared run-1 population so no recorded figure moves.
+
+    The one design decision worth a check of its own: a NON-eng call gets
+    NO controls appended. `sonnets.txt` and `whitman.txt` are the ENGLISH
+    run's declared positive and negative arms; carrying them into a Welsh
+    census would be an English control laundered into another language's
+    figures (doctrine 13/14). Run 2 declares its own controls per
+    tradition.
+    """
+    print("\n8. the population is a language parameter (M-22's renames)")
+    import glob
+    eng = CEN.corpus_files()
+    old = sorted(glob.glob(os.path.join(CEN.ROOT, "corpus", "song",
+                                        "eng_*.txt")))
+    old += [os.path.join(CEN.ROOT, "corpus", "sonnets.txt"),
+            os.path.join(CEN.ROOT, "corpus", "whitman.txt")]
+    check("the eng default reproduces the declared run-1 population "
+          "byte-identically — no recorded figure moves under a rename",
+          eng == old, f"{len(eng)} vs {len(old)}")
+    cym = CEN.corpus_files(language="cym")
+    check("another language globs its own prefix and gets NO English "
+          "controls (doctrine 13/14)",
+          cym and all("/song/" in f.replace(os.sep, "/") for f in cym)
+          and all(os.path.basename(f).startswith("cym_") for f in cym),
+          [os.path.basename(f) for f in cym[:3]])
+    check("its song files key their own family, which has NO "
+          "RHYME_CONSTRAINED row — M-23's three-state table reports that "
+          "as `undeclared` rather than a measured negative",
+          bool(cym) and CEN.family_of(cym[0]) == "cym_song"
+          and "cym_song" not in CEN.RHYME_CONSTRAINED,
+          CEN.family_of(cym[0]) if cym else "no cym files")
+    check("the artifact path derives per language and the eng spelling IS "
+          "the committed table",
+          CEN.OUT_DEFAULT == CEN.out_path("eng")
+          and CEN.out_path("cym").endswith("structure_census_cym.tsv")
+          and CEN.OUT_DEFAULT.endswith("structure_census_eng.tsv"))
+    check("the two controls keep their own families either way",
+          CEN.family_of(eng[-2]) == "sonnets"
+          and CEN.family_of(eng[-1]) == "whitman")
+
+
 if __name__ == "__main__":
     SECTIONS = (test_rows, test_item_readers, test_cell_accounting,
                 test_constrained_tag, test_the_struck_tag_says_so,
                 test_tsv_roundtrip, test_checkpointing,
-                test_tokeniser_is_declared)
+                test_tokeniser_is_declared,
+                test_the_population_is_a_language_parameter)
     _every_section_runs(SECTIONS)
     for fn in SECTIONS:
         fn()

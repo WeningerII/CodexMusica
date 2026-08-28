@@ -3900,7 +3900,7 @@ cheapest possible demonstration and it is deliberate: if the two figures in
 the table above do not read 77 in the tree you are looking at, this entry has
 gone stale in exactly the way it is about.
 
-### M-22 · The structure census promises to be world-shaped and its tokeniser is ASCII `OPEN`
+### M-22 · The structure census promises to be world-shaped and its tokeniser is ASCII `PARTIAL` — the tokeniser closed 2026-08-21, the renames 2026-08-28; what stays open is run 2 itself, parked for the owner's ruling
 **Found 2026-08-21 by three concurrent recon agents on the cross-tradition
 structure question, and it is the defect that ALREADY VOIDED ONE ADOPTION
 RUN, reintroduced one layer over.**
@@ -3961,6 +3961,29 @@ columns and the once-per-run `PH.get("eng")` — are closed. The `eng_*` glob,
 `OUT_DEFAULT` and `RHYME_CONSTRAINED_FAMILIES` are run 2's to move, and
 `RHYME_CONSTRAINED_FAMILIES` is `M-23`'s second obligation rather than this
 one's. An entry whose dangerous half is shut is not a closed entry.
+
+**THE RENAMES CLOSED 2026-08-28, ahead of run 2 rather than as its first
+hour:** `corpus_files(root=None, language="eng")` globs the language's own
+prefix with the eng DEFAULT byte-identical to the declared run-1 population
+(pinned by identity against the old glob in
+`test_structure_census.py` §8) — and a NON-eng call gets NO controls
+appended, because `sonnets.txt` and `whitman.txt` are the ENGLISH run's
+declared arms and carrying them into a Welsh census would be an English
+control laundered into another language's figures (doctrine 13/14); run 2
+declares its own controls per tradition. `family_of` keys a `{lang}_*`
+song file to `{lang}_song`, which M-23's three-state table then reports as
+`undeclared` rather than a measured negative. `out_path(language)` derives
+the artifact per language with `OUT_DEFAULT = out_path("eng")` — one
+definition, and a run-2 language writes beside the committed table, never
+over it. `structure_census.py --check` PASSES after the rename: every
+recorded figure re-derives, which is what "no recorded figure moves under
+a rename" means as a measurement rather than a promise.
+`RHYME_CONSTRAINED_FAMILIES` stays M-23's obligation, as counted above.
+
+**WHAT STAYS OPEN IS THE RUN**: the multi-language census itself is a
+research sitting parked in BACKLOG's RULINGS WANTED for the owner's
+prioritisation, and this entry holds `PARTIAL` until it lands — an
+instrument ready for a run nobody has commissioned is ready, not done.
 
 **FIXED 2026-08-21, and the shape of the fix is a DECLARED TABLE rather than
 "ask the phonology", because asking is AMBIGUOUS for the one language that
