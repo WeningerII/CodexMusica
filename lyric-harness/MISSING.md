@@ -15216,7 +15216,7 @@ the work and not the fixture. §6's end-to-end good arm now presents the
 built form WITH its state, which is what a finished presentation looks
 like under both of this instrument's questions. Suite green, 7 sections.
 
-### M-151 · the `cynghanedd` verb reaches neither `caesura` nor `marks` — two declared coordinates with no command-line entrance `OPEN`
+### M-151 · the `cynghanedd` verb reaches neither `caesura` nor `marks` — two declared coordinates with no command-line entrance `CLOSED` 2026-08-28 — both entrances built, the coordinate and its k printed on every cym run
 Found 2026-08-28 while M-7 made the mark set declarable, and it is the
 built-and-unreachable family at the one verb whose whole subject is the
 coordinate. `check_cynghanedd(lex, text, decl, language, caesura="marked")`
@@ -15241,6 +15241,31 @@ was the API coordinate and its measured blast radius (pins + three tests)
 landed exactly, so the entrance is its own small sitting rather than scope
 drift on a closed one — and this entry is the record that the omission is
 NAMED, not silent (doctrine 20).
+
+**CLOSED 2026-08-28, to the entry's own prescription plus one printed line
+it asked for implicitly.** `--caesura=marked|search` (eq_only, refused by
+vocabulary at exit 2 with both readings' meanings in the message) and
+`--marks=M,M,...` (comma split; an EMPTY set refuses rather than matching
+nothing) ride the `--lang` pattern in the same dispatch arm;
+`check_cynghanedd` gains `marks=` and threads both into `cym.cynghanedd` /
+`cynghanedd_scan`; `--lang=eng` with EITHER coordinate refuses naming the
+conjunction — extended past the entry's `--marks`-only prescription to
+`--caesura=search` too, on the same argument: the imitation ignores the
+caesura coordinate entirely, and accepted-and-dropped is the defect this
+CLI refuses by name everywhere else. And the coordinate is PRINTED now on
+every cym run — `caesura: search — 15 position(s) tried; marks: / |` —
+because `positions_tried` was computed on every call and reached the page
+through nothing, which was the entry's doctrine 19/56 headline. A non-CLI
+caller passing `marks=` with `language="eng"` gets the same refusal from
+`check_cynghanedd` itself (one definition, two doors).
+
+**GATES:** `test_verbs` §46 drives M-7's own measured contrasts through
+the verb — the Ust line SAIN at k=15 under `--caesura=search` and NOTHING
+at k=1 under the marked default (the type exists only under the sweep),
+the Och line answering TRAWS on the declared dash (`--marks=--`) — plus
+the three refusals, the plain `--lang=eng` control, and the usage row
+naming both flags (the three-sets-equal gate's own subject). Usage row
+and wiring updated together; `wiring` reports no strand.
 
 ### M-152 · Bracketed VERSE: six files print sung text inside `[...]` blocks, and the reader can only lose it `OPEN`
 Found 2026-08-28 while building M-47's wrapped-note follow rule, and it is

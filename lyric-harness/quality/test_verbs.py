@@ -4272,6 +4272,67 @@ def test_a_row_name_with_a_comma_is_still_reachable():
         os.unlink(path)
 
 
+def test_the_cynghanedd_verb_reaches_caesura_and_marks():
+    """M-151 (2026-08-28). `check_cynghanedd` has implemented both caesura
+    readings since 2026-08-15 and M-7 made the MARK SET declarable — and
+    the verb passed only `language=`, so every CLI run was marked-mode by
+    a default the caller could not see, and `positions_tried` (the k
+    doctrine 19/56's correction needs) reached the command line through
+    nothing. Both entrances now, `--lang`-shaped, with the coordinate and
+    its k PRINTED on every cym run.
+
+    The binding assertions are M-7's own measured contrasts driven through
+    the verb: the same dash-printed line answers SAIN at k=15 under
+    `--caesura=search` and NOTHING at k=1 under the marked default —
+    a type that exists only because the boundary was swept — and the
+    marked reading with the edition's dash DECLARED (`--marks=--`) reads
+    the printed gwant where the default marks cannot.
+    """
+    print("\n46. the cynghanedd verb reaches --caesura and --marks (M-151)")
+    ust = "Ust! y ffrwd,--pa sibrwd sydd?"
+    rc_s, out_s, _ = run("cynghanedd", "--caesura=search", ust)
+    check("`--caesura=search` is read, PRINTED, and reports its k — the "
+          "doctrine 19/56 coordinate reaches the page",
+          rc_s == 0 and "caesura: search" in out_s
+          and "15 position(s) tried" in out_s and "SAIN" in out_s,
+          [l for l in out_s.splitlines() if "caesura" in l][:1])
+    rc_m, out_m, _ = run("cynghanedd", ust)
+    check("the DEFAULT is marked-mode at k=1 and says so — the same line, "
+          "no sain, because the type exists only under the sweep (M-7's "
+          "own contrast, at the verb)",
+          rc_m == 0 and "caesura: marked" in out_m
+          and "1 position(s) tried" in out_m and "SAIN" not in out_m
+          and "marks: / |" in out_m,
+          [l for l in out_m.splitlines() if "caesura" in l][:1])
+    och = "Och o'u swn!--yn gasach sydd;"
+    rc_d, out_d, _ = run("cynghanedd", "--marks=--", och)
+    check("`--marks=--` declares a dash-printed edition's own convention "
+          "and the marked reading answers on the printed gwant",
+          rc_d == 0 and "marks: --" in out_d
+          and any(k in out_d for k in ("TRAWS", "CROES", "SAIN", "LLUSG")),
+          [l for l in out_d.splitlines()][-2:])
+    rc_b, out_b, _ = run("cynghanedd", "--caesura=bogus", "x")
+    check("an undeclared caesura value REFUSES by vocabulary at exit 2",
+          rc_b == 2 and "marked, search" in out_b)
+    rc_e, out_e, _ = run("cynghanedd", "--marks=", "x")
+    check("an EMPTY mark set REFUSES rather than matching nothing",
+          rc_e == 2 and "EMPTY" in out_e)
+    rc_c, out_c, _ = run("cynghanedd", "--lang=eng", "--marks=--", "a, b")
+    check("`--lang=eng` with `--marks` REFUSES naming the conjunction — "
+          "the imitation splits on commas and the coordinate would be "
+          "consumed and ignored (doctrine 20)",
+          rc_c == 2 and "--lang=eng" in out_c and "cym" in out_c)
+    rc_ok, out_ok, _ = run("cynghanedd", "--lang=eng",
+                           "the cattle waded, the kettle boiled")
+    check("...and plain `--lang=eng` still runs — the refusal is the "
+          "conjunction, never the language",
+          rc_ok == 0 and "IMITATION" in out_ok)
+    rc_h, out_h, _ = run("--help")
+    check("the usage row names both flags — the three-sets-equal gate's "
+          "own subject",
+          "--caesura=marked|search" in out_h and "--marks=M,M" in out_h)
+
+
 def test_every_workflow_file_is_parseable_yaml():
     print("\n43. THE CI WORKFLOW PARSES — checked HERE because a broken one "
           "cannot run the check that catches it (`MISSING.md` M-89)")
@@ -4382,6 +4443,7 @@ if __name__ == "__main__":
         test_a_song_wide_relation_may_not_stand_beside_a_structure,
         test_a_row_name_with_a_comma_is_still_reachable,
         test_every_workflow_file_is_parseable_yaml,
+        test_the_cynghanedd_verb_reaches_caesura_and_marks,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —
     # measured 21-22 minutes on CI run #524, and after the pool went

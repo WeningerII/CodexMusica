@@ -4244,7 +4244,8 @@ def _final_bits(sylls):
     return fc, fv
 
 
-def check_cynghanedd(lex, text, decl, language="cym", caesura="marked"):
+def check_cynghanedd(lex, text, decl, language="cym", caesura="marked",
+                     marks=None):
     """Cynghanedd, on the phonology of the language it belongs to.
 
     THE DEFECT THIS FIXES. This function has existed since the first commit and
@@ -4270,23 +4271,38 @@ def check_cynghanedd(lex, text, decl, language="cym", caesura="marked"):
     word boundary and reports how many. A searched rate is not comparable with
     an unsearched one, which is why the caller has to name which it wanted.
 
+    `marks` is the DECLARED caesura mark set (M-7/M-151): `None` reads
+    `cym.CAESURA_MARKS` (`/` and `|`, never the dash unless declared), and a
+    dash-printed edition declares its own convention (`marks=("--",)`). CYM
+    ONLY: the eng imitation splits on commas and has no mark set, so a
+    declared `marks` under `language="eng"` is REFUSED naming the
+    conjunction rather than consumed and ignored — a coordinate accepted
+    and dropped is this repo's most-filed defect.
+
     -> {"language", "phonology", "found": [(type, why)], "why_not": str,
-        "positions_tried": int}
+        "positions_tried": int, "caesura": str, "marks": tuple (cym only)}
     """
     if language == "cym":
         from quality.phonology import get   # lazy: no base -> quality cycle
         w = get("cym")
         if caesura == "search":
-            hit = w.cynghanedd_scan(text)
+            hit = w.cynghanedd_scan(text, marks=marks)
             kind, detail, tried = (hit["type"], hit["detail"],
                                    hit["positions_tried"])
         else:
-            kind, detail = w.cynghanedd(text, caesura=caesura)
+            kind, detail = w.cynghanedd(text, caesura=caesura, marks=marks)
             tried = 1
         return {"language": "cym", "phonology": w.notation,
                 "found": [(kind, detail)] if kind else [],
                 "why_not": "" if kind else detail,
-                "positions_tried": tried}
+                "positions_tried": tried, "caesura": caesura,
+                "marks": tuple(w.CAESURA_MARKS if marks is None else marks)}
+    if marks is not None:
+        raise ValueError(
+            "marks= is a coordinate of the WELSH path: the eng imitation "
+            "splits on commas and has no caesura mark set to declare. "
+            "Refused rather than dropped (a declared coordinate consumed "
+            "and ignored is the defect this repo keeps filing).")
     if language != "eng":
         raise ValueError(
             f"no cynghanedd phonology for {language!r}. Declared: 'cym' "
@@ -4844,7 +4860,7 @@ commands (the fifteen spine verbs):
   density FILE            rhyme density per line
   weight "line"           syllable weights and matras
   qafiya FILE|L...        Arabic/Persian qafiya profile audit
-  cynghanedd [--lang=cym|eng] "line"   Welsh consonantal answer
+  cynghanedd [--lang=cym|eng] [--caesura=marked|search] [--marks=M,M] "line"   Welsh consonantal answer
   prasa  K L...           position-K consonant agreement
   demo                    run the acceptance suite
 
@@ -6226,8 +6242,47 @@ def main():
             "and 'eng' is a labelled English imitation (doctrine 45). "
             "Another language's phonology is refused, not substituted.")
         rest = _strip_flag(rest, "--lang")
-        res = check_cynghanedd(lex, " ".join(rest), decl, language=language)
+        # THE TWO COORDINATES THE VERB COULD NEVER SPELL (M-151, 2026-08-28).
+        # `check_cynghanedd` has implemented both caesura readings since
+        # 2026-08-15 and M-7 made the MARK SET declarable — and this arm
+        # passed only `language=`, so every CLI run was marked-mode by a
+        # default the caller could not see, and `positions_tried` (the k
+        # doctrine 19/56's correction needs) reached the command line
+        # through nothing. Both are the `--lang` pattern: eq_only, refused
+        # by vocabulary, cym-only for the mark set.
+        caesura = _flag_value(rest, "--caesura", eq_only=True) or "marked"
+        _value_in_vocabulary_or_refuse(
+            "--caesura", caesura, ("marked", "search"),
+            "'marked' refuses a line whose caesura is not printed; 'search' "
+            "tries every word boundary and reports how many (k), because a "
+            "searched rate is not comparable with an unsearched one "
+            "(doctrine 19/56). Which was wanted is the caller's to name.")
+        marks_raw = _flag_value(rest, "--marks", eq_only=True)
+        rest = _strip_flag(_strip_flag(rest, "--caesura"), "--marks")
+        marks = None
+        if marks_raw is not None:
+            marks = tuple(m for m in marks_raw.split(",") if m)
+            if not marks:
+                _refuse("--marks= declared an EMPTY mark set. Declare the "
+                        "edition's own marks (--marks=--  for a dash-printed "
+                        "edition; the default is / and |), or omit the flag.")
+        if language == "eng" and (marks is not None or caesura != "marked"):
+            _refuse(f"--lang=eng with "
+                    f"{'--marks' if marks is not None else '--caesura'}: the "
+                    f"English imitation splits on commas — it has no caesura "
+                    f"mark set and no placement search, so the coordinate "
+                    f"would be consumed and ignored, which is the silent "
+                    f"drop this CLI refuses by name everywhere else "
+                    f"(doctrine 20). The coordinates belong to --lang=cym.")
+        res = check_cynghanedd(lex, " ".join(rest), decl, language=language,
+                               caesura=caesura, marks=marks)
         print(f"  phonology: {res['language']} — {res['phonology']}")
+        if res["language"] == "cym":
+            # the declared reading, and the k the correction needs — the
+            # coordinate this verb existed to report and never printed.
+            print(f"  caesura: {res['caesura']} — {res['positions_tried']} "
+                  f"position(s) tried; marks: "
+                  f"{' '.join(res['marks'])}")
         if not res["found"]:
             print(f"  no cynghanedd detected"
                   + (f": {res['why_not']}" if res["why_not"] else ""))
