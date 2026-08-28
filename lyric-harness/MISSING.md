@@ -6793,7 +6793,7 @@ them (a relations-only re-open printed `letter scheme 'ABAB' + ` — a trailing
 conjunction with nothing after it, which is what a provenance string looks
 like when it is describing something nobody told it about).
 
-### M-51 · a bad `--structures=` / `--relations=` name refuses under the headline "this verb was given nothing to check against" `OPEN`
+### M-51 · a bad `--structures=` / `--relations=` name refuses under the headline "this verb was given nothing to check against" `RESOLVED` 2026-08-28 — built by M-102 on 2026-08-24, and this entry was never told
 **Found 2026-08-22 exercising the new CLI refusals; PRE-EXISTING and not
 introduced by that work — `--structures=` has had it since it shipped.**
 
@@ -6815,6 +6815,22 @@ to. **NOT FIXED HERE** because the shared path serves several verbs and moving
 it is test churn that belongs in its own sitting rather than riding a wiring
 commit. The remedy is a second refusal shape — _the mandate is declared and a
 name in it is not_ — carrying the same exit code.
+
+**RESOLVED 2026-08-28 (repair campaign), AND THE BUILD WAS M-102's ON
+2026-08-24 — this entry was never told, which is the register's own
+most-repeated defect shape.** The shared `NoMandate` handler in
+`lyric_harness.py` has carried exactly the two headlines this entry asked
+for since M-102: `empty` is set at the one raise site that means
+"nothing was declared", and every other `NoMandate` — an unknown
+structure row, a bad relation name, a label naming no group — prints
+`REFUSED — the mandate was not accepted.` over its own detail line.
+**RE-MEASURED at head with this entry's own command**: `brief FILE
+--groups=1,2 --structures=A:no-such-row` prints the second shape with
+the catalog detail beneath it, and a bare `brief FILE` keeps "given
+nothing to check against" — the two causes no longer share a headline.
+The gate is M-102's own (`quality/test_verbs.py` asserts the split);
+nothing was built for this close, and the close's work was the
+RE-MEASUREMENT, not a repair.
 
 ### M-52 · 17 of the 21 declared section functions are printed NOWHERE, and 62% of the marks that ARE printed reach no function at all `PARTIAL`
 **Raised by the owner 2026-08-22 — "is it possible to work on getting us the
@@ -7340,7 +7356,7 @@ first (doctrine 1). `node mcp/test.mjs`: **34 checks, exit 0**. Proven
 non-vacuous by mutation — stubbing `extractRender` to `null` drops it to 31
 and red on exactly this check.
 
-### M-56 · two of the twenty-one "section functions" declare in their own glosses that they are NOT sections `OPEN`
+### M-56 · two of the twenty-one "section functions" declare in their own glosses that they are NOT sections `RESOLVED` 2026-08-28 — the KIND field shipped with the owner's "all 21 working" ruling, and this entry was never told
 **Found 2026-08-22 deriving the section-constraint table, by reading all 21
 glosses rather than the four the work needed.**
 
@@ -7369,6 +7385,25 @@ row — `section` vs `fragment` — so every downstream reader can ask rather th
 assume, and so M-54's coordinates are only applied to the rows they can mean
 anything for. `verify_entries`/`corpus_taxonomy` are the precedent: a closed
 vocabulary whose members carry their own definition.
+
+**RESOLVED 2026-08-28 (repair campaign), AND THE BUILD SHIPPED WITH THE
+OWNER'S "all 21 working" RULING — this entry was never told.**
+`grid.FunctionSpec.kind` is the declared coordinate this entry asked for,
+citing M-56 by name at its own definition; `refrain` AND `burden` carry
+`kind="line"` (the second row going beyond this entry's own pair, on the
+same gloss evidence), and `plan._derive_roster` READS the coordinate
+(`sp.kind == "section"`), so the planner's roster is derived from the
+vocabulary rather than assumed — exactly "every downstream reader can
+ask". **THE `hook` HALF WAS RULED THE OTHER WAY, AND THE RULING IS
+WRITTEN AT THE ROSTER DERIVATION** (`quality/plan.py`, the `_derive_roster`
+comment): this entry read the gloss's first clause ("properly a
+FRAGMENT") and the roster comment reads its second — *"this entry covers
+the post-chorus-hook case where a WHOLE SECTION carries it"* — so `hook`
+stays `kind="section"` deliberately, and the fragment lives in the
+separate `Hook` object the gloss names. One row asked for, two shipped,
+one adjudicated against this entry's reading with the argument recorded
+where the roster is derived. Nothing was built for this close; the work
+was finding that the build existed.
 
 ### M-57 · `FunctionSpec.aliases` models SYNONYMY, and three of its five claims are SUBSUMPTION — so the specialisation is accepted at the door and discarded `OPEN`
 **Raised by the owner 2026-08-22: "While all middle eights are bridges, not all
