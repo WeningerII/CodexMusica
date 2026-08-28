@@ -705,6 +705,11 @@ def test_every_verb_runs():
         # quality/test_plan.py — this row is the dispatch-reachability claim
         # only, same as every other verb's.
         "plan": ["plan", "--seed=7", "--lines=22"],
+        # The seam (2026-08-28, M-154). Behavioural coverage is §44 below —
+        # this row reaches the dispatch through the verb's own cheapest
+        # honest answer, the no-seed refusal, because a full run here would
+        # double §44's loop cost for a claim about reachability alone.
+        "finish": ["finish", quat],
     }
     missing = sorted(lh._dispatched_verbs() - set(cases))
     check("this test covers every verb main() dispatches",
@@ -4411,6 +4416,110 @@ def test_every_workflow_file_is_parseable_yaml():
               f"{len((doc or {}).get('jobs', {}))} job(s)")
 
 
+def test_finish_is_the_one_door_from_draft_to_rendered_song():
+    print("\n44. `finish` — THE SEAM: no rendered song without a stop "
+          "condition (`MISSING.md` M-154, owner's directive 2026-08-28)")
+    # THE FAILURE THIS VERB CLOSES was never that a layer graded wrong — it
+    # is that the revise loop was a step a writer COULD run, and every
+    # enforcement downstream of "could" was disclosure. `finish` reads the
+    # mandate, blueprint and subdivision off the PLAN the seed names, runs
+    # the loop to a STOP CONDITION, and the render call sits AFTER the
+    # loop's return — so a suspended run emits the writer's question and no
+    # song, structurally. The checks here are the seam's own claims, and
+    # the two load-bearing ones are 5 (a suspended run leaks NO render) and
+    # 6 (the render exists exactly past a stop condition, stamped with the
+    # exit code the process actually returns).
+    #
+    # COST DISCIPLINE: seed 16 is the smallest shape in 1..80 (23 lines —
+    # found by `plan --sweep=1-80 --want=lines<=23`, re-derivable), the
+    # suspension run stops at the loop's FIRST question, and the
+    # convergence run declares a zero budget (`--attempts=0 --backtrack=0`)
+    # so it reaches NO_PROGRESS at roughly ONE grade's price — an honest
+    # stop condition (the round asked nothing and fixed nothing), never a
+    # shortcut through the gate.
+    d = tempfile.mkdtemp()
+    draft = os.path.join(d, "draft.txt")
+    state = os.path.join(d, "state.json")
+
+    # The draft is built from the PLAN'S OWN declared line count, never a
+    # remembered one — the same rule the connector's two-block check
+    # follows, and the reason this section survives a planner re-derivation.
+    rc, out, _ = run("plan", "--seed=16", expect_rc=0)
+    m = re.search(r"-> (\d+) line\(s\)", out)
+    check("the plan declares its own line count for the fixture to honor",
+          rc == 0 and m is not None, f"rc {rc}")
+    n = int(m.group(1))
+    bank = ("stone rain door light road name glass train hill salt wire "
+            "bell coat dust song tide map north paper").split()
+    with open(draft, "w") as fh:
+        for i in range(n):
+            fh.write(f"we carry the morning to the {bank[i % len(bank)]}\n")
+
+    # 1-4: THE REFUSALS, each pre-loop and each naming its own cause.
+    rc, out, _ = run("finish", draft, expect_rc=2)
+    check("no --seed REFUSES naming the flag — the plan is the mandate's "
+          "one statement", rc == 2 and "--seed" in out, f"rc {rc}")
+    rc, out, _ = run("finish", draft, "--seed=16", "--blueprint=x.json",
+                     expect_rc=2)
+    check("--blueprint on finish REFUSES — a second statement of the meter "
+          "layer beside the plan's own",
+          rc == 2 and "--blueprint" in out, f"rc {rc}")
+    rc, out, _ = run("finish", draft, "AABB", "--seed=16", expect_rc=2)
+    check("a positional mandate REFUSES — two statements of one cover",
+          rc == 2 and "mandate" in out, f"rc {rc}")
+    short = os.path.join(d, "short.txt")
+    with open(short, "w") as fh:
+        fh.write("one line\ntwo line\n")
+    rc, out, _ = run("finish", short, "--seed=16", expect_rc=2)
+    check("a draft of the wrong length REFUSES with the plan's own count",
+          rc == 2 and str(n) in out, f"rc {rc}")
+
+    # 5: THE SEAM ITSELF. A deferred run with no answers suspends at the
+    # loop's first question, and NO render reaches the output — not the
+    # frame, not a header, not the stamp. This is the check that the render
+    # call sits after the loop's return rather than beside it.
+    rc, out, _ = run("finish", draft, "--seed=16",
+                     f"--propose=defer:{state}", expect_rc=4)
+    check("a deferred run with no answers SUSPENDS at exit 4",
+          rc == 4 and "SUSPENDED" in out, f"rc {rc}")
+    check("...and NO render reaches a suspended run — the seam holds",
+          "[FINISHED" not in out and "THE SONG, PERFORMANCE ORDER" not in out,
+          "the render exists only past a stop condition")
+    check("...and the state file holds the question, so the run is resumable",
+          os.path.exists(state)
+          and json.load(open(state)).get("pending") is not None, state)
+
+    # 6: PAST A STOP CONDITION THE RENDER EXISTS, stamped with the exit the
+    # process actually returns. The zero budget reaches NO_PROGRESS
+    # honestly; whatever the stop, the stamp and the process must agree.
+    rc, out, _ = run("finish", draft, "--seed=16", "--attempts=0",
+                     "--backtrack=0")
+    stamp = re.search(r"\[FINISHED — seed 16 — exit (\d) — (\w+) after "
+                      r"(\d+) round\(s\) — ([^\]]+)\]", out)
+    check("a stop condition renders the song under its stamp",
+          rc in (0, 3) and "THE SONG, PERFORMANCE ORDER" in out
+          and stamp is not None, f"rc {rc}")
+    check("...the stamp's exit code IS the process's — it cannot say "
+          "finished about a run that is not",
+          stamp is not None and int(stamp.group(1)) == rc,
+          stamp.group(0) if stamp else "(no stamp)")
+    check("...and the stamp names the stop reason and the open lines, so a "
+          "parked song cannot read as a clean one",
+          stamp is not None
+          and stamp.group(2) in ("SUCCESS", "NO_PROGRESS", "ROUND_LIMIT")
+          and (("UNRESOLVED" in stamp.group(4)) == (rc == 3)),
+          stamp.group(0) if stamp else "(no stamp)")
+    check("...and the render carries the plan's own bracket headers",
+          re.search(r"\[[A-Z_]+ — \d+ lines? — ", out) is not None,
+          "the section header format is the measurement carrier (M-97)")
+
+    # 7: the budget flags are the loop's own and refuse elsewhere.
+    rc, out, _ = run("brief", draft, "--groups=1,2", "--max-rounds=2",
+                     expect_rc=2)
+    check("--max-rounds on `brief` REFUSES — only the loop verbs own a "
+          "budget", rc == 2 and "--max-rounds" in out, f"rc {rc}")
+
+
 if __name__ == "__main__":
     _SECTIONS = (
         test_the_map_is_not_stale,
@@ -4458,6 +4567,7 @@ if __name__ == "__main__":
         test_a_song_wide_relation_may_not_stand_beside_a_structure,
         test_a_row_name_with_a_comma_is_still_reachable,
         test_every_workflow_file_is_parseable_yaml,
+        test_finish_is_the_one_door_from_draft_to_rendered_song,
         test_the_cynghanedd_verb_reaches_caesura_and_marks,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —

@@ -5263,6 +5263,29 @@ the quality layer (each says which module answered):
                           -- and an empty accepted set REFUSES at exit 2
                           with the rate, because unreachable and merely
                           rare are different answers
+  finish DRAFT --seed=N [--form=verse-chorus] [--lines=N] [--relation=NAME]
+         [--functions=a,b,c] [--title=TEXT] [--narrative=...]
+         [--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY]
+         [--pursue=CODE,CODE] [--profile=NAME]
+                          THE WORKING ORDER'S LAST STEP AS ONE DOOR
+                          (M-154). Re-derives the plan from --seed and the
+                          SAME declarations `plan` takes (a different
+                          declaration set grades a DIFFERENT plan), reads
+                          the mandate, blueprint and subdivision off that
+                          one artifact, runs the revise loop to a STOP
+                          CONDITION, and only then renders the song in
+                          performance order with a [FINISHED — seed N —
+                          exit E — ...] stamp. A suspended run (deferred
+                          proposer, unanswered question) exits 4 with the
+                          writer's brief and NO RENDER — the render call
+                          sits after the loop's return, so there is no
+                          path to a presented song that skipped the loop.
+                          The two-tier ban rides the loop's own
+                          MANDATORY_PURSUE, so banned pairs hold their
+                          lines open rather than riding out on a stamp.
+                          Exit 0 converged clean, 3 a stop condition with
+                          lines still open (the stamp names them), 4
+                          suspended awaiting an answer, 2 refused
   readability FILE        what the ingestion layer could not read"""
 
 
@@ -5291,6 +5314,9 @@ VERB_LAYERS = (
      "quality/grid.py, then shares this same report"),
     ("revise", "quality/loop.py", "the automated write-check-fix loop, "
      "driven on top of brief/verify"),
+    ("finish", "quality/loop.py", "the working order's last step as one "
+     "door: plan-derived mandate, the loop to a stop condition, and the "
+     "render exists only past one"),
     ("plan", "quality/plan.py", "the planning phase -- request to "
      "blueprint + mandate, generated from the enumerated scheme space"),
     ("readability", "quality/readability.py", "ingestion refusals"),
@@ -6273,6 +6299,42 @@ def _grid_song(GR, bp):
     return song
 
 
+def _parse_narrative_flag(raw):
+    """`--narrative=`'s value -> what `make_plan(narrative=)` accepts.
+
+    ONE definition for the two verbs that carry the flag — `plan`, where it
+    was born (M-121), and `finish`, which re-derives the SAME plan from the
+    same declarations and would silently derive a DIFFERENT one if this
+    spelling lived only in `plan`'s branch (the lyric_grade contract:
+    "every one that was declared there must be declared here, or a
+    DIFFERENT plan is graded"). `None` in, `None` out — no flag leaves the
+    planner drawing, exactly as before.
+    """
+    if raw is None:
+        return None
+    if raw.strip().lower() == "off":
+        return "off"
+    atoms, juncs = [], []
+    for i, cell in enumerate(raw.split(",")):
+        atom, _, junc = cell.strip().partition("/")
+        atoms.append(atom.strip().upper())
+        if i == 0:
+            if junc:
+                _refuse("the FIRST section takes no inbound "
+                        "junction — nothing precedes it",
+                        detail=["--narrative=ATOM,ATOM/JUNCTION,"
+                                "... — the opening cell is a "
+                                "bare atom"])
+        else:
+            if not junc:
+                _refuse(f"cell {i + 1} ({cell.strip()!r}) "
+                        "declares no inbound junction",
+                        detail=["every section after the first "
+                                "is ATOM/JUNCTION"])
+            juncs.append(junc.strip().upper())
+    return {"atoms": atoms, "junctions": juncs}
+
+
 def main():
     decl = Declaration()
     args = sys.argv[1:]
@@ -7247,30 +7309,10 @@ def main():
                             "ignored -- a flag silently not read leaves a "
                             "plan that looks exactly like one you never "
                             "asked for"])
-        narrative = None
-        if narrative_raw is not None:
-            if narrative_raw.strip().lower() == "off":
-                narrative = "off"
-            else:
-                atoms, juncs = [], []
-                for i, cell in enumerate(narrative_raw.split(",")):
-                    atom, _, junc = cell.strip().partition("/")
-                    atoms.append(atom.strip().upper())
-                    if i == 0:
-                        if junc:
-                            _refuse("the FIRST section takes no inbound "
-                                    "junction — nothing precedes it",
-                                    detail=["--narrative=ATOM,ATOM/JUNCTION,"
-                                            "... — the opening cell is a "
-                                            "bare atom"])
-                    else:
-                        if not junc:
-                            _refuse(f"cell {i + 1} ({cell.strip()!r}) "
-                                    "declares no inbound junction",
-                                    detail=["every section after the first "
-                                            "is ATOM/JUNCTION"])
-                        juncs.append(junc.strip().upper())
-                narrative = {"atoms": atoms, "junctions": juncs}
+        # Parsed by the ONE definition `finish` also reads —
+        # `_parse_narrative_flag`, extracted 2026-08-28 with the `finish`
+        # verb, byte-identical behaviour to the inline block it replaces.
+        narrative = _parse_narrative_flag(narrative_raw)
         plan_kw = dict(
             form=form,
             lines=int(nlines) if nlines is not None else None,
@@ -8107,13 +8149,116 @@ def main():
                     lexicon_three_counts(lex, _words), what="word tokens"):
                 print(_out)
 
-    elif cmd in ("brief", "verify", "revise", "song"):
+    elif cmd in ("brief", "verify", "revise", "song", "finish"):
         from quality import loop as LP
         from quality.revise import Reviser
         from quality.schemes import NoMandate
         from quality import schemes as SC
         from quality.revise import (ReviseDeclaration, RHYME_FINDINGS,
                                     draft_fingerprint)
+
+        # `finish DRAFT --seed=N` — THE WORKING ORDER'S LAST STEP AS ONE
+        # DOOR (`MISSING.md` M-154, owner's directive 2026-08-28: "go,
+        # start on the seam"). The failure it closes is not that any layer
+        # was wrong — it is that the revise loop was a step a writer COULD
+        # RUN, and every layer of enforcement downstream of that word
+        # "could" was disclosure: M-150's gate makes an unconverged song
+        # SAY SO when presented, and nothing made the loop run at all.
+        # `finish` is the route with no such seam: the mandate, the
+        # blueprint and the subdivision are read off the PLAN the seed
+        # names (the one artifact that records what was asked for —
+        # doctrine 1, the same read `lyric_grade` does), the revise loop
+        # runs to a STOP CONDITION, and the rendered song exists ONLY past
+        # one — a suspended run (exit 4) emits the writer's question and
+        # no render, structurally, because the render call sits after the
+        # loop's return. The two-tier ban rides in for free: the loop's
+        # MANDATORY_PURSUE holds banned-pair lines open, so a draft whose
+        # rhymes are on the ban cannot converge onto them — the "banned
+        # pairs are unskippable" stamp made mechanical.
+        finish_plan = None
+        finish_seed = None
+        if cmd == "finish":
+            from quality import plan as PLN2
+            # THE PLAN IS THE ONE STATEMENT OF THE METER LAYER AND OF THE
+            # MANDATE, so a second spelling of either on this command line
+            # is refused rather than reconciled — the same "this reader
+            # will not choose between them" `_mandate_arg` gives two
+            # mandate spellings of one cover.
+            for _banned, _why in (
+                    ("--blueprint", "the plan derives the blueprint from "
+                                    "the draft (`fill_plan`)"),
+                    ("--subdivision", "the plan declares its own"),
+                    ("--isochronous", "a meter-layer assumption beside a "
+                                      "plan-declared meter is a second "
+                                      "statement of it"),
+                    ("--groups", "the plan's rhyme web IS the mandate"),
+                    ("--returns", "the plan's return classes ARE declared"),
+                    ("--cliques", "a derived cover beside the plan's "
+                                  "declared one grades a different song"),
+                    ("--structures", "declare structures through `song`/"
+                                     "`revise`; the planner samples its "
+                                     "own"),
+                    ("--relations", "the plan's per-group draw is carried; "
+                                    "silence it with --relation")):
+                if any(a == _banned or a.startswith(_banned + "=")
+                       for a in args):
+                    _refuse(f"{_banned} on `finish` — {_why}",
+                            detail=["`finish` re-derives the plan from "
+                                    "--seed and the SAME declarations "
+                                    "`plan` takes, then reads the mandate "
+                                    "and the meter off that artifact "
+                                    "(doctrine 1: one statement, read "
+                                    "twice, never restated)",
+                                    "declare a different shape by "
+                                    "declaring a different plan — the "
+                                    "flags are --form, --lines, "
+                                    "--relation, --functions, --title, "
+                                    "--narrative"])
+            _fseed = _flag_value(args, "--seed")
+            _fform = _flag_value(args, "--form") or "verse-chorus"
+            _fnlines = _flag_value(args, "--lines")
+            # `--relation` here is the PLAN declaration (it silences the
+            # per-group draw), consumed before `_mandate_arg` can read the
+            # same spelling as a mandate coordinate — it comes back through
+            # the plan artifact, which is the point.
+            _frel = _flag_value(args, "--relation", eq_only=True)
+            _ffuncs = _flag_value(args, "--functions")
+            _ftitle = _flag_value(args, "--title")
+            _fnarr = _flag_value(args, "--narrative")
+            for _f in ("--seed", "--form", "--lines", "--relation",
+                       "--functions", "--title", "--narrative"):
+                args = _strip_flag(args, _f)
+            if _fseed is None:
+                _refuse("finish requires --seed=N — the plan is the "
+                        "mandate's one statement, and a plan is a pure "
+                        "function of its seed",
+                        detail=["usage: finish DRAFT --seed=N "
+                                "[--form=verse-chorus] [--lines=N] "
+                                "[--relation=NAME] [--functions=a,b,c] "
+                                "[--title=TEXT] "
+                                "[--narrative=off|ATOM,ATOM/JUNCTION,...] "
+                                "[--propose=stub|replay:PATH|defer:PATH|"
+                                "call:MODULE:FACTORY] [--pursue=CODE,CODE] "
+                                "[--profile=NAME]",
+                                "every declaration given to `plan` must be "
+                                "given here too, or a DIFFERENT plan is "
+                                "graded — the same contract lyric_grade "
+                                "states"])
+            try:
+                finish_seed = int(_fseed)
+                finish_plan = PLN2.make_plan(
+                    seed=finish_seed,
+                    form=_fform,
+                    lines=int(_fnlines) if _fnlines is not None else None,
+                    relation=_frel,
+                    title=_ftitle,
+                    narrative=_parse_narrative_flag(_fnarr),
+                    functions=[x for x in (_ffuncs or "").split(",")
+                               if x.strip()] or None)
+            except PLN2.PlanRefused as e:
+                _refuse(str(e))
+            except ValueError:
+                _refuse("finish --seed and --lines take integers")
 
         # `--pursue=CODE,CODE` — WHICH NOTES THE LOOP KEEPS WORKING ON.
         # Omitted, `pursue` is empty and every run reads exactly as it did
@@ -8152,17 +8297,73 @@ def main():
         # `--propose` already had exactly this refusal one flag over — "only
         # `revise` runs a proposer" — so the shape was written, and this flag
         # was added to the shared block without it.
-        if _pur and cmd != "revise":
+        if _pur and cmd not in ("revise", "finish"):
             _refuse(f"--pursue={','.join(_pur)} on `{cmd}` — only `revise` "
-                    f"runs a loop, and `pursue` is read by `revise_loop` "
-                    f"alone",
+                    f"and `finish` run a loop, and `pursue` is read by "
+                    f"`revise_loop` alone",
                     detail=["`brief` reports what it finds and asks for "
                             "nothing; `verify` grades one revision and its "
                             "gate is deliberately UNCHANGED by pursuit; "
                             "`song` runs no loop. On all three this flag "
                             "would change no output.",
                             "run `revise FILE MANDATE --pursue=...` instead."])
-        rdecl = ReviseDeclaration(pursue=frozenset(_pur)) if _pur else None
+        # `--max-rounds=N` / `--attempts=N` — THE LOOP'S BUDGET, A DECLARED
+        # CHOICE AND NOT A CONSTANT SOMEONE ELSE PICKED (2026-08-28, with
+        # the `finish` verb). `ReviseDeclaration.max_rounds` and
+        # `.attempts_per_line` have been declared coordinates since the
+        # loop was written and reachable from this command line by NOTHING
+        # — the `--blueprint`-before-2026-08-11 species, on the two knobs
+        # that decide what a run COSTS. A chat-driven writer answering
+        # questions one turn at a time wants small rounds; a CI check wants
+        # the render path proven at one grade's price. `--attempts=0` is
+        # legal ON PURPOSE: it is the "question never put at all" case the
+        # tier-1 dead-end disclosure already names (a declared coordinate
+        # with no floor), and a round that asks nothing reaches NO_PROGRESS
+        # honestly — the loop still briefs, still stops, still refuses to
+        # call the draft finished.
+        _mr_raw = _flag_value(args, "--max-rounds")
+        _at_raw = _flag_value(args, "--attempts")
+        _bt_raw = _flag_value(args, "--backtrack")
+        args = _strip_flag(args, "--max-rounds")
+        args = _strip_flag(args, "--attempts")
+        args = _strip_flag(args, "--backtrack")
+        if (_mr_raw is not None or _at_raw is not None
+                or _bt_raw is not None) \
+                and cmd not in ("revise", "finish"):
+            _which = ("--max-rounds" if _mr_raw is not None
+                      else "--attempts" if _at_raw is not None
+                      else "--backtrack")
+            _refuse(f"{_which} on `{cmd}` — only `revise` and `finish` run "
+                    f"a loop, and the budget is the loop's own coordinate",
+                    detail=[f"`{cmd}` grades what it is handed in one pass; "
+                            f"a round budget on it would change no output, "
+                            f"and saying so is the point"])
+        _rd_kw = {}
+        if _pur:
+            _rd_kw["pursue"] = frozenset(_pur)
+        try:
+            if _mr_raw is not None:
+                _rd_kw["max_rounds"] = int(_mr_raw)
+                if _rd_kw["max_rounds"] < 1:
+                    _refuse(f"--max-rounds={_mr_raw} — a loop that may run "
+                            f"no round at all is not a loop, it is `brief`",
+                            detail=["1 is the smallest budget that still "
+                                    "asks; `brief FILE MANDATE` is the verb "
+                                    "that only reports"])
+            if _at_raw is not None:
+                _rd_kw["attempts_per_line"] = int(_at_raw)
+                if _rd_kw["attempts_per_line"] < 0:
+                    _refuse(f"--attempts={_at_raw} — a negative attempt "
+                            f"count declares nothing")
+            if _bt_raw is not None:
+                _rd_kw["backtrack_width"] = int(_bt_raw)
+                if _rd_kw["backtrack_width"] < 0:
+                    _refuse(f"--backtrack={_bt_raw} — a negative width "
+                            f"declares nothing")
+        except ValueError:
+            _refuse("--max-rounds, --attempts and --backtrack take "
+                    "integers")
+        rdecl = ReviseDeclaration(**_rd_kw) if _rd_kw else None
         rv = Reviser(lex=lex, decl=decl, rdecl=rdecl)
         if _pur:
             print(f"  PURSUING {len(_pur)} note code(s) beyond the flags: "
@@ -8269,9 +8470,9 @@ def main():
         # subject is who wrote the words. That is the "silent downgrade"
         # this flag's own shape exists to refuse.
         propose_spec = _flag_value(args, "--propose", eq_only=True)
-        if propose_spec is not None and cmd != "revise":
+        if propose_spec is not None and cmd not in ("revise", "finish"):
             _refuse(f"--propose={propose_spec} on `{cmd}` — only `revise` "
-                    f"runs a proposer",
+                    f"and `finish` run a proposer",
                     detail=[f"`{cmd}` grades a draft it is handed; nothing in it "
                      f"writes a line, so this flag would have had no effect "
                      f"and saying so is the point (it is not ignored)",
@@ -9566,9 +9767,60 @@ def main():
                 # anything outside this process, and why a `call:` that
                 # cannot be honoured refuses instead of quietly becoming
                 # this.
-                sides.append(("HANDED IN revise's FILE", args[1]))
+                sides.append((f"HANDED IN {cmd}'s FILE", args[1]))
                 lines = load_lyric_lines(args[1])
-                scheme, _tail = _mandate_arg(args, 2, lines)
+                if cmd == "finish":
+                    # THE MANDATE AND THE METER COME OFF THE PLAN, spelled
+                    # exactly as its own GRADE IT line spells them
+                    # (`quality/plan.py:grading_command` — doctrine 1: one
+                    # statement of the mandate, read here and never
+                    # restated) and handed to the SAME `_mandate_arg` every
+                    # hand-typed mandate goes through, so `finish` cannot
+                    # come to parse a spelling differently from `revise`.
+                    if [a for a in args[2:] if not a.startswith("-")]:
+                        _refuse(f"finish does not take a mandate argument "
+                                f"— got {args[2]!r}",
+                                detail=["the plan the seed names IS the "
+                                        "mandate; a second spelling beside "
+                                        "it would be two statements of one "
+                                        "cover"])
+                    from quality import plan as PLN2
+                    import tempfile
+                    try:
+                        _bp = PLN2.fill_plan(finish_plan, lines)
+                    except PLN2.PlanRefused as e:
+                        _refuse(str(e))
+                    _fd, bp_path = tempfile.mkstemp(
+                        prefix="finish_bp_", suffix=".json")
+                    with os.fdopen(_fd, "w", encoding="utf-8") as fh:
+                        json.dump(_bp, fh)
+                    _synth = []
+                    if finish_plan["groups"]:
+                        _synth.append(f"--groups={finish_plan['groups']}")
+                    if finish_plan["returns"]:
+                        _synth.append(f"--returns={finish_plan['returns']}")
+                    if finish_plan.get("relation"):
+                        _synth.append(
+                            f"--relation={finish_plan['relation']}")
+                    if finish_plan.get("relations"):
+                        _synth.append("--relations=" + ",".join(
+                            f"{k}:{v}" for k, v in
+                            sorted(finish_plan["relations"].items())))
+                    scheme, _tail = _mandate_arg(_synth, 0, lines)
+                    subdivision = FT.Subdivision(
+                        int(finish_plan["subdivision"]),
+                        source=f"the plan's own declared subdivision "
+                               f"(seed {finish_seed}), read off the "
+                               f"artifact `finish` derived the mandate "
+                               f"from")
+                    print(f"  MANDATE: read from the plan (seed "
+                          f"{finish_seed}) — groups, returns and relations "
+                          f"as its own GRADE IT line spells them; the "
+                          f"blueprint is the plan filled with THIS draft "
+                          f"and the subdivision is the plan's own. Nothing "
+                          f"on this command line restates any of it.")
+                else:
+                    scheme, _tail = _mandate_arg(args, 2, lines)
                 _say_derived(scheme, len(lines), src=args[1])
                 _say_relation(scheme)
                 if scheme is not None:
@@ -9628,6 +9880,33 @@ def main():
                     for i, l in enumerate(result.lines, 1):
                         mark = "*" if l != lines[i - 1] else " "
                         print(f"  {mark} L{i}: {l}")
+                if cmd == "finish":
+                    # THE RENDER EXISTS ONLY PAST A STOP CONDITION — this
+                    # call sits after `revise_loop` returned, so a
+                    # suspended run (exit 4, in the except above) emits the
+                    # writer's question and no song, STRUCTURALLY rather
+                    # than by anyone's discipline. It renders the LOOP'S
+                    # final lines, not the file's: the loop revises, and
+                    # rendering the input would present the draft the run
+                    # just improved on. The stamp is the convergence
+                    # declaration M-150 requires at presentation, emitted
+                    # by the verb itself so a faithful copy-paste carries
+                    # it — exit and stop reason in the verbs' own spelling,
+                    # unresolved lines named because a parked song shown
+                    # without its open lines reads as a finished one.
+                    _open = sorted(b.line_no for b in result.unresolved)
+                    _code = 3 if result.unresolved else 0
+                    print("\n  THE SONG, PERFORMANCE ORDER:\n")
+                    from quality import plan as PLN2
+                    print(PLN2.render_song(finish_plan,
+                                           result.lines).rstrip())
+                    print(f"\n  [FINISHED — seed {finish_seed} — "
+                          f"exit {_code} — {result.stop_reason.upper()} "
+                          f"after {len(result.rounds)} round(s) — "
+                          + (f"UNRESOLVED: "
+                             + ", ".join(f"L{n}" for n in _open)
+                             if _open else "no flag stands")
+                          + "]")
                 # EXIT 3 WHEN ANYTHING ACTIONABLE STANDS — 2026-08-17, the
                 # owner's order made a pipeline fact. `revise` used to exit 0
                 # on NO_PROGRESS with unresolved lines, so "the loop gave up"

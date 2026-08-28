@@ -266,10 +266,28 @@ DAY, by the owner's direct request: five `lyric_*` tools
 (standing rule 1 holds: zero shared state, subprocess-per-call over
 this CLI, stateless because a plan is a pure function of its seed), so
 the same tools reach every MCP client AND the website's Gemini chat
-(whose system prompt is the server's own instructions). `revise`/`loop`
+(whose system prompt is the server's own instructions). ~~`revise`/`loop`
 and `verify` are deliberately NOT wrapped yet (a 40-90s synchronous
-call is the wrong shape for chat); the seed sweep stays manual per the
-owner's pending ruling.
+call is the wrong shape for chat)~~ **STRUCK 2026-08-28 — BOTH ARE
+WRAPPED, AND THE DEFERRAL'S OWN REASON WAS THE DESIGN'S ANSWER
+(`MISSING.md` M-154, owner's directive "go, start on the seam")**:
+`lyric_verify` shipped earlier, and `lyric_revise` wraps the loop in
+the `defer:` shape, which is MADE for chat — the harness suspends at
+one question per call, the CALLER carries the state blob (the
+deferred-run record, replayable by anyone), and no response contains a
+song until the loop reaches a stop condition. The 40-90s objection
+named the synchronous-wait shape, and `defer:` never waits: measured
+34s to the first question, 4s to re-ask an unanswered one, 92s to fold
+an answer and advance. The CLI front door is the `finish` verb — the
+working order's last step as ONE command, the mandate read off the
+plan, the render structurally unreachable before a stop condition —
+and the loop's budget is a declared choice now (`--max-rounds`,
+`--attempts`, `--backtrack`: three `ReviseDeclaration` coordinates
+that were CLI-unreachable since the loop was written, the
+`--blueprint`-before-2026-08-11 species on the knobs that decide what
+a run costs); ~~the seed sweep stays manual per the
+owner's pending ruling~~ (struck long since — `plan --sweep` is M-82's
+verb and `lyric_sweep` wraps it; this clause outlived both).
 
 **AND THE WRAP'S FIRST FIELD FAILURE WAS DOCTRINE 48 AT THE CONNECTOR
 (2026-08-19).** The site's chat planned, wrote and graded a song whose

@@ -15560,3 +15560,115 @@ per-item apparatus convention for annotation blocks — and it is a
 corpus-loading question because the fix edits staged bytes, which
 every md5 row and count above then moves with. Until ruled, both
 instances stand and are named here rather than remembered.
+
+### M-154 · The revise loop was a step a writer COULD run, and nothing made it run `CLOSED` 2026-08-28 — the `finish` verb and the `lyric_revise` wrap: no rendered song without a stop condition
+
+**The owner's directive, verbatim: *"go, start on the seam"* — after
+naming the failure in their own words: the AI** *"will kind of just give
+up half way through and say something to the order of 'Here's the song
+as it is now, I found a ton of problems and here are the problems as
+well, would you like me to fix them'"* **— the revise phase left off, "several
+times."** The diagnosis that focused the build: every enforcement layer
+this tree had built around that failure was DISCLOSURE. M-150's gate
+makes an unconverged song say so when presented; the [GRADED] stamp
+carries the exit code; the ban's pair counts print unskippably — and
+nothing anywhere made the loop RUN. The loop was reachable from the CLI
+(`revise`) and reachable from the connector by NOTHING: `revise`/`loop`
+and `verify` were "deliberately NOT wrapped yet (a 40-90s synchronous
+call is the wrong shape for chat)" — CLAUDE.md's own record — so every
+song written through chat had the revise phase as a voluntary act of the
+model, which is exactly the population where it was watched being
+skipped.
+
+**THE BUILD, CLI half — `finish DRAFT --seed=N`, the working order's
+last step as one door.** It joins the shared grading block as a fifth
+verb: re-derives the plan from `--seed` and the SAME declarations `plan`
+takes (`--form/--lines/--relation/--functions/--title/--narrative` — the
+narrative spelling extracted to `_parse_narrative_flag`, ONE definition
+for both verbs, because a spelling living only in `plan`'s branch would
+have `finish` silently deriving a DIFFERENT plan), reads the mandate off
+the plan artifact spelled exactly as `grading_command` spells it and
+parsed by the SAME `_mandate_arg` every hand-typed mandate goes through,
+derives the blueprint by `fill_plan` and the subdivision from the plan's
+own declaration, and runs `revise_loop` to a STOP CONDITION. **THE
+RENDER CALL SITS AFTER THE LOOP'S RETURN**, so a suspended run (exit 4,
+the `defer:` proposer's question written to its state file) emits the
+writer's brief and NO song — structurally, not by discipline. Past a
+stop condition it renders `render_song` over the LOOP'S final lines
+(the loop revises; rendering the input would present the draft the run
+just improved on) under a `[FINISHED — seed N — exit E — STOP_REASON
+after R round(s) — UNRESOLVED: L…]` stamp — the convergence declaration
+M-150 requires, emitted by the verb itself so a faithful copy-paste
+carries it. Every second statement of a coordinate the plan owns REFUSES
+(`--blueprint`, `--subdivision`, `--groups`, a positional mandate…),
+because two statements of one cover is the drift doctrine 1 exists to
+end. **The two-tier ban rides in mechanically**: the loop's
+`MANDATORY_PURSUE` holds banned-pair lines open, so a draft cannot
+converge onto them — the "banned pairs are unskippable" stamp made a
+gate.
+
+**AND THE LOOP'S BUDGET IS A DECLARED CHOICE NOW — `--max-rounds`,
+`--attempts`, `--backtrack` on `revise` and `finish`.**
+`ReviseDeclaration.max_rounds`, `.attempts_per_line` and
+`.backtrack_width` were declared coordinates since the loop was written
+and reachable from the command line by NOTHING — the
+`--blueprint`-before-2026-08-11 species, on the three knobs that decide
+what a run COSTS. Measured on seed 16's 23-line filler draft: one grade
+is 60s; the default-budget loop exceeded 9m50s twice (the second time
+with `--attempts=0` alone, because tier 2's backtrack is `width**2`
+proposals each paying a verify); at `--attempts=0 --backtrack=0` the
+run reaches NO_PROGRESS in **65s** — an HONEST stop (the round asked
+nothing and fixed nothing; the stamp says NO_PROGRESS and names 12
+unresolved lines), never a shortcut through the gate. `--attempts=0` is
+legal on purpose: it is the "question never put at all" case the tier-1
+dead-end disclosure already names. `--max-rounds` floors at 1 — a loop
+that may run no round is `brief`.
+
+**THE BUILD, connector half — `lyric_revise`, the eighth lyric tool,
+and the deferral's own reason was the design's answer.** The 40-90s
+objection named the synchronous-WAIT shape; `defer:` never waits. Each
+call runs `finish --propose=defer:` ONCE: the CALLER carries the state
+blob (the harness's own deferred-run record — its `answered` block is a
+valid `--propose=replay:` file, so the song's provenance travels with
+the conversation and is replayable by anyone), and each call either
+returns `[AWAITING PROPOSAL — seed N — k answer(s) on record — NO SONG
+YET]` plus ONE question, or, past a stop condition, the rendered song
+under its `[FINISHED …]` stamp. **A forged state cannot yield a song**:
+every answer in the blob is REPLAYED through `verify()` on every call,
+and the render only ever comes from the verb's own run. MEASURED
+in-process: 34s to the first question, 4s to re-ask an unanswered one
+(the pre-loop suspension — the refusal to advance IS the enforcement,
+and it is idempotent), 92s to fold an answer and advance to the next
+question with `answers_on_record` 1. The state's bulk is
+`pending.prompt` (the FULL writer brief — 262KB measured), so the
+connector's cap is 2 MiB with the measurement beside it. Exit 4 joined
+the connector's `EXIT_MEANING` as its own code: a suspension is neither
+a verdict nor a failure. The instructions' working order gains step (4)
+and the sentence that names the failure: *"stopping at step (3) because
+the draft 'looks done' is the exact hand-wash the loop exists to end —
+the loop, not you, says when revision is over."* `lyric_grade`'s render
+is re-labelled the INTERIM graded draft in the same commit — finishing
+is `lyric_revise`'s stamp and nobody else's. Gemini needs no allowlist
+edit: its declarations derive from the live tool list.
+
+**WHAT IS DELIBERATELY NOT BUILT, recorded as non-builds:** (1)
+`lyric_grade` keeps its render — a graded interim draft must be
+showable, and its [GRADED] stamp already carries exit and ban counts;
+what moved is the CLAIM (interim, never finished). (2) Nothing gates
+`plan --fill` — it is the render PRIMITIVE and the tests' presentation
+route; the gate is that the FINISHED claim (the stamp vocabulary, the
+instructions, M-150's hook) belongs to the loop's verbs alone. (3) The
+per-call cost still pays subprocess-cold caches and a full replay per
+call — the warm-worker step the owner's wall-clock priority names next;
+this entry's measurements (60s/grade cold, 0.1s warm re-inspect in the
+record) are its opening figures.
+
+**Checks:** `test_verbs.py` §44 (refusals; the suspended run leaks no
+render — the seam's own claim; the stop-condition render stamped with
+the exit the process returns; the budget flags refuse off the loop
+verbs; the fixture built from the plan's own declared count),
+`mcp/test.mjs` (the eight-tool pin; live: a fresh revision suspends
+with the question and NO render anywhere in the response, the state
+round-trips and re-asks the IDENTICAL question, `answer` without
+`state` refuses). `wiring` holds the three sets equal at 32 verbs with
+`finish` on the map.

@@ -518,18 +518,19 @@ try {
       'lyric_check',
       'lyric_grade',
       'lyric_plan',
+      'lyric_revise',
       'lyric_screen',
       'lyric_sweep',
       'lyric_types',
       'lyric_verify',
     ],
-    'the seven lyric tools are advertised'
+    'the eight lyric tools are advertised'
   );
   for (const t of lyric) {
     assert.equal(t.annotations?.readOnlyHint, true, `${t.name} read-only`);
     assert.equal(t.annotations?.openWorldHint, false, `${t.name} closed-world`);
   }
-  console.log('  ok  lyric family advertised: 7 tools, read-only, closed-world');
+  console.log('  ok  lyric family advertised: 8 tools, read-only, closed-world');
   passed++;
 
   // DEPLOYMENT FRESHNESS HAS AN INSTRUMENT (M-127): check_live.mjs compares
@@ -797,6 +798,58 @@ try {
         drawnInBrief +
         ' relation(s) and the grade judged all of them (M-117)'
     );
+    passed++;
+
+    // `lyric_revise` — THE SEAM (M-154). The claims only this tool makes:
+    // a suspended call contains NO SONG anywhere in its output (the render
+    // exists structurally only past a stop condition of the loop), the
+    // question is the writer's brief, and the `state` blob round-trips —
+    // the server keeps nothing, so a re-call with the same unanswered state
+    // re-asks the SAME question rather than advancing or inventing one.
+    const rev1 = await client.callTool(
+      { name: 'lyric_revise', arguments: { seed: planSeed, draft } },
+      undefined,
+      LIVE_OPTS
+    );
+    assert.ok(!rev1.isError, 'lyric_revise answered without isError');
+    assert.equal(rev1.content.length, 2, 'revise returns two blocks: question, then verdict');
+    const q1 = rev1.content[0].text;
+    assert.ok(
+      q1.startsWith(`[AWAITING PROPOSAL — seed ${planSeed} — 0 answer(s) on record — NO SONG YET]`),
+      'a fresh revision suspends awaiting the first proposal'
+    );
+    assert.ok(
+      !q1.includes('[FINISHED') && !q1.includes('THE SONG, PERFORMANCE ORDER'),
+      'NO render reaches a suspended response — the seam holds'
+    );
+    const rv1 = JSON.parse(rev1.content[1].text);
+    assert.equal(rv1.exit_code, 4, 'suspension is exit 4, its own code — neither verdict nor failure');
+    assert.equal(rv1.status, 'awaiting_proposal', 'and says so in its own field');
+    const st1 = JSON.parse(rv1.state);
+    assert.ok(st1.pending && st1.pending.kind, 'the state carries the pending question');
+    // Round-trip: same state, no answer -> the SAME question, fast (the
+    // harness refuses to advance past an unanswered pending — that refusal
+    // IS the enforcement, and it must be idempotent or a retry would skip).
+    const rev2 = await client.callTool(
+      { name: 'lyric_revise', arguments: { seed: planSeed, draft, state: rv1.state } },
+      undefined,
+      LIVE_OPTS
+    );
+    const rv2 = JSON.parse(rev2.content[1].text);
+    assert.equal(rv2.exit_code, 4, 'an unanswered state re-suspends');
+    assert.equal(
+      JSON.parse(rv2.state).pending.prompt,
+      st1.pending.prompt,
+      'and re-asks the IDENTICAL question — the loop is resumed, not re-imagined'
+    );
+    // An answer with no state to answer is refused by the tool itself.
+    const revBad = await client.callTool(
+      { name: 'lyric_revise', arguments: { seed: planSeed, draft, answer: 'a line' } },
+      undefined,
+      LIVE_OPTS
+    );
+    assert.ok(revBad.isError, '`answer` without `state` refuses — there is no question it answers');
+    console.log('  ok  lyric_revise live: suspends with the question, no render, state round-trips');
     passed++;
 
     // `title` REACHES THE PLAN (MISSING.md M-93), and the only shape that

@@ -65,6 +65,17 @@ const MAX_MANDATE_CHARS = 400;
 const MAX_SWEEP_SEEDS = 512;
 const MAX_WANTS = 13; // = |SWEEP_MEASURES| + |SWEEP_SETS| + |SWEEP_ORDERS|
 const MAX_WANT_CHARS = 80;
+// lyric_revise: one answer may carry a whole tier-2 group (one `L<n>:` line
+// per member), so its ceiling is a group's worth of MAX_LINE_CHARS lines
+// with markers, not one line's. The state blob is the harness's own
+// deferred-run record; its bulk is `pending.prompt` — the writer's FULL
+// brief, whole-draft findings included — MEASURED at 262KB on a 23-line
+// filler draft's first question, so the cap is 2 MiB: an order of
+// magnitude over the measured case, still bounding what a client can make
+// this server re-parse. The answered records themselves are small (the
+// fold keeps the record, never the prompt).
+const MAX_ANSWER_CHARS = 4000;
+const MAX_STATE_CHARS = 2097152;
 
 // RAISED 90s -> 180s 2026-08-26: the whole-vocabulary default (M-116) made
 // a full plan->fill->grade round trip measurably slower — ~61s wall on a CI
@@ -157,6 +168,7 @@ const EXIT_MEANING = {
   0: 'answered — no flag stands',
   2: 'REFUSED — the harness did not answer; the report names why',
   3: 'answered — at least one FLAG stands; the report names the lines',
+  4: "SUSPENDED — the loop is waiting for a writer's answer; neither a verdict nor a failure",
 };
 
 // Pull the two-tier ban's pair findings out of a grade report by their own
@@ -504,6 +516,35 @@ export const LYRIC_TOOL_SCHEMAS = {
     title: titleField,
     draft: draftField,
   },
+  lyric_revise: {
+    seed: seedField,
+    form: formField,
+    lines: linesField,
+    relation: relationField,
+    functions: functionsField,
+    title: titleField,
+    draft: draftField,
+    state: z
+      .string()
+      .max(MAX_STATE_CHARS)
+      .optional()
+      .describe(
+        "The `state` string returned by this tool's previous call on this song, VERBATIM. It is the harness's own deferred-run record (every answer already given, replayable by anyone); the server keeps nothing between calls, so dropping it restarts the revision from zero answers. Omit on the first call."
+      ),
+    answer: z
+      .string()
+      .max(MAX_ANSWER_CHARS)
+      .optional()
+      .describe(
+        "The writer's answer to the pending question in `state` — exactly one line of song text for a single-line question, or one `L<n>: <line>` per member for a group question, markers required. It is parsed strictly and a malformed answer REFUSES rather than guessing which line goes where. Omit on the first call (there is no question yet)."
+      ),
+    max_rounds: z.number().int().min(1).max(8).optional()
+      .describe('The loop\'s round budget (ReviseDeclaration.max_rounds, default 4). Keep it CONSTANT across one song\'s calls — the run replays from zero each call, and a moved budget re-derives which questions arise.'),
+    attempts: z.number().int().min(0).max(6).optional()
+      .describe('Tier-1 attempts per flagged line (default 3). Same constancy rule as max_rounds.'),
+    backtrack: z.number().int().min(0).max(8).optional()
+      .describe('Tier-2 backtrack width (default 5). Same constancy rule as max_rounds.'),
+  },
   lyric_sweep: {
     seed_from: z
       .number()
@@ -679,7 +720,9 @@ export function registerLyricTools(server, tool) {
         '(form, lines, relation, functions, title — every one that was declared there must be declared here, or a ' +
         'DIFFERENT plan is graded), fills it with ' +
         'the draft, and grades — rhyme mandate, verbatim returns, meter fit, section functions, the slop floor. THE FIRST ' +
-        'CONTENT BLOCK OF THE RESULT IS THE FINISHED SONG in performance order: when presenting it, reproduce that block ' +
+        'CONTENT BLOCK OF THE RESULT IS THE GRADED DRAFT rendered in performance order — an INTERIM artifact, never a ' +
+        'finished song (finishing is lyric_revise, whose [FINISHED …] stamp only exists past a stop condition of the ' +
+        'revise loop): when presenting it, reproduce that block ' +
         "CHARACTER FOR CHARACTER, exactly as you present a recipe string — the bracket headers carry each section's " +
         'lines, bars, meter and pickup, and restyling them to bare [SECTION] deletes the measurements the format exists ' +
         'to carry, and the [GRADED — seed …] stamp line under the song is part of the block. The second block is the ' +
@@ -795,6 +838,122 @@ export function registerLyricTools(server, tool) {
           };
         }
         return { rendered_song: null, ...verdict };
+      })
+  );
+
+  tool(
+    server,
+    'lyric_revise',
+    {
+      title: 'Drive the revise loop to a stop condition (the finishing step)',
+      description:
+        'THE WORKING ORDER\'S LAST STEP, and the only tool whose output contains a FINISHED song. It drives the ' +
+        "harness's revise loop over the draft against the SAME plan lyric_plan drew (same seed, same declarations, " +
+        'or a DIFFERENT plan is revised): the loop grades, holds every flagged and banned line open, and ASKS — the ' +
+        'first content block of a suspended call is the writer\'s brief for ONE question (which lines, what they ' +
+        'must answer, which words are FORBIDDEN as too predictable). Answer it by calling again with the SAME ' +
+        'arguments plus `state` (returned verbatim by every call — the server keeps nothing) and `answer` (the new ' +
+        'line, or `L<n>:` lines for a group). THERE IS NO SONG IN ANY RESPONSE UNTIL THE LOOP REACHES A STOP ' +
+        'CONDITION: a suspended call returns [AWAITING PROPOSAL] and the question, structurally without a render, ' +
+        'so a song cannot be presented that the loop never certified. At a stop condition the first block is the ' +
+        'rendered song in performance order under its bracket headers with a [FINISHED — seed N — exit E — ' +
+        'STOP_REASON — ...] stamp: exit 0 is converged clean; exit 3 names the lines still open (a PARKED song — ' +
+        'present it only as parked, never as finished). The two-tier ban is enforced by the loop itself ' +
+        '(MANDATORY_PURSUE), not by a stamp: banned pairs hold their lines open and the loop keeps asking for ' +
+        'replacements. Each call re-runs the loop from its record (deterministic, so the same questions arrive in ' +
+        'the same order) — expect ~60-120s per call, growing with answers on record; keep any budget fields ' +
+        'constant across one song\'s calls.',
+      inputSchema: LYRIC_TOOL_SCHEMAS.lyric_revise,
+    },
+    (a) =>
+      withTempDir(async (dir) => {
+        checkLines(a.draft);
+        const draftPath = path.join(dir, 'draft.txt');
+        const statePath = path.join(dir, 'state.json');
+        await writeFile(draftPath, a.draft.join('\n') + '\n', 'utf8');
+        // The caller carries the record; the server keeps nothing. The blob
+        // is the harness's OWN deferred-run state (its `answered` block is a
+        // valid --propose=replay: file), so the revision is reproducible by
+        // anyone holding the conversation — and it cannot be forged into a
+        // finished song, because every answer in it is REPLAYED through
+        // verify() on this call and the render below only ever comes from
+        // the verb's own run past a stop condition.
+        if (a.state != null) {
+          let st;
+          try {
+            st = JSON.parse(a.state);
+          } catch {
+            throw refuse('`state` is not the JSON this tool returned — pass it back VERBATIM');
+          }
+          if (a.answer != null) {
+            if (!st || !st.pending)
+              throw refuse(
+                '`answer` was given and `state` holds no pending question — there is nothing it answers'
+              );
+            st.pending.answer = a.answer;
+          }
+          await writeFile(statePath, JSON.stringify(st, null, 2) + '\n', 'utf8');
+        } else if (a.answer != null) {
+          throw refuse('`answer` without `state` — the first call has no question to answer');
+        }
+        const args = ['finish', draftPath, ...planArgs(a), `--propose=defer:${statePath}`];
+        if (a.max_rounds != null) args.push(`--max-rounds=${a.max_rounds}`);
+        if (a.attempts != null) args.push(`--attempts=${a.attempts}`);
+        if (a.backtrack != null) args.push(`--backtrack=${a.backtrack}`);
+        const r = await runVerb(args);
+        if (r.code === 4) {
+          // Suspended: the verb wrote the state (question folded in) and
+          // printed the brief. NO RENDER EXISTS in this output — the verb's
+          // render call sits after the loop's return — so this branch has
+          // nothing to leak even if it tried.
+          const st = JSON.parse(await readFile(statePath, 'utf8'));
+          const onRecord =
+            st.answered.propose.length + st.answered.propose_group.length;
+          const head =
+            `[AWAITING PROPOSAL — seed ${a.seed} — ${onRecord} answer(s) on record — NO SONG YET]`;
+          return {
+            content: [
+              { type: 'text', text: `${head}\n\n${(st.pending && st.pending.prompt) || r.stdout}` },
+              {
+                type: 'text',
+                text: JSON.stringify({
+                  exit_code: 4,
+                  status: 'awaiting_proposal',
+                  kind: st.pending ? st.pending.kind : null,
+                  answers_on_record: onRecord,
+                  state: JSON.stringify(st),
+                }),
+              },
+            ],
+          };
+        }
+        if (r.code === 0 || r.code === 3) {
+          const m = r.stdout.match(
+            /THE SONG, PERFORMANCE ORDER:\n\n([\s\S]*?\[FINISHED[^\]]*\])/
+          );
+          const verdict = verdictOf(r);
+          verdict.status = r.code === 0 ? 'finished_clean' : 'stopped_with_open_lines';
+          try {
+            const st = JSON.parse(await readFile(statePath, 'utf8'));
+            verdict.answers_on_record =
+              st.answered.propose.length + st.answered.propose_group.length;
+            // A finished deferred run is a RECORDED run: hand the record
+            // back so the song's provenance travels with the conversation.
+            verdict.state = JSON.stringify(st);
+          } catch {
+            /* state unreadable: the verdict still stands on the verb's own run */
+          }
+          if (m) {
+            return {
+              content: [
+                { type: 'text', text: m[1] },
+                { type: 'text', text: JSON.stringify(verdict) },
+              ],
+            };
+          }
+          return verdict;
+        }
+        return verdictOf(r);
       })
   );
 
@@ -1015,11 +1174,18 @@ export const LYRIC_INSTRUCTIONS =
   'undeclared title leaves "is the title in the hook?" REFUSED and a declared one that is not a run of ' +
   'words inside the hook line is a FLAG; (3) lyric_grade with the SAME seed AND THE SAME DECLARATIONS ' +
   '(form, lines, relation, functions, title — a declaration dropped here grades a different plan) and ' +
-  'the draft — present the ' +
-  'rendered song VERBATIM with its bracket headers, then revise the flagged AND banned lines and grade ' +
-  'again. THE BAN IS UNSKIPPABLE: a grade verdict with banned_pairs above zero is the harness answering ' +
-  'NO — the song is not finished even at exit 0. Replace the banned end words (screen the replacements ' +
-  'with lyric_screen) and grade again; never present a song as finished while banned pairs stand. ' +
+  'the draft — its render is the INTERIM graded draft, and the [GRADED — seed …] stamp under it is a ' +
+  'grade, not a finish; (4) lyric_revise with the SAME seed and declarations, called repeatedly — it ' +
+  'drives the revise loop, asks one question per suspended call (answer with `state` passed back ' +
+  'verbatim plus `answer`), and returns a song ONLY past a stop condition, under a [FINISHED — seed … — ' +
+  'exit …] stamp. THE FINISHED SONG COMES FROM lyric_revise AND NOWHERE ELSE: a song presented without ' +
+  'its [FINISHED …] stamp is an interim draft and must be presented as one, and stopping at step (3) ' +
+  'because the draft "looks done" is the exact hand-wash the loop exists to end — the loop, not you, ' +
+  'says when revision is over. THE BAN IS UNSKIPPABLE: a grade verdict with banned_pairs above zero is ' +
+  'the harness answering ' +
+  'NO — the song is not finished even at exit 0, and inside lyric_revise those pairs hold their lines ' +
+  'open mechanically (MANDATORY_PURSUE). Replace the banned end words (screen the replacements ' +
+  'with lyric_screen) and keep answering; never present a song as finished while banned pairs stand. ' +
   'PRESENTATION IS PART OF THE CONTRACT: the first content block returned by lyric_grade and lyric_plan ' +
   'is the deliverable — reproduce it character for character, exactly as you reproduce a recipe string; ' +
   'the bracket headers ([CHORUS — 3 lines — 6 bars of 6/8, half-beat pickup]) are measurements, ' +
