@@ -1,0 +1,56 @@
+name: Flash battery
+
+# Runs scripts/flash_battery.mjs against the LIVE chat deployment and uploads
+# the JSONL transcripts as an artifact. Manual-only (workflow_dispatch): a
+# battery round spends real Gemini credit through the site's own rate-limited
+# /chat path, so a round is always a deliberate act, never a push side-effect.
+#
+# WHY A WORKFLOW AT ALL: the analyst's own container may sit behind a network
+# egress policy that cannot reach the Render host (GitHub is allowlisted,
+# onrender.com is not), while a GitHub runner has open egress. The driver is
+# the same committed instrument either way; only where it runs moves.
+
+on:
+  workflow_dispatch:
+    inputs:
+      songs:
+        description: 'How many songs to drive (briefs cycle)'
+        default: '3'
+        required: false
+      turns:
+        description: 'Max user turns per song'
+        default: '9'
+        required: false
+      pace:
+        description: 'Seconds between requests (the site allows ~30/hr/IP)'
+        default: '130'
+        required: false
+
+concurrency:
+  group: flash-battery
+  cancel-in-progress: false
+
+jobs:
+  battery:
+    runs-on: ubuntu-latest
+    # 3 songs x 9 turns at 130s pacing is ~1h; headroom for backoffs.
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Drive the battery against the live deployment
+        run: |
+          node scripts/flash_battery.mjs \
+            --out=battery-out \
+            --songs=${{ inputs.songs }} \
+            --turns=${{ inputs.turns }} \
+            --pace=${{ inputs.pace }}
+      - name: Upload the transcripts (the record IS the deliverable)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flash-battery-transcripts
+          path: battery-out/
+          retention-days: 30
