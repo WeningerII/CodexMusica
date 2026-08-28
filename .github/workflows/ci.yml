@@ -917,6 +917,20 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/counters.py --check
 
+      # THE SWEEP'S ARGV IS PROVEN, NOT ASSUMED (M-21's close, 2026-08-28).
+      # pin_sweep discovers instruments by the STRING `--check`; that string
+      # never promised the flag means "check your pins", and the entry
+      # stayed open on exactly that — a HOLDS could ride a flag that was an
+      # argparse error, a value-taking option, or a docstring mention. The
+      # classifier settles it on the AST: every unrowed instrument must
+      # PROVABLY consume bare `--check` as a boolean flag, and every
+      # CHECK_ARGV row's flag tokens verify the same way; anything else is
+      # refused BY NAME at exit 3. Seconds, not the hour the sweep takes.
+      - name: The pin sweep's argv-consumption proof (every instrument's check flag provably consumable, M-21)
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/pin_sweep.py --verify-argv
+
       # THE PROSE ANSWERS TO THE PIN (M-33, 2026-08-28). One joint AUC pair
       # was written in twelve places in quality/RESULTS.md and a careful
       # repin left seven stale — one labelled "COLD, current". The

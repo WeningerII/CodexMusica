@@ -3764,11 +3764,65 @@ reached through `song_profile_calibration.py --check`, and
 `phrase_commonplace.py` is drifted, so adding it would land a red job whose
 remedy is re-running a whole study.
 
-**THE ENTRY STAYS OPEN** on the half it names last: this is the QUESTION, and
+~~**THE ENTRY STAYS OPEN** on the half it names last: this is the QUESTION, and
 the sweep is only as complete as `CHECK_ARGV` is. Every instrument whose pin
 check is not a bare `--check` needs a row, and today exactly one is known
 because exactly one has been caught — the rest are `HOLDS` on a flag that may
-or may not be asking about a pin, and nothing yet proves which.
+or may not be asking about a pin, and nothing yet proves which.~~
+
+**CLOSED 2026-08-28 — the consumption is PROVEN on the AST, per instrument,
+and the proof is a CI step.** `pin_sweep.classify_consumption` classifies how
+a module consumes a flag — membership (`"--check" in sys.argv`), list
+equality (`argv == ["--check"]`), equality against an argv element, or
+`add_argument` split by whether it takes a value — and
+`pin_sweep.verify_argv` asks it of the whole discovered population: an
+instrument WITHOUT a `CHECK_ARGV` row must classify `boolean` for bare
+`--check`; provably-value-taking (the `audit_corpus` trap — its `--check`
+declares `default=None` and the classifier says `takes_value`, so the row
+that was earned by a false MOVED would now be DEMANDED before one) and
+UNCONSUMED (a docstring mention — discovery's string hit is not a
+consumption proof) both refuse BY NAME, and the remedy is a row or a
+classifier extension, a ruling either way (doctrine 20). A row's own flag
+tokens verify the same way (`--verify-shape` classifies `boolean` in
+`audit_corpus.py`); a non-flag token (`expected_drift`'s positional) is part
+of the declared ruling and is not second-guessed. **MEASURED over the
+population, which has grown 30 -> 43 since this entry's first run: 43 of 43
+certify, 0 refused.** `pin_sweep.py --verify-argv` runs it in seconds and
+exits 3 on any refusal; it joined the CI record-integrity job, so a new
+instrument whose flag the sweep cannot consume is red the push it lands.
+
+**AND THE SILENT PASS IS CLOSED WITH IT**: `run_one` now files exit 0 with
+NOTHING printed as CANNOT RUN (`evidence_kind: "silent exit 0"`) — a silent
+pass is indistinguishable from a dropped flag, the `meter TEMPLATE`
+empty-stdout shape aimed at the sweep itself.
+
+**THE PROOF'S FIRST TEST RUN FOUND THE ENTRY'S OWN DEFECT IN TWO MORE
+MEDIA.** `test_pin_sweep`'s end-to-end section runs `triage.py --check`, and
+it was RED AT HEAD: the register's closes had adopted the spelling
+`RESOLVED` (11 headings) and the status vocabulary existed in TWO copies
+that had diverged in two directions at once — `triage.MISSING_STATUS` knew
+`CLOSED` and not `WITHDRAWN`, `counters.MISSING_STATUSES` knew `WITHDRAWN`
+and not `RESOLVED` — so triage filed the resolved M-149 as CONTESTED while
+`counters.py`'s "MISSING entries by status" row CRASHED on the same
+headings. One fact, two media, the exact drift this entry names, in the
+instruments beside the one it was filed about. ONE DEFINITION NOW:
+`counters.MISSING_STATUSES` owns the vocabulary (it is the parser
+`verify_entries.py` already reads), `RESOLVED` joined it, and `triage.py`
+DERIVES its regex from that tuple — `RESOLVED` and `WITHDRAWN` are
+closed-family because `OPEN_STATUSES` does not name them, which also fixes
+a latent misfiling: a WITHDRAWN entry used to parse as no-status and
+surface as OPEN. The status counters row and the public-symbols row
+(1342 -> 1358 under this week's sittings) were re-derived by the row's own
+repair command, `counters.py --write`.
+
+**GATES:** `test_pin_sweep`'s new section classifies each REAL consumption
+style in this tree from the live sources (membership, list equality,
+store_true, the value-taking trap, the row's own flag), refuses the
+docstring-only mention, certifies the whole population non-vacuously, and
+runs the planted silent-exit-0 instrument through `run_one`. MUTATION,
+hand-proven: deleting `audit_corpus.py`'s `CHECK_ARGV` row makes
+`verify_argv` refuse that file by name with the takes-value complaint and
+reds the population check beside it.
 
 ~~**Owed: the question, not the answer.** A sweep that runs each instrument's
 own `--check` and prints the moved figures TOGETHER. It must not repair

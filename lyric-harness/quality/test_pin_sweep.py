@@ -402,6 +402,70 @@ def test_sweep_is_the_one_walk():
           seen == [True, False], seen)
 
 
+def test_the_argv_consumption_is_proven_not_assumed():
+    """M-21's CLOSE (2026-08-28). The entry stayed open on exactly this:
+    'the rest are HOLDS on a flag that may or may not be asking about a
+    pin, and nothing yet proves which.' `classify_consumption` settles it
+    on the AST and `verify_argv` asks it of the whole discovered
+    population: an unrowed instrument must PROVABLY consume bare `--check`
+    as a boolean flag; provably-value-taking or unconsumed refuses BY NAME.
+
+    MUTATION, hand-proven before this section shipped: deleting
+    `audit_corpus.py`'s CHECK_ARGV row makes `verify_argv` refuse that file
+    by name with the takes-value complaint (its `--check` declares
+    `default=None`, a value-taking option — the exact trap that earned the
+    row), and this section's population check reds beside it. Restoring
+    the row returns 0 complaints.
+    """
+    print("\nthe argv-consumption proof (M-21's close)")
+    # The classifier on each REAL consumption style in this tree, plus the
+    # two refusal shapes. Real sources, not fixtures, so a style drifting
+    # out from under the classifier moves a check here.
+    cases = [
+        ("quality/meter_bands.py", "--check", "boolean", "membership"),
+        ("quality/corpus_manifest.py", "--check", "boolean",
+         "list equality"),
+        ("quality/counters.py", "--check", "boolean", "argparse "
+         "store_true"),
+        ("quality/audit_corpus.py", "--check", "takes_value",
+         "argparse value-taking — the trap that earned the first row"),
+        ("quality/audit_corpus.py", "--verify-shape", "boolean",
+         "the row's own flag, verified the same way"),
+    ]
+    for rel, flag, want, why in cases:
+        with open(os.path.join(PS.ROOT, rel), encoding="utf-8") as f:
+            src = f.read()
+        got = PS.classify_consumption(src, flag)
+        check("%s consumes %s as %r (%s)" % (rel, flag, want, why),
+              got == want, "classified %r" % got)
+    check("a docstring-only mention is UNCONSUMED — discovery's string hit "
+          "is not a consumption proof (doctrine 20)",
+          PS.classify_consumption('"""run me with --check"""\nx = 1\n',
+                                  "--check") == "unconsumed")
+    got = PS.verify_argv()
+    check("the WHOLE discovered population certifies — every unrowed "
+          "instrument provably consumes bare --check, both rows' flag "
+          "tokens verify", got == [], "; ".join(c[:90] for c in got))
+    n = len(PS.discover(PS.ROOT))
+    check("...and the population is not vacuous — the proof examined the "
+          "instruments discovery finds", n >= 30, "discovered %d" % n)
+    # A silent exit 0 certifies nothing: run a planted instrument that
+    # consumes --check and prints NOTHING — the dropped-flag shape run_one
+    # must not read as HOLDS.
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        os.makedirs(os.path.join(tmp, "quality"), exist_ok=True)
+        with open(os.path.join(tmp, "quality", "quiet.py"), "w") as f:
+            f.write('import sys\n'
+                    'if "--check" in sys.argv:\n'
+                    '    sys.exit(0)\n')
+        row = PS.run_one("quality/quiet.py", root=tmp, timeout=60)
+        check("exit 0 with NOTHING printed is CANNOT RUN, never HOLDS — a "
+              "silent pass is indistinguishable from a dropped flag",
+              row["verdict"] == "CANNOT RUN"
+              and row["evidence_kind"] == "silent exit 0", row)
+
+
 if __name__ == "__main__":
     for fn in (test_the_sweep_cannot_repair,
                test_discovery_is_mechanical_and_the_exclusions_are_declared,
@@ -410,7 +474,8 @@ if __name__ == "__main__":
                test_the_two_false_verdicts_the_first_full_run_produced,
                test_it_runs_one_instrument_end_to_end,
                test_an_interrupted_sweep_reports_what_it_ran,
-               test_sweep_is_the_one_walk):
+               test_sweep_is_the_one_walk,
+               test_the_argv_consumption_is_proven_not_assumed):
         fn()
     print("=" * 66)
     if FAILURES:

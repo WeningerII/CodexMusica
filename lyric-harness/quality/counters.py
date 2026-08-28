@@ -448,7 +448,17 @@ def _derivation(out, ident):
 # ---------------------------------------------------------------------------
 
 
-MISSING_STATUSES = ("OPEN", "PARTIAL", "BLOCKED", "CLOSED", "WITHDRAWN")
+#: THE ONE STATUS VOCABULARY, owned here because this module's parser is the
+#: one `verify_entries.py` already reads — and since 2026-08-28
+#: `triage.py` derives its own status regex from THIS tuple instead of
+#: keeping a second spelling. The day that mattered: the register's closes
+#: adopted `RESOLVED` (11 headings) and the two copies diverged in two
+#: directions at once — triage knew CLOSED and not WITHDRAWN, this tuple
+#: knew WITHDRAWN and not RESOLVED — so this counter CRASHED while triage
+#: filed a resolved entry as CONTESTED, one fact, two vocabularies,
+#: exactly the two-media drift M-21 names (doctrine 1).
+MISSING_STATUSES = ("OPEN", "PARTIAL", "BLOCKED", "CLOSED", "WITHDRAWN",
+                    "RESOLVED")
 
 
 def missing_entry_statuses():
