@@ -7126,11 +7126,16 @@ def main():
                 assert n > 0
             except (ValueError, AssertionError):
                 _refuse("--top takes a positive integer", detail=[_usage])
+            _rels = sorted({r.get("relation", "") for r in rows})
             print(f"  CAPACITY: the {min(n, len(rows))} deepest rhyme "
                   f"families of {len(rows)} — chain_hi is the spelling-"
                   f"class count (tier 1's ceiling: an earned scheme group "
                   f"needs distinct spellings), chain_lo is the size of a "
                   f"witness clique THE GRADER ITSELF accepted")
+            print(f"  relation: {', '.join(_rels)} — a capacity is a "
+                  f"coordinate of its relation (M-41); the other "
+                  f"partitions are `python3 quality/capacity.py "
+                  f"--families=RELATION`, uncertified")
             for r in rows[:n]:
                 lo = (f"chain_lo {r['chain_lo']}" if r["certified"]
                       else "uncertified (below the certification floor)")
@@ -7159,7 +7164,8 @@ def main():
             classes = fams.get(key, {})
             mine = rv._spelled_rime(word)
             mates = classes.get(mine, [])
-            print(f"  CAPACITY of {word!r}: family {label} — "
+            print(f"  CAPACITY of {word!r}: family {label} under "
+                  f"relation {CAP.ADOPTED_RELATION} — "
                   f"{sum(len(v) for v in classes.values())} word(s), "
                   f"{len(classes)} spelling class(es) = chain_hi "
                   f"{len(classes)}")

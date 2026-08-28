@@ -1568,6 +1568,18 @@ until ruled.
     counterexample (`door`/`the door` share the line-final unit at gap
     0) — so the sitting that takes them must first measure whether the
     sweep's pair enumeration can produce that gap-0 case at all.
+16. **M-41 — which relations deserve a CERTIFIED capacity table?** The
+    relation coordinate is carried since 2026-08-28 (the family counts
+    for all four of `ADMITTABLE_RELATIONS` are
+    `python3 quality/capacity.py --families=RELATION`, uncertified),
+    but a certified `chain_lo` — witness cliques graded through the
+    real Reviser — exists only under RHYME, and each further relation
+    prices at hours of grading (the RHYME derivation is ~an hour).
+    Assonance's 15 families with a median of 2,382 words are the
+    extreme case: the ban and the modal tier would cut them hard, and
+    nobody has measured to what. Rule which, if any, are worth paying
+    for; until then the artifact stays RHYME-only and says so on every
+    row.
 
 ---
 

@@ -161,6 +161,23 @@ cause this time took re-grading the witnesses under both tables.
    > `classify_pair` may cut any of them finer. That caveat does not touch the
    > finding, which is that the count is a function of a relation this
    > sentence did not name.
+   >
+   > **BUILT 2026-08-28 (`MISSING.md` M-41's ladder step 5, the cheap
+   > half).** The relation is a DECLARED coordinate of the layer now:
+   > `capacity.families(reviser, relation=...)` keys by
+   > `RELATION_KEYS` (the four keys above, verbatim, promoted from this
+   > block's one-off script to the implementation — and the vocabulary
+   > is checked against `ADMITTABLE_RELATIONS` at import, so a capacity
+   > can only be partitioned under a relation a mandate can admit); the
+   > artifact's rows LEAD with a `relation` column and `read_table`
+   > refuses a table without it; the verb prints the coordinate; and
+   > this block's table re-derives as `python3 quality/capacity.py
+   > --families=RELATION` — every cell above reproduced exactly on the
+   > build day (`test_capacity` §7 pins all four rows). The EXPENSIVE
+   > half — a certified `chain_lo` under a non-RHYME relation, priced
+   > at hours of grading per relation — is deliberately not built: which
+   > relations are worth paying for is the owner's ruling, parked in
+   > `BACKLOG.md` RULINGS WANTED.
 2. **Secondary-stress clusters are the deep water.** Under the judge's
    own rules the -ate/-ee/-ine families are tier-1 deep (EY-T: 192
    classes; IY: 228 classes), because the spelled rime anchors at the

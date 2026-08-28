@@ -45,11 +45,16 @@ harness's own reader. Capacity of the LIVING vocabulary; a rarer word
 is hand-reachable and simply not counted here.
 
 WHAT THE NUMBERS SAY (derived 2026-08-18; `ADOPTED` below, re-derived
-exactly by `--check`). English is narrow: 12,387 families, and only a
-handful support a long single-sound earned chain — the distribution's
-tail is in `data/rhyme_capacity_eng.tsv`. The ten-line dense verse
-therefore REQUIRES family switching; that is now a derived fact about
-the language, not a stylistic observation.
+exactly by `--check`). English is narrow UNDER PERFECT RHYME: 12,387
+families, and only a handful support a long single-sound earned chain —
+the distribution's tail is in `data/rhyme_capacity_eng.tsv`. The
+ten-line dense verse therefore REQUIRES family switching; that is a
+derived fact about the language AND the relation, and the relation is
+the coordinate the first rendering of this sentence dropped (M-41):
+the identical population partitions into families whose count moves by
+two orders of magnitude with the relation (`--families=RELATION` — 15
+under assonance against 12,387 under perfect rhyme), so every capacity
+number here names its relation and the certified figures are RHYME's.
 
 WHAT THIS DOES NOT LICENSE. Nothing here grades a draft (stage 2, the
 earned-event counter, is deliberately unbuilt pending the owner's
@@ -62,6 +67,11 @@ Run:   python3 quality/capacity.py --derive [--parts=DIR]  (writes the table)
                                                             + re-certifies the
                                                             sample; exits 1 on
                                                             any drift)
+       python3 quality/capacity.py --families=RELATION     (UNCERTIFIED family
+                                                            counts under a
+                                                            declared relation —
+                                                            M-41's comparison
+                                                            row as a command)
 Verb:  python3 lyric_harness.py capacity WORD | --top=N
 Test:  python3 quality/test_capacity.py
 """
@@ -187,8 +197,93 @@ def _rime_key(phones):
     return tuple(p.rstrip("012") for p in phones[anchor:])
 
 
+def _vowel_anchor(phones):
+    """Index of the rhyming syllable's vowel — the comparator's anchor
+    (`_rime_key`'s own rule, factored so the relation keys below share
+    ONE anchor rather than four spellings of it)."""
+    vidx = [i for i, p in enumerate(phones) if p[-1:].isdigit()]
+    if not vidx:
+        return None
+    for i in reversed(vidx):
+        if phones[i][-1] in "12":
+            return i
+    return vidx[-1]
+
+
+def _assonance_key(phones):
+    """The anchor NUCLEUS alone — what ASSONANCE holds constant."""
+    a = _vowel_anchor(phones)
+    return None if a is None else (phones[a].rstrip("012"),)
+
+
+def _consonance_key(phones):
+    """The consonants from the anchor to the end — what CONSONANCE holds
+    constant. An OPEN final syllable keys `()`: every open-coda word
+    shares "no coda", which is one family on purpose rather than an
+    exclusion — excluding them would shrink the population under one
+    relation and the comparison table would stop being over one set."""
+    a = _vowel_anchor(phones)
+    if a is None:
+        return None
+    return tuple(p for p in phones[a + 1:] if not p[-1:].isdigit())
+
+
+def _rime_riche_key(phones):
+    """The WHOLE word's phones, onset included, stress stripped — two
+    words in one family sound identical (bare/bear)."""
+    return tuple(p.rstrip("012") for p in phones)
+
+
+#: THE RELATION IS A COORDINATE OF EVERY CAPACITY NUMBER (M-41). Each key is
+#: the obvious phonological rendering of its relation over the comparator's
+#: own anchor — written HERE, not derived from `rhyme_types.classify_pair`,
+#: which may cut any of them finer; the keys say what was counted and the
+#: certified path still runs only under RHYME (see `derive`). The name set
+#: is checked against `ADMITTABLE_RELATIONS` at import below, because a
+#: capacity under a relation the mandate door cannot admit would be a number
+#: about nothing a writer can declare.
+RELATION_KEYS = {
+    "RHYME": _rime_key,
+    "ASSONANCE": _assonance_key,
+    "CONSONANCE": _consonance_key,
+    "RIME_RICHE": _rime_riche_key,
+}
+
+#: The relation the SHIPPED artifact and every ADOPTED constant are derived
+#: under. One spelling, read by `derive`, the artifact rows and the verb.
+ADOPTED_RELATION = "RHYME"
+
+
+def _check_relation_vocabulary():
+    from lyric_harness import ADMITTABLE_RELATIONS
+    if set(RELATION_KEYS) != set(ADMITTABLE_RELATIONS):
+        raise AssertionError(
+            "RELATION_KEYS %r != ADMITTABLE_RELATIONS %r — the capacity "
+            "layer's relation vocabulary must be the mandate door's"
+            % (sorted(RELATION_KEYS), sorted(ADMITTABLE_RELATIONS)))
+
+
+_check_relation_vocabulary()
+
+
+def relation_key(relation):
+    """-> the key function for a DECLARED relation name, or refuse."""
+    try:
+        return RELATION_KEYS[relation]
+    except KeyError:
+        raise ValueError(
+            f"undeclared relation {relation!r} — capacity is derived under "
+            f"one of {sorted(RELATION_KEYS)}") from None
+
+
 def population(lex):
-    """-> {word: phones} over the declared population (module docstring)."""
+    """-> {word: phones} over the declared population (module docstring).
+
+    Membership is gated on the RHYME key alone, whatever relation a
+    caller then partitions by — the four family counts are comparable
+    only because they are taken over ONE population (M-41's own table is
+    'over the identical population'), and the RHYME key's gate is 'the
+    word carries a rhymable syllable at all'."""
     out = {}
     for w in lex.freq_rank:
         if not w.isalpha() or len(w) < 2:
@@ -199,17 +294,45 @@ def population(lex):
     return out
 
 
-def families(reviser):
-    """-> {family_key: {spelled_rime: [words, most frequent first]}}."""
+def families(reviser, relation=ADOPTED_RELATION):
+    """-> {family_key: {spelled_rime: [words, most frequent first]}}.
+
+    `relation` is a DECLARED coordinate (M-41): the family count moves by
+    two orders of magnitude depending on it, so no caller gets a
+    partition without naming which one. The default reproduces the
+    shipped artifact byte-for-byte."""
+    key_fn = relation_key(relation)
     lex = reviser.lex
     pop = population(lex)
     fams = defaultdict(lambda: defaultdict(list))
     for w, phones in pop.items():
-        fams[_rime_key(phones)][reviser._spelled_rime(w)].append(w)
+        fams[key_fn(phones)][reviser._spelled_rime(w)].append(w)
     for classes in fams.values():
         for words in classes.values():
             words.sort(key=lambda x: lex.freq_rank.get(x, 10 ** 9))
     return fams
+
+
+def family_summary(reviser, relation):
+    """-> {relation, families, singletons, max, mean, median} — the M-41
+    comparison row, as a command instead of a one-off script. Counts
+    FAMILIES only; nothing here certifies, because a family of 2,382
+    assonance partners is emphatically not 2,382 usable ones (the ban,
+    the modal tier and the judge all still cut it), and certified
+    capacity under a non-RHYME relation awaits the owner's ruling on
+    which relations are worth the grading cost (BACKLOG RULINGS WANTED).
+    """
+    fams = families(reviser, relation=relation)
+    sizes = sorted(sum(len(v) for v in c.values()) for c in fams.values())
+    n = len(sizes)
+    return {
+        "relation": relation,
+        "families": n,
+        "singletons": sum(1 for s in sizes if s == 1),
+        "max": sizes[-1] if sizes else 0,
+        "mean": (sum(sizes) / n) if n else 0.0,
+        "median": sizes[n // 2] if n else 0,
+    }
 
 
 def fam_label(key):
@@ -322,12 +445,19 @@ def derive(reviser=None, certify_min=CERTIFY_MIN_CLASSES, parts_dir=None,
     if reviser is None:
         from quality.revise import Reviser
         reviser = Reviser()
-    fams = families(reviser)
+    # THE ARTIFACT IS DERIVED UNDER ONE DECLARED RELATION AND SAYS SO ON
+    # EVERY ROW (M-41). Deriving it under another is not a parameter here
+    # on purpose: the certified half prices at hours of grading per
+    # relation and which relations are worth paying for is the owner's
+    # ruling (BACKLOG RULINGS WANTED); the uncertified family counts for
+    # the other three are `--families=RELATION`, which writes nothing.
+    fams = families(reviser, relation=ADOPTED_RELATION)
     rows = []
     todo = sorted(fams.items(), key=lambda kv: (-len(kv[1]), fam_label(kv[0])))
     for key, classes in todo:
         n_classes = len(classes)
         row = {
+            "relation": ADOPTED_RELATION,
             "family": fam_label(key),
             "words": sum(len(v) for v in classes.values()),
             "classes": n_classes,
@@ -366,7 +496,11 @@ def derive(reviser=None, certify_min=CERTIFY_MIN_CLASSES, parts_dir=None,
     return rows
 
 
-COLUMNS = ("family", "words", "classes", "chain_hi", "certified",
+#: `relation` leads the row (M-41): two capacity numbers can never again be
+#: read against each other without the reader seeing which relation each is
+#: about. `read_table` asserts the columns, so a table without the
+#: coordinate is unreadable rather than silently read as RHYME.
+COLUMNS = ("relation", "family", "words", "classes", "chain_hi", "certified",
            "chain_lo", "witness", "examples")
 
 
@@ -496,6 +630,12 @@ def check():
                                  len(classes))
     bad = []
     for r in rows:
+        # THE COORDINATE IS VERIFIED, NOT ASSUMED (M-41): every artifact
+        # row must name the adopted relation — `read_table` already made
+        # a missing column unreadable, and this makes a WRONG value loud.
+        if r.get("relation") != ADOPTED_RELATION:
+            bad.append(f"{r['family']}: relation {r.get('relation')!r} "
+                       f"is not the adopted {ADOPTED_RELATION!r}")
         got = fresh.pop(r["family"], None)
         if got != (r["words"], r["classes"]):
             bad.append(f"{r['family']}: table says {r['words']}w/"
@@ -565,6 +705,24 @@ def check():
 if __name__ == "__main__":
     if "--check" in sys.argv:
         sys.exit(check())
+    for a in sys.argv:
+        if a.startswith("--families="):
+            rel = a.split("=", 1)[1]
+            try:
+                relation_key(rel)
+            except ValueError as e:
+                print(f"REFUSED — {e}")
+                sys.exit(2)
+            from quality.revise import Reviser
+            s = family_summary(Reviser(), rel)
+            print(f"  FAMILY COUNTS under relation {s['relation']} — "
+                  f"UNCERTIFIED tier-1 partition of the identical "
+                  f"population (M-41); certified capacity exists only "
+                  f"under {ADOPTED_RELATION} pending the owner's ruling")
+            print(f"  families {s['families']}   singletons "
+                  f"{s['singletons']}   max {s['max']}   "
+                  f"mean {s['mean']:.1f}   median {s['median']}")
+            sys.exit(0)
     if "--derive" in sys.argv:
         parts, budget = None, None
         for a in sys.argv:

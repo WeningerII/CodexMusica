@@ -4334,6 +4334,22 @@ fragments sat in its lines — so those banked cell figures predate the
 reader and say so here; re-measuring them is M-40's business on its next
 sitting, not a silent edit to banked rows.
 
+**ADDENDUM 2026-08-28 (found by M-41's sitting, the same day): the list
+of named re-runs above was SHORT BY ONE, and the missing one had its own
+alarm that nobody read.** This close's frequency-table rebuild moved the
+two md5s that `capacity.py`'s judge fingerprint records — the exact
+dependence the 66eb44e day cost a day to locate and the artifact was
+taught to CARRY so the next rebuild would be locatable. It was locatable;
+it was not LOOKED AT: `capacity.py --check` (nightly lane) has reported
+THE JUDGE MOVED since this commit, and neither this close nor M-152's
+(which rebuilt the tables again) named the capacity artifact among their
+re-runs. The fourth-or-fifth instance of a sitting's movement found by a
+later sitting's sweep, this time with the alarm already built and firing
+into a lane nobody was standing in. Being discharged by M-41's sitting —
+the full re-derivation under the current judge (and under M-41's new
+relation column) was IN FLIGHT at this addendum's commit, and its
+outcome lands in that entry, not here.
+
 ### M-45 · A replicate draw that produced no VALUE is counted nowhere, so a p is drawn at an n nobody printed `CLOSED` 2026-08-28 — the void kind has its own counter, and the worst recorded row reproduces with the shortfall attributed
 **Found independently by TWO agents in the same batch — one re-running the
 stanza-framed schemas, one measuring the poet cells — which is why it is filed

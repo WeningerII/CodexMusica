@@ -279,7 +279,8 @@ def test_the_judge_is_recorded():
                                                      for c in v))
               for v in fp.values()), str(fp))
 
-    rows = [{"family": "AY", "words": 2, "classes": 2, "chain_hi": 2,
+    rows = [{"relation": CAP.ADOPTED_RELATION, "family": "AY", "words": 2,
+             "classes": 2, "chain_hi": 2,
              "certified": 0, "chain_lo": "", "witness": "", "examples": "sky"}]
     with tempfile.TemporaryDirectory() as d:
         path = os.path.join(d, "t.tsv")
@@ -307,10 +308,85 @@ def test_the_judge_is_recorded():
               CAP.read_judge(path) is None, repr(CAP.read_judge(path)))
 
 
+def test_the_relation_is_a_coordinate():
+    """§7 — M-41 (2026-08-28): the family count is a function of a relation
+    the headline used to drop. Every capacity number now names its
+    relation: the artifact rows carry it, `read_table` refuses a table
+    without the column, `families()` takes it as a declared coordinate,
+    and the entry's own comparison table re-derives as a command."""
+    print("\n7. the relation is a coordinate of every capacity number "
+          "(M-41, 2026-08-28)")
+    import tempfile
+
+    from lyric_harness import ADMITTABLE_RELATIONS
+    check("the relation vocabulary IS the mandate door's — one definition, "
+          "checked at import (a capacity under a relation no mandate can "
+          "admit would be a number about nothing a writer can declare)",
+          set(CAP.RELATION_KEYS) == set(ADMITTABLE_RELATIONS),
+          f"{sorted(CAP.RELATION_KEYS)}")
+
+    try:
+        CAP.relation_key("SLANT")
+        refused = False
+    except ValueError as e:
+        refused = "SLANT" in str(e) and "RHYME" in str(e)
+    check("an undeclared relation REFUSES naming itself and the vocabulary",
+          refused)
+
+    # M-41's OWN COMPARISON TABLE, re-derived over the identical
+    # population — the measurement that carried the entry is a command
+    # now (`--families=RELATION`) and these are its pinned rows.
+    for rel, want in (
+            ("RHYME", (12387, 8131, 399, 1)),
+            ("ASSONANCE", (15, 0, 5269, 2382)),
+            ("CONSONANCE", (3527, 1905, 2002, 1)),
+            ("RIME_RICHE", (37462, 35471, 7, 1))):
+        s = CAP.family_summary(R, rel)
+        got = (s["families"], s["singletons"], s["max"], s["median"])
+        check(f"{rel}: families/singletons/max/median pin at {want} — "
+              + ("the shipped partition" if rel == "RHYME" else
+                 "the object the narrowness sentence is about, two orders "
+                 "of magnitude away" if rel == "ASSONANCE" else
+                 "declared key, measured here"),
+              got == want, f"{got}")
+    check("fifteen assonance families is about the stressed vowel "
+          "inventory of English — the sanity check that the key is the "
+          "right one rather than an artefact (M-41's own words)",
+          CAP.family_summary(R, "ASSONANCE")["families"] == 15)
+
+    check("the default partition IS the adopted relation's — "
+          "families() with nothing declared reproduces families("
+          "relation='RHYME') family-for-family",
+          len(CAP.families(R)) == 12387)
+
+    # THE ARTIFACT CARRIES THE COORDINATE ON EVERY ROW, and a table
+    # WITHOUT the column is unreadable rather than silently read as
+    # RHYME (the mutation: yesterday's schema).
+    rows = CAP.read_table()
+    check("every committed row names the adopted relation",
+          all(r["relation"] == CAP.ADOPTED_RELATION for r in rows),
+          f"{sorted({r['relation'] for r in rows})}")
+    with tempfile.TemporaryDirectory() as d:
+        path = os.path.join(d, "old_schema.tsv")
+        old_cols = tuple(c for c in CAP.COLUMNS if c != "relation")
+        with io.open(path, "w", encoding="utf-8") as fh:
+            fh.write("\t".join(old_cols) + "\n")
+            fh.write("AY\t2\t2\t2\t0\t\t\tsky\n")
+        try:
+            CAP.read_table(path)
+            unreadable = False
+        except AssertionError:
+            unreadable = True
+        check("MUTATION: a relation-less table (yesterday's schema) is "
+              "REFUSED at read — the coordinate cannot be dropped by "
+              "shipping an old file",
+              unreadable)
+
+
 if __name__ == "__main__":
     for fn in (test_the_anchor, test_tier1, test_the_crown,
                test_determinism_and_bounds, test_the_verb,
-               test_the_judge_is_recorded):
+               test_the_judge_is_recorded, test_the_relation_is_a_coordinate):
         fn()
     print("=" * 62)
     if FAILURES:
