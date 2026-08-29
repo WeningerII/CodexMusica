@@ -2249,7 +2249,11 @@ PINNED = {
     # workspace treatment on the Gemini path — the Flash battery's
     # pre-flight finding), and this time the pin was told in the same
     # sitting as the entry.
-    "coverage_entries": 214,
+    # ~~214~~ -> 215, same day again: M-157 (the deployed instance was
+    # sized below its own instrument — the Flash battery's first LIVE
+    # finding, measured to 826-882 MB against a 512 MB box), pin told
+    # in the entry's own sitting.
+    "coverage_entries": 215,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

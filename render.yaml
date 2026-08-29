@@ -12,7 +12,19 @@ services:
     # ALSO bound to a source branch in Render's UI — repoint that to main too
     # (Blueprint → settings) before deleting any feature branch.
     branch: main
-    plan: starter
+    # STANDARD (2 GB) BECAUSE STARTER (512 MB) CANNOT SERVE ONE CALL — M-157.
+    # The flash battery's first two live rounds each OOM-killed the Starter
+    # instance ("Instance failed: Ran out of memory (used over 512MB)", one
+    # event per round, Render's own log), and the peaks were then measured
+    # with the connector's exact argv: 826-882 MB for a single lyric_grade or
+    # lyric_revise call, FLAT from the planner's 22-line floor to 50 lines —
+    # the cost is the lexicon-wide candidate machinery, not the draft, so no
+    # song the planner can emit fits 512 MB. scripts/check_deploy_memory.js
+    # holds this line to the measured band (peak x declared margin) in CI;
+    # scripts/measure_verb_memory.py re-derives the band. Changing this line
+    # changes the service's billing tier when the Blueprint is synced — it is
+    # a spending decision, and merging it is how the decision is made.
+    plan: standard
     healthCheckPath: /health
     # OFF SINCE 2026-08-27, AND THE REPLACEMENT IS A WORKFLOW, NOT A DASHBOARD.
     #
