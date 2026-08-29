@@ -16749,3 +16749,62 @@ its own unmodified code fires on 2,079 lines (46.4%), which is the
 measurement of how far its question sat from this one. Whether to
 repoint that gate is left open rather than settled here. The register
 pin: `audit_register.coverage_entries` ~~228~~ -> 229 (2026-08-29).
+
+### M-172 · M-170's largest loss is worth 7%, not 69% — the cache already had it, and the audit's own route to the stuck regime does not reach it `CLOSED` 2026-08-29 — the measurement M-170 §5 asked for, run the same sitting
+**M-170 RANKED ITS OWN BIGGEST ITEM ON A CAVEAT IT COULD NOT PRICE, and
+this closes that gap in the direction that costs the ranking.** §5 items
+1 and 3 asked for a fold on a heavily-flagged draft and a stub of the
+`MODAL_RHYME` pair scan. Both were run; the scan is **not** worth ~41s
+of a 59.5s fold.
+**THE STUB, on a `cp -a` scratch tree differing only in `revise.py`
+:2789-2790**: bare 37.705s against 40.510s unstubbed, three cold reps
+each — **2.805s, 6.92% of a fold**. PROFILED the same stub reads
+−12.62%, so **the profiler nearly doubles the apparent prize** and
+§3's "~41s of the 59.5s bare" is struck: a saving that size is not
+available at any regime.
+**AND THE REASON IS NOT THE REGIME — IT IS `_field_cache`, which M-170
+cited as the refutation of a different claim and did not carry here.**
+With and without the scan the fold builds **22 distinct candidate
+pools** and calls `score` **1,645,064 times, to the digit**: the scan
+causes no extra pool build, because `brief()` rebuilds every one of
+those 22 fields anyway for the writer's menus. What the stub removes is
+**160 post-cache `joint_field` passes at ~17.5ms** — which is M-170's
+own freebie #9 (the double `_spelled_rime` walk it priced at 8–16ms a
+call), not the field builds at all. Loss 1 ranks below the freebies it
+turns out to consist of.
+**THE REGIME CAVEAT IS CONFIRMED AND SHARPENED**: `modal_field` goes
+**160 calls -> 0** when every pair violates, so the scan does not
+merely fire less, it stops. But the candidate-field SHARE is 56.3% in
+that regime against 56.7% in the passing one — the money is still
+there, in `brief()`'s menus, which M-170 itself calls necessary. The
+regime changes WHO PAYS, not how much.
+**AND M-170'S ROUTE INTO THAT REGIME IS REFUTED.** "Deliberately
+non-rhyming line endings will do it" is false on this tree: two drafts
+built pairwise `NO_RELATION` by this tree's own comparator still had
+**39 of 60 and 40 of 60 mandated pairs RESCUED** by M-116's
+whole-vocabulary default (internal rhyme, chain rhyme, head rhyme,
+anaphora). Reaching the flagged regime needs a DECLARED relation —
+which the live planner path supplies since M-117 and M-170's fold lane
+did not. **Any statement about "what a stuck run costs" that assumes a
+bare mandate is measuring the RESCUED regime**, and the rescue itself
+is 10.0% of a fold that a declared relation removes entirely.
+**TWO MORE REPINS.** The slop floor is **26.2–33.5%** here
+(`features.py:330 _predictability`, ~30s absolute in every arm)
+against M-170's 13.7% — the second-largest item on this shape and
+untouched by anything in its recommended order. And M-170's
+`2,360,149 score` calls / 37 builds do NOT reproduce (1,645,064 / 22):
+both are shape-dependent and must not be carried to another draft.
+**THE AUDIT'S OWN PUBLISHED COMMAND DOES NOT RUN.** `python3 -m
+cProfile lyric_harness.py revise …` exits 1 in 1.0s —
+under `-m cProfile` `__main__` IS cProfile, so `lyric_harness.py`'s
+`sys.modules.setdefault("lyric_harness", sys.modules["__main__"])`
+aliases the harness name to the profiler and `quality/loop.py:290`
+dies on the import. Profiling has to go through a runner that imports
+the harness under its real name. A recipe nobody re-ran, in the
+document telling the next session how to measure.
+**WHAT STAYS UNMEASURED**: whether the stub is answer-preserving on a
+draft that DOES emit `MODAL_RHYME` — neither of these does, and both
+emitted zero, so byte-identical stdout (md5 `1539ad6f15ef3b96`) is an
+observation on these drafts and not a proof; the blueprint fold
+(M-170 §5 item 2) is still unrun. The register pin:
+`audit_register.coverage_entries` ~~229~~ -> 230 (2026-08-29).

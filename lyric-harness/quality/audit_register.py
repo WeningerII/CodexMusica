@@ -2323,7 +2323,14 @@ PINNED = {
     # seed 88291 among them; WORDS_LEFT_FREE = 1 repairs the unit error,
     # 0.0% after with 0 seeds lost, and the suite pin that permitted it
     # via `<=` is repointed), pin told in the entry's own sitting.
-    "coverage_entries": 229,
+    # ~~229~~ -> 230, same day: M-172 (M-170's largest loss re-measured
+    # and cut by an order of magnitude — the MODAL_RHYME scan stub saves
+    # 6.92% of a bare fold, not the ~69% profiled share, because
+    # _field_cache already collapses it to 22 builds that brief() pays
+    # for anyway; the audit's route into the stuck regime is refuted by
+    # the 77-schema rescue, and its published profiling command does not
+    # run), pin told in the entry's own sitting.
+    "coverage_entries": 230,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;
