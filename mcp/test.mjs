@@ -623,6 +623,23 @@ check('validation: actionable errors', () => {
       'and the cadence derives from the documented idle floor, not a bare number'
     );
   });
+  check('the battery finishes only on exit 0 — a parked exit 3 is declined and continued', () => {
+    // M-163 (owner's order): round 6 parked at exit 3 — NO_PROGRESS, twelve
+    // lines still flagged — and the driver hung up as if the song were done.
+    // Only exit 0 finishes a song now; the driver's user-role reply declines
+    // the parked draft and asks the loop to keep revising. Comments stripped
+    // for the same reason as the fetch pin above.
+    const code = bat.replace(/^\s*\/\/.*$/gm, '');
+    assert.ok(/if \(c\.exit_code === 0\) sawStop = 0;/.test(code), 'exit 0 is the only finish');
+    assert.ok(
+      !/sawStop = c\.exit_code/.test(code),
+      'the old exit-0-or-3 finish assignment is gone'
+    );
+    assert.ok(
+      /parkedLastTurn\s*\?\s*PARKED_CONTINUE\s*:\s*CONTINUE/.test(code),
+      'a parked turn is answered with the decline-and-continue message'
+    );
+  });
   check('a battery transport failure is a recorded row, never a crash', async () => {
     const { spawnSync } = await import('node:child_process');
     const { mkdtempSync, rmSync } = await import('node:fs');

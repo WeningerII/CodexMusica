@@ -33,8 +33,15 @@ concurrency:
 jobs:
   battery:
     runs-on: ubuntu-latest
-    # 3 songs x 9 turns at 130s pacing is ~1h; headroom for backoffs.
-    timeout-minutes: 120
+    # DERIVED from what a round may now legitimately spend, not guessed: the
+    # M-163 driver continues past parked (exit 3) stops, so a single-song
+    # round can use its whole turn budget, and round 6 measured a legitimate
+    # turn at 16m49s (grade + revise chains inside one /chat response). Nine
+    # turns at that worst-observed pace is ~150 min; 300 covers it with the
+    # same 2x margin check_deploy_memory.js uses, under the 6h Actions cap.
+    # The old 120 was sized for the 130s-pace multi-song shape and would kill
+    # the job mid-round — taking the transcript with it.
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5

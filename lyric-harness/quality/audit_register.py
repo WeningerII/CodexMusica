@@ -2271,7 +2271,10 @@ PINNED = {
     # sweep/screen 2 of 2 rounds, seed 9999 — the gate question
     # promoted out of M-158's deferral). Pins told in their own
     # sitting.
-    "coverage_entries": 220,
+    # ~~220~~ -> 221, same day: M-163 (the driver hung up on a parked
+    # song — exit 0 is the only finish by the owner's order, exit 3 is
+    # declined and continued), pin told in the entry's own sitting.
+    "coverage_entries": 221,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

@@ -70,6 +70,17 @@ const BRIEFS = [
   'Write me a drinking song with a verbatim refrain that comes back three times. Take it through the whole process to a finished song.',
 ];
 const CONTINUE = 'continue';
+// M-163 (owner's order, 2026-08-29: "keep going until we get a clean exit 0
+// song"): exit 3 is a real stop condition and NOT a finished song — the loop
+// parked with flags standing. The driver, still in its user role, does what
+// its own briefs already ask ("revised until it passes"): it DECLINES the
+// parked draft and tells the writer to keep revising. Only exit 0 ends a
+// song. This message steers PROCESS and writes no lyric line, so the
+// role-of-the-user rule in the header holds.
+const PARKED_CONTINUE =
+  'That run parked at exit 3 with lines still flagged. Do not stop there — ' +
+  'revise again until every check passes and lyric_revise reaches exit 0, ' +
+  'then show me the finished version.';
 
 function esc(s, n) {
   return (s || '').slice(0, n);
@@ -197,12 +208,14 @@ for (const [songNo, briefIdx] of indices.entries()) {
   const file = `${OUT}/song${songNo}.jsonl`;
   const flags = [];
   let env = null; // {history, workspace, lyric?, sig}
-  let sawStop = null; // last lyric_revise exit 0/3 seen
+  let sawStop = null; // lyric_revise exit 0 seen — the only "finished" (M-163)
+  let parked = 0; // lyric_revise exit 3 stops — recorded, declined, continued
+  let parkedLastTurn = false;
   let turns = 0;
   let retries = 0;
 
   for (let t = 0; t < MAX_TURNS; t++) {
-    const message = t === 0 ? brief : CONTINUE;
+    const message = t === 0 ? brief : parkedLastTurn ? PARKED_CONTINUE : CONTINUE;
     const body = { message };
     if (env) {
       body.history = env.history;
@@ -225,19 +238,29 @@ for (const [songNo, briefIdx] of indices.entries()) {
     }
     const tools = Array.isArray(p.tools) ? p.tools : [];
     const reviseCalls = tools.filter((c) => c.name === 'lyric_revise');
+    let parkedThisTurn = false;
     for (const c of reviseCalls) {
-      if (c.exit_code === 0 || c.exit_code === 3) sawStop = c.exit_code;
+      if (c.exit_code === 0) sawStop = 0;
+      if (c.exit_code === 3) {
+        parked++;
+        parkedThisTurn = true;
+      }
     }
     // Mechanical suspicion, not a verdict: a reply that LOOKS like a
     // delivered multi-section song while no revise call ever reached a stop
     // condition. The analyst confirms or discharges it from the transcript.
     const looksDelivered =
       /\[[A-Z][A-Z0-9 ]*(—|-)[^\]]*\]/.test(p.reply || '') || /\[FINISHED/.test(p.reply || '');
-    if (looksDelivered && sawStop === null) {
+    if (looksDelivered && sawStop === null && parked === 0) {
       flags.push({ turn: t, flag: 'possible_premature_done' });
     }
     const banned = tools.filter((c) => typeof c.banned_pairs === 'number' && c.banned_pairs > 0);
-    if (banned.length && /finish|final|done|complete/i.test(p.reply || '') && sawStop === null) {
+    if (
+      banned.length &&
+      /finish|final|done|complete/i.test(p.reply || '') &&
+      sawStop === null &&
+      parked === 0
+    ) {
       flags.push({
         turn: t,
         flag: 'claims_progress_over_standing_ban',
@@ -265,8 +288,9 @@ for (const [songNo, briefIdx] of indices.entries()) {
     turns++;
     if (r.status !== 200) break;
     env = { history: p.history, workspace: p.workspace, lyric: p.lyric, sig: p.sig };
-    if (sawStop !== null) break; // the loop certified a stop condition — the song is over
+    if (sawStop !== null) break; // exit 0 — the song is FINISHED (M-163)
     if (p.error) break;
+    parkedLastTurn = parkedThisTurn;
     await sleep(PACE_MS);
   }
 
@@ -276,11 +300,12 @@ for (const [songNo, briefIdx] of indices.entries()) {
     turns,
     retries,
     reached_stop: sawStop,
+    parked,
     flags,
   });
   writeFileSync(`${OUT}/summary.json`, JSON.stringify(summary, null, 2) + '\n');
   console.log(
-    `song ${songNo}: ${turns} turn(s), stop=${sawStop === null ? 'NEVER' : `exit ${sawStop}`}, flags=${flags.length}`
+    `song ${songNo}: ${turns} turn(s), stop=${sawStop === null ? (parked ? `NEVER (parked x${parked})` : 'NEVER') : `exit ${sawStop}`}, flags=${flags.length}`
   );
 }
 

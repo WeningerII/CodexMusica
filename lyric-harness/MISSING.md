@@ -16125,3 +16125,40 @@ is the same species: a nudge the server writes into every
 conversation is a policy, and policies are ruled on, not slipped in.
 The register pin moved across this sitting's two entries:
 `audit_register.coverage_entries` ~~218~~ -> 220 (2026-08-29).
+
+### M-163 · The driver hung up on a parked song — exit 3 counted as finished, and the owner's bar is exit 0 `CLOSED` 2026-08-29 — built on the owner's order the sitting it was given
+**THE OWNER'S ORDER, VERBATIM: "keep going until we get a clean exit
+0 song."** Round 6's driver counted ANY stop condition as the song
+being over — `sawStop` on lyric_revise exit 0 OR exit 3 — so the
+first parked draft (exit 3, `NO_PROGRESS after 2 round(s)`, twelve
+lines flagged) ended the round with six turns of budget unspent. Exit
+3 is a REAL stop condition and an HONEST verdict; it is not a
+finished song under the declared bar, and a driver that accepts it is
+a user who takes a draft their own brief said to revise until it
+passes.
+
+**THE FIX STAYS INSIDE THE DRIVER'S USER ROLE.** Only exit 0 sets
+`reached_stop`; an exit 3 increments `parked` (recorded per stop,
+disclosed in the summary and the console line) and the NEXT turn's
+message is `PARKED_CONTINUE` — a process-steering decline ("revise
+again until every check passes and lyric_revise reaches exit 0") that
+writes no lyric line, exactly the posture the briefs already declare.
+The two mechanical-suspicion flags gain `parked === 0` guards: a
+model presenting a parked draft WITH its exit-3 stamp is honest
+disclosure (M-150's own rule), not a premature done. **THE TIME
+BUDGET FOLLOWS THE BAR**: the workflow's `timeout-minutes` was sized
+for the 130s-pace multi-song shape (120), and a single-song round
+that continues past parked stops can spend nine turns at the
+worst-observed legitimate turn (16m49s, round 6) — ~150 min, which
+the old cap would kill MID-ROUND, taking the transcript with it. 300
+covers it at the same 2x-margin discipline the deploy-memory gate
+uses, under the 6h Actions ceiling.
+
+**GATE** (`mcp/test.mjs`, 52 -> 53): exit 0 pinned as the only finish,
+the old exit-0-or-3 assignment pinned ABSENT, and the parked turn
+pinned to the decline-and-continue message. **WHAT THIS ENTRY DOES
+NOT CLAIM**: that continuing past a parked stop CONVERGES — a fresh
+revise run re-asks the parked lines with attempt counters reset, and
+whether flash-lite can clear twelve standing flags is the next
+round's measurement, not this entry's. The register pin:
+`audit_register.coverage_entries` ~~220~~ -> 221 (2026-08-29).
