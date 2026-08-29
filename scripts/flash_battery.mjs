@@ -32,6 +32,12 @@
 //
 // Output: DIR/song<i>.jsonl (one row per turn) and DIR/summary.json.
 
+import { readFileSync } from 'node:fs';
+import { request as httpsRequest } from 'node:https';
+import { request as httpRequest } from 'node:http';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+
 const args = Object.fromEntries(
   process.argv.slice(2).map((a) => {
     const m = /^--([^=]+)(?:=(.*))?$/.exec(a);
@@ -69,19 +75,100 @@ function esc(s, n) {
   return (s || '').slice(0, n);
 }
 
-async function post(body) {
+// HOW LONG THE CLIENT WAITS IS DERIVED FROM THE SERVER'S OWN DECLARED BUDGET,
+// never inherited from a transport library. Round 4 (run 33228961328,
+// 2026-08-29) measured the inherited version: Node's fetch() carries undici's
+// default 300s headers timeout, which nothing here ever declared, and a /chat
+// turn that chains lyric_grade (~90s) and lyric_revise (~80-205s measured)
+// inside one response can legitimately outlive it — turn 0 did, the client
+// abandoned the request at 5m01s, and the whole battery crashed with zero
+// rows recorded. A threshold nobody wrote down, sitting UNDER the pipeline's
+// measured envelope.
+//
+// The server's ceiling for one turn is the product of two constants it
+// declares: LIMITS.maxSteps tool round-trips (mcp/gemini_agent.js) of at most
+// CHAT_TOOL_TIMEOUT_MS each (mcp/chat.js — the repo default is what deploys,
+// render.yaml sets no override). Both factors are READ from the modules that
+// own them rather than respelled here; a spelling this script cannot find
+// REFUSES rather than falling back to a guess, so a renamed constant breaks
+// the battery loudly instead of silently re-inheriting a library default.
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+function readConst(file, re, name) {
+  const m = re.exec(readFileSync(join(ROOT, file), 'utf8'));
+  if (!m) {
+    console.error(
+      `REFUSED — cannot read ${name} from ${file}; the client's turn deadline derives from it`
+    );
+    process.exit(2);
+  }
+  return parseInt(m[1].replace(/_/g, ''), 10);
+}
+const TOOL_TIMEOUT_MS = readConst(
+  'mcp/chat.js',
+  /num\('CHAT_TOOL_TIMEOUT_MS',\s*([\d_]+)\)/,
+  "CHAT_TOOL_TIMEOUT_MS's declared default"
+);
+const MAX_STEPS = readConst('mcp/gemini_agent.js', /maxSteps:\s*(\d+)/, 'LIMITS.maxSteps');
+const TURN_DEADLINE_MS = MAX_STEPS * TOOL_TIMEOUT_MS;
+
+// A transport failure is a RECORDED turn outcome (status 0, the reason in
+// `transport`), never a crash: round 4 lost its entire record to one rejected
+// promise. It is deliberately NOT retried — the header's own rule is that
+// only the deployment's 429/503 pacing earns a bounded backoff, and a request
+// that outlived the server's whole declared budget is a finding, not noise.
+function post(body) {
   const started = Date.now();
-  const res = await fetch(`${BASE}/chat`, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(body),
+  return new Promise((resolve) => {
+    const url = new URL('/chat', BASE);
+    const data = JSON.stringify(body);
+    const req = (url.protocol === 'http:' ? httpRequest : httpsRequest)(
+      url,
+      {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'content-length': Buffer.byteLength(data) },
+      },
+      (res) => {
+        let buf = '';
+        res.setEncoding('utf8');
+        res.on('data', (c) => {
+          buf += c;
+        });
+        res.on('end', () => {
+          let payload = null;
+          try {
+            payload = JSON.parse(buf);
+          } catch {
+            payload = null;
+          }
+          resolve({ status: res.statusCode, payload, ms: Date.now() - started });
+        });
+      }
+    );
+    const deadline = setTimeout(() => {
+      req.destroy(
+        new Error(
+          `no response inside the derived turn deadline (${TURN_DEADLINE_MS} ms = maxSteps ${MAX_STEPS} x tool timeout ${TOOL_TIMEOUT_MS} ms)`
+        )
+      );
+    }, TURN_DEADLINE_MS);
+    req.on('close', () => clearTimeout(deadline));
+    req.on('error', (err) =>
+      resolve({
+        status: 0,
+        payload: null,
+        transport: String((err && err.message) || err),
+        ms: Date.now() - started,
+      })
+    );
+    req.end(data);
   });
-  const payload = await res.json().catch(() => null);
-  return { status: res.status, payload, ms: Date.now() - started };
 }
 
 const { mkdirSync, appendFileSync, writeFileSync } = await import('node:fs');
 mkdirSync(OUT, { recursive: true });
+console.log(
+  `turn deadline: ${TURN_DEADLINE_MS} ms (maxSteps ${MAX_STEPS} x CHAT_TOOL_TIMEOUT_MS ${TOOL_TIMEOUT_MS} ms, both read from source)`
+);
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const summary = { base: BASE, started: new Date().toISOString(), songs: [] };
@@ -117,6 +204,9 @@ for (const [songNo, briefIdx] of indices.entries()) {
       r = await post(body);
     }
     const p = r.payload || {};
+    if (r.status === 0) {
+      flags.push({ turn: t, flag: 'transport_failure', detail: r.transport });
+    }
     const tools = Array.isArray(p.tools) ? p.tools : [];
     const reviseCalls = tools.filter((c) => c.name === 'lyric_revise');
     for (const c of reviseCalls) {
@@ -145,6 +235,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
         message: esc(message, 200),
         status: r.status,
         ms: r.ms,
+        transport: r.transport ?? null,
         reply: p.reply ?? null,
         tools,
         stopped: p.stopped ?? null,

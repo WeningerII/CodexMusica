@@ -2256,7 +2256,11 @@ PINNED = {
     # ~~215~~ -> 216, 2026-08-29: M-158 (the wrong-channel answer — the
     # battery's first MODEL-level finding, the suspended-run reminder),
     # pin told in the entry's own sitting again.
-    "coverage_entries": 216,
+    # ~~216~~ -> 217, same day: M-159 (the battery's own transport
+    # carried undici's undeclared 300s default and one rejected promise
+    # erased round 4's whole record — the instrument charged, not the
+    # server), pin told in the entry's own sitting.
+    "coverage_entries": 217,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

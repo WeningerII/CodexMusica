@@ -15928,3 +15928,60 @@ measurement, on this deployed change, and the skipped-step charge
 server that compelled a sweep would refuse an MCP client's deliberate
 seed, so that leak waits for evidence it recurs before any gate is
 designed for it.
+
+### M-159 · The battery abandoned a legitimate turn at a threshold nobody wrote down — the driver's own transport carried undici's 300s default, and one rejected promise erased the whole record `CLOSED` 2026-08-29 — fixed the sitting round 4 measured it
+**ROUND 4 WAS THE FIRST ROUND WITH THE M-158 REMINDER LIVE AND IT
+NEVER MEASURED THE REMINDER**: dispatched 02:26:39Z against head
+d3e37539 (run 33228961328), the driver's turn-0 request died at
+5m01s with `UND_ERR_HEADERS_TIMEOUT` and the process crashed —
+`battery-out/` empty, no summary, no rows, artifact upload found
+nothing. **THE SERVER IS NOT CHARGED.** The failure is the battery's
+own client: `flash_battery.mjs` called Node's global `fetch()`, which
+carries undici's DEFAULT `headersTimeout` of 300 000 ms — declared by
+nobody in this repository, sitting UNDER the pipeline's measured
+envelope. Round 3's turn 0 ran 214.2s and answered 200; the
+first-revise wall is measured at 205.5s locally (M-157) beside
+lyric_grade's ~90s, so one /chat turn that chains them legitimately
+outlives 300s. A threshold inherited from a library is still a
+recorded count nobody wrote down (doctrine 58), and this one decided
+when the instrument stopped believing in the experiment.
+
+**TWO DEFECTS, TWO REPAIRS, ONE COMMIT.** (1) THE CLIENT'S PATIENCE
+IS DERIVED, NEVER INHERITED: one /chat turn's server-side ceiling is
+the product of two constants the server declares —
+`LIMITS.maxSteps` (mcp/gemini_agent.js, 14) tool round-trips of at
+most `CHAT_TOOL_TIMEOUT_MS` (mcp/chat.js, default 240 000 ms; the
+deployed value IS the default — render.yaml sets no override) — so
+`TURN_DEADLINE_MS = maxSteps x tool timeout` (3 360 000 ms today,
+and it moves when either factor does). Both factors are READ from
+the modules that own them (doctrine 1); a spelling the driver cannot
+find REFUSES at exit 2 rather than falling back to a guess, so a
+renamed constant breaks the battery loudly instead of silently
+re-inheriting a library default. The transport is node:http(s)
+`request` with that one explicit deadline — the only client timeout
+in the file, and it is printed at startup. (2) A TRANSPORT FAILURE
+IS A RECORDED OUTCOME, NEVER A CRASH: `post()` resolves
+`{status: 0, transport: <reason>}`, the turn lands in the JSONL with
+the reason, the summary carries a `transport_failure` flag, and the
+run continues to its close with everything already measured intact.
+Deliberately NOT retried: the driver's own header rule is that only
+the deployment's 429/503 pacing earns a bounded backoff, and a
+request that outlived the server's whole declared budget is a
+finding about the deployment, not noise to absorb.
+
+**GATES** (`mcp/test.mjs`, 49 -> 51): a source pin — no call to
+global `fetch` (comments stripped first: the file's own account of
+the defect says "fetch()", and a pin defeated by its documentation
+is the test_declared_inputs lesson repeated), the deadline spelled
+as the product of the two named factors — and a BEHAVIOURAL check
+that runs the real driver into the discard port (127.0.0.1:9,
+nothing listens, refusal immediate and deterministic) and requires
+exit 0, the status-0 row with its reason, and the
+`transport_failure` flag in the summary. **WHAT THIS ENTRY DOES NOT
+CLAIM**: anything about the model or the reminder — round 4
+produced zero model turns, so M-158's "did the reminder cure the
+stall" measurement is still owed and belongs to the next round that
+actually reaches the model. **COST OF ROUND 4, disclosed**: the
+server received turn 0 and, per its own design, finished the turn
+after the client left — one turn's Gemini fees (~3c measured worst
+case) spent on a run whose record shows nothing.
