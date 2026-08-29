@@ -358,7 +358,9 @@ for (const [songNo, briefIdx] of indices.entries()) {
     .join(' ');
   console.log(
     `song ${songNo}: ${turns} turn(s), stop=${sawStop === null ? (parked ? `NEVER (parked x${parked})` : 'NEVER') : `exit ${sawStop}`}, flags=${flags.length}` +
-      (ladder ? `\n  loop ladder: ${ladder}` : '\n  loop ladder: (no call reached a stop condition)')
+      (ladder
+        ? `\n  loop ladder: ${ladder}`
+        : '\n  loop ladder: (no call reached a stop condition)')
   );
 }
 

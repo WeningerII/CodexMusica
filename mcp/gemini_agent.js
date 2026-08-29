@@ -515,7 +515,8 @@ export async function runTurn({
         // survived long enough to need refuting from a byte count.
         loop_stop_reason:
           typeof lyricVerdict?.loop_stop_reason === 'string' ? lyricVerdict.loop_stop_reason : null,
-        loop_rounds: typeof lyricVerdict?.loop_rounds === 'number' ? lyricVerdict.loop_rounds : null,
+        loop_rounds:
+          typeof lyricVerdict?.loop_rounds === 'number' ? lyricVerdict.loop_rounds : null,
         loop_unresolved:
           typeof lyricVerdict?.loop_unresolved === 'number' ? lyricVerdict.loop_unresolved : null,
         answers_on_record:
