@@ -111,6 +111,21 @@ const TOOL_TIMEOUT_MS = readConst(
 const MAX_STEPS = readConst('mcp/gemini_agent.js', /maxSteps:\s*(\d+)/, 'LIMITS.maxSteps');
 const TURN_DEADLINE_MS = MAX_STEPS * TOOL_TIMEOUT_MS;
 
+// M-160: a /chat turn is computed in SILENCE — no bytes move while the server
+// grades — and round 5 measured the network path killing exactly that
+// silence: turn 0 answered 200 at 214s in round 3 and was RESET at 272.7s in
+// round 5 (`read ECONNRESET`), a bracket that contains the 240s idle-flow
+// timeout Azure documents for the NAT these runners sit behind (the job log
+// names its own Azure region). TCP keep-alive probes are traffic to a NAT,
+// so the flow never reads as idle; the probe cadence is a tenth of that
+// documented floor, an order of magnitude of margin. DISCLOSED LIMIT: if the
+// wall is an L7 response timer somewhere on the path rather than an idle
+// flow, keep-alives cannot reach it — the next round that resets inside the
+// same bracket is the measurement that says so, and the remedy then moves
+// server-side (bytes on the wire before the turn finishes).
+const NAT_IDLE_FLOOR_MS = 240_000;
+const KEEPALIVE_PROBE_MS = NAT_IDLE_FLOOR_MS / 10;
+
 // A transport failure is a RECORDED turn outcome (status 0, the reason in
 // `transport`), never a crash: round 4 lost its entire record to one rejected
 // promise. It is deliberately NOT retried — the header's own rule is that
@@ -144,6 +159,7 @@ function post(body) {
         });
       }
     );
+    req.on('socket', (s) => s.setKeepAlive(true, KEEPALIVE_PROBE_MS));
     const deadline = setTimeout(() => {
       req.destroy(
         new Error(

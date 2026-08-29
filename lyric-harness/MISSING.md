@@ -15985,3 +15985,44 @@ actually reaches the model. **COST OF ROUND 4, disclosed**: the
 server received turn 0 and, per its own design, finished the turn
 after the client left — one turn's Gemini fees (~3c measured worst
 case) spent on a run whose record shows nothing.
+
+### M-160 · The turn's silence is what the network kills — round 5's reset brackets an idle-flow wall, and the driver now keeps the flow awake `CLOSED` 2026-08-29 — fixed the sitting round 5 measured it, with its own falsifier named
+**THE M-159 INSTRUMENT WORKED ON ITS FIRST ROUND AND THIS IS WHAT IT
+RECORDED**: round 5 (run 33230235766, the fixed driver, dispatched
+02:58:36Z) survived its failure, wrote the row, wrote the summary,
+uploaded the artifact — and the row says turn 0 died `read ECONNRESET`
+at **272,661 ms**, a reset from the path, not a timeout of ours (the
+derived deadline is 3,360,000 ms) and not a refusal from the server.
+**THE BRACKET IS THE FINDING.** A /chat turn is computed in silence —
+the server grades for minutes and no byte moves on the wire until the
+verdict — and the two measured turn-0s bracket a wall inside that
+silence: round 3 answered 200 at **214.2s**; round 5 was reset at
+**272.7s**. The battery's runners are Azure-hosted (the job log prints
+its own region), and Azure documents a **240s idle-flow timeout** for
+the NAT such runners sit behind, with RST sent on packets that arrive
+for an expired flow — a documented wall standing inside the measured
+bracket. On that reading, round 3's turn 0 passed because 214 < 240
+and round 5's died because the server's answer, finishing past 240s of
+wire silence, hit a flow the NAT had already forgotten.
+
+**THE FIX IS THE ONE THE CLIENT CAN MAKE: TCP KEEP-ALIVE PROBES ON THE
+REQUEST SOCKET.** Probes are traffic to a NAT, so the flow never reads
+as idle while the server computes. The cadence is DERIVED, not chosen:
+`KEEPALIVE_PROBE_MS = NAT_IDLE_FLOOR_MS / 10` — a tenth of the
+documented floor, an order of magnitude of margin — and the floor
+constant carries the bracket that justifies it in its own comment.
+**GATE** (`mcp/test.mjs`, 51 -> 52): the probes are pinned to the
+request socket and the cadence pinned to its derivation, so neither
+can be quietly dropped nor replaced by a bare number.
+
+**WHAT THIS ENTRY DOES NOT CLAIM, AND ITS OWN FALSIFIER**: one reset
+is one sample, and an L7 response timer on the path (the platform's
+proxy giving up on a response) would produce the same reset shape at
+a wall keep-alives CANNOT reach — an application timer does not read
+TCP probes. The two hypotheses separate cleanly on the next round:
+a turn that runs past ~273s and ANSWERS confirms the idle-flow
+reading; a reset inside the same bracket with probes armed refutes
+it, and the remedy then moves server-side — bytes on the wire before
+the turn finishes — as its own entry. Model and reminder: still
+unmeasured (round 5 produced zero model turns); M-158's owed
+measurement rides the next round that reaches the model.

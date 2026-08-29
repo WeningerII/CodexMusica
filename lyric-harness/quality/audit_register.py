@@ -2260,7 +2260,11 @@ PINNED = {
     # carried undici's undeclared 300s default and one rejected promise
     # erased round 4's whole record — the instrument charged, not the
     # server), pin told in the entry's own sitting.
-    "coverage_entries": 217,
+    # ~~217~~ -> 218, same day: M-160 (round 5's reset brackets an
+    # idle-flow wall in the turn's own silence — keep-alive probes on
+    # the request socket, falsifier named), pin told in the entry's
+    # own sitting.
+    "coverage_entries": 218,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

@@ -608,6 +608,21 @@ check('validation: actionable errors', () => {
       'and both factors are read from the modules that own them, never respelled'
     );
   });
+  check('the battery socket keeps the NAT awake while the server computes', () => {
+    // M-160: round 5's turn 0 was RESET at 272.7s where round 3's answered at
+    // 214s — the bracket contains the 240s idle-flow timeout of the runners'
+    // own NAT, and a /chat turn moves no bytes while the server grades. The
+    // probes are the fix the CLIENT can make; the pin is that they exist and
+    // ride the request socket.
+    assert.ok(
+      /req\.on\('socket', \(s\) => s\.setKeepAlive\(true, KEEPALIVE_PROBE_MS\)\)/.test(bat),
+      'keep-alive probes are armed on the request socket'
+    );
+    assert.ok(
+      /KEEPALIVE_PROBE_MS = NAT_IDLE_FLOOR_MS \/ 10/.test(bat),
+      'and the cadence derives from the documented idle floor, not a bare number'
+    );
+  });
   check('a battery transport failure is a recorded row, never a crash', async () => {
     const { spawnSync } = await import('node:child_process');
     const { mkdtempSync, rmSync } = await import('node:fs');
