@@ -16674,3 +16674,78 @@ unresolved. The measured waste is real waste on a run that could not
 converge (M-168). Neither timing lane measured convergence and both
 said so. The register pin:
 `audit_register.coverage_entries` ~~227~~ -> 228 (2026-08-29).
+
+### M-171 · The participation bound protected the line's LENGTH and not the writer's FREEDOM — 15.9% of drawn lines had every word bound `CLOSED` 2026-08-29 — found by asking why round 10's rounds bought nothing, fixed and re-measured the same sitting
+**THE QUESTION THAT FOUND IT.** M-168 left the standing wall as "the
+writer against the drawn mandate", stated as an unmeasured hypothesis,
+and M-170's audit ranked reading the per-round record above every
+performance item it had just measured. The record did not exist
+(M-169), so the question was put to the PLANNER instead, locally, with
+no deploy: redraw seed 88291 — the plan flash-battery round 10 ran on,
+which parked with 20 of its 23 lines unresolved after four rounds,
+again after eight, then NO_PROGRESS at fifteen — and count what its
+mandate actually asks of each line.
+**WHAT IT ASKS.** 25 groups over 23 lines, and **line 6 carries FIVE
+distinct bindings — T2, T3, T4, headrime and the endword — on a
+FIVE-SLOT line.** Every word bound, each to a different rhyme family
+under a different drawn relation, at the line's LONGEST legal form.
+Line 17 the same five positions. A line whose every word is dictated
+is not a line anybody writes; it is a crossword with no free squares,
+and no writer — model or human — finishes it. The loop was not slow
+there and the writer was not lazy.
+**MEASURED BEFORE ANYTHING WAS CHANGED, 121 seeds / 4,482 lines**, every
+figure computed through this module's own `bound_placements`,
+`placement_word`, `line_syllable_ceiling` and `line_binding_ceiling`
+rather than a reimplementation: mean **2.91** bindings per line, max
+**5** in **120 of the 121 seeds**, **15.9% of all lines (713) bound at
+or above the fewest syllables a band-legal line may hold** — at least
+one such line in 120 of 121 seeds — and **1.2% (52) with no free word
+even against their own grid's ceiling**. This was never one bad seed.
+**THE DEFECT IS A UNIT ERROR, NOT A MISCALIBRATION (doctrine 58 is not
+engaged).** `line_binding_ceiling` bounded a count of BOUND WORDS by
+`ADOPTED["DENSITY"][0]`, a calibrated fact about SYLLABLES. Its own
+docstring argues correctly that asking for SIX spans would force the
+writer above the band floor — true, and it stops exactly one short,
+because at five the writer is not forced longer, they are forced
+SILENT. M-81(B) is the precedent in the same file: *"the coordinate
+itself was in the wrong UNIT"*, and a unit error is repaired rather
+than recalibrated.
+**THE RESERVE IS DERIVED AND IS THIS MODULE'S OWN IDIOM.**
+`WORDS_LEFT_FREE = 1` — the minimal statement of "a line the writer
+still writes" is that one word is theirs — and `plan_max_token`
+already holds `min(caps) - 1` one coordinate over, for the same
+reason. Raising it is a taste claim needing its own argument;
+lowering it to 0 restores this defect, which is what the suite's
+mutation does.
+**AFTER, the same 121 seeds through the same instrument: lines bound at
+or above the floor 15.9% -> 0.0%; no-free-word-at-own-ceiling 1.2% ->
+0.0%; max bindings per line 5 -> 4; SEEDS LOST 0 of 121.** The cost is
+stated and not buried: mean bindings per line **2.91 -> 2.45**, about
+16% less dense. The web is not thinned to nothing — 30.6 groups a song
+on average, still overlapping, still mostly at non-end placements —
+and on seed 88291 itself the group count went **25 -> 27** with the
+mean unmoved at 2.96, the bindings redistributing rather than
+disappearing.
+**THE PIN THAT PERMITTED IT WAS IN THE SUITE, and that is the sharpest
+part.** `test_plan.py` asserted `max(part) <= DENSITY floor` under a
+message ending *"than it has syllables"*. `<=` PERMITS EQUALITY, and
+equality IS the unwritable line — so the check was true, its message
+was true, and together they licensed the exact defect they name.
+Doctrine 48 inside the suite that enforces doctrine 48. Repointed to
+the bound MINUS the reserve, and a SECOND check now states the
+property without reference to any constant (no line is bound at every
+word), so a future draw reaching the same place by another route is
+still caught.
+**WHAT THIS DOES NOT CLAIM.** No draft was written against either
+plan, so nothing here MEASURES that the old lines were unwritable or
+that the new ones are writable — round 10's 20-of-23 is strong
+circumstantial evidence and is not a proof, and the honest test is a
+song. It also does not touch `_place_group`'s uniform placement draw,
+which the owner ruled out of bounds (M-107); only the per-line
+PARTICIPATION ceiling moved. And the joint gate still refuses nothing
+on any of the 121 plans, before or after — it asks its arithmetic at
+the line's longest legal length; asked at the floor on the OLD plans
+its own unmodified code fires on 2,079 lines (46.4%), which is the
+measurement of how far its question sat from this one. Whether to
+repoint that gate is left open rather than settled here. The register
+pin: `audit_register.coverage_entries` ~~228~~ -> 229 (2026-08-29).

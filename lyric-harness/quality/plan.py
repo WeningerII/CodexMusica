@@ -987,6 +987,16 @@ placement_word = _SL.placement_word
 #: not a note: a plan is the one artifact in this pipeline nobody has spent
 #: any writing on yet, so refusing here costs a seed and refusing later costs
 #: a draft.
+#: How many words of a band-legal line the mandate never binds (M-171).
+#: DERIVED, not chosen: a line whose every word is dictated by some rhyme
+#: family is not a line a writer writes, so the minimal statement of "still
+#: writable" is that ONE word is the writer's own. The same reserve
+#: `plan_max_token` already holds one coordinate over, for the same reason.
+#: Raising it is a taste claim about how much room a writer wants and would
+#: need its own argument; lowering it to 0 restores the M-171 defect and is
+#: what `test_plan.py`'s mutation does to prove this bound is load-bearing.
+WORDS_LEFT_FREE = 1
+
 JOINT_CODES = ("SPAN_BELOW_DENSITY_FLOOR", "TOKEN_INDEX_UNREACHABLE",
                "WORDS_EXCEED_SPAN", "TWO_GROUPS_ONE_WORD",
                "HOOK_IN_NONRECURRING_SECTION")
@@ -1023,6 +1033,38 @@ def line_binding_ceiling(max_token):
     plan asking for six distinct spans has forced that writer above the band
     floor to satisfy it.
 
+    ~~and the ceiling is therefore the floor itself.~~ **STRUCK 2026-08-29
+    (`MISSING.md` M-171): THAT BOUND PROTECTS THE LINE'S LENGTH AND NOT THE
+    WRITER'S FREEDOM, and the difference is the whole entry.** At the floor
+    exactly, a five-syllable line has all five of its words bound — each to a
+    different rhyme family, under a different drawn relation — and a line
+    whose every word is dictated is not a line anybody writes, it is a
+    crossword with no free squares. The argument above is untouched and
+    correct as far as it goes; it simply stops one short, because it asks
+    what the line can HOLD and never what the writer has LEFT.
+
+    MEASURED BEFORE IT WAS CHANGED, 121 seeds / 4,482 lines, every figure
+    through this module's own functions: mean 2.91 bindings per line, max 5
+    in 120 of the 121 seeds, **15.9% of all lines bound at or above the
+    floor** (at least one such line in 120 of 121 seeds) and **1.2% with no
+    free word even at their own grid's ceiling**. Seed 88291 — the plan
+    behind flash-battery round 10, which parked with 20 of its 23 lines
+    unresolved after four rounds and again after eight — draws line 6 as five
+    bindings on a FIVE-slot line: zero free words at the line's longest legal
+    form. The loop was not slow there and the writer was not lazy; the
+    mandate was unwritable and nothing in the tree could say so.
+
+    SO THE RESERVE IS ONE WORD, and it is derived rather than chosen: the
+    minimal statement of "a line the writer still writes" is that at least
+    one word is theirs. It is also this module's own existing idiom —
+    `plan_max_token` already holds `min(caps) - 1` so a placement never names
+    a word past what the shortest line can reach — and the same reasoning one
+    coordinate over. NOT a retuned threshold (doctrine 58 is not engaged):
+    the band floor is a calibrated fact about SYLLABLES and was being used to
+    bound a count of BOUND WORDS, which is M-81(B)'s defect exactly — the
+    coordinate was in the wrong unit, and a unit error is repaired, not
+    recalibrated.
+
     NOT `joint_findings`' PER-LINE CEILING, WHICH IS A DIFFERENT AND WEAKER
     QUESTION. That gate asks what THIS line's own grid admits at its declared
     duration; this asks what ANY band-legal line is guaranteed to hold. The
@@ -1040,7 +1082,7 @@ def line_binding_ceiling(max_token):
     second spelling of one bound produces (doctrine 1).
     """
     return max(1, min(len({placement_word(p) for p in _PLACE_POOL(max_token)}),
-                      MB.ADOPTED["DENSITY"][0]))
+                      MB.ADOPTED["DENSITY"][0] - WORDS_LEFT_FREE))
 
 
 def plan_max_token(plan):

@@ -1375,12 +1375,31 @@ def test_the_planner_plans_the_whole_line():
           "accepted them; the generator could not produce one, so that "
           "class of song had probability exactly zero from the front door",
           overlap > 0, f"{overlap}/{n} plans put some line in >1 group")
-    check("a line's participation is bounded by what a band-legal line can "
-          "CARRY — the calibrated density band's floor — so no plan asks a "
-          "five-syllable line for more distinct bound spans than it has "
-          "syllables",
-          max(part) <= MB.ADOPTED["DENSITY"][0],
+    # REPOINTED 2026-08-29 (`MISSING.md` M-171), and the old pin is why it had
+    # to be. It read `max(part) <= DENSITY floor` under a message ending "than
+    # it has syllables" — but `<=` PERMITS EQUALITY, and equality is a line
+    # every word of which is bound to a different rhyme family. The check was
+    # true, its message was true, and together they licensed exactly the
+    # unwritable line the planner was drawing (measured: 15.9% of 4,482 lines
+    # over 121 seeds, at least one in 120 of them). A pin that passes on the
+    # defect it names is doctrine 48 inside the suite that enforces it.
+    check("a line's participation leaves the writer at least "
+          f"{PLN.WORDS_LEFT_FREE} word of their own: it is bounded by what a "
+          "band-legal line can CARRY — the calibrated density band's floor — "
+          "MINUS the reserve, so no plan hands back a line whose every word "
+          "is dictated by some rhyme family",
+          max(part) <= MB.ADOPTED["DENSITY"][0] - PLN.WORDS_LEFT_FREE,
           f"max participation {max(part)}, density floor "
+          f"{MB.ADOPTED['DENSITY'][0]} less reserve {PLN.WORDS_LEFT_FREE}")
+    # THE INVARIANT ITSELF, not the constant that currently delivers it. The
+    # check above compares against a bound the module declares, so it moves
+    # when the bound moves; this one asks the question the entry is about and
+    # would catch a future draw that reached the same place another way.
+    check("...and that is the property, stated without reference to the "
+          "constant: NO line in any drawn plan is bound at every word",
+          all(b < MB.ADOPTED["DENSITY"][0] for b in part.elements())
+          if hasattr(part, "elements") else max(part) < MB.ADOPTED["DENSITY"][0],
+          f"participation {dict(sorted(part.items()))} against floor "
           f"{MB.ADOPTED['DENSITY'][0]}")
     check("...and it is not pinned at either extreme: lines carrying ONE "
           "binding and lines carrying several are both ordinary",

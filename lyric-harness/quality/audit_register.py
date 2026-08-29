@@ -2316,7 +2316,14 @@ PINNED = {
     # which is the regime round 10 was not in; and it refuted this
     # session's own ranked plan, including M-167's predicted size),
     # pin told in the entry's own sitting.
-    "coverage_entries": 228,
+    # ~~228~~ -> 229, same day: M-171 (the participation bound capped
+    # BOUND WORDS by the density band's SYLLABLE floor, so a five-slot
+    # line could have all five words bound to five different rhyme
+    # families — 15.9% of 4,482 lines over 121 seeds, and round 10's own
+    # seed 88291 among them; WORDS_LEFT_FREE = 1 repairs the unit error,
+    # 0.0% after with 0 seeds lost, and the suite pin that permitted it
+    # via `<=` is repointed), pin told in the entry's own sitting.
+    "coverage_entries": 229,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;
