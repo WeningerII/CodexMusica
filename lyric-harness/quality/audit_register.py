@@ -2253,7 +2253,10 @@ PINNED = {
     # sized below its own instrument — the Flash battery's first LIVE
     # finding, measured to 826-882 MB against a 512 MB box), pin told
     # in the entry's own sitting.
-    "coverage_entries": 215,
+    # ~~215~~ -> 216, 2026-08-29: M-158 (the wrong-channel answer — the
+    # battery's first MODEL-level finding, the suspended-run reminder),
+    # pin told in the entry's own sitting again.
+    "coverage_entries": 216,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;
