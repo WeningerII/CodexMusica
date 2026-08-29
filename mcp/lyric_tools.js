@@ -370,13 +370,66 @@ function extractUncalibrated(report) {
   return m ? m[1].trim() : null;
 }
 
+// THE LOOP'S OWN RECORD OF ITS RUN, extracted from the stamp the verb already
+// prints (M-169). `revise_loop` returns a LoopResult carrying the stop reason,
+// the rounds it spent and the lines still open, and `lyric_harness.py`'s finish
+// verb prints all three inside the `[FINISHED — …]` stamp M-150 requires. Every
+// layer above that then threw them away: the verdict carried `exit_code` and
+// `banned_pairs` and nothing else, so the flash battery's transcript — this
+// project's ONLY record of a production run — could say a call exited 3 and
+// could not say whether it spent 4 rounds fixing nineteen lines or 8 rounds
+// fixing none. Round 10 was diagnosed by reading a stamp the MODEL happened to
+// quote back in its chat reply, which is a record the model can edit, omit or
+// paraphrase (doctrine 14: a measurement that depends on the thing being
+// measured is not a measurement). This is extraction, not re-implementation:
+// the harness computes and spells all three, and nothing here re-derives them.
+//
+// ABSENT MEANS NOT ASKED, never zero — the `banned_pairs` rule one family over.
+// A suspended call (exit 4) has reached no stop condition, so it HAS no stop
+// reason, and a `loop_rounds: 0` there would read as a run that did nothing
+// rather than a run still going (doctrine 20).
+function extractLoopRecord(report) {
+  const m =
+    /\[FINISHED\s*—\s*seed\s*(-?\d+)\s*—\s*exit\s*(\d+)\s*—\s*([A-Z_]+)\s+after\s+(\d+)\s+round\(s\)\s*—\s*(?:UNRESOLVED:\s*([^\]]*)|no flag stands)\]/.exec(
+      report
+    );
+  if (!m) return null;
+  const lines = (m[5] || '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+  return {
+    seed: Number(m[1]),
+    stop_reason: m[3],
+    rounds: Number(m[4]),
+    unresolved: lines.length,
+    unresolved_lines: lines,
+  };
+}
+
 function verdictOf(r) {
   const banned = extractBannedPairs(r.stdout);
   const uncalibrated = extractUncalibrated(r.stdout);
+  const loop = extractLoopRecord(r.stdout);
   const v = {
     exit_code: r.code,
     meaning: EXIT_MEANING[r.code] || `subprocess failure (${r.code}): ${r.stderr.slice(0, 400)}`,
   };
+  if (loop) {
+    // THREE COUNTS, NEVER SUMMED (doctrine 79): rounds spent, lines still open
+    // and answers on record answer different questions. `stop_reason` is the
+    // loop's own vocabulary (SUCCESS / NO_PROGRESS / ROUND_LIMIT) and is not
+    // re-spelled here.
+    v.loop_stop_reason = loop.stop_reason;
+    v.loop_rounds = loop.rounds;
+    v.loop_unresolved = loop.unresolved;
+    v.loop_unresolved_lines = loop.unresolved_lines;
+    v.loop_record_meaning =
+      'The revision loop’s own account of the run it just finished: which stop condition ended ' +
+      'it, how many rounds it spent, and which lines still carry something. ROUND_LIMIT or ' +
+      'NO_PROGRESS with lines still open means the loop STOPPED TRYING — the song is not ' +
+      'finished and more rounds of the same kind will not finish it.';
+  }
   // Before `report`, deliberately: a count buried under a long report is a
   // count a reader in a hurry never reaches.
   if (banned.length) {

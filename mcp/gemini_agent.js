@@ -505,6 +505,24 @@ export async function runTurn({
         exit_code: typeof lyricVerdict?.exit_code === 'number' ? lyricVerdict.exit_code : null,
         banned_pairs:
           typeof lyricVerdict?.banned_pairs === 'number' ? lyricVerdict.banned_pairs : null,
+        // M-169: the loop's own record of the run rides beside the exit code,
+        // for the reason banned_pairs does — a verdict only the model ever saw
+        // protects nobody, and a transcript that cannot say how many rounds
+        // bought how many lines cannot tell a slow run from a stuck one.
+        // `answers_on_record` joins them: it is already computed on both the
+        // suspended and the finished branch of lyric_revise and was dropped
+        // here, which is how round 10's "turn 0's work was thrown away" reading
+        // survived long enough to need refuting from a byte count.
+        loop_stop_reason:
+          typeof lyricVerdict?.loop_stop_reason === 'string' ? lyricVerdict.loop_stop_reason : null,
+        loop_rounds:
+          typeof lyricVerdict?.loop_rounds === 'number' ? lyricVerdict.loop_rounds : null,
+        loop_unresolved:
+          typeof lyricVerdict?.loop_unresolved === 'number' ? lyricVerdict.loop_unresolved : null,
+        answers_on_record:
+          typeof lyricVerdict?.answers_on_record === 'number'
+            ? lyricVerdict.answers_on_record
+            : null,
       });
       if (onEvent) onEvent({ type: 'tool', name: fc.name, isError });
       responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
