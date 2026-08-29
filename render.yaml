@@ -143,6 +143,21 @@ services:
       # grows faster than the step counter does. Measured worst prompt: $0.033.
       - key: CHAT_MAX_TURN_USD
         value: '0.1'
+      # What ONE tool call may take before both of its clocks give up: the MCP
+      # client's callTool timeout in mcp/chat.js AND the python subprocess kill
+      # in mcp/lyric_tools.js read this one value through mcp/budget.js
+      # (M-165) — they used to be two spellings (240s over 180s), and the lower
+      # one killed lyric_revise calls the higher one was still waiting for.
+      #
+      # DERIVED, not guessed: lyric_revise's deferred replay grows ~15s per
+      # folded answer from a ~34s base (rounds 6/8, measured), and a clean
+      # 22-line run folds ~35-40 answers, so the last replays land near 600s.
+      # budget.js carries the full derivation; mcp/test.mjs asserts this pin
+      # equals that module's default, so the two spellings cannot drift — the
+      # GEMINI_MODEL discipline: what deploys is what the repo says deploys.
+      # The flash battery derives its own turn deadline from THIS pin.
+      - key: CHAT_TOOL_TIMEOUT_MS
+        value: '600000'
       # How many proxies sit in front of this process — Render is one. The per-IP
       # limiters count back this many entries from the RIGHT of X-Forwarded-For,
       # which is the part a caller cannot forge. Raising it above the real hop

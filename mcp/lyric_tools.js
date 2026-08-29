@@ -32,6 +32,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
+import { TOOL_BUDGET_MS } from './budget.js';
 
 const HARNESS_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'lyric-harness');
 const PYTHON = process.env.LYRIC_PYTHON || 'python3';
@@ -43,12 +44,12 @@ const MAX_LINES = 64; // the planner envelope's own total_lines ceiling
 const MAX_LINE_CHARS = 200;
 const MAX_MANDATE_CHARS = 400;
 // THE SWEEP WINDOW, DERIVED AGAINST THE TIGHTER OF THE TWO CLOCKS. This
-// connector kills a subprocess at SUBPROCESS_TIMEOUT_MS (180s) but the MCP
+// connector kills a subprocess at SUBPROCESS_TIMEOUT_MS but the MCP
 // SDK's own DEFAULT_REQUEST_TIMEOUT_MSEC is 60_000, nothing here emits the
 // progress notifications that would reset it, and a cancelled request does
 // NOT free the serial python queue -- so the client gives up first and the
-// box stays blocked. 60s is the budget, not 180s; deriving against the
-// looser clock is the flattering direction.
+// box stays blocked. 60s is the budget, not the subprocess kill's; deriving
+// against the looser clock is the flattering direction.
 //
 // Budget = 60s minus the lexicon load this connector already declares on the
 // deploy target (~10s) = 50s of planning. MEASURED here, warm: 128 seeds in
@@ -80,10 +81,17 @@ const MAX_STATE_CHARS = 2097152;
 // RAISED 90s -> 180s 2026-08-26: the whole-vocabulary default (M-116) made
 // a full plan->fill->grade round trip measurably slower — ~61s wall on a CI
 // runner — so a runner half again as slow was one kill away from turning a
-// real answer into a refusal. The serial-queue argument in the sweep-window
-// note is unchanged: a 60s client still gives up first, and this cap's only
-// job is to eventually free the box, which 180s still does.
-const SUBPROCESS_TIMEOUT_MS = 180_000;
+// real answer into a refusal. ~~180_000~~ BOUND TO THE SHARED BUDGET
+// 2026-08-29 (M-165): 180s was a SECOND clock under the chat layer's 240s,
+// so a subprocess died for work its own caller was still waiting for, and
+// lyric_revise's deferred replay — which grows ~15s per folded answer —
+// crossed it by roughly answer 10 of the ~35-40 a clean 22-line run needs
+// (round 8: eight consecutive exit -1 in one turn). One definition now;
+// mcp/budget.js carries the derivation. The serial-queue argument in the
+// sweep-window note is unchanged: a 60s client still gives up first, and
+// this cap's only job is to eventually free the box, which a ten-minute
+// bound still does.
+const SUBPROCESS_TIMEOUT_MS = TOOL_BUDGET_MS;
 const MAX_OUTPUT_BYTES = 4 * 1024 * 1024;
 
 // A word that reaches argv: letters, apostrophes, internal hyphens. The
@@ -227,7 +235,19 @@ function _runVerbWarm(args) {
     const id = _workerNextId++;
     const timer = setTimeout(() => {
       // A wedged request wedges the worker (it is serial), so the worker
-      // goes with it; the caller falls back cold.
+      // goes with it. The rejection is TAGGED so runVerb can tell a
+      // timed-out call from a dead worker: a crash falls back cold with
+      // byte-identical semantics, but a call that outlived the WHOLE
+      // shared budget once must not re-run cold — that blocks the serial
+      // queue for a second whole budget to earn the same kill (M-165;
+      // round 8's turn 8 spent 25.6 minutes this way).
+      if (_workerWaiter && _workerWaiter.id === id) {
+        const wtr = _workerWaiter;
+        _workerWaiter = null;
+        const e = new Error(`verb killed at the shared tool budget (${SUBPROCESS_TIMEOUT_MS}ms)`);
+        e.timedOut = true;
+        wtr.reject(e);
+      }
       _killWorker();
     }, SUBPROCESS_TIMEOUT_MS);
     _workerWaiter = {
@@ -274,8 +294,18 @@ function _runVerbCold(args) {
 }
 
 function runVerb(args) {
+  // The cold fallback exists for a DEAD worker (spawn failure, protocol
+  // corruption, crash) — one slow answer, same semantics. A TIMED-OUT
+  // worker is a different verdict: the call itself outlived the shared
+  // budget, and re-running it cold would hold the serial queue for a
+  // second whole budget to reach the same -1. The tagged rejection is
+  // surfaced as the kill it is (M-165).
   return enqueue(() =>
-    WORKER_ENABLED ? _runVerbWarm(args).catch(() => _runVerbCold(args)) : _runVerbCold(args)
+    WORKER_ENABLED
+      ? _runVerbWarm(args).catch((e) =>
+          e && e.timedOut ? { code: -1, stdout: '', stderr: String(e.message) } : _runVerbCold(args)
+        )
+      : _runVerbCold(args)
   );
 }
 
@@ -1005,7 +1035,8 @@ export function registerLyricTools(server, tool) {
         'present it only as parked, never as finished). The two-tier ban is enforced by the loop itself ' +
         '(MANDATORY_PURSUE), not by a stamp: banned pairs hold their lines open and the loop keeps asking for ' +
         'replacements. Each call re-runs the loop from its record (deterministic, so the same questions arrive in ' +
-        'the same order) — expect ~60-120s per call, growing with answers on record; keep any budget fields ' +
+        'the same order) — expect ~60-120s early, growing ~15s per answer on record (a late call in a long ' +
+        'run can legitimately take several minutes); keep any budget fields ' +
         "constant across one song's calls.",
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_revise,
     },

@@ -16053,7 +16053,7 @@ reset, this entry) are now crossed by answered turns in one run, so
 the idle-flow reading is confirmed and the server-side heartbeat
 remedy is NOT built — there is nothing measured left for it to fix.
 
-### M-161 · The 180-second subprocess wall fired in production, three kills in one turn — M-157's named watch item is measured real, and the retune is priced for a ruling `OPEN` 2026-08-29 — found by round 6's transcript, the first transport-clean round
+### M-161 · The 180-second subprocess wall fired in production, three kills in one turn — M-157's named watch item is measured real, and the retune is priced for a ruling `CLOSED` 2026-08-29 — round 8 refuted the route-around, and the owner's standing exit-0 order takes option (a) as M-165's shared budget
 **M-157's LAST PARAGRAPH PREDICTED THIS AND ROUND 6 MEASURED IT.**
 Turn 0's tool trace (run 33231200689): `lyric_plan` exit 0, then
 `lyric_grade` exit **-1**, `lyric_revise` exit **-1**, `lyric_grade`
@@ -16090,9 +16090,29 @@ DRAWN shapes by what the deployed box grades inside the wall —
 REFUSED HERE by its own description: the planner measuring the
 server is the deployment grading the writer; (c) keep the wall and
 record that large-shape songs route around it by re-planning, which
-round 6 proves works and also proves costs a turn of budget. The
+round 6 proves works and also proves costs a turn of budget. ~~The
 entry stays OPEN for the owner's ruling on (a) versus (c); no
-constant moves until it is made.
+constant moves until it is made.~~
+
+**CLOSED 2026-08-29, THE SITTING ROUND 8 REFUTED OPTION (c).** Round
+8 (run 33253826300) measured the route-around failing structurally:
+turn 8 spent **25.6 minutes on EIGHT consecutive lyric_revise exit
+-1 kills** and ended on MAX_TURN_COST, because the deferred-run
+replay GROWS with its own record — ~34s to the first question, ~15s
+more per folded answer (rounds 6 and 8 agree) — so it crosses the
+180s wall by roughly answer 10, and from there EVERY revise call
+dies at the wall. No re-plan routes around a wall that stands
+between the loop and its own stop condition: a clean 22-line run
+needs ~35-40 folded answers, so under the owner's exit-0 bar
+(M-163) option (c) is not a cost, it is an impossibility. Option
+(a) is taken — not as a bigger literal but as **M-165's ONE shared
+budget** — and (a)'s own priced cost DISSOLVES rather than being
+accepted: the warm-kill -> cold-retry ladder no longer runs on a
+timeout (the kill is tagged and surfaced as the -1 it is), so no
+call can spend 2x the ceiling and the `2 x 205s > 240s` tension
+this entry priced has no second clock left to arise between.
+Option (b) stays REFUSED on its own unchanged argument. The
+register pin moved with M-165's entry.
 
 ### M-162 · The model skips the sweep and the screen every time it writes — 2 of 2 rounds, seed 9999 — and the gate question is now its own entry `OPEN` 2026-08-29 — promoted out of M-158's deliberate deferral by the recurrence it waited for
 **THE DEFERRAL'S OWN CONDITION IS MET.** M-158 recorded the
@@ -16193,3 +16213,65 @@ sample, and the M-161 wall is not implicated (a killed verb returns
 an error RESULT to the model since the #204 fix; it does not throw).
 The register pin: `audit_register.coverage_entries` ~~221~~ -> 222
 (2026-08-29).
+
+### M-165 · Two clocks over one tool call — the subprocess wall sat under its own caller's patience, and the revise loop's growth crosses it: one shared budget now `CLOSED` 2026-08-29 — built the sitting round 8 measured the wall structural
+**THE DEFECT IS DOCTRINE 1 AT THE CONNECTOR: "how long may one tool
+call take" had two spellings in two layers.** `mcp/chat.js` waited
+`num('CHAT_TOOL_TIMEOUT_MS', 240_000)` on a callTool while
+`mcp/lyric_tools.js` killed the python underneath it at its own
+separately-spelled 180_000 — so the subprocess died for work its
+caller had another minute of declared patience for, and the model
+was handed exit -1 for a call that was legitimately still working.
+Round 8 (run 33253826300) measured the cost and its structure: turn
+8 was **EIGHT consecutive lyric_revise exit -1, 25.6 minutes,
+MAX_TURN_COST** — and the -1s are not noise, they are the
+deferred-run replay's own growth meeting the wall. The replay
+re-folds every answered record before asking the next question,
+measured across rounds 6 and 8 at **~34s to the first question and
+~15s more per folded answer**, so it crosses 180s by roughly answer
+10 — and a clean 22-line run needs ~35-40 folded answers. Under the
+owner's exit-0 bar (M-163) that is not a slowdown, it is a WALL
+BETWEEN THE LOOP AND ITS OWN STOP CONDITION: past ~10 answers every
+revise call dies, no matter how well the model writes.
+
+**THE FIX IS ONE DEFINITION, READ EVERYWHERE.** `mcp/budget.js`
+declares `DEFAULT_TOOL_BUDGET_MS = 600_000`, DERIVED from the
+replay ladder rather than guessed (34 + 15 x 38 ≈ 600s — the
+envelope of the last replays of a clean run; the 2x margin lives
+one layer up, in the workflow cap, not here), and `TOOL_BUDGET_MS`
+reading the historical env name `CHAT_TOOL_TIMEOUT_MS`. Both
+clocks read it: chat.js's callTool timeout IS the budget and holds
+no second spelling; lyric_tools.js's `SUBPROCESS_TIMEOUT_MS` IS
+the budget, with the 90 -> 180 history kept visible at the site.
+`render.yaml` pins `CHAT_TOOL_TIMEOUT_MS: '600000'` — the
+GEMINI_MODEL discipline: what deploys is what the repo says
+deploys — and the flash battery now derives its turn deadline from
+THAT pin instead of chat.js's default, because the default was
+deploy truth only while render.yaml set no override. **AND THE
+DOUBLE BLOCK IS GONE**: a warm-worker kill at the budget is TAGGED,
+and `runVerb` surfaces it as the -1 it is instead of re-running the
+same call cold — the cold fallback exists for a DEAD worker, and a
+timed-out call re-run cold holds the serial queue for a second
+whole budget to earn the same kill, which is the ladder M-161
+priced as (a)'s cost and round 8 paid eight times over.
+
+**GATE** (`mcp/test.mjs`, 54 -> 56): the render.yaml pin asserted
+EQUAL to budget.js's default (the CHAT_MAX_MESSAGE precedent);
+chat.js pinned to the shared budget with the old spelling pinned
+ABSENT; the subprocess clock pinned to the same budget; the tagged
+timeout kill and its no-cold-rerun surfacing both pinned; and the
+M-159 deadline check now also pins that the battery reads the
+render.yaml pin. **WHAT THIS ENTRY DOES NOT CLAIM, three watch
+items**: (1) that flash-lite CONVERGES to exit 0 once the wall is
+above the envelope — the next round measures that, this entry only
+removes the structural blocker; (2) the workflow's 300-minute cap
+was derived from the OBSERVED worst turn (16m49s x 9 x 2), and the
+theoretical per-turn ceiling is now maxSteps x budget = 140 min —
+if a round dies at the workflow cap with legitimate turns in
+flight, that cap is the next constant that moves, by its own
+derivation discipline; (3) the server-side halves (budget.js,
+chat.js, lyric_tools.js, render.yaml) reach the live box only via
+main + the deploy-connector workflow — a round dispatched before
+that deploy still runs against the 240s/180s clocks, so the round
+after this entry waits on the merge. The register pin:
+`audit_register.coverage_entries` ~~222~~ -> 223 (2026-08-29).

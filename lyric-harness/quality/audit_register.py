@@ -2277,7 +2277,13 @@ PINNED = {
     # ~~221~~ -> 222, same day: M-164 (a dead upstream answers 502 and
     # the driver treated it as fatal — 502 joins the bounded logged
     # backoff), pin told in the entry's own sitting.
-    "coverage_entries": 222,
+    # ~~222~~ -> 223, same day: M-165 (two clocks over one tool call —
+    # the 180s subprocess wall sat under the 240s caller and round 8
+    # measured the revise replay crossing it structurally; one shared
+    # budget in mcp/budget.js, render.yaml pins the deploy, M-161
+    # closes on the same measurement), pin told in the entry's own
+    # sitting.
+    "coverage_entries": 223,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

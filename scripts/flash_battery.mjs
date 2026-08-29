@@ -98,9 +98,11 @@ function esc(s, n) {
 //
 // The server's ceiling for one turn is the product of two constants it
 // declares: LIMITS.maxSteps tool round-trips (mcp/gemini_agent.js) of at most
-// CHAT_TOOL_TIMEOUT_MS each (mcp/chat.js — the repo default is what deploys,
-// render.yaml sets no override). Both factors are READ from the modules that
-// own them rather than respelled here; a spelling this script cannot find
+// CHAT_TOOL_TIMEOUT_MS each. The per-call factor is read from render.yaml's
+// pinned value — DEPLOY TRUTH since M-165: the pin is what the live box runs
+// on, and mcp/test.mjs holds it equal to mcp/budget.js's derived default so
+// the two spellings cannot drift. Both factors are READ from where they are
+// declared rather than respelled here; a spelling this script cannot find
 // REFUSES rather than falling back to a guess, so a renamed constant breaks
 // the battery loudly instead of silently re-inheriting a library default.
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -115,9 +117,9 @@ function readConst(file, re, name) {
   return parseInt(m[1].replace(/_/g, ''), 10);
 }
 const TOOL_TIMEOUT_MS = readConst(
-  'mcp/chat.js',
-  /num\('CHAT_TOOL_TIMEOUT_MS',\s*([\d_]+)\)/,
-  "CHAT_TOOL_TIMEOUT_MS's declared default"
+  'render.yaml',
+  /key: CHAT_TOOL_TIMEOUT_MS\s+value: '(\d+)'/,
+  "render.yaml's pinned CHAT_TOOL_TIMEOUT_MS"
 );
 const MAX_STEPS = readConst('mcp/gemini_agent.js', /maxSteps:\s*(\d+)/, 'LIMITS.maxSteps');
 const TURN_DEADLINE_MS = MAX_STEPS * TOOL_TIMEOUT_MS;
