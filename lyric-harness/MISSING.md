@@ -16736,6 +16736,30 @@ the bound MINUS the reserve, and a SECOND check now states the
 property without reference to any constant (no line is bound at every
 word), so a future draw reaching the same place by another route is
 still caught.
+**WHAT SHIPPED IS THE GLOBAL HALF, NOT THE PER-LINE ONE, and saying so
+is the difference between a bound and a bound that was measured.**
+`line_binding_ceiling` takes the placement POOL, not the line's own
+span, so the ceiling is now `min(pool words, floor - reserve)` = **4
+everywhere**. On a five-slot line that is exactly the intent — four
+bound, one free. On a twenty-four-slot line it is CONSERVATIVE: that
+line could carry more bindings and still leave the writer room, and it
+is capped at four anyway. The cost is a thinner web on long lines
+(part of the measured 2.91 -> 2.45) and the benefit is that the repair
+touches one expression and cannot interact with the per-line
+`joint_findings` arithmetic. **The per-line form — participation drawn
+against THIS line's `line_syllable_ceiling` minus the reserve — is the
+richer fix and is NOT taken here**: it needs its own before/after on
+groups per song and a re-ask of the gate, and shipping the safe half
+first is what makes that measurable rather than confounded.
+**AND SUFFICIENCY IS OPEN, WHICH THE POST-FIX PLAN ITSELF SHOWS.**
+Seed 88291 redrawn: 27 groups (from 25), max 4 bindings, mean 2.96
+unmoved, every line holding at least one free word. But its lines are
+FIVE slots, so line 6 still asks for four bound words — under four
+DIFFERENT named relations (monorhyme, pararhyme, rhyme, semirhyme) — in
+a five-syllable line. That is one free word out of five, which clears
+the defect this entry names and is not obviously a line a writer can
+answer. **M-171 is necessary; whether it is sufficient is unmeasured**,
+and the honest next instrument is a written draft, not another sweep.
 **WHAT THIS DOES NOT CLAIM.** No draft was written against either
 plan, so nothing here MEASURES that the old lines were unwritable or
 that the new ones are writable — round 10's 20-of-23 is strong
