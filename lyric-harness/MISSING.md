@@ -15928,6 +15928,22 @@ measurement, on this deployed change, and the skipped-step charge
 server that compelled a sweep would refuse an MCP client's deliberate
 seed, so that leak waits for evidence it recurs before any gate is
 designed for it.
+**THE MEASUREMENT CAME BACK 2026-08-29 (battery round 6, run
+33231200689, the first transport-clean round on this deployed change)
+AND THE REMINDER CURED THE STALL.** Sixteen `lyric_revise` calls
+carrying answers across three turns — eight in turn 0, seven in turn
+1, the closing call in turn 2 — with ZERO wrong-channel text turns
+(turns 0 and 1 spent their whole budget inside the tool loop and
+replied nothing; round 3's five-turn stall shape does not appear),
+carried state advancing on every hop, and a STOP CONDITION REACHED:
+exit 3, `NO_PROGRESS after 2 round(s)`, in 3 turns of a 9-turn budget
+where round 3 spent 9 and reached none. The channel router held in
+reserve above is RETIRED — the conservative design measured
+sufficient. The skipped-step charge RECURRED (sweep and screen
+unasked again, and the seed the model declared was 9999 — a
+hand-round number, precisely the guess `lyric_sweep` exists to
+replace): 2 of 2 model rounds now carry it, and its gate question is
+promoted to its own entry, M-162.
 
 ### M-159 · The battery abandoned a legitimate turn at a threshold nobody wrote down — the driver's own transport carried undici's 300s default, and one rejected promise erased the whole record `CLOSED` 2026-08-29 — fixed the sitting round 4 measured it
 **ROUND 4 WAS THE FIRST ROUND WITH THE M-158 REMINDER LIVE AND IT
@@ -15969,7 +15985,9 @@ the deployment's 429/503 pacing earns a bounded backoff, and a
 request that outlived the server's whole declared budget is a
 finding about the deployment, not noise to absorb.
 
-**GATES** (`mcp/test.mjs`, 49 -> 51): a source pin — no call to
+**GATES** (`mcp/test.mjs`, 49 -> 51; the register pin moved with this
+entry, `audit_register.coverage_entries` ~~216~~ -> 217, 2026-08-29):
+a source pin — no call to
 global `fetch` (comments stripped first: the file's own account of
 the defect says "fetch()", and a pin defeated by its documentation
 is the test_declared_inputs lesson repeated), the deadline spelled
@@ -16026,3 +16044,234 @@ it, and the remedy then moves server-side — bytes on the wire before
 the turn finishes — as its own entry. Model and reminder: still
 unmeasured (round 5 produced zero model turns); M-158's owed
 measurement rides the next round that reaches the model.
+**THE FALSIFIER RESOLVED FOR THE FIX 2026-08-29 (round 6, run
+33231200689): turn 0 ran 1,009,321 ms — SIXTEEN MINUTES FORTY-NINE
+SECONDS of wire silence — and ANSWERED 200 through the probes; turn 1
+ran 581,158 ms and answered; zero transport flags.** Both walls this
+family measured (the 300s client default, M-159; the ~240s idle-flow
+reset, this entry) are now crossed by answered turns in one run, so
+the idle-flow reading is confirmed and the server-side heartbeat
+remedy is NOT built — there is nothing measured left for it to fix.
+
+### M-161 · The 180-second subprocess wall fired in production, three kills in one turn — M-157's named watch item is measured real, and the retune is priced for a ruling `CLOSED` 2026-08-29 — round 8 refuted the route-around, and the owner's standing exit-0 order takes option (a) as M-165's shared budget
+**M-157's LAST PARAGRAPH PREDICTED THIS AND ROUND 6 MEASURED IT.**
+Turn 0's tool trace (run 33231200689): `lyric_plan` exit 0, then
+`lyric_grade` exit **-1**, `lyric_revise` exit **-1**, `lyric_grade`
+exit **-1** — and -1 is the connector's spelling for A SUBPROCESS
+KILLED WITHOUT AN EXIT CODE (`mcp/lyric_tools.js` `_runVerbCold`:
+execFile's `timeout: SUBPROCESS_TIMEOUT_MS` kill leaves `err.code`
+non-numeric; the warm path's reply-without-code reads the same). The
+first plan's drawn shape carries verbs that legitimately outlive
+180s — the 50-line first revise measured 205.5s LOCALLY (M-157), and
+the deployed box is not faster — so three legitimate calls were
+killed at the declared wall, inside a tool budget
+(`CHAT_TOOL_TIMEOUT_MS` 240s) that had room for them.
+
+**THE MODEL'S ROUTE-AROUND IS ON THE RECORD AND IT IS THE HONEST
+ONE**: after the third kill it re-planned (one attempt REFUSED exit
+2, then exit 0), got a smaller shape — seed 9999, 22 lines — and
+drove that to a stop condition. No misreported verdict, no invented
+success: the wall cost most of turn 0's budget (`MAX_TURN_COST`) and
+the song that shipped is the song the wall left reachable. Which is
+exactly why this is not closed as "the system coped": the deployed
+instrument currently CANNOT GRADE the planner's own larger shapes,
+and the writer that discovers it pays for the discovery in budget.
+
+**THE RETUNE IS A RULING, NOT A QUIET EDIT (doctrine 58), and the
+tension is structural**: the warm-kill -> cold-retry ladder means one
+tool call can spend up to 2x the subprocess ceiling, so the ceiling
+cannot both sit ABOVE the measured legitimate envelope (205.5s and
+rising with shape) and keep the ladder INSIDE the 240s tool budget —
+`2 x 205s > 240s`. Three options, priced: (a) raise
+`SUBPROCESS_TIMEOUT_MS` above the measured envelope and accept that
+the cold retry after a warm kill is cut by the tool timeout instead
+(the kill moves up one layer, attributably); (b) bound the planner's
+DRAWN shapes by what the deployed box grades inside the wall —
+REFUSED HERE by its own description: the planner measuring the
+server is the deployment grading the writer; (c) keep the wall and
+record that large-shape songs route around it by re-planning, which
+round 6 proves works and also proves costs a turn of budget. ~~The
+entry stays OPEN for the owner's ruling on (a) versus (c); no
+constant moves until it is made.~~
+
+**CLOSED 2026-08-29, THE SITTING ROUND 8 REFUTED OPTION (c).** Round
+8 (run 33253826300) measured the route-around failing structurally:
+turn 8 spent **25.6 minutes on EIGHT consecutive lyric_revise exit
+-1 kills** and ended on MAX_TURN_COST, because the deferred-run
+replay GROWS with its own record — ~34s to the first question, ~15s
+more per folded answer (rounds 6 and 8 agree) — so it crosses the
+180s wall by roughly answer 10, and from there EVERY revise call
+dies at the wall. No re-plan routes around a wall that stands
+between the loop and its own stop condition: a clean 22-line run
+needs ~35-40 folded answers, so under the owner's exit-0 bar
+(M-163) option (c) is not a cost, it is an impossibility. Option
+(a) is taken — not as a bigger literal but as **M-165's ONE shared
+budget** — and (a)'s own priced cost DISSOLVES rather than being
+accepted: the warm-kill -> cold-retry ladder no longer runs on a
+timeout (the kill is tagged and surfaced as the -1 it is), so no
+call can spend 2x the ceiling and the `2 x 205s > 240s` tension
+this entry priced has no second clock left to arise between.
+Option (b) stays REFUSED on its own unchanged argument. The
+register pin moved with M-165's entry.
+
+### M-162 · The model skips the sweep and the screen every time it writes — 2 of 2 rounds, seed 9999 — and the gate question is now its own entry `OPEN` 2026-08-29 — promoted out of M-158's deliberate deferral by the recurrence it waited for
+**THE DEFERRAL'S OWN CONDITION IS MET.** M-158 recorded the
+skipped-step charge UNGATED, deliberately, "waiting for evidence it
+recurs before any gate is designed for it." It has recurred: both
+rounds that reached the model (round 3, run 33224082837; round 6, run
+33231200689) open with `lyric_plan` — `lyric_sweep` and
+`lyric_screen` never called — against the standing rule that NOTHING
+SKIPS A STEP: the working order is sweep -> screen -> plan -> write ->
+grade -> revise to a stop condition. Round 6 adds the tell: the seed
+the model declared is **9999**, a hand-round number, precisely the
+guess the sweep verb exists to replace with a measured choice.
+
+**WHY THE SERVER DOES NOT SIMPLY REFUSE — the constraint M-158
+already named and this entry keeps**: a connector that COMPELS a
+sweep refuses an MCP client's deliberate seed, and a deliberate seed
+is a legitimate declaration. The gate cannot live at the tool door.
+**THE CONSERVATIVE DESIGN ON THE TABLE is M-158's own shape one step
+earlier**: the chat surface's instructions already state the working
+order and the model skips it anyway, so the candidate is a MECHANICAL
+reminder at the moment it binds — when a lyric conversation's FIRST
+lyric tool call is about to be `lyric_plan` with no sweep or screen
+on the turn's record, the systemInstruction carries a note naming the
+two steps not yet taken (built through M-158's one
+`buildSystemInstruction` seam, so there is still exactly one builder;
+the note states, it never blocks). Chat-surface only; MCP clients are
+unaffected. **HELD FOR THE OWNER'S GO** rather than shipped, because
+M-158's reminder was put to the owner before it shipped and this one
+is the same species: a nudge the server writes into every
+conversation is a policy, and policies are ruled on, not slipped in.
+The register pin moved across this sitting's two entries:
+`audit_register.coverage_entries` ~~218~~ -> 220 (2026-08-29).
+
+### M-163 · The driver hung up on a parked song — exit 3 counted as finished, and the owner's bar is exit 0 `CLOSED` 2026-08-29 — built on the owner's order the sitting it was given
+**THE OWNER'S ORDER, VERBATIM: "keep going until we get a clean exit
+0 song."** Round 6's driver counted ANY stop condition as the song
+being over — `sawStop` on lyric_revise exit 0 OR exit 3 — so the
+first parked draft (exit 3, `NO_PROGRESS after 2 round(s)`, twelve
+lines flagged) ended the round with six turns of budget unspent. Exit
+3 is a REAL stop condition and an HONEST verdict; it is not a
+finished song under the declared bar, and a driver that accepts it is
+a user who takes a draft their own brief said to revise until it
+passes.
+
+**THE FIX STAYS INSIDE THE DRIVER'S USER ROLE.** Only exit 0 sets
+`reached_stop`; an exit 3 increments `parked` (recorded per stop,
+disclosed in the summary and the console line) and the NEXT turn's
+message is `PARKED_CONTINUE` — a process-steering decline ("revise
+again until every check passes and lyric_revise reaches exit 0") that
+writes no lyric line, exactly the posture the briefs already declare.
+The two mechanical-suspicion flags gain `parked === 0` guards: a
+model presenting a parked draft WITH its exit-3 stamp is honest
+disclosure (M-150's own rule), not a premature done. **THE TIME
+BUDGET FOLLOWS THE BAR**: the workflow's `timeout-minutes` was sized
+for the 130s-pace multi-song shape (120), and a single-song round
+that continues past parked stops can spend nine turns at the
+worst-observed legitimate turn (16m49s, round 6) — ~150 min, which
+the old cap would kill MID-ROUND, taking the transcript with it. 300
+covers it at the same 2x-margin discipline the deploy-memory gate
+uses, under the 6h Actions ceiling.
+
+**GATE** (`mcp/test.mjs`, 52 -> 53): exit 0 pinned as the only finish,
+the old exit-0-or-3 assignment pinned ABSENT, and the parked turn
+pinned to the decline-and-continue message. **WHAT THIS ENTRY DOES
+NOT CLAIM**: that continuing past a parked stop CONVERGES — a fresh
+revise run re-asks the parked lines with attempt counters reset, and
+whether flash-lite can clear twelve standing flags is the next
+round's measurement, not this entry's. The register pin:
+`audit_register.coverage_entries` ~~220~~ -> 221 (2026-08-29).
+
+### M-164 · A dead upstream answers 502 and the driver treated it as fatal — the deployment's transient answers all earn the bounded logged backoff now `CLOSED` 2026-08-29 — fixed the sitting round 7 measured it
+**ROUND 7 (run 33251420261, the first with the M-163 exit-0 bar) DIED
+ON ITS OPENING TURN WITHOUT REACHING THE MODEL'S WORK**: turn 0
+answered **502 at 236.6s** with chat.js's own catch-all body ("The
+engine could not answer that one. Try rephrasing?"), zero tool calls
+relayed, and the driver — which retries only 429/503 — recorded the
+row faithfully and hung up. **THE 502 IS THE SERVER'S CATCH-ALL, NOT
+THE PROXY'S**: `mcp/chat.js` answers it when `runTurn` throws, which
+means the turn's upstream (the model API) failed past the server's
+own single transient-5xx retry, and everything that turn computed was
+thrown away. The conversation ENVELOPE is intact — turn 0 carried
+none and later turns carry the last-good one — so re-sending the same
+message is exactly what a person at the chat bar would do, and
+exactly what the driver's own header already licenses for 429/503:
+the deployment's transient answers, retried boundedly, every retry a
+logged row.
+
+**THE FIX IS ONE MEMBERSHIP**: 502 joins 429/503 in the bounded
+backoff (4 retries, 60s floor between, each retry a row in the
+JSONL). Nothing else moves — a 502 that survives four retries still
+ends the song with the row on the record, because five in a row is a
+finding about the deployment and not noise to absorb. **GATE**
+(`mcp/test.mjs`, 53 -> 54): the three statuses pinned to the one
+retry path. **WHAT THIS ENTRY DOES NOT CLAIM**: why THIS 502
+happened — the server log line (`[chat] <err.message>`) is on the
+Render dashboard and out of this container's reach, one sample is one
+sample, and the M-161 wall is not implicated (a killed verb returns
+an error RESULT to the model since the #204 fix; it does not throw).
+The register pin: `audit_register.coverage_entries` ~~221~~ -> 222
+(2026-08-29).
+
+### M-165 · Two clocks over one tool call — the subprocess wall sat under its own caller's patience, and the revise loop's growth crosses it: one shared budget now `CLOSED` 2026-08-29 — built the sitting round 8 measured the wall structural
+**THE DEFECT IS DOCTRINE 1 AT THE CONNECTOR: "how long may one tool
+call take" had two spellings in two layers.** `mcp/chat.js` waited
+`num('CHAT_TOOL_TIMEOUT_MS', 240_000)` on a callTool while
+`mcp/lyric_tools.js` killed the python underneath it at its own
+separately-spelled 180_000 — so the subprocess died for work its
+caller had another minute of declared patience for, and the model
+was handed exit -1 for a call that was legitimately still working.
+Round 8 (run 33253826300) measured the cost and its structure: turn
+8 was **EIGHT consecutive lyric_revise exit -1, 25.6 minutes,
+MAX_TURN_COST** — and the -1s are not noise, they are the
+deferred-run replay's own growth meeting the wall. The replay
+re-folds every answered record before asking the next question,
+measured across rounds 6 and 8 at **~34s to the first question and
+~15s more per folded answer**, so it crosses 180s by roughly answer
+10 — and a clean 22-line run needs ~35-40 folded answers. Under the
+owner's exit-0 bar (M-163) that is not a slowdown, it is a WALL
+BETWEEN THE LOOP AND ITS OWN STOP CONDITION: past ~10 answers every
+revise call dies, no matter how well the model writes.
+
+**THE FIX IS ONE DEFINITION, READ EVERYWHERE.** `mcp/budget.js`
+declares `DEFAULT_TOOL_BUDGET_MS = 600_000`, DERIVED from the
+replay ladder rather than guessed (34 + 15 x 38 ≈ 600s — the
+envelope of the last replays of a clean run; the 2x margin lives
+one layer up, in the workflow cap, not here), and `TOOL_BUDGET_MS`
+reading the historical env name `CHAT_TOOL_TIMEOUT_MS`. Both
+clocks read it: chat.js's callTool timeout IS the budget and holds
+no second spelling; lyric_tools.js's `SUBPROCESS_TIMEOUT_MS` IS
+the budget, with the 90 -> 180 history kept visible at the site.
+`render.yaml` pins `CHAT_TOOL_TIMEOUT_MS: '600000'` — the
+GEMINI_MODEL discipline: what deploys is what the repo says
+deploys — and the flash battery now derives its turn deadline from
+THAT pin instead of chat.js's default, because the default was
+deploy truth only while render.yaml set no override. **AND THE
+DOUBLE BLOCK IS GONE**: a warm-worker kill at the budget is TAGGED,
+and `runVerb` surfaces it as the -1 it is instead of re-running the
+same call cold — the cold fallback exists for a DEAD worker, and a
+timed-out call re-run cold holds the serial queue for a second
+whole budget to earn the same kill, which is the ladder M-161
+priced as (a)'s cost and round 8 paid eight times over.
+
+**GATE** (`mcp/test.mjs`, 54 -> 56): the render.yaml pin asserted
+EQUAL to budget.js's default (the CHAT_MAX_MESSAGE precedent);
+chat.js pinned to the shared budget with the old spelling pinned
+ABSENT; the subprocess clock pinned to the same budget; the tagged
+timeout kill and its no-cold-rerun surfacing both pinned; and the
+M-159 deadline check now also pins that the battery reads the
+render.yaml pin. **WHAT THIS ENTRY DOES NOT CLAIM, three watch
+items**: (1) that flash-lite CONVERGES to exit 0 once the wall is
+above the envelope — the next round measures that, this entry only
+removes the structural blocker; (2) the workflow's 300-minute cap
+was derived from the OBSERVED worst turn (16m49s x 9 x 2), and the
+theoretical per-turn ceiling is now maxSteps x budget = 140 min —
+if a round dies at the workflow cap with legitimate turns in
+flight, that cap is the next constant that moves, by its own
+derivation discipline; (3) the server-side halves (budget.js,
+chat.js, lyric_tools.js, render.yaml) reach the live box only via
+main + the deploy-connector workflow — a round dispatched before
+that deploy still runs against the 240s/180s clocks, so the round
+after this entry waits on the merge. The register pin:
+`audit_register.coverage_entries` ~~222~~ -> 223 (2026-08-29).

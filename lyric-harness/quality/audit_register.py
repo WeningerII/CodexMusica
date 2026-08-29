@@ -2264,7 +2264,26 @@ PINNED = {
     # idle-flow wall in the turn's own silence — keep-alive probes on
     # the request socket, falsifier named), pin told in the entry's
     # own sitting.
-    "coverage_entries": 218,
+    # ~~218~~ -> 220, same day: round 6 delivered the first
+    # stop-condition song and two entries with it — M-161 (the 180s
+    # subprocess wall fired in production, M-157's watch item measured
+    # real, retune priced for a ruling) and M-162 (the model skips
+    # sweep/screen 2 of 2 rounds, seed 9999 — the gate question
+    # promoted out of M-158's deferral). Pins told in their own
+    # sitting.
+    # ~~220~~ -> 221, same day: M-163 (the driver hung up on a parked
+    # song — exit 0 is the only finish by the owner's order, exit 3 is
+    # declined and continued), pin told in the entry's own sitting.
+    # ~~221~~ -> 222, same day: M-164 (a dead upstream answers 502 and
+    # the driver treated it as fatal — 502 joins the bounded logged
+    # backoff), pin told in the entry's own sitting.
+    # ~~222~~ -> 223, same day: M-165 (two clocks over one tool call —
+    # the 180s subprocess wall sat under the 240s caller and round 8
+    # measured the revise replay crossing it structurally; one shared
+    # budget in mcp/budget.js, render.yaml pins the deploy, M-161
+    # closes on the same measurement), pin told in the entry's own
+    # sitting.
+    "coverage_entries": 223,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

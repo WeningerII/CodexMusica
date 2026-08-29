@@ -605,7 +605,11 @@ check('validation: actionable errors', () => {
     );
     assert.ok(
       /CHAT_TOOL_TIMEOUT_MS/.test(code) && /maxSteps/.test(code),
-      'and both factors are read from the modules that own them, never respelled'
+      'and both factors are read from where they are declared, never respelled'
+    );
+    assert.ok(
+      /render\.yaml/.test(code),
+      'the per-call factor comes from render.yaml — the deploy pin, not a repo default (M-165)'
     );
   });
   check('the battery socket keeps the NAT awake while the server computes', () => {
@@ -621,6 +625,74 @@ check('validation: actionable errors', () => {
     assert.ok(
       /KEEPALIVE_PROBE_MS = NAT_IDLE_FLOOR_MS \/ 10/.test(bat),
       'and the cadence derives from the documented idle floor, not a bare number'
+    );
+  });
+  check('the battery finishes only on exit 0 — a parked exit 3 is declined and continued', () => {
+    // M-163 (owner's order): round 6 parked at exit 3 — NO_PROGRESS, twelve
+    // lines still flagged — and the driver hung up as if the song were done.
+    // Only exit 0 finishes a song now; the driver's user-role reply declines
+    // the parked draft and asks the loop to keep revising. Comments stripped
+    // for the same reason as the fetch pin above.
+    const code = bat.replace(/^\s*\/\/.*$/gm, '');
+    assert.ok(/if \(c\.exit_code === 0\) sawStop = 0;/.test(code), 'exit 0 is the only finish');
+    assert.ok(
+      !/sawStop = c\.exit_code/.test(code),
+      'the old exit-0-or-3 finish assignment is gone'
+    );
+    assert.ok(
+      /parkedLastTurn\s*\?\s*PARKED_CONTINUE\s*:\s*CONTINUE/.test(code),
+      'a parked turn is answered with the decline-and-continue message'
+    );
+  });
+  check("the deployment's transient answers earn the bounded logged backoff", () => {
+    // M-164: round 7's turn 0 got chat.js's catch-all 502 ("The engine could
+    // not answer that one") at 236s — the turn's upstream died past the
+    // server's own single 5xx retry, the turn's work was thrown away, and the
+    // driver treated it as fatal. The carried envelope is intact on a 502, so
+    // it takes the same bounded, logged retry 429/503 always did.
+    assert.ok(
+      /r\.status === 429 \|\| r\.status === 502 \|\| r\.status === 503/.test(bat),
+      '429, 502 and 503 all take the bounded retry path'
+    );
+  });
+  check('one tool budget, four readers — the pin, the default, the client clock, the kill', () => {
+    // M-165: round 8's turn 8 was EIGHT consecutive lyric_revise exit -1,
+    // 25.6 minutes, MAX_TURN_COST — the 180s subprocess kill sat UNDER the
+    // 240s the chat client was still willing to wait, and the deferred
+    // replay (~34s base, ~15s per folded answer, measured) legitimately
+    // outlives 180s past ~10 answers. One definition now: budget.js derives
+    // the default, render.yaml pins what deploys, and both clocks read it.
+    const budget = readFileSync(new URL('./budget.js', import.meta.url), 'utf8');
+    const m = /DEFAULT_TOOL_BUDGET_MS = ([\d_]+)/.exec(budget);
+    assert.ok(m, 'budget.js declares the derived default');
+    const def = Number(m[1].replace(/_/g, ''));
+    const yaml = readFileSync(new URL('../render.yaml', import.meta.url), 'utf8');
+    const y = /key: CHAT_TOOL_TIMEOUT_MS\s+value: '(\d+)'/.exec(yaml);
+    assert.ok(y, 'render.yaml pins the deployed value — the battery derives its deadline from it');
+    assert.equal(Number(y[1]), def, 'the pin and the default are one value, not two spellings');
+    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+    assert.ok(/TOOL_TIMEOUT_MS = TOOL_BUDGET_MS/.test(chat), 'chat.js reads the shared budget');
+    assert.ok(
+      !/num\('CHAT_TOOL_TIMEOUT_MS'/.test(chat),
+      'and no longer holds its own spelling of it'
+    );
+    const lt = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
+    assert.ok(
+      /SUBPROCESS_TIMEOUT_MS = TOOL_BUDGET_MS/.test(lt),
+      'the subprocess kill is the same budget — no wall under the caller declared patience'
+    );
+  });
+  check('a verb that outlives the budget is not re-run cold on the serial queue', () => {
+    // The cold fallback exists for a DEAD worker (crash, corruption): one
+    // slow answer, identical semantics. A TIMED-OUT call already proved it
+    // outlives the whole budget, so a cold re-run would hold the serial
+    // queue for a SECOND whole budget to earn the same -1 — the double
+    // block round 8 paid eight times over (M-165).
+    const lt = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
+    assert.ok(/e\.timedOut = true/.test(lt), 'the budget kill is tagged where the timer fires');
+    assert.ok(
+      /e && e\.timedOut\s*\?\s*\{ code: -1/.test(lt),
+      'and runVerb surfaces the tagged kill as the -1 it is instead of retrying cold'
     );
   });
   check('a battery transport failure is a recorded row, never a crash', async () => {

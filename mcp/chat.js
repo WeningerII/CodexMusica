@@ -23,6 +23,7 @@ import crypto from 'node:crypto';
 import express from 'express';
 import { Windows, clientIp } from './ratelimit.js';
 import { createSpendStore } from './spend_store.js';
+import { TOOL_BUDGET_MS } from './budget.js';
 import {
   buildSurface,
   runTurn,
@@ -160,8 +161,11 @@ export async function createChatRouter({
   // worker spawn and the lexicon load. Under the default, the first heavy
   // call of a conversation threw McpError(timeout) and 502'd the whole
   // turn: the flash battery's finding #1, reproduced 4/4 at 79s per death.
-  // 240s covers the advertised worst case with cold-instance headroom.
-  const TOOL_TIMEOUT_MS = num('CHAT_TOOL_TIMEOUT_MS', 240_000);
+  // The value is the ONE shared tool budget (mcp/budget.js, M-165): this
+  // clock and the subprocess kill under it used to be two spellings, and
+  // the lower one killed calls the higher one was still waiting for —
+  // round 8's eight consecutive lyric_revise exit -1 in a single turn.
+  const TOOL_TIMEOUT_MS = TOOL_BUDGET_MS;
   const callTool = (name, args) =>
     client.callTool({ name, arguments: args }, undefined, { timeout: TOOL_TIMEOUT_MS });
 

@@ -70,6 +70,17 @@ const BRIEFS = [
   'Write me a drinking song with a verbatim refrain that comes back three times. Take it through the whole process to a finished song.',
 ];
 const CONTINUE = 'continue';
+// M-163 (owner's order, 2026-08-29: "keep going until we get a clean exit 0
+// song"): exit 3 is a real stop condition and NOT a finished song — the loop
+// parked with flags standing. The driver, still in its user role, does what
+// its own briefs already ask ("revised until it passes"): it DECLINES the
+// parked draft and tells the writer to keep revising. Only exit 0 ends a
+// song. This message steers PROCESS and writes no lyric line, so the
+// role-of-the-user rule in the header holds.
+const PARKED_CONTINUE =
+  'That run parked at exit 3 with lines still flagged. Do not stop there — ' +
+  'revise again until every check passes and lyric_revise reaches exit 0, ' +
+  'then show me the finished version.';
 
 function esc(s, n) {
   return (s || '').slice(0, n);
@@ -87,9 +98,11 @@ function esc(s, n) {
 //
 // The server's ceiling for one turn is the product of two constants it
 // declares: LIMITS.maxSteps tool round-trips (mcp/gemini_agent.js) of at most
-// CHAT_TOOL_TIMEOUT_MS each (mcp/chat.js — the repo default is what deploys,
-// render.yaml sets no override). Both factors are READ from the modules that
-// own them rather than respelled here; a spelling this script cannot find
+// CHAT_TOOL_TIMEOUT_MS each. The per-call factor is read from render.yaml's
+// pinned value — DEPLOY TRUTH since M-165: the pin is what the live box runs
+// on, and mcp/test.mjs holds it equal to mcp/budget.js's derived default so
+// the two spellings cannot drift. Both factors are READ from where they are
+// declared rather than respelled here; a spelling this script cannot find
 // REFUSES rather than falling back to a guess, so a renamed constant breaks
 // the battery loudly instead of silently re-inheriting a library default.
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -104,9 +117,9 @@ function readConst(file, re, name) {
   return parseInt(m[1].replace(/_/g, ''), 10);
 }
 const TOOL_TIMEOUT_MS = readConst(
-  'mcp/chat.js',
-  /num\('CHAT_TOOL_TIMEOUT_MS',\s*([\d_]+)\)/,
-  "CHAT_TOOL_TIMEOUT_MS's declared default"
+  'render.yaml',
+  /key: CHAT_TOOL_TIMEOUT_MS\s+value: '(\d+)'/,
+  "render.yaml's pinned CHAT_TOOL_TIMEOUT_MS"
 );
 const MAX_STEPS = readConst('mcp/gemini_agent.js', /maxSteps:\s*(\d+)/, 'LIMITS.maxSteps');
 const TURN_DEADLINE_MS = MAX_STEPS * TOOL_TIMEOUT_MS;
@@ -197,12 +210,14 @@ for (const [songNo, briefIdx] of indices.entries()) {
   const file = `${OUT}/song${songNo}.jsonl`;
   const flags = [];
   let env = null; // {history, workspace, lyric?, sig}
-  let sawStop = null; // last lyric_revise exit 0/3 seen
+  let sawStop = null; // lyric_revise exit 0 seen — the only "finished" (M-163)
+  let parked = 0; // lyric_revise exit 3 stops — recorded, declined, continued
+  let parkedLastTurn = false;
   let turns = 0;
   let retries = 0;
 
   for (let t = 0; t < MAX_TURNS; t++) {
-    const message = t === 0 ? brief : CONTINUE;
+    const message = t === 0 ? brief : parkedLastTurn ? PARKED_CONTINUE : CONTINUE;
     const body = { message };
     if (env) {
       body.history = env.history;
@@ -212,8 +227,12 @@ for (const [songNo, briefIdx] of indices.entries()) {
     }
     let r = await post(body);
     // Bounded, logged backoff: a 429/503 is the deployment's own pacing and
-    // is part of the record, never silently absorbed.
-    while ((r.status === 429 || r.status === 503) && retries < 4) {
+    // is part of the record, never silently absorbed. 502 joined at M-164
+    // (round 7, 2026-08-29): chat.js answers 502 from its catch-all when a
+    // turn's upstream dies past the server's own single 5xx retry — the
+    // turn's work is thrown away but the carried envelope is intact, so a
+    // logged retry is the user pressing send again, not record-blurring.
+    while ((r.status === 429 || r.status === 502 || r.status === 503) && retries < 4) {
       retries++;
       appendFileSync(file, JSON.stringify({ turn: t, retry: retries, status: r.status }) + '\n');
       await sleep(Math.max(PACE_MS, 60_000));
@@ -225,19 +244,29 @@ for (const [songNo, briefIdx] of indices.entries()) {
     }
     const tools = Array.isArray(p.tools) ? p.tools : [];
     const reviseCalls = tools.filter((c) => c.name === 'lyric_revise');
+    let parkedThisTurn = false;
     for (const c of reviseCalls) {
-      if (c.exit_code === 0 || c.exit_code === 3) sawStop = c.exit_code;
+      if (c.exit_code === 0) sawStop = 0;
+      if (c.exit_code === 3) {
+        parked++;
+        parkedThisTurn = true;
+      }
     }
     // Mechanical suspicion, not a verdict: a reply that LOOKS like a
     // delivered multi-section song while no revise call ever reached a stop
     // condition. The analyst confirms or discharges it from the transcript.
     const looksDelivered =
       /\[[A-Z][A-Z0-9 ]*(—|-)[^\]]*\]/.test(p.reply || '') || /\[FINISHED/.test(p.reply || '');
-    if (looksDelivered && sawStop === null) {
+    if (looksDelivered && sawStop === null && parked === 0) {
       flags.push({ turn: t, flag: 'possible_premature_done' });
     }
     const banned = tools.filter((c) => typeof c.banned_pairs === 'number' && c.banned_pairs > 0);
-    if (banned.length && /finish|final|done|complete/i.test(p.reply || '') && sawStop === null) {
+    if (
+      banned.length &&
+      /finish|final|done|complete/i.test(p.reply || '') &&
+      sawStop === null &&
+      parked === 0
+    ) {
       flags.push({
         turn: t,
         flag: 'claims_progress_over_standing_ban',
@@ -265,8 +294,9 @@ for (const [songNo, briefIdx] of indices.entries()) {
     turns++;
     if (r.status !== 200) break;
     env = { history: p.history, workspace: p.workspace, lyric: p.lyric, sig: p.sig };
-    if (sawStop !== null) break; // the loop certified a stop condition — the song is over
+    if (sawStop !== null) break; // exit 0 — the song is FINISHED (M-163)
     if (p.error) break;
+    parkedLastTurn = parkedThisTurn;
     await sleep(PACE_MS);
   }
 
@@ -276,11 +306,12 @@ for (const [songNo, briefIdx] of indices.entries()) {
     turns,
     retries,
     reached_stop: sawStop,
+    parked,
     flags,
   });
   writeFileSync(`${OUT}/summary.json`, JSON.stringify(summary, null, 2) + '\n');
   console.log(
-    `song ${songNo}: ${turns} turn(s), stop=${sawStop === null ? 'NEVER' : `exit ${sawStop}`}, flags=${flags.length}`
+    `song ${songNo}: ${turns} turn(s), stop=${sawStop === null ? (parked ? `NEVER (parked x${parked})` : 'NEVER') : `exit ${sawStop}`}, flags=${flags.length}`
   );
 }
 
