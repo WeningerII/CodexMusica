@@ -2283,7 +2283,12 @@ PINNED = {
     # budget in mcp/budget.js, render.yaml pins the deploy, M-161
     # closes on the same measurement), pin told in the entry's own
     # sitting.
-    "coverage_entries": 223,
+    # ~~223~~ -> 224, same day: M-166 (round 9 under the shared budget
+    # — zero exit -1, the wall moved to the client's own 600s clock on
+    # a large shape's 340-515s folds, plus the one-answer-per-turn
+    # relapse; driver-side user-role remedies shipped, server halves
+    # priced and open), pin told in the entry's own sitting.
+    "coverage_entries": 224,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

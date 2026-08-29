@@ -16275,3 +16275,61 @@ main + the deploy-connector workflow — a round dispatched before
 that deploy still runs against the 240s/180s clocks, so the round
 after this entry waits on the merge. The register pin:
 `audit_register.coverage_entries` ~~222~~ -> 223 (2026-08-29).
+
+### M-166 · Round 9 under the shared budget: the kills are gone, and the two walls left standing are the model's pace and the shape's replay slope `OPEN` 2026-08-29 — the driver-side remedies shipped the sitting the round landed
+**M-165'S CLAIM IS CONFIRMED AND THE WALL MOVED RATHER THAN
+VANISHED.** Round 9 (run 33259376754, 151 minutes, the first with the
+600s budget live server-side) recorded ZERO exit -1 rows — the
+subprocess kill fired on no call the client was still waiting for.
+What it recorded instead: turns 6-8 spent ~28-31 minutes each on
+lyric_revise calls dying as `MCP error -32001: Request timed out` —
+the CLIENT's own 600s clock — eight timed-out calls, each turn ending
+on MAX_TURN_COST, reached_stop null, parked 0. **A DESIGN NOTE THAT
+FALLS OUT STRUCTURALLY**: with the two clocks EQUAL, the client always
+gives up first or simultaneously — its clock starts at callTool and
+includes queue wait, the subprocess timer starts when the verb runs —
+so the tagged server kill M-165 built is unreachable from the chat
+path and the timeout surfaces as the SDK's opaque -32001 instead of
+the tagged kill's legible stderr. Cosmetic to the outcome, priced
+below, not taken this sitting.
+
+**TWO WALLS, COUNTED APART (doctrine 79).** (1) THE PACE: turns 1-5
+each made ONE lyric_revise call and spoke the answer as a chat
+`LINE:` reply — the one-answer-per-turn relapse, recurrence #3 after
+rounds 6 (cured) and 8 (relapsed) — so nine turns can never carry the
+dozens of folds a clean run needs even with no timeout anywhere. (2)
+THE SLOPE: single folds cost 340-515s by answer ~6 THIS round,
+against the ~34s-base, ~15s-per-answer ladder rounds 6/8 measured on
+a 22-line shape — an order-of-magnitude gap whose most consistent
+reading is a LARGE drawn shape (M-157 measured a 50-line first
+revise at 205.5s; M-161 recorded the deployed instrument "cannot
+grade the planner's own larger shapes"). STATED AS INFERENCE: the
+transcript does not print the plan's line count, so the shape size
+is the best-supported reading and not a measurement. At that slope a
+large shape's late folds exceed ANY per-call budget — raising the
+budget again loses to the O(answers) growth it sits under.
+
+**THE REMEDIES SHIPPED ARE USER-ROLE AND DRIVER-SIDE — no server
+byte, no deploy, the same species as M-163's PARKED_CONTINUE.**
+The brief now asks for a SHORT song ("a couple of verses and a
+chorus, twenty-odd lines"), which is what a user who watched their
+song time out actually says, and keeps the driver's own plain-language
+discipline (no tool names — the derivation comment sits on the
+constant); CONTINUE becomes a batching push ("answer every question
+the revision loop asks within this same reply ... one answer per
+reply is too slow"). Neither writes a lyric line.
+
+**WHAT STAYS OPEN, priced**: (a) a client-clock margin over the
+subprocess clock (client = budget + grace) would surface the legible
+tagged kill instead of -32001 — server-side, needs a PR to main +
+merge + deploy, changes no outcome, deferred; (b) the replay slope
+itself — the deferred replay re-runs the loop per fold, and whether
+the warm worker's memo is engaged on the deployed box is unmeasured
+from this container — a real repair is a harness/connector sitting of
+its own; (c) the pace relapse and turn 2's MALFORMED_FUNCTION_CALL —
+the channel-router design stays in reserve (M-162's conservative
+systemInstruction nudge also still held for the owner's go), and this
+entry banks recurrence #3 as the evidence that ladder feeds on. The
+M-164 backoff worked as built: one 429 and two 502s retried, all
+three recovered, every retry a row. The register pin:
+`audit_register.coverage_entries` ~~223~~ -> 224 (2026-08-29).
