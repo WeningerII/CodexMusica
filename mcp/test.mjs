@@ -682,6 +682,34 @@ check('validation: actionable errors', () => {
       'the subprocess kill is the same budget — no wall under the caller declared patience'
     );
   });
+  check('the replay memo holds as many runs as the chat layer can have — one figure, not two spellings', () => {
+    // M-167: quality/replay_memo.py's RUNS_HELD is DERIVED from chat.js's
+    // CHAT_CONCURRENCY default — 2 conversations x (live + superseded) — and
+    // restates it rather than importing it, because the harness imports
+    // nothing from mcp/ (the dependency runs the other way). This check is
+    // the agreement the module's own comment promises: move the concurrency
+    // default and this goes red instead of the memo silently evicting live
+    // runs mid-conversation.
+    const rm = readFileSync(
+      new URL('../lyric-harness/quality/replay_memo.py', import.meta.url),
+      'utf8'
+    );
+    const m = /RUNS_HELD = (\d+) \* (\d+)/.exec(rm);
+    assert.ok(m, 'replay_memo.py derives RUNS_HELD as a product, never a bare figure');
+    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+    const c = /num\('CHAT_CONCURRENCY', (\d+)\)/.exec(chat);
+    assert.ok(c, "chat.js declares the concurrency default the memo's first factor restates");
+    assert.equal(
+      Number(m[1]),
+      Number(c[1]),
+      "the memo's conversations factor IS the chat concurrency default"
+    );
+    assert.equal(
+      Number(m[2]),
+      2,
+      'and the second factor is live + superseded — two states per conversation, not a tunable'
+    );
+  });
   check('a verb that outlives the budget is not re-run cold on the serial queue', () => {
     // The cold fallback exists for a DEAD worker (crash, corruption): one
     // slow answer, identical semantics. A TIMED-OUT call already proved it

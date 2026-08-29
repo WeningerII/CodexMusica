@@ -16326,10 +16326,116 @@ merge + deploy, changes no outcome, deferred; (b) the replay slope
 itself — the deferred replay re-runs the loop per fold, and whether
 the warm worker's memo is engaged on the deployed box is unmeasured
 from this container — a real repair is a harness/connector sitting of
-its own; (c) the pace relapse and turn 2's MALFORMED_FUNCTION_CALL —
+its own (**that sitting is M-167, same day — the owner ruled "build
+the replay cache" and the per-run grading memo is built and gated;
+what stays open of (b) here is only the deployed-box measurement,
+which binds after the next merge + deploy**); (c) the pace relapse
+and turn 2's MALFORMED_FUNCTION_CALL —
 the channel-router design stays in reserve (M-162's conservative
 systemInstruction nudge also still held for the owner's go), and this
 entry banks recurrence #3 as the evidence that ladder feeds on. The
 M-164 backoff worked as built: one 429 and two 502s retried, all
 three recovered, every retry a row. The register pin:
 `audit_register.coverage_entries` ~~223~~ -> 224 (2026-08-29).
+
+### M-167 · The deferred replay re-grades every draft it has already graded — a per-run memo over the four grading calls, behind a proxy that moves the loop by zero bytes `CLOSED` 2026-08-29 — built the sitting the owner ruled "build the replay cache"
+**THE COST WAS MEASURED BEFORE THE DESIGN WAS CHOSEN.**
+`--propose=defer:` resumes a run by REPLAYING it from the top:
+`_defer_proposer` answers every already-answered question instantly
+from the state's `answered` record — the answers were never the cost —
+but `revise_loop` re-runs `brief()`/`verify()`/`inspect()` on every
+intermediate draft the previous resumes already judged, so resume N
+pays the whole prefix again. Flash-battery rounds 6/8 measured the
+ladder at ~34s to the first question and ~15s more per folded answer
+on a 22-line shape; round 9 measured single resumes at 340–515s by
+answer ~6 on a larger shape, crossing the deployed 600s tool budget
+by turn 6 (M-166 wall 2). Under the connector's warm worker (M-155)
+the process survives between resumes and the cost survives with it,
+because each resume builds a fresh `Reviser` whose instance caches
+(`_matrix_cache`, `_slot_cache`, `_field_cache` and kin) start empty.
+That is quadratic work against O(answers) information, and no
+per-call budget outruns it — M-165 raised the budget and round 9's
+larger shape crossed the raised budget, which is the measurement that
+made this a structure problem rather than a tuning one.
+
+**THE DESIGN IS M-155's PRECEDENT ONE LAYER UP, AND NOT THE TWO
+ALTERNATIVES.** Not a loop-state checkpoint: serialising
+`revise_loop`'s control flow is invasive surgery on the one function
+whose determinism everything rests on, and the state record does not
+store acceptance verdicts, so drafts cannot be reconstructed without
+re-verifying anyway. Not a state-blob cache rider: the deferred state
+crosses the wire on every chat hop and would bloat each one. Instead
+`quality/replay_memo.py` extends the warm worker's own argument — a
+memo "keyed on declared coordinates ... answers only IDENTICAL calls",
+so statelessness is UNCHANGED at the request boundary — to the four
+grading calls the loop makes on its reviser: `brief`, `verify`,
+`inspect`, `joint_field`, behind a delegating proxy (`MemoReviser`).
+`quality/loop.py` and `quality/revise.py` move by ZERO bytes; the
+verbs wrap the reviser at the one site that runs the loop
+(`lyric_harness.py`'s revise/finish block) and print the memo's own
+disclosure line beside the proposer's.
+
+**WHY THE KEY IS SOUND, in two halves (doctrine 1).** The RUN KEY
+freezes what is invariant across one deferred run's resumes: the
+verb's argv minus every `--propose*` argument (the state file is the
+one input that legitimately grows), with input PATHS replaced by
+content digests — the connector writes the same draft through a fresh
+temp path per request, so a path-keyed run would never match itself.
+Two calls sharing a run key were built from identical inputs by
+deterministic code (the loop's verified determinism — no set
+iteration in its control flow, byte-identical output across three
+processes), so the mandate, blueprint, subdivision and rdecl knobs
+handed to the reviser are identical BY CONSTRUCTION (`loop.py` only
+RESOLVES its mandate, it never mutates it) and stay out of the entry
+keys. The ENTRY KEY carries exactly what varies within a run — the
+lines a call is about, the `targeted` set, the `calls`/`exclude`
+words, the profile — and a wrapper handed a shape it does not
+recognise BYPASSES the memo for that call: a fallback, never a wrong
+answer. Results are deep-copied on the way in AND out, so neither
+side can mutate the store through a shared reference.
+
+**EVERY CONSTANT IS DERIVED, with its argument on the constant.**
+`RUNS_HELD = 2 * 2` — chat.js's CHAT_CONCURRENCY default (two
+conversations, restated because the harness imports nothing from
+mcp/; `mcp/test.mjs`'s agreement check goes red if the default moves)
+times (live + superseded). The per-run entry ceiling is
+`len(MEMOISED) x rdecl.max_rounds x rdecl.attempts_per_line x
+n_lines` — the run's own declared budget bounds what it can ever ask
+— and passing it CLEARS the run's store rather than partially
+evicting (a replay walks its prefix from the start, so a held suffix
+serves nothing; a cleared store is the old full-replay behaviour,
+slow and never wrong, and the disclosure says it happened).
+`LYRIC_REPLAY_MEMO=0` is the kill switch, mirroring `LYRIC_WORKER=0`
+one layer down, and a disabled or keyless wrap RETURNS THE BARE
+REVISER with a disclosure that says so — "off" and "cold" are
+different answers (doctrine 20).
+
+**THE SUITE'S ORACLE IS THE LOOP'S OWN DETERMINISM.**
+`quality/test_replay_memo.py` (19 checks, 5 sections, in the cheap CI
+set — the 75-suite label moved with it) drives test_verbs §20's exact
+deferred conversation two ways: a fresh SUBPROCESS per resume, where
+the memo is structurally cold, against ONE process resuming in-place
+the way `mcp/worker.py`'s `run_one` does — and requires every resume
+byte-identical modulo temp paths and the memo's own line, with the
+warm arm PROVEN to hit (`REPLAY MEMO: warm` on its later resumes) and
+the cold arm proven never to. An equivalence between two cold arms
+would prove nothing; the hit check is what makes §1 examine a live
+memo. The other sections pin interception (the store holds `brief`
+AND `verify` kinds), the kill switch (off-disclosure plus byte
+equality with the cold arm), key separation (one draft byte or one
+mandate character = a different run; the growing `--propose` state
+and an unreadable input = no key, no memo), the registry's LRU bound
+at `RUNS_HELD`, and the bypass (an unsortable `targeted` is counted
+and computed, never keyed). First run: ALL PASS, all 19.
+
+**WHAT THIS ENTRY DOES NOT CLAIM (doctrine 58).** The deployed effect
+is UNMEASURED: this closes the harness half, and it reaches the live
+box only through a PR to main, the owner's merge, CI green, the
+deploy connector and the Render build — until then round data keeps
+paying the old slope. The design arithmetic — resume N drops from
+~base + 15s x N of re-grading to ~base + one fold's new grading — is
+stated as arithmetic, not as a measurement; the first deployed round
+with the memo live is what prices it. And M-166's wall (1), the
+one-answer-per-turn pace, is untouched by construction: this memo
+makes each fold cheap and compels nobody to fold faster. The register
+pin: `audit_register.coverage_entries` ~~224~~ -> 225 (2026-08-29).

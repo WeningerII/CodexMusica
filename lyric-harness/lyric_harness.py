@@ -9833,8 +9833,20 @@ def main():
                 # thing they can reconstruct from it — the same argument
                 # `_say_blueprint()` already makes one flag over.
                 print(say_proposer())
+                # THE REPLAY MEMO (M-167). A deferred run is RESUMED by
+                # replaying its whole prefix, and the cost was never the
+                # answers (the defer proposer replays those instantly) — it
+                # is re-grading drafts this process already judged. The memo
+                # is a delegating proxy over the SAME reviser, keyed on the
+                # run's frozen inputs, module-level so the connector's warm
+                # worker (M-155) keeps it across resumes; a miss IS the old
+                # behaviour, and quality/replay_memo.py carries the argument.
+                from quality import replay_memo as RM
+                _rm_key = RM.run_key(sys.argv[1:],
+                                     input_paths=(args[1], bp_path))
+                rv_loop, say_memo = RM.wrap(rv, _rm_key, len(lines))
                 try:
-                    result = LP.revise_loop(rv, lines, scheme,
+                    result = LP.revise_loop(rv_loop, lines, scheme,
                                             blueprint=bp_path,
                                             subdivision=subdivision,
                                             assume=assume,
@@ -9858,11 +9870,13 @@ def main():
                     print(f"\n  SUSPENDED — the loop asked for a "
                           f"{need.kind} it has no answer for, and will not "
                           f"guess one.")
+                    print(say_memo())
                     print(f"  Written to {path}. Fill `pending.answer`, then "
                           f"run the SAME command again.\n")
                     print(need.prompt)
                     sys.exit(4)
                 print(result)
+                print(say_memo())
                 print(say_proposer(done=True))
                 if propose_spec.startswith("defer:"):
                     # The run reached a stop condition, so `pending` is empty

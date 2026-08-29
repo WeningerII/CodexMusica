@@ -2288,7 +2288,14 @@ PINNED = {
     # a large shape's 340-515s folds, plus the one-answer-per-turn
     # relapse; driver-side user-role remedies shipped, server halves
     # priced and open), pin told in the entry's own sitting.
-    "coverage_entries": 224,
+    # ~~224~~ -> 225, same day: M-167 (the deferred-replay grading memo
+    # — M-166's wall (2) built out by the owner's "build the replay
+    # cache": a per-run memo over the four loop-called grading methods
+    # behind a delegating proxy, loop.py and revise.py untouched,
+    # keyed on content digests so the warm worker answers a resume's
+    # replayed prefix instead of re-grading it), pin told in the
+    # entry's own sitting.
+    "coverage_entries": 225,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;
