@@ -2302,7 +2302,21 @@ PINNED = {
     # the spelled-family ban; the parked push made the model start a
     # new plan, and PARKED_CONTINUE's same-song clause is the shipped
     # remedy), pin told in the entry's own sitting.
-    "coverage_entries": 226,
+    # ~~226~~ -> 227, same day: M-169 (the loop's own record of its run —
+    # stop reason, rounds, unresolved lines — was printed by the verb and
+    # dropped by every layer above it, so the battery transcript could
+    # say a call exited 3 and not whether four rounds closed nineteen
+    # lines or none; extracted from the harness's own stamp and carried
+    # to the transcript, with a per-song ladder), pin told in the entry's
+    # own sitting.
+    # ~~227~~ -> 228, same day: M-170 (the time audit — 13 agents, a
+    # serial profiling lane beside five refuted-by-default readers:
+    # the bill for one cold fold is 69.4% candidate field, 13.7% floor,
+    # 12.0% relations, 0.8% startup, measured on a NEAR-CLEAN draft
+    # which is the regime round 10 was not in; and it refuted this
+    # session's own ranked plan, including M-167's predicted size),
+    # pin told in the entry's own sitting.
+    "coverage_entries": 228,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

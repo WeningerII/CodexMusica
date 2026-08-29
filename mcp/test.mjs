@@ -682,6 +682,59 @@ check('validation: actionable errors', () => {
       'the subprocess kill is the same budget — no wall under the caller declared patience'
     );
   });
+  check("the loop's own record of a run survives every layer to the transcript", () => {
+    // M-169: revise_loop computes stop_reason / rounds / unresolved, the finish
+    // verb prints all three in its [FINISHED …] stamp, and until this check
+    // every layer above dropped them — so the battery transcript could say a
+    // call exited 3 and not whether 8 rounds closed nineteen lines or none.
+    // Round 10 was diagnosed off a stamp the MODEL retyped into its reply,
+    // which is the measured thing reporting its own measurement.
+    const lt = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
+    assert.ok(/function extractLoopRecord/.test(lt), 'the extractor exists');
+    assert.ok(
+      /v\.loop_stop_reason = loop\.stop_reason/.test(lt),
+      'and the verdict carries it — extraction, not re-derivation'
+    );
+    // THE STAMP IS THE HARNESS'S, so the regex is checked against the harness's
+    // OWN spelling rather than against a copy of it. A pattern tested only on a
+    // fixture the test wrote is a pattern agreeing with itself.
+    const py = readFileSync(new URL('../lyric-harness/lyric_harness.py', import.meta.url), 'utf8');
+    assert.ok(
+      /\[FINISHED — seed \{finish_seed\} — "\s*\n\s*f"exit \{_code\} — \{result\.stop_reason\.upper\(\)\} "\s*\n\s*f"after \{len\(result\.rounds\)\} round\(s\) — /.test(
+        py
+      ),
+      'the harness still prints seed, exit, stop reason and round count in that order'
+    );
+    const m =
+      /\[FINISHED\\s\*—\\s\*seed\\s\*\(-\?\\d\+\)\\s\*—\\s\*exit\\s\*\(\\d\+\)\\s\*—\\s\*\(\[A-Z_\]\+\)\\s\+after\\s\+\(\\d\+\)\\s\+round\\\(s\\\)/.test(
+        lt
+      );
+    assert.ok(m, 'and the connector reads exactly that shape');
+    const ga = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
+    assert.ok(/loop_stop_reason:/.test(ga) && /answers_on_record:/.test(ga), 'the call record carries it');
+    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+    assert.ok(
+      /loop_rounds: c\.loop_rounds/.test(chat) && /loop_unresolved: c\.loop_unresolved/.test(chat),
+      'and the /chat response exposes it — the battery records this array verbatim'
+    );
+    const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
+    assert.ok(/loop_ladder: loopLadder/.test(bat), 'and the transcript banks the ladder');
+  });
+  check('an unstopped call contributes no loop row — absent is not zero', () => {
+    // Doctrine 20 at the record's edge: a SUSPENDED call (exit 4) has reached no
+    // stop condition, so it HAS no stop reason and no round count. A zero there
+    // would read as a loop that ran and did nothing.
+    const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
+    assert.ok(
+      /typeof c\.loop_rounds === 'number' && c\.loop_stop_reason/.test(bat),
+      'the ladder row is gated on the record existing, not defaulted'
+    );
+    const lt = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
+    assert.ok(
+      /const loop = extractLoopRecord\(r\.stdout\);/.test(lt) && /if \(loop\) \{/.test(lt),
+      'and the verdict adds the fields only when the stamp is there'
+    );
+  });
   check('the replay memo holds as many runs as the chat layer can have — one figure, not two spellings', () => {
     // M-167: quality/replay_memo.py's RUNS_HELD is DERIVED from chat.js's
     // CHAT_CONCURRENCY default — 2 conversations x (live + superseded) — and

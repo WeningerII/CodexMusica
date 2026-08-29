@@ -16428,14 +16428,34 @@ and an unreadable input = no key, no memo), the registry's LRU bound
 at `RUNS_HELD`, and the bypass (an unsortable `targeted` is counted
 and computed, never keyed). First run: ALL PASS, all 19.
 
-**WHAT THIS ENTRY DOES NOT CLAIM (doctrine 58).** The deployed effect
-is UNMEASURED: this closes the harness half, and it reaches the live
-box only through a PR to main, the owner's merge, CI green, the
-deploy connector and the Render build — until then round data keeps
-paying the old slope. The design arithmetic — resume N drops from
+~~**WHAT THIS ENTRY DOES NOT CLAIM (doctrine 58).** The deployed effect
+is UNMEASURED ... The design arithmetic — resume N drops from
 ~base + 15s x N of re-grading to ~base + one fold's new grading — is
-stated as arithmetic, not as a measurement; the first deployed round
-with the memo live is what prices it. And M-166's wall (1), the
+stated as arithmetic, not as a measurement.~~
+**MEASURED THE SAME DAY, AND THE ARITHMETIC WAS WRONG BY A FACTOR OF
+FORTY (M-170's audit, doctrine 17 keeps the claim visible).** The
+paragraph above was right to refuse to claim a size and wrong in the
+size it went on to sketch. Measured on a 14-line shape, two
+replicates per arm, in `mcp/worker.py`'s own in-process shape: the
+per-resume slope is **+2.99s with the memo off and +0.38s with it on
+— 87.1% of the slope removed**, a whole six-call conversation
+**166.9s -> 132.7s (-20.5%)**, resume 5 alone **36.72 -> 23.09s
+(-37.1%)**. So the memo is worth **~0.34s per replayed call, NOT
+~15s**: the replay was ALREADY warm-cheap, because replaying refills
+the Reviser's own instance caches as it goes, and what the memo
+replaces is a warm recomputation with a lookup. **AND THE FLOOR IS
+THE HALF THIS ENTRY MISSED ENTIRELY**: fold 1 replays nothing and
+still costs ~59s, so no arrangement of this memo could have saved one
+second of the constant under every deferred conversation — the ~18s
+that a resume costs with the memo live is a COLD REVISER being
+rebuilt per call (M-170's loss 2), not replay at all.
+**WHAT SURVIVES IS THE SOUNDNESS CLAIM, and it is now empirical
+rather than argued**: all four replicates hash to one digest
+(`a523d5fa8736fad9`) over every step's stdout, normalised only for
+the temp dir and the disclosure line. Not one byte of one verdict
+moved. The memo ranks THIRD by size in this tree and FIRST by
+readiness — it is the only item in M-170's audit that is built,
+gated, and proven answer-preserving. And M-166's wall (1), the
 one-answer-per-turn pace, is untouched by construction: this memo
 makes each fold cheap and compels nobody to fold faster. The register
 pin: `audit_register.coverage_entries` ~~224~~ -> 225 (2026-08-29).
@@ -16499,3 +16519,158 @@ memo and this entry's driver clause — bind only at the next deploy
 and the next dispatch respectively; dispatching before them re-runs
 a measured configuration. The register pin:
 `audit_register.coverage_entries` ~~225~~ -> 226 (2026-08-29).
+
+### M-169 · The loop told the record what it did and every layer above dropped it — the run's own account reaches the transcript now `CLOSED` 2026-08-29 — built the sitting M-170's audit named it the cheapest high-value change on the table
+**THE DEFECT, and it is a RECORD defect rather than a code one.**
+`revise_loop` returns a `LoopResult` carrying `stop_reason`, `rounds`
+and `unresolved`, and `lyric_harness.py`'s finish verb already prints
+all three inside the `[FINISHED — seed N — exit E — REASON after k
+round(s) — UNRESOLVED: …]` stamp M-150 requires. Above that stamp
+every layer threw them away: `verdictOf` carried `exit_code` and
+`banned_pairs` and nothing else, `gemini_agent.js` copied those two
+onto the call record, `chat.js` published those two in `tools[]`, and
+`scripts/flash_battery.mjs` banks that array verbatim as **this
+project's only record of a production run**. So the transcript could
+say a call exited 3 and could NOT say whether four rounds had closed
+nineteen lines or none — the difference between a run that is slow
+and a run that is stuck, which is the distinction every round since
+M-166 has turned on.
+**HOW ROUND 10 WAS ACTUALLY DIAGNOSED, which is the argument for this
+entry.** The `ROUND_LIMIT after 4 round(s) — UNRESOLVED: L2…L21`
+reading that M-168 rests on came from a stamp **the MODEL retyped
+into its chat reply**. That is the measured thing reporting its own
+measurement (doctrine 14): a model may omit, paraphrase or invent it,
+and the one field in the whole record that no model can edit —
+`exit_code`, harvested server-side — cannot answer the question.
+M-170's audit then named the follow-up measurement it most wanted
+("read the per-round record already sitting in the job log") and
+**that artifact does not exist**; the check that established it is
+one grep over the driver's record shape. An audit's top
+recommendation resting on a record nobody kept is the cleanest
+possible statement of this defect.
+**THE REPAIR IS EXTRACTION, NEVER RE-DERIVATION (doctrine 1).**
+`lyric_tools.js:extractLoopRecord` reads the harness's own printed
+stamp — the same species as `extractBannedPairs` reading the grader's
+own FINDING lines — and `verdictOf` folds `loop_stop_reason`,
+`loop_rounds`, `loop_unresolved` and the named lines into the verdict;
+`gemini_agent.js` carries them (plus `answers_on_record`, which was
+ALREADY computed on both branches of `lyric_revise` and dropped one
+layer up); `chat.js` publishes them; the battery banks a per-song
+`loop_ladder` and prints it in the log an analyst reads first. Nothing
+here recomputes a stop reason, a round count or an open-line list.
+**ABSENT IS NOT ZERO (doctrine 20), at every layer.** A SUSPENDED call
+has reached no stop condition, so it HAS no stop reason and no round
+count; the fields are omitted rather than defaulted, the ladder row is
+gated on the record existing, and a `loop_rounds: 0` — which would
+read as a loop that ran and did nothing — is unreachable.
+**THE GATE IS TWO CHECKS AND ONE OF THEM READS THE HARNESS.**
+`mcp/test.mjs` (59 checks) asserts the whole chain carries the fields,
+and asserts the connector's regex against `lyric_harness.py`'s OWN
+print statement rather than against a fixture this suite wrote — a
+pattern tested only on a copy of itself is a pattern agreeing with
+itself. Exercised on round 10's real stamp the extractor returns
+`ROUND_LIMIT / 4 rounds / 20 open`, and returns null on an
+`[AWAITING PROPOSAL …]` line.
+**WHAT IT DOES NOT DO.** It answers no question by itself: it makes the
+question ASKABLE from the next round's transcript. Whether those
+rounds were winnable at all is M-168's open hypothesis and needs the
+next dispatch to speak. It is also server-side, so it binds only at
+the next merge and deploy. The register pin:
+`audit_register.coverage_entries` ~~226~~ -> 227 (2026-08-29).
+
+### M-170 · The time audit: the bill for one song, measured — and the project's own story about it was wrong in both directions `OPEN` 2026-08-29 — the owner ordered the audit over this session's own confident plan, and the audit refuted the plan
+**WHY IT RAN AT ALL, recorded because the ruling is the finding.** This
+session had a ranked plan for the pipeline's cost and called it nearly
+airtight. The owner refused it — *"I think that we've built up so much
+momentum that we're not seeing clearly ... I really want to get a
+workflow done to poke around and find genuine time savings"* — and
+ordered a fan-out instead. The audit then refuted the plan's central
+number (see M-167's strike). A ranked list assembled from this tree's
+own narrative, by a session steeped in that narrative, is the exact
+instrument doctrine 48 says does not work; the ruling was right and
+the plan was not.
+**THE INSTRUMENT.** 13 agents, ~86 minutes: a SERIAL cProfile lane (two
+agents, one at a time, because two heavy Python runs on this box
+contend and corrupt each other's numbers) beside five blind readers
+forbidden from running anything heavy, each reader's claims handed to
+a skeptic instructed to REFUTE BY DEFAULT and to check the registers
+for whether the thing was already fixed or only claimed fixed. The
+full report is committed as `quality/RESULTS_TIME_AUDIT.md` — banked
+in the tree rather than left in a scratch directory, because a
+finding that lives only in one container's /tmp is the
+private-instrument defect standing rule 3 exists for, and
+`verify_entries` caught this entry citing exactly that path on its
+first draft.
+**THE BILL FOR ONE COLD FOLD** (22-line shape, 24 groups, 60 mandated
+pairs, no blueprint; 59.20/59.41/60.23s bare over three repeats;
+shares off a 158.09s profile at 2.65x overhead, call counts identical
+across two profile runs and cumtimes agreeing within 1.1%):
+**candidate-field machinery 69.4%** (`modal_field` -> `joint_field` ->
+`_field_one` -> `candidates` -> `score`), **slop floor 13.7%**,
+**the whole 77-schema relation layer 12.0%**, **five separate
+`Lexicon` constructions 3.6%**, meter/shape/function/readability
+under 1% combined, and **process startup 0.8%** — the thing usually
+blamed, two orders of magnitude off. Cross-cutting and NOT to be
+added to those rows: `score()` at 101.0s cumulative over **2,360,149
+calls**. The entire fold emitted ONE finding, a density note.
+**THE SINGLE LARGEST CAVEAT, stated before the ranking.** Both lanes
+measured a NEAR-CLEAN draft, where `revise.py:2736` has already
+`continue`d past every non-passing verdict — the opposite of round
+10's regime, where 20 of 23 lines were flagged and the same field
+work goes into `brief()`'s per-flagged-line calls, which are
+NECESSARY (they are the menu the writer reads). **Nobody measured a
+fold on a heavily-flagged draft.** So the biggest measured saving is
+worth most exactly when a run is nearly done, and least when it is
+stuck — which is when the seconds are actually burned.
+**CONFIRMED, ranked (measured above unmeasured).** (1) The
+`MODAL_RHYME` pair scan builds two complete lexicon-wide fields per
+mandated pair and binds the expensive half to `_`
+(`revise.py:2789-2790`), then asks two membership questions on words
+already in hand — answer-preserving to shortcut ONLY while
+`rd.field_depth is None`, and a finite depth makes the shortcut
+change verdicts, so the fix must be gated and refuse otherwise.
+(2) Holding the `Reviser` across requests is worth ~17.5s of a ~21.4s
+resume, **6x what M-167 recovered — and is NOT recommended** until
+the four cache keys are proven complete over the declaration and the
+clear-at-N eviction is proven unable to make a result depend on a
+previous request. (3) M-167 itself. (4) `group_merges` re-grades the
+whole draft to read one field the caller already holds
+(`revise.py:1952`), unconditionally at the default, and on the
+blueprint path the connector always takes the two grades cannot share
+`_WVP_MEMO` — plausibly the largest UNMEASURED item. (5) `verify()`
+re-briefs every flagged line to read two fields of the one line that
+changed. (6) Fourteen schemas run to completion and have every
+instance discarded, being 26-30% of what executes.
+**REFUTED, and this half is why the audit is trustworthy.** Roughly
+half the readers' headline claims died: "turn 0's 502s of work was
+thrown away" (the 756-byte state is FIVE RETAINED ANSWERS, proven by
+modelling the exact logged quantity); "the missing `worker.py` costs
+~700s a round" (mechanism real — `mcp/Dockerfile:20` copies
+`mcp/*.js` and misses it — but `relations._WVP_MEMO` lives under
+`quality/` which IS copied, so the larger win was deployed all
+along); "the retry budget cost 255s" (~0.4s, and fixing it ADDS wall
+clock); "the first-draft brief calls a named relation plain rhyme"
+(a branch, taken by 26 of 35 rows post-M-117). **AND THE STALE ANCHOR
+THREE READERS LEANED ON IS RETIRED**: the "43.6s vs 0.1s inspect"
+figure was measured on a FOUR-LINE fixture, in a commit whose own
+subject reads *"WIP CHECKPOINT — work NOT verified"*, twelve days
+before the 77-schema layer entered `grade()`.
+**WHAT IS STILL UNMEASURED** is listed with the one command that
+settles each: per-component BARE seconds absent profiler distortion;
+a blueprint fold; **a fold on a heavily-flagged draft**; whether
+`features.field` and `_field_one` compute the same admission
+predicate (if they do, a shared cache is worth ~13.7%; if not,
+sharing it is the silent comparator substitution doctrine 1 forbids);
+cross-request `Reviser` safety; the resume slope at 22-28 lines out
+to resume 10+; the harness/Gemini split of round 10's 1033.7s;
+`group_merges`' extra build on a blueprint run (read `build_stream`
+ncalls, not `whole_vocabulary_pairs` ncalls, which reads 2 either
+way); worker RSS across a whole song against the 2048MB instance.
+**AND THE FINDING THAT OUTRANKS THE WHOLE BILL.** Round 10 spent
+1335s and produced no song. If every admissible item above shipped
+tomorrow the harness share of a call roughly halves **and the run
+still ends with no song**, because it parked with 20 of 23 lines
+unresolved. The measured waste is real waste on a run that could not
+converge (M-168). Neither timing lane measured convergence and both
+said so. The register pin:
+`audit_register.coverage_entries` ~~227~~ -> 228 (2026-08-29).

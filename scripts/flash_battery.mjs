@@ -237,6 +237,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
   let parkedLastTurn = false;
   let turns = 0;
   let retries = 0;
+  const loopLadder = []; // M-169: one row per revise call that reached a stop
 
   for (let t = 0; t < MAX_TURNS; t++) {
     const message = t === 0 ? brief : parkedLastTurn ? PARKED_CONTINUE : CONTINUE;
@@ -272,6 +273,23 @@ for (const [songNo, briefIdx] of indices.entries()) {
       if (c.exit_code === 3) {
         parked++;
         parkedThisTurn = true;
+      }
+      // THE LADDER (M-169): what each stopped run actually bought. `reached_stop`
+      // and `parked` say WHETHER the loop stopped; they cannot say whether eight
+      // rounds closed nineteen lines or none, which is the difference between a
+      // run that is slow and a run that is stuck. Round 10 needed exactly this
+      // and the only copy of it in the record was one the model had retyped into
+      // its chat reply. One row per call that reached a stop condition; a
+      // suspended call has no stop reason and contributes no row (absent is not
+      // zero — doctrine 20).
+      if (typeof c.loop_rounds === 'number' && c.loop_stop_reason) {
+        loopLadder.push({
+          turn: t,
+          stop: c.loop_stop_reason,
+          rounds: c.loop_rounds,
+          unresolved: c.loop_unresolved ?? null,
+          answers: c.answers_on_record ?? null,
+        });
       }
     }
     // Mechanical suspicion, not a verdict: a reply that LOOKS like a
@@ -329,11 +347,18 @@ for (const [songNo, briefIdx] of indices.entries()) {
     retries,
     reached_stop: sawStop,
     parked,
+    loop_ladder: loopLadder,
     flags,
   });
   writeFileSync(`${OUT}/summary.json`, JSON.stringify(summary, null, 2) + '\n');
+  // The ladder prints too, because the log is what an analyst reads first and
+  // a field that exists only in an uploaded artifact is a field nobody reads.
+  const ladder = loopLadder
+    .map((l) => `t${l.turn}:${l.stop}/${l.rounds}r/${l.unresolved ?? '?'}open`)
+    .join(' ');
   console.log(
-    `song ${songNo}: ${turns} turn(s), stop=${sawStop === null ? (parked ? `NEVER (parked x${parked})` : 'NEVER') : `exit ${sawStop}`}, flags=${flags.length}`
+    `song ${songNo}: ${turns} turn(s), stop=${sawStop === null ? (parked ? `NEVER (parked x${parked})` : 'NEVER') : `exit ${sawStop}`}, flags=${flags.length}` +
+      (ladder ? `\n  loop ladder: ${ladder}` : '\n  loop ladder: (no call reached a stop condition)')
   );
 }
 

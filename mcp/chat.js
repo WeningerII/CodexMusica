@@ -399,11 +399,21 @@ export async function createChatRouter({
         // the recipe tools) so the page's tool chips can show the verdict the
         // model may not relay — the two-tier ban is unskippable, and a count
         // only the model ever saw protects nobody.
+        // The loop record and the answer count join them for the same reason
+        // one layer out (M-169): the flash battery records this array verbatim
+        // and it IS the project's record of a production run, so a field
+        // dropped here is a question no later analysis can ask. Null means the
+        // call never reached a stop condition (or is not a lyric verb) — never
+        // that the loop spent zero rounds.
         tools: run.calls.map((c) => ({
           name: c.name,
           error: c.isError ? c.error : null,
           exit_code: c.exit_code ?? null,
           banned_pairs: c.banned_pairs ?? null,
+          loop_stop_reason: c.loop_stop_reason ?? null,
+          loop_rounds: c.loop_rounds ?? null,
+          loop_unresolved: c.loop_unresolved ?? null,
+          answers_on_record: c.answers_on_record ?? null,
         })),
         stopped: run.stopped,
         ...envelope,
