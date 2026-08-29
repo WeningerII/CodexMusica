@@ -92,10 +92,17 @@ const CONTINUE =
 // parked draft and tells the writer to keep revising. Only exit 0 ends a
 // song. This message steers PROCESS and writes no lyric line, so the
 // role-of-the-user rule in the header holds.
+// M-168 (round 10, run 33266613606): pushed with this message a third time,
+// the model ABANDONED the song — two lyric_sweep calls (both exit 2), two
+// lyric_plan calls, a fresh seed — throwing away five turns of folds. A user
+// who wants THIS song finished says so: the same-song clause below is the
+// remedy, still process-only, still writing no lyric line.
 const PARKED_CONTINUE =
   'That run parked at exit 3 with lines still flagged. Do not stop there — ' +
   'revise again until every check passes and lyric_revise reaches exit 0, ' +
-  'then show me the finished version.';
+  'then show me the finished version. Stay on this same song and this same ' +
+  'plan: do not sweep again and do not plan a new one — starting over ' +
+  'throws away everything already fixed.';
 
 function esc(s, n) {
   return (s || '').slice(0, n);

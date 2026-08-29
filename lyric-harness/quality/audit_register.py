@@ -2295,7 +2295,14 @@ PINNED = {
     # keyed on content digests so the warm worker answers a resume's
     # replayed prefix instead of re-grading it), pin told in the
     # entry's own sitting.
-    "coverage_entries": 225,
+    # ~~225~~ -> 226, same day: M-168 (round 10 banked — the batching
+    # remedy landed, eight calls in one turn; zero kills again; the
+    # standing wall is the writer against the drawn mandate, 20 of 23
+    # lines unresolved at ROUND_LIMIT and a revision that moved INTO
+    # the spelled-family ban; the parked push made the model start a
+    # new plan, and PARKED_CONTINUE's same-song clause is the shipped
+    # remedy), pin told in the entry's own sitting.
+    "coverage_entries": 226,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

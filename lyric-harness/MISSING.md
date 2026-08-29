@@ -16439,3 +16439,63 @@ with the memo live is what prices it. And M-166's wall (1), the
 one-answer-per-turn pace, is untouched by construction: this memo
 makes each fold cheap and compels nobody to fold faster. The register
 pin: `audit_register.coverage_entries` ~~224~~ -> 225 (2026-08-29).
+
+### M-168 · Round 10: the batching remedy landed and the kills stayed gone — the standing wall is the WRITER against the drawn mandate, and the parked push made it start over `OPEN` 2026-08-29 — the same-song clause shipped the sitting the round landed
+**THE ROUND, in its own numbers.** Run 33266613606, dispatched 17:49Z
+on 644bfc3 (the M-166 driver: short-song brief, batching CONTINUE),
+finished 18:11Z — **22.5 minutes against round 9's 151**. Six turns,
+`reached_stop` null, parked x3, retries 4, and — for the second round
+running — ZERO exit -1 and ZERO -32001: no clock killed any call
+anywhere (M-165 holding, and the short shape kept every fold far
+under the 600s budget).
+
+**M-166 WALL (1)'S REMEDY LANDED, counted as one round of evidence
+and not a cure (recurrence #3's own history is the caution).** Turn 0
+made EIGHT tool calls before MAX_TURN_COST — lyric_plan, lyric_grade,
+and SIX lyric_revise folds — and turn 1 three more to the loop's
+first stop. The one-answered-question-per-turn shape did not recur in
+any turn of this round. The short-shape ask landed too: the plan drew
+~23 lines ("twenty-odd" asked, 1+10+10+1+1 drawn).
+
+**WALL (2) WAS MASKED, NOT CLOSED.** With a small shape and folds in
+the tens of seconds, the replay slope was never exercised deep enough
+to bite, so this round prices nothing about it. M-167 (built, gated,
+UNDEPLOYED at dispatch time) still owes its deployed measurement.
+
+**THE WALL LEFT STANDING IS NEW AND IS THE WRITER ITSELF, counted
+apart (doctrine 79).** The loop parked at ROUND_LIMIT after 4 rounds
+with **20 of 23 lines unresolved**; pushed, it ran 4 more rounds to
+the same 20; pushed again, NO_PROGRESS with 15. And the writer's own
+revision moved TOWARD the ban: turn 3's draft ends four consecutive
+lines night/light/sight/might — ONE spelled family, the tier-1
+HOMEOTELEUTON species, precisely what every brief marks FORBIDDEN.
+Stated as the open question and not a verdict: whether the drawn
+plan's ordinary density (median 26 overlapping groups, ~75% of
+members at non-end placements, drawn schema relations) exceeds what
+THIS writer can satisfy in any round budget — round 6 delivered a
+stop-condition song, so "impossible in general" is refuted; "rarely
+reachable for flash-lite at median density" is the live hypothesis,
+unmeasured.
+
+**THE SWERVE, and its remedy shipped.** On the third parked push the
+model ABANDONED the song: two lyric_sweep calls (both exit 2), two
+lyric_plan calls (exit 2, then exit 0 — a fresh seed), five turns of
+folds thrown away, MAX_TURN_COST ending the turn.
+`scripts/flash_battery.mjs`'s PARKED_CONTINUE gains the same-song
+clause ("stay on this same song and this same plan ... starting over
+throws away everything already fixed") — driver-side, user-role,
+writes no lyric line, the M-163 species; the mcp/test.mjs pin
+(`parkedLastTurn ? PARKED_CONTINUE : CONTINUE`) reads names, not
+content, and holds.
+
+**HOW THE RUN ENDED, which is its own row.** Turn 4 burned all four
+bounded retries on 429s (the M-164 backoff working as built, every
+retry a row) and turn 5 answered a hard 429 — the run ended on the
+free tier's PER-MINUTE rate limiter, not on a kill, a crash, or the
+daily cap. Re-dispatch is HELD this sitting on the wake's own spend
+guard (the daily window already carries rounds 9 and 10) and because
+the two fixes that would change the next round's physics — M-167's
+memo and this entry's driver clause — bind only at the next deploy
+and the next dispatch respectively; dispatching before them re-runs
+a measured configuration. The register pin:
+`audit_register.coverage_entries` ~~225~~ -> 226 (2026-08-29).
