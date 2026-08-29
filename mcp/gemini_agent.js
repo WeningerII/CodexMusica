@@ -208,7 +208,7 @@ export const RETRY_ALL = [429, ...RETRY_TRANSIENT];
 // Test seam (the `_workerInternals` precedent): what the model is SHOWN is a
 // verdict this function computes, and a suite that cannot reach it can only
 // grep for the strip instead of proving it.
-export const _agentInternals = { toFunctionResponse };
+export const _agentInternals = { toFunctionResponse, suspendedSeed, buildSystemInstruction };
 
 async function generate({
   apiKey,
@@ -263,6 +263,53 @@ export async function buildSurface(client) {
   };
 }
 
+// ── THE SUSPENDED-RUN REMINDER (M-158) ────────────────────────────────────
+// The flash battery's first MODEL-level finding (single-song run,
+// 2026-08-29 00:37Z, transcript in the run's own job log): the model answers
+// the revise loop's question INTO THE CHAT. The loop asks for one line in
+// the shape `LINE: <text>`; the model authored well-formed answers and posted
+// them as its REPLY TO THE PERSON, ending five consecutive turns (3-7 of 9)
+// with zero tool calls while the suspended run's state sat frozen — one
+// candidate line repeated verbatim, the harness's question unanswered in the
+// only channel that reaches it, the turn budget spent, no stop condition.
+// The cure is the conservative one of the two designs put to the owner: a
+// MECHANICAL REMINDER, present exactly while a suspended run is carried, so
+// the model stays the writer and the decider and the battery can measure
+// whether the nudge cures the stall. The reminder is REBUILT EVERY HOP from
+// the live carried state, so it appears the moment a mid-turn call suspends
+// and disappears the moment a run reaches a stop condition — never a stale
+// sentence about a run that is over.
+const SUSPENDED_RUN_NOTE = (seed) =>
+  `A lyric_revise run for seed ${seed} is SUSPENDED, awaiting one answer. ` +
+  'Nothing you write in chat reaches the harness: the run advances ONLY ' +
+  'when you call lyric_revise again with the same arguments plus `answer` ' +
+  '(the state is carried for you automatically). Put the line in the ' +
+  "tool call's `answer` field — do not print it as your reply. The song " +
+  'cannot finish until the loop reaches a stop condition through that tool.';
+
+function suspendedSeed(lyr) {
+  if (!lyr || typeof lyr.state !== 'string') return null;
+  try {
+    const st = JSON.parse(lyr.state);
+    return st && st.pending && typeof lyr.seed === 'number' ? lyr.seed : null;
+  } catch {
+    return null;
+  }
+}
+
+// The ONE builder of the request's systemInstruction — base instructions
+// plus the reminder when (and only when) a suspended run is carried.
+// mcp/test.mjs pins both directions on this helper and pins that the
+// `systemInstruction:` key is spelled nowhere else in this file, so the
+// request cannot grow a second, reminder-less path to the model.
+function buildSystemInstruction(surface, lyr) {
+  const seed = suspendedSeed(lyr);
+  const text = [surface.instructions, seed == null ? null : SUSPENDED_RUN_NOTE(seed)]
+    .filter(Boolean)
+    .join('\n\n');
+  return text ? { parts: [{ text }] } : null;
+}
+
 /**
  * Run one user turn to completion: the model calls tools until it answers.
  *
@@ -309,13 +356,15 @@ export async function runTurn({
       maxOutputTokens: limits.maxOutputTokens,
       ...(thinking ? { thinkingConfig: thinking } : {}),
     },
-    ...(surface.instructions
-      ? { systemInstruction: { parts: [{ text: surface.instructions }] } }
-      : {}),
   };
 
   for (let step = 0; step < limits.maxSteps; step++) {
     body.contents = contents;
+    // Rebuilt per hop from the LIVE carried state (M-158): `lyr` moves when
+    // a harvest lands mid-turn, and the reminder must move with it.
+    const si = buildSystemInstruction(surface, lyr);
+    if (si) body.systemInstruction = si;
+    else delete body.systemInstruction;
     const json = await generate({
       apiKey,
       model,

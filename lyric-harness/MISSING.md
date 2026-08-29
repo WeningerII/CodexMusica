@@ -15877,3 +15877,54 @@ known-too-small instance re-proves a measured number with real money).
 large-song revise calls may hit a structural timeout wall on the
 deployed box; the next battery round is the instrument that says
 whether it is real, and it gets its own entry if it is.
+
+### M-158 · The model answers the loop's question to the PERSON, not the harness — the wrong-channel answer, and the reminder that rides a suspended run `CLOSED` 2026-08-29 — built the sitting after the battery's first real round measured it
+**THE FLASH BATTERY'S FIRST MODEL-LEVEL FINDING** (single-song run,
+2026-08-29 00:37Z, 9 turns, transcript in the run's own job log — the
+first round in which every infrastructure fault was gone: 200s+ turns
+survived the 240s timeout, the 2 GB instance held the ~830 MB verbs,
+and the M-156 state carriage moved answers through the envelope,
+19,348 -> 19,644 -> 20,555 bytes as the loop advanced). On the opening
+brief the model followed the pipeline UNPROMPTED — lyric_plan exit 0,
+a draft written, lyric_grade exit 3, lyric_revise exit 4, suspended at
+its first question — and then answered that question INTO THE CHAT:
+its reply to the person was, verbatim, `LINE: Ocean waters yield to
+moan`, the loop's own answer format posted to the one channel that
+cannot receive it. Turns 1-2 recovered (each `continue` routed the
+prior line into the tool — one answer per user-turn); **turns 3-7 are
+the stall: five consecutive turns, ZERO tool calls, six-second
+replies, the carried state frozen at 20,555 bytes, one candidate line
+repeated verbatim, and the turn budget spent with no stop condition
+reached.** Charges (counts by category, never summed): skipped step —
+turn 0, lyric_sweep and lyric_screen never called; ignored question —
+turns 3-7. No premature done, no misreported verdict: the model never
+claimed a song, and the driver's mechanical flags are 0 — an honest
+writer stuck talking to the wrong window.
+
+**THE CURE IS THE CONSERVATIVE ONE OF THE TWO DESIGNS PUT TO THE
+OWNER** (the other — routing the model's own `LINE:`-shaped reply into
+the tool call for it — edges from CARRYING what the model cannot into
+ACTING where it did not, and is held in reserve for the next round's
+measurement to justify or retire): a MECHANICAL REMINDER, present
+exactly while a suspended run is carried. `gemini_agent.js` derives
+`suspendedSeed` from the live carried state (a state whose JSON holds
+`pending`; garbage parses to no-reminder, never a throw), and
+`buildSystemInstruction` — now the ONE builder of the request's
+systemInstruction — appends the note after the server's own
+instructions: the run advances ONLY through lyric_revise with
+`answer`, chat text reaches nothing. **REBUILT EVERY HOP from the
+live state**, so it appears the moment a mid-turn call suspends and
+vanishes at a stop condition — never a stale sentence about a run
+that is over. **GATES** (`mcp/test.mjs`, 46 -> 49): both directions
+on the helper (pending names its seed; no pending, garbage, and null
+each yield none; the no-run instruction is the base BYTES, exactly),
+and the structural half — one `body.systemInstruction` assignment
+site in the file, fed only by the builder, pinned on the source so a
+second reminder-less path cannot grow back (the built-but-unreachable
+defect, pre-empted this time). **WHAT THIS ENTRY DOES NOT CLAIM**: that
+the reminder CURES the stall — that is the next single-song round's
+measurement, on this deployed change, and the skipped-step charge
+(sweep/screen unasked) is recorded here UNGATED, deliberately: a
+server that compelled a sweep would refuse an MCP client's deliberate
+seed, so that leak waits for evidence it recurs before any gate is
+designed for it.

@@ -520,6 +520,65 @@ check('validation: actionable errors', () => {
     assert.equal(fr.response.exit_code, 2);
     assert.ok(!('state' in fr.response) && !('workspace' in fr.response));
   });
+
+  // ── M-158: the suspended-run reminder ────────────────────────────────────
+  // The battery's first model-level finding: the model posted the loop's
+  // answer into the CHAT and stalled five turns with the question unanswered
+  // in the only channel that reaches the harness. The reminder must exist
+  // exactly while a suspended run is carried — both directions pinned, plus
+  // the structural half: the request's systemInstruction has ONE builder.
+  const { suspendedSeed, buildSystemInstruction } = _agentInternals;
+  check('a carried state with a pending question names its seed', () => {
+    assert.equal(suspendedSeed({ seed: 7, state: '{"pending":{"kind":"propose"}}' }), 7);
+    assert.equal(
+      suspendedSeed({ seed: 7, state: '{"answered":{}}' }),
+      null,
+      'no pending → no reminder'
+    );
+    assert.equal(
+      suspendedSeed({ seed: 7, state: 'not json' }),
+      null,
+      'garbage state → no reminder, never a throw'
+    );
+    assert.equal(suspendedSeed(null), null);
+  });
+  check('the reminder rides the systemInstruction only while a run is suspended', () => {
+    const surface = { instructions: 'BASE INSTRUCTIONS' };
+    const withRun = buildSystemInstruction(surface, {
+      seed: 7,
+      state: '{"pending":{"kind":"propose"}}',
+    });
+    const text = withRun.parts[0].text;
+    assert.ok(text.startsWith('BASE INSTRUCTIONS'), 'the base instructions must survive in front');
+    assert.ok(text.includes('seed 7'), 'the reminder names the suspended seed');
+    assert.ok(
+      text.includes('lyric_revise'),
+      'the reminder names the only channel that advances the run'
+    );
+    const without = buildSystemInstruction(surface, null);
+    assert.equal(
+      without.parts[0].text,
+      'BASE INSTRUCTIONS',
+      'no suspended run → the base bytes, exactly'
+    );
+    assert.equal(
+      buildSystemInstruction({ instructions: undefined }, null),
+      null,
+      'nothing to say → no block at all'
+    );
+  });
+  check('runTurn reaches the model through the one systemInstruction builder', () => {
+    // The classic defect is built-but-unreachable: a helper both halves above
+    // pass while runTurn keeps a second, reminder-less spelling. Pin the
+    // source: exactly one assignment, fed only by buildSystemInstruction.
+    const src = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
+    const assigns = src.match(/body\.systemInstruction\s*=\s*(\w+)/g) || [];
+    assert.equal(assigns.length, 1, 'exactly one assignment site');
+    assert.ok(
+      /const si = buildSystemInstruction\(surface, lyr\)/.test(src),
+      'and it is fed by the builder, per hop, from the live carried state'
+    );
+  });
 }
 
 // SDK-dependent: only runs if @modelcontextprotocol/sdk is installed.
