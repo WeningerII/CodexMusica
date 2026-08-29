@@ -15817,7 +15817,7 @@ and the workspace's last-write-wins limitation is inherited knowingly
 (one revise run per conversation per seed). The live end-to-end half is
 the Flash battery's opening measurement, not a unit test's.
 
-### M-157 · The deployed instance was sized below its own instrument: one working-order call needs ~830 MB and the box had 512 `BUILT` 2026-08-28 — the gate and the instrument ship; the plan line awaits the owner's merge
+### M-157 · The deployed instance was sized below its own instrument: one working-order call needs ~830 MB and the box had 512 `CLOSED` 2026-08-29 — the gate and the instrument ship, and the owner ruled: Standard (2 GB), dashboard first, the plan line rides PR #205
 **THE FLASH BATTERY'S FIRST LIVE FINDING, and it was about the SERVICE,
 not the model.** Both battery rounds of 2026-08-28 died 4/4 at ~79s as
 bare 502s, and the first analysis charged the MCP SDK's 60s default
