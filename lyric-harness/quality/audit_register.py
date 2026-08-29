@@ -2264,7 +2264,14 @@ PINNED = {
     # idle-flow wall in the turn's own silence — keep-alive probes on
     # the request socket, falsifier named), pin told in the entry's
     # own sitting.
-    "coverage_entries": 218,
+    # ~~218~~ -> 220, same day: round 6 delivered the first
+    # stop-condition song and two entries with it — M-161 (the 180s
+    # subprocess wall fired in production, M-157's watch item measured
+    # real, retune priced for a ruling) and M-162 (the model skips
+    # sweep/screen 2 of 2 rounds, seed 9999 — the gate question
+    # promoted out of M-158's deferral). Pins told in their own
+    # sitting.
+    "coverage_entries": 220,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;
