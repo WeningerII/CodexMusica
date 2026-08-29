@@ -581,6 +581,86 @@ check('validation: actionable errors', () => {
   });
 }
 
+{
+  // M-159: battery round 4 died in ITS OWN CLIENT. Node's fetch() carries
+  // undici's default 300s headers timeout, which nothing declared; a
+  // legitimate /chat turn (grade ~90s + revise ~80-205s in one response)
+  // outlived it, and the unhandled rejection crashed the run with zero rows
+  // recorded. Two properties pinned: the driver's patience DERIVES from the
+  // server's own declared budget, and a transport failure is a RECORDED
+  // outcome, never a crash.
+  const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
+  check('the battery client derives its deadline instead of inheriting a fetch default', () => {
+    // Comments are stripped first: the file's own account of the defect says
+    // "fetch()", and a pin defeated by its documentation is the
+    // test_declared_inputs lesson repeated.
+    const code = bat.replace(/^\s*\/\/.*$/gm, '');
+    assert.ok(
+      !/\bfetch\s*\(/.test(code),
+      'no call to global fetch — its undeclared 300s headers default is the defect'
+    );
+    assert.ok(
+      /TURN_DEADLINE_MS = MAX_STEPS \* TOOL_TIMEOUT_MS/.test(code),
+      'the deadline is the product of the two server-declared factors'
+    );
+    assert.ok(
+      /CHAT_TOOL_TIMEOUT_MS/.test(code) && /maxSteps/.test(code),
+      'and both factors are read from the modules that own them, never respelled'
+    );
+  });
+  check('the battery socket keeps the NAT awake while the server computes', () => {
+    // M-160: round 5's turn 0 was RESET at 272.7s where round 3's answered at
+    // 214s — the bracket contains the 240s idle-flow timeout of the runners'
+    // own NAT, and a /chat turn moves no bytes while the server grades. The
+    // probes are the fix the CLIENT can make; the pin is that they exist and
+    // ride the request socket.
+    assert.ok(
+      /req\.on\('socket', \(s\) => s\.setKeepAlive\(true, KEEPALIVE_PROBE_MS\)\)/.test(bat),
+      'keep-alive probes are armed on the request socket'
+    );
+    assert.ok(
+      /KEEPALIVE_PROBE_MS = NAT_IDLE_FLOOR_MS \/ 10/.test(bat),
+      'and the cadence derives from the documented idle floor, not a bare number'
+    );
+  });
+  check('a battery transport failure is a recorded row, never a crash', async () => {
+    const { spawnSync } = await import('node:child_process');
+    const { mkdtempSync, rmSync } = await import('node:fs');
+    const { tmpdir } = await import('node:os');
+    const { join } = await import('node:path');
+    const { fileURLToPath } = await import('node:url');
+    const out = mkdtempSync(join(tmpdir(), 'battery-m159-'));
+    try {
+      // The discard port: nothing listens on 127.0.0.1:9, so the refusal is
+      // immediate and deterministic — a REAL run of the driver into a dead
+      // endpoint, not a source pin on the error handler.
+      const r = spawnSync(process.execPath, [
+        fileURLToPath(new URL('../scripts/flash_battery.mjs', import.meta.url)),
+        `--out=${out}`,
+        '--base=http://127.0.0.1:9',
+        '--songs=1',
+        '--turns=2',
+        '--pace=0',
+      ]);
+      assert.equal(r.status, 0, `the driver survives its transport failing: ${r.stderr}`);
+      const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+      assert.equal(
+        summary.songs[0].flags[0].flag,
+        'transport_failure',
+        'the failure is on the record, not swallowed'
+      );
+      const rows = readFileSync(join(out, 'song0.jsonl'), 'utf8')
+        .trim()
+        .split('\n')
+        .map((l) => JSON.parse(l));
+      assert.equal(rows[0].status, 0, 'the failed turn is a row with status 0');
+      assert.ok(rows[0].transport, 'carrying the transport reason');
+    } finally {
+      rmSync(out, { recursive: true, force: true });
+    }
+  });
+}
+
 // SDK-dependent: only runs if @modelcontextprotocol/sdk is installed.
 try {
   const { buildServer } = await import('./tools.js');
