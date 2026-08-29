@@ -2274,7 +2274,10 @@ PINNED = {
     # ~~220~~ -> 221, same day: M-163 (the driver hung up on a parked
     # song — exit 0 is the only finish by the owner's order, exit 3 is
     # declined and continued), pin told in the entry's own sitting.
-    "coverage_entries": 221,
+    # ~~221~~ -> 222, same day: M-164 (a dead upstream answers 502 and
+    # the driver treated it as fatal — 502 joins the bounded logged
+    # backoff), pin told in the entry's own sitting.
+    "coverage_entries": 222,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

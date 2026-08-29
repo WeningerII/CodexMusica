@@ -16162,3 +16162,34 @@ revise run re-asks the parked lines with attempt counters reset, and
 whether flash-lite can clear twelve standing flags is the next
 round's measurement, not this entry's. The register pin:
 `audit_register.coverage_entries` ~~220~~ -> 221 (2026-08-29).
+
+### M-164 · A dead upstream answers 502 and the driver treated it as fatal — the deployment's transient answers all earn the bounded logged backoff now `CLOSED` 2026-08-29 — fixed the sitting round 7 measured it
+**ROUND 7 (run 33251420261, the first with the M-163 exit-0 bar) DIED
+ON ITS OPENING TURN WITHOUT REACHING THE MODEL'S WORK**: turn 0
+answered **502 at 236.6s** with chat.js's own catch-all body ("The
+engine could not answer that one. Try rephrasing?"), zero tool calls
+relayed, and the driver — which retries only 429/503 — recorded the
+row faithfully and hung up. **THE 502 IS THE SERVER'S CATCH-ALL, NOT
+THE PROXY'S**: `mcp/chat.js` answers it when `runTurn` throws, which
+means the turn's upstream (the model API) failed past the server's
+own single transient-5xx retry, and everything that turn computed was
+thrown away. The conversation ENVELOPE is intact — turn 0 carried
+none and later turns carry the last-good one — so re-sending the same
+message is exactly what a person at the chat bar would do, and
+exactly what the driver's own header already licenses for 429/503:
+the deployment's transient answers, retried boundedly, every retry a
+logged row.
+
+**THE FIX IS ONE MEMBERSHIP**: 502 joins 429/503 in the bounded
+backoff (4 retries, 60s floor between, each retry a row in the
+JSONL). Nothing else moves — a 502 that survives four retries still
+ends the song with the row on the record, because five in a row is a
+finding about the deployment and not noise to absorb. **GATE**
+(`mcp/test.mjs`, 53 -> 54): the three statuses pinned to the one
+retry path. **WHAT THIS ENTRY DOES NOT CLAIM**: why THIS 502
+happened — the server log line (`[chat] <err.message>`) is on the
+Render dashboard and out of this container's reach, one sample is one
+sample, and the M-161 wall is not implicated (a killed verb returns
+an error RESULT to the model since the #204 fix; it does not throw).
+The register pin: `audit_register.coverage_entries` ~~221~~ -> 222
+(2026-08-29).

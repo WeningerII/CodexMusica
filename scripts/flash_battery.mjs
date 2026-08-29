@@ -225,8 +225,12 @@ for (const [songNo, briefIdx] of indices.entries()) {
     }
     let r = await post(body);
     // Bounded, logged backoff: a 429/503 is the deployment's own pacing and
-    // is part of the record, never silently absorbed.
-    while ((r.status === 429 || r.status === 503) && retries < 4) {
+    // is part of the record, never silently absorbed. 502 joined at M-164
+    // (round 7, 2026-08-29): chat.js answers 502 from its catch-all when a
+    // turn's upstream dies past the server's own single 5xx retry — the
+    // turn's work is thrown away but the carried envelope is intact, so a
+    // logged retry is the user pressing send again, not record-blurring.
+    while ((r.status === 429 || r.status === 502 || r.status === 503) && retries < 4) {
       retries++;
       appendFileSync(file, JSON.stringify({ turn: t, retry: retries, status: r.status }) + '\n');
       await sleep(Math.max(PACE_MS, 60_000));

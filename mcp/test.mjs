@@ -640,6 +640,17 @@ check('validation: actionable errors', () => {
       'a parked turn is answered with the decline-and-continue message'
     );
   });
+  check("the deployment's transient answers earn the bounded logged backoff", () => {
+    // M-164: round 7's turn 0 got chat.js's catch-all 502 ("The engine could
+    // not answer that one") at 236s — the turn's upstream died past the
+    // server's own single 5xx retry, the turn's work was thrown away, and the
+    // driver treated it as fatal. The carried envelope is intact on a 502, so
+    // it takes the same bounded, logged retry 429/503 always did.
+    assert.ok(
+      /r\.status === 429 \|\| r\.status === 502 \|\| r\.status === 503/.test(bat),
+      '429, 502 and 503 all take the bounded retry path'
+    );
+  });
   check('a battery transport failure is a recorded row, never a crash', async () => {
     const { spawnSync } = await import('node:child_process');
     const { mkdtempSync, rmSync } = await import('node:fs');
