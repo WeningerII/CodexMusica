@@ -251,20 +251,36 @@ def test_the_wired_draw():
     # length still draws the SONG band's floor — the one coordinate of
     # this seed that held through both generations, asserted below as
     # the floor and not as a literal.
-    check("seed 31's RELATION draw re-derives exactly (A consonance, "
-          "D pararhyme, K consonance) — a moved pin here means the "
-          "pools, the dice, the ENVELOPE or the VOCABULARY moved, which "
-          "is a question, not a merge conflict",
-          pl["relations"]["A"] == "schema:consonance"
-          and pl["relations"]["D"] == "schema:pararhyme"
-          and pl["relations"]["K"] == "schema:consonance",
-          {k: pl["relations"][k] for k in ("A", "D", "K")})
+    #
+    # REPINNED A FIFTH TIME 2026-08-29 (`MISSING.md` M-171), and the
+    # cause is the PARTICIPATION BOUND: `line_binding_ceiling` had been
+    # capping BOUND WORDS by the density band's SYLLABLE floor (a unit
+    # error, the M-81(B) species), and the repair caps it at the floor
+    # minus `WORDS_LEFT_FREE`. Every line's participation pool shrank,
+    # so `want`'s randint range moved on the first line and every draw
+    # downstream re-dealt: seed 31's cover goes 388 -> 359 groups and
+    # 22 -> 19 schema labels, with the ROSTER and the whole narrative
+    # draw (mode, 16768 line-ups, atoms, junctions) BYTE-IDENTICAL —
+    # the same layer split as the third repin, moved from the other
+    # side. The sharpest new fact is pinned first: label A now draws
+    # the BARE DEFAULT, so it has no relations entry at all, and a
+    # KeyError on "A" is exactly how the stale pin announced this move.
+    check("seed 31's RELATION draw re-derives exactly (A bare-default "
+          "— absent from the dict — D consonance, F pararhyme, J "
+          "perfect rhyme) — a moved pin here means the pools, the "
+          "dice, the ENVELOPE or the VOCABULARY moved, which is a "
+          "question, not a merge conflict",
+          "A" not in pl["relations"]
+          and pl["relations"]["D"] == "schema:consonance"
+          and pl["relations"]["F"] == "schema:pararhyme"
+          and pl["relations"]["J"] == "schema:perfect rhyme",
+          {k: pl["relations"].get(k) for k in ("A", "D", "F", "J")})
     check("...and seed 31 still draws the SONG band's own floor, its "
           "cover sized by it — a pin that says WHICH layer moved, "
           "where three relation names alone could not",
           pl["total_lines"] == min(P.song_line_counts())
-          and pl["total_lines"] == 22 and len(pl["groups"]) == 388
-          and len(pl["relations"]) == 22,
+          and pl["total_lines"] == 22 and len(pl["groups"]) == 359
+          and len(pl["relations"]) == 19,
           f"lines {pl['total_lines']} (floor "
           f"{min(P.song_line_counts())}), {len(pl['groups'])} groups, "
           f"{len(pl['relations'])} labels")

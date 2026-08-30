@@ -16674,3 +16674,243 @@ unresolved. The measured waste is real waste on a run that could not
 converge (M-168). Neither timing lane measured convergence and both
 said so. The register pin:
 `audit_register.coverage_entries` ~~227~~ -> 228 (2026-08-29).
+
+### M-171 · The participation bound protected the line's LENGTH and not the writer's FREEDOM — 15.9% of drawn lines had every word bound `CLOSED` 2026-08-29 — found by asking why round 10's rounds bought nothing, fixed and re-measured the same sitting
+**THE QUESTION THAT FOUND IT.** M-168 left the standing wall as "the
+writer against the drawn mandate", stated as an unmeasured hypothesis,
+and M-170's audit ranked reading the per-round record above every
+performance item it had just measured. The record did not exist
+(M-169), so the question was put to the PLANNER instead, locally, with
+no deploy: redraw seed 88291 — the plan flash-battery round 10 ran on,
+which parked with 20 of its 23 lines unresolved after four rounds,
+again after eight, then NO_PROGRESS at fifteen — and count what its
+mandate actually asks of each line.
+**WHAT IT ASKS.** 25 groups over 23 lines, and **line 6 carries FIVE
+distinct bindings — T2, T3, T4, headrime and the endword — on a
+FIVE-SLOT line.** Every word bound, each to a different rhyme family
+under a different drawn relation, at the line's LONGEST legal form.
+Line 17 the same five positions. A line whose every word is dictated
+is not a line anybody writes; it is a crossword with no free squares,
+and no writer — model or human — finishes it. The loop was not slow
+there and the writer was not lazy.
+**MEASURED BEFORE ANYTHING WAS CHANGED, 121 seeds / 4,482 lines**, every
+figure computed through this module's own `bound_placements`,
+`placement_word`, `line_syllable_ceiling` and `line_binding_ceiling`
+rather than a reimplementation: mean **2.91** bindings per line, max
+**5** in **120 of the 121 seeds**, **15.9% of all lines (713) bound at
+or above the fewest syllables a band-legal line may hold** — at least
+one such line in 120 of 121 seeds — and **1.2% (52) with no free word
+even against their own grid's ceiling**. This was never one bad seed.
+**THE DEFECT IS A UNIT ERROR, NOT A MISCALIBRATION (doctrine 58 is not
+engaged).** `line_binding_ceiling` bounded a count of BOUND WORDS by
+`ADOPTED["DENSITY"][0]`, a calibrated fact about SYLLABLES. Its own
+docstring argues correctly that asking for SIX spans would force the
+writer above the band floor — true, and it stops exactly one short,
+because at five the writer is not forced longer, they are forced
+SILENT. M-81(B) is the precedent in the same file: *"the coordinate
+itself was in the wrong UNIT"*, and a unit error is repaired rather
+than recalibrated.
+**THE RESERVE IS DERIVED AND IS THIS MODULE'S OWN IDIOM.**
+`WORDS_LEFT_FREE = 1` — the minimal statement of "a line the writer
+still writes" is that one word is theirs — and `plan_max_token`
+already holds `min(caps) - 1` one coordinate over, for the same
+reason. Raising it is a taste claim needing its own argument;
+lowering it to 0 restores this defect, which is what the suite's
+mutation does.
+**AFTER, the same 121 seeds through the same instrument: lines bound at
+or above the floor 15.9% -> 0.0%; no-free-word-at-own-ceiling 1.2% ->
+0.0%; max bindings per line 5 -> 4; SEEDS LOST 0 of 121.** The cost is
+stated and not buried: mean bindings per line **2.91 -> 2.45**, about
+16% less dense. The web is not thinned to nothing — 30.6 groups a song
+on average, still overlapping, still mostly at non-end placements —
+and on seed 88291 itself the group count went **25 -> 27** with the
+mean unmoved at 2.96, the bindings redistributing rather than
+disappearing.
+**THE PIN THAT PERMITTED IT WAS IN THE SUITE, and that is the sharpest
+part.** `test_plan.py` asserted `max(part) <= DENSITY floor` under a
+message ending *"than it has syllables"*. `<=` PERMITS EQUALITY, and
+equality IS the unwritable line — so the check was true, its message
+was true, and together they licensed the exact defect they name.
+Doctrine 48 inside the suite that enforces doctrine 48. Repointed to
+the bound MINUS the reserve, and a SECOND check now states the
+property without reference to any constant (no line is bound at every
+word), so a future draw reaching the same place by another route is
+still caught.
+**WHAT SHIPPED IS THE GLOBAL HALF, NOT THE PER-LINE ONE, and saying so
+is the difference between a bound and a bound that was measured.**
+`line_binding_ceiling` takes the placement POOL, not the line's own
+span, so the ceiling is now `min(pool words, floor - reserve)` = **4
+everywhere**. On a five-slot line that is exactly the intent — four
+bound, one free. On a twenty-four-slot line it is CONSERVATIVE: that
+line could carry more bindings and still leave the writer room, and it
+is capped at four anyway. The cost is a thinner web on long lines
+(part of the measured 2.91 -> 2.45) and the benefit is that the repair
+touches one expression and cannot interact with the per-line
+`joint_findings` arithmetic. **The per-line form — participation drawn
+against THIS line's `line_syllable_ceiling` minus the reserve — is the
+richer fix and is NOT taken here**: it needs its own before/after on
+groups per song and a re-ask of the gate, and shipping the safe half
+first is what makes that measurable rather than confounded.
+**AND SUFFICIENCY IS OPEN, WHICH THE POST-FIX PLAN ITSELF SHOWS.**
+Seed 88291 redrawn: 27 groups (from 25), max 4 bindings, mean 2.96
+unmoved, every line holding at least one free word. But its lines are
+FIVE slots, so line 6 still asks for four bound words — under four
+DIFFERENT named relations (monorhyme, pararhyme, rhyme, semirhyme) — in
+a five-syllable line. That is one free word out of five, which clears
+the defect this entry names and is not obviously a line a writer can
+answer. **M-171 is necessary; whether it is sufficient is unmeasured**,
+and the honest next instrument is a written draft, not another sweep.
+**WHAT THIS DOES NOT CLAIM.** No draft was written against either
+plan, so nothing here MEASURES that the old lines were unwritable or
+that the new ones are writable — round 10's 20-of-23 is strong
+circumstantial evidence and is not a proof, and the honest test is a
+song. It also does not touch `_place_group`'s uniform placement draw,
+which the owner ruled out of bounds (M-107); only the per-line
+PARTICIPATION ceiling moved. And the joint gate still refuses nothing
+on any of the 121 plans, before or after — it asks its arithmetic at
+the line's longest legal length; asked at the floor on the OLD plans
+its own unmodified code fires on 2,079 lines (46.4%), which is the
+measurement of how far its question sat from this one. Whether to
+repoint that gate is left open rather than settled here. The register
+pin: `audit_register.coverage_entries` ~~228~~ -> 229 (2026-08-29).
+**AND THE SITTING'S OWN SUITE CLAIM WAS TOO NARROW — CAUGHT BY CI, NOT
+BY ME, AND REPAIRED 2026-08-30.** This entry cited `test_plan.py` at
+171 PASS / 0 FAIL and stopped there, because that is the suite whose
+pin the fix repointed. A participation ceiling moves the FIRST line's
+`randint` range, so every draw downstream of it re-deals, and any
+suite anywhere in the tree holding a seeded plan pin is downstream:
+`quality/test_narrative.py` §6 pins seed 31's relation draw and its
+cover size, and it went red on PR #210 with `KeyError: 'A'` — label A
+now draws the BARE DEFAULT and has no `relations` entry at all, which
+is the sharpest single reading of the move and is what the repin
+asserts first. **MEASURED either side on seed 31, with the ROSTER and
+the ENTIRE narrative draw byte-identical (mode `drawn`, 16,768
+line-ups, 6 atoms, 5 junctions): the cover goes 388 -> 359 groups and
+22 -> 19 schema labels.** That is the same layer split the entry's
+third repin recorded — the narrative layer reads the FUNCTION ROSTER,
+the relation layer reads the GROUPS — arriving from the other side.
+**THE LESSON IS THE CHEAP ONE AND IS WRITTEN DOWN RATHER THAN
+LEARNED AGAIN: a planner change is a TREE-WIDE repin, and the suite
+whose pin you repointed is not the population.** `suite_sweep.py`
+exists for exactly this and was not run before the push; the CI job
+that caught it is the same instrument one layer out. One suite failed
+of the whole tree, which is the honest size of the blast radius and
+is why this is an amendment rather than a strike.
+
+### M-172 · M-170's largest loss is worth 7%, not 69% — the cache already had it, and the audit's own route to the stuck regime does not reach it `CLOSED` 2026-08-29 — the measurement M-170 §5 asked for, run the same sitting
+**M-170 RANKED ITS OWN BIGGEST ITEM ON A CAVEAT IT COULD NOT PRICE, and
+this closes that gap in the direction that costs the ranking.** §5 items
+1 and 3 asked for a fold on a heavily-flagged draft and a stub of the
+`MODAL_RHYME` pair scan. Both were run; the scan is **not** worth ~41s
+of a 59.5s fold.
+**THE STUB, on a `cp -a` scratch tree differing only in `revise.py`
+:2789-2790**: bare 37.705s against 40.510s unstubbed, three cold reps
+each — **2.805s, 6.92% of a fold**. PROFILED the same stub reads
+−12.62%, so **the profiler nearly doubles the apparent prize** and
+§3's "~41s of the 59.5s bare" is struck: a saving that size is not
+available at any regime.
+**AND THE REASON IS NOT THE REGIME — IT IS `_field_cache`, which M-170
+cited as the refutation of a different claim and did not carry here.**
+With and without the scan the fold builds **22 distinct candidate
+pools** and calls `score` **1,645,064 times, to the digit**: the scan
+causes no extra pool build, because `brief()` rebuilds every one of
+those 22 fields anyway for the writer's menus. What the stub removes is
+**160 post-cache `joint_field` passes at ~17.5ms** — which is M-170's
+own freebie #9 (the double `_spelled_rime` walk it priced at 8–16ms a
+call), not the field builds at all. Loss 1 ranks below the freebies it
+turns out to consist of.
+**THE REGIME CAVEAT IS CONFIRMED AND SHARPENED**: `modal_field` goes
+**160 calls -> 0** when every pair violates, so the scan does not
+merely fire less, it stops. But the candidate-field SHARE is 56.3% in
+that regime against 56.7% in the passing one — the money is still
+there, in `brief()`'s menus, which M-170 itself calls necessary. The
+regime changes WHO PAYS, not how much.
+**AND M-170'S ROUTE INTO THAT REGIME IS REFUTED.** "Deliberately
+non-rhyming line endings will do it" is false on this tree: two drafts
+built pairwise `NO_RELATION` by this tree's own comparator still had
+**39 of 60 and 40 of 60 mandated pairs RESCUED** by M-116's
+whole-vocabulary default (internal rhyme, chain rhyme, head rhyme,
+anaphora). Reaching the flagged regime needs a DECLARED relation —
+which the live planner path supplies since M-117 and M-170's fold lane
+did not. **Any statement about "what a stuck run costs" that assumes a
+bare mandate is measuring the RESCUED regime**, and the rescue itself
+is 10.0% of a fold that a declared relation removes entirely.
+**TWO MORE REPINS.** The slop floor is **26.2–33.5%** here
+(`features.py:330 _predictability`, ~30s absolute in every arm)
+against M-170's 13.7% — the second-largest item on this shape and
+untouched by anything in its recommended order. And M-170's
+`2,360,149 score` calls / 37 builds do NOT reproduce (1,645,064 / 22):
+both are shape-dependent and must not be carried to another draft.
+**THE AUDIT'S OWN PUBLISHED COMMAND DOES NOT RUN.** `python3 -m
+cProfile lyric_harness.py revise …` exits 1 in 1.0s —
+under `-m cProfile` `__main__` IS cProfile, so `lyric_harness.py`'s
+`sys.modules.setdefault("lyric_harness", sys.modules["__main__"])`
+aliases the harness name to the profiler and `quality/loop.py:290`
+dies on the import. Profiling has to go through a runner that imports
+the harness under its real name. A recipe nobody re-ran, in the
+document telling the next session how to measure.
+**WHAT STAYS UNMEASURED**: whether the stub is answer-preserving on a
+draft that DOES emit `MODAL_RHYME` — neither of these does, and both
+emitted zero, so byte-identical stdout (md5 `1539ad6f15ef3b96`) is an
+observation on these drafts and not a proof; the blueprint fold
+(M-170 §5 item 2) is still unrun. The register pin:
+`audit_register.coverage_entries` ~~229~~ -> 230 (2026-08-29).
+
+### M-173 · The sufficiency measurement M-171 asked for: a maximally-equipped writer against seed 88291 reaches exit 3 at EXACTLY the mandate's own impossible group `CLOSED` 2026-08-30 — the owner's order "write the draft yourself", executed through the verbs
+**THE PROTOCOL.** The writer was this session, with everything no chat
+writer has: the registry's own schema definitions open, the committed
+probe instrument (`brief` on two-line fixtures at the real slots), the
+`candidates --modal` verb for the ban's own heads, and unlimited local
+resumes. Every measurement went through committed verbs (standing rule
+3); the draft is `songs/oar_lair.txt`; nineteen `finish` runs and ~30
+probes drove it from 5 flags + ~6 pursued notes to the terminal state:
+**`[FINISHED — seed 88291 — exit 3 — NO_PROGRESS — UNRESOLVED: L7,
+L12]` — 61 mandated pairs, 57 judged, 53 satisfied across 24 declared
+schemas, every ban note cleared, and the ONLY standing flags are group
+F's four semirhyme pairs.**
+**GROUP F IS UNSATISFIABLE BY THE REGISTRY'S OWN ARITHMETIC, and the
+grader's verdicts confirm the proof pair by pair.** `semirhyme`
+declares `unmatched="require_b"`: the later member must carry a
+syllable tail past the anchor — probed: a coda extension is NOT a tail
+(glow~goad/growth/ode all False), and the witness's only exhibit is
+grow~growing. So F's pairs (5,7), (5,12), (7,12), (9,12) need L7.T1 or
+L12.end disyllabic — and L7 binds T1,T3,T4,end and L12 binds
+T1,T2,T4,end on FIVE-slot lines, so both need five distinct
+monosyllables and can never hold one. The two pairs whose b-member
+COULD be tailed — (5,9) and (7,9), via L9's free line carrying
+"Going" — are exactly the two the grader passes. The writer is
+exonerated; the mandate is convicted; M-171's WORDS_LEFT_FREE was
+NECESSARY (without it line 6 of the old plan had zero free words) and
+is now measured INSUFFICIENT: the conjunction gate still does not read
+a schema's `unmatched` requirement against the b-line's slot budget,
+and that is the next gate to point at the planner's draw.
+**WHAT SATISFYING 53 SCHEMA PAIRS ACTUALLY TOOK, banked for the
+writer-wall ladder (M-166/M-168).** (a) Names lie: `head rhyme
+(positional)` is a line-head RHYME (nucleus+coda), not alliteration —
+every onset-matched candidate failed until the registry was read.
+(b) `light rhyme`'s prominence channel is BINARY, so no English word
+light-rhymes with a stressed monosyllable except a WEAK-list word —
+the satisfying pair is that~plait, reachable only by rewriting BOTH
+lines, which tier 1 structurally cannot do (each half-step is
+rejected as "nothing was fixed"). (c) The two-tier ban composes with
+the drawn families into a frequent-word exclusion principle: a word
+in the family's top ranks can NEVER pair clean (the check runs both
+directions), so lamp, light, shore, door, bay, prayer, bear, deep,
+leap, claim, flame all had to leave the draft — the mandate is
+satisfiable only in the vocabulary's mid-to-rare band (dune~hewn,
+oar~yore, seep~leap, keel~peal, lair~tear). (d) The brief's OFFERED
+fields disagreed with the verdicts repeatedly (wait/make/got offered
+for a pair the judge refuses; a 24-word joint field mixing three
+calls' families) — M-139's species live at the defer surface; the
+probe instrument, not the field, is what converged. (e) The loop
+asked about 4 of 15 flagged lines and stopped at NO_PROGRESS with 11
+never asked (run 2 of this sitting) — file-level revision outside the
+loop did the rest, an option no chat writer has.
+**THE SONG STANDS AS ITS EXIT STATE** (M-150): exit 3, two lines open,
+both held by the plan's own impossible group. It is the first draft in
+this repository written against a full median-density drawn mandate,
+and the measurement it banks is the one M-171 could not claim: the
+fixed planner's plans are writable EXCEPT where a schema's span
+requirement exceeds a line's slot budget — a defect with a name, a
+location, and one gate to grow. The register pin:
+`audit_register.coverage_entries` ~~230~~ -> 231 (2026-08-30).

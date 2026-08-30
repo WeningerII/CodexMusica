@@ -1,0 +1,221 @@
+{
+ "hooks": [],
+ "lines": [
+  {
+   "bar": 1,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "INTRO1",
+   "text": "Dune that cuts black waves"
+  },
+  {
+   "bar": 2,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "INTRO1",
+   "text": "Hands plait hewn, cold glass"
+  },
+  {
+   "bar": 3,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "INTRO1",
+   "text": "Wind combs the salt plaque"
+  },
+  {
+   "bar": 4,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "INTRO1",
+   "text": "Sleep, what's his gray head"
+  },
+  {
+   "bar": 5,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "VERSE1",
+   "text": "Dreams pull soft glow beam"
+  },
+  {
+   "bar": 6,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "VERSE1",
+   "text": "Pale glare rims boom ray"
+  },
+  {
+   "bar": 7,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "VERSE1",
+   "text": "Go down seep, oar lair"
+  },
+  {
+   "bar": 8,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "VERSE1",
+   "text": "Leap, corps \u2014 waves weigh, tear"
+  },
+  {
+   "bar": 9,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "VERSE1",
+   "text": "Going down worn rails"
+  },
+  {
+   "bar": 10,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "VERSE1",
+   "text": "Gray head nods, tide goes"
+  },
+  {
+   "bar": 11,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "VERSE1",
+   "text": "Fey stalks the salt sea"
+  },
+  {
+   "bar": 12,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "VERSE1",
+   "text": "Tale's heir swings yore slow"
+  },
+  {
+   "bar": 13,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "VERSE1",
+   "text": "Ne'er pile, pour \u2014 light fails"
+  },
+  {
+   "bar": 14,
+   "beat": 1.75,
+   "duration": 1.25,
+   "section": "VERSE1",
+   "text": "Seeing, the rite dies"
+  },
+  {
+   "bar": 15,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "DROP1",
+   "text": "Lamp, sigh out \u2014 drowned husk"
+  },
+  {
+   "bar": 16,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "DROP1",
+   "text": "Doubt bait reef lies lost"
+  },
+  {
+   "bar": 17,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "DROP1",
+   "text": "Rough seas grind boat in drought"
+  },
+  {
+   "bar": 18,
+   "beat": 1.25,
+   "duration": 1.75,
+   "section": "DROP1",
+   "text": "Sighing wolves seek mast, bite"
+  },
+  {
+   "bar": 19,
+   "beat": 1.5,
+   "duration": 1.5,
+   "section": "CHORUS1",
+   "text": "Rise up, wake night now"
+  },
+  {
+   "bar": 20,
+   "beat": 1.5,
+   "duration": 1.5,
+   "section": "CHORUS1",
+   "text": "Fade not \u2014 still keel hope"
+  },
+  {
+   "bar": 21,
+   "beat": 1.5,
+   "duration": 1.5,
+   "section": "CHORUS1",
+   "text": "Gold veil holds one gleam"
+  },
+  {
+   "bar": 22,
+   "beat": 1.5,
+   "duration": 1.5,
+   "section": "CHORUS1",
+   "text": "Cries fan blaze, loud peal"
+  },
+  {
+   "bar": 23,
+   "beat": 1.5,
+   "duration": 1.5,
+   "section": "CHORUS1",
+   "text": "Dawn comes with heat grown"
+  }
+ ],
+ "sections": [
+  {
+   "bars": 4,
+   "function": "intro",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "INTRO1",
+   "start_bar": 1
+  },
+  {
+   "bars": 10,
+   "function": "verse",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "VERSE1",
+   "start_bar": 5
+  },
+  {
+   "bars": 4,
+   "function": "drop",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "DROP1",
+   "start_bar": 15
+  },
+  {
+   "bars": 5,
+   "function": "chorus",
+   "meter": {
+    "beats": 2,
+    "groups": [
+     2
+    ],
+    "unit": 4
+   },
+   "name": "CHORUS1",
+   "start_bar": 19
+  }
+ ],
+ "title": ""
+}

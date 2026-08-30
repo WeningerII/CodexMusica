@@ -2316,7 +2316,29 @@ PINNED = {
     # which is the regime round 10 was not in; and it refuted this
     # session's own ranked plan, including M-167's predicted size),
     # pin told in the entry's own sitting.
-    "coverage_entries": 228,
+    # ~~228~~ -> 229, same day: M-171 (the participation bound capped
+    # BOUND WORDS by the density band's SYLLABLE floor, so a five-slot
+    # line could have all five words bound to five different rhyme
+    # families — 15.9% of 4,482 lines over 121 seeds, and round 10's own
+    # seed 88291 among them; WORDS_LEFT_FREE = 1 repairs the unit error,
+    # 0.0% after with 0 seeds lost, and the suite pin that permitted it
+    # via `<=` is repointed), pin told in the entry's own sitting.
+    # ~~229~~ -> 230, same day: M-172 (M-170's largest loss re-measured
+    # and cut by an order of magnitude — the MODAL_RHYME scan stub saves
+    # 6.92% of a bare fold, not the ~69% profiled share, because
+    # _field_cache already collapses it to 22 builds that brief() pays
+    # for anyway; the audit's route into the stuck regime is refuted by
+    # the 77-schema rescue, and its published profiling command does not
+    # run), pin told in the entry's own sitting.
+    # ~~230~~ -> 231, next day: M-173 (the sufficiency measurement —
+    # this session wrote against seed 88291 through the verbs: 53 of 57
+    # judged schema pairs satisfied, every ban note cleared, exit 3 at
+    # EXACTLY group F's four semirhyme pairs, which are unsatisfiable by
+    # the registry's own require_b against the lines' slot budgets; the
+    # conjunction gate does not read span requirements against slot
+    # budgets and that is the named next gate), pin told in the entry's
+    # own sitting.
+    "coverage_entries": 231,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;
