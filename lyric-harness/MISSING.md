@@ -17256,4 +17256,9 @@ standing argument — *"this job forks the whole suite, so it needs the
 suite's environment exactly"* — and the nltk note beside it is the
 same species one package over: an environment defect wearing the
 costume of a coverage hole, pricing the sweep's widest detector out
-of every night it stood.
+of every night it stood. The register pin, for this entry and M-179
+together: `audit_register.coverage_entries` ~~236~~ -> 237 (M-179) ->
+238 (this entry), 2026-08-30 — and the sitting's own first push OMITTED
+this ladder line, which `verify_entries.py`'s doctrine-17 sweep caught
+within five minutes: a superseded 236 visible in no scanned document is
+exactly the vanished-value case that check exists to refuse.
