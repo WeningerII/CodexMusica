@@ -2350,7 +2350,21 @@ PINNED = {
     # -> 0 after, 0 seeds lost, semirhyme narrowed to pairs and not
     # deleted. M-124(a) had modelled the same coordinate SYMMETRICALLY,
     # which is what hid it), pin told in the entry's own sitting.
-    "coverage_entries": 232,
+    # ~~232~~ -> 233, same day: M-175 (the pipeline run from step 0 for the
+    # first time — `plan --sweep` CHOOSING the seed, 5 of 119 accepted at
+    # 4.2%. The draft reached 0 scheme violations on 39 of 39 mandated
+    # pairs across 21 named schemas, the first full drawn mandate ever
+    # satisfied here, and the one standing FLAG was not a rhyme: anaphora
+    # carries an identity rule demanding the SAME TOKEN, drawn onto two
+    # line-final slots, so the only legal answer makes two lines end on one
+    # word and `floor.REPEAT_IN_VERSE` charges it on a layer that never
+    # reads the mandate. M-174's family one layer out — the mandate against
+    # the floor rather than a group against itself — repaired with M-174's
+    # own shape: `relations.identity_forced` read by both the draw and the
+    # gate, `IDENTITY_AT_TWO_LINE_ENDS` the seventh JOINT_CODE, 3 of the 5
+    # swept seeds carrying one before and 0 after, 0 seeds lost),
+    # pin told in the entry's own sitting.
+    "coverage_entries": 233,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

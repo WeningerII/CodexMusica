@@ -999,7 +999,8 @@ WORDS_LEFT_FREE = 1
 
 JOINT_CODES = ("SPAN_BELOW_DENSITY_FLOOR", "TOKEN_INDEX_UNREACHABLE",
                "WORDS_EXCEED_SPAN", "TWO_GROUPS_ONE_WORD",
-               "HOOK_IN_NONRECURRING_SECTION", "GROUP_CONTRADICTS_ITSELF")
+               "HOOK_IN_NONRECURRING_SECTION", "GROUP_CONTRADICTS_ITSELF",
+               "IDENTITY_AT_TWO_LINE_ENDS")
 
 
 def line_syllable_ceiling(slots):
@@ -1454,6 +1455,23 @@ def joint_findings(plan):
         if _s is None:
             continue
         _mem = [m.strip() for m in _g.split(",") if m.strip()]
+        _ends = [m for m in _mem
+                 if (str(m).split(".", 1)[1] if "." in str(m) else "end")
+                 in ("end", "endword")]
+        if _RL.identity_forced(_s) and len(_ends) >= 2:
+            out.append((
+                "IDENTITY_AT_TWO_LINE_ENDS",
+                min(int(str(m).split(".", 1)[0]) for m in _ends),
+                f"group {SC.label((_gi,))} declares {_name!r}, whose identity "
+                f"rule requires its members to be the SAME TOKEN, at "
+                f"{len(_ends)} line-final slot(s) ({', '.join(_ends)}). "
+                f"Satisfying it means those lines END ON THE SAME WORD, and "
+                f"`floor.REPEAT_IN_VERSE` charges identical end words as a "
+                f"FLAG on a layer that never reads the mandate — so the only "
+                f"legal answer to this group trips another gate, and no "
+                f"choice of words clears both. The figure is not the problem: "
+                f"the same word ending two lines is `epistrophe / radif` in "
+                f"this registry, and that is the schema to declare for it."))
         _n_bad = _RL.unsatisfiable_pairs(_s, len(_mem))
         if not _n_bad:
             continue
@@ -2813,6 +2831,26 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                 # PAIRS, where it is exactly the figure it is named for.
                 if not _RL.group_satisfiable(
                         _RL.REGISTRY[_cand], len(_lines)):
+                    continue
+                # M-175: AND A SCHEMA WHOSE IDENTITY RULE DEMANDS THE SAME
+                # TOKEN MAY NOT BIND TWO LINE ENDS. `anaphora` is the one
+                # drawable schema that does, and satisfying it at two
+                # end/endword slots means the two lines END ON THE SAME WORD
+                # — which `floor.REPEAT_IN_VERSE` charges as a FLAG, on a
+                # layer that does not read the mandate at all. The writer is
+                # then handed a demand whose only legal answer trips another
+                # gate, which no choice of words can clear (the whole draft
+                # measured: 39 of 39 mandated pairs satisfied, 0 scheme
+                # violations, and that one flag still standing). The figure
+                # itself is not refused — anaphora keeps every non-final
+                # slot, and the same word ending two lines has its own name
+                # in this registry (`epistrophe / radif`), which is the
+                # schema a writer asking for that should draw.
+                if (_RL.identity_forced(_RL.REGISTRY[_cand])
+                        and sum(1 for _m3 in groups[_gi]
+                                if (str(_m3).split(".", 1)[1]
+                                    if "." in str(_m3) else "end")
+                                in ("end", "endword")) >= 2):
                     continue
                 _t = _traits[_cand]
                 if _t["gap"] is not None and any(

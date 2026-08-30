@@ -17011,3 +17011,75 @@ this yet: the deliverable is still a clean exit 0 song, this removes
 one proven reason the last attempt could not be one, and whether it
 was the ONLY reason is unmeasured until a draft says so. The register
 pin: `audit_register.coverage_entries` ~~231~~ -> 232 (2026-08-30).
+
+### M-175 · The mandate REQUIRED the repeat and the floor FORBADE it — anaphora drawn onto two line ENDS forces a flag no writing can clear `CLOSED` 2026-08-30 — found by writing a song against a swept seed and reaching one flag
+**THE PIPELINE WAS RUN FROM STEP 0 FOR THE FIRST TIME AND THIS IS WHAT
+IT FOUND.** M-174's close left the deliverable open: no clean exit 0
+song. So the working order was run as written — `plan --sweep` to
+CHOOSE the seed instead of inheriting one (the step every previous
+sitting skipped), then write, then grade.
+**THE SWEEP IS THE HALF THAT WORKED.** Predicates declared:
+`lines<=26;returns>=1;slots_per_line>=7`, over seeds 1-119 — **5
+accepted (4.2%): 46, 67, 69, 72, 104**, unranked and in seed order. The
+marginals are the diagnostic and were measured before the conjunction:
+`pins_per_line<=4` **100%** (M-171's cap makes it true by
+construction), `pins_per_line<=3` **1.7%**, `returns>=1` **32.2%**,
+`lines<=26` **20.3%**, `slots_per_line>=7` **89.8%**. The first
+conjunction tried — with `pins_per_line<=3` — accepted **0 of 119** and
+the verb REFUSED at exit 2 saying unreachable-in-this-range rather than
+rare, which is exactly the answer doctrine 20 asks that refusal for.
+`pins_per_line<=3` was then DROPPED on evidence rather than on taste:
+M-173 wrote 23 four-pin lines successfully, so the constraint that
+looked binding was one this writer had already cleared.
+**SEED 46's SHAPE AGAINST SEED 88291's, which is the sweep earning its
+keep**: 5-8 slots per line against a uniform 5, four lines carrying NO
+binding at all, and both of its 4-pin lines 8 slots wide — four free
+words each, where 88291 gave one.
+**THE DRAFT REACHED 0 SCHEME VIOLATIONS ON 39 OF 39 MANDATED PAIRS
+ACROSS 22 GROUPS AND 21 DISTINCT NAMED SCHEMAS**, which is the first
+time in this repository a full drawn mandate has been satisfied end to
+end. One FLAG stood in the whole draft, and it is not a rhyme:
+`REPEAT_IN_VERSE`.
+**THE CAUSE IS A CONJUNCTION NOTHING CHECKED, AND IT IS M-174's FAMILY
+ONE LAYER OUT — not a group contradicting itself but the MANDATE
+contradicting the FLOOR.** Group E drew `anaphora` over
+`5.endword, 6.headrime, 7.endword`. `anaphora` carries
+`IdentityRule(level='token', predicate=Agree)`: its members are not
+merely alike, they are THE SAME WORD. Two of those three slots are
+line-final, so satisfying the group means L5 and L7 END ON THE SAME
+WORD — and `floor.REPEAT_IN_VERSE` charges identical end words as a
+FLAG, on a layer that by design never reads the mandate. The writer is
+handed a demand whose only legal answer trips a different gate. The
+floor's own radif licence cannot rescue it either: that needs a
+repetend closing `radif_min_pair_fraction` (0.50) of the song's pairs
+and this one closes a single pair.
+**AND THE FIGURE IS NOT THE PROBLEM — THE PLACEMENT IS.** `anaphora`
+is declared `align=flush_left` over `line_initial_token`, so a draw
+that puts it on `endword` is asking for a line-FINAL figure under a
+line-INITIAL name; this registry already has the right name for the
+same word ending two lines, `epistrophe / radif`. `pair_bindable`
+could not see it, because `line_initial_token` IS a token locus and
+the predicate asks only about span SHAPE.
+**THE REPAIR IS M-174's, REUSED: one predicate, both sites.**
+`relations.identity_forced` reads the `identity` rules and never the
+name (`consonance` is the control that answers False), the relation
+draw skips a same-token schema on a group holding two or more
+line-final members, and `IDENTITY_AT_TWO_LINE_ENDS` is the seventh
+`JOINT_CODE` so a hand-written plan is refused on the same terms.
+**MEASURED over seeds 1-60: 3 of the 5 swept seeds (46, 72, 104)
+carried one before — 46 at two line ends, 72 and 104 at three — and
+0 seeds carry one after, with 0 seeds lost and `joint_findings` empty
+on every one.** `test_plan.py` §17 gains four checks including the
+planted-group mutation; `test_narrative`'s seed-31 pins did NOT move,
+which is the narrowest possible blast radius and is asserted rather
+than assumed.
+**WHAT THIS DOES NOT CLAIM.** The song is still not delivered. The
+seed-46 draft is banked in no `songs/` row because it stands at exit 3
+under the OLD mandate, and under the repaired planner seed 46 draws a
+different group E, so that draft is a measurement rather than a
+deliverable — presented as exit 3, which is what it is. Two of the
+five swept seeds (67, 69) were already clean on this axis before the
+gate existed, so the next write starts there. And the BUDGET question
+M-174 named is still open and untouched: a k=2 overhang group still
+needs a b-line that can afford the longer word. The register pin:
+`audit_register.coverage_entries` ~~232~~ -> 233 (2026-08-30).

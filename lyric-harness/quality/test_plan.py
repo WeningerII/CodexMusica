@@ -2677,6 +2677,52 @@ def test_the_overhang_group():
     check("`GROUP_CONTRADICTS_ITSELF` is a declared JOINT code, so "
           "`make_plan` refuses on it like every other cause",
           "GROUP_CONTRADICTS_ITSELF" in PLN.JOINT_CODES)
+    #: M-175, the same family one layer out: the contradiction is not inside
+    #: the group, it is between the MANDATE and the FLOOR.
+    check("`anaphora` is the one drawable schema whose identity rule "
+          "demands the SAME TOKEN — read off `identity`, never off the "
+          "name, and `consonance` is the control that does not",
+          RL.identity_forced(RL.REGISTRY["anaphora"])
+          and not RL.identity_forced(RL.REGISTRY["consonance"])
+          and [n for n in RL.DRAWABLE_SCHEMAS
+               if RL.identity_forced(RL.REGISTRY[n])] == ["anaphora"])
+    ends = 0
+    for seed in range(1, 41):
+        pl2 = PLN.make_plan(seed)
+        rel2 = pl2.get("relations") or {}
+        for gi, g in enumerate([x for x in str(pl2.get("groups") or "")
+                                .split(";") if x.strip()]):
+            nm = rel2.get(SC.label((gi,)), "")
+            if not nm.startswith("schema:"):
+                continue
+            s2 = RL.REGISTRY.get(nm.split(":", 1)[1])
+            if s2 is None or not RL.identity_forced(s2):
+                continue
+            if sum(1 for m in g.split(",")
+                   if (m.strip().split(".", 1)[1] if "." in m else "end")
+                   in ("end", "endword")) >= 2:
+                ends += 1
+    check("no seed binds a same-token schema at two line ENDS — satisfying "
+          "one means both lines end on the same word, which "
+          "`floor.REPEAT_IN_VERSE` flags on a layer that never reads the "
+          "mandate, so the only legal answer trips another gate",
+          ends == 0, f"{ends} such group(s) over seeds 1-40")
+    gs2 = [g for g in str(pl["groups"]).split(";") if g.strip()]
+    idx2 = next(i for i, g in enumerate(gs2)
+                if sum(1 for m in g.split(",")
+                       if (m.strip().split(".", 1)[1] if "." in m else "end")
+                       in ("end", "endword")) >= 2)
+    mut2 = dict(pl)
+    mut2["relations"] = dict(pl.get("relations") or {})
+    mut2["relations"][SC.label((idx2,))] = "schema:anaphora"
+    fired2 = [f for f in PLN.joint_findings(mut2)
+              if f[0] == "IDENTITY_AT_TWO_LINE_ENDS"]
+    check("...and the MUTATION fires that gate too, naming the line-final "
+          "slots and pointing at `epistrophe / radif`, which is this "
+          "registry's own name for the same word ending two lines",
+          len(fired2) == 1 and "epistrophe" in fired2[0][2]
+          and "IDENTITY_AT_TWO_LINE_ENDS" in PLN.JOINT_CODES,
+          fired2[0][2][:80] if fired2 else "did not fire")
 
 
 if __name__ == "__main__":

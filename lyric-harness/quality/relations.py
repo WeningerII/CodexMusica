@@ -6899,6 +6899,19 @@ def unsatisfiable_pairs(schema, members):
     return (k - 1) * (k - 2) // 2
 
 
+def identity_forced(schema):
+    """-> True when this schema REQUIRES its members to be the SAME token.
+
+    Read off the `identity` rules rather than off the name (`MISSING.md`
+    M-175): `anaphora` is the one DRAWABLE schema that carries
+    `IdentityRule(level='token', predicate=Agree)`, and what that means for a
+    writer is that the bound words are not merely alike, they are the same
+    word typed twice.
+    """
+    return any(r.level == "token" and isinstance(r.predicate, Agree)
+               for r in schema.identity)
+
+
 def group_satisfiable(schema, members):
     """-> True when SOME assignment of words satisfies every pair of a
     `members`-sized group under this schema.
@@ -7101,6 +7114,7 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",
            "line_pairs_for", "pair_satisfies", "pair_bindable",
            "overhang_member", "unsatisfiable_pairs", "group_satisfiable",
+           "identity_forced",
            "declare_delivery",
            "declare_stub_resolution", "search_stub_resolution",
            "STUB_INCIPIT_LENGTHS", "declare_senses",
