@@ -2380,7 +2380,19 @@ PINNED = {
     # measured 767s CPU and UNRUNNABLE at every bound, now in
     # `SUITE_TIMEOUT` at the table's 2x rule; the baseline is a banked memo
     # instead of a nightly tax), pin told in the entry's own sitting.
-    "coverage_entries": 236,
+    # ~~236~~ -> 237, same day: M-179 (QF2 survived run #1171's shard — the
+    # first full slice the budget fix bought — because the radif licence's
+    # fraction condition had a constant-check and no draft; §4b puts the
+    # docstring's own 2-of-many repetend through the floor, one run at two
+    # denominators with opposite verdicts, the kill proven by hand and
+    # through `mutate.py --only QF2`), pin told in the entry's own sitting.
+    # ~~237~~ -> 238, same day: M-180 (the mutation job lacked PyYAML and
+    # M-176's shadow fix is what surfaced it — test_verbs §43 makes the
+    # parser's absence a failing check by design, and the suite died at §24
+    # before it could ever reach §43 in that environment; one word in the
+    # install line, under the job's own "needs the suite's environment
+    # exactly"), pin told in the entry's own sitting.
+    "coverage_entries": 238,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

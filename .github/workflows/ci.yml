@@ -2099,8 +2099,17 @@ jobs:
       # excluded files. An environment defect wearing the costume of a coverage
       # hole (see the long note in `nightly`). This job forks the whole suite,
       # so it needs the suite's environment exactly.
+      #
+      # PyYAML JOINED 2026-08-30 (`MISSING.md` M-180): `test_verbs.py` §43
+      # parses this workflow with a real parser and makes the parser's
+      # ABSENCE a failing check by design. The `verbs` job installs PyYAML
+      # for it; this job did not, and the gap was invisible for as long as
+      # the M-176 shadow defect killed `test_verbs` at §24 first — the
+      # sitting that let the suite run its full length in the shadow is the
+      # sitting that surfaced the missing package behind it. Same species
+      # as the nltk note above, one package over.
       - name: Install the packages the suite reaches lazily
-        run: python3 -m pip install --disable-pip-version-check numpy scikit-learn nltk
+        run: python3 -m pip install --disable-pip-version-check numpy scikit-learn nltk PyYAML
 
       - name: Stage the pronunciation dictionary
         working-directory: lyric-harness
