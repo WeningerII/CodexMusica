@@ -16773,6 +16773,29 @@ its own unmodified code fires on 2,079 lines (46.4%), which is the
 measurement of how far its question sat from this one. Whether to
 repoint that gate is left open rather than settled here. The register
 pin: `audit_register.coverage_entries` ~~228~~ -> 229 (2026-08-29).
+**AND THE SITTING'S OWN SUITE CLAIM WAS TOO NARROW — CAUGHT BY CI, NOT
+BY ME, AND REPAIRED 2026-08-30.** This entry cited `test_plan.py` at
+171 PASS / 0 FAIL and stopped there, because that is the suite whose
+pin the fix repointed. A participation ceiling moves the FIRST line's
+`randint` range, so every draw downstream of it re-deals, and any
+suite anywhere in the tree holding a seeded plan pin is downstream:
+`quality/test_narrative.py` §6 pins seed 31's relation draw and its
+cover size, and it went red on PR #210 with `KeyError: 'A'` — label A
+now draws the BARE DEFAULT and has no `relations` entry at all, which
+is the sharpest single reading of the move and is what the repin
+asserts first. **MEASURED either side on seed 31, with the ROSTER and
+the ENTIRE narrative draw byte-identical (mode `drawn`, 16,768
+line-ups, 6 atoms, 5 junctions): the cover goes 388 -> 359 groups and
+22 -> 19 schema labels.** That is the same layer split the entry's
+third repin recorded — the narrative layer reads the FUNCTION ROSTER,
+the relation layer reads the GROUPS — arriving from the other side.
+**THE LESSON IS THE CHEAP ONE AND IS WRITTEN DOWN RATHER THAN
+LEARNED AGAIN: a planner change is a TREE-WIDE repin, and the suite
+whose pin you repointed is not the population.** `suite_sweep.py`
+exists for exactly this and was not run before the push; the CI job
+that caught it is the same instrument one layer out. One suite failed
+of the whole tree, which is the honest size of the blast radius and
+is why this is an amendment rather than a strike.
 
 ### M-172 · M-170's largest loss is worth 7%, not 69% — the cache already had it, and the audit's own route to the stuck regime does not reach it `CLOSED` 2026-08-29 — the measurement M-170 §5 asked for, run the same sitting
 **M-170 RANKED ITS OWN BIGGEST ITEM ON A CAVEAT IT COULD NOT PRICE, and
