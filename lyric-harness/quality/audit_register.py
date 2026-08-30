@@ -2364,7 +2364,23 @@ PINNED = {
     # gate, `IDENTITY_AT_TWO_LINE_ENDS` the seventh JOINT_CODE, 3 of the 5
     # swept seeds carrying one before and 0 after, 0 seeds lost),
     # pin told in the entry's own sitting.
-    "coverage_entries": 233,
+    # ~~233~~ -> 234 (2026-08-30): M-176 (the mutation shadow was a copy of
+    # the harness alone — test_verbs/test_render_form/test_verify_entries
+    # red at every baseline for reaching ../.github, ../.claude and ../mcp,
+    # three detectors quietly out of every sweep; `mutate.SIBLING_RULES`
+    # gives the shadow the repo's shape, §3f pins it), pin told in the
+    # entry's own sitting.
+    # ~~234~~ -> 235, same day: M-177 (M-148 moved the door and only the
+    # band arm's gate was re-run — the nightly's separation pins stayed at
+    # the pre-repair comparator and step 14 went red under a merge that did
+    # not cause it; `ADOPTED_SEPARATION` repinned, both verdicts held), pin
+    # told in the entry's own sitting.
+    # ~~235~~ -> 236, same day: M-178 (one bound, two spellings — the sweep
+    # ran at 420 while its module declared 600; test_plan/test_revise
+    # measured 767s CPU and UNRUNNABLE at every bound, now in
+    # `SUITE_TIMEOUT` at the table's 2x rule; the baseline is a banked memo
+    # instead of a nightly tax), pin told in the entry's own sitting.
+    "coverage_entries": 236,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

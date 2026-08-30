@@ -49,6 +49,7 @@ never the cheap answer, and a bare name gives the next reader no way to tell
 
 import argparse
 import os
+import shutil
 import sys
 import time
 
@@ -307,9 +308,12 @@ def test_the_three_way_outcome():
     the heading *"each one is a hole in the suite"*. A hole manufactured by a
     time bound.
 
-    IT IS LIVE, NOT HYPOTHETICAL: `quality/test_capacity.py` runs in 430s
-    against `mutate.py`'s 420s default and IS dropped from every baseline on
-    this machine. What kept it harmless is that 0 of the 58 mutations lose
+    IT WAS LIVE, NOT HYPOTHETICAL, WHEN WRITTEN: `quality/test_capacity.py`
+    ran in 430s against the then-420s default and WAS dropped from every
+    baseline on this machine (M-30's own case; that suite carries a 1000s
+    table entry now, and the 420 spelling itself is gone — M-178, the
+    argparse default deferring to `mutate.DEFAULT_TIMEOUT`'s one
+    definition). What kept it harmless is that 0 of the 58 mutations lose
     their WHOLE declared subset to that bound — escalation to the full green
     suite covers the other 7 — so nothing is misreported today, and the reason
     is escalation rather than luck. A staging that slows one more suite makes
@@ -462,6 +466,59 @@ def test_the_shards_partition_the_list():
           max(sizes) - min(sizes) <= 1, str(sizes))
 
 
+def test_the_shadow_reaches_what_the_suites_read():
+    """3f. THE SHADOW HAS THE REPO'S SHAPE (`MISSING.md` M-176).
+
+    The shadow was a copy of lyric-harness ALONE, and three suites were red at
+    every mutation baseline for reaching what the real tree really has one
+    directory up: `test_verbs.py` §24 opens `../.github/workflows/ci.yml`
+    (FileNotFoundError -> ERROR), `test_render_form.py` §6 reads
+    `../.claude/settings.json` and the hook script beside it (2 FAILING), and
+    `verify_entries.py`'s live prose sweep resolves `mcp/lyric_tools.js`
+    against the repo root (1 FAILING). A baseline red excludes its suite from
+    every mutation, so the reach quietly cost the sweep three detectors a
+    night — reported as suite failures when every one was a fact about the
+    COPY. Measured 2026-08-30 on run #1165's own shard: all three red in the
+    shadow, all three green at head, one cause.
+
+    This drives the REAL `build_shadow` (0.2s, 24 MB measured) and runs the
+    two sub-second suites inside it; `test_verbs` is not run here (its own
+    bound is 3000s) — the ci.yml existence check below is the coordinate its
+    §24 reads.
+    """
+    print("\n3f. the shadow reaches what the suites read (M-176)")
+    import shutil
+    base = mutate._scratch_base()
+    tree = mutate.build_shadow(base)
+    try:
+        reaches = ("../.github/workflows/ci.yml", "../.claude/settings.json",
+                   "../.claude/render_form_hook.sh", "../mcp/lyric_tools.js",
+                   "../mcp/test.mjs")
+        missing = [r for r in reaches
+                   if not os.path.exists(os.path.normpath(
+                       os.path.join(tree, r)))]
+        check("every repo-root path the three suites read resolves from the "
+              "shadow harness dir", not missing,
+              f"missing: {missing or 'none'} of {len(reaches)}")
+        hook = os.path.normpath(
+            os.path.join(tree, "../.claude/render_form_hook.sh"))
+        check("and the Stop hook keeps its executable bit through the mirror",
+              os.path.exists(hook) and os.access(hook, os.X_OK), hook)
+        for t in (os.path.join("quality", "test_render_form.py"),
+                  os.path.join("quality", "test_verify_entries.py")):
+            st, dt, tail = mutate.run_test(tree, t, timeout=600)
+            check(f"{t} is GREEN inside the shadow, as at head",
+                  st == "PASS", f"{st} in {dt}s: {tail[:120]}")
+        # The wrapper is what cleanup takes: deleting only the harness copy
+        # would strand the siblings for sweep_scratch to find an hour later.
+        check("shadow_root names the disposable wrapper, one level up",
+              mutate.shadow_root(tree) == os.path.dirname(tree) and
+              os.path.basename(mutate.shadow_root(tree)).startswith("mutant-"),
+              mutate.shadow_root(tree))
+    finally:
+        shutil.rmtree(mutate.shadow_root(tree), ignore_errors=True)
+
+
 def test_the_bounds_are_declared_and_reachable():
     """3d. THE BOUND IS A PER-SUITE TABLE, AND IT MAY ONLY RAISE.
 
@@ -508,14 +565,24 @@ def test_the_bounds_are_declared_and_reachable():
     # AND THE TABLE MUST GO STALE LOUDLY. `suite_sweep` measures the tree; if
     # a suite outgrows its ceiling the mutation sweep silently drops it again,
     # which is the whole of M-30. This does not RE-TIME the tree — that costs
-    # an hour — it pins that the four suites measured over the default are
-    # exactly the four that carry an entry, so a fifth outgrowing it is a
+    # an hour — it pins that the suites measured over the default are
+    # exactly the ones that carry an entry, so another outgrowing it is a
     # visible edit here rather than a silent exclusion there.
+    #
+    # AND THE TRIPWIRE FIRED (M-178): `test_plan` and `test_revise` joined
+    # 2026-08-30, each measured 767s of CPU — run #1165's shard had reported
+    # both UNRUNNABLE at 420s, every isolated re-run timing out too, so the
+    # planner's and the loop's own regression suites were out of the sweep.
+    # `test_revise` was the 309s example the 600 default was sized against;
+    # it grew 2.5x under §40-45 and nothing re-asked the measurement until
+    # the shard died over it.
     MEASURED_OVER_DEFAULT = {"test_verbs", "test_discriminate",
-                             "test_capacity", "test_loop"}
+                             "test_capacity", "test_loop",
+                             "test_plan", "test_revise"}
     listed = {os.path.basename(k)[:-3] for k in mutate.SUITE_TIMEOUT}
     check("the listed suites are exactly the ones measured above the default "
-          "on 2026-08-22 — a fifth is an edit here, not a silent drop there",
+          "(four on 2026-08-22, two more on 2026-08-30) — another is an edit "
+          "here, not a silent drop there",
           listed == MEASURED_OVER_DEFAULT, str(listed ^ MEASURED_OVER_DEFAULT))
 
 
@@ -571,7 +638,7 @@ class SingleInstance:
         return False
 
 
-def run_suite(mode, only, jobs, mutation_jobs, confirm_all, timeout=420):
+def run_suite(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
     base = mutate._scratch_base()
     mutate.sweep_scratch(base)
     muts = [m for m in mutate.MUTATIONS if not only or m.name in set(only)]
@@ -639,7 +706,7 @@ def run_suite(mode, only, jobs, mutation_jobs, confirm_all, timeout=420):
     return results, bl, survivors, problems, changed, stale_now, elapsed
 
 
-def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=420):
+def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=None):
     (results, bl, survivors, problems, changed, stale_now,
      elapsed) = run_suite(mode, only, jobs, mutation_jobs, confirm_all,
                           timeout)
@@ -863,7 +930,7 @@ if __name__ == "__main__":
     ap.add_argument("--jobs", type=int, default=max(1, (os.cpu_count() or 2)))
     ap.add_argument("--mutation-jobs", type=int, default=2)
     ap.add_argument("--confirm-all", action="store_true")
-    ap.add_argument("--timeout", type=int, default=420,
+    ap.add_argument("--timeout", type=int, default=None,
                     help="seconds one test file may take. A timeout is a "
                          "REFUSAL here, not a catch, so a tight limit on a "
                          "loaded machine buys INDETERMINATE results rather "
@@ -899,10 +966,17 @@ if __name__ == "__main__":
     test_the_reported_cause_is_the_suites_own()
     test_the_bounds_are_declared_and_reachable()
     test_the_shards_partition_the_list()
+    test_the_shadow_reaches_what_the_suites_read()
     if a.static:
+        # 3f built a snapshot this exit path would otherwise strand on a
+        # shared disk (the sweep path's own cleanup sits after section 4).
+        if mutate._SNAPSHOT.get("path"):
+            shutil.rmtree(mutate._SNAPSHOT["path"], ignore_errors=True)
+            mutate._SNAPSHOT.pop("path", None)
         # THE TRIPWIRE WAS WELDED TO THE SWEEP, WHICH IS WHY NOBODY RAN IT.
         # Sections 1-3 read the mutation list and seven source files and cost
-        # ~0.3 s; section 4 forks the whole test suite once per mutation and
+        # ~0.3 s (3f adds a measured 0.2 s shadow build and two sub-second
+        # suites); section 4 forks the whole test suite once per mutation and
         # cost 4,984 s for nineteen mutations on 2026-08-13. Until 2026-08-14
         # there was no way to ask for the first without paying for the second,
         # so the assertion that would have caught QS3's drift the day it

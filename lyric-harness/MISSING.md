@@ -17083,3 +17083,120 @@ gate existed, so the next write starts there. And the BUDGET question
 M-174 named is still open and untouched: a k=2 overhang group still
 needs a b-line that can afford the longer word. The register pin:
 `audit_register.coverage_entries` ~~232~~ -> 233 (2026-08-30).
+
+### M-176 · The mutation shadow was a copy of the harness alone, so three suites were red at every baseline for reaching what the real tree really has `CLOSED` 2026-08-30 — found driving scheduled run #1165's red mutation shard to its causes
+**THREE BASELINE REDS, ONE DEFECT, AND NONE OF THEM WAS ABOUT A
+SUITE.** Run #1165's shard 3/4 printed `quality/test_verbs.py` ERROR
+(`FileNotFoundError` at `open(ci, ...)`), `quality/test_render_form.py`
+FAIL (2 FAILING: the hook script exists; `.claude/settings.json`
+registers it on Stop) and `quality/test_verify_entries.py` FAIL (the
+live prose sweep finds no stale path). All three are GREEN at head —
+measured this sitting, exit 0 each — and all three FAIL inside a tree
+built by `mutate.build_shadow`, reproduced through that module's own
+API: the shadow mirrored `lyric-harness/` alone, and the three suites
+legitimately read the REPO — `test_verbs.py` §24 opens
+`../.github/workflows/ci.yml` to hold CI's suite accounting,
+`test_render_form.py` §6 reads `../.claude/settings.json` and the hook
+beside it (its jurisdiction), and `verify_entries.py`'s prose sweep
+resolves `mcp/lyric_tools.js`, `mcp/test.mjs` and
+`.claude/settings.json` citations against the repo root.
+**THE COST WAS COVERAGE WEARING A FAILURE'S COSTUME** (the ci.yml
+nltk note's own species, one layer over): a baseline red excludes its
+suite from EVERY mutation — it fails either way, so it distinguishes
+nothing — which means the widest detector in the tree (`test_verbs`,
+40+ sections) and the two register gates were out of the sweep on
+every night since each suite first reached past the harness dir, with
+the sweep's SURVIVED verdicts silently thinner for it, and the
+baseline paying `confirm_failure` re-runs nightly for reds that were
+facts about the copy.
+**THE REPAIR IS THE INSTRUMENT'S, NOT THE SUITES'.**
+`mutate.SIBLING_RULES` mirrors the three repo-root siblings beside the
+harness copy — `.github` and `mcp` as trees (`node_modules` joins
+`SKIP_NAMES`: a dependency tree is not the repo), `.claude` as
+top-level files only, because locally it carries a multi-gigabyte
+`worktrees/` working area that is not part of the repository —
+`build_shadow` returns the harness dir INSIDE that wrapper so every
+harness-relative consumer is untouched, and `shadow_root` names what
+cleanup takes. MEASURED after: all five reached paths resolve, the
+hook keeps its executable bit, and both sub-second suites PASS inside
+the shadow. `test_mutation.py` §3f drives the real `build_shadow`
+(0.2s, 24 MB measured) and pins all of it in the `--static` half CI
+runs on every push.
+
+### M-177 · M-148 moved the door and the nightly's separation pins were never re-adopted — the band arm's gate was run and the null arm's was not `CLOSED` 2026-08-30 — found reproducing scheduled run #1165's red nightly step
+**THE NIGHTLY WENT RED AT ITS OWN STEP WHILE EVERY PUSH-GATED JOB WAS
+GREEN, AND THE MECHANISM IS THE TWO ARMS' TWO CADENCES.** Run #1165's
+step 14 (`chance_rate.py --null --check`) exits 3: four figures MOVED
+— `all.r_obs` 0.6905 -> 0.6946, `all.median` 0.7102 -> 0.7127,
+`all.max` 0.7257 -> 0.7271, `mandated.median` 0.7917 -> 0.7887 —
+reproduced locally to the fourth decimal, which is the arm's own
+design (fixed seed, fixed corpus: *"drift here means the CORPUS or the
+COMPARATOR moved"*). The comparator moved: M-148's `relations._seq`
+cluster repair, 2026-08-28. That sitting ran the CHEAP gate
+(`--check`, the band arm), caught `schema` 897..932 -> 960..994, and
+repinned it in the same commit — and never ran the 15-minute `--null`
+arm, whose pins were adopted under the pre-repair comparator and
+stayed there. `git diff` attributes it cleanly: between that repin
+and head the scoring path is byte-identical (`quality/relations.py`
+gained only M-174/M-175's plan-time predicates; `lyric_harness.py`
+only M-167's replay memo), so the drift PREDATES the merge that the
+red run happened to grade.
+**BOTH VERDICTS HELD, WHICH IS WHY THIS IS A REPIN AND NOT A
+FINDING ABOUT THE DOOR**: `all` still does not separate (p 0.8571 at
+20 draws), `mandated` still separates (+17.56 pp over the median,
++12.50 pp over the MAX — `mandated.r_obs` and `mandated.max` held
+exactly). `ADOPTED_SEPARATION` is repinned with the strike; the
+ruling records that quote 69.05%/71.02%/p 0.9048 (M-140's table,
+M-145's reasons in `quality/door_census.py` and `quality/recover.py`)
+are the measurements those rulings rested on and are left as quoted.
+**THE LESSON IS THE CADENCE SEAM**: one comparator, two pins, two
+gates on two schedules — the push gate proved the half it could reach
+and the nightly half went red at its next firing, two days later,
+under a merge that did not cause it. A comparator repair's sitting
+owes a run of EVERY arm that reads the comparator, the slow ones
+included; `quality/pin_sweep.py` exists to enumerate exactly this and
+was not run.
+
+### M-178 · One bound, two spellings — the sweep ran at a default its own module had outgrown, and the two suites that outgrew EVERY bound were out of the sweep entirely `CLOSED` 2026-08-30 — found pricing run #1165's dead shard, 7,974s of it baseline
+**THE DEFAULT MOVED AND ITS SECOND SPELLING DID NOT** (doctrine 1).
+`mutate.DEFAULT_TIMEOUT` went 420 -> 600 on 2026-08-22's measurement
+(M-30), and `test_mutation.py`'s `--timeout` argparse default stayed
+420 — so every CI shard since has run at the bound M-30's own sitting
+measured as outgrown, and run #1165's shard printed "timed out after
+420s" from a tree whose one declared default read 600. The argparse
+default is `None` now and defers to `bound_for`, so the constant is
+the one definition again.
+**AND TWO SUITES HAD OUTGROWN BOTH SPELLINGS.** `test_plan` and
+`test_revise` were UNRUNNABLE in the shard — the initial run and every
+isolated `confirm_failure` re-run timed out, so the planner's and the
+loop's own regression suites guarded nothing, and the baseline paid
+for the discovery nightly: 420s + 3 x 420s of GATE-exclusive stall per
+suite, ~56 minutes of the shard's 7,974s baseline. MEASURED this
+sitting: both run 767s of CPU (`time`, user, 4-vCPU box) — 
+`test_revise` was the 309s suite the 600 default was sized against and
+grew 2.5x under §40-45; `test_plan` grew the same way under §14-17.
+Both join `SUITE_TIMEOUT` at 1600s, the table's own ~2x rule;
+`test_mutation.py` §3d's membership tripwire is edited in the same
+commit, which is that check working as designed.
+**AND THE BASELINE IS A MEMO NOW, NOT A NIGHTLY TAX.** Phase 1
+re-proves the unmutated tree green in the shadow environment — 66% of
+the dead shard's budget — and `baseline()` has always written a
+fingerprint-keyed cache that CI threw away with the runner. The
+mutation job restores/banks `baseline.json` with the same
+`actions/cache` split the nightly's predictability memo uses (saved
+`if: always()`, so a shard that dies in phase 2 still banks phase 1);
+the fingerprint check inside `baseline()` means a restored memo can
+only SKIP work, never change an answer. One stated limit: the
+fingerprint covers the `.py` tree, not the M-176 siblings, so a
+sibling-only edit rides a cached baseline until any `.py` moves — a
+baseline red gates nothing, and the cost of a false green there is one
+night of a thinner detector set, not a wrong verdict.
+**BUDGET ARITHMETIC, STATED SO THE NEXT KILL HAS A NUMBER TO MOVE
+FROM**: the dead shard spent 7,974s on baseline and resolved 10 of 14
+mutations in what remained (~400s each). With the M-176 reds gone,
+the two UNRUNNABLE stalls gone, and the memo warm on an unchanged
+tree, a shard's expected cost is phase 2 alone (~5,600s at 14 x
+400s); cold after a merge it adds one honest baseline. N stays 4 and
+the 200m bound stays where it is — the levers the shard's own error
+message names are untouched until a post-repair shard prints a wall
+clock that says otherwise.

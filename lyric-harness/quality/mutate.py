@@ -201,7 +201,35 @@ SYMLINK_DIRS = (os.path.join("data", "labels"),
 #: Files at or below this are copied; above it they are symlinked. The 16 files
 #: over the line are dictionaries and label tables, none of them written.
 COPY_MAX_BYTES = 2 * 1024 * 1024
-SKIP_NAMES = {"__pycache__", ".git", ".pytest_cache", ".mypy_cache"}
+SKIP_NAMES = {"__pycache__", ".git", ".pytest_cache", ".mypy_cache",
+              # a dependency tree is not the repo: mcp/ carries its own
+              # node_modules (27 MB of installed packages no suite reads)
+              "node_modules"}
+
+#: THE SHADOW HAS THE REPO'S SHAPE, NOT THE HARNESS'S ALONE (`MISSING.md`
+#: M-176). Three suites were red at every mutation baseline for reaching what
+#: the real tree really has one directory up: `test_verbs.py` §24 opens
+#: `../.github/workflows/ci.yml`, `test_render_form.py` §6 reads
+#: `../.claude/settings.json` and the hook script beside it, and
+#: `verify_entries.py`'s live prose sweep resolves `mcp/lyric_tools.js`
+#: against the repo root. A baseline red excludes its suite from EVERY
+#: mutation -- it fails either way, so it distinguishes nothing -- which
+#: means the reach quietly cost the sweep three detectors a night, and the
+#: baseline paid isolated re-run confirmations for reds that were facts
+#: about THIS module's copy and not about any suite.
+#:
+#: Each sibling carries its own rule because each has a different hazard:
+#: "tree" mirrors the directory (mcp/ holds its own node_modules --
+#: SKIP_NAMES drops it); "files" copies top-level files only, because
+#: `.claude/` locally carries a multi-gigabyte worktrees/ working area that
+#: is not part of the repository, and no suite reads below its top level.
+#: A sibling absent from the working tree is skipped, never invented.
+SIBLING_RULES = ((".github", "tree"), ("mcp", "tree"), (".claude", "files"))
+
+#: The harness copy's directory name inside a shadow -- derived from the real
+#: tree, so relative reaches like `../.github` resolve at the same depth in
+#: the shadow as they do on disk.
+HARNESS_DIRNAME = os.path.basename(ROOT)
 
 #: `quality/test_mutation.py` drives THIS module, so running it as a child
 #: would recurse. It is excluded here and it also refuses to run when it sees
@@ -1437,10 +1465,29 @@ def snapshot(base):
     is thirty different codebases, and a mutation that looks caught would be
     somebody else's edit landing between two builds. The snapshot is taken
     once, before the baseline, and is what the baseline is a baseline OF.
+
+    The copy has the REPO's shape: the harness sits in a subdirectory named
+    as on disk, with the SIBLING_RULES directories beside it, so a suite that
+    reaches `../.github` or resolves a prose citation against the repo root
+    reads in the shadow exactly what it reads at head (M-176).
     """
     if "path" not in _SNAPSHOT:
         dst = tempfile.mkdtemp(prefix="snapshot-", dir=base)
-        _mirror(ROOT, dst, [])
+        _mirror(ROOT, os.path.join(dst, HARNESS_DIRNAME), [])
+        repo = os.path.dirname(ROOT)
+        for name, rule in SIBLING_RULES:
+            s = os.path.join(repo, name)
+            if not os.path.isdir(s):
+                continue
+            d = os.path.join(dst, name)
+            if rule == "tree":
+                _mirror(s, d, [])
+            else:  # "files": the directory's own files, nothing below
+                os.makedirs(d, exist_ok=True)
+                for f in sorted(os.listdir(s)):
+                    p = os.path.join(s, f)
+                    if os.path.isfile(p):
+                        shutil.copy2(p, d)
         _SNAPSHOT["path"] = dst
     return _SNAPSHOT["path"]
 
@@ -1456,7 +1503,17 @@ def build_shadow(base):
     dst = tempfile.mkdtemp(prefix="mutant-", dir=base)
     shutil.rmtree(dst)
     shutil.copytree(src, dst, symlinks=True)
-    return dst
+    return os.path.join(dst, HARNESS_DIRNAME)
+
+
+def shadow_root(tree):
+    """The disposable wrapper a shadow harness lives in -- what rmtree takes.
+
+    `build_shadow` returns the HARNESS copy, because every consumer joins
+    harness-relative paths onto it; deleting only that would leave the
+    wrapper and its sibling directories behind for `sweep_scratch` to find
+    an hour later."""
+    return os.path.dirname(tree)
 
 
 def sweep_scratch(base, older_than=3600):
@@ -1567,13 +1624,32 @@ SUITE_TIMEOUT = {
     os.path.join("quality", "test_discriminate.py"): 1800,  # measured   892s
     os.path.join("quality", "test_capacity.py"): 1000,      # measured   455s
     os.path.join("quality", "test_loop.py"): 900,           # measured   428s
+    # BOTH MEASURED 2026-08-30 (`MISSING.md` M-178), and both were
+    # UNRUNNABLE at 420s in run #1165's shard — every isolated re-run
+    # timed out too, so the two suites that hold the planner's and the
+    # loop's regressions were out of the sweep entirely. `test_revise`
+    # was 309s when the 600 default was sized; it is 767s of CPU now
+    # (§40-45 landed since), and `test_plan` grew the same way (§14-17,
+    # the round-trip and joint-gate sweeps). The measurement is `time
+    # python3 <suite>` user-time on a 4-vCPU box; the 2x factor is the
+    # table's own standing rule.
+    os.path.join("quality", "test_plan.py"): 1600,          # measured   767s
+    os.path.join("quality", "test_revise.py"): 1600,        # measured   767s
 }
 
 #: The global ceiling for everything else. RAISED 420 -> 600 on the same
-#: measurement: the slowest suite NOT in the table above is `test_revise.py`
-#: at 309s, so 420 left it 36% of headroom on a loaded machine and 600 leaves
-#: it 94%. Nothing in the tree measures between 309s and 428s, so this number
-#: sits in a real gap rather than beside a cliff.
+#: measurement: the slowest suite NOT in the table above ~~is `test_revise.py`
+#: at 309s~~ WAS `test_revise.py` at 309s -- that suite has since grown 2.5x
+#: and moved INTO the table (M-178), which is the table's mechanism working:
+#: a suite that outgrows the default gets a measured entry, and the default
+#: stays tight so a genuinely hung two-second suite is heard about quickly.
+#:
+#: AND THE DEFAULT HAD TWO SPELLINGS (doctrine 1, M-178): this constant
+#: moved 420 -> 600 on 2026-08-22 and `test_mutation.py`'s own `--timeout`
+#: argparse default stayed 420, so every CI shard ran at the bound this
+#: comment says was outgrown -- run #1165's shard reported both UNRUNNABLE
+#: suites as "timed out after 420s" while this file read 600. The argparse
+#: default is None now and defers here; this constant is the one definition.
 DEFAULT_TIMEOUT = 600
 
 
@@ -1765,7 +1841,7 @@ def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
                 if st != "PASS":
                     print(f"  BASELINE-RED  {t}  ({st})  {tail[:120]}")
     finally:
-        shutil.rmtree(tree, ignore_errors=True)
+        shutil.rmtree(shadow_root(tree), ignore_errors=True)
     if cache_path:
         json.dump({"fingerprint": fp, "results": results},
                   open(cache_path, "w"), indent=1)
@@ -1962,7 +2038,7 @@ def run_mutation(mut, green, jobs, mode, base, confirm_all=False,
             "seconds": round(sum(timings.values()), 1),
         }
     finally:
-        shutil.rmtree(tree, ignore_errors=True)   # never leave a mutant on disk
+        shutil.rmtree(shadow_root(tree), ignore_errors=True)   # never leave a mutant on disk
 
 
 # ---------------------------------------------------------------------------
