@@ -17200,3 +17200,65 @@ tree, a shard's expected cost is phase 2 alone (~5,600s at 14 x
 the 200m bound stays where it is — the levers the shard's own error
 message names are untouched until a post-repair shard prints a wall
 clock that says otherwise.
+
+### M-179 · QF2 survived the sweep the night the sweep first ran whole — the radif licence's fraction condition had a constant-check and no draft `CLOSED` 2026-08-30 — found by the repaired shard's own FAIL line, run #1171
+**THE FIRST FULL SHARD THE BUDGET FIX BOUGHT IS THE SHARD THAT FOUND
+THE HOLE.** Run #1171's mutation job finished its slice inside the
+bound for the first time (8,796s against the 200-minute budget that
+killed its predecessor) and reported **13/14 caught, 1 SURVIVED: QF2**
+— `quality/floor.py`'s radif licence loses `len(ps) / npairs >= need`
+and keeps the bare count of two, and 80 checks stayed green, this
+suite's own QF2 block included, because that block asserts the
+CONSTANT is declared and definitional and never runs a draft through
+the licence. A mutant that ignores a constant walks through a check
+that only reads the constant's declaration — the instrument's report
+names the direction: GENEROUS, the mutant only ever REMOVES findings,
+so clean-stays-clean suites cannot see it (doctrine 94).
+**THE DETECTOR IS THE DOCSTRING'S OWN DRAFT.** `_relation_findings`
+records the case the fraction was written for — *"in a 31-pair verse,
+two pairs that happen to end in `it` cleared a bare count of two"* —
+and no fixture anywhere put a repetend closing SOME pairs of MANY
+through the floor. `test_floor.py` §4b does: one run on 'it' closing
+2 of 5 pairs (40%, under the declared 50%) must earn NO
+`RADIF_LICENSED` and must leave `REPEAT_IN_VERSE` speaking, and the
+SAME four lines alone (2/2 = 100%) must be licensed — one run, two
+denominators, opposite verdicts, so the check isolates the FRACTION
+and the control passes on both trees. **PROVEN BOTH WAYS BEFORE
+SHIPPING**: head exit 0; the mutation applied by hand reds exactly
+the three refusal checks and no control; and the sweep's own
+machinery re-run bounded to this suite (`mutate.py --only QF2 --tests
+quality/test_floor.py`) reports CAUGHT.
+**WHAT IS NOT MOVED**: the 0.50 value (M-90's family — its measured
+94.7% false-positive disclosure stands and nothing here retunes it),
+the licence's severity ladder, and the ALLOWLIST, which stays at M4
+alone — the report's own remedy line says adding a name there is a
+decision to ship undetectable, and this was a missing assertion, not
+an equivalent mutant.
+
+### M-180 · The mutation job lacked PyYAML, and M-176's fix is what surfaced it — `test_verbs` §43 makes the parser's absence a failing check by design `CLOSED` 2026-08-30 — found in the same shard report, one line above the survivor
+**A BASELINE RED WITH A NEW CAUSE THE DAY THE OLD CAUSE CLOSED.** Run
+#1171's baseline excluded `quality/test_verbs.py` again — but not for
+M-176's reach: the suite now runs deep into the shadow (the §42
+cynghanedd checks PASS in the exclusion detail's own tail) and dies at
+§43, which parses `.github/workflows/*.yml` with a real parser and
+deliberately makes the parser's ABSENCE a failing check ("CANNOT RUN
+is never PASS", its own comment — the check that once went green on a
+machine that happened to carry PyYAML is the reason it refuses to
+skip). The `verbs` job installs PyYAML for exactly this section; the
+mutation job's install line stopped at `numpy scikit-learn nltk`, and
+the gap was unreachable for as long as test_verbs died at §24 first —
+M-176's repair let the suite run far enough to hit it. Locally
+invisible for the same reason as every environment defect: this box
+carries PyYAML 6.0.1, so the 81/81 local baseline was measured in an
+environment one package richer than CI's.
+**THE FIX IS ONE WORD IN THE INSTALL LINE**, under the job's own
+standing argument — *"this job forks the whole suite, so it needs the
+suite's environment exactly"* — and the nltk note beside it is the
+same species one package over: an environment defect wearing the
+costume of a coverage hole, pricing the sweep's widest detector out
+of every night it stood. The register pin, for this entry and M-179
+together: `audit_register.coverage_entries` ~~236~~ -> 237 (M-179) ->
+238 (this entry), 2026-08-30 — and the sitting's own first push OMITTED
+this ladder line, which `verify_entries.py`'s doctrine-17 sweep caught
+within five minutes: a superseded 236 visible in no scanned document is
+exactly the vanished-value case that check exists to refuse.

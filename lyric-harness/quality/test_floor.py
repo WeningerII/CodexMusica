@@ -124,6 +124,66 @@ def test_radif_is_not_a_repeat():
           f"call={a!r} answer={b!r} radif_len={radif}")
 
 
+def test_the_licence_needs_the_fraction_not_the_bare_count():
+    print("\n4b. a run of two in an item of five is NOT a radif — the "
+          "FRACTION is the licence's second condition (QF2's detector, "
+          "`MISSING.md` M-179)")
+    # THE MUTATION SWEPT AND NOTHING WENT RED (run #1171, 2026-08-30): QF2
+    # drops `len(ps) / npairs >= need` from the licence and keeps the bare
+    # count of two, and 80 checks — this file's own QF2 block included (the
+    # `radif_min_pair_fraction is declared and non-trivial` checks far below,
+    # which assert the CONSTANT exists and never run a draft through it) —
+    # stayed green. The mutant is GENEROUS: it only ever REMOVES findings, so
+    # a suite of clean-stays-clean and licensed-stays-licensed cases cannot
+    # see it (doctrine 94). What can is the exact draft `_relation_findings`'
+    # own docstring was written about: a repetend closing SOME pairs of MANY.
+    #
+    # ONE RUN, TWO DENOMINATORS, OPPOSITE VERDICTS — the fraction isolated as
+    # the only moving part. Pairs A and B both close on 'it' (2 pairs); with
+    # three more pairs beside them 2/5 = 40% sits UNDER the declared 50% and
+    # the licence must refuse; the SAME four lines alone are 2/2 = 100% and
+    # it must grant. Under QF2 the first case is licensed too, which reds
+    # both halves of the refusal below while the control holds on either
+    # tree — a check that cannot fail is the defect, so the kill was proven
+    # by applying the mutation by hand before this shipped.
+    verse = [
+        "She said she could not risk it",
+        "He turned away and tried to fix it",
+        "The letter came and she would hide it",
+        "He read the name and dropped beside it",
+        "The morning broke across the grey bay",
+        "She walked the long and quiet way",
+        "His boots were heavy on the floor",
+        "He counted out the coins for more",
+        "A candle burned against the light",
+        "The city hummed into the night",
+    ]
+    check("a run closing 2 of 5 pairs earns NO licence — the count cleared "
+          "and the fraction did not",
+          find(verse, "RADIF_LICENSED", "AABBCCDDEE") is None,
+          "40% against the declared 50%")
+    f = find(verse, "REPEAT_IN_VERSE", "AABBCCDDEE")
+    check("...and REPEAT_IN_VERSE still speaks about those pairs — the "
+          "licence did not swallow real self-rhyme",
+          f is not None and "under the declared" in f.evidence
+          and f.severity == "note",
+          f.evidence[:120] if f else "no REPEAT_IN_VERSE finding")
+    check("...naming the run's own lines",
+          f is not None and 1 in f.locations and 3 in f.locations,
+          f.locations if f else "")
+    # THE CONTROL, which must pass on BOTH trees: the identical four 'it'
+    # lines with nothing beside them are 2/2 = 100%, so the licence GRANTS —
+    # proving the refusal above tests the DENOMINATOR and not the licence's
+    # existence.
+    lic = find(verse[:4], "RADIF_LICENSED", "AABB")
+    check("CONTROL: the same run at 2 of 2 pairs IS licensed — same words, "
+          "different denominator, opposite verdict",
+          lic is not None and "100%" in lic.evidence,
+          lic.evidence[:90] if lic else "no RADIF_LICENSED finding")
+    check("CONTROL: ...and REPEAT_IN_VERSE is silent there",
+          find(verse[:4], "REPEAT_IN_VERSE", "AABB") is None)
+
+
 def test_shared_suffix_needs_a_real_stem():
     print("\n5. the ending must be the WHOLE of the rhyme — every worked pair "
           "DECLARED, none chosen by eye")
@@ -1121,6 +1181,7 @@ if __name__ == "__main__":
                test_never_returns_a_score, test_too_short_is_silent,
                test_repeat_in_verse, test_single_pair_repeat_is_undecidable,
                test_radif_is_not_a_repeat,
+               test_the_licence_needs_the_fraction_not_the_bare_count,
                test_shared_suffix_needs_a_real_stem, test_cliche_pair,
                test_cliche_pair_may_only_reject_where_it_was_measured,
                test_anaphora, test_anaphora_is_a_note_about_a_figure,
