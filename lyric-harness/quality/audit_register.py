@@ -2338,7 +2338,19 @@ PINNED = {
     # conjunction gate does not read span requirements against slot
     # budgets and that is the named next gate), pin told in the entry's
     # own sitting.
-    "coverage_entries": 231,
+    # ~~231~~ -> 232, same day: M-174 (the owner asked whether we had
+    # actually succeeded and we had not — the banked song re-grades at
+    # exit 3. M-173's stated cause is STRUCK with it: an overhang schema
+    # (`unmatched` require_a/require_b) is DIRECTED and orders its whole
+    # group, so at three members the middle one must both overhang and
+    # not overhang and C(k-1,2) pairs fail at ANY line length — not a
+    # slot-budget fact at all. Measured on the grader (grow/growing/
+    # glowing: exactly the (2,3) violation) and over seeds 1-60: 36
+    # impossible groups across 23 of 60 seeds, 122 unsatisfiable pairs,
+    # -> 0 after, 0 seeds lost, semirhyme narrowed to pairs and not
+    # deleted. M-124(a) had modelled the same coordinate SYMMETRICALLY,
+    # which is what hid it), pin told in the entry's own sitting.
+    "coverage_entries": 232,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

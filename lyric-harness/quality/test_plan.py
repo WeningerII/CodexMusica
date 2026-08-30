@@ -57,6 +57,8 @@ import lyric_harness as LH  # noqa: E402
 from quality import capacity as CAP  # noqa: E402
 from quality import meter_bands as MB  # noqa: E402
 from quality import slots as SL  # noqa: E402
+from quality import relations as RL  # noqa: E402
+from quality import schemes as SC  # noqa: E402
 
 #: HOW MANY SEEDS §7's population is. Declared rather than typed at each
 #: call, because the blind-draw mutation below has to sweep the SAME set as
@@ -2588,6 +2590,86 @@ def test_the_grade_it_line_runs():
               and "TWO STEPS" not in r2.stdout, f"rc {r2.returncode}")
 
 
+def test_the_overhang_group():
+    """17. M-174 — a schema that demands an overhang ORDERS its group, so on
+    three members it contradicts itself at every line length."""
+    print("\n17. M-174 — an overhang schema on 3+ members contradicts "
+          "itself, and the draw may not reach one")
+    SEMI = RL.REGISTRY["semirhyme"]
+    check("the registry's own coordinate is what says so — semirhyme "
+          "demands member 2 overhang, and it is the ONE drawable schema "
+          "that demands an overhang at all",
+          RL.overhang_member(SEMI) == 2
+          and [n for n in RL.DRAWABLE_SCHEMAS
+               if RL.overhang_member(RL.REGISTRY[n]) is not None]
+          == ["semirhyme"])
+    check("a PAIR is satisfiable and 3+ members are not, by the count the "
+          "gate and the draw both read — C(k-1, 2), so 0 / 1 / 3 / 6 at "
+          "k = 2 / 3 / 4 / 5",
+          [RL.unsatisfiable_pairs(SEMI, k) for k in (2, 3, 4, 5)]
+          == [0, 1, 3, 6]
+          and RL.group_satisfiable(SEMI, 2)
+          and not RL.group_satisfiable(SEMI, 3),
+          [RL.unsatisfiable_pairs(SEMI, k) for k in (2, 3, 4, 5)])
+    check("a schema with NO overhang demand is unbounded — the count is "
+          "about `unmatched` and not about group size, so consonance over "
+          "nine members is 0 (the control that stops this reading as a "
+          "cap on every group)",
+          RL.unsatisfiable_pairs(RL.REGISTRY["consonance"], 9) == 0
+          and RL.group_satisfiable(RL.REGISTRY["consonance"], 9))
+    #: THE POPULATION FIRST, so this section cannot pass by examining
+    #: nothing (the vacuity defect this suite's own §4 exists for): the
+    #: draw must still REACH semirhyme, or "no impossible group" would be
+    #: true of a planner that had simply deleted the schema.
+    seen, bad, sizes = 0, [], {}
+    for seed in range(1, 41):
+        pl = PLN.make_plan(seed)
+        rel = pl.get("relations") or {}
+        groups = [g for g in str(pl.get("groups") or "").split(";")
+                  if g.strip()]
+        for gi, g in enumerate(groups):
+            nm = rel.get(SC.label((gi,)), "")
+            if not nm.startswith("schema:"):
+                continue
+            s = RL.REGISTRY.get(nm.split(":", 1)[1])
+            if s is None or RL.overhang_member(s) is None:
+                continue
+            seen += 1
+            k = len([m for m in g.split(",") if m.strip()])
+            sizes[k] = sizes.get(k, 0) + 1
+            if k >= 3:
+                bad.append((seed, SC.label((gi,)), k))
+    check("the draw still REACHES the schema — it is narrowed to pairs, "
+          "not deleted from the vocabulary (doctrine 24: a rule that "
+          "would remove a category relabels instead)",
+          seen > 0, f"{seen} overhang group(s) over seeds 1-40")
+    check("...and every one of them is a PAIR: no seed draws a group its "
+          "own declared schema contradicts",
+          not bad and set(sizes) == {2},
+          f"sizes {dict(sorted(sizes.items()))}, impossible {bad[:4]}")
+    #: AND THE GATE IS TWO-SIDED — a PLANTED impossible group must fire it,
+    #: or "0 findings" is a check that cannot fail.
+    pl = PLN.make_plan(3)
+    check("a clean plan earns no joint finding at all", not PLN.joint_findings(pl))
+    gs = [g for g in str(pl["groups"]).split(";") if g.strip()]
+    idx = next(i for i, g in enumerate(gs)
+               if len([m for m in g.split(",") if m.strip()]) >= 3)
+    mut = dict(pl)
+    mut["relations"] = dict(pl.get("relations") or {})
+    mut["relations"][SC.label((idx,))] = "schema:semirhyme"
+    fired = [f for f in PLN.joint_findings(mut)
+             if f[0] == "GROUP_CONTRADICTS_ITSELF"]
+    check("the MUTATION fires the gate, on the group's own first line, "
+          "naming the members and how many pairs are impossible — a "
+          "hand-written plan is refused on the same terms as a drawn one",
+          len(fired) == 1 and "semirhyme" in fired[0][2]
+          and "pairs fail at any line length" in fired[0][2],
+          fired[0][2][:90] if fired else "did not fire")
+    check("`GROUP_CONTRADICTS_ITSELF` is a declared JOINT code, so "
+          "`make_plan` refuses on it like every other cause",
+          "GROUP_CONTRADICTS_ITSELF" in PLN.JOINT_CODES)
+
+
 if __name__ == "__main__":
     for fn in (test_the_planner_plans_the_whole_line,
                test_determinism, test_refusals, test_the_round_trip,
@@ -2598,7 +2680,7 @@ if __name__ == "__main__":
                test_the_song_length_is_the_songs_own,
                test_the_end_rhyme_pass_is_additive,
                test_the_relation_draw, test_the_bound_share,
-               test_the_grade_it_line_runs):
+               test_the_grade_it_line_runs, test_the_overhang_group):
         fn()
     print("=" * 62)
     if FAILURES:

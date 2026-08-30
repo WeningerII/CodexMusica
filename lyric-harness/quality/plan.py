@@ -999,7 +999,7 @@ WORDS_LEFT_FREE = 1
 
 JOINT_CODES = ("SPAN_BELOW_DENSITY_FLOOR", "TOKEN_INDEX_UNREACHABLE",
                "WORDS_EXCEED_SPAN", "TWO_GROUPS_ONE_WORD",
-               "HOOK_IN_NONRECURRING_SECTION")
+               "HOOK_IN_NONRECURRING_SECTION", "GROUP_CONTRADICTS_ITSELF")
 
 
 def line_syllable_ceiling(slots):
@@ -1433,6 +1433,43 @@ def joint_findings(plan):
                 f"RETURN, so this asks the writer for something no choice of "
                 f"words can supply. Declare no hook instead (doctrine 20: "
                 f"the plan says WHY in `hook_slot_refused`)."))
+
+    # THE SIXTH CAUSE, and it is the only one that is not about a LINE at all
+    # — it is a group contradicting ITSELF (2026-08-30, `MISSING.md` M-174).
+    # A schema demanding an overhang (`unmatched` require_a/require_b —
+    # semirhyme is the drawable one) imposes an ORDER on its members: every
+    # pair wants its later member to overhang and its earlier member not to.
+    # On three members or more the middle one is asked for both at once, and
+    # it is one word, so C(k-1, 2) of the pairs fail whatever anybody writes.
+    # Reported on the group's FIRST line because a group is not a line and
+    # the finding has to hang somewhere a reader can find it; the detail
+    # names every member, since the impossibility is a fact about the set.
+    _rel = plan.get("relations") or {}
+    _groups = [g for g in str(plan.get("groups") or "").split(";") if g.strip()]
+    for _gi, _g in enumerate(_groups):
+        _name = _rel.get(SC.label((_gi,)), "")
+        if not _name.startswith("schema:"):
+            continue
+        _s = _RL.REGISTRY.get(_name.split(":", 1)[1])
+        if _s is None:
+            continue
+        _mem = [m.strip() for m in _g.split(",") if m.strip()]
+        _n_bad = _RL.unsatisfiable_pairs(_s, len(_mem))
+        if not _n_bad:
+            continue
+        _ln0 = min(int(str(m).split(".", 1)[0]) for m in _mem)
+        out.append((
+            "GROUP_CONTRADICTS_ITSELF", _ln0,
+            f"group {SC.label((_gi,))} declares {_name!r} over {len(_mem)} "
+            f"members ({', '.join(_mem)}), and that schema requires member "
+            f"{_RL.overhang_member(_s)} of every pair to overhang the other. "
+            f"Ordered by line, each middle member must overhang the one "
+            f"before it and not overhang the one after — one word, two "
+            f"opposite demands — so {_n_bad} of the "
+            f"{len(_mem) * (len(_mem) - 1) // 2} pairs fail at any line "
+            f"length and no vocabulary closes them. The schema is exactly "
+            f"the figure it is named for on a PAIR; it is the group SIZE "
+            f"that is impossible."))
     return out
 
 
@@ -2763,6 +2800,19 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             for _cand in _RL.DRAWABLE_SCHEMAS:
                 if _slotted_g and not _RL.pair_bindable(
                         _RL.REGISTRY[_cand]):
+                    continue
+                # M-174: AND A SCHEME DEMANDING AN OVERHANG ORDERS THE WHOLE
+                # GROUP, so on three members or more it contradicts itself —
+                # the middle member must overhang the one before it and not
+                # overhang the one after, and it is one word. That is true at
+                # every line length, so no writer closes it and no seed should
+                # carry it. Same shape as the filter above and the same one
+                # definition (`relations.group_satisfiable`, which the joint
+                # gate below also calls), so a group this refuses is
+                # unsampleable BY CONSTRUCTION. The schema stays drawable on
+                # PAIRS, where it is exactly the figure it is named for.
+                if not _RL.group_satisfiable(
+                        _RL.REGISTRY[_cand], len(_lines)):
                     continue
                 _t = _traits[_cand]
                 if _t["gap"] is not None and any(
