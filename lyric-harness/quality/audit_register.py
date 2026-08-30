@@ -2330,7 +2330,15 @@ PINNED = {
     # for anyway; the audit's route into the stuck regime is refuted by
     # the 77-schema rescue, and its published profiling command does not
     # run), pin told in the entry's own sitting.
-    "coverage_entries": 230,
+    # ~~230~~ -> 231, next day: M-173 (the sufficiency measurement —
+    # this session wrote against seed 88291 through the verbs: 53 of 57
+    # judged schema pairs satisfied, every ban note cleared, exit 3 at
+    # EXACTLY group F's four semirhyme pairs, which are unsatisfiable by
+    # the registry's own require_b against the lines' slot budgets; the
+    # conjunction gate does not read span requirements against slot
+    # budgets and that is the named next gate), pin told in the entry's
+    # own sitting.
+    "coverage_entries": 231,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

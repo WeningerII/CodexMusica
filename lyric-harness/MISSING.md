@@ -16832,3 +16832,62 @@ emitted zero, so byte-identical stdout (md5 `1539ad6f15ef3b96`) is an
 observation on these drafts and not a proof; the blueprint fold
 (M-170 §5 item 2) is still unrun. The register pin:
 `audit_register.coverage_entries` ~~229~~ -> 230 (2026-08-29).
+
+### M-173 · The sufficiency measurement M-171 asked for: a maximally-equipped writer against seed 88291 reaches exit 3 at EXACTLY the mandate's own impossible group `CLOSED` 2026-08-30 — the owner's order "write the draft yourself", executed through the verbs
+**THE PROTOCOL.** The writer was this session, with everything no chat
+writer has: the registry's own schema definitions open, the committed
+probe instrument (`brief` on two-line fixtures at the real slots), the
+`candidates --modal` verb for the ban's own heads, and unlimited local
+resumes. Every measurement went through committed verbs (standing rule
+3); the draft is `songs/oar_lair.txt`; nineteen `finish` runs and ~30
+probes drove it from 5 flags + ~6 pursued notes to the terminal state:
+**`[FINISHED — seed 88291 — exit 3 — NO_PROGRESS — UNRESOLVED: L7,
+L12]` — 61 mandated pairs, 57 judged, 53 satisfied across 24 declared
+schemas, every ban note cleared, and the ONLY standing flags are group
+F's four semirhyme pairs.**
+**GROUP F IS UNSATISFIABLE BY THE REGISTRY'S OWN ARITHMETIC, and the
+grader's verdicts confirm the proof pair by pair.** `semirhyme`
+declares `unmatched="require_b"`: the later member must carry a
+syllable tail past the anchor — probed: a coda extension is NOT a tail
+(glow~goad/growth/ode all False), and the witness's only exhibit is
+grow~growing. So F's pairs (5,7), (5,12), (7,12), (9,12) need L7.T1 or
+L12.end disyllabic — and L7 binds T1,T3,T4,end and L12 binds
+T1,T2,T4,end on FIVE-slot lines, so both need five distinct
+monosyllables and can never hold one. The two pairs whose b-member
+COULD be tailed — (5,9) and (7,9), via L9's free line carrying
+"Going" — are exactly the two the grader passes. The writer is
+exonerated; the mandate is convicted; M-171's WORDS_LEFT_FREE was
+NECESSARY (without it line 6 of the old plan had zero free words) and
+is now measured INSUFFICIENT: the conjunction gate still does not read
+a schema's `unmatched` requirement against the b-line's slot budget,
+and that is the next gate to point at the planner's draw.
+**WHAT SATISFYING 53 SCHEMA PAIRS ACTUALLY TOOK, banked for the
+writer-wall ladder (M-166/M-168).** (a) Names lie: `head rhyme
+(positional)` is a line-head RHYME (nucleus+coda), not alliteration —
+every onset-matched candidate failed until the registry was read.
+(b) `light rhyme`'s prominence channel is BINARY, so no English word
+light-rhymes with a stressed monosyllable except a WEAK-list word —
+the satisfying pair is that~plait, reachable only by rewriting BOTH
+lines, which tier 1 structurally cannot do (each half-step is
+rejected as "nothing was fixed"). (c) The two-tier ban composes with
+the drawn families into a frequent-word exclusion principle: a word
+in the family's top ranks can NEVER pair clean (the check runs both
+directions), so lamp, light, shore, door, bay, prayer, bear, deep,
+leap, claim, flame all had to leave the draft — the mandate is
+satisfiable only in the vocabulary's mid-to-rare band (dune~hewn,
+oar~yore, seep~leap, keel~peal, lair~tear). (d) The brief's OFFERED
+fields disagreed with the verdicts repeatedly (wait/make/got offered
+for a pair the judge refuses; a 24-word joint field mixing three
+calls' families) — M-139's species live at the defer surface; the
+probe instrument, not the field, is what converged. (e) The loop
+asked about 4 of 15 flagged lines and stopped at NO_PROGRESS with 11
+never asked (run 2 of this sitting) — file-level revision outside the
+loop did the rest, an option no chat writer has.
+**THE SONG STANDS AS ITS EXIT STATE** (M-150): exit 3, two lines open,
+both held by the plan's own impossible group. It is the first draft in
+this repository written against a full median-density drawn mandate,
+and the measurement it banks is the one M-171 could not claim: the
+fixed planner's plans are writable EXCEPT where a schema's span
+requirement exceeds a line's slot budget — a defect with a name, a
+location, and one gate to grow. The register pin:
+`audit_register.coverage_entries` ~~230~~ -> 231 (2026-08-30).
