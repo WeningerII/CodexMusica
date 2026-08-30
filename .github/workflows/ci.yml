@@ -2110,9 +2110,28 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/fetch_data.py
 
+      # THE BASELINE IS A MEMO, NOT A NIGHTLY TAX (`MISSING.md` M-178).
+      # Phase 1 re-proves the UNMUTATED tree green inside the shadow — run
+      # #1165's shard spent 7,974s on it, 66% of the budget — and the file
+      # it writes is keyed on a sha256 fingerprint over every .py the shadow
+      # copies, validated by `baseline()` itself before it is trusted. So a
+      # restored memo can only SKIP work, never change an answer: a night
+      # where the tree did not move reuses it whole, and the first night
+      # after a merge fails the fingerprint and recomputes. Same
+      # restore/save split as the nightly's predictability memo, and saved
+      # under `if: always()` for the same reason — a shard that dies in
+      # phase 2 still banks the baseline phase 1 finished.
+      - name: Restore the baseline memo
+        uses: actions/cache/restore@v4
+        with:
+          path: /tmp/mutate-scratch/baseline.json
+          key: lyric-harness-mutation-baseline-v1-${{ github.sha }}
+          restore-keys: lyric-harness-mutation-baseline-v1-
+
       - name: One shard of the mutation sweep (adversary 4, rotating by date)
         working-directory: lyric-harness
         env:
+          MUTATE_SCRATCH: /tmp/mutate-scratch
           OMP_NUM_THREADS: '1'
           MKL_NUM_THREADS: '1'
           OPENBLAS_NUM_THREADS: '1'
@@ -2164,15 +2183,24 @@ jobs:
           case $rc in
             0) echo "SHARD $I/$N HOLDS — every mutation in this slice is caught." ;;
             124) echo "THE SHARD OUTGREW ITS BUDGET at 200m, and that is a"
-                 echo "FAILURE and not a slice: unlike the song-profile memo"
-                 echo "there is nothing banked, so a truncated sweep answers"
-                 echo "nothing (doctrine 20). Two levers, both in this file:"
-                 echo "raise N above $N so each night asks fewer mutations, or"
-                 echo "raise the 200m bound and the job cap together. Measure"
-                 echo "first — the wall clock this file prints is the number."
+                 echo "FAILURE and not a slice: the mutation verdicts are not"
+                 echo "banked, so a truncated sweep answers nothing about them"
+                 echo "(doctrine 20; the baseline memo below IS banked, so the"
+                 echo "next night starts at phase 2). Two levers, both in this"
+                 echo "file: raise N above $N so each night asks fewer"
+                 echo "mutations, or raise the 200m bound and the job cap"
+                 echo "together. Measure first — the wall clock this file"
+                 echo "prints is the number."
                  exit 1 ;;
             *) exit $rc ;;
           esac
+
+      - name: Bank the baseline memo — whatever this shard's verdict was
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: /tmp/mutate-scratch/baseline.json
+          key: lyric-harness-mutation-baseline-v1-${{ github.sha }}
 
   # ── Nightly: the checks the measurement above prices out of a pull request ─
   #
@@ -2396,10 +2424,13 @@ jobs:
       # DOES THE 77-SCHEMA DOOR FIND ANYTHING? (`MISSING.md` M-140.) The two
       # populations give OPPOSITE answers and neither may be read as the
       # other: over ALL 91 line pairs the observation sits BELOW its own
-      # matched redeal (69.05% against a null median of 71.02%, p 0.90), so
-      # the "the door answers on three line pairs in four" headline is at
-      # chance; over the 7 pairs the POET DECLARED it is 96.43% against a null
-      # whose best of twenty draws is 83.93% -- clear of the MAXIMUM.
+      # matched redeal (69.46% against a null median of 71.27%, p 0.86 —
+      # repinned 2026-08-30 with M-148's comparator, `MISSING.md` M-177; the
+      # M-140 sitting measured 69.05% against 71.02%), so the "the door
+      # answers on three line pairs in four" headline is at chance; over the
+      # 7 pairs the POET DECLARED it is 96.43% against a null whose best of
+      # twenty draws is 83.93% -- clear of the MAXIMUM, both ends unmoved by
+      # the repin.
       #
       # The VERDICTS are pinned as well as the numbers, because a tree where
       # both arms moved to the same side would hold every figure and mean

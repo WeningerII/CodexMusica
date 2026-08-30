@@ -323,9 +323,27 @@ NULL_LINES = 14
 #: M-138's figures were recorded from an uncommitted script and did not
 #: reproduce. Recording these and gating them with nothing would be the same
 #: sitting's own lesson unlearned.
+#:
+#: REPINNED 2026-08-30 from ~~all 0.6905/0.7102/0.7257, mandated median
+#: 0.7917~~ (doctrine 17; `MISSING.md` M-177). The mover is M-148 — the same
+#: `relations._seq` cluster repair that repinned this file's `schema` chance
+#: band 897..932 -> 960..994 on 2026-08-28 — and the miss is that THAT
+#: sitting ran `--check` (the band arm, the cheap job's gate) and never
+#: `--null --check` (this arm, the nightly's), so the separation pins stayed
+#: at the pre-repair comparator's figures and the nightly went red at its
+#: own step while every push-gated job was green. The door answers MORE
+#: sonnet pairs after the repair, in both the observation and the redeal
+#: null, which is the chance-band story again at the separation arm: the
+#: rate rose with the door's correctness. BOTH VERDICTS HELD — `all` still
+#: does not separate (p 0.8571 at 20 draws), `mandated` still separates
+#: (+17.56 pp over the median, +12.50 pp over the MAX, both unmoved because
+#: `mandated.r_obs` and `mandated.max` held exactly). The ruling records
+#: that quote 69.05%/71.02%/p 0.9048 (M-140's table, M-145's reasons in
+#: `door_census.py` and `recover.py`) are the measurements those rulings
+#: rested on and are left as quoted.
 ADOPTED_SEPARATION = {
-    "all": {"r_obs": 0.6905, "median": 0.7102, "max": 0.7257},
-    "mandated": {"r_obs": 0.9643, "median": 0.7917, "max": 0.8393},
+    "all": {"r_obs": 0.6946, "median": 0.7127, "max": 0.7271},
+    "mandated": {"r_obs": 0.9643, "median": 0.7887, "max": 0.8393},
 }
 
 #: How far a re-derivation may sit from the pin before it is DRIFT. The figures
