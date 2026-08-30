@@ -275,12 +275,18 @@ def test_the_wired_draw():
           and pl["relations"]["F"] == "schema:pararhyme"
           and pl["relations"]["J"] == "schema:perfect rhyme",
           {k: pl["relations"].get(k) for k in ("A", "D", "F", "J")})
+    #: REPINNED A SIXTH TIME 2026-08-30 (`MISSING.md` M-174), and this move
+    #: is the NARROWEST of the six, which is itself the reading: the
+    #: overhang filter refuses a self-contradicting group its RELATION, not
+    #: its existence, so seed 31's cover is BYTE-IDENTICAL at 359 groups and
+    #: only the label count moves, 19 -> 20. The three named draws (A bare,
+    #: D consonance, F pararhyme, J perfect rhyme) all held through it.
     check("...and seed 31 still draws the SONG band's own floor, its "
           "cover sized by it — a pin that says WHICH layer moved, "
           "where three relation names alone could not",
           pl["total_lines"] == min(P.song_line_counts())
           and pl["total_lines"] == 22 and len(pl["groups"]) == 359
-          and len(pl["relations"]) == 19,
+          and len(pl["relations"]) == 20,
           f"lines {pl['total_lines']} (floor "
           f"{min(P.song_line_counts())}), {len(pl['groups'])} groups, "
           f"{len(pl['relations'])} labels")

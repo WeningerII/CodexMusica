@@ -57,6 +57,8 @@ import lyric_harness as LH  # noqa: E402
 from quality import capacity as CAP  # noqa: E402
 from quality import meter_bands as MB  # noqa: E402
 from quality import slots as SL  # noqa: E402
+from quality import relations as RL  # noqa: E402
+from quality import schemes as SC  # noqa: E402
 
 #: HOW MANY SEEDS §7's population is. Declared rather than typed at each
 #: call, because the blind-draw mutation below has to sweep the SAME set as
@@ -772,9 +774,30 @@ def test_the_measure():
     # `pair_bindable` is a pure predicate over a schema row and `REGISTRY`
     # is the declared schema table — neither builds a stream, realises, or
     # reaches the phonology.
+    # `overhang_member`, `unsatisfiable_pairs` and `group_satisfiable`
+    # joined 2026-08-30 with M-174's gate, and they are admissible on the
+    # identical argument `pair_bindable` was: each is a PURE predicate over
+    # a schema row's own declared `unmatched` coordinate — a dict lookup and
+    # one binomial — so none builds a stream, realises anything, opens a
+    # file, or reaches the phonology. They are named by BOTH the relation
+    # draw and `joint_findings`, which is the point of them being one
+    # definition rather than two (doctrine 1).
+    # `identity_forced` joined 2026-08-30 with M-175's gate, on the same
+    # argument again — it reads a schema's own `identity` rules and answers
+    # a bool. THAT IT NEEDED A SECOND COMMIT IS THE ENTRY: M-174 added three
+    # names here and M-175 added a fourth one commit later, and the list was
+    # told about the first three only. The check caught it both times, which
+    # is the whole point of pinning the NAMES rather than the module — but a
+    # session that writes down "a planner change is a tree-wide repin" and
+    # then repeats the omission in the next commit has learned the sentence
+    # and not the habit. The habit is: after touching `plan.py`'s imports,
+    # diff `grep -oE '_RL\.[a-zA-Z_]+' quality/plan.py | sort -u` against
+    # this set BEFORE pushing.
     ALLOWED_FROM_RELATIONS = {"DRAWABLE_SCHEMAS", "drawable_traits",
                               "CHANNEL_DOMAINS", "pair_bindable",
-                              "REGISTRY"}
+                              "REGISTRY", "overhang_member",
+                              "unsatisfiable_pairs", "group_satisfiable",
+                              "identity_forced"}
     # `drawable_traits` joined with M-118's conjunction gate: the
     # gap ceiling and end-channel signature per drawable schema,
     # derived in relations.py from its own rows so the planner
@@ -2588,6 +2611,132 @@ def test_the_grade_it_line_runs():
               and "TWO STEPS" not in r2.stdout, f"rc {r2.returncode}")
 
 
+def test_the_overhang_group():
+    """17. M-174 — a schema that demands an overhang ORDERS its group, so on
+    three members it contradicts itself at every line length."""
+    print("\n17. M-174 — an overhang schema on 3+ members contradicts "
+          "itself, and the draw may not reach one")
+    SEMI = RL.REGISTRY["semirhyme"]
+    check("the registry's own coordinate is what says so — semirhyme "
+          "demands member 2 overhang, and it is the ONE drawable schema "
+          "that demands an overhang at all",
+          RL.overhang_member(SEMI) == 2
+          and [n for n in RL.DRAWABLE_SCHEMAS
+               if RL.overhang_member(RL.REGISTRY[n]) is not None]
+          == ["semirhyme"])
+    check("a PAIR is satisfiable and 3+ members are not, by the count the "
+          "gate and the draw both read — C(k-1, 2), so 0 / 1 / 3 / 6 at "
+          "k = 2 / 3 / 4 / 5",
+          [RL.unsatisfiable_pairs(SEMI, k) for k in (2, 3, 4, 5)]
+          == [0, 1, 3, 6]
+          and RL.group_satisfiable(SEMI, 2)
+          and not RL.group_satisfiable(SEMI, 3),
+          [RL.unsatisfiable_pairs(SEMI, k) for k in (2, 3, 4, 5)])
+    check("a schema with NO overhang demand is unbounded — the count is "
+          "about `unmatched` and not about group size, so consonance over "
+          "nine members is 0 (the control that stops this reading as a "
+          "cap on every group)",
+          RL.unsatisfiable_pairs(RL.REGISTRY["consonance"], 9) == 0
+          and RL.group_satisfiable(RL.REGISTRY["consonance"], 9))
+    #: THE POPULATION FIRST, so this section cannot pass by examining
+    #: nothing (the vacuity defect this suite's own §4 exists for): the
+    #: draw must still REACH semirhyme, or "no impossible group" would be
+    #: true of a planner that had simply deleted the schema.
+    seen, bad, sizes = 0, [], {}
+    for seed in range(1, 41):
+        pl = PLN.make_plan(seed)
+        rel = pl.get("relations") or {}
+        groups = [g for g in str(pl.get("groups") or "").split(";")
+                  if g.strip()]
+        for gi, g in enumerate(groups):
+            nm = rel.get(SC.label((gi,)), "")
+            if not nm.startswith("schema:"):
+                continue
+            s = RL.REGISTRY.get(nm.split(":", 1)[1])
+            if s is None or RL.overhang_member(s) is None:
+                continue
+            seen += 1
+            k = len([m for m in g.split(",") if m.strip()])
+            sizes[k] = sizes.get(k, 0) + 1
+            if k >= 3:
+                bad.append((seed, SC.label((gi,)), k))
+    check("the draw still REACHES the schema — it is narrowed to pairs, "
+          "not deleted from the vocabulary (doctrine 24: a rule that "
+          "would remove a category relabels instead)",
+          seen > 0, f"{seen} overhang group(s) over seeds 1-40")
+    check("...and every one of them is a PAIR: no seed draws a group its "
+          "own declared schema contradicts",
+          not bad and set(sizes) == {2},
+          f"sizes {dict(sorted(sizes.items()))}, impossible {bad[:4]}")
+    #: AND THE GATE IS TWO-SIDED — a PLANTED impossible group must fire it,
+    #: or "0 findings" is a check that cannot fail.
+    pl = PLN.make_plan(3)
+    check("a clean plan earns no joint finding at all", not PLN.joint_findings(pl))
+    gs = [g for g in str(pl["groups"]).split(";") if g.strip()]
+    idx = next(i for i, g in enumerate(gs)
+               if len([m for m in g.split(",") if m.strip()]) >= 3)
+    mut = dict(pl)
+    mut["relations"] = dict(pl.get("relations") or {})
+    mut["relations"][SC.label((idx,))] = "schema:semirhyme"
+    fired = [f for f in PLN.joint_findings(mut)
+             if f[0] == "GROUP_CONTRADICTS_ITSELF"]
+    check("the MUTATION fires the gate, on the group's own first line, "
+          "naming the members and how many pairs are impossible — a "
+          "hand-written plan is refused on the same terms as a drawn one",
+          len(fired) == 1 and "semirhyme" in fired[0][2]
+          and "pairs fail at any line length" in fired[0][2],
+          fired[0][2][:90] if fired else "did not fire")
+    check("`GROUP_CONTRADICTS_ITSELF` is a declared JOINT code, so "
+          "`make_plan` refuses on it like every other cause",
+          "GROUP_CONTRADICTS_ITSELF" in PLN.JOINT_CODES)
+    #: M-175, the same family one layer out: the contradiction is not inside
+    #: the group, it is between the MANDATE and the FLOOR.
+    check("`anaphora` is the one drawable schema whose identity rule "
+          "demands the SAME TOKEN — read off `identity`, never off the "
+          "name, and `consonance` is the control that does not",
+          RL.identity_forced(RL.REGISTRY["anaphora"])
+          and not RL.identity_forced(RL.REGISTRY["consonance"])
+          and [n for n in RL.DRAWABLE_SCHEMAS
+               if RL.identity_forced(RL.REGISTRY[n])] == ["anaphora"])
+    ends = 0
+    for seed in range(1, 41):
+        pl2 = PLN.make_plan(seed)
+        rel2 = pl2.get("relations") or {}
+        for gi, g in enumerate([x for x in str(pl2.get("groups") or "")
+                                .split(";") if x.strip()]):
+            nm = rel2.get(SC.label((gi,)), "")
+            if not nm.startswith("schema:"):
+                continue
+            s2 = RL.REGISTRY.get(nm.split(":", 1)[1])
+            if s2 is None or not RL.identity_forced(s2):
+                continue
+            if sum(1 for m in g.split(",")
+                   if (m.strip().split(".", 1)[1] if "." in m else "end")
+                   in ("end", "endword")) >= 2:
+                ends += 1
+    check("no seed binds a same-token schema at two line ENDS — satisfying "
+          "one means both lines end on the same word, which "
+          "`floor.REPEAT_IN_VERSE` flags on a layer that never reads the "
+          "mandate, so the only legal answer trips another gate",
+          ends == 0, f"{ends} such group(s) over seeds 1-40")
+    gs2 = [g for g in str(pl["groups"]).split(";") if g.strip()]
+    idx2 = next(i for i, g in enumerate(gs2)
+                if sum(1 for m in g.split(",")
+                       if (m.strip().split(".", 1)[1] if "." in m else "end")
+                       in ("end", "endword")) >= 2)
+    mut2 = dict(pl)
+    mut2["relations"] = dict(pl.get("relations") or {})
+    mut2["relations"][SC.label((idx2,))] = "schema:anaphora"
+    fired2 = [f for f in PLN.joint_findings(mut2)
+              if f[0] == "IDENTITY_AT_TWO_LINE_ENDS"]
+    check("...and the MUTATION fires that gate too, naming the line-final "
+          "slots and pointing at `epistrophe / radif`, which is this "
+          "registry's own name for the same word ending two lines",
+          len(fired2) == 1 and "epistrophe" in fired2[0][2]
+          and "IDENTITY_AT_TWO_LINE_ENDS" in PLN.JOINT_CODES,
+          fired2[0][2][:80] if fired2 else "did not fire")
+
+
 if __name__ == "__main__":
     for fn in (test_the_planner_plans_the_whole_line,
                test_determinism, test_refusals, test_the_round_trip,
@@ -2598,7 +2747,7 @@ if __name__ == "__main__":
                test_the_song_length_is_the_songs_own,
                test_the_end_rhyme_pass_is_additive,
                test_the_relation_draw, test_the_bound_share,
-               test_the_grade_it_line_runs):
+               test_the_grade_it_line_runs, test_the_overhang_group):
         fn()
     print("=" * 62)
     if FAILURES:

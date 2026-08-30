@@ -1,0 +1,26 @@
+song	step	measured	harness_commit	verb	exit	fact	value
+oar_lair	1	2026-08-30	cdce6c3	song	3	mandate_groups	27
+oar_lair	1	2026-08-30	cdce6c3	song	3	lines	23
+oar_lair	1	2026-08-30	cdce6c3	song	3	mandated_pairs	61
+oar_lair	1	2026-08-30	cdce6c3	song	3	mandate_source	declared
+oar_lair	1	2026-08-30	cdce6c3	song	3	md5	69c144be9f15
+oar_lair	1	2026-08-30	cdce6c3	song	3	briefed	23
+oar_lair	1	2026-08-30	cdce6c3	song	3	per_line_flag	4
+oar_lair	1	2026-08-30	cdce6c3	song	3	per_line_note	107
+oar_lair	1	2026-08-30	cdce6c3	song	3	whole_draft	8
+oar_lair	1	2026-08-30	cdce6c3	song	3	whole_draft_flag	0
+oar_lair	1	2026-08-30	cdce6c3	song	3	finding:SCHEME_VIOLATION	FLAG x4
+oar_lair	1	2026-08-30	cdce6c3	song	3	finding:COLLISION_CUT_IS_SCALAR_ONLY	NOTE x1
+oar_lair	1	2026-08-30	cdce6c3	song	3	finding:CROWDED	NOTE x23
+oar_lair	1	2026-08-30	cdce6c3	song	3	finding:FUNCTION_UNDECLARED	NOTE x1
+oar_lair	1	2026-08-30	cdce6c3	song	3	finding:HOOK_UNDECLARED	NOTE x1
+oar_lair	1	2026-08-30	cdce6c3	song	3	finding:LATE_ENTRY	NOTE x23
+oar_lair	1	2026-08-30	cdce6c3	song	3	finding:NEAR_COLLISION	NOTE x4
+oar_lair	1	2026-08-30	cdce6c3	song	3	finding:NO_SETTING	NOTE x1
+oar_lair	1	2026-08-30	cdce6c3	song	3	finding:PROMINENCE_CANNOT_ALIGN	NOTE x23
+oar_lair	1	2026-08-30	cdce6c3	song	3	finding:PROMINENCE_EXCEEDS_HEADS	NOTE x23
+oar_lair	1	2026-08-30	cdce6c3	song	3	finding:RETURN_NEVER_RETURNS	NOTE x1
+oar_lair	1	2026-08-30	cdce6c3	song	3	finding:SCHEME_COLLISION	NOTE x2
+oar_lair	1	2026-08-30	cdce6c3	song	3	finding:SCHEME_UNREADABLE	NOTE x8
+oar_lair	1	2026-08-30	cdce6c3	song	3	finding:SINGLE_INSTANCE	NOTE x3
+oar_lair	1	2026-08-30	cdce6c3	song	3	finding:STACKED_LINE	NOTE x1

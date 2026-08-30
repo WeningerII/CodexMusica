@@ -16874,16 +16874,31 @@ declares `unmatched="require_b"`: the later member must carry a
 syllable tail past the anchor — probed: a coda extension is NOT a tail
 (glow~goad/growth/ode all False), and the witness's only exhibit is
 grow~growing. So F's pairs (5,7), (5,12), (7,12), (9,12) need L7.T1 or
-L12.end disyllabic — and L7 binds T1,T3,T4,end and L12 binds
+L12.end disyllabic — ~~and L7 binds T1,T3,T4,end and L12 binds
 T1,T2,T4,end on FIVE-slot lines, so both need five distinct
-monosyllables and can never hold one. The two pairs whose b-member
+monosyllables and can never hold one.~~ The two pairs whose b-member
 COULD be tailed — (5,9) and (7,9), via L9's free line carrying
 "Going" — are exactly the two the grader passes. The writer is
 exonerated; the mandate is convicted; M-171's WORDS_LEFT_FREE was
 NECESSARY (without it line 6 of the old plan had zero free words) and
-is now measured INSUFFICIENT: the conjunction gate still does not read
-a schema's `unmatched` requirement against the b-line's slot budget,
-and that is the next gate to point at the planner's draw.
+is now measured INSUFFICIENT: ~~the conjunction gate still does not
+read a schema's `unmatched` requirement against the b-line's slot
+budget, and that is the next gate to point at the planner's draw.~~
+**BOTH STRIKES ARE 2026-08-30's, AND THE VERDICT SURVIVES WHILE THE
+STATED CAUSE DOES NOT (`MISSING.md` M-174, doctrine 17).** Group F is
+unsatisfiable, the four flags are the mandate's fault and not the
+writer's, and every count above re-derives — but NOT because the
+five-slot lines are too full to hold a disyllable. That reading makes
+the impossibility a fact about LINE LENGTH, so it predicts that a
+longer line would rescue the group, and it would not: an overhang
+demand ORDERS the whole group, every pair wanting its later member to
+overhang and its earlier member not to, so on FOUR members the middle
+ones are asked for both at once and C(3,2) = 3 pairs fail at any line
+length in any language. The named next gate was therefore aimed one
+coordinate to the side — a b-line SLOT BUDGET check would have passed
+group F's (5,9) and (7,9) and still shipped the other four. The
+budget question is real and stays open, named at the end of M-174;
+what closed the group is the ordering.
 **WHAT SATISFYING 53 SCHEMA PAIRS ACTUALLY TOOK, banked for the
 writer-wall ladder (M-166/M-168).** (a) Names lie: `head rhyme
 (positional)` is a line-head RHYME (nucleus+coda), not alliteration —
@@ -16914,3 +16929,157 @@ fixed planner's plans are writable EXCEPT where a schema's span
 requirement exceeds a line's slot budget — a defect with a name, a
 location, and one gate to grow. The register pin:
 `audit_register.coverage_entries` ~~230~~ -> 231 (2026-08-30).
+
+### M-174 · A schema that demands an overhang ORDERS its whole group, so on three members it contradicts itself at every line length — 38.3% of seeds drew one `CLOSED` 2026-08-30 — the gate M-173 named, built after its own stated cause was measured wrong
+**THE OWNER ASKED WHETHER WE HAD ACTUALLY SUCCEEDED, AND WE HAD NOT.**
+The banked song re-grades at **exit 3** with six `SCHEME_VIOLATION`
+lines, so the governing order — a clean exit 0 song — is not met, and
+M-173 had presented the terminal state as a finding rather than as a
+failure to deliver. This entry is what the honest answer turned up.
+**THE FIRST THING IT TURNED UP IS THAT M-173's OWN CAUSE WAS WRONG**
+(struck there, doctrine 17). That entry read group F's four standing
+flags as a LINE BUDGET problem — five-slot lines with no room for the
+disyllable `require_b` wants — which is a fact about length and
+predicts that a longer line rescues the group. It does not.
+**`unmatched="require_b"` IS DIRECTED AND IT ORDERS THE WHOLE GROUP.**
+Every pair wants its LATER member to overhang and its EARLIER member
+not to. Order the members m1 < m2 < ... < mk: pair (m1, m2) demands m2
+overhang, pair (m2, m3) demands m2 NOT overhang, and m2 is one word.
+So at k >= 3 the group contradicts itself, the best any writer can
+reach is to overhang every member but the first — satisfying the k-1
+pairs that contain m1 and failing every pair among the rest — and
+**C(k-1, 2) pairs fail at any line length, in any vocabulary.**
+**MEASURED ON THE GRADER, NOT ARGUED.** Three lines sharing one anchor
+(`grow`, `growing`, `glowing`) under `brief --relation=schema:
+semirhyme`: (1,2) and (1,3) pass, (2,3) is a `SCHEME_VIOLATION` —
+C(2,2) = 1 exactly. Five two-sided controls on the same instrument fix
+what an overhang IS: `grow ~ growing` passes, `grow ~ growth`
+VIOLATES (a coda consonant is not a syllable of overhang), `glow ~
+goad` VIOLATES (none), `grow ~ grow` VIOLATES (flush), and
+`growing ~ grow` VIOLATES — **the order matters, which is the whole
+argument standing up by itself.** The first sweep run against this was
+VACUOUS and is recorded rather than quietly re-run: it keyed groups by
+a `group_labels` helper that does not exist, matched nothing, and
+printed a clean `0 impossible` that read exactly like a pass. The
+repaired sweep asserts its own population before reporting a rate.
+**THE LIVE RATE, seeds 1-60: 93 semirhyme groups drawn, sizes
+{2: 57, 3: 19, 4: 7, 5: 9, 9: 1} — 36 of them impossible, across
+23 of 60 seeds (38.3%), carrying 122 pairs no writing can satisfy.**
+Seed 88291's group F is one of the 36, a k=4 at 3 unavoidable failures
+(the song scored 4, one short of the best a writer could have reached).
+**AND M-124(a) HAD ALREADY SEEN HALF OF IT, WHICH IS WHY IT SURVIVED.**
+That sitting made `require_a/b` emit `("span_length", "end", "Differ")`
+so the cross-schema closure catches a `forbid` schema conjoined with an
+overhang one. That claim is **SYMMETRIC where the schema is DIRECTED**,
+and symmetry is exactly what hides this: "all members differ pairwise
+in span length" is satisfiable for any k (1, 2, 3, 4 syllables), while
+"each later member overhangs and each earlier does not" is not.
+`span_length` also carries no `CHANNEL_DOMAINS` entry — correctly, a
+word's length is unbounded — so the draw's finite-domain rule, the one
+place a `Differ` claim bounds a group's SIZE, never fired for it. One
+coordinate modelled two ways, and the weaker way was the one wired.
+**THE REPAIR IS ONE PREDICATE READ BY BOTH SITES (doctrine 1).**
+`relations.overhang_member` derives from `unmatched` and never
+respells it; `relations.unsatisfiable_pairs` returns C(k-1, 2);
+`relations.group_satisfiable` is what the planner's relation draw and
+`plan.joint_findings` both call, so a schema the draw refuses to put on
+a group and a group the gate refuses to ship cannot come apart.
+`GROUP_CONTRADICTS_ITSELF` is the sixth `JOINT_CODE` and reports on the
+group's first line, naming every member and the failing count.
+**AFTER, the same sixty seeds: 50 semirhyme groups, ALL of them pairs,
+0 impossible groups, 0 seeds lost, and `joint_findings` empty on every
+one — satisfiable BY CONSTRUCTION, so a MUTATION is the only way to
+fire the gate**, which `test_plan.py` §17 does by planting a 3-member
+semirhyme group into a clean plan and requiring the finding. The
+schema is NARROWED TO PAIRS AND NOT DELETED (doctrine 24): it is drawn
+50 times, and on a pair it is exactly the figure it is named for.
+**WHAT MOVED DOWNSTREAM, and it is the narrowest of seed 31's six
+repins**: the filter changes a group's RELATION, never its existence,
+so that seed's cover is byte-identical at 359 groups and only the label
+count moves, 19 -> 20; its roster, its length and its whole narrative
+draw are unmoved, and A/D/F/J all held.
+**WHAT THIS DOES NOT CLAIM.** The BUDGET question M-173 named is still
+open and is now correctly aimed: a k=2 overhang group still needs a
+b-line that can AFFORD the overhanging word, one more syllable at that
+slot than a flush member needs, and nothing checks that yet — so
+`group_satisfiable` answering True is not a promise that a writer can
+write it (doctrine 20), and its own docstring says so. `apocopated
+rhyme` carries `require_a` and is not in `DRAWABLE_SCHEMAS`, so the
+planner cannot reach it; the predicate covers it anyway, because the
+pool is a coordinate and not a fact. And no song is written against
+this yet: the deliverable is still a clean exit 0 song, this removes
+one proven reason the last attempt could not be one, and whether it
+was the ONLY reason is unmeasured until a draft says so. The register
+pin: `audit_register.coverage_entries` ~~231~~ -> 232 (2026-08-30).
+
+### M-175 · The mandate REQUIRED the repeat and the floor FORBADE it — anaphora drawn onto two line ENDS forces a flag no writing can clear `CLOSED` 2026-08-30 — found by writing a song against a swept seed and reaching one flag
+**THE PIPELINE WAS RUN FROM STEP 0 FOR THE FIRST TIME AND THIS IS WHAT
+IT FOUND.** M-174's close left the deliverable open: no clean exit 0
+song. So the working order was run as written — `plan --sweep` to
+CHOOSE the seed instead of inheriting one (the step every previous
+sitting skipped), then write, then grade.
+**THE SWEEP IS THE HALF THAT WORKED.** Predicates declared:
+`lines<=26;returns>=1;slots_per_line>=7`, over seeds 1-119 — **5
+accepted (4.2%): 46, 67, 69, 72, 104**, unranked and in seed order. The
+marginals are the diagnostic and were measured before the conjunction:
+`pins_per_line<=4` **100%** (M-171's cap makes it true by
+construction), `pins_per_line<=3` **1.7%**, `returns>=1` **32.2%**,
+`lines<=26` **20.3%**, `slots_per_line>=7` **89.8%**. The first
+conjunction tried — with `pins_per_line<=3` — accepted **0 of 119** and
+the verb REFUSED at exit 2 saying unreachable-in-this-range rather than
+rare, which is exactly the answer doctrine 20 asks that refusal for.
+`pins_per_line<=3` was then DROPPED on evidence rather than on taste:
+M-173 wrote 23 four-pin lines successfully, so the constraint that
+looked binding was one this writer had already cleared.
+**SEED 46's SHAPE AGAINST SEED 88291's, which is the sweep earning its
+keep**: 5-8 slots per line against a uniform 5, four lines carrying NO
+binding at all, and both of its 4-pin lines 8 slots wide — four free
+words each, where 88291 gave one.
+**THE DRAFT REACHED 0 SCHEME VIOLATIONS ON 39 OF 39 MANDATED PAIRS
+ACROSS 22 GROUPS AND 21 DISTINCT NAMED SCHEMAS**, which is the first
+time in this repository a full drawn mandate has been satisfied end to
+end. One FLAG stood in the whole draft, and it is not a rhyme:
+`REPEAT_IN_VERSE`.
+**THE CAUSE IS A CONJUNCTION NOTHING CHECKED, AND IT IS M-174's FAMILY
+ONE LAYER OUT — not a group contradicting itself but the MANDATE
+contradicting the FLOOR.** Group E drew `anaphora` over
+`5.endword, 6.headrime, 7.endword`. `anaphora` carries
+`IdentityRule(level='token', predicate=Agree)`: its members are not
+merely alike, they are THE SAME WORD. Two of those three slots are
+line-final, so satisfying the group means L5 and L7 END ON THE SAME
+WORD — and `floor.REPEAT_IN_VERSE` charges identical end words as a
+FLAG, on a layer that by design never reads the mandate. The writer is
+handed a demand whose only legal answer trips a different gate. The
+floor's own radif licence cannot rescue it either: that needs a
+repetend closing `radif_min_pair_fraction` (0.50) of the song's pairs
+and this one closes a single pair.
+**AND THE FIGURE IS NOT THE PROBLEM — THE PLACEMENT IS.** `anaphora`
+is declared `align=flush_left` over `line_initial_token`, so a draw
+that puts it on `endword` is asking for a line-FINAL figure under a
+line-INITIAL name; this registry already has the right name for the
+same word ending two lines, `epistrophe / radif`. `pair_bindable`
+could not see it, because `line_initial_token` IS a token locus and
+the predicate asks only about span SHAPE.
+**THE REPAIR IS M-174's, REUSED: one predicate, both sites.**
+`relations.identity_forced` reads the `identity` rules and never the
+name (`consonance` is the control that answers False), the relation
+draw skips a same-token schema on a group holding two or more
+line-final members, and `IDENTITY_AT_TWO_LINE_ENDS` is the seventh
+`JOINT_CODE` so a hand-written plan is refused on the same terms.
+**MEASURED over seeds 1-60: 3 of the 5 swept seeds (46, 72, 104)
+carried one before — 46 at two line ends, 72 and 104 at three — and
+0 seeds carry one after, with 0 seeds lost and `joint_findings` empty
+on every one.** `test_plan.py` §17 gains four checks including the
+planted-group mutation; `test_narrative`'s seed-31 pins did NOT move,
+which is the narrowest possible blast radius and is asserted rather
+than assumed.
+**WHAT THIS DOES NOT CLAIM.** The song is still not delivered. The
+seed-46 draft is banked in no `songs/` row because it stands at exit 3
+under the OLD mandate, and under the repaired planner seed 46 draws a
+different group E, so that draft is a measurement rather than a
+deliverable — presented as exit 3, which is what it is. Two of the
+five swept seeds (67, 69) were already clean on this axis before the
+gate existed, so the next write starts there. And the BUDGET question
+M-174 named is still open and untouched: a k=2 overhang group still
+needs a b-line that can afford the longer word. The register pin:
+`audit_register.coverage_entries` ~~232~~ -> 233 (2026-08-30).

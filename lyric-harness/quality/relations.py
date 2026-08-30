@@ -6849,6 +6849,81 @@ def pair_bindable(schema):
                for r in (schema.spans[0], schema.spans[-1]))
 
 
+def overhang_member(schema):
+    """-> 1, 2 or None — which member this schema REQUIRES to overhang.
+
+    DERIVED FROM `unmatched` and never respelled (doctrine 1): `require_a`
+    says member 1 must overhang and member 2 must not, `require_b` the
+    mirror, and `exclude`/`forbid` demand no overhang of either — which is
+    `evaluate()`'s own branch, twenty lines of this module above.
+    """
+    return {"require_a": 1, "require_b": 2}.get(schema.unmatched)
+
+
+def unsatisfiable_pairs(schema, members):
+    """-> how many of a `members`-sized group's pairs NO choice of words can
+    satisfy.  0 means the group is answerable and says nothing about how hard.
+
+    **AN OVERHANG DEMAND IS NOT A PROPERTY OF A PAIR, IT IS AN ORDERING ON
+    THE WHOLE GROUP, AND THAT IS WHY A GROUP CAN BE IMPOSSIBLE AT ANY LINE
+    LENGTH** (`MISSING.md` M-174).  `require_b` asks, of every pair, that the
+    LATER member overhang and the EARLIER member not.  Take members
+    m1 < m2 < ... < mk.  Pair (m1, m2) demands m2 overhang; pair (m2, m3)
+    demands m2 NOT overhang.  Both are the same word, so at k >= 3 the group
+    contradicts itself and no vocabulary anywhere closes it.  Exactly the
+    pairs drawn from the members that must overhang are the impossible ones,
+    and there are C(k-1, 2) of them — the best any writer can do is overhang
+    every member but the first, which satisfies the k-1 pairs containing m1
+    and fails every pair among the rest.
+
+    MEASURED, not argued, through `brief --relation=schema:semirhyme` on
+    three lines sharing one anchor (`grow`, `growing`, `glowing`): pairs
+    (1,2) and (1,3) pass and (2,3) is a `SCHEME_VIOLATION`, which is
+    C(2,2) = 1 exactly.  The two-sided controls on the same instrument:
+    `grow ~ growing` passes, `grow ~ growth` VIOLATES (a coda consonant is
+    not a syllable of overhang), `glow ~ goad` VIOLATES (no overhang at
+    all), `grow ~ grow` VIOLATES (flush), and `growing ~ grow` VIOLATES —
+    the order matters, which is the whole ordering argument standing up on
+    its own.
+
+    IT IS A LOWER BOUND AND IS NOT THE ONLY WAY A GROUP CAN BE UNWRITABLE.
+    A satisfiable-by-this-count pair still needs a line that can AFFORD the
+    overhanging word — one more syllable at that slot than a flush member
+    needs — and that is the LINE BUDGET question `quality/plan.py`'s joint
+    gate asks with the placements in front of it.  Answering 0 here is not a
+    promise that a writer can write it (doctrine 20).
+    """
+    k = int(members)
+    if k < 3 or overhang_member(schema) is None:
+        return 0
+    return (k - 1) * (k - 2) // 2
+
+
+def identity_forced(schema):
+    """-> True when this schema REQUIRES its members to be the SAME token.
+
+    Read off the `identity` rules rather than off the name (`MISSING.md`
+    M-175): `anaphora` is the one DRAWABLE schema that carries
+    `IdentityRule(level='token', predicate=Agree)`, and what that means for a
+    writer is that the bound words are not merely alike, they are the same
+    word typed twice.
+    """
+    return any(r.level == "token" and isinstance(r.predicate, Agree)
+               for r in schema.identity)
+
+
+def group_satisfiable(schema, members):
+    """-> True when SOME assignment of words satisfies every pair of a
+    `members`-sized group under this schema.
+
+    THE ONE PREDICATE the planner's relation draw and the plan-time joint
+    gate both call, so a schema the draw refuses to put on a group and a
+    group the gate refuses to ship cannot come apart (doctrine 1, and the
+    shape `pair_bindable` already has one function above).
+    """
+    return unsatisfiable_pairs(schema, members) == 0
+
+
 #: ADOPTED 2026-08-25 from `derive_drawable_schemas()` (owner ruling "now do
 #: the planner too", M-117). Re-derived by `quality/test_plan.py`; a moved
 #: pool is a moved witness or a moved registry, and either fails loud.
@@ -7038,6 +7113,8 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "DEFAULT_CHANNELS", "evaluate", "realise", "assemble",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",
            "line_pairs_for", "pair_satisfies", "pair_bindable",
+           "overhang_member", "unsatisfiable_pairs", "group_satisfiable",
+           "identity_forced",
            "declare_delivery",
            "declare_stub_resolution", "search_stub_resolution",
            "STUB_INCIPIT_LENGTHS", "declare_senses",
