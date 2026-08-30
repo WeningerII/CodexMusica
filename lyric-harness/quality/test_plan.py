@@ -782,10 +782,22 @@ def test_the_measure():
     # file, or reaches the phonology. They are named by BOTH the relation
     # draw and `joint_findings`, which is the point of them being one
     # definition rather than two (doctrine 1).
+    # `identity_forced` joined 2026-08-30 with M-175's gate, on the same
+    # argument again — it reads a schema's own `identity` rules and answers
+    # a bool. THAT IT NEEDED A SECOND COMMIT IS THE ENTRY: M-174 added three
+    # names here and M-175 added a fourth one commit later, and the list was
+    # told about the first three only. The check caught it both times, which
+    # is the whole point of pinning the NAMES rather than the module — but a
+    # session that writes down "a planner change is a tree-wide repin" and
+    # then repeats the omission in the next commit has learned the sentence
+    # and not the habit. The habit is: after touching `plan.py`'s imports,
+    # diff `grep -oE '_RL\.[a-zA-Z_]+' quality/plan.py | sort -u` against
+    # this set BEFORE pushing.
     ALLOWED_FROM_RELATIONS = {"DRAWABLE_SCHEMAS", "drawable_traits",
                               "CHANNEL_DOMAINS", "pair_bindable",
                               "REGISTRY", "overhang_member",
-                              "unsatisfiable_pairs", "group_satisfiable"}
+                              "unsatisfiable_pairs", "group_satisfiable",
+                              "identity_forced"}
     # `drawable_traits` joined with M-118's conjunction gate: the
     # gap ceiling and end-channel signature per drawable schema,
     # derived in relations.py from its own rows so the planner
