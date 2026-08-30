@@ -774,9 +774,18 @@ def test_the_measure():
     # `pair_bindable` is a pure predicate over a schema row and `REGISTRY`
     # is the declared schema table — neither builds a stream, realises, or
     # reaches the phonology.
+    # `overhang_member`, `unsatisfiable_pairs` and `group_satisfiable`
+    # joined 2026-08-30 with M-174's gate, and they are admissible on the
+    # identical argument `pair_bindable` was: each is a PURE predicate over
+    # a schema row's own declared `unmatched` coordinate — a dict lookup and
+    # one binomial — so none builds a stream, realises anything, opens a
+    # file, or reaches the phonology. They are named by BOTH the relation
+    # draw and `joint_findings`, which is the point of them being one
+    # definition rather than two (doctrine 1).
     ALLOWED_FROM_RELATIONS = {"DRAWABLE_SCHEMAS", "drawable_traits",
                               "CHANNEL_DOMAINS", "pair_bindable",
-                              "REGISTRY"}
+                              "REGISTRY", "overhang_member",
+                              "unsatisfiable_pairs", "group_satisfiable"}
     # `drawable_traits` joined with M-118's conjunction gate: the
     # gap ceiling and end-channel signature per drawable schema,
     # derived in relations.py from its own rows so the planner
