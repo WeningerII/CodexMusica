@@ -5,8 +5,29 @@ scored without an explicit declaration (dialect, anchor rule, channel weights,
 band thresholds) — print it with `python3 lyric_harness.py declaration`.
 
 ## Setup
-Python 3.8+, no dependencies. First run downloads CMUdict (~3.5 MB) and a 20k
-frequency list beside the script.
+~~Python 3.8+, no dependencies. First run downloads CMUdict (~3.5 MB) and a 20k
+frequency list beside the script.~~ STRUCK 2026-09-01 (`MISSING.md` M-188):
+three readers of that day's audit were stopped at exit 1 by the dependency
+this sentence said did not exist. There are two rosters, and which verb is on
+which side is MEASURED by `quality/test_verbs.py` §47 with the resources
+hidden, not declared here:
+
+- **26 of the 32 dispatched verbs never reach the slop floor** — `score`,
+  `candidates`, `meter`, `scheme`, `chains`, `graph`, `plan` (and
+  `plan --sweep`), `readability`, `relations`, `fit`, `grid`, `function`,
+  `types`, `capacity` and the rest — and run on the standard library over
+  CMUdict, which the first run downloads (~3.5 MB; the frequency list ships in
+  the repo as `data/opensubtitles_en_50k.tsv`).
+- **The six GRADING verbs — `song`, `brief`, `verify`, `revise`, `screen`,
+  `finish` — reach the floor**, which needs the `nltk` package and two fetched
+  resources, the Brysbaert concreteness norms and the POS-tagger model. Stage
+  them once:
+
+      python3 -m pip install nltk && python3 quality/fetch_data.py
+
+  Without them those six REFUSE at exit 2 — the one refusal shape, naming
+  which of the three is missing and printing that command — and never exit 1.
+  CI runs on Python 3.11 (`.github/workflows/ci.yml`).
 
 ## Commands
     python3 lyric_harness.py demo                          # acceptance suite
