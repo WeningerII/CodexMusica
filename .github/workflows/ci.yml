@@ -1941,7 +1941,18 @@ jobs:
       # file. If the instrument's report changes shape and the parser stops
       # matching, it RAISES rather than reporting an empty set.
       # quality/test_expected_drift.py proves all three.
-      # ── THE FIVE FIXED CHECKS BELOW RUN ON SHARD 1 ONLY ──────────────
+      # ── THE FIVE FIXED CHECKS BELOW RUN ON ONE SHARD ONLY ────────────
+      # MOVED FROM SHARD 1 TO SHARD 2, 2026-09-01. Which shard was arbitrary
+      # while every shard held a slice of the pool; it stopped being
+      # arbitrary the moment shard 1 became `plan` alone. These five are
+      # ~4.0 min of fixed cost and they run AFTER the suite step in the same
+      # job, so they land on whichever shard's wall the whole job is measured
+      # by -- and that shard is now the 451s `plan` lane. Shard 2 is
+      # `capacity`, which the crown split takes to ~235s, so the fixed cost
+      # goes where there is slack: 235 + 240 = 475 against `plan`'s 451,
+      # which is the flattest the four shards get without splitting a check.
+      # The gate is a SHARD NUMBER and nothing reads it but this `if:`, so it
+      # moves again the day the profile does.
       # Added with the shard matrix, 2026-09-01, because sharding a job
       # multiplies every step in it and only ONE step above grows with the
       # thing being sharded. The 75-suite loop is partitioned by the residue
@@ -1974,7 +1985,7 @@ jobs:
       # does not hide these five, and gating on the shard must not quietly
       # take that back.
       - name: Song-profile calibration, against the drift that is RULED (not silenced)
-        if: ${{ always() && matrix.shard == 1 }}
+        if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1993,7 +2004,7 @@ jobs:
       # mutation set (test_meter_bands section 9 drives the comparison
       # logic; --check is this same comparison over the real sweep).
       - name: Meter-band adoption check, the shipped constants re-derived
-        if: ${{ always() && matrix.shard == 1 }}
+        if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -2022,7 +2033,7 @@ jobs:
       # this job's budget -- which is stated here because M-129's whole
       # subject was a shard whose cost nobody had written down.
       - name: Span-search null, the shipped band against the measured crossover
-        if: ${{ always() && matrix.shard == 1 }}
+        if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -2050,7 +2061,7 @@ jobs:
       # COST, MEASURED before it was added: **1.9s**, pure AST, no corpus and
       # no scoring.
       - name: Door census, every pair-satisfaction site against the 77
-        if: ${{ always() && matrix.shard == 1 }}
+        if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
         run: python3 quality/door_census.py --check
 
@@ -2071,7 +2082,7 @@ jobs:
       # pairs, each judged at three doors. It is here rather than in the
       # cheap-suite pool for exactly that reason.
       - name: Chance rate, the shipped door against random pairs
-        if: ${{ always() && matrix.shard == 1 }}
+        if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
         run: python3 quality/chance_rate.py --check
 

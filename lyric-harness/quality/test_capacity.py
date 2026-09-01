@@ -177,24 +177,74 @@ def test_tier1():
                       for ws in fams[fam("taught")].values()))
 
 
+#: THE CROWN'S SIX FAMILIES RUN IN PARALLEL, and the body lives here rather
+#: than inside the section so a worker process can reach it. MEASURED
+#: 2026-09-01: `test_capacity.py` is 678s over seven sections and
+#: `test_the_crown` alone is 628s (92.6%) -- six witnesses, each re-graded
+#: through the real `Reviser`, strictly serial inside one process. That made
+#: this file the SECOND largest item in the whole cheap pool behind
+#: `test_plan.py`, and after the two giants were given a runner each it was
+#: the pool's wall outright. The six are independent by construction: each
+#: reads its own row and returns a string.
+#:
+#: THE SIX ARE UNEVEN AND THAT IS THE CEILING, not the worker count --
+#: measured 156.0 / 105.0 / 104.3 / 92.6 / 90.2 / 78.5s. Packed into four
+#: lanes that is ~183s, a 3.4x cut; a fifth worker would change nothing,
+#: because two of the six have to share a lane whatever the width.
+#:
+#: FORK IS PINNED rather than left to the default. Under `spawn` a worker
+#: re-imports this module, which builds a `Reviser` at import; under `fork`
+#: it inherits the one already built. Both are correct and only one is
+#: predictable, and the default has moved between Python versions, so it is
+#: named here instead of being inherited (doctrine 66).
+#:
+#: DETERMINISM IS UNTOUCHED. Each family is a pure function of its own row,
+#: no worker reads what another writes, and the driver consumes results in
+#: CHECK_SAMPLE order, so `bad` is assembled exactly as the serial loop
+#: assembled it and no verdict depends on which worker finished first.
+def _crown_one(item):
+    """-> `(name, complaint or None)` for one family's witness, re-graded
+    through the real Reviser."""
+    name, certified, witness, chain_lo = item
+    if not certified:
+        return name, f"{name}: missing/uncertified"
+    words = witness.split()
+    if len(words) != chain_lo:
+        return name, f"{name}: witness length != chain_lo"
+    pairs, drift = CAP._grade_group(R, words)
+    if pairs or drift:
+        return name, (f"{name}: {len(pairs)} banned pair(s), "
+                      f"{len(drift)} drift")
+    return name, None
+
+
 def test_the_crown():
     print("\n3. THE CROWN — the committed artifact against the judge")
     rows = CAP.read_table()
     by_fam = {r["family"]: r for r in rows}
-    bad = []
+    items = []
     for name in CAP.CHECK_SAMPLE:
         r = by_fam.get(name)
-        if not r or not r["certified"]:
-            bad.append(f"{name}: missing/uncertified")
-            continue
-        words = r["witness"].split()
-        if len(words) != r["chain_lo"]:
-            bad.append(f"{name}: witness length != chain_lo")
-            continue
-        pairs, drift = CAP._grade_group(R, words)
-        if pairs or drift:
-            bad.append(f"{name}: {len(pairs)} banned pair(s), "
-                       f"{len(drift)} drift")
+        items.append((name, bool(r and r["certified"]),
+                      r["witness"] if r else "", r["chain_lo"] if r else 0))
+    # `CAPACITY_WORKERS=1` runs the six serially, byte-identical to the
+    # pre-parallel section, so the coordinate is a SHAPE one and never a
+    # semantics one.
+    _w = int(os.environ.get("CAPACITY_WORKERS", "0") or 0) or min(
+        4, os.cpu_count() or 1)
+    if _w > 1:
+        import concurrent.futures as _cf                # noqa: PLC0415
+        import multiprocessing as _mp                   # noqa: PLC0415
+        with _cf.ProcessPoolExecutor(
+                max_workers=_w,
+                mp_context=_mp.get_context("fork")) as _ex:
+            _graded = list(_ex.map(_crown_one, items))
+    else:
+        _graded = [_crown_one(_it) for _it in items]
+    # CHECK_SAMPLE order, explicitly. `map` already preserves it; naming it
+    # says the reduction does not depend on completion order.
+    _by_name = dict(_graded)
+    bad = [_by_name[name] for name in CAP.CHECK_SAMPLE if _by_name[name]]
     check(f"every sample witness ({len(CAP.CHECK_SAMPLE)} families, "
           f"including the deepest) re-grades CLEAN through the real "
           f"Reviser — chain_lo is what the judge accepted, by "
