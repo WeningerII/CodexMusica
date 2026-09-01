@@ -1700,6 +1700,15 @@ never one (doctrine 79).
 | adversaries built, of 8 | REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it) | `read BACKLOG.md §0` |
 <!-- /COUNTERS -->
 
+> **The MISSING-entry total read 239 on 2026-09-01**, at 64 OPEN / 34 PARTIAL
+> / 2 BLOCKED / 128 CLOSED / 11 RESOLVED, and was superseded the same day by
+> M-182 — the CI wall-clock finding — which is PARTIAL, so the move is one
+> entry into both the PARTIAL bucket and the total. The counters table is
+> rewritten by `quality/counters.py --write` and a rewrite carries no
+> history, so the superseded reading is kept here by hand (doctrine 17); it
+> is `quality/verify_entries.py` that requires it, by failing the pin when a
+> value leaves the page without being struck.
+
 > **The register-audit row was 9 findings on 2026-08-11** before seven were
 > closed; the two that remain are deliberate.
 
