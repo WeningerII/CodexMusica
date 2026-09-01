@@ -17486,3 +17486,19 @@ reach it. That is the BUILT half, and §3's byte-identical verdict is what
 guards it. Nothing in the suite touches the two open measurements — `verbs`'
 948s/1265s imbalance and `revision-loop`'s 3.2x label discrepancy — and the
 entry stays open on those.
+
+**THE SECOND OPEN ITEM IS HALF ANSWERED, BY OWNER INSTRUCTION, AND THE
+STRIKE STAYS VISIBLE (doctrine 17):** ~~the pair is not changed here,
+because changing it before the 3.2x is explained would hide whichever of
+the two answers is true.~~ *"fix revision-loop too, run them in parallel."*
+The two are now one step running two processes, and the reasoning that held
+it back was wrong in a way worth naming: **parallelism does not consume the
+evidence, it only moves the wall.** `test_revise` and `test_loop` share
+nothing but a checkout, so running them together changes neither suite's
+own cost — and the step now TIMES EACH ONE BY NAME and prints both, which
+is strictly more evidence than the sequential version ever produced. The
+job's wall becomes their max instead of their sum, and the 3.2x question is
+answered by the next run's printed figures rather than by a label nobody
+re-derived. What stays open is only the answer itself: whether 375s was a
+stale label or a real regression, which the run decides and this entry will
+record. `verbs`' 948s/1265s imbalance is untouched and still open.
