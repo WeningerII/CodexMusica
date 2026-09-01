@@ -2,7 +2,13 @@
 // run_parallel.js — run an `&&` chain of npm scripts CONCURRENTLY instead of
 // in a queue, without the chain being written down a second time.
 //
-// @covers: parallel-check-runner
+// NO `@covers:` TAG, DELIBERATELY. That tag is for a GATE that enforces a
+// documented promise, and `check_promises.js` holds it to a bijection: a
+// registry row in `_promises.js`, a `<!-- @promise: id -->` doc marker, and
+// the tag. This file enforces nothing about the product — it RUNS the checks
+// that do, and claiming coverage it does not provide is exactly the shape
+// that bijection exists to refuse. (It refused this file on first push, which
+// is the check working.)
 //
 // WHY: `npm run test` was eleven npm scripts joined by `&&`, one of which
 // (`test:connector`) was twelve more `node` processes joined the same way —
