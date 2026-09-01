@@ -17360,3 +17360,118 @@ Retuning `line_binding_ceiling` instead would move the mean and NOT
 restore the tail, because the tail is a length fact. Left OPEN rather than
 guessed: doctrine 58, and the owner's standing rule that a threshold with
 no calibration behind it is the error.
+
+### M-182 · The CI wall clock is bounded by GRANULARITY, not by parallelism — and the first two readings of that were both wrong `PARTIAL` 2026-09-01 — found by an owner asking for a strong effort at cutting the wait, and by that owner refusing the first answer as artificially conservative
+**THE COMPLAINT, verbatim:** *"we gotta start thinking about ways to
+optimize here cut the amount of time this takes ... I don't mean like a 1%
+reduction in time, I really need a strong effort into this."* And on the
+first proposal: *"that feels artificially conservative ... I genuinely do
+not understand why we wouldn't increase the number of shards."*
+
+**THE MEASUREMENT, run #1175, the last fully green PR run — 33.6 min.**
+`gate` runs 1.0 min, then seven jobs run in parallel and the run ends when
+the slowest finishes. Never summed (doctrine 79 — these are seven parallel
+wall clocks, and their total is a runner-minutes bill, not a duration):
+
+| job | wall |
+|---|---:|
+| **suites** | **27.4 min** ← the critical path |
+| verbs (2) | 21.3 |
+| revision-loop | 20.5 |
+| verify | 20.0 |
+| verbs (1) | 15.8 |
+| record | 5.2 |
+| freshness | 4.4 |
+
+Inside `suites`, ONE step — the 75 cheap suites — is 23.4 min.
+
+**THE FIRST READING WAS WRONG AND THE STRIKE STAYS VISIBLE (doctrine 17):**
+~~75 suites run in a queue on one runner, so shard them across runners.~~
+That step is ALREADY four-wide, and its own comment says why — *"The runner
+has 4 vCPUs."* So 23.4 min of wall is **5,612 CPU-s packed into 4 lanes**,
+not 75 things waiting. Sharding multiplies LANES; it un-serialises nothing.
+
+**WHAT ACTUALLY BOUNDS IT IS THE LONGEST SINGLE PROCESS.** `test_plan.py`
+is **838s** — 15% of the CPU and the longest item — and a shard cannot
+split one process. So `wall = max(longest suite, CPU / (4 lanes ×
+runners))`:
+
+| runners | packing | floor | wall |
+|---:|---:|---:|---:|
+| 1 | 1403s | 838s | **1403s** ← the state measured |
+| 2 | 702s | 838s | 838s |
+| 4 | 351s | 838s | **838s** ← stalls at test_plan |
+| 4 | 351s | ~300s | **351s** ← only with §3 split |
+
+**THE SECOND READING WAS ALSO WRONG, IN THE OTHER DIRECTION, AND THE OWNER
+IS WHO CAUGHT IT.** ~~Two shards is the honest cap, because more runners
+cannot beat the 838s floor.~~ True and beside the point: it treats the
+floor as fixed. The floor is a LINE OF PYTHON, and the two changes are
+MULTIPLICATIVE — sharding alone stops at 838s, splitting `test_plan` alone
+changes nothing (packing dominates at one runner), and neither pays for
+itself. Four shards is chosen so the win lands the moment the floor drops.
+
+**WHERE THE FLOOR IS, measured per section: `test_plan.py` is 838s over 16
+sections and §3 THE ROUND TRIP alone is 649s (77.4%)**, §10 another 80s
+(9.5%), every other section under 40s. §3 is `for seed in range(20)` —
+twenty independent plans each planned and graded, ~32s apiece, strictly
+serial inside one process where the outer packer cannot see them. **That is
+the shape of the whole problem: the hot loops are serial one level below
+where the job structure can reach.**
+
+**THE SPLIT IS MEASURED AND IT DID NOT DELIVER THE PREDICTED 4x.** A/B on
+one tree, one env var (`TEST_PLAN_WORKERS`), so nothing but the worker
+count differs:
+
+| | wall | user | §3 verdict |
+|---|---:|---:|---|
+| serial (`=1`) | **831.3s** | 830.2s | judged 811, slot-refused 1397 |
+| 4 workers | **450.9s** | 1132.3s | judged 811, slot-refused 1397 |
+
+**THE VERDICT IS BYTE-IDENTICAL AND THAT IS THE LOAD-BEARING HALF** — 187
+PASS / 0 FAIL either way, and §3's own three counts reproduce exactly, so
+the seeds were independent in fact and not merely by inspection (doctrine
+66: a result that does not reproduce is not a result). A speedup that moved
+a verdict would be a broken test, not a faster one.
+
+**THE SHORTFALL IS REAL AND IS NOT ROUNDING.** The suite went **1.84x**
+where the model said the SUITE should reach ~2.8x (838 -> ~300). The §3
+figure behind that is DERIVED and is labelled so rather than quoted as a
+timing: the per-section run puts non-§3 at 189s, so §3 lands at ~262s
+against 649s — about **2.4x** where 4 workers predicted 4x. Two causes,
+both visible in the table above: 20 seeds over 4 workers is FIVE ROUNDS of
+unequal-cost items, so the last round costs whatever its slowest member
+costs; and `user` exceeds the serial CPU by **36.4%** (1132.3 against
+830.2), which is per-worker module import and cache warm-up paid four times
+instead of once. Recorded rather than smoothed — a prediction that missed
+by a third is a fact about the model, and the model is what the next
+sharding decision gets made from. **The serial control also re-derives the
+838s this branch's own comments quote, at 831.3s**, so nothing in the
+argument above rests on a figure that has since moved.
+
+**AND SHARDING A JOB INTRODUCED TWO DEFECTS OF ITS OWN, both answered by
+`catalog`, which has been a four-way matrix here for weeks.** (1) Only ONE
+step in `suites` grows with the thing being sharded; five fixed checks
+re-derive shipped constants over a fixed corpus, and un-gated they would
+run four times AND sit in every shard's critical path — 4.0 min of the
+job's 27.4 is not the 75-suite step, and all 4.0 would have been paid four
+times. They run on shard 1 now, which is `catalog`'s own stated rule.
+(2) A matrix publishes four expanded check names, so `suites` — which had a
+fixed name and was requireable — stopped being a name a merge can depend
+on. `suites-result` is the always-reporting name; its `skipped` arm is
+INVERTED from `catalog-result`'s, because `catalog` is conditional and
+`suites` is not, so a skip there is legitimate and here means `gate` failed
+and no suite ran.
+
+**WHAT IS OPEN, and both are measurements rather than edits.**
+`verbs` splits 948s / 1265s over two shards — a 33% imbalance the residue
+split does not correct, and whether 3 or 4 shards helps depends on the
+longest SINGLE section, which nothing here has measured. And
+`revision-loop`'s own step is labelled *"test_revise 184s + test_loop 191s,
+measured"* — 375s against a job that measured **1214s**, a **3.2x**
+discrepancy that is either a stale label or a real regression, and the two
+have opposite remedies (doctrine 58: a recorded count is a threshold nobody
+wrote down). The pair also runs SEQUENTIALLY on a 4-vCPU runner while
+sharing nothing but a checkout, which is the same granularity finding one
+job over — but it is not changed here, because changing it before the 3.2x
+is explained would hide whichever of the two answers is true.
