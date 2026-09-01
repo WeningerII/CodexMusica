@@ -16,10 +16,16 @@ cannot be restated without them are not language-agnostic.
 
 import os
 import sys
-import urllib.request
 import zipfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, ".."))
+
+# THE RETRY POLICY IS NOT RESTATED HERE (doctrine 1). Both stagers fetch over
+# the same network from the same host family, and two answers to "how many
+# attempts, how long a wait, which errors" is how they start disagreeing.
+# `lyric_harness` owns it because that is where the failure was measured.
+from lyric_harness import download_to  # noqa: E402
 DATA = os.path.join(HERE, "..", "data")
 NLTK_DIR = os.path.join(DATA, "nltk")
 
@@ -64,9 +70,11 @@ def _get(url, dest):
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     sys.stderr.write(f"  fetching {os.path.basename(dest)} ... ")
     sys.stderr.flush()
-    with urllib.request.urlopen(url, timeout=120) as r, \
-            open(dest, "wb") as f:
-        f.write(r.read())
+    # The guard above admits any file of NON-ZERO size, so a transfer that
+    # died part-way used to be staged forever after. `download_to` writes to
+    # `<dest>.part` and renames only on success, which is what makes that
+    # guard safe rather than merely fast.
+    download_to(url, dest)
     sys.stderr.write(f"{os.path.getsize(dest):,} bytes\n")
     return True
 

@@ -188,6 +188,123 @@ FORBIDDEN = {"RETURN_NOT_VERBATIM", "RETURN_OUT_OF_RANGE",
              "RETURN_METER_DRIFT"}
 
 
+#: THE ROUND TRIP'S SEEDS RUN IN PARALLEL, and the body lives here rather
+#: than inside §3 so a worker process can reach it. MEASURED 2026-09-01:
+#: `test_plan.py` is 838s over 16 sections and §3 alone is 649s (77.4%) —
+#: twenty INDEPENDENT seeds, each planned and then graded, ~32s apiece,
+#: strictly serial inside one process. The CI suite loop already runs four
+#: suites at a time, but an outer packer cannot see into one process, so
+#: this loop was invisible to every scheduling fix and is the floor the
+#: `suites` shard stalls at (`MISSING.md` M-182).
+#:
+#: EACH WORKER BUILDS ITS OWN `Reviser` ONCE and reuses it across the seeds
+#: it draws — measured at 3.9s to construct against ~32s per seed, so four
+#: workers pay ~16s of startup against 649s of work.
+#:
+#: DETERMINISM IS UNTOUCHED. A plan is a pure function of its seed and each
+#: iteration reads nothing the others write; the driver consumes results in
+#: SEED ORDER, so `bad` is assembled exactly as the serial loop assembled
+#: it and no verdict depends on which worker finished first (doctrine 66).
+_RT_REVISER = None
+
+
+def _round_trip_reviser():
+    """-> this process's own `Reviser`, built once. A worker handles several
+    seeds, and rebuilding the lexicon for each would cost more than the
+    parallelism buys."""
+    global _RT_REVISER
+    if _RT_REVISER is None:
+        from quality.revise import Reviser
+        _RT_REVISER = Reviser()
+    return _RT_REVISER
+
+
+def _round_trip_one(seed):
+    """-> (seed, bad, judged, refused) for ONE seed of §3's sweep.
+
+    Returns plain data rather than raising, because a worker's exception
+    would reach the driver stripped of which seed produced it — and the
+    seed is the whole diagnostic."""
+    import quality.fit as FT
+    import quality.schemes as SC
+    from quality.grid import song_from_blueprint
+    R = _round_trip_reviser()
+    bad = []
+    judged_total = refused_total = 0
+    plan = make_plan(seed=seed)
+    draft = dummy_draft(plan)
+    try:
+        bp = fill_plan(plan, draft)
+        song, hooks = song_from_blueprint(bp)[:2]
+        if (len(song.lines) != plan["total_lines"]
+                or len(song.sections) != len(plan["sections"])):
+            bad.append((seed, "blueprint shape mismatch"))
+            # `continue` in the serial loop; this seed is DONE, and the
+            # early return is the same skip one scope out.
+            return seed, bad, judged_total, refused_total
+        # MEMBERS ARE LEFT AS STRINGS, exactly as the CLI's own
+        # `--groups=` reader leaves them since 2026-08-23: a member may
+        # name WHERE in its line the requirement binds (`3.head`,
+        # `3.T2`), and `int()` here refused the planner's own output in
+        # this test's words rather than the slot layer's. `mandate()` is
+        # the one definition of what a member may be.
+        gs = [[x for x in g.split(",")]
+              for g in plan["groups"].split(";")]
+        rets = ([[int(x) for x in r.split(",")]
+                 for r in plan["returns"].split(";")]
+                if plan["returns"] else None)
+        m = SC.mandate(gs, n_lines=plan["total_lines"], returns=rets)
+        found = R.inspect(list(draft), m, blueprint=bp,
+                          subdivision=FT.Subdivision(
+                              plan["subdivision"],
+                              source="test_plan round trip"))
+        g = found["grade"]
+        codes = {f.code for f in found["whole"]}
+        for _ln, fs in found["per_line"].items():
+            codes |= {f.code for f in fs}
+        # THREE COUNTS, NEVER SUMMED — and the assertion is the
+        # PARTITION plus a CAUSE, not `refused == 0`.
+        # ~~`pairs_refused == 0`~~ STRUCK 2026-08-27: that spelling was
+        # true only until M-144 stopped counting a declared slot that
+        # resolves to NO ANCHOR as JUDGED. It resolves against the
+        # DRAFT's words, and the draft here is `dummy_draft` — so a
+        # refusal at a declared slot is a fact about this file's filler
+        # vocabulary and NOT about the planner's shape, which is what
+        # this section is for. Keeping `== 0` would have made the
+        # round trip pin the very miscount M-144 repaired (doctrine 17).
+        # WHAT STILL BITES, and it is stricter than a count: every
+        # refusal must BE that kind. Any OTHER refusal — an unreadable
+        # end word, a schema the judge cannot read — IS the planner
+        # emitting something the graders cannot take, and that is
+        # exactly the failure this section exists to catch.
+        judged_total += g["pairs_judged"]
+        refused_total += g["pairs_refused"]
+        unexplained = [r for r in g["refusals"]
+                       if not r.get("slot_refusal")]
+        if not (g["pairs_mandated"] == g["pairs_judged"]
+                + g["pairs_refused"] and g["pairs_judged"] > 0):
+            bad.append((seed, f"counts m{g['pairs_mandated']} "
+                              f"j{g['pairs_judged']} "
+                              f"r{g['pairs_refused']}"))
+        elif unexplained:
+            bad.append((seed, "refusal(s) the DRAFT's words do not "
+                              "explain: " + str(sorted(
+                                  {r.get("reason", "?")[:44]
+                                   for r in unexplained}))))
+        elif codes & FORBIDDEN:
+            bad.append((seed, sorted(codes & FORBIDDEN)))
+        for s in plan["sections"]:
+            n = sum(1 for ls in plan["line_slots"]
+                    if ls["section"] == s["name"])
+            if s["function"] in ZERO_LINE_FUNCTIONS and (
+                    n != 0 or s["bars"] < 1):
+                bad.append((seed, f"instrumental {s['name']} carries "
+                                  f"{n} line(s), {s['bars']} bar(s)"))
+    except Exception as e:  # noqa: BLE001 — any raise is the failure
+        bad.append((seed, f"{type(e).__name__}: {e}"))
+    return seed, bad, judged_total, refused_total
+
+
 def test_the_round_trip():
     """THE CROWN, SWEPT. Twenty seeds' plans survive the machine that
     grades against them — not by this file's reading of the formats, but
@@ -202,76 +319,24 @@ def test_the_round_trip():
     R = Reviser()
     bad = []
     judged_total = refused_total = 0
-    for seed in range(20):
-        plan = make_plan(seed=seed)
-        draft = dummy_draft(plan)
-        try:
-            bp = fill_plan(plan, draft)
-            song, hooks = song_from_blueprint(bp)[:2]
-            if (len(song.lines) != plan["total_lines"]
-                    or len(song.sections) != len(plan["sections"])):
-                bad.append((seed, "blueprint shape mismatch"))
-                continue
-            # MEMBERS ARE LEFT AS STRINGS, exactly as the CLI's own
-            # `--groups=` reader leaves them since 2026-08-23: a member may
-            # name WHERE in its line the requirement binds (`3.head`,
-            # `3.T2`), and `int()` here refused the planner's own output in
-            # this test's words rather than the slot layer's. `mandate()` is
-            # the one definition of what a member may be.
-            gs = [[x for x in g.split(",")]
-                  for g in plan["groups"].split(";")]
-            rets = ([[int(x) for x in r.split(",")]
-                     for r in plan["returns"].split(";")]
-                    if plan["returns"] else None)
-            m = SC.mandate(gs, n_lines=plan["total_lines"], returns=rets)
-            found = R.inspect(list(draft), m, blueprint=bp,
-                              subdivision=FT.Subdivision(
-                                  plan["subdivision"],
-                                  source="test_plan round trip"))
-            g = found["grade"]
-            codes = {f.code for f in found["whole"]}
-            for _ln, fs in found["per_line"].items():
-                codes |= {f.code for f in fs}
-            # THREE COUNTS, NEVER SUMMED — and the assertion is the
-            # PARTITION plus a CAUSE, not `refused == 0`.
-            # ~~`pairs_refused == 0`~~ STRUCK 2026-08-27: that spelling was
-            # true only until M-144 stopped counting a declared slot that
-            # resolves to NO ANCHOR as JUDGED. It resolves against the
-            # DRAFT's words, and the draft here is `dummy_draft` — so a
-            # refusal at a declared slot is a fact about this file's filler
-            # vocabulary and NOT about the planner's shape, which is what
-            # this section is for. Keeping `== 0` would have made the
-            # round trip pin the very miscount M-144 repaired (doctrine 17).
-            # WHAT STILL BITES, and it is stricter than a count: every
-            # refusal must BE that kind. Any OTHER refusal — an unreadable
-            # end word, a schema the judge cannot read — IS the planner
-            # emitting something the graders cannot take, and that is
-            # exactly the failure this section exists to catch.
-            judged_total += g["pairs_judged"]
-            refused_total += g["pairs_refused"]
-            unexplained = [r for r in g["refusals"]
-                           if not r.get("slot_refusal")]
-            if not (g["pairs_mandated"] == g["pairs_judged"]
-                    + g["pairs_refused"] and g["pairs_judged"] > 0):
-                bad.append((seed, f"counts m{g['pairs_mandated']} "
-                                  f"j{g['pairs_judged']} "
-                                  f"r{g['pairs_refused']}"))
-            elif unexplained:
-                bad.append((seed, "refusal(s) the DRAFT's words do not "
-                                  "explain: " + str(sorted(
-                                      {r.get("reason", "?")[:44]
-                                       for r in unexplained}))))
-            elif codes & FORBIDDEN:
-                bad.append((seed, sorted(codes & FORBIDDEN)))
-            for s in plan["sections"]:
-                n = sum(1 for ls in plan["line_slots"]
-                        if ls["section"] == s["name"])
-                if s["function"] in ZERO_LINE_FUNCTIONS and (
-                        n != 0 or s["bars"] < 1):
-                    bad.append((seed, f"instrumental {s['name']} carries "
-                                      f"{n} line(s), {s['bars']} bar(s)"))
-        except Exception as e:  # noqa: BLE001 — any raise is the failure
-            bad.append((seed, f"{type(e).__name__}: {e}"))
+    # FOUR WORKERS, THE SAME WIDTH THE CI SUITE LOOP USES and for the same
+    # stated reason (the runner has 4 vCPUs). `TEST_PLAN_WORKERS=1` runs the
+    # sweep serially, byte-identical to the pre-parallel section, so the
+    # coordinate is a SHAPE one and never a semantics one.
+    _w = int(os.environ.get("TEST_PLAN_WORKERS", "0") or 0) or min(
+        4, os.cpu_count() or 1)
+    if _w > 1:
+        import concurrent.futures as _cf
+        with _cf.ProcessPoolExecutor(max_workers=_w) as _ex:
+            _results = list(_ex.map(_round_trip_one, range(20)))
+    else:
+        _results = [_round_trip_one(_s) for _s in range(20)]
+    # SEED ORDER, explicitly. `map` already preserves it; sorting says so, so
+    # a later switch to `as_completed` cannot quietly reorder `bad`.
+    for _seed, _b, _j, _r in sorted(_results, key=lambda t: t[0]):
+        bad.extend(_b)
+        judged_total += _j
+        refused_total += _r
     check("20 seeds: blueprint READS, mandate PARSES, mandated == judged + "
           "REFUSED with judged > 0 (three counts, never summed: doctrine "
           "79), every refusal is a NO-ANCHOR slot on the dummy draft's own "

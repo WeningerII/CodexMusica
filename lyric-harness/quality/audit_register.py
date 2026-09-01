@@ -2402,7 +2402,7 @@ PINNED = {
     # `pins_per_line` is a MAXIMUM and accepted 0 of 39 seeds. The
     # calibration that would reopen the band is an owner ruling and is left
     # OPEN), pin told in the entry's own sitting.
-    "coverage_entries": 239,
+    "coverage_entries": 240,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

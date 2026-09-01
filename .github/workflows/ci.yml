@@ -1619,6 +1619,20 @@ jobs:
   suites:
     needs: gate
     runs-on: ubuntu-latest
+    # WHY FOUR, AND WHY IT ONLY PAYS WITH test_plan SPLIT. Measured
+    # 2026-09-01: 5,612 CPU-s over 75 suites, of which `test_plan.py` is 838s
+    # — 15% of the CPU but the LONGEST SINGLE item, and a shard cannot split
+    # one process. So wall = max(longest suite, CPU / (4 lanes x runners)):
+    # 1 runner 1403s, 2 runners 838s, 4 runners 838s — sharding STALLS at
+    # test_plan's floor, and past 2 runners buys nothing until that floor
+    # drops. Four is chosen so the win lands as soon as §3 of test_plan
+    # (649s, 77% of that suite) is parallelised; until then this job reads
+    # 838s and the excess runners are idle rather than wasted work.
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    name: suites (shard ${{ matrix.shard }}/4)
     # A RUNAWAY GUARD, NOT A BUDGET. ~~All 44 files in this job are now
     # measured: the 42 cheap ones sum to 505 CPU-s and the revision pair adds
     # 375, so the job is ~880 CPU-s / ~14.7 min and this guard is ~2x that.~~
@@ -1659,6 +1673,12 @@ jobs:
     # §11/§12, test_declared_inputs §15, test_phonology §10k) and nobody
     # re-priced the job.
     timeout-minutes: 60
+    env:
+      # The shard coordinate, read by the residue filter in the suite
+      # loop below. Both are set together so a matrix that grows finds
+      # the divisor beside it rather than in a second place.
+      SUITES_SHARD: ${{ matrix.shard }}
+      SUITES_SHARDS: 4
     steps:
       - uses: actions/checkout@v5
 
@@ -1715,7 +1735,7 @@ jobs:
       # caught `nc_census` on the run that added it — and `structures` on
       # the run that added THAT. `comm -23 <(ls quality/test_*.py | sed 's|quality/test_||;s|\.py$||'
       # | sort) <(the names in this file, sorted)` is that command.
-      - name: "The 75 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate and recover the same day with the second door into the pipeline, each added in the same commit as the module it gates so neither joins the census below; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census 2026-08-23 with the census of which findings can refuse anything, added in the same commit as the module it gates — and the instrument's own first run is why it is here rather than a sitting later: it named two constructors, measured 46 codes, and omitted `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated; songs 2026-08-24 — the DELIVERED songs, which until that day nothing in this repository read at all: zero checks under quality/, zero mentions here, and two of the five had shipped with their section structure missing while every gate in the tree stayed green; render_form the same day — the check that reads a MESSAGE, which no other gate can, plus the Stop hook that hands it the transcript and BLOCKS a turn carrying a section bracket with its apparatus stripped; songs_record the same day — the SERIES, because every report about these songs had been a PASS/FAIL bit read aloud as a judgement, and its claim check is the one gate in this tree aimed at the narrator rather than the code; songs_log the same day — the PROCESS beside the product, because the series banks what a song IS and nothing banked how it got there, and the zero-ceiling rhyme families were a markdown table no command could re-derive; sentencehood 2026-08-25 with the M-110 noun-stack layer — the nightly gained `sentencehood.py --check` in the same commit as the module and its SUITE joined nothing, the census's own defect one more time, caught by the census; narrative 2026-08-25 — the paired blind experiment's own suite, written across the M-121 narrative-layer sittings and never added here, and the census's finding was MASKED for a day: the orphan check is test_verbs §24, shard 1 died at §20's M-116 breakage two sections in front of it, so a crash in one section hid an orphan in another — the fix that cleared the crash is what let the census speak; door_census 2026-08-26 with the M-139 census of which DOOR each pair-satisfaction site judges at, added in the same commit as the module it gates -- and this label went from 71 to 72 with it, which `test_verbs.py` §43's own check is what caught: the label a reader trusts must equal the list it labels, and a suite added without moving the number is a list that is short looking exactly like a list that is complete; chance_rate 2026-08-26 with M-138's strike and M-140 -- the chance-rate measurement had by then been improvised TWICE from uncommitted scripts, which standing rule 3 calls a defect report, and its suite is here in the same commit as the module so it never joins the orphan census above; verify_figures 2026-08-28 with M-33's live/history citation instrument, added the sitting after its module -- the orphan census caught it on the full test_verbs run, the same shape a fourth time, and the label moved 73 to 74 with it; replay_memo 2026-08-29 with M-167's deferred-replay grading memo — the warm worker's cross-request answer to the quadratic resume cost round 9 measured, added in the same commit as the module it gates, label 74 to 75)"
+      - name: "The 76 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate and recover the same day with the second door into the pipeline, each added in the same commit as the module it gates so neither joins the census below; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census 2026-08-23 with the census of which findings can refuse anything, added in the same commit as the module it gates — and the instrument's own first run is why it is here rather than a sitting later: it named two constructors, measured 46 codes, and omitted `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated; songs 2026-08-24 — the DELIVERED songs, which until that day nothing in this repository read at all: zero checks under quality/, zero mentions here, and two of the five had shipped with their section structure missing while every gate in the tree stayed green; render_form the same day — the check that reads a MESSAGE, which no other gate can, plus the Stop hook that hands it the transcript and BLOCKS a turn carrying a section bracket with its apparatus stripped; songs_record the same day — the SERIES, because every report about these songs had been a PASS/FAIL bit read aloud as a judgement, and its claim check is the one gate in this tree aimed at the narrator rather than the code; songs_log the same day — the PROCESS beside the product, because the series banks what a song IS and nothing banked how it got there, and the zero-ceiling rhyme families were a markdown table no command could re-derive; sentencehood 2026-08-25 with the M-110 noun-stack layer — the nightly gained `sentencehood.py --check` in the same commit as the module and its SUITE joined nothing, the census's own defect one more time, caught by the census; narrative 2026-08-25 — the paired blind experiment's own suite, written across the M-121 narrative-layer sittings and never added here, and the census's finding was MASKED for a day: the orphan check is test_verbs §24, shard 1 died at §20's M-116 breakage two sections in front of it, so a crash in one section hid an orphan in another — the fix that cleared the crash is what let the census speak; door_census 2026-08-26 with the M-139 census of which DOOR each pair-satisfaction site judges at, added in the same commit as the module it gates -- and this label went from 71 to 72 with it, which `test_verbs.py` §43's own check is what caught: the label a reader trusts must equal the list it labels, and a suite added without moving the number is a list that is short looking exactly like a list that is complete; chance_rate 2026-08-26 with M-138's strike and M-140 -- the chance-rate measurement had by then been improvised TWICE from uncommitted scripts, which standing rule 3 calls a defect report, and its suite is here in the same commit as the module so it never joins the orphan census above; verify_figures 2026-08-28 with M-33's live/history citation instrument, added the sitting after its module -- the orphan census caught it on the full test_verbs run, the same shape a fourth time, and the label moved 73 to 74 with it; replay_memo 2026-08-29 with M-167's deferred-replay grading memo — the warm worker's cross-request answer to the quadratic resume cost round 9 measured, added in the same commit as the module it gates, label 74 to 75; staging 2026-09-01 with the retried, atomic staged download -- run #1195 lost a whole CI run to one TLS reset in a step that had not begun any test, and the `suites` shard matrix in this same commit took the number of jobs performing that unretried download from 5 to 8 per run, so the sharding made the failure MORE likely and this is the cost being paid rather than deferred, label 75 to 76)"
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1735,25 +1755,110 @@ jobs:
           # step fails if ANY suite failed, never silently.
           rm -f /tmp/suites-failed
           rm -rf /tmp/suite-logs && mkdir -p /tmp/suite-logs
-          for f in align band capabilities capacity coda controls corpus_audit \
-                   crosslinguistic cym \
-                   corpus_taxonomy data_row_claims declared_inputs english_text \
-                   expected_drift \
-                   pin_sweep suite_sweep \
-                   door_census chance_rate \
-                   fit floor fwer g2p gate_census grid placement section_marks \
-                   homeoteleuton homograph ipa ltc mandate_language \
-                   mandate_relation \
-                   matrix meter \
-                   meter_bands msa_fin \
-                   mut_band mut_oracle nucleus null_shapes phon_fas phon_msa \
-                   phon_non phon_san phonology phrase_commonplace \
-                   narrative nc_census plan positive_control propose provenance \
-                   readability readings_seam register_audit relations \
-                   relation_shapes relations_null \
-                   recover render_form replay_memo screen sentencehood slots song_function songs songs_log songs_record spans structure_census structures \
-                   taxonomy time_layer \
-                   verify_entries verify_figures; do
+          # THE TWO GIANTS GET A RUNNER EACH, and the list is now ordered by
+          # MEASURED COST — 2026-09-01, from a full timing of all 76 suites
+          # run four-wide, the same shape this loop runs them in:
+          #
+          #   plan 870s   capacity 698s   relations_null 261s   songs_record 211s
+          #   screen 194s   g2p 167s   spans 140s   readability 138s
+          #   ...and every remaining suite under 102s. TOTAL 3,763 CPU-s.
+          #
+          # THE RESIDUE SPLIT WAS EXACTLY-ONCE AND BALANCED BY ACCIDENT. It
+          # deals suites out by their position in a list whose order was
+          # chronological, and cost is not — measured on run #1197 the four
+          # shards came out 18m33 / 4m56 / 2m59 / 11m46, and a job's wall is
+          # its WORST shard, so two runners idled while one ran nearly seven
+          # times the shortest. Ordering the list by cost fixes the DEALING.
+          #
+          # IT DOES NOT FIX THE FLOOR, AND MORE SHARDS CANNOT EITHER: no
+          # split beats the longest single item, and `plan` (870s) plus
+          # `capacity` (698s) are 42% of the whole pool between them. Cost
+          # ordering alone leaves `plan` sitting in one lane of a four-lane
+          # shard with three lanes idle beside it for a quarter of an hour.
+          # So the two of them come OUT of the pool: shard 1 runs `plan` and
+          # nothing else, shard 2 runs `capacity` and nothing else, and the
+          # remaining 74 (2,194 CPU-s) are dealt across the rest. `plan`
+          # parallelises internally and gets TEST_PLAN_WORKERS=4 when it owns
+          # the runner -- which is also the bug this closes, because in the
+          # pool it forked four workers INSIDE a four-wide loop, eight
+          # processes on four vCPUs, dragging down whatever shared its shard.
+          #
+          # PROJECTED, from the measurements above: 691s / 698s / 293s / 255s
+          # against a measured 1113 / 296 / 179 / 706. The wall is `capacity`
+          # now, and a fifth shard would buy NOTHING -- the pool is already
+          # under it at 293s. That is why the count stays at four: the next
+          # win is splitting `capacity`, not dealing the same cards thinner.
+          SOLO="plan capacity"
+          _nsolo=2
+          _mine=""
+          _solo_on=0
+          _pool_n=${SUITES_SHARDS:-1}
+          _pool_k=${SUITES_SHARD:-1}
+          if [ "${SUITES_SHARDS:-1}" -gt "$_nsolo" ]; then
+            _solo_on=1
+            if [ "${SUITES_SHARD:-1}" -le "$_nsolo" ]; then
+              _mine=$(echo $SOLO | cut -d' ' -f"${SUITES_SHARD:-1}")
+            fi
+            _pool_n=$(( ${SUITES_SHARDS:-1} - _nsolo ))
+            _pool_k=$(( ${SUITES_SHARD:-1} - _nsolo ))
+          fi
+          echo "shard ${SUITES_SHARD:-1}/${SUITES_SHARDS:-1}:" \
+               "solo='${_mine:-none}' pool=${_pool_k}/${_pool_n}"
+          for f in plan capacity relations_null songs_record screen g2p spans readability \
+                   recover replay_memo grid propose gate_census floor fwer homograph \
+                   mut_oracle msa_fin corpus_audit provenance homeoteleuton null_shapes \
+                   phrase_commonplace mandate_relation meter_bands sentencehood \
+                   fit nc_census structure_census placement structures align slots \
+                   relations crosslinguistic capabilities declared_inputs door_census \
+                   suite_sweep ltc songs_log cym positive_control song_function \
+                   chance_rate time_layer readings_seam narrative pin_sweep taxonomy \
+                   section_marks phonology nucleus corpus_taxonomy mut_band coda \
+                   band relation_shapes matrix render_form verify_entries register_audit \
+                   phon_msa mandate_language phon_fas phon_non phon_san staging \
+                   controls data_row_claims english_text meter verify_figures expected_drift \
+                   ipa songs; do
+            # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
+            # run FOUR-WIDE on one runner (below), so this job was 5,612
+            # CPU-s packed into 4 lanes = 1,403s wall — the measured
+            # critical path of the whole workflow. Residue selection is
+            # `test_verbs`' own idiom and carries its guarantee: every suite
+            # runs EXACTLY ONCE across a full k=1..n matrix by the
+            # arithmetic of the residue classes, not by review. Unset runs
+            # everything, byte-identical to the pre-shard job.
+            # A SOLO SUITE RUNS ONLY ON ITS OWN SHARD, and a solo shard
+            # runs ONLY that suite. Everything else is dealt by residue over
+            # the REMAINING shards, which keeps the guarantee the residue
+            # split was chosen for: every suite runs EXACTLY ONCE across a
+            # full k=1..n matrix by arithmetic, not by review. With
+            # SUITES_SHARDS unset or no larger than the solo count the split
+            # disengages entirely and the loop runs every suite -- the local
+            # command nobody has to relearn. One thing does differ there and
+            # is deliberate: `plan` gets ONE worker in the pool, on any shard
+            # count, because four workers inside a four-wide loop is the
+            # eight-on-four oversubscription this split exists to end. The
+            # worker count is a shape coordinate and never a semantics one
+            # (the A/B is in `MISSING.md` M-182: byte-identical verdicts,
+            # 187 PASS / 0 FAIL either way), so the SET of suites and every
+            # verdict in it are the same however this runs.
+            _w=1
+            case " $SOLO " in
+              *" $f "*)
+                if [ "$_solo_on" = 1 ]; then
+                  [ "$f" = "$_mine" ] || continue
+                  # THE RUNNER IS THIS SUITE'S ALONE, so the one suite that
+                  # can use more than a lane is told it may. Only `plan`
+                  # reads this; naming it per-suite rather than in the job
+                  # `env` is what keeps the pool shards at one worker, which
+                  # is the oversubscription this whole split closes.
+                  [ "$f" = plan ] && _w=4
+                fi ;;
+              *)
+                [ -z "$_mine" ] || continue ;;
+            esac
+            if [ -z "$_mine" ]; then
+              _i=$(( ${_i:-0} + 1 ))
+              [ $(( (_i - 1) % _pool_n )) -eq $(( _pool_k - 1 )) ] || continue
+            fi
             while [ "$(jobs -rp | wc -l)" -ge 4 ]; do
               wait -n
             done
@@ -1768,7 +1873,8 @@ jobs:
             # looking. A gate that names a failure it cannot show is half a
             # gate.
             { echo "── quality/test_$f.py"
-              python3 "quality/test_$f.py" 2>&1 | tee "/tmp/suite-logs/$f.log"
+              TEST_PLAN_WORKERS=$_w \
+                python3 "quality/test_$f.py" 2>&1 | tee "/tmp/suite-logs/$f.log"
               [ "${PIPESTATUS[0]}" -eq 0 ] || echo "$f" >> /tmp/suites-failed; } &
           done
           wait
@@ -1835,8 +1941,51 @@ jobs:
       # file. If the instrument's report changes shape and the parser stops
       # matching, it RAISES rather than reporting an empty set.
       # quality/test_expected_drift.py proves all three.
+      # ── THE FIVE FIXED CHECKS BELOW RUN ON ONE SHARD ONLY ────────────
+      # MOVED FROM SHARD 1 TO SHARD 2, 2026-09-01. Which shard was arbitrary
+      # while every shard held a slice of the pool; it stopped being
+      # arbitrary the moment shard 1 became `plan` alone. These five are
+      # ~4.0 min of fixed cost and they run AFTER the suite step in the same
+      # job, so they land on whichever shard's wall the whole job is measured
+      # by -- and that shard is now the 451s `plan` lane. Shard 2 is
+      # `capacity`, which the crown split takes to ~235s, so the fixed cost
+      # goes where there is slack: 235 + 240 = 475 against `plan`'s 451,
+      # which is the flattest the four shards get without splitting a check.
+      # The gate is a SHARD NUMBER and nothing reads it but this `if:`, so it
+      # moves again the day the profile does.
+      # Added with the shard matrix, 2026-09-01, because sharding a job
+      # multiplies every step in it and only ONE step above grows with the
+      # thing being sharded. The 75-suite loop is partitioned by the residue
+      # class; these five re-derive shipped constants over a FIXED corpus and
+      # are the same work whatever shard runs them, so un-gated they would be
+      # done four times and — worse than the waste — would sit in every
+      # shard's critical path, adding their whole cost to the wall clock the
+      # matrix exists to cut.
+      #
+      # MEASURED, run #1175: the `suites` job was 27.4 min of which the
+      # 75-suite step was 23.4, so everything else in the job is 4.0 min.
+      # Three of the five are individually priced in their own comments below
+      # (chance rate 45s, span-search null 3s, door census 1.9s); the two
+      # calibration re-derivations are the unpriced remainder. Four shards
+      # would have paid that 4.0 min four times over.
+      #
+      # `catalog` above does exactly this and states the same reason —
+      # "the fixed-size sections ... run on shard 1 only, since they do not
+      # grow with the catalog". This is that rule's second instance, and it
+      # is written here rather than inferred so the next shard count does not
+      # have to rediscover it.
+      #
+      # THE SETUP STEPS ARE NOT GATED and must not be: staging cmudict, the
+      # nltk install and the tagger model are what makes a runner able to run
+      # ANY suite, so every shard needs them. The distinction is not
+      # "fixed cost" — it is whether the other shards can do their work
+      # without it.
+      #
+      # `always()` is kept in the conjunction. It is why a failing suite loop
+      # does not hide these five, and gating on the shard must not quietly
+      # take that back.
       - name: Song-profile calibration, against the drift that is RULED (not silenced)
-        if: always()
+        if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1855,7 +2004,7 @@ jobs:
       # mutation set (test_meter_bands section 9 drives the comparison
       # logic; --check is this same comparison over the real sweep).
       - name: Meter-band adoption check, the shipped constants re-derived
-        if: always()
+        if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1884,7 +2033,7 @@ jobs:
       # this job's budget -- which is stated here because M-129's whole
       # subject was a shard whose cost nobody had written down.
       - name: Span-search null, the shipped band against the measured crossover
-        if: always()
+        if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1912,7 +2061,7 @@ jobs:
       # COST, MEASURED before it was added: **1.9s**, pure AST, no corpus and
       # no scoring.
       - name: Door census, every pair-satisfaction site against the 77
-        if: always()
+        if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
         run: python3 quality/door_census.py --check
 
@@ -1933,12 +2082,79 @@ jobs:
       # pairs, each judged at three doors. It is here rather than in the
       # cheap-suite pool for exactly that reason.
       - name: Chance rate, the shipped door against random pairs
-        if: always()
+        if: ${{ always() && matrix.shard == 2 }}
         working-directory: lyric-harness
         run: python3 quality/chance_rate.py --check
 
       # The revision loop itself. 374.87 CPU-s for the pair, MEASURED, both
       # green -- against the "15+ minutes each" that kept them out until today.
+  # An always-reporting summary over the `suites` shards, so the largest test
+  # job in the repository can still be a REQUIRED status check.
+  #
+  # ADDED 2026-09-01 WITH THE SHARD MATRIX, AND IT IS A DEBT THE MATRIX
+  # INCURRED RATHER THAN A FEATURE. `suites` had a fixed name and was
+  # requireable; a matrix publishes four expanded names instead
+  # ("suites (shard 1/4)" ...), and `docs/branch-protection.md` already argues
+  # — about `catalog` — that requiring names carrying a matrix value means
+  # re-editing the required set every time the shard count changes. The shard
+  # count exists to track how long the suites take, so it will change. Without
+  # this job, sharding `suites` would have quietly moved it out of the set of
+  # jobs a merge can be made to depend on, and nothing would have said so.
+  #
+  # IT IS NOT `catalog-result` COPIED, and the difference is the `skipped`
+  # arm. `catalog` is CONDITIONAL — skipped whenever no changed path can move
+  # an artifact — so a skip there is legitimate and passes. `suites` carries
+  # no `if:` at all: it runs on every event, so the only way it reports
+  # `skipped` is that `gate` failed or was skipped, and a suite pool that
+  # never ran must not report success. That arm FAILS here and PASSES there,
+  # from the same aggregate value, because the two jobs are asked different
+  # questions (doctrine 1 — the reading belongs to the job, not to the code
+  # shape it shares).
+  #
+  # `!cancelled()` is carried from `catalog-result` WITH its reason: the
+  # concurrency group is keyed on the branch and not the event, so whichever
+  # run starts later kills whatever is still running, and a run being torn
+  # down must not be aggregated into a red X on a sha whose other run is
+  # green. `cancelled` reached inside that guard means a SHARD died on its own
+  # — a timeout or a lost runner — and is named apart from `failure` rather
+  # than folded into it (doctrine 79).
+  suites-result:
+    needs: suites
+    # A seconds-long fan-in; capped so a wedged runner cannot make it the
+    # slowest job in the run it exists to summarize.
+    timeout-minutes: 15
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Aggregate the suites shards
+        run: |
+          result="${{ needs.suites.result }}"
+          echo "suites aggregate result: $result"
+          case "$result" in
+            success)
+              echo "All shards passed."
+              ;;
+            skipped)
+              # Unlike `catalog`, this job has no `if:` — it runs on every
+              # event — so a skip means `gate` did not succeed and the suites
+              # never ran. Reporting success here would certify a pool that
+              # was never executed.
+              echo "::error::suites shards were SKIPPED — the job is unconditional, so this means gate did not succeed and no suite ran"
+              exit 1
+              ;;
+            cancelled)
+              # Reached only when the RUN was not cancelled (the `if:` above),
+              # so this is a shard that died on its own — a timeout or a
+              # runner loss.
+              echo "::error::suites shards were CANCELLED while the run was not — a shard hit its own timeout or lost its runner"
+              exit 1
+              ;;
+            *)
+              echo "::error::suites shards reported '$result'"
+              exit 1
+              ;;
+          esac
+
   # ── The revision pair, its own runner (SPLIT OUT 2026-08-18) ─────────────
   # It ran as the suites job's LAST step, sequential after the 49-suite
   # pool — measured on run #522: pool 21m46 (its wall is test_verbs, the
@@ -1970,11 +2186,59 @@ jobs:
         run: python3 -m pip install --disable-pip-version-check nltk
       - name: Stage the tagger model and the concreteness norms
         run: python3 quality/fetch_data.py
-      - name: The revision loop (test_revise 184s + test_loop 191s, measured)
+      # TWO PROCESSES, NOT TWO STEPS IN A QUEUE — 2026-09-01, M-182's second
+      # open item, closed by the owner's instruction to run them in parallel.
+      # `test_revise` and `test_loop` share NOTHING but a checkout: separate
+      # files, separate tmpdirs, no shared state, and each is a single Python
+      # process pinned to one math thread by the env above. They ran strictly
+      # one after the other on a 4-vCPU runner, so three cores idled through
+      # both of them and the job's wall was their SUM. Run together it is
+      # their MAX, and the runner still has two cores spare.
+      #
+      # THE OLD LABEL SAID "test_revise 184s + test_loop 191s, measured" AND
+      # THE JOB MEASURED 1214s ON RUN #1197 — a 3.2x gap that is either a
+      # stale label or a real regression, with opposite remedies (doctrine
+      # 58). Parallelism does not decide that question and this step no
+      # longer pretends to answer it: the two suites are TIMED INDIVIDUALLY
+      # here, printed with their own names, so the next run replaces the
+      # guess with a figure instead of carrying one forward. Whichever it
+      # turns out to be, halving the wall is right either way.
+      #
+      # THE GATE NAMES WHAT FAILED, the same idiom the `suites` loop uses and
+      # for the same reason: two interleaved streams mean a failing suite's
+      # own lines are scattered, so `tee` keeps a per-suite copy and the tail
+      # of each failing suite is reprinted unmixed where a reader is looking.
+      - name: The revision loop, both suites at once (timed here, not labelled from memory)
         run: |
           set -e
-          python3 quality/test_revise.py
-          python3 quality/test_loop.py
+          rm -f /tmp/rl-failed /tmp/rl-times
+          rm -rf /tmp/rl-logs && mkdir -p /tmp/rl-logs
+          for f in revise loop; do
+            { _t0=$(date +%s)
+              python3 "quality/test_$f.py" 2>&1 | tee "/tmp/rl-logs/$f.log"
+              _rc=${PIPESTATUS[0]}
+              echo "TIMED quality/test_$f.py $(( $(date +%s) - _t0 ))s rc=$_rc" \
+                >> /tmp/rl-times
+              [ "$_rc" -eq 0 ] || echo "$f" >> /tmp/rl-failed; } &
+          done
+          wait
+          echo "=============================================="
+          echo "THE TWO SUITES, EACH TIMED (the job's wall is their MAX now):"
+          sort /tmp/rl-times
+          if [ -f /tmp/rl-failed ]; then
+            echo "=============================================="
+            echo "FAILING SUITES ($(wc -l < /tmp/rl-failed)):"
+            sed 's|^|  quality/test_|;s|$|.py|' /tmp/rl-failed
+            while read -r f; do
+              echo ""
+              echo "=============================================="
+              echo "quality/test_$f.py — its OWN last 60 lines, unmixed"
+              echo "=============================================="
+              tail -n 60 "/tmp/rl-logs/$f.log" 2>/dev/null \
+                || echo "  (no log — the suite died before writing anything)"
+            done < /tmp/rl-failed
+            exit 1
+          fi
 
   # ── test_verbs, sharded (SPLIT OUT 2026-08-18) ───────────────────────────
   # The longest suite in the repo — 21-22 minutes measured on runs #522 and
@@ -1993,7 +2257,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2]
+        shard: [1, 2, 3, 4]
     defaults:
       run:
         working-directory: lyric-harness
@@ -2001,7 +2265,7 @@ jobs:
       OMP_NUM_THREADS: '1'
       MKL_NUM_THREADS: '1'
       OPENBLAS_NUM_THREADS: '1'
-      TEST_VERBS_SHARD: ${{ matrix.shard }}/2
+      TEST_VERBS_SHARD: ${{ matrix.shard }}/4
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
@@ -2024,7 +2288,20 @@ jobs:
         run: python3 -m pip install --disable-pip-version-check PyYAML
       - name: Stage the tagger model and the concreteness norms
         run: python3 quality/fetch_data.py
-      - name: test_verbs shard ${{ matrix.shard }}/2 (the whole file, halved by section residue)
+      # TWO SHARDS BECAME FOUR, 2026-09-01. Measured on run #1197 the two
+      # came out 948s and 1265s, and a job's wall is its WORST shard, so a
+      # third of the second runner bought nothing. FOUR does not fix that
+      # imbalance -- residue classes drawn over chronological order balance
+      # by accident -- and it cannot beat the LONGEST SINGLE SECTION either.
+      # It is taken now because the ceiling is what four shards make VISIBLE:
+      # the suite prints its per-section cost slowest-first from this commit,
+      # so the next run says both what the floor is and which sections a
+      # cost-ordered `_SECTIONS` would interleave. Halving the packing while
+      # measuring the floor is the move that cannot be wrong in either
+      # direction -- if the floor is low, four shards already collected the
+      # win; if it is high, the printout names the section to split and
+      # nothing was spent finding that out.
+      - name: test_verbs shard ${{ matrix.shard }}/4 (the whole file, quartered by section residue)
         run: python3 quality/test_verbs.py
 
   # ── The mutation sweep: adversary 4, in its own job and on a rotation ─────
@@ -2036,7 +2313,9 @@ jobs:
   # and the song-profile memo's nightly slice was computed and discarded, every
   # night, because ONE sibling step had no bound. Parallel jobs are how this
   # file already answers that everywhere else — `catalog` runs 4 shards,
-  # `verbs` runs 2 — and the sweep is the last serial giant that was not.
+  # `verbs` runs 4 (2 until 2026-09-01), `suites` 4, and `revision-loop`
+  # runs its two suites as two processes — and the sweep is the last serial
+  # giant that was not.
   #
   # SHARDED, AND THE SHARD COUNT IS ANCHORED TO A MEASUREMENT rather than
   # picked. Measured on the runner from the Actions API:
