@@ -120,6 +120,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
@@ -4604,8 +4605,33 @@ if __name__ == "__main__":
               f"sections (interleaved by index residue)")
     else:
         run_sections = list(_SECTIONS)
+    # PER-SECTION COST, PRINTED EVERY RUN — 2026-09-01. Sharding this file
+    # by index residue is exactly-once by arithmetic, but it balances by
+    # ACCIDENT: the residue classes are drawn over the order the sections
+    # happen to be written in, which is chronological, and cost is not.
+    # Measured on run #1197 the two shards came out 948s and 1265s — a 33%
+    # imbalance, and a job's wall is its WORST shard, so a third of that
+    # runner's time bought nothing. Raising the shard count cannot fix an
+    # imbalance and cannot beat the LONGEST SINGLE SECTION either, and
+    # which section that is had never been measured (M-182's first open
+    # item said exactly this). So the suite now times each section and
+    # prints them slowest-first: the top line IS the floor any shard count
+    # stalls at, and the ordering is what a cost-ordered `_SECTIONS` would
+    # be built from. Printed by every shard, so the union of a matrix run
+    # is the whole file's profile, and printed on a green run too — a cost
+    # that is only visible when something fails is a cost nobody sees.
+    _times = []
     for _fn in run_sections:
+        _t0 = time.time()
         _fn()
+        _times.append((time.time() - _t0, _fn.__name__))
+    print("=" * 62)
+    print("SECTION COST, slowest first — the top line is the floor a shard "
+          "count cannot beat:")
+    for _sec, _nm in sorted(_times, reverse=True):
+        print(f"  {_sec:8.1f}s  {_nm}")
+    print(f"  {sum(_s for _s, _ in _times):8.1f}s  TOTAL, this shard "
+          f"({len(_times)} of {len(_SECTIONS)} sections)")
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

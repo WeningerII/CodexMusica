@@ -17502,3 +17502,23 @@ answered by the next run's printed figures rather than by a label nobody
 re-derived. What stays open is only the answer itself: whether 375s was a
 stale label or a real regression, which the run decides and this entry will
 record. `verbs`' 948s/1265s imbalance is untouched and still open.
+
+**AND THE FIRST OPEN ITEM IS TAKEN THE SAME WAY, ON THE SAME INSTRUCTION —
+*"do verbs too, more shards"*.** `verbs` goes from two shards to four, and
+the reason this entry gave for not doing it already stands and is answered
+rather than struck: ~~whether 3 or 4 shards helps depends on the longest
+SINGLE section, which nothing here has measured.~~ Nothing had measured it
+because nothing PRINTED it. `test_verbs.py` now times every section it runs
+and prints them slowest-first, on green runs as well as red — **a cost that
+is only visible when something fails is a cost nobody sees** — so the next
+run reports the floor instead of leaving it to be inferred. Four shards is
+taken in the same commit rather than after that report for a reason that
+holds in both directions: it halves the PACKING, which is a separate term
+from the floor, so if the floor turns out low the win is already collected,
+and if it turns out high the printout names the section to split and
+nothing was spent learning that. What four shards does NOT fix is the
+imbalance itself — 948s against 1265s — because the residue classes are
+drawn over the order the sections happen to be written in, which is
+chronological, and cost is not. The printed ordering is exactly what a
+cost-ordered `_SECTIONS` would be built from, and that is the next edit,
+made from the run's own figures rather than from a guess about them.
