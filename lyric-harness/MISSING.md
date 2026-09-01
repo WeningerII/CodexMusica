@@ -17475,3 +17475,14 @@ wrote down). The pair also runs SEQUENTIALLY on a 4-vCPU runner while
 sharing nothing but a checkout, which is the same granularity finding one
 job over — but it is not changed here, because changing it before the 3.2x
 is explained would hide whichever of the two answers is true.
+
+**TESTED WHILE OPEN**, and `triage.py --check` is what required this sentence
+rather than a reader noticing: `quality/test_plan.py` names M-182 while the
+entry stays `PARTIAL`, which is CONTESTED until the body says why. The why is
+the split above — the suite names this entry at the ONE place the finding
+became a code change, the module-level round-trip body whose comment records
+the 838s/649s measurement and the reason a worker process must be able to
+reach it. That is the BUILT half, and §3's byte-identical verdict is what
+guards it. Nothing in the suite touches the two open measurements — `verbs`'
+948s/1265s imbalance and `revision-loop`'s 3.2x label discrepancy — and the
+entry stays open on those.
