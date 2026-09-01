@@ -1728,6 +1728,47 @@ def test_the_seed_sweep_is_a_verb():
           f"{len(_cut)} of {len(singles)} predicates cut; "
           f"{len(res['accepted'])} accepted against a loosest single of "
           f"{max(len(a) for a in singles.values())}")
+
+    # THE MEAN IS ITS OWN COORDINATE AND COMPARES AS A REAL (`MISSING.md`
+    # M-181). Three properties, each of which a wrong implementation fails:
+    # the value is the MEAN and not the max, `<=1.5` survives the parser
+    # rather than being refused as a non-integer, and it is not TRUNCATED to
+    # `<=1` on the way to the comparison — which `int(val)` did and which no
+    # integer-valued predicate could ever have caught.
+    print("\n10b. the density coordinate is a MEAN, and a real one")
+    check("`bound_words_per_line` is declared real-valued, and it is the "
+          "only measure that is",
+          PLN.SWEEP_REAL == ("bound_words_per_line",), PLN.SWEEP_REAL)
+    _pl = PLN.make_plan(seed=3, form="verse-chorus")
+    _mean = PLN.SWEEP_MEASURES["bound_words_per_line"][1](_pl)
+    _max = PLN.SWEEP_MEASURES["pins_per_line"][1](_pl)
+    _pins = PLN._sweep_pins(_pl)
+    check("...and it reads the MEAN over EVERY line, which is strictly "
+          "below the per-line maximum on a real plan — the two are "
+          "different questions, and `pins_per_line` could not express a "
+          "density preference",
+          abs(_mean - sum(_pins.values()) / _pl["total_lines"]) < 1e-9
+          and _mean < _max,
+          f"mean {_mean:.3f} against max {_max} over "
+          f"{_pl['total_lines']} line(s)")
+    _parsed = PLN.parse_sweep_want("bound_words_per_line<=1.5")
+    check("...a fractional threshold PARSES rather than refusing as a "
+          "non-integer — the band this coordinate separates the songs on "
+          "lies between two integers",
+          _parsed == ("bound_words_per_line", "<=", "1.5"), _parsed)
+    # The truncation mutant: `int("1.5")` raises, and a cast that floors it
+    # would answer this pair identically. A plan whose mean sits between 1
+    # and 1.5 must be ACCEPTED by <=1.5 and REFUSED by <=1.
+    _mk = lambda g, n: {"groups": g, "total_lines": n}
+    _mid = _mk("1,2;3,4;5,6", 5)          # 6 members / 5 lines = 1.2
+    check("...and it is not truncated on the way to the comparison: a mean "
+          "of 1.2 passes `<=1.5` and fails `<=1`, which a floor to int "
+          "could not distinguish",
+          PLN.sweep_holds(_mid, PLN.parse_sweep_want(
+              "bound_words_per_line<=1.5"))
+          and not PLN.sweep_holds(_mid, PLN.parse_sweep_want(
+              "bound_words_per_line<=1")),
+          f"mean {PLN.SWEEP_MEASURES['bound_words_per_line'][1](_mid):.2f}")
     check("THREE COUNTS, NEVER SUMMED (doctrine 79): swept, planned, and "
           "REFUSED-by-the-planner. A refusal is the envelope turning a "
           "request down and charging it to the predicates would blame the "

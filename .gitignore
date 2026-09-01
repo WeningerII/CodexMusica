@@ -6,8 +6,8 @@ node_modules/
 codex.zip
 /_dist
 /_dist_test
-# .claude/ IS IGNORED EXCEPT THE TWO FILES THAT ARE ENFORCEMENT.
-# `.claude/worktrees/` is scratch and must stay out. The Stop hook is NOT:
+# .claude/ IS IGNORED EXCEPT THE THREE FILES THAT ARE ENFORCEMENT.
+# `.claude/worktrees/` is scratch and must stay out. The hooks are NOT:
 # it is what gives `quality/check_render_form.py` jurisdiction over a message
 # (`MISSING.md` M-97), and an enforcement that lives only in one container is
 # an enforcement that disappears with it. `test_render_form.py` §6 asserts
@@ -17,6 +17,10 @@ codex.zip
 .claude/*
 !.claude/settings.json
 !.claude/render_form_hook.sh
+# The UserPromptSubmit hook is the same argument one layer out: it fires
+# `scripts/freshness_guard.sh`, and a guard against a REWOUND CHECKOUT that
+# itself lives only in one container is the defect it was built to catch.
+!.claude/freshness_hook.sh
 # Scratch for the instrument-drafting workflows: the binding schema handed to
 # the drafting agents, and the JSON batches they return before the serial apply
 # step folds them into references/02_instruments.js.
