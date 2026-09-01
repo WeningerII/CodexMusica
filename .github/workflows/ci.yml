@@ -1619,6 +1619,20 @@ jobs:
   suites:
     needs: gate
     runs-on: ubuntu-latest
+    # WHY FOUR, AND WHY IT ONLY PAYS WITH test_plan SPLIT. Measured
+    # 2026-09-01: 5,612 CPU-s over 75 suites, of which `test_plan.py` is 838s
+    # — 15% of the CPU but the LONGEST SINGLE item, and a shard cannot split
+    # one process. So wall = max(longest suite, CPU / (4 lanes x runners)):
+    # 1 runner 1403s, 2 runners 838s, 4 runners 838s — sharding STALLS at
+    # test_plan's floor, and past 2 runners buys nothing until that floor
+    # drops. Four is chosen so the win lands as soon as §3 of test_plan
+    # (649s, 77% of that suite) is parallelised; until then this job reads
+    # 838s and the excess runners are idle rather than wasted work.
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    name: suites (shard ${{ matrix.shard }}/4)
     # A RUNAWAY GUARD, NOT A BUDGET. ~~All 44 files in this job are now
     # measured: the 42 cheap ones sum to 505 CPU-s and the revision pair adds
     # 375, so the job is ~880 CPU-s / ~14.7 min and this guard is ~2x that.~~
@@ -1659,6 +1673,12 @@ jobs:
     # §11/§12, test_declared_inputs §15, test_phonology §10k) and nobody
     # re-priced the job.
     timeout-minutes: 60
+    env:
+      # The shard coordinate, read by the residue filter in the suite
+      # loop below. Both are set together so a matrix that grows finds
+      # the divisor beside it rather than in a second place.
+      SUITES_SHARD: ${{ matrix.shard }}
+      SUITES_SHARDS: 4
     steps:
       - uses: actions/checkout@v5
 
@@ -1754,6 +1774,17 @@ jobs:
                    recover render_form replay_memo screen sentencehood slots song_function songs songs_log songs_record spans structure_census structures \
                    taxonomy time_layer \
                    verify_entries verify_figures; do
+            # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
+            # run FOUR-WIDE on one runner (below), so this job was 5,612
+            # CPU-s packed into 4 lanes = 1,403s wall — the measured
+            # critical path of the whole workflow. Residue selection is
+            # `test_verbs`' own idiom and carries its guarantee: every suite
+            # runs EXACTLY ONCE across a full k=1..n matrix by the
+            # arithmetic of the residue classes, not by review. Unset runs
+            # everything, byte-identical to the pre-shard job.
+            _i=$(( ${_i:-0} + 1 ))
+            [ $(( (_i - 1) % ${SUITES_SHARDS:-1} )) \
+              -eq $(( ${SUITES_SHARD:-1} - 1 )) ] || continue
             while [ "$(jobs -rp | wc -l)" -ge 4 ]; do
               wait -n
             done
