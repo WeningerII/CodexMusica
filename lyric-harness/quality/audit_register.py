@@ -2392,7 +2392,17 @@ PINNED = {
     # before it could ever reach §43 in that environment; one word in the
     # install line, under the job's own "needs the suite's environment
     # exactly"), pin told in the entry's own sitting.
-    "coverage_entries": 238,
+    # ~~238~~ -> 239, 2026-08-31: M-181 (the five listenable songs are
+    # UNREACHABLE — the length floor rose to 22 lines past four of the five,
+    # and density rides length at +0.66, so removing short songs removed the
+    # sparse band the whole listenable group came from; the mean barely
+    # moved, 2.33 -> 2.48, while the lower tail went 20% -> 0% of seeds
+    # under 1.5 bound words per line. Ships the MEASUREMENT half only:
+    # `bound_words_per_line` as a real-valued sweep coordinate, because
+    # `pins_per_line` is a MAXIMUM and accepted 0 of 39 seeds. The
+    # calibration that would reopen the band is an owner ruling and is left
+    # OPEN), pin told in the entry's own sitting.
+    "coverage_entries": 239,
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

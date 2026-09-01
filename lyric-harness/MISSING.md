@@ -17262,3 +17262,101 @@ together: `audit_register.coverage_entries` ~~236~~ -> 237 (M-179) ->
 this ladder line, which `verify_entries.py`'s doctrine-17 sweep caught
 within five minutes: a superseded 236 visible in no scanned document is
 exactly the vanished-value case that check exists to refuse.
+
+### M-181 · The listenable songs are UNREACHABLE — the length floor rose past four of the five, and density rides length `PARTIAL` 2026-08-31 — found by an owner asking why every song sounds the same, and by three of this session's own wrong answers
+**THE COMPLAINT, verbatim, and it named a cause this entry had to test
+rather than adopt:** *"we're getting these faux purple prose meets word
+soup because ... I requested that we have 2 kinds of rhymes per line and
+mandated an end of line rhyme as well."* The number is not in the record —
+no ruling ever set a per-line count — so the amount was always a
+DERIVATION, and the question is which derivation moved.
+
+**WHAT THE SIXTEEN BANKED SONGS MEASURE**, bound words per line, read from
+each song's own `plan` step in `songs/*.log.tsv` and reproduced exactly by
+re-running the planner at that song's own harness commit and seed (5 of 5
+reproduce to the hundredth, so no song was hand-narrowed):
+
+| | bound words / line | lines |
+|---|---:|---:|
+| carry_it_over, turn_the_wheel, one_more, keep_the_light, stay_awake | **0.72 – 1.50** | 12 – 25 |
+| the other eleven | **2.17 – 2.97** | 20 – 33 |
+
+**THE FIRST TWO EXPLANATIONS THIS SESSION GAVE WERE BOTH WRONG, and the
+strikes stay visible (doctrine 17).** ~~The end-rhyme pass doubled the
+density between Aug 24 and Aug 25.~~ ~~A constant `WORDS_LEFT_FREE` does
+not exist and the ceiling is five.~~ The first is refuted by the bisect
+below; the second was read off a REWOUND CHECKOUT and is the subject of
+the freshness guard shipped the same sitting.
+
+**THE BISECT, mean over seeds 1-8, `form=verse-chorus`, each commit run in
+its own worktree:** `9ad2dad` 0.58 -> `d1f8e40` **2.12** (the overlapping-
+cover draw, 2026-08-23, and the largest single move) -> `cbcb43d` 2.07 ->
+`978b1e0` **2.57** -> `25a968e` **2.82** (the end-rhyme pass) -> stable
+through Aug 25 -> `a09f787` **2.42** (M-171's reserve, the only move DOWN).
+So the density was already 2.07 the day before the first song was written,
+and no regression separates the light songs from the soup.
+
+**THE MEAN IS NOT WHERE THE DEFECT LIVES — THE LOWER TAIL IS.** Same
+instrument, 60 seeds, at the songs' own commit `34149de` against HEAD:
+
+| | min | median | max | share <= 1.5 | corr(lines, density) |
+|---|---:|---:|---:|---:|---:|
+| `34149de` | **0.08** | 2.33 | 3.17 | **20%** | **+0.66** |
+| HEAD | **1.71** | 2.48 | 2.92 | **0%** | -0.06 |
+
+The median barely moved. The RANGE collapsed, and it collapsed from below:
+every seed that could produce a song in the band the five listenable ones
+occupy is gone, 0 of 60. The five were not written under a lighter
+planner — they are the BOTTOM QUINTILE of the same distribution, five
+draws all landing under 1.50 when 20% of seeds did (p ~ 3e-4 under
+independence). **The early sitting was selecting sparse seeds by hand and
+the later sittings took what came.** Nothing broke; a discipline stopped.
+
+**WHY THE TAIL WENT, and it is not the rhyme layer at all.** Density rode
+LENGTH at +0.66, and the sparse seeds were the short ones — `34149de`'s
+six sparsest draw 12, 14, 18, 21, 24 and 25 lines. `978b1e0` ("the song's
+length comes from the profile that grades a song") moved the length
+envelope onto `floor.PROFILES["song"]`, whose token band was then
+re-adopted 150 -> 200 (M-131/M-133). `song_line_counts()` reads that band
+and now reaches **22..55**. The five songs are **12, 16, 18, 19** and 25
+lines: **FOUR OF THE FIVE CANNOT BE DRAWN AT ANY SEED TODAY.** The
+end-rhyme pass then shaved what remained — measured across `978b1e0` ->
+`25a968e`, min 1.50 -> 1.71 and share<=1.5 2% -> 0% — which is the pass
+working as designed, since it binds free line ends and a sparse plan is
+mostly free line ends, so it lifts the sparsest plans hardest.
+
+**SO THIS IS ONE DEFECT WEARING TWO FACES, AND THE OTHER FACE WAS ALREADY
+MEASURED THIS SITTING.** Below the song profile's band every
+length-sensitive check is DOWNGRADED TO A NOTE, because an uncalibrated
+threshold may not reject — `wheat_mane` at ~90 tokens re-grades **exit 0,
+0 FLAG, 69 NOTE** on today's fully-green tree. So the harness has a hole
+at short lengths and has answered it twice in opposite directions: the
+GRADER declines to judge there, and the PLANNER declines to go there. A
+12-line song is not a defective song; it is a song no profile covers.
+
+**WHAT SHIPS HERE, and it is the measurement half only.**
+`plan.SWEEP_MEASURES` gains `bound_words_per_line` — the MEAN over every
+line, which is the coordinate that separates the two groups above.
+`pins_per_line` could not: it is a MAXIMUM, so it asks "is EVERY line under
+k", and over a 22-line song at a ceiling of 4 essentially every draw puts
+some line at the cap. Measured: `pins_per_line<=3` accepts **0 of 39**
+seeds and `<=2` also 0, and the sweep's own refusal already read
+*"unreachable in this range rather than merely rare"* — a true sentence
+about a predicate of the wrong SHAPE. `SWEEP_REAL` declares which measures
+compare as reals, because `int(val)` would have truncated `<=1.5` to
+`<=1` — a predicate the caller did not declare, applied in silence.
+
+**AND THE NEW COORDINATE HONESTLY REPORTS THAT THE REGION IS GONE**:
+`plan --sweep=1-40 --want=bound_words_per_line<=1.5` accepts 0 of 39 at
+HEAD. That is the finding, not a failure of the flag — the sweep is a
+rejection filter and cannot find what the generator no longer produces.
+
+**WHAT IS OPEN, and it is an owner ruling plus a calibration, not a code
+edit.** Reaching the band again means the floor gaining a profile below
+200 tokens — preregister, measure, adopt, re-snapshot the manifest, the
+same ladder every other band here climbed — which unblocks the planner's
+length envelope as a consequence rather than by touching `plan.py` at all.
+Retuning `line_binding_ceiling` instead would move the mean and NOT
+restore the tail, because the tail is a length fact. Left OPEN rather than
+guessed: doctrine 58, and the owner's standing rule that a threshold with
+no calibration behind it is the error.

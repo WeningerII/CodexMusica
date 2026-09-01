@@ -1869,7 +1869,43 @@ SWEEP_MEASURES = {
     "pins_per_line": ("the most words any one line is bound at — the "
                       "coordinate `M-79`'s Finding 3 says has none",
                       lambda p: max(_sweep_pins(p).values() or [0])),
+    # THE MEAN, AND IT IS NOT A SECOND SPELLING OF THE MAX (`MISSING.md`
+    # M-181). `pins_per_line` is a MAXIMUM over lines, so it asks "is EVERY
+    # line under k" — and over a thirty-line song at a ceiling of four,
+    # essentially every draw puts SOME line at the ceiling. Measured:
+    # `pins_per_line<=3` accepts 0 of 39 seeds and `<=2` also 0, and the
+    # sweep's own refusal reads "unreachable in this range rather than
+    # merely rare". A max predicate cannot express a density preference; it
+    # can only express a hard per-line cap, which the draw violates almost
+    # surely at song length.
+    #
+    # THE MEAN IS THE COORDINATE THAT ACTUALLY SEPARATED THE SONGS. Over
+    # the sixteen banked songs the five a reader called listenable measure
+    # 0.72-1.50 bound words per line and the rest 2.17-2.97, and at the
+    # commit those five were written the seed distribution ran min 0.08,
+    # median 2.33, max 3.17 — so all five sit in the BOTTOM QUINTILE of the
+    # same distribution the later songs drew from. Nothing regressed; the
+    # early sitting was selecting low-density seeds by hand and the later
+    # ones took what came. This predicate is that hand-selection made into
+    # a verb, which is standing rule 3's whole subject.
+    #
+    # DENOMINATOR IS EVERY LINE, bound or not, because a plan that leaves
+    # lines free is exactly what is being asked for and dropping them would
+    # score a sparse plan as though it were dense.
+    "bound_words_per_line": ("the MEAN words bound per line, over every "
+                             "line — the density coordinate, where "
+                             "`pins_per_line` is the per-line cap",
+                             lambda p: (sum(_sweep_pins(p).values())
+                                        / max(1, p["total_lines"]))),
 }
+
+#: MEASURES THAT ARE REAL-VALUED, declared rather than inferred. Every other
+#: measure is a COUNT and the parser refuses a non-integer for it, which is
+#: the check that caught `bound_words_per_line<=1.5` on its first run. A mean
+#: is not a count: refusing its natural spelling would make the coordinate
+#: reachable only at integer densities, and the whole band this separates the
+#: songs on (0.72-1.50 against 2.17-2.97) lies between two integers.
+SWEEP_REAL = ("bound_words_per_line",)
 
 #: SET measures: `uses=chorus,bridge` asks that the draw REACHED them, which
 #: is the compel a roster cannot be.
@@ -1942,6 +1978,13 @@ def parse_sweep_want(text):
                 raise PlanRefused(
                     f"{raw!r}: {name!r} answers '=' and nothing else — it "
                     f"names functions, and functions do not compare.")
+        elif name in SWEEP_REAL:
+            try:
+                float(val)
+            except ValueError:
+                raise PlanRefused(
+                    f"{raw!r}: {name!r} is a real-valued measure and "
+                    f"{val!r} is not a number.")
         elif not val.lstrip("-").isdigit():
             raise PlanRefused(
                 f"{raw!r}: {name!r} is a count and {val!r} is not an "
@@ -1966,7 +2009,11 @@ def sweep_holds(plan, want):
     if name in SWEEP_SETS:
         have = SWEEP_SETS[name][1](plan)
         return all(x.strip() in have for x in val.split(",") if x.strip())
-    got, n = SWEEP_MEASURES[name][1](plan), int(val)
+    # A real-valued measure compares as a REAL. `int(val)` here would have
+    # silently truncated `<=1.5` to `<=1` — a predicate the caller did not
+    # declare, applied without saying so (`MISSING.md` M-181).
+    cast = float if name in SWEEP_REAL else int
+    got, n = SWEEP_MEASURES[name][1](plan), cast(val)
     return got <= n if op == "<=" else got >= n if op == ">=" else got == n
 
 
