@@ -17522,3 +17522,46 @@ drawn over the order the sections happen to be written in, which is
 chronological, and cost is not. The printed ordering is exactly what a
 cost-ordered `_SECTIONS` would be built from, and that is the next edit,
 made from the run's own figures rather than from a guess about them.
+
+**AND THE THIRD READING WAS WRONG TOO — THE SHARDS WERE NEVER THE PROBLEM
+AT ALL, AND THE MEASUREMENT SAYS SO.** All 76 cheap suites, timed
+individually four-wide, the same shape CI runs them in:
+
+| suite | cost | | suite | cost |
+|---|---:|---|---|---:|
+| **plan** | **870.5s** | | recover | 101.5s |
+| **capacity** | **698.1s** | | replay_memo | 74.5s |
+| relations_null | 260.8s | | grid | 71.3s |
+| songs_record | 211.4s | | propose | 68.8s |
+| screen | 193.6s | | gate_census | 59.6s |
+| g2p | 166.8s | | floor / fwer | 57.8s |
+| spans | 139.9s | | homograph | 49.9s |
+| readability | 137.8s | | *the other 60* | *< 49s each* |
+
+**TOTAL 3,763 CPU-s, and `plan` + `capacity` are 1,568.6s of it — 41.7%
+in TWO of seventy-six files.** Modelling the residue split against these
+costs reproduces run #1197 almost exactly: predicted shard walls 870 / 261
+/ 102 / 698 against measured 1113 / 296 / 179 / 706, and shard 1's extra
+240s is the five fixed checks that run there. **The model is therefore
+sound, and it says the shard COUNT was never the lever.** Residue deals
+suites out by their position in a list whose order is chronological, and
+cost is not, so the split balanced by accident; and no count of shards
+beats the longest single item, which is one Python process.
+
+**WHAT SHIPS: the two giants come out of the pool, and the list is ordered
+by cost.** Shard 1 runs `plan` and nothing else, with
+`TEST_PLAN_WORKERS=4` because it now owns the runner — which also closes a
+defect this entry created two commits ago and did not notice: in the pool
+`plan` forked four workers INSIDE a four-wide loop, **eight processes on
+four vCPUs**, so the §3 split was stealing lanes from whatever shared its
+shard. Shard 2 runs `capacity` alone. The remaining 74 (2,194 CPU-s) are
+dealt by residue over a cost-ordered list across shards 3 and 4. Projected
+691 / 698 / 293 / 255 against the measured 1113 / 296 / 179 / 706 — the
+job's wall goes from 18m33 to about 11m40.
+
+**AND THE SHARD COUNT STAYS AT FOUR, WHICH IS THE POINT.** A fifth shard
+would buy nothing: the pool is already at 293s, well under `capacity`'s
+698s, so dealing the same cards thinner divides a term that is no longer
+binding. The wall is `capacity` now, and the next win is splitting it —
+`test_capacity`'s own per-section profile is what decides whether that is
+possible, and it is being measured rather than assumed. OPEN.
