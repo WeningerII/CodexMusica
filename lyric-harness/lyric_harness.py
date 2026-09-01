@@ -31,6 +31,10 @@ import unicodedata
 import sys
 import textwrap
 import types
+import http.client
+import time
+import shutil
+import urllib.error
 import urllib.request
 from dataclasses import dataclass, field, asdict
 
@@ -43,10 +47,96 @@ FREQ_PATH = os.path.join(HERE, "data", "opensubtitles_en_50k.tsv")
 CMUDICT_URL = "https://raw.githubusercontent.com/cmusphinx/cmudict/master/cmudict.dict"
 
 
+#: HOW A STAGED DOWNLOAD IS RETRIED, DECLARED IN ONE PLACE — 2026-09-01.
+#: Two fetchers stage resources over the network (`fetch_data` here and
+#: `quality/fetch_data.py`) and they must not answer this differently
+#: (doctrine 1), so the policy lives here and that module imports it.
+#:
+#: THE FAILURE THIS EXISTS FOR IS MEASURED, not anticipated: run #1195's
+#: `verify` job died at "Stage the pronunciation dictionary" with
+#: `ConnectionResetError: [Errno 104]` inside the TLS handshake — a whole CI
+#: run lost to one reset, in a step that had not begun any test. The
+#: `suites` shard matrix made that worse rather than better: the number of
+#: jobs performing this unretried download per run went from 5 to 8, so the
+#: sharding raised the odds of exactly this, and the cost is paid here.
+#:
+#: FOUR ATTEMPTS AND THREE WAITS, never summed into a "timeout": the waits
+#: are what separates the attempts, and a caller reading one number cannot
+#: tell how many chances it got from how long it waited.
+DOWNLOAD_ATTEMPTS = 4
+DOWNLOAD_BACKOFF_S = (2, 4, 8)
+#: Per-attempt, so a stalled connection cannot hold a job to its own cap.
+DOWNLOAD_TIMEOUT_S = 120
+
+
+class DownloadFailed(Exception):
+    """A staged resource could not be fetched after every declared attempt.
+
+    Its own class rather than the last transport error re-raised, because
+    "the network reset once" and "the network reset four times running" are
+    different answers and only the second is this exception (doctrine 20).
+    The final cause is chained, so nothing about the last failure is lost.
+    """
+
+
+def _download_retryable(err):
+    """Is this failure TRANSPORT, or the server's considered answer?
+
+    A 404 means the URL moved and no number of retries repairs it, so it is
+    raised at once; 408/429 and the 5xx family are the server asking to be
+    asked again. Everything else reaching here is a connection that did not
+    complete, which is the case worth retrying.
+    """
+    if isinstance(err, urllib.error.HTTPError):
+        return err.code in (408, 429, 500, 502, 503, 504)
+    return True
+
+
+def download_to(url, dest, attempts=DOWNLOAD_ATTEMPTS, sleep=time.sleep):
+    """Fetch `url` to `dest`, retrying transport failures, atomically.
+
+    ATOMIC IS NOT DECORATION. `urllib.request.urlretrieve` writes straight to
+    the destination, so a transfer that dies part-way leaves a TRUNCATED file
+    at the path every later run then tests with `os.path.exists` and trusts —
+    a half-downloaded pronunciation dictionary silently becoming the lexicon.
+    The body lands on `<dest>.part` and is renamed only after the transfer
+    returns, so a failed attempt leaves the destination absent rather than
+    wrong.
+
+    `sleep` is a parameter so a test can prove the backoff without waiting
+    for it; production never passes it.
+    """
+    tmp = dest + ".part"
+    last = None
+    for attempt in range(attempts):
+        try:
+            with urllib.request.urlopen(url, timeout=DOWNLOAD_TIMEOUT_S) as r, \
+                    open(tmp, "wb") as f:
+                shutil.copyfileobj(r, f)
+            os.replace(tmp, dest)
+            return
+        except (urllib.error.URLError, http.client.HTTPException,
+                ConnectionError, TimeoutError) as err:
+            last = err
+            try:
+                os.remove(tmp)
+            except OSError:
+                pass
+            if not _download_retryable(err) or attempt == attempts - 1:
+                break
+            wait = DOWNLOAD_BACKOFF_S[min(attempt, len(DOWNLOAD_BACKOFF_S) - 1)]
+            print(f"  {os.path.basename(dest)}: {err} — retrying in {wait}s "
+                  f"({attempt + 2} of {attempts})", file=sys.stderr)
+            sleep(wait)
+    raise DownloadFailed(
+        f"{url} -> {os.path.basename(dest)} failed after "
+        f"{attempt + 1} attempt(s): {last}") from last
+
+
 def fetch_data():
     if not os.path.exists(CMUDICT_PATH):
         print(f"downloading {os.path.basename(CMUDICT_PATH)} ...", file=sys.stderr)
-        urllib.request.urlretrieve(CMUDICT_URL, CMUDICT_PATH)
+        download_to(CMUDICT_URL, CMUDICT_PATH)
     if not os.path.exists(FREQ_PATH):
         # Repo-committed and provenance-gated (data/sources.tsv), not a raw
         # upstream mirror -- the file adds a `#` header and a rank column
