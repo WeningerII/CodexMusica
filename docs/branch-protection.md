@@ -74,8 +74,33 @@ A conditional job does still report a `skipped` conclusion (`tandem` does exactl
 that). But `tandem` has neither a matrix nor a `needs:`, and `catalog` has both,
 so that is evidence about a differently-shaped job rather than proof about this
 one. `catalog-result` removes the question instead of betting on the answer:
-fixed name, no matrix, `if: always()`. It passes when the shards succeeded or
-were legitimately skipped, and fails on anything else.
+fixed name, no matrix, ~~`if: always()`~~ **`if: ${{ !cancelled() }}`**. It
+passes when the shards succeeded or were legitimately skipped, and fails on
+anything else.
+
+That struck condition is this page's own staleness and is corrected here rather
+than overwritten (doctrine 17). `always()` was replaced in `ci.yml` on
+2026-08-16 because it **includes the cancelled state**: the concurrency group is
+keyed on the branch and not the event, so whichever run starts later kills
+whatever is still running, and `always()` then aggregated a torn-down run into a
+red X on a sha whose surviving run was green. The reason the job exists is
+unchanged; the condition that makes it safe is not the one written here.
+
+`suites` JOINED THAT LIST 2026-09-01, and the entry above turned out to describe
+a rule rather than one job. `suites` — the 75-suite pool, the largest test job
+here — was an ordinary fixed-name job and was requireable; it is now a four-way
+matrix (`suites (shard 1/4)` and friends) for the same reason `catalog` is, so
+reason 1 above applies to it word for word. Reason 2 does **not**: `suites`
+carries no `if:`, so it runs on every event and a `skipped` result can only mean
+`gate` did not succeed. `suites-result` is its always-reporting name, and it
+differs from `catalog-result` in exactly that arm — a skip FAILS there and
+PASSES here, from the same aggregate value, because a suite pool that never ran
+must not report success.
+
+Whether to add `suites-result` to the required set is a policy call and is not
+made here. What is recorded here is that sharding `suites` moved it out of the
+set of names a merge can depend on, and that `suites-result` is the name to use
+if it should be back in.
 
 Do **not** add `tandem` — it is a weekly/on-demand job and does not run per-PR.
 

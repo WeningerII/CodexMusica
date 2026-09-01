@@ -1866,8 +1866,40 @@ jobs:
       # file. If the instrument's report changes shape and the parser stops
       # matching, it RAISES rather than reporting an empty set.
       # quality/test_expected_drift.py proves all three.
+      # ── THE FIVE FIXED CHECKS BELOW RUN ON SHARD 1 ONLY ──────────────
+      # Added with the shard matrix, 2026-09-01, because sharding a job
+      # multiplies every step in it and only ONE step above grows with the
+      # thing being sharded. The 75-suite loop is partitioned by the residue
+      # class; these five re-derive shipped constants over a FIXED corpus and
+      # are the same work whatever shard runs them, so un-gated they would be
+      # done four times and — worse than the waste — would sit in every
+      # shard's critical path, adding their whole cost to the wall clock the
+      # matrix exists to cut.
+      #
+      # MEASURED, run #1175: the `suites` job was 27.4 min of which the
+      # 75-suite step was 23.4, so everything else in the job is 4.0 min.
+      # Three of the five are individually priced in their own comments below
+      # (chance rate 45s, span-search null 3s, door census 1.9s); the two
+      # calibration re-derivations are the unpriced remainder. Four shards
+      # would have paid that 4.0 min four times over.
+      #
+      # `catalog` above does exactly this and states the same reason —
+      # "the fixed-size sections ... run on shard 1 only, since they do not
+      # grow with the catalog". This is that rule's second instance, and it
+      # is written here rather than inferred so the next shard count does not
+      # have to rediscover it.
+      #
+      # THE SETUP STEPS ARE NOT GATED and must not be: staging cmudict, the
+      # nltk install and the tagger model are what makes a runner able to run
+      # ANY suite, so every shard needs them. The distinction is not
+      # "fixed cost" — it is whether the other shards can do their work
+      # without it.
+      #
+      # `always()` is kept in the conjunction. It is why a failing suite loop
+      # does not hide these five, and gating on the shard must not quietly
+      # take that back.
       - name: Song-profile calibration, against the drift that is RULED (not silenced)
-        if: always()
+        if: ${{ always() && matrix.shard == 1 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1886,7 +1918,7 @@ jobs:
       # mutation set (test_meter_bands section 9 drives the comparison
       # logic; --check is this same comparison over the real sweep).
       - name: Meter-band adoption check, the shipped constants re-derived
-        if: always()
+        if: ${{ always() && matrix.shard == 1 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1915,7 +1947,7 @@ jobs:
       # this job's budget -- which is stated here because M-129's whole
       # subject was a shard whose cost nobody had written down.
       - name: Span-search null, the shipped band against the measured crossover
-        if: always()
+        if: ${{ always() && matrix.shard == 1 }}
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1943,7 +1975,7 @@ jobs:
       # COST, MEASURED before it was added: **1.9s**, pure AST, no corpus and
       # no scoring.
       - name: Door census, every pair-satisfaction site against the 77
-        if: always()
+        if: ${{ always() && matrix.shard == 1 }}
         working-directory: lyric-harness
         run: python3 quality/door_census.py --check
 
@@ -1964,12 +1996,79 @@ jobs:
       # pairs, each judged at three doors. It is here rather than in the
       # cheap-suite pool for exactly that reason.
       - name: Chance rate, the shipped door against random pairs
-        if: always()
+        if: ${{ always() && matrix.shard == 1 }}
         working-directory: lyric-harness
         run: python3 quality/chance_rate.py --check
 
       # The revision loop itself. 374.87 CPU-s for the pair, MEASURED, both
       # green -- against the "15+ minutes each" that kept them out until today.
+  # An always-reporting summary over the `suites` shards, so the largest test
+  # job in the repository can still be a REQUIRED status check.
+  #
+  # ADDED 2026-09-01 WITH THE SHARD MATRIX, AND IT IS A DEBT THE MATRIX
+  # INCURRED RATHER THAN A FEATURE. `suites` had a fixed name and was
+  # requireable; a matrix publishes four expanded names instead
+  # ("suites (shard 1/4)" ...), and `docs/branch-protection.md` already argues
+  # — about `catalog` — that requiring names carrying a matrix value means
+  # re-editing the required set every time the shard count changes. The shard
+  # count exists to track how long the suites take, so it will change. Without
+  # this job, sharding `suites` would have quietly moved it out of the set of
+  # jobs a merge can be made to depend on, and nothing would have said so.
+  #
+  # IT IS NOT `catalog-result` COPIED, and the difference is the `skipped`
+  # arm. `catalog` is CONDITIONAL — skipped whenever no changed path can move
+  # an artifact — so a skip there is legitimate and passes. `suites` carries
+  # no `if:` at all: it runs on every event, so the only way it reports
+  # `skipped` is that `gate` failed or was skipped, and a suite pool that
+  # never ran must not report success. That arm FAILS here and PASSES there,
+  # from the same aggregate value, because the two jobs are asked different
+  # questions (doctrine 1 — the reading belongs to the job, not to the code
+  # shape it shares).
+  #
+  # `!cancelled()` is carried from `catalog-result` WITH its reason: the
+  # concurrency group is keyed on the branch and not the event, so whichever
+  # run starts later kills whatever is still running, and a run being torn
+  # down must not be aggregated into a red X on a sha whose other run is
+  # green. `cancelled` reached inside that guard means a SHARD died on its own
+  # — a timeout or a lost runner — and is named apart from `failure` rather
+  # than folded into it (doctrine 79).
+  suites-result:
+    needs: suites
+    # A seconds-long fan-in; capped so a wedged runner cannot make it the
+    # slowest job in the run it exists to summarize.
+    timeout-minutes: 15
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Aggregate the suites shards
+        run: |
+          result="${{ needs.suites.result }}"
+          echo "suites aggregate result: $result"
+          case "$result" in
+            success)
+              echo "All shards passed."
+              ;;
+            skipped)
+              # Unlike `catalog`, this job has no `if:` — it runs on every
+              # event — so a skip means `gate` did not succeed and the suites
+              # never ran. Reporting success here would certify a pool that
+              # was never executed.
+              echo "::error::suites shards were SKIPPED — the job is unconditional, so this means gate did not succeed and no suite ran"
+              exit 1
+              ;;
+            cancelled)
+              # Reached only when the RUN was not cancelled (the `if:` above),
+              # so this is a shard that died on its own — a timeout or a
+              # runner loss.
+              echo "::error::suites shards were CANCELLED while the run was not — a shard hit its own timeout or lost its runner"
+              exit 1
+              ;;
+            *)
+              echo "::error::suites shards reported '$result'"
+              exit 1
+              ;;
+          esac
+
   # ── The revision pair, its own runner (SPLIT OUT 2026-08-18) ─────────────
   # It ran as the suites job's LAST step, sequential after the 49-suite
   # pool — measured on run #522: pool 21m46 (its wall is test_verbs, the
