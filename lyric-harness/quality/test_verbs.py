@@ -638,8 +638,15 @@ def test_brief_refuses_instead_of_tracebacking():
           rc == 2 and "REFUSED" in out and "Traceback" not in err)
 
 
-def test_every_verb_runs():
-    print("\n7. every dispatched verb runs, and none of them tracebacks")
+def _every_verb_fixture():
+    """-> (cases, quat, bp): one argv per dispatched verb, over a fresh tmpdir.
+
+    ONE ROSTER, READ BY TWO SECTIONS (2026-09-01, M-188). §7 runs it with
+    the staged resources present and §47 runs it with them hidden, and the
+    "covers every verb main() dispatches" check in §7 is what keeps the list
+    complete -- §47 inherits that completeness by reading the same dict
+    rather than carrying a second copy that would go stale on its own.
+    """
     d = tempfile.mkdtemp()
     quat = os.path.join(d, "q.txt")
     with open(quat, "w") as fh:
@@ -712,6 +719,12 @@ def test_every_verb_runs():
         # double §44's loop cost for a claim about reachability alone.
         "finish": ["finish", quat],
     }
+    return cases, quat, bp
+
+
+def test_every_verb_runs():
+    print("\n7. every dispatched verb runs, and none of them tracebacks")
+    cases, quat, bp = _every_verb_fixture()
     missing = sorted(lh._dispatched_verbs() - set(cases))
     check("this test covers every verb main() dispatches",
           not missing, f"uncovered: {missing or 'none'}")
@@ -4530,6 +4543,150 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
           "budget", rc == 2 and "--max-rounds" in out, f"rc {rc}")
 
 
+def test_a_missing_staged_resource_refuses_instead_of_crashing():
+    print("\n47. a missing STAGED RESOURCE refuses at exit 2 on the verbs "
+          "that need it, and the rest still answer (M-188)")
+    # THE DEFECT, MEASURED 2026-09-01 at 54650e5 (before the fix) with the
+    # same three hides used below, on `brief q.txt ABAB`: norms absent --
+    # exit 1, zero stdout, one stderr line `run quality/fetch_data.py first`;
+    # nltk unimportable -- exit 1, an ImportError traceback out of
+    # `features._tagger`; tagger model absent -- exit 1, a LookupError
+    # traceback AFTER the report's first line had printed. `score fire --
+    # desire` exited 0 in the same tree. Exit 1 is outside the 0/2/3/4
+    # contract, and `mcp/lyric_tools.js` reads it as a crashed subprocess
+    # (CI run #555, 2026-08-18, is the precedent ci.yml cites).
+    #
+    # THE HIDES NEVER TOUCH THE SHARED TREE. `data/concreteness.txt` and
+    # `data/nltk` are symlinks every worktree on the box reads, so the norms
+    # are hidden by `LYRIC_STAGED_DATA` (read in ONE place,
+    # `quality/features.py`, and named in the refusal), the model by nltk's
+    # own `NLTK_DATA`, and the package by a stub on `PYTHONPATH` whose
+    # `__init__` refuses to import -- the same `env=` overlay §17 uses.
+    from quality.features import STAGED_RESOURCES, STAGING_COMMANDS
+    cases, quat, bp = _every_verb_fixture()
+    d = tempfile.mkdtemp()
+    empty = os.path.join(d, "empty")
+    os.makedirs(empty)
+    stub = os.path.join(d, "stub")
+    os.makedirs(os.path.join(stub, "nltk"))
+    with open(os.path.join(stub, "nltk", "__init__.py"), "w") as fh:
+        fh.write('raise ImportError("nltk hidden by test_verbs.py section 47")\n')
+    real_nltk = os.path.abspath(os.path.join(ROOT, "data", "nltk"))
+    HEAD = (f"REFUSED — the slop floor needs {len(STAGED_RESOURCES)} staged "
+            f"resources")
+    norms, package, model = STAGED_RESOURCES
+
+    def refused(rc, out, err):
+        # exit 2, the ONE refusal shape, no traceback -- and nothing on
+        # stderr at all: the refusal is an ANSWER and goes where answers go.
+        return rc == 2 and HEAD in out and "Traceback" not in err
+
+    def first(out):
+        return (out.strip().splitlines() or ["(no stdout)"])[0][:110]
+
+    # -- the three faces, one at a time -----------------------------------
+    rc, out, err = run("brief", quat, "ABAB",
+                       env={"LYRIC_STAGED_DATA": empty, "NLTK_DATA": real_nltk})
+    check("norms absent: `brief` REFUSES at exit 2, names the file as the "
+          "one MISSING resource, and prints BOTH staging commands",
+          refused(rc, out, err) and "1 of them is missing" in out
+          and f"MISSING     {norms}" in out
+          and f"PRESENT     {package}" in out and f"PRESENT     {model}" in out
+          and STAGING_COMMANDS in out and "pip install nltk" in out
+          and "quality/fetch_data.py" in out
+          and "LYRIC_STAGED_DATA" in out,
+          f"rc {rc}; {first(out)}")
+    rc, out, err = run("brief", quat, "ABAB", env={"PYTHONPATH": stub})
+    check("package absent: REFUSES naming `nltk`, and reports the model NOT "
+          "PROBED rather than missing — doctrine 28, none is not cannot-tell",
+          refused(rc, out, err) and "1 of them is missing" in out
+          and f"MISSING     {package}" in out
+          and f"NOT PROBED  {model}" in out
+          and f"PRESENT     {norms}" in out,
+          f"rc {rc}; {first(out)}")
+    rc, out, err = run("brief", quat, "ABAB", env={"NLTK_DATA": empty})
+    check("model absent: REFUSES before a line of the report prints — the "
+          "lazy first-tag LookupError no longer arrives mid-report",
+          refused(rc, out, err) and "1 of them is missing" in out
+          and f"MISSING     {model}" in out
+          and out.lstrip().startswith("REFUSED") and "BLUEPRINT:" not in out
+          and err == "",
+          f"rc {rc}; {first(out)}; stderr {len(err)} byte(s)")
+    rc, out, err = run("brief", quat, "ABAB",
+                       env={"LYRIC_STAGED_DATA": empty, "PYTHONPATH": stub})
+    check("norms and package absent together: 2 MISSING, 1 NOT PROBED, 0 "
+          "PRESENT — three counts, printed apart, never summed (doctrine 79)",
+          refused(rc, out, err) and "2 of them are missing" in out
+          and out.count("MISSING     ") == 2
+          and out.count("NOT PROBED  ") == 1
+          and out.count("PRESENT     ") == 0,
+          f"rc {rc}; {first(out)}")
+    rc, out, err = run("brief", quat, "ABAB")
+    check("CONTROL: the same command with the resources present answers "
+          "(rc 0 or 3) and prints no refusal — the hides are what refused",
+          rc in (0, 3) and HEAD not in out and "Traceback" not in err,
+          f"rc {rc}; {first(out)}")
+
+    # -- the partition, MEASURED: every verb, everything hidden ----------
+    # `python3 quality/test_verbs.py` runs this; the roster is §7's own.
+    hidden = {"LYRIC_STAGED_DATA": empty, "NLTK_DATA": empty}
+    refusing, answering, bad = [], {}, []
+    for verb, argv in sorted(cases.items()):
+        rc, out, err = run(*argv, env=hidden)
+        if "Traceback" in err or rc not in (0, 2, 3):
+            bad.append(f"{verb} (rc {rc})")
+        if HEAD in out:
+            refusing.append(verb)
+            if rc != 2 or STAGING_COMMANDS not in out:
+                bad.append(f"{verb} refused for resources without exit 2 "
+                           f"and the commands (rc {rc})")
+        else:
+            answering[verb] = rc
+    check(f"every one of the {len(cases)} dispatched verbs stays inside the "
+          f"0/2/3 contract with all three resources hidden — no exit 1, no "
+          f"traceback",
+          not bad and len(refusing) + len(answering) == len(cases),
+          f"outside the contract: {bad or 'none'}")
+    # EMPIRICALLY VERIFIED 2026-09-01 -- this is the partition the run
+    # above produced, pinned, and it corrected a guess: `readability` was
+    # expected on the grading side and answers at 0 without the floor.
+    # `finish` is on the answering side HERE only because §7's row is the
+    # no-seed refusal, which comes before the floor; the seeded row below
+    # is where it reaches it. Moving a verb across this line is a real
+    # change to what a fresh checkout can run, so it should fail here.
+    NEED = ["brief", "revise", "screen", "song", "verify"]
+    check(f"exactly these {len(NEED)} verbs reach the floor and refuse for "
+          f"resources: {' '.join(NEED)}",
+          refusing == NEED,
+          f"refusing: {refusing}")
+    check("the verbs the ruling names -- score, candidates, plan -- and "
+          "readability answer CLEAN (rc 0) without any of the three",
+          all(answering.get(v) == 0
+              for v in ("score", "candidates", "plan", "readability")),
+          f"answering: {sorted(answering.items())}")
+    check(f"the other {len(cases) - len(NEED)} answer, and every one but "
+          f"`finish` (its own --seed refusal, rc 2) at rc 0",
+          len(answering) == len(cases) - len(NEED)
+          and answering.get("finish") == 2
+          and all(rc == 0 for v, rc in answering.items() if v != "finish"),
+          f"non-zero: {sorted((v, rc) for v, rc in answering.items() if rc)}")
+    rc, out, err = run("plan", "--sweep=1-4", env=hidden)
+    check("`plan --sweep=` answers without the floor",
+          rc == 0 and HEAD not in out and "Traceback" not in err
+          and "SWEEP:" in out, f"rc {rc}; {first(out)}")
+    rc, out, err = run("finish", quat, "--seed=16", env=hidden)
+    check("`finish --seed=` reaches the floor and REFUSES for resources -- "
+          "past its own no-seed refusal, it is the sixth grading verb",
+          refused(rc, out, err) and STAGING_COMMANDS in out,
+          f"rc {rc}; {first(out)}")
+    rc, out, err = run("song", bp, quat, "ABAB", env=hidden)
+    check("`song` with a mandate REFUSES for resources too -- the floor is "
+          "built before the mandate is read, so the resource refusal is "
+          "the first thing a fresh checkout hears from it",
+          refused(rc, out, err) and STAGING_COMMANDS in out,
+          f"rc {rc}; {first(out)}")
+
+
 if __name__ == "__main__":
     _SECTIONS = (
         test_the_map_is_not_stale,
@@ -4579,6 +4736,7 @@ if __name__ == "__main__":
         test_every_workflow_file_is_parseable_yaml,
         test_finish_is_the_one_door_from_draft_to_rendered_song,
         test_the_cynghanedd_verb_reaches_caesura_and_marks,
+        test_a_missing_staged_resource_refuses_instead_of_crashing,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —
     # measured 21-22 minutes on CI run #524, and after the pool went
