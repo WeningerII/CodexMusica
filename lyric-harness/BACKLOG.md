@@ -1679,6 +1679,7 @@ pricing, M-136's required words and assonance profile).
 | M-184 (2026-09-02) | the group sentence names its place on every mandate; the two pins that asserted the old spelling moved with it; tier 2's anchor side stays OPEN | `test_revise` §40/§43 |
 | M-168 (2026-09-02) | round 11 is the owner's, and the order is merge → deploy → dispatch; a round pressed first measures the round-10 connector | — |
 | M-193 (2026-09-02) | a short song is graded on four thresholds until stage B lands; the pursued PREDICTABLE_RHYME is silent on that band meanwhile, and the register says so | `test_verbs` §6 |
+| M-186 (2026-09-02, the owed pin) | `finish` on a swept 13-line seed with a clean hand draft exits 3 on a whole-draft flag alone, and 0 with the flag cleared | `test_verbs` §53 |
 | M-198 (2026-09-02) | a re-opened mandate carries its placements — the fourth coordinate the re-open branch had dropped in silence | `mandate()`'s re-open rebuild, `loci=spec.loci` |
 | M-184 (2026-09-02, tier 2) | the anchor side of a backtrack reads each mate at its own slot and only in the groups that bind the rewritten word | `_anchor_obligations`, `rewriting_label` |
 | M-186 (2026-09-02) | a whole-only exit 3 is labelled by its cause everywhere the exit travels — the connector's status, the three transcripts, the deferred state | `loopStatusOf`, `loop_whole_flag_codes` |

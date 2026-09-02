@@ -117,6 +117,7 @@ import glob
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -4844,6 +4845,79 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
           f"rc {rc2}; " + out2[out2.find("STANDING"):][:200])
 
 
+def test_finish_exits_3_on_a_whole_draft_flag_alone():
+    """M-186's owed pin (paid 2026-09-02): `finish` with NO line open and a
+    WHOLE-DRAFT FLAG standing exits 3 and stamps the clause, and the same
+    draft with the flag cleared exits 0 with no clause.
+
+    §44's stamp pin was widened for M-186 but its fixture always has lines
+    open, so the `or` in it is satisfied either way and a `finish` that
+    ignored whole flags would still pass it (the tier-A verification's
+    reading, confirmed by the completeness critic). This fixture is the
+    isolated case: seed 176 under a declared plain rhyme (`--relation=RHYME`
+    silences the schema draw, so every group is judged as rhyme), the
+    sparsest plan a 1..300 sweep offers (`lines<=14;binding_cap<=1`), and a
+    hand-written draft whose seven groups all pass the band, the two-tier
+    ban and the modal screen (`screen` said CLEAN on each pair). The title
+    "zebra confetti" is not in the hook line (L3), so TITLE_NOT_IN_HOOK — a
+    whole-draft FLAG — is the only finding standing.
+
+    THE DRAFT IS THE SEED'S: the plan is a pure function of the seed and
+    the declarations, so if the planner's envelope is ever re-derived and
+    seed 176 re-dealt, the first check below reads the refusal and the
+    fixture is re-cut, never the assertion.
+    """
+    print("\n53. `finish` exits 3 on a WHOLE-DRAFT flag ALONE, and stamps it "
+          "— the isolated case M-186 owed")
+    d = tempfile.mkdtemp()
+    draft = os.path.join(d, "whole176.txt")
+    with open(draft, "w", encoding="utf-8") as fh:
+        fh.write("the kettle hums before the light\n"
+                 "and every window learns my name\n"
+                 "I keep the door unlocked for you\n"
+                 "I keep the door unlocked for you\n"
+                 "the river carries every stone downhill\n"
+                 "and until dawn the cattle sleep\n"
+                 "I found a coin beneath the pier again\n"
+                 "a career of swallows nesting in Cayenne\n"
+                 "one candle burns beside the open door\n"
+                 "the town made every scandal into folklore\n"
+                 "she wrote a letter I could never read\n"
+                 "a sweater keeps the promise like a creed\n"
+                 "the kettle hums, the light comes on\n")
+    common = ["--seed=176", "--relation=RHYME", "--attempts=0",
+              "--backtrack=0", "--max-rounds=1"]
+    rc, out, _ = run("finish", draft, "--title=zebra confetti", *common)
+    st = re.search(r"\[FINISHED — seed 176 — exit (\d) — (\w+) after (\d+) "
+                   r"round\(s\) — ([^\]]+)\]", out)
+    check("the plan is the seed's and the draft fills it: the run reaches "
+          "a stop and stamps (a rc 2 here means seed 176 was re-dealt — "
+          "re-cut the fixture)",
+          rc in (0, 3) and st is not None,
+          f"rc {rc}; " + (st.group(0) if st else out[-300:]))
+    check("with NO line open and TITLE_NOT_IN_HOOK standing, `finish` exits "
+          "3 — the whole-draft flag alone drives the exit",
+          rc == 3 and st is not None and st.group(1) == "3"
+          and st.group(2) == "SUCCESS",
+          st.group(0) if st else "")
+    check("...and the stamp says why: `no flag stands` beside `WHOLE-DRAFT "
+          "FLAG: TITLE_NOT_IN_HOOK`",
+          st is not None and st.group(4) ==
+          "no flag stands — WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK",
+          st.group(4) if st else "")
+    check("...and the STANDING block prints the flag in the report's own "
+          "spelling",
+          "WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK" in out)
+    rc0, out0, _ = run("finish", draft, "--title=the door unlocked", *common)
+    st0 = re.search(r"\[FINISHED — seed 176 — exit (\d) — [^\]]*\]", out0)
+    check("CONTROL: a title the hook carries clears the flag — exit 0, and "
+          "the stamp has no WHOLE-DRAFT clause",
+          rc0 == 0 and st0 is not None and st0.group(1) == "0"
+          and "WHOLE-DRAFT" not in st0.group(0),
+          st0.group(0) if st0 else out0[-200:])
+    shutil.rmtree(d, ignore_errors=True)
+
+
 def test_the_pasted_song_has_the_same_door_as_a_planned_one():
     print("\n49. `recover` is a verb, and `revise` under defer: renders and "
           "stamps a pasted song's stop (`MISSING.md` M-195)")
@@ -4993,6 +5067,7 @@ if __name__ == "__main__":
         test_the_loop_verbs_exit_on_what_stands_at_the_stop,
         test_the_pasted_song_has_the_same_door_as_a_planned_one,
         test_the_plan_report_discloses_density_and_audibility,
+        test_finish_exits_3_on_a_whole_draft_flag_alone,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —
     # measured 21-22 minutes on CI run #524, and after the pool went

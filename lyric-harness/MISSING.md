@@ -18069,9 +18069,17 @@ its 36 open lines. `test_verbs.py` §48 goes 2 of 3 red on a copy with
 `_whole_codes` emptied; §44's widened stamp pin cannot discriminate BY
 THE VERIFIER'S READING of its fixture (every run of it has lines open, so
 the `or` is satisfied either way — the run against the mutant itself was
-cut off), and an isolated whole-only `finish` fixture is not constructible at HEAD (no banked seed reproduces
-its song's line count, and no swept seed draws a mandate a clean draft
-satisfies) — recorded as the pin this closure still owes. **FOUR CARRIERS
+cut off), and an isolated whole-only `finish` fixture was not constructible
+from the BANK (no banked seed reproduces its song's line count). **THE OWED
+PIN IS PAID 2026-09-02**: `plan --sweep=1-300 --want='lines<=14;binding_cap<=1'`
+offers two seeds; seed 176 under `--relation=RHYME` (every group judged as
+plain rhyme) is a 13-line, seven-group plan a hand-written draft fills —
+each pair `screen`ed CLEAN, four first choices BANNED as MODAL_RHYME and
+replaced — and with the title "zebra confetti" absent from its hook line
+`finish` stamps `exit 3 — SUCCESS after 0 round(s) — no flag stands —
+WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK`; with a title the hook carries, the
+same draft stamps `exit 0` and no clause. `test_verbs.py` §53, which a
+`finish` that ignored whole flags fails on the exit alone. **FOUR CARRIERS
 DROPPED THE CAUSE, repaired the same day**: `lyric_revise`'s `status`
 labelled a whole-only exit 3 `stopped_with_open_lines` beside a
 `loop_unresolved` of 0 (now `stopped_with_whole_draft_flags`, read off the
@@ -18853,4 +18861,5 @@ re-opened with a relation, a structure, a return and a scope keeps its
 the loop's `revise_loop` re-open (`Reviser.mandate`) is a build, not a
 re-open. The route it closes is the API's, and the register's own sections
 (M-116's `default_relation` re-open over `--groups=` with places) are where
-it would have bitten first.
+it would have bitten first. `quality/audit_register.py`'s PINNED
+`coverage_entries` moved ~~254~~ **255** with this entry (2026-09-02).

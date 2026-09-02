@@ -33,7 +33,7 @@ it; an OPEN row says what it waits on.
 | C07 | B | the instructions let a chat skip the sweep and the screen | M-189 CLOSED (sweep-first sentence; the screen judges the drawn relation) |
 | C22 | B | a chorus drawn once finished at exit 0 with no hook askable | M-190 CLOSED |
 | C08 | B | every song shops the same clean glossary (M-111) | OPEN — RULINGS WANTED #5 is the owner's (may a check read `songs/`) |
-| C21 | A | `revise`/`finish` exited 0 over a standing whole-draft flag; the stop printed no findings | M-186 CLOSED — verified 2026-09-02; four carriers that dropped the cause (the connector's status label, three transcripts, the deferred state) repaired the same day; a whole-only `finish` pin is still owed |
+| C21 | A | `revise`/`finish` exited 0 over a standing whole-draft flag; the stop printed no findings | M-186 CLOSED — verified 2026-09-02; four carriers that dropped the cause (the connector's status label, three transcripts, the deferred state) repaired the same day; the whole-only `finish` pin is paid (test_verbs §53, seed 176) |
 | C15 | B | `lyric_check`'s verdict dropped the whole-draft flags and unreadable end words | M-186 CLOSED |
 | C06 | B | `--voices` / `--fallback` were unreachable from the connector | M-189 CLOSED |
 | C23 | B | the song-length floor has a false-positive rate and no true-positive rate (no generated class) | OPEN — RULINGS WANTED #20 (a sitting) |
@@ -72,7 +72,7 @@ the named entries' addenda; the short form:
 | C02 | PARTIAL | the code rungs are closed and undeployed; round 11 is the owner's after a merge; three rungs of round 10's ladder have no entry (M-168) |
 | C14 | PARTIAL, repaired the same day | the CLI door held; the connector read no refusals and refused its own mandate — both repaired, a live `lyric_recover` pin added; the recover → check → revise chain on a recovered DEFAULT mandate is pinned at the schema only, not run end to end (M-195) |
 | C05 | PARTIAL, repaired the same day | the CLI paste finishes end to end; the connector chained only with `placements` narrowed until the same two defects were repaired; the repaired chain on a default recovered mandate is not run by any pin (M-195) |
-| C21 | CLOSED | the exit and both stamps hold and agree with `song`; four carriers dropped the whole-flag cause (status label, three transcripts, the deferred state) and were repaired; the whole-only `finish` pin is still owed (M-186) |
+| C21 | CLOSED | the exit and both stamps hold and agree with `song`; four carriers dropped the whole-flag cause (status label, three transcripts, the deferred state) and were repaired; the whole-only `finish` pin is paid on a swept seed (M-186, test_verbs §53) |
 
 Two CLOSED (C16, C21), four PARTIAL (C17, C02, C14, C05) as the verifiers
 gave them — the commit message of `551e8e8` says "four CLOSED, two PARTIAL",
