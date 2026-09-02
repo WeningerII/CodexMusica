@@ -14155,6 +14155,25 @@ is confined to `total` and the agreement side must carry them); adopted
 if held = per-relation thresholds on `Declaration`, D18 repinned from
 0.902, the FWER and matrix P3 pins re-adopted as bands.
 
+**AND THE PRICING'S OWN TAIL WAS A SECOND DOOR, FOUND THE SAME DAY BY CI AND
+NOT BY READING (2026-09-02).** Adopting a per-relation cut moves the coordinate
+`theta_for` reads, and M-139's whole content is that a moved door leaves sites
+behind — so the adoption's real cost is the ROSTER, and the roster was one name
+short. `quality/recover.py` admitted its edges at a flat `decl.theta_rhyme`
+while the grader judged them at 0.82, so the second door began laying down
+covers the grader then charges: the module whose entire doctrine-14 sentence is
+that `--groups=` cannot produce a rhyme violation BY CONSTRUCTION, made false
+by the pricing four commits earlier. `test_recover.py` §8 caught it, which is
+that check earning its keep — it REGRADES the emitted spelling rather than
+asserting the sentence. The admit reads `theta_for` per pair now when the
+caller declared no theta (a DECLARED flat cut still wins outright — doctrine 1,
+a caller stating the coordinate is not overruled here), and `recover.recover`
+joins `theta_for`'s named roster and `test_band.py` §8's pin. It is the FOURTH
+reader and the first that does not itself grade; the argument for putting a
+non-grading site on a MANDATE VERDICT roster is that the cover goes straight to
+`--groups=`, so it asks the verdict's question one step early.
+
+
 ### M-139 · the door moved twice and 17 of 19 sites are short of it `OPEN`
 The doctrine-9 lane of the comparator audit, opened on the candidate field and
 widened by the owner's ruling mid-sitting. **The first draft of this entry had
