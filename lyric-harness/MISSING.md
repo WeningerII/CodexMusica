@@ -17927,6 +17927,24 @@ backtracks only a PIVOT's groups; a two-member group whose call is common
 needs the CALL line rewritten to a rarer member and nothing walks that.
 Filed on BACKLOG's RULINGS WANTED beside M-138.
 
+**ADDENDUM 2026-09-01, THE PINS THE SCREEN MOVED IN `test_loop.py`,
+found by the tree-wide sweep after the batch shipped.** Three sections
+pinned the loop's behaviour on the UNSCREENED menu and are repinned with
+this entry as the reason: §4 and §15 (the stub route and the `GroupBrief`
+route on `SILVER_MIND`) expected the tier-2 backtrack to land on a
+directionally-modal pair and the loop to stop `no_progress` with L3
+pursued — the screened menu no longer offers `mankind` against `mind`,
+the backtrack lands on `find`/`around`, and BOTH routes reach SUCCESS
+with nothing pursued; §21 (M-183's stuck-line drive on `CLICHE`) read
+"every line asked in round 1 is asked again in round 2" off the round-1
+records, and the stock fix for L1 now lands on a screened word that
+CLOSES L3's `MODAL_RHYME` with it, so L3 is rightly not asked again — the
+pin reads the open lines off the round-2 draft's own brief and pins the
+closed line apart (doctrine 79). No loop behaviour is asserted that the
+entry's own measurement did not predict; what the sweep found is that
+three exemplar pins had been written before the screen and not re-read
+after it.
+
 ### M-186 · `revise`/`finish` exited 0 over a standing whole-draft flag, the stop printed no findings, and the connector read `brief`'s 0 as "no flag stands" `CLOSED` 2026-09-01 — found by the 2026-09-01 triage audit's probes on `keep_the_light.txt` and a TITLE_NOT_IN_HOOK draft
 **FOUR DEFECTS, ONE SENTENCE: the stop looked cleaner than the draft.**
 (1) The shared revise/finish exit block computed its code off

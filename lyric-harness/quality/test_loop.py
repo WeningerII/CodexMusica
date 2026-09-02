@@ -991,9 +991,16 @@ def test_tier2_still_resolves_a_joint_conflict_through_group_brief():
     # RESTATED 2026-08-17: same outcome as test 4 under mandatory pursuit —
     # the backtrack clears the joint conflict, its accepted word is
     # directionally modal, and the loop refuses to call that success.
-    check("stops loudly, exactly as test 4 does with the stub",
-          res.stop_reason == "no_progress"
-          and [b.line_no for b in res.unresolved_pursued] == [3],
+    # REPINNED 2026-09-01 WITH TEST 4 (`MISSING.md` M-185): the menu no
+    # longer offers a word whose own head holds the call, so the backtrack
+    # lands on a pair that does not re-open and BOTH routes — the stub and
+    # this `GroupBrief` proposer — reach SUCCESS with nothing pursued. The
+    # claim this check makes is unchanged: the contract route stops exactly
+    # as the stub does; what the stub does moved, and this pin with it.
+    check("stops exactly as test 4 does with the stub — SUCCESS, nothing "
+          "pursued left standing, since M-185's screened menu",
+          res.stop_reason == "success"
+          and [b.line_no for b in res.unresolved_pursued] == [],
           res.stop_reason)
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
     check("exactly one tier-2 attempt ran, and it was accepted",
@@ -1689,16 +1696,34 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     per_line = {}
     for ln, at, rd, fp in asked:
         per_line.setdefault(ln, []).append(rd)
-    open_lines = sorted(ln for ln in per_line if ln != 1)
+    # WHICH LINES ARE STILL OPEN AFTER ROUND 1 IS READ OFF THE ROUND-2
+    # DRAFT'S OWN BRIEF, never off the round-1 records — REPINNED 2026-09-01
+    # with M-185: the stock fix for L1 now lands on a word the SCREENED menu
+    # offered, and that word CLOSES L3's `MODAL_RHYME` (which was against
+    # L1's old end word) along with L1's own finding. A line closed by
+    # another line's fix is not open and is rightly not asked again; the
+    # first pin read "every line asked in round 1 is asked in round 2" and
+    # would charge that closure to the record key. The CLOSED line is pinned
+    # apart, as its own case (doctrine 79).
+    after_round1 = [l1_fix] + list(CLICHE[1:])
+    open_lines = sorted(b.line_no for b in R.brief(after_round1, "ABAB"))
+    closed_by_l1 = sorted(ln for ln in per_line
+                          if ln != 1 and ln not in open_lines)
     check("every record carries the round it was asked in and the "
           "fingerprint of the draft it was asked against",
           all(rd and fp for _, _, rd, fp in asked), asked)
     check("L1 was asked exactly once, in round 1", per_line.get(1) == [1],
           per_line.get(1))
-    check("each line still open after round 1 was asked AGAIN in round 2 — "
-          "once per round, never answered from the round-1 record",
+    check("each line still open after round 1 — open on the round-2 "
+          "draft's own brief — was asked AGAIN in round 2, once per round, "
+          "never answered from the round-1 record",
           open_lines and all(per_line[ln] == [1, 2] for ln in open_lines),
-          per_line)
+          f"open after round 1 {open_lines}; asked {per_line}")
+    check("...and the line L1's fix CLOSED (L3, whose MODAL_RHYME was "
+          "against L1's old word) was asked once and never again — closed "
+          "is not stuck, and the screened menu is why the fix closes it",
+          closed_by_l1 == [3] and per_line.get(3) == [1],
+          f"closed by L1's fix {closed_by_l1}; asked {per_line.get(3)}")
     check("the draft fingerprint alone could NOT have told the two "
           "questions apart: the open lines were asked in round 1 after L1's "
           "fix moved the draft, and round 2 opened on that same draft",
