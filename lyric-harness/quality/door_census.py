@@ -338,6 +338,36 @@ RULINGS = {
         "77, on 3 of 15 drafts, and 0 of the 10 with two readable spans are "
         "offerable. `MISSING.md` M-139."),
 
+    # ------------------------------------------- RULED 2026-09-01 (M-185,
+    # M-189, under the owner's delegation). Three new keys, five sites.
+    ("quality/revise.py", "Reviser.joint_field_screened"): (
+        PER_WORD,
+        "The offered candidate field, screened from the offered word's OWN "
+        "side (M-185): it holds ONE WORD against each call word and asks "
+        "the comparator's class, exactly as `_field_one` does, so the "
+        "schema half is not askable here at any price and the relation "
+        "half reads the band. Same disposition as `_field_one`, for the "
+        "same reason; the site is new because the screen is."),
+    ("quality/revise.py", "Reviser._offer_reopens"): (
+        PER_WORD,
+        "The conservative outranker count behind M-185's screen: does an "
+        "offered word REOPEN a modal head from the other side? It reads "
+        "`decl.admit` on word pairs — the declared door, one word each — "
+        "and answers a COUNT that bounds a scan (`_SCREEN_SCAN`), never a "
+        "verdict on a pair; the 77 judge line pairs and cannot be asked."),
+    ("lyric_harness.py", "main"): (
+        RENDERING,
+        "The `screen` verb's three sites (M-189): the COARSE class column "
+        "printed beside each pair, and the `n_near` tail count. The "
+        "verdict the screen delivers is `Reviser.grade` on a minimal "
+        "mandated pair — FULL, through that call — and, with "
+        "`--relation=`, `relations.pair_satisfies` at the declared tokens; "
+        "the coarse column is a rendering of the comparator's class that "
+        "the printed note says is NOT the grade's question (`the verdict "
+        "column is the COARSE class; a mandate declaring a NAMED relation "
+        "is judged by that name's own cell`). Three sites, one key: the "
+        "table is keyed by function and the verb lives in `main`."),
+
     # ----------------------------------------------------------- RENDERING
     # `check_scheme`'s own naming test is NOT keyed here: this table is keyed
     # by function, that function is already ruled FULL above, and a second
@@ -500,8 +530,14 @@ _BY_DOOR = {
 #: `test_door_census.py` §4 now requires every ARGUED reason to carry a
 #: MEASUREMENT and a register citation, because ARGUED is the disposition
 #: a site could otherwise be TALKED into.
-PINNED = {"sites": 21, "full": 4, "incomplete": 0, "per_word": 1,
-          "rendering": 3, "validation": 1, "argued": 12}
+#: REPINNED 2026-09-01 from ~~21 / per_word 1 / rendering 3~~: five sites
+#: joined — M-185's screened field and its outranker count (PER_WORD, two
+#: sites) and M-189's `screen` verb (RENDERING, three sites under `main`).
+#: No door moved; `full` and `incomplete` are unchanged, which is the
+#: control that the delegation sitting widened nothing (`MISSING.md`
+#: M-185, M-189).
+PINNED = {"sites": 26, "full": 4, "incomplete": 0, "per_word": 3,
+          "rendering": 6, "validation": 1, "argued": 12}
 
 
 def _innermost(tree):

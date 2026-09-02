@@ -118,6 +118,20 @@ def _p_screen(out):
     # apart, so the log records them apart — two facts, never summed
     # (doctrine 79). The old one-bucket shape is kept as a fallback so a
     # pre-split transcript still parses to its own honest fact name.
+    # M-189 (2026-09-01) split the clean bucket AGAIN: a pair the default
+    # door ADMITS as a near relation is neither a rhyme nor a non-rhyme the
+    # mandate will charge, so the tail counts it apart — three clean
+    # facts now, never summed. The M-113 four-count tail and the one-bucket
+    # tail stay readable for the transcripts that carry them.
+    m = re.search(r"^\s*(\d+) banned, (\d+) refused, (\d+) clean and "
+                  r"rhyming, (\d+) clean and ADMITTED[^,]*, (\d+) clean but "
+                  r"not a rhyme", out, re.M)
+    if m:
+        facts += [("banned", m.group(1)), ("refused", m.group(2)),
+                  ("clean_rhyming", m.group(3)),
+                  ("clean_admitted", m.group(4)),
+                  ("clean_non_rhyme", m.group(5))]
+        return facts
     m = re.search(r"^\s*(\d+) banned, (\d+) refused, (\d+) clean and "
                   r"rhyming, (\d+) clean but not a rhyme", out, re.M)
     if m:
@@ -333,13 +347,22 @@ def append(song, rows):
             f.write("\t".join(str(r[k]) for k in HEADER) + "\n")
 
 
-def record(song, argv):
+def record(song, argv, allow_dirty=False):
     verb = verb_of(argv)
     if verb is None:
         print("  REFUSED — no declared parser for this command.")
         print("    declared: " + ", ".join(sorted(PARSERS)))
         print("    A row banked from output nothing read is a row that looks")
         print("    like a record and is a memory (doctrine 20).")
+        return 2
+    # THE ROW IS KEYED ON A COMMIT (M-196, 2026-09-01) — refused BEFORE the
+    # command runs, so a refused record costs nothing; `--allow-dirty` is
+    # the declared way past, and the row is then stamped as working-tree.
+    stamp = harness_commit()
+    if stamp.endswith("-WORKING") and not allow_dirty:
+        print("  REFUSED — the tree is dirty (%s): a log row keyed on a commit "
+              "that does not exist. Commit first, or pass --allow-dirty to "
+              "record a working-tree run on purpose." % stamp)
         return 2
     proc = subprocess.run(argv, cwd=ROOT, capture_output=True, text=True)
     out = proc.stdout + proc.stderr
@@ -549,6 +572,21 @@ def verdicts():
                         print("  MISMATCH %s: %r — the log says %s = %s, the "
                               "README says %s" % (song, claim, fact, got, said))
                         bad += 1
+    # A BANKED SONG WITH NO README SECTION IS A REFUSED ROW, NOT AN INVISIBLE
+    # ONE (2026-09-01, `MISSING.md` M-196): the loop above charges only the
+    # songs the README talks about, so a song in the bank at exit 3 with no
+    # section was charged nothing and looked clean (doctrine 79/20).
+    listed = {os.path.basename(song).replace(".txt", "")
+              for song, _ in _sections()}
+    banked = set()
+    for f in sorted(os.listdir(os.path.dirname(README))):
+        if f.endswith(".log.tsv"):
+            banked.add(f[:-len(".log.tsv")].replace(".txt", ""))
+    for song in sorted(banked - listed):
+        print("  REFUSED  %s — banked (a log exists) and no README section "
+              "names it; nothing can be charged against prose that is not "
+              "there" % song)
+        refused += 1
     with open(README, encoding="utf-8") as fh:
         whole = fh.read()
     cited = examples = 0
@@ -584,6 +622,8 @@ def verdicts():
 def main():
     ap = argparse.ArgumentParser(add_help=True)
     ap.add_argument("--record", metavar="SONG")
+    ap.add_argument("--allow-dirty", action="store_true",
+                    help="record on a dirty tree anyway (stamped -WORKING)")
     ap.add_argument("--show", metavar="SONG")
     ap.add_argument("--verdicts", action="store_true")
     ap.add_argument("cmd", nargs="*")
@@ -596,7 +636,7 @@ def main():
             print("  REFUSED — --record needs a command: "
                   "--record SONG -- python3 lyric_harness.py song ...")
             return 2
-        return record(a.record, argv)
+        return record(a.record, argv, allow_dirty=a.allow_dirty)
     if a.show:
         return show(a.show)
     if a.verdicts:

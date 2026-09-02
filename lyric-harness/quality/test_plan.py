@@ -37,6 +37,7 @@ Run: python3 quality/test_plan.py
 
 import ast
 import json
+import math
 import os
 import random
 import sys
@@ -2094,11 +2095,23 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     check("the SONG band is a strict SUBSET of the union — this narrows "
           "what the planner volunteers, it does not widen it",
           song < union, f"song {len(song)} of union {len(union)}")
-    check("and it is CONTIGUOUS, where the union is not: the famous 6-11 "
-          "hole is the gap between a QUATRAIN and a SONNET and was never a "
-          "fact about songs",
-          _PL.line_count_gaps(song) == []
-          and _PL.line_count_gaps(union) != [],
+    # REPINNED 2026-09-01 (`MISSING.md` M-193): a SECOND lyric-sheet
+    # profile, `short` (50-150 tokens), reaches 6..20 lines, so the SONG
+    # set is {6..20} | {22..55} with ONE hole at the seam between the two
+    # calibrated bands (150 tokens at the band's lowest tokens-per-line is
+    # 20 lines; 200 at its highest is 22). The old claim — contiguous
+    # where the union is not — held for one band; the argument it made
+    # still holds: every hole is a fact about which BANDS were unioned,
+    # and this one is the seam between two, not a fact about songs. The
+    # union's own 6-11 and 18-21 holes are FILLED by the short band and
+    # it now carries the same single seam.
+    check("and its one hole is the SEAM between the two calibrated bands "
+          "(21 lines), where the union used to carry the quatrain-sonnet "
+          "and sonnet-song holes as well — every hole is a fact about which "
+          "bands were unioned, never about songs",
+          set(range(6, 21)) <= song and set(range(22, 56)) <= song
+          and 21 not in song and len(_PL.line_count_gaps(song)) == 1
+          and _PL.line_count_gaps(union) == _PL.line_count_gaps(song),
           f"song gaps {_PL.line_count_gaps(song)}, "
           f"union gaps {_PL.line_count_gaps(union)}")
     # ===================================================================
@@ -2162,12 +2175,21 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     ordered = sorted(reaches.items(), key=lambda kv: min(kv[1]))
     touching = [(a, b) for (a, ra), (b, rb) in zip(ordered, ordered[1:])
                 if max(ra) + 1 >= min(rb)]
-    check("...and the three reaches are pairwise DISJOINT and "
-          "NON-ABUTTING, which FORCES one hole per seam — so the union's "
-          "hole count is len(profiles) - 1, and the second hole (18-21) "
-          "exists because M-131's band lifted the song floor clear of the "
-          "sonnet ceiling it used to overlap at 17",
-          not touching and len(holes) == len(reaches) - 1 == 2,
+    # REPINNED 2026-09-01 (M-193): four reaches now — section 4-5, short
+    # 6-20, sonnet 12-17, song 22-55 — and two of the three seams TOUCH
+    # (section abuts short at 5|6; short overlaps the sonnet outright), so
+    # the general form of the claim is what is pinned: a hole per seam
+    # that is disjoint and non-abutting, i.e. holes == seams - touching.
+    # Under the old three-profile table that read 2 == 2 - 0; it reads
+    # 1 == 3 - 2 now, and the single survivor is the sonnet-song seam
+    # M-131 opened (18-21), narrowed to 21 by the short band from below.
+    check("...and the union's hole count is the number of seams between "
+          "adjacent reaches that neither touch nor overlap — one hole per "
+          "such seam — which reads 1 == 3 - 2 over four profiles: the short "
+          "band abuts the section's reach and overlaps the sonnet's, and "
+          "only the sonnet-song seam M-131 opened still stands open, at 21",
+          len(holes) == (len(reaches) - 1) - len(touching) == 1
+          and len(touching) == 2,
           f"{len(holes)} hole(s) {holes} over {len(reaches)} reaches "
           f"{ {k: (min(v), max(v)) for k, v in ordered} }; "
           f"touching {touching}")
@@ -2176,12 +2198,18 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # (doctrine 1). Proven by ASKING the table rather than by reading the
     # source: exactly the profiles with `n_lines == 0` must reach the band.
     lyric = [p for p in FL.PROFILES if not p.n_lines]
+    _tlo, _thi = _PL.tokens_per_line_band()
     check("the band is the reach of exactly the profile(s) declaring "
-          "`n_lines == 0` — a lyric sheet has no fixed line count, which is "
-          "the coordinate, not the string 'song'",
-          len(lyric) == 1 and min(song) >= 1
-          and max(song) == int(lyric[0].hi // _PL.tokens_per_line_band()[0]),
-          f"{[p.name for p in lyric]}, max {max(song)}")
+          "`n_lines == 0` — TWO since M-193, and the set is their union: "
+          "a lyric sheet has no fixed line count, which is the coordinate, "
+          "not the string 'song'",
+          len(lyric) == 2 and min(song) >= 1
+          and max(song) == max(int(p.hi // _tlo) for p in lyric)
+          and min(song) == min(math.ceil(p.lo / _thi) for p in lyric)
+          and song == set().union(*[
+              set(range(max(1, math.ceil(p.lo / _thi)), int(p.hi // _tlo) + 1))
+              for p in lyric]),
+          f"{[p.name for p in lyric]}, {min(song)}..{max(song)}")
 
     # MUTATION 1 — the band must be a FUNCTION of the song profile, not a
     # literal wearing a derivation (doctrine 48).
@@ -2974,14 +3002,22 @@ def test_the_delegated_rulings(FAILURES=None):
           all(p["hook_slot"] is not None and not p.get("hook_slot_refused")
               for p in plans.values()),
           f"{sum(1 for p in plans.values() if p['hook_slot'])}/{len(plans)}")
+    # THE MUTATION HOLDS THE ENVELOPE STILL: `form_min_sections` reads
+    # `FORM_RECURS` too (M-193 derives the fillable floor from it), so
+    # clearing the table alone would move every seed's LENGTH draw and
+    # the moved set would be every seed. The count is pinned at the
+    # shipped 3 for the duration, so only the pattern rejection differs.
     saved = dict(_PL.FORM_RECURS)
+    real_min = _PL.form_min_sections
     try:
+        _PL.form_min_sections = lambda form: 3
         _PL.FORM_RECURS.clear()
         mutant = {k: [x["function"] for x in make_plan(seed=k)["sections"]]
                   for k in SEEDS}
     finally:
         _PL.FORM_RECURS.clear()
         _PL.FORM_RECURS.update(saved)
+        _PL.form_min_sections = real_min
     m_once = [k for k, fns in mutant.items() if fns.count("chorus") < 2]
     moved = [k for k in SEEDS if mutant[k] != shipped[k]]
     check("...the MUTATION that empties the table brings the once-drawn "

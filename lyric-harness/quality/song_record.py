@@ -144,7 +144,20 @@ def newest_per_song(rows):
     return out
 
 
-def cmd_write():
+def cmd_write(allow_dirty=False):
+    # A ROW IS KEYED ON A COMMIT, SO IT IS WRITTEN ON ONE (2026-09-01,
+    # `MISSING.md` M-196): 124 of 164 banked rows, every song's latest
+    # among them, carried a `-WORKING` stamp — a measurement keyed to a
+    # tree that never existed as a commit, which nothing read and nothing
+    # refused. A dirty tree refuses now; `--allow-dirty` is the declared
+    # way past, for the sitting that knows what it is doing and says so.
+    stamp = harness_commit()
+    if stamp.endswith("-WORKING") and not allow_dirty:
+        print(f"  REFUSED — the tree is dirty ({stamp}), so the row would be "
+              f"keyed on a commit that does not exist. Commit first, or pass "
+              f"--allow-dirty to bank a working-tree measurement on purpose "
+              f"(it will be stamped as one).")
+        return 2
     from quality.features import QualityFeatures
     qf = QualityFeatures()
     cols = header()
@@ -283,11 +296,13 @@ def cmd_claims():
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--write", action="store_true")
+    ap.add_argument("--allow-dirty", action="store_true",
+                    help="bank on a dirty tree anyway (stamped -WORKING)")
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--claims", action="store_true")
     a = ap.parse_args(argv)
     if a.write:
-        return cmd_write()
+        return cmd_write(allow_dirty=a.allow_dirty)
     if a.check:
         return cmd_check()
     if a.claims:

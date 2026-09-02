@@ -105,7 +105,8 @@ def main():
           0 < moved < len(words) // 1000,
           f"{moved} of {len(words)} positions move")
 
-    print("\n5. M-140's premise is live — the judge does not read `normative`")
+    print("\n5. M-140's premise WAS live — ruled 2026-09-01, the judge reads "
+          "`normative` now (the sweep still counts what the ruling closed)")
     from quality import relations as RF
     disowned = sorted(n for n, sc in RF.REGISTRY.items()
                       if getattr(sc, "normative", None)
@@ -116,14 +117,24 @@ def main():
     from quality.revise import _relation_phonology
     hit = RF.whole_vocabulary_pairs(["running", "singing"],
                                     _relation_phonology()).get((1, 2)) or []
-    check("5", "...and the ONE JUDGE returns a `forbidden` schema as a "
-          "reason a mandated pair is satisfied — the tier-1 ban's own "
-          "canonical example, with the ban's own name in the list",
-          "homoioteleuton" in hit, f"running/singing -> {hit}")
-    check("5", "the instrument COUNTS that rather than asserting it, and "
-          "reports the SOLE-satisfier case apart (it is 0 today, which is "
-          "why M-140 is filed LATENT and not live — doctrine 20)",
-          m["schema_sole_forbidden"] <= m["schema_any_forbidden"],
+    # REPINNED 2026-09-01 (`MISSING.md` M-140, ruled under the owner's
+    # delegation): this check ASSERTED the defect — `homoioteleuton`, the
+    # tier-1 ban itself, returned by the silent default as a reason a pair
+    # is satisfied. The default reads `normative` now and declines the
+    # four disowned names; the pin is inverted, and the sweep's own count
+    # of forbidden answers must read ZERO on both arms.
+    check("5", "...and the ONE JUDGE no longer returns a `forbidden` schema "
+          "as a reason a mandated pair is satisfied — the tier-1 ban's own "
+          "canonical example answers without the ban's name in the list",
+          "homoioteleuton" not in hit
+          and not any(n in hit for n in disowned),
+          f"running/singing -> {hit}")
+    check("5", "the instrument COUNTS that rather than asserting it: the "
+          "forbidden-answer and sole-satisfier counts over the sweep are "
+          "both 0 under the ruling, where the sole count alone was 0 before "
+          "(doctrine 20 kept M-140 filed LATENT until the default was made "
+          "to CLAIM what it claims)",
+          m["schema_any_forbidden"] == 0 and m["schema_sole_forbidden"] == 0,
           f"answered on {m['schema_any_forbidden']}, sole on "
           f"{m['schema_sole_forbidden']}")
 

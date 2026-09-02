@@ -74,14 +74,14 @@ def test_an_unparseable_command_is_refused_not_banked():
     print("\n2. two refusals — no parser, and a parser that read nothing")
     check("an undeclared verb has no parser key", L.verb_of(
         ["python3", "lyric_harness.py", "density", "x.txt"]) is None)
-    rc, out = run(["quality/song_log.py", "--record", "__probe__.txt", "--",
+    rc, out = run(["quality/song_log.py", "--record", "__probe__.txt", "--allow-dirty", "--",
                    "python3", "lyric_harness.py", "density", "songs/one_more.txt"])
     check("...and `--record` REFUSES it at exit 2 rather than banking an "
           "invocation nothing read", rc == 2 and "REFUSED" in out,
           out.strip().splitlines()[0] if out.strip() else f"rc={rc}")
     check("...naming the declared vocabulary, so the refusal is actionable",
           "screen" in out and "revise" in out)
-    rc2, out2 = run(["quality/song_log.py", "--record", "__probe__.txt", "--",
+    rc2, out2 = run(["quality/song_log.py", "--record", "__probe__.txt", "--allow-dirty", "--",
                      "python3", "lyric_harness.py", "screen"])
     check("a DECLARED verb whose output the parser reads nothing from is "
           "refused too — the verb's output moved, and a silent empty row "

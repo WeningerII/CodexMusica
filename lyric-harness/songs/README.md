@@ -861,7 +861,27 @@ the draft unchanged. No MODAL_RHYME, HOMEOTELEUTON or PREDICTABLE_RHYME note
 stands anywhere in the report, because the screening happened before the
 writing rather than after it.
 
-## the_long_way_back — the song M-148 parked, finished the day the judge was repaired
+## `i_am_not_leaving.txt` — parked at exit 3, never given a section until 2026-09-01
+
+Banked 2026-08-26 at `f19895d` under a declared mandate of 12 groups over
+20 sung lines (65 mandated pairs). Its last recorded run is `song` exit 3
+with 1 FLAG — one `SCHEME_VIOLATION` — and 86 notes, none of them
+whole-draft flags. It was never finished and never listed here; the
+2026-09-01 triage audit (finding C27, `MISSING.md` M-196) found it in the
+bank with no section, and this section exists so the `--verdicts` gate has
+prose to charge. What stands is the one violated pair; the song is parked,
+not abandoned, and the seed it was planned from is in its log.
+
+## `oar_lair.txt` — parked at exit 3, never given a section until 2026-09-01
+
+Banked 2026-08-30 at `cdce6c3` under a declared mandate of 27 groups over
+23 sung lines (61 mandated pairs). Its one recorded run is `song` exit 3
+with 4 FLAG — four `SCHEME_VIOLATION` — and 107 notes, none of them
+whole-draft flags; the mandate's hook is undeclared (`HOOK_UNDECLARED`). It
+was never finished and never listed here, for the same reason as the
+section above, and this section exists for the same gate.
+
+## `the_long_way_back.txt` — the song M-148 parked, finished the day the judge was repaired
 
 **"The Long Way Back", seed 28 of the verse-chorus form, 29 lines in 7
 sections, graded at exit 0 with 0 per-line flags and 0 whole-draft flags on
