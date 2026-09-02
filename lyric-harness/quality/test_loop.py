@@ -1787,9 +1787,28 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
           "write it back stale", "complete" not in d2.state)
     moved = list(CLICHE)
     moved[0] = l1_fix
-    _, _, d3 = LH._defer_proposer(state, lines=moved)
+    p3, _, d3 = LH._defer_proposer(state, lines=moved)
     check("on a draft that MOVED, no such warning: those are new questions",
           "THIS STATE IS COMPLETE" not in d3())
+    # ...AND THE ANSWERS THAT STILL HIT ARE COUNTED AS STALE AT THE STOP
+    # (2026-09-02, the tier-A verification's residual on M-183): the key is
+    # (line, attempt, round), so a state reused on an edited draft replays
+    # every recorded answer onto the new text with no question. `draft` is
+    # provenance and not the key — round 2 legitimately opens on round 1's
+    # closing draft — so the honest instrument is a COUNT at the stop.
+    import types as _types
+    _hit = p3(_types.SimpleNamespace(line_no=1, round_no=1), moved, 0)
+    check("a recorded answer still hits on the moved draft (the key has no "
+          "draft in it, by design)", _hit is not None, _hit)
+    _d3 = d3(done=True)
+    check("...and the stop discloses it as recorded against a DIFFERENT "
+          "draft, naming the answer, so a reused state cannot pass as a "
+          "continued one",
+          "recorded against a DIFFERENT draft" in _d3
+          and "L1 attempt 0 round 1" in _d3,
+          [l.strip() for l in _d3.splitlines() if "DIFFERENT" in l][:1])
+    check("CONTROL: on the run's own draft nothing is stale",
+          "DIFFERENT draft" not in d2(done=True))
 
 
 def test_tier2_that_walks_nothing_falls_through_to_tier1():

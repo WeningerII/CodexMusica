@@ -3438,11 +3438,17 @@ def test_the_mandate_block_is_gated_on_the_mandate():
           f"forbidden={b1.forbidden_modal if b1 else '?'}")
 
     p1 = _PR.render_line(b1, lines, whole=found["whole"])
+    # REPINNED 2026-09-02: the group sentence names the PLACE the group
+    # binds since M-184 ("at its end word" here, "at its word 4" for a
+    # `T4` member), because a line bound at two places is two words and
+    # the prompt has to say which one each group is about. The claim this
+    # check makes -- the group is STATED, the default sentence is gone --
+    # is unchanged; only the spelling of the stated group moved.
     check("the TIER-1 PROMPT -- the surface a writer actually reads -- no "
           "longer claims no group was declared, and states the group instead",
           "(no rhyme group declared for this line)" not in p1
-          and "group A [1, 2] — this line must rhyme with: L2 ('stairs')"
-          in p1,
+          and "group A [1, 2] at its end word — this line must rhyme with: "
+          "L2 ('stairs')" in p1,
           [l.strip() for l in p1.splitlines()
            if "group" in l and "rhyme" in l][:2])
 
@@ -3855,9 +3861,12 @@ def test_a_return_is_not_rendered_as_a_rhyme():
     # CONTROL ON THE RENDERERS -- the ordinary sentence is not gone, it is
     # merely no longer printed over a return.
     p4 = _PR.render_line(b4, DEC, whole=())
+    # REPINNED 2026-09-02 with §40's: M-184 puts the binding PLACE in the
+    # group sentence, so the ordinary spelling carries "at its end word".
     check("CONTROL: an ordinary group still renders 'must rhyme with', and "
           "is not relabelled a return",
-          "group B [2, 4] — this line must rhyme with: L2 ('light')" in p4
+          "group B [2, 4] at its end word — this line must rhyme with: "
+          "L2 ('light')" in p4
           and "RETURN" not in p4.split("THE RHYME MANDATE")[-1].split(
               "OFFERED")[0],
           [l.strip() for l in p4.splitlines() if "group B" in l])
@@ -4281,6 +4290,56 @@ def test_a_field_is_per_place_not_per_line():
           [(a.tier, a.accepted, a.reason[:60]) for a in a1])
 
 
+
+def test_the_findings_own_direction_is_pinned():
+    """M-184, the OTHER direction (added 2026-09-02 by the tier-A
+    verification). §50's fixture has the FIRST group violated, so its
+    slot-attribution checks — `slot` is the violated place, the incumbent is
+    the word AT that place — survive a revert by an accident of ordering:
+    the first group's place IS the violated one there. The audit's finding
+    ran the other way: group A at T2 HOLDS (kite ~ night) and group B at the
+    END is violated (lamp ~ door), and a brief that took the first group's
+    place would name `kite` as the word to change and search the night
+    family for a door rhyme. Pinned on that draft.
+    """
+    print("\n52. M-184 — the first group HOLDS and the second is violated: "
+          "the brief is about the violated place, not the first")
+    from quality import propose as PR
+    draft = ["she turned the key and shut the door",
+             "and walked alone into the night",
+             "the kite was hanging by the lamp"]
+    m = SC.mandate([[2, "3.T2"], [1, 3]], n_lines=3)
+    bs = {b.line_no: b for b in R.brief(draft, m)}
+    check("only L3 is briefed, and its flag is group B at the END (door ~ "
+          "lamp) — group A at T2 holds",
+          list(bs) == [3]
+          and any(f.code == "SCHEME_VIOLATION" and f.locations == [1, 3]
+                  for f in bs[3].findings)
+          and not any(f.locations == [2, 3] for f in bs[3].findings),
+          {ln: [(f.code, f.locations) for f in b.findings]
+           for ln, b in bs.items()})
+    b = bs[3]
+    check("the violated group is B alone, and the brief's place is the END "
+          "(the default slot, spelled as the bare line number) — not the "
+          "first group's T2",
+          tuple(getattr(b, "violated_groups", ())) == ("B",)
+          and str(b.slot) == "3",
+          (getattr(b, "violated_groups", None), str(b.slot)))
+    check("the incumbent is the END word 'lamp', not the T2 word 'kite'",
+          b.forbidden_incumbent == "lamp", b.forbidden_incumbent)
+    check("the field is the DOOR family at the end, non-empty, with the "
+          "door head forbidden, and no joint conflict",
+          bool(b.candidates) and "more" in b.forbidden_modal
+          and b.joint_conflict is False,
+          (b.candidates[:6], b.forbidden_modal[:4], b.joint_conflict))
+    p = PR.render_line(b, draft, whole=())
+    check("the prompt names the end word as the word to change and never "
+          "blames the mandate",
+          "is what needs revising" not in p and "VIOLATED" in p
+          and "HOLDS as written" in p,
+          [l.strip() for l in p.splitlines() if "group" in l][:3])
+
+
 def test_the_offer_is_screened_from_the_offered_words_own_side():
     """`MISSING.md` M-185 — the menu cannot re-open the line.
 
@@ -4395,6 +4454,7 @@ if __name__ == "__main__":
                test_the_field_says_which_door_it_was_read_at,
                test_a_refusal_speaks_for_one_group_not_the_pair,
                test_a_field_is_per_place_not_per_line,
+               test_the_findings_own_direction_is_pinned,
                test_the_offer_is_screened_from_the_offered_words_own_side):
         fn()
     print("=" * 62)

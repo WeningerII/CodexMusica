@@ -6292,10 +6292,19 @@ def _defer_proposer(path, lines=None):
         st["pending"] = None
 
     ones = {_line_key(r): r["text"] for r in st["answered"]["propose"]}
+    # THE DRAFT EACH ANSWER WAS RECORDED AGAINST, beside the answer (M-183,
+    # disclosed 2026-09-02). `draft` is provenance and not part of the key —
+    # round 2 opens on the draft round 1 closed on, so keying on it would
+    # re-ask what was answered — but a state file REUSED ON AN EDITED DRAFT
+    # replays every answer keyed to the other draft with no question and,
+    # until this count, no warning (the tier-A verification's one residual
+    # on this entry). The count is read at the stop, where it is known.
+    drafts = {_line_key(r): r.get("draft")
+              for r in st["answered"]["propose"]}
     groups = {_group_key(r["members"], r["texts"], r["words"],
                          r.get("round")): tuple(r["new"])
               for r in st["answered"]["propose_group"]}
-    tally = {"hit": 0}
+    tally = {"hit": 0, "stale": []}
 
     def _suspend(kind, record, prompt):
         st["pending"] = {"kind": kind, "record": record, "prompt": prompt,
@@ -6306,6 +6315,12 @@ def _defer_proposer(path, lines=None):
         text = _line_lookup(ones, brief, attempt)
         if text is not None:
             tally["hit"] += 1
+            _k = (brief.line_no, attempt, getattr(brief, "round_no", None))
+            if _k not in ones:
+                _k = (brief.line_no, attempt, None)
+            _rd = drafts.get(_k)
+            if _rd and _rd != _dfp(lines):
+                tally["stale"].append(_k)
             return text
         # THE RECORD NAMES THE ROUND IT WAS ASKED IN (M-183): the same line
         # at the same attempt in a later round is a NEW question, and the
@@ -6347,12 +6362,15 @@ def _defer_proposer(path, lines=None):
             if complete and (lines is None
                              or complete.get("draft") == _dfp(lines)):
                 _un = complete.get("unresolved") or []
+                _wf = complete.get("whole_flags") or []
                 head += (f"\n  THIS STATE IS COMPLETE: it already reached "
                          f"{str(complete.get('stop', '?')).upper()} at exit "
                          f"{complete.get('exit')} on this same draft "
                          f"({complete.get('draft')})"
                          + (f", leaving {', '.join('L%d' % x for x in _un)} "
                             f"open" if _un else "")
+                         + (f", with WHOLE-DRAFT FLAG(S) standing: "
+                            f"{', '.join(_wf)}" if _wf else "")
                          + ". Every answer below is replayed and the loop "
                          "stops where it stopped; nothing is asked. To be "
                          "asked again, start a new state file, or delete "
@@ -6361,9 +6379,19 @@ def _defer_proposer(path, lines=None):
                          "attempt it answered, so the loop asks afresh "
                          "wherever the record is silent)")
             return head
-        return (f"{head}; {tally['hit']} consulted and answered. The loop ran "
-                f"to a stop condition, so this state is COMPLETE and its "
+        tail = (f"{head}; {tally['hit']} consulted and answered. The loop "
+                f"ran to a stop condition, so this state is COMPLETE and its "
                 f"`answered` block is a valid --propose=replay: file")
+        if tally["stale"]:
+            _sk = ", ".join(f"L{l} attempt {a}" + (f" round {r}" if r else "")
+                            for l, a, r in tally["stale"])
+            tail += (f"\n  {len(tally['stale'])} of those answer(s) were "
+                     f"recorded against a DIFFERENT draft ({_sk}): this "
+                     f"state file was reused on an edited draft, and a "
+                     f"recorded answer is replayed as written, never "
+                     f"re-asked. To be asked afresh on this draft, start a "
+                     f"new state file (M-183)")
+        return tail
 
     disclosure.state = st                    # the verb writes it on suspension
     return propose, propose_group, disclosure
@@ -7349,6 +7377,16 @@ def main():
               "one):")
         print(f"    --groups={ms.get('--groups=', '')}")
         print(f"    --returns={ms.get('--returns=', '')}")
+        # THE NEXT COMMAND, SPELLED (2026-09-02): `plan` prints GRADE IT and
+        # this door printed only "hand them to brief/revise" — the tier-A
+        # verification of M-195 named the gap. Quoted, so the line pastes.
+        _gi = [f"python3 lyric_harness.py brief {rest[0]}",
+               f"\"--groups={ms.get('--groups=', '')}\""]
+        if ms.get('--returns='):
+            _gi.append(f"\"--returns={ms['--returns=']}\"")
+        print(f"  GRADE IT: {' '.join(_gi)}")
+        print("      (`revise FILE MANDATE --propose=defer:STATE.json` is the "
+              "same mandate driven to a stop condition and stamped)")
         _refs = rec.refusals()
         if _refs:
             print(f"  EXIT 3 — {len(_refs)} coordinate(s) REFUSED "
@@ -10325,7 +10363,11 @@ def main():
                         "stop": result.stop_reason, "exit": _code,
                         "draft": draft_fingerprint(lines),
                         "final": draft_fingerprint(result.lines),
-                        "unresolved": _open}
+                        "unresolved": _open,
+                        # the whole-draft flags that made a 3 with no line
+                        # open (M-186; carried since 2026-09-02 so the
+                        # COMPLETE notice can name the cause)
+                        "whole_flags": list(_whole_codes)}
                     with open(propose_spec.split(":", 1)[1], "w",
                               encoding="utf-8") as fh:
                         json.dump(say_proposer.state, fh, indent=2)

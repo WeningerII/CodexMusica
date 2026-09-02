@@ -607,13 +607,33 @@ check('validation: actionable errors', () => {
         assert.ok(!S.lyric_grade.seed.isOptional(), 'and still required on lyric_grade');
       }
     );
+    // REPINNED 2026-09-02: the stdout below is the harness's REAL render
+    // shape (`  key  [REFUSED] value` + an indented reason line + the
+    // closing key list), copied from `recover` on a four-line unmarked
+    // paste. The first pin fed the extractor `  meter: REFUSED — …`, a line
+    // the harness never prints, and passed while every real `refusals` came
+    // back `[]` — the self-grep shape M-142 charged test_recover §6 with.
+    // The live section below drives the real verb as well.
     check('the recovered mandate and the refusals are read off the recover report', () => {
       const stdout = [
         'RECOVERED STRUCTURE — every coordinate with how it was obtained',
-        '  meter: REFUSED — counting gives syllables per line, not a bar grid; declare one',
-        '  MANDATE SPELLING (the cover as the two CLI flags):',
+        '  total_lines          [counted] 4',
+        '  sections             [REFUSED] none',
+        '      the text carries no [SECTION] mark and no blank-line block, so its sectioning cannot be read off it. Mark the sections, or declare a blueprint',
+        '  syllables_per_line   [counted] 8-10 syllables, 37 total',
+        '  web                  [derived] 3 admitted pair(s)',
+        '      every admitted pair over 14 binding sites at 4 placements per line',
+        '  meter                [REFUSED] None',
+        '      a bar grid is a DECLARED coordinate (doctrine 4). Declare one with --blueprint=',
+        '',
+        '  3 REFUSED coordinate(s) — each is a work order, not a failure (doctrine 20)',
+        '      sections',
+        '      meter',
+        '      repeats_at_a_placement',
+        '  MANDATE SPELLING (the cover as the two CLI flags — hand them to brief/revise):',
         '    --groups=1,3;2,4.head',
         '    --returns=5,13',
+        '  EXIT 3 — 3 coordinate(s) REFUSED (sections, meter, repeats_at_a_placement)',
       ].join('\n');
       const v = VI.verdictOf({ code: 3, stdout, stderr: '' });
       assert.deepEqual(VI.extractRecoveredMandate(stdout), {
@@ -622,12 +642,44 @@ check('validation: actionable errors', () => {
       });
       assert.deepEqual(VI.extractRecoverRefusals(stdout), [
         {
-          coordinate: 'meter',
-          why: 'counting gives syllables per line, not a bar grid; declare one',
+          coordinate: 'sections',
+          why: 'the text carries no [SECTION] mark and no blank-line block, so its sectioning cannot be read off it. Mark the sections, or declare a blueprint',
         },
+        {
+          coordinate: 'meter',
+          why: 'a bar grid is a DECLARED coordinate (doctrine 4). Declare one with --blueprint=',
+        },
+        { coordinate: 'repeats_at_a_placement', why: '' },
       ]);
+      assert.deepEqual(
+        VI.extractRecoverRefusals('  meter: REFUSED — the shape the first pin fed'),
+        [],
+        'the old synthetic shape reads as NO refusal, which is what it always was'
+      );
       assert.equal(v.exit_code, 3);
       assert.equal(VI.extractRecoveredMandate('nothing here'), null);
+    });
+    check('a recovered mandate fits the check/revise ceiling (M-195, repinned 2026-09-02)', () => {
+      // MEASURED at the default four places: 10,009 chars over 32 lines
+      // (songs/matinee.txt), 5,299 over 25, 4,132 over 19 — every one
+      // refused by the old 400-char ceiling, so recover -> check -> revise
+      // could not chain. The ceiling is sized to the door now.
+      // 670 groups is the MEASURED count over 32 lines; the measured string
+      // (10,009 chars) mixes bare and placed members, so both a synthetic
+      // cover of that many groups and a literal 10k-char mandate must pass.
+      const long = Array.from(
+        { length: 670 },
+        (_, i) => `${1 + (i % 32)}.endword,${1 + ((i * 7) % 32)}`
+      ).join(';');
+      const measured = '1,2;'.repeat(2503); // 10,012 chars, the measured length
+      assert.ok(long.length > 9_000, `a 670-group cover is over 9k chars (${long.length})`);
+      assert.ok(S.lyric_check.groups.safeParse(long).success, 'lyric_check takes it');
+      assert.ok(S.lyric_revise.groups.safeParse(long).success, 'lyric_revise takes it');
+      assert.ok(S.lyric_check.groups.safeParse(measured).success, 'and a 10k-char mandate');
+      assert.ok(
+        !S.lyric_check.groups.safeParse('x'.repeat(70_000)).success,
+        'and a runaway is still refused, never clamped'
+      );
     });
     check("a pasted song's run is carried on its MANDATE, a planned one on its seed", () => {
       const surface = { stateTools: new Set(['lyric_revise']) };
@@ -691,6 +743,28 @@ check('validation: actionable errors', () => {
   // ── M-186: the verdict carries what the report says, not only the code ──
   {
     const { _verdictInternals: VI } = await import('./lyric_tools.js');
+    // M-186's status label, three words rather than two (2026-09-02): a
+    // whole-only exit 3 used to read `stopped_with_open_lines` with
+    // `loop_unresolved` 0 — a cause the verdict itself contradicted.
+    check('a whole-only exit 3 is labelled by its cause, not as open lines', () => {
+      assert.equal(VI.loopStatusOf(0, { loop_unresolved: 0 }), 'finished_clean');
+      assert.equal(
+        VI.loopStatusOf(3, { loop_unresolved: 2, loop_whole_flag_codes: ['HOOK_ABSENT'] }),
+        'stopped_with_open_lines'
+      );
+      assert.equal(
+        VI.loopStatusOf(3, { loop_unresolved: 0, loop_whole_flag_codes: ['TITLE_NOT_IN_HOOK'] }),
+        'stopped_with_whole_draft_flags'
+      );
+      assert.equal(VI.loopStatusOf(3, { loop_unresolved: 0 }), 'stopped_with_open_lines');
+      for (const f of ['chat.js', 'gemini_agent.js', '../scripts/flash_battery.mjs']) {
+        const src = readFileSync(new URL(f, import.meta.url), 'utf8');
+        assert.ok(
+          src.includes('loop_whole_flag_codes'),
+          `${f} carries the whole-flag codes beside loop_unresolved`
+        );
+      }
+    });
     check('exit 1 is CRASHED, never read as a verdict', () => {
       const v = VI.verdictOf({ code: 1, stdout: '', stderr: 'Traceback (most recent call last)' });
       assert.equal(v.exit_code, 1);
@@ -1530,6 +1604,37 @@ try {
       'the control pair is banned through the whole stack'
     );
     console.log('  ok  lyric_screen live: hair/chair BANNED: HOMEOTELEUTON, exit 0');
+    passed++;
+
+    // THE HUMAN DOOR, LIVE (M-195, added 2026-09-02): an unmarked four-line
+    // paste through the real verb. The refusals must be read off the REAL
+    // render — the extractor's first pin passed on a shape the harness never
+    // printed, and only a live call could have said so.
+    const recovered = await callText('lyric_recover', {
+      lines: [
+        'The river took the bridge at dawn',
+        'and no one saw the water again',
+        'our cattle waded knee deep in silt',
+        'past every fence the county rebuilt',
+      ],
+    });
+    assert.equal(recovered.exit_code, 3, 'recover on an unmarked paste exits 3 — a work order');
+    assert.ok(
+      recovered.mandate && recovered.mandate.groups.length > 0,
+      'the recovered mandate rides the verdict'
+    );
+    const coords = recovered.refusals.map((r) => r.coordinate);
+    assert.ok(
+      coords.includes('sections') && coords.includes('meter'),
+      `the refusals are read off the real render: ${JSON.stringify(coords)}`
+    );
+    assert.ok(
+      recovered.refusals.find((r) => r.coordinate === 'sections').why.includes('Mark the sections'),
+      'and the reason travels with the coordinate'
+    );
+    console.log(
+      `  ok  lyric_recover live: unmarked paste exits 3, mandate + refusals ${JSON.stringify(coords)} on the verdict`
+    );
     passed++;
 
     // THE SHAPE IS READ FROM THE PLAN, NEVER REMEMBERED (2026-08-23).

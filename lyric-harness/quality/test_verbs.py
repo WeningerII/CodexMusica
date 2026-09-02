@@ -593,9 +593,31 @@ def test_brief_refuses_instead_of_tracebacking():
     # contain a candidate the modal table forbids. The exclusion itself is
     # untouched, which is what this check is about, so it is asked of a cover
     # that does not move when the door does.
-    _, mod_out, _ = run("brief", EXAMPLE_TXT, "--groups=1,3")
+    # REPOINTED AGAIN 2026-09-02 — the FLOOR PROFILE moved it this time.
+    # `fixtures/song.txt` is 16 lines and ~130 tokens; until M-193 it was
+    # graded by the SONNET profile (list order), whose `predictability_max`
+    # put a PREDICTABLE_RHYME note on L1~L3 and so earned the line a field.
+    # M-193's line-count tie-break hands a 16-line sheet to the `short`
+    # profile, which carries no predictability threshold until stage B
+    # adopts one, so the note is gone and with it the field — and a line
+    # with no field has no exclusion to print (MEASURED: forcing the sonnet
+    # profile back brings both the note and the FORBIDDEN block back). The
+    # exclusion is asked of a DECLARED VIOLATION now — dawn/silt under ABAB,
+    # no scalar rhyme and no schema rescues it — a shape that no door,
+    # profile or table moves.
+    with tempfile.NamedTemporaryFile("w", suffix=".txt",
+                                     delete=False) as fh:
+        fh.write("The river took the bridge at dawn\n"
+                 "and no one saw the water again\n"
+                 "our cattle waded knee deep in silt\n"
+                 "past every fence the county rebuilt\n")
+        mod_path = fh.name
+    try:
+        _, mod_out, _ = run("brief", mod_path, "ABAB")
+    finally:
+        os.unlink(mod_path)
     check("the modal exclusion is still printed (doctrine 9)",
-          "FORBIDDEN (modal" in mod_out,
+          "FORBIDDEN (modal" in mod_out and "SCHEME_VIOLATION" in mod_out,
           mod_out[:200])
 
     # `--returns=` -- FIXED 2026-08-12, found by using the harness on a real
@@ -718,6 +740,11 @@ def _every_verb_fixture():
         # honest answer, the no-seed refusal, because a full run here would
         # double §44's loop cost for a claim about reachability alone.
         "finish": ["finish", quat],
+        # The human door (2026-09-01, M-195). Behavioural coverage is §49 —
+        # this row is the dispatch-reachability claim on a bare quatrain,
+        # which REFUSES its sectioning (no mark, no blank block: the M-72
+        # rule) and exits 3, a work order rather than a failure.
+        "recover": ["recover", quat],
     }
     return cases, quat, bp
 
@@ -2219,9 +2246,14 @@ def test_propose_selects_who_writes_the_line():
     # with a pursued line standing exits 3 — success below 100% became
     # unreportable (loop.MANDATORY_PURSUE). The subject here is the PROPOSER
     # DISCLOSURE, which is unchanged.
-    rc, out, err = run("revise", quat, "ABAB", expect_rc=3)
+    # rc 0 SINCE 2026-09-01 (M-185): the offered words are screened from
+    # THEIR side, so the stub's splice no longer takes a word that files
+    # MODAL_RHYME back at the call, and the loop converges — `SUCCESS after
+    # 1 round(s), fixed L3, L4` (repinned 2026-09-02). The subject is still
+    # the disclosure; the exit is pinned so the next move is seen.
+    rc, out, err = run("revise", quat, "ABAB", expect_rc=0)
     check("with no --propose at all, the stub runs and SAYS it is the stub",
-          rc == 3 and "PROPOSER: stub (the default)" in out,
+          rc == 0 and "PROPOSER: stub (the default)" in out,
           [l for l in out.splitlines() if "PROPOSER" in l][:1])
     check("and says out loud that nothing outside the process was reached",
           "Nothing outside this process was reached" in out)

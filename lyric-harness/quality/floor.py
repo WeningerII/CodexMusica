@@ -1051,7 +1051,15 @@ PROFILES.append(
              "of this band knows which way it leans. No generated class "
              "exists at this length; the evidence is the held-out FPR. "
              "The tie with `sonnet` over 108-150 tokens is broken by the "
-             "text's LINE COUNT (`declaration_for`, preregistration §4).",
+             "text's LINE COUNT (`declaration_for`, preregistration §4). "
+             "STAGE B (2026-09-02) REFUSED THE FIFTH THRESHOLD: the 95th "
+             "percentile of predictable_pair_fraction over this band is "
+             "1.0000, the statistic's own ceiling, at a held-out FPR of "
+             "0.00% on 200 of 200 seeds -- a check that could not fail "
+             "(doctrine 48); an item this short carries one or two rhyme "
+             "pairs, so the fraction is 0/1-valued and piles at 1. "
+             "PREDICTABLE_RHYME is silent on this band until a pair-count "
+             "floor is preregistered (RESULTS_SHORT_SONG_FLOOR.md 7).",
     ))
 
 CALIBRATION["profiles"] = {p.name: p for p in PROFILES}

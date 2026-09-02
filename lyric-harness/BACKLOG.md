@@ -1674,6 +1674,13 @@ pricing, M-136's required words and assonance profile).
 | M-140 | the default door reads `normative` | `whole_vocabulary_pairs` |
 | E-5 | NOT taken — the owner's 2026-08-21 deferral stands | — |
 | RULINGS WANTED #18 | NEW question raised by M-192's measurement, for the owner: 59.6% of end-bound groups draw a relation not heard as end rhyme | — |
+| M-195 (2026-09-02) | the connector's paste route is sized to the door: the mandate ceiling reads the recover door's own output, the refusal extractor reads the real render, blank lines and `placements` are said out loud | `MAX_MANDATE_CHARS`, `extractRecoverRefusals`, a live `lyric_recover` pin |
+| M-183 (2026-09-02) | a state file reused on an edited draft says so at the stop — the count, never the key | the defer proposer's disclosure |
+| M-184 (2026-09-02) | the group sentence names its place on every mandate; the two pins that asserted the old spelling moved with it; tier 2's anchor side stays OPEN | `test_revise` §40/§43 |
+| M-168 (2026-09-02) | round 11 is the owner's, and the order is merge → deploy → dispatch; a round pressed first measures the round-10 connector | — |
+| M-193 (2026-09-02) | a short song is graded on four thresholds until stage B lands; the pursued PREDICTABLE_RHYME is silent on that band meanwhile, and the register says so | `test_verbs` §6 |
+| M-186 (2026-09-02) | a whole-only exit 3 is labelled by its cause everywhere the exit travels — the connector's status, the three transcripts, the deferred state | `loopStatusOf`, `loop_whole_flag_codes` |
+| M-193 (2026-09-02, stage B) | the fifth threshold is REFUSED: its 95th percentile is the statistic's own ceiling, a check that could not fail | `RESULTS_SHORT_SONG_FLOOR.md` §7 |
 
 ---
 

@@ -151,10 +151,36 @@ moving average IS its TTR — asserted numerically in the check, not argued.
 * **What did NOT move**: no threshold of any other profile, no recorded
   verdict on a text the `song` or `section` band covers.
 
-## 7. Stage B
+## 7. Stage B — REFUSED (2026-09-02)
 
-`--profile short` with predictability (items ≤ 200 tokens only) was
-launched in the adopting sitting; the fifth threshold joins the row when it
-completes and re-derives, and the band is re-picked on five checks then. If
-five-check homogeneity fails at 50–150, the four-check adoption stands with
-the refusal recorded beside it, per the preregistration §2.
+`--profile short` with predictability (items ≤ 200 tokens only) ran to
+completion in the adopting sitting: 5,745 s wall, of which the population
+pass was 5,508 s (5,512 predictability values computed cold and memoised;
+a re-run reads them back). The band re-picked on five checks is the SAME
+band, 50–150 (50–200 fails on MATTR at the 50–100 sub-bin, |d| 0.0262 >
+0.02; 100–200 fails on anaphora at 150–200, |d| 0.0333 > 0.03), so the
+four adopted thresholds are unmoved. **The fifth threshold is REFUSED**:
+the 95th percentile of `predictable_pair_fraction` over the band measured
+**1.0000** — the ceiling of the statistic itself — with a held-out FPR of
+**0.00%** on every one of 200 author-held-out seeds (min 0.00, max 0.00), a
+period reading of rho +0.017 (p_perm 0.74), and a leave-one-author-out
+shift of 0.0000. A threshold at the statistic's own maximum can fire on
+nothing, and a check that cannot fail is decoration (doctrine 48), so it is
+not adopted; the `short` row keeps `percentiles` at four and the runner
+keeps printing NOT YET SHIPPED for the fifth. WHY IT DEGENERATES, recorded
+as the next measurement rather than guessed: an item of 50–150 tokens
+carries few end-rhyme pairs, and a fraction over one or two pairs takes the
+values 0 and 1 almost only, so the mass piles at 1.0 (the author-weighted
+alternative, one median per author, reads 0.9000 — the same pile from the
+other side). A predictability threshold for this band needs a PAIR-COUNT
+floor on the item, or a denominator that is not the item's own pair count,
+and that is a preregistration of its own. Until then a short song is graded
+on four thresholds, PREDICTABLE_RHYME (a `MANDATORY_PURSUE` member) is
+silent on this band, and `MISSING.md` M-193's addendum says so where the
+consequence was measured. The run's own exit was 1 (DRIFT) on one row —
+"the profile note no longer quotes rho +0.275" — which is the SONG
+profile's struck-rho gate applied to `short` by the runner as it stood when
+the run was launched; the runner shipped in the same sitting reads
+`PROFILE_STRUCK_RHO["short"] = None` and skips it, and `--profile short
+--check --without-predictability` on that runner answers 15 of 20 with the
+five predictability rows refused by name.

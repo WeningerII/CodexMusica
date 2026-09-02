@@ -419,6 +419,7 @@ export async function createChatRouter({
           loop_stop_reason: c.loop_stop_reason ?? null,
           loop_rounds: c.loop_rounds ?? null,
           loop_unresolved: c.loop_unresolved ?? null,
+          loop_whole_flag_codes: c.loop_whole_flag_codes ?? null,
           answers_on_record: c.answers_on_record ?? null,
         })),
         stopped: run.stopped,

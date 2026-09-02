@@ -42,7 +42,17 @@ const MAX_WORDS = 12;
 const MAX_WORD_CHARS = 40;
 const MAX_LINES = 64; // the planner envelope's own total_lines ceiling
 const MAX_LINE_CHARS = 200;
-const MAX_MANDATE_CHARS = 400;
+// THE MANDATE CEILING IS SIZED TO THE RECOVER DOOR'S OWN OUTPUT (M-195,
+// repinned 2026-09-02 from ~~400~~). A pasted song's mandate is what
+// `lyric_recover` hands back, and that cover is every admitted pair over
+// every searched place, so it grows with the SQUARE of the line count:
+// MEASURED at the default four places, 4,132 chars over 19 lines, 5,299
+// over 25, 10,009 over 32 (670 pair-groups) — every one of them refused by
+// the old 400, so the prescribed route recover -> check -> revise could not
+// chain past a few lines. Extrapolated to MAX_LINES (64) that is ~40k; the
+// kernel's per-argument ceiling is 128 KiB. Half of that is the bound, and
+// it is still a bound (a runaway is refused, never clamped).
+const MAX_MANDATE_CHARS = 65536;
 // THE SWEEP WINDOW, DERIVED AGAINST THE TIGHTER OF THE TWO CLOCKS. This
 // connector kills a subprocess at SUBPROCESS_TIMEOUT_MS but the MCP
 // SDK's own DEFAULT_REQUEST_TIMEOUT_MSEC is 60_000, nothing here emits the
@@ -425,6 +435,21 @@ function extractLoopRecord(report) {
   };
 }
 
+// THE STOP'S STATUS, IN THREE WORDS RATHER THAN TWO (M-186, 2026-09-02): a
+// whole-only exit 3 — no line open, a WHOLE-DRAFT FLAG standing — was
+// labelled `stopped_with_open_lines` with `loop_unresolved` 0, which names
+// a cause the verdict itself contradicts. Read off the verdict's own loop
+// record, never re-derived from the report.
+function loopStatusOf(code, verdict) {
+  if (code === 0) return 'finished_clean';
+  const open = typeof verdict.loop_unresolved === 'number' ? verdict.loop_unresolved : 0;
+  const whole = Array.isArray(verdict.loop_whole_flag_codes)
+    ? verdict.loop_whole_flag_codes.length
+    : 0;
+  if (open === 0 && whole > 0) return 'stopped_with_whole_draft_flags';
+  return 'stopped_with_open_lines';
+}
+
 // THE RECOVERED MANDATE, read off the `recover` verb's own MANDATE SPELLING
 // block (M-195) — the two CLI flags the cover splits into, so a caller can
 // hand them to lyric_check / lyric_revise verbatim. Extraction, not
@@ -437,14 +462,24 @@ function extractRecoveredMandate(report) {
   return { groups: g ? g[1] : '', returns: r ? r[1] : '' };
 }
 
-// The coordinates `recover` REFUSED — the work order. Each is printed as
-// `  <key>: REFUSED — <why>` in the render; the key and the reason travel.
+// The coordinates `recover` REFUSED — the work order. REPAIRED 2026-09-02:
+// the first extractor read `  <key>: REFUSED — <why>`, a line the harness
+// never prints, so `refusals` was `[]` on every real render while its pin
+// passed on a synthetic stdout (M-142's self-grep species; found by the
+// tier-A verification of M-195). The render actually prints a refused
+// coordinate as `  <key>  [REFUSED] <value>` with the reason on the next
+// line, indented six spaces, and closes with `  N REFUSED coordinate(s)`
+// followed by one indented key per line — that second list carries the
+// refusals the per-key loop never renders (`repeats_at_a_placement`). Read
+// both; a key in both is ONE refusal.
 function extractRecoverRefusals(report) {
-  const out = [];
-  const re = /^\s{2}([a-z_]+)\s*:\s*REFUSED\s*[—-]\s*([^\n]*)/gm;
+  const out = new Map();
+  const re = /^ {2}([a-z_]+) +\[REFUSED\] *([^\n]*)(?:\n {6}([^\n]*))?/gm;
   let m;
-  while ((m = re.exec(report))) out.push({ coordinate: m[1], why: m[2].trim() });
-  return out;
+  while ((m = re.exec(report))) out.set(m[1], (m[3] || m[2] || '').trim());
+  const tail = /^ {2}\d+ REFUSED coordinate\(s\)[^\n]*\n((?: {6}[a-z_]+\n?)+)/m.exec(report);
+  if (tail) for (const k of tail[1].trim().split(/\s+/)) if (!out.has(k)) out.set(k, '');
+  return [...out].map(([coordinate, why]) => ({ coordinate, why }));
 }
 
 // THE REPORT'S OWN COUNTS, extracted the way `extractBannedPairs` extracts
@@ -902,6 +937,7 @@ export const _verdictInternals = {
   extractLoopRecord,
   extractBannedPairs,
   EXIT_MEANING,
+  loopStatusOf,
 };
 
 export const LYRIC_TOOL_SCHEMAS = {
@@ -1365,8 +1401,9 @@ export function registerLyricTools(server, tool) {
         'CONDITION: a suspended call returns [AWAITING PROPOSAL] and the question, structurally without a render, ' +
         'so a song cannot be presented that the loop never certified. At a stop condition the first block is the ' +
         'rendered song in performance order under its bracket headers with a [FINISHED — seed N — exit E — ' +
-        'STOP_REASON — ...] stamp: exit 0 is converged clean; exit 3 names the lines still open (a PARKED song — ' +
-        'present it only as parked, never as finished). The two-tier ban is enforced by the loop itself ' +
+        'STOP_REASON — ...] stamp: exit 0 is converged clean; exit 3 names the lines still open, or — with no line open — ' +
+        'the WHOLE-DRAFT FLAG(S) standing (a PARKED song either way — present it only as parked, never as finished; ' +
+        '`status` says which of the two, and `loop_whole_flag_codes` names the flags). The two-tier ban is enforced by the loop itself ' +
         '(MANDATORY_PURSUE), not by a stamp: banned pairs hold their lines open and the loop keeps asking for ' +
         'replacements. Each call re-runs the loop from its record (deterministic, so the same questions arrive in ' +
         'the same order) — expect ~60-120s early, growing ~15s per answer on record (a late call in a long ' +
@@ -1494,7 +1531,7 @@ export function registerLyricTools(server, tool) {
         if (r.code === 0 || r.code === 3) {
           const m = r.stdout.match(/THE SONG, PERFORMANCE ORDER:\n\n([\s\S]*?\[FINISHED[^\]]*\])/);
           const verdict = verdictOf(r);
-          verdict.status = r.code === 0 ? 'finished_clean' : 'stopped_with_open_lines';
+          verdict.status = loopStatusOf(r.code, verdict);
           try {
             const st = JSON.parse(await readFile(statePath, 'utf8'));
             verdict.answers_on_record =
@@ -1659,7 +1696,12 @@ export function registerLyricTools(server, tool) {
         'lyric_check / lyric_revise so the graders judge the cover the text actually carries — and `refusals`, the ' +
         'coordinates the caller must declare. Exit 3 means at least one coordinate was refused (the ordinary case: ' +
         'meter); exit 0 means every coordinate was recovered. Derived coordinates are NOT independent of the grader ' +
-        '(doctrine 14): a recovered web graded at the same theta cannot fail on rhyme, and the report says so.',
+        '(doctrine 14): a recovered web graded at the same theta cannot fail on rhyme, and the report says so. ' +
+        'TWO THINGS THE CALLER DECIDES (2026-09-02): pass blank stanza breaks as EMPTY entries in `lines` — they ' +
+        'are how sections derive when the text carries no [SECTION] marks, and a list with the blanks stripped has ' +
+        'its sectioning REFUSED; and `placements` narrows the cover — the default four places over a 32-line song ' +
+        "recover ~670 pair-groups (10k characters), which the graders accept but cannot judge inside this connector's " +
+        "clock, so `placements: 'end'` is the connector-sized cover for anything longer than a few lines.",
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_recover,
     },
     (a) =>
@@ -1823,7 +1865,8 @@ export const LYRIC_INSTRUCTIONS =
   'the bracket headers ([CHORUS — 3 lines — 6 bars of 6/8, half-beat pickup]) are measurements, ' +
   'restyling them to bare [CHORUS] deletes what the format exists to carry, and the [GRADED — seed …] ' +
   'stamp line under the song is part of the block and reaches the user with it. For lyrics a user ' +
-  "pastes, the SAME steps as a planned song (the owner's rule): lyric_recover FIRST to structure them — it hands " +
+  "pastes, the SAME steps as a planned song (the owner's rule): lyric_recover FIRST to structure them (blank " +
+  "stanza breaks as empty entries; `placements: 'end'` for anything longer than a few lines) — it hands " +
   'back the `mandate` (groups/returns) the text actually carries and the coordinates it REFUSED (the meter, ' +
   'always) for the user to declare — then lyric_check with that mandate (and a declared blueprint + subdivision ' +
   'when the user gives the grid), then lyric_revise WITHOUT a seed and with the same mandate to drive the loop ' +

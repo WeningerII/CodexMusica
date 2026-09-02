@@ -18,11 +18,11 @@ it; an OPEN row says what it waits on.
 
 | id | tier | finding, in one line | where it went |
 |---|---|---|---|
-| C16 | A | a tier-1 answer was keyed on (line, attempt) and `attempt` restarts each round, so a stuck line was never asked twice; a finished deferred state re-ran as live | M-183 CLOSED |
-| C17 | A | the brief intersected one candidate field ACROSS a line's binding places; tier 2 rewrote the wrong line | M-184 CLOSED |
-| C02 | A | the chat surface finished zero songs: the suspended run was re-injected after a stop, and an unseeded song could not be carried | M-183, M-195 CLOSED |
-| C14 | A | `quality/recover.py` — the human door — had no verb and no tool | M-195 CLOSED (`recover`, `lyric_recover`) |
-| C05 | A | a pasted song could be looped but never FINISHED: only `finish` rendered, and it needs a seed | M-195 CLOSED (`revise` under `defer:` renders and stamps) |
+| C16 | A | a tier-1 answer was keyed on (line, attempt) and `attempt` restarts each round, so a stuck line was never asked twice; a finished deferred state re-ran as live | M-183 CLOSED — verified at HEAD 2026-09-02; a reused state's stale answers are counted at the stop |
+| C17 | A | the brief intersected one candidate field ACROSS a line's binding places; tier 2 rewrote the wrong line | M-184 CLOSED — verified 2026-09-02; two prompt pins repinned; tier 2's ANCHOR side recorded OPEN in the addendum |
+| C02 | A | the chat surface finished zero songs: the suspended run was re-injected after a stop, and an unseeded song could not be carried | M-183, M-195, M-197 CLOSED (the code rungs); OPEN — round 11 is the owner's, after a merge and a deploy (M-168; HEAD is undeployed and the rungs that ended round 10 — the swerve refusals, the turn cap, the 429 — are touched by no entry) |
+| C14 | A | `quality/recover.py` — the human door — had no verb and no tool | M-195 CLOSED (`recover`, `lyric_recover`) — verified 2026-09-02: the CLI door held, the connector's read no refusals and refused its own mandate at a 400-char ceiling; both repaired (addendum) |
+| C05 | A | a pasted song could be looped but never FINISHED: only `finish` rendered, and it needs a seed | M-195 CLOSED (`revise` under `defer:` renders and stamps) — verified 2026-09-02 end to end on the CLI; the connector route chains only after the same-day repair |
 | C20 | B | the participation draw pinned the mean density near 2.5 bound words a line; the sparse band was unreachable at any seed | M-191 CLOSED (the density cap) |
 | C03 | B | the length envelope's floor rose past four of the five listenable songs | M-193 CLOSED (the `short` profile; envelope 12–55) |
 | C04 | B | a 108–126-token song was graded on the sonnet profile by list order | M-193 CLOSED (the line-count tie-break) |
@@ -33,7 +33,7 @@ it; an OPEN row says what it waits on.
 | C07 | B | the instructions let a chat skip the sweep and the screen | M-189 CLOSED (sweep-first sentence; the screen judges the drawn relation) |
 | C22 | B | a chorus drawn once finished at exit 0 with no hook askable | M-190 CLOSED |
 | C08 | B | every song shops the same clean glossary (M-111) | OPEN — RULINGS WANTED #5 is the owner's (may a check read `songs/`) |
-| C21 | A | `revise`/`finish` exited 0 over a standing whole-draft flag; the stop printed no findings | M-186 CLOSED |
+| C21 | A | `revise`/`finish` exited 0 over a standing whole-draft flag; the stop printed no findings | M-186 CLOSED — verified 2026-09-02; four carriers that dropped the cause (the connector's status label, three transcripts, the deferred state) repaired the same day; a whole-only `finish` pin is still owed |
 | C15 | B | `lyric_check`'s verdict dropped the whole-draft flags and unreadable end words | M-186 CLOSED |
 | C06 | B | `--voices` / `--fallback` were unreachable from the connector | M-189 CLOSED |
 | C23 | B | the song-length floor has a false-positive rate and no true-positive rate (no generated class) | OPEN — RULINGS WANTED #20 (a sitting) |
@@ -56,3 +56,26 @@ M-139's site count was stale; M-135's null exists and gates CI; the
 multi-answer fold remedy for C11 does not exist (the loop cannot brief a
 question it has not reached); M-168's per-minute-limiter attribution is
 asserted, not measured.
+
+## Verified at HEAD, 2026-09-02
+
+The six tier-A rows were re-verified the next day by independent agents,
+one per row, each reproducing the audit's own probe on the tree, reading
+the code path, and reading the test pin (and, where a copy could be made,
+reverting the fix on the copy to see the pin go red). What they found is in
+the named entries' addenda; the short form:
+
+| row | verdict | what the verification added |
+|---|---|---|
+| C16 | CLOSED | a reused state on an edited draft replayed stale answers silently — counted at the stop now (M-183) |
+| C17 | CLOSED, two residuals OPEN | §40/§43 prompt pins repinned; tier 2's anchor side is still slot-blind; a two-place tie misattributes a note (M-184) |
+| C02 | PARTIAL | the code rungs are closed and undeployed; round 11 is the owner's after a merge; three rungs of round 10's ladder have no entry (M-168) |
+| C14 | CLOSED after repair | the connector read no refusals and refused its own mandate; both repaired, a live pin added (M-195) |
+| C05 | CLOSED after repair | same two defects, found from the other end of the route (M-195) |
+| C21 | CLOSED | the exit and both stamps hold and agree with `song`; four carriers dropped the whole-flag cause (status label, three transcripts, the deferred state) and were repaired; the whole-only `finish` pin is still owed (M-186) |
+
+The same verification found CI red at `94e736f` in four jobs — two
+`test_revise` prompt pins (M-184), the verb roster and the modal-exclusion
+fixture in `test_verbs` (M-195, M-193), a `revise` exit that moved with
+M-185, and the record job reading a staged resource as a repo path
+(M-188) — all repinned or reworded in the commit that carries this section.

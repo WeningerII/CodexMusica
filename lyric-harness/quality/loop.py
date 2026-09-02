@@ -821,8 +821,12 @@ class LoopResult:
     @property
     def whole_flags(self):
         """The whole-draft findings that are FLAGS — the ones `stop_reason`
-        above was never able to see. `LEXICAL_MONOTONY`, `FUNCTION_WORD_HEAVY`,
-        `HOOK_ABSENT` are the only three codes that can appear here."""
+        above was never able to see. ~~`LEXICAL_MONOTONY`, `FUNCTION_WORD_HEAVY`,
+        `HOOK_ABSENT` are the only three codes that can appear here.~~ SIX
+        since 2026-08-25 (repinned 2026-09-02, M-186's verification): those
+        three, `HOOK_DOES_NOT_RECUR` and `TITLE_NOT_IN_HOOK` (M-84/M-86) and
+        `STACKED_DRAFT` (M-110). The set is whatever `inspect()` emits at
+        flag severity with no line; this list is a record, not a filter."""
         return [f for f in self.whole if f.severity == "flag"]
 
     def disclosure(self):

@@ -592,6 +592,9 @@ export async function runTurn({
             typeof lyricVerdict?.loop_rounds === 'number' ? lyricVerdict.loop_rounds : null,
           loop_unresolved:
             typeof lyricVerdict?.loop_unresolved === 'number' ? lyricVerdict.loop_unresolved : null,
+          loop_whole_flag_codes: Array.isArray(lyricVerdict?.loop_whole_flag_codes)
+            ? lyricVerdict.loop_whole_flag_codes
+            : null,
           answers_on_record:
             typeof lyricVerdict?.answers_on_record === 'number'
               ? lyricVerdict.answers_on_record
