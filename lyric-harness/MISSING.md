@@ -19900,3 +19900,77 @@ normalises — proven by #1240 building fresh on 2026-09-02 against a committed
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~255~~ **256**
 with this entry (2026-09-02).
+
+---
+
+### M-200 · The loop computes the complete legal field per bound position and NOTHING required a writer to read it `CLOSED` 2026-09-02 — found by the owner, reading a session's own account of why a song would not converge
+
+**THE FIELD WAS ALREADY COMPUTED, COMPLETE, AND HANDED OVER.** `quality/
+loop.py`'s deferred proposer issues a BRIEF per flagged line: the mandate
+block, the FORBIDDEN modal set, and an OFFERED field read at
+`field_depth=complete pool` against `field_band='grader'` — the search this
+project exists to perform, with both ban tiers excluded BY CONSTRUCTION. On
+the L5 brief of this entry's worked example it named **24 legal words** and
+**23 forbidden** ones, and disclosed that 41 further rhymes were withheld
+because the call word sits in *their* modal head.
+
+**AND A WRITER MAY WALK PAST IT WITHOUT THE TREE NOTICING.** The session read
+the brief's ANSWERING RULES, saw that L5's three bindings pointed at words in
+L3, L4 and L7 — lines the deferred loop forbids changing in the same answer —
+concluded the route was the wrong shape, left the loop, hand-edited the draft
+and re-ran `finish`. **From `finish`'s side that is simply a NEW DRAFT and is
+indistinguishable from a first one.** MEASURED, and the cost is the entry:
+five hand-guessed replacement pairs across three ~10-minute `finish` runs,
+**five of five BANNED** (`red~said`, `one~begun`, `rolled~cold`,
+`kettle~metal`, `far~are` — all MODAL_RHYME; earlier `then~again`,
+`alone~unknown`, `tea~me`; and `lit`/`spit` plus `Then`/`ten` caught by
+HOMEOTELEUTON on spellings the writer believed differed) — a search the
+harness had already finished, re-run worse by hand. **The session then wrote
+the failure up as a property of the TOOL** ("every replacement I reached for
+was banned"), which is true of the guessing and false of the harness, and is
+the flattering direction again (cf. M-199, the same species one day old).
+
+**WHAT IS NOT BUILT, AND MUST NOT BE: A GATE ON THE WORD.** The brief says
+*"Offered, NOT required … a word that is not here and rhymes is accepted,
+and a word that is here is not accepted for being here."* That is correct and
+stays. The field is built from CMUdict, so compelling it would REFUSE
+coinages, dialect, proper nouns and multi-word mosaic rhymes, and would turn a
+harness that REJECTS bad writing into one that CHOOSES the words — doctrine
+6/7 exactly, enforce a floor and do not order the permitted region. The
+defect was never that the writer picked a word off-list; it is that nothing
+recorded whether a brief had been ISSUED at all.
+
+**SO THE GATE IS ON THE PROCESS: `quality/brief_provenance.py`.** Given the
+draft before, the draft after, and any `--propose=defer:` state files, it
+answers, per revised line, whether a brief was issued for it — **THREE COUNTS,
+NEVER SUMMED** (doctrine 79): BRIEFED, UNBRIEFED, and BRIEFED_UNCHANGED, the
+last being a line the loop asked about and the writer left alone, which is
+neither a defect nor a revision. `--check` exits **3** on any UNBRIEFED
+revision. **THE FINGERPRINT IS WHAT MAKES IT A GATE RATHER THAN A CLAIM**:
+every deferred record carries `quality.revise.draft_fingerprint` of the draft
+its brief was issued against, so a brief earned on one draft cannot launder a
+hand-edit made to another. Run against this session's own two drafts and its
+own state file it reports **BRIEFED 1 (L5, the one question actually taken),
+UNBRIEFED 16**, exit 3 — the instrument's first run charging the session that
+built it.
+
+`quality/test_brief_provenance.py`, 15 checks over 5 sections, and the one
+that earns its place is the LAUNDERING check: dropping the fingerprint
+comparison — accepting a brief for a line from any draft — reds exactly that
+check and nothing else, hand-proven. §1 also pins this module's locally
+spelled `draft_fingerprint` EQUAL to `quality.revise`'s over five drafts
+including the empty one, because two spellings of one fact is how they start
+disagreeing (doctrine 1) and the local spelling exists so the gate runs with
+no lexicon loaded. In CI's cheap suites, label **78 -> 79**, added in the same
+commit as the module it gates so it never joins the orphan census.
+
+**WHAT THIS DOES NOT CLOSE, STATED RATHER THAN IMPLIED.** It charges a
+revision that was never briefed; it does not make the deferred loop the only
+front door, and a writer who runs `finish` on a first draft is not revising
+anything and is not charged. Whether hand-editing a draft the loop has open
+should be REFUSED outright — the stronger gate the owner's question points at
+— is a further step and is not taken here, because refusing it needs the loop
+to own the draft file and that is a real restructure of who writes what.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~256~~ **257**
+with this entry (2026-09-02).
