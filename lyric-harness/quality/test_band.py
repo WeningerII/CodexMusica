@@ -167,6 +167,7 @@ def test_theta_for_and_its_readers():
     print("\n8. the priced per-relation cut, and which sites read it")
     import inspect
     import lyric_harness as _LH
+    from quality import recover as _RC
     from quality import revise as _RV
 
     check("the shipped cut is declared per relation, not as one scalar",
@@ -205,6 +206,12 @@ def test_theta_for_and_its_readers():
         # scores, and it is the site M-139 already repaired once for the
         # same class of miss.
         "Reviser._field_one": inspect.getsource(_RV.Reviser._field_one),
+        # The FOURTH, joined 2026-09-02 with the pricing. `recover` does
+        # not GRADE, but every edge it lays down is a band-passing pair by
+        # construction and the cover goes straight to `--groups=`, so a
+        # flat cut here builds covers the grader then charges — the
+        # mandate verdict's own question, asked one step earlier.
+        "recover.recover": inspect.getsource(_RC.recover),
     }
     for name, src in sorted(reads.items()):
         check(f"MANDATE VERDICT site reads theta_for: {name}",

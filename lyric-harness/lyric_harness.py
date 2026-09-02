@@ -3217,7 +3217,14 @@ def theta_for(s, decl):
       `quality.revise.Reviser.grade`'s violation chain,
       `quality.revise.Reviser._field` at `field_band="grader"`, whose own
         docstring promises it asks the verdict's question (M-139 fixed the
-        same site for the same class of miss once already).
+        same site for the same class of miss once already), and
+      `quality.recover.recover`'s edge admit, which is the FOURTH and
+        joined 2026-09-02: every edge it lays down is a band-passing pair
+        BY CONSTRUCTION, so the cover it hands to `--groups=` is graded by
+        the sites above and a flat cut here would build covers the grader
+        then charges (`MISSING.md` M-138's own tail). It reads this ONLY
+        when its caller declared no `theta`; a declared flat cut still wins,
+        because that is a caller stating the coordinate.
 
     and the sites that DO NOT read it, each because it is asking something
     else, are `negative_control.py` (the control of the BAND — folding a

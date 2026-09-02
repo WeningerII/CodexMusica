@@ -227,6 +227,19 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
     """
     lex = lex or Lexicon()
     decl = decl or Declaration()
+    # WHOSE CUT THIS COVER IS BUILT AT, AND WHY IT IS NOT A FLAT ONE
+    # (2026-09-02, `MISSING.md` M-138). Every edge below is a band-passing
+    # pair BY CONSTRUCTION and the whole doctrine-14 sentence this module
+    # ships on — that handing `--groups=` back to the grader "cannot produce
+    # a rhyme violation" — is TRUE only while this admit asks the SAME
+    # question the grader asks. The near-relation pricing gave the grader a
+    # PER-RELATION cut (`Declaration.theta_by_relation`, ASSONANCE 0.82), so
+    # a flat `theta_rhyme` here builds covers the grader then charges: M-139's
+    # exact shape, in the module whose own claim depends on not having it.
+    # `theta_for` is read per pair below when the caller declared no theta;
+    # a DECLARED theta still wins outright, because that is a caller stating
+    # the coordinate and this module does not overrule it (doctrine 1).
+    theta_declared = theta is not None
     theta = decl.theta_rhyme if theta is None else theta
     places = tuple(placements or RECOVERABLE_PLACEMENTS)
     r = Recovered()
@@ -287,7 +300,7 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
     # 5. THE WEB. The cover over PLACEMENTS, not over line ends — which is
     #    the whole reason this module is written now rather than in terms of
     #    `mandate_from_graph`, whose cliques are cliques of `words[-1]`.
-    from lyric_harness import admits, best_score
+    from lyric_harness import admits, best_score, theta_for
     sites = []
     for i, line in enumerate(lines):
         for place, (anc, label) in _slot_words(lex, line, places).items():
@@ -313,8 +326,11 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
                 # `quality/figures.py` is the reader for them.
                 continue
             s = best_score(anca, ancb, decl, wa, wb)
+            # `theta_for` unless the caller declared a flat cut — see the
+            # note beside `theta_declared` above.
+            cut = theta if theta_declared else theta_for(s, decl)
             if s["relation"] == "REPEAT" or admits(
-                    s, theta, relations=frozenset(decl.admit)):
+                    s, cut, relations=frozenset(decl.admit)):
                 edges.append({"a": f"{la}.{pa}" if pa != "end" else str(la),
                               "b": f"{lb}.{pb}" if pb != "end" else str(lb),
                               "words": (wa, wb),
