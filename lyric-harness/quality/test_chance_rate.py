@@ -26,6 +26,41 @@ FAILED = []
 N = 300
 
 
+def _reader_disagreements(lex, shipped):
+    """-> how many of the shipped draw's pairs the two READERS judge
+    differently, by score or by relation.
+
+    The two are `line anchor + best_score` (what `grade()` runs) and
+    `word anchor + score` (what a one-word verb runs), and they are a
+    DECLARED coordinate of this instrument because M-138's re-derivations
+    disagreed on which one they had used. Measured on the JUDGEMENT rather
+    than on the admit COUNT: a cut can make two different judgements land on
+    the same side, and until 2026-09-02 the count was standing in for the
+    reader (see §3).
+    """
+    import lyric_harness as _L
+    decl = _L.Declaration()
+    seen = {}
+    for name in (CR.SHIPPED.reader, "word anchor + score"):
+        sp = CR.Sampler(shipped.seed, shipped.n, shipped.population, name)
+        read, cmp_ = CR.READERS[name]
+        got = {}
+        for a, b in sp.pairs(lex):
+            aa, wa = read(lex, a)
+            bb, wb = read(lex, b)
+            s = None
+            if aa and bb:
+                try:
+                    s = cmp_(aa, bb, decl, wa, wb)
+                except (KeyError, IndexError, ValueError):
+                    s = None
+            got[(a, b)] = None if s is None else (round(s["total"], 6),
+                                                  s["relation"])
+        seen[name] = got
+    one, two = seen[CR.SHIPPED.reader], seen["word anchor + score"]
+    return sum(1 for k in one if one[k] != two[k])
+
+
 def check(section, claim, ok, evidence=""):
     print(f"  {'PASS' if ok else 'FAIL'}  {claim}")
     if evidence:
@@ -81,9 +116,30 @@ def main():
     other = CR.Sampler(CR.SHIPPED.seed, N, CR.SHIPPED.population,
                        "word anchor + score")
     m3 = CR.measure(other, lex, L.Declaration(), schema=False)
-    check("3", "the same draw judged by the two readers gives DIFFERENT "
-          "counts — which is why M-138's re-derivations disagreed",
-          m3["admit"] != m["admit"],
+    # ~~"the same draw judged by the two readers gives DIFFERENT counts"~~
+    # STRUCK 2026-09-02, AND THE STRIKE IS THE POINT. That check read a
+    # COUNT INEQUALITY as evidence for a STRUCTURAL claim, and the pricing
+    # adoption (`MISSING.md` M-138 — ASSONANCE cut at 0.82) made the two
+    # counts COINCIDE at 4: both readers now admit the identical four pairs
+    # on this draw (telematic/acids, soroka/ida, hohn/gone,
+    # inexpensive/clamping). Counts agreeing is NOT the readers being
+    # interchangeable, and reading it that way is doctrine 20 — the sample
+    # stopped separating them, which is a fact about the sample and the cut.
+    # MEASURED on the identical 300 pairs: the two readers return a
+    # different score or a different relation on **69** of them (madora/
+    # barbara 0.738 ASSONANCE against 0.538 CONSONANCE; causey/overfield
+    # 0.670 NO_RELATION against 0.108 ASSONANCE), and exactly ONE of those
+    # 69 straddles the old flat 0.75 — which is why the ADMIT counts used to
+    # differ and no longer do. The coordinate is pinned where it lives now.
+    check("3", "the two readers disagree on 69 of the 300 pairs' SCORE or "
+          "RELATION — the reader is a real coordinate, measured on the "
+          "judgement and not on a count that happens to coincide",
+          _reader_disagreements(lex, shipped) == 69,
+          f"{_reader_disagreements(lex, shipped)} of {N}")
+    check("3", "...and at the ADOPTED cut those disagreements no longer "
+          "move the ADMIT count, which is a fact about this draw and NOT "
+          "evidence the two readers are the same (doctrine 20)",
+          m3["admit"] == m["admit"],
           f"word anchor {m3['admit']}  against line anchor {m['admit']}")
     check("3", "...and the draw itself is IDENTICAL, so the difference is "
           "the reader and not the sample",

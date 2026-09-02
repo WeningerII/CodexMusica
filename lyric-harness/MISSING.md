@@ -14092,6 +14092,28 @@ statistic that chose the cut — and re-sweeping against it returns 0.81 for
 free, in the loosening direction. `near_relation_pricing.PRICING_CANON`
 pins 12/1014 and the sweep reads it. Checked rather than assumed: at the
 repinned rate every relation still reads under 2x.
+**AND TWO PINS THE ADOPTION MOVED WERE FOUND BY CI AND NOT BY THE SITTING,
+WHICH IS WORTH RECORDING RATHER THAN QUIETLY FIXING.** The sitting ran the
+suites it expected to move and both of these were outside that list.
+(1) `test_g2p.py` §9's `off` arm holds the battery's violation count, and it
+is the SAME literal that was repinned ~~82~~ -> ~~35~~ -> ~~12~~ for M-59
+and M-116: a DOOR movement the pin sat behind, now **14**, and the third
+instance of one shape. The two earlier moves widened the door and this one
+narrows it, which is why the count rose where it had fallen.
+(2) `test_chance_rate.py` §3 asserted that the two READERS give DIFFERENT
+admit counts, and the cut made them COINCIDE at 4 — both readers now admit
+the identical four pairs on the shipped draw (`telematic`/`acids`,
+`soroka`/`ida`, `hohn`/`gone`, `inexpensive`/`clamping`). **THE CHECK WAS
+READING A COUNT INEQUALITY AS EVIDENCE FOR A STRUCTURAL CLAIM**, and counts
+agreeing is not two readers being interchangeable — it is a sample that
+stopped separating them, which is doctrine 20. MEASURED on the identical
+300 pairs: the readers return a different score or a different relation on
+**69** of them (`madora`/`barbara` 0.738 ASSONANCE against 0.538
+CONSONANCE; `causey`/`overfield` 0.670 NO_RELATION against 0.108
+ASSONANCE), and exactly ONE of those 69 straddles the old flat 0.75 — which
+is why the admit counts used to differ and no longer do. The pin sits on
+the 69 now, with the coincidence recorded as a fact about this draw at this
+cut.
 **WHAT THIS DOES NOT CLAIM.** There is no positive control on the canon
 arm, so E1 says the cut is AFFORDABLE on this corpus and never that a cut
 which mattered would have been detected (doctrines 31/76). The split-half
@@ -19676,6 +19698,40 @@ arithmetic that uses it rather than quoted in prose (doctrine 58).
 spend, so it is a different decision with a different risk and belongs to
 the owner, and moving it here would be this function deciding a budget
 rather than describing one.
+**AND THE DAY'S OWN PAIR INVERTED WHEN THE DOLLAR FIGURE MOVED, WHICH IS
+THIS SAME DEFECT ONE AXIS OVER.** `chat.js` bounds a day TWICE — `dailyUsd`
+in dollars and `maxTurnsPerDay` in requests — independent on purpose,
+because a count needs no pricing table and is the sounder of the two when
+the money arithmetic is wrong. That second ceiling's own comment reasoned
+*"400 turns at the measured ~$0.01 mean is roughly $4, comfortably above
+the $2 dollar cap, so in normal operation the dollar cap is what the
+service actually hits and this never fires"* — true at $2 and FALSE at $25,
+in the same words, with the roles exactly swapped. MEASURED: $4 by the
+count against a $25 budget, so an ordinary day was bounded near four
+dollars whatever the dollar figure said, and raising `CHAT_DAILY_USD` alone
+bought roughly nothing. **THE OWNER RESOLVED IT THE SAME DAY** —
+*"bring it actually up to $25 a day. I approve what you need to do to get
+it up there"* — and the resolution is a DERIVATION rather than a second
+typed number, because typing one is what let the pair invert in the first
+place: `maxTurnsPerDay` is `dailyUsd / MEAN_TURN_USD * TURNS_HEADROOM`,
+**5,000** at the shipped figures, with `MEAN_TURN_USD` declared beside the
+arithmetic that reads it and `CHAT_MAX_TURNS_PER_DAY` still overriding
+outright. `TURNS_HEADROOM` is 2 and is not decoration: at 1.0 the two
+ceilings TIE at the measured mean and which fires is decided by noise,
+while at 2 the dollar budget binds first even if turns run at HALF the mean
+— the direction that would otherwise let the count quietly become the
+budget again. `chatCeilings().perDay` reads `dailyUsd` now.
+**WHAT THE RAISE COSTS IS REPORTED RATHER THAN DISCOVERED.** This ceiling
+is the only bound that survives a wrong pricing table, so its worst case
+scales with it: `worstCaseDayUsd` is **$1,090** (5,000 turns at the worst
+legal turn), against **$87** at the old 400. What keeps that from being one
+client's to reach is the RATE LIMITER and not this ceiling —
+`perIpPerDay` is **720** (`perIpPerHour` 30 x 24), so the day ceiling is a
+FLEET bound needing seven distinct addresses to approach, and the pin says
+so. Both figures ride `/chat/status`. Lowering `CHAT_TURNS_HEADROOM` or the
+per-IP rate tightens the tail; neither was moved here, because the owner
+asked for the day to be real and not for the tail to be re-argued.
+
 **TWO PINS MOVED WITH THE FIGURE, AND BOTH MOVED THE RIGHT WAY.** The old
 `maxTurnUsd < 2` carried the reason *"a single turn must not be able to
 spend the daily cap"* and typed the daily cap's own DEFAULT as a literal in
