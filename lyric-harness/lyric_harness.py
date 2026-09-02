@@ -5424,7 +5424,8 @@ the quality layer (each says which module answered):
                           syllables, not a grid); exit 0 otherwise. This
                           was `python3 quality/recover.py` alone until
                           2026-09-01 — a module with no verb and no tool.
-  screen W1 W2 [W3...]    is this rhyme pair USABLE before a word is
+  screen W1 W2 [W3...] [--bank]
+                          is this rhyme pair USABLE before a word is
                           drafted: every unordered pair among the words,
                           judged by the song grader itself on a minimal
                           mandated pair (same Reviser, same declaration),
@@ -5436,7 +5437,21 @@ the quality layer (each says which module answered):
                           no-private-instruments rule): this exact check
                           pre-screened both zero-flag songs, and a step
                           that decides which words get tried must have an
-                          entrance the system owns
+                          entrance the system owns.
+                          --bank is a DECLARED COORDINATE (M-111,
+                          2026-09-02) and is omitted by default: declared,
+                          it APPENDS how many of your OWN banked songs
+                          already sing each word as a content word, with
+                          the matched human null's reading of that depth
+                          beside it. It DISCLOSES and never grades — no
+                          threshold, no code, no moved count, no changed
+                          exit status — because the bank is this harness's
+                          own output and a resource used to score a cell
+                          must be independent of that cell's label
+                          (doctrine 13/14), and because reusing your own
+                          word across your own songs is a style fact, not
+                          a defect (doctrine 6/7). Omitting it reads no
+                          song and costs nothing
   capacity WORD | --top=N what the LEXICON can sustain (quality/capacity.py,
                           the density design's stage 1, derived 2026-08-18):
                           a word's rhyme family, its spelling classes (tier
@@ -5603,7 +5618,8 @@ VERB_LAYERS = (
     ("wiring", "lyric_harness.py", "this map, checked against the dispatch"),
     ("types", "quality/rhyme_types.py", "9-axis coordinate + anchor"),
     ("screen", "quality/revise.py", "pair ban screening -- the song "
-     "grader on a minimal mandated pair"),
+     "grader on a minimal mandated pair; --bank adds quality/cross_song.py's "
+     "cross-song disclosure"),
     ("recover", "quality/recover.py", "structure recovery -- the second "
      "door: a pasted song's sections, syllables and rhyme web, each "
      "coordinate with how it was obtained"),
@@ -7536,11 +7552,37 @@ def main():
 
     elif cmd == "screen":
         rest = args[1:]
-        _usage = ("usage: screen WORD WORD [WORD...] [--relation=NAME] — "
-                  "every unordered pair among the words, judged by the "
-                  "song grader on a minimal mandated pair; --relation "
-                  "ALSO asks the named question a mandate declaring it "
-                  "will ask (M-58)")
+        _usage = ("usage: screen WORD WORD [WORD...] [--relation=NAME] "
+                  "[--bank] — every unordered pair among the words, judged "
+                  "by the song grader on a minimal mandated pair; "
+                  "--relation ALSO asks the named question a mandate "
+                  "declaring it will ask (M-58); --bank ALSO discloses "
+                  "cross-song depth over your own banked songs (M-111)")
+        # --bank IS A DECLARED COORDINATE, THE SAME STANDING `--voices` AND
+        # `--fallback` HAVE (M-111, 2026-09-02). Omitted by default, and
+        # omitting it costs NOTHING: `quality/cross_song.py` is not
+        # imported, no banked song is opened, and every byte this verb
+        # prints is what it printed before the flag existed — MEASURED on a
+        # real run, `test_cross_song.py` §6, which asserts neither this
+        # module nor the content partition it reads the bank with reaches
+        # `sys.modules`. WHAT IS NOT CLAIMED: that the tagger is spared.
+        # The slop floor loads it on every screen either way, so the saving
+        # is this module and the sixteen files, not the nltk import — the
+        # first draft of this comment said otherwise and the test that
+        # asserted it went red (doctrine 20 on the scope of a claim).
+        # Declared, it APPENDS a block after the summary and may
+        # do nothing else — the ruling on M-111 is that a reading of
+        # `songs/` DISCLOSES and never grades, and `test_cross_song.py` §5
+        # holds it mechanically by pinning the un-flagged output as a
+        # PREFIX of the flagged one. A code, a flag, a moved count or a
+        # different exit status cannot be introduced here without turning
+        # that check red.
+        want_bank = _bare_flag_or_refuse(
+            rest, "--bank",
+            "that this screen ALSO discloses, for each word, how many of "
+            "your OWN banked songs already sing it as a content word "
+            "(a disclosure with no threshold on it, M-111)")
+        rest = [a for a in rest if a != "--bank"]
         # M-58 ITEM 3: THE SCREEN CAN ASK THE QUESTION THE GRADE WILL ASK.
         # Without this, a writer screening before writing (mandatory,
         # standing rule 3) was answered from the COARSE class while the
@@ -7698,6 +7740,15 @@ def main():
               f"clean non-rhyme is not banned AND not a family (the "
               f"mandate will charge it); refusal is the grader's own "
               f"(doctrine 28)")
+        # AFTER EVERYTHING, AND THAT POSITION IS THE POINT. The block is
+        # appended below the verdict table and below the summary counts so
+        # that it structurally CANNOT reach either: the disclosure is a
+        # report, and putting a report in the control layer charges the
+        # wrong layer (doctrine 79, M-111).
+        if want_bank:
+            from quality import cross_song as _CS
+            for _l in _CS.disclosure_lines(_CS.disclose(words)):
+                print(_l)
 
     elif cmd == "capacity":
         from quality import capacity as CAP

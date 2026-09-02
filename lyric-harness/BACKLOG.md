@@ -1520,11 +1520,22 @@ until ruled.
    about?** Derive from recurrence contracts, measure from the marked
    corpus, or name them by hand — the current four are hardcoded with no
    recorded reason.
-5. **M-111 — may a check read `songs/` at screen time to disclose
+5. ~~**M-111 — may a check read `songs/` at screen time to disclose
    cross-song word reuse?** The songs register rules songs are NOT
    corpus; the measured concentration (10 content words shared by ≥4 of
    6 banked songs against a null median of 1) is what the check would
-   disclose.
+   disclose.~~
+   RULED 2026-09-02 under the delegation: YES to a DISCLOSURE, never to a
+   grade — and the re-measurement is half the ruling. At sixteen songs
+   against a LENGTH-MATCHED null the concentration holds on the panel's
+   own six (11 types vs a null median 2, max 7, 0 of 300 draws) and does
+   NOT survive at the same proportion on sixteen (0 at `>= 11 of 16`; 2
+   against a null median of 3 at half), while the ten songs written since
+   the panel show nothing at all (8 against a null median of 13). The
+   panel's null was never length-matched, which at sixteen decides the
+   answer (unmatched p 0.1063 against matched p <= 0.0033). The gate is
+   refused MECHANICALLY, by a prefix pin and a named refusal, not in prose
+   (`MISSING.md` M-111, `quality/cross_song.py`, `screen --bank`).
 6. ~~**M-120 — disclose that a drawn end-web can be inaudible as rhyme, or
    accept that as the dice's intended risk?** Panel run 5 heard a fully
    SATISFIED web as absence of rhyme; the disclosure needs an
@@ -1737,6 +1748,7 @@ pricing, M-136's required words and assonance profile).
 | M-187 (2026-09-02, the owed pin) | the deploy re-run guard is pinned in a suite CI already runs — eight checks driving the real scripts against a temporary repository and a replayed `gh`, five mutations recorded | `mcp/test.mjs`, 94 checks |
 | RULINGS WANTED #19 (2026-09-02) | the required set on `main` is eight checks including `suites-result`, `verbs-result`, `record` and `revision-loop`; admins are NOT exempt; the four additions cost no wall clock; APPLYING it stays the owner's | `docs/branch-protection.md`, a new `verbs-result` job |
 | RULINGS WANTED #20 / L-4a (2026-09-02) | ~40 model songs against a pre-1929 human class is confounded with period by construction, so the sitting is declined in that design and named in another; the no-separation disclosure becomes derived and pinned | `LENGTH_SENSITIVE`, `evidence_for`, `test_floor` §15 |
+| M-111 (2026-09-02, C08) | a check may read `songs/` to DISCLOSE cross-song reuse and never to grade — the bank is the OBSERVATION and `corpus/song/` the null, so it is not corpus by the back door; the re-measurement at sixteen does not reproduce the concentration that argued for a gate, and the gate is refused mechanically rather than in prose | `cross_song.py`, `screen --bank`, `BankIsNotCorpus`, the prefix pin |
 
 ---
 
@@ -1830,10 +1842,10 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 63 OPEN / 37 PARTIAL / 2 BLOCKED / 141 CLOSED / 12 RESOLVED = 255 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 62 OPEN / 37 PARTIAL / 2 BLOCKED / 141 CLOSED / 13 RESOLVED = 255 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 3 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1398** DECLARED-public top-level functions/classes under `quality/` and the root — **261** named by another production module, **424** by tests only, **622** only inside their own module, **11** by nothing anywhere, **80** REFUSED (52 ambiguous, 19 dynamic, 9 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **57** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1411** DECLARED-public top-level functions/classes under `quality/` and the root — **264** named by another production module, **431** by tests only, **622** only inside their own module, **11** by nothing anywhere, **83** REFUSED (55 ambiguous, 19 dynamic, 9 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **57** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |

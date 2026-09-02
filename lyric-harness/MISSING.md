@@ -12211,7 +12211,7 @@ UNREACHABLE: the slop floor requires the same tagger first, and without it
 the verb used to die at exit 1 (now REFUSES at 2 with the staging commands
 named, M-188). Recorded so the dead key is not mistaken for a disclosure.
 
-### M-111 · the ban's clean lists are one glossary, and every song shops it `OPEN`
+### M-111 · the ban's clean lists are one glossary, and every song shops it `RESOLVED` 2026-09-02 under the owner's delegation (RULINGS WANTED #5, triage C08) — the cross-song question has a verb, the gate is refused mechanically, and the re-measurement moved the finding's strength before it moved any code
 Filed 2026-08-25. The owner's finding, made before any instrument had it:
 *"you use 'light' and 'burn' in basically every song ... way outside their
 Zipfian distribution."*
@@ -12230,7 +12230,7 @@ independently: "a rhyme-word bank reused like one glossary." Beside it and
 separable: a register collapse (light/dark/stone/ache/groan) that no screen
 produced — the writer's own prior.
 
-**WHY IT IS OPEN AND NOT BUILT.** The natural check reads `songs/` at screen
+~~**WHY IT IS OPEN AND NOT BUILT.** The natural check reads `songs/` at screen
 or grade time to disclose reuse ("clean, but this word rhymes in 3 of your
 banked songs") — and the songs register's first rule is that the songs are
 NOT corpus: nothing samples them (doctrine 13/14). A self-repetition
@@ -12238,7 +12238,115 @@ disclosure arguably checks novelty AGAINST own output rather than
 calibrating ON it, but that is an argument and not a ruling, and the ruling
 is the owner's. Until then the cross-song question has exactly two
 instruments: the DF measurement in `quality/RESULTS_PANEL.md` §4, and a
-panel with a set lens.
+panel with a set lens.~~
+**RULED 2026-09-02 UNDER THE DELEGATION: A CHECK MAY READ `songs/` TO
+DISCLOSE CROSS-SONG WORD REUSE, AND MAY NOT READ IT TO GRADE, GATE,
+THRESHOLD, CALIBRATE OR RANK.**
+**AND THE NUMBER THIS ENTRY QUOTED IS STALE IN ITS STRENGTH, WHICH IS THE
+FIRST HALF OF THE ANSWER.** Re-measured at the bank's sixteen songs by
+`quality/cross_song.py --sweep` — 951 content types against a
+LENGTH-MATCHED null of 8,666 human songs over 1,297 `corpus/song/eng_*`
+files, 300 draws at seed 20260902. On the panel's own SIX the finding HOLDS
+and is strong: `>= 4 of 6` is **11 types against a null median 2, max 7,
+with 0 of 300 draws reaching 11** (`--subset=panel6`; the one-type gap from
+this entry's recorded 10 is panel run 5's own recorded spelling
+difference). At the same PROPORTION on sixteen it is GONE: two-thirds of
+sixteen is `>= 11 of 16`, where the bank holds **0** and so does the null,
+and at half (`>= 8 of 16`) the bank holds **2 against a null median of 3**
+— below the null. At the same ABSOLUTE k it survives and is a DIFFERENT
+QUESTION: `>= 4 of 16` is a quarter of the bank, **53 against a null median
+of 32**, 0 of 300 draws reaching 53. And the TEN songs written since the
+panel show nothing at all: at `>= 4 of 10` they hold **8 against a null
+median of 13**, again below, with no k from 3 upward separating
+(`--subset=after_panel`). The panels' own prose had said this for four runs
+— *"the core cluster stays confined to the first five songs"* — and this is
+the mechanical confirmation of it.
+**THE PANEL'S NULL WAS NEVER MATCHED ON LENGTH, AND AT SIXTEEN THAT DECIDES
+THE ANSWER.** Vocabulary size is the nuisance parameter: two long songs
+share more types than two short ones for no stylistic reason, and the
+banked songs run 33-179 content types (median 85) against a human median 75
+with q1-q3 51-120. Measured both ways at k=4 by `--unmatched`, which runs
+the panel's own construction ON PURPOSE: on the six, unmatched **p 0.0133**
+against matched **p <= 0.0033** — small enough to hide; on sixteen,
+unmatched **p 0.1063**, which does not separate at all, against matched
+**p <= 0.0033**. Doctrine 61 is the rule that applies: pick between rule
+variants by lift over a MATCHED control, and record the table.
+**SO THE CASE FOR A GATE FAILS TWICE, ON THE MEASUREMENT AND ON THE
+DOCTRINE.** Doctrine 34: reading `songs/` does NOT make it corpus, and this
+tree had already ruled that twice without saying so — `quality/song_record.py`
+and `quality/ban_convergence.py` both read this bank and neither carries a
+`data/sources.tsv` row, because neither CALIBRATES on it. What makes a
+directory corpus is the JOB and not the READ: a population you sample from,
+fit on, or draw a null from. Here the bank is the OBSERVATION and the null
+is drawn from `corpus/song/`, which is corpus and does carry rows — the
+right way round. Doctrine 13: the bank is this harness's own output, so
+scoring a candidate by how often the harness previously emitted it closes a
+loop the harness itself drives — the ban pushes a draft off the modal
+candidate, the survivor is sung, the survivor enters the bank, and the check
+pushes the next draft off the survivor, which is measuring novelty against a
+target the instrument is moving; the direction of that dependence is
+POSITIVE FEEDBACK onto exactly the second mode M-88 and this entry named.
+Doctrine 14: a GATE would be the `--cliques` shape precisely, because the
+ban's clean lists MANUFACTURE the reuse this entry's own funnel receipt
+records. Doctrine 6/7: a flag is a floor, a floor needs a threshold stated
+as a false-positive rate at a length that could falsify it, and this
+statistic is NOT SCALE-INVARIANT — a fixed k silently asks a different
+question every time a song is banked, which is doctrine 15's failure with
+the BANK SIZE as the length — while a writer reusing their own word across
+their own songs is a style fact and doctrine 7's floor is for defects.
+**WHAT WAS BUILT.** `quality/cross_song.py`, reachable from a verb as
+`screen --bank` — a DECLARED COORDINATE in the shape `--voices` and
+`--fallback` already have. Omitted by default, and omitting it costs
+nothing: the module is not imported and no banked song is opened, MEASURED
+on a real run by `test_cross_song.py` §6. Declared, it APPENDS per word how
+many of the writer's OWN banked songs sing it as a content word, with the
+matched null's reading of that depth beside it, so a depth is never handed
+over as a defect — `light` reads **7 of 16** and the bank holds 5 types at
+depth >= 7 against a null median of 5, which is ORDINARY, while `ache`
+reads **4 of 16** where the bank holds 53 against a null median of 32. The
+population is `song_record.songs()` and no second copy; the content
+partition is `narrative_bands.content_types`, made public for this caller
+because panel run 5 measured two hand spellings of it disagreeing by one
+type. NOTHING IS CACHED: a derived `data/*.tsv` of bank frequencies would
+be a corpus file by construction, would need a doctrine 34 row, and would
+be the back door this ruling denies — so the frequencies are derived live
+from the committed bytes on every call, and a test asserts no such table
+exists.
+**THE REFUSAL IS MECHANICAL, BECAUSE THIS ENTRY SAT OPEN FOR EIGHT DAYS ON
+AN ARGUMENT AND AN ARGUMENT IS WHAT A LATER SESSION TALKS ITSELF OUT OF.**
+Three mechanisms, each with the mutation that proves it. (1) `screen --bank`
+may only APPEND: `test_cross_song.py` §5 pins the un-flagged output as a
+byte PREFIX of the flagged one (906 B, 1498 B, 592 B appended), so a code, a
+moved count or a changed exit status cannot be introduced without turning
+the suite red — planting the gate this ruling refuses (`codes |=
+{"BANK_REUSE"}` at depth >= 4) reds **3 checks**, and note that "both runs
+exit 0" correctly still passes, which is why the PREFIX and not the exit
+code is the pin. (2) `cross_song.BankIsNotCorpus`, raised by
+`_refuse_bank_as_population` from INSIDE `human_population` so no caller can
+route around it, refuses the bank as a NULL population by name, citing
+doctrines 13 and 14 and naming *"give the bank a sources.tsv row to silence
+this"* as the back door rather than the fix — removing the guard reds
+**4 checks**. (3) A test asserts no derived bank table exists under `data/`.
+And from the other direction `quality/gate_census.py --check` is UNMOVED:
+this lot introduces no finding code at all.
+**WHAT THIS RULING DOES NOT CLAIM.** It does not retract the finding on the
+SIX — 11 types at `>= 4 of 6` against a null median of 2 is a real and
+strong result, and this entry's original measurement stands at the size it
+was taken. It does not claim the bank is free of a glossary: the panels'
+set lens is model output and this instrument cannot see register collapse,
+whole-phrase recurrence, or the funnel receipt (16 of 50 screened words
+sung in a different song), all of which remain the panel's. It does not
+claim the ten later songs are BETTER — a count below a null median at n=10
+is not evidence of variety, and doctrine 20 forbids reading a
+low-resolution row as a null; the honest statement is that the
+concentration the panel measured does not reproduce on them. It adopts NO
+threshold, and the disclosure is compared against nothing anywhere in this
+tree. It says nothing about whether a word at any depth should be changed —
+that is the writer's, and doctrine 7's floor was never for style. And it
+does NOT close the connector half: `mcp/lyric_tools.js`'s `lyric_screen`
+mirrors the CLI's `relation` and `fallback` coordinates and does NOT carry
+`bank`, so the chat surface cannot ask this question — named here so it is
+a RECORDED non-build and not a forgotten one.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~167~~ -> **169**
 (M-110 and this entry landed in one commit, 2026-08-25; this entry counts while
