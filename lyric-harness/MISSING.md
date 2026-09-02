@@ -19545,11 +19545,61 @@ per-hop cost equals the arithmetic over `LIMITS` and `PRICING`, an unpriced
 model refuses rather than returning a number, `capBinds` is true, and a real
 `runTurn` driven into the cap comes back with `hops 1 < maxSteps 14` — so
 every check keeps holding when the owner sets the cap to something else.
-WHAT IS NOT TAKEN, AND WHY: the dollar figure itself. Raising it is spending
-the owner's money, the arithmetic above says a cap that let every legal hop
-through would be about **$0.22**, and `CHAT_MAX_TURN_USD` sets it in one
-environment variable. What the delegation could take was the defect — a
-ceiling that silently outranks another ceiling — and that is taken.
+~~WHAT IS NOT TAKEN, AND WHY: the dollar figure itself. Raising it is
+spending the owner's money, the arithmetic above says a cap that let every
+legal hop through would be about $0.22, and `CHAT_MAX_TURN_USD` sets it in
+one environment variable.~~ **THE OWNER SET IT THE SAME DAY, TO $2.50** —
+an order of magnitude above the worst legal turn rather than the $0.22 the
+arithmetic names as the floor for admitting every legal hop, which is what
+turns this back into a PATHOLOGY bound instead of a step limit wearing a
+dollar sign. MEASURED after: `turnBudget()` reports **160 hops affordable
+against a `maxSteps` of 14, `capBinds` FALSE**, so `maxSteps` is the
+operative per-turn limit again and a `MAX_TURN_COST` stop now means what it
+says. What the delegation could take was the defect — a ceiling that
+silently outranks another ceiling — and that was taken; the figure was the
+owner's and they gave it.
+**AND THE RAISE PUT THE TURN CAP ABOVE THE DAY'S, WHICH WAS DISCLOSED
+RATHER THAN ABSORBED — AND THE OWNER THEN MOVED THE DAY TOO.** At the
+moment of the raise `chat.js`'s `dailyUsd` was **$2** against a **$2.50**
+turn cap, so a single turn could carry the day **$0.50** past its own
+ceiling: the daily check admits a turn BEFORE it runs and never interrupts
+one in flight. Told that, the owner raised the day to **$25** in the same
+sitting (*"I forgot the daily budget was so low"*), and the overshoot is
+**zero** again with the day buying **114** worst-legal turns.
+**BUT THE DAY HAS TWO CEILINGS AND THE RAISE INVERTED WHICH ONE BINDS,
+WHICH IS THE SAME DEFECT ONE AXIS OVER.** `dailyUsd` bounds the day in
+DOLLARS and `maxTurnsPerDay` (400) bounds it in REQUESTS, independent on
+purpose because a count needs no pricing table. That second ceiling's own
+comment reasoned *"400 turns at the measured ~$0.01 mean is roughly $4,
+comfortably above the $2 dollar cap, so in normal operation the dollar cap
+is what the service actually hits and this never fires"* — true at $2 and
+FALSE at $25, in the same words. MEASURED at HEAD: `dayByTurnsUsd` **$4**
+against a `dailyUsd` of **$25**, so `perDay` reads **`maxTurnsPerDay`** and
+an ordinary day is bounded near four dollars whatever the dollar figure
+says. **RAISING `CHAT_DAILY_USD` ALONE THEREFORE BUYS ROUGHLY NOTHING**, and
+that is stated in the comment, computed by `chatCeilings()` and pinned,
+rather than left for a later reader to rediscover.
+`chat.chatCeilings()` states all of it — which of the two PER-TURN ceilings
+binds, which of the two DAILY ones an ordinary day reaches, both pairs of
+figures, the overshoot, the worst-legal turns the day buys, and what the
+count ceiling amounts to in dollars at the declared mean — and
+`/chat/status` publishes it. `MEAN_TURN_USD` is declared beside the
+arithmetic that uses it rather than quoted in prose (doctrine 58).
+`CHAT_MAX_TURNS_PER_DAY` was NOT moved: it bounds request VOLUME as well as
+spend, so it is a different decision with a different risk and belongs to
+the owner, and moving it here would be this function deciding a budget
+rather than describing one.
+**TWO PINS MOVED WITH THE FIGURE, AND BOTH MOVED THE RIGHT WAY.** The old
+`maxTurnUsd < 2` carried the reason *"a single turn must not be able to
+spend the daily cap"* and typed the daily cap's own DEFAULT as a literal in
+the test file, so the relation it named went false the moment either number
+moved — doctrine 1, in the guard. It READS both configs now, asserts the
+overshoot is stated rather than inferred, and keeps the invariant the
+literal was reaching for: a day whose dollar ceiling a turn can exceed
+still needs a finite turn-count bound. And the check that pinned
+`capBinds` TRUE now pins the AGREEMENT between the derivation and the
+reported answer instead of the answer itself, because the answer is a
+function of a number the owner sets.
 A LIMIT THE DERIVATION STATES RATHER THAN HIDES: `pruneHistory` runs ONCE A
 TURN on the PRIOR transcript, so a turn's own tool results append on top of
 the pruned prior without being pruned again; a hop folding a `lyric_grade`

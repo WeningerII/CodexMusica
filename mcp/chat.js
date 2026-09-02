@@ -30,6 +30,7 @@ import {
   DEFAULT_MODEL,
   LIMITS,
   costOf,
+  turnBudget,
   priceFor,
   RETRY_TRANSIENT,
   RATE_LIMIT_RETRY,
@@ -59,14 +60,21 @@ export const CHAT_LIMITS = {
   perIpPerMinute: num('CHAT_IP_RPM', 4),
   perIpPerHour: num('CHAT_IP_RPH', 30),
   concurrency: num('CHAT_CONCURRENCY', 2),
-  dailyUsd: num('CHAT_DAILY_USD', 2),
+  // ~~2~~ **25** since 2026-09-02, raised by the owner in the same sitting as
+  // the $2.50 per-turn cap and for the same reason: at $2 the turn cap sat
+  // ABOVE the day's whole budget, so one admitted turn could carry the day
+  // past its ceiling (the daily check runs BEFORE a turn and never
+  // interrupts one in flight). At $25 the turn cap is back under the day and
+  // that overshoot is zero — `chatCeilings()` reports it either way rather
+  // than either number being trusted to stay put.
+  dailyUsd: num('CHAT_DAILY_USD', 25),
   // 600 was too tight to describe a recording in the terms this thing rewards —
   // a mood, a room, an era, a piece of gear, and which instrument each applies
   // to — so a user with a real brief had to cut it down before asking. At the
   // deployed model's input price 5000 chars is ~1250 tokens, and even re-sent on
-  // every hop of a 12-step turn that is under $0.002, against the $0.10
-  // per-turn ceiling maxTurnUsd already enforces. The cap that actually bounds
-  // spend is that one, not this.
+  // every hop of a 12-step turn that is under $0.002, against the per-turn
+  // ceiling `maxTurnUsd` enforces (~~$0.10~~ **$2.50** since 2026-09-02).
+  // The cap that actually bounds spend is that one, not this.
   maxMessageChars: num('CHAT_MAX_MESSAGE', 5000),
   // 400_000 until 2026-08-28, sized for history alone. The envelope now also
   // carries the revise state (`lyric` — measured at ~262KB on a real 28-line
@@ -83,12 +91,80 @@ export const CHAT_LIMITS = {
   // This one needs none of those — it counts requests. If the money arithmetic
   // is ever wrong in the cheap direction, this is what still stops the day.
   //
-  // 400 turns at the measured ~$0.01 mean is roughly $4, comfortably above the
-  // $2 dollar cap, so in normal operation the dollar cap is what the service
-  // actually hits and this never fires. It exists for the case where the dollar
-  // cap cannot do its job.
+  // ~~400 turns at the measured ~$0.01 mean is roughly $4, comfortably above
+  // the $2 dollar cap, so in normal operation the dollar cap is what the
+  // service actually hits and this never fires.~~ **STRUCK 2026-09-02, AND
+  // THE RELATION INVERTED WHEN THE DOLLAR CEILING MOVED TO $25**: 400 turns
+  // at that same ~$0.01 mean is still roughly $4, which is now well UNDER
+  // the day's dollar ceiling, so in ordinary operation THIS is what the
+  // service reaches first and the dollar cap is what never fires. That is
+  // not a defect — a count ceiling needs no pricing table and is the sounder
+  // of the two — but it does mean raising `CHAT_DAILY_USD` alone buys
+  // roughly nothing: the ordinary day stays bounded near $4 by this number
+  // until it moves too. `chatCeilings().perDay` says which of the two an
+  // ordinary day reaches rather than leaving it to whichever is smaller. It
+  // still exists for the case where the dollar cap cannot do its job.
   maxTurnsPerDay: num('CHAT_MAX_TURNS_PER_DAY', 400),
 };
+
+/**
+ * WHICH OF THE THREE SPEND CEILINGS ACTUALLY BINDS, SAID OUT LOUD.
+ *
+ * There are three and they answer different questions: `maxSteps` bounds a
+ * turn's HOPS, `maxTurnUsd` bounds one turn's DOLLARS, and `dailyUsd` bounds
+ * the day's. The smallest one wins, and until 2026-09-02 which that was
+ * depended on a transcript size nothing disclosed — a turn stopped at hop 6
+ * of a legal 14 reported MAX_TURN_COST, which reads as a budget problem when
+ * what bound it was the hop budget (triage C11).
+ *
+ * The owner raised `maxTurnUsd` to $2.50 that day, which moves the answer:
+ * the turn cap now sits an order of magnitude above the worst LEGAL turn, so
+ * `maxSteps` is the operative per-turn limit again — and $2.50 also sits
+ * ABOVE `dailyUsd` ($2). That is not an error and it is not silently
+ * absorbed: the daily check admits a turn BEFORE it runs and never
+ * interrupts one in flight, so ONE turn may carry the day past its ceiling
+ * by up to `maxTurnUsd - dailyUsd`. Reported, not repaired — `CHAT_DAILY_USD`
+ * is the owner's other knob, and moving it here would be this function
+ * deciding a budget rather than describing one.
+ *
+ * @returns {{perTurn:string, turnUsd:number, dailyUsd:number,
+ *            turnCapExceedsDay:boolean, dayOvershootUsd:number,
+ *            turnsPerDay:number|null}}
+ */
+// The measured mean cost of an ordinary turn, from the probe suite — the
+// figure `maxTurnsPerDay`'s own comment reasons with. Declared here because
+// `chatCeilings` prices the count ceiling in dollars with it, and a number
+// used in an arithmetic must be findable rather than quoted in prose
+// (doctrine 58).
+export const MEAN_TURN_USD = Number(process.env.CHAT_MEAN_TURN_USD) || 0.01;
+
+export function chatCeilings(limits = CHAT_LIMITS, agent = LIMITS, model = undefined) {
+  const budget = turnBudget(agent, model === undefined ? DEFAULT_MODEL : model);
+  const perTurn = budget === null ? 'UNPRICED_MODEL' : budget.capBinds ? 'maxTurnUsd' : 'maxSteps';
+  const turnCapExceedsDay = agent.maxTurnUsd > limits.dailyUsd;
+  // AND THE DAY HAS TWO CEILINGS OF ITS OWN, WHICH IS THE SAME QUESTION ONE
+  // AXIS OVER. `dailyUsd` bounds the day in dollars and `maxTurnsPerDay`
+  // bounds it in requests, deliberately independent because the count needs
+  // no pricing table. Which of them an ordinary day reaches first is
+  // arithmetic over a MEAN turn, and it INVERTED when the dollar figure
+  // moved to $25: the count ceiling priced at that mean is the dollars the
+  // day actually reaches.
+  const dayByTurnsUsd = limits.maxTurnsPerDay * MEAN_TURN_USD;
+  return {
+    perTurn,
+    turnUsd: agent.maxTurnUsd,
+    dailyUsd: limits.dailyUsd,
+    turnCapExceedsDay,
+    // How far past the day's ceiling one admitted turn could carry it.
+    dayOvershootUsd: turnCapExceedsDay ? agent.maxTurnUsd - limits.dailyUsd : 0,
+    // How many worst-legal turns the day buys, or null when unpriced.
+    turnsPerDay: budget === null ? null : Math.floor(limits.dailyUsd / budget.worstLegalTurnUsd),
+    // Which of the DAY's two ceilings an ordinary day reaches first, and what
+    // the count ceiling amounts to in dollars at the measured mean.
+    perDay: dayByTurnsUsd < limits.dailyUsd ? 'maxTurnsPerDay' : 'dailyUsd',
+    dayByTurnsUsd,
+  };
+}
 
 // ── rate limiting ────────────────────────────────────────────────────────────
 //
@@ -232,6 +308,8 @@ export async function createChatRouter({
       dailyCapUsd: limits.dailyUsd,
       turnsToday: spend.turns,
       dailyCapTurns: limits.maxTurnsPerDay,
+      // Which ceiling actually binds, and what the turn cap costs the day.
+      ceilings: chatCeilings(limits, LIMITS, model),
       // WHAT THE TWO NUMBERS ABOVE ACTUALLY COVER.
       //
       // `spentUsdToday` reads as the day's total, and with no spend file it is

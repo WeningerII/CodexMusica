@@ -68,12 +68,27 @@ export const LIMITS = {
   // maxSteps already bounds the hop count, but hops are not the unit that
   // costs money: every hop re-sends the whole transcript, so cost grows with
   // the SQUARE of the conversation rather than with the step counter. The
-  // measured worst prompt in the probe suite ran $0.033; ten cents is three
-  // times that, so an ordinary bad turn never sees this and a pathological one
-  // stops before it matters. Without it the only per-request bound was step
-  // count, and a turn that grew a large workspace could spend far more inside
-  // fourteen legal hops than fourteen ordinary hops ever would.
-  maxTurnUsd: Number(process.env.CHAT_MAX_TURN_USD) || 0.1,
+  // measured worst prompt in the probe suite ran $0.033; ~~ten cents is three
+  // times that, so an ordinary bad turn never sees this and a pathological
+  // one stops before it matters.~~ RAISED TO $2.50 BY THE OWNER 2026-09-02,
+  // and the reason the old figure had to go is `turnBudget()` below: at the
+  // pruning ceiling ten cents bought SIX hops of a declared FOURTEEN, so the
+  // dollar cap was the operative step limit and `maxSteps` was decoration —
+  // a turn legal by the step counter died on the dollar counter and reported
+  // MAX_TURN_COST for it. $2.50 sits an order of magnitude above the worst
+  // LEGAL turn ($0.2180 at the ceiling), which is what makes this a
+  // PATHOLOGY bound again rather than a step limit wearing a dollar sign.
+  // Without it the only per-request bound is step count, and a turn that
+  // grew a large workspace could spend far more inside fourteen legal hops
+  // than fourteen ordinary hops ever would.
+  //
+  // IT NOW SITS ABOVE `chat.js`'s DAILY CEILING ($2 by default), AND THAT IS
+  // A CONSEQUENCE RATHER THAN AN OVERSIGHT. The daily check admits a turn
+  // BEFORE it runs and never interrupts one in flight, so a single turn may
+  // carry the day past its own ceiling. `chatCeilings()` in `chat.js` says
+  // which of the three binds and `/chat/status` reports it; `CHAT_DAILY_USD`
+  // is the other knob and was NOT moved here, being a separate decision.
+  maxTurnUsd: Number(process.env.CHAT_MAX_TURN_USD) || 2.5,
   // WHICH OF THOSE TWO CEILINGS ACTUALLY BINDS IS `turnBudget()` BELOW, AND
   // IT IS DISCLOSED RATHER THAN LEFT TO WHICHEVER IS SMALLER (2026-09-02,
   // triage C11). `maxSteps` and `maxTurnUsd` are two answers to ONE question
@@ -87,8 +102,10 @@ export const LIMITS = {
   // filler draft's is 117 KB), a lyric_grade verdict carries its full report
   // (~45 KB on the record, 182 KB measured on a filler draft), and a
   // lyric_plan brief is 21 KB (seed 16). The battery's rows grew ~40 KB a
-  // turn and read 395 KB by turn 4, where the $0.10 turn cap ends a turn
-  // after four hops (~100k tokens x $0.25/M ~ $0.025 a hop). See
+  // turn and read 395 KB by turn 4, where the turn cap THEN IN FORCE ($0.10;
+  // it is $2.50 since 2026-09-02) ended a turn after four hops (~100k tokens
+  // x $0.25/M ~ $0.025 a hop). Those bytes are why pruning exists and they do
+  // not move with the cap. See
   // pruneHistory below for the rule; `CHAT_PRUNE_FOLDED=0` disables it.
   pruneFolded: process.env.CHAT_PRUNE_FOLDED !== '0',
   // The newest N prior turns are never touched (the model's own last hop
@@ -97,7 +114,9 @@ export const LIMITS = {
   pruneKeepTurns: Number(process.env.CHAT_PRUNE_KEEP_TURNS) || 1,
   // A byte ceiling on the pruned transcript, newest kept. 200 KB is ~50k
   // tokens at the measured ~4 bytes/token, i.e. ~$0.0125 a hop, so a late
-  // turn keeps at least eight hops under the $0.10 cap instead of four. On
+  // turn kept at least eight hops under the $0.10 cap instead of four, which
+  // is the arithmetic that sized this ceiling; at the $2.50 cap in force now
+  // `maxSteps` binds first and this is a pure byte bound. On
   // the record's shape stubbing alone lands well under it (~150 KB at
   // turn 9), so this only ever bites a pathological transcript.
   pruneMaxBytes: Number(process.env.CHAT_PRUNE_MAX_BYTES) || 200_000,

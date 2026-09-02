@@ -300,10 +300,59 @@ check('validation: actionable errors', () => {
     assert.equal(priceFor('__no_such_model__'), null);
     assert.equal(cost({ promptTokens: 1e6, candidatesTokens: 1e6 }, '__no_such_model__'), null);
   });
-  check('a turn is bounded in dollars, not only in hops', () => {
+  check('a turn is bounded in dollars, not only in hops', async () => {
     assert.ok(LIMITS.maxTurnUsd > 0, 'maxTurnUsd must be set');
-    assert.ok(LIMITS.maxTurnUsd < 2, 'a single turn must not be able to spend the daily cap');
+    // ~~`maxTurnUsd < 2`, "a single turn must not be able to spend the daily
+    // cap"~~ — the 2 was the daily cap's own DEFAULT, typed as a literal here,
+    // so the relation it named could go false the moment either number moved
+    // (doctrine 1). The owner raised the turn cap to $2.50 on 2026-09-02 and
+    // it did. The relation is READ from both configs now and its consequence
+    // is DISCLOSED rather than asserted away: a turn cap above the daily
+    // ceiling means one admitted turn can carry the day past it, because the
+    // daily check runs before a turn and never interrupts one in flight.
+    const { CHAT_LIMITS: _CL, chatCeilings } = await import('./chat.js');
+    const c = chatCeilings();
+    assert.equal(c.turnUsd, LIMITS.maxTurnUsd);
+    assert.equal(c.dailyUsd, _CL.dailyUsd);
+    assert.equal(c.turnCapExceedsDay, LIMITS.maxTurnUsd > _CL.dailyUsd);
+    assert.equal(
+      c.dayOvershootUsd,
+      c.turnCapExceedsDay ? LIMITS.maxTurnUsd - _CL.dailyUsd : 0,
+      'the overshoot a single turn can cause is stated, not left to be inferred'
+    );
+    // Whatever the two numbers are, the day must still be bounded by
+    // SOMETHING a turn cannot exceed on its own: either the dollar cap sits
+    // under the day, or the turn-count ceiling is finite. That is the
+    // invariant the struck literal was reaching for, written so it survives a
+    // repin of either figure.
+    assert.ok(
+      !c.turnCapExceedsDay || _CL.maxTurnsPerDay > 0,
+      'a day with a turn cap above its dollar ceiling still needs a turn-count bound'
+    );
   });
+  check(
+    'the DAY has two ceilings too, and which one an ordinary day reaches is derived',
+    async () => {
+      // `dailyUsd` bounds the day in dollars, `maxTurnsPerDay` in requests, and
+      // they are independent on purpose — the count needs no pricing table. The
+      // owner moved the dollar figure $2 -> $25 on 2026-09-02 and the answer
+      // INVERTED: 400 turns at the measured ~$0.01 mean is ~$4, so the count is
+      // what an ordinary day now reaches and the dollar ceiling is what never
+      // fires. Pinned as the arithmetic, never as the answer.
+      const { CHAT_LIMITS: _CL, chatCeilings, MEAN_TURN_USD } = await import('./chat.js');
+      const c = chatCeilings();
+      assert.equal(c.dayByTurnsUsd, _CL.maxTurnsPerDay * MEAN_TURN_USD);
+      assert.equal(
+        c.perDay,
+        c.dayByTurnsUsd < c.dailyUsd ? 'maxTurnsPerDay' : 'dailyUsd',
+        'the reported daily ceiling IS that comparison'
+      );
+      assert.ok(
+        MEAN_TURN_USD > 0,
+        'the mean the count ceiling is priced at is declared, not quoted'
+      );
+    }
+  );
   check('there is a daily ceiling that does not consult the pricing table', async () => {
     const { CHAT_LIMITS } = await import('./chat.js');
     assert.ok(CHAT_LIMITS.maxTurnsPerDay > 0, 'maxTurnsPerDay must be set');
@@ -1314,19 +1363,36 @@ check('validation: actionable errors', () => {
   check('an unpriced model refuses the arithmetic rather than returning a number', () => {
     assert.equal(turnBudget(_L, 'no-such-model'), null);
   });
-  check('the ceilings DISAGREE at the pruning ceiling, and the code says which wins', () => {
-    // The measured state on 2026-09-02: $0.10 buys 6 hops of a legal 14, so
-    // the DOLLAR cap is the operative step limit and `maxSteps` is the
-    // decoration. Recorded as a relation so it survives a repin of either.
+  check('the code says WHICH of the two ceilings wins, and agrees with itself', async () => {
+    // ~~The measured state on 2026-09-02: $0.10 buys 6 hops of a legal 14, so
+    // the DOLLAR cap is the operative step limit.~~ The owner raised the cap
+    // to $2.50 the same day and the answer flipped to `maxSteps`, which is
+    // the pin doing its job — so what is pinned is the AGREEMENT between the
+    // derivation and the reported answer, never the answer itself.
     const b = turnBudget();
-    assert.ok(b.capBinds, `cap ${_L.maxTurnUsd} buys ${b.hopsAffordable} of ${_L.maxSteps} hops`);
-    assert.ok(
+    const { chatCeilings } = await import('./chat.js');
+    assert.equal(b.capBinds, b.hopsAffordable < _L.maxSteps, 'capBinds IS that comparison');
+    assert.equal(
+      b.capBinds,
       _L.maxTurnUsd < b.worstLegalTurnUsd,
-      'the cap sits below the worst LEGAL turn, which is what makes it bind'
+      'and a cap below the worst LEGAL turn is exactly what makes it bind'
+    );
+    assert.equal(
+      chatCeilings().perTurn,
+      b.capBinds ? 'maxTurnUsd' : 'maxSteps',
+      'the reported per-turn ceiling is the derivation, not a second opinion'
     );
   });
   await (async () => {
-    // Drive a real turn into the cap: one hop, priced past the ceiling.
+    // Drive a real turn into the cap in ONE hop. The prompt size is DERIVED
+    // from the cap and the model's own input price, never typed: a literal
+    // here is a fixture that depends on a number the owner sets, and this
+    // check went red the moment they set it (`hops` came back 3 against a
+    // typed 1 when the cap went $0.10 -> $2.50). Twice the cap's worth of
+    // prompt trips it on the first hop whatever the cap is, so the check
+    // keeps asking its own question — what the STOP carries — instead of
+    // re-deriving the cap's arithmetic, which the checks above already pin.
+    const _oneHopTokens = Math.ceil((2 * _L.maxTurnUsd * 1e6) / PRICING[DEFAULT_MODEL].input);
     const realFetch = globalThis.fetch;
     globalThis.fetch = async () => ({
       ok: true,
@@ -1336,7 +1402,7 @@ check('validation: actionable errors', () => {
           { content: { parts: [{ functionCall: { name: 'lyric_types', args: { a: 'x' } } }] } },
         ],
         usageMetadata: {
-          promptTokenCount: 4_000_000,
+          promptTokenCount: _oneHopTokens,
           candidatesTokenCount: 1,
           thoughtsTokenCount: 0,
         },
@@ -1364,10 +1430,13 @@ check('validation: actionable errors', () => {
       assert.ok(d, 'the stop is not a bare label');
       assert.ok(d.usd >= d.cap, `spent ${d.usd} against cap ${d.cap}`);
       assert.equal(d.cap, _L.maxTurnUsd);
-      assert.equal(d.hops, 1, 'it bought one hop');
+      assert.equal(d.hops, 1, 'it bought one hop, the prompt being twice the cap');
       assert.equal(d.maxSteps, _L.maxSteps, 'and names the hop budget it did NOT reach');
       assert.ok(d.hops < d.maxSteps, 'so MAX_TURN_COST cannot be read as MAX_STEPS');
-      assert.ok(d.budget && d.budget.capBinds === true, 'and carries the derivation');
+      // ~~`capBinds === true`~~ — another literal that was a function of the
+      // cap, and it went false when the owner raised it. What the stop owes
+      // is the DERIVATION, and that it is the same one `turnBudget` reports.
+      assert.deepEqual(d.budget, turnBudget(), 'and carries the derivation itself');
     });
   })();
   check('chat.js publishes the stop detail beside the stop reason', () => {
