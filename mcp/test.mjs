@@ -4,6 +4,9 @@
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { posix } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import * as E from './engine.js';
 
 // Raw merged catalog (with the universal cross-instrument materials present) so the
@@ -780,6 +783,135 @@ check('validation: actionable errors', () => {
     assert.ok(
       /e && e\.timedOut\s*\?\s*\{ code: -1/.test(lt),
       'and runVerb surfaces the tagged kill as the -1 it is instead of retrying cold'
+    );
+  });
+  check('the image ships every tracked runtime file under mcp/ — the worker included', () => {
+    // M-187: mcp/Dockerfile:20 read `COPY mcp/*.js ./mcp/`, and mcp/worker.py —
+    // the warm process `_spawnWorker` starts — is not a .js file, so every
+    // image Render built between M-155 (2026-08-29) and 2026-09-01 lacked it.
+    // The connector's own design hid that: a spawn that fails is the cold
+    // execFile with byte-identical output ~20 ms later, so production served
+    // every verb cold, the M-167 replay memo never engaged, and nothing went
+    // red — M-170's audit found the line by reading it. A glob is a list
+    // nobody re-reads when a file joins, so the list is re-derived from git on
+    // every run and matched against the Dockerfile's own COPY set, with the
+    // WORKDIR in force at each line resolved: a file has to land where
+    // lyric_tools.js looks for it (/app/mcp), not merely somewhere in the
+    // image. NOT_SHIPPED declares each tracked file the image is right to
+    // omit, with its reason; a tracked file neither copied nor declared fails
+    // here by name, and so does a declared file the Dockerfile copies anyway.
+    //
+    // EMPIRICALLY VERIFIED 2026-09-01: run against the pre-fix Dockerfile this
+    // check failed with `tracked under mcp/, in no COPY and not in
+    // NOT_SHIPPED: mcp/worker.py`; the planted mutant at the end IS that
+    // Dockerfile (the worker's COPY line removed) and must keep saying so.
+    const NOT_SHIPPED = {
+      'mcp/Dockerfile': 'the build recipe — docker reads it, the server never does',
+      'mcp/README.md': 'documentation',
+      'mcp/PRIVACY.md': 'documentation',
+      'mcp/test.mjs': 'this suite — CI runs it against the tree; the image runs server_http.js',
+      'mcp/check_live.mjs':
+        "the nightly's freshness probe — it runs in CI AGAINST the deployed endpoint (M-127), so an image carrying it would be the deployment checking itself",
+    };
+    const ROOT = fileURLToPath(new URL('..', import.meta.url));
+    let tracked;
+    try {
+      tracked = execFileSync('git', ['ls-files', '-z', '--', 'mcp/'], {
+        cwd: ROOT,
+        encoding: 'utf8',
+      })
+        .split('\0')
+        .filter(Boolean);
+    } catch (e) {
+      assert.fail(
+        `REFUSED — git ls-files could not enumerate mcp/ (${e.message}); a check that cannot read its list must not pass (doctrine 20)`
+      );
+    }
+    assert.ok(
+      tracked.includes('mcp/worker.py') && tracked.includes('mcp/lyric_tools.js'),
+      'git sees the tree this suite runs in'
+    );
+    for (const f of Object.keys(NOT_SHIPPED))
+      assert.ok(
+        tracked.includes(f),
+        `NOT_SHIPPED names ${f}, which git no longer tracks — a stale exclusion is a list nobody re-read`
+      );
+
+    // The Dockerfile's COPY set: each tracked file that some source names,
+    // mapped to the absolute directory it lands in under the WORKDIR then in
+    // force. The build context is the repo root (the file's own header), so
+    // sources are spelled exactly as git spells them.
+    const coverage = (dockerfile) => {
+      let cwd = '/';
+      const landed = new Map();
+      for (const raw of dockerfile.split('\n')) {
+        const line = raw.trim();
+        let m;
+        if ((m = /^WORKDIR\s+(\S+)$/.exec(line))) {
+          cwd = m[1].startsWith('/') ? m[1] : posix.join(cwd, m[1]);
+          continue;
+        }
+        if (!(m = /^COPY\s+(.+)$/.exec(line))) continue;
+        const parts = m[1].split(/\s+/).filter((p) => !p.startsWith('--'));
+        const dest = parts.pop();
+        let destDir = dest.startsWith('/') ? dest : posix.join(cwd, dest);
+        // `COPY one/file some/name` with no trailing slash is a RENAME to a
+        // file; the directory it lands in is the dirname.
+        if (!dest.endsWith('/') && parts.length === 1 && tracked.includes(parts[0]))
+          destDir = posix.dirname(destDir);
+        destDir = posix.normalize(destDir).replace(/(.)\/$/, '$1');
+        for (const src of parts) {
+          const re = new RegExp(
+            '^' +
+              src
+                .replace(/[.+^${}()|[\]\\]/g, '\\$&')
+                .replace(/\*/g, '[^/]*')
+                .replace(/\?/g, '[^/]') +
+              '$'
+          );
+          for (const f of tracked) {
+            if (f === src || f.startsWith(src.replace(/\/$/, '') + '/') || re.test(f))
+              landed.set(f, destDir);
+          }
+        }
+      }
+      const uncovered = tracked.filter((f) => !landed.has(f) && !(f in NOT_SHIPPED));
+      return { landed, uncovered };
+    };
+
+    const text = readFileSync(new URL('./Dockerfile', import.meta.url), 'utf8');
+    const { landed, uncovered } = coverage(text);
+    assert.deepEqual(
+      uncovered,
+      [],
+      `tracked under mcp/, in no COPY and not in NOT_SHIPPED: ${uncovered.join(', ')} — COPY it in mcp/Dockerfile or declare why the image omits it`
+    );
+    const declared = Object.keys(NOT_SHIPPED);
+    assert.equal(
+      landed.size,
+      tracked.length - declared.length,
+      `${landed.size} files copied against ${tracked.length} tracked minus ${declared.length} declared`
+    );
+    const copiedAnyway = declared.filter((f) => landed.has(f));
+    assert.deepEqual(
+      copiedAnyway,
+      [],
+      `declared NOT_SHIPPED and copied regardless: ${copiedAnyway.join(', ')} — one of the two is stale`
+    );
+    const astray = [...landed].filter(([, d]) => d !== '/app/mcp').map(([f, d]) => `${f} -> ${d}`);
+    assert.deepEqual(astray, [], `copied where lyric_tools.js does not look: ${astray.join(', ')}`);
+    assert.equal(
+      landed.get('mcp/worker.py'),
+      '/app/mcp',
+      'the worker lands beside lyric_tools.js, where WORKER_PATH resolves'
+    );
+    // The planted mutant: the pre-fix Dockerfile, reproduced from the fixed one.
+    const mutant = text.replace(/^COPY mcp\/worker\.py .*\n/m, '');
+    assert.notEqual(mutant, text, "the worker's COPY line is there to be removed");
+    assert.deepEqual(
+      coverage(mutant).uncovered,
+      ['mcp/worker.py'],
+      'and without it the check names the worker — the finding, reproduced'
     );
   });
   check('a battery transport failure is a recorded row, never a crash', async () => {
