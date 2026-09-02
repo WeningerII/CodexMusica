@@ -538,6 +538,21 @@ function extractUnreadable(report) {
   return out;
 }
 
+// THE HARNESS'S OWN REFUSAL HEADLINE (2026-09-02, `MISSING.md` M-168's
+// swerve). `_refuse` prints `  REFUSED — {msg}` and exits 2, and the CLI's
+// other exit-2 prints (the candidates and mandate refusals) spell the same
+// headline. Round 10 banked two lyric_sweep calls and a lyric_plan call at
+// exit 2 with `error: null` and NOTHING else on the record, so nobody can now
+// say whether the window held no seed, a predicate was misspelled or the
+// declaration was unbuildable — three different remedies. The first headline
+// is the reason; extraction, never re-derivation (the M-169 pattern), and
+// pinned against the harness's own print statement rather than a fixture
+// this file wrote.
+function extractRefusal(report) {
+  const m = /^\s*REFUSED — ([^\n]+)/m.exec(report || '');
+  return m ? m[1].trim() : null;
+}
+
 function verdictOf(r) {
   const banned = extractBannedPairs(r.stdout);
   const uncalibrated = extractUncalibrated(r.stdout);
@@ -546,6 +561,10 @@ function verdictOf(r) {
     exit_code: r.code,
     meaning: EXIT_MEANING[r.code] || `subprocess failure (${r.code}): ${r.stderr.slice(0, 400)}`,
   };
+  if (r.code === 2) {
+    const why = extractRefusal(r.stdout);
+    if (why) v.refusal = why;
+  }
   // THE REPORT'S COUNTS AND THE REFUSALS (M-186), on every verb that prints
   // them. `brief`/`lyric_check` exit 0 with flags standing because their exit
   // gates are `song`'s alone; the verdict says so instead of "no flag stands".
@@ -930,6 +949,7 @@ export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
   verdictOf,
+  extractRefusal,
   extractRecoveredMandate,
   extractRecoverRefusals,
   extractReportCounts,

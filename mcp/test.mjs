@@ -1027,6 +1027,161 @@ check('validation: actionable errors', () => {
       'the agent attaches both on the way out'
     );
   });
+  // ── M-168 (2026-09-02): a 429 on the chat path is retried inside a budget ──
+  // Round 10 ended on a hard 429 the chat path threw at once. RATE_LIMIT_RETRY
+  // retries at most twice, honours Retry-After when it fits the budget,
+  // refuses it at once when it does not, and counts every retried request in
+  // `usage` so M-197's accounting sees the quota it spent. The stubbed 429s
+  // carry `Retry-After: 0` so the pin runs in milliseconds; the budget's own
+  // 2 s / 4 s backoff is pinned by shape, not slept.
+  await (async () => {
+    const {
+      runTurn: _runTurn,
+      LIMITS: _LIMITS,
+      RATE_LIMIT_RETRY: _RL,
+      RETRY_TRANSIENT: _TRANSIENT,
+    } = await import('./gemini_agent.js');
+    const realFetch = globalThis.fetch;
+    const surface = {
+      instructions: '',
+      declarations: [],
+      workspaceTools: new Set(),
+      stateTools: new Set(),
+    };
+    const ok = () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        candidates: [{ content: { parts: [{ text: 'done' }] } }],
+        usageMetadata: { promptTokenCount: 10, candidatesTokenCount: 5, thoughtsTokenCount: 0 },
+      }),
+    });
+    const busy = (retryAfter) => () => ({
+      ok: false,
+      status: 429,
+      headers: { get: (k) => (k.toLowerCase() === 'retry-after' ? retryAfter : null) },
+      json: async () => ({ error: { message: 'quota' } }),
+    });
+    const drive = async (script) => {
+      let i = 0;
+      globalThis.fetch = async () => script[Math.min(i, script.length - 1)](i++);
+      try {
+        return await _runTurn({
+          apiKey: 'k',
+          surface,
+          callTool: async () => ({ content: [{ type: 'text', text: 'ok' }] }),
+          userText: 'hi',
+          limits: { ..._LIMITS, maxTurnUsd: 0 },
+          // chat.js's own configuration: 429 is NOT among the statuses waited
+          // out unbounded, so the budget is what applies to it.
+          retries: 0,
+          retryStatuses: _TRANSIENT,
+          rateLimit: _RL,
+        });
+      } finally {
+        globalThis.fetch = realFetch;
+      }
+    };
+    const thrown = async (script) => {
+      try {
+        await drive(script);
+      } catch (e) {
+        return e;
+      }
+      return null;
+    };
+    check('RATE_LIMIT_RETRY is two retries whose backoffs fit its own total wait', () => {
+      assert.equal(_RL.retries, 2);
+      assert.deepEqual(_RL.backoffMs, [2000, 4000]);
+      assert.ok(
+        _RL.backoffMs.reduce((a, b) => a + b, 0) <= _RL.maxTotalWaitMs,
+        'the declared backoffs never exceed the declared total'
+      );
+      assert.ok(
+        _RL.maxTotalWaitMs < 38_000,
+        'and the total is under the 38 s stall chat.js refuses'
+      );
+    });
+    const run = await drive([busy('0'), ok]);
+    check('a 429 then a 200 is ONE retry: the reply lands and usage counts both requests', () => {
+      assert.equal(run.reply, 'done');
+      assert.equal(run.usage.requests, 2, 'the retried 429 and the 200');
+      assert.equal(run.usage.retries, 1);
+      assert.equal(run.stopped, null);
+    });
+    const past = await thrown([busy('60'), ok]);
+    check('a Retry-After past the budget is refused AT ONCE with the wait on the error', () => {
+      assert.ok(past, 'threw');
+      assert.equal(past.status, 429);
+      assert.equal(past.retryAfterMs, 60_000, 'the hint, in ms');
+      assert.equal(past.rateLimitRetries, 0, 'no retry was spent on it');
+      assert.equal(past.usage.requests, 0, 'and nothing was billed');
+    });
+    const exhausted = await thrown([busy('0'), busy('0'), busy('0'), ok]);
+    check('three 429s exhaust the two retries: the throw carries the two requests spent', () => {
+      assert.ok(exhausted, 'threw');
+      assert.equal(exhausted.status, 429);
+      assert.equal(exhausted.rateLimitRetries, 2);
+      assert.equal(exhausted.usage.requests, 2, 'two retried requests, the final throw uncounted');
+      assert.equal(exhausted.usage.retries, 2);
+    });
+  })();
+  check('chat.js hands runTurn the bounded 429 budget beside its transient list', () => {
+    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+    assert.ok(
+      /retryStatuses: RETRY_TRANSIENT,\s*\n\s*rateLimit: RATE_LIMIT_RETRY,/.test(chat),
+      'rateLimit: RATE_LIMIT_RETRY rides beside retryStatuses: RETRY_TRANSIENT'
+    );
+    assert.ok(
+      /res\.set\('Retry-After', String\(Math\.ceil\(err\.retryAfterMs \/ 1000\)\)\)/.test(chat),
+      'a refused hint reaches the client as the standard header'
+    );
+    assert.ok(/refusal: c\.refusal \?\? null,/.test(chat), 'tools[] carries the refusal headline');
+  });
+  // ── M-168's swerve (2026-09-02): an exit 2 carries the harness's own reason ──
+  // Round 10's record holds two lyric_sweep calls and one lyric_plan call at
+  // exit 2 with `error: null` and nothing else. The extractor reads the
+  // harness's own `REFUSED — …` headline, and this pin reads that print
+  // statement out of lyric_harness.py rather than trusting a fixture.
+  await (async () => {
+    let VI = null;
+    try {
+      ({ _verdictInternals: VI } = await import('./lyric_tools.js'));
+    } catch {
+      console.log('  --  refusal-headline check skipped (SDK not installed in-container)');
+      return;
+    }
+    const { _agentInternals: AI } = await import('./gemini_agent.js');
+    const harness = readFileSync(
+      new URL('../lyric-harness/lyric_harness.py', import.meta.url),
+      'utf8'
+    );
+    check("the harness's refusal headline is the shape the connector extracts", () => {
+      assert.ok(
+        harness.includes('print(f"  REFUSED — {msg}")'),
+        '`_refuse` prints `  REFUSED — {msg}` (the extractor is pinned to this line)'
+      );
+      const sweep =
+        '  SWEEP: seeds 0..99 (100), form=song\n' +
+        '    swept 100  planned 100  REFUSED by the planner 0  accepted 0 (0.0% of the planned)\n' +
+        '  REFUSED — no seed in 0..99 satisfies every declared predicate\n' +
+        '    100 seed(s) planned and none was kept, so the declaration is unreachable\n';
+      assert.equal(
+        VI.extractRefusal(sweep),
+        'no seed in 0..99 satisfies every declared predicate',
+        'the headline, not the counts line that also says REFUSED'
+      );
+      assert.equal(VI.extractRefusal('  PLAN: seed 31\n  fine\n'), null, 'a clean report has none');
+      const v = VI.verdictOf({ code: 2, stdout: sweep, stderr: '' });
+      assert.equal(v.refusal, 'no seed in 0..99 satisfies every declared predicate');
+      assert.ok(
+        !('refusal' in VI.verdictOf({ code: 0, stdout: sweep, stderr: '' })),
+        'only an exit 2 carries one — absent is not zero'
+      );
+      assert.equal(AI.loopFields(v).refusal, v.refusal, 'and the call record carries it');
+      assert.equal(AI.loopFields({ exit_code: 0 }).refusal, null);
+    });
+  })();
   check('runTurn reaches the model through the one systemInstruction builder', () => {
     // The classic defect is built-but-unreachable: a helper both halves above
     // pass while runTurn keeps a second, reminder-less spelling. Pin the
@@ -1038,6 +1193,90 @@ check('validation: actionable errors', () => {
       /const si = buildSystemInstruction\(surface, lyr\)/.test(src),
       'and it is fed by the builder, per hop, from the live carried state'
     );
+  });
+
+  // ── M-197's open half: stale-brief pruning ───────────────────────────────
+  // Every hop re-sends the transcript, and the transcript is mostly folded
+  // lyric results the model already acted on (~20 KB a brief, ~45 KB a
+  // grade report on the record; 395 KB by turn 4 of the battery, where the
+  // $0.10 cap buys four hops). Pinned BY VALUE on a synthetic history: the
+  // newest prior turn intact, an older folded lyric_revise brief stubbed to
+  // its verdict fields, the recipe result untouched (the two families do
+  // not touch), the newest result per lyric tool kept, every functionCall
+  // still paired, bytes under the bound, and the pass idempotent.
+  const { pruneHistory } = _agentInternals;
+  const fold = (name, id, response) => ({
+    role: 'user',
+    parts: [{ functionResponse: { name, id, response } }],
+  });
+  const ask = (name, id) => ({ role: 'model', parts: [{ functionCall: { name, id } }] });
+  const brief = (n) => ({
+    presentation: `[AWAITING PROPOSAL — seed 16 — ${n} answer(s) on record]\n` + 'B'.repeat(20_000),
+    verdict: {
+      exit_code: 4,
+      status: 'awaiting_proposal',
+      kind: 'propose',
+      loop_whole_flag_codes: ['TITLE_NOT_IN_HOOK'],
+      answers_on_record: n,
+    },
+  });
+  const history = [
+    { role: 'user', parts: [{ text: 'a song about the river, seed 16' }] },
+    ask('start_recipe', 'c1'),
+    fold('start_recipe', 'c1', { recipe: 'W'.repeat(3000), cards: [] }),
+    ask('lyric_revise', 'c2'),
+    fold('lyric_revise', 'c2', brief(0)),
+    { role: 'model', parts: [{ text: 'first draft' }] },
+    { role: 'user', parts: [{ text: 'CONTINUE' }] },
+    ask('lyric_revise', 'c3'),
+    fold('lyric_revise', 'c3', brief(1)),
+    { role: 'model', parts: [{ text: 'answered one' }] },
+  ];
+  check('pruning stubs an older folded brief and touches nothing it must not', () => {
+    const before = JSON.stringify(history).length;
+    const pruned = pruneHistory(history, { keepTurns: 1, maxBytes: 200_000 });
+    assert.equal(pruned.length, history.length, 'no turn dropped under the bound');
+    for (let i = 6; i < history.length; i++)
+      assert.equal(pruned[i], history[i], `newest prior turn entry ${i} is the same object`);
+    assert.equal(pruned[2], history[2], 'the recipe result is untouched');
+    assert.equal(pruned[0], history[0], 'user text untouched');
+    assert.equal(pruned[3], history[3], 'the functionCall untouched');
+    const stub = pruned[4].parts[0].functionResponse;
+    assert.equal(stub.name, 'lyric_revise');
+    assert.equal(stub.id, 'c2', 'the call/response pairing survives');
+    assert.deepEqual(stub.response, {
+      pruned: stub.response.pruned,
+      exit_code: 4,
+      status: 'awaiting_proposal',
+      kind: 'propose',
+      loop_whole_flag_codes: ['TITLE_NOT_IN_HOOK'],
+      answers_on_record: 0,
+    });
+    assert.ok(!('presentation' in stub.response), 'the answered brief is gone');
+    assert.ok(
+      pruned[8].parts[0].functionResponse.response.presentation.includes('AWAITING PROPOSAL'),
+      'the pending question is verbatim'
+    );
+    const after = JSON.stringify(pruned).length;
+    assert.ok(after < before - 19_000 && after < 200_000, `bytes ${before} -> ${after}`);
+    assert.deepEqual(
+      pruneHistory(pruned, { keepTurns: 1, maxBytes: 200_000 }),
+      pruned,
+      'idempotent: a stub stays a stub'
+    );
+    assert.equal(pruneHistory(history, { keepTurns: 2 }).length, history.length);
+    assert.equal(pruneHistory(history, { keepTurns: 2 })[4], history[4], 'keepTurns=2 keeps both');
+  });
+  check('the byte ceiling drops whole oldest turns, never the newest kept one', () => {
+    const tight = pruneHistory(history, { keepTurns: 1, maxBytes: 1000 });
+    assert.equal(tight[0].parts[0].text, 'CONTINUE', 'the oldest turn went first');
+    assert.equal(tight.length, 4, 'the newest turn survives whole even over the bound');
+    const src = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
+    assert.ok(
+      /const prior = limits\.pruneFolded\s*\?\s*pruneHistory\(history/.test(src),
+      'wired at the one assembly site, behind the CHAT_PRUNE_FOLDED switch'
+    );
+    assert.ok(/CHAT_PRUNE_FOLDED'?\)? !== '0'/.test(src) || /CHAT_PRUNE_FOLDED !== '0'/.test(src));
   });
 }
 

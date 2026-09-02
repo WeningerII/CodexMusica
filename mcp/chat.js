@@ -32,6 +32,7 @@ import {
   costOf,
   priceFor,
   RETRY_TRANSIENT,
+  RATE_LIMIT_RETRY,
 } from './gemini_agent.js';
 
 // ── limits ───────────────────────────────────────────────────────────────────
@@ -44,8 +45,11 @@ import {
 // conversation spends one request per tool hop, measured at 4-7. So the service
 // supports roughly two concurrent conversations before Google starts refusing,
 // which is why CONCURRENCY exists and why a 429 is reported to the user as
-// "busy" rather than retried: a chat bar that silently stalls for 38 seconds
-// reads as broken, and retrying inside the request just moves the queue.
+// "busy" rather than waited out: a chat bar that silently stalls for 38 seconds
+// reads as broken, and retrying inside the request just moves the queue. Since
+// 2026-09-02 (M-168) a 429 is retried inside RATE_LIMIT_RETRY's eight-second
+// budget first — one refill slot of the per-minute limiter — and reported only
+// past it.
 const num = (name, fallback) => {
   const v = Number(process.env[name]);
   return Number.isFinite(v) && v > 0 ? v : fallback;
@@ -355,8 +359,15 @@ export async function createChatRouter({
         // 429 is deliberately NOT in this list. Its retry hint is routinely tens
         // of seconds, and a chat bar that silently stalls for 38 seconds reads as
         // broken; "busy, try again" is the better answer to a quota wall.
+        // WHAT IT GETS INSTEAD (2026-09-02, M-168): the BOUNDED budget —
+        // at most two retries, 2 s then 4 s or the hint when it fits, never
+        // more than eight seconds in all — because round 10 died on a hard
+        // 429 that a single refill slot of the 15-a-minute limiter would have
+        // cleared. A hint past the budget is refused at once, and the
+        // retries it did spend are on `usage.retries`.
         retries: 1,
         retryStatuses: RETRY_TRANSIENT,
+        rateLimit: RATE_LIMIT_RETRY,
       });
       // `?? null` and not `|| 0`.
       //
@@ -421,6 +432,9 @@ export async function createChatRouter({
           loop_unresolved: c.loop_unresolved ?? null,
           loop_whole_flag_codes: c.loop_whole_flag_codes ?? null,
           answers_on_record: c.answers_on_record ?? null,
+          // The harness's own REFUSED headline on an exit 2 (M-168's swerve:
+          // round 10 banked three exit-2 calls with no reason on record).
+          refusal: c.refusal ?? null,
         })),
         stopped: run.stopped,
         ...envelope,
@@ -442,7 +456,12 @@ export async function createChatRouter({
         spendStore.save();
       }
       // The upstream message can carry quota detail; the user gets the shape of
-      // the problem, and the log gets the rest.
+      // the problem, and the log gets the rest. A 429 that named a wait past
+      // RATE_LIMIT_RETRY's budget hands that wait to the client as the
+      // standard header, so a driver can pace on the number instead of a guess.
+      if (status === 429 && Number.isFinite(err.retryAfterMs) && err.retryAfterMs > 0) {
+        res.set('Retry-After', String(Math.ceil(err.retryAfterMs / 1000)));
+      }
       console.error('[chat] ', err.message);
       res.status(status).json({
         error:

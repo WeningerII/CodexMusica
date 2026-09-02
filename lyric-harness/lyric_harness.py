@@ -3386,6 +3386,18 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
     # two spellings, and only one of them real (doctrine 1).
     conj = decl.conjunctive_band and not (prof and prof.get("weights", {})
                                           .get("coda", 1.0) == 0.0)
+    if decl.conjunctive_band and not conj:
+        # THE PROFILE SWITCHED THE BAND OFF, AND THE RECORD SAYS SO
+        # (2026-09-02, `MISSING.md` M-136 (2), the disclosure half). Under a
+        # zero coda weight every pair this scores is typed RHYME — the
+        # profile named for the near relation is the one that can never
+        # emit it. Whether it SHOULD emit ASSONANCE is the parked ruling and
+        # moves verdicts; this flag moves none and lets a reader of RHYME
+        # off an `assonance`-profile call see that the coda was never asked.
+        out["flags"].append(
+            "conjunctive band: off (profile coda weight 0.0 — RHYME here "
+            "is nucleus agreement only; ASSONANCE/CONSONANCE cannot be "
+            "emitted, M-136 (2))")
     if conj and out["relation"] == "RHYME":
         nuc_ok, coda_ok = channel_agreement(anc_a, anc_b, decl)
         if nuc_ok and not coda_ok:
@@ -5067,6 +5079,98 @@ _SCREEN_CARRIERS = ("we carry the evening to the {w}",
                     "and no one had to tell us about {w}")
 
 
+def door_chance_note(door, entry=None):
+    """-> one phrase pricing a DEFAULT DOOR by its PINNED chance rate, for a
+    report line that names a pair the door let through.
+
+    THE FIGURE IS READ, NEVER RETYPED (standing rule 3, doctrine 1):
+    `quality/chance_rate.py` adopts a BAND of counts over its declared 2x2
+    sampler grid (`ADOPTED`), and this phrase renders that band against the
+    grid's own draw size and the battery's canon arm (`CANON_RATE`), so a
+    repin there moves every report here. The rates are against DRAWN pairs
+    (the admit arm's own denominator is JUDGED, a few pairs fewer, so the
+    admit rate reads a hair LOW here — stated so it is not mistaken for
+    the instrument's own figure). Both doors are UNPRICED: this is the
+    disclosure `MISSING.md` M-138 / M-140 owed a reader of a rescued pair,
+    and it moves no verdict (2026-09-02).
+    """
+    from quality import chance_rate as _CR
+    lo, hi = _CR.ADOPTED[door]
+    n = _CR.SHIPPED.n
+    canon = _CR.CANON_RATE
+    entry = entry or {"admit": "M-138", "schema": "M-140",
+                      "narrow": "M-138"}.get(door, "M-138")
+    return (f"chance rate is PINNED at {lo}..{hi} of {n:,} random CMUdict "
+            f"pairs ({lo / n:.1%}–{hi / n:.1%}, "
+            f"{lo / n / canon:.1f}–{hi / n / canon:.1f}x the sonnet canon "
+            f"arm's {canon:.2%}; quality/chance_rate.py, a band over its "
+            f"sampler grid) and UNPRICED ({entry})")
+
+
+def schema_default_disclosure(sch_sat):
+    """-> the `SCHEMA DEFAULT` report lines for `grade()`'s
+    `pairs_schema_satisfied`, or None when the list is empty.
+
+    THE WHOLE-VOCABULARY DEFAULT, DISCLOSED (M-116, owner ruling
+    2026-08-25). A pair the scalar door failed and a schema satisfied is a
+    PASS, and a silent one reads exactly like a scalar pass — so each is
+    named with the schema that answered, because laziness at these
+    relations is UNCALIBRATED and a reader must be able to tell the two
+    passes apart. The second line (2026-09-02, M-140's disclosure half)
+    prices the door: the schema door's PINNED chance rate stands beside
+    the rescue so a reader can weigh a schema-rescued pair against how
+    often that door answers two random words. Text only; nothing here
+    gates.
+    """
+    if not sch_sat:
+        return None
+    egs = "; ".join(
+        f"L{r['lines'][0]}~L{r['lines'][1]} (group "
+        f"{r['label']}) via {r['satisfied_by'][0]}"
+        for r in sch_sat[:4])
+    return (f"  SCHEMA DEFAULT: {len(sch_sat)} mandated pair(s) "
+            f"satisfied by the whole-vocabulary default, not the "
+            f"scalar door — {egs}"
+            + (" …" if len(sch_sat) > 4 else "")
+            + " — laziness at these relations is UNCALIBRATED; "
+            "declaring a relation narrows (M-116)\n"
+            f"    (that door's {door_chance_note('schema')})")
+
+
+def near_relation_default_disclosure(verdicts, theta):
+    """-> the `ADMIT DOOR` report line for `grade()`'s verdicts, or None
+    when no mandated pair was satisfied AS A NEAR RELATION.
+
+    THE WIDENED DOOR, PRICED WHERE IT ANSWERED (2026-09-02, `MISSING.md`
+    M-138's disclosure half). Since M-59 a bare group is satisfied by
+    ASSONANCE or CONSONANCE on `theta_rhyme` alone, a cut calibrated on
+    neither, and the grade printed such a pass exactly like a RHYME pass.
+    Each is counted here by its relation, with the door's PINNED chance
+    rate beside it. Pairs a schema rescued are NOT in this count — they
+    are the `SCHEMA DEFAULT` line's, and the two are never summed
+    (doctrine 79). A disclosure: the verdicts are read, not moved.
+    """
+    near = [v for v in (verdicts or ())
+            if v.get("why") is None and not v.get("satisfied_by")
+            and v.get("relation") in NEAR_RELATIONS]
+    if not near:
+        return None
+    by = {}
+    for v in near:
+        by[v["relation"]] = by.get(v["relation"], 0) + 1
+    egs = "; ".join(
+        f"L{v['lines'][0] + 1}~L{v['lines'][1] + 1} "
+        f"{v['endwords'][0]}/{v['endwords'][1]} {v['relation']} "
+        f"{v['score']:.3f}" for v in near[:4])
+    return (f"  ADMIT DOOR: {len(near)} mandated pair(s) satisfied as a "
+            f"near relation ("
+            + ", ".join(f"{k} x{by[k]}" for k in sorted(by))
+            + f") on theta_rhyme={theta} alone — {egs}"
+            + (" …" if len(near) > 4 else "")
+            + f" — a cut never priced on these relations; that door's "
+            f"{door_chance_note('admit')}")
+
+
 def screen_pairs(words, lex=None, decl=None, relation=None):
     """Every unordered pair among `words`, judged by the REAL grader on a
     minimal mandated pair — the same `Reviser.inspect` the `song` verb
@@ -5136,6 +5240,7 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
             row = {"a": a, "b": b, "codes": codes, "refused": False,
                    "reason": None, "relation": None, "score": None,
                    "why": None, "schema_scaffold": [],
+                   "flags": [],
                    "named": None, "named_reason": None}
             if g["refusals"]:
                 row["refused"] = True
@@ -5145,6 +5250,10 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
                 row["relation"] = v["relation"]
                 row["score"] = v["score"]
                 row["why"] = v["why"]
+                # M-136 (2026-09-02): the comparator's own flags ride the
+                # row, so a screen can say what a verdict did not ask —
+                # the disclosure, never a gate.
+                row["flags"] = list(v.get("flags") or [])
                 # M-113: `pairs_schema_satisfied` is the RESCUE set — the
                 # scalar door failed and a schema satisfied. On carrier
                 # lines the schemas' evidence is the SCAFFOLD ("we carry
@@ -7524,7 +7633,8 @@ def main():
                     status = (f"CLEAN — ADMITTED as {r['relation']} (a "
                               f"near relation the default door admits; a "
                               f"schema or class that needs the nucleus and "
-                              f"coda to agree will charge it)")
+                              f"coda to agree will charge it; that door's "
+                              f"{door_chance_note('admit')})")
                 elif r["schema_scaffold"]:
                     status = (f"CLEAN — DOES NOT RHYME as a pair (the "
                               f"schema default answered on the SCAFFOLD: "
@@ -9563,19 +9673,20 @@ def main():
             # scalar pass — so each is named here with the schema that
             # answered, because laziness at these relations is UNCALIBRATED
             # and a reader must be able to tell the two passes apart.
-            _sch_sat = (found.get("grade") or {}).get(
-                "pairs_schema_satisfied") or []
-            if _sch_sat:
-                _egs = "; ".join(
-                    f"L{r['lines'][0]}~L{r['lines'][1]} (group "
-                    f"{r['label']}) via {r['satisfied_by'][0]}"
-                    for r in _sch_sat[:4])
-                print(f"  SCHEMA DEFAULT: {len(_sch_sat)} mandated pair(s) "
-                      f"satisfied by the whole-vocabulary default, not the "
-                      f"scalar door — {_egs}"
-                      + (" …" if len(_sch_sat) > 4 else "")
-                      + " — laziness at these relations is UNCALIBRATED; "
-                      "declaring a relation narrows (M-116)")
+            # ONE DEFINITION EACH (2026-09-02): the text lives in
+            # `schema_default_disclosure` / `near_relation_default_disclosure`
+            # so a test can pin the rendering without a `finish` run, and
+            # each line now carries its door's PINNED chance rate (M-138 /
+            # M-140's disclosure halves). Neither line gates anything.
+            _g = found.get("grade") or {}
+            _sd = schema_default_disclosure(
+                _g.get("pairs_schema_satisfied") or [])
+            if _sd:
+                print(_sd)
+            _nd = near_relation_default_disclosure(
+                _g.get("verdicts") or [], rv.decl.theta_rhyme)
+            if _nd:
+                print(_nd)
             # A GROUP THAT MIXES SPAN KINDS, SAID OUT LOUD (M-114).
             # `endword`/`head` read the FRONT of a word, `end`/`headrime`/
             # `T<n>` read its RIME, and a scalar-judged family mixing the

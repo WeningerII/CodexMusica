@@ -1541,6 +1541,10 @@ until ruled.
    DISCLOSES that identity was not asked (`identity: not asked (words
    omitted)` on its flags); the verdict-moving halves stay parked with the
    reason in the entry.
+   DISCLOSURE COMPLETED 2026-09-02 (triage C13): the assonance profile
+   says on its flags that the band is off; grade verdicts carry the
+   comparator's flags. Both verdict halves still parked; the
+   preregistration outline is in the entry.
 8. **M-137 — per dead coordinate: consume, remove, or mark RESERVED?**
    Three coordinates, zero production readers each; the entry leans
    consume for the null side-searches and remove for `SPAN_KINDS`.
@@ -1553,6 +1557,10 @@ until ruled.
    now say on their reports which door they read (the narrow band; the
    admit door), and the pricing — a preregistered re-adoption that moves
    the battery's verdicts — is declined with its reason in the entry.
+   DISCLOSURE COMPLETED 2026-09-02: `finish` prints `ADMIT DOOR` and the
+   priced `SCHEMA DEFAULT`, the screen's ADMITTED row carries the admit
+   band, every figure read from `chance_rate.ADOPTED`. Pricing still
+   parked; the outline is in the entry.
 10. ~~**M-140 — does the 77-schema default filter `forbidden`/`deprecated`
     schemas?** Today `homoioteleuton` — the tier-1 ban — still satisfies
     the default; exposure measured at zero sole-satisfier cases, so the
@@ -1684,6 +1692,15 @@ pricing, M-136's required words and assonance profile).
 | M-184 (2026-09-02, tier 2) | the anchor side of a backtrack reads each mate at its own slot and only in the groups that bind the rewritten word | `_anchor_obligations`, `rewriting_label` |
 | M-186 (2026-09-02) | a whole-only exit 3 is labelled by its cause everywhere the exit travels — the connector's status, the three transcripts, the deferred state | `loopStatusOf`, `loop_whole_flag_codes` |
 | M-193 (2026-09-02, stage B) | the fifth threshold is REFUSED: its 95th percentile is the statistic's own ceiling, a check that could not fail | `RESULTS_SHORT_SONG_FLOOR.md` §7 |
+| M-197 (2026-09-02, C11) | folded `lyric_*` results older than the newest prior turn are stubbed to their verdict fields before the transcript is re-sent; the newest result per tool, recipe results and the kept turn are untouched; the turn cap and the counter's disk stay the owner's | `pruneHistory`, `CHAT_PRUNE_FOLDED` |
+| M-168 (2026-09-02, the three rungs) | a hard 429 is retried inside a declared 8 s budget and counted; a harness refusal's headline reaches the transcript; the turn cap is read and unmoved | `RATE_LIMIT_RETRY`, `usage.retries`, `extractRefusal` |
+| M-187 (2026-09-02, b and the sizing) | a re-run of one sha stands down against the sha last ASKED of Render, read from the workflow's own run history; unknown deploys and says so; the nightly's margin is re-read at ~13 min | `last_deployed_sha.sh`, `deploy_guard.sh`, `ci.yml` |
+| M-136 (2026-09-02, disclosure) | the assonance profile says the band is off; a verdict carries the comparator's flags; the verdict halves stay parked with an outline | `score()` flags, `grade()` verdicts |
+| M-138 / M-140 (2026-09-02, disclosure) | every default-door rescue is printed beside that door's pinned chance rate, read from `chance_rate.ADOPTED`; the pricing stays parked with an outline | `door_chance_note`, the `ADMIT DOOR` line |
+| E-5 (2026-09-02) | STILL NOT TAKEN — built and measured in a worktree (battery byte-identical, 0.350 of `now`/`why` named as absence) and stripped before the commit on the owner's 08-21 reason; the yes is the owner's | — |
+| M-168 (2026-09-02, C18) | the ban against the bank is an instrument, not a sitting: the screened pool 366/395/792/11/1 is read off the logs; the grader half is unpinned by name; two lost mandates and the draft-banking design go to M-196 | `ban_convergence.py`, `test_ban_convergence.py` |
+| M-170 (2026-09-02, C31) | the flagged-regime fold is a slope: grading calls 9 → 60 over six answers, ~0.7 s a call, in a cold process; `--attempts=1` moves nothing; the driver is an instrument | `fold_series.py` |
+| M-196 (2026-09-02, C27) | the 09-01 list is closed item by item; the `-WORKING` stamps are history and stay; the entry stays PARTIAL on C18's two lost mandates and the draft-banking design | `--verdicts` 131 / 0 / 0 |
 
 ---
 
@@ -1780,7 +1797,7 @@ never one (doctrine 79).
 | MISSING entries by status | 64 OPEN / 37 PARTIAL / 2 BLOCKED / 141 CLOSED / 11 RESOLVED = 255 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 3 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1378** DECLARED-public top-level functions/classes under `quality/` and the root — **259** named by another production module, **414** by tests only, **616** only inside their own module, **11** by nothing anywhere, **78** REFUSED (51 ambiguous, 18 dynamic, 9 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **57** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1393** DECLARED-public top-level functions/classes under `quality/` and the root — **261** named by another production module, **421** by tests only, **620** only inside their own module, **11** by nothing anywhere, **80** REFUSED (52 ambiguous, 19 dynamic, 9 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **57** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |

@@ -74,6 +74,50 @@ export const LIMITS = {
   // count, and a turn that grew a large workspace could spend far more inside
   // fourteen legal hops than fourteen ordinary hops ever would.
   maxTurnUsd: Number(process.env.CHAT_MAX_TURN_USD) || 0.1,
+  // STALE-BRIEF PRUNING (M-197's open half). Every hop re-sends the whole
+  // transcript, and the transcript is mostly FOLDED LYRIC RESULTS the model
+  // has already acted on: a lyric_revise brief is ~20 KB on the record (a
+  // filler draft's is 117 KB), a lyric_grade verdict carries its full report
+  // (~45 KB on the record, 182 KB measured on a filler draft), and a
+  // lyric_plan brief is 21 KB (seed 16). The battery's rows grew ~40 KB a
+  // turn and read 395 KB by turn 4, where the $0.10 turn cap ends a turn
+  // after four hops (~100k tokens x $0.25/M ~ $0.025 a hop). See
+  // pruneHistory below for the rule; `CHAT_PRUNE_FOLDED=0` disables it.
+  pruneFolded: process.env.CHAT_PRUNE_FOLDED !== '0',
+  // The newest N prior turns are never touched (the model's own last hop
+  // of context, intact). One is enough because the pending question is
+  // ALSO kept by the newest-per-tool rule wherever it sits.
+  pruneKeepTurns: Number(process.env.CHAT_PRUNE_KEEP_TURNS) || 1,
+  // A byte ceiling on the pruned transcript, newest kept. 200 KB is ~50k
+  // tokens at the measured ~4 bytes/token, i.e. ~$0.0125 a hop, so a late
+  // turn keeps at least eight hops under the $0.10 cap instead of four. On
+  // the record's shape stubbing alone lands well under it (~150 KB at
+  // turn 9), so this only ever bites a pathological transcript.
+  pruneMaxBytes: Number(process.env.CHAT_PRUNE_MAX_BYTES) || 200_000,
+};
+
+// A 429 ON THE CHAT PATH, RETRIED AT MOST TWICE AND NEVER LONGER THAN THIS
+// (2026-09-02, `MISSING.md` M-168's untouched rung). The chat bar reported
+// every 429 as "busy" on the argument that Google's retry hint is routinely
+// tens of seconds; round 10 ended on exactly that answer — turn 4 burned the
+// battery's four retries and turn 5 died on a hard 429 — while the key's own
+// limiter is 15 requests a MINUTE, which refills one request every 4 s. A wait
+// of 2 s then 4 s covers one refill slot and no more: a hop that lost a race
+// against a sibling conversation recovers, and a genuinely exhausted window is
+// still reported inside eight seconds, far under the 38 s stall the old
+// comment refused. `Retry-After` (the header, or Google's RetryInfo / "retry
+// in Ns" in the body) is HONOURED when it fits the budget and REFUSED when it
+// does not: a hint past `maxTotalWaitMs` throws at once with `retryAfterMs`
+// on the error rather than sleeping into the tool timeout. Every retried
+// request is counted in `usage.requests` and `usage.retries`, so M-197's
+// accounting sees the quota it spent; the final throw is not a retry and is
+// not counted, which keeps the M-197 pin's "one hop billed before the throw"
+// exact. Callers that put 429 in `retryStatuses` (the probe) keep the old
+// unbounded wait; this budget applies only where 429 is NOT waited out.
+export const RATE_LIMIT_RETRY = {
+  retries: 2,
+  backoffMs: [2000, 4000],
+  maxTotalWaitMs: 8000,
 };
 
 // The price for a model, or null if we do not know it.
@@ -180,13 +224,30 @@ function toFunctionResponse(name, id, result) {
 
 // Google puts the wait it wants in the error body ("Please retry in 28.6s") and
 // sometimes in RetryInfo. Prefer what it asked for; fall back to exponential.
-function retryDelayMs(json, attempt) {
+function bodyHintMs(json) {
   const info = (json?.error?.details || []).find((d) => /RetryInfo/.test(d['@type'] || ''));
   const fromInfo = info?.retryDelay && /^([\d.]+)s$/.exec(info.retryDelay);
   if (fromInfo) return Math.ceil(parseFloat(fromInfo[1]) * 1000) + 250;
   const fromText = /retry in ([\d.]+)s/i.exec(json?.error?.message || '');
   if (fromText) return Math.ceil(parseFloat(fromText[1]) * 1000) + 250;
-  return Math.min(32000, 1000 * 2 ** attempt);
+  return null;
+}
+
+function retryDelayMs(json, attempt) {
+  return bodyHintMs(json) ?? Math.min(32000, 1000 * 2 ** attempt);
+}
+
+// What a 429 ASKED us to wait, or null when it asked nothing: the standard
+// `Retry-After` header first (seconds, or an HTTP date), then the body's own
+// hint. Null is the answer that lets RATE_LIMIT_RETRY's own backoff apply.
+function rateLimitHintMs(res, json) {
+  const header = typeof res?.headers?.get === 'function' ? res.headers.get('retry-after') : null;
+  if (header != null && header !== '') {
+    if (/^\d+$/.test(header.trim())) return Number(header.trim()) * 1000;
+    const at = Date.parse(header);
+    if (Number.isFinite(at)) return Math.max(0, at - Date.now());
+  }
+  return bodyHintMs(json);
 }
 
 // 429 is not an error here, it is a QUEUE. The key this was built against is on
@@ -228,6 +289,13 @@ function loopFields(v) {
     loop_unresolved: typeof v?.loop_unresolved === 'number' ? v.loop_unresolved : null,
     loop_whole_flag_codes: Array.isArray(v?.loop_whole_flag_codes) ? v.loop_whole_flag_codes : null,
     answers_on_record: typeof v?.answers_on_record === 'number' ? v.answers_on_record : null,
+    // WHY AN EXIT 2 REFUSED (2026-09-02, M-168's swerve): round 10's record
+    // holds two lyric_sweep calls and one lyric_plan call at exit 2 with
+    // `error: null` and nothing else — the harness's own `REFUSED — …`
+    // headline was in the report the model read and in no record, so no
+    // later reader can say whether the window held no seed, a predicate was
+    // misspelled or the declaration was unbuildable. Extraction, as M-169.
+    refusal: typeof v?.refusal === 'string' ? v.refusal : null,
   };
 }
 
@@ -239,6 +307,7 @@ export const _agentInternals = {
   carryState,
   stateKey,
   carriedKey,
+  pruneHistory,
 };
 
 async function generate({
@@ -248,8 +317,11 @@ async function generate({
   signal,
   retries = 0,
   retryStatuses = RETRY_ALL,
+  rateLimit = null,
   onRetry,
 }) {
+  let rateLimited = 0;
+  let waited = 0;
   for (let attempt = 0; ; attempt++) {
     const res = await fetch(`${API_BASE}/models/${model}:generateContent`, {
       method: 'POST',
@@ -259,6 +331,24 @@ async function generate({
     });
     const json = await res.json().catch(() => null);
     if (res.ok) return json;
+    // THE BOUNDED 429 PATH (RATE_LIMIT_RETRY, M-168): only where the caller
+    // declared a budget AND is not already waiting 429 out unbounded.
+    if (res.status === 429 && rateLimit && !retryStatuses.includes(429)) {
+      const hint = rateLimitHintMs(res, json);
+      const wait = hint ?? rateLimit.backoffMs[rateLimited] ?? rateLimit.backoffMs.at(-1);
+      if (rateLimited < rateLimit.retries && waited + wait <= rateLimit.maxTotalWaitMs) {
+        rateLimited += 1;
+        waited += wait;
+        if (onRetry) onRetry({ status: 429, waitMs: wait, attempt, rateLimited: true });
+        await new Promise((r) => setTimeout(r, wait));
+        continue;
+      }
+      const err = new Error(`Gemini 429: ${json?.error?.message || 'rate limited'}`);
+      err.status = 429;
+      err.retryAfterMs = hint;
+      err.rateLimitRetries = rateLimited;
+      throw err;
+    }
     const retriable = retryStatuses.includes(res.status);
     if (retriable && attempt < retries) {
       const wait = retryDelayMs(json, attempt);
@@ -403,6 +493,107 @@ function buildSystemInstruction(surface, lyr) {
   return text ? { parts: [{ text }] } : null;
 }
 
+// ── STALE-BRIEF PRUNING (M-197's open half) ──────────────────────────────
+// A pure function over the transcript. INVARIANT: the pruned history is the
+// original with some lyric_* functionResponse bodies replaced by a verdict
+// stub, and possibly the OLDEST whole turns dropped — never a turn among the
+// newest `keepTurns`, never the newest result of any lyric tool (that is
+// where the pending question, the latest grade and the brief being written
+// to live), never a recipe/workspace result (standing rule 1: the two
+// families do not touch), never a user message, a model part or a
+// functionCall of a surviving turn, and every functionCall keeps its
+// functionResponse (Gemini rejects an orphan on the next request).
+//
+// The verdict fields survive in the stub so the model can still read what
+// an earlier fold DECIDED (exit code, stop reason, answers on record); what
+// goes is the presentation block and the report — the brief for a question
+// the model already answered, the rendered song a later result superseded.
+const PRUNED_FAMILY = /^lyric_/;
+const STUB_FIELDS = [
+  'exit_code',
+  'status',
+  'kind',
+  'meaning',
+  'banned_pairs',
+  'loop_stop_reason',
+  'loop_rounds',
+  'loop_unresolved',
+  // M-186: a whole-only exit 3 carries loop_unresolved 0 and its cause here;
+  // a stub that dropped it would be the fifth carrier that lost the cause.
+  'loop_whole_flag_codes',
+  'answers_on_record',
+];
+const PRUNED_NOTE =
+  'folded result pruned from the transcript: a later result of this tool superseded it; ' +
+  'the verdict fields are kept, the brief and report are not';
+
+function isUserText(entry) {
+  return entry?.role === 'user' && (entry.parts || []).some((p) => typeof p?.text === 'string');
+}
+
+function stubResponse(fr) {
+  const src =
+    fr.response && typeof fr.response === 'object' && !Array.isArray(fr.response)
+      ? fr.response
+      : {};
+  // A two-block result keeps its verdict under `verdict`; a one-block
+  // result IS the verdict. An error result is short and stays as it is.
+  if ('error' in src) return null;
+  const from = src.verdict && typeof src.verdict === 'object' ? src.verdict : src;
+  const stub = { pruned: PRUNED_NOTE };
+  for (const k of STUB_FIELDS) if (from[k] !== undefined) stub[k] = from[k];
+  return { ...fr, response: stub };
+}
+
+/**
+ * Prune folded lyric results the model has already acted on.
+ * @param {Array} contents the prior transcript (Gemini contents[])
+ * @param {{keepTurns?:number, maxBytes?:number}} opts
+ * @returns {Array} a new array; entries are shared where untouched
+ */
+function pruneHistory(contents, { keepTurns = 1, maxBytes = 200_000 } = {}) {
+  if (!Array.isArray(contents) || !contents.length) return contents;
+  // Turns: each user TEXT entry opens one; tool responses ride on `user`
+  // entries too but carry no text, so they stay inside the turn they answer.
+  const turns = [];
+  for (const entry of contents) {
+    if (isUserText(entry) || !turns.length) turns.push([]);
+    turns[turns.length - 1].push(entry);
+  }
+  const firstKept = Math.max(0, turns.length - Math.max(0, keepTurns));
+  // The newest result per lyric tool, by position, is kept verbatim.
+  const newest = new Map();
+  contents.forEach((entry, i) => {
+    for (const p of entry?.parts || []) {
+      const name = p?.functionResponse?.name;
+      if (typeof name === 'string' && PRUNED_FAMILY.test(name)) newest.set(name, i);
+    }
+  });
+  let index = 0;
+  const pruned = turns.map((turn, t) =>
+    turn.map((entry) => {
+      const i = index++;
+      if (t >= firstKept || entry?.role !== 'user') return entry;
+      let changed = false;
+      const parts = (entry.parts || []).map((p) => {
+        const fr = p?.functionResponse;
+        if (!fr || !PRUNED_FAMILY.test(fr.name || '') || newest.get(fr.name) === i) return p;
+        if (fr.response && fr.response.pruned === PRUNED_NOTE) return p;
+        const stubbed = stubResponse(fr);
+        if (!stubbed) return p;
+        changed = true;
+        return { ...p, functionResponse: stubbed };
+      });
+      return changed ? { ...entry, parts } : entry;
+    })
+  );
+  // The byte ceiling: drop the OLDEST whole turns, never the newest keepTurns.
+  let start = 0;
+  const bytes = (from) => JSON.stringify(pruned.slice(from).flat()).length;
+  while (start < firstKept && bytes(start) > maxBytes) start++;
+  return pruned.slice(start).flat();
+}
+
 /**
  * Run one user turn to completion: the model calls tools until it answers.
  *
@@ -429,11 +620,24 @@ export async function runTurn({
   limits = LIMITS,
   retries = 0,
   retryStatuses = RETRY_ALL,
+  rateLimit = null,
   signal,
   onEvent,
 }) {
-  const contents = [...history, { role: 'user', parts: [{ text: userText }] }];
-  const usage = { promptTokens: 0, candidatesTokens: 0, thoughtsTokens: 0, requests: 0 };
+  // THE ONE ASSEMBLY SITE. The prior transcript is pruned here and the
+  // pruned transcript is what goes back in the envelope, so a fold is
+  // stubbed once and stays stubbed — pruneHistory is idempotent.
+  const prior = limits.pruneFolded
+    ? pruneHistory(history, { keepTurns: limits.pruneKeepTurns, maxBytes: limits.pruneMaxBytes })
+    : history;
+  const contents = [...prior, { role: 'user', parts: [{ text: userText }] }];
+  const usage = {
+    promptTokens: 0,
+    candidatesTokens: 0,
+    thoughtsTokens: 0,
+    requests: 0,
+    retries: 0,
+  };
   const calls = [];
   let ws = workspace;
   let lyr = lyric && typeof lyric.state === 'string' ? lyric : null;
@@ -472,7 +676,14 @@ export async function runTurn({
         signal,
         retries,
         retryStatuses,
-        onRetry: (r) => onEvent && onEvent({ type: 'retry', ...r }),
+        rateLimit,
+        // A retried request spent a slot of the key's quota whether or not it
+        // was billed tokens; the count is the record (M-197, M-168).
+        onRetry: (r) => {
+          usage.requests += 1;
+          usage.retries += 1;
+          if (onEvent) onEvent({ type: 'retry', ...r });
+        },
       });
       addUsage(usage, json.usageMetadata);
       const candidate = json.candidates?.[0];

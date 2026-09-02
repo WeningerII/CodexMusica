@@ -532,6 +532,31 @@ the cheap half deferred deliberately, *"touching the scoring path twice
 costs more than once"* — is a recorded ruling and not a question the
 delegation reopens; a delegate takes the rulings an owner has not made,
 not the ones they have. Stays `OPEN`, on the owner's own terms.
+**RE-RAISED 2026-09-02 BY THE OWNER'S *"finish everything in the triage
+artifact"*, AND STILL NOT MERGED — BUT BUILT AND MEASURED, SO THE RULING
+CAN BE MADE ON NUMBERS.** An agent built the cheap half in a worktree the
+way this entry defines it: `score()` appends `coda: no evidence (both
+codas empty on K of N syllable(s); X.XXX of the total is agreement by
+absence, not by sound — E-5)` when both codas are empty, with `total`,
+`relation`, `cluster_sim`, `coda_agrees` and `admits()` untouched; the
+screen prints the phrase beside the CLEAN row; the grade's verdict carries
+the comparator's flags. MEASURED on that worktree: `now`/`why` stays
+0.902 RHYME and screens `CLEAN — RHYMES`, with **0.350** of that total
+named as absence; `see`/`free` stays 1.0 with the same flag (the
+AGREEMENT side is correct and was left alone); `cat`/`hat` 1.0 with no
+flag; `python3 battery.py` BYTE-IDENTICAL before and after (mandated 1064,
+judged 1014, refused 50, violations 12). The paths the gift reaches, for
+M-120's count: `screen`, bare-default groups, `--relation=rhyme`, an
+unplanned `song`; a DRAWN schema group is judged in `relations.py` and
+never sees it. The flag was then STRIPPED from the tree before the commit,
+on this entry's own standing line: the owner's 08-21 reason was that the
+scoring path should be touched ONCE, when the calibrated half lands, and
+a disclosure flag inside `score()` is a touch on that path however small.
+What the delegation kept from the same work is the part that is NOT this
+entry's: the verdict's `flags` field (M-136) and the door pricing lines
+(M-138/M-140). Reconstructing the stripped half is a ten-line block after
+`total -= decl.trailing_syllable_penalty * extra` and a `screen` status
+suffix, and the owner's yes is the only thing it waits on. Stays `OPEN`.
 
 ### F-1 · ~~Eight~~ NINE phonologies, and English IS one now `PARTIAL`
 **TESTED WHILE OPEN.** The phonology suites name this entry as the ROSTER
@@ -13508,6 +13533,33 @@ stays parked. The entry stays `OPEN` on those two.
 the one place the finding became a code change — the disclosure flag on a
 wordless `score()` — and that half is BUILT; what stays open is the
 required-words ruling and the assonance profile, which no test can build.
+**DISCLOSED FURTHER 2026-09-02 (triage C13, under the delegation).** (1)'s
+flag never reached a VERDICT — `Reviser.grade()` dropped the comparator's
+`flags` — and does now: each verdict record carries `"flags"` (a copy,
+gating nothing), with the control that a real mandated pair carries none
+because production passes the words. (2) gains its own disclosure:
+`profile="assonance"` now says `conjunctive band: off (profile coda weight
+0.0 — RHYME here is nucleus agreement only; ASSONANCE/CONSONANCE cannot be
+emitted, M-136 (2))` on every pair it scores, while a
+`Declaration(conjunctive_band=False)` gets NO flag — the declared
+coordinate speaks for itself (doctrine 1) and only the profile's silent
+switch-off needed a voice. Verdicts unmoved: `sun`/`much` 0.772 ASSONANCE
+at the default, 1.0 RHYME under the profile, both as before; the battery
+byte-identical. Pinned `test_readability.py` §14. THE VERDICT HALVES STAY
+PARKED, with a preregistration outline banked so the sitting that takes
+them starts from a hypothesis: population = the 48 wordless call sites
+(an AST census in `door_census.py`'s shape) and every `--profile
+assonance` invocation in banked commands; statistic = recorded verdicts
+moved per site class; falsifiers = a verdict moving at a
+syllable-inside-a-line site (then the requirement is wrong-shaped and
+stays a disclosure) and an ASSONANCE emission changing a pinned `scheme
+--profile assonance` output beyond a relabel (then (2) is a
+profile-definition ruling, not a comparator fix); adopted if held =
+`word_a`/`word_b` required at the end-word sites only, the profile
+emitting ASSONANCE. Also found on the way: §13 sat in
+`_every_section_runs`'s membership list and NOT in the `__main__` loop,
+so it printed the same `all pass` as a section that ran — listed in the
+loop now.
 
 ### M-137 · M-135's dead coordinate has siblings, and two are deader `OPEN`
 A census for the SHAPE M-135 found — a value computed and stored under a
@@ -13753,6 +13805,37 @@ the default in would change what the control is a control of). The chance
 rates of the two wider doors stay `chance_rate.py`'s, pinned as bands and
 unpriced, exactly as this entry and M-140 record. Stays `OPEN` on the
 pricing.
+**PRICED WHERE IT ANSWERS, 2026-09-02 (triage C13, under the delegation) —
+STILL UNPRICED AT THE DOOR.** `finish` prints an `ADMIT DOOR` line
+counting the mandated pairs satisfied AS a near relation on `theta_rhyme`
+alone, by relation, with `chance_rate.py`'s ADOPTED band read beside it
+(289..339 of 4,000 random CMUdict pairs, 7.2%–8.5%, 6.1–7.2x the sonnet
+canon arm's 1.18%); the `SCHEMA DEFAULT` line carries the schema door's
+band the same way (960..994, 24.0%–24.9%, 20.3–21.0x — M-140's half); and
+the screen's `CLEAN — ADMITTED as …` row ends with the admit band. Pairs a
+schema rescued are the `SCHEMA DEFAULT` line's and are never summed with
+the admitted ones (doctrine 79). THE FIGURES ARE READ, NEVER RETYPED —
+`door_chance_note` renders `chance_rate.ADOPTED`, `SHIPPED.n` and
+`CANON_RATE`, so a repin there moves every report here (import cost
+0.002 s); the rates are against DRAWN pairs, so the admit rate reads a
+hair LOW against the instrument's own JUDGED denominator, and the phrase
+says so. The two `finish` lines now have one definition each
+(`schema_default_disclosure`, `near_relation_default_disclosure`) so a
+test can pin the rendering without a `finish` run; `test_readability.py`
+§15. Battery byte-identical. THE PRICING STAYS OPEN, with its outline
+banked: one sitting in the `theta_coda` pattern; random arm =
+`chance_rate.GRID` (4 cells, seed 20260810, n=4000), canon arm = the
+1,014 judged sonnet pairs, held-out FPR at 200 seeds as in
+`RESULTS_REDTEAM`; statistic = per relation, admitted-random share over
+canon-violation share (6.1–7.2x today, where 1.5x was disqualifying);
+falsifiers = a per-relation cut that brings the ratio under 2x raising
+sonnet violations above 12 plus its interval (then the pricing is refused
+and the declared-policy option adopted and stated at the door), and — the
+E-5 half sharing the sitting — scoring empty/empty coda as 0 or
+cannot-tell moving `see`/`free`-class pairs out of RHYME (then the change
+is confined to `total` and the agreement side must carry them); adopted
+if held = per-relation thresholds on `Declaration`, D18 repinned from
+0.902, the FWER and matrix P3 pins re-adopted as bands.
 
 ### M-139 · the door moved twice and 17 of 19 sites are short of it `OPEN`
 The doctrine-9 lane of the comparator audit, opened on the candidate field and
@@ -16647,6 +16730,101 @@ gave on 08-29 — the daily spend window carrying rounds 9-10 — has lapsed
 and cannot be re-derived: the counter is in-memory and every deploy since
 reset it (AUDIT.md F128), so whether a round fits the window is a
 judgement at dispatch time, not a reading.
+**ADDENDUM 2026-09-02 — THE THREE RUNGS OF ROUND 10's LADDER THAT NO ENTRY
+TOUCHED, taken under the delegation (triage C02).** (1) THE HARD 429 is
+retried inside a DECLARED budget now: `gemini_agent.RATE_LIMIT_RETRY` —
+at most two retries, 2 s then 4 s, or the `Retry-After` header / RetryInfo
+hint when it fits, never more than 8 s in all, which is one refill slot of
+the 15-a-minute limiter and stays far under the 38 s stall `chat.js`
+refuses to make a user sit through; a hint past the budget throws AT ONCE
+and reaches the client as its own `Retry-After`. The bounded path applies
+only where a caller declares it and 429 is not already in its unbounded
+`retryStatuses` — the probe's `RETRY_ALL` keeps its wait. Every retried
+request is counted in `usage.requests` and the new `usage.retries`, so
+M-197's accounting sees the quota spent rather than the reply alone; the
+final throw is uncounted, which keeps M-197's `requests 1` pin exact.
+Four pins in `mcp/test.mjs` (two retries whose backoffs fit their own
+total; a 429 then a 200 is ONE retry with `requests 2, retries 1`; a
+`Retry-After: 60` is refused at once with `retryAfterMs 60000` and zero
+requests; three 429s exhaust the two retries and the throw carries the two
+spent) and a source pin that `chat.js` hands `runTurn` the budget beside
+its transient list. (2) THE SWERVE, read off job 99137676797 this sitting:
+turn 4's two `lyric_sweep` rows and its first `lyric_plan` row carry
+`exit_code 2, error null` — `error null` is NO connector-side refusal
+(`refuse()` throws and lands in the error text), so exit 2 is the
+HARNESS's own `_refuse`, and for `plan --sweep` that is one of three
+causes: an undeclared `--want` name, a declaration the planner cannot
+build, or `no seed in LO..HI satisfies every declared predicate`. WHICH
+cannot be said: the record keeps neither the arguments nor the harness's
+headline — `tools[]` carried name, error and exit code only. The likeliest
+reading is the writer's own arguments under the parked push (a fresh sweep,
+two windows that held nothing, then a plan the planner refused, then a
+fresh seed); it is unprovable from the transcript and is recorded as such.
+The gap is closed the M-169 way, minimally: `lyric_tools.extractRefusal`
+lifts the harness's first `REFUSED — …` headline onto the verdict as
+`refusal` (exit 2 only; absent at 0, null when clean), `loopFields` carries
+it into the call record, `chat.js` publishes it in `tools[]` — the battery
+banks that array verbatim, so round 11's exit-2 rows will say why. Pinned
+against `lyric_harness.py`'s own print, and demonstrated live on this box:
+`screen night light` with two resources hidden exits 2 with `REFUSED — the
+slop floor needs 3 staged resources and 2 of them are missing`, exactly the
+field. (3) MAX_TURN_COST is UNMOVED and read only: `maxSteps 14`,
+`maxTurnUsd $0.10` (sized as 3x the probe's worst $0.033), the check
+firing between hops; ~$0.025 a hop late in a song (M-197). Round 10's
+turn 0 made 8 calls before the cap at a 235 KB history and turn 4 four at
+395 KB; M-197's pruning addendum (2026-09-02) moves those bytes, and the
+cap itself stays the owner's, with `usage.retries` now on the response to
+rule from.
+**ADDENDUM 2026-09-02 — THE BAN AGAINST THE BANK (triage C18): THE
+MEASUREMENT AS ASKED IS NOT CONSTRUCTIBLE, AND THE REASON IS A REGISTER
+GAP, NOT A NULL.** The sitting this entry owed — screen the sixteen banked
+songs' FIRST drafts against their exit-0 versions for ban share and
+end-word rank — needs first drafts, and nothing banks a draft's bytes:
+`song` and `revise` log an md5 per step, so the drafts that differed from
+their finals are PROVABLE (crooked_waltz step 19 `29697fccfe8d`, matinee
+steps 54/55 `707c48614794`/`04065bbbcdd9`, the_long_way_back step 2
+`687eaa34c949`) and unreadable; git holds an earlier version for two songs
+only, both already screened and exit-0 (carry_it_over's first version,
+whose own commit says it passed every gate and was not a song; the_long_way
+_back's bank-day bytes before the M-149(b) re-bank). And every banked
+`revise` row has `md5_in == md5_out` at 0 rounds — the loop never rewrote
+a banked line; the ban did its work at the SCREEN, before a line existed,
+and there the bank CAN be read. `quality/ban_convergence.py` reads it, and
+is a checked-in instrument rather than a scratch script (standing rule 3):
+population from `song_record.songs()`; mandate from the README's `song`
+command, else the newest `plan` log row, else REFUSED by name; grading
+through `Reviser.inspect` and `Reviser.modal_field` only, never a
+re-implemented tier. MEASURED over the nine songs that banked `screen`
+rows: the writer's candidate pool was **366 HOMEOTELEUTON / 395
+MODAL_RHYME / 792 CLEAN / 11 REFUSED / 1 other**, five counts never summed
+(doctrine 79) — the ban refused roughly as many candidate pairs as it
+passed, per song from 0/0/53 (i_am_not_leaving) to 239/201/186
+(taught_me_time); seven songs banked no screen rows and are not in that
+pool. Mandate sources 11 README / 4 log / 1 REFUSED. On a FINAL the
+instrument reads the grader: carry_it_over's nine rhyming pairs sit **0 in
+the modal HEAD, 2 in the offered TAIL (ranks 29, 54), 7 OUTSIDE the field
+entirely** — the "rare tail" the README reports, a number now — and its
+first version measured 0/3/6, so the rewrite-as-speech moved one pair out
+of the field. THE BANK-WIDE GRADER TOTALS ARE UNPINNED BY NAME: the full
+run passed 600 s on the shared box (`inspect` ~33 s a song plus two
+`modal_field` calls per eligible pair over ~400 pairs), `--check` pins
+only the log- and README-derived totals and REFUSES a partial run, and
+`PINNED` holds `None` for the grader half (doctrine 20 — an unmeasured
+total is not a zero). TWO REFUSALS STAND AND BOTH ARE THE SAME GAP:
+`oar_lair.txt`'s mandate is banked nowhere (no README command, no `plan`
+row, none in its commit message) and is not invented; the_long_way_back's
+plan-log mandate grades its banked bytes to 5 `SCHEME_VIOLATION` flags and
+a HOMEOTELEUTON note (L1/L3 returning/Turning) that the re-bank's own
+exit-0 grade did not carry, so the command that graded it is not on record
+either. Recorded in M-196 with the design that closes it: **the verb that
+grades a draft must bank what it graded.** `test_ban_convergence.py`, 13
+checks — the population, the 11/4/1 sources with oar_lair's refusal,
+carry_it_over's README triple re-derived, and a one-word mutation
+(`cussed` → `trust` on L4) moving `banned_in_final` 0 → 1 and the HEAD
+count 0 → 1 with `eligible` unchanged. One observation not measured
+further: `modal_field`'s forbidden set for common calls (`dust`, `drop`,
+`strait`) carries `'s`, `that`, `what`, `up` — the `freq_rank` fallback's
+function-word head reaching the tier-2 ban.
 
 ### M-169 · The loop told the record what it did and every layer above dropped it — the run's own account reaches the transcript now `CLOSED` 2026-08-29 — built the sitting M-170's audit named it the cheapest high-value change on the table
 **THE DEFECT, and it is a RECORD defect rather than a code one.**
@@ -16815,6 +16993,37 @@ the probe named in `RESULTS_TIME_AUDIT.md` §5 item 3. M-187's worker
 measurement (revise 76.8 → 6.4 → 4.3 s on an identical deferred call; the
 blueprint-path grade NOT memoised, 87 / 80 / 115 s) is the other reading
 this list gained since it was written.
+**ADDENDUM 2026-09-02 (triage C31, second sitting): THE FLAGGED REGIME IS
+TIMED, AND IT IS A SLOPE, NOT A NUMBER.** §5 item 3 has its series
+(doctrine 89), and the driver is `quality/fold_series.py` rather than a
+scratch script (standing rule 3). Recipe, test_verbs §44's own: `plan
+--seed=16`, a filler draft of the declared length (`we carry the morning
+to the <word>`), `finish DRAFT --seed=16 --propose=defer:STATE` — the live
+path, blueprint and subdivision the plan's own, every line flagged; each
+fold fills `pending.answer` with a plausible line and re-runs the IDENTICAL
+command in a fresh process. MEASURED at `54650e52`'s planner, where seed
+16 declares 23 lines, 22 groups / 51 mandated pairs (on this branch the
+same seed declares 36 lines — the planner moved under M-190/M-191/M-193,
+so a re-run here times a different draft and the instrument reads the
+count off the plan rather than assuming it). Walls for folds 0–6: **101 /
+104 / 73 / 77 / 95 / 116 / 135 s**, with the same first fold at 56 and
+63 s on two other launches — that spread IS the box's noise, five heavy
+Python processes on four CPUs, so the walls are upper bounds. The
+LOAD-INDEPENDENT quantity is the grading calls the run reports per fold:
+**9 → 19 → 22 → 25 → 35 → 57 → 60**. A cold process re-grades every
+replayed answer, so a fold costs the clean fold PLUS roughly 0.7 s per
+grading call, ~10 s per answer on record at this shape; every answer was
+accepted at attempt 0, so the question advanced one line a fold (L3, L7,
+L8, L9, L12, L16, L17). `--attempts=1` CHANGES NOTHING — the same
+questions, the same call counts 9/19/22/25/35, walls 63/68/68/76/83 s —
+because the budget bounds retries and every answer took none. A draft
+with ONE flag that tier 2 cannot satisfy (keep_the_light with seven end
+words corrupted: one `SCHEME_VIOLATION`, tier 2 reporting every pivot's
+field empty) asks NOTHING and costs the clean price, 52.2 s bare and
+53.8 s with the blueprint. The CLI defer path holds no cross-process memo
+(`runs held: 1 of 4` is per process), so M-187's 6.4 → 4.3 s is the
+worker's reading and does not apply to a CLI fold. Item 3 leaves the
+unmeasured list; items 1 and 4–10 stand.
 
 ### M-171 · The participation bound protected the line's LENGTH and not the writer's FREEDOM — 15.9% of drawn lines had every word bound `CLOSED` 2026-08-29 — found by asking why round 10's rounds bought nothing, fixed and re-measured the same sitting
 **THE QUESTION THAT FOUND IT.** M-168 left the standing wall as "the
@@ -18198,6 +18407,46 @@ down needs the sha the live process is serving, which nothing in-repo holds
 M-170 item (4), now measured and still unbuilt. (d) The worker's idle
 footprint on Render is now ~600 MB where it was ~0 — inside the margin, and
 worth one reading off the Render memory graph after deploy.
+**ADDENDUM 2026-09-02 — (b) CLOSED ON A WEAKER RECORD THAT IS SUFFICIENT;
+THE NIGHTLY'S SIZING RE-READ; (a) STAYS OPEN AND IS SPELLED OUT (triage
+C25, C24, C01).** (b) said nothing in-repo holds the sha the live process
+is SERVING, and that is still true. What the workflow's own run history
+holds is the sha Render was last ASKED to build — the latest
+`deploy-connector` run whose `Deploy` step concluded `success` — and a
+same-sha re-run needs only that. `scripts/last_deployed_sha.sh` reads it
+with `gh api` under the job token and `actions: read` (no secret, service,
+artifact or variable added), skipping the run in flight and any stood-down
+run; verified against the API this sitting — run #26 shows `Deploy:
+success / Stood down: skipped`, #21 the reverse, and deploy #10 ran at
+`run_attempt 3`, so re-runs do happen. `deploy_guard.sh` takes an optional
+`LAST_DEPLOYED_SHA` and asks it only AFTER the ordering test: equal → STAND
+DOWN at exit 10 naming both; unset or unreadable → deploys and SAYS the
+check did not run, because unknown is not a match; `workflow_dispatch`
+skips the lookup, which is the operator's way to re-ask for a lost build.
+Exercised in a throwaway repository against a `gh` shim replaying those
+run shapes (tip with no record 0; tip differing 0; tip equal 10 with the
+new message; behind the tip 10 with the ordering message first; the lookup
+returning the prior sha past an in-flight and a stood-down run; a failing
+API 1). NOT PINNED IN-TREE: no gate reads `deploy_guard.sh` today and a
+`test.mjs` pin needs a temporary git repository — owed, and said here so
+it cannot pass for paid. THE NIGHTLY'S SIZING was re-read off run #1183
+(2026-09-01, success) instead of the 2026-08-27 figure nobody had re-run:
+job 79.0 min warm, the song-profile slice 96 s under a warm memo, the
+non-slice steps 77.4 min (feature cache 1005 s, discrimination 985 s,
+Kalevala 741 s, banked verdicts 621 s, the 77-schema door 609 s, capacity
+589 s, the rest under a minute); cold worst case ~227 min against the
+240-min job cap, margin ~~~23 m~~ **~13 m** — positive, so the cap is
+unchanged and the paragraph in `ci.yml` is repinned with the old figure
+struck and the re-read command beside it. (a) OPEN, and now stated as an
+instrument rather than a wish: `check_live.mjs` proves the ADVERTISED
+surface only; the engagement reading is two identical deferred
+`lyric_revise` calls on the live `/mcp` timed back to back — the second
+under ~10 s is the memo engaged (6.4 s against 76.8 s is the signature),
+~80 s flat is cold — plus one reading off the Render memory graph (~600 MB
+idle expected). It binds only after a merge and a deploy, so it is the
+owner's; a `worker` state and `RENDER_GIT_COMMIT` on `/health` would make
+it one curl and would also hand (b) the SERVING sha it lacks. (c) and (d)
+are unchanged.
 
 ### M-188 · A missing staged resource crashed every grading verb at EXIT 1, in three voices, and the README said there was nothing to stage `CLOSED` 2026-09-01 — found by three readers of the audit stopped on a fresh checkout, and confirmed by hiding each resource in turn
 **THE DEFECT AS FOUND, and the probe that showed it.** With
@@ -18786,6 +19035,46 @@ reading of each song's log and not a mechanical fill; and the
 row rather than an invisible one (doctrine 79). Both are the re-bank
 sitting's.
 
+**ADDENDUM 2026-09-02 — TWO MORE ROWS OF THE SAME GAP, FOUND BY C18's
+INSTRUMENT, AND THE DESIGN THAT CLOSES ALL OF THEM.** `ban_convergence.py`
+could not find the graded mandate for two of sixteen songs: `oar_lair.txt`
+has no README command, no `plan` log row and none in its commit message;
+`the_long_way_back.txt`'s only recoverable mandate (its `plan` row) grades
+the banked bytes to 5 flags and a HOMEOTELEUTON note where the README
+says exit 0 and 0 flags, so the command behind the re-bank is not on
+record. (Both songs HAVE README sections on this branch since 09-01 — the two
+parked-at-exit-3 sections and the re-bank's — and `--verdicts` resolves
+their claims; what those sections do not carry is a parseable `song`
+command, and `song_log._sections` reads the mandate from nothing else.)
+The design, not built here:
+`song_log.record()` already holds the verb's stdout and argv; on `song`
+and `revise` it should ALSO write the input's `load_lyric_lines` text to
+a draft file beside the log under `songs/`, named by the song and the md5
+the verb itself printed, so the file and the log fact agree by construction (doctrine
+1), and bank `mandate_groups_text` / `mandate_returns_text` from argv as
+`song` facts; `test_songs_log.py` then asserts every `md5` fact names an
+existing draft file, and the README heading form becomes a parse gate
+rather than a convention. Until then the drafts C18 needed are provable
+md5s and unreadable bytes, and two graded mandates are lost.
+**AND THE 09-01 LIST IS CLOSED ITEM BY ITEM, WITH THE RESIDUE THE CLOSE
+CANNOT ERASE (C27, re-read 2026-09-02).** `song_record --write` and
+`song_log --record` REFUSE on a dirty tree unless `--allow-dirty` says so;
+`test_songs_record.py` §6 checks that every song's LATEST row carries a
+clean sha and that both writers refuse; the bank was re-written once at
+`775f03f` — 16 rows, each numerically identical to the row it supersedes,
+so the key changed and no number did; `i_am_not_leaving` and `oar_lair`
+have sections read from their logs (both `song` exit 3, with 1 and 4
+`SCHEME_VIOLATION`), and a banked song with no section is a REFUSED row
+(doctrine 79). `--check`, `--claims` and `--verdicts` read PASS / PASS /
+**131 RESOLVED (41 by `[LOG:]`), 0 MISMATCHED, 0 REFUSED** on this tree;
+the finding's "charges 12 of 16" does not reproduce at either the
+committed or the working reading. THE RESIDUE: 124 of the 180 RESULTS rows
+and 2,721 of the 2,922 log rows still say `-WORKING`. They are history —
+the record of how each song was made — and rewriting a stamp is
+fabricating provenance, so they stay as written. The entry stays
+`PARTIAL` on the two lost mandates and the draft-banking design above,
+not on anything the 09-01 text listed.
+
 ### M-197 · A chat turn that threw mid-way spent hops nobody charged, and the turn's cost reached no reader `CLOSED` 2026-09-01 — found by the 2026-09-01 triage audit (findings C28 and C11) reading `runTurn`'s hop loop against `chat.js`'s catch; the uncounted throw is charged and the cost is on the response, the in-memory counter and the turn cap stay the owner's
 **THE DEFECT.** `gemini_agent.runTurn` accumulates `usage` as a local and
 returns it; `generate()` retries 5xx and throws on a 429 (or on any
@@ -18824,6 +19113,48 @@ a warning about at boot. `CHAT_MAX_TURN_USD` and stale-brief pruning
 owner's, with the numbers now on the response to rule from. M-168's
 "per-minute limiter" attribution of the 130-second pacing is asserted,
 not measured, and stays so.
+**ADDENDUM 2026-09-02 — STALE-BRIEF PRUNING SHIPS, UNDER THE DELEGATION;
+THE CAP STAYS THE OWNER'S (C11).** The half this entry left open has its
+numbers now, measured on the connector's own results after
+`toFunctionResponse`'s strip: a `lyric_revise` fold carries ~20 KB on the
+record (117,189 bytes of prompt on a 23-line FILLER draft, seed 16, 22
+groups), a `lyric_grade` fold carries its whole `song` report (~45 KB on
+the record; 181,735 bytes on the same filler draft), a `lyric_plan`
+two-block 21,390 bytes, a recipe result ~3 KB — and every hop re-sent all
+of them, so the record's transcript grew ~40 KB a turn (235,339 bytes
+after turn 0, 394,922 at turn 4). `gemini_agent.pruneHistory` is one PURE,
+IDEMPOTENT function over the transcript, wired at the single assembly
+site in `runTurn` (`limits.pruneFolded`, `CHAT_PRUNE_FOLDED=0` disables).
+The invariant, stated once: the pruned history is the original with some
+`lyric_*` `functionResponse` bodies replaced by a verdict STUB and, past a
+byte ceiling, the oldest WHOLE turns dropped — never a turn among the
+newest `pruneKeepTurns` (1), never the newest result of any lyric tool
+(the pending question, the latest grade, the brief being written to),
+never a recipe or workspace result, never a user text, a model part or a
+`functionCall` of a surviving turn; every call keeps its response, `id`
+intact, so the model's pairing holds. The stub keeps the fields the
+transcript is READ by — `exit_code`, `status`, `kind`, `meaning`,
+`banned_pairs`, the four `loop_*` fields including `loop_whole_flag_codes`
+(the M-186 cause; a stub dropping it would be the fifth carrier that lost
+it), `answers_on_record` — and a note saying what was pruned and why.
+Projected per-hop bytes on the record's own shape (two folds a turn at
+20 KB): turn 3 198,967 → 119,463, turn 6 325,871 → 127,111, turn 9
+452,771 → 134,755, growing ~2.5 KB a turn after instead of ~40 KB; at
+~4 bytes a token and $0.25/M input, turn 9 goes from ~113k tokens
+($0.028 a hop, THREE hops under the $0.10 cap) to ~34k ($0.0084 a hop,
+ELEVEN — `maxSteps` 14 is the binding limit again). The 200 KB ceiling
+(`CHAT_PRUNE_MAX_BYTES`) is a backstop for a pathological transcript,
+since stubbing alone lands ~135 KB by turn 9 on the record's shape; a
+whole-turn drop is LOSSY and is priced as one. `mcp/test.mjs` pins it BY
+VALUE on a synthetic history — the recipe result the same object, the
+newest turn's entries the same objects, the older `lyric_revise` fold
+stubbed to exactly the verdict fields with its `id`, the pending question
+verbatim, 44,090 → 24,159 bytes, idempotent, `keepTurns=2` keeping both —
+and pins the wiring and the switch in the source. What is NOT
+re-measured: the ~20 KB / ~45 KB per-fold figures are this entry's own,
+from the record; the filler-draft measurements are the upper tail and
+make the case stronger, not weaker. `CHAT_MAX_TURN_USD` itself, and a
+disk for the daily counter (AUDIT.md F128), remain the owner's.
 
 ### M-198 · Re-opening a mandate dropped its PLACEMENTS — every group came back bound at its end, `groups` byte-identical, and nothing could see it `CLOSED` 2026-09-02 — found by test_loop §19's slot probes, written for M-184's tier-2 repair, returning the end word on a mandate whose group declared `1.T2`
 

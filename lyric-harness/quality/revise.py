@@ -1677,6 +1677,14 @@ class Reviser:
                              # catalog import on every structureless grade()
                              # is what the lazy gate above exists to avoid.
                              "structure": struct,
+                             # THE COMPARATOR'S OWN DISCLOSURES, CARRIED
+                             # (2026-09-02, M-136): `score()` says on its
+                             # flags what it never asked (`identity: not
+                             # asked`, `conjunctive band: off`), and a
+                             # verdict that dropped those flags
+                             # read exactly like one with nothing to say.
+                             # A copy of the record, gating nothing.
+                             "flags": list(s.get("flags") or []),
                              "why": why})
 
         # Doctrine 3, resolved PER PAIR by the mandate's own declaration
