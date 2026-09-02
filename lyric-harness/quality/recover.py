@@ -385,15 +385,20 @@ def recover(lines, raw_lines=None, lex=None, decl=None, placements=None,
               f"spelling `_normalise_groups` already takes. REFUSED rather "
               f"than dropped, because a silently unspellable binding reads "
               f"as a song with fewer relations in it (doctrine 20)")
+    _cut_said = (f"at theta {theta}, DECLARED by the caller"
+                 if theta_declared else
+                 f"at the cut the grader judges each pair at "
+                 f"(`theta_for`: {dict(sorted(decl.theta_by_relation.items()))} "
+                 f"by relation, {decl.theta_rhyme} otherwise)")
     r.put("web", edges, "derived",
           f"every admitted pair over {n} binding sites at {len(places)} "
-          f"placements per line, at theta {theta}, at the ADMIT door "
+          f"placements per line, {_cut_said}, at the ADMIT door "
           f"(`decl.admit`) PLUS REPEAT — and neither set contains the other, "
           f"so this is not a NARROWING of the default but a DIFFERENT door. "
           f"NOT INDEPENDENT OF THE "
           f"GRADER (doctrine 14): every edge is a band-passing pair BY "
           f"CONSTRUCTION, so grading this cover against the same band at the "
-          f"same theta cannot produce a rhyme violation — THROUGH "
+          f"same cut cannot produce a rhyme violation — THROUGH "
           f"`mandate_spelling` ABOVE, and NOT through `--groups=` alone, "
           f"which charges every REPEAT edge. What it CAN say "
           f"non-trivially is everything the band did not decide. AND THIS IS "
