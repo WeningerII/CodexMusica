@@ -1088,8 +1088,20 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     return LineAttempt(b.line_no, 1, False, tried, detail, ()), lines
 
 
-def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line):
+def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line,
+                        rewriting_label=None):
     """-> (other call words, return-group labels) for the ANCHOR.
+
+    SLOT-AWARE SINCE 2026-09-02 (`MISSING.md` M-184's addendum, residual
+    (a), found by the tier-A verification): a backtrack rewrites the word
+    the anchor binds AT THE PLACE the rewritten group binds it — its end
+    word under a bare group, its T2 word under `1.T2`. A group where the
+    anchor binds a DIFFERENT word imposes nothing on the rewrite and is
+    skipped; and a mate's call word is the word the mate binds in THAT
+    group, read at the mate's own slot, never its end word by default.
+    `rewriting_label` names the group being rewritten; without it (the
+    pre-2026-09-02 call shape) every group containing the pivot is
+    dropped and the anchor's rewrite place is its end.
 
     The anchor of a tier-2 backtrack is a line like any other: it can sit in
     groups of its own, and it can sit in a declared verbatim return. Neither
@@ -1115,16 +1127,32 @@ def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line):
     # `Mandate` before `verify()` gets there.
     if not hasattr(mandate, "partners"):
         mandate = reviser.mandate(list(lines), mandate)
+    k_rw = None
+    if rewriting_label is not None and rewriting_label in mandate.labels:
+        k_rw = mandate.labels.index(rewriting_label)
+    # THE WORD THE REWRITE MOVES: the anchor's word at its slot in the group
+    # being rewritten (the end word when no group is named).
+    moved = reviser._incumbent(
+        lines, anchor_line, _slot_for(mandate, k_rw, anchor_line))
     calls, rets = [], []
     for k, mates in mandate.partners(anchor_line):
-        if pivot_line in mandate.groups[k]:
+        if k_rw is not None:
+            if k == k_rw:
+                continue
+        elif pivot_line in mandate.groups[k]:
             continue
         if any(getattr(mandate.requirement(anchor_line, x), "name", "")
                == "REQUIRE_RETURN" for x in mates):
             rets.append(mandate.labels[k])
             continue
+        # A GROUP THAT BINDS THE ANCHOR AT ANOTHER WORD HOLDS AFTER THE
+        # REWRITE UNTOUCHED, so it is no call on the new word.
+        here = reviser._incumbent(
+            lines, anchor_line, _slot_for(mandate, k, anchor_line))
+        if here != moved:
+            continue
         for x in mates:
-            w = reviser.floor.qf._endword(lines[x - 1])
+            w = reviser._incumbent(lines, x, _slot_for(mandate, k, x))
             if w:
                 calls.append(w)
     return calls, sorted(rets)
@@ -1260,7 +1288,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         others, pin_hit = [], None
         for m_line, m_current in calls:
             m_other, m_rets = _anchor_obligations(
-                reviser, mandate, lines, m_line, b.line_no)
+                reviser, mandate, lines, m_line, b.line_no,
+                rewriting_label=label)
             if m_rets:
                 pin_hit = (m_line, m_rets)
                 break

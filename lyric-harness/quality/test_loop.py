@@ -1425,6 +1425,30 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
           "group being backtracked is the only one dropped",
           calls == ["hear"] and rets == [],
           f"partners(1)={m.partners(1)} -> calls={calls} rets={rets}")
+    # SLOT-AWARE SINCE 2026-09-02 (M-184's addendum, residual (a), found by
+    # the tier-A verification): the anchor's obligations were read at every
+    # mate's END word whatever place either bound, so a group binding the
+    # anchor at ANOTHER word constrained the rewrite of this one, and a mate
+    # bound at T2 was asked for at its end. Two probes, the verifier's own.
+    calls_b, _ = _anchor_obligations(RV, m, ANCHOR_IS_A_PIVOT, 1, 3,
+                                     rewriting_label="B")
+    check("naming the rewritten group gives the same answer on the bare "
+          "shape (control)", calls_b == ["hear"], calls_b)
+    mA = _SC.mandate(_SC.mandate([[1, 3], [2, 3], ["1.T2", 5]], n_lines=6),
+                     default_relation="class:RHYME")
+    cA, _ = _anchor_obligations(RV, mA, ANCHOR_IS_A_PIVOT, 1, 3,
+                                rewriting_label="A")
+    check("a group that binds the anchor at ANOTHER word (L1's T2 'keep', "
+          "not the end 'near' being rewritten) is no call on the rewrite: "
+          "[] where the slot-blind read gave L5's end word",
+          cA == [], cA)
+    mB = _SC.mandate(_SC.mandate([[1, 3], [2, 3], [1, "5.T2"]], n_lines=6),
+                     default_relation="class:RHYME")
+    cB, _ = _anchor_obligations(RV, mB, ANCHOR_IS_A_PIVOT, 1, 3,
+                                rewriting_label="A")
+    check("a mate bound at its T2 word is asked for at THAT word: L5's "
+          "'studio', where the slot-blind read gave its end word 'chair'",
+          cB == ["studio"], cB)
 
     # THE HEADLINE, MEASURED. `w` is the PIVOT's proposed word, drawn the way
     # the loop draws it — L3 must answer group C [3, 4], call word 'wake'.

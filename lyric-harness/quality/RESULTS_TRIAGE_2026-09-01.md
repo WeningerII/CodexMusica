@@ -68,7 +68,7 @@ the named entries' addenda; the short form:
 | row | verdict | what the verification added |
 |---|---|---|
 | C16 | CLOSED | a reused state on an edited draft replayed stale answers silently — counted at the stop now (M-183) |
-| C17 | PARTIAL | the mechanism is closed and pinned; §40/§43 prompt pins repinned; tier 2's anchor side is still slot-blind and a two-place tie misattributes a note — both OPEN in M-184's addendum, the entry's heading stays CLOSED for the mechanism |
+| C17 | PARTIAL, then repaired | the mechanism is closed and pinned; §40/§43 prompt pins repinned; tier 2's anchor side was slot-blind and is repaired the same day (§19 pins both probes); a two-place tie still misattributes a ban note — OPEN in M-184's addendum |
 | C02 | PARTIAL | the code rungs are closed and undeployed; round 11 is the owner's after a merge; three rungs of round 10's ladder have no entry (M-168) |
 | C14 | PARTIAL, repaired the same day | the CLI door held; the connector read no refusals and refused its own mandate — both repaired, a live `lyric_recover` pin added; the recover → check → revise chain on a recovered DEFAULT mandate is pinned at the schema only, not run end to end (M-195) |
 | C05 | PARTIAL, repaired the same day | the CLI paste finishes end to end; the connector chained only with `placements` narrowed until the same two defects were repaired; the repaired chain on a default recovered mandate is not run by any pin (M-195) |

@@ -1679,6 +1679,8 @@ pricing, M-136's required words and assonance profile).
 | M-184 (2026-09-02) | the group sentence names its place on every mandate; the two pins that asserted the old spelling moved with it; tier 2's anchor side stays OPEN | `test_revise` §40/§43 |
 | M-168 (2026-09-02) | round 11 is the owner's, and the order is merge → deploy → dispatch; a round pressed first measures the round-10 connector | — |
 | M-193 (2026-09-02) | a short song is graded on four thresholds until stage B lands; the pursued PREDICTABLE_RHYME is silent on that band meanwhile, and the register says so | `test_verbs` §6 |
+| M-198 (2026-09-02) | a re-opened mandate carries its placements — the fourth coordinate the re-open branch had dropped in silence | `mandate()`'s re-open rebuild, `loci=spec.loci` |
+| M-184 (2026-09-02, tier 2) | the anchor side of a backtrack reads each mate at its own slot and only in the groups that bind the rewritten word | `_anchor_obligations`, `rewriting_label` |
 | M-186 (2026-09-02) | a whole-only exit 3 is labelled by its cause everywhere the exit travels — the connector's status, the three transcripts, the deferred state | `loopStatusOf`, `loop_whole_flag_codes` |
 | M-193 (2026-09-02, stage B) | the fifth threshold is REFUSED: its 95th percentile is the statistic's own ceiling, a check that could not fail | `RESULTS_SHORT_SONG_FLOOR.md` §7 |
 
@@ -1774,7 +1776,7 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 64 OPEN / 37 PARTIAL / 2 BLOCKED / 140 CLOSED / 11 RESOLVED = 254 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 64 OPEN / 37 PARTIAL / 2 BLOCKED / 141 CLOSED / 11 RESOLVED = 255 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 3 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
 | public symbols by where they are referenced | **1378** DECLARED-public top-level functions/classes under `quality/` and the root — **259** named by another production module, **414** by tests only, **616** only inside their own module, **11** by nothing anywhere, **78** REFUSED (51 ambiguous, 18 dynamic, 9 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **57** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |

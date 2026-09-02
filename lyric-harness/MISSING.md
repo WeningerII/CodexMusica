@@ -17897,15 +17897,19 @@ M-185 sweep repinned `test_loop` and missed these two; CI's `revision-loop`
 job at `94e736f` said so. One sentence of this entry's own record contradicted its defect
 paragraph — the MEASURED paragraph read "`slot` the END" where the
 coordinate was the FIRST group's place (T2) and only the prompt's label
-said end — and is corrected in place above, dated. **RESIDUALS, recorded OPEN**: (a) tier 2's
-`_anchor_obligations` (`quality/loop.py`) reads every mate's END word
-whatever slot the anchor binds in that group — measured: with groups
-`[[1,3],[2,3],["1.T2",5]]` it returns `['wall']` where `[]` is right, and
+said end — and is corrected in place above, dated. **RESIDUALS**: (a) tier 2's
+`_anchor_obligations` (`quality/loop.py`) read every mate's END word
+whatever slot the anchor bound in that group — measured: with groups
+`[[1,3],[2,3],["1.T2",5]]` it returned `['wall']` where `[]` is right, and
 with `[[1,3],[2,3],[1,"5.T2"]]` `['wall']` where `['candle']` (L5's T2 word)
-is right — so on drawn plans the ANCHOR side of a backtrack is still
-cross-slot-constrained; a sitting, since the repair reads each mate at its
-own slot and only for the groups the anchor shares at the pivot's place;
-(b) `_violated_groups` (`quality/revise.py`) attributes a HOMEOTELEUTON or
+is right — so on drawn plans the ANCHOR side of a backtrack was still
+cross-slot-constrained. **REPAIRED 2026-09-02, the same day**: the call
+site names the group being rewritten, the anchor's rewrite place is its
+slot in THAT group, a group binding the anchor at another word is skipped
+(it holds untouched after the rewrite), and each mate is read at its own
+slot in the group through `Reviser._incumbent`; `test_loop.py` §19 pins
+both probes on its own fixture (`[]` and `['studio']`, L5's T2 word) beside
+the bare-shape control. (b) `_violated_groups` (`quality/revise.py`) attributes a HOMEOTELEUTON or
 MODAL_RHYME note — whose message names no group — to BOTH groups when one
 pair is bound in two groups at two places, so a holding place is told it is
 VIOLATED; narrow, and the loop still converges; (c) the CLI `brief` verb
@@ -18812,3 +18816,41 @@ a warning about at boot. `CHAT_MAX_TURN_USD` and stale-brief pruning
 owner's, with the numbers now on the response to rule from. M-168's
 "per-minute limiter" attribution of the 130-second pacing is asserted,
 not measured, and stays so.
+
+### M-198 · Re-opening a mandate dropped its PLACEMENTS — every group came back bound at its end, `groups` byte-identical, and nothing could see it `CLOSED` 2026-09-02 — found by test_loop §19's slot probes, written for M-184's tier-2 repair, returning the end word on a mandate whose group declared `1.T2`
+
+**THE DEFECT.** `quality/schemes.py:mandate` has a re-open branch — hand it
+a `Mandate` plus a coordinate it lacked (`returns`, `scope`, `structures`,
+`relations`, `default_relation`) and it rebuilds the object with that
+coordinate added. `Mandate.loci` joined the dataclass on 2026-08-23 (M-67,
+the placement coordinate) and the rebuild was never told: it named every
+field it knew and `loci` fell to its default `()`. So `mandate(mandate([[1,
+3], [2, 3], ["1.T2", 5]], n_lines=6), default_relation="class:RHYME")`
+returned `loci == ()` — every group bound at its END — while `groups` read
+`((1, 3), (2, 3), (1, 5))`, byte-identical to the placed mandate, and the
+object compared equal to nothing the writer declared. THE FOURTH OF ONE
+FAMILY: M-50 (`relations` dropped), M-53 (`rule` re-defaulted), the
+`structures` hole before it, each found by a caller who re-opened a mandate
+to add one thing and lost another. The branch's own comment names the
+family and lists "every re-openable coordinate"; the list is of what the
+branch ACCEPTS, and a field it CARRIES is a different list nobody kept.
+
+**MEASURED.** `inner.loci` = `('', '', (Slot(line=1, rule=SpanRule(
+locus='any_token', … requires=('token:1',))), None))`; `mandate(inner,
+default_relation="class:RHYME").loci` = `()`. Every tier-2 backtrack under
+a declared relation on a placed mandate read its anchors at their ends —
+which is the population M-184's residual (a) measured its `['wall']` on,
+from the other side. `test_loop.py` §19's two new probes returned
+`['chair']` (L5's end word) for both shapes until this was fixed.
+
+**THE FIX** is one field on the rebuild — `loci=spec.loci` — and the pin is
+`test_mandate_relation.py` §7, beside M-50's and M-53's: a placed mandate
+re-opened with a relation, a structure, a return and a scope keeps its
+`loci`, and `slot_of` on the re-opened object still answers `1.T2`.
+
+**WHAT THIS DOES NOT CLAIM.** No CLI path re-opens a placed mandate today —
+`_mandate_arg` builds once — so no shipped song was graded through this hole;
+the loop's `revise_loop` re-open (`Reviser.mandate`) is a build, not a
+re-open. The route it closes is the API's, and the register's own sections
+(M-116's `default_relation` re-open over `--groups=` with places) are where
+it would have bitten first.
