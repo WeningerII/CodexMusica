@@ -19834,24 +19834,65 @@ TREE, opposite verdicts.** `git diff 041c1bb3 abe14229` is empty, and #1240
 went red where #1237 went green, because an empty diff takes the
 `assuming artifacts affected` arm and asks the full question.
 
-**SO THE ESCAPE IS STRUCTURAL, NOT A MISSED COMMIT.** A closure-touching change
-is charged to the push that carries it and to no push after it. Any later push
-that touches nothing in the closure — a test repin, a record entry, this file —
-is scoped out, and a branch can be green to the merge button with the artifact
-stale the whole way. The window in which the gate can fail is one commit wide,
-and outside it a skip renders exactly like a pass. That is doctrine 48's shape
-at the CI layer and doctrine 20's at the report layer: work nobody did, recorded
-as work nobody needed to do.
+~~**SO THE ESCAPE IS STRUCTURAL, NOT A MISSED COMMIT.** A closure-touching
+change is charged to the push that carries it and to no push after it.~~
+**STRUCK WITHIN THE HOUR, 2026-09-02, AND THE STRIKE IS THE ENTRY.** The
+sentence reads as *the gate could not see it*, and the gate SAW IT, on the
+push that staled it, correctly and at once. **Run #1218 (`775f03f6`,
+01:41Z) failed on this exact step** — `Reproducibility — committed api/ +
+codex.html == fresh build` — and `775f03f6` is the commit whose own diff
+adds `lyric_recover` to `build_discovery.js` without touching `llms.txt`
+(`git log -S"lyric_recover" -- scripts/build_discovery.js` names it and
+nothing else). `scripts/build_discovery.js` is in the closure and
+`check_build_closure.js --affected` says so, so the scope step answered
+`true` and the check ran and it went red. **The first draft of this entry
+was a flattering account of my own miss, which is the one direction a
+record is least audited in (doctrine 58's neighbour).**
 
-**WHAT SHIPPED IS THE REBUILD, NOT A SCOPE CHANGE.** `llms.txt` is regenerated
-and committed. The scoping is left ALONE deliberately and the reason is a cost
-this entry declines to guess at: the fresh build is **12m 26s** in CI, the scope
-step is what keeps it off every documentation push, and widening the base to the
-merge-base would pay that on a large fraction of pushes. Which of *(a)* diffing
-against the merge-base with `main` rather than the previous tip, *(b)* a cheap
-closure-hash pin the gate can check in seconds without a build, or *(c)* leaving
-it and catching drift at the merge, is worth the minutes is an OWNER RULING and
-is filed on `BACKLOG.md`'s RULINGS WANTED rather than decided here. **The
+**WHAT ACTUALLY HAPPENED IS WORSE AND IS THE FINDING: THE GATE ASKED ONCE,
+WAS ANSWERED NO, AND THEN STOPPED ASKING.** #1218 was **ten red jobs** —
+four `suites` shards, two `verbs` shards, `record`, `revision-loop`,
+`suites-result`, and this. The nine loud ones were fixed in that sitting.
+This one was not, and every push after it touched nothing in the closure —
+a test repin, a record entry, this file — so the scope step answered
+`false`, the step was skipped, and **a skip renders exactly like a pass.**
+The branch then went green to the merge button carrying a failure that had
+already been REPORTED. So the escape is not a blind spot in detection; it is
+that an unfixed red is converted into a green by the next unrelated push.
+That is doctrine 20 at the CI layer — *inconclusive by construction* and
+*clean* rendered identically — and doctrine 48's shape one layer out: the
+mechanism was mechanical and the follow-through was a memory.
+
+**RULED AND BUILT 2026-09-02 under the owner's delegation, and the ruling
+follows the mechanism rather than the menu this entry first offered.** The
+scope step's base on a TOPIC BRANCH is the **merge-base with the default
+branch**, not `github.event.before`: the question becomes *has anything on
+this branch touched the closure?*, which keeps being asked until it is
+answered YES by a rebuild. A push to the default branch keeps the previous
+tip, which is that branch's own merge-base. A `merge-base` that cannot be
+computed leaves `base` empty and falls into the existing
+`assuming artifacts affected` arm, so the failure direction is unchanged and
+fail-safe. **THE COST OBJECTION THIS ENTRY WAS FILED ON IS MEASURED AWAY IN
+THE DIMENSION THAT MATTERS AND PAID IN THE OTHER, both stated:** on run
+#1240 `freshness` is **13.1 min** against a critical path of **15.4 min**
+(`verify`, with `revision-loop` 15.2 and `verbs (2)` 15.0), so a rebuild
+adds **zero wall-clock** and spends a parallel runner; the `catalog` shards
+ride the same flag at a measured 25.2 runner-minutes. On a branch shaped
+like this one — 30 commits, the closure touched early — that is roughly 25
+pushes × ~38 runner-minutes that were not being spent before. **The
+closure-hash pin was considered and REFUSED**: it is cheaper still, and it
+is a SECOND statement of what the artifact should be, sitting beside the
+builder that already defines it — doctrine 1's own case, and a hash that
+can go stale is the defect this entry is about wearing a smaller hat.
+
+~~**WHAT SHIPPED IS THE REBUILD, NOT A SCOPE CHANGE.** … Which of *(a)*
+diffing against the merge-base with `main`, *(b)* a cheap closure-hash pin,
+or *(c)* leaving it and catching drift at the merge, is worth the minutes is
+an OWNER RULING and is filed rather than decided here.~~ **STRUCK — the
+ruling was delegated and taken the same day; it is (a), and the argument is
+above.** `llms.txt` was regenerated and committed first, in the commit this
+entry opened with; the scope change is its own commit behind its own
+measurement. **The
 `api/*.json` churn a rebuild also produces is NOT drift** and is not committed:
 those three files differ only in a `"generated"` date stamp, which the checker
 normalises — proven by #1240 building fresh on 2026-09-02 against a committed

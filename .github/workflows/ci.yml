@@ -214,9 +214,31 @@ jobs:
           set -uo pipefail
           affected=true
           base=""
+          default_branch="${{ github.event.repository.default_branch }}"
+          # THE BASE IS THE MERGE-BASE ON A TOPIC BRANCH, NOT THE PREVIOUS TIP
+          # (2026-09-02, `lyric-harness/MISSING.md` M-199). Asking
+          # "did THIS PUSH touch the closure?" makes the question stop being
+          # asked while its answer is still NO: run #1218 caught `llms.txt`
+          # stale on the push that staled it, that red was one of ten and went
+          # unfixed, and every later push touched nothing in the closure -- so
+          # the branch went green carrying a KNOWN failure and it resurfaced
+          # only at the merge. "Has anything ON THIS BRANCH touched the
+          # closure?" keeps asking until it is fixed. Costed before it was
+          # taken: `freshness` is 13.1 min against a 15.4-min critical path
+          # (`verify`) on run #1240, so this buys wall-clock nothing and spends
+          # runner-minutes only. A push to the default branch keeps the
+          # previous tip, which is that branch's own merge-base.
           case "${{ github.event_name }}" in
             pull_request) base="${{ github.event.pull_request.base.sha }}" ;;
-            push)         base="${{ github.event.before }}" ;;
+            push)
+              if [ "${{ github.ref_name }}" = "$default_branch" ]; then
+                base="${{ github.event.before }}"
+              else
+                git fetch --no-tags origin "$default_branch" >/dev/null 2>&1 || true
+                base="$(git merge-base FETCH_HEAD "${{ github.sha }}" 2>/dev/null || echo "")"
+                [ -n "$base" ] && echo "Topic branch — base is the merge-base with $default_branch: $base"
+              fi
+              ;;
           esac
 
           if [ -z "$base" ] || [ "$base" = "0000000000000000000000000000000000000000" ]; then
