@@ -718,6 +718,14 @@ class LineAttempt:
     tried: int                   # candidates or pairs actually attempted
     reason: str
     touched: tuple = ()          # line number(s) actually changed
+    #: False when this tier put NOTHING to a proposer AND refused for no
+    #: stated reason — tier 2 walked an empty pivot field, or every walk
+    #: broke before a `GroupBrief` was built (`MISSING.md` M-185). A pinned
+    #: or starved refusal is a stated reason and stays `asked=True`: the
+    #: tier answered, and the answer was "no legal move". The loop reads
+    #: this to fall through to tier 1 in the same round, so a line never
+    #: reaches NO_PROGRESS without a proposer having been consulted.
+    asked: bool = True
 
 
 @dataclass
@@ -1185,6 +1193,18 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     them is owed it in the same place (doctrine 20).
     """
     groups = [(lab, tuple(mem), cl) for lab, mem, cl in b.must_answer]
+    # THE GROUPS AT THE PIVOT'S OWN PLACE (M-184, 2026-09-01). A pivot bound
+    # at its end in one group and at its T2 word in another is a pivot at
+    # NEITHER place: each place's groups conflict only among themselves.
+    # Walking every group and intersecting the others' calls across places
+    # is how a stub run rewrote L1 to 'like' so L3 could end on 'cut' — a
+    # consonance conjunction over two families the grader never asked to
+    # meet — when L3 needed one door-rhyme at one place. Absent on a brief
+    # that predates the field (a hand-built stand-in), every group is walked
+    # as before.
+    _at_place = tuple(getattr(b, "slot_groups", ()) or ())
+    if _at_place:
+        groups = [g for g in groups if g[0] in _at_place]
     tried = 0
     # ATTEMPT AND REASONS ARE THE PIVOT'S, NOT THE GROUP'S. `attempt` counts
     # every call to `propose_group` this pivot makes this round — including
@@ -1250,7 +1270,12 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
             continue
         if not others:
             continue
-        pivot_current = raw_final_token(b.text) or ""
+        # THE PIVOT'S INCUMBENT AT ITS OWN PLACE, off the brief (M-184):
+        # `raw_final_token` is the end word, which is the wrong word for a
+        # pivot briefed at T2. The brief's field is empty only when no field
+        # was computed, and then the end word is what it always was.
+        pivot_current = (getattr(b, "forbidden_incumbent", "")
+                         or raw_final_token(b.text) or "")
         p_offered, _p_forbidden = reviser.joint_field(
             other_calls, exclude=(pivot_current,))
         walked = p_offered[:rdecl.backtrack_width]
@@ -1372,6 +1397,23 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
             detail += (f"; a further {len(pinned)} group(s) NOT SEARCHED "
                        f"because a declared verbatim return pins a line: "
                        + "; ".join(pinned))
+    # WALKED NOTHING, FOR NO STATED REASON (M-185): no group was pinned, no
+    # member starved, and still no `GroupBrief` reached a proposer — the
+    # pivot's own field over the other groups' calls was empty, or every
+    # walk broke at a member before a proposal could be built. That is not
+    # a search that came back short and not a refusal with a reason; it is
+    # a line whose turn this tier consumed without asking anyone. Said so,
+    # and `asked=False` is what the loop falls through on.
+    # `attempt`, not `tried`: a proposer that DECLINED every group brief was
+    # consulted, and its refusal is its own answer (tier 1's "the PROPOSER
+    # declined" rule); only a tier that built no brief at all was silent.
+    asked = bool(attempt) or bool(starved) or (pinned and len(pinned)
+                                               == len(groups)) or not groups
+    if not asked:
+        detail = (f"NOT ASKED — tier 2 walked 0 pivot word(s) and built no "
+                  f"joint proposal ({detail}); no group pinned, no member "
+                  f"starved, so this is inconclusive by construction "
+                  f"(doctrine 20), not a dead end")
     # STARVED IS A THIRD COUNT, and it is the one each member's own groups
     # made sayable: before they were folded in, the search came back full of
     # words that all broke a group nobody had mentioned, so this dead end was
@@ -1391,7 +1433,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         detail += (f"; {len(big)} of {len(groups)} group(s) have 3+ members "
                    f"(largest {max(len(m) for m in big)}) and WERE searched "
                    f"jointly — the whole group is rewritten at once")
-    return LineAttempt(b.line_no, 2, False, tried, detail, ()), lines
+    return LineAttempt(b.line_no, 2, False, tried, detail, (),
+                       asked=bool(asked)), lines
 
 
 def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
@@ -1488,6 +1531,11 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         briefs = reviser.brief(lines, mandate, profile=profile,
                                blueprint=blueprint, subdivision=subdivision,
                                assume=assume)
+        # THE ROUND IS A COORDINATE OF THE QUESTION (M-183): stamped on the
+        # brief, read by the recording proposers, so the same line at the
+        # same attempt in a later round is a new question and not a replay.
+        for _b in briefs:
+            _b.round_no = round_no
         # PER-LINE FLAGS ONLY, and this module's docstring says so out loud
         # rather than leaving it to be inferred from `brief()`'s signature:
         # `briefs` is built from `inspect()`'s `per_line` half, so a
@@ -1568,6 +1616,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 fresh = reviser.brief(lines, mandate, profile=profile,
                                       blueprint=blueprint,
                                       subdivision=subdivision, assume=assume)
+                for _b in fresh:
+                    _b.round_no = round_no
                 # `whole` is the rubric `verify()` grades against and it
                 # moves with the draft too, so it is re-read here rather
                 # than left pointing at the top of the round. Cheap by the
@@ -1592,6 +1642,26 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 attempt, lines = _try_tier2(
                     reviser, b, lines, mandate, rdecl, blueprint,
                     subdivision, assume, profile, propose_group, whole)
+                if not attempt.accepted and not attempt.asked:
+                    # THE FALL-THROUGH (M-185, 2026-09-01). Tier 2 consumed
+                    # this line's turn without putting anything to a
+                    # proposer, so the line would reach NO_PROGRESS never
+                    # having been asked (M-173(e): "11 never asked"). The
+                    # tier-2 record is KEPT — its own count, doctrine 79 —
+                    # and tier 1 asks the pivot for one line in the same
+                    # round, with whatever field the brief holds (an empty
+                    # one is a real question to a writer and the stub's own
+                    # "no candidate field" answer).
+                    attempts.append(attempt)
+                    attempt, lines = _try_tier1(
+                        reviser, b, lines, mandate, rdecl, blueprint,
+                        subdivision, assume, profile, propose, whole)
+                    attempt = LineAttempt(
+                        attempt.line_no, attempt.tier, attempt.accepted,
+                        attempt.tried,
+                        "after tier 2 NOT ASKED, fell through to tier 1: "
+                        + attempt.reason, attempt.touched,
+                        asked=attempt.asked)
             else:
                 attempt, lines = _try_tier1(
                     reviser, b, lines, mandate, rdecl, blueprint,

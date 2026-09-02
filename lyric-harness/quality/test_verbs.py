@@ -2661,6 +2661,30 @@ def test_the_loop_suspends_instead_of_guessing():
     # writer and no credential can re-run it (doctrine 14).
     st = json.load(open(state))
     check("a converged run leaves no pending request", st["pending"] is None)
+    # AND IT SAYS IT IS FINISHED (M-183, 2026-09-01). The verb writes a
+    # `complete` marker with the stop, the code and the INPUT draft's
+    # fingerprint; the same command run again on the same draft replays to
+    # the same stop and says so BEFORE the loop starts — a re-run used to
+    # produce the identical output with nothing in it saying that no
+    # question could ever be asked again. The answered records carry the
+    # draft they were asked against, which is the other half of the entry.
+    check("the state carries a COMPLETE marker naming the stop and the "
+          "input draft",
+          st.get("complete", {}).get("stop") == "success"
+          and st["complete"].get("exit") == 0
+          and len(st["complete"].get("draft", "")) == 12,
+          st.get("complete"))
+    check("every answered record names the draft it was asked against",
+          st["answered"]["propose"]
+          and all(len(r.get("draft", "")) == 12
+                  for r in st["answered"]["propose"]),
+          st["answered"]["propose"])
+    rc6, out6, _ = run("revise", draft, mand, f"--propose=defer:{state}")
+    check("re-running the finished state on the same draft is told so up "
+          "front and stops where it stopped, at the same code",
+          rc6 == 0 and "THIS STATE IS COMPLETE" in out6
+          and "SUCCESS" in out6 and "SUSPENDED" not in out6,
+          f"rc {rc6}")
     rep = os.path.join(d, "replay.json")
     json.dump(st["answered"], open(rep, "w"))
     rc4, out4, _ = run("revise", draft, mand, f"--propose=replay:{rep}")
@@ -4513,11 +4537,17 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
           "finished about a run that is not",
           stamp is not None and int(stamp.group(1)) == rc,
           stamp.group(0) if stamp else "(no stamp)")
-    check("...and the stamp names the stop reason and the open lines, so a "
-          "parked song cannot read as a clean one",
+    # WIDENED 2026-09-01 (`MISSING.md` M-186): a 3 can now also be a
+    # WHOLE-DRAFT FLAG with no open line, and the stamp names it as its own
+    # clause — so "3 iff UNRESOLVED" became "3 iff UNRESOLVED or a
+    # whole-draft flag", two counts never summed (doctrine 79).
+    check("...and the stamp names the stop reason and the open lines (or "
+          "the whole-draft flag), so a parked song cannot read as a clean "
+          "one",
           stamp is not None
           and stamp.group(2) in ("SUCCESS", "NO_PROGRESS", "ROUND_LIMIT")
-          and (("UNRESOLVED" in stamp.group(4)) == (rc == 3)),
+          and ((("UNRESOLVED" in stamp.group(4))
+                or ("WHOLE-DRAFT FLAG" in stamp.group(4))) == (rc == 3)),
           stamp.group(0) if stamp else "(no stamp)")
     check("...and the render carries the plan's own bracket headers",
           re.search(r"\[[A-Z_]+ — \d+ lines? — ", out) is not None,
@@ -4528,6 +4558,62 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
                      expect_rc=2)
     check("--max-rounds on `brief` REFUSES — only the loop verbs own a "
           "budget", rc == 2 and "--max-rounds" in out, f"rc {rc}")
+
+
+def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
+    print("\n48. `revise`/`finish` exit 3 on a WHOLE-DRAFT flag and print the "
+          "findings standing at the stop (`MISSING.md` M-186)")
+    # THE DEFECT, probed by the 2026-09-01 audit: `song` exits 3 on a
+    # whole-draft FLAG (TITLE_NOT_IN_HOOK, STACKED_DRAFT, HOOK_ABSENT name no
+    # line), and the shared revise/finish exit block read `result.unresolved`
+    # alone — so `revise` on the same draft under the same blueprint returned
+    # 0 with the flag disclosed in prose under "NO STOP CONDITION ABOVE CAN
+    # SEE", and `finish` stamped `exit 0 — no flag stands`. CLAUDE.md
+    # promised the 3 for `song`/`revise` alike. The second half: the loop's
+    # own text names the open LINES and the RULE holding each, never the
+    # findings, so the connector's `extractBannedPairs` read [] off every
+    # `lyric_revise` result and the chat surface could not count the ban on
+    # the finishing verb (M-168's drift into night/light/sight/might).
+    #
+    # THE WHOLE-FLAG HALF, on the bank's own song: `keep_the_light.txt` under
+    # its committed blueprint retitled to a phrase its hook does not carry.
+    # The mandate is the README's, verbatim (doctrine 1: one statement).
+    bp = json.load(open(os.path.join(HERE, "..", "songs",
+                                     "keep_the_light.blueprint.json"),
+                        encoding="utf-8"))
+    bp["title"] = "zebra confetti"
+    d = tempfile.mkdtemp()
+    bpath = os.path.join(d, "retitled.blueprint.json")
+    with open(bpath, "w", encoding="utf-8") as fh:
+        json.dump(bp, fh)
+    song = os.path.join(HERE, "..", "songs", "keep_the_light.txt")
+    mand = ("--groups=1.T3,3.T7,4.T7;2.headrime,3;1.T7,2;11.T5,12.T2;"
+            "10.T6,12.endword;16.head,17.T1;15.T7,16,17.T3;"
+            "15.headrime,16.T3,17")
+    rc, out, _ = run("revise", song, mand, "--returns=6,9;6,14",
+                     f"--blueprint={bpath}", "--subdivision", "2",
+                     "--max-rounds=1", "--attempts=0", "--backtrack=0")
+    check("`revise` exits 3 when a WHOLE-DRAFT flag stands and no line is "
+          "open — the same 3 `song` gives the same draft",
+          rc == 3, f"rc {rc}")
+    check("...and prints that flag at the stop in the report's own "
+          "FINDING spelling, marked as the whole draft's",
+          "WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK" in out,
+          out[out.find("STANDING AT THE STOP"):][:300])
+    # THE PURSUED HALF: the canonical tier-1 pair (§42's fixture), the loop
+    # given no attempts so the note stands at the stop.
+    banned = os.path.join(d, "banned.txt")
+    with open(banned, "w", encoding="utf-8") as fh:
+        fh.write("I ran my fingers through her hair\n"
+                 "and set the bottle on the chair\n")
+    rc2, out2, _ = run("revise", banned, "--groups=1,2", "--attempts=0",
+                       "--backtrack=0")
+    m2 = re.search(r"FINDING \[NOTE\] HOMEOTELEUTON: L1/L2", out2)
+    check("a pursued note standing at the stop is printed as "
+          "`FINDING [NOTE] HOMEOTELEUTON: L1/L2 …` — the spelling the "
+          "connector's `extractBannedPairs` reads — and the exit is 3",
+          rc2 == 3 and m2 is not None and "STANDING AT THE STOP" in out2,
+          f"rc {rc2}; " + out2[out2.find("STANDING"):][:200])
 
 
 if __name__ == "__main__":
@@ -4579,6 +4665,7 @@ if __name__ == "__main__":
         test_every_workflow_file_is_parseable_yaml,
         test_finish_is_the_one_door_from_draft_to_rendered_song,
         test_the_cynghanedd_verb_reaches_caesura_and_marks,
+        test_the_loop_verbs_exit_on_what_stands_at_the_stop,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —
     # measured 21-22 minutes on CI run #524, and after the pool went

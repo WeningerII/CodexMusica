@@ -310,7 +310,7 @@ inside other sections, possibly melodic rather than lyric, possibly shorter
 than a line. Nothing in the model can hold one, count its returns, place it, or
 measure its density.
 
-### D-3 · No return/variation structure `PARTIAL`
+### D-3 · No return/variation structure ~~`PARTIAL`~~ `CLOSED` 2026-09-01 — the "still missing" reprise was built and tested and this entry never heard
 **TESTED WHILE OPEN** — `quality/test_song_function.py` guards the built half
 (`compare_returns`, `return_findings`, the ladder) and this entry stays
 PARTIAL on its own "Still missing" clause below, which the 2026-08-21
@@ -333,10 +333,15 @@ over every declared function's own instances, answering "how many times"
 son.txt`'s final chorus (`HEAD_PRESERVED`) and its extra-bar payoff line
 (`EXTENDED_RETURN`-shaped, caught live by `RETURN_LENGTH_DRIFT`) are a real
 run, not a claim.
-**Still missing:** reprise — `compare_returns` takes two line lists and does
+~~**Still missing:** reprise — `compare_returns` takes two line lists and does
 not care where they came from, but nothing calls it ACROSS two different
 declared functions (does the outro reprise the intro). The primitive exists;
-the question is not asked.
+the question is not asked.~~ **STRUCK 2026-09-01 (the triage audit's record
+fix):** `CROSS_FUNCTION_REPRISE` is a `grid.py` finding (a note, at
+`grid.py:1188`), emitted from `song_function_report`, and pinned by five
+checks in `quality/test_grid.py` — the question IS asked, across functions,
+and this register never mentioned the code. Closed on that evidence; D-4
+(the arc) is the separate entry it always was.
 
 ### D-4 · No arc `OPEN`
 **Missing:** energy, dynamics, density, register, instrumentation change across
@@ -10510,7 +10515,7 @@ pass on a planner that simply never declared a hook; `test_grid.py` §26 repins
 the flag family as a DECLARED SET rather than a count (~~`== ["HOOK_ABSENT"]`~~),
 keeping its original intent that a new finding must not drift into the family.
 
-### M-85 · the section header's apparatus is gated, `SHARED_SUFFIX` is pursued, and `TITLE_NOT_IN_HOOK` is refused ON EVIDENCE `PARTIAL` — 2026-08-23
+### M-85 · the section header's apparatus is gated, `SHARED_SUFFIX` is pursued, and `TITLE_NOT_IN_HOOK` is refused ON EVIDENCE ~~`PARTIAL`~~ `CLOSED` 2026-09-01 — 2026-08-23; all three parts were in the tree by 2026-08-24 and the label lagged
 **THREE THINGS FROM ONE SITTING, and the first was found by the owner reading
 a chat message rather than a file.**
 
@@ -10618,6 +10623,13 @@ holds a line open, and the plural pair could not converge. A comment
 explaining a fixture move is not a regression on the entry, and nothing in
 §41 goes red if any open half of M-85 changes. What that pursue costs is
 `M-90`'s subject, and it is OPEN there rather than answered here.
+
+**CLOSED 2026-09-01 (the triage audit's record fix): the three parts are
+all done and were when the label last moved.** (1) the header round-trip
+is gated by `test_plan.py` §11 and `check_render_form.py`'s Stop hook;
+(2) `SHARED_SUFFIX` is in `loop.MANDATORY_PURSUE`; (3) `TITLE_NOT_IN_HOOK`
+was promoted to a FLAG under M-86 (CLOSED 2026-08-23). What this entry
+priced and left to M-90 stays there.
 
 ### M-86 · `TITLE_NOT_IN_HOOK` gates, on reaffirmation against the number `CLOSED` — 2026-08-23
 **THE OWNER RULED TWICE, AND THE SECOND TIME IS THE ONE THAT COUNTS.** `M-85`
@@ -11020,7 +11032,7 @@ same block flips the finding both ways on one song — declared, and with the
 title removed — because two checks that pin a field nothing reads are worth
 nothing.
 
-### M-94 · the planner writes a blueprint the repository's own formatter rejects `OPEN`
+### M-94 · the planner writes a blueprint the repository's own formatter rejects ~~`OPEN`~~ `CLOSED` 2026-09-01 — moot since `2833312` (2026-08-25), recorded by the triage audit
 **`plan --out=PATH` WRITES `json.dump(payload, fh, indent=1, sort_keys=True)`,
 AND `prettier --check .` REFUSES IT.** Caught by the `gate` job on the very
 commit that added `songs/stay_awake.blueprint.json` — the one job that failed
@@ -11051,6 +11063,16 @@ a finding set BYTE-IDENTICAL to the run on the planner-written one, exit 0
 both times. A blueprint is parsed, so whitespace cannot reach a grade; what is
 broken is the loop between the verb that writes the artifact and the gate that
 reads it, not any measurement taken from it.
+
+**CLOSED 2026-09-01 AS MOOT, NOT AS FIXED.** Commit `2833312` (2026-08-25,
+"the song bank's blueprints leave prettier's jurisdiction") added
+`lyric-harness/songs/*.blueprint.json` to `.prettierignore` and struck the
+rationale this entry quotes; `prettier --file-info` reports the bank's
+blueprints `ignored: true`, and 7 of 16 committed blueprints are raw
+`indent=1` output on a green gate. `plan --out` still writes `indent=1`
+and a copy OUTSIDE the ignored path still fails `prettier --check` — true
+and no longer a defect any gate charges. The route question (RULINGS
+WANTED #12) is answered by the tree's third route and is struck there.
 
 ### M-95 · `tandem` and `nightly` have not been green once in a week, for four separate reasons `PARTIAL` — 2026-08-24
 **FOURTEEN SCHEDULED RUNS SINCE 2026-08-03, NOT ONE SUCCESS** (Actions API,
@@ -12047,6 +12069,14 @@ subtly-rejected sections are surface-indistinguishable from human verbless
 lines (function share 0.40 vs 0.38, commas/token 0.143 vs 0.143). A gate
 there would charge a third of the canon (doctrine 7). The refusal is in the
 module docstring so it reads as refused, not forgotten.
+
+**ADDENDUM 2026-09-01.** `sentencehood_checked` is written into `inspect()`'s
+result and read by nothing but a key-presence test, and the loop's LAYERS
+roster names the layer in neither direction — so a run with the tagger
+silently off would grade with the gate off and print nothing. That state is
+UNREACHABLE: the slop floor requires the same tagger first, and without it
+the verb used to die at exit 1 (now REFUSES at 2 with the staging commands
+named, M-188). Recorded so the dead key is not mistaken for a disclosure.
 
 ### M-111 · the ban's clean lists are one glossary, and every song shops it `OPEN`
 Filed 2026-08-25. The owner's finding, made before any instrument had it:
@@ -14227,6 +14257,17 @@ it is a family of texts, and which 14 lines is a coordinate none of the three
 declared.** Exactly M-138's sampler defect in the cost register. The ladder is
 kept as an ORDER OF MAGNITUDE and nothing in the tree should read a threshold
 off it.
+
+**ADDENDUM 2026-09-01 — THE HEADLINE IS STALE AND THE ENTRY STAYS OPEN ON
+ITS RULING ALONE.** ~~17 of 19 sites are short of it~~: `python3
+quality/door_census.py --check` at HEAD reports **21 sites — FULL 4,
+INCOMPLETE 0, PER_WORD 1, RENDERING 3, VALIDATION 1, ARGUED 12, PASS**;
+the last two INCOMPLETE sites were ruled ARGUED under M-145 (CLOSED). The
+PER_WORD site is `_field_one`, which cannot ask a line-pair judge of one
+word and says so through `SCHEMA_ROUTE_NOTE`. The field side this entry's
+lane opened moved again on 2026-09-01: one field per binding PLACE
+(M-184) and an offer screened from the offered word's own side (M-185).
+What is still owed is the `--cliques` ruling above.
 
 ### M-140 · the 77-schema door has no chance rate, and the judge does not read `normative` `OPEN`
 Opened 2026-08-26 out of M-138's strike, and it is the larger of the two: that
@@ -16520,6 +16561,25 @@ and the next dispatch respectively; dispatching before them re-runs
 a measured configuration. The register pin:
 `audit_register.coverage_entries` ~~225~~ -> 226 (2026-08-29).
 
+**ADDENDUM 2026-09-01 (the triage audit's record fix).** The MANDATE half
+of the standing wall was answered after this entry was written and the
+entry never said so: M-171 (the participation reserve), M-173 (a
+maximally-equipped writer reaches exit 3 at exactly the mandate's own
+impossible group), M-174 (the overhang ordering gate) and M-175 (anaphora
+onto two line ends) each removed a way a drawn plan could be unwritable.
+What stays OPEN is the WRITER half alone, restated: *does flash-lite
+converge on the GATED planner through the chat surface?* — unmeasured,
+because no battery round has run since deploy #29 carried those four. The
+aggregate this entry owed and did not print: **ten rounds, zero exit-0
+songs on the chat path**; every banked song came through an operator's
+CLI session. Two of round 10's mechanisms are closed the same day this
+was written: the parked-continue push replayed the identical stop because
+the carried state was COMPLETE and the tier-1 record had no round
+coordinate (M-183), and every finishing verb's stop now prints the
+standing findings so the ban chip can count the drift (M-186). Round 11
+on HEAD is the measurement owed; it is dispatched by `flash-battery.yml`
+and spends Gemini credit, so it is the owner's to press.
+
 ### M-169 · The loop told the record what it did and every layer above dropped it — the run's own account reaches the transcript now `CLOSED` 2026-08-29 — built the sitting M-170's audit named it the cheapest high-value change on the table
 **THE DEFECT, and it is a RECORD defect rather than a code one.**
 `revise_loop` returns a `LoopResult` carrying `stop_reason`, `rounds`
@@ -17361,6 +17421,29 @@ restore the tail, because the tail is a length fact. Left OPEN rather than
 guessed: doctrine 58, and the owner's standing rule that a threshold with
 no calibration behind it is the error.
 
+**ADDENDUM 2026-09-01 — THE CAUSE PARAGRAPH ABOVE IS WRONG ABOUT WHERE
+THE TAIL WENT, AND ITS REMEDY IS NECESSARY BUT NOT SUFFICIENT (found by the
+2026-09-01 triage audit's probe, ruled under the owner's delegation).**
+~~"the tail is a length fact"~~. Re-run at HEAD with `song_line_counts`
+monkeypatched to 12..21, seeds 1-40 give min 1.67 / median 2.39 / share
+<=1.5 = **0%** with corr(lines, density) = -0.39 — restoring the short
+lengths does NOT restore the sparse band. The band is unreachable at ANY
+length because of the draw itself: every line in a 2+-line section draws
+`want = randint(1, line_binding_ceiling)` with the ceiling at 4, so
+E[want] = 2.5 before the end-rhyme pass binds the free ends. And the old
+tail was not a length tail either: at the songs' own commit `34149de`
+density correlates **-0.91 with the share of lines sitting in ONE-LINE
+sections** (which skip the web through `len(sec_lines) >= 2`), the sparse
+seeds there draw 14/18/18/21/22/23/25 lines — lengths HEAD still draws —
+and `stanza_line_floor` (M-106) is what removed them, with length as a
+confounder (+0.61 reproduced against this entry's +0.66). MEASURED AT
+HEAD, 2026-09-01: `plan --sweep=1-100 --want=bound_words_per_line<=1.5`
+accepts **0 of 99**; `<=2.0` accepts **7 of 99**. So the short profile
+below (still owed, M-193) unblocks the four songs' LENGTHS and cannot
+reach their DENSITY; the density needs a coordinate the draw does not have.
+**RULED 2026-09-01 (delegated):** the participation draw gains a per-plan
+density coordinate — M-191 carries the design and the measurement.
+
 ### M-182 · The CI wall clock is bounded by GRANULARITY, not by parallelism — and the first two readings of that were both wrong `PARTIAL` 2026-09-01 — found by an owner asking for a strong effort at cutting the wait, and by that owner refusing the first answer as artificially conservative
 **THE COMPLAINT, verbatim:** *"we gotta start thinking about ways to
 optimize here cut the amount of time this takes ... I don't mean like a 1%
@@ -17565,3 +17648,295 @@ would buy nothing: the pool is already at 293s, well under `capacity`'s
 binding. The wall is `capacity` now, and the next win is splitting it —
 `test_capacity`'s own per-section profile is what decides whether that is
 possible, and it is being measured rather than assumed. OPEN.
+
+**ADDENDUM 2026-09-01 — TWO OF THE THREE OPEN ITEMS WERE ANSWERED IN THE
+TREE AND THE ENTRY NEVER SAID SO (the triage audit's record fix).**
+~~The wall is `capacity` now, and the next win is splitting it.~~ Split in
+`79312bb` (the crown's six witnesses, `CAPACITY_WORKERS`) and MEASURED on
+run #1216: the `capacity` shard's step is **228 s** against the 698 s
+above. The revision-loop label was REAL GROWTH, not a stale number:
+#1216 printed `TIMED quality/test_loop.py 372s` and `TIMED
+quality/test_revise.py 609s` against the struck 184/191 s label — 3.3x and
+1.9x. With `suites` at 562 s (shard 1, `plan` alone) the run's critical
+path on a lyric-only diff is now **`verify` at 731 s wall** (Regression
+514 s, Locale 67 s, CLI 59 s), a job with `needs:` and no `if:`, while
+`catalog` and the freshness build are gated on `artifacts_affected`. The
+`verbs` shards still sit at 345 / 702 / 631 / 439 s — a 2.0x imbalance
+`_SECTIONS` is not yet cost-ordered against (the SECTION COST print exists
+to order it from). `test_revise.py` has no per-section timing, so its
+609 s floor has no named section yet. Still PARTIAL on those two.
+
+### M-183 · A recorded answer belonged to `(line, attempt)` and `attempt` restarts every round, so a stuck line was never asked twice — and a finished state re-ran as if it were still running `CLOSED` 2026-09-01 — found by the 2026-09-01 triage audit's probe, fixed the sitting the owner delegated the rulings
+**THE DEFECT, stated as the probe showed it.** `_defer_proposer` and
+`_replay_proposer` (`lyric_harness.py`) keyed a tier-1 answer on
+`(line, attempt)`. `quality/loop.py:_try_tier1` restarts `attempt` at 0
+on EVERY round. So a line whose round-1 proposals were all rejected hit
+its own round-1 record at `(line, 0)` in round 2, replayed the same
+rejected text, and the loop walked to NO_PROGRESS with the writer never
+consulted about that line again. That is the shape of round 10's ladder
+(M-168, M-169: parked with 20 of 23 lines open after four rounds, again
+after eight): the pushes that "continued" a parked song re-injected the
+COMPLETE state, every answer replayed, and the identical stop came back.
+`quality/RESULTS_TIME_AUDIT.md` §4 called the retained five answers the
+"narrow survivor" and §6 named the driver-side clear as free; neither
+named the key.
+**THE FIRST REPAIR WAS WRONG, AND THE TEST SAID SO (doctrine 17).** The
+audit proposed keying on the DRAFT — `draft_fingerprint(lines)`, which
+the proposer already receives — and that was built first. Driven on
+`test_loop.py`'s CLICHE at `attempts_per_line=1` with L1 answered by the
+stock fix and every other line answered with itself, it asked each open
+line ONCE: L2–L4 are asked in round 1 only after L1's accepted fix has
+already moved the draft, and round 2 opens on exactly that moved draft,
+so `(line, 0, fingerprint)` matched and replayed. The question's
+coordinate is the ROUND, not the text.
+**WHAT SHIPS.** `Brief.round_no`, stamped by `revise_loop` on every brief
+a round issues (both the round's brief and the mid-round re-brief), so no
+proposer's contract moved. Tier-1 records are keyed `(line, attempt,
+round)` and carry `draft` as provenance; tier-2 records gain the same
+`round` beside `members/texts/words`, read off the pivot's brief. A
+record with no `round` (every state and replay file written before
+today) matches on the old key alone — `test_loop.py` §21 pins BOTH: the
+round-1 records with `round` answer round 1 only (round 2's questions
+"asked and NOT recorded"), and the same records with `round` stripped
+answer round 2 from round 1, which is the defect kept deliberately for
+files already on disk. Measured on that drive: L1 asked once, L2/L3/L4
+asked in round 1 AND in round 2 (`{1: [1], 2: [1, 2], 3: [1, 2],
+4: [1, 2]}`), NO_PROGRESS after two rounds, exit 3.
+**A FINISHED STATE SAYS SO.** The verb writes `complete` — stop, exit,
+the INPUT draft's fingerprint, the final draft's, the open lines — on the
+way out of a stop condition, and `_defer_proposer` takes it OFF the state
+it will write back (so a later suspension never carries it stale) and
+prints `THIS STATE IS COMPLETE …` before the loop when the draft handed
+in is the one the run finished on. `test_verbs.py` §20 pins the marker
+and the re-run (rc 0, the sentence printed, no SUSPENDED). On the chat
+surface `mcp/gemini_agent.js:carryState` carries a record forward ONLY
+from an exit-4 verdict; an exit 0/3 on the seed CLEARS the carried
+record (the verdict still returns it for provenance), a refusal leaves
+the pending question in place, another seed's verdict never touches it
+— `mcp/test.mjs` pins all six directions. The `revise`/`finish` exit
+code is now computed once (`_code`) and read by the stamp, the state and
+the exit, which is where M-186's whole-draft flags join it.
+**WHAT THIS DOES NOT CLAIM.** Asking again is not converging: a writer
+asked the same question about the same draft in round 2 may give the
+same answer. The claim is only that the loop now ASKS, which round 10
+never did after round 1, and that a re-run of a finished record says it
+is finished instead of impersonating a fresh run.
+
+### M-184 · The brief intersected one candidate field ACROSS a line's binding places, so a line bound at two places was told the mandate was at fault — and tier 2 rewrote the wrong line `CLOSED` 2026-09-01 — found by the 2026-09-01 triage audit's probe; M-91 had recorded the sentence as intended
+**THE DEFECT.** `Reviser.brief` collected the call words of EVERY group a
+line is in and handed them all to one `joint_field`, which intersects
+rhyme fields and takes no place. A line bound at its end by one group
+and at its T2 word by another (129 of 155 mandated lines on seed 88291,
+the plan flash-battery round 10 ran on, bind at more than one place —
+on a drawn plan this is the ORDINARY flagged line) was therefore asked
+for ONE word answering two families at once, the intersection was
+empty, and the brief printed *NO JOINT CANDIDATE … The MANDATE is what
+needs revising, not the line* with an empty OFFERED list, while `slot`
+named the FIRST group's place and the incumbent was read there.
+`joint_conflict` then sent the line to tier 2, whose search intersected
+the other groups' calls across places the same way; on the audit's
+four-line probe the stub loop rewrote L1 to `like` so L3 could END on
+`cut` — a consonance conjunction the grader never asked to meet — when
+L3 needed one night-rhyme at its T2 word. `quality/RESULTS_TIME_AUDIT.md`
+§6 called the `propose.py:552` sentence inverted; M-91 (CLOSED) had
+recorded it as the intended reading of `slot_conflict`.
+**MEASURED, on the probe draft (L1 …`door`, L2 …`night`, L3 `i left my
+keys beside the lamp`, `--groups=2,3.T2;1,3`).** Before: L3 briefed with
+`candidates == []`, `forbidden_modal == []`, `joint_conflict True`,
+`slot` the END, incumbent `left` printed as "the end word already on
+this line". After: 12 offered at the T2 word (`spite`, `moonlight`,
+`sprite`, …), 33 forbidden (the `night` head), `joint_conflict False`,
+`slot` = `3.T2`, incumbent `left` at that place; group A (T2) VIOLATED,
+group B (end) HOLDS. On the four-line variant the stub loop fixes L3
+through TIER 1 in one attempt and L1/L4 are never touched; what stays
+open is the pursued MODAL_RHYME note on the new pair, which is the
+loop's own job.
+**WHAT SHIPS.** One field per PLACE: `Brief.fields_by_slot` (a
+`SlotField` per place — the groups bound there, their calls, the
+incumbent, offered, forbidden, whether a finding on the line names a
+group there, and whether ITS conjunction is empty), `group_slots`,
+`violated_groups` (attributed off the finding's own pair `locations`,
+message consulted only to break a same-pair tie) and `slot_groups`.
+`slot`, `candidates`, `forbidden_modal`, `forbidden_incumbent` and
+`joint_conflict` are the VIOLATED place's entries, so every reader keeps
+its meaning; `slot_conflict` now means more than one place is violated
+(the old meaning — bound at different places — is struck on the field,
+doctrine 17). `verify()`'s RULE 3 reads the incumbent AT THE BRIEF'S
+PLACE through the one `_incumbent` helper `brief()` uses; it read
+`_endword` whatever the place was. Tier 2 walks only the groups at the
+pivot's place (`slot_groups`) and takes the pivot's incumbent off the
+brief instead of `raw_final_token`. Three renderers (`Brief.__str__`,
+the `brief` verb, `quality/propose.py`) say where each group binds the
+line and whether it HOLDS or is VIOLATED, say "binds at N PLACES" where
+the old text said PIVOT/conjunctive, and the `AND TWO DECLARED GROUPS
+LAND ON THAT ONE WORD` sentence is struck for one that fires only when
+more than one place is violated. On an ordinary end-rhyme mandate there
+is one place, the same `joint_field` call over the same calls in the
+same order, and the field is byte-identical (§50 pins the song's own L14
+against §19's field). `test_revise.py` §50 is the fixture, MEASURED
+before and after as above.
+**WHAT STAYS OPEN.** Tier 2's own conjunction over a place's OTHER
+groups can still come back empty and walk nothing — M-185 is the
+fall-through for that. And `field_note` still reports the schema route
+open when ANY group of the line leaves it open, one note over all
+places, which is conservative rather than wrong.
+
+### M-185 · Tier 2 could spend a line's turn without asking anyone, and the menu offered words the grader would charge from the word's own side `CLOSED` 2026-09-01 — found by the 2026-09-01 triage audit (M-170 §5 item 10 and the probe on `door`); ruled and built the sitting the owner delegated the rulings
+**TWO DEFECTS, ONE SEAM — what the writer is asked and what the writer is
+handed.** (a) A `joint_conflict` line went to tier 2 ONLY, and
+`_try_tier2` could return with `tried == 0` having put NOTHING to a
+proposer: the pivot's field over the other groups' calls was empty, so
+`walked` was empty, no member starved, no group was pinned — and the
+attempt still consumed the line's turn. A round of those is NO_PROGRESS
+with the writer never consulted, which is M-173(e)'s "11 never asked".
+(b) `grade()`'s MODAL_RHYME note is SYMMETRIC (`wj in head(wi) OR wi in
+head(wj)`), the loop PURSUES it (`MANDATORY_PURSUE`), and the offer was
+screened in ONE direction — the head of the calls' field. MEASURED on the
+audit's probe: the first six words offered for `door` (lenore, bore,
+gore, yore, implore, wore) each carry `door` in their OWN head, so taking
+any of them filed the note, the loop pursued it, and the line the writer
+had just fixed re-opened at exit 3 — under a comment in `joint_field`
+saying the menu and the verdict could not disagree.
+**WHAT SHIPS FOR (a).** `LineAttempt.asked`: False when a tier built no
+brief for a proposer and refused for no stated reason (a pinned or
+starved refusal is a stated reason and stays True; a proposer that
+DECLINED every group brief was consulted). `revise_loop` falls through to
+tier 1 in the same round on `asked=False`, keeping BOTH records
+(doctrine 79). `test_loop.py` §22 pins it under the two-name admit door
+(under the shipped four-relation door the conjunction of two disjoint
+families is rarely empty — assonance answers most pairs — so the fixture
+declares `Declaration(admit=("RHYME", "RIME_RICHE"))`): tier 2 walks 0
+words for every group, says NOT ASKED, tier 1 asks the pivot in the same
+round; and a declined tier 2 is NOT a fall-through.
+**WHAT SHIPS FOR (b), AND WHAT IT COSTS.** `joint_field_screened` asks
+the other direction of every candidate before offering it: is the CALL in
+the candidate's own head? Exact would be a lexicon pass per offered word
+(`engine.candidates`, 43,250 `score` calls, 2.7 s cold — profiled), and a
+25-line drawn plan briefs ~15 lines × 12 offers per round against a
+64-entry field cache, so `_offer_reopens` answers CONSERVATIVELY: a call
+is outside a word's head exactly when `modal_exclusion` words provably
+outrank it there, outrankers are counted only among the word's observed
+partners and the call's own family (both already in hand, each scored by
+the grader's own predicate), so the count can only be low and a low count
+DROPS. Pinned EXACTLY in `test_revise.py` §51: no offered word for `door`
+carries `door` in its exact head, every one of the first six dropped words
+does. The grader reads the head through the new `modal_head` accessor
+(the same head `modal_field` returned; §51 pins the identity), because
+`modal_field` now screens its offer and the grader has no use for that
+recursion on every satisfied pair. `Brief.screened_out` and
+`SlotField.dropped` carry the refused rhymes; `Brief.__str__` and the
+tier-1 prompt say the menu is short because the ban is, not the lexicon.
+**THE COST IS THE OWNER'S RULE MADE VISIBLE, AND IT IS LARGE.** A call
+word in the top ranks of its own family sits in the frequency-filled head
+of EVERY member of that family (M-173(c) recorded this as the check
+running both directions), so for `door`, `desire`, `night`, `go` the
+screen drops every true rhyme: `door` offers 24 words and 32 rhymes are
+refused; `desire` offers no true rhyme at all. What survives is the
+near-typed tier the widened admit door admits (M-59, unpriced at M-138:
+`our` for `desire`, `war`/`or`/`are` for `door`) and the rare tail. The
+offer is therefore PARTITIONED before it is cut — RHYME-typed survivors
+first in their doctrine-9 order, near-typed ones filling the remainder —
+because once the observed partners are gone the tail of a zero-evidence
+tier ordered by global frequency is `i, on, was, are`. What the writer is
+told is now TRUE: a common call cannot be rhymed cleanly under this ban,
+and the partner line has to move, or a near relation be taken. The stub
+loop takes the near relation, which is why five stub-driven pins moved
+(`test_loop.py` §1/§3/§4/§12, `test_propose.py` §6 and the group-prompt
+section): lines the stub used to re-open are now CLOSED BY THEIR PARTNER'S
+MOVE (`resolved_elsewhere`) and every stop is cleaner than before — each
+repin says so where it stands. Whether the stub's near relations are a
+song anyone wants is M-138's question (RULINGS WANTED #9), not this
+entry's; the measurement the audit asked for first (item 8: the ban's
+share of held-open lines and the end-word rarity it pushes, over the 16
+banked songs) is still owed and is filed under M-168's watch list.
+**WHAT STAYS OPEN.** The loop has no move for the case the screen now
+names: a single-group call word whose every rhyme is refused. Tier 2
+backtracks only a PIVOT's groups; a two-member group whose call is common
+needs the CALL line rewritten to a rarer member and nothing walks that.
+Filed on BACKLOG's RULINGS WANTED beside M-138.
+
+### M-186 · `revise`/`finish` exited 0 over a standing whole-draft flag, the stop printed no findings, and the connector read `brief`'s 0 as "no flag stands" `CLOSED` 2026-09-01 — found by the 2026-09-01 triage audit's probes on `keep_the_light.txt` and a TITLE_NOT_IN_HOOK draft
+**FOUR DEFECTS, ONE SENTENCE: the stop looked cleaner than the draft.**
+(1) The shared revise/finish exit block computed its code off
+`result.unresolved` alone; a WHOLE-DRAFT flag — `STACKED_DRAFT`,
+`TITLE_NOT_IN_HOOK`, `HOOK_ABSENT` name no line — left `revise` at 0 with
+the flag disclosed under "NO STOP CONDITION ABOVE CAN SEE" and `finish`
+stamping `exit 0 — no flag stands`, while `song` on the same draft under
+the same blueprint exited 3 (PROBED: the bank's own `keep_the_light.txt`
+retitled `zebra confetti`, 34 s vs 59 s). CLAUDE.md promised the 3 for
+both verbs. (2) The stop printed no FINDING lines — `LoopResult`'s text
+names the open LINES and the RULE holding each — so
+`mcp/lyric_tools.js:extractBannedPairs` returned [] on every
+`lyric_revise` result and neither the chat chip nor the battery's
+`claims_progress_over_standing_ban` could fire on the finishing verb
+(M-168's drift into night/light/sight/might, countable nowhere).
+(3) `lyric_check` wraps `brief`, whose exit gates are `song`'s alone, so a
+FLAGGED draft came back `exit 0 — answered — no flag stands`.
+(4) `EXIT_MEANING` had no entry for 1, Python's own death, which the
+connector rendered as a verdict-shaped "subprocess failure".
+**WHAT SHIPS.** `_code` folds `result.whole_flags` (doctrine 79: a
+separate clause in the stamp, `— WHOLE-DRAFT FLAG: CODE, CODE`, never
+summed with the open lines); the stop prints a `STANDING AT THE STOP`
+block with every flag and pursued note on the open lines and every
+whole-draft flag in the report's own `FINDING [SEV] CODE: …` spelling
+(`Finding.__str__`, one definition). The connector's verdict gains
+`flags`/`notes`/`whole_flags` read off the `REPORT:` line the harness
+prints (an exit-0 verdict with either count nonzero says the flags STAND
+and that the code is `brief`'s), `unreadable`/`unreadable_findings` for
+`UNREADABLE_END_WORD`/`SCHEME_UNREADABLE` (refusals, not verdicts —
+doctrine 28), `loop_whole_flags`/`loop_whole_flag_codes` off the stamp,
+and `EXIT_MEANING[1] = CRASHED`. `test_verbs.py` §48 runs both probes
+(`revise` on the retitled bank song exits 3 and prints the whole-draft
+FINDING; `revise --attempts=0` on §42's hair/chair pair exits 3 and prints
+`FINDING [NOTE] HOMEOTELEUTON: L1/L2`), §44's stamp pin is widened to "3
+iff UNRESOLVED or a whole-draft flag", and `mcp/test.mjs` pins the five
+extractors on synthetic reports — the first spelling of the REPORT regex
+read every whole-draft count as 0 (a lazy `[^\n]*?` ahead of an optional
+group) and the unit case is what caught it.
+**WHAT THIS DOES NOT CLAIM.** The whole-draft flags still earn no
+candidate field and the loop still has no move for them; what changed is
+that a run carrying one can no longer exit 0 or stamp itself finished.
+
+### M-189 · The chat surface could not spell four CLI coordinates, the screen could not ask the question the grade asks, and an admitted near relation was printed as a rhyme `CLOSED` 2026-09-01 — found by the 2026-09-01 triage audit reading `mcp/lyric_tools.js` against `lyric_harness.py`'s usage
+**FOUR GAPS ON THE CONNECTOR.** (1) `--voices` and `--fallback=high|low`
+stand BEFORE the verb on the CLI and no `lyric_*` tool carried them, so a
+chat writer could neither declare a sung parenthetical (a whole-line `(…)`
+reads as an EMPTY end word and the pair goes unjudged) nor reach the
+letter-to-sound layer for an end word the lexicon lacks. (2) `lyric_screen`
+took words only: a plan draws a named relation per group (M-117) and the
+grade judges it, but the one step the working order puts BEFORE writing
+could ask only the coarse class. (3) `lyric_verify` had no `structures`
+field while the CLI `verify` accepted `--structures=`, so a structured
+round was verified under a different mandate than it was checked under
+(M-103 §39's shape). (4) `--narrative=` could not be spelled, though no
+grader reads the story plan (a record, and said so on the field). And the
+descriptions promised "~10s per call": MEASURED 2026-09-01 on this box,
+`screen` on four words is ~20 s cold, `brief` on four lines ~19 s, `types`
+~1 s, a 16-line `song` 90–170 s (the audit's figures) — past the 60 s
+default clock of an external MCP client, which the text now says.
+**TWO ON THE SCREEN.** (5) The verb REFUSED every `schema:` name on the
+argument that a schema is judged over LINES — true of the instances route
+and false of the pair route: `relations.pair_satisfies` (M-148 P2) judges
+a schema at two DECLARED bindings, which is what a mandate or a drawn
+relation asks of two line ends. The screen now builds the same stream the
+grade builds over its carrier pair and asks the same judge at (line 0,
+last token) / (line 1, last token); only a shape one token cannot bind
+(`pair_bindable` False) still refuses, by the judge's own reason.
+MEASURED: `hair`/`spare` SATISFIES `schema:perfect rhyme` and VIOLATES
+`schema:pararhyme` (a DIFFER schema), `cellar`/`seller` SATISFIES
+`schema:rime riche`. (6) Since the admit door widened (M-59), a pair the
+comparator types ASSONANCE or CONSONANCE is satisfied at a bare group and
+the screen printed it `CLEAN — RHYMES` on the same row that says it
+VIOLATES `class:RHYME`. It prints `CLEAN — ADMITTED as ASSONANCE (a near
+relation the default door admits; a schema or class that needs the nucleus
+and coda to agree will charge it)` and the tail counts admitted pairs
+apart from rhyming ones (doctrine 79): `home alone stone` reads
+`1 banned, 0 refused, 0 clean and rhyming, 2 clean and ADMITTED`.
+**WHAT SHIPS.** `voices`/`fallback` on every grading tool (prepended ahead
+of the verb by one `globalsFor`), `relation` on `lyric_screen`,
+`structures` on `lyric_verify`, `narrative` on the planning tools, the
+measured timings and the sweep-first sentence on `lyric_plan`; the
+screen's pair-route judge and the ADMITTED wording. `mcp/test.mjs` pins the
+fields and the argv helpers; `test_screen.py` §7 is repointed (a bindable
+schema is judged, not refused) and §8 pins the two screen halves,
+EMPIRICALLY VERIFIED on the pairs above.

@@ -208,7 +208,7 @@ export const RETRY_ALL = [429, ...RETRY_TRANSIENT];
 // Test seam (the `_workerInternals` precedent): what the model is SHOWN is a
 // verdict this function computes, and a suite that cannot reach it can only
 // grep for the strip instead of proving it.
-export const _agentInternals = { toFunctionResponse, suspendedSeed, buildSystemInstruction };
+export const _agentInternals = { toFunctionResponse, suspendedSeed, buildSystemInstruction, carryState };
 
 async function generate({
   apiKey,
@@ -302,6 +302,28 @@ function suspendedSeed(lyr) {
 // mcp/test.mjs pins both directions on this helper and pins that the
 // `systemInstruction:` key is spelled nowhere else in this file, so the
 // request cannot grow a second, reminder-less path to the model.
+// THE CARRIED RECORD AFTER A STATE-BEARING TOOL ANSWERED (M-183). Only a
+// SUSPENDED verdict (exit 4) carries a run forward. A run that reached a stop
+// condition (exit 0 or 3) is COMPLETE: its record used to be harvested and
+// re-injected on the next call for the seed, and the harness replayed every
+// answer in it and stopped exactly where it had stopped — which is why round
+// 10's parked-continue pushes never asked the writer a second question about
+// any line. The record still rides the verdict for provenance (the tool
+// returns it; the CLI's own stamp says the state is complete); what changes
+// is that the NEXT call starts a fresh loop from whatever draft the model
+// hands in. A refusal (exit 2) leaves whatever was carried in place: the
+// question it refused an answer to is still pending. A verdict about a
+// different seed never touches the carried record of this one.
+function carryState(prev, toolName, args, verdict, surface) {
+  if (!surface.stateTools?.has(toolName) || typeof args?.seed !== 'number') return prev;
+  const code = verdict && typeof verdict.exit_code === 'number' ? verdict.exit_code : null;
+  if (code === 4 && typeof verdict[STATE_PROPERTY] === 'string') {
+    return { seed: args.seed, state: verdict[STATE_PROPERTY] };
+  }
+  if ((code === 0 || code === 3) && prev && prev.seed === args.seed) return null;
+  return prev;
+}
+
 function buildSystemInstruction(surface, lyr) {
   const seed = suspendedSeed(lyr);
   const text = [surface.instructions, seed == null ? null : SUSPENDED_RUN_NOTE(seed)]
@@ -479,14 +501,9 @@ export async function runTurn({
         }
         // Harvest the revise state the way the workspace is harvested above:
         // the verdict block is the only place it rides, the model is never
-        // shown it, and the envelope carries it to the next turn.
-        if (
-          surface.stateTools?.has(fc.name) &&
-          typeof lyricVerdict?.[STATE_PROPERTY] === 'string' &&
-          typeof args.seed === 'number'
-        ) {
-          lyr = { seed: args.seed, state: lyricVerdict[STATE_PROPERTY] };
-        }
+        // shown it, and the envelope carries it to the next turn — but ONLY
+        // a suspended run is carried; see `carryState`.
+        lyr = carryState(lyr, fc.name, args, lyricVerdict, surface);
       }
       calls.push({
         name: fc.name,

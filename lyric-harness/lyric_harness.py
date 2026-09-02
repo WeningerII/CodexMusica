@@ -5081,10 +5081,27 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
     """
     from quality.revise import Reviser
     from quality import schemes as SC
+    _schema = None
     if relation is not None:
         from quality import rhyme_types as _RT
         from quality.revise import _relation_phonology as _RP
         _phon = _RP()
+        # A SCHEMA IS JUDGED AT THE TWO DECLARED END TOKENS (M-189,
+        # 2026-09-01). The screen refused every `schema:` name on the
+        # argument that a schema is judged over LINES — true of the
+        # instances route and false of the pair route: `relations.
+        # pair_satisfies` (M-148 P2) judges a schema at two DECLARED
+        # bindings, which is exactly what a mandate `1,3 --relation=schema:X`
+        # asks of two line ends, and exactly what a plan's drawn relation
+        # (M-117) asks of every group. So the screen builds the same stream
+        # the grade builds over the carrier pair and asks the same judge at
+        # (line 0, last token) / (line 1, last token). The shapes one token
+        # cannot bind (`pair_bindable` False) still REFUSE by name, through
+        # the judge's own `Refusal`.
+        _canon, _kind = _RT.resolve_relation(relation)
+        if _kind == "schema":
+            from quality import relations as _RL
+            _schema = _RL.REGISTRY[_canon]
     rv = Reviser(lex=lex, decl=decl) if (lex or decl) else Reviser()
     out = []
     for i in range(len(words)):
@@ -5123,13 +5140,33 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
             # same position, so the screen's answer and the grade's cannot
             # drift (doctrine 1).
             if relation is not None and not row["refused"]:
-                try:
-                    row["named"] = _RT.satisfies_relation(
-                        relation, row["relation"], a, b, _phon,
-                        position="end")
-                except _RT.RelationRefused as e:
-                    row["named"] = None
-                    row["named_reason"] = str(e)
+                if _schema is not None:
+                    _stream = _RL.build_stream(
+                        [_SCREEN_CARRIERS[0].format(w=a),
+                         _SCREEN_CARRIERS[1].format(w=b)], _phon)
+                    _ans = _RL.pair_satisfies(_schema, _stream,
+                                              (0, -1), (1, -1))
+                    if isinstance(_ans, _RL.Refusal):
+                        row["named"] = None
+                        row["named_reason"] = str(
+                            getattr(_ans, "reason", None)
+                            or getattr(_ans, "why", None) or _ans)
+                    elif _ans is None:
+                        row["named"] = None
+                        row["named_reason"] = (
+                            f"{_schema.name!r} could not be read at the "
+                            f"pair (a channel or anchor the two words do "
+                            f"not supply) — a refusal, not a no")
+                    else:
+                        row["named"] = bool(_ans)
+                else:
+                    try:
+                        row["named"] = _RT.satisfies_relation(
+                            relation, row["relation"], a, b, _phon,
+                            position="end")
+                    except _RT.RelationRefused as e:
+                        row["named"] = None
+                        row["named_reason"] = str(e)
             out.append(row)
     return out
 
@@ -5869,8 +5906,14 @@ def _first_attr(mod, names):
     return None, None
 
 
-def _group_key(members, texts, words):
+def _group_key(members, texts, words, round_no=None):
     """-> the hashable identity of ONE tier-2 proposal request.
+
+    AND THE ROUND (M-183, 2026-09-01), for the reason tier 1's key carries
+    it: `texts` pins the draft as it stands, and round 2 opens on the draft
+    round 1 ended on, so a group whose rewrite was rejected in round 1 was
+    answered from the record in round 2 rather than asked. `None` is the
+    legacy value and matches only itself.
 
     THE THREE LISTS TOGETHER, and none of them alone. `members` says which
     lines the record answers, so a record cannot be replayed onto a group it
@@ -5890,7 +5933,18 @@ def _group_key(members, texts, words):
         raise ValueError(
             f"a propose_group record needs members/texts/words all the same "
             f"non-zero length; got {len(m)}/{len(t)}/{len(w)}")
-    return (tuple(int(x) for x in m), tuple(t), tuple(w))
+    return (tuple(int(x) for x in m), tuple(t), tuple(w),
+            None if round_no is None else int(round_no))
+
+
+def _group_lookup(groups, group_brief):
+    """-> the recorded `new` lines for THIS group question, or None — the
+    exact (round-carrying) key first, then the legacy key (M-183)."""
+    key = _brief_key(group_brief)
+    hit = groups.get(key)
+    if hit is None:
+        hit = groups.get(key[:3] + (None,))
+    return hit
 
 
 def _brief_key(group_brief):
@@ -5908,7 +5962,35 @@ def _brief_key(group_brief):
         got = group_brief.proposal_for(n)
         texts.append(None if got is None else got[0])
         words.append(None if got is None else got[1])
-    return _group_key(members, texts, words)
+    # The round is read off the PIVOT'S brief, where the loop stamps it.
+    return _group_key(members, texts, words,
+                      getattr(getattr(group_brief, "brief", None),
+                              "round_no", None))
+
+
+def _line_key(rec):
+    """-> the tier-1 record key `(line, attempt, round)`; `round` is None
+    for a record written before the round coordinate existed (M-183)."""
+    _r = rec.get("round")
+    return (int(rec["line"]), int(rec["attempt"]),
+            None if _r is None else int(_r))
+
+
+def _line_lookup(ones, brief, attempt):
+    """-> the recorded text for THIS question, or None.
+
+    THE ROUND IS PART OF THE QUESTION. A record carrying a `round` answers
+    only the question of that round; a legacy record with none answers on
+    `(line, attempt)` alone, exactly as every record did before 2026-09-01.
+    Legacy first would let an old record shadow a newer one for the same
+    slot, so the exact key is consulted first and the legacy key only when
+    it misses.
+    """
+    text = ones.get((brief.line_no, attempt,
+                     getattr(brief, "round_no", None)))
+    if text is None:
+        text = ones.get((brief.line_no, attempt, None))
+    return text
 
 
 def _replay_proposer(path):
@@ -5924,7 +6006,23 @@ def _replay_proposer(path):
 
     THE TWO ARE KEYED DIFFERENTLY BECAUSE THE LOOP CALLS THEM DIFFERENTLY.
     Tier 1's `propose(brief, lines, attempt, reasons=None, whole=())` has a
-    line number, so (line, attempt) is its key. Tier 2's
+    line number, ~~so (line, attempt) is its key~~ **so (line, attempt,
+    round) is its key — STRUCK AND WIDENED 2026-09-01 (`MISSING.md` M-183).**
+    `attempt` restarts at 0 on EVERY round (`quality/loop.py:_try_tier1`),
+    so a key without the round made a line's round-1 answers the answers
+    to every later round's question about it: a line whose three round-1
+    proposals were all rejected was never asked again, the record replayed
+    the same rejected text into round 2, and the loop walked to NO_PROGRESS
+    with the writer never consulted (round 10's ladder, M-168/M-169). The
+    round rides `Brief.round_no`, stamped by the loop, so no proposer's
+    contract moved; the record ALSO carries `draft`, the fingerprint of the
+    lines the question was asked against, as provenance (a draft fingerprint
+    alone was tried first and is NOT enough: round 2 opens on the draft
+    round 1 ended on, so the same line at attempt 0 fingerprinted the same
+    and replayed). A record with no `round` field (every file written before
+    today) still matches on `(line, attempt)` alone, which keeps every
+    recorded run on disk replaying exactly as it did; tier 2's key gains the
+    round the same way, with the same legacy match. Tier 2's
     `propose_group(group_brief)` is handed ONE `quality.loop.GroupBrief`,
     whose `word` fields are THE WORDS THIS ATTEMPT IS ASKING FOR rather than
     the ones currently bound — so the key is the three parallel lists that
@@ -5973,10 +6071,10 @@ def _replay_proposer(path):
     ones, groups = {}, {}
     try:
         for r in rec.get("propose", []):
-            ones[(int(r["line"]), int(r["attempt"]))] = r["text"]
+            ones[_line_key(r)] = r["text"]
         for r in rec.get("propose_group", []):
-            groups[_group_key(r["members"], r["texts"], r["words"])] = \
-                tuple(r["new"])
+            groups[_group_key(r["members"], r["texts"], r["words"],
+                              r.get("round"))] = tuple(r["new"])
     except (KeyError, TypeError, ValueError) as e:
         _refuse(f"--propose=replay:{path} — a record is malformed: {e!r}",
                 detail=["`propose` records need line/attempt/text; "
@@ -5996,12 +6094,12 @@ def _replay_proposer(path):
         # answers from a record and reads neither. A proposer that WRITES
         # reads both (`quality/propose.py` renders them into the prompt);
         # this one only has to have the signature the loop calls.
-        text = ones.get((brief.line_no, attempt))
+        text = _line_lookup(ones, brief, attempt)
         tally["hit" if text is not None else "miss"] += 1
         return text
 
     def propose_group(group_brief):
-        hit = groups.get(_brief_key(group_brief))
+        hit = _group_lookup(groups, group_brief)
         tally["hit" if hit is not None else "miss"] += 1
         return hit
 
@@ -6063,7 +6161,7 @@ def _defer_state(path):
     return st
 
 
-def _defer_proposer(path):
+def _defer_proposer(path, lines=None):
     """-> (propose, propose_group, disclosure) that SUSPENDS rather than guess.
 
     THE PROBLEM THIS SOLVES, stated plainly because it is not a Python
@@ -6101,7 +6199,16 @@ def _defer_proposer(path):
     involving a writer is reproducible here at all).
     """
     from quality import propose as PR
+    from quality.revise import draft_fingerprint as _dfp
     st = _defer_state(path)
+    # A STATE THAT REACHED A STOP CONDITION IS COMPLETE, and the marker is
+    # taken OFF the state here so it is never written back stale: a run that
+    # suspends again (the draft moved, or the writer struck some answers)
+    # writes a state without it, and only the verb's own stop writes a fresh
+    # one (M-183). Read below by `disclosure()`, which is the one place a
+    # re-run is told, before the loop starts, that it is about to replay a
+    # finished run rather than continue one.
+    complete = st.pop("complete", None)
     pend = st.get("pending")
     if pend is not None:
         # A pending request with no answer is the gate. Refusing to advance is
@@ -6146,10 +6253,9 @@ def _defer_proposer(path):
             st["answered"]["propose_group"].append(rec)
         st["pending"] = None
 
-    ones = {(int(r["line"]), int(r["attempt"])): r["text"]
-            for r in st["answered"]["propose"]}
-    groups = {_group_key(r["members"], r["texts"], r["words"]):
-              tuple(r["new"])
+    ones = {_line_key(r): r["text"] for r in st["answered"]["propose"]}
+    groups = {_group_key(r["members"], r["texts"], r["words"],
+                         r.get("round")): tuple(r["new"])
               for r in st["answered"]["propose_group"]}
     tally = {"hit": 0}
 
@@ -6159,24 +6265,30 @@ def _defer_proposer(path):
         raise _NeedProposal(kind, record, prompt)
 
     def propose(brief, lines, attempt, reasons=None, whole=()):
-        text = ones.get((brief.line_no, attempt))
+        text = _line_lookup(ones, brief, attempt)
         if text is not None:
             tally["hit"] += 1
             return text
+        # THE RECORD NAMES THE ROUND IT WAS ASKED IN (M-183): the same line
+        # at the same attempt in a later round is a NEW question, and the
+        # writer is asked it. `draft` is provenance — what the question was
+        # asked against — and is not part of the key.
         _suspend("propose",
-                 {"line": brief.line_no, "attempt": attempt, "text": None},
+                 {"line": brief.line_no, "attempt": attempt,
+                  "round": getattr(brief, "round_no", None),
+                  "draft": _dfp(lines), "text": None},
                  PR.render_line(brief, lines, whole=whole, attempt=attempt,
                                 reasons=reasons))
 
     def propose_group(group_brief):
-        members, texts, words = _brief_key(group_brief)
-        hit = groups.get((members, texts, words))
+        members, texts, words, round_no = _brief_key(group_brief)
+        hit = _group_lookup(groups, group_brief)
         if hit is not None:
             tally["hit"] += 1
             return hit
         _suspend("propose_group",
                  {"members": list(members), "texts": list(texts),
-                  "words": list(words), "new": None},
+                  "words": list(words), "round": round_no, "new": None},
                  PR.render_group(group_brief))
 
     def disclosure(done=False):
@@ -6184,9 +6296,33 @@ def _defer_proposer(path):
         head = (f"  PROPOSER: defer:{path} — {n} answer(s) already given, "
                 f"replayed in order")
         if not done:
-            return (head + "; nothing outside this process is reached, and "
-                    "the loop SUSPENDS at the first unanswered request "
-                    "rather than guessing")
+            head += ("; nothing outside this process is reached, and "
+                     "the loop SUSPENDS at the first unanswered request "
+                     "rather than guessing")
+            # THE RE-RUN OF A FINISHED RUN SAYS SO, UP FRONT (M-183). Before
+            # this sentence a writer (or the chat driver's parked-continue
+            # push) re-running a complete state got the identical stop with
+            # nothing in the output saying that no question could ever be
+            # asked again. Said only when the draft handed in IS the draft
+            # the run finished on: a draft that moved is a new set of
+            # questions and needs no warning.
+            if complete and (lines is None
+                             or complete.get("draft") == _dfp(lines)):
+                _un = complete.get("unresolved") or []
+                head += (f"\n  THIS STATE IS COMPLETE: it already reached "
+                         f"{str(complete.get('stop', '?')).upper()} at exit "
+                         f"{complete.get('exit')} on this same draft "
+                         f"({complete.get('draft')})"
+                         + (f", leaving {', '.join('L%d' % x for x in _un)} "
+                            f"open" if _un else "")
+                         + ". Every answer below is replayed and the loop "
+                         "stops where it stopped; nothing is asked. To be "
+                         "asked again, start a new state file, or delete "
+                         "the `answered` records for the lines you want "
+                         "re-asked (each answer is keyed on the round and "
+                         "attempt it answered, so the loop asks afresh "
+                         "wherever the record is silent)")
+            return head
         return (f"{head}; {tally['hit']} consulted and answered. The loop ran "
                 f"to a stop condition, so this state is COMPLETE and its "
                 f"`answered` block is a valid --propose=replay: file")
@@ -6195,8 +6331,12 @@ def _defer_proposer(path):
     return propose, propose_group, disclosure
 
 
-def _resolve_proposer(spec):
+def _resolve_proposer(spec, lines=None):
     """`--propose=`'s value -> (propose, propose_group, disclosure).
+
+    `lines` is the draft handed in, read only by `defer:` (M-183): it is how
+    a re-run of a COMPLETE state is told, before the loop starts, that it is
+    replaying a finished run on the very draft it finished on.
 
     `disclosure(done=False)` is printed TWICE — once before the loop, for
     the identity, and once after it with `done=True`, because `replay:` only
@@ -6220,7 +6360,7 @@ def _resolve_proposer(spec):
         return _replay_proposer(spec.split(":", 1)[1])
 
     if spec.startswith("defer:"):
-        return _defer_proposer(spec.split(":", 1)[1])
+        return _defer_proposer(spec.split(":", 1)[1], lines=lines)
 
     if not spec.startswith("call:"):
         _refuse(f"--propose wants 'stub', 'replay:PATH', 'defer:PATH' or "
@@ -7157,16 +7297,31 @@ def main():
                 _refuse(f"screen --relation={screen_rel!r} names no "
                         f"declarable relation: {e}")
             if _kind_s == "schema":
-                _refuse(f"screen --relation={screen_rel!r} resolves in the "
-                        f"`schema` namespace, and a schema is judged over "
-                        f"LINES — which do not exist yet at the screen. "
-                        f"The screen judges two WORDS",
-                        detail=["declare the schema in the mandate and the "
-                                "grade will judge it over the draft; or "
-                                "screen the words' ban alone, which needs "
-                                "no relation.",
-                                "`type:`/`class:` names ARE screenable — "
-                                "they judge word pairs."])
+                # ~~a schema is judged over LINES — which do not exist yet at
+                # the screen~~ STRUCK 2026-09-01 (M-189): the PAIR route
+                # (`relations.pair_satisfies`) judges a schema at two
+                # declared tokens, which is what a mandate or a drawn plan
+                # asks of two line ends. Only a shape one token cannot bind
+                # (`pair_bindable` False: a searched anchor, a span wider
+                # than a token) still refuses here, by name, for the reason
+                # the judge itself gives.
+                from quality import relations as _RL_s
+                _sch = _RL_s.REGISTRY[_canon_s]
+                if not _RL_s.pair_bindable(_sch):
+                    _refuse(f"screen --relation={screen_rel!r} names a "
+                            f"schema no single declared token can bind "
+                            f"(`relations.pair_bindable`): its member span "
+                            f"is searched or wider than a token, so judging "
+                            f"it at two end words would answer a different "
+                            f"question under its name",
+                            detail=["declare it in the mandate and the grade "
+                                    "judges it over the draft at its own "
+                                    "loci (`line_pairs_for`); the 29 "
+                                    "end-rhyme schemas ARE screenable, and "
+                                    "so is every drawn relation a plan can "
+                                    "put on a pair of line ends.",
+                                    "`type:`/`class:` names judge word "
+                                    "pairs as before."])
         bad_flag = [a for a in rest if a.startswith("--")]
         if bad_flag:
             _refuse(f"screen does not take {bad_flag[0]!r}",
@@ -7196,8 +7351,15 @@ def main():
         # verdict instead of a count).
         n_rhyme = sum(1 for r in rows
                       if not r["codes"] and not r["refused"]
-                      and r["why"] is None and not r["schema_scaffold"])
-        n_non = len(rows) - n_banned - n_ref - n_rhyme
+                      and r["why"] is None and not r["schema_scaffold"]
+                      and r["relation"] in RHYME_RELATIONS)
+        # ADMITTED NEAR RELATIONS ARE THEIR OWN COUNT (M-189): they were
+        # summed into `n_rhyme` and printed as rhymes.
+        n_near = sum(1 for r in rows
+                     if not r["codes"] and not r["refused"]
+                     and r["why"] is None and not r["schema_scaffold"]
+                     and r["relation"] not in RHYME_RELATIONS)
+        n_non = len(rows) - n_banned - n_ref - n_rhyme - n_near
         print(f"  SCREEN: {len(rows)} pair(s) from {len(words)} word(s) — "
               f"the song grader on a minimal mandated pair each, under "
               f"the active declaration; only pair-scoped findings are "
@@ -7229,8 +7391,20 @@ def main():
                 # which are scaffolding — not evidence about the pair.
                 if r["codes"]:
                     status = f"BANNED: {', '.join(r['codes'])}"
-                elif r["why"] is None and not r["schema_scaffold"]:
+                elif (r["why"] is None and not r["schema_scaffold"]
+                      and r["relation"] in RHYME_RELATIONS):
                     status = "CLEAN — RHYMES"
+                elif r["why"] is None and not r["schema_scaffold"]:
+                    # ADMITTED IS NOT RHYMES (M-189, 2026-09-01). Since the
+                    # admit door widened to all four classes (M-59) a pair
+                    # the comparator TYPES as ASSONANCE or CONSONANCE is
+                    # satisfied at a bare group and was printed "CLEAN —
+                    # RHYMES" — the same row that says it VIOLATES
+                    # class:RHYME. Said as what it is, with the consequence.
+                    status = (f"CLEAN — ADMITTED as {r['relation']} (a "
+                              f"near relation the default door admits; a "
+                              f"schema or class that needs the nucleus and "
+                              f"coda to agree will charge it)")
                 elif r["schema_scaffold"]:
                     status = (f"CLEAN — DOES NOT RHYME as a pair (the "
                               f"schema default answered on the SCAFFOLD: "
@@ -7251,10 +7425,13 @@ def main():
                                    f"{_nr[:110]}")
                 print(f"  {pair}  {verdict}  {status}")
         print(f"  {n_banned} banned, {n_ref} refused, {n_rhyme} clean and "
-              f"rhyming, {n_non} clean but not a rhyme — a banned pair is "
-              f"an ANSWER; a clean non-rhyme is not banned AND not a "
-              f"family (the mandate will charge it); refusal is the "
-              f"grader's own (doctrine 28)")
+              f"rhyming, {n_near} clean and ADMITTED as a near relation, "
+              f"{n_non} clean but not a rhyme — a banned pair is "
+              f"an ANSWER; an admitted near relation passes a bare group "
+              f"and fails any schema or class that needs the rhyme; a "
+              f"clean non-rhyme is not banned AND not a family (the "
+              f"mandate will charge it); refusal is the grader's own "
+              f"(doctrine 28)")
 
     elif cmd == "capacity":
         from quality import capacity as CAP
@@ -9580,18 +9757,38 @@ def main():
                     print(f"      FAILS L{i}-L{j} {head}  — {v['why']}")
                     for ln in rest:
                         print(ln)
+                # WHERE EACH GROUP BINDS THIS LINE, AND WHETHER IT HOLDS
+                # (`MISSING.md` M-184): a line bound at two places is two
+                # questions, and a group that holds is one the writer is
+                # told to leave alone. `Brief.__str__` and
+                # `quality/propose.py` say the same in their own renderings.
+                _gs = dict(getattr(b, "group_slots", {}) or {})
+                _viol = set(getattr(b, "violated_groups", ()) or ())
                 for lab, mem, calls in b.must_answer:
                     shown = ", ".join(f"L{n} ({w!r})" for n, w in calls)
-                    print(f"      must answer group {lab} {mem}: {shown}")
+                    _place = (f" at {_gs[lab]}" if _gs.get(lab) is not None
+                              else "")
+                    _stand = ((" — VIOLATED" if lab in _viol else " — HOLDS")
+                              if _viol else "")
+                    print(f"      must answer group {lab} {mem}{_place}: "
+                          f"{shown}{_stand}")
                 if len(b.must_answer) > 1:
-                    print(f"      L{b.line_no} is a PIVOT — in "
-                          f"{len(b.must_answer)} groups, and must answer "
-                          f"every one (conjunctive; doctrine 2)")
+                    _places = ({_gs.get(lab) for lab, _m, _c in b.must_answer}
+                               if _gs else {None})
+                    if len(_places) > 1:
+                        print(f"      L{b.line_no} binds at {len(_places)} "
+                              f"PLACES — each place is its own word "
+                              f"answering its own group(s); the field below "
+                              f"is for the violated place (M-184)")
+                    else:
+                        print(f"      L{b.line_no} is a PIVOT — in "
+                              f"{len(b.must_answer)} groups, and must answer "
+                              f"every one (conjunctive; doctrine 2)")
                 if b.joint_conflict:
                     print("      NO JOINT CANDIDATE: nothing in the "
-                          "lexicon answers all of those groups at once. "
-                          "The MANDATE is what needs revising, not the "
-                          "line.")
+                          "lexicon answers all of the groups bound at this "
+                          "place at once. The MANDATE is what needs "
+                          "revising, not the line.")
                 if not b.must_answer and b.must_rhyme_with:
                     n, w = b.must_rhyme_with
                     print(f"      must rhyme with L{n} ({w!r})")
@@ -9916,7 +10113,7 @@ def main():
                 if scheme is not None:
                     _say_blueprint()
                 propose, propose_group, say_proposer = _resolve_proposer(
-                    propose_spec)
+                    propose_spec, lines=lines)
                 # DISCLOSED BEFORE THE RUN AS WELL AS AFTER IT, and the two
                 # are the same callable. Which proposer wrote the draft is
                 # the first thing a reader of this output needs and the last
@@ -9968,6 +10165,49 @@ def main():
                 print(result)
                 print(say_memo())
                 print(say_proposer(done=True))
+                # THE VERDICT'S CODE, COMPUTED ONCE and read by the stamp,
+                # the state file and the exit below (doctrine 1). `revise`
+                # used to exit 0 on NO_PROGRESS with unresolved lines, so
+                # "the loop gave up" was indistinguishable from "the draft
+                # is clean" to any caller reading the code and not the
+                # prose; 3 already means "answered, and a finding stands"
+                # on `song`/`brief`, and `result.unresolved` is the union
+                # of flagged and pursued, so a pursued note held open to
+                # the end is a 3 exactly like a flag (2026-08-17, the
+                # owner's order made a pipeline fact).
+                _open = sorted(b.line_no for b in result.unresolved)
+                # AND THE WHOLE-DRAFT FLAGS (M-186, 2026-09-01). `song` exits
+                # 3 on a whole-draft FLAG — STACKED_DRAFT, TITLE_NOT_IN_HOOK,
+                # HOOK_ABSENT name no line and are a SEPARATE count from the
+                # open lines (doctrine 79) — and this block read
+                # `result.unresolved` alone, so `finish` stamped a draft
+                # `song` refuses to pass as `exit 0 — no flag stands`.
+                # CLAUDE.md promised the 3; probed on a TITLE_NOT_IN_HOOK
+                # draft, the stamp said 0.
+                _whole_codes = [f.code for f in result.whole_flags]
+                _code = 3 if (result.unresolved or _whole_codes) else 0
+                # THE FINDINGS STANDING AT THE STOP, in the report's own
+                # `FINDING [SEV] CODE: …` spelling (M-186): the pursued
+                # notes (HOMEOTELEUTON/MODAL_RHYME) and the flags on the
+                # open lines, and the whole-draft flags. `LoopResult`'s own
+                # text names the LINES and the RULE; it never printed the
+                # findings, so the connector's `extractBannedPairs` read []
+                # off every `lyric_revise` result and the chat surface's ban
+                # chip could not fire on the finishing verb — round 10's
+                # drift into night/light/sight/might was countable nowhere.
+                if result.unresolved or _whole_codes:
+                    print("\n  STANDING AT THE STOP — the findings the open "
+                          "lines and the whole draft still carry, in the "
+                          "report's own spelling:")
+                    for _b in result.unresolved:
+                        for _f in _b.findings:
+                            if _f.severity == "flag" or _f.code in (
+                                    LP.MANDATORY_PURSUE
+                                    | frozenset(getattr(rv.rdecl, "pursue",
+                                                        ()) or ())):
+                                print(f"    L{_b.line_no}: FINDING {_f}")
+                    for _f in result.whole_flags:
+                        print(f"    WHOLE-DRAFT: FINDING {_f}")
                 if propose_spec.startswith("defer:"):
                     # The run reached a stop condition, so `pending` is empty
                     # and `answered` is now a COMPLETE record. Written on the
@@ -9975,6 +10215,19 @@ def main():
                     # a state file that only exists while a run is unfinished
                     # would make the replayable artefact the one thing a
                     # finished run does not leave behind.
+                    # AND IT SAYS IT IS COMPLETE (M-183): the stop, the code,
+                    # the draft it stopped on and the lines left open, so the
+                    # next run of the same command can tell a writer it is
+                    # replaying a finished run rather than resuming one, and
+                    # the chat driver can decline to carry it forward.
+                    # `draft` is the INPUT's fingerprint — the file a re-run
+                    # hands in again — and `final` the loop's output, which
+                    # differs from it whenever a line was fixed.
+                    say_proposer.state["complete"] = {
+                        "stop": result.stop_reason, "exit": _code,
+                        "draft": draft_fingerprint(lines),
+                        "final": draft_fingerprint(result.lines),
+                        "unresolved": _open}
                     with open(propose_spec.split(":", 1)[1], "w",
                               encoding="utf-8") as fh:
                         json.dump(say_proposer.state, fh, indent=2)
@@ -9998,8 +10251,6 @@ def main():
                     # it — exit and stop reason in the verbs' own spelling,
                     # unresolved lines named because a parked song shown
                     # without its open lines reads as a finished one.
-                    _open = sorted(b.line_no for b in result.unresolved)
-                    _code = 3 if result.unresolved else 0
                     print("\n  THE SONG, PERFORMANCE ORDER:\n")
                     from quality import plan as PLN2
                     print(PLN2.render_song(finish_plan,
@@ -10010,18 +10261,14 @@ def main():
                           + (f"UNRESOLVED: "
                              + ", ".join(f"L{n}" for n in _open)
                              if _open else "no flag stands")
+                          + (f" — WHOLE-DRAFT FLAG: "
+                             + ", ".join(_whole_codes)
+                             if _whole_codes else "")
                           + "]")
-                # EXIT 3 WHEN ANYTHING ACTIONABLE STANDS — 2026-08-17, the
-                # owner's order made a pipeline fact. `revise` used to exit 0
-                # on NO_PROGRESS with unresolved lines, so "the loop gave up"
-                # was indistinguishable from "the draft is clean" to any
-                # caller reading the code and not the prose. 3 already means
-                # "answered, and a finding stands" on `song`/`brief`;
-                # `result.unresolved` is the union of flagged and pursued, so
-                # a pursued note held open to the end is a 3 exactly like a
-                # flag.
-                if result.unresolved:
-                    sys.exit(3)
+                # EXIT 3 WHEN ANYTHING ACTIONABLE STANDS — `_code` above
+                # carries the argument, and this is its one reader.
+                if _code:
+                    sys.exit(_code)
         except NoMandate as e:
             # Exit 2, not 0. A refusal is not a pass and a caller in a
             # pipeline has to be able to tell them apart; the traceback this

@@ -323,6 +323,11 @@ export const _workerInternals = {
 
 const EXIT_MEANING = {
   0: 'answered — no flag stands',
+  // 1 is Python's own uncaught exception: the harness DIED, it did not
+  // answer, and a death read as a verdict is the worst reading a caller can
+  // make of it (M-186; M-188 turned the one known cause, a missing staged
+  // resource, into a refusal at 2 — anything still reaching 1 is a crash).
+  1: 'CRASHED — not an answer; the harness died before reaching a verdict, stderr follows',
   2: 'REFUSED — the harness did not answer; the report names why',
   3: 'answered — at least one FLAG stands; the report names the lines',
   4: "SUSPENDED — the loop is waiting for a writer's answer; neither a verdict nor a failure",
@@ -389,12 +394,21 @@ function extractUncalibrated(report) {
 // reason, and a `loop_rounds: 0` there would read as a run that did nothing
 // rather than a run still going (doctrine 20).
 function extractLoopRecord(report) {
+  // THE WHOLE-DRAFT HALF (M-186): the stamp names the whole-draft FLAGS
+  // standing at the stop — codes that name no line (STACKED_DRAFT,
+  // TITLE_NOT_IN_HOOK, HOOK_ABSENT…) — as its own clause, and they are a
+  // separate count from the open lines (doctrine 79): a song with no open
+  // line and one whole-draft flag is NOT finished, and used to be stamped so.
   const m =
-    /\[FINISHED\s*—\s*seed\s*(-?\d+)\s*—\s*exit\s*(\d+)\s*—\s*([A-Z_]+)\s+after\s+(\d+)\s+round\(s\)\s*—\s*(?:UNRESOLVED:\s*([^\]]*)|no flag stands)\]/.exec(
+    /\[FINISHED\s*—\s*seed\s*(-?\d+)\s*—\s*exit\s*(\d+)\s*—\s*([A-Z_]+)\s+after\s+(\d+)\s+round\(s\)\s*—\s*(?:UNRESOLVED:\s*([^\]—]*)|no flag stands)(?:\s*—\s*WHOLE-DRAFT FLAG:\s*([^\]]*))?\]/.exec(
       report
     );
   if (!m) return null;
   const lines = (m[5] || '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const whole = (m[6] || '')
     .split(',')
     .map((s) => s.trim())
     .filter(Boolean);
@@ -404,7 +418,59 @@ function extractLoopRecord(report) {
     rounds: Number(m[4]),
     unresolved: lines.length,
     unresolved_lines: lines,
+    whole_flags: whole.length,
+    whole_flag_codes: whole,
   };
+}
+
+// THE REPORT'S OWN COUNTS, extracted the way `extractBannedPairs` extracts
+// the ban (M-186). `brief`'s exit gates are song-only: a FLAGGED draft
+// graded through `lyric_check` returned exit 0 with the meaning "no flag
+// stands", because the flag stood in the report and the code never carried
+// it. Two counts, never summed: the per-line FLAGs on briefed lines, and the
+// WHOLE-DRAFT flags that name no line. The line the harness prints is
+//   REPORT: N line(s) briefed — K FLAG, M NOTE (…); W WHOLE-DRAFT finding(s), F of them FLAG(S), below
+// and only the harness spells it; nothing here re-derives a count.
+function extractReportCounts(report) {
+  const m = /REPORT: (\d+) line\(s\) briefed — (\d+) FLAG, (\d+) NOTE([^\n]*)/.exec(report);
+  if (!m) return null;
+  // The whole-draft clause is read off the SAME line, separately: a lazy
+  // `[^\n]*?` in front of an optional group matches the empty string first
+  // and the optional group is then skipped — the first spelling of this
+  // function read every whole-draft count as 0, and the unit case caught it.
+  const w = /; (\d+) WHOLE-DRAFT finding\(s\), (\d+) of them FLAG\(S\)/.exec(m[4]);
+  return {
+    briefed: Number(m[1]),
+    flags: Number(m[2]),
+    notes: Number(m[3]),
+    whole: w ? Number(w[1]) : 0,
+    whole_flags: w ? Number(w[2]) : 0,
+  };
+}
+
+// REFUSALS ARE NOT VERDICTS (doctrine 28; M-186). An end word the lexicon
+// cannot read is a pair the grader did NOT judge — `UNREADABLE_END_WORD` on
+// the line, `SCHEME_UNREADABLE` on the mandated pair — and it surfaced only
+// as report prose under exit 0, where a caller reads "no flag stands" as
+// "every pair passed". Extracted by code, with the lines named.
+function extractUnreadable(report) {
+  const out = [];
+  const seen = new Set();
+  const re = /FINDING \[[A-Z]+ *\] (UNREADABLE_END_WORD(?:_PIECE)?|SCHEME_UNREADABLE): ([^\n]*)/g;
+  let m;
+  while ((m = re.exec(report))) {
+    const lines = [];
+    const lm = /\(lines ([^)]*)\)/.exec(m[2]);
+    if (lm) lines.push(...lm[1].split(',').map((s) => s.trim()).filter(Boolean));
+    const lre = /\bL(\d+)\b/g;
+    let x;
+    while ((x = lre.exec(m[2]))) lines.push(x[1]);
+    const key = `${m[1]}|${m[2]}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push({ code: m[1], lines: [...new Set(lines)], text: m[2].trim() });
+  }
+  return out;
 }
 
 function verdictOf(r) {
@@ -415,6 +481,30 @@ function verdictOf(r) {
     exit_code: r.code,
     meaning: EXIT_MEANING[r.code] || `subprocess failure (${r.code}): ${r.stderr.slice(0, 400)}`,
   };
+  // THE REPORT'S COUNTS AND THE REFUSALS (M-186), on every verb that prints
+  // them. `brief`/`lyric_check` exit 0 with flags standing because their exit
+  // gates are `song`'s alone; the verdict says so instead of "no flag stands".
+  const counts = extractReportCounts(r.stdout);
+  if (counts) {
+    v.flags = counts.flags;
+    v.notes = counts.notes;
+    v.whole_flags = counts.whole_flags;
+    if (r.code === 0 && (counts.flags > 0 || counts.whole_flags > 0)) {
+      v.meaning =
+        `answered — ${counts.flags} per-line FLAG(s) and ${counts.whole_flags} whole-draft ` +
+        'FLAG(s) STAND (two counts, never summed); the exit code is brief\'s, whose gates are ' +
+        "song's alone, so 0 here means \"answered\", not \"clean\" — read the report";
+    }
+  }
+  const unreadable = extractUnreadable(r.stdout);
+  if (unreadable.length) {
+    v.unreadable = unreadable.length;
+    v.unreadable_findings = unreadable;
+    v.unreadable_meaning =
+      'These pairs were NOT judged: an end word the lexicon cannot read is a refusal, not a ' +
+      'pass (doctrine 28). A clean exit code says nothing about them — read the words, or ' +
+      'pass --fallback=low through `fallback` where a tool offers it.';
+  }
   if (loop) {
     // THREE COUNTS, NEVER SUMMED (doctrine 79): rounds spent, lines still open
     // and answers on record answer different questions. `stop_reason` is the
@@ -424,6 +514,8 @@ function verdictOf(r) {
     v.loop_rounds = loop.rounds;
     v.loop_unresolved = loop.unresolved;
     v.loop_unresolved_lines = loop.unresolved_lines;
+    v.loop_whole_flags = loop.whole_flags;
+    v.loop_whole_flag_codes = loop.whole_flag_codes;
     v.loop_record_meaning =
       'The revision loop’s own account of the run it just finished: which stop condition ended ' +
       'it, how many rounds it spent, and which lines still carry something. ROUND_LIMIT or ' +
@@ -541,6 +633,17 @@ async function withTempDir(fn) {
   }
 }
 
+// THE GLOBALS, AHEAD OF THE VERB (M-189): `--voices` is bare-presence and
+// `--fallback=` takes a value, and the CLI reads both before dispatch, so
+// they cannot ride `planArgs` (which lands after the verb). Every handler
+// that grades a draft spreads this in front of its verb.
+function globalsFor(a) {
+  const out = [];
+  if (a && a.voices === true) out.push('--voices');
+  if (a && (a.fallback === 'high' || a.fallback === 'low')) out.push(`--fallback=${a.fallback}`);
+  return out;
+}
+
 function planArgs(a) {
   const args = [`--seed=${a.seed}`];
   if (a.form) args.push(`--form=${a.form}`);
@@ -575,6 +678,9 @@ function planArgs(a) {
   // neighbours -- an empty string must not emit a bare `--title=`, which the
   // harness reads back as `""`, which is what NOBODY DECLARED already means.
   if (a.title) args.push(`--title=${a.title}`);
+  // `--narrative=` mirrors `--title=`: guarded on truthiness, and `off` is
+  // a legal value the CLI reads as "silence the layer" (M-189).
+  if (a.narrative) args.push(`--narrative=${a.narrative}`);
   return args;
 }
 
@@ -693,6 +799,33 @@ const titleField = z
     'The song\'s title, CARRIED into the blueprint and never inferred. Declaring one answers "is the title in the hook?" instead of leaving it refused as TITLE_UNDECLARED — and the answer can be NO: TITLE_NOT_IN_HOOK is a FLAG, so a title whose words are not a contiguous run inside the hook line (or the hook inside the title) takes the grade to exit 3. Containment is a normalised WORD-subsequence test in either direction, not a substring match. A title with more words than the hook can never be answered YES by any draft and is refused as TITLE_LONGER_THAN_HOOK rather than charged. Omit and the harness reads exactly as it did before this field existed.'
   );
 
+// THE CLI GLOBALS THE CHAT SURFACE COULD NOT SPELL (M-189, 2026-09-01).
+// `--voices` and `--fallback=high|low` stand BEFORE the verb on the command
+// line; no lyric_* tool carried them, so a chat writer could neither declare
+// a sung parenthetical (a whole-line `(…)` reads as an EMPTY end word and the
+// pair goes unjudged) nor reach the letter-to-sound layer for an end word the
+// lexicon lacks. Both are prepended ahead of the verb by `globalsFor`; the
+// worker runs the full `main()`, so nothing else moves.
+const voicesField = z
+  .boolean()
+  .optional()
+  .describe(
+    'Declare that parenthesised text is SUNG (a second voice, a call-and-response line) rather than a stage aside. Default off: a parenthetical is read as unsung, so a line that is ONLY a parenthetical has NO end word and its rhyme is refused, not judged. Set true when the parentheses are part of the lyric.'
+  );
+const fallbackField = z
+  .enum(['high', 'low'])
+  .optional()
+  .describe(
+    "How far the pronunciation fallback may reach for a word the lexicon lacks (CMUdict, ~130k entries). Omit: dictionary only — an unknown end word REFUSES the pair (UNREADABLE_END_WORD / SCHEME_UNREADABLE: not judged, never passed). 'high': dictionary-derived readings (morphology, elision, compounds) — the confident layer. 'low': also the letter-to-sound guess, which the harness's own measurement calls net harmful (wrong on 50% of the refusals only it can read); use it to get an ANSWER on a coinage and read the answer with that in mind."
+  );
+const narrativeField = z
+  .string()
+  .max(200)
+  .optional()
+  .describe(
+    "The story plan. Omit: the planner DRAWS one job per sung section (ESTABLISH, COMPLICATE, TURN, DWELL, ANCHOR, JUDGE, RESOLVE, DEPART) and the junction each enters by. 'off' silences the layer. Or declare it: 'ATOM,ATOM/JUNCTION,ATOM/JUNCTION' — one atom per sung section, a junction (THEREFORE, BUT, AND_THEN, MEANWHILE, ELABORATE, JUXTAPOSE) before every atom after the first. A RECORD, not a gate: nothing grades a draft against its story plan today; the brief prints it and the grade repeats it."
+  );
+
 const draftField = z
   .array(z.string().max(MAX_LINE_CHARS))
   .min(1)
@@ -701,6 +834,20 @@ const draftField = z
     'The song lines in performance order, one string per line, repeated sections written out in full. No [SECTION] markers.'
   );
 
+// THE VERDICT'S EXTRACTORS, exported for mcp/test.mjs to drive on synthetic
+// reports (M-186): a live check proves one draft; the unit cases prove the
+// regexes against every spelling the harness prints.
+export const _argvInternals = { globalsFor, planArgs };
+
+export const _verdictInternals = {
+  verdictOf,
+  extractReportCounts,
+  extractUnreadable,
+  extractLoopRecord,
+  extractBannedPairs,
+  EXIT_MEANING,
+};
+
 export const LYRIC_TOOL_SCHEMAS = {
   lyric_screen: {
     words: z
@@ -708,6 +855,12 @@ export const LYRIC_TOOL_SCHEMAS = {
       .min(2)
       .max(MAX_WORDS)
       .describe('2-12 bare words; every unordered pair among them is screened.'),
+    // THE SCREEN CAN ASK THE GRADE'S QUESTION (M-189): a plan draws a
+    // named relation per group (M-117), and a screen that could only ask
+    // the coarse class was screening for a different mandate than the one
+    // the draft is graded under. Same field, same judge, same coordinate.
+    relation: relationField,
+    fallback: fallbackField,
   },
   lyric_plan: {
     seed: seedField,
@@ -716,6 +869,7 @@ export const LYRIC_TOOL_SCHEMAS = {
     relation: relationField,
     functions: functionsField,
     title: titleField,
+    narrative: narrativeField,
   },
   lyric_grade: {
     seed: seedField,
@@ -724,7 +878,10 @@ export const LYRIC_TOOL_SCHEMAS = {
     relation: relationField,
     functions: functionsField,
     title: titleField,
+    narrative: narrativeField,
     draft: draftField,
+    voices: voicesField,
+    fallback: fallbackField,
   },
   lyric_revise: {
     seed: seedField,
@@ -733,7 +890,10 @@ export const LYRIC_TOOL_SCHEMAS = {
     relation: relationField,
     functions: functionsField,
     title: titleField,
+    narrative: narrativeField,
     draft: draftField,
+    voices: voicesField,
+    fallback: fallbackField,
     state: z
       .string()
       .max(MAX_STATE_CHARS)
@@ -821,6 +981,19 @@ export const LYRIC_TOOL_SCHEMAS = {
       .optional()
       .describe("Verbatim-return classes by line numbers, e.g. '5,13;6,14'. Optional."),
     relation: relationField,
+    // THE SAME MANDATE lyric_check GRADES UNDER (M-189): `verify` accepted
+    // `--structures=` on the CLI while this schema had no field for it, so
+    // a structured round was verified under a DIFFERENT mandate from the
+    // one it was checked under (the M-103 §39 shape).
+    structures: z
+      .string()
+      .max(MAX_MANDATE_CHARS)
+      .optional()
+      .describe(
+        "Declare a catalog STRUCTURE per group, e.g. 'B:kalevala-alliteration' — exactly the field lyric_check takes, so a structured draft is VERIFIED under the mandate it was CHECKED under. Comma-separated for several: 'A:pararhyme,B:skothending'. An unknown name refuses BY NAME; cannot be combined with a song-wide `relation`."
+      ),
+    voices: voicesField,
+    fallback: fallbackField,
     targeted: z
       .array(z.number().int().min(1).max(MAX_LINES))
       .max(MAX_LINES)
@@ -863,6 +1036,8 @@ export const LYRIC_TOOL_SCHEMAS = {
       .describe(
         "Declare a catalog STRUCTURE per group, e.g. 'B:kalevala-alliteration' — the group's pairs are then judged by that row's own judge at its own anchors, not by the end-rhyme comparator. Comma-separated for several: 'A:pararhyme,B:skothending'. 58 rows and 33 world aliases; an unknown name refuses BY NAME. TWO CONSEQUENCES a caller must expect: the two-tier ban is SKIPPED on a structured group (the ban's tables are end-rhyme instruments), and on an English draft every declarable row is UNCALIBRATED, which the verdict says out loud in structures_uncalibrated — correctness is judged, laziness is not. Cannot be combined with a song-wide `relation`: both judge the same pairs and the relation would win on every group, so the harness refuses rather than letting a declared structure grade nothing."
       ),
+    voices: voicesField,
+    fallback: fallbackField,
     returns: z
       .string()
       .max(MAX_MANDATE_CHARS)
@@ -891,12 +1066,16 @@ export function registerLyricTools(server, tool) {
         'own answer), BANNED (HOMEOTELEUTON — same spelled ending, the laziest true rhyme; MODAL_RHYME — ' +
         "the most predictable partner), or the grader's own refusal for an unreadable word. A banned " +
         'pair is an ANSWER, not an error. USE THIS BEFORE WRITING: screening end words first is how songs pass grading in one ' +
-        'draft. ~10s per call (the pronunciation lexicon loads per process).',
+        "draft. Pass `relation` to ask the question a plan's drawn relation will ask (SATISFIES / VIOLATES per pair). " +
+        'MEASURED 2026-09-01: ~20 s for four words cold (each pair is a full grade on a carrier pair; the lexicon loads per ' +
+        'call on a cold path) — not the ~10 s this text used to promise.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_screen,
     },
     async (a) => {
       checkWords(a.words);
-      const r = await runVerb(['screen', ...a.words]);
+      const sargs = [...globalsFor(a), 'screen', ...a.words];
+      if (a.relation) sargs.push(`--relation=${a.relation}`);
+      const r = await runVerb(sargs);
       return verdictOf(r);
     }
   );
@@ -911,7 +1090,8 @@ export function registerLyricTools(server, tool) {
         'rules, a hook slot, and a writer brief to write to. Deterministic: the same seed always returns the same plan, and ' +
         'every free choice is disclosed beside the space it was drawn from (meters from a derived cycle grammar — expect 5/8, ' +
         '7/8, 20/8, not always 4/4). It writes NO WORDS: the writer (model or human) writes to the brief, then lyric_grade ' +
-        'checks the draft against this same seed. Try a few seeds and pick the shape that sings — the choice of seed is the ' +
+        'checks the draft against this same seed. CHOOSE THE SEED WITH lyric_sweep, not by trying a few: declare what the ' +
+        "shape must be and take one of the seeds that hold (the working order's step 0) — the choice of seed is the " +
         "writer's taste and the plan's own record. Declaring a `title` answers 'is the title in the hook?' instead of " +
         'leaving it refused — and the answer can be NO, which is a FLAG, so screen the title against the hook line ' +
         'the way you screen a rhyme pair. The FIRST content block is the plan report and writer brief: when ' +
@@ -989,7 +1169,7 @@ export function registerLyricTools(server, tool) {
         // artifact, so the comment kept asserting a correspondence that had
         // stopped holding. It is an EQUALITY, not a description, and
         // `mcp/test.mjs` pins it now rather than trusting it (doctrine 48).
-        const songArgs = ['song', bpPath, draftPath];
+        const songArgs = [...globalsFor(a), 'song', bpPath, draftPath];
         if (plan.groups) songArgs.push(`--groups=${plan.groups}`);
         if (plan.returns) songArgs.push(`--returns=${plan.returns}`);
         // The relation comes off the PLAN, not off the tool call, for the
@@ -1124,7 +1304,7 @@ export function registerLyricTools(server, tool) {
         } else if (a.answer != null) {
           throw refuse('`answer` without `state` — the first call has no question to answer');
         }
-        const args = ['finish', draftPath, ...planArgs(a), `--propose=defer:${statePath}`];
+        const args = [...globalsFor(a), 'finish', draftPath, ...planArgs(a), `--propose=defer:${statePath}`];
         if (a.max_rounds != null) args.push(`--max-rounds=${a.max_rounds}`);
         if (a.attempts != null) args.push(`--attempts=${a.attempts}`);
         if (a.backtrack != null) args.push(`--backtrack=${a.backtrack}`);
@@ -1285,11 +1465,14 @@ export function registerLyricTools(server, tool) {
         const aPath = path.join(dir, 'after.txt');
         await writeFile(bPath, a.before.join('\n') + '\n', 'utf8');
         await writeFile(aPath, a.after.join('\n') + '\n', 'utf8');
-        const args = ['verify', bPath, aPath];
+        if (a.structures && !STRUCTURES_RE.test(a.structures))
+          throw refuse("structures must be 'LABEL:name' pairs, comma-separated, e.g. 'A:pararhyme'");
+        const args = [...globalsFor(a), 'verify', bPath, aPath];
         if (hasScheme) args.push(a.scheme);
         if (hasGroups) args.push(`--groups=${a.groups}`);
         if (a.returns) args.push(`--returns=${a.returns}`);
         if (a.relation) args.push(`--relation=${a.relation}`);
+        if (a.structures) args.push(`--structures=${a.structures}`);
         // TARGETED IS A TRAILING POSITIONAL, and it is the sole gate on the
         // untargeted-rewrite rejection. This repo has already recorded what
         // happens when it is parsed and not read: `targeted = None` left the
@@ -1311,7 +1494,10 @@ export function registerLyricTools(server, tool) {
         'and get the same rhyme grading and slop floor the full pipeline runs. A declaration is REQUIRED: nothing declared ' +
         'means nothing mandated, and "nothing flagged" about that would be a vacuous pass. FLAGS are defects with line ' +
         'numbers; banned_pairs counts declared pairs on the two-tier ban (HOMEOTELEUTON / MODAL_RHYME), unskippable at ' +
-        'any exit code; other NOTES are measurements. ~10s.',
+        "any exit code; other NOTES are measurements. THE EXIT CODE IS brief's, whose gates are song's alone: `flags` " +
+        'and `whole_flags` in the verdict say what STANDS at exit 0, and `unreadable` names the pairs that were NOT judged. ' +
+        'MEASURED 2026-09-01: ~20 s for a four-line draft cold, and it grows with the line count (a 16-line song grades in ' +
+        '~90-170 s) — not the ~10 s this text used to promise. A client with a 60 s default timeout must raise it.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_check,
     },
     (a) =>
@@ -1349,7 +1535,7 @@ export function registerLyricTools(server, tool) {
           );
         const draftPath = path.join(dir, 'draft.txt');
         await writeFile(draftPath, a.lines.join('\n') + '\n', 'utf8');
-        const args = ['brief', draftPath];
+        const args = [...globalsFor(a), 'brief', draftPath];
         if (hasScheme) args.push(a.scheme);
         if (hasGroups) args.push(`--groups=${a.groups}`);
         if (a.returns) args.push(`--returns=${a.returns}`);
@@ -1372,7 +1558,7 @@ export function registerLyricTools(server, tool) {
       description:
         'The full rhyme-type coordinate for one word pair: per-syllable agreement, anchor, identity, stress, boundary, ' +
         'traditional names where the coordinate has one. Taxonomy, not judgement — for the usable-or-banned verdict use ' +
-        'lyric_screen. ~10s.',
+        'lyric_screen. MEASURED 2026-09-01: ~1 s.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_types,
     },
     async (a) => {

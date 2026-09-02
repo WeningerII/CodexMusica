@@ -1549,10 +1549,12 @@ until ruled.
     statuses measured where three columns fit) before anyone rebuilds
     the table; and K-1a's sibling: **name the `source_type` third axis**
     for the corpus taxonomy, without which refrain rates read the editor.
-12. **M-94 — which route makes the planner emit what prettier accepts?**
+12. ~~**M-94 — which route makes the planner emit what prettier accepts?**
     Shell out to prettier from `--out` (small), or reimplement the
     80-column collapse (a sitting). The reformat is measured
-    verdict-neutral; picking the route is the work.
+    verdict-neutral; picking the route is the work.~~ STRUCK 2026-09-01:
+    moot since `2833312` put the bank's blueprints outside prettier's
+    jurisdiction (M-94 CLOSED as moot).
 13. **M-20 — which printing wins when a poem is staged twice in its own
     file?** A reading question over ≥28 doubled songs; the mechanical
     `RUN-ON`/`DOUBLE-STAGED` split is recorded as a route and waits on

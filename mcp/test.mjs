@@ -527,7 +527,155 @@ check('validation: actionable errors', () => {
   // in the only channel that reaches the harness. The reminder must exist
   // exactly while a suspended run is carried — both directions pinned, plus
   // the structural half: the request's systemInstruction has ONE builder.
-  const { suspendedSeed, buildSystemInstruction } = _agentInternals;
+  const { suspendedSeed, buildSystemInstruction, carryState } = _agentInternals;
+
+  // ── M-189: the CLI's globals and the missing fields reach the tools ─────
+  {
+    const { LYRIC_TOOL_SCHEMAS: S, _argvInternals: AV } = await import('./lyric_tools.js');
+    check('every grading tool can declare --voices and --fallback; screen takes a relation; verify takes structures', () => {
+      for (const t of ['lyric_grade', 'lyric_revise', 'lyric_verify', 'lyric_check']) {
+        assert.ok('voices' in S[t] && 'fallback' in S[t], `${t} lacks voices/fallback`);
+      }
+      assert.ok('relation' in S.lyric_screen && 'fallback' in S.lyric_screen, 'screen asks the grade\'s question');
+      assert.ok('structures' in S.lyric_verify, 'verify is checked under the mandate lyric_check grades under');
+      for (const t of ['lyric_plan', 'lyric_grade', 'lyric_revise']) {
+        assert.ok('narrative' in S[t], `${t} lacks narrative`);
+      }
+      assert.ok(!('voices' in S.lyric_plan) && !('voices' in S.lyric_sweep), 'a verb that reads no draft takes no voices');
+    });
+    check('the globals stand AHEAD of the verb and only when declared', () => {
+      assert.deepEqual(AV.globalsFor({}), []);
+      assert.deepEqual(AV.globalsFor({ voices: false, fallback: undefined }), []);
+      assert.deepEqual(AV.globalsFor({ voices: true }), ['--voices']);
+      assert.deepEqual(AV.globalsFor({ fallback: 'low' }), ['--fallback=low']);
+      assert.deepEqual(AV.globalsFor({ voices: true, fallback: 'high' }), ['--voices', '--fallback=high']);
+      assert.deepEqual(AV.globalsFor({ fallback: 'bogus' }), [], 'an undeclared value is not passed through');
+    });
+    check('planArgs carries --narrative= exactly as it carries --title=', () => {
+      assert.deepEqual(AV.planArgs({ seed: 7 }), ['--seed=7']);
+      assert.deepEqual(AV.planArgs({ seed: 7, narrative: 'off' }), ['--seed=7', '--narrative=off']);
+      assert.deepEqual(AV.planArgs({ seed: 7, narrative: '' }), ['--seed=7'], 'an empty string emits no bare flag');
+      assert.deepEqual(
+        AV.planArgs({ seed: 7, title: 'Ledger', narrative: 'ESTABLISH,TURN/BUT' }),
+        ['--seed=7', '--title=Ledger', '--narrative=ESTABLISH,TURN/BUT']
+      );
+    });
+  }
+
+  // ── M-186: the verdict carries what the report says, not only the code ──
+  {
+    const { _verdictInternals: VI } = await import('./lyric_tools.js');
+    check('exit 1 is CRASHED, never read as a verdict', () => {
+      const v = VI.verdictOf({ code: 1, stdout: '', stderr: 'Traceback (most recent call last)' });
+      assert.equal(v.exit_code, 1);
+      assert.ok(v.meaning.startsWith('CRASHED'), v.meaning);
+      assert.ok(!('flags' in v), 'no REPORT line, no counts invented');
+    });
+    check('a flagged brief at exit 0 says the flags STAND instead of "no flag stands"', () => {
+      const stdout =
+        '  REPORT: 3 line(s) briefed — 2 FLAG, 1 NOTE (two counts, never summed: doctrine 79); 1 WHOLE-DRAFT finding(s), 1 of them FLAG(S), below\n';
+      const v = VI.verdictOf({ code: 0, stdout, stderr: '' });
+      assert.equal(v.flags, 2);
+      assert.equal(v.notes, 1);
+      assert.equal(v.whole_flags, 1);
+      assert.ok(v.meaning.includes('STAND') && !v.meaning.includes('no flag stands'), v.meaning);
+      const clean = VI.verdictOf({
+        code: 0,
+        stdout: '  REPORT: 2 line(s) briefed — 0 FLAG, 2 NOTE (two counts, never summed: doctrine 79)\n',
+        stderr: '',
+      });
+      assert.equal(clean.flags, 0);
+      assert.equal(clean.whole_flags, 0, 'no whole-draft clause reads as zero, not as absent');
+      assert.equal(clean.meaning, VI.EXIT_MEANING[0], 'notes alone keep the plain meaning');
+    });
+    check('unreadable end words surface as refusals with their lines', () => {
+      const stdout = [
+        '  L4: the word was xqzt',
+        '      FINDING [FLAG] UNREADABLE_END_WORD: L4 ends on a word the lexicon cannot read (lines 4)',
+        '         xqzt is not in CMUdict',
+        '      FINDING [NOTE] SCHEME_UNREADABLE: L2/L4 were NOT judged — the pair has an unreadable end (lines 2, 4)',
+        '         refusal, not a verdict',
+      ].join('\n');
+      const v = VI.verdictOf({ code: 0, stdout, stderr: '' });
+      assert.equal(v.unreadable, 2);
+      assert.deepEqual(v.unreadable_findings[0].lines, ['4']);
+      assert.deepEqual(v.unreadable_findings[1].lines.sort(), ['2', '4']);
+      assert.ok(v.unreadable_meaning.includes('NOT judged'));
+      const none = VI.verdictOf({ code: 0, stdout: '  nothing flagged\n', stderr: '' });
+      assert.ok(!('unreadable' in none), 'absent means none found, never zero invented');
+    });
+    check('the loop stamp carries the whole-draft flags as their own count', () => {
+      const rec = VI.extractLoopRecord(
+        '  [FINISHED — seed 16 — exit 3 — NO_PROGRESS after 2 round(s) — UNRESOLVED: L2, L5 — WHOLE-DRAFT FLAG: STACKED_DRAFT, TITLE_NOT_IN_HOOK]'
+      );
+      assert.equal(rec.unresolved, 2);
+      assert.deepEqual(rec.unresolved_lines, ['L2', 'L5']);
+      assert.equal(rec.whole_flags, 2);
+      assert.deepEqual(rec.whole_flag_codes, ['STACKED_DRAFT', 'TITLE_NOT_IN_HOOK']);
+      const only = VI.extractLoopRecord(
+        '  [FINISHED — seed 16 — exit 3 — SUCCESS after 1 round(s) — no flag stands — WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK]'
+      );
+      assert.equal(only.unresolved, 0, 'no open line');
+      assert.equal(only.whole_flags, 1, 'and still not finished');
+      const old = VI.extractLoopRecord(
+        '  [FINISHED — seed 16 — exit 0 — SUCCESS after 1 round(s) — no flag stands]'
+      );
+      assert.equal(old.whole_flags, 0, 'the pre-M-186 stamp still parses');
+    });
+    check('the pursued findings printed at the stop reach banned_pairs', () => {
+      const stdout = [
+        '  STANDING AT THE STOP — the findings the open lines and the whole draft still carry, in the report\'s own spelling:',
+        "    L3: FINDING [NOTE] HOMEOTELEUTON: L1/L3 rhyme on the SAME SPELLED ENDING ('store'/'wore', both -ore) — the laziest class, banned before any frequency judgment (lines 1, 3)",
+        '         spelled rime \'ore\' on both sides.',
+        '  [FINISHED — seed 16 — exit 3 — NO_PROGRESS after 1 round(s) — UNRESOLVED: L3]',
+      ].join('\n');
+      const v = VI.verdictOf({ code: 3, stdout, stderr: '' });
+      assert.equal(v.banned_pairs, 1, 'the ban chip can fire on the finishing verb');
+      assert.equal(v.loop_unresolved, 1);
+    });
+  }
+  // ── M-183: a COMPLETE run is not carried into the next call ─────────────
+  // The harvest used to keep whatever state the verdict carried, so a run
+  // that had reached a stop condition (exit 0/3) was re-injected on the next
+  // lyric_revise call for the seed, the harness replayed every answer and
+  // stopped identically, and no parked-continue push ever asked the writer a
+  // second question. Pinned in every direction the function decides.
+  check('only a SUSPENDED verdict (exit 4) is carried; a stop (0/3) clears the seed', () => {
+    const surface = { stateTools: new Set(['lyric_revise']) };
+    const args = { seed: 7 };
+    const suspended = carryState(null, 'lyric_revise', args, { exit_code: 4, state: 'S1' }, surface);
+    assert.deepEqual(suspended, { seed: 7, state: 'S1' }, 'exit 4 carries the record');
+    assert.equal(
+      carryState(suspended, 'lyric_revise', args, { exit_code: 3, state: 'S2' }, surface),
+      null,
+      'exit 3 is COMPLETE: the record is not carried, even though the verdict carries one'
+    );
+    assert.equal(
+      carryState(suspended, 'lyric_revise', args, { exit_code: 0, state: 'S2' }, surface),
+      null,
+      'exit 0 is COMPLETE too'
+    );
+    assert.deepEqual(
+      carryState(suspended, 'lyric_revise', args, { exit_code: 2 }, surface),
+      suspended,
+      'a refusal leaves the pending question carried'
+    );
+    assert.deepEqual(
+      carryState(suspended, 'lyric_revise', { seed: 8 }, { exit_code: 3, state: 'S3' }, surface),
+      suspended,
+      'a stop on ANOTHER seed does not touch this seed\'s suspended run'
+    );
+    assert.deepEqual(
+      carryState(suspended, 'lyric_grade', args, { exit_code: 3, state: 'S3' }, surface),
+      suspended,
+      'a tool that carries no state never moves the record'
+    );
+    assert.equal(
+      carryState(null, 'lyric_revise', args, { exit_code: 4 }, surface),
+      null,
+      'exit 4 with no state string carries nothing rather than a broken record'
+    );
+  });
   check('a carried state with a pending question names its seed', () => {
     assert.equal(suspendedSeed({ seed: 7, state: '{"pending":{"kind":"propose"}}' }), 7);
     assert.equal(
