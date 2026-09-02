@@ -233,7 +233,46 @@ def _p_revise(out):
     if m:
         facts += [("mandated", m.group(1)), ("judged", m.group(2)),
                   ("pairs_refused", m.group(3))]
+    facts += _stamp_facts(out)
     return facts
+
+
+#: THE STOP STAMP, one regex for both verbs that print it (2026-09-01,
+#: triage finding C27 / `MISSING.md` M-196): `finish` has printed
+#: `[FINISHED — seed N — exit E — STOP after R round(s) — …]` since M-169
+#: and `revise` under `defer:` prints the same shape with `declared mandate`
+#: where a seed would stand (M-195); the whole-draft clause joined at M-186.
+#: `mcp/lyric_tools.js:extractLoopRecord` reads the identical shape, and
+#: this is the log's copy of that reading — the working order's LAST verb
+#: had no declared parser, so a finished song's stop was the one fact the
+#: log could not hold.
+_STAMP = re.compile(
+    r"\[FINISHED\s*—\s*(?:seed\s*(-?\d+)|(declared mandate))\s*—\s*exit\s*(\d+)"
+    r"\s*—\s*([A-Z_]+)\s+after\s+(\d+)\s+round\(s\)\s*—\s*"
+    r"(?:UNRESOLVED:\s*([^\]—]*)|no flag stands)"
+    r"(?:\s*—\s*WHOLE-DRAFT FLAG:\s*([^\]]*))?\]")
+
+
+def _stamp_facts(out):
+    m = _STAMP.search(out)
+    if not m:
+        return []
+    open_lines = [x.strip() for x in (m.group(6) or "").split(",") if x.strip()]
+    whole = [x.strip() for x in (m.group(7) or "").split(",") if x.strip()]
+    return [("stamp_seed", m.group(1) if m.group(1) is not None
+             else "declared mandate"),
+            ("stamp_exit", m.group(3)),
+            ("stop_reason", m.group(4)), ("rounds", m.group(5)),
+            ("unresolved", str(len(open_lines))),
+            ("whole_flags", str(len(whole)))]
+
+
+def _p_finish(out):
+    """`finish` prints the loop's own lines (`revise_loop:`, `DRAFT:`,
+    `PAIRS:`) and then the stamp; the stamp's stop_reason/rounds AGREE with
+    the loop line's by construction (one `LoopResult` prints both), and the
+    later pair wins in the fact list, which is the stamp's."""
+    return _p_revise(out)
 
 
 PARSERS = {
@@ -242,6 +281,7 @@ PARSERS = {
     "plan --sweep": _p_sweep,
     "song": _p_song,
     "revise": _p_revise,
+    "finish": _p_finish,
     "brief": _p_song,
 }
 
@@ -355,6 +395,9 @@ CLAIMS = [
     (re.compile(r"`song` exit (\d+)"), "song", ["exit"]),
     (re.compile(r"(\d+) FLAG\b"), "song", ["per_line_flag"]),
     (re.compile(r"`revise` (\w+) in (\d+) rounds?"), "revise",
+     ["stop_reason", "rounds"]),
+    (re.compile(r"`finish` exit (\d+)"), "finish", ["stamp_exit"]),
+    (re.compile(r"`finish` (\w+) in (\d+) rounds?"), "finish",
      ["stop_reason", "rounds"]),
     (re.compile(r"md5 `(\w+)`"), "revise", ["md5_out"]),
     (re.compile(r"(\d+) pairs mandated / (\d+) judged / (\d+) refused"),

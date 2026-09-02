@@ -250,13 +250,51 @@ def test_the_citation_is_word_keyed_and_refuses_ambiguity():
               out.strip().splitlines()[-1] if out.strip() else f"rc={rc}")
 
 
+def test_the_finish_stamp_has_a_parser():
+    print("\n7. `finish` — the working order's LAST verb — has a declared "
+          "parser, and it reads the stop stamp in both spellings "
+          "(`MISSING.md` M-196)")
+    from quality import song_log as SL
+    check("`finish` is a declared parser, beside `revise`",
+          "finish" in SL.PARSERS and "revise" in SL.PARSERS,
+          f"{sorted(SL.PARSERS)}")
+    seeded = ("revise_loop: no_progress after 2 round(s)\n"
+              "PAIRS: mandated 6, judged 6, refused 0\n\n"
+              "  [FINISHED — seed 22 — exit 3 — NO_PROGRESS after 2 round(s) "
+              "— UNRESOLVED: L2, L4 — WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK]\n")
+    facts = dict(SL.PARSERS["finish"](seeded))
+    check("a seeded stamp yields the seed, the exit, the stop, the round "
+          "count, the open-line count and the whole-draft count — the same "
+          "six the connector's extractor reads",
+          facts.get("stamp_seed") == "22" and facts.get("stamp_exit") == "3"
+          and facts.get("stop_reason") == "NO_PROGRESS"
+          and facts.get("rounds") == "2" and facts.get("unresolved") == "2"
+          and facts.get("whole_flags") == "1" and facts.get("mandated") == "6",
+          f"{facts}")
+    unseeded = ("  [FINISHED — declared mandate — exit 0 — SUCCESS after "
+                "1 round(s) — no flag stands]\n")
+    f2 = dict(SL.PARSERS["revise"](unseeded))
+    check("a pasted song's stamp (M-195) reads with `declared mandate` in "
+          "the seed's place, through the `revise` parser that verb prints "
+          "it from",
+          f2.get("stamp_seed") == "declared mandate"
+          and f2.get("stamp_exit") == "0" and f2.get("unresolved") == "0"
+          and f2.get("whole_flags") == "0", f"{f2}")
+    check("no stamp, no stamp facts — absent is not zero (doctrine 79)",
+          not any(k.startswith("stamp_") for k, _ in
+                  SL.PARSERS["revise"]("revise_loop: success after 1 round(s)\n")))
+    check("the README claim gate can resolve a `finish` sentence",
+          any(verb == "finish" for _rx, verb, _keys in SL.CLAIMS))
+
+
 if __name__ == "__main__":
     for t in (test_every_song_has_a_log_and_the_shape_holds,
               test_an_unparseable_command_is_refused_not_banked,
               test_the_row_is_what_the_verb_printed,
               test_the_claim_gate_is_two_sided,
               test_it_records_and_does_not_grade,
-              test_the_citation_is_word_keyed_and_refuses_ambiguity):
+              test_the_citation_is_word_keyed_and_refuses_ambiguity,
+              test_the_finish_stamp_has_a_parser):
         t()
     print("\n" + "=" * 62)
     if FAILURES:

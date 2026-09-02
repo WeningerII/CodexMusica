@@ -604,7 +604,7 @@ TEXT.** `gradeable_line_counts()` unions `section` (a 4-line quatrain),
 between a QUATRAIN and a SONNET and was never a fact about songs.
 `song_line_counts()` reads the profile that grades a lyric sheet, identified by
 its own `n_lines == 0` and never by name: ~~**17..55, 39 values,
-CONTIGUOUS.**~~ **22..55, 34 values, STILL CONTIGUOUS** — REPINNED 2026-08-26
+CONTIGUOUS.**~~ ~~**22..55, 34 values, STILL CONTIGUOUS**~~ **`{6..20} | {22..55}`, 49 values, ONE HOLE AT 21 — REPINNED 2026-09-01 (`MISSING.md` M-193): a second lyric-sheet profile, `short` (50–150 tokens), joined the floor and this function unions every `n_lines == 0` profile by construction; the hole is the seam between two calibrated bands. What the planner VOLUNTEERS is narrower — `fillable_line_counts()`, the totals whose stanza-sized cell ceiling can hold the form's own minimum section count (verse once, chorus twice), so `ENVELOPE["total_lines"]` is (12, 55).** The 2026-08-26 reading, kept: 22..55, 34 values, still contiguous — REPINNED 2026-08-26
 by the M-131 re-adoption (`MISSING.md` M-133), which took the song profile's
 band `lo` from 150 to 200 tokens; this function READS that band, so the
 envelope followed it and every seed's drawn length moved with it. **The

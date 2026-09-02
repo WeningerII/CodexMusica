@@ -296,6 +296,15 @@ class Quatrain:
                     continue
                 s = best_score(data[i][0], data[j][0], decl,
                                data[i][1], data[j][1])
+                # THE DOOR THIS CONTROL READS IS `decl.admit` — the band's
+                # own (M-59) — and NOT the 77-schema default (M-116). Stated
+                # here 2026-09-01 (`MISSING.md` M-138, ruled under the
+                # owner's delegation): this instrument is the negative
+                # control of the BAND, so the door it grades through is the
+                # band's door; the wider default's chance rate has its own
+                # matched-redeal null in `quality/chance_rate.py`, and
+                # folding it in here would change what this control is a
+                # control OF (doctrine 14).
                 if admits(s, decl.theta_rhyme) or s["relation"] == "REPEAT":
                     self.pairs.add((i, j))
         self.scheme = self._label()

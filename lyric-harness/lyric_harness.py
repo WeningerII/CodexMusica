@@ -3401,6 +3401,20 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
             out["flags"].append("conjunctive band: neither channel agrees")
 
     # band-pass: identity is not rhyme
+    if not (word_a and word_b):
+        # DOCTRINE 3 RIDES THE WORDS, AND A CALL WITHOUT THEM SAYS SO
+        # (2026-09-01, `MISSING.md` M-136 (1), ruled under the owner's
+        # delegation). `light`/`light` scored on anchors alone answers RHYME
+        # because REPEAT and RIME_RICHE need the spellings; forty-eight
+        # call sites pass anchors alone and most of them are asking a
+        # question identity does not bear on (a syllable inside a line, a
+        # cynghanedd half-line). The verdict is left where it is and the
+        # omission is DISCLOSED on the record, so a caller reading RHYME off
+        # a wordless call can see what was not asked (doctrine 20) — the
+        # same shape as `SCHEME_UNREADABLE` on a pair the lexicon cannot
+        # read. Sites that HAVE the words pass them (`cynghanedd`'s sain
+        # test did not, and does now).
+        out["flags"].append("identity: not asked (words omitted)")
     if word_a and word_b:
         wa, wb = word_a.lower().strip(), word_b.lower().strip()
         la, lb = wa.split()[-1], wb.split()[-1]
@@ -4682,7 +4696,12 @@ def check_cynghanedd(lex, text, decl, language="cym", caesura="marked",
     if len(parts) == 3:
         a1 = anchor(word_syllable_map(lex, parts[0]))
         a2 = anchor(word_syllable_map(lex, parts[1]))
-        s12 = score(a1, a2, decl)
+        # The two half-lines' last words are in hand, so identity is asked
+        # (M-136): a sain whose parts 1-2 END ON THE SAME WORD is a REPEAT,
+        # not a rhyme, and scored wordless it read as one.
+        s12 = score(a1, a2, decl,
+                    (parts[0].split() or [""])[-1],
+                    (parts[1].split() or [""])[-1])
         m2 = word_syllable_map(lex, parts[1])
         m3 = word_syllable_map(lex, parts[2])
         o2 = anchor(m2)[0]["onset"] if anchor(m2) else []
@@ -5250,6 +5269,22 @@ the quality layer (each says which module answered):
   types  W1 -- W2 [--lang=] [--preset=]
                           full rhyme-type coordinate: 9 axes, per-member
                           anchor, traditional names
+  recover LYRIC.txt [--placements=end,head,T4]
+                          STRUCTURE A PASTED SONG — the second door into
+                          the pipeline (M-72, M-195): counts the lines
+                          and the syllables per line, reads [SECTION]
+                          marks or blank lines into sections, recovers
+                          the rhyme web as a cover over places in each
+                          line, and prints every coordinate with how it
+                          was obtained (counted / declared / derived /
+                          REFUSED). Prints the MANDATE SPELLING — the
+                          `--groups=` and `--returns=` the cover splits
+                          into — so `brief`/`revise` judge the cover the
+                          text carries. Exit 3 when any coordinate is
+                          REFUSED (the meter, always: counting gives
+                          syllables, not a grid); exit 0 otherwise. This
+                          was `python3 quality/recover.py` alone until
+                          2026-09-01 — a module with no verb and no tool.
   screen W1 W2 [W3...]    is this rhyme pair USABLE before a word is
                           drafted: every unordered pair among the words,
                           judged by the song grader itself on a minimal
@@ -5430,6 +5465,9 @@ VERB_LAYERS = (
     ("types", "quality/rhyme_types.py", "9-axis coordinate + anchor"),
     ("screen", "quality/revise.py", "pair ban screening -- the song "
      "grader on a minimal mandated pair"),
+    ("recover", "quality/recover.py", "structure recovery -- the second "
+     "door: a pasted song's sections, syllables and rhyme web, each "
+     "coordinate with how it was obtained"),
     ("capacity", "quality/capacity.py", "derived rhyme-family capacity -- "
      "what the lexicon sustains"),
     ("partition", "quality/schemes.py", "set partitions, Bell numbers"),
@@ -7275,6 +7313,50 @@ def main():
                   f"(doctrine 84 — 'declared_relation' means the phonology "
                   f"answered, not the channels)")
 
+    elif cmd == "recover":
+        from quality import recover as RC
+        from quality import slots as _SLr
+        rest = args[1:]
+        spec = _flag_value(rest, "--placements", eq_only=True)
+        rest = _strip_flag(rest, "--placements")
+        bad_flag = [a for a in rest if a.startswith("--")]
+        if bad_flag:
+            _refuse(f"recover does not take {bad_flag[0]!r}",
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c]",
+                            "an unrecognised flag is refused rather than "
+                            "ignored (doctrine 20)"])
+        if len(rest) != 1:
+            _refuse("recover takes exactly one LYRIC.txt",
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c]"])
+        try:
+            declared = RC.parse_placements(spec) if spec is not None else None
+        except _SLr.SlotUnsupported as exc:
+            _refuse(f"recover --placements={spec!r}: {exc}")
+        try:
+            rec = RC.recover_file(rest[0], lex=lex, decl=decl,
+                                  placements=declared)
+        except OSError as e:
+            _refuse(f"recover {rest[0]!r} — {e.strerror or e}")
+        print(RC.render(rec))
+        # THE MANDATE SPELLING, PRINTED AS THE TWO FLAGS (M-195): the render
+        # carries it inside the `mandate_spelling` coordinate's prose; a
+        # caller hands these two lines to `brief`/`revise` verbatim, and the
+        # connector's `lyric_recover` reads them off exactly this block.
+        ms = rec.get("mandate_spelling") or {}
+        print("  MANDATE SPELLING (the cover as the two CLI flags — hand "
+              "them to brief/revise; `--groups=` charges a REPEAT edge as "
+              "a violation, `--returns=` is the only spelling that holds "
+              "one):")
+        print(f"    --groups={ms.get('--groups=', '')}")
+        print(f"    --returns={ms.get('--returns=', '')}")
+        _refs = rec.refusals()
+        if _refs:
+            print(f"  EXIT 3 — {len(_refs)} coordinate(s) REFUSED "
+                  f"({', '.join(_refs)}): a work order for the caller to "
+                  f"DECLARE, never a guess (doctrine 20). Not a failure: "
+                  f"everything counted, declared or derived above stands.")
+            sys.exit(3)
+
     elif cmd == "screen":
         rest = args[1:]
         _usage = ("usage: screen WORD WORD [WORD...] [--relation=NAME] — "
@@ -7712,6 +7794,22 @@ def main():
                   f"{note}")
         print(f"  GROUPS : {the_plan['groups']}")
         print(f"  RETURNS: {the_plan['returns'] or '(none)'}")
+        _dn = the_plan["choices"].get("density")
+        if _dn:
+            print(f"  DENSITY: binding cap {_dn['binding_cap']} — "
+                  f"{_dn['chosen_from']}")
+        _au = the_plan["choices"].get("audible")
+        if _au:
+            print(f"  AUDIBLE: {_au['audible']} of {_au['end_bound']} "
+                  f"end-bound group(s) draw a relation a listener hears as "
+                  f"END RHYME (nucleus and coda agree at the line end: "
+                  f"{', '.join(sorted(set(_au['audible_names']))) or 'none'}); "
+                  f"{_au['bare']} on the bare default; "
+                  f"{len(_au['inaudible'])} on a relation heard as "
+                  f"something else ("
+                  f"{', '.join(sorted(set(_au['inaudible']))) or 'none'}). "
+                  f"A record, not a gate (M-192): the dice are uniform over "
+                  f"the certified schemas and this is what they drew.")
         # M-112: the mandate's own weight on each section, said out loud.
         # The series' third song cleared every gate with a chorus binding
         # 23 of ~31 sung tokens and nothing had disclosed the share — it
@@ -10237,6 +10335,28 @@ def main():
                     for i, l in enumerate(result.lines, 1):
                         mark = "*" if l != lines[i - 1] else " "
                         print(f"  {mark} L{i}: {l}")
+                if cmd == "revise" and propose_spec.startswith("defer:"):
+                    # THE SAME DOOR FOR A PASTED SONG (M-195, 2026-09-01):
+                    # `finish` renders and stamps past a stop condition and
+                    # `revise` did not, so a song with no seed — the human
+                    # door M-72 opened — had a loop but no finished song and
+                    # no convergence declaration (M-150). No plan means no
+                    # bracket headers: the lines print in order, under the
+                    # same stamp with `declared mandate` where a seed would
+                    # stand, and `mcp/lyric_tools.js:extractLoopRecord`
+                    # reads both spellings.
+                    print("\n  THE SONG, PERFORMANCE ORDER:\n")
+                    print("\n".join(result.lines))
+                    print(f"\n  [FINISHED — declared mandate — "
+                          f"exit {_code} — {result.stop_reason.upper()} "
+                          f"after {len(result.rounds)} round(s) — "
+                          + (f"UNRESOLVED: "
+                             + ", ".join(f"L{n}" for n in _open)
+                             if _open else "no flag stands")
+                          + (f" — WHOLE-DRAFT FLAG: "
+                             + ", ".join(_whole_codes)
+                             if _whole_codes else "")
+                          + "]")
                 if cmd == "finish":
                     # THE RENDER EXISTS ONLY PAST A STOP CONDITION — this
                     # call sits after `revise_loop` returned, so a

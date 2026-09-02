@@ -895,8 +895,13 @@ MUTATIONS = [
     ),
     Mutation(
         name="QF5", layer="value", file=FLOOR,
-        old="        tolerance=1.25,",
-        new="        tolerance=2.0,",
+        # LENGTHENED 2026-09-01: the `short` profile (M-193) declares the
+        # same `tolerance=1.25,` one row down, so the anchor names the
+        # `song` row by the note that follows it.
+        old="        tolerance=1.25,\n"
+            "        #: RE-ADOPTED 2026-08-26 AS A SET, AND THE BAND IS THE ONLY",
+        new="        tolerance=2.0,\n"
+            "        #: RE-ADOPTED 2026-08-26 AS A SET, AND THE BAND IS THE ONLY",
         subset=T_FLOOR,
         rationale=(
             "The `song` profile's tolerance goes back to the unmeasured 2.0 "
@@ -930,8 +935,13 @@ MUTATIONS = [
     ),
     Mutation(
         name="QR2", layer="value", file=REVISE,
-        old="        k = self.rdecl.modal_exclusion",
-        new="        k = 0",
+        # LENGTHENED 2026-09-01: `_offer_reopens` (M-185) reads the same
+        # coordinate one method down, so the anchor names `joint_field`'s
+        # own site by the line that spends it.
+        old="        k = self.rdecl.modal_exclusion\n"
+            "        forbidden = homeo + rest_ranked[:k]",
+        new="        k = 0\n"
+            "        forbidden = homeo + rest_ranked[:k]",
         subset=T_LOOP,
         rationale=(
             "Doctrine 9's ENTIRE mechanism disabled at its one implementation "

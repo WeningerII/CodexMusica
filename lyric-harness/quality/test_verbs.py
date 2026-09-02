@@ -4773,6 +4773,102 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
           f"rc {rc2}; " + out2[out2.find("STANDING"):][:200])
 
 
+def test_the_pasted_song_has_the_same_door_as_a_planned_one():
+    print("\n49. `recover` is a verb, and `revise` under defer: renders and "
+          "stamps a pasted song's stop (`MISSING.md` M-195)")
+    # THE OWNER'S RULING (2026-08-23, quality/recover.py's docstring): a
+    # pasted song goes through every step a planned one does, and the first
+    # step is to STRUCTURE it. `quality/recover.py` did that and had no verb
+    # and no tool — `python3 quality/recover.py` was the only door, and it
+    # printed no mandate spelling a caller could hand on. And a pasted song
+    # could be LOOPED (`revise --propose=defer:`) but never FINISHED: only
+    # `finish` rendered and stamped, and `finish` needs a seed.
+    d = tempfile.mkdtemp()
+    song = os.path.join(HERE, "..", "songs", "keep_the_light.txt")
+    rc, out, _ = run("recover", song)
+    check("`recover` on a banked song exits 3 — the meter is REFUSED, a "
+          "work order and not a failure — and prints the two CLI flags",
+          rc == 3 and "MANDATE SPELLING" in out
+          and re.search(r"^\s*--groups=\S+", out, re.M)
+          and re.search(r"^\s*--returns=6,9;6,14", out, re.M)
+          and "EXIT 3" in out and "meter" in out,
+          f"rc {rc}; " + out[out.find("MANDATE SPELLING"):][:160])
+    rc, out, _ = run("recover", song, "--bogus", expect_rc=2)
+    check("an unknown flag refuses at exit 2, like every verb",
+          rc == 2 and "REFUSED" in out, f"rc {rc}")
+    rc, out, _ = run("recover", expect_rc=2)
+    check("no file refuses with the usage", rc == 2 and "recover LYRIC.txt" in out,
+          f"rc {rc}")
+    # THE STAMP ON A PASTED SONG'S LOOP: no seed, a declared mandate, the
+    # same [FINISHED — …] shape `finish` prints, with `declared mandate`
+    # where a seed would stand, so the connector reads both.
+    draft = os.path.join(d, "draft.txt")
+    with open(draft, "w", encoding="utf-8") as fh:
+        fh.write("\n".join(NOISY_LINES[:4]) + "\n")
+    state = os.path.join(d, "state.json")
+    rc, out, _ = run("revise", draft, "--groups=2,3;1,4", "--attempts=0",
+                     "--backtrack=0", f"--propose=defer:{state}")
+    m = re.search(r"\[FINISHED — declared mandate — exit (\d) — (\w+) after "
+                  r"(\d+) round\(s\) — ([^\]]+)\]", out)
+    check("`revise --propose=defer:` renders the lines in order under a "
+          "[FINISHED — declared mandate — …] stamp at a stop condition",
+          rc in (0, 3) and "THE SONG, PERFORMANCE ORDER" in out
+          and m is not None and int(m.group(1)) == rc,
+          f"rc {rc}; " + (m.group(0) if m else "(no stamp)"))
+    rc2, out2, _ = run("revise", draft, "--groups=2,3;1,4", "--attempts=0",
+                       "--backtrack=0")
+    check("...and the STUB proposer's `revise` (no defer) prints no render "
+          "and no stamp — the door is the deferred, resumable one",
+          "[FINISHED" not in out2 and "THE SONG, PERFORMANCE ORDER" not in out2,
+          f"rc {rc2}")
+
+
+def test_the_plan_report_discloses_density_and_audibility():
+    print("\n50. the `plan` report says what DENSITY it drew and how much of "
+          "its end-web is HEARD as rhyme (`MISSING.md` M-191, M-192)")
+    # Two coordinates the planner discloses in `choices` and the CLI had to
+    # PRINT, because the connector returns this report and nothing else:
+    # the density cap (M-191) and the audible / bare / inaudible partition
+    # of the end-bound groups (M-192). Both are records — the report of a
+    # draw, never a gate — and both are asserted against the plan's own
+    # numbers rather than a remembered figure.
+    import json as _json
+    d = tempfile.mkdtemp()
+    bp = os.path.join(d, "bp.json")
+    rc, out, _ = run("plan", "--seed=16", f"--out={bp}", expect_rc=0)
+    with open(bp, encoding="utf-8") as fh:
+        plan = _json.load(fh)
+    dn = plan["choices"]["density"]
+    au = plan["choices"]["audible"]
+    m = re.search(r"^\s*DENSITY: binding cap (\d+) — (.+)$", out, re.M)
+    check("the report prints the density cap the plan drew, with how it "
+          "was chosen, and the number is the plan's own",
+          rc == 0 and m is not None and int(m.group(1)) == dn["binding_cap"]
+          and "uniform over 1.." in m.group(2),
+          f"rc {rc}; {m.group(0)[:90] if m else 'no DENSITY line'}")
+    m2 = re.search(r"^\s*AUDIBLE: (\d+) of (\d+) end-bound group\(s\) draw a "
+                   r"relation a listener hears as END RHYME", out, re.M)
+    check("...and the AUDIBLE line partitions the end-bound groups with the "
+          "plan's own counts — audible of end-bound, then the bare default "
+          "and the inaudible apart (doctrine 79)",
+          m2 is not None and int(m2.group(1)) == au["audible"]
+          and int(m2.group(2)) == au["end_bound"]
+          and f"{au['bare']} on the bare default" in out
+          and f"{len(au['inaudible'])} on a relation heard as something else"
+          in out,
+          f"{m2.group(0)[:90] if m2 else 'no AUDIBLE line'}")
+    check("...and says it is a record, not a gate — the dice are untouched",
+          "A record, not a gate" in out)
+    brief = plan.get("writer_brief", "")
+    check("the writer brief carried in the blueprint has the legend and the "
+          "capacity line the writer reads (M-192)",
+          "Where a binding sits" in brief
+          and "What each named relation asks" in brief
+          and re.search(r"^\s+up to \d+ syllables a line after the pickup; "
+                        r"the calibrated band asks at least \d+$", brief, re.M)
+          is not None)
+
+
 if __name__ == "__main__":
     _SECTIONS = (
         test_the_map_is_not_stale,
@@ -4824,6 +4920,8 @@ if __name__ == "__main__":
         test_the_cynghanedd_verb_reaches_caesura_and_marks,
         test_a_missing_staged_resource_refuses_instead_of_crashing,
         test_the_loop_verbs_exit_on_what_stands_at_the_stop,
+        test_the_pasted_song_has_the_same_door_as_a_planned_one,
+        test_the_plan_report_discloses_density_and_audibility,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —
     # measured 21-22 minutes on CI run #524, and after the pool went

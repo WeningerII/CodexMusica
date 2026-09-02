@@ -535,33 +535,156 @@ check('validation: actionable errors', () => {
   // ── M-189: the CLI's globals and the missing fields reach the tools ─────
   {
     const { LYRIC_TOOL_SCHEMAS: S, _argvInternals: AV } = await import('./lyric_tools.js');
-    check('every grading tool can declare --voices and --fallback; screen takes a relation; verify takes structures', () => {
-      for (const t of ['lyric_grade', 'lyric_revise', 'lyric_verify', 'lyric_check']) {
-        assert.ok('voices' in S[t] && 'fallback' in S[t], `${t} lacks voices/fallback`);
+    check(
+      'every grading tool can declare --voices and --fallback; screen takes a relation; verify takes structures',
+      () => {
+        for (const t of ['lyric_grade', 'lyric_revise', 'lyric_verify', 'lyric_check']) {
+          assert.ok('voices' in S[t] && 'fallback' in S[t], `${t} lacks voices/fallback`);
+        }
+        assert.ok(
+          'relation' in S.lyric_screen && 'fallback' in S.lyric_screen,
+          "screen asks the grade's question"
+        );
+        assert.ok(
+          'structures' in S.lyric_verify,
+          'verify is checked under the mandate lyric_check grades under'
+        );
+        for (const t of ['lyric_plan', 'lyric_grade', 'lyric_revise']) {
+          assert.ok('narrative' in S[t], `${t} lacks narrative`);
+        }
+        assert.ok(
+          !('voices' in S.lyric_plan) && !('voices' in S.lyric_sweep),
+          'a verb that reads no draft takes no voices'
+        );
       }
-      assert.ok('relation' in S.lyric_screen && 'fallback' in S.lyric_screen, 'screen asks the grade\'s question');
-      assert.ok('structures' in S.lyric_verify, 'verify is checked under the mandate lyric_check grades under');
-      for (const t of ['lyric_plan', 'lyric_grade', 'lyric_revise']) {
-        assert.ok('narrative' in S[t], `${t} lacks narrative`);
-      }
-      assert.ok(!('voices' in S.lyric_plan) && !('voices' in S.lyric_sweep), 'a verb that reads no draft takes no voices');
-    });
+    );
     check('the globals stand AHEAD of the verb and only when declared', () => {
       assert.deepEqual(AV.globalsFor({}), []);
       assert.deepEqual(AV.globalsFor({ voices: false, fallback: undefined }), []);
       assert.deepEqual(AV.globalsFor({ voices: true }), ['--voices']);
       assert.deepEqual(AV.globalsFor({ fallback: 'low' }), ['--fallback=low']);
-      assert.deepEqual(AV.globalsFor({ voices: true, fallback: 'high' }), ['--voices', '--fallback=high']);
-      assert.deepEqual(AV.globalsFor({ fallback: 'bogus' }), [], 'an undeclared value is not passed through');
+      assert.deepEqual(AV.globalsFor({ voices: true, fallback: 'high' }), [
+        '--voices',
+        '--fallback=high',
+      ]);
+      assert.deepEqual(
+        AV.globalsFor({ fallback: 'bogus' }),
+        [],
+        'an undeclared value is not passed through'
+      );
     });
     check('planArgs carries --narrative= exactly as it carries --title=', () => {
       assert.deepEqual(AV.planArgs({ seed: 7 }), ['--seed=7']);
       assert.deepEqual(AV.planArgs({ seed: 7, narrative: 'off' }), ['--seed=7', '--narrative=off']);
-      assert.deepEqual(AV.planArgs({ seed: 7, narrative: '' }), ['--seed=7'], 'an empty string emits no bare flag');
       assert.deepEqual(
-        AV.planArgs({ seed: 7, title: 'Ledger', narrative: 'ESTABLISH,TURN/BUT' }),
-        ['--seed=7', '--title=Ledger', '--narrative=ESTABLISH,TURN/BUT']
+        AV.planArgs({ seed: 7, narrative: '' }),
+        ['--seed=7'],
+        'an empty string emits no bare flag'
       );
+      assert.deepEqual(AV.planArgs({ seed: 7, title: 'Ledger', narrative: 'ESTABLISH,TURN/BUT' }), [
+        '--seed=7',
+        '--title=Ledger',
+        '--narrative=ESTABLISH,TURN/BUT',
+      ]);
+    });
+  }
+
+  // ── M-195: the pasted-song door on the connector ─────────────────────────
+  {
+    const { LYRIC_TOOL_SCHEMAS: S, _verdictInternals: VI } = await import('./lyric_tools.js');
+    const { _agentInternals: AI } = await import('./gemini_agent.js');
+    check(
+      'lyric_recover exists; lyric_check and lyric_revise take a blueprint; lyric_revise no longer requires a seed',
+      () => {
+        assert.ok(
+          'lyric_recover' in S && 'lines' in S.lyric_recover && 'placements' in S.lyric_recover
+        );
+        assert.ok('blueprint' in S.lyric_check && 'subdivision' in S.lyric_check);
+        assert.ok(
+          'blueprint' in S.lyric_revise && 'groups' in S.lyric_revise && 'scheme' in S.lyric_revise
+        );
+        assert.ok(S.lyric_revise.seed.isOptional(), 'seed is optional on lyric_revise');
+        assert.ok(!S.lyric_grade.seed.isOptional(), 'and still required on lyric_grade');
+      }
+    );
+    check('the recovered mandate and the refusals are read off the recover report', () => {
+      const stdout = [
+        'RECOVERED STRUCTURE — every coordinate with how it was obtained',
+        '  meter: REFUSED — counting gives syllables per line, not a bar grid; declare one',
+        '  MANDATE SPELLING (the cover as the two CLI flags):',
+        '    --groups=1,3;2,4.head',
+        '    --returns=5,13',
+      ].join('\n');
+      const v = VI.verdictOf({ code: 3, stdout, stderr: '' });
+      assert.deepEqual(VI.extractRecoveredMandate(stdout), {
+        groups: '1,3;2,4.head',
+        returns: '5,13',
+      });
+      assert.deepEqual(VI.extractRecoverRefusals(stdout), [
+        {
+          coordinate: 'meter',
+          why: 'counting gives syllables per line, not a bar grid; declare one',
+        },
+      ]);
+      assert.equal(v.exit_code, 3);
+      assert.equal(VI.extractRecoveredMandate('nothing here'), null);
+    });
+    check("a pasted song's run is carried on its MANDATE, a planned one on its seed", () => {
+      const surface = { stateTools: new Set(['lyric_revise']) };
+      const seeded = { seed: 7 };
+      const pasted = { groups: '1,3;2,4', returns: '5,13' };
+      assert.equal(AI.stateKey(seeded), 'seed:7');
+      assert.ok(AI.stateKey(pasted).startsWith('mandate:'));
+      assert.equal(
+        AI.stateKey({ draft: ['x'] }),
+        null,
+        'no seed and no mandate: nothing to key on'
+      );
+      const s1 = AI.carryState(
+        null,
+        'lyric_revise',
+        pasted,
+        { exit_code: 4, state: 'S1' },
+        surface
+      );
+      assert.equal(s1.key, AI.stateKey(pasted));
+      assert.equal(s1.seed, null);
+      assert.equal(
+        AI.carryState(
+          s1,
+          'lyric_revise',
+          { ...pasted, returns: '6,14' },
+          { exit_code: 3, state: 'S2' },
+          surface
+        ),
+        s1,
+        'a stop on a DIFFERENT mandate does not clear this run'
+      );
+      assert.equal(
+        AI.carryState(s1, 'lyric_revise', pasted, { exit_code: 3, state: 'S2' }, surface),
+        null
+      );
+      assert.equal(
+        AI.carriedKey({ seed: 7, state: 'x' }),
+        'seed:7',
+        'a pre-M-195 record reads as its seed'
+      );
+      assert.equal(
+        AI.suspendedSeed({
+          key: AI.stateKey(pasted),
+          seed: null,
+          state: '{"pending":{"kind":"propose"}}',
+        }),
+        'the declared mandate'
+      );
+    });
+    check("the stamp of a pasted song's run parses with no seed", () => {
+      const rec = VI.extractLoopRecord(
+        '  [FINISHED — declared mandate — exit 3 — NO_PROGRESS after 2 round(s) — UNRESOLVED: L2]'
+      );
+      assert.equal(rec.seed, null);
+      assert.equal(rec.stop_reason, 'NO_PROGRESS');
+      assert.deepEqual(rec.unresolved_lines, ['L2']);
     });
   }
 
@@ -584,7 +707,8 @@ check('validation: actionable errors', () => {
       assert.ok(v.meaning.includes('STAND') && !v.meaning.includes('no flag stands'), v.meaning);
       const clean = VI.verdictOf({
         code: 0,
-        stdout: '  REPORT: 2 line(s) briefed — 0 FLAG, 2 NOTE (two counts, never summed: doctrine 79)\n',
+        stdout:
+          '  REPORT: 2 line(s) briefed — 0 FLAG, 2 NOTE (two counts, never summed: doctrine 79)\n',
         stderr: '',
       });
       assert.equal(clean.flags, 0);
@@ -627,9 +751,9 @@ check('validation: actionable errors', () => {
     });
     check('the pursued findings printed at the stop reach banned_pairs', () => {
       const stdout = [
-        '  STANDING AT THE STOP — the findings the open lines and the whole draft still carry, in the report\'s own spelling:',
+        "  STANDING AT THE STOP — the findings the open lines and the whole draft still carry, in the report's own spelling:",
         "    L3: FINDING [NOTE] HOMEOTELEUTON: L1/L3 rhyme on the SAME SPELLED ENDING ('store'/'wore', both -ore) — the laziest class, banned before any frequency judgment (lines 1, 3)",
-        '         spelled rime \'ore\' on both sides.',
+        "         spelled rime 'ore' on both sides.",
         '  [FINISHED — seed 16 — exit 3 — NO_PROGRESS after 1 round(s) — UNRESOLVED: L3]',
       ].join('\n');
       const v = VI.verdictOf({ code: 3, stdout, stderr: '' });
@@ -646,8 +770,20 @@ check('validation: actionable errors', () => {
   check('only a SUSPENDED verdict (exit 4) is carried; a stop (0/3) clears the seed', () => {
     const surface = { stateTools: new Set(['lyric_revise']) };
     const args = { seed: 7 };
-    const suspended = carryState(null, 'lyric_revise', args, { exit_code: 4, state: 'S1' }, surface);
-    assert.deepEqual(suspended, { seed: 7, state: 'S1' }, 'exit 4 carries the record');
+    const suspended = carryState(
+      null,
+      'lyric_revise',
+      args,
+      { exit_code: 4, state: 'S1' },
+      surface
+    );
+    // M-195: the carry is keyed on `seed:N` for a planned song and `mandate:…`
+    // for a pasted one, so the record carries its key beside the seed.
+    assert.deepEqual(
+      suspended,
+      { key: 'seed:7', seed: 7, state: 'S1' },
+      'exit 4 carries the record'
+    );
     assert.equal(
       carryState(suspended, 'lyric_revise', args, { exit_code: 3, state: 'S2' }, surface),
       null,
@@ -666,7 +802,7 @@ check('validation: actionable errors', () => {
     assert.deepEqual(
       carryState(suspended, 'lyric_revise', { seed: 8 }, { exit_code: 3, state: 'S3' }, surface),
       suspended,
-      'a stop on ANOTHER seed does not touch this seed\'s suspended run'
+      "a stop on ANOTHER seed does not touch this seed's suspended run"
     );
     assert.deepEqual(
       carryState(suspended, 'lyric_grade', args, { exit_code: 3, state: 'S3' }, surface),
@@ -716,6 +852,87 @@ check('validation: actionable errors', () => {
       buildSystemInstruction({ instructions: undefined }, null),
       null,
       'nothing to say → no block at all'
+    );
+  });
+  // ── M-197: a throw mid-turn carries the hops already spent ─────────────
+  // `generate()` throws on a 429 (retries 0), and the hop loop used to let
+  // that throw discard `usage` — every billed hop before it was uncounted by
+  // the daily cap. The stubbed model answers ONE function-calling hop, then
+  // a 429; the error must carry exactly that one hop's usage.
+  await (async () => {
+    const { runTurn: _runTurn, LIMITS: _LIMITS } = await import('./gemini_agent.js');
+    const realFetch = globalThis.fetch;
+    let hop = 0;
+    globalThis.fetch = async () => {
+      hop += 1;
+      if (hop === 1) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            candidates: [
+              { content: { parts: [{ functionCall: { name: 'lyric_types', args: { a: 'x' } } }] } },
+            ],
+            usageMetadata: { promptTokenCount: 10, candidatesTokenCount: 5, thoughtsTokenCount: 0 },
+          }),
+        };
+      }
+      return { ok: false, status: 429, json: async () => ({ error: { message: 'quota' } }) };
+    };
+    try {
+      let caught = null;
+      try {
+        await _runTurn({
+          apiKey: 'k',
+          surface: {
+            instructions: '',
+            declarations: [],
+            workspaceTools: new Set(),
+            stateTools: new Set(),
+          },
+          callTool: async () => ({ content: [{ type: 'text', text: 'ok' }] }),
+          userText: 'hi',
+          limits: { ..._LIMITS, maxTurnUsd: 0 },
+          retries: 0,
+        });
+      } catch (e) {
+        caught = e;
+      }
+      check("a 429 on the second hop throws with the FIRST hop's usage on the error", () => {
+        assert.ok(caught, 'runTurn threw');
+        assert.equal(caught.status, 429);
+        assert.ok(caught.usage, 'the error carries usage');
+        assert.equal(caught.usage.requests, 1, 'one hop was billed before the throw');
+        assert.equal(caught.usage.promptTokens, 10);
+        assert.equal(caught.usage.candidatesTokens, 5);
+        assert.ok(
+          Array.isArray(caught.calls) && caught.calls.length === 1,
+          'and the one call it made'
+        );
+      });
+    } finally {
+      globalThis.fetch = realFetch;
+    }
+  })();
+  check('chat.js charges the partial usage in its catch and puts the cost on the reply', () => {
+    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+    assert.ok(/err\.usage\.requests > 0/.test(chat), 'the catch reads the partial usage');
+    assert.ok(
+      /chargedUsd = partial === null \? LIMITS\.maxTurnUsd : partial/.test(chat),
+      "an unpriceable partial charges the cap, the success path's own safe direction"
+    );
+    assert.ok(
+      /hopsBeforeFailure/.test(chat) && /chargedUsd: Number/.test(chat),
+      'and says so on the error body'
+    );
+    assert.ok(
+      /cost: run\.cost,\s*\n\s*usage: run\.usage,/.test(chat),
+      'the success body carries cost and usage (C11)'
+    );
+    const ga = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
+    assert.ok(
+      /err\.usage = usage;\s*\n\s*err\.calls = calls;/.test(ga),
+      'the agent attaches both on the way out'
     );
   });
   check('runTurn reaches the model through the one systemInstruction builder', () => {
@@ -856,11 +1073,21 @@ check('validation: actionable errors', () => {
       ),
       'the harness still prints seed, exit, stop reason and round count in that order'
     );
-    const m =
-      /\[FINISHED\\s\*—\\s\*seed\\s\*\(-\?\\d\+\)\\s\*—\\s\*exit\\s\*\(\\d\+\)\\s\*—\\s\*\(\[A-Z_\]\+\)\\s\+after\\s\+\(\\d\+\)\\s\+round\\\(s\\\)/.test(
-        lt
-      );
-    assert.ok(m, 'and the connector reads exactly that shape');
+    // A pasted song's run (M-195) is stamped `declared mandate` where a
+    // planned one is stamped `seed N`; the harness prints both spellings and
+    // the connector's ONE regex reads both. The source substring is compared
+    // as a string rather than as a regex over a regex, so the pin reads the
+    // way the extractor is spelled.
+    assert.ok(
+      /\[FINISHED — declared mandate — "\s*\n\s*f"exit \{_code\} — \{result\.stop_reason\.upper\(\)\} "\s*\n\s*f"after \{len\(result\.rounds\)\} round\(s\) — /.test(
+        py
+      ),
+      "and the unseeded revise prints the same stamp with `declared mandate` in the seed's place"
+    );
+    const m = lt.includes(
+      '/\\[FINISHED\\s*—\\s*(?:seed\\s*(-?\\d+)|declared mandate)\\s*—\\s*exit\\s*(\\d+)\\s*—\\s*([A-Z_]+)\\s+after\\s+(\\d+)\\s+round\\(s\\)'
+    );
+    assert.ok(m, 'and the connector reads exactly that shape, in both spellings');
     const ga = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
     assert.ok(
       /loop_stop_reason:/.test(ga) && /answers_on_record:/.test(ga),
@@ -1186,19 +1413,20 @@ try {
       'lyric_check',
       'lyric_grade',
       'lyric_plan',
+      'lyric_recover',
       'lyric_revise',
       'lyric_screen',
       'lyric_sweep',
       'lyric_types',
       'lyric_verify',
     ],
-    'the eight lyric tools are advertised'
+    'the nine lyric tools are advertised (M-195 added lyric_recover)'
   );
   for (const t of lyric) {
     assert.equal(t.annotations?.readOnlyHint, true, `${t.name} read-only`);
     assert.equal(t.annotations?.openWorldHint, false, `${t.name} closed-world`);
   }
-  console.log('  ok  lyric family advertised: 8 tools, read-only, closed-world');
+  console.log('  ok  lyric family advertised: 9 tools, read-only, closed-world');
   passed++;
 
   // DEPLOYMENT FRESHNESS HAS AN INSTRUMENT (M-127): check_live.mjs compares

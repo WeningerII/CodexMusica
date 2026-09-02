@@ -1518,6 +1518,34 @@ def test_the_bracketed_verse_convention_keeps_the_body():
         LH.BRACKET_LINE_EDITS.update(_oldle)
 
 
+def test_a_wordless_score_says_identity_was_not_asked():
+    print("\n13. `score()` without the words DISCLOSES that identity was not "
+          "asked (`MISSING.md` M-136 (1), ruled 2026-09-01)")
+    # Doctrine 3 rides the words: REPEAT and RIME_RICHE need the spellings,
+    # so `light`/`light` scored on anchors alone answers RHYME. The verdict
+    # is left where it is (forty-eight wordless call sites, most asking a
+    # question identity does not bear on) and the omission is on the record.
+    import lyric_harness as _LH
+    p1, _, _ = LEX.transcribe("light")
+    a = _LH.anchor(_LH.syllabify(p1))
+    wordless = _LH.score(a, a, DECL)
+    worded = _LH.score(a, a, DECL, "light", "light")
+    check("wordless: RHYME, with the disclosure on its flags",
+          wordless["relation"] == "RHYME"
+          and "identity: not asked (words omitted)" in wordless["flags"],
+          f"{wordless['relation']} {wordless['flags']}")
+    check("worded: REPEAT, and no such flag",
+          worded["relation"] == "REPEAT"
+          and not any("not asked" in f for f in worded["flags"]),
+          f"{worded['relation']} {worded['flags']}")
+    aa, _, _ = line_anchors(LEX, OK_A)
+    bb, _, _ = line_anchors(LEX, OK_B)
+    s2 = best_score(aa, bb, DECL, "cat", "hat")
+    check("the tripwire above is untouched: a worded best_score carries no "
+          "disclosure and cat/hat is still a clean 1.0 RHYME",
+          s2["total"] == 1.0 and s2["relation"] == "RHYME" and s2["flags"] == [])
+
+
 if __name__ == "__main__":
     for fn in (test_readable_pairs_are_untouched,
                test_constructed_oov_final,
@@ -1541,7 +1569,8 @@ if __name__ == "__main__":
         test_the_letter_repertoire_is_declared_and_the_two_sites_agree,
         test_interior_is_derived_by_position,
         test_the_bracket_rules_are_declared_and_read,
-        test_the_bracketed_verse_convention_keeps_the_body))
+        test_the_bracketed_verse_convention_keeps_the_body,
+        test_a_wordless_score_says_identity_was_not_asked))
     print("=" * 68)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")

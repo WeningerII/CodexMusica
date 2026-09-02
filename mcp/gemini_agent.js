@@ -208,7 +208,14 @@ export const RETRY_ALL = [429, ...RETRY_TRANSIENT];
 // Test seam (the `_workerInternals` precedent): what the model is SHOWN is a
 // verdict this function computes, and a suite that cannot reach it can only
 // grep for the strip instead of proving it.
-export const _agentInternals = { toFunctionResponse, suspendedSeed, buildSystemInstruction, carryState };
+export const _agentInternals = {
+  toFunctionResponse,
+  suspendedSeed,
+  buildSystemInstruction,
+  carryState,
+  stateKey,
+  carriedKey,
+};
 
 async function generate({
   apiKey,
@@ -280,7 +287,7 @@ export async function buildSurface(client) {
 // and disappears the moment a run reaches a stop condition — never a stale
 // sentence about a run that is over.
 const SUSPENDED_RUN_NOTE = (seed) =>
-  `A lyric_revise run for seed ${seed} is SUSPENDED, awaiting one answer. ` +
+  `A lyric_revise run for ${typeof seed === 'number' ? `seed ${seed}` : seed} is SUSPENDED, awaiting one answer. ` +
   'Nothing you write in chat reaches the harness: the run advances ONLY ' +
   'when you call lyric_revise again with the same arguments plus `answer` ' +
   '(the state is carried for you automatically). Put the line in the ' +
@@ -291,7 +298,13 @@ function suspendedSeed(lyr) {
   if (!lyr || typeof lyr.state !== 'string') return null;
   try {
     const st = JSON.parse(lyr.state);
-    return st && st.pending && typeof lyr.seed === 'number' ? lyr.seed : null;
+    if (!(st && st.pending)) return null;
+    if (typeof lyr.seed === 'number') return lyr.seed;
+    // A pasted song's run (M-195) has no seed; the reminder names the run
+    // by its mandate instead of staying silent.
+    return typeof lyr.key === 'string' && lyr.key.startsWith('mandate:')
+      ? 'the declared mandate'
+      : null;
   } catch {
     return null;
   }
@@ -314,14 +327,48 @@ function suspendedSeed(lyr) {
 // hands in. A refusal (exit 2) leaves whatever was carried in place: the
 // question it refused an answer to is still pending. A verdict about a
 // different seed never touches the carried record of this one.
+// WHAT A RUN IS KEYED ON (M-195): the seed when there is one, and otherwise
+// the declared mandate — a pasted song has no seed, and a record carried
+// for it must still go back to the same song and no other.
+function stateKey(args) {
+  if (typeof args?.seed === 'number') return `seed:${args.seed}`;
+  const hasMandate =
+    (args?.scheme != null && args.scheme !== '') || (args?.groups != null && args.groups !== '');
+  if (!hasMandate) return null;
+  return (
+    'mandate:' +
+    JSON.stringify([
+      args.scheme ?? null,
+      args.groups ?? null,
+      args.returns ?? null,
+      args.relation ?? null,
+      args.structures ?? null,
+    ])
+  );
+}
+
 function carryState(prev, toolName, args, verdict, surface) {
-  if (!surface.stateTools?.has(toolName) || typeof args?.seed !== 'number') return prev;
+  if (!surface.stateTools?.has(toolName)) return prev;
+  const key = stateKey(args);
+  if (key == null) return prev;
   const code = verdict && typeof verdict.exit_code === 'number' ? verdict.exit_code : null;
   if (code === 4 && typeof verdict[STATE_PROPERTY] === 'string') {
-    return { seed: args.seed, state: verdict[STATE_PROPERTY] };
+    return {
+      key,
+      seed: typeof args.seed === 'number' ? args.seed : null,
+      state: verdict[STATE_PROPERTY],
+    };
   }
-  if ((code === 0 || code === 3) && prev && prev.seed === args.seed) return null;
+  if ((code === 0 || code === 3) && prev && carriedKey(prev) === key) return null;
   return prev;
+}
+
+// A record written before M-195 carries `seed` and no `key`; read it as its
+// seed's key so a browser holding an older envelope keeps its run.
+function carriedKey(lyr) {
+  if (!lyr) return null;
+  if (typeof lyr.key === 'string') return lyr.key;
+  return typeof lyr.seed === 'number' ? `seed:${lyr.seed}` : null;
 }
 
 function buildSystemInstruction(surface, lyr) {
@@ -380,189 +427,205 @@ export async function runTurn({
     },
   };
 
-  for (let step = 0; step < limits.maxSteps; step++) {
-    body.contents = contents;
-    // Rebuilt per hop from the LIVE carried state (M-158): `lyr` moves when
-    // a harvest lands mid-turn, and the reminder must move with it.
-    const si = buildSystemInstruction(surface, lyr);
-    if (si) body.systemInstruction = si;
-    else delete body.systemInstruction;
-    const json = await generate({
-      apiKey,
-      model,
-      body,
-      signal,
-      retries,
-      retryStatuses,
-      onRetry: (r) => onEvent && onEvent({ type: 'retry', ...r }),
-    });
-    addUsage(usage, json.usageMetadata);
-    const candidate = json.candidates?.[0];
-    const parts = candidate?.content?.parts || [];
-    const functionCalls = parts.filter((p) => p.functionCall).map((p) => p.functionCall);
+  // A THROW MID-TURN CARRIES WHAT WAS SPENT (2026-09-01, triage finding
+  // C28 / `MISSING.md` M-197): only 5xx is retried, so a 429 on hop N
+  // threw hops 1..N-1 away and the spend counter never saw them — every
+  // billed hop before the throw was uncounted. The error now carries the
+  // partial `usage` and the calls made, and `chat.js` charges it in its
+  // catch before replying.
+  try {
+    for (let step = 0; step < limits.maxSteps; step++) {
+      body.contents = contents;
+      // Rebuilt per hop from the LIVE carried state (M-158): `lyr` moves when
+      // a harvest lands mid-turn, and the reminder must move with it.
+      const si = buildSystemInstruction(surface, lyr);
+      if (si) body.systemInstruction = si;
+      else delete body.systemInstruction;
+      const json = await generate({
+        apiKey,
+        model,
+        body,
+        signal,
+        retries,
+        retryStatuses,
+        onRetry: (r) => onEvent && onEvent({ type: 'retry', ...r }),
+      });
+      addUsage(usage, json.usageMetadata);
+      const candidate = json.candidates?.[0];
+      const parts = candidate?.content?.parts || [];
+      const functionCalls = parts.filter((p) => p.functionCall).map((p) => p.functionCall);
 
-    // Verbatim, including thoughtSignature.
-    contents.push({ role: 'model', parts });
+      // Verbatim, including thoughtSignature.
+      contents.push({ role: 'model', parts });
 
-    if (!functionCalls.length) {
-      reply = parts
-        .filter((p) => typeof p.text === 'string' && !p.thought)
-        .map((p) => p.text)
-        .join('');
-      // MAX_TOKENS with no text is a truncated answer, not an answer.
-      if (candidate?.finishReason && candidate.finishReason !== 'STOP') {
-        stopped = candidate.finishReason;
+      if (!functionCalls.length) {
+        reply = parts
+          .filter((p) => typeof p.text === 'string' && !p.thought)
+          .map((p) => p.text)
+          .join('');
+        // MAX_TOKENS with no text is a truncated answer, not an answer.
+        if (candidate?.finishReason && candidate.finishReason !== 'STOP') {
+          stopped = candidate.finishReason;
+        }
+        break;
       }
-      break;
-    }
 
-    const responses = [];
-    for (const fc of functionCalls) {
-      const args = { ...(fc.args || {}) };
-      let result;
-      if (surface.workspaceTools.has(fc.name)) {
-        if (!ws) {
-          // Not an exception: the model can fix this itself by seeding first,
-          // and telling it so costs one short string.
-          result = {
-            isError: true,
-            content: [
-              {
-                type: 'text',
-                text: 'Error: no recipe yet — call start_recipe first, then edit it.',
-              },
-            ],
-          };
-          calls.push({ name: fc.name, args, isError: true, injectedWorkspace: false });
-          responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
-          continue;
+      const responses = [];
+      for (const fc of functionCalls) {
+        const args = { ...(fc.args || {}) };
+        let result;
+        if (surface.workspaceTools.has(fc.name)) {
+          if (!ws) {
+            // Not an exception: the model can fix this itself by seeding first,
+            // and telling it so costs one short string.
+            result = {
+              isError: true,
+              content: [
+                {
+                  type: 'text',
+                  text: 'Error: no recipe yet — call start_recipe first, then edit it.',
+                },
+              ],
+            };
+            calls.push({ name: fc.name, args, isError: true, injectedWorkspace: false });
+            responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
+            continue;
+          }
+          args[WORKSPACE_PROPERTY] = ws;
         }
-        args[WORKSPACE_PROPERTY] = ws;
-      }
-      // Inject the carried revise state, KEYED ON THE SEED: a call about the
-      // seed the record belongs to continues that run; any other seed is a
-      // different song and starts clean. No carried state is not an error the
-      // way an absent workspace is — the FIRST lyric_revise call of a song
-      // legitimately has none, and the tool itself refuses an `answer` with
-      // no state, in its own words.
-      let injectedState = false;
-      if (surface.stateTools?.has(fc.name)) {
-        if (lyr && args.seed === lyr.seed) {
-          args[STATE_PROPERTY] = lyr.state;
-          injectedState = true;
-        } else {
-          // The declaration does not expose `state`, so anything here is
-          // model-fabricated; the harness would replay it through verify()
-          // and refuse honestly, but a clean first call is the better run.
-          delete args[STATE_PROPERTY];
-        }
-      }
-      // A tool that fails — a timeout, a dropped transport — becomes an
-      // ERROR RESULT the model can see and react to, never an exception
-      // that kills the whole turn: under the old shape one slow call
-      // turned the entire conversation into a bare 502 with the record
-      // of every earlier call discarded (flash battery finding #1).
-      try {
-        result = await callTool(fc.name, args);
-      } catch (err) {
-        result = {
-          isError: true,
-          content: [{ type: 'text', text: `Error: ${err?.message || 'tool call failed'}` }],
-        };
-      }
-      const isError = !!result?.isError;
-      // Harvest the workspace on the way past. The model is never shown it, so
-      // this is the only place it can be captured.
-      let payload = null;
-      let lyricVerdict = null;
-      if (!isError) {
-        try {
-          payload = JSON.parse(result?.content?.[0]?.text ?? '');
-        } catch {
-          payload = null;
-        }
-        if (payload && payload.workspace) ws = payload.workspace;
-        // Harvest a lyric verdict the same way: a two-block lyric result
-        // carries it in the SECOND block (block 0 is the deliverable,
-        // deliberately not JSON); a one-block lyric result IS the verdict.
-        // Captured so the page can show the exit code and the banned-pair
-        // count on the tool chip whether or not the model relays either —
-        // the 2026-08-19 site transcript relayed neither.
-        const second = result?.content?.[1]?.text;
-        if (second != null) {
-          try {
-            lyricVerdict = JSON.parse(second);
-          } catch {
-            lyricVerdict = null;
+        // Inject the carried revise state, KEYED ON THE SEED: a call about the
+        // seed the record belongs to continues that run; any other seed is a
+        // different song and starts clean. No carried state is not an error the
+        // way an absent workspace is — the FIRST lyric_revise call of a song
+        // legitimately has none, and the tool itself refuses an `answer` with
+        // no state, in its own words.
+        let injectedState = false;
+        if (surface.stateTools?.has(fc.name)) {
+          if (lyr && stateKey(args) != null && stateKey(args) === carriedKey(lyr)) {
+            args[STATE_PROPERTY] = lyr.state;
+            injectedState = true;
+          } else {
+            // The declaration does not expose `state`, so anything here is
+            // model-fabricated; the harness would replay it through verify()
+            // and refuse honestly, but a clean first call is the better run.
+            delete args[STATE_PROPERTY];
           }
         }
-        if (!lyricVerdict && payload && typeof payload.exit_code === 'number') {
-          lyricVerdict = payload;
+        // A tool that fails — a timeout, a dropped transport — becomes an
+        // ERROR RESULT the model can see and react to, never an exception
+        // that kills the whole turn: under the old shape one slow call
+        // turned the entire conversation into a bare 502 with the record
+        // of every earlier call discarded (flash battery finding #1).
+        try {
+          result = await callTool(fc.name, args);
+        } catch (err) {
+          result = {
+            isError: true,
+            content: [{ type: 'text', text: `Error: ${err?.message || 'tool call failed'}` }],
+          };
         }
-        // Harvest the revise state the way the workspace is harvested above:
-        // the verdict block is the only place it rides, the model is never
-        // shown it, and the envelope carries it to the next turn — but ONLY
-        // a suspended run is carried; see `carryState`.
-        lyr = carryState(lyr, fc.name, args, lyricVerdict, surface);
+        const isError = !!result?.isError;
+        // Harvest the workspace on the way past. The model is never shown it, so
+        // this is the only place it can be captured.
+        let payload = null;
+        let lyricVerdict = null;
+        if (!isError) {
+          try {
+            payload = JSON.parse(result?.content?.[0]?.text ?? '');
+          } catch {
+            payload = null;
+          }
+          if (payload && payload.workspace) ws = payload.workspace;
+          // Harvest a lyric verdict the same way: a two-block lyric result
+          // carries it in the SECOND block (block 0 is the deliverable,
+          // deliberately not JSON); a one-block lyric result IS the verdict.
+          // Captured so the page can show the exit code and the banned-pair
+          // count on the tool chip whether or not the model relays either —
+          // the 2026-08-19 site transcript relayed neither.
+          const second = result?.content?.[1]?.text;
+          if (second != null) {
+            try {
+              lyricVerdict = JSON.parse(second);
+            } catch {
+              lyricVerdict = null;
+            }
+          }
+          if (!lyricVerdict && payload && typeof payload.exit_code === 'number') {
+            lyricVerdict = payload;
+          }
+          // Harvest the revise state the way the workspace is harvested above:
+          // the verdict block is the only place it rides, the model is never
+          // shown it, and the envelope carries it to the next turn — but ONLY
+          // a suspended run is carried; see `carryState`.
+          lyr = carryState(lyr, fc.name, args, lyricVerdict, surface);
+        }
+        calls.push({
+          name: fc.name,
+          // The workspace is the bulk of an edit call and is not the model's
+          // output; logging it would bury the argument that IS. The injected
+          // revise state is the same bulk one family over.
+          args: surface.workspaceTools.has(fc.name)
+            ? { ...args, [WORKSPACE_PROPERTY]: '<injected>' }
+            : injectedState
+              ? { ...args, [STATE_PROPERTY]: '<injected>' }
+              : args,
+          isError,
+          error: isError ? (result?.content?.[0]?.text ?? '') : null,
+          cards: payload?.cards ?? null,
+          recipe: payload?.recipe ?? null,
+          exit_code: typeof lyricVerdict?.exit_code === 'number' ? lyricVerdict.exit_code : null,
+          banned_pairs:
+            typeof lyricVerdict?.banned_pairs === 'number' ? lyricVerdict.banned_pairs : null,
+          // M-169: the loop's own record of the run rides beside the exit code,
+          // for the reason banned_pairs does — a verdict only the model ever saw
+          // protects nobody, and a transcript that cannot say how many rounds
+          // bought how many lines cannot tell a slow run from a stuck one.
+          // `answers_on_record` joins them: it is already computed on both the
+          // suspended and the finished branch of lyric_revise and was dropped
+          // here, which is how round 10's "turn 0's work was thrown away" reading
+          // survived long enough to need refuting from a byte count.
+          loop_stop_reason:
+            typeof lyricVerdict?.loop_stop_reason === 'string'
+              ? lyricVerdict.loop_stop_reason
+              : null,
+          loop_rounds:
+            typeof lyricVerdict?.loop_rounds === 'number' ? lyricVerdict.loop_rounds : null,
+          loop_unresolved:
+            typeof lyricVerdict?.loop_unresolved === 'number' ? lyricVerdict.loop_unresolved : null,
+          answers_on_record:
+            typeof lyricVerdict?.answers_on_record === 'number'
+              ? lyricVerdict.answers_on_record
+              : null,
+        });
+        if (onEvent) onEvent({ type: 'tool', name: fc.name, isError });
+        responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
       }
-      calls.push({
-        name: fc.name,
-        // The workspace is the bulk of an edit call and is not the model's
-        // output; logging it would bury the argument that IS. The injected
-        // revise state is the same bulk one family over.
-        args: surface.workspaceTools.has(fc.name)
-          ? { ...args, [WORKSPACE_PROPERTY]: '<injected>' }
-          : injectedState
-            ? { ...args, [STATE_PROPERTY]: '<injected>' }
-            : args,
-        isError,
-        error: isError ? (result?.content?.[0]?.text ?? '') : null,
-        cards: payload?.cards ?? null,
-        recipe: payload?.recipe ?? null,
-        exit_code: typeof lyricVerdict?.exit_code === 'number' ? lyricVerdict.exit_code : null,
-        banned_pairs:
-          typeof lyricVerdict?.banned_pairs === 'number' ? lyricVerdict.banned_pairs : null,
-        // M-169: the loop's own record of the run rides beside the exit code,
-        // for the reason banned_pairs does — a verdict only the model ever saw
-        // protects nobody, and a transcript that cannot say how many rounds
-        // bought how many lines cannot tell a slow run from a stuck one.
-        // `answers_on_record` joins them: it is already computed on both the
-        // suspended and the finished branch of lyric_revise and was dropped
-        // here, which is how round 10's "turn 0's work was thrown away" reading
-        // survived long enough to need refuting from a byte count.
-        loop_stop_reason:
-          typeof lyricVerdict?.loop_stop_reason === 'string' ? lyricVerdict.loop_stop_reason : null,
-        loop_rounds:
-          typeof lyricVerdict?.loop_rounds === 'number' ? lyricVerdict.loop_rounds : null,
-        loop_unresolved:
-          typeof lyricVerdict?.loop_unresolved === 'number' ? lyricVerdict.loop_unresolved : null,
-        answers_on_record:
-          typeof lyricVerdict?.answers_on_record === 'number'
-            ? lyricVerdict.answers_on_record
-            : null,
-      });
-      if (onEvent) onEvent({ type: 'tool', name: fc.name, isError });
-      responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
-    }
-    // Gemini takes tool output back on the `user` turn.
-    contents.push({ role: 'user', parts: responses });
+      // Gemini takes tool output back on the `user` turn.
+      contents.push({ role: 'user', parts: responses });
 
-    // Stop between hops once this turn has spent its allowance. Checked HERE,
-    // after the tool responses are appended, so the transcript handed back is
-    // still coherent and the next user message can continue from it — an abort
-    // mid-hop would strand a functionCall with no functionResponse, which
-    // Gemini rejects on the following turn.
-    //
-    // A null cost means the model is unpriced, which the caller is supposed to
-    // have refused before getting here; if one reaches this loop anyway, stop
-    // rather than run on unmetered.
-    const soFar = costOf(usage, model);
-    if (limits.maxTurnUsd > 0 && (soFar === null || soFar >= limits.maxTurnUsd)) {
-      stopped = soFar === null ? 'UNPRICED_MODEL' : 'MAX_TURN_COST';
-      if (onEvent) onEvent({ type: 'stopped', reason: stopped, usd: soFar });
-      break;
+      // Stop between hops once this turn has spent its allowance. Checked HERE,
+      // after the tool responses are appended, so the transcript handed back is
+      // still coherent and the next user message can continue from it — an abort
+      // mid-hop would strand a functionCall with no functionResponse, which
+      // Gemini rejects on the following turn.
+      //
+      // A null cost means the model is unpriced, which the caller is supposed to
+      // have refused before getting here; if one reaches this loop anyway, stop
+      // rather than run on unmetered.
+      const soFar = costOf(usage, model);
+      if (limits.maxTurnUsd > 0 && (soFar === null || soFar >= limits.maxTurnUsd)) {
+        stopped = soFar === null ? 'UNPRICED_MODEL' : 'MAX_TURN_COST';
+        if (onEvent) onEvent({ type: 'stopped', reason: stopped, usd: soFar });
+        break;
+      }
+      if (step === limits.maxSteps - 1) stopped = 'MAX_STEPS';
     }
-    if (step === limits.maxSteps - 1) stopped = 'MAX_STEPS';
+  } catch (err) {
+    if (err && typeof err === 'object') {
+      err.usage = usage;
+      err.calls = calls;
+    }
+    throw err;
   }
 
   return {

@@ -976,10 +976,88 @@ PROFILES = [
     ),
 ]
 
+#: THE SHORT-SONG PROFILE — ADOPTED 2026-09-01 under the owner's delegation
+#: (`quality/SHORT_SONG_FLOOR_PREREGISTRATION.md`, results in
+#: `quality/RESULTS_SHORT_SONG_FLOOR.md`; `MISSING.md` M-193). Below 200
+#: tokens a lyric sheet reached no exact profile: M-181 measured the five
+#: songs a listener preferred as the SHORT ones, and the planner's envelope
+#: (`plan.song_line_counts`, which unions every `n_lines == 0` profile)
+#: could not volunteer one. The band rule is the `song` profile's own,
+#: UNCHANGED, searched over edges 50..200 (`song_profile_calibration.py
+#: --profile short`), and it returns 50-150: 50-200 fails on `mattr` at
+#: 50-100 (|d| 0.0262 > 0.02), 100-200 on anaphora at 150-200 (|d| 0.0333
+#: > 0.03); 150-200 clears ALONE (1,336 items) and is excluded by the
+#: rule's own clause (iii) — a follow-up band, not this one. FOUR checks:
+#: `predictable_pair_fraction_max` is ABSENT here for the `section`
+#: profile's reason (never measured at this length; stage B of the
+#: preregistration is the run that would add it), so PREDICTABLE_RHYME
+#: does not fire at this length rather than borrowing a cut.
+PROFILES.append(
+    Profile(
+        name="short", unit="whole lyric sheet, 50-150 tokens",
+        lo=50, hi=150, n_lines=0, n_human=3703, n_generated=0,
+        tolerance=1.25,  # declared, see note: the union FPR FALLS with the factor here
+        percentiles={
+            "mattr_min": 0.6682,                # human 5th
+            "function_word_ratio_max": 0.4940,  # human 95th
+            "anaphora_max": 0.3750,             # human 95th
+            "line_length_cv_min": 0.0960,       # human 5th
+        },
+        measured_auc={},
+        held_out_fpr={
+            # (median, 5th percentile of seeds, 95th percentile of seeds);
+            # AUTHOR-held out, 200 seeds, 50/50 — the song profile's protocol.
+            "mattr": (5.30, 2.06, 9.87),
+            "function_word_ratio": (5.06, 2.77, 8.44),
+            "anaphora": (3.71, 3.02, 7.43),
+            "line_length_cv": (4.99, 3.36, 7.27),
+            "ANY": (16.18, 11.09, 22.23),
+            # point estimate 148/3703 = 4.00%; not in ANY, may only reject
+            # inside this band (the `song` row's argument, verbatim)
+            "cliche": (4.02, 3.37, 4.72),
+        },
+        source="corpus/song/eng_*.txt: 1,297 files, 1,294 distinct authors, "
+               "8,667 `--- TITLE:` items, 283,520 sung lines. Restricted to "
+               "items of 50-150 tokens: 3,703 items over 690 authors. "
+               "Thresholds are the 5th/95th percentile of that human class; "
+               "median items per author 1; top five authors 35.4% of the "
+               "band (Watts 421, Herrick 348, Burns 262, Durfey 171, Hemans); "
+               "leave-one-author-out moves the thresholds by at most 0.0115 "
+               "(mattr), 0.0026 (fwr), 0.0000 (anaphora), 0.0020 (cv). "
+               "Author-weighted alternative 0.6893 / 0.4882 / 0.3559 / "
+               "0.1011; item-weighted ships because the rate the gate "
+               "delivers is an item rate. Re-derived by "
+               "`python3 quality/song_profile_calibration.py --profile short "
+               "--check --without-predictability` (~150 CPU-s cold).",
+        note="THE TOLERANCE RUNS THE OTHER WAY HERE, AND IT IS SAID RATHER "
+             "THAN COPIED: carrying these thresholds out by 1.10 / 1.25 / "
+             "1.50 / 2.00 / 3.00 takes the union held-out FPR 16.18% -> "
+             "15.76 / 15.19 / 14.22 / 13.62 / 12.69%, FALLING, because a "
+             "floor calibrated on short sheets rarely fires on longer ones "
+             "(the mattr floor is the lowest of the three lyric-sheet "
+             "profiles). So 1.25 is not the cheap point of a rising cost, "
+             "as it is for `song`; it is DECLARED to match that profile so "
+             "the two reaches meet (40-187 against 160-500) and the "
+             "nearest-measured-edge rule decides between them. "
+             "PERIOD (doctrine 11): 381 of 690 authors are dated, 309 are "
+             "not; mattr rho -0.226 (p_perm 0.0001), fwr +0.143 (0.0052) "
+             "and anaphora +0.164 (0.0022) SURVIVE Bonferroni at 0.0125, cv "
+             "does not; thresholds fitted on earlier-born authors over-flag "
+             "later-born ones (EARLY->LATE union 26.10% against a null "
+             "median 16.15%, p 0.0075) and the reverse runs at or below the "
+             "null. A stronger period reading than `song`'s, on the same "
+             "45%-undated subsample, and NOT adopted as a caution for the "
+             "same reason (doctrine 20) — recorded here so the next reader "
+             "of this band knows which way it leans. No generated class "
+             "exists at this length; the evidence is the held-out FPR. "
+             "The tie with `sonnet` over 108-150 tokens is broken by the "
+             "text's LINE COUNT (`declaration_for`, preregistration §4).",
+    ))
+
 CALIBRATION["profiles"] = {p.name: p for p in PROFILES}
 
 
-def declaration_for(n_tokens):
+def declaration_for(n_tokens, n_lines=None):
     """Pick the calibrated profile for a text of `n_tokens`.
 
     Returns (profile, exact). `exact` is False when the length is inside a
@@ -987,10 +1065,29 @@ def declaration_for(n_tokens):
     downgraded to notes in that case. Returns (None, False) when no profile
     reaches the length at all, and the gate then runs only the checks that do
     not depend on length.
+
+    THE TIE-BREAK, RULED BEFORE THE ROW THAT NEEDS IT EXISTED (2026-09-01,
+    `quality/SHORT_SONG_FLOOR_PREREGISTRATION.md` §4). Two profiles can COVER
+    one token count — `sonnet` is 108-126 tokens and a lyric-sheet profile
+    reaching under 126 covers them too — and the first in `PROFILES` won,
+    which graded a twenty-line song of 115 tokens on fourteen-line sonnets.
+    Among the covering profiles the pick prefers (a) a profile whose
+    `n_lines` equals the text's line count exactly — the unit the profile
+    was calibrated on IS this text's shape — then (b) a profile whose unit
+    fixes no line count (`n_lines == 0`, a lyric sheet), then (c) list
+    order. A caller that passes no line count gets list order, byte for
+    byte what it got before the parameter existed.
     """
-    for p in PROFILES:
-        if p.covers(n_tokens):
-            return p, True
+    covering = [p for p in PROFILES if p.covers(n_tokens)]
+    if covering:
+        if n_lines is not None:
+            exact_unit = [p for p in covering if p.n_lines == n_lines]
+            if exact_unit:
+                return exact_unit[0], True
+            sheet = [p for p in covering if not p.n_lines]
+            if sheet:
+                return sheet[0], True
+        return covering[0], True
     reach = [p for p in PROFILES if p.reaches(n_tokens)]
     if not reach:
         return None, False
@@ -1303,7 +1400,7 @@ class SlopFloor:
             return out
         d = self.decl
         n_tok = sum(len(self.qf._tokens(l)) for l in lines)
-        prof, exact = declaration_for(n_tok)
+        prof, exact = declaration_for(n_tok, len(lines))
 
         def sev(default):
             """An extrapolated measurement may not carry a rejection."""

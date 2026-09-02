@@ -919,6 +919,58 @@ def test_the_type_judge_past_one_syllable():
           and ask("type:pararhyme", "cellar", "seller") == "REFUSED")
 
 
+def test_the_default_door_reads_normative():
+    print("\n12. the whole-vocabulary DEFAULT declines a FORBIDDEN or "
+          "DEPRECATED schema; asked by name, the judge still answers "
+          "(`MISSING.md` M-140, ruled 2026-09-01)")
+    import dataclasses
+    from quality import relations as RL
+    from quality import phonology as PH
+    phon = PH.get("eng")
+    lines = ["the cat sat on the mat", "and wore a little hat"]
+    stream = RL.build_stream(list(lines), phon)
+    sch = RL.REGISTRY["perfect rhyme"]
+    check("the premise: perfect rhyme answers cat/hat on this stream by "
+          "name", (1, 2) in RL.line_pairs_for(sch, stream))
+    RL._WVP_MEMO.clear()
+    before = RL.whole_vocabulary_pairs(lines, phon)
+    check("...and the default door names it on that pair",
+          "perfect rhyme" in before.get((1, 2), []),
+          f"{before.get((1, 2), [])[:6]}")
+    # THE MUTATION: mark the schema forbidden in the registry for the
+    # duration of two calls, then restore. A frozen row is replaced, not
+    # edited, and the memo is cleared either side so a cached answer cannot
+    # stand in for the judge.
+    mutant = dataclasses.replace(sch, normative="forbidden")
+    RL.REGISTRY["perfect rhyme"] = mutant
+    try:
+        RL._WVP_MEMO.clear()
+        after = RL.whole_vocabulary_pairs(lines, phon)
+        by_name = RL.line_pairs_for(RL.REGISTRY["perfect rhyme"], stream)
+    finally:
+        RL.REGISTRY["perfect rhyme"] = sch
+        RL._WVP_MEMO.clear()
+    check("marked FORBIDDEN, the silent default no longer names it — the "
+          "registry cannot ban a pair on one page and admit it on the next",
+          "perfect rhyme" not in after.get((1, 2), []),
+          f"{after.get((1, 2), [])[:6]}")
+    check("...while the judge asked BY NAME still answers: a writer who "
+          "declares `schema:` a forbidden name gets the answer and the "
+          "name's own status to read",
+          (1, 2) in by_name)
+    check("...and the restoration held",
+          "perfect rhyme" in RL.whole_vocabulary_pairs(lines, phon)
+          .get((1, 2), []))
+    bad = [n for n in RL.REGISTRY
+           if RL.REGISTRY[n].normative in ("forbidden", "deprecated")]
+    check("the registry DOES carry forbidden and deprecated rows — "
+          "`homoioteleuton`, the tier-1 ban, among them — so the filter "
+          "is live and not vacuous",
+          "homoioteleuton" in bad and len(bad) >= 3, f"{sorted(bad)}")
+    check("...and none of them is drawable by the planner",
+          not (set(bad) & set(RL.DRAWABLE_SCHEMAS)))
+
+
 if __name__ == "__main__":
     for fn in (test_vocabulary, test_judge, test_mandate_coordinate,
                test_grade_routing, test_position_is_declared,
@@ -927,7 +979,8 @@ if __name__ == "__main__":
                test_the_schema_namespace_is_judged,
                test_identity_is_the_schemas_own_ruling,
                test_the_drawable_pool_holds_through_the_grade_route,
-               test_the_type_judge_past_one_syllable):
+               test_the_type_judge_past_one_syllable,
+               test_the_default_door_reads_normative):
         fn()
     print("=" * 62)
     if FAILURES:

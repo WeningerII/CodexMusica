@@ -400,7 +400,7 @@ function extractLoopRecord(report) {
   // separate count from the open lines (doctrine 79): a song with no open
   // line and one whole-draft flag is NOT finished, and used to be stamped so.
   const m =
-    /\[FINISHED\s*—\s*seed\s*(-?\d+)\s*—\s*exit\s*(\d+)\s*—\s*([A-Z_]+)\s+after\s+(\d+)\s+round\(s\)\s*—\s*(?:UNRESOLVED:\s*([^\]—]*)|no flag stands)(?:\s*—\s*WHOLE-DRAFT FLAG:\s*([^\]]*))?\]/.exec(
+    /\[FINISHED\s*—\s*(?:seed\s*(-?\d+)|declared mandate)\s*—\s*exit\s*(\d+)\s*—\s*([A-Z_]+)\s+after\s+(\d+)\s+round\(s\)\s*—\s*(?:UNRESOLVED:\s*([^\]—]*)|no flag stands)(?:\s*—\s*WHOLE-DRAFT FLAG:\s*([^\]]*))?\]/.exec(
       report
     );
   if (!m) return null;
@@ -413,7 +413,9 @@ function extractLoopRecord(report) {
     .map((s) => s.trim())
     .filter(Boolean);
   return {
-    seed: Number(m[1]),
+    // `seed` is null for a pasted song's run (M-195), never 0: the stamp
+    // then reads `declared mandate` and the record says so.
+    seed: m[1] == null ? null : Number(m[1]),
     stop_reason: m[3],
     rounds: Number(m[4]),
     unresolved: lines.length,
@@ -421,6 +423,28 @@ function extractLoopRecord(report) {
     whole_flags: whole.length,
     whole_flag_codes: whole,
   };
+}
+
+// THE RECOVERED MANDATE, read off the `recover` verb's own MANDATE SPELLING
+// block (M-195) — the two CLI flags the cover splits into, so a caller can
+// hand them to lyric_check / lyric_revise verbatim. Extraction, not
+// re-derivation: `quality/recover.py` spells them and nothing here rebuilds
+// the cover.
+function extractRecoveredMandate(report) {
+  const g = /^\s*--groups=(\S*)\s*$/m.exec(report);
+  const r = /^\s*--returns=(\S*)\s*$/m.exec(report);
+  if (!g && !r) return null;
+  return { groups: g ? g[1] : '', returns: r ? r[1] : '' };
+}
+
+// The coordinates `recover` REFUSED — the work order. Each is printed as
+// `  <key>: REFUSED — <why>` in the render; the key and the reason travel.
+function extractRecoverRefusals(report) {
+  const out = [];
+  const re = /^\s{2}([a-z_]+)\s*:\s*REFUSED\s*[—-]\s*([^\n]*)/gm;
+  let m;
+  while ((m = re.exec(report))) out.push({ coordinate: m[1], why: m[2].trim() });
+  return out;
 }
 
 // THE REPORT'S OWN COUNTS, extracted the way `extractBannedPairs` extracts
@@ -461,7 +485,13 @@ function extractUnreadable(report) {
   while ((m = re.exec(report))) {
     const lines = [];
     const lm = /\(lines ([^)]*)\)/.exec(m[2]);
-    if (lm) lines.push(...lm[1].split(',').map((s) => s.trim()).filter(Boolean));
+    if (lm)
+      lines.push(
+        ...lm[1]
+          .split(',')
+          .map((s) => s.trim())
+          .filter(Boolean)
+      );
     const lre = /\bL(\d+)\b/g;
     let x;
     while ((x = lre.exec(m[2]))) lines.push(x[1]);
@@ -492,8 +522,8 @@ function verdictOf(r) {
     if (r.code === 0 && (counts.flags > 0 || counts.whole_flags > 0)) {
       v.meaning =
         `answered — ${counts.flags} per-line FLAG(s) and ${counts.whole_flags} whole-draft ` +
-        'FLAG(s) STAND (two counts, never summed); the exit code is brief\'s, whose gates are ' +
-        "song's alone, so 0 here means \"answered\", not \"clean\" — read the report";
+        "FLAG(s) STAND (two counts, never summed); the exit code is brief's, whose gates are " +
+        'song\'s alone, so 0 here means "answered", not "clean" — read the report';
     }
   }
   const unreadable = extractUnreadable(r.stdout);
@@ -826,6 +856,30 @@ const narrativeField = z
     "The story plan. Omit: the planner DRAWS one job per sung section (ESTABLISH, COMPLICATE, TURN, DWELL, ANCHOR, JUDGE, RESOLVE, DEPART) and the junction each enters by. 'off' silences the layer. Or declare it: 'ATOM,ATOM/JUNCTION,ATOM/JUNCTION' — one atom per sung section, a junction (THEREFORE, BUT, AND_THEN, MEANWHILE, ELABORATE, JUXTAPOSE) before every atom after the first. A RECORD, not a gate: nothing grades a draft against its story plan today; the brief prints it and the grade repeats it."
   );
 
+// THE PASTED-SONG DOOR (M-195, 2026-09-01). A song a human pastes reached
+// the graders with no blueprint (so meter, hook and title were never asked),
+// no loop (lyric_revise needed a seed) and no structurer (quality/recover.py
+// had no verb and no tool). These fields are the declaration a paste can
+// carry: a blueprint the caller DECLARES (or one lyric_recover handed back
+// with its refusals still in it) and the subdivision every slot question
+// needs.
+const blueprintField = z
+  .string()
+  .max(MAX_STATE_CHARS)
+  .optional()
+  .describe(
+    'A DECLARED blueprint as JSON text — the bar grid `song` grades against: {"sections":[{"name","function","bars","start_bar","meter":{"beats","unit","groups":[…]}}],"lines":[{"text","bar","beat","duration"}], optional "title", "hooks"}. With it the meter, song-function, hook and title layers are ASKED; without it only rhyme and the slop floor are (the verdict says which). A meter written as a signature STRING ("4/4") is refused, not parsed. Pass `subdivision` with it.'
+  );
+const subdivisionField = z
+  .number()
+  .int()
+  .min(1)
+  .max(8)
+  .optional()
+  .describe(
+    'The slot grid under a declared blueprint — units per beat (2 = eighths in x/4). REQUIRED with `blueprint` for the slot questions (SLOTS_EXCEEDED, the syllable ceiling); without it they REFUSE rather than assume a sixteenth-note grid.'
+  );
+
 const draftField = z
   .array(z.string().max(MAX_LINE_CHARS))
   .min(1)
@@ -841,6 +895,8 @@ export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
   verdictOf,
+  extractRecoveredMandate,
+  extractRecoverRefusals,
   extractReportCounts,
   extractUnreadable,
   extractLoopRecord,
@@ -884,7 +940,39 @@ export const LYRIC_TOOL_SCHEMAS = {
     fallback: fallbackField,
   },
   lyric_revise: {
-    seed: seedField,
+    // OPTIONAL SINCE M-195: a pasted song has no seed. Declare EITHER a seed
+    // (the plan is the mandate) OR a mandate (`scheme` or `groups`, with
+    // `returns`/`relation`/`structures`/`blueprint`/`subdivision` as
+    // lyric_check takes them); exactly one, never both.
+    seed: seedField.optional(),
+    scheme: z
+      .string()
+      .max(64)
+      .optional()
+      .describe(
+        "For a pasted song (no seed): the letter rhyme scheme over the lines, e.g. 'ABAB' (X = free)."
+      ),
+    groups: z
+      .string()
+      .max(MAX_MANDATE_CHARS)
+      .optional()
+      .describe(
+        "For a pasted song (no seed): rhyme groups by 1-based line number, e.g. '1,3;2,4', a member optionally naming its place ('1,3.head'). The mandate lyric_check graded under — pass the SAME one here, so the loop revises against what was checked."
+      ),
+    returns: z
+      .string()
+      .max(MAX_MANDATE_CHARS)
+      .optional()
+      .describe("For a pasted song: verbatim-return classes by line number, e.g. '5,13;6,14'."),
+    structures: z
+      .string()
+      .max(MAX_MANDATE_CHARS)
+      .optional()
+      .describe(
+        'For a pasted song: catalog structures per group, exactly as lyric_check takes them.'
+      ),
+    blueprint: blueprintField,
+    subdivision: subdivisionField,
     form: formField,
     lines: linesField,
     relation: relationField,
@@ -954,7 +1042,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_WANTS)
       .optional()
       .describe(
-        "What you want the shape to be, as predicates: NAME<=N, NAME>=N, or NAME=VALUE. The vocabulary is CLOSED and an undeclared name refuses BY NAME, printing the whole table. Counts (answer <=, >=, =): lines, sections, lines_per_section (smallest SUNG section), group (deepest rhyme group), bars_per_line, beats_per_line, slots_per_line, hook (line number, 0 if none), returns (how many verbatim-return classes), pins_per_line (most words any line is bound at), bound_words_per_line (the MEAN words bound per line, over every line — the DENSITY coordinate, and the one that answers a fraction: `pins_per_line` is a per-line CAP, so it asks whether EVERY line is under k and at song length nearly every draw puts some line at the ceiling), story_lineups (how many legal story line-ups the shape admits — story_lineups>=1 filters for shapes that can carry a story at all). Function-valued (answer '=' only, comma-separated names): uses=verse,chorus means BOTH were drawn; before=verse,chorus means the first verse precedes the first chorus, and is FALSE rather than an error if either is absent. Omit entirely and every seed that plans is accepted, which is honest and useless — there is no default, because a sweep does not decide what you want."
+        "What you want the shape to be, as predicates: NAME<=N, NAME>=N, or NAME=VALUE. The vocabulary is CLOSED and an undeclared name refuses BY NAME, printing the whole table. Counts (answer <=, >=, =): lines, sections, lines_per_section (smallest SUNG section), group (deepest rhyme group), bars_per_line, beats_per_line, slots_per_line, hook (line number, 0 if none), returns (how many verbatim-return classes), pins_per_line (most words any line is bound at), bound_words_per_line (the MEAN words bound per line, over every line — the DENSITY coordinate, and the one that answers a fraction: `pins_per_line` is a per-line CAP, so it asks whether EVERY line is under k and at song length nearly every draw puts some line at the ceiling), binding_cap (the plan's own DENSITY coordinate: the most web bindings any line was ASKED to draw, drawn per plan uniform over 1..the line-binding ceiling — binding_cap<=1 is the classic end-rhyme song with one web binding a line, and bound_words_per_line is what that draw then measured), story_lineups (how many legal story line-ups the shape admits — story_lineups>=1 filters for shapes that can carry a story at all). Function-valued (answer '=' only, comma-separated names): uses=verse,chorus means BOTH were drawn; before=verse,chorus means the first verse precedes the first chorus, and is FALSE rather than an error if either is absent. Omit entirely and every seed that plans is accepted, which is honest and useless — there is no default, because a sweep does not decide what you want."
       ),
     form: formField,
     lines: linesField,
@@ -1002,6 +1090,17 @@ export const LYRIC_TOOL_SCHEMAS = {
         'The 1-based lines this revision was ASKED to change. Declaring it turns on the "you quietly rewrote lines nobody asked about" rejection — one of the three silent ways a revision goes wrong. Omit and that check does not run, which is a REFUSAL on it, not evidence the revision stayed in scope.'
       ),
   },
+  lyric_recover: {
+    lines: draftField,
+    placements: z
+      .string()
+      .max(200)
+      .optional()
+      .describe(
+        "Which places in a line the recovered web searches, comma-separated (end, endword, head, headrime, T<n>); omit for the module's default set, which the report names."
+      ),
+    fallback: fallbackField,
+  },
   lyric_check: {
     lines: draftField,
     scheme: z
@@ -1038,6 +1137,8 @@ export const LYRIC_TOOL_SCHEMAS = {
       ),
     voices: voicesField,
     fallback: fallbackField,
+    blueprint: blueprintField,
+    subdivision: subdivisionField,
     returns: z
       .string()
       .max(MAX_MANDATE_CHARS)
@@ -1304,7 +1405,64 @@ export function registerLyricTools(server, tool) {
         } else if (a.answer != null) {
           throw refuse('`answer` without `state` — the first call has no question to answer');
         }
-        const args = [...globalsFor(a), 'finish', draftPath, ...planArgs(a), `--propose=defer:${statePath}`];
+        // SEEDED: `finish` reads the mandate off the plan. UNSEEDED (M-195):
+        // `revise` under the declared mandate, with the same deferred state,
+        // the same stop conditions and — since M-195 — the same render and
+        // [FINISHED — …] stamp, so a pasted song has the same door to a
+        // finished song a planned one has.
+        const seeded = a.seed != null;
+        const hasScheme = a.scheme != null && a.scheme !== '';
+        const hasGroups = a.groups != null && a.groups !== '';
+        if (seeded && (hasScheme || hasGroups || a.returns || a.structures || a.blueprint))
+          throw refuse(
+            'a seeded run takes its mandate and its blueprint OFF THE PLAN — drop scheme/groups/returns/structures/blueprint, or drop the seed to revise a pasted song'
+          );
+        if (!seeded && hasScheme === hasGroups)
+          throw refuse(
+            "without a seed, declare exactly one of 'scheme' or 'groups' — a pasted song's mandate is a declaration, not a default"
+          );
+        if (!seeded && hasScheme && !SCHEME_RE.test(a.scheme))
+          throw refuse("scheme must be letters only, e.g. 'ABAB'");
+        if (!seeded && hasGroups && !MANDATE_RE.test(a.groups))
+          throw refuse("groups must be line numbers like '1,3;2,4', optionally naming a place");
+        if (!seeded && a.returns && !RETURNS_RE.test(a.returns))
+          throw refuse("returns must be line numbers like '5,13;6,14'");
+        if (!seeded && a.structures && !STRUCTURES_RE.test(a.structures))
+          throw refuse(
+            "structures must be 'LABEL:name' pairs, comma-separated, e.g. 'A:pararhyme'"
+          );
+        if (a.blueprint != null && a.subdivision == null)
+          throw refuse(
+            '`blueprint` needs `subdivision` — the slot questions refuse rather than assume a grid'
+          );
+        let args;
+        if (seeded) {
+          args = [
+            ...globalsFor(a),
+            'finish',
+            draftPath,
+            ...planArgs(a),
+            `--propose=defer:${statePath}`,
+          ];
+        } else {
+          args = [...globalsFor(a), 'revise', draftPath];
+          if (hasScheme) args.push(a.scheme);
+          if (hasGroups) args.push(`--groups=${a.groups}`);
+          if (a.returns) args.push(`--returns=${a.returns}`);
+          if (a.relation) args.push(`--relation=${a.relation}`);
+          if (a.structures) args.push(`--structures=${a.structures}`);
+          if (a.blueprint != null) {
+            const bpPath = path.join(dir, 'blueprint.json');
+            try {
+              JSON.parse(a.blueprint);
+            } catch {
+              throw refuse('`blueprint` is not JSON text');
+            }
+            await writeFile(bpPath, a.blueprint, 'utf8');
+            args.push(`--blueprint=${bpPath}`, '--subdivision', String(a.subdivision));
+          }
+          args.push(`--propose=defer:${statePath}`);
+        }
         if (a.max_rounds != null) args.push(`--max-rounds=${a.max_rounds}`);
         if (a.attempts != null) args.push(`--attempts=${a.attempts}`);
         if (a.backtrack != null) args.push(`--backtrack=${a.backtrack}`);
@@ -1316,7 +1474,7 @@ export function registerLyricTools(server, tool) {
           // nothing to leak even if it tried.
           const st = JSON.parse(await readFile(statePath, 'utf8'));
           const onRecord = st.answered.propose.length + st.answered.propose_group.length;
-          const head = `[AWAITING PROPOSAL — seed ${a.seed} — ${onRecord} answer(s) on record — NO SONG YET]`;
+          const head = `[AWAITING PROPOSAL — ${a.seed != null ? `seed ${a.seed}` : 'declared mandate'} — ${onRecord} answer(s) on record — NO SONG YET]`;
           return {
             content: [
               { type: 'text', text: `${head}\n\n${(st.pending && st.pending.prompt) || r.stdout}` },
@@ -1466,7 +1624,9 @@ export function registerLyricTools(server, tool) {
         await writeFile(bPath, a.before.join('\n') + '\n', 'utf8');
         await writeFile(aPath, a.after.join('\n') + '\n', 'utf8');
         if (a.structures && !STRUCTURES_RE.test(a.structures))
-          throw refuse("structures must be 'LABEL:name' pairs, comma-separated, e.g. 'A:pararhyme'");
+          throw refuse(
+            "structures must be 'LABEL:name' pairs, comma-separated, e.g. 'A:pararhyme'"
+          );
         const args = [...globalsFor(a), 'verify', bPath, aPath];
         if (hasScheme) args.push(a.scheme);
         if (hasGroups) args.push(`--groups=${a.groups}`);
@@ -1480,6 +1640,49 @@ export function registerLyricTools(server, tool) {
         if (a.targeted && a.targeted.length) args.push(...a.targeted.map(String));
         const r = await runVerb(args);
         return verifyVerdictOf(r);
+      })
+  );
+
+  tool(
+    server,
+    'lyric_recover',
+    {
+      title: 'Structure a pasted song (the second door into the pipeline)',
+      description:
+        "THE FIRST STEP FOR LYRICS A HUMAN PASTES, before lyric_check: the owner's rule is that a pasted song " +
+        'goes through every step a planned one does, and the first step is to STRUCTURE it. The harness counts the ' +
+        'lines and the syllables per line, reads [SECTION] marks (or blank lines) into sections, and RECOVERS the ' +
+        'rhyme web as a cover over places in each line — every coordinate stamped with how it was obtained (counted / ' +
+        'declared / derived / REFUSED). A REFUSED coordinate is a work order, never a guess: the meter is refused ' +
+        '(counting gives syllables, not a bar grid — declare one), and a REPEAT edge that binds inside a line has no ' +
+        'mandate spelling and is named. The verdict carries `mandate` — the `groups` and `returns` strings to pass to ' +
+        'lyric_check / lyric_revise so the graders judge the cover the text actually carries — and `refusals`, the ' +
+        'coordinates the caller must declare. Exit 3 means at least one coordinate was refused (the ordinary case: ' +
+        'meter); exit 0 means every coordinate was recovered. Derived coordinates are NOT independent of the grader ' +
+        '(doctrine 14): a recovered web graded at the same theta cannot fail on rhyme, and the report says so.',
+      inputSchema: LYRIC_TOOL_SCHEMAS.lyric_recover,
+    },
+    (a) =>
+      withTempDir(async (dir) => {
+        checkLines(a.lines);
+        if (a.placements != null && !/^[A-Za-z0-9]+(,[A-Za-z0-9]+)*$/.test(a.placements))
+          throw refuse("placements must be names like 'end,head,T4', comma-separated");
+        const draftPath = path.join(dir, 'draft.txt');
+        await writeFile(draftPath, a.lines.join('\n') + '\n', 'utf8');
+        const args = [...globalsFor(a), 'recover', draftPath];
+        if (a.placements) args.push(`--placements=${a.placements}`);
+        const r = await runVerb(args);
+        const v = verdictOf(r);
+        if (r.code === 0 || r.code === 3) {
+          v.meaning =
+            r.code === 0
+              ? 'recovered — every coordinate obtained; none refused'
+              : 'recovered with REFUSALS — the coordinates named under `refusals` must be DECLARED by the caller before the graders can ask about them (the meter, always: counting gives syllables, not a grid)';
+          const m = extractRecoveredMandate(r.stdout);
+          if (m) v.mandate = m;
+          v.refusals = extractRecoverRefusals(r.stdout);
+        }
+        return v;
       })
   );
 
@@ -1535,6 +1738,10 @@ export function registerLyricTools(server, tool) {
           );
         const draftPath = path.join(dir, 'draft.txt');
         await writeFile(draftPath, a.lines.join('\n') + '\n', 'utf8');
+        if (a.blueprint != null && a.subdivision == null)
+          throw refuse(
+            '`blueprint` needs `subdivision` — the slot questions refuse rather than assume a grid'
+          );
         const args = [...globalsFor(a), 'brief', draftPath];
         if (hasScheme) args.push(a.scheme);
         if (hasGroups) args.push(`--groups=${a.groups}`);
@@ -1545,8 +1752,23 @@ export function registerLyricTools(server, tool) {
         // rule in JS is a second place for it to drift, and the harness's
         // refusal names both coordinates and the spelling that works.
         if (a.structures) args.push(`--structures=${a.structures}`);
+        // THE BLUEPRINT (M-195): with it `brief` asks meter, song-function,
+        // hook and title of a pasted song, exactly as `song` asks them of a
+        // planned one; the verdict's `blueprint_declared` says which ran.
+        if (a.blueprint != null) {
+          const bpPath = path.join(dir, 'blueprint.json');
+          try {
+            JSON.parse(a.blueprint);
+          } catch {
+            throw refuse('`blueprint` is not JSON text');
+          }
+          await writeFile(bpPath, a.blueprint, 'utf8');
+          args.push(`--blueprint=${bpPath}`, '--subdivision', String(a.subdivision));
+        }
         const r = await runVerb(args);
-        return verdictOf(r);
+        const v = verdictOf(r);
+        v.blueprint_declared = a.blueprint != null;
+        return v;
       })
   );
 
@@ -1601,7 +1823,12 @@ export const LYRIC_INSTRUCTIONS =
   'the bracket headers ([CHORUS — 3 lines — 6 bars of 6/8, half-beat pickup]) are measurements, ' +
   'restyling them to bare [CHORUS] deletes what the format exists to carry, and the [GRADED — seed …] ' +
   'stamp line under the song is part of the block and reaches the user with it. For lyrics a user ' +
-  'pastes, lyric_check with their declared scheme or groups — and lyric_verify to judge a CHANGE to one, ' +
+  "pastes, the SAME steps as a planned song (the owner's rule): lyric_recover FIRST to structure them — it hands " +
+  'back the `mandate` (groups/returns) the text actually carries and the coordinates it REFUSED (the meter, ' +
+  'always) for the user to declare — then lyric_check with that mandate (and a declared blueprint + subdivision ' +
+  'when the user gives the grid), then lyric_revise WITHOUT a seed and with the same mandate to drive the loop ' +
+  'to a stop condition; a bare lyric_check on a paste is the rhyme and floor layers only, and its verdict says ' +
+  'so. lyric_verify judges a CHANGE to one, ' +
   'which is the other half of a revision round: read its `accepted`, not its exit code, and remember it is a ' +
   'DIFF that cannot report banned pairs surviving untouched. FLAGS are defects; banned pairs are ' +
   'unskippable whatever their severity; other NOTES are measurements and are not to be "fixed". A verdict ' +

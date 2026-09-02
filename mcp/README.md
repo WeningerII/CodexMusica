@@ -98,6 +98,8 @@ A `render.yaml` blueprint is included at the repo root:
 2. Your endpoint is `https://<service-name>.onrender.com/mcp`.
 3. Claude → **Add connectors → custom** → paste that `…/mcp` URL.
 
+**Client timeout.** A grading call is not quick: measured 2026-09-01 on the shape the planner draws today, `lyric_grade` is three serial verbs and **90–170 s**, `lyric_revise` 30–90 s a call, `lyric_screen` on four words ~20 s (`MISSING.md` M-189, the timings every tool description carries). The MCP SDK's default request timeout is **60 s**, so an external client on the default clock will time out on a grade; raise the client's request timeout (the claude.ai client's is longer) or run the working order verb by verb. The server has one serial queue shared by every user, and a cancelled request still runs to completion on it.
+
 Notes: the `free` plan **spins down when idle** — the first call after a lull cold-starts in ~30–60s, which can stall the connector handshake; bump to `starter` to stay warm. The blueprint deploys from `main` (configured in `render.yaml`).
 
 - **No login.** The engine is read-only compute, so the server is open. Don't add

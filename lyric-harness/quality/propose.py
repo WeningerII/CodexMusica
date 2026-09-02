@@ -477,8 +477,15 @@ def _place_phrase(slot_key):
     if slot_key is None:
         return "end word"
     from quality import slots as _SL                   # noqa: PLC0415
+    # A `group_slots` value is the slot's SPELLING (`str(slot)`, e.g.
+    # `3.T4`), so it is parsed, never handed to `as_slot`, which reads a
+    # bare line number and raised on every spelled key — so every tier-2
+    # prompt of M-184's first day said "at its word at 3.T4", the fallback
+    # wearing the gloss's clothes (found 2026-09-01 by reading one, M-192).
     try:
-        return _SL.word_phrase(_SL.as_slot(slot_key))
+        slot = (_SL.parse_slot(slot_key) if isinstance(slot_key, str)
+                else _SL.as_slot(slot_key))
+        return _SL.word_phrase(slot)
     except Exception:                                  # noqa: BLE001
         return f"word at {slot_key}"
 

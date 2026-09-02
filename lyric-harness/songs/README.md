@@ -18,10 +18,13 @@ grading command below runs without re-deriving anything.
 BLUEPRINTS ARE WHAT REPRODUCE (recorded 2026-09-01 by the triage audit).**
 The planner has moved since these seeds were banked — `stanza_line_floor`
 (M-106), the song band 150 -> 200 (M-131/M-133), the participation reserve
-(M-171), and the density and recurrence coordinates of 2026-09-01 (M-190,
-M-191) — and a plan is a function of the seed AND the planner. MEASURED:
-`plan --seed=22` draws **30 lines** at HEAD against `keep_the_light.txt`'s
-18. Each song's `*.log.tsv` names the harness commit its plan was drawn at;
+(M-171), the density and recurrence coordinates of 2026-09-01 (M-190,
+M-191), and the SHORT floor profile of the same day (M-193), which took the
+planner's length envelope from 22–55 lines to **12–55** and re-rolled every
+seed's drawn length — and a plan is a function of the seed AND the planner.
+MEASURED before M-193: `plan --seed=22` drew **30 lines** at HEAD against
+`keep_the_light.txt`'s 18; after it, every seed below draws a different
+length again. Each song's `*.log.tsv` names the harness commit its plan was drawn at;
 re-derive a plan at THAT commit, or grade against the committed blueprint,
 which is the declaration the song was actually written to.
 

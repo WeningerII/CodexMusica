@@ -389,6 +389,12 @@ export async function createChatRouter({
       const lastRecipe = [...run.calls].reverse().find((c) => c.recipe && !c.isError);
       res.json({
         reply: run.reply,
+        // WHAT THE TURN COST AND HOW MANY HOPS IT TOOK (2026-09-01, triage
+        // finding C11): the battery and the page can record $/turn and
+        // hops/turn off the response instead of inferring them from the log,
+        // which is the measurement the CHAT_MAX_TURN_USD ruling waits on.
+        cost: run.cost,
+        usage: run.usage,
         // The recipe string is returned SEPARATELY as well as inside the reply.
         // The connector instructions ask the model to reproduce it verbatim, and
         // "asked to" is not "did" — the page renders this copy, so a recipe the
@@ -421,6 +427,19 @@ export async function createChatRouter({
       });
     } catch (err) {
       const status = err.status === 429 ? 429 : 502;
+      // THE HOPS BEFORE THE THROW WERE BILLED, SO THEY ARE CHARGED (M-197):
+      // `runTurn` hands the partial usage out on the error; a turn that died
+      // on hop 5 spent four hops of someone's key, and a counter that skips
+      // them reads lower than the bill. An uncomputable partial cost charges
+      // the turn's cap, the same safe direction the success path takes.
+      let chargedUsd = 0;
+      if (err && err.usage && err.usage.requests > 0) {
+        const partial = costOf(err.usage, model);
+        chargedUsd = partial === null ? LIMITS.maxTurnUsd : partial;
+        spend.usd += chargedUsd;
+        spend.turns += 1;
+        spendStore.save();
+      }
       // The upstream message can carry quota detail; the user gets the shape of
       // the problem, and the log gets the rest.
       console.error('[chat] ', err.message);
@@ -429,6 +448,8 @@ export async function createChatRouter({
           status === 429
             ? 'The engine is over its rate limit for the moment — try again in a minute.'
             : 'The engine could not answer that one. Try rephrasing?',
+        hopsBeforeFailure: err && err.usage ? err.usage.requests : 0,
+        chargedUsd: Number(chargedUsd.toFixed(4)),
       });
     } finally {
       inFlight--;
