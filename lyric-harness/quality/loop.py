@@ -1010,12 +1010,32 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         tried += 1
         after = list(lines)
         after[b.line_no - 1] = candidate
-        res = reviser.verify(lines, after, mandate, targeted={b.line_no},
+        # A RETURN IS A CLASS, AND REVISING ONE MEMBER OF IT IS REFUSING TO
+        # REVISE (`MISSING.md` M-201, owner's ruling 2026-09-02, found by the
+        # first clean end-to-end run). A `REQUIRE_RETURN` group says these
+        # lines ARE the same line; moving one and not its mates breaks the
+        # return, which rule 2 then rejects — so the loop was ASKING a
+        # question whose every answer is refused, and spending the line's
+        # whole attempt budget doing it. On seed 275 that was 10 of 19 lines.
+        # The move is the one M-105 already made at tier 2 when it stopped
+        # revising a PAIR and started revising the whole group: a set of
+        # lines that must move together is revised together, in one proposal,
+        # and every member is TARGETED so rule 2 admits what it asked for.
+        targets = {b.line_no}
+        for _lab, _members, _pairs in (b.must_answer or ()):
+            if _lab not in (b.return_groups or ()):
+                continue
+            for _ln in _members:
+                if 1 <= _ln <= len(after):
+                    after[_ln - 1] = candidate
+                    targets.add(_ln)
+        res = reviser.verify(lines, after, mandate, targeted=set(targets),
                              profile=profile, blueprint=blueprint,
                              subdivision=subdivision, assume=assume)
         if res["accepted"]:
             return LineAttempt(b.line_no, 1, True, tried,
-                               "; ".join(res["reasons"]), (b.line_no,)), after
+                               "; ".join(res["reasons"]),
+                               tuple(sorted(targets))), after
         reasons = res["reasons"]
     detail = f"tried {tried} candidate(s), none accepted"
     if reasons:
