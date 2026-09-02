@@ -1788,7 +1788,8 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     moved = list(CLICHE)
     moved[0] = l1_fix
     p3, _, d3 = LH._defer_proposer(state, lines=moved)
-    check("on a draft that MOVED, no such warning: those are new questions",
+    check("on a draft that MOVED, no COMPLETE warning — the questions are "
+          "new, though a recorded answer still answers them (counted below)",
           "THIS STATE IS COMPLETE" not in d3())
     # ...AND THE ANSWERS THAT STILL HIT ARE COUNTED AS STALE AT THE STOP
     # (2026-09-02, the tier-A verification's residual on M-183): the key is

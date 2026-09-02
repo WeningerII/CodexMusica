@@ -208,7 +208,31 @@ export const RETRY_ALL = [429, ...RETRY_TRANSIENT];
 // Test seam (the `_workerInternals` precedent): what the model is SHOWN is a
 // verdict this function computes, and a suite that cannot reach it can only
 // grep for the strip instead of proving it.
+// THE LOOP'S OWN RECORD OF A CALL, one pure function (M-169; extracted
+// 2026-09-02 so it can be pinned by VALUE rather than by grepping the
+// source). The verdict rides beside the exit code for the reason
+// banned_pairs does — a verdict only the model ever saw protects nobody,
+// and a transcript that cannot say how many rounds bought how many lines
+// cannot tell a slow run from a stuck one. `answers_on_record` joins them:
+// it is computed on both the suspended and the finished branch of
+// lyric_revise and was once dropped here, which is how round 10's "turn 0's
+// work was thrown away" reading survived long enough to need refuting from
+// a byte count. `loop_whole_flag_codes` joined 2026-09-02 (M-186): a
+// whole-only exit 3 carried `loop_unresolved` 0 and no cause.
+function loopFields(v) {
+  return {
+    exit_code: typeof v?.exit_code === 'number' ? v.exit_code : null,
+    banned_pairs: typeof v?.banned_pairs === 'number' ? v.banned_pairs : null,
+    loop_stop_reason: typeof v?.loop_stop_reason === 'string' ? v.loop_stop_reason : null,
+    loop_rounds: typeof v?.loop_rounds === 'number' ? v.loop_rounds : null,
+    loop_unresolved: typeof v?.loop_unresolved === 'number' ? v.loop_unresolved : null,
+    loop_whole_flag_codes: Array.isArray(v?.loop_whole_flag_codes) ? v.loop_whole_flag_codes : null,
+    answers_on_record: typeof v?.answers_on_record === 'number' ? v.answers_on_record : null,
+  };
+}
+
 export const _agentInternals = {
+  loopFields,
   toFunctionResponse,
   suspendedSeed,
   buildSystemInstruction,
@@ -573,32 +597,7 @@ export async function runTurn({
           error: isError ? (result?.content?.[0]?.text ?? '') : null,
           cards: payload?.cards ?? null,
           recipe: payload?.recipe ?? null,
-          exit_code: typeof lyricVerdict?.exit_code === 'number' ? lyricVerdict.exit_code : null,
-          banned_pairs:
-            typeof lyricVerdict?.banned_pairs === 'number' ? lyricVerdict.banned_pairs : null,
-          // M-169: the loop's own record of the run rides beside the exit code,
-          // for the reason banned_pairs does — a verdict only the model ever saw
-          // protects nobody, and a transcript that cannot say how many rounds
-          // bought how many lines cannot tell a slow run from a stuck one.
-          // `answers_on_record` joins them: it is already computed on both the
-          // suspended and the finished branch of lyric_revise and was dropped
-          // here, which is how round 10's "turn 0's work was thrown away" reading
-          // survived long enough to need refuting from a byte count.
-          loop_stop_reason:
-            typeof lyricVerdict?.loop_stop_reason === 'string'
-              ? lyricVerdict.loop_stop_reason
-              : null,
-          loop_rounds:
-            typeof lyricVerdict?.loop_rounds === 'number' ? lyricVerdict.loop_rounds : null,
-          loop_unresolved:
-            typeof lyricVerdict?.loop_unresolved === 'number' ? lyricVerdict.loop_unresolved : null,
-          loop_whole_flag_codes: Array.isArray(lyricVerdict?.loop_whole_flag_codes)
-            ? lyricVerdict.loop_whole_flag_codes
-            : null,
-          answers_on_record:
-            typeof lyricVerdict?.answers_on_record === 'number'
-              ? lyricVerdict.answers_on_record
-              : null,
+          ...loopFields(lyricVerdict),
         });
         if (onEvent) onEvent({ type: 'tool', name: fc.name, isError });
         responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });

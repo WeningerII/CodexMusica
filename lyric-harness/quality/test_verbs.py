@@ -4726,11 +4726,18 @@ def test_a_missing_staged_resource_refuses_instead_of_crashing():
           all(answering.get(v) == 0
               for v in ("score", "candidates", "plan", "readability")),
           f"answering: {sorted(answering.items())}")
+    # `recover` joined §7's roster 2026-09-02 (M-195) and answers WITHOUT
+    # the floor at its OWN exit 3: the bare quatrain has no mark and no
+    # blank block, so its sectioning is REFUSED — a work order, never a
+    # failure, and never a resource refusal. Its 3 is declared here beside
+    # `finish`'s 2 (CI's verbs (4) at 551e8e8 caught the omission).
+    OWN = {"finish": 2, "recover": 3}
     check(f"the other {len(cases) - len(NEED)} answer, and every one but "
-          f"`finish` (its own --seed refusal, rc 2) at rc 0",
+          f"`finish` (its own --seed refusal, rc 2) and `recover` (its own "
+          f"REFUSED-coordinate work order, rc 3) at rc 0",
           len(answering) == len(cases) - len(NEED)
-          and answering.get("finish") == 2
-          and all(rc == 0 for v, rc in answering.items() if v != "finish"),
+          and all(answering.get(v) == rc for v, rc in OWN.items())
+          and all(rc == 0 for v, rc in answering.items() if v not in OWN),
           f"non-zero: {sorted((v, rc) for v, rc in answering.items() if rc)}")
     rc, out, err = run("plan", "--sweep=1-4", env=hidden)
     check("`plan --sweep=` answers without the floor",
@@ -4789,6 +4796,38 @@ def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
           "FINDING spelling, marked as the whole draft's",
           "WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK" in out,
           out[out.find("STANDING AT THE STOP"):][:300])
+    # THE PRINTED STAMP CLAUSE, END TO END (added 2026-09-02 — the tier-A
+    # verification found no pin discriminated it: §44's fixture always has
+    # lines open, and this section read the STANDING block, not the stamp).
+    # Under `defer:` the same run renders and stamps; the clause must name
+    # the flag, and the committed title must stamp exit 0 with no clause.
+    st = os.path.join(d, "state.json")
+    rc3, out3, _ = run("revise", song, mand, "--returns=6,9;6,14",
+                       f"--blueprint={bpath}", "--subdivision", "2",
+                       "--max-rounds=1", "--attempts=0", "--backtrack=0",
+                       f"--propose=defer:{st}")
+    m3 = re.search(r"\[FINISHED — declared mandate — exit (\d) — (\w+) after "
+                   r"(\d+) round\(s\) — no flag stands — WHOLE-DRAFT FLAG: "
+                   r"([^\]]+)\]", out3)
+    check("under defer: the stamp carries `— WHOLE-DRAFT FLAG: "
+          "TITLE_NOT_IN_HOOK` beside `no flag stands`, and its exit is the "
+          "process's 3",
+          rc3 == 3 and m3 is not None and m3.group(1) == "3"
+          and m3.group(4).strip() == "TITLE_NOT_IN_HOOK",
+          m3.group(0) if m3 else out3[-300:])
+    st0 = os.path.join(d, "state0.json")
+    bp0 = os.path.join(HERE, "..", "songs", "keep_the_light.blueprint.json")
+    rc4, out4, _ = run("revise", song, mand, "--returns=6,9;6,14",
+                       f"--blueprint={bp0}", "--subdivision", "2",
+                       "--max-rounds=1", "--attempts=0", "--backtrack=0",
+                       f"--propose=defer:{st0}")
+    m4 = re.search(r"\[FINISHED — declared mandate — exit (\d) — [^\]]*\]",
+                   out4)
+    check("CONTROL: the committed title stamps exit 0 with no WHOLE-DRAFT "
+          "clause — the clause is the flag's, not the stamp's",
+          rc4 == 0 and m4 is not None and m4.group(1) == "0"
+          and "WHOLE-DRAFT FLAG" not in m4.group(0),
+          m4.group(0) if m4 else out4[-300:])
     # THE PURSUED HALF: the canonical tier-1 pair (§42's fixture), the loop
     # given no attempts so the note stands at the stop.
     banned = os.path.join(d, "banned.txt")

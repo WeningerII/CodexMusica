@@ -672,7 +672,7 @@ check('validation: actionable errors', () => {
         (_, i) => `${1 + (i % 32)}.endword,${1 + ((i * 7) % 32)}`
       ).join(';');
       const measured = '1,2;'.repeat(2503); // 10,012 chars, the measured length
-      assert.ok(long.length > 9_000, `a 670-group cover is over 9k chars (${long.length})`);
+      assert.equal(long.split(';').length, 670, 'the synthetic cover has the MEASURED group count');
       assert.ok(S.lyric_check.groups.safeParse(long).success, 'lyric_check takes it');
       assert.ok(S.lyric_revise.groups.safeParse(long).success, 'lyric_revise takes it');
       assert.ok(S.lyric_check.groups.safeParse(measured).success, 'and a 10k-char mandate');
@@ -743,6 +743,7 @@ check('validation: actionable errors', () => {
   // ── M-186: the verdict carries what the report says, not only the code ──
   {
     const { _verdictInternals: VI } = await import('./lyric_tools.js');
+    const { _agentInternals: AGI } = await import('./gemini_agent.js');
     // M-186's status label, three words rather than two (2026-09-02): a
     // whole-only exit 3 used to read `stopped_with_open_lines` with
     // `loop_unresolved` 0 — a cause the verdict itself contradicted.
@@ -757,11 +758,28 @@ check('validation: actionable errors', () => {
         'stopped_with_whole_draft_flags'
       );
       assert.equal(VI.loopStatusOf(3, { loop_unresolved: 0 }), 'stopped_with_open_lines');
-      for (const f of ['chat.js', 'gemini_agent.js', '../scripts/flash_battery.mjs']) {
+      // The transcript record is a VALUE pin: `loopFields` is what runTurn
+      // spreads into every call record. chat.js and flash_battery.mjs copy
+      // the field off that record in an inline map, so for those two the
+      // pin is the weaker source-includes and says so.
+      const rec = AGI.loopFields({
+        exit_code: 3,
+        loop_stop_reason: 'success',
+        loop_rounds: 0,
+        loop_unresolved: 0,
+        loop_whole_flag_codes: ['TITLE_NOT_IN_HOOK'],
+        answers_on_record: 0,
+      });
+      assert.deepEqual(rec.loop_whole_flag_codes, ['TITLE_NOT_IN_HOOK']);
+      assert.equal(rec.loop_unresolved, 0);
+      assert.equal(AGI.loopFields({ exit_code: 0 }).loop_whole_flag_codes, null);
+      assert.equal(AGI.loopFields(null).exit_code, null);
+      for (const f of ['chat.js', '../scripts/flash_battery.mjs']) {
         const src = readFileSync(new URL(f, import.meta.url), 'utf8');
         assert.ok(
-          src.includes('loop_whole_flag_codes'),
-          `${f} carries the whole-flag codes beside loop_unresolved`
+          src.includes('loop_whole_flag_codes: c.loop_whole_flag_codes ?? null') ||
+            src.includes('whole_flags: c.loop_whole_flag_codes ?? null'),
+          `${f} copies the whole-flag codes off the record (source pin)`
         );
       }
     });
