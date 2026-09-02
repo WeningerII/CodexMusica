@@ -150,6 +150,48 @@ with tempfile.TemporaryDirectory() as td:
     check("too few arguments REFUSE at 2 with the usage line",
           BP.main(["--check"]) == 2)
 
+print("\n6. THE LEDGER — the loop is the front door, and this is the memory")
+with tempfile.TemporaryDirectory() as td:
+    d = os.path.join(td, "d.txt")
+    open(d, "w").write("\n".join(BEFORE))
+    check("no ledger yet — a FIRST draft is admitted, there is nothing it "
+          "could have been briefed about",
+          BP.admit(d, BEFORE)[0])
+    BP.write_ledger(d, BEFORE)
+    check("the ledger records the draft AS HANDED IN, not the loop's output "
+          "— what a writer edits next is the file they handed in",
+          (BP.read_ledger(d) or {}).get("lines") == BEFORE)
+    check("re-grading the IDENTICAL draft is not a revision and is admitted",
+          BP.admit(d, BEFORE)[0])
+    ok, say = BP.admit(d, AFTER)
+    check("a hand-edited line with no brief is REFUSED, naming the line",
+          not ok and "[2, 4]" in say, say)
+    ok2, say2 = BP.admit(d, AFTER, reason="fixing a typo")
+    check("a DECLARED reason admits it and carries the writer's own words "
+          "into the message (the fit.AssumedMeter precedent)",
+          ok2 and "fixing a typo" in say2, say2)
+    fp = BP.draft_fingerprint(BEFORE)
+    st = _state(os.path.join(td, "s.json"),
+                [_rec(2, fp), _rec(4, fp)])
+    ok3, say3 = BP.admit(d, AFTER, [st])
+    check("a BRIEFED revision passes — the false refusal is the worse bug "
+          "and this is the check that keeps it out",
+          ok3 and "every one briefed" in say3, say3)
+    stale = _state(os.path.join(td, "stale.json"), [_rec(2, "ffffffffffff"),
+                                                    _rec(4, "ffffffffffff")])
+    check("a brief against another draft does not admit it here either",
+          not BP.admit(d, AFTER, [stale])[0])
+    # A RESTRUCTURE IS A DIFFERENT OBJECT, not an unbriefed revision.
+    ok4, say4 = BP.admit(d, BEFORE + ["five"])
+    check("a changed line COUNT is admitted and named a restructure, because "
+          "this gate asks which LINES moved and a changed count has no answer",
+          ok4 and "restructure" in say4, say4)
+    # THE STATE PATHS ARE CARRIED so a later run need not re-name them.
+    BP.write_ledger(d, BEFORE, [st])
+    check("the ledger carries the state paths forward — a gate a caller can "
+          "evade by forgetting an argument fails toward whoever forgot",
+          BP.admit(d, AFTER)[0], str(BP.read_ledger(d).get("states")))
+
 print("\n" + "=" * 62)
 if FAILURES:
     print("FAILURES: %d" % len(FAILURES))

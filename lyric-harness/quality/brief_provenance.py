@@ -146,6 +146,102 @@ def report(res):
     return "\n".join(out)
 
 
+
+# ── THE LEDGER: what makes the loop the ONLY front door ──────────────────
+#
+# The counts above CHARGE an unbriefed revision after the fact. They cannot
+# REFUSE one, because `finish` sees a draft file and has no memory of what it
+# graded last (M-200's residual, ruled by the owner 2026-09-02: *"make the
+# deferred loop the only front door"*). The ledger is that memory: one sidecar
+# per draft, holding the lines EXACTLY AS HANDED IN, so the next run can tell
+# a revision from a first draft and say which lines moved.
+#
+# IT RECORDS THE INPUT, NEVER THE LOOP'S OUTPUT, and the distinction is the
+# whole mechanism. `finish` does not write the draft file back, so what a
+# writer edits next is the file they handed in; recording the emitted draft
+# instead would diff against a text that was never on disk and would charge
+# every line the loop itself repaired.
+LEDGER_SUFFIX = ".briefed.json"
+
+
+def ledger_path(draft_path):
+    return draft_path + LEDGER_SUFFIX
+
+
+def read_ledger(draft_path):
+    try:
+        with open(ledger_path(draft_path), encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return None
+
+
+def write_ledger(draft_path, lines, state_paths=()):
+    """Record the draft AS HANDED IN, plus the deferred states in play.
+
+    The state paths are carried so a later run can find the briefs without
+    the writer re-naming them: a gate a caller can evade by forgetting an
+    argument is a gate that fails toward whoever forgot (doctrine 16).
+    """
+    prev = read_ledger(draft_path) or {}
+    keep = list(dict.fromkeys(list(prev.get("states") or [])
+                              + [p for p in state_paths if p]))
+    blob = {"version": 1, "fingerprint": draft_fingerprint(lines),
+            "n_lines": len(lines), "lines": list(lines), "states": keep}
+    try:
+        with open(ledger_path(draft_path), "w", encoding="utf-8") as f:
+            json.dump(blob, f)
+    except OSError:
+        pass          # a read-only tree must not fail a grade (doctrine 20)
+    return blob
+
+
+def admit(draft_path, lines, state_paths=(), reason=""):
+    """-> (ok, message). May this draft be graded as a revision?
+
+    FOUR ANSWERS, and only one of them refuses:
+      no ledger        -> a first draft; nothing to have been briefed about
+      same fingerprint -> the identical draft re-graded; not a revision
+      line count moved -> a RESTRUCTURE, a different object, not this gate's
+                          question (`changed_lines` refuses to diff it)
+      lines moved      -> every moved line must carry a brief issued against
+                          the PREVIOUS draft's fingerprint, or this refuses
+    `reason` is the declared way past, and it is deliberately not a bare
+    switch: it takes the writer's own words and they are carried into the
+    ledger and printed, on the `fit.AssumedMeter` precedent — reachable, and
+    not reachable with nobody's name on it.
+    """
+    led = read_ledger(draft_path)
+    if not led or not led.get("lines"):
+        return True, ""
+    prev = list(led["lines"])
+    if draft_fingerprint(lines) == led.get("fingerprint"):
+        return True, ""
+    if len(prev) != len(lines):
+        return True, (f"  BRIEFS: the draft changed LENGTH ({len(prev)} -> "
+                      f"{len(lines)} lines), which is a restructure and not a "
+                      f"revision — this gate asks which LINES moved and a "
+                      f"changed count has no answer (doctrine 20).")
+    moved = [i + 1 for i, (a, b) in enumerate(zip(prev, lines)) if a != b]
+    if not moved:
+        return True, ""
+    seen = briefed(list(dict.fromkeys(list(led.get("states") or [])
+                                      + list(state_paths))))
+    fp = led["fingerprint"]
+    un = [n for n in moved if fp not in seen.get(n, set())]
+    if not un:
+        return True, (f"  BRIEFS: {len(moved)} revised line(s), every one "
+                      f"briefed against draft {fp} — {moved}")
+    if reason:
+        return True, (f"  BRIEFS: {len(un)} line(s) revised with NO brief "
+                      f"behind them — {un}. ADMITTED because the caller "
+                      f"declared a reason, which is recorded and printed "
+                      f"rather than assumed: {reason!r}")
+    return False, (
+        f"unbriefed revision — line(s) {un} moved since draft {fp} and no "
+        f"brief was ever issued for them")
+
+
 def main(argv):
     args = [a for a in argv if not a.startswith("--")]
     check = "--check" in argv
