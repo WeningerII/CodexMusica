@@ -184,3 +184,33 @@ the run was launched; the runner shipped in the same sitting reads
 `PROFILE_STRUCK_RHO["short"] = None` and skips it, and `--profile short
 --check --without-predictability` on that runner answers 15 of 20 with the
 five predictability rows refused by name.
+
+## 8. The generated class — RULED 2026-09-02, and it is one ruling for both bands
+
+`n_generated = 0` here as on `song`, so this profile also ships a
+false-positive rate and no separation. Whether to buy one — ~40 model songs
+and a song arm in `discriminate.py` — is RULINGS WANTED #20 / `MISSING.md`
+L-4a, and it was ruled under the owner's delegation on 2026-09-02:
+**DECLINED in the proposed design**, because a class written today against a
+human class the provenance gate restricts to pre-1929 is confounded with
+period by construction. The full argument, the figures and the two designs
+that would not be confounded are in `RESULTS_SONG_FLOOR.md` §11 and are not
+restated here (doctrine 1).
+
+**This band is the harder half of the evidence for that ruling**, which is why
+it is cross-referenced rather than merely mentioned. §4 above measures three
+of the four thresholds carrying an author-level period slope that survives
+Bonferroni at 0.0125 — `mattr` rho −0.226 (p_perm 0.0001), `fwr` +0.143
+(0.0052), `anaphora` +0.164 (0.0022) — and the cross-cohort transfer running
+**EARLY→LATE 26.10% against a null median 16.15%, p 0.0075**, with the reverse
+direction at or below the null. A 2026 generated class sits at the far end of
+exactly that axis.
+
+What ships instead is the disclosure, made mechanical: `floor.LENGTH_SENSITIVE`
+declares the length-sensitive codes once, every one of them carries this
+profile's own `evidence_for` sentence — *"NO generated class exists at this
+length, so there is no AUC and no separation claim"* — and `test_floor.py` §15
+runs this band as its second arm, expecting **four** codes rather than five
+because §7 refused the fifth threshold. That the expected set shrinks here by
+arithmetic is what proves the pin reads the profile rather than a list
+somebody typed.

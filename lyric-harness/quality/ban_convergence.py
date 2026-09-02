@@ -76,18 +76,23 @@ BAN_CODES = ("HOMEOTELEUTON", "MODAL_RHYME")
 # `modal_field` calls per eligible pair — the whole bank exceeded a 600 s
 # budget on a shared 4-CPU box on 2026-09-02 — and are pinned `None`, which
 # `--check` reports BY NAME as unpinned rather than as passing (doctrine 20:
-# absent is not zero). To pin them: run without --check (`--songs=a.txt,b.txt`
-# to take the bank in affordable pieces), read the `BANK:` block, copy its
-# numbers here WITH the date. A pin that moved without a register line is a
-# defect report (MISSING.md M-168 addendum).
+# absent is not zero). ~~To pin them: run without --check, read the `BANK:`
+# block, copy its numbers here WITH the date.~~ THEY ARE PINNED 2026-09-02:
+# the whole bank ran in one process on a quiet box in under an hour, which
+# the shared box could not afford. A pin that moved without a register line
+# is a defect report (MISSING.md M-168 addendum).
 PINNED = {
     "songs": 16,
     "mandate_readme": 11, "mandate_log": 4, "mandate_refused": 1,
     "screen_homeo": 366, "screen_modal": 395, "screen_clean": 792,
     "screen_refused": 11, "screen_other": 1,
-    "pairs_mandated": None, "pairs_judged": None, "pairs_refused": None,
-    "eligible": None, "banned_in_final": None,
-    "rank_head": None, "rank_tail": None, "rank_outside": None,
+    # PINNED 2026-09-02 on a quiet box, the whole bank in one process (the
+    # `Reviser`'s caches warm across songs, which is what brought the run
+    # inside its budget where a shared box could not). Read off the `BANK:`
+    # block of `python3 quality/ban_convergence.py`.
+    "pairs_mandated": 719, "pairs_judged": 549, "pairs_refused": 170,
+    "eligible": 487, "banned_in_final": 7,
+    "rank_head": 7, "rank_tail": 155, "rank_outside": 325,
 }
 
 

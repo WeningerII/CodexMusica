@@ -2317,6 +2317,61 @@ jobs:
       - name: test_verbs shard ${{ matrix.shard }}/4 (the whole file, quartered by section residue)
         run: python3 quality/test_verbs.py
 
+  # An always-reporting summary over the `verbs` shards, so the longest suite
+  # in the repository can be a REQUIRED status check.
+  #
+  # ADDED 2026-09-02 BY THE RULING IN `docs/branch-protection.md`, AND IT IS
+  # THE THIRD INSTANCE OF ONE RULE RATHER THAN A THIRD IDEA. `catalog-result`
+  # was written for `catalog`, `suites-result` for `suites`, and both headers
+  # say the same thing: a matrix publishes expanded names carrying a matrix
+  # value, so requiring them means re-editing the required set every time the
+  # shard count changes. THE SHARD COUNT DOES CHANGE, and this job is the one
+  # that can prove it rather than predict it — `verbs` ran 2 shards on
+  # 2026-08-28 (runs #1090, #1095, #1125, #1155 published `verbs (1)` and
+  # `verbs (2)`) and runs 4 today. A required set naming the shards would have
+  # gone stale inside five days, twice, without anybody editing it.
+  #
+  # ITS `skipped` ARM IS `suites-result`'s, NOT `catalog-result`'s, and for
+  # `suites-result`'s reason: `verbs` carries no `if:` at all, so it runs on
+  # every event and the only way it reports `skipped` is that `gate` failed or
+  # was skipped. A suite that never ran must not report success.
+  #
+  # `!cancelled()` is carried from both WITH its reason: the concurrency group
+  # is keyed on the branch and not the event, so whichever run starts later
+  # kills whatever is still running, and a run being torn down must not become
+  # a red X on a sha whose surviving run is green. `cancelled` reached inside
+  # that guard means a SHARD died on its own — its own timeout, or a lost
+  # runner — and is named apart from `failure` (doctrine 79).
+  verbs-result:
+    needs: verbs
+    # A seconds-long fan-in; capped so a wedged runner cannot make it the
+    # slowest job in the run it exists to summarize.
+    timeout-minutes: 15
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Aggregate the verbs shards
+        run: |
+          result="${{ needs.verbs.result }}"
+          echo "verbs aggregate result: $result"
+          case "$result" in
+            success)
+              echo "All shards passed."
+              ;;
+            skipped)
+              echo "::error::verbs shards were SKIPPED — the job is unconditional, so this means gate did not succeed and no section ran"
+              exit 1
+              ;;
+            cancelled)
+              echo "::error::verbs shards were CANCELLED while the run was not — a shard hit its own timeout or lost its runner"
+              exit 1
+              ;;
+            *)
+              echo "::error::verbs shards reported '$result'"
+              exit 1
+              ;;
+          esac
+
   # ── The mutation sweep: adversary 4, in its own job and on a rotation ─────
   #
   # A JOB AND NOT A STEP, SINCE 2026-08-24. It was step 11 of `nightly` and it

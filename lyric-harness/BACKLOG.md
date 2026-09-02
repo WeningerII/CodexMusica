@@ -1629,7 +1629,7 @@ until ruled.
     line end alone — the web's other placements keep the full pool — is
     the ruling this row asks for, and the disclosure is what it would be
     measured against.
-19. **`main` is UNPROTECTED — which checks are required?** Found by the
+19. ~~**`main` is UNPROTECTED — which checks are required?** Found by the
     2026-09-01 triage audit (finding C26) against the live API: `main`
     reports `protected=false`; `docs/branch-protection.md` proposes
     gate / verify / freshness / catalog-result and leaves `suites-result`
@@ -1637,15 +1637,44 @@ until ruled.
     only the `suites` job red, and the proposed set would have admitted
     them too. A repository setting, not code — the delegation does not
     reach it. Rule the set (do the Python suites, `record`,
-    `revision-loop` and `verbs` join it? are admins exempt?) and apply it.
-20. **A matched class of model SONGS for the song-length floor (L-4a,
+    `revision-loop` and `verbs` join it? are admins exempt?) and apply it.~~
+    RULED 2026-09-02 under the delegation: EIGHT checks — `gate`, `verify`,
+    `freshness`, `catalog-result`, `suites-result`, `verbs-result`, `record`
+    and `revision-loop` — and admins are NOT exempt. The membership rule is
+    STATED rather than listed: a job is required iff it runs on every PR,
+    has a fixed name, and its content is load-bearing for a merge. Re-read
+    against the API the finding SHARPENS and its wording needed one
+    correction — the four red merges were red in TWO different jobs, not
+    one (#1125's sole red was `record`; #1095 also had `freshness` red) —
+    and three of the four would still have merged under the proposed set.
+    `verbs-result` is a NEW `ci.yml` job, because `verbs` publishes shard
+    names that moved from 2 to 4 inside five days and a required set naming
+    shards goes stale. The four additions cost ZERO wall clock: `freshness`
+    at 16m26s is the critical path and the whole run is 18m16s, so the old
+    set was not buying speed, only declining to look.
+    `docs/branch-protection.md` carries the argument, the per-job cost and
+    the `gh api` call. **APPLYING IT IS STILL THE OWNER'S** — the delegation
+    does not reach a repository setting, and nothing here has been applied.
+20. ~~**A matched class of model SONGS for the song-length floor (L-4a,
     C23).** The `song` and `short` profiles ship a false-positive rate
     and NO generated class, so no song-length check has a true-positive
     rate. ~40 model songs at 200–400 tokens written WITHOUT the harness,
     declared in `data/sources.tsv`, and a song arm in `discriminate.py`
     is a sitting; the sonnet arm predicts it would read period. Rule
     whether it is worth the sitting; until then every song-length finding
-    says on its face that it holds no separation claim.
+    says on its face that it holds no separation claim.~~
+    RULED 2026-09-02 under the delegation: DECLINED in the proposed design.
+    The human class is pre-1929 BY SELECTION (71 of the 72 rows staging it
+    carry `pd_affirmed=true`; the 59 dated ones run 1794-1919, median 1887,
+    none at or after 1929) and three thresholds carry a measured period
+    slope in the direction that would inflate the AUC, so the confound is
+    doctrine 13's identity rather than a risk to weigh. Named in a design
+    that is NOT confounded — an admissible post-1929 human class, doctrine
+    92 — whose SEARCH has never been run, and running it is the next
+    sitting's first step rather than writing forty songs. The second clause
+    was FALSE in the code and is a mechanism now: `floor.LENGTH_SENSITIVE`,
+    an `evidence_for` call on all five findings, and `test_floor.py` §15
+    derived from the map and mutation-proven (`MISSING.md` L-4a).
 
 ---
 
@@ -1703,6 +1732,11 @@ pricing, M-136's required words and assonance profile).
 | M-196 (2026-09-02, C27) | the 09-01 list is closed item by item; the `-WORKING` stamps are history and stay; the entry stays PARTIAL on C18's two lost mandates and the draft-banking design | `--verdicts` 131 / 0 / 0 |
 | E-5 (2026-09-02, the owner's reversal) | the owner lifted their own 08-21 deferral on *"finish the rest of the work"*; the cheap half ships and moves nothing — `now`/`why` still 0.902 RHYME with 0.350 of it named as absence, battery unmoved at 1064/1014/50/12 | `score()` flags, the screen row, `test_readability` §14 |
 | M-197 (2026-09-02, C11 the cap) | which of `maxSteps` and `maxTurnUsd` binds is DERIVED from the declared coordinates and disclosed on the stop; measured $0.015572 a hop, worst legal turn $0.2180, the $0.10 cap buying 6 hops of 14; the dollar figure stays the owner's | `turnBudget`, `stoppedDetail` |
+| M-168 (2026-09-02, C18 pinned) | the bank-wide grader totals are measured and pinned: 719/549/170, and of 487 eligible pairs 7 sit in the modal head, 155 in the offered tail, 325 outside the field entirely | `ban_convergence.PINNED` |
+| M-196 (2026-09-02, the drafts) | the verb that grades a draft banks the bytes it graded and the mandate it ran under; history is four declared buckets and only a post-cutoff miss is red | `song_log --drafts`, `songs/drafts/` |
+| M-187 (2026-09-02, the owed pin) | the deploy re-run guard is pinned in a suite CI already runs — eight checks driving the real scripts against a temporary repository and a replayed `gh`, five mutations recorded | `mcp/test.mjs`, 94 checks |
+| RULINGS WANTED #19 (2026-09-02) | the required set on `main` is eight checks including `suites-result`, `verbs-result`, `record` and `revision-loop`; admins are NOT exempt; the four additions cost no wall clock; APPLYING it stays the owner's | `docs/branch-protection.md`, a new `verbs-result` job |
+| RULINGS WANTED #20 / L-4a (2026-09-02) | ~40 model songs against a pre-1929 human class is confounded with period by construction, so the sitting is declined in that design and named in another; the no-separation disclosure becomes derived and pinned | `LENGTH_SENSITIVE`, `evidence_for`, `test_floor` §15 |
 
 ---
 
@@ -1796,10 +1830,10 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 64 OPEN / 37 PARTIAL / 2 BLOCKED / 141 CLOSED / 11 RESOLVED = 255 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 63 OPEN / 37 PARTIAL / 2 BLOCKED / 141 CLOSED / 12 RESOLVED = 255 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 3 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1393** DECLARED-public top-level functions/classes under `quality/` and the root — **261** named by another production module, **421** by tests only, **620** only inside their own module, **11** by nothing anywhere, **80** REFUSED (52 ambiguous, 19 dynamic, 9 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **57** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1398** DECLARED-public top-level functions/classes under `quality/` and the root — **261** named by another production module, **424** by tests only, **622** only inside their own module, **11** by nothing anywhere, **80** REFUSED (52 ambiguous, 19 dynamic, 9 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **57** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |

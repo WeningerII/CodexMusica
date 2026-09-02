@@ -1757,6 +1757,430 @@ check('validation: actionable errors', () => {
   });
 }
 
+{
+  // THE DEPLOY RE-RUN GUARD, DRIVEN — `MISSING.md` M-187 (b), owed by that
+  // entry's 2026-09-02 addendum and paid here. `scripts/deploy_guard.sh` and
+  // `scripts/last_deployed_sha.sh` shipped exercised only in a throwaway
+  // repository against a hand-written `gh` shim, which is a measurement
+  // nobody can re-run: NO GATE READ EITHER SCRIPT, so a regression in the one
+  // decision standing between a re-run of a push's CI run and a needless
+  // rebuild-and-restart of the live connector would have gone red nowhere.
+  // These checks build a REAL temporary git repository per case and run the
+  // REAL scripts against it, with a `gh` on PATH replaying the run shapes the
+  // API actually returns. Nothing here reads the network, the live
+  // repository, or the deployed service.
+  //
+  // WHY IN THIS FILE. mcp/test.mjs is the connector's own suite and CI runs
+  // it (`npm run test` -> `test:serial` -> `test:connector`), and the guard is
+  // the last thing between a green CI run and a POST that restarts the
+  // connector. The shape is `scripts/check_publish_guard.js`'s, one service
+  // over, and the wiring check at the end is that file's §7 lesson.
+  //
+  // EMPIRICALLY VERIFIED TWO-SIDED, 2026-09-02 — doctrine 48 one layer in: a
+  // check that cannot fail enforces nothing, and a rule enforced by nothing is
+  // followed as often as someone remembers it. Five defects were reintroduced
+  // into the two scripts in turn, and the scripts restored byte-identical
+  // afterwards; each named exactly the checks it should and no others.
+  // Striking the same-sha block: the ALREADY-ASKED
+  // check red at `0 !== 10` (plus the mutant check, which can no longer find
+  // the block to strike). Reading an absent record as a match (`-n … &&` ->
+  // `-z … ||`): the NO-RECORD check and the FAILING-gh check red at
+  // `10 !== 0`. Hoisting the same-sha test above the ordering test: the
+  // BEHIND-THE-TIP check red, alone, and the mutant check still green —
+  // the ordering assertion is the only thing that sees it. Dropping
+  // `select(.id != $SKIP)` from the lookup: the SKIP check red on the run in
+  // flight being asked about. Widening `grep -qx success` to accept `skipped`
+  // and `failure`: the SKIP check red, returning the stood-down run's sha
+  // instead of the record's.
+  const { mkdtempSync, writeFileSync, chmodSync, rmSync, existsSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+
+  const GUARD = fileURLToPath(new URL('../scripts/deploy_guard.sh', import.meta.url));
+  const LOOKUP = fileURLToPath(new URL('../scripts/last_deployed_sha.sh', import.meta.url));
+  const DEPLOY = 0;
+  const STAND_DOWN = 10;
+  const trash = [];
+
+  // A git environment that cannot read the box's own config: a global signing
+  // key or a commit template would otherwise decide whether these commits
+  // exist at all.
+  const GIT_ENV = {
+    GIT_AUTHOR_NAME: 'T',
+    GIT_AUTHOR_EMAIL: 't@e',
+    GIT_COMMITTER_NAME: 'T',
+    GIT_COMMITTER_EMAIL: 't@e',
+    GIT_CONFIG_GLOBAL: '/dev/null',
+    GIT_CONFIG_SYSTEM: '/dev/null',
+  };
+  // The suite itself runs inside a git worktree, so GIT_DIR or GIT_WORK_TREE
+  // leaking in would point the guard at THIS repository and every case below
+  // would measure the wrong tree.
+  const cleanEnv = () => {
+    const e = { ...process.env, ...GIT_ENV };
+    delete e.GIT_DIR;
+    delete e.GIT_WORK_TREE;
+    delete e.LAST_DEPLOYED_SHA;
+    return e;
+  };
+
+  // A repository with `main` and a real `refs/remotes/origin/main`, which is
+  // the ref the guard asks about — deploy-connector.yml checks out at
+  // fetch-depth 0 precisely so `merge-base` and `rev-list --count` can be
+  // answered about it.
+  const makeRepo = () => {
+    const dir = mkdtempSync(join(tmpdir(), 'deployguard-'));
+    trash.push(dir);
+    const git = (...args) =>
+      execFileSync('git', args, { cwd: dir, encoding: 'utf8', env: cleanEnv() }).trim();
+    git('init', '-q', '-b', 'main');
+    const commit = (msg, body) => {
+      writeFileSync(join(dir, 'file.txt'), body);
+      git('add', '-A');
+      git('commit', '-q', '-m', msg);
+      return git('rev-parse', 'HEAD');
+    };
+    const setOrigin = () => git('update-ref', 'refs/remotes/origin/main', 'HEAD');
+    const base = commit('base', 'v1\n');
+    setOrigin();
+    return { dir, git, commit, setOrigin, base };
+  };
+
+  // `bash scripts/deploy_guard.sh --verbose` is the exact invocation in
+  // deploy-connector.yml, and --verbose is load-bearing here: the sentence
+  // saying the same-sha check DID NOT RUN only prints under it.
+  const runGuard = (dir, built, last, script = GUARD) => {
+    const env = cleanEnv();
+    env.BUILT_SHA = built;
+    if (last !== undefined) env.LAST_DEPLOYED_SHA = last;
+    try {
+      // stderr is CAPTURED, not inherited: a case that deliberately drives a
+      // refusal would otherwise print the refusal into the suite's own log and
+      // read as a failure to anyone skimming it.
+      const out = execFileSync('bash', [script, '--verbose'], {
+        cwd: dir,
+        encoding: 'utf8',
+        env,
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+      return { code: 0, out };
+    } catch (e) {
+      return { code: e.status, out: (e.stdout || '') + (e.stderr || '') };
+    }
+  };
+
+  // The `gh` the lookup calls, replaying what `gh api --jq` PRINTS for the two
+  // requests the script makes. It replays the API, not the script's own logic:
+  // the run-list request applies the `select(.id != N)` the script wrote into
+  // its own jq expression, and the jobs request answers with that run's
+  // `Deploy` step conclusion exactly as the API reports it — `null` for a step
+  // that has not concluded, nothing at all when the run has no such step.
+  // Every request is logged, so a case can assert WHICH runs were asked about.
+  const shimDir = mkdtempSync(join(tmpdir(), 'ghshim-'));
+  trash.push(shimDir);
+  writeFileSync(
+    join(shimDir, 'gh'),
+    `#!${process.execPath}
+const fs = require('fs');
+const log = process.env.GH_SHIM_LOG;
+const args = process.argv.slice(2);
+if (log) fs.appendFileSync(log, args.join(' ') + '\\n');
+if (process.env.GH_SHIM_FAIL === '1') {
+  process.stderr.write('gh: HTTP 403: Resource not accessible by integration\\n');
+  process.exit(1);
+}
+if (args[0] !== 'api') process.exit(64);
+const url = args[1];
+const jq = args.includes('--jq') ? args[args.indexOf('--jq') + 1] : '';
+const runs = JSON.parse(process.env.GH_SHIM_RUNS || '[]');
+let m;
+if (/\\/actions\\/workflows\\/[^/]+\\/runs\\?/.test(url)) {
+  const skip = (m = /select\\(\\.id != (\\d+)\\)/.exec(jq)) ? Number(m[1]) : null;
+  const rows = runs.filter((r) => r.id !== skip).map((r) => r.id + ' ' + r.sha);
+  process.stdout.write(rows.length ? rows.join('\\n') + '\\n' : '');
+} else if ((m = /\\/actions\\/runs\\/(\\d+)\\/jobs$/.exec(url))) {
+  const run = runs.find((r) => r.id === Number(m[1]));
+  if (run && 'deploy' in run) process.stdout.write(String(run.deploy) + '\\n');
+} else {
+  process.stderr.write('gh shim: unexpected request ' + url + '\\n');
+  process.exit(65);
+}
+`
+  );
+  chmodSync(join(shimDir, 'gh'), 0o755);
+
+  const runLookup = ({ runs, runId, fail, log }) => {
+    const env = cleanEnv();
+    env.PATH = `${shimDir}:${process.env.PATH}`;
+    env.GITHUB_REPOSITORY = 'WeningerII/CodexMusica';
+    env.GH_TOKEN = 'the-shim-never-reads-this';
+    env.GH_SHIM_RUNS = JSON.stringify(runs || []);
+    if (runId !== undefined) env.GITHUB_RUN_ID = String(runId);
+    if (fail) env.GH_SHIM_FAIL = '1';
+    if (log) env.GH_SHIM_LOG = log;
+    try {
+      const out = execFileSync('bash', [LOOKUP], {
+        encoding: 'utf8',
+        env,
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+      return { code: 0, out };
+    } catch (e) {
+      return { code: e.status, out: (e.stdout || '') + (e.stderr || '') };
+    }
+  };
+
+  // The run history as the API hands it back, newest first and ALREADY
+  // filtered to `status=success` — a STOOD-DOWN run is a successful run whose
+  // `Deploy` step was skipped, which is exactly why the step conclusion and
+  // not the run status is what decides. Verified against the live API on
+  // 2026-09-02: run #26 shows `Deploy: success / Stood down: skipped`, #21 the
+  // reverse.
+  const HISTORY = (tip, prior) => [
+    { id: 100, sha: tip, deploy: null }, // this very run: Deploy has not concluded
+    { id: 99, sha: tip, deploy: 'skipped' }, // stood down — Render was never asked
+    { id: 98, sha: tip, deploy: 'failure' }, // asked, and refused
+    { id: 97, sha: prior, deploy: 'success' }, // the record
+    { id: 96, sha: 'c'.repeat(40), deploy: 'success' }, // older still
+  ];
+
+  check(
+    'deploy guard: the tip with no record on file deploys, and SAYS the check did not run',
+    () => {
+      // Doctrine 20 in one exit code: an absent record is UNKNOWN, and an
+      // unknown must never read as a match. Both shapes the caller can produce
+      // are driven — the variable unset, and the EMPTY STRING
+      // deploy-connector.yml actually passes when the lookup found nothing or
+      // could not be read at all.
+      const r = makeRepo();
+      for (const [label, last] of [
+        ['unset', undefined],
+        ['empty', ''],
+      ]) {
+        const res = runGuard(r.dir, r.base, last);
+        assert.equal(res.code, DEPLOY, `${label}: an unknown record must deploy — ${res.out}`);
+        assert.match(
+          res.out,
+          /the same-sha check did not run/,
+          `${label}: and the guard must SAY the check did not run rather than pass in silence`
+        );
+      }
+    }
+  );
+
+  check('deploy guard: the tip with a record that DIFFERS deploys, and names the record', () => {
+    const r = makeRepo();
+    const other = 'd'.repeat(40);
+    const res = runGuard(r.dir, r.base, other);
+    assert.equal(res.code, DEPLOY, `a different last-accepted sha must not block: ${res.out}`);
+    assert.ok(res.out.includes(other) && /differs/.test(res.out), res.out);
+  });
+
+  check(
+    'deploy guard: the tip that IS the last sha Render was asked for stands down at 10, naming both',
+    () => {
+      // The re-run M-187 (b) is about. A re-run of a push's CI run keeps
+      // `event == 'push'`, so the workflow's own condition cannot see it, and
+      // the tip-of-main test cannot either — an unchanged tip IS the tip.
+      const r = makeRepo();
+      const res = runGuard(r.dir, r.base, r.base);
+      assert.equal(res.code, STAND_DOWN, `an already-asked sha must stand down: ${res.out}`);
+      assert.match(res.out, /STAND DOWN/, res.out);
+      assert.match(res.out, /built:\s+/, 'the message names the built sha');
+      assert.match(res.out, /last accepted:\s+/, '...and the sha Render was already asked for');
+      assert.ok(
+        (res.out.match(new RegExp(r.base, 'g')) || []).length >= 2,
+        'both lines carry a sha, so the log says WHICH tree is being refused'
+      );
+    }
+  );
+
+  check(
+    'deploy guard: a sha BEHIND the tip stands down on ORDERING, and that test fires first',
+    () => {
+      // The ordering hazard is the older question and the guard asks it FIRST.
+      // This case makes the two answers contradict on purpose —
+      // LAST_DEPLOYED_SHA equals the built sha, so the same-sha rule would also
+      // stand down — and then demands the ORDERING message. A guard that asked
+      // the cheaper question first would still exit 10 here and would tell the
+      // reader the wrong reason for a whole class of runs.
+      const r = makeRepo();
+      const built = r.base;
+      r.commit('a later merge lands on main', 'v2\n');
+      r.setOrigin();
+      const res = runGuard(r.dir, built, built);
+      assert.equal(res.code, STAND_DOWN, `a superseded tree must not deploy: ${res.out}`);
+      assert.match(res.out, /behind main's tip by 1 commit/, res.out);
+      assert.ok(
+        !/last accepted/.test(res.out),
+        'and the ordering answer must not arrive wearing the same-sha reason'
+      );
+    }
+  );
+
+  check(
+    'last_deployed_sha: the run in flight is skipped, and so is every Deploy that did not conclude success',
+    () => {
+      const tip = 'a'.repeat(40);
+      const prior = 'b'.repeat(40);
+      const log = join(shimDir, 'calls.log');
+      if (existsSync(log)) rmSync(log);
+      const res = runLookup({ runs: HISTORY(tip, prior), runId: 100, log });
+      assert.equal(
+        res.code,
+        0,
+        `the lookup answers, or says nothing; it does not error: ${res.out}`
+      );
+      assert.equal(
+        res.out.trim(),
+        prior,
+        'the record is the newest run whose Deploy step concluded success'
+      );
+      const calls = readFileSync(log, 'utf8');
+      assert.ok(
+        !/actions\/runs\/100\/jobs/.test(calls),
+        'the run in flight is filtered out of the list, so its own pending Deploy is never even asked about'
+      );
+      assert.ok(
+        /actions\/runs\/99\/jobs/.test(calls) && /actions\/runs\/98\/jobs/.test(calls),
+        'the stood-down and the refused runs WERE asked about — they are skipped on their conclusion, not by luck'
+      );
+      assert.ok(
+        !/actions\/runs\/96\/jobs/.test(calls),
+        'and the walk stops at the first success instead of reading the whole history'
+      );
+      // No accepted deploy anywhere on record is check (a)'s input, and it is
+      // a silent success, never an error.
+      const none = runLookup({ runs: HISTORY(tip, prior).slice(0, 3), runId: 100 });
+      assert.equal(none.code, 0, 'a history holding no accepted deploy exits 0');
+      assert.equal(none.out.trim(), '', '...and prints nothing, which the caller reads as UNKNOWN');
+    }
+  );
+
+  check(
+    'last_deployed_sha: a gh that FAILS is unknown, and unknown deploys rather than matching',
+    () => {
+      // The API refusing to answer is the case that must collapse into neither
+      // "no match" nor "match". The lookup exits non-zero and prints no sha;
+      // deploy-connector.yml turns that into an empty LAST_DEPLOYED_SHA with a
+      // WARNING, and the guard then deploys and says the check did not run.
+      // Driven end to end here rather than asserted about the source.
+      const res = runLookup({
+        runs: HISTORY('a'.repeat(40), 'b'.repeat(40)),
+        runId: 100,
+        fail: true,
+      });
+      assert.notEqual(res.code, 0, 'a failing gh must not exit 0 carrying an empty answer');
+      assert.equal(
+        /^[0-9a-f]{40}$/m.test(res.out.trim()),
+        false,
+        'and it must print no sha at all — an unreadable history is not a value'
+      );
+      const r = makeRepo();
+      const after = runGuard(r.dir, r.base, '');
+      assert.equal(after.code, DEPLOY, `the unreadable case deploys: ${after.out}`);
+      assert.match(after.out, /the same-sha check did not run/);
+    }
+  );
+
+  check('the same-sha rule is load-bearing in BOTH directions (the two planted mutants)', () => {
+    // A check that cannot fail enforces nothing — doctrine 48 one layer in,
+    // and the shape the COPY-set check above answers the same way. The guard
+    // is fed
+    // its own two defects here — the comparison struck, and an absent record
+    // read as a match — and each must flip exactly one of the answers above.
+    const text = readFileSync(GUARD, 'utf8');
+    const runMutant = (name, body, dir, built, last) => {
+      const p = join(shimDir, name);
+      writeFileSync(p, body);
+      chmodSync(p, 0o755);
+      return runGuard(dir, built, last, p);
+    };
+
+    // MUTANT 1 — the same-sha block deleted, which is the guard exactly as it
+    // stood before M-187 (b). The already-asked tip deploys once more.
+    const struck = text.replace(
+      /^ {2}if \[ -n "\$\{LAST_DEPLOYED_SHA:-\}" \][\s\S]*?\n {2}fi\n/m,
+      ''
+    );
+    assert.notEqual(struck, text, 'the same-sha block is there to be struck');
+    const r1 = makeRepo();
+    assert.equal(
+      runMutant('mutant_struck.sh', struck, r1.dir, r1.base, r1.base).code,
+      DEPLOY,
+      'with the comparison gone the guard redeploys the sha Render was already asked for — the defect, reproduced'
+    );
+
+    // MUTANT 2 — an absent record counted as a match. The tip with nothing on
+    // file stands down, which would stall the deploy of a commit nobody has
+    // ever shipped every time the history could not be read.
+    const greedy = text.replace(
+      '[ -n "${LAST_DEPLOYED_SHA:-}" ] && [ "$BUILT" = "$LAST_DEPLOYED_SHA" ]',
+      '[ -z "${LAST_DEPLOYED_SHA:-}" ] || [ "$BUILT" = "$LAST_DEPLOYED_SHA" ]'
+    );
+    assert.notEqual(greedy, text, 'the unknown-is-not-a-match guard is there to be broken');
+    const r2 = makeRepo();
+    assert.equal(
+      runMutant('mutant_greedy.sh', greedy, r2.dir, r2.base, '').code,
+      STAND_DOWN,
+      'reading an absent record as a match stands down on a commit that was never deployed — the other defect'
+    );
+  });
+
+  check(
+    'deploy-connector.yml reaches both scripts, and LAST_DEPLOYED_SHA crosses the process boundary',
+    () => {
+      // check_publish_guard.js §7's lesson, learned there the expensive way:
+      // the publish guard's first live run refused to decide because
+      // BUILT_SHA was a plain shell variable the child process never saw. A
+      // suite that proves the script while its only caller is broken is a
+      // green suite over a broken pipeline.
+      const wf = readFileSync(
+        fileURLToPath(new URL('../.github/workflows/deploy-connector.yml', import.meta.url)),
+        'utf8'
+      );
+      const code = wf
+        .split('\n')
+        .map((l, i) => ({ i, t: l.trim() }))
+        .filter((l) => l.t && !l.t.startsWith('#'));
+      const lineOf = (needle) => {
+        const hit = code.find((l) => l.t.includes(needle));
+        return hit ? hit.i : -1;
+      };
+      assert.ok(lineOf('scripts/deploy_guard.sh') >= 0, 'the workflow calls the guard');
+      assert.ok(lineOf('scripts/last_deployed_sha.sh') >= 0, '...and the lookup that feeds it');
+      assert.ok(
+        lineOf('scripts/last_deployed_sha.sh') < lineOf('scripts/deploy_guard.sh'),
+        'the record is read BEFORE the guard is asked, or the guard is handed nothing'
+      );
+      // The guard is a CHILD PROCESS: the sha has to be in its environment,
+      // which for a `run` step means the step's `env:` block or an inline
+      // assignment — never a bare shell variable.
+      assert.ok(
+        /env:\s*\n\s*LAST_DEPLOYED_SHA:/.test(wf) ||
+          /LAST_DEPLOYED_SHA=\S+\s+\S*deploy_guard\.sh/.test(wf) ||
+          /^\s*export\s+LAST_DEPLOYED_SHA\b/m.test(wf),
+        'LAST_DEPLOYED_SHA reaches the guard as an environment variable'
+      );
+      assert.ok(
+        /BUILT_SHA=(?:"[^"]*"|'[^']*'|\S+)\s+\S*scripts\/deploy_guard\.sh/.test(wf) ||
+          /^\s*export\s+BUILT_SHA\b/m.test(wf),
+        'and so does BUILT_SHA'
+      );
+      // Exit 10 is an ANSWER. A workflow that let it fail the job would paint
+      // a correct stand-down red, and people learn to ignore a colour that
+      // lies.
+      assert.ok(/\b10\)/.test(wf) && /go=no/.test(wf), 'exit 10 is handled as a clean stand-down');
+      assert.ok(
+        /actions:\s*read/.test(wf),
+        "the lookup needs actions: read to see this workflow's own run history"
+      );
+    }
+  );
+
+  for (const d of trash) rmSync(d, { recursive: true, force: true });
+}
+
 // SDK-dependent: only runs if @modelcontextprotocol/sdk is installed.
 try {
   const { buildServer } = await import('./tools.js');

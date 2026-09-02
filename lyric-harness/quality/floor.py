@@ -1065,6 +1065,47 @@ PROFILES.append(
 CALIBRATION["profiles"] = {p.name: p for p in PROFILES}
 
 
+#: THE LENGTH-SENSITIVE FINDINGS, DECLARED ONCE — code -> (percentile key,
+#: evidence key). DECLARED 2026-09-02 under the owner's delegation
+#: (`BACKLOG.md` RULINGS WANTED #20 / `MISSING.md` L-4a).
+#:
+#: WHY IT EXISTS, AND IT IS A DEFECT REPORT RATHER THAN TIDYING. L-4a promises
+#: that "until [a generated song class exists] every song-length finding says
+#: on its face that it holds no separation claim". Four of the five said it,
+#: because their `Finding` text calls `Profile.evidence_for`, which DERIVES the
+#: sentence from `measured_auc`/`held_out_fpr`. **PREDICTABLE_RHYME did not.**
+#: Its evidence was a hand-typed paragraph quoting "AUC 0.648 on
+#: human-vs-generated ... the 0.960 the ten-feature joint reaches on the same
+#: split" — figures from the SONNET arm, 152 Shakespeare sonnets against 40
+#: model ones — printed verbatim under the `song` profile, which has no
+#: generated class at all. That is exactly the carry `evidence_for`'s own
+#: docstring exists to prevent, and it is doctrine 1: a claim stated in one
+#: place derived and in another retyped drifts in the retyped one.
+#:
+#: AND THE PIN COULD NOT SEE IT. `quality/test_floor.py` §15 — the section
+#: named "a profile with no negative class may not sound like one" — selected
+#: its population with a LITERAL four-code tuple that did not include
+#: PREDICTABLE_RHYME, so the one finding that broke the promise was the one
+#: finding the promise's own test did not read. A list that is short looks
+#: exactly like a list that is complete (test_verbs §24's reason for
+#: existing), and here the short list was in the guard rather than in the
+#: thing guarded. §15 derives its population from THIS map now, and fails if
+#: a code the running profile has a threshold for never appeared.
+#:
+#: THE SECOND KEY IS NOT THE FIRST WITH A SUFFIX REMOVED. `percentiles` is
+#: keyed by the threshold ("predictable_pair_fraction_max"); `measured_auc`
+#: and `held_out_fpr` are keyed by the FEATURE ("predictability"). They differ
+#: for exactly this one check, which is why both are written out rather than
+#: derived from each other.
+LENGTH_SENSITIVE = {
+    "LEXICAL_MONOTONY": ("mattr_min", "mattr"),
+    "FUNCTION_WORD_HEAVY": ("function_word_ratio_max", "function_word_ratio"),
+    "ANAPHORA_OVERLOAD": ("anaphora_max", "anaphora"),
+    "UNIFORM_LINE_LENGTH": ("line_length_cv_min", "line_length_cv"),
+    "PREDICTABLE_RHYME": ("predictable_pair_fraction_max", "predictability"),
+}
+
+
 def declaration_for(n_tokens, n_lines=None):
     """Pick the calibrated profile for a text of `n_tokens`.
 
@@ -1629,17 +1670,36 @@ class SlopFloor:
                     f"{len(obvious)} of {len(preds)} rhymes are near the top "
                     f"of their own candidate field",
                     f"{frac:.0%} of pairs above {d.predictability_max:.2f} "
-                    f"predictability. A NOTE, and it may not reject: a rhyme "
+                    f"predictability ({prof.name} profile); "
+                    f"{prof.evidence_for('predictability')}. A NOTE, and it "
+                    f"may not reject: a rhyme "
                     f"at the top of its own candidate field is a decision "
                     f"handed back, not a verdict, because a floor may not "
                     f"order the region it already passed (doctrine 7). Nor is "
-                    f"it on its own a generated-text detector. Held out and "
-                    f"cold, predictability alone reaches AUC 0.648 on "
+                    f"it on its own a generated-text detector. "
+                    # THE THREE FIGURES BELOW ARE THE SONNET ARM'S AND ARE
+                    # NAMED AS SUCH SINCE 2026-09-02 (L-4a). They used to be
+                    # printed bare, on every profile, so a `song`-profile
+                    # reader was handed "AUC 0.648 on human-vs-generated" for
+                    # a length at which no generated class exists — the exact
+                    # carry `Profile.evidence_for` was written to stop, in the
+                    # one length-sensitive finding that did not call it. The
+                    # numbers are unchanged and nothing is withdrawn; what
+                    # moved is that they now say which experiment produced
+                    # them, and the profile's own evidence stands in front of
+                    # them (doctrine 58 — a figure is a coordinate of the run
+                    # that produced it).
+                    f"ON THE SONNET ARM — 152 Shakespeare sonnets against 40 "
+                    f"model ones, a different length and a different "
+                    f"population from this one — held out and cold, "
+                    f"predictability alone reaches AUC 0.648 on "
                     f"human-vs-generated and 0.710 on anthologized-vs-not "
-                    f"(n=15) — above chance in both, and well under the 0.960 "
+                    f"(n=15): above chance in both, and well under the 0.960 "
                     f"the ten-feature joint reaches on the same "
                     f"human-vs-generated split, so it is a weak separator "
-                    f"carried by stronger features. Computed against an "
+                    f"carried by stronger features. Those figures are "
+                    f"EVIDENCE ABOUT THAT ARM and may not be read as this "
+                    f"profile's separation. Computed against an "
                     f"English frequency list; unvalidated outside English. "
                     f"PURSUED since 2026-08-23 (owner ruling): the lines "
                     f"named are the members of the obvious pairs, and the "

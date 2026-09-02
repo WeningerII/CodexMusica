@@ -782,31 +782,160 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
           "argument and the commands")
 
 
+#: A sheet that trips EVERY length-sensitive check under the `song` profile at
+#: once, so §15's population is the whole of `LENGTH_SENSITIVE` rather than
+#: whichever codes one fixture happened to fire.
+#:
+#: WHY IT IS BUILT HERE RATHER THAN READ FROM `fixtures/`: the section's claim
+#: is about the SET of findings, so the text has to be answerable to the set.
+#: `anaphoric.txt` — the fixture §15 used until 2026-09-02 — fires exactly ONE
+#: of the five (ANAPHORA_OVERLOAD, 221 tokens, 26 lines), so every `all(...)`
+#: below it was quantifying over a single finding while reading as though it
+#: covered the profile.
+#:
+#: HOW THE PAIRS WERE CHOSEN, DECLARED because a fixture picked to make a check
+#: fire is a tuning decision unless it says so. PREDICTABLE_RHYME needs the
+#: fraction of pairs above `predictability_max` (0.90) to exceed the `song`
+#: profile's 0.9333, so with n pairs it needs ALL of them: 11/12 is 0.9167 and
+#: does not clear. Twelve stock pairs were measured through
+#: `QualityFeatures._predictability` and three fell below 0.90 — time/rhyme
+#: 0.7213, home/roam 0.7221, eyes/skies 0.8255 — so the nine that cleared are
+#: what is here (day/way 0.9942, night/light 0.9735, heart/part 0.9858,
+#: true/you 1.0000, mind/find 0.9971, fire/desire 0.9438, rain/again 0.9903,
+#: sea/me 0.9997, sun/one 0.9966). Nothing about the CHECK was moved to make
+#: this fire; three unsuitable pairs were dropped from a fixture and the
+#: measurement that dropped them is written down.
+_ALL_FIVE_PAIRS = [("day", "way"), ("night", "light"), ("heart", "part"),
+                   ("true", "you"), ("mind", "find"), ("fire", "desire"),
+                   ("rain", "again"), ("sea", "me"), ("sun", "one")]
+
+
+def _sheet_that_trips_every_length_check(n_pairs=9):
+    """All nine pairs: 18 lines / 234 tokens, inside `song`'s measured 200-400.
+
+    The first three: 6 lines / 78 tokens, inside `short`'s measured 50-150 —
+    the SAME text shortened, so the two arms differ in length and in nothing
+    else, which is what makes the shrinking expectation below attributable to
+    the profile rather than to the fixture.
+    """
+    out = []
+    for a, b in _ALL_FIVE_PAIRS[:n_pairs]:
+        for w in (a, b):
+            out.append(f"and it is the one that we would have to be the {w}")
+    return out
+
+
 def test_the_song_profile_makes_no_separation_claim():
     print("\n15. a profile with no negative class may not sound like one")
+    import re as _re
+    from quality.floor import LENGTH_SENSITIVE
+
+    # THE POPULATION IS DERIVED, NOT LISTED. Until 2026-09-02 this section
+    # selected its findings with a literal four-code tuple, and the fifth —
+    # PREDICTABLE_RHYME — was the one that broke the promise the section is
+    # named after: it printed the SONNET arm's "AUC 0.648 on
+    # human-vs-generated" under a profile with no generated class, and said
+    # nothing about having no separation. The guard's list was short and a
+    # short list looks exactly like a complete one, so the guard is now a
+    # function of `floor.LENGTH_SENSITIVE` and of what the running profile
+    # actually declares a threshold for.
+    # THE MAP MAY NOT GO STALE EITHER. A sixth threshold added to any profile
+    # without joining `LENGTH_SENSITIVE` would be a length-sensitive finding
+    # nothing here reads — the same defect one layer up.
+    declared = {k for p in PROFILES for k in p.percentiles}
+    mapped = {pk for pk, _ in LENGTH_SENSITIVE.values()}
+    check("`LENGTH_SENSITIVE` names every percentile any profile declares",
+          declared == mapped,
+          f"declared-not-mapped {sorted(declared - mapped)}; "
+          f"mapped-not-declared {sorted(mapped - declared)}")
+
+    # BOTH LYRIC-SHEET PROFILES ARE UNDER TEST, and the second is not a
+    # duplicate: `short` declares FOUR thresholds, not five — M-193's stage B
+    # REFUSED `predictable_pair_fraction_max` there, because its 95th
+    # percentile over that band is 1.0000, the statistic's own ceiling. So the
+    # expected finding set SHRINKS BY ARITHMETIC on the shorter sheet, and if
+    # it did not, the derivation below would be a constant wearing a
+    # comprehension.
+    seen_profiles = []
+    for n_pairs in (9, 3):
+        ls = _sheet_that_trips_every_length_check(n_pairs)
+        n_tok = sum(len(FLOOR.qf._tokens(l)) for l in ls)
+        prof, exact = declaration_for(n_tok, len(ls))
+        check("the sheet lands EXACTLY in a profile with no generated class",
+              prof is not None and exact and prof.n_generated == 0,
+              f"{n_tok} tokens, {len(ls)} lines -> "
+              f"{prof.name if prof else None}, exact={exact}, "
+              f"n_generated={prof.n_generated if prof else '-'}")
+        if prof is None:
+            continue
+        seen_profiles.append(prof.name)
+
+        # Which codes MUST appear: every length-sensitive finding this
+        # profile declares a threshold for.
+        want = {c for c, (pk, _) in LENGTH_SENSITIVE.items()
+                if pk in prof.percentiles}
+        got = {f.code for f in FLOOR.check(ls)} & set(LENGTH_SENSITIVE)
+        check(f"[{prof.name}] every length-sensitive finding the profile "
+              f"declares actually FIRES on this sheet, so no check below is "
+              f"vacuous",
+              got == want, f"want {sorted(want)}; got {sorted(got)}")
+
+        fs = [f for f in FLOOR.check(ls) if f.code in LENGTH_SENSITIVE]
+        check(f"[{prof.name}] at least one finding is under test", bool(fs))
+
+        # THE DISCLOSURE IS THE PROFILE'S OWN SENTENCE, CHARACTER FOR
+        # CHARACTER. This is what makes it mechanical rather than a promise:
+        # the expected text is computed by calling `Profile.evidence_for`
+        # here, so deleting the call from a finding — or retyping its content
+        # beside the call — turns this red (doctrine 1, doctrine 48).
+        for f in fs:
+            key = LENGTH_SENSITIVE[f.code][1]
+            check(f"[{prof.name}] {f.code} carries the profile's OWN evidence "
+                  f"phrase, derived and not retyped",
+                  prof.evidence_for(key) in f.evidence,
+                  f"expected: {prof.evidence_for(key)[:70]}...")
+
+        # `AUC \d` and not the bare word: the finding is REQUIRED to contain
+        # the string "no AUC and no separation claim", so a substring test on
+        # "AUC" would pass on the disclaimer and fail on the honest text. What
+        # must not appear is a NUMBER after it — UNLESS the number is
+        # attributed to the arm that produced it. PREDICTABLE_RHYME
+        # legitimately cites the sonnet arm's 0.648/0.710/0.960; what it may
+        # not do is print them bare, where a reader takes them for this
+        # profile's separation (doctrine 58).
+        for f in fs:
+            if not _re.search(r"AUC\s*[0-9]", f.evidence):
+                continue
+            check(f"[{prof.name}] {f.code} quotes a numeric AUC, so it names "
+                  f"the arm that measured it and refuses the carry",
+                  "ON THE SONNET ARM" in f.evidence
+                  and "may not be read as this profile's separation"
+                  in f.evidence,
+                  "an unattributed AUC under a profile with no generated "
+                  "class is the exact carry `Profile.evidence_for` exists to "
+                  "prevent")
+        check(f"[{prof.name}] and each says so in as many words",
+              all("no AUC and no separation claim" in f.evidence for f in fs))
+        check(f"[{prof.name}] every finding states its held-out "
+              f"false-positive rate",
+              all("HELD-OUT human song" in f.evidence for f in fs),
+              "doctrine 22: a threshold is a false-positive rate, not a point "
+              "on a scale")
+        check(f"[{prof.name}] and states that this does not mean it catches a "
+              f"machine",
+              all("not whether it catches a machine" in f.evidence
+                  for f in fs))
+
+    check("the two arms landed in DIFFERENT profiles, so the derivation above "
+          "is not one profile read twice",
+          len(set(seen_profiles)) == 2, f"{seen_profiles}")
+
+    # The period half below reads the ANAPHORA_OVERLOAD finding on the
+    # original fixture, which is where the withdrawal was pinned.
     ls = _sheet("anaphoric.txt")
     fs = [f for f in FLOOR.check(ls)
           if f.code in ("ANAPHORA_OVERLOAD", "LEXICAL_MONOTONY",
                         "FUNCTION_WORD_HEAVY", "UNIFORM_LINE_LENGTH")]
-    import re as _re
-    check("at least one song-profile finding is under test", bool(fs))
-    # `AUC \d` and not the bare word: the finding is REQUIRED to contain the
-    # string "no AUC and no separation claim", so a substring test on "AUC"
-    # would pass on the disclaimer and fail on the honest text. What must not
-    # appear is a NUMBER after it.
-    quoted = [f.code for f in fs if _re.search(r"AUC\s*[0-9]", f.evidence)]
-    check("no song-profile finding quotes a numeric AUC", not quoted,
-          f"quoting one: {quoted}" if quoted else
-          "there is no generated song class, so there is no separation and "
-          "nothing to put an AUC on")
-    check("and each says so in as many words",
-          all("no AUC and no separation claim" in f.evidence for f in fs))
-    check("every song-profile finding states its held-out false-positive rate",
-          all("HELD-OUT human song" in f.evidence for f in fs),
-          "doctrine 22: a threshold is a false-positive rate, not a point on "
-          "a scale")
-    check("and states that this does not mean it catches a machine",
-          all("not whether it catches a machine" in f.evidence for f in fs))
     # WHAT THIS PINS CHANGED ON 2026-08-20, AND THE OLD PIN WAS THE DEFECT.
     # Until then these three lines asserted that the finding carries a LIVE
     # period slope -- doctrine 11, author-level Spearman +0.275 against birth

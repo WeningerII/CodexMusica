@@ -2023,7 +2023,7 @@ rather than left inside a headline about profile arithmetic.
 trustworthy about what does NOT exist — and `quality/FLOOR.md:39`'s
 two-column profile table. All three repinned with this close.
 
-### L-4a · The song profile has no generated class, so it carries a rate and no separation `OPEN`
+### L-4a · The song profile has no generated class, so it carries a rate and no separation `RESOLVED` 2026-09-02 under the owner's delegation (RULINGS WANTED #20, triage C23) — the QUESTION is answered and the fact is unchanged: the sitting is DECLINED in the proposed design, named in one that is not confounded, and the disclosure this entry promised is MECHANICAL now rather than a sentence
 Split from L-4's close, 2026-08-21, because it was buried in a headline about
 profile arithmetic and it is not about length at all. `quality/floor.py`'s
 `song` profile ships with `n_generated = 0`: what it has is a false-positive
@@ -2036,6 +2036,73 @@ ones_, because no generated song class exists in this repository. What is
 owed is a CORPUS, not a number — M-19's shape exactly. Until one exists this
 entry is doctrine 44's "cannot obtain" for the property, with the floor's own
 docstring (`quality/floor.py:124-131`) as the standing disclosure.
+
+**RULED 2026-09-02 UNDER THE DELEGATION, AND THE PREDICTION IN THE ROW WAS
+CHECKED RATHER THAN REPEATED.** RULINGS WANTED #20 said *"the sonnet arm
+predicts it would read period"*. It does not have to predict: this
+repository has MEASURED it, on this band, through these thresholds. The
+`song` profile's human class is `corpus/song/eng_*.txt` restricted to
+200-400 tokens — 2,261 items over 663 authors, of whom 312 carry dates
+(born 1340-1887, median 1809, latest death 1928) — and measured over
+`data/sources.tsv` this sitting, **71 of the 72 rows that stage those files
+carry `pd_affirmed=true`, 59 carry a publication year, and those 59 run
+1794-1919, median 1887, with ZERO at or after 1929.** The period
+restriction is the SELECTION CRITERION and not a coincidence, so a class
+written in 2026 differs from the human class on the calendar BY
+CONSTRUCTION — doctrine 13's identity rather than a dependence to argue
+about afterwards. The axis is not inert: `mattr` carries rho **-0.177**
+(p_perm 0.0029, clearing Bonferroni at 0.0100) and the cross-cohort
+transfer at median birth 1809 over-flags later-born authors (`fwr`
+**10.79%** against a cohort-permutation null median **5.85%**, p 0.0035);
+on the `short` band three of four thresholds survive Bonferroni and
+EARLY -> LATE runs **26.10%** against a null median **16.15%** (p 0.0075).
+Every measured gradient runs toward a HIGHER false-positive rate on later
+text, which is the direction that would INFLATE the AUC the sitting buys.
+**SO THE SITTING IS DECLINED IN THAT DESIGN AND NAMED IN TWO THAT ARE
+NOT.** (a) Move the HUMAN class forward: a post-1929 admissible song
+corpus. That is doctrine 92 — the admissible source and the complete source
+are disjoint here, and the 71-of-72 `pd_affirmed` count is the measurement
+of it — and NOBODY HAS RUN THE SEARCH: `data/sources.tsv` holds no
+`SEARCH:` row for one, so "there is none" is doctrine 20's absence rather
+than a finding, and running that search is the next sitting's first step,
+not writing forty songs. (b) Move the GENERATED class back into period
+pastiche — refused, being the confound doctrine 11 already caught, and
+doctrine 8's warning that a single corpus *"would have recommended
+optimizing toward archaic pastiche"*. Nothing else holds period constant;
+matching on the five features themselves is doctrine 14 exactly.
+**AND THE NUMBER WOULD MOVE NO VERDICT**: `Profile.measured_auc` is read by
+`evidence_for`, by the calibration's drift check and by the pins, and NEVER
+by `SlopFloor.check` — severity comes from `sev()`, and `PREDICTABLE_RHYME`
+is held at `note` by doctrine 7 whatever the separation is. The held-out
+FPR (`ANY` **20.22% [15.33-24.55]** on `song`, **16.18% [11.09-22.23]** on
+`short`) prices what the floor costs a human songwriter, which is the only
+thing a rejection gate can be held to (doctrine 22). And the AUC would be
+uninterpretable anyway: `data/sources.tsv`'s own generated-sonnet row says
+*"Being one model's output, 0.971 is the detectability of THIS generator,
+not of generated verse."*
+**AND THE ENTRY'S OWN CLOSING PROMISE WAS FALSE, WHICH IS THE HALF THAT WAS
+ACTUALLY MISSING.** *"Every song-length finding says on its face that it
+holds no separation claim"* was true of four findings and false of the
+fifth: `PREDICTABLE_RHYME` did not call `Profile.evidence_for` and printed
+the SONNET arm's AUC 0.648 / 0.710 / 0.960 verbatim under a profile with no
+generated class — the exact carry that function's own docstring exists to
+prevent (doctrine 1). **AND THE PIN COULD NOT SEE IT**: `test_floor.py` §15,
+the section named for this promise, selected its population with a
+hand-typed four-code tuple that OMITTED `PREDICTABLE_RHYME`, on a fixture
+firing ONE of the five, so every `all(...)` quantified over a single
+finding — a list that is short looking exactly like a list that is
+complete, in the guard rather than in the thing guarded. `floor.
+LENGTH_SENSITIVE` declares the five codes once with the percentile and
+evidence key each reads (they differ for exactly one, which is why both are
+written out); the finding calls `evidence_for` and the sonnet figures now
+name their arm and say they *"may not be read as this profile's
+separation"* rather than being withdrawn (doctrine 58); §15 derives its
+population from the map, runs the SAME text at two lengths so the expected
+set shrinks from five to four on `short` BY ARITHMETIC (M-193 stage B
+refused the fifth threshold), and fails if a declared code does not fire.
+Mutation-proven both ways — deleting the `evidence_for` call reds 4 checks,
+shrinking the map reds 1 — and the section passed with the defect standing
+before the repair, which is doctrine 48 inside the guard.
 
 ### L-5 · Doctrine has drifted toward auditing `CLOSED` 2026-08-11
 ~~`CLAUDE.md` carries 76 numbered items~~ ~~**102 numbered items, measured
@@ -16764,6 +16831,13 @@ gave on 08-29 — the daily spend window carrying rounds 9-10 — has lapsed
 and cannot be re-derived: the counter is in-memory and every deploy since
 reset it (AUDIT.md F128), so whether a round fits the window is a
 judgement at dispatch time, not a reading.
+**TESTED WHILE OPEN.** `quality/test_songs_log.py` §8 names this entry at
+the one place its ban-against-the-bank addendum became a code change — the
+draft-banking mechanism that ends the "provable md5, unreadable bytes"
+state it measured — and that half is BUILT. What stays open here is not in
+that check's reach and no test can put it there: round 11 against the
+deployed connector is a dispatch that spends the owner's credit, and this
+entry closes on that measurement or on nothing.
 **ADDENDUM 2026-09-02 — THE THREE RUNGS OF ROUND 10's LADDER THAT NO ENTRY
 TOUCHED, taken under the delegation (triage C02).** (1) THE HARD 429 is
 retried inside a DECLARED budget now: `gemini_agent.RATE_LIMIT_RETRY` —
@@ -16839,12 +16913,32 @@ instrument reads the grader: carry_it_over's nine rhyming pairs sit **0 in
 the modal HEAD, 2 in the offered TAIL (ranks 29, 54), 7 OUTSIDE the field
 entirely** — the "rare tail" the README reports, a number now — and its
 first version measured 0/3/6, so the rewrite-as-speech moved one pair out
-of the field. THE BANK-WIDE GRADER TOTALS ARE UNPINNED BY NAME: the full
-run passed 600 s on the shared box (`inspect` ~33 s a song plus two
-`modal_field` calls per eligible pair over ~400 pairs), `--check` pins
-only the log- and README-derived totals and REFUSES a partial run, and
-`PINNED` holds `None` for the grader half (doctrine 20 — an unmeasured
-total is not a zero). TWO REFUSALS STAND AND BOTH ARE THE SAME GAP:
+of the field. ~~THE BANK-WIDE GRADER TOTALS ARE UNPINNED BY NAME~~ — **PINNED THE
+SAME DAY, on a quiet box, the whole bank in ONE process** (the `Reviser`'s
+caches warm across songs, which is what brought the run inside its budget
+where a shared box could not; the earlier reading of that failure as a
+per-song cost was wrong about the shape and right about the total).
+MEASURED: **719 mandated / 549 judged / 170 refused**, and over the
+**487 eligible** rhyming pairs of the bank's fifteen gradeable songs,
+**7 sit in the modal HEAD (1.4%), 155 in the offered TAIL (31.8%) and 325
+OUTSIDE the candidate field entirely (66.7%)** — never summed past that
+partition (doctrine 79) — with the tail ranks running median **26**, min 1,
+max 639 over the 162 ranked pairs. **THAT IS THE ANSWER TO C18's QUESTION
+AND IT IS NOT THE ONE THE FINDING EXPECTED**: the finding asked what the
+ban costs in end-word rarity, and two thirds of the bank's rhymes are not
+in the ban's field at all — the writer was not choosing between the modal
+head and the offered tail, they were mostly answering with words the field
+never contained. **AND THE SEVEN HEAD PAIRS ARE ALL IN ONE PLACE, WHICH IS
+THIS ENTRY'S OTHER FINDING WEARING A SECOND HAT**: `banned_in_final` is 7,
+`rank_head` is 7, and all seven fall in the FOUR songs whose mandate came
+from a `plan` LOG ROW rather than from a README command
+(`the_river_keeps_the_score` 4, `i_am_not_leaving` 1, `the_long_way_back`
+1, `till_the_light_comes_home` 1) — the four whose GRADED mandate is not on
+record. The honest reading is that those songs are being graded under a
+RECONSTRUCTED mandate and the head pairs may be an artefact of it, not that
+those songs are worse; `the_long_way_back`'s 5 `SCHEME_VIOLATION` flags
+under the same reconstruction, against a README that records exit 0, is the
+same signal. The pins carry a date and `--check` compares them. TWO REFUSALS STAND AND BOTH ARE THE SAME GAP:
 `oar_lair.txt`'s mandate is banked nowhere (no README command, no `plan`
 row, none in its commit message) and is not invented; the_long_way_back's
 plan-log mandate grades its banked bytes to 5 `SCHEME_VIOLATION` flags and
@@ -18457,13 +18551,60 @@ success / Stood down: skipped`, #21 the reverse, and deploy #10 ran at
 DOWN at exit 10 naming both; unset or unreadable → deploys and SAYS the
 check did not run, because unknown is not a match; `workflow_dispatch`
 skips the lookup, which is the operator's way to re-ask for a lost build.
-Exercised in a throwaway repository against a `gh` shim replaying those
-run shapes (tip with no record 0; tip differing 0; tip equal 10 with the
-new message; behind the tip 10 with the ordering message first; the lookup
-returning the prior sha past an in-flight and a stood-down run; a failing
-API 1). NOT PINNED IN-TREE: no gate reads `deploy_guard.sh` today and a
-`test.mjs` pin needs a temporary git repository — owed, and said here so
-it cannot pass for paid. THE NIGHTLY'S SIZING was re-read off run #1183
+~~Exercised in a throwaway repository against a `gh` shim replaying those
+run shapes... NOT PINNED IN-TREE: no gate reads `deploy_guard.sh` today and
+a `test.mjs` pin needs a temporary git repository — owed, and said here so
+it cannot pass for paid.~~
+**THE PIN IS PAID THE SAME DAY, IN A SUITE CI ALREADY RUNS (triage C25).**
+`mcp/test.mjs` gains EIGHT checks that drive the REAL `deploy_guard.sh` and
+`last_deployed_sha.sh`: a temporary git repository per case (`git init -b
+main`, a real `refs/remotes/origin/main`, the box's own git config shut out
+and `GIT_DIR`/`GIT_WORK_TREE` scrubbed so a stray variable cannot point the
+guard at THIS repository), and a `gh` on `PATH` replaying what `gh api
+--jq` PRINTS for the two requests the lookup makes. The invocation is the
+workflow's own, `--verbose` included, because the sentence saying the
+same-sha check did not run only prints under it. THE FILE WAS CHOSEN, NOT
+INVENTED: `mcp/test.mjs` is the connector's own suite, `ci.yml` already
+runs it, and the shape is `scripts/check_publish_guard.js`'s one service
+over — so no new suite was registered and `ci.yml`'s `for f in` list and
+its 77 label are untouched. The suite reads **94 checks** against 86
+before.
+WHAT THE EIGHT COVER, each its own named check: the tip with NO record
+deploys at 0 and SAYS the same-sha check did not run (driven twice, unset
+and the empty string the workflow actually passes); a record that DIFFERS
+deploys and names it; a record EQUAL to the tip stands down at **exit 10**
+with both shas on the message; a sha one commit behind the tip stands down
+on ORDERING *while the record is set equal to it* — the two rules are made
+to contradict on purpose, which is the only shape that shows the ordering
+test firing FIRST rather than merely reaching the same code; the lookup
+returns the newest run whose `Deploy` concluded `success`, with the shim's
+request log proving the in-flight `GITHUB_RUN_ID` was never asked about
+while the stood-down and failed runs WERE asked and rejected on their
+conclusion rather than skipped by luck; an empty history prints nothing at
+0; a `gh` that exits non-zero yields no sha, and that empty value fed to
+the real guard deploys and says the check did not run — unknown is not a
+match, driven end to end rather than asserted about the source; and
+`deploy-connector.yml` itself is read for reaching both scripts, reading
+the record BEFORE asking the guard, crossing the process boundary as
+environment rather than as bare shell variables, treating exit 10 as
+`go=no`, and asking for `actions: read`.
+TWO-SIDED, MEASURED. Five defects were reintroduced in turn and each named
+exactly the checks it should: striking the same-sha block reds the
+already-asked check at `0 != 10` (the mutant printed *"is the tip of main —
+deploying... last accepted: <the same sha> (differs)"*) and the
+planted-mutant check with it; reading an absent record as a match reds the
+no-record and failing-`gh` checks at `10 != 0`; hoisting the same-sha test
+above the ordering test reds the behind-the-tip check ALONE; dropping the
+in-flight `select` reds the skip check; widening the conclusion test to
+accept `skipped` and `failure` reds it returning the stood-down run's sha.
+Both scripts were restored byte-identical, and two of the mutants are
+PLANTED IN THE CHECK, so the pin feeds itself its own defects every run.
+WHAT THE PIN DOES NOT CLAIM: it does not touch (a) — nothing here reads the
+live `/mcp`; it does not say the connector is SERVING the right tree, which
+stays `check_live.mjs`'s question; it exercises the workflow's `if:`
+conditions as TEXT and never as a run; and the `gh` it drives is a REPLAY
+of the two request shapes read off the live API on 2026-09-02, so a change
+in what that API returns would be invisible to it. THE NIGHTLY'S SIZING was re-read off run #1183
 (2026-09-01, success) instead of the 2026-08-27 figure nobody had re-run:
 job 79.0 min warm, the song-profile slice 96 s under a warm memo, the
 non-slice steps 77.4 min (feature cache 1005 s, discrimination 985 s,
@@ -19108,6 +19249,85 @@ the record of how each song was made — and rewriting a stamp is
 fabricating provenance, so they stay as written. The entry stays
 `PARTIAL` on the two lost mandates and the draft-banking design above,
 not on anything the 09-01 text listed.
+**ADDENDUM 2026-09-02 (SECOND) — THE DRAFT-BANKING MECHANISM IS BUILT, AND
+THE HOLE IT CANNOT CLOSE IS FOUR DRAFTS, OF WHICH GIT HOLDS ONE.**
+`song_log.record()` on the four verbs that GRADE a draft — `song`, `brief`,
+`revise`, `finish` — writes the `load_lyric_lines` text it was handed to
+`songs/drafts/<song>.<md5>.draft.txt`, named by the md5 THE VERB ITSELF
+PRINTED, taken out of the parser's own facts and never re-derived for the
+purpose; the bytes are fingerprinted through `lyric_harness.load_lyric_lines`
+and `quality.revise.draft_fingerprint`, both BORROWED (`hashlib` appears
+nowhere in the file), and a disagreement writes NOTHING and prints its cause.
+Beside them the INVOCATION is banked: `command` (the shell-quoted argv) and
+`mandate_groups_text` / `mandate_returns_text` / `mandate_relations_text` /
+`mandate_structures_text` / `mandate_relation_text` / `mandate_cliques` /
+`mandate_scheme_text`, transcribed VERBATIM and never parsed — `schemes.mandate`
+stays the one reader of `3.T2`. `_text` because `song` already banks
+`mandate_groups` as an integer COUNT and `plan` banks `groups` as the PLANNED
+string: three quantities, three names. `oar_lair.txt`'s state — a graded
+mandate banked nowhere — is unreachable for any run recorded through
+`--record` from here on. THE DOCSTRING'S OWN BOUNDARY MOVED AND SAYS SO: this
+file banks facts about the INVOCATION as well as about the output, the two
+are kept apart by name, and it has always banked one of them (`exit`, which
+is not emitted text either).
+**THE DESIGN'S FILENAME IS AMENDED, AND THE AMENDMENT IS MEASURED.** The
+addendum above says `songs/<name>.<md5>.draft.txt`; `quality/test_songs.py`
+§1 globs `songs/*.txt` and FAILS on any file there with no
+`.blueprint.json` beside it, so that spelling turns a green population gate
+red — and the alternative, an exclusion carved into that gate, is how a real
+lyric with no blueprint would learn to pass by being named `.draft.txt`
+(doctrine 58). `songs/drafts/` needs no exclusion anywhere and `glob` does
+not recurse, so the population that register reads is unmoved. THEY ARE COMMITTED: the
+point of banking a draft is that a later reader can grade the same bytes,
+and a gitignored file is one machine's disk — a clone would hold the md5 and
+not the text, which is the state this entry is about. Cost, measured: the
+bank's **50 md5 rows over 16 songs are 20 DISTINCT md5s** (max 3 on one
+song, matinee), because the name is keyed on CONTENT and a step grading
+bytes already banked re-uses their file; the sixteen committed lyrics are
+**13,411 bytes** of graded text, so all twenty land near 16.8 KB.
+**THE RULE OVER HISTORY IS FOUR COUNTS, NEVER SUMMED, RED ON ONE.**
+`song_log.py --drafts` (0.24 s) charges every banked md5 against the bytes
+behind it: **BANKED** (a draft file that re-fingerprints to it),
+**RECOVERABLE** (no file, but the committed lyric IS these bytes), **LOST**
+(measured before the declared `DRAFT_BANKING_SINCE = 2026-09-02` and
+matching nothing on disk) and **FAILING** (recorded on or after it with no
+readable draft) — and only FAILING is red, because a check written after a
+history cannot make that history true (doctrine 17). The discriminator is a
+DECLARED DATE and not a list of grandfathered rows: a list needs editing
+every time a row joins it. It is not vacuous — every md5 row in the bank was
+measured 2026-08-24..2026-08-30, pinned by `test_songs_log.py` §8. NOTHING
+IS BACKFILLED: sixteen of the twenty md5s are the songs' own committed bytes
+and are reported RECOVERABLE rather than banked, because a file written
+today from a re-hash would make a run that recorded its bytes and a run that
+did not look identical, which is the one distinction the mechanism IS
+(doctrine 20). Reading today: **0 BANKED, 44 RECOVERABLE, 6 LOST, 0
+FAILING**.
+**THE LOST BUCKET IS M-168's FINDING AS A NUMBER, AND IT IS FOUR DRAFTS**
+— crooked_waltz step 19 `29697fccfe8d`, matinee 54 `707c48614794`, matinee
+55 `04065bbbcdd9`, the_long_way_back 2/3 `687eaa34c949`, six md5 ROWS over
+four drafts. **ONE OF THE FOUR IS NOT LOST AND M-168's ADDENDUM DID NOT KNOW
+IT**: `git show 8d7b3f18:lyric-harness/songs/the_long_way_back.txt`
+fingerprints exactly `687eaa34c949`, so those bytes are readable from git
+history for that song and for no other. They are NOT written into
+`songs/drafts/` here — recovering them by hand produces a file that looks
+banked-by-construction and was not, and the honest route is a declared
+`--bank-draft SONG MD5 FILE` that REFUSES unless the file fingerprints to an
+md5 the song's log already holds. That is a build and is named open.
+`test_songs_log.py` §8 is 18 checks (the suite goes 41 to 59): the cutoff is
+declared and non-vacuous, the four buckets PARTITION the 50 md5 rows, the
+LOST set is exactly those four and no more, an end-to-end `--record` banks
+bytes that re-fingerprint and a mandate that reads back verbatim, DELETING
+that draft turns the gate red at exit 3 as FAILING and not as LOST, two
+positional `.txt` arguments REFUSE rather than pick one, and a verb printing
+no fingerprint gets no file and says so.
+**ONE CONSEQUENCE NOT TAKEN, ON PURPOSE.** The new `mandate_*_text` facts
+make a THIRD mandate source available to `ban_convergence.mandate_spec`
+(README, then the `plan` row, then the `song` row's own banked mandate) —
+the route that would have resolved `oar_lair`. Wiring it moves that
+instrument's pinned 11/4/1 and turns its `--check` red, and a pin that moves
+without a register line is a defect report. It needs its own sitting.
+The entry stays `PARTIAL` on the three genuinely lost drafts and the
+recovery verb, and on nothing else.
 
 ### M-197 · A chat turn that threw mid-way spent hops nobody charged, and the turn's cost reached no reader `CLOSED` 2026-09-01 — found by the 2026-09-01 triage audit (findings C28 and C11) reading `runTurn`'s hop loop against `chat.js`'s catch; the uncounted throw is charged and the cost is on the response, the in-memory counter and the turn cap stay the owner's
 **THE DEFECT.** `gemini_agent.runTurn` accumulates `usage` as a local and

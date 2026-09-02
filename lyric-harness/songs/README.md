@@ -779,6 +779,7 @@ the questions were asked.
     python3 quality/song_log.py --record SONG -- CMD...   # run a verb, bank what it printed
     python3 quality/song_log.py --show SONG               # render one song's log
     python3 quality/song_log.py --verdicts                # this file's process claims vs the rows
+    python3 quality/song_log.py --drafts                  # every banked md5 vs the bytes behind it
 
 **IT RECORDS EMITTED TEXT AND NOTHING ELSE.** `--record` runs the command,
 keeps its exit code, and parses stdout with a parser declared for that verb. A
@@ -810,6 +811,20 @@ could re-derive — a table whose single denominator was impossible for five of
 its own rows, which is what a number nobody can re-run does. `screen`'s own
 verdict per pair is banked now, `scrolled`'s five refusals included, each one
 naming the word CMUdict could not read.
+
+**AND SINCE 2026-09-02 THE VERB THAT GRADES A DRAFT BANKS WHAT IT GRADED.**
+The log held a fingerprint of each graded draft and not one word of it, so a
+draft that differed from its final was provable and unreadable — the reason
+`quality/ban_convergence.py` could not screen these songs' first drafts against
+their finals, and the reason two songs' graded mandates were recoverable from
+nowhere. `--record` now writes the graded lines to `songs/drafts/`, named by the
+fingerprint the verb itself printed, and banks the mandate spelling and the
+whole command beside them. `--drafts` charges every banked fingerprint against
+the bytes behind it in four counts, never summed: BANKED, RECOVERABLE from the
+committed lyric, LOST before the mechanism existed, and FAILING — recorded
+after it and missing anyway, which is the only one that is red. The four lost
+drafts stay lost and stay named; a check written after a history cannot make
+that history true.
 
 **A CITATION IS KEYED ON A WORD, NOT A ROW NUMBER.**
 `[LOG: clean_or_non_rhyme carry_it_over.txt bell]` names the screen run that
