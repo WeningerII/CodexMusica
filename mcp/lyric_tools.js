@@ -1701,7 +1701,7 @@ export function registerLyricTools(server, tool) {
         'are how sections derive when the text carries no [SECTION] marks, and a list with the blanks stripped has ' +
         'its sectioning REFUSED; and `placements` narrows the cover — the default four places over a 32-line song ' +
         "recover ~670 pair-groups (10k characters), which the graders accept and judge far outside this connector's " +
-        "clock (a `brief` on that cover measured past four minutes against a 60 s client default), so `placements: 'end'` is the connector-sized cover for anything longer than a few lines.",
+        "clock (a `brief` on that cover measured 398 s against a 60 s client default), so `placements: 'end'` is the connector-sized cover for anything longer than a few lines.",
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_recover,
     },
     (a) =>

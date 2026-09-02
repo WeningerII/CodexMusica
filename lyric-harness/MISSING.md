@@ -18600,8 +18600,10 @@ verb prints GRADE IT with the brief command, quoted; the tool description
 and the paste instruction say to pass blank stanza breaks as EMPTY entries
 (a stripped list refuses sectioning) and to narrow to `placements: 'end'`
 past a few lines, because the default cover of a 32-line song is 670 groups
-and a `brief` on it runs far past the connector's clock — MEASURED past 270 s and still running when this was written, on a contended four-CPU box, against a
-60 s client default and a subprocess kill later still. **WHAT STAYS
+and a `brief` on it runs far past the connector's clock — MEASURED at 398 s
+wall on a contended four-CPU box (exit 0: 670 mandated pairs, 15 lines
+briefed, 0 FLAG, 38 NOTE — the cover is satisfied by construction, doctrine
+14), against a 60 s client default and a subprocess kill later still. **WHAT STAYS
 OPEN, added**: the dense default cover is the cost of M-145's narrow-door
 ruling (every admitted pair is an edge) and is disclosed, not redesigned;
 `[FINISHED — declared mandate — … no flag stands]` does not itself say that
