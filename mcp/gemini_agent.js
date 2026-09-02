@@ -74,6 +74,13 @@ export const LIMITS = {
   // count, and a turn that grew a large workspace could spend far more inside
   // fourteen legal hops than fourteen ordinary hops ever would.
   maxTurnUsd: Number(process.env.CHAT_MAX_TURN_USD) || 0.1,
+  // WHICH OF THOSE TWO CEILINGS ACTUALLY BINDS IS `turnBudget()` BELOW, AND
+  // IT IS DISCLOSED RATHER THAN LEFT TO WHICHEVER IS SMALLER (2026-09-02,
+  // triage C11). `maxSteps` and `maxTurnUsd` are two answers to ONE question
+  // — how many hops may a turn take — and the smaller one wins in silence,
+  // so a turn that stopped at hop 8 of a legal 14 reported MAX_TURN_COST
+  // with no number beside it. That is the reading problem M-169 exists for,
+  // one coordinate over.
   // STALE-BRIEF PRUNING (M-197's open half). Every hop re-sends the whole
   // transcript, and the transcript is mostly FOLDED LYRIC RESULTS the model
   // has already acted on: a lyric_revise brief is ~20 KB on the record (a
@@ -141,6 +148,53 @@ export function priceFor(model) {
     return { input, output, declared: true };
   }
   return null;
+}
+
+// THE BYTES-PER-TOKEN RATIO THE PRUNING CEILING IS STATED IN. Measured at
+// ~4 bytes a token over this connector's own JSON transcripts (M-197's
+// pruning measurement states the ceiling in BYTES and the cap in DOLLARS,
+// and this is the one place the two units meet). Declared, so the arithmetic
+// below reads a coordinate rather than a magic number.
+export const BYTES_PER_TOKEN = Number(process.env.CHAT_BYTES_PER_TOKEN) || 4;
+
+/**
+ * What a turn's two ceilings actually buy, derived from the declared
+ * coordinates and the model's own price. No number is invented here: every
+ * input is `LIMITS` or `PRICING`, so a repin anywhere moves this.
+ *
+ * `worstLegalTurnUsd` is what a turn costs if it uses EVERY one of its
+ * `maxSteps` hops with a prompt at the pruning ceiling and a full output
+ * budget on each. Read it against `maxTurnUsd`: if the cap is BELOW it, the
+ * cap is the operative step limit and `maxSteps` is decoration — a turn that
+ * is legal by the step counter is killed by the dollar counter, and the user
+ * is told MAX_TURN_COST when what bound them was the hop budget. That is a
+ * fact about the two coordinates, not a defect in either, and it is the
+ * arithmetic the `CHAT_MAX_TURN_USD` ruling wants (triage C11).
+ *
+ * THE CEILING IS NOT THE WHOLE STORY AND THIS SAYS SO: `pruneHistory` runs
+ * ONCE A TURN, on the PRIOR transcript, so a turn's own tool results append
+ * on top of the pruned prior without being pruned again. A hop that folds a
+ * `lyric_grade` report (~45 KB on the record) pushes the prompt past the
+ * ceiling inside the turn, so `hopsAffordable` is an UPPER bound on a
+ * grading turn and an accurate one on a conversational turn.
+ *
+ * @returns {{perHopUsd:number, worstLegalTurnUsd:number,
+ *            hopsAffordable:number, capBinds:boolean}|null} null when the
+ *          model is unpriced — the same refusal `costOf` makes.
+ */
+export function turnBudget(limits = LIMITS, model = DEFAULT_MODEL) {
+  const price = priceFor(model);
+  if (!price) return null;
+  const promptTokens = limits.pruneMaxBytes / BYTES_PER_TOKEN;
+  const perHopUsd = (promptTokens * price.input + limits.maxOutputTokens * price.output) / 1e6;
+  const worstLegalTurnUsd = perHopUsd * limits.maxSteps;
+  const hopsAffordable = Math.floor(limits.maxTurnUsd / perHopUsd);
+  return {
+    perHopUsd,
+    worstLegalTurnUsd,
+    hopsAffordable,
+    capBinds: hopsAffordable < limits.maxSteps,
+  };
 }
 
 export function costOf(usage, model) {
@@ -642,6 +696,7 @@ export async function runTurn({
   let ws = workspace;
   let lyr = lyric && typeof lyric.state === 'string' ? lyric : null;
   let stopped = null;
+  let stoppedDetail = null;
   let reply = '';
 
   const body = {
@@ -828,6 +883,19 @@ export async function runTurn({
       const soFar = costOf(usage, model);
       if (limits.maxTurnUsd > 0 && (soFar === null || soFar >= limits.maxTurnUsd)) {
         stopped = soFar === null ? 'UNPRICED_MODEL' : 'MAX_TURN_COST';
+        // WITH THE NUMBERS, NOT AS A BARE LABEL (2026-09-02, triage C11).
+        // `MAX_TURN_COST` alone cannot be told from `MAX_STEPS` by anyone
+        // reading a transcript, and round 10's rows are the evidence: a turn
+        // that stopped at hop 8 of 14 looks exactly like a turn that ran out
+        // of hops. What it spent, what the cap is, how many hops it bought
+        // and how many it was allowed all ride out with it.
+        stoppedDetail = {
+          usd: soFar,
+          cap: limits.maxTurnUsd,
+          hops: step + 1,
+          maxSteps: limits.maxSteps,
+          budget: turnBudget(limits, model),
+        };
         if (onEvent) onEvent({ type: 'stopped', reason: stopped, usd: soFar });
         break;
       }
@@ -849,6 +917,7 @@ export async function runTurn({
     calls,
     usage,
     cost: costOf(usage, model),
+    stoppedDetail,
     stopped,
   };
 }

@@ -1281,6 +1281,105 @@ check('validation: actionable errors', () => {
 }
 
 {
+  // ── C11: which of the two turn ceilings actually binds ───────────────────
+  // `maxSteps` and `maxTurnUsd` are two answers to ONE question — how many
+  // hops may a turn take — and the smaller one wins in silence. `turnBudget`
+  // derives the answer from the declared coordinates (LIMITS + PRICING, no
+  // literal of its own) and the stop carries its numbers, so a reader of a
+  // transcript can tell a turn that ran out of HOPS from one that ran out of
+  // MONEY. Pinned as a RELATION, not as a dollar figure: the cap is the
+  // owner's to set, and this must keep holding when they set it.
+  const {
+    turnBudget,
+    LIMITS: _L,
+    PRICING,
+    DEFAULT_MODEL,
+    BYTES_PER_TOKEN,
+    runTurn: _rt,
+  } = await import('./gemini_agent.js');
+  check('turnBudget derives the per-hop cost from the declared coordinates alone', () => {
+    const b = turnBudget();
+    const price = PRICING[DEFAULT_MODEL];
+    const expected =
+      ((_L.pruneMaxBytes / BYTES_PER_TOKEN) * price.input + _L.maxOutputTokens * price.output) /
+      1e6;
+    assert.ok(Math.abs(b.perHopUsd - expected) < 1e-12, `${b.perHopUsd} vs ${expected}`);
+    assert.ok(
+      Math.abs(b.worstLegalTurnUsd - expected * _L.maxSteps) < 1e-12,
+      'the worst legal turn is every declared hop at the ceiling'
+    );
+    assert.equal(b.hopsAffordable, Math.floor(_L.maxTurnUsd / b.perHopUsd));
+    assert.equal(b.capBinds, b.hopsAffordable < _L.maxSteps);
+  });
+  check('an unpriced model refuses the arithmetic rather than returning a number', () => {
+    assert.equal(turnBudget(_L, 'no-such-model'), null);
+  });
+  check('the ceilings DISAGREE at the pruning ceiling, and the code says which wins', () => {
+    // The measured state on 2026-09-02: $0.10 buys 6 hops of a legal 14, so
+    // the DOLLAR cap is the operative step limit and `maxSteps` is the
+    // decoration. Recorded as a relation so it survives a repin of either.
+    const b = turnBudget();
+    assert.ok(b.capBinds, `cap ${_L.maxTurnUsd} buys ${b.hopsAffordable} of ${_L.maxSteps} hops`);
+    assert.ok(
+      _L.maxTurnUsd < b.worstLegalTurnUsd,
+      'the cap sits below the worst LEGAL turn, which is what makes it bind'
+    );
+  });
+  await (async () => {
+    // Drive a real turn into the cap: one hop, priced past the ceiling.
+    const realFetch = globalThis.fetch;
+    globalThis.fetch = async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        candidates: [
+          { content: { parts: [{ functionCall: { name: 'lyric_types', args: { a: 'x' } } }] } },
+        ],
+        usageMetadata: {
+          promptTokenCount: 4_000_000,
+          candidatesTokenCount: 1,
+          thoughtsTokenCount: 0,
+        },
+      }),
+    });
+    let run = null;
+    try {
+      run = await _rt({
+        apiKey: 'k',
+        surface: {
+          instructions: '',
+          declarations: [],
+          workspaceTools: new Set(),
+          stateTools: new Set(),
+        },
+        callTool: async () => ({ content: [{ type: 'text', text: 'ok' }] }),
+        userText: 'hi',
+      });
+    } finally {
+      globalThis.fetch = realFetch;
+    }
+    check('a turn stopped by the cap carries what it spent, the cap and both hop counts', () => {
+      assert.equal(run.stopped, 'MAX_TURN_COST');
+      const d = run.stoppedDetail;
+      assert.ok(d, 'the stop is not a bare label');
+      assert.ok(d.usd >= d.cap, `spent ${d.usd} against cap ${d.cap}`);
+      assert.equal(d.cap, _L.maxTurnUsd);
+      assert.equal(d.hops, 1, 'it bought one hop');
+      assert.equal(d.maxSteps, _L.maxSteps, 'and names the hop budget it did NOT reach');
+      assert.ok(d.hops < d.maxSteps, 'so MAX_TURN_COST cannot be read as MAX_STEPS');
+      assert.ok(d.budget && d.budget.capBinds === true, 'and carries the derivation');
+    });
+  })();
+  check('chat.js publishes the stop detail beside the stop reason', () => {
+    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+    assert.ok(
+      /stopped_detail: run\.stoppedDetail \?\? null,/.test(chat),
+      'the reply carries stopped_detail'
+    );
+  });
+}
+
+{
   // M-159: battery round 4 died in ITS OWN CLIENT. Node's fetch() carries
   // undici's default 300s headers timeout, which nothing declared; a
   // legitimate /chat turn (grade ~90s + revise ~80-205s in one response)

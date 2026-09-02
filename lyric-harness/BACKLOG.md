@@ -1701,6 +1701,8 @@ pricing, M-136's required words and assonance profile).
 | M-168 (2026-09-02, C18) | the ban against the bank is an instrument, not a sitting: the screened pool 366/395/792/11/1 is read off the logs; the grader half is unpinned by name; two lost mandates and the draft-banking design go to M-196 | `ban_convergence.py`, `test_ban_convergence.py` |
 | M-170 (2026-09-02, C31) | the flagged-regime fold is a slope: grading calls 9 → 60 over six answers, ~0.7 s a call, in a cold process; `--attempts=1` moves nothing; the driver is an instrument | `fold_series.py` |
 | M-196 (2026-09-02, C27) | the 09-01 list is closed item by item; the `-WORKING` stamps are history and stay; the entry stays PARTIAL on C18's two lost mandates and the draft-banking design | `--verdicts` 131 / 0 / 0 |
+| E-5 (2026-09-02, the owner's reversal) | the owner lifted their own 08-21 deferral on *"finish the rest of the work"*; the cheap half ships and moves nothing — `now`/`why` still 0.902 RHYME with 0.350 of it named as absence, battery unmoved at 1064/1014/50/12 | `score()` flags, the screen row, `test_readability` §14 |
+| M-197 (2026-09-02, C11 the cap) | which of `maxSteps` and `maxTurnUsd` binds is DERIVED from the declared coordinates and disclosed on the stop; measured $0.015572 a hop, worst legal turn $0.2180, the $0.10 cap buying 6 hops of 14; the dollar figure stays the owner's | `turnBudget`, `stoppedDetail` |
 
 ---
 

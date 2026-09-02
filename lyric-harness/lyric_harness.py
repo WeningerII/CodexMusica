@@ -3357,6 +3357,33 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
         })
     total /= n
     total -= decl.trailing_syllable_penalty * extra
+    # THE EMPTY/EMPTY CODA GIFT, DISCLOSED AND NOT MOVED (2026-09-02,
+    # `MISSING.md` E-5, the CHEAP half as that entry defines it, RESTORED
+    # the same day on the owner's *"finish the rest of the work"* after
+    # being built, measured and stripped once — the 2026-08-21 deferral it
+    # waited on is theirs and they lifted it). Two vowel-final syllables
+    # score 1.0 on the coda channel because `cluster_sim([], [])` is 1.0 —
+    # agreement by ABSENCE, not by sound — and that 1.0 is weighted like a
+    # heard consonant: `now`/`why` = 0.5x0.805 + 0.35x1.0 + 0.15x1.0 =
+    # 0.902 RHYME. The AGREEMENT side (`coda_agrees` on empty/empty) is
+    # CORRECT and untouched — it is what keeps `see`/`free` a rhyme. Here
+    # the channel is reported as cannot-tell, with the share of `total`
+    # that rests on it, and `total` and `relation` are left exactly where
+    # they were: moving the scalar is the entry's EXPENSIVE half
+    # (M-4a-class, drags `test_fwer`, the band's FPR and the D18 pin) and
+    # waits for its own calibration sitting (doctrine 58). A
+    # refusal-shaped disclosure, the `identity: not asked` shape below
+    # (doctrine 20).
+    _gift = sum((w0 if i == 0 else wi)["coda"]
+                for i in range(n)
+                if not anc_a[i]["coda"] and not anc_b[i]["coda"]) / n
+    if _gift > 0:
+        _k = sum(1 for i in range(n)
+                 if not anc_a[i]["coda"] and not anc_b[i]["coda"])
+        out["flags"].append(
+            f"coda: no evidence (both codas empty on {_k} of {n} "
+            f"syllable(s); {_gift:.3f} of the total is agreement by "
+            f"absence, not by sound — E-5)")
     if prof and prof.get("require_final_consonant"):
         ca = anc_a[-1]["coda"][-1:] if anc_a[-1]["coda"] else []
         cb = anc_b[-1]["coda"][-1:] if anc_b[-1]["coda"] else []
@@ -5240,7 +5267,7 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
             row = {"a": a, "b": b, "codes": codes, "refused": False,
                    "reason": None, "relation": None, "score": None,
                    "why": None, "schema_scaffold": [],
-                   "flags": [],
+                   "flags": [], "coda_no_evidence": False,
                    "named": None, "named_reason": None}
             if g["refusals"]:
                 row["refused"] = True
@@ -5250,10 +5277,13 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
                 row["relation"] = v["relation"]
                 row["score"] = v["score"]
                 row["why"] = v["why"]
-                # M-136 (2026-09-02): the comparator's own flags ride the
-                # row, so a screen can say what a verdict did not ask —
-                # the disclosure, never a gate.
+                # E-5 / M-136 (2026-09-02): the comparator's own flags
+                # ride the row, so a screen can say what a verdict did not
+                # ask and what part of a CLEAN verdict was agreement by
+                # absence — the disclosure, never a gate.
                 row["flags"] = list(v.get("flags") or [])
+                row["coda_no_evidence"] = any(
+                    f.startswith("coda: no evidence") for f in row["flags"])
                 # M-113: `pairs_schema_satisfied` is the RESCUE set — the
                 # scalar door failed and a schema satisfied. On carrier
                 # lines the schemas' evidence is the SCAFFOLD ("we carry
@@ -7641,6 +7671,12 @@ def main():
                               f"{', '.join(r['schema_scaffold'])})")
                 else:
                     status = f"CLEAN — DOES NOT RHYME ({r['why']})"
+                if r["coda_no_evidence"]:
+                    # E-5, the cheap half (2026-09-02): the verdict stands;
+                    # the reader learns what part of it is unsupported.
+                    _cf = next(f for f in r["flags"]
+                               if f.startswith("coda: no evidence"))
+                    status += f"  |  {_cf}"
                 if screen_rel:
                     if r["named"] is True:
                         status += f"  |  SATISFIES {screen_rel}"

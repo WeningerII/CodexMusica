@@ -1546,8 +1546,64 @@ def test_a_wordless_score_says_identity_was_not_asked():
           s2["total"] == 1.0 and s2["relation"] == "RHYME" and s2["flags"] == [])
 
 
+def test_the_empty_coda_gift_is_disclosed_and_not_moved():
+    print("\n14. `score()` DISCLOSES the empty/empty coda gift and moves "
+          "nothing (`MISSING.md` E-5, the cheap half, 2026-09-02)")
+    # Two vowel-final words score 1.0 on the coda channel by ABSENCE
+    # (`cluster_sim([], [])`), weighted like a heard consonant: `now`/`why`
+    # = 0.5*0.805 + 0.35*1.0 + 0.15*1.0 = 0.902 RHYME. The scalar and the
+    # relation stay EXACTLY where E-5 pinned them — moving them is the
+    # entry's expensive half and a calibration sitting — and the channel is
+    # reported as cannot-tell with the share of `total` that rests on it.
+    import lyric_harness as _LH
+
+    def _w(x):
+        p, _, _ = LEX.transcribe(x)
+        return _LH.anchor(_LH.syllabify(p))
+    s = _LH.score(_w("now"), _w("why"), DECL, "now", "why")
+    check("now/why still scores 0.902 RHYME — the verdict E-5 records, "
+          "not moved by a disclosure",
+          s["total"] == 0.902 and s["relation"] == "RHYME",
+          f"{s['total']} {s['relation']}")
+    _cf = [f for f in s["flags"] if f.startswith("coda: no evidence")]
+    check("...and says on its flags that the coda channel had no evidence, "
+          "with the 0.350 of the total that is agreement by absence",
+          len(_cf) == 1 and "0.350 of the total" in _cf[0]
+          and "1 of 1 syllable" in _cf[0], s["flags"])
+    c = _LH.score(_w("cat"), _w("hat"), DECL, "cat", "hat")
+    check("control: cat/hat — codas heard on both sides — carries no such "
+          "flag and is still a clean 1.0 RHYME",
+          c["total"] == 1.0 and c["relation"] == "RHYME" and c["flags"] == [],
+          f"{c['total']} {c['relation']} {c['flags']}")
+    # THE AGREEMENT SIDE IS UNTOUCHED: `see`/`free` is a rhyme because
+    # `coda_agrees` on empty/empty is CORRECT, and the disclosure rides
+    # beside that verdict rather than against it.
+    f = _LH.score(_w("see"), _w("free"), DECL, "see", "free")
+    check("see/free is still 1.0 RHYME (the agreement side is correct and "
+          "untouched) and carries the same disclosure",
+          f["total"] == 1.0 and f["relation"] == "RHYME"
+          and any(x.startswith("coda: no evidence") for x in f["flags"]),
+          f"{f['total']} {f['relation']} {f['flags']}")
+    # The screen reads the grade's verdict, which now CARRIES the
+    # comparator's flags (`quality/revise.py` grade verdicts, `flags`), so
+    # a CLEAN row can say what part of it is unsupported.
+    rows = _LH.screen_pairs(["now", "why"], lex=LEX, decl=DECL)
+    check("`screen now why`: the row is CLEAN (why None, no ban) AND "
+          "`coda_no_evidence` is set from the verdict's carried flags",
+          rows[0]["why"] is None and not rows[0]["codes"]
+          and rows[0]["coda_no_evidence"] is True
+          and any(x.startswith("coda: no evidence")
+                  for x in rows[0]["flags"]),
+          f"{rows[0]['relation']} {rows[0]['score']} {rows[0]['flags']}")
+    rows = _LH.screen_pairs(["cat", "hat"], lex=LEX, decl=DECL)
+    check("control: `screen cat hat` sets no `coda_no_evidence` and its "
+          "verdict-carried flags are empty",
+          rows[0]["coda_no_evidence"] is False and rows[0]["flags"] == [],
+          f"{rows[0]['flags']}")
+
+
 def test_the_assonance_profile_says_the_band_is_off():
-    print("\n14. `profile=\"assonance\"` DISCLOSES that the conjunctive band "
+    print("\n15. `profile=\"assonance\"` DISCLOSES that the conjunctive band "
           "is off, and the verdict is untouched (`MISSING.md` M-136 (2), "
           "the disclosure half, 2026-09-02)")
     # A zero coda weight switches the band off, so the profile named for
@@ -1585,7 +1641,7 @@ def test_the_assonance_profile_says_the_band_is_off():
 
 
 def test_the_default_doors_are_priced_where_they_answer():
-    print("\n15. the two default doors carry their PINNED chance rate where "
+    print("\n16. the two default doors carry their PINNED chance rate where "
           "a rescued pair is reported, and neither line gates "
           "(`MISSING.md` M-138 / M-140, the disclosure halves, 2026-09-02)")
     import lyric_harness as _LH
@@ -1668,6 +1724,7 @@ if __name__ == "__main__":
                # section listed there and dropped here printed the same
                # `all pass` as one that ran. Listed here now.
                test_a_wordless_score_says_identity_was_not_asked,
+               test_the_empty_coda_gift_is_disclosed_and_not_moved,
                test_the_assonance_profile_says_the_band_is_off,
                test_the_default_doors_are_priced_where_they_answer):
         fn()
@@ -1682,6 +1739,7 @@ if __name__ == "__main__":
         test_the_bracket_rules_are_declared_and_read,
         test_the_bracketed_verse_convention_keeps_the_body,
         test_a_wordless_score_says_identity_was_not_asked,
+        test_the_empty_coda_gift_is_disclosed_and_not_moved,
         test_the_assonance_profile_says_the_band_is_off,
         test_the_default_doors_are_priced_where_they_answer))
     print("=" * 68)

@@ -522,10 +522,6 @@ the M-4a-class change with the full recalibration — rather than accreting a
 stopgap. Recorded so the next reader knows the cheap half was seen, priced
 and declined, not missed.
 
----
-
-## F. Language coverage
-
 **NOTED 2026-09-01 UNDER THE OWNER'S DELEGATION: NOT TAKEN, AND WHY.** The
 triage audit re-raised the cheap half. The owner's 2026-08-21 decision —
 the cheap half deferred deliberately, *"touching the scoring path twice
@@ -557,6 +553,44 @@ entry's: the verdict's `flags` field (M-136) and the door pricing lines
 (M-138/M-140). Reconstructing the stripped half is a ten-line block after
 `total -= decl.trailing_syllable_penalty * extra` and a `screen` status
 suffix, and the owner's yes is the only thing it waits on. Stays `OPEN`.
+
+**REVERSED BY THE OWNER 2026-09-02, AND THE CHEAP HALF SHIPS.** Asked to
+*"finish the rest of the work in the triage artifact"* — after the paragraph
+above had put the built-and-stripped measurement in front of them — the owner
+lifted their own 08-21 deferral. It was theirs to lift and nobody else's: a
+delegate takes the rulings an owner has not made, and this was one they had.
+WHAT SHIPPED IS THE CHEAP HALF EXACTLY AS THIS ENTRY DEFINES IT, and not one
+byte more. `score()` appends `coda: no evidence (both codas empty on K of N
+syllable(s); X.XXX of the total is agreement by absence, not by sound — E-5)`
+when both codas are empty; `Reviser.grade()`'s verdict carries the
+comparator's flags; `screen_pairs` sets `coda_no_evidence` from those flags
+and the `screen` CLI prints the phrase after a CLEAN row. `total`,
+`relation`, `cluster_sim`, `coda_agrees` and `admits()` are UNTOUCHED.
+MEASURED at HEAD: `now`/`why` is still **0.902 RHYME** and still screens
+`CLEAN — RHYMES`, now with **0.350** of that total named as agreement by
+absence; `see`/`free` is still 1.0 with the same disclosure, because the
+AGREEMENT side is correct and this rides beside it rather than against it;
+`cat`/`hat` is 1.0 with NO flag; `python3 battery.py` reads **mandated 1064,
+judged 1014, refused 50, violations 12 (1.2% of judged)** — the pinned
+oracle, unmoved. Pinned in `quality/test_readability.py` §14, six checks,
+with `cat`/`hat` as the no-flag control and `see`/`free` as the
+agreement-side control. The paths the gift reaches, for M-120's count:
+`screen`, a bare-default group, `--relation=rhyme`, an unplanned `song`; a
+DRAWN schema group is judged in `relations.py` and never sees it. THE ENTRY
+DOES NOT CLOSE. The expensive half — moving the scalar, with the
+recalibration M-4a records the price of — is what closes it, and the 0.902
+in the D18 pin is still 0.902. What changed is that the 0.35 inside it is
+now readable.
+**TESTED WHILE OPEN.** `quality/test_readability.py` §14 names this entry at
+the one place the finding became a code change — the cannot-tell disclosure
+on an empty/empty coda — and that half is BUILT. What stays open is the
+SCALAR, which no test here can move: closing E-5 means `total` changing, and
+the section's own controls (`cat`/`hat` unflagged, `see`/`free` still 1.0,
+`now`/`why` still 0.902) are written to FAIL if it does.
+
+---
+
+## F. Language coverage
 
 ### F-1 · ~~Eight~~ NINE phonologies, and English IS one now `PARTIAL`
 **TESTED WHILE OPEN.** The phonology suites name this entry as the ROSTER
@@ -19155,6 +19189,46 @@ re-measured: the ~20 KB / ~45 KB per-fold figures are this entry's own,
 from the record; the filler-draft measurements are the upper tail and
 make the case stronger, not weaker. `CHAT_MAX_TURN_USD` itself, and a
 disk for the daily counter (AUDIT.md F128), remain the owner's.
+**ADDENDUM 2026-09-02 — WHICH OF THE TWO TURN CEILINGS BINDS IS DERIVED AND
+DISCLOSED; THE DOLLAR FIGURE STAYS THE OWNER'S (triage C11).** The entry
+handed the `CHAT_MAX_TURN_USD` ruling back with the numbers on the response.
+Reading them found a defect one layer under the number, and it is doctrine
+1's own shape: `LIMITS.maxSteps` (14) and `LIMITS.maxTurnUsd` ($0.10) are TWO
+ANSWERS TO ONE QUESTION — how many hops may a turn take — and the smaller one
+wins in silence, with which one that is depending on a transcript size
+nothing disclosed. `gemini_agent.turnBudget()` derives the answer from the
+coordinates already declared and the model's own `PRICING` row, inventing no
+number of its own: a prompt at the pruning ceiling is
+`pruneMaxBytes / BYTES_PER_TOKEN` tokens, a hop costs that plus a full
+`maxOutputTokens` of output, and the worst LEGAL turn is that per-hop cost
+times `maxSteps`. MEASURED at HEAD on `gemini-3.1-flash-lite`: **$0.015572 a
+hop, a worst legal turn of $0.2180, and a $0.10 cap that buys SIX hops of a
+declared FOURTEEN.** So the dollar cap has been the operative step limit, and
+`maxSteps: 14` is decoration at the ceiling — a turn stopped at hop 6 of 14
+was reported `MAX_TURN_COST`, which reads as a budget problem when what bound
+it was the hop budget, and round 10's rows carry exactly that ambiguity
+(turn 0 stopped after 8 calls, turn 4 after 4). THE STOP CARRIES ITS NUMBERS
+NOW: `runTurn` returns `stoppedDetail` — what the turn spent, the cap it hit,
+the hops it bought, the `maxSteps` it did not reach, and the derivation — and
+`chat.js` publishes it as `stopped_detail`, so a transcript reader (and the
+battery) can tell a turn that ran out of HOPS from one that ran out of MONEY.
+Pinned in `mcp/test.mjs` as a RELATION and never as a dollar figure — the
+per-hop cost equals the arithmetic over `LIMITS` and `PRICING`, an unpriced
+model refuses rather than returning a number, `capBinds` is true, and a real
+`runTurn` driven into the cap comes back with `hops 1 < maxSteps 14` — so
+every check keeps holding when the owner sets the cap to something else.
+WHAT IS NOT TAKEN, AND WHY: the dollar figure itself. Raising it is spending
+the owner's money, the arithmetic above says a cap that let every legal hop
+through would be about **$0.22**, and `CHAT_MAX_TURN_USD` sets it in one
+environment variable. What the delegation could take was the defect — a
+ceiling that silently outranks another ceiling — and that is taken.
+A LIMIT THE DERIVATION STATES RATHER THAN HIDES: `pruneHistory` runs ONCE A
+TURN on the PRIOR transcript, so a turn's own tool results append on top of
+the pruned prior without being pruned again; a hop folding a `lyric_grade`
+report (~45 KB on the record) pushes the prompt past the ceiling inside the
+turn. `hopsAffordable` is therefore an UPPER bound on a grading turn and an
+accurate reading on a conversational one, and the function's docstring says
+so rather than letting a reader take six for a floor.
 
 ### M-198 · Re-opening a mandate dropped its PLACEMENTS — every group came back bound at its end, `groups` byte-identical, and nothing could see it `CLOSED` 2026-09-02 — found by test_loop §19's slot probes, written for M-184's tier-2 repair, returning the end word on a mandate whose group declared `1.T2`
 

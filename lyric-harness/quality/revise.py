@@ -1678,10 +1678,11 @@ class Reviser:
                              # is what the lazy gate above exists to avoid.
                              "structure": struct,
                              # THE COMPARATOR'S OWN DISCLOSURES, CARRIED
-                             # (2026-09-02, M-136): `score()` says on its
-                             # flags what it never asked (`identity: not
-                             # asked`, `conjunctive band: off`), and a
-                             # verdict that dropped those flags
+                             # (2026-09-02, E-5 / M-136): `score()` says
+                             # on its flags what it never asked or could
+                             # not hear (`identity: not asked`,
+                             # `conjunctive band: off`, `coda: no
+                             # evidence`), and a verdict that dropped them
                              # read exactly like one with nothing to say.
                              # A copy of the record, gating nothing.
                              "flags": list(s.get("flags") or []),

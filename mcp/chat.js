@@ -437,6 +437,14 @@ export async function createChatRouter({
           refusal: c.refusal ?? null,
         })),
         stopped: run.stopped,
+        // WHY IT STOPPED, WITH THE NUMBERS (2026-09-02, triage C11). A bare
+        // `MAX_TURN_COST` cannot be told from `MAX_STEPS` by a reader of the
+        // transcript, and the two ceilings answer one question — how many
+        // hops may a turn take. `stoppedDetail` carries what the turn spent,
+        // the cap it hit, the hops it bought and the hops it was allowed, so
+        // the battery banks the reason rather than the label. Null on every
+        // turn that stopped for any other reason.
+        stopped_detail: run.stoppedDetail ?? null,
         ...envelope,
         sig: sign(envelope),
       });
