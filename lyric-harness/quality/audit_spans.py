@@ -565,17 +565,27 @@ def sweep_record(lex, decl, verbose=True):
 PINNED = {
     "mandated": 1064, "judged": 1014, "refused": 50,
     #: ~~82~~ under the two-name door; ~~35~~ when it widened to all four
-    #: relations (M-59); 12 since the whole schema vocabulary joined the
+    #: relations (M-59); ~~12~~ when the whole schema vocabulary joined the
     #: default (M-116, owner ruling 2026-08-25 — 23 pairs stopped
     #: violating, 0 newly violate; CLAUDE.md's Test discipline carries the
     #: same ladder, so this stays a second instrument reproducing the
-    #: battery's figure rather than a file tuned to it)
-    "violations": 12,
+    #: battery's figure rather than a file tuned to it); 14 since the
+    #: near-relation pricing cut ASSONANCE at 0.82 (M-138, 2026-09-02 —
+    #: sonnet 49 `pass`/`was` 0.772 and 91 `costs`/`boast` 0.765 joined,
+    #: 0 stopped, inside a preregistered ceiling of 20). THE FIRST THREE
+    #: STEPS WIDENED THE DOOR AND THIS ONE TIGHTENED IT, which is why the
+    #: count rose where it had fallen three times.
+    "violations": 14,
     #: report lines that name the two words that actually produced the number
     "claimed": 632,
     #: the same question asked of the violations alone.
-    #: ~~36~~ of ~~82~~; ~~7~~ of ~~35~~; 2 of 12 under M-116
-    "violations_claimed": 2,
+    #: ~~36~~ of ~~82~~; ~~7~~ of ~~35~~; ~~2~~ of ~~12~~ under M-116;
+    #: 4 of 14 under M-138's pricing — and the SHARE rose, 16.7% -> 28.6%,
+    #: where every widening had driven it down. Same mechanism read
+    #: backwards: a widening retires ordinary end-word comparisons first
+    #: (the population that DOES name its own words), and a tightening adds
+    #: them back. Both new pairs are ordinary end-word assonance.
+    "violations_claimed": 4,
 }
 
 
