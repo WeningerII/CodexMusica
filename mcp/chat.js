@@ -56,6 +56,25 @@ const num = (name, fallback) => {
   return Number.isFinite(v) && v > 0 ? v : fallback;
 };
 
+// The mean cost of one chat turn, MEASURED across the probe battery's rows
+// and declared here because two ceilings below are derived from it rather
+// than sized against it in prose. `CHAT_MEAN_TURN_USD` overrides it, which is
+// what a repricing needs rather than an edit.
+export const MEAN_TURN_USD = Number(process.env.CHAT_MEAN_TURN_USD) || 0.01;
+
+// The day's dollar budget, hoisted so the turn-count ceiling can be DERIVED
+// from it. Raised from $2 by the owner 2026-09-02.
+const DAILY_USD = num('CHAT_DAILY_USD', 25);
+
+// How much room the turn-count ceiling keeps above the budget it must not
+// pre-empt. At 1.0 the two ceilings are exactly TIED at the measured mean
+// and which one fires is decided by noise — the inversion this constant
+// exists to prevent, one sitting after it happened. At 2 the dollar cap
+// still binds first even if turns run at HALF the measured mean, which is
+// the direction that would otherwise let the count ceiling quietly become
+// the budget.
+export const TURNS_HEADROOM = Number(process.env.CHAT_TURNS_HEADROOM) || 2;
+
 export const CHAT_LIMITS = {
   perIpPerMinute: num('CHAT_IP_RPM', 4),
   perIpPerHour: num('CHAT_IP_RPH', 30),
@@ -67,7 +86,7 @@ export const CHAT_LIMITS = {
   // interrupts one in flight). At $25 the turn cap is back under the day and
   // that overshoot is zero — `chatCeilings()` reports it either way rather
   // than either number being trusted to stay put.
-  dailyUsd: num('CHAT_DAILY_USD', 25),
+  dailyUsd: DAILY_USD,
   // 600 was too tight to describe a recording in the terms this thing rewards —
   // a mood, a room, an era, a piece of gear, and which instrument each applies
   // to — so a user with a real brief had to cut it down before asking. At the
@@ -99,12 +118,34 @@ export const CHAT_LIMITS = {
   // the day's dollar ceiling, so in ordinary operation THIS is what the
   // service reaches first and the dollar cap is what never fires. That is
   // not a defect — a count ceiling needs no pricing table and is the sounder
-  // of the two — but it does mean raising `CHAT_DAILY_USD` alone buys
-  // roughly nothing: the ordinary day stays bounded near $4 by this number
-  // until it moves too. `chatCeilings().perDay` says which of the two an
-  // ordinary day reaches rather than leaving it to whichever is smaller. It
-  // still exists for the case where the dollar cap cannot do its job.
-  maxTurnsPerDay: num('CHAT_MAX_TURNS_PER_DAY', 400),
+  // of the two — but it did mean raising `CHAT_DAILY_USD` alone bought
+  // roughly nothing: the ordinary day stayed bounded near $4 by this number
+  // until it moved too. **IT MOVED THE SAME DAY**, on the owner's *"bring it
+  // actually up to $25 a day"*, and the resolution is the derivation below
+  // rather than a second figure. `chatCeilings().perDay` says which of the
+  // two an ordinary day reaches rather than leaving it to whichever is
+  // smaller, and it reads `dailyUsd` now. This ceiling still exists for the
+  // case where the dollar cap cannot do its job.
+  // ~~400~~ **DERIVED 2026-09-02**, on the owner's *"bring it actually up to
+  // $25 a day"*. Typing a second number would have re-armed the same trap:
+  // two ceilings, one question, and whichever is smaller winning in silence.
+  // It is `dailyUsd / MEAN_TURN_USD * TURNS_HEADROOM` now — 5,000 at the
+  // shipped figures — so the dollar budget is what an ordinary day reaches
+  // and this cannot silently become the budget again when either number
+  // moves. `CHAT_MAX_TURNS_PER_DAY` still overrides it outright.
+  //
+  // WHAT IT COSTS, SAID RATHER THAN DISCOVERED: this ceiling is the only
+  // bound that survives a WRONG PRICING TABLE, and its worst case scales
+  // with it — 5,000 turns at the worst LEGAL turn is
+  // `chatCeilings().worstCaseDayUsd`, which the status endpoint reports.
+  // What keeps that from being one client's to reach is the rate limiter,
+  // not this: `perIpPerHour` bounds a single address to
+  // `chatCeilings().perIpPerDay` turns a day, so the ceiling above is a
+  // FLEET bound and needs several distinct clients to approach.
+  maxTurnsPerDay: num(
+    'CHAT_MAX_TURNS_PER_DAY',
+    Math.ceil((DAILY_USD / MEAN_TURN_USD) * TURNS_HEADROOM)
+  ),
 };
 
 /**
@@ -136,7 +177,6 @@ export const CHAT_LIMITS = {
 // `chatCeilings` prices the count ceiling in dollars with it, and a number
 // used in an arithmetic must be findable rather than quoted in prose
 // (doctrine 58).
-export const MEAN_TURN_USD = Number(process.env.CHAT_MEAN_TURN_USD) || 0.01;
 
 export function chatCeilings(limits = CHAT_LIMITS, agent = LIMITS, model = undefined) {
   const budget = turnBudget(agent, model === undefined ? DEFAULT_MODEL : model);
@@ -163,6 +203,12 @@ export function chatCeilings(limits = CHAT_LIMITS, agent = LIMITS, model = undef
     // the count ceiling amounts to in dollars at the measured mean.
     perDay: dayByTurnsUsd < limits.dailyUsd ? 'maxTurnsPerDay' : 'dailyUsd',
     dayByTurnsUsd,
+    // What the turn-count ceiling actually bounds when the DOLLAR arithmetic
+    // cannot be trusted — the case it exists for. Null when unpriced.
+    worstCaseDayUsd: budget === null ? null : limits.maxTurnsPerDay * budget.worstLegalTurnUsd,
+    // And what ONE address can reach, which is the rate limiter's bound and
+    // not this file's: the ceiling above is a FLEET bound.
+    perIpPerDay: limits.perIpPerHour * 24,
   };
 }
 

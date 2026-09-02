@@ -336,12 +336,42 @@ check('validation: actionable errors', () => {
       // `dailyUsd` bounds the day in dollars, `maxTurnsPerDay` in requests, and
       // they are independent on purpose — the count needs no pricing table. The
       // owner moved the dollar figure $2 -> $25 on 2026-09-02 and the answer
-      // INVERTED: 400 turns at the measured ~$0.01 mean is ~$4, so the count is
-      // what an ordinary day now reaches and the dollar ceiling is what never
-      // fires. Pinned as the arithmetic, never as the answer.
-      const { CHAT_LIMITS: _CL, chatCeilings, MEAN_TURN_USD } = await import('./chat.js');
+      // INVERTED: 400 turns at the measured ~$0.01 mean is ~$4, so the count
+      // became what an ordinary day reached and the dollar ceiling what never
+      // fired. The count ceiling is DERIVED from the budget the same day and
+      // the inversion is gone. Pinned as the arithmetic, never as the answer.
+      const {
+        CHAT_LIMITS: _CL,
+        chatCeilings,
+        MEAN_TURN_USD,
+        TURNS_HEADROOM,
+      } = await import('./chat.js');
+      const { turnBudget } = await import('./gemini_agent.js');
       const c = chatCeilings();
       assert.equal(c.dayByTurnsUsd, _CL.maxTurnsPerDay * MEAN_TURN_USD);
+      // THE COUNT CEILING IS DERIVED FROM THE BUDGET IT MUST NOT PRE-EMPT
+      // (2026-09-02). Typing a second number is what let the two invert in
+      // the first place, so what is pinned is the DERIVATION and the
+      // separation it buys, never either figure.
+      assert.equal(
+        _CL.maxTurnsPerDay,
+        Math.ceil((_CL.dailyUsd / MEAN_TURN_USD) * TURNS_HEADROOM),
+        'the count ceiling is derived from the dollar budget and the headroom'
+      );
+      assert.ok(TURNS_HEADROOM > 1, 'at 1.0 the two ceilings tie and noise picks the winner');
+      assert.ok(
+        c.dayByTurnsUsd > c.dailyUsd,
+        `an ordinary day must reach the DOLLAR budget first: ${c.dayByTurnsUsd} vs ${c.dailyUsd}`
+      );
+      // What this ceiling costs when the dollar arithmetic cannot be trusted —
+      // the case it exists for — is REPORTED rather than left to be found, and
+      // the bound on any ONE client is the rate limiter's, not this file's.
+      assert.equal(c.worstCaseDayUsd, _CL.maxTurnsPerDay * turnBudget().worstLegalTurnUsd);
+      assert.equal(c.perIpPerDay, _CL.perIpPerHour * 24);
+      assert.ok(
+        c.perIpPerDay < _CL.maxTurnsPerDay,
+        'the day ceiling is a FLEET bound: one address cannot reach it alone'
+      );
       assert.equal(
         c.perDay,
         c.dayByTurnsUsd < c.dailyUsd ? 'maxTurnsPerDay' : 'dailyUsd',
