@@ -24,13 +24,31 @@
 //
 // THE GATE: render.yaml's declared plan must provide at least the measured
 // peak times a declared margin. The margin is a BAND, not a tuning knob: it
-// covers the serving Node process and the warm worker's residual beside the
-// child at peak (worker measured 181 MB resident after one light call; the
+// covers the serving Node process ~~and the warm worker's residual beside the
+// child at peak (worker measured 181 MB resident after one light call;~~ (the
 // Node process is deliberately not pretended to a number here), allocator
 // variance across containers, and the unmeasured growth of a revise call as
 // answers accumulate on its record. Move MEASURED_PEAK_MB only by re-running
 // the instrument, with the old value struck and dated beside the new one
 // (doctrine 17); moving MARGIN is a ruling, not a repair.
+//
+// THE STRIKE ABOVE IS 2026-09-01 (`MISSING.md` M-187) AND IT CORRECTS THE
+// PREMISE, NOT THE NUMBER. Two things were wrong with the struck clause. The
+// residual after one HEAVY call is not 181 MB: measured through
+// `scripts/measure_verb_memory.py --seed=31 --worker --rounds=3` (22 lines;
+// plan, fill and three grade+revise rounds in ONE worker), the worker retains
+// 594 MB after the first round and 602 MB after the third (+8 MB over two
+// more rounds, 638 MB at most between calls) against a peak of 661 MB for
+// the whole sequence — the cold rows on the same seed the same day read 666
+// and 665 MB. And the residual is never BESIDE a child at peak: the worker is
+// the process doing the work, and mcp/lyric_tools.js SIGKILLs it on every
+// path that falls back cold, so the box holds ONE harness process at a time
+// and its residual is inside the peak the constant below banks. Until that
+// day the worker had never run on Render at all — the Dockerfile did not ship
+// it — which is why the clause was a premise and not a measurement.
+// MEASURED_PEAK_MB stays at the 50-line envelope figure: seed 31 reads 666
+// today against the 826 banked for it on 2026-08-28, a FALL, and a pin moves
+// only by re-running the whole table, never one row of it.
 //
 // The check reads the DECLARED plan because the declaration is what this
 // repository can see — render.yaml already carries two long comments about
