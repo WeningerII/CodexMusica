@@ -26,8 +26,13 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 # attempts, how long a wait, which errors" is how they start disagreeing.
 # `lyric_harness` owns it because that is where the failure was measured.
 from lyric_harness import download_to  # noqa: E402
-DATA = os.path.join(HERE, "..", "data")
-NLTK_DIR = os.path.join(DATA, "nltk")
+# WHERE TO STAGE IS NOT DECIDED HERE EITHER (doctrine 1; `MISSING.md` M-188,
+# 2026-09-01). `quality/features.py` reads both resources and is the one
+# place the directory -- and its `LYRIC_STAGED_DATA` override -- is resolved;
+# this stager imports it so nothing can be staged into one directory and
+# looked for in another. ~~DATA = os.path.join(HERE, "..", "data") /
+# NLTK_DIR = os.path.join(DATA, "nltk")~~ were this file's own copies.
+from quality.features import DATA, NLTK_DIR, nltk_data_dir  # noqa: E402
 
 RAW = "https://raw.githubusercontent.com"
 
@@ -92,11 +97,7 @@ def fetch_all():
         with zipfile.ZipFile(zp) as z:
             z.extractall(os.path.join(NLTK_DIR, sub))
         os.remove(zp)
-    os.environ.setdefault("NLTK_DATA", os.path.abspath(NLTK_DIR))
-
-
-def nltk_data_dir():
-    return os.path.abspath(NLTK_DIR)
+    nltk_data_dir()
 
 
 if __name__ == "__main__":

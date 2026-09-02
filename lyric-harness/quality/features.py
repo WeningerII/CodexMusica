@@ -29,7 +29,34 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 from lyric_harness import (Declaration, Lexicon, anchor, line_anchors,  # noqa: E402
                            score, syllabify, vowel_sim, VOWELS)
 
-DATA = os.path.join(HERE, "..", "data")
+#: WHERE THE STAGED RESOURCES ARE READ FROM, and the ONE place that is
+#: decided (doctrine 1; `MISSING.md` M-188, 2026-09-01). `quality/fetch_data.py`
+#: stages the Brysbaert norms and the tagger model under this directory and
+#: IMPORTS `DATA` and `NLTK_DIR` from here, so what it stages and what this
+#: module reads cannot be two directories. `LYRIC_STAGED_DATA` overrides it
+#: for one reason: a test has to be able to HIDE the resources from a
+#: subprocess without touching the shared `data/` -- `concreteness.txt` is a
+#: symlink every worktree on the box reads, and rename-and-restore is a race
+#: with whoever runs beside it. Nothing else in `data/` moves with it: the
+#: committed TSVs are read by their own modules at the committed path, and
+#: they are not fetched. `NLTK_DATA` (nltk's own variable) moves the model
+#: alone; `nltk_data_dir()` below is where its default is set.
+DATA = os.environ.get("LYRIC_STAGED_DATA") or os.path.join(HERE, "..", "data")
+NLTK_DIR = os.path.join(DATA, "nltk")
+
+#: The two staging commands, ONE spelling: the refusal in
+#: `staged_resources_or_refuse` prints it and `README.md` quotes it. `pip`
+#: supplies the package; `fetch_data.py` stages the norms and the model.
+STAGING_COMMANDS = ("python3 -m pip install nltk && "
+                    "python3 quality/fetch_data.py")
+
+#: The three resources the floor cannot run without, named ONCE so the
+#: refusal, the README and `test_verbs.py` §47 count the same things.
+STAGED_RESOURCES = (
+    "data/concreteness.txt (the Brysbaert norms)",
+    "the `nltk` package",
+    "the tagger model (nltk taggers/averaged_perceptron_tagger_eng)",
+)
 
 # Closed-class Penn tags. Function words are the ones a writer does not choose.
 FUNCTION_TAGS = {"DT", "IN", "PRP", "PRP$", "CC", "TO", "MD", "WDT", "WP",
@@ -76,8 +103,16 @@ MATTR_WINDOW = 50
 def load_concreteness():
     """Brysbaert et al. norms: word -> mean concreteness on a 1-5 scale."""
     path = os.path.join(DATA, "concreteness.txt")
-    if not os.path.exists(path):
-        raise SystemExit("run quality/fetch_data.py first")
+    # ~~if not os.path.exists(path): raise SystemExit("run
+    # quality/fetch_data.py first")~~ STRUCK 2026-09-01 (`MISSING.md` M-188).
+    # A `SystemExit` carrying a STRING is Python's exit 1 with the string on
+    # stderr: outside the verbs' 0/2/3/4 contract, read by the connector as
+    # a crashed subprocess, and naming one of the TWO staging commands. The
+    # check lives in `staged_resources_or_refuse` now -- one home for all
+    # three resources, the one refusal shape, exit 2 -- and runs before this
+    # function is reached. A direct caller with the file absent gets
+    # `open()`'s own `FileNotFoundError`, which names the path and is the
+    # honest library exception rather than a second copy of the refusal.
     out = {}
     with open(path, encoding="utf-8", errors="replace") as f:
         header = f.readline().rstrip("\n").split("\t")
@@ -93,12 +128,96 @@ def load_concreteness():
     return out
 
 
+def nltk_data_dir():
+    """-> the directory the tagger model is read from.
+
+    The ONE place the `NLTK_DATA` default is set (doctrine 1): `_tagger`, the
+    resource check below and `quality/fetch_data.py` all read it from here.
+    `setdefault`, so a caller's own `NLTK_DATA` wins -- which is also how a
+    test hides the model without touching the staged one.
+    """
+    os.environ.setdefault("NLTK_DATA", os.path.abspath(NLTK_DIR))
+    return os.environ["NLTK_DATA"]
+
+
 def _tagger():
-    os.environ.setdefault("NLTK_DATA", os.path.abspath(
-        os.path.join(DATA, "nltk")))
+    where = nltk_data_dir()
     import nltk
-    nltk.data.path.insert(0, os.environ["NLTK_DATA"])
+    nltk.data.path.insert(0, where)
     return nltk.pos_tag
+
+
+def staged_resources_or_refuse():
+    """REFUSE at exit 2, in the ONE refusal shape, unless the floor's three
+    staged resources are all present. -> None when they are.
+
+    `MISSING.md` M-188. Until 2026-09-01 every grading verb (`song`, `brief`,
+    `revise`, `finish`, `screen`, `verify`, `readability` ...) died at EXIT 1
+    when any of the three was absent, in three voices for one defect: the
+    norms as a one-line stderr (`SystemExit` with a string, the struck guard
+    in `load_concreteness`), the package as an `ImportError` traceback out
+    of `_tagger`, and the model as a `LookupError` traceback at the FIRST
+    TAG -- after a line of the report had already printed, because
+    `nltk.pos_tag` loads lazily. Exit 1 is outside the verbs' 0/2/3/4
+    contract, `mcp/lyric_tools.js` reads it as a crashed subprocess, CI run
+    #555 (2026-08-18) is the precedent `.github/workflows/ci.yml` cites, and
+    `README.md` told a fresh reader the tree needed no dependencies.
+
+    ONE HOME, HERE, AND NOT AT THE DISPATCH (doctrine 1). `main()` cannot
+    know which verbs reach the floor without a hand-kept list -- the thing
+    `_dispatched_verbs` exists to refuse -- and `QualityFeatures.__init__`
+    is the point every path that needs the resources first needs them, and
+    the point no path that does not need them ever passes. So `score`,
+    `candidates`, `meter`, `scheme`, `plan` and the rest keep answering
+    without any of the three, which `quality/test_verbs.py` §47 MEASURES
+    rather than declares, and a grading verb refuses before it has spent a
+    lexicon on the question.
+
+    A REAL CALL PROBES THE MODEL, because `_tagger()` only returns
+    `nltk.pos_tag` and the missing-model error does not arrive until the
+    first tag (`quality/phrase_commonplace.py:_tagger_or_none` met this
+    first). nltk memoises the load, so the probe costs the floor nothing it
+    would not have paid on its first line. When the PACKAGE is absent the
+    model is reported NOT PROBED and not missing -- doctrine 28: "none" and
+    "cannot tell" are different answers -- and the three lists are printed
+    apart and never summed (doctrine 79).
+    """
+    norms, package, model = STAGED_RESOURCES
+    present, missing, unprobed = [], [], []
+    path = os.path.abspath(os.path.join(DATA, "concreteness.txt"))
+    if os.path.exists(path):
+        present.append(f"{norms} at {path}")
+    else:
+        missing.append(f"{norms} -- nothing at {path}")
+    try:
+        import nltk
+    except ImportError as e:
+        missing.append(f"{package} -- `import nltk` fails: {e}")
+        unprobed.append(f"{model} -- probing it needs the package")
+    else:
+        present.append(f"{package}, version {nltk.__version__}")
+        where = nltk_data_dir()
+        try:
+            _tagger()(["probe"])
+        except (LookupError, OSError) as e:
+            missing.append(f"{model} -- not under NLTK_DATA={where} "
+                           f"({type(e).__name__})")
+        else:
+            present.append(f"{model} under NLTK_DATA={where}")
+    if not missing:
+        return
+    from lyric_harness import _refuse
+    _refuse(f"the slop floor needs {len(STAGED_RESOURCES)} staged resources "
+            f"and {len(missing)} of them "
+            f"{'is' if len(missing) == 1 else 'are'} missing",
+            detail=[f"MISSING     {m}" for m in missing]
+            + [f"NOT PROBED  {u}" for u in unprobed]
+            + [f"PRESENT     {p}" for p in present]
+            + [f"stage them: {STAGING_COMMANDS}",
+               f"read from {os.path.abspath(DATA)} (LYRIC_STAGED_DATA "
+               f"overrides that directory; NLTK_DATA overrides the model's)",
+               "doctrine 20: a refusal, not a grade -- this verb did not "
+               "answer; the verbs that never reach the floor still do"])
 
 
 # ---------------------------------------------------------------------------
@@ -276,6 +395,10 @@ class QualityFeatures:
     }
 
     def __init__(self, lex=None, decl=None, mattr_window=MATTR_WINDOW):
+        # FIRST, before a lexicon is built: when a resource is absent the
+        # refusal IS the answer, and a caller should not pay for the lexicon
+        # to hear it (M-188; the check's docstring carries the argument).
+        staged_resources_or_refuse()
         self.lex = lex or Lexicon()
         self.decl = decl or Declaration()
         self.conc = load_concreteness()
