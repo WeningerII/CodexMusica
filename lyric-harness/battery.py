@@ -284,7 +284,56 @@ def whitman_battery():
 # carried in `pairs_schema_satisfied` with its schema names, never summed
 # into `violations` (doctrine 79) — a pass under an uncalibrated relation
 # stays tellable from a scalar pass.
-EXPECTED = {"mandated": 1064, "judged": 1014, "refused": 50, "violations": 12}
+# REPINNED 2026-09-02, violations 12 -> 14. THE PRICE, STATED.
+# ---------------------------------------------------------------------------
+# WHICH LAYER MOVED: the BAND, and only on the near relations. This is the
+# first repin in this file's history that made the oracle WORSE on purpose,
+# and it is the first that was PREREGISTERED before its own number existed
+# (`quality/NEAR_RELATION_PRICING_PREREGISTRATION.md`, falsifier E1;
+# `quality/RESULTS_NEAR_RELATION_PRICING.md` for what fired and what did not).
+#
+# WHAT IT PAYS FOR. The 82 -> 35 repin above widened `Declaration.admit` to
+# the near relations on the owner's M-59 ruling and measured ONLY the benefit
+# — 47 pairs stopped violating, 0 newly violated, and no cost figure at all.
+# After it, `theta_rhyme` 0.75 was the sole numeric gate on ASSONANCE and
+# CONSONANCE and had been calibrated on neither. Measured over
+# `chance_rate.GRID` (4 cells, seed 20260810, n=4,000), the door admitted
+# 189..233 random CMUdict pairs AS ASSONANCE — **3.99x..4.92x** the canon
+# arm's own 12/1014, in a repository that recalibrated `theta_coda` over
+# **1.5x** (`RESULTS_REDTEAM.md:75-76`).
+#
+# `Declaration.theta_by_relation` now cuts ASSONANCE at **0.82** — the
+# smallest value on the preregistered sweep grid under 2x the canon arm in
+# ALL FOUR sampler cells (73..86 = 1.54x..1.82x). CONSONANCE was MEASURED and
+# LEFT at 0.75: it already read 1.18x..1.48x, under target everywhere.
+#
+# THE MOVEMENT IS ONE-DIRECTIONAL AND WAS MEASURED AS SUCH, because a
+# TIGHTENED cut that REMOVED a violation would mean the change did something
+# other than what it says. Re-derived per (sonnet, line_i, line_j):
+#     NEWLY violating  2      STOPPED violating  0
+# and both are pairs the band typed ASSONANCE, admitted at 0.75 and refused
+# at 0.82:
+#     sonnet 49  L5~L7    pass/was      0.772
+#     sonnet 91  L10~L12  costs/boast   0.765
+# The second is the pair cell BA already named in the 81 -> 82 repin above —
+# `costs` against `boast`, RHYME -> ASSONANCE, passing then on a coda margin
+# of EXACTLY ZERO and passing ever since on an assonance cut nobody had
+# priced. It stops passing on a cut somebody did.
+#
+# THE CEILING WAS FIXED BEFORE THE RUN AND 14 IS INSIDE IT. The exact
+# Clopper–Pearson 95% interval on the previous pin, 12 of 1,014, is
+# [0.006130, 0.020581] — counts [6, 20]. E1 fires above 20; 14 is inside.
+# `python3 quality/near_relation_pricing.py --interval` re-derives that
+# ceiling from THIS dict rather than from a literal.
+#
+# `mandated 1064, judged 1014, refused 50` are UNCHANGED, and cannot move:
+# a refusal is an ingestion verdict reached before any comparison, so a band
+# cut cannot touch it (doctrine 79).
+#
+# ~~violations 12~~ is kept visible rather than overwritten (doctrine 17),
+# and it is what `chance_rate.CANON_VIOLATIONS` and every ratio derived from
+# it read until the same day.
+EXPECTED = {"mandated": 1064, "judged": 1014, "refused": 50, "violations": 14}
 
 
 def assert_pinned(got, expected=EXPECTED):

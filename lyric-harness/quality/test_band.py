@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from lyric_harness import (NEAR_RELATIONS, RHYME_RELATIONS,  # noqa: E402
                            Declaration, Lexicon, admits, best_score,
-                           channel_agreement, line_anchors)
+                           channel_agreement, line_anchors, theta_for)
 
 FAILURES = []
 LEX = Lexicon()
@@ -153,6 +153,81 @@ def test_admits_requires_both():
     check("None is handled", not admits(None, 0.75))
 
 
+def test_theta_for_and_its_readers():
+    """8. THE PRICED PER-RELATION CUT, AND — THE HALF THAT MATTERS — WHICH
+    SITES READ IT.
+
+    `MISSING.md` M-139 is this repository's entry for a door that moved and
+    left 17 of 19 sites behind, so a coordinate only SOME callers read is a
+    defect shape already paid for once. `theta_for`'s docstring names its
+    readers and its non-readers; this section is what makes that list a
+    check instead of a promise, so adding a reader is a test change and not
+    a silent one.
+    """
+    print("\n8. the priced per-relation cut, and which sites read it")
+    import inspect
+    import lyric_harness as _LH
+    from quality import revise as _RV
+
+    check("the shipped cut is declared per relation, not as one scalar",
+          DECL.theta_by_relation == {"ASSONANCE": 0.82, "CONSONANCE": 0.75},
+          DECL.theta_by_relation)
+    check("CONSONANCE is written down at 0.75 rather than omitted — a "
+          "measured-equal entry and an absent one are different claims "
+          "(doctrine 20)",
+          "CONSONANCE" in DECL.theta_by_relation)
+    check("ASSONANCE is cut at its priced value",
+          theta_for({"total": 0.8, "relation": "ASSONANCE"}, DECL) == 0.82)
+    check("RHYME falls back to theta_rhyme — 0.75 was calibrated ON it, and "
+          "re-cutting it is a different sitting",
+          theta_for({"total": 0.8, "relation": "RHYME"}, DECL)
+          == DECL.theta_rhyme)
+    check("RIME_RICHE falls back too",
+          theta_for({"total": 0.8, "relation": "RIME_RICHE"}, DECL)
+          == DECL.theta_rhyme)
+    check("a None score does not raise — it answers theta_rhyme",
+          theta_for(None, DECL) == DECL.theta_rhyme)
+    check("an empty declaration restores the pre-pricing scalar exactly, so "
+          "the cut is a DECLARED coordinate and the narrowing direction "
+          "stays available",
+          theta_for({"total": 0.8, "relation": "ASSONANCE"},
+                    Declaration(theta_by_relation={})) == DECL.theta_rhyme)
+
+    # THE READER ROSTER. Named, because M-139's whole content is that a
+    # door can move and its sites not move with it.
+    reads = {
+        "check_scheme": inspect.getsource(_LH.check_scheme),
+        "Reviser.grade": inspect.getsource(_RV.Reviser.grade),
+        # `_field_one`, NOT `_field` — the first draft of this check named
+        # the wrong one and PASSED nothing, which is the section's own
+        # subject arriving in the section. `_field` dispatches on
+        # `field_band`; `_field_one` is where the "grader" arm actually
+        # scores, and it is the site M-139 already repaired once for the
+        # same class of miss.
+        "Reviser._field_one": inspect.getsource(_RV.Reviser._field_one),
+    }
+    for name, src in sorted(reads.items()):
+        check(f"MANDATE VERDICT site reads theta_for: {name}",
+              "theta_for(" in src,
+              "a mandate site judging at a flat theta_rhyme is M-139 again")
+    # And the sites that deliberately do NOT, each asking a different
+    # question. A reader added here without an argument is the defect.
+    from quality import negative_control as _NC
+    from quality import redteam_band as _RB
+    for name, mod in (("negative_control", _NC), ("redteam_band", _RB)):
+        check(f"NON-reader stays a non-reader: {name} — it is a control of "
+              f"the BAND / adversary 3's NARROW door, and folding a mandate "
+              f"cut in would change what it measures (doctrine 14)",
+              "theta_for(" not in inspect.getsource(mod))
+    # The chance-rate instrument is the OPPOSITE case and must read it: its
+    # subject is the SHIPPED door.
+    from quality import chance_rate as _CR
+    check("chance_rate.measure DOES read it — its subject is the shipped "
+          "door, and a flat 0.75 there would measure a door that no longer "
+          "exists",
+          "theta_for(" in inspect.getsource(_CR.measure))
+
+
 if __name__ == "__main__":
     for fn in (test_tripwire_open_syllables_stay_rhyme,
                test_the_leak_closes_by_naming,
@@ -160,7 +235,8 @@ if __name__ == "__main__":
                test_real_rhymes_survive,
                test_no_flattening,
                test_conjunctive_across_syllables,
-               test_admits_requires_both):
+               test_admits_requires_both,
+               test_theta_for_and_its_readers):
         fn()
     print("=" * 62)
     if FAILURES:

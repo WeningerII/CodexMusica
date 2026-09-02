@@ -89,7 +89,8 @@ from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
                            CandidateEngine, Declaration,
                            Lexicon, admits, best_score, bron_kerbosch,
                            line_anchors, readability_records,
-                           refusals_for_pairs, spans_note, spelled_rime)
+                           refusals_for_pairs, spans_note, spelled_rime,
+                           theta_for)
 from quality import fit as FT  # noqa: E402
 from quality import grid as GR  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
@@ -1628,9 +1629,18 @@ class Reviser:
                        f"declared admit set)")
             elif rel == NO_ANCHOR:
                 why = "NO_ANCHOR: nothing to compare (not a rhyme verdict)"
-            elif s["total"] < self.decl.theta_rhyme:
-                why = f"below theta_rhyme={self.decl.theta_rhyme}"
-            elif not admits(s, self.decl.theta_rhyme,
+            elif s["total"] < theta_for(s, self.decl):
+                # PER RELATION SINCE 2026-09-02 (`MISSING.md` M-138, priced).
+                # `check_scheme` is the other reader of this same chain and
+                # its own comment says the two must move together; they do
+                # here, in one commit, phrased the same way.
+                _th = theta_for(s, self.decl)
+                why = (f"below theta_rhyme={self.decl.theta_rhyme}"
+                       if _th == self.decl.theta_rhyme else
+                       f"below theta({rel})={_th} "
+                       f"(theta_rhyme={self.decl.theta_rhyme}; the near "
+                       f"relations carry their own priced cut, M-138)")
+            elif not admits(s, theta_for(s, self.decl),
                             relations=frozenset(self.decl.admit)):
                 # NO_RELATION FELL THROUGH ALL FOUR BRANCHES — FIXED
                 # 2026-08-15. The chain above is an ENUMERATED blacklist, and
@@ -3673,7 +3683,11 @@ class Reviser:
                 # `decl.admit`, NOT the omitted default. Omitting it spelled
                 # the pre-M-59 two-name door in the one function whose
                 # docstring promises it asks the verdict's question (M-139).
-                if admits(s, self.decl.theta_rhyme,
+                # AND `theta_for`, NOT `theta_rhyme`, since 2026-09-02 for
+                # the same reason one layer on: the near relations carry
+                # their own priced cut (M-138), and a FIELD built at 0.75
+                # would offer the writer partners the GRADE then charges.
+                if admits(s, theta_for(s, self.decl),
                           relations=frozenset(self.decl.admit)):
                     passing.append(cand)
         else:

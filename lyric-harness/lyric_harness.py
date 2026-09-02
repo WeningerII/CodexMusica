@@ -403,6 +403,13 @@ NEAR_RELATIONS = {"ASSONANCE", "CONSONANCE"}
 #: copied word satisfy a rhyme.
 ADMITTABLE_RELATIONS = frozenset(RHYME_RELATIONS | NEAR_RELATIONS)
 
+#: What an empty/empty coda may be declared to be EVIDENCE of
+#: (`Declaration.coda_empty_evidence`, `MISSING.md` E-5). Defined HERE, above
+#: `Declaration`, for the same reason `ADMITTABLE_RELATIONS` is: the field's
+#: validator and `score()`'s branch read ONE definition, so a fourth name
+#: cannot be added to one and missed by the other (doctrine 1).
+CODA_EMPTY_EVIDENCE = frozenset({"gift", "zero", "cannot_tell"})
+
 
 def admit_is_default(decl):
     """True when the declaration's admit set is the derived default.
@@ -483,6 +490,16 @@ class Declaration:
                 f"rhyme mandate, and declaring one is more likely a typo "
                 f"than a form. Include RHYME (or RIME_RICHE) alongside "
                 f"the near relations.")
+        # An undeclared value must be LOUD at declaration time, not silently
+        # one of the three at grade time (doctrine 20) — the same contract
+        # `admit` above and `scalar_alignment` in `score()` are held to.
+        if self.coda_empty_evidence not in CODA_EMPTY_EVIDENCE:
+            raise ValueError(
+                f"coda_empty_evidence={self.coda_empty_evidence!r} is not "
+                f"one of {sorted(CODA_EMPTY_EVIDENCE)}. It names what an "
+                f"empty/empty coda is EVIDENCE of (MISSING.md E-5); an "
+                f"unknown name would otherwise score as the default and be "
+                f"indistinguishable from never having declared one.")
     channel_weights: dict = field(default_factory=lambda: {
         "nucleus": 0.50, "coda": 0.35, "stress": 0.15,
     })
@@ -492,6 +509,43 @@ class Declaration:
     })
     trailing_syllable_penalty: float = 0.15   # semirhyme discount / extra syllable
     theta_rhyme: float = 0.75                 # lower edge of the match band
+    # --- THE CUT, PER RELATION (`MISSING.md` M-138, PRICED 2026-09-02) -----
+    # WHY THIS EXISTS. M-59 widened `admit` to all four relations on the
+    # owner's ruling and MEASURED ONLY THE BENEFIT: 47 sonnet pairs stopped
+    # violating, 0 newly violated, and no cost figure at all. What the
+    # widening did NOT come with is a price — after it, `theta_rhyme` 0.75
+    # was the SOLE NUMERIC GATE on ASSONANCE and CONSONANCE, and it had been
+    # calibrated on neither. `RESULTS_REDTEAM.md` got `theta_coda`
+    # recalibrated over a random-admission rate 1.5x the canon arm's; the
+    # ASSONANCE arm measured 3.99x-4.92x.
+    #
+    # PRICED, PREREGISTERED, AND ADOPTED BY ITS OWN FALSIFIER:
+    # `quality/NEAR_RELATION_PRICING_PREREGISTRATION.md` fixed the sweep
+    # grid, the 2x target and the violation ceiling BEFORE the run;
+    # `quality/RESULTS_NEAR_RELATION_PRICING.md` records what fired and what
+    # did not. Re-derive both numbers with
+    # `python3 quality/near_relation_pricing.py`.
+    #
+    #   ASSONANCE  0.82  the smallest cut on the declared grid under 2x the
+    #                    canon arm in ALL FOUR `chance_rate.GRID` cells
+    #                    (73..86 of ~4,000 = 1.54x..1.82x, from 189..233 =
+    #                    3.99x..4.92x at 0.75). Sonnet cost: violations
+    #                    12 -> 14 against a ceiling of 20.
+    #   CONSONANCE 0.75  MEASURED AND UNMOVED, and it is written here rather
+    #                    than omitted: at the shipped cut CONSONANCE already
+    #                    reads 1.18x..1.48x, under the target on every cell.
+    #                    An omitted entry and a measured-equal one look the
+    #                    same in the code and are different claims
+    #                    (doctrine 20); this one was measured.
+    #
+    # RHYME and RIME_RICHE are deliberately absent and fall back to
+    # `theta_rhyme`: they are the relations 0.75 WAS calibrated on, and
+    # re-cutting them is a different sitting with a different canon arm.
+    # An empty dict restores the pre-pricing behaviour exactly, which is the
+    # narrowing direction this file keeps available on every door.
+    theta_by_relation: dict = field(default_factory=lambda: {
+        "ASSONANCE": 0.82, "CONSONANCE": 0.75,
+    })
     # `theta_repeat_onset: float = 0.95` STOOD HERE UNTIL 2026-08-15, described
     # as "onset similarity above which full identity is REPEAT/rime riche
     # band". THERE IS NO SUCH BAND. `score()` decides REPEAT by `wa == wb` and
@@ -531,6 +585,32 @@ class Declaration:
     # beats the hand-set value held out; this one does, in both halves, in the
     # same direction. Doctrine 22: the number now carries a rate.
     theta_coda: float = 0.80      # coda AGREEMENT, not coda evidence
+    # --- WHAT AN EMPTY/EMPTY CODA IS EVIDENCE OF (`MISSING.md` E-5) --------
+    # THE COORDINATE THE GIFT NEVER HAD. `cluster_sim([], [])` is 1.0, so two
+    # vowel-final words score a full 1.0 on a channel weighted 0.35 --
+    # agreement by ABSENCE, weighted like a heard consonant. E-5's cheap half
+    # (2026-09-02) made that share READABLE in `flags`; this field is what
+    # makes the rule itself REACHABLE, so the expensive half can be MEASURED
+    # instead of argued (standing rule 3: a claim about an alternative nobody
+    # can run is a memory, not a measurement).
+    #
+    #   "gift"         the shipped scalar: `cluster_sim` answers 1.0 and it is
+    #                  weighted like evidence. THE DEFAULT, byte-identical to
+    #                  every run before this field existed.
+    #   "zero"         absence scored as DISAGREEMENT. `now`/`why` and
+    #                  `see`/`free` both lose 0.35 of `total` outright.
+    #   "cannot_tell"  absence scored as NOTHING: the coda channel is dropped
+    #                  from that syllable's weighted mean and the remaining
+    #                  weights are renormalised. The doctrine-20 shape, and the
+    #                  same shape the cheap half's flag already prints.
+    #
+    # THIS FIELD REACHES `total` AND NOTHING ELSE. `channel_agreement`'s own
+    # `1.0 if (not ca and not cb)` branch and `coda_agrees` are the AGREEMENT
+    # side, which E-5 records as CORRECT -- it is what keeps `see`/`free` a
+    # rhyme -- and they are deliberately NOT parameterised here. Priced in
+    # `quality/NEAR_RELATION_PRICING_PREREGISTRATION.md` (falsifier E2) and
+    # answered in `quality/RESULTS_NEAR_RELATION_PRICING.md`.
+    coda_empty_evidence: str = "gift"
     # --- THE SHAPE OF THE CODA QUESTION (doctrine 1, 84, 94) ----------------
     # DECLARED 2026-08-11. `theta_coda` above is a cut on `cluster_sim`, and
     # NO VALUE OF IT REACHES `wall`/`floor`: `cons_sim('R','L')` is 0.9875 and
@@ -3114,6 +3194,47 @@ def admits(s, theta, relations=None):
     return s is not None and s["total"] >= theta and \
         s["relation"] in rel
 
+
+def theta_for(s, decl):
+    """-> the cut THIS pair is judged at: `decl.theta_by_relation` for its
+    relation, `decl.theta_rhyme` otherwise.
+
+    A SEPARATE FUNCTION RATHER THAN A PARAMETER OF `admits()`, deliberately.
+    `admits()` is ONE predicate with ONE definition and twenty callers, most
+    of them asking a question that is not a mandate verdict — a candidate
+    FIELD, a collision cut, a rhyme GRAPH, a negative control. Folding the
+    per-relation cut into it would move all twenty at once, which is doctrine
+    1 broken in the other direction: one name answering two questions.
+
+    **AND THE HAZARD OF THE OTHER SHAPE IS ON THE RECORD RATHER THAN GUESSED
+    AT.** `MISSING.md` M-139 is the entry for a door that moved and left 17 of
+    19 sites behind, so a coordinate only some callers read is exactly the
+    defect shape this repository has already paid for. It is answered by
+    NAMING the readers instead of hoping: the sites that read this are the
+    MANDATE VERDICT sites and no others —
+
+      `check_scheme`'s violation chain and its transitivity closure (here),
+      `quality.revise.Reviser.grade`'s violation chain,
+      `quality.revise.Reviser._field` at `field_band="grader"`, whose own
+        docstring promises it asks the verdict's question (M-139 fixed the
+        same site for the same class of miss once already).
+
+    and the sites that DO NOT read it, each because it is asking something
+    else, are `negative_control.py` (the control of the BAND — folding a
+    mandate cut in would change what it is a control of, doctrine 14),
+    `redteam_band.py` (adversary 3's subject is the NARROW door and it says
+    so), `_derive_mandate`'s clique graph (it takes its own `theta` as an
+    argument and answers "which lines already rhyme", not "is this mandate
+    satisfied"), and the collision cuts, which are a scalar question at
+    `THETA_COLLISION` and not a band question at all.
+
+    `quality/test_band.py` pins that list, so a new reader is a test change
+    and not a silent one.
+    """
+    if s is None:
+        return decl.theta_rhyme
+    return decl.theta_by_relation.get(s["relation"], decl.theta_rhyme)
+
 #: THE UNINTENDED-RHYME CUT, and it lives HERE because two modules apply it to
 #: the same question and one definition is the only thing that keeps them
 #: equal. `check_scheme` below and `quality/revise.py`'s collision scan report
@@ -3343,6 +3464,19 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
         cs = cluster_sim(sa["coda"], sb["coda"])
         os_ = cluster_sim(sa["onset"], sb["onset"])
         st = 1.0 if (sa["stress"] > 0) == (sb["stress"] > 0) else 0.0
+        # THE EMPTY/EMPTY CODA, AS A DECLARED COORDINATE AND NOT A CONSTANT
+        # (`Declaration.coda_empty_evidence`, `MISSING.md` E-5). The default
+        # "gift" leaves `cs` exactly as `cluster_sim` returned it, so this
+        # block is a no-op on every undeclared run and `_drop` stays 0.0.
+        # It reaches `total` ONLY — `channel_agreement` keeps its own
+        # empty/empty branch, because the AGREEMENT side is what carries
+        # `see`/`free` and E-5 records it as correct.
+        _drop = 0.0
+        if decl.coda_empty_evidence != "gift" and \
+                not sa["coda"] and not sb["coda"]:
+            cs = 0.0
+            if decl.coda_empty_evidence == "cannot_tell":
+                _drop = (w0 if i == 0 else wi)["coda"]
         if i == 0:
             # first onset is the rhyme-defining exclusion: shown, not scored
             syl_total = (w0["nucleus"] * ns + w0["coda"] * cs
@@ -3350,6 +3484,14 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
         else:
             syl_total = (wi["nucleus"] * ns + wi["coda"] * cs
                          + wi["onset"] * os_ + wi["stress"] * st)
+        if _drop:
+            # RENORMALISE OVER THE WEIGHTS THAT WERE ASKED, not over 1.0: a
+            # profile's weights need not sum to one, and dividing by
+            # `1 - coda` would silently rescale those that do not. The sum is
+            # taken from the weights this syllable actually used.
+            _wsum = sum((w0 if i == 0 else wi).values())
+            if _wsum > _drop:
+                syl_total *= _wsum / (_wsum - _drop)
         total += syl_total
         out["syllables"].append({
             "nucleus": round(ns, 3), "coda": round(cs, 3),
@@ -3380,10 +3522,21 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
     if _gift > 0:
         _k = sum(1 for i in range(n)
                  if not anc_a[i]["coda"] and not anc_b[i]["coda"])
-        out["flags"].append(
-            f"coda: no evidence (both codas empty on {_k} of {n} "
-            f"syllable(s); {_gift:.3f} of the total is agreement by "
-            f"absence, not by sound — E-5)")
+        if decl.coda_empty_evidence == "gift":
+            out["flags"].append(
+                f"coda: no evidence (both codas empty on {_k} of {n} "
+                f"syllable(s); {_gift:.3f} of the total is agreement by "
+                f"absence, not by sound — E-5)")
+        else:
+            # THE SHARE IS NO LONGER IN `total`, AND THE FLAG SAYS WHICH
+            # RULE TOOK IT OUT rather than repeating a sentence that is no
+            # longer true. A disclosure that survives the fix it disclosed
+            # is a stale claim (doctrine 17).
+            out["flags"].append(
+                f"coda: no evidence (both codas empty on {_k} of {n} "
+                f"syllable(s); {_gift:.3f} of the default total was "
+                f"agreement by absence and is NOT scored here — "
+                f"coda_empty_evidence={decl.coda_empty_evidence!r}, E-5)")
     if prof and prof.get("require_final_consonant"):
         ca = anc_a[-1]["coda"][-1:] if anc_a[-1]["coda"] else []
         cb = anc_b[-1]["coda"][-1:] if anc_b[-1]["coda"] else []
@@ -3805,11 +3958,21 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     violations.append(
                         (i + 1, j + 1, s["total"],
                          "NO_ANCHOR: nothing to compare (not a rhyme verdict)"))
-                elif s["total"] < decl.theta_rhyme:
+                elif s["total"] < theta_for(s, decl):
+                    # THE CUT IS PER RELATION SINCE 2026-09-02 (M-138,
+                    # priced). The message names the relation's own cut,
+                    # because `below theta_rhyme=0.75` on a pair judged at
+                    # 0.82 is a report line that cannot be reproduced from
+                    # the number beside it (doctrine 58/91).
+                    _th = theta_for(s, decl)
                     violations.append(
                         (i + 1, j + 1, s["total"],
-                         f"below theta_rhyme={decl.theta_rhyme}"))
-                elif not admits(s, decl.theta_rhyme,
+                         f"below theta_rhyme={decl.theta_rhyme}"
+                         if _th == decl.theta_rhyme else
+                         f"below theta({s['relation']})={_th} "
+                         f"(theta_rhyme={decl.theta_rhyme}; the near "
+                         f"relations carry their own priced cut, M-138)"))
+                elif not admits(s, theta_for(s, decl),
                                 relations=frozenset(decl.admit)):
                     # THE SECOND COPY OF THE SAME BLACKLIST, and it had the
                     # same hole. See `quality/revise.py`'s `grade()` for the
@@ -3914,7 +4077,13 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     i1, i2, i3 = members[a], members[b], members[c]
                     def ok(x, y):
                         s = matrix[min(x, y)][max(x, y)]
-                        return admits(s, decl.theta_rhyme,
+                        # `theta_for`, NOT `decl.theta_rhyme`: this closure is
+                        # the SAME mandate question the chain above asks, and
+                        # M-139 is the entry for what happens when a door
+                        # moves and this closure does not move with it — a
+                        # pair reported satisfied above and absent as an edge
+                        # here, on one run.
+                        return admits(s, theta_for(s, decl),
                                       relations=frozenset(decl.admit)) \
                             or (min(x, y) + 1, max(x, y) + 1) in _schema_ok
                     if any((min(x, y) + 1, max(x, y) + 1) in refused
@@ -5127,11 +5296,24 @@ def door_chance_note(door, entry=None):
     canon = _CR.CANON_RATE
     entry = entry or {"admit": "M-138", "schema": "M-140",
                       "narrow": "M-138"}.get(door, "M-138")
+    # PRICED OR UNPRICED IS NOW A REAL DISTINCTION AND THE PHRASE MAKES IT
+    # (2026-09-02). Until today both doors were unpriced and this sentence
+    # said so for both. The ADMIT door has since been priced —
+    # `quality/NEAR_RELATION_PRICING_PREREGISTRATION.md`, falsifier E1,
+    # ASSONANCE cut at 0.82 — and leaving the old wording would be a
+    # disclosure that outlived the gap it disclosed, which is doctrine 17's
+    # own subject and the species of stale claim this repository strikes on
+    # sight. The SCHEMA door is genuinely still unpriced (M-140), so the
+    # two doors say different things because they ARE different.
+    priced = ("PRICED (M-138, quality/RESULTS_NEAR_RELATION_PRICING.md — "
+              "the near relations carry their own cut, "
+              "`Declaration.theta_by_relation`)"
+              if door == "admit" else f"UNPRICED ({entry})")
     return (f"chance rate is PINNED at {lo}..{hi} of {n:,} random CMUdict "
             f"pairs ({lo / n:.1%}–{hi / n:.1%}, "
             f"{lo / n / canon:.1f}–{hi / n / canon:.1f}x the sonnet canon "
             f"arm's {canon:.2%}; quality/chance_rate.py, a band over its "
-            f"sampler grid) and UNPRICED ({entry})")
+            f"sampler grid) and {priced}")
 
 
 def schema_default_disclosure(sch_sat):
@@ -5189,13 +5371,27 @@ def near_relation_default_disclosure(verdicts, theta):
         f"L{v['lines'][0] + 1}~L{v['lines'][1] + 1} "
         f"{v['endwords'][0]}/{v['endwords'][1]} {v['relation']} "
         f"{v['score']:.3f}" for v in near[:4])
+    # ~~"on theta_rhyme={theta} alone — a cut never priced on these
+    # relations"~~ STRUCK 2026-09-02: it IS priced now, and the line names
+    # the cut each relation was actually judged at rather than a
+    # `theta_rhyme` that no near relation reads any more (doctrine 58/91 —
+    # a number in a report must be reproducible from the report).
+    cuts = ", ".join(f"{k} {v}" for k, v in
+                     sorted(_declared_cuts().items()) if k in by)
     return (f"  ADMIT DOOR: {len(near)} mandated pair(s) satisfied as a "
             f"near relation ("
             + ", ".join(f"{k} x{by[k]}" for k in sorted(by))
-            + f") on theta_rhyme={theta} alone — {egs}"
+            + f") on the priced near-relation cut"
+            + (f" ({cuts})" if cuts else f" (theta_rhyme={theta})")
+            + f" — {egs}"
             + (" …" if len(near) > 4 else "")
-            + f" — a cut never priced on these relations; that door's "
-            f"{door_chance_note('admit')}")
+            + f"; that door's {door_chance_note('admit')}")
+
+
+def _declared_cuts():
+    """-> the shipped per-relation cuts, read from the Declaration's own
+    default rather than respelled in a report (doctrine 1)."""
+    return dict(Declaration().theta_by_relation)
 
 
 def screen_pairs(words, lex=None, decl=None, relation=None):

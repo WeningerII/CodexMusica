@@ -1568,6 +1568,10 @@ until ruled.
    now say on their reports which door they read (the narrow band; the
    admit door), and the pricing — a preregistered re-adoption that moves
    the battery's verdicts — is declined with its reason in the entry.
+   ~~declined~~ TAKEN 2026-09-02 under a preregistration of its own, which
+   is the blocker the decline named: ASSONANCE priced at 0.82, CONSONANCE
+   measured and unmoved at 0.75, the battery 12 -> 14 inside a
+   preregistered ceiling of 20. M-138 CLOSED.
    DISCLOSURE COMPLETED 2026-09-02: `finish` prints `ADMIT DOOR` and the
    priced `SCHEMA DEFAULT`, the screen's ADMITTED row carries the admit
    band, every figure read from `chance_rate.ADOPTED`. Pricing still
@@ -1750,6 +1754,7 @@ pricing, M-136's required words and assonance profile).
 | RULINGS WANTED #20 / L-4a (2026-09-02) | ~40 model songs against a pre-1929 human class is confounded with period by construction, so the sitting is declined in that design and named in another; the no-separation disclosure becomes derived and pinned | `LENGTH_SENSITIVE`, `evidence_for`, `test_floor` §15 |
 | M-111 (2026-09-02, C08) | a check may read `songs/` to DISCLOSE cross-song reuse and never to grade — the bank is the OBSERVATION and `corpus/song/` the null, so it is not corpus by the back door; the re-measurement at sixteen does not reproduce the concentration that argued for a gate, and the gate is refused mechanically rather than in prose | `cross_song.py`, `screen --bank`, `BankIsNotCorpus`, the prefix pin |
 | M-197 (2026-09-02, the two budgets, OWNER) | the owner set `CHAT_MAX_TURN_USD` to $2.50 (so `maxSteps` binds again) and, told the turn cap then sat above the day's, raised `CHAT_DAILY_USD` $2 → $25. That inverted the DAY's own pair: 400 turns at the $0.01 mean is $4, so `maxTurnsPerDay` is what an ordinary day reaches and the dollar figure never fires. Disclosed and pinned rather than absorbed; `CHAT_MAX_TURNS_PER_DAY` bounds request volume too and stays theirs | `chatCeilings`, `MEAN_TURN_USD`, `/chat/status` |
+| M-138 / E-5 (2026-09-02, triage C13's last row) | the parked verdict-moving halves ran under a preregistration of their own — the blocker both entries recorded. M-138 CLOSED: ASSONANCE priced at 0.82 (3.99–4.92x → 1.54–1.82x the canon arm), CONSONANCE measured and unmoved, battery 12 → 14 against a preregistered ceiling of 20, the admit band repinned 289..339 → 173..193 with narrow and schema HELD as controls. E-5 stays OPEN on a REFUSAL: both coda rules fired E2 — `zero` displaces 208 admitted pairs and is caught by the unpriced schema door (231 against 23), `cannot_tell` displaces exactly one and the registration said any. One adoption, two refusals, each decided by a rule written before its number | `NEAR_RELATION_PRICING_PREREGISTRATION.md`, `theta_by_relation`, `coda_empty_evidence` |
 
 ---
 
@@ -1843,17 +1848,17 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 62 OPEN / 37 PARTIAL / 2 BLOCKED / 141 CLOSED / 13 RESOLVED = 255 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 61 OPEN / 37 PARTIAL / 2 BLOCKED / 142 CLOSED / 13 RESOLVED = 255 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 3 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1411** DECLARED-public top-level functions/classes under `quality/` and the root — **264** named by another production module, **431** by tests only, **622** only inside their own module, **11** by nothing anywhere, **83** REFUSED (55 ambiguous, 19 dynamic, 9 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **57** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1423** DECLARED-public top-level functions/classes under `quality/` and the root — **266** named by another production module, **430** by tests only, **633** only inside their own module, **11** by nothing anywhere, **83** REFUSED (55 ambiguous, 19 dynamic, 9 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **57** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `corpus/song/eng_*` — K-1's own quantities | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `data/sources.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `data/lyricists.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
-| sonnet battery | 12/1014 = 1.2% violations (`mandated 1064, judged 1014, refused 50`) | `python3 battery.py` |
+| sonnet battery | 14/1014 = 1.4% violations (`mandated 1064, judged 1014, refused 50`) | `python3 battery.py` |
 | band FPR on random pairs | **2.10%** (84 of 4,000 at seed 20260810, the runner's own default n; 2.00% = 60 of 3,000 at n=3,000 — the population size is a coordinate) | `python3 quality/redteam_band.py` |
 | register-audit findings | **0** — FALSE derivations: none | `python3 quality/audit_register.py` |
 | adversaries built, of 8 | REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it) | `read BACKLOG.md §0` |

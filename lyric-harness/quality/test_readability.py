@@ -1647,14 +1647,28 @@ def test_the_default_doors_are_priced_where_they_answer():
     import lyric_harness as _LH
     from quality import chance_rate as _CR
     n = _CR.SHIPPED.n
-    for door, entry in (("schema", "M-140"), ("admit", "M-138")):
+    # ~~both doors asserted "UNPRICED"~~ REPINNED 2026-09-02 (doctrine 17).
+    # The ADMIT door is PRICED as of `MISSING.md` M-138's pricing sitting
+    # (`quality/RESULTS_NEAR_RELATION_PRICING.md`, falsifier E1); the SCHEMA
+    # door is genuinely still unpriced (M-140). The two words are the
+    # discriminating coordinate now, so the check asserts them APART — a
+    # loop asserting one word over both doors is what let the old wording
+    # go stale in the first place.
+    for door, entry, word in (("schema", "M-140", "UNPRICED"),
+                              ("admit", "M-138", "PRICED")):
         lo, hi = _CR.ADOPTED[door]
         note = _LH.door_chance_note(door)
         check(f"`door_chance_note({door!r})` renders the ADOPTED band "
-              f"{lo}..{hi} of {n:,} and names {entry} — READ from "
-              f"`chance_rate.py`, never retyped",
+              f"{lo}..{hi} of {n:,}, names {entry} and says {word} — READ "
+              f"from `chance_rate.py`, never retyped",
               f"{lo}..{hi} of {n:,}" in note and entry in note
-              and f"{lo / n:.1%}" in note and "UNPRICED" in note, note)
+              and f"{lo / n:.1%}" in note and word in note, note)
+    check("the two doors do NOT say the same thing about pricing — the "
+          "admit door was priced 2026-09-02 and the schema door was not, "
+          "and a disclosure that outlived its gap is the defect this pin "
+          "exists to catch (doctrine 17)",
+          "UNPRICED" in _LH.door_chance_note("schema")
+          and "UNPRICED" not in _LH.door_chance_note("admit"))
     check("an empty rescue list renders NOTHING (no line where nothing "
           "was rescued — doctrine 20 in the other direction)",
           _LH.schema_default_disclosure([]) is None)
@@ -1688,7 +1702,13 @@ def test_the_default_doors_are_priced_where_they_answer():
           and "ASSONANCE x1, CONSONANCE x1" in nd
           and "L1~L3 home/alone ASSONANCE 0.974" in nd
           and "sun/much" not in nd and "cat/hat" not in nd
-          and "theta_rhyme=0.75" in nd and "M-138" in nd
+          # ~~"theta_rhyme=0.75" in nd~~ REPINNED 2026-09-02: no near
+          # relation is judged at `theta_rhyme` any more, so a line saying
+          # so would be unreproducible from the number beside it
+          # (doctrine 58/91). The line names the cut EACH relation was
+          # actually judged at, read from the Declaration.
+          and "ASSONANCE 0.82" in nd and "CONSONANCE 0.75" in nd
+          and "M-138" in nd
           and f"{_CR.ADOPTED['admit'][0]}..{_CR.ADOPTED['admit'][1]}" in nd,
           nd)
     check("control: verdicts with no near-relation pass render NOTHING",

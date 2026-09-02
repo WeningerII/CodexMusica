@@ -173,9 +173,51 @@ def test_the_admit_coordinate():
                         Declaration(admit=("RHYME", "RIME_RICHE",
                                            "ASSONANCE")))
     v = [x for x in wide["violations"] if x[0] == 1 and x[1] == 2]
-    check("DECLARED admit=ASSONANCE: the same pair SATISFIES on its "
-          "scalar — the near relation is a first-class declared move",
-          not v, v)
+    # ~~"DECLARED admit=ASSONANCE: the same pair SATISFIES on its scalar"~~
+    # REPINNED 2026-09-02 (doctrine 17, and the superseded assertion stays
+    # visible because it is the thing that moved). `MISSING.md` M-138's
+    # pricing gave ASSONANCE its own cut at 0.82, and `sun`/`much` scores
+    # 0.772 — so the pair that used to demonstrate the declared move now
+    # demonstrates its PRICE. THE CLAIM IS NOT WEAKENED AND IS PROVEN BELOW
+    # ON A PAIR ABOVE THE CUT: a near relation is still a first-class
+    # declared move, and what changed is the SCALAR it is judged at.
+    #
+    # WHY THE PRICED CUT APPLIES TO A DECLARED DOOR AT ALL, since this is a
+    # ruling and not an accident: `admit` and `theta_by_relation` are two
+    # coordinates, and this caller declared the first. A caller wanting the
+    # pre-pricing scalar declares the second — `theta_by_relation={}` — and
+    # gets exactly the old behaviour by SAYING SO, which is the narrowing
+    # direction this file keeps available on every door. The third check
+    # below is that escape, asserted rather than promised.
+    check("DECLARED admit=ASSONANCE: sun/much (0.772) is now REFUSED by "
+          "the PRICED near-relation cut, and the refusal names it — the "
+          "declared door is not a licence to skip the calibration "
+          "(~~SATISFIES on its scalar~~, M-138 priced 2026-09-02)",
+          len(v) == 1 and "theta(ASSONANCE)=0.82" in v[0][3], v)
+    # THE CLAIM ITSELF, ON A PAIR THE CUT ADMITS. Without this the section
+    # would assert only what the pricing REFUSES and would pass on a tree
+    # where declaring a near relation had stopped working altogether.
+    above = ["the kitchen filled with all the chores",
+             "and nothing here was ever norm"]
+    wide2 = check_scheme(lex, above, "AA",
+                         Declaration(admit=("RHYME", "RIME_RICHE",
+                                            "ASSONANCE")))
+    v2 = [x for x in wide2["violations"] if x[0] == 1 and x[1] == 2]
+    check("DECLARED admit=ASSONANCE: chores/norm (0.932 ASSONANCE, above "
+          "the 0.82 cut) SATISFIES — the near relation is STILL a "
+          "first-class declared move",
+          not v2, v2)
+    # AND THE ESCAPE HATCH IS REACHABLE: the same refused pair, same
+    # declared door, with the pricing declared away.
+    old = check_scheme(lex, draft, "AA",
+                       Declaration(admit=("RHYME", "RIME_RICHE",
+                                          "ASSONANCE"),
+                                   theta_by_relation={}))
+    v3 = [x for x in old["violations"] if x[0] == 1 and x[1] == 2]
+    check("theta_by_relation={} restores the pre-pricing scalar exactly — "
+          "sun/much satisfies again, so the cut is a DECLARED coordinate "
+          "and not a new law",
+          not v3, v3)
     for kwargs, why in ((dict(admit=("RHYME", "PROEST")),
                          "an unknown relation refuses AT DECLARATION time"),
                         (dict(admit=("ASSONANCE",)),

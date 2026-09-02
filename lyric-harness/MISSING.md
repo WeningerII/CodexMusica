@@ -581,6 +581,39 @@ DOES NOT CLOSE. The expensive half — moving the scalar, with the
 recalibration M-4a records the price of — is what closes it, and the 0.902
 in the D18 pin is still 0.902. What changed is that the 0.35 inside it is
 now readable.
+**THE EXPENSIVE HALF WAS MEASURED 2026-09-02 AND IS REFUSED BY ITS OWN
+FALSIFIER. THE ENTRY STAYS OPEN AND IS MUCH CHEAPER NOW.** It shared
+M-138's pricing sitting exactly as the outline said it would
+(`quality/NEAR_RELATION_PRICING_PREREGISTRATION.md`, falsifier E2).
+`Declaration.coda_empty_evidence` makes the rule REACHABLE — `gift` (the
+shipped scalar, byte-identical default), `zero`, and `cannot_tell` (the
+coda channel dropped from the syllable's weighted mean and the remaining
+weights renormalised) — reaching `total` and NOTHING else, because the
+AGREEMENT side is what carries `see`/`free` and this entry records it as
+correct. MEASURED against the 979 of 1,014 judged mandated pairs the
+scalar door admits. **`zero`: 208 pairs (21.2%) LEAVE the admitted set,
+`see`/`free` falls to 0.650 and `now`/`why` to 0.552 — REFUSED.**
+**`cannot_tell`: `see`/`free` stays 1.000, `cat`/`hat` stays 1.000
+unflagged, `now`/`why` goes 0.902 -> 0.850 with the 0.35 of
+agreement-by-absence gone from `total` and the relation typing unmoved —
+exactly what this entry predicted — and ONE pair leaves the admitted set,
+sonnet 1 L2~L4 `die`/`memory` 0.773 CONSONANCE. The registration said ANY.
+REFUSED.**
+**AND `zero`'s VIOLATION COUNT STAYED AT 12, WHICH IS THE FINDING RATHER
+THAN THE FOOTNOTE.** The 77-schema default absorbed **231 pairs against
+23** — a tenfold jump in a door M-140 pins at 20.3x-21.0x and leaves
+UNPRICED. A registration reading `battery.py`'s headline would have
+recorded `+0` and adopted a rule that laundered a fifth of the admitted set
+through an uncalibrated door: this entry's own subject, one layer out. The
+registration's two readings of E2 disagreed on this data, the PRIMARY
+clause was taken, and the runner prints both on every arm now.
+**D18's 0.902 IS UNMOVED, because the refusal is what left it there.**
+**WHAT THE NEXT SITTING NEEDS IS SMALL AND IS NAMED**: a registration
+declaring a TOLERANCE in advance, with its own argument for the number,
+re-running this arm against it. One pair of 979 is not a rounding error
+until somebody says so BEFORE seeing that it is one pair (doctrine 58). The
+rule is built, reachable and measured; what is missing is a number nobody
+has yet earned the right to choose.
 **TESTED WHILE OPEN.** `quality/test_readability.py` §14 names this entry at
 the one place the finding became a code change — the cannot-tell disclosure
 on an empty/empty coda — and that half is BUILT. What stays open is the
@@ -13837,7 +13870,7 @@ annotated as one: *"NO PRODUCTION READER … DELIBERATELY RESERVED"*. A dead
 coordinate that says it is reserved is not this defect; a dead coordinate whose
 comment says it governs something is.
 
-### M-138 · the widened door made theta_rhyme the sole gate on two relations it was never priced on `OPEN`
+### M-138 · the widened door made theta_rhyme the sole gate on two relations it was never priced on `CLOSED` 2026-09-02 — priced under a preregistration of its own, and the finding is that it is ONE relation and not two
 The largest finding of the comparator audit, and the one the repo has already
 ruled on ONCE — in the opposite direction, against a gap a fifth the size.
 
@@ -14014,6 +14047,60 @@ the default in would change what the control is a control of). The chance
 rates of the two wider doors stay `chance_rate.py`'s, pinned as bands and
 unpriced, exactly as this entry and M-140 record. Stays `OPEN` on the
 pricing.
+**PRICED AND ADOPTED 2026-09-02, AND THE ENTRY CLOSES.** The blocker this
+entry recorded — pricing is *"a re-adoption that moves recorded verdicts
+without a preregistration of its own"* — was answered by writing one:
+`quality/NEAR_RELATION_PRICING_PREREGISTRATION.md`, with the sweep grid,
+the 2x target and the violation ceiling all fixed before the run and
+COMMITTED BEFORE IT, so the ordering is a fact in the log rather than a
+claim in a document. `quality/RESULTS_NEAR_RELATION_PRICING.md` records
+what fired.
+**THE FINDING THE OUTLINE DID NOT HAVE IS THAT IT IS ONE RELATION AND NOT
+TWO.** At the shipped 0.75, ASSONANCE admits random pairs at **3.99x-4.92x**
+the canon arm and CONSONANCE at **1.18x-1.48x**, already under target on
+every cell of the grid; RHYME is under **1x** and RIME_RICHE is 0. The
+6.1x-7.2x this entry records is a SUM over four relations (doctrine 79),
+and ASSONANCE carried all of it.
+**ADOPTED: `Declaration.theta_by_relation`, ASSONANCE 0.82** — the smallest
+cut on the declared grid under 2x in all four `chance_rate.GRID` cells
+(73..86 = 1.54x..1.82x) — **and CONSONANCE 0.75, measured, unmoved, and
+written down rather than omitted** (doctrine 20: a coordinate that did not
+move is a result). Falsifier E1 did NOT fire: `battery.py` goes **12 -> 14
+of 1,014** against a preregistered ceiling of **20**, which is the exact
+Clopper-Pearson 95% upper edge on the pre-adoption pin. The two new
+violations are sonnet 49 L5~L7 `pass`/`was` 0.772 and sonnet 91 L10~L12
+`costs`/`boast` 0.765 — the second being cell BA's own pair, which passed
+on a coda margin of EXACTLY ZERO and has passed ever since on an assonance
+cut nobody had priced. STOPPED violating: 0. The third option this entry
+listed was never needed: the declared-policy fallback was E1's registered
+refusal branch, and E1 held.
+**TWO INSTRUMENTS MOVED WITH THE DOOR THIS TIME, WHICH IS M-139's LESSON
+PAID.** `chance_rate.measure` reads `theta_for` and its `admit` band
+repins ~~289..339~~ **173..193** (6.1x-7.2x -> 3.1x-3.5x), with `narrow`
+36..46 and `schema` 960..994 HELD as the controls that this was a DOOR move
+and not a sampler move; `door_chance_note('admit')` says PRICED where it
+said UNPRICED; and the `ADMIT DOOR` line names the cut each relation was
+judged at instead of a `theta_rhyme` no near relation reads.
+`redteam_band`'s FPR is unmoved at **2.10% (84/4,000)** — adversary 3 reads
+the NARROW door and its own `DOOR READ` line says so, which is the
+2026-09-01 disclosure paying for itself. `test_fwer` and `eval_matrix` P3
+were run and did NOT move, so they are NOT re-shaped as bands: re-shaping a
+pin that held is a change with no measurement behind it.
+**AND THE REPIN ARGUES IN A CIRCLE UNLESS THE BASELINE IS PINNED.** Adopting
+moved `CANON_RATE` 12/1014 -> 14/1014 — the denominator of the very
+statistic that chose the cut — and re-sweeping against it returns 0.81 for
+free, in the loosening direction. `near_relation_pricing.PRICING_CANON`
+pins 12/1014 and the sweep reads it. Checked rather than assumed: at the
+repinned rate every relation still reads under 2x.
+**WHAT THIS DOES NOT CLAIM.** There is no positive control on the canon
+arm, so E1 says the cut is AFFORDABLE on this corpus and never that a cut
+which mattered would have been detected (doctrines 31/76). The split-half
+does not reproduce (FIT 4 -> 6, HELD 8 -> 8, both movers in the odd half),
+recorded as reported and not resolved. The 200-seed spread (291..400) is
+WIDER than the sampler band it is compared against, which is doctrine 73
+arriving at a pin that already cites it. And the SCHEMA door stays
+unpriced: its 231-pair absorption below is a measurement of its reach, not
+a pricing, and M-140 stays open on it.
 **PRICED WHERE IT ANSWERS, 2026-09-02 (triage C13, under the delegation) —
 STILL UNPRICED AT THE DOOR.** `finish` prints an `ADMIT DOOR` line
 counting the mandated pairs satisfied AS a near relation on `theta_rhyme`
