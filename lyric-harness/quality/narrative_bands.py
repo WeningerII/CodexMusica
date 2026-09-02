@@ -73,8 +73,16 @@ PINNED = {
 }
 
 
-def _content_types(lines, tag):
-    """The declared content partition over a block's sung lines."""
+def content_types(lines, tag):
+    """The declared content partition over a block's sung lines.
+
+    PUBLIC SINCE 2026-09-02 (`MISSING.md` M-111): `quality/cross_song.py`
+    asks the same partition of the BANKED songs, and panel run 5 already
+    caught this spelling drifting between two hand computations by one
+    type on a nine-song set. One spelling, one function, imported —
+    doctrine 1. The name kept its underscore for as long as this module
+    was its only caller; a second caller is what makes it an interface.
+    """
     out = set()
     for l in lines:
         if LH.is_apparatus_line(l):
@@ -107,7 +115,7 @@ def measure(root="corpus/song", verbose=True):
                 continue
             sets_, funcs = [], []
             for b in s.blocks:
-                cs = _content_types(b.lines, tag)
+                cs = content_types(b.lines, tag)
                 if not cs:
                     blocks_skipped += 1
                 sets_.append(cs)

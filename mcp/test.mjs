@@ -4,6 +4,9 @@
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { posix } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import * as E from './engine.js';
 
 // Raw merged catalog (with the universal cross-instrument materials present) so the
@@ -297,10 +300,89 @@ check('validation: actionable errors', () => {
     assert.equal(priceFor('__no_such_model__'), null);
     assert.equal(cost({ promptTokens: 1e6, candidatesTokens: 1e6 }, '__no_such_model__'), null);
   });
-  check('a turn is bounded in dollars, not only in hops', () => {
+  check('a turn is bounded in dollars, not only in hops', async () => {
     assert.ok(LIMITS.maxTurnUsd > 0, 'maxTurnUsd must be set');
-    assert.ok(LIMITS.maxTurnUsd < 2, 'a single turn must not be able to spend the daily cap');
+    // ~~`maxTurnUsd < 2`, "a single turn must not be able to spend the daily
+    // cap"~~ — the 2 was the daily cap's own DEFAULT, typed as a literal here,
+    // so the relation it named could go false the moment either number moved
+    // (doctrine 1). The owner raised the turn cap to $2.50 on 2026-09-02 and
+    // it did. The relation is READ from both configs now and its consequence
+    // is DISCLOSED rather than asserted away: a turn cap above the daily
+    // ceiling means one admitted turn can carry the day past it, because the
+    // daily check runs before a turn and never interrupts one in flight.
+    const { CHAT_LIMITS: _CL, chatCeilings } = await import('./chat.js');
+    const c = chatCeilings();
+    assert.equal(c.turnUsd, LIMITS.maxTurnUsd);
+    assert.equal(c.dailyUsd, _CL.dailyUsd);
+    assert.equal(c.turnCapExceedsDay, LIMITS.maxTurnUsd > _CL.dailyUsd);
+    assert.equal(
+      c.dayOvershootUsd,
+      c.turnCapExceedsDay ? LIMITS.maxTurnUsd - _CL.dailyUsd : 0,
+      'the overshoot a single turn can cause is stated, not left to be inferred'
+    );
+    // Whatever the two numbers are, the day must still be bounded by
+    // SOMETHING a turn cannot exceed on its own: either the dollar cap sits
+    // under the day, or the turn-count ceiling is finite. That is the
+    // invariant the struck literal was reaching for, written so it survives a
+    // repin of either figure.
+    assert.ok(
+      !c.turnCapExceedsDay || _CL.maxTurnsPerDay > 0,
+      'a day with a turn cap above its dollar ceiling still needs a turn-count bound'
+    );
   });
+  check(
+    'the DAY has two ceilings too, and which one an ordinary day reaches is derived',
+    async () => {
+      // `dailyUsd` bounds the day in dollars, `maxTurnsPerDay` in requests, and
+      // they are independent on purpose — the count needs no pricing table. The
+      // owner moved the dollar figure $2 -> $25 on 2026-09-02 and the answer
+      // INVERTED: 400 turns at the measured ~$0.01 mean is ~$4, so the count
+      // became what an ordinary day reached and the dollar ceiling what never
+      // fired. The count ceiling is DERIVED from the budget the same day and
+      // the inversion is gone. Pinned as the arithmetic, never as the answer.
+      const {
+        CHAT_LIMITS: _CL,
+        chatCeilings,
+        MEAN_TURN_USD,
+        TURNS_HEADROOM,
+      } = await import('./chat.js');
+      const { turnBudget } = await import('./gemini_agent.js');
+      const c = chatCeilings();
+      assert.equal(c.dayByTurnsUsd, _CL.maxTurnsPerDay * MEAN_TURN_USD);
+      // THE COUNT CEILING IS DERIVED FROM THE BUDGET IT MUST NOT PRE-EMPT
+      // (2026-09-02). Typing a second number is what let the two invert in
+      // the first place, so what is pinned is the DERIVATION and the
+      // separation it buys, never either figure.
+      assert.equal(
+        _CL.maxTurnsPerDay,
+        Math.ceil((_CL.dailyUsd / MEAN_TURN_USD) * TURNS_HEADROOM),
+        'the count ceiling is derived from the dollar budget and the headroom'
+      );
+      assert.ok(TURNS_HEADROOM > 1, 'at 1.0 the two ceilings tie and noise picks the winner');
+      assert.ok(
+        c.dayByTurnsUsd > c.dailyUsd,
+        `an ordinary day must reach the DOLLAR budget first: ${c.dayByTurnsUsd} vs ${c.dailyUsd}`
+      );
+      // What this ceiling costs when the dollar arithmetic cannot be trusted —
+      // the case it exists for — is REPORTED rather than left to be found, and
+      // the bound on any ONE client is the rate limiter's, not this file's.
+      assert.equal(c.worstCaseDayUsd, _CL.maxTurnsPerDay * turnBudget().worstLegalTurnUsd);
+      assert.equal(c.perIpPerDay, _CL.perIpPerHour * 24);
+      assert.ok(
+        c.perIpPerDay < _CL.maxTurnsPerDay,
+        'the day ceiling is a FLEET bound: one address cannot reach it alone'
+      );
+      assert.equal(
+        c.perDay,
+        c.dayByTurnsUsd < c.dailyUsd ? 'maxTurnsPerDay' : 'dailyUsd',
+        'the reported daily ceiling IS that comparison'
+      );
+      assert.ok(
+        MEAN_TURN_USD > 0,
+        'the mean the count ceiling is priced at is declared, not quoted'
+      );
+    }
+  );
   check('there is a daily ceiling that does not consult the pricing table', async () => {
     const { CHAT_LIMITS } = await import('./chat.js');
     assert.ok(CHAT_LIMITS.maxTurnsPerDay > 0, 'maxTurnsPerDay must be set');
@@ -527,7 +609,383 @@ check('validation: actionable errors', () => {
   // in the only channel that reaches the harness. The reminder must exist
   // exactly while a suspended run is carried — both directions pinned, plus
   // the structural half: the request's systemInstruction has ONE builder.
-  const { suspendedSeed, buildSystemInstruction } = _agentInternals;
+  const { suspendedSeed, buildSystemInstruction, carryState } = _agentInternals;
+
+  // ── M-189: the CLI's globals and the missing fields reach the tools ─────
+  {
+    const { LYRIC_TOOL_SCHEMAS: S, _argvInternals: AV } = await import('./lyric_tools.js');
+    check(
+      'every grading tool can declare --voices and --fallback; screen takes a relation; verify takes structures',
+      () => {
+        for (const t of ['lyric_grade', 'lyric_revise', 'lyric_verify', 'lyric_check']) {
+          assert.ok('voices' in S[t] && 'fallback' in S[t], `${t} lacks voices/fallback`);
+        }
+        assert.ok(
+          'relation' in S.lyric_screen && 'fallback' in S.lyric_screen,
+          "screen asks the grade's question"
+        );
+        assert.ok(
+          'structures' in S.lyric_verify,
+          'verify is checked under the mandate lyric_check grades under'
+        );
+        for (const t of ['lyric_plan', 'lyric_grade', 'lyric_revise']) {
+          assert.ok('narrative' in S[t], `${t} lacks narrative`);
+        }
+        assert.ok(
+          !('voices' in S.lyric_plan) && !('voices' in S.lyric_sweep),
+          'a verb that reads no draft takes no voices'
+        );
+      }
+    );
+    check('the globals stand AHEAD of the verb and only when declared', () => {
+      assert.deepEqual(AV.globalsFor({}), []);
+      assert.deepEqual(AV.globalsFor({ voices: false, fallback: undefined }), []);
+      assert.deepEqual(AV.globalsFor({ voices: true }), ['--voices']);
+      assert.deepEqual(AV.globalsFor({ fallback: 'low' }), ['--fallback=low']);
+      assert.deepEqual(AV.globalsFor({ voices: true, fallback: 'high' }), [
+        '--voices',
+        '--fallback=high',
+      ]);
+      assert.deepEqual(
+        AV.globalsFor({ fallback: 'bogus' }),
+        [],
+        'an undeclared value is not passed through'
+      );
+    });
+    check('planArgs carries --narrative= exactly as it carries --title=', () => {
+      assert.deepEqual(AV.planArgs({ seed: 7 }), ['--seed=7']);
+      assert.deepEqual(AV.planArgs({ seed: 7, narrative: 'off' }), ['--seed=7', '--narrative=off']);
+      assert.deepEqual(
+        AV.planArgs({ seed: 7, narrative: '' }),
+        ['--seed=7'],
+        'an empty string emits no bare flag'
+      );
+      assert.deepEqual(AV.planArgs({ seed: 7, title: 'Ledger', narrative: 'ESTABLISH,TURN/BUT' }), [
+        '--seed=7',
+        '--title=Ledger',
+        '--narrative=ESTABLISH,TURN/BUT',
+      ]);
+    });
+  }
+
+  // ── M-195: the pasted-song door on the connector ─────────────────────────
+  {
+    const { LYRIC_TOOL_SCHEMAS: S, _verdictInternals: VI } = await import('./lyric_tools.js');
+    const { _agentInternals: AI } = await import('./gemini_agent.js');
+    check(
+      'lyric_recover exists; lyric_check and lyric_revise take a blueprint; lyric_revise no longer requires a seed',
+      () => {
+        assert.ok(
+          'lyric_recover' in S && 'lines' in S.lyric_recover && 'placements' in S.lyric_recover
+        );
+        assert.ok('blueprint' in S.lyric_check && 'subdivision' in S.lyric_check);
+        assert.ok(
+          'blueprint' in S.lyric_revise && 'groups' in S.lyric_revise && 'scheme' in S.lyric_revise
+        );
+        assert.ok(S.lyric_revise.seed.isOptional(), 'seed is optional on lyric_revise');
+        assert.ok(!S.lyric_grade.seed.isOptional(), 'and still required on lyric_grade');
+      }
+    );
+    // REPINNED 2026-09-02: the stdout below is the harness's REAL render
+    // shape (`  key  [REFUSED] value` + an indented reason line + the
+    // closing key list), copied from `recover` on a four-line unmarked
+    // paste. The first pin fed the extractor `  meter: REFUSED — …`, a line
+    // the harness never prints, and passed while every real `refusals` came
+    // back `[]` — the self-grep shape M-142 charged test_recover §6 with.
+    // The live section below drives the real verb as well.
+    check('the recovered mandate and the refusals are read off the recover report', () => {
+      const stdout = [
+        'RECOVERED STRUCTURE — every coordinate with how it was obtained',
+        '  total_lines          [counted] 4',
+        '  sections             [REFUSED] none',
+        '      the text carries no [SECTION] mark and no blank-line block, so its sectioning cannot be read off it. Mark the sections, or declare a blueprint',
+        '  syllables_per_line   [counted] 8-10 syllables, 37 total',
+        '  web                  [derived] 3 admitted pair(s)',
+        '      every admitted pair over 14 binding sites at 4 placements per line',
+        '  meter                [REFUSED] None',
+        '      a bar grid is a DECLARED coordinate (doctrine 4). Declare one with --blueprint=',
+        '',
+        '  3 REFUSED coordinate(s) — each is a work order, not a failure (doctrine 20)',
+        '      sections',
+        '      meter',
+        '      repeats_at_a_placement',
+        '  MANDATE SPELLING (the cover as the two CLI flags — hand them to brief/revise):',
+        '    --groups=1,3;2,4.head',
+        '    --returns=5,13',
+        '  EXIT 3 — 3 coordinate(s) REFUSED (sections, meter, repeats_at_a_placement)',
+      ].join('\n');
+      const v = VI.verdictOf({ code: 3, stdout, stderr: '' });
+      assert.deepEqual(VI.extractRecoveredMandate(stdout), {
+        groups: '1,3;2,4.head',
+        returns: '5,13',
+      });
+      assert.deepEqual(VI.extractRecoverRefusals(stdout), [
+        {
+          coordinate: 'sections',
+          why: 'the text carries no [SECTION] mark and no blank-line block, so its sectioning cannot be read off it. Mark the sections, or declare a blueprint',
+        },
+        {
+          coordinate: 'meter',
+          why: 'a bar grid is a DECLARED coordinate (doctrine 4). Declare one with --blueprint=',
+        },
+        { coordinate: 'repeats_at_a_placement', why: '' },
+      ]);
+      assert.deepEqual(
+        VI.extractRecoverRefusals('  meter: REFUSED — the shape the first pin fed'),
+        [],
+        'the old synthetic shape reads as NO refusal, which is what it always was'
+      );
+      assert.equal(v.exit_code, 3);
+      assert.equal(VI.extractRecoveredMandate('nothing here'), null);
+    });
+    check('a recovered mandate fits the check/revise ceiling (M-195, repinned 2026-09-02)', () => {
+      // MEASURED at the default four places: 10,009 chars over 32 lines
+      // (songs/matinee.txt), 5,299 over 25, 4,132 over 19 — every one
+      // refused by the old 400-char ceiling, so recover -> check -> revise
+      // could not chain. The ceiling is sized to the door now.
+      // 670 groups is the MEASURED count over 32 lines; the measured string
+      // (10,009 chars) mixes bare and placed members, so both a synthetic
+      // cover of that many groups and a literal 10k-char mandate must pass.
+      const long = Array.from(
+        { length: 670 },
+        (_, i) => `${1 + (i % 32)}.endword,${1 + ((i * 7) % 32)}`
+      ).join(';');
+      const measured = '1,2;'.repeat(2503); // 10,012 chars, the measured length
+      assert.equal(long.split(';').length, 670, 'the synthetic cover has the MEASURED group count');
+      assert.ok(S.lyric_check.groups.safeParse(long).success, 'lyric_check takes it');
+      assert.ok(S.lyric_revise.groups.safeParse(long).success, 'lyric_revise takes it');
+      assert.ok(S.lyric_check.groups.safeParse(measured).success, 'and a 10k-char mandate');
+      assert.ok(
+        !S.lyric_check.groups.safeParse('x'.repeat(70_000)).success,
+        'and a runaway is still refused, never clamped'
+      );
+    });
+    check("a pasted song's run is carried on its MANDATE, a planned one on its seed", () => {
+      const surface = { stateTools: new Set(['lyric_revise']) };
+      const seeded = { seed: 7 };
+      const pasted = { groups: '1,3;2,4', returns: '5,13' };
+      assert.equal(AI.stateKey(seeded), 'seed:7');
+      assert.ok(AI.stateKey(pasted).startsWith('mandate:'));
+      assert.equal(
+        AI.stateKey({ draft: ['x'] }),
+        null,
+        'no seed and no mandate: nothing to key on'
+      );
+      const s1 = AI.carryState(
+        null,
+        'lyric_revise',
+        pasted,
+        { exit_code: 4, state: 'S1' },
+        surface
+      );
+      assert.equal(s1.key, AI.stateKey(pasted));
+      assert.equal(s1.seed, null);
+      assert.equal(
+        AI.carryState(
+          s1,
+          'lyric_revise',
+          { ...pasted, returns: '6,14' },
+          { exit_code: 3, state: 'S2' },
+          surface
+        ),
+        s1,
+        'a stop on a DIFFERENT mandate does not clear this run'
+      );
+      assert.equal(
+        AI.carryState(s1, 'lyric_revise', pasted, { exit_code: 3, state: 'S2' }, surface),
+        null
+      );
+      assert.equal(
+        AI.carriedKey({ seed: 7, state: 'x' }),
+        'seed:7',
+        'a pre-M-195 record reads as its seed'
+      );
+      assert.equal(
+        AI.suspendedSeed({
+          key: AI.stateKey(pasted),
+          seed: null,
+          state: '{"pending":{"kind":"propose"}}',
+        }),
+        'the declared mandate'
+      );
+    });
+    check("the stamp of a pasted song's run parses with no seed", () => {
+      const rec = VI.extractLoopRecord(
+        '  [FINISHED — declared mandate — exit 3 — NO_PROGRESS after 2 round(s) — UNRESOLVED: L2]'
+      );
+      assert.equal(rec.seed, null);
+      assert.equal(rec.stop_reason, 'NO_PROGRESS');
+      assert.deepEqual(rec.unresolved_lines, ['L2']);
+    });
+  }
+
+  // ── M-186: the verdict carries what the report says, not only the code ──
+  {
+    const { _verdictInternals: VI } = await import('./lyric_tools.js');
+    const { _agentInternals: AGI } = await import('./gemini_agent.js');
+    // M-186's status label, three words rather than two (2026-09-02): a
+    // whole-only exit 3 used to read `stopped_with_open_lines` with
+    // `loop_unresolved` 0 — a cause the verdict itself contradicted.
+    check('a whole-only exit 3 is labelled by its cause, not as open lines', () => {
+      assert.equal(VI.loopStatusOf(0, { loop_unresolved: 0 }), 'finished_clean');
+      assert.equal(
+        VI.loopStatusOf(3, { loop_unresolved: 2, loop_whole_flag_codes: ['HOOK_ABSENT'] }),
+        'stopped_with_open_lines'
+      );
+      assert.equal(
+        VI.loopStatusOf(3, { loop_unresolved: 0, loop_whole_flag_codes: ['TITLE_NOT_IN_HOOK'] }),
+        'stopped_with_whole_draft_flags'
+      );
+      assert.equal(VI.loopStatusOf(3, { loop_unresolved: 0 }), 'stopped_with_open_lines');
+      // The transcript record is a VALUE pin: `loopFields` is what runTurn
+      // spreads into every call record. chat.js and flash_battery.mjs copy
+      // the field off that record in an inline map, so for those two the
+      // pin is the weaker source-includes and says so.
+      const rec = AGI.loopFields({
+        exit_code: 3,
+        loop_stop_reason: 'success',
+        loop_rounds: 0,
+        loop_unresolved: 0,
+        loop_whole_flag_codes: ['TITLE_NOT_IN_HOOK'],
+        answers_on_record: 0,
+      });
+      assert.deepEqual(rec.loop_whole_flag_codes, ['TITLE_NOT_IN_HOOK']);
+      assert.equal(rec.loop_unresolved, 0);
+      assert.equal(AGI.loopFields({ exit_code: 0 }).loop_whole_flag_codes, null);
+      assert.equal(AGI.loopFields(null).exit_code, null);
+      for (const f of ['chat.js', '../scripts/flash_battery.mjs']) {
+        const src = readFileSync(new URL(f, import.meta.url), 'utf8');
+        assert.ok(
+          src.includes('loop_whole_flag_codes: c.loop_whole_flag_codes ?? null') ||
+            src.includes('whole_flags: c.loop_whole_flag_codes ?? null'),
+          `${f} copies the whole-flag codes off the record (source pin)`
+        );
+      }
+    });
+    check('exit 1 is CRASHED, never read as a verdict', () => {
+      const v = VI.verdictOf({ code: 1, stdout: '', stderr: 'Traceback (most recent call last)' });
+      assert.equal(v.exit_code, 1);
+      assert.ok(v.meaning.startsWith('CRASHED'), v.meaning);
+      assert.ok(!('flags' in v), 'no REPORT line, no counts invented');
+    });
+    check('a flagged brief at exit 0 says the flags STAND instead of "no flag stands"', () => {
+      const stdout =
+        '  REPORT: 3 line(s) briefed — 2 FLAG, 1 NOTE (two counts, never summed: doctrine 79); 1 WHOLE-DRAFT finding(s), 1 of them FLAG(S), below\n';
+      const v = VI.verdictOf({ code: 0, stdout, stderr: '' });
+      assert.equal(v.flags, 2);
+      assert.equal(v.notes, 1);
+      assert.equal(v.whole_flags, 1);
+      assert.ok(v.meaning.includes('STAND') && !v.meaning.includes('no flag stands'), v.meaning);
+      const clean = VI.verdictOf({
+        code: 0,
+        stdout:
+          '  REPORT: 2 line(s) briefed — 0 FLAG, 2 NOTE (two counts, never summed: doctrine 79)\n',
+        stderr: '',
+      });
+      assert.equal(clean.flags, 0);
+      assert.equal(clean.whole_flags, 0, 'no whole-draft clause reads as zero, not as absent');
+      assert.equal(clean.meaning, VI.EXIT_MEANING[0], 'notes alone keep the plain meaning');
+    });
+    check('unreadable end words surface as refusals with their lines', () => {
+      const stdout = [
+        '  L4: the word was xqzt',
+        '      FINDING [FLAG] UNREADABLE_END_WORD: L4 ends on a word the lexicon cannot read (lines 4)',
+        '         xqzt is not in CMUdict',
+        '      FINDING [NOTE] SCHEME_UNREADABLE: L2/L4 were NOT judged — the pair has an unreadable end (lines 2, 4)',
+        '         refusal, not a verdict',
+      ].join('\n');
+      const v = VI.verdictOf({ code: 0, stdout, stderr: '' });
+      assert.equal(v.unreadable, 2);
+      assert.deepEqual(v.unreadable_findings[0].lines, ['4']);
+      assert.deepEqual(v.unreadable_findings[1].lines.sort(), ['2', '4']);
+      assert.ok(v.unreadable_meaning.includes('NOT judged'));
+      const none = VI.verdictOf({ code: 0, stdout: '  nothing flagged\n', stderr: '' });
+      assert.ok(!('unreadable' in none), 'absent means none found, never zero invented');
+    });
+    check('the loop stamp carries the whole-draft flags as their own count', () => {
+      const rec = VI.extractLoopRecord(
+        '  [FINISHED — seed 16 — exit 3 — NO_PROGRESS after 2 round(s) — UNRESOLVED: L2, L5 — WHOLE-DRAFT FLAG: STACKED_DRAFT, TITLE_NOT_IN_HOOK]'
+      );
+      assert.equal(rec.unresolved, 2);
+      assert.deepEqual(rec.unresolved_lines, ['L2', 'L5']);
+      assert.equal(rec.whole_flags, 2);
+      assert.deepEqual(rec.whole_flag_codes, ['STACKED_DRAFT', 'TITLE_NOT_IN_HOOK']);
+      const only = VI.extractLoopRecord(
+        '  [FINISHED — seed 16 — exit 3 — SUCCESS after 1 round(s) — no flag stands — WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK]'
+      );
+      assert.equal(only.unresolved, 0, 'no open line');
+      assert.equal(only.whole_flags, 1, 'and still not finished');
+      const old = VI.extractLoopRecord(
+        '  [FINISHED — seed 16 — exit 0 — SUCCESS after 1 round(s) — no flag stands]'
+      );
+      assert.equal(old.whole_flags, 0, 'the pre-M-186 stamp still parses');
+    });
+    check('the pursued findings printed at the stop reach banned_pairs', () => {
+      const stdout = [
+        "  STANDING AT THE STOP — the findings the open lines and the whole draft still carry, in the report's own spelling:",
+        "    L3: FINDING [NOTE] HOMEOTELEUTON: L1/L3 rhyme on the SAME SPELLED ENDING ('store'/'wore', both -ore) — the laziest class, banned before any frequency judgment (lines 1, 3)",
+        "         spelled rime 'ore' on both sides.",
+        '  [FINISHED — seed 16 — exit 3 — NO_PROGRESS after 1 round(s) — UNRESOLVED: L3]',
+      ].join('\n');
+      const v = VI.verdictOf({ code: 3, stdout, stderr: '' });
+      assert.equal(v.banned_pairs, 1, 'the ban chip can fire on the finishing verb');
+      assert.equal(v.loop_unresolved, 1);
+    });
+  }
+  // ── M-183: a COMPLETE run is not carried into the next call ─────────────
+  // The harvest used to keep whatever state the verdict carried, so a run
+  // that had reached a stop condition (exit 0/3) was re-injected on the next
+  // lyric_revise call for the seed, the harness replayed every answer and
+  // stopped identically, and no parked-continue push ever asked the writer a
+  // second question. Pinned in every direction the function decides.
+  check('only a SUSPENDED verdict (exit 4) is carried; a stop (0/3) clears the seed', () => {
+    const surface = { stateTools: new Set(['lyric_revise']) };
+    const args = { seed: 7 };
+    const suspended = carryState(
+      null,
+      'lyric_revise',
+      args,
+      { exit_code: 4, state: 'S1' },
+      surface
+    );
+    // M-195: the carry is keyed on `seed:N` for a planned song and `mandate:…`
+    // for a pasted one, so the record carries its key beside the seed.
+    assert.deepEqual(
+      suspended,
+      { key: 'seed:7', seed: 7, state: 'S1' },
+      'exit 4 carries the record'
+    );
+    assert.equal(
+      carryState(suspended, 'lyric_revise', args, { exit_code: 3, state: 'S2' }, surface),
+      null,
+      'exit 3 is COMPLETE: the record is not carried, even though the verdict carries one'
+    );
+    assert.equal(
+      carryState(suspended, 'lyric_revise', args, { exit_code: 0, state: 'S2' }, surface),
+      null,
+      'exit 0 is COMPLETE too'
+    );
+    assert.deepEqual(
+      carryState(suspended, 'lyric_revise', args, { exit_code: 2 }, surface),
+      suspended,
+      'a refusal leaves the pending question carried'
+    );
+    assert.deepEqual(
+      carryState(suspended, 'lyric_revise', { seed: 8 }, { exit_code: 3, state: 'S3' }, surface),
+      suspended,
+      "a stop on ANOTHER seed does not touch this seed's suspended run"
+    );
+    assert.deepEqual(
+      carryState(suspended, 'lyric_grade', args, { exit_code: 3, state: 'S3' }, surface),
+      suspended,
+      'a tool that carries no state never moves the record'
+    );
+    assert.equal(
+      carryState(null, 'lyric_revise', args, { exit_code: 4 }, surface),
+      null,
+      'exit 4 with no state string carries nothing rather than a broken record'
+    );
+  });
   check('a carried state with a pending question names its seed', () => {
     assert.equal(suspendedSeed({ seed: 7, state: '{"pending":{"kind":"propose"}}' }), 7);
     assert.equal(
@@ -567,6 +1025,242 @@ check('validation: actionable errors', () => {
       'nothing to say → no block at all'
     );
   });
+  // ── M-197: a throw mid-turn carries the hops already spent ─────────────
+  // `generate()` throws on a 429 (retries 0), and the hop loop used to let
+  // that throw discard `usage` — every billed hop before it was uncounted by
+  // the daily cap. The stubbed model answers ONE function-calling hop, then
+  // a 429; the error must carry exactly that one hop's usage.
+  await (async () => {
+    const { runTurn: _runTurn, LIMITS: _LIMITS } = await import('./gemini_agent.js');
+    const realFetch = globalThis.fetch;
+    let hop = 0;
+    globalThis.fetch = async () => {
+      hop += 1;
+      if (hop === 1) {
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            candidates: [
+              { content: { parts: [{ functionCall: { name: 'lyric_types', args: { a: 'x' } } }] } },
+            ],
+            usageMetadata: { promptTokenCount: 10, candidatesTokenCount: 5, thoughtsTokenCount: 0 },
+          }),
+        };
+      }
+      return { ok: false, status: 429, json: async () => ({ error: { message: 'quota' } }) };
+    };
+    try {
+      let caught = null;
+      try {
+        await _runTurn({
+          apiKey: 'k',
+          surface: {
+            instructions: '',
+            declarations: [],
+            workspaceTools: new Set(),
+            stateTools: new Set(),
+          },
+          callTool: async () => ({ content: [{ type: 'text', text: 'ok' }] }),
+          userText: 'hi',
+          limits: { ..._LIMITS, maxTurnUsd: 0 },
+          retries: 0,
+        });
+      } catch (e) {
+        caught = e;
+      }
+      check("a 429 on the second hop throws with the FIRST hop's usage on the error", () => {
+        assert.ok(caught, 'runTurn threw');
+        assert.equal(caught.status, 429);
+        assert.ok(caught.usage, 'the error carries usage');
+        assert.equal(caught.usage.requests, 1, 'one hop was billed before the throw');
+        assert.equal(caught.usage.promptTokens, 10);
+        assert.equal(caught.usage.candidatesTokens, 5);
+        assert.ok(
+          Array.isArray(caught.calls) && caught.calls.length === 1,
+          'and the one call it made'
+        );
+      });
+    } finally {
+      globalThis.fetch = realFetch;
+    }
+  })();
+  check('chat.js charges the partial usage in its catch and puts the cost on the reply', () => {
+    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+    assert.ok(/err\.usage\.requests > 0/.test(chat), 'the catch reads the partial usage');
+    assert.ok(
+      /chargedUsd = partial === null \? LIMITS\.maxTurnUsd : partial/.test(chat),
+      "an unpriceable partial charges the cap, the success path's own safe direction"
+    );
+    assert.ok(
+      /hopsBeforeFailure/.test(chat) && /chargedUsd: Number/.test(chat),
+      'and says so on the error body'
+    );
+    assert.ok(
+      /cost: run\.cost,\s*\n\s*usage: run\.usage,/.test(chat),
+      'the success body carries cost and usage (C11)'
+    );
+    const ga = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
+    assert.ok(
+      /err\.usage = usage;\s*\n\s*err\.calls = calls;/.test(ga),
+      'the agent attaches both on the way out'
+    );
+  });
+  // ── M-168 (2026-09-02): a 429 on the chat path is retried inside a budget ──
+  // Round 10 ended on a hard 429 the chat path threw at once. RATE_LIMIT_RETRY
+  // retries at most twice, honours Retry-After when it fits the budget,
+  // refuses it at once when it does not, and counts every retried request in
+  // `usage` so M-197's accounting sees the quota it spent. The stubbed 429s
+  // carry `Retry-After: 0` so the pin runs in milliseconds; the budget's own
+  // 2 s / 4 s backoff is pinned by shape, not slept.
+  await (async () => {
+    const {
+      runTurn: _runTurn,
+      LIMITS: _LIMITS,
+      RATE_LIMIT_RETRY: _RL,
+      RETRY_TRANSIENT: _TRANSIENT,
+    } = await import('./gemini_agent.js');
+    const realFetch = globalThis.fetch;
+    const surface = {
+      instructions: '',
+      declarations: [],
+      workspaceTools: new Set(),
+      stateTools: new Set(),
+    };
+    const ok = () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        candidates: [{ content: { parts: [{ text: 'done' }] } }],
+        usageMetadata: { promptTokenCount: 10, candidatesTokenCount: 5, thoughtsTokenCount: 0 },
+      }),
+    });
+    const busy = (retryAfter) => () => ({
+      ok: false,
+      status: 429,
+      headers: { get: (k) => (k.toLowerCase() === 'retry-after' ? retryAfter : null) },
+      json: async () => ({ error: { message: 'quota' } }),
+    });
+    const drive = async (script) => {
+      let i = 0;
+      globalThis.fetch = async () => script[Math.min(i, script.length - 1)](i++);
+      try {
+        return await _runTurn({
+          apiKey: 'k',
+          surface,
+          callTool: async () => ({ content: [{ type: 'text', text: 'ok' }] }),
+          userText: 'hi',
+          limits: { ..._LIMITS, maxTurnUsd: 0 },
+          // chat.js's own configuration: 429 is NOT among the statuses waited
+          // out unbounded, so the budget is what applies to it.
+          retries: 0,
+          retryStatuses: _TRANSIENT,
+          rateLimit: _RL,
+        });
+      } finally {
+        globalThis.fetch = realFetch;
+      }
+    };
+    const thrown = async (script) => {
+      try {
+        await drive(script);
+      } catch (e) {
+        return e;
+      }
+      return null;
+    };
+    check('RATE_LIMIT_RETRY is two retries whose backoffs fit its own total wait', () => {
+      assert.equal(_RL.retries, 2);
+      assert.deepEqual(_RL.backoffMs, [2000, 4000]);
+      assert.ok(
+        _RL.backoffMs.reduce((a, b) => a + b, 0) <= _RL.maxTotalWaitMs,
+        'the declared backoffs never exceed the declared total'
+      );
+      assert.ok(
+        _RL.maxTotalWaitMs < 38_000,
+        'and the total is under the 38 s stall chat.js refuses'
+      );
+    });
+    const run = await drive([busy('0'), ok]);
+    check('a 429 then a 200 is ONE retry: the reply lands and usage counts both requests', () => {
+      assert.equal(run.reply, 'done');
+      assert.equal(run.usage.requests, 2, 'the retried 429 and the 200');
+      assert.equal(run.usage.retries, 1);
+      assert.equal(run.stopped, null);
+    });
+    const past = await thrown([busy('60'), ok]);
+    check('a Retry-After past the budget is refused AT ONCE with the wait on the error', () => {
+      assert.ok(past, 'threw');
+      assert.equal(past.status, 429);
+      assert.equal(past.retryAfterMs, 60_000, 'the hint, in ms');
+      assert.equal(past.rateLimitRetries, 0, 'no retry was spent on it');
+      assert.equal(past.usage.requests, 0, 'and nothing was billed');
+    });
+    const exhausted = await thrown([busy('0'), busy('0'), busy('0'), ok]);
+    check('three 429s exhaust the two retries: the throw carries the two requests spent', () => {
+      assert.ok(exhausted, 'threw');
+      assert.equal(exhausted.status, 429);
+      assert.equal(exhausted.rateLimitRetries, 2);
+      assert.equal(exhausted.usage.requests, 2, 'two retried requests, the final throw uncounted');
+      assert.equal(exhausted.usage.retries, 2);
+    });
+  })();
+  check('chat.js hands runTurn the bounded 429 budget beside its transient list', () => {
+    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+    assert.ok(
+      /retryStatuses: RETRY_TRANSIENT,\s*\n\s*rateLimit: RATE_LIMIT_RETRY,/.test(chat),
+      'rateLimit: RATE_LIMIT_RETRY rides beside retryStatuses: RETRY_TRANSIENT'
+    );
+    assert.ok(
+      /res\.set\('Retry-After', String\(Math\.ceil\(err\.retryAfterMs \/ 1000\)\)\)/.test(chat),
+      'a refused hint reaches the client as the standard header'
+    );
+    assert.ok(/refusal: c\.refusal \?\? null,/.test(chat), 'tools[] carries the refusal headline');
+  });
+  // ── M-168's swerve (2026-09-02): an exit 2 carries the harness's own reason ──
+  // Round 10's record holds two lyric_sweep calls and one lyric_plan call at
+  // exit 2 with `error: null` and nothing else. The extractor reads the
+  // harness's own `REFUSED — …` headline, and this pin reads that print
+  // statement out of lyric_harness.py rather than trusting a fixture.
+  await (async () => {
+    let VI = null;
+    try {
+      ({ _verdictInternals: VI } = await import('./lyric_tools.js'));
+    } catch {
+      console.log('  --  refusal-headline check skipped (SDK not installed in-container)');
+      return;
+    }
+    const { _agentInternals: AI } = await import('./gemini_agent.js');
+    const harness = readFileSync(
+      new URL('../lyric-harness/lyric_harness.py', import.meta.url),
+      'utf8'
+    );
+    check("the harness's refusal headline is the shape the connector extracts", () => {
+      assert.ok(
+        harness.includes('print(f"  REFUSED — {msg}")'),
+        '`_refuse` prints `  REFUSED — {msg}` (the extractor is pinned to this line)'
+      );
+      const sweep =
+        '  SWEEP: seeds 0..99 (100), form=song\n' +
+        '    swept 100  planned 100  REFUSED by the planner 0  accepted 0 (0.0% of the planned)\n' +
+        '  REFUSED — no seed in 0..99 satisfies every declared predicate\n' +
+        '    100 seed(s) planned and none was kept, so the declaration is unreachable\n';
+      assert.equal(
+        VI.extractRefusal(sweep),
+        'no seed in 0..99 satisfies every declared predicate',
+        'the headline, not the counts line that also says REFUSED'
+      );
+      assert.equal(VI.extractRefusal('  PLAN: seed 31\n  fine\n'), null, 'a clean report has none');
+      const v = VI.verdictOf({ code: 2, stdout: sweep, stderr: '' });
+      assert.equal(v.refusal, 'no seed in 0..99 satisfies every declared predicate');
+      assert.ok(
+        !('refusal' in VI.verdictOf({ code: 0, stdout: sweep, stderr: '' })),
+        'only an exit 2 carries one — absent is not zero'
+      );
+      assert.equal(AI.loopFields(v).refusal, v.refusal, 'and the call record carries it');
+      assert.equal(AI.loopFields({ exit_code: 0 }).refusal, null);
+    });
+  })();
   check('runTurn reaches the model through the one systemInstruction builder', () => {
     // The classic defect is built-but-unreachable: a helper both halves above
     // pass while runTurn keeps a second, reminder-less spelling. Pin the
@@ -577,6 +1271,209 @@ check('validation: actionable errors', () => {
     assert.ok(
       /const si = buildSystemInstruction\(surface, lyr\)/.test(src),
       'and it is fed by the builder, per hop, from the live carried state'
+    );
+  });
+
+  // ── M-197's open half: stale-brief pruning ───────────────────────────────
+  // Every hop re-sends the transcript, and the transcript is mostly folded
+  // lyric results the model already acted on (~20 KB a brief, ~45 KB a
+  // grade report on the record; 395 KB by turn 4 of the battery, where the
+  // $0.10 cap buys four hops). Pinned BY VALUE on a synthetic history: the
+  // newest prior turn intact, an older folded lyric_revise brief stubbed to
+  // its verdict fields, the recipe result untouched (the two families do
+  // not touch), the newest result per lyric tool kept, every functionCall
+  // still paired, bytes under the bound, and the pass idempotent.
+  const { pruneHistory } = _agentInternals;
+  const fold = (name, id, response) => ({
+    role: 'user',
+    parts: [{ functionResponse: { name, id, response } }],
+  });
+  const ask = (name, id) => ({ role: 'model', parts: [{ functionCall: { name, id } }] });
+  const brief = (n) => ({
+    presentation: `[AWAITING PROPOSAL — seed 16 — ${n} answer(s) on record]\n` + 'B'.repeat(20_000),
+    verdict: {
+      exit_code: 4,
+      status: 'awaiting_proposal',
+      kind: 'propose',
+      loop_whole_flag_codes: ['TITLE_NOT_IN_HOOK'],
+      answers_on_record: n,
+    },
+  });
+  const history = [
+    { role: 'user', parts: [{ text: 'a song about the river, seed 16' }] },
+    ask('start_recipe', 'c1'),
+    fold('start_recipe', 'c1', { recipe: 'W'.repeat(3000), cards: [] }),
+    ask('lyric_revise', 'c2'),
+    fold('lyric_revise', 'c2', brief(0)),
+    { role: 'model', parts: [{ text: 'first draft' }] },
+    { role: 'user', parts: [{ text: 'CONTINUE' }] },
+    ask('lyric_revise', 'c3'),
+    fold('lyric_revise', 'c3', brief(1)),
+    { role: 'model', parts: [{ text: 'answered one' }] },
+  ];
+  check('pruning stubs an older folded brief and touches nothing it must not', () => {
+    const before = JSON.stringify(history).length;
+    const pruned = pruneHistory(history, { keepTurns: 1, maxBytes: 200_000 });
+    assert.equal(pruned.length, history.length, 'no turn dropped under the bound');
+    for (let i = 6; i < history.length; i++)
+      assert.equal(pruned[i], history[i], `newest prior turn entry ${i} is the same object`);
+    assert.equal(pruned[2], history[2], 'the recipe result is untouched');
+    assert.equal(pruned[0], history[0], 'user text untouched');
+    assert.equal(pruned[3], history[3], 'the functionCall untouched');
+    const stub = pruned[4].parts[0].functionResponse;
+    assert.equal(stub.name, 'lyric_revise');
+    assert.equal(stub.id, 'c2', 'the call/response pairing survives');
+    assert.deepEqual(stub.response, {
+      pruned: stub.response.pruned,
+      exit_code: 4,
+      status: 'awaiting_proposal',
+      kind: 'propose',
+      loop_whole_flag_codes: ['TITLE_NOT_IN_HOOK'],
+      answers_on_record: 0,
+    });
+    assert.ok(!('presentation' in stub.response), 'the answered brief is gone');
+    assert.ok(
+      pruned[8].parts[0].functionResponse.response.presentation.includes('AWAITING PROPOSAL'),
+      'the pending question is verbatim'
+    );
+    const after = JSON.stringify(pruned).length;
+    assert.ok(after < before - 19_000 && after < 200_000, `bytes ${before} -> ${after}`);
+    assert.deepEqual(
+      pruneHistory(pruned, { keepTurns: 1, maxBytes: 200_000 }),
+      pruned,
+      'idempotent: a stub stays a stub'
+    );
+    assert.equal(pruneHistory(history, { keepTurns: 2 }).length, history.length);
+    assert.equal(pruneHistory(history, { keepTurns: 2 })[4], history[4], 'keepTurns=2 keeps both');
+  });
+  check('the byte ceiling drops whole oldest turns, never the newest kept one', () => {
+    const tight = pruneHistory(history, { keepTurns: 1, maxBytes: 1000 });
+    assert.equal(tight[0].parts[0].text, 'CONTINUE', 'the oldest turn went first');
+    assert.equal(tight.length, 4, 'the newest turn survives whole even over the bound');
+    const src = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
+    assert.ok(
+      /const prior = limits\.pruneFolded\s*\?\s*pruneHistory\(history/.test(src),
+      'wired at the one assembly site, behind the CHAT_PRUNE_FOLDED switch'
+    );
+    assert.ok(/CHAT_PRUNE_FOLDED'?\)? !== '0'/.test(src) || /CHAT_PRUNE_FOLDED !== '0'/.test(src));
+  });
+}
+
+{
+  // ── C11: which of the two turn ceilings actually binds ───────────────────
+  // `maxSteps` and `maxTurnUsd` are two answers to ONE question — how many
+  // hops may a turn take — and the smaller one wins in silence. `turnBudget`
+  // derives the answer from the declared coordinates (LIMITS + PRICING, no
+  // literal of its own) and the stop carries its numbers, so a reader of a
+  // transcript can tell a turn that ran out of HOPS from one that ran out of
+  // MONEY. Pinned as a RELATION, not as a dollar figure: the cap is the
+  // owner's to set, and this must keep holding when they set it.
+  const {
+    turnBudget,
+    LIMITS: _L,
+    PRICING,
+    DEFAULT_MODEL,
+    BYTES_PER_TOKEN,
+    runTurn: _rt,
+  } = await import('./gemini_agent.js');
+  check('turnBudget derives the per-hop cost from the declared coordinates alone', () => {
+    const b = turnBudget();
+    const price = PRICING[DEFAULT_MODEL];
+    const expected =
+      ((_L.pruneMaxBytes / BYTES_PER_TOKEN) * price.input + _L.maxOutputTokens * price.output) /
+      1e6;
+    assert.ok(Math.abs(b.perHopUsd - expected) < 1e-12, `${b.perHopUsd} vs ${expected}`);
+    assert.ok(
+      Math.abs(b.worstLegalTurnUsd - expected * _L.maxSteps) < 1e-12,
+      'the worst legal turn is every declared hop at the ceiling'
+    );
+    assert.equal(b.hopsAffordable, Math.floor(_L.maxTurnUsd / b.perHopUsd));
+    assert.equal(b.capBinds, b.hopsAffordable < _L.maxSteps);
+  });
+  check('an unpriced model refuses the arithmetic rather than returning a number', () => {
+    assert.equal(turnBudget(_L, 'no-such-model'), null);
+  });
+  check('the code says WHICH of the two ceilings wins, and agrees with itself', async () => {
+    // ~~The measured state on 2026-09-02: $0.10 buys 6 hops of a legal 14, so
+    // the DOLLAR cap is the operative step limit.~~ The owner raised the cap
+    // to $2.50 the same day and the answer flipped to `maxSteps`, which is
+    // the pin doing its job — so what is pinned is the AGREEMENT between the
+    // derivation and the reported answer, never the answer itself.
+    const b = turnBudget();
+    const { chatCeilings } = await import('./chat.js');
+    assert.equal(b.capBinds, b.hopsAffordable < _L.maxSteps, 'capBinds IS that comparison');
+    assert.equal(
+      b.capBinds,
+      _L.maxTurnUsd < b.worstLegalTurnUsd,
+      'and a cap below the worst LEGAL turn is exactly what makes it bind'
+    );
+    assert.equal(
+      chatCeilings().perTurn,
+      b.capBinds ? 'maxTurnUsd' : 'maxSteps',
+      'the reported per-turn ceiling is the derivation, not a second opinion'
+    );
+  });
+  await (async () => {
+    // Drive a real turn into the cap in ONE hop. The prompt size is DERIVED
+    // from the cap and the model's own input price, never typed: a literal
+    // here is a fixture that depends on a number the owner sets, and this
+    // check went red the moment they set it (`hops` came back 3 against a
+    // typed 1 when the cap went $0.10 -> $2.50). Twice the cap's worth of
+    // prompt trips it on the first hop whatever the cap is, so the check
+    // keeps asking its own question — what the STOP carries — instead of
+    // re-deriving the cap's arithmetic, which the checks above already pin.
+    const _oneHopTokens = Math.ceil((2 * _L.maxTurnUsd * 1e6) / PRICING[DEFAULT_MODEL].input);
+    const realFetch = globalThis.fetch;
+    globalThis.fetch = async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        candidates: [
+          { content: { parts: [{ functionCall: { name: 'lyric_types', args: { a: 'x' } } }] } },
+        ],
+        usageMetadata: {
+          promptTokenCount: _oneHopTokens,
+          candidatesTokenCount: 1,
+          thoughtsTokenCount: 0,
+        },
+      }),
+    });
+    let run = null;
+    try {
+      run = await _rt({
+        apiKey: 'k',
+        surface: {
+          instructions: '',
+          declarations: [],
+          workspaceTools: new Set(),
+          stateTools: new Set(),
+        },
+        callTool: async () => ({ content: [{ type: 'text', text: 'ok' }] }),
+        userText: 'hi',
+      });
+    } finally {
+      globalThis.fetch = realFetch;
+    }
+    check('a turn stopped by the cap carries what it spent, the cap and both hop counts', () => {
+      assert.equal(run.stopped, 'MAX_TURN_COST');
+      const d = run.stoppedDetail;
+      assert.ok(d, 'the stop is not a bare label');
+      assert.ok(d.usd >= d.cap, `spent ${d.usd} against cap ${d.cap}`);
+      assert.equal(d.cap, _L.maxTurnUsd);
+      assert.equal(d.hops, 1, 'it bought one hop, the prompt being twice the cap');
+      assert.equal(d.maxSteps, _L.maxSteps, 'and names the hop budget it did NOT reach');
+      assert.ok(d.hops < d.maxSteps, 'so MAX_TURN_COST cannot be read as MAX_STEPS');
+      // ~~`capBinds === true`~~ — another literal that was a function of the
+      // cap, and it went false when the owner raised it. What the stop owes
+      // is the DERIVATION, and that it is the same one `turnBudget` reports.
+      assert.deepEqual(d.budget, turnBudget(), 'and carries the derivation itself');
+    });
+  })();
+  check('chat.js publishes the stop detail beside the stop reason', () => {
+    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+    assert.ok(
+      /stopped_detail: run\.stoppedDetail \?\? null,/.test(chat),
+      'the reply carries stopped_detail'
     );
   });
 }
@@ -705,11 +1602,21 @@ check('validation: actionable errors', () => {
       ),
       'the harness still prints seed, exit, stop reason and round count in that order'
     );
-    const m =
-      /\[FINISHED\\s\*—\\s\*seed\\s\*\(-\?\\d\+\)\\s\*—\\s\*exit\\s\*\(\\d\+\)\\s\*—\\s\*\(\[A-Z_\]\+\)\\s\+after\\s\+\(\\d\+\)\\s\+round\\\(s\\\)/.test(
-        lt
-      );
-    assert.ok(m, 'and the connector reads exactly that shape');
+    // A pasted song's run (M-195) is stamped `declared mandate` where a
+    // planned one is stamped `seed N`; the harness prints both spellings and
+    // the connector's ONE regex reads both. The source substring is compared
+    // as a string rather than as a regex over a regex, so the pin reads the
+    // way the extractor is spelled.
+    assert.ok(
+      /\[FINISHED — declared mandate — "\s*\n\s*f"exit \{_code\} — \{result\.stop_reason\.upper\(\)\} "\s*\n\s*f"after \{len\(result\.rounds\)\} round\(s\) — /.test(
+        py
+      ),
+      "and the unseeded revise prints the same stamp with `declared mandate` in the seed's place"
+    );
+    const m = lt.includes(
+      '/\\[FINISHED\\s*—\\s*(?:seed\\s*(-?\\d+)|declared mandate)\\s*—\\s*exit\\s*(\\d+)\\s*—\\s*([A-Z_]+)\\s+after\\s+(\\d+)\\s+round\\(s\\)'
+    );
+    assert.ok(m, 'and the connector reads exactly that shape, in both spellings');
     const ga = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
     assert.ok(
       /loop_stop_reason:/.test(ga) && /answers_on_record:/.test(ga),
@@ -782,6 +1689,135 @@ check('validation: actionable errors', () => {
       'and runVerb surfaces the tagged kill as the -1 it is instead of retrying cold'
     );
   });
+  check('the image ships every tracked runtime file under mcp/ — the worker included', () => {
+    // M-187: mcp/Dockerfile:20 read `COPY mcp/*.js ./mcp/`, and mcp/worker.py —
+    // the warm process `_spawnWorker` starts — is not a .js file, so every
+    // image Render built between M-155 (2026-08-29) and 2026-09-01 lacked it.
+    // The connector's own design hid that: a spawn that fails is the cold
+    // execFile with byte-identical output ~20 ms later, so production served
+    // every verb cold, the M-167 replay memo never engaged, and nothing went
+    // red — M-170's audit found the line by reading it. A glob is a list
+    // nobody re-reads when a file joins, so the list is re-derived from git on
+    // every run and matched against the Dockerfile's own COPY set, with the
+    // WORKDIR in force at each line resolved: a file has to land where
+    // lyric_tools.js looks for it (/app/mcp), not merely somewhere in the
+    // image. NOT_SHIPPED declares each tracked file the image is right to
+    // omit, with its reason; a tracked file neither copied nor declared fails
+    // here by name, and so does a declared file the Dockerfile copies anyway.
+    //
+    // EMPIRICALLY VERIFIED 2026-09-01: run against the pre-fix Dockerfile this
+    // check failed with `tracked under mcp/, in no COPY and not in
+    // NOT_SHIPPED: mcp/worker.py`; the planted mutant at the end IS that
+    // Dockerfile (the worker's COPY line removed) and must keep saying so.
+    const NOT_SHIPPED = {
+      'mcp/Dockerfile': 'the build recipe — docker reads it, the server never does',
+      'mcp/README.md': 'documentation',
+      'mcp/PRIVACY.md': 'documentation',
+      'mcp/test.mjs': 'this suite — CI runs it against the tree; the image runs server_http.js',
+      'mcp/check_live.mjs':
+        "the nightly's freshness probe — it runs in CI AGAINST the deployed endpoint (M-127), so an image carrying it would be the deployment checking itself",
+    };
+    const ROOT = fileURLToPath(new URL('..', import.meta.url));
+    let tracked;
+    try {
+      tracked = execFileSync('git', ['ls-files', '-z', '--', 'mcp/'], {
+        cwd: ROOT,
+        encoding: 'utf8',
+      })
+        .split('\0')
+        .filter(Boolean);
+    } catch (e) {
+      assert.fail(
+        `REFUSED — git ls-files could not enumerate mcp/ (${e.message}); a check that cannot read its list must not pass (doctrine 20)`
+      );
+    }
+    assert.ok(
+      tracked.includes('mcp/worker.py') && tracked.includes('mcp/lyric_tools.js'),
+      'git sees the tree this suite runs in'
+    );
+    for (const f of Object.keys(NOT_SHIPPED))
+      assert.ok(
+        tracked.includes(f),
+        `NOT_SHIPPED names ${f}, which git no longer tracks — a stale exclusion is a list nobody re-read`
+      );
+
+    // The Dockerfile's COPY set: each tracked file that some source names,
+    // mapped to the absolute directory it lands in under the WORKDIR then in
+    // force. The build context is the repo root (the file's own header), so
+    // sources are spelled exactly as git spells them.
+    const coverage = (dockerfile) => {
+      let cwd = '/';
+      const landed = new Map();
+      for (const raw of dockerfile.split('\n')) {
+        const line = raw.trim();
+        let m;
+        if ((m = /^WORKDIR\s+(\S+)$/.exec(line))) {
+          cwd = m[1].startsWith('/') ? m[1] : posix.join(cwd, m[1]);
+          continue;
+        }
+        if (!(m = /^COPY\s+(.+)$/.exec(line))) continue;
+        const parts = m[1].split(/\s+/).filter((p) => !p.startsWith('--'));
+        const dest = parts.pop();
+        let destDir = dest.startsWith('/') ? dest : posix.join(cwd, dest);
+        // `COPY one/file some/name` with no trailing slash is a RENAME to a
+        // file; the directory it lands in is the dirname.
+        if (!dest.endsWith('/') && parts.length === 1 && tracked.includes(parts[0]))
+          destDir = posix.dirname(destDir);
+        destDir = posix.normalize(destDir).replace(/(.)\/$/, '$1');
+        for (const src of parts) {
+          const re = new RegExp(
+            '^' +
+              src
+                .replace(/[.+^${}()|[\]\\]/g, '\\$&')
+                .replace(/\*/g, '[^/]*')
+                .replace(/\?/g, '[^/]') +
+              '$'
+          );
+          for (const f of tracked) {
+            if (f === src || f.startsWith(src.replace(/\/$/, '') + '/') || re.test(f))
+              landed.set(f, destDir);
+          }
+        }
+      }
+      const uncovered = tracked.filter((f) => !landed.has(f) && !(f in NOT_SHIPPED));
+      return { landed, uncovered };
+    };
+
+    const text = readFileSync(new URL('./Dockerfile', import.meta.url), 'utf8');
+    const { landed, uncovered } = coverage(text);
+    assert.deepEqual(
+      uncovered,
+      [],
+      `tracked under mcp/, in no COPY and not in NOT_SHIPPED: ${uncovered.join(', ')} — COPY it in mcp/Dockerfile or declare why the image omits it`
+    );
+    const declared = Object.keys(NOT_SHIPPED);
+    assert.equal(
+      landed.size,
+      tracked.length - declared.length,
+      `${landed.size} files copied against ${tracked.length} tracked minus ${declared.length} declared`
+    );
+    const copiedAnyway = declared.filter((f) => landed.has(f));
+    assert.deepEqual(
+      copiedAnyway,
+      [],
+      `declared NOT_SHIPPED and copied regardless: ${copiedAnyway.join(', ')} — one of the two is stale`
+    );
+    const astray = [...landed].filter(([, d]) => d !== '/app/mcp').map(([f, d]) => `${f} -> ${d}`);
+    assert.deepEqual(astray, [], `copied where lyric_tools.js does not look: ${astray.join(', ')}`);
+    assert.equal(
+      landed.get('mcp/worker.py'),
+      '/app/mcp',
+      'the worker lands beside lyric_tools.js, where WORKER_PATH resolves'
+    );
+    // The planted mutant: the pre-fix Dockerfile, reproduced from the fixed one.
+    const mutant = text.replace(/^COPY mcp\/worker\.py .*\n/m, '');
+    assert.notEqual(mutant, text, "the worker's COPY line is there to be removed");
+    assert.deepEqual(
+      coverage(mutant).uncovered,
+      ['mcp/worker.py'],
+      'and without it the check names the worker — the finding, reproduced'
+    );
+  });
   check('a battery transport failure is a recorded row, never a crash', async () => {
     const { spawnSync } = await import('node:child_process');
     const { mkdtempSync, rmSync } = await import('node:fs');
@@ -818,6 +1854,430 @@ check('validation: actionable errors', () => {
       rmSync(out, { recursive: true, force: true });
     }
   });
+}
+
+{
+  // THE DEPLOY RE-RUN GUARD, DRIVEN — `MISSING.md` M-187 (b), owed by that
+  // entry's 2026-09-02 addendum and paid here. `scripts/deploy_guard.sh` and
+  // `scripts/last_deployed_sha.sh` shipped exercised only in a throwaway
+  // repository against a hand-written `gh` shim, which is a measurement
+  // nobody can re-run: NO GATE READ EITHER SCRIPT, so a regression in the one
+  // decision standing between a re-run of a push's CI run and a needless
+  // rebuild-and-restart of the live connector would have gone red nowhere.
+  // These checks build a REAL temporary git repository per case and run the
+  // REAL scripts against it, with a `gh` on PATH replaying the run shapes the
+  // API actually returns. Nothing here reads the network, the live
+  // repository, or the deployed service.
+  //
+  // WHY IN THIS FILE. mcp/test.mjs is the connector's own suite and CI runs
+  // it (`npm run test` -> `test:serial` -> `test:connector`), and the guard is
+  // the last thing between a green CI run and a POST that restarts the
+  // connector. The shape is `scripts/check_publish_guard.js`'s, one service
+  // over, and the wiring check at the end is that file's §7 lesson.
+  //
+  // EMPIRICALLY VERIFIED TWO-SIDED, 2026-09-02 — doctrine 48 one layer in: a
+  // check that cannot fail enforces nothing, and a rule enforced by nothing is
+  // followed as often as someone remembers it. Five defects were reintroduced
+  // into the two scripts in turn, and the scripts restored byte-identical
+  // afterwards; each named exactly the checks it should and no others.
+  // Striking the same-sha block: the ALREADY-ASKED
+  // check red at `0 !== 10` (plus the mutant check, which can no longer find
+  // the block to strike). Reading an absent record as a match (`-n … &&` ->
+  // `-z … ||`): the NO-RECORD check and the FAILING-gh check red at
+  // `10 !== 0`. Hoisting the same-sha test above the ordering test: the
+  // BEHIND-THE-TIP check red, alone, and the mutant check still green —
+  // the ordering assertion is the only thing that sees it. Dropping
+  // `select(.id != $SKIP)` from the lookup: the SKIP check red on the run in
+  // flight being asked about. Widening `grep -qx success` to accept `skipped`
+  // and `failure`: the SKIP check red, returning the stood-down run's sha
+  // instead of the record's.
+  const { mkdtempSync, writeFileSync, chmodSync, rmSync, existsSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+
+  const GUARD = fileURLToPath(new URL('../scripts/deploy_guard.sh', import.meta.url));
+  const LOOKUP = fileURLToPath(new URL('../scripts/last_deployed_sha.sh', import.meta.url));
+  const DEPLOY = 0;
+  const STAND_DOWN = 10;
+  const trash = [];
+
+  // A git environment that cannot read the box's own config: a global signing
+  // key or a commit template would otherwise decide whether these commits
+  // exist at all.
+  const GIT_ENV = {
+    GIT_AUTHOR_NAME: 'T',
+    GIT_AUTHOR_EMAIL: 't@e',
+    GIT_COMMITTER_NAME: 'T',
+    GIT_COMMITTER_EMAIL: 't@e',
+    GIT_CONFIG_GLOBAL: '/dev/null',
+    GIT_CONFIG_SYSTEM: '/dev/null',
+  };
+  // The suite itself runs inside a git worktree, so GIT_DIR or GIT_WORK_TREE
+  // leaking in would point the guard at THIS repository and every case below
+  // would measure the wrong tree.
+  const cleanEnv = () => {
+    const e = { ...process.env, ...GIT_ENV };
+    delete e.GIT_DIR;
+    delete e.GIT_WORK_TREE;
+    delete e.LAST_DEPLOYED_SHA;
+    return e;
+  };
+
+  // A repository with `main` and a real `refs/remotes/origin/main`, which is
+  // the ref the guard asks about — deploy-connector.yml checks out at
+  // fetch-depth 0 precisely so `merge-base` and `rev-list --count` can be
+  // answered about it.
+  const makeRepo = () => {
+    const dir = mkdtempSync(join(tmpdir(), 'deployguard-'));
+    trash.push(dir);
+    const git = (...args) =>
+      execFileSync('git', args, { cwd: dir, encoding: 'utf8', env: cleanEnv() }).trim();
+    git('init', '-q', '-b', 'main');
+    const commit = (msg, body) => {
+      writeFileSync(join(dir, 'file.txt'), body);
+      git('add', '-A');
+      git('commit', '-q', '-m', msg);
+      return git('rev-parse', 'HEAD');
+    };
+    const setOrigin = () => git('update-ref', 'refs/remotes/origin/main', 'HEAD');
+    const base = commit('base', 'v1\n');
+    setOrigin();
+    return { dir, git, commit, setOrigin, base };
+  };
+
+  // `bash scripts/deploy_guard.sh --verbose` is the exact invocation in
+  // deploy-connector.yml, and --verbose is load-bearing here: the sentence
+  // saying the same-sha check DID NOT RUN only prints under it.
+  const runGuard = (dir, built, last, script = GUARD) => {
+    const env = cleanEnv();
+    env.BUILT_SHA = built;
+    if (last !== undefined) env.LAST_DEPLOYED_SHA = last;
+    try {
+      // stderr is CAPTURED, not inherited: a case that deliberately drives a
+      // refusal would otherwise print the refusal into the suite's own log and
+      // read as a failure to anyone skimming it.
+      const out = execFileSync('bash', [script, '--verbose'], {
+        cwd: dir,
+        encoding: 'utf8',
+        env,
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+      return { code: 0, out };
+    } catch (e) {
+      return { code: e.status, out: (e.stdout || '') + (e.stderr || '') };
+    }
+  };
+
+  // The `gh` the lookup calls, replaying what `gh api --jq` PRINTS for the two
+  // requests the script makes. It replays the API, not the script's own logic:
+  // the run-list request applies the `select(.id != N)` the script wrote into
+  // its own jq expression, and the jobs request answers with that run's
+  // `Deploy` step conclusion exactly as the API reports it — `null` for a step
+  // that has not concluded, nothing at all when the run has no such step.
+  // Every request is logged, so a case can assert WHICH runs were asked about.
+  const shimDir = mkdtempSync(join(tmpdir(), 'ghshim-'));
+  trash.push(shimDir);
+  writeFileSync(
+    join(shimDir, 'gh'),
+    `#!${process.execPath}
+const fs = require('fs');
+const log = process.env.GH_SHIM_LOG;
+const args = process.argv.slice(2);
+if (log) fs.appendFileSync(log, args.join(' ') + '\\n');
+if (process.env.GH_SHIM_FAIL === '1') {
+  process.stderr.write('gh: HTTP 403: Resource not accessible by integration\\n');
+  process.exit(1);
+}
+if (args[0] !== 'api') process.exit(64);
+const url = args[1];
+const jq = args.includes('--jq') ? args[args.indexOf('--jq') + 1] : '';
+const runs = JSON.parse(process.env.GH_SHIM_RUNS || '[]');
+let m;
+if (/\\/actions\\/workflows\\/[^/]+\\/runs\\?/.test(url)) {
+  const skip = (m = /select\\(\\.id != (\\d+)\\)/.exec(jq)) ? Number(m[1]) : null;
+  const rows = runs.filter((r) => r.id !== skip).map((r) => r.id + ' ' + r.sha);
+  process.stdout.write(rows.length ? rows.join('\\n') + '\\n' : '');
+} else if ((m = /\\/actions\\/runs\\/(\\d+)\\/jobs$/.exec(url))) {
+  const run = runs.find((r) => r.id === Number(m[1]));
+  if (run && 'deploy' in run) process.stdout.write(String(run.deploy) + '\\n');
+} else {
+  process.stderr.write('gh shim: unexpected request ' + url + '\\n');
+  process.exit(65);
+}
+`
+  );
+  chmodSync(join(shimDir, 'gh'), 0o755);
+
+  const runLookup = ({ runs, runId, fail, log }) => {
+    const env = cleanEnv();
+    env.PATH = `${shimDir}:${process.env.PATH}`;
+    env.GITHUB_REPOSITORY = 'WeningerII/CodexMusica';
+    env.GH_TOKEN = 'the-shim-never-reads-this';
+    env.GH_SHIM_RUNS = JSON.stringify(runs || []);
+    if (runId !== undefined) env.GITHUB_RUN_ID = String(runId);
+    if (fail) env.GH_SHIM_FAIL = '1';
+    if (log) env.GH_SHIM_LOG = log;
+    try {
+      const out = execFileSync('bash', [LOOKUP], {
+        encoding: 'utf8',
+        env,
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+      return { code: 0, out };
+    } catch (e) {
+      return { code: e.status, out: (e.stdout || '') + (e.stderr || '') };
+    }
+  };
+
+  // The run history as the API hands it back, newest first and ALREADY
+  // filtered to `status=success` — a STOOD-DOWN run is a successful run whose
+  // `Deploy` step was skipped, which is exactly why the step conclusion and
+  // not the run status is what decides. Verified against the live API on
+  // 2026-09-02: run #26 shows `Deploy: success / Stood down: skipped`, #21 the
+  // reverse.
+  const HISTORY = (tip, prior) => [
+    { id: 100, sha: tip, deploy: null }, // this very run: Deploy has not concluded
+    { id: 99, sha: tip, deploy: 'skipped' }, // stood down — Render was never asked
+    { id: 98, sha: tip, deploy: 'failure' }, // asked, and refused
+    { id: 97, sha: prior, deploy: 'success' }, // the record
+    { id: 96, sha: 'c'.repeat(40), deploy: 'success' }, // older still
+  ];
+
+  check(
+    'deploy guard: the tip with no record on file deploys, and SAYS the check did not run',
+    () => {
+      // Doctrine 20 in one exit code: an absent record is UNKNOWN, and an
+      // unknown must never read as a match. Both shapes the caller can produce
+      // are driven — the variable unset, and the EMPTY STRING
+      // deploy-connector.yml actually passes when the lookup found nothing or
+      // could not be read at all.
+      const r = makeRepo();
+      for (const [label, last] of [
+        ['unset', undefined],
+        ['empty', ''],
+      ]) {
+        const res = runGuard(r.dir, r.base, last);
+        assert.equal(res.code, DEPLOY, `${label}: an unknown record must deploy — ${res.out}`);
+        assert.match(
+          res.out,
+          /the same-sha check did not run/,
+          `${label}: and the guard must SAY the check did not run rather than pass in silence`
+        );
+      }
+    }
+  );
+
+  check('deploy guard: the tip with a record that DIFFERS deploys, and names the record', () => {
+    const r = makeRepo();
+    const other = 'd'.repeat(40);
+    const res = runGuard(r.dir, r.base, other);
+    assert.equal(res.code, DEPLOY, `a different last-accepted sha must not block: ${res.out}`);
+    assert.ok(res.out.includes(other) && /differs/.test(res.out), res.out);
+  });
+
+  check(
+    'deploy guard: the tip that IS the last sha Render was asked for stands down at 10, naming both',
+    () => {
+      // The re-run M-187 (b) is about. A re-run of a push's CI run keeps
+      // `event == 'push'`, so the workflow's own condition cannot see it, and
+      // the tip-of-main test cannot either — an unchanged tip IS the tip.
+      const r = makeRepo();
+      const res = runGuard(r.dir, r.base, r.base);
+      assert.equal(res.code, STAND_DOWN, `an already-asked sha must stand down: ${res.out}`);
+      assert.match(res.out, /STAND DOWN/, res.out);
+      assert.match(res.out, /built:\s+/, 'the message names the built sha');
+      assert.match(res.out, /last accepted:\s+/, '...and the sha Render was already asked for');
+      assert.ok(
+        (res.out.match(new RegExp(r.base, 'g')) || []).length >= 2,
+        'both lines carry a sha, so the log says WHICH tree is being refused'
+      );
+    }
+  );
+
+  check(
+    'deploy guard: a sha BEHIND the tip stands down on ORDERING, and that test fires first',
+    () => {
+      // The ordering hazard is the older question and the guard asks it FIRST.
+      // This case makes the two answers contradict on purpose —
+      // LAST_DEPLOYED_SHA equals the built sha, so the same-sha rule would also
+      // stand down — and then demands the ORDERING message. A guard that asked
+      // the cheaper question first would still exit 10 here and would tell the
+      // reader the wrong reason for a whole class of runs.
+      const r = makeRepo();
+      const built = r.base;
+      r.commit('a later merge lands on main', 'v2\n');
+      r.setOrigin();
+      const res = runGuard(r.dir, built, built);
+      assert.equal(res.code, STAND_DOWN, `a superseded tree must not deploy: ${res.out}`);
+      assert.match(res.out, /behind main's tip by 1 commit/, res.out);
+      assert.ok(
+        !/last accepted/.test(res.out),
+        'and the ordering answer must not arrive wearing the same-sha reason'
+      );
+    }
+  );
+
+  check(
+    'last_deployed_sha: the run in flight is skipped, and so is every Deploy that did not conclude success',
+    () => {
+      const tip = 'a'.repeat(40);
+      const prior = 'b'.repeat(40);
+      const log = join(shimDir, 'calls.log');
+      if (existsSync(log)) rmSync(log);
+      const res = runLookup({ runs: HISTORY(tip, prior), runId: 100, log });
+      assert.equal(
+        res.code,
+        0,
+        `the lookup answers, or says nothing; it does not error: ${res.out}`
+      );
+      assert.equal(
+        res.out.trim(),
+        prior,
+        'the record is the newest run whose Deploy step concluded success'
+      );
+      const calls = readFileSync(log, 'utf8');
+      assert.ok(
+        !/actions\/runs\/100\/jobs/.test(calls),
+        'the run in flight is filtered out of the list, so its own pending Deploy is never even asked about'
+      );
+      assert.ok(
+        /actions\/runs\/99\/jobs/.test(calls) && /actions\/runs\/98\/jobs/.test(calls),
+        'the stood-down and the refused runs WERE asked about — they are skipped on their conclusion, not by luck'
+      );
+      assert.ok(
+        !/actions\/runs\/96\/jobs/.test(calls),
+        'and the walk stops at the first success instead of reading the whole history'
+      );
+      // No accepted deploy anywhere on record is check (a)'s input, and it is
+      // a silent success, never an error.
+      const none = runLookup({ runs: HISTORY(tip, prior).slice(0, 3), runId: 100 });
+      assert.equal(none.code, 0, 'a history holding no accepted deploy exits 0');
+      assert.equal(none.out.trim(), '', '...and prints nothing, which the caller reads as UNKNOWN');
+    }
+  );
+
+  check(
+    'last_deployed_sha: a gh that FAILS is unknown, and unknown deploys rather than matching',
+    () => {
+      // The API refusing to answer is the case that must collapse into neither
+      // "no match" nor "match". The lookup exits non-zero and prints no sha;
+      // deploy-connector.yml turns that into an empty LAST_DEPLOYED_SHA with a
+      // WARNING, and the guard then deploys and says the check did not run.
+      // Driven end to end here rather than asserted about the source.
+      const res = runLookup({
+        runs: HISTORY('a'.repeat(40), 'b'.repeat(40)),
+        runId: 100,
+        fail: true,
+      });
+      assert.notEqual(res.code, 0, 'a failing gh must not exit 0 carrying an empty answer');
+      assert.equal(
+        /^[0-9a-f]{40}$/m.test(res.out.trim()),
+        false,
+        'and it must print no sha at all — an unreadable history is not a value'
+      );
+      const r = makeRepo();
+      const after = runGuard(r.dir, r.base, '');
+      assert.equal(after.code, DEPLOY, `the unreadable case deploys: ${after.out}`);
+      assert.match(after.out, /the same-sha check did not run/);
+    }
+  );
+
+  check('the same-sha rule is load-bearing in BOTH directions (the two planted mutants)', () => {
+    // A check that cannot fail enforces nothing — doctrine 48 one layer in,
+    // and the shape the COPY-set check above answers the same way. The guard
+    // is fed
+    // its own two defects here — the comparison struck, and an absent record
+    // read as a match — and each must flip exactly one of the answers above.
+    const text = readFileSync(GUARD, 'utf8');
+    const runMutant = (name, body, dir, built, last) => {
+      const p = join(shimDir, name);
+      writeFileSync(p, body);
+      chmodSync(p, 0o755);
+      return runGuard(dir, built, last, p);
+    };
+
+    // MUTANT 1 — the same-sha block deleted, which is the guard exactly as it
+    // stood before M-187 (b). The already-asked tip deploys once more.
+    const struck = text.replace(
+      /^ {2}if \[ -n "\$\{LAST_DEPLOYED_SHA:-\}" \][\s\S]*?\n {2}fi\n/m,
+      ''
+    );
+    assert.notEqual(struck, text, 'the same-sha block is there to be struck');
+    const r1 = makeRepo();
+    assert.equal(
+      runMutant('mutant_struck.sh', struck, r1.dir, r1.base, r1.base).code,
+      DEPLOY,
+      'with the comparison gone the guard redeploys the sha Render was already asked for — the defect, reproduced'
+    );
+
+    // MUTANT 2 — an absent record counted as a match. The tip with nothing on
+    // file stands down, which would stall the deploy of a commit nobody has
+    // ever shipped every time the history could not be read.
+    const greedy = text.replace(
+      '[ -n "${LAST_DEPLOYED_SHA:-}" ] && [ "$BUILT" = "$LAST_DEPLOYED_SHA" ]',
+      '[ -z "${LAST_DEPLOYED_SHA:-}" ] || [ "$BUILT" = "$LAST_DEPLOYED_SHA" ]'
+    );
+    assert.notEqual(greedy, text, 'the unknown-is-not-a-match guard is there to be broken');
+    const r2 = makeRepo();
+    assert.equal(
+      runMutant('mutant_greedy.sh', greedy, r2.dir, r2.base, '').code,
+      STAND_DOWN,
+      'reading an absent record as a match stands down on a commit that was never deployed — the other defect'
+    );
+  });
+
+  check(
+    'deploy-connector.yml reaches both scripts, and LAST_DEPLOYED_SHA crosses the process boundary',
+    () => {
+      // check_publish_guard.js §7's lesson, learned there the expensive way:
+      // the publish guard's first live run refused to decide because
+      // BUILT_SHA was a plain shell variable the child process never saw. A
+      // suite that proves the script while its only caller is broken is a
+      // green suite over a broken pipeline.
+      const wf = readFileSync(
+        fileURLToPath(new URL('../.github/workflows/deploy-connector.yml', import.meta.url)),
+        'utf8'
+      );
+      const code = wf
+        .split('\n')
+        .map((l, i) => ({ i, t: l.trim() }))
+        .filter((l) => l.t && !l.t.startsWith('#'));
+      const lineOf = (needle) => {
+        const hit = code.find((l) => l.t.includes(needle));
+        return hit ? hit.i : -1;
+      };
+      assert.ok(lineOf('scripts/deploy_guard.sh') >= 0, 'the workflow calls the guard');
+      assert.ok(lineOf('scripts/last_deployed_sha.sh') >= 0, '...and the lookup that feeds it');
+      assert.ok(
+        lineOf('scripts/last_deployed_sha.sh') < lineOf('scripts/deploy_guard.sh'),
+        'the record is read BEFORE the guard is asked, or the guard is handed nothing'
+      );
+      // The guard is a CHILD PROCESS: the sha has to be in its environment,
+      // which for a `run` step means the step's `env:` block or an inline
+      // assignment — never a bare shell variable.
+      assert.ok(
+        /env:\s*\n\s*LAST_DEPLOYED_SHA:/.test(wf) ||
+          /LAST_DEPLOYED_SHA=\S+\s+\S*deploy_guard\.sh/.test(wf) ||
+          /^\s*export\s+LAST_DEPLOYED_SHA\b/m.test(wf),
+        'LAST_DEPLOYED_SHA reaches the guard as an environment variable'
+      );
+      assert.ok(
+        /BUILT_SHA=(?:"[^"]*"|'[^']*'|\S+)\s+\S*scripts\/deploy_guard\.sh/.test(wf) ||
+          /^\s*export\s+BUILT_SHA\b/m.test(wf),
+        'and so does BUILT_SHA'
+      );
+      // Exit 10 is an ANSWER. A workflow that let it fail the job would paint
+      // a correct stand-down red, and people learn to ignore a colour that
+      // lies.
+      assert.ok(/\b10\)/.test(wf) && /go=no/.test(wf), 'exit 10 is handled as a clean stand-down');
+      assert.ok(
+        /actions:\s*read/.test(wf),
+        "the lookup needs actions: read to see this workflow's own run history"
+      );
+    }
+  );
+
+  for (const d of trash) rmSync(d, { recursive: true, force: true });
 }
 
 // SDK-dependent: only runs if @modelcontextprotocol/sdk is installed.
@@ -906,19 +2366,20 @@ try {
       'lyric_check',
       'lyric_grade',
       'lyric_plan',
+      'lyric_recover',
       'lyric_revise',
       'lyric_screen',
       'lyric_sweep',
       'lyric_types',
       'lyric_verify',
     ],
-    'the eight lyric tools are advertised'
+    'the nine lyric tools are advertised (M-195 added lyric_recover)'
   );
   for (const t of lyric) {
     assert.equal(t.annotations?.readOnlyHint, true, `${t.name} read-only`);
     assert.equal(t.annotations?.openWorldHint, false, `${t.name} closed-world`);
   }
-  console.log('  ok  lyric family advertised: 8 tools, read-only, closed-world');
+  console.log('  ok  lyric family advertised: 9 tools, read-only, closed-world');
   passed++;
 
   // DEPLOYMENT FRESHNESS HAS AN INSTRUMENT (M-127): check_live.mjs compares
@@ -1022,6 +2483,37 @@ try {
       'the control pair is banned through the whole stack'
     );
     console.log('  ok  lyric_screen live: hair/chair BANNED: HOMEOTELEUTON, exit 0');
+    passed++;
+
+    // THE HUMAN DOOR, LIVE (M-195, added 2026-09-02): an unmarked four-line
+    // paste through the real verb. The refusals must be read off the REAL
+    // render — the extractor's first pin passed on a shape the harness never
+    // printed, and only a live call could have said so.
+    const recovered = await callText('lyric_recover', {
+      lines: [
+        'The river took the bridge at dawn',
+        'and no one saw the water again',
+        'our cattle waded knee deep in silt',
+        'past every fence the county rebuilt',
+      ],
+    });
+    assert.equal(recovered.exit_code, 3, 'recover on an unmarked paste exits 3 — a work order');
+    assert.ok(
+      recovered.mandate && recovered.mandate.groups.length > 0,
+      'the recovered mandate rides the verdict'
+    );
+    const coords = recovered.refusals.map((r) => r.coordinate);
+    assert.ok(
+      coords.includes('sections') && coords.includes('meter'),
+      `the refusals are read off the real render: ${JSON.stringify(coords)}`
+    );
+    assert.ok(
+      recovered.refusals.find((r) => r.coordinate === 'sections').why.includes('Mark the sections'),
+      'and the reason travels with the coordinate'
+    );
+    console.log(
+      `  ok  lyric_recover live: unmarked paste exits 3, mandate + refusals ${JSON.stringify(coords)} on the verdict`
+    );
     passed++;
 
     // THE SHAPE IS READ FROM THE PLAN, NEVER REMEMBERED (2026-08-23).

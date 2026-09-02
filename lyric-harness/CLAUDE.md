@@ -604,7 +604,7 @@ TEXT.** `gradeable_line_counts()` unions `section` (a 4-line quatrain),
 between a QUATRAIN and a SONNET and was never a fact about songs.
 `song_line_counts()` reads the profile that grades a lyric sheet, identified by
 its own `n_lines == 0` and never by name: ~~**17..55, 39 values,
-CONTIGUOUS.**~~ **22..55, 34 values, STILL CONTIGUOUS** — REPINNED 2026-08-26
+CONTIGUOUS.**~~ ~~**22..55, 34 values, STILL CONTIGUOUS**~~ **`{6..20} | {22..55}`, 49 values, ONE HOLE AT 21 — REPINNED 2026-09-01 (`MISSING.md` M-193): a second lyric-sheet profile, `short` (50–150 tokens), joined the floor and this function unions every `n_lines == 0` profile by construction; the hole is the seam between two calibrated bands. What the planner VOLUNTEERS is narrower — `fillable_line_counts()`, the totals whose stanza-sized cell ceiling can hold the form's own minimum section count (verse once, chorus twice), so `ENVELOPE["total_lines"]` is (12, 55).** The 2026-08-26 reading, kept: 22..55, 34 values, still contiguous — REPINNED 2026-08-26
 by the M-131 re-adoption (`MISSING.md` M-133), which took the song profile's
 band `lo` from 150 to 200 tokens; this function READS that band, so the
 envelope followed it and every seed's drawn length moved with it. **The
@@ -3256,9 +3256,24 @@ the repaired check now fails and the old one did not.
   as a LEGACY arm and is explicitly not the control**, because
   `corpus/whitman.txt` carries the property under test as epistrophe and was
   never eligible for the role (`K-3`, still OPEN as a finding).
-- Current baselines: sonnets **1.2% violations (12/1014 JUDGED pairs)** —
-  MEASURED 2026-08-25, not recalled: `python3 battery.py` prints
-  `mandated 1064, judged 1014, refused 50` and `violations 12`.
+- Current baselines: sonnets **1.4% violations (14/1014 JUDGED pairs)** —
+  MEASURED 2026-09-02, not recalled: `python3 battery.py` prints
+  `mandated 1064, judged 1014, refused 50` and `violations 14`.
+  **REPINNED 2026-09-02 from ~~1.2% (12/1014)~~ BY A TIGHTENING, which is
+  the first time this ladder has moved in that direction.** The
+  near-relation pricing (`MISSING.md` M-138, under
+  `quality/NEAR_RELATION_PRICING_PREREGISTRATION.md`, committed before its
+  own numbers) found that the widened admit door's excess was ONE relation
+  and not two — ASSONANCE admitted random pairs at 3.99x–4.92x the canon
+  arm while CONSONANCE was already under target at 1.18x–1.48x — and cut
+  ASSONANCE at **0.82** on `Declaration.theta_by_relation`. Two pairs
+  JOINED and none left: sonnet 49 L5~L7 `pass`/`was` 0.772 and sonnet 91
+  L10~L12 `costs`/`boast` 0.765, inside a preregistered ceiling of **20**
+  (the Clopper–Pearson 95% upper edge on the 12/1014 pin, fixed before the
+  run). Every earlier step of this ladder WIDENED the door and drove the
+  count down; this one narrowed it, so `quality/RESULTS_SPANS.md`'s
+  attribution share rose with it (16.7% -> 28.6%) where widenings had
+  driven it down. The superseded ladder stays visible below (doctrine 17).
   **REPINNED 2026-08-25 from ~~3.5% (35/1014)~~ when ALL 77 SCHEMAS joined
   the DEFAULT on the owner's ruling (`MISSING.md` M-116): a mandated pair
   that declares no relation is satisfied when its lines stand in ANY schema

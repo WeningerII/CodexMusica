@@ -37,7 +37,7 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 from lyric_harness import Declaration  # noqa: E402
 from quality.corpus import (SONNET_SCHEME, labelled_sonnets,  # noqa: E402
                             load_generated, load_sonnets)
-from quality.features import QualityFeatures  # noqa: E402
+from quality.features import DATA as STAGED_DATA, QualityFeatures  # noqa: E402
 from quality.within_item import WithinItemFeatures  # noqa: E402
 
 CACHE = os.path.join(HERE, "..", "data", "feature_cache.json")
@@ -165,7 +165,11 @@ SOURCE_FILES = (
 #: re-scales concreteness and frequency; doctrine 58 -- the resource is a
 #: coordinate of the number just as much as a threshold is.
 RESOURCE_FILES = (
-    os.path.join(HERE, "..", "data", "concreteness.txt"),
+    # READ OFF `features.DATA` SINCE 2026-09-01 (M-188), because that is the
+    # directory `load_concreteness` actually opens: with `LYRIC_STAGED_DATA`
+    # set, a literal `data/` here would digest a file no feature read --
+    # the exact drift the comment above this tuple warns about.
+    os.path.join(STAGED_DATA, "concreteness.txt"),
     # REPOINTED 2026-08-22. This named `wordfreq20k.txt` -- the list
     # `Lexicon.freq_rank` STOPPED reading when the frequency source was
     # swapped -- so the cache key digested a file no feature reads and did

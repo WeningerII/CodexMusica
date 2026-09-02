@@ -403,6 +403,13 @@ NEAR_RELATIONS = {"ASSONANCE", "CONSONANCE"}
 #: copied word satisfy a rhyme.
 ADMITTABLE_RELATIONS = frozenset(RHYME_RELATIONS | NEAR_RELATIONS)
 
+#: What an empty/empty coda may be declared to be EVIDENCE of
+#: (`Declaration.coda_empty_evidence`, `MISSING.md` E-5). Defined HERE, above
+#: `Declaration`, for the same reason `ADMITTABLE_RELATIONS` is: the field's
+#: validator and `score()`'s branch read ONE definition, so a fourth name
+#: cannot be added to one and missed by the other (doctrine 1).
+CODA_EMPTY_EVIDENCE = frozenset({"gift", "zero", "cannot_tell"})
+
 
 def admit_is_default(decl):
     """True when the declaration's admit set is the derived default.
@@ -483,6 +490,16 @@ class Declaration:
                 f"rhyme mandate, and declaring one is more likely a typo "
                 f"than a form. Include RHYME (or RIME_RICHE) alongside "
                 f"the near relations.")
+        # An undeclared value must be LOUD at declaration time, not silently
+        # one of the three at grade time (doctrine 20) — the same contract
+        # `admit` above and `scalar_alignment` in `score()` are held to.
+        if self.coda_empty_evidence not in CODA_EMPTY_EVIDENCE:
+            raise ValueError(
+                f"coda_empty_evidence={self.coda_empty_evidence!r} is not "
+                f"one of {sorted(CODA_EMPTY_EVIDENCE)}. It names what an "
+                f"empty/empty coda is EVIDENCE of (MISSING.md E-5); an "
+                f"unknown name would otherwise score as the default and be "
+                f"indistinguishable from never having declared one.")
     channel_weights: dict = field(default_factory=lambda: {
         "nucleus": 0.50, "coda": 0.35, "stress": 0.15,
     })
@@ -492,6 +509,43 @@ class Declaration:
     })
     trailing_syllable_penalty: float = 0.15   # semirhyme discount / extra syllable
     theta_rhyme: float = 0.75                 # lower edge of the match band
+    # --- THE CUT, PER RELATION (`MISSING.md` M-138, PRICED 2026-09-02) -----
+    # WHY THIS EXISTS. M-59 widened `admit` to all four relations on the
+    # owner's ruling and MEASURED ONLY THE BENEFIT: 47 sonnet pairs stopped
+    # violating, 0 newly violated, and no cost figure at all. What the
+    # widening did NOT come with is a price — after it, `theta_rhyme` 0.75
+    # was the SOLE NUMERIC GATE on ASSONANCE and CONSONANCE, and it had been
+    # calibrated on neither. `RESULTS_REDTEAM.md` got `theta_coda`
+    # recalibrated over a random-admission rate 1.5x the canon arm's; the
+    # ASSONANCE arm measured 3.99x-4.92x.
+    #
+    # PRICED, PREREGISTERED, AND ADOPTED BY ITS OWN FALSIFIER:
+    # `quality/NEAR_RELATION_PRICING_PREREGISTRATION.md` fixed the sweep
+    # grid, the 2x target and the violation ceiling BEFORE the run;
+    # `quality/RESULTS_NEAR_RELATION_PRICING.md` records what fired and what
+    # did not. Re-derive both numbers with
+    # `python3 quality/near_relation_pricing.py`.
+    #
+    #   ASSONANCE  0.82  the smallest cut on the declared grid under 2x the
+    #                    canon arm in ALL FOUR `chance_rate.GRID` cells
+    #                    (73..86 of ~4,000 = 1.54x..1.82x, from 189..233 =
+    #                    3.99x..4.92x at 0.75). Sonnet cost: violations
+    #                    12 -> 14 against a ceiling of 20.
+    #   CONSONANCE 0.75  MEASURED AND UNMOVED, and it is written here rather
+    #                    than omitted: at the shipped cut CONSONANCE already
+    #                    reads 1.18x..1.48x, under the target on every cell.
+    #                    An omitted entry and a measured-equal one look the
+    #                    same in the code and are different claims
+    #                    (doctrine 20); this one was measured.
+    #
+    # RHYME and RIME_RICHE are deliberately absent and fall back to
+    # `theta_rhyme`: they are the relations 0.75 WAS calibrated on, and
+    # re-cutting them is a different sitting with a different canon arm.
+    # An empty dict restores the pre-pricing behaviour exactly, which is the
+    # narrowing direction this file keeps available on every door.
+    theta_by_relation: dict = field(default_factory=lambda: {
+        "ASSONANCE": 0.82, "CONSONANCE": 0.75,
+    })
     # `theta_repeat_onset: float = 0.95` STOOD HERE UNTIL 2026-08-15, described
     # as "onset similarity above which full identity is REPEAT/rime riche
     # band". THERE IS NO SUCH BAND. `score()` decides REPEAT by `wa == wb` and
@@ -531,6 +585,32 @@ class Declaration:
     # beats the hand-set value held out; this one does, in both halves, in the
     # same direction. Doctrine 22: the number now carries a rate.
     theta_coda: float = 0.80      # coda AGREEMENT, not coda evidence
+    # --- WHAT AN EMPTY/EMPTY CODA IS EVIDENCE OF (`MISSING.md` E-5) --------
+    # THE COORDINATE THE GIFT NEVER HAD. `cluster_sim([], [])` is 1.0, so two
+    # vowel-final words score a full 1.0 on a channel weighted 0.35 --
+    # agreement by ABSENCE, weighted like a heard consonant. E-5's cheap half
+    # (2026-09-02) made that share READABLE in `flags`; this field is what
+    # makes the rule itself REACHABLE, so the expensive half can be MEASURED
+    # instead of argued (standing rule 3: a claim about an alternative nobody
+    # can run is a memory, not a measurement).
+    #
+    #   "gift"         the shipped scalar: `cluster_sim` answers 1.0 and it is
+    #                  weighted like evidence. THE DEFAULT, byte-identical to
+    #                  every run before this field existed.
+    #   "zero"         absence scored as DISAGREEMENT. `now`/`why` and
+    #                  `see`/`free` both lose 0.35 of `total` outright.
+    #   "cannot_tell"  absence scored as NOTHING: the coda channel is dropped
+    #                  from that syllable's weighted mean and the remaining
+    #                  weights are renormalised. The doctrine-20 shape, and the
+    #                  same shape the cheap half's flag already prints.
+    #
+    # THIS FIELD REACHES `total` AND NOTHING ELSE. `channel_agreement`'s own
+    # `1.0 if (not ca and not cb)` branch and `coda_agrees` are the AGREEMENT
+    # side, which E-5 records as CORRECT -- it is what keeps `see`/`free` a
+    # rhyme -- and they are deliberately NOT parameterised here. Priced in
+    # `quality/NEAR_RELATION_PRICING_PREREGISTRATION.md` (falsifier E2) and
+    # answered in `quality/RESULTS_NEAR_RELATION_PRICING.md`.
+    coda_empty_evidence: str = "gift"
     # --- THE SHAPE OF THE CODA QUESTION (doctrine 1, 84, 94) ----------------
     # DECLARED 2026-08-11. `theta_coda` above is a cut on `cluster_sim`, and
     # NO VALUE OF IT REACHES `wall`/`floor`: `cons_sim('R','L')` is 0.9875 and
@@ -3114,6 +3194,54 @@ def admits(s, theta, relations=None):
     return s is not None and s["total"] >= theta and \
         s["relation"] in rel
 
+
+def theta_for(s, decl):
+    """-> the cut THIS pair is judged at: `decl.theta_by_relation` for its
+    relation, `decl.theta_rhyme` otherwise.
+
+    A SEPARATE FUNCTION RATHER THAN A PARAMETER OF `admits()`, deliberately.
+    `admits()` is ONE predicate with ONE definition and twenty callers, most
+    of them asking a question that is not a mandate verdict — a candidate
+    FIELD, a collision cut, a rhyme GRAPH, a negative control. Folding the
+    per-relation cut into it would move all twenty at once, which is doctrine
+    1 broken in the other direction: one name answering two questions.
+
+    **AND THE HAZARD OF THE OTHER SHAPE IS ON THE RECORD RATHER THAN GUESSED
+    AT.** `MISSING.md` M-139 is the entry for a door that moved and left 17 of
+    19 sites behind, so a coordinate only some callers read is exactly the
+    defect shape this repository has already paid for. It is answered by
+    NAMING the readers instead of hoping: the sites that read this are the
+    MANDATE VERDICT sites and no others —
+
+      `check_scheme`'s violation chain and its transitivity closure (here),
+      `quality.revise.Reviser.grade`'s violation chain,
+      `quality.revise.Reviser._field` at `field_band="grader"`, whose own
+        docstring promises it asks the verdict's question (M-139 fixed the
+        same site for the same class of miss once already), and
+      `quality.recover.recover`'s edge admit, which is the FOURTH and
+        joined 2026-09-02: every edge it lays down is a band-passing pair
+        BY CONSTRUCTION, so the cover it hands to `--groups=` is graded by
+        the sites above and a flat cut here would build covers the grader
+        then charges (`MISSING.md` M-138's own tail). It reads this ONLY
+        when its caller declared no `theta`; a declared flat cut still wins,
+        because that is a caller stating the coordinate.
+
+    and the sites that DO NOT read it, each because it is asking something
+    else, are `negative_control.py` (the control of the BAND — folding a
+    mandate cut in would change what it is a control of, doctrine 14),
+    `redteam_band.py` (adversary 3's subject is the NARROW door and it says
+    so), `_derive_mandate`'s clique graph (it takes its own `theta` as an
+    argument and answers "which lines already rhyme", not "is this mandate
+    satisfied"), and the collision cuts, which are a scalar question at
+    `THETA_COLLISION` and not a band question at all.
+
+    `quality/test_band.py` pins that list, so a new reader is a test change
+    and not a silent one.
+    """
+    if s is None:
+        return decl.theta_rhyme
+    return decl.theta_by_relation.get(s["relation"], decl.theta_rhyme)
+
 #: THE UNINTENDED-RHYME CUT, and it lives HERE because two modules apply it to
 #: the same question and one definition is the only thing that keeps them
 #: equal. `check_scheme` below and `quality/revise.py`'s collision scan report
@@ -3343,6 +3471,19 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
         cs = cluster_sim(sa["coda"], sb["coda"])
         os_ = cluster_sim(sa["onset"], sb["onset"])
         st = 1.0 if (sa["stress"] > 0) == (sb["stress"] > 0) else 0.0
+        # THE EMPTY/EMPTY CODA, AS A DECLARED COORDINATE AND NOT A CONSTANT
+        # (`Declaration.coda_empty_evidence`, `MISSING.md` E-5). The default
+        # "gift" leaves `cs` exactly as `cluster_sim` returned it, so this
+        # block is a no-op on every undeclared run and `_drop` stays 0.0.
+        # It reaches `total` ONLY — `channel_agreement` keeps its own
+        # empty/empty branch, because the AGREEMENT side is what carries
+        # `see`/`free` and E-5 records it as correct.
+        _drop = 0.0
+        if decl.coda_empty_evidence != "gift" and \
+                not sa["coda"] and not sb["coda"]:
+            cs = 0.0
+            if decl.coda_empty_evidence == "cannot_tell":
+                _drop = (w0 if i == 0 else wi)["coda"]
         if i == 0:
             # first onset is the rhyme-defining exclusion: shown, not scored
             syl_total = (w0["nucleus"] * ns + w0["coda"] * cs
@@ -3350,6 +3491,14 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
         else:
             syl_total = (wi["nucleus"] * ns + wi["coda"] * cs
                          + wi["onset"] * os_ + wi["stress"] * st)
+        if _drop:
+            # RENORMALISE OVER THE WEIGHTS THAT WERE ASKED, not over 1.0: a
+            # profile's weights need not sum to one, and dividing by
+            # `1 - coda` would silently rescale those that do not. The sum is
+            # taken from the weights this syllable actually used.
+            _wsum = sum((w0 if i == 0 else wi).values())
+            if _wsum > _drop:
+                syl_total *= _wsum / (_wsum - _drop)
         total += syl_total
         out["syllables"].append({
             "nucleus": round(ns, 3), "coda": round(cs, 3),
@@ -3357,6 +3506,44 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
         })
     total /= n
     total -= decl.trailing_syllable_penalty * extra
+    # THE EMPTY/EMPTY CODA GIFT, DISCLOSED AND NOT MOVED (2026-09-02,
+    # `MISSING.md` E-5, the CHEAP half as that entry defines it, RESTORED
+    # the same day on the owner's *"finish the rest of the work"* after
+    # being built, measured and stripped once — the 2026-08-21 deferral it
+    # waited on is theirs and they lifted it). Two vowel-final syllables
+    # score 1.0 on the coda channel because `cluster_sim([], [])` is 1.0 —
+    # agreement by ABSENCE, not by sound — and that 1.0 is weighted like a
+    # heard consonant: `now`/`why` = 0.5x0.805 + 0.35x1.0 + 0.15x1.0 =
+    # 0.902 RHYME. The AGREEMENT side (`coda_agrees` on empty/empty) is
+    # CORRECT and untouched — it is what keeps `see`/`free` a rhyme. Here
+    # the channel is reported as cannot-tell, with the share of `total`
+    # that rests on it, and `total` and `relation` are left exactly where
+    # they were: moving the scalar is the entry's EXPENSIVE half
+    # (M-4a-class, drags `test_fwer`, the band's FPR and the D18 pin) and
+    # waits for its own calibration sitting (doctrine 58). A
+    # refusal-shaped disclosure, the `identity: not asked` shape below
+    # (doctrine 20).
+    _gift = sum((w0 if i == 0 else wi)["coda"]
+                for i in range(n)
+                if not anc_a[i]["coda"] and not anc_b[i]["coda"]) / n
+    if _gift > 0:
+        _k = sum(1 for i in range(n)
+                 if not anc_a[i]["coda"] and not anc_b[i]["coda"])
+        if decl.coda_empty_evidence == "gift":
+            out["flags"].append(
+                f"coda: no evidence (both codas empty on {_k} of {n} "
+                f"syllable(s); {_gift:.3f} of the total is agreement by "
+                f"absence, not by sound — E-5)")
+        else:
+            # THE SHARE IS NO LONGER IN `total`, AND THE FLAG SAYS WHICH
+            # RULE TOOK IT OUT rather than repeating a sentence that is no
+            # longer true. A disclosure that survives the fix it disclosed
+            # is a stale claim (doctrine 17).
+            out["flags"].append(
+                f"coda: no evidence (both codas empty on {_k} of {n} "
+                f"syllable(s); {_gift:.3f} of the default total was "
+                f"agreement by absence and is NOT scored here — "
+                f"coda_empty_evidence={decl.coda_empty_evidence!r}, E-5)")
     if prof and prof.get("require_final_consonant"):
         ca = anc_a[-1]["coda"][-1:] if anc_a[-1]["coda"] else []
         cb = anc_b[-1]["coda"][-1:] if anc_b[-1]["coda"] else []
@@ -3386,6 +3573,18 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
     # two spellings, and only one of them real (doctrine 1).
     conj = decl.conjunctive_band and not (prof and prof.get("weights", {})
                                           .get("coda", 1.0) == 0.0)
+    if decl.conjunctive_band and not conj:
+        # THE PROFILE SWITCHED THE BAND OFF, AND THE RECORD SAYS SO
+        # (2026-09-02, `MISSING.md` M-136 (2), the disclosure half). Under a
+        # zero coda weight every pair this scores is typed RHYME — the
+        # profile named for the near relation is the one that can never
+        # emit it. Whether it SHOULD emit ASSONANCE is the parked ruling and
+        # moves verdicts; this flag moves none and lets a reader of RHYME
+        # off an `assonance`-profile call see that the coda was never asked.
+        out["flags"].append(
+            "conjunctive band: off (profile coda weight 0.0 — RHYME here "
+            "is nucleus agreement only; ASSONANCE/CONSONANCE cannot be "
+            "emitted, M-136 (2))")
     if conj and out["relation"] == "RHYME":
         nuc_ok, coda_ok = channel_agreement(anc_a, anc_b, decl)
         if nuc_ok and not coda_ok:
@@ -3401,6 +3600,20 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
             out["flags"].append("conjunctive band: neither channel agrees")
 
     # band-pass: identity is not rhyme
+    if not (word_a and word_b):
+        # DOCTRINE 3 RIDES THE WORDS, AND A CALL WITHOUT THEM SAYS SO
+        # (2026-09-01, `MISSING.md` M-136 (1), ruled under the owner's
+        # delegation). `light`/`light` scored on anchors alone answers RHYME
+        # because REPEAT and RIME_RICHE need the spellings; forty-eight
+        # call sites pass anchors alone and most of them are asking a
+        # question identity does not bear on (a syllable inside a line, a
+        # cynghanedd half-line). The verdict is left where it is and the
+        # omission is DISCLOSED on the record, so a caller reading RHYME off
+        # a wordless call can see what was not asked (doctrine 20) — the
+        # same shape as `SCHEME_UNREADABLE` on a pair the lexicon cannot
+        # read. Sites that HAVE the words pass them (`cynghanedd`'s sain
+        # test did not, and does now).
+        out["flags"].append("identity: not asked (words omitted)")
     if word_a and word_b:
         wa, wb = word_a.lower().strip(), word_b.lower().strip()
         la, lb = wa.split()[-1], wb.split()[-1]
@@ -3752,11 +3965,21 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     violations.append(
                         (i + 1, j + 1, s["total"],
                          "NO_ANCHOR: nothing to compare (not a rhyme verdict)"))
-                elif s["total"] < decl.theta_rhyme:
+                elif s["total"] < theta_for(s, decl):
+                    # THE CUT IS PER RELATION SINCE 2026-09-02 (M-138,
+                    # priced). The message names the relation's own cut,
+                    # because `below theta_rhyme=0.75` on a pair judged at
+                    # 0.82 is a report line that cannot be reproduced from
+                    # the number beside it (doctrine 58/91).
+                    _th = theta_for(s, decl)
                     violations.append(
                         (i + 1, j + 1, s["total"],
-                         f"below theta_rhyme={decl.theta_rhyme}"))
-                elif not admits(s, decl.theta_rhyme,
+                         f"below theta_rhyme={decl.theta_rhyme}"
+                         if _th == decl.theta_rhyme else
+                         f"below theta({s['relation']})={_th} "
+                         f"(theta_rhyme={decl.theta_rhyme}; the near "
+                         f"relations carry their own priced cut, M-138)"))
+                elif not admits(s, theta_for(s, decl),
                                 relations=frozenset(decl.admit)):
                     # THE SECOND COPY OF THE SAME BLACKLIST, and it had the
                     # same hole. See `quality/revise.py`'s `grade()` for the
@@ -3861,7 +4084,13 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     i1, i2, i3 = members[a], members[b], members[c]
                     def ok(x, y):
                         s = matrix[min(x, y)][max(x, y)]
-                        return admits(s, decl.theta_rhyme,
+                        # `theta_for`, NOT `decl.theta_rhyme`: this closure is
+                        # the SAME mandate question the chain above asks, and
+                        # M-139 is the entry for what happens when a door
+                        # moves and this closure does not move with it — a
+                        # pair reported satisfied above and absent as an edge
+                        # here, on one run.
+                        return admits(s, theta_for(s, decl),
                                       relations=frozenset(decl.admit)) \
                             or (min(x, y) + 1, max(x, y) + 1) in _schema_ok
                     if any((min(x, y) + 1, max(x, y) + 1) in refused
@@ -4682,7 +4911,12 @@ def check_cynghanedd(lex, text, decl, language="cym", caesura="marked",
     if len(parts) == 3:
         a1 = anchor(word_syllable_map(lex, parts[0]))
         a2 = anchor(word_syllable_map(lex, parts[1]))
-        s12 = score(a1, a2, decl)
+        # The two half-lines' last words are in hand, so identity is asked
+        # (M-136): a sain whose parts 1-2 END ON THE SAME WORD is a REPEAT,
+        # not a rhyme, and scored wordless it read as one.
+        s12 = score(a1, a2, decl,
+                    (parts[0].split() or [""])[-1],
+                    (parts[1].split() or [""])[-1])
         m2 = word_syllable_map(lex, parts[1])
         m3 = word_syllable_map(lex, parts[2])
         o2 = anchor(m2)[0]["onset"] if anchor(m2) else []
@@ -5048,6 +5282,125 @@ _SCREEN_CARRIERS = ("we carry the evening to the {w}",
                     "and no one had to tell us about {w}")
 
 
+def door_chance_note(door, entry=None):
+    """-> one phrase pricing a DEFAULT DOOR by its PINNED chance rate, for a
+    report line that names a pair the door let through.
+
+    THE FIGURE IS READ, NEVER RETYPED (standing rule 3, doctrine 1):
+    `quality/chance_rate.py` adopts a BAND of counts over its declared 2x2
+    sampler grid (`ADOPTED`), and this phrase renders that band against the
+    grid's own draw size and the battery's canon arm (`CANON_RATE`), so a
+    repin there moves every report here. The rates are against DRAWN pairs
+    (the admit arm's own denominator is JUDGED, a few pairs fewer, so the
+    admit rate reads a hair LOW here — stated so it is not mistaken for
+    the instrument's own figure). Both doors are UNPRICED: this is the
+    disclosure `MISSING.md` M-138 / M-140 owed a reader of a rescued pair,
+    and it moves no verdict (2026-09-02).
+    """
+    from quality import chance_rate as _CR
+    lo, hi = _CR.ADOPTED[door]
+    n = _CR.SHIPPED.n
+    canon = _CR.CANON_RATE
+    entry = entry or {"admit": "M-138", "schema": "M-140",
+                      "narrow": "M-138"}.get(door, "M-138")
+    # PRICED OR UNPRICED IS NOW A REAL DISTINCTION AND THE PHRASE MAKES IT
+    # (2026-09-02). Until today both doors were unpriced and this sentence
+    # said so for both. The ADMIT door has since been priced —
+    # `quality/NEAR_RELATION_PRICING_PREREGISTRATION.md`, falsifier E1,
+    # ASSONANCE cut at 0.82 — and leaving the old wording would be a
+    # disclosure that outlived the gap it disclosed, which is doctrine 17's
+    # own subject and the species of stale claim this repository strikes on
+    # sight. The SCHEMA door is genuinely still unpriced (M-140), so the
+    # two doors say different things because they ARE different.
+    priced = ("PRICED (M-138, quality/RESULTS_NEAR_RELATION_PRICING.md — "
+              "the near relations carry their own cut, "
+              "`Declaration.theta_by_relation`)"
+              if door == "admit" else f"UNPRICED ({entry})")
+    return (f"chance rate is PINNED at {lo}..{hi} of {n:,} random CMUdict "
+            f"pairs ({lo / n:.1%}–{hi / n:.1%}, "
+            f"{lo / n / canon:.1f}–{hi / n / canon:.1f}x the sonnet canon "
+            f"arm's {canon:.2%}; quality/chance_rate.py, a band over its "
+            f"sampler grid) and {priced}")
+
+
+def schema_default_disclosure(sch_sat):
+    """-> the `SCHEMA DEFAULT` report lines for `grade()`'s
+    `pairs_schema_satisfied`, or None when the list is empty.
+
+    THE WHOLE-VOCABULARY DEFAULT, DISCLOSED (M-116, owner ruling
+    2026-08-25). A pair the scalar door failed and a schema satisfied is a
+    PASS, and a silent one reads exactly like a scalar pass — so each is
+    named with the schema that answered, because laziness at these
+    relations is UNCALIBRATED and a reader must be able to tell the two
+    passes apart. The second line (2026-09-02, M-140's disclosure half)
+    prices the door: the schema door's PINNED chance rate stands beside
+    the rescue so a reader can weigh a schema-rescued pair against how
+    often that door answers two random words. Text only; nothing here
+    gates.
+    """
+    if not sch_sat:
+        return None
+    egs = "; ".join(
+        f"L{r['lines'][0]}~L{r['lines'][1]} (group "
+        f"{r['label']}) via {r['satisfied_by'][0]}"
+        for r in sch_sat[:4])
+    return (f"  SCHEMA DEFAULT: {len(sch_sat)} mandated pair(s) "
+            f"satisfied by the whole-vocabulary default, not the "
+            f"scalar door — {egs}"
+            + (" …" if len(sch_sat) > 4 else "")
+            + " — laziness at these relations is UNCALIBRATED; "
+            "declaring a relation narrows (M-116)\n"
+            f"    (that door's {door_chance_note('schema')})")
+
+
+def near_relation_default_disclosure(verdicts, theta):
+    """-> the `ADMIT DOOR` report line for `grade()`'s verdicts, or None
+    when no mandated pair was satisfied AS A NEAR RELATION.
+
+    THE WIDENED DOOR, PRICED WHERE IT ANSWERED (2026-09-02, `MISSING.md`
+    M-138's disclosure half). Since M-59 a bare group is satisfied by
+    ASSONANCE or CONSONANCE on `theta_rhyme` alone, a cut calibrated on
+    neither, and the grade printed such a pass exactly like a RHYME pass.
+    Each is counted here by its relation, with the door's PINNED chance
+    rate beside it. Pairs a schema rescued are NOT in this count — they
+    are the `SCHEMA DEFAULT` line's, and the two are never summed
+    (doctrine 79). A disclosure: the verdicts are read, not moved.
+    """
+    near = [v for v in (verdicts or ())
+            if v.get("why") is None and not v.get("satisfied_by")
+            and v.get("relation") in NEAR_RELATIONS]
+    if not near:
+        return None
+    by = {}
+    for v in near:
+        by[v["relation"]] = by.get(v["relation"], 0) + 1
+    egs = "; ".join(
+        f"L{v['lines'][0] + 1}~L{v['lines'][1] + 1} "
+        f"{v['endwords'][0]}/{v['endwords'][1]} {v['relation']} "
+        f"{v['score']:.3f}" for v in near[:4])
+    # ~~"on theta_rhyme={theta} alone — a cut never priced on these
+    # relations"~~ STRUCK 2026-09-02: it IS priced now, and the line names
+    # the cut each relation was actually judged at rather than a
+    # `theta_rhyme` that no near relation reads any more (doctrine 58/91 —
+    # a number in a report must be reproducible from the report).
+    cuts = ", ".join(f"{k} {v}" for k, v in
+                     sorted(_declared_cuts().items()) if k in by)
+    return (f"  ADMIT DOOR: {len(near)} mandated pair(s) satisfied as a "
+            f"near relation ("
+            + ", ".join(f"{k} x{by[k]}" for k in sorted(by))
+            + f") on the priced near-relation cut"
+            + (f" ({cuts})" if cuts else f" (theta_rhyme={theta})")
+            + f" — {egs}"
+            + (" …" if len(near) > 4 else "")
+            + f"; that door's {door_chance_note('admit')}")
+
+
+def _declared_cuts():
+    """-> the shipped per-relation cuts, read from the Declaration's own
+    default rather than respelled in a report (doctrine 1)."""
+    return dict(Declaration().theta_by_relation)
+
+
 def screen_pairs(words, lex=None, decl=None, relation=None):
     """Every unordered pair among `words`, judged by the REAL grader on a
     minimal mandated pair — the same `Reviser.inspect` the `song` verb
@@ -5081,10 +5434,27 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
     """
     from quality.revise import Reviser
     from quality import schemes as SC
+    _schema = None
     if relation is not None:
         from quality import rhyme_types as _RT
         from quality.revise import _relation_phonology as _RP
         _phon = _RP()
+        # A SCHEMA IS JUDGED AT THE TWO DECLARED END TOKENS (M-189,
+        # 2026-09-01). The screen refused every `schema:` name on the
+        # argument that a schema is judged over LINES — true of the
+        # instances route and false of the pair route: `relations.
+        # pair_satisfies` (M-148 P2) judges a schema at two DECLARED
+        # bindings, which is exactly what a mandate `1,3 --relation=schema:X`
+        # asks of two line ends, and exactly what a plan's drawn relation
+        # (M-117) asks of every group. So the screen builds the same stream
+        # the grade builds over the carrier pair and asks the same judge at
+        # (line 0, last token) / (line 1, last token). The shapes one token
+        # cannot bind (`pair_bindable` False) still REFUSE by name, through
+        # the judge's own `Refusal`.
+        _canon, _kind = _RT.resolve_relation(relation)
+        if _kind == "schema":
+            from quality import relations as _RL
+            _schema = _RL.REGISTRY[_canon]
     rv = Reviser(lex=lex, decl=decl) if (lex or decl) else Reviser()
     out = []
     for i in range(len(words)):
@@ -5100,6 +5470,7 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
             row = {"a": a, "b": b, "codes": codes, "refused": False,
                    "reason": None, "relation": None, "score": None,
                    "why": None, "schema_scaffold": [],
+                   "flags": [], "coda_no_evidence": False,
                    "named": None, "named_reason": None}
             if g["refusals"]:
                 row["refused"] = True
@@ -5109,6 +5480,13 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
                 row["relation"] = v["relation"]
                 row["score"] = v["score"]
                 row["why"] = v["why"]
+                # E-5 / M-136 (2026-09-02): the comparator's own flags
+                # ride the row, so a screen can say what a verdict did not
+                # ask and what part of a CLEAN verdict was agreement by
+                # absence — the disclosure, never a gate.
+                row["flags"] = list(v.get("flags") or [])
+                row["coda_no_evidence"] = any(
+                    f.startswith("coda: no evidence") for f in row["flags"])
                 # M-113: `pairs_schema_satisfied` is the RESCUE set — the
                 # scalar door failed and a schema satisfied. On carrier
                 # lines the schemas' evidence is the SCAFFOLD ("we carry
@@ -5123,13 +5501,33 @@ def screen_pairs(words, lex=None, decl=None, relation=None):
             # same position, so the screen's answer and the grade's cannot
             # drift (doctrine 1).
             if relation is not None and not row["refused"]:
-                try:
-                    row["named"] = _RT.satisfies_relation(
-                        relation, row["relation"], a, b, _phon,
-                        position="end")
-                except _RT.RelationRefused as e:
-                    row["named"] = None
-                    row["named_reason"] = str(e)
+                if _schema is not None:
+                    _stream = _RL.build_stream(
+                        [_SCREEN_CARRIERS[0].format(w=a),
+                         _SCREEN_CARRIERS[1].format(w=b)], _phon)
+                    _ans = _RL.pair_satisfies(_schema, _stream,
+                                              (0, -1), (1, -1))
+                    if isinstance(_ans, _RL.Refusal):
+                        row["named"] = None
+                        row["named_reason"] = str(
+                            getattr(_ans, "reason", None)
+                            or getattr(_ans, "why", None) or _ans)
+                    elif _ans is None:
+                        row["named"] = None
+                        row["named_reason"] = (
+                            f"{_schema.name!r} could not be read at the "
+                            f"pair (a channel or anchor the two words do "
+                            f"not supply) — a refusal, not a no")
+                    else:
+                        row["named"] = bool(_ans)
+                else:
+                    try:
+                        row["named"] = _RT.satisfies_relation(
+                            relation, row["relation"], a, b, _phon,
+                            position="end")
+                    except _RT.RelationRefused as e:
+                        row["named"] = None
+                        row["named_reason"] = str(e)
             out.append(row)
     return out
 
@@ -5213,7 +5611,24 @@ the quality layer (each says which module answered):
   types  W1 -- W2 [--lang=] [--preset=]
                           full rhyme-type coordinate: 9 axes, per-member
                           anchor, traditional names
-  screen W1 W2 [W3...]    is this rhyme pair USABLE before a word is
+  recover LYRIC.txt [--placements=end,head,T4]
+                          STRUCTURE A PASTED SONG — the second door into
+                          the pipeline (M-72, M-195): counts the lines
+                          and the syllables per line, reads [SECTION]
+                          marks or blank lines into sections, recovers
+                          the rhyme web as a cover over places in each
+                          line, and prints every coordinate with how it
+                          was obtained (counted / declared / derived /
+                          REFUSED). Prints the MANDATE SPELLING — the
+                          `--groups=` and `--returns=` the cover splits
+                          into — so `brief`/`revise` judge the cover the
+                          text carries. Exit 3 when any coordinate is
+                          REFUSED (the meter, always: counting gives
+                          syllables, not a grid); exit 0 otherwise. This
+                          was `python3 quality/recover.py` alone until
+                          2026-09-01 — a module with no verb and no tool.
+  screen W1 W2 [W3...] [--bank]
+                          is this rhyme pair USABLE before a word is
                           drafted: every unordered pair among the words,
                           judged by the song grader itself on a minimal
                           mandated pair (same Reviser, same declaration),
@@ -5225,7 +5640,21 @@ the quality layer (each says which module answered):
                           no-private-instruments rule): this exact check
                           pre-screened both zero-flag songs, and a step
                           that decides which words get tried must have an
-                          entrance the system owns
+                          entrance the system owns.
+                          --bank is a DECLARED COORDINATE (M-111,
+                          2026-09-02) and is omitted by default: declared,
+                          it APPENDS how many of your OWN banked songs
+                          already sing each word as a content word, with
+                          the matched human null's reading of that depth
+                          beside it. It DISCLOSES and never grades — no
+                          threshold, no code, no moved count, no changed
+                          exit status — because the bank is this harness's
+                          own output and a resource used to score a cell
+                          must be independent of that cell's label
+                          (doctrine 13/14), and because reusing your own
+                          word across your own songs is a style fact, not
+                          a defect (doctrine 6/7). Omitting it reads no
+                          song and costs nothing
   capacity WORD | --top=N what the LEXICON can sustain (quality/capacity.py,
                           the density design's stage 1, derived 2026-08-18):
                           a word's rhyme family, its spelling classes (tier
@@ -5392,7 +5821,11 @@ VERB_LAYERS = (
     ("wiring", "lyric_harness.py", "this map, checked against the dispatch"),
     ("types", "quality/rhyme_types.py", "9-axis coordinate + anchor"),
     ("screen", "quality/revise.py", "pair ban screening -- the song "
-     "grader on a minimal mandated pair"),
+     "grader on a minimal mandated pair; --bank adds quality/cross_song.py's "
+     "cross-song disclosure"),
+    ("recover", "quality/recover.py", "structure recovery -- the second "
+     "door: a pasted song's sections, syllables and rhyme web, each "
+     "coordinate with how it was obtained"),
     ("capacity", "quality/capacity.py", "derived rhyme-family capacity -- "
      "what the lexicon sustains"),
     ("partition", "quality/schemes.py", "set partitions, Bell numbers"),
@@ -5869,8 +6302,14 @@ def _first_attr(mod, names):
     return None, None
 
 
-def _group_key(members, texts, words):
+def _group_key(members, texts, words, round_no=None):
     """-> the hashable identity of ONE tier-2 proposal request.
+
+    AND THE ROUND (M-183, 2026-09-01), for the reason tier 1's key carries
+    it: `texts` pins the draft as it stands, and round 2 opens on the draft
+    round 1 ended on, so a group whose rewrite was rejected in round 1 was
+    answered from the record in round 2 rather than asked. `None` is the
+    legacy value and matches only itself.
 
     THE THREE LISTS TOGETHER, and none of them alone. `members` says which
     lines the record answers, so a record cannot be replayed onto a group it
@@ -5890,7 +6329,18 @@ def _group_key(members, texts, words):
         raise ValueError(
             f"a propose_group record needs members/texts/words all the same "
             f"non-zero length; got {len(m)}/{len(t)}/{len(w)}")
-    return (tuple(int(x) for x in m), tuple(t), tuple(w))
+    return (tuple(int(x) for x in m), tuple(t), tuple(w),
+            None if round_no is None else int(round_no))
+
+
+def _group_lookup(groups, group_brief):
+    """-> the recorded `new` lines for THIS group question, or None — the
+    exact (round-carrying) key first, then the legacy key (M-183)."""
+    key = _brief_key(group_brief)
+    hit = groups.get(key)
+    if hit is None:
+        hit = groups.get(key[:3] + (None,))
+    return hit
 
 
 def _brief_key(group_brief):
@@ -5908,7 +6358,35 @@ def _brief_key(group_brief):
         got = group_brief.proposal_for(n)
         texts.append(None if got is None else got[0])
         words.append(None if got is None else got[1])
-    return _group_key(members, texts, words)
+    # The round is read off the PIVOT'S brief, where the loop stamps it.
+    return _group_key(members, texts, words,
+                      getattr(getattr(group_brief, "brief", None),
+                              "round_no", None))
+
+
+def _line_key(rec):
+    """-> the tier-1 record key `(line, attempt, round)`; `round` is None
+    for a record written before the round coordinate existed (M-183)."""
+    _r = rec.get("round")
+    return (int(rec["line"]), int(rec["attempt"]),
+            None if _r is None else int(_r))
+
+
+def _line_lookup(ones, brief, attempt):
+    """-> the recorded text for THIS question, or None.
+
+    THE ROUND IS PART OF THE QUESTION. A record carrying a `round` answers
+    only the question of that round; a legacy record with none answers on
+    `(line, attempt)` alone, exactly as every record did before 2026-09-01.
+    Legacy first would let an old record shadow a newer one for the same
+    slot, so the exact key is consulted first and the legacy key only when
+    it misses.
+    """
+    text = ones.get((brief.line_no, attempt,
+                     getattr(brief, "round_no", None)))
+    if text is None:
+        text = ones.get((brief.line_no, attempt, None))
+    return text
 
 
 def _replay_proposer(path):
@@ -5924,7 +6402,23 @@ def _replay_proposer(path):
 
     THE TWO ARE KEYED DIFFERENTLY BECAUSE THE LOOP CALLS THEM DIFFERENTLY.
     Tier 1's `propose(brief, lines, attempt, reasons=None, whole=())` has a
-    line number, so (line, attempt) is its key. Tier 2's
+    line number, ~~so (line, attempt) is its key~~ **so (line, attempt,
+    round) is its key — STRUCK AND WIDENED 2026-09-01 (`MISSING.md` M-183).**
+    `attempt` restarts at 0 on EVERY round (`quality/loop.py:_try_tier1`),
+    so a key without the round made a line's round-1 answers the answers
+    to every later round's question about it: a line whose three round-1
+    proposals were all rejected was never asked again, the record replayed
+    the same rejected text into round 2, and the loop walked to NO_PROGRESS
+    with the writer never consulted (round 10's ladder, M-168/M-169). The
+    round rides `Brief.round_no`, stamped by the loop, so no proposer's
+    contract moved; the record ALSO carries `draft`, the fingerprint of the
+    lines the question was asked against, as provenance (a draft fingerprint
+    alone was tried first and is NOT enough: round 2 opens on the draft
+    round 1 ended on, so the same line at attempt 0 fingerprinted the same
+    and replayed). A record with no `round` field (every file written before
+    today) still matches on `(line, attempt)` alone, which keeps every
+    recorded run on disk replaying exactly as it did; tier 2's key gains the
+    round the same way, with the same legacy match. Tier 2's
     `propose_group(group_brief)` is handed ONE `quality.loop.GroupBrief`,
     whose `word` fields are THE WORDS THIS ATTEMPT IS ASKING FOR rather than
     the ones currently bound — so the key is the three parallel lists that
@@ -5973,10 +6467,10 @@ def _replay_proposer(path):
     ones, groups = {}, {}
     try:
         for r in rec.get("propose", []):
-            ones[(int(r["line"]), int(r["attempt"]))] = r["text"]
+            ones[_line_key(r)] = r["text"]
         for r in rec.get("propose_group", []):
-            groups[_group_key(r["members"], r["texts"], r["words"])] = \
-                tuple(r["new"])
+            groups[_group_key(r["members"], r["texts"], r["words"],
+                              r.get("round"))] = tuple(r["new"])
     except (KeyError, TypeError, ValueError) as e:
         _refuse(f"--propose=replay:{path} — a record is malformed: {e!r}",
                 detail=["`propose` records need line/attempt/text; "
@@ -5996,12 +6490,12 @@ def _replay_proposer(path):
         # answers from a record and reads neither. A proposer that WRITES
         # reads both (`quality/propose.py` renders them into the prompt);
         # this one only has to have the signature the loop calls.
-        text = ones.get((brief.line_no, attempt))
+        text = _line_lookup(ones, brief, attempt)
         tally["hit" if text is not None else "miss"] += 1
         return text
 
     def propose_group(group_brief):
-        hit = groups.get(_brief_key(group_brief))
+        hit = _group_lookup(groups, group_brief)
         tally["hit" if hit is not None else "miss"] += 1
         return hit
 
@@ -6063,7 +6557,7 @@ def _defer_state(path):
     return st
 
 
-def _defer_proposer(path):
+def _defer_proposer(path, lines=None):
     """-> (propose, propose_group, disclosure) that SUSPENDS rather than guess.
 
     THE PROBLEM THIS SOLVES, stated plainly because it is not a Python
@@ -6101,7 +6595,16 @@ def _defer_proposer(path):
     involving a writer is reproducible here at all).
     """
     from quality import propose as PR
+    from quality.revise import draft_fingerprint as _dfp
     st = _defer_state(path)
+    # A STATE THAT REACHED A STOP CONDITION IS COMPLETE, and the marker is
+    # taken OFF the state here so it is never written back stale: a run that
+    # suspends again (the draft moved, or the writer struck some answers)
+    # writes a state without it, and only the verb's own stop writes a fresh
+    # one (M-183). Read below by `disclosure()`, which is the one place a
+    # re-run is told, before the loop starts, that it is about to replay a
+    # finished run rather than continue one.
+    complete = st.pop("complete", None)
     pend = st.get("pending")
     if pend is not None:
         # A pending request with no answer is the gate. Refusing to advance is
@@ -6146,12 +6649,20 @@ def _defer_proposer(path):
             st["answered"]["propose_group"].append(rec)
         st["pending"] = None
 
-    ones = {(int(r["line"]), int(r["attempt"])): r["text"]
-            for r in st["answered"]["propose"]}
-    groups = {_group_key(r["members"], r["texts"], r["words"]):
-              tuple(r["new"])
+    ones = {_line_key(r): r["text"] for r in st["answered"]["propose"]}
+    # THE DRAFT EACH ANSWER WAS RECORDED AGAINST, beside the answer (M-183,
+    # disclosed 2026-09-02). `draft` is provenance and not part of the key —
+    # round 2 opens on the draft round 1 closed on, so keying on it would
+    # re-ask what was answered — but a state file REUSED ON AN EDITED DRAFT
+    # replays every answer keyed to the other draft with no question and,
+    # until this count, no warning (the tier-A verification's one residual
+    # on this entry). The count is read at the stop, where it is known.
+    drafts = {_line_key(r): r.get("draft")
+              for r in st["answered"]["propose"]}
+    groups = {_group_key(r["members"], r["texts"], r["words"],
+                         r.get("round")): tuple(r["new"])
               for r in st["answered"]["propose_group"]}
-    tally = {"hit": 0}
+    tally = {"hit": 0, "stale": []}
 
     def _suspend(kind, record, prompt):
         st["pending"] = {"kind": kind, "record": record, "prompt": prompt,
@@ -6159,24 +6670,36 @@ def _defer_proposer(path):
         raise _NeedProposal(kind, record, prompt)
 
     def propose(brief, lines, attempt, reasons=None, whole=()):
-        text = ones.get((brief.line_no, attempt))
+        text = _line_lookup(ones, brief, attempt)
         if text is not None:
             tally["hit"] += 1
+            _k = (brief.line_no, attempt, getattr(brief, "round_no", None))
+            if _k not in ones:
+                _k = (brief.line_no, attempt, None)
+            _rd = drafts.get(_k)
+            if _rd and _rd != _dfp(lines):
+                tally["stale"].append(_k)
             return text
+        # THE RECORD NAMES THE ROUND IT WAS ASKED IN (M-183): the same line
+        # at the same attempt in a later round is a NEW question, and the
+        # writer is asked it. `draft` is provenance — what the question was
+        # asked against — and is not part of the key.
         _suspend("propose",
-                 {"line": brief.line_no, "attempt": attempt, "text": None},
+                 {"line": brief.line_no, "attempt": attempt,
+                  "round": getattr(brief, "round_no", None),
+                  "draft": _dfp(lines), "text": None},
                  PR.render_line(brief, lines, whole=whole, attempt=attempt,
                                 reasons=reasons))
 
     def propose_group(group_brief):
-        members, texts, words = _brief_key(group_brief)
-        hit = groups.get((members, texts, words))
+        members, texts, words, round_no = _brief_key(group_brief)
+        hit = _group_lookup(groups, group_brief)
         if hit is not None:
             tally["hit"] += 1
             return hit
         _suspend("propose_group",
                  {"members": list(members), "texts": list(texts),
-                  "words": list(words), "new": None},
+                  "words": list(words), "round": round_no, "new": None},
                  PR.render_group(group_brief))
 
     def disclosure(done=False):
@@ -6184,19 +6707,60 @@ def _defer_proposer(path):
         head = (f"  PROPOSER: defer:{path} — {n} answer(s) already given, "
                 f"replayed in order")
         if not done:
-            return (head + "; nothing outside this process is reached, and "
-                    "the loop SUSPENDS at the first unanswered request "
-                    "rather than guessing")
-        return (f"{head}; {tally['hit']} consulted and answered. The loop ran "
-                f"to a stop condition, so this state is COMPLETE and its "
+            head += ("; nothing outside this process is reached, and "
+                     "the loop SUSPENDS at the first unanswered request "
+                     "rather than guessing")
+            # THE RE-RUN OF A FINISHED RUN SAYS SO, UP FRONT (M-183). Before
+            # this sentence a writer (or the chat driver's parked-continue
+            # push) re-running a complete state got the identical stop with
+            # nothing in the output saying that no question could ever be
+            # asked again. Said only when the draft handed in IS the draft
+            # the run finished on: a draft that moved is a new set of
+            # questions and needs no warning.
+            if complete and (lines is None
+                             or complete.get("draft") == _dfp(lines)):
+                _un = complete.get("unresolved") or []
+                _wf = complete.get("whole_flags") or []
+                head += (f"\n  THIS STATE IS COMPLETE: it already reached "
+                         f"{str(complete.get('stop', '?')).upper()} at exit "
+                         f"{complete.get('exit')} on this same draft "
+                         f"({complete.get('draft')})"
+                         + (f", leaving {', '.join('L%d' % x for x in _un)} "
+                            f"open" if _un else "")
+                         + (f", with WHOLE-DRAFT FLAG(S) standing: "
+                            f"{', '.join(_wf)}" if _wf else "")
+                         + ". Every answer below is replayed and the loop "
+                         "stops where it stopped; nothing is asked. To be "
+                         "asked again, start a new state file, or delete "
+                         "the `answered` records for the lines you want "
+                         "re-asked (each answer is keyed on the round and "
+                         "attempt it answered, so the loop asks afresh "
+                         "wherever the record is silent)")
+            return head
+        tail = (f"{head}; {tally['hit']} consulted and answered. The loop "
+                f"ran to a stop condition, so this state is COMPLETE and its "
                 f"`answered` block is a valid --propose=replay: file")
+        if tally["stale"]:
+            _sk = ", ".join(f"L{l} attempt {a}" + (f" round {r}" if r else "")
+                            for l, a, r in tally["stale"])
+            tail += (f"\n  {len(tally['stale'])} of those answer(s) were "
+                     f"recorded against a DIFFERENT draft ({_sk}): this "
+                     f"state file was reused on an edited draft, and a "
+                     f"recorded answer is replayed as written, never "
+                     f"re-asked. To be asked afresh on this draft, start a "
+                     f"new state file (M-183)")
+        return tail
 
     disclosure.state = st                    # the verb writes it on suspension
     return propose, propose_group, disclosure
 
 
-def _resolve_proposer(spec):
+def _resolve_proposer(spec, lines=None):
     """`--propose=`'s value -> (propose, propose_group, disclosure).
+
+    `lines` is the draft handed in, read only by `defer:` (M-183): it is how
+    a re-run of a COMPLETE state is told, before the loop starts, that it is
+    replaying a finished run on the very draft it finished on.
 
     `disclosure(done=False)` is printed TWICE — once before the loop, for
     the identity, and once after it with `done=True`, because `replay:` only
@@ -6220,7 +6784,7 @@ def _resolve_proposer(spec):
         return _replay_proposer(spec.split(":", 1)[1])
 
     if spec.startswith("defer:"):
-        return _defer_proposer(spec.split(":", 1)[1])
+        return _defer_proposer(spec.split(":", 1)[1], lines=lines)
 
     if not spec.startswith("call:"):
         _refuse(f"--propose wants 'stub', 'replay:PATH', 'defer:PATH' or "
@@ -7135,13 +7699,93 @@ def main():
                   f"(doctrine 84 — 'declared_relation' means the phonology "
                   f"answered, not the channels)")
 
+    elif cmd == "recover":
+        from quality import recover as RC
+        from quality import slots as _SLr
+        rest = args[1:]
+        spec = _flag_value(rest, "--placements", eq_only=True)
+        rest = _strip_flag(rest, "--placements")
+        bad_flag = [a for a in rest if a.startswith("--")]
+        if bad_flag:
+            _refuse(f"recover does not take {bad_flag[0]!r}",
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c]",
+                            "an unrecognised flag is refused rather than "
+                            "ignored (doctrine 20)"])
+        if len(rest) != 1:
+            _refuse("recover takes exactly one LYRIC.txt",
+                    detail=["usage: recover LYRIC.txt [--placements=a,b,c]"])
+        try:
+            declared = RC.parse_placements(spec) if spec is not None else None
+        except _SLr.SlotUnsupported as exc:
+            _refuse(f"recover --placements={spec!r}: {exc}")
+        try:
+            rec = RC.recover_file(rest[0], lex=lex, decl=decl,
+                                  placements=declared)
+        except OSError as e:
+            _refuse(f"recover {rest[0]!r} — {e.strerror or e}")
+        print(RC.render(rec))
+        # THE MANDATE SPELLING, PRINTED AS THE TWO FLAGS (M-195): the render
+        # carries it inside the `mandate_spelling` coordinate's prose; a
+        # caller hands these two lines to `brief`/`revise` verbatim, and the
+        # connector's `lyric_recover` reads them off exactly this block.
+        ms = rec.get("mandate_spelling") or {}
+        print("  MANDATE SPELLING (the cover as the two CLI flags — hand "
+              "them to brief/revise; `--groups=` charges a REPEAT edge as "
+              "a violation, `--returns=` is the only spelling that holds "
+              "one):")
+        print(f"    --groups={ms.get('--groups=', '')}")
+        print(f"    --returns={ms.get('--returns=', '')}")
+        # THE NEXT COMMAND, SPELLED (2026-09-02): `plan` prints GRADE IT and
+        # this door printed only "hand them to brief/revise" — the tier-A
+        # verification of M-195 named the gap. Quoted, so the line pastes.
+        _gi = [f"python3 lyric_harness.py brief {rest[0]}",
+               f"\"--groups={ms.get('--groups=', '')}\""]
+        if ms.get('--returns='):
+            _gi.append(f"\"--returns={ms['--returns=']}\"")
+        print(f"  GRADE IT: {' '.join(_gi)}")
+        print("      (`revise FILE MANDATE --propose=defer:STATE.json` is the "
+              "same mandate driven to a stop condition and stamped)")
+        _refs = rec.refusals()
+        if _refs:
+            print(f"  EXIT 3 — {len(_refs)} coordinate(s) REFUSED "
+                  f"({', '.join(_refs)}): a work order for the caller to "
+                  f"DECLARE, never a guess (doctrine 20). Not a failure: "
+                  f"everything counted, declared or derived above stands.")
+            sys.exit(3)
+
     elif cmd == "screen":
         rest = args[1:]
-        _usage = ("usage: screen WORD WORD [WORD...] [--relation=NAME] — "
-                  "every unordered pair among the words, judged by the "
-                  "song grader on a minimal mandated pair; --relation "
-                  "ALSO asks the named question a mandate declaring it "
-                  "will ask (M-58)")
+        _usage = ("usage: screen WORD WORD [WORD...] [--relation=NAME] "
+                  "[--bank] — every unordered pair among the words, judged "
+                  "by the song grader on a minimal mandated pair; "
+                  "--relation ALSO asks the named question a mandate "
+                  "declaring it will ask (M-58); --bank ALSO discloses "
+                  "cross-song depth over your own banked songs (M-111)")
+        # --bank IS A DECLARED COORDINATE, THE SAME STANDING `--voices` AND
+        # `--fallback` HAVE (M-111, 2026-09-02). Omitted by default, and
+        # omitting it costs NOTHING: `quality/cross_song.py` is not
+        # imported, no banked song is opened, and every byte this verb
+        # prints is what it printed before the flag existed — MEASURED on a
+        # real run, `test_cross_song.py` §6, which asserts neither this
+        # module nor the content partition it reads the bank with reaches
+        # `sys.modules`. WHAT IS NOT CLAIMED: that the tagger is spared.
+        # The slop floor loads it on every screen either way, so the saving
+        # is this module and the sixteen files, not the nltk import — the
+        # first draft of this comment said otherwise and the test that
+        # asserted it went red (doctrine 20 on the scope of a claim).
+        # Declared, it APPENDS a block after the summary and may
+        # do nothing else — the ruling on M-111 is that a reading of
+        # `songs/` DISCLOSES and never grades, and `test_cross_song.py` §5
+        # holds it mechanically by pinning the un-flagged output as a
+        # PREFIX of the flagged one. A code, a flag, a moved count or a
+        # different exit status cannot be introduced here without turning
+        # that check red.
+        want_bank = _bare_flag_or_refuse(
+            rest, "--bank",
+            "that this screen ALSO discloses, for each word, how many of "
+            "your OWN banked songs already sing it as a content word "
+            "(a disclosure with no threshold on it, M-111)")
+        rest = [a for a in rest if a != "--bank"]
         # M-58 ITEM 3: THE SCREEN CAN ASK THE QUESTION THE GRADE WILL ASK.
         # Without this, a writer screening before writing (mandatory,
         # standing rule 3) was answered from the COARSE class while the
@@ -7157,16 +7801,31 @@ def main():
                 _refuse(f"screen --relation={screen_rel!r} names no "
                         f"declarable relation: {e}")
             if _kind_s == "schema":
-                _refuse(f"screen --relation={screen_rel!r} resolves in the "
-                        f"`schema` namespace, and a schema is judged over "
-                        f"LINES — which do not exist yet at the screen. "
-                        f"The screen judges two WORDS",
-                        detail=["declare the schema in the mandate and the "
-                                "grade will judge it over the draft; or "
-                                "screen the words' ban alone, which needs "
-                                "no relation.",
-                                "`type:`/`class:` names ARE screenable — "
-                                "they judge word pairs."])
+                # ~~a schema is judged over LINES — which do not exist yet at
+                # the screen~~ STRUCK 2026-09-01 (M-189): the PAIR route
+                # (`relations.pair_satisfies`) judges a schema at two
+                # declared tokens, which is what a mandate or a drawn plan
+                # asks of two line ends. Only a shape one token cannot bind
+                # (`pair_bindable` False: a searched anchor, a span wider
+                # than a token) still refuses here, by name, for the reason
+                # the judge itself gives.
+                from quality import relations as _RL_s
+                _sch = _RL_s.REGISTRY[_canon_s]
+                if not _RL_s.pair_bindable(_sch):
+                    _refuse(f"screen --relation={screen_rel!r} names a "
+                            f"schema no single declared token can bind "
+                            f"(`relations.pair_bindable`): its member span "
+                            f"is searched or wider than a token, so judging "
+                            f"it at two end words would answer a different "
+                            f"question under its name",
+                            detail=["declare it in the mandate and the grade "
+                                    "judges it over the draft at its own "
+                                    "loci (`line_pairs_for`); the 29 "
+                                    "end-rhyme schemas ARE screenable, and "
+                                    "so is every drawn relation a plan can "
+                                    "put on a pair of line ends.",
+                                    "`type:`/`class:` names judge word "
+                                    "pairs as before."])
         bad_flag = [a for a in rest if a.startswith("--")]
         if bad_flag:
             _refuse(f"screen does not take {bad_flag[0]!r}",
@@ -7196,8 +7855,15 @@ def main():
         # verdict instead of a count).
         n_rhyme = sum(1 for r in rows
                       if not r["codes"] and not r["refused"]
-                      and r["why"] is None and not r["schema_scaffold"])
-        n_non = len(rows) - n_banned - n_ref - n_rhyme
+                      and r["why"] is None and not r["schema_scaffold"]
+                      and r["relation"] in RHYME_RELATIONS)
+        # ADMITTED NEAR RELATIONS ARE THEIR OWN COUNT (M-189): they were
+        # summed into `n_rhyme` and printed as rhymes.
+        n_near = sum(1 for r in rows
+                     if not r["codes"] and not r["refused"]
+                     and r["why"] is None and not r["schema_scaffold"]
+                     and r["relation"] not in RHYME_RELATIONS)
+        n_non = len(rows) - n_banned - n_ref - n_rhyme - n_near
         print(f"  SCREEN: {len(rows)} pair(s) from {len(words)} word(s) — "
               f"the song grader on a minimal mandated pair each, under "
               f"the active declaration; only pair-scoped findings are "
@@ -7229,14 +7895,33 @@ def main():
                 # which are scaffolding — not evidence about the pair.
                 if r["codes"]:
                     status = f"BANNED: {', '.join(r['codes'])}"
-                elif r["why"] is None and not r["schema_scaffold"]:
+                elif (r["why"] is None and not r["schema_scaffold"]
+                      and r["relation"] in RHYME_RELATIONS):
                     status = "CLEAN — RHYMES"
+                elif r["why"] is None and not r["schema_scaffold"]:
+                    # ADMITTED IS NOT RHYMES (M-189, 2026-09-01). Since the
+                    # admit door widened to all four classes (M-59) a pair
+                    # the comparator TYPES as ASSONANCE or CONSONANCE is
+                    # satisfied at a bare group and was printed "CLEAN —
+                    # RHYMES" — the same row that says it VIOLATES
+                    # class:RHYME. Said as what it is, with the consequence.
+                    status = (f"CLEAN — ADMITTED as {r['relation']} (a "
+                              f"near relation the default door admits; a "
+                              f"schema or class that needs the nucleus and "
+                              f"coda to agree will charge it; that door's "
+                              f"{door_chance_note('admit')})")
                 elif r["schema_scaffold"]:
                     status = (f"CLEAN — DOES NOT RHYME as a pair (the "
                               f"schema default answered on the SCAFFOLD: "
                               f"{', '.join(r['schema_scaffold'])})")
                 else:
                     status = f"CLEAN — DOES NOT RHYME ({r['why']})"
+                if r["coda_no_evidence"]:
+                    # E-5, the cheap half (2026-09-02): the verdict stands;
+                    # the reader learns what part of it is unsupported.
+                    _cf = next(f for f in r["flags"]
+                               if f.startswith("coda: no evidence"))
+                    status += f"  |  {_cf}"
                 if screen_rel:
                     if r["named"] is True:
                         status += f"  |  SATISFIES {screen_rel}"
@@ -7251,10 +7936,22 @@ def main():
                                    f"{_nr[:110]}")
                 print(f"  {pair}  {verdict}  {status}")
         print(f"  {n_banned} banned, {n_ref} refused, {n_rhyme} clean and "
-              f"rhyming, {n_non} clean but not a rhyme — a banned pair is "
-              f"an ANSWER; a clean non-rhyme is not banned AND not a "
-              f"family (the mandate will charge it); refusal is the "
-              f"grader's own (doctrine 28)")
+              f"rhyming, {n_near} clean and ADMITTED as a near relation, "
+              f"{n_non} clean but not a rhyme — a banned pair is "
+              f"an ANSWER; an admitted near relation passes a bare group "
+              f"and fails any schema or class that needs the rhyme; a "
+              f"clean non-rhyme is not banned AND not a family (the "
+              f"mandate will charge it); refusal is the grader's own "
+              f"(doctrine 28)")
+        # AFTER EVERYTHING, AND THAT POSITION IS THE POINT. The block is
+        # appended below the verdict table and below the summary counts so
+        # that it structurally CANNOT reach either: the disclosure is a
+        # report, and putting a report in the control layer charges the
+        # wrong layer (doctrine 79, M-111).
+        if want_bank:
+            from quality import cross_song as _CS
+            for _l in _CS.disclosure_lines(_CS.disclose(words)):
+                print(_l)
 
     elif cmd == "capacity":
         from quality import capacity as CAP
@@ -7535,6 +8232,22 @@ def main():
                   f"{note}")
         print(f"  GROUPS : {the_plan['groups']}")
         print(f"  RETURNS: {the_plan['returns'] or '(none)'}")
+        _dn = the_plan["choices"].get("density")
+        if _dn:
+            print(f"  DENSITY: binding cap {_dn['binding_cap']} — "
+                  f"{_dn['chosen_from']}")
+        _au = the_plan["choices"].get("audible")
+        if _au:
+            print(f"  AUDIBLE: {_au['audible']} of {_au['end_bound']} "
+                  f"end-bound group(s) draw a relation a listener hears as "
+                  f"END RHYME (nucleus and coda agree at the line end: "
+                  f"{', '.join(sorted(set(_au['audible_names']))) or 'none'}); "
+                  f"{_au['bare']} on the bare default; "
+                  f"{len(_au['inaudible'])} on a relation heard as "
+                  f"something else ("
+                  f"{', '.join(sorted(set(_au['inaudible']))) or 'none'}). "
+                  f"A record, not a gate (M-192): the dice are uniform over "
+                  f"the certified schemas and this is what they drew.")
         # M-112: the mandate's own weight on each section, said out loud.
         # The series' third song cleared every gate with a chorus binding
         # 23 of ~31 sung tokens and nothing had disclosed the share — it
@@ -9250,19 +9963,20 @@ def main():
             # scalar pass — so each is named here with the schema that
             # answered, because laziness at these relations is UNCALIBRATED
             # and a reader must be able to tell the two passes apart.
-            _sch_sat = (found.get("grade") or {}).get(
-                "pairs_schema_satisfied") or []
-            if _sch_sat:
-                _egs = "; ".join(
-                    f"L{r['lines'][0]}~L{r['lines'][1]} (group "
-                    f"{r['label']}) via {r['satisfied_by'][0]}"
-                    for r in _sch_sat[:4])
-                print(f"  SCHEMA DEFAULT: {len(_sch_sat)} mandated pair(s) "
-                      f"satisfied by the whole-vocabulary default, not the "
-                      f"scalar door — {_egs}"
-                      + (" …" if len(_sch_sat) > 4 else "")
-                      + " — laziness at these relations is UNCALIBRATED; "
-                      "declaring a relation narrows (M-116)")
+            # ONE DEFINITION EACH (2026-09-02): the text lives in
+            # `schema_default_disclosure` / `near_relation_default_disclosure`
+            # so a test can pin the rendering without a `finish` run, and
+            # each line now carries its door's PINNED chance rate (M-138 /
+            # M-140's disclosure halves). Neither line gates anything.
+            _g = found.get("grade") or {}
+            _sd = schema_default_disclosure(
+                _g.get("pairs_schema_satisfied") or [])
+            if _sd:
+                print(_sd)
+            _nd = near_relation_default_disclosure(
+                _g.get("verdicts") or [], rv.decl.theta_rhyme)
+            if _nd:
+                print(_nd)
             # A GROUP THAT MIXES SPAN KINDS, SAID OUT LOUD (M-114).
             # `endword`/`head` read the FRONT of a word, `end`/`headrime`/
             # `T<n>` read its RIME, and a scalar-judged family mixing the
@@ -9580,18 +10294,38 @@ def main():
                     print(f"      FAILS L{i}-L{j} {head}  — {v['why']}")
                     for ln in rest:
                         print(ln)
+                # WHERE EACH GROUP BINDS THIS LINE, AND WHETHER IT HOLDS
+                # (`MISSING.md` M-184): a line bound at two places is two
+                # questions, and a group that holds is one the writer is
+                # told to leave alone. `Brief.__str__` and
+                # `quality/propose.py` say the same in their own renderings.
+                _gs = dict(getattr(b, "group_slots", {}) or {})
+                _viol = set(getattr(b, "violated_groups", ()) or ())
                 for lab, mem, calls in b.must_answer:
                     shown = ", ".join(f"L{n} ({w!r})" for n, w in calls)
-                    print(f"      must answer group {lab} {mem}: {shown}")
+                    _place = (f" at {_gs[lab]}" if _gs.get(lab) is not None
+                              else "")
+                    _stand = ((" — VIOLATED" if lab in _viol else " — HOLDS")
+                              if _viol else "")
+                    print(f"      must answer group {lab} {mem}{_place}: "
+                          f"{shown}{_stand}")
                 if len(b.must_answer) > 1:
-                    print(f"      L{b.line_no} is a PIVOT — in "
-                          f"{len(b.must_answer)} groups, and must answer "
-                          f"every one (conjunctive; doctrine 2)")
+                    _places = ({_gs.get(lab) for lab, _m, _c in b.must_answer}
+                               if _gs else {None})
+                    if len(_places) > 1:
+                        print(f"      L{b.line_no} binds at {len(_places)} "
+                              f"PLACES — each place is its own word "
+                              f"answering its own group(s); the field below "
+                              f"is for the violated place (M-184)")
+                    else:
+                        print(f"      L{b.line_no} is a PIVOT — in "
+                              f"{len(b.must_answer)} groups, and must answer "
+                              f"every one (conjunctive; doctrine 2)")
                 if b.joint_conflict:
                     print("      NO JOINT CANDIDATE: nothing in the "
-                          "lexicon answers all of those groups at once. "
-                          "The MANDATE is what needs revising, not the "
-                          "line.")
+                          "lexicon answers all of the groups bound at this "
+                          "place at once. The MANDATE is what needs "
+                          "revising, not the line.")
                 if not b.must_answer and b.must_rhyme_with:
                     n, w = b.must_rhyme_with
                     print(f"      must rhyme with L{n} ({w!r})")
@@ -9916,7 +10650,7 @@ def main():
                 if scheme is not None:
                     _say_blueprint()
                 propose, propose_group, say_proposer = _resolve_proposer(
-                    propose_spec)
+                    propose_spec, lines=lines)
                 # DISCLOSED BEFORE THE RUN AS WELL AS AFTER IT, and the two
                 # are the same callable. Which proposer wrote the draft is
                 # the first thing a reader of this output needs and the last
@@ -9968,6 +10702,49 @@ def main():
                 print(result)
                 print(say_memo())
                 print(say_proposer(done=True))
+                # THE VERDICT'S CODE, COMPUTED ONCE and read by the stamp,
+                # the state file and the exit below (doctrine 1). `revise`
+                # used to exit 0 on NO_PROGRESS with unresolved lines, so
+                # "the loop gave up" was indistinguishable from "the draft
+                # is clean" to any caller reading the code and not the
+                # prose; 3 already means "answered, and a finding stands"
+                # on `song`/`brief`, and `result.unresolved` is the union
+                # of flagged and pursued, so a pursued note held open to
+                # the end is a 3 exactly like a flag (2026-08-17, the
+                # owner's order made a pipeline fact).
+                _open = sorted(b.line_no for b in result.unresolved)
+                # AND THE WHOLE-DRAFT FLAGS (M-186, 2026-09-01). `song` exits
+                # 3 on a whole-draft FLAG — STACKED_DRAFT, TITLE_NOT_IN_HOOK,
+                # HOOK_ABSENT name no line and are a SEPARATE count from the
+                # open lines (doctrine 79) — and this block read
+                # `result.unresolved` alone, so `finish` stamped a draft
+                # `song` refuses to pass as `exit 0 — no flag stands`.
+                # CLAUDE.md promised the 3; probed on a TITLE_NOT_IN_HOOK
+                # draft, the stamp said 0.
+                _whole_codes = [f.code for f in result.whole_flags]
+                _code = 3 if (result.unresolved or _whole_codes) else 0
+                # THE FINDINGS STANDING AT THE STOP, in the report's own
+                # `FINDING [SEV] CODE: …` spelling (M-186): the pursued
+                # notes (HOMEOTELEUTON/MODAL_RHYME) and the flags on the
+                # open lines, and the whole-draft flags. `LoopResult`'s own
+                # text names the LINES and the RULE; it never printed the
+                # findings, so the connector's `extractBannedPairs` read []
+                # off every `lyric_revise` result and the chat surface's ban
+                # chip could not fire on the finishing verb — round 10's
+                # drift into night/light/sight/might was countable nowhere.
+                if result.unresolved or _whole_codes:
+                    print("\n  STANDING AT THE STOP — the findings the open "
+                          "lines and the whole draft still carry, in the "
+                          "report's own spelling:")
+                    for _b in result.unresolved:
+                        for _f in _b.findings:
+                            if _f.severity == "flag" or _f.code in (
+                                    LP.MANDATORY_PURSUE
+                                    | frozenset(getattr(rv.rdecl, "pursue",
+                                                        ()) or ())):
+                                print(f"    L{_b.line_no}: FINDING {_f}")
+                    for _f in result.whole_flags:
+                        print(f"    WHOLE-DRAFT: FINDING {_f}")
                 if propose_spec.startswith("defer:"):
                     # The run reached a stop condition, so `pending` is empty
                     # and `answered` is now a COMPLETE record. Written on the
@@ -9975,6 +10752,23 @@ def main():
                     # a state file that only exists while a run is unfinished
                     # would make the replayable artefact the one thing a
                     # finished run does not leave behind.
+                    # AND IT SAYS IT IS COMPLETE (M-183): the stop, the code,
+                    # the draft it stopped on and the lines left open, so the
+                    # next run of the same command can tell a writer it is
+                    # replaying a finished run rather than resuming one, and
+                    # the chat driver can decline to carry it forward.
+                    # `draft` is the INPUT's fingerprint — the file a re-run
+                    # hands in again — and `final` the loop's output, which
+                    # differs from it whenever a line was fixed.
+                    say_proposer.state["complete"] = {
+                        "stop": result.stop_reason, "exit": _code,
+                        "draft": draft_fingerprint(lines),
+                        "final": draft_fingerprint(result.lines),
+                        "unresolved": _open,
+                        # the whole-draft flags that made a 3 with no line
+                        # open (M-186; carried since 2026-09-02 so the
+                        # COMPLETE notice can name the cause)
+                        "whole_flags": list(_whole_codes)}
                     with open(propose_spec.split(":", 1)[1], "w",
                               encoding="utf-8") as fh:
                         json.dump(say_proposer.state, fh, indent=2)
@@ -9984,6 +10778,28 @@ def main():
                     for i, l in enumerate(result.lines, 1):
                         mark = "*" if l != lines[i - 1] else " "
                         print(f"  {mark} L{i}: {l}")
+                if cmd == "revise" and propose_spec.startswith("defer:"):
+                    # THE SAME DOOR FOR A PASTED SONG (M-195, 2026-09-01):
+                    # `finish` renders and stamps past a stop condition and
+                    # `revise` did not, so a song with no seed — the human
+                    # door M-72 opened — had a loop but no finished song and
+                    # no convergence declaration (M-150). No plan means no
+                    # bracket headers: the lines print in order, under the
+                    # same stamp with `declared mandate` where a seed would
+                    # stand, and `mcp/lyric_tools.js:extractLoopRecord`
+                    # reads both spellings.
+                    print("\n  THE SONG, PERFORMANCE ORDER:\n")
+                    print("\n".join(result.lines))
+                    print(f"\n  [FINISHED — declared mandate — "
+                          f"exit {_code} — {result.stop_reason.upper()} "
+                          f"after {len(result.rounds)} round(s) — "
+                          + (f"UNRESOLVED: "
+                             + ", ".join(f"L{n}" for n in _open)
+                             if _open else "no flag stands")
+                          + (f" — WHOLE-DRAFT FLAG: "
+                             + ", ".join(_whole_codes)
+                             if _whole_codes else "")
+                          + "]")
                 if cmd == "finish":
                     # THE RENDER EXISTS ONLY PAST A STOP CONDITION — this
                     # call sits after `revise_loop` returned, so a
@@ -9998,8 +10814,6 @@ def main():
                     # it — exit and stop reason in the verbs' own spelling,
                     # unresolved lines named because a parked song shown
                     # without its open lines reads as a finished one.
-                    _open = sorted(b.line_no for b in result.unresolved)
-                    _code = 3 if result.unresolved else 0
                     print("\n  THE SONG, PERFORMANCE ORDER:\n")
                     from quality import plan as PLN2
                     print(PLN2.render_song(finish_plan,
@@ -10010,18 +10824,14 @@ def main():
                           + (f"UNRESOLVED: "
                              + ", ".join(f"L{n}" for n in _open)
                              if _open else "no flag stands")
+                          + (f" — WHOLE-DRAFT FLAG: "
+                             + ", ".join(_whole_codes)
+                             if _whole_codes else "")
                           + "]")
-                # EXIT 3 WHEN ANYTHING ACTIONABLE STANDS — 2026-08-17, the
-                # owner's order made a pipeline fact. `revise` used to exit 0
-                # on NO_PROGRESS with unresolved lines, so "the loop gave up"
-                # was indistinguishable from "the draft is clean" to any
-                # caller reading the code and not the prose. 3 already means
-                # "answered, and a finding stands" on `song`/`brief`;
-                # `result.unresolved` is the union of flagged and pursued, so
-                # a pursued note held open to the end is a 3 exactly like a
-                # flag.
-                if result.unresolved:
-                    sys.exit(3)
+                # EXIT 3 WHEN ANYTHING ACTIONABLE STANDS — `_code` above
+                # carries the argument, and this is its one reader.
+                if _code:
+                    sys.exit(_code)
         except NoMandate as e:
             # Exit 2, not 0. A refusal is not a pass and a caller in a
             # pipeline has to be able to tell them apart; the traceback this

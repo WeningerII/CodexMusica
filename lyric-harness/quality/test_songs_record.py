@@ -158,12 +158,70 @@ def test_the_sonnet_discriminator_is_refused():
           "QualityFeatures.NAMES" in src, str(R.feature_names()[:3]))
 
 
+def test_a_row_is_written_on_a_commit():
+    print("\n6. a row is keyed on a commit, so it is written on one "
+          "(`MISSING.md` M-196)")
+    # 124 of 164 banked rows carried `-WORKING` on 2026-09-01, every song's
+    # latest among them. The bank was re-written once on a clean tree, the
+    # writer refuses a dirty tree unless told, and this section holds both.
+    import os
+    import tempfile
+    newest = R.newest_per_song(R.read_rows())
+    dirty = sorted(n for n, r in newest.items()
+                   if r["harness_commit"].endswith("-WORKING"))
+    check("every song's LATEST banked row carries a clean sha — a "
+          "measurement keyed to a tree that exists as a commit",
+          newest and not dirty, f"dirty latest rows: {dirty}")
+    real_commit, real_results = R.harness_commit, R.RESULTS
+    tmp = tempfile.NamedTemporaryFile(suffix=".tsv", delete=False)
+    tmp.close()
+    try:
+        R.harness_commit = lambda: "abc1234-WORKING"
+        R.RESULTS = tmp.name
+        rc = R.cmd_write()
+        wrote = os.path.getsize(tmp.name) > 0
+        check("`--write` on a dirty tree REFUSES (exit 2) and writes nothing",
+              rc == 2 and not wrote, f"rc {rc}, wrote {wrote}")
+    finally:
+        R.harness_commit, R.RESULTS = real_commit, real_results
+        os.unlink(tmp.name)
+    from quality import song_log as SL
+    import io
+    import contextlib
+    real_commit = R.harness_commit
+    try:
+        R.harness_commit = lambda: "abc1234-WORKING"
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            # `python3` by name, not `sys.executable`: `verb_of` reads the
+            # verb past the interpreter's NAME, and a full path would make
+            # the refusal below the "no parser" one — the wrong reason.
+            rc2 = SL.record("no_such_song", ["python3", "lyric_harness.py",
+                                             "screen", "cat", "hat"])
+        check("`--record` on a dirty tree REFUSES before the command runs "
+              "(a refused record costs nothing) — for the DIRTY reason, "
+              "with the verb resolved",
+              rc2 == 2 and "dirty" in buf.getvalue()
+              and "no declared parser" not in buf.getvalue(),
+              f"rc {rc2}: {buf.getvalue().strip()[:90]}")
+    finally:
+        R.harness_commit = real_commit
+    src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            "song_record.py"), encoding="utf-8").read()
+    check("...and `--allow-dirty` is the DECLARED way past, in both writers",
+          "--allow-dirty" in src
+          and "--allow-dirty" in open(os.path.join(
+              os.path.dirname(os.path.abspath(__file__)), "song_log.py"),
+              encoding="utf-8").read())
+
+
 if __name__ == "__main__":
     for fn in (test_the_series_exists_and_is_rederivable,
                test_the_commit_is_a_key_column,
                test_the_drift_check_is_two_sided,
                test_the_claim_check_is_two_sided,
-               test_the_sonnet_discriminator_is_refused):
+               test_the_sonnet_discriminator_is_refused,
+               test_a_row_is_written_on_a_commit):
         fn()
     print("=" * 70)
     if FAILURES:

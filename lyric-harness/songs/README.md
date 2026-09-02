@@ -14,6 +14,20 @@ terms of that cell.
 The blueprint beside each lyric is the FILLED plan (`plan --fill`), so the
 grading command below runs without re-deriving anything.
 
+**THE `plan --seed=N` LINES BELOW DO NOT REPRODUCE AT HEAD, AND THE
+BLUEPRINTS ARE WHAT REPRODUCE (recorded 2026-09-01 by the triage audit).**
+The planner has moved since these seeds were banked — `stanza_line_floor`
+(M-106), the song band 150 -> 200 (M-131/M-133), the participation reserve
+(M-171), the density and recurrence coordinates of 2026-09-01 (M-190,
+M-191), and the SHORT floor profile of the same day (M-193), which took the
+planner's length envelope from 22–55 lines to **12–55** and re-rolled every
+seed's drawn length — and a plan is a function of the seed AND the planner.
+MEASURED before M-193: `plan --seed=22` drew **30 lines** at HEAD against
+`keep_the_light.txt`'s 18; after it, every seed below draws a different
+length again. Each song's `*.log.tsv` names the harness commit its plan was drawn at;
+re-derive a plan at THAT commit, or grade against the committed blueprint,
+which is the declaration the song was actually written to.
+
 **THE COMMITTED BLUEPRINTS ARE PRETTIER-FORMATTED AND `plan --out` IS NOT**
 (`MISSING.md` M-94). Re-running any reproduction command below rewrites its
 blueprint at `indent=1` and the repository's `gate` job refuses that file, so
@@ -765,6 +779,7 @@ the questions were asked.
     python3 quality/song_log.py --record SONG -- CMD...   # run a verb, bank what it printed
     python3 quality/song_log.py --show SONG               # render one song's log
     python3 quality/song_log.py --verdicts                # this file's process claims vs the rows
+    python3 quality/song_log.py --drafts                  # every banked md5 vs the bytes behind it
 
 **IT RECORDS EMITTED TEXT AND NOTHING ELSE.** `--record` runs the command,
 keeps its exit code, and parses stdout with a parser declared for that verb. A
@@ -796,6 +811,20 @@ could re-derive — a table whose single denominator was impossible for five of
 its own rows, which is what a number nobody can re-run does. `screen`'s own
 verdict per pair is banked now, `scrolled`'s five refusals included, each one
 naming the word CMUdict could not read.
+
+**AND SINCE 2026-09-02 THE VERB THAT GRADES A DRAFT BANKS WHAT IT GRADED.**
+The log held a fingerprint of each graded draft and not one word of it, so a
+draft that differed from its final was provable and unreadable — the reason
+`quality/ban_convergence.py` could not screen these songs' first drafts against
+their finals, and the reason two songs' graded mandates were recoverable from
+nowhere. `--record` now writes the graded lines to `songs/drafts/`, named by the
+fingerprint the verb itself printed, and banks the mandate spelling and the
+whole command beside them. `--drafts` charges every banked fingerprint against
+the bytes behind it in four counts, never summed: BANKED, RECOVERABLE from the
+committed lyric, LOST before the mechanism existed, and FAILING — recorded
+after it and missing anyway, which is the only one that is red. The four lost
+drafts stay lost and stay named; a check written after a history cannot make
+that history true.
 
 **A CITATION IS KEYED ON A WORD, NOT A ROW NUMBER.**
 `[LOG: clean_or_non_rhyme carry_it_over.txt bell]` names the screen run that
@@ -847,7 +876,27 @@ the draft unchanged. No MODAL_RHYME, HOMEOTELEUTON or PREDICTABLE_RHYME note
 stands anywhere in the report, because the screening happened before the
 writing rather than after it.
 
-## the_long_way_back — the song M-148 parked, finished the day the judge was repaired
+## `i_am_not_leaving.txt` — parked at exit 3, never given a section until 2026-09-01
+
+Banked 2026-08-26 at `f19895d` under a declared mandate of 12 groups over
+20 sung lines (65 mandated pairs). Its last recorded run is `song` exit 3
+with 1 FLAG — one `SCHEME_VIOLATION` — and 86 notes, none of them
+whole-draft flags. It was never finished and never listed here; the
+2026-09-01 triage audit (finding C27, `MISSING.md` M-196) found it in the
+bank with no section, and this section exists so the `--verdicts` gate has
+prose to charge. What stands is the one violated pair; the song is parked,
+not abandoned, and the seed it was planned from is in its log.
+
+## `oar_lair.txt` — parked at exit 3, never given a section until 2026-09-01
+
+Banked 2026-08-30 at `cdce6c3` under a declared mandate of 27 groups over
+23 sung lines (61 mandated pairs). Its one recorded run is `song` exit 3
+with 4 FLAG — four `SCHEME_VIOLATION` — and 107 notes, none of them
+whole-draft flags; the mandate's hook is undeclared (`HOOK_UNDECLARED`). It
+was never finished and never listed here, for the same reason as the
+section above, and this section exists for the same gate.
+
+## `the_long_way_back.txt` — the song M-148 parked, finished the day the judge was repaired
 
 **"The Long Way Back", seed 28 of the verse-chorus form, 29 lines in 7
 sections, graded at exit 0 with 0 per-line flags and 0 whole-draft flags on

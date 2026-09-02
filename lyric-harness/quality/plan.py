@@ -221,6 +221,56 @@ FORM_REQUIRES = {
     "verse-chorus": ("chorus", "verse"),
 }
 
+#: RECURRENCE (`MISSING.md` M-190, ruled 2026-09-01 under the owner's
+#: delegation): a function the form requires to come BACK. A chorus drawn
+#: once is a section with a chorus's name — `grid.py`'s own sentence, *"a
+#: hook is defined by RETURN; one occurrence is a phrase"* — and a plan that
+#: drew one could declare no hook slot, so the two hook flags were never
+#: askable and a song with no chorus finished at exit 0 (6 of 16 banked
+#: songs; three blind judges cut `wheat_mane` for exactly this shape).
+#: MEASURED 2026-09-01 over `corpus/song/`: 43 of 792 chorus-bearing blocks
+#: print a [CHORUS] marker twice — and that number is the PRINTING
+#: convention, not the form: songsters and hymnals print the chorus once
+#: and sing it after every verse (A-1 records both placements), so a marker
+#: count is not evidence against recurrence and was not used as one.
+#: Enforced the way FORM_REQUIRES is: by REJECTION inside the pattern draw,
+#: so the draw stays uniform over the admissible set. Seeds whose first
+#: admissible pattern already recurred are byte-identical; 28 of 40 seeds
+#: (M-190's measurement) draw a different pattern now.
+FORM_RECURS = {
+    "verse-chorus": ("chorus",),
+}
+
+
+def form_min_sections(form):
+    """-> the fewest SUNG sections a plan of `form` can carry: every
+    function `FORM_REQUIRES` names once, and every returner `FORM_RECURS`
+    names at least twice. DERIVED from the two tables, never typed
+    (2026-09-01, `MISSING.md` M-193): the length envelope reads it so the
+    planner never volunteers a total its own form cannot fill — a
+    six-line verse-chorus song has one stanza-sized cell and needs three.
+    """
+    need = {}
+    for fn in FORM_REQUIRES.get(form, ()):
+        need[fn] = max(need.get(fn, 0), 1)
+    for fn in FORM_RECURS.get(form, ()):
+        need[fn] = max(need.get(fn, 0), 2)
+    return sum(need.values())
+
+
+def fillable_line_counts(form="verse-chorus"):
+    """-> `song_line_counts()` restricted to the totals whose stanza-sized
+    cell ceiling (`total // stanza_line_floor()`, the bound `make_plan`
+    hands the pattern draw) can hold `form_min_sections(form)` sections.
+    The gradeable set is the FLOOR's answer and this is the FORM's; the
+    draw is uniform over their intersection, so a total the pattern draw
+    would reject on every attempt is never drawn and the disclosed
+    envelope is a range the planner can actually fill."""
+    stanza = stanza_line_floor()
+    need = form_min_sections(form)
+    return frozenset(t for t in song_line_counts()
+                     if max(1, t // stanza) >= need)
+
 #: MEASURED, DECLARED, AND DELIBERATELY NOT ENFORCED (doctrine 16/22: an
 #: uncalibrated cut is a rate before it is a rule). Each row is a rate over
 #: `corpus/song/`, and each is here so that the NEXT person to reach for it
@@ -405,8 +455,18 @@ def song_line_counts():
     text were unioned, and a moved band adds one without touching the case.
 
     THE SONG PROFILE ALONE IS CONTIGUOUS — ~~**17..55, 39 values**~~
-    **22..55, 34 values, still no hole** — and it is the profile that grades
-    the object this planner emits. The
+    ~~**22..55, 34 values, still no hole**~~ — and it is the profile that
+    grades the object this planner emits. **REPINNED 2026-09-01 (`MISSING.md`
+    M-193): a SECOND lyric-sheet profile, `short` (50-150 tokens), joined
+    the floor, and this function unions every `n_lines == 0` profile by
+    construction — so the set is now `{6..20} | {22..55}`, 49 values, with
+    ONE hole at 21 (150 tokens at the band's lowest tokens-per-line is 20
+    lines; 200 tokens at its highest is 22). The hole is the seam between
+    two calibrated bands, the same species as the 6-11 and 18-21 holes this
+    docstring already diagnoses. What the PLANNER volunteers is narrower
+    than this set: `fillable_line_counts()` intersects it with the totals
+    the form's minimum section count can fill (12 and up for verse-chorus),
+    and `ENVELOPE["total_lines"]` reads that.** The
     profile is identified by `n_lines == 0`, which is its own declaration
     that a lyric sheet has no fixed line count, and not by its name: a name
     test would be a second statement of which profile means what (doctrine
@@ -494,7 +554,13 @@ def _envelope():
     # from the profile that grades one. `gradeable_line_counts()` still
     # answers its own question and is still exported; it is simply not the
     # question a SONG planner is asking.
-    ok = song_line_counts()
+    # AND ONLY THE TOTALS THE DEFAULT FORM CAN FILL (M-193, 2026-09-01):
+    # the short-song profile took the gradeable set down to 6 lines, and a
+    # six-line verse-chorus song has one stanza-sized cell where the form
+    # needs three, so every draw of it was rejected by the pattern loop.
+    # The set is intersected with the form's own minimum here, so the
+    # envelope this file discloses is one the sampler can fill.
+    ok = fillable_line_counts(PLAN_FORMS[0] if PLAN_FORMS else "verse-chorus")
     stanza = stanza_line_floor()
     d_lo, d_hi = MB.ADOPTED["DENSITY"]
     # TWO ENDS, ONE CALIBRATED BAND, TWO UNITS (`MISSING.md` M-81(B)). The
@@ -1765,6 +1831,10 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
         # correctness argument the roster block above already makes.
         if need and not need <= set(funcs):
             continue
+        # THE FORM'S RECURRENCE (M-190): a required returner must be drawn
+        # at least twice, or the pattern is not the form it names.
+        if any(funcs.count(fn) < 2 for fn in FORM_RECURS.get(form, ())):
+            continue
         if not _GR.placement_findings(list(funcs)):
             return tuple(funcs)
     raise PlanRefused(
@@ -1772,6 +1842,8 @@ def _sample_pattern(rng, roster=None, form=None, max_cells=None):
         + (f" under the declared roster {sorted(roster)}" if roster else "")
         + (f" carrying every function `--form={form}` requires "
            f"({', '.join(sorted(need))})" if need else "")
+        + (f" and drawing {', '.join(FORM_RECURS[form])} at least twice "
+           f"(the form's recurrence, M-190)" if FORM_RECURS.get(form) else "")
         + f". The placement constraints on `grid.SECTION_FUNCTIONS`"
         + (", the declared roster," if roster else "")
         + (", the form's membership," if need else "")
@@ -1866,6 +1938,13 @@ SWEEP_MEASURES = {
                 "recur without a second set of rhyme pins fighting the first",
                 lambda p: len([g for g in str(p.get("returns") or "").split(";")
                                if g.strip()])),
+    "binding_cap": ("the plan's own DENSITY coordinate (M-191): the most "
+                    "web bindings any line was ASKED to draw, 1 (one web "
+                    "binding a line — the classic end-rhyme song) to the "
+                    "line-binding ceiling (the old draw); "
+                    "`bound_words_per_line` is what the draw then measured",
+                    lambda p: int(p["choices"].get("density", {})
+                                  .get("binding_cap", 0))),
     "pins_per_line": ("the most words any one line is bound at — the "
                       "coordinate `M-79`'s Finding 3 says has none",
                       lambda p: max(_sweep_pins(p).values() or [0])),
@@ -2186,7 +2265,7 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     # REJECTION SAMPLING over the generated grammar: uniform over the
     # space, CONDITIONED on the envelope (and on --lines when given).
     # Deterministic — the retries are the same rng stream.
-    _GRADEABLE = song_line_counts()
+    _GRADEABLE = fillable_line_counts(form)
     _STANZA = stanza_line_floor()
     k_lo, k_hi = ENVELOPE["lines_per_section"]
     for _attempt in range(500):
@@ -2379,6 +2458,32 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     _cap_lo = min(int(line_syllable_ceiling(s)) for s in _spans)
     _max_token = max(1, min(int(tokens_per_line_band()[0]), _cap_lo - 1))
 
+    # THE DENSITY COORDINATE (`MISSING.md` M-191, ruled 2026-09-01 under the
+    # owner's delegation). Each line's participation was drawn uniform over
+    # [1, line_binding_ceiling] — E[want] = 2.5 at the ceiling of 4 — so the
+    # MEAN bound words per line was pinned near 2.5 by the draw itself and
+    # the sparse band the five listenable songs occupy (<= 1.5, M-181) was
+    # unreachable at ANY seed and ANY length: `plan --sweep=1-100
+    # --want=bound_words_per_line<=1.5` accepted 0 of 99. The owner refused
+    # both extremes — a plan that binds only line ends and one that binds
+    # everything — so the count stays DRAWN; what it lacked was a coordinate
+    # ABOVE the line. A plan now draws its own cap, uniform over
+    # [1, line_binding_ceiling], and every line draws uniform over [1, cap]:
+    # a cap of 1 is the classic end-rhyme song with one web binding a line,
+    # a cap of 4 is exactly the old draw, and the sweep's
+    # `bound_words_per_line` / `binding_cap` can select either.
+    # DRAWN FROM A STREAM OF ITS OWN, seeded on (seed, "density"), so the
+    # main stream is undisturbed: a seed whose cap draws the ceiling plans
+    # byte for byte as it did before this coordinate existed. MEASURED
+    # 2026-09-01 over seeds 1-40 against the pre-ruling planner: 8 seeds
+    # draw the ceiling, 3 of them are byte-identical (minus the two new
+    # disclosure keys), and the other 5 moved at the PATTERN draw — M-190's
+    # recurrence rule, each of the five having drawn its chorus once — and
+    # not here. The end-rhyme pass is unchanged and still binds free line
+    # ends on top of this.
+    _pool_ceiling = line_binding_ceiling(_max_token)
+    binding_cap = random.Random(f"{seed}:density").randint(1, _pool_ceiling)
+
     # Lay out sections and line slots.
     sections, line_slots = [], []
     #: WHICH WORDS EACH LINE ALREADY BINDS. A line may join a further group
@@ -2518,7 +2623,7 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                 # `endword` are one word between them and so are `head`,
                 # `headrime` and `T1`, so the number of names overstates what
                 # a line can carry (M-80).
-                pool_n = line_binding_ceiling(_max_token)
+                pool_n = min(binding_cap, line_binding_ceiling(_max_token))
                 want = {ln: rng.randint(1, pool_n) for ln in sec_lines}
                 have = {ln: sum(1 for g in groups
                                 for m in g
@@ -2685,6 +2790,15 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
                           for fn, v in anacrusis.items()},
             "bars_per_line": bars,
             "subdivision": sub,
+            "density": {"binding_cap": binding_cap,
+                        "chosen_from": (f"uniform over 1..{_pool_ceiling} per "
+                                        f"PLAN (the line-binding ceiling), "
+                                        f"from a stream seeded on (seed, "
+                                        f"'density'); each line then draws "
+                                        f"its participation uniform over "
+                                        f"1..{binding_cap}, and the end-rhyme "
+                                        f"pass binds free line ends on top "
+                                        f"(M-191)")},
         },
         "total_lines": total,
         "sections": sections,
@@ -3097,6 +3211,7 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             f"M-121; the count is exact and the draw is entropy-last)"),
         "value": {k: v for k, v in plan["narrative"].items()
                   if k != "reason"}}
+    plan["choices"]["audible"] = audible_share(plan)
     plan["writer_brief"] = writer_brief(plan)
     return plan
 
@@ -3163,6 +3278,47 @@ def _pickup_phrase(beats):
     return f", {n}-{unit}-beat pickup"
 
 
+def audible_share(plan):
+    """-> the plan's END-BOUND groups partitioned by whether a listener
+    hears their drawn relation as end rhyme (`MISSING.md` M-192; the
+    disclosure M-120 / RULINGS WANTED #6 asked for). A RECORD (M-73): the
+    dice are untouched, the share is printed beside them.
+
+    An END-BOUND group is one whose every member binds at the line end
+    (`end` / `endword`); a group with a member inside a line is heard as
+    something else whatever its relation. Among those, the bare default
+    (the coarse band, which admits assonance and consonance since M-59) is
+    counted apart from the drawn schemas, and a schema counts as audible
+    by `relations.audible_as_end_rhyme` — both spans at the line-final
+    token, nucleus AND coda required to agree.
+    """
+    from quality import relations as _RLa
+    rels = plan.get("relations") or {}
+    out = {"end_bound": 0, "audible": 0, "bare": 0, "inaudible": [],
+           "audible_names": []}
+    for gi, g in enumerate((plan.get("groups") or "").split(";")):
+        if not g.strip():
+            continue
+        members = [m.strip() for m in g.split(",")]
+        at_end = all(("." not in m) or m.split(".", 1)[1] in ("end", "endword")
+                     for m in members)
+        if not at_end:
+            continue
+        out["end_bound"] += 1
+        name = rels.get(SC.label((gi,)))
+        if not name:
+            out["bare"] += 1
+            continue
+        sname = name.split(":", 1)[1]
+        sch = _RLa.REGISTRY.get(sname)
+        if sch is not None and _RLa.audible_as_end_rhyme(sch):
+            out["audible"] += 1
+            out["audible_names"].append(sname)
+        else:
+            out["inaudible"].append(sname)
+    return out
+
+
 def section_header(sec, slots):
     """The bracket header for one section — measurements SURFACED from the
     section's own dict and its own line slots, the same numbers the grid
@@ -3217,6 +3373,17 @@ def writer_brief(plan):
         slots = [s for s in plan["line_slots"]
                  if s["section"] == sec["name"]]
         out.append("  " + section_header(sec, slots))
+        # THE NUMBER SLOTS_EXCEEDED GRADES AGAINST, where the writer reads
+        # (`MISSING.md` M-192): the METER row says 8, the line holds 5 after
+        # its pickup, and the flag is hard. Printed UNDER the bracket, never
+        # inside it — the bracket is the measurement carrier every gate
+        # reads byte for byte (M-97, check_render_form).
+        if slots:
+            _cap = int(line_syllable_ceiling(
+                slots[0]["duration"] * plan["subdivision"]))
+            out.append(f"      up to {_cap} syllables a line after the "
+                       f"pickup; the calibrated band asks at least "
+                       f"{MB.ADOPTED['DENSITY'][0]}")
     out.append(f"Feel: {m['beats']}/{m['unit']} grouped "
                f"{'+'.join(str(g) for g in m['groups'])}.")
     if plan["groups"]:
@@ -3270,7 +3437,95 @@ def writer_brief(plan):
                    f"line someone leaves humming.")
     elif plan.get("hook_slot_refused"):
         out.append(f"NO HOOK IS DECLARED: {plan['hook_slot_refused']}.")
+    out.extend(brief_legend(plan))
     return "\n".join(out)
+
+
+def place_gloss(place):
+    """-> one placement name in words, DERIVED from the rule `slots.py`
+    binds it to (M-192): WHICH word (`slots.word_phrase`, the one
+    writer-facing spelling) and HOW MUCH of it is read (the rule's own
+    anchor and magnitude). Nothing here is a second table: `T4` is
+    'word 4, read as a rhyme span — from its last stressed syllable to
+    its end' because that is what `_token_rule` declares, and `head` is
+    'the first word, its first syllable' because `REL.HEAD_LINE` is.
+    An unparseable name is said to be one rather than glossed."""
+    from quality import slots as _SLg
+    try:
+        slot = _SLg.parse_slot(f"1.{place}")
+        who = _SLg.word_phrase(slot)
+        rule = slot.rule
+    except Exception as exc:                               # noqa: BLE001
+        return f"a placement this vocabulary cannot read ({exc})"
+    if getattr(rule, "magnitude", None) == "whole":
+        how = "every syllable of the line, in order"
+    elif rule.anchor == "last_stressed":
+        how = ("read as a rhyme span — from its last stressed syllable "
+               "to its end")
+    elif rule.anchor == "word_start" and rule.magnitude == "to_word_end":
+        how = "read whole, from its first syllable"
+    elif rule.anchor == "word_start":
+        how = "its first syllable — the head-rhyme / alliteration reading"
+    else:
+        how = f"anchored at {rule.anchor}"
+    who = who if who.startswith("word ") else f"the {who}"
+    return f"{who}, {how}"
+
+
+def brief_legend(plan):
+    """-> the legend the rhyme plan needs to be READ (`MISSING.md` M-192):
+    what each place a group names binds, and what each drawn relation
+    asks, one line apiece, derived from the slot vocabulary and the
+    registry rather than typed. The brief used to name `T5`, `headrime`
+    and `Scots vowel-length rhyme (Aitken's Law)` with no gloss anywhere
+    a writer could reach, and the connector returns only this text."""
+    from quality import slots as _SLb
+    from quality import relations as _RLb
+    out = []
+    places = []
+    for g in (plan.get("groups") or "").split(";"):
+        for m in g.split(","):
+            m = m.strip()
+            if "." in m:
+                pl = m.split(".", 1)[1]
+                if pl not in places:
+                    places.append(pl)
+    if places:
+        out.append("Where a binding sits (a bare line number is its end "
+                   "word, read as a rhyme span):")
+        for pl in places:
+            out.append(f"  {pl}: {place_gloss(pl)}")
+    names = []
+    for name in (plan.get("relations") or {}).values():
+        sname = name.split(":", 1)[1]
+        if sname not in names:
+            names.append(sname)
+    if names:
+        out.append("What each named relation asks of the bound words:")
+        for sname in names:
+            sch = _RLb.REGISTRY.get(sname)
+            if sch is None:
+                continue
+            agree = [c.channel for c in sch.channels
+                     if c.required and isinstance(c.predicate, _RLb.Agree)]
+            differ = [c.channel for c in sch.channels
+                      if c.required and isinstance(c.predicate, _RLb.Differ)]
+            loci = {r.locus for r in (sch.spans[0], sch.spans[-1])}
+            where = ("at the line end" if loci == {"line_final_token"}
+                     else "at the line head" if loci == {"line_initial_token"}
+                     else "inside the line")
+            bits = []
+            if agree:
+                bits.append("agree on " + ", ".join(agree))
+            if differ:
+                bits.append("differ on " + ", ".join(differ))
+            aka = f" (also: {sch.aka[0]})" if sch.aka else ""
+            out.append(f"  {sname}{aka}: the bound words "
+                       f"{'; '.join(bits) or 'stand in the schema'}, "
+                       f"judged {where}"
+                       + ("" if _RLb.audible_as_end_rhyme(sch)
+                          else " — NOT heard as end rhyme"))
+    return out
 
 
 def grading_command(plan, draft_path="DRAFT.txt", bp_path="BP.json"):

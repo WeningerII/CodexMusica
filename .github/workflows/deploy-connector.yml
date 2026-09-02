@@ -35,6 +35,9 @@ on:
 
 permissions:
   contents: read
+  # The same-sha guard reads THIS workflow's own run history through the
+  # job's token (scripts/last_deployed_sha.sh, M-187 (b), 2026-09-02).
+  actions: read
 
 # Serialized, and NOT cancel-in-progress: a deploy POST that has been accepted
 # cannot be un-sent, so cancelling a run mid-flight would leave Render building
@@ -49,9 +52,46 @@ jobs:
     # that is the whole point of the file. `workflow_dispatch` is allowed
     # through for the manual case (a deploy hook rotated, a Render build lost),
     # and it still passes the guard below.
+    #
+    # AND A CI RUN THAT NO PUSH STARTED MUST NOT DEPLOY EITHER — 2026-09-01,
+    # `MISSING.md` M-187. `workflow_run` fires on EVERY completed CI run whose
+    # head branch is main, and CI has two crons (`17 4 * * *` nightly,
+    # `0 6 * * 1` weekly) and a manual dispatch, all of which run on main's
+    # UNCHANGED tip. MEASURED off the run list (`gh run list
+    # --workflow=deploy-connector.yml --json headSha,createdAt,conclusion`):
+    # deploy runs #22-#26 all deployed 1206fe25 — five deploys of one sha in
+    # 38 h (2026-08-30 20:46Z to 2026-09-01 10:43Z). #22 was the merge's own
+    # push run (CI #1176); #23 a manual dispatch (CI #1177); #24, #25 and #26
+    # scheduled runs (CI #1180, #1179, #1183). Each rebuilt the image and
+    # restarted the live process to serve the bytes it was already serving.
+    # The guard below cannot see this: it asks whether the sha is main's tip,
+    # and an unchanged tip IS the tip. `event == 'push'` is the condition, and
+    # it would have stood four of the five down. The head_repository equality
+    # beside it is the trust half sync-pages.yml argues in full (a fork branch
+    # literally named `main` satisfies `branches: [main]`); here the guard
+    # would have gone RED on a sha it cannot resolve rather than deployed it,
+    # which is noise rather than a hole, and still the wrong answer.
+    #
+    # ~~WHAT THIS DOES NOT CLOSE, and why scripts/deploy_guard.sh gained no
+    # same-sha no-op: a RE-RUN of a push's CI run keeps `event == 'push'` and
+    # redeploys its sha once more. Standing that down needs the sha the live
+    # process is SERVING, and nothing in this repository holds it~~ — CLOSED
+    # 2026-09-02 (M-187 (b)) on a weaker and sufficient record: not the sha
+    # the process is SERVING but the sha Render was last ASKED to build, which
+    # this workflow's own run history holds (the last run whose `Deploy` step
+    # concluded success — `scripts/last_deployed_sha.sh`, read with the job's
+    # token under `actions: read`; no secret, service, artifact or variable
+    # added). A re-run of a push's CI run now stands down at the guard. The
+    # Deploy step's ACCEPTED IS NOT DEPLOYED still holds and is still
+    # mcp/check_live.mjs's question; a build Render accepted and then lost is
+    # re-asked by `workflow_dispatch`, which skips the lookup on purpose, and
+    # an unreadable history deploys WITH A WARNING rather than standing down
+    # — an unknown is not a match.
     if: >-
-      github.event_name == 'workflow_dispatch' ||
-      github.event.workflow_run.conclusion == 'success'
+      ${{ github.event_name == 'workflow_dispatch' ||
+          (github.event.workflow_run.conclusion == 'success' &&
+           github.event.workflow_run.event == 'push' &&
+           github.event.workflow_run.head_repository.full_name == github.repository) }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -74,20 +114,52 @@ jobs:
           fi
           echo "sha=$SHA" >> "$GITHUB_OUTPUT"
 
-      # THREE ANSWERS, NEVER COLLAPSED (the shape mcp/check_live.mjs uses):
-      # 0 DEPLOY, 10 STAND DOWN — a newer commit's run will deploy — and any
-      # other code a real error. A stand-down is not a failure and must not
-      # paint the run red, or people learn to ignore the colour.
-      - name: May this commit be deployed? (the ordering guard)
-        id: guard
+      # THE LAST SHA RENDER WAS ASKED TO BUILD (M-187 (b), 2026-09-02): read
+      # off this workflow's run history, never guessed. Skipped on a manual
+      # dispatch — the operator re-asking for a sha is the one legitimate way
+      # to deploy an unchanged tree (a build Render accepted and lost). A
+      # history the API will not serve is UNKNOWN: the guard runs without it,
+      # deploys, and this step says so in the log rather than standing down
+      # on a value it never had.
+      - name: What sha was Render last asked to build? (this workflow's own record)
+        id: last
+        if: github.event_name != 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set +e
-          BUILT_SHA="${{ steps.sha.outputs.sha }}" scripts/deploy_guard.sh --verbose
+          LAST=$(scripts/last_deployed_sha.sh)
           rc=$?
           set -e
+          if [ "$rc" -ne 0 ]; then
+            echo "WARNING — the run history could not be read (exit $rc); the same-sha"
+            echo "  check will NOT run and this commit deploys as before. Unknown is not a match."
+            LAST=""
+          fi
+          echo "last accepted deploy: ${LAST:-none on record}"
+          echo "last=$LAST" >> "$GITHUB_OUTPUT"
+
+      # THREE ANSWERS, NEVER COLLAPSED (the shape mcp/check_live.mjs uses):
+      # 0 DEPLOY, 10 STAND DOWN — a newer commit's run will deploy, or Render
+      # has already been asked for exactly this tree — and any other code a
+      # real error. A stand-down is not a failure and must not paint the run
+      # red, or people learn to ignore the colour. The guard's own first line
+      # is carried to the Stood down step so the reason is the guard's, not a
+      # paraphrase.
+      - name: May this commit be deployed? (the ordering guard, then the same-sha guard)
+        id: guard
+        env:
+          LAST_DEPLOYED_SHA: ${{ steps.last.outputs.last }}
+        run: |
+          set +e
+          out=$(BUILT_SHA="${{ steps.sha.outputs.sha }}" scripts/deploy_guard.sh --verbose 2>&1)
+          rc=$?
+          set -e
+          echo "$out"
           case $rc in
             0)  echo "go=yes" >> "$GITHUB_OUTPUT" ;;
-            10) echo "go=no"  >> "$GITHUB_OUTPUT" ;;
+            10) echo "go=no"  >> "$GITHUB_OUTPUT"
+                echo "why=$(printf '%s\n' "$out" | grep -m1 'STAND DOWN')" >> "$GITHUB_OUTPUT" ;;
             *)  echo "deploy_guard failed with $rc"; exit $rc ;;
           esac
 
@@ -143,6 +215,10 @@ jobs:
 
       - name: Stood down
         if: steps.guard.outputs.go == 'no'
+        env:
+          WHY: ${{ steps.guard.outputs.why }}
         run: |
-          echo "No deploy: main has moved past the commit this run validated."
-          echo "The newer commit's own CI run is what deploys it."
+          echo "No deploy. ${WHY}"
+          echo "Either main has moved past the commit this run validated (the newer"
+          echo "commit's own CI run deploys it), or Render was already asked to build"
+          echo "exactly this sha (a re-run of a push's CI run — M-187 (b))."

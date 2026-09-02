@@ -258,6 +258,35 @@ HOM = {"mattr": 0.02, "fwr": 0.02, "cv": 0.02, "anaphora": 0.03,
 BIN, MIN_BIN, MIN_BAND_N = 50, 100, 300
 EDGES = list(range(50, 1001, BIN))
 
+#: A SECOND PROFILE UNDER THE SAME RULE (2026-09-01,
+#: `quality/SHORT_SONG_FLOOR_PREREGISTRATION.md`). `--profile short` searches
+#: the SAME band rule over edges that stop at 200 — where the `song`
+#: profile's measured range begins, so no token count is covered by both —
+#: and computes the expensive fifth check only for items that can enter a
+#: candidate band (`pred_max_tokens`), which is exact for every statistic a
+#: run reports over the band. `--profile song` is byte-identical to the
+#: runner before this table existed: its edges are `EDGES` and it caps
+#: nothing.
+PROFILE_EDGES = {"song": list(range(50, 1001, BIN)),
+                 "short": list(range(50, 201, BIN))}
+PROFILE_PRED_MAX = {"song": None, "short": 200}
+#: The anaphora period slope each shipped row quotes (rho, p_perm), pinned
+#: per profile: a correlation over a band's DATED authors is a fact about
+#: that band, so `check_shipped` reads the row it is judging rather than the
+#: `song` profile's constants for every profile.
+PROFILE_PERIOD = {"song": (-0.025, 0.6605), "short": (0.164, 0.0022)}
+#: The anaphora period rho each profile's note must keep VISIBLE as a struck
+#: figure (doctrine 17), or None where nothing was ever struck: the `song`
+#: row withdrew +0.275 on 2026-08-20; the `short` row was adopted with its
+#: rho live and has struck nothing.
+PROFILE_STRUCK_RHO = {"song": 0.275, "short": None}
+PROFILE_CANDIDATES = {
+    "song": [(50, 400), (100, 400), (150, 400), (150, 450), (200, 400),
+             (200, 500), (100, 800)],
+    "short": [(50, 100), (50, 150), (50, 200), (100, 150), (100, 200),
+              (150, 200)],
+}
+
 #: Default sample seed, DECLARED rather than left to the clock, so a `--sample`
 #: run reproduces and two people quoting one can be talking about the same draw.
 SAMPLE_SEED = 20260813
@@ -612,7 +641,7 @@ def predictability_frac(qf, lines, obvious_cutoff=0.90):
 
 
 def population(verbose=True, qf=None, with_predictability=True, scorer=None,
-               sample=None, sample_seed=SAMPLE_SEED):
+               sample=None, sample_seed=SAMPLE_SEED, pred_max_tokens=None):
     """-> ([row], scorer), one row per `--- TITLE:` item in corpus/song/eng_*.txt.
 
     `qf`/`scorer` let a caller share one `QualityFeatures` (and its
@@ -657,8 +686,15 @@ def population(verbose=True, qf=None, with_predictability=True, scorer=None,
             "mattr": QualityFeatures._mattr(words, MATTR_WINDOW),
             "fwr": (sum(1 for _, tg in flat if tg in FUNCTION_TAGS)
                     / len(flat)) if flat else float("nan"),
+            # `pred_max_tokens` (2026-09-01): an item that cannot enter any
+            # candidate band is not scored on the check that costs 96% of a
+            # cold run; NaN here is "not asked", and no band statistic reads
+            # a row outside its band.
             "predictability": (scorer.frac(body)
-                               if with_predictability else float("nan")),
+                               if with_predictability
+                               and (pred_max_tokens is None
+                                    or len(words) <= pred_max_tokens)
+                               else float("nan")),
             "anaphora": anaphora(body), "cv": line_cv(body),
             # kept so --verify-cache can re-derive an item without re-parsing
             # the corpus; nothing statistical reads it
@@ -890,7 +926,7 @@ class NoBandSatisfiesTheRule(Exception):
     """
 
 
-def pick_band(rows, verbose=True):
+def pick_band(rows, verbose=True, profile="song"):
     best = None
     for i, lo in enumerate(EDGES):
         for hi in EDGES[i + 1:]:
@@ -911,8 +947,7 @@ def pick_band(rows, verbose=True):
               "%d authors" % (best[2], best[3], best[1],
                               len({r["file"]
                                    for r in band(rows, best[2], best[3])})))
-        for lo, hi in [(50, 400), (100, 400), (150, 400), (150, 450),
-                       (200, 400), (200, 500), (100, 800)]:
+        for lo, hi in PROFILE_CANDIDATES[profile]:
             good, why = band_ok(rows, lo, hi)
             print("     %4d-%4d n=%5d  %-3s %s"
                   % (lo, hi, len(band(rows, lo, hi)), "OK" if good else "no",
@@ -1035,6 +1070,7 @@ def report_tolerance(rows, lo, hi, seeds):
           "held-out authors' items across the whole applied band")
     print("   %-6s %-12s %s" % ("factor", "applied", "  ".join(
         "%-9s" % c[0] for c in CHECKS) + "  ANY"))
+    anys = []
     for t in (1.0, 1.1, 1.25, 1.5, 2.0, 3.0):
         a, b = int(lo / t), int(hi * t)
         runs = []
@@ -1052,10 +1088,31 @@ def report_tolerance(rows, lo, hi, seeds):
         print("   %-6.2f %-12s %s" % (t, "%d-%d" % (a, b), " ".join(
             "%8.2f%%" % (100 * statistics.median([r[f] for r in runs]))
             for f in [c[0] for c in CHECKS] + ["ANY"])))
-    print("   Every check gets worse monotonically, so the tolerance is a "
-          "real cost and not a free courtesy. The song profile declares 1.25. "
-          "The other two profiles keep 2.0 because re-measuring them needs "
-          "the sonnet classes, and that is a different cell's to move.")
+        if runs:
+            anys.append(statistics.median([r["ANY"] for r in runs]))
+    # THE DIRECTION IS READ OFF THE TABLE, NOT ASSERTED (2026-09-01): this
+    # line said "every check gets worse monotonically" as a literal, which
+    # was true of the `song` band and is FALSE of the `short` one, where a
+    # floor calibrated on short sheets fires LESS on the longer items a
+    # wider reach admits. A sentence printed regardless of the numbers above
+    # it is doctrine 58 in a report.
+    if len(anys) >= 2 and all(y >= x for x, y in zip(anys, anys[1:])):
+        print("   The union FPR RISES monotonically with the factor, so the "
+              "tolerance is a real cost and not a free courtesy.")
+    elif len(anys) >= 2 and all(y <= x for x, y in zip(anys, anys[1:])):
+        print("   The union FPR FALLS monotonically with the factor: these "
+              "thresholds fire LESS on the longer items a wider reach "
+              "admits, so the tolerance is not a cost in interruptions "
+              "here — it is still an extrapolation to a population the "
+              "thresholds were not read off, which is why the reach stays "
+              "declared and inexact.")
+    else:
+        print("   The union FPR is NOT monotone in the factor over this "
+              "table; read the rows.")
+    print("   The song profile declares 1.25 (its cheap point); the short "
+          "profile declares 1.25 to meet it. The other two profiles keep "
+          "2.0 because re-measuring them needs the sonnet classes, and "
+          "that is a different cell's to move.")
 
 
 def report_period(rows, lo, hi, draws=2000):
@@ -1254,7 +1311,7 @@ DROPPED_BY_NO_PRED = [
 
 
 def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
-                  no_pred=False):
+                  no_pred=False, name="song"):
     """Compare what floor.py ships against what the corpus says today.
 
     `sampled` (a dict describing a `--sample` draw) turns every comparison
@@ -1263,16 +1320,26 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
     percentile over a few hundred drawn items is not the statistic floor.py
     ships. Three counts, always -- asked, answered, refused (doctrine 79).
     """
-    song = [p for p in PROFILES if p.name == "song"]
-    print("\n6. WHAT floor.py SHIPS, against what the corpus says today")
+    song = [p for p in PROFILES if p.name == name]
+    print("\n6. WHAT floor.py SHIPS, against what the corpus says today "
+          "(profile `%s`)" % name)
     if sampled:
         print("   SAMPLED RUN — %d of %d items, seed %d. Every row below is "
               "reported and NONE is judged; this run cannot pass or fail the "
               "profile (doctrine 20). Exit %d means exactly that."
               % (sampled["n"], sampled["of"], sampled["seed"], EXIT_NO_VERDICT))
     if not song:
-        print("   FAIL: no `song` profile in quality/floor.py")
-        return EXIT_DRIFT
+        if name == "song":
+            print("   FAIL: no `song` profile in quality/floor.py")
+            return EXIT_DRIFT
+        # A profile that has not been ADOPTED yet has nothing to drift
+        # from: this is the calibration run itself, and the measured set
+        # above is what an adoption would ship. Not a pass and not a
+        # failure (doctrine 20) — the sample-run code, for the same reason.
+        print("   NO `%s` profile in quality/floor.py yet — this run is the "
+              "calibration, not a drift check; adopt the set above or "
+              "record the refusal. Exit %d." % (name, EXIT_NO_VERDICT))
+        return EXIT_NO_VERDICT
     p = song[0]
     bad = []
     counts = {"asked": 0, "answered": 0, "refused": 0}
@@ -1371,15 +1438,27 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
     # edge is printed beside it as context.
     counts["asked"] += 1
     counts["answered"] += 1
-    if p.lo > MATTR_WINDOW:
-        print("   %-34s shipped lo %d > window %d (this run's band lo %d): "
-              "every item is a genuine moving average"
-              % ("MATTR window admissibility", p.lo, MATTR_WINDOW, lo))
+    # `>=`, REPINNED 2026-09-01 from `>`: a text of EXACTLY `window` tokens
+    # is one window, and the moving average of one window IS the plain TTR
+    # of that text (`_mattr`'s `<=` branch and its loop agree to the last
+    # digit there — asserted below, not argued). The mixture this check
+    # refuses needs an item SHORTER than the window, so the admissible edge
+    # is the window itself, which is where the `short` band's `lo` sits.
+    _probe = ["w%d" % i for i in range(MATTR_WINDOW)]
+    _one_window = QualityFeatures._mattr(_probe, MATTR_WINDOW)
+    _ttr = len(set(_probe)) / len(_probe)
+    if p.lo >= MATTR_WINDOW and abs(_one_window - _ttr) < 1e-12:
+        print("   %-34s shipped lo %d >= window %d (this run's band lo %d): "
+              "every item is a moving average, and at exactly %d tokens "
+              "the one window IS the TTR"
+              % ("MATTR window admissibility", p.lo, MATTR_WINDOW, lo,
+                 MATTR_WINDOW))
     else:
-        bad.append("the shipped band lo %d does not exceed the MATTR window "
-                   "%d, so the mattr percentile mixes moving-average and "
-                   "plain-TTR items" % (p.lo, MATTR_WINDOW))
-        print("   %-34s DRIFT: shipped lo %d <= window %d"
+        bad.append("the shipped band lo %d is below the MATTR window %d "
+                   "(or a one-window MATTR is not the TTR: %.6f vs %.6f), "
+                   "so the mattr percentile mixes moving-average and "
+                   "plain-TTR items" % (p.lo, MATTR_WINDOW, _one_window, _ttr))
+        print("   %-34s DRIFT: shipped lo %d < window %d"
               % ("MATTR window admissibility", p.lo, MATTR_WINDOW))
     for f, _, _ in CHECKS:
         # A check absent from the SHIPPED profile is not drift -- it is the
@@ -1461,8 +1540,9 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
     #: for the reason the note gives -- 351 of 663 in-band authors are UNDATED
     #: and not missing at random, so a correlation on a 47% subsample is not
     #: a clean finding in either direction (doctrine 20).
-    cmp("anaphora period slope rho", -0.025, rho, 0.01)
-    cmp("anaphora period slope p_perm", 0.6605, pp, 0.05)
+    _rho0, _pp0 = PROFILE_PERIOD[name]
+    cmp("anaphora period slope rho", _rho0, rho, 0.01)
+    cmp("anaphora period slope p_perm", _pp0, pp, 0.05)
     # The two below are STRUCTURAL, not statistical: they read floor.py alone
     # and owe nothing to how many items were scored, so a sampled run judges
     # them exactly as a full one does. They are the whole of what `--sample`
@@ -1472,10 +1552,14 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
     # it as if it were not falsified, so the note must go on carrying +0.275.
     # What would now trip it is a later edit that DELETES the struck figure
     # instead of striking it.
-    quoted = "+%.3f" % 0.275
     counts["asked"] += 1
     counts["answered"] += 1
-    if quoted not in p.note:
+    _struck = PROFILE_STRUCK_RHO[name]
+    if _struck is None:
+        print("   profile note quotes rho             nothing struck for "
+              "this profile yet; its live rho is judged above")
+    elif ("+%.3f" % _struck) not in p.note:
+        quoted = "+%.3f" % _struck
         bad.append("the profile note no longer quotes rho %s (it is STRUCK, "
                    "and doctrine 17 keeps a struck figure legible)" % quoted)
         print("   profile note quotes rho             DRIFT")
@@ -1580,6 +1664,13 @@ def main():
                          "cold, no cache needed. Refuses 5 of the 18 shipped "
                          "constants BY NAME and says so in its last line. The "
                          "cheapest run that can still fail on real drift.")
+    ap.add_argument("--profile", choices=sorted(PROFILE_EDGES),
+                    default="song",
+                    help="which lyric-sheet profile to (re-)derive: `song` "
+                         "(the shipped 200-400 row, byte-identical to the "
+                         "runner before this flag) or `short` (the same band "
+                         "rule over edges 50..200; "
+                         "quality/SHORT_SONG_FLOOR_PREREGISTRATION.md)")
     ap.add_argument("--no-cache", action="store_true",
                     help="recompute every item; do not read or write the "
                          "on-disk predictability memo")
@@ -1596,7 +1687,12 @@ def main():
     if a.sample is not None and a.sample < 1:
         ap.error("--sample takes a positive item count")
 
-    global CHECKS
+    global CHECKS, EDGES
+    EDGES = list(PROFILE_EDGES[a.profile])
+    if a.profile != "song":
+        print("PROFILE  `%s`: band rule searched over edges %d..%d; "
+              "predictability computed for items <= %s tokens only"
+              % (a.profile, EDGES[0], EDGES[-1], PROFILE_PRED_MAX[a.profile]))
     if a.without_predictability:
         # A DECLARED reduction, announced before any number is printed, and
         # named again in section 6's own refusal list. `CHECKS` is the one
@@ -1632,7 +1728,8 @@ def main():
     ph("population")
     rows, scorer = population(scorer=scorer, sample=a.sample,
                               sample_seed=a.sample_seed,
-                              with_predictability=not a.without_predictability)
+                              with_predictability=not a.without_predictability,
+                              pred_max_tokens=PROFILE_PRED_MAX[a.profile])
     cache.flush()
     print("CACHE  after population: hits %d, misses %d%s"
           % (cache.hits, cache.misses,
@@ -1654,7 +1751,7 @@ def main():
 
     ph("pick_band")
     try:
-        lo, hi = pick_band(rows, verbose=not a.check)
+        lo, hi = pick_band(rows, verbose=not a.check, profile=a.profile)
     except NoBandSatisfiesTheRule as e:
         ph.stop()
         print("\nREFUSED: %s" % e)
@@ -1693,7 +1790,7 @@ def main():
     # but their consequences are no longer judged against a population the
     # shipped set was never adopted on (doctrine 20/79).
     if a.without_predictability:
-        song = [p for p in PROFILES if p.name == "song"]
+        song = [p for p in PROFILES if p.name == a.profile]
         if song:
             derived = (lo, hi)
             lo, hi = song[0].lo, song[0].hi
@@ -1721,7 +1818,7 @@ def main():
         resolution = report_sample_resolution(rows, lo, hi, full)
     ph("check_shipped")
     rc = check_shipped(lo, hi, full, fprs, slopes, sampled, resolution,
-                       no_pred=a.without_predictability)
+                       no_pred=a.without_predictability, name=a.profile)
     ph.stop()
     cache.flush()
     cache.report()

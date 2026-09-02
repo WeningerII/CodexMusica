@@ -931,3 +931,244 @@ every banked figure exactly — band, five thresholds, seven FPR medians, the
 author table and both period constants. 8,238s of population work from a cold
 memo, both times. Warm, the full `--check` is 90s and reports **asked 20,
 answered 20, refused 0 — every shipped constant reproduces.**
+
+## 11. RULED 2026-09-02 — the matched class of model songs is DECLINED in the proposed design (L-4a, RULINGS WANTED #20)
+
+**Taken under the owner's delegation of the 2026-09-01 triage audit's open
+questions** — *"you're far more knowledgeable than I in all of these fields …
+I leave the answers to your capable hands and taste"* — and listed in
+`BACKLOG.md`'s RULINGS TAKEN UNDER DELEGATION table so the owner can overrule
+it in one place. The question, verbatim from RULINGS WANTED #20:
+
+> **A matched class of model SONGS for the song-length floor (L-4a, C23).**
+> The `song` and `short` profiles ship a false-positive rate and NO generated
+> class, so no song-length check has a true-positive rate. ~40 model songs at
+> 200–400 tokens written WITHOUT the harness, declared in `data/sources.tsv`,
+> and a song arm in `discriminate.py` is a sitting; the sonnet arm predicts it
+> would read period. Rule whether it is worth the sitting; until then every
+> song-length finding says on its face that it holds no separation claim.
+
+### The ruling, in one sentence
+
+**A class of ~40 model songs written in 2026 against this profile's human
+class — published 1794–1919, median 1887, latest death 1928, zero items at or
+after 1929 — would measure, in unknown part, the same period gradient this
+profile has already measured on the same corpus and in the same direction, so
+the sitting is DECLINED IN THAT DESIGN, and it is named in one that is not
+confounded: a generated class matched on PERIOD to whatever human class it is
+scored against, which needs either an admissible post-1929 human song corpus
+(doctrine 92 — not obtainable here today) or deliberate period pastiche
+(doctrine 11 — the confound the sonnet arm was already caught in), and until
+one of those exists the profile's evidence stays the held-out false-positive
+rate and every song-length finding says so mechanically.**
+
+### The crux: is the confound real, or only predicted?
+
+The RULINGS WANTED row says *"the sonnet arm predicts it would read period"*.
+A prediction is not a finding (doctrine 20), so it was checked rather than
+repeated, and it turns out this repository has already MEASURED it — on this
+band, on this corpus, through these five thresholds.
+
+**What the human class IS, read rather than asserted.** `floor.PROFILES`'
+`song` row declares its own `source=`:
+
+> `corpus/song/eng_*.txt`: 1,297 files, 1,294 distinct authors, 8,667
+> `--- TITLE:` items, 283,520 sung lines … Restricted to items of 200–400
+> tokens: 2,261 items over 663 authors … Thresholds are the 5th/95th
+> percentile of that human class, held out BY AUTHOR (50/50, 200 seeds).
+
+and the same row's period bullet:
+
+> The corpus is pre-1931 by construction; over the 200–400 band's 663 authors,
+> 312 carry printed dates (born 1340–1887, median 1809, latest death 1928) …
+> **A 2026 lyric is further along that axis than any author here.**
+
+**MEASURED HERE 2026-09-02, over `data/sources.tsv` rather than over the
+profile's prose, because the two are different instruments and only one of
+them is gated:** 72 rows name a `corpus/song/eng_*` staging target, **71 of
+the 72 carry `pd_affirmed=true`**, 59 carry a `publication_year`, and those 59
+run **1794–1919, median 1887, with ZERO at or after 1929** and **zero rows
+with `generated=true`**. So the period restriction is not a property the
+corpus happens to have. It is the SELECTION CRITERION: `pd_affirmed` is what
+put every one of these files in the tree, and under US law that is a date.
+The human class is defined by its period, and a generated class written today
+differs from it on that axis BY CONSTRUCTION.
+
+**And the thresholds are measured to read that axis.** From the `song` row's
+own period bullet (repinned 2026-08-26, 10,000 label permutations, Bonferroni
+over the five checks at 0.0100):
+
+| check | author-level Spearman vs birth year | p_perm | survives |
+|---|---:|---:|:--:|
+| `mattr` | −0.177 | 0.0029 | **yes** |
+| `function_word_ratio` | +0.125 | 0.0265 | no |
+| `predictability` | +0.083 | 0.1497 | no |
+| `cv` | +0.068 | 0.2226 | no |
+| `anaphora` | −0.025 | 0.6605 | no |
+
+and the cross-cohort transfer at the median birth year 1809, which is the
+figure that decides this ruling because it is the DIRECTION a 2026 class sits
+in: **fitted on earlier-born authors the gate over-flags later-born ones —
+`fwr` 10.79% against a cohort-permutation null median of 5.85%, p 0.0035, the
+only one of twelve to clear Bonferroni at 0.00417; `mattr` 10.18% against
+7.06% — and the reverse direction sits at or below nominal.**
+
+`RESULTS_SHORT_SONG_FLOOR.md` §4 measures the same thing harder on the 50–150
+band: `mattr` rho −0.226 (p_perm 0.0001), `fwr` +0.143 (0.0052) and `anaphora`
++0.164 (0.0022) all survive Bonferroni at 0.0125, and the **EARLY→LATE union
+runs 26.10% against a null median 16.15%, p 0.0075**.
+
+Neither reading is ADOPTED as a caution and this ruling does not adopt one
+either — 351 of 663 in-band authors are undated and are not missing at random,
+which is the reason both bullets give and it is unchanged. What the readings
+support is narrower and is all this ruling needs: the axis is not inert here,
+and every gradient anyone has measured on it runs toward a HIGHER
+false-positive rate on later text. An arm built the proposed way could not
+tell "these five checks separate machine song from human song" from "these
+five checks separate 2026 from 1809", and one of those two statements this
+repository has already published evidence for.
+
+**The sonnet arm is the worked precedent, and it did not merely predict this
+— it was CAUGHT doing it.** Doctrine 11 records one feature caught reading
+period rather than quality: `syntactic_inversion_rate`, an Early Modern
+English archaism detector, cold at **0.583** in Experiment 1 and **0.833** in
+Experiment 2, both wrong-signed. Its superseded second clause is the same
+shape one layer down — `rhyme_predictability`'s cross-design replication was
+an out-of-vocabulary artifact, *"an unreadable word was scored as maximally
+rare, so CMUdict's inability to read Shakespeare registered as his
+unpredictability"*. Both arose from the design a song arm would copy: a human
+class of 152 Shakespeare sonnets against 40 model sonnets written in 2026.
+Doctrine 11's standing instruction — *"assume any new feature is doing this
+until a within-item version says otherwise"* — binds a new ARM at least as
+hard as a new feature, and there is no within-item version here.
+
+Doctrine 13 is the same objection stated as a rule: any resource used to score
+a cell must be INDEPENDENT of that cell's label. Here the human class's
+membership rule (`pd_affirmed`) and the label (human / machine) are the same
+fact about the calendar. That is not a weak dependence to be argued about
+afterwards; it is the identity doctrine 13 was written for.
+
+### Is there a design that is not confounded?
+
+What a matched class would have to hold constant is PERIOD, and there are
+exactly two ways to do it. Both are named here so the next reader does not
+re-derive them.
+
+1. **Move the human class forward.** Score a 2026 generated class against
+   post-1929 human song lyrics. This is the honest design and this repository
+   cannot run it today. §9 item 2 above already states why; the ruling adds
+   only its classification. It is not doctrine 44's *"hard to build"* — the
+   identical calibration runs on a modern corpus in one command — and it is
+   not *"cannot obtain"* in the reachability sense, because contemporary song
+   lyrics are digitised and one request away. It is **doctrine 92**: the
+   admissible source and the complete source are disjoint sets. The property
+   that makes a corpus usable here (a public-domain grant) and the property
+   the design needs (written after 1929) do not co-occur in any file this
+   project may hold, and 71 of 72 rows above are the measurement of that.
+   **WHAT IS NOT CLAIMED**: nobody has run the search. `data/sources.tsv`
+   holds no `SEARCH:` row for an admissible post-1929 English song corpus, so
+   *"there is none"* is not a finding here — it is a search that was never run
+   (doctrine 20, doctrine 39), and running it is the cheap first step of the
+   design this ruling names. That search, not the 40 songs, is what the next
+   sitting on L-4a should do.
+2. **Move the generated class back** — ask the model for 1880s pastiche. This
+   is the design doctrine 11 already caught. Doctrine 8's own note on
+   Experiment 2 is that a single corpus *"would have recommended optimizing
+   toward archaic pastiche"*, and an arm whose generated class is period
+   pastiche measures how well a model imitates 1880s printing, which is not
+   the question the floor asks. Refused.
+
+Nothing else holds period constant. Holding the MODEL constant and varying the
+period is unavailable — there is no 1809 model — and matching on any of the
+five features themselves is doctrine 14 exactly: a control may not be defined
+in terms of the quantity it controls.
+
+### What a true-positive rate would BUY, priced against the FPR
+
+Doctrine 22 says state a threshold as a false-positive rate, and both profiles
+already do — per check at roughly 5% and `ANY` at **20.22% [15.33–24.55]** on
+`song`, **16.18% [11.09–22.23]** on `short`. The question is what an AUC adds.
+
+**It would move no verdict in this module, and that is checkable rather than
+argued.** `Profile.measured_auc` is read in exactly three places: `evidence_for`
+(a report string), the drift check in `song_profile_calibration.py` (which
+asserts it is EMPTY on a profile with no negative class), and `test_floor.py`'s
+pins. Nothing in `SlopFloor.check` consults it. Severity is decided by `sev()`,
+which reads whether the length is EXACT, and PREDICTABLE_RHYME is held at
+`note` by doctrine 7 whatever its separation turns out to be — this module's
+docstring says so in as many words about the last time that number moved in
+the check's favour: *"the evidence string was repinned; the finding was not
+promoted."* So a measured song AUC would change one clause in five report
+strings and no verdict anywhere.
+
+**And the number it would produce is narrower than the sentence it would
+license.** `data/sources.tsv`'s own row for the sonnet arm's generated class
+says it: *"40 sonnets, one generator. The negative class for the slop floor.
+Being one model's output, 0.971 is the detectability of THIS generator, not of
+generated verse."* Forty songs from one generator on one day buys the
+detectability of that generator on that day — against a human class that
+differs from it by a century, which is the confound above.
+
+Set against that: roughly a day of a sitting, and ~40 generated items that
+would live in this repository forever, carrying a `generated=true` row, inside
+a tree whose corpus discipline is that a generated file may never be read as
+human evidence. A permanent artifact bought for a number that moves nothing
+and cannot be interpreted is not a trade worth making. The FPR prices exactly
+what the floor costs a human songwriter — the only thing a rejection gate can
+honestly be held to — and it already ships.
+
+### The second clause is a MECHANISM now, not a promise
+
+L-4a's closing sentence — *"until then every song-length finding says on its
+face that it holds no separation claim"* — was **NOT TRUE when it was
+written**, and that is the part of this row that was genuinely missing.
+
+Four of the five length-sensitive findings said it, because their evidence
+calls `Profile.evidence_for`, which DERIVES the sentence from `measured_auc` /
+`held_out_fpr`. **PREDICTABLE_RHYME did not call it.** Its evidence was a
+hand-typed paragraph reading *"predictability alone reaches AUC 0.648 on
+human-vs-generated and 0.710 on anthologized-vs-not (n=15) … well under the
+0.960 the ten-feature joint reaches on the same human-vs-generated split"* —
+the SONNET arm's figures, printed verbatim under the `song` profile, which has
+no generated class at all. That is precisely the carry `evidence_for`'s own
+docstring exists to stop: *"otherwise a reader carries 'AUC 0.870' over to a
+profile that never measured anything of the kind."* So the one song-length
+finding that mentioned a separation asserted another profile's.
+
+**And the pin could not see it.** `test_floor.py` §15 — the section named *"a
+profile with no negative class may not sound like one"* — selected its
+population with a literal four-code tuple that did not contain
+PREDICTABLE_RHYME. A list that is short looks exactly like a list that is
+complete, and here the short list was in the guard rather than in the thing
+guarded. Worse, its fixture (`anaphoric.txt`, 221 tokens, 26 lines) fires
+exactly ONE of the five, so every `all(...)` under it was quantifying over a
+single finding while reading as though it covered the profile.
+
+What ships with this ruling:
+
+- **`floor.LENGTH_SENSITIVE`** — the five codes declared once, each mapped to
+  its percentile key and its evidence key (they differ for exactly one check,
+  `predictable_pair_fraction_max` against `predictability`, which is why both
+  are written out).
+- **PREDICTABLE_RHYME calls `prof.evidence_for('predictability')`**, so its
+  disclosure is derived from the profile like the other four. The sonnet arm's
+  three AUCs are KEPT — nothing is withdrawn — but now say **ON THE SONNET
+  ARM**, name their population, and state that they *"may not be read as this
+  profile's separation"* (doctrine 58).
+- **`test_floor.py` §15 derives its population from that map**, on a sheet
+  built to fire all five, and fails if any code the running profile declares a
+  threshold for did not appear. It runs the SAME text at two lengths — 18
+  lines / 234 tokens into `song`, its first 6 lines / 78 tokens into `short` —
+  so the expected set SHRINKS to four on the shorter arm by arithmetic
+  (`short` has no fifth threshold; stage B refused it,
+  `RESULTS_SHORT_SONG_FLOOR.md` §7), which is what proves the derivation is
+  not a constant wearing a comprehension. A further check requires
+  `LENGTH_SENSITIVE` to name every percentile any profile declares, so a sixth
+  threshold cannot be added without joining the map.
+
+**Both halves are proven by mutation, hand-run 2026-09-02.** Deleting the
+`evidence_for` call from PREDICTABLE_RHYME reds 4 checks; removing
+PREDICTABLE_RHYME from `LENGTH_SENSITIVE` reds the map-agreement check. Before
+the repair the section passed with the defect standing — which is the
+doctrine-48 statement of why this was worth the commit and the 40 songs were
+not.

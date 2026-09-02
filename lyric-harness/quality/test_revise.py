@@ -3438,11 +3438,17 @@ def test_the_mandate_block_is_gated_on_the_mandate():
           f"forbidden={b1.forbidden_modal if b1 else '?'}")
 
     p1 = _PR.render_line(b1, lines, whole=found["whole"])
+    # REPINNED 2026-09-02: the group sentence names the PLACE the group
+    # binds since M-184 ("at its end word" here, "at its word 4" for a
+    # `T4` member), because a line bound at two places is two words and
+    # the prompt has to say which one each group is about. The claim this
+    # check makes -- the group is STATED, the default sentence is gone --
+    # is unchanged; only the spelling of the stated group moved.
     check("the TIER-1 PROMPT -- the surface a writer actually reads -- no "
           "longer claims no group was declared, and states the group instead",
           "(no rhyme group declared for this line)" not in p1
-          and "group A [1, 2] — this line must rhyme with: L2 ('stairs')"
-          in p1,
+          and "group A [1, 2] at its end word — this line must rhyme with: "
+          "L2 ('stairs')" in p1,
           [l.strip() for l in p1.splitlines()
            if "group" in l and "rhyme" in l][:2])
 
@@ -3855,9 +3861,12 @@ def test_a_return_is_not_rendered_as_a_rhyme():
     # CONTROL ON THE RENDERERS -- the ordinary sentence is not gone, it is
     # merely no longer printed over a return.
     p4 = _PR.render_line(b4, DEC, whole=())
+    # REPINNED 2026-09-02 with §40's: M-184 puts the binding PLACE in the
+    # group sentence, so the ordinary spelling carries "at its end word".
     check("CONTROL: an ordinary group still renders 'must rhyme with', and "
           "is not relabelled a return",
-          "group B [2, 4] — this line must rhyme with: L2 ('light')" in p4
+          "group B [2, 4] at its end word — this line must rhyme with: "
+          "L2 ('light')" in p4
           and "RETURN" not in p4.split("THE RHYME MANDATE")[-1].split(
               "OFFERED")[0],
           [l.strip() for l in p4.splitlines() if "group B" in l])
@@ -4175,6 +4184,225 @@ def test_the_field_says_which_door_it_was_read_at():
           unreachable == len(ss), f"{unreachable} of {len(ss)}")
 
 
+def test_a_field_is_per_place_not_per_line():
+    """`MISSING.md` M-184 — a line bound at two PLACES is two questions.
+
+    THE DEFECT, reproduced by the 2026-09-01 audit's probe and pinned here
+    on the same draft. `brief()` took every group's calls into ONE
+    `joint_field`, whatever place each group bound this line at, and
+    `Brief.slot` was the FIRST group's place. On L3 below — bound at its T2
+    word by group A (L2 'night') and at its end by group B (L1 'door') —
+    the intersection of the night family with the door family is empty, so
+    the brief printed NO JOINT CANDIDATE / "the MANDATE is what needs
+    revising", OFFERED was empty, `joint_conflict` sent the loop to tier 2,
+    and a stub `revise` on the four-line variant rewrote L1 to 'like' so L3
+    could end on 'cut' — a consonance conjunction the grader never asked to
+    meet — when L3 needed one night-rhyme at its T2 word. MEASURED BEFORE
+    THE FIX on this fixture: `candidates == []`, `forbidden_modal == []`,
+    `joint_conflict True`, `slot` the END. After: 12 offered at T2 (spite,
+    moonlight, sprite, ...), 33 forbidden (the night head), `joint_conflict`
+    False, `slot` T2, and the loop fixes L3 through tier 1 in one attempt.
+    """
+    print("\n50. M-184 — one candidate field per binding PLACE, and the "
+          "violated place is the one the brief is about")
+    from quality import propose as PR
+    from quality import slots as _SL
+    from quality.loop import revise_loop
+    draft = ["she turned the key and shut the door",
+             "and walked alone into the night",
+             "i left my keys beside the lamp"]
+    m = SC.mandate([[2, "3.T2"], [1, 3]], n_lines=3)
+    bs = {b.line_no: b for b in R.brief(draft, m)}
+    check("the probe's shape: only L3 is briefed, and its flag is group A "
+          "at its T2 word (night ~ left)",
+          list(bs) == [3]
+          and any(f.code == "SCHEME_VIOLATION" and f.locations == [2, 3]
+                  for f in bs[3].findings),
+          {ln: [f.code for f in b.findings] for ln, b in bs.items()})
+    b = bs[3]
+    check("the violated group is attributed off the finding's own pair, "
+          "and the holding one is named as holding",
+          b.violated_groups == ("A",) and b.group_slots == {"A": "3.T2",
+                                                            "B": None},
+          f"violated={b.violated_groups} slots={b.group_slots}")
+    check("`slot` is the VIOLATED place — T2 — not the first group's",
+          b.slot is not None and not _SL.is_default(b.slot)
+          and str(b.slot) == "3.T2", str(b.slot))
+    check("one field per place: two entries, T2 violated with a night-family "
+          "field, the end HOLDING with its own door-family field",
+          set(b.fields_by_slot) == {"3.T2", None}
+          and b.fields_by_slot["3.T2"].violated
+          and not b.fields_by_slot[None].violated
+          and b.fields_by_slot["3.T2"].calls == ("night",)
+          and b.fields_by_slot[None].calls == ("door",),
+          {k: (v.violated, v.calls, len(v.offered))
+           for k, v in b.fields_by_slot.items()})
+    check("the brief's own field is the T2 place's: a NON-EMPTY offer that "
+          "rhymes with 'night', with the night head forbidden",
+          b.candidates and b.forbidden_modal
+          and b.candidates == b.fields_by_slot["3.T2"].offered
+          and "light" in b.forbidden_modal,
+          f"offered {b.candidates[:6]} forbidden {b.forbidden_modal[:6]}")
+    check("the incumbent is the word AT THAT PLACE, 'left', not the end "
+          "word 'lamp'", b.forbidden_incumbent == "left",
+          b.forbidden_incumbent)
+    check("no joint conflict: two places are two questions, and the "
+          "conjunction at T2 has one call", not b.joint_conflict
+          and not b.slot_conflict)
+    check("the groups a tier-2 backtrack may touch are the ones at THIS "
+          "place", b.slot_groups == ("A",), b.slot_groups)
+    prompt = PR.render_line(b, draft)
+    check("the prompt no longer blames the mandate, names the T2 word as "
+          "the word to change, and tells the writer group B holds",
+          "the MANDATE, not the line" not in prompt
+          and "is what needs revising" not in prompt
+          and "HOLDS as written" in prompt
+          and "VIOLATED, this is the word to change" in prompt
+          and "binds at 2 PLACES" in prompt,
+          prompt[:400])
+    # AN ORDINARY END-RHYME MANDATE IS BYTE-IDENTICAL: one place, one field,
+    # the same call order — pinned against the song's own L14, whose field
+    # §19 measures.
+    lines = song_lines()
+    mg = R.mandate_from_graph(lines)
+    b14 = [x for x in R.brief(lines, mg) if x.line_no == 14][0]
+    check("an end-only pivot still has ONE place and its field is the "
+          "brief's field, unchanged in shape",
+          set(b14.fields_by_slot) == {None}
+          and b14.fields_by_slot[None].offered == b14.candidates
+          and b14.fields_by_slot[None].forbidden == b14.forbidden_modal
+          and b14.slot_groups == tuple(lab for lab, _m, _c
+                                        in b14.must_answer),
+          {k: len(v.offered) for k, v in b14.fields_by_slot.items()})
+    # THE LOOP, on the audit's four-line variant: tier 1 at T2, not a
+    # tier-2 rewrite of L1. The stub swaps the T2 word for the first
+    # offered candidate and the rhyme HOLDS; what is left open is the
+    # pursued MODAL_RHYME note on that pair, which is the loop's own job.
+    draft4 = draft + ["she wrote it down and left a note"]
+    m4 = SC.mandate([[2, "3.T2"], [1, 3], [4, "3.T4"]], n_lines=4)
+    res = revise_loop(R, draft4, m4)
+    a1 = [a for r in res.rounds for a in r.attempts if a.line_no == 3]
+    check("the stub loop fixes L3 at its T2 word through TIER 1 in round 1 "
+          "— L1 and L4 are never touched",
+          a1 and a1[0].tier == 1 and a1[0].accepted
+          and res.lines[0] == draft4[0] and res.lines[3] == draft4[3]
+          and res.lines[2] != draft4[2],
+          [(a.tier, a.accepted, a.reason[:60]) for a in a1])
+
+
+
+def test_the_findings_own_direction_is_pinned():
+    """M-184, the OTHER direction (added 2026-09-02 by the tier-A
+    verification). §50's fixture has the FIRST group violated, so its
+    slot-attribution checks — `slot` is the violated place, the incumbent is
+    the word AT that place — survive a revert by an accident of ordering:
+    the first group's place IS the violated one there. The audit's finding
+    ran the other way: group A at T2 HOLDS (kite ~ night) and group B at the
+    END is violated (lamp ~ door), and a brief that took the first group's
+    place would name `kite` as the word to change and search the night
+    family for a door rhyme. Pinned on that draft.
+    """
+    print("\n52. M-184 — the first group HOLDS and the second is violated: "
+          "the brief is about the violated place, not the first")
+    from quality import propose as PR
+    draft = ["she turned the key and shut the door",
+             "and walked alone into the night",
+             "the kite was hanging by the lamp"]
+    m = SC.mandate([[2, "3.T2"], [1, 3]], n_lines=3)
+    bs = {b.line_no: b for b in R.brief(draft, m)}
+    check("only L3 is briefed, and its flag is group B at the END (door ~ "
+          "lamp) — group A at T2 holds",
+          list(bs) == [3]
+          and any(f.code == "SCHEME_VIOLATION" and f.locations == [1, 3]
+                  for f in bs[3].findings)
+          and not any(f.locations == [2, 3] for f in bs[3].findings),
+          {ln: [(f.code, f.locations) for f in b.findings]
+           for ln, b in bs.items()})
+    b = bs[3]
+    check("the violated group is B alone, and the brief's place is the END "
+          "(the default slot, spelled as the bare line number) — not the "
+          "first group's T2",
+          tuple(getattr(b, "violated_groups", ())) == ("B",)
+          and str(b.slot) == "3",
+          (getattr(b, "violated_groups", None), str(b.slot)))
+    check("the incumbent is the END word 'lamp', not the T2 word 'kite'",
+          b.forbidden_incumbent == "lamp", b.forbidden_incumbent)
+    check("the field is the DOOR family at the end, non-empty, with the "
+          "door head forbidden, and no joint conflict",
+          bool(b.candidates) and "more" in b.forbidden_modal
+          and b.joint_conflict is False,
+          (b.candidates[:6], b.forbidden_modal[:4], b.joint_conflict))
+    p = PR.render_line(b, draft, whole=())
+    check("the prompt names the end word as the word to change and never "
+          "blames the mandate",
+          "is what needs revising" not in p and "VIOLATED" in p
+          and "HOLDS as written" in p,
+          [l.strip() for l in p.splitlines() if "group" in l][:3])
+
+
+def test_the_offer_is_screened_from_the_offered_words_own_side():
+    """`MISSING.md` M-185 — the menu cannot re-open the line.
+
+    THE DEFECT. `grade()`'s MODAL_RHYME note is SYMMETRIC (`wj in head(wi)
+    OR wi in head(wj)`), the loop PURSUES it (`MANDATORY_PURSUE`), and the
+    offer was screened in ONE direction — the head of the calls' field.
+    MEASURED on the 2026-09-01 audit's probe: the first six words offered
+    for `door` (lenore, bore, gore, yore, implore, wore) each carry `door`
+    in their OWN head, so taking any of them filed the note and parked the
+    line at exit 3 — while `joint_field`'s comment said the menu and the
+    verdict could not disagree.
+
+    WHAT THIS PINS. (1) `modal_head` — the grader's new accessor — is the
+    same head `modal_field` returned, unchanged; (2) the screen drops
+    rhyme-typed words and COUNTS them; (3) EXACTLY: no offered word has
+    the call in its exact head (`modal_head` of each, a lexicon pass apiece
+    — the expensive form the screen approximates conservatively), and the
+    first six dropped words DO — so a kept word cannot re-open the line
+    and a dropped one would have; (4) the brief carries the count and the
+    prompt says why the menu is short.
+    """
+    print("\n51. M-185 — offered words are screened from THEIR side, so "
+          "taking one cannot re-open the line")
+    from quality import propose as PR
+    head = R.modal_head("door")
+    off_old_shape, forb = R.modal_field("door")
+    check("`modal_head` is the head `modal_field` returns, unchanged",
+          head == forb and len(head) >= 6, (head[:6], forb[:6]))
+    offered, forbidden, dropped = R.joint_field_screened(["door"])
+    check("the screen drops rhyme-typed words for a common call and counts "
+          "them apart from the offer and the head (doctrine 79)",
+          len(dropped) >= 6 and offered and not set(dropped) & set(offered)
+          and not set(dropped) & set(forbidden),
+          f"{len(dropped)} dropped, {len(offered)} offered, "
+          f"{len(forbidden)} forbidden")
+    check("the audit's six re-opening offers are among the dropped",
+          {"lenore", "bore", "gore", "yore", "implore", "wore"}
+          <= set(dropped), sorted(dropped)[:12])
+    reopen_kept = [w for w in offered if "door" in R.modal_head(w)]
+    check("EXACT: no offered word carries the call in its own head — the "
+          "conservative screen kept nothing it should have dropped",
+          not reopen_kept, reopen_kept)
+    reopen_dropped = [w for w in dropped[:6] if "door" in R.modal_head(w)]
+    check("EXACT: every one of the first six dropped words does carry it — "
+          "the screen dropped what the grader would have charged",
+          reopen_dropped == dropped[:6], (reopen_dropped, dropped[:6]))
+    # THE BRIEF AND THE PROMPT carry the count and the reason.
+    draft = ["she turned the key and shut the door",
+             "and walked alone into the night",
+             "i left my keys beside the floor"]
+    b = {x.line_no: x for x in R.brief(draft, [[1, 3]])}
+    b3 = b.get(3) or b.get(1)
+    check("the briefed line carries the screened-out rhymes",
+          b3 is not None and b3.screened_out
+          and set(b3.screened_out) <= set(dropped) | {"door"},
+          None if b3 is None else b3.screened_out[:6])
+    prompt = PR.render_line(b3, draft) if b3 else ""
+    check("and the prompt says the menu is short because the ban is, not "
+          "the lexicon",
+          "are NOT offered" in prompt and "own modal head" in prompt,
+          prompt[prompt.find("OFFERED"):prompt.find("OFFERED") + 300])
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -4224,7 +4452,10 @@ if __name__ == "__main__":
                test_a_return_is_not_rendered_as_a_rhyme,
                test_a_report_says_when_the_named_pair_is_not_the_evidence,
                test_the_field_says_which_door_it_was_read_at,
-               test_a_refusal_speaks_for_one_group_not_the_pair):
+               test_a_refusal_speaks_for_one_group_not_the_pair,
+               test_a_field_is_per_place_not_per_line,
+               test_the_findings_own_direction_is_pinned,
+               test_the_offer_is_screened_from_the_offered_words_own_side):
         fn()
     print("=" * 62)
     if FAILURES:

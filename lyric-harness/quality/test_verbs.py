@@ -117,6 +117,7 @@ import glob
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -593,9 +594,31 @@ def test_brief_refuses_instead_of_tracebacking():
     # contain a candidate the modal table forbids. The exclusion itself is
     # untouched, which is what this check is about, so it is asked of a cover
     # that does not move when the door does.
-    _, mod_out, _ = run("brief", EXAMPLE_TXT, "--groups=1,3")
+    # REPOINTED AGAIN 2026-09-02 — the FLOOR PROFILE moved it this time.
+    # `fixtures/song.txt` is 16 lines and ~130 tokens; until M-193 it was
+    # graded by the SONNET profile (list order), whose `predictability_max`
+    # put a PREDICTABLE_RHYME note on L1~L3 and so earned the line a field.
+    # M-193's line-count tie-break hands a 16-line sheet to the `short`
+    # profile, which carries no predictability threshold until stage B
+    # adopts one, so the note is gone and with it the field — and a line
+    # with no field has no exclusion to print (MEASURED: forcing the sonnet
+    # profile back brings both the note and the FORBIDDEN block back). The
+    # exclusion is asked of a DECLARED VIOLATION now — dawn/silt under ABAB,
+    # no scalar rhyme and no schema rescues it — a shape that no door,
+    # profile or table moves.
+    with tempfile.NamedTemporaryFile("w", suffix=".txt",
+                                     delete=False) as fh:
+        fh.write("The river took the bridge at dawn\n"
+                 "and no one saw the water again\n"
+                 "our cattle waded knee deep in silt\n"
+                 "past every fence the county rebuilt\n")
+        mod_path = fh.name
+    try:
+        _, mod_out, _ = run("brief", mod_path, "ABAB")
+    finally:
+        os.unlink(mod_path)
     check("the modal exclusion is still printed (doctrine 9)",
-          "FORBIDDEN (modal" in mod_out,
+          "FORBIDDEN (modal" in mod_out and "SCHEME_VIOLATION" in mod_out,
           mod_out[:200])
 
     # `--returns=` -- FIXED 2026-08-12, found by using the harness on a real
@@ -638,8 +661,15 @@ def test_brief_refuses_instead_of_tracebacking():
           rc == 2 and "REFUSED" in out and "Traceback" not in err)
 
 
-def test_every_verb_runs():
-    print("\n7. every dispatched verb runs, and none of them tracebacks")
+def _every_verb_fixture():
+    """-> (cases, quat, bp): one argv per dispatched verb, over a fresh tmpdir.
+
+    ONE ROSTER, READ BY TWO SECTIONS (2026-09-01, M-188). §7 runs it with
+    the staged resources present and §47 runs it with them hidden, and the
+    "covers every verb main() dispatches" check in §7 is what keeps the list
+    complete -- §47 inherits that completeness by reading the same dict
+    rather than carrying a second copy that would go stale on its own.
+    """
     d = tempfile.mkdtemp()
     quat = os.path.join(d, "q.txt")
     with open(quat, "w") as fh:
@@ -711,7 +741,18 @@ def test_every_verb_runs():
         # honest answer, the no-seed refusal, because a full run here would
         # double §44's loop cost for a claim about reachability alone.
         "finish": ["finish", quat],
+        # The human door (2026-09-01, M-195). Behavioural coverage is §49 —
+        # this row is the dispatch-reachability claim on a bare quatrain,
+        # which REFUSES its sectioning (no mark, no blank block: the M-72
+        # rule) and exits 3, a work order rather than a failure.
+        "recover": ["recover", quat],
     }
+    return cases, quat, bp
+
+
+def test_every_verb_runs():
+    print("\n7. every dispatched verb runs, and none of them tracebacks")
+    cases, quat, bp = _every_verb_fixture()
     missing = sorted(lh._dispatched_verbs() - set(cases))
     check("this test covers every verb main() dispatches",
           not missing, f"uncovered: {missing or 'none'}")
@@ -2206,9 +2247,14 @@ def test_propose_selects_who_writes_the_line():
     # with a pursued line standing exits 3 — success below 100% became
     # unreportable (loop.MANDATORY_PURSUE). The subject here is the PROPOSER
     # DISCLOSURE, which is unchanged.
-    rc, out, err = run("revise", quat, "ABAB", expect_rc=3)
+    # rc 0 SINCE 2026-09-01 (M-185): the offered words are screened from
+    # THEIR side, so the stub's splice no longer takes a word that files
+    # MODAL_RHYME back at the call, and the loop converges — `SUCCESS after
+    # 1 round(s), fixed L3, L4` (repinned 2026-09-02). The subject is still
+    # the disclosure; the exit is pinned so the next move is seen.
+    rc, out, err = run("revise", quat, "ABAB", expect_rc=0)
     check("with no --propose at all, the stub runs and SAYS it is the stub",
-          rc == 3 and "PROPOSER: stub (the default)" in out,
+          rc == 0 and "PROPOSER: stub (the default)" in out,
           [l for l in out.splitlines() if "PROPOSER" in l][:1])
     check("and says out loud that nothing outside the process was reached",
           "Nothing outside this process was reached" in out)
@@ -2661,6 +2707,30 @@ def test_the_loop_suspends_instead_of_guessing():
     # writer and no credential can re-run it (doctrine 14).
     st = json.load(open(state))
     check("a converged run leaves no pending request", st["pending"] is None)
+    # AND IT SAYS IT IS FINISHED (M-183, 2026-09-01). The verb writes a
+    # `complete` marker with the stop, the code and the INPUT draft's
+    # fingerprint; the same command run again on the same draft replays to
+    # the same stop and says so BEFORE the loop starts — a re-run used to
+    # produce the identical output with nothing in it saying that no
+    # question could ever be asked again. The answered records carry the
+    # draft they were asked against, which is the other half of the entry.
+    check("the state carries a COMPLETE marker naming the stop and the "
+          "input draft",
+          st.get("complete", {}).get("stop") == "success"
+          and st["complete"].get("exit") == 0
+          and len(st["complete"].get("draft", "")) == 12,
+          st.get("complete"))
+    check("every answered record names the draft it was asked against",
+          st["answered"]["propose"]
+          and all(len(r.get("draft", "")) == 12
+                  for r in st["answered"]["propose"]),
+          st["answered"]["propose"])
+    rc6, out6, _ = run("revise", draft, mand, f"--propose=defer:{state}")
+    check("re-running the finished state on the same draft is told so up "
+          "front and stops where it stopped, at the same code",
+          rc6 == 0 and "THIS STATE IS COMPLETE" in out6
+          and "SUCCESS" in out6 and "SUSPENDED" not in out6,
+          f"rc {rc6}")
     rep = os.path.join(d, "replay.json")
     json.dump(st["answered"], open(rep, "w"))
     rc4, out4, _ = run("revise", draft, mand, f"--propose=replay:{rep}")
@@ -4513,11 +4583,17 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
           "finished about a run that is not",
           stamp is not None and int(stamp.group(1)) == rc,
           stamp.group(0) if stamp else "(no stamp)")
-    check("...and the stamp names the stop reason and the open lines, so a "
-          "parked song cannot read as a clean one",
+    # WIDENED 2026-09-01 (`MISSING.md` M-186): a 3 can now also be a
+    # WHOLE-DRAFT FLAG with no open line, and the stamp names it as its own
+    # clause — so "3 iff UNRESOLVED" became "3 iff UNRESOLVED or a
+    # whole-draft flag", two counts never summed (doctrine 79).
+    check("...and the stamp names the stop reason and the open lines (or "
+          "the whole-draft flag), so a parked song cannot read as a clean "
+          "one",
           stamp is not None
           and stamp.group(2) in ("SUCCESS", "NO_PROGRESS", "ROUND_LIMIT")
-          and (("UNRESOLVED" in stamp.group(4)) == (rc == 3)),
+          and ((("UNRESOLVED" in stamp.group(4))
+                or ("WHOLE-DRAFT FLAG" in stamp.group(4))) == (rc == 3)),
           stamp.group(0) if stamp else "(no stamp)")
     check("...and the render carries the plan's own bracket headers",
           re.search(r"\[[A-Z_]+ — \d+ lines? — ", out) is not None,
@@ -4528,6 +4604,414 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
                      expect_rc=2)
     check("--max-rounds on `brief` REFUSES — only the loop verbs own a "
           "budget", rc == 2 and "--max-rounds" in out, f"rc {rc}")
+
+
+def test_a_missing_staged_resource_refuses_instead_of_crashing():
+    print("\n47. a missing STAGED RESOURCE refuses at exit 2 on the verbs "
+          "that need it, and the rest still answer (M-188)")
+    # THE DEFECT, MEASURED 2026-09-01 at 54650e5 (before the fix) with the
+    # same three hides used below, on `brief q.txt ABAB`: norms absent --
+    # exit 1, zero stdout, one stderr line `run quality/fetch_data.py first`;
+    # nltk unimportable -- exit 1, an ImportError traceback out of
+    # `features._tagger`; tagger model absent -- exit 1, a LookupError
+    # traceback AFTER the report's first line had printed. `score fire --
+    # desire` exited 0 in the same tree. Exit 1 is outside the 0/2/3/4
+    # contract, and `mcp/lyric_tools.js` reads it as a crashed subprocess
+    # (CI run #555, 2026-08-18, is the precedent ci.yml cites).
+    #
+    # THE HIDES NEVER TOUCH THE SHARED TREE. `data/concreteness.txt` and
+    # `data/nltk` are symlinks every worktree on the box reads, so the norms
+    # are hidden by `LYRIC_STAGED_DATA` (read in ONE place,
+    # `quality/features.py`, and named in the refusal), the model by nltk's
+    # own `NLTK_DATA`, and the package by a stub on `PYTHONPATH` whose
+    # `__init__` refuses to import -- the same `env=` overlay §17 uses.
+    from quality.features import STAGED_RESOURCES, STAGING_COMMANDS
+    cases, quat, bp = _every_verb_fixture()
+    d = tempfile.mkdtemp()
+    empty = os.path.join(d, "empty")
+    os.makedirs(empty)
+    stub = os.path.join(d, "stub")
+    os.makedirs(os.path.join(stub, "nltk"))
+    with open(os.path.join(stub, "nltk", "__init__.py"), "w") as fh:
+        fh.write('raise ImportError("nltk hidden by test_verbs.py section 47")\n')
+    real_nltk = os.path.abspath(os.path.join(ROOT, "data", "nltk"))
+    HEAD = (f"REFUSED — the slop floor needs {len(STAGED_RESOURCES)} staged "
+            f"resources")
+    norms, package, model = STAGED_RESOURCES
+
+    def refused(rc, out, err):
+        # exit 2, the ONE refusal shape, no traceback -- and nothing on
+        # stderr at all: the refusal is an ANSWER and goes where answers go.
+        return rc == 2 and HEAD in out and "Traceback" not in err
+
+    def first(out):
+        return (out.strip().splitlines() or ["(no stdout)"])[0][:110]
+
+    # -- the three faces, one at a time -----------------------------------
+    rc, out, err = run("brief", quat, "ABAB",
+                       env={"LYRIC_STAGED_DATA": empty, "NLTK_DATA": real_nltk})
+    check("norms absent: `brief` REFUSES at exit 2, names the file as the "
+          "one MISSING resource, and prints BOTH staging commands",
+          refused(rc, out, err) and "1 of them is missing" in out
+          and f"MISSING     {norms}" in out
+          and f"PRESENT     {package}" in out and f"PRESENT     {model}" in out
+          and STAGING_COMMANDS in out and "pip install nltk" in out
+          and "quality/fetch_data.py" in out
+          and "LYRIC_STAGED_DATA" in out,
+          f"rc {rc}; {first(out)}")
+    rc, out, err = run("brief", quat, "ABAB", env={"PYTHONPATH": stub})
+    check("package absent: REFUSES naming `nltk`, and reports the model NOT "
+          "PROBED rather than missing — doctrine 28, none is not cannot-tell",
+          refused(rc, out, err) and "1 of them is missing" in out
+          and f"MISSING     {package}" in out
+          and f"NOT PROBED  {model}" in out
+          and f"PRESENT     {norms}" in out,
+          f"rc {rc}; {first(out)}")
+    rc, out, err = run("brief", quat, "ABAB", env={"NLTK_DATA": empty})
+    check("model absent: REFUSES before a line of the report prints — the "
+          "lazy first-tag LookupError no longer arrives mid-report",
+          refused(rc, out, err) and "1 of them is missing" in out
+          and f"MISSING     {model}" in out
+          and out.lstrip().startswith("REFUSED") and "BLUEPRINT:" not in out
+          and err == "",
+          f"rc {rc}; {first(out)}; stderr {len(err)} byte(s)")
+    rc, out, err = run("brief", quat, "ABAB",
+                       env={"LYRIC_STAGED_DATA": empty, "PYTHONPATH": stub})
+    check("norms and package absent together: 2 MISSING, 1 NOT PROBED, 0 "
+          "PRESENT — three counts, printed apart, never summed (doctrine 79)",
+          refused(rc, out, err) and "2 of them are missing" in out
+          and out.count("MISSING     ") == 2
+          and out.count("NOT PROBED  ") == 1
+          and out.count("PRESENT     ") == 0,
+          f"rc {rc}; {first(out)}")
+    rc, out, err = run("brief", quat, "ABAB")
+    check("CONTROL: the same command with the resources present answers "
+          "(rc 0 or 3) and prints no refusal — the hides are what refused",
+          rc in (0, 3) and HEAD not in out and "Traceback" not in err,
+          f"rc {rc}; {first(out)}")
+
+    # -- the partition, MEASURED: every verb, everything hidden ----------
+    # `python3 quality/test_verbs.py` runs this; the roster is §7's own.
+    hidden = {"LYRIC_STAGED_DATA": empty, "NLTK_DATA": empty}
+    refusing, answering, bad = [], {}, []
+    for verb, argv in sorted(cases.items()):
+        rc, out, err = run(*argv, env=hidden)
+        if "Traceback" in err or rc not in (0, 2, 3):
+            bad.append(f"{verb} (rc {rc})")
+        if HEAD in out:
+            refusing.append(verb)
+            if rc != 2 or STAGING_COMMANDS not in out:
+                bad.append(f"{verb} refused for resources without exit 2 "
+                           f"and the commands (rc {rc})")
+        else:
+            answering[verb] = rc
+    check(f"every one of the {len(cases)} dispatched verbs stays inside the "
+          f"0/2/3 contract with all three resources hidden — no exit 1, no "
+          f"traceback",
+          not bad and len(refusing) + len(answering) == len(cases),
+          f"outside the contract: {bad or 'none'}")
+    # EMPIRICALLY VERIFIED 2026-09-01 -- this is the partition the run
+    # above produced, pinned, and it corrected a guess: `readability` was
+    # expected on the grading side and answers at 0 without the floor.
+    # `finish` is on the answering side HERE only because §7's row is the
+    # no-seed refusal, which comes before the floor; the seeded row below
+    # is where it reaches it. Moving a verb across this line is a real
+    # change to what a fresh checkout can run, so it should fail here.
+    NEED = ["brief", "revise", "screen", "song", "verify"]
+    check(f"exactly these {len(NEED)} verbs reach the floor and refuse for "
+          f"resources: {' '.join(NEED)}",
+          refusing == NEED,
+          f"refusing: {refusing}")
+    check("the verbs the ruling names -- score, candidates, plan -- and "
+          "readability answer CLEAN (rc 0) without any of the three",
+          all(answering.get(v) == 0
+              for v in ("score", "candidates", "plan", "readability")),
+          f"answering: {sorted(answering.items())}")
+    # `recover` joined §7's roster 2026-09-02 (M-195) and answers WITHOUT
+    # the floor at its OWN exit 3: the bare quatrain has no mark and no
+    # blank block, so its sectioning is REFUSED — a work order, never a
+    # failure, and never a resource refusal. Its 3 is declared here beside
+    # `finish`'s 2 (CI's verbs (4) at 551e8e8 caught the omission).
+    OWN = {"finish": 2, "recover": 3}
+    check(f"the other {len(cases) - len(NEED)} answer, and every one but "
+          f"`finish` (its own --seed refusal, rc 2) and `recover` (its own "
+          f"REFUSED-coordinate work order, rc 3) at rc 0",
+          len(answering) == len(cases) - len(NEED)
+          and all(answering.get(v) == rc for v, rc in OWN.items())
+          and all(rc == 0 for v, rc in answering.items() if v not in OWN),
+          f"non-zero: {sorted((v, rc) for v, rc in answering.items() if rc)}")
+    rc, out, err = run("plan", "--sweep=1-4", env=hidden)
+    check("`plan --sweep=` answers without the floor",
+          rc == 0 and HEAD not in out and "Traceback" not in err
+          and "SWEEP:" in out, f"rc {rc}; {first(out)}")
+    rc, out, err = run("finish", quat, "--seed=16", env=hidden)
+    check("`finish --seed=` reaches the floor and REFUSES for resources -- "
+          "past its own no-seed refusal, it is the sixth grading verb",
+          refused(rc, out, err) and STAGING_COMMANDS in out,
+          f"rc {rc}; {first(out)}")
+    rc, out, err = run("song", bp, quat, "ABAB", env=hidden)
+    check("`song` with a mandate REFUSES for resources too -- the floor is "
+          "built before the mandate is read, so the resource refusal is "
+          "the first thing a fresh checkout hears from it",
+          refused(rc, out, err) and STAGING_COMMANDS in out,
+          f"rc {rc}; {first(out)}")
+
+
+def test_the_loop_verbs_exit_on_what_stands_at_the_stop():
+    print("\n48. `revise`/`finish` exit 3 on a WHOLE-DRAFT flag and print the "
+          "findings standing at the stop (`MISSING.md` M-186)")
+    # THE DEFECT, probed by the 2026-09-01 audit: `song` exits 3 on a
+    # whole-draft FLAG (TITLE_NOT_IN_HOOK, STACKED_DRAFT, HOOK_ABSENT name no
+    # line), and the shared revise/finish exit block read `result.unresolved`
+    # alone — so `revise` on the same draft under the same blueprint returned
+    # 0 with the flag disclosed in prose under "NO STOP CONDITION ABOVE CAN
+    # SEE", and `finish` stamped `exit 0 — no flag stands`. CLAUDE.md
+    # promised the 3 for `song`/`revise` alike. The second half: the loop's
+    # own text names the open LINES and the RULE holding each, never the
+    # findings, so the connector's `extractBannedPairs` read [] off every
+    # `lyric_revise` result and the chat surface could not count the ban on
+    # the finishing verb (M-168's drift into night/light/sight/might).
+    #
+    # THE WHOLE-FLAG HALF, on the bank's own song: `keep_the_light.txt` under
+    # its committed blueprint retitled to a phrase its hook does not carry.
+    # The mandate is the README's, verbatim (doctrine 1: one statement).
+    bp = json.load(open(os.path.join(HERE, "..", "songs",
+                                     "keep_the_light.blueprint.json"),
+                        encoding="utf-8"))
+    bp["title"] = "zebra confetti"
+    d = tempfile.mkdtemp()
+    bpath = os.path.join(d, "retitled.blueprint.json")
+    with open(bpath, "w", encoding="utf-8") as fh:
+        json.dump(bp, fh)
+    song = os.path.join(HERE, "..", "songs", "keep_the_light.txt")
+    mand = ("--groups=1.T3,3.T7,4.T7;2.headrime,3;1.T7,2;11.T5,12.T2;"
+            "10.T6,12.endword;16.head,17.T1;15.T7,16,17.T3;"
+            "15.headrime,16.T3,17")
+    rc, out, _ = run("revise", song, mand, "--returns=6,9;6,14",
+                     f"--blueprint={bpath}", "--subdivision", "2",
+                     "--max-rounds=1", "--attempts=0", "--backtrack=0")
+    check("`revise` exits 3 when a WHOLE-DRAFT flag stands and no line is "
+          "open — the same 3 `song` gives the same draft",
+          rc == 3, f"rc {rc}")
+    check("...and prints that flag at the stop in the report's own "
+          "FINDING spelling, marked as the whole draft's",
+          "WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK" in out,
+          out[out.find("STANDING AT THE STOP"):][:300])
+    # THE PRINTED STAMP CLAUSE, END TO END (added 2026-09-02 — the tier-A
+    # verification found no pin discriminated it: §44's fixture always has
+    # lines open, and this section read the STANDING block, not the stamp).
+    # Under `defer:` the same run renders and stamps; the clause must name
+    # the flag, and the committed title must stamp exit 0 with no clause.
+    st = os.path.join(d, "state.json")
+    rc3, out3, _ = run("revise", song, mand, "--returns=6,9;6,14",
+                       f"--blueprint={bpath}", "--subdivision", "2",
+                       "--max-rounds=1", "--attempts=0", "--backtrack=0",
+                       f"--propose=defer:{st}")
+    m3 = re.search(r"\[FINISHED — declared mandate — exit (\d) — (\w+) after "
+                   r"(\d+) round\(s\) — no flag stands — WHOLE-DRAFT FLAG: "
+                   r"([^\]]+)\]", out3)
+    check("under defer: the stamp carries `— WHOLE-DRAFT FLAG: "
+          "TITLE_NOT_IN_HOOK` beside `no flag stands`, and its exit is the "
+          "process's 3",
+          rc3 == 3 and m3 is not None and m3.group(1) == "3"
+          and m3.group(4).strip() == "TITLE_NOT_IN_HOOK",
+          m3.group(0) if m3 else out3[-300:])
+    st0 = os.path.join(d, "state0.json")
+    bp0 = os.path.join(HERE, "..", "songs", "keep_the_light.blueprint.json")
+    rc4, out4, _ = run("revise", song, mand, "--returns=6,9;6,14",
+                       f"--blueprint={bp0}", "--subdivision", "2",
+                       "--max-rounds=1", "--attempts=0", "--backtrack=0",
+                       f"--propose=defer:{st0}")
+    m4 = re.search(r"\[FINISHED — declared mandate — exit (\d) — [^\]]*\]",
+                   out4)
+    check("CONTROL: the committed title stamps exit 0 with no WHOLE-DRAFT "
+          "clause — the clause is the flag's, not the stamp's",
+          rc4 == 0 and m4 is not None and m4.group(1) == "0"
+          and "WHOLE-DRAFT FLAG" not in m4.group(0),
+          m4.group(0) if m4 else out4[-300:])
+    # THE PURSUED HALF: the canonical tier-1 pair (§42's fixture), the loop
+    # given no attempts so the note stands at the stop.
+    banned = os.path.join(d, "banned.txt")
+    with open(banned, "w", encoding="utf-8") as fh:
+        fh.write("I ran my fingers through her hair\n"
+                 "and set the bottle on the chair\n")
+    rc2, out2, _ = run("revise", banned, "--groups=1,2", "--attempts=0",
+                       "--backtrack=0")
+    m2 = re.search(r"FINDING \[NOTE\] HOMEOTELEUTON: L1/L2", out2)
+    check("a pursued note standing at the stop is printed as "
+          "`FINDING [NOTE] HOMEOTELEUTON: L1/L2 …` — the spelling the "
+          "connector's `extractBannedPairs` reads — and the exit is 3",
+          rc2 == 3 and m2 is not None and "STANDING AT THE STOP" in out2,
+          f"rc {rc2}; " + out2[out2.find("STANDING"):][:200])
+
+
+def test_finish_exits_3_on_a_whole_draft_flag_alone():
+    """M-186's owed pin (paid 2026-09-02): `finish` with NO line open and a
+    WHOLE-DRAFT FLAG standing exits 3 and stamps the clause, and the same
+    draft with the flag cleared exits 0 with no clause.
+
+    §44's stamp pin was widened for M-186 but its fixture always has lines
+    open, so the `or` in it is satisfied either way and a `finish` that
+    ignored whole flags would still pass it (the tier-A verification's
+    reading, confirmed by the completeness critic). This fixture is the
+    isolated case: seed 176 under a declared plain rhyme (`--relation=RHYME`
+    silences the schema draw, so every group is judged as rhyme), the
+    sparsest plan a 1..300 sweep offers (`lines<=14;binding_cap<=1`), and a
+    hand-written draft whose seven groups all pass the band, the two-tier
+    ban and the modal screen (`screen` said CLEAN on each pair). The title
+    "zebra confetti" is not in the hook line (L3), so TITLE_NOT_IN_HOOK — a
+    whole-draft FLAG — is the only finding standing.
+
+    THE DRAFT IS THE SEED'S: the plan is a pure function of the seed and
+    the declarations, so if the planner's envelope is ever re-derived and
+    seed 176 re-dealt, the first check below reads the refusal and the
+    fixture is re-cut, never the assertion.
+    """
+    print("\n53. `finish` exits 3 on a WHOLE-DRAFT flag ALONE, and stamps it "
+          "— the isolated case M-186 owed")
+    d = tempfile.mkdtemp()
+    draft = os.path.join(d, "whole176.txt")
+    with open(draft, "w", encoding="utf-8") as fh:
+        fh.write("the kettle hums before the light\n"
+                 "and every window learns my name\n"
+                 "I keep the door unlocked for you\n"
+                 "I keep the door unlocked for you\n"
+                 "the river carries every stone downhill\n"
+                 "and until dawn the cattle sleep\n"
+                 "I found a coin beneath the pier again\n"
+                 "a career of swallows nesting in Cayenne\n"
+                 "one candle burns beside the open door\n"
+                 "the town made every scandal into folklore\n"
+                 "she wrote a letter I could never read\n"
+                 "a sweater keeps the promise like a creed\n"
+                 "the kettle hums, the light comes on\n")
+    common = ["--seed=176", "--relation=RHYME", "--attempts=0",
+              "--backtrack=0", "--max-rounds=1"]
+    rc, out, _ = run("finish", draft, "--title=zebra confetti", *common)
+    st = re.search(r"\[FINISHED — seed 176 — exit (\d) — (\w+) after (\d+) "
+                   r"round\(s\) — ([^\]]+)\]", out)
+    check("the plan is the seed's and the draft fills it: the run reaches "
+          "a stop and stamps (a rc 2 here means seed 176 was re-dealt — "
+          "re-cut the fixture)",
+          rc in (0, 3) and st is not None,
+          f"rc {rc}; " + (st.group(0) if st else out[-300:]))
+    check("with NO line open and TITLE_NOT_IN_HOOK standing, `finish` exits "
+          "3 — the whole-draft flag alone drives the exit",
+          rc == 3 and st is not None and st.group(1) == "3"
+          and st.group(2) == "SUCCESS",
+          st.group(0) if st else "")
+    check("...and the stamp says why: `no flag stands` beside `WHOLE-DRAFT "
+          "FLAG: TITLE_NOT_IN_HOOK`",
+          st is not None and st.group(4) ==
+          "no flag stands — WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK",
+          st.group(4) if st else "")
+    check("...and the STANDING block prints the flag in the report's own "
+          "spelling",
+          "WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK" in out)
+    rc0, out0, _ = run("finish", draft, "--title=the door unlocked", *common)
+    st0 = re.search(r"\[FINISHED — seed 176 — exit (\d) — [^\]]*\]", out0)
+    check("CONTROL: a title the hook carries clears the flag — exit 0, and "
+          "the stamp has no WHOLE-DRAFT clause",
+          rc0 == 0 and st0 is not None and st0.group(1) == "0"
+          and "WHOLE-DRAFT" not in st0.group(0),
+          st0.group(0) if st0 else out0[-200:])
+    shutil.rmtree(d, ignore_errors=True)
+
+
+def test_the_pasted_song_has_the_same_door_as_a_planned_one():
+    print("\n49. `recover` is a verb, and `revise` under defer: renders and "
+          "stamps a pasted song's stop (`MISSING.md` M-195)")
+    # THE OWNER'S RULING (2026-08-23, quality/recover.py's docstring): a
+    # pasted song goes through every step a planned one does, and the first
+    # step is to STRUCTURE it. `quality/recover.py` did that and had no verb
+    # and no tool — `python3 quality/recover.py` was the only door, and it
+    # printed no mandate spelling a caller could hand on. And a pasted song
+    # could be LOOPED (`revise --propose=defer:`) but never FINISHED: only
+    # `finish` rendered and stamped, and `finish` needs a seed.
+    d = tempfile.mkdtemp()
+    song = os.path.join(HERE, "..", "songs", "keep_the_light.txt")
+    rc, out, _ = run("recover", song)
+    check("`recover` on a banked song exits 3 — the meter is REFUSED, a "
+          "work order and not a failure — and prints the two CLI flags",
+          rc == 3 and "MANDATE SPELLING" in out
+          and re.search(r"^\s*--groups=\S+", out, re.M)
+          and re.search(r"^\s*--returns=6,9;6,14", out, re.M)
+          and "EXIT 3" in out and "meter" in out,
+          f"rc {rc}; " + out[out.find("MANDATE SPELLING"):][:160])
+    rc, out, _ = run("recover", song, "--bogus", expect_rc=2)
+    check("an unknown flag refuses at exit 2, like every verb",
+          rc == 2 and "REFUSED" in out, f"rc {rc}")
+    rc, out, _ = run("recover", expect_rc=2)
+    check("no file refuses with the usage", rc == 2 and "recover LYRIC.txt" in out,
+          f"rc {rc}")
+    # THE STAMP ON A PASTED SONG'S LOOP: no seed, a declared mandate, the
+    # same [FINISHED — …] shape `finish` prints, with `declared mandate`
+    # where a seed would stand, so the connector reads both.
+    draft = os.path.join(d, "draft.txt")
+    with open(draft, "w", encoding="utf-8") as fh:
+        fh.write("\n".join(NOISY_LINES[:4]) + "\n")
+    state = os.path.join(d, "state.json")
+    rc, out, _ = run("revise", draft, "--groups=2,3;1,4", "--attempts=0",
+                     "--backtrack=0", f"--propose=defer:{state}")
+    m = re.search(r"\[FINISHED — declared mandate — exit (\d) — (\w+) after "
+                  r"(\d+) round\(s\) — ([^\]]+)\]", out)
+    check("`revise --propose=defer:` renders the lines in order under a "
+          "[FINISHED — declared mandate — …] stamp at a stop condition",
+          rc in (0, 3) and "THE SONG, PERFORMANCE ORDER" in out
+          and m is not None and int(m.group(1)) == rc,
+          f"rc {rc}; " + (m.group(0) if m else "(no stamp)"))
+    rc2, out2, _ = run("revise", draft, "--groups=2,3;1,4", "--attempts=0",
+                       "--backtrack=0")
+    check("...and the STUB proposer's `revise` (no defer) prints no render "
+          "and no stamp — the door is the deferred, resumable one",
+          "[FINISHED" not in out2 and "THE SONG, PERFORMANCE ORDER" not in out2,
+          f"rc {rc2}")
+
+
+def test_the_plan_report_discloses_density_and_audibility():
+    print("\n50. the `plan` report says what DENSITY it drew and how much of "
+          "its end-web is HEARD as rhyme (`MISSING.md` M-191, M-192)")
+    # Two coordinates the planner discloses in `choices` and the CLI had to
+    # PRINT, because the connector returns this report and nothing else:
+    # the density cap (M-191) and the audible / bare / inaudible partition
+    # of the end-bound groups (M-192). Both are records — the report of a
+    # draw, never a gate — and both are asserted against the plan's own
+    # numbers rather than a remembered figure.
+    import json as _json
+    d = tempfile.mkdtemp()
+    bp = os.path.join(d, "bp.json")
+    rc, out, _ = run("plan", "--seed=16", f"--out={bp}", expect_rc=0)
+    with open(bp, encoding="utf-8") as fh:
+        plan = _json.load(fh)
+    dn = plan["choices"]["density"]
+    au = plan["choices"]["audible"]
+    m = re.search(r"^\s*DENSITY: binding cap (\d+) — (.+)$", out, re.M)
+    check("the report prints the density cap the plan drew, with how it "
+          "was chosen, and the number is the plan's own",
+          rc == 0 and m is not None and int(m.group(1)) == dn["binding_cap"]
+          and "uniform over 1.." in m.group(2),
+          f"rc {rc}; {m.group(0)[:90] if m else 'no DENSITY line'}")
+    m2 = re.search(r"^\s*AUDIBLE: (\d+) of (\d+) end-bound group\(s\) draw a "
+                   r"relation a listener hears as END RHYME", out, re.M)
+    check("...and the AUDIBLE line partitions the end-bound groups with the "
+          "plan's own counts — audible of end-bound, then the bare default "
+          "and the inaudible apart (doctrine 79)",
+          m2 is not None and int(m2.group(1)) == au["audible"]
+          and int(m2.group(2)) == au["end_bound"]
+          and f"{au['bare']} on the bare default" in out
+          and f"{len(au['inaudible'])} on a relation heard as something else"
+          in out,
+          f"{m2.group(0)[:90] if m2 else 'no AUDIBLE line'}")
+    check("...and says it is a record, not a gate — the dice are untouched",
+          "A record, not a gate" in out)
+    brief = plan.get("writer_brief", "")
+    check("the writer brief carried in the blueprint has the legend and the "
+          "capacity line the writer reads (M-192)",
+          "Where a binding sits" in brief
+          and "What each named relation asks" in brief
+          and re.search(r"^\s+up to \d+ syllables a line after the pickup; "
+                        r"the calibrated band asks at least \d+$", brief, re.M)
+          is not None)
 
 
 if __name__ == "__main__":
@@ -4579,6 +5063,11 @@ if __name__ == "__main__":
         test_every_workflow_file_is_parseable_yaml,
         test_finish_is_the_one_door_from_draft_to_rendered_song,
         test_the_cynghanedd_verb_reaches_caesura_and_marks,
+        test_a_missing_staged_resource_refuses_instead_of_crashing,
+        test_the_loop_verbs_exit_on_what_stands_at_the_stop,
+        test_the_pasted_song_has_the_same_door_as_a_planned_one,
+        test_the_plan_report_discloses_density_and_audibility,
+        test_finish_exits_3_on_a_whole_draft_flag_alone,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —
     # measured 21-22 minutes on CI run #524, and after the pool went

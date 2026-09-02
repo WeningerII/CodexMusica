@@ -89,7 +89,8 @@ from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
                            CandidateEngine, Declaration,
                            Lexicon, admits, best_score, bron_kerbosch,
                            line_anchors, readability_records,
-                           refusals_for_pairs, spans_note, spelled_rime)
+                           refusals_for_pairs, spans_note, spelled_rime,
+                           theta_for)
 from quality import fit as FT  # noqa: E402
 from quality import grid as GR  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
@@ -378,6 +379,20 @@ class ReviseDeclaration:
 
 
 @dataclass
+class SlotField:
+    """The candidate field at ONE of a line's binding places (M-184)."""
+    slot: object                 # None (the end) or the `Slot`
+    labels: tuple                # the groups that bind this line here
+    calls: tuple                 # the words this place must answer
+    incumbent: str               # the word there now
+    offered: list
+    forbidden: list
+    violated: bool               # a finding on this line names one of `labels`
+    joint_conflict: bool         # 2+ calls here and NOTHING answers them all
+    dropped: tuple = ()          # RHYME-typed words the symmetric screen refused
+
+
+@dataclass
 class Brief:
     """What a caller is asked to do. Line-scoped, never whole-draft."""
     line_no: int
@@ -397,11 +412,55 @@ class Brief:
     #: readings, with the loop acting on the wrong one (doctrine 1). The
     #: loop's own move follows it through `loop.swap_at_slot`.
     slot: object = None
-    #: True when this line binds at DIFFERENT places in different groups, so
+    #: ~~True when this line binds at DIFFERENT places in different groups, so
     #: no single word swap can answer them all. Reported rather than resolved
     #: — the same shape `joint_conflict` has, one axis over: it is a fact
-    #: about the MANDATE, and the loop has no move for it.
+    #: about the MANDATE, and the loop has no move for it.~~ **STRUCK
+    #: 2026-09-01 (`MISSING.md` M-184): that reading was inverted.** A line
+    #: bound at its end in one group and at its T2 word in another is asked
+    #: for TWO words, one per place, and each place is answered by its own
+    #: swap — nothing about that is a fact about the mandate. What the old
+    #: flag did was send every such line to the "the MANDATE is what needs
+    #: revising" sentence while `brief()` intersected the two places' rhyme
+    #: fields into one empty list (129 of 155 mandated lines on seed 88291
+    #: bind at more than one place, so on a drawn plan this was the
+    #: ordinary flagged line). True NOW when more than one of this line's
+    #: binding places is VIOLATED, so a single swap at `slot` cannot close
+    #: the line; `fields_by_slot` carries the other places' fields.
     slot_conflict: bool = False
+    #: ONE FIELD PER BINDING PLACE (M-184): `{slot_key: SlotField}` where the
+    #: key is `None` for the line's end and the slot's own spelling
+    #: otherwise. `candidates`/`forbidden_modal`/`forbidden_incumbent`/
+    #: `joint_conflict` below are the entry at `slot` — the place the
+    #: findings on this line name — copied out so every existing reader
+    #: keeps its meaning; the dict is for a renderer that has to say what
+    #: the OTHER places want and whether they hold.
+    fields_by_slot: dict = field(default_factory=dict)
+    #: `{label: slot_key}` — where this line binds in each of its groups.
+    group_slots: dict = field(default_factory=dict)
+    #: The labels of the groups a finding on this line names as VIOLATED;
+    #: empty when no finding can be attributed to a group (a many-line note
+    #: such as PREDICTABLE_RHYME), in which case `slot` is the first group's.
+    violated_groups: tuple = ()
+    #: The labels of the groups that bind at `slot` — the groups a tier-2
+    #: backtrack may rewrite for this pivot. Tier 2 used to walk EVERY group
+    #: of the line and intersect their calls across places.
+    slot_groups: tuple = ()
+    #: RHYME-typed words the offer PASSED OVER at `slot` because taking them
+    #: files MODAL_RHYME from the word's own side — the call sits in the
+    #: word's own modal head (`MISSING.md` M-185). Printed with the offer so
+    #: a writer knows the menu is short because the ban is, not the lexicon:
+    #: for a call in the top ranks of its own family that is EVERY rhyme.
+    screened_out: tuple = ()
+    #: THE ROUND THIS BRIEF WAS ISSUED IN, stamped by `quality/loop.py`
+    #: (0 outside the loop). A recorded answer belongs to the QUESTION it
+    #: answered, and the question is (line, attempt, round): `attempt`
+    #: restarts at 0 every round, so without this coordinate a line's
+    #: round-1 answers were replayed as its answers in every later round and
+    #: a stuck line was never asked twice (`MISSING.md` M-183). It rides the
+    #: brief rather than the `propose()` contract so no proposer's signature
+    #: moves.
+    round_no: int = 0
     must_rhyme_with: tuple = None       # (line_no, endword) — the FIRST group
     candidates: list = field(default_factory=list)
     #: THE MODAL HEAD, AND NOTHING ELSE — doctrine 9's own set: the most
@@ -572,16 +631,33 @@ class Brief:
                 out.append(f"        {f.evidence}")
         for lab, mem, calls in self.must_answer:
             shown = ", ".join(f"L{n} ({w!r})" for n, w in calls)
+            # WHERE, AND WHETHER IT HOLDS (M-184): a group at a non-default
+            # place names the place, and once any group on the line is
+            # attributed a violation, every group says which side it is on.
+            _sk = self.group_slots.get(lab, None) if self.group_slots else None
+            place = f" at {_sk}" if _sk is not None else ""
+            standing = ""
+            if self.violated_groups:
+                standing = (" — VIOLATED" if lab in self.violated_groups
+                            else " — HOLDS")
             if lab in self.return_groups:
                 out.append(f"    group {lab} {mem} is a RETURN: this line "
                            f"must BE {shown} — the same line, word for word, "
                            f"not merely a rhyme")
             else:
-                out.append(f"    must answer group {lab} {mem}: {shown}")
+                out.append(f"    must answer group {lab} {mem}{place}: "
+                           f"{shown}{standing}")
         if self.must_answer and len(self.must_answer) > 1:
-            out.append(f"    L{self.line_no} is a PIVOT — it is in "
-                       f"{len(self.must_answer)} groups and must answer every "
-                       f"one of them (conjunctive; doctrine 2)")
+            _places = {self.group_slots.get(lab) for lab, _m, _c in
+                       self.must_answer} if self.group_slots else {None}
+            if len(_places) > 1:
+                out.append(f"    L{self.line_no} binds at {len(_places)} "
+                           f"PLACES — each place is its own word answering "
+                           f"its own group(s) (M-184)")
+            else:
+                out.append(f"    L{self.line_no} is a PIVOT — it is in "
+                           f"{len(self.must_answer)} groups and must answer "
+                           f"every one of them (conjunctive; doctrine 2)")
         if self.joint_conflict:
             out.append(f"    NO JOINT CANDIDATE at {self.field_declaration}: "
                        f"nothing in the lexicon answers all of those groups "
@@ -601,6 +677,13 @@ class Brief:
             out.append(f"    FORBIDDEN (modal — passing the band by taking "
                        f"these is the slop direction): "
                        f"{', '.join(self.forbidden_modal)}")
+        if self.screened_out:
+            out.append(f"    NOT OFFERED ({len(self.screened_out)} rhyme(s) "
+                       f"the ban refuses from the OTHER side — the call "
+                       f"word sits in their own modal head, so taking one "
+                       f"re-opens the line as MODAL_RHYME): "
+                       f"{', '.join(self.screened_out[:8])}"
+                       + (" …" if len(self.screened_out) > 8 else ""))
         if self.forbidden_incumbent:
             # THE SECOND RENDERER OF THE SAME SENTENCE (`MISSING.md` M-91).
             # It said "end word" whatever `self.slot` bound; `slots
@@ -976,6 +1059,50 @@ class Reviser:
         if len(self._matrix_cache) > 8:
             self._matrix_cache.clear()
         self._matrix_cache[key] = out
+        return out
+
+    def _incumbent(self, lines, line_no, slot):
+        """-> the word `line_no` carries NOW at `slot` (M-184).
+
+        THE ONE DEFINITION `brief()` and `verify()`'s RULE 3 share: the end
+        word through `qf._endword` at the default slot — byte-identical to
+        what both read before — and the resolved span's label otherwise.
+        RULE 3 used to read `_endword` whatever the brief's slot was, so a
+        line briefed at its T2 word was checked for "took the modal
+        candidate" at its END, where nothing had moved.
+        """
+        if slot is None or _SL.is_default(slot):
+            return self.floor.qf._endword(lines[line_no - 1])
+        return _SL.resolve(self.lex, lines[line_no - 1], slot)[1]
+
+    @staticmethod
+    def _violated_groups(m, ln, groups, findings):
+        """-> the group indexes a finding on `ln` NAMES as violated (M-184).
+
+        Read off the finding's own `locations` — a pair finding names its
+        two lines, and the group is the one that holds both — with the
+        finding's message consulted only to break a tie between two groups
+        holding the same pair at different places. A finding that names no
+        pair (PREDICTABLE_RHYME lists every obvious line) attributes to no
+        group, and a line whose findings attribute to none falls back to
+        the first group's place, which is what every brief did before.
+        """
+        out = set()
+        for f in findings:
+            if f.code not in RHYME_FINDINGS:
+                continue
+            locs = list(getattr(f, "locations", ()) or ())
+            if len(locs) != 2 or ln not in locs:
+                continue
+            other = locs[0] if locs[1] == ln else locs[1]
+            holding = [k for k, mates in groups if other in mates]
+            if len(holding) > 1:
+                named = [k for k in holding
+                         if f"group {m.labels[k]} " in (f.message or "")
+                         or (f.message or "").endswith(f"group {m.labels[k]}")]
+                if named:
+                    holding = named
+            out.update(holding)
         return out
 
     def _slot_word(self, lines, m, k, line, endwords):
@@ -1502,9 +1629,18 @@ class Reviser:
                        f"declared admit set)")
             elif rel == NO_ANCHOR:
                 why = "NO_ANCHOR: nothing to compare (not a rhyme verdict)"
-            elif s["total"] < self.decl.theta_rhyme:
-                why = f"below theta_rhyme={self.decl.theta_rhyme}"
-            elif not admits(s, self.decl.theta_rhyme,
+            elif s["total"] < theta_for(s, self.decl):
+                # PER RELATION SINCE 2026-09-02 (`MISSING.md` M-138, priced).
+                # `check_scheme` is the other reader of this same chain and
+                # its own comment says the two must move together; they do
+                # here, in one commit, phrased the same way.
+                _th = theta_for(s, self.decl)
+                why = (f"below theta_rhyme={self.decl.theta_rhyme}"
+                       if _th == self.decl.theta_rhyme else
+                       f"below theta({rel})={_th} "
+                       f"(theta_rhyme={self.decl.theta_rhyme}; the near "
+                       f"relations carry their own priced cut, M-138)")
+            elif not admits(s, theta_for(s, self.decl),
                             relations=frozenset(self.decl.admit)):
                 # NO_RELATION FELL THROUGH ALL FOUR BRANCHES — FIXED
                 # 2026-08-15. The chain above is an ENUMERATED blacklist, and
@@ -1551,6 +1687,15 @@ class Reviser:
                              # catalog import on every structureless grade()
                              # is what the lazy gate above exists to avoid.
                              "structure": struct,
+                             # THE COMPARATOR'S OWN DISCLOSURES, CARRIED
+                             # (2026-09-02, E-5 / M-136): `score()` says
+                             # on its flags what it never asked or could
+                             # not hear (`identity: not asked`,
+                             # `conjunctive band: off`, `coda: no
+                             # evidence`), and a verdict that dropped them
+                             # read exactly like one with nothing to say.
+                             # A copy of the record, gating nothing.
+                             "flags": list(s.get("flags") or []),
                              "why": why})
 
         # Doctrine 3, resolved PER PAIR by the mandate's own declaration
@@ -2786,8 +2931,10 @@ class Reviser:
             # TIER 2 — the frequency ban over the differently-spelled
             # remainder (`joint_field` composes the same two tiers for the
             # OFFERS, so menu and verdict agree).
-            _, forbidden_i = self.modal_field(wi, profile=profile)
-            _, forbidden_j = self.modal_field(wj, profile=profile)
+            # THE HEAD ONLY (M-185): `modal_field` also builds the offer,
+            # and the offer now screens its words by their own heads.
+            forbidden_i = self.modal_head(wi, profile=profile)
+            forbidden_j = self.modal_head(wj, profile=profile)
             hits = []
             if wj in forbidden_i:
                 hits.append(f"{v['endwords'][1]!r} is one of the "
@@ -3383,10 +3530,12 @@ class Reviser:
     def field_note(self, m, groups):
         """-> `Brief.schema_route_note` for one line's groups.
 
-        ANY open group is enough, and that is the honest reading: the field
+        ANY open group is enough, and that is the honest reading: ~~the field
         is ONE list answering every group at once (`joint_field` intersects
-        them), so a single group leaving the route open means the list was
-        built without the 77 for a pair the grader will apply them to.
+        them)~~ the field at each PLACE answers every group bound there
+        (M-184 split the list per place, 2026-09-01), so a single group
+        leaving the route open means a list was built without the 77 for a
+        pair the grader will apply them to.
         """
         from quality.relations import SCHEMA_ROUTE_NOTE as _N
         return _N if any(self.schema_route_open(m, k)
@@ -3534,7 +3683,11 @@ class Reviser:
                 # `decl.admit`, NOT the omitted default. Omitting it spelled
                 # the pre-M-59 two-name door in the one function whose
                 # docstring promises it asks the verdict's question (M-139).
-                if admits(s, self.decl.theta_rhyme,
+                # AND `theta_for`, NOT `theta_rhyme`, since 2026-09-02 for
+                # the same reason one layer on: the near relations carry
+                # their own priced cut (M-138), and a FIELD built at 0.75
+                # would offer the writer partners the GRADE then charges.
+                if admits(s, theta_for(s, self.decl),
                           relations=frozenset(self.decl.admit)):
                     passing.append(cand)
         else:
@@ -3616,9 +3769,33 @@ class Reviser:
         never on set iteration order — doctrine 66, a tie broken by iterating
         a set is a result that does not reproduce.
         """
+        offered, forbidden, _dropped = self.joint_field_screened(
+            calls, exclude=exclude, profile=profile)
+        return offered, forbidden
+
+    def modal_head(self, call_word, profile=None):
+        """-> the FORBIDDEN head of one call word's field and nothing else —
+        the two tiers (`joint_field`'s own composition) with no offer built.
+
+        THE GRADER'S ACCESSOR (M-185, 2026-09-01). `grade()`'s MODAL_RHYME
+        check needs only the head; it used to take it off `modal_field`,
+        which also builds the OFFER, and the offer now screens each of its
+        words by asking for THAT word's head — a recursion the grader has no
+        use for and would pay on every satisfied pair. Same ranking, same
+        two tiers, same answer as `modal_field(...)[1]`; `test_revise.py`
+        pins the identity.
+        """
+        _, forbidden, _ = self._rank_field([call_word], profile=profile)
+        return forbidden
+
+    def _rank_field(self, calls, profile=None):
+        """-> (rest_ranked, forbidden, fields): the two-tier ranking over the
+        conjunction of `calls`' fields, with the ban applied and NO offer
+        chosen. The one ranking `joint_field_screened` and `modal_head`
+        share (doctrine 1)."""
         fields = self._field(calls, profile=profile)
         if not fields or not fields[0]:
-            return [], []
+            return [], [], fields
         common = set(fields[0])
         for f in fields[1:]:
             common &= set(f)
@@ -3642,26 +3819,163 @@ class Reviser:
         # air/fair, and 'prayer' (rank 7) walked through the gap; a reviser
         # iterating candidates until the checker passed landed on rank 7
         # EVERY time. The tiers close the gap from both sides, and the
-        # OFFERS below are built from what survives both, so the menu and
-        # the verdict cannot disagree.
+        # OFFERS below are built from what survives both, ~~so the menu and
+        # the verdict cannot disagree~~ — STRUCK 2026-09-01 (M-185): they
+        # disagreed in the OTHER direction, the call sitting in the offered
+        # word's own head, and `joint_field_screened` closes that side.
         call_rimes = {self._spelled_rime(c) for c in calls}
         homeo = [w for w in ranked if self._spelled_rime(w) in call_rimes]
         rest_ranked = [w for w in ranked
                        if self._spelled_rime(w) not in call_rimes]
         k = self.rdecl.modal_exclusion
         forbidden = homeo + rest_ranked[:k]
+        return rest_ranked[k:], forbidden, fields
+
+    def joint_field_screened(self, calls, exclude=(), profile=None):
+        """-> (offered, forbidden, dropped): `joint_field` with its third
+        count exposed — the words the offer PASSED OVER because taking them
+        would re-open the line (M-185).
+
+        THE MENU AND THE VERDICT DISAGREED, and the sentence above this
+        function said they could not. The MODAL_RHYME note `grade()` files
+        is SYMMETRIC — `wj in head(wi) OR wi in head(wj)` — while the offer
+        was screened in ONE direction only, the head of the CALLS' field.
+        MEASURED on the 2026-09-01 audit's probe: every one of the first
+        six words offered for the call `door` (lenore, bore, gore, yore,
+        implore, wore) has `door` in ITS OWN head, so taking any of them
+        filed MODAL_RHYME, the loop pursued it (`MANDATORY_PURSUE`), and the
+        line the writer had just fixed re-opened at exit 3. `_offer_reopens`
+        asks the other direction of each candidate before it is offered;
+        the words it drops are counted and returned, never folded into the
+        offer or the head (doctrine 79).
+        """
+        rest_ranked, forbidden, fields = self._rank_field(calls,
+                                                          profile=profile)
+        if not fields or not fields[0]:
+            return [], [], []
         drop = set(forbidden) | {w.lower() for w in exclude if w}
-        rest = []
-        for w in rest_ranked[k:]:
+        # RHYMES BEFORE NEAR RELATIONS, in the OFFER only. The ranking is
+        # doctrine 9's (partner count given the calls, then frequency) and
+        # it decides the HEAD; the head is untouched here. But once the
+        # screen below removes the observed partners of a common call — for
+        # `door` every one of them has `door` in its own head — the ranking's
+        # tail is the menu, and the tail of a zero-evidence tier ordered by
+        # global frequency is `i, on, was, are`: function words the widened
+        # admit door (M-59; priced at M-138) types as ASSONANCE or CONSONANCE.
+        # A menu headed by them is a menu no writer can use. So every
+        # candidate is first TYPED by its relation to every call, read off
+        # the comparator itself (`best_score(...)["relation"]`, the object
+        # `grade()` reads), and the RHYME-typed candidates are screened and
+        # offered first in their doctrine-9 order; the near-typed ones fill
+        # whatever the menu still has room for, in theirs. A partition, not a
+        # re-ranking: within each part the order is what it always was.
+        anc_calls = [self._word_anchors(c) for c in calls]
+        rhymes, nears = [], []
+        for w in rest_ranked:
             if w in drop:
                 continue
             # single letters are lexicon artifacts, not words a writer can use
             if len(w) < 2 and w not in ("a", "i"):
                 continue
-            rest.append(w)
+            anc_w, lab_w = self._word_anchors(w)
+            typed = all(
+                best_score(anc_c, anc_w, self.decl, lab_c, lab_w,
+                           profile=profile)["relation"] in RHYME_RELATIONS
+                for anc_c, lab_c in anc_calls)
+            (rhymes if typed else nears).append(w)
+        # THE SCREEN, bounded: each screen scores a few dozen pairs, and a
+        # common call's near-typed tier runs to hundreds of words, so at most
+        # `_SCREEN_SCAN` × `offered` candidates of each part are screened.
+        # `dropped` is the RHYME-typed words the screen refused — the count
+        # that says whether this call can be rhymed cleanly at all.
+        limit = self._SCREEN_SCAN * self.rdecl.offered
+        rest, dropped = [], []
+        for w in rhymes[:limit]:
             if len(rest) >= self.rdecl.offered:
                 break
-        return rest, forbidden
+            if self._offer_reopens(w, calls, fields, profile=profile):
+                dropped.append(w)
+                continue
+            rest.append(w)
+        for w in nears[:limit]:
+            if len(rest) >= self.rdecl.offered:
+                break
+            if self._offer_reopens(w, calls, fields, profile=profile):
+                continue
+            rest.append(w)
+        return rest, forbidden, dropped
+
+    #: How far past the menu's own length the screen scans EACH part, in
+    #: multiples of `ReviseDeclaration.offered` — a bound on cost, not a
+    #: coordinate of any verdict (the head is cut before this runs).
+    #: MEASURED 2026-09-01 on the call `door`: 32 rhyme-typed candidates
+    #: dropped, 24 survivors reached in 3.6 s cold, so 8× the menu covers
+    #: the common case.
+    _SCREEN_SCAN = 8
+
+    def _offer_reopens(self, w, calls, fields, profile=None):
+        """Would taking `w` file MODAL_RHYME against one of `calls` from
+        `w`'s OWN side — is some call in `w`'s head? (M-185)
+
+        EXACT WOULD COST A LEXICON PASS PER OFFERED WORD. `modal_head(w)`
+        scores every entry against `w` (`engine.candidates`, ~2.7 s cold,
+        43,250 `score` calls — profiled 2026-09-01), and a 25-line drawn
+        plan briefs ~15 lines × 12 offers per round with a 64-entry field
+        cache, so the exact form is minutes per brief. This answers the
+        same question CONSERVATIVELY: `w`'s head is the top
+        `modal_exclusion` of its band-passing, differently-spelled field
+        ranked by (partner count given `w`, frequency rank), so a call `c`
+        is OUTSIDE it exactly when at least `modal_exclusion` words outrank
+        `c` there. Outrankers are counted only where they can be proven —
+        `w`'s observed partners and the call's own family (both already in
+        hand), each scored against `w` by the grader's own predicate — so
+        every counted outranker is real, the count can only be LOW, and a
+        low count DROPS the word. A dropped word was therefore never
+        offered wrongly; a kept word has `modal_exclusion` proven
+        outrankers and cannot be in the head. The words this cannot see
+        (a rhyme of `w` outside the call's family and unobserved beside it)
+        cost offers, never verdicts. Ties at the frequency floor (both
+        words absent from the list) are not counted as outrankers for the
+        same reason — `joint_field`'s tie-break there is field order,
+        which this does not rebuild.
+        """
+        k = self.rdecl.modal_exclusion
+        if k <= 0:
+            return False
+        rime_w = self._spelled_rime(w)
+        anc_w, lab_w = self._word_anchors(w)
+        cond_w = FREQ.LAYER.conditional("eng-song", w.lower(),
+                                        scoring=FREQ.UNSEEN)
+        for c, cfield in zip(calls, fields):
+            c = c.lower()
+            cond_c = cond_w.get(c, 0)
+            fr_c = self.lex.freq_rank.get(c, 10 ** 9)
+            pool = set(cond_w) | set(cfield)
+            pool.discard(c)
+            pool.discard(w)
+            outrank = 0
+            for x in sorted(pool):
+                cx = cond_w.get(x, 0)
+                fx = self.lex.freq_rank.get(x, 10 ** 9)
+                if not (cx > cond_c or (cx == cond_c and fx < fr_c)):
+                    continue
+                if len(x) < 2 and x not in ("a", "i"):
+                    continue
+                if self._spelled_rime(x) == rime_w:
+                    continue                    # homeo: ranked beneath the head
+                anc_x, lab_x = self._word_anchors(x)
+                if not anc_x:
+                    continue
+                sc = best_score(anc_w, anc_x, self.decl, lab_w, lab_x,
+                                profile=profile)
+                if admits(sc, self.decl.theta_rhyme,
+                          relations=frozenset(self.decl.admit)):
+                    outrank += 1
+                    if outrank >= k:
+                        break
+            if outrank < k:
+                return True
+        return False
 
     def modal_field(self, call_word, exclude=(), profile=None):
         """-> (offered, forbidden). The forbidden set is the MOST PREDICTABLE
@@ -3826,9 +4140,40 @@ class Reviser:
             # that is reported (`slot_conflict`) rather than resolved by
             # picking the first — picking would hand the writer a rewrite
             # that satisfies one group and silently breaks the other.
-            _mine = {str(m.slot_of(k, ln)) for k, _ in groups}
-            b.slot = m.slot_of(groups[0][0], ln) if groups else None
-            b.slot_conflict = len(_mine) > 1
+            # ONE PLACE, ONE FIELD (M-184, 2026-09-01). Every group the line
+            # is in is resolved to the place it binds THIS line at; the
+            # groups are bucketed by place; and the finding(s) on the line
+            # say which places are VIOLATED. The old code took the first
+            # group's slot as `b.slot`, handed EVERY group's calls to one
+            # `joint_field` (an intersection across places, which is empty
+            # whenever the places' families differ), and told the writer
+            # "the MANDATE is what needs revising" about a line that needed
+            # one ordinary swap at its T2 word.
+            _slotted = m.slots_declared()
+            _slot_of = {k: (m.slot_of(k, ln) if _slotted else None)
+                        for k, _ in groups}
+            _skey = {k: (None if _SL.is_default(sl) else str(sl))
+                     for k, sl in _slot_of.items()}
+            b.group_slots = {m.labels[k]: _skey[k] for k, _ in groups}
+            _violated = self._violated_groups(m, ln, groups, fs)
+            b.violated_groups = tuple(m.labels[k] for k, _ in groups
+                                      if k in _violated)
+            _by_slot = {}
+            for k, _mates in groups:
+                _by_slot.setdefault(_skey[k], []).append(k)
+            _viol_slots = [sk for sk in _by_slot
+                           if any(k in _violated for k in _by_slot[sk])]
+            # THE PRIMARY PLACE: the violated one; the first violated one
+            # when several are (and `slot_conflict` says so); the first
+            # group's place when no finding can name one — which is exactly
+            # the old choice, kept for that case alone.
+            _primary = (_viol_slots[0] if _viol_slots
+                        else (_skey[groups[0][0]] if groups else None))
+            b.slot = (_slot_of[_by_slot[_primary][0]]
+                      if groups else None)
+            b.slot_conflict = len(_viol_slots) > 1
+            b.slot_groups = tuple(m.labels[k]
+                                  for k in _by_slot.get(_primary, ()))
             _returns = []
             for k, mates in groups:
                 b.must_answer.append(
@@ -3856,20 +4201,42 @@ class Reviser:
             # they are precisely where the modal exclusion has to be applied.
             wants = any(f.code in RHYME_FINDINGS for f in fs)
             if wants and groups:
-                calls = [self._slot_word(lines, m, k, x, endwords)
-                         for k, mates in groups for x in mates]
-                calls = [c for c in dict.fromkeys(calls) if c]
-                # THE INCUMBENT AT THIS LINE'S OWN BINDING SITE. For a
-                # default slot this is `qf._endword` exactly as before —
-                # which `verify()`'s RULE 3 compares against, so the two must
-                # stay the same function or the corollary that makes "took
-                # the modal candidate" true of every entry stops holding.
-                cur = (self.floor.qf._endword(lines[ln - 1])
-                       if b.slot is None or _SL.is_default(b.slot)
-                       else _SL.resolve(self.lex, lines[ln - 1], b.slot)[1])
+                # ONE `joint_field` PER PLACE. On an ordinary end-rhyme
+                # mandate there is one place, so this is the one call it
+                # always was, over the same calls in the same order —
+                # byte-identical (test_revise.py pins the field).
+                for sk, ks in _by_slot.items():
+                    _sl = _slot_of[ks[0]]
+                    _calls = [self._slot_word(lines, m, k, x, endwords)
+                              for k in ks for x in dict(groups)[k]]
+                    _calls = [c for c in dict.fromkeys(_calls) if c]
+                    _cur = self._incumbent(lines, ln, _sl)
+                    if _calls:
+                        _off, _forb, _drop = self.joint_field_screened(
+                            _calls, exclude=(_cur,), profile=profile)
+                    else:
+                        _off, _forb, _drop = [], [], []
+                    b.fields_by_slot[sk] = SlotField(
+                        slot=_sl, labels=tuple(m.labels[k] for k in ks),
+                        calls=tuple(_calls), incumbent=_cur or "",
+                        offered=_off, forbidden=_forb,
+                        violated=sk in _viol_slots,
+                        joint_conflict=(len(_calls) > 1 and not _off
+                                        and not _forb),
+                        dropped=tuple(_drop))
+                _pf = b.fields_by_slot.get(_primary)
+                calls = list(_pf.calls) if _pf else []
+                # THE INCUMBENT AT THIS LINE'S OWN BINDING SITE — the
+                # PRIMARY place. For a default slot this is `qf._endword`
+                # exactly as before — which `verify()`'s RULE 3 compares
+                # against, so the two must stay the same function or the
+                # corollary that makes "took the modal candidate" true of
+                # every entry stops holding.
+                cur = self._incumbent(lines, ln, b.slot)
                 if calls:
-                    b.candidates, b.forbidden_modal = self.joint_field(
-                        calls, exclude=(cur,), profile=profile)
+                    b.candidates, b.forbidden_modal = (list(_pf.offered),
+                                                       list(_pf.forbidden))
+                    b.screened_out = tuple(_pf.dropped)
                     # SET HERE AND NOWHERE ELSE — this is the one statement
                     # that `joint_field` ran, so an EMPTY head can be told
                     # apart from a head nobody asked for. See the field.
@@ -3878,9 +4245,11 @@ class Reviser:
                     # SET AND NOWHERE ELSE (`MISSING.md` M-139) -- the same
                     # discipline `field_computed` one line up is under.
                     b.schema_route_note = self.field_note(m, groups)
-                    b.joint_conflict = (len(calls) > 1
-                                        and not b.candidates
-                                        and not b.forbidden_modal)
+                    # A CONJUNCTION IS EMPTY AT ONE PLACE, never across
+                    # places (M-184): two families at two places are two
+                    # questions, and neither is unsatisfiable for the
+                    # other's sake.
+                    b.joint_conflict = _pf.joint_conflict
                 # THE WORD CURRENTLY THERE, ON ITS OWN FIELD SINCE
                 # 2026-08-16. It used to be APPENDED to `forbidden_modal`,
                 # which put two rules in one list under doctrine 9's name —
@@ -4117,8 +4486,10 @@ class Reviser:
             # `modal_endword_unchanged` would silently go empty.
             if not b or not (b.forbidden_modal or b.forbidden_incumbent):
                 continue
-            got = self.floor.qf._endword(after[ln - 1])
-            was = self.floor.qf._endword(before[ln - 1])
+            # AT THE BRIEF'S OWN PLACE (M-184): `_endword` at the default
+            # slot, exactly as before, and the bound span otherwise.
+            got = self._incumbent(after, ln, b.slot)
+            was = self._incumbent(before, ln, b.slot)
             if got == was:
                 # KEPT, not taken. `was` IS `b.forbidden_incumbent` here —
                 # both are `_endword` of the same `before` line — so the

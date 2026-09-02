@@ -68,12 +68,82 @@ export const LIMITS = {
   // maxSteps already bounds the hop count, but hops are not the unit that
   // costs money: every hop re-sends the whole transcript, so cost grows with
   // the SQUARE of the conversation rather than with the step counter. The
-  // measured worst prompt in the probe suite ran $0.033; ten cents is three
-  // times that, so an ordinary bad turn never sees this and a pathological one
-  // stops before it matters. Without it the only per-request bound was step
-  // count, and a turn that grew a large workspace could spend far more inside
-  // fourteen legal hops than fourteen ordinary hops ever would.
-  maxTurnUsd: Number(process.env.CHAT_MAX_TURN_USD) || 0.1,
+  // measured worst prompt in the probe suite ran $0.033; ~~ten cents is three
+  // times that, so an ordinary bad turn never sees this and a pathological
+  // one stops before it matters.~~ RAISED TO $2.50 BY THE OWNER 2026-09-02,
+  // and the reason the old figure had to go is `turnBudget()` below: at the
+  // pruning ceiling ten cents bought SIX hops of a declared FOURTEEN, so the
+  // dollar cap was the operative step limit and `maxSteps` was decoration —
+  // a turn legal by the step counter died on the dollar counter and reported
+  // MAX_TURN_COST for it. $2.50 sits an order of magnitude above the worst
+  // LEGAL turn ($0.2180 at the ceiling), which is what makes this a
+  // PATHOLOGY bound again rather than a step limit wearing a dollar sign.
+  // Without it the only per-request bound is step count, and a turn that
+  // grew a large workspace could spend far more inside fourteen legal hops
+  // than fourteen ordinary hops ever would.
+  //
+  // IT NOW SITS ABOVE `chat.js`'s DAILY CEILING ($2 by default), AND THAT IS
+  // A CONSEQUENCE RATHER THAN AN OVERSIGHT. The daily check admits a turn
+  // BEFORE it runs and never interrupts one in flight, so a single turn may
+  // carry the day past its own ceiling. `chatCeilings()` in `chat.js` says
+  // which of the three binds and `/chat/status` reports it; `CHAT_DAILY_USD`
+  // is the other knob and was NOT moved here, being a separate decision.
+  maxTurnUsd: Number(process.env.CHAT_MAX_TURN_USD) || 2.5,
+  // WHICH OF THOSE TWO CEILINGS ACTUALLY BINDS IS `turnBudget()` BELOW, AND
+  // IT IS DISCLOSED RATHER THAN LEFT TO WHICHEVER IS SMALLER (2026-09-02,
+  // triage C11). `maxSteps` and `maxTurnUsd` are two answers to ONE question
+  // — how many hops may a turn take — and the smaller one wins in silence,
+  // so a turn that stopped at hop 8 of a legal 14 reported MAX_TURN_COST
+  // with no number beside it. That is the reading problem M-169 exists for,
+  // one coordinate over.
+  // STALE-BRIEF PRUNING (M-197's open half). Every hop re-sends the whole
+  // transcript, and the transcript is mostly FOLDED LYRIC RESULTS the model
+  // has already acted on: a lyric_revise brief is ~20 KB on the record (a
+  // filler draft's is 117 KB), a lyric_grade verdict carries its full report
+  // (~45 KB on the record, 182 KB measured on a filler draft), and a
+  // lyric_plan brief is 21 KB (seed 16). The battery's rows grew ~40 KB a
+  // turn and read 395 KB by turn 4, where the turn cap THEN IN FORCE ($0.10;
+  // it is $2.50 since 2026-09-02) ended a turn after four hops (~100k tokens
+  // x $0.25/M ~ $0.025 a hop). Those bytes are why pruning exists and they do
+  // not move with the cap. See
+  // pruneHistory below for the rule; `CHAT_PRUNE_FOLDED=0` disables it.
+  pruneFolded: process.env.CHAT_PRUNE_FOLDED !== '0',
+  // The newest N prior turns are never touched (the model's own last hop
+  // of context, intact). One is enough because the pending question is
+  // ALSO kept by the newest-per-tool rule wherever it sits.
+  pruneKeepTurns: Number(process.env.CHAT_PRUNE_KEEP_TURNS) || 1,
+  // A byte ceiling on the pruned transcript, newest kept. 200 KB is ~50k
+  // tokens at the measured ~4 bytes/token, i.e. ~$0.0125 a hop, so a late
+  // turn kept at least eight hops under the $0.10 cap instead of four, which
+  // is the arithmetic that sized this ceiling; at the $2.50 cap in force now
+  // `maxSteps` binds first and this is a pure byte bound. On
+  // the record's shape stubbing alone lands well under it (~150 KB at
+  // turn 9), so this only ever bites a pathological transcript.
+  pruneMaxBytes: Number(process.env.CHAT_PRUNE_MAX_BYTES) || 200_000,
+};
+
+// A 429 ON THE CHAT PATH, RETRIED AT MOST TWICE AND NEVER LONGER THAN THIS
+// (2026-09-02, `MISSING.md` M-168's untouched rung). The chat bar reported
+// every 429 as "busy" on the argument that Google's retry hint is routinely
+// tens of seconds; round 10 ended on exactly that answer — turn 4 burned the
+// battery's four retries and turn 5 died on a hard 429 — while the key's own
+// limiter is 15 requests a MINUTE, which refills one request every 4 s. A wait
+// of 2 s then 4 s covers one refill slot and no more: a hop that lost a race
+// against a sibling conversation recovers, and a genuinely exhausted window is
+// still reported inside eight seconds, far under the 38 s stall the old
+// comment refused. `Retry-After` (the header, or Google's RetryInfo / "retry
+// in Ns" in the body) is HONOURED when it fits the budget and REFUSED when it
+// does not: a hint past `maxTotalWaitMs` throws at once with `retryAfterMs`
+// on the error rather than sleeping into the tool timeout. Every retried
+// request is counted in `usage.requests` and `usage.retries`, so M-197's
+// accounting sees the quota it spent; the final throw is not a retry and is
+// not counted, which keeps the M-197 pin's "one hop billed before the throw"
+// exact. Callers that put 429 in `retryStatuses` (the probe) keep the old
+// unbounded wait; this budget applies only where 429 is NOT waited out.
+export const RATE_LIMIT_RETRY = {
+  retries: 2,
+  backoffMs: [2000, 4000],
+  maxTotalWaitMs: 8000,
 };
 
 // The price for a model, or null if we do not know it.
@@ -97,6 +167,53 @@ export function priceFor(model) {
     return { input, output, declared: true };
   }
   return null;
+}
+
+// THE BYTES-PER-TOKEN RATIO THE PRUNING CEILING IS STATED IN. Measured at
+// ~4 bytes a token over this connector's own JSON transcripts (M-197's
+// pruning measurement states the ceiling in BYTES and the cap in DOLLARS,
+// and this is the one place the two units meet). Declared, so the arithmetic
+// below reads a coordinate rather than a magic number.
+export const BYTES_PER_TOKEN = Number(process.env.CHAT_BYTES_PER_TOKEN) || 4;
+
+/**
+ * What a turn's two ceilings actually buy, derived from the declared
+ * coordinates and the model's own price. No number is invented here: every
+ * input is `LIMITS` or `PRICING`, so a repin anywhere moves this.
+ *
+ * `worstLegalTurnUsd` is what a turn costs if it uses EVERY one of its
+ * `maxSteps` hops with a prompt at the pruning ceiling and a full output
+ * budget on each. Read it against `maxTurnUsd`: if the cap is BELOW it, the
+ * cap is the operative step limit and `maxSteps` is decoration — a turn that
+ * is legal by the step counter is killed by the dollar counter, and the user
+ * is told MAX_TURN_COST when what bound them was the hop budget. That is a
+ * fact about the two coordinates, not a defect in either, and it is the
+ * arithmetic the `CHAT_MAX_TURN_USD` ruling wants (triage C11).
+ *
+ * THE CEILING IS NOT THE WHOLE STORY AND THIS SAYS SO: `pruneHistory` runs
+ * ONCE A TURN, on the PRIOR transcript, so a turn's own tool results append
+ * on top of the pruned prior without being pruned again. A hop that folds a
+ * `lyric_grade` report (~45 KB on the record) pushes the prompt past the
+ * ceiling inside the turn, so `hopsAffordable` is an UPPER bound on a
+ * grading turn and an accurate one on a conversational turn.
+ *
+ * @returns {{perHopUsd:number, worstLegalTurnUsd:number,
+ *            hopsAffordable:number, capBinds:boolean}|null} null when the
+ *          model is unpriced — the same refusal `costOf` makes.
+ */
+export function turnBudget(limits = LIMITS, model = DEFAULT_MODEL) {
+  const price = priceFor(model);
+  if (!price) return null;
+  const promptTokens = limits.pruneMaxBytes / BYTES_PER_TOKEN;
+  const perHopUsd = (promptTokens * price.input + limits.maxOutputTokens * price.output) / 1e6;
+  const worstLegalTurnUsd = perHopUsd * limits.maxSteps;
+  const hopsAffordable = Math.floor(limits.maxTurnUsd / perHopUsd);
+  return {
+    perHopUsd,
+    worstLegalTurnUsd,
+    hopsAffordable,
+    capBinds: hopsAffordable < limits.maxSteps,
+  };
 }
 
 export function costOf(usage, model) {
@@ -180,13 +297,30 @@ function toFunctionResponse(name, id, result) {
 
 // Google puts the wait it wants in the error body ("Please retry in 28.6s") and
 // sometimes in RetryInfo. Prefer what it asked for; fall back to exponential.
-function retryDelayMs(json, attempt) {
+function bodyHintMs(json) {
   const info = (json?.error?.details || []).find((d) => /RetryInfo/.test(d['@type'] || ''));
   const fromInfo = info?.retryDelay && /^([\d.]+)s$/.exec(info.retryDelay);
   if (fromInfo) return Math.ceil(parseFloat(fromInfo[1]) * 1000) + 250;
   const fromText = /retry in ([\d.]+)s/i.exec(json?.error?.message || '');
   if (fromText) return Math.ceil(parseFloat(fromText[1]) * 1000) + 250;
-  return Math.min(32000, 1000 * 2 ** attempt);
+  return null;
+}
+
+function retryDelayMs(json, attempt) {
+  return bodyHintMs(json) ?? Math.min(32000, 1000 * 2 ** attempt);
+}
+
+// What a 429 ASKED us to wait, or null when it asked nothing: the standard
+// `Retry-After` header first (seconds, or an HTTP date), then the body's own
+// hint. Null is the answer that lets RATE_LIMIT_RETRY's own backoff apply.
+function rateLimitHintMs(res, json) {
+  const header = typeof res?.headers?.get === 'function' ? res.headers.get('retry-after') : null;
+  if (header != null && header !== '') {
+    if (/^\d+$/.test(header.trim())) return Number(header.trim()) * 1000;
+    const at = Date.parse(header);
+    if (Number.isFinite(at)) return Math.max(0, at - Date.now());
+  }
+  return bodyHintMs(json);
 }
 
 // 429 is not an error here, it is a QUEUE. The key this was built against is on
@@ -208,7 +342,46 @@ export const RETRY_ALL = [429, ...RETRY_TRANSIENT];
 // Test seam (the `_workerInternals` precedent): what the model is SHOWN is a
 // verdict this function computes, and a suite that cannot reach it can only
 // grep for the strip instead of proving it.
-export const _agentInternals = { toFunctionResponse, suspendedSeed, buildSystemInstruction };
+// THE LOOP'S OWN RECORD OF A CALL, one pure function (M-169; extracted
+// 2026-09-02 so it can be pinned by VALUE rather than by grepping the
+// source). The verdict rides beside the exit code for the reason
+// banned_pairs does — a verdict only the model ever saw protects nobody,
+// and a transcript that cannot say how many rounds bought how many lines
+// cannot tell a slow run from a stuck one. `answers_on_record` joins them:
+// it is computed on both the suspended and the finished branch of
+// lyric_revise and was once dropped here, which is how round 10's "turn 0's
+// work was thrown away" reading survived long enough to need refuting from
+// a byte count. `loop_whole_flag_codes` joined 2026-09-02 (M-186): a
+// whole-only exit 3 carried `loop_unresolved` 0 and no cause.
+function loopFields(v) {
+  return {
+    exit_code: typeof v?.exit_code === 'number' ? v.exit_code : null,
+    banned_pairs: typeof v?.banned_pairs === 'number' ? v.banned_pairs : null,
+    loop_stop_reason: typeof v?.loop_stop_reason === 'string' ? v.loop_stop_reason : null,
+    loop_rounds: typeof v?.loop_rounds === 'number' ? v.loop_rounds : null,
+    loop_unresolved: typeof v?.loop_unresolved === 'number' ? v.loop_unresolved : null,
+    loop_whole_flag_codes: Array.isArray(v?.loop_whole_flag_codes) ? v.loop_whole_flag_codes : null,
+    answers_on_record: typeof v?.answers_on_record === 'number' ? v.answers_on_record : null,
+    // WHY AN EXIT 2 REFUSED (2026-09-02, M-168's swerve): round 10's record
+    // holds two lyric_sweep calls and one lyric_plan call at exit 2 with
+    // `error: null` and nothing else — the harness's own `REFUSED — …`
+    // headline was in the report the model read and in no record, so no
+    // later reader can say whether the window held no seed, a predicate was
+    // misspelled or the declaration was unbuildable. Extraction, as M-169.
+    refusal: typeof v?.refusal === 'string' ? v.refusal : null,
+  };
+}
+
+export const _agentInternals = {
+  loopFields,
+  toFunctionResponse,
+  suspendedSeed,
+  buildSystemInstruction,
+  carryState,
+  stateKey,
+  carriedKey,
+  pruneHistory,
+};
 
 async function generate({
   apiKey,
@@ -217,8 +390,11 @@ async function generate({
   signal,
   retries = 0,
   retryStatuses = RETRY_ALL,
+  rateLimit = null,
   onRetry,
 }) {
+  let rateLimited = 0;
+  let waited = 0;
   for (let attempt = 0; ; attempt++) {
     const res = await fetch(`${API_BASE}/models/${model}:generateContent`, {
       method: 'POST',
@@ -228,6 +404,24 @@ async function generate({
     });
     const json = await res.json().catch(() => null);
     if (res.ok) return json;
+    // THE BOUNDED 429 PATH (RATE_LIMIT_RETRY, M-168): only where the caller
+    // declared a budget AND is not already waiting 429 out unbounded.
+    if (res.status === 429 && rateLimit && !retryStatuses.includes(429)) {
+      const hint = rateLimitHintMs(res, json);
+      const wait = hint ?? rateLimit.backoffMs[rateLimited] ?? rateLimit.backoffMs.at(-1);
+      if (rateLimited < rateLimit.retries && waited + wait <= rateLimit.maxTotalWaitMs) {
+        rateLimited += 1;
+        waited += wait;
+        if (onRetry) onRetry({ status: 429, waitMs: wait, attempt, rateLimited: true });
+        await new Promise((r) => setTimeout(r, wait));
+        continue;
+      }
+      const err = new Error(`Gemini 429: ${json?.error?.message || 'rate limited'}`);
+      err.status = 429;
+      err.retryAfterMs = hint;
+      err.rateLimitRetries = rateLimited;
+      throw err;
+    }
     const retriable = retryStatuses.includes(res.status);
     if (retriable && attempt < retries) {
       const wait = retryDelayMs(json, attempt);
@@ -280,7 +474,7 @@ export async function buildSurface(client) {
 // and disappears the moment a run reaches a stop condition — never a stale
 // sentence about a run that is over.
 const SUSPENDED_RUN_NOTE = (seed) =>
-  `A lyric_revise run for seed ${seed} is SUSPENDED, awaiting one answer. ` +
+  `A lyric_revise run for ${typeof seed === 'number' ? `seed ${seed}` : seed} is SUSPENDED, awaiting one answer. ` +
   'Nothing you write in chat reaches the harness: the run advances ONLY ' +
   'when you call lyric_revise again with the same arguments plus `answer` ' +
   '(the state is carried for you automatically). Put the line in the ' +
@@ -291,7 +485,13 @@ function suspendedSeed(lyr) {
   if (!lyr || typeof lyr.state !== 'string') return null;
   try {
     const st = JSON.parse(lyr.state);
-    return st && st.pending && typeof lyr.seed === 'number' ? lyr.seed : null;
+    if (!(st && st.pending)) return null;
+    if (typeof lyr.seed === 'number') return lyr.seed;
+    // A pasted song's run (M-195) has no seed; the reminder names the run
+    // by its mandate instead of staying silent.
+    return typeof lyr.key === 'string' && lyr.key.startsWith('mandate:')
+      ? 'the declared mandate'
+      : null;
   } catch {
     return null;
   }
@@ -302,12 +502,169 @@ function suspendedSeed(lyr) {
 // mcp/test.mjs pins both directions on this helper and pins that the
 // `systemInstruction:` key is spelled nowhere else in this file, so the
 // request cannot grow a second, reminder-less path to the model.
+// THE CARRIED RECORD AFTER A STATE-BEARING TOOL ANSWERED (M-183). Only a
+// SUSPENDED verdict (exit 4) carries a run forward. A run that reached a stop
+// condition (exit 0 or 3) is COMPLETE: its record used to be harvested and
+// re-injected on the next call for the seed, and the harness replayed every
+// answer in it and stopped exactly where it had stopped — which is why round
+// 10's parked-continue pushes never asked the writer a second question about
+// any line. The record still rides the verdict for provenance (the tool
+// returns it; the CLI's own stamp says the state is complete); what changes
+// is that the NEXT call starts a fresh loop from whatever draft the model
+// hands in. A refusal (exit 2) leaves whatever was carried in place: the
+// question it refused an answer to is still pending. A verdict about a
+// different seed never touches the carried record of this one.
+// WHAT A RUN IS KEYED ON (M-195): the seed when there is one, and otherwise
+// the declared mandate — a pasted song has no seed, and a record carried
+// for it must still go back to the same song and no other.
+function stateKey(args) {
+  if (typeof args?.seed === 'number') return `seed:${args.seed}`;
+  const hasMandate =
+    (args?.scheme != null && args.scheme !== '') || (args?.groups != null && args.groups !== '');
+  if (!hasMandate) return null;
+  return (
+    'mandate:' +
+    JSON.stringify([
+      args.scheme ?? null,
+      args.groups ?? null,
+      args.returns ?? null,
+      args.relation ?? null,
+      args.structures ?? null,
+    ])
+  );
+}
+
+function carryState(prev, toolName, args, verdict, surface) {
+  if (!surface.stateTools?.has(toolName)) return prev;
+  const key = stateKey(args);
+  if (key == null) return prev;
+  const code = verdict && typeof verdict.exit_code === 'number' ? verdict.exit_code : null;
+  if (code === 4 && typeof verdict[STATE_PROPERTY] === 'string') {
+    return {
+      key,
+      seed: typeof args.seed === 'number' ? args.seed : null,
+      state: verdict[STATE_PROPERTY],
+    };
+  }
+  if ((code === 0 || code === 3) && prev && carriedKey(prev) === key) return null;
+  return prev;
+}
+
+// A record written before M-195 carries `seed` and no `key`; read it as its
+// seed's key so a browser holding an older envelope keeps its run.
+function carriedKey(lyr) {
+  if (!lyr) return null;
+  if (typeof lyr.key === 'string') return lyr.key;
+  return typeof lyr.seed === 'number' ? `seed:${lyr.seed}` : null;
+}
+
 function buildSystemInstruction(surface, lyr) {
   const seed = suspendedSeed(lyr);
   const text = [surface.instructions, seed == null ? null : SUSPENDED_RUN_NOTE(seed)]
     .filter(Boolean)
     .join('\n\n');
   return text ? { parts: [{ text }] } : null;
+}
+
+// ── STALE-BRIEF PRUNING (M-197's open half) ──────────────────────────────
+// A pure function over the transcript. INVARIANT: the pruned history is the
+// original with some lyric_* functionResponse bodies replaced by a verdict
+// stub, and possibly the OLDEST whole turns dropped — never a turn among the
+// newest `keepTurns`, never the newest result of any lyric tool (that is
+// where the pending question, the latest grade and the brief being written
+// to live), never a recipe/workspace result (standing rule 1: the two
+// families do not touch), never a user message, a model part or a
+// functionCall of a surviving turn, and every functionCall keeps its
+// functionResponse (Gemini rejects an orphan on the next request).
+//
+// The verdict fields survive in the stub so the model can still read what
+// an earlier fold DECIDED (exit code, stop reason, answers on record); what
+// goes is the presentation block and the report — the brief for a question
+// the model already answered, the rendered song a later result superseded.
+const PRUNED_FAMILY = /^lyric_/;
+const STUB_FIELDS = [
+  'exit_code',
+  'status',
+  'kind',
+  'meaning',
+  'banned_pairs',
+  'loop_stop_reason',
+  'loop_rounds',
+  'loop_unresolved',
+  // M-186: a whole-only exit 3 carries loop_unresolved 0 and its cause here;
+  // a stub that dropped it would be the fifth carrier that lost the cause.
+  'loop_whole_flag_codes',
+  'answers_on_record',
+];
+const PRUNED_NOTE =
+  'folded result pruned from the transcript: a later result of this tool superseded it; ' +
+  'the verdict fields are kept, the brief and report are not';
+
+function isUserText(entry) {
+  return entry?.role === 'user' && (entry.parts || []).some((p) => typeof p?.text === 'string');
+}
+
+function stubResponse(fr) {
+  const src =
+    fr.response && typeof fr.response === 'object' && !Array.isArray(fr.response)
+      ? fr.response
+      : {};
+  // A two-block result keeps its verdict under `verdict`; a one-block
+  // result IS the verdict. An error result is short and stays as it is.
+  if ('error' in src) return null;
+  const from = src.verdict && typeof src.verdict === 'object' ? src.verdict : src;
+  const stub = { pruned: PRUNED_NOTE };
+  for (const k of STUB_FIELDS) if (from[k] !== undefined) stub[k] = from[k];
+  return { ...fr, response: stub };
+}
+
+/**
+ * Prune folded lyric results the model has already acted on.
+ * @param {Array} contents the prior transcript (Gemini contents[])
+ * @param {{keepTurns?:number, maxBytes?:number}} opts
+ * @returns {Array} a new array; entries are shared where untouched
+ */
+function pruneHistory(contents, { keepTurns = 1, maxBytes = 200_000 } = {}) {
+  if (!Array.isArray(contents) || !contents.length) return contents;
+  // Turns: each user TEXT entry opens one; tool responses ride on `user`
+  // entries too but carry no text, so they stay inside the turn they answer.
+  const turns = [];
+  for (const entry of contents) {
+    if (isUserText(entry) || !turns.length) turns.push([]);
+    turns[turns.length - 1].push(entry);
+  }
+  const firstKept = Math.max(0, turns.length - Math.max(0, keepTurns));
+  // The newest result per lyric tool, by position, is kept verbatim.
+  const newest = new Map();
+  contents.forEach((entry, i) => {
+    for (const p of entry?.parts || []) {
+      const name = p?.functionResponse?.name;
+      if (typeof name === 'string' && PRUNED_FAMILY.test(name)) newest.set(name, i);
+    }
+  });
+  let index = 0;
+  const pruned = turns.map((turn, t) =>
+    turn.map((entry) => {
+      const i = index++;
+      if (t >= firstKept || entry?.role !== 'user') return entry;
+      let changed = false;
+      const parts = (entry.parts || []).map((p) => {
+        const fr = p?.functionResponse;
+        if (!fr || !PRUNED_FAMILY.test(fr.name || '') || newest.get(fr.name) === i) return p;
+        if (fr.response && fr.response.pruned === PRUNED_NOTE) return p;
+        const stubbed = stubResponse(fr);
+        if (!stubbed) return p;
+        changed = true;
+        return { ...p, functionResponse: stubbed };
+      });
+      return changed ? { ...entry, parts } : entry;
+    })
+  );
+  // The byte ceiling: drop the OLDEST whole turns, never the newest keepTurns.
+  let start = 0;
+  const bytes = (from) => JSON.stringify(pruned.slice(from).flat()).length;
+  while (start < firstKept && bytes(start) > maxBytes) start++;
+  return pruned.slice(start).flat();
 }
 
 /**
@@ -336,15 +693,29 @@ export async function runTurn({
   limits = LIMITS,
   retries = 0,
   retryStatuses = RETRY_ALL,
+  rateLimit = null,
   signal,
   onEvent,
 }) {
-  const contents = [...history, { role: 'user', parts: [{ text: userText }] }];
-  const usage = { promptTokens: 0, candidatesTokens: 0, thoughtsTokens: 0, requests: 0 };
+  // THE ONE ASSEMBLY SITE. The prior transcript is pruned here and the
+  // pruned transcript is what goes back in the envelope, so a fold is
+  // stubbed once and stays stubbed — pruneHistory is idempotent.
+  const prior = limits.pruneFolded
+    ? pruneHistory(history, { keepTurns: limits.pruneKeepTurns, maxBytes: limits.pruneMaxBytes })
+    : history;
+  const contents = [...prior, { role: 'user', parts: [{ text: userText }] }];
+  const usage = {
+    promptTokens: 0,
+    candidatesTokens: 0,
+    thoughtsTokens: 0,
+    requests: 0,
+    retries: 0,
+  };
   const calls = [];
   let ws = workspace;
   let lyr = lyric && typeof lyric.state === 'string' ? lyric : null;
   let stopped = null;
+  let stoppedDetail = null;
   let reply = '';
 
   const body = {
@@ -358,194 +729,203 @@ export async function runTurn({
     },
   };
 
-  for (let step = 0; step < limits.maxSteps; step++) {
-    body.contents = contents;
-    // Rebuilt per hop from the LIVE carried state (M-158): `lyr` moves when
-    // a harvest lands mid-turn, and the reminder must move with it.
-    const si = buildSystemInstruction(surface, lyr);
-    if (si) body.systemInstruction = si;
-    else delete body.systemInstruction;
-    const json = await generate({
-      apiKey,
-      model,
-      body,
-      signal,
-      retries,
-      retryStatuses,
-      onRetry: (r) => onEvent && onEvent({ type: 'retry', ...r }),
-    });
-    addUsage(usage, json.usageMetadata);
-    const candidate = json.candidates?.[0];
-    const parts = candidate?.content?.parts || [];
-    const functionCalls = parts.filter((p) => p.functionCall).map((p) => p.functionCall);
+  // A THROW MID-TURN CARRIES WHAT WAS SPENT (2026-09-01, triage finding
+  // C28 / `MISSING.md` M-197): only 5xx is retried, so a 429 on hop N
+  // threw hops 1..N-1 away and the spend counter never saw them — every
+  // billed hop before the throw was uncounted. The error now carries the
+  // partial `usage` and the calls made, and `chat.js` charges it in its
+  // catch before replying.
+  try {
+    for (let step = 0; step < limits.maxSteps; step++) {
+      body.contents = contents;
+      // Rebuilt per hop from the LIVE carried state (M-158): `lyr` moves when
+      // a harvest lands mid-turn, and the reminder must move with it.
+      const si = buildSystemInstruction(surface, lyr);
+      if (si) body.systemInstruction = si;
+      else delete body.systemInstruction;
+      const json = await generate({
+        apiKey,
+        model,
+        body,
+        signal,
+        retries,
+        retryStatuses,
+        rateLimit,
+        // A retried request spent a slot of the key's quota whether or not it
+        // was billed tokens; the count is the record (M-197, M-168).
+        onRetry: (r) => {
+          usage.requests += 1;
+          usage.retries += 1;
+          if (onEvent) onEvent({ type: 'retry', ...r });
+        },
+      });
+      addUsage(usage, json.usageMetadata);
+      const candidate = json.candidates?.[0];
+      const parts = candidate?.content?.parts || [];
+      const functionCalls = parts.filter((p) => p.functionCall).map((p) => p.functionCall);
 
-    // Verbatim, including thoughtSignature.
-    contents.push({ role: 'model', parts });
+      // Verbatim, including thoughtSignature.
+      contents.push({ role: 'model', parts });
 
-    if (!functionCalls.length) {
-      reply = parts
-        .filter((p) => typeof p.text === 'string' && !p.thought)
-        .map((p) => p.text)
-        .join('');
-      // MAX_TOKENS with no text is a truncated answer, not an answer.
-      if (candidate?.finishReason && candidate.finishReason !== 'STOP') {
-        stopped = candidate.finishReason;
+      if (!functionCalls.length) {
+        reply = parts
+          .filter((p) => typeof p.text === 'string' && !p.thought)
+          .map((p) => p.text)
+          .join('');
+        // MAX_TOKENS with no text is a truncated answer, not an answer.
+        if (candidate?.finishReason && candidate.finishReason !== 'STOP') {
+          stopped = candidate.finishReason;
+        }
+        break;
       }
-      break;
-    }
 
-    const responses = [];
-    for (const fc of functionCalls) {
-      const args = { ...(fc.args || {}) };
-      let result;
-      if (surface.workspaceTools.has(fc.name)) {
-        if (!ws) {
-          // Not an exception: the model can fix this itself by seeding first,
-          // and telling it so costs one short string.
-          result = {
-            isError: true,
-            content: [
-              {
-                type: 'text',
-                text: 'Error: no recipe yet — call start_recipe first, then edit it.',
-              },
-            ],
-          };
-          calls.push({ name: fc.name, args, isError: true, injectedWorkspace: false });
-          responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
-          continue;
+      const responses = [];
+      for (const fc of functionCalls) {
+        const args = { ...(fc.args || {}) };
+        let result;
+        if (surface.workspaceTools.has(fc.name)) {
+          if (!ws) {
+            // Not an exception: the model can fix this itself by seeding first,
+            // and telling it so costs one short string.
+            result = {
+              isError: true,
+              content: [
+                {
+                  type: 'text',
+                  text: 'Error: no recipe yet — call start_recipe first, then edit it.',
+                },
+              ],
+            };
+            calls.push({ name: fc.name, args, isError: true, injectedWorkspace: false });
+            responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
+            continue;
+          }
+          args[WORKSPACE_PROPERTY] = ws;
         }
-        args[WORKSPACE_PROPERTY] = ws;
-      }
-      // Inject the carried revise state, KEYED ON THE SEED: a call about the
-      // seed the record belongs to continues that run; any other seed is a
-      // different song and starts clean. No carried state is not an error the
-      // way an absent workspace is — the FIRST lyric_revise call of a song
-      // legitimately has none, and the tool itself refuses an `answer` with
-      // no state, in its own words.
-      let injectedState = false;
-      if (surface.stateTools?.has(fc.name)) {
-        if (lyr && args.seed === lyr.seed) {
-          args[STATE_PROPERTY] = lyr.state;
-          injectedState = true;
-        } else {
-          // The declaration does not expose `state`, so anything here is
-          // model-fabricated; the harness would replay it through verify()
-          // and refuse honestly, but a clean first call is the better run.
-          delete args[STATE_PROPERTY];
-        }
-      }
-      // A tool that fails — a timeout, a dropped transport — becomes an
-      // ERROR RESULT the model can see and react to, never an exception
-      // that kills the whole turn: under the old shape one slow call
-      // turned the entire conversation into a bare 502 with the record
-      // of every earlier call discarded (flash battery finding #1).
-      try {
-        result = await callTool(fc.name, args);
-      } catch (err) {
-        result = {
-          isError: true,
-          content: [{ type: 'text', text: `Error: ${err?.message || 'tool call failed'}` }],
-        };
-      }
-      const isError = !!result?.isError;
-      // Harvest the workspace on the way past. The model is never shown it, so
-      // this is the only place it can be captured.
-      let payload = null;
-      let lyricVerdict = null;
-      if (!isError) {
-        try {
-          payload = JSON.parse(result?.content?.[0]?.text ?? '');
-        } catch {
-          payload = null;
-        }
-        if (payload && payload.workspace) ws = payload.workspace;
-        // Harvest a lyric verdict the same way: a two-block lyric result
-        // carries it in the SECOND block (block 0 is the deliverable,
-        // deliberately not JSON); a one-block lyric result IS the verdict.
-        // Captured so the page can show the exit code and the banned-pair
-        // count on the tool chip whether or not the model relays either —
-        // the 2026-08-19 site transcript relayed neither.
-        const second = result?.content?.[1]?.text;
-        if (second != null) {
-          try {
-            lyricVerdict = JSON.parse(second);
-          } catch {
-            lyricVerdict = null;
+        // Inject the carried revise state, KEYED ON THE SEED: a call about the
+        // seed the record belongs to continues that run; any other seed is a
+        // different song and starts clean. No carried state is not an error the
+        // way an absent workspace is — the FIRST lyric_revise call of a song
+        // legitimately has none, and the tool itself refuses an `answer` with
+        // no state, in its own words.
+        let injectedState = false;
+        if (surface.stateTools?.has(fc.name)) {
+          if (lyr && stateKey(args) != null && stateKey(args) === carriedKey(lyr)) {
+            args[STATE_PROPERTY] = lyr.state;
+            injectedState = true;
+          } else {
+            // The declaration does not expose `state`, so anything here is
+            // model-fabricated; the harness would replay it through verify()
+            // and refuse honestly, but a clean first call is the better run.
+            delete args[STATE_PROPERTY];
           }
         }
-        if (!lyricVerdict && payload && typeof payload.exit_code === 'number') {
-          lyricVerdict = payload;
+        // A tool that fails — a timeout, a dropped transport — becomes an
+        // ERROR RESULT the model can see and react to, never an exception
+        // that kills the whole turn: under the old shape one slow call
+        // turned the entire conversation into a bare 502 with the record
+        // of every earlier call discarded (flash battery finding #1).
+        try {
+          result = await callTool(fc.name, args);
+        } catch (err) {
+          result = {
+            isError: true,
+            content: [{ type: 'text', text: `Error: ${err?.message || 'tool call failed'}` }],
+          };
         }
-        // Harvest the revise state the way the workspace is harvested above:
-        // the verdict block is the only place it rides, the model is never
-        // shown it, and the envelope carries it to the next turn.
-        if (
-          surface.stateTools?.has(fc.name) &&
-          typeof lyricVerdict?.[STATE_PROPERTY] === 'string' &&
-          typeof args.seed === 'number'
-        ) {
-          lyr = { seed: args.seed, state: lyricVerdict[STATE_PROPERTY] };
+        const isError = !!result?.isError;
+        // Harvest the workspace on the way past. The model is never shown it, so
+        // this is the only place it can be captured.
+        let payload = null;
+        let lyricVerdict = null;
+        if (!isError) {
+          try {
+            payload = JSON.parse(result?.content?.[0]?.text ?? '');
+          } catch {
+            payload = null;
+          }
+          if (payload && payload.workspace) ws = payload.workspace;
+          // Harvest a lyric verdict the same way: a two-block lyric result
+          // carries it in the SECOND block (block 0 is the deliverable,
+          // deliberately not JSON); a one-block lyric result IS the verdict.
+          // Captured so the page can show the exit code and the banned-pair
+          // count on the tool chip whether or not the model relays either —
+          // the 2026-08-19 site transcript relayed neither.
+          const second = result?.content?.[1]?.text;
+          if (second != null) {
+            try {
+              lyricVerdict = JSON.parse(second);
+            } catch {
+              lyricVerdict = null;
+            }
+          }
+          if (!lyricVerdict && payload && typeof payload.exit_code === 'number') {
+            lyricVerdict = payload;
+          }
+          // Harvest the revise state the way the workspace is harvested above:
+          // the verdict block is the only place it rides, the model is never
+          // shown it, and the envelope carries it to the next turn — but ONLY
+          // a suspended run is carried; see `carryState`.
+          lyr = carryState(lyr, fc.name, args, lyricVerdict, surface);
         }
+        calls.push({
+          name: fc.name,
+          // The workspace is the bulk of an edit call and is not the model's
+          // output; logging it would bury the argument that IS. The injected
+          // revise state is the same bulk one family over.
+          args: surface.workspaceTools.has(fc.name)
+            ? { ...args, [WORKSPACE_PROPERTY]: '<injected>' }
+            : injectedState
+              ? { ...args, [STATE_PROPERTY]: '<injected>' }
+              : args,
+          isError,
+          error: isError ? (result?.content?.[0]?.text ?? '') : null,
+          cards: payload?.cards ?? null,
+          recipe: payload?.recipe ?? null,
+          ...loopFields(lyricVerdict),
+        });
+        if (onEvent) onEvent({ type: 'tool', name: fc.name, isError });
+        responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
       }
-      calls.push({
-        name: fc.name,
-        // The workspace is the bulk of an edit call and is not the model's
-        // output; logging it would bury the argument that IS. The injected
-        // revise state is the same bulk one family over.
-        args: surface.workspaceTools.has(fc.name)
-          ? { ...args, [WORKSPACE_PROPERTY]: '<injected>' }
-          : injectedState
-            ? { ...args, [STATE_PROPERTY]: '<injected>' }
-            : args,
-        isError,
-        error: isError ? (result?.content?.[0]?.text ?? '') : null,
-        cards: payload?.cards ?? null,
-        recipe: payload?.recipe ?? null,
-        exit_code: typeof lyricVerdict?.exit_code === 'number' ? lyricVerdict.exit_code : null,
-        banned_pairs:
-          typeof lyricVerdict?.banned_pairs === 'number' ? lyricVerdict.banned_pairs : null,
-        // M-169: the loop's own record of the run rides beside the exit code,
-        // for the reason banned_pairs does — a verdict only the model ever saw
-        // protects nobody, and a transcript that cannot say how many rounds
-        // bought how many lines cannot tell a slow run from a stuck one.
-        // `answers_on_record` joins them: it is already computed on both the
-        // suspended and the finished branch of lyric_revise and was dropped
-        // here, which is how round 10's "turn 0's work was thrown away" reading
-        // survived long enough to need refuting from a byte count.
-        loop_stop_reason:
-          typeof lyricVerdict?.loop_stop_reason === 'string' ? lyricVerdict.loop_stop_reason : null,
-        loop_rounds:
-          typeof lyricVerdict?.loop_rounds === 'number' ? lyricVerdict.loop_rounds : null,
-        loop_unresolved:
-          typeof lyricVerdict?.loop_unresolved === 'number' ? lyricVerdict.loop_unresolved : null,
-        answers_on_record:
-          typeof lyricVerdict?.answers_on_record === 'number'
-            ? lyricVerdict.answers_on_record
-            : null,
-      });
-      if (onEvent) onEvent({ type: 'tool', name: fc.name, isError });
-      responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
-    }
-    // Gemini takes tool output back on the `user` turn.
-    contents.push({ role: 'user', parts: responses });
+      // Gemini takes tool output back on the `user` turn.
+      contents.push({ role: 'user', parts: responses });
 
-    // Stop between hops once this turn has spent its allowance. Checked HERE,
-    // after the tool responses are appended, so the transcript handed back is
-    // still coherent and the next user message can continue from it — an abort
-    // mid-hop would strand a functionCall with no functionResponse, which
-    // Gemini rejects on the following turn.
-    //
-    // A null cost means the model is unpriced, which the caller is supposed to
-    // have refused before getting here; if one reaches this loop anyway, stop
-    // rather than run on unmetered.
-    const soFar = costOf(usage, model);
-    if (limits.maxTurnUsd > 0 && (soFar === null || soFar >= limits.maxTurnUsd)) {
-      stopped = soFar === null ? 'UNPRICED_MODEL' : 'MAX_TURN_COST';
-      if (onEvent) onEvent({ type: 'stopped', reason: stopped, usd: soFar });
-      break;
+      // Stop between hops once this turn has spent its allowance. Checked HERE,
+      // after the tool responses are appended, so the transcript handed back is
+      // still coherent and the next user message can continue from it — an abort
+      // mid-hop would strand a functionCall with no functionResponse, which
+      // Gemini rejects on the following turn.
+      //
+      // A null cost means the model is unpriced, which the caller is supposed to
+      // have refused before getting here; if one reaches this loop anyway, stop
+      // rather than run on unmetered.
+      const soFar = costOf(usage, model);
+      if (limits.maxTurnUsd > 0 && (soFar === null || soFar >= limits.maxTurnUsd)) {
+        stopped = soFar === null ? 'UNPRICED_MODEL' : 'MAX_TURN_COST';
+        // WITH THE NUMBERS, NOT AS A BARE LABEL (2026-09-02, triage C11).
+        // `MAX_TURN_COST` alone cannot be told from `MAX_STEPS` by anyone
+        // reading a transcript, and round 10's rows are the evidence: a turn
+        // that stopped at hop 8 of 14 looks exactly like a turn that ran out
+        // of hops. What it spent, what the cap is, how many hops it bought
+        // and how many it was allowed all ride out with it.
+        stoppedDetail = {
+          usd: soFar,
+          cap: limits.maxTurnUsd,
+          hops: step + 1,
+          maxSteps: limits.maxSteps,
+          budget: turnBudget(limits, model),
+        };
+        if (onEvent) onEvent({ type: 'stopped', reason: stopped, usd: soFar });
+        break;
+      }
+      if (step === limits.maxSteps - 1) stopped = 'MAX_STEPS';
     }
-    if (step === limits.maxSteps - 1) stopped = 'MAX_STEPS';
+  } catch (err) {
+    if (err && typeof err === 'object') {
+      err.usage = usage;
+      err.calls = calls;
+    }
+    throw err;
   }
 
   return {
@@ -556,6 +936,7 @@ export async function runTurn({
     calls,
     usage,
     cost: costOf(usage, model),
+    stoppedDetail,
     stopped,
   };
 }

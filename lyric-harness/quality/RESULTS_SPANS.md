@@ -20,10 +20,25 @@ its first instrument and its first measurement.
 ## Headline
 
 **Of the 1,014 sonnet pairs the harness JUDGES, 632 name the two words that
-produced their number and 382 do not. Of the ~~82~~ ~~35~~ **12** violations,
-~~36~~ ~~7~~ **2** do and ~~46~~ ~~28~~ **10** do not; ~~9 of those 46~~
-~~8 of those 28~~ **4 of those 10** could not be reconstructed from the
-printed words even in principle.**
+produced their number and 382 do not. Of the ~~82~~ ~~35~~ ~~12~~ **14**
+violations, ~~36~~ ~~7~~ ~~2~~ **4** do and ~~46~~ ~~28~~ ~~10~~ **10** do
+not; ~~9 of those 46~~ ~~8 of those 28~~ **4 of those 10** could not be
+reconstructed from the printed words even in principle.**
+
+*THE VIOLATION HALF IS REPINNED A THIRD TIME, 2026-09-02, AND THE DIRECTION
+INVERTS (`MISSING.md` M-138).* The near-relation pricing cut ASSONANCE at
+0.82 under a preregistration of its own, so two pairs JOINED — sonnet 49
+L5~L7 `pass`/`was` 0.772 and sonnet 91 L10~L12 `costs`/`boast` 0.765 — and
+none left, inside a preregistered ceiling of 20. **Every earlier repin on
+this line followed a door WIDENING; this one followed a TIGHTENING**, which
+is why the count rose where it had fallen three times, and why the CLAIMED
+share rose with it (16.7% -> 28.6%) instead of falling. The mechanism is
+the same one read backwards: a widening retires ordinary end-word
+comparisons first, because those are the population that DOES name the
+words producing their number, and a tightening adds them back — both new
+pairs are ordinary end-word assonance. The unreconstructable residue is
+UNMOVED at 4, so the count that rose is entirely the well-attributed
+kind.**
 
 *THE VIOLATION HALF IS REPINNED A SECOND TIME, 2026-08-25, AND THE DOOR IS
 AGAIN THE WHOLE REASON (`MISSING.md` M-116, owner ruling "put all 77 into

@@ -132,6 +132,21 @@ class B:
         #: rendered it.
         self.slot = kw.get("slot")
         self.slot_conflict = kw.get("slot_conflict", False)
+        #: THE ROUND (`MISSING.md` M-183) and THE PER-PLACE FIELDS (M-184),
+        #: both 2026-09-01, both caught by §7c below the moment `Brief` grew
+        #: them. `round_no` is read by the recording proposers, not by any
+        #: renderer; the four M-184 fields are what `_mandate_block` reads to
+        #: say where each group binds the line and whether it holds, so a
+        #: stand-in without them renders the old PIVOT sentence — no error,
+        #: no red — which is exactly the failure this guard exists for.
+        self.round_no = kw.get("round_no", 0)
+        self.fields_by_slot = kw.get("fields_by_slot", {})
+        self.group_slots = kw.get("group_slots", {})
+        self.violated_groups = kw.get("violated_groups", ())
+        self.slot_groups = kw.get("slot_groups", ())
+        #: THE SCREENED-OUT RHYMES (M-185, the same day): read by
+        #: `render_line` to say why the menu is short.
+        self.screened_out = kw.get("screened_out", ())
         self.field_declaration = kw.get(
             "field_declaration", "field_depth=complete pool, "
                                  "field_band='grader'")
@@ -691,9 +706,19 @@ def test_model_proposer_drives_a_real_loop_to_success():
     res = revise_loop(R, CLICHE, "ABAB", propose=ModelProposer(call).propose)
     check("the loop reaches SUCCESS through the proposer",
           res.stop_reason == "success", res.stop_reason)
-    check("both flagged lines AND both mandatory-pursued lines were fixed",
-          set(res.rounds[0].fixed_lines) == {1, 2, 3, 4},
-          res.rounds[0].fixed_lines)
+    # REPINNED 2026-09-01 (`MISSING.md` M-185) from ~~{1, 2, 3, 4}~~: the
+    # offer is now screened from the offered word's OWN side, so the first
+    # word this prompt-reader takes for L1 no longer re-opens L3 as a
+    # MODAL_RHYME pair — it dissolves L3's pursued note instead, and L3 is
+    # closed by its partner's move rather than fixed on its own turn. Same
+    # for L2/L4. MEASURED: fixed [1, 2], L3 resolved elsewhere, nothing
+    # unresolved, and a fresh Reviser finds no flag (the check below).
+    check("both flagged lines were fixed, and both mandatory-pursued lines "
+          "were CLOSED BY THOSE FIXES rather than re-opened by them",
+          set(res.rounds[0].fixed_lines) == {1, 2} and not res.unresolved,
+          f"fixed {res.rounds[0].fixed_lines}, resolved elsewhere "
+          f"{res.rounds[0].resolved_elsewhere}, unresolved "
+          f"{[b.line_no for b in res.unresolved]}")
     check("the stub was driven by the PROMPT and nothing else -- it never "
           "saw a Brief, so a prompt missing the line or the offered field "
           "could not have produced these; retries past 4 are the rejected "
@@ -701,8 +726,10 @@ def test_model_proposer_drives_a_real_loop_to_success():
           len(seen) >= 4 and all(_reads_the_prompt(p)[0] for p in seen),
           f"{len(seen)} prompt(s)")
     check("the loop's output is a real draft, and every changed line was "
-          "one the loop had opened",
-          all(res.lines[i] != CLICHE[i] for i in range(4)),
+          "one the loop had opened — and only those (repinned 2026-09-01, "
+          "M-185: L3/L4 are closed by L1/L2's moves and stay as written)",
+          all(res.lines[i] != CLICHE[i] for i in (0, 1))
+          and all(res.lines[i] == CLICHE[i] for i in (2, 3)),
           res.lines)
 
     R2 = Reviser()
@@ -1068,10 +1095,18 @@ def test_model_proposer_serves_a_real_tier_2():
     # subject of this check is that the PROMPT carries what the object does,
     # and it still does: one prompt, one accepted backtrack, byte-identical
     # final lines to `default_propose_group`'s run in test_loop §4.
+    # REPINNED 2026-09-01 (`MISSING.md` M-185) from ~~no_progress~~: the
+    # "modal residue" this check used to expect was the MENU's own doing —
+    # the backtracked word was offered although the pivot's call sat in its
+    # own modal head, so the accepted pair re-opened as MODAL_RHYME and the
+    # loop refused to bless it. With the offer screened from the offered
+    # word's side the same ONE backtrack lands and nothing stands after it.
+    # The subject of this check is unchanged: the prompt carries what the
+    # object does, and the outcome matches test_loop §4's object-driven run.
     check("a proposer reading ONLY the prompt lands the ONE backtrack -- "
           "the same result `loop.default_propose_group` gets off the "
-          "object, then the same loud refusal to bless the modal residue",
-          res.stop_reason == "no_progress" and len(seen) == 1,
+          "object, and nothing re-opens behind it",
+          res.stop_reason == "success" and len(seen) == 1,
           f"{res.stop_reason} after {len(seen)} prompt(s)")
     check("L2 -- in neither backtracked group -- is untouched, so tier 2 "
           "stayed inside the group it named",

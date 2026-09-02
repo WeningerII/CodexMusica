@@ -307,7 +307,15 @@ def test_the_oracle_does_not_move():
     # same ladder step M-59 was. The two checks above pin
     # `battery.EXPECTED["violations"]` and both pass, so the oracle
     # already carried 12 and only these literals were behind.
-    check("4 of the 12 violations were scored on a span that is NOT the "
+    # AND THE LABEL WENT STALE WITHOUT THE CHECK FAILING, 2026-09-02: the
+    # near-relation pricing (`MISSING.md` M-138) took the oracle 12 -> 14
+    # and `mosaic_scored` did NOT move, so the assertion held while the
+    # sentence a reader trusts said "of the 12" beside a rendering that
+    # said "4 / 14". The COUNT is what this check pins and it is unmoved —
+    # the two new violations are ordinary end-word comparisons, not mosaic
+    # ones — so only the denominator in the label is corrected. Doctrine
+    # 91: a count is a coordinate of the RENDERING, not only of the check.
+    check("4 of the 14 violations were scored on a span that is NOT the "
           "end word", mosaic_scored == 4, f"{mosaic_scored} / {viol} "
           f"= {mosaic_scored / viol:.1%} of the oracle's violations named a "
           f"pair of words that did not produce their number")
@@ -530,9 +538,20 @@ def test_the_sweep_runs_and_reports_three_counts():
     # a pair demoted to an ordinary end-word comparison is the population
     # that DOES name its own words, so the door retires those first and
     # leaves the mosaic and reach cases standing.
-    check("2 of the 12 VIOLATIONS do — this is the number that decides "
+    # REPINNED 2026-09-02 with the near-relation pricing (`MISSING.md`
+    # M-138): ~~2 of 12~~ -> **4 of 14**, AND THE DIRECTION INVERTS, which
+    # is the half worth reading. Every earlier repin on this line followed a
+    # door WIDENING, which retires well-attributed pairs first and drives
+    # the claimed share DOWN. This door TIGHTENED — ASSONANCE cut at 0.82 —
+    # so it ADDS pairs, and it adds them from exactly the population the
+    # widenings were retiring: sonnet 49 `pass`/`was` and sonnet 91
+    # `costs`/`boast` are ordinary end-word assonance comparisons, so BOTH
+    # name the words that produced their number. The share goes 16.7% ->
+    # 28.6% and the mechanism is the same one read backwards, which is the
+    # check confirming the argument rather than merely absorbing a number.
+    check("4 of the 14 VIOLATIONS do — this is the number that decides "
           "whether a triage lands on the right layer",
-          r["violations_claimed"] == 2,
+          r["violations_claimed"] == 4,
           f"{r['violations_claimed']} / {r['violations']}")
     severe = sum(v for k, v in r["viol_kinds"].items()
                  if any(x in (lh.SPAN_REACH, lh.SPAN_SUBSTITUTED,

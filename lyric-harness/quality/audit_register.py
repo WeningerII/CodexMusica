@@ -2402,7 +2402,13 @@ PINNED = {
     # `pins_per_line` is a MAXIMUM and accepted 0 of 39 seeds. The
     # calibration that would reopen the band is an owner ruling and is left
     # OPEN), pin told in the entry's own sitting.
-    "coverage_entries": 240,
+    "coverage_entries": 255,  # REPINNED 2026-09-02 from ~~240~~ ~~253~~ ~~254~~: M-183..M-198
+                              # (the delegation sitting: the loop trio, the
+                              # whole-draft exit, the deploy, the staged
+                              # resources, the connector coordinates, the
+                              # planner rulings, the short floor profile,
+                              # the second door, the record) plus the
+                              # addenda that name a test while open
                               # the relation route (97..106 superseded);
                               # M-60..M-66 filed 2026-08-23 driving CI
                               # green, then the pursue ruling;

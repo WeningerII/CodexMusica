@@ -396,9 +396,17 @@ def test_real_population_against_shakespeares_own_form():
     # REPINNED AGAIN 2026-08-25 from ~~35~~ to 12: the whole-vocabulary
     # default (M-116) retired 23 more, the same ladder step M-59's 82->35
     # was. Same shape both times — a DOOR movement this literal was behind.
+    # REPINNED A THIRD TIME 2026-09-02 from ~~12~~ to 14, and it is the same
+    # shape a THIRD time: the near-relation pricing (`MISSING.md` M-138) cut
+    # ASSONANCE at 0.82 under a preregistration whose own falsifier put the
+    # ceiling at 20, and two sonnet pairs stopped being admitted — 49 L5~L7
+    # `pass`/`was` 0.772 and 91 L10~L12 `costs`/`boast` 0.765. The door
+    # moved TIGHTER this time where the two before moved it wider, which is
+    # why the count rose instead of falling. The other three do not move,
+    # for the reason the paragraph above gives.
     check("off reproduces the battery — mandated/judged/refused unmoved, "
-          "violations at the widened door",
-          (m0, j0, len(r0), len(v0)) == (1064, 1014, 50, 12),
+          "violations at the priced door",
+          (m0, j0, len(r0), len(v0)) == (1064, 1014, 50, 14),
           f"{(m0, j0, len(r0), len(v0))}")
     check("the derived layers turn 39 of the 50 refusals into judgements",
           len(newly) == 39, f"{len(newly)}; refused 50 -> {len(r1)}")

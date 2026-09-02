@@ -310,7 +310,7 @@ inside other sections, possibly melodic rather than lyric, possibly shorter
 than a line. Nothing in the model can hold one, count its returns, place it, or
 measure its density.
 
-### D-3 · No return/variation structure `PARTIAL`
+### D-3 · No return/variation structure ~~`PARTIAL`~~ `CLOSED` 2026-09-01 — the "still missing" reprise was built and tested and this entry never heard
 **TESTED WHILE OPEN** — `quality/test_song_function.py` guards the built half
 (`compare_returns`, `return_findings`, the ladder) and this entry stays
 PARTIAL on its own "Still missing" clause below, which the 2026-08-21
@@ -333,10 +333,15 @@ over every declared function's own instances, answering "how many times"
 son.txt`'s final chorus (`HEAD_PRESERVED`) and its extra-bar payoff line
 (`EXTENDED_RETURN`-shaped, caught live by `RETURN_LENGTH_DRIFT`) are a real
 run, not a claim.
-**Still missing:** reprise — `compare_returns` takes two line lists and does
+~~**Still missing:** reprise — `compare_returns` takes two line lists and does
 not care where they came from, but nothing calls it ACROSS two different
 declared functions (does the outro reprise the intro). The primitive exists;
-the question is not asked.
+the question is not asked.~~ **STRUCK 2026-09-01 (the triage audit's record
+fix):** `CROSS_FUNCTION_REPRISE` is a `grid.py` finding (a note, at
+`grid.py:1188`), emitted from `song_function_report`, and pinned by five
+checks in `quality/test_grid.py` — the question IS asked, across functions,
+and this register never mentioned the code. Closed on that evidence; D-4
+(the arc) is the separate entry it always was.
 
 ### D-4 · No arc `OPEN`
 **Missing:** energy, dynamics, density, register, instrumentation change across
@@ -516,6 +521,105 @@ entry waits for a sitting with room for the expensive half done properly —
 the M-4a-class change with the full recalibration — rather than accreting a
 stopgap. Recorded so the next reader knows the cheap half was seen, priced
 and declined, not missed.
+
+**NOTED 2026-09-01 UNDER THE OWNER'S DELEGATION: NOT TAKEN, AND WHY.** The
+triage audit re-raised the cheap half. The owner's 2026-08-21 decision —
+the cheap half deferred deliberately, *"touching the scoring path twice
+costs more than once"* — is a recorded ruling and not a question the
+delegation reopens; a delegate takes the rulings an owner has not made,
+not the ones they have. Stays `OPEN`, on the owner's own terms.
+**RE-RAISED 2026-09-02 BY THE OWNER'S *"finish everything in the triage
+artifact"*, AND STILL NOT MERGED — BUT BUILT AND MEASURED, SO THE RULING
+CAN BE MADE ON NUMBERS.** An agent built the cheap half in a worktree the
+way this entry defines it: `score()` appends `coda: no evidence (both
+codas empty on K of N syllable(s); X.XXX of the total is agreement by
+absence, not by sound — E-5)` when both codas are empty, with `total`,
+`relation`, `cluster_sim`, `coda_agrees` and `admits()` untouched; the
+screen prints the phrase beside the CLEAN row; the grade's verdict carries
+the comparator's flags. MEASURED on that worktree: `now`/`why` stays
+0.902 RHYME and screens `CLEAN — RHYMES`, with **0.350** of that total
+named as absence; `see`/`free` stays 1.0 with the same flag (the
+AGREEMENT side is correct and was left alone); `cat`/`hat` 1.0 with no
+flag; `python3 battery.py` BYTE-IDENTICAL before and after (mandated 1064,
+judged 1014, refused 50, violations 12). The paths the gift reaches, for
+M-120's count: `screen`, bare-default groups, `--relation=rhyme`, an
+unplanned `song`; a DRAWN schema group is judged in `relations.py` and
+never sees it. The flag was then STRIPPED from the tree before the commit,
+on this entry's own standing line: the owner's 08-21 reason was that the
+scoring path should be touched ONCE, when the calibrated half lands, and
+a disclosure flag inside `score()` is a touch on that path however small.
+What the delegation kept from the same work is the part that is NOT this
+entry's: the verdict's `flags` field (M-136) and the door pricing lines
+(M-138/M-140). Reconstructing the stripped half is a ten-line block after
+`total -= decl.trailing_syllable_penalty * extra` and a `screen` status
+suffix, and the owner's yes is the only thing it waits on. Stays `OPEN`.
+
+**REVERSED BY THE OWNER 2026-09-02, AND THE CHEAP HALF SHIPS.** Asked to
+*"finish the rest of the work in the triage artifact"* — after the paragraph
+above had put the built-and-stripped measurement in front of them — the owner
+lifted their own 08-21 deferral. It was theirs to lift and nobody else's: a
+delegate takes the rulings an owner has not made, and this was one they had.
+WHAT SHIPPED IS THE CHEAP HALF EXACTLY AS THIS ENTRY DEFINES IT, and not one
+byte more. `score()` appends `coda: no evidence (both codas empty on K of N
+syllable(s); X.XXX of the total is agreement by absence, not by sound — E-5)`
+when both codas are empty; `Reviser.grade()`'s verdict carries the
+comparator's flags; `screen_pairs` sets `coda_no_evidence` from those flags
+and the `screen` CLI prints the phrase after a CLEAN row. `total`,
+`relation`, `cluster_sim`, `coda_agrees` and `admits()` are UNTOUCHED.
+MEASURED at HEAD: `now`/`why` is still **0.902 RHYME** and still screens
+`CLEAN — RHYMES`, now with **0.350** of that total named as agreement by
+absence; `see`/`free` is still 1.0 with the same disclosure, because the
+AGREEMENT side is correct and this rides beside it rather than against it;
+`cat`/`hat` is 1.0 with NO flag; `python3 battery.py` reads **mandated 1064,
+judged 1014, refused 50, violations 12 (1.2% of judged)** — the pinned
+oracle, unmoved. Pinned in `quality/test_readability.py` §14, six checks,
+with `cat`/`hat` as the no-flag control and `see`/`free` as the
+agreement-side control. The paths the gift reaches, for M-120's count:
+`screen`, a bare-default group, `--relation=rhyme`, an unplanned `song`; a
+DRAWN schema group is judged in `relations.py` and never sees it. THE ENTRY
+DOES NOT CLOSE. The expensive half — moving the scalar, with the
+recalibration M-4a records the price of — is what closes it, and the 0.902
+in the D18 pin is still 0.902. What changed is that the 0.35 inside it is
+now readable.
+**THE EXPENSIVE HALF WAS MEASURED 2026-09-02 AND IS REFUSED BY ITS OWN
+FALSIFIER. THE ENTRY STAYS OPEN AND IS MUCH CHEAPER NOW.** It shared
+M-138's pricing sitting exactly as the outline said it would
+(`quality/NEAR_RELATION_PRICING_PREREGISTRATION.md`, falsifier E2).
+`Declaration.coda_empty_evidence` makes the rule REACHABLE — `gift` (the
+shipped scalar, byte-identical default), `zero`, and `cannot_tell` (the
+coda channel dropped from the syllable's weighted mean and the remaining
+weights renormalised) — reaching `total` and NOTHING else, because the
+AGREEMENT side is what carries `see`/`free` and this entry records it as
+correct. MEASURED against the 979 of 1,014 judged mandated pairs the
+scalar door admits. **`zero`: 208 pairs (21.2%) LEAVE the admitted set,
+`see`/`free` falls to 0.650 and `now`/`why` to 0.552 — REFUSED.**
+**`cannot_tell`: `see`/`free` stays 1.000, `cat`/`hat` stays 1.000
+unflagged, `now`/`why` goes 0.902 -> 0.850 with the 0.35 of
+agreement-by-absence gone from `total` and the relation typing unmoved —
+exactly what this entry predicted — and ONE pair leaves the admitted set,
+sonnet 1 L2~L4 `die`/`memory` 0.773 CONSONANCE. The registration said ANY.
+REFUSED.**
+**AND `zero`'s VIOLATION COUNT STAYED AT 12, WHICH IS THE FINDING RATHER
+THAN THE FOOTNOTE.** The 77-schema default absorbed **231 pairs against
+23** — a tenfold jump in a door M-140 pins at 20.3x-21.0x and leaves
+UNPRICED. A registration reading `battery.py`'s headline would have
+recorded `+0` and adopted a rule that laundered a fifth of the admitted set
+through an uncalibrated door: this entry's own subject, one layer out. The
+registration's two readings of E2 disagreed on this data, the PRIMARY
+clause was taken, and the runner prints both on every arm now.
+**D18's 0.902 IS UNMOVED, because the refusal is what left it there.**
+**WHAT THE NEXT SITTING NEEDS IS SMALL AND IS NAMED**: a registration
+declaring a TOLERANCE in advance, with its own argument for the number,
+re-running this arm against it. One pair of 979 is not a rounding error
+until somebody says so BEFORE seeing that it is one pair (doctrine 58). The
+rule is built, reachable and measured; what is missing is a number nobody
+has yet earned the right to choose.
+**TESTED WHILE OPEN.** `quality/test_readability.py` §14 names this entry at
+the one place the finding became a code change — the cannot-tell disclosure
+on an empty/empty coda — and that half is BUILT. What stays open is the
+SCALAR, which no test here can move: closing E-5 means `total` changing, and
+the section's own controls (`cat`/`hat` unflagged, `see`/`free` still 1.0,
+`now`/`why` still 0.902) are written to FAIL if it does.
 
 ---
 
@@ -1952,7 +2056,7 @@ rather than left inside a headline about profile arithmetic.
 trustworthy about what does NOT exist — and `quality/FLOOR.md:39`'s
 two-column profile table. All three repinned with this close.
 
-### L-4a · The song profile has no generated class, so it carries a rate and no separation `OPEN`
+### L-4a · The song profile has no generated class, so it carries a rate and no separation `RESOLVED` 2026-09-02 under the owner's delegation (RULINGS WANTED #20, triage C23) — the QUESTION is answered and the fact is unchanged: the sitting is DECLINED in the proposed design, named in one that is not confounded, and the disclosure this entry promised is MECHANICAL now rather than a sentence
 Split from L-4's close, 2026-08-21, because it was buried in a headline about
 profile arithmetic and it is not about length at all. `quality/floor.py`'s
 `song` profile ships with `n_generated = 0`: what it has is a false-positive
@@ -1965,6 +2069,73 @@ ones_, because no generated song class exists in this repository. What is
 owed is a CORPUS, not a number — M-19's shape exactly. Until one exists this
 entry is doctrine 44's "cannot obtain" for the property, with the floor's own
 docstring (`quality/floor.py:124-131`) as the standing disclosure.
+
+**RULED 2026-09-02 UNDER THE DELEGATION, AND THE PREDICTION IN THE ROW WAS
+CHECKED RATHER THAN REPEATED.** RULINGS WANTED #20 said *"the sonnet arm
+predicts it would read period"*. It does not have to predict: this
+repository has MEASURED it, on this band, through these thresholds. The
+`song` profile's human class is `corpus/song/eng_*.txt` restricted to
+200-400 tokens — 2,261 items over 663 authors, of whom 312 carry dates
+(born 1340-1887, median 1809, latest death 1928) — and measured over
+`data/sources.tsv` this sitting, **71 of the 72 rows that stage those files
+carry `pd_affirmed=true`, 59 carry a publication year, and those 59 run
+1794-1919, median 1887, with ZERO at or after 1929.** The period
+restriction is the SELECTION CRITERION and not a coincidence, so a class
+written in 2026 differs from the human class on the calendar BY
+CONSTRUCTION — doctrine 13's identity rather than a dependence to argue
+about afterwards. The axis is not inert: `mattr` carries rho **-0.177**
+(p_perm 0.0029, clearing Bonferroni at 0.0100) and the cross-cohort
+transfer at median birth 1809 over-flags later-born authors (`fwr`
+**10.79%** against a cohort-permutation null median **5.85%**, p 0.0035);
+on the `short` band three of four thresholds survive Bonferroni and
+EARLY -> LATE runs **26.10%** against a null median **16.15%** (p 0.0075).
+Every measured gradient runs toward a HIGHER false-positive rate on later
+text, which is the direction that would INFLATE the AUC the sitting buys.
+**SO THE SITTING IS DECLINED IN THAT DESIGN AND NAMED IN TWO THAT ARE
+NOT.** (a) Move the HUMAN class forward: a post-1929 admissible song
+corpus. That is doctrine 92 — the admissible source and the complete source
+are disjoint here, and the 71-of-72 `pd_affirmed` count is the measurement
+of it — and NOBODY HAS RUN THE SEARCH: `data/sources.tsv` holds no
+`SEARCH:` row for one, so "there is none" is doctrine 20's absence rather
+than a finding, and running that search is the next sitting's first step,
+not writing forty songs. (b) Move the GENERATED class back into period
+pastiche — refused, being the confound doctrine 11 already caught, and
+doctrine 8's warning that a single corpus *"would have recommended
+optimizing toward archaic pastiche"*. Nothing else holds period constant;
+matching on the five features themselves is doctrine 14 exactly.
+**AND THE NUMBER WOULD MOVE NO VERDICT**: `Profile.measured_auc` is read by
+`evidence_for`, by the calibration's drift check and by the pins, and NEVER
+by `SlopFloor.check` — severity comes from `sev()`, and `PREDICTABLE_RHYME`
+is held at `note` by doctrine 7 whatever the separation is. The held-out
+FPR (`ANY` **20.22% [15.33-24.55]** on `song`, **16.18% [11.09-22.23]** on
+`short`) prices what the floor costs a human songwriter, which is the only
+thing a rejection gate can be held to (doctrine 22). And the AUC would be
+uninterpretable anyway: `data/sources.tsv`'s own generated-sonnet row says
+*"Being one model's output, 0.971 is the detectability of THIS generator,
+not of generated verse."*
+**AND THE ENTRY'S OWN CLOSING PROMISE WAS FALSE, WHICH IS THE HALF THAT WAS
+ACTUALLY MISSING.** *"Every song-length finding says on its face that it
+holds no separation claim"* was true of four findings and false of the
+fifth: `PREDICTABLE_RHYME` did not call `Profile.evidence_for` and printed
+the SONNET arm's AUC 0.648 / 0.710 / 0.960 verbatim under a profile with no
+generated class — the exact carry that function's own docstring exists to
+prevent (doctrine 1). **AND THE PIN COULD NOT SEE IT**: `test_floor.py` §15,
+the section named for this promise, selected its population with a
+hand-typed four-code tuple that OMITTED `PREDICTABLE_RHYME`, on a fixture
+firing ONE of the five, so every `all(...)` quantified over a single
+finding — a list that is short looking exactly like a list that is
+complete, in the guard rather than in the thing guarded. `floor.
+LENGTH_SENSITIVE` declares the five codes once with the percentile and
+evidence key each reads (they differ for exactly one, which is why both are
+written out); the finding calls `evidence_for` and the sonnet figures now
+name their arm and say they *"may not be read as this profile's
+separation"* rather than being withdrawn (doctrine 58); §15 derives its
+population from the map, runs the SAME text at two lengths so the expected
+set shrinks from five to four on `short` BY ARITHMETIC (M-193 stage B
+refused the fifth threshold), and fails if a declared code does not fire.
+Mutation-proven both ways — deleting the `evidence_for` call reds 4 checks,
+shrinking the map reds 1 — and the section passed with the defect standing
+before the repair, which is doctrine 48 inside the guard.
 
 ### L-5 · Doctrine has drifted toward auditing `CLOSED` 2026-08-11
 ~~`CLAUDE.md` carries 76 numbered items~~ ~~**102 numbered items, measured
@@ -10510,7 +10681,7 @@ pass on a planner that simply never declared a hook; `test_grid.py` §26 repins
 the flag family as a DECLARED SET rather than a count (~~`== ["HOOK_ABSENT"]`~~),
 keeping its original intent that a new finding must not drift into the family.
 
-### M-85 · the section header's apparatus is gated, `SHARED_SUFFIX` is pursued, and `TITLE_NOT_IN_HOOK` is refused ON EVIDENCE `PARTIAL` — 2026-08-23
+### M-85 · the section header's apparatus is gated, `SHARED_SUFFIX` is pursued, and `TITLE_NOT_IN_HOOK` is refused ON EVIDENCE ~~`PARTIAL`~~ `CLOSED` 2026-09-01 — 2026-08-23; all three parts were in the tree by 2026-08-24 and the label lagged
 **THREE THINGS FROM ONE SITTING, and the first was found by the owner reading
 a chat message rather than a file.**
 
@@ -10618,6 +10789,13 @@ holds a line open, and the plural pair could not converge. A comment
 explaining a fixture move is not a regression on the entry, and nothing in
 §41 goes red if any open half of M-85 changes. What that pursue costs is
 `M-90`'s subject, and it is OPEN there rather than answered here.
+
+**CLOSED 2026-09-01 (the triage audit's record fix): the three parts are
+all done and were when the label last moved.** (1) the header round-trip
+is gated by `test_plan.py` §11 and `check_render_form.py`'s Stop hook;
+(2) `SHARED_SUFFIX` is in `loop.MANDATORY_PURSUE`; (3) `TITLE_NOT_IN_HOOK`
+was promoted to a FLAG under M-86 (CLOSED 2026-08-23). What this entry
+priced and left to M-90 stays there.
 
 ### M-86 · `TITLE_NOT_IN_HOOK` gates, on reaffirmation against the number `CLOSED` — 2026-08-23
 **THE OWNER RULED TWICE, AND THE SECOND TIME IS THE ONE THAT COUNTS.** `M-85`
@@ -11020,7 +11198,7 @@ same block flips the finding both ways on one song — declared, and with the
 title removed — because two checks that pin a field nothing reads are worth
 nothing.
 
-### M-94 · the planner writes a blueprint the repository's own formatter rejects `OPEN`
+### M-94 · the planner writes a blueprint the repository's own formatter rejects ~~`OPEN`~~ `CLOSED` 2026-09-01 — moot since `2833312` (2026-08-25), recorded by the triage audit
 **`plan --out=PATH` WRITES `json.dump(payload, fh, indent=1, sort_keys=True)`,
 AND `prettier --check .` REFUSES IT.** Caught by the `gate` job on the very
 commit that added `songs/stay_awake.blueprint.json` — the one job that failed
@@ -11051,6 +11229,16 @@ a finding set BYTE-IDENTICAL to the run on the planner-written one, exit 0
 both times. A blueprint is parsed, so whitespace cannot reach a grade; what is
 broken is the loop between the verb that writes the artifact and the gate that
 reads it, not any measurement taken from it.
+
+**CLOSED 2026-09-01 AS MOOT, NOT AS FIXED.** Commit `2833312` (2026-08-25,
+"the song bank's blueprints leave prettier's jurisdiction") added
+`lyric-harness/songs/*.blueprint.json` to `.prettierignore` and struck the
+rationale this entry quotes; `prettier --file-info` reports the bank's
+blueprints `ignored: true`, and 7 of 16 committed blueprints are raw
+`indent=1` output on a green gate. `plan --out` still writes `indent=1`
+and a copy OUTSIDE the ignored path still fails `prettier --check` — true
+and no longer a defect any gate charges. The route question (RULINGS
+WANTED #12) is answered by the tree's third route and is struck there.
 
 ### M-95 · `tandem` and `nightly` have not been green once in a week, for four separate reasons `PARTIAL` — 2026-08-24
 **FOURTEEN SCHEDULED RUNS SINCE 2026-08-03, NOT ONE SUCCESS** (Actions API,
@@ -12048,7 +12236,15 @@ lines (function share 0.40 vs 0.38, commas/token 0.143 vs 0.143). A gate
 there would charge a third of the canon (doctrine 7). The refusal is in the
 module docstring so it reads as refused, not forgotten.
 
-### M-111 · the ban's clean lists are one glossary, and every song shops it `OPEN`
+**ADDENDUM 2026-09-01.** `sentencehood_checked` is written into `inspect()`'s
+result and read by nothing but a key-presence test, and the loop's LAYERS
+roster names the layer in neither direction — so a run with the tagger
+silently off would grade with the gate off and print nothing. That state is
+UNREACHABLE: the slop floor requires the same tagger first, and without it
+the verb used to die at exit 1 (now REFUSES at 2 with the staging commands
+named, M-188). Recorded so the dead key is not mistaken for a disclosure.
+
+### M-111 · the ban's clean lists are one glossary, and every song shops it `RESOLVED` 2026-09-02 under the owner's delegation (RULINGS WANTED #5, triage C08) — the cross-song question has a verb, the gate is refused mechanically, and the re-measurement moved the finding's strength before it moved any code
 Filed 2026-08-25. The owner's finding, made before any instrument had it:
 *"you use 'light' and 'burn' in basically every song ... way outside their
 Zipfian distribution."*
@@ -12067,7 +12263,7 @@ independently: "a rhyme-word bank reused like one glossary." Beside it and
 separable: a register collapse (light/dark/stone/ache/groan) that no screen
 produced — the writer's own prior.
 
-**WHY IT IS OPEN AND NOT BUILT.** The natural check reads `songs/` at screen
+~~**WHY IT IS OPEN AND NOT BUILT.** The natural check reads `songs/` at screen
 or grade time to disclose reuse ("clean, but this word rhymes in 3 of your
 banked songs") — and the songs register's first rule is that the songs are
 NOT corpus: nothing samples them (doctrine 13/14). A self-repetition
@@ -12075,7 +12271,115 @@ disclosure arguably checks novelty AGAINST own output rather than
 calibrating ON it, but that is an argument and not a ruling, and the ruling
 is the owner's. Until then the cross-song question has exactly two
 instruments: the DF measurement in `quality/RESULTS_PANEL.md` §4, and a
-panel with a set lens.
+panel with a set lens.~~
+**RULED 2026-09-02 UNDER THE DELEGATION: A CHECK MAY READ `songs/` TO
+DISCLOSE CROSS-SONG WORD REUSE, AND MAY NOT READ IT TO GRADE, GATE,
+THRESHOLD, CALIBRATE OR RANK.**
+**AND THE NUMBER THIS ENTRY QUOTED IS STALE IN ITS STRENGTH, WHICH IS THE
+FIRST HALF OF THE ANSWER.** Re-measured at the bank's sixteen songs by
+`quality/cross_song.py --sweep` — 951 content types against a
+LENGTH-MATCHED null of 8,666 human songs over 1,297 `corpus/song/eng_*`
+files, 300 draws at seed 20260902. On the panel's own SIX the finding HOLDS
+and is strong: `>= 4 of 6` is **11 types against a null median 2, max 7,
+with 0 of 300 draws reaching 11** (`--subset=panel6`; the one-type gap from
+this entry's recorded 10 is panel run 5's own recorded spelling
+difference). At the same PROPORTION on sixteen it is GONE: two-thirds of
+sixteen is `>= 11 of 16`, where the bank holds **0** and so does the null,
+and at half (`>= 8 of 16`) the bank holds **2 against a null median of 3**
+— below the null. At the same ABSOLUTE k it survives and is a DIFFERENT
+QUESTION: `>= 4 of 16` is a quarter of the bank, **53 against a null median
+of 32**, 0 of 300 draws reaching 53. And the TEN songs written since the
+panel show nothing at all: at `>= 4 of 10` they hold **8 against a null
+median of 13**, again below, with no k from 3 upward separating
+(`--subset=after_panel`). The panels' own prose had said this for four runs
+— *"the core cluster stays confined to the first five songs"* — and this is
+the mechanical confirmation of it.
+**THE PANEL'S NULL WAS NEVER MATCHED ON LENGTH, AND AT SIXTEEN THAT DECIDES
+THE ANSWER.** Vocabulary size is the nuisance parameter: two long songs
+share more types than two short ones for no stylistic reason, and the
+banked songs run 33-179 content types (median 85) against a human median 75
+with q1-q3 51-120. Measured both ways at k=4 by `--unmatched`, which runs
+the panel's own construction ON PURPOSE: on the six, unmatched **p 0.0133**
+against matched **p <= 0.0033** — small enough to hide; on sixteen,
+unmatched **p 0.1063**, which does not separate at all, against matched
+**p <= 0.0033**. Doctrine 61 is the rule that applies: pick between rule
+variants by lift over a MATCHED control, and record the table.
+**SO THE CASE FOR A GATE FAILS TWICE, ON THE MEASUREMENT AND ON THE
+DOCTRINE.** Doctrine 34: reading `songs/` does NOT make it corpus, and this
+tree had already ruled that twice without saying so — `quality/song_record.py`
+and `quality/ban_convergence.py` both read this bank and neither carries a
+`data/sources.tsv` row, because neither CALIBRATES on it. What makes a
+directory corpus is the JOB and not the READ: a population you sample from,
+fit on, or draw a null from. Here the bank is the OBSERVATION and the null
+is drawn from `corpus/song/`, which is corpus and does carry rows — the
+right way round. Doctrine 13: the bank is this harness's own output, so
+scoring a candidate by how often the harness previously emitted it closes a
+loop the harness itself drives — the ban pushes a draft off the modal
+candidate, the survivor is sung, the survivor enters the bank, and the check
+pushes the next draft off the survivor, which is measuring novelty against a
+target the instrument is moving; the direction of that dependence is
+POSITIVE FEEDBACK onto exactly the second mode M-88 and this entry named.
+Doctrine 14: a GATE would be the `--cliques` shape precisely, because the
+ban's clean lists MANUFACTURE the reuse this entry's own funnel receipt
+records. Doctrine 6/7: a flag is a floor, a floor needs a threshold stated
+as a false-positive rate at a length that could falsify it, and this
+statistic is NOT SCALE-INVARIANT — a fixed k silently asks a different
+question every time a song is banked, which is doctrine 15's failure with
+the BANK SIZE as the length — while a writer reusing their own word across
+their own songs is a style fact and doctrine 7's floor is for defects.
+**WHAT WAS BUILT.** `quality/cross_song.py`, reachable from a verb as
+`screen --bank` — a DECLARED COORDINATE in the shape `--voices` and
+`--fallback` already have. Omitted by default, and omitting it costs
+nothing: the module is not imported and no banked song is opened, MEASURED
+on a real run by `test_cross_song.py` §6. Declared, it APPENDS per word how
+many of the writer's OWN banked songs sing it as a content word, with the
+matched null's reading of that depth beside it, so a depth is never handed
+over as a defect — `light` reads **7 of 16** and the bank holds 5 types at
+depth >= 7 against a null median of 5, which is ORDINARY, while `ache`
+reads **4 of 16** where the bank holds 53 against a null median of 32. The
+population is `song_record.songs()` and no second copy; the content
+partition is `narrative_bands.content_types`, made public for this caller
+because panel run 5 measured two hand spellings of it disagreeing by one
+type. NOTHING IS CACHED: a derived `data/*.tsv` of bank frequencies would
+be a corpus file by construction, would need a doctrine 34 row, and would
+be the back door this ruling denies — so the frequencies are derived live
+from the committed bytes on every call, and a test asserts no such table
+exists.
+**THE REFUSAL IS MECHANICAL, BECAUSE THIS ENTRY SAT OPEN FOR EIGHT DAYS ON
+AN ARGUMENT AND AN ARGUMENT IS WHAT A LATER SESSION TALKS ITSELF OUT OF.**
+Three mechanisms, each with the mutation that proves it. (1) `screen --bank`
+may only APPEND: `test_cross_song.py` §5 pins the un-flagged output as a
+byte PREFIX of the flagged one (906 B, 1498 B, 592 B appended), so a code, a
+moved count or a changed exit status cannot be introduced without turning
+the suite red — planting the gate this ruling refuses (`codes |=
+{"BANK_REUSE"}` at depth >= 4) reds **3 checks**, and note that "both runs
+exit 0" correctly still passes, which is why the PREFIX and not the exit
+code is the pin. (2) `cross_song.BankIsNotCorpus`, raised by
+`_refuse_bank_as_population` from INSIDE `human_population` so no caller can
+route around it, refuses the bank as a NULL population by name, citing
+doctrines 13 and 14 and naming *"give the bank a sources.tsv row to silence
+this"* as the back door rather than the fix — removing the guard reds
+**4 checks**. (3) A test asserts no derived bank table exists under `data/`.
+And from the other direction `quality/gate_census.py --check` is UNMOVED:
+this lot introduces no finding code at all.
+**WHAT THIS RULING DOES NOT CLAIM.** It does not retract the finding on the
+SIX — 11 types at `>= 4 of 6` against a null median of 2 is a real and
+strong result, and this entry's original measurement stands at the size it
+was taken. It does not claim the bank is free of a glossary: the panels'
+set lens is model output and this instrument cannot see register collapse,
+whole-phrase recurrence, or the funnel receipt (16 of 50 screened words
+sung in a different song), all of which remain the panel's. It does not
+claim the ten later songs are BETTER — a count below a null median at n=10
+is not evidence of variety, and doctrine 20 forbids reading a
+low-resolution row as a null; the honest statement is that the
+concentration the panel measured does not reproduce on them. It adopts NO
+threshold, and the disclosure is compared against nothing anywhere in this
+tree. It says nothing about whether a word at any depth should be changed —
+that is the writer's, and doctrine 7's floor was never for style. And it
+does NOT close the connector half: `mcp/lyric_tools.js`'s `lyric_screen`
+mirrors the CLI's `relation` and `fallback` coordinates and does NOT carry
+`bank`, so the chat surface cannot ask this question — named here so it is
+a RECORDED non-build and not a forgotten one.
 
 **BOOKKEEPING**: `audit_register.PINNED["coverage_entries"]` ~~167~~ -> **169**
 (M-110 and this entry landed in one commit, 2026-08-25; this entry counts while
@@ -13455,6 +13759,50 @@ block on absent words invents a relation from anchors that cannot distinguish
 about what a profile IS. Each needs a ruling, and neither is this sitting's to
 take.
 
+**RULED 2026-09-01 UNDER THE OWNER'S DELEGATION (RULINGS WANTED #7), AND
+ONLY THE HALF THAT MOVES NO VERDICT IS TAKEN.** (1) A wordless `score()`
+now DISCLOSES on its flags — `identity: not asked (words omitted)` — that
+REPEAT and RIME_RICHE were not judged; the relation is left where it was.
+Forty-eight call sites pass anchors alone and most ask a question identity
+does not bear on (a syllable inside a line, a cynghanedd half-line); the one
+that had the words in hand and did not pass them, the sain test's parts 1–2,
+passes them now. Making the words REQUIRED would move recorded verdicts at
+every wordless site and is not taken on delegation — the disclosure is the
+refusal-shaped half (doctrine 20), pinned in `test_readability.py` §13.
+(2) `profile="assonance"` emitting ASSONANCE is likewise verdict-moving and
+stays parked. The entry stays `OPEN` on those two.
+**TESTED WHILE OPEN.** `quality/test_readability.py` §13 names this entry at
+the one place the finding became a code change — the disclosure flag on a
+wordless `score()` — and that half is BUILT; what stays open is the
+required-words ruling and the assonance profile, which no test can build.
+**DISCLOSED FURTHER 2026-09-02 (triage C13, under the delegation).** (1)'s
+flag never reached a VERDICT — `Reviser.grade()` dropped the comparator's
+`flags` — and does now: each verdict record carries `"flags"` (a copy,
+gating nothing), with the control that a real mandated pair carries none
+because production passes the words. (2) gains its own disclosure:
+`profile="assonance"` now says `conjunctive band: off (profile coda weight
+0.0 — RHYME here is nucleus agreement only; ASSONANCE/CONSONANCE cannot be
+emitted, M-136 (2))` on every pair it scores, while a
+`Declaration(conjunctive_band=False)` gets NO flag — the declared
+coordinate speaks for itself (doctrine 1) and only the profile's silent
+switch-off needed a voice. Verdicts unmoved: `sun`/`much` 0.772 ASSONANCE
+at the default, 1.0 RHYME under the profile, both as before; the battery
+byte-identical. Pinned `test_readability.py` §14. THE VERDICT HALVES STAY
+PARKED, with a preregistration outline banked so the sitting that takes
+them starts from a hypothesis: population = the 48 wordless call sites
+(an AST census in `door_census.py`'s shape) and every `--profile
+assonance` invocation in banked commands; statistic = recorded verdicts
+moved per site class; falsifiers = a verdict moving at a
+syllable-inside-a-line site (then the requirement is wrong-shaped and
+stays a disclosure) and an ASSONANCE emission changing a pinned `scheme
+--profile assonance` output beyond a relabel (then (2) is a
+profile-definition ruling, not a comparator fix); adopted if held =
+`word_a`/`word_b` required at the end-word sites only, the profile
+emitting ASSONANCE. Also found on the way: §13 sat in
+`_every_section_runs`'s membership list and NOT in the `__main__` loop,
+so it printed the same `all pass` as a section that ran — listed in the
+loop now.
+
 ### M-137 · M-135's dead coordinate has siblings, and two are deader `OPEN`
 A census for the SHAPE M-135 found — a value computed and stored under a
 comment implying it is consumed, which nothing consumes. Every figure below was
@@ -13522,7 +13870,7 @@ annotated as one: *"NO PRODUCTION READER … DELIBERATELY RESERVED"*. A dead
 coordinate that says it is reserved is not this defect; a dead coordinate whose
 comment says it governs something is.
 
-### M-138 · the widened door made theta_rhyme the sole gate on two relations it was never priced on `OPEN`
+### M-138 · the widened door made theta_rhyme the sole gate on two relations it was never priced on `CLOSED` 2026-09-02 — priced under a preregistration of its own, and the finding is that it is ONE relation and not two
 The largest finding of the comparator audit, and the one the repo has already
 ruled on ONCE — in the opposite direction, against a gap a fifth the size.
 
@@ -13682,6 +14030,149 @@ IS FILED APART AS M-140** — the 77-schema half of the default (M-116) admits
 entry's 8.48%. Never summed with the ADMIT count: 204 pairs are admitted by
 both doors, 135 by the ADMIT door alone and 728 by the SCHEMA door alone, and
 the three are reported apart because they answer different questions.
+
+**RULED 2026-09-01 UNDER THE OWNER'S DELEGATION (RULINGS WANTED #9), AND
+THE PRICING IS DECLINED WITH ITS REASON.** Pricing a near relation at the
+admit door — a per-relation threshold and a re-adoption, the `theta_coda`
+pattern — moves the battery's recorded verdicts and the sonnet rate this
+file pins in a dozen places, and is a calibration sitting of its own; the
+delegation covers taste and not a re-adoption nobody preregistered. What
+is taken is the half the entry's own reading owed: the two band instruments
+now SAY which door they read. `redteam_band.py`'s theta sweep prints `DOOR
+READ: the comparator's NARROW band {RHYME, RIME_RICHE}` — adversary 3's
+subject, not `decl.admit` and not the 77-schema default — and
+`negative_control.py` records at its one grading site that it reads
+`decl.admit` because it is the control of the BAND (doctrine 14: folding
+the default in would change what the control is a control of). The chance
+rates of the two wider doors stay `chance_rate.py`'s, pinned as bands and
+unpriced, exactly as this entry and M-140 record. Stays `OPEN` on the
+pricing.
+**PRICED AND ADOPTED 2026-09-02, AND THE ENTRY CLOSES.** The blocker this
+entry recorded — pricing is *"a re-adoption that moves recorded verdicts
+without a preregistration of its own"* — was answered by writing one:
+`quality/NEAR_RELATION_PRICING_PREREGISTRATION.md`, with the sweep grid,
+the 2x target and the violation ceiling all fixed before the run and
+COMMITTED BEFORE IT, so the ordering is a fact in the log rather than a
+claim in a document. `quality/RESULTS_NEAR_RELATION_PRICING.md` records
+what fired.
+**THE FINDING THE OUTLINE DID NOT HAVE IS THAT IT IS ONE RELATION AND NOT
+TWO.** At the shipped 0.75, ASSONANCE admits random pairs at **3.99x-4.92x**
+the canon arm and CONSONANCE at **1.18x-1.48x**, already under target on
+every cell of the grid; RHYME is under **1x** and RIME_RICHE is 0. The
+6.1x-7.2x this entry records is a SUM over four relations (doctrine 79),
+and ASSONANCE carried all of it.
+**ADOPTED: `Declaration.theta_by_relation`, ASSONANCE 0.82** — the smallest
+cut on the declared grid under 2x in all four `chance_rate.GRID` cells
+(73..86 = 1.54x..1.82x) — **and CONSONANCE 0.75, measured, unmoved, and
+written down rather than omitted** (doctrine 20: a coordinate that did not
+move is a result). Falsifier E1 did NOT fire: `battery.py` goes **12 -> 14
+of 1,014** against a preregistered ceiling of **20**, which is the exact
+Clopper-Pearson 95% upper edge on the pre-adoption pin. The two new
+violations are sonnet 49 L5~L7 `pass`/`was` 0.772 and sonnet 91 L10~L12
+`costs`/`boast` 0.765 — the second being cell BA's own pair, which passed
+on a coda margin of EXACTLY ZERO and has passed ever since on an assonance
+cut nobody had priced. STOPPED violating: 0. The third option this entry
+listed was never needed: the declared-policy fallback was E1's registered
+refusal branch, and E1 held.
+**TWO INSTRUMENTS MOVED WITH THE DOOR THIS TIME, WHICH IS M-139's LESSON
+PAID.** `chance_rate.measure` reads `theta_for` and its `admit` band
+repins ~~289..339~~ **173..193** (6.1x-7.2x -> 3.1x-3.5x), with `narrow`
+36..46 and `schema` 960..994 HELD as the controls that this was a DOOR move
+and not a sampler move; `door_chance_note('admit')` says PRICED where it
+said UNPRICED; and the `ADMIT DOOR` line names the cut each relation was
+judged at instead of a `theta_rhyme` no near relation reads.
+`redteam_band`'s FPR is unmoved at **2.10% (84/4,000)** — adversary 3 reads
+the NARROW door and its own `DOOR READ` line says so, which is the
+2026-09-01 disclosure paying for itself. `test_fwer` and `eval_matrix` P3
+were run and did NOT move, so they are NOT re-shaped as bands: re-shaping a
+pin that held is a change with no measurement behind it.
+**AND THE REPIN ARGUES IN A CIRCLE UNLESS THE BASELINE IS PINNED.** Adopting
+moved `CANON_RATE` 12/1014 -> 14/1014 — the denominator of the very
+statistic that chose the cut — and re-sweeping against it returns 0.81 for
+free, in the loosening direction. `near_relation_pricing.PRICING_CANON`
+pins 12/1014 and the sweep reads it. Checked rather than assumed: at the
+repinned rate every relation still reads under 2x.
+**AND TWO PINS THE ADOPTION MOVED WERE FOUND BY CI AND NOT BY THE SITTING,
+WHICH IS WORTH RECORDING RATHER THAN QUIETLY FIXING.** The sitting ran the
+suites it expected to move and both of these were outside that list.
+(1) `test_g2p.py` §9's `off` arm holds the battery's violation count, and it
+is the SAME literal that was repinned ~~82~~ -> ~~35~~ -> ~~12~~ for M-59
+and M-116: a DOOR movement the pin sat behind, now **14**, and the third
+instance of one shape. The two earlier moves widened the door and this one
+narrows it, which is why the count rose where it had fallen.
+(2) `test_chance_rate.py` §3 asserted that the two READERS give DIFFERENT
+admit counts, and the cut made them COINCIDE at 4 — both readers now admit
+the identical four pairs on the shipped draw (`telematic`/`acids`,
+`soroka`/`ida`, `hohn`/`gone`, `inexpensive`/`clamping`). **THE CHECK WAS
+READING A COUNT INEQUALITY AS EVIDENCE FOR A STRUCTURAL CLAIM**, and counts
+agreeing is not two readers being interchangeable — it is a sample that
+stopped separating them, which is doctrine 20. MEASURED on the identical
+300 pairs: the readers return a different score or a different relation on
+**69** of them (`madora`/`barbara` 0.738 ASSONANCE against 0.538
+CONSONANCE; `causey`/`overfield` 0.670 NO_RELATION against 0.108
+ASSONANCE), and exactly ONE of those 69 straddles the old flat 0.75 — which
+is why the admit counts used to differ and no longer do. The pin sits on
+the 69 now, with the coincidence recorded as a fact about this draw at this
+cut.
+**WHAT THIS DOES NOT CLAIM.** There is no positive control on the canon
+arm, so E1 says the cut is AFFORDABLE on this corpus and never that a cut
+which mattered would have been detected (doctrines 31/76). The split-half
+does not reproduce (FIT 4 -> 6, HELD 8 -> 8, both movers in the odd half),
+recorded as reported and not resolved. The 200-seed spread (291..400) is
+WIDER than the sampler band it is compared against, which is doctrine 73
+arriving at a pin that already cites it. And the SCHEMA door stays
+unpriced: its 231-pair absorption below is a measurement of its reach, not
+a pricing, and M-140 stays open on it.
+**PRICED WHERE IT ANSWERS, 2026-09-02 (triage C13, under the delegation) —
+STILL UNPRICED AT THE DOOR.** `finish` prints an `ADMIT DOOR` line
+counting the mandated pairs satisfied AS a near relation on `theta_rhyme`
+alone, by relation, with `chance_rate.py`'s ADOPTED band read beside it
+(289..339 of 4,000 random CMUdict pairs, 7.2%–8.5%, 6.1–7.2x the sonnet
+canon arm's 1.18%); the `SCHEMA DEFAULT` line carries the schema door's
+band the same way (960..994, 24.0%–24.9%, 20.3–21.0x — M-140's half); and
+the screen's `CLEAN — ADMITTED as …` row ends with the admit band. Pairs a
+schema rescued are the `SCHEMA DEFAULT` line's and are never summed with
+the admitted ones (doctrine 79). THE FIGURES ARE READ, NEVER RETYPED —
+`door_chance_note` renders `chance_rate.ADOPTED`, `SHIPPED.n` and
+`CANON_RATE`, so a repin there moves every report here (import cost
+0.002 s); the rates are against DRAWN pairs, so the admit rate reads a
+hair LOW against the instrument's own JUDGED denominator, and the phrase
+says so. The two `finish` lines now have one definition each
+(`schema_default_disclosure`, `near_relation_default_disclosure`) so a
+test can pin the rendering without a `finish` run; `test_readability.py`
+§15. Battery byte-identical. THE PRICING STAYS OPEN, with its outline
+banked: one sitting in the `theta_coda` pattern; random arm =
+`chance_rate.GRID` (4 cells, seed 20260810, n=4000), canon arm = the
+1,014 judged sonnet pairs, held-out FPR at 200 seeds as in
+`RESULTS_REDTEAM`; statistic = per relation, admitted-random share over
+canon-violation share (6.1–7.2x today, where 1.5x was disqualifying);
+falsifiers = a per-relation cut that brings the ratio under 2x raising
+sonnet violations above 12 plus its interval (then the pricing is refused
+and the declared-policy option adopted and stated at the door), and — the
+E-5 half sharing the sitting — scoring empty/empty coda as 0 or
+cannot-tell moving `see`/`free`-class pairs out of RHYME (then the change
+is confined to `total` and the agreement side must carry them); adopted
+if held = per-relation thresholds on `Declaration`, D18 repinned from
+0.902, the FWER and matrix P3 pins re-adopted as bands.
+
+**AND THE PRICING'S OWN TAIL WAS A SECOND DOOR, FOUND THE SAME DAY BY CI AND
+NOT BY READING (2026-09-02).** Adopting a per-relation cut moves the coordinate
+`theta_for` reads, and M-139's whole content is that a moved door leaves sites
+behind — so the adoption's real cost is the ROSTER, and the roster was one name
+short. `quality/recover.py` admitted its edges at a flat `decl.theta_rhyme`
+while the grader judged them at 0.82, so the second door began laying down
+covers the grader then charges: the module whose entire doctrine-14 sentence is
+that `--groups=` cannot produce a rhyme violation BY CONSTRUCTION, made false
+by the pricing four commits earlier. `test_recover.py` §8 caught it, which is
+that check earning its keep — it REGRADES the emitted spelling rather than
+asserting the sentence. The admit reads `theta_for` per pair now when the
+caller declared no theta (a DECLARED flat cut still wins outright — doctrine 1,
+a caller stating the coordinate is not overruled here), and `recover.recover`
+joins `theta_for`'s named roster and `test_band.py` §8's pin. It is the FOURTH
+reader and the first that does not itself grade; the argument for putting a
+non-grading site on a MANDATE VERDICT roster is that the cover goes straight to
+`--groups=`, so it asks the verdict's question one step early.
+
 
 ### M-139 · the door moved twice and 17 of 19 sites are short of it `OPEN`
 The doctrine-9 lane of the comparator audit, opened on the candidate field and
@@ -14228,6 +14719,17 @@ declared.** Exactly M-138's sampler defect in the cost register. The ladder is
 kept as an ORDER OF MAGNITUDE and nothing in the tree should read a threshold
 off it.
 
+**ADDENDUM 2026-09-01 — THE HEADLINE IS STALE AND THE ENTRY STAYS OPEN ON
+ITS RULING ALONE.** ~~17 of 19 sites are short of it~~: `python3
+quality/door_census.py --check` at HEAD reports **21 sites — FULL 4,
+INCOMPLETE 0, PER_WORD 1, RENDERING 3, VALIDATION 1, ARGUED 12, PASS**;
+the last two INCOMPLETE sites were ruled ARGUED under M-145 (CLOSED). The
+PER_WORD site is `_field_one`, which cannot ask a line-pair judge of one
+word and says so through `SCHEMA_ROUTE_NOTE`. The field side this entry's
+lane opened moved again on 2026-09-01: one field per binding PLACE
+(M-184) and an offer screened from the offered word's own side (M-185).
+What is still owed is the `--cliques` ruling above.
+
 ### M-140 · the 77-schema door has no chance rate, and the judge does not read `normative` `OPEN`
 Opened 2026-08-26 out of M-138's strike, and it is the larger of the two: that
 entry priced the door M-59 widened, and **nobody has ever priced the door M-116
@@ -14398,6 +14900,24 @@ sampler cells and holds the band (`admit 289..339`, `narrow 36..46`,
 still reproduces `redteam_band.sample_pairs` pair for pair. The DISOWNED split
 is printed on every run. What the check asserts is that the rates have not
 MOVED; it asserts nothing about what they should be, which is the ruling above.
+
+**RULED 2026-09-01 UNDER THE OWNER'S DELEGATION (RULINGS WANTED #10): THE
+DEFAULT DOOR READS `normative`.** `whole_vocabulary_pairs` — the ONE judge
+of the silent default (M-116) — skips a schema the registry marks
+`forbidden` or `deprecated`: `homoioteleuton` (the tier-1 ban itself),
+`fourth lift must not alliterate`, `cynghanedd sain drosgl`, `trite rhyme`.
+The registry cannot ban a pair on one page and admit it on the next.
+Asked BY NAME (`schema:…`) the judge still answers — the name's own status
+is the writer's to read — and `derive_drawable_schemas` states the same
+exclusion where the planner's pool is derived (none of the four was
+drawable on its own merits; the rule is written so a future witness cannot
+certify one in). Exposure at ruling time was the entry's own zero
+sole-satisfier cases, so no recorded verdict moves and `chance_rate.py`'s
+`schema` band is expected to HOLD — its `--check` in the closing sitting is
+the measurement. `test_mandate_relation.py` §12 pins the filter by MUTATION
+(a common schema marked forbidden vanishes from the default and answers by
+name) and pins that the registry carries forbidden rows, so the filter is
+live. The chance-rate pricing half stays `OPEN`.
 
 ### M-141 · the census's one live figure drifted 84% under a green suite `CLOSED`
 Opened and closed 2026-08-26. **`quality/RESULTS_STRUCTURE_CENSUS.md`'s
@@ -16520,6 +17040,156 @@ and the next dispatch respectively; dispatching before them re-runs
 a measured configuration. The register pin:
 `audit_register.coverage_entries` ~~225~~ -> 226 (2026-08-29).
 
+**ADDENDUM 2026-09-01 (the triage audit's record fix).** The MANDATE half
+of the standing wall was answered after this entry was written and the
+entry never said so: M-171 (the participation reserve), M-173 (a
+maximally-equipped writer reaches exit 3 at exactly the mandate's own
+impossible group), M-174 (the overhang ordering gate) and M-175 (anaphora
+onto two line ends) each removed a way a drawn plan could be unwritable.
+What stays OPEN is the WRITER half alone, restated: *does flash-lite
+converge on the GATED planner through the chat surface?* — unmeasured,
+because no battery round has run since deploy #18 (2026-08-30, PR #211)
+first carried those four — every deploy through #29 does. The
+aggregate this entry owed and did not print: **ten rounds, zero exit-0
+songs on the chat path**; every banked song came through an operator's
+CLI session. Two of round 10's mechanisms are closed the same day this
+was written: the parked-continue push replayed the identical stop because
+the carried state was COMPLETE and the tier-1 record had no round
+coordinate (M-183), and every finishing verb's stop now prints the
+standing findings so the ban chip can count the drift (M-186). Round 11
+on HEAD is the measurement owed; it is dispatched by `flash-battery.yml`
+and spends Gemini credit, so it is the owner's to press. **AND HEAD IS NOT
+DEPLOYED (verified 2026-09-02)**: the branch carries the closures main does
+not, no PR is open, and deploys fire on main — so the order is merge,
+deploy, then round 11, and a round pressed before that measures the
+round-10 connector against the gated planner. The hold reason this entry
+gave on 08-29 — the daily spend window carrying rounds 9-10 — has lapsed
+and cannot be re-derived: the counter is in-memory and every deploy since
+reset it (AUDIT.md F128), so whether a round fits the window is a
+judgement at dispatch time, not a reading.
+**TESTED WHILE OPEN.** `quality/test_songs_log.py` §8 names this entry at
+the one place its ban-against-the-bank addendum became a code change — the
+draft-banking mechanism that ends the "provable md5, unreadable bytes"
+state it measured — and that half is BUILT. What stays open here is not in
+that check's reach and no test can put it there: round 11 against the
+deployed connector is a dispatch that spends the owner's credit, and this
+entry closes on that measurement or on nothing.
+**ADDENDUM 2026-09-02 — THE THREE RUNGS OF ROUND 10's LADDER THAT NO ENTRY
+TOUCHED, taken under the delegation (triage C02).** (1) THE HARD 429 is
+retried inside a DECLARED budget now: `gemini_agent.RATE_LIMIT_RETRY` —
+at most two retries, 2 s then 4 s, or the `Retry-After` header / RetryInfo
+hint when it fits, never more than 8 s in all, which is one refill slot of
+the 15-a-minute limiter and stays far under the 38 s stall `chat.js`
+refuses to make a user sit through; a hint past the budget throws AT ONCE
+and reaches the client as its own `Retry-After`. The bounded path applies
+only where a caller declares it and 429 is not already in its unbounded
+`retryStatuses` — the probe's `RETRY_ALL` keeps its wait. Every retried
+request is counted in `usage.requests` and the new `usage.retries`, so
+M-197's accounting sees the quota spent rather than the reply alone; the
+final throw is uncounted, which keeps M-197's `requests 1` pin exact.
+Four pins in `mcp/test.mjs` (two retries whose backoffs fit their own
+total; a 429 then a 200 is ONE retry with `requests 2, retries 1`; a
+`Retry-After: 60` is refused at once with `retryAfterMs 60000` and zero
+requests; three 429s exhaust the two retries and the throw carries the two
+spent) and a source pin that `chat.js` hands `runTurn` the budget beside
+its transient list. (2) THE SWERVE, read off job 99137676797 this sitting:
+turn 4's two `lyric_sweep` rows and its first `lyric_plan` row carry
+`exit_code 2, error null` — `error null` is NO connector-side refusal
+(`refuse()` throws and lands in the error text), so exit 2 is the
+HARNESS's own `_refuse`, and for `plan --sweep` that is one of three
+causes: an undeclared `--want` name, a declaration the planner cannot
+build, or `no seed in LO..HI satisfies every declared predicate`. WHICH
+cannot be said: the record keeps neither the arguments nor the harness's
+headline — `tools[]` carried name, error and exit code only. The likeliest
+reading is the writer's own arguments under the parked push (a fresh sweep,
+two windows that held nothing, then a plan the planner refused, then a
+fresh seed); it is unprovable from the transcript and is recorded as such.
+The gap is closed the M-169 way, minimally: `lyric_tools.extractRefusal`
+lifts the harness's first `REFUSED — …` headline onto the verdict as
+`refusal` (exit 2 only; absent at 0, null when clean), `loopFields` carries
+it into the call record, `chat.js` publishes it in `tools[]` — the battery
+banks that array verbatim, so round 11's exit-2 rows will say why. Pinned
+against `lyric_harness.py`'s own print, and demonstrated live on this box:
+`screen night light` with two resources hidden exits 2 with `REFUSED — the
+slop floor needs 3 staged resources and 2 of them are missing`, exactly the
+field. (3) MAX_TURN_COST is UNMOVED and read only: `maxSteps 14`,
+`maxTurnUsd $0.10` (sized as 3x the probe's worst $0.033), the check
+firing between hops; ~$0.025 a hop late in a song (M-197). Round 10's
+turn 0 made 8 calls before the cap at a 235 KB history and turn 4 four at
+395 KB; M-197's pruning addendum (2026-09-02) moves those bytes, and the
+cap itself stays the owner's, with `usage.retries` now on the response to
+rule from.
+**ADDENDUM 2026-09-02 — THE BAN AGAINST THE BANK (triage C18): THE
+MEASUREMENT AS ASKED IS NOT CONSTRUCTIBLE, AND THE REASON IS A REGISTER
+GAP, NOT A NULL.** The sitting this entry owed — screen the sixteen banked
+songs' FIRST drafts against their exit-0 versions for ban share and
+end-word rank — needs first drafts, and nothing banks a draft's bytes:
+`song` and `revise` log an md5 per step, so the drafts that differed from
+their finals are PROVABLE (crooked_waltz step 19 `29697fccfe8d`, matinee
+steps 54/55 `707c48614794`/`04065bbbcdd9`, the_long_way_back step 2
+`687eaa34c949`) and unreadable; git holds an earlier version for two songs
+only, both already screened and exit-0 (carry_it_over's first version,
+whose own commit says it passed every gate and was not a song; the_long_way
+_back's bank-day bytes before the M-149(b) re-bank). And every banked
+`revise` row has `md5_in == md5_out` at 0 rounds — the loop never rewrote
+a banked line; the ban did its work at the SCREEN, before a line existed,
+and there the bank CAN be read. `quality/ban_convergence.py` reads it, and
+is a checked-in instrument rather than a scratch script (standing rule 3):
+population from `song_record.songs()`; mandate from the README's `song`
+command, else the newest `plan` log row, else REFUSED by name; grading
+through `Reviser.inspect` and `Reviser.modal_field` only, never a
+re-implemented tier. MEASURED over the nine songs that banked `screen`
+rows: the writer's candidate pool was **366 HOMEOTELEUTON / 395
+MODAL_RHYME / 792 CLEAN / 11 REFUSED / 1 other**, five counts never summed
+(doctrine 79) — the ban refused roughly as many candidate pairs as it
+passed, per song from 0/0/53 (i_am_not_leaving) to 239/201/186
+(taught_me_time); seven songs banked no screen rows and are not in that
+pool. Mandate sources 11 README / 4 log / 1 REFUSED. On a FINAL the
+instrument reads the grader: carry_it_over's nine rhyming pairs sit **0 in
+the modal HEAD, 2 in the offered TAIL (ranks 29, 54), 7 OUTSIDE the field
+entirely** — the "rare tail" the README reports, a number now — and its
+first version measured 0/3/6, so the rewrite-as-speech moved one pair out
+of the field. ~~THE BANK-WIDE GRADER TOTALS ARE UNPINNED BY NAME~~ — **PINNED THE
+SAME DAY, on a quiet box, the whole bank in ONE process** (the `Reviser`'s
+caches warm across songs, which is what brought the run inside its budget
+where a shared box could not; the earlier reading of that failure as a
+per-song cost was wrong about the shape and right about the total).
+MEASURED: **719 mandated / 549 judged / 170 refused**, and over the
+**487 eligible** rhyming pairs of the bank's fifteen gradeable songs,
+**7 sit in the modal HEAD (1.4%), 155 in the offered TAIL (31.8%) and 325
+OUTSIDE the candidate field entirely (66.7%)** — never summed past that
+partition (doctrine 79) — with the tail ranks running median **26**, min 1,
+max 639 over the 162 ranked pairs. **THAT IS THE ANSWER TO C18's QUESTION
+AND IT IS NOT THE ONE THE FINDING EXPECTED**: the finding asked what the
+ban costs in end-word rarity, and two thirds of the bank's rhymes are not
+in the ban's field at all — the writer was not choosing between the modal
+head and the offered tail, they were mostly answering with words the field
+never contained. **AND THE SEVEN HEAD PAIRS ARE ALL IN ONE PLACE, WHICH IS
+THIS ENTRY'S OTHER FINDING WEARING A SECOND HAT**: `banned_in_final` is 7,
+`rank_head` is 7, and all seven fall in the FOUR songs whose mandate came
+from a `plan` LOG ROW rather than from a README command
+(`the_river_keeps_the_score` 4, `i_am_not_leaving` 1, `the_long_way_back`
+1, `till_the_light_comes_home` 1) — the four whose GRADED mandate is not on
+record. The honest reading is that those songs are being graded under a
+RECONSTRUCTED mandate and the head pairs may be an artefact of it, not that
+those songs are worse; `the_long_way_back`'s 5 `SCHEME_VIOLATION` flags
+under the same reconstruction, against a README that records exit 0, is the
+same signal. The pins carry a date and `--check` compares them. TWO REFUSALS STAND AND BOTH ARE THE SAME GAP:
+`oar_lair.txt`'s mandate is banked nowhere (no README command, no `plan`
+row, none in its commit message) and is not invented; the_long_way_back's
+plan-log mandate grades its banked bytes to 5 `SCHEME_VIOLATION` flags and
+a HOMEOTELEUTON note (L1/L3 returning/Turning) that the re-bank's own
+exit-0 grade did not carry, so the command that graded it is not on record
+either. Recorded in M-196 with the design that closes it: **the verb that
+grades a draft must bank what it graded.** `test_ban_convergence.py`, 13
+checks — the population, the 11/4/1 sources with oar_lair's refusal,
+carry_it_over's README triple re-derived, and a one-word mutation
+(`cussed` → `trust` on L4) moving `banned_in_final` 0 → 1 and the HEAD
+count 0 → 1 with `eligible` unchanged. One observation not measured
+further: `modal_field`'s forbidden set for common calls (`dust`, `drop`,
+`strait`) carries `'s`, `that`, `what`, `up` — the `freq_rank` fallback's
+function-word head reaching the tier-2 ban.
+
 ### M-169 · The loop told the record what it did and every layer above dropped it — the run's own account reaches the transcript now `CLOSED` 2026-08-29 — built the sitting M-170's audit named it the cheapest high-value change on the table
 **THE DEFECT, and it is a RECORD defect rather than a code one.**
 `revise_loop` returns a `LoopResult` carrying `stop_reason`, `rounds`
@@ -16674,6 +17344,50 @@ unresolved. The measured waste is real waste on a run that could not
 converge (M-168). Neither timing lane measured convergence and both
 said so. The register pin:
 `audit_register.coverage_entries` ~~227~~ -> 228 (2026-08-29).
+
+**ADDENDUM 2026-09-01 (triage finding C31): ONE MORE REGIME MEASURED, ONE
+STILL OPEN.** The clean-draft blueprint fold has a number now — `revise
+--blueprint` on `keep_the_light.txt` (18 lines, 16 pairs) ran **32.3–46.4 s
+over four runs against 53.7 s without the blueprint**, all inside this
+box's ±10 s shared-CPU noise, so a blueprint costs NOTHING on a clean draft.
+The FLAGGED regime — several RHYME-flagged lines, where `features.field` /
+`_field_one` and the relation build are paid per line — is the item that
+burns the seconds and is still untimed; it stays on the list above with
+the probe named in `RESULTS_TIME_AUDIT.md` §5 item 3. M-187's worker
+measurement (revise 76.8 → 6.4 → 4.3 s on an identical deferred call; the
+blueprint-path grade NOT memoised, 87 / 80 / 115 s) is the other reading
+this list gained since it was written.
+**ADDENDUM 2026-09-02 (triage C31, second sitting): THE FLAGGED REGIME IS
+TIMED, AND IT IS A SLOPE, NOT A NUMBER.** §5 item 3 has its series
+(doctrine 89), and the driver is `quality/fold_series.py` rather than a
+scratch script (standing rule 3). Recipe, test_verbs §44's own: `plan
+--seed=16`, a filler draft of the declared length (`we carry the morning
+to the <word>`), `finish DRAFT --seed=16 --propose=defer:STATE` — the live
+path, blueprint and subdivision the plan's own, every line flagged; each
+fold fills `pending.answer` with a plausible line and re-runs the IDENTICAL
+command in a fresh process. MEASURED at `54650e52`'s planner, where seed
+16 declares 23 lines, 22 groups / 51 mandated pairs (on this branch the
+same seed declares 36 lines — the planner moved under M-190/M-191/M-193,
+so a re-run here times a different draft and the instrument reads the
+count off the plan rather than assuming it). Walls for folds 0–6: **101 /
+104 / 73 / 77 / 95 / 116 / 135 s**, with the same first fold at 56 and
+63 s on two other launches — that spread IS the box's noise, five heavy
+Python processes on four CPUs, so the walls are upper bounds. The
+LOAD-INDEPENDENT quantity is the grading calls the run reports per fold:
+**9 → 19 → 22 → 25 → 35 → 57 → 60**. A cold process re-grades every
+replayed answer, so a fold costs the clean fold PLUS roughly 0.7 s per
+grading call, ~10 s per answer on record at this shape; every answer was
+accepted at attempt 0, so the question advanced one line a fold (L3, L7,
+L8, L9, L12, L16, L17). `--attempts=1` CHANGES NOTHING — the same
+questions, the same call counts 9/19/22/25/35, walls 63/68/68/76/83 s —
+because the budget bounds retries and every answer took none. A draft
+with ONE flag that tier 2 cannot satisfy (keep_the_light with seven end
+words corrupted: one `SCHEME_VIOLATION`, tier 2 reporting every pivot's
+field empty) asks NOTHING and costs the clean price, 52.2 s bare and
+53.8 s with the blueprint. The CLI defer path holds no cross-process memo
+(`runs held: 1 of 4` is per process), so M-187's 6.4 → 4.3 s is the
+worker's reading and does not apply to a CLI fold. Item 3 leaves the
+unmeasured list; items 1 and 4–10 stand.
 
 ### M-171 · The participation bound protected the line's LENGTH and not the writer's FREEDOM — 15.9% of drawn lines had every word bound `CLOSED` 2026-08-29 — found by asking why round 10's rounds bought nothing, fixed and re-measured the same sitting
 **THE QUESTION THAT FOUND IT.** M-168 left the standing wall as "the
@@ -17361,6 +18075,29 @@ restore the tail, because the tail is a length fact. Left OPEN rather than
 guessed: doctrine 58, and the owner's standing rule that a threshold with
 no calibration behind it is the error.
 
+**ADDENDUM 2026-09-01 — THE CAUSE PARAGRAPH ABOVE IS WRONG ABOUT WHERE
+THE TAIL WENT, AND ITS REMEDY IS NECESSARY BUT NOT SUFFICIENT (found by the
+2026-09-01 triage audit's probe, ruled under the owner's delegation).**
+~~"the tail is a length fact"~~. Re-run at HEAD with `song_line_counts`
+monkeypatched to 12..21, seeds 1-40 give min 1.67 / median 2.39 / share
+<=1.5 = **0%** with corr(lines, density) = -0.39 — restoring the short
+lengths does NOT restore the sparse band. The band is unreachable at ANY
+length because of the draw itself: every line in a 2+-line section draws
+`want = randint(1, line_binding_ceiling)` with the ceiling at 4, so
+E[want] = 2.5 before the end-rhyme pass binds the free ends. And the old
+tail was not a length tail either: at the songs' own commit `34149de`
+density correlates **-0.91 with the share of lines sitting in ONE-LINE
+sections** (which skip the web through `len(sec_lines) >= 2`), the sparse
+seeds there draw 14/18/18/21/22/23/25 lines — lengths HEAD still draws —
+and `stanza_line_floor` (M-106) is what removed them, with length as a
+confounder (+0.61 reproduced against this entry's +0.66). MEASURED AT
+HEAD, 2026-09-01: `plan --sweep=1-100 --want=bound_words_per_line<=1.5`
+accepts **0 of 99**; `<=2.0` accepts **7 of 99**. So the short profile
+below (still owed, M-193) unblocks the four songs' LENGTHS and cannot
+reach their DENSITY; the density needs a coordinate the draw does not have.
+**RULED 2026-09-01 (delegated):** the participation draw gains a per-plan
+density coordinate — M-191 carries the design and the measurement.
+
 ### M-182 · The CI wall clock is bounded by GRANULARITY, not by parallelism — and the first two readings of that were both wrong `PARTIAL` 2026-09-01 — found by an owner asking for a strong effort at cutting the wait, and by that owner refusing the first answer as artificially conservative
 **THE COMPLAINT, verbatim:** *"we gotta start thinking about ways to
 optimize here cut the amount of time this takes ... I don't mean like a 1%
@@ -17565,3 +18302,1509 @@ would buy nothing: the pool is already at 293s, well under `capacity`'s
 binding. The wall is `capacity` now, and the next win is splitting it —
 `test_capacity`'s own per-section profile is what decides whether that is
 possible, and it is being measured rather than assumed. OPEN.
+
+**ADDENDUM 2026-09-01 — TWO OF THE THREE OPEN ITEMS WERE ANSWERED IN THE
+TREE AND THE ENTRY NEVER SAID SO (the triage audit's record fix).**
+~~The wall is `capacity` now, and the next win is splitting it.~~ Split in
+`79312bb` (the crown's six witnesses, `CAPACITY_WORKERS`) and MEASURED on
+run #1216: the `capacity` shard's step is **228 s** against the 698 s
+above. The revision-loop label was REAL GROWTH, not a stale number:
+#1216 printed `TIMED quality/test_loop.py 372s` and `TIMED
+quality/test_revise.py 609s` against the struck 184/191 s label — 3.3x and
+1.9x. With `suites` at 562 s (shard 1, `plan` alone) the run's critical
+path on a lyric-only diff is now **`verify` at 731 s wall** (Regression
+514 s, Locale 67 s, CLI 59 s), a job with `needs:` and no `if:`, while
+`catalog` and the freshness build are gated on `artifacts_affected`. The
+`verbs` shards still sit at 345 / 702 / 631 / 439 s — a 2.0x imbalance
+`_SECTIONS` is not yet cost-ordered against (the SECTION COST print exists
+to order it from). `test_revise.py` has no per-section timing, so its
+609 s floor has no named section yet. Still PARTIAL on those two.
+
+### M-183 · A recorded answer belonged to `(line, attempt)` and `attempt` restarts every round, so a stuck line was never asked twice — and a finished state re-ran as if it were still running `CLOSED` 2026-09-01 — found by the 2026-09-01 triage audit's probe, fixed the sitting the owner delegated the rulings
+**THE DEFECT, stated as the probe showed it.** `_defer_proposer` and
+`_replay_proposer` (`lyric_harness.py`) keyed a tier-1 answer on
+`(line, attempt)`. `quality/loop.py:_try_tier1` restarts `attempt` at 0
+on EVERY round. So a line whose round-1 proposals were all rejected hit
+its own round-1 record at `(line, 0)` in round 2, replayed the same
+rejected text, and the loop walked to NO_PROGRESS with the writer never
+consulted about that line again. That is the shape of round 10's ladder
+(M-168, M-169: parked with 20 of 23 lines open after four rounds, again
+after eight): the pushes that "continued" a parked song re-injected the
+COMPLETE state, every answer replayed, and the identical stop came back.
+`quality/RESULTS_TIME_AUDIT.md` §4 called the retained five answers the
+"narrow survivor" and §6 named the driver-side clear as free; neither
+named the key.
+**THE FIRST REPAIR WAS WRONG, AND THE TEST SAID SO (doctrine 17).** The
+audit proposed keying on the DRAFT — `draft_fingerprint(lines)`, which
+the proposer already receives — and that was built first. Driven on
+`test_loop.py`'s CLICHE at `attempts_per_line=1` with L1 answered by the
+stock fix and every other line answered with itself, it asked each open
+line ONCE: L2–L4 are asked in round 1 only after L1's accepted fix has
+already moved the draft, and round 2 opens on exactly that moved draft,
+so `(line, 0, fingerprint)` matched and replayed. The question's
+coordinate is the ROUND, not the text.
+**WHAT SHIPS.** `Brief.round_no`, stamped by `revise_loop` on every brief
+a round issues (both the round's brief and the mid-round re-brief), so no
+proposer's contract moved. Tier-1 records are keyed `(line, attempt,
+round)` and carry `draft` as provenance; tier-2 records gain the same
+`round` beside `members/texts/words`, read off the pivot's brief. A
+record with no `round` (every state and replay file written before
+today) matches on the old key alone — `test_loop.py` §21 pins BOTH: the
+round-1 records with `round` answer round 1 only (round 2's questions
+"asked and NOT recorded"), and the same records with `round` stripped
+answer round 2 from round 1, which is the defect kept deliberately for
+files already on disk. Measured on that drive: L1 asked once, L2/L3/L4
+asked in round 1 AND in round 2 (`{1: [1], 2: [1, 2], 3: [1, 2],
+4: [1, 2]}`), NO_PROGRESS after two rounds, exit 3.
+**A FINISHED STATE SAYS SO.** The verb writes `complete` — stop, exit,
+the INPUT draft's fingerprint, the final draft's, the open lines — on the
+way out of a stop condition, and `_defer_proposer` takes it OFF the state
+it will write back (so a later suspension never carries it stale) and
+prints `THIS STATE IS COMPLETE …` before the loop when the draft handed
+in is the one the run finished on. `test_verbs.py` §20 pins the marker
+and the re-run (rc 0, the sentence printed, no SUSPENDED). On the chat
+surface `mcp/gemini_agent.js:carryState` carries a record forward ONLY
+from an exit-4 verdict; an exit 0/3 on the seed CLEARS the carried
+record (the verdict still returns it for provenance), a refusal leaves
+the pending question in place, another seed's verdict never touches it
+— `mcp/test.mjs` pins all six directions. The `revise`/`finish` exit
+code is now computed once (`_code`) and read by the stamp, the state and
+the exit, which is where M-186's whole-draft flags join it.
+**WHAT THIS DOES NOT CLAIM.** Asking again is not converging: a writer
+asked the same question about the same draft in round 2 may give the
+same answer. The claim is only that the loop now ASKS, which round 10
+never did after round 1, and that a re-run of a finished record says it
+is finished instead of impersonating a fresh run.
+**VERIFIED AT HEAD 2026-09-02, by an independent agent on three lenses,
+and ONE RESIDUAL CLOSED THE SAME DAY.** The finding's own probe, rebuilt on
+a fresh six-line draft (`--attempts=2 --max-rounds=3`): round 2 asked every
+line still open at BOTH attempts — 21 suspensions in all, each round-2
+record carrying `"round": 2` and its draft fingerprint — and the finished
+state announced THIS STATE IS COMPLETE on its re-run; `test_loop.py` §21
+goes 3 FAIL on a copy with the round stripped from the key, printing the
+finding's exact defect (`asked {1: [1], 2: [1], 3: [1], 4: [1]}`), and the
+connector's carry pins fail 3 of 7 on the pre-fix carry. THE RESIDUAL: a
+COMPLETE (or any) state file reused on a HAND-EDITED draft replayed every
+answer keyed to the other draft with no question and no warning — the key
+is `(line, attempt, round)` by this entry's own argument and `draft` was
+recorded and never consulted. Not a key change (keying on the draft would
+re-ask what round 1 answered): the stop's disclosure now COUNTS the answers
+whose recorded draft differs from the draft they were replayed onto and
+names each (`L1 attempt 0 round 1`), so a reused state cannot pass as a
+continued one; §21 pins the count on its own moved draft and its absence
+on the run's own. The chat surface never reaches this case — `carryState`
+drops the record at exit 0/3 and the model cannot supply one.
+
+### M-184 · The brief intersected one candidate field ACROSS a line's binding places, so a line bound at two places was told the mandate was at fault — and tier 2 rewrote the wrong line `CLOSED` 2026-09-01 — found by the 2026-09-01 triage audit's probe; M-91 had recorded the sentence as intended
+**THE DEFECT.** `Reviser.brief` collected the call words of EVERY group a
+line is in and handed them all to one `joint_field`, which intersects
+rhyme fields and takes no place. A line bound at its end by one group
+and at its T2 word by another (129 of 155 mandated lines on seed 88291,
+the plan flash-battery round 10 ran on, bind at more than one place —
+on a drawn plan this is the ORDINARY flagged line) was therefore asked
+for ONE word answering two families at once, the intersection was
+empty, and the brief printed *NO JOINT CANDIDATE … The MANDATE is what
+needs revising, not the line* with an empty OFFERED list, while `slot`
+named the FIRST group's place and the incumbent was read there.
+`joint_conflict` then sent the line to tier 2, whose search intersected
+the other groups' calls across places the same way; on the audit's
+four-line probe the stub loop rewrote L1 to `like` so L3 could END on
+`cut` — a consonance conjunction the grader never asked to meet — when
+L3 needed one night-rhyme at its T2 word. `quality/RESULTS_TIME_AUDIT.md`
+§6 called the `propose.py:552` sentence inverted; M-91 (CLOSED) had
+recorded it as the intended reading of `slot_conflict`.
+**MEASURED, on the probe draft (L1 …`door`, L2 …`night`, L3 `i left my
+keys beside the lamp`, `--groups=2,3.T2;1,3`).** Before: L3 briefed with
+`candidates == []`, `forbidden_modal == []`, `joint_conflict True`,
+`slot` the FIRST group's place (T2 on this fixture) while the prompt
+CALLED it the end — incumbent `left`, the T2 word, printed as "the end
+word already on this line" (CORRECTED 2026-09-02: this sentence read
+"`slot` the END", which named the label and not the coordinate). After: 12 offered at the T2 word (`spite`, `moonlight`,
+`sprite`, …), 33 forbidden (the `night` head), `joint_conflict False`,
+`slot` = `3.T2`, incumbent `left` at that place; group A (T2) VIOLATED,
+group B (end) HOLDS. On the four-line variant the stub loop fixes L3
+through TIER 1 in one attempt and L1/L4 are never touched; what stays
+open is the pursued MODAL_RHYME note on the new pair, which is the
+loop's own job.
+**WHAT SHIPS.** One field per PLACE: `Brief.fields_by_slot` (a
+`SlotField` per place — the groups bound there, their calls, the
+incumbent, offered, forbidden, whether a finding on the line names a
+group there, and whether ITS conjunction is empty), `group_slots`,
+`violated_groups` (attributed off the finding's own pair `locations`,
+message consulted only to break a same-pair tie) and `slot_groups`.
+`slot`, `candidates`, `forbidden_modal`, `forbidden_incumbent` and
+`joint_conflict` are the VIOLATED place's entries, so every reader keeps
+its meaning; `slot_conflict` now means more than one place is violated
+(the old meaning — bound at different places — is struck on the field,
+doctrine 17). `verify()`'s RULE 3 reads the incumbent AT THE BRIEF'S
+PLACE through the one `_incumbent` helper `brief()` uses; it read
+`_endword` whatever the place was. Tier 2 walks only the groups at the
+pivot's place (`slot_groups`) and takes the pivot's incumbent off the
+brief instead of `raw_final_token`. Three renderers (`Brief.__str__`,
+the `brief` verb, `quality/propose.py`) say where each group binds the
+line and whether it HOLDS or is VIOLATED, say "binds at N PLACES" where
+the old text said PIVOT/conjunctive, and the `AND TWO DECLARED GROUPS
+LAND ON THAT ONE WORD` sentence is struck for one that fires only when
+more than one place is violated. On an ordinary end-rhyme mandate there
+is one place, the same `joint_field` call over the same calls in the
+same order, and the field is byte-identical (§50 pins the song's own L14
+against §19's field). `test_revise.py` §50 is the fixture, MEASURED
+before and after as above.
+**WHAT STAYS OPEN.** Tier 2's own conjunction over a place's OTHER
+groups can still come back empty and walk nothing — M-185 is the
+fall-through for that. And `field_note` still reports the schema route
+open when ANY group of the line leaves it open, one note over all
+places, which is conservative rather than wrong.
+**VERIFIED AT HEAD 2026-09-02, by an independent agent on three lenses.**
+The finding's own fixture (T2 holds, the END violated) briefs a door-family
+field at the end with the incumbent `lamp`, no "needs revising"; the stub
+loop fixes L3 at tier 1 in round 1 with L1/L2 untouched; a scratch copy
+with the cross-slot bucket reinstated reproduces the defect verbatim
+("NO JOINT CANDIDATE … ALREADY THERE: kite", tier 2 rewriting L2), and
+`test_revise.py` §50 goes 6 of 11 red on that revert. **TWO PINS THIS
+CLOSURE LEFT RED AT HEAD, repinned 2026-09-02**: §40 and §43 asserted the
+pre-M-184 group sentence (`group A [1, 2] — this line must rhyme with`), and
+the sentence carries the binding place on every ordinary mandate now
+(`group A [1, 2] at its end word — …`) — the disclosure, not a drift. The
+M-185 sweep repinned `test_loop` and missed these two; CI's `revision-loop`
+job at `94e736f` said so. One sentence of this entry's own record contradicted its defect
+paragraph — the MEASURED paragraph read "`slot` the END" where the
+coordinate was the FIRST group's place (T2) and only the prompt's label
+said end — and is corrected in place above, dated. **RESIDUALS**: (a) tier 2's
+`_anchor_obligations` (`quality/loop.py`) read every mate's END word
+whatever slot the anchor bound in that group — measured: with groups
+`[[1,3],[2,3],["1.T2",5]]` it returned `['wall']` where `[]` is right, and
+with `[[1,3],[2,3],[1,"5.T2"]]` `['wall']` where `['candle']` (L5's T2 word)
+is right — so on drawn plans the ANCHOR side of a backtrack was still
+cross-slot-constrained. **REPAIRED 2026-09-02, the same day**: the call
+site names the group being rewritten, the anchor's rewrite place is its
+slot in THAT group, a group binding the anchor at another word is skipped
+(it holds untouched after the rewrite), and each mate is read at its own
+slot in the group through `Reviser._incumbent`; `test_loop.py` §19 pins
+both probes on its own fixture (`[]` and `['studio']`, L5's T2 word) beside
+the bare-shape control. (b) `_violated_groups` (`quality/revise.py`) attributes a HOMEOTELEUTON or
+MODAL_RHYME note — whose message names no group — to BOTH groups when one
+pair is bound in two groups at two places, so a holding place is told it is
+VIOLATED; narrow, and the loop still converges; (c) the CLI `brief` verb
+prints no `screened_out` line — only `Brief.__str__` and the tier-1 prompt
+say why a menu is short; (d) §50's fixture has the FIRST group violated, so
+its slot-attribution checks survive the revert by accident of ordering — the
+finding's own direction (first holds, second violated) is pinned beside it
+now, on the verifier's fixture. One figure of the finding was NOT
+reproduced by the verification and is kept as the audit's: "129 of 155
+mandated lines slot-conflicted on seed 88291" came from the 23-line
+round-10 plan under an invocation the audit did not cite; `plan
+--seed=88291` at HEAD draws 18 lines, 15 groups, 13 of 15 mandated lines
+bound at more than one place — the same proportion, not the same count.
+
+### M-185 · Tier 2 could spend a line's turn without asking anyone, and the menu offered words the grader would charge from the word's own side `CLOSED` 2026-09-01 — found by the 2026-09-01 triage audit (M-170 §5 item 10 and the probe on `door`); ruled and built the sitting the owner delegated the rulings
+**TWO DEFECTS, ONE SEAM — what the writer is asked and what the writer is
+handed.** (a) A `joint_conflict` line went to tier 2 ONLY, and
+`_try_tier2` could return with `tried == 0` having put NOTHING to a
+proposer: the pivot's field over the other groups' calls was empty, so
+`walked` was empty, no member starved, no group was pinned — and the
+attempt still consumed the line's turn. A round of those is NO_PROGRESS
+with the writer never consulted, which is M-173(e)'s "11 never asked".
+(b) `grade()`'s MODAL_RHYME note is SYMMETRIC (`wj in head(wi) OR wi in
+head(wj)`), the loop PURSUES it (`MANDATORY_PURSUE`), and the offer was
+screened in ONE direction — the head of the calls' field. MEASURED on the
+audit's probe: the first six words offered for `door` (lenore, bore,
+gore, yore, implore, wore) each carry `door` in their OWN head, so taking
+any of them filed the note, the loop pursued it, and the line the writer
+had just fixed re-opened at exit 3 — under a comment in `joint_field`
+saying the menu and the verdict could not disagree.
+**WHAT SHIPS FOR (a).** `LineAttempt.asked`: False when a tier built no
+brief for a proposer and refused for no stated reason (a pinned or
+starved refusal is a stated reason and stays True; a proposer that
+DECLINED every group brief was consulted). `revise_loop` falls through to
+tier 1 in the same round on `asked=False`, keeping BOTH records
+(doctrine 79). `test_loop.py` §22 pins it under the two-name admit door
+(under the shipped four-relation door the conjunction of two disjoint
+families is rarely empty — assonance answers most pairs — so the fixture
+declares `Declaration(admit=("RHYME", "RIME_RICHE"))`): tier 2 walks 0
+words for every group, says NOT ASKED, tier 1 asks the pivot in the same
+round; and a declined tier 2 is NOT a fall-through.
+**WHAT SHIPS FOR (b), AND WHAT IT COSTS.** `joint_field_screened` asks
+the other direction of every candidate before offering it: is the CALL in
+the candidate's own head? Exact would be a lexicon pass per offered word
+(`engine.candidates`, 43,250 `score` calls, 2.7 s cold — profiled), and a
+25-line drawn plan briefs ~15 lines × 12 offers per round against a
+64-entry field cache, so `_offer_reopens` answers CONSERVATIVELY: a call
+is outside a word's head exactly when `modal_exclusion` words provably
+outrank it there, outrankers are counted only among the word's observed
+partners and the call's own family (both already in hand, each scored by
+the grader's own predicate), so the count can only be low and a low count
+DROPS. Pinned EXACTLY in `test_revise.py` §51: no offered word for `door`
+carries `door` in its exact head, every one of the first six dropped words
+does. The grader reads the head through the new `modal_head` accessor
+(the same head `modal_field` returned; §51 pins the identity), because
+`modal_field` now screens its offer and the grader has no use for that
+recursion on every satisfied pair. `Brief.screened_out` and
+`SlotField.dropped` carry the refused rhymes; `Brief.__str__` and the
+tier-1 prompt say the menu is short because the ban is, not the lexicon.
+**THE COST IS THE OWNER'S RULE MADE VISIBLE, AND IT IS LARGE.** A call
+word in the top ranks of its own family sits in the frequency-filled head
+of EVERY member of that family (M-173(c) recorded this as the check
+running both directions), so for `door`, `desire`, `night`, `go` the
+screen drops every true rhyme: `door` offers 24 words and 32 rhymes are
+refused; `desire` offers no true rhyme at all. What survives is the
+near-typed tier the widened admit door admits (M-59, unpriced at M-138:
+`our` for `desire`, `war`/`or`/`are` for `door`) and the rare tail. The
+offer is therefore PARTITIONED before it is cut — RHYME-typed survivors
+first in their doctrine-9 order, near-typed ones filling the remainder —
+because once the observed partners are gone the tail of a zero-evidence
+tier ordered by global frequency is `i, on, was, are`. What the writer is
+told is now TRUE: a common call cannot be rhymed cleanly under this ban,
+and the partner line has to move, or a near relation be taken. The stub
+loop takes the near relation, which is why five stub-driven pins moved
+(`test_loop.py` §1/§3/§4/§12, `test_propose.py` §6 and the group-prompt
+section): lines the stub used to re-open are now CLOSED BY THEIR PARTNER'S
+MOVE (`resolved_elsewhere`) and every stop is cleaner than before — each
+repin says so where it stands. Whether the stub's near relations are a
+song anyone wants is M-138's question (RULINGS WANTED #9), not this
+entry's; the measurement the audit asked for first (item 8: the ban's
+share of held-open lines and the end-word rarity it pushes, over the 16
+banked songs) is still owed and is filed under M-168's watch list.
+**WHAT STAYS OPEN.** The loop has no move for the case the screen now
+names: a single-group call word whose every rhyme is refused. Tier 2
+backtracks only a PIVOT's groups; a two-member group whose call is common
+needs the CALL line rewritten to a rarer member and nothing walks that.
+Filed on BACKLOG's RULINGS WANTED beside M-138.
+
+**ADDENDUM 2026-09-01, THE PINS THE SCREEN MOVED IN `test_loop.py`,
+found by the tree-wide sweep after the batch shipped.** Three sections
+pinned the loop's behaviour on the UNSCREENED menu and are repinned with
+this entry as the reason: §4 and §15 (the stub route and the `GroupBrief`
+route on `SILVER_MIND`) expected the tier-2 backtrack to land on a
+directionally-modal pair and the loop to stop `no_progress` with L3
+pursued — the screened menu no longer offers `mankind` against `mind`,
+the backtrack lands on `find`/`around`, and BOTH routes reach SUCCESS
+with nothing pursued; §21 (M-183's stuck-line drive on `CLICHE`) read
+"every line asked in round 1 is asked again in round 2" off the round-1
+records, and the stock fix for L1 now lands on a screened word that
+CLOSES L3's `MODAL_RHYME` with it, so L3 is rightly not asked again — the
+pin reads the open lines off the round-2 draft's own brief and pins the
+closed line apart (doctrine 79). No loop behaviour is asserted that the
+entry's own measurement did not predict; what the sweep found is that
+three exemplar pins had been written before the screen and not re-read
+after it.
+
+### M-186 · `revise`/`finish` exited 0 over a standing whole-draft flag, the stop printed no findings, and the connector read `brief`'s 0 as "no flag stands" `CLOSED` 2026-09-01 — found by the 2026-09-01 triage audit's probes on `keep_the_light.txt` and a TITLE_NOT_IN_HOOK draft
+**FOUR DEFECTS, ONE SENTENCE: the stop looked cleaner than the draft.**
+(1) The shared revise/finish exit block computed its code off
+`result.unresolved` alone; a WHOLE-DRAFT flag — `STACKED_DRAFT`,
+`TITLE_NOT_IN_HOOK`, `HOOK_ABSENT` name no line — left `revise` at 0 with
+the flag disclosed under "NO STOP CONDITION ABOVE CAN SEE" and `finish`
+stamping `exit 0 — no flag stands`, while `song` on the same draft under
+the same blueprint exited 3 (PROBED: the bank's own `keep_the_light.txt`
+retitled `zebra confetti`, 34 s vs 59 s). CLAUDE.md promised the 3 for
+both verbs. (2) The stop printed no FINDING lines — `LoopResult`'s text
+names the open LINES and the RULE holding each — so
+`mcp/lyric_tools.js:extractBannedPairs` returned [] on every
+`lyric_revise` result and neither the chat chip nor the battery's
+`claims_progress_over_standing_ban` could fire on the finishing verb
+(M-168's drift into night/light/sight/might, countable nowhere).
+(3) `lyric_check` wraps `brief`, whose exit gates are `song`'s alone, so a
+FLAGGED draft came back `exit 0 — answered — no flag stands`.
+(4) `EXIT_MEANING` had no entry for 1, Python's own death, which the
+connector rendered as a verdict-shaped "subprocess failure".
+**WHAT SHIPS.** `_code` folds `result.whole_flags` (doctrine 79: a
+separate clause in the stamp, `— WHOLE-DRAFT FLAG: CODE, CODE`, never
+summed with the open lines); the stop prints a `STANDING AT THE STOP`
+block with every flag and pursued note on the open lines and every
+whole-draft flag in the report's own `FINDING [SEV] CODE: …` spelling
+(`Finding.__str__`, one definition). The connector's verdict gains
+`flags`/`notes`/`whole_flags` read off the `REPORT:` line the harness
+prints (an exit-0 verdict with either count nonzero says the flags STAND
+and that the code is `brief`'s), `unreadable`/`unreadable_findings` for
+`UNREADABLE_END_WORD`/`SCHEME_UNREADABLE` (refusals, not verdicts —
+doctrine 28), `loop_whole_flags`/`loop_whole_flag_codes` off the stamp,
+and `EXIT_MEANING[1] = CRASHED`. `test_verbs.py` §48 runs both probes
+(`revise` on the retitled bank song exits 3 and prints the whole-draft
+FINDING; `revise --attempts=0` on §42's hair/chair pair exits 3 and prints
+`FINDING [NOTE] HOMEOTELEUTON: L1/L2`), §44's stamp pin is widened to "3
+iff UNRESOLVED or a whole-draft flag", and `mcp/test.mjs` pins the five
+extractors on synthetic reports — the first spelling of the REPORT regex
+read every whole-draft count as 0 (a lazy `[^\n]*?` ahead of an optional
+group) and the unit case is what caught it.
+**WHAT THIS DOES NOT CLAIM.** The whole-draft flags still earn no
+candidate field and the loop still has no move for them; what changed is
+that a run carrying one can no longer exit 0 or stamp itself finished.
+**VERIFIED AT HEAD 2026-09-02, by an independent agent on three lenses.**
+On the entry's own song with a retitled blueprint (title "zebra confetti",
+hook unchanged): `revise` exits 3 with `WHOLE-DRAFT FLAG(S) NO STOP
+CONDITION ABOVE CAN SEE: TITLE_NOT_IN_HOOK` and the STANDING block; under
+`defer:` the stamp reads `[FINISHED — declared mandate — exit 3 — SUCCESS
+after 0 round(s) — no flag stands — WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK]`;
+the committed title stamps `exit 0` with no clause; `song` on the same
+draft agrees at 3; `finish` on the seed-16 filler prints the clause beside
+its 36 open lines. `test_verbs.py` §48 goes 2 of 3 red on a copy with
+`_whole_codes` emptied; §44's widened stamp pin cannot discriminate BY
+THE VERIFIER'S READING of its fixture (every run of it has lines open, so
+the `or` is satisfied either way — the run against the mutant itself was
+cut off), and an isolated whole-only `finish` fixture was not constructible
+from the BANK (no banked seed reproduces its song's line count). **THE OWED
+PIN IS PAID 2026-09-02**: `plan --sweep=1-300 --want='lines<=14;binding_cap<=1'`
+offers two seeds; seed 176 under `--relation=RHYME` (every group judged as
+plain rhyme) is a 13-line, seven-group plan a hand-written draft fills —
+each pair `screen`ed CLEAN, four first choices BANNED as MODAL_RHYME and
+replaced — and with the title "zebra confetti" absent from its hook line
+`finish` stamps `exit 3 — SUCCESS after 0 round(s) — no flag stands —
+WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK`; with a title the hook carries, the
+same draft stamps `exit 0` and no clause. `test_verbs.py` §53, which a
+`finish` that ignored whole flags fails on the exit alone. **FOUR CARRIERS
+DROPPED THE CAUSE, repaired the same day**: `lyric_revise`'s `status`
+labelled a whole-only exit 3 `stopped_with_open_lines` beside a
+`loop_unresolved` of 0 (now `stopped_with_whole_draft_flags`, read off the
+verdict's own record by `loopStatusOf`, pinned in `mcp/test.mjs` with the
+three carriers); `mcp/chat.js`, `mcp/gemini_agent.js` and
+`scripts/flash_battery.mjs` forwarded `loop_unresolved` and not the
+whole-flag codes, so the battery transcript — M-169's only record of a
+production run — showed exit 3, unresolved 0, no cause (all three carry
+`loop_whole_flag_codes` now); and the deferred state's `complete` record
+omitted them, so a re-run's THIS STATE IS COMPLETE sentence named no reason
+for a whole-only 3 (it carries and names them now). `quality/loop.py`'s
+`whole_flags` docstring said three codes where six can appear; REWORDED
+with the list — a docstring, asserted by nothing. The printed stamp
+clause itself is pinned end to end since the same day: §48 runs the
+retitled blueprint under `defer:` and reads `— WHOLE-DRAFT FLAG:
+TITLE_NOT_IN_HOOK` off the stamp at exit 3, with the committed title as
+the exit-0, no-clause control. The Stop hook's convergence check accepts any `exit N` by
+its own doctrine (disclosure, never adjudication) and is not a hole this
+finding opened.
+
+### M-187 · The deploy never shipped the warm worker, redeployed an unchanged sha on every cron, and the CI record was stale in two figures — the fallback hid the first, the guard could not see the second, and nobody re-ran the third `PARTIAL` 2026-09-01 — found by M-170's audit reading `mcp/Dockerfile:20`, by the deploy run list, and by a triage that counted the steps
+**THE DEFECT, and it is the one M-170 called "mechanism real" and moved
+past:** `mcp/Dockerfile:20` read `COPY mcp/*.js ./mcp/`, and `mcp/worker.py`
+— the warm process `mcp/lyric_tools.js` `_spawnWorker` starts, shipped by
+M-155 on 2026-08-29 — is not a `.js` file. Every image Render built from
+that day to this one lacked it. The connector's own design made that
+invisible: a spawn that fails is the cold `execFile` with byte-identical
+output ~20 ms later, so production answered every verb cold, the M-167
+replay memo never engaged on the deployed box (M-166(b)'s open half), and
+no gate went red. `check_deploy_memory.js`'s 2 GB margin was meanwhile
+argued from *"worker measured 181 MB resident after one light call"* — a
+premise, because the worker had never run where the box was sized.
+
+**MEASUREMENT FIRST, as the M-157 audit ordered.** The instrument gained a
+`--worker` mode (standing rule 3; `scripts/measure_verb_memory.py --seed=N
+--worker [--rounds=K]`): the connector's whole-song sequence — plan, fill,
+then grade + revise repeated, every revise a first call on a fresh deferred
+state, the cold rows' own argv — through ONE `worker.py`, VmRSS/VmHWM read
+off `/proc` after every reply, ru_maxrss at exit. Seed 31 (banked as
+`crooked_waltz`, and a row of M-157's own table), 22 lines, this box:
+
+| | peak | wall |
+|---|---:|---:|
+| cold `song` (`--verb=both`) | **666 MB** | 83.3 s |
+| cold `finish --propose=defer:` | **665 MB** | 109.0 s |
+| worker, 8 calls, `--rounds=3` | **661 MB** | grade 87 / 80 / 115 s · revise **76.8 / 6.4 / 4.3 s** |
+
+Residual RETAINED by the worker between calls: **594 MB** after round 1,
+**602 MB** after round 3 (+8 MB over two more rounds), 638 MB at most.
+Three readings. (1) The worker at its own peak IS the cold peak — the same
+process doing the same work. (2) The residual is not 181 MB, and it is
+never BESIDE a child at peak: `runVerb` SIGKILLs the worker on every path
+that falls back cold, so the box holds one harness process at a time and
+the residual sits inside the peak the gate banks (882 x 2.0 = 1,764 MB of
+2,048). **The COPY is safe at 2 GB and ships unconditionally**;
+`LYRIC_WORKER=0` is the documented switch if a live reading ever disagrees.
+(3) The memo engages — revise falls 76.8 s -> 6.4 s -> 4.3 s on an identical
+call — and the grade path does NOT (87 / 80 / 115 s), which is M-170's item
+(4) measured from the other side: the blueprint path's two grades cannot
+share `_WVP_MEMO`. Also on the record, not repinned: seed 31 reads 666 MB
+today against the **826** M-157 banked on 2026-08-28, a fall, and a pin
+moves by re-running the table, never one row (`MEASURED_PEAK_MB` stays 882).
+
+**THE SECOND DEFECT, off the run list** (`gh run list
+--workflow=deploy-connector.yml --json headSha,createdAt,conclusion`):
+deploy runs #22–#26 all deployed `1206fe25` — **five deploys of one sha in
+38 h** (2026-08-30 20:46Z to 2026-09-01 10:43Z): #22 the merge's push run
+(CI #1176), #23 a manual dispatch (CI #1177), #24/#25/#26 scheduled runs
+(CI #1180, #1179, #1183). `deploy_guard.sh` asks whether the sha is main's
+tip, and an unchanged tip is the tip. `workflow_run.event == 'push'` and the
+head_repository equality `sync-pages.yml` already uses join the job's `if:`;
+four of the five would have stood down.
+
+**THE THIRD, a triage that counted:** `ci.yml`'s `record` paragraph said
+*"this job runs 22 checks"* over 31 named steps of which 4 stage (27), with
+`timeout-minutes: 10` sized as a runaway guard over 38 s of work and never
+labelled — the job measures **6.15 min** (run #1165) and **6.47 min**
+(#1216). And the nightly slice was sized on *"~7.5 CPU-s/item, ~18
+CPU-hours"* — a two-interval rate multiplied out — when the 2026-08-30
+nightly (#1165) had already discarded its memo on a fingerprint move and
+recomputed the corpus cold: `hits 4, misses 8663`, **8,718.7 CPU-s**, the
+step **8,764 s** of 9,000, COMPLETE in one slice — ~1.0 CPU-s/item, ~2.4
+CPU-hours, 7.5x off. Doctrine 58 in its own file: the 2026-08-14 paragraph
+that warns about a figure quoted beside a command nobody re-runs sits 1,700
+lines above the figure.
+
+**WHAT SHIPS.** `mcp/Dockerfile` copies `mcp/worker.py` with the
+measurement in its comment; `mcp/test.mjs` *the image ships every tracked
+runtime file under mcp/* re-derives the list from `git ls-files mcp/` on
+every run, resolves each COPY's WORKDIR so a file must land at `/app/mcp`,
+declares the five files the image is right to omit with a reason each, and
+asserts the count (15 of 20) beside the verdict; EMPIRICALLY VERIFIED red
+on the pre-fix Dockerfile (`tracked under mcp/, in no COPY and not in
+NOT_SHIPPED: mcp/worker.py`), and the check feeds itself that mutant on
+every run. `check_deploy_memory.js` strikes the 181 MB premise and restates
+the margin from the worker's own numbers; constants unmoved.
+`deploy-connector.yml` gains the two conditions. `ci.yml`: 22 -> 27 with
+the awk that counts; 10 -> 15 labelled headroom-not-budget; three CPU-hours
+sites struck and restated (the third is the song-profile stub orphaned
+above the Kalevala step on 2026-08-20). `measure_verb_memory.py --worker`.
+Four commits on `wp/5`.
+
+**TESTED WHILE OPEN:** `mcp/test.mjs` names this entry at the one place the
+finding became a code change — the COPY-set check — and that half is
+BUILT. What stays open is not in that check's reach.
+
+**WHAT IS OPEN.** (a) M-166(b)'s deployed-box half still binds only after
+the next merge + deploy: nothing measures whether the worker is ENGAGED on
+Render — `check_live.mjs` compares the advertised surface, not the process
+answering it; a live probe that can tell a warm answer from a cold one (the
+6.4 s against 76.8 s above is the signature) is the instrument this needs.
+(b) A re-run of a push's CI run still redeploys its sha once; standing that
+down needs the sha the live process is serving, which nothing in-repo holds
+— the same-sha no-op was NOT added to `deploy_guard.sh` for that reason.
+(c) The grade path's memo miss (87 / 80 / 115 s across identical calls) is
+M-170 item (4), now measured and still unbuilt. (d) The worker's idle
+footprint on Render is now ~600 MB where it was ~0 — inside the margin, and
+worth one reading off the Render memory graph after deploy.
+**ADDENDUM 2026-09-02 — (b) CLOSED ON A WEAKER RECORD THAT IS SUFFICIENT;
+THE NIGHTLY'S SIZING RE-READ; (a) STAYS OPEN AND IS SPELLED OUT (triage
+C25, C24, C01).** (b) said nothing in-repo holds the sha the live process
+is SERVING, and that is still true. What the workflow's own run history
+holds is the sha Render was last ASKED to build — the latest
+`deploy-connector` run whose `Deploy` step concluded `success` — and a
+same-sha re-run needs only that. `scripts/last_deployed_sha.sh` reads it
+with `gh api` under the job token and `actions: read` (no secret, service,
+artifact or variable added), skipping the run in flight and any stood-down
+run; verified against the API this sitting — run #26 shows `Deploy:
+success / Stood down: skipped`, #21 the reverse, and deploy #10 ran at
+`run_attempt 3`, so re-runs do happen. `deploy_guard.sh` takes an optional
+`LAST_DEPLOYED_SHA` and asks it only AFTER the ordering test: equal → STAND
+DOWN at exit 10 naming both; unset or unreadable → deploys and SAYS the
+check did not run, because unknown is not a match; `workflow_dispatch`
+skips the lookup, which is the operator's way to re-ask for a lost build.
+~~Exercised in a throwaway repository against a `gh` shim replaying those
+run shapes... NOT PINNED IN-TREE: no gate reads `deploy_guard.sh` today and
+a `test.mjs` pin needs a temporary git repository — owed, and said here so
+it cannot pass for paid.~~
+**THE PIN IS PAID THE SAME DAY, IN A SUITE CI ALREADY RUNS (triage C25).**
+`mcp/test.mjs` gains EIGHT checks that drive the REAL `deploy_guard.sh` and
+`last_deployed_sha.sh`: a temporary git repository per case (`git init -b
+main`, a real `refs/remotes/origin/main`, the box's own git config shut out
+and `GIT_DIR`/`GIT_WORK_TREE` scrubbed so a stray variable cannot point the
+guard at THIS repository), and a `gh` on `PATH` replaying what `gh api
+--jq` PRINTS for the two requests the lookup makes. The invocation is the
+workflow's own, `--verbose` included, because the sentence saying the
+same-sha check did not run only prints under it. THE FILE WAS CHOSEN, NOT
+INVENTED: `mcp/test.mjs` is the connector's own suite, `ci.yml` already
+runs it, and the shape is `scripts/check_publish_guard.js`'s one service
+over — so no new suite was registered and `ci.yml`'s `for f in` list and
+its 77 label are untouched. The suite reads **94 checks** against 86
+before.
+WHAT THE EIGHT COVER, each its own named check: the tip with NO record
+deploys at 0 and SAYS the same-sha check did not run (driven twice, unset
+and the empty string the workflow actually passes); a record that DIFFERS
+deploys and names it; a record EQUAL to the tip stands down at **exit 10**
+with both shas on the message; a sha one commit behind the tip stands down
+on ORDERING *while the record is set equal to it* — the two rules are made
+to contradict on purpose, which is the only shape that shows the ordering
+test firing FIRST rather than merely reaching the same code; the lookup
+returns the newest run whose `Deploy` concluded `success`, with the shim's
+request log proving the in-flight `GITHUB_RUN_ID` was never asked about
+while the stood-down and failed runs WERE asked and rejected on their
+conclusion rather than skipped by luck; an empty history prints nothing at
+0; a `gh` that exits non-zero yields no sha, and that empty value fed to
+the real guard deploys and says the check did not run — unknown is not a
+match, driven end to end rather than asserted about the source; and
+`deploy-connector.yml` itself is read for reaching both scripts, reading
+the record BEFORE asking the guard, crossing the process boundary as
+environment rather than as bare shell variables, treating exit 10 as
+`go=no`, and asking for `actions: read`.
+TWO-SIDED, MEASURED. Five defects were reintroduced in turn and each named
+exactly the checks it should: striking the same-sha block reds the
+already-asked check at `0 != 10` (the mutant printed *"is the tip of main —
+deploying... last accepted: <the same sha> (differs)"*) and the
+planted-mutant check with it; reading an absent record as a match reds the
+no-record and failing-`gh` checks at `10 != 0`; hoisting the same-sha test
+above the ordering test reds the behind-the-tip check ALONE; dropping the
+in-flight `select` reds the skip check; widening the conclusion test to
+accept `skipped` and `failure` reds it returning the stood-down run's sha.
+Both scripts were restored byte-identical, and two of the mutants are
+PLANTED IN THE CHECK, so the pin feeds itself its own defects every run.
+WHAT THE PIN DOES NOT CLAIM: it does not touch (a) — nothing here reads the
+live `/mcp`; it does not say the connector is SERVING the right tree, which
+stays `check_live.mjs`'s question; it exercises the workflow's `if:`
+conditions as TEXT and never as a run; and the `gh` it drives is a REPLAY
+of the two request shapes read off the live API on 2026-09-02, so a change
+in what that API returns would be invisible to it. THE NIGHTLY'S SIZING was re-read off run #1183
+(2026-09-01, success) instead of the 2026-08-27 figure nobody had re-run:
+job 79.0 min warm, the song-profile slice 96 s under a warm memo, the
+non-slice steps 77.4 min (feature cache 1005 s, discrimination 985 s,
+Kalevala 741 s, banked verdicts 621 s, the 77-schema door 609 s, capacity
+589 s, the rest under a minute); cold worst case ~227 min against the
+240-min job cap, margin ~~~23 m~~ **~13 m** — positive, so the cap is
+unchanged and the paragraph in `ci.yml` is repinned with the old figure
+struck and the re-read command beside it. (a) OPEN, and now stated as an
+instrument rather than a wish: `check_live.mjs` proves the ADVERTISED
+surface only; the engagement reading is two identical deferred
+`lyric_revise` calls on the live `/mcp` timed back to back — the second
+under ~10 s is the memo engaged (6.4 s against 76.8 s is the signature),
+~80 s flat is cold — plus one reading off the Render memory graph (~600 MB
+idle expected). It binds only after a merge and a deploy, so it is the
+owner's; a `worker` state and `RENDER_GIT_COMMIT` on `/health` would make
+it one curl and would also hand (b) the SERVING sha it lacks. (c) and (d)
+are unchanged.
+
+### M-188 · A missing staged resource crashed every grading verb at EXIT 1, in three voices, and the README said there was nothing to stage `CLOSED` 2026-09-01 — found by three readers of the audit stopped on a fresh checkout, and confirmed by hiding each resource in turn
+**THE DEFECT AS FOUND, and the probe that showed it.** With
+data/concreteness.txt (a STAGED resource — fetched into the tree, gitignored, never committed, and so not written here as a repo-path citation) absent, `nltk` not importable, or the tagger model
+not staged, every verb that reaches the slop floor died at **exit 1**.
+MEASURED at `54650e5` on `brief q.txt ABAB` (§7's quatrain), each resource
+hidden without touching the shared tree:
+
+| hidden | how | rc | what the caller saw |
+|---|---|---:|---|
+| the norms | a scratch copy with the symlink removed | **1** | zero stdout; one stderr line `run quality/fetch_data.py first` |
+| the package | a stub `nltk` package (an `__init__.py` that raises) on `PYTHONPATH` | **1** | an `ImportError` traceback out of `features._tagger` |
+| the model | `NLTK_DATA=<empty dir>` | **1** | a `LookupError` traceback AFTER the report's first line had printed |
+
+`score fire -- desire` exited 0 in the same tree. Three voices for one
+defect, and the first was the loudest lie: `load_concreteness` raised
+`SystemExit` with a STRING, which Python renders as exit 1 with the string
+on stderr — so the harness's own "run the stager" advice arrived wearing
+the code a caller reads as "the harness crashed" (doctrine 20), naming ONE
+of the two staging commands. Exit 1 is outside the verbs' 0/2/3/4
+contract; `mcp/lyric_tools.js` reads any code it does not know as a dead
+subprocess; CI run #555 (2026-08-18) is the precedent
+`.github/workflows/ci.yml` cites twice; and `README.md:8` said *"Python
+3.8+, no dependencies"*, so a reader who followed the README was told the
+thing that stopped them did not exist. The third voice is the one worth
+keeping: `nltk.pos_tag` loads its model LAZILY, so the model's absence
+could not be seen until the first tag, by which time a line of the report
+was already on stdout.
+
+**ONE HOME, AND IT IS NOT THE DISPATCH (doctrine 1).** The ruling offered
+`QualityFeatures.__init__` or `main()`; the constructor is right and the
+reason is `_dispatched_verbs`' own docstring — a hand-kept list of which
+verbs reach the floor is the thing that goes stale, and `main()` would need
+exactly that list. The constructor is the point every path that needs the
+resources first needs them, and the point no other path passes.
+`quality/features.staged_resources_or_refuse()` runs there, FIRST, before
+a `Lexicon` is built: the norms by `os.path.exists`, the package by
+`import nltk`, the model by a REAL `pos_tag(["probe"])` — because
+`_tagger()` only returns the function and the missing-model error does not
+arrive until the first tag (`phrase_commonplace._tagger_or_none` met this
+first). nltk memoises the load, so the probe costs the floor nothing it
+would not have paid on its first line. It prints PRESENT / MISSING / NOT
+PROBED as three lists, never summed (doctrine 79), reports the model NOT
+PROBED rather than missing when the package is absent (doctrine 28), names
+both staging commands from ONE constant, and exits 2 through
+`lyric_harness._refuse` — the one refusal shape. The struck guard stays
+visible in `load_concreteness` (doctrine 17).
+
+**WHAT WAS MEASURED, and the roster the README now quotes came from it,
+not from a guess.** Every one of §7's 32 dispatched verbs, run with all
+three resources hidden (`quality/test_verbs.py` §47 is the instrument):
+
+| outcome | count | verbs |
+|---|---:|---|
+| refuse for resources — rc 2, the shape, both commands | **5** | brief revise screen song verify |
+| answer at rc 0 | **26** | candidates capacity chains cycle cynghanedd declaration demo density fit function graph grid internal meter partition plan prasa qafiya **readability** refrain relations scheme score types weight wiring |
+| refuse at rc 2 for its OWN reason | 1 | finish (no `--seed`, before the floor) |
+| traceback, or outside 0/2/3 | **0** | — |
+
+With a seed, `finish` refuses for resources — the sixth grading verb. With
+a mandate, `song` still refuses for resources first: the floor is built
+before the mandate is read, so this is the first thing a fresh checkout
+hears from it. `plan --sweep=1-4` answers. **`readability` was on the
+wrong side of the guess** — the WP prompt listed it with the grading
+verbs, and it never asks the floor. Doctrine 58: the README's "26 / 6" is
+the count §47 prints, and the command that reproduces it is
+`python3 quality/test_verbs.py` (shard 4 of 4).
+
+**THE HIDES NEVER TOUCH THE SHARED TREE, which is why there is an
+override.** data/concreteness.txt (staged, gitignored) and `data/nltk` are symlinks every
+worktree on the box reads, and rename-and-restore is a race with whoever
+runs beside you. `LYRIC_STAGED_DATA` moves the directory the two FETCHED
+resources are read from — resolved in ONE place, `features.DATA`, which
+`quality/fetch_data.py` now imports instead of keeping its own copy (so
+nothing can be staged into one directory and looked for in another) and
+which `discriminate.RESOURCE_FILES` reads (so the feature cache digests the
+file the feature actually opened). `NLTK_DATA` is nltk's own and moves the
+model; a stub package on `PYTHONPATH` hides the package. Nothing else in
+`data/` moves: the committed TSVs are read by their own modules at the
+committed path and are not fetched.
+
+**WHAT SHIPS.** `quality/features.py` (`DATA`/`NLTK_DIR`,
+`STAGING_COMMANDS`, `STAGED_RESOURCES`, `nltk_data_dir`,
+`staged_resources_or_refuse`, the constructor call, the struck guard);
+`quality/fetch_data.py` and `quality/discriminate.py` reading the one
+`DATA`; `README.md` §Setup struck and rewritten with the measured rosters;
+`quality/test_verbs.py` §47 — thirteen checks over §7's own roster, lifted
+into `_every_verb_fixture()` so the two sections cannot drift: the three
+faces one at a time, the combined 2-MISSING / 1-NOT-PROBED count, the
+present-resource control, the partition above pinned exactly, the seeded
+`finish`, the mandated `song`, the sweep. EMPIRICALLY VERIFIED 2026-09-01:
+§7 138 s and §47 92 s green, `test_floor.py` whole green,
+`verify_doctrines.py` PASS. Commits `061ff54` (the fix and its test) and
+`44fb476` (the README).
+
+**THE MUTANT, and it found the fourth voice.** With the one constructor
+call removed, §47 fails **8 of 13**: the package and model faces return to
+exit 1 with a traceback, and the norms face does NOT — with the struck
+`SystemExit` gone, `open()`'s `FileNotFoundError` is an `OSError` and lands
+in `__main__`'s handler at `lyric_harness.py:10312`, exit 2, reading
+*"REFUSED — …/concreteness.txt — No such file or directory / the path is
+read relative to the working directory, not to any file already handed
+in."* A refusal that blames the caller's path for a resource the harness
+itself fetches, and names no staging command. It is a misattribution and
+not an answer, and it is why the check has to live in the constructor
+rather than be left to the generic handler.
+
+**WHAT STAYS OPEN, and it is a neighbour, not this defect.**
+`quality/senses.py:53` keeps its own `WORDNET_DIR = …/data/nltk`, so under
+`LYRIC_STAGED_DATA` the WordNet corpus `fetch_data.py` stages would land
+where `senses` does not look. It is left because `senses` DEGRADES —
+`antanaclasis` loses its `sense` capability and says so — and never
+crashes or refuses, and because importing `quality.features` from it is an
+import-cycle question no suite in this WP runs. One coordinate, two homes,
+noted here so it cannot become a quiet third.
+**2026-09-02 — the record job read this entry as false on a clean
+checkout.** CI's `record` job at `94e736f` went red at step 9
+(`verify_entries.py`), on the two citations of the concreteness table in
+this entry: it is a STAGED resource, present in every working tree that has
+fetched it and absent from a fresh checkout, so REPO_PATH_EXISTS read a true
+sentence as a false claim — the same reason CLAUDE.md never backticks the
+provenance ledger. Both are written unbackticked now; reproduced in a clean
+worktree (FAIL 2 → PASS), and `data/nltk` in the same sentence is a
+directory the check does not read.
+
+### M-189 · The chat surface could not spell four CLI coordinates, the screen could not ask the question the grade asks, and an admitted near relation was printed as a rhyme `CLOSED` 2026-09-01 — found by the 2026-09-01 triage audit reading `mcp/lyric_tools.js` against `lyric_harness.py`'s usage
+**FOUR GAPS ON THE CONNECTOR.** (1) `--voices` and `--fallback=high|low`
+stand BEFORE the verb on the CLI and no `lyric_*` tool carried them, so a
+chat writer could neither declare a sung parenthetical (a whole-line `(…)`
+reads as an EMPTY end word and the pair goes unjudged) nor reach the
+letter-to-sound layer for an end word the lexicon lacks. (2) `lyric_screen`
+took words only: a plan draws a named relation per group (M-117) and the
+grade judges it, but the one step the working order puts BEFORE writing
+could ask only the coarse class. (3) `lyric_verify` had no `structures`
+field while the CLI `verify` accepted `--structures=`, so a structured
+round was verified under a different mandate than it was checked under
+(M-103 §39's shape). (4) `--narrative=` could not be spelled, though no
+grader reads the story plan (a record, and said so on the field). And the
+descriptions promised "~10s per call": MEASURED 2026-09-01 on this box,
+`screen` on four words is ~20 s cold, `brief` on four lines ~19 s, `types`
+~1 s, a 16-line `song` 90–170 s (the audit's figures) — past the 60 s
+default clock of an external MCP client, which the text now says.
+**TWO ON THE SCREEN.** (5) The verb REFUSED every `schema:` name on the
+argument that a schema is judged over LINES — true of the instances route
+and false of the pair route: `relations.pair_satisfies` (M-148 P2) judges
+a schema at two DECLARED bindings, which is what a mandate or a drawn
+relation asks of two line ends. The screen now builds the same stream the
+grade builds over its carrier pair and asks the same judge at (line 0,
+last token) / (line 1, last token); only a shape one token cannot bind
+(`pair_bindable` False) still refuses, by the judge's own reason.
+MEASURED: `hair`/`spare` SATISFIES `schema:perfect rhyme` and VIOLATES
+`schema:pararhyme` (a DIFFER schema), `cellar`/`seller` SATISFIES
+`schema:rime riche`. (6) Since the admit door widened (M-59), a pair the
+comparator types ASSONANCE or CONSONANCE is satisfied at a bare group and
+the screen printed it `CLEAN — RHYMES` on the same row that says it
+VIOLATES `class:RHYME`. It prints `CLEAN — ADMITTED as ASSONANCE (a near
+relation the default door admits; a schema or class that needs the nucleus
+and coda to agree will charge it)` and the tail counts admitted pairs
+apart from rhyming ones (doctrine 79): `home alone stone` reads
+`1 banned, 0 refused, 0 clean and rhyming, 2 clean and ADMITTED`.
+**WHAT SHIPS.** `voices`/`fallback` on every grading tool (prepended ahead
+of the verb by one `globalsFor`), `relation` on `lyric_screen`,
+`structures` on `lyric_verify`, `narrative` on the planning tools, the
+measured timings and the sweep-first sentence on `lyric_plan`; the
+screen's pair-route judge and the ADMITTED wording. `mcp/test.mjs` pins the
+fields and the argv helpers; `test_screen.py` §7 is repointed (a bindable
+schema is judged, not refused) and §8 pins the two screen halves,
+EMPIRICALLY VERIFIED on the pairs above.
+
+### M-190 · A chorus drawn ONCE finished at exit 0 — the form named a returner and never required it to return `CLOSED` 2026-09-01 — ruled under the owner's delegation; found by the 2026-09-01 triage audit reading the banked songs, and by three blind judges cutting one for exactly this shape
+**THE DEFECT.** `FORM_REQUIRES["verse-chorus"]` demanded that a chorus be
+PRESENT, and `_sample_pattern` was free to draw it once. `grid.py`'s own
+sentence is the whole argument: *"a hook is defined by RETURN; one
+occurrence is a phrase."* M-84 (2026-08-23) promoted `HOOK_DOES_NOT_RECUR`
+to a flag and derived the hook slot from a function drawn MORE THAN ONCE, so
+a once-drawn chorus got `hook_slot=None` with a `hook_slot_refused` reason —
+and both hook flags were then UNASKABLE on it. A song with a section called
+chorus that never came back finished at exit 0 with every gate green: **6 of
+the 16 banked songs**, by the audit's count, and `wheat_mane` was cut by all
+three blind judges for having no chorus. The planner was manufacturing the
+shape the grader's own vocabulary calls mislabelled (M-54's per-row test:
+*novel song or mislabelled section?* — a chorus that does not return is the
+second).
+**THE CORPUS WAS READ BEFORE THE TABLE WAS WRITTEN, and it does not vote.**
+Over `corpus/song/`, **43 of 792** chorus-bearing blocks print a `[CHORUS]`
+marker twice. That number is the PRINTING convention — songsters and hymnals
+set the chorus once and sing it after every verse, which the A-1 notation
+records both ways — so a marker count is not evidence against recurrence and
+was not used as one. The ruling rests on the definition, not on a rate.
+**THE RULING.** `plan.FORM_RECURS = {"verse-chorus": ("chorus",)}` — a
+required returner must be drawn at least twice — enforced the way
+`FORM_REQUIRES` is, by REJECTION inside the pattern draw, so the draw stays
+uniform over the admissible set (M-54's own argument against a greedy
+collapse). The refusal names the rule. A second form declares its own
+returner in the same table; nothing in the sampler names `chorus`.
+**MEASURED.** Over seeds 1-40, **28 move and 12 are byte-identical**, and the
+moved set is EXACTLY the seeds whose first admissible pattern lacked a second
+chorus (`test_plan.py` §14 pins the equality): rejection sampling leaves an
+accepted pattern untouched, so the rule costs no seed whose draw already
+recurred. **100 of 100** seeds now recur the chorus, `plan --sweep=1-100
+--want=uses=verse,chorus;returns>=1` accepts **99 of 99**, and **40 of 40**
+plans carry a hook slot where the old sweep's `None` branch was ordinary.
+`songs/README.md` records the one banked consequence: seed 22 plans 30 lines
+at HEAD, so `wheat_mane`'s recorded shape no longer reproduces from its seed.
+**THE PINS THAT MOVED, and why each is a repin and not a deletion.**
+`test_plan.py` §5's hook-slot check asserted BOTH branches over the sweep;
+the `None` branch is unreachable by design now, so it is exercised under the
+MUTATION that empties `FORM_RECURS` — the planner as it stood — and the
+shipped sweep asserts the branch is NOT reached. §8's "withdrawing the
+declaration collapses it" measured 50/200 = 25.0% with `FORM_REQUIRES`
+cleared, against its `< 25%` pin — because the recurrence table held the
+chorus in 200 of 200 on its own; the form is TWO tables now and the check
+withdraws both (collapse) and then one (the second table load-bearing
+alone). §14 holds the rule, the table, the mutation and the moved-set
+equality. EMPIRICALLY VERIFIED 2026-09-01: the four repinned sections and
+§14 green.
+
+### M-191 · The participation draw pinned the MEAN density near 2.5 bound words a line, so the sparse band the listenable songs occupy was unreachable at any seed — the plan draws its own density coordinate now `CLOSED` 2026-09-01 — ruled under the owner's delegation; M-181's cause, found by reading the draw the entry had blamed on length
+**THE CAUSE M-181 MISSED.** That entry read the five listenable songs as
+sitting at ≤ 1.5 bound words a line and blamed the length floor, which rose
+past four of them. The floor is real and the cause is not it: every line's
+participation was drawn `rng.randint(1, pool_n)` with `pool_n` the
+line-binding ceiling of **4**, so the EXPECTED bindings a line was 2.5 by the
+draw itself, at every seed and every length. MEASURED at HEAD: `plan
+--sweep=1-100 --want=bound_words_per_line<=1.5` accepted **0 of 99**, and
+`<=2.0` accepted **7 of 99**. The listenable shape had probability zero from
+the front door — the "move 37" defect in the opposite direction, a density
+set by the shape of a loop (M-71's own sentence about the group count, one
+coordinate over).
+**THE RULING, AND THE TWO EXTREMES IT REFUSES.** The owner has refused both
+ends already: *"end should not be uniform"* (M-107) and *"there's just no
+way that we can only be contemplating the last word of every line"* (M-67)
+on one side, and a web at every word on the other. So the count stays DRAWN;
+what it lacked was a coordinate ABOVE the line. A plan now draws its own cap
+uniform over `[1, line_binding_ceiling]` and every line draws uniform over
+`[1, cap]`: a cap of 1 is the classic end-rhyme song with one web binding a
+line, a cap of 4 is exactly the old draw, and the two are two arms of one
+uniform. The cap comes from a stream of its OWN, seeded on `(seed,
+"density")`, so the main stream is undisturbed. The end-rhyme pass (M-107) is
+untouched and still binds free line ends on top.
+**MEASURED over seeds 1-100.** `bound_words_per_line` min **0.93**, median
+**1.74**, max **2.92**; share ≤ 1.5 **26%** (was 0); cap distribution
+`{1: 18, 2: 30, 3: 26, 4: 26}`; mean bound words a line by cap **1.23 / 1.61
+/ 1.93 / 2.22**, monotone. `--want=binding_cap<=1` accepts **18 of 99** and
+`bound_words_per_line<=1.5` **26 of 99**. Against the pre-ruling planner
+over seeds 1-40: 8 seeds draw the ceiling, **3 plan byte-identically**
+(minus the two new disclosure keys) and the other 5 moved at the PATTERN
+draw — M-190's rule, each having drawn its chorus once — not here.
+**DISCLOSED, NEVER TUNED.** `choices.density` carries the cap and how it was
+chosen; the `plan` report prints a `DENSITY:` line; `SWEEP_MEASURES` gains
+`binding_cap`, so a writer SELECTS the classic shape by declaring it rather
+than re-rolling (M-82: the sweep ranks nothing and invents no criterion —
+this reads a coordinate the plan discloses). Whether the sparse band should
+be the DEFAULT rather than one arm of a uniform draw is a taste ruling this
+sitting does not take; the sweep reaches it.
+**THE PINS THAT MOVED.** `test_plan.py` §-whole-line's `end`-share pin read
+the share over ALL members and passed at ~24% because M-107's pass adds ends
+on top of a web draw that put `end` at 8.5%; with fewer web bindings the
+pass's additions are a larger share of a smaller whole (**28.3%** over 60
+seeds) and the draw this pin is ABOUT did not move — the two are counted
+apart now (doctrine 79) and the pin is on the draw. §7's name-keyed
+collision mutation refused **20 of 40** against a `> 20` pin: a cap-1 line
+draws ONE binding and has nothing to collide with, so the mutation's reach
+is a share of the multi-binding seeds — **20 of 28 with cap ≥ 2, 0 of 12 at
+cap 1** — pinned by cap and never summed, the cap working and not the gate
+sleeping. §14 pins the cap's range, its own stream, the reachable band, the
+monotone means and the sweep name. `M-181` carries the corrected cause
+as an addendum in place.
+
+### M-192 · Three things the writer could not read: whether a drawn end relation is HEARD as rhyme, what the placement names and relations mean, and the syllable ceiling `SLOTS_EXCEEDED` grades against `CLOSED` 2026-09-01 — ruled under the owner's delegation (RULINGS WANTED #6 / M-120 answered as DISCLOSE); found by the 2026-09-01 triage audit reading a writer's brief as the writer
+**(1) AUDIBILITY.** M-120's panel heard a fully SATISFIED web as an absence
+of rhyme, and RULINGS WANTED #6 asked whether to disclose that a drawn
+end-web can be inaudible or accept it as the dice's intended risk. DISCLOSE,
+and the coordinate is DERIVED rather than listed:
+`relations.audible_as_end_rhyme(schema)` is true when both member spans read
+the line-final token and the schema REQUIRES the nucleus AND the coda to
+agree — the phonological core of end rhyme. **7 of the 22 drawable schemas**
+answer yes (Scots vowel-length rhyme, light rhyme, monorhyme / leash, pantun
+ABAB, perfect rhyme, rime riche, semirhyme); consonance, pararhyme (nucleus
+may differ), assonance (coda may differ), and every head-, chain- and
+internal-placed schema answer no. `plan.audible_share` partitions a plan's
+END-BOUND groups — audible / bare default / inaudible, never summed
+(doctrine 79) — into `choices.audible`, and the `plan` report prints it as
+`AUDIBLE:`. **MEASURED over seeds 1-40: 250 end-bound groups, 74 audible
+(29.6%), 27 on the bare default (10.8%), 149 inaudible (59.6%); 0 of 40
+plans are free of an inaudible end-bound group.** The inaudible names drawn
+onto line ends, most first: internal rhyme 21, multisyllabic rhyme 18, head
+rhyme (positional) 15, chain rhyme (rap) 14, cluster consonance 12,
+pararhyme 10, consonance 10. That is M-120's panel finding with its cause
+attached: three fifths of what the dice put on a line end is a real relation
+the grade judges correctly and a listener does not hear as the lines
+rhyming. **A RECORD, NOT A GATE (M-73), and deliberately so**: M-117's
+uniform draw over the certified vocabulary is the OWNER's ruling and is not
+overturned under delegation. Whether END-BOUND groups should draw from the
+audible subset is the follow-on question, entered as RULINGS WANTED #18 with
+the 59.6% beside it.
+**(2) THE LEGEND.** The brief named `T5`, `headrime` and `Scots vowel-length
+rhyme (Aitken's Law)` with no gloss anywhere a writer could reach, and the
+connector returns only that text. `plan.brief_legend` prints two blocks
+under the rhyme plan — *Where a binding sits* and *What each named relation
+asks of the bound words* — each line DERIVED: `place_gloss` reads the slot's
+rule (`slots.word_phrase` for WHICH word, the rule's anchor and magnitude for
+HOW MUCH of it: `T4` is *word 4, read as a rhyme span — from its last
+stressed syllable to its end*, `head` is *the first word, its first syllable
+— the head-rhyme / alliteration reading*), and a relation's line reads its
+required `Agree`/`Differ` channels and its loci off the registry, ending
+`NOT heard as end rhyme` where (1) says so. **AND THE FIRST DRAFT OF THE
+LEGEND FOUND M-184's GLOSS DEAD**: `propose._place_phrase` handed a spelled
+key (`3.T4`, which is `str(slot)`) to `slots.as_slot`, which reads a bare
+line number and raised, so every tier-2 prompt since M-184 said *"at its
+word at 3.T4"* — the fallback wearing the gloss's clothes, passing every pin
+that checked for presence. It parses the spelling now (`parse_slot`), and
+the legend's own first draft had the same fallback (*"the word at T4"*),
+which is how it was seen.
+**(3) THE CAPACITY LINE.** `SLOTS_EXCEEDED` is a hard flag against a number
+the writer never saw: the METER row says 8/8, the line holds 5 syllables
+after its pickup. `writer_brief` prints, UNDER every sung section's bracket
+and never inside it (M-97: the bracket is the measurement carrier every gate
+reads byte for byte), `up to N syllables a line after the pickup; the
+calibrated band asks at least 5` — `line_syllable_ceiling` of the section's
+own span, the same function the joint gate reads (M-79).
+**WHAT SHIPS.** `quality/relations.py` (`audible_as_end_rhyme`),
+`quality/plan.py` (`audible_share`, `brief_legend`, `place_gloss`, the
+capacity line, `choices.audible`), `quality/propose.py` (`_place_phrase`),
+`lyric_harness.py` (`AUDIBLE:` and `DENSITY:` in the plan report).
+`test_plan.py` §14 pins the derivation on five named schemas, the
+both-kinds property of the drawable pool, the partition's purity, the
+legend's coverage of every place and relation a plan names, and the
+capacity line's number and position; `test_verbs.py` §50 pins the two
+report lines. EMPIRICALLY VERIFIED 2026-09-01.
+
+### M-195 · A pasted song had a structure module with no verb and no tool, a loop that could never finish, and a connector that required a seed — the second door is the same door now `CLOSED` 2026-09-01 — ruled under the owner's delegation; found by the 2026-09-01 triage audit walking the human door end to end
+**THE OWNER'S RULING WAS 2026-08-23 (M-72)** — *"if a person puts
+unstructured song in ... the beginning must be to structure it"* — and
+`quality/recover.py` was built for it that day with four provenances and a
+cover over placements. What it never had: a VERB (`python3
+quality/recover.py` was the only door, standing rule 3's private-instrument
+shape one file over), a MANDATE SPELLING a caller could hand on (the cover
+was rendered as prose), a tool on the connector, and a FINISH. `revise
+--propose=defer:` looped a pasted song and, at a stop condition, printed the
+attempt table and exited — no performance-order render and no `[FINISHED
+…]` stamp, because only `finish` renders and `finish` needs a seed. So a
+pasted song could never carry M-150's convergence declaration, and the chat
+surface was worse: `lyric_revise` REQUIRED a seed, `lyric_check` could not
+take a blueprint, and the suspended-run carry (M-183) was keyed on the seed
+alone, so an unseeded run could not be carried at all.
+**WHAT SHIPS.** `recover LYRIC.txt [--placements=…]` is a verb (USAGE,
+`VERB_LAYERS`, dispatch): it prints `recover.render` and then a `MANDATE
+SPELLING` block — the cover split into the two CLI flags, `--groups=` and
+`--returns=`, because `--groups=` charges a REPEAT edge as a violation and
+`--returns=` is the only spelling that holds one — and exits **3** when any
+coordinate is REFUSED (the meter, always: counting gives syllables and not a
+grid, doctrine 4 as amended), a work order and not a failure. `revise` under
+`defer:` renders the lines in order at a stop condition and stamps
+`[FINISHED — declared mandate — exit E — STOP after N round(s) — …]`, the
+same stamp `finish` prints with `declared mandate` where a seed would stand
+(no plan means no bracket headers, so the lines print bare). On the
+connector: `lyric_recover` (the ninth tool, with `extractRecoveredMandate` /
+`extractRecoverRefusals` reading the block above); `lyric_revise` with the
+seed OPTIONAL and `scheme`/`groups`/`returns`/`structures`/`blueprint`/
+`subdivision` dispatching to `revise` when unseeded; `lyric_check` taking a
+blueprint and a subdivision; the carry keyed on `seed:N` for a planned song
+and `mandate:<json>` for a pasted one (`stateKey`/`carriedKey`, a pre-M-195
+envelope still read by its seed); `suspendedSeed` naming *the declared
+mandate*; `extractLoopRecord` reading both stamp spellings with `seed: null`
+for the unseeded one; the paste route in `LYRIC_INSTRUCTIONS`;
+`check_connector_contract.js` and `build_discovery.js` carrying the tool.
+**MEASURED.** `recover songs/keep_the_light.txt` exits 3 with the meter
+refused and prints `--returns=6,9;6,14`; the unseeded stamp parses to a
+record with no seed; `lyric_revise` without a seed reaches `revise`.
+**THE PINS.** `test_verbs.py` §49 (the verb, its refusals, the unseeded
+stamp); `mcp/test.mjs` (nine tools advertised, the recover extractors, the
+two carry keys, the unseeded stamp). Three connector pins were REPINNED to
+the new shapes rather than deleted: M-183's carry record now carries its
+`key`; M-169's stamp-reads-the-harness check now reads BOTH spellings off
+the harness's own two print sites; the advertised family is nine.
+EMPIRICALLY VERIFIED 2026-09-01: `node mcp/test.mjs` and §49 green.
+**WHAT STAYS OPEN.** `lyric_recover` has not been timed on the deployed box
+(M-189's timing table has no row for it); and the meter stays REFUSED by
+design — the caller declares `--blueprint=`, and a pasted song with no
+declared grid is graded rhyme-and-floor only, which the verb's own EXIT 3
+says.
+**VERIFIED AT HEAD 2026-09-02, by two independent agents (the audit's C14
+and C05), AND THE CONNECTOR HALF WAS NOT CLOSED.** The CLI door held end to
+end: an unmarked ten-line paste → `recover` exit 3 (sections DERIVED from the
+blank blocks, the meter REFUSED, a 70-group `--groups=` string) → `brief`
+accepts the string byte for byte (0 SCHEME_VIOLATION) → `revise …
+--propose=defer:` renders and stamps `[FINISHED — declared mandate — exit 3
+— …]`; the same paste with its blank lines stripped has its sectioning
+REFUSED, never guessed (the M-72 rule); §49 green; the entry's own song
+runs under a declared blueprint. **TWO CONNECTOR DEFECTS, both found only by
+driving the real tool, neither registered**: (1) `extractRecoverRefusals`
+read `  <key>: REFUSED — <why>`, a line the harness never prints — the render
+is `  <key>  [REFUSED] <value>` with the reason on the next line and a
+closing key list — so `refusals` was `[]` on EVERY real verdict while the
+tool's own `meaning` told the model the coordinates under `refusals` must be
+declared; its pin passed on a synthetic stdout, the self-grep shape M-142
+charged `test_recover` §6 with, one layer out. (2) `MAX_MANDATE_CHARS = 400`
+capped `groups` on `lyric_check`/`lyric_revise`, and a recovered mandate is
+every admitted pair over every searched place: MEASURED 4,132 chars over 19
+lines, 5,299 over 25, 10,009 over 32 (670 pair-groups), every one refused
+with a zod `too_big` — so the instructed route recover → check → revise could
+not chain past a few lines, only `placements: 'end'` (62–117 chars) fit, and
+nothing said so. **REPAIRED THE SAME DAY**: the extractor reads the real
+render (both lists; a key in both is one refusal); the ceiling is 65,536 —
+sized to the door, half the kernel's per-argument ceiling and above the
+~40k a 64-line four-place cover predicts — and still a refusal, never a
+clamp; `mcp/test.mjs`'s pin is on the real render, a second pin holds a 10k
+mandate at the schema, and a LIVE `lyric_recover` call joined the live
+section (the check that would have caught (1) on the day); the `recover`
+verb prints GRADE IT with the brief command, quoted; the tool description
+and the paste instruction say to pass blank stanza breaks as EMPTY entries
+(a stripped list refuses sectioning) and to narrow to `placements: 'end'`
+past a few lines, because the default cover of a 32-line song is 670 groups
+and a `brief` on it runs far past the connector's clock — MEASURED at 398 s
+wall on a contended four-CPU box (exit 0: 670 mandated pairs, 15 lines
+briefed, 0 FLAG, 38 NOTE — the cover is satisfied by construction, doctrine
+14), against a 60 s client default and a subprocess kill later still. **WHAT STAYS
+OPEN, added**: the dense default cover is the cost of M-145's narrow-door
+ruling (every admitted pair is an edge) and is disclosed, not redesigned;
+`[FINISHED — declared mandate — … no flag stands]` does not itself say that
+the meter and function layers were never asked (the `BLUEPRINT:` line above
+it does); `quality/recover.py`'s standalone `__main__` prints the render
+without the mandate spelling (the verb is the door); M-142 (1) still
+refuses every placed REPEAT edge; and the REPAIRED chain — a recovered
+DEFAULT mandate handed to `lyric_check` and then `lyric_revise` through
+the connector — is pinned at the schema (a 10k-char mandate parses) and
+at `lyric_recover` live, not run end to end by any pin, which the
+completeness critic of this verification named and this sentence keeps
+visible (the verifiers ran it only with `placements: 'end'`, before the
+repair).
+
+### M-193 · A lyric sheet under 200 tokens reached no exact floor profile, so the short songs a listener preferred could be neither graded with teeth nor volunteered by the planner — a SHORT profile is calibrated under the song band's own rule, at 50–150 tokens `CLOSED` 2026-09-01 — ruled under the owner's delegation; M-181's length half, preregistered in `quality/SHORT_SONG_FLOOR_PREREGISTRATION.md` and banked in `quality/RESULTS_SHORT_SONG_FLOOR.md`
+**THE GAP.** `floor.PROFILES` graded a lyric sheet at 200–400 tokens (M-133)
+and nothing below it: a 120-token song REFUSED at the length gate or was
+served inside the `song` band's 1.25× tolerance with every length-sensitive
+finding downgraded to a note. `plan.song_line_counts()` reads the same
+profile, so the planner's envelope was 22–55 lines and M-181's listenable
+songs — the short ones — had probability zero from the front door.
+**THE RULE WAS NOT MOVED; IT WAS ASKED A SECOND QUESTION.** The band rule
+that cut the `song` band (`song_profile_calibration.band_ok` / `pick_band`:
+every 50-token sub-bin ≥ 100 items, every sub-bin's threshold within `HOM`
+of the band's, widest contiguous range wins) already REFUSED every candidate
+reaching under 150 tokens for a named sub-bin. So the question a separate
+profile asks is whether a band BELOW 200 clears the same rule on its own
+thresholds — `--profile short`, edges 50..200, declared before any number
+was read. It does: **50–150 tokens, 3,703 items over 690 authors.** 50–200
+fails on `mattr` at 50–100 (|d| 0.0262 > 0.02); 100–200 on anaphora at
+150–200 (|d| 0.0333 > 0.03); **150–200 clears ALONE (1,336 items) and is
+excluded by clause (iii)** — a third lyric-sheet profile under the same rule
+is the follow-up, recorded and not taken.
+**MEASURED (stage A, four checks).** Thresholds mattr **0.6682** · fwr
+**0.4940** · anaphora **0.3750** · cv **0.0960**; author-held-out FPR
+(200 seeds, 50/50) mattr 5.30% [2.06–9.87], fwr 5.06% [2.77–8.44], anaphora
+3.71% [3.02–7.43], cv 4.99% [3.36–7.27], **ANY 16.18% [11.09–22.23]** —
+below the `song` band's 20.22%; `CLICHE_PAIR` 148/3703 = 4.00%. Top five
+authors 35.4% of the band (Watts 421, Herrick 348, Burns 262, Durfey 171,
+Hemans); leave-one-author-out moves no threshold by more than 0.0115.
+**THE TOLERANCE RUNS THE OTHER WAY AND THE RUNNER'S OWN SENTENCE WAS WRONG
+FOR IT**: carrying the thresholds out by 1.10 / 1.25 / 1.50 / 2.00 / 3.00
+takes the union 16.18 → 15.76 / 15.19 / 14.22 / 13.62 / 12.69%, FALLING —
+a floor calibrated on short sheets fires less on the longer items a wider
+reach admits — while `report_tolerance` printed *"every check gets worse
+monotonically"* as a literal. It reads the table now; the row DECLARES 1.25
+to meet the `song` profile's reach. **PERIOD (doctrine 11)**: mattr rho
+−0.226, fwr +0.143, anaphora +0.164 SURVIVE Bonferroni; EARLY→LATE union
+26.10% against a null median 16.15% (p 0.0075). A stronger reading than the
+`song` band's, on a 45%-undated subsample, disclosed in the row's note and
+NOT adopted as a caution for §4·R's reason. **`predictable_pair_fraction_max`
+is ABSENT** — the `section` profile's precedent, never measured at this
+length; stage B (`--profile short`, predictability for items ≤ 200 tokens
+only, a new `pred_max_tokens` coordinate that skips the 96% of a cold run
+no band statistic reads) was launched in this sitting — and REFUSED the
+fifth threshold when it completed (the addendum below, and
+`quality/RESULTS_SHORT_SONG_FLOOR.md` §7).
+**THREE RUNNER SITES WERE SONG-ONLY LITERALS.** The period pins (rho,
+p_perm) are `PROFILE_PERIOD` per profile; the struck-rho gate reads
+`PROFILE_STRUCK_RHO` (`song` must keep +0.275 legible, `short` has struck
+nothing); and the MATTR-window admissibility check is `>=` where it was
+`>`, because a text of exactly `window` tokens is ONE window and its moving
+average IS its TTR — asserted numerically inside the check. `--profile
+song` is byte-identical to the runner before the flag: its `--check
+--without-predictability` in the same sitting answers asked 20 / answered
+15 / refused 5 with 0 drift, and `--profile short --check
+--without-predictability` re-derives all fifteen judged constants EXACTLY.
+**THE TIE-BREAK WAS RULED BEFORE THE ROW EXISTED** (preregistration §4):
+`sonnet` covers 108–126 tokens and this band covers them too, and
+`declaration_for` took the first in `PROFILES`, so a twenty-line song of 115
+tokens would have been graded on fourteen-line sonnets. It takes the text's
+LINE COUNT now and prefers a profile whose calibrated `n_lines` is the
+text's, then a lyric sheet, then list order; `Floor.check` passes
+`len(lines)`; a caller passing none gets list order byte for byte.
+`test_floor.py` §26.
+**WHAT MOVED DOWNSTREAM, EACH READ RATHER THAN REMEMBERED.** Over 1–699
+tokens the floor can FLAG at **44.5%** of lengths (~~32.8%~~) and reaches no
+profile at **30.3%, unmoved** — lengths moved from "note" to "flag" and none
+from "nothing" (`test_floor.py`, repinned with the reason). The planner's
+gradeable set is `{6..20} | {22..55}` — `song_line_counts()` unions every
+`n_lines == 0` profile by construction, as M-106 built it to — with one
+hole at 21, the seam between two calibrated bands. **AND A SIX-LINE
+VERSE-CHORUS SONG CANNOT BE DRAWN**: its stanza-sized cell ceiling is 1 and
+the form needs verse once and chorus twice, so every draw of a total under
+12 was rejected by the pattern loop while the disclosed envelope said
+`[6, 55]`. `plan.form_min_sections(form)` derives the count from
+`FORM_REQUIRES` and `FORM_RECURS` (3), `fillable_line_counts(form)`
+intersects the gradeable set with the totals whose cell ceiling holds it,
+and both `ENVELOPE["total_lines"]` and `make_plan`'s draw read that:
+**(12, 55), 43 values.** Every seed's drawn length re-rolls, as it did at
+M-133; `test_plan.py` §14 pins the derivation and that every plan in the
+sweep drew a fillable total. `songs/README.md` says the banked seeds no
+longer reproduce their shapes from HEAD.
+**E2 did not fire** (16.18% < 30%); **E1 did not fire** (a band cleared);
+**E3** is answered by construction — no corpus item's verdict moves under
+the tie-break unless two profiles cover its count, and before this row none
+did.
+**A CONSEQUENCE MEASURED 2026-09-02.** `predictable_pair_fraction_max` is
+absent from the `short` row until stage B adopts it, and PREDICTABLE_RHYME
+fires only inside a profile that carries one — so on a lyric sheet the
+tie-break now hands to `short` (`quality/fixtures/song.txt`: 16 lines, ~130
+tokens), the note the SONNET profile used to put on L1~L3 is gone, with it
+the candidate field, and with it the loop's pursuit of that note (a
+`MANDATORY_PURSUE` member). MEASURED by forcing `declaration_for` to the
+sonnet row on the same brief: `PREDICTABLE_RHYME: 1 of 1 rhymes are near
+the top of their own candidate field (lines 1, 3)` and the `FORBIDDEN
+(modal — doctrine 9)` block return; under the tie-break neither prints. `test_verbs.py` §6's modal-exclusion check moved with it (CI's
+`verbs (2)` at `94e736f`) and is asked of a declared violation now. The gap
+closes only with a fifth threshold, AND STAGE B REFUSED ONE THE SAME DAY:
+it ran to completion (5,745 s) and the 95th percentile of
+`predictable_pair_fraction` over 50–150 tokens measured 1.0000 — the
+statistic's own ceiling, held-out FPR 0.00% on 200 of 200 seeds — a
+threshold that can fire on nothing, refused under doctrine 48
+(`quality/RESULTS_SHORT_SONG_FLOOR.md` §7, with the reason: an item this
+short carries one or two rhyme pairs, so the fraction is 0/1-valued and
+piles at 1). A pair-count floor or a different denominator is the next
+preregistration; until then a short song is graded on four thresholds
+and this sentence is where that is said.
+
+### M-196 · The song bank's record is stamped on commits that do not exist, the log had no parser for the working order's LAST verb, and two songs sit in the bank with no entry `PARTIAL` 2026-09-01 — found by the 2026-09-01 triage audit (finding C27) counting the rows; the parser ships, the rest is recorded with its cost
+**MEASURED AT `54650e5`, clean tree.** `songs/RESULTS.tsv` holds 164 rows
+and **124 carry `-WORKING`**; 11 of its 15 distinct harness stamps are
+dirty, and **all 16 songs' LATEST rows are `8e37fd6-WORKING`** (banked in
+`e3fde86` on 2026-08-30 — the same chicken-and-egg `6ff41e9` named on
+2026-08-25: the row that records the commit is written before the commit
+that contains it exists). The logs are **2,721 of 2,922 rows dirty**. The
+stamp is disclosure working as designed (`song_record.harness_commit`
+says `-WORKING` on purpose) and nothing reads it: no gate refuses a
+dirty row, no check asks whether a song's latest row is clean, so a
+measurement keyed to "the tree as of commit X" is keyed to a tree that
+never existed as a commit. Two songs — `i_am_not_leaving`, `oar_lair` —
+sit in the bank at exit 3 with no `songs/README.md` section, and the
+README-versus-log gate (`--verdicts`) charges the 12 of 16 songs it can
+see and cannot see a song with no section.
+**WHAT SHIPS: THE `finish` PARSER.** `song_log.py`'s `PARSERS` had
+`screen plan plan --sweep song revise brief` and not `finish` — the
+working order's last verb, the one whose `[FINISHED …]` stamp is the
+song's convergence declaration (M-150) — so `--record` on it REFUSED at
+exit 2 by its own rule ("a verb with no declared parser refuses"), and no
+banked song's stop reached the log. `_stamp_facts` reads the stamp in
+both its spellings (`seed N`, and M-195's `declared mandate`) with the
+M-186 whole-draft clause — the identical shape `mcp/lyric_tools.js`'s
+`extractLoopRecord` reads — into `stamp_seed / stamp_exit / stop_reason /
+rounds / unresolved / whole_flags`; `finish` is declared as the loop
+parser plus the stamp, `revise` gains the stamp facts when it prints one,
+and the README claim gate learns `` `finish` exit N `` and `` `finish`
+STOP in R rounds ``. `test_songs_log.py` pins the parser on a fixture
+stamp in each spelling.
+**TESTED WHILE OPEN.** `quality/test_songs_log.py` §7 names this entry at
+the one place the finding became a code change — the `finish` parser and
+the stamp facts — and that half is BUILT; what stays open is below, and it
+is a re-bank sitting's, not a parser's.
+**WHAT IS OPEN, AND ITS PRICE.** (a) *Refuse on a dirty tree.* The design
+is `song_record --write` and `song_log --record` refusing unless
+`--allow-dirty`, plus a `test_songs_record` check that each song's
+LATEST row carries a clean sha. It is small to write and it cannot be
+made TRUE in the sitting that writes it: every row has to be re-banked
+once on a clean tree, which is a commit AFTER the commit this entry
+lands in, and this sitting's tree is the dirtiest the bank has seen
+(fourteen files moved by the delegation's rulings). Building the refusal
+first would make the next `--write` refuse on the row it is trying to
+clean — the chicken-and-egg again, now with a gate on it. So the order
+is: commit, re-bank on the clean tree, THEN the refusal and the check, in
+the closing sitting that owns the re-bank. (b) *The two unlisted songs*
+need README sections that state their exit 3 and what stands, which is a
+reading of each song's log and not a mechanical fill; and the
+`--verdicts` gate should count a banked song with no section as a REFUSED
+row rather than an invisible one (doctrine 79). Both are the re-bank
+sitting's.
+
+**ADDENDUM 2026-09-02 — TWO MORE ROWS OF THE SAME GAP, FOUND BY C18's
+INSTRUMENT, AND THE DESIGN THAT CLOSES ALL OF THEM.** `ban_convergence.py`
+could not find the graded mandate for two of sixteen songs: `oar_lair.txt`
+has no README command, no `plan` log row and none in its commit message;
+`the_long_way_back.txt`'s only recoverable mandate (its `plan` row) grades
+the banked bytes to 5 flags and a HOMEOTELEUTON note where the README
+says exit 0 and 0 flags, so the command behind the re-bank is not on
+record. (Both songs HAVE README sections on this branch since 09-01 — the two
+parked-at-exit-3 sections and the re-bank's — and `--verdicts` resolves
+their claims; what those sections do not carry is a parseable `song`
+command, and `song_log._sections` reads the mandate from nothing else.)
+The design, not built here:
+`song_log.record()` already holds the verb's stdout and argv; on `song`
+and `revise` it should ALSO write the input's `load_lyric_lines` text to
+a draft file beside the log under `songs/`, named by the song and the md5
+the verb itself printed, so the file and the log fact agree by construction (doctrine
+1), and bank `mandate_groups_text` / `mandate_returns_text` from argv as
+`song` facts; `test_songs_log.py` then asserts every `md5` fact names an
+existing draft file, and the README heading form becomes a parse gate
+rather than a convention. Until then the drafts C18 needed are provable
+md5s and unreadable bytes, and two graded mandates are lost.
+**AND THE 09-01 LIST IS CLOSED ITEM BY ITEM, WITH THE RESIDUE THE CLOSE
+CANNOT ERASE (C27, re-read 2026-09-02).** `song_record --write` and
+`song_log --record` REFUSE on a dirty tree unless `--allow-dirty` says so;
+`test_songs_record.py` §6 checks that every song's LATEST row carries a
+clean sha and that both writers refuse; the bank was re-written once at
+`775f03f` — 16 rows, each numerically identical to the row it supersedes,
+so the key changed and no number did; `i_am_not_leaving` and `oar_lair`
+have sections read from their logs (both `song` exit 3, with 1 and 4
+`SCHEME_VIOLATION`), and a banked song with no section is a REFUSED row
+(doctrine 79). `--check`, `--claims` and `--verdicts` read PASS / PASS /
+**131 RESOLVED (41 by `[LOG:]`), 0 MISMATCHED, 0 REFUSED** on this tree;
+the finding's "charges 12 of 16" does not reproduce at either the
+committed or the working reading. THE RESIDUE: 124 of the 180 RESULTS rows
+and 2,721 of the 2,922 log rows still say `-WORKING`. They are history —
+the record of how each song was made — and rewriting a stamp is
+fabricating provenance, so they stay as written. The entry stays
+`PARTIAL` on the two lost mandates and the draft-banking design above,
+not on anything the 09-01 text listed.
+**ADDENDUM 2026-09-02 (SECOND) — THE DRAFT-BANKING MECHANISM IS BUILT, AND
+THE HOLE IT CANNOT CLOSE IS FOUR DRAFTS, OF WHICH GIT HOLDS ONE.**
+`song_log.record()` on the four verbs that GRADE a draft — `song`, `brief`,
+`revise`, `finish` — writes the `load_lyric_lines` text it was handed to
+`songs/drafts/<song>.<md5>.draft.txt`, named by the md5 THE VERB ITSELF
+PRINTED, taken out of the parser's own facts and never re-derived for the
+purpose; the bytes are fingerprinted through `lyric_harness.load_lyric_lines`
+and `quality.revise.draft_fingerprint`, both BORROWED (`hashlib` appears
+nowhere in the file), and a disagreement writes NOTHING and prints its cause.
+Beside them the INVOCATION is banked: `command` (the shell-quoted argv) and
+`mandate_groups_text` / `mandate_returns_text` / `mandate_relations_text` /
+`mandate_structures_text` / `mandate_relation_text` / `mandate_cliques` /
+`mandate_scheme_text`, transcribed VERBATIM and never parsed — `schemes.mandate`
+stays the one reader of `3.T2`. `_text` because `song` already banks
+`mandate_groups` as an integer COUNT and `plan` banks `groups` as the PLANNED
+string: three quantities, three names. `oar_lair.txt`'s state — a graded
+mandate banked nowhere — is unreachable for any run recorded through
+`--record` from here on. THE DOCSTRING'S OWN BOUNDARY MOVED AND SAYS SO: this
+file banks facts about the INVOCATION as well as about the output, the two
+are kept apart by name, and it has always banked one of them (`exit`, which
+is not emitted text either).
+**THE DESIGN'S FILENAME IS AMENDED, AND THE AMENDMENT IS MEASURED.** The
+addendum above says `songs/<name>.<md5>.draft.txt`; `quality/test_songs.py`
+§1 globs `songs/*.txt` and FAILS on any file there with no
+`.blueprint.json` beside it, so that spelling turns a green population gate
+red — and the alternative, an exclusion carved into that gate, is how a real
+lyric with no blueprint would learn to pass by being named `.draft.txt`
+(doctrine 58). `songs/drafts/` needs no exclusion anywhere and `glob` does
+not recurse, so the population that register reads is unmoved. THEY ARE COMMITTED: the
+point of banking a draft is that a later reader can grade the same bytes,
+and a gitignored file is one machine's disk — a clone would hold the md5 and
+not the text, which is the state this entry is about. Cost, measured: the
+bank's **50 md5 rows over 16 songs are 20 DISTINCT md5s** (max 3 on one
+song, matinee), because the name is keyed on CONTENT and a step grading
+bytes already banked re-uses their file; the sixteen committed lyrics are
+**13,411 bytes** of graded text, so all twenty land near 16.8 KB.
+**THE RULE OVER HISTORY IS FOUR COUNTS, NEVER SUMMED, RED ON ONE.**
+`song_log.py --drafts` (0.24 s) charges every banked md5 against the bytes
+behind it: **BANKED** (a draft file that re-fingerprints to it),
+**RECOVERABLE** (no file, but the committed lyric IS these bytes), **LOST**
+(measured before the declared `DRAFT_BANKING_SINCE = 2026-09-02` and
+matching nothing on disk) and **FAILING** (recorded on or after it with no
+readable draft) — and only FAILING is red, because a check written after a
+history cannot make that history true (doctrine 17). The discriminator is a
+DECLARED DATE and not a list of grandfathered rows: a list needs editing
+every time a row joins it. It is not vacuous — every md5 row in the bank was
+measured 2026-08-24..2026-08-30, pinned by `test_songs_log.py` §8. NOTHING
+IS BACKFILLED: sixteen of the twenty md5s are the songs' own committed bytes
+and are reported RECOVERABLE rather than banked, because a file written
+today from a re-hash would make a run that recorded its bytes and a run that
+did not look identical, which is the one distinction the mechanism IS
+(doctrine 20). Reading today: **0 BANKED, 44 RECOVERABLE, 6 LOST, 0
+FAILING**.
+**THE LOST BUCKET IS M-168's FINDING AS A NUMBER, AND IT IS FOUR DRAFTS**
+— crooked_waltz step 19 `29697fccfe8d`, matinee 54 `707c48614794`, matinee
+55 `04065bbbcdd9`, the_long_way_back 2/3 `687eaa34c949`, six md5 ROWS over
+four drafts. **ONE OF THE FOUR IS NOT LOST AND M-168's ADDENDUM DID NOT KNOW
+IT**: `git show 8d7b3f18:lyric-harness/songs/the_long_way_back.txt`
+fingerprints exactly `687eaa34c949`, so those bytes are readable from git
+history for that song and for no other. They are NOT written into
+`songs/drafts/` here — recovering them by hand produces a file that looks
+banked-by-construction and was not, and the honest route is a declared
+`--bank-draft SONG MD5 FILE` that REFUSES unless the file fingerprints to an
+md5 the song's log already holds. That is a build and is named open.
+`test_songs_log.py` §8 is 18 checks (the suite goes 41 to 59): the cutoff is
+declared and non-vacuous, the four buckets PARTITION the 50 md5 rows, the
+LOST set is exactly those four and no more, an end-to-end `--record` banks
+bytes that re-fingerprint and a mandate that reads back verbatim, DELETING
+that draft turns the gate red at exit 3 as FAILING and not as LOST, two
+positional `.txt` arguments REFUSE rather than pick one, and a verb printing
+no fingerprint gets no file and says so.
+**ONE CONSEQUENCE NOT TAKEN, ON PURPOSE.** The new `mandate_*_text` facts
+make a THIRD mandate source available to `ban_convergence.mandate_spec`
+(README, then the `plan` row, then the `song` row's own banked mandate) —
+the route that would have resolved `oar_lair`. Wiring it moves that
+instrument's pinned 11/4/1 and turns its `--check` red, and a pin that moves
+without a register line is a defect report. It needs its own sitting.
+The entry stays `PARTIAL` on the three genuinely lost drafts and the
+recovery verb, and on nothing else.
+
+### M-197 · A chat turn that threw mid-way spent hops nobody charged, and the turn's cost reached no reader `CLOSED` 2026-09-01 — found by the 2026-09-01 triage audit (findings C28 and C11) reading `runTurn`'s hop loop against `chat.js`'s catch; the uncounted throw is charged and the cost is on the response, the in-memory counter and the turn cap stay the owner's
+**THE DEFECT.** `gemini_agent.runTurn` accumulates `usage` as a local and
+returns it; `generate()` retries 5xx and throws on a 429 (or on any
+status past `retries`); the hop loop had no `try`, and `chat.js` charged
+`spend` only after `await runTurn` RETURNED. So a Google 429 on hop N
+threw hops 1..N−1 away: every one of them was billed on the owner's key
+and none reached the daily counter — the counter read LOWER than the
+bill, in the direction a cap must never err. The triage's battery rows
+show the shape (a turn dying after four hops at 395 KB of history), and
+the same audit measured what a turn COSTS late in a song — every hop
+re-sends the whole transcript, ~$0.025 a hop at 100k tokens, so the $0.10
+turn cap quantises a late turn to about four hops — and found the
+figure reachable from no response field: `run.cost` and `run.usage` were
+computed and returned to `chat.js` and stopped there.
+**WHAT SHIPS.** The hop loop is wrapped once: a throw carries
+`err.usage` (the hops made so far, with their tokens) and `err.calls`
+and is rethrown unchanged otherwise. `chat.js`'s catch charges that
+partial usage before replying — `costOf(err.usage, model)`, or the turn
+cap when the model cannot be priced, the same safe direction the success
+path takes — bumps the turn count, persists the store, and says on the
+error body `hopsBeforeFailure` and `chargedUsd`, so a client can see that
+a failed turn was not free. The success body gains `cost` and `usage`
+(prompt, candidate and thought tokens, requests), which is the
+measurement the `CHAT_MAX_TURN_USD` ruling (C11) waits on: the battery
+can record $/turn and hops/turn off the response instead of inferring
+them from the log. `mcp/test.mjs` drives `runTurn` through a stubbed
+`fetch` that answers one function-calling hop and then a 429, and pins
+that the error carries exactly one hop's usage; a second check pins the
+charge in `chat.js`'s catch and the two new response fields by reading
+the source.
+**WHAT IS NOT TAKEN, AND WHOSE IT IS.** The daily counter is IN-MEMORY
+and resets on every deploy (`spend_store.js`, AUDIT.md F128): a Render
+disk and `CHAT_SPEND_FILE` are an ops decision the server already prints
+a warning about at boot. `CHAT_MAX_TURN_USD` and stale-brief pruning
+(the transcript's re-sent ~65 KB of folded briefs and verdicts) are the
+owner's, with the numbers now on the response to rule from. M-168's
+"per-minute limiter" attribution of the 130-second pacing is asserted,
+not measured, and stays so.
+**ADDENDUM 2026-09-02 — STALE-BRIEF PRUNING SHIPS, UNDER THE DELEGATION;
+THE CAP STAYS THE OWNER'S (C11).** The half this entry left open has its
+numbers now, measured on the connector's own results after
+`toFunctionResponse`'s strip: a `lyric_revise` fold carries ~20 KB on the
+record (117,189 bytes of prompt on a 23-line FILLER draft, seed 16, 22
+groups), a `lyric_grade` fold carries its whole `song` report (~45 KB on
+the record; 181,735 bytes on the same filler draft), a `lyric_plan`
+two-block 21,390 bytes, a recipe result ~3 KB — and every hop re-sent all
+of them, so the record's transcript grew ~40 KB a turn (235,339 bytes
+after turn 0, 394,922 at turn 4). `gemini_agent.pruneHistory` is one PURE,
+IDEMPOTENT function over the transcript, wired at the single assembly
+site in `runTurn` (`limits.pruneFolded`, `CHAT_PRUNE_FOLDED=0` disables).
+The invariant, stated once: the pruned history is the original with some
+`lyric_*` `functionResponse` bodies replaced by a verdict STUB and, past a
+byte ceiling, the oldest WHOLE turns dropped — never a turn among the
+newest `pruneKeepTurns` (1), never the newest result of any lyric tool
+(the pending question, the latest grade, the brief being written to),
+never a recipe or workspace result, never a user text, a model part or a
+`functionCall` of a surviving turn; every call keeps its response, `id`
+intact, so the model's pairing holds. The stub keeps the fields the
+transcript is READ by — `exit_code`, `status`, `kind`, `meaning`,
+`banned_pairs`, the four `loop_*` fields including `loop_whole_flag_codes`
+(the M-186 cause; a stub dropping it would be the fifth carrier that lost
+it), `answers_on_record` — and a note saying what was pruned and why.
+Projected per-hop bytes on the record's own shape (two folds a turn at
+20 KB): turn 3 198,967 → 119,463, turn 6 325,871 → 127,111, turn 9
+452,771 → 134,755, growing ~2.5 KB a turn after instead of ~40 KB; at
+~4 bytes a token and $0.25/M input, turn 9 goes from ~113k tokens
+($0.028 a hop, THREE hops under the $0.10 cap) to ~34k ($0.0084 a hop,
+ELEVEN — `maxSteps` 14 is the binding limit again). The 200 KB ceiling
+(`CHAT_PRUNE_MAX_BYTES`) is a backstop for a pathological transcript,
+since stubbing alone lands ~135 KB by turn 9 on the record's shape; a
+whole-turn drop is LOSSY and is priced as one. `mcp/test.mjs` pins it BY
+VALUE on a synthetic history — the recipe result the same object, the
+newest turn's entries the same objects, the older `lyric_revise` fold
+stubbed to exactly the verdict fields with its `id`, the pending question
+verbatim, 44,090 → 24,159 bytes, idempotent, `keepTurns=2` keeping both —
+and pins the wiring and the switch in the source. What is NOT
+re-measured: the ~20 KB / ~45 KB per-fold figures are this entry's own,
+from the record; the filler-draft measurements are the upper tail and
+make the case stronger, not weaker. `CHAT_MAX_TURN_USD` itself, and a
+disk for the daily counter (AUDIT.md F128), remain the owner's.
+**ADDENDUM 2026-09-02 — WHICH OF THE TWO TURN CEILINGS BINDS IS DERIVED AND
+DISCLOSED; THE DOLLAR FIGURE STAYS THE OWNER'S (triage C11).** The entry
+handed the `CHAT_MAX_TURN_USD` ruling back with the numbers on the response.
+Reading them found a defect one layer under the number, and it is doctrine
+1's own shape: `LIMITS.maxSteps` (14) and `LIMITS.maxTurnUsd` ($0.10) are TWO
+ANSWERS TO ONE QUESTION — how many hops may a turn take — and the smaller one
+wins in silence, with which one that is depending on a transcript size
+nothing disclosed. `gemini_agent.turnBudget()` derives the answer from the
+coordinates already declared and the model's own `PRICING` row, inventing no
+number of its own: a prompt at the pruning ceiling is
+`pruneMaxBytes / BYTES_PER_TOKEN` tokens, a hop costs that plus a full
+`maxOutputTokens` of output, and the worst LEGAL turn is that per-hop cost
+times `maxSteps`. MEASURED at HEAD on `gemini-3.1-flash-lite`: **$0.015572 a
+hop, a worst legal turn of $0.2180, and a $0.10 cap that buys SIX hops of a
+declared FOURTEEN.** So the dollar cap has been the operative step limit, and
+`maxSteps: 14` is decoration at the ceiling — a turn stopped at hop 6 of 14
+was reported `MAX_TURN_COST`, which reads as a budget problem when what bound
+it was the hop budget, and round 10's rows carry exactly that ambiguity
+(turn 0 stopped after 8 calls, turn 4 after 4). THE STOP CARRIES ITS NUMBERS
+NOW: `runTurn` returns `stoppedDetail` — what the turn spent, the cap it hit,
+the hops it bought, the `maxSteps` it did not reach, and the derivation — and
+`chat.js` publishes it as `stopped_detail`, so a transcript reader (and the
+battery) can tell a turn that ran out of HOPS from one that ran out of MONEY.
+Pinned in `mcp/test.mjs` as a RELATION and never as a dollar figure — the
+per-hop cost equals the arithmetic over `LIMITS` and `PRICING`, an unpriced
+model refuses rather than returning a number, `capBinds` is true, and a real
+`runTurn` driven into the cap comes back with `hops 1 < maxSteps 14` — so
+every check keeps holding when the owner sets the cap to something else.
+~~WHAT IS NOT TAKEN, AND WHY: the dollar figure itself. Raising it is
+spending the owner's money, the arithmetic above says a cap that let every
+legal hop through would be about $0.22, and `CHAT_MAX_TURN_USD` sets it in
+one environment variable.~~ **THE OWNER SET IT THE SAME DAY, TO $2.50** —
+an order of magnitude above the worst legal turn rather than the $0.22 the
+arithmetic names as the floor for admitting every legal hop, which is what
+turns this back into a PATHOLOGY bound instead of a step limit wearing a
+dollar sign. MEASURED after: `turnBudget()` reports **160 hops affordable
+against a `maxSteps` of 14, `capBinds` FALSE**, so `maxSteps` is the
+operative per-turn limit again and a `MAX_TURN_COST` stop now means what it
+says. What the delegation could take was the defect — a ceiling that
+silently outranks another ceiling — and that was taken; the figure was the
+owner's and they gave it.
+**AND THE RAISE PUT THE TURN CAP ABOVE THE DAY'S, WHICH WAS DISCLOSED
+RATHER THAN ABSORBED — AND THE OWNER THEN MOVED THE DAY TOO.** At the
+moment of the raise `chat.js`'s `dailyUsd` was **$2** against a **$2.50**
+turn cap, so a single turn could carry the day **$0.50** past its own
+ceiling: the daily check admits a turn BEFORE it runs and never interrupts
+one in flight. Told that, the owner raised the day to **$25** in the same
+sitting (*"I forgot the daily budget was so low"*), and the overshoot is
+**zero** again with the day buying **114** worst-legal turns.
+**BUT THE DAY HAS TWO CEILINGS AND THE RAISE INVERTED WHICH ONE BINDS,
+WHICH IS THE SAME DEFECT ONE AXIS OVER.** `dailyUsd` bounds the day in
+DOLLARS and `maxTurnsPerDay` (400) bounds it in REQUESTS, independent on
+purpose because a count needs no pricing table. That second ceiling's own
+comment reasoned *"400 turns at the measured ~$0.01 mean is roughly $4,
+comfortably above the $2 dollar cap, so in normal operation the dollar cap
+is what the service actually hits and this never fires"* — true at $2 and
+FALSE at $25, in the same words. MEASURED at HEAD: `dayByTurnsUsd` **$4**
+against a `dailyUsd` of **$25**, so `perDay` reads **`maxTurnsPerDay`** and
+an ordinary day is bounded near four dollars whatever the dollar figure
+says. **RAISING `CHAT_DAILY_USD` ALONE THEREFORE BUYS ROUGHLY NOTHING**, and
+that is stated in the comment, computed by `chatCeilings()` and pinned,
+rather than left for a later reader to rediscover.
+`chat.chatCeilings()` states all of it — which of the two PER-TURN ceilings
+binds, which of the two DAILY ones an ordinary day reaches, both pairs of
+figures, the overshoot, the worst-legal turns the day buys, and what the
+count ceiling amounts to in dollars at the declared mean — and
+`/chat/status` publishes it. `MEAN_TURN_USD` is declared beside the
+arithmetic that uses it rather than quoted in prose (doctrine 58).
+`CHAT_MAX_TURNS_PER_DAY` was NOT moved: it bounds request VOLUME as well as
+spend, so it is a different decision with a different risk and belongs to
+the owner, and moving it here would be this function deciding a budget
+rather than describing one.
+**AND THE DAY'S OWN PAIR INVERTED WHEN THE DOLLAR FIGURE MOVED, WHICH IS
+THIS SAME DEFECT ONE AXIS OVER.** `chat.js` bounds a day TWICE — `dailyUsd`
+in dollars and `maxTurnsPerDay` in requests — independent on purpose,
+because a count needs no pricing table and is the sounder of the two when
+the money arithmetic is wrong. That second ceiling's own comment reasoned
+*"400 turns at the measured ~$0.01 mean is roughly $4, comfortably above
+the $2 dollar cap, so in normal operation the dollar cap is what the
+service actually hits and this never fires"* — true at $2 and FALSE at $25,
+in the same words, with the roles exactly swapped. MEASURED: $4 by the
+count against a $25 budget, so an ordinary day was bounded near four
+dollars whatever the dollar figure said, and raising `CHAT_DAILY_USD` alone
+bought roughly nothing. **THE OWNER RESOLVED IT THE SAME DAY** —
+*"bring it actually up to $25 a day. I approve what you need to do to get
+it up there"* — and the resolution is a DERIVATION rather than a second
+typed number, because typing one is what let the pair invert in the first
+place: `maxTurnsPerDay` is `dailyUsd / MEAN_TURN_USD * TURNS_HEADROOM`,
+**5,000** at the shipped figures, with `MEAN_TURN_USD` declared beside the
+arithmetic that reads it and `CHAT_MAX_TURNS_PER_DAY` still overriding
+outright. `TURNS_HEADROOM` is 2 and is not decoration: at 1.0 the two
+ceilings TIE at the measured mean and which fires is decided by noise,
+while at 2 the dollar budget binds first even if turns run at HALF the mean
+— the direction that would otherwise let the count quietly become the
+budget again. `chatCeilings().perDay` reads `dailyUsd` now.
+**WHAT THE RAISE COSTS IS REPORTED RATHER THAN DISCOVERED.** This ceiling
+is the only bound that survives a wrong pricing table, so its worst case
+scales with it: `worstCaseDayUsd` is **$1,090** (5,000 turns at the worst
+legal turn), against **$87** at the old 400. What keeps that from being one
+client's to reach is the RATE LIMITER and not this ceiling —
+`perIpPerDay` is **720** (`perIpPerHour` 30 x 24), so the day ceiling is a
+FLEET bound needing seven distinct addresses to approach, and the pin says
+so. Both figures ride `/chat/status`. Lowering `CHAT_TURNS_HEADROOM` or the
+per-IP rate tightens the tail; neither was moved here, because the owner
+asked for the day to be real and not for the tail to be re-argued.
+
+**TWO PINS MOVED WITH THE FIGURE, AND BOTH MOVED THE RIGHT WAY.** The old
+`maxTurnUsd < 2` carried the reason *"a single turn must not be able to
+spend the daily cap"* and typed the daily cap's own DEFAULT as a literal in
+the test file, so the relation it named went false the moment either number
+moved — doctrine 1, in the guard. It READS both configs now, asserts the
+overshoot is stated rather than inferred, and keeps the invariant the
+literal was reaching for: a day whose dollar ceiling a turn can exceed
+still needs a finite turn-count bound. And the check that pinned
+`capBinds` TRUE now pins the AGREEMENT between the derivation and the
+reported answer instead of the answer itself, because the answer is a
+function of a number the owner sets.
+A LIMIT THE DERIVATION STATES RATHER THAN HIDES: `pruneHistory` runs ONCE A
+TURN on the PRIOR transcript, so a turn's own tool results append on top of
+the pruned prior without being pruned again; a hop folding a `lyric_grade`
+report (~45 KB on the record) pushes the prompt past the ceiling inside the
+turn. `hopsAffordable` is therefore an UPPER bound on a grading turn and an
+accurate reading on a conversational one, and the function's docstring says
+so rather than letting a reader take six for a floor.
+
+### M-198 · Re-opening a mandate dropped its PLACEMENTS — every group came back bound at its end, `groups` byte-identical, and nothing could see it `CLOSED` 2026-09-02 — found by test_loop §19's slot probes, written for M-184's tier-2 repair, returning the end word on a mandate whose group declared `1.T2`
+
+**THE DEFECT.** `quality/schemes.py:mandate` has a re-open branch — hand it
+a `Mandate` plus a coordinate it lacked (`returns`, `scope`, `structures`,
+`relations`, `default_relation`) and it rebuilds the object with that
+coordinate added. `Mandate.loci` joined the dataclass on 2026-08-23 (M-67,
+the placement coordinate) and the rebuild was never told: it named every
+field it knew and `loci` fell to its default `()`. So `mandate(mandate([[1,
+3], [2, 3], ["1.T2", 5]], n_lines=6), default_relation="class:RHYME")`
+returned `loci == ()` — every group bound at its END — while `groups` read
+`((1, 3), (2, 3), (1, 5))`, byte-identical to the placed mandate, and the
+object compared equal to nothing the writer declared. THE FOURTH OF ONE
+FAMILY: M-50 (`relations` dropped), M-53 (`rule` re-defaulted), the
+`structures` hole before it, each found by a caller who re-opened a mandate
+to add one thing and lost another. The branch's own comment names the
+family and lists "every re-openable coordinate"; the list is of what the
+branch ACCEPTS, and a field it CARRIES is a different list nobody kept.
+
+**MEASURED.** `inner.loci` = `('', '', (Slot(line=1, rule=SpanRule(
+locus='any_token', … requires=('token:1',))), None))`; `mandate(inner,
+default_relation="class:RHYME").loci` = `()`. Every tier-2 backtrack under
+a declared relation on a placed mandate read its anchors at their ends —
+which is the population M-184's residual (a) measured its `['wall']` on,
+from the other side. `test_loop.py` §19's two new probes returned
+`['chair']` (L5's end word) for both shapes until this was fixed.
+
+**THE FIX** is one field on the rebuild — `loci=spec.loci` — and the pin is
+`test_mandate_relation.py` §7, beside M-50's and M-53's: a placed mandate
+re-opened with a relation, a structure, a return and a scope keeps its
+`loci`, and `slot_of` on the re-opened object still answers `1.T2`.
+
+**WHAT THIS DOES NOT CLAIM.** No CLI path re-opens a placed mandate today —
+`_mandate_arg` builds once — so no shipped song was graded through this hole;
+the loop's `revise_loop` re-open (`Reviser.mandate`) is a build, not a
+re-open. The route it closes is the API's, and the register's own sections
+(M-116's `default_relation` re-open over `--groups=` with places) are where
+it would have bitten first. `quality/audit_register.py`'s PINNED
+`coverage_entries` moved ~~254~~ **255** with this entry (2026-09-02).

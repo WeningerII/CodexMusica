@@ -2628,6 +2628,14 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
                        default_relation=(spec.default_relation
                                          if default_relation is None
                                          else default_relation),
+                       # THE PLACEMENTS ARE CARRIED (2026-09-02, `MISSING.md`
+                       # M-198) — the fourth coordinate this branch dropped in
+                       # silence: `loci` joined `Mandate` on 2026-08-23 (M-67)
+                       # and this rebuild was never told, so re-opening a
+                       # placed mandate to add a relation returned every
+                       # group bound at its END, byte-identical in `groups`
+                       # and equal to nothing the writer declared.
+                       loci=spec.loci,
                        free=spec.free, source=spec.source,
                        origin=spec.origin + " + " + " + ".join(added),
                        returns=norm,

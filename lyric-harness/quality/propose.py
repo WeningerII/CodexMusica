@@ -322,8 +322,24 @@ def _mandate_block(brief, indent="  "):
     out = []
     must_answer = _ordered(getattr(brief, "must_answer", ()) or ())
     rets = set(getattr(brief, "return_groups", ()) or ())
+    # WHERE EACH GROUP BINDS THIS LINE, AND WHETHER IT HOLDS (M-184). A
+    # line in two groups at two places is asked for two words; a group
+    # that already holds needs nothing and the writer is told to leave it.
+    # Both are read through `getattr` so a stand-in without them renders
+    # the sentence it always rendered.
+    gslots = dict(getattr(brief, "group_slots", {}) or {})
+    violated = set(getattr(brief, "violated_groups", ()) or ())
     for lab, mem, calls in must_answer:
         shown = ", ".join(f"L{n} ({w!r})" for n, w in _ordered(calls))
+        place = ""
+        if lab in gslots:
+            place = (f" at its {_place_phrase(gslots[lab])}"
+                     if gslots[lab] is not None else " at its end word")
+        standing = ""
+        if violated:
+            standing = (" — VIOLATED, this is the word to change"
+                        if lab in violated else
+                        " — HOLDS as written; leave that word alone")
         if lab in rets:
             # A DECLARED RETURN IS NOT A RHYME GROUP, and this said it was —
             # defect E, 2026-08-16. `Mandate.requirement` answers
@@ -343,13 +359,24 @@ def _mandate_block(brief, indent="  "):
             out.append(f"{indent}  mandate rather than about anything you "
                        f"can write.")
         else:
-            out.append(f"{indent}group {lab} {list(_ordered(mem))} — this "
-                       f"line must rhyme with: {shown}")
+            out.append(f"{indent}group {lab} {list(_ordered(mem))}{place} — "
+                       f"this line must rhyme with: {shown}{standing}")
     if len(must_answer) > 1:
-        out.append(f"{indent}This line is a PIVOT: it is in "
-                   f"{len(must_answer)} groups and must answer EVERY one of "
-                   f"them at once (conjunctive; doctrine 2). Answering one "
-                   f"and breaking another is not a fix.")
+        places = {gslots.get(lab) for lab, _m, _c in must_answer
+                  if lab in gslots}
+        if len(places) > 1:
+            # TWO PLACES ARE TWO WORDS, NOT ONE CONJUNCTION (M-184): the
+            # groups at different places are answered independently, each
+            # by its own word, and only the groups at ONE place conjoin.
+            out.append(f"{indent}This line binds at {len(places)} "
+                       f"PLACES, listed above: each place is its own word "
+                       f"answering its own group(s), so fix the violated "
+                       f"place and keep the word at any place that holds.")
+        else:
+            out.append(f"{indent}This line is a PIVOT: it is in "
+                       f"{len(must_answer)} groups and must answer EVERY "
+                       f"one of them at once (conjunctive; doctrine 2). "
+                       f"Answering one and breaking another is not a fix.")
     if getattr(brief, "joint_conflict", False):
         out.append(
             f"{indent}NO JOINT CANDIDATE at "
@@ -441,6 +468,26 @@ def _attempt_block(attempt, reasons, indent="  "):
         out.append(f"{indent}No previous attempt was rejected on this line "
                    f"in this round.")
     return out
+
+
+def _place_phrase(slot_key):
+    """-> the phrase for a `Brief.group_slots` value: `None` is the end word,
+    a spelling is rendered by the one definition `slot_phrase` delegates to
+    (M-184)."""
+    if slot_key is None:
+        return "end word"
+    from quality import slots as _SL                   # noqa: PLC0415
+    # A `group_slots` value is the slot's SPELLING (`str(slot)`, e.g.
+    # `3.T4`), so it is parsed, never handed to `as_slot`, which reads a
+    # bare line number and raised on every spelled key — so every tier-2
+    # prompt of M-184's first day said "at its word at 3.T4", the fallback
+    # wearing the gloss's clothes (found 2026-09-01 by reading one, M-192).
+    try:
+        slot = (_SL.parse_slot(slot_key) if isinstance(slot_key, str)
+                else _SL.as_slot(slot_key))
+        return _SL.word_phrase(slot)
+    except Exception:                                  # noqa: BLE001
+        return f"word at {slot_key}"
 
 
 def slot_phrase(brief):
@@ -550,9 +597,17 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
         out.append(f"  other than the line end, and every rule below is "
                    f"about the {word_name}.")
     if getattr(brief, "slot_conflict", False):
-        out.append("  AND TWO DECLARED GROUPS LAND ON THAT ONE WORD, so no "
-                   "single word answers both:")
-        out.append("  the mandate, not the line, is what needs revising.")
+        # ~~"AND TWO DECLARED GROUPS LAND ON THAT ONE WORD, so no single word
+        # answers both: the mandate, not the line, is what needs revising."~~
+        # STRUCK 2026-09-01 (`MISSING.md` M-184): that sentence fired
+        # whenever the line bound at two DIFFERENT places, which is the case
+        # where two words answer two groups and nothing about the mandate is
+        # at fault. `slot_conflict` now means more than one of this line's
+        # places is VIOLATED, which is what the sentence below says.
+        out.append(f"  AND MORE THAN ONE PLACE ON THIS LINE IS VIOLATED — "
+                   f"the {word_name} is the first; the mandate block below "
+                   f"names the rest, and a rewrite must answer each at its "
+                   f"own word.")
     out.append("")
 
     out.append(f"THE WHOLE DRAFT (context — only L{line_no} may change)")
@@ -576,7 +631,24 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
     out.extend(_mandate_block(brief))
     out.append("")
 
-    out.append("OFFERED — words that answer every group above")
+    out.append(f"OFFERED — words for the {word_name} that answer every "
+               f"group bound there")
+    screened = _ordered(getattr(brief, "screened_out", ()) or ())
+    if screened:
+        # THE MENU IS SHORT BECAUSE THE BAN IS (`MISSING.md` M-185). Said
+        # before the list, because a writer reading a list of near rhymes
+        # under a call like `desire` needs to know that every true rhyme
+        # was refused from the rhyme's own side, not that none exists.
+        out.append(f"  {len(screened)} rhyming word(s) are NOT offered: the "
+                   f"call word sits in their own modal head, so taking one")
+        out.append(f"  files MODAL_RHYME from that side and re-opens this "
+                   f"line ({', '.join(str(w) for w in screened[:6])}"
+                   + (", …" if len(screened) > 6 else "") + ").")
+        if not candidates:
+            out.append("  A call word in the top ranks of its own family "
+                       "cannot be rhymed cleanly at all: the PARTNER line")
+            out.append("  has to move to a rarer word, or this line takes "
+                       "a near relation the mandate admits.")
     if candidates:
         out.extend(_offered_block(candidates, decl, note))
         out.append("  Offered, NOT required. The grader re-grades the rhyme "

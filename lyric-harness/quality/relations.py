@@ -6546,6 +6546,19 @@ def whole_vocabulary_pairs(text_lines, phon, sections=None, bearing=None):
         mark_refrain_tail(stream, lines=sorted(bearing))
     out = {}
     for name in sorted(REGISTRY):
+        # THE DEFAULT DOOR READS `normative` (2026-09-01, `MISSING.md`
+        # M-140 ruled under the owner's delegation). A schema the registry
+        # marks FORBIDDEN — `homoioteleuton`, the tier-1 ban itself — or
+        # DEPRECATED cannot SATISFY a mandate nobody narrowed: the same
+        # registry would be banning a pair on one page and admitting it on
+        # the next. Asking for such a schema BY NAME (`schema:…`) is
+        # untouched — the judge answers, and the name's own status is the
+        # writer's to read; only the silent default declines it. Measured
+        # exposure at ruling time: 0 pairs whose SOLE satisfier was a
+        # forbidden or deprecated schema (M-140), so no recorded verdict
+        # moves — this is what the default CLAIMS, made true.
+        if REGISTRY[name].normative in ("forbidden", "deprecated"):
+            continue
         ps = line_pairs_for(REGISTRY[name], stream, keep_refusal=False)
         for pair in ps:
             out.setdefault(pair, []).append(name)
@@ -6672,6 +6685,12 @@ def derive_drawable_schemas(phon=None):
     out = []
     for name in sorted(REGISTRY):
         sch = REGISTRY[name]
+        # A planner may not VOLUNTEER a schema the registry forbids or
+        # deprecates (M-140, 2026-09-01); none is drawable today on its own
+        # merits, and the rule is stated where the pool is derived so a
+        # future witness cannot certify one in by accident.
+        if sch.normative in ("forbidden", "deprecated"):
+            continue
         ps = line_pairs_for(sch, stream)
         if isinstance(ps, Refusal) or not ps:
             continue
@@ -6951,6 +6970,32 @@ DRAWABLE_SCHEMAS = (
     "semirhyme",
     "subtractive rhyme",
 )
+
+
+def audible_as_end_rhyme(schema):
+    """Would a listener hear this schema, drawn onto two line ENDS, as end
+    rhyme?  (`MISSING.md` M-192, the disclosure M-120 / RULINGS WANTED #6
+    asked for.)
+
+    DERIVED FROM THE REGISTRY, NOT A HAND LIST: both member spans read the
+    line-final token, and the schema REQUIRES the nucleus AND the coda to
+    AGREE. That is the phonological core of end rhyme — the vowel and what
+    follows it match at the line's last stressed syllable — and it is what
+    perfect rhyme, rime riche, monorhyme and the Scots vowel-length rhyme
+    declare. A schema that lets the nucleus DIFFER (consonance, pararhyme),
+    lets the coda differ (assonance), or binds anywhere but the line end
+    (anaphora, head rhyme, internal rhyme, chain rhyme) is a real relation
+    the grade judges correctly and NOT one a listener hears as the lines
+    rhyming. A record, never a gate (M-73): the planner discloses the share
+    of a plan's end-bound groups that draw an audible relation, and the
+    dice are untouched.
+    """
+    spans = (schema.spans[0], schema.spans[-1])
+    if not all(r.locus == "line_final_token" for r in spans):
+        return False
+    agree = {c.channel for c in schema.channels
+             if c.required and isinstance(c.predicate, Agree)}
+    return {"nucleus", "coda"} <= agree
 
 
 def line_pairs_for(schema, stream, keep_refusal=True):

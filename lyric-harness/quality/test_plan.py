@@ -37,6 +37,7 @@ Run: python3 quality/test_plan.py
 
 import ast
 import json
+import math
 import os
 import random
 import sys
@@ -1026,38 +1027,67 @@ def test_the_disclosure():
     # chorus mandatory so `first` was never None. Recurrence is not mandatory,
     # so both branches occur naturally and neither is asserted on a shape
     # nothing produces.
-    seen_with, seen_without, ok = False, False, True
-    for seed in range(40):
-        p = make_plan(seed=seed)
-        drawn = {}
-        for sec in p["sections"]:
-            drawn[sec["function"]] = drawn.get(sec["function"], 0) + 1
-        recurs = {fn for fn, n in drawn.items()
-                  if n > 1 and fn not in PLN.WORDLESS_FUNCTIONS}
-        want = next((s2["line"] for s2 in p["line_slots"]
-                     if s2["function"] in recurs), None)
-        got = p["hook_slot"]
-        if want is None:
-            ok = ok and got is None
-            seen_without = True
-        else:
-            # The slot must sit in a function drawn MORE THAN ONCE; which of
-            # them is preferred is the vocabulary's business (`returns_as`),
-            # so this asserts the INVARIANT rather than the preference order.
-            fn = next(s2["function"] for s2 in p["line_slots"]
-                      if s2["line"] == got) if got else None
-            ok = ok and got is not None and drawn.get(fn, 0) > 1
-            seen_with = True
-    check("hook_slot sits in a function this plan drew MORE THAN ONCE, and is "
-          "None when nothing recurs — BOTH branches exercised over the sweep, "
-          "neither asserted on a shape the planner cannot produce",
-          ok and seen_with and seen_without,
-          f"with {seen_with}, without {seen_without}")
+    # REPINNED 2026-09-01 (`MISSING.md` M-190): the `None` branch is no
+    # longer reachable over the sweep, ON PURPOSE. Every verse-chorus plan
+    # draws its chorus at least twice now (`FORM_RECURS`), so a plan in
+    # which nothing recurs is a shape the shipped planner cannot produce —
+    # and asserting the branch on one would be asserting on a shape nothing
+    # produces, the old check's own objection. The branch is exercised under
+    # the MUTATION that drops the recurrence rule, which is the planner as
+    # it stood before M-190; the "says WHY" check runs under the same
+    # mutation, because the shipped sweep has no hookless plan to ask it of.
+    def _hook_walk(seeds):
+        seen_with = seen_without = False
+        ok = why_ok = True
+        for seed in seeds:
+            p = make_plan(seed=seed)
+            drawn = {}
+            for sec in p["sections"]:
+                drawn[sec["function"]] = drawn.get(sec["function"], 0) + 1
+            recurs = {fn for fn, n in drawn.items()
+                      if n > 1 and fn not in PLN.WORDLESS_FUNCTIONS}
+            want = next((s2["line"] for s2 in p["line_slots"]
+                         if s2["function"] in recurs), None)
+            got = p["hook_slot"]
+            if want is None:
+                ok = ok and got is None
+                why_ok = why_ok and bool(p.get("hook_slot_refused"))
+                seen_without = True
+            else:
+                # The slot must sit in a function drawn MORE THAN ONCE; which
+                # of them is preferred is the vocabulary's business
+                # (`returns_as`), so this asserts the INVARIANT rather than
+                # the preference order.
+                fn = next(s2["function"] for s2 in p["line_slots"]
+                          if s2["line"] == got) if got else None
+                ok = ok and got is not None and drawn.get(fn, 0) > 1
+                seen_with = True
+        return ok, why_ok, seen_with, seen_without
+    ok, _why, seen_with, seen_without = _hook_walk(range(40))
+    check("hook_slot sits in a function this plan drew MORE THAN ONCE on "
+          "every seed of the sweep — and since M-190 NO plan lacks one, "
+          "because the form's chorus recurs by rule: the recurrence is what "
+          "makes the two hook flags askable of every plan",
+          ok and seen_with and not seen_without,
+          f"with {seen_with}, without {seen_without} (the None branch is "
+          f"unreachable by design under the shipped table)")
+    saved_recurs = dict(PLN.FORM_RECURS)
+    try:
+        PLN.FORM_RECURS.clear()
+        m_ok, m_why, _m_with, m_without = _hook_walk(range(40))
+    finally:
+        PLN.FORM_RECURS.clear()
+        PLN.FORM_RECURS.update(saved_recurs)
+    check("...and under the MUTATION that drops the recurrence rule the "
+          "None branch is reached and holds — BOTH branches exercised, "
+          "neither asserted on a shape nothing produces",
+          m_ok and m_without,
+          f"without {m_without} under the mutation")
     check("...and a plan declaring no hook says WHY, so 'nothing recurs' and "
           "'nobody asked' stop looking identical in an empty field "
-          "(doctrine 20)",
-          all(make_plan(seed=k).get("hook_slot_refused")
-              for k in range(40) if not make_plan(seed=k).get("hook_slot")),
+          "(doctrine 20) — asked under the same mutation, since the shipped "
+          "sweep has no such plan to ask",
+          m_why and m_without,
           f"declared forms: {PLN.PLAN_FORMS}")
 
     check("the writer brief carries shape and rhyme plan and NEVER names "
@@ -1362,7 +1392,7 @@ def test_the_form_is_read():
     print("\n8. the declared FORM is read by the sampler, not just printed")
 
     def _rate(n=200):
-        ok = seen = 0
+        ok = chorus = seen = 0
         for s in range(n):
             try:
                 pl = PLN.make_plan(s)
@@ -1370,30 +1400,54 @@ def test_the_form_is_read():
                 continue
             fns = [x["function"] for x in pl["sections"]]
             seen += 1
+            if "chorus" in fns:
+                chorus += 1
             if "verse" in fns and "chorus" in fns:
                 ok += 1
-        return ok, seen
+        return ok, chorus, seen
 
-    live_ok, live_n = _rate()
+    live_ok, _live_chorus, live_n = _rate()
     check("EVERY plan under the default form carries both a verse and a "
           "chorus — the two functions `FORM_REQUIRES` declares, measured "
           "178 of 178 on corpus/song/ before being written down",
           live_ok == live_n and live_n > 100,
           f"{live_ok}/{live_n}")
 
-    saved = dict(PLN.FORM_REQUIRES)
+    # THE FORM IS TWO TABLES SINCE M-190 (2026-09-01): `FORM_REQUIRES` names
+    # the members and `FORM_RECURS` the returner. Withdrawing the membership
+    # table alone no longer collapses the rate to the 8.3% this section was
+    # written against, because the recurrence table still holds the chorus
+    # in every plan — MEASURED 50/200 = 25.0% carrying both, 200/200
+    # carrying a chorus, which is the old `dead_ok * 4 < dead_n` pin failing
+    # by exactly the seeds the second table rescued. So the second table is
+    # pinned as load-bearing on its own, and the collapse the old check
+    # measured needs both withdrawn.
+    saved_req = dict(PLN.FORM_REQUIRES)
+    saved_rec = dict(PLN.FORM_RECURS)
     try:
         PLN.FORM_REQUIRES.clear()
-        dead_ok, dead_n = _rate()
+        half_ok, half_chorus, half_n = _rate()
+        PLN.FORM_RECURS.clear()
+        dead_ok, dead_chorus, dead_n = _rate()
     finally:
         PLN.FORM_REQUIRES.clear()
-        PLN.FORM_REQUIRES.update(saved)
-    check("...and WITHDRAWING the declaration collapses it, so the table is "
-          "load-bearing and not decoration the sampler would have satisfied "
-          "on its own",
-          dead_n and dead_ok * 4 < dead_n,
-          f"withdrawn: {dead_ok}/{dead_n} = {100.0 * dead_ok / max(dead_n, 1):.1f}%"
-          f"  vs declared {100.0 * live_ok / max(live_n, 1):.1f}%")
+        PLN.FORM_REQUIRES.update(saved_req)
+        PLN.FORM_RECURS.clear()
+        PLN.FORM_RECURS.update(saved_rec)
+    check("...withdrawing the MEMBERSHIP table alone leaves a chorus in "
+          "every plan — the recurrence table (M-190) holds it by itself — "
+          "while the verse goes",
+          half_n and half_chorus == half_n and half_ok < half_n,
+          f"membership withdrawn: chorus {half_chorus}/{half_n}, "
+          f"both {half_ok}/{half_n}")
+    check("...and WITHDRAWING both declarations collapses it, so the tables "
+          "are load-bearing and not decoration the sampler would have "
+          "satisfied on its own",
+          dead_n and dead_ok * 4 < dead_n and dead_chorus < dead_n,
+          f"both withdrawn: both {dead_ok}/{dead_n} = "
+          f"{100.0 * dead_ok / max(dead_n, 1):.1f}%, chorus "
+          f"{dead_chorus}/{dead_n}  vs declared "
+          f"{100.0 * live_ok / max(live_n, 1):.1f}%")
 
     check("the ORDER tendency is declared as a RATE and NOT enforced — 137 "
           "of 178 is a tendency, and a planner that refused the other 41 "
@@ -1425,6 +1479,7 @@ def test_the_planner_plans_the_whole_line():
     from collections import Counter
     import quality.schemes as SC
     places, part, overlap, sizes = Counter(), Counter(), 0, []
+    drawn = Counter()
     n = 0
     for seed in range(60):
         try:
@@ -1432,9 +1487,16 @@ def test_the_planner_plans_the_whole_line():
         except PlanRefused:
             continue
         n += 1
+        # THE END-RHYME PASS'S OWN GROUPS (M-107), read off its disclosure so
+        # the web draw's share can be counted apart from what the pass binds
+        # on top (doctrine 79).
+        added = set(pl["choices"]["end_rhyme"]["groups"])
         for g in pl["groups"].split(";"):
             for m in g.split(","):
-                places["end" if "." not in m else m.split(".", 1)[1]] += 1
+                where = "end" if "." not in m else m.split(".", 1)[1]
+                places[where] += 1
+                if g not in added:
+                    drawn[where] += 1
         m_ = SC.mandate([g.split(",") for g in pl["groups"].split(";")],
                         n_lines=pl["total_lines"])
         sizes.append(len(m_.groups))
@@ -1453,11 +1515,22 @@ def test_the_planner_plans_the_whole_line():
           and any(k.startswith("T") for k in places),
           f"{dict(places.most_common(6))}")
     end_share = places["end"] / max(1, sum(places.values()))
+    drawn_share = drawn["end"] / max(1, sum(drawn.values()))
+    # REPINNED 2026-09-01 (`MISSING.md` M-191): this pin read the share over
+    # ALL members and passed at ~24% because the end-rhyme pass (M-107) adds
+    # ends on top of a web draw that put `end` at 8.5%. The density cap
+    # draws FEWER web bindings a line, so the pass's additions are a larger
+    # share of a smaller whole (measured 28.3% over these seeds) — and the
+    # web draw, which is what this check is ABOUT, did not move. The two
+    # are counted apart now (doctrine 79) and the pin is on the draw.
     check("and `end` is ONE placement among them rather than the axis "
-          "everything is measured against — its share is near the uniform "
-          "share of the pool, which is the correction stated as a measure",
-          end_share < 0.25,
-          f"end at {end_share:.1%} of members over {n} plans")
+          "everything is measured against — the WEB DRAW's own share is near "
+          "the uniform share of the pool, which is the correction stated as "
+          "a measure; the end-rhyme pass then binds free ends ON TOP and is "
+          "counted apart",
+          drawn_share < 0.25,
+          f"web draw: end at {drawn_share:.1%} of its members; with the "
+          f"end-rhyme pass's additions {end_share:.1%}, over {n} plans")
     check("OVERLAPPING covers are reached by the DRAW. Doctrine 2 says "
           "maximal cliques may overlap and the mandate layer has always "
           "accepted them; the generator could not produce one, so that "
@@ -1647,23 +1720,47 @@ def test_the_joint_gate():
     # for.
     real_place = PLN._place_group
     blind_refused, blind_codes = 0, set()
+    blind_by_cap = {}
+    # THE CAP IS A PURE FUNCTION OF THE SEED (M-191: a stream of its own)
+    # and the mutation touches only `_place_group`, so the shipped plan's
+    # cap is the mutant's cap, refused or not.
+    caps = {k: make_plan(seed=k)["choices"]["density"]["binding_cap"]
+            for k in range(JOINT_SWEEP)}
     try:
         PLN._place_group = _place_group_keyed_on_the_name
         for k in range(JOINT_SWEEP):
             try:
                 make_plan(seed=k)
+                blind_by_cap.setdefault(caps[k], [0, 0])[1] += 1
             except PlanRefused as exc:
                 blind_refused += 1
+                blind_by_cap.setdefault(caps[k], [0, 0])[0] += 1
                 blind_codes |= {c for c in PLN.JOINT_CODES if c in str(exc)}
     finally:
         PLN._place_group = real_place
+    multi = [k for k in range(JOINT_SWEEP) if caps[k] >= 2]
+    multi_refused = sum(v[0] for c, v in blind_by_cap.items() if c >= 2)
+    single_refused = blind_by_cap.get(1, [0, 0])[0]
+    # REPINNED 2026-09-01 (`MISSING.md` M-191): this read `> JOINT_SWEEP //
+    # 2` over ALL seeds and measured 38/40 at M-80. Under the density cap a
+    # cap-1 line draws ONE web binding and has nothing to collide with, so
+    # the mutation's reach is a share of the seeds whose cap is 2 or more —
+    # measured 20 of 28, with 0 of the 12 cap-1 seeds — which is the cap
+    # working and not the gate sleeping. Pinned by cap, never summed.
     check("keying the collision test on the placement NAME instead of the "
-          "WORD makes `make_plan` REFUSE most seeds — so the repair is READ "
-          "and the sweep's 0 above is an answer, not a check that stopped "
-          "checking",
-          blind_refused > JOINT_SWEEP // 2,
+          "WORD makes `make_plan` REFUSE most seeds whose lines draw MORE "
+          "THAN ONE web binding — so the repair is READ and the sweep's 0 "
+          "above is an answer, not a check that stopped checking",
+          multi and multi_refused * 2 > len(multi) and blind_refused > 0,
           f"{blind_refused}/{JOINT_SWEEP} seeds refused when the word is "
-          f"spelled as a placement name")
+          f"spelled as a placement name: {multi_refused}/{len(multi)} of "
+          f"the seeds with cap >= 2, {single_refused}/"
+          f"{JOINT_SWEEP - len(multi)} with cap 1 (refused, planned by "
+          f"cap: {dict(sorted(blind_by_cap.items()))})")
+    check("...and NO cap-1 seed is refused by the mutation — one binding a "
+          "line cannot meet another, which is what the density coordinate's "
+          "cap of 1 says a line draws",
+          single_refused == 0, f"cap-1 refused {single_refused}")
     check("...and the cause it names is the collision, not something the "
           "mutation broke sideways",
           blind_codes == {"TWO_GROUPS_ONE_WORD"}, f"{sorted(blind_codes)}")
@@ -1998,11 +2095,23 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     check("the SONG band is a strict SUBSET of the union — this narrows "
           "what the planner volunteers, it does not widen it",
           song < union, f"song {len(song)} of union {len(union)}")
-    check("and it is CONTIGUOUS, where the union is not: the famous 6-11 "
-          "hole is the gap between a QUATRAIN and a SONNET and was never a "
-          "fact about songs",
-          _PL.line_count_gaps(song) == []
-          and _PL.line_count_gaps(union) != [],
+    # REPINNED 2026-09-01 (`MISSING.md` M-193): a SECOND lyric-sheet
+    # profile, `short` (50-150 tokens), reaches 6..20 lines, so the SONG
+    # set is {6..20} | {22..55} with ONE hole at the seam between the two
+    # calibrated bands (150 tokens at the band's lowest tokens-per-line is
+    # 20 lines; 200 at its highest is 22). The old claim — contiguous
+    # where the union is not — held for one band; the argument it made
+    # still holds: every hole is a fact about which BANDS were unioned,
+    # and this one is the seam between two, not a fact about songs. The
+    # union's own 6-11 and 18-21 holes are FILLED by the short band and
+    # it now carries the same single seam.
+    check("and its one hole is the SEAM between the two calibrated bands "
+          "(21 lines), where the union used to carry the quatrain-sonnet "
+          "and sonnet-song holes as well — every hole is a fact about which "
+          "bands were unioned, never about songs",
+          set(range(6, 21)) <= song and set(range(22, 56)) <= song
+          and 21 not in song and len(_PL.line_count_gaps(song)) == 1
+          and _PL.line_count_gaps(union) == _PL.line_count_gaps(song),
           f"song gaps {_PL.line_count_gaps(song)}, "
           f"union gaps {_PL.line_count_gaps(union)}")
     # ===================================================================
@@ -2066,12 +2175,21 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     ordered = sorted(reaches.items(), key=lambda kv: min(kv[1]))
     touching = [(a, b) for (a, ra), (b, rb) in zip(ordered, ordered[1:])
                 if max(ra) + 1 >= min(rb)]
-    check("...and the three reaches are pairwise DISJOINT and "
-          "NON-ABUTTING, which FORCES one hole per seam — so the union's "
-          "hole count is len(profiles) - 1, and the second hole (18-21) "
-          "exists because M-131's band lifted the song floor clear of the "
-          "sonnet ceiling it used to overlap at 17",
-          not touching and len(holes) == len(reaches) - 1 == 2,
+    # REPINNED 2026-09-01 (M-193): four reaches now — section 4-5, short
+    # 6-20, sonnet 12-17, song 22-55 — and two of the three seams TOUCH
+    # (section abuts short at 5|6; short overlaps the sonnet outright), so
+    # the general form of the claim is what is pinned: a hole per seam
+    # that is disjoint and non-abutting, i.e. holes == seams - touching.
+    # Under the old three-profile table that read 2 == 2 - 0; it reads
+    # 1 == 3 - 2 now, and the single survivor is the sonnet-song seam
+    # M-131 opened (18-21), narrowed to 21 by the short band from below.
+    check("...and the union's hole count is the number of seams between "
+          "adjacent reaches that neither touch nor overlap — one hole per "
+          "such seam — which reads 1 == 3 - 2 over four profiles: the short "
+          "band abuts the section's reach and overlaps the sonnet's, and "
+          "only the sonnet-song seam M-131 opened still stands open, at 21",
+          len(holes) == (len(reaches) - 1) - len(touching) == 1
+          and len(touching) == 2,
           f"{len(holes)} hole(s) {holes} over {len(reaches)} reaches "
           f"{ {k: (min(v), max(v)) for k, v in ordered} }; "
           f"touching {touching}")
@@ -2080,12 +2198,18 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # (doctrine 1). Proven by ASKING the table rather than by reading the
     # source: exactly the profiles with `n_lines == 0` must reach the band.
     lyric = [p for p in FL.PROFILES if not p.n_lines]
+    _tlo, _thi = _PL.tokens_per_line_band()
     check("the band is the reach of exactly the profile(s) declaring "
-          "`n_lines == 0` — a lyric sheet has no fixed line count, which is "
-          "the coordinate, not the string 'song'",
-          len(lyric) == 1 and min(song) >= 1
-          and max(song) == int(lyric[0].hi // _PL.tokens_per_line_band()[0]),
-          f"{[p.name for p in lyric]}, max {max(song)}")
+          "`n_lines == 0` — TWO since M-193, and the set is their union: "
+          "a lyric sheet has no fixed line count, which is the coordinate, "
+          "not the string 'song'",
+          len(lyric) == 2 and min(song) >= 1
+          and max(song) == max(int(p.hi // _tlo) for p in lyric)
+          and min(song) == min(math.ceil(p.lo / _thi) for p in lyric)
+          and song == set().union(*[
+              set(range(max(1, math.ceil(p.lo / _thi)), int(p.hi // _tlo) + 1))
+              for p in lyric]),
+          f"{[p.name for p in lyric]}, {min(song)}..{max(song)}")
 
     # MUTATION 1 — the band must be a FUNCTION of the song profile, not a
     # literal wearing a derivation (doctrine 48).
@@ -2843,6 +2967,222 @@ def test_the_overhang_group():
           fired2[0][2][:80] if fired2 else "did not fire")
 
 
+def test_the_delegated_rulings(FAILURES=None):
+    print("\n14. THE 2026-09-01 RULINGS UNDER DELEGATION — the chorus recurs "
+          "(M-190), the plan draws its own DENSITY (M-191), and three "
+          "disclosures the writer reads (M-192)")
+    # ===================================================================
+    # The owner, 2026-09-01: "I leave the answers to your capable hands and
+    # taste." Three planner rulings were taken under that delegation and
+    # each is pinned here the way an owner's ruling is pinned elsewhere in
+    # this suite — the table that carries it, the mutation that removes it,
+    # and the measurement that says what moved.
+    # ===================================================================
+    import re as _re
+    from quality import plan as _PL
+    SEEDS = range(1, 41)
+    plans = {k: make_plan(seed=k) for k in SEEDS}
+
+    # ── M-190: a verse-chorus plan draws its chorus at least twice ──
+    shipped = {k: [x["function"] for x in p["sections"]]
+               for k, p in plans.items()}
+    once = [k for k, fns in shipped.items() if fns.count("chorus") < 2]
+    check("M-190: every verse-chorus plan draws its CHORUS at least twice — "
+          "a chorus drawn once is a section with a chorus's name (grid.py: a "
+          "hook is defined by RETURN, one occurrence is a phrase), and the "
+          "two hook flags were unaskable on it; 6 of 16 banked songs "
+          "finished at exit 0 with no chorus",
+          once == [], f"seeds drawing one chorus: {once} over 1-40")
+    check("...declared in a table the form names, so a second form can "
+          "declare its own returner without touching the sampler",
+          _PL.FORM_RECURS.get("verse-chorus") == ("chorus",),
+          f"{_PL.FORM_RECURS}")
+    check("...and every plan in the sweep now carries a hook slot — the "
+          "consequence the ruling was for",
+          all(p["hook_slot"] is not None and not p.get("hook_slot_refused")
+              for p in plans.values()),
+          f"{sum(1 for p in plans.values() if p['hook_slot'])}/{len(plans)}")
+    # THE MUTATION HOLDS THE ENVELOPE STILL: `form_min_sections` reads
+    # `FORM_RECURS` too (M-193 derives the fillable floor from it), so
+    # clearing the table alone would move every seed's LENGTH draw and
+    # the moved set would be every seed. The count is pinned at the
+    # shipped 3 for the duration, so only the pattern rejection differs.
+    saved = dict(_PL.FORM_RECURS)
+    real_min = _PL.form_min_sections
+    try:
+        _PL.form_min_sections = lambda form: 3
+        _PL.FORM_RECURS.clear()
+        mutant = {k: [x["function"] for x in make_plan(seed=k)["sections"]]
+                  for k in SEEDS}
+    finally:
+        _PL.FORM_RECURS.clear()
+        _PL.FORM_RECURS.update(saved)
+        _PL.form_min_sections = real_min
+    m_once = [k for k, fns in mutant.items() if fns.count("chorus") < 2]
+    moved = [k for k in SEEDS if mutant[k] != shipped[k]]
+    check("...the MUTATION that empties the table brings the once-drawn "
+          "chorus back, so the rule is READ",
+          len(m_once) > 0, f"{len(m_once)} of 40 seeds draw one chorus "
+          f"without the rule")
+    check("...and EXACTLY the seeds whose first admissible pattern lacked a "
+          "second chorus moved — rejection sampling leaves every accepted "
+          "pattern byte-identical, so the rule costs no seed whose draw "
+          "already recurred (measured 28 moved, 12 same)",
+          set(moved) == set(m_once),
+          f"moved {len(moved)}, same {len(SEEDS) - len(moved)}; "
+          f"moved == once-drawn: {set(moved) == set(m_once)}")
+
+    # ── M-191: the plan draws its own density cap ──
+    caps = Counter(p["choices"]["density"]["binding_cap"]
+                   for p in plans.values())
+    ceilings = {k: _PL.line_binding_ceiling(_PL.plan_max_token(p))
+                for k, p in plans.items()}
+    check("M-191: every plan discloses a DENSITY cap, drawn uniform over "
+          "1..the line-binding ceiling — 1 is the classic end-rhyme song "
+          "with one web binding a line, the ceiling is the pre-ruling draw",
+          all(1 <= p["choices"]["density"]["binding_cap"] <= ceilings[k]
+              for k, p in plans.items())
+          and 1 in caps and len(caps) >= 3,
+          f"cap distribution over 1-40: {dict(sorted(caps.items()))}; "
+          f"ceilings {sorted(set(ceilings.values()))}")
+    check("...from a stream of its OWN, seeded on (seed, 'density'), so the "
+          "main stream is undisturbed and the cap is a pure function of the "
+          "seed",
+          all(p["choices"]["density"]["binding_cap"]
+              == random.Random(f"{k}:density").randint(1, ceilings[k])
+              for k, p in plans.items()))
+    bwpl = {k: _PL.SWEEP_MEASURES["bound_words_per_line"][1](p)
+            for k, p in plans.items()}
+    sparse = [k for k, v in bwpl.items() if v <= 1.5]
+    check("...and the SPARSE band the five listenable songs occupy (M-181: "
+          "<= 1.5 bound words a line) is REACHABLE — `plan --sweep=1-100 "
+          "--want=bound_words_per_line<=1.5` accepted 0 of 99 before the "
+          "ruling and 26 after",
+          len(sparse) > 0, f"{len(sparse)} of 40 seeds at <= 1.5: "
+          f"{sparse[:8]}")
+    by_cap = {}
+    for k, p in plans.items():
+        by_cap.setdefault(p["choices"]["density"]["binding_cap"], []).append(bwpl[k])
+    means = {c: sum(v) / len(v) for c, v in by_cap.items()}
+    check("...the cap MOVES the density it names: mean bound words a line "
+          "is lower at cap 1 than at the ceiling (measured 1.23 / 1.61 / "
+          "1.93 / 2.22 at caps 1-4 over seeds 1-100)",
+          means[min(means)] < means[max(means)],
+          f"mean bound_words_per_line by cap: "
+          f"{ {c: round(m, 2) for c, m in sorted(means.items())} }")
+    check("...and the sweep can ASK for it by name — `binding_cap` reads the "
+          "plan's own coordinate, so a writer selects the classic shape by "
+          "declaring it rather than by re-rolling",
+          all(_PL.SWEEP_MEASURES["binding_cap"][1](p)
+              == p["choices"]["density"]["binding_cap"]
+              for p in plans.values())
+          and "binding_cap" in _PL.SWEEP_MEASURES)
+
+    # ── M-192: three disclosures ──
+    aud = {n: RL.audible_as_end_rhyme(RL.REGISTRY[n])
+           for n in ("perfect rhyme", "rime riche", "consonance",
+                     "assonance", "anaphora")
+           if n in RL.REGISTRY}
+    check("M-192: `audible_as_end_rhyme` is DERIVED from the registry — both "
+          "spans at the line-final token and nucleus AND coda required to "
+          "agree — so perfect rhyme and rime riche are heard as end rhyme "
+          "and consonance, assonance and anaphora are not",
+          aud.get("perfect rhyme") is True and aud.get("rime riche") is True
+          and aud.get("consonance") is False and aud.get("assonance") is False
+          and aud.get("anaphora") is False, f"{aud}")
+    drawable_aud = [n for n in RL.DRAWABLE_SCHEMAS
+                    if RL.audible_as_end_rhyme(RL.REGISTRY[n])]
+    check("...and the drawable pool holds BOTH kinds, which is why the "
+          "disclosure is not vacuous: the dice can put an inaudible relation "
+          "on a line end",
+          0 < len(drawable_aud) < len(RL.DRAWABLE_SCHEMAS),
+          f"{len(drawable_aud)} of {len(RL.DRAWABLE_SCHEMAS)} drawable "
+          f"schemas audible as end rhyme: {drawable_aud}")
+    parts_ok = all(
+        p["choices"]["audible"] == _PL.audible_share(p)
+        and p["choices"]["audible"]["audible"]
+        + p["choices"]["audible"]["bare"]
+        + len(p["choices"]["audible"]["inaudible"])
+        == p["choices"]["audible"]["end_bound"]
+        for p in plans.values())
+    check("...every plan discloses its end-bound groups PARTITIONED — "
+          "audible / bare default / inaudible — and the partition is a pure "
+          "function of the emitted plan, never summed past itself "
+          "(doctrine 79)",
+          parts_ok and any(p["choices"]["audible"]["inaudible"]
+                           for p in plans.values())
+          and any(p["choices"]["audible"]["audible"] > 0
+                  for p in plans.values()))
+    legend_ok, cap_ok, headers_ok = True, True, True
+    for k, p in plans.items():
+        brief = p["writer_brief"]
+        plcs = {m.strip().split(".", 1)[1]
+                for g in p["groups"].split(";") for m in g.split(",")
+                if "." in m}
+        names = {v.split(":", 1)[1] for v in (p.get("relations") or {}).values()}
+        if plcs:
+            legend_ok = legend_ok and "Where a binding sits" in brief and all(
+                f"  {pl}: " in brief for pl in plcs)
+        if names:
+            legend_ok = legend_ok and "What each named relation asks" in brief
+            for nm in names:
+                sch = RL.REGISTRY.get(nm)
+                if sch is None:
+                    continue
+                legend_ok = legend_ok and f"  {nm}" in brief
+                if not RL.audible_as_end_rhyme(sch):
+                    legend_ok = legend_ok and "NOT heard as end rhyme" in brief
+        lines_b = brief.splitlines()
+        hdr = [i for i, l in enumerate(lines_b)
+               if _re.match(r"^  \[[A-Z]", l) and l.rstrip().endswith("]")]
+        headers_ok = headers_ok and len(hdr) == len(p["sections"])
+        for i, sec in zip(hdr, p["sections"]):
+            slots = [s for s in p["line_slots"] if s["section"] == sec["name"]]
+            headers_ok = headers_ok and "syllable" not in lines_b[i]
+            if not slots:
+                continue
+            capn = int(_PL.line_syllable_ceiling(
+                slots[0]["duration"] * p["subdivision"]))
+            exp = (f"      up to {capn} syllables a line after the pickup; "
+                   f"the calibrated band asks at least "
+                   f"{MB.ADOPTED['DENSITY'][0]}")
+            cap_ok = cap_ok and lines_b[i + 1] == exp
+    check("...the brief carries a LEGEND: every place a group names and "
+          "every relation it draws is glossed, derived from the slot "
+          "vocabulary and the registry, with an inaudible relation saying "
+          "so — the brief used to name `T5`, `headrime` and `Scots "
+          "vowel-length rhyme` with no gloss anywhere a writer could reach",
+          legend_ok)
+    check("...and the number SLOTS_EXCEEDED grades against is printed UNDER "
+          "every sung section's bracket — the ceiling of syllables a line "
+          "after the pickup beside the band's floor — and never INSIDE it: "
+          "the bracket is the measurement carrier every gate reads byte for "
+          "byte (M-97)",
+          cap_ok and headers_ok)
+
+    # ── M-193: the envelope is what the FORM can fill ──
+    need = _PL.form_min_sections("verse-chorus")
+    fill = _PL.fillable_line_counts("verse-chorus")
+    grade = _PL.song_line_counts()
+    check("M-193: the form's minimum section count is DERIVED from its two "
+          "tables — verse once, chorus twice — and not typed",
+          need == 3, f"{need}")
+    check("...the planner's line envelope is the gradeable set restricted "
+          "to totals whose stanza-sized cell ceiling can hold that many "
+          "sections, so a total the pattern draw would reject on every "
+          "attempt is never drawn: the short profile (M-193) took the "
+          "gradeable set to 6 lines and the fillable floor is 12",
+          fill <= grade and min(fill) == 12 and min(grade) == 6
+          and all(max(1, t // _PL.stanza_line_floor()) >= need for t in fill)
+          and ENVELOPE["total_lines"] == (min(fill), max(fill)),
+          f"gradeable {min(grade)}..{max(grade)}, fillable {min(fill)}.."
+          f"{max(fill)} ({len(fill)} values), envelope "
+          f"{ENVELOPE['total_lines']}")
+    check("...and every plan in the sweep drew a fillable total",
+          all(p["total_lines"] in fill for p in plans.values()),
+          f"totals {sorted(set(p['total_lines'] for p in plans.values()))}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_planner_plans_the_whole_line,
                test_determinism, test_refusals, test_the_round_trip,
@@ -2853,7 +3193,8 @@ if __name__ == "__main__":
                test_the_song_length_is_the_songs_own,
                test_the_end_rhyme_pass_is_additive,
                test_the_relation_draw, test_the_bound_share,
-               test_the_grade_it_line_runs, test_the_overhang_group):
+               test_the_grade_it_line_runs, test_the_overhang_group,
+               test_the_delegated_rulings):
         fn()
     print("=" * 62)
     if FAILURES:

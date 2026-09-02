@@ -218,11 +218,22 @@ def measure(sampler, lex, decl, phon=None, schema=True):
             out["refused"] += 1
         else:
             out["judged"] += 1
-            if L.admits(s, decl.theta_rhyme, wide):
+            # `theta_for`, NOT `decl.theta_rhyme` — REPOINTED 2026-09-02.
+            # This module's whole subject is "how often does the SHIPPED door
+            # call two random words a rhyme", and since the near-relation
+            # pricing landed (`MISSING.md` M-138) the shipped door cuts
+            # ASSONANCE at its own threshold. A flat 0.75 here would be this
+            # instrument measuring a door that no longer exists — which is
+            # verbatim M-139, and verbatim the defect M-138 names in
+            # `redteam_band.py` and `negative_control.py`. The NARROW arm is
+            # the CONTROL that this repointing moved only what it should:
+            # RHYME and RIME_RICHE carry no per-relation cut, so `theta_for`
+            # returns `theta_rhyme` for them and that band is byte-identical.
+            if L.admits(s, L.theta_for(s, decl), wide):
                 out["admit"] += 1
                 out["relations"][s["relation"]] += 1
                 by_admit = True
-            if L.admits(s, decl.theta_rhyme, narrow):
+            if L.admits(s, L.theta_for(s, decl), narrow):
                 out["narrow"] += 1
         if not schema:
             continue
@@ -257,7 +268,24 @@ def rate(m, key):
 #: `python3 battery.py` prints `mandated 1064, judged 1014, refused 50` and
 #: `violations 12`). Stated as a coordinate rather than a literal in prose so
 #: a battery repin moves this file's ratio too.
-CANON_VIOLATIONS, CANON_JUDGED = 12, 1014
+#:
+#: REPINNED 2026-09-02 from ~~12~~ (doctrine 17), and the reason is THIS
+#: FILE'S OWN MEASUREMENT arriving back at it. The near-relation pricing
+#: (`MISSING.md` M-138, `quality/NEAR_RELATION_PRICING_PREREGISTRATION.md`)
+#: read the ASSONANCE arm off `GRID` at 3.99x..4.92x this rate, adopted a
+#: 0.82 cut on the preregistered sweep, and the two sonnet pairs that cut
+#: refuses are the +2. The denominator `judged` cannot move — a refusal is
+#: an ingestion verdict and a band cut cannot reach it (doctrine 79).
+#:
+#: **THE ADOPTION IS STABLE UNDER ITS OWN REPIN, AND THAT IS CHECKED RATHER
+#: THAN ASSUMED.** The cut was chosen against the OLD canon rate 12/1014
+#: = 1.18%, and repinning the denominator of the statistic that chose it is
+#: exactly the shape of a calibration that argues in a circle. At 14/1014 =
+#: 1.38% the adopted ASSONANCE cut reads **1.32x..1.56x** where the target
+#: was 2x — still under it on every cell, so the adoption does not depend on
+#: the number it moved. Had it not held, the cut would have been REFUSED
+#: rather than re-swept (doctrine 58).
+CANON_VIOLATIONS, CANON_JUDGED = 14, 1014
 CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 
 #: THE BAND, adopted over `GRID` (doctrine 57: a figure from a sampler is
@@ -273,8 +301,31 @@ CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 #: HELD, which is the control that the sampler and the other two doors did
 #: not move. A higher chance rate is a fact about the door and stays
 #: unpriced exactly as M-138/M-140 record.
+#: `admit` REPINNED 2026-09-02 from ~~(289, 339)~~ (doctrine 17), and this
+#: one moved because THE DOOR MOVED rather than because the sampler did.
+#: `MISSING.md` M-138's pricing put a per-relation cut on the near relations
+#: (`Declaration.theta_by_relation`, ASSONANCE 0.82), and `measure` above now
+#: asks `theta_for` — so this arm measures the shipped door again instead of
+#: a flat 0.75 that no longer exists anywhere. Measured 173..193 over the
+#: same grid at the same seed. The door's whole-arm ratio falls
+#: ~~6.1x–7.2x~~ -> **3.1x–3.5x** of the canon arm.
+#:
+#: TWO CONTROLS SAY THE REPOINTING MOVED ONLY WHAT IT SHOULD, and they are
+#: why this is a door move and not a sampler move: `narrow` HELD at 36..46
+#: (RHYME and RIME_RICHE carry no per-relation cut, so `theta_for` returns
+#: `theta_rhyme` for them and that arm is byte-identical) and `schema` HELD
+#: at 960..994 (a different door entirely, untouched by this pricing).
+#:
+#: **3.1x–3.5x IS NOT A FOURTH RELATION'S RATIO AND MUST NOT BE READ AS ONE**
+#: (doctrine 79). The 2x target the pricing adopted against was declared PER
+#: RELATION and each relation meets it — ASSONANCE 1.32x–1.56x, CONSONANCE
+#: 1.01x–1.27x, RHYME 0.65x–0.83x at the repinned canon arm, every one under
+#: the 2x target and printed by `--check` rather than typed. This arm is
+#: their SUM over one draw, so it sits above 2x while none of its members
+#: does, exactly as three rates under a ceiling can add past it. The
+#: per-relation figures are `quality/near_relation_pricing.py`'s.
 ADOPTED = {
-    "admit": (289, 339),
+    "admit": (173, 193),
     "narrow": (36, 46),
     "schema": (960, 994),
 }
@@ -519,9 +570,18 @@ def _print(m, decl):
         ratio = "" if r is None else f"   {r / CANON_RATE:5.2f}x canon"
         print(f"    {key.upper():<7}{m[key]:>6} {shown}{ratio}   {gloss}")
     if m["relations"]:
+        # PER RELATION, WITH ITS OWN RATIO — because the ADMIT total is a SUM
+        # over these and a sum of rates under a ceiling can sit above it
+        # (doctrine 79). The pricing that set these cuts was adopted per
+        # relation, so the per-relation ratio is the figure it is answerable
+        # to and the one a reader should be able to run rather than trust.
         print("    ADMIT by relation : "
-              + "  ".join(f"{k}={v}" for k, v in
-                          sorted(m["relations"].items())))
+              + "  ".join(
+                  f"{k}={v} ({v / m['judged'] / CANON_RATE:.2f}x)"
+                  for k, v in sorted(m["relations"].items()))
+              + f"   [cut: " + ", ".join(
+                  f"{k} {v}" for k, v in
+                  sorted(decl.theta_by_relation.items())) + "]")
     if m["schema_names"]:
         top = m["schema_names"].most_common(8)
         print("    SCHEMA top names  : "

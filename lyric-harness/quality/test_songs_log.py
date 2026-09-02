@@ -74,14 +74,14 @@ def test_an_unparseable_command_is_refused_not_banked():
     print("\n2. two refusals — no parser, and a parser that read nothing")
     check("an undeclared verb has no parser key", L.verb_of(
         ["python3", "lyric_harness.py", "density", "x.txt"]) is None)
-    rc, out = run(["quality/song_log.py", "--record", "__probe__.txt", "--",
+    rc, out = run(["quality/song_log.py", "--record", "__probe__.txt", "--allow-dirty", "--",
                    "python3", "lyric_harness.py", "density", "songs/one_more.txt"])
     check("...and `--record` REFUSES it at exit 2 rather than banking an "
           "invocation nothing read", rc == 2 and "REFUSED" in out,
           out.strip().splitlines()[0] if out.strip() else f"rc={rc}")
     check("...naming the declared vocabulary, so the refusal is actionable",
           "screen" in out and "revise" in out)
-    rc2, out2 = run(["quality/song_log.py", "--record", "__probe__.txt", "--",
+    rc2, out2 = run(["quality/song_log.py", "--record", "__probe__.txt", "--allow-dirty", "--",
                      "python3", "lyric_harness.py", "screen"])
     check("a DECLARED verb whose output the parser reads nothing from is "
           "refused too — the verb's output moved, and a silent empty row "
@@ -250,13 +250,233 @@ def test_the_citation_is_word_keyed_and_refuses_ambiguity():
               out.strip().splitlines()[-1] if out.strip() else f"rc={rc}")
 
 
+def test_the_finish_stamp_has_a_parser():
+    print("\n7. `finish` — the working order's LAST verb — has a declared "
+          "parser, and it reads the stop stamp in both spellings "
+          "(`MISSING.md` M-196)")
+    from quality import song_log as SL
+    check("`finish` is a declared parser, beside `revise`",
+          "finish" in SL.PARSERS and "revise" in SL.PARSERS,
+          f"{sorted(SL.PARSERS)}")
+    seeded = ("revise_loop: no_progress after 2 round(s)\n"
+              "PAIRS: mandated 6, judged 6, refused 0\n\n"
+              "  [FINISHED — seed 22 — exit 3 — NO_PROGRESS after 2 round(s) "
+              "— UNRESOLVED: L2, L4 — WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK]\n")
+    facts = dict(SL.PARSERS["finish"](seeded))
+    check("a seeded stamp yields the seed, the exit, the stop, the round "
+          "count, the open-line count and the whole-draft count — the same "
+          "six the connector's extractor reads",
+          facts.get("stamp_seed") == "22" and facts.get("stamp_exit") == "3"
+          and facts.get("stop_reason") == "NO_PROGRESS"
+          and facts.get("rounds") == "2" and facts.get("unresolved") == "2"
+          and facts.get("whole_flags") == "1" and facts.get("mandated") == "6",
+          f"{facts}")
+    unseeded = ("  [FINISHED — declared mandate — exit 0 — SUCCESS after "
+                "1 round(s) — no flag stands]\n")
+    f2 = dict(SL.PARSERS["revise"](unseeded))
+    check("a pasted song's stamp (M-195) reads with `declared mandate` in "
+          "the seed's place, through the `revise` parser that verb prints "
+          "it from",
+          f2.get("stamp_seed") == "declared mandate"
+          and f2.get("stamp_exit") == "0" and f2.get("unresolved") == "0"
+          and f2.get("whole_flags") == "0", f"{f2}")
+    check("no stamp, no stamp facts — absent is not zero (doctrine 79)",
+          not any(k.startswith("stamp_") for k, _ in
+                  SL.PARSERS["revise"]("revise_loop: success after 1 round(s)\n")))
+    check("the README claim gate can resolve a `finish` sentence",
+          any(verb == "finish" for _rx, verb, _keys in SL.CLAIMS))
+
+
+DRAFT_PROBE = "__draft_probe__.txt"
+PROBE_LINES = ["The kettle keeps a rumour of the rain",
+               "I hold the door a beat behind the sound",
+               "You said the word and left it on the drain",
+               "The kitchen took the weather and stayed round"]
+
+
+def _clean_probe():
+    import glob as _g
+    for p in [L.log_path(DRAFT_PROBE)] + _g.glob(
+            L.draft_path(DRAFT_PROBE, "*")):
+        if os.path.exists(p):
+            os.remove(p)
+
+
+def test_the_bytes_behind_the_md5_are_banked():
+    """8. THE VERB THAT GRADES A DRAFT BANKS WHAT IT GRADED.
+
+    `MISSING.md` M-196's 2026-09-02 addendum, and M-168's "THE BAN AGAINST
+    THE BANK" that found it: the log banked an md5 of what was graded and not
+    the bytes, so crooked_waltz step 19 `29697fccfe8d` is PROVABLE and
+    unreadable, and two songs' graded mandates were recoverable from nowhere.
+
+    The danger in the repair is the danger in every rule written after the
+    history it judges. Sixteen songs are already banked with no drafts behind
+    them; a rule that goes red on them is unshippable, and a rule that passes
+    everything silently is worse than none. So the gate reports FOUR counts
+    and is red on ONE: what was banked, what is RECOVERABLE from the
+    committed lyric, what is LOST before the mechanism existed (kept visible,
+    doctrine 17), and what was recorded after it and is missing anyway.
+    """
+    print("\n8. the drafts behind the md5s — banked, recoverable, lost and "
+          "failing, and only the last is red (`MISSING.md` M-196)")
+    src = open(os.path.join(ROOT, "quality", "song_log.py"),
+               encoding="utf-8").read()
+    check("the discriminator is a DECLARED date, not a list of "
+          "grandfathered rows — a list would need editing every time a row "
+          "joined it, and an exception list nobody maintains is no gate",
+          re.search(r'DRAFT_BANKING_SINCE = "\d{4}-\d{2}-\d{2}"', src) is not
+          None, L.DRAFT_BANKING_SINCE)
+    all_md5 = [(s, r) for s in sorted(os.path.basename(p) for p in R.songs())
+               for r in L.read_log(s)
+               if r["fact"] in ("md5", "md5_in", "md5_out")]
+    check("...and it actually separates the bank in two — every md5 row the "
+          "sixteen songs carry was measured BEFORE it, so no banked row sits "
+          "on the boundary where the rule cannot decide",
+          all_md5 and all(r["measured"] < L.DRAFT_BANKING_SINCE
+                          for _s, r in all_md5),
+          f"{len(all_md5)} md5 row(s), latest "
+          f"{max(r['measured'] for _s, r in all_md5)}")
+    rc, out = run(["quality/song_log.py", "--drafts"])
+    m = re.search(r"(\d+) BANKED, (\d+) RECOVERABLE.*?, (\d+) LOST.*?, "
+                  r"(\d+) FAILING", out)
+    check("`--drafts` PASSES on the committed tree — history is not made red "
+          "by a check written after it", rc == 0 and bool(m),
+          out.strip().splitlines()[-1] if out.strip() else f"rc={rc}")
+    check("...and it examined the whole census rather than nothing: the four "
+          "buckets PARTITION the md5 rows, so a row cannot fall out unseen "
+          "(the counts are never summed as a RATE — this is bookkeeping "
+          "that every row landed somewhere)",
+          bool(m) and sum(int(m.group(i)) for i in (1, 2, 3, 4)) == len(all_md5),
+          f"{m.group(0) if m else 'no count line'} vs {len(all_md5)} md5 rows")
+    # THE FINDING, AS A NUMBER. M-168 named these three md5s in prose; the
+    # gate names them as a bucket, which is the difference between a sentence
+    # and a measurement.
+    lost = set(re.findall(r"^  LOST\s+(\S+) (\w+)", out, re.M))
+    check("...and the LOST bucket is exactly the drafts M-168 named — "
+          "crooked_waltz 19, matinee 54/55, the_long_way_back 2 — no more "
+          "and no fewer",
+          lost == {("crooked_waltz.txt", "29697fccfe8d"),
+                   ("matinee.txt", "707c48614794"),
+                   ("matinee.txt", "04065bbbcdd9"),
+                   ("the_long_way_back.txt", "687eaa34c949")},
+          f"{sorted(lost)}")
+    check("the fingerprint is BORROWED from the grader's own definition and "
+          "never respelled here, so a draft file's name cannot come to mean "
+          "something the report does not (doctrine 1)",
+          "from quality.revise import draft_fingerprint" in src
+          and "hashlib" not in src)
+
+    # ---- end to end: a real grading verb, recorded, on a scratch draft
+    import tempfile
+    _clean_probe()
+    tmpd = tempfile.mkdtemp()
+    lyric = os.path.join(tmpd, "probe.txt")
+    with open(lyric, "w", encoding="utf-8") as f:
+        f.write("[Verse]\n" + "\n".join(PROBE_LINES) + "\n")
+    try:
+        rc, out = run(["quality/song_log.py", "--record", DRAFT_PROBE,
+                       "--allow-dirty", "--", "python3", "lyric_harness.py",
+                       "brief", lyric, "--groups=1,3;2,4", "--returns=2,4",
+                       "--relations=A:class:RHYME"])
+        facts = {r["fact"]: r["value"] for r in L.read_log(DRAFT_PROBE)}
+        check("a real grading verb recorded through `--record` banks its "
+              "input's bytes", rc == 0 and "draft_file" in facts,
+              facts.get("draft_file", out.strip()[-200:]))
+        printed = facts.get("md5")
+        want = L.draft_path(DRAFT_PROBE, printed or "none")
+        check("...at the name the verb's OWN printed fingerprint gives, so "
+              "the file and the log fact agree BY CONSTRUCTION",
+              printed and os.path.exists(want)
+              and facts["draft_file"] == os.path.relpath(want, ROOT),
+              f"md5 {printed} -> {facts.get('draft_file')}")
+        from quality.revise import draft_fingerprint
+        import lyric_harness as LH
+        back = LH.load_lyric_lines(want) if os.path.exists(want) else []
+        check("...and a later reader who loads that file gets the same "
+              "population back, so the same bytes can be graded again — "
+              "which is the entire point of banking them",
+              back == PROBE_LINES and draft_fingerprint(back) == printed,
+              f"{len(back)} line(s), {draft_fingerprint(back) if back else '-'}")
+        check("...with the section marker DROPPED, because what is banked is "
+              "what was GRADED and the grader never saw it",
+              "[Verse]" not in open(want, encoding="utf-8").read()
+              if os.path.exists(want) else False)
+        check("the MANDATE it ran under is banked too, VERBATIM off the argv "
+              "— the fact whose absence made `oar_lair.txt`'s graded mandate "
+              "unrecoverable",
+              facts.get("mandate_groups_text") == "1,3;2,4"
+              and facts.get("mandate_returns_text") == "2,4"
+              and facts.get("mandate_relations_text") == "A:class:RHYME",
+              f"{facts.get('mandate_groups_text')!r} / "
+              f"{facts.get('mandate_returns_text')!r} / "
+              f"{facts.get('mandate_relations_text')!r}")
+        check("...beside the whole command, so a coordinate this file has "
+              "not learned the name of is still on record",
+              "lyric_harness.py brief" in facts.get("command", ""),
+              facts.get("command", "")[:80])
+        check("...and `mandate_groups_text` is NOT `mandate_groups`, which "
+              "the same row banks as an integer COUNT — one register, two "
+              "quantities, two names (doctrine 1)",
+              facts.get("mandate_groups") == "2"
+              and facts.get("mandate_groups_text") == "1,3;2,4")
+        rc, out = run(["quality/song_log.py", "--drafts"])
+        check("...and the gate reads the new row as BANKED",
+              rc == 0 and re.search(r"^  BANKED\s+" + re.escape(DRAFT_PROBE),
+                                    out, re.M) is not None,
+              out.strip().splitlines()[-1] if out.strip() else f"rc={rc}")
+        # ---- THE MUTATION: the bytes go away, the gate goes red
+        held = open(want, encoding="utf-8").read()
+        os.remove(want)
+        rc2, out2 = run(["quality/song_log.py", "--drafts"])
+        check("DELETING the banked draft turns the gate RED at exit 3 and "
+              "names the row — a check that cannot fail is not a check",
+              rc2 == 3 and "FAILING" in out2 and DRAFT_PROBE in out2,
+              out2.strip().splitlines()[-1] if out2.strip() else f"rc={rc2}")
+        check("...and it fails as FAILING rather than as LOST, because the "
+              "row was recorded on or after the mechanism's own date — "
+              "which is the whole discriminator working",
+              re.search(r"^  FAILING\s+" + re.escape(DRAFT_PROBE), out2, re.M)
+              is not None
+              and "6 LOST" in out2,
+              [l for l in out2.splitlines() if DRAFT_PROBE in l][:1])
+        with open(want, "w", encoding="utf-8") as f:
+            f.write(held)
+        rc3, _ = run(["quality/song_log.py", "--drafts"])
+        check("...and restoring the bytes restores the PASS", rc3 == 0)
+        # ---- the refusals, which write nothing rather than guess
+        got, why = L.lyric_arg(["python3", "lyric_harness.py", "verify",
+                                "songs/one_more.txt", "songs/stay_awake.txt"])
+        check("two positional drafts REFUSE rather than pick one — a wrong "
+              "file banked under a right-looking name is the one outcome "
+              "this mechanism exists to prevent",
+              got is None and why and "not guessed" in why, why or f"{got!r}")
+        rel, why2 = L.bank_draft(DRAFT_PROBE, "song",
+                                 ["python3", "lyric_harness.py", "song",
+                                  "bp.json", lyric], [("lines", "4")])
+        check("a verb that printed NO fingerprint gets NO file, and the "
+              "reason is said rather than an md5 invented for it",
+              rel is None and why2 and "no draft fingerprint" in why2,
+              why2 or f"{rel!r}")
+    finally:
+        _clean_probe()
+        import shutil
+        shutil.rmtree(tmpd, ignore_errors=True)
+    check("...and the probe leaves no residue — no log, no draft file",
+          not os.path.exists(L.log_path(DRAFT_PROBE)))
+    rc4, _ = run(["quality/song_log.py", "--drafts"])
+    check("...and the committed tree is back to PASS", rc4 == 0)
+
+
 if __name__ == "__main__":
     for t in (test_every_song_has_a_log_and_the_shape_holds,
               test_an_unparseable_command_is_refused_not_banked,
               test_the_row_is_what_the_verb_printed,
               test_the_claim_gate_is_two_sided,
               test_it_records_and_does_not_grade,
-              test_the_citation_is_word_keyed_and_refuses_ambiguity):
+              test_the_citation_is_word_keyed_and_refuses_ambiguity,
+              test_the_finish_stamp_has_a_parser,
+              test_the_bytes_behind_the_md5_are_banked):
         t()
     print("\n" + "=" * 62)
     if FAILURES:

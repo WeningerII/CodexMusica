@@ -27,9 +27,22 @@
 # run (that commit carries the merge's source and gets its own CI); that is a
 # few minutes of latency, not a missed deploy.
 #
+# THE SECOND QUESTION, ASKED ONLY AFTER THE FIRST (2026-09-02, `MISSING.md`
+# M-187 (b)): is this sha the one Render was LAST ASKED to build? Five deploys
+# of one sha in 38 h (deploy runs #22-#26) were four crons and a dispatch, and
+# the workflow's `event == 'push'` condition stood those down; what it could
+# not stand down was a RE-RUN of a push's CI run, which keeps the push event
+# and redeploys the same tree once more. The optional LAST_DEPLOYED_SHA is
+# what scripts/last_deployed_sha.sh read off this workflow's own run history
+# — the last run whose `Deploy` step concluded success. Equal means Render
+# has already been asked for exactly this tree, so asking again restarts the
+# live process (and its in-memory spend counter, render.yaml's own caveat) to
+# serve the bytes it is serving. UNSET means UNKNOWN and deploys: an absent
+# record is never read as a match (doctrine 20), and the caller says so.
+#
 # Exits 0 to deploy, 10 to stand down. Any other non-zero is a real error.
 #
-# Usage: BUILT_SHA=<sha> scripts/deploy_guard.sh [--verbose]
+# Usage: BUILT_SHA=<sha> [LAST_DEPLOYED_SHA=<sha>] scripts/deploy_guard.sh [--verbose]
 
 set -euo pipefail
 
@@ -53,7 +66,24 @@ BUILT=$(git rev-parse "$BUILT_SHA^{commit}")
 TIP=$(git rev-parse "origin/main^{commit}")
 
 if [ "$BUILT" = "$TIP" ]; then
-  [ "$VERBOSE" = 1 ] && echo "deploy_guard: $BUILT is the tip of main — deploying."
+  if [ -n "${LAST_DEPLOYED_SHA:-}" ] && [ "$BUILT" = "$LAST_DEPLOYED_SHA" ]; then
+    echo "deploy_guard: STAND DOWN — $BUILT is the tip of main AND the last sha Render was asked to build."
+    echo "  Asking again would rebuild and restart the live process to serve the tree"
+    echo "  it is already serving (and reset the in-memory spend counter with it)."
+    echo "  A build Render accepted and then lost is re-asked by workflow_dispatch,"
+    echo "  which skips this check on purpose."
+    echo "  built:         $BUILT"
+    echo "  last accepted: $LAST_DEPLOYED_SHA"
+    exit 10
+  fi
+  if [ "$VERBOSE" = 1 ]; then
+    echo "deploy_guard: $BUILT is the tip of main — deploying."
+    if [ -z "${LAST_DEPLOYED_SHA:-}" ]; then
+      echo "  (no last-accepted sha on record or none supplied — the same-sha check did not run)"
+    else
+      echo "  last accepted: $LAST_DEPLOYED_SHA (differs)"
+    fi
+  fi
   exit 0
 fi
 

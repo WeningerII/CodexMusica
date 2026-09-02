@@ -288,6 +288,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
           stop: c.loop_stop_reason,
           rounds: c.loop_rounds,
           unresolved: c.loop_unresolved ?? null,
+          whole_flags: c.loop_whole_flag_codes ?? null,
           answers: c.answers_on_record ?? null,
         });
       }

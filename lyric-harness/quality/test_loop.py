@@ -290,9 +290,19 @@ def test_success_stop():
     # RESTATED 2026-08-17 under MANDATORY PURSUIT: the loop now also fixes
     # the two lines carrying only a MODAL_RHYME note, because success while
     # one stands is unreportable (owner's order — see loop.MANDATORY_PURSUE).
-    check("both flagged lines AND both mandatory-pursued lines were fixed",
-          set(res.rounds[0].fixed_lines) == {1, 2, 3, 4},
-          f"fixed {res.rounds[0].fixed_lines}")
+    # REPINNED 2026-09-01 (`MISSING.md` M-185) from ~~{1, 2, 3, 4}~~: the
+    # offer is screened from the offered word's OWN side now, so the word
+    # the stub takes for L1 no longer re-opens L3 as a MODAL_RHYME pair — it
+    # dissolves L3's pursued note, and L3 is CLOSED BY L1's MOVE (re-briefed
+    # mid-round, `resolved_elsewhere`) rather than fixed on its own turn.
+    # MEASURED: fixed [1, 2], resolved elsewhere [3], nothing unresolved,
+    # and the fresh-Reviser re-check below still finds no flag.
+    check("both flagged lines were fixed, and the pursued lines were closed "
+          "by those fixes rather than re-opened by them",
+          set(res.rounds[0].fixed_lines) == {1, 2}
+          and 3 in res.rounds[0].resolved_elsewhere,
+          f"fixed {res.rounds[0].fixed_lines}, resolved elsewhere "
+          f"{res.rounds[0].resolved_elsewhere}")
     check("no line left unresolved", res.unresolved == [])
     R2 = Reviser()
     final = R2.brief(res.lines, "ABAB")
@@ -342,13 +352,20 @@ def test_round_limit_stop():
     # that flagged L2, so L2 is closed by its partner's repair — and L4's
     # replacement word is itself directionally modal, so L4 is the line the
     # round leaves standing. Measured, not narrated: doctrine 58.
+    # REPINNED 2026-09-01 (`MISSING.md` M-185) from ~~[1, 3, 4]~~ / ~~L4
+    # left standing on MODAL_RHYME~~: with the offer screened from the
+    # offered word's side, L1's fix closes L3 (its partner) instead of
+    # re-opening it, and L4's replacement is no longer "itself directionally
+    # modal" — the screen is exactly what removed that word from the menu.
+    # MEASURED: fixed [1, 4], nothing left standing at the round cap.
     check("L1 WAS fixed this round -- this is real progress, not a stall",
-          res.rounds[0].fixed_lines == [1, 3, 4], res.rounds[0].fixed_lines)
-    check("the line left unresolved says why, and it is the PURSUED one",
-          [b.line_no for b in res.unresolved] == [4]
-          and {f.code for b in res.unresolved for f in b.findings}
-          == {"MODAL_RHYME"},
-          res.unresolved[0].findings if res.unresolved else None)
+          res.rounds[0].fixed_lines == [1, 4], res.rounds[0].fixed_lines)
+    check("nothing is left standing: L2 (the refused line) was closed by "
+          "L4's move and L3 by L1's — the round cap, not an open line, is "
+          "the stop",
+          res.unresolved == [],
+          [(b.line_no, [f.code for f in b.findings])
+           for b in res.unresolved])
     check("`max_rounds` is the declared bound that fired, not a hidden one",
           len(res.rounds) == R.rdecl.max_rounds == 1)
 
@@ -369,9 +386,21 @@ def test_tier2_backtrack_resolves_a_joint_conflict():
     # mandatory pursuit holds L3 open and the stop is a LOUD no_progress with
     # the line named — the lexicon has no better joint answer, and saying so
     # beats calling it success (owner's order; loop.MANDATORY_PURSUE).
-    check("stops loudly, refusing to call a still-modal draft a success",
-          res.stop_reason == "no_progress"
-          and [b.line_no for b in res.unresolved_pursued] == [3],
+    # REPINNED 2026-09-01 (`MISSING.md` M-185) from ~~no_progress with L3
+    # pursued~~. The "still-modal draft" this check expected was the MENU's
+    # own doing: `mankind` was offered to answer `mind` although `mind` is
+    # `mankind`'s single most-predictable partner in the OTHER direction —
+    # the direction nothing in the search asked. It is asked now, before a
+    # word is offered, so the backtrack lands on a pair that does not
+    # re-open (`find`/`around`, measured) and the loop's success is a
+    # success. The owner's order stands unchanged: success while a
+    # mandatory finding stands is unreportable (§20 pins it); what moved is
+    # that the loop stopped offering the words that made one stand.
+    check("reaches SUCCESS with nothing pursued left standing — the "
+          "backtracked pair cannot re-open, because the menu no longer "
+          "offers a word whose own head holds the call",
+          res.stop_reason == "success"
+          and [b.line_no for b in res.unresolved_pursued] == [],
           f"{res.stop_reason} pursued="
           f"{[b.line_no for b in res.unresolved_pursued]}")
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
@@ -393,23 +422,25 @@ def test_tier2_backtrack_resolves_a_joint_conflict():
           not any(f.severity == "flag"
                   for b in pivot_after for f in b.findings),
           pivot_after)
-    # THE MECHANICAL PROPOSER'S OWN PICK IS THE DEMONSTRATION, NOT AN
+    # ~~THE MECHANICAL PROPOSER'S OWN PICK IS THE DEMONSTRATION, NOT AN
     # INCONVENIENCE. `_try_tier2` excludes the modal set ONE direction only
     # -- `mankind` was correctly kept OFFERED as an answer to `mind` (it is
     # not one of `mind`'s own most-predictable partners) -- and landed on
     # `mind`/`mankind` anyway, because `mind` turns out to be `mankind`'s
     # single most-predictable partner in the OTHER direction, which nothing
     # in the search ever asks. MODAL_RHYME asks it after the fact and finds
-    # it, on the loop's own real output, which is exactly the "leaking
-    # through" the reactive-only wiring let past every prior version of this
-    # test.
+    # it.~~ STRUCK 2026-09-01 (`MISSING.md` M-185): the search asks it now,
+    # BEFORE offering — `joint_field_screened` drops a word whose own head
+    # holds the call — so `mankind` is no longer offered to `mind` and the
+    # backtrack lands on a pair MODAL_RHYME has nothing to say about. The
+    # paragraph above is kept because it names the defect this section now
+    # pins the absence of: a note that the menu itself used to manufacture.
     modal_after = [f for b in pivot_after for f in b.findings
                   if f.code == "MODAL_RHYME"]
-    check("...and MODAL_RHYME is what catches it: a note, not a flag, so it "
-          "does not block a fix that is otherwise completely correct",
-          bool(modal_after)
-          and all(f.severity == "note" for f in modal_after),
-          modal_after)
+    check("...and MODAL_RHYME has NOTHING to catch: the menu no longer "
+          "offers a word whose own head holds the call, so the pair the "
+          "backtrack landed on is not one the grader charges (M-185)",
+          not modal_after, modal_after)
 
 
 def test_tier2_tries_and_correctly_rejects():
@@ -733,7 +764,15 @@ def test_declared_returns_are_asked_and_have_no_move():
           "exercises against a real second layer rather than a stub",
           # RESTATED 2026-08-17: L4 (mandatory-pursued modal) is fixed in
           # the same round as L2's flag — pursuit is not a second pass.
-          res.rounds[0].fixed_lines == [2, 4], res.rounds[0].fixed_lines)
+          # REPINNED 2026-09-01 (`MISSING.md` M-185) from ~~[2, 4]~~: L2's
+          # fix now lands on a word that does not re-open its pair, so L4's
+          # pursued note DISSOLVES with it and L4 is closed by L2's move
+          # rather than fixed on its own turn — the invariant (the
+          # unsolvable L3 is not a stop) is exactly as it was.
+          res.rounds[0].fixed_lines == [2]
+          and 4 not in [b.line_no for b in res.unresolved],
+          (res.rounds[0].fixed_lines, res.rounds[0].resolved_elsewhere,
+           [b.line_no for b in res.unresolved]))
     check("and L1 is NOT touched, though it ends on the same word as L3 -- "
           "the mandate REQUIRES that identity, so it is the requirement and "
           "not a self-rhyme, and the floor is no longer handed the pair",
@@ -952,9 +991,16 @@ def test_tier2_still_resolves_a_joint_conflict_through_group_brief():
     # RESTATED 2026-08-17: same outcome as test 4 under mandatory pursuit —
     # the backtrack clears the joint conflict, its accepted word is
     # directionally modal, and the loop refuses to call that success.
-    check("stops loudly, exactly as test 4 does with the stub",
-          res.stop_reason == "no_progress"
-          and [b.line_no for b in res.unresolved_pursued] == [3],
+    # REPINNED 2026-09-01 WITH TEST 4 (`MISSING.md` M-185): the menu no
+    # longer offers a word whose own head holds the call, so the backtrack
+    # lands on a pair that does not re-open and BOTH routes — the stub and
+    # this `GroupBrief` proposer — reach SUCCESS with nothing pursued. The
+    # claim this check makes is unchanged: the contract route stops exactly
+    # as the stub does; what the stub does moved, and this pin with it.
+    check("stops exactly as test 4 does with the stub — SUCCESS, nothing "
+          "pursued left standing, since M-185's screened menu",
+          res.stop_reason == "success"
+          and [b.line_no for b in res.unresolved_pursued] == [],
           res.stop_reason)
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
     check("exactly one tier-2 attempt ran, and it was accepted",
@@ -1379,6 +1425,30 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
           "group being backtracked is the only one dropped",
           calls == ["hear"] and rets == [],
           f"partners(1)={m.partners(1)} -> calls={calls} rets={rets}")
+    # SLOT-AWARE SINCE 2026-09-02 (M-184's addendum, residual (a), found by
+    # the tier-A verification): the anchor's obligations were read at every
+    # mate's END word whatever place either bound, so a group binding the
+    # anchor at ANOTHER word constrained the rewrite of this one, and a mate
+    # bound at T2 was asked for at its end. Two probes, the verifier's own.
+    calls_b, _ = _anchor_obligations(RV, m, ANCHOR_IS_A_PIVOT, 1, 3,
+                                     rewriting_label="B")
+    check("naming the rewritten group gives the same answer on the bare "
+          "shape (control)", calls_b == ["hear"], calls_b)
+    mA = _SC.mandate(_SC.mandate([[1, 3], [2, 3], ["1.T2", 5]], n_lines=6),
+                     default_relation="class:RHYME")
+    cA, _ = _anchor_obligations(RV, mA, ANCHOR_IS_A_PIVOT, 1, 3,
+                                rewriting_label="A")
+    check("a group that binds the anchor at ANOTHER word (L1's T2 'keep', "
+          "not the end 'near' being rewritten) is no call on the rewrite: "
+          "[] where the slot-blind read gave L5's end word",
+          cA == [], cA)
+    mB = _SC.mandate(_SC.mandate([[1, 3], [2, 3], [1, "5.T2"]], n_lines=6),
+                     default_relation="class:RHYME")
+    cB, _ = _anchor_obligations(RV, mB, ANCHOR_IS_A_PIVOT, 1, 3,
+                                rewriting_label="A")
+    check("a mate bound at its T2 word is asked for at THAT word: L5's "
+          "'studio', where the slot-blind read gave its end word 'chair'",
+          cB == ["studio"], cB)
 
     # THE HEADLINE, MEASURED. `w` is the PIVOT's proposed word, drawn the way
     # the loop draws it — L3 must answer group C [3, 4], call word 'wake'.
@@ -1569,6 +1639,280 @@ def test_pursuit_is_mandatory_and_success_below_it_unreportable():
           [b.line_no for b in res3.unresolved_pursued])
 
 
+def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
+    """`MISSING.md` M-183 — the tier-1 record is keyed on the ROUND it was
+    asked in, so a line rejected on every attempt in round 1 is asked again
+    in round 2, and a finished state says it is finished.
+
+    THE DEFECT, found by the 2026-09-01 audit's probe and pinned here
+    against the loop rather than against prose: `_defer_proposer` and
+    `_replay_proposer` keyed tier-1 answers on `(line, attempt)`, and
+    `attempt` restarts at 0 on every round (`_try_tier1`). So a line whose
+    round-1 answers were all rejected HIT its own round-1 record in round 2,
+    replayed the same rejected text, and the loop walked to NO_PROGRESS with
+    the writer never consulted — round 10 of the flash battery parked with
+    20 of 23 lines open on exactly this shape (M-168/M-169).
+
+    EMPIRICALLY VERIFIED before pinning, and the first pin was WRONG: keyed
+    on a draft fingerprint alone (the first repair tried), the same drive
+    asked every open line ONCE — L2-L4 are asked in round 1 only after L1's
+    fix has moved the draft, round 2 opens on that same moved draft, and the
+    fingerprint matched. So the key is the ROUND the brief was issued in;
+    the fingerprint stays in the record as provenance. Driven on CLICHE at
+    attempts_per_line=1, L1 answered with the stock fix and every other line
+    answered with ITSELF (rejected by verify()'s own "nothing was fixed"
+    rule), the loop asks L1 once and each other still-open line ONCE PER
+    ROUND; with the `round` field stripped from the round-1 records, the
+    same questions are answered from the record and round 2 asks nothing.
+    """
+    print("\n21. M-183 — a stuck line is asked AGAIN in round 2, because the "
+          "draft moved; a finished state says so")
+    import json
+    import tempfile
+    import lyric_harness as LH
+    from quality.revise import draft_fingerprint
+
+    # THE STOCK FIX FOR L1, taken off the loop's own proposer on the same
+    # draft rather than typed, so the accepted answer is one the loop is
+    # known to accept (test 1 fixes L1 in round 1 with it).
+    stock = revise_loop(Reviser(), list(CLICHE), "ABAB")
+    l1_fix = stock.lines[0]
+    check("the stock proposer's L1 fix differs from L1 (so accepting it "
+          "MOVES the draft)", l1_fix != CLICHE[0])
+
+    d = tempfile.mkdtemp()
+    state = os.path.join(d, "state.json")
+    R = Reviser(rdecl=ReviseDeclaration(attempts_per_line=1, max_rounds=3))
+    asked = []          # (line, attempt, round, draft) in the order asked
+
+    def answer(line_no):
+        return l1_fix if line_no == 1 else CLICHE[line_no - 1]
+
+    # THE WRITER, DRIVEN THE WAY THE VERB DRIVES ONE: suspend, answer in the
+    # state, run the same loop again. `_NeedProposal` is the suspension.
+    for _ in range(40):
+        propose, propose_group, disc = LH._defer_proposer(state,
+                                                          lines=list(CLICHE))
+        try:
+            res = revise_loop(R, list(CLICHE), "ABAB", propose=propose,
+                              propose_group=propose_group)
+        except LH._NeedProposal as need:
+            rec = need.record
+            asked.append((rec["line"], rec["attempt"], rec.get("round"),
+                          rec.get("draft")))
+            st = disc.state
+            st["pending"]["answer"] = answer(rec["line"])
+            with open(state, "w") as fh:
+                json.dump(st, fh)
+            continue
+        break
+    else:
+        res = None
+    check("the driven loop reaches a stop condition",
+          res is not None and res.stop_reason == "no_progress",
+          None if res is None else res.stop_reason)
+    check("L1 was fixed in round 1 and nothing else ever was",
+          res is not None and res.rounds[0].fixed_lines == [1]
+          and all(r.fixed_lines == [] for r in res.rounds[1:]),
+          None if res is None else [r.fixed_lines for r in res.rounds])
+    check("the loop ran TWO rounds: one that moved the draft, one that "
+          "could not", res is not None and len(res.rounds) == 2)
+    per_line = {}
+    for ln, at, rd, fp in asked:
+        per_line.setdefault(ln, []).append(rd)
+    # WHICH LINES ARE STILL OPEN AFTER ROUND 1 IS READ OFF THE ROUND-2
+    # DRAFT'S OWN BRIEF, never off the round-1 records — REPINNED 2026-09-01
+    # with M-185: the stock fix for L1 now lands on a word the SCREENED menu
+    # offered, and that word CLOSES L3's `MODAL_RHYME` (which was against
+    # L1's old end word) along with L1's own finding. A line closed by
+    # another line's fix is not open and is rightly not asked again; the
+    # first pin read "every line asked in round 1 is asked in round 2" and
+    # would charge that closure to the record key. The CLOSED line is pinned
+    # apart, as its own case (doctrine 79).
+    after_round1 = [l1_fix] + list(CLICHE[1:])
+    open_lines = sorted(b.line_no for b in R.brief(after_round1, "ABAB"))
+    closed_by_l1 = sorted(ln for ln in per_line
+                          if ln != 1 and ln not in open_lines)
+    check("every record carries the round it was asked in and the "
+          "fingerprint of the draft it was asked against",
+          all(rd and fp for _, _, rd, fp in asked), asked)
+    check("L1 was asked exactly once, in round 1", per_line.get(1) == [1],
+          per_line.get(1))
+    check("each line still open after round 1 — open on the round-2 "
+          "draft's own brief — was asked AGAIN in round 2, once per round, "
+          "never answered from the round-1 record",
+          open_lines and all(per_line[ln] == [1, 2] for ln in open_lines),
+          f"open after round 1 {open_lines}; asked {per_line}")
+    check("...and the line L1's fix CLOSED (L3, whose MODAL_RHYME was "
+          "against L1's old word) was asked once and never again — closed "
+          "is not stuck, and the screened menu is why the fix closes it",
+          closed_by_l1 == [3] and per_line.get(3) == [1],
+          f"closed by L1's fix {closed_by_l1}; asked {per_line.get(3)}")
+    check("the draft fingerprint alone could NOT have told the two "
+          "questions apart: the open lines were asked in round 1 after L1's "
+          "fix moved the draft, and round 2 opened on that same draft",
+          open_lines and all(
+              len({fp for ln2, _, _, fp in asked if ln2 == ln}) == 1
+              for ln in open_lines),
+          [(ln, rd, fp) for ln, _, rd, fp in asked])
+    check("the first question's fingerprint is the input draft's",
+          asked and asked[0][3] == draft_fingerprint(list(CLICHE)))
+
+    # THE SAME RECORDS AS A REPLAY FILE, TWO WAYS. With the `round` field
+    # the round-1 records answer round 1 only, and round 2's questions MISS
+    # (the proposer giving up, counted): correct. With the field stripped —
+    # the shape of every file written before 2026-09-01 — the round-1
+    # records answer round 2 too: the defect, kept deliberately so an old
+    # record on disk still replays exactly as it did.
+    with open(state) as fh:
+        st = json.load(fh)
+    round1 = [r for r in st["answered"]["propose"] if r["round"] == 1]
+    keyed = os.path.join(d, "keyed.json")
+    legacy = os.path.join(d, "legacy.json")
+    with open(keyed, "w") as fh:
+        json.dump({"propose": round1, "propose_group": []}, fh)
+    with open(legacy, "w") as fh:
+        json.dump({"propose": [{k: v for k, v in r.items() if k != "round"}
+                               for r in round1], "propose_group": []}, fh)
+    hits = {}
+    for name, path in (("keyed", keyed), ("legacy", legacy)):
+        p1, pg1, d1 = LH._replay_proposer(path)
+        revise_loop(R, list(CLICHE), "ABAB", propose=p1, propose_group=pg1)
+        tail = d1(done=True)
+        hits[name] = tail
+    check("keyed round-1 records answer ROUND 1 ONLY: round 2's questions "
+          "are asked and NOT recorded",
+          f"{len(round1)} consulted and answered" in hits["keyed"]
+          and f"{len(open_lines)} asked and NOT recorded" in hits["keyed"],
+          hits["keyed"])
+    check("the SAME records with `round` stripped answer round 2 from "
+          "round 1 — the pre-M-183 key, kept for files already on disk",
+          f"{len(round1) + len(open_lines)} consulted and answered"
+          in hits["legacy"] and "0 asked and NOT recorded" in hits["legacy"],
+          hits["legacy"])
+
+    # A FINISHED STATE SAYS SO. The verb writes `complete` on the way out;
+    # the proposer built on it names the stop before the loop starts, and
+    # only for the draft the run finished on.
+    st["complete"] = {"stop": res.stop_reason, "exit": 3,
+                      "draft": draft_fingerprint(list(CLICHE)),
+                      "final": draft_fingerprint(res.lines),
+                      "unresolved": sorted(b.line_no
+                                           for b in res.unresolved)}
+    with open(state, "w") as fh:
+        json.dump(st, fh)
+    _, _, d2 = LH._defer_proposer(state, lines=list(CLICHE))
+    head = d2()
+    check("re-running a COMPLETE state on the same draft is told so up "
+          "front, with the stop, the exit and the open lines",
+          "THIS STATE IS COMPLETE" in head and "NO_PROGRESS" in head
+          and "exit 3" in head and "L2" in head, head)
+    check("the marker is taken OFF the state so a later suspension cannot "
+          "write it back stale", "complete" not in d2.state)
+    moved = list(CLICHE)
+    moved[0] = l1_fix
+    p3, _, d3 = LH._defer_proposer(state, lines=moved)
+    check("on a draft that MOVED, no COMPLETE warning — the questions are "
+          "new, though a recorded answer still answers them (counted below)",
+          "THIS STATE IS COMPLETE" not in d3())
+    # ...AND THE ANSWERS THAT STILL HIT ARE COUNTED AS STALE AT THE STOP
+    # (2026-09-02, the tier-A verification's residual on M-183): the key is
+    # (line, attempt, round), so a state reused on an edited draft replays
+    # every recorded answer onto the new text with no question. `draft` is
+    # provenance and not the key — round 2 legitimately opens on round 1's
+    # closing draft — so the honest instrument is a COUNT at the stop.
+    import types as _types
+    _hit = p3(_types.SimpleNamespace(line_no=1, round_no=1), moved, 0)
+    check("a recorded answer still hits on the moved draft (the key has no "
+          "draft in it, by design)", _hit is not None, _hit)
+    _d3 = d3(done=True)
+    check("...and the stop discloses it as recorded against a DIFFERENT "
+          "draft, naming the answer, so a reused state cannot pass as a "
+          "continued one",
+          "recorded against a DIFFERENT draft" in _d3
+          and "L1 attempt 0 round 1" in _d3,
+          [l.strip() for l in _d3.splitlines() if "DIFFERENT" in l][:1])
+    check("CONTROL: on the run's own draft nothing is stale",
+          "DIFFERENT draft" not in d2(done=True))
+
+
+def test_tier2_that_walks_nothing_falls_through_to_tier1():
+    """`MISSING.md` M-185 — a pivot whose tier-2 search builds no proposal
+    is asked by tier 1 in the same round, and the record says both.
+
+    THE DEFECT, named by M-170 §5 item 10 and M-173(e) ("11 never asked"):
+    a `joint_conflict` line goes to tier 2 ONLY, and `_try_tier2` can return
+    `tried == 0` having put nothing to a proposer — the pivot's own field
+    over the other groups' calls was empty, so `walked` was empty, no member
+    starved, no group was pinned — while the attempt still consumed the
+    line's turn. A round of those is NO_PROGRESS with the writer never
+    consulted.
+
+    EMPIRICALLY VERIFIED before pinning. Under the shipped four-relation
+    admit door the conjunction of two disjoint families is rarely empty
+    (assonance answers most pairs), so the fixture declares the two-name
+    door — `Declaration(admit=("RHYME", "RIME_RICHE"))`, the pre-M-59
+    comparator — and puts L3 in three groups whose call words share no
+    rhyme (silver / night / kitchen). Measured: tier 2 walks 0 pivot words
+    for every group, the tier-2 record reads NOT ASKED, tier 1 then asks
+    the proposer about L3 in the same round, and a proposer that DECLINES
+    every group brief (25 calls) is NOT a fall-through — it was asked.
+    """
+    print("\n22. M-185 — tier 2 that walks NOTHING falls through to tier 1 "
+          "in the same round; a declined tier 2 does not")
+    from lyric_harness import Declaration
+    draft = ["It gleamed like polished silver",
+             "We wandered deep into the night",
+             "The whole thing felt like a dream",
+             "A memory of the kitchen"]
+    mandate = [[1, 3], [2, 3], [4, 3]]
+    R = Reviser(decl=Declaration(admit=("RHYME", "RIME_RICHE")))
+    b3 = [b for b in R.brief(draft, mandate) if b.line_no == 3]
+    check("the fixture is a real joint_conflict at L3 with NO field and no "
+          "ban head — the conjunction is empty, not eaten",
+          b3 and b3[0].joint_conflict and not b3[0].candidates
+          and not b3[0].forbidden_modal,
+          None if not b3 else (b3[0].candidates, b3[0].forbidden_modal))
+    asked1, asked2 = [], []
+
+    def declines(brief, lines, attempt, reasons=None, whole=()):
+        asked1.append((brief.line_no, brief.round_no))
+        return None
+
+    def declines_group(group_brief):
+        asked2.append(group_brief.label)
+        return None
+
+    res = revise_loop(R, draft, mandate, propose=declines,
+                      propose_group=declines_group)
+    a3 = [a for r in res.rounds for a in r.attempts if a.line_no == 3]
+    check("tier 2 built NO proposal for L3 and says NOT ASKED, with "
+          "`asked=False` on its record",
+          a3 and a3[0].tier == 2 and a3[0].tried == 0 and not a3[0].asked
+          and "NOT ASKED" in a3[0].reason and not asked2,
+          [(a.tier, a.tried, a.asked, a.reason[:70]) for a in a3])
+    check("the SAME round then asks tier 1 about L3 — two records, one "
+          "line, neither folded into the other (doctrine 79)",
+          len(a3) == 2 and a3[1].tier == 1 and a3[1].asked
+          and "fell through to tier 1" in a3[1].reason
+          and (3, 1) in asked1,
+          [(a.tier, a.tried, a.asked) for a in a3] + [asked1])
+    check("the stop is NO_PROGRESS on the proposer's refusal, not on a "
+          "search nobody ran", res.stop_reason == "no_progress")
+    # THE CONTRAST: under the shipped door the same groups' conjunctions
+    # are non-empty, tier 2 walks and the proposer DECLINES every group
+    # brief — consulted, refused, and correctly no fall-through.
+    asked1[:], asked2[:] = [], []
+    res2 = revise_loop(Reviser(), draft, mandate, propose=declines,
+                       propose_group=declines_group)
+    a3b = [a for r in res2.rounds for a in r.attempts if a.line_no == 3]
+    check("a tier 2 the proposer DECLINED was asked: no fall-through, one "
+          "record, `asked=True`",
+          a3b and len(a3b) == 1 and a3b[0].tier == 2 and a3b[0].asked
+          and asked2 and (3, 1) not in asked1,
+          [(a.tier, a.tried, a.asked) for a in a3b] + [len(asked2)])
+
+
 if __name__ == "__main__":
     for fn in (test_success_stop,
                test_no_progress_stop,
@@ -1589,7 +1933,9 @@ if __name__ == "__main__":
                test_a_dead_end_and_an_open_line_each_name_their_own_rule,
                test_a_line_is_briefed_against_the_draft_as_it_now_stands,
                test_tier2_does_not_offer_a_pair_its_own_grader_rejects,
-               test_pursuit_is_mandatory_and_success_below_it_unreportable):
+               test_pursuit_is_mandatory_and_success_below_it_unreportable,
+               test_a_stuck_line_is_asked_again_once_the_draft_has_moved,
+               test_tier2_that_walks_nothing_falls_through_to_tier1):
         fn()
     print("=" * 62)
     if FAILURES:

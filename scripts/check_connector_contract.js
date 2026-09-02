@@ -113,6 +113,7 @@ const EXPECTED_TOOLS = [
   'lyric_check',
   'lyric_grade',
   'lyric_plan',
+  'lyric_recover',
   // `lyric_revise` joined 2026-08-28 by the owner's directive ("go, start
   // on the seam" — `MISSING.md` M-154). The 92s objection two comments down
   // named the SYNCHRONOUS-WAIT shape, and this tool never waits: one

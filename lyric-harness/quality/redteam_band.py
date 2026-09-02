@@ -411,6 +411,17 @@ def run(n_pairs=4000):
 
     print()
     print("  THETA SWEEP -- doctrine 22: a threshold is a RATE, not a point.")
+    # WHICH DOOR THIS SWEEP READS, SAID ON THE REPORT (2026-09-01, `MISSING.md`
+    # M-138 ruled under the owner's delegation): the NARROW relation set
+    # {RHYME, RIME_RICHE} of the comparator's own band — adversary 3's
+    # subject — and not `decl.admit` (M-59) nor the 77-schema default
+    # (M-116). The chance rate of THOSE doors is `quality/chance_rate.py`'s
+    # question and is not this instrument's to answer; pricing a near
+    # relation's admission is the calibration M-138 asks for and this sweep
+    # cannot supply.
+    print("  DOOR READ: the comparator's NARROW band {RHYME, RIME_RICHE} at "
+          "each theta -- not `decl.admit`, not the 77-schema default; "
+          "those doors' chance rates are quality/chance_rate.py's.")
     print(f"  {'theta_nucleus':>14}{'admitted RHYME':>18}"
           f"{'vs identity RHYME':>20}{'excess':>10}")
     id_rhyme = sum(v for (t, _), v in conf.items() if t == "RHYME")

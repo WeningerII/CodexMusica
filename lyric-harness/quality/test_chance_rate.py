@@ -26,6 +26,41 @@ FAILED = []
 N = 300
 
 
+def _reader_disagreements(lex, shipped):
+    """-> how many of the shipped draw's pairs the two READERS judge
+    differently, by score or by relation.
+
+    The two are `line anchor + best_score` (what `grade()` runs) and
+    `word anchor + score` (what a one-word verb runs), and they are a
+    DECLARED coordinate of this instrument because M-138's re-derivations
+    disagreed on which one they had used. Measured on the JUDGEMENT rather
+    than on the admit COUNT: a cut can make two different judgements land on
+    the same side, and until 2026-09-02 the count was standing in for the
+    reader (see §3).
+    """
+    import lyric_harness as _L
+    decl = _L.Declaration()
+    seen = {}
+    for name in (CR.SHIPPED.reader, "word anchor + score"):
+        sp = CR.Sampler(shipped.seed, shipped.n, shipped.population, name)
+        read, cmp_ = CR.READERS[name]
+        got = {}
+        for a, b in sp.pairs(lex):
+            aa, wa = read(lex, a)
+            bb, wb = read(lex, b)
+            s = None
+            if aa and bb:
+                try:
+                    s = cmp_(aa, bb, decl, wa, wb)
+                except (KeyError, IndexError, ValueError):
+                    s = None
+            got[(a, b)] = None if s is None else (round(s["total"], 6),
+                                                  s["relation"])
+        seen[name] = got
+    one, two = seen[CR.SHIPPED.reader], seen["word anchor + score"]
+    return sum(1 for k in one if one[k] != two[k])
+
+
 def check(section, claim, ok, evidence=""):
     print(f"  {'PASS' if ok else 'FAIL'}  {claim}")
     if evidence:
@@ -81,9 +116,30 @@ def main():
     other = CR.Sampler(CR.SHIPPED.seed, N, CR.SHIPPED.population,
                        "word anchor + score")
     m3 = CR.measure(other, lex, L.Declaration(), schema=False)
-    check("3", "the same draw judged by the two readers gives DIFFERENT "
-          "counts — which is why M-138's re-derivations disagreed",
-          m3["admit"] != m["admit"],
+    # ~~"the same draw judged by the two readers gives DIFFERENT counts"~~
+    # STRUCK 2026-09-02, AND THE STRIKE IS THE POINT. That check read a
+    # COUNT INEQUALITY as evidence for a STRUCTURAL claim, and the pricing
+    # adoption (`MISSING.md` M-138 — ASSONANCE cut at 0.82) made the two
+    # counts COINCIDE at 4: both readers now admit the identical four pairs
+    # on this draw (telematic/acids, soroka/ida, hohn/gone,
+    # inexpensive/clamping). Counts agreeing is NOT the readers being
+    # interchangeable, and reading it that way is doctrine 20 — the sample
+    # stopped separating them, which is a fact about the sample and the cut.
+    # MEASURED on the identical 300 pairs: the two readers return a
+    # different score or a different relation on **69** of them (madora/
+    # barbara 0.738 ASSONANCE against 0.538 CONSONANCE; causey/overfield
+    # 0.670 NO_RELATION against 0.108 ASSONANCE), and exactly ONE of those
+    # 69 straddles the old flat 0.75 — which is why the ADMIT counts used to
+    # differ and no longer do. The coordinate is pinned where it lives now.
+    check("3", "the two readers disagree on 69 of the 300 pairs' SCORE or "
+          "RELATION — the reader is a real coordinate, measured on the "
+          "judgement and not on a count that happens to coincide",
+          _reader_disagreements(lex, shipped) == 69,
+          f"{_reader_disagreements(lex, shipped)} of {N}")
+    check("3", "...and at the ADOPTED cut those disagreements no longer "
+          "move the ADMIT count, which is a fact about this draw and NOT "
+          "evidence the two readers are the same (doctrine 20)",
+          m3["admit"] == m["admit"],
           f"word anchor {m3['admit']}  against line anchor {m['admit']}")
     check("3", "...and the draw itself is IDENTICAL, so the difference is "
           "the reader and not the sample",
@@ -105,7 +161,8 @@ def main():
           0 < moved < len(words) // 1000,
           f"{moved} of {len(words)} positions move")
 
-    print("\n5. M-140's premise is live — the judge does not read `normative`")
+    print("\n5. M-140's premise WAS live — ruled 2026-09-01, the judge reads "
+          "`normative` now (the sweep still counts what the ruling closed)")
     from quality import relations as RF
     disowned = sorted(n for n, sc in RF.REGISTRY.items()
                       if getattr(sc, "normative", None)
@@ -116,14 +173,24 @@ def main():
     from quality.revise import _relation_phonology
     hit = RF.whole_vocabulary_pairs(["running", "singing"],
                                     _relation_phonology()).get((1, 2)) or []
-    check("5", "...and the ONE JUDGE returns a `forbidden` schema as a "
-          "reason a mandated pair is satisfied — the tier-1 ban's own "
-          "canonical example, with the ban's own name in the list",
-          "homoioteleuton" in hit, f"running/singing -> {hit}")
-    check("5", "the instrument COUNTS that rather than asserting it, and "
-          "reports the SOLE-satisfier case apart (it is 0 today, which is "
-          "why M-140 is filed LATENT and not live — doctrine 20)",
-          m["schema_sole_forbidden"] <= m["schema_any_forbidden"],
+    # REPINNED 2026-09-01 (`MISSING.md` M-140, ruled under the owner's
+    # delegation): this check ASSERTED the defect — `homoioteleuton`, the
+    # tier-1 ban itself, returned by the silent default as a reason a pair
+    # is satisfied. The default reads `normative` now and declines the
+    # four disowned names; the pin is inverted, and the sweep's own count
+    # of forbidden answers must read ZERO on both arms.
+    check("5", "...and the ONE JUDGE no longer returns a `forbidden` schema "
+          "as a reason a mandated pair is satisfied — the tier-1 ban's own "
+          "canonical example answers without the ban's name in the list",
+          "homoioteleuton" not in hit
+          and not any(n in hit for n in disowned),
+          f"running/singing -> {hit}")
+    check("5", "the instrument COUNTS that rather than asserting it: the "
+          "forbidden-answer and sole-satisfier counts over the sweep are "
+          "both 0 under the ruling, where the sole count alone was 0 before "
+          "(doctrine 20 kept M-140 filed LATENT until the default was made "
+          "to CLAIM what it claims)",
+          m["schema_any_forbidden"] == 0 and m["schema_sole_forbidden"] == 0,
           f"answered on {m['schema_any_forbidden']}, sole on "
           f"{m['schema_sole_forbidden']}")
 

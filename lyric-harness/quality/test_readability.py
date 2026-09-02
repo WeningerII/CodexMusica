@@ -1518,6 +1518,214 @@ def test_the_bracketed_verse_convention_keeps_the_body():
         LH.BRACKET_LINE_EDITS.update(_oldle)
 
 
+def test_a_wordless_score_says_identity_was_not_asked():
+    print("\n13. `score()` without the words DISCLOSES that identity was not "
+          "asked (`MISSING.md` M-136 (1), ruled 2026-09-01)")
+    # Doctrine 3 rides the words: REPEAT and RIME_RICHE need the spellings,
+    # so `light`/`light` scored on anchors alone answers RHYME. The verdict
+    # is left where it is (forty-eight wordless call sites, most asking a
+    # question identity does not bear on) and the omission is on the record.
+    import lyric_harness as _LH
+    p1, _, _ = LEX.transcribe("light")
+    a = _LH.anchor(_LH.syllabify(p1))
+    wordless = _LH.score(a, a, DECL)
+    worded = _LH.score(a, a, DECL, "light", "light")
+    check("wordless: RHYME, with the disclosure on its flags",
+          wordless["relation"] == "RHYME"
+          and "identity: not asked (words omitted)" in wordless["flags"],
+          f"{wordless['relation']} {wordless['flags']}")
+    check("worded: REPEAT, and no such flag",
+          worded["relation"] == "REPEAT"
+          and not any("not asked" in f for f in worded["flags"]),
+          f"{worded['relation']} {worded['flags']}")
+    aa, _, _ = line_anchors(LEX, OK_A)
+    bb, _, _ = line_anchors(LEX, OK_B)
+    s2 = best_score(aa, bb, DECL, "cat", "hat")
+    check("the tripwire above is untouched: a worded best_score carries no "
+          "disclosure and cat/hat is still a clean 1.0 RHYME",
+          s2["total"] == 1.0 and s2["relation"] == "RHYME" and s2["flags"] == [])
+
+
+def test_the_empty_coda_gift_is_disclosed_and_not_moved():
+    print("\n14. `score()` DISCLOSES the empty/empty coda gift and moves "
+          "nothing (`MISSING.md` E-5, the cheap half, 2026-09-02)")
+    # Two vowel-final words score 1.0 on the coda channel by ABSENCE
+    # (`cluster_sim([], [])`), weighted like a heard consonant: `now`/`why`
+    # = 0.5*0.805 + 0.35*1.0 + 0.15*1.0 = 0.902 RHYME. The scalar and the
+    # relation stay EXACTLY where E-5 pinned them — moving them is the
+    # entry's expensive half and a calibration sitting — and the channel is
+    # reported as cannot-tell with the share of `total` that rests on it.
+    import lyric_harness as _LH
+
+    def _w(x):
+        p, _, _ = LEX.transcribe(x)
+        return _LH.anchor(_LH.syllabify(p))
+    s = _LH.score(_w("now"), _w("why"), DECL, "now", "why")
+    check("now/why still scores 0.902 RHYME — the verdict E-5 records, "
+          "not moved by a disclosure",
+          s["total"] == 0.902 and s["relation"] == "RHYME",
+          f"{s['total']} {s['relation']}")
+    _cf = [f for f in s["flags"] if f.startswith("coda: no evidence")]
+    check("...and says on its flags that the coda channel had no evidence, "
+          "with the 0.350 of the total that is agreement by absence",
+          len(_cf) == 1 and "0.350 of the total" in _cf[0]
+          and "1 of 1 syllable" in _cf[0], s["flags"])
+    c = _LH.score(_w("cat"), _w("hat"), DECL, "cat", "hat")
+    check("control: cat/hat — codas heard on both sides — carries no such "
+          "flag and is still a clean 1.0 RHYME",
+          c["total"] == 1.0 and c["relation"] == "RHYME" and c["flags"] == [],
+          f"{c['total']} {c['relation']} {c['flags']}")
+    # THE AGREEMENT SIDE IS UNTOUCHED: `see`/`free` is a rhyme because
+    # `coda_agrees` on empty/empty is CORRECT, and the disclosure rides
+    # beside that verdict rather than against it.
+    f = _LH.score(_w("see"), _w("free"), DECL, "see", "free")
+    check("see/free is still 1.0 RHYME (the agreement side is correct and "
+          "untouched) and carries the same disclosure",
+          f["total"] == 1.0 and f["relation"] == "RHYME"
+          and any(x.startswith("coda: no evidence") for x in f["flags"]),
+          f"{f['total']} {f['relation']} {f['flags']}")
+    # The screen reads the grade's verdict, which now CARRIES the
+    # comparator's flags (`quality/revise.py` grade verdicts, `flags`), so
+    # a CLEAN row can say what part of it is unsupported.
+    rows = _LH.screen_pairs(["now", "why"], lex=LEX, decl=DECL)
+    check("`screen now why`: the row is CLEAN (why None, no ban) AND "
+          "`coda_no_evidence` is set from the verdict's carried flags",
+          rows[0]["why"] is None and not rows[0]["codes"]
+          and rows[0]["coda_no_evidence"] is True
+          and any(x.startswith("coda: no evidence")
+                  for x in rows[0]["flags"]),
+          f"{rows[0]['relation']} {rows[0]['score']} {rows[0]['flags']}")
+    rows = _LH.screen_pairs(["cat", "hat"], lex=LEX, decl=DECL)
+    check("control: `screen cat hat` sets no `coda_no_evidence` and its "
+          "verdict-carried flags are empty",
+          rows[0]["coda_no_evidence"] is False and rows[0]["flags"] == [],
+          f"{rows[0]['flags']}")
+
+
+def test_the_assonance_profile_says_the_band_is_off():
+    print("\n15. `profile=\"assonance\"` DISCLOSES that the conjunctive band "
+          "is off, and the verdict is untouched (`MISSING.md` M-136 (2), "
+          "the disclosure half, 2026-09-02)")
+    # A zero coda weight switches the band off, so the profile named for
+    # the near relation types every pair RHYME. Whether it should emit
+    # ASSONANCE is the parked, verdict-moving ruling; this flag lets a
+    # reader of RHYME off that profile see the coda was never asked.
+    import lyric_harness as _LH
+
+    def _w(x):
+        p, _, _ = LEX.transcribe(x)
+        return _LH.anchor(_LH.syllabify(p))
+    a = _LH.score(_w("sun"), _w("much"), DECL, "sun", "much",
+                  profile="assonance")
+    check("sun/much under the assonance profile is still 1.0 RHYME "
+          "(M-136's measured row, not moved)",
+          a["total"] == 1.0 and a["relation"] == "RHYME",
+          f"{a['total']} {a['relation']}")
+    check("...with the band-off disclosure on its flags",
+          any(f.startswith("conjunctive band: off (profile coda weight 0.0")
+              for f in a["flags"]), a["flags"])
+    d = _LH.score(_w("sun"), _w("much"), DECL, "sun", "much")
+    check("control: the default profile still types sun/much ASSONANCE "
+          "0.772 and carries no band-off flag",
+          d["total"] == 0.772 and d["relation"] == "ASSONANCE"
+          and not any("band: off" in f for f in d["flags"]),
+          f"{d['total']} {d['relation']} {d['flags']}")
+    off = _LH.score(_w("sun"), _w("much"),
+                    Declaration(conjunctive_band=False), "sun", "much")
+    check("control: a DECLARATION that switches the band off is not a "
+          "profile switching it off — no flag, the declared coordinate "
+          "speaks for itself (doctrine 1)",
+          off["relation"] == "RHYME"
+          and not any("band: off" in f for f in off["flags"]),
+          f"{off['relation']} {off['flags']}")
+
+
+def test_the_default_doors_are_priced_where_they_answer():
+    print("\n16. the two default doors carry their PINNED chance rate where "
+          "a rescued pair is reported, and neither line gates "
+          "(`MISSING.md` M-138 / M-140, the disclosure halves, 2026-09-02)")
+    import lyric_harness as _LH
+    from quality import chance_rate as _CR
+    n = _CR.SHIPPED.n
+    # ~~both doors asserted "UNPRICED"~~ REPINNED 2026-09-02 (doctrine 17).
+    # The ADMIT door is PRICED as of `MISSING.md` M-138's pricing sitting
+    # (`quality/RESULTS_NEAR_RELATION_PRICING.md`, falsifier E1); the SCHEMA
+    # door is genuinely still unpriced (M-140). The two words are the
+    # discriminating coordinate now, so the check asserts them APART — a
+    # loop asserting one word over both doors is what let the old wording
+    # go stale in the first place.
+    for door, entry, word in (("schema", "M-140", "UNPRICED"),
+                              ("admit", "M-138", "PRICED")):
+        lo, hi = _CR.ADOPTED[door]
+        note = _LH.door_chance_note(door)
+        check(f"`door_chance_note({door!r})` renders the ADOPTED band "
+              f"{lo}..{hi} of {n:,}, names {entry} and says {word} — READ "
+              f"from `chance_rate.py`, never retyped",
+              f"{lo}..{hi} of {n:,}" in note and entry in note
+              and f"{lo / n:.1%}" in note and word in note, note)
+    check("the two doors do NOT say the same thing about pricing — the "
+          "admit door was priced 2026-09-02 and the schema door was not, "
+          "and a disclosure that outlived its gap is the defect this pin "
+          "exists to catch (doctrine 17)",
+          "UNPRICED" in _LH.door_chance_note("schema")
+          and "UNPRICED" not in _LH.door_chance_note("admit"))
+    check("an empty rescue list renders NOTHING (no line where nothing "
+          "was rescued — doctrine 20 in the other direction)",
+          _LH.schema_default_disclosure([]) is None)
+    sd = _LH.schema_default_disclosure(
+        [{"lines": (1, 3), "label": "A",
+          "satisfied_by": ["pararhyme", "consonance"]}])
+    check("a schema-rescued pair's `SCHEMA DEFAULT` line names the pair "
+          "and the schema, and the door's chance rate stands beside it",
+          sd is not None and "SCHEMA DEFAULT: 1 mandated pair(s)" in sd
+          and "L1~L3 (group A) via pararhyme" in sd
+          and "M-116" in sd and "M-140" in sd
+          and f"{_CR.ADOPTED['schema'][0]}..{_CR.ADOPTED['schema'][1]}" in sd,
+          sd)
+    verd = [
+        {"lines": (0, 2), "endwords": ("home", "alone"),
+         "relation": "ASSONANCE", "score": 0.974, "why": None},
+        {"lines": (1, 3), "endwords": ("cat", "hat"),
+         "relation": "RHYME", "score": 1.0, "why": None},
+        {"lines": (4, 6), "endwords": ("sun", "much"),
+         "relation": "ASSONANCE", "score": 0.772, "why": "x",
+         "satisfied_by": ["assonance"]},
+        {"lines": (5, 7), "endwords": ("bad", "bat"),
+         "relation": "CONSONANCE", "score": 0.8, "why": None},
+    ]
+    nd = _LH.near_relation_default_disclosure(verd, 0.75)
+    check("the `ADMIT DOOR` line counts ONLY pairs satisfied AS a near "
+          "relation on theta alone — not the RHYME pass, not the "
+          "schema-rescued pair (never summed, doctrine 79) — by relation, "
+          "with the admit door's chance rate beside it",
+          nd is not None and "ADMIT DOOR: 2 mandated pair(s)" in nd
+          and "ASSONANCE x1, CONSONANCE x1" in nd
+          and "L1~L3 home/alone ASSONANCE 0.974" in nd
+          and "sun/much" not in nd and "cat/hat" not in nd
+          # ~~"theta_rhyme=0.75" in nd~~ REPINNED 2026-09-02: no near
+          # relation is judged at `theta_rhyme` any more, so a line saying
+          # so would be unreproducible from the number beside it
+          # (doctrine 58/91). The line names the cut EACH relation was
+          # actually judged at, read from the Declaration.
+          and "ASSONANCE 0.82" in nd and "CONSONANCE 0.75" in nd
+          and "M-138" in nd
+          and f"{_CR.ADOPTED['admit'][0]}..{_CR.ADOPTED['admit'][1]}" in nd,
+          nd)
+    check("control: verdicts with no near-relation pass render NOTHING",
+          _LH.near_relation_default_disclosure(verd[1:3], 0.75) is None)
+    # The grade verdict now CARRIES the comparator's flags (E-5 / M-136),
+    # and the M-136 (1) disclosure reaches a verdict only when identity was
+    # not asked — production passes the words, so on a real pair it is
+    # absent, which is the control this pin is worth.
+    rows = _LH.screen_pairs(["home", "alone"], lex=LEX, decl=DECL)
+    check("the grade's verdict carries `flags` and, with the words in "
+          "hand, no `identity: not asked` — production asks",
+          isinstance(rows[0]["flags"], list)
+          and not any("not asked" in f for f in rows[0]["flags"])
+          and rows[0]["relation"] == "ASSONANCE" and rows[0]["why"] is None,
+          f"{rows[0]['relation']} {rows[0]['flags']}")
+
+
 if __name__ == "__main__":
     for fn in (test_readable_pairs_are_untouched,
                test_constructed_oov_final,
@@ -1530,7 +1738,15 @@ if __name__ == "__main__":
                test_the_letter_repertoire_is_declared_and_the_two_sites_agree,
                test_interior_is_derived_by_position,
                test_the_bracket_rules_are_declared_and_read,
-               test_the_bracketed_verse_convention_keeps_the_body):
+               test_the_bracketed_verse_convention_keeps_the_body,
+               # §13 was in the membership guard's list and not in this
+               # loop (2026-09-02): the guard reads the OTHER list, so a
+               # section listed there and dropped here printed the same
+               # `all pass` as one that ran. Listed here now.
+               test_a_wordless_score_says_identity_was_not_asked,
+               test_the_empty_coda_gift_is_disclosed_and_not_moved,
+               test_the_assonance_profile_says_the_band_is_off,
+               test_the_default_doors_are_priced_where_they_answer):
         fn()
     _every_section_runs((
         test_readable_pairs_are_untouched, test_constructed_oov_final,
@@ -1541,7 +1757,11 @@ if __name__ == "__main__":
         test_the_letter_repertoire_is_declared_and_the_two_sites_agree,
         test_interior_is_derived_by_position,
         test_the_bracket_rules_are_declared_and_read,
-        test_the_bracketed_verse_convention_keeps_the_body))
+        test_the_bracketed_verse_convention_keeps_the_body,
+        test_a_wordless_score_says_identity_was_not_asked,
+        test_the_empty_coda_gift_is_disclosed_and_not_moved,
+        test_the_assonance_profile_says_the_band_is_off,
+        test_the_default_doors_are_priced_where_they_answer))
     print("=" * 68)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")

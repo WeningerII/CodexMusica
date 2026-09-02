@@ -254,23 +254,82 @@ def test_the_screen_asks_the_grades_question():
           "COARSE class and points at --relation — disclosure, so the "
           "two questions stop wearing one word",
           rc == 0 and "COARSE class" in out and "--relation=NAME" in out)
+    # REPOINTED 2026-09-01 (`MISSING.md` M-189): ~~a schema-namespace
+    # relation REFUSES~~ — a PAIR-BINDABLE schema is judged at the two end
+    # tokens now (§8 below), so the refusal is kept only for the shapes one
+    # token cannot bind. `anaphora` binds line HEADS at token loci and IS
+    # bindable, so it is judged rather than refused; a searched-anchor
+    # shape is the one that still refuses, by the judge's own reason.
     rc, out, err = run("screen", "cellar", "seller",
                        "--relation=schema:anaphora")
-    check("a schema-namespace relation REFUSES at exit 2 with the reason "
-          "— a schema is judged over LINES, which do not exist at the "
-          "screen; type:/class: names are the screenable ones",
-          rc == 2 and "schema" in (out + err), f"rc {rc}")
+    check("a pair-bindable schema-namespace relation is JUDGED at the two "
+          "end words now, not refused — the pair route, not the instances "
+          "route",
+          rc == 0 and ("SATISFIES schema:anaphora" in out
+                       or "VIOLATES schema:anaphora" in out
+                       or "schema:anaphora REFUSED" in out), f"rc {rc}")
     rc, out, err = run("screen", "cellar", "seller",
                        "--relation=type:zzznotarelation")
     check("an unknown relation name refuses at exit 2 by name",
           rc == 2, f"rc {rc}")
 
 
+def test_the_screen_judges_a_drawn_schema_and_names_a_near_relation():
+    """8. M-189 — the pre-write screen can ask the DRAWN question, and an
+    admitted near relation is not printed as a rhyme.
+
+    THE TWO DEFECTS. (a) `plan` draws one schema per group (M-117) and the
+    grade judges it at the two end words through `relations.pair_satisfies`
+    (M-148 P2) — but the screen REFUSED every `schema:` name, so the one
+    step the working order puts BEFORE writing could not ask the question
+    the grade asks. `perfect rhyme` and `rime riche` are in the 22 drawn
+    schemas; a perfect rhyme VIOLATES a DIFFER schema, and the writer could
+    not learn that until the grade. (b) `home`/`alone` is typed ASSONANCE,
+    admitted at a bare group under the widened door (M-59), and the screen
+    printed it `CLEAN — RHYMES` on the same row that says it VIOLATES
+    class:RHYME. EMPIRICALLY VERIFIED before pinning, on the pairs below.
+    """
+    print("\n8. M-189 — the screen judges a drawn schema at the two end "
+          "words, and says ADMITTED where the door let a near relation in")
+    rc, out, _ = run("screen", "hair", "chair", "spare",
+                     "--relation=schema:perfect rhyme")
+    check("a drawn end-rhyme schema is judged per pair at the two end "
+          "words — SATISFIES on a perfect rhyme, alongside the ban row",
+          rc == 0 and "SATISFIES schema:perfect rhyme" in out
+          and "BANNED: HOMEOTELEUTON" in out, f"rc {rc}")
+    rc, out, _ = run("screen", "cellar", "seller",
+                     "--relation=schema:rime riche")
+    check("a rime riche pair SATISFIES the rime riche schema", rc == 0
+          and "SATISFIES schema:rime riche" in out, f"rc {rc}")
+    rc, out, _ = run("screen", "hair", "spare",
+                     "--relation=schema:pararhyme")
+    check("a perfect rhyme VIOLATES a DIFFER schema — the answer the grade "
+          "would give, learned BEFORE writing",
+          rc == 0 and "VIOLATES schema:pararhyme" in out, f"rc {rc}")
+    rc, out, _ = run("screen", "home", "alone", "stone")
+    check("an ASSONANCE pair the door admits is printed ADMITTED, not "
+          "RHYMES, with the consequence named", rc == 0
+          and "home ~ alone" in out
+          and "CLEAN — ADMITTED as ASSONANCE" in out
+          and "CLEAN — RHYMES" not in out.split("home ~ alone")[1]
+          .split("\n")[0], out[:600])
+    # MEASURED: home~alone and home~stone are both ASSONANCE and admitted;
+    # alone~stone is a true rhyme AND the -one/-one HOMEOTELEUTON, so it is
+    # BANNED and counted there, not under "clean and rhyming" — three
+    # counts, none summed.
+    check("...and the tail counts it apart from the rhyming pairs "
+          "(doctrine 79)",
+          "2 clean and ADMITTED as a near relation" in out
+          and "0 clean and rhyming" in out and "1 banned" in out,
+          out[-400:])
+
+
 if __name__ == "__main__":
     for fn in (test_the_controls, test_honesty_and_the_split,
                test_no_drift, test_the_scaffold, test_the_cli,
                test_clean_answers_one_question,
-               test_the_screen_asks_the_grades_question):
+               test_the_screen_asks_the_grades_question,
+               test_the_screen_judges_a_drawn_schema_and_names_a_near_relation):
         fn()
     print("=" * 62)
     if FAILURES:
