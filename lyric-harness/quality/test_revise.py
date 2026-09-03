@@ -176,6 +176,8 @@ from quality import frequency as FREQ  # noqa: E402
 from quality import readability as RD  # noqa: E402
 from quality import revise as RV  # noqa: E402
 from quality import schemes as SC  # noqa: E402
+from quality import relations as RL  # noqa: E402
+from quality import floor as FL  # noqa: E402
 from quality.revise import (COLLISION_FINDINGS, SATISFACTION_FINDINGS,  # noqa: E402
                             THETA_COLLISION, Brief, NoMandate,
                             ReviseDeclaration, Reviser)
@@ -4403,6 +4405,74 @@ def test_the_offer_is_screened_from_the_offered_words_own_side():
           prompt[prompt.find("OFFERED"):prompt.find("OFFERED") + 300])
 
 
+def test_a_pair_finding_names_its_own_group():
+    """`MISSING.md` M-207 — two groups can hold ONE line pair at TWO words.
+
+    THE DEFECT, found by writing seed 4010's song. `_violated_groups`
+    attributed a pair finding by its `locations` — the two LINES — and asked
+    which groups hold the other line. On a draft where the planner had drawn
+    BOTH an end-word group and a word-2 group over lines 5 and 6, both
+    answered, so a HOMEOTELEUTON computed on the END WORDS ('hold'/'cold')
+    marked the WORD-2 place violated. The brief then told the writer *"group
+    B at its word 2 — VIOLATED, this is the word to change"* about a pair
+    `relations.pair_satisfies` answers True on, and emptied its own offer
+    with doctrine 9's ban on the call word's family.
+
+    The fact was one field away the whole time: the two-tier ban runs over
+    `grade()`'s VERDICTS and a verdict carries `label`.
+    """
+    print("\n54. M-207 — a pair finding names two LINES, and the group it "
+          "was actually judged in")
+    lines = ["we can wait for the long hold",
+             "the weight of it, the wrong cold"]
+    # B binds word 3 against word 2; H binds the two line ENDS. Both hold the
+    # same LINE PAIR, at different WORDS — which is what the planner's own
+    # overlap rule guarantees whenever two groups share a pair (M-80).
+    m = SC.mandate([["1.T3", "2.T2"], [1, 2]], n_lines=2,
+                   relations={"A": "schema:rime riche"})
+    R = RV.Reviser()
+    b = [x for x in R.brief(lines, m) if x.line_no == 2]
+    check("the premise: L2 is briefed, and the ban fires on the END words",
+          bool(b) and any(f.code == "HOMEOTELEUTON" for f in b[0].findings),
+          [f.code for f in b[0].findings] if b else "not briefed")
+    b = b[0]
+    ban = [f for f in b.findings if f.code == "HOMEOTELEUTON"][0]
+    check("...and the judge PASSES the other place, so a brief that calls it "
+          "violated is stating something false",
+          RL.pair_satisfies(
+              RL.REGISTRY["rime riche"],
+              RL.build_stream(lines, RV._relation_phonology(),
+                              declaration={"language": "eng"}),
+              (0, 2), (1, 1)) is True)
+    check("the finding NAMES its own group — read off the verdict's `label`, "
+          "not inferred from the lines",
+          tuple(ban.groups) == ("B",), ban.groups)
+    fields = b.fields_by_slot or {}
+    word2 = [f for f in fields.values() if f.labels == ("A",)]
+    ends = [f for f in fields.values() if f.labels == ("B",)]
+    check("...so the WORD-2 place is not violated and the END place is — "
+          "the two places the old attribution could not tell apart",
+          len(word2) == 1 and len(ends) == 1
+          and not word2[0].violated and ends[0].violated,
+          [(f.labels, f.violated) for f in fields.values()])
+    # THE MUTATION: drop the finding's own group and the inference takes
+    # over, which is exactly the pre-repair reading.
+    import dataclasses as _dc
+    _mut = _dc.replace(ban, groups=())
+    _groups = [(k, [x for x in m.groups[k] if x != 2])
+               for k in range(len(m.groups)) if 2 in m.groups[k]]
+    check("the MUTATION — the same finding with its group dropped marks "
+          "BOTH places, which is what every brief did before this repair",
+          RV.Reviser._violated_groups(m, 2, _groups, [_mut])
+          == {0, 1}
+          and RV.Reviser._violated_groups(m, 2, _groups, [ban]) == {1},
+          (sorted(RV.Reviser._violated_groups(m, 2, _groups, [_mut])),
+           sorted(RV.Reviser._violated_groups(m, 2, _groups, [ban]))))
+    check("`groups` is DISCLOSURE — a Finding that names none is the object "
+          "it always was, and no default changed",
+          FL.Finding("X", "note", "m", "e", [1, 2]).groups == ())
+
+
 def test_the_offer_falls_back_per_call_when_the_conjunction_is_empty():
     """`MISSING.md` M-202 — the conjunction is empty; the grader flags PAIRS.
 
@@ -4543,7 +4613,8 @@ if __name__ == "__main__":
                test_a_field_is_per_place_not_per_line,
                test_the_findings_own_direction_is_pinned,
                test_the_offer_is_screened_from_the_offered_words_own_side,
-               test_the_offer_falls_back_per_call_when_the_conjunction_is_empty):
+               test_the_offer_falls_back_per_call_when_the_conjunction_is_empty,
+               test_a_pair_finding_names_its_own_group):
         fn()
     print("=" * 62)
     if FAILURES:

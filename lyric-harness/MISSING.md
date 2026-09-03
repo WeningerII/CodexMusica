@@ -20144,7 +20144,194 @@ entry is about, made settable.
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
 with this entry (2026-09-03).
 
-### M-204 · Tier 2 is dispatched on "the word list came back EMPTY", not on "nothing in the list can pass", so the loop grinds tier 1 against a group no offered word can answer `OPEN` 2026-09-03 — found by writing a song; the first TWO write-ups of it were wrong, and the owner corrected the second
+### M-208 · `--backtrack=0` declared no backtrack and M-205's escalation ran one anyway `CLOSED` 2026-09-03 — my own regression, two commits old, found by the suite and not by reading
+
+**OWNED PLAINLY: THIS IS A DEFECT I INTRODUCED.** M-205 (`0252813e`) closed
+four ways tier 2 could stay silent, and its last repair was an ESCALATION —
+after tier 1 fails to close a line, offer the group to tier 2 in the same
+round. That escalation guards on ONE condition, `_group_declared`, and reads
+NOTHING about whether the caller wanted a backtrack at all.
+
+`ReviseDeclaration.backtrack_width` is the coordinate that says so and
+`--backtrack=0` is its CLI spelling. MEASURED, `revise DRAFT --groups=2,3;1,4
+--attempts=0 --backtrack=0 --propose=defer:`: **exit 4 — the loop suspended
+on a tier-2 GROUP BRIEF for L2 and L3**, on a run whose caller had switched
+both tiers off. At `0252813e^` the same command reaches a stop condition and
+stamps it. `quality/test_verbs.py` §49's last check is what caught it, and it
+had been red for two commits.
+
+**THE SHAPE IS THE ONE THIS FILE RECORDS MOST OFTEN** — a declared
+coordinate consumed and ignored (M-50's `relations=`, M-53's `rule=`, the
+`--returns=` drop of 2026-08-15) — and it arrived inside the commit whose
+whole subject was silent skips. The guard reads the declaration and DISCLOSES
+rather than skipping, on the same argument the `_group_declared` clause
+beside it makes: a refusal that says nothing is the fourth silent skip
+wearing the repair's own clothes.
+
+**NOT FIXED BY WIDENING THE TEST.** §49 declares `--attempts=0
+--backtrack=0` because its subject is the STAMP and not the loop, and a
+check that stopped asserting `rc in (0, 3)` would have kept the defect and
+lost the assertion.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~263~~ **264**
+with this entry (2026-09-03).
+
+### M-207 · A pair finding names two LINES, two groups can hold that pair at two different WORDS, and the brief told the writer to change the word the judge had already passed `CLOSED` 2026-09-03 — found by writing the song M-206 unblocked
+
+**THE SAME SITTING, ONE LAYER IN.** M-206 stopped the planner drawing a group
+no words can close. The very next draft hit the other half: a group that CAN
+be closed, reported as violated, with an EMPTY field offered for it.
+
+MEASURED on seed 4010's own draft, L6 (`the weight of it, the wrong cold`):
+
+```
+mandate:  group B [5, 6] at 5.T3 ~ 6.T2   schema:rime riche      'wait' ~ 'weight'
+          group H [5, 6] at their line ends  schema:compound…    'hold' ~ 'cold'
+findings on L6:  HOMEOTELEUTON  (lines 5, 6)   -- 'hold'/'cold', both -old
+brief:    group B at its word 2 -- VIOLATED, this is the word to change
+          group H at its end word -- VIOLATED, this is the word to change
+          OFFERED for the word 2: (no candidate field was offered)
+          FORBIDDEN: strait, bait, await, trait, kuwait, plait, gait, ... (14)
+judge:    relations.pair_satisfies(rime riche, stream, (4, 2), (5, 1)) -> True
+```
+
+**Group B was satisfied and the brief said it was violated**, then emptied its
+own offer with doctrine 9's ban on the `-ait` family and told the writer *"the
+mandate, not the lexicon, is the binding constraint here"*. A dead end
+manufactured entirely out of a mis-attribution — and it cost a real revision
+round before the judge was asked directly.
+
+**THE CAUSE IS AN INFERENCE WHERE A FACT WAS AVAILABLE.**
+`Reviser._violated_groups` attributes a pair finding by its `locations`: the
+finding names lines 5 and 6, so it asks which groups hold line 5, and **both
+B and H do**. The tie-break it carries is a MESSAGE match (`"group B "` in the
+finding's text) — written at M-184 for the findings that name a group, and
+`HOMEOTELEUTON` names none. So both places were marked.
+
+**AND THE FACT WAS ONE FIELD AWAY.** The two-tier ban is driven by
+`grade()`'s VERDICTS, and a verdict carries `label` — the group it judged.
+The ban had the group in hand on the same line it built the finding, and
+dropped it. `floor.Finding.groups` carries it now (a DISCLOSURE field: no
+diff keys on it, `codes()` does not read it, a finding that names none reads
+exactly as it always did), the two pair-check findings set it from
+`v["label"]`, and `_violated_groups` prefers a finding's OWN declared group
+over the line-holding inference. On the measured case the word-2 place goes
+`violated=True` -> **False** and the end-word place stays True.
+
+**THE SUSCEPTIBLE POPULATION IS EVERY OVERLAP THE PLANNER DRAWS, MEASURED:
+over seeds 1-120, 1,758 pairs of groups share a line PAIR and 1,758 of them
+(100%) bind DIFFERENT WORDS on it, across 120 of 120 seeds.** That is not a
+coincidence — it is M-80's own invariant read from the other side: a line
+joins a further group only at a word it does not already bind, so *whenever*
+two groups share a line pair they disagree about which word, and *any*
+end-word ban firing on that pair mis-marked every other place on the line.
+The 100% is the DENOMINATOR and not a defect rate: it counts group pairs that
+CAN be mis-attributed, and a mis-attribution needs a ban to fire on that pair
+as well.
+
+**WHAT DID NOT CHANGE.** No severity, no verdict, no count: `groups` is
+disclosure. The inference is KEPT as the fallback, because a floor finding
+that names several lines (`SHARED_SUFFIX`, `PREDICTABLE_RHYME`) still knows
+no single group and the old attribution is the honest answer there.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~262~~ **263**
+with this entry (2026-09-03).
+
+### M-206 · The planner drew a schema whose own PLACEMENT RULE its group's slots can never satisfy, so 83 of 120 seeds shipped a mandate group no vocabulary closes `CLOSED` 2026-09-03 — found by writing a song, the third defect that route has surfaced this week
+
+**THE TRAP THE OWNER NAMED, LOCATED.** Their words, 2026-09-02: *"we
+frequently run into a specific problem where there is a rhyme pair free of
+legal moves and that we get stuck in a trapped door pit trying to solve the
+unsolvable."* M-202, M-204 and M-205 each found one wall of that pit — an
+offer built by the wrong conjunction, an offer built by the wrong judge, a
+tier 2 that could not be dispatched. **This is the floor.** On seed 3014's
+group H the loop briefed L11 with an EMPTY candidate field and the honest
+sentence *"the mandate, not the lexicon, is the binding constraint here"* —
+and it was right in a way no repair to the LOOP could have answered, because
+**no English word could have closed that group.**
+
+```
+group H = lines 5,11 at their END WORDS, relation drawn: schema:internal rhyme
+REGISTRY["internal rhyme"].placement = (Placement("both_line_final",
+                                                  polarity=False),)
+    # polarity=False is the negation: at least one member NOT line-final
+```
+
+Both members bind the line's last word. The schema requires that they do
+not. **Unsatisfiable by construction, at every line length, in every
+vocabulary** — and the brief's own FORBIDDEN list (`kept, slept, wept,
+crept, leapt, except, accept, adept, inept, ...`) is the whole perfect-rhyme
+family of `swept`, every one of them HOMEOTELEUTON or MODAL, so the loop was
+grinding a search whose entire answer set was banned AND whose target was
+impossible.
+
+**FOUR SCHEMAS, AND THE ROUTE IS WHY IT WAS INVISIBLE.** `Reviser.grade`
+judges a `schema:` group by ONE of two routes, chosen on whether any member
+binds a declared token:
+
+| the group's slots | route | `schema.placement` |
+|---|---|---|
+| ALL DEFAULT (`5,11`) | instances — `satisfies_relation` over `realise()` | **ENFORCED** |
+| any declared token (`6.T3,9.T4`) | `relations.pair_satisfies` | **STRIPPED** |
+
+The strip is deliberate and argued in `pair_satisfies`' own docstring — *"a
+placement is the schema's own statement of where it expects to stand, and
+the declared slot is the writer overriding exactly that coordinate"* — and it
+is right. What nothing held was the OTHER row: on an all-default group the
+placement rule is live, and the draw never asked it. Of the 22 drawable
+schemas, four cannot stand at two line ends — `internal rhyme` (negated
+`both_line_final`), `anaphora` and `head rhyme (positional)`
+(`both_line_initial`), `interlaced rhyme` (`neither_line_final`).
+
+**MEASURED BY THE GATE ITSELF, seeds 1–120, the draw's filter mutated off
+and the gate left on: 134 unwritable groups across 83 of 120 seeds
+(69.2%).** After: **0 findings, 0 seeds lost, 2907 groups and 681
+all-default groups — both unmoved**, so the draw's SHAPE is byte-identical
+and only which relation NAMES land on which group moved.
+
+**M-149(a) BUILT THE OTHER HALF OF THIS CONJUNCTION AND ITS OWN COMMENT
+NAMES THE HOLE.** `relations.pair_bindable` refuses a schema whose member
+SPANS one declared token cannot carry, and it ends: *"A schema failing this
+is still drawable at DEFAULT slots, where the instances route judges it at
+its own loci."* True — and at those loci the PLACEMENT rule is exactly what
+judges it. One predicate guarded the declared-token route and nothing
+guarded the default one. `relations.placement_bindable(schema, positions)`
+is the missing half, built the same way: a two-line probe stream, each
+member's span taken through the schema's OWN `_spans_at`, every
+position-kind `Placement` asked through its OWN `holds`. A rule answering
+None does not refuse — an undecidable placement is not an unsatisfiable one
+(doctrine 28).
+
+**AND MY OWN FIRST DRAFT BROKE DOCTRINE 1 IN THE SAME BREATH, WHICH IS WHY
+IT IS RECORDED HERE RATHER THAN QUIETLY REPAIRED.** The draw tested
+`"." in m and m.split(".", 1)[1] != "end"`; the gate tested `m.split(".")[1]
+in ("end", "endword")`. **Three spellings of one question, and they
+disagree**: `<line>.end` IS the default slot and `<line>.endword` is NOT —
+it anchors at `word_start`, so `grade()` sends it down the pair route. The
+two spellings refused **7 of 120 seeds** between them: the draw let a
+placement-refused schema through and the gate then refused the whole plan.
+`plan._all_default_member` reads `slots.is_default` and nothing else now, and
+both sites call it. That is the same species of defect as the one this entry
+is about — a rule spelled by hand at two sites — committed inside the repair
+for it.
+
+**WHAT THE FIGURE IS NOT REFUSED.** A schema is barred only from the
+placements its own definition rules out; `internal rhyme` stays drawable and
+stays satisfiable the moment a member binds an internal slot, which the
+planner draws for most members anyway (M-71: `end` takes 8.5%). The gate's
+message says so and names the declaration that works, rather than telling a
+writer the figure is unavailable.
+
+**`PLACEMENT_CONTRADICTS_SCHEMA` is `JOINT_CODES`' EIGHTH member**, refused
+at plan time on the same footing as the other seven, and `test_plan.py` §18
+is 8 checks whose MUTATION (the draw's filter off, the gate's on) fires on
+**42 of 60 seeds, 65 findings**. The three registry checks are controls that
+must pass on both trees.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~261~~ **262**
+with this entry (2026-09-03).
+
+### M-204 · Tier 2 is dispatched on "the word list came back EMPTY", not on "nothing in the list can pass", so the loop grinds tier 1 against a group no offered word can answer `CLOSED` 2026-09-03 — found by writing a song; the first TWO write-ups of it were wrong, and the owner corrected the second
 
 **THIS ENTRY'S FIRST DRAFT IS STRUCK AND KEPT (doctrine 17), BECAUSE THE
 ERROR IS THE MORE USEFUL RECORD.** It was titled *"~~`semirhyme` cannot be
@@ -20228,8 +20415,36 @@ so tier 1 was judged well supplied and the loop kept asking for that one line
 questions, and they come apart exactly on the groups that trap the loop.**
 The trigger is on the first; the pit is in the second.
 
-**OPEN, AND THE OWED WORK IS NAMED.** Two things, in this order, and neither
-is a renderer:
+**CLOSED 2026-09-03 — BOTH HALVES, BY ONE REPAIR.** `Reviser.schema_screen`
+judges the offer with `relations.pair_satisfies`, the same judge `grade()`
+uses, and `brief()` asks the MANDATE for each group's declared relation —
+never inferring it from the words — before narrowing the field. On the case
+this entry was measured on, seed 1067 L7 (`schema:semirhyme`, call `late`),
+the offer goes from **24 words none of which can answer** to **0**, with all
+28 the band admitted carried in `schema_refused`. That field is ITS OWN
+COUNT and is never folded into `screened_out` (doctrine 79): that list prints
+*"the call word sits in their own modal head"*, which is true of the ban and
+false of a schema refusal — a merge this repair's own first draft made and
+the second caught.
+
+**AND THE DISPATCH HALF IS ONLY PARTLY REPAIRED BY IT — STATED PRECISELY,
+BECAUSE THE FIRST WRITE-UP OF THIS SENTENCE OVERCLAIMED.** "One repair, both
+halves" is FALSE. Screening empties the offer, and `joint_conflict` is
+`len(calls) > 1 AND offer empty AND ban empty` — so on a place with TWO OR
+MORE calls the trigger now fires where it did not. On a SINGLE-call couplet
+it is still False, and what carries that line to tier 2 is M-205's
+escalation, not this. Two paths, and neither covers the other.
+
+COST, MEASURED rather than estimated: 25.6 ms per candidate, 0.62 s over a
+24-word field, paid once per briefed line.
+
+`quality/test_propose.py` pins the narrowed offer's sentence BEFORE the list
+(M-185's reason: a writer reading four words must know the lexicon is not
+what ran out), and §7c caught the new `Brief` field the moment it existed —
+the fourth time that guard has paid for itself this week.
+
+~~**OPEN, AND THE OWED WORK IS NAMED.** Two things, in this order, and neither
+is a renderer:~~ **BOTH DISCHARGED — see above and M-205:**
 
   1. Why tier 2 ALSO stayed silent on seed 443 L5, where the field genuinely
      WAS empty and the trigger should have fired. `MISSING.md` M-185 records

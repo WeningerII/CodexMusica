@@ -1997,6 +1997,48 @@ def test_tier2_that_walks_nothing_falls_through_to_tier1():
 
 
 
+def test_the_escalation_reads_the_declared_backtrack_width():
+    """`MISSING.md` M-208 — `--backtrack=0` means no backtrack, escalation
+    included.
+
+    MY OWN REGRESSION, TWO COMMITS OLD. M-205's escalation guards on
+    `_group_declared` and read nothing about `ReviseDeclaration
+    .backtrack_width`, so a caller who had switched tier 2 OFF was handed a
+    tier-2 group brief anyway — a declared coordinate consumed and ignored,
+    inside the commit whose whole subject was silent skips.
+    """
+    print("\n24. M-208 — the escalation reads `backtrack_width` before it "
+          "escalates, and DISCLOSES when it declines")
+    lines = list(CLICHE)
+    seen = {"tier2": 0}
+
+    def pg(_gb):
+        seen["tier2"] += 1
+        return None
+
+    off = ReviseDeclaration(attempts_per_line=0, backtrack_width=0)
+    res = revise_loop(Reviser(rdecl=off), list(lines), "ABAB",
+                         propose=lambda *a, **k: None, propose_group=pg)
+    check("with `backtrack_width=0` tier 2 is NEVER asked",
+          seen["tier2"] == 0, seen["tier2"])
+    said = [a.reason for r in res.rounds for a in r.attempts
+            if "backtrack_width" in (a.reason or "")]
+    check("...and the decline is DISCLOSED on the attempt, not silent — the "
+          "fourth silent skip is exactly what M-205 closed",
+          bool(said), said[:1] or [a.reason for r in res.rounds
+                                   for a in r.attempts][:1])
+    # THE CONTROL: the same run with the declared width restored DOES reach
+    # tier 2, so the guard is reading the coordinate and not disabling the
+    # escalation outright.
+    seen["tier2"] = 0
+    on = ReviseDeclaration(attempts_per_line=0, backtrack_width=5)
+    revise_loop(Reviser(rdecl=on), list(lines), "ABAB",
+                   propose=lambda *a, **k: None, propose_group=pg)
+    check("CONTROL: with the width declared, the escalation still runs — "
+          "M-205's repair is intact and only its missing guard was added",
+          seen["tier2"] > 0, seen["tier2"])
+
+
 def test_a_return_is_a_class_and_is_revised_together():
     """`MISSING.md` M-201 — a RETURN group is revised as a class.
 
@@ -2091,7 +2133,8 @@ if __name__ == "__main__":
                test_pursuit_is_mandatory_and_success_below_it_unreportable,
                test_a_stuck_line_is_asked_again_once_the_draft_has_moved,
                test_tier2_that_walks_nothing_falls_through_to_tier1,
-               test_a_return_is_a_class_and_is_revised_together):
+               test_a_return_is_a_class_and_is_revised_together,
+               test_the_escalation_reads_the_declared_backtrack_width):
         fn()
     print("=" * 62)
     if FAILURES:

@@ -1859,7 +1859,25 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 # them would lose which tier the line was actually closed
                 # by, and `RoundResult.attempts` is the census the stop
                 # condition reads.
-                if not attempt.accepted and not _group_declared:
+                if not attempt.accepted and rdecl.backtrack_width < 1:
+                    # THE DECLARED COORDINATE COMES FIRST (`MISSING.md`
+                    # M-208). `--backtrack=0` SAYS do not backtrack, and
+                    # M-205's escalation read only `_group_declared`, so a
+                    # caller who had switched tier 2 off was handed a group
+                    # brief anyway — a declared coordinate consumed and
+                    # ignored, which is the family this file records more
+                    # than any other, introduced by the commit that closed
+                    # four silent skips. DISCLOSED rather than skipped, for
+                    # the same reason the clause below is.
+                    attempt = LineAttempt(
+                        attempt.line_no, attempt.tier, attempt.accepted,
+                        attempt.tried,
+                        attempt.reason + "; tier 2 was NOT entered — "
+                        "`backtrack_width` is 0, so the caller declared no "
+                        "backtrack and the escalation may not substitute "
+                        "one",
+                        attempt.touched, asked=attempt.asked)
+                elif not attempt.accepted and not _group_declared:
                     # DISCLOSED, NOT SKIPPED. This is the one place the
                     # escalation declines to run, and saying nothing here
                     # would make it a fourth silent skip — the exact

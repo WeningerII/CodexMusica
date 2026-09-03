@@ -819,7 +819,14 @@ def test_the_measure():
     # inside `plan.py` is exactly what this allow-list would otherwise force.
     ALLOWED_FROM_CAPACITY = {"ADOPTED_MAX_GROUP"}
     ALLOWED_FROM_SLOTS = {"PLANNABLE_PLACEMENTS", "placement_word",
-                          "LAST_WORD"}
+                          "LAST_WORD", "is_default_spelling"}
+    # `is_default_spelling` joined 2026-09-03 (M-206). It is a PURE PREDICATE
+    # over a member's own spelling — `is_default(parse_slot(text))`, in the
+    # module that owns the spelling — and it resolves nothing: no lexicon, no
+    # line, no words. It is admitted because the alternative is what this
+    # allow-list exists to prevent, one layer over: the planner parsing the
+    # member itself, which it did at two sites in three different spellings
+    # that disagreed on `<line>.endword` and refused 7 of 120 seeds.
     # `relations` JOINED 2026-08-25 (M-117, the owner's "now do the planner
     # too") ON THE SAME ARGUMENT AS `slots` AND WITH THE SAME NARROWING:
     # `DRAWABLE_SCHEMAS` is an ADOPTED tuple of the same species as
@@ -863,7 +870,22 @@ def test_the_measure():
                               "CHANNEL_DOMAINS", "pair_bindable",
                               "REGISTRY", "overhang_member",
                               "unsatisfiable_pairs", "group_satisfiable",
-                              "identity_forced"}
+                              "identity_forced", "placement_bindable",
+                              "POSITION_PLACEMENT_KINDS"}
+    # `placement_bindable` joined 2026-09-03 (M-206) as `pair_bindable`'s
+    # other half: that one asks whether one declared TOKEN can carry a
+    # member's span, this asks whether the POSITION it sits at can satisfy
+    # the schema's own placement rule. THE REACH IS STATED RATHER THAN
+    # WAVED THROUGH, because it is the widest name on this list: it builds
+    # a stream and therefore touches the phonology. What it builds it from
+    # is `relations._PROBE_LINE`, a four-word MODULE CONSTANT — the planner
+    # hands it no text, holds no text, and this check's other half
+    # (`opens == 0` in plan.py) is untouched. So the reach is to the
+    # DICTIONARY and not to the corpus, which is the distinction every
+    # narrowing on this list is drawn on.
+    # `POSITION_PLACEMENT_KINDS` joined with it: a declared frozenset of
+    # `Placement.kind` names, the same species as `CHANNEL_DOMAINS`, read
+    # only so the refusal can QUOTE the rule it refused on.
     # `drawable_traits` joined with M-118's conjunction gate: the
     # gap ceiling and end-channel signature per drawable schema,
     # derived in relations.py from its own rows so the planner
@@ -2967,6 +2989,118 @@ def test_the_overhang_group():
           fired2[0][2][:80] if fired2 else "did not fire")
 
 
+def test_the_placement_route(FAILURES=None):
+    """18. M-206 — a schema whose PLACEMENT rule two line ends cannot satisfy
+    is unwritable on an all-default group, and the draw may not reach one."""
+    print("\n18. M-206 — the placement rule and the group's own slots, and "
+          "the two routes that read them differently")
+    IR = RL.REGISTRY["internal rhyme"]
+    # ===================================================================
+    # FOUND BY WRITING A SONG. Seed 3014's group H bound L5's end word to
+    # L11's, under a drawn `schema:internal rhyme`, and `internal rhyme`
+    # declares `Placement("both_line_final", polarity=False)` — at least one
+    # member NOT line-final. The loop briefed L11 with an EMPTY candidate
+    # field ("the mandate, not the lexicon, is the binding constraint here")
+    # and no word in English could have closed it, because the defect is the
+    # PLACEMENT and not the word.
+    # ===================================================================
+    check("the registry is what says so — 4 of the drawable schemas declare "
+          "a placement rule a pair of LINE ENDS cannot satisfy, and they are "
+          "the negated `both_line_final`, the two `both_line_initial` and "
+          "the `neither_line_final` one",
+          sorted(n for n in RL.DRAWABLE_SCHEMAS
+                 if not RL.placement_bindable(RL.REGISTRY[n], ("end", "end")))
+          == ["anaphora", "head rhyme (positional)", "interlaced rhyme",
+              "internal rhyme"])
+    check("...and the predicate is not a blanket refusal — the SAME four "
+          "answer True at the placements their own definitions name, and "
+          "`internal rhyme` is bindable at an internal slot, which is the "
+          "whole reason it stays drawable",
+          RL.placement_bindable(IR, ("internal", "end"))
+          and RL.placement_bindable(RL.REGISTRY["anaphora"],
+                                    ("head", "head"))
+          and RL.placement_bindable(RL.REGISTRY["perfect rhyme"],
+                                    ("end", "end")))
+    check("a schema with NO position-kind placement rule is admitted "
+          "everywhere — the control that stops this reading as a cap on "
+          "every group",
+          RL.placement_bindable(
+              RL.REGISTRY["cluster consonance / skothending span"],
+              ("end", "end"))
+          and RL.placement_bindable(
+              RL.REGISTRY["cluster consonance / skothending span"],
+              ("head", "internal")))
+
+    # THE DRAW AND THE GATE ASK ONE QUESTION ONE WAY (doctrine 1). The
+    # helper reads `slots.is_default`, and the three spellings this repair's
+    # own first draft used disagreed: `<line>.end` IS the default slot and
+    # `<line>.endword` is NOT (it anchors at `word_start`), so a hand-written
+    # `!= "end"` and an `in ("end", "endword")` refused 7 of 120 seeds
+    # between them.
+    check("`slots.is_default_spelling` is `is_default` in the module that "
+          "owns the spelling, and not a hand-written test of it — a bare "
+          "int and `N.end` are default, `N.endword`, `N.head` and `N.T4` "
+          "are not, and the draw and the gate both ask IT",
+          [SL.is_default_spelling(m)
+           for m in (5, "5", "5.end", "5.endword", "5.head", "5.T4")]
+          == [True, True, True, False, False, False]
+          and "_SL.is_default_spelling" in open(
+              os.path.join(os.path.dirname(PLN.__file__), "plan.py"),
+              encoding="utf-8").read())
+
+    seeds = list(range(1, 61))
+    plans = {}
+    for sd in seeds:
+        try:
+            plans[sd] = PLN.make_plan(seed=sd)
+        except Exception:
+            pass
+    check("0 seeds are LOST to this filter — the bare default is always in "
+          "the pool, so a group whose placements refuse every schema still "
+          "draws a relation",
+          len(plans) == len(seeds), f"{len(plans)} of {len(seeds)}")
+    live = [(sd, f) for sd, pl in plans.items() for f in PLN.joint_findings(pl)
+            if f[0] == "PLACEMENT_CONTRADICTS_SCHEMA"]
+    check("...and 0 plans carry the finding, so the gate is satisfied BY "
+          "CONSTRUCTION and a MUTATION is the only way to fire it",
+          not live, live[:2])
+
+    # THE MUTATION: the DRAW loses the filter, the GATE keeps it. Patching
+    # `placement_bindable` alone would disable both (doctrine 1 working), so
+    # the gate is stubbed out of `make_plan` and re-run afterwards on the
+    # plans the mutant draw shipped.
+    _pb, _jf = RL.placement_bindable, PLN.joint_findings
+    RL.placement_bindable = lambda *a, **k: True
+    PLN.joint_findings = lambda plan: []
+    try:
+        mut = {}
+        for sd in seeds:
+            try:
+                mut[sd] = PLN.make_plan(seed=sd)
+            except Exception:
+                pass
+    finally:
+        RL.placement_bindable, PLN.joint_findings = _pb, _jf
+    fired = {sd: [f for f in PLN.joint_findings(pl)
+                  if f[0] == "PLACEMENT_CONTRADICTS_SCHEMA"]
+             for sd, pl in mut.items()}
+    hit = [sd for sd, fs in fired.items() if fs]
+    check("the MUTATION fires it on most of the sweep — the pre-repair "
+          "planner handed the writer a group no vocabulary can close on "
+          "more than half of all seeds",
+          len(hit) > len(mut) // 2,
+          f"{len(hit)} of {len(mut)} seeds, "
+          f"{sum(len(f) for f in fired.values())} finding(s)")
+    ex = fired[hit[0]][0] if hit else None
+    check("...and the finding names the schema, the members and the "
+          "placement rule, and points at the declaration that WOULD work "
+          "rather than refusing the figure",
+          ex is not None and "schema:" in ex[2] and "DEFAULT slot" in ex[2]
+          and "--groups=" in ex[2]
+          and "PLACEMENT_CONTRADICTS_SCHEMA" in PLN.JOINT_CODES,
+          (ex[2][:110] if ex else "did not fire"))
+
+
 def test_the_delegated_rulings(FAILURES=None):
     print("\n14. THE 2026-09-01 RULINGS UNDER DELEGATION — the chorus recurs "
           "(M-190), the plan draws its own DENSITY (M-191), and three "
@@ -3194,6 +3328,7 @@ if __name__ == "__main__":
                test_the_end_rhyme_pass_is_additive,
                test_the_relation_draw, test_the_bound_share,
                test_the_grade_it_line_runs, test_the_overhang_group,
+               test_the_placement_route,
                test_the_delegated_rulings):
         fn()
     print("=" * 62)

@@ -131,6 +131,14 @@ class B:
         #: answers — no error, no red, and the suite pinning the wrong half
         #: of a two-branch sentence.
         self.partial_by_call = kw.get("partial_by_call", ())
+        #: WORDS THE BAND ADMITTED AND THE DECLARED RELATION REFUSED
+        #: (`MISSING.md` M-204, 2026-09-03) — and §7c below caught this one
+        #: too, which is the FOURTH field that guard has paid for. Without
+        #: it `render_line` reads `getattr(brief, "schema_refused", ())`,
+        #: gets nothing, and the "why the offer is short" sentence renders
+        #: on no fixture in this file — no error, no red, and the suite
+        #: pinning a prompt that a narrowed offer never produces.
+        self.schema_refused = kw.get("schema_refused", ())
         #: THE PLACEMENT, added 2026-08-24 — and it was §7c below that found
         #: it, on the first CI run after the workflow started parsing again.
         #: `Brief` grew `slot`/`slot_conflict` at `9ad2dad` (`MISSING.md`
@@ -587,6 +595,22 @@ def test_a_pivot_and_a_joint_conflict_are_stated():
           in block
           and "silver — 3 word(s): river, quiver, shiver" in block
           and "mind — 3 word(s): signed, behind, unwind" in block, block)
+    # M-204: the same PLAIN fixture, told that the band offered more and the
+    # declared relation refused it. The sentence must come BEFORE the list,
+    # for M-185's reason: a writer reading four words needs to know the
+    # lexicon was not what ran out.
+    _narrowed = render_line(
+        B(line_no=1, text=PLAIN_BRIEF.text, findings=PLAIN_BRIEF.findings,
+          candidates=["attire", "sire"], forbidden_modal=["fire"],
+          forbidden_incumbent="fire", field_computed=True,
+          schema_refused=("night", "quite", "white")),
+        DRAFT, attempt=0)
+    _blk = _section(_narrowed, "OFFERED")
+    check("a NARROWED offer says the band admitted more and the DECLARED "
+          "RELATION refused it — a short list is not an exhausted lexicon",
+          "3 word(s) the band admitted are NOT offered" in _blk
+          and "night, quite, white" in _blk
+          and _blk.index("NOT offered") < _blk.index("attire"), _blk[:400])
     check("an empty JOINT field says WHY rather than printing nothing, and "
           "no longer says the lexicon had no answer for this line",
           "no JOINT candidate field was offered" in _section(p, "OFFERED")

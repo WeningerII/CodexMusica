@@ -1158,6 +1158,15 @@ class Finding:
     message: str
     evidence: str
     locations: list = field(default_factory=list)
+    #: THE MANDATE GROUP LABEL(S) THIS FINDING IS ABOUT, when the emitter
+    #: knows one (`MISSING.md` M-207). DISCLOSURE, never a severity and never
+    #: a location: `codes()` does not read it, no diff keys on it, and a
+    #: finding that names none reads exactly as it always did. It exists
+    #: because a PAIR finding names two LINES, and two groups can hold the
+    #: same line pair AT DIFFERENT WORDS — so the brief attributed an
+    #: end-word ban to a group binding word 2 and told the writer to change a
+    #: word the judge had already passed.
+    groups: tuple = ()
 
     def __str__(self):
         loc = f" (lines {', '.join(map(str, self.locations))})" if \

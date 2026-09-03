@@ -6931,6 +6931,86 @@ def identity_forced(schema):
                for r in schema.identity)
 
 
+#: The `Placement` kinds that are a fact about WHERE IN ITS LINE a bound
+#: token sits, as opposed to a fact about which LINES the group holds. The
+#: split matters because the planner already filters the line facts through
+#: each schema's `gap` trait, and only these are decided by the placements a
+#: group draws (`MISSING.md` M-206).
+POSITION_PLACEMENT_KINDS = frozenset({
+    "both_line_final", "a_line_final", "both_line_initial",
+    "neither_line_final", "exactly_one_line_final",
+    "same_token", "adjacent_tokens", "across_line_break",
+})
+
+#: The token index a declared placement resolves to inside the synthetic
+#: line `placement_bindable` builds. Three positions is the whole question a
+#: `Placement` of the kinds above can ask: is this token the line's last, its
+#: first, or neither.
+_PROBE_LINE = "cold rain came down"
+_PROBE_AT = {"head": 0, "internal": 1, "end": 3}
+
+
+def placement_bindable(schema, positions, phon=None):
+    """-> True when a pair bound AT THESE PLACEMENTS can satisfy this
+    schema's own placement rules.  (`MISSING.md` M-206.)
+
+    `positions` is one of `'head'`/`'internal'`/`'end'` per member, which is
+    what `slots.position_of` answers for a declared slot and what a DEFAULT
+    slot resolves to (`'end'`).
+
+    THE DEFECT THIS CLOSES. A `schema:` relation on a group whose members
+    all sit at DEFAULT slots is judged by the INSTANCES route
+    (`rhyme_types.satisfies_relation` over `realise()`), and that route
+    enforces `schema.placement`. `internal rhyme` declares
+    `Placement('both_line_final', polarity=False)` — at least one member NOT
+    line-final — so a group binding two line ENDS can never satisfy it, at
+    any length, in any words. The planner drew exactly that: measured over
+    seeds 1-120, **99 of 681 all-default groups (14.5%) across 63 of 120
+    seeds (52.5%)** carried a schema its own placements refuse, and the
+    revise loop then grinds tier 1 against a line no word can fix.
+
+    IT IS THE SAME SHAPE AS `pair_bindable` AND ASKS THE OTHER HALF.
+    `pair_bindable` asks whether one declared TOKEN can carry a member's
+    span; this asks whether the POSITION that token sits at can satisfy the
+    schema's placement. They are complementary, and the DECLARED-token route
+    needs neither — `pair_satisfies` strips `placement` on purpose, because
+    a declared slot IS the writer overriding that coordinate.
+
+    THE RULES ARE ASKED, NEVER RESPELLED (doctrine 1). A two-line probe
+    stream is built, each member's span taken at its position through the
+    schema's OWN `_spans_at`, and every position-kind `Placement` asked
+    through its OWN `holds`. A rule that answers None — it needs a frame the
+    probe does not declare — does NOT refuse: an undecidable placement is
+    not an unsatisfiable one (doctrine 28).
+    """
+    pl = tuple(p for p in (schema.placement or ())
+               if p.kind in POSITION_PLACEMENT_KINDS)
+    if not pl:
+        return True
+    if phon is None:
+        from quality.phonology import get as _get
+        phon = _get("eng")
+    st = build_stream([_PROBE_LINE, _PROBE_LINE], phon,
+                      declaration={"language": "eng"})
+    spans = []
+    for n, (rule, pos) in enumerate(zip(
+            (schema.spans[0], schema.spans[-1]), positions)):
+        ids = tuple(i for i in st.lines[n]
+                    if st.units[i].token == _PROBE_AT.get(pos, 3))
+        if not ids:
+            return True          # the probe cannot pose the question
+        try:
+            got = list(_spans_at(rule, st, ids, "L%d.%s" % (n, pos)))
+        except NoReferent:
+            return True          # a shape question, and `pair_bindable`'s
+        if not got:
+            return True
+        spans.append(got[0])
+    if len(spans) != 2:
+        return True
+    return not any(p.holds(spans[0], spans[1], st) is False for p in pl)
+
+
 def group_satisfiable(schema, members):
     """-> True when SOME assignment of words satisfies every pair of a
     `members`-sized group under this schema.
