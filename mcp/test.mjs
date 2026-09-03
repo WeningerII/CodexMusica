@@ -1604,7 +1604,7 @@ check('validation: actionable errors', () => {
     const cold = await WK.runCold(['screen', 'fire', 'desire']);
     assert.ok(typeof cold.stdout === 'string', 'the cold path still answers');
     const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
-    assert.ok(/stamp\(r, 'warm'\)/.test(src) && /stamp\(r, 'cold-fallback'\)/.test(src) && /stamp\(r, 'cold'\)/.test(src) && /'killed'\)/.test(src),
+    assert.ok(/stamp\(r, 'warm'\)/.test(src) && /stamp\(r, 'cold-fallback'\)/.test(src) && /stamp\(r, 'cold'\)/.test(src) && /path: 'killed'/.test(src),
       'runVerb names all four paths');
     assert.ok(/console\.error\([\s\S]*warm worker unavailable/.test(src), 'a fallback to cold is LOGGED, never silent');
     assert.ok(/console\.error\([\s\S]*warm worker exited/.test(src), 'a worker death is LOGGED');
