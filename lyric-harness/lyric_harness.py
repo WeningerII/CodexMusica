@@ -9329,11 +9329,35 @@ def main():
                 # here is what makes the two runs distinguishable, and it is
                 # doctrine 1 — an analysis states the coordinates it was run
                 # under, including the ones whose effect cancels.
+                # THE SUBDIVISION IN FORCE, NOT THE ONE SPELLED HERE
+                # (`MISSING.md` M-203, 2026-09-03). This read `sub_arg` —
+                # the `--subdivision` FLAG — and `finish` does not take that
+                # flag: it builds the coordinate from the plan artifact two
+                # dozen lines below, so every `finish` run printed "NO
+                # SUBDIVISION DECLARED — the slot questions refuse rather
+                # than assume one" while the loop graded under
+                # `Subdivision(1)` and the slot questions were ANSWERED. The
+                # same output carried both sentences: the MANDATE line one
+                # line up says "the subdivision is the plan's own", and this
+                # one said there wasn't one. Doctrine 1 — one fact, one
+                # statement — and the wrong half was the one a reader takes
+                # for the coordinate the analysis ran under.
+                #
+                # READ OFF THE OBJECT the loop is actually handed, which is
+                # the same object on every path: `brief`/`verify`/`revise`
+                # build it from `sub_arg` through `_subdivision_or_refuse`,
+                # so this is byte-identical there, and `finish` builds it
+                # from the artifact, which is the case this repairs. The
+                # SOURCE travels with it (`_Sourced`), so the banner can say
+                # where the number came from instead of implying the command
+                # line.
+                _sub_said = (f", subdivision={subdivision.s} "
+                             f"({subdivision.source})" if subdivision
+                             else ", NO SUBDIVISION DECLARED — the slot "
+                                  "questions refuse rather than assume one")
                 print(f"  BLUEPRINT: {bp_path} — meter and song-function "
                       f"join the rhyme/floor finding set"
-                      + (f", subdivision={sub_arg}" if sub_arg else
-                         ", NO SUBDIVISION DECLARED — the slot questions "
-                         "refuse rather than assume one")
+                      + _sub_said
                       + (", ISOCHRONY ASSUMED — units evenly spaced across "
                          "the span, a declared assumption and never a "
                          "measurement (doctrine 4); every setting verdict "
@@ -9357,13 +9381,13 @@ def main():
         # but it can still take `--subdivision`/`--isochronous` as trailing
         # flags, so it shares this same stripping pass.)
         _FLAG_NAMES = ("--blueprint", "--profile", "--subdivision",
-                       "--isochronous", "--propose")
+                       "--isochronous", "--propose", "--unbriefed")
         #: The flags with NO following value to eat. `--isochronous` is a bare
         #: presence flag; `--propose` is `=`-only for the reason `--fallback`
         #: records (its values are bare words a following-token reader could
         #: not tell from a filename), so a space-separated `--propose stub`
         #: must not silently swallow `stub` and leave the default standing.
-        _NO_VALUE = ("--isochronous", "--propose")
+        _NO_VALUE = ("--isochronous", "--propose", "--unbriefed")
         if "--propose" in args:
             _refuse("--propose wants the `=` spelling: --propose=stub, "
                     "--propose=replay:PATH, --propose=defer:PATH, "
@@ -9374,6 +9398,26 @@ def main():
                      "refusal rather than a swallowed token because the "
                      "swallowed token would leave the DEFAULT proposer "
                      "running under a command line that asked for another"])
+        # CAPTURED BEFORE THE STRIP, because the loop below CONSUMES these
+        # flags and a reader downstream would see an empty argument list and
+        # conclude nobody declared anything (M-200's escape, and the first
+        # draft of it read the cleaned list and silently found no reason).
+        _unbriefed_reason = ""
+        for _a in args:
+            if _a == "--unbriefed":
+                _refuse("--unbriefed wants the `=` spelling and a REASON: "
+                        "--unbriefed='why this line was written by hand'",
+                        detail=["a bare switch would let a run past the "
+                                "brief gate with nobody's name on it, which "
+                                "is the shape `fit.AssumedMeter` exists to "
+                                "refuse"])
+            if _a.startswith("--unbriefed="):
+                _unbriefed_reason = _a.split("=", 1)[1].strip()
+                if not _unbriefed_reason:
+                    _refuse("--unbriefed= was given an EMPTY reason",
+                            detail=["the reason is carried into the report "
+                                    "and the ledger; an empty one is a bare "
+                                    "switch wearing an `=`"])
         args, _skip = list(args), False
         cleaned = []
         for a in args:
@@ -10593,6 +10637,48 @@ def main():
                 # this.
                 sides.append((f"HANDED IN {cmd}'s FILE", args[1]))
                 lines = load_lyric_lines(args[1])
+                from quality import brief_provenance as BPROV
+                # THE DEFERRED LOOP IS THE FRONT DOOR FOR A REVISION, and
+                # this is where that stops being advice (`MISSING.md` M-200,
+                # owner's ruling 2026-09-02). The loop computes a COMPLETE
+                # legal field per bound position with both ban tiers already
+                # excluded; a writer who hand-edits a line the loop had open
+                # re-runs that search worse, and `finish` could not tell the
+                # edited draft from a first one. The ledger beside the draft
+                # is the memory that lets it: a revised line must carry a
+                # brief ISSUED AGAINST THE DRAFT IT MOVED FROM. Refused at
+                # exit 2 — a gate that is WAITING is not a gate that failed,
+                # and nothing has been graded yet.
+                # READ FROM `propose_spec`, the value the flag pass already
+                # parsed — `args` here has had every known flag STRIPPED, so
+                # re-reading it finds no `--propose=defer:` and refuses a
+                # revision the writer did brief. That false refusal is worse
+                # than the gap this gate closes, and it is why the state path
+                # comes off the parsed coordinate and not off the leftovers.
+                _bp_states = ([propose_spec.split(":", 1)[1]]
+                              if propose_spec.startswith("defer:") else [])
+                _bp_ok, _bp_say = BPROV.admit(
+                    args[1], lines, _bp_states, _unbriefed_reason)
+                if not _bp_ok:
+                    _refuse(
+                        _bp_say,
+                        detail=["the offered field for those positions was "
+                                "already computed, complete, and stripped of "
+                                "both ban tiers — guessing past it re-runs "
+                                "that search by hand and worse (five of five "
+                                "guesses came back BANNED on the run that "
+                                "earned this gate)",
+                                "answer through `--propose=defer:PATH`, which "
+                                "issues a brief per open line and folds your "
+                                "answer",
+                                "or declare why not: `--unbriefed=REASON` "
+                                "admits the revision and PRINTS the reason "
+                                "into the report and the ledger, on the "
+                                "`fit.AssumedMeter` precedent — reachable, "
+                                "never reachable with nobody's name on it"])
+                if _bp_say:
+                    print(_bp_say)
+                BPROV.write_ledger(args[1], lines, _bp_states)
                 if cmd == "finish":
                     # THE MANDATE AND THE METER COME OFF THE PLAN, spelled
                     # exactly as its own GRADE IT line spells them

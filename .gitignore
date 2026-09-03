@@ -35,3 +35,9 @@ codex.zip
 # trees the graph is allowed to see, and a scope nobody can read is a threshold
 # nobody wrote down (doctrine 58).
 graphify-out/
+
+# Brief-provenance ledgers (M-200) — per-draft memory, never committed:
+# the record of WHAT WAS GRADED belongs beside the writer's draft, and a
+# sidecar in the tree would put an untracked file next to every fixture a
+# suite revises.
+*.briefed.json

@@ -390,6 +390,29 @@ class SlotField:
     violated: bool               # a finding on this line names one of `labels`
     joint_conflict: bool         # 2+ calls here and NOTHING answers them all
     dropped: tuple = ()          # RHYME-typed words the symmetric screen refused
+    #: THE PER-CALL FIELDS, computed ONLY when the joint above came back
+    #: empty (`MISSING.md` M-202). `((call, (word, ...)), ...)` in `calls`
+    #: order, one entry per call that anything answers.
+    #:
+    #: WHY IT EXISTS. The joint field is a CONJUNCTION over every call at
+    #: this place, and `grade()` flags PAIRS. When a mandate binds a line
+    #: against partners that do not rhyme with each other, the conjunction
+    #: is empty BY CONSTRUCTION while the grader is still flagging one
+    #: pair that one ordinary word closes -- so the brief offered nothing
+    #: and told the writer the search was finished, on a line whose
+    #: violated pair had 40 answers in the pool. Measured 2026-09-03 on
+    #: seed 443 L5 (calls `Walk`, `gait`, `here`; only the `Walk` pair
+    #: flagged): the joint was empty, and `Talk down at the stair` was
+    #: ACCEPTED by `verify()` first try, fixing the SCHEME_VIOLATION and
+    #: introducing no flag.
+    #:
+    #: IT IS A SEPARATE FIELD AND NOT A WIDER `offered` (doctrine 79): a
+    #: word here answers ONE call and leaves the others unanswered, which
+    #: is a different fact from the joint offer's "answers all of them".
+    #: Folding the two into one list would tell the writer a partial
+    #: answer is a whole one, and where the unanswered pair currently
+    #: HOLDS, taking one is a new flag and a rejection.
+    by_call: tuple = ()
 
 
 @dataclass
@@ -581,6 +604,19 @@ class Brief:
     #: old undeclared depth of 200 this flag was TRUE and WRONG on three of
     #: this repo's own song's lines (doctrine 58).
     joint_conflict: bool = False
+    #: WHAT EACH CALL CAN BE ANSWERED BY WHEN THE CONJUNCTION ABOVE IS EMPTY
+    #: (`MISSING.md` M-202) — `((call, (word, ...)), ...)`, the `by_call`
+    #: field of the SlotField at `slot`, copied out the same way
+    #: `candidates` is. Empty whenever `joint_conflict` is False.
+    #:
+    #: A PARTIAL ANSWER IS NOT A SECOND-CLASS OFFER, it is a DIFFERENT
+    #: OFFER, and the two are never merged: `candidates` answers every call
+    #: at this place, an entry here answers exactly one. The renderers say
+    #: which call each list answers and which calls it leaves standing,
+    #: because taking one where the unanswered pair currently HOLDS
+    #: introduces a flag and is rejected — and where that pair is ALREADY
+    #: violated or unreadable, nothing is traded and the grader accepts.
+    partial_by_call: tuple = ()
     #: The `(field_depth, field_band)` the candidate field was read at, as a
     #: printable string. A count with no setting beside it is the defect
     #: doctrine 58 is about, and this flag is a count of zero.
@@ -661,8 +697,18 @@ class Brief:
         if self.joint_conflict:
             out.append(f"    NO JOINT CANDIDATE at {self.field_declaration}: "
                        f"nothing in the lexicon answers all of those groups "
-                       f"at once. The mandate, not the line, is what needs "
-                       f"revising.")
+                       f"at once. ~~The mandate, not the line, is what needs "
+                       f"revising.~~ STRUCK 2026-09-03 (M-202) — see below: "
+                       f"the grader flags PAIRS, so a word answering the "
+                       f"VIOLATED one is accepted.")
+            for _c1, _ws in (self.partial_by_call or ()):
+                out.append(f"      answers {_c1!r} ALONE ({len(_ws)}): "
+                           f"{', '.join(_ws[:12])}"
+                           + (" ..." if len(_ws) > 12 else ""))
+            if not self.partial_by_call:
+                out.append("      and no call here is answerable on its "
+                           "own either — every one of them was asked "
+                           "separately and the pool came back empty.")
         if self.must_rhyme_with and not self.must_answer:
             n, w = self.must_rhyme_with
             out.append(f"    must rhyme with L{n} ({w!r})")
@@ -4216,14 +4262,34 @@ class Reviser:
                             _calls, exclude=(_cur,), profile=profile)
                     else:
                         _off, _forb, _drop = [], [], []
+                    _jc = (len(_calls) > 1 and not _off and not _forb)
+                    # THE PER-CALL FALLBACK (`MISSING.md` M-202). Run ONLY
+                    # when the conjunction came back empty at a place with
+                    # more than one call, and run through the SAME screened
+                    # door the joint offer uses, so a word reachable here is
+                    # a word the joint offer would have been allowed to name.
+                    # A call nothing answers contributes NO entry rather than
+                    # an empty one: "asked and nothing came back" and "not
+                    # asked" are the same answer here, because every call is
+                    # asked, and an empty tuple in the list would be read as
+                    # a menu (doctrine 20 is satisfied by the count of
+                    # entries against the count of calls, printed by the
+                    # renderers).
+                    _bycall = []
+                    if _jc:
+                        for _c1 in _calls:
+                            _o1, _f1, _d1 = self.joint_field_screened(
+                                [_c1], exclude=(_cur,), profile=profile)
+                            if _o1:
+                                _bycall.append((_c1, tuple(_o1)))
                     b.fields_by_slot[sk] = SlotField(
                         slot=_sl, labels=tuple(m.labels[k] for k in ks),
                         calls=tuple(_calls), incumbent=_cur or "",
                         offered=_off, forbidden=_forb,
                         violated=sk in _viol_slots,
-                        joint_conflict=(len(_calls) > 1 and not _off
-                                        and not _forb),
-                        dropped=tuple(_drop))
+                        joint_conflict=_jc,
+                        dropped=tuple(_drop),
+                        by_call=tuple(_bycall))
                 _pf = b.fields_by_slot.get(_primary)
                 calls = list(_pf.calls) if _pf else []
                 # THE INCUMBENT AT THIS LINE'S OWN BINDING SITE — the
@@ -4250,6 +4316,10 @@ class Reviser:
                     # questions, and neither is unsatisfiable for the
                     # other's sake.
                     b.joint_conflict = _pf.joint_conflict
+                    # M-202 — carried out of the SlotField beside the flag
+                    # it is conditional on, so no reader can have one
+                    # without the other.
+                    b.partial_by_call = _pf.by_call
                 # THE WORD CURRENTLY THERE, ON ITS OWN FIELD SINCE
                 # 2026-08-16. It used to be APPENDED to `forbidden_modal`,
                 # which put two rules in one list under doctrine 9's name —

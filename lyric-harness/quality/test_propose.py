@@ -122,6 +122,15 @@ class B:
         #: printed "must rhyme with" over a declared verbatim return.
         self.return_groups = kw.get("return_groups", ())
         self.joint_conflict = kw.get("joint_conflict", False)
+        #: WHAT EACH CALL CAN BE ANSWERED BY WHEN THE CONJUNCTION IS EMPTY
+        #: (`MISSING.md` M-202, 2026-09-03) — caught by §7c below the moment
+        #: `Brief` grew it, which is the third time that guard has paid for
+        #: itself. `_mandate_block` reads it through `getattr`, so a
+        #: stand-in without it renders the "every call was asked on its own
+        #: and came back empty" branch on a fixture whose calls the pool
+        #: answers — no error, no red, and the suite pinning the wrong half
+        #: of a two-branch sentence.
+        self.partial_by_call = kw.get("partial_by_call", ())
         #: THE PLACEMENT, added 2026-08-24 — and it was §7c below that found
         #: it, on the first CI run after the workflow started parsing again.
         #: `Brief` grew `slot`/`slot_conflict` at `9ad2dad` (`MISSING.md`
@@ -160,6 +169,22 @@ class B:
         #: `Reviser.field_note` returns it for.
         from quality.relations import SCHEMA_ROUTE_NOTE as _SRN
         self.schema_route_note = kw.get("schema_route_note", _SRN)
+
+
+class SF:
+    """A `quality.revise.SlotField` stand-in — the two fields `_mandate_block`
+    reads off it (`MISSING.md` M-202).
+
+    `_mandate_block` counts "N of M call(s) here answerable" off the
+    SlotField the joint-conflict flag came from, NOT off `must_answer`: a
+    line bound at two PLACES answers calls at both, and counting those would
+    name a place the sentence is not about — M-184's own defect, one
+    renderer over.
+    """
+
+    def __init__(self, calls, joint_conflict=True):
+        self.calls = tuple(calls)
+        self.joint_conflict = joint_conflict
 
 
 class AS:
@@ -220,7 +245,17 @@ PIVOT_BRIEF = B(
     field_computed=True, keep=[],
     must_answer=[("A", [1, 3], [(1, "silver")]),
                  ("B", [2, 3], [(2, "mind")])],
-    joint_conflict=True)
+    joint_conflict=True,
+    # M-202, 2026-09-03. `silver` and `mind` share no rhyme, so the
+    # CONJUNCTION over them is empty — which is what `joint_conflict` says
+    # and all it says. Each call SEPARATELY is answered by the pool, and
+    # until this field existed the prompt printed neither list and told the
+    # writer the search was finished. The two entries below are the shape
+    # `brief()` emits, and the SlotField stand-in beside them is what the
+    # renderer counts "N of M calls answerable" off.
+    fields_by_slot={None: SF(("silver", "mind"))},
+    partial_by_call=(("silver", ("river", "quiver", "shiver")),
+                     ("mind", ("signed", "behind", "unwind"))))
 
 PLAIN_BRIEF = B(
     line_no=1, text="The candle burned and set the room on fire",
@@ -530,12 +565,33 @@ def test_a_pivot_and_a_joint_conflict_are_stated():
           and "'silver'" in block and "'mind'" in block, block)
     check("the line is called a PIVOT and the conjunction is stated",
           "PIVOT" in block and "EVERY one of them at once" in block)
-    check("the joint conflict says the MANDATE is what needs revising -- "
-          "the same sentence `Brief.joint_conflict` carries, so a proposer "
-          "is not told to search harder in a pool already proven empty",
-          "MANDATE, not the line" in block)
-    check("an empty candidate field says WHY rather than printing nothing",
-          "no candidate field was offered" in _section(p, "OFFERED"))
+    check("the joint conflict is stated: nothing answers all of the groups "
+          "at once, which is a fact about the CONJUNCTION and is all it is",
+          "nothing in the lexicon answers all of those groups at once"
+          in block, block)
+    # M-202, 2026-09-03. This check asserted `"MANDATE, not the line" in
+    # block` as a LIVE sentence, and that sentence was measured false: the
+    # grader flags PAIRS, so a word answering the violated call is accepted
+    # even though the conjunction is empty. It is struck in place rather
+    # than deleted (doctrine 17), and the check now requires the STRIKE —
+    # so it cannot go green against a prompt that has quietly restored the
+    # flat claim.
+    check("...and the sentence that read 'the MANDATE, not the line' is "
+          "STRUCK where it stands, not deleted, with the date and the entry "
+          "that struck it",
+          "~~The MANDATE, not the line" in block
+          and "STRUCK 2026-09-03 (M-202)" in block, block)
+    check("each call's own field is named, under a heading that says these "
+          "answer ONE call and not the conjunction",
+          "WHAT EACH CALL CAN BE ANSWERED BY ON ITS OWN (2 of 2 call(s)"
+          in block
+          and "silver — 3 word(s): river, quiver, shiver" in block
+          and "mind — 3 word(s): signed, behind, unwind" in block, block)
+    check("an empty JOINT field says WHY rather than printing nothing, and "
+          "no longer says the lexicon had no answer for this line",
+          "no JOINT candidate field was offered" in _section(p, "OFFERED")
+          and "nothing in the lexicon answers its groups"
+          not in _section(p, "OFFERED"), _section(p, "OFFERED"))
     # REPOINTED 2026-08-16. This asserted the literal "NOT one of the
     # FORBIDDEN", which was the old item 3 — a sentence that promised a
     # rejection `verify()` does not make: RULE 3 rejects for MOVING TO a modal

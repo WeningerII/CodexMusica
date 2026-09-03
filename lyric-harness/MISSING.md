@@ -19974,3 +19974,272 @@ to own the draft file and that is a real restructure of who writes what.
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~256~~ **257**
 with this entry (2026-09-02).
+
+### M-201 · A RETURN is a class, and the loop revised ONE member of it — so every answer it could get was refused by its own rule 2 `CLOSED` 2026-09-02 — found by the first clean from-scratch song run, insisted on by the owner
+
+**THE LOOP ASKED A QUESTION WHOSE EVERY ANSWER IS REJECTED.** A
+`REQUIRE_RETURN` group declares that its lines ARE the same line — identity
+required, REPEAT the requirement rather than the violation (doctrine 3's
+second half). `quality/loop.py`'s tier 1 briefed ONE member of such a group,
+wrote the proposal into that line alone, and handed `verify()` a
+`targeted={that line}`. Rule 2 then rejected the result for changing a line
+nobody targeted — the returning mate, which the answer had just broken. Every
+candidate the writer could possibly send was refused for the same reason, and
+the line's whole `attempts_per_line` budget was spent proving it. **On the
+run that found it (seed 275) that was 10 of 19 lines.**
+
+**THE BRIEF ITSELF SAID SO AND NOTHING READ IT.** `quality/propose.py`'s
+mandate block already prints, for a return group, *"if this line has to move
+to satisfy something else, the RETURN is what breaks, and that is a fact about
+the mandate rather than about anything you can write."* The renderer knew; the
+control flow one layer up did not.
+
+**THE REPAIR IS THE MOVE M-105 ALREADY MADE AT TIER 2** when it stopped
+revising a PAIR and started revising the whole group: a set of lines that must
+move together is revised together, in ONE proposal, and every member is
+TARGETED so rule 2 admits what the loop itself asked for. `LineAttempt.touched`
+carries all of them, not just the briefed one, so the record says which lines
+an accepted attempt actually moved.
+
+**WHAT MUST NOT HAPPEN WITH IT, AND IS PINNED SO IT CANNOT:** an ORDINARY
+rhyme group is NOT a class of identical lines, and propagating into one would
+rewrite lines nobody asked about — the untargeted-line rejection `verify()`
+has enforced since it was written, and the reason this repair is gated on
+`return_groups` rather than on `must_answer`. `quality/test_loop.py` §23, six
+checks, drives `_try_tier1` directly against a brief carrying one return group
+and one ordinary group and asserts both halves: the return mate moves and is
+targeted, the ordinary mate is untouched and is NOT targeted.
+
+**A CITATION IN THE RECORD IS WRONG AND IS CORRECTED HERE RATHER THAN LEFT.**
+The commit that shipped this repair (`5cf6520e`) says *"test_loop.py §20, 6
+checks"*. The checks were appended into the file's existing §20 ("pursuit is
+MANDATORY") instead of opening their own section, so the file carried two
+`20.` headers and the commit named a section that describes something else.
+The section is **§23** and the commit message's "§20" is struck.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~257~~ **258**
+with this entry (2026-09-02).
+
+### M-202 · The offered field is a CONJUNCTION over every call and the grader flags PAIRS, so a line with 40 answers was told the search had come back empty `CLOSED` 2026-09-03 — found by writing a song, on the very next line the loop briefed
+
+**WHAT THE BRIEF SAID.** On the clean from-scratch run of seed 443, the
+deferred loop briefed L5 (`Turn back at the stair`) and printed, under the
+mandate:
+
+> `NO JOINT CANDIDATE at field_depth=complete pool, field_band='grader':`
+> `nothing in the lexicon answers all of those groups at once. The MANDATE,`
+> `not the line, is what needs revising — a one-line rewrite here is`
+> `re-running a search that has already come back empty.`
+
+and, under OFFERED, *"no candidate field was offered for this line"*.
+
+**BOTH HALVES OF THAT SENTENCE ARE FALSE, MEASURED.** Group B binds L5 at its
+FIRST WORD against three calls — `Walk` (L4.T1), `gait` (L6.T4) and `here`
+(L7.T2) — which do not rhyme with EACH OTHER, so the conjunction over them is
+empty BY CONSTRUCTION and says nothing about whether the line can be fixed.
+`grade()` had flagged exactly ONE pair, L4~L5. `Talk down at the stair` was
+handed to `Reviser.verify` and came back **ACCEPTED on the first attempt** —
+`fixed: [(5, 'SCHEME_VIOLATION')]`, `new_flags` empty. A second answer,
+`Turn, and I'm staring`, was **also ACCEPTED**, fixing
+`PROMINENCE_CANNOT_ALIGN` instead. The writer was told to stop searching in
+front of a field the pool answers 40 times over.
+
+**IT IS THE SAME SPECIES AS M-184, ONE AXIS IN.** M-184 fixed the
+intersection ACROSS PLACES — two places are two words and neither is
+unsatisfiable for the other's sake. This is the intersection ACROSS CALLS AT
+ONE PLACE, and it fails in the same direction: the harness reports the
+conjunction's emptiness as a fact about the LINE, when the grader never asks
+the conjunction. It is also M-200's defect wearing the opposite face: M-200
+was a writer walking past a field that was offered; this is a field that was
+computed, came back empty for a reason the writer could not see, and sent the
+writer off to guess — which is exactly what the session then did, and the two
+words that worked were found by hand.
+
+**THE REPAIR — A SECOND FIELD, NEVER A WIDER FIRST ONE (doctrine 79).**
+`SlotField.by_call` is computed ONLY when the joint came back empty at a place
+with 2+ calls: each call is asked SEPARATELY through the same
+`joint_field_screened` door, and the calls anything answers are carried as
+`((call, (word, ...)), ...)`. It is copied onto the `Brief` as
+`partial_by_call` beside the flag it is conditional on. The two are never
+merged into `candidates`: a word there answers EVERY call, a word here answers
+ONE and leaves the others standing — and where an unanswered pair currently
+HOLDS, taking one introduces a flag and is rejected. Both renderers say which
+call each list answers and point at the mandate block for which call is
+VIOLATED.
+
+**THE FALSE SENTENCE IS STRUCK IN PLACE, NOT DELETED (doctrine 17)**, in both
+renderers, and the case it was written for is still reachable and still says
+so: when every call is ALSO unanswerable on its own, the brief prints that
+each was asked separately and the pool came back empty for each — which is a
+fact about the mandate, and is the only condition under which the struck
+sentence was ever true.
+
+**WHAT THIS DOES NOT CLOSE.** It does not decide FOR the writer which call to
+answer — doctrine 6/7 forbids ordering the permitted region, and a partial
+answer that breaks a holding pair is correctly rejected by `verify()` rather
+than pre-filtered here. It also does not make the planner stop drawing a group
+whose members cannot rhyme with each other; that mandate is legal, gradeable
+and now writable, and whether the sweep should be able to reject it is a
+predicate the caller declares, not a floor.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~258~~ **259**
+with this entry (2026-09-03).
+
+### M-203 · `finish` printed "NO SUBDIVISION DECLARED — the slot questions refuse" while grading under the plan's own subdivision, one line under a sentence saying so `CLOSED` 2026-09-03 — found by reading `finish`'s own output on the first brief of a from-scratch song
+
+**THE SAME RUN SAID BOTH THINGS, ONE LINE APART.** `finish songs/drafts/
+not_going.draft.txt --seed=1067` printed
+
+> `MANDATE: read from the plan (seed 1067) — … and the subdivision is the`
+> `plan's own. Nothing on this command line restates any of it.`
+> `BLUEPRINT: /tmp/finish_bp_w9_yc9g9.json — meter and song-function join the`
+> `rhyme/floor finding set, NO SUBDIVISION DECLARED — the slot questions`
+> `refuse rather than assume one`
+
+and then, in the very first brief it issued, a `PROMINENCE_CANNOT_ALIGN`
+finding on L3 reading *"at most 0 of 1 can, over 5 slots at 1 per pulse …
+CONDITIONAL ON: Subdivision(1) — the plan's own declared subdivision (seed
+1067), read off the artifact `finish` derived the mandate from"*. The slot
+questions were not refused. They were answered, under a coordinate the
+banner said did not exist.
+
+**THE CAUSE IS A SECOND SOURCE FOR ONE FACT (doctrine 1).**
+`_say_blueprint` read `sub_arg` — the `--subdivision` FLAG — and **`finish`
+does not take that flag**: it builds `FT.Subdivision(int(finish_plan
+["subdivision"]), source=…)` off the plan artifact about twenty lines below,
+and hands THAT to `revise_loop`. So on every `finish` run the banner reported
+the command line while the analysis ran on the artifact, and the two could
+not agree by construction. `brief`/`verify`/`revise` were never wrong here,
+because on those verbs the flag IS the source — which is exactly why nothing
+caught it: the banner is correct on three of the four verbs that print it.
+
+**THE REPAIR IS TO READ THE OBJECT THE LOOP IS HANDED**, which is the same
+object on every path: built from `sub_arg` through `_subdivision_or_refuse`
+on the three flag-taking verbs (byte-identical output there, the flag's own
+integer), and from the artifact on `finish`. The SOURCE travels with the
+coordinate (`quality/fit.py`'s `_Sourced`), so the banner now names where the
+number came from instead of implying the command line:
+`subdivision=1 (the plan's own declared subdivision (seed 1067), read off the
+artifact `finish` derived the mandate from)`.
+
+**WHY IT MATTERS MORE THAN A COSMETIC LINE.** `NO SUBDIVISION DECLARED` is
+not a null statement in this repo — it is the *refusal* half of doctrine 20,
+and it tells a reader that the meter layer's slot questions came back
+UNANSWERED. A reader taking that at face value would discount every
+`PROMINENCE_*` finding in the same report as un-asked, and would re-run with
+`--subdivision` to "turn it on" — a flag `finish` refuses. The false sentence
+pointed at a remedy that does not exist for the verb printing it.
+
+`quality/test_verbs.py`'s `finish` door section, two checks: the banner names
+the subdivision the run is GRADED under and does not say NO SUBDIVISION
+DECLARED, and it AGREES with the MANDATE line above it. Both are driven off
+the same captured output as the deferred-suspend check beside them, so no new
+`finish` invocation is spent.
+
+**WHAT THIS DOES NOT CLOSE.** It does not give `finish` a `--subdivision`
+flag, and it should not: the plan is the source, and a flag that could
+override it would be a second way to declare one coordinate — the defect this
+entry is about, made settable.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
+with this entry (2026-09-03).
+
+### M-204 · Tier 2 is dispatched on "the word list came back EMPTY", not on "nothing in the list can pass", so the loop grinds tier 1 against a group no offered word can answer `OPEN` 2026-09-03 — found by writing a song; the first TWO write-ups of it were wrong, and the owner corrected the second
+
+**THIS ENTRY'S FIRST DRAFT IS STRUCK AND KEPT (doctrine 17), BECAUSE THE
+ERROR IS THE MORE USEFUL RECORD.** It was titled *"~~`semirhyme` cannot be
+satisfied by any English pair: the overhang it REQUIRES steals the coda it
+also requires to agree~~"*, and it argued that the schema's satisfaction set
+is *"~~empty by construction, not by accident of vocabulary~~"*. That is
+**FALSE**, and it was reported to the owner in those words before it was
+checked. Six negative samples (`late~waiting`, `late~later`, `late~elated`,
+`late~debating`, `late~freighted`, `late~rotating`) were generalised to a
+universal claim without testing the class that would falsify it. It falsifies
+in one line:
+
+```
+late   ~ lately     -> True      bright ~ brightly  -> True
+last   ~ lastly     -> True      wide   ~ widely    -> True
+kind   ~ kindly     -> True      cold   ~ coldly    -> True
+late   ~ later      -> False     wait   ~ waiting   -> False
+hold   ~ holder     -> False     soft   ~ softly    -> False
+hand   ~ handbook   -> False     band   ~ bandstand -> False
+```
+
+**THE MECHANISM WAS RIGHT AND THE CONCLUSION WAS NOT.** A consonant only
+slides forward off the anchor syllable when it can legally START the next one.
+In `later` the `t` can open `-ter`, so the anchor's coda empties and the
+`coda AGREE @ scope='anchor'` rule fails. In `lately` the cluster `tl` cannot
+open a syllable, the `t` stays where it is, and the same rule passes. So
+`semirhyme` is not self-contradicting; it is **narrow** — it reaches the
+`-tly`/`-stly`/`-dly` shape and not the `-er`/`-ing` shape. Narrow is a
+property a schema is allowed to have. This is the third flattering-direction
+record error in four days (M-199, M-200), and the direction is always the
+same: the tool is blamed for what the session did not check.
+
+**THE DEFECT THAT SURVIVES THE CORRECTION, AND IT IS REAL.** `Reviser.brief`
+computes the OFFERED field through `joint_field_screened` — the SCALAR band
+and the coarse admit set — while `grade()` judges a group carrying a
+`schema:` relation through `relations.pair_satisfies`. On seed 1067's group B
+(L6's `late` ~ L7's end word, `schema:semirhyme`) the brief offered **24
+words** — `that, get, right, at, let, night, might, bit, yet, meet, tonight,
+sit, eat, forget, hit, quite, set, fight, met, light, alright, white,
+street` — under the heading *"words for the end word that answer every group
+bound there"*. **Not one of them can answer it**: every one is a flush
+monosyllable, and `require_b` demands the overhang. Measured on six drafted
+candidates built off that list — three ACCEPTED by `verify()` (fixing two or
+three OTHER findings each) with group B's `SCHEME_VIOLATION` standing after
+every one.
+
+**AND THE WORDS THAT DO WORK ARE THE ONES THE FIELD REMOVES.** `lately`,
+`greatly`, `stately` satisfy the schema. They are absent from the offer, and
+the scalar would rank them BELOW the words that cannot work, because
+`ReviseDeclaration.trailing_syllable_penalty` docks 0.15 for exactly the
+overhang the schema REQUIRES. The two instruments are not merely different;
+on this schema they are opposed — the scalar penalises the feature the
+verdict demands.
+
+**SAME SPECIES AS M-202, ONE DOOR OVER.** M-202 was the offer asking a
+CONJUNCTION where the verdict asks about pairs. This is the offer asking the
+SCALAR where the verdict asks a SCHEMA. Both hand the writer a list under a
+heading that promises it answers the group, and in both the promise is false
+for a reason the writer cannot see from the brief.
+
+**THE SECOND WRONG WRITE-UP WAS THE REPAIR, AND THE OWNER CALLED IT.** This
+entry's second draft proposed to fix the mismatch by DISCLOSING it — the
+brief would name the schema that judges the place and warn that the list came
+from another door. That was built, pinned and passing, and it is
+**WITHDRAWN** and reverted. The ruling, verbatim: *"I think you are over
+engineering this. I also believe you are compensating for the shortcomings of
+the program which, is rowing against our north star."* It is right. Better
+warning text makes the WRITER route around a loop that is not doing its job;
+it is the human compensating for the machine, which is the opposite of what
+this harness is for.
+
+**THE ACTUAL DEFECT, WHICH BOTH DRAFTS WALKED PAST.** `quality/loop.py` has
+a backspace already — tier 2, which stops revising one line and revises the
+whole group, offering fresh words for every member (M-105 made it a group
+rather than a pair). It never fired on either song. The dispatch condition is
+the candidate field being **EMPTY**, on the theory that an empty field is
+what "no legal move" looks like. On seed 1067 L7 the field held **24 words**,
+so tier 1 was judged well supplied and the loop kept asking for that one line
+— while every one of the 24 fails the schema that actually judges the group.
+**"Did we find any words" and "can any word we found pass" are different
+questions, and they come apart exactly on the groups that trap the loop.**
+The trigger is on the first; the pit is in the second.
+
+**OPEN, AND THE OWED WORK IS NAMED.** Two things, in this order, and neither
+is a renderer:
+
+  1. Why tier 2 ALSO stayed silent on seed 443 L5, where the field genuinely
+     WAS empty and the trigger should have fired. `MISSING.md` M-185 records
+     a tier-2-that-walks-nothing falling through to tier 1; whether that is
+     what happened here is UNCHECKED. This is the first thing to look at and
+     it was not looked at.
+  2. Whether the dispatch condition should ask satisfaction rather than
+     emptiness — and if so, how, given the offer holds bare WORDS and
+     `pair_satisfies` takes LINE PAIRS in stream coordinates (the asymmetry
+     M-139 already recorded).
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ ~~260~~
+**261** with this entry (2026-09-03).

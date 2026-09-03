@@ -1913,6 +1913,78 @@ def test_tier2_that_walks_nothing_falls_through_to_tier1():
           [(a.tier, a.tried, a.asked) for a in a3b] + [len(asked2)])
 
 
+
+def test_a_return_is_a_class_and_is_revised_together():
+    """`MISSING.md` M-201 — a RETURN group is revised as a class.
+
+    IT LIVED OUTSIDE THE RUNNER UNTIL 2026-09-03 and that is worth the
+    sentence: appended at module level BELOW the `if FAILURES: sys.exit(1)`
+    block, these checks ran, printed, and could not fail the suite — a red
+    check under a green exit code, which is the one thing a test file must
+    never do. Wrapped into a function and joined to the runner's tuple.
+    """
+    # ============================================================================
+    # 23. A RETURN IS A CLASS, AND REVISING ONE MEMBER IS REFUSING TO REVISE
+    # ============================================================================
+    # `MISSING.md` M-201, owner's ruling 2026-09-02, found by the FIRST clean
+    # end-to-end run rather than by reading. A `REQUIRE_RETURN` group says these
+    # lines ARE the same line. The loop briefed one of them, applied the answer to
+    # that line alone, and rule 2 then rejected the result for breaking the
+    # return — so it was asking a question whose every answer is refused, and
+    # spending the line's whole attempt budget doing it. On the run that found it
+    # (seed 275) that was 10 of 19 lines, and the brief itself said so: *"if this
+    # line has to move to satisfy something else, the RETURN is what breaks, and
+    # that is a fact about the mandate rather than about anything you can write."*
+    #
+    # The repair is the move M-105 already made at tier 2 when it stopped revising
+    # a PAIR and started revising the whole group. WHAT MUST NOT HAPPEN with it is
+    # the over-reach: an ORDINARY rhyme group is NOT a class of identical lines,
+    # and propagating into one would rewrite lines nobody asked about — the
+    # untargeted-line rejection `verify()` has enforced since it was written.
+    print("\n23. a RETURN class is revised together; an ordinary group is not")
+    from quality.loop import _try_tier1 as _T1
+    from quality.revise import Brief as _B, ReviseDeclaration as _RD
+
+    _seen = {}
+
+
+    class _StubReviser:
+        """Records what the loop TARGETED and what it wrote, and accepts."""
+
+        def verify(self, before, after, mandate, targeted=None, **kw):
+            _seen["targeted"] = set(targeted or ())
+            return {"accepted": True, "reasons": ["stub accepts"]}
+
+
+    _lines = ["L1", "L2", "L3", "L4", "L5", "L6"]
+    _b = _B(line_no=3, text="L3")
+    _b.must_answer = (("R", [3, 6], [(6, "x")]), ("X", [3, 4], [(4, "y")]))
+    _b.return_groups = ("R",)
+
+
+    def _p(br, ls, attempt, reasons=None, whole=()):
+        return "REVISED" if attempt == 0 else None
+
+
+    _att, _after = _T1(_StubReviser(), _b, _lines, None, _RD(),
+                       None, None, None, None, _p)
+    check("the briefed line moved", _after[2] == "REVISED", _after[2])
+    check("its RETURN mate moved WITH it — the class is revised together, which "
+          "is the only revision of a returning line rule 2 can accept",
+          _after[5] == "REVISED", _after[5])
+    check("both members are TARGETED, so the untargeted-line rejection admits "
+          "what the loop itself asked for",
+          {3, 6} <= _seen["targeted"], sorted(_seen["targeted"]))
+    check("an ORDINARY rhyme group member is NOT propagated into — those lines "
+          "are not identical by declaration and rewriting one is the untargeted "
+          "change `verify()` exists to refuse",
+          _after[3] == "L4", _after[3])
+    check("line 4 is not targeted either", 4 not in _seen["targeted"],
+          sorted(_seen["targeted"]))
+    check("the attempt records every line it touched, not just the briefed one",
+          tuple(_att.touched) == (3, 6), str(_att.touched))
+
+
 if __name__ == "__main__":
     for fn in (test_success_stop,
                test_no_progress_stop,
@@ -1935,7 +2007,8 @@ if __name__ == "__main__":
                test_tier2_does_not_offer_a_pair_its_own_grader_rejects,
                test_pursuit_is_mandatory_and_success_below_it_unreportable,
                test_a_stuck_line_is_asked_again_once_the_draft_has_moved,
-               test_tier2_that_walks_nothing_falls_through_to_tier1):
+               test_tier2_that_walks_nothing_falls_through_to_tier1,
+               test_a_return_is_a_class_and_is_revised_together):
         fn()
     print("=" * 62)
     if FAILURES:
