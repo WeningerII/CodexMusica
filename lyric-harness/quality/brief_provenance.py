@@ -79,17 +79,50 @@ def changed_lines(before, after):
     return [i + 1 for i, (b, a) in enumerate(zip(before, after)) if b != a]
 
 
+def absent_states(state_paths):
+    """-> the state paths that cannot be read: missing, or not JSON.
+
+    A STATE THAT IS GONE TESTIFIES TO NO BRIEF. The ledger carries every
+    `--propose=defer:` path a draft was ever run under (`write_ledger`), and
+    a writer who deletes one — to start the loop over, or by tidying a
+    scratch directory — leaves the ledger naming a file that is not there.
+    Until 2026-09-03 (`MISSING.md` M-211) `briefed()` opened it anyway, the
+    `FileNotFoundError` escaped to the CLI's top-level `OSError` handler, and
+    `finish` refused with *"<path> — No such file or directory / the path is
+    read relative to the working directory"* — a refusal about a path the
+    writer never typed on that command line, blaming its spelling, on a run
+    that had not yet decided whether the revision was briefed at all
+    (doctrine 20: a mis-stated refusal is an error, not a stricter gate).
+    The honest reading is the one this returns: such a path holds no
+    briefs, and `admit` says so beside the lines it therefore refuses.
+    """
+    gone = []
+    for p in state_paths:
+        try:
+            with open(p, encoding="utf-8") as f:
+                json.load(f)
+        except (OSError, ValueError):
+            gone.append(p)
+    return gone
+
+
 def briefed(state_paths):
     """-> {line: {fingerprints}} — every line a brief was ISSUED for.
 
     Reads `answered.propose` (folded answers) AND `pending` (the question
     standing when the run suspended), because a brief that was issued and not
     yet answered was still put in front of the writer.
+
+    A path that cannot be read contributes NOTHING and does not raise
+    (M-211, above): the caller that wants to name it asks `absent_states`.
     """
     out = {}
     for p in state_paths:
-        with open(p, encoding="utf-8") as f:
-            st = json.load(f)
+        try:
+            with open(p, encoding="utf-8") as f:
+                st = json.load(f)
+        except (OSError, ValueError):
+            continue
         records = []
         for entries in (st.get("answered") or {}).values():
             for e in entries or []:
@@ -225,8 +258,17 @@ def admit(draft_path, lines, state_paths=(), reason=""):
     moved = [i + 1 for i, (a, b) in enumerate(zip(prev, lines)) if a != b]
     if not moved:
         return True, ""
-    seen = briefed(list(dict.fromkeys(list(led.get("states") or [])
-                                      + list(state_paths))))
+    paths = list(dict.fromkeys(list(led.get("states") or [])
+                               + list(state_paths)))
+    seen = briefed(paths)
+    # NAMED, NOT SWALLOWED: a state the ledger carries and the disk no longer
+    # holds is part of WHY a line reads unbriefed, and the writer who deleted
+    # it is the one reading this (M-211). Its own count, never folded into
+    # the line list (doctrine 79).
+    gone = absent_states(paths)
+    gone_say = (f" — and {len(gone)} of the ledger's deferred state(s) "
+                f"cannot be read, so testify to no brief: {gone}"
+                if gone else "")
     fp = led["fingerprint"]
     un = [n for n in moved if fp not in seen.get(n, set())]
     if not un:
@@ -236,10 +278,10 @@ def admit(draft_path, lines, state_paths=(), reason=""):
         return True, (f"  BRIEFS: {len(un)} line(s) revised with NO brief "
                       f"behind them — {un}. ADMITTED because the caller "
                       f"declared a reason, which is recorded and printed "
-                      f"rather than assumed: {reason!r}")
+                      f"rather than assumed: {reason!r}{gone_say}")
     return False, (
         f"unbriefed revision — line(s) {un} moved since draft {fp} and no "
-        f"brief was ever issued for them")
+        f"brief was ever issued for them{gone_say}")
 
 
 def main(argv):

@@ -324,12 +324,53 @@ def test_the_screen_judges_a_drawn_schema_and_names_a_near_relation():
           out[-400:])
 
 
+def test_the_screen_says_which_words_cannot_be_bound_at_a_token():
+    print("\n9. M-213 — the screen says which words have NO ANCHOR as a "
+          "declared token (T1..Tn), the question its end-word verdict "
+          "cannot ask: `by ~ buy ~ bye` SATISFIES rime riche at the end and "
+          "`by` at L6's first word was REFUSED unjudged on seed 7009")
+    lex = LH.Lexicon()
+    check("`by` anchors as the line's last word and NOT before it — the "
+          "WEAK_NONFINAL demotion, read through the grade's own resolver",
+          LH.token_anchorability(lex, "by") == (False, True))
+    check("`in` anchors at NEITHER position as a declared token",
+          LH.token_anchorability(lex, "in") == (False, False))
+    check("`buy`, `bye`, `window` anchor at both",
+          all(LH.token_anchorability(lex, w) == (True, True)
+              for w in ("buy", "bye", "window")))
+    lines = LH.anchor_disclosure_lines(lex, ["by", "buy", "in"])
+    check("the disclosure names each unanchorable word, its position, and "
+          "that a mandate binding it there is REFUSED unjudged — and says "
+          "nothing about `buy`",
+          len(lines) == 2 and lines[0].startswith("  ANCHOR : 'by'")
+          and "BEFORE the line end" in lines[0]
+          and lines[1].startswith("  ANCHOR : 'in'")
+          and "ANY position" in lines[1]
+          and all("REFUSED unjudged" in l for l in lines)
+          and not any("'buy'" in l for l in lines), "\n".join(lines))
+    check("when every word anchors the block is ONE line saying so — "
+          "silence would be indistinguishable from not having asked",
+          LH.anchor_disclosure_lines(lex, ["buy", "bye"])
+          == ["  ANCHOR : every word anchors as a declared token (T1..Tn) "
+              "before the line end and at it — a plan may bind any of them "
+              "at any word"])
+    rc, out, _ = run("screen", "by", "buy", "bye",
+                     "--relation=schema:rime riche")
+    check("through the CLI: the pair rows still SATISFY the schema at the "
+          "end, and the ANCHOR block under the counts names `by`",
+          rc == 0 and "SATISFIES schema:rime riche" in out
+          and "ANCHOR : 'by'" in out
+          and out.index("ANCHOR : 'by'") > out.index("banned,"),
+          out[-600:])
+
+
 if __name__ == "__main__":
     for fn in (test_the_controls, test_honesty_and_the_split,
                test_no_drift, test_the_scaffold, test_the_cli,
                test_clean_answers_one_question,
                test_the_screen_asks_the_grades_question,
-               test_the_screen_judges_a_drawn_schema_and_names_a_near_relation):
+               test_the_screen_judges_a_drawn_schema_and_names_a_near_relation,
+               test_the_screen_says_which_words_cannot_be_bound_at_a_token):
         fn()
     print("=" * 62)
     if FAILURES:

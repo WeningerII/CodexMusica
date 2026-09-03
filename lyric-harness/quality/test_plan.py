@@ -236,6 +236,13 @@ def _round_trip_one(seed):
     draft = dummy_draft(plan)
     try:
         bp = fill_plan(plan, draft)
+        # M-212: the hook is a SLOT and the blueprint carries it beside the
+        # snapshot text, so the grader can re-read the hook from a revised
+        # draft rather than hunt for the words the slot held at fill time.
+        if (bp.get("hook_slot") or None) != (plan.get("hook_slot") or None):
+            bad.append((seed, "blueprint hook_slot not carried (M-212)"))
+        if bp.get("hook_slot") and bp["hooks"] != [draft[bp["hook_slot"] - 1]]:
+            bad.append((seed, "blueprint hooks is not the slot's own line"))
         song, hooks = song_from_blueprint(bp)[:2]
         if (len(song.lines) != plan["total_lines"]
                 or len(song.sections) != len(plan["sections"])):
@@ -3317,6 +3324,55 @@ def test_the_delegated_rulings(FAILURES=None):
           f"totals {sorted(set(p['total_lines'] for p in plans.values()))}")
 
 
+def test_the_legend_states_the_whole_schema():
+    print("\n19. M-214 — the legend's 'what each named relation asks' is "
+          "derived from EVERY channel rule, the unmatched coordinate and "
+          "the identity rule, not only Agree/Differ: come~some, bell~tell "
+          "and light~my were written from the old legend and all VIOLATE")
+    from quality import relations as _RLt
+    asks = {nm: "; ".join(PLN.schema_asks(_RLt.REGISTRY[nm])) for nm in (
+        "subtractive rhyme", "semirhyme", "family rhyme", "perfect rhyme",
+        "rime riche", "light rhyme", "anaphora")}
+    check("subtractive rhyme says the coda is PRESENT on one word and ABSENT "
+          "on the other — the old legend said only 'agree on nucleus'",
+          "coda present on the first word and absent on the second"
+          in asks["subtractive rhyme"], asks["subtractive rhyme"])
+    check("semirhyme says the second word carries an extra syllable after "
+          "the rhyme — the whole relation, and the old legend omitted it",
+          "second word carries an extra syllable" in asks["semirhyme"]
+          and "agree on nucleus, coda" in asks["semirhyme"], asks["semirhyme"])
+    check("family rhyme says the coda agrees by CLASS, not sound",
+          "coda agree by CLASS, not sound" in asks["family rhyme"],
+          asks["family rhyme"])
+    check("perfect rhyme no longer contradicts itself: the two onset rules "
+          "carry their scopes, and it says neither word runs on",
+          "onset (after the stressed syllable)" in asks["perfect rhyme"]
+          and "differ on onset (at the stressed syllable)"
+          in asks["perfect rhyme"]
+          and "neither word runs on past the rhyme" in asks["perfect rhyme"]
+          and "agree on nucleus, coda, onset;" not in asks["perfect rhyme"],
+          asks["perfect rhyme"])
+    check("rime riche says 'different words' — the identity rule is what "
+          "separates it from repetition",
+          "different words" in asks["rime riche"], asks["rime riche"])
+    check("anaphora says 'the same word'",
+          "the same word" in asks["anaphora"], asks["anaphora"])
+    check("light rhyme still says 'differ on prominence' — the Agree/Differ "
+          "half is unchanged",
+          "differ on prominence" in asks["light rhyme"], asks["light rhyme"])
+    # THE LEGEND ITSELF CARRIES THEM, through `brief_legend`.
+    fake = {"groups": "1,2;3.T2,4", "relations": {"A": "schema:semirhyme",
+                                                  "B": "schema:subtractive rhyme"}}
+    leg = "\n".join(PLN.brief_legend(fake))
+    check("brief_legend renders the derived clauses on the relation's own "
+          "line, after the legend header",
+          "What each named relation asks" in leg
+          and "  semirhyme: the bound words agree on nucleus, coda; the "
+              "second word carries an extra syllable" in leg
+          and "  subtractive rhyme: the bound words agree on nucleus; coda "
+              "present on the first word" in leg, leg)
+
+
 if __name__ == "__main__":
     for fn in (test_the_planner_plans_the_whole_line,
                test_determinism, test_refusals, test_the_round_trip,
@@ -3329,7 +3385,8 @@ if __name__ == "__main__":
                test_the_relation_draw, test_the_bound_share,
                test_the_grade_it_line_runs, test_the_overhang_group,
                test_the_placement_route,
-               test_the_delegated_rulings):
+               test_the_delegated_rulings,
+               test_the_legend_states_the_whole_schema):
         fn()
     print("=" * 62)
     if FAILURES:

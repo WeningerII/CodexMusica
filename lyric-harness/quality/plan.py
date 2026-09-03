@@ -3298,6 +3298,17 @@ def fill_plan(plan, lines):
         # not declare one.
         "title": plan.get("title") or "",
         "hooks": hooks,
+        # THE HOOK IS A SLOT, AND THE TEXT ABOVE IS WHAT THE SLOT HOLDS NOW
+        # (`MISSING.md` M-212, 2026-09-03). `hooks` is a snapshot of the
+        # hook line's words at fill time, and the grader's HOOK_ABSENT looks
+        # for that text in the draft it is grading — so once the loop
+        # revised the hook line itself, the snapshot occurred 0 times and
+        # every legal rewrite of that line was rejected as a new flag. The
+        # slot is carried beside the text so `Reviser._function_findings`
+        # can re-read the hook from the CURRENT draft's line at that slot;
+        # a hand-written blueprint with `hooks` and no `hook_slot` is graded
+        # exactly as before.
+        "hook_slot": plan.get("hook_slot") or None,
         "sections": [dict(s) for s in plan["sections"]],
         "lines": [{"text": got[s["line"] - 1], "bar": s["bar"],
                    "beat": s["beat"], "duration": s["duration"],
@@ -3530,6 +3541,90 @@ def place_gloss(place):
     return f"{who}, {how}"
 
 
+#: How a channel rule's SCOPE reads in the legend. Only spelled out where a
+#: schema states two rules on ONE channel (perfect rhyme: onset AGREE after
+#: the anchor, onset DIFFER at it) — without it the legend read "agree on
+#: onset; differ on onset" (M-214).
+_SCOPE_GLOSS = {
+    "anchor": "at the stressed syllable",
+    "post_anchor": "after the stressed syllable",
+    "first": "on the first syllable",
+    "last": "on the last syllable",
+    "each": "on every syllable",
+    "sequence": "in sequence",
+    "unmatched_a": "on the first word's extra material",
+    "unmatched_b": "on the second word's extra material",
+}
+
+
+def schema_asks(sch):
+    """-> the clauses of "what this schema asks of the bound words", derived
+    from EVERY required channel rule, the `unmatched` span coordinate and the
+    identity rule — not only the Agree/Differ channels.
+
+    UNTIL 2026-09-03 THE LEGEND READ ONLY `Agree` AND `Differ` (`MISSING.md`
+    M-214), and the plan's own drawn relations then read as something they
+    are not: `subtractive rhyme` as "agree on nucleus" (its coda rule is
+    PRESENT-vs-ABSENT — one word has the coda, the other has none),
+    `semirhyme` as "agree on nucleus, coda" (its whole point is
+    `unmatched=require_b`: the second word runs on past the rhyme),
+    `family rhyme` as "agree on nucleus" (its coda rule is CLASS-EQUAL at the
+    manner grain), and `perfect rhyme` as "agree on nucleus, coda, onset,
+    prominence; differ on onset" — two scopes collapsed into a
+    contradiction. A writer working from that legend wrote `come ~ some`,
+    `bell ~ tell` and `light ~ my` for the first three and `screen` said
+    VIOLATES on all of them. The legend is derived from the registry so it
+    cannot drift from the judge; it now derives from the WHOLE declaration.
+    """
+    from quality import relations as _RLs
+    req = [c for c in sch.channels if c.required]
+    agree = [c for c in req if isinstance(c.predicate, _RLs.Agree)]
+    differ = [c for c in req if isinstance(c.predicate, _RLs.Differ)]
+    both = ({c.channel for c in agree} & {c.channel for c in differ})
+
+    def _ch(c):
+        return (f"{c.channel} ({_SCOPE_GLOSS.get(c.scope, c.scope)})"
+                if c.channel in both else c.channel)
+    bits = []
+    if agree:
+        bits.append("agree on " + ", ".join(_ch(c) for c in agree))
+    if differ:
+        bits.append("differ on " + ", ".join(_ch(c) for c in differ))
+    for c in req:
+        pred = c.predicate
+        if isinstance(pred, _RLs.PresentVsAbsent):
+            extra = "second" if getattr(pred, "on", 1) == 1 else "first"
+            bare = "first" if extra == "second" else "second"
+            bits.append(f"{c.channel} present on the {extra} word and "
+                        f"absent on the {bare} (the {extra} runs on where "
+                        f"the {bare} stops)")
+        elif isinstance(pred, _RLs.ClassEqual):
+            label = getattr(pred, "label", "") or "a declared partition"
+            bits.append(f"{c.channel} agree by CLASS, not sound "
+                        f"({label})")
+        elif not isinstance(pred, (_RLs.Agree, _RLs.Differ)):
+            nm = getattr(pred, "name", type(pred).__name__)
+            bits.append(f"{c.channel} judged by {nm}")
+    um = getattr(sch, "unmatched", "exclude")
+    if um == "require_b":
+        bits.append("the second word carries an extra syllable or more "
+                    "after the rhyme (bend / ending) — an equal pair "
+                    "fails")
+    elif um == "require_a":
+        bits.append("the first word carries an extra syllable or more "
+                    "after the rhyme — an equal pair fails")
+    elif um == "forbid":
+        bits.append("neither word runs on past the rhyme")
+    for idr in (getattr(sch, "identity", ()) or ()):
+        lvl = getattr(idr, "level", "")
+        pred = getattr(idr, "predicate", None)
+        if lvl == "token" and isinstance(pred, _RLs.Differ):
+            bits.append("different words")
+        elif lvl == "token" and isinstance(pred, _RLs.Agree):
+            bits.append("the same word")
+    return bits
+
+
 def brief_legend(plan):
     """-> the legend the rhyme plan needs to be READ (`MISSING.md` M-192):
     what each place a group names binds, and what each drawn relation
@@ -3564,19 +3659,11 @@ def brief_legend(plan):
             sch = _RLb.REGISTRY.get(sname)
             if sch is None:
                 continue
-            agree = [c.channel for c in sch.channels
-                     if c.required and isinstance(c.predicate, _RLb.Agree)]
-            differ = [c.channel for c in sch.channels
-                      if c.required and isinstance(c.predicate, _RLb.Differ)]
             loci = {r.locus for r in (sch.spans[0], sch.spans[-1])}
             where = ("at the line end" if loci == {"line_final_token"}
                      else "at the line head" if loci == {"line_initial_token"}
                      else "inside the line")
-            bits = []
-            if agree:
-                bits.append("agree on " + ", ".join(agree))
-            if differ:
-                bits.append("differ on " + ", ".join(differ))
+            bits = schema_asks(sch)
             aka = f" (also: {sch.aka[0]})" if sch.aka else ""
             out.append(f"  {sname}{aka}: the bound words "
                        f"{'; '.join(bits) or 'stand in the schema'}, "
