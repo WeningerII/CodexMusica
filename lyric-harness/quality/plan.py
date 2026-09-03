@@ -1066,7 +1066,7 @@ WORDS_LEFT_FREE = 1
 JOINT_CODES = ("SPAN_BELOW_DENSITY_FLOOR", "TOKEN_INDEX_UNREACHABLE",
                "WORDS_EXCEED_SPAN", "TWO_GROUPS_ONE_WORD",
                "HOOK_IN_NONRECURRING_SECTION", "GROUP_CONTRADICTS_ITSELF",
-               "IDENTITY_AT_TWO_LINE_ENDS")
+               "IDENTITY_AT_TWO_LINE_ENDS", "PLACEMENT_CONTRADICTS_SCHEMA")
 
 
 def line_syllable_ceiling(slots):
@@ -1538,6 +1538,36 @@ def joint_findings(plan):
                 f"choice of words clears both. The figure is not the problem: "
                 f"the same word ending two lines is `epistrophe / radif` in "
                 f"this registry, and that is the schema to declare for it."))
+        # THE EIGHTH CAUSE, and it is the one that trapped a real song
+        # (2026-09-03, `MISSING.md` M-206). A group whose members ALL sit at
+        # DEFAULT slots is judged by the INSTANCES route, and that route
+        # enforces `schema.placement` — so a schema whose placement rule two
+        # LINE ENDS cannot satisfy is unwritable there whatever anybody
+        # writes. A group binding a DECLARED token is judged by the pair
+        # route instead, which strips `placement` on purpose (the writer
+        # naming the slot IS the override), so the question is asked here
+        # only of the all-default case — the exact complement of the
+        # `pair_bindable` condition one screen up.
+        if not all(_SL.is_default_spelling(_m4) for _m4 in _mem):
+            pass
+        elif not _RL.placement_bindable(_s, ("end", "end")):
+            _pl = ", ".join(
+                "%s%s" % ("NOT " if not _p.polarity else "", _p.kind)
+                for _p in _s.placement
+                if _p.kind in _RL.POSITION_PLACEMENT_KINDS)
+            out.append((
+                "PLACEMENT_CONTRADICTS_SCHEMA",
+                min(int(str(m).split(".", 1)[0]) for m in _mem),
+                f"group {SC.label((_gi,))} declares {_name!r} over "
+                f"{len(_mem)} members ({', '.join(_mem)}), every one of them "
+                f"at the DEFAULT slot — the line's last word. That schema's "
+                f"own placement rule is {_pl!r}, which a pair of line ENDS "
+                f"cannot satisfy at any line length in any vocabulary, and "
+                f"an all-default group is judged by the instances route, "
+                f"which enforces it. No choice of words closes this group. "
+                f"The figure is not refused: declare the placements its own "
+                f"definition needs (`--groups={_mem[0]}.T2,...`) and the "
+                f"declared-token route judges it at the slots you named."))
         _n_bad = _RL.unsatisfiable_pairs(_s, len(_mem))
         if not _n_bad:
             continue
@@ -2972,13 +3002,41 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             # drawable at DEFAULT slots, where the instances route judges
             # them at their own loci. A member spelled `<line>.end` IS the
             # default slot in a different coat and does not restrict.
-            _slotted_g = any(
-                "." in str(_m2) and str(_m2).split(".", 1)[1] != "end"
-                for _m2 in groups[_gi])
+            # M-206: `_SL.is_default` IS THE PREDICATE, not a spelling of
+            # it. `<line>.end` is the default slot in a different coat and
+            # `<line>.endword` is NOT — it anchors at `word_start`, so
+            # `grade()` routes it through the PAIR route, which strips
+            # placement. The hand-written `!= "end"` happened to agree here
+            # and the joint gate below spelled the same question a third way
+            # (`in ("end", "endword")`), which disagreed on 7 of 120 seeds:
+            # the draw let a placement-refused schema through and the gate
+            # then refused the plan.
+            _slotted_g = any(not _SL.is_default_spelling(_m2)
+                             for _m2 in groups[_gi])
             _ok = [""]
             for _cand in _RL.DRAWABLE_SCHEMAS:
                 if _slotted_g and not _RL.pair_bindable(
                         _RL.REGISTRY[_cand]):
+                    continue
+                # M-206: AND THE OTHER HALF OF THE SAME CONJUNCTION, AT THE
+                # SLOTS THE COMMENT ABOVE HANDS BACK. An all-default group
+                # is judged by the INSTANCES route, which enforces
+                # `schema.placement` — so a schema whose placement rule two
+                # LINE ENDS cannot satisfy is unwritable there at any
+                # length, in any words. `internal rhyme` declares
+                # `both_line_final` with polarity FALSE; `anaphora`, `head
+                # rhyme (positional)` and `interlaced rhyme` demand a
+                # line-initial or a non-final member. Measured over seeds
+                # 1-120 before this filter: 99 of 681 all-default groups
+                # (14.5%) across 63 of 120 seeds (52.5%) carried one, and
+                # the revise loop then ground tier 1 against a line no word
+                # could fix — found by writing seed 3014's song, group H.
+                # The draw consults the judge's own predicate
+                # (`relations.placement_bindable`, the ONE definition the
+                # joint gate below also calls, doctrine 1), so the pair is
+                # unsampleable BY CONSTRUCTION rather than disclosed.
+                if not _slotted_g and not _RL.placement_bindable(
+                        _RL.REGISTRY[_cand], ("end", "end")):
                     continue
                 # M-174: AND A SCHEME DEMANDING AN OVERHANG ORDERS THE WHOLE
                 # GROUP, so on three members or more it contradicts itself —

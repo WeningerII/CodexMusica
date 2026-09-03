@@ -413,6 +413,13 @@ class SlotField:
     #: answer is a whole one, and where the unanswered pair currently
     #: HOLDS, taking one is a new flag and a rejection.
     by_call: tuple = ()
+    #: WORDS THE BAND ADMITTED AND THE DECLARED RELATION DID NOT
+    #: (`MISSING.md` M-204). Its own count, never folded into `dropped`:
+    #: that list means "the call word sits in their own modal head", and a
+    #: schema refusal is a different fact about a different judge. Empty on
+    #: every group that declares no `schema:` relation, which is every
+    #: mandate written before relations existed.
+    schema_refused: tuple = ()
 
 
 @dataclass
@@ -617,6 +624,12 @@ class Brief:
     #: introduces a flag and is rejected — and where that pair is ALREADY
     #: violated or unreadable, nothing is traded and the grader accepts.
     partial_by_call: tuple = ()
+    #: The `schema_refused` of the SlotField at `slot` (`MISSING.md` M-204),
+    #: copied out the way `candidates` is: words the band admitted and the
+    #: group's declared `schema:` relation refused. A SHORT offer with this
+    #: non-empty is a NARROWED offer, not a thin lexicon, and the renderers
+    #: say which.
+    schema_refused: tuple = ()
     #: The `(field_depth, field_band)` the candidate field was read at, as a
     #: printable string. A count with no setting beside it is the defect
     #: doctrine 58 is about, and this flag is a count of zero.
@@ -1136,6 +1149,21 @@ class Reviser:
         out = set()
         for f in findings:
             if f.code not in RHYME_FINDINGS:
+                continue
+            # THE FINDING'S OWN GROUP FIRST (`MISSING.md` M-207). The pair
+            # check is driven by `grade()`'s VERDICTS and a verdict names
+            # its group, so the two-tier ban knows exactly which group it
+            # judged. Reading it here is the difference between attributing
+            # a fact and inferring one: TWO groups can hold the same line
+            # PAIR at different WORDS — seed 4010 binds L5/L6 both at
+            # `5.T3,6.T2` and at their line ends — and the inference below
+            # cannot tell them apart, so a ban computed on the END WORDS
+            # marked the WORD-2 place violated and the brief told the writer
+            # to change a word `pair_satisfies` had already passed.
+            _own = [k for k, _m in groups
+                    if m.labels[k] in (getattr(f, "groups", ()) or ())]
+            if _own:
+                out.update(_own)
                 continue
             locs = list(getattr(f, "locations", ()) or ())
             if len(locs) != 2 or ln not in locs:
@@ -2972,7 +3000,7 @@ class Reviser:
                     f"ban from closing the class: reach for a "
                     f"differently-spelled partner or a declared near "
                     f"rhyme, not the next word in the same spelling "
-                    f"family.", [i, j]))
+                    f"family.", [i, j], (v["label"],)))
                 continue
             # TIER 2 — the frequency ban over the differently-spelled
             # remainder (`joint_field` composes the same two tiers for the
@@ -3006,7 +3034,7 @@ class Reviser:
                 "already-flagged line; this asks the same question of a "
                 "pair that never failed anything, because a first draft "
                 "can reach for the predictable rhyme exactly as easily as "
-                "a revision can.", [i, j]))
+                "a revision can.", [i, j], (v["label"],)))
         default_licensed = self.rdecl.repeat_licence == "refrain"
         for v in rep["repeats"]:
             i, j = v["lines"]
@@ -3877,6 +3905,78 @@ class Reviser:
         forbidden = homeo + rest_ranked[:k]
         return rest_ranked[k:], forbidden, fields
 
+    def schema_screen(self, offered, calls, schema_name):
+        """-> (kept, refused): the offer, judged by the SCHEMA the verdict
+        will judge it by (`MISSING.md` M-204).
+
+        THE DEFECT THIS CLOSES. `joint_field_screened` reads the SCALAR band
+        and the coarse admit set; `grade()` judges a group carrying a
+        `schema:` relation through `relations.pair_satisfies`. Two judges,
+        one list, and the brief hands the list over under a heading that
+        promises it answers the group. MEASURED on seed 1067 group B
+        (`late`, `schema:semirhyme`): the offer held 24 words and
+        `pair_satisfies` accepts **0 of the 24** — every one a flush
+        monosyllable where `require_b` demands the overhang. The words that
+        DO work (`lately`, `greatly`, `stately`) are absent, and the scalar
+        ranks them BELOW the useless ones because
+        `trailing_syllable_penalty` docks exactly the overhang the schema
+        requires. Not merely different instruments: on that schema, opposed.
+
+        WHY THIS AND NOT A WARNING. The entry's second draft proposed to
+        DISCLOSE the mismatch — name the schema, warn the list came from
+        another door — and the owner refused it: *"you are compensating for
+        the shortcomings of the program, which is rowing against our north
+        star."* Better warning text makes the WRITER route around a loop
+        that is not doing its job. So the offer is CORRECTED instead.
+
+        AND IT REPAIRS THE DISPATCH IN THE SAME MOVE. `joint_conflict` fires
+        on an EMPTY offer, which is why a field of 24 unusable words kept
+        tier 2 shut (M-204's own second half). Screened, that field is empty
+        BECAUSE nothing in it can pass — so "did we find any words" becomes
+        "can any word we found pass", which is the question the trigger
+        should always have asked. One repair, both halves.
+
+        COST, MEASURED: 25.6 ms per candidate, 0.62 s over a 24-word field.
+        Paid once per briefed line, against a brief that already costs
+        seconds. TWO COUNTS, NEVER SUMMED (doctrine 79): what survives, and
+        what the schema refused — the second is not "no rhyme exists", it is
+        "the band admitted these and the declared relation does not".
+        """
+        if not offered or not schema_name or not calls:
+            return list(offered), []
+        try:
+            from quality import relations as _RL
+            from quality.phonology import get as _ph
+        except Exception:
+            return list(offered), []
+        name = schema_name.split(":", 1)[1] if ":" in schema_name \
+            else schema_name
+        sch = getattr(_RL, "REGISTRY", {}).get(name)
+        if sch is None:
+            # AN UNKNOWN SCHEMA NARROWS NOTHING. A screen that cannot read
+            # its own declaration must not silently empty the offer — that
+            # would read as "the lexicon has no answer" (doctrine 20).
+            return list(offered), []
+        lex = _ph("eng")
+        kept, refused = [], []
+        for w in offered:
+            ok = True
+            for c in calls:
+                if not c:
+                    continue
+                try:
+                    st = _RL.build_stream(["the %s one" % c,
+                                           "it was %s" % w], lex,
+                                          declaration={"language": "eng"})
+                    got = _RL.pair_satisfies(sch, st, (0, 1), (1, -1))
+                except Exception:
+                    got = True          # unreadable is not a refusal
+                if got is not True:
+                    ok = False
+                    break
+            (kept if ok else refused).append(w)
+        return kept, refused
+
     def joint_field_screened(self, calls, exclude=(), profile=None):
         """-> (offered, forbidden, dropped): `joint_field` with its third
         count exposed — the words the offer PASSED OVER because taking them
@@ -4257,9 +4357,60 @@ class Reviser:
                               for k in ks for x in dict(groups)[k]]
                     _calls = [c for c in dict.fromkeys(_calls) if c]
                     _cur = self._incumbent(lines, ln, _sl)
+                    _schema_ref = []
                     if _calls:
                         _off, _forb, _drop = self.joint_field_screened(
                             _calls, exclude=(_cur,), profile=profile)
+                        # THE OFFER IS JUDGED BY THE JUDGE THAT WILL JUDGE
+                        # IT (`MISSING.md` M-204). Every group binding this
+                        # line HERE is asked of the MANDATE for its declared
+                        # relation — never inferred from the words — and a
+                        # `schema:` one narrows the field to what
+                        # `pair_satisfies` accepts. On a group declaring no
+                        # schema this is a no-op and the field is the one it
+                        # always was.
+                        _sref = []
+                        for _k in ks:
+                            _rel = ""
+                            try:
+                                _rel = m.relation_of(_k) or ""
+                            except Exception:
+                                _rel = ""
+                            if not str(_rel).startswith("schema:"):
+                                continue
+                            _off, _ref = self.schema_screen(_off, _calls,
+                                                            str(_rel))
+                            # AND THE BAN IS THE SAME FIELD (`MISSING.md`
+                            # M-209). M-204 screened the OFFER and left the
+                            # FORBIDDEN list to the unscreened pool, so the
+                            # ban held words that cannot answer this group
+                            # at all — `bone`, `tone`, `phone` beside a
+                            # `family rhyme` call the judge refuses them
+                            # for. Three things read that list and all
+                            # three were wrong: the renderer says *"every
+                            # word that answers its groups is in the
+                            # FORBIDDEN list"*, which was not established;
+                            # `verify()` RULE 3 rejects OUTRIGHT for taking
+                            # a word that was never in the field; and
+                            # `joint_conflict` is gated on `not _forb`, so
+                            # an unscreened ban SUPPRESSED the tier-2
+                            # dispatch that a genuinely empty field is
+                            # supposed to trigger. Doctrine 9 bans the most
+                            # predictable answer IN ITS OWN FIELD, and a
+                            # word the relation refuses is not in the field.
+                            _forb, _bref = self.schema_screen(
+                                _forb, _calls, str(_rel))
+                            _sref.extend(_ref)
+                            _sref.extend(_bref)
+                        # ITS OWN COUNT, NOT `screened_out` (doctrine 79).
+                        # Folding these into the ban's drop list was this
+                        # repair's own first draft and it made the renderer
+                        # LIE: `screened_out` prints "the call word sits in
+                        # their own modal head", which is true of the ban and
+                        # false of a schema refusal. "The band admitted these
+                        # and the declared relation does not" is a different
+                        # fact and gets a different field.
+                        _schema_ref = list(dict.fromkeys(_sref))
                     else:
                         _off, _forb, _drop = [], [], []
                     _jc = (len(_calls) > 1 and not _off and not _forb)
@@ -4289,7 +4440,8 @@ class Reviser:
                         violated=sk in _viol_slots,
                         joint_conflict=_jc,
                         dropped=tuple(_drop),
-                        by_call=tuple(_bycall))
+                        by_call=tuple(_bycall),
+                        schema_refused=tuple(_schema_ref))
                 _pf = b.fields_by_slot.get(_primary)
                 calls = list(_pf.calls) if _pf else []
                 # THE INCUMBENT AT THIS LINE'S OWN BINDING SITE — the
@@ -4320,6 +4472,8 @@ class Reviser:
                     # it is conditional on, so no reader can have one
                     # without the other.
                     b.partial_by_call = _pf.by_call
+                    # M-204 — carried beside the field it narrowed.
+                    b.schema_refused = _pf.schema_refused
                 # THE WORD CURRENTLY THERE, ON ITS OWN FIELD SINCE
                 # 2026-08-16. It used to be APPENDED to `forbidden_modal`,
                 # which put two rules in one list under doctrine 9's name —

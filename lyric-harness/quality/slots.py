@@ -96,7 +96,8 @@ from quality import relations as REL
 __all__ = ["Slot", "SlotUnsupported", "DEFAULT_RULE", "GRADEABLE_LOCI",
            "PLANNABLE_PLACEMENTS", "LAST_WORD", "placement_word",
            "GRADEABLE_ANCHORS", "FRAME_LOCI", "NAMED_SLOTS",
-           "as_slot", "slot_line", "is_default", "check", "resolve",
+           "as_slot", "slot_line", "is_default", "is_default_spelling",
+           "check", "resolve",
            "parse_slot", "spell_slot", "position_of", "word_phrase",
            "token_of"]
 
@@ -275,6 +276,34 @@ def slot_line(member):
 def is_default(member):
     """Is this the plain end-of-line binding? Bare ints are."""
     return not isinstance(member, Slot) or member.is_default()
+
+
+def is_default_spelling(member):
+    """int | str -> is this member the plain end-of-line binding?
+
+    THE STRING-LEVEL FORM OF `is_default`, and it lives here because this
+    module owns the spelling (`MISSING.md` M-206, doctrine 1). A caller
+    holding a mandate's own `--groups=` text — `plan.py`'s relation draw and
+    its joint gate both do — otherwise has to parse the member itself, and
+    the two sites that did spelled the rule three different ways: `<line>.end`
+    IS the default slot and `<line>.endword` is NOT (it anchors at
+    `word_start`), so a hand-written `!= "end"` and an `in ("end",
+    "endword")` disagreed on 7 of 120 planner seeds.
+
+    The distinction is load-bearing rather than cosmetic: `Reviser.grade`
+    routes an ALL-DEFAULT group through the instances route, which enforces
+    `schema.placement`, and any declared token through
+    `relations.pair_satisfies`, which strips it.
+
+    An unparseable member answers False — not the default, and not guessed.
+    """
+    text = str(member)
+    if "." not in text:
+        return True
+    try:
+        return is_default(parse_slot(text))
+    except Exception:
+        return False
 
 
 def position_of(member):

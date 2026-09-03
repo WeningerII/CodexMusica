@@ -697,6 +697,21 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
                        "cannot be rhymed cleanly at all: the PARTNER line")
             out.append("  has to move to a rarer word, or this line takes "
                        "a near relation the mandate admits.")
+    _sref = tuple(getattr(brief, "schema_refused", ()) or ())
+    if _sref:
+        # WHY THE OFFER IS SHORT (`MISSING.md` M-204). Said BEFORE the list,
+        # for the reason M-185's own screen note is said before it: a writer
+        # reading four words needs to know the band found more and the
+        # DECLARED RELATION refused them — otherwise a narrowed offer reads
+        # as an exhausted lexicon, and the next move (widen the search) is
+        # the wrong one.
+        out.append(f"  {len(_sref)} word(s) the band admitted are NOT "
+                   f"offered: this place is judged by its group's declared")
+        out.append(f"  relation, and they do not satisfy it "
+                   f"({', '.join(str(w) for w in _sref[:8])}"
+                   + (", …" if len(_sref) > 8 else "") + ").")
+        out.append("  The list below is what that relation accepts — the "
+                   "same judge the verdict uses.")
     if candidates:
         out.extend(_offered_block(candidates, decl, note))
         out.append("  Offered, NOT required. The grader re-grades the rhyme "

@@ -131,6 +131,14 @@ class B:
         #: answers — no error, no red, and the suite pinning the wrong half
         #: of a two-branch sentence.
         self.partial_by_call = kw.get("partial_by_call", ())
+        #: WORDS THE BAND ADMITTED AND THE DECLARED RELATION REFUSED
+        #: (`MISSING.md` M-204, 2026-09-03) — and §7c below caught this one
+        #: too, which is the FOURTH field that guard has paid for. Without
+        #: it `render_line` reads `getattr(brief, "schema_refused", ())`,
+        #: gets nothing, and the "why the offer is short" sentence renders
+        #: on no fixture in this file — no error, no red, and the suite
+        #: pinning a prompt that a narrowed offer never produces.
+        self.schema_refused = kw.get("schema_refused", ())
         #: THE PLACEMENT, added 2026-08-24 — and it was §7c below that found
         #: it, on the first CI run after the workflow started parsing again.
         #: `Brief` grew `slot`/`slot_conflict` at `9ad2dad` (`MISSING.md`
@@ -587,6 +595,22 @@ def test_a_pivot_and_a_joint_conflict_are_stated():
           in block
           and "silver — 3 word(s): river, quiver, shiver" in block
           and "mind — 3 word(s): signed, behind, unwind" in block, block)
+    # M-204: the same PLAIN fixture, told that the band offered more and the
+    # declared relation refused it. The sentence must come BEFORE the list,
+    # for M-185's reason: a writer reading four words needs to know the
+    # lexicon was not what ran out.
+    _narrowed = render_line(
+        B(line_no=1, text=PLAIN_BRIEF.text, findings=PLAIN_BRIEF.findings,
+          candidates=["attire", "sire"], forbidden_modal=["fire"],
+          forbidden_incumbent="fire", field_computed=True,
+          schema_refused=("night", "quite", "white")),
+        DRAFT, attempt=0)
+    _blk = _section(_narrowed, "OFFERED")
+    check("a NARROWED offer says the band admitted more and the DECLARED "
+          "RELATION refused it — a short list is not an exhausted lexicon",
+          "3 word(s) the band admitted are NOT offered" in _blk
+          and "night, quite, white" in _blk
+          and _blk.index("NOT offered") < _blk.index("attire"), _blk[:400])
     check("an empty JOINT field says WHY rather than printing nothing, and "
           "no longer says the lexicon had no answer for this line",
           "no JOINT candidate field was offered" in _section(p, "OFFERED")
@@ -775,12 +799,24 @@ def test_model_proposer_drives_a_real_loop_to_success():
           f"fixed {res.rounds[0].fixed_lines}, resolved elsewhere "
           f"{res.rounds[0].resolved_elsewhere}, unresolved "
           f"{[b.line_no for b in res.unresolved]}")
+    # REPINNED 2026-09-03 with M-210 from ~~`len(seen) >= 4`~~: that floor
+    # counted on L3 and L4 each being prompted ONCE before the round noticed
+    # their partner's fix had closed them — the stale-snapshot behaviour
+    # M-210 ends. The carry-forward reaches them inside the round, so they
+    # are never prompted at all, and the honest count is one prompt per
+    # line the loop actually FIXED. The closed lines are asserted absent
+    # from the prompts, which is the stronger property.
+    closed_texts = {CLICHE[n - 1] for n in res.rounds[0].resolved_elsewhere}
     check("the stub was driven by the PROMPT and nothing else -- it never "
           "saw a Brief, so a prompt missing the line or the offered field "
-          "could not have produced these; retries past 4 are the rejected "
-          "first offers being re-asked, reasons in hand",
-          len(seen) >= 4 and all(_reads_the_prompt(p)[0] for p in seen),
-          f"{len(seen)} prompt(s)")
+          "could not have produced these; and a line another line's fix "
+          "CLOSED is never prompted (M-210), so the prompts are exactly the "
+          "lines fixed",
+          len(seen) == len(res.rounds[0].fixed_lines) >= 2
+          and all(_reads_the_prompt(p)[0] for p in seen)
+          and not any(_reads_the_prompt(p)[0] in closed_texts for p in seen),
+          f"{len(seen)} prompt(s); fixed {res.rounds[0].fixed_lines}; "
+          f"closed {res.rounds[0].resolved_elsewhere}")
     check("the loop's output is a real draft, and every changed line was "
           "one the loop had opened — and only those (repinned 2026-09-01, "
           "M-185: L3/L4 are closed by L1/L2's moves and stay as written)",
