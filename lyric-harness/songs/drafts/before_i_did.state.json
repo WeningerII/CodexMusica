@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "answered": {
+    "propose": [],
+    "propose_group": []
+  },
+  "pending": null,
+  "complete": {
+    "stop": "success",
+    "exit": 0,
+    "draft": "5bfe15962279",
+    "final": "5bfe15962279",
+    "unresolved": [],
+    "whole_flags": []
+  }
+}
