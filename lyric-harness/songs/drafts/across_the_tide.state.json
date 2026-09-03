@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "answered": {
+    "propose": [
+      {
+        "line": 2,
+        "attempt": 0,
+        "round": 1,
+        "draft": "4809981caa5d",
+        "text": "That grey light, windy, and the lamp on the pier"
+      },
+      {
+        "line": 4,
+        "attempt": 0,
+        "round": 1,
+        "draft": "f253fc0ca28c",
+        "text": "Day after day the window, and nothing farther"
+      },
+      {
+        "line": 7,
+        "attempt": 0,
+        "round": 1,
+        "draft": "50c05ba0083d",
+        "text": "Nothing in the shops we'd buy, and nothing to send"
+      },
+      {
+        "line": 14,
+        "attempt": 0,
+        "round": 1,
+        "draft": "2eec6824f0b9",
+        "text": "You're not gone, you are only across the tide"
+      },
+      {
+        "line": 14,
+        "attempt": 1,
+        "round": 1,
+        "draft": "2eec6824f0b9",
+        "text": "You're not gone, you are only across the tide"
+      }
+    ],
+    "propose_group": []
+  },
+  "pending": null,
+  "complete": {
+    "stop": "success",
+    "exit": 0,
+    "draft": "4809981caa5d",
+    "final": "b3970f8c160b",
+    "unresolved": [],
+    "whole_flags": []
+  }
+}

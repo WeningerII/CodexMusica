@@ -192,6 +192,46 @@ with tempfile.TemporaryDirectory() as td:
           "evade by forgetting an argument fails toward whoever forgot",
           BP.admit(d, AFTER)[0], str(BP.read_ledger(d).get("states")))
 
+print("\n7. A STATE THE LEDGER NAMES AND THE DISK NO LONGER HOLDS testifies to "
+      "no brief (M-211) — the refusal is 'unbriefed', never an OSError")
+with tempfile.TemporaryDirectory() as td:
+    d = os.path.join(td, "d.txt")
+    open(d, "w").write("\n".join(BEFORE))
+    fp = BP.draft_fingerprint(BEFORE)
+    st = _state(os.path.join(td, "s.json"), [_rec(2, fp), _rec(4, fp)])
+    BP.write_ledger(d, BEFORE, [st])
+    os.remove(st)
+    check("absent_states names the missing path and nothing else",
+          BP.absent_states([st]) == [st])
+    check("briefed() over a missing state RETURNS EMPTY rather than raising "
+          "— the FileNotFoundError that escaped to the CLI's top-level "
+          "handler and was reported as a mis-spelled path",
+          BP.briefed([st]) == {})
+    try:
+        ok, say = BP.admit(d, AFTER)
+        raised = None
+    except OSError as e:          # the pre-M-211 shape
+        ok, say, raised = None, "", e
+    check("admit REFUSES with the unbriefed message, naming the moved lines "
+          "AND the state that is gone — not an exception",
+          raised is None and ok is False and "[2, 4]" in say
+          and "cannot be read" in say and st in say,
+          repr(raised) if raised else say)
+    ok2, say2 = BP.admit(d, AFTER, reason="re-chosen after SCHEME_UNREADABLE")
+    check("a declared reason still admits it, and the message still names "
+          "the missing state beside the reason (doctrine 79: its own count)",
+          ok2 and "re-chosen" in say2 and "cannot be read" in say2, say2)
+    corrupt = os.path.join(td, "c.json")
+    open(corrupt, "w").write("{not json")
+    check("a state that is present but not JSON is ABSENT in the same sense "
+          "— it can testify to nothing",
+          BP.absent_states([corrupt]) == [corrupt] and BP.briefed([corrupt]) == {})
+    good = _state(os.path.join(td, "g.json"), [_rec(2, fp), _rec(4, fp)])
+    ok3, say3 = BP.admit(d, AFTER, [good])
+    check("a readable state beside the missing one still briefs the lines "
+          "— the missing one costs nothing but its mention",
+          ok3 and "every one briefed" in say3, say3)
+
 print("\n" + "=" * 62)
 if FAILURES:
     print("FAILURES: %d" % len(FAILURES))

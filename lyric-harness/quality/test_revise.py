@@ -4617,6 +4617,65 @@ def test_the_offer_falls_back_per_call_when_the_conjunction_is_empty():
           accepted, accepted[:3])
 
 
+def test_the_hook_is_read_from_the_slot_not_the_snapshot():
+    print("\n56. M-212 — a blueprint that declares `hook_slot` has its hook "
+          "re-read from THIS draft's line at that slot, so revising the "
+          "hook line is not HOOK_ABSENT; a blueprint naming only a phrase "
+          "is graded exactly as before")
+    import copy as _cp
+    before = list(GAP_LINES)
+    # A blueprint whose `hooks` is a SNAPSHOT of L3 (the chorus's first
+    # line), the shape `plan.fill_plan` writes.
+    bp_phrase = _cp.deepcopy(GAP_BLUEPRINT)
+    bp_phrase["hooks"] = [before[2]]
+    bp_slot = _cp.deepcopy(bp_phrase)
+    bp_slot["hook_slot"] = 3
+    after = list(before)
+    after[2] = "i counted every passing train"      # the hook line, revised
+    codes = lambda found: {f.code for f in found.get("whole", [])}  # noqa: E731
+
+    f0 = R.inspect(before, GAP_SCHEME, blueprint=bp_slot)
+    check("before the revision, the slot reading finds the hook (no "
+          "HOOK_ABSENT) — the slot and the snapshot agree on an unmoved draft",
+          "HOOK_ABSENT" not in codes(f0), str(sorted(codes(f0))))
+    f1 = R.inspect(after, GAP_SCHEME, blueprint=bp_slot)
+    check("after the hook line moves, the SLOT reading still finds it — the "
+          "hook is whatever the draft holds at line 3 now",
+          "HOOK_ABSENT" not in codes(f1), str(sorted(codes(f1))))
+    f2 = R.inspect(after, GAP_SCHEME, blueprint=bp_phrase)
+    check("the same revision under a PHRASE-only blueprint is HOOK_ABSENT, "
+          "as it always was — a phrase the writer named names itself",
+          "HOOK_ABSENT" in codes(f2), str(sorted(codes(f2))))
+    # THE LOOP'S OWN GATE: `verify()` on the hook line's revision. Under the
+    # snapshot it was rejected for introducing HOOK_ABSENT (the seed 7009
+    # run, attempt 1 on L14); under the slot it is judged on its merits.
+    v_slot = R.verify(before, after, GAP_SCHEME, targeted={3},
+                      blueprint=bp_slot)
+    v_phrase = R.verify(before, after, GAP_SCHEME, targeted={3},
+                        blueprint=bp_phrase)
+    check("verify() under the phrase blueprint names HOOK_ABSENT among its "
+          "reasons and under the slot blueprint does not",
+          any("HOOK_ABSENT" in r for r in v_phrase.get("reasons", []))
+          and not any("HOOK_ABSENT" in r for r in v_slot.get("reasons", [])),
+          f"slot={v_slot.get('reasons')} phrase={v_phrase.get('reasons')}")
+    # THE HELPER'S OWN CONTRACT: dict or path, int or nothing.
+    import json as _js
+    import tempfile as _tf
+    check("_blueprint_hook_slot reads a dict, ignores a bool, and answers "
+          "None for a phrase-only blueprint",
+          R._blueprint_hook_slot(bp_slot) == 3
+          and R._blueprint_hook_slot(bp_phrase) is None
+          and R._blueprint_hook_slot({"hook_slot": True}) is None)
+    with _tf.TemporaryDirectory() as td:
+        pth = os.path.join(td, "bp.json")
+        with open(pth, "w", encoding="utf-8") as fh:
+            _js.dump(bp_slot, fh)
+        check("...and reads the same slot off a PATH, the other shape "
+              "`grid.song_from_blueprint` takes",
+              R._blueprint_hook_slot(pth) == 3
+              and R._blueprint_hook_slot(os.path.join(td, "nope.json")) is None)
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -4672,7 +4731,8 @@ if __name__ == "__main__":
                test_the_offer_is_screened_from_the_offered_words_own_side,
                test_the_offer_falls_back_per_call_when_the_conjunction_is_empty,
                test_a_pair_finding_names_its_own_group,
-               test_the_ban_is_the_same_field_as_the_offer):
+               test_the_ban_is_the_same_field_as_the_offer,
+               test_the_hook_is_read_from_the_slot_not_the_snapshot):
         fn()
     print("=" * 62)
     if FAILURES:

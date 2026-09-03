@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "answered": {
+    "propose": [
+      {
+        "line": 8,
+        "attempt": 0,
+        "round": 1,
+        "draft": "f0b0c9423bf5",
+        "text": "Glow, the cafe radio, and nobody home"
+      },
+      {
+        "line": 12,
+        "attempt": 0,
+        "round": 1,
+        "draft": "ee6e714f55c2",
+        "text": "Kettle on, the starter to feed; power hums low"
+      },
+      {
+        "line": 17,
+        "attempt": 0,
+        "round": 1,
+        "draft": "7e4809271f16",
+        "text": "Light comes daily, and opaque mornings hold the store"
+      },
+      {
+        "line": 8,
+        "attempt": 0,
+        "round": 2,
+        "draft": "87a78c695ea5",
+        "text": "Glow, the cafe radio, and a slow hour"
+      },
+      {
+        "line": 17,
+        "attempt": 0,
+        "round": 2,
+        "draft": "d22d16d558e9",
+        "text": "Light comes daily, and opaque mornings hold the chore"
+      }
+    ],
+    "propose_group": []
+  },
+  "pending": null,
+  "complete": {
+    "stop": "success",
+    "exit": 0,
+    "draft": "f0b0c9423bf5",
+    "final": "1ef9757c55e8",
+    "unresolved": [],
+    "whole_flags": []
+  }
+}

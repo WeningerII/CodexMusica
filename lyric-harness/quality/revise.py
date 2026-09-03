@@ -2598,6 +2598,24 @@ class Reviser:
 
     # -- section function ---------------------------------------------------
 
+    @staticmethod
+    def _blueprint_hook_slot(blueprint):
+        """-> the blueprint's declared `hook_slot` as an int, else None.
+        `blueprint` is a dict or a path (the two shapes
+        `grid.song_from_blueprint` takes); anything unreadable is None —
+        the slot is an OPT-IN coordinate and its absence changes nothing
+        (M-212)."""
+        import json
+        bp = blueprint
+        if not isinstance(bp, dict):
+            try:
+                with open(bp, encoding="utf-8") as fh:
+                    bp = json.load(fh)
+            except (OSError, ValueError, TypeError):
+                return None
+        hs = bp.get("hook_slot") if isinstance(bp, dict) else None
+        return hs if isinstance(hs, int) and not isinstance(hs, bool) else None
+
     def _function_findings(self, lines, blueprint):
         """-> [Finding], all whole-draft. `quality/grid.py`'s FUNCTION layer
         (verse/chorus/bridge/hook/return) read off the SAME blueprint
@@ -2650,6 +2668,26 @@ class Reviser:
         song, hooks = GR.song_from_blueprint(blueprint)
         for l, text in zip(song.lines, lines):
             l.text = text
+        # A DECLARED HOOK SLOT IS READ FROM THIS DRAFT, NOT FROM THE
+        # BLUEPRINT'S SNAPSHOT (`MISSING.md` M-212, 2026-09-03). A plan's
+        # hook is a LINE NUMBER (`plan["hook_slot"]`); `fill_plan` copies
+        # that line's words into `hooks` so `hook_occurrences` has a phrase
+        # to look for. But the words are the draft's, and the draft moves:
+        # the first `finish` on seed 7009 flagged the hook line itself
+        # (PROMINENCE_OUT_OF_BAND, 8 of a 7 band) and every one-line
+        # rewrite of it — carried to its verbatim return by M-201 — was
+        # rejected for introducing HOOK_ABSENT, because the snapshot of the
+        # OLD hook line occurred 0 times in the NEW draft. The loop was
+        # asking a question whose every answer it refused. So when the
+        # blueprint carries the slot, the hook phrase is whatever THIS
+        # draft holds at that slot — the same "rebuild with the current
+        # words" this method already does for `Line.text` two lines up. A
+        # blueprint declaring `hooks` and no slot (every hand-written one,
+        # and every fixture) is unchanged: its hook is a phrase the writer
+        # named, and a phrase names itself.
+        _hs = self._blueprint_hook_slot(blueprint)
+        if _hs is not None and 1 <= _hs <= len(lines):
+            hooks = [lines[_hs - 1]]
         rep = GR.song_function_report(song, hooks=hooks,
                                       rhyme_key=GR.rime_cmudict(self.lex))
         whole = []

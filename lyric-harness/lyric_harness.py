@@ -5401,6 +5401,74 @@ def _declared_cuts():
     return dict(Declaration().theta_by_relation)
 
 
+#: The carrier that follows a word when `token_anchorability` asks whether it
+#: anchors BEFORE the line end. Any stressed content word does; it is here
+#: so the probe line is the same bytes on every call (doctrine 1).
+_ANCHOR_PROBE_TAIL = "tide"
+
+
+def token_anchorability(lex, word):
+    """-> (before_end, at_end): can `word` be ANCHORED as a declared token
+    (`T1`..`Tn` — read from its last stressed syllable, `slots.resolve`)
+    when it is NOT the line's last word, and when it is?
+
+    THE SCREEN'S BLIND SPOT, MEASURED ON SEED 7009 (`MISSING.md` M-213,
+    2026-09-03). `screen` judges a pair at position 'end', where every word
+    the phonology knows anchors — so `window ~ in` and `by ~ buy ~ bye` both
+    came back SATISFIES. The plan then bound `in` at L3's word 7 and `by` at
+    L6's word 1, and the grade said NO ANCHOR on both: a function word
+    demoted to weak before the line end has no stressed syllable to read a
+    rhyme span from, so the pair was REFUSED unjudged (M-144) — three of the
+    song's 21 mandated pairs, at exit 0. The screen had answered the
+    end-word question truthfully and the writer had asked the token
+    question. This is the token question, asked of the SAME resolver the
+    grade uses, on two carrier lines: the word followed by one stressed
+    word (not final), and the word closing a two-word line (final).
+    `head`/`headrime` read the word's FIRST syllable and are not asked here:
+    they anchor whatever the stress.
+    """
+    from quality import slots as _SLa
+    before = _SLa.resolve(lex, f"{word} {_ANCHOR_PROBE_TAIL}",
+                          _SLa.parse_slot("1.T1"))
+    at_end = _SLa.resolve(lex, f"{_ANCHOR_PROBE_TAIL} {word}",
+                          _SLa.parse_slot("1.T2"))
+    return bool(before[0] and before[1]), bool(at_end[0] and at_end[1])
+
+
+def anchor_disclosure_lines(lex, words):
+    """-> the ANCHOR block `screen` prints under its counts (M-213): one
+    line per word that cannot be anchored as a declared token somewhere,
+    or one line saying every word can. A report, never a verdict on the
+    pair — it sits below the counts so it cannot reach them (the M-111
+    position argument)."""
+    out = []
+    for w in words:
+        before, at_end = token_anchorability(lex, w)
+        if before and at_end:
+            continue
+        if not before and at_end:
+            why = ("NO ANCHOR as a declared token BEFORE the line end "
+                   "(T1..Tn, not the last word): demoted to weak there, "
+                   "with no stressed syllable to read a rhyme span from; "
+                   "it anchors as the line's last word")
+        elif not before and not at_end:
+            why = ("NO ANCHOR as a declared token at ANY position (T1..Tn, "
+                   "last word included): this phonology reads it as weak "
+                   "wherever it stands; only the default end slot and "
+                   "`head` (its first syllable) can bind it")
+        else:
+            why = ("NO ANCHOR as the line's last declared token, though it "
+                   "anchors before the end")
+        out.append(f"  ANCHOR : {w!r} — {why}. A mandate binding it at such "
+                   f"a slot is REFUSED unjudged (M-144), whatever the pair "
+                   f"says above — the screen judged it at the line END.")
+    if not out:
+        out.append("  ANCHOR : every word anchors as a declared token "
+                   "(T1..Tn) before the line end and at it — a plan may "
+                   "bind any of them at any word")
+    return out
+
+
 def screen_pairs(words, lex=None, decl=None, relation=None):
     """Every unordered pair among `words`, judged by the REAL grader on a
     minimal mandated pair — the same `Reviser.inspect` the `song` verb
@@ -7943,6 +8011,11 @@ def main():
               f"clean non-rhyme is not banned AND not a family (the "
               f"mandate will charge it); refusal is the grader's own "
               f"(doctrine 28)")
+        # ANCHORABILITY AS A DECLARED TOKEN (M-213) — the question the
+        # end-word screen above cannot ask, printed under the counts for the
+        # same reason the bank block below is: a report, not a verdict.
+        for _l in anchor_disclosure_lines(lex, words):
+            print(_l)
         # AFTER EVERYTHING, AND THAT POSITION IS THE POINT. The block is
         # appended below the verdict table and below the summary counts so
         # that it structurally CANNOT reach either: the disclosure is a

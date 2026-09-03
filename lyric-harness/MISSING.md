@@ -20144,6 +20144,272 @@ entry is about, made settable.
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
 with this entry (2026-09-03).
 
+### M-214 · The brief legend rendered only the Agree/Differ channels, so four of the plan's drawn relations read as something they are not `CLOSED` 2026-09-03 — the second open item M-211 named
+
+**WRITTEN FROM THE LEGEND, THEN SCREENED.** Seed 7009's brief said
+
+```
+subtractive rhyme: the bound words agree on nucleus, judged at the line end
+semirhyme:         the bound words agree on nucleus, coda, judged at the line end
+family rhyme:      the bound words agree on nucleus, judged at the line end
+perfect rhyme:     the bound words agree on nucleus, coda, onset, prominence; differ on onset, ...
+```
+
+and from those lines I wrote `come ~ some`, `bell ~ tell` and `light ~ my`.
+`screen --relation=schema:…` said VIOLATES on all three, and the registry
+says why: subtractive rhyme's coda rule is `PresentVsAbsent(on=0)` (one word
+has the coda, the other has none — `late ~ say`); semirhyme is
+`unmatched="require_b"` (the second word runs on past the rhyme — `sea ~
+easy`); family rhyme's coda rule is `ClassEqual` at the manner grain
+(`light ~ side`, stop against stop); and perfect rhyme states TWO onset
+rules at two scopes (AGREE after the anchor, DIFFER at it), which the legend
+collapsed into a sentence that contradicts itself. `brief_legend` built its
+clauses from `isinstance(c.predicate, Agree)` and `isinstance(c.predicate,
+Differ)` and nothing else, so every other predicate kind, the span
+coordinate and the identity rule were silently dropped — the legend was
+derived from the registry, as M-192 required, but from a third of it.
+
+**THE REPAIR.** `plan.schema_asks(schema)` derives the clauses from every
+required channel rule (Agree, Differ, PresentVsAbsent, ClassEqual, and a
+named fallback for any other predicate), spells the scope only where one
+channel carries two rules, then the `unmatched` coordinate (`require_a` /
+`require_b` / `forbid`), then the identity rule (`different words` / `the
+same word`). `brief_legend` reads it. The seven schemas the seed-7009 plan
+drew now read, for instance:
+
+```
+semirhyme: agree on nucleus, coda; the second word carries an extra syllable
+           or more after the rhyme (bend / ending) — an equal pair fails; different words
+perfect rhyme: agree on nucleus, coda, onset (after the stressed syllable), prominence;
+           differ on onset (at the stressed syllable); neither word runs on past the rhyme; different words
+```
+
+**THE CONTROL:** `test_plan` §19 (eight checks over seven schemas and the
+rendered legend); §14's existing legend checks are unchanged and still hold
+(every drawn relation named, `NOT heard as end rhyme` where the registry says
+so). `screen` is untouched — it was already right, which is how the gap was
+seen.
+
+**COST:** a few string operations per drawn relation per brief.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~269~~ **270**
+with this entry (2026-09-03).
+
+### M-213 · `screen` answered SATISFIES for words a declared token cannot anchor — `window ~ in`, `by ~ buy ~ bye` — and the grade refused the pairs unjudged `CLOSED` 2026-09-03 — the first open item M-211 named; three of seed 7009's 21 mandated pairs
+
+**MEASURED.** The plan bound group B at `1.T3, 2.T4, 3.T7, 4.T5` (head
+rhyme, positional) and group G at `6.T1, 7.T6, 9.T1` (rime riche). I screened
+`window winter into in` and `by buy bye` under those schemas; the screen said
+`window ~ in SATISFIES` and `by ~ buy`, `by ~ bye`, `buy ~ bye` all `CLEAN —
+RHYMES | SATISFIES schema:rime riche`. I put `in` at L3's seventh word and
+`By` at L6's first, and the first grade said, on both:
+
+```
+SCHEME_UNREADABLE: … the declared slot resolves to NO ANCHOR on L3 — the token
+that slot names is a word this phonology cannot anchor, so the pair was never compared
+```
+
+The song closed at exit 0 with `PAIRS: mandated 21, judged 18, refused 3`:
+group G was never judged. That is the honest count M-144 built and it is
+the same shape "The Long Way Back" banked at 75 / 36 / 39 — a refusal is
+not a violation and this entry does not move that. What it moves is the
+FRONT DOOR: the screen had answered the END-WORD question (where `by` and
+`in` anchor: `line_anchors` reads a final word whatever its stress) and the
+writer was asking the TOKEN question (a `T`-slot reads the word from its
+LAST STRESSED syllable, and a function word demoted to weak before the line
+end has none). The same words, two positions, opposite answers — and the
+screen's caption says *"same judge, same coordinate, so screen and grade
+cannot drift"*, which is true of the coordinate it judges and silent about
+the one the plan bound.
+
+Probed through `slots.resolve`, the grade's own resolver, on two-word
+carriers: `by` → anchors as the last word, NOT before it; `in`, `the` →
+anchor at NEITHER position as a declared token; `for` like `by`; every
+content word at both. (`head`/`headrime` read the first syllable and bind
+any of them; the default end slot binds any of them.)
+
+**THE REPAIR.** `lyric_harness.token_anchorability(lex, word)` asks that
+question of the same resolver on the same two carriers, and `screen` prints
+an `ANCHOR :` block under its counts — one line per word that cannot be
+anchored somewhere, naming the position and that a mandate binding it there
+is REFUSED unjudged; or one line saying every word anchors, because silence
+would read as not having asked (doctrine 20). Below the counts so it cannot
+reach them (M-111's position argument); the pair rows are byte-identical.
+
+**WHAT THIS DOES NOT DO.** It does not turn the refusal into a flag, and it
+does not make the loop open L6. The banked precedent stands and the
+question of whether a slot refusal on a writer-chosen function word should
+hold `finish` below exit 0 is an owner's ruling, not this entry's: it is
+listed under RULINGS WANTED as #21. Nor does it screen `inland`-shaped words
+(stressed final syllable, so a `T`-slot anchors at `land`, not `in`): that
+is the SPAN the slot reads, disclosed in the legend's `T<n>` line, and a
+writer who reads "from its last stressed syllable" has been told.
+
+**THE CONTROL:** `test_screen` §9 (six checks: `by` (False, True); `in`
+(False, False); `buy`/`bye`/`window` (True, True); the disclosure names each
+unanchorable word and position and says nothing of `buy`; the all-clear is
+one line; through the CLI the rows still SATISFY and the ANCHOR block sits
+under the counts).
+
+**COST:** two `slots.resolve` calls per screened word.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~268~~ **269**
+with this entry (2026-09-03).
+
+### M-212 · The blueprint froze the hook's WORDS at fill time, so once the loop flagged the hook line every legal rewrite of it was rejected as HOOK_ABSENT `CLOSED` 2026-09-03 — found on the same seed 7009 run, four briefs after M-211
+
+**MEASURED ON THE REAL PATH.** The hook line (L14, the one-line chorus,
+returned verbatim at L18) came up flagged — `PROMINENCE_OUT_OF_BAND: 8
+prominent syllable(s) — outside the calibrated [2, 7] band`. The loop
+briefed it, I answered with a line carrying the title and seven fewer
+stresses, and the grader's own words for the rejection were:
+
+```
+introduced 1 new flagged finding(s) [(0, 'HOOK_ABSENT')] while fixing 2;
+a revision may not trade one defect for another
+```
+
+Attempt 2 was the same question again. **No rewrite of that line could
+pass**, and the reason is not in the line: `plan.fill_plan` writes
+`"hooks": [got[hook_slot - 1]]` — the hook line's WORDS, copied at fill time
+— and `grid.hook_findings` asks `hook_occurrences(song, hook)` whether that
+PHRASE occurs in the draft it is grading. Rebuilding the `Song` with the
+current lines (which `Reviser._function_findings` already does, for exactly
+this reason: *"grading the blueprint's ORIGINAL wording would silently stop
+reacting to every revision after the first"*) moved the LINES and left the
+HOOK PHRASE where fill time put it. So the snapshot of the old L14 occurred
+0 times in a draft whose L14 and L18 both carried the new one, and the flag
+the plan's own hook slot had earned went up against every answer. M-201
+carries a tier-1 candidate to every member of the return group, so L18 moved
+WITH L14 and `RETURN_NOT_VERBATIM` was rightly silent; the only thing left
+standing between the writer and the fix was a string comparison against a
+stale copy.
+
+**THE RULE: A PLAN'S HOOK IS A SLOT, AND THE SLOT'S TEXT IS WHATEVER THE
+DRAFT HOLDS THERE NOW.** The plan says *"Line 14 is the hook"*, not *"these
+words are the hook"*; the words are the writer's and they are the thing the
+loop exists to move. `fill_plan` now carries `hook_slot` beside `hooks`, and
+`_function_findings` re-reads the hook phrase from the current draft's line
+at that slot when the blueprint declares one — the same "with THIS draft's
+words" move it already made for `Line.text`, two lines up. A blueprint that
+names a hook PHRASE and no slot (every hand-written one, every fixture:
+`CLICHE_BLUEPRINT`, `GAP_BLUEPRINT`, the verbs' `"hooks": ["the river"]`) is
+graded exactly as before: a phrase the writer named names itself, and
+HOOK_ABSENT is the right answer when it is gone.
+
+**WHY IT WAS INVISIBLE UNTIL A HOOK LINE WAS FLAGGED.** Two songs finished
+at exit 0 on the repaired tree (seeds 2003 and 6006) and neither had its hook
+line opened by the loop, so the snapshot and the slot never disagreed. The
+defect needs a hook line the grader dislikes, and the meter bands are what
+supplied one.
+
+**THE CONTROL:** `test_revise` §56 (six checks — slot reading finds the hook
+before and after the hook line moves; the PHRASE-only blueprint still says
+HOOK_ABSENT on the same revision; `verify()` under the snapshot names
+HOOK_ABSENT among its reasons and under the slot does not; the helper reads
+a dict, ignores a bool, answers None for a phrase-only blueprint, and reads
+the same slot off a PATH); `test_plan`'s round trip asserts `hook_slot` is
+carried and that `hooks` is the slot's own line on every seed it fills. The
+resumed run then accepted L14 (carried to L18) and closed at exit 0 —
+`fixed L2, L4, L7, L14, L18`.
+
+**COST:** one dict read (or one JSON load, when the blueprint is a path) per
+`_function_findings` call, which runs once per grade.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~267~~ **268**
+with this entry (2026-09-03).
+
+### M-211 · The brief ledger named a deferred state the disk no longer held, and `finish` refused with a message about a mis-spelled path `CLOSED` 2026-09-03 — found by writing a song on seed 7009, the first run after M-206..M-210
+
+**WHAT HAPPENED, IN ORDER.** `finish` on a fresh 18-line draft suspended at
+exit 4 with L4's brief, and its `SCHEME_UNREADABLE` note said the B group's
+L3 token (`in`, at `T7`) resolved to NO ANCHOR. I re-chose the B-group words,
+fixed two prominence counts, moved the title into the hook, deleted the
+scratch state file to start the loop over, and ran the SAME command again:
+
+```
+REFUSED — .../hl_state.json — No such file or directory
+  the path is read relative to the working directory, not to any file already handed in.
+```
+
+Reproducible on every re-run. **The path it names was not the one I had
+mis-typed — I had typed it correctly, and the file it names was not opened
+because I named it.** `brief_provenance.write_ledger` had recorded the state
+path in the draft's `.briefed.json` sidecar on the first run (M-200's
+"the loop is the only front door" ruling: the ledger carries every deferred
+state a draft was run under, so a later run finds the briefs without the
+writer re-naming them). `admit` then handed that path to `briefed()`, which
+`open()`ed it, and the `FileNotFoundError` climbed out of the gate, out of
+the verb, and into the CLI's top-level `except OSError` — whose one message
+is written for a file the CALLER named on THIS command line and blames the
+path's spelling.
+
+**THREE THINGS WRONG AT ONCE, and doctrine 20 names all three.** The refusal
+mis-stated its cause (a deleted ledger entry, not a relative path). It fired
+BEFORE the gate had decided anything — the run never reached the question
+`admit` exists to ask, so the truthful answer ("unbriefed revision — lines
+[1, 2, 3, 4, 12] moved and no brief was ever issued for them") was never
+said. And the way past it that the gate itself advertises,
+`--unbriefed=REASON`, could not help: `admit` reads the states before it
+reads the reason, so the crash preceded the escape hatch. A writer following
+the tool's own instructions had no move but to hand-restore a file the
+harness had told them nothing about.
+
+**THE RULE: A STATE THAT IS GONE TESTIFIES TO NO BRIEF.** That is already
+the meaning `admit` gives an absent state path — a hand-edited draft with no
+state at all is refused as unbriefed, §5 of the tests pins it — and a path
+the ledger remembers but the disk does not hold is the same fact one step
+removed. `briefed()` now skips a path it cannot read (missing, or not JSON)
+and `absent_states()` returns those paths as THEIR OWN COUNT, which `admit`
+prints beside the refused lines and beside a declared reason alike (doctrine
+79 — never folded into the line list; the writer who deleted the file is the
+one reading the message, and the file's name is what tells them what they
+did). The refusal is now the gate's own:
+
+```
+REFUSED — unbriefed revision — line(s) [1, 2, 3, 4, 12] moved since draft da4ca866c40b
+  and no brief was ever issued for them — and 1 of the ledger's deferred state(s)
+  cannot be read, so testify to no brief: ['.../hl_state.json']
+```
+
+and `--unbriefed=REASON` admits the run, with the same missing-state clause
+printed after the reason. The song went on: the resumed loop's first brief
+was L2's, a `winter ~ minute` head-rhyme pair at score 0.612 — `minute`
+syllabifies `mi-nute` under maximal onset, so its first syllable has no coda
+— which is a fact about my word and not about the harness, and is what the
+loop is for.
+
+**THE CONTROL:** the ledger, the fingerprint check, the restructure branch
+and the readable-state path are byte-identical; `test_brief_provenance` §1–§6
+unchanged and green, §7 added (six checks: absent path named; `briefed()`
+returns empty rather than raising; `admit` refuses with the unbriefed message
+naming the moved lines AND the missing state; a declared reason still admits
+and still names it; a present-but-not-JSON state is absent in the same
+sense; a readable state beside the missing one still briefs the lines).
+
+**COST:** one extra `open()` per ledger state path per `admit` — the same
+files `briefed()` already opens, read twice instead of once, on a gate that
+runs once per `finish`/`revise` invocation.
+
+**WHAT THIS DOES NOT CLOSE, RECORDED RATHER THAN IMPLIED.** Two more things
+this song's first run showed, each its own entry rather than a paragraph
+here: the brief legend's *"what each named relation asks"* line renders only
+`Agree`/`Differ` channel rules and drops the span coordinate, so
+`subtractive rhyme` read as "agree on nucleus" (its coda rule is
+PRESENT-vs-ABSENT), `semirhyme` as "agree on nucleus, coda" (its
+`unmatched=require_b` is the whole relation), `family rhyme` as "agree on
+nucleus" (its coda rule is CLASS-EQUAL), and `perfect rhyme` as "agree on
+… onset; differ on onset" (two scopes collapsed) — I wrote `come ~ some`,
+`bell ~ tell` and `light ~ my` from that legend and `screen` said VIOLATES
+on all three; and `screen --relation=schema:` judges a pair at the schema's
+own loci while a declared `T`-slot reads the word from its LAST STRESSED
+syllable, so `window ~ in` SATISFIES at screen and is NO ANCHOR at grade
+(`in` has no stressed syllable), and `inland` would have anchored at `land`.
+Both are open and both were found by the same run.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~266~~ **267**
+with this entry (2026-09-03).
+
 ### M-210 · The re-brief refreshed the ONE line it fired on and every later line of the round kept the round-opening brief `CLOSED` 2026-09-03 — found by writing a song, and the measurement corrects my own first reading of it
 
 **MEASURED ON THE REAL PATH, seed 6006, round 1.** The loop's own trace, with
