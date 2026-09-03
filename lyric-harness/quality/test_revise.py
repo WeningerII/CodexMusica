@@ -4403,6 +4403,93 @@ def test_the_offer_is_screened_from_the_offered_words_own_side():
           prompt[prompt.find("OFFERED"):prompt.find("OFFERED") + 300])
 
 
+def test_the_offer_falls_back_per_call_when_the_conjunction_is_empty():
+    """`MISSING.md` M-202 — the conjunction is empty; the grader flags PAIRS.
+
+    THE DEFECT, found by writing a song rather than by reading. A place that
+    binds a line against SEVERAL calls asks `joint_field` for a word answering
+    ALL of them. When the calls do not rhyme with EACH OTHER — which the
+    planner may legally draw, and did on seed 443 L5 (`Walk`, `gait`,
+    `here`) — that conjunction is empty BY CONSTRUCTION and says nothing at
+    all about whether the line can be fixed. `grade()` had flagged exactly ONE
+    pair. The brief offered NOTHING and printed *"a one-line rewrite here is
+    re-running a search that has already come back empty"*, and the writer
+    left the loop and guessed: `Talk down at the stair` came back ACCEPTED
+    from `verify()` on the FIRST attempt, `fixed [(5, 'SCHEME_VIOLATION')]`,
+    no new flag.
+
+    The check that earns its place is the last one: a word taken off the new
+    per-call list, spliced at the slot the brief names, is ACCEPTED — which is
+    precisely what the struck sentence denied.
+    """
+    print("\n53. M-202 — when no word answers every call, the brief says "
+          "what answers EACH")
+    from quality import propose as PR
+    from quality.loop import swap_at_slot
+    # L3 bound at its T2 word against two calls that do not rhyme with each
+    # other: L1's end ('door') and L2's end ('night').
+    draft = ["she turned the key and shut the door",
+             "and walked alone into the night",
+             "i left my keys beside the lamp"]
+    m = SC.mandate([["1", "2", "3.T2"]], n_lines=3)
+    bs = {b.line_no: b for b in R.brief(draft, m)}
+    b = bs.get(3)
+    check("the defect's shape: L3 is briefed, the conjunction is EMPTY and "
+          "so is the joint offer",
+          b is not None and b.joint_conflict and not b.candidates
+          and not b.forbidden_modal,
+          None if b is None else (b.joint_conflict, b.candidates[:4],
+                                  b.forbidden_modal[:4]))
+    calls = tuple(f.calls for f in b.fields_by_slot.values()
+                  if f.joint_conflict)[0]
+    check("and it is a CONJUNCTION over 2+ calls, not a lexicon that ran out",
+          len(calls) > 1, calls)
+    by_call = dict(b.partial_by_call or ())
+    check("every call the pool answers is carried, separately, in `calls` "
+          "order", set(by_call) == set(calls) and all(by_call.values()),
+          {c: len(ws) for c, ws in by_call.items()})
+    # DOCTRINE 79 — TWO COUNTS, NEVER SUMMED. A word here answers ONE call.
+    # If any of them answered them all, the joint offer would not have been
+    # empty and this fallback would never have run.
+    crossover = set.intersection(*(set(ws) for ws in by_call.values()))
+    check("no word appears on every list — the two fields are two different "
+          "questions and merging them would state a partial answer as a "
+          "whole one", not crossover, sorted(crossover)[:6])
+    prompt = PR.render_line(b, draft)
+    check("the false sentence is STRUCK IN PLACE and not deleted "
+          "(doctrine 17)",
+          "~~The MANDATE, not the line, is what needs revising" in prompt
+          and "STRUCK 2026-09-03 (M-202)" in prompt,
+          prompt[prompt.find("NO JOINT"):prompt.find("NO JOINT") + 240])
+    check("and the prompt names what each call can be answered by",
+          "WHAT EACH CALL CAN BE ANSWERED BY ON ITS OWN" in prompt
+          and all(c in prompt for c in calls),
+          prompt[prompt.find("WHAT EACH CALL"):
+                 prompt.find("WHAT EACH CALL") + 200])
+    check("the OFFERED block no longer says the lexicon had no answer — it "
+          "points at the per-call block above it",
+          "no JOINT candidate field was offered" in prompt
+          and "nothing in the lexicon answers its groups" not in prompt,
+          prompt[prompt.find("OFFERED —"):prompt.find("OFFERED —") + 300])
+    # THE MEASUREMENT THE STRUCK SENTENCE DENIED.
+    accepted = []
+    for call, words in by_call.items():
+        for w in words[:6]:
+            after = list(draft)
+            moved = swap_at_slot(draft[2], b.slot, w)
+            if moved is None:
+                continue
+            after[2] = moved
+            v = R.verify(draft, after, m, targeted={3})
+            if v.get("accepted"):
+                accepted.append((call, w, v["fixed"]))
+                break
+    check("a word off a per-call list, spliced at the slot the brief names, "
+          "is ACCEPTED by `verify()` — the one-line rewrite the struck "
+          "sentence called a finished search",
+          accepted, accepted[:3])
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -4455,7 +4542,8 @@ if __name__ == "__main__":
                test_a_refusal_speaks_for_one_group_not_the_pair,
                test_a_field_is_per_place_not_per_line,
                test_the_findings_own_direction_is_pinned,
-               test_the_offer_is_screened_from_the_offered_words_own_side):
+               test_the_offer_is_screened_from_the_offered_words_own_side,
+               test_the_offer_falls_back_per_call_when_the_conjunction_is_empty):
         fn()
     print("=" * 62)
     if FAILURES:

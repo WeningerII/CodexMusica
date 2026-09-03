@@ -19974,3 +19974,113 @@ to own the draft file and that is a real restructure of who writes what.
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~256~~ **257**
 with this entry (2026-09-02).
+
+### M-201 · A RETURN is a class, and the loop revised ONE member of it — so every answer it could get was refused by its own rule 2 `CLOSED` 2026-09-02 — found by the first clean from-scratch song run, insisted on by the owner
+
+**THE LOOP ASKED A QUESTION WHOSE EVERY ANSWER IS REJECTED.** A
+`REQUIRE_RETURN` group declares that its lines ARE the same line — identity
+required, REPEAT the requirement rather than the violation (doctrine 3's
+second half). `quality/loop.py`'s tier 1 briefed ONE member of such a group,
+wrote the proposal into that line alone, and handed `verify()` a
+`targeted={that line}`. Rule 2 then rejected the result for changing a line
+nobody targeted — the returning mate, which the answer had just broken. Every
+candidate the writer could possibly send was refused for the same reason, and
+the line's whole `attempts_per_line` budget was spent proving it. **On the
+run that found it (seed 275) that was 10 of 19 lines.**
+
+**THE BRIEF ITSELF SAID SO AND NOTHING READ IT.** `quality/propose.py`'s
+mandate block already prints, for a return group, *"if this line has to move
+to satisfy something else, the RETURN is what breaks, and that is a fact about
+the mandate rather than about anything you can write."* The renderer knew; the
+control flow one layer up did not.
+
+**THE REPAIR IS THE MOVE M-105 ALREADY MADE AT TIER 2** when it stopped
+revising a PAIR and started revising the whole group: a set of lines that must
+move together is revised together, in ONE proposal, and every member is
+TARGETED so rule 2 admits what the loop itself asked for. `LineAttempt.touched`
+carries all of them, not just the briefed one, so the record says which lines
+an accepted attempt actually moved.
+
+**WHAT MUST NOT HAPPEN WITH IT, AND IS PINNED SO IT CANNOT:** an ORDINARY
+rhyme group is NOT a class of identical lines, and propagating into one would
+rewrite lines nobody asked about — the untargeted-line rejection `verify()`
+has enforced since it was written, and the reason this repair is gated on
+`return_groups` rather than on `must_answer`. `quality/test_loop.py` §23, six
+checks, drives `_try_tier1` directly against a brief carrying one return group
+and one ordinary group and asserts both halves: the return mate moves and is
+targeted, the ordinary mate is untouched and is NOT targeted.
+
+**A CITATION IN THE RECORD IS WRONG AND IS CORRECTED HERE RATHER THAN LEFT.**
+The commit that shipped this repair (`5cf6520e`) says *"test_loop.py §20, 6
+checks"*. The checks were appended into the file's existing §20 ("pursuit is
+MANDATORY") instead of opening their own section, so the file carried two
+`20.` headers and the commit named a section that describes something else.
+The section is **§23** and the commit message's "§20" is struck.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~257~~ **258**
+with this entry (2026-09-02).
+
+### M-202 · The offered field is a CONJUNCTION over every call and the grader flags PAIRS, so a line with 40 answers was told the search had come back empty `CLOSED` 2026-09-03 — found by writing a song, on the very next line the loop briefed
+
+**WHAT THE BRIEF SAID.** On the clean from-scratch run of seed 443, the
+deferred loop briefed L5 (`Turn back at the stair`) and printed, under the
+mandate:
+
+> `NO JOINT CANDIDATE at field_depth=complete pool, field_band='grader':`
+> `nothing in the lexicon answers all of those groups at once. The MANDATE,`
+> `not the line, is what needs revising — a one-line rewrite here is`
+> `re-running a search that has already come back empty.`
+
+and, under OFFERED, *"no candidate field was offered for this line"*.
+
+**BOTH HALVES OF THAT SENTENCE ARE FALSE, MEASURED.** Group B binds L5 at its
+FIRST WORD against three calls — `Walk` (L4.T1), `gait` (L6.T4) and `here`
+(L7.T2) — which do not rhyme with EACH OTHER, so the conjunction over them is
+empty BY CONSTRUCTION and says nothing about whether the line can be fixed.
+`grade()` had flagged exactly ONE pair, L4~L5. `Talk down at the stair` was
+handed to `Reviser.verify` and came back **ACCEPTED on the first attempt** —
+`fixed: [(5, 'SCHEME_VIOLATION')]`, `new_flags` empty. A second answer,
+`Turn, and I'm staring`, was **also ACCEPTED**, fixing
+`PROMINENCE_CANNOT_ALIGN` instead. The writer was told to stop searching in
+front of a field the pool answers 40 times over.
+
+**IT IS THE SAME SPECIES AS M-184, ONE AXIS IN.** M-184 fixed the
+intersection ACROSS PLACES — two places are two words and neither is
+unsatisfiable for the other's sake. This is the intersection ACROSS CALLS AT
+ONE PLACE, and it fails in the same direction: the harness reports the
+conjunction's emptiness as a fact about the LINE, when the grader never asks
+the conjunction. It is also M-200's defect wearing the opposite face: M-200
+was a writer walking past a field that was offered; this is a field that was
+computed, came back empty for a reason the writer could not see, and sent the
+writer off to guess — which is exactly what the session then did, and the two
+words that worked were found by hand.
+
+**THE REPAIR — A SECOND FIELD, NEVER A WIDER FIRST ONE (doctrine 79).**
+`SlotField.by_call` is computed ONLY when the joint came back empty at a place
+with 2+ calls: each call is asked SEPARATELY through the same
+`joint_field_screened` door, and the calls anything answers are carried as
+`((call, (word, ...)), ...)`. It is copied onto the `Brief` as
+`partial_by_call` beside the flag it is conditional on. The two are never
+merged into `candidates`: a word there answers EVERY call, a word here answers
+ONE and leaves the others standing — and where an unanswered pair currently
+HOLDS, taking one introduces a flag and is rejected. Both renderers say which
+call each list answers and point at the mandate block for which call is
+VIOLATED.
+
+**THE FALSE SENTENCE IS STRUCK IN PLACE, NOT DELETED (doctrine 17)**, in both
+renderers, and the case it was written for is still reachable and still says
+so: when every call is ALSO unanswerable on its own, the brief prints that
+each was asked separately and the pool came back empty for each — which is a
+fact about the mandate, and is the only condition under which the struck
+sentence was ever true.
+
+**WHAT THIS DOES NOT CLOSE.** It does not decide FOR the writer which call to
+answer — doctrine 6/7 forbids ordering the permitted region, and a partial
+answer that breaks a holding pair is correctly rejected by `verify()` rather
+than pre-filtered here. It also does not make the planner stop drawing a group
+whose members cannot rhyme with each other; that mandate is legal, gradeable
+and now writable, and whether the sweep should be able to reject it is a
+predicate the caller declares, not a floor.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~258~~ **259**
+with this entry (2026-09-03).

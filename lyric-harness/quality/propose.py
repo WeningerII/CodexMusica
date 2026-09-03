@@ -381,9 +381,57 @@ def _mandate_block(brief, indent="  "):
         out.append(
             f"{indent}NO JOINT CANDIDATE at "
             f"{getattr(brief, 'field_declaration', '?')}: nothing in the "
-            f"lexicon answers all of those groups at once. The MANDATE, not "
-            f"the line, is what needs revising — a one-line rewrite here is "
-            f"re-running a search that has already come back empty.")
+            f"lexicon answers all of those groups at once.")
+        # THE SENTENCE THAT USED TO END THIS BLOCK IS STRUCK, NOT DELETED
+        # (doctrine 17). It read: "The MANDATE, not the line, is what needs
+        # revising — a one-line rewrite here is re-running a search that has
+        # already come back empty." Both halves were measured FALSE on
+        # 2026-09-03, seed 443 L5 (`MISSING.md` M-202): the conjunction over
+        # the calls `Walk`, `gait` and `here` is empty because those three do
+        # not rhyme with EACH OTHER, while `grade()` had flagged exactly ONE
+        # pair — and `Talk down at the stair` was ACCEPTED by `verify()` on
+        # the first attempt. The writer was told to stop searching in front
+        # of a field of 40 answers.
+        _bc = tuple(getattr(brief, "partial_by_call", ()) or ())
+        # THE CALLS AT *THIS PLACE*, not every call the line answers
+        # anywhere: `must_answer` spans every group the line is in, and a
+        # line bound at two places would make this count name a place the
+        # sentence is not about (M-184's own defect, one renderer over).
+        # Read off the SlotField the flag came from.
+        _sf = next((f for f in
+                    (getattr(brief, "fields_by_slot", None) or {}).values()
+                    if getattr(f, "joint_conflict", False)), None)
+        _calls_here = tuple(getattr(_sf, "calls", ()) or ())
+        out.append(
+            f"{indent}  ~~The MANDATE, not the line, is what needs revising "
+            f"— a one-line rewrite here is re-running a search that has "
+            f"already come back empty.~~ STRUCK 2026-09-03 (M-202): the "
+            f"grader flags PAIRS, not the conjunction, so a word that "
+            f"answers the VIOLATED call and leaves the others standing is "
+            f"accepted — measured, first try.")
+        if _bc:
+            out.append(f"{indent}  WHAT EACH CALL CAN BE ANSWERED BY ON ITS "
+                       f"OWN ({len(_bc)} of {len(_calls_here)} call(s) here "
+                       f"answerable):")
+            for _c1, _ws in _bc:
+                _sh = list(_ws)[:OFFERED_SHOWN]
+                _head = (f"{len(_sh)} of {len(_ws)} shown"
+                         if len(_sh) < len(_ws) else f"{len(_sh)} word(s)")
+                out.append(f"{indent}    {_c1} — {_head}: "
+                           + ", ".join(str(w) for w in _sh))
+            out.append(f"{indent}  Read the mandate above for WHICH call is "
+                       f"VIOLATED and which HOLDS. Answering a violated "
+                       f"call")
+            out.append(f"{indent}  trades nothing; answering one that holds "
+                       f"breaks the other pair and is rejected as a new "
+                       f"flag.")
+        else:
+            out.append(f"{indent}  Every call here was ALSO asked on its "
+                       f"own and the pool came back empty for each, so "
+                       f"this place")
+            out.append(f"{indent}  really is unanswerable by one word — "
+                       f"which is a fact about the mandate, and is the "
+                       f"case the struck sentence was written for.")
     mrw = getattr(brief, "must_rhyme_with", None)
     if mrw and not must_answer:
         out.append(f"{indent}must rhyme with L{mrw[0]} ({mrw[1]!r})")
@@ -674,6 +722,21 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
             out.append("  empty because doctrine 9 emptied it. The mandate, "
                        "not the lexicon, is the binding")
             out.append("  constraint here.)")
+        elif getattr(brief, "partial_by_call", ()):
+            # A FOURTH CAUSE, AND IT IS NOT "NOTHING ANSWERS THIS LINE"
+            # (`MISSING.md` M-202). The joint offer is empty because the
+            # calls at this place do not rhyme with each other, and the
+            # per-call lists in the mandate block above are non-empty. The
+            # branch below would have said the lexicon had no answer, ten
+            # lines under a block naming dozens.
+            out.append("  (no JOINT candidate field was offered — and that "
+                       "is NOT 'nothing answers this line'. The")
+            out.append("  calls at this place do not rhyme with each other, "
+                       "so their conjunction is empty by")
+            out.append("  construction. WHAT EACH CALL CAN BE ANSWERED BY "
+                       "ON ITS OWN is listed in the mandate")
+            out.append("  block above; the grader flags PAIRS, so answering "
+                       "the VIOLATED call is a fix.)")
         else:
             out.append("  (no candidate field was offered for this line — "
                        "either no rhyme finding is what")
