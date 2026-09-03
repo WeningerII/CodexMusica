@@ -337,7 +337,13 @@ function runVerb(args) {
           (r) => stamp(r, 'warm'),
           (e) =>
             e && e.timedOut
-              ? { code: -1, stdout: '', stderr: String(e.message), path: 'killed', ms: Date.now() - t0 }
+              ? {
+                  code: -1,
+                  stdout: '',
+                  stderr: String(e.message),
+                  path: 'killed',
+                  ms: Date.now() - t0,
+                }
               : (console.error(
                   `[lyric] warm worker unavailable (${e && e.message}); answering '${args[0]}' on the COLD path`
                 ),
@@ -590,7 +596,8 @@ function extractRefusal(report) {
 // Extraction of printed lines, never a second computation (doctrine 1).
 function extractRunRecord(stdout) {
   const out = {};
-  const memo = /REPLAY MEMO: (warm|cold|off|no run key)(?: — (\d+) of (\d+) grading call\(s\))?/.exec(stdout);
+  const memo =
+    /REPLAY MEMO: (warm|cold|off|no run key)(?: — (\d+) of (\d+) grading call\(s\))?/.exec(stdout);
   if (memo) {
     out.memo_state = memo[1];
     if (memo[2] != null) {
