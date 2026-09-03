@@ -855,6 +855,58 @@ def _field_memo_enabled():
     return os.environ.get("LYRIC_FIELD_MEMO", "1") != "0"
 
 
+#: LEVERS 2 AND 3 OF M-217's REMAINDER, beside the field memo and keyed the
+#: same way (the instance's own key + `_decl_lex_key`). Caps are derived from
+#: the planner's envelope like `PAIR_MEMO_CAP` in quality/relations.py: a
+#: 55-line draft is 1,485 pair scores and a one-line fold re-scores 54, so
+#: 8,192 holds the draft and every fold of a long run; rankings are asked
+#: per flagged line per round, hundreds not thousands; rimes are words.
+_SCORE_MEMO = _collections_fm.OrderedDict()
+SCORE_MEMO_CAP = 8_192
+_SCORE_MEMO_TALLY = {"hit": 0, "miss": 0, "evicted": 0}
+_RANK_MEMO = _collections_fm.OrderedDict()
+RANK_MEMO_CAP = 2_048
+_RANK_MEMO_TALLY = {"hit": 0, "miss": 0, "evicted": 0}
+_RIME_MEMO = _collections_fm.OrderedDict()
+RIME_MEMO_CAP = 200_000
+
+
+def _score_memo_enabled():
+    return os.environ.get("LYRIC_SCORE_MEMO", "1") != "0"
+
+
+def _rank_memo_enabled():
+    return os.environ.get("LYRIC_RANK_MEMO", "1") != "0"
+
+
+def score_memo_tally():
+    return dict(_SCORE_MEMO_TALLY, held=len(_SCORE_MEMO))
+
+
+def rank_memo_tally():
+    return dict(_RANK_MEMO_TALLY, held=len(_RANK_MEMO), rimes=len(_RIME_MEMO))
+
+
+def score_rank_memo_clear():
+    for store, tally in ((_SCORE_MEMO, _SCORE_MEMO_TALLY),
+                         (_RANK_MEMO, _RANK_MEMO_TALLY)):
+        store.clear()
+        for k in tally:
+            tally[k] = 0
+    _RIME_MEMO.clear()
+
+
+def memo_disclosure():
+    """-> the one line a verb prints about the grader's two process memos
+    below the draft (M-217's remainder): served and judged, apart, and OFF
+    spelled as off (doctrine 20)."""
+    sc = ("off (LYRIC_SCORE_MEMO=0)" if not _score_memo_enabled() else
+          f"{_SCORE_MEMO_TALLY['hit']} served / {_SCORE_MEMO_TALLY['miss']} scored")
+    rk = ("off (LYRIC_RANK_MEMO=0)" if not _rank_memo_enabled() else
+          f"{_RANK_MEMO_TALLY['hit']} served / {_RANK_MEMO_TALLY['miss']} ranked")
+    return f"  SCORE MEMO: pair scores {sc}; RANK MEMO: field rankings {rk}"
+
+
 def field_memo_tally():
     """-> a copy of the process memo's counts; three counts, never summed."""
     return dict(_FIELD_MEMO_TALLY, held=len(_FIELD_MEMO))
@@ -1140,10 +1192,33 @@ class Reviser:
         records = readability_records(self.lex, lines, anchors)
         n = len(lines)
         matrix = [[None] * n for _ in range(n)]
+        # THE PAIR-SCORE MEMO (M-217's remainder, lever 2). A pair's score is
+        # a pure function of the two LINES (their anchors and end words are
+        # derived from the text by this lexicon under this promotion), the
+        # declaration and the profile — never of the rest of the draft. The
+        # per-instance cache above keys on the WHOLE draft, so every
+        # candidate draft of a revision loop missed it and re-scored all
+        # n(n-1)/2 pairs; the profile put a third of a warm fold here
+        # (`group_merges` -> `_matrix`). Keyed one level below the draft.
+        mk = self._score_memo_key(profile) if _score_memo_enabled() else None
         for i in range(n):
             for j in range(i + 1, n):
-                s = best_score(anchors[i], anchors[j], self.decl,
-                               endwords[i], endwords[j], profile=profile)
+                s = None
+                if mk is not None:
+                    pk = (lines[i], lines[j]) + mk
+                    s = _SCORE_MEMO.get(pk)
+                    if s is not None:
+                        _SCORE_MEMO.move_to_end(pk)
+                        _SCORE_MEMO_TALLY["hit"] += 1
+                if s is None:
+                    s = best_score(anchors[i], anchors[j], self.decl,
+                                   endwords[i], endwords[j], profile=profile)
+                    if mk is not None:
+                        _SCORE_MEMO_TALLY["miss"] += 1
+                        _SCORE_MEMO[pk] = s
+                        while len(_SCORE_MEMO) > SCORE_MEMO_CAP:
+                            _SCORE_MEMO.popitem(last=False)
+                            _SCORE_MEMO_TALLY["evicted"] += 1
                 matrix[i][j] = matrix[j][i] = s
         out = (anchors, endwords, records, matrix)
         if len(self._matrix_cache) > 8:
@@ -3813,6 +3888,13 @@ class Reviser:
         this cannot describe returns None and the process memo is bypassed
         for it — a miss, never a wrong hit.
         """
+        dl = self._decl_lex_key()
+        return None if dl is None else (key,) + dl
+
+    def _decl_lex_key(self):
+        """-> (declaration tuple, lexicon identity), the two coordinates
+        every process-level memo on this class must carry (M-217), or None
+        when the lexicon cannot be described — a miss, never a wrong hit."""
         try:
             from quality.discriminate import declaration_tuple
             from lyric_harness import CMUDICT_PATH as _cmudict_path
@@ -3824,9 +3906,14 @@ class Reviser:
                   None if fb is None else (type(fb).__name__,
                                            getattr(fb, "min_confidence", None)),
                   str(_cmudict_path))
-            return (key, dt, lk)
+            return (dt, lk)
         except Exception:
             return None
+
+    def _score_memo_key(self, profile):
+        """-> the draft-independent half of a pair-score memo key, or None."""
+        dl = self._decl_lex_key()
+        return None if dl is None else (self._promote(), profile) + dl
 
     def _field_one(self, word, profile=None):
         rd = self.rdecl
@@ -3908,6 +3995,24 @@ class Reviser:
         classes" the owner ruled out. An OOV word falls back to the bare
         form: for a monosyllabic or last-group-stressed word (all 19 argued
         cases) the two agree exactly."""
+        # A PURE FUNCTION OF (word, lexicon), asked 2.1 M times per warm fold
+        # by `_rank_field` over every candidate of every field (M-217's
+        # remainder, lever 3): remembered per lexicon identity for the
+        # process. Bypassed with the ranking memo's own switch.
+        dl = self._decl_lex_key() if _rank_memo_enabled() else None
+        rk = None if dl is None else (word, dl[1])
+        if rk is not None:
+            hit = _RIME_MEMO.get(rk)
+            if hit is not None:
+                return hit
+        out = self._spelled_rime_compute(word)
+        if rk is not None:
+            _RIME_MEMO[rk] = out
+            while len(_RIME_MEMO) > RIME_MEMO_CAP:
+                _RIME_MEMO.popitem(last=False)
+        return out
+
+    def _spelled_rime_compute(self, word):
         phones, oov = self.lex.transcribe_word(word)
         if oov or not phones:
             return spelled_rime(word)
@@ -3991,6 +4096,37 @@ class Reviser:
         conjunction of `calls`' fields, with the ban applied and NO offer
         chosen. The one ranking `joint_field_screened` and `modal_head`
         share (doctrine 1)."""
+        # THE RANKING MEMO (M-217's remainder, lever 3). The fields hit
+        # since M-217; RANKING them — the conditional table, the frequency
+        # rank, `_spelled_rime` over every candidate — was recomputed on
+        # every call. A ranking is a pure function of the calls, the
+        # profile, this instance's field coordinates and the ban width,
+        # under one declaration and lexicon; remembered on that key, the
+        # lists handed back as copies so a caller's edit poisons nothing.
+        rd = self.rdecl
+        mk = None
+        if _rank_memo_enabled():
+            dl = self._decl_lex_key()
+            if dl is not None:
+                mk = ((tuple(calls), profile, self._promote(), rd.field_depth,
+                       rd.field_band, self.decl.theta_rhyme,
+                       frozenset(self.decl.admit), rd.modal_exclusion) + dl)
+                hit = _RANK_MEMO.get(mk)
+                if hit is not None:
+                    _RANK_MEMO.move_to_end(mk)
+                    _RANK_MEMO_TALLY["hit"] += 1
+                    return list(hit[0]), list(hit[1]), [list(f) for f in hit[2]]
+                _RANK_MEMO_TALLY["miss"] += 1
+        res = self._rank_field_compute(calls, profile=profile)
+        if mk is not None:
+            _RANK_MEMO[mk] = (tuple(res[0]), tuple(res[1]),
+                              tuple(tuple(f) for f in res[2]))
+            while len(_RANK_MEMO) > RANK_MEMO_CAP:
+                _RANK_MEMO.popitem(last=False)
+                _RANK_MEMO_TALLY["evicted"] += 1
+        return res
+
+    def _rank_field_compute(self, calls, profile=None):
         fields = self._field(calls, profile=profile)
         if not fields or not fields[0]:
             return [], [], fields
