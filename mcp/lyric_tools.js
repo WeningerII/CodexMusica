@@ -1328,10 +1328,17 @@ export function registerLyricTools(server, tool) {
         // Same presentation-first shape as lyric_grade: the report (plan
         // rows + writer brief, headers intact) leads as plain text.
         if (r.code === 0) {
+          // The verdict block carries everything verdictOf stamped — path,
+          // ms, plan_lines (M-216) — and not the report, which is block 0.
+          // This block used to re-spell the verdict as {exit_code, meaning}
+          // by hand, so a plan row never said which path answered or how
+          // many lines the plan drew: round 9's "large drawn shape" stayed
+          // an inference through round 11 for this reason (M-219).
+          const { report: _report, ...stamped } = verdict;
           return {
             content: [
               { type: 'text', text: r.stdout },
-              { type: 'text', text: JSON.stringify({ exit_code: 0, meaning: verdict.meaning }) },
+              { type: 'text', text: JSON.stringify({ ...stamped, exit_code: 0 }) },
             ],
           };
         }
@@ -1607,6 +1614,14 @@ export function registerLyricTools(server, tool) {
                   status: 'awaiting_proposal',
                   kind: st.pending ? st.pending.kind : null,
                   answers_on_record: onRecord,
+                  // THE SUSPENDED VERDICT IS THE COMMON ROW OF A REAL RUN — 32
+                  // of round 11's 33 rows — and it was built here by hand,
+                  // without the path and time `verdictOf` stamps (M-216), so
+                  // the one row that could have said warm or cold never did
+                  // (M-219's second finding, the third spelling of it).
+                  path: typeof r.path === 'string' ? r.path : null,
+                  ms: typeof r.ms === 'number' ? r.ms : null,
+                  ...extractRunRecord(r.stdout),
                   state: JSON.stringify(st),
                 }),
               },

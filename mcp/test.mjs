@@ -2812,9 +2812,24 @@ try {
         'below, and a fact about the PATTERN rather than about titles'
     );
     assert.equal(plannedRes.content.length, 2, 'plan returns two blocks: report, then verdict');
+    // M-219: the plan's verdict block says which path answered, how long it
+    // took and how many lines it drew — it used to say exit_code and meaning
+    // and nothing else, so no battery row ever carried the drawn shape.
+    const planVerdict = JSON.parse(plannedRes.content[1].text);
+    assert.ok(
+      ['warm', 'cold', 'cold-fallback'].includes(planVerdict.path),
+      `the plan verdict names its path (got ${planVerdict.path})`
+    );
+    assert.equal(typeof planVerdict.ms, 'number', 'and carries its wall time');
+    assert.ok(!('report' in planVerdict), 'and does not repeat block 0 as JSON');
     const planReport = plannedRes.content[0].text;
     const nLines = Number((planReport.match(/-> (\d+) line\(s\)/) || [])[1]);
     assert.ok(nLines >= 4, `the plan declares its own line count (got ${nLines})`);
+    assert.equal(
+      planVerdict.plan_lines,
+      nLines,
+      'the verdict block carries the same line count the report prints'
+    );
 
     // The bracket header rows ARE the shape, and their line counts must sum
     // to the declared total -- an invariant of the report rather than a
@@ -2862,6 +2877,13 @@ try {
     );
     assert.ok(!gradedRes.isError, 'lyric_grade answered without isError');
     assert.equal(gradedRes.content.length, 2, 'grade returns two blocks: song, then verdict');
+    {
+      const gv = JSON.parse(gradedRes.content[1].text);
+      assert.ok(
+        ['warm', 'cold', 'cold-fallback'].includes(gv.path) && typeof gv.ms === 'number',
+        `the grade verdict names its path and time (got ${gv.path}, ${gv.ms})`
+      );
+    }
     const song = gradedRes.content[0].text;
     assert.ok(
       // The plan's OWN first header, not a literal -- see the note above.
@@ -2952,6 +2974,12 @@ try {
       'suspension is exit 4, its own code — neither verdict nor failure'
     );
     assert.equal(rv1.status, 'awaiting_proposal', 'and says so in its own field');
+    // M-219: the SUSPENDED verdict is the common row of a real run (32 of
+    // round 11's 33) and it was built by hand without the path stamp.
+    assert.ok(
+      ['warm', 'cold', 'cold-fallback'].includes(rv1.path) && typeof rv1.ms === 'number',
+      `a suspended verdict names its path and time too (got ${rv1.path}, ${rv1.ms})`
+    );
     const st1 = JSON.parse(rv1.state);
     assert.ok(st1.pending && st1.pending.kind, 'the state carries the pending question');
     // Round-trip: same state, no answer -> the SAME question, fast (the
