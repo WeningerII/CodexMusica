@@ -20144,6 +20144,59 @@ entry is about, made settable.
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
 with this entry (2026-09-03).
 
+### M-210 · The re-brief refreshed the ONE line it fired on and every later line of the round kept the round-opening brief `CLOSED` 2026-09-03 — found by writing a song, and the measurement corrects my own first reading of it
+
+**MEASURED ON THE REAL PATH, seed 6006, round 1.** The loop's own trace, with
+the guard and the brief set printed at the top of each flagged line:
+
+```
+L3  touched=[]            moved=False  latest=None
+L4  touched=[3, 11]       moved=True   latest=None
+L5  touched=[3,4,11,12]   moved=True   latest=[4,5,6,8,12,13,14]
+L6  touched=[3,4,11,12]   moved=False  latest=[8]     <-- asked, from the ROUND-OPENING brief
+L8  touched=[3,4,11,12]   moved=False  latest=[8]
+```
+
+L3 and L4 were accepted; L5's re-brief found that their fixes had closed
+every remaining line but L8. **L6 was then asked anyway**, and the brief it
+was asked with printed
+
+```
+[flag] ANAPHORA_OVERLOAD: 8 of 14 lines open with the same word
+       (lines 3, 4, 5, 6, 11, 12, 13, 14)   ...  57% of lines > 38%
+```
+
+directly above a rendered draft in which lines 3, 4, 11 and 12 **do not open
+with that word at all**. The true reading was 4 of 14 — 29%, under the
+threshold, so the flag was already gone. A fresh `brief()` on that exact
+draft returns it on no line and leaves only L8 open; nothing was cached and
+nothing was wrong with `brief()`.
+
+**THE CAUSE IS A GUARD THAT SATISFIES ITSELF.** M-16's re-brief fires on
+`lines != brief_lines` and its own body then assigns `brief_lines =
+list(lines)`. So the line the draft moved AT is re-briefed, and the next line
+of the round takes the guard's False branch and reads the round-opening
+snapshot again — however far the draft has moved. **One line re-briefed per
+change; the rest of the round not.** `latest_open` carries the last brief set
+forward, and a line absent from it is `resolved_elsewhere` rather than asked.
+
+**AND MY FIRST TEST OF THE FIX WAS WORTHLESS, WHICH IS WORTH THE SENTENCE.**
+I re-ran `finish` with `pending.answer` cleared and read the same stale
+prompt back, and took that as the fix failing. It was not a loop pass at all:
+an unanswered pending record is RE-ASKED from the stored prompt without
+running the loop (the *"4s to re-ask an unanswered one"* path). The
+instrument proving it is the trace above — the loop's round body emitted
+NOTHING on that run. A test that cannot reach the code it is testing reads
+exactly like a test that ran, which is this repository's own most-repeated
+defect pointed at my own debugging.
+
+**COST**: one extra dict lookup per flagged line after the first re-brief of
+a round. The re-brief itself is unchanged and still pays only where the
+draft actually moved.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~265~~ **266**
+with this entry (2026-09-03).
+
 ### M-209 · M-204 screened the OFFER and left the BAN unscreened, so the forbidden list held words the group's own relation refuses — and three readers of that list were wrong at once `CLOSED` 2026-09-03 — found by writing the song M-206/M-207 unblocked, and it discharges M-204's own second owed item
 
 **THE OWED WORK M-204 NAMED, AND IT WAS NAMED IN THE WRONG PLACE.** That

@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "answered": {
+    "propose": [
+      {
+        "line": 3,
+        "attempt": 0,
+        "round": 1,
+        "draft": "346a2164cd41",
+        "text": "The cold comes in, well known"
+      },
+      {
+        "line": 4,
+        "attempt": 0,
+        "round": 1,
+        "draft": "538ba4ba99e0",
+        "text": "I feel the snow, on loan"
+      },
+      {
+        "line": 8,
+        "attempt": 0,
+        "round": 1,
+        "draft": "50af51c1e62a",
+        "text": "you wrote kindly, I read coldly, still sane"
+      }
+    ],
+    "propose_group": []
+  },
+  "pending": null,
+  "complete": {
+    "stop": "success",
+    "exit": 0,
+    "draft": "346a2164cd41",
+    "final": "1053ef53b6e4",
+    "unresolved": [],
+    "whole_flags": []
+  }
+}

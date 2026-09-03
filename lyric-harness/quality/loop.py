@@ -1744,6 +1744,15 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         # proposal below rebinds `lines`, so this is how the loop knows its
         # own guidance has gone stale.
         brief_lines = list(lines)
+        #: THE LATEST BRIEF SET THIS ROUND, or None while the round-opening
+        #: one is still current (`MISSING.md` M-210). The re-brief below
+        #: replaces `b` for the line it fires ON, and the guard it fires on
+        #: is `lines != brief_lines` — which that same block then satisfies
+        #: by assigning `brief_lines = list(lines)`. So the NEXT line of the
+        #: round took the guard's False branch and read the ROUND-OPENING
+        #: brief again, however far the draft had moved. One line was
+        #: re-briefed per change and the rest of the round was not.
+        latest_open = None
         for b in flagged:
             if b.line_no in touched:
                 continue
@@ -1803,6 +1812,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 brief_lines = list(lines)
                 still_open = {x.line_no: x
                               for x in _open_lines(fresh, pursue)}
+                latest_open = still_open
                 if b.line_no not in still_open:
                     # AN EARLIER FIX THIS ROUND CLOSED IT. Asking anyway is
                     # what the stale snapshot used to do: it briefed a line
@@ -1812,6 +1822,23 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                     resolved_elsewhere.append(b.line_no)
                     continue
                 b = still_open[b.line_no]
+            elif latest_open is not None:
+                # THE DRAFT HAS NOT MOVED SINCE THE LAST RE-BRIEF, AND THE
+                # LAST RE-BRIEF IS NOT THE ROUND-OPENING ONE (M-210). Read
+                # the line's brief off THAT rather than off the snapshot the
+                # round opened with. MEASURED on seed 6006: L3 and L4 were
+                # accepted, L5's finding was closed by them, and L6 was then
+                # briefed with `ANAPHORA_OVERLOAD: 8 of 14 lines open with
+                # the same word (lines 3, 4, 5, 6, 11, 12, 13, 14)` printed
+                # directly above a rendered draft in which lines 3, 4, 11
+                # and 12 no longer open with that word at all — 4 of 14, and
+                # under the threshold, so the flag was already gone. Nothing
+                # was cached and nothing was wrong with `brief()`; the round
+                # simply stopped asking it.
+                if b.line_no not in latest_open:
+                    resolved_elsewhere.append(b.line_no)
+                    continue
+                b = latest_open[b.line_no]
             if b.joint_conflict:
                 attempt, lines = _try_tier2(
                     reviser, b, lines, mandate, rdecl, blueprint,

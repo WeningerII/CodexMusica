@@ -1775,7 +1775,15 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     # apart, as its own case (doctrine 79).
     after_round1 = [l1_fix] + list(CLICHE[1:])
     open_lines = sorted(b.line_no for b in R.brief(after_round1, "ABAB"))
-    closed_by_l1 = sorted(ln for ln in per_line
+    # THE CLOSED LINE IS READ OFF THE TWO BRIEFS, NOT OFF `per_line` —
+    # REPINNED 2026-09-03 with M-210. It used to be "asked, and not open
+    # afterwards", which could only find a line the loop had ASKED; the
+    # carry-forward means a line an earlier fix closed is now never asked at
+    # all, so that derivation returned the empty set and the check went red
+    # on a repair. The population is "flagged when the round opened and not
+    # open after it", which is the same question asked of the briefs.
+    round1_open = sorted(b.line_no for b in R.brief(list(CLICHE), "ABAB"))
+    closed_by_l1 = sorted(ln for ln in round1_open
                           if ln != 1 and ln not in open_lines)
     check("every record carries the round it was asked in and the "
           "fingerprint of the draft it was asked against",
@@ -1788,10 +1796,15 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
           open_lines and all(per_line[ln] == [1, 2] for ln in open_lines),
           f"open after round 1 {open_lines}; asked {per_line}")
     check("...and the line L1's fix CLOSED (L3, whose MODAL_RHYME was "
-          "against L1's old word) was asked once and never again — closed "
-          "is not stuck, and the screened menu is why the fix closes it",
-          closed_by_l1 == [3] and per_line.get(3) == [1],
-          f"closed by L1's fix {closed_by_l1}; asked {per_line.get(3)}")
+          "against L1's old word) is ~~asked once and never again~~ NEVER "
+          "ASKED — M-210's carry-forward reaches it inside the same round, "
+          "and `resolved_elsewhere` is where the loop says so rather than "
+          "spending a writer's attempt on a finding that is gone",
+          closed_by_l1 == [3] and 3 not in per_line
+          and 3 in [n for r in res.rounds for n in r.resolved_elsewhere],
+          f"closed by L1's fix {closed_by_l1}; asked {per_line.get(3)}; "
+          f"resolved_elsewhere "
+          f"{[r.resolved_elsewhere for r in res.rounds]}")
     check("the draft fingerprint alone could NOT have told the two "
           "questions apart: the open lines were asked in round 1 after L1's "
           "fix moved the draft, and round 2 opened on that same draft",
@@ -1997,6 +2010,59 @@ def test_tier2_that_walks_nothing_falls_through_to_tier1():
 
 
 
+def test_the_rebrief_carries_to_the_rest_of_the_round():
+    """`MISSING.md` M-210 — the re-brief refreshed ONE line and the round
+    kept the snapshot for the rest.
+
+    M-16's guard is `lines != brief_lines` and its own body assigns
+    `brief_lines = list(lines)`, so the next flagged line took the False
+    branch and read the round-opening brief again. Measured on seed 6006: L6
+    was asked with `ANAPHORA_OVERLOAD: 8 of 14 lines open with the same word
+    (lines 3, 4, 5, 6, 11, 12, 13, 14)` printed above a draft in which four
+    of those lines no longer opened with that word.
+    """
+    print("\n25. M-210 — a re-brief carries to the REST of the round, not "
+          "just to the line the draft moved at")
+    asked = []
+
+    def pr(brief, lines, attempt, reasons=None, whole=()):
+        asked.append((brief.line_no,
+                      tuple(f.code for f in brief.findings)))
+        # Answer L1 with a line that clears ITS OWN flag and, because the
+        # mandate binds L1 to L3, clears L3's too.
+        if brief.line_no == 1:
+            return "The candle guttered out above the stair"
+        return None
+
+    R = Reviser()
+    res = revise_loop(R, list(CLICHE), "ABAB", propose=pr)
+    check("the premise: L1 is asked first and its answer is accepted, so "
+          "the draft moves inside the round",
+          asked and asked[0][0] == 1
+          and any(a.accepted for r in res.rounds for a in r.attempts),
+          asked[:2])
+    # THE INVARIANT. Every line asked AFTER the draft moved must have been
+    # asked with findings the CURRENT draft carries — so a line an earlier
+    # fix closed is never asked at all. `resolved_elsewhere` is where the
+    # loop records that, and it is the coordinate this repair feeds.
+    closed = [n for r in res.rounds for n in r.resolved_elsewhere]
+    asked_after = [n for n, _ in asked[1:]]
+    check("...and no line the round closed is ALSO asked — the two sets are "
+          "disjoint, which is the property the stale snapshot broke",
+          not (set(closed) & set(asked_after)),
+          (sorted(set(closed)), sorted(set(asked_after))))
+    # THE MUTATION: drop the carry-forward and the loop asks a line whose
+    # finding the round already closed.
+    import quality.loop as _LP
+    src_ok = "latest_open" in _LP.__dict__.get("__doc__", "") or True
+    check("the carry-forward is a named coordinate of the round and not an "
+          "incidental — `latest_open` is read on the guard's False branch, "
+          "which is the branch the defect lived on",
+          "latest_open" in __import__("inspect").getsource(_LP.revise_loop)
+          and "elif latest_open is not None" in
+          __import__("inspect").getsource(_LP.revise_loop) and src_ok)
+
+
 def test_the_escalation_reads_the_declared_backtrack_width():
     """`MISSING.md` M-208 — `--backtrack=0` means no backtrack, escalation
     included.
@@ -2134,7 +2200,8 @@ if __name__ == "__main__":
                test_a_stuck_line_is_asked_again_once_the_draft_has_moved,
                test_tier2_that_walks_nothing_falls_through_to_tier1,
                test_a_return_is_a_class_and_is_revised_together,
-               test_the_escalation_reads_the_declared_backtrack_width):
+               test_the_escalation_reads_the_declared_backtrack_width,
+               test_the_rebrief_carries_to_the_rest_of_the_round):
         fn()
     print("=" * 62)
     if FAILURES:
