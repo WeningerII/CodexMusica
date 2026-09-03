@@ -1497,7 +1497,19 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
     # sections in front of it, so a crash in one section hid an orphan in
     # another"). A premise that stops holding must produce a red CHECK with
     # its reason printed, never a traceback.
-    t2 = [a for a in res.rounds[0].attempts if a.tier == 2]
+    # SELECT THE PIVOT THIS SECTION IS ABOUT, NOT THE LAST TIER-2 ATTEMPT
+    # (`MISSING.md` M-205, 2026-09-03). The comment above already records
+    # this selector loosening once — a bare `[-1]` became "select by tier"
+    # when mandatory pursuit added later tier-1 attempts. The M-205
+    # escalation loosens it AGAIN: tier 2 now also runs for every line tier 1
+    # could not close, so round 0 carries tier-2 attempts for lines 2, 3, 4
+    # and 6 and `[-1]` is L6's. MEASURED before this line changed: the
+    # `EMPTY MEMBER field` outcome is still reported, and it is on **L3** —
+    # the anchor that is itself a pivot, which is the whole subject of this
+    # fixture. The claim held; the selector had stopped naming its own
+    # subject. Pinned to the line rather than to a position, so no further
+    # widening of the attempt list can silently repoint it a third time.
+    t2 = [a for a in res.rounds[0].attempts if a.tier == 2 and a.line_no == 3]
     check("the premise holds: tier 2 RAN, so there is a dead-end reason to "
           "read",
           bool(t2),
@@ -1530,9 +1542,19 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
           any("PINNED by return group" in d for d in pinned_det)
           and any("is itself a RETURN" in d for d in pinned_det),
           pinned_det[:1])
-    check("...and no group is put to a proposer at all — a refusal is not a "
-          "failed search (doctrine 20)",
-          asked == [] and any("NOT ATTEMPTED" in d for d in pinned_det),
+    # SCOPED TO THE PINNED GROUP (`MISSING.md` M-205). This asserted
+    # `asked == []` over EVERY group in the fixture, which was the same
+    # sentence as "the pinned group is not searched" only while the pinned
+    # pivot was the sole line reaching tier 2. Under the M-205 escalation
+    # lines 2 and 6 reach it too and are legitimately asked. MEASURED: the
+    # prompts are pivot L2 (group A) and pivot L6 (group D); the PINNED
+    # pivot L3 is still never put to a proposer, and all three refusal
+    # sentences still appear. The claim is unchanged and is now stated about
+    # the thing it names.
+    check("...and the PINNED group is never put to a proposer — a refusal is "
+          "not a failed search (doctrine 20)",
+          [p for p in asked if p.pivot_line_no == 3] == []
+          and any("NOT ATTEMPTED" in d for d in pinned_det),
           f"{len(asked)} group prompt(s) asked :: {pinned_det[:1]}")
 
     # THE WRITER IS TOLD. The prompt renders THE RHYME MANDATE ON THE PIVOT;
@@ -1698,6 +1720,28 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
                               propose_group=propose_group)
         except LH._NeedProposal as need:
             rec = need.record
+            # THE DRIVER ANSWERS BOTH KINDS OF QUESTION (`MISSING.md`
+            # M-205, 2026-09-03). It read `rec["line"]` unconditionally,
+            # which is a tier-1 `propose` record; a `propose_group` record
+            # carries `members`/`texts` and no `line`, so the M-205
+            # escalation — tier 2 now runs for a line tier 1 could not
+            # close — made this raise `KeyError: 'line'` and KILL THE
+            # SUITE at this section, taking §22 and §23 with it. That is
+            # the masking shape this file records twice already; a driver
+            # that cannot answer a question the loop legitimately asks is
+            # an out-of-date driver, not a reason to stop asking.
+            #
+            # The group answer is the SAME per-line answer this fixture
+            # already gives, in the `L<n>:` form `quality/propose.py`
+            # `parse_group` requires — so the section still measures which
+            # LINES are asked and when, which is its whole subject.
+            if "members" in rec:
+                st = disc.state
+                st["pending"]["answer"] = "\n".join(
+                    f"L{n}: {answer(n)}" for n in rec["members"])
+                with open(state, "w") as fh:
+                    json.dump(st, fh)
+                continue
             asked.append((rec["line"], rec["attempt"], rec.get("round"),
                           rec.get("draft")))
             st = disc.state
@@ -1777,7 +1821,23 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     hits = {}
     for name, path in (("keyed", keyed), ("legacy", legacy)):
         p1, pg1, d1 = LH._replay_proposer(path)
-        revise_loop(R, list(CLICHE), "ABAB", propose=p1, propose_group=pg1)
+        # THE GROUP QUESTIONS GO SOMEWHERE ELSE, AND THAT ISOLATES THE
+        # VARIABLE (`MISSING.md` M-205, 2026-09-03). This section is about
+        # ONE thing: whether a round-1 LINE record answers round 2. The
+        # M-205 escalation makes the loop also ask tier-2 GROUP questions —
+        # measured here, 5 of them — and `_replay_proposer`'s disclosure
+        # counts line and group questions into ONE "asked and NOT recorded"
+        # number, so those 5 land in the figure this check reads and the
+        # arithmetic stops being about the `round` key at all.
+        #
+        # MEASURED, so the isolation is not a guess: the LINE questions are
+        # (1,r1) (2,r1) (3,r1) (4,r1) (2,r2) (4,r2) — the same six, in the
+        # same rounds, as before the escalation existed. Nothing this
+        # section claims has moved; only the denominator it was reading.
+        # Handing tier 2 a decliner keeps `pg1` uncalled, so `d1` counts
+        # exactly the line questions it is about.
+        revise_loop(R, list(CLICHE), "ABAB", propose=p1,
+                    propose_group=lambda *a, **k: None)
         tail = d1(done=True)
         hits[name] = tail
     check("keyed round-1 records answer ROUND 1 ONLY: round 2's questions "
@@ -1886,16 +1946,39 @@ def test_tier2_that_walks_nothing_falls_through_to_tier1():
     res = revise_loop(R, draft, mandate, propose=declines,
                       propose_group=declines_group)
     a3 = [a for r in res.rounds for a in r.attempts if a.line_no == 3]
-    check("tier 2 built NO proposal for L3 and says NOT ASKED, with "
-          "`asked=False` on its record",
-          a3 and a3[0].tier == 2 and a3[0].tried == 0 and not a3[0].asked
-          and "NOT ASKED" in a3[0].reason and not asked2,
-          [(a.tier, a.tried, a.asked, a.reason[:70]) for a in a3])
-    check("the SAME round then asks tier 1 about L3 — two records, one "
-          "line, neither folded into the other (doctrine 79)",
-          len(a3) == 2 and a3[1].tier == 1 and a3[1].asked
-          and "fell through to tier 1" in a3[1].reason
-          and (3, 1) in asked1,
+    # ~~tier 2 built NO proposal for L3 and says NOT ASKED, with
+    # `asked=False` on its record~~ — **SUPERSEDED 2026-09-03
+    # (`MISSING.md` M-205).** M-185's mechanism was a WORKAROUND for the
+    # third silent skip: the pivot's field came back empty, `walked` was
+    # empty, the `for w in walked` body never ran, and rather than ask
+    # about the group the tier consumed the turn and handed the line to
+    # tier 1. M-205 removes the skip — an empty pivot field is still a
+    # QUESTION, and it is put to the writer with the field declared empty
+    # and why. On THIS fixture that is strictly the better move: L3's
+    # three call words share no rhyme, so tier 1 is the tier that provably
+    # cannot help and tier 2 is the one that can. The fall-through is not
+    # deleted and still runs where no proposal is possible at all — a
+    # group with no movable member, or one pinned by a verbatim return,
+    # which §5's PIN fixture covers.
+    check("tier 2 now ASKS about the group instead of walking nothing — an "
+          "empty pivot field is a question, not a turn consumed in silence",
+          a3 and a3[0].tier == 2 and a3[0].asked and asked2
+          and "UNCONSTRAINED pivot" not in a3[0].reason,
+          [(a.tier, a.tried, a.asked, a.reason[:70]) for a in a3]
+          + [asked2])
+    # AND THERE IS NO FALL-THROUGH, WHICH IS M-185'S OWN RULE APPLIED TO
+    # THE NEW BEHAVIOUR — not a weakening of it. M-185 says a DECLINED
+    # tier 2 does not fall through: it was asked, and the writer's refusal
+    # is its own answer. The fall-through only ever existed for a tier 2
+    # that asked NOBODY. M-205 makes this fixture the declined case rather
+    # than the silent one, so the line gets ONE record, from the tier that
+    # could actually close it. (This check's first draft asserted tier 1
+    # was asked as well, which contradicted the rule the section states
+    # three checks further down; the suite caught it.)
+    check("...and precisely BECAUSE it asked, there is no fall-through — a "
+          "declined tier 2 is not a silent one, so L3 gets one record from "
+          "the tier that could close it, not two",
+          len(a3) == 1 and a3[0].tier == 2 and (3, 1) not in asked1,
           [(a.tier, a.tried, a.asked) for a in a3] + [asked1])
     check("the stop is NO_PROGRESS on the proposer's refusal, not on a "
           "search nobody ran", res.stop_reason == "no_progress")

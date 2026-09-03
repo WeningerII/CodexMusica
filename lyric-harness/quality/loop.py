@@ -1269,6 +1269,15 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     reasons = None
     pinned = []
     starved = []
+    # THE SKIPS THAT USED TO BE SILENT (`MISSING.md` M-205). Each is its own
+    # list and none is summed into another (doctrine 79): "the pivot has no
+    # obligation outside this group", "no member of this group can move" and
+    # "the pivot's field came back empty" are three different facts, and the
+    # first two used to leave `_try_tier2` having recorded NOTHING — the
+    # attempt came back `asked=False` with a reason that said the tier walked
+    # nothing, which is a description of the symptom and not of the cause.
+    unbound = []
+    memberless = []
     # THE SPEC MAY STILL BE A SPEC — `revise_loop` hands its caller's mandate
     # down unresolved, and `slot_of`/`partners` need the built object.
     if not hasattr(mandate, "partners"):
@@ -1299,8 +1308,22 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
             continue
         other_calls = [w for lab2, _m2, cl2 in groups if lab2 != label
                        for _, w in cl2]
-        if not other_calls:
-            continue
+        # AN UNCONSTRAINED PIVOT IS NOT AN UNANSWERABLE ONE (`MISSING.md`
+        # M-205). This read `if not other_calls: continue`, and `other_calls`
+        # is the calls of the pivot's OTHER groups at this place — so a pivot
+        # in exactly ONE group here, which is the ordinary case and EVERY
+        # couplet, was skipped without a word being put to anybody. The
+        # premise was right and the conclusion inverted: no outside call
+        # means the pivot may take ANY word, so this is the case with the
+        # MOST freedom, not the least. It is asked below with an empty
+        # offered field that says so.
+        pivot_free = not other_calls
+        if pivot_free:
+            unbound.append(
+                f"group {label} {list(members)}: L{b.line_no} has no "
+                f"obligation outside this group, so no field ranks its "
+                f"candidates — every word is legal for it and the members "
+                f"follow whatever it takes")
         # (b) EVERY OTHER MEMBER HAS ITS OWN GROUPS, and they are asked of
         # the MANDATE before any search runs (defect F, generalised from the
         # single anchor: a member that is itself a pivot was searched as
@@ -1322,6 +1345,15 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 f"move either, so this group has no joint rewrite available")
             continue
         if not others:
+            # NO MEMBER OF THIS GROUP CAN MOVE, so there is no group to
+            # rewrite and this tier has no move — which is a REASON and was
+            # a silent `continue` (`MISSING.md` M-205). Unlike the two skips
+            # around it this one is correctly unasked: a joint backtrack over
+            # a group of one is tier 1.
+            memberless.append(
+                f"group {label} {list(members)}: no member of it besides "
+                f"L{b.line_no} carries a readable bound word, so there is no "
+                f"joint rewrite to put to anybody")
             continue
         # THE PIVOT'S INCUMBENT AT ITS OWN PLACE, off the brief (M-184):
         # `raw_final_token` is the end word, which is the wrong word for a
@@ -1329,9 +1361,66 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         # was computed, and then the end word is what it always was.
         pivot_current = (getattr(b, "forbidden_incumbent", "")
                          or raw_final_token(b.text) or "")
-        p_offered, _p_forbidden = reviser.joint_field(
-            other_calls, exclude=(pivot_current,))
+        p_offered, _p_forbidden = (
+            reviser.joint_field(other_calls, exclude=(pivot_current,))
+            if other_calls else ([], []))
         walked = p_offered[:rdecl.backtrack_width]
+        # AN EMPTY WALK IS STILL A QUESTION (`MISSING.md` M-205). `walked`
+        # is empty on two populations: the pivot is FREE (no outside call to
+        # rank against) or its conjunction came back EMPTY. In both the
+        # `for w in walked` loop below never runs, nothing reaches a
+        # proposer, and the `starved` guard is `if walked and ...` — so the
+        # group produced no proposal AND no reason, which is the silence
+        # this repairs. The group is real, its members can move, and a
+        # WRITER can answer it: it is put ONCE with the pivot field declared
+        # empty and WHY, and each member carrying its own outside field.
+        # Nothing is invented — an empty offer is an honest offer (doctrine
+        # 20), and `verify()` still judges whatever comes back.
+        if not walked:
+            _anchors = []
+            for m_line, m_current, m_other in others:
+                _mf, _ = (reviser.joint_field(list(m_other),
+                                              exclude=(m_current,))
+                          if m_other else ([], []))
+                _anchors.append(AnchorSlot(
+                    line_no=m_line, text=lines[m_line - 1], word="",
+                    offered=tuple(_mf), calls=tuple(m_other),
+                    slot=_slot_for(mandate, gi, m_line)))
+            got = propose_group(GroupBrief(
+                pivot_line_no=b.line_no, pivot_text=b.text,
+                pivot_word="", pivot_offered=(),
+                pivot_slot=_slot_for(mandate, gi, b.line_no),
+                anchors=tuple(_anchors), label=label, members=members,
+                brief=b, lines=tuple(lines), attempt=attempt,
+                reasons=reasons, whole=whole))
+            attempt += 1
+            if got is not None:
+                tried += 1
+                got = tuple(got)
+                if len(got) != len(members):
+                    reasons = (f"proposer returned {len(got)} line(s) for "
+                               f"group {label}, which has {len(members)} "
+                               f"member(s) — the return is ordered by "
+                               f"`GroupBrief.members`, one line each",)
+                else:
+                    after = list(lines)
+                    for m_line, text in zip(members, got):
+                        after[m_line - 1] = text
+                    res = reviser.verify(
+                        lines, after, mandate, targeted=set(members),
+                        profile=profile, blueprint=blueprint,
+                        subdivision=subdivision, assume=assume)
+                    if res["accepted"]:
+                        _why = ("the pivot is unconstrained" if pivot_free
+                                else "its conjunction came back empty")
+                        return LineAttempt(
+                            b.line_no, 2, True, tried,
+                            f"joint backtrack over group {label} "
+                            f"{list(members)} with NO ranked pivot field "
+                            f"({_why}): " + "; ".join(res["reasons"]),
+                            tuple(members)), after
+                    reasons = tuple(res["reasons"])
+            continue
         empty_member = collections.Counter()
         for w in walked:
             # THE CHAIN. `chosen` grows as members are assigned, and each
@@ -1460,8 +1549,15 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     # `attempt`, not `tried`: a proposer that DECLINED every group brief was
     # consulted, and its refusal is its own answer (tier 1's "the PROPOSER
     # declined" rule); only a tier that built no brief at all was silent.
-    asked = bool(attempt) or bool(starved) or (pinned and len(pinned)
-                                               == len(groups)) or not groups
+    asked = (bool(attempt) or bool(starved)
+             or (pinned and len(pinned) == len(groups))
+             or not groups
+             # M-205: a group with no movable member is a STATED refusal,
+             # not a turn consumed in silence. `attempt` cannot cover it —
+             # nothing was put to a proposer and nothing should have been —
+             # so it is named here or the M-185 fall-through fires on a
+             # line this tier answered correctly.
+             or (memberless and len(memberless) + len(pinned) == len(groups)))
     if not asked:
         detail = (f"NOT ASKED — tier 2 walked 0 pivot word(s) and built no "
                   f"joint proposal ({detail}); no group pinned, no member "
@@ -1476,6 +1572,21 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                    f"field — the conjunction is unsatisfiable at that "
                    f"member, not a search that came back short: "
                    + "; ".join(starved))
+    # THE TWO SKIPS THAT USED TO SAY NOTHING (`MISSING.md` M-205). Their own
+    # counts, never folded into `tried`, `pinned` or `starved` (doctrine 79),
+    # because they are different facts: `unbound` groups WERE asked — with an
+    # empty field, because no outside call ranks the pivot — and `memberless`
+    # ones correctly were not, there being no second line to move.
+    if unbound:
+        detail += (f"; {len(unbound)} group(s) have an UNCONSTRAINED pivot "
+                   f"and were asked with an empty offered field rather than "
+                   f"skipped — no ranking exists, which is freedom and not "
+                   f"a dead end: " + "; ".join(unbound))
+    if memberless:
+        detail += (f"; {len(memberless)} group(s) have NO MOVABLE MEMBER "
+                   f"besides the pivot, so a joint rewrite does not exist "
+                   f"for them and tier 1 is the whole move: "
+                   + "; ".join(memberless))
     # THE SIZE CENSUS, and it is here because the sentence it replaces was a
     # REFUSAL. This tier used to print "N group(s) have 3+ members and were
     # NOT attempted"; a reader owed the news that they are searched now is
@@ -1560,6 +1671,16 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     `LoopResult.whole`, not a second derivation of it — and only on a round
     that has something flagged, since the success path returns above it.
     """
+    # WAS A GROUP WRITER DECLARED? (`MISSING.md` M-205.) `propose_group`
+    # falls back to the stock stub below, and that fallback is fine on the
+    # `joint_conflict` path, which has always run with whatever this line
+    # leaves. It is NOT fine for the new escalation: a caller who passed
+    # only `propose=` declared a LINE writer, and reaching a group writer it
+    # never named is substituting an undeclared instrument (doctrine 1).
+    # Caught by `quality/test_loop.py` §2 — a fixture whose line proposer
+    # refuses everything had its draft REWRITTEN by the stock group stub,
+    # so "a proposer that refuses everything" stopped being true of the run.
+    _group_declared = propose_group is not None
     propose = propose or default_propose
     propose_group = propose_group or default_propose_group
     rdecl = reviser.rdecl
@@ -1719,6 +1840,50 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 attempt, lines = _try_tier1(
                     reviser, b, lines, mandate, rdecl, blueprint,
                     subdivision, assume, profile, propose, whole)
+                # THE ESCALATION (`MISSING.md` M-205). `joint_conflict` was
+                # the ONLY door to tier 2, and it is
+                # `len(calls) > 1 and not offered and not forbidden` — so a
+                # two-member group, which gives its member exactly ONE call,
+                # could never open it however unsatisfiable it was, and a
+                # place with a non-empty offer could not either however
+                # useless every word in it turned out to be. The flag
+                # PREDICTS that tier 1 has no move; this asks whether it
+                # HAD one. A tier-1 line that came back unaccepted is a line
+                # tier 1 could not close, and that is the condition the
+                # backtrack exists for — so the group is offered to tier 2
+                # in the same round rather than waiting for a prediction
+                # that cannot be made for its shape.
+                #
+                # BOTH RECORDS ARE KEPT, NEVER SUMMED (doctrine 79): tier 1
+                # was asked and failed, and tier 2 was then asked; folding
+                # them would lose which tier the line was actually closed
+                # by, and `RoundResult.attempts` is the census the stop
+                # condition reads.
+                if not attempt.accepted and not _group_declared:
+                    # DISCLOSED, NOT SKIPPED. This is the one place the
+                    # escalation declines to run, and saying nothing here
+                    # would make it a fourth silent skip — the exact
+                    # species this entry exists to close.
+                    attempt = LineAttempt(
+                        attempt.line_no, attempt.tier, attempt.accepted,
+                        attempt.tried,
+                        attempt.reason + "; tier 2 was NOT entered — no "
+                        "group proposer was DECLARED, and the backtrack "
+                        "rewrites several lines at once, so it is not run "
+                        "against a writer the caller did not name "
+                        "(pass `propose_group=` to reach it)",
+                        attempt.touched, asked=attempt.asked)
+                elif not attempt.accepted:
+                    attempts.append(attempt)
+                    attempt, lines = _try_tier2(
+                        reviser, b, lines, mandate, rdecl, blueprint,
+                        subdivision, assume, profile, propose_group, whole)
+                    attempt = LineAttempt(
+                        attempt.line_no, attempt.tier, attempt.accepted,
+                        attempt.tried,
+                        "after tier 1 found no accepted line, escalated to "
+                        "tier 2: " + attempt.reason, attempt.touched,
+                        asked=attempt.asked)
             attempts.append(attempt)
             if attempt.accepted:
                 fixed_this_round.extend(attempt.touched)
