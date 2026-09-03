@@ -1,0 +1,36 @@
+GitHub Actions runs of .github/workflows/flash-battery.yml — every run there has ever been (10), as returned by the GitHub API on 2026-09-03, newest first. Each run drives gemini-3.1-flash-lite through the DEPLOYED connector's /chat endpoint using scripts/flash_battery.mjs. No run has been made since 2026-08-29. The commit messages below are the head commit at the time of each run, verbatim.
+
+run #10  id 33266613606  2026-08-29T17:49:00Z -> 2026-08-29T18:11:33Z  conclusion=success (workflow succeeded; the song did not reach exit 0 — see M-168)  sha=644bfc31
+  head commit: "M-166: round 9 banked — the kills are gone, the pace and the slope are the walls
+    Round 9 (run 33259376754, 151 min, the first with the 600s shared budget live server-side) confirms M-165: zero exit -1 rows anywhere. It did not reach a stop: turns 1-5 relapsed into one answered revise question per turn (the chat "LINE:" shape, recurrence #3), and turns 6-8 spent ~30 minutes each on lyric_revise calls dying at the CLIENT's own 600s clock (MCP -32001) with MAX_TURN_COST closing each turn — single folds already cost 340-515s by answer ~6, an order over the 22-line ladder rounds 6/8 measured, most consistent with a large drawn shape (stated as inference; the transcript does not print the plan's line count). The M-164 backoff absorbed one 429 and two 502s, every retry a row.
+    Driver-side, user-role remedies (no server byte, no deploy — the PARKED_CONTINUE species): the first brief asks for a SHORT song in plain language with the derivation comment on the constant, and CONTINUE becomes a batching push — answer every open question in the same reply, one answer per reply is too slow."
+
+run #9  id 33259376754  2026-08-29T15:07:17Z -> 2026-08-29T17:38:13Z  (151 min)  conclusion=success (workflow)  sha=8dcf333e  head: "Merge pull request #208"
+
+run #8  id 33253826300  2026-08-29T12:58:28Z -> 2026-08-29T13:37:21Z  conclusion=success (workflow)  sha=95778b46
+  head commit: "M-164: a dead upstream answers 502 and the driver treated it as fatal
+    Round 7 (run 33251420261, the first with the M-163 exit-0 bar) died on its opening turn: 502 at 236.6s with chat.js's catch-all body — runTurn threw after the server's own single transient-5xx retry, the turn's work was thrown away, and the driver, which retries only 429/503, recorded the row and hung up before the model did any work.
+    - scripts/flash_battery.mjs: 502 joins the bounded logged backoff (4 retries, 60s floor, each retry a JSONL row)."
+
+run #7  id 33251420261  2026-08-29T12:00:10Z -> 2026-08-29T12:04:24Z  conclusion=success (workflow)  sha=4444e4de
+  head commit: "M-163: the driver hung up on a parked song — exit 0 is the only finish
+    The owner's order, verbatim: "keep going until we get a clean exit 0 song." Round 6's driver counted exit 3 as finished and ended the round with six turns of budget unspent; exit 3 is an honest stop condition and not a finished song under the declared bar.
+    - scripts/flash_battery.mjs: only lyric_revise exit 0 sets reached_stop; an exit 3 increments `parked` and the next turn declines the draft with PARKED_CONTINUE.
+    - .github/workflows/flash-battery.yml: timeout-minutes 120 -> 300, derived — nine turns at the worst-observed legitimate turn (16m49s, round 6) is ~150 min."
+
+run #6  id 33231200689  2026-08-29T03:21:46Z -> 2026-08-29T03:52:11Z  conclusion=success (workflow)  sha=67438683
+  head commit: "M-160: the turn's silence is what the network kills — keep-alive probes ride the request socket
+    Round 5 proved M-159's instrument and recorded a new wall: turn 0 reset with `read ECONNRESET` at 272.7s, where round 3's turn 0 answered 200 at 214.2s. A /chat turn moves no bytes while the server grades, and the measured bracket [214s OK, 272s RESET] contains the 240s idle-flow timeout documented for the NAT the Azure-hosted runners sit behind.
+    Model and reminder still unmeasured — round 5 produced zero model turns."
+
+run #5  id 33230235766  2026-08-29T02:58:36Z -> 2026-08-29T03:03:26Z  conclusion=success (workflow)  sha=845ec143
+  head commit: "M-159: the battery abandoned a legitimate turn at a threshold nobody wrote down
+    Round 4 (run 33228961328) never measured the M-158 reminder: the driver's own transport carried undici's undeclared 300s headers default, turn 0 legitimately outlived it (grade ~90s + revise ~80-205s in one /chat response), and the unhandled rejection erased the whole record.
+    - scripts/flash_battery.mjs: TURN_DEADLINE_MS = LIMITS.maxSteps x CHAT_TOOL_TIMEOUT_MS, both READ from the modules that own them."
+
+run #4  id 33228961328  2026-08-29T02:26:39Z -> 2026-08-29T02:31:53Z  conclusion=failure  branch=main  sha=d3e37539  head: "Merge pull request #206 — M-158: the wrong-channel answer — the suspended-run reminder rides the systemInstruction, rebuilt every hop"
+run #3  id 33224082837  2026-08-29T00:37:32Z -> 2026-08-29T00:50:11Z  conclusion=success  branch=main  sha=bc7b23eb  head: "Merge pull request #204 — chat: the tool timeout matches the verbs it serves, and a tool failure no longer kills the turn"
+run #2  id 33214026059  2026-08-28T21:46:48Z -> 2026-08-28T21:48:27Z  conclusion=success  branch=main  sha=cea0e41f  head: "flash-battery: print the transcripts into the job log"
+run #1  id 33212872482  2026-08-28T21:30:37Z -> 2026-08-28T21:32:52Z  conclusion=success  branch=main  sha=da9dd7ef  head: "Flash battery workflow: a launch pad with open egress"
+
+The deployed connector (Render service codex-musica-mcp) runs MAIN, last deployed from commit e40786d6 (merge of PR #220) on 2026-09-03 02:47Z. Everything on branch claude/lyrics-writing-process-butw9s after that commit (M-206 through M-214, and the three songs banked today) is NOT deployed.

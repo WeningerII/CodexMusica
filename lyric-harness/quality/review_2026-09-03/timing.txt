@@ -1,0 +1,42 @@
+import lyric_harness: 0.1s
+Lexicon() first construction: 0.6s
+finish before_i_did (16 lines, state has 0 answers) call #1 in process 49.3s
+    PAIRS: mandated 16, judged 16, refused 0 — three counts, never summed (doctrine 79)
+    REPLAY MEMO: cold — 0 of 2 grading call(s) answered from the process memo (runs held: 1 of 4)
+    [FINISHED — seed 7045 — exit 0 — SUCCESS after 0 round(s) — no flag stands]
+finish before_i_did call #2, same process                    3.7s
+    PAIRS: mandated 16, judged 16, refused 0 — three counts, never summed (doctrine 79)
+    REPLAY MEMO: warm — 2 of 4 grading call(s) answered from the process memo (runs held: 1 of 4)
+    [FINISHED — seed 7045 — exit 0 — SUCCESS after 0 round(s) — no flag stands]
+finish across_the_tide (18 lines, state has 5 answers) call #1 56.3s
+    PAIRS: mandated 21, judged 18, refused 3 — three counts, never summed (doctrine 79)
+    REPLAY MEMO: cold — 0 of 2 grading call(s) answered from the process memo (runs held: 2 of 4)
+    [FINISHED — seed 7009 — exit 0 — SUCCESS after 0 round(s) — no flag stands]
+finish across_the_tide call #2, same process                 3.2s
+    PAIRS: mandated 21, judged 18, refused 3 — three counts, never summed (doctrine 79)
+    REPLAY MEMO: warm — 2 of 4 grading call(s) answered from the process memo (runs held: 2 of 4)
+    [FINISHED — seed 7009 — exit 0 — SUCCESS after 0 round(s) — no flag stands]
+CLI: screen grey weigh (fresh process): 14 s
+CLI: plan --seed=7045 (fresh process): 2 s
+
+CORRECTION to the two across_the_tide rows above: songs/drafts/across_the_tide.draft.txt holds the FINAL draft, so those calls found nothing to fold and replayed nothing (0 rounds, 2 grading calls). The rows below hand in the ORIGINAL draft (recovered from the ledger, fingerprint b3970f8c160b) with the completed 5-answer state, so the loop genuinely replays the five answers.
+finish at_original (18 lines, REPLAY of 5 answers) call #1 cold 58.0s
+    revise_loop: SUCCESS after 0 round(s)
+    REPLAY MEMO: cold — 0 of 2 grading call(s) answered from the process memo (runs held: 1 of 4)
+    [FINISHED — seed 7009 — exit 0 — SUCCESS after 0 round(s) — no flag stands]
+finish at_original call #2, same process                     2.9s
+    revise_loop: SUCCESS after 0 round(s)
+    REPLAY MEMO: warm — 2 of 4 grading call(s) answered from the process memo (runs held: 1 of 4)
+    [FINISHED — seed 7009 — exit 0 — SUCCESS after 0 round(s) — no flag stands]
+
+SECOND CORRECTION: the ledger had been overwritten by the probe runs above, so at_original.txt was ALSO the final draft. at_preloop.txt is reconstructed from the loop's own transcript of the draft it started from (fingerprint 4809981caa5d; the state file says the run began on draft 4809981caa5d). The rows below are the real replay: 5 recorded answers folded in order onto the pre-loop draft.
+finish at_preloop (18 lines, 5 answers replayed) call #1 cold 195.6s
+    revise_loop: SUCCESS after 1 round(s)
+    round 1: fixed L2, L4, L7, L14, L18
+    REPLAY MEMO: cold — 0 of 14 grading call(s) answered from the process memo (runs held: 1 of 4)
+    [FINISHED — seed 7009 — exit 0 — SUCCESS after 1 round(s) — no flag stands]
+finish at_preloop call #2, same process                      4.3s
+    revise_loop: SUCCESS after 1 round(s)
+    round 1: fixed L2, L4, L7, L14, L18
+    REPLAY MEMO: warm — 14 of 28 grading call(s) answered from the process memo (runs held: 1 of 4)
+    [FINISHED — seed 7009 — exit 0 — SUCCESS after 1 round(s) — no flag stands]

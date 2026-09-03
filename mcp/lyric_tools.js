@@ -229,11 +229,23 @@ function _spawnWorker() {
       });
     }
   });
-  w.on('exit', () => {
-    if (_worker === w) _killWorker();
+  w.on('exit', (code, signal) => {
+    // A WORKER THAT DIES IS A LOGGED EVENT, NOT A QUIET SLOWDOWN (M-216):
+    // from M-155 to 2026-09-01 the deployed image had no worker.py, every
+    // spawn failed, every call answered cold with byte-identical bytes, and
+    // nothing said so for three days. The fallback stays; its silence goes.
+    if (_worker === w) {
+      console.error(
+        `[lyric] warm worker exited (code=${code} signal=${signal}) — later calls answer COLD until it respawns`
+      );
+      _killWorker();
+    }
   });
-  w.on('error', () => {
-    if (_worker === w) _killWorker();
+  w.on('error', (e) => {
+    if (_worker === w) {
+      console.error(`[lyric] warm worker could not be spawned: ${e && e.message} — answering COLD`);
+      _killWorker();
+    }
   });
   _worker = w;
   return w;
@@ -310,12 +322,28 @@ function runVerb(args) {
   // budget, and re-running it cold would hold the serial queue for a
   // second whole budget to reach the same -1. The tagged rejection is
   // surfaced as the kill it is (M-165).
+  //
+  // THE PATH TAKEN AND THE TIME IT TOOK RIDE THE RESULT (M-216): `path` is
+  // one of warm / cold / cold-fallback / killed and `ms` the wall clock of
+  // this call. Ten battery rounds could not say which path the deployed box
+  // paid, and the harness/model split of a turn was never separable
+  // (M-170). A fallback is also LOGGED, because a silent one already cost
+  // three days of cold production (M-187).
+  const t0 = Date.now();
+  const stamp = (r, path) => ({ ...r, path, ms: Date.now() - t0 });
   return enqueue(() =>
     WORKER_ENABLED
-      ? _runVerbWarm(args).catch((e) =>
-          e && e.timedOut ? { code: -1, stdout: '', stderr: String(e.message) } : _runVerbCold(args)
+      ? _runVerbWarm(args).then(
+          (r) => stamp(r, 'warm'),
+          (e) =>
+            e && e.timedOut
+              ? { code: -1, stdout: '', stderr: String(e.message), path: 'killed', ms: Date.now() - t0 }
+              : (console.error(
+                  `[lyric] warm worker unavailable (${e && e.message}); answering '${args[0]}' on the COLD path`
+                ),
+                _runVerbCold(args).then((r) => stamp(r, 'cold-fallback')))
         )
-      : _runVerbCold(args)
+      : _runVerbCold(args).then((r) => stamp(r, 'cold'))
   );
 }
 
@@ -553,6 +581,30 @@ function extractRefusal(report) {
   return m ? m[1].trim() : null;
 }
 
+// THE RUN'S OWN THREE DISCLOSURES, READ OUT OF THE REPORT (M-216): which
+// path answered and how long it took (stamped on the result by `runVerb`),
+// the replay memo's warm/cold tally (`REPLAY MEMO: warm — 14 of 28 grading
+// call(s) …`), the count of recorded answers replayed onto a DIFFERENT draft
+// (M-183's stale clause), and — on a plan — how many lines the shape drew,
+// so a later reader never has to infer "a large drawn shape" (M-166) again.
+// Extraction of printed lines, never a second computation (doctrine 1).
+function extractRunRecord(stdout) {
+  const out = {};
+  const memo = /REPLAY MEMO: (warm|cold|off|no run key)(?: — (\d+) of (\d+) grading call\(s\))?/.exec(stdout);
+  if (memo) {
+    out.memo_state = memo[1];
+    if (memo[2] != null) {
+      out.memo_hit = Number(memo[2]);
+      out.memo_asked = Number(memo[3]);
+    }
+  }
+  const stale = /(\d+) of those answer\(s\) were recorded against a DIFFERENT draft/.exec(stdout);
+  out.stale_answers = stale ? Number(stale[1]) : 0;
+  const plan = /PLAN: form=\S+ seed=-?\d+ -> (\d+) line\(s\)/.exec(stdout);
+  if (plan) out.plan_lines = Number(plan[1]);
+  return out;
+}
+
 function verdictOf(r) {
   const banned = extractBannedPairs(r.stdout);
   const uncalibrated = extractUncalibrated(r.stdout);
@@ -561,6 +613,9 @@ function verdictOf(r) {
     exit_code: r.code,
     meaning: EXIT_MEANING[r.code] || `subprocess failure (${r.code}): ${r.stderr.slice(0, 400)}`,
   };
+  if (typeof r.path === 'string') v.path = r.path;
+  if (typeof r.ms === 'number') v.ms = r.ms;
+  Object.assign(v, extractRunRecord(r.stdout));
   if (r.code === 2) {
     const why = extractRefusal(r.stdout);
     if (why) v.refusal = why;
@@ -955,6 +1010,7 @@ export const _verdictInternals = {
   extractReportCounts,
   extractUnreadable,
   extractLoopRecord,
+  extractRunRecord,
   extractBannedPairs,
   EXIT_MEANING,
   loopStatusOf,

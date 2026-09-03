@@ -1552,6 +1552,63 @@ check('validation: actionable errors', () => {
       '429, 502 and 503 all take the bounded retry path'
     );
   });
+  check("the spend pins state the owner's ruling, and the day derives its own turn count (M-215)", () => {
+    // Round 10's turns 0 and 4 stopped MAX_TURN_COST under a $0.10 pin while
+    // mcp/gemini_agent.js's default and BACKLOG's OWNER rows said $2.50 and
+    // $25 (M-197, 2026-09-02). Env wins over a default, so what deploys is
+    // the pin — and no test read the pin. Three reviewers found it the same
+    // afternoon from the same evidence. Pinned like CHAT_TOOL_TIMEOUT_MS:
+    // the yaml value equals the code's default, so the two cannot drift.
+    const yaml = readFileSync(new URL('../render.yaml', import.meta.url), 'utf8');
+    const agent = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
+    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+    const turn = /key: CHAT_MAX_TURN_USD\s+value: '([\d.]+)'/.exec(yaml);
+    const day = /key: CHAT_DAILY_USD\s+value: '([\d.]+)'/.exec(yaml);
+    assert.ok(turn && day, 'render.yaml pins both dollar ceilings');
+    const turnDefault = /maxTurnUsd: Number\(process\.env\.CHAT_MAX_TURN_USD\) \|\| ([\d.]+)/.exec(agent);
+    const dayDefault = /const DAILY_USD = num\('CHAT_DAILY_USD', ([\d.]+)\)/.exec(chat);
+    assert.ok(turnDefault && dayDefault, 'the code declares a default for each');
+    assert.equal(Number(turn[1]), Number(turnDefault[1]), 'the turn pin is the code\'s $2.50, not the old $0.10');
+    assert.equal(Number(day[1]), Number(dayDefault[1]), 'the day pin is the code\'s $25, not the old $2');
+    assert.ok(
+      !/^\s+- key: CHAT_MAX_TURNS_PER_DAY/m.test(yaml),
+      'the turn-count ceiling is DERIVED from the day (chat.js) and not pinned to the old day\'s 400'
+    );
+  });
+  check('every lyric verdict says which path answered, how long it took, and what the run disclosed (M-216)', async () => {
+    // Ten battery rounds could not say whether the deployed box answered
+    // warm or cold, and a turn's harness time was never separable from the
+    // model's (M-170). `runVerb` stamps path and ms on the result, verdictOf
+    // carries them with the replay memo's tally, the stale-answer count and
+    // the plan's line count, and loopFields puts all of them in the tool row.
+    const { _workerInternals: WK, _verdictInternals: VI } = await import('./lyric_tools.js');
+    const { verdictOf, extractRunRecord } = VI;
+    const { _agentInternals: AG } = await import('./gemini_agent.js');
+    const rec = extractRunRecord(
+      '  PLAN: form=verse-chorus seed=7045 -> 16 line(s), 8 section(s): x\n' +
+        '  REPLAY MEMO: warm — 14 of 28 grading call(s) answered from the process memo (runs held: 1 of 4)\n' +
+        '  2 of those answer(s) were recorded against a DIFFERENT draft (L3 attempt 1): this state file was reused\n'
+    );
+    assert.deepEqual(rec, { memo_state: 'warm', memo_hit: 14, memo_asked: 28, stale_answers: 2, plan_lines: 16 });
+    assert.deepEqual(extractRunRecord('nothing here'), { stale_answers: 0 }, 'no line, no number — and stale is 0, not absent');
+    const v = verdictOf({ code: 0, stdout: '  REPLAY MEMO: cold — 0 of 2 grading call(s) answered', stderr: '', path: 'warm', ms: 1234 });
+    assert.equal(v.path, 'warm');
+    assert.equal(v.ms, 1234);
+    assert.equal(v.memo_state, 'cold');
+    const row = AG.loopFields(v);
+    assert.equal(row.path, 'warm');
+    assert.equal(row.ms, 1234);
+    assert.equal(row.memo_hit, 0);
+    assert.equal(row.stale_answers, 0);
+    assert.equal(row.plan_lines, null);
+    const cold = await WK.runCold(['screen', 'fire', 'desire']);
+    assert.ok(typeof cold.stdout === 'string', 'the cold path still answers');
+    const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
+    assert.ok(/stamp\(r, 'warm'\)/.test(src) && /stamp\(r, 'cold-fallback'\)/.test(src) && /stamp\(r, 'cold'\)/.test(src) && /'killed'\)/.test(src),
+      'runVerb names all four paths');
+    assert.ok(/console\.error\([\s\S]*warm worker unavailable/.test(src), 'a fallback to cold is LOGGED, never silent');
+    assert.ok(/console\.error\([\s\S]*warm worker exited/.test(src), 'a worker death is LOGGED');
+  });
   check('one tool budget, four readers — the pin, the default, the client clock, the kill', () => {
     // M-165: round 8's turn 8 was EIGHT consecutive lyric_revise exit -1,
     // 25.6 minutes, MAX_TURN_COST — the 180s subprocess kill sat UNDER the

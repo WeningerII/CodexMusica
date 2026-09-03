@@ -244,4 +244,50 @@ check("an unsortable targeted set is BYPASSED (counted, not keyed, and the "
       f"tally {slot['tally']}")
 
 print(f"\n{'ALL PASS' if not FAILS else f'{len(FAILS)} FAILURE(S)'}")
+print("\n6. THE PROCESS-LEVEL FIELD MEMO (M-217) — a second Reviser in the same "
+      "process is served the first one's fields on an IDENTICAL key, a "
+      "different declaration is a miss, and LYRIC_FIELD_MEMO=0 bypasses it")
+from quality import revise as _RV
+from quality.revise import Reviser as _Rv
+_RV.field_memo_clear()
+lex6 = LH.Lexicon()
+r1 = _Rv(lex=lex6)
+f1 = r1._field_one("rain")
+t1 = _RV.field_memo_tally()
+check("the first Reviser MISSES and stores (one miss, one held)",
+      t1["miss"] == 1 and t1["hit"] == 0 and t1["held"] == 1, str(t1))
+r2 = _Rv(lex=lex6)
+f2 = r2._field_one("rain")
+t2 = _RV.field_memo_tally()
+check("a SECOND Reviser, same lexicon and declaration, HITS — and the field is "
+      "the same list, not a recomputation",
+      t2["hit"] == 1 and t2["miss"] == 1 and f2 == f1, str(t2))
+r3 = _Rv(lex=lex6, decl=LH.Declaration(theta_rhyme=0.9))
+f3 = r3._field_one("rain")
+t3 = _RV.field_memo_tally()
+check("a Reviser with a DIFFERENT declaration (theta 0.9) misses — the "
+      "declaration is in the key",
+      t3["miss"] == 2 and t3["hit"] == 1, str(t3))
+lex_np = LH.Lexicon(strip_parens=False)
+r4 = _Rv(lex=lex_np)
+r4._field_one("rain")
+t4 = _RV.field_memo_tally()
+check("a Reviser over a lexicon with a different aside rule misses — the "
+      "lexicon's identity is in the key",
+      t4["miss"] == 3, str(t4))
+os.environ["LYRIC_FIELD_MEMO"] = "0"
+try:
+    _RV.field_memo_clear()
+    r5 = _Rv(lex=lex6); r5._field_one("rain")
+    r6 = _Rv(lex=lex6); r6._field_one("rain")
+    t5 = _RV.field_memo_tally()
+    check("LYRIC_FIELD_MEMO=0 bypasses the store: two Revisers, zero hits, "
+          "zero misses, nothing held",
+          t5 == {"hit": 0, "miss": 0, "evicted": 0, "held": 0}, str(t5))
+finally:
+    del os.environ["LYRIC_FIELD_MEMO"]
+_RV.field_memo_clear()
+check("the cap is the planner's own envelope (55 lines x 4 places x 2 bands, "
+      "rounded), stated once", _RV.FIELD_MEMO_CAP == 512)
+
 sys.exit(1 if FAILS else 0)

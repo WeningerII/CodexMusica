@@ -369,6 +369,19 @@ function loopFields(v) {
     // later reader can say whether the window held no seed, a predicate was
     // misspelled or the declaration was unbuildable. Extraction, as M-169.
     refusal: typeof v?.refusal === 'string' ? v.refusal : null,
+    // THE PATH, THE CLOCK, THE MEMO, THE STALE COUNT, THE SHAPE (M-216):
+    // the four numbers ten battery rounds could not read. `path` says
+    // whether the deployed box answered warm or cold; `ms` separates
+    // harness time from model time within a turn; `memo_*` is the replay
+    // memo's own tally; `stale_answers` is M-183's clause; `plan_lines` the
+    // drawn shape. Null where the verb printed no such line.
+    path: typeof v?.path === 'string' ? v.path : null,
+    ms: typeof v?.ms === 'number' ? v.ms : null,
+    memo_state: typeof v?.memo_state === 'string' ? v.memo_state : null,
+    memo_hit: typeof v?.memo_hit === 'number' ? v.memo_hit : null,
+    memo_asked: typeof v?.memo_asked === 'number' ? v.memo_asked : null,
+    stale_answers: typeof v?.stale_answers === 'number' ? v.stale_answers : null,
+    plan_lines: typeof v?.plan_lines === 'number' ? v.plan_lines : null,
   };
 }
 
