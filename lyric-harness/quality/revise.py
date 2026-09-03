@@ -4380,7 +4380,28 @@ class Reviser:
                                 continue
                             _off, _ref = self.schema_screen(_off, _calls,
                                                             str(_rel))
+                            # AND THE BAN IS THE SAME FIELD (`MISSING.md`
+                            # M-209). M-204 screened the OFFER and left the
+                            # FORBIDDEN list to the unscreened pool, so the
+                            # ban held words that cannot answer this group
+                            # at all — `bone`, `tone`, `phone` beside a
+                            # `family rhyme` call the judge refuses them
+                            # for. Three things read that list and all
+                            # three were wrong: the renderer says *"every
+                            # word that answers its groups is in the
+                            # FORBIDDEN list"*, which was not established;
+                            # `verify()` RULE 3 rejects OUTRIGHT for taking
+                            # a word that was never in the field; and
+                            # `joint_conflict` is gated on `not _forb`, so
+                            # an unscreened ban SUPPRESSED the tier-2
+                            # dispatch that a genuinely empty field is
+                            # supposed to trigger. Doctrine 9 bans the most
+                            # predictable answer IN ITS OWN FIELD, and a
+                            # word the relation refuses is not in the field.
+                            _forb, _bref = self.schema_screen(
+                                _forb, _calls, str(_rel))
                             _sref.extend(_ref)
+                            _sref.extend(_bref)
                         # ITS OWN COUNT, NOT `screened_out` (doctrine 79).
                         # Folding these into the ban's drop list was this
                         # repair's own first draft and it made the renderer

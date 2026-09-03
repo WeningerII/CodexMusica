@@ -20144,6 +20144,65 @@ entry is about, made settable.
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
 with this entry (2026-09-03).
 
+### M-209 · M-204 screened the OFFER and left the BAN unscreened, so the forbidden list held words the group's own relation refuses — and three readers of that list were wrong at once `CLOSED` 2026-09-03 — found by writing the song M-206/M-207 unblocked, and it discharges M-204's own second owed item
+
+**THE OWED WORK M-204 NAMED, AND IT WAS NAMED IN THE WRONG PLACE.** That
+entry closed with two open items, the second being *"whether the dispatch
+condition should ask satisfaction rather than emptiness"*. The answer is yes,
+and it needed no new dispatch rule at all: the condition was already right and
+the SET it reads was wrong.
+
+MEASURED on seed 5007's own draft, L4's word-3 place — a `schema:family
+rhyme` group whose calls are `road's`, `cold`, `stone`:
+
+```
+BEFORE   offered 0   forbidden 53   joint_conflict FALSE
+AFTER    offered 0   forbidden  0   joint_conflict TRUE    schema_refused 77
+```
+
+The 53 included `bone`, `tone`, `shone`, `scone`, `zone`, `atone`, `cone`,
+`crone`, `phone`, `drone` — every one of which the family-rhyme judge
+REFUSES against `cold` (checked one by one through `screen
+--relation=schema:family rhyme`). They were in the ban because the ban comes
+off the raw pool and M-204's screen touched only `_off`.
+
+**THREE READERS OF THAT LIST, ALL WRONG AT ONCE:**
+
+  1. **THE RENDERER.** `quality/propose.py` prints *"every word that answers
+     its groups is in the FORBIDDEN list below, so the field is empty because
+     doctrine 9 emptied it. The mandate, not the lexicon, is the binding
+     constraint here."* That sentence is only true if the ban IS the set of
+     answering words. It was not, so the writer was told a cause that had not
+     been established — and told to stop searching.
+  2. **`verify()` RULE 3**, which rejects OUTRIGHT — before it looks at
+     whether anything was fixed — a revision that MOVES TO a forbidden word.
+     A word the relation refuses was rejected under doctrine 9's name for a
+     reason doctrine 9 does not state. The OUTCOME does not move (rule 5
+     would reject it for the violation) and the REASON did.
+  3. **`joint_conflict`**, which is `len(calls) > 1 AND not offered AND not
+     forbidden`. **An unscreened ban SUPPRESSED THE TIER-2 DISPATCH** that a
+     genuinely empty field exists to trigger. This is the pit M-204, M-205
+     and the owner's *"trapped door"* complaint are all about, and here the
+     thing holding the trapdoor shut was a list of words that could not have
+     been used.
+
+**THE RULE, STATED ONCE: the ban and the offer are ONE FIELD.** Doctrine 9
+bans the most predictable answer IN ITS OWN FIELD, and a word the group's
+declared relation refuses is not in the field. `_field`'s own capitals
+already say it — *"THE BRIEF AND THE VERDICT HAVE TO ASK THE SAME
+QUESTION"* — and M-204 made the offer ask it while leaving the ban asking
+the old one.
+
+**THE CONTROL IS THE SHAPE OF THE REPAIR**: `schema_screen` runs only for a
+group declaring a `schema:` relation, so on a bare mandate the ban is
+byte-identical and no earlier run reads differently. The refused words are
+carried in `schema_refused`, which is its own count and is never folded into
+`screened_out` (doctrine 79) — the same discipline M-204 shipped, now over
+both lists.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~264~~ **265**
+with this entry (2026-09-03).
+
 ### M-208 · `--backtrack=0` declared no backtrack and M-205's escalation ran one anyway `CLOSED` 2026-09-03 — my own regression, two commits old, found by the suite and not by reading
 
 **OWNED PLAINLY: THIS IS A DEFECT I INTRODUCED.** M-205 (`0252813e`) closed

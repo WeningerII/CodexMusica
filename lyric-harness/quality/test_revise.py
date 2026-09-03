@@ -4405,6 +4405,63 @@ def test_the_offer_is_screened_from_the_offered_words_own_side():
           prompt[prompt.find("OFFERED"):prompt.find("OFFERED") + 300])
 
 
+def test_the_ban_is_the_same_field_as_the_offer():
+    """`MISSING.md` M-209 — M-204 screened the OFFER and left the BAN.
+
+    THE DEFECT, found by writing seed 5007's song. The forbidden list comes
+    off the raw pool; M-204's `schema_screen` touched `_off` alone. So the
+    ban held words the group's own relation REFUSES, and three readers of
+    that list were wrong at once — the renderer's stated cause for an empty
+    field, `verify()` RULE 3's outright rejection, and `joint_conflict`,
+    which is gated on `not forbidden` and so could not dispatch tier 2 on a
+    place whose field was genuinely empty.
+    """
+    print("\n55. M-209 — the ban and the offer are ONE field, and an "
+          "unscreened ban held the trapdoor shut")
+    # `family rhyme` refuses `bone`/`tone` against `cold` and accepts
+    # `told`/`gold` — asked of the judge, not asserted.
+    R = RV.Reviser()
+    fam = "schema:family rhyme"
+    kept, refused = R.schema_screen(["told", "gold", "bone", "tone"],
+                                    ["cold"], fam)
+    check("the premise: this relation splits the raw pool — it accepts two "
+          "of these four against `cold` and refuses two",
+          sorted(kept) == ["gold", "told"]
+          and sorted(refused) == ["bone", "tone"], (kept, refused))
+    lines = ["the cold road goes",
+             "and I owe no loan",
+             "a stone, a thread sewn"]
+    m = SC.mandate([["1.T2", "2.T3", "3.T2"]], n_lines=3,
+                   relations={"A": fam})
+    b = [x for x in R.brief(lines, m) if x.line_no == 2]
+    check("the premise: L2's word-3 place is briefed under the declared "
+          "relation", bool(b) and bool(b[0].fields_by_slot), b)
+    f = list(b[0].fields_by_slot.values())[0]
+    check("every word the brief still FORBIDS answers the group — the ban "
+          "is the offer's own field now, and nothing the relation refuses "
+          "sits in it",
+          all(R.schema_screen([w], list(f.calls), fam)[0]
+              for w in f.forbidden),
+          [w for w in f.forbidden
+           if not R.schema_screen([w], list(f.calls), fam)[0]][:6])
+    check("...and the refusals are carried in `schema_refused`, their own "
+          "count, never folded into the ban's (doctrine 79)",
+          len(f.schema_refused) > 0
+          and not (set(f.schema_refused) & set(f.forbidden)),
+          (len(f.schema_refused), len(f.forbidden)))
+    # THE CONTROL, and it is the shape of the repair: a mandate declaring NO
+    # schema runs no screen, so its ban is the one it always was.
+    m0 = SC.mandate("ABAB", n_lines=4)
+    f0 = [f for b0 in R.brief(list(CLICHE), m0)
+          for f in (b0.fields_by_slot or {}).values()]
+    check("CONTROL: with no `schema:` declared the screen never runs and "
+          "the ban is untouched — 4 places, every one with a real ban and "
+          "no refusal, so no earlier run reads differently",
+          len(f0) == 4 and all(f.schema_refused == () for f in f0)
+          and all(f.forbidden for f in f0),
+          [(len(f.forbidden), f.schema_refused) for f in f0])
+
+
 def test_a_pair_finding_names_its_own_group():
     """`MISSING.md` M-207 — two groups can hold ONE line pair at TWO words.
 
@@ -4614,7 +4671,8 @@ if __name__ == "__main__":
                test_the_findings_own_direction_is_pinned,
                test_the_offer_is_screened_from_the_offered_words_own_side,
                test_the_offer_falls_back_per_call_when_the_conjunction_is_empty,
-               test_a_pair_finding_names_its_own_group):
+               test_a_pair_finding_names_its_own_group,
+               test_the_ban_is_the_same_field_as_the_offer):
         fn()
     print("=" * 62)
     if FAILURES:
