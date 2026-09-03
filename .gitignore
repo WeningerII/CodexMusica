@@ -41,3 +41,7 @@ graphify-out/
 # sidecar in the tree would put an untracked file next to every fixture a
 # suite revises.
 *.briefed.json
+
+# Python bytecode caches anywhere in the tree (mcp/worker.py is imported by tests and reviews;
+# lyric-harness/.gitignore already carries the same rule for its own subtree)
+__pycache__/
