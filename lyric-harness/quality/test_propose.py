@@ -799,12 +799,24 @@ def test_model_proposer_drives_a_real_loop_to_success():
           f"fixed {res.rounds[0].fixed_lines}, resolved elsewhere "
           f"{res.rounds[0].resolved_elsewhere}, unresolved "
           f"{[b.line_no for b in res.unresolved]}")
+    # REPINNED 2026-09-03 with M-210 from ~~`len(seen) >= 4`~~: that floor
+    # counted on L3 and L4 each being prompted ONCE before the round noticed
+    # their partner's fix had closed them — the stale-snapshot behaviour
+    # M-210 ends. The carry-forward reaches them inside the round, so they
+    # are never prompted at all, and the honest count is one prompt per
+    # line the loop actually FIXED. The closed lines are asserted absent
+    # from the prompts, which is the stronger property.
+    closed_texts = {CLICHE[n - 1] for n in res.rounds[0].resolved_elsewhere}
     check("the stub was driven by the PROMPT and nothing else -- it never "
           "saw a Brief, so a prompt missing the line or the offered field "
-          "could not have produced these; retries past 4 are the rejected "
-          "first offers being re-asked, reasons in hand",
-          len(seen) >= 4 and all(_reads_the_prompt(p)[0] for p in seen),
-          f"{len(seen)} prompt(s)")
+          "could not have produced these; and a line another line's fix "
+          "CLOSED is never prompted (M-210), so the prompts are exactly the "
+          "lines fixed",
+          len(seen) == len(res.rounds[0].fixed_lines) >= 2
+          and all(_reads_the_prompt(p)[0] for p in seen)
+          and not any(_reads_the_prompt(p)[0] in closed_texts for p in seen),
+          f"{len(seen)} prompt(s); fixed {res.rounds[0].fixed_lines}; "
+          f"closed {res.rounds[0].resolved_elsewhere}")
     check("the loop's output is a real draft, and every changed line was "
           "one the loop had opened — and only those (repinned 2026-09-01, "
           "M-185: L3/L4 are closed by L1/L2's moves and stay as written)",
