@@ -20143,3 +20143,103 @@ entry is about, made settable.
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
 with this entry (2026-09-03).
+
+### M-204 · Tier 2 is dispatched on "the word list came back EMPTY", not on "nothing in the list can pass", so the loop grinds tier 1 against a group no offered word can answer `OPEN` 2026-09-03 — found by writing a song; the first TWO write-ups of it were wrong, and the owner corrected the second
+
+**THIS ENTRY'S FIRST DRAFT IS STRUCK AND KEPT (doctrine 17), BECAUSE THE
+ERROR IS THE MORE USEFUL RECORD.** It was titled *"~~`semirhyme` cannot be
+satisfied by any English pair: the overhang it REQUIRES steals the coda it
+also requires to agree~~"*, and it argued that the schema's satisfaction set
+is *"~~empty by construction, not by accident of vocabulary~~"*. That is
+**FALSE**, and it was reported to the owner in those words before it was
+checked. Six negative samples (`late~waiting`, `late~later`, `late~elated`,
+`late~debating`, `late~freighted`, `late~rotating`) were generalised to a
+universal claim without testing the class that would falsify it. It falsifies
+in one line:
+
+```
+late   ~ lately     -> True      bright ~ brightly  -> True
+last   ~ lastly     -> True      wide   ~ widely    -> True
+kind   ~ kindly     -> True      cold   ~ coldly    -> True
+late   ~ later      -> False     wait   ~ waiting   -> False
+hold   ~ holder     -> False     soft   ~ softly    -> False
+hand   ~ handbook   -> False     band   ~ bandstand -> False
+```
+
+**THE MECHANISM WAS RIGHT AND THE CONCLUSION WAS NOT.** A consonant only
+slides forward off the anchor syllable when it can legally START the next one.
+In `later` the `t` can open `-ter`, so the anchor's coda empties and the
+`coda AGREE @ scope='anchor'` rule fails. In `lately` the cluster `tl` cannot
+open a syllable, the `t` stays where it is, and the same rule passes. So
+`semirhyme` is not self-contradicting; it is **narrow** — it reaches the
+`-tly`/`-stly`/`-dly` shape and not the `-er`/`-ing` shape. Narrow is a
+property a schema is allowed to have. This is the third flattering-direction
+record error in four days (M-199, M-200), and the direction is always the
+same: the tool is blamed for what the session did not check.
+
+**THE DEFECT THAT SURVIVES THE CORRECTION, AND IT IS REAL.** `Reviser.brief`
+computes the OFFERED field through `joint_field_screened` — the SCALAR band
+and the coarse admit set — while `grade()` judges a group carrying a
+`schema:` relation through `relations.pair_satisfies`. On seed 1067's group B
+(L6's `late` ~ L7's end word, `schema:semirhyme`) the brief offered **24
+words** — `that, get, right, at, let, night, might, bit, yet, meet, tonight,
+sit, eat, forget, hit, quite, set, fight, met, light, alright, white,
+street` — under the heading *"words for the end word that answer every group
+bound there"*. **Not one of them can answer it**: every one is a flush
+monosyllable, and `require_b` demands the overhang. Measured on six drafted
+candidates built off that list — three ACCEPTED by `verify()` (fixing two or
+three OTHER findings each) with group B's `SCHEME_VIOLATION` standing after
+every one.
+
+**AND THE WORDS THAT DO WORK ARE THE ONES THE FIELD REMOVES.** `lately`,
+`greatly`, `stately` satisfy the schema. They are absent from the offer, and
+the scalar would rank them BELOW the words that cannot work, because
+`ReviseDeclaration.trailing_syllable_penalty` docks 0.15 for exactly the
+overhang the schema REQUIRES. The two instruments are not merely different;
+on this schema they are opposed — the scalar penalises the feature the
+verdict demands.
+
+**SAME SPECIES AS M-202, ONE DOOR OVER.** M-202 was the offer asking a
+CONJUNCTION where the verdict asks about pairs. This is the offer asking the
+SCALAR where the verdict asks a SCHEMA. Both hand the writer a list under a
+heading that promises it answers the group, and in both the promise is false
+for a reason the writer cannot see from the brief.
+
+**THE SECOND WRONG WRITE-UP WAS THE REPAIR, AND THE OWNER CALLED IT.** This
+entry's second draft proposed to fix the mismatch by DISCLOSING it — the
+brief would name the schema that judges the place and warn that the list came
+from another door. That was built, pinned and passing, and it is
+**WITHDRAWN** and reverted. The ruling, verbatim: *"I think you are over
+engineering this. I also believe you are compensating for the shortcomings of
+the program which, is rowing against our north star."* It is right. Better
+warning text makes the WRITER route around a loop that is not doing its job;
+it is the human compensating for the machine, which is the opposite of what
+this harness is for.
+
+**THE ACTUAL DEFECT, WHICH BOTH DRAFTS WALKED PAST.** `quality/loop.py` has
+a backspace already — tier 2, which stops revising one line and revises the
+whole group, offering fresh words for every member (M-105 made it a group
+rather than a pair). It never fired on either song. The dispatch condition is
+the candidate field being **EMPTY**, on the theory that an empty field is
+what "no legal move" looks like. On seed 1067 L7 the field held **24 words**,
+so tier 1 was judged well supplied and the loop kept asking for that one line
+— while every one of the 24 fails the schema that actually judges the group.
+**"Did we find any words" and "can any word we found pass" are different
+questions, and they come apart exactly on the groups that trap the loop.**
+The trigger is on the first; the pit is in the second.
+
+**OPEN, AND THE OWED WORK IS NAMED.** Two things, in this order, and neither
+is a renderer:
+
+  1. Why tier 2 ALSO stayed silent on seed 443 L5, where the field genuinely
+     WAS empty and the trigger should have fired. `MISSING.md` M-185 records
+     a tier-2-that-walks-nothing falling through to tier 1; whether that is
+     what happened here is UNCHECKED. This is the first thing to look at and
+     it was not looked at.
+  2. Whether the dispatch condition should ask satisfaction rather than
+     emptiness — and if so, how, given the offer holds bare WORDS and
+     `pair_satisfies` takes LINE PAIRS in stream coordinates (the asymmetry
+     M-139 already recorded).
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ ~~260~~
+**261** with this entry (2026-09-03).
