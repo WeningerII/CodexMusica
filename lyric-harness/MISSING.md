@@ -20144,6 +20144,48 @@ entry is about, made settable.
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
 with this entry (2026-09-03).
 
+### M-220 · The battery ran nine failing turns for an hour and reported at the end, because its only stop rule was "keep going until exit 0" and the job log is unreadable until the job ends `CLOSED` 2026-09-03 — the owner's ruling after round 11, verbatim: *"We should have been alerted on the first turn failure so we could stop the run"*
+
+**THE DESIGN ERROR, OWNED.** M-163 gave the driver one stop rule — a `lyric_revise` exit 0 — and told it to push through parked stops, because round 6 had hung up on an honest exit 3 with six turns unspent. That rule was written for a loop that was slow and it hid a loop that was stuck: round 11's turns 6 and 7 made no tool call at all and the driver read them as parked turns and pressed on, while GitHub served no log line of it until the job ended 61 minutes in. The experiment was designed as a batch and watched as a status light, against an owner who had said all day that iteration time is the cost. Three repairs, all in `scripts/flash_battery.mjs`, none in the harness:
+
+1. **Fail fast is the default for a single-song round.** `--stop-on=malformed,idle` (the default when `--songs=1`; `none` for a multi-song survey, whose job is coverage, or by request) ends the round at the first turn that ends on `MALFORMED_FUNCTION_CALL` after the connector's re-asks (M-219), makes no tool call, or folds no new answer — the `answers_on_record` high-water mark did not move. The round exits **1**, the workflow goes red at that turn, and the run's STATUS — the one signal a watcher can read mid-run — says so within minutes. The reasons are a row in the transcript (`fail_fast`), a summary field (`failed_fast`, `stop_on`) and an `::error` annotation.
+2. **Every turn is an annotation the moment it lands.** `::notice title=battery song N turn T::status ms tools answers_on_record stopped paths` — the paths field is M-216/M-219's warm-or-cold answer, per turn.
+3. **`--smoke` is the two-turn shape a new deploy gets first.** A plan, a grade and the first folds are enough to see whether the model can make a well-formed call against this build; it costs about ten minutes, and no nine-turn round is dispatched before it passes.
+
+**WHAT THIS DOES NOT CLAIM:** that annotations are readable through the API before the step completes — GitHub attaches workflow-command annotations to the check run as the log streams, and whether they are served mid-step is the first thing the next dispatch measures; the fail-fast exit does not depend on it. The driver's fake-server checks in `mcp/test.mjs` are unmoved (their rows carry no `answers_on_record` and no `stopped`, so no fail-fast condition fires on them), and every source regex those checks hold still matches — re-tested against the edited file before commit.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~276~~ **277** with this entry (2026-09-03).
+
+### M-219 · Round 11 — the model batched 32 answers in 9 turns and never reached a stop, because 8 of 9 turns ENDED on a malformed tool call the connector treated as the end of the turn; and the rows still could not say warm or cold `CLOSED` 2026-09-03 — the first battery round since 2026-08-29, on the first deploy since M-187
+
+**THE RUN** (`flash-battery.yml` run 33810239434, 21:52→22:53Z, 61 min, one song, `--turns=9 --pace=130`, deployed connector at main 02e022ff — the M-218 deploy, WITHOUT this afternoon's memos, which are on the branch). Brief: *"a short song about a lighthouse keeper who falls asleep — a couple of verses and a chorus, twenty-odd lines."* Rows, verbatim from `song0.jsonl`:
+
+| turn | ms | tool calls | stopped |
+|---|---|---|---|
+| 0 | 208,277 | `lyric_plan` exit 0 · `lyric_grade` exit 3, **1 banned pair** · `lyric_revise` exit 4 (0 answers on record) | `MALFORMED_FUNCTION_CALL` |
+| 1 | 126,157 | 6 × `lyric_revise` exit 4 (answers 1→6) | `MALFORMED_FUNCTION_CALL` |
+| 2 | 69,984 | 2 × exit 4 (7→8) | `MALFORMED_FUNCTION_CALL` |
+| 3 | 198,686 | 4 × exit 4 (9→12) | `MALFORMED_FUNCTION_CALL` |
+| 4 | 379,425 | **14** × exit 4 (13→26) | `MAX_STEPS` |
+| 5 | 221,024 | 5 × exit 4 (27→31) | `MALFORMED_FUNCTION_CALL` |
+| 6 | 23,310 | none | `MALFORMED_FUNCTION_CALL` |
+| 7 | 31,644 | none | `MALFORMED_FUNCTION_CALL` |
+| 8 | 71,197 | 1 × exit 4 (32); reply `LINE: Deep in the tower I sedate` | — |
+
+Four 502s from the deployment (turns 0, 1, 4 ×2), every one a retry row and none fatal (M-164 held). `reached_stop: null`, `parked: 0`, no flags. Server time ≈ 22 of the 61 minutes; the rest is the 130 s pace and the 502 backoffs.
+
+**WHAT MOVED SINCE ROUND 10, measured against it:** rounds 8–10 relapsed into ONE answered question per turn (M-166 recurrence #3); this round folded **32 answers in 9 turns**, 14 of them inside turn 4 — the batching push in the driver's `CONTINUE` message works. No exit -1 anywhere (M-165 holds). The ban fired on the first grade (1 banned pair) and the loop carried it as a pursued line (M-66/M-84's mechanism) rather than the stamp riding out over it.
+
+**WHAT DID NOT, AND IT IS ONE THING:** the model's own tool call did not parse. Gemini returns `finishReason: MALFORMED_FUNCTION_CALL` for a generated call it could not itself parse, and `runTurn` (`mcp/gemini_agent.js`) treated every non-`STOP` finish as the end of the turn: the broken parts were appended to the transcript and the hop loop broke. So the loop's next question — sitting in the carried state, one hop away — waited a whole user turn and a whole battery pace. **8 of 9 turns ended this way, turns 6 and 7 before any call was made at all**, and turn 8 relapsed to the chat `LINE:` shape. That is the entire gap between 32 answers and a finished song, and it is a CONNECTOR fact: the model's failure is a per-hop event and the connector charged it as a per-turn one.
+
+**THE REPAIR — a bounded re-ask, the shape M-164/M-168 already gave 5xx and 429:** `MALFORMED_CALL_RETRY = { retries: 2 }`. On `MALFORMED_FUNCTION_CALL` with no parsed call the hop's parts are NOT appended (they are the broken call, and appending them hands the model its own mistake as context), the identical request is sent again, and the re-ask spends a hop of `maxSteps` and a request of the quota like any other — `usage.malformedRetries` counts them and an `onEvent('malformed')` row is emitted. After two re-asks the turn stops as before, with `stoppedDetail = {malformedRetries, retriesAllowed, hops, maxSteps}` so the row reads *re-asked twice, then gave up* rather than a bare label (C11's rule). Why two: the third consecutive failure is a model that is not going to call this hop, and the turn should say so and hand back to the driver.
+
+**AND THE ROWS COULD NOT SAY WARM OR COLD — THE SECOND SPELLING DROPPED THEM.** M-216 put `path`, `ms`, the replay memo's tally, `stale_answers` and `plan_lines` on every call through `loopFields`; `chat.js`'s response projection re-spells the tool row by hand (`tools: run.calls.map(...)`) and never learned them, so the battery — which records that array verbatim — banked rows without them. Round 11 therefore cannot say whether the new deploy answered warm, which was the first question it was run to answer. `chat.js` copies the seven fields by name now; `mcp/test.mjs`'s M-216 check reads `chat.js` for all seven, so the next field added to `loopFields` without a row here goes red.
+
+**WHAT THIS ENTRY DOES NOT CLAIM:** that the re-ask produces a well-formed call — that is round 12's measurement. Nor that the memos moved anything here: they were not deployed. The `LINE:` relapse on turn 8 is M-166's recurrence #3 and is not re-recorded here.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~275~~ **276** with this entry (2026-09-03).
+
 ### M-218 · `mcp/test.mjs`'s live lyric checks rode a 300 s per-call clock UNDER the connector's own 600 s kill, and a runner ~13 % slower than the one before it turned the seed-55 plan→grade round trip into `MCP error -32001: Request timed out` `CLOSED` 2026-09-03 — found by watching the CI run that carried M-217's path fix, the verify job red on a diff that touched one markdown file
 
 **MEASURED ON TWO CONSECUTIVE CI RUNS OF THE SAME CODE PATH.** Run 33794068801 (bfa714e8, `verify` green): `node mcp/test.mjs` **786.1 s**, `regression_recipes.js` 351.3 s, every live call under its clock. Run 33796842987 (ad0cba25, a two-line `MISSING.md` path repair and nothing else): `regression_recipes.js` **396.3 s** — the same leaf, the same bytes, a runner 13 % slower — and `mcp/test.mjs` died at **356.2 s** with `FAIL lyric family / MCP error -32001: Request timed out`, after `lyric_recover live` and before `lyric_grade live: two blocks`, i.e. inside the block that plans seed 55 (53 lines, 4 sections) and grades a 53-line draft against the whole-vocabulary default. The 786 s leaf is a live block of ~700 s; a single call in it sat near the cliff, and 13 % moved it over. **REPRODUCED LOCALLY THE SAME HOUR**: on this container, with nothing else of the suite running beside it, the same block — the `lyric_recover` answer to the `lyric_grade live: two blocks` line, i.e. the seed-55 plan and the 53-line grade — took **208 s** (19:46:26 → 19:49:54 by the log's own timestamps), 70 % of the clock it had, on a machine that is not sharing four Playwright leaves. The check's own comment had named this exact species on 2026-08-26 — *"a regression gate may not flip coins on runner speed"* — and moved the clock from the SDK's 60 s to a 300 s literal. It moved the coin, not the shape.

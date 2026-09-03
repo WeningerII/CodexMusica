@@ -28,7 +28,8 @@
 //
 // Usage:
 //   node scripts/flash_battery.mjs --out=DIR [--base=URL] [--songs=N]
-//     [--turns=N] [--pace=SECONDS] [--brief=INDEX]
+//     [--turns=N] [--pace=SECONDS] [--brief=INDEX] [--smoke]
+//     [--stop-on=malformed,idle|none]   (default for one song: malformed,idle)
 //
 // Output: DIR/song<i>.jsonl (one row per turn) and DIR/summary.json.
 
@@ -54,8 +55,29 @@ if (!OUT) {
   process.exit(2);
 }
 const N_SONGS = Math.max(1, parseInt(args.songs || '3', 10));
-const MAX_TURNS = Math.max(2, parseInt(args.turns || '9', 10));
+const MAX_TURNS = args.smoke ? 2 : Math.max(2, parseInt(args.turns || '9', 10));
 const PACE_MS = Math.max(0, parseFloat(args.pace || '130') * 1000);
+// FAIL FAST (M-220, 2026-09-03, the owner's ruling after round 11: "we should
+// have been alerted on the first turn failure so we could stop the run"). A
+// single-song round stops — red, exit 1 — at the first turn that ends on a
+// model-side MALFORMED_FUNCTION_CALL after the connector's re-asks, makes no
+// tool call at all, or folds no new answer (the count on record did not
+// advance). Round 11 ran nine such turns for an hour and reported at the end;
+// the job log is unreadable until a job ends, so the ONLY signal a watcher
+// has mid-run is the run's status, and a run that stops at the first bad turn
+// hands that signal over within minutes instead of at the timeout. `--stop-on`
+// names the conditions (`malformed`, `idle`, `none`); the default for ONE song
+// is all of them and for a multi-song round it is none, because a multi-song
+// round's job is the survey and a single song's job is the diagnosis.
+const STOP_ON = new Set(
+  (args['stop-on'] ?? (N_SONGS === 1 ? 'malformed,idle' : 'none'))
+    .split(',')
+    .map((s) => s.trim())
+    .filter((s) => s && s !== 'none')
+);
+// `--smoke` is the two-turn shape a new deploy gets BEFORE a full round: a
+// plan, a grade and the first folds are enough to see whether the model can
+// make a well-formed call against this build, and it costs ten minutes.
 
 // The briefs vary which gates get exercised: a plain ask, a form with a
 // declared relation, a roster constraint, a revision-heavy ask, a paste-in
@@ -238,6 +260,8 @@ for (const [songNo, briefIdx] of indices.entries()) {
   let turns = 0;
   let retries = 0;
   const loopLadder = []; // M-169: one row per revise call that reached a stop
+  let lastAnswers = -1; // M-220: the answer count the previous turn left on record
+  let failedFast = false;
 
   for (let t = 0; t < MAX_TURNS; t++) {
     const message = t === 0 ? brief : parkedLastTurn ? PARKED_CONTINUE : CONTINUE;
@@ -333,10 +357,40 @@ for (const [songNo, briefIdx] of indices.entries()) {
       }) + '\n'
     );
     turns++;
+    // THE ROW, AS A WORKFLOW ANNOTATION THE MOMENT IT LANDS (M-220): the job
+    // log is served only after the job ends, and an annotation is the one
+    // channel a runner has that a reader can see mid-run.
+    const answersNow = Math.max(
+      lastAnswers,
+      ...tools.map((c) => (typeof c.answers_on_record === 'number' ? c.answers_on_record : -1))
+    );
+    console.log(
+      `::notice title=battery song ${songNo} turn ${t}::status=${r.status} ms=${r.ms} ` +
+        `tools=${tools.length} answers_on_record=${answersNow < 0 ? 'none' : answersNow} ` +
+        `stopped=${p.stopped ?? 'none'} paths=${[...new Set(tools.map((c) => c.path).filter(Boolean))].join('/') || 'unrecorded'}`
+    );
     if (r.status !== 200) break;
     env = { history: p.history, workspace: p.workspace, lyric: p.lyric, sig: p.sig };
     if (sawStop !== null) break; // exit 0 — the song is FINISHED (M-163)
     if (p.error) break;
+    // FAIL FAST (M-220). Three conditions, named separately in the row.
+    const reasons = [];
+    if (STOP_ON.has('malformed') && p.stopped === 'MALFORMED_FUNCTION_CALL')
+      reasons.push('turn ended on MALFORMED_FUNCTION_CALL after the connector re-asks');
+    if (STOP_ON.has('idle') && tools.length === 0) reasons.push('turn made no tool call');
+    if (STOP_ON.has('idle') && t > 0 && answersNow >= 0 && answersNow <= lastAnswers)
+      reasons.push(`no new answer folded (${answersNow} on record, was ${lastAnswers})`);
+    if (reasons.length) {
+      flags.push({ turn: t, flag: 'fail_fast', reasons });
+      appendFileSync(file, JSON.stringify({ turn: t, fail_fast: reasons }) + '\n');
+      console.log(
+        `::error title=battery fail-fast::song ${songNo} turn ${t}: ${reasons.join('; ')}`
+      );
+      process.exitCode = 1;
+      failedFast = true;
+      break;
+    }
+    lastAnswers = Math.max(lastAnswers, answersNow);
     parkedLastTurn = parkedThisTurn;
     await sleep(PACE_MS);
   }
@@ -348,6 +402,8 @@ for (const [songNo, briefIdx] of indices.entries()) {
     retries,
     reached_stop: sawStop,
     parked,
+    failed_fast: failedFast,
+    stop_on: [...STOP_ON],
     loop_ladder: loopLadder,
     flags,
   });
@@ -358,7 +414,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
     .map((l) => `t${l.turn}:${l.stop}/${l.rounds}r/${l.unresolved ?? '?'}open`)
     .join(' ');
   console.log(
-    `song ${songNo}: ${turns} turn(s), stop=${sawStop === null ? (parked ? `NEVER (parked x${parked})` : 'NEVER') : `exit ${sawStop}`}, flags=${flags.length}` +
+    `song ${songNo}: ${turns} turn(s), stop=${sawStop === null ? (parked ? `NEVER (parked x${parked})` : 'NEVER') : `exit ${sawStop}`}, flags=${flags.length}${failedFast ? ', FAILED FAST' : ''}` +
       (ladder
         ? `\n  loop ladder: ${ladder}`
         : '\n  loop ladder: (no call reached a stop condition)')

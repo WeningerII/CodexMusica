@@ -336,6 +336,18 @@ function rateLimitHintMs(res, json) {
 // staring at the chat bar cannot, so the server retries only the transient 5xx
 // (where the backoff is ~1s and the next attempt usually works) and reports a
 // 429 immediately as "busy".
+// A MALFORMED FUNCTION CALL IS RE-ASKED, BOUNDED (M-219, round 11, 2026-09-03).
+// Gemini ends a hop with finishReason MALFORMED_FUNCTION_CALL when the call
+// it generated does not parse; the turn used to END there — the hop's parts
+// were appended and the loop broke — so the loop's next question waited a
+// whole battery pace (130 s) for the next user turn. Round 11: 8 of 9 turns
+// ended this way, two of them before any call was made. The malformed parts
+// are NOT appended (they would be re-read as context), the same request is
+// sent again, and each re-ask spends a hop of `maxSteps` and a request of the
+// quota like any other. Two re-asks, because the third failure in a row is a
+// model that is not going to call this hop, and the turn should say so.
+export const MALFORMED_CALL_RETRY = { retries: 2 };
+
 export const RETRY_TRANSIENT = [500, 502, 503, 504];
 export const RETRY_ALL = [429, ...RETRY_TRANSIENT];
 
@@ -723,8 +735,10 @@ export async function runTurn({
     thoughtsTokens: 0,
     requests: 0,
     retries: 0,
+    malformedRetries: 0,
   };
   const calls = [];
+  let malformed = 0;
   let ws = workspace;
   let lyr = lyric && typeof lyric.state === 'string' ? lyric : null;
   let stopped = null;
@@ -777,6 +791,22 @@ export async function runTurn({
       const parts = candidate?.content?.parts || [];
       const functionCalls = parts.filter((p) => p.functionCall).map((p) => p.functionCall);
 
+      // THE MALFORMED-CALL RE-ASK (MALFORMED_CALL_RETRY, M-219). Nothing of
+      // this hop is kept: the parts are the broken call, and appending them
+      // would hand the model its own mistake as context. The re-ask is the
+      // identical request, counted as a hop and a request.
+      if (
+        candidate?.finishReason === 'MALFORMED_FUNCTION_CALL' &&
+        !functionCalls.length &&
+        malformed < MALFORMED_CALL_RETRY.retries
+      ) {
+        malformed += 1;
+        usage.malformedRetries += 1;
+        if (onEvent) onEvent({ type: 'malformed', attempt: malformed });
+        if (step === limits.maxSteps - 1) stopped = 'MAX_STEPS';
+        continue;
+      }
+
       // Verbatim, including thoughtSignature.
       contents.push({ role: 'model', parts });
 
@@ -788,6 +818,17 @@ export async function runTurn({
         // MAX_TOKENS with no text is a truncated answer, not an answer.
         if (candidate?.finishReason && candidate.finishReason !== 'STOP') {
           stopped = candidate.finishReason;
+          if (stopped === 'MALFORMED_FUNCTION_CALL') {
+            // The re-asks were spent and the model still could not call: say
+            // how many, so a transcript row reads as "re-asked twice, then
+            // gave up" and not as a bare label (M-219; C11's rule).
+            stoppedDetail = {
+              malformedRetries: malformed,
+              retriesAllowed: MALFORMED_CALL_RETRY.retries,
+              hops: step + 1,
+              maxSteps: limits.maxSteps,
+            };
+          }
         }
         break;
       }

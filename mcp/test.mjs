@@ -1218,6 +1218,122 @@ check('validation: actionable errors', () => {
     );
     assert.ok(/refusal: c\.refusal \?\? null,/.test(chat), 'tools[] carries the refusal headline');
   });
+  // ── M-219 (2026-09-03, round 11): a malformed function call is RE-ASKED ──
+  // Round 11 ended 8 of 9 turns on Gemini's MALFORMED_FUNCTION_CALL, two of
+  // them before any call was made; the hop loop treated every non-STOP finish
+  // as the end of the turn, so the loop's next question waited a whole
+  // battery pace. The re-ask is bounded (MALFORMED_CALL_RETRY), spends a hop
+  // and a request, keeps NOTHING of the broken hop in the transcript, and a
+  // turn that exhausts it stops with the count on stoppedDetail.
+  await (async () => {
+    const {
+      runTurn: _runTurn,
+      LIMITS: _LIMITS,
+      MALFORMED_CALL_RETRY: _MCR,
+    } = await import('./gemini_agent.js');
+    const surface = {
+      instructions: '',
+      declarations: [],
+      workspaceTools: new Set(),
+      stateTools: new Set(),
+    };
+    const usageMeta = { promptTokenCount: 10, candidatesTokenCount: 5, thoughtsTokenCount: 0 };
+    const malformed = () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        candidates: [{ content: { parts: [] }, finishReason: 'MALFORMED_FUNCTION_CALL' }],
+        usageMetadata: usageMeta,
+      }),
+    });
+    const call = () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        candidates: [
+          { content: { parts: [{ functionCall: { name: 'lyric_types', args: { a: 'x' } } }] } },
+        ],
+        usageMetadata: usageMeta,
+      }),
+    });
+    const done = () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        candidates: [{ content: { parts: [{ text: 'done' }] }, finishReason: 'STOP' }],
+        usageMetadata: usageMeta,
+      }),
+    });
+    const realFetch = globalThis.fetch;
+    const drive = async (script) => {
+      let hop = 0;
+      globalThis.fetch = async () => script[Math.min(hop++, script.length - 1)]();
+      try {
+        return await _runTurn({
+          apiKey: 'k',
+          surface,
+          callTool: async () => ({ content: [{ type: 'text', text: 'ok' }] }),
+          userText: 'hi',
+          limits: { ..._LIMITS, maxTurnUsd: 0 },
+          retries: 0,
+        });
+      } finally {
+        globalThis.fetch = realFetch;
+      }
+    };
+    check('MALFORMED_CALL_RETRY is two re-asks, stated once', () => {
+      assert.equal(_MCR.retries, 2);
+    });
+    const recovered = await drive([malformed, call, done]);
+    check(
+      'a malformed hop is re-asked in the same turn: the call lands, the turn ends on STOP, and the broken hop left nothing in the transcript',
+      () => {
+        assert.equal(recovered.stopped, null, 'the turn did not stop on the malformed hop');
+        assert.equal(recovered.calls.length, 1, 'the re-asked hop produced the call');
+        assert.equal(recovered.usage.malformedRetries, 1);
+        assert.equal(recovered.usage.requests, 3, 'three requests: malformed, call, done');
+        // history: user, model(call), user(functionResponse), model(done) — no
+        // model turn for the malformed hop.
+        const modelTurns = recovered.history.filter((c) => c.role === 'model');
+        assert.equal(modelTurns.length, 2, 'the malformed hop appended no model turn');
+        assert.ok(
+          modelTurns.every((c) => c.parts.length > 0),
+          'no empty model turn survives'
+        );
+      }
+    );
+    const exhausted = await drive([malformed, malformed, malformed]);
+    check(
+      'three malformed hops in a row exhaust the two re-asks: the turn stops as MALFORMED_FUNCTION_CALL with the count on stoppedDetail',
+      () => {
+        assert.equal(exhausted.stopped, 'MALFORMED_FUNCTION_CALL');
+        assert.equal(exhausted.usage.malformedRetries, 2);
+        assert.equal(exhausted.stoppedDetail.malformedRetries, 2);
+        assert.equal(exhausted.stoppedDetail.retriesAllowed, 2);
+        assert.equal(exhausted.stoppedDetail.hops, 3);
+        assert.equal(exhausted.calls.length, 0);
+      }
+    );
+  })();
+  check('chat.js tools[] carries the seven M-216 fields loopFields stamps (M-219)', () => {
+    // Round 11's rows had none of them: loopFields put them on every call and
+    // chat.js's hand-spelled row projection never learned them.
+    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+    for (const f of [
+      'path',
+      'ms',
+      'memo_state',
+      'memo_hit',
+      'memo_asked',
+      'stale_answers',
+      'plan_lines',
+    ]) {
+      assert.ok(
+        new RegExp(`^\\s+${f}: c\\.${f} \\?\\? null,`, 'm').test(chat),
+        `tools[] carries ${f}`
+      );
+    }
+  });
   // ── M-168's swerve (2026-09-02): an exit 2 carries the harness's own reason ──
   // Round 10's record holds two lyric_sweep calls and one lyric_plan call at
   // exit 2 with `error: null` and nothing else. The extractor reads the
