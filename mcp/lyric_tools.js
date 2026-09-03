@@ -331,19 +331,21 @@ function runVerb(args) {
   // three days of cold production (M-187).
   const t0 = Date.now();
   const stamp = (r, path) => ({ ...r, path, ms: Date.now() - t0 });
+  // The tail of a killed call, kept apart so the ternary below stays the
+  // one-line shape the M-165 pin reads (`e && e.timedOut ? { code: -1`).
+  const killed = (e, t) => ({
+    stdout: '',
+    stderr: String(e.message),
+    path: 'killed',
+    ms: Date.now() - t,
+  });
   return enqueue(() =>
     WORKER_ENABLED
       ? _runVerbWarm(args).then(
           (r) => stamp(r, 'warm'),
           (e) =>
             e && e.timedOut
-              ? {
-                  code: -1,
-                  stdout: '',
-                  stderr: String(e.message),
-                  path: 'killed',
-                  ms: Date.now() - t0,
-                }
+              ? { code: -1, ...killed(e, t0) }
               : (console.error(
                   `[lyric] warm worker unavailable (${e && e.message}); answering '${args[0]}' on the COLD path`
                 ),
