@@ -837,6 +837,37 @@ def _schema_name_of(_RT, want):
     return canon if kind == "schema" else ""
 
 
+#: THE PROCESS-LEVEL FIELD MEMO (`MISSING.md` M-217). Keyed by
+#: `Reviser._field_memo_key` — the instance key PLUS every declared field of
+#: the `Declaration` PLUS the lexicon's identity — so a hit is only ever an
+#: IDENTICAL question. Bounded LRU: the cap is the number of distinct bound
+#: places a long song can name (55 lines x 4 places, the planner's own
+#: envelope) times the two field bands, rounded up — one song's worth of
+#: pools, never a runaway store. `LYRIC_FIELD_MEMO=0` bypasses it; the tally
+#: is what a disclosure reads.
+import collections as _collections_fm
+_FIELD_MEMO = _collections_fm.OrderedDict()
+FIELD_MEMO_CAP = 512
+_FIELD_MEMO_TALLY = {"hit": 0, "miss": 0, "evicted": 0}
+
+
+def _field_memo_enabled():
+    return os.environ.get("LYRIC_FIELD_MEMO", "1") != "0"
+
+
+def field_memo_tally():
+    """-> a copy of the process memo's counts; three counts, never summed."""
+    return dict(_FIELD_MEMO_TALLY, held=len(_FIELD_MEMO))
+
+
+def field_memo_clear():
+    """Empty the process memo and zero its tally (tests, and a declaration
+    change a caller wants to be sure is not served from before it)."""
+    _FIELD_MEMO.clear()
+    for k in _FIELD_MEMO_TALLY:
+        _FIELD_MEMO_TALLY[k] = 0
+
+
 class Reviser:
     """Grades a draft, briefs a revision, and verifies the result."""
 
@@ -3765,6 +3796,38 @@ class Reviser:
         """
         return [self._field_one(w, profile=profile) for w in calls]
 
+    def _field_memo_key(self, key):
+        """-> the PROCESS-level key for one `_field_one` answer, or None.
+
+        THE PER-INSTANCE KEY BELOW OMITS THE LEXICON AND THE REST OF THE
+        DECLARATION BECAUSE BOTH ARE CONSTANT FOR ONE `Reviser`. A memo that
+        outlives the instance (`_FIELD_MEMO`, `MISSING.md` M-217) must carry
+        them, or one declaration's field is served to another's caller — the
+        substitution doctrine 1 exists for, and the reason M-155's
+        `_WVP_MEMO` keys on the phonology's own declaration. Everything the
+        answer reads is here: the instance key (word, promotion, depth, band,
+        profile, theta, admit), every declared field of `Declaration`
+        (`discriminate.declaration_tuple` — the same spelling the feature
+        cache uses), and the lexicon's identity (its dictionary file, its
+        aside rule, its G2P fallback and that fallback's floor). A lexicon
+        this cannot describe returns None and the process memo is bypassed
+        for it — a miss, never a wrong hit.
+        """
+        try:
+            from quality.discriminate import declaration_tuple
+            from lyric_harness import CMUDICT_PATH as _cmudict_path
+            dt = tuple(sorted(declaration_tuple(self.decl).items()))
+            lex = self.lex
+            fb = getattr(lex, "g2p_fallback", None)
+            lk = (type(lex).__name__,
+                  getattr(lex, "strip_parens", None),
+                  None if fb is None else (type(fb).__name__,
+                                           getattr(fb, "min_confidence", None)),
+                  str(_cmudict_path))
+            return (key, dt, lk)
+        except Exception:
+            return None
+
     def _field_one(self, word, profile=None):
         rd = self.rdecl
         # `decl.admit` IS PART OF THE KEY since 2026-08-26 (M-139). It became
@@ -3777,6 +3840,23 @@ class Reviser:
         hit = self._field_cache.get(key)
         if hit is not None:
             return hit
+        # THE PROCESS MEMO (M-217, 2026-09-03). A field is a pure function of
+        # (word, declaration, lexicon); measured three times on the seed-7009
+        # replay, a REAL fold in a warm process still cost 69-72 s because a
+        # fresh `Reviser` per request rebuilt its ~22 pools from scratch —
+        # `_field_cache` is per instance and dies with it. This tier outlives
+        # the instance on the wider key. LRU at a derived bound, bypassed by
+        # `LYRIC_FIELD_MEMO=0`, and the tally is readable so a disclosure can
+        # say warm or cold rather than leaving the two indistinguishable.
+        mkey = self._field_memo_key(key) if _field_memo_enabled() else None
+        if mkey is not None:
+            mhit = _FIELD_MEMO.get(mkey)
+            if mhit is not None:
+                _FIELD_MEMO.move_to_end(mkey)
+                _FIELD_MEMO_TALLY["hit"] += 1
+                self._field_cache[key] = mhit
+                return mhit
+            _FIELD_MEMO_TALLY["miss"] += 1
         depth = rd.field_depth
         if depth is None:                 # the COMPLETE pool, not a literal
             depth = len(self.engine.index) + 1
@@ -3810,6 +3890,12 @@ class Reviser:
         if len(self._field_cache) > 64:
             self._field_cache.clear()
         self._field_cache[key] = passing
+        if mkey is not None:
+            _FIELD_MEMO[mkey] = passing
+            _FIELD_MEMO.move_to_end(mkey)
+            while len(_FIELD_MEMO) > FIELD_MEMO_CAP:
+                _FIELD_MEMO.popitem(last=False)
+                _FIELD_MEMO_TALLY["evicted"] += 1
         return passing
 
     def _spelled_rime(self, word):

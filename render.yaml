@@ -105,8 +105,14 @@ services:
       # (audit F128). /chat/status now reports `capDurable: false` and
       # `countingSince`, and the service logs the same thing at boot, so the
       # limitation is visible rather than inferred.
+      #
+      # $2 UNTIL 2026-09-03; the owner raised it to $25 on 2026-09-02 (BACKLOG.md
+      # "RULINGS TAKEN UNDER DELEGATION", M-197, OWNER) and this pin did not
+      # move — so the box kept the old day while mcp/chat.js's default and its
+      # comments described the new one (M-215). mcp/test.mjs now pins these
+      # values to that ruling, the way it already pins CHAT_TOOL_TIMEOUT_MS.
       - key: CHAT_DAILY_USD
-        value: '2'
+        value: '25'
       # Where the daily counters live, so they survive a restart.
       #
       # UNSET TODAY, DELIBERATELY, because this blueprint declares no `disk:` —
@@ -136,13 +142,25 @@ services:
       # deliberately independent of the pricing table: it still fires if the
       # cost arithmetic is ever wrong in the cheap direction. In normal
       # operation CHAT_DAILY_USD is what the service hits first.
-      - key: CHAT_MAX_TURNS_PER_DAY
-        value: '400'
+      #
+      # NOT PINNED SINCE 2026-09-03 (M-215): the owner ruled it DERIVED from the
+      # dollar day (`dailyUsd / MEAN_TURN_USD * TURNS_HEADROOM`, 5,000 at $25 —
+      # M-197's second OWNER row), and mcp/chat.js derives exactly that when
+      # the variable is unset. A pin here was a second spelling of one number;
+      # the '400' that stood here was the $2 day's, and it outlived the day.
+      # (CHAT_MAX_TURNS_PER_DAY may still be set by hand to OVERRIDE the
+      # derivation; mcp/test.mjs asserts this file does not.)
+      #
       # What ONE turn may spend before it stops between hops. maxSteps bounds
       # the hop count, but every hop re-sends the whole transcript, so cost
       # grows faster than the step counter does. Measured worst prompt: $0.033.
+      #
+      # $0.10 UNTIL 2026-09-03 — and it was LIVE: flash-battery round 10's
+      # turns 0 and 4 stopped MAX_TURN_COST at 8 and 4 tool calls while the
+      # code claimed a $2.50 cap (M-197, OWNER, 2026-09-02) that this pin
+      # overrode, env winning over the default (mcp/gemini_agent.js). M-215.
       - key: CHAT_MAX_TURN_USD
-        value: '0.1'
+        value: '2.5'
       # What ONE tool call may take before both of its clocks give up: the MCP
       # client's callTool timeout in mcp/chat.js AND the python subprocess kill
       # in mcp/lyric_tools.js read this one value through mcp/budget.js
