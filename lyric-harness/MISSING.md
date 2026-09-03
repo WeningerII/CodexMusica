@@ -20084,3 +20084,62 @@ predicate the caller declares, not a floor.
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~258~~ **259**
 with this entry (2026-09-03).
+
+### M-203 · `finish` printed "NO SUBDIVISION DECLARED — the slot questions refuse" while grading under the plan's own subdivision, one line under a sentence saying so `CLOSED` 2026-09-03 — found by reading `finish`'s own output on the first brief of a from-scratch song
+
+**THE SAME RUN SAID BOTH THINGS, ONE LINE APART.** `finish songs/drafts/
+not_going.draft.txt --seed=1067` printed
+
+> `MANDATE: read from the plan (seed 1067) — … and the subdivision is the`
+> `plan's own. Nothing on this command line restates any of it.`
+> `BLUEPRINT: /tmp/finish_bp_w9_yc9g9.json — meter and song-function join the`
+> `rhyme/floor finding set, NO SUBDIVISION DECLARED — the slot questions`
+> `refuse rather than assume one`
+
+and then, in the very first brief it issued, a `PROMINENCE_CANNOT_ALIGN`
+finding on L3 reading *"at most 0 of 1 can, over 5 slots at 1 per pulse …
+CONDITIONAL ON: Subdivision(1) — the plan's own declared subdivision (seed
+1067), read off the artifact `finish` derived the mandate from"*. The slot
+questions were not refused. They were answered, under a coordinate the
+banner said did not exist.
+
+**THE CAUSE IS A SECOND SOURCE FOR ONE FACT (doctrine 1).**
+`_say_blueprint` read `sub_arg` — the `--subdivision` FLAG — and **`finish`
+does not take that flag**: it builds `FT.Subdivision(int(finish_plan
+["subdivision"]), source=…)` off the plan artifact about twenty lines below,
+and hands THAT to `revise_loop`. So on every `finish` run the banner reported
+the command line while the analysis ran on the artifact, and the two could
+not agree by construction. `brief`/`verify`/`revise` were never wrong here,
+because on those verbs the flag IS the source — which is exactly why nothing
+caught it: the banner is correct on three of the four verbs that print it.
+
+**THE REPAIR IS TO READ THE OBJECT THE LOOP IS HANDED**, which is the same
+object on every path: built from `sub_arg` through `_subdivision_or_refuse`
+on the three flag-taking verbs (byte-identical output there, the flag's own
+integer), and from the artifact on `finish`. The SOURCE travels with the
+coordinate (`quality/fit.py`'s `_Sourced`), so the banner now names where the
+number came from instead of implying the command line:
+`subdivision=1 (the plan's own declared subdivision (seed 1067), read off the
+artifact `finish` derived the mandate from)`.
+
+**WHY IT MATTERS MORE THAN A COSMETIC LINE.** `NO SUBDIVISION DECLARED` is
+not a null statement in this repo — it is the *refusal* half of doctrine 20,
+and it tells a reader that the meter layer's slot questions came back
+UNANSWERED. A reader taking that at face value would discount every
+`PROMINENCE_*` finding in the same report as un-asked, and would re-run with
+`--subdivision` to "turn it on" — a flag `finish` refuses. The false sentence
+pointed at a remedy that does not exist for the verb printing it.
+
+`quality/test_verbs.py`'s `finish` door section, two checks: the banner names
+the subdivision the run is GRADED under and does not say NO SUBDIVISION
+DECLARED, and it AGREES with the MANDATE line above it. Both are driven off
+the same captured output as the deferred-suspend check beside them, so no new
+`finish` invocation is spent.
+
+**WHAT THIS DOES NOT CLOSE.** It does not give `finish` a `--subdivision`
+flag, and it should not: the plan is the source, and a flag that could
+override it would be a second way to declare one coordinate — the defect this
+entry is about, made settable.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
+with this entry (2026-09-03).

@@ -9329,11 +9329,35 @@ def main():
                 # here is what makes the two runs distinguishable, and it is
                 # doctrine 1 — an analysis states the coordinates it was run
                 # under, including the ones whose effect cancels.
+                # THE SUBDIVISION IN FORCE, NOT THE ONE SPELLED HERE
+                # (`MISSING.md` M-203, 2026-09-03). This read `sub_arg` —
+                # the `--subdivision` FLAG — and `finish` does not take that
+                # flag: it builds the coordinate from the plan artifact two
+                # dozen lines below, so every `finish` run printed "NO
+                # SUBDIVISION DECLARED — the slot questions refuse rather
+                # than assume one" while the loop graded under
+                # `Subdivision(1)` and the slot questions were ANSWERED. The
+                # same output carried both sentences: the MANDATE line one
+                # line up says "the subdivision is the plan's own", and this
+                # one said there wasn't one. Doctrine 1 — one fact, one
+                # statement — and the wrong half was the one a reader takes
+                # for the coordinate the analysis ran under.
+                #
+                # READ OFF THE OBJECT the loop is actually handed, which is
+                # the same object on every path: `brief`/`verify`/`revise`
+                # build it from `sub_arg` through `_subdivision_or_refuse`,
+                # so this is byte-identical there, and `finish` builds it
+                # from the artifact, which is the case this repairs. The
+                # SOURCE travels with it (`_Sourced`), so the banner can say
+                # where the number came from instead of implying the command
+                # line.
+                _sub_said = (f", subdivision={subdivision.s} "
+                             f"({subdivision.source})" if subdivision
+                             else ", NO SUBDIVISION DECLARED — the slot "
+                                  "questions refuse rather than assume one")
                 print(f"  BLUEPRINT: {bp_path} — meter and song-function "
                       f"join the rhyme/floor finding set"
-                      + (f", subdivision={sub_arg}" if sub_arg else
-                         ", NO SUBDIVISION DECLARED — the slot questions "
-                         "refuse rather than assume one")
+                      + _sub_said
                       + (", ISOCHRONY ASSUMED — units evenly spaced across "
                          "the span, a declared assumption and never a "
                          "measurement (doctrine 4); every setting verdict "

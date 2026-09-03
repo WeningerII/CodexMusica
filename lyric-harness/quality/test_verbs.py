@@ -4568,6 +4568,29 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
     check("...and the state file holds the question, so the run is resumable",
           os.path.exists(state)
           and json.load(open(state)).get("pending") is not None, state)
+    # `MISSING.md` M-203, 2026-09-03 — FOUND BY READING `finish`'s OWN OUTPUT
+    # on the first brief of a from-scratch song. The BLUEPRINT banner read
+    # `sub_arg`, the `--subdivision` FLAG, and `finish` DOES NOT TAKE that
+    # flag: it builds the coordinate from the plan artifact. So every
+    # `finish` run printed "NO SUBDIVISION DECLARED — the slot questions
+    # refuse rather than assume one" while the loop graded under the plan's
+    # own subdivision and those questions were ANSWERED — the same output
+    # carrying both halves of a contradiction one line apart, since the
+    # MANDATE line directly above already says the subdivision is the plan's.
+    # Two checks, because the defect was BOTH a false sentence and a pair of
+    # sentences that disagreed.
+    check("the BLUEPRINT banner names the subdivision the run is GRADED "
+          "under — the plan's own — not the flag this verb does not take",
+          "NO SUBDIVISION DECLARED" not in out
+          and re.search(r"subdivision=\d+ \(the plan's own declared "
+                        r"subdivision \(seed 16\)", out) is not None,
+          next((l for l in out.splitlines() if "BLUEPRINT:" in l), "(none)"))
+    check("...and it AGREES with the MANDATE line above it — one fact, one "
+          "statement (doctrine 1), where the two used to contradict",
+          "the subdivision is the plan's own" in out
+          and "NO SUBDIVISION DECLARED" not in out,
+          next((l for l in out.splitlines() if "MANDATE: read from" in l),
+               "(none)")[:120])
 
     # 6: PAST A STOP CONDITION THE RENDER EXISTS, stamped with the exit the
     # process actually returns. The zero budget reaches NO_PROGRESS
