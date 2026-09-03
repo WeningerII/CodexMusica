@@ -8,6 +8,7 @@ import { execFileSync } from 'node:child_process';
 import { posix } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as E from './engine.js';
+import { TOOL_BUDGET_MS } from './budget.js';
 
 // Raw merged catalog (with the universal cross-instrument materials present) so the
 // guard below can tell a curated variant from a borrowed (expanded, auto:false) one.
@@ -1648,33 +1649,50 @@ check('validation: actionable errors', () => {
       assert.ok(/console\.error\([\s\S]*warm worker exited/.test(src), 'a worker death is LOGGED');
     }
   );
-  check('one tool budget, four readers — the pin, the default, the client clock, the kill', () => {
-    // M-165: round 8's turn 8 was EIGHT consecutive lyric_revise exit -1,
-    // 25.6 minutes, MAX_TURN_COST — the 180s subprocess kill sat UNDER the
-    // 240s the chat client was still willing to wait, and the deferred
-    // replay (~34s base, ~15s per folded answer, measured) legitimately
-    // outlives 180s past ~10 answers. One definition now: budget.js derives
-    // the default, render.yaml pins what deploys, and both clocks read it.
-    const budget = readFileSync(new URL('./budget.js', import.meta.url), 'utf8');
-    const m = /DEFAULT_TOOL_BUDGET_MS = ([\d_]+)/.exec(budget);
-    assert.ok(m, 'budget.js declares the derived default');
-    const def = Number(m[1].replace(/_/g, ''));
-    const yaml = readFileSync(new URL('../render.yaml', import.meta.url), 'utf8');
-    const y = /key: CHAT_TOOL_TIMEOUT_MS\s+value: '(\d+)'/.exec(yaml);
-    assert.ok(y, 'render.yaml pins the deployed value — the battery derives its deadline from it');
-    assert.equal(Number(y[1]), def, 'the pin and the default are one value, not two spellings');
-    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
-    assert.ok(/TOOL_TIMEOUT_MS = TOOL_BUDGET_MS/.test(chat), 'chat.js reads the shared budget');
-    assert.ok(
-      !/num\('CHAT_TOOL_TIMEOUT_MS'/.test(chat),
-      'and no longer holds its own spelling of it'
-    );
-    const lt = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
-    assert.ok(
-      /SUBPROCESS_TIMEOUT_MS = TOOL_BUDGET_MS/.test(lt),
-      'the subprocess kill is the same budget — no wall under the caller declared patience'
-    );
-  });
+  check(
+    'one tool budget, five readers — the pin, the default, the client clock, the kill, the live test clock',
+    () => {
+      // M-165: round 8's turn 8 was EIGHT consecutive lyric_revise exit -1,
+      // 25.6 minutes, MAX_TURN_COST — the 180s subprocess kill sat UNDER the
+      // 240s the chat client was still willing to wait, and the deferred
+      // replay (~34s base, ~15s per folded answer, measured) legitimately
+      // outlives 180s past ~10 answers. One definition now: budget.js derives
+      // the default, render.yaml pins what deploys, and both clocks read it.
+      const budget = readFileSync(new URL('./budget.js', import.meta.url), 'utf8');
+      const m = /DEFAULT_TOOL_BUDGET_MS = ([\d_]+)/.exec(budget);
+      assert.ok(m, 'budget.js declares the derived default');
+      const def = Number(m[1].replace(/_/g, ''));
+      const yaml = readFileSync(new URL('../render.yaml', import.meta.url), 'utf8');
+      const y = /key: CHAT_TOOL_TIMEOUT_MS\s+value: '(\d+)'/.exec(yaml);
+      assert.ok(
+        y,
+        'render.yaml pins the deployed value — the battery derives its deadline from it'
+      );
+      assert.equal(Number(y[1]), def, 'the pin and the default are one value, not two spellings');
+      const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+      assert.ok(/TOOL_TIMEOUT_MS = TOOL_BUDGET_MS/.test(chat), 'chat.js reads the shared budget');
+      assert.ok(
+        !/num\('CHAT_TOOL_TIMEOUT_MS'/.test(chat),
+        'and no longer holds its own spelling of it'
+      );
+      const lt = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
+      assert.ok(
+        /SUBPROCESS_TIMEOUT_MS = TOOL_BUDGET_MS/.test(lt),
+        'the subprocess kill is the same budget — no wall under the caller declared patience'
+      );
+      // M-218: this file's OWN live clock was the fifth spelling — 300s,
+      // under the 600s kill — and lost a coin flip to runner speed.
+      const self = readFileSync(new URL('./test.mjs', import.meta.url), 'utf8');
+      assert.ok(
+        /const LIVE_OPTS = \{ timeout: TOOL_BUDGET_MS \+ LIVE_MARGIN_MS \}/.test(self),
+        "the live checks' clock is the budget plus a margin, not a fifth literal"
+      );
+      assert.ok(
+        !/timeout: 300_0{3}\b/.test(self), // spelled so this regex is not its own match
+        'and the old 300s spelling is gone from the live path'
+      );
+    }
+  );
   check("the loop's own record of a run survives every layer to the transcript", () => {
     // M-169: revise_loop computes stop_reason / rounds / unresolved, the finish
     // verb prints all three in its [FINISHED …] stamp, and until this check
@@ -2563,10 +2581,23 @@ try {
     // cliff: ~61s wall on the CI runner that passed, MCP error -32001 on
     // the one that didn't, the same call both times. A regression gate
     // may not flip coins on runner speed, so every live lyric call rides
-    // an explicit 300s RequestOptions timeout. This is the TEST's clock
-    // only: production clients keep the SDK default, and the sweep-window
-    // budget in lyric_tools.js is still derived against 60s on purpose.
-    const LIVE_OPTS = { timeout: 300_000 };
+    // an explicit RequestOptions timeout. ~~300s~~ AND THE 300s WAS THE
+    // SAME COIN ONE ROUNDING UP (M-218, 2026-09-03): run 33796842987's
+    // runner was ~13% slower than the green run before it (regression_
+    // recipes 351s -> 396s) and the seed-55 plan->grade call crossed 300s
+    // — `MCP error -32001: Request timed out`, the SDK's anonymous
+    // sentence, while the connector's own kill (`SUBPROCESS_TIMEOUT_MS`,
+    // budget.js's ONE budget, 600s) sat ABOVE it and never got to answer.
+    // A test clock under the connector's kill is M-165's wall-under-the-
+    // caller shape inside the test. So the clock is DERIVED, not spelled:
+    // the budget plus the bridge's own margin, so a call that outlives
+    // the budget is answered by the connector as `path: 'killed'`, a
+    // named verdict this file can read, and never by the SDK's timeout.
+    // This is still the TEST's clock only: production clients keep the
+    // SDK default, and the sweep-window budget in lyric_tools.js is still
+    // derived against 60s on purpose.
+    const LIVE_MARGIN_MS = 30_000;
+    const LIVE_OPTS = { timeout: TOOL_BUDGET_MS + LIVE_MARGIN_MS };
     const callText = async (name, args) => {
       const res = await client.callTool({ name, arguments: args }, undefined, LIVE_OPTS);
       assert.ok(!res.isError, `${name} answered without isError`);
