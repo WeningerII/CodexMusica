@@ -1945,7 +1945,7 @@ if __name__ == "__main__":
 
 
 # ============================================================================
-# 20. A RETURN IS A CLASS, AND REVISING ONE MEMBER IS REFUSING TO REVISE
+# 23. A RETURN IS A CLASS, AND REVISING ONE MEMBER IS REFUSING TO REVISE
 # ============================================================================
 # `MISSING.md` M-201, owner's ruling 2026-09-02, found by the FIRST clean
 # end-to-end run rather than by reading. A `REQUIRE_RETURN` group says these
@@ -1962,7 +1962,7 @@ if __name__ == "__main__":
 # the over-reach: an ORDINARY rhyme group is NOT a class of identical lines,
 # and propagating into one would rewrite lines nobody asked about — the
 # untargeted-line rejection `verify()` has enforced since it was written.
-print("\n20. a RETURN class is revised together; an ordinary group is not")
+print("\n23. a RETURN class is revised together; an ordinary group is not")
 from quality.loop import _try_tier1 as _T1
 from quality.revise import Brief as _B, ReviseDeclaration as _RD
 
