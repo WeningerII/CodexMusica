@@ -978,7 +978,10 @@ check('validation: actionable errors', () => {
         assert.equal(st.byId('seed:2#bbbb').seed, 2);
         st.put('seed:3', { seed: 3, status: 'suspended', state: '{}', run_id: 'seed:3#cccc' });
         assert.equal(st.size(), 2, 'the cap evicts the least recently used');
-        assert.equal(st.get('seed:2'), null, 'seed:2 was the coldest (seed:1 was touched by get)');
+        // `get` touched seed:1, then `byId` touched seed:2 — so seed:1 is the
+        // coldest when seed:3 arrives.
+        assert.equal(st.get('seed:1'), null, 'seed:1 was the coldest');
+        assert.equal(st.get('seed:2').seed, 2, 'seed:2, touched last, survives');
         t = 2000;
         assert.equal(st.size(), 0, 'the TTL forgets an idle run');
         assert.equal(runKeyOf({ seed: 7 }), 'seed:7');
