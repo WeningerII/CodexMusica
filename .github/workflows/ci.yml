@@ -65,10 +65,10 @@ on:
   # drive lands a song.
   # schedule:
   #   - cron: '0 6 * * 1'
-    # Nightly, for the checks the measurement in `suites` prices out of a pull
-    # request. Deliberately NOT at :00 — GitHub's scheduler queues cron runs
-    # globally and the top of the hour is the most contended minute there is,
-    # which shows up as a scheduled run starting late or being dropped.
+  # Nightly, for the checks the measurement in `suites` prices out of a pull
+  # request. Deliberately NOT at :00 — GitHub's scheduler queues cron runs
+  # globally and the top of the hour is the most contended minute there is,
+  # which shows up as a scheduled run starting late or being dropped.
   #   - cron: '17 4 * * *'
 
 # ONE LIVE RUN PER BRANCH. This is the `gate` job's argument (below) restated at
