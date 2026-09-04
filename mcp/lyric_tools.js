@@ -50,7 +50,12 @@ const PYTHON = process.env.LYRIC_PYTHON || 'python3';
 // ── ceilings (every one refused loudly, none silently clamped) ─────────────
 const MAX_WORDS = 12;
 const MAX_WORD_CHARS = 40;
-const MAX_LINES = 64; // the planner envelope's own total_lines ceiling
+// REPINNED 2026-09-04 from ~~64~~ (M-239): the planner's envelope is derived
+// from the floor's calibrated token range, and the length-curve profile
+// covers 4-3,245 tokens, so `ENVELOPE["total_lines"]` reads (12, 447). The
+// ceiling here is that number and nothing else; a 448-line draft is refused
+// loudly, as a 65-line one was.
+const MAX_LINES = 447; // the planner envelope's own total_lines ceiling
 const MAX_LINE_CHARS = 200;
 // THE MANDATE CEILING IS SIZED TO THE RECOVER DOOR'S OWN OUTPUT (M-195,
 // repinned 2026-09-02 from ~~400~~). A pasted song's mandate is what
@@ -59,9 +64,14 @@ const MAX_LINE_CHARS = 200;
 // MEASURED at the default four places, 4,132 chars over 19 lines, 5,299
 // over 25, 10,009 over 32 (670 pair-groups) — every one of them refused by
 // the old 400, so the prescribed route recover -> check -> revise could not
-// chain past a few lines. Extrapolated to MAX_LINES (64) that is ~40k; the
-// kernel's per-argument ceiling is 128 KiB. Half of that is the bound, and
-// it is still a bound (a runaway is refused, never clamped).
+// chain past a few lines. Extrapolated to ~~MAX_LINES (64) that is ~40k~~
+// 64 lines that is ~40k; the kernel's per-argument ceiling is 128 KiB. Half
+// of that is the bound, and it is still a bound (a runaway is refused, never
+// clamped). REPINNED 2026-09-04 (M-239): MAX_LINES is 447 now, and the same
+// square law puts a recovered cover over 447 lines near 2 MB — so the
+// recover -> check -> revise route reaches about 80 lines under this bound
+// (sqrt(65536 / 10009) * 32), and a longer pasted song's cover is refused
+// here with the count in the message. A ceiling stated, not a clamp.
 const MAX_MANDATE_CHARS = 65536;
 // THE SWEEP WINDOW, DERIVED AGAINST THE TIGHTER OF THE TWO CLOCKS. This
 // connector kills a subprocess at SUBPROCESS_TIMEOUT_MS but the MCP
@@ -1116,7 +1126,7 @@ const linesField = z
   .min(4)
   .max(MAX_LINES)
   .optional()
-  .describe('Exact total line count to request (4-64). Omit to let the planner choose.');
+  .describe('Exact total line count to request (4-447; the planner volunteers 12-447, derived from the calibrated length range). Omit to let the planner choose.');
 
 // THE WRITER'S DECLARATION (MISSING.md M-55). Neither field is sampled here
 // and neither has a default: an omitted field means NOBODY SAID.

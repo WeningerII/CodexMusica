@@ -664,6 +664,23 @@ def cmd_fit(a):
                  100 * median_nan(uc), 100 * pct(uc, 0.05), 100 * pct(uc, 0.95),
                  100 * (median_nan(uc) - median_nan(ub)),
                  "  — E2 FIRES" if median_nan(uc) - median_nan(ub) > 0.02 else ""))
+    # PER-CHECK OVERALL HELD-OUT RATE for the picked model — what
+    # `Profile.held_out_fpr` carries (median, 5th, 95th of seeds, as %).
+    print("\nHELD-OUT RATE PER CHECK, picked model, over ALL held-out items (median [5th-95th] of seeds) — "
+          "the `held_out_fpr` row a profile ships:")
+    all_keys = {bn["k"] for bn in bins}
+    for f in checks:
+        m = picks[f]["model"]
+        rates = []
+        for fs, hid in zip(flag_sets, held_ids):
+            defined = [r for r in rows if r["i"] in hid and r[f] == r[f]]
+            if not defined:
+                continue
+            rates.append(len(fs.get((f, m), set())) / len(defined))
+        print("  %-14s %s  %.2f%% [%.2f-%.2f]  -> (%.2f, %.2f, %.2f)"
+              % (f, m, 100 * median_nan(rates), 100 * pct(rates, 0.05), 100 * pct(rates, 0.95),
+                 100 * median_nan(rates), 100 * pct(rates, 0.05), 100 * pct(rates, 0.95)))
+
     print("\nHELD-OUT UNION PER BIN (picked curves, median over seeds):")
     for bn in bins:
         u = union_rate(flag_sets, held_ids, rows, bins, model_of, {bn["k"]})

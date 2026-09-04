@@ -390,7 +390,11 @@ def gradeable_line_counts():
     """
     tlo, thi = tokens_per_line_band()
     out = set()
+    # Superseded rows (M-239) can grade nothing — `declaration_for` never
+    # picks them — so their reach is not a length the floor can grade.
     for prof in _FL.PROFILES:
+        if prof.superseded_by:
+            continue
         lo = max(1, math.ceil(prof.lo / thi))
         hi = int(prof.hi // tlo)
         out.update(range(lo, hi + 1))
@@ -473,7 +477,24 @@ def song_line_counts():
     1), and `tokens_per_line_band()` one screen up already keys on the same
     field for the opposite reason.
 
-    WHAT THIS COSTS, SAID PLAINLY: a song of fewer than ~~17~~ **22** lines is
+    REPINNED 2026-09-04 (`MISSING.md` M-239, the owner's order *"we need
+    something robust enough to work with the entire spectrum of tokens"*):
+    the two band rows are SUPERSEDED by one lyric-sheet profile whose
+    thresholds are functions of ln N over the whole corpus, 4-3,245 tokens,
+    and this function reads only LIVE sheet profiles — so the set is
+    **1..447, 447 values, NO HOLE** (4 tokens at the band's highest
+    tokens-per-line is 1 line; 3,245 at its lowest is 447). Every seam this
+    docstring diagnosed — 6-11, 18-21, 21 — is closed by the same move, and
+    for the reason it gave: they were facts about which bands were unioned.
+    What the planner VOLUNTEERS is `fillable_line_counts()`, 12..447, and
+    the draw over it is uniform; the owner ruled 2026-09-04 that no ceiling
+    is to be typed in ("55 was wrong, otherwise we wouldn't be here"), and
+    that what makes a song 16 lines or 100 is a DECLARATION — a form, a
+    sweep predicate, a `--lines` — never a number the planner carries.
+    MEASURED over 40 seeds at adoption: median drawn total 201 lines (was
+    ~35 under 12..55), min 18, max 418, 0 refused, 440-line plans in ~4 s.
+
+    WHAT THIS COSTS, SAID PLAINLY: ~~a song of fewer than ~~17~~ **22** lines is
     now outside the planner's envelope — the cost ROSE by five lines with the
     band (M-133), and it rose in the direction this paragraph already priced.
     That is not a narrowing of the harness —
@@ -483,7 +504,11 @@ def song_line_counts():
     own (different) question for any caller that wants the union.
     """
     tlo, thi = tokens_per_line_band()
-    lyric = [p for p in _FL.PROFILES if not p.n_lines]
+    # LIVE sheet profiles only (M-239): a band row a later calibration
+    # superseded keeps its place in `PROFILES` for its own drift check, and
+    # reading its band here would put the seam it was retired for back into
+    # the envelope.
+    lyric = [p for p in _FL.PROFILES if not p.n_lines and not p.superseded_by]
     if not lyric:
         raise PlanRefused(
             "no floor profile declares itself a whole lyric sheet "
@@ -2971,8 +2996,17 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         # so there is exactly one definition of the threshold, and the
         # forced-opener classes are the (token, head) Agree components the
         # claim ledger already carries (M-119's head claims).
-        _aprof = next(p for p in _FL.PROFILES if p.n_lines == 0)
-        _acap = int(_FL.FloorDeclaration().resolve("anaphora_max", _aprof)
+        _aprof = next(p for p in _FL.PROFILES
+                      if p.n_lines == 0 and not p.superseded_by)
+        # A curve profile (M-239) needs a LENGTH IN TOKENS, and a plan has
+        # only lines. The length is DERIVED: the total times the midpoint
+        # of the measured tokens-per-line band (`tokens_per_line_band`, the
+        # same band that turns the profile's token limits into this
+        # envelope). A derivation, disclosed here, not a number chosen.
+        _tlo, _thi = tokens_per_line_band()
+        _atok = max(1, int(round(total * (_tlo + _thi) / 2)))
+        _acap = int(_FL.FloorDeclaration().resolve("anaphora_max", _aprof,
+                                                   _atok)
                     * total + 1e-9)
         _pairc = {}
         _eqp = {}

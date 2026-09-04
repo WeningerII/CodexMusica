@@ -603,7 +603,10 @@ TEXT.** `gradeable_line_counts()` unions `section` (a 4-line quatrain),
 **4–5**, **12–17** and ~~**17–55**~~ **22–55** lines — so 6 to 11 is the space
 between a QUATRAIN and a SONNET and was never a fact about songs.
 `song_line_counts()` reads the profile that grades a lyric sheet, identified by
-its own `n_lines == 0` and never by name: ~~**17..55, 39 values,
+its own `n_lines == 0` and never by name — **and since 2026-09-04
+(`MISSING.md` M-239) that is the length-curve profile, 4–3,245 tokens, so the
+set is `1..447` with NO HOLE and the planner volunteers 12..447 (the owner's
+ruling on the envelope: no typed ceiling; length is a declaration): **~~**17..55, 39 values,
 CONTIGUOUS.**~~ ~~**22..55, 34 values, STILL CONTIGUOUS**~~ **`{6..20} | {22..55}`, 49 values, ONE HOLE AT 21 — REPINNED 2026-09-01 (`MISSING.md` M-193): a second lyric-sheet profile, `short` (50–150 tokens), joined the floor and this function unions every `n_lines == 0` profile by construction; the hole is the seam between two calibrated bands. What the planner VOLUNTEERS is narrower — `fillable_line_counts()`, the totals whose stanza-sized cell ceiling can hold the form's own minimum section count (verse once, chorus twice), so `ENVELOPE["total_lines"]` is (12, 55).** The 2026-08-26 reading, kept: 22..55, 34 values, still contiguous — REPINNED 2026-08-26
 by the M-131 re-adoption (`MISSING.md` M-133), which took the song profile's
 band `lo` from 150 to 200 tokens; this function READS that band, so the
@@ -3454,10 +3457,14 @@ caught reading period rather than quality (doctrine 11 — REPINNED here
 2026-08-21; this file's own index row 11 has carried the strike since
 2026-08-13 and this sentence did not, so the prose and the index of ONE FILE
 disagreed for eight days), so do not build on them and do not
-cite their earlier numbers. The floor knows ~~two~~ **three** text lengths — a
-4-line quatrain, a 14-line sonnet, **and a whole lyric sheet of 150–400
-tokens** — and text outside all three gets no length-sensitive
-finding at all (doctrine 15). **REPINNED 2026-08-21**: `floor.PROFILES` is
+cite their earlier numbers. The floor knows ~~two~~ ~~**three**~~ **three
+text lengths, and the third is a CURVE (REPINNED 2026-09-04, `MISSING.md`
+M-239)** — a 4-line quatrain, a 14-line sonnet, **and a whole lyric sheet of
+~~150–400 tokens~~ 4–3,245 tokens whose thresholds are functions of ln N**
+(the `song` 200–400 and `short` 50–150 band rows are SUPERSEDED, kept for
+their own drift checks) — and text outside all three gets no length-sensitive
+finding at all (doctrine 15); inside the sheet's range nothing is
+extrapolated any more, because there is no edge to extrapolate past. **REPINNED 2026-08-21**: `floor.PROFILES` is
 `section` / `sonnet` / `song`, the third landed 2026-08-11 and was re-adopted
 2026-08-21 at `n_human=3571`. `L-4`'s close repinned three other "two"
 citations — `quality/floor.py`, `BACKLOG.md`'s Tier-5 row, `quality/FLOOR.md`

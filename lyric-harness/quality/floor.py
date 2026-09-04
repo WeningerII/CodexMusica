@@ -261,6 +261,7 @@ careful. The defect is real on arbitrary text and is written down here and in
 the finding instead.
 """
 
+import math
 import os
 import statistics
 import sys
@@ -580,9 +581,68 @@ class Profile:
     #: human text. This is the doctrine-22 statement of the threshold; a
     #: percentile on a scale is not one.
     held_out_fpr: dict = field(default_factory=dict)
+    #: THRESHOLDS AS A FUNCTION OF LENGTH (2026-09-04, `MISSING.md` M-239,
+    #: `quality/RESULTS_LENGTH_CURVE.md`): percentile key -> polynomial
+    #: coefficients in x = ln(n_tokens), lowest degree first, fit by the
+    #: pinball loss over the WHOLE song corpus and held to a nominal 5%
+    #: false-positive rate in every one of 22 length bins. A key present
+    #: here OUTRANKS the same key in `percentiles`, and `threshold()` refuses
+    #: to serve it without a length: a curve is not a number until N is
+    #: known, and guessing N is the doctrine-15 error one layer down.
+    curves: dict = field(default_factory=dict)
+    #: The name of the profile that SUPERSEDED this one, or "". A superseded
+    #: row stays in `PROFILES` — its calibration `--check` and the results
+    #: documents still find it by name, and the record of what it measured
+    #: is not deleted (doctrine 17) — but `declaration_for` never picks it
+    #: and the planner never reads its band.
+    superseded_by: str = ""
 
     def band(self):
         return int(self.lo / self.tolerance), int(self.hi * self.tolerance)
+
+    def threshold(self, key, n_tokens=None):
+        """The threshold for `key` AT THIS LENGTH: the curve evaluated at
+        ln(n_tokens) when one is declared, else the fixed percentile, else
+        None (the check does not run under this profile)."""
+        c = self.curves.get(key)
+        if c is None:
+            return self.percentiles.get(key)
+        if n_tokens is None or n_tokens < 1:
+            raise ValueError(
+                f"the {self.name} profile's {key} is a function of length "
+                f"and was asked without one (n_tokens={n_tokens!r})")
+        x = math.log(n_tokens)
+        return sum(a * x ** j for j, a in enumerate(c))
+
+    def keys(self):
+        """Every threshold this profile DECLARES — fixed percentiles and
+        length curves alike. The suites read this rather than `percentiles`
+        so a curve counts as a declared threshold (M-239)."""
+        return set(self.percentiles) | set(self.curves)
+
+    def curve_text(self, key):
+        """The formula, spelled, for a finding's evidence line."""
+        c = self.curves.get(key)
+        if c is None:
+            return ""
+        terms = []
+        for j, a in enumerate(c):
+            if j == 0:
+                terms.append("%.6g" % a)
+            elif j == 1:
+                terms.append("%+.6g·ln N" % a)
+            else:
+                terms.append("%+.6g·(ln N)^%d" % (a, j))
+        return " ".join(terms)
+
+    def at_length(self, key, n_tokens):
+        """', evaluated at N=... from <formula>' for a curve profile, '' for
+        a fixed one — so every length-sensitive finding under a curve names
+        the number that was APPLIED beside the length it was applied at."""
+        if key not in self.curves:
+            return ""
+        return (f", evaluated at N={n_tokens} tokens from "
+                f"{self.curve_text(key)}")
 
     def covers(self, n):
         return self.lo <= n <= self.hi
@@ -682,6 +742,7 @@ PROFILES = [
     Profile(
         name="song", unit="whole lyric sheet, 200-400 tokens",
         lo=200, hi=400, n_lines=0, n_human=2261, n_generated=0,
+        superseded_by="lyric",  # 2026-09-04, M-239: the length-curve profile below
         tolerance=1.25,
         #: RE-ADOPTED 2026-08-26 AS A SET, AND THE BAND IS THE ONLY THING THAT
         #: MOVED ON ITS OWN. `lo` 150 -> 200; every other constant here follows
@@ -997,6 +1058,7 @@ PROFILES.append(
     Profile(
         name="short", unit="whole lyric sheet, 50-150 tokens",
         lo=50, hi=150, n_lines=0, n_human=3703, n_generated=0,
+        superseded_by="lyric",  # 2026-09-04, M-239: the length-curve profile below
         tolerance=1.25,  # declared, see note: the union FPR FALLS with the factor here
         percentiles={
             "mattr_min": 0.6682,                # human 5th
@@ -1063,6 +1125,51 @@ PROFILES.append(
              "floor is preregistered (RESULTS_SHORT_SONG_FLOOR.md 7).",
     ))
 
+#: THE LYRIC-SHEET PROFILE, THRESHOLDS A FUNCTION OF LENGTH — ADOPTED
+#: 2026-09-04 at the owner's order (`MISSING.md` M-239, preregistered in
+#: `quality/LENGTH_CURVE_PREREGISTRATION.md`, banked in
+#: `quality/RESULTS_LENGTH_CURVE.md`). The two band rows above graded 69%
+#: of the corpus and refused the rest, because each percentile is a fixed
+#: number and the human percentiles DRIFT with length (mattr's 5th 0.64 ->
+#: 0.76, anaphora's 95th 0.50 -> 0.23 across 4-3,245 tokens). This row's
+#: thresholds are the pinball-loss fits in x = ln N over all 8,667 items,
+#: picked by the preregistered rule (fewest parameters passing a nominal 5%
+#: held-out rate in EVERY one of 22 length bins, 200 file-level splits):
+#: C1 for mattr, C2 for the other three. The band rows are SUPERSEDED, not
+#: deleted: their `--check` still re-derives them and this row does not
+#: pretend they never shipped. `tolerance` is 1.0 — inside 4-3,245 there is
+#: no edge to extrapolate past, and outside it the floor REFUSES as it
+#: always did above 400. `percentiles` is EMPTY on purpose: a reader that
+#: wants a number must ask for it at a length.
+PROFILES.append(
+    Profile(
+        name="lyric", unit="whole lyric sheet, 4-3245 tokens, thresholds a function of ln N",
+        lo=4, hi=3245, n_lines=0, n_human=8667, n_generated=0,
+        tolerance=1.0,
+        percentiles={},
+        curves={
+            "mattr_min": (0.489163, 0.0394413),
+            "function_word_ratio_max": (0.692763, -0.0688436, 0.0054502),
+            "anaphora_max": (1.13285, -0.238372, 0.0157485),
+            "line_length_cv_min": (-0.0314058, 0.0359349, -0.00181958),
+        },
+        measured_auc={},
+        held_out_fpr={},
+        source=("corpus/song/eng_*.txt, every `--- TITLE:` item (8,667 over "
+                "1,297 files, 4-3,245 tokens), no sample; thresholds fit by "
+                "the pinball loss in ln N over the whole corpus and held out "
+                "AUTHOR-wise on 200 file-level 50/50 splits, the rate tested "
+                "in 22 fixed bins of 400 items (RESULTS_LENGTH_CURVE.md §5). "
+                "predictable_pair_fraction_max is ABSENT until stage B of "
+                "that cell banks a curve for it, so PREDICTABLE_RHYME does "
+                "not fire under this profile — the `section` and `short` "
+                "profiles' precedent."),
+        note=("Supersedes `song` (200-400) and `short` (50-150), which stay "
+              "above for their own drift checks. A finding under this row "
+              "names the threshold EVALUATED AT THIS TEXT'S LENGTH beside "
+              "the formula, because the number differs at every N."),
+    ))
+
 CALIBRATION["profiles"] = {p.name: p for p in PROFILES}
 
 
@@ -1107,6 +1214,13 @@ LENGTH_SENSITIVE = {
 }
 
 
+def live_profiles():
+    """The profiles `declaration_for` may pick from: `PROFILES` minus the
+    rows a later calibration superseded (M-239). The superseded rows keep
+    their place in `PROFILES` for their own `--check` and for the record."""
+    return [p for p in PROFILES if not p.superseded_by]
+
+
 def declaration_for(n_tokens, n_lines=None):
     """Pick the calibrated profile for a text of `n_tokens`.
 
@@ -1128,7 +1242,7 @@ def declaration_for(n_tokens, n_lines=None):
     order. A caller that passes no line count gets list order, byte for
     byte what it got before the parameter existed.
     """
-    covering = [p for p in PROFILES if p.covers(n_tokens)]
+    covering = [p for p in live_profiles() if p.covers(n_tokens)]
     if covering:
         if n_lines is not None:
             exact_unit = [p for p in covering if p.n_lines == n_lines]
@@ -1138,7 +1252,7 @@ def declaration_for(n_tokens, n_lines=None):
             if sheet:
                 return sheet[0], True
         return covering[0], True
-    reach = [p for p in PROFILES if p.reaches(n_tokens)]
+    reach = [p for p in live_profiles() if p.reaches(n_tokens)]
     if not reach:
         return None, False
     # Nearest MEASURED EDGE, not nearest midpoint. The midpoint rule was fine
@@ -1395,13 +1509,15 @@ class FloorDeclaration:
     #: keep out of a single profile.
     mattr_window: int = 50
 
-    def resolve(self, key, profile):
-        """Override if set, else the profile's measurement, else None -- and
-        None means the check does not run at this length."""
+    def resolve(self, key, profile, n_tokens=None):
+        """Override if set, else the profile's measurement AT THIS LENGTH
+        (`Profile.threshold`: a curve needs `n_tokens`, a percentile ignores
+        it), else None -- and None means the check does not run at this
+        length."""
         v = getattr(self, key, None)
         if v is not None:
             return v
-        return profile.percentiles.get(key) if profile else None
+        return profile.threshold(key, n_tokens) if profile else None
 
 
 class SlopFloor:
@@ -1476,7 +1592,7 @@ class SlopFloor:
                 f"{n_tok} tokens reaches no calibrated length profile, so "
                 f"every length-sensitive check would be SKIPPED and the "
                 f"result would read as clean. Profiles cover "
-                f"{', '.join(f'{p.name} {p.lo}-{p.hi}' for p in PROFILES)} "
+                f"{', '.join(f'{p.name} {p.lo}-{p.hi}' for p in live_profiles())} "
                 f"tokens, each with its own declared tolerance band. Write "
                 f"inside a calibrated length, calibrate this one, or declare "
                 f"`FloorDeclaration(uncalibrated_length='note')` to take the "
@@ -1495,7 +1611,7 @@ class SlopFloor:
                 "OUT_OF_CALIBRATED_LENGTH", "note",
                 f"{n_tok} tokens is outside every calibrated length; the "
                 f"length-sensitive checks did not run",
-                f"profiles cover {', '.join(f'{p.name} {p.lo}-{p.hi}' for p in PROFILES)} "
+                f"profiles cover {', '.join(f'{p.name} {p.lo}-{p.hi}' for p in live_profiles())} "
                 f"tokens, each with a {PROFILES[0].tolerance:g}x tolerance "
                 f"band. MATTR in particular is a moving average over a "
                 f"{d.mattr_window}-token window (declared: "
@@ -1554,14 +1670,14 @@ class SlopFloor:
         #    measured range. Reporting it as "MATTR" is the label defect the
         #    2026-08-14 window sweep found; see CALIBRATION["mattr_window"].
         stat = "TTR" if n_tok <= d.mattr_window else "MATTR"
-        thr = d.resolve("mattr_min", prof)
+        thr = d.resolve("mattr_min", prof, n_tok)
         m = v.get("mattr")
         if thr is not None and m == m and m is not None and m < thr:
             out.append(Finding(
                 "LEXICAL_MONOTONY", sev("flag"),
                 "vocabulary repeats more than human verse did in calibration",
                 f"{stat} {m:.3f} < {thr:.4f} (human 5th percentile, "
-                f"{prof.name} profile); {prof.evidence_for('mattr')}. "
+                f"{prof.name} profile{prof.at_length('mattr_min', n_tok)}); {prof.evidence_for('mattr')}. "
                 + (f"THE STATISTIC HERE IS PLAIN TTR, NOT MATTR: {n_tok} "
                    f"tokens does not exceed the declared "
                    f"{d.mattr_window}-token window, so the moving average "
@@ -1576,14 +1692,14 @@ class SlopFloor:
                 f"only outside the range this corpus occupied"))
 
         # 2. function-word load
-        thr = d.resolve("function_word_ratio_max", prof)
+        thr = d.resolve("function_word_ratio_max", prof, n_tok)
         f = v.get("function_word_ratio")
         if thr is not None and f == f and f is not None and f > thr:
             out.append(Finding(
                 "FUNCTION_WORD_HEAVY", sev("flag"),
                 "a high share of the text is closed-class filler",
                 f"function-word ratio {f:.3f} > {thr:.4f} (human 95th "
-                f"percentile, {prof.name} profile); "
+                f"percentile, {prof.name} profile{prof.at_length('function_word_ratio_max', n_tok)}); "
                 f"{prof.evidence_for('function_word_ratio')}. Null within "
                 f"Shakespeare (0.536), so this "
                 f"is a register signal with no within-tradition support. "
@@ -1591,7 +1707,7 @@ class SlopFloor:
                 f"transfer to agglutinative or polysynthetic languages"))
 
         # 3. anaphora -- repeated line openings
-        thr = d.resolve("anaphora_max", prof)
+        thr = d.resolve("anaphora_max", prof, n_tok)
         a, word = self._anaphora(lines)
         if thr is not None and a > thr:
             hits = [i + 1 for i, l in enumerate(lines)
@@ -1601,7 +1717,7 @@ class SlopFloor:
                 f"{int(a * len(lines))} of {len(lines)} lines open with the "
                 f"same word",
                 f"opening {word!r} at {a:.0%} of lines > {thr:.0%} (human 95th "
-                f"percentile, {prof.name} profile); "
+                f"percentile, {prof.name} profile{prof.at_length('anaphora_max', n_tok)}); "
                 f"{prof.evidence_for('anaphora')}. "
                 f"POST-HOC: this check was not pre-registered, so it needs its "
                 f"own replication before it is trusted"
@@ -1620,21 +1736,27 @@ class SlopFloor:
                    "so this is a failure to reproduce and not a clean bill; "
                    "and `mattr`/`fwr` DO now carry slopes, so period-reading "
                    "moved rather than left (doctrine 11)"
-                   if prof.name == "song" else "")
+                   + (". FOR THE LENGTH CURVES (M-239) THE PERIOD QUESTION "
+                      "WAS NOT RE-ASKED: the band readings above are the "
+                      "only ones on record, and a curve fit across the same "
+                      "authors inherits whatever they carry — not measured, "
+                      "so not claimed either way (doctrine 20)"
+                      if prof.name == "lyric" else "")
+                   if prof.name in ("song", "lyric") else "")
                 + f". Deliberate anaphora is "
                 f"a figure — Whitman, the Psalms and every blues refrain trip "
                 f"this — so the finding is a decision handed back, not a "
                 f"verdict", hits))
 
         # 4. metronomic line length
-        thr = d.resolve("line_length_cv_min", prof)
+        thr = d.resolve("line_length_cv_min", prof, n_tok)
         cv = self._line_length_cv(lines)
         if thr is not None and cv < thr:
             out.append(Finding(
                 "UNIFORM_LINE_LENGTH", "note",
                 "every line is close to the same length",
                 f"line-length CV {cv:.3f} < {thr:.4f} (human 5th percentile, "
-                f"{prof.name} profile). NOT slop evidence: this check was "
+                f"{prof.name} profile{prof.at_length('line_length_cv_min', n_tok)}). NOT slop evidence: this check was "
                 f"built expecting metronomic lines to be a generated-text tell "
                 f"and the measurement came out BACKWARDS — Shakespeare is more "
                 f"uniform than the model. "
@@ -1652,7 +1774,7 @@ class SlopFloor:
         #    to be. It runs only under a profile that measured it; the section
         #    profile did not, so it stays silent there rather than borrowing
         #    the sonnet cut.
-        thr = d.resolve("predictable_pair_fraction_max", prof)
+        thr = d.resolve("predictable_pair_fraction_max", prof, n_tok)
         pairs = self._pairs(lines, scheme)
         # `_predictability` returns (i, j, value) aligned to its pairs since
         # 2026-08-14. ~~this check wants the values only~~ — it wants all
@@ -1680,7 +1802,7 @@ class SlopFloor:
                     f"{len(obvious)} of {len(preds)} rhymes are near the top "
                     f"of their own candidate field",
                     f"{frac:.0%} of pairs above {d.predictability_max:.2f} "
-                    f"predictability ({prof.name} profile); "
+                    f"predictability ({prof.name} profile{prof.at_length('predictable_pair_fraction_max', n_tok)}); "
                     f"{prof.evidence_for('predictability')}. A NOTE, and it "
                     f"may not reject: a rhyme "
                     f"at the top of its own candidate field is a decision "
