@@ -410,6 +410,8 @@ function loopFields(v) {
 
 export const _agentInternals = {
   loopFields,
+  PARKED_RUN_NOTE,
+  parkedRefusal,
   toFunctionResponse,
   suspendedSeed,
   buildSystemInstruction,
@@ -523,6 +525,39 @@ const SUSPENDED_RUN_NOTE = (seed) =>
   "tool call's `answer` field — do not print it as your reply. The song " +
   'cannot finish until the loop reaches a stop condition through that tool.';
 
+// THE PARKED-RUN REMINDER (M-232, round 18). A run that reached exit 3 is
+// PARKED: no question is pending, the loop said a round of the same kind
+// would fix nothing, and the only way forward is a REWRITE of the open
+// lines by the writer. Round 18's turn 1 sent `answer` with no state three
+// times and then the same draft once, and parked again on the same lines.
+// The note names the open lines, the whole-draft flags and the standing
+// findings, and the one call that continues the song.
+function PARKED_RUN_NOTE(lyr) {
+  const who = typeof lyr.seed === 'number' ? `seed ${lyr.seed}` : 'the declared mandate';
+  const open = Array.isArray(lyr.open) && lyr.open.length ? lyr.open.join(', ') : null;
+  const whole = Array.isArray(lyr.whole) && lyr.whole.length ? lyr.whole.join(', ') : null;
+  const standing =
+    Array.isArray(lyr.standing) && lyr.standing.length
+      ? ' STANDING: ' + lyr.standing.slice(0, 12).join(' | ') + '.'
+      : '';
+  const n = Array.isArray(lyr.draft) ? lyr.draft.length : null;
+  return (
+    `A lyric_revise run for ${who} is PARKED at exit 3` +
+    `${lyr.stop ? ` (${lyr.stop})` : ''}: ` +
+    (open ? `line(s) ${open} are still flagged` : 'no line is open') +
+    (whole ? `, and the whole-draft flag(s) ${whole} stand` : '') +
+    '. The song is NOT finished and cannot be presented as finished.' +
+    standing +
+    ' No question is pending, so there is nothing to `answer`. The ONLY way forward: ' +
+    'REWRITE the flagged line(s) yourself (new words, new end words — screen them with ' +
+    'lyric_screen first), keep every other line byte-identical, and call lyric_revise ' +
+    `again with \`seed\` and the FULL \`draft\`${n ? ` (all ${n} lines, in order)` : ''}. ` +
+    "The run's declarations are carried for you. Do NOT send `answer` or `state`; do NOT " +
+    're-send the same draft (the loop is deterministic — it parks again on the same lines); ' +
+    'do NOT plan or sweep again. Put the lines in the tool call, not in your reply.'
+  );
+}
+
 // THE DECLARATION THE MODEL SEES WHILE A RUN IS SUSPENDED HAS NO `draft`
 // (M-226). Prose asks; a schema decides. With a record carried for a seed,
 // the continuing lyric_revise call is filled from it, so the parameter is
@@ -543,8 +578,12 @@ export function declarationArgs(args) {
 const RUN_KEY_FIELDS = new Set(['seed', 'scheme', 'groups', 'returns', 'relation', 'structures']);
 
 export function declarationsFor(surface, lyr) {
-  if (!lyr || typeof lyr.state !== 'string' || !Array.isArray(lyr.draft))
+  // M-232: a PARKED run's continuing call is the rewritten `draft` plus the
+  // run's key — no `answer`, no `state` — the mirror image of a suspended one.
+  const parked = isParked(lyr);
+  if (!parked && (!lyr || typeof lyr.state !== 'string' || !Array.isArray(lyr.draft)))
     return surface.declarations;
+  const keep = parked ? 'draft' : 'answer';
   return surface.declarations.map((d) => {
     if (!surface.stateTools?.has(d.name) || !d.parameters?.properties?.draft) return d;
     // M-226 dropped `draft`; M-229 drops every other declaration field too —
@@ -552,7 +591,7 @@ export function declarationsFor(surface, lyr) {
     // the connector puts the run's own declarations back (declarationArgs).
     const properties = {};
     for (const [k, v] of Object.entries(d.parameters.properties))
-      if (k === 'answer' || RUN_KEY_FIELDS.has(k)) properties[k] = v;
+      if (k === keep || RUN_KEY_FIELDS.has(k)) properties[k] = v;
     const required = Array.isArray(d.parameters.required)
       ? d.parameters.required.filter((n) => n in properties)
       : d.parameters.required;
@@ -574,6 +613,7 @@ export function declarationsFor(surface, lyr) {
 const WANDER_ALWAYS = new Set(['lyric_plan', 'lyric_sweep', 'lyric_recover']);
 const WANDER_KEYED = new Set(['lyric_grade', 'lyric_check', 'lyric_revise']);
 export function wanderRefusal(lyr, name, args) {
+  if (isParked(lyr)) return parkedRefusal(lyr, name, args);
   const seed = suspendedSeed(lyr);
   if (seed == null) return null;
   let where = null;
@@ -598,6 +638,44 @@ export function wanderRefusal(lyr, name, args) {
     'Finish the suspended run first: call lyric_revise with `answer` (and the same seed). ' +
     'The song cannot finish through any other call.'
   );
+}
+
+// A PARKED RUN'S REFUSALS (M-232). While a run is parked at exit 3: a plan,
+// sweep or recover starts another song; a grade/check/revise naming another
+// run wanders; and a lyric_revise for THIS run that answers a question that
+// is not pending, omits the draft, or re-sends the draft that just parked is
+// refused with the one move that continues the song. A rewritten draft goes
+// through with the run's declarations re-applied.
+export function isParked(lyr) {
+  return !!(lyr && lyr.parked === true && typeof lyr.state !== 'string');
+}
+function sameDraft(a, b) {
+  return (
+    Array.isArray(a) &&
+    Array.isArray(b) &&
+    a.length === b.length &&
+    a.every((l, i) => String(l).trim() === String(b[i]).trim())
+  );
+}
+function parkedRefusal(lyr, name, args) {
+  const who = typeof lyr.seed === 'number' ? `seed ${lyr.seed}` : 'the declared mandate';
+  const open = Array.isArray(lyr.open) && lyr.open.length ? lyr.open.join(', ') : 'none';
+  const tail = ` Continue it: rewrite the open line(s) (${open}) and call lyric_revise with \`seed\` and the full \`draft\` — no \`answer\`, no \`state\`. The song cannot finish through any other call.`;
+  const head = `REFUSED by the connector: a lyric_revise run for ${who} is PARKED at exit 3 (no question pending)`;
+  if (WANDER_ALWAYS.has(name)) return `${head}, and ${name} starts another song.${tail}`;
+  if (WANDER_KEYED.has(name)) {
+    const k = stateKey(args);
+    if (k != null && k !== carriedKey(lyr))
+      return `${head}, and ${name} names a different run (${k}).${tail}`;
+  }
+  if (name !== 'lyric_revise') return null;
+  if (args && (args.answer != null || args[STATE_PROPERTY] != null))
+    return `${head}, and this call sends \`answer\`/\`state\` — there is no question to answer.${tail}`;
+  if (!Array.isArray(args?.draft))
+    return `${head}, and this call omits \`draft\` — a parked run is continued by a REWRITTEN draft, which only you can write.${tail}`;
+  if (sameDraft(args.draft, lyr.draft))
+    return `${head}, and this call re-sends the SAME draft that parked — the loop is deterministic and would park again on the same lines.${tail}`;
+  return null;
 }
 
 function suspendedSeed(lyr) {
@@ -685,7 +763,30 @@ function carryState(prev, toolName, args, verdict, surface) {
       decl: declarationArgs(args),
     };
   }
-  if ((code === 0 || code === 3) && prev && carriedKey(prev) === key) return null;
+  if (code === 3 && !(prev && typeof prev.state === 'string' && carriedKey(prev) !== key)) {
+    // M-232: PARKED, not dropped (a stop on ANOTHER key while this one is
+    // suspended still does not touch the suspended run). The record keeps the draft that parked,
+    // the run's declarations, the open lines, the whole-draft flags and the
+    // standing findings — no state, because no question is pending — so
+    // the next call for this run is the rewritten draft and nothing else.
+    const draft = Array.isArray(args.draft)
+      ? args.draft
+      : Array.isArray(prev?.draft) && carriedKey(prev) === key
+        ? prev.draft
+        : null;
+    return {
+      key,
+      seed: typeof args.seed === 'number' ? args.seed : null,
+      parked: true,
+      ...(draft ? { draft } : {}),
+      decl: declarationArgs(args),
+      stop: typeof verdict.loop_stop_reason === 'string' ? verdict.loop_stop_reason : null,
+      open: Array.isArray(verdict.loop_unresolved_lines) ? verdict.loop_unresolved_lines : [],
+      whole: Array.isArray(verdict.loop_whole_flag_codes) ? verdict.loop_whole_flag_codes : [],
+      standing: Array.isArray(verdict.standing) ? verdict.standing.slice(0, 24) : [],
+    };
+  }
+  if (code === 0 && prev && carriedKey(prev) === key) return null;
   return prev;
 }
 
@@ -699,7 +800,11 @@ function carriedKey(lyr) {
 
 function buildSystemInstruction(surface, lyr) {
   const seed = suspendedSeed(lyr);
-  const text = [surface.instructions, seed == null ? null : SUSPENDED_RUN_NOTE(seed)]
+  const text = [
+    surface.instructions,
+    seed == null ? null : SUSPENDED_RUN_NOTE(seed),
+    isParked(lyr) ? PARKED_RUN_NOTE(lyr) : null,
+  ]
     .filter(Boolean)
     .join('\n\n');
   return text ? { parts: [{ text }] } : null;
@@ -932,22 +1037,62 @@ export async function runTurn({
       else delete body.systemInstruction;
       // Per hop, like the reminder: the record can appear mid-turn (M-226).
       body.tools = [{ functionDeclarations: declarationsFor(surface, lyr) }];
-      const json = await generate({
-        apiKey,
-        model,
-        body,
-        signal,
-        retries,
-        retryStatuses,
-        rateLimit,
-        // A retried request spent a slot of the key's quota whether or not it
-        // was billed tokens; the count is the record (M-197, M-168).
-        onRetry: (r) => {
-          usage.requests += 1;
-          usage.retries += 1;
-          if (onEvent) onEvent({ type: 'retry', ...r });
-        },
-      });
+      let json;
+      try {
+        json = await generate({
+          apiKey,
+          model,
+          body,
+          signal,
+          retries,
+          retryStatuses,
+          rateLimit,
+          // A retried request spent a slot of the key's quota whether or not it
+          // was billed tokens; the count is the record (M-197, M-168).
+          onRetry: (r) => {
+            usage.requests += 1;
+            usage.retries += 1;
+            if (onEvent) onEvent({ type: 'retry', ...r });
+          },
+        });
+      } catch (err) {
+        // A TURN THAT HAS ALREADY MADE CALLS IS RETURNED, NOT THROWN AWAY
+        // (M-232, round 18): turn 0's second attempt folded six answers over
+        // ten hops and a Gemini 503 on hop eleven threw all six away — the
+        // driver's retry re-sent the turn from the previous envelope. When
+        // the upstream dies AFTER a hop that made calls, the turn ends here:
+        // the calls stand, the carried record stands, and the transcript is
+        // closed with a model-role note so the next user message continues
+        // it. A failure before any call still throws (nothing to keep) and
+        // an aborted request throws (the client is gone).
+        // A 429 keeps throwing whatever the hop: its Retry-After is the
+        // driver's pacing signal (M-229) and its usage rides the error
+        // (M-197's pin); the bounded in-hop retry has already absorbed a
+        // short one. The partial return is for the engine dying (5xx, a
+        // dropped socket), which no wait cures within the turn.
+        if (!calls.length || signal?.aborted || err?.status === 429) throw err;
+        const status = Number.isFinite(err?.status) ? err.status : null;
+        stopped = `UPSTREAM_${status ?? 'ERROR'}`;
+        stoppedDetail = {
+          status,
+          detail: String((err && err.message) || err).slice(0, 300),
+          hops: step + 1,
+          calls: calls.length,
+          maxSteps: limits.maxSteps,
+        };
+        contents.push({
+          role: 'model',
+          parts: [
+            {
+              text:
+                `(the engine was interrupted here — upstream ${status ?? 'error'}; ` +
+                'the tool calls above stand and the run continues from them)',
+            },
+          ],
+        });
+        if (onEvent) onEvent({ type: 'stopped', reason: stopped, status });
+        break;
+      }
       addUsage(usage, json.usageMetadata);
       const candidate = json.candidates?.[0];
       const parts = candidate?.content?.parts || [];
@@ -1061,7 +1206,18 @@ export async function runTurn({
         let injectedDraft = false;
         let injectedDecl = false;
         if (surface.stateTools?.has(fc.name)) {
-          if (lyr && stateKey(args) != null && stateKey(args) === carriedKey(lyr)) {
+          if (isParked(lyr) && stateKey(args) != null && stateKey(args) === carriedKey(lyr)) {
+            // M-232: a parked run's continuing call carries its own draft
+            // (the rewrite) and gets the run's declarations back; nothing
+            // else is injected — there is no state and no pending question.
+            delete args[STATE_PROPERTY];
+            delete args.answer;
+            if (lyr.decl && typeof lyr.decl === 'object') {
+              for (const k of Object.keys(args)) if (!RUN_ANSWER_FIELDS.has(k)) delete args[k];
+              Object.assign(args, lyr.decl);
+              injectedDecl = true;
+            }
+          } else if (lyr && stateKey(args) != null && stateKey(args) === carriedKey(lyr)) {
             args[STATE_PROPERTY] = lyr.state;
             injectedState = true;
             // The carried draft fills an OMITTED draft only (M-221): a draft

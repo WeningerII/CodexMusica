@@ -439,6 +439,31 @@ function extractUncalibrated(report) {
 // A suspended call (exit 4) has reached no stop condition, so it HAS no stop
 // reason, and a `loop_rounds: 0` there would read as a run that did nothing
 // rather than a run still going (doctrine 20).
+// THE FINDINGS STANDING AT THE STOP (M-232, round 18). `revise`/`finish`
+// print them under "STANDING AT THE STOP" (M-186) — one line per open line
+// in the report's own `FINDING [SEV] CODE: …` spelling, and one per
+// whole-draft flag — and the tool returned only the render and the stamp,
+// so the model read "UNRESOLVED: L3, L5" and never WHY. Parsed here into
+// the verdict and appended to the first block, so a parked run says what
+// each open line still carries.
+function extractStanding(stdout) {
+  const i = stdout.indexOf('STANDING AT THE STOP');
+  if (i < 0) return [];
+  const block = stdout.slice(i);
+  const out = [];
+  for (const line of block.split('\n').slice(1)) {
+    const m = /^\s+((?:L\d+|WHOLE-DRAFT): FINDING .*)$/.exec(line);
+    if (m) out.push(m[1].trim());
+    else if (out.length && /^\s{6,}\S/.test(line))
+      // A finding's detail line (deeper indent) rides with its finding —
+      // "title 'x' vs hook 'y'" is what the writer needs to fix it.
+      out[out.length - 1] = `${out[out.length - 1]} — ${line.trim()}`.slice(0, 400);
+    else if (out.length && !/^\s+/.test(line)) break;
+    else if (out.length && /^\s*$/.test(line)) break;
+  }
+  return out;
+}
+
 function extractLoopRecord(report) {
   // THE WHOLE-DRAFT HALF (M-186): the stamp names the whole-draft FLAGS
   // standing at the stop — codes that name no line (STACKED_DRAFT,
@@ -653,6 +678,8 @@ function verdictOf(r) {
       'pass (doctrine 28). A clean exit code says nothing about them — read the words, or ' +
       'pass --fallback=low through `fallback` where a tool offers it.';
   }
+  const standing = extractStanding(r.stdout);
+  if (standing.length) v.standing = standing;
   if (loop) {
     // THREE COUNTS, NEVER SUMMED (doctrine 79): rounds spent, lines still open
     // and answers on record answer different questions. `stop_reason` is the
@@ -1012,6 +1039,7 @@ const draftField = z
 export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
+  extractStanding,
   verdictOf,
   extractRefusal,
   extractRecoveredMandate,
@@ -1653,9 +1681,16 @@ export function registerLyricTools(server, tool) {
             /* state unreadable: the verdict still stands on the verb's own run */
           }
           if (m) {
+            // M-232: the standing findings ride with the render, so a
+            // parked song names what each open line still carries.
+            const standingText =
+              Array.isArray(verdict.standing) && verdict.standing.length
+                ? '\n\nSTANDING AT THE STOP — what the open lines and the whole draft still carry:\n' +
+                  verdict.standing.map((x) => `  ${x}`).join('\n')
+                : '';
             return {
               content: [
-                { type: 'text', text: m[1] },
+                { type: 'text', text: m[1] + standingText },
                 { type: 'text', text: JSON.stringify(verdict) },
               ],
             };

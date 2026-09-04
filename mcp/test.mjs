@@ -792,10 +792,20 @@ check('validation: actionable errors', () => {
         s1,
         'a stop on a DIFFERENT mandate does not clear this run'
       );
-      assert.equal(
-        AI.carryState(s1, 'lyric_revise', pasted, { exit_code: 3, state: 'S2' }, surface),
-        null
-      );
+      {
+        // M-232: exit 3 PARKS the run instead of dropping it.
+        const parked = AI.carryState(
+          s1,
+          'lyric_revise',
+          pasted,
+          { exit_code: 3, state: 'S2' },
+          surface
+        );
+        assert.equal(parked.parked, true, 'exit 3 on this mandate parks the run');
+        assert.equal(parked.key, s1.key);
+        assert.equal(parked.seed, null);
+        assert.equal('state' in parked, false, 'a parked record carries no state');
+      }
       assert.equal(
         AI.carriedKey({ seed: 7, state: 'x' }),
         'seed:7',
@@ -827,6 +837,22 @@ check('validation: actionable errors', () => {
     // M-186's status label, three words rather than two (2026-09-02): a
     // whole-only exit 3 used to read `stopped_with_open_lines` with
     // `loop_unresolved` 0 — a cause the verdict itself contradicted.
+    check('the standing findings at a stop are parsed off the report (M-232)', () => {
+      const st =
+        "  FINDING [FLAG] METER: L3 early\n\n  STANDING AT THE STOP — the findings the open lines and the whole draft still carry, in the report's own spelling:\n    L3: FINDING [FLAG] METER: L3 wants six beats\n    L5: FINDING [FLAG] SLOP: too predictable\n    WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK: the title is not in the hook\n         title 'zebra confetti' vs hook \"Go on.\"; the title phrase occurs 0 time(s).\n\n  THE SONG, PERFORMANCE ORDER:\n\nx\n";
+      // The shape a real parked `revise` prints (measured on keep_the_light
+      // retitled, 2026-09-04): a finding's detail line rides with it.
+      assert.deepEqual(VI.extractStanding(st), [
+        'L3: FINDING [FLAG] METER: L3 wants six beats',
+        'L5: FINDING [FLAG] SLOP: too predictable',
+        'WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK: the title is not in the hook — title \'zebra confetti\' vs hook "Go on."; the title phrase occurs 0 time(s).',
+      ]);
+      assert.deepEqual(
+        VI.extractStanding('no block here\n  FINDING [FLAG] METER: L3'),
+        [],
+        "the report's own findings before the block are not the standing ones"
+      );
+    });
     check('a whole-only exit 3 is labelled by its cause, not as open lines', () => {
       assert.equal(VI.loopStatusOf(0, { loop_unresolved: 0 }), 'finished_clean');
       assert.equal(
@@ -958,10 +984,31 @@ check('validation: actionable errors', () => {
       { key: 'seed:7', seed: 7, state: 'S1', decl: { seed: 7 } },
       'exit 4 carries the record'
     );
-    assert.equal(
-      carryState(suspended, 'lyric_revise', args, { exit_code: 3, state: 'S2' }, surface),
-      null,
-      'exit 3 is COMPLETE: the record is not carried, even though the verdict carries one'
+    assert.deepEqual(
+      carryState(
+        suspended,
+        'lyric_revise',
+        args,
+        {
+          exit_code: 3,
+          state: 'S2',
+          loop_stop_reason: 'NO_PROGRESS',
+          loop_unresolved_lines: ['L2'],
+          loop_whole_flag_codes: [],
+        },
+        surface
+      ),
+      {
+        key: 'seed:7',
+        seed: 7,
+        parked: true,
+        decl: { seed: 7 },
+        stop: 'NO_PROGRESS',
+        open: ['L2'],
+        whole: [],
+        standing: [],
+      },
+      'exit 3 is COMPLETE as a loop and PARKED as a record (M-232): no state, the open lines named'
     );
     assert.equal(
       carryState(suspended, 'lyric_revise', args, { exit_code: 0, state: 'S2' }, surface),
@@ -1088,6 +1135,20 @@ check('validation: actionable errors', () => {
       globalThis.fetch = realFetch;
     }
   })();
+  check(
+    'chat.js retries a transient upstream three times and puts the seed on every row (M-232)',
+    () => {
+      const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+      assert.ok(
+        /retries: 3,\s*\n\s*retryStatuses: RETRY_TRANSIENT/.test(chat),
+        'three retries on RETRY_TRANSIENT'
+      );
+      assert.ok(
+        /seed: typeof c\.args\?\.seed === 'number' \? c\.args\.seed : null/.test(chat),
+        'the seed rides the row'
+      );
+    }
+  );
   check('chat.js charges the partial usage in its catch and puts the cost on the reply', () => {
     const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
     assert.ok(/err\.usage\.requests > 0/.test(chat), 'the catch reads the partial usage');
@@ -1956,6 +2017,293 @@ check('validation: actionable errors', () => {
           _wr(run.lyric, 'lyric_types', {}),
           null,
           'asking about rhyme types is not wandering'
+        );
+      }
+    );
+  })();
+
+  // ── M-232: A PARKED RUN IS CARRIED, ITS CONTINUING CALL IS THE REWRITTEN
+  // DRAFT PLUS THE KEY, AND A TURN THE ENGINE KILLS MID-WAY KEEPS ITS CALLS ──
+  await (async () => {
+    const {
+      runTurn: _rt,
+      LIMITS: _L,
+      declarationsFor: _df,
+      wanderRefusal: _wr,
+      isParked: _ip,
+      _agentInternals: _AI,
+    } = await import('./gemini_agent.js');
+    const reviseDecl = {
+      name: 'lyric_revise',
+      parameters: {
+        type: 'object',
+        properties: {
+          seed: { type: 'integer' },
+          draft: { type: 'array' },
+          answer: { type: 'string' },
+          lines: { type: 'integer' },
+        },
+        required: ['seed', 'draft'],
+      },
+    };
+    const surface = {
+      instructions: 'BASE',
+      declarations: [
+        reviseDecl,
+        {
+          name: 'lyric_plan',
+          parameters: { type: 'object', properties: { seed: { type: 'integer' } } },
+        },
+        { name: 'lyric_screen' },
+      ],
+      workspaceTools: new Set(),
+      stateTools: new Set(['lyric_revise']),
+    };
+    const usageMeta = { promptTokenCount: 10, candidatesTokenCount: 5, thoughtsTokenCount: 0 };
+    const parkedResult = {
+      content: [
+        {
+          type: 'text',
+          text: 'a\nb\n\n[FINISHED — seed 5 — exit 3 — NO_PROGRESS after 2 round(s) — UNRESOLVED: L1 — WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK]',
+        },
+        {
+          type: 'text',
+          text: JSON.stringify({
+            exit_code: 3,
+            status: 'stopped_with_open_lines',
+            loop_stop_reason: 'NO_PROGRESS',
+            loop_rounds: 2,
+            loop_unresolved: 1,
+            loop_unresolved_lines: ['L1'],
+            loop_whole_flag_codes: ['TITLE_NOT_IN_HOOK'],
+            standing: [
+              'L1: FINDING [FLAG] METER: L1 wants six beats',
+              'WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK: no title in the hook',
+            ],
+            answers_on_record: 1,
+          }),
+        },
+      ],
+    };
+    const cleanResult = {
+      content: [
+        {
+          type: 'text',
+          text: 'c\nb\n\n[FINISHED — seed 5 — exit 0 — SUCCESS after 1 round(s) — no flag stands]',
+        },
+        {
+          type: 'text',
+          text: JSON.stringify({
+            exit_code: 0,
+            status: 'finished_clean',
+            loop_stop_reason: 'SUCCESS',
+            loop_rounds: 1,
+            loop_unresolved: 0,
+            loop_unresolved_lines: [],
+            loop_whole_flag_codes: [],
+          }),
+        },
+      ],
+    };
+    const script = [
+      { functionCall: { name: 'lyric_revise', args: { seed: 5, draft: ['a', 'b'], lines: 20 } } },
+      { functionCall: { name: 'lyric_revise', args: { seed: 5, answer: 'L1: something' } } },
+      { functionCall: { name: 'lyric_revise', args: { seed: 5, draft: ['a', 'b'] } } },
+      { functionCall: { name: 'lyric_plan', args: { seed: 6 } } },
+      { functionCall: { name: 'lyric_revise', args: { seed: 5, draft: ['c', 'b'], lines: 39 } } },
+      { text: 'done' },
+    ];
+    const requests = [];
+    const seen = [];
+    let hop = 0;
+    const realFetch = globalThis.fetch;
+    globalThis.fetch = async (_url, init) => {
+      requests.push(JSON.parse(init.body));
+      const part = script[Math.min(hop++, script.length - 1)];
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({
+          candidates: [
+            { content: { parts: [part] }, finishReason: part.text ? 'STOP' : undefined },
+          ],
+          usageMetadata: usageMeta,
+        }),
+      };
+    };
+    let run;
+    try {
+      run = await _rt({
+        apiKey: 'k',
+        surface,
+        callTool: async (name, args) => {
+          seen.push({ name, args: { ...args } });
+          if (name === 'lyric_revise') return seen.length === 1 ? parkedResult : cleanResult;
+          return { content: [{ type: 'text', text: JSON.stringify({ exit_code: 0 }) }] };
+        },
+        userText: 'go',
+        limits: { ..._L, maxTurnUsd: 0 },
+        retries: 0,
+      });
+    } finally {
+      globalThis.fetch = realFetch;
+    }
+    check(
+      'a run that parks at exit 3 is carried as PARKED, and its continuing call is the rewritten draft plus the key (M-232)',
+      () => {
+        assert.deepEqual(
+          seen.map((c) => c.name),
+          ['lyric_revise', 'lyric_revise'],
+          'the answer, the same draft and the plan never reached the harness'
+        );
+        const refused = run.calls.filter((c) => c.refused_by_connector).map((c) => c.error);
+        assert.equal(refused.length, 3);
+        assert.ok(
+          /PARKED at exit 3/.test(refused[0]) && /sends `answer`/.test(refused[0]),
+          refused[0]
+        );
+        assert.ok(/re-sends the SAME draft/.test(refused[1]), refused[1]);
+        assert.ok(/lyric_plan starts another song/.test(refused[2]), refused[2]);
+        assert.ok(
+          /rewrite the open line\(s\) \(L1\)/.test(refused[0]),
+          'the refusal names the open line'
+        );
+        const cont = seen[1];
+        assert.deepEqual(cont.args.draft, ['c', 'b'], "the rewritten draft is the model's");
+        assert.equal(cont.args.lines, 20, "the run's declarations are put back (39 was moved)");
+        assert.equal('answer' in cont.args, false);
+        assert.equal('state' in cont.args, false);
+        assert.equal(run.calls[4].declarations_carried, true);
+        assert.equal(run.calls[4].draft_carried, false, 'a parked run never injects the draft');
+        assert.equal(run.lyric, null, 'exit 0 clears the record');
+        // The declaration the model saw while parked: draft plus the key.
+        const d = (req) => req.tools[0].functionDeclarations.find((x) => x.name === 'lyric_revise');
+        assert.deepEqual(Object.keys(d(requests[1]).parameters.properties).sort(), [
+          'draft',
+          'seed',
+        ]);
+        assert.deepEqual(d(requests[1]).parameters.required, ['seed', 'draft']);
+        assert.deepEqual(Object.keys(d(requests[0]).parameters.properties).sort(), [
+          'answer',
+          'draft',
+          'lines',
+          'seed',
+        ]);
+        // The reminder rode the parked hops and names the lines, the flag and the findings.
+        const si = requests[1].systemInstruction.parts[0].text;
+        assert.ok(/PARKED at exit 3 \(NO_PROGRESS\)/.test(si), si);
+        assert.ok(/line\(s\) L1 are still flagged/.test(si));
+        assert.ok(/TITLE_NOT_IN_HOOK/.test(si));
+        assert.ok(/METER: L1 wants six beats/.test(si), 'the standing findings ride the reminder');
+        assert.ok(/all 2 lines, in order/.test(si));
+        assert.ok(/Do NOT send `answer`/.test(si));
+        assert.ok(!/SUSPENDED/.test(si), 'a parked run is not a suspended one');
+        assert.equal(
+          requests[5].systemInstruction.parts[0].text,
+          'BASE',
+          'exit 0: no reminder on the last hop, the base instructions alone'
+        );
+        // Pure helpers.
+        assert.equal(_ip(null), false);
+        assert.equal(
+          _ip({ parked: true, state: 'x' }),
+          false,
+          'a record with state is suspended, not parked'
+        );
+        assert.equal(
+          _wr({ parked: true, key: 'seed:5', seed: 5, draft: ['a'] }, 'lyric_screen', {}),
+          null
+        );
+        assert.equal(
+          _wr({ parked: true, key: 'seed:5', seed: 5, draft: ['a'] }, 'lyric_revise', {
+            seed: 5,
+          }) != null,
+          true,
+          'a call with no draft is refused'
+        );
+        assert.deepEqual(
+          _df(surface, { parked: true, key: 'seed:5', seed: 5 }).find(
+            (x) => x.name === 'lyric_plan'
+          ),
+          surface.declarations[1],
+          'a tool without state is untouched'
+        );
+        assert.ok(typeof _AI.PARKED_RUN_NOTE({ seed: 5, open: [], whole: [] }) === 'string');
+      }
+    );
+    // THE PARTIAL TURN: the engine dies on hop 2 after hop 1 made a call.
+    const script2 = [{ functionCall: { name: 'lyric_plan', args: { seed: 5 } } }];
+    let hop2 = 0;
+    globalThis.fetch = async () => {
+      const i = hop2++;
+      if (i === 0)
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            candidates: [{ content: { parts: [script2[0]] } }],
+            usageMetadata: usageMeta,
+          }),
+        };
+      return {
+        ok: false,
+        status: 503,
+        headers: { get: () => null },
+        json: async () => ({
+          error: { message: 'This model is currently experiencing high demand.' },
+        }),
+      };
+    };
+    let partial;
+    let hop1Err = null;
+    try {
+      partial = await _rt({
+        apiKey: 'k',
+        surface,
+        callTool: async () => ({
+          content: [{ type: 'text', text: JSON.stringify({ exit_code: 0 }) }],
+        }),
+        userText: 'go',
+        limits: { ..._L, maxTurnUsd: 0 },
+        retries: 0,
+      });
+      hop2 = 1; // every fetch from here is a 503: the FIRST hop dies
+      try {
+        await _rt({
+          apiKey: 'k',
+          surface,
+          callTool: async () => ({ content: [] }),
+          userText: 'go',
+          limits: { ..._L, maxTurnUsd: 0 },
+          retries: 0,
+        });
+      } catch (e) {
+        hop1Err = e;
+      }
+    } finally {
+      globalThis.fetch = realFetch;
+    }
+    check(
+      'a turn the engine kills after a call is returned with its calls kept, not thrown (M-232)',
+      () => {
+        assert.equal(partial.stopped, 'UPSTREAM_503');
+        assert.equal(partial.stoppedDetail.status, 503);
+        assert.equal(partial.stoppedDetail.hops, 2);
+        assert.equal(partial.stoppedDetail.calls, 1);
+        assert.ok(/high demand/.test(partial.stoppedDetail.detail));
+        assert.equal(partial.calls.length, 1);
+        assert.equal(partial.calls[0].name, 'lyric_plan');
+        const last = partial.history[partial.history.length - 1];
+        assert.equal(last.role, 'model', 'the transcript is closed with a model-role note');
+        assert.ok(/interrupted here — upstream 503/.test(last.parts[0].text));
+        const prev = partial.history[partial.history.length - 2];
+        assert.ok(
+          prev.parts.some((p) => p.functionResponse),
+          'after the kept function response'
+        );
+        assert.ok(
+          hop1Err && hop1Err.status === 503,
+          'a first-hop failure still throws, with its status'
         );
       }
     );
@@ -2950,6 +3298,94 @@ check('validation: actionable errors', () => {
       'final is 4xx and not 429 — a 5xx upstream keeps the bounded retry'
     );
   });
+  // M-232: a turn the connector ended on an upstream 5xx WITH calls kept is
+  // not an idle turn — no fail-fast, the flag names it, and the next turn
+  // continues; here the next turn finishes the song, so the round exits 0.
+  check(
+    'a partial turn (calls kept, engine died) is not fail-fast, and the round goes on to finish',
+    async () => {
+      const { spawn } = await import('node:child_process');
+      const { mkdtempSync, rmSync } = await import('node:fs');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+      const { fileURLToPath } = await import('node:url');
+      const http = await import('node:http');
+      let n = 0;
+      const srv = http.createServer((req, res) => {
+        let body = '';
+        req.on('data', (c) => (body += c));
+        req.on('end', () => {
+          n++;
+          res.writeHead(200, { 'content-type': 'application/json' });
+          res.end(
+            JSON.stringify(
+              n === 1
+                ? {
+                    reply: '',
+                    tools: [{ name: 'lyric_plan', seed: 5, exit_code: 0, path: 'warm' }],
+                    stopped: 'UPSTREAM_503',
+                    stopped_detail: {
+                      status: 503,
+                      detail: 'Gemini 503: high demand',
+                      hops: 2,
+                      calls: 1,
+                    },
+                    history: [{ role: 'user', parts: [{ text: 'h1' }] }],
+                    workspace: null,
+                    sig: 'sig1',
+                  }
+                : {
+                    reply: 'done',
+                    tools: [
+                      {
+                        name: 'lyric_revise',
+                        seed: 5,
+                        exit_code: 0,
+                        path: 'warm',
+                        answers_on_record: 0,
+                      },
+                    ],
+                    stopped: null,
+                    history: [{ role: 'user', parts: [{ text: 'h2' }] }],
+                    workspace: null,
+                    sig: 'sig2',
+                  }
+            )
+          );
+        });
+      });
+      await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+      const port = srv.address().port;
+      const out = mkdtempSync(join(tmpdir(), 'battery-m232-'));
+      try {
+        const r = await runDriver(spawn, [
+          fileURLToPath(new URL('../scripts/flash_battery.mjs', import.meta.url)),
+          `--out=${out}`,
+          `--base=http://127.0.0.1:${port}`,
+          '--songs=1',
+          '--turns=2',
+          '--pace=0',
+        ]);
+        assert.equal(r.status, 0, `the song finished on turn 1: ${r.stderr}\n${r.stdout}`);
+        assert.equal(n, 2, 'two turns, no retry of the partial one');
+        const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+        assert.equal(summary.songs[0].exit_reason, 'finished');
+        assert.deepEqual(
+          summary.songs[0].flags.map((f) => f.flag),
+          ['upstream_partial'],
+          'the partial turn is flagged, never fail_fast'
+        );
+        assert.equal(summary.songs[0].flags[0].stopped, 'UPSTREAM_503');
+        assert.ok(
+          /battery partial turn/.test(String(r.stdout)),
+          'the partial turn is a warning annotation'
+        );
+      } finally {
+        srv.close();
+        rmSync(out, { recursive: true, force: true });
+      }
+    }
+  );
   // M-223: a 429 names its limiter in the body and its wait in Retry-After;
   // the retry row carries both and the wait is the server's number. Then the
   // round FINISHES (a lyric_revise exit 0) and exits 0, exit_reason finished.

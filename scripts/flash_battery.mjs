@@ -87,6 +87,9 @@ const RETRY_AFTER_CAP_S = Math.max(0, Number(args['retry-after-cap'] ?? 600) || 
 // seconds, before the round records the transport failure.
 const RATE_WAIT_CAP_S = Math.max(0, Number(args['rate-wait-cap'] ?? 900) || 0);
 const REASK = Math.max(0, Number(args.reask ?? (N_SONGS === 1 ? 2 : 0)) || 0);
+// M-232: how many partial turns (the connector kept the calls, the engine
+// died mid-turn) one round tolerates before it is the engine being down.
+const PARTIAL_CAP = Math.max(0, Number(args['partial-cap'] ?? 6) || 0);
 const STOP_ON = new Set(
   (args['stop-on'] ?? (N_SONGS === 1 ? 'malformed,idle' : 'none'))
     .split(',')
@@ -315,6 +318,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
   let truncated = 0; // M-223: turns cut off by a malformed hop AFTER making calls
   let hitTurnCap = false; // M-224: the connector's CHAT_MAX_TURNS answered 429
   let hitUpstreamFinal = false; // M-231: a 502 whose upstream answered 4xx (not 429)
+  let partials = 0; // M-232: turns the connector ended early on an upstream 5xx, calls kept
   let lastStatus = 200; // M-223: the last turn's HTTP status and error body
   let lastError = null;
 
@@ -605,8 +609,32 @@ for (const [songNo, briefIdx] of indices.entries()) {
       );
     }
     if (p.stopped === 'MALFORMED_FUNCTION_CALL' && tools.length > 0) truncated++;
-    if (STOP_ON.has('idle') && tools.length === 0) reasons.push('turn made no tool call');
-    if (STOP_ON.has('idle') && t > 0 && answersNow >= 0 && answersNow <= lastAnswers)
+    // A PARTIAL TURN IS NOT AN IDLE ONE (M-232): the connector ended the turn
+    // on an upstream 5xx after calls were made and kept them; the model was
+    // not idle, the engine was. The next turn continues from the kept calls.
+    // Bounded: more than PARTIAL_CAP such turns in one round is the engine
+    // being down, and the round says so as transport.
+    const partial = typeof p.stopped === 'string' && p.stopped.startsWith('UPSTREAM_');
+    if (partial) {
+      partials++;
+      flags.push({
+        turn: t,
+        flag: 'upstream_partial',
+        stopped: p.stopped,
+        detail: p.stopped_detail ?? null,
+      });
+      console.log(
+        `::warning title=battery partial turn::song ${songNo} turn ${t}: the engine died mid-turn (${p.stopped}) after ${tools.length} call(s); the calls are kept and the next turn continues`
+      );
+      if (partials > PARTIAL_CAP) {
+        lastStatus = 502;
+        lastError = `${partials} partial turns on upstream failures (cap ${PARTIAL_CAP})`;
+        break;
+      }
+    }
+    if (!partial && STOP_ON.has('idle') && tools.length === 0)
+      reasons.push('turn made no tool call');
+    if (!partial && STOP_ON.has('idle') && t > 0 && answersNow >= 0 && answersNow <= lastAnswers)
       reasons.push(`no new answer folded (${answersNow} on record, was ${lastAnswers})`);
     if (reasons.length) {
       flags.push({ turn: t, flag: 'fail_fast', reasons });
