@@ -911,13 +911,28 @@ def test_the_song_profile_makes_no_separation_claim():
 
         # Which codes MUST appear: every length-sensitive finding this
         # profile declares a threshold for.
+        # A threshold AT THIS LENGTH that sits at the statistic's own
+        # ceiling (a `hi` fraction at 1.0) cannot fire on anything — the
+        # predictability knot table is 1.0000 under ~156 tokens by
+        # resolution (M-239, RESULTS_LENGTH_CURVE.md §9) — so it is not in
+        # `want`, and its SILENCE is pinned below rather than left implicit.
+        silent = {c for c, (pk, _) in LENGTH_SENSITIVE.items()
+                  if pk in prof.keys()
+                  and pk.endswith("_max")
+                  and (prof.threshold(pk, n_tok) or 0) >= 1.0}
         want = {c for c, (pk, _) in LENGTH_SENSITIVE.items()
-                if pk in prof.keys()}
+                if pk in prof.keys()} - silent
         got = {f.code for f in FLOOR.check(ls)} & set(LENGTH_SENSITIVE)
         check(f"[{prof.name}] every length-sensitive finding the profile "
               f"declares actually FIRES on this sheet, so no check below is "
-              f"vacuous",
+              f"vacuous — minus the checks whose threshold at {n_tok} tokens "
+              f"is the statistic's ceiling ({sorted(silent) or 'none'})",
               got == want, f"want {sorted(want)}; got {sorted(got)}")
+        if silent:
+            check(f"[{prof.name}] ...and a check whose threshold is the "
+                  f"ceiling at this length is SILENT here, by resolution and "
+                  f"not by omission: {sorted(silent)}",
+                  not (got & silent), f"fired anyway: {sorted(got & silent)}")
 
         fs = [f for f in FLOOR.check(ls) if f.code in LENGTH_SENSITIVE]
         check(f"[{prof.name}] at least one finding is under test", bool(fs))
