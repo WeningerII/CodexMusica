@@ -26,6 +26,10 @@ on:
         default: '130'
         required: false
 
+      wait_for_live:
+        description: 'Wait until the live connector advertises this tree (mcp/check_live.mjs exit 0) before the first turn (M-225: the deploy job only queues the build)'
+        default: 'false'
+        required: false
 concurrency:
   group: flash-battery
   cancel-in-progress: false
@@ -41,12 +45,42 @@ jobs:
     # same 2x margin check_deploy_memory.js uses, under the 6h Actions cap.
     # The old 120 was sized for the 130s-pace multi-song shape and would kill
     # the job mid-round — taking the transcript with it.
-    timeout-minutes: 300
+    timeout-minutes: 355
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
+      # M-225: "ACCEPTED IS NOT DEPLOYED" (deploy-connector.yml's own words) —
+      # the deploy job only queues Render's build, and nothing reports when the
+      # new process is serving. mcp/check_live.mjs asks the live server what it
+      # advertises and exits 0 only when that matches THIS tree, so a round
+      # dispatched with wait_for_live=true starts its first turn against the
+      # build it was meant to measure and not the one before it. Bounded at
+      # 45 minutes; a wait that runs out is a red job, not a round against the
+      # wrong server.
+      - name: Wait until the live connector matches this tree
+        if: inputs.wait_for_live == 'true'
+        run: |
+          (cd mcp && npm ci --no-audit --no-fund)
+          deadline=$((SECONDS + 2700))
+          n=0
+          while :; do
+            n=$((n + 1))
+            set +e
+            out=$(node mcp/check_live.mjs 2>&1); rc=$?
+            set -e
+            if [ "$rc" = "0" ]; then
+              echo "::notice title=battery wait-for-live::live connector matches this tree after $n probe(s), ${SECONDS}s"
+              break
+            fi
+            echo "probe $n: check_live exit $rc — $(echo "$out" | tail -1 | cut -c1-160)"
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error title=battery wait-for-live::the live connector did not match this tree inside 45 minutes (last exit $rc)"
+              exit 1
+            fi
+            sleep 30
+          done
       - name: Drive the battery against the live deployment
         run: |
           node scripts/flash_battery.mjs \
