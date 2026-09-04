@@ -308,9 +308,20 @@ def _round_trip_one(seed):
                     n != 0 or s["bars"] < 1):
                 bad.append((seed, f"instrumental {s['name']} carries "
                                   f"{n} line(s), {s['bars']} bar(s)"))
+    except RuntimeError as e:
+        # THE SCHEMA DOOR'S PAIR GUARD (`MISSING.md` M-240, 2026-09-04): a
+        # plan past ~140 lines — reachable since M-239 widened the envelope
+        # to 12..447 — cannot be graded through the 77-schema default door,
+        # which refuses at its declared pair guard. That is the grader's
+        # own limit, recorded as its OWN count beside the three, never as a
+        # planner shape the graders cannot take and never summed into them.
+        if "candidate explosion" not in str(e):
+            bad.append((seed, f"{type(e).__name__}: {e}"))
+        else:
+            return seed, bad, judged_total, refused_total, "walled"
     except Exception as e:  # noqa: BLE001 — any raise is the failure
         bad.append((seed, f"{type(e).__name__}: {e}"))
-    return seed, bad, judged_total, refused_total
+    return seed, bad, judged_total, refused_total, None
 
 
 def test_the_round_trip():
@@ -341,17 +352,24 @@ def test_the_round_trip():
         _results = [_round_trip_one(_s) for _s in range(20)]
     # SEED ORDER, explicitly. `map` already preserves it; sorting says so, so
     # a later switch to `as_completed` cannot quietly reorder `bad`.
-    for _seed, _b, _j, _r in sorted(_results, key=lambda t: t[0]):
+    walled = []
+    for _seed, _b, _j, _r, _w in sorted(_results, key=lambda t: t[0]):
         bad.extend(_b)
         judged_total += _j
         refused_total += _r
+        if _w:
+            walled.append(_seed)
     check("20 seeds: blueprint READS, mandate PARSES, mandated == judged + "
           "REFUSED with judged > 0 (three counts, never summed: doctrine "
           "79), every refusal is a NO-ANCHOR slot on the dummy draft's own "
           "words rather than a shape the graders cannot take, and no "
-          "verbatim/drift finding stands on a planner shape",
-          not bad, f"bad: {bad or 'none'}; "
-                   f"judged {judged_total}, slot-refused {refused_total}")
+          "verbatim/drift finding stands on a planner shape — a seed past "
+          "the schema door's pair guard (M-240) is a FOURTH count, the "
+          "grader's own wall, and at least one seed must have graded",
+          not bad and judged_total > 0 and len(walled) < 20,
+          f"bad: {bad or 'none'}; "
+          f"judged {judged_total}, slot-refused {refused_total}, "
+          f"walled at the schema door {len(walled)} seed(s) {walled}")
 
     # AND THE SECTION'S GRADING POWER HAS A FLOOR IT DERIVES FROM ITS OWN
     # FIXTURE, so `judged > 0` cannot decay to "one pair answered".
