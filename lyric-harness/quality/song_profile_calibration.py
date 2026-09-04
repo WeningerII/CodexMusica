@@ -641,7 +641,8 @@ def predictability_frac(qf, lines, obvious_cutoff=0.90):
 
 
 def population(verbose=True, qf=None, with_predictability=True, scorer=None,
-               sample=None, sample_seed=SAMPLE_SEED, pred_max_tokens=None):
+               sample=None, sample_seed=SAMPLE_SEED, pred_max_tokens=None,
+               files=None):
     """-> ([row], scorer), one row per `--- TITLE:` item in corpus/song/eng_*.txt.
 
     `qf`/`scorer` let a caller share one `QualityFeatures` (and its
@@ -662,7 +663,10 @@ def population(verbose=True, qf=None, with_predictability=True, scorer=None,
         scorer = Scorer(PredictabilityCache(enabled=False).open(), qf)
     elif qf is not None and scorer._qf is None:
         scorer._qf = qf
-    files = corpus_files()
+    # `files` (2026-09-04, quality/LENGTH_CURVE_PREREGISTRATION.md §1): a
+    # SHARD of the corpus for a parallel cold run of the fifth check. The
+    # default is the whole population, byte for byte what it was.
+    files = corpus_files() if files is None else list(files)
     raw = []
     for p in files:
         a, born, died = author_of(p)
