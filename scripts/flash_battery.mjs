@@ -57,7 +57,11 @@ if (!OUT) {
   process.exit(2);
 }
 const N_SONGS = Math.max(1, parseInt(args.songs || '3', 10));
-const MAX_TURNS = args.smoke ? 2 : Math.max(2, parseInt(args.turns || '9', 10));
+// M-224 (round 14): the turn cap was the wall. Six turns folded 34 answers at
+// six to ten a turn, every turn advancing, and nine turns cannot hold a loop
+// that asks forty or more questions. 25 for a single song; the pace, not the
+// count, is what the per-IP hour limit is sized against.
+const MAX_TURNS = args.smoke ? 2 : Math.max(2, parseInt(args.turns || '25', 10));
 const PACE_MS = Math.max(0, parseFloat(args.pace || '130') * 1000);
 // FAIL FAST (M-220, 2026-09-03, the owner's ruling after round 11: "we should
 // have been alerted on the first turn failure so we could stop the run"). A
@@ -114,10 +118,19 @@ const BRIEFS = [
 // the dozens of folds a clean run needs at that pace. The user-role remedy
 // is the same species as PARKED_CONTINUE: steer the PROCESS, write no
 // lyric line — a user watching one answer per reply says "keep going".
+// M-224: PROCESS STEERING ONLY, no lyric line. Round 14 lost three turns to a
+// malformed call and one to the output-token cap. Both are the model's OUTPUT
+// breaking: a call it could not serialise, and a reply too long to finish.
+// A user watching that says: tool calls only, no prose between them, the one
+// line the question asked, never the whole song retyped, and if a call did
+// not go through, make it again.
 const CONTINUE =
   'continue — and answer every question the revision loop asks within this ' +
   'same reply, one lyric_revise call after another, as many as it takes. ' +
-  'One answer per reply is too slow; keep going until it reaches exit 0.';
+  'One answer per reply is too slow; keep going until it reaches exit 0. ' +
+  'Tool calls only: no prose between calls, and never retype the song — ' +
+  'each answer is the one line (or the L<n>: lines) the question asked for, ' +
+  'plain ASCII punctuation. If a call did not go through, make the same call again.';
 // M-163 (owner's order, 2026-08-29: "keep going until we get a clean exit 0
 // song"): exit 3 is a real stop condition and NOT a finished song — the loop
 // parked with flags standing. The driver, still in its user role, does what
@@ -285,6 +298,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
   let failedFast = false;
   let userReasks = 0; // M-222: same-message re-sends after a malformed, call-less turn
   let truncated = 0; // M-223: turns cut off by a malformed hop AFTER making calls
+  let hitTurnCap = false; // M-224: the connector's CHAT_MAX_TURNS answered 429
   let lastStatus = 200; // M-223: the last turn's HTTP status and error body
   let lastError = null;
 
@@ -345,7 +359,17 @@ for (const [songNo, briefIdx] of indices.entries()) {
     // turn's upstream dies past the server's own single 5xx retry — the
     // turn's work is thrown away but the carried envelope is intact, so a
     // logged retry is the user pressing send again, not record-blurring.
-    while ((r.status === 429 || r.status === 502 || r.status === 503) && retries < 4) {
+    // THE CONNECTOR'S OWN CONVERSATION CAP IS TERMINAL (M-224): `CHAT_MAX_TURNS`
+    // (12 by default, counted over the user turns the pruned history still
+    // holds) answers 429 with "start a new recipe", and no retry changes it.
+    // Four sixty-second waits on it would be four minutes of nothing; the row
+    // names it and the round ends with its own reason.
+    const turnCapped = () => r.status === 429 && /start a new recipe/.test(r.error || '');
+    while (
+      (r.status === 429 || r.status === 502 || r.status === 503) &&
+      !turnCapped() &&
+      retries < 4
+    ) {
       retries++;
       // The wait is the server's own Retry-After when it names one (capped at
       // RETRY_AFTER_CAP_S so a quota that says "tomorrow" cannot park the job),
@@ -373,6 +397,15 @@ for (const [songNo, briefIdx] of indices.entries()) {
     const p = r.payload || {};
     lastStatus = r.status;
     lastError = r.error ?? r.transport ?? null;
+    if (turnCapped()) {
+      hitTurnCap = true;
+      flags.push({ turn: t, flag: 'server_turn_cap', error: r.error });
+      appendFileSync(file, JSON.stringify({ turn: t, server_turn_cap: r.error }) + '\n');
+      console.log(
+        `::error title=battery server turn cap::song ${songNo} turn ${t}: ${esc(r.error, 160)}`
+      );
+      break;
+    }
     if (r.status === 0) {
       flags.push({ turn: t, flag: 'transport_failure', detail: r.transport });
     }
@@ -527,9 +560,11 @@ for (const [songNo, briefIdx] of indices.entries()) {
       ? 'finished'
       : failedFast
         ? 'failed_fast'
-        : lastStatus !== 200 || lastError
-          ? 'transport'
-          : 'no_stop';
+        : hitTurnCap
+          ? 'server_turn_cap'
+          : lastStatus !== 200 || lastError
+            ? 'transport'
+            : 'no_stop';
   if (N_SONGS === 1 && exitReason !== 'finished') process.exitCode = 1;
   console.log(
     `::${exitReason === 'finished' ? 'notice' : 'error'} title=battery verdict::song ${songNo}: ${exitReason}` +

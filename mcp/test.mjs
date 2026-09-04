@@ -2592,6 +2592,77 @@ check('validation: actionable errors', () => {
       }
     }
   );
+  // M-224: the connector's own conversation cap (CHAT_MAX_TURNS) answers 429
+  // with "start a new recipe" and no retry changes it — the round ends at once
+  // with its own reason instead of four sixty-second waits.
+  check(
+    "the connector's conversation cap ends the round at once with exit_reason server_turn_cap",
+    async () => {
+      const { spawn } = await import('node:child_process');
+      const { mkdtempSync, rmSync } = await import('node:fs');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+      const { fileURLToPath } = await import('node:url');
+      const http = await import('node:http');
+      let n = 0;
+      const t0 = Date.now();
+      const srv = http.createServer((req, res) => {
+        req.on('data', () => {});
+        req.on('end', () => {
+          n++;
+          if (n === 1) {
+            res.writeHead(200, { 'content-type': 'application/json' });
+            res.end(
+              JSON.stringify({
+                reply: '',
+                tools: [{ name: 'lyric_plan', exit_code: 0 }],
+                stopped: null,
+                history: [],
+                workspace: null,
+                sig: 's1',
+              })
+            );
+            return;
+          }
+          res.writeHead(429, { 'content-type': 'application/json' });
+          res.end(
+            JSON.stringify({ error: 'That is 12 messages — start a new recipe to keep going.' })
+          );
+        });
+      });
+      await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+      const port = srv.address().port;
+      const out = mkdtempSync(join(tmpdir(), 'battery-m224-'));
+      try {
+        const r = await runDriver(spawn, [
+          fileURLToPath(new URL('../scripts/flash_battery.mjs', import.meta.url)),
+          `--out=${out}`,
+          `--base=http://127.0.0.1:${port}`,
+          '--songs=1',
+          '--turns=5',
+          '--pace=0',
+        ]);
+        assert.equal(r.status, 1, 'no song, so red');
+        assert.equal(n, 2, 'the cap was not retried');
+        assert.ok(Date.now() - t0 < 30_000, 'and the round did not wait on it');
+        const rows = readFileSync(join(out, 'song0.jsonl'), 'utf8')
+          .trim()
+          .split('\n')
+          .map((l) => JSON.parse(l));
+        assert.ok(
+          rows.some((x) => 'server_turn_cap' in x),
+          'the cap is its own row'
+        );
+        assert.ok(!rows.some((x) => 'retry' in x), 'and no retry row');
+        const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+        assert.equal(summary.songs[0].exit_reason, 'server_turn_cap');
+        assert.equal(summary.songs[0].flags[0].flag, 'server_turn_cap');
+      } finally {
+        srv.close();
+        rmSync(out, { recursive: true, force: true });
+      }
+    }
+  );
   check(
     'the re-ask is bounded: a turn that fails a third time is the failure fail-fast stops on',
     async () => {
