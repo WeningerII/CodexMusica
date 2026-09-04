@@ -17977,7 +17977,7 @@ this ladder line, which `verify_entries.py`'s doctrine-17 sweep caught
 within five minutes: a superseded 236 visible in no scanned document is
 exactly the vanished-value case that check exists to refuse.
 
-### M-181 · The listenable songs are UNREACHABLE — the length floor rose past four of the five, and density rides length `PARTIAL` 2026-08-31 — found by an owner asking why every song sounds the same, and by three of this session's own wrong answers
+### M-181 · ~~The listenable songs~~ The five songs the owner's complaint was about (struck 2026-09-04, M-238) are UNREACHABLE — the length floor rose past four of the five, and density rides length `PARTIAL` 2026-08-31 — found by an owner asking why every song sounds the same, and by three of this session's own wrong answers
 **THE COMPLAINT, verbatim, and it named a cause this entry had to test
 rather than adopt:** *"we're getting these faux purple prose meets word
 soup because ... I requested that we have 2 kinds of rhymes per line and
@@ -19075,7 +19075,7 @@ alone). §14 holds the rule, the table, the mutation and the moved-set
 equality. EMPIRICALLY VERIFIED 2026-09-01: the four repinned sections and
 §14 green.
 
-### M-191 · The participation draw pinned the MEAN density near 2.5 bound words a line, so the sparse band the listenable songs occupy was unreachable at any seed — the plan draws its own density coordinate now `CLOSED` 2026-09-01 — ruled under the owner's delegation; M-181's cause, found by reading the draw the entry had blamed on length
+### M-191 · The participation draw pinned the MEAN density near 2.5 bound words a line, so the sparse band ~~the listenable songs~~ the five songs of M-181 (struck 2026-09-04, M-238) occupy was unreachable at any seed — the plan draws its own density coordinate now `CLOSED` 2026-09-01 — ruled under the owner's delegation; M-181's cause, found by reading the draw the entry had blamed on length
 **THE CAUSE M-181 MISSED.** That entry read the five listenable songs as
 sitting at ≤ 1.5 bound words a line and blamed the length floor, which rose
 past four of them. The floor is real and the cause is not it: every line's
@@ -19290,13 +19290,13 @@ completeness critic of this verification named and this sentence keeps
 visible (the verifiers ran it only with `placements: 'end'`, before the
 repair).
 
-### M-193 · A lyric sheet under 200 tokens reached no exact floor profile, so the short songs a listener preferred could be neither graded with teeth nor volunteered by the planner — a SHORT profile is calibrated under the song band's own rule, at 50–150 tokens `CLOSED` 2026-09-01 — ruled under the owner's delegation; M-181's length half, preregistered in `quality/SHORT_SONG_FLOOR_PREREGISTRATION.md` and banked in `quality/RESULTS_SHORT_SONG_FLOOR.md`
+### M-193 · A lyric sheet under 200 tokens reached no exact floor profile, so ~~the short songs a listener preferred~~ the short songs of M-181 (struck 2026-09-04, M-238) could be neither graded with teeth nor volunteered by the planner — a SHORT profile is calibrated under the song band's own rule, at 50–150 tokens `CLOSED` 2026-09-01 — ruled under the owner's delegation; M-181's length half, preregistered in `quality/SHORT_SONG_FLOOR_PREREGISTRATION.md` and banked in `quality/RESULTS_SHORT_SONG_FLOOR.md`
 **THE GAP.** `floor.PROFILES` graded a lyric sheet at 200–400 tokens (M-133)
 and nothing below it: a 120-token song REFUSED at the length gate or was
 served inside the `song` band's 1.25× tolerance with every length-sensitive
 finding downgraded to a note. `plan.song_line_counts()` reads the same
-profile, so the planner's envelope was 22–55 lines and M-181's listenable
-songs — the short ones — had probability zero from the front door.
+profile, so the planner's envelope was 22–55 lines and M-181's ~~listenable
+songs~~ five songs (struck 2026-09-04, M-238) — the short ones — had probability zero from the front door.
 **THE RULE WAS NOT MOVED; IT WAS ASKED A SECOND QUESTION.** The band rule
 that cut the `song` band (`song_profile_calibration.band_ok` / `pick_band`:
 every 50-token sub-bin ≥ 100 items, every sub-bin's threshold within `HOM`
@@ -20143,6 +20143,63 @@ entry is about, made settable.
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
 with this entry (2026-09-03).
+
+### M-238 · A person's reaction to a generated song was cited as evidence in three register entries, a profile note and a preregistration — struck under the owner's ruling that opinion has no place in the record `CLOSED` 2026-09-04 — ruled by the owner in their own words; the ruling is recorded here so it binds later sessions
+**THE RULING, verbatim (2026-09-04):** *"I do not want the impression that I
+have responded positively or negatively to any of the songs ever. that's
+opinion and it has no place in what we're doing. we are supposed to be
+working off of facts ... We are never supposed to be saying that we 'like'
+songs that an LLM produces."* And on what the complaint that started M-181
+was FOR: *"it was an attempt to get facts on why they sounded the same so
+that we could solve for similar sounding songs in general not those
+specific songs and grading against other songs you've produced pollutes
+us."*
+
+**WHAT THE RECORD SAID, AND WHERE.** M-181's header called the five banked
+songs the complaint was about "the listenable songs"; M-191's header and
+M-193's header carried the same noun ("the listenable songs", "the short
+songs a listener preferred"); `floor.py`'s `short` profile note and
+`quality/SHORT_SONG_FLOOR_PREREGISTRATION.md` §0 said the short band was
+built to reach "the five songs a listener preferred"; two comments in
+`quality/plan.py`, one check message in `quality/test_plan.py` (`test_the_delegated_rulings`) and a
+comment in `quality/audit_register.py` repeated it. Every one of those
+sentences reported a person's reaction as though it were a measured
+property of the songs, and the session that wrote them then described the
+short band to the owner as calibrated on "the songs a listener preferred"
+— which is the impression the ruling refuses.
+
+**WHAT THE NUMBERS ACTUALLY RESTED ON, so the strike moves no figure.** No
+threshold in the floor was ever read off a generated song or off anyone's
+reaction to one: every lyric-sheet percentile is a percentile of the human
+corpus (`RESULTS_SONG_FLOOR.md`, `RESULTS_SHORT_SONG_FLOOR.md`), and the
+only place generated text enters the floor is as the NEGATIVE class of a
+separation test on the `sonnet`/`section` profiles, which is a claim about
+distinguishability and not about preference. M-181's measurement — bound
+words per line over the sixteen banked songs, bisected across commits to
+the draw that moved it — is a fact about the PLANNER and stands. M-191's
+cause (the participation draw pinned the mean near 2.5 and made the sparse
+band unreachable at any seed) is a fact about the draw and stands. M-193's
+band was cut by the song band's own rule over 3,703 human items and
+stands. What the strike removes is the MOTIVATION SENTENCE that named a
+preference where the honest sentence is "the five songs the owner's
+complaint was about", and the honest reason for reaching short lengths is
+the one `quality/LENGTH_CURVE_PREREGISTRATION.md` §0 gives: the corpus is
+4–3,245 tokens and the floor covered 69% of it.
+
+**STRUCK, NEVER DELETED (doctrine 17):** the phrase stays visible under
+`~~ ~~` at each site with this entry's number beside it — M-181, M-191 and
+M-193 headers and M-193's body, `quality/floor.py` (the `short` profile
+note), `quality/SHORT_SONG_FLOOR_PREREGISTRATION.md` §0, `quality/plan.py`
+(two comments), `quality/test_plan.py` (one check message),
+`quality/audit_register.py` (one comment). `coverage_entries` 292 -> 293.
+
+**THE STANDING RULE THIS LEAVES:** a song this project wrote, and any
+person's reaction to it, is not evidence for a threshold, a band, a draw
+or a ruling. A complaint about the output is a request for a MEASUREMENT
+of the cause; the measurement is what gets recorded, in the corpus's terms
+and never in the banked songs'. `songs/RESULTS.tsv` stays what M-98 made
+it — features over committed bytes keyed on the harness commit, a
+regression witness — and is not a quality record.
 
 ### M-237 · The babysitting lived in the Gemini wrapper, so a Claude session or a person reached a tool with no memory of the last call — the run record now lives in the tools `CLOSED` 2026-09-04 (tool and record halves; the wrapper is unchanged)
 

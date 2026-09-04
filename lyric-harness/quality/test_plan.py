@@ -3195,7 +3195,7 @@ def test_the_delegated_rulings(FAILURES=None):
     bwpl = {k: _PL.SWEEP_MEASURES["bound_words_per_line"][1](p)
             for k, p in plans.items()}
     sparse = [k for k, v in bwpl.items() if v <= 1.5]
-    check("...and the SPARSE band the five listenable songs occupy (M-181: "
+    check("...and the SPARSE band M-181's five songs occupy (M-181, wording struck M-238: "
           "<= 1.5 bound words a line) is REACHABLE — `plan --sweep=1-100 "
           "--want=bound_words_per_line<=1.5` accepted 0 of 99 before the "
           "ruling and 26 after",

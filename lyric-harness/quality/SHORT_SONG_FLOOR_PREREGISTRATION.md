@@ -13,8 +13,9 @@ tokens** (re-adopted 2026-08-26, `MISSING.md` M-133). Below 200 tokens a
 song reaches no profile and the floor REFUSES (`UncalibratedLength`), or is
 graded inside the `song` profile's 1.25× tolerance band (160–200) with every
 length-sensitive finding downgraded to a note. `MISSING.md` M-181 measured
-the consequence on the banked series: the five songs a listener preferred
-are the SHORT ones, and four of the five sit below the floor the planner
+the consequence on the banked series: ~~the five songs a listener preferred
+are the SHORT ones~~ the five banked songs the owner's complaint named are
+the SHORT ones (struck 2026-09-04, `MISSING.md` M-238: a person's reaction to a generated song is opinion and is not evidence), and four of the five sit below the floor the planner
 volunteers inside (`plan.song_line_counts` reads the profile with
 `n_lines == 0`, so the planner's envelope is **22–55 lines** and a
 twelve-line song has probability zero from the front door). M-191 removed

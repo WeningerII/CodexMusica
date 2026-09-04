@@ -2392,17 +2392,17 @@ PINNED = {
     # before it could ever reach §43 in that environment; one word in the
     # install line, under the job's own "needs the suite's environment
     # exactly"), pin told in the entry's own sitting.
-    # ~~238~~ -> 239, 2026-08-31: M-181 (the five listenable songs are
+    # ~~238~~ -> 239, 2026-08-31: M-181 (~~the five listenable songs~~ M-181's five songs (struck 2026-09-04, M-238) are
     # UNREACHABLE — the length floor rose to 22 lines past four of the five,
     # and density rides length at +0.66, so removing short songs removed the
-    # sparse band the whole listenable group came from; the mean barely
+    # sparse band the whole ~~listenable~~ M-181 group came from; the mean barely
     # moved, 2.33 -> 2.48, while the lower tail went 20% -> 0% of seeds
     # under 1.5 bound words per line. Ships the MEASUREMENT half only:
     # `bound_words_per_line` as a real-valued sweep coordinate, because
     # `pins_per_line` is a MAXIMUM and accepted 0 of 39 seeds. The
     # calibration that would reopen the band is an owner ruling and is left
     # OPEN), pin told in the entry's own sitting.
-    "coverage_entries": 292,  # REPINNED 2026-09-04 from ~~240~~ ~~253~~ ~~254~~ ~~255~~ ~~256~~ ~~257~~ ~~259~~ ~~260~~ ~~261~~ ~~262~~ ~~263~~ ~~264~~ ~~265~~ ~~266~~ ~~267~~ ~~268~~ ~~269~~ ~~270~~ ~~274~~ ~~275~~ ~~276~~ ~~277~~ ~~278~~ ~~279~~ ~~280~~ ~~281~~ ~~283~~ ~~284~~ ~~285~~ ~~286~~ ~~287~~ ~~288~~ ~~289~~ ~~290~~ ~~291~~: M-183..M-237 (M-205 entered late)
+    "coverage_entries": 293,  # REPINNED 2026-09-04 from ~~240~~ ~~253~~ ~~254~~ ~~255~~ ~~256~~ ~~257~~ ~~259~~ ~~260~~ ~~261~~ ~~262~~ ~~263~~ ~~264~~ ~~265~~ ~~266~~ ~~267~~ ~~268~~ ~~269~~ ~~270~~ ~~274~~ ~~275~~ ~~276~~ ~~277~~ ~~278~~ ~~279~~ ~~280~~ ~~281~~ ~~283~~ ~~284~~ ~~285~~ ~~286~~ ~~287~~ ~~288~~ ~~289~~ ~~290~~ ~~291~~ ~~292~~: M-183..M-238 (M-205 entered late)
                               # (the delegation sitting: the loop trio, the
                               # whole-draft exit, the deploy, the staged
                               # resources, the connector coordinates, the

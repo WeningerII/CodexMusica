@@ -1989,7 +1989,8 @@ SWEEP_MEASURES = {
     # surely at song length.
     #
     # THE MEAN IS THE COORDINATE THAT ACTUALLY SEPARATED THE SONGS. Over
-    # the sixteen banked songs the five a reader called listenable measure
+    # the sixteen banked songs ~~the five a reader called listenable~~ the five
+    # of M-181 (struck 2026-09-04, M-238: a reader's reaction is not evidence) measure
     # 0.72-1.50 bound words per line and the rest 2.17-2.97, and at the
     # commit those five were written the seed distribution ran min 0.08,
     # median 2.33, max 3.17 — so all five sit in the BOTTOM QUINTILE of the
@@ -2492,7 +2493,8 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     # owner's delegation). Each line's participation was drawn uniform over
     # [1, line_binding_ceiling] — E[want] = 2.5 at the ceiling of 4 — so the
     # MEAN bound words per line was pinned near 2.5 by the draw itself and
-    # the sparse band the five listenable songs occupy (<= 1.5, M-181) was
+    # the sparse band ~~the five listenable songs~~ M-181's five songs (struck
+    # 2026-09-04, M-238) occupy (<= 1.5, M-181) was
     # unreachable at ANY seed and ANY length: `plan --sweep=1-100
     # --want=bound_words_per_line<=1.5` accepted 0 of 99. The owner refused
     # both extremes — a plan that binds only line ends and one that binds

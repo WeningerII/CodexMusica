@@ -441,10 +441,18 @@ def cmd_fit(a):
         nd = sum(1 for r in rows if r[f] == r[f])
         print("      %-14s defined on %d items" % (f, nd))
     bins = make_bins(rows)
-    print("\nBINS  %d bins of ~%d items, fixed on the whole corpus (§2)" % (len(bins), BIN_ITEMS))
-    print("  %3s %5s %6s %6s %7s" % ("k", "n", "N_lo", "N_hi", "N_med"))
+    print("\nBINS  %d bins of ~%d items, fixed on the whole corpus (§2); the last three"
+          " columns are DIAGNOSTIC — the share of 14-line and 4-line items and the"
+          " number of files, because a form that clusters at one length is a"
+          " different population inside that bin" % (len(bins), BIN_ITEMS))
+    print("  %3s %5s %6s %6s %7s %6s %6s %6s" % ("k", "n", "N_lo", "N_hi", "N_med", "14ln%", "4ln%", "files"))
     for bn in bins:
-        print("  %3d %5d %6d %6d %7.0f" % (bn["k"], bn["n"], bn["n_lo"], bn["n_hi"], bn["med"]))
+        sub = rows[bn["lo_i"]:bn["hi_i"]]
+        s14 = 100 * sum(1 for r in sub if r["n_lines"] == 14) / len(sub)
+        s4 = 100 * sum(1 for r in sub if r["n_lines"] == 4) / len(sub)
+        print("  %3d %5d %6d %6d %7.0f %6.1f %6.1f %6d"
+              % (bn["k"], bn["n"], bn["n_lo"], bn["n_hi"], bn["med"], s14, s4,
+                 len({r["file"] for r in sub})))
 
     # 1. the reference curve = the drift, exact, over the whole corpus
     print("\nREFERENCE CURVE (§5.1): per bin, each check's percentile over all items")
@@ -526,6 +534,7 @@ def cmd_fit(a):
                              if med == med else "%13s" % "nan")
             print("  %3d %6d %5d %5.2f %5.2f | " % (k, bn["n_lo"], nk, 100 * L, 100 * U)
                   + " | ".join(cells))
+        print("  bins passed: " + ", ".join("%s %d/%d" % (m, sum(passing[m]), len(bins)) for m in MODELS))
         # the pick (§4): fewest parameters passing every bin; CK fallback; else range
         pick = None
         for m in ("C0", "C1", "C2"):

@@ -979,8 +979,9 @@ PROFILES = [
 #: THE SHORT-SONG PROFILE — ADOPTED 2026-09-01 under the owner's delegation
 #: (`quality/SHORT_SONG_FLOOR_PREREGISTRATION.md`, results in
 #: `quality/RESULTS_SHORT_SONG_FLOOR.md`; `MISSING.md` M-193). Below 200
-#: tokens a lyric sheet reached no exact profile: M-181 measured the five
-#: songs a listener preferred as the SHORT ones, and the planner's envelope
+#: tokens a lyric sheet reached no exact profile: M-181 measured ~~the five
+#: songs a listener preferred as the SHORT ones~~ the five banked songs the
+#: owner's complaint was about as the SHORT ones (struck 2026-09-04, `MISSING.md` M-238: a person's reaction to a generated song is opinion and is not evidence), and the planner's envelope
 #: (`plan.song_line_counts`, which unions every `n_lines == 0` profile)
 #: could not volunteer one. The band rule is the `song` profile's own,
 #: UNCHANGED, searched over edges 50..200 (`song_profile_calibration.py
