@@ -2283,8 +2283,11 @@ check('validation: actionable errors', () => {
         '--turns=2',
         '--pace=0',
       ]);
-      assert.equal(r.status, 0, `the driver survives its transport failing: ${r.stderr}`);
+      // M-223: surviving means the RECORD is written; the exit code is the
+      // round's verdict, and a single-song round with no song is red.
+      assert.equal(r.status, 1, `a single-song round with no song exits 1: ${r.stderr}`);
       const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+      assert.equal(summary.songs[0].exit_reason, 'transport');
       assert.equal(
         summary.songs[0].flags[0].flag,
         'transport_failure',
@@ -2363,11 +2366,9 @@ check('validation: actionable errors', () => {
           '--turns=1',
           '--pace=0',
         ]);
-        assert.equal(
-          r.status,
-          0,
-          `the recovered turn is not a fail-fast: ${r.stderr}\n${r.stdout}`
-        );
+        // The round reached no stop, so it is red (M-223) — but NOT as a
+        // fail-fast: the reason separates a recovered turn from a failure.
+        assert.equal(r.status, 1, `no song, so exit 1: ${r.stderr}\n${r.stdout}`);
         // The driver's floor is two turns; turn 0 is the message sent three
         // times and turn 1 is the CONTINUE message sent once.
         assert.equal(seen.length, 4, 'turn 0 sent three times, turn 1 once');
@@ -2399,10 +2400,192 @@ check('validation: actionable errors', () => {
         assert.equal(summary.songs[0].user_reasks, 2);
         assert.equal(summary.songs[0].reask_bound, 2);
         assert.equal(summary.songs[0].failed_fast, false);
+        assert.equal(
+          summary.songs[0].exit_reason,
+          'no_stop',
+          'red for no song, not for the re-ask'
+        );
         assert.ok(
           /battery user re-ask/.test(String(r.stdout)),
           'each re-ask is a warning annotation'
         );
+      } finally {
+        srv.close();
+        rmSync(out, { recursive: true, force: true });
+      }
+    }
+  );
+  // M-223: a 429 names its limiter in the body and its wait in Retry-After;
+  // the retry row carries both and the wait is the server's number. Then the
+  // round FINISHES (a lyric_revise exit 0) and exits 0, exit_reason finished.
+  check(
+    "a 429 is retried after the server's own Retry-After, the row quotes the limiter, and a finished song exits 0",
+    async () => {
+      const { spawn } = await import('node:child_process');
+      const { mkdtempSync, rmSync } = await import('node:fs');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+      const { fileURLToPath } = await import('node:url');
+      const http = await import('node:http');
+      const stamps = [];
+      const srv = http.createServer((req, res) => {
+        req.on('data', () => {});
+        req.on('end', () => {
+          stamps.push(Date.now());
+          if (stamps.length === 1) {
+            res.writeHead(429, { 'content-type': 'application/json', 'retry-after': '1' });
+            res.end(
+              JSON.stringify({
+                error: 'The engine is over its rate limit for the moment — try again in a minute.',
+              })
+            );
+            return;
+          }
+          res.writeHead(200, { 'content-type': 'application/json' });
+          res.end(
+            JSON.stringify({
+              reply: 'done',
+              tools: [
+                {
+                  name: 'lyric_revise',
+                  exit_code: 0,
+                  loop_stop_reason: 'success',
+                  loop_rounds: 2,
+                  answers_on_record: 3,
+                },
+              ],
+              stopped: null,
+              history: [],
+              workspace: null,
+              sig: 's',
+            })
+          );
+        });
+      });
+      await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+      const port = srv.address().port;
+      const out = mkdtempSync(join(tmpdir(), 'battery-m223-'));
+      try {
+        const r = await runDriver(spawn, [
+          fileURLToPath(new URL('../scripts/flash_battery.mjs', import.meta.url)),
+          `--out=${out}`,
+          `--base=http://127.0.0.1:${port}`,
+          '--songs=1',
+          '--turns=3',
+          '--pace=0',
+        ]);
+        assert.equal(r.status, 0, `a finished song is the one green: ${r.stderr}`);
+        assert.equal(stamps.length, 2, 'the 429 was retried once and the song finished');
+        assert.ok(
+          stamps[1] - stamps[0] >= 900,
+          `the retry waited the server's 1s, not the 60s floor (${stamps[1] - stamps[0]}ms)`
+        );
+        const rows = readFileSync(join(out, 'song0.jsonl'), 'utf8')
+          .trim()
+          .split('\n')
+          .map((l) => JSON.parse(l));
+        const retry = rows.find((x) => 'retry' in x);
+        assert.equal(retry.status, 429);
+        assert.equal(retry.retry_after_s, 1);
+        assert.equal(retry.waited_s, 1);
+        assert.ok(/over its rate limit/.test(retry.error), 'the row quotes the limiter');
+        const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+        assert.equal(summary.songs[0].exit_reason, 'finished');
+        assert.equal(summary.songs[0].reached_stop, 0);
+        assert.ok(/battery retry/.test(String(r.stdout)), 'the retry is a warning annotation');
+        assert.ok(
+          /battery verdict::song 0: finished/.test(String(r.stdout)),
+          'the verdict is an annotation'
+        );
+      } finally {
+        srv.close();
+        rmSync(out, { recursive: true, force: true });
+      }
+    }
+  );
+  // M-223 (round 13): a turn that made calls and THEN ended on a malformed
+  // hop is truncated, not dead — it continues on the next message and is
+  // counted, and fail-fast does not fire on it.
+  check(
+    'a malformed end after calls is a truncated turn: no fail-fast, the next message goes out, and the summary counts it',
+    async () => {
+      const { spawn } = await import('node:child_process');
+      const { mkdtempSync, rmSync } = await import('node:fs');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+      const { fileURLToPath } = await import('node:url');
+      const http = await import('node:http');
+      const seen = [];
+      const srv = http.createServer((req, res) => {
+        let body = '';
+        req.on('data', (c) => (body += c));
+        req.on('end', () => {
+          seen.push(JSON.parse(body || '{}'));
+          const n = seen.length;
+          res.writeHead(200, { 'content-type': 'application/json' });
+          res.end(
+            JSON.stringify(
+              n === 1
+                ? {
+                    reply: '',
+                    tools: [
+                      { name: 'lyric_plan', exit_code: 0 },
+                      { name: 'lyric_revise', exit_code: 4, answers_on_record: 2 },
+                    ],
+                    stopped: 'MALFORMED_FUNCTION_CALL',
+                    history: [{ role: 'user', parts: [{ text: 'h1' }] }],
+                    workspace: null,
+                    sig: 'sig1',
+                  }
+                : {
+                    reply: 'done',
+                    tools: [
+                      {
+                        name: 'lyric_revise',
+                        exit_code: 0,
+                        loop_stop_reason: 'success',
+                        loop_rounds: 1,
+                        answers_on_record: 3,
+                      },
+                    ],
+                    stopped: null,
+                    history: [],
+                    workspace: null,
+                    sig: 'sig2',
+                  }
+            )
+          );
+        });
+      });
+      await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+      const port = srv.address().port;
+      const out = mkdtempSync(join(tmpdir(), 'battery-m223b-'));
+      try {
+        const r = await runDriver(spawn, [
+          fileURLToPath(new URL('../scripts/flash_battery.mjs', import.meta.url)),
+          `--out=${out}`,
+          `--base=http://127.0.0.1:${port}`,
+          '--songs=1',
+          '--turns=3',
+          '--pace=0',
+        ]);
+        assert.equal(r.status, 0, `the song finished on turn 1: ${r.stderr}\n${r.stdout}`);
+        assert.equal(
+          seen.length,
+          2,
+          'the truncated turn was followed by the next message, not a re-send'
+        );
+        assert.notEqual(seen[1].message, seen[0].message, 'the second message is CONTINUE');
+        assert.equal(seen[1].sig, 'sig1', "on the truncated turn's envelope");
+        const rows = readFileSync(join(out, 'song0.jsonl'), 'utf8')
+          .trim()
+          .split('\n')
+          .map((l) => JSON.parse(l));
+        assert.ok(!rows.some((x) => 'fail_fast' in x), 'no fail-fast row');
+        assert.ok(!rows.some((x) => 'reask' in x), 'no user re-ask either: the turn made calls');
+        const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+        assert.equal(summary.songs[0].truncated_turns, 1);
+        assert.equal(summary.songs[0].exit_reason, 'finished');
       } finally {
         srv.close();
         rmSync(out, { recursive: true, force: true });
@@ -2458,12 +2641,15 @@ check('validation: actionable errors', () => {
         const ff = rows.find((x) => 'fail_fast' in x);
         assert.ok(ff, 'a fail_fast row');
         assert.ok(
-          ff.fail_fast.some((m) => /this deploy records no re-ask/.test(m)),
+          ff.fail_fast.some((m) =>
+            /with no call \(this deploy records no re-ask; 2 user re-ask\(s\) spent\)/.test(m)
+          ),
           'the reason says what the deploy did, not what it might have'
         );
         const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
         assert.equal(summary.songs[0].user_reasks, 2);
         assert.equal(summary.songs[0].failed_fast, true);
+        assert.equal(summary.songs[0].exit_reason, 'failed_fast');
       } finally {
         srv.close();
         rmSync(out, { recursive: true, force: true });
