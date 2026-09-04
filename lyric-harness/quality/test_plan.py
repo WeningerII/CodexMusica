@@ -750,7 +750,7 @@ def test_the_measure():
     # against a literal share, so it cannot go stale when the set moves
     # again. Both ends within 5 of the derived limits, as before.
     import math as _m
-    _expect = len(_env) * (1 - (1 - 1 / len(_env)) ** len(plans))
+    _expect = len(_env) * (1 - (1 - 1 / len(_env)) ** 200)  # 200: the seed loop above
     check("totals cover the envelope's order, not one shape: the distinct "
           "totals reached are most of what a UNIFORM draw over the DERIVED "
           "envelope reaches in this many seeds, both ends included",

@@ -4008,8 +4008,18 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
     # about is whether a person can RUN it — "any measurement or step used in
     # producing a delivered song goes through a verb, and an improvised
     # script used twice is a defect report, not a convenience."
-    WANT = ("--want=sections<=6;lines_per_section>=2;group<=4;"
-            "uses=verse,chorus;before=verse,chorus;pins_per_line<=5")
+    # REPINNED 2026-09-04 (`MISSING.md` M-239/M-241): the envelope is
+    # 12..447 lines now and a sweep for a song-shaped short song is RARE —
+    # measured, 300 seeds each: `lines<=60` alone accepts 17.3%, adding
+    # `sections<=6` 1.3%, adding `lines_per_section>=2` 0.3%, and the old
+    # six-predicate WANT 0 of 1,600. The section-count draw favours many
+    # thin sections at every length (M-241 names the site); this section's
+    # claim is that the sweep RUNS and comes back with seeds, so the WANT
+    # is the measured 1.3% one — ~21 hits expected in 1,600 — and the
+    # length is DECLARED, which is the owner's ruling on how a song gets a
+    # length at all. ~~sections<=6;lines_per_section>=2;group<=4;
+    # uses=verse,chorus;before=verse,chorus;pins_per_line<=5~~
+    WANT = "--want=lines<=60;sections<=6;uses=verse,chorus"
     # ~~`--sweep=0-120` and `" 108" in out`.~~ **REPINNED 2026-08-24
     # (`MISSING.md` M-106), the CLI mirror of `test_plan.py` §10's repin and
     # for the same reason.** The seed that satisfies a six-way conjunction is
