@@ -509,13 +509,39 @@ export async function buildSurface(client) {
 // the live carried state, so it appears the moment a mid-turn call suspends
 // and disappears the moment a run reaches a stop condition — never a stale
 // sentence about a run that is over.
+// M-226 (round 14, turn 7, the first malformed call ever recorded): the call
+// broke INSIDE the draft array the model re-sent, and this note used to say
+// "with the same arguments plus answer" — an instruction to re-send it. The
+// draft is carried with the record; the continuing call is seed + answer.
 const SUSPENDED_RUN_NOTE = (seed) =>
   `A lyric_revise run for ${typeof seed === 'number' ? `seed ${seed}` : seed} is SUSPENDED, awaiting one answer. ` +
   'Nothing you write in chat reaches the harness: the run advances ONLY ' +
-  'when you call lyric_revise again with the same arguments plus `answer` ' +
-  '(the state is carried for you automatically). Put the line in the ' +
+  'when you call lyric_revise again with `seed` and `answer` — NOTHING ELSE. ' +
+  'Do NOT send `draft`: the draft and the state are carried for you, and a ' +
+  're-sent draft is where the call has broken before. Put the line in the ' +
   "tool call's `answer` field — do not print it as your reply. The song " +
   'cannot finish until the loop reaches a stop condition through that tool.';
+
+// THE DECLARATION THE MODEL SEES WHILE A RUN IS SUSPENDED HAS NO `draft`
+// (M-226). Prose asks; a schema decides. With a record carried for a seed,
+// the continuing lyric_revise call is filled from it, so the parameter is
+// removed from the declaration for that request and the model has nothing to
+// re-emit. The first call of a song, with no record, sees the full schema.
+export function declarationsFor(surface, lyr) {
+  if (!lyr || typeof lyr.state !== 'string' || !Array.isArray(lyr.draft))
+    return surface.declarations;
+  return surface.declarations.map((d) => {
+    if (!surface.stateTools?.has(d.name) || !d.parameters?.properties?.draft) return d;
+    const { draft: _draft, ...properties } = d.parameters.properties;
+    const required = Array.isArray(d.parameters.required)
+      ? d.parameters.required.filter((n) => n !== 'draft')
+      : d.parameters.required;
+    return {
+      ...d,
+      parameters: { ...d.parameters, properties, ...(required ? { required } : {}) },
+    };
+  });
+}
 
 function suspendedSeed(lyr) {
   if (!lyr || typeof lyr.state !== 'string') return null;
@@ -800,6 +826,8 @@ export async function runTurn({
       const si = buildSystemInstruction(surface, lyr);
       if (si) body.systemInstruction = si;
       else delete body.systemInstruction;
+      // Per hop, like the reminder: the record can appear mid-turn (M-226).
+      body.tools = [{ functionDeclarations: declarationsFor(surface, lyr) }];
       const json = await generate({
         apiKey,
         model,

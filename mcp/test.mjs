@@ -1379,7 +1379,26 @@ check('validation: actionable errors', () => {
     // stands, and a different seed carries nothing.
     const stateSurface = {
       instructions: '',
-      declarations: [],
+      declarations: [
+        {
+          name: 'lyric_revise',
+          description: 'revise',
+          parameters: {
+            type: 'object',
+            properties: {
+              seed: { type: 'integer' },
+              draft: { type: 'array', items: { type: 'string' } },
+              answer: { type: 'string' },
+            },
+            required: ['seed', 'draft'],
+          },
+        },
+        {
+          name: 'lyric_plan',
+          description: 'plan',
+          parameters: { type: 'object', properties: { seed: { type: 'integer' } } },
+        },
+      ],
       workspaceTools: new Set(),
       stateTools: new Set(['lyric_revise']),
     };
@@ -1403,15 +1422,23 @@ check('validation: actionable errors', () => {
             exit_code: 4,
             status: 'awaiting_proposal',
             answers_on_record: n,
-            state: `{"n":${n}}`,
+            state: `{"pending":{"kind":"propose"},"n":${n}}`,
           }),
         },
       ],
     });
     const seen = [];
+    const requests = []; // M-226: every request body the mocked model saw
     const driveState = async (script, lyric = null) => {
       let hop = 0;
-      globalThis.fetch = async () => script[Math.min(hop++, script.length - 1)]();
+      globalThis.fetch = async (_url, init) => {
+        try {
+          requests.push(JSON.parse(init?.body ?? '{}'));
+        } catch {
+          requests.push(null);
+        }
+        return script[Math.min(hop++, script.length - 1)]();
+      };
       try {
         return await _runTurn({
           apiKey: 'k',
@@ -1448,7 +1475,11 @@ check('validation: actionable errors', () => {
           DRAFT,
           'the second call omitted draft and got the carried one'
         );
-        assert.equal(seen[1].args.state, '{"n":0}', 'beside the carried state');
+        assert.equal(
+          seen[1].args.state,
+          '{"pending":{"kind":"propose"},"n":0}',
+          'beside the carried state'
+        );
         assert.deepEqual(
           seen[2].args.draft,
           ['a draft the model sent itself'],
@@ -1476,7 +1507,56 @@ check('validation: actionable errors', () => {
         );
       }
     );
+    // M-226: the declaration the model saw on the hop AFTER the first
+    // suspended result has no `draft`; the first hop's did. Round 14's turn 7
+    // recorded the first malformed call ever captured, and it broke inside
+    // the draft array the model re-sent against a declaration that offered it.
+    check(
+      "while a run is suspended the lyric_revise declaration has no draft to re-emit; the first call's did (M-226)",
+      async () => {
+        const decl = (req) =>
+          req.tools[0].functionDeclarations.find((d) => d.name === 'lyric_revise');
+        assert.ok(requests.length >= 2);
+        assert.ok(
+          'draft' in decl(requests[0]).parameters.properties,
+          'first hop: no record yet, draft offered'
+        );
+        assert.deepEqual(decl(requests[0]).parameters.required, ['seed', 'draft']);
+        assert.ok(
+          !('draft' in decl(requests[1]).parameters.properties),
+          'second hop: record carried, draft gone'
+        );
+        assert.deepEqual(decl(requests[1]).parameters.required, ['seed'], 'and not required');
+        assert.ok('answer' in decl(requests[1]).parameters.properties, 'answer stays');
+        const plan = requests[1].tools[0].functionDeclarations.find((d) => d.name === 'lyric_plan');
+        assert.deepEqual(
+          plan,
+          stateSurface.declarations[1],
+          'a tool that carries no state is untouched'
+        );
+        assert.ok(
+          /Do NOT send `draft`/.test(requests[1].systemInstruction.parts[0].text),
+          'the suspended-run reminder says not to send it'
+        );
+        assert.ok(
+          !/same arguments/.test(requests[1].systemInstruction.parts[0].text),
+          'and no longer says "the same arguments"'
+        );
+        const { declarationsFor } = await import('./gemini_agent.js');
+        assert.equal(
+          declarationsFor(stateSurface, null),
+          stateSurface.declarations,
+          'no record: the declarations themselves'
+        );
+        assert.equal(
+          declarationsFor(stateSurface, { key: 'seed:5', seed: 5, state: '{}' }),
+          stateSurface.declarations,
+          'a pre-M-221 record with no draft: nothing to fill from, so the full schema stays'
+        );
+      }
+    );
     seen.length = 0;
+    requests.length = 0;
     const nextTurn = await driveState(
       [callWith({ seed: 5, answer: 'a line on the next turn' }), done],
       { key: 'seed:5', seed: 5, state: '{"n":2}', draft: DRAFT }
