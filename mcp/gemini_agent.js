@@ -526,9 +526,11 @@ export async function buildSurface(client) {
 // "with the same arguments plus answer" — an instruction to re-send it. The
 // draft is carried with the record; the continuing call is seed + answer.
 const SUSPENDED_RUN_NOTE = (seed) =>
-  `A lyric_revise run for ${typeof seed === 'number' ? `seed ${seed}` : seed} is SUSPENDED, awaiting one answer. ` +
+  `A lyric_revise run for ${typeof seed === 'number' ? `seed ${seed}` : seed} is SUSPENDED, awaiting an answer. ` +
   'Nothing you write in chat reaches the harness: the run advances ONLY ' +
   'when you call lyric_revise again with `seed` and `answer` — NOTHING ELSE. ' +
+  'When the question asked about SEVERAL lines at once, `answer` is one `L<n>: <line>` ' +
+  'row per asked line, every one required, nothing else (M-236). ' +
   'Do NOT send `draft`: the draft and the state are carried for you, and a ' +
   're-sent draft is where the call has broken before. Put the line in the ' +
   "tool call's `answer` field — do not print it as your reply. The song " +

@@ -1742,6 +1742,20 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
                 with open(state, "w") as fh:
                     json.dump(st, fh)
                 continue
+            # AND THE BATCH (M-236): several independent lines asked at
+            # once, answered as one `L<n>:` row set, each recorded as its
+            # own question — which is what this section counts.
+            if "records" in rec:
+                for r in rec["records"]:
+                    asked.append((r["line"], r["attempt"], r.get("round"),
+                                  r.get("draft")))
+                st = disc.state
+                st["pending"]["answer"] = "\n".join(
+                    f"L{r['line']}: {answer(r['line'])}"
+                    for r in rec["records"])
+                with open(state, "w") as fh:
+                    json.dump(st, fh)
+                continue
             asked.append((rec["line"], rec["attempt"], rec.get("round"),
                           rec.get("draft")))
             st = disc.state
@@ -1759,8 +1773,16 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
           res is not None and res.rounds[0].fixed_lines == [1]
           and all(r.fixed_lines == [] for r in res.rounds[1:]),
           None if res is None else [r.fixed_lines for r in res.rounds])
-    check("the loop ran TWO rounds: one that moved the draft, one that "
-          "could not", res is not None and len(res.rounds) == 2)
+    # REPINNED 2026-09-04 (M-236) from ~~TWO~~: under ONE attempt per line
+    # a barren round is not yet NO_PROGRESS — the next round's question is
+    # the first place the grader's reasons reach the writer — so the stop
+    # reads two barren rounds in a row: one that moved the draft, two that
+    # could not.
+    check("the loop ran THREE rounds: one that moved the draft, two that "
+          "could not (M-236: a barren round under attempts=1 waits for the "
+          "round that carries the reasons)",
+          res is not None and len(res.rounds) == 3,
+          None if res is None else len(res.rounds))
     per_line = {}
     for ln, at, rd, fp in asked:
         per_line.setdefault(ln, []).append(rd)
@@ -1791,9 +1813,9 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
     check("L1 was asked exactly once, in round 1", per_line.get(1) == [1],
           per_line.get(1))
     check("each line still open after round 1 — open on the round-2 "
-          "draft's own brief — was asked AGAIN in round 2, once per round, "
-          "never answered from the round-1 record",
-          open_lines and all(per_line[ln] == [1, 2] for ln in open_lines),
+          "draft's own brief — was asked AGAIN in rounds 2 and 3, once per "
+          "round, never answered from the round-1 record",
+          open_lines and all(per_line[ln] == [1, 2, 3] for ln in open_lines),
           f"open after round 1 {open_lines}; asked {per_line}")
     check("...and the line L1's fix CLOSED (L3, whose MODAL_RHYME was "
           "against L1's old word) is ~~asked once and never again~~ NEVER "
@@ -1805,10 +1827,19 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
           f"closed by L1's fix {closed_by_l1}; asked {per_line.get(3)}; "
           f"resolved_elsewhere "
           f"{[r.resolved_elsewhere for r in res.rounds]}")
+    # REPINNED 2026-09-04 (M-236) from ~~all~~ ANY open line: the batch
+    # door asks the lines independent of L1 TOGETHER WITH L1, against the
+    # input draft, so those lines' round-1 and round-2 fingerprints now
+    # differ; the line asked after L1's fix (its group-mate's partner, L4)
+    # still shares one fingerprint across rounds, and it is that line that
+    # proves the round has to be part of the key.
     check("the draft fingerprint alone could NOT have told the two "
-          "questions apart: the open lines were asked in round 1 after L1's "
-          "fix moved the draft, and round 2 opened on that same draft",
-          open_lines and all(
+          "questions apart for at least one open line: asked in round 1 "
+          "after L1's fix moved the draft, and round 2 opened on that same "
+          "draft (M-236: a line batched WITH L1 is asked against the "
+          "input draft instead, and is told apart by the fingerprint — the "
+          "round is the key either way)",
+          open_lines and any(
               len({fp for ln2, _, _, fp in asked if ln2 == ln}) == 1
               for ln in open_lines),
           [(ln, rd, fp) for ln, _, rd, fp in asked])
@@ -1853,14 +1884,18 @@ def test_a_stuck_line_is_asked_again_once_the_draft_has_moved():
                     propose_group=lambda *a, **k: None)
         tail = d1(done=True)
         hits[name] = tail
-    check("keyed round-1 records answer ROUND 1 ONLY: round 2's questions "
-          "are asked and NOT recorded",
+    # REPINNED 2026-09-04 (M-236): under attempts=1 the loop runs TWO
+    # barren rounds before NO_PROGRESS, so the unrecorded questions are the
+    # open lines' rounds 2 AND 3 — twice `open_lines` — and the stripped
+    # records answer both of those rounds from round 1.
+    check("keyed round-1 records answer ROUND 1 ONLY: rounds 2 and 3's "
+          "questions are asked and NOT recorded",
           f"{len(round1)} consulted and answered" in hits["keyed"]
-          and f"{len(open_lines)} asked and NOT recorded" in hits["keyed"],
+          and f"{2 * len(open_lines)} asked and NOT recorded" in hits["keyed"],
           hits["keyed"])
-    check("the SAME records with `round` stripped answer round 2 from "
-          "round 1 — the pre-M-183 key, kept for files already on disk",
-          f"{len(round1) + len(open_lines)} consulted and answered"
+    check("the SAME records with `round` stripped answer rounds 2 and 3 "
+          "from round 1 — the pre-M-183 key, kept for files already on disk",
+          f"{len(round1) + 2 * len(open_lines)} consulted and answered"
           in hits["legacy"] and "0 asked and NOT recorded" in hits["legacy"],
           hits["legacy"])
 
@@ -2176,6 +2211,68 @@ def test_a_return_is_a_class_and_is_revised_together():
           tuple(_att.touched) == (3, 6), str(_att.touched))
 
 
+def test_the_batch_door_and_the_recorded_verdict():
+    """M-236: the loop hands a `prefetch`-bearing proposer the open briefs
+    ahead of each line before its first question, tells a `record`-bearing
+    proposer what verify made of every candidate, and under ONE attempt per
+    line reads two barren rounds before NO_PROGRESS."""
+    print("\n26. the BATCH DOOR: `prefetch` sees the open lines ahead, "
+          "`record` hears every verdict, and attempts=1 waits one barren "
+          "round for the reasons (M-236)")
+    seen = {"prefetch": [], "record": []}
+    lines = list(CLICHE)
+
+    def stub(brief, ls, attempt, reasons=None, whole=()):
+        return None                      # declines: every line stays open
+
+    def prefetch(brief, ahead, ls, whole=()):
+        seen["prefetch"].append((brief.line_no,
+                                 tuple(x.line_no for x in ahead)))
+
+    def record(line_no, attempt, round_no, text, accepted, reasons):
+        seen["record"].append((line_no, attempt, round_no, accepted))
+
+    stub.prefetch = prefetch
+    stub.record = record
+    r1 = revise_loop(Reviser(rdecl=ReviseDeclaration(attempts_per_line=1,
+                                                     max_rounds=4)),
+                     lines, "ABAB", propose=stub)
+    first = [p for p in seen["prefetch"]]
+    check("prefetch is called before each open line's first question, "
+          "with the open lines still AHEAD of it in the pass",
+          first and first[0][0] == min(x for x, _ in first)
+          and all(all(a > ln for a in ahead) for ln, ahead in first),
+          first[:6])
+    check("a declining proposer is told nothing by `record` — no candidate "
+          "was ever verified", seen["record"] == [], seen["record"][:3])
+    check("under attempts=1 a barren round is NOT yet NO_PROGRESS: the "
+          "stop reads TWO barren rounds", r1.stop_reason == "no_progress"
+          and len(r1.rounds) == 2, (r1.stop_reason, len(r1.rounds)))
+    r3 = revise_loop(Reviser(rdecl=ReviseDeclaration(attempts_per_line=3,
+                                                     max_rounds=4)),
+                     lines, "ABAB", propose=stub)
+    check("CONTROL: under the default budget ONE barren round is "
+          "NO_PROGRESS, exactly as before",
+          r3.stop_reason == "no_progress" and len(r3.rounds) == 1,
+          (r3.stop_reason, len(r3.rounds)))
+
+    # `record` hears the verdict of a candidate that IS verified.
+    def bad(brief, ls, attempt, reasons=None, whole=()):
+        return ls[brief.line_no - 1]     # the same line: "nothing was fixed"
+
+    heard = []
+    bad.record = lambda ln, at, rd, tx, ok, rs: heard.append((ln, at, rd, ok,
+                                                             bool(rs)))
+    revise_loop(Reviser(rdecl=ReviseDeclaration(attempts_per_line=1,
+                                                max_rounds=1)),
+                lines, "ABAB", propose=bad)
+    check("`record` hears every verified candidate with its verdict and "
+          "the grader's reasons", heard and all(not ok and rs
+                                                for _, _, _, ok, rs in heard)
+          and all(at == 0 and rd == 1 for _, at, rd, _, _ in heard),
+          heard[:4])
+
+
 if __name__ == "__main__":
     for fn in (test_success_stop,
                test_no_progress_stop,
@@ -2201,7 +2298,8 @@ if __name__ == "__main__":
                test_tier2_that_walks_nothing_falls_through_to_tier1,
                test_a_return_is_a_class_and_is_revised_together,
                test_the_escalation_reads_the_declared_backtrack_width,
-               test_the_rebrief_carries_to_the_rest_of_the_round):
+               test_the_rebrief_carries_to_the_rest_of_the_round,
+               test_the_batch_door_and_the_recorded_verdict):
         fn()
     print("=" * 62)
     if FAILURES:

@@ -477,6 +477,10 @@ function extractStanding(stdout) {
 // next pending question names the verdict. Exact below the attempt budget;
 // the budget's LAST attempt is `unknown` here (rejected-and-exhausted and
 // accepted both move to another line) and is left so, never guessed.
+export const CONNECTOR_MAX_ROUNDS = 8;
+export const CONNECTOR_ATTEMPTS = 1;
+export const CONNECTOR_BACKTRACK = 0;
+
 function askedOf(pending) {
   if (!pending || typeof pending !== 'object') return null;
   const rec = pending.record || {};
@@ -493,6 +497,16 @@ function askedOf(pending) {
       kind: 'propose_group',
       members: Array.isArray(rec.members) ? rec.members : null,
       attempt: null,
+      round: typeof rec.round === 'number' ? rec.round : null,
+    };
+  }
+  if (pending.kind === 'propose_batch') {
+    // M-236: several independent tier-1 questions asked as one.
+    const recs = Array.isArray(rec.records) ? rec.records : [];
+    return {
+      kind: 'propose_batch',
+      lines: recs.map((r) => r && r.line).filter((n) => typeof n === 'number'),
+      attempt: 0,
       round: typeof rec.round === 'number' ? rec.round : null,
     };
   }
@@ -517,24 +531,37 @@ function priorReasons(prompt) {
   return out;
 }
 
-function foldedOf(prevStateText, st, attempts) {
-  let prev;
-  try {
-    prev = typeof prevStateText === 'string' ? JSON.parse(prevStateText) : prevStateText;
-  } catch {
-    return null;
+// THE VERDICT, OFF THE RECORD WHEN THE RECORD HAS IT (M-236). The harness
+// now writes what verify made of every candidate into the state file
+// (`outcomes`, keyed line/attempt/round) as the loop replays, so the verdict
+// is READ there first — exact for every attempt, the last one and a batch
+// member included. The M-235 derivation below stays as the fallback for a
+// state an older harness wrote.
+function outcomeAt(st, line, attempt, round) {
+  const outs = st && Array.isArray(st.outcomes) ? st.outcomes : [];
+  for (let i = outs.length - 1; i >= 0; i--) {
+    const o = outs[i];
+    if (!o || typeof o !== 'object') continue;
+    if (o.line === line && o.attempt === attempt && (o.round ?? null) === (round ?? null)) return o;
   }
-  const pend = prev && typeof prev === 'object' ? prev.pending : null;
-  if (!pend || typeof pend !== 'object') return null;
-  if (pend.answer == null || pend.answer === '') return null;
-  const asked = askedOf(pend);
-  if (!asked) return null;
-  const budget = typeof attempts === 'number' && attempts >= 0 ? attempts : 3;
+  return null;
+}
+
+function foldedOne(asked, answer, st, budget) {
   const next = st && typeof st === 'object' ? st.pending : null;
   const nextAsked = askedOf(next);
   let verdict = 'unknown';
   let reasons = [];
-  if (asked.kind === 'propose' && typeof asked.attempt === 'number') {
+  let source = 'derived';
+  const o =
+    asked.kind === 'propose' && typeof asked.attempt === 'number'
+      ? outcomeAt(st, asked.line, asked.attempt, asked.round)
+      : null;
+  if (o) {
+    verdict = o.accepted === true ? 'accepted' : o.accepted === false ? 'rejected' : 'unknown';
+    reasons = Array.isArray(o.reasons) ? o.reasons.map((r) => String(r).slice(0, 300)) : [];
+    source = 'outcome';
+  } else if (asked.kind === 'propose' && typeof asked.attempt === 'number') {
     const reasked =
       nextAsked &&
       nextAsked.kind === 'propose' &&
@@ -551,12 +578,54 @@ function foldedOf(prevStateText, st, attempts) {
   return {
     ...asked,
     answer:
-      typeof pend.answer === 'string'
-        ? pend.answer.slice(0, 300)
-        : JSON.stringify(pend.answer).slice(0, 300),
+      typeof answer === 'string' ? answer.slice(0, 300) : JSON.stringify(answer).slice(0, 300),
     verdict,
     reasons,
+    source,
   };
+}
+
+function foldedOf(prevStateText, st, attempts) {
+  let prev;
+  try {
+    prev = typeof prevStateText === 'string' ? JSON.parse(prevStateText) : prevStateText;
+  } catch {
+    return null;
+  }
+  const pend = prev && typeof prev === 'object' ? prev.pending : null;
+  if (!pend || typeof pend !== 'object') return null;
+  if (pend.answer == null || pend.answer === '') return null;
+  const asked = askedOf(pend);
+  if (!asked) return null;
+  const budget = typeof attempts === 'number' && attempts >= 0 ? attempts : 3;
+  if (asked.kind === 'propose_batch') {
+    // One record per member (M-236); the member's own answer is the row the
+    // harness folded, read back off the replay file.
+    const recs = Array.isArray(pend.record?.records) ? pend.record.records : [];
+    const folded = Array.isArray(st?.answered?.propose) ? st.answered.propose : [];
+    return recs.map((r) => {
+      const one = {
+        kind: 'propose',
+        line: r.line,
+        attempt: r.attempt ?? 0,
+        round: r.round ?? null,
+      };
+      const rec = folded.find(
+        (f) =>
+          f &&
+          f.line === one.line &&
+          (f.attempt ?? 0) === one.attempt &&
+          (f.round ?? null) === one.round
+      );
+      return foldedOne(
+        one,
+        rec && typeof rec.text === 'string' ? rec.text : pend.answer,
+        st,
+        budget
+      );
+    });
+  }
+  return foldedOne(asked, pend.answer, st, budget);
 }
 
 // A short fingerprint of the draft a call carried, so the cycles of one song
@@ -1164,6 +1233,7 @@ export const _verdictInternals = {
   askedOf,
   priorReasons,
   foldedOf,
+  outcomeAt,
   draftFp,
   draftFromText,
   verdictOf,
@@ -1274,7 +1344,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_ANSWER_CHARS)
       .optional()
       .describe(
-        "The writer's answer to the pending question in `state` — exactly one line of song text for a single-line question, or one `L<n>: <line>` per member for a group question, markers required. It is parsed strictly and a malformed answer REFUSES rather than guessing which line goes where. Omit on the first call (there is no question yet)."
+        "The writer's answer to the pending question in `state` — exactly one line of song text for a single-line question, or one `L<n>: <line>` row per line for a BATCH (several independent lines asked at once, the common case) or a group question, every marker required. It is parsed strictly and a malformed answer REFUSES rather than guessing which line goes where. Omit on the first call (there is no question yet)."
       ),
     max_rounds: z
       .number()
@@ -1283,7 +1353,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(8)
       .optional()
       .describe(
-        "The loop's round budget (ReviseDeclaration.max_rounds, default 4). Keep it CONSTANT across one song's calls — the run replays from zero each call, and a moved budget re-derives which questions arise."
+        "The loop's round budget (ReviseDeclaration.max_rounds; this connector's default is 8). Keep it CONSTANT across one song's calls — the run replays from zero each call, and a moved budget re-derives which questions arise."
       ),
     attempts: z
       .number()
@@ -1291,14 +1361,18 @@ export const LYRIC_TOOL_SCHEMAS = {
       .min(0)
       .max(6)
       .optional()
-      .describe('Tier-1 attempts per flagged line (default 3). Same constancy rule as max_rounds.'),
+      .describe(
+        "Tier-1 attempts per flagged line (this connector's default is 1: a rejected line is re-briefed fresh next round with its rejection quoted, rather than re-asked at once). Same constancy rule as max_rounds."
+      ),
     backtrack: z
       .number()
       .int()
       .min(0)
       .max(8)
       .optional()
-      .describe('Tier-2 backtrack width (default 5). Same constancy rule as max_rounds.'),
+      .describe(
+        "Tier-2 backtrack width (this connector's default is 0: no group rewrite is opened on a single rejection). Same constancy rule as max_rounds."
+      ),
   },
   lyric_sweep: {
     seed_from: z
@@ -1760,9 +1834,26 @@ export function registerLyricTools(server, tool) {
           }
           args.push(`--propose=defer:${statePath}`);
         }
-        if (a.max_rounds != null) args.push(`--max-rounds=${a.max_rounds}`);
-        if (a.attempts != null) args.push(`--attempts=${a.attempts}`);
-        if (a.backtrack != null) args.push(`--backtrack=${a.backtrack}`);
+        // THE CONNECTOR'S BUDGET (M-236): one attempt per line, no
+        // backtrack, eight rounds. The re-ask inside a round is where a
+        // model-driven run spent most of its hops (round 21: 103 answers for
+        // four rounds); under one attempt a rejected line is re-briefed
+        // fresh next round with its rejection quoted, the batch door asks
+        // the round's independent lines together, and the rounds are cheap
+        // enough to have more of. Tier 2's backtrack is off on this path
+        // for the same reason: with one attempt every rejection would open
+        // a group rewrite at once. A model that declares its own values
+        // keeps them; the carried declarations (M-229) hold whichever
+        // applied for the run's whole life, so the budget never moves
+        // mid-run.
+        const budget = {
+          max_rounds: a.max_rounds ?? CONNECTOR_MAX_ROUNDS,
+          attempts: a.attempts ?? CONNECTOR_ATTEMPTS,
+          backtrack: a.backtrack ?? CONNECTOR_BACKTRACK,
+        };
+        args.push(`--max-rounds=${budget.max_rounds}`);
+        args.push(`--attempts=${budget.attempts}`);
+        args.push(`--backtrack=${budget.backtrack}`);
         const r = await runVerb(args);
         if (r.code === 4) {
           // Suspended: the verb wrote the state (question folded in) and
@@ -1771,7 +1862,15 @@ export function registerLyricTools(server, tool) {
           // nothing to leak even if it tried.
           const st = JSON.parse(await readFile(statePath, 'utf8'));
           const onRecord = st.answered.propose.length + st.answered.propose_group.length;
-          const head = `[AWAITING PROPOSAL — ${a.seed != null ? `seed ${a.seed}` : 'declared mandate'} — ${onRecord} answer(s) on record — NO SONG YET]`;
+          const askedNow = askedOf(st.pending);
+          const batchNote =
+            askedNow &&
+            askedNow.kind === 'propose_batch' &&
+            Array.isArray(askedNow.lines) &&
+            askedNow.lines.length
+              ? ` — BATCH: answer ${askedNow.lines.map((n) => `L${n}`).join(', ')} as one \`L<n>: <line>\` row each, every one required`
+              : '';
+          const head = `[AWAITING PROPOSAL — ${a.seed != null ? `seed ${a.seed}` : 'declared mandate'} — ${onRecord} answer(s) on record — NO SONG YET${batchNote}]`;
           return {
             content: [
               { type: 'text', text: `${head}\n\n${(st.pending && st.pending.prompt) || r.stdout}` },
@@ -1784,8 +1883,8 @@ export function registerLyricTools(server, tool) {
                   answers_on_record: onRecord,
                   // M-235: the question this call left open, the question its
                   // `answer` folded and what verify made of that answer.
-                  asked: askedOf(st.pending),
-                  folded: foldedOf(a.state, st, a.attempts),
+                  asked: askedNow,
+                  folded: foldedOf(a.state, st, budget.attempts),
                   answer_sent: typeof a.answer === 'string' ? a.answer.slice(0, 300) : null,
                   draft_fp: draftFp(a.draft),
                   // THE SUSPENDED VERDICT IS THE COMMON ROW OF A REAL RUN — 32
@@ -1817,7 +1916,7 @@ export function registerLyricTools(server, tool) {
             const st = JSON.parse(await readFile(statePath, 'utf8'));
             verdict.answers_on_record =
               st.answered.propose.length + st.answered.propose_group.length;
-            verdict.folded = foldedOf(a.state, st, a.attempts);
+            verdict.folded = foldedOf(a.state, st, budget.attempts);
             // A finished deferred run is a RECORDED run: hand the record
             // back so the song's provenance travels with the conversation.
             verdict.state = JSON.stringify(st);

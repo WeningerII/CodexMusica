@@ -954,6 +954,112 @@ check('validation: actionable errors', () => {
         assert.deepEqual(VI.priorReasons('no rejection here'), []);
       }
     );
+    // ── M-236: THE BATCH DOOR ON THE ROW, AND THE VERDICT OFF THE RECORD ──
+    check(
+      'a batch question and its folded answers ride the row, one record per member, judged off `outcomes` (M-236)',
+      () => {
+        const pend = {
+          kind: 'propose_batch',
+          record: {
+            records: [
+              { line: 2, attempt: 0, round: 1 },
+              { line: 4, attempt: 0, round: 1 },
+            ],
+            round: 1,
+          },
+          prompt: 'REVISE 2 LINES AT ONCE',
+        };
+        assert.deepEqual(VI.askedOf(pend), {
+          kind: 'propose_batch',
+          lines: [2, 4],
+          attempt: 0,
+          round: 1,
+        });
+        const st = {
+          pending: null,
+          outcomes: [
+            {
+              line: 2,
+              attempt: 0,
+              round: 1,
+              accepted: false,
+              reasons: ['L2 took the modal candidate'],
+            },
+            { line: 4, attempt: 0, round: 1, accepted: true, reasons: [] },
+          ],
+          answered: {
+            propose: [
+              { line: 2, attempt: 0, round: 1, text: 'two' },
+              { line: 4, attempt: 0, round: 1, text: 'four' },
+            ],
+          },
+        };
+        const folded = VI.foldedOf(
+          JSON.stringify({ pending: { ...pend, answer: 'L2: two\nL4: four' } }),
+          st,
+          1
+        );
+        assert.ok(Array.isArray(folded) && folded.length === 2, 'one record per member');
+        assert.equal(folded[0].line, 2);
+        assert.equal(folded[0].answer, 'two', "the member's own row, off the replay file");
+        assert.equal(folded[0].verdict, 'rejected');
+        assert.equal(folded[0].source, 'outcome');
+        assert.deepEqual(folded[0].reasons, ['L2 took the modal candidate']);
+        assert.equal(folded[1].verdict, 'accepted');
+        // The record wins over the derivation on a single question too: the
+        // budget's last attempt is no longer unknown when the harness wrote it.
+        const last = JSON.stringify({
+          pending: { kind: 'propose', record: { line: 3, attempt: 0, round: 1 }, answer: 'z' },
+        });
+        const one = VI.foldedOf(
+          last,
+          {
+            pending: null,
+            outcomes: [
+              { line: 3, attempt: 0, round: 1, accepted: false, reasons: ['nothing was fixed'] },
+            ],
+          },
+          1
+        );
+        assert.equal(one.verdict, 'rejected');
+        assert.equal(one.source, 'outcome');
+        assert.equal(
+          VI.foldedOf(last, { pending: null }, 1).verdict,
+          'unknown',
+          'without the record, the last attempt of a budget of one is unknown, as M-235 pinned'
+        );
+        assert.equal(VI.outcomeAt({ outcomes: [] }, 3, 0, 1), null);
+      }
+    );
+    check(
+      "the connector's revise budget is one attempt, no backtrack, eight rounds, and the driver tallies batch folds (M-236)",
+      async () => {
+        const LT = await import('./lyric_tools.js');
+        assert.equal(LT.CONNECTOR_ATTEMPTS, 1);
+        assert.equal(LT.CONNECTOR_BACKTRACK, 0);
+        assert.equal(LT.CONNECTOR_MAX_ROUNDS, 8);
+        const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
+        assert.ok(
+          /attempts: a\.attempts \?\? CONNECTOR_ATTEMPTS,/.test(src),
+          "the model's own value wins, the constant fills"
+        );
+        assert.ok(
+          /args\.push\(`--attempts=\$\{budget\.attempts\}`\)/.test(src),
+          'and it reaches the verb on every call'
+        );
+        assert.ok(
+          /BATCH: answer \$\{askedNow\.lines/.test(src),
+          'the suspended head names the batch and its answer shape'
+        );
+        const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
+        assert.ok(/const foldedList = \(c\) =>/.test(bat), 'a batch call folds several answers');
+        const ga = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
+        assert.ok(
+          /row per asked line, every one required/.test(ga),
+          'the suspended-run reminder says the batch answer shape'
+        );
+      }
+    );
     check(
       'the proposal record rides loopFields, chat.js tools[] and the battery rows (M-235)',
       async () => {
@@ -993,9 +1099,7 @@ check('validation: actionable errors', () => {
         );
         assert.ok(/title=battery cycle::/.test(bat), 'and prints one cycle line per stop');
         assert.ok(
-          /proposals=\$\{reviseCalls\.filter\(\(c\) => c\.folded\?\.verdict === 'accepted'\)/.test(
-            bat
-          ),
+          /proposals=\$\{countVerdict\(reviseCalls, 'accepted'\)/.test(bat),
           'and the per-turn accepted/rejected/unknown count'
         );
       }

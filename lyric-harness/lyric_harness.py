@@ -6687,7 +6687,28 @@ def _defer_proposer(path, lines=None):
         # Answered: fold it into the record and clear the slot. The loop below
         # re-runs from the top and replays it along with everything earlier.
         rec, ans = dict(pend["record"]), pend["answer"]
-        if pend["kind"] == "propose":
+        if pend["kind"] == "propose_batch":
+            # A BATCH IS SEVERAL TIER-1 RECORDS ANSWERED IN ONE ROW SET
+            # (M-236): parsed on the group parser's contract (every marker,
+            # once, none extra) and folded as ordinary per-line records, so
+            # the replay file's shape does not move.
+            _recs = list(rec.get("records") or ())
+            _members = [int(r["line"]) for r in _recs]
+            parsed = (PR.parse_batch(ans, _members)
+                      if isinstance(ans, str) else None)
+            if parsed is None:
+                _refuse(f"--propose=defer:{path} — `pending.answer` is not "
+                        f"one `L<n>: line` row per member for "
+                        f"{_members}",
+                        detail=["the batch asked about every one of these "
+                                "lines and needs every one back, each "
+                                "marker once and nothing else "
+                                "(quality/propose.py `parse_batch`)."])
+            for r in _recs:
+                r2 = dict(r)
+                r2["text"] = parsed[int(r["line"])]
+                st["answered"]["propose"].append(r2)
+        elif pend["kind"] == "propose":
             parsed = ans if isinstance(ans, str) else None
             parsed = PR.parse_line(parsed) if parsed is not None else None
             if parsed is None:
@@ -6731,11 +6752,57 @@ def _defer_proposer(path, lines=None):
                          r.get("round")): tuple(r["new"])
               for r in st["answered"]["propose_group"]}
     tally = {"hit": 0, "stale": []}
+    # WHAT VERIFY MADE OF EACH ANSWER, BESIDE THE ANSWERS (M-236). Written
+    # by the loop through the `record` hook as it replays, keyed on the
+    # question, idempotent under replay (the memo re-serves the verdict and
+    # the hook overwrites the same entry). `last_rej` is the derived view
+    # this run's next question about a line reads: with one attempt per
+    # line the loop never re-asks inside a round, so the previous round's
+    # rejection is the only place the grader's reasons could reach the
+    # writer, and the state file is the only place they survive a resume.
+    st["outcomes"] = [o for o in (st.get("outcomes") or [])
+                      if isinstance(o, dict)]
+    _outcome_at = {(int(o["line"]), int(o["attempt"]),
+                    None if o.get("round") is None else int(o["round"])): i
+                   for i, o in enumerate(st["outcomes"])
+                   if "line" in o and "attempt" in o}
+    last_rej = {}
+
+    def record(line_no, attempt, round_no, text, accepted, reasons):
+        entry = {"line": int(line_no), "attempt": int(attempt),
+                 "round": None if round_no is None else int(round_no),
+                 "text": text, "accepted": bool(accepted),
+                 "reasons": [str(r) for r in (reasons or ())]}
+        k = (entry["line"], entry["attempt"], entry["round"])
+        i = _outcome_at.get(k)
+        if i is None:
+            _outcome_at[k] = len(st["outcomes"])
+            st["outcomes"].append(entry)
+        else:
+            st["outcomes"][i] = entry
+        if accepted:
+            last_rej.pop(entry["line"], None)
+        else:
+            last_rej[entry["line"]] = {"round": entry["round"],
+                                       "text": text,
+                                       "reasons": entry["reasons"]}
 
     def _suspend(kind, record, prompt):
         st["pending"] = {"kind": kind, "record": record, "prompt": prompt,
                          "answer": None}
         raise _NeedProposal(kind, record, prompt)
+
+    def _prior(brief, attempt):
+        # The previous round's rejection is shown on a NEW round's first
+        # attempt only; inside a round `reasons` carries the re-ask.
+        _r = last_rej.get(brief.line_no)
+        if attempt != 0 or not _r:
+            return None
+        _rn = getattr(brief, "round_no", None)
+        if _r.get("round") is not None and _rn is not None \
+                and _r["round"] >= _rn:
+            return None
+        return _r
 
     def propose(brief, lines, attempt, reasons=None, whole=()):
         text = _line_lookup(ones, brief, attempt)
@@ -6757,7 +6824,74 @@ def _defer_proposer(path, lines=None):
                   "round": getattr(brief, "round_no", None),
                   "draft": _dfp(lines), "text": None},
                  PR.render_line(brief, lines, whole=whole, attempt=attempt,
-                                reasons=reasons))
+                                reasons=reasons, prior=_prior(brief, attempt)))
+
+    def _related(brief):
+        """-> the line numbers whose answer this line's brief depends on:
+        every member of every group it binds in (return classes included —
+        they are groups the brief already lists) and its first rhyme
+        partner. Two briefs are INDEPENDENT when neither line is in the
+        other's set and the sets do not meet."""
+        rel = set()
+        for _lab, _members, _pairs in (getattr(brief, "must_answer", None)
+                                       or ()):
+            for _ln in _members or ():
+                rel.add(int(_ln))
+            for _pr in _pairs or ():
+                try:
+                    rel.add(int(_pr[0]))
+                except (TypeError, ValueError, IndexError):
+                    pass
+        _mr = getattr(brief, "must_rhyme_with", None)
+        if _mr:
+            try:
+                rel.add(int(_mr[0]))
+            except (TypeError, ValueError, IndexError):
+                pass
+        rel.discard(int(brief.line_no))
+        return rel
+
+    def prefetch(brief, ahead, lines, whole=()):
+        """THE BATCH (M-236). Called by the loop before `brief`'s first
+        question of a pass with the open briefs still ahead of it. Returns
+        when that question is answered; otherwise asks it TOGETHER with
+        every ahead line that is unanswered and independent of everything
+        already in the batch — one suspension, one `L<n>:` row set back. A
+        batch of one is the plain `propose` question, byte-for-byte."""
+        if _line_lookup(ones, brief, 0) is not None:
+            return
+        chosen = [brief]
+        rels = [_related(brief)]
+        nos = {int(brief.line_no)}
+        for x in ahead:
+            if _line_lookup(ones, x, 0) is not None:
+                continue
+            xr = _related(x)
+            xn = int(x.line_no)
+            if xn in nos or any(xn in r for r in rels) \
+                    or (xr & nos) or any(xr & r for r in rels):
+                continue
+            chosen.append(x)
+            rels.append(xr)
+            nos.add(xn)
+        _rn = getattr(brief, "round_no", None)
+        if len(chosen) == 1:
+            _suspend("propose",
+                     {"line": brief.line_no, "attempt": 0, "round": _rn,
+                      "draft": _dfp(lines), "text": None},
+                     PR.render_line(brief, lines, whole=whole, attempt=0,
+                                    reasons=None, prior=_prior(brief, 0)))
+        _suspend("propose_batch",
+                 {"records": [{"line": b.line_no, "attempt": 0, "round": _rn,
+                               "draft": _dfp(lines), "text": None}
+                              for b in chosen],
+                  "round": _rn},
+                 PR.render_batch(chosen, lines, whole=whole,
+                                 priors={b.line_no: _prior(b, 0)
+                                         for b in chosen}))
+
+    propose.prefetch = prefetch
+    propose.record = record
 
     def propose_group(group_brief):
         members, texts, words, round_no = _brief_key(group_brief)

@@ -324,17 +324,31 @@ for (const [songNo, briefIdx] of indices.entries()) {
     String(r)
       .replace(/'[^']*'/g, "'…'")
       .slice(0, 60);
+  // A batch call folds several answers (M-236): `folded` is then an array.
+  const foldedList = (c) =>
+    Array.isArray(c.folded) ? c.folded : c.folded && typeof c.folded === 'object' ? [c.folded] : [];
   const foldInto = (tally, c) => {
-    const f = c.folded;
-    if (!f || typeof f !== 'object') return;
-    if (f.verdict === 'accepted') tally.accepted++;
-    else if (f.verdict === 'rejected') tally.rejected++;
-    else tally.unknown++;
-    for (const r of Array.isArray(f.reasons) ? f.reasons : []) {
-      const k = reasonKey(r);
-      tally.reasons.set(k, (tally.reasons.get(k) || 0) + 1);
+    for (const f of foldedList(c)) {
+      if (f.verdict === 'accepted') tally.accepted++;
+      else if (f.verdict === 'rejected') tally.rejected++;
+      else tally.unknown++;
+      for (const r of Array.isArray(f.reasons) ? f.reasons : []) {
+        const k = reasonKey(r);
+        tally.reasons.set(k, (tally.reasons.get(k) || 0) + 1);
+      }
     }
   };
+  const countVerdict = (calls, which) =>
+    calls.reduce(
+      (n, c) =>
+        n +
+        foldedList(c).filter((f) =>
+          which === 'unknown'
+            ? f.verdict !== 'accepted' && f.verdict !== 'rejected'
+            : f.verdict === which
+        ).length,
+      0
+    );
   const topReasons = (tally, n = 4) =>
     [...tally.reasons.entries()]
       .sort((a, b) => b[1] - a[1])
@@ -652,7 +666,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
         `tools=${tools.length} answers_on_record=${answersNow < 0 ? 'none' : answersNow} ` +
         `stopped=${p.stopped ?? 'none'} user_reasks=${reasks} malformed_hops=${Array.isArray(p.malformed) ? p.malformed.length : 'unrecorded'} ` +
         `draft_carried=${tools.filter((c) => c.draft_carried).length}/${tools.filter((c) => c.name === 'lyric_revise').length} ` +
-        `proposals=${reviseCalls.filter((c) => c.folded?.verdict === 'accepted').length}/${reviseCalls.filter((c) => c.folded?.verdict === 'rejected').length}/${reviseCalls.filter((c) => c.folded && c.folded.verdict !== 'accepted' && c.folded.verdict !== 'rejected').length} ` +
+        `proposals=${countVerdict(reviseCalls, 'accepted')}/${countVerdict(reviseCalls, 'rejected')}/${countVerdict(reviseCalls, 'unknown')} ` +
         `paths=${[...new Set(tools.map((c) => c.path).filter(Boolean))].join('/') || 'unrecorded'}`
     );
     // The malformed call text is the evidence (M-221): print its head the

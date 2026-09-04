@@ -492,8 +492,16 @@ def _enforced_block(line_no, n_lines, indent="  ", word_name="end word"):
     ]
 
 
-def _attempt_block(attempt, reasons, indent="  "):
-    """-> [str]. Which try this is, and why the last one was thrown out."""
+def _attempt_block(attempt, reasons, indent="  ", prior=None):
+    """-> [str]. Which try this is, and why the last one was thrown out.
+
+    `prior` (M-236) is the LAST ROUND's rejection of this line, a dict
+    `{"round": n, "text": ..., "reasons": [...]}`, shown when this is the
+    line's first attempt of a new round: with one attempt per line there is
+    no re-ask inside the round to carry the grader's reasons, and a writer
+    asked the same question twice with no word on why the first answer was
+    thrown out is asked to guess. Quoted verbatim, as `reasons` is.
+    """
     try:
         n = int(attempt)
     except (TypeError, ValueError):
@@ -512,6 +520,16 @@ def _attempt_block(attempt, reasons, indent="  "):
             out.append(f"{indent}  - {r}")
         out.append(f"{indent}Do not send back something the same reason "
                    f"would reject again.")
+    elif prior and (prior.get("reasons") or prior.get("text")):
+        _pr = prior.get("round")
+        out.append(f"{indent}Your line for this slot in ROUND "
+                   f"{_pr if _pr is not None else '?'} was REJECTED"
+                   + (f": {prior['text']!r}" if prior.get("text") else "")
+                   + ". The grader's reasons, verbatim:")
+        for r in [str(x) for x in _ordered(prior.get("reasons") or ())]:
+            out.append(f"{indent}  - {r}")
+        out.append(f"{indent}The draft has been re-read since; do not send "
+                   f"back something the same reason would reject again.")
     else:
         out.append(f"{indent}No previous attempt was rejected on this line "
                    f"in this round.")
@@ -582,8 +600,14 @@ def slot_phrase(brief):
         return "end word"
 
 
-def render_line(brief, lines, whole=(), attempt=0, reasons=None):
+def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
+                heading=True):
     """-> str, the tier-1 prompt: rewrite ONE flagged line.
+
+    `prior` (M-236) is the previous round's rejection of this line, rendered
+    in the ATTEMPT block when `reasons` is empty; `heading=False` drops the
+    three-line banner so `render_batch` can stack several lines' briefs
+    under one banner of its own. Both default to the prompt as it was.
 
     PURE and DETERMINISTIC — same inputs, byte-identical output, in any
     process (see `_ordered` for the set-iteration case doctrine 66 names).
@@ -621,16 +645,18 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
     word_name = slot_phrase(brief)
 
     out = []
-    out.append(f"REVISE ONE LINE — L{line_no} of a {len(lines)}-line draft.")
-    out.append("")
-    out.append("You are given a draft, one line of it a grader has flagged, "
-               "everything that grader")
-    out.append("measured, and the rules it will apply to what you send back. "
-               "Rewrite that ONE line.")
-    out.append("")
+    if heading:
+        out.append(f"REVISE ONE LINE — L{line_no} of a {len(lines)}-line "
+                   f"draft.")
+        out.append("")
+        out.append("You are given a draft, one line of it a grader has "
+                   "flagged, everything that grader")
+        out.append("measured, and the rules it will apply to what you send "
+                   "back. Rewrite that ONE line.")
+        out.append("")
 
     out.append("ATTEMPT")
-    out.extend(_attempt_block(attempt, reasons))
+    out.extend(_attempt_block(attempt, reasons, prior=prior))
     out.append("")
 
     out.append("THE LINE TO REVISE")
@@ -1269,6 +1295,71 @@ def parse_group(text, members):
             return None
         out.append(cleaned)
     return tuple(out)
+
+
+def render_batch(briefs, lines, whole=(), priors=None):
+    """-> str, the batched tier-1 prompt: rewrite SEVERAL flagged lines that
+    cannot change each other's answer, in one message (M-236).
+
+    THE LINES ARE INDEPENDENT BY CONSTRUCTION — the caller (`defer:`'s
+    `prefetch`) admits a line to the batch only when it shares no rhyme
+    group, return class or call word with any line already in it — so each
+    member's brief is as fresh as it would be asked alone, and the M-210
+    re-brief the single-line walk relies on loses nothing. What the writer
+    is told is exactly that, then each line's own brief (`render_line`
+    without its banner) under a rule stating the answer's shape: one
+    `L<n>: <line>` row per member, every member required, nothing else.
+
+    PURE and DETERMINISTIC, as `render_line` is. `priors` maps line number
+    to the previous round's rejection for that line, or is None.
+    """
+    briefs = list(briefs or ())
+    nos = [getattr(b, "line_no", 0) for b in briefs]
+    priors = priors or {}
+    out = []
+    out.append(f"REVISE {len(briefs)} LINES AT ONCE — "
+               f"{', '.join('L%d' % n for n in nos)} of a {len(lines)}-line "
+               f"draft.")
+    out.append("")
+    out.append("Each of these lines was flagged by the grader, and none of "
+               "them rhymes with, returns to, or")
+    out.append("calls any of the others — so each can be rewritten on its "
+               "own without moving the rest. Below is")
+    out.append("one full brief per line: everything the grader measured on "
+               "it and the rules it will apply.")
+    out.append("")
+    out.append("ANSWER SHAPE — enforced, not advisory:")
+    out.append(f"  one row per line, in this exact form, and NOTHING else "
+               f"(no commentary, no fence, no blank rows):")
+    for n in nos:
+        out.append(f"  L{n}: <the whole new line {n}>")
+    out.append(f"  every one of {', '.join('L%d' % n for n in nos)} is "
+               f"required; a missing, repeated or extra marker REFUSES the "
+               f"whole answer and asks again.")
+    out.append("")
+    for b in briefs:
+        n = getattr(b, "line_no", 0)
+        out.append("═" * 8 + f" L{n} " + "═" * 8)
+        out.append(render_line(b, lines, whole=whole, attempt=0,
+                               reasons=None, prior=priors.get(n),
+                               heading=False))
+        out.append("")
+    return "\n".join(out)
+
+
+def parse_batch(text, members):
+    """-> `{line_no: cleaned line}` for EVERY member, or `None` (M-236).
+
+    The same contract as `parse_group` — every `L<n>:` marker required,
+    each once, none outside `members`, one fence at most, `_clean_single`
+    on each payload — returned keyed on the line number rather than in
+    order, because a batch's members are unrelated lines and the caller
+    folds each into its own record.
+    """
+    got = parse_group(text, members)
+    if got is None:
+        return None
+    return {int(n): t for n, t in zip(members, got)}
 
 
 class ModelProposer:
