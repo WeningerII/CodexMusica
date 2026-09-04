@@ -30,6 +30,7 @@
 //   node scripts/flash_battery.mjs --out=DIR [--base=URL] [--songs=N]
 //     [--turns=N] [--pace=SECONDS] [--brief=INDEX] [--smoke]
 //     [--stop-on=malformed,idle|none]   (default for one song: malformed,idle)
+//     [--reask=N]                        (default for one song: 2; same-message re-sends on a malformed, call-less turn)
 //
 // Output: DIR/song<i>.jsonl (one row per turn) and DIR/summary.json.
 
@@ -69,6 +70,12 @@ const PACE_MS = Math.max(0, parseFloat(args.pace || '130') * 1000);
 // names the conditions (`malformed`, `idle`, `none`); the default for ONE song
 // is all of them and for a multi-song round it is none, because a multi-song
 // round's job is the survey and a single song's job is the diagnosis.
+// `--reask=N` (M-222): how many times a turn that ended on a model-side
+// MALFORMED_FUNCTION_CALL with no tool call is re-sent, as the same user
+// message on the returned envelope, before fail-fast judges it. Default 2 for
+// a single-song round — the same bound as the connector's own re-ask (M-219),
+// applied one layer out so it works against a deploy that lacks that re-ask.
+const REASK = Math.max(0, Number(args.reask ?? (N_SONGS === 1 ? 2 : 0)) || 0);
 const STOP_ON = new Set(
   (args['stop-on'] ?? (N_SONGS === 1 ? 'malformed,idle' : 'none'))
     .split(',')
@@ -262,6 +269,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
   const loopLadder = []; // M-169: one row per revise call that reached a stop
   let lastAnswers = -1; // M-220: the answer count the previous turn left on record
   let failedFast = false;
+  let userReasks = 0; // M-222: same-message re-sends after a malformed, call-less turn
 
   for (let t = 0; t < MAX_TURNS; t++) {
     const message = t === 0 ? brief : parkedLastTurn ? PARKED_CONTINUE : CONTINUE;
@@ -273,6 +281,45 @@ for (const [songNo, briefIdx] of indices.entries()) {
       body.sig = env.sig;
     }
     let r = await post(body);
+    // THE USER-LEVEL RE-ASK (M-222). The connector's own re-ask (M-219)
+    // reaches the model only once it is deployed; until then a turn that ends
+    // on MALFORMED_FUNCTION_CALL with no tool call is exactly what a person at
+    // the page does next: press send again on the same message with the
+    // envelope the server handed back. Bounded (--reask, default 2 for one
+    // song), every re-ask a row, and the fail-fast rule below judges the LAST
+    // attempt — a turn that recovers on the re-ask is a recovered turn, and a
+    // turn that fails three times is the failure the round stops on.
+    let reasks = 0;
+    while (
+      r.status === 200 &&
+      (r.payload?.stopped ?? null) === 'MALFORMED_FUNCTION_CALL' &&
+      !(Array.isArray(r.payload?.tools) && r.payload.tools.length) &&
+      reasks < REASK
+    ) {
+      reasks++;
+      appendFileSync(
+        file,
+        JSON.stringify({
+          turn: t,
+          reask: reasks,
+          stopped: r.payload.stopped,
+          stopped_detail: r.payload.stopped_detail ?? null,
+          ms: r.ms,
+        }) + '\n'
+      );
+      console.log(
+        `::warning title=battery user re-ask::song ${songNo} turn ${t} re-ask ${reasks}/${REASK}: the turn ended on MALFORMED_FUNCTION_CALL with no call; sending the same message again`
+      );
+      const again = { ...body };
+      if (r.payload.history) {
+        again.history = r.payload.history;
+        again.workspace = r.payload.workspace;
+        if (r.payload.lyric != null) again.lyric = r.payload.lyric;
+        again.sig = r.payload.sig;
+      }
+      await sleep(PACE_MS);
+      r = await post(again);
+    }
     // Bounded, logged backoff: a 429/503 is the deployment's own pacing and
     // is part of the record, never silently absorbed. 502 joined at M-164
     // (round 7, 2026-08-29): chat.js answers 502 from its catch-all when a
@@ -353,6 +400,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
         // 11 banked nine malformed turns and could quote none of them.
         stopped_detail: p.stopped_detail ?? null,
         malformed: Array.isArray(p.malformed) ? p.malformed : null,
+        user_reasks: reasks,
         error: p.error ?? null,
         sizes: {
           history: p.history ? JSON.stringify(p.history).length : 0,
@@ -361,6 +409,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
       }) + '\n'
     );
     turns++;
+    userReasks += reasks;
     // THE ROW, AS A WORKFLOW ANNOTATION THE MOMENT IT LANDS (M-220): the job
     // log is served only after the job ends, and an annotation is the one
     // channel a runner has that a reader can see mid-run.
@@ -371,7 +420,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
     console.log(
       `::notice title=battery song ${songNo} turn ${t}::status=${r.status} ms=${r.ms} ` +
         `tools=${tools.length} answers_on_record=${answersNow < 0 ? 'none' : answersNow} ` +
-        `stopped=${p.stopped ?? 'none'} malformed_hops=${Array.isArray(p.malformed) ? p.malformed.length : 'unrecorded'} ` +
+        `stopped=${p.stopped ?? 'none'} user_reasks=${reasks} malformed_hops=${Array.isArray(p.malformed) ? p.malformed.length : 'unrecorded'} ` +
         `draft_carried=${tools.filter((c) => c.draft_carried).length}/${tools.filter((c) => c.name === 'lyric_revise').length} ` +
         `paths=${[...new Set(tools.map((c) => c.path).filter(Boolean))].join('/') || 'unrecorded'}`
     );
@@ -427,6 +476,8 @@ for (const [songNo, briefIdx] of indices.entries()) {
     parked,
     failed_fast: failedFast,
     stop_on: [...STOP_ON],
+    user_reasks: userReasks,
+    reask_bound: REASK,
     loop_ladder: loopLadder,
     flags,
   });

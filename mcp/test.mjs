@@ -2300,6 +2300,176 @@ check('validation: actionable errors', () => {
       rmSync(out, { recursive: true, force: true });
     }
   });
+  // The fake connector lives in THIS process, so the driver must be awaited
+  // asynchronously: spawnSync would block the event loop the server answers
+  // on and the two would wait on each other forever (measured, 2026-09-04).
+  const runDriver = (spawn, argv) =>
+    new Promise((resolve) => {
+      const child = spawn(process.execPath, argv);
+      let stdout = '';
+      let stderr = '';
+      child.stdout.on('data', (c) => (stdout += c));
+      child.stderr.on('data', (c) => (stderr += c));
+      child.on('close', (status) => resolve({ status, stdout, stderr }));
+    });
+  // M-222: THE USER-LEVEL RE-ASK, DRIVEN against a fake connector. Two turns
+  // that end on MALFORMED_FUNCTION_CALL with no call are re-sent as the same
+  // message; the third answer lands a call, and the round does NOT fail fast
+  // — three rows for one turn, the user_reasks count on the row and the
+  // summary, and the envelope of the LAST answer carried forward.
+  check(
+    'a malformed, call-less turn is re-sent as the same message, bounded, and a recovered turn is not a failure',
+    async () => {
+      const { spawn } = await import('node:child_process');
+      const { mkdtempSync, rmSync } = await import('node:fs');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+      const { fileURLToPath } = await import('node:url');
+      const http = await import('node:http');
+      const seen = [];
+      const srv = http.createServer((req, res) => {
+        let body = '';
+        req.on('data', (c) => (body += c));
+        req.on('end', () => {
+          const b = JSON.parse(body || '{}');
+          seen.push(b);
+          const n = seen.length;
+          const malformedTurn = n <= 2;
+          res.writeHead(200, { 'content-type': 'application/json' });
+          res.end(
+            JSON.stringify({
+              reply: malformedTurn ? '' : 'planned',
+              tools: malformedTurn
+                ? []
+                : [{ name: 'lyric_plan', exit_code: 0, path: 'warm', answers_on_record: null }],
+              stopped: malformedTurn ? 'MALFORMED_FUNCTION_CALL' : null,
+              stopped_detail: null,
+              history: [{ role: 'user', parts: [{ text: `h${n}` }] }],
+              workspace: null,
+              sig: `sig${n}`,
+            })
+          );
+        });
+      });
+      await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+      const port = srv.address().port;
+      const out = mkdtempSync(join(tmpdir(), 'battery-m222-'));
+      try {
+        const r = await runDriver(spawn, [
+          fileURLToPath(new URL('../scripts/flash_battery.mjs', import.meta.url)),
+          `--out=${out}`,
+          `--base=http://127.0.0.1:${port}`,
+          '--songs=1',
+          '--turns=1',
+          '--pace=0',
+        ]);
+        assert.equal(
+          r.status,
+          0,
+          `the recovered turn is not a fail-fast: ${r.stderr}\n${r.stdout}`
+        );
+        // The driver's floor is two turns; turn 0 is the message sent three
+        // times and turn 1 is the CONTINUE message sent once.
+        assert.equal(seen.length, 4, 'turn 0 sent three times, turn 1 once');
+        assert.notEqual(
+          seen[3].message,
+          seen[0].message,
+          'the fourth request is the next turn, not a re-ask'
+        );
+        assert.equal(seen[1].message, seen[0].message, 'the re-ask is the SAME message');
+        assert.equal(seen[1].sig, 'sig1', 'on the envelope the failed answer handed back');
+        assert.equal(seen[2].sig, 'sig2');
+        const rows = readFileSync(join(out, 'song0.jsonl'), 'utf8')
+          .trim()
+          .split('\n')
+          .map((l) => JSON.parse(l));
+        assert.deepEqual(
+          rows.filter((x) => 'reask' in x).map((x) => [x.reask, x.stopped]),
+          [
+            [1, 'MALFORMED_FUNCTION_CALL'],
+            [2, 'MALFORMED_FUNCTION_CALL'],
+          ],
+          'each re-ask is its own row'
+        );
+        const turnRow = rows.find((x) => 'tools' in x);
+        assert.equal(turnRow.user_reasks, 2, 'the turn row counts them');
+        assert.equal(turnRow.stopped, null, 'and records the LAST answer');
+        assert.ok(!rows.some((x) => 'fail_fast' in x), 'no fail-fast row');
+        const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+        assert.equal(summary.songs[0].user_reasks, 2);
+        assert.equal(summary.songs[0].reask_bound, 2);
+        assert.equal(summary.songs[0].failed_fast, false);
+        assert.ok(
+          /battery user re-ask/.test(String(r.stdout)),
+          'each re-ask is a warning annotation'
+        );
+      } finally {
+        srv.close();
+        rmSync(out, { recursive: true, force: true });
+      }
+    }
+  );
+  check(
+    'the re-ask is bounded: a turn that fails a third time is the failure fail-fast stops on',
+    async () => {
+      const { spawn } = await import('node:child_process');
+      const { mkdtempSync, rmSync } = await import('node:fs');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+      const { fileURLToPath } = await import('node:url');
+      const http = await import('node:http');
+      let n = 0;
+      const srv = http.createServer((req, res) => {
+        req.on('data', () => {});
+        req.on('end', () => {
+          n++;
+          res.writeHead(200, { 'content-type': 'application/json' });
+          res.end(
+            JSON.stringify({
+              reply: '',
+              tools: [],
+              stopped: 'MALFORMED_FUNCTION_CALL',
+              stopped_detail: null,
+              history: [],
+              workspace: null,
+              sig: `s${n}`,
+            })
+          );
+        });
+      });
+      await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+      const port = srv.address().port;
+      const out = mkdtempSync(join(tmpdir(), 'battery-m222b-'));
+      try {
+        const r = await runDriver(spawn, [
+          fileURLToPath(new URL('../scripts/flash_battery.mjs', import.meta.url)),
+          `--out=${out}`,
+          `--base=http://127.0.0.1:${port}`,
+          '--songs=1',
+          '--turns=3',
+          '--pace=0',
+        ]);
+        assert.equal(r.status, 1, 'three malformed answers to one message is the fail-fast');
+        assert.equal(n, 3, 'the bound held: two re-asks, not more, and no second turn');
+        const rows = readFileSync(join(out, 'song0.jsonl'), 'utf8')
+          .trim()
+          .split('\n')
+          .map((l) => JSON.parse(l));
+        const ff = rows.find((x) => 'fail_fast' in x);
+        assert.ok(ff, 'a fail_fast row');
+        assert.ok(
+          ff.fail_fast.some((m) => /this deploy records no re-ask/.test(m)),
+          'the reason says what the deploy did, not what it might have'
+        );
+        const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+        assert.equal(summary.songs[0].user_reasks, 2);
+        assert.equal(summary.songs[0].failed_fast, true);
+      } finally {
+        srv.close();
+        rmSync(out, { recursive: true, force: true });
+      }
+    }
+  );
 }
 
 {
