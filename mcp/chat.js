@@ -489,7 +489,12 @@ export async function createChatRouter({
         // 429 that a single refill slot of the 15-a-minute limiter would have
         // cleared. A hint past the budget is refused at once, and the
         // retries it did spend are on `usage.retries`.
-        retries: 1,
+        // THREE, SINCE M-232 (round 18): every 502 of rounds 17 and 18 was a
+        // Gemini 503 "high demand"; one retry a second later lost to the same
+        // spike. Three retries at 1 s / 2 s / 4 s (retryDelayMs) cover a short
+        // spike for seven seconds of waiting; a longer one ends the turn
+        // with its calls kept (runTurn's partial return) rather than thrown.
+        retries: 3,
         retryStatuses: RETRY_TRANSIENT,
         rateLimit: RATE_LIMIT_RETRY,
       });
@@ -548,6 +553,9 @@ export async function createChatRouter({
         // that the loop spent zero rounds.
         tools: run.calls.map((c) => ({
           name: c.name,
+          // M-232: the seed the call named, so a parked or suspended run can
+          // be reproduced from the row (round 18's rows could not say).
+          seed: typeof c.args?.seed === 'number' ? c.args.seed : null,
           error: c.isError ? c.error : null,
           exit_code: c.exit_code ?? null,
           banned_pairs: c.banned_pairs ?? null,
