@@ -57,6 +57,12 @@ RUN python3 -m pip install --no-cache-dir --break-system-packages nltk \
  && python3 -c "import lyric_harness; lyric_harness.fetch_data()" \
  && python3 quality/fetch_data.py
 
+# M-230: the process says which build it is. Render sets RENDER_GIT_COMMIT
+# in the runtime env; if it also hands it to the build, this bakes the same
+# value in, and the runtime value wins when both exist. Absent both, /health
+# reports null and mcp/check_live.mjs --commit treats that as NOT a match.
+ARG RENDER_GIT_COMMIT=""
+ENV RENDER_GIT_COMMIT=$RENDER_GIT_COMMIT
 ENV PORT=8080
 EXPOSE 8080
 WORKDIR /app/mcp

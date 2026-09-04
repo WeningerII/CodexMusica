@@ -249,6 +249,18 @@ function post(body) {
             ms: Date.now() - started,
             retryAfterS: Number.isFinite(ra) && ra > 0 ? ra : null,
             error: payload && typeof payload.error === 'string' ? payload.error : null,
+            // M-231: the upstream cause the connector now puts on a 502.
+            detail: payload && typeof payload.detail === 'string' ? payload.detail : null,
+            upstreamStatus:
+              payload && Number.isFinite(payload.upstream_status) ? payload.upstream_status : null,
+            hopsBeforeFailure:
+              payload && Number.isFinite(payload.hopsBeforeFailure)
+                ? payload.hopsBeforeFailure
+                : null,
+            callsBeforeFailure:
+              payload && Array.isArray(payload.callsBeforeFailure)
+                ? payload.callsBeforeFailure
+                : null,
           });
         });
       }
@@ -302,6 +314,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
   let userReasks = 0; // M-222: same-message re-sends after a malformed, call-less turn
   let truncated = 0; // M-223: turns cut off by a malformed hop AFTER making calls
   let hitTurnCap = false; // M-224: the connector's CHAT_MAX_TURNS answered 429
+  let hitUpstreamFinal = false; // M-231: a 502 whose upstream answered 4xx (not 429)
   let lastStatus = 200; // M-223: the last turn's HTTP status and error body
   let lastError = null;
 
@@ -375,9 +388,22 @@ for (const [songNo, briefIdx] of indices.entries()) {
     // not spend the retry budget; RATE_WAIT_CAP_S bounds the total.
     let rateWaitS = 0;
     const paced = () => r.status === 429 && r.retryAfterS != null && !turnCapped();
+    // A 502 WHOSE UPSTREAM SAID 4xx IS FINAL (M-231, round 17): the connector
+    // answers 502 for every throw, and a Gemini 400 on the request body does
+    // not change on the fourth try. The upstream status rides on the body
+    // now; a 4xx that is not 429 ends the turn on the first answer, with the
+    // detail on the row. A 5xx upstream, or a body that does not say, keeps
+    // the bounded retry — transient is still the default reading.
+    const upstreamFinal = () =>
+      r.status === 502 &&
+      Number.isFinite(r.upstreamStatus) &&
+      r.upstreamStatus >= 400 &&
+      r.upstreamStatus < 500 &&
+      r.upstreamStatus !== 429;
     while (
       (r.status === 429 || r.status === 502 || r.status === 503) &&
       !turnCapped() &&
+      !upstreamFinal() &&
       (retries < 4 || (paced() && rateWaitS < RATE_WAIT_CAP_S))
     ) {
       if (!paced()) retries++;
@@ -395,6 +421,11 @@ for (const [songNo, briefIdx] of indices.entries()) {
           rate_wait_s: rateWaitS,
           status: r.status,
           error: r.error ?? null,
+          // M-231: the upstream cause, when the connector says it.
+          detail: r.detail ?? null,
+          upstream_status: r.upstreamStatus ?? null,
+          hops_before_failure: r.hopsBeforeFailure ?? null,
+          calls_before_failure: r.callsBeforeFailure ?? null,
           retry_after_s: r.retryAfterS ?? null,
           waited_s: waitS ?? Math.max(PACE_MS, 60_000) / 1000,
         }) + '\n'
@@ -402,7 +433,10 @@ for (const [songNo, briefIdx] of indices.entries()) {
       console.log(
         `::warning title=battery retry::song ${songNo} turn ${t} retry ${retries}/4: status ${r.status}` +
           (r.retryAfterS != null ? ` retry-after ${r.retryAfterS}s` : '') +
-          (r.error ? ` — ${esc(r.error, 160)}` : '')
+          (r.error ? ` — ${esc(r.error, 160)}` : '') +
+          (r.detail
+            ? ` — upstream ${r.upstreamStatus ?? '?'} after ${r.hopsBeforeFailure ?? '?'} hop(s): ${esc(r.detail, 200)}`
+            : '')
       );
       await sleep(waitS != null ? waitS * 1000 : Math.max(PACE_MS, 60_000));
       r = await post(body);
@@ -410,6 +444,29 @@ for (const [songNo, briefIdx] of indices.entries()) {
     const p = r.payload || {};
     lastStatus = r.status;
     lastError = r.error ?? r.transport ?? null;
+    if (upstreamFinal()) {
+      hitUpstreamFinal = true;
+      flags.push({
+        turn: t,
+        flag: 'upstream_final',
+        upstream_status: r.upstreamStatus,
+        detail: r.detail,
+      });
+      appendFileSync(
+        file,
+        JSON.stringify({
+          turn: t,
+          upstream_final: r.upstreamStatus,
+          detail: r.detail ?? null,
+          hops_before_failure: r.hopsBeforeFailure ?? null,
+          calls_before_failure: r.callsBeforeFailure ?? null,
+        }) + '\n'
+      );
+      console.log(
+        `::error title=battery upstream final::song ${songNo} turn ${t}: the engine answered ${r.upstreamStatus} after ${r.hopsBeforeFailure ?? '?'} hop(s) — ${esc(r.detail ?? '', 200)}`
+      );
+      break;
+    }
     if (turnCapped()) {
       hitTurnCap = true;
       flags.push({ turn: t, flag: 'server_turn_cap', error: r.error });
@@ -488,6 +545,11 @@ for (const [songNo, briefIdx] of indices.entries()) {
         malformed: Array.isArray(p.malformed) ? p.malformed : null,
         user_reasks: reasks,
         error: p.error ?? null,
+        // M-231: on a non-200, the upstream cause and the hops it had bought.
+        detail: p.detail ?? null,
+        upstream_status: p.upstream_status ?? null,
+        hops_before_failure: p.hopsBeforeFailure ?? null,
+        calls_before_failure: p.callsBeforeFailure ?? null,
         sizes: {
           history: p.history ? JSON.stringify(p.history).length : 0,
           lyric: p.lyric ? JSON.stringify(p.lyric).length : 0,
@@ -564,8 +626,9 @@ for (const [songNo, briefIdx] of indices.entries()) {
   // THE ROUND'S VERDICT IS THE EXIT CODE (M-223). Round 12 exited 0 with no
   // song: its only red path was fail-fast, so a round whose turn 1 died on
   // 429/502 five times reported GREEN. One reason per song, never summed:
-  // finished (a lyric_revise exit 0), failed_fast, transport (the last turn
-  // was a non-200 or an error body), no_stop (every turn answered and the
+  // finished (a lyric_revise exit 0), failed_fast, server_turn_cap (M-224),
+  // upstream_final (M-231: a 502 whose upstream answered 4xx), transport (the
+  // last turn was a non-200 or an error body), no_stop (every turn answered and the
   // loop never reached exit 0). A single-song round is red on anything but
   // finished; a survey keeps exit 0 because its job is coverage.
   const exitReason =
@@ -575,9 +638,11 @@ for (const [songNo, briefIdx] of indices.entries()) {
         ? 'failed_fast'
         : hitTurnCap
           ? 'server_turn_cap'
-          : lastStatus !== 200 || lastError
-            ? 'transport'
-            : 'no_stop';
+          : hitUpstreamFinal
+            ? 'upstream_final'
+            : lastStatus !== 200 || lastError
+              ? 'transport'
+              : 'no_stop';
   if (N_SONGS === 1 && exitReason !== 'finished') process.exitCode = 1;
   console.log(
     `::${exitReason === 'finished' ? 'notice' : 'error'} title=battery verdict::song ${songNo}: ${exitReason}` +
