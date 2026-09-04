@@ -1,4 +1,4 @@
-# Results: length-conditioned floor thresholds over the WHOLE corpus — stage A (four checks) 2026-09-04; stage B (predictability) PENDING
+# Results: length-conditioned floor thresholds over the WHOLE corpus — stage A (four checks) and stage B (predictability), 2026-09-04
 
 > Pre-registration: `quality/LENGTH_CURVE_PREREGISTRATION.md` (2026-09-04,
 > before any number below was read). Instrument:
@@ -254,14 +254,91 @@ as under the band, everywhere, instead of no rate at all on 31% of lengths.
   that in the finding text (the threshold AT THIS LENGTH beside the
   length, per §7 of the preregistration).
 
-## 8. Stage B — predictability, PENDING
+## 8. Stage B — predictability: the cold run
 
-Four cold shards of `compute --shard i/4` are running at the time of this
-banking; the memo's fingerprint (`ac265f6eeb09…`) matches the shipped
-comparator and the 5,512-entry file on disk did not, so nothing was
-reused. Measured cost on the first file: 9–15 CPU-s per item cold. The
-stage B fit (five checks, 200 seeds, the same rule) is run on the merged
-shard rows when they land, and its picks, E2 and union are banked here as
-§9. Under E5 the four-check picks above stand with predictability ABSENT.
+Four shards of `compute --shard i/4`, one memo file each, merged
+afterwards into `~/.cache/lyric-harness/song_predictability_v1.tsv` (8,663
+entries under the shipped comparator's fingerprint `ac265f6eeb09…`; the
+5,512-entry file on disk carried a stale fingerprint and was not read).
+Cost, the shards' own prints: 4,854 + 5,892 + 4,348 + 5,229 = **20,323
+CPU-s (5.6 CPU-hours)**, 7,276 s wall on four shared cores — against the
+band cell's 2.0–2.2 CPU-hours for one process, because each shard warms
+its own end-word memo. Predictability is defined on 8,610 of 8,667 items
+(57 carry no readable pair). The five-check fit
+(`fit rowsB_1..4.tsv --seeds 200`) reproduced every stage A pick and
+coefficient byte for byte.
 
-## 9. Stage B results and the held-out E2 — TO BE BANKED
+## 9. Stage B results — predictability, and a recorded DEVIATION from the rule
+
+**The reference curve says the statistic has no resolution under ~169
+tokens.** Its 95th percentile per bin: **1.0000 in every bin from 4 to
+169 tokens** (bins 0–11), then 0.9375, 0.9288, 0.9337, 0.9375, 0.9379,
+0.9091, 0.9091, 0.9050, 0.8636, 0.8368 (bins 12–21, medians 178 → 902
+tokens). A one- or two-pair song makes the fraction 0/1-valued and
+enough human songs sit at 1 that the percentile IS the ceiling — the
+same fact M-193's stage B found on the 50–150 band.
+
+**The preregistered rule's pick is C0, and it is degenerate.** C0 =
+constant 1.0000 passes 22/22 bins; C1 18/22; C2 19/22 (both over-flag
+9–12% at 88–125 tokens, where a smooth curve dips under the pinned 1.0);
+CK 22/22. C0 passes only because nothing can exceed 1.0 with `>`: its
+held-out rate is **0.00% [0.00–0.00] in every bin**, marked `u`
+(under-resolved) through bin 11 and `<` (under the lower bound) from bin
+12 to 21 — where the data DOES resolve and a working check fires. That
+is the check that cannot fail (doctrine 48), and the preregistration's
+"under-resolved counts as pass" clause (§4) let a ceiling constant pass
+everywhere. The clause was written for a bin, not for a whole-corpus
+constant, and this cell is the record of the hole.
+
+**THE DEVIATION, recorded rather than hidden (doctrine 17):** the shipped
+pick for predictability is **CK, the knot table**, by this argument and
+not by the rule — CK passes 22/22 (under-resolved through bin 10, then
+3.02, 4.85, 4.70, 5.24, 5.74, 5.55, 4.94, 5.71, 5.43, 5.59, 5.40% at
+bins 11–21, every one under its bound), is silent by resolution under
+~156 tokens, and does the check's work above it, where the band cells'
+own `song` threshold (0.9375 at 200–400) sits. C0 would have shipped a
+threshold that never fires at any length while looking calibrated. The
+rerun that banks CK's evidence was declared to the instrument
+(`--picks predictability=CK`, disclosed in its print) and ran the same
+200 seeds:
+
+| check | pick | held-out rate over ALL items, median [5th–95th] |
+|---|---|--:|
+| `mattr` | C1 | 4.80% [3.00–7.89] |
+| `fwr` | C2 | 5.10% [3.16–7.29] |
+| anaphora | C2 | 5.15% [3.27–7.18] |
+| `cv` | C2 | 5.05% [3.89–6.67] |
+| predictability | **CK** | **2.78% [1.46–4.53]** — under nominal because it is silent under ~156 tokens; at nominal per bin above |
+
+**E2 with five checks, held-out against held-out, same seeds:**
+
+| band | ANY, band thresholds | ANY, picked curves | difference |
+|---|--:|--:|--:|
+| `song` 200–400 (bins 14–18) | 20.30% [15.88–25.67] | 21.17% [16.26–26.78] | **+0.87** |
+| `short` 50–150 (bins 2–9) | 13.91% [9.84–20.84] | 15.59% [11.15–21.91] | **+1.68** |
+
+E2 does not fire. (`song`'s row now carries its fifth check on both
+sides; the instrument also printed a `band lyric 4-3245` row — the new
+row read as if it were a band, a constant per check re-read from each
+seed's calibration half over the WHOLE corpus, 15.70% against the
+curves' 18.31%, "+2.61". That is not a preregistered comparison and
+not a shipped band; it says what §5's C0 rows say — one constant over
+everything interrupts writers less overall by over-flagging short songs
+and going silent on long ones — and is kept here so the print is not
+quietly unexplained.)
+
+**Union, five picked curves, whole corpus:** held-out **18.31%
+[14.14–23.79]**; in-sample 18.01%. Four checks alone: 16.21% held-out.
+
+**Adopted** (the separate change §7 of the preregistration promised,
+made the same day at the owner's order, `MISSING.md` M-239): a `lyric`
+profile in `quality/floor.py` carrying the four polynomials and the
+predictability knot table as `curves`, `tolerance` 1.0, `held_out_fpr`
+from the table above; `song` and `short` superseded, not deleted;
+`declaration_for` picks from live profiles; every length-sensitive
+finding names the threshold evaluated at the text's length beside the
+formula; the planner's envelope reads the live profile (12..447 lines,
+the owner's ruling that no ceiling is typed); an exact `--lines` fixes
+the total. What the adoption exposed and did not fix — the grader's
+schema-door pair guard at ~140 lines, and length as a declaration with
+no genre derivation behind it — is M-240 and M-241, open.

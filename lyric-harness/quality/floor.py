@@ -1173,6 +1173,28 @@ PROFILES.append(
             "function_word_ratio_max": (0.692763, -0.0688436, 0.0054502),
             "anaphora_max": (1.13285, -0.238372, 0.0157485),
             "line_length_cv_min": (-0.0314058, 0.0359349, -0.00181958),
+            # PREDICTABILITY IS A KNOT TABLE, AND THE PICK IS A RECORDED
+            # DEVIATION from the preregistered rule (RESULTS_LENGTH_CURVE.md
+            # §9). The rule's own pick was C0 — the 95th percentile over the
+            # whole corpus, which is 1.0000, the statistic's ceiling — and it
+            # "passed" every bin by never firing (0.00% held-out at every
+            # length): the check that could not fail (doctrine 48), the
+            # exact shape M-193's stage B refused for the short band. The
+            # knot curve also passes every bin, is SILENT under ~156 tokens
+            # (its knots sit at 1.0000 there, where a one- or two-pair song
+            # makes the fraction 0/1-valued — under-resolved, disclosed, not
+            # a threshold), and holds 3.0-5.7% per bin above it. Knots are
+            # (ln N at the bin's median length, the bin's 95th percentile),
+            # interpolated linearly in ln N, flat beyond the ends.
+            "predictable_pair_fraction_max": {"knots": [
+                (3.555, 1.0000), (3.951, 1.0000), (4.234, 1.0000),
+                (4.419, 1.0000), (4.543, 1.0000), (4.625, 1.0000),
+                (4.710, 1.0000), (4.779, 1.0000), (4.875, 1.0000),
+                (4.949, 1.0000), (5.011, 1.0000), (5.094, 1.0000),
+                (5.182, 0.9375), (5.273, 0.9288), (5.366, 0.9337),
+                (5.468, 0.9375), (5.578, 0.9379), (5.697, 0.9091),
+                (5.832, 0.9091), (6.014, 0.9050), (6.311, 0.8636),
+                (6.805, 0.8368)]},
         },
         measured_auc={},
         held_out_fpr={
@@ -1183,16 +1205,23 @@ PROFILES.append(
             "function_word_ratio": (5.10, 3.16, 7.29),
             "anaphora": (5.15, 3.27, 7.18),
             "line_length_cv": (5.05, 3.89, 6.67),
+            # Over ALL held-out items, so the silent half (under ~156
+            # tokens) pulls it under nominal; per bin above 156 it is at
+            # nominal (3.0-5.7%). Both readings are in RESULTS §9.
+            "predictability": (2.78, 1.46, 4.53),
         },
         source=("corpus/song/eng_*.txt, every `--- TITLE:` item (8,667 over "
                 "1,297 files, 4-3,245 tokens), no sample; thresholds fit by "
                 "the pinball loss in ln N over the whole corpus and held out "
                 "AUTHOR-wise on 200 file-level 50/50 splits, the rate tested "
                 "in 22 fixed bins of 400 items (RESULTS_LENGTH_CURVE.md §5). "
-                "predictable_pair_fraction_max is ABSENT until stage B of "
-                "that cell banks a curve for it, so PREDICTABLE_RHYME does "
-                "not fire under this profile — the `section` and `short` "
-                "profiles' precedent."),
+                "predictable_pair_fraction_max is a knot table (§9) that "
+                "fires only above ~156 tokens: under that a one- or two-pair "
+                "song makes the fraction 0/1-valued and the human 95th "
+                "percentile IS the ceiling, so PREDICTABLE_RHYME is silent "
+                "there by resolution, not by choice — the `short` profile's "
+                "stage B refusal, carried as a disclosed under-resolved run "
+                "rather than as an absent threshold."),
         note=("Supersedes `song` (200-400) and `short` (50-150), which stay "
               "above for their own drift checks. A finding under this row "
               "names the threshold EVALUATED AT THIS TEXT'S LENGTH beside "
