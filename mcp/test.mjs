@@ -837,6 +837,21 @@ check('validation: actionable errors', () => {
     // M-186's status label, three words rather than two (2026-09-02): a
     // whole-only exit 3 used to read `stopped_with_open_lines` with
     // `loop_unresolved` 0 — a cause the verdict itself contradicted.
+    check('draft_text splits the same way in the tool and in the connector (M-234)', async () => {
+      const { splitDraftText } = await import('./gemini_agent.js');
+      const t = '[VERSE — 2 lines]\n The lantern spins \n\nThe ocean sighs\n[CHORUS]\nc\r\n';
+      assert.deepEqual(VI.draftFromText(t), ['The lantern spins', 'The ocean sighs', 'c']);
+      assert.deepEqual(
+        splitDraftText(t),
+        VI.draftFromText(t),
+        'one split, two spellings, byte-equal'
+      );
+      const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
+      assert.ok(
+        /turnRetries < 4 && retries < RETRY_ROUND_CAP/.test(bat),
+        "the retry budget is a turn's, under a round cap"
+      );
+    });
     check('the standing findings at a stop are parsed off the report (M-232)', () => {
       const st =
         "  FINDING [FLAG] METER: L3 early\n\n  STANDING AT THE STOP — the findings the open lines and the whole draft still carry, in the report's own spelling:\n    L3: FINDING [FLAG] METER: L3 wants six beats\n    L5: FINDING [FLAG] SLOP: too predictable\n    WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK: the title is not in the hook\n         title 'zebra confetti' vs hook \"Go on.\"; the title phrase occurs 0 time(s).\n\n  THE SONG, PERFORMANCE ORDER:\n\nx\n";
@@ -2040,6 +2055,7 @@ check('validation: actionable errors', () => {
         properties: {
           seed: { type: 'integer' },
           draft: { type: 'array' },
+          draft_text: { type: 'string' },
           answer: { type: 'string' },
           lines: { type: 'integer' },
         },
@@ -2178,14 +2194,17 @@ check('validation: actionable errors', () => {
         assert.equal(run.lyric, null, 'exit 0 clears the record');
         // The declaration the model saw while parked: draft plus the key.
         const d = (req) => req.tools[0].functionDeclarations.find((x) => x.name === 'lyric_revise');
+        // M-234: the parked call is `draft_text` (one string) plus the key —
+        // the array property leaves the declaration.
         assert.deepEqual(Object.keys(d(requests[1]).parameters.properties).sort(), [
-          'draft',
+          'draft_text',
           'seed',
         ]);
-        assert.deepEqual(d(requests[1]).parameters.required, ['seed', 'draft']);
+        assert.deepEqual(d(requests[1]).parameters.required, ['seed', 'draft_text']);
         assert.deepEqual(Object.keys(d(requests[0]).parameters.properties).sort(), [
           'answer',
           'draft',
+          'draft_text',
           'lines',
           'seed',
         ]);
@@ -2247,7 +2266,12 @@ check('validation: actionable errors', () => {
     };
     const script3 = [
       { functionCall: { name: 'lyric_revise', args: { seed: 5 } } },
-      { functionCall: { name: 'lyric_revise', args: { seed: 5, draft: ['c', 'b'], lines: 39 } } },
+      {
+        functionCall: {
+          name: 'lyric_revise',
+          args: { seed: 5, draft_text: '[VERSE]\nc\n\nb\n', lines: 39 },
+        },
+      },
       { text: 'done' },
     ];
     const seen3 = [];
@@ -2286,9 +2310,14 @@ check('validation: actionable errors', () => {
       'a parked record is carried INTO the next turn: the draft-less call is refused by the connector and the rewrite goes through (M-233)',
       () => {
         assert.equal(run3.calls[0].refused_by_connector, true, 'the connector, not the harness');
-        assert.ok(/omits `draft`/.test(run3.calls[0].error), run3.calls[0].error);
+        assert.ok(/omits the draft/.test(run3.calls[0].error), run3.calls[0].error);
         assert.equal(seen3.length, 1, 'only the rewrite reached the harness');
-        assert.deepEqual(seen3[0].args.draft, ['c', 'b']);
+        assert.deepEqual(seen3[0].args.draft, ['c', 'b'], 'draft_text became the array (M-234)');
+        assert.equal(
+          'draft_text' in seen3[0].args,
+          false,
+          'and the string does not reach the tool'
+        );
         assert.equal(
           seen3[0].args.lines,
           20,

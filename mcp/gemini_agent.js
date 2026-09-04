@@ -551,7 +551,8 @@ function PARKED_RUN_NOTE(lyr) {
     ' No question is pending, so there is nothing to `answer`. The ONLY way forward: ' +
     'REWRITE the flagged line(s) yourself (new words, new end words — screen them with ' +
     'lyric_screen first), keep every other line byte-identical, and call lyric_revise ' +
-    `again with \`seed\` and the FULL \`draft\`${n ? ` (all ${n} lines, in order)` : ''}. ` +
+    `again with \`seed\` and \`draft_text\`: the FULL song as ONE plain string, one line per row, newline-separated${n ? ` (all ${n} lines, in order)` : ''} — ` +
+    'a string, NOT an array (the array is where your calls have broken). ' +
     "The run's declarations are carried for you. Do NOT send `answer` or `state`; do NOT " +
     're-send the same draft (the loop is deterministic — it parks again on the same lines); ' +
     'do NOT plan or sweep again. Put the lines in the tool call, not in your reply.'
@@ -578,23 +579,28 @@ export function declarationArgs(args) {
 const RUN_KEY_FIELDS = new Set(['seed', 'scheme', 'groups', 'returns', 'relation', 'structures']);
 
 export function declarationsFor(surface, lyr) {
-  // M-232: a PARKED run's continuing call is the rewritten `draft` plus the
+  // M-232: a PARKED run's continuing call is the rewritten draft plus the
   // run's key — no `answer`, no `state` — the mirror image of a suspended one.
+  // M-234: the rewritten draft is sent as ONE string (`draft_text`) where the
+  // tool offers it — round 20's six malformed rewrites all broke inside the
+  // array — and the array property leaves the parked declaration.
   const parked = isParked(lyr);
   if (!parked && (!lyr || typeof lyr.state !== 'string' || !Array.isArray(lyr.draft)))
     return surface.declarations;
-  const keep = parked ? 'draft' : 'answer';
   return surface.declarations.map((d) => {
     if (!surface.stateTools?.has(d.name) || !d.parameters?.properties?.draft) return d;
+    const keep = parked ? (d.parameters.properties.draft_text ? 'draft_text' : 'draft') : 'answer';
     // M-226 dropped `draft`; M-229 drops every other declaration field too —
     // while a run is suspended the call is `answer` plus the run's key, and
     // the connector puts the run's own declarations back (declarationArgs).
     const properties = {};
     for (const [k, v] of Object.entries(d.parameters.properties))
       if (k === keep || RUN_KEY_FIELDS.has(k)) properties[k] = v;
-    const required = Array.isArray(d.parameters.required)
+    let required = Array.isArray(d.parameters.required)
       ? d.parameters.required.filter((n) => n in properties)
       : d.parameters.required;
+    if (keep === 'draft_text' && Array.isArray(required) && !required.includes('draft_text'))
+      required = [...required, 'draft_text'];
     return {
       ...d,
       parameters: { ...d.parameters, properties, ...(required ? { required } : {}) },
@@ -649,6 +655,14 @@ export function wanderRefusal(lyr, name, args) {
 export function isParked(lyr) {
   return !!(lyr && lyr.parked === true && typeof lyr.state !== 'string');
 }
+// The same split mcp/lyric_tools.js `draftFromText` makes (kept in step by a
+// pin in mcp/test.mjs): trim, drop blank rows and bracketed [SECTION] rows.
+export function splitDraftText(text) {
+  return String(text)
+    .split(/\r?\n/)
+    .map((l) => l.trim())
+    .filter((l) => l && !/^\[[^\]]*\]$/.test(l));
+}
 function sameDraft(a, b) {
   return (
     Array.isArray(a) &&
@@ -660,7 +674,7 @@ function sameDraft(a, b) {
 function parkedRefusal(lyr, name, args) {
   const who = typeof lyr.seed === 'number' ? `seed ${lyr.seed}` : 'the declared mandate';
   const open = Array.isArray(lyr.open) && lyr.open.length ? lyr.open.join(', ') : 'none';
-  const tail = ` Continue it: rewrite the open line(s) (${open}) and call lyric_revise with \`seed\` and the full \`draft\` — no \`answer\`, no \`state\`. The song cannot finish through any other call.`;
+  const tail = ` Continue it: rewrite the open line(s) (${open}) and call lyric_revise with \`seed\` and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`. The song cannot finish through any other call.`;
   const head = `REFUSED by the connector: a lyric_revise run for ${who} is PARKED at exit 3 (no question pending)`;
   if (WANDER_ALWAYS.has(name)) return `${head}, and ${name} starts another song.${tail}`;
   if (WANDER_KEYED.has(name)) {
@@ -672,7 +686,7 @@ function parkedRefusal(lyr, name, args) {
   if (args && (args.answer != null || args[STATE_PROPERTY] != null))
     return `${head}, and this call sends \`answer\`/\`state\` — there is no question to answer.${tail}`;
   if (!Array.isArray(args?.draft))
-    return `${head}, and this call omits \`draft\` — a parked run is continued by a REWRITTEN draft, which only you can write.${tail}`;
+    return `${head}, and this call omits the draft — a parked run is continued by a REWRITTEN draft (\`draft_text\`), which only you can write.${tail}`;
   if (sameDraft(args.draft, lyr.draft))
     return `${head}, and this call re-sends the SAME draft that parked — the loop is deterministic and would park again on the same lines.${tail}`;
   return null;
@@ -1188,6 +1202,12 @@ export async function runTurn({
         // no state, in its own words.
         // M-229: a call that wanders off a suspended run is answered by the
         // connector, never sent to the harness.
+        // M-234: a draft sent as one string becomes the array the tools take,
+        // before any check reads it.
+        if (typeof args.draft_text === 'string' && !Array.isArray(args.draft)) {
+          args.draft = splitDraftText(args.draft_text);
+          delete args.draft_text;
+        }
         const wander = wanderRefusal(lyr, fc.name, args);
         if (wander) {
           result = { isError: true, content: [{ type: 'text', text: `Error: ${wander}` }] };

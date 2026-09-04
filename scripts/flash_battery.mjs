@@ -93,6 +93,8 @@ const PARTIAL_CAP = Math.max(0, Number(args['partial-cap'] ?? 6) || 0);
 // M-233: parks in a row that leave the same or more lines open before the
 // round is idle — a rewrite that parks on fewer lines is progress.
 const PARK_STREAK_CAP = Math.max(1, Number(args['park-streak-cap'] ?? 3) || 3);
+// M-234: the round's retry ceiling across all turns (four per turn inside it).
+const RETRY_ROUND_CAP = Math.max(4, Number(args['retry-cap'] ?? 16) || 16);
 const STOP_ON = new Set(
   (args['stop-on'] ?? (N_SONGS === 1 ? 'malformed,idle' : 'none'))
     .split(',')
@@ -313,7 +315,13 @@ for (const [songNo, briefIdx] of indices.entries()) {
   let parked = 0; // lyric_revise exit 3 stops — recorded, declined, continued
   let parkedLastTurn = false;
   let turns = 0;
-  let retries = 0;
+  let retries = 0; // the round's total, for the summary
+  // M-234 (round 20): the four-retry budget was a SONG's, and five separate
+  // Gemini 503 spikes over fifty minutes spent it — the last one ended a
+  // round that had folded 28 answers. The budget is a TURN's now (a turn
+  // that fails four times in a row is a broken turn); RETRY_ROUND_CAP bounds
+  // the round so a dead engine still ends it.
+  let turnRetries = 0;
   const loopLadder = []; // M-169: one row per revise call that reached a stop
   let lastAnswers = -1; // M-220: the answer count the previous turn left on record
   let parkStreak = 0; // M-233: parks in a row that did not reduce the open lines
@@ -396,6 +404,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
     // up on it. Such a 429 is waited out on the server's own number and does
     // not spend the retry budget; RATE_WAIT_CAP_S bounds the total.
     let rateWaitS = 0;
+    turnRetries = 0;
     const paced = () => r.status === 429 && r.retryAfterS != null && !turnCapped();
     // A 502 WHOSE UPSTREAM SAID 4xx IS FINAL (M-231, round 17): the connector
     // answers 502 for every throw, and a Gemini 400 on the request body does
@@ -413,10 +422,12 @@ for (const [songNo, briefIdx] of indices.entries()) {
       (r.status === 429 || r.status === 502 || r.status === 503) &&
       !turnCapped() &&
       !upstreamFinal() &&
-      (retries < 4 || (paced() && rateWaitS < RATE_WAIT_CAP_S))
+      ((turnRetries < 4 && retries < RETRY_ROUND_CAP) || (paced() && rateWaitS < RATE_WAIT_CAP_S))
     ) {
-      if (!paced()) retries++;
-      else rateWaitS += Math.min(r.retryAfterS, RETRY_AFTER_CAP_S);
+      if (!paced()) {
+        retries++;
+        turnRetries++;
+      } else rateWaitS += Math.min(r.retryAfterS, RETRY_AFTER_CAP_S);
       // The wait is the server's own Retry-After when it names one (capped at
       // RETRY_AFTER_CAP_S so a quota that says "tomorrow" cannot park the job),
       // else the 60s floor. The row says which, and quotes the body's error.
@@ -425,7 +436,8 @@ for (const [songNo, briefIdx] of indices.entries()) {
         file,
         JSON.stringify({
           turn: t,
-          retry: retries,
+          retry: turnRetries,
+          retries_total: retries,
           paced: paced(),
           rate_wait_s: rateWaitS,
           status: r.status,
@@ -440,7 +452,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
         }) + '\n'
       );
       console.log(
-        `::warning title=battery retry::song ${songNo} turn ${t} retry ${retries}/4: status ${r.status}` +
+        `::warning title=battery retry::song ${songNo} turn ${t} retry ${turnRetries}/4 (${retries}/${RETRY_ROUND_CAP} this round): status ${r.status}` +
           (r.retryAfterS != null ? ` retry-after ${r.retryAfterS}s` : '') +
           (r.error ? ` — ${esc(r.error, 160)}` : '') +
           (r.detail
