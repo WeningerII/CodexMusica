@@ -20158,6 +20158,8 @@ with this entry (2026-09-03).
 
 **WHAT IT DOES NOT CLAIM:** the cause of round 17's four 502s. Round 18 reads it off the row.
 
+**ADDENDUM (2026-09-04, the same drive):** `verify`'s `timeout-minutes` repinned ~~30~~ **45** in `.github/workflows/ci.yml`. The job is 19 minutes green on a normal runner (run 33835711156, attempt 2) and past 30 on a slow one: attempt 1 of that run was killed at 30:02 with 18 steps unrun after the installs alone took 9 minutes, and run 33844305943 (this entry's own CI) started its regression step 11 minutes in. Each timeout cost the drive a 30-minute cycle that measured nothing. 45 is the slow-runner figure plus the 2x margin the original pin had.
+
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~285~~ **286** with this entry (2026-09-04).
 
 ### M-230 · The battery's wait-for-live matched the OLD deployment on its first probe, because the surface it compares is not the build `CLOSED` 2026-09-04 (instrument half; round 17 measures whether Render reports the sha)

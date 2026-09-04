@@ -303,11 +303,18 @@ jobs:
   verify:
     needs: gate
     runs-on: ubuntu-latest
-    # MEASURED at ~8-12 minutes green. Absent, GitHub's default allowed the
-    # 2026-08-17 apt-get stall inside the Chromium install to burn 1h44m
-    # (run #506) until a human cancelled it — a hang is now a 30-minute
-    # failure with a name, never a six-hour vigil.
-    timeout-minutes: 30
+    # MEASURED at ~8-12 minutes green when first pinned; REPINNED 2026-09-04
+    # (M-231 addendum) from ~~30~~ to 45: the job now runs the connector
+    # suite's live checks and the regression step, 19 minutes green on a
+    # normal runner (run 33835711156 attempt 2) and past 30 on a slow one —
+    # attempt 1 of the same run was killed at 30:02 with 18 steps unrun after
+    # the installs alone took 9 minutes, and run 33844305943 hit the same
+    # wall. 45 is the slow-runner measurement plus the same 2x margin the
+    # original had; a hang is still a failure with a name inside the hour.
+    # Absent, GitHub's default allowed the 2026-08-17 apt-get stall inside
+    # the Chromium install to burn 1h44m (run #506) until a human cancelled
+    # it — never a six-hour vigil.
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
 
