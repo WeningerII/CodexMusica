@@ -1868,9 +1868,11 @@ export function registerLyricTools(server, tool) {
             askedNow.kind === 'propose_batch' &&
             Array.isArray(askedNow.lines) &&
             askedNow.lines.length
-              ? ` — BATCH: answer ${askedNow.lines.map((n) => `L${n}`).join(', ')} as one \`L<n>: <line>\` row each, every one required`
+              ? ` BATCH: answer ${askedNow.lines.map((n) => `L${n}`).join(', ')} as one \`L<n>: <line>\` row each, every one required.`
               : '';
-          const head = `[AWAITING PROPOSAL — ${a.seed != null ? `seed ${a.seed}` : 'declared mandate'} — ${onRecord} answer(s) on record — NO SONG YET${batchNote}]`;
+          // The bracketed stamp keeps its shape (readers pin on it); the
+          // batch note follows it on the same line (M-236).
+          const head = `[AWAITING PROPOSAL — ${a.seed != null ? `seed ${a.seed}` : 'declared mandate'} — ${onRecord} answer(s) on record — NO SONG YET]${batchNote}`;
           return {
             content: [
               { type: 'text', text: `${head}\n\n${(st.pending && st.pending.prompt) || r.stdout}` },
