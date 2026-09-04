@@ -405,6 +405,15 @@ function loopFields(v) {
     memo_asked: typeof v?.memo_asked === 'number' ? v.memo_asked : null,
     stale_answers: typeof v?.stale_answers === 'number' ? v.stale_answers : null,
     plan_lines: typeof v?.plan_lines === 'number' ? v.plan_lines : null,
+    // THE PROPOSAL RECORD (M-235): which question the call left open, which
+    // one its answer folded and what verify made of it, the head of the
+    // answer the model sent, the draft's fingerprint, and at a stop the song
+    // the loop stopped on. Null where the verb stamped none.
+    asked: v?.asked && typeof v.asked === 'object' ? v.asked : null,
+    folded: v?.folded && typeof v.folded === 'object' ? v.folded : null,
+    answer_sent: typeof v?.answer_sent === 'string' ? v.answer_sent : null,
+    draft_fp: typeof v?.draft_fp === 'string' ? v.draft_fp : null,
+    song_at_stop: typeof v?.song_at_stop === 'string' ? v.song_at_stop : null,
   };
 }
 

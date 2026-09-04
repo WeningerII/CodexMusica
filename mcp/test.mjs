@@ -852,6 +852,154 @@ check('validation: actionable errors', () => {
         "the retry budget is a turn's, under a round cap"
       );
     });
+    // ── M-235: THE PROPOSAL RECORD ──────────────────────────────────────
+    // Round 21 folded 190 answers over three loops and the rows could not say
+    // which line any of them answered or whether verify took it. The verdict
+    // is derived from the loop's own control flow: a rejected tier-1 proposal
+    // is re-asked AT ONCE as (same line, same round, attempt+1).
+    check(
+      'a folded answer is judged off the next question, exact below the attempt budget (M-235)',
+      () => {
+        const prompt2 =
+          "REVISE ONE LINE — L3 of a 20-line draft.\n\nATTEMPT\n  This is ATTEMPT 2 of this line's retry budget.\n  The PREVIOUS attempt was REJECTED. The grader's reasons, verbatim:\n    - L3 took the modal candidate 'higher'\n    - L3 wants six beats, got 7\n  Do not send back something the same reason would reject again.\n\nTHE LINE TO REVISE\n  L3: x\n";
+        const prev = JSON.stringify({
+          pending: {
+            kind: 'propose',
+            record: { line: 3, attempt: 0, round: 1 },
+            answer: 'a new line',
+          },
+        });
+        // Re-asked as attempt 1 of the same line and round: REJECTED, reasons read.
+        const rejected = VI.foldedOf(
+          prev,
+          {
+            pending: {
+              kind: 'propose',
+              record: { line: 3, attempt: 1, round: 1 },
+              prompt: prompt2,
+            },
+          },
+          3
+        );
+        assert.equal(rejected.verdict, 'rejected');
+        assert.equal(rejected.line, 3);
+        assert.equal(rejected.attempt, 0);
+        assert.equal(rejected.answer, 'a new line');
+        assert.deepEqual(rejected.reasons, [
+          "L3 took the modal candidate 'higher'",
+          'L3 wants six beats, got 7',
+        ]);
+        // Asked something else next while attempts remained: ACCEPTED.
+        const accepted = VI.foldedOf(
+          prev,
+          { pending: { kind: 'propose', record: { line: 7, attempt: 0, round: 1 }, prompt: '' } },
+          3
+        );
+        assert.equal(accepted.verdict, 'accepted');
+        assert.deepEqual(accepted.reasons, []);
+        // A stop (no next question) with attempts remaining is ACCEPTED too:
+        // a rejection would have been re-asked before any stop check.
+        assert.equal(VI.foldedOf(prev, { pending: null }, 3).verdict, 'accepted');
+        // The budget's LAST attempt cannot be told from the state: UNKNOWN, never guessed.
+        const last = JSON.stringify({
+          pending: { kind: 'propose', record: { line: 3, attempt: 2, round: 1 }, answer: 'z' },
+        });
+        assert.equal(
+          VI.foldedOf(
+            last,
+            { pending: { kind: 'propose', record: { line: 9, attempt: 0, round: 1 } } },
+            3
+          ).verdict,
+          'unknown'
+        );
+        // A tier-2 group answer is UNKNOWN (its verify path is not the tier-1 re-ask).
+        const grp = JSON.stringify({
+          pending: {
+            kind: 'propose_group',
+            record: { members: [3, 7], round: 2 },
+            answer: 'L3: a\nL7: b',
+          },
+        });
+        const g = VI.foldedOf(grp, { pending: null }, 3);
+        assert.equal(g.kind, 'propose_group');
+        assert.deepEqual(g.members, [3, 7]);
+        assert.equal(g.verdict, 'unknown');
+        // No answer folded (a fresh call, or an unanswered re-ask): no record.
+        assert.equal(
+          VI.foldedOf(
+            JSON.stringify({
+              pending: { kind: 'propose', record: { line: 3, attempt: 0, round: 1 }, answer: null },
+            }),
+            { pending: null },
+            3
+          ),
+          null
+        );
+        assert.equal(VI.foldedOf(undefined, { pending: null }, 3), null);
+        assert.equal(VI.foldedOf('not json', { pending: null }, 3), null);
+        // The open question and the draft fingerprint.
+        assert.deepEqual(
+          VI.askedOf({ kind: 'propose', record: { line: 3, attempt: 1, round: 2 } }),
+          {
+            kind: 'propose',
+            line: 3,
+            attempt: 1,
+            round: 2,
+          }
+        );
+        assert.equal(VI.askedOf(null), null);
+        assert.equal(VI.draftFp(['a', 'b']).length, 10);
+        assert.notEqual(VI.draftFp(['a', 'b']), VI.draftFp(['a', 'c']));
+        assert.equal(VI.draftFp('not an array'), null);
+        assert.deepEqual(VI.priorReasons('no rejection here'), []);
+      }
+    );
+    check(
+      'the proposal record rides loopFields, chat.js tools[] and the battery rows (M-235)',
+      async () => {
+        const { _agentInternals: AI } = await import('./gemini_agent.js');
+        const stamped = AI.loopFields({
+          asked: { kind: 'propose', line: 3, attempt: 0, round: 1 },
+          folded: {
+            kind: 'propose',
+            line: 2,
+            attempt: 0,
+            round: 1,
+            verdict: 'accepted',
+            reasons: [],
+          },
+          answer_sent: 'a line',
+          draft_fp: 'abcdef0123',
+          song_at_stop: 'x\ny',
+        });
+        assert.equal(stamped.asked.line, 3);
+        assert.equal(stamped.folded.verdict, 'accepted');
+        assert.equal(stamped.answer_sent, 'a line');
+        assert.equal(stamped.draft_fp, 'abcdef0123');
+        assert.equal(stamped.song_at_stop, 'x\ny');
+        const bare = AI.loopFields(null);
+        for (const f of ['asked', 'folded', 'answer_sent', 'draft_fp', 'song_at_stop'])
+          assert.equal(bare[f], null, `${f} is null where the verb stamped none`);
+        const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+        for (const f of ['asked', 'folded', 'answer_sent', 'draft_fp', 'song_at_stop'])
+          assert.ok(
+            new RegExp(`^\\s+${f}: c\\.${f} \\?\\? null,`, 'm').test(chat),
+            `chat.js tools[] carries ${f}`
+          );
+        const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
+        assert.ok(
+          /foldInto\(cycle, c\);/.test(bat),
+          'the driver tallies every revise call into the cycle'
+        );
+        assert.ok(/title=battery cycle::/.test(bat), 'and prints one cycle line per stop');
+        assert.ok(
+          /proposals=\$\{reviseCalls\.filter\(\(c\) => c\.folded\?\.verdict === 'accepted'\)/.test(
+            bat
+          ),
+          'and the per-turn accepted/rejected/unknown count'
+        );
+      }
+    );
     check('the standing findings at a stop are parsed off the report (M-232)', () => {
       const st =
         "  FINDING [FLAG] METER: L3 early\n\n  STANDING AT THE STOP — the findings the open lines and the whole draft still carry, in the report's own spelling:\n    L3: FINDING [FLAG] METER: L3 wants six beats\n    L5: FINDING [FLAG] SLOP: too predictable\n    WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK: the title is not in the hook\n         title 'zebra confetti' vs hook \"Go on.\"; the title phrase occurs 0 time(s).\n\n  THE SONG, PERFORMANCE ORDER:\n\nx\n";
@@ -4834,6 +4982,10 @@ try {
     );
     const st1 = JSON.parse(rv1.state);
     assert.ok(st1.pending && st1.pending.kind, 'the state carries the pending question');
+    // M-235: the row names the question left open; a first call folds nothing.
+    assert.equal(rv1.asked && rv1.asked.kind, st1.pending.kind, 'the row names the open question');
+    assert.equal(rv1.folded, null, 'a first call folds no answer');
+    assert.equal(typeof rv1.draft_fp, 'string', 'and fingerprints the draft');
     // Round-trip: same state, no answer -> the SAME question, fast (the
     // harness refuses to advance past an unanswered pending — that refusal
     // IS the enforcement, and it must be idempotent or a retry would skip).

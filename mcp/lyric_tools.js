@@ -27,6 +27,7 @@
 // finally.
 
 import { execFile, spawn } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { mkdtemp, writeFile, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -462,6 +463,107 @@ function extractStanding(stdout) {
     else if (out.length && /^\s*$/.test(line)) break;
   }
   return out;
+}
+
+// THE PROPOSAL RECORD (M-235, round 21). Round 21 spent 190 answers over
+// three loops and the record could not say which line any of them answered,
+// what the model sent, or whether verify took it — the rows carried only the
+// running count. The state file the verb writes already holds all of it: the
+// pending question (kind, line, attempt, round) and, on the way in, the
+// question the model's `answer` folds. What verify said about that answer
+// is DERIVED from the loop's own control flow rather than printed by it: a
+// rejected tier-1 proposal is re-asked AT ONCE as the same line, same round,
+// attempt+1 (`quality/loop.py` `_try_tier1`, the `for attempt` loop), so the
+// next pending question names the verdict. Exact below the attempt budget;
+// the budget's LAST attempt is `unknown` here (rejected-and-exhausted and
+// accepted both move to another line) and is left so, never guessed.
+function askedOf(pending) {
+  if (!pending || typeof pending !== 'object') return null;
+  const rec = pending.record || {};
+  if (pending.kind === 'propose') {
+    return {
+      kind: 'propose',
+      line: typeof rec.line === 'number' ? rec.line : null,
+      attempt: typeof rec.attempt === 'number' ? rec.attempt : null,
+      round: typeof rec.round === 'number' ? rec.round : null,
+    };
+  }
+  if (pending.kind === 'propose_group') {
+    return {
+      kind: 'propose_group',
+      members: Array.isArray(rec.members) ? rec.members : null,
+      attempt: null,
+      round: typeof rec.round === 'number' ? rec.round : null,
+    };
+  }
+  return { kind: String(pending.kind ?? 'unknown'), line: null, attempt: null, round: null };
+}
+
+// The grader's verbatim reasons for the previous attempt, as `render_line`'s
+// ATTEMPT block prints them ("  - reason" rows under the REJECTED sentence).
+function priorReasons(prompt) {
+  if (typeof prompt !== 'string') return [];
+  const i = prompt.indexOf('The PREVIOUS attempt was REJECTED.');
+  if (i < 0) return [];
+  const out = [];
+  let started = false;
+  for (const line of prompt.slice(i).split('\n').slice(1)) {
+    const m = /^\s+-\s+(.*\S)\s*$/.exec(line);
+    if (m) {
+      started = true;
+      out.push(m[1].slice(0, 300));
+    } else if (started) break;
+  }
+  return out;
+}
+
+function foldedOf(prevStateText, st, attempts) {
+  let prev;
+  try {
+    prev = typeof prevStateText === 'string' ? JSON.parse(prevStateText) : prevStateText;
+  } catch {
+    return null;
+  }
+  const pend = prev && typeof prev === 'object' ? prev.pending : null;
+  if (!pend || typeof pend !== 'object') return null;
+  if (pend.answer == null || pend.answer === '') return null;
+  const asked = askedOf(pend);
+  if (!asked) return null;
+  const budget = typeof attempts === 'number' && attempts >= 0 ? attempts : 3;
+  const next = st && typeof st === 'object' ? st.pending : null;
+  const nextAsked = askedOf(next);
+  let verdict = 'unknown';
+  let reasons = [];
+  if (asked.kind === 'propose' && typeof asked.attempt === 'number') {
+    const reasked =
+      nextAsked &&
+      nextAsked.kind === 'propose' &&
+      nextAsked.line === asked.line &&
+      nextAsked.round === asked.round &&
+      nextAsked.attempt === asked.attempt + 1;
+    if (reasked) {
+      verdict = 'rejected';
+      reasons = priorReasons(next.prompt);
+    } else if (asked.attempt + 1 < budget) {
+      verdict = 'accepted';
+    }
+  }
+  return {
+    ...asked,
+    answer:
+      typeof pend.answer === 'string'
+        ? pend.answer.slice(0, 300)
+        : JSON.stringify(pend.answer).slice(0, 300),
+    verdict,
+    reasons,
+  };
+}
+
+// A short fingerprint of the draft a call carried, so the cycles of one song
+// (draft, park, rewrite, draft) can be told apart in the rows.
+function draftFp(draft) {
+  if (!Array.isArray(draft)) return null;
+  return createHash('sha1').update(draft.join('\n'), 'utf8').digest('hex').slice(0, 10);
 }
 
 function extractLoopRecord(report) {
@@ -1059,6 +1161,10 @@ export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
   extractStanding,
+  askedOf,
+  priorReasons,
+  foldedOf,
+  draftFp,
   draftFromText,
   verdictOf,
   extractRefusal,
@@ -1676,6 +1782,12 @@ export function registerLyricTools(server, tool) {
                   status: 'awaiting_proposal',
                   kind: st.pending ? st.pending.kind : null,
                   answers_on_record: onRecord,
+                  // M-235: the question this call left open, the question its
+                  // `answer` folded and what verify made of that answer.
+                  asked: askedOf(st.pending),
+                  folded: foldedOf(a.state, st, a.attempts),
+                  answer_sent: typeof a.answer === 'string' ? a.answer.slice(0, 300) : null,
+                  draft_fp: draftFp(a.draft),
                   // THE SUSPENDED VERDICT IS THE COMMON ROW OF A REAL RUN — 32
                   // of round 11's 33 rows — and it was built here by hand,
                   // without the path and time `verdictOf` stamps (M-216), so
@@ -1694,10 +1806,18 @@ export function registerLyricTools(server, tool) {
           const m = r.stdout.match(/THE SONG, PERFORMANCE ORDER:\n\n([\s\S]*?\[FINISHED[^\]]*\])/);
           const verdict = verdictOf(r);
           verdict.status = loopStatusOf(r.code, verdict);
+          // M-235: the last answer's verdict and the draft this stop was
+          // reached on ride with the stop row, so a cycle is readable from
+          // the rows alone.
+          verdict.draft_fp = draftFp(a.draft);
+          verdict.song_at_stop = m
+            ? m[1].replace(/\n\n\[FINISHED[\s\S]*$/, '').slice(0, 4000)
+            : null;
           try {
             const st = JSON.parse(await readFile(statePath, 'utf8'));
             verdict.answers_on_record =
               st.answered.propose.length + st.answered.propose_group.length;
+            verdict.folded = foldedOf(a.state, st, a.attempts);
             // A finished deferred run is a RECORDED run: hand the record
             // back so the song's provenance travels with the conversation.
             verdict.state = JSON.stringify(st);

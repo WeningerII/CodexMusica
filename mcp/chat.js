@@ -586,6 +586,12 @@ export async function createChatRouter({
           // by the connector for wandering off a suspended run.
           declarations_carried: c.declarations_carried ?? false,
           refused_by_connector: c.refused_by_connector ?? false,
+          // M-235: the proposal record, copied by name as the M-216 fields are.
+          asked: c.asked ?? null,
+          folded: c.folded ?? null,
+          answer_sent: c.answer_sent ?? null,
+          draft_fp: c.draft_fp ?? null,
+          song_at_stop: c.song_at_stop ?? null,
         })),
         stopped: run.stopped,
         // WHY IT STOPPED, WITH THE NUMBERS (2026-09-02, triage C11). A bare
