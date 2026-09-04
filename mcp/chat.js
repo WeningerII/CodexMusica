@@ -618,12 +618,26 @@ export async function createChatRouter({
         res.set('Retry-After', String(Math.ceil(err.retryAfterMs / 1000)));
       }
       console.error('[chat] ', err.message);
+      // WHAT DIED, ON THE BODY (M-231, round 17): four 502s in a row carried
+      // only the sentence above, and the one line that said WHY went to a
+      // service log nobody driving the battery can read. The upstream's own
+      // status and message ride out with the shape, head-truncated, beside
+      // the calls the turn had already made — a 400 is not a 503, and a
+      // driver that cannot tell them apart retries both for thirteen minutes.
+      const calls = Array.isArray(err && err.calls) ? err.calls : [];
       res.status(status).json({
         error:
           status === 429
             ? 'The engine is over its rate limit for the moment — try again in a minute.'
             : 'The engine could not answer that one. Try rephrasing?',
+        detail: String((err && err.message) || err).slice(0, 400),
+        upstream_status: Number.isFinite(err && err.status) ? err.status : null,
         hopsBeforeFailure: err && err.usage ? err.usage.requests : 0,
+        callsBeforeFailure: calls.map((c) => ({
+          name: c.name,
+          error: c.error ?? null,
+          exit_code: typeof c.exit_code === 'number' ? c.exit_code : null,
+        })),
         chargedUsd: Number(chargedUsd.toFixed(4)),
       });
     } finally {

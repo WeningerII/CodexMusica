@@ -30,6 +30,11 @@ on:
         description: 'Wait until the live connector advertises this tree (mcp/check_live.mjs exit 0) before the first turn (M-225: the deploy job only queues the build)'
         default: 'false'
         required: false
+
+      live_commit:
+        description: 'M-230: with wait_for_live, also require /health to report this commit (the merge sha on main) — a change that touches no tool leaves the surface identical, and the surface alone matched the OLD deployment'
+        default: ''
+        required: false
 concurrency:
   group: flash-battery
   cancel-in-progress: false
@@ -68,10 +73,10 @@ jobs:
           while :; do
             n=$((n + 1))
             set +e
-            out=$(node mcp/check_live.mjs 2>&1); rc=$?
+            out=$(node mcp/check_live.mjs --commit="${{ inputs.live_commit }}" 2>&1); rc=$?
             set -e
             if [ "$rc" = "0" ]; then
-              echo "::notice title=battery wait-for-live::live connector matches this tree after $n probe(s), ${SECONDS}s"
+              echo "::notice title=battery wait-for-live::live connector matches this tree${{ inputs.live_commit && ' and reports the expected commit' || '' }} after $n probe(s), ${SECONDS}s"
               break
             fi
             echo "probe $n: check_live exit $rc — $(echo "$out" | tail -1 | cut -c1-160)"

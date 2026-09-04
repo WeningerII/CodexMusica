@@ -2856,6 +2856,100 @@ check('validation: actionable errors', () => {
       }
     }
   );
+  // M-231: A 502 WHOSE UPSTREAM SAID 4xx IS FINAL. Round 17's turn 1 banked
+  // four 502s over thirteen minutes, each carrying only "The engine could not
+  // answer that one" — the cause went to a service log the battery cannot
+  // read. The connector's error body now carries the upstream status and
+  // message; a 4xx that is not 429 ends the turn on the first answer, with
+  // the detail and the hops on the row, and the round exits upstream_final.
+  check(
+    'a 502 whose upstream answered 4xx ends the turn at once, the row quotes the cause, and the round exits upstream_final',
+    async () => {
+      const { spawn } = await import('node:child_process');
+      const { mkdtempSync, rmSync } = await import('node:fs');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+      const { fileURLToPath } = await import('node:url');
+      const http = await import('node:http');
+      const seen = [];
+      const srv = http.createServer((req, res) => {
+        let body = '';
+        req.on('data', (c) => (body += c));
+        req.on('end', () => {
+          seen.push(JSON.parse(body || '{}'));
+          res.writeHead(502, { 'content-type': 'application/json' });
+          res.end(
+            JSON.stringify({
+              error: 'The engine could not answer that one. Try rephrasing?',
+              detail:
+                'Gemini 400: Please ensure that function call turn comes immediately after a user turn',
+              upstream_status: 400,
+              hopsBeforeFailure: 1,
+              callsBeforeFailure: [{ name: 'lyric_revise', error: null, exit_code: 4 }],
+              chargedUsd: 0.01,
+            })
+          );
+        });
+      });
+      await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+      const port = srv.address().port;
+      const out = mkdtempSync(join(tmpdir(), 'battery-m231-'));
+      try {
+        const r = await runDriver(spawn, [
+          fileURLToPath(new URL('../scripts/flash_battery.mjs', import.meta.url)),
+          `--out=${out}`,
+          `--base=http://127.0.0.1:${port}`,
+          '--songs=1',
+          '--turns=1',
+          '--pace=0',
+        ]);
+        assert.equal(r.status, 1, `no song, so exit 1: ${r.stderr}\n${r.stdout}`);
+        assert.equal(seen.length, 1, 'ONE request: a 400 upstream is not retried');
+        const rows = readFileSync(join(out, 'song0.jsonl'), 'utf8')
+          .trim()
+          .split('\n')
+          .map((l) => JSON.parse(l));
+        const fin = rows.find((x) => 'upstream_final' in x);
+        assert.ok(fin, 'the row names the final upstream answer');
+        assert.equal(fin.upstream_final, 400);
+        assert.match(fin.detail, /Gemini 400/, 'and quotes the cause');
+        assert.equal(fin.hops_before_failure, 1);
+        assert.deepEqual(fin.calls_before_failure, [
+          { name: 'lyric_revise', error: null, exit_code: 4 },
+        ]);
+        assert.ok(!rows.some((x) => 'retry' in x), 'no retry row was written');
+        const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+        assert.equal(summary.songs[0].exit_reason, 'upstream_final');
+        assert.ok(
+          summary.songs[0].flags.some((f) => f.flag === 'upstream_final'),
+          'the flag is on the summary'
+        );
+        assert.ok(
+          /battery upstream final/.test(String(r.stdout)),
+          'the verdict is an error annotation naming the upstream status'
+        );
+      } finally {
+        srv.close();
+        rmSync(out, { recursive: true, force: true });
+      }
+    }
+  );
+  check('a 502 says what died: the upstream status and message ride on the body (M-231)', () => {
+    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+    assert.ok(/detail: String\(\(err && err\.message\) \|\| err\)\.slice\(0, 400\)/.test(chat));
+    assert.ok(
+      /upstream_status: Number\.isFinite\(err && err\.status\) \? err\.status : null/.test(chat)
+    );
+    assert.ok(/callsBeforeFailure: calls\.map/.test(chat), 'and the calls the turn had made');
+    const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
+    assert.ok(/!upstreamFinal\(\) &&/.test(bat), 'the retry loop stops on a final upstream answer');
+    assert.ok(
+      /r\.upstreamStatus >= 400 &&\s*r\.upstreamStatus < 500 &&\s*r\.upstreamStatus !== 429/.test(
+        bat
+      ),
+      'final is 4xx and not 429 — a 5xx upstream keeps the bounded retry'
+    );
+  });
   // M-223: a 429 names its limiter in the body and its wait in Retry-After;
   // the retry row carries both and the wait is the server's number. Then the
   // round FINISHES (a lyric_revise exit 0) and exits 0, exit_reason finished.
@@ -3751,6 +3845,41 @@ try {
   );
   console.log(
     '  ok  check_live: the freshness comparator fails in all four directions, and only those'
+  );
+  passed++;
+
+  // THE SURFACE IS NOT THE BUILD (M-230): the M-228/M-229 merge touched no
+  // tool, so the surface was byte-identical between the old process and the
+  // new and the battery's wait-for-live matched the OLD deployment on its
+  // first probe. commitDrift is the second half of the probe: /health's
+  // commit against the sha the caller expects. Unknown is not a match.
+  const { commitDrift } = await import('./check_live.mjs');
+  const full = '62215f575ee73068212dc0201346e09a2fc8e194';
+  assert.equal(commitDrift('', full), null, 'no expectation — the surface alone decides');
+  assert.equal(commitDrift(full, full), null, 'the same sha matches');
+  assert.equal(commitDrift(full.slice(0, 8), full), null, 'a short sha matches its full one');
+  assert.equal(
+    commitDrift(full, full.slice(0, 8).toUpperCase()),
+    null,
+    'case and length are not drift'
+  );
+  assert.match(
+    commitDrift(full, null),
+    /does not report a commit/,
+    'a server that does not say its commit is NOT a match — unknown is not equal'
+  );
+  assert.match(
+    commitDrift(full, 'b3928ddba7509365c2f09af27f7824935e3d0d6c'),
+    /serving b3928ddba750, not 62215f575ee7/,
+    'a different build is named by both shas'
+  );
+  assert.match(
+    commitDrift('62215', full),
+    /shorter than 7/,
+    'a five-character prefix is refused, not matched'
+  );
+  console.log(
+    '  ok  check_live: the build is compared beside the surface, and unknown is not a match'
   );
   passed++;
 

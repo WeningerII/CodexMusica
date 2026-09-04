@@ -20144,6 +20144,40 @@ entry is about, made settable.
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
 with this entry (2026-09-03).
 
+### M-231 · Round 17's turn 1 died on four 502s over thirteen minutes, and every one of them said only "The engine could not answer that one" `CLOSED` 2026-09-04 (connector and driver halves; round 18 reads the cause)
+
+**ROUND 17** (run 33841728667, GitHub's #19, the first round against the M-228/M-229 build at 62215f57; `wait_for_live` matched on probe 1 — the surface, not the build, see M-230): turn 0's first attempt 502'd at 66 s; the retry answered 200 in 105 s — `lyric_plan` (20 lines) → `lyric_grade` exit 3 (7 banned pairs) → `lyric_revise` refused (*"`answer` without `state` — the first call has no question to answer"*) → `lyric_revise` **exit 4, suspended at answers 0** (`memo_state: cold`, `memo_asked: 2`), `malformed: []`, **history 114 KB after the turn** (M-228's saving: round 14 carried 213–282 KB). Turn 1 — the first CONTINUE against a carried, narrowed, declaration-pinned run — **502 four times** at 144 s, 19 s, 61 s and 198 s, `exit_reason: transport`. Nothing on any row says what died: `chat.js` answers 502 for every throw and prints the reason to a service log the battery's runner cannot read (`console.error('[chat] ', err.message)`), and the driver retried a cause it could not see for thirteen minutes.
+
+**BUILT:**
+
+1. **The 502 says what died** (`mcp/chat.js`): the error body carries `detail` (the thrown message, 400 chars), `upstream_status` (Gemini's own status when the throw was Gemini's, else null), `hopsBeforeFailure` (already there) and `callsBeforeFailure` (name, error, exit code of each call the turn had made before the throw — `runTurn` already hands them out on the error, M-197). A 400 is not a 503, and a transcript that cannot tell them apart cannot say which fix to make.
+2. **A 502 whose upstream answered 4xx is final** (`scripts/flash_battery.mjs`): the retry loop stops on the first such answer (not 429 — that stays the pacing path, M-229); the row `upstream_final` carries the status, the detail, the hops and the calls; the round's `exit_reason` is `upstream_final`; the annotation names the status and quotes the cause. A 5xx upstream, or a body that does not say (an older deployment), keeps the bounded four-retry path — transient is still the default reading. Retry rows and the turn row carry the same four fields.
+3. **The build sha, baked if Render hands it to the build** (`mcp/Dockerfile`, M-230's other half): `ARG RENDER_GIT_COMMIT` → `ENV`; the runtime value wins when both exist; absent both, `/health` says null and the probe says NOT a match.
+
+`mcp/test.mjs`: a fake connector answering 502 with `upstream_status: 400` — one request, no retry row, the `upstream_final` row with status, cause, hops and calls, the summary's `exit_reason` and flag, the error annotation; source pins on the connector's body fields and the driver's 4xx-not-429 condition.
+
+**WHAT IT DOES NOT CLAIM:** the cause of round 17's four 502s. Round 18 reads it off the row.
+
+**ADDENDUM (2026-09-04, the same drive):** `verify`'s `timeout-minutes` repinned ~~30~~ **45** in `.github/workflows/ci.yml`. The job is 19 minutes green on a normal runner (run 33835711156, attempt 2) and past 30 on a slow one: attempt 1 of that run was killed at 30:02 with 18 steps unrun after the installs alone took 9 minutes, and run 33844305943 (this entry's own CI) started its regression step 11 minutes in. Each timeout cost the drive a 30-minute cycle that measured nothing. 45 is the slow-runner figure plus the 2x margin the original pin had.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~285~~ **286** with this entry (2026-09-04).
+
+### M-230 · The battery's wait-for-live matched the OLD deployment on its first probe, because the surface it compares is not the build `CLOSED` 2026-09-04 (instrument half; round 17 measures whether Render reports the sha)
+
+The M-227/M-228/M-229 merge (62215f57, PR #226) touched `gemini_agent.js`, `chat.js`, the driver and the workflows — **no tool description, no schema**. `mcp/check_live.mjs` compares the tool surface a client sees (M-127), and that surface was byte-identical between the process serving b3928ddb and the one Render was about to build, so `wait_for_live` (M-225) would have said MATCH against the old process on probe 1 and started round 17's first turn against a connector without any of the three mechanisms the round exists to measure — the silent step the owner's standard names (*"no failure, skip, silent steps"*). Caught before dispatch, by reading what the merge changed against what the probe compares.
+
+**BUILT:**
+
+1. **The process says which build it is** (`mcp/server_http.js`): `/health` carries `commit`, the `RENDER_GIT_COMMIT` Render sets in every service's runtime env, `null` where the runtime does not say.
+2. **The probe compares the build beside the surface** (`mcp/check_live.mjs`): `--commit=<sha>` (or `EXPECT_COMMIT`) makes a surface MATCH necessary, not sufficient — `/health` is read and `commitDrift` compares, prefix-tolerant from seven characters; a server that reports no commit is DRIFT (exit 3), never a match, by deploy-connector.yml's own rule that unknown is not equal; an unreadable `/health` is REFUSED (exit 2). Without a commit to expect the instrument is what it was.
+3. **The battery passes the merge sha** (`.github/workflows/flash-battery.yml`): `live_commit` input, handed to the probe on every wait-for-live poll. Dispatched from the branch with the sha `main` was merged to, the wait releases only when Render's new process is answering.
+
+`mcp/test.mjs`: `commitDrift` on the same sha, a short prefix, case, no expectation, a missing commit, a different build (both shas named), and a five-character prefix (refused, not matched). Against a local `server_http.js` with `RENDER_GIT_COMMIT` set: `--commit=62215f57` MATCH exit 0 with the commit in the line, `--commit=b3928ddb` DRIFT exit 3, no flag MATCH exit 0.
+
+**WHAT IT DOES NOT CLAIM:** that Render sets `RENDER_GIT_COMMIT` in a Docker service's runtime. Render's documentation says every service has it; round 17's wait-for-live is the measurement — a wait that runs its 45 minutes out against a process reporting `null` is that claim failing, and the fallback is the M-225 wait without the commit.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~284~~ **285** with this entry (2026-09-04).
+
 ### M-229 · Round 16 made fourteen well-formed calls and no malformed hop — and spent them wandering: a moved declaration, two re-plans, a sweep, and a question never answered `CLOSED` 2026-09-04 (connector and driver halves; round 17 measures the model half)
 
 **ROUND 16** (run 33832762778, GitHub's #18, the first round to START against the M-226 build — `wait_for_live` released it 91 s after the deploy hook): turn 0, 206 s, **14 hops, `MAX_STEPS`, `malformed: []`** — the coordinate M-226 removed did not break once. What the hops bought: `lyric_plan` (20 lines) → `lyric_grade` **refused, 11-line draft against a 20-line plan** → `lyric_revise` refused (mandate fields beside a seed) → `lyric_revise` **exit 4, a run suspended at answers 0** → two `lyric_revise` **refused: "the plan declares 39 line(s) and the draft carries 20"**, `draft_carried: true` — the model kept the seed, changed a declaration, and the harness graded the carried 20-line draft against a different plan → `lyric_sweep` → `lyric_plan` → `lyric_grade` exit 3 (1 banned pair) → `lyric_revise` refused (no draft on a first call for a new seed) → refused (answer before a question) → refused (49 lines vs 20) → `lyric_plan` → `lyric_grade` exit 3. **Zero answers folded.** Turn 1: a 502, then three Gemini 429s naming waits of 53 s, 25 s and 59 s; the driver's four-retry budget — sized for 5xx — gave the round up after them (`exit_reason: transport`).
