@@ -405,6 +405,22 @@ function loopFields(v) {
     memo_asked: typeof v?.memo_asked === 'number' ? v.memo_asked : null,
     stale_answers: typeof v?.stale_answers === 'number' ? v.stale_answers : null,
     plan_lines: typeof v?.plan_lines === 'number' ? v.plan_lines : null,
+    // THE PROPOSAL RECORD (M-235): which question the call left open, which
+    // one its answer folded and what verify made of it, the head of the
+    // answer the model sent, the draft's fingerprint, and at a stop the song
+    // the loop stopped on. Null where the verb stamped none.
+    asked: v?.asked && typeof v.asked === 'object' ? v.asked : null,
+    folded: v?.folded && typeof v.folded === 'object' ? v.folded : null,
+    answer_sent: typeof v?.answer_sent === 'string' ? v.answer_sent : null,
+    draft_fp: typeof v?.draft_fp === 'string' ? v.draft_fp : null,
+    song_at_stop: typeof v?.song_at_stop === 'string' ? v.song_at_stop : null,
+    // THE RUN THE TOOL REMEMBERED (M-237): its id, and which of the state,
+    // the draft and the declarations the TOOL filled in (the wrapper's own
+    // `draft_carried`/`declarations_carried` stay its own count).
+    run_id: typeof v?.run_id === 'string' ? v.run_id : null,
+    run_state_carried: v?.run_state_carried === true,
+    run_draft_carried: v?.run_draft_carried === true,
+    run_decl_carried: v?.run_decl_carried === true,
   };
 }
 
@@ -517,9 +533,11 @@ export async function buildSurface(client) {
 // "with the same arguments plus answer" — an instruction to re-send it. The
 // draft is carried with the record; the continuing call is seed + answer.
 const SUSPENDED_RUN_NOTE = (seed) =>
-  `A lyric_revise run for ${typeof seed === 'number' ? `seed ${seed}` : seed} is SUSPENDED, awaiting one answer. ` +
+  `A lyric_revise run for ${typeof seed === 'number' ? `seed ${seed}` : seed} is SUSPENDED, awaiting an answer. ` +
   'Nothing you write in chat reaches the harness: the run advances ONLY ' +
   'when you call lyric_revise again with `seed` and `answer` — NOTHING ELSE. ' +
+  'When the question asked about SEVERAL lines at once, `answer` is one `L<n>: <line>` ' +
+  'row per asked line, every one required, nothing else (M-236). ' +
   'Do NOT send `draft`: the draft and the state are carried for you, and a ' +
   're-sent draft is where the call has broken before. Put the line in the ' +
   "tool call's `answer` field — do not print it as your reply. The song " +

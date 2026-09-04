@@ -27,12 +27,22 @@
 // finally.
 
 import { execFile, spawn } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { mkdtemp, writeFile, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
 import { TOOL_BUDGET_MS } from './budget.js';
+import {
+  RunStore,
+  runKeyOf,
+  declarationsOf,
+  newRunId,
+  runRefusal,
+  movedDeclarations,
+  movedRefusal,
+} from './run_store.js';
 
 const HARNESS_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'lyric-harness');
 const PYTHON = process.env.LYRIC_PYTHON || 'python3';
@@ -462,6 +472,195 @@ function extractStanding(stdout) {
     else if (out.length && /^\s*$/.test(line)) break;
   }
   return out;
+}
+
+// THE PROPOSAL RECORD (M-235, round 21). Round 21 spent 190 answers over
+// three loops and the record could not say which line any of them answered,
+// what the model sent, or whether verify took it — the rows carried only the
+// running count. The state file the verb writes already holds all of it: the
+// pending question (kind, line, attempt, round) and, on the way in, the
+// question the model's `answer` folds. What verify said about that answer
+// is DERIVED from the loop's own control flow rather than printed by it: a
+// rejected tier-1 proposal is re-asked AT ONCE as the same line, same round,
+// attempt+1 (`quality/loop.py` `_try_tier1`, the `for attempt` loop), so the
+// next pending question names the verdict. Exact below the attempt budget;
+// the budget's LAST attempt is `unknown` here (rejected-and-exhausted and
+// accepted both move to another line) and is left so, never guessed.
+// THE RUN RECORD THE TOOL KEEPS (M-237): one per run key, a cache of the
+// state the tool returns verbatim. See run_store.js.
+export const RUNS = new RunStore();
+// A plan on a seed with an open run is NOT refused by the tool (a person may
+// plan again on purpose; the Gemini wrapper keeps its stricter refusal) —
+// the result says a run is open and names the move (M-237).
+function openRunNote(a) {
+  const key = runKeyOf(a);
+  const rec = key ? RUNS.get(key) : null;
+  if (!rec) return '';
+  return (
+    `\n\nNOTE: a lyric_revise run is OPEN on ${key} (run ${rec.run_id}, ${rec.status}` +
+    (rec.status === 'suspended'
+      ? `, ${rec.answers ?? 0} answer(s) on record`
+      : `, ${(rec.open || []).length} line(s) open`) +
+    `). This plan does not touch it: continue it with lyric_revise, or send \`new_run: true\` there to start over.`
+  );
+}
+
+export const CONNECTOR_MAX_ROUNDS = 8;
+export const CONNECTOR_ATTEMPTS = 1;
+export const CONNECTOR_BACKTRACK = 0;
+
+function askedOf(pending) {
+  if (!pending || typeof pending !== 'object') return null;
+  const rec = pending.record || {};
+  if (pending.kind === 'propose') {
+    return {
+      kind: 'propose',
+      line: typeof rec.line === 'number' ? rec.line : null,
+      attempt: typeof rec.attempt === 'number' ? rec.attempt : null,
+      round: typeof rec.round === 'number' ? rec.round : null,
+    };
+  }
+  if (pending.kind === 'propose_group') {
+    return {
+      kind: 'propose_group',
+      members: Array.isArray(rec.members) ? rec.members : null,
+      attempt: null,
+      round: typeof rec.round === 'number' ? rec.round : null,
+    };
+  }
+  if (pending.kind === 'propose_batch') {
+    // M-236: several independent tier-1 questions asked as one.
+    const recs = Array.isArray(rec.records) ? rec.records : [];
+    return {
+      kind: 'propose_batch',
+      lines: recs.map((r) => r && r.line).filter((n) => typeof n === 'number'),
+      attempt: 0,
+      round: typeof rec.round === 'number' ? rec.round : null,
+    };
+  }
+  return { kind: String(pending.kind ?? 'unknown'), line: null, attempt: null, round: null };
+}
+
+// The grader's verbatim reasons for the previous attempt, as `render_line`'s
+// ATTEMPT block prints them ("  - reason" rows under the REJECTED sentence).
+function priorReasons(prompt) {
+  if (typeof prompt !== 'string') return [];
+  const i = prompt.indexOf('The PREVIOUS attempt was REJECTED.');
+  if (i < 0) return [];
+  const out = [];
+  let started = false;
+  for (const line of prompt.slice(i).split('\n').slice(1)) {
+    const m = /^\s+-\s+(.*\S)\s*$/.exec(line);
+    if (m) {
+      started = true;
+      out.push(m[1].slice(0, 300));
+    } else if (started) break;
+  }
+  return out;
+}
+
+// THE VERDICT, OFF THE RECORD WHEN THE RECORD HAS IT (M-236). The harness
+// now writes what verify made of every candidate into the state file
+// (`outcomes`, keyed line/attempt/round) as the loop replays, so the verdict
+// is READ there first — exact for every attempt, the last one and a batch
+// member included. The M-235 derivation below stays as the fallback for a
+// state an older harness wrote.
+function outcomeAt(st, line, attempt, round) {
+  const outs = st && Array.isArray(st.outcomes) ? st.outcomes : [];
+  for (let i = outs.length - 1; i >= 0; i--) {
+    const o = outs[i];
+    if (!o || typeof o !== 'object') continue;
+    if (o.line === line && o.attempt === attempt && (o.round ?? null) === (round ?? null)) return o;
+  }
+  return null;
+}
+
+function foldedOne(asked, answer, st, budget) {
+  const next = st && typeof st === 'object' ? st.pending : null;
+  const nextAsked = askedOf(next);
+  let verdict = 'unknown';
+  let reasons = [];
+  let source = 'derived';
+  const o =
+    asked.kind === 'propose' && typeof asked.attempt === 'number'
+      ? outcomeAt(st, asked.line, asked.attempt, asked.round)
+      : null;
+  if (o) {
+    verdict = o.accepted === true ? 'accepted' : o.accepted === false ? 'rejected' : 'unknown';
+    reasons = Array.isArray(o.reasons) ? o.reasons.map((r) => String(r).slice(0, 300)) : [];
+    source = 'outcome';
+  } else if (asked.kind === 'propose' && typeof asked.attempt === 'number') {
+    const reasked =
+      nextAsked &&
+      nextAsked.kind === 'propose' &&
+      nextAsked.line === asked.line &&
+      nextAsked.round === asked.round &&
+      nextAsked.attempt === asked.attempt + 1;
+    if (reasked) {
+      verdict = 'rejected';
+      reasons = priorReasons(next.prompt);
+    } else if (asked.attempt + 1 < budget) {
+      verdict = 'accepted';
+    }
+  }
+  return {
+    ...asked,
+    answer:
+      typeof answer === 'string' ? answer.slice(0, 300) : JSON.stringify(answer).slice(0, 300),
+    verdict,
+    reasons,
+    source,
+  };
+}
+
+function foldedOf(prevStateText, st, attempts) {
+  let prev;
+  try {
+    prev = typeof prevStateText === 'string' ? JSON.parse(prevStateText) : prevStateText;
+  } catch {
+    return null;
+  }
+  const pend = prev && typeof prev === 'object' ? prev.pending : null;
+  if (!pend || typeof pend !== 'object') return null;
+  if (pend.answer == null || pend.answer === '') return null;
+  const asked = askedOf(pend);
+  if (!asked) return null;
+  const budget = typeof attempts === 'number' && attempts >= 0 ? attempts : 3;
+  if (asked.kind === 'propose_batch') {
+    // One record per member (M-236); the member's own answer is the row the
+    // harness folded, read back off the replay file.
+    const recs = Array.isArray(pend.record?.records) ? pend.record.records : [];
+    const folded = Array.isArray(st?.answered?.propose) ? st.answered.propose : [];
+    return recs.map((r) => {
+      const one = {
+        kind: 'propose',
+        line: r.line,
+        attempt: r.attempt ?? 0,
+        round: r.round ?? null,
+      };
+      const rec = folded.find(
+        (f) =>
+          f &&
+          f.line === one.line &&
+          (f.attempt ?? 0) === one.attempt &&
+          (f.round ?? null) === one.round
+      );
+      return foldedOne(
+        one,
+        rec && typeof rec.text === 'string' ? rec.text : pend.answer,
+        st,
+        budget
+      );
+    });
+  }
+  return foldedOne(asked, pend.answer, st, budget);
+}
+
+// A short fingerprint of the draft a call carried, so the cycles of one song
+// (draft, park, rewrite, draft) can be told apart in the rows.
+function draftFp(draft) {
+  if (!Array.isArray(draft)) return null;
+  return createHash('sha1').update(draft.join('\n'), 'utf8').digest('hex').slice(0, 10);
 }
 
 function extractLoopRecord(report) {
@@ -1059,6 +1258,11 @@ export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
   extractStanding,
+  askedOf,
+  priorReasons,
+  foldedOf,
+  outcomeAt,
+  draftFp,
   draftFromText,
   verdictOf,
   extractRefusal,
@@ -1163,12 +1367,25 @@ export const LYRIC_TOOL_SCHEMAS = {
       .describe(
         "The `state` string returned by this tool's previous call on this song, VERBATIM. It is the harness's own deferred-run record (every answer already given, replayable by anyone); the server keeps nothing between calls, so dropping it restarts the revision from zero answers. Omit on the first call."
       ),
+    run_id: z
+      .string()
+      .max(80)
+      .optional()
+      .describe(
+        'The `run_id` a previous call on this song returned. Optional: without it the newest run on this seed (or mandate) is the run. Names one run when two are open on one seed.'
+      ),
+    new_run: z
+      .boolean()
+      .optional()
+      .describe(
+        'true to DROP the run the tool remembers for this seed and open a fresh one on the draft you send. The only way past a parked run without rewriting it, and the only way to move a declaration mid-song.'
+      ),
     answer: z
       .string()
       .max(MAX_ANSWER_CHARS)
       .optional()
       .describe(
-        "The writer's answer to the pending question in `state` — exactly one line of song text for a single-line question, or one `L<n>: <line>` per member for a group question, markers required. It is parsed strictly and a malformed answer REFUSES rather than guessing which line goes where. Omit on the first call (there is no question yet)."
+        "The writer's answer to the pending question in `state` — exactly one line of song text for a single-line question, or one `L<n>: <line>` row per line for a BATCH (several independent lines asked at once, the common case) or a group question, every marker required. It is parsed strictly and a malformed answer REFUSES rather than guessing which line goes where. Omit on the first call (there is no question yet)."
       ),
     max_rounds: z
       .number()
@@ -1177,7 +1394,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(8)
       .optional()
       .describe(
-        "The loop's round budget (ReviseDeclaration.max_rounds, default 4). Keep it CONSTANT across one song's calls — the run replays from zero each call, and a moved budget re-derives which questions arise."
+        "The loop's round budget (ReviseDeclaration.max_rounds; this connector's default is 8). Keep it CONSTANT across one song's calls — the run replays from zero each call, and a moved budget re-derives which questions arise."
       ),
     attempts: z
       .number()
@@ -1185,14 +1402,18 @@ export const LYRIC_TOOL_SCHEMAS = {
       .min(0)
       .max(6)
       .optional()
-      .describe('Tier-1 attempts per flagged line (default 3). Same constancy rule as max_rounds.'),
+      .describe(
+        "Tier-1 attempts per flagged line (this connector's default is 1: a rejected line is re-briefed fresh next round with its rejection quoted, rather than re-asked at once). Same constancy rule as max_rounds."
+      ),
     backtrack: z
       .number()
       .int()
       .min(0)
       .max(8)
       .optional()
-      .describe('Tier-2 backtrack width (default 5). Same constancy rule as max_rounds.'),
+      .describe(
+        "Tier-2 backtrack width (this connector's default is 0: no group rewrite is opened on a single rejection). Same constancy rule as max_rounds."
+      ),
   },
   lyric_sweep: {
     seed_from: z
@@ -1390,7 +1611,7 @@ export function registerLyricTools(server, tool) {
           const { report: _report, ...stamped } = verdict;
           return {
             content: [
-              { type: 'text', text: r.stdout },
+              { type: 'text', text: r.stdout + openRunNote(a) },
               { type: 'text', text: JSON.stringify({ ...stamped, exit_code: 0 }) },
             ],
           };
@@ -1563,9 +1784,53 @@ export function registerLyricTools(server, tool) {
         // M-234: the draft may arrive as one string.
         if (typeof a.draft_text === 'string' && !Array.isArray(a.draft))
           a.draft = draftFromText(a.draft_text);
+        // THE RUN THE TOOL REMEMBERS (M-237). Resolved by `run_id` when the
+        // call names one, else the newest run on this key. `new_run` drops
+        // it. Then the tool's own refusals for a parked run, the moved
+        // declaration guard, and the carry: an omitted `state`, `draft` or
+        // declaration is filled from the record and SAID so on the verdict;
+        // an explicit value always wins and refreshes the record.
+        const runKey = runKeyOf(a);
+        let runRec = a.run_id ? RUNS.byId(a.run_id) : runKey ? RUNS.get(runKey) : null;
+        if (a.run_id && !runRec)
+          throw refuse(
+            `\`run_id\` ${a.run_id} names no run this tool remembers — it may have finished, expired (${Math.round(RUNS.ttlMs / 3600000)} h idle) or been forgotten by a restart; pass \`state\` back, or omit \`run_id\` and send the draft to open a fresh run`
+          );
+        if (runRec && runKey && runRec.key !== runKey)
+          throw refuse(
+            `\`run_id\` ${a.run_id} belongs to ${runRec.key}, and this call names ${runKey}`
+          );
+        if (a.new_run === true && runRec) {
+          RUNS.del(runRec.key);
+          runRec = null;
+        }
+        const runWander = runRefusal(runRec, a);
+        if (runWander) throw refuse(runWander);
+        const carried = { state: false, draft: false, decl: false };
+        if (runRec) {
+          const moved = movedDeclarations(runRec.decl, a);
+          if (moved.length) throw refuse(movedRefusal(runRec, moved));
+          for (const [k, v] of Object.entries(runRec.decl || {}))
+            if (a[k] === undefined) {
+              a[k] = v;
+              carried.decl = true;
+            }
+          if (
+            runRec.status === 'suspended' &&
+            a.state == null &&
+            typeof runRec.state === 'string'
+          ) {
+            a.state = runRec.state;
+            carried.state = true;
+          }
+          if (runRec.status === 'suspended' && a.draft == null && Array.isArray(runRec.draft)) {
+            a.draft = runRec.draft;
+            carried.draft = true;
+          }
+        }
         if (!Array.isArray(a.draft))
           throw refuse(
-            '`draft` omitted and no draft is carried for this run — pass the song lines (the SAME draft on every call of one run; the connector carries it for you only after a suspended call)'
+            '`draft` omitted and no draft is carried for this run — pass the song lines (the SAME draft on every call of one run; the tool carries it for you after a suspended call)'
           );
         checkLines(a.draft);
         const draftPath = path.join(dir, 'draft.txt');
@@ -1654,9 +1919,26 @@ export function registerLyricTools(server, tool) {
           }
           args.push(`--propose=defer:${statePath}`);
         }
-        if (a.max_rounds != null) args.push(`--max-rounds=${a.max_rounds}`);
-        if (a.attempts != null) args.push(`--attempts=${a.attempts}`);
-        if (a.backtrack != null) args.push(`--backtrack=${a.backtrack}`);
+        // THE CONNECTOR'S BUDGET (M-236): one attempt per line, no
+        // backtrack, eight rounds. The re-ask inside a round is where a
+        // model-driven run spent most of its hops (round 21: 103 answers for
+        // four rounds); under one attempt a rejected line is re-briefed
+        // fresh next round with its rejection quoted, the batch door asks
+        // the round's independent lines together, and the rounds are cheap
+        // enough to have more of. Tier 2's backtrack is off on this path
+        // for the same reason: with one attempt every rejection would open
+        // a group rewrite at once. A model that declares its own values
+        // keeps them; the carried declarations (M-229) hold whichever
+        // applied for the run's whole life, so the budget never moves
+        // mid-run.
+        const budget = {
+          max_rounds: a.max_rounds ?? CONNECTOR_MAX_ROUNDS,
+          attempts: a.attempts ?? CONNECTOR_ATTEMPTS,
+          backtrack: a.backtrack ?? CONNECTOR_BACKTRACK,
+        };
+        args.push(`--max-rounds=${budget.max_rounds}`);
+        args.push(`--attempts=${budget.attempts}`);
+        args.push(`--backtrack=${budget.backtrack}`);
         const r = await runVerb(args);
         if (r.code === 4) {
           // Suspended: the verb wrote the state (question folded in) and
@@ -1665,10 +1947,44 @@ export function registerLyricTools(server, tool) {
           // nothing to leak even if it tried.
           const st = JSON.parse(await readFile(statePath, 'utf8'));
           const onRecord = st.answered.propose.length + st.answered.propose_group.length;
-          const head = `[AWAITING PROPOSAL — ${a.seed != null ? `seed ${a.seed}` : 'declared mandate'} — ${onRecord} answer(s) on record — NO SONG YET]`;
+          const askedNow = askedOf(st.pending);
+          const batchNote =
+            askedNow &&
+            askedNow.kind === 'propose_batch' &&
+            Array.isArray(askedNow.lines) &&
+            askedNow.lines.length
+              ? ` BATCH: answer ${askedNow.lines.map((n) => `L${n}`).join(', ')} as one \`L<n>: <line>\` row each, every one required.`
+              : '';
+          // The bracketed stamp keeps its shape (readers pin on it); the
+          // batch note follows it on the same line (M-236).
+          const head = `[AWAITING PROPOSAL — ${a.seed != null ? `seed ${a.seed}` : 'declared mandate'} — ${onRecord} answer(s) on record — NO SONG YET]${batchNote}`;
+          // M-237: the tool remembers the run; the client may omit `state`
+          // and `draft` on the next call.
+          const runNow = runKey
+            ? RUNS.put(runKey, {
+                seed: typeof a.seed === 'number' ? a.seed : null,
+                status: 'suspended',
+                state: JSON.stringify(st),
+                draft: a.draft,
+                decl: declarationsOf(a),
+                answers: onRecord,
+                run_id: runRec?.run_id ?? newRunId(runKey),
+              })
+            : null;
+          const continueNote =
+            `\n\nCONTINUE: call lyric_revise with \`seed\` and \`answer\`` +
+            (askedNow && askedNow.kind === 'propose_batch'
+              ? ' (one `L<n>: <line>` row per asked line)'
+              : '') +
+            (runNow
+              ? ` — the state and the draft are carried for you (run ${runNow.run_id}); \`state\` passed back verbatim also works.`
+              : '.');
           return {
             content: [
-              { type: 'text', text: `${head}\n\n${(st.pending && st.pending.prompt) || r.stdout}` },
+              {
+                type: 'text',
+                text: `${head}\n\n${(st.pending && st.pending.prompt) || r.stdout}${continueNote}`,
+              },
               {
                 type: 'text',
                 text: JSON.stringify({
@@ -1676,6 +1992,16 @@ export function registerLyricTools(server, tool) {
                   status: 'awaiting_proposal',
                   kind: st.pending ? st.pending.kind : null,
                   answers_on_record: onRecord,
+                  // M-235: the question this call left open, the question its
+                  // `answer` folded and what verify made of that answer.
+                  asked: askedNow,
+                  folded: foldedOf(a.state, st, budget.attempts),
+                  run_id: runNow ? runNow.run_id : null,
+                  run_state_carried: carried.state,
+                  run_draft_carried: carried.draft,
+                  run_decl_carried: carried.decl,
+                  answer_sent: typeof a.answer === 'string' ? a.answer.slice(0, 300) : null,
+                  draft_fp: draftFp(a.draft),
                   // THE SUSPENDED VERDICT IS THE COMMON ROW OF A REAL RUN — 32
                   // of round 11's 33 rows — and it was built here by hand,
                   // without the path and time `verdictOf` stamps (M-216), so
@@ -1694,10 +2020,44 @@ export function registerLyricTools(server, tool) {
           const m = r.stdout.match(/THE SONG, PERFORMANCE ORDER:\n\n([\s\S]*?\[FINISHED[^\]]*\])/);
           const verdict = verdictOf(r);
           verdict.status = loopStatusOf(r.code, verdict);
+          // M-235: the last answer's verdict and the draft this stop was
+          // reached on ride with the stop row, so a cycle is readable from
+          // the rows alone.
+          verdict.draft_fp = draftFp(a.draft);
+          // M-237: exit 3 PARKS the record (no state — no question pending);
+          // exit 0 forgets it.
+          verdict.run_state_carried = carried.state;
+          verdict.run_draft_carried = carried.draft;
+          verdict.run_decl_carried = carried.decl;
+          if (runKey && r.code === 3) {
+            const parkedRec = RUNS.put(runKey, {
+              seed: typeof a.seed === 'number' ? a.seed : null,
+              status: 'parked',
+              draft: a.draft,
+              decl: declarationsOf(a),
+              stop: verdict.loop_stop_reason ?? null,
+              open: Array.isArray(verdict.loop_unresolved_lines)
+                ? verdict.loop_unresolved_lines
+                : [],
+              whole: Array.isArray(verdict.loop_whole_flag_codes)
+                ? verdict.loop_whole_flag_codes
+                : [],
+              standing: Array.isArray(verdict.standing) ? verdict.standing.slice(0, 24) : [],
+              run_id: runRec?.run_id ?? newRunId(runKey),
+            });
+            verdict.run_id = parkedRec.run_id;
+          } else if (runKey && r.code === 0) {
+            RUNS.del(runKey);
+            verdict.run_id = runRec?.run_id ?? null;
+          }
+          verdict.song_at_stop = m
+            ? m[1].replace(/\n\n\[FINISHED[\s\S]*$/, '').slice(0, 4000)
+            : null;
           try {
             const st = JSON.parse(await readFile(statePath, 'utf8'));
             verdict.answers_on_record =
               st.answered.propose.length + st.answered.propose_group.length;
+            verdict.folded = foldedOf(a.state, st, budget.attempts);
             // A finished deferred run is a RECORDED run: hand the record
             // back so the song's provenance travels with the conversation.
             verdict.state = JSON.stringify(st);
@@ -1712,9 +2072,13 @@ export function registerLyricTools(server, tool) {
                 ? '\n\nSTANDING AT THE STOP — what the open lines and the whole draft still carry:\n' +
                   verdict.standing.map((x) => `  ${x}`).join('\n')
                 : '';
+            const parkNote =
+              r.code === 3
+                ? `\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with \`seed\` and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`${verdict.run_id ? ` (run ${verdict.run_id}; \`new_run: true\` starts over instead)` : ''}.`
+                : '';
             return {
               content: [
-                { type: 'text', text: m[1] + standingText },
+                { type: 'text', text: m[1] + standingText + parkNote },
                 { type: 'text', text: JSON.stringify(verdict) },
               ],
             };

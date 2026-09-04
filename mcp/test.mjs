@@ -852,6 +852,390 @@ check('validation: actionable errors', () => {
         "the retry budget is a turn's, under a round cap"
       );
     });
+    // ── M-235: THE PROPOSAL RECORD ──────────────────────────────────────
+    // Round 21 folded 190 answers over three loops and the rows could not say
+    // which line any of them answered or whether verify took it. The verdict
+    // is derived from the loop's own control flow: a rejected tier-1 proposal
+    // is re-asked AT ONCE as (same line, same round, attempt+1).
+    check(
+      'a folded answer is judged off the next question, exact below the attempt budget (M-235)',
+      () => {
+        const prompt2 =
+          "REVISE ONE LINE — L3 of a 20-line draft.\n\nATTEMPT\n  This is ATTEMPT 2 of this line's retry budget.\n  The PREVIOUS attempt was REJECTED. The grader's reasons, verbatim:\n    - L3 took the modal candidate 'higher'\n    - L3 wants six beats, got 7\n  Do not send back something the same reason would reject again.\n\nTHE LINE TO REVISE\n  L3: x\n";
+        const prev = JSON.stringify({
+          pending: {
+            kind: 'propose',
+            record: { line: 3, attempt: 0, round: 1 },
+            answer: 'a new line',
+          },
+        });
+        // Re-asked as attempt 1 of the same line and round: REJECTED, reasons read.
+        const rejected = VI.foldedOf(
+          prev,
+          {
+            pending: {
+              kind: 'propose',
+              record: { line: 3, attempt: 1, round: 1 },
+              prompt: prompt2,
+            },
+          },
+          3
+        );
+        assert.equal(rejected.verdict, 'rejected');
+        assert.equal(rejected.line, 3);
+        assert.equal(rejected.attempt, 0);
+        assert.equal(rejected.answer, 'a new line');
+        assert.deepEqual(rejected.reasons, [
+          "L3 took the modal candidate 'higher'",
+          'L3 wants six beats, got 7',
+        ]);
+        // Asked something else next while attempts remained: ACCEPTED.
+        const accepted = VI.foldedOf(
+          prev,
+          { pending: { kind: 'propose', record: { line: 7, attempt: 0, round: 1 }, prompt: '' } },
+          3
+        );
+        assert.equal(accepted.verdict, 'accepted');
+        assert.deepEqual(accepted.reasons, []);
+        // A stop (no next question) with attempts remaining is ACCEPTED too:
+        // a rejection would have been re-asked before any stop check.
+        assert.equal(VI.foldedOf(prev, { pending: null }, 3).verdict, 'accepted');
+        // The budget's LAST attempt cannot be told from the state: UNKNOWN, never guessed.
+        const last = JSON.stringify({
+          pending: { kind: 'propose', record: { line: 3, attempt: 2, round: 1 }, answer: 'z' },
+        });
+        assert.equal(
+          VI.foldedOf(
+            last,
+            { pending: { kind: 'propose', record: { line: 9, attempt: 0, round: 1 } } },
+            3
+          ).verdict,
+          'unknown'
+        );
+        // A tier-2 group answer is UNKNOWN (its verify path is not the tier-1 re-ask).
+        const grp = JSON.stringify({
+          pending: {
+            kind: 'propose_group',
+            record: { members: [3, 7], round: 2 },
+            answer: 'L3: a\nL7: b',
+          },
+        });
+        const g = VI.foldedOf(grp, { pending: null }, 3);
+        assert.equal(g.kind, 'propose_group');
+        assert.deepEqual(g.members, [3, 7]);
+        assert.equal(g.verdict, 'unknown');
+        // No answer folded (a fresh call, or an unanswered re-ask): no record.
+        assert.equal(
+          VI.foldedOf(
+            JSON.stringify({
+              pending: { kind: 'propose', record: { line: 3, attempt: 0, round: 1 }, answer: null },
+            }),
+            { pending: null },
+            3
+          ),
+          null
+        );
+        assert.equal(VI.foldedOf(undefined, { pending: null }, 3), null);
+        assert.equal(VI.foldedOf('not json', { pending: null }, 3), null);
+        // The open question and the draft fingerprint.
+        assert.deepEqual(
+          VI.askedOf({ kind: 'propose', record: { line: 3, attempt: 1, round: 2 } }),
+          {
+            kind: 'propose',
+            line: 3,
+            attempt: 1,
+            round: 2,
+          }
+        );
+        assert.equal(VI.askedOf(null), null);
+        assert.equal(VI.draftFp(['a', 'b']).length, 10);
+        assert.notEqual(VI.draftFp(['a', 'b']), VI.draftFp(['a', 'c']));
+        assert.equal(VI.draftFp('not an array'), null);
+        assert.deepEqual(VI.priorReasons('no rejection here'), []);
+      }
+    );
+    // ── M-237: THE RUN RECORD, KEPT BY THE TOOL ──────────────────────────
+    check(
+      'the run store keeps one record per key, finds it by run_id, and forgets by TTL and cap (M-237)',
+      async () => {
+        const { RunStore, newRunId, runKeyOf, declarationsOf } = await import('./run_store.js');
+        let t = 0;
+        const st = new RunStore({ ttlMs: 1000, cap: 2, now: () => t });
+        st.put('seed:1', {
+          seed: 1,
+          status: 'suspended',
+          state: '{}',
+          run_id: newRunId('seed:1', () => 'aaaa'),
+        });
+        st.put('seed:2', {
+          seed: 2,
+          status: 'parked',
+          draft: ['a', 'b'],
+          open: ['L1'],
+          run_id: 'seed:2#bbbb',
+        });
+        assert.equal(st.get('seed:1').run_id, 'seed:1#aaaa');
+        assert.equal(st.byId('seed:2#bbbb').seed, 2);
+        st.put('seed:3', { seed: 3, status: 'suspended', state: '{}', run_id: 'seed:3#cccc' });
+        assert.equal(st.size(), 2, 'the cap evicts the least recently used');
+        // `get` touched seed:1, then `byId` touched seed:2 — so seed:1 is the
+        // coldest when seed:3 arrives.
+        assert.equal(st.get('seed:1'), null, 'seed:1 was the coldest');
+        assert.equal(st.get('seed:2').seed, 2, 'seed:2, touched last, survives');
+        t = 2000;
+        assert.equal(st.size(), 0, 'the TTL forgets an idle run');
+        assert.equal(runKeyOf({ seed: 7 }), 'seed:7');
+        assert.equal(runKeyOf({ scheme: 'ABAB' }), 'mandate:["ABAB",null,null,null,null]');
+        assert.equal(runKeyOf({}), null);
+        assert.deepEqual(
+          declarationsOf({
+            seed: 1,
+            draft: ['x'],
+            draft_text: 'x',
+            answer: 'y',
+            state: '{}',
+            run_id: 'r',
+            new_run: true,
+            lines: 20,
+          }),
+          { seed: 1, lines: 20 }
+        );
+      }
+    );
+    check(
+      "the tool's own refusals on a parked run, and a moved declaration refused by name (M-237)",
+      async () => {
+        const { runRefusal, movedDeclarations, movedRefusal } = await import('./run_store.js');
+        const rec = {
+          seed: 2,
+          status: 'parked',
+          draft: ['a', 'b'],
+          open: ['L1'],
+          run_id: 'seed:2#bbbb',
+          decl: { seed: 2, lines: 20 },
+        };
+        assert.ok(
+          /PARKED.*sends `answer`\/`state`/.test(runRefusal(rec, { seed: 2, answer: 'x' }))
+        );
+        assert.ok(/omits the draft/.test(runRefusal(rec, { seed: 2 })));
+        assert.ok(/SAME draft/.test(runRefusal(rec, { seed: 2, draft: ['a', 'b'] })));
+        assert.ok(
+          /new_run: true/.test(runRefusal(rec, { seed: 2, draft: ['a', 'b'] })),
+          'every refusal names the way out'
+        );
+        assert.equal(
+          runRefusal(rec, { seed: 2, draft: ['a', 'c'] }),
+          null,
+          'a rewritten draft goes through'
+        );
+        assert.equal(
+          runRefusal({ ...rec, status: 'suspended', state: '{}' }, { seed: 2, answer: 'x' }),
+          null,
+          'a suspended run refuses nothing here — the carry handles it'
+        );
+        assert.equal(runRefusal(null, { seed: 2, answer: 'x' }), null);
+        assert.deepEqual(movedDeclarations({ seed: 2, lines: 20 }, { seed: 2, lines: 22 }), [
+          { field: 'lines', run: 20, call: 22 },
+        ]);
+        assert.deepEqual(
+          movedDeclarations({ seed: 2, lines: 20 }, { seed: 2 }),
+          [],
+          'an omitted declaration is not a moved one — it is carried'
+        );
+        const why = movedRefusal(rec, [{ field: 'lines', run: 20, call: 22 }]);
+        assert.ok(/the run says 20, this call says 22/.test(why) && /new_run: true/.test(why));
+      }
+    );
+    check(
+      'the run fields ride loopFields, chat.js tools[] and the tool source (M-237)',
+      async () => {
+        const { _agentInternals: AI } = await import('./gemini_agent.js');
+        const st = AI.loopFields({
+          run_id: 'seed:1#aaaa',
+          run_state_carried: true,
+          run_draft_carried: false,
+          run_decl_carried: true,
+        });
+        assert.equal(st.run_id, 'seed:1#aaaa');
+        assert.equal(st.run_state_carried, true);
+        assert.equal(st.run_draft_carried, false);
+        assert.equal(st.run_decl_carried, true);
+        assert.equal(AI.loopFields(null).run_id, null);
+        const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+        for (const f of ['run_id', 'run_state_carried', 'run_draft_carried', 'run_decl_carried'])
+          assert.ok(
+            new RegExp(`^\\s+${f}: c\\.${f} \\?\\? (null|false),`, 'm').test(chat),
+            `chat.js tools[] carries ${f}`
+          );
+        const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
+        assert.ok(
+          /const runWander = runRefusal\(runRec, a\);/.test(src),
+          "the tool's refusals run before anything is carried"
+        );
+        assert.ok(
+          /if \(moved\.length\) throw refuse\(movedRefusal\(runRec, moved\)\);/.test(src),
+          'a moved declaration is refused, not replaced'
+        );
+        assert.ok(
+          /status: 'parked',/.test(src) && /RUNS\.del\(runKey\);/.test(src),
+          'exit 3 parks the record and exit 0 forgets it'
+        );
+        assert.ok(
+          /text: r\.stdout \+ openRunNote\(a\)/.test(src),
+          'a plan on a seed with an open run says so'
+        );
+      }
+    );
+    // ── M-236: THE BATCH DOOR ON THE ROW, AND THE VERDICT OFF THE RECORD ──
+    check(
+      'a batch question and its folded answers ride the row, one record per member, judged off `outcomes` (M-236)',
+      () => {
+        const pend = {
+          kind: 'propose_batch',
+          record: {
+            records: [
+              { line: 2, attempt: 0, round: 1 },
+              { line: 4, attempt: 0, round: 1 },
+            ],
+            round: 1,
+          },
+          prompt: 'REVISE 2 LINES AT ONCE',
+        };
+        assert.deepEqual(VI.askedOf(pend), {
+          kind: 'propose_batch',
+          lines: [2, 4],
+          attempt: 0,
+          round: 1,
+        });
+        const st = {
+          pending: null,
+          outcomes: [
+            {
+              line: 2,
+              attempt: 0,
+              round: 1,
+              accepted: false,
+              reasons: ['L2 took the modal candidate'],
+            },
+            { line: 4, attempt: 0, round: 1, accepted: true, reasons: [] },
+          ],
+          answered: {
+            propose: [
+              { line: 2, attempt: 0, round: 1, text: 'two' },
+              { line: 4, attempt: 0, round: 1, text: 'four' },
+            ],
+          },
+        };
+        const folded = VI.foldedOf(
+          JSON.stringify({ pending: { ...pend, answer: 'L2: two\nL4: four' } }),
+          st,
+          1
+        );
+        assert.ok(Array.isArray(folded) && folded.length === 2, 'one record per member');
+        assert.equal(folded[0].line, 2);
+        assert.equal(folded[0].answer, 'two', "the member's own row, off the replay file");
+        assert.equal(folded[0].verdict, 'rejected');
+        assert.equal(folded[0].source, 'outcome');
+        assert.deepEqual(folded[0].reasons, ['L2 took the modal candidate']);
+        assert.equal(folded[1].verdict, 'accepted');
+        // The record wins over the derivation on a single question too: the
+        // budget's last attempt is no longer unknown when the harness wrote it.
+        const last = JSON.stringify({
+          pending: { kind: 'propose', record: { line: 3, attempt: 0, round: 1 }, answer: 'z' },
+        });
+        const one = VI.foldedOf(
+          last,
+          {
+            pending: null,
+            outcomes: [
+              { line: 3, attempt: 0, round: 1, accepted: false, reasons: ['nothing was fixed'] },
+            ],
+          },
+          1
+        );
+        assert.equal(one.verdict, 'rejected');
+        assert.equal(one.source, 'outcome');
+        assert.equal(
+          VI.foldedOf(last, { pending: null }, 1).verdict,
+          'unknown',
+          'without the record, the last attempt of a budget of one is unknown, as M-235 pinned'
+        );
+        assert.equal(VI.outcomeAt({ outcomes: [] }, 3, 0, 1), null);
+      }
+    );
+    check(
+      "the connector's revise budget is one attempt, no backtrack, eight rounds, and the driver tallies batch folds (M-236)",
+      async () => {
+        const LT = await import('./lyric_tools.js');
+        assert.equal(LT.CONNECTOR_ATTEMPTS, 1);
+        assert.equal(LT.CONNECTOR_BACKTRACK, 0);
+        assert.equal(LT.CONNECTOR_MAX_ROUNDS, 8);
+        const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
+        assert.ok(
+          /attempts: a\.attempts \?\? CONNECTOR_ATTEMPTS,/.test(src),
+          "the model's own value wins, the constant fills"
+        );
+        assert.ok(
+          /args\.push\(`--attempts=\$\{budget\.attempts\}`\)/.test(src),
+          'and it reaches the verb on every call'
+        );
+        assert.ok(
+          /BATCH: answer \$\{askedNow\.lines/.test(src),
+          'the suspended head names the batch and its answer shape'
+        );
+        const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
+        assert.ok(/const foldedList = \(c\) =>/.test(bat), 'a batch call folds several answers');
+        const ga = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
+        assert.ok(
+          /row per asked line, every one required/.test(ga),
+          'the suspended-run reminder says the batch answer shape'
+        );
+      }
+    );
+    check(
+      'the proposal record rides loopFields, chat.js tools[] and the battery rows (M-235)',
+      async () => {
+        const { _agentInternals: AI } = await import('./gemini_agent.js');
+        const stamped = AI.loopFields({
+          asked: { kind: 'propose', line: 3, attempt: 0, round: 1 },
+          folded: {
+            kind: 'propose',
+            line: 2,
+            attempt: 0,
+            round: 1,
+            verdict: 'accepted',
+            reasons: [],
+          },
+          answer_sent: 'a line',
+          draft_fp: 'abcdef0123',
+          song_at_stop: 'x\ny',
+        });
+        assert.equal(stamped.asked.line, 3);
+        assert.equal(stamped.folded.verdict, 'accepted');
+        assert.equal(stamped.answer_sent, 'a line');
+        assert.equal(stamped.draft_fp, 'abcdef0123');
+        assert.equal(stamped.song_at_stop, 'x\ny');
+        const bare = AI.loopFields(null);
+        for (const f of ['asked', 'folded', 'answer_sent', 'draft_fp', 'song_at_stop'])
+          assert.equal(bare[f], null, `${f} is null where the verb stamped none`);
+        const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+        for (const f of ['asked', 'folded', 'answer_sent', 'draft_fp', 'song_at_stop'])
+          assert.ok(
+            new RegExp(`^\\s+${f}: c\\.${f} \\?\\? null,`, 'm').test(chat),
+            `chat.js tools[] carries ${f}`
+          );
+        const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
+        assert.ok(
+          /foldInto\(cycle, c\);/.test(bat),
+          'the driver tallies every revise call into the cycle'
+        );
+        assert.ok(/title=battery cycle::/.test(bat), 'and prints one cycle line per stop');
+        assert.ok(
+          /proposals=\$\{countVerdict\(reviseCalls, 'accepted'\)/.test(bat),
+          'and the per-turn accepted/rejected/unknown count'
+        );
+      }
+    );
     check('the standing findings at a stop are parsed off the report (M-232)', () => {
       const st =
         "  FINDING [FLAG] METER: L3 early\n\n  STANDING AT THE STOP — the findings the open lines and the whole draft still carry, in the report's own spelling:\n    L3: FINDING [FLAG] METER: L3 wants six beats\n    L5: FINDING [FLAG] SLOP: too predictable\n    WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK: the title is not in the hook\n         title 'zebra confetti' vs hook \"Go on.\"; the title phrase occurs 0 time(s).\n\n  THE SONG, PERFORMANCE ORDER:\n\nx\n";
@@ -4834,6 +5218,10 @@ try {
     );
     const st1 = JSON.parse(rv1.state);
     assert.ok(st1.pending && st1.pending.kind, 'the state carries the pending question');
+    // M-235: the row names the question left open; a first call folds nothing.
+    assert.equal(rv1.asked && rv1.asked.kind, st1.pending.kind, 'the row names the open question');
+    assert.equal(rv1.folded, null, 'a first call folds no answer');
+    assert.equal(typeof rv1.draft_fp, 'string', 'and fingerprints the draft');
     // Round-trip: same state, no answer -> the SAME question, fast (the
     // harness refuses to advance past an unanswered pending — that refusal
     // IS the enforcement, and it must be idempotent or a retry would skip).
@@ -4850,12 +5238,54 @@ try {
       'and re-asks the IDENTICAL question — the loop is resumed, not re-imagined'
     );
     // An answer with no state to answer is refused by the tool itself.
-    const revBad = await client.callTool(
-      { name: 'lyric_revise', arguments: { seed: planSeed, draft, answer: 'a line' } },
+    // M-237: THE TOOL REMEMBERS THE RUN. An answer WITHOUT `state` on this
+    // seed continues it — the state and the draft are carried by the tool
+    // and the verdict says so; the run keeps its id.
+    const pend1 = st1.pending;
+    const answer1 =
+      pend1.kind === 'propose_batch'
+        ? pend1.record.records.map((r) => `L${r.line}: ${draft[r.line - 1]} again`).join('\n')
+        : pend1.kind === 'propose_group'
+          ? pend1.record.members.map((n) => `L${n}: ${draft[n - 1]} again`).join('\n')
+          : `${draft[pend1.record.line - 1]} again`;
+    const rev3 = await client.callTool(
+      { name: 'lyric_revise', arguments: { seed: planSeed, answer: answer1 } },
       undefined,
       LIVE_OPTS
     );
-    assert.ok(revBad.isError, '`answer` without `state` refuses — there is no question it answers');
+    assert.ok(
+      !rev3.isError,
+      `an answer without state continues the remembered run (got: ${String(rev3.content?.[0]?.text).slice(0, 200)})`
+    );
+    const rv3 = JSON.parse(rev3.content[1].text);
+    assert.ok([0, 3, 4].includes(rv3.exit_code), `the run advanced (exit ${rv3.exit_code})`);
+    assert.equal(rv3.run_state_carried, true, 'the tool carried the state');
+    assert.equal(rv3.run_draft_carried, true, 'and the draft');
+    assert.equal(typeof rv1.run_id, 'string', 'the first call minted a run id');
+    assert.equal(rv3.run_id, rv1.run_id, 'the same run');
+    // A seed with NO remembered run: `answer` without `state` still refuses.
+    const revBad = await client.callTool(
+      { name: 'lyric_revise', arguments: { seed: planSeed + 100000, draft, answer: 'a line' } },
+      undefined,
+      LIVE_OPTS
+    );
+    assert.ok(
+      revBad.isError,
+      '`answer` without `state` on a seed with no run refuses — there is no question it answers'
+    );
+    // `new_run` drops the record: zero answers, a different id.
+    const rev4 = await client.callTool(
+      { name: 'lyric_revise', arguments: { seed: planSeed, draft, new_run: true } },
+      undefined,
+      LIVE_OPTS
+    );
+    assert.ok(
+      !rev4.isError,
+      `new_run opens a fresh run (got: ${String(rev4.content?.[0]?.text).slice(0, 200)})`
+    );
+    const rv4 = JSON.parse(rev4.content[1].text);
+    assert.equal(rv4.answers_on_record ?? 0, 0, 'a fresh run has no answers');
+    assert.notEqual(rv4.run_id, rv1.run_id, 'and a new id');
     console.log(
       '  ok  lyric_revise live: suspends with the question, no render, state round-trips'
     );

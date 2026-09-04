@@ -5037,6 +5037,121 @@ def test_the_plan_report_discloses_density_and_audibility():
           is not None)
 
 
+def test_the_batch_door_asks_independent_lines_together():
+    """M-236: under `defer:` the loop asks every open line that cannot change
+    another's answer in ONE suspension, folds the `L<n>:` row set as
+    per-line records, writes what verify made of each, and under one
+    attempt per line carries the rejection into the next round's question."""
+    print("\n54. the BATCH DOOR under `--propose=defer:` — independent lines "
+          "are asked together, folded apart, judged on the record, and the "
+          "rejection reaches the next round (M-236)")
+    d = tempfile.mkdtemp()
+    draft = os.path.join(d, "draft.txt")
+    state = os.path.join(d, "state.json")
+    # Four pairs, none of which rhymes under a declared plain RHYME, so every
+    # even line is flagged and no two flagged lines share a group.
+    with open(draft, "w") as fh:
+        fh.write("\n".join([
+            "we carried every box across the yard",
+            "the morning light was thin and cold as tea",
+            "she counted out the coins upon the bench",
+            "the radio was playing to the moon",
+            "a letter came addressed to no one here",
+            "the kettle hummed along beside the drum",
+            "we left the porch light burning through the night",
+            "and nobody remembered where the soap"]) + "\n")
+    mand = ["--groups=1,2;3,4;5,6;7,8", "--relation=RHYME"]
+    rc, out, _ = run("revise", draft, *mand, f"--propose=defer:{state}",
+                     expect_rc=4)
+    st = json.load(open(state))
+    pend = st["pending"]
+    asked = [r["line"] for r in pend["record"].get("records", [])]
+    check("the first suspension is ONE batch of the four independent open "
+          "lines, not four questions",
+          rc == 4 and pend["kind"] == "propose_batch" and asked == [2, 4, 6, 8],
+          f"rc {rc} kind {pend['kind']} lines {asked}")
+    check("the prompt says how many lines, names the answer shape, and "
+          "carries one full brief per member",
+          "REVISE 4 LINES AT ONCE" in pend["prompt"]
+          and "ANSWER SHAPE" in pend["prompt"]
+          and all(f"═ L{n} ═" in pend["prompt"] for n in asked)
+          and pend["prompt"].count("REVISE ONE LINE") == 0,
+          pend["prompt"][:120])
+    check("every batch member records its round and the draft it was asked "
+          "against, like a single question does (M-183)",
+          all(r.get("round") == 1 and len(r.get("draft", "")) == 12
+              and r["attempt"] == 0 for r in pend["record"]["records"]),
+          pend["record"]["records"])
+
+    # A row set missing a member REFUSES, and nothing is folded.
+    st["pending"]["answer"] = ("L2: the morning light was thin and hit us "
+                               "hard\nL4: she reached inside the drawer "
+                               "and found a wrench\nL6: the kettle hummed "
+                               "along beside the drum")
+    json.dump(st, open(state, "w"))
+    rc2, out2, _ = run("revise", draft, *mand, f"--propose=defer:{state}",
+                       expect_rc=2)
+    check("a batch answer missing a member REFUSES rather than folding the "
+          "rows it did get", rc2 == 2 and "REFUSED" in out2
+          and "L<n>: line" in out2, f"rc {rc2}")
+
+    # Every member answered — with the MODAL candidate each time, which the
+    # grader rejects (doctrine 9) — under ONE attempt per line and no
+    # backtrack: the batch folds as four records, verify's verdict on each
+    # is on the record, and round 2 asks the same four lines again, each
+    # carrying its round-1 rejection.
+    st["pending"]["answer"] = ("L2: the morning light was thin and hit us "
+                               "hard\nL4: she reached inside the drawer "
+                               "and found a wrench\nL6: the kettle hummed "
+                               "along beside the drum\nL8: and nobody "
+                               "remembered where the light")
+    json.dump(st, open(state, "w"))
+    one = os.path.join(d, "one.json")
+    shutil.copy(state, one)
+    rc3, out3, _ = run("revise", draft, *mand, "--attempts=1",
+                       "--backtrack=0", f"--propose=defer:{one}",
+                       expect_rc=4)
+    st3 = json.load(open(one))
+    folded = [(r["line"], r["attempt"], r["round"])
+              for r in st3["answered"]["propose"]]
+    check("the batch answer folded as FOUR per-line records, the replay "
+          "file's own shape", folded == [(2, 0, 1), (4, 0, 1), (6, 0, 1),
+                                         (8, 0, 1)], folded)
+    outs = {(o["line"], o["attempt"], o["round"]): o
+            for o in st3.get("outcomes", [])}
+    check("what verify made of each answer is ON THE RECORD, with the "
+          "grader's reasons", set(outs) == set(folded)
+          and all(o["accepted"] is False and o["reasons"]
+                  for o in outs.values()),
+          {k: (o["accepted"], o["reasons"][:1]) for k, o in outs.items()})
+    p3 = st3["pending"]
+    check("under attempts=1 a barren round is not yet NO_PROGRESS: round 2 "
+          "asks the same four lines again, as one batch",
+          rc3 == 4 and p3["kind"] == "propose_batch"
+          and [r["line"] for r in p3["record"]["records"]] == [2, 4, 6, 8]
+          and p3["record"]["round"] == 2,
+          f"rc {rc3} pending {p3['kind']} round {p3['record'].get('round')}")
+    check("...and each member's brief quotes its ROUND-1 rejection, "
+          "verbatim, since no re-ask inside the round could",
+          p3["prompt"].count("in ROUND 1 was REJECTED") == 4
+          and "hit us hard" in p3["prompt"]
+          and "PREVIOUS attempt was REJECTED" not in p3["prompt"],
+          p3["prompt"].count("in ROUND 1 was REJECTED"))
+
+    # CONTROL: under the default budget the re-ask inside the round is
+    # unchanged — L2 attempt 2, alone, with the reasons.
+    rc4, out4, _ = run("revise", draft, *mand, f"--propose=defer:{state}",
+                       expect_rc=4)
+    st4 = json.load(open(state))
+    p4 = st4["pending"]
+    check("CONTROL: under the default budget the rejected line is re-asked "
+          "at once, alone, at attempt 2 — the single question as it was",
+          rc4 == 4 and p4["kind"] == "propose"
+          and p4["record"]["line"] == 2 and p4["record"]["attempt"] == 1
+          and "PREVIOUS attempt was REJECTED" in p4["prompt"],
+          f"rc {rc4} {p4['kind']} {p4['record']}")
+
+
 if __name__ == "__main__":
     _SECTIONS = (
         test_the_map_is_not_stale,
@@ -5091,6 +5206,7 @@ if __name__ == "__main__":
         test_the_pasted_song_has_the_same_door_as_a_planned_one,
         test_the_plan_report_discloses_density_and_audibility,
         test_finish_exits_3_on_a_whole_draft_flag_alone,
+        test_the_batch_door_asks_independent_lines_together,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —
     # measured 21-22 minutes on CI run #524, and after the pool went

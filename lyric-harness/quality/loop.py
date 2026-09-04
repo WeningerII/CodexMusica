@@ -1032,6 +1032,18 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         res = reviser.verify(lines, after, mandate, targeted=set(targets),
                              profile=profile, blueprint=blueprint,
                              subdivision=subdivision, assume=assume)
+        # THE VERDICT, TOLD TO THE PROPOSER THAT OFFERED THE LINE (M-236).
+        # A recording proposer (`defer:`) keeps it beside the answer, so a
+        # reader of the state file can say what verify made of each line
+        # without re-deriving the loop's control flow — and so the NEXT
+        # question about this line can quote the last rejection when the
+        # attempt budget lets no re-ask happen inside the round. Duck-typed
+        # on the callable, as `prefetch` is; a plain function has neither.
+        _record = getattr(propose, "record", None)
+        if _record is not None:
+            _record(b.line_no, attempt, getattr(b, "round_no", None),
+                    candidate, bool(res["accepted"]),
+                    list(res.get("reasons") or ()))
         if res["accepted"]:
             return LineAttempt(b.line_no, 1, True, tried,
                                "; ".join(res["reasons"]),
@@ -1701,6 +1713,18 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     # the result without the call site in view.
     input_n, input_fp = len(lines), draft_fingerprint(lines)
     rounds = []
+    # A BARREN ROUND UNDER ONE ATTEMPT PER LINE IS NOT YET NO PROGRESS
+    # (M-236). With `attempts_per_line` 1 the re-ask that carries the
+    # grader's reasons does not happen inside the round: the next round's
+    # question is the first place the writer can read WHY the line was
+    # thrown out (`propose.py` `_attempt_block`'s prior-round clause, fed by
+    # the `record` hook). Stopping on the first barren round would stop
+    # before that question is ever put. So under attempts of 1 the stop
+    # reads TWO barren rounds in a row — the reasons were shown, and still
+    # nothing moved — and under every other budget it reads one, exactly as
+    # it did: the re-ask has already spent the reasons inside the round,
+    # and `--attempts=0` asks nothing and stops honestly on the first.
+    _barren, _barren_cap = 0, (2 if rdecl.attempts_per_line == 1 else 1)
     for round_no in range(1, rdecl.max_rounds + 1):
         briefs = reviser.brief(lines, mandate, profile=profile,
                                blueprint=blueprint, subdivision=subdivision,
@@ -1839,6 +1863,39 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                     resolved_elsewhere.append(b.line_no)
                     continue
                 b = latest_open[b.line_no]
+            # THE BATCH DOOR (M-236). A proposer that asks a writer one
+            # question per process (`defer:`) is handed, before THIS line's
+            # first question, the briefs of every open line still ahead of
+            # it in the pass — re-briefed against the draft as it now stands,
+            # exactly as the walk below would brief them one at a time — so
+            # it can ask about all the lines that cannot change each other's
+            # answer in ONE suspension. The hook returns when this line's
+            # first answer is already on record and raises its suspension
+            # otherwise; the walk itself is unchanged, and a proposer without
+            # the attribute is asked one line at a time as before. Lines
+            # that go to tier 2 first (`joint_conflict`) are not offered:
+            # their first question is a group, not a line.
+            # `--attempts=0` asks nothing (the tier-1 dead-end disclosure's
+            # own case), so the door stays shut under it too.
+            _prefetch = getattr(propose, "prefetch", None)
+            if _prefetch is not None and not b.joint_conflict \
+                    and rdecl.attempts_per_line >= 1:
+                _ahead = []
+                _seen_b = False
+                for _x in flagged:
+                    if _x.line_no == b.line_no:
+                        _seen_b = True
+                        continue
+                    if not _seen_b or _x.line_no in touched:
+                        continue
+                    if latest_open is not None:
+                        _x = latest_open.get(_x.line_no)
+                        if _x is None:
+                            continue
+                    if _x.joint_conflict:
+                        continue
+                    _ahead.append(_x)
+                _prefetch(b, _ahead, lines, whole)
             if b.joint_conflict:
                 attempt, lines = _try_tier2(
                     reviser, b, lines, mandate, rdecl, blueprint,
@@ -1936,7 +1993,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         rounds.append(RoundResult(round_no, attempts,
                                   sorted(fixed_this_round),
                                   sorted(resolved_elsewhere)))
-        if not fixed_this_round:
+        _barren = _barren + 1 if not fixed_this_round else 0
+        if _barren >= _barren_cap:
             return _close(reviser, "no_progress", lines, rounds, flagged,
                           mandate, blueprint, subdivision, assume, profile,
                           input_n=input_n, input_fp=input_fp,

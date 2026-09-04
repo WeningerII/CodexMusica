@@ -313,6 +313,48 @@ for (const [songNo, briefIdx] of indices.entries()) {
   let env = null; // {history, workspace, lyric?, sig}
   let sawStop = null; // lyric_revise exit 0 seen — the only "finished" (M-163)
   let parked = 0; // lyric_revise exit 3 stops — recorded, declined, continued
+  // THE PROPOSAL RECORD, PER CYCLE (M-235, round 21): one loop from its first
+  // question to its park or finish. Counts of the folded answers verify
+  // accepted, rejected and could not be told, and the rejection reasons
+  // tallied by their head — the numbers round 21 could not read.
+  let cycleNo = 0;
+  let cycle = { accepted: 0, rejected: 0, unknown: 0, reasons: new Map(), firstTurn: 0 };
+  const cycles = [];
+  const reasonKey = (r) =>
+    String(r)
+      .replace(/'[^']*'/g, "'…'")
+      .slice(0, 60);
+  // A batch call folds several answers (M-236): `folded` is then an array.
+  const foldedList = (c) =>
+    Array.isArray(c.folded) ? c.folded : c.folded && typeof c.folded === 'object' ? [c.folded] : [];
+  const foldInto = (tally, c) => {
+    for (const f of foldedList(c)) {
+      if (f.verdict === 'accepted') tally.accepted++;
+      else if (f.verdict === 'rejected') tally.rejected++;
+      else tally.unknown++;
+      for (const r of Array.isArray(f.reasons) ? f.reasons : []) {
+        const k = reasonKey(r);
+        tally.reasons.set(k, (tally.reasons.get(k) || 0) + 1);
+      }
+    }
+  };
+  const countVerdict = (calls, which) =>
+    calls.reduce(
+      (n, c) =>
+        n +
+        foldedList(c).filter((f) =>
+          which === 'unknown'
+            ? f.verdict !== 'accepted' && f.verdict !== 'rejected'
+            : f.verdict === which
+        ).length,
+      0
+    );
+  const topReasons = (tally, n = 4) =>
+    [...tally.reasons.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, n)
+      .map(([k, v]) => `${v}× ${k}`)
+      .join(' | ');
   let parkedLastTurn = false;
   let turns = 0;
   let retries = 0; // the round's total, for the summary
@@ -504,10 +546,38 @@ for (const [songNo, briefIdx] of indices.entries()) {
     const reviseCalls = tools.filter((c) => c.name === 'lyric_revise');
     let parkedThisTurn = false;
     for (const c of reviseCalls) {
+      foldInto(cycle, c);
       if (c.exit_code === 0) sawStop = 0;
       if (c.exit_code === 3) {
         parked++;
         parkedThisTurn = true;
+      }
+      if (c.exit_code === 0 || c.exit_code === 3) {
+        // The cycle closes on the stop row (M-235): say what it bought.
+        cycleNo++;
+        const rec = {
+          cycle: cycleNo,
+          turns: [cycle.firstTurn, t],
+          stop: c.loop_stop_reason ?? null,
+          rounds: c.loop_rounds ?? null,
+          open: c.loop_unresolved ?? null,
+          whole_flags: c.loop_whole_flag_codes ?? null,
+          answers: c.answers_on_record ?? null,
+          accepted: cycle.accepted,
+          rejected: cycle.rejected,
+          unknown: cycle.unknown,
+          top_reasons: topReasons(cycle, 8),
+          draft_fp: c.draft_fp ?? null,
+        };
+        cycles.push(rec);
+        appendFileSync(file, JSON.stringify({ turn: t, cycle: rec }) + '\n');
+        console.log(
+          `::notice title=battery cycle::song ${songNo} cycle ${cycleNo} (turns ${rec.turns[0]}-${t}): ` +
+            `stop=${rec.stop} rounds=${rec.rounds} open=${rec.open} whole=${(rec.whole_flags || []).join(',') || 'none'} ` +
+            `answers=${rec.answers} accepted=${rec.accepted} rejected=${rec.rejected} unknown=${rec.unknown}` +
+            (rec.top_reasons ? ` reasons: ${esc(rec.top_reasons, 700)}` : '')
+        );
+        cycle = { accepted: 0, rejected: 0, unknown: 0, reasons: new Map(), firstTurn: t + 1 };
       }
       // THE LADDER (M-169): what each stopped run actually bought. `reached_stop`
       // and `parked` say WHETHER the loop stopped; they cannot say whether eight
@@ -596,6 +666,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
         `tools=${tools.length} answers_on_record=${answersNow < 0 ? 'none' : answersNow} ` +
         `stopped=${p.stopped ?? 'none'} user_reasks=${reasks} malformed_hops=${Array.isArray(p.malformed) ? p.malformed.length : 'unrecorded'} ` +
         `draft_carried=${tools.filter((c) => c.draft_carried).length}/${tools.filter((c) => c.name === 'lyric_revise').length} ` +
+        `proposals=${countVerdict(reviseCalls, 'accepted')}/${countVerdict(reviseCalls, 'rejected')}/${countVerdict(reviseCalls, 'unknown')} ` +
         `paths=${[...new Set(tools.map((c) => c.path).filter(Boolean))].join('/') || 'unrecorded'}`
     );
     // The malformed call text is the evidence (M-221): print its head the
@@ -726,6 +797,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
     retries,
     exit_reason: exitReason,
     reached_stop: sawStop,
+    cycles,
     parked,
     failed_fast: failedFast,
     stop_on: [...STOP_ON],
