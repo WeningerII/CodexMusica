@@ -20144,6 +20144,31 @@ entry is about, made settable.
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
 with this entry (2026-09-03).
 
+### M-226 · The first malformed call ever recorded broke inside the draft array the model re-sent — and the connector's own reminder told it to re-send it `CLOSED` 2026-09-04 (connector half; round 16 measures the model half) — rounds 14 and 15 banked
+
+**ROUND 14** (run 33824760222, GitHub's #15, 90 min, cancelled at turn 8; the driver at 89481da3): turns 0–5 against the deployment at 02e022ff — **34 answers folded in six turns**, 7/8/5/10/3/8 calls a turn, three turns ended `MALFORMED_FUNCTION_CALL` after calls (truncated, continued: M-223's rule working), one `MAX_TOKENS`; history 213–282 KB after every turn. Turn 6: three 502s over 27 minutes (*"The engine could not answer that one"*) — the 328 KB envelope against the old server, then the deploy restart under it. **Turns 6 and 7 answered from the NEW connector** (4df502d4, live at ~02:35): `path: warm`, `malformed: []` then `malformed: [1 hop, re-asked]`, one fold each, and the round was cancelled to free the queue.
+
+**THE EVIDENCE, VERBATIM** (turn 7, hop 1, re-asked by M-219 and recorded by M-221 — the first malformed call text this project has ever held):
+
+    Malformed function call: call:default_api:lyric_revise{answer: L9: A ship is in the same name ,draft:[ Light levy sails its rim , A day is so dim , Her play heart is growing cold , My levy pails its brim , A day sky burns low , The ocean calls my name , …
+
+The call broke INSIDE the `draft` array — Gemini's own serialisation of a long array of unquoted, comma-bearing lines — and the row says `draft_carried: false`: the model sent the draft itself although M-221's carry was live. Two months of `MALFORMED_FUNCTION_CALL` have a named coordinate now, measured on one hop and stated as one hop (doctrine 79); round 16's `malformed[]` rows are the population.
+
+**WHY THE MODEL KEPT SENDING IT: THE CONNECTOR TOLD IT TO.** `SUSPENDED_RUN_NOTE` (`mcp/gemini_agent.js`), the reminder that rides the system instruction while a run is suspended, read *"call lyric_revise again with the same arguments plus `answer`"* — an instruction to re-send the draft, in the one sentence the model reads on every hop of a suspended run — while the tool description said the draft *"MAY BE OMITTED"* and `STATE_NOTE` said *"omit `draft`"*. Three instructions, two answers, and the loudest one was wrong (doctrine 1 in the model's own prompt).
+
+**BUILT:**
+
+1. **A schema decides where prose asked.** `declarationsFor(surface, lyr)` — while a record with a draft is carried for the seed, the `lyric_revise` declaration the model sees has NO `draft` property and `draft` leaves its `required` list; the first call of a song, with no record, sees the full schema; a pre-M-221 record (state, no draft) keeps the full schema because nothing could fill the gap. Rebuilt per hop beside the reminder, because the record appears mid-turn. A tool that carries no state is untouched byte for byte.
+2. **The reminder says the opposite of what it said**: *"with `seed` and `answer` — NOTHING ELSE. Do NOT send `draft`: the draft and the state are carried for you, and a re-sent draft is where the call has broken before."* The tool description's *"SAME arguments"* became *"SAME declarations (seed and the rest)"* with the omission stated as an instruction rather than a permission.
+
+`mcp/test.mjs`: the request the mocked model receives on the hop AFTER the first suspended result has no `draft` in the declaration and `required: ['seed']`, the first hop's had both; `lyric_plan`'s declaration is identical on both hops; the reminder on that hop contains *"Do NOT send `draft`"* and not *"same arguments"*; `declarationsFor` with no record, and with a draftless record, returns the declarations themselves.
+
+**ROUND 15** (run 33828209110, GitHub's #17, the first round to START against 4df502d4, with `wait_for_live` passing in 4 s): cancelled by the owner's rule the moment round 14's tail showed the failure it would repeat — *"stop immediately when you get a failure. waiting on something that's already broken is a waste of time."* Its rows are whatever the cancel preserved.
+
+**WHAT THIS DOES NOT CLAIM:** that removing the parameter makes every call parse. It removes the ONE coordinate the recorded evidence names; if round 16's `malformed[]` rows quote a call that broke elsewhere — in `answer`, in a `L<n>:` block — that is the next coordinate, and it will be quoted rather than guessed.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~280~~ **281** with this entry (2026-09-04).
+
 ### M-223 · Round 12 exited GREEN with no song, round 13 exited RED on a turn that had made three calls — the driver's verdict and its fail-fast both read the wrong coordinate `CLOSED` 2026-09-04 (driver half; rounds 12 and 13 banked)
 
 **ROUND 12** (run 33822583572, 24 min, the branch's driver at 45c1885e against the deployment at 02e022ff): turn 0, **397 s, 14 hops, `MAX_STEPS`** — `lyric_plan` exit 0, `lyric_grade` exit 3 with 1 banned pair, then **twelve `lyric_revise` folds, answers 0 → 11, not one malformed hop**; history 328 KB after the one turn. Turn 1: 429, 502, 429, 429 across four 60-second retries, then a 502 (*"The engine could not answer that one"*) at 57 s — and the round exited **0**, because its only red path was fail-fast and a run whose last turn died on the transport was not a fail-fast. Reported green, no song. **THE 429s ARE UNIDENTIFIED**: the retry row banked the status alone, and the connector names its limiter in the body (per-IP minute/hour, the turn count, the daily budget, or Gemini's own 429 handed through with `Retry-After`) — four different remedies behind one number.

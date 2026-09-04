@@ -1492,10 +1492,10 @@ export function registerLyricTools(server, tool) {
         'or a DIFFERENT plan is revised): the loop grades, holds every flagged and banned line open, and ASKS — the ' +
         "first content block of a suspended call is the writer's brief for ONE question (which lines, what they " +
         'must answer, which words are FORBIDDEN as too predictable). Answer it by calling again with the SAME ' +
-        'arguments plus `state` (returned verbatim by every call — the server keeps nothing) and `answer` (the new ' +
-        'line, or `L<n>:` lines for a group); on such a continuing call `draft` MAY BE OMITTED where the caller ' +
-        'carries it (the chat connector does) — the draft is one draft for the whole run and never changes ' +
-        'between its calls. THERE IS NO SONG IN ANY RESPONSE UNTIL THE LOOP REACHES A STOP ' +
+        'declarations (seed and the rest) plus `state` (returned verbatim by every call — the server keeps ' +
+        'nothing) and `answer` (the new line, or `L<n>:` lines for a group); on such a continuing call OMIT ' +
+        '`draft` where the caller carries it (the chat connector does) — the draft is one draft for the whole ' +
+        'run and never changes between its calls, and re-sending it is where calls have broken. THERE IS NO SONG IN ANY RESPONSE UNTIL THE LOOP REACHES A STOP ' +
         'CONDITION: a suspended call returns [AWAITING PROPOSAL] and the question, structurally without a render, ' +
         'so a song cannot be presented that the loop never certified. At a stop condition the first block is the ' +
         'rendered song in performance order under its bracket headers with a [FINISHED — seed N — exit E — ' +
