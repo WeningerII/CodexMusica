@@ -347,6 +347,17 @@ function rateLimitHintMs(res, json) {
 // quota like any other. Two re-asks, because the third failure in a row is a
 // model that is not going to call this hop, and the turn should say so.
 export const MALFORMED_CALL_RETRY = { retries: 2 };
+// The head of the malformed call text that is kept per hop. Gemini's
+// `finishMessage` on a MALFORMED_FUNCTION_CALL carries the call it could
+// not parse; the whole thing can be a draft's worth of quoted lines, and the
+// first two thousand characters name the tool, the first arguments and the
+// point where the quoting went wrong.
+export const MALFORMED_TEXT_HEAD = 2000;
+export function malformedText(candidate) {
+  const msg = candidate?.finishMessage;
+  if (typeof msg !== 'string' || !msg) return null;
+  return msg.length > MALFORMED_TEXT_HEAD ? msg.slice(0, MALFORMED_TEXT_HEAD) + '…' : msg;
+}
 
 export const RETRY_TRANSIENT = [500, 502, 503, 504];
 export const RETRY_ALL = [429, ...RETRY_TRANSIENT];
@@ -569,6 +580,19 @@ function carryState(prev, toolName, args, verdict, surface) {
       key,
       seed: typeof args.seed === 'number' ? args.seed : null,
       state: verdict[STATE_PROPERTY],
+      // THE DRAFT RIDES WITH THE RECORD (M-221). A deferred run replays its
+      // answers onto ONE draft, so the draft is constant across a run's
+      // calls by the harness's own contract — and the model was re-emitting
+      // every line of it, quoted, on every fold. Carried here so a
+      // continuing call may omit it; the tool refuses an omitted draft that
+      // nothing carries, in its own words.
+      // Present only when a draft is known — a record with none is
+      // byte-identical to the pre-M-221 shape, so nothing that read it moves.
+      ...(Array.isArray(args.draft)
+        ? { draft: args.draft }
+        : Array.isArray(prev?.draft)
+          ? { draft: prev.draft }
+          : {}),
     };
   }
   if ((code === 0 || code === 3) && prev && carriedKey(prev) === key) return null;
@@ -739,6 +763,12 @@ export async function runTurn({
   };
   const calls = [];
   let malformed = 0;
+  // WHAT THE MALFORMED HOP CONTAINED (M-221). Gemini puts the text of a call
+  // it could not parse in the candidate's `finishMessage`; the re-ask (M-219)
+  // threw the whole hop away, so nine malformed turns were banked in round
+  // 11 and not one row could say WHAT was malformed. One entry per malformed
+  // hop, head-truncated, whether or not the re-ask then landed a call.
+  const malformedHops = [];
   let ws = workspace;
   let lyr = lyric && typeof lyric.state === 'string' ? lyric : null;
   let stopped = null;
@@ -802,7 +832,9 @@ export async function runTurn({
       ) {
         malformed += 1;
         usage.malformedRetries += 1;
-        if (onEvent) onEvent({ type: 'malformed', attempt: malformed });
+        const finishMessage = malformedText(candidate);
+        malformedHops.push({ hop: step + 1, attempt: malformed, reasked: true, finishMessage });
+        if (onEvent) onEvent({ type: 'malformed', attempt: malformed, finishMessage });
         if (step === limits.maxSteps - 1) stopped = 'MAX_STEPS';
         continue;
       }
@@ -821,12 +853,22 @@ export async function runTurn({
           if (stopped === 'MALFORMED_FUNCTION_CALL') {
             // The re-asks were spent and the model still could not call: say
             // how many, so a transcript row reads as "re-asked twice, then
-            // gave up" and not as a bare label (M-219; C11's rule).
+            // gave up" and not as a bare label (M-219; C11's rule) — and
+            // say WHAT it tried to call (M-221), which is the only evidence
+            // a malformed turn leaves.
+            const finishMessage = malformedText(candidate);
+            malformedHops.push({
+              hop: step + 1,
+              attempt: malformed + 1,
+              reasked: false,
+              finishMessage,
+            });
             stoppedDetail = {
               malformedRetries: malformed,
               retriesAllowed: MALFORMED_CALL_RETRY.retries,
               hops: step + 1,
               maxSteps: limits.maxSteps,
+              finishMessage,
             };
           }
         }
@@ -863,10 +905,17 @@ export async function runTurn({
         // legitimately has none, and the tool itself refuses an `answer` with
         // no state, in its own words.
         let injectedState = false;
+        let injectedDraft = false;
         if (surface.stateTools?.has(fc.name)) {
           if (lyr && stateKey(args) != null && stateKey(args) === carriedKey(lyr)) {
             args[STATE_PROPERTY] = lyr.state;
             injectedState = true;
+            // The carried draft fills an OMITTED draft only (M-221): a draft
+            // the model did send is the model's own statement and stands.
+            if (args.draft == null && Array.isArray(lyr.draft)) {
+              args.draft = lyr.draft;
+              injectedDraft = true;
+            }
           } else {
             // The declaration does not expose `state`, so anything here is
             // model-fabricated; the harness would replay it through verify()
@@ -930,9 +979,16 @@ export async function runTurn({
           args: surface.workspaceTools.has(fc.name)
             ? { ...args, [WORKSPACE_PROPERTY]: '<injected>' }
             : injectedState
-              ? { ...args, [STATE_PROPERTY]: '<injected>' }
+              ? {
+                  ...args,
+                  [STATE_PROPERTY]: '<injected>',
+                  ...(injectedDraft ? { draft: '<carried>' } : {}),
+                }
               : args,
           isError,
+          // M-221: whether this call's draft came from the model or from the
+          // carried record — the row that says how much the model had to emit.
+          draft_carried: injectedDraft,
           error: isError ? (result?.content?.[0]?.text ?? '') : null,
           cards: payload?.cards ?? null,
           recipe: payload?.recipe ?? null,
@@ -992,5 +1048,6 @@ export async function runTurn({
     cost: costOf(usage, model),
     stoppedDetail,
     stopped,
+    malformed: malformedHops,
   };
 }

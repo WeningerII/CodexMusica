@@ -349,6 +349,10 @@ for (const [songNo, briefIdx] of indices.entries()) {
         reply: p.reply ?? null,
         tools,
         stopped: p.stopped ?? null,
+        // M-221: WHY it stopped and WHAT the malformed hops contained. Round
+        // 11 banked nine malformed turns and could quote none of them.
+        stopped_detail: p.stopped_detail ?? null,
+        malformed: Array.isArray(p.malformed) ? p.malformed : null,
         error: p.error ?? null,
         sizes: {
           history: p.history ? JSON.stringify(p.history).length : 0,
@@ -367,16 +371,35 @@ for (const [songNo, briefIdx] of indices.entries()) {
     console.log(
       `::notice title=battery song ${songNo} turn ${t}::status=${r.status} ms=${r.ms} ` +
         `tools=${tools.length} answers_on_record=${answersNow < 0 ? 'none' : answersNow} ` +
-        `stopped=${p.stopped ?? 'none'} paths=${[...new Set(tools.map((c) => c.path).filter(Boolean))].join('/') || 'unrecorded'}`
+        `stopped=${p.stopped ?? 'none'} malformed_hops=${Array.isArray(p.malformed) ? p.malformed.length : 'unrecorded'} ` +
+        `draft_carried=${tools.filter((c) => c.draft_carried).length}/${tools.filter((c) => c.name === 'lyric_revise').length} ` +
+        `paths=${[...new Set(tools.map((c) => c.path).filter(Boolean))].join('/') || 'unrecorded'}`
     );
+    // The malformed call text is the evidence (M-221): print its head the
+    // moment it lands, one notice per hop, so a red run says what the model
+    // tried to call rather than only that it failed.
+    for (const m of Array.isArray(p.malformed) ? p.malformed : []) {
+      console.log(
+        `::notice title=battery malformed hop::song ${songNo} turn ${t} hop ${m.hop} ` +
+          `${m.reasked ? 're-asked' : 'not re-asked'}: ${m.finishMessage == null ? '(finishMessage absent)' : esc(m.finishMessage, 600)}`
+      );
+    }
     if (r.status !== 200) break;
     env = { history: p.history, workspace: p.workspace, lyric: p.lyric, sig: p.sig };
     if (sawStop !== null) break; // exit 0 — the song is FINISHED (M-163)
     if (p.error) break;
     // FAIL FAST (M-220). Three conditions, named separately in the row.
     const reasons = [];
-    if (STOP_ON.has('malformed') && p.stopped === 'MALFORMED_FUNCTION_CALL')
-      reasons.push('turn ended on MALFORMED_FUNCTION_CALL after the connector re-asks');
+    if (STOP_ON.has('malformed') && p.stopped === 'MALFORMED_FUNCTION_CALL') {
+      // Say what the deploy actually did (M-221): the smoke run's row read
+      // "after the connector re-asks" against a deploy that had no re-ask.
+      const reasks = p.stopped_detail?.malformedRetries;
+      reasons.push(
+        reasks == null
+          ? 'turn ended on MALFORMED_FUNCTION_CALL (this deploy records no re-ask)'
+          : `turn ended on MALFORMED_FUNCTION_CALL after ${reasks} re-ask(s)`
+      );
+    }
     if (STOP_ON.has('idle') && tools.length === 0) reasons.push('turn made no tool call');
     if (STOP_ON.has('idle') && t > 0 && answersNow >= 0 && answersNow <= lastAnswers)
       reasons.push(`no new answer folded (${answersNow} on record, was ${lastAnswers})`);

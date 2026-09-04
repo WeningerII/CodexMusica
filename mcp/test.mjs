@@ -1238,11 +1238,19 @@ check('validation: actionable errors', () => {
       stateTools: new Set(),
     };
     const usageMeta = { promptTokenCount: 10, candidatesTokenCount: 5, thoughtsTokenCount: 0 };
+    const MALFORMED_TEXT =
+      "Malformed function call: lyric_revise(draft=['we carry the morning to the stone', ...";
     const malformed = () => ({
       ok: true,
       status: 200,
       json: async () => ({
-        candidates: [{ content: { parts: [] }, finishReason: 'MALFORMED_FUNCTION_CALL' }],
+        candidates: [
+          {
+            content: { parts: [] },
+            finishReason: 'MALFORMED_FUNCTION_CALL',
+            finishMessage: MALFORMED_TEXT,
+          },
+        ],
         usageMetadata: usageMeta,
       }),
     });
@@ -1302,6 +1310,24 @@ check('validation: actionable errors', () => {
         );
       }
     );
+    // M-221: the re-ask keeps nothing of the broken hop in the TRANSCRIPT and
+    // keeps its text in the RECORD — round 11 banked nine malformed turns and
+    // could quote none of them.
+    check(
+      "the malformed hop's finishMessage is recorded even when the re-ask then lands the call (M-221)",
+      () => {
+        assert.equal(recovered.malformed.length, 1);
+        assert.deepEqual(
+          {
+            hop: recovered.malformed[0].hop,
+            attempt: recovered.malformed[0].attempt,
+            reasked: recovered.malformed[0].reasked,
+          },
+          { hop: 1, attempt: 1, reasked: true }
+        );
+        assert.equal(recovered.malformed[0].finishMessage, MALFORMED_TEXT);
+      }
+    );
     const exhausted = await drive([malformed, malformed, malformed]);
     check(
       'three malformed hops in a row exhaust the two re-asks: the turn stops as MALFORMED_FUNCTION_CALL with the count on stoppedDetail',
@@ -1312,6 +1338,165 @@ check('validation: actionable errors', () => {
         assert.equal(exhausted.stoppedDetail.retriesAllowed, 2);
         assert.equal(exhausted.stoppedDetail.hops, 3);
         assert.equal(exhausted.calls.length, 0);
+      }
+    );
+    check(
+      'an exhausted turn records all three malformed hops and puts the last text on stoppedDetail (M-221)',
+      () => {
+        assert.equal(
+          exhausted.malformed.length,
+          3,
+          'two re-asked hops and the one that stopped the turn'
+        );
+        assert.deepEqual(
+          exhausted.malformed.map((m) => m.reasked),
+          [true, true, false]
+        );
+        assert.deepEqual(
+          exhausted.malformed.map((m) => m.hop),
+          [1, 2, 3]
+        );
+        assert.equal(exhausted.stoppedDetail.finishMessage, MALFORMED_TEXT);
+      }
+    );
+    check(
+      'a malformed hop with no finishMessage records null, not a fabricated text (M-221)',
+      async () => {
+        const { malformedText: mt, MALFORMED_TEXT_HEAD } = await import('./gemini_agent.js');
+        assert.equal(mt({ finishReason: 'MALFORMED_FUNCTION_CALL' }), null);
+        assert.equal(mt({ finishMessage: '' }), null);
+        const long = 'x'.repeat(MALFORMED_TEXT_HEAD + 50);
+        const head = mt({ finishMessage: long });
+        assert.equal(head.length, MALFORMED_TEXT_HEAD + 1, 'head-truncated with one ellipsis');
+        assert.ok(head.endsWith('…'));
+      }
+    );
+
+    // ── M-221: THE DRAFT IS CARRIED BESIDE THE STATE ──────────────────────
+    // The model re-emitted every quoted line of the draft on every fold. After
+    // a suspended call the connector carries the draft with the record, an
+    // OMITTED draft on the continuing call is filled from it, a SENT draft
+    // stands, and a different seed carries nothing.
+    const stateSurface = {
+      instructions: '',
+      declarations: [],
+      workspaceTools: new Set(),
+      stateTools: new Set(['lyric_revise']),
+    };
+    const callWith = (args) => () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        candidates: [{ content: { parts: [{ functionCall: { name: 'lyric_revise', args } }] } }],
+        usageMetadata: usageMeta,
+      }),
+    });
+    const suspended = (n) => ({
+      content: [
+        {
+          type: 'text',
+          text: `[AWAITING PROPOSAL — seed 5 — ${n} answer(s) on record — NO SONG YET]`,
+        },
+        {
+          type: 'text',
+          text: JSON.stringify({
+            exit_code: 4,
+            status: 'awaiting_proposal',
+            answers_on_record: n,
+            state: `{"n":${n}}`,
+          }),
+        },
+      ],
+    });
+    const seen = [];
+    const driveState = async (script, lyric = null) => {
+      let hop = 0;
+      globalThis.fetch = async () => script[Math.min(hop++, script.length - 1)]();
+      try {
+        return await _runTurn({
+          apiKey: 'k',
+          surface: stateSurface,
+          lyric,
+          callTool: async (name, args) => {
+            seen.push({ name, args: { ...args } });
+            return suspended(seen.length - 1);
+          },
+          userText: 'hi',
+          limits: { ..._LIMITS, maxTurnUsd: 0 },
+          retries: 0,
+        });
+      } finally {
+        globalThis.fetch = realFetch;
+      }
+    };
+    const DRAFT = ['we carry the morning to the stone', 'the lantern turned and found the road'];
+    const carried = await driveState([
+      callWith({ seed: 5, draft: DRAFT }),
+      callWith({ seed: 5, answer: 'a new line' }),
+      callWith({ seed: 5, answer: 'another line', draft: ['a draft the model sent itself'] }),
+      callWith({ seed: 6, answer: 'wrong seed' }),
+      done,
+    ]);
+    check(
+      'an omitted draft on a continuing call is filled from the carried record, a sent draft stands, a different seed gets nothing (M-221)',
+      () => {
+        assert.equal(seen.length, 4);
+        assert.deepEqual(seen[0].args.draft, DRAFT, 'the first call sends its own draft');
+        assert.equal(seen[0].args.state, undefined, 'and carries no state yet');
+        assert.deepEqual(
+          seen[1].args.draft,
+          DRAFT,
+          'the second call omitted draft and got the carried one'
+        );
+        assert.equal(seen[1].args.state, '{"n":0}', 'beside the carried state');
+        assert.deepEqual(
+          seen[2].args.draft,
+          ['a draft the model sent itself'],
+          'a draft the model sent is not overwritten'
+        );
+        assert.equal(seen[3].args.draft, undefined, 'a different seed inherits neither draft');
+        assert.equal(seen[3].args.state, undefined, 'nor state');
+        assert.deepEqual(
+          carried.calls.map((c) => c.draft_carried),
+          [false, true, false, false],
+          'the row says which call the connector filled'
+        );
+        assert.equal(
+          carried.calls[1].args.draft,
+          '<carried>',
+          'the logged args name the fill rather than repeat the lines'
+        );
+        // The record carries the draft the LAST suspended call ran on: the
+        // third call sent its own, so that is the draft its state was produced
+        // against and the one the next fold must replay onto.
+        assert.deepEqual(
+          carried.lyric.draft,
+          ['a draft the model sent itself'],
+          'the envelope hands the next turn the draft the last suspended call ran on'
+        );
+      }
+    );
+    seen.length = 0;
+    const nextTurn = await driveState(
+      [callWith({ seed: 5, answer: 'a line on the next turn' }), done],
+      { key: 'seed:5', seed: 5, state: '{"n":2}', draft: DRAFT }
+    );
+    check('the carried draft survives the turn boundary through the envelope (M-221)', () => {
+      assert.deepEqual(seen[0].args.draft, DRAFT);
+      assert.equal(seen[0].args.state, '{"n":2}');
+      assert.equal(nextTurn.calls[0].draft_carried, true);
+    });
+    seen.length = 0;
+    await driveState([callWith({ seed: 5, answer: 'a line' }), done], {
+      key: 'seed:5',
+      seed: 5,
+      state: '{"n":1}',
+    });
+    check(
+      'an envelope written before M-221 carries a state and no draft: nothing is invented, the tool refuses in its own words (M-221)',
+      () => {
+        assert.equal(seen[0].args.draft, undefined);
+        assert.equal(seen[0].args.state, '{"n":1}');
       }
     );
   })();
@@ -1334,6 +1519,37 @@ check('validation: actionable errors', () => {
       );
     }
   });
+  check(
+    'chat.js hands the malformed hops and draft_carried out, and the battery rows bank them (M-221)',
+    () => {
+      const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+      assert.ok(
+        /^\s+malformed: run\.malformed \?\? \[\],/m.test(chat),
+        'the response carries malformed[]'
+      );
+      assert.ok(
+        /^\s+draft_carried: c\.draft_carried \?\? false,/m.test(chat),
+        'tools[] carries draft_carried'
+      );
+      const battery = readFileSync(
+        new URL('../scripts/flash_battery.mjs', import.meta.url),
+        'utf8'
+      );
+      assert.ok(
+        /stopped_detail: p\.stopped_detail \?\? null,/.test(battery),
+        'the row banks stopped_detail'
+      );
+      assert.ok(
+        /malformed: Array\.isArray\(p\.malformed\) \? p\.malformed : null,/.test(battery),
+        'the row banks the malformed hops'
+      );
+      assert.ok(/battery malformed hop/.test(battery), 'and prints each as an annotation');
+      assert.ok(
+        !/after the connector re-asks'/.test(battery),
+        'the fail-fast reason no longer asserts a re-ask the deploy may not have'
+      );
+    }
+  );
   // ── M-168's swerve (2026-09-02): an exit 2 carries the harness's own reason ──
   // Round 10's record holds two lyric_sweep calls and one lyric_plan call at
   // exit 2 with `error: null` and nothing else. The extractor reads the
@@ -2951,6 +3167,23 @@ try {
     // question is the writer's brief, and the `state` blob round-trips —
     // the server keeps nothing, so a re-call with the same unanswered state
     // re-asks the SAME question rather than advancing or inventing one.
+    // M-221: `draft` is optional in the SCHEMA so the connector may fill it
+    // from the carried record; a client that carries nothing gets a refusal
+    // naming the parameter, never a run on an empty draft.
+    const noDraft = await client.callTool(
+      { name: 'lyric_revise', arguments: { seed: planSeed } },
+      undefined,
+      LIVE_OPTS
+    );
+    assert.ok(noDraft.isError, 'lyric_revise with no draft and nothing carried refuses');
+    assert.ok(
+      /`draft` omitted and no draft is carried/.test(noDraft.content[0].text),
+      `the refusal names the draft (got: ${noDraft.content[0].text.slice(0, 120)})`
+    );
+    console.log(
+      '  ok  lyric_revise live: an omitted draft nothing carries refuses by name (M-221)'
+    );
+    passed++;
     const rev1 = await client.callTool(
       { name: 'lyric_revise', arguments: { seed: planSeed, draft } },
       undefined,
