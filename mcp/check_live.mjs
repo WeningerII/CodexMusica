@@ -88,6 +88,34 @@ export function surfaceDrift(expectedTools, liveTools) {
   return drift;
 }
 
+// M-230: the surface is not the build. A change that touches no tool leaves
+// the surface identical between two deployments, so a caller that needs THIS
+// commit serving (the battery's wait-for-live) also asks /health for the sha
+// Render built and compares it here. Prefix-tolerant so a short sha works;
+// a server that does not say its commit (null — a build older than this
+// instrument, or a runtime without RENDER_GIT_COMMIT) is NOT a match: unknown
+// is not equal (deploy-connector.yml's own rule).
+export function commitDrift(expected, live) {
+  const exp = String(expected ?? '')
+    .trim()
+    .toLowerCase();
+  if (!exp) return null;
+  const got = live == null ? '' : String(live).trim().toLowerCase();
+  if (!got) return `the live server does not report a commit (expected ${exp.slice(0, 12)})`;
+  if (exp.length < 7 || got.length < 7)
+    return `a sha shorter than 7 characters cannot be matched (${exp} vs ${got})`;
+  if (exp.startsWith(got) || got.startsWith(exp)) return null;
+  return `the live server is serving ${got.slice(0, 12)}, not ${exp.slice(0, 12)}`;
+}
+
+async function liveCommit(url) {
+  const health = new URL('/health', url);
+  const res = await fetch(health, { headers: { accept: 'application/json' } });
+  if (!res.ok) throw new Error(`GET ${health} -> ${res.status}`);
+  const body = await res.json();
+  return body && typeof body === 'object' ? (body.commit ?? null) : null;
+}
+
 async function listAll(client) {
   const tools = [];
   let cursor;
@@ -121,7 +149,10 @@ async function liveSurface(url) {
 }
 
 async function main() {
-  const url = process.argv[2] || process.env.MCP_LIVE_URL || DEFAULT_URL;
+  const positional = process.argv.slice(2).filter((a) => !a.startsWith('--'));
+  const flag = process.argv.slice(2).find((a) => a.startsWith('--commit='));
+  const url = positional[0] || process.env.MCP_LIVE_URL || DEFAULT_URL;
+  const expectCommit = flag ? flag.slice('--commit='.length) : process.env.EXPECT_COMMIT || '';
   const expected = await expectedSurface();
 
   let live;
@@ -140,9 +171,32 @@ async function main() {
 
   const drift = surfaceDrift(expected, live);
   if (drift.length === 0) {
+    // M-230: with a commit to expect, the surface matching is necessary, not
+    // sufficient — the build has to say it is this one.
+    if (expectCommit) {
+      let got;
+      try {
+        got = await Promise.race([
+          liveCommit(url),
+          new Promise((_, rej) => setTimeout(() => rej(new Error('timed out after 30s')), 30_000)),
+        ]);
+      } catch (err) {
+        console.log(`REFUSED — could not read /health at ${url}: ${err.message}`);
+        process.exit(2);
+      }
+      const why = commitDrift(expectCommit, got);
+      if (why) {
+        console.log(`DRIFT — the surface matches but the build does not: ${why}`);
+        console.log(
+          'the surface is not the build — a change that touches no tool leaves it identical'
+        );
+        process.exit(3);
+      }
+    }
     console.log(
       `MATCH — the live server at ${url} advertises the tree's own surface: ` +
-        `${expected.length} tool(s), descriptions and schemas byte-identical under canonical ordering`
+        `${expected.length} tool(s), descriptions and schemas byte-identical under canonical ordering` +
+        (expectCommit ? `; /health reports commit ${String(expectCommit).slice(0, 12)}` : '')
     );
     process.exit(0);
   }

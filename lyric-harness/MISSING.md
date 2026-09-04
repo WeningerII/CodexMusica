@@ -20144,6 +20144,22 @@ entry is about, made settable.
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
 with this entry (2026-09-03).
 
+### M-230 · The battery's wait-for-live matched the OLD deployment on its first probe, because the surface it compares is not the build `CLOSED` 2026-09-04 (instrument half; round 17 measures whether Render reports the sha)
+
+The M-227/M-228/M-229 merge (62215f57, PR #226) touched `gemini_agent.js`, `chat.js`, the driver and the workflows — **no tool description, no schema**. `mcp/check_live.mjs` compares the tool surface a client sees (M-127), and that surface was byte-identical between the process serving b3928ddb and the one Render was about to build, so `wait_for_live` (M-225) would have said MATCH against the old process on probe 1 and started round 17's first turn against a connector without any of the three mechanisms the round exists to measure — the silent step the owner's standard names (*"no failure, skip, silent steps"*). Caught before dispatch, by reading what the merge changed against what the probe compares.
+
+**BUILT:**
+
+1. **The process says which build it is** (`mcp/server_http.js`): `/health` carries `commit`, the `RENDER_GIT_COMMIT` Render sets in every service's runtime env, `null` where the runtime does not say.
+2. **The probe compares the build beside the surface** (`mcp/check_live.mjs`): `--commit=<sha>` (or `EXPECT_COMMIT`) makes a surface MATCH necessary, not sufficient — `/health` is read and `commitDrift` compares, prefix-tolerant from seven characters; a server that reports no commit is DRIFT (exit 3), never a match, by deploy-connector.yml's own rule that unknown is not equal; an unreadable `/health` is REFUSED (exit 2). Without a commit to expect the instrument is what it was.
+3. **The battery passes the merge sha** (`.github/workflows/flash-battery.yml`): `live_commit` input, handed to the probe on every wait-for-live poll. Dispatched from the branch with the sha `main` was merged to, the wait releases only when Render's new process is answering.
+
+`mcp/test.mjs`: `commitDrift` on the same sha, a short prefix, case, no expectation, a missing commit, a different build (both shas named), and a five-character prefix (refused, not matched). Against a local `server_http.js` with `RENDER_GIT_COMMIT` set: `--commit=62215f57` MATCH exit 0 with the commit in the line, `--commit=b3928ddb` DRIFT exit 3, no flag MATCH exit 0.
+
+**WHAT IT DOES NOT CLAIM:** that Render sets `RENDER_GIT_COMMIT` in a Docker service's runtime. Render's documentation says every service has it; round 17's wait-for-live is the measurement — a wait that runs its 45 minutes out against a process reporting `null` is that claim failing, and the fallback is the M-225 wait without the commit.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~284~~ **285** with this entry (2026-09-04).
+
 ### M-229 · Round 16 made fourteen well-formed calls and no malformed hop — and spent them wandering: a moved declaration, two re-plans, a sweep, and a question never answered `CLOSED` 2026-09-04 (connector and driver halves; round 17 measures the model half)
 
 **ROUND 16** (run 33832762778, GitHub's #18, the first round to START against the M-226 build — `wait_for_live` released it 91 s after the deploy hook): turn 0, 206 s, **14 hops, `MAX_STEPS`, `malformed: []`** — the coordinate M-226 removed did not break once. What the hops bought: `lyric_plan` (20 lines) → `lyric_grade` **refused, 11-line draft against a 20-line plan** → `lyric_revise` refused (mandate fields beside a seed) → `lyric_revise` **exit 4, a run suspended at answers 0** → two `lyric_revise` **refused: "the plan declares 39 line(s) and the draft carries 20"**, `draft_carried: true` — the model kept the seed, changed a declaration, and the harness graded the carried 20-line draft against a different plan → `lyric_sweep` → `lyric_plan` → `lyric_grade` exit 3 (1 banned pair) → `lyric_revise` refused (no draft on a first call for a new seed) → refused (answer before a question) → refused (49 lines vs 20) → `lyric_plan` → `lyric_grade` exit 3. **Zero answers folded.** Turn 1: a 502, then three Gemini 429s naming waits of 53 s, 25 s and 59 s; the driver's four-retry budget — sized for 5xx — gave the round up after them (`exit_reason: transport`).

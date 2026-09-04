@@ -3754,6 +3754,41 @@ try {
   );
   passed++;
 
+  // THE SURFACE IS NOT THE BUILD (M-230): the M-228/M-229 merge touched no
+  // tool, so the surface was byte-identical between the old process and the
+  // new and the battery's wait-for-live matched the OLD deployment on its
+  // first probe. commitDrift is the second half of the probe: /health's
+  // commit against the sha the caller expects. Unknown is not a match.
+  const { commitDrift } = await import('./check_live.mjs');
+  const full = '62215f575ee73068212dc0201346e09a2fc8e194';
+  assert.equal(commitDrift('', full), null, 'no expectation — the surface alone decides');
+  assert.equal(commitDrift(full, full), null, 'the same sha matches');
+  assert.equal(commitDrift(full.slice(0, 8), full), null, 'a short sha matches its full one');
+  assert.equal(
+    commitDrift(full, full.slice(0, 8).toUpperCase()),
+    null,
+    'case and length are not drift'
+  );
+  assert.match(
+    commitDrift(full, null),
+    /does not report a commit/,
+    'a server that does not say its commit is NOT a match — unknown is not equal'
+  );
+  assert.match(
+    commitDrift(full, 'b3928ddba7509365c2f09af27f7824935e3d0d6c'),
+    /serving b3928ddba750, not 62215f575ee7/,
+    'a different build is named by both shas'
+  );
+  assert.match(
+    commitDrift('62215', full),
+    /shorter than 7/,
+    'a five-character prefix is refused, not matched'
+  );
+  console.log(
+    '  ok  check_live: the build is compared beside the surface, and unknown is not a match'
+  );
+  passed++;
+
   // LIVE: stage the lexicon exactly as the Docker build does, then drive
   // the bridge with the control pair the ban was taught on, and one full
   // plan->fill->grade round trip. These are the checks that catch a

@@ -169,7 +169,20 @@ app.use(
   })
 );
 
-app.get('/health', (_req, res) => res.json({ ok: true, service: 'codex-musica-mcp' }));
+// M-230: the process says WHICH BUILD it is. mcp/check_live.mjs compares the
+// tool surface, and a change that touches no tool (the M-228/M-229 merge —
+// gemini_agent.js only) leaves the surface byte-identical between the old
+// process and the new, so the battery's wait-for-live matched the OLD
+// deployment on the spot. RENDER_GIT_COMMIT is the sha Render built (set by
+// Render in every service's runtime env); null means a runtime that does not
+// say, which the probe treats as "not this tree", never as a match.
+app.get('/health', (_req, res) =>
+  res.json({
+    ok: true,
+    service: 'codex-musica-mcp',
+    commit: process.env.RENDER_GIT_COMMIT || null,
+  })
+);
 
 // A one-hop pointer for anyone who opens the bare origin in a browser, so the
 // root is not express's default "Cannot GET /". The MCP handshake is the whole
