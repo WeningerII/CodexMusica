@@ -1033,6 +1033,25 @@ const draftField = z
     'The song lines in performance order, one string per line, repeated sections written out in full. No [SECTION] markers.'
   );
 
+// THE DRAFT AS ONE STRING (M-234, round 20). Gemini's own serialisation of
+// a long array of comma-bearing lines is where a call breaks (M-226's
+// finding, and round 20's six malformed rewrite attempts in two turns);
+// a single newline-separated string is one token stream with nothing to
+// balance. `draft_text` is accepted beside `draft` and split here; blank
+// rows and bracketed [SECTION] markers are dropped, the rest trimmed.
+const draftTextField = z
+  .string()
+  .max(MAX_LINES * (MAX_LINE_CHARS + 1))
+  .describe(
+    'The song lines as ONE string, one line per row (newline-separated), performance order, repeated sections written out in full — the same content as `draft`, for a caller whose array calls break. Send one of the two.'
+  );
+export function draftFromText(text) {
+  return String(text)
+    .split(/\r?\n/)
+    .map((l) => l.trim())
+    .filter((l) => l && !/^\[[^\]]*\]$/.test(l));
+}
+
 // THE VERDICT'S EXTRACTORS, exported for mcp/test.mjs to drive on synthetic
 // reports (M-186): a live check proves one draft; the unit cases prove the
 // regexes against every spelling the harness prints.
@@ -1040,6 +1059,7 @@ export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
   extractStanding,
+  draftFromText,
   verdictOf,
   extractRefusal,
   extractRecoveredMandate,
@@ -1133,6 +1153,7 @@ export const LYRIC_TOOL_SCHEMAS = {
     // every quoted line. A first call, or any client that carries nothing,
     // must still send it — the handler refuses an absent draft by name.
     draft: draftField.optional(),
+    draft_text: draftTextField.optional(),
     voices: voicesField,
     fallback: fallbackField,
     state: z
@@ -1539,6 +1560,9 @@ export function registerLyricTools(server, tool) {
     },
     (a) =>
       withTempDir(async (dir) => {
+        // M-234: the draft may arrive as one string.
+        if (typeof a.draft_text === 'string' && !Array.isArray(a.draft))
+          a.draft = draftFromText(a.draft_text);
         if (!Array.isArray(a.draft))
           throw refuse(
             '`draft` omitted and no draft is carried for this run — pass the song lines (the SAME draft on every call of one run; the connector carries it for you only after a suspended call)'
