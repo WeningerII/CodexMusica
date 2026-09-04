@@ -1005,7 +1005,12 @@ export async function runTurn({
   // hop, head-truncated, whether or not the re-ask then landed a call.
   const malformedHops = [];
   let ws = workspace;
-  let lyr = lyric && typeof lyric.state === 'string' ? lyric : null;
+  // M-233 (round 19): a PARKED record has no state string and was dropped
+  // here at the turn boundary — the park was carried out of turn 1 and
+  // thrown away at the top of turn 2, which then sent a draft-less call,
+  // moved a declaration, planned again and restarted the run. A record is
+  // carried when it is suspended (state) OR parked.
+  let lyr = lyric && (typeof lyric.state === 'string' || lyric.parked === true) ? lyric : null;
   let stopped = null;
   let stoppedDetail = null;
   let reply = '';

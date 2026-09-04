@@ -2231,6 +2231,73 @@ check('validation: actionable errors', () => {
         assert.ok(typeof _AI.PARKED_RUN_NOTE({ seed: 5, open: [], whole: [] }) === 'string');
       }
     );
+    // M-233: THE TURN BOUNDARY. A parked record arrives from the previous
+    // turn's envelope (no state string) and must be carried in — round 19
+    // dropped it here and the model planned again.
+    const parkedIn = {
+      key: 'seed:5',
+      seed: 5,
+      parked: true,
+      draft: ['a', 'b'],
+      decl: { seed: 5, lines: 20 },
+      stop: 'NO_PROGRESS',
+      open: ['L1'],
+      whole: [],
+      standing: ['L1: FINDING [FLAG] METER: L1 wants six beats'],
+    };
+    const script3 = [
+      { functionCall: { name: 'lyric_revise', args: { seed: 5 } } },
+      { functionCall: { name: 'lyric_revise', args: { seed: 5, draft: ['c', 'b'], lines: 39 } } },
+      { text: 'done' },
+    ];
+    const seen3 = [];
+    let hop3 = 0;
+    globalThis.fetch = async () => {
+      const part = script3[Math.min(hop3++, script3.length - 1)];
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({
+          candidates: [
+            { content: { parts: [part] }, finishReason: part.text ? 'STOP' : undefined },
+          ],
+          usageMetadata: usageMeta,
+        }),
+      };
+    };
+    let run3;
+    try {
+      run3 = await _rt({
+        apiKey: 'k',
+        surface,
+        lyric: parkedIn,
+        callTool: async (name, args) => {
+          seen3.push({ name, args: { ...args } });
+          return cleanResult;
+        },
+        userText: 'continue',
+        limits: { ..._L, maxTurnUsd: 0 },
+        retries: 0,
+      });
+    } finally {
+      globalThis.fetch = realFetch;
+    }
+    check(
+      'a parked record is carried INTO the next turn: the draft-less call is refused by the connector and the rewrite goes through (M-233)',
+      () => {
+        assert.equal(run3.calls[0].refused_by_connector, true, 'the connector, not the harness');
+        assert.ok(/omits `draft`/.test(run3.calls[0].error), run3.calls[0].error);
+        assert.equal(seen3.length, 1, 'only the rewrite reached the harness');
+        assert.deepEqual(seen3[0].args.draft, ['c', 'b']);
+        assert.equal(
+          seen3[0].args.lines,
+          20,
+          'the declarations are put back at the turn boundary too'
+        );
+        assert.equal(run3.calls[1].declarations_carried, true);
+        assert.equal(run3.lyric, null, 'exit 0 clears the record');
+      }
+    );
     // THE PARTIAL TURN: the engine dies on hop 2 after hop 1 made a call.
     const script2 = [{ functionCall: { name: 'lyric_plan', args: { seed: 5 } } }];
     let hop2 = 0;
@@ -3301,6 +3368,96 @@ check('validation: actionable errors', () => {
   // M-232: a turn the connector ended on an upstream 5xx WITH calls kept is
   // not an idle turn — no fail-fast, the flag names it, and the next turn
   // continues; here the next turn finishes the song, so the round exits 0.
+  // M-233: a parked run is continued by a FRESH run whose answers start at 0;
+  // the idle rule must not read that as "no new answer folded". Four turns:
+  // suspend (2 answers), park (3 answers, 5 open), a fresh run (0 answers),
+  // finish — exit 0, no fail-fast.
+  check(
+    'a park resets the answer baseline, so the continuing run is not idle (M-233)',
+    async () => {
+      const { spawn } = await import('node:child_process');
+      const { mkdtempSync, rmSync } = await import('node:fs');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+      const { fileURLToPath } = await import('node:url');
+      const http = await import('node:http');
+      let n = 0;
+      const revise = (extra) => ({
+        name: 'lyric_revise',
+        seed: 5,
+        path: 'warm',
+        ...extra,
+      });
+      const answers = [
+        [revise({ exit_code: 4, answers_on_record: 2 })],
+        [
+          revise({
+            exit_code: 3,
+            loop_stop_reason: 'NO_PROGRESS',
+            loop_unresolved: 5,
+            answers_on_record: 3,
+          }),
+        ],
+        [revise({ exit_code: 4, answers_on_record: 0 })],
+        [
+          revise({
+            exit_code: 0,
+            loop_stop_reason: 'SUCCESS',
+            loop_unresolved: 0,
+            answers_on_record: 1,
+          }),
+        ],
+      ];
+      const srv = http.createServer((req, res) => {
+        let body = '';
+        req.on('data', (c) => (body += c));
+        req.on('end', () => {
+          const tools = answers[Math.min(n, answers.length - 1)];
+          n++;
+          res.writeHead(200, { 'content-type': 'application/json' });
+          res.end(
+            JSON.stringify({
+              reply: '',
+              tools,
+              stopped: null,
+              history: [{ role: 'user', parts: [{ text: `h${n}` }] }],
+              workspace: null,
+              sig: `sig${n}`,
+            })
+          );
+        });
+      });
+      await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+      const port = srv.address().port;
+      const out = mkdtempSync(join(tmpdir(), 'battery-m233-'));
+      try {
+        const r = await runDriver(spawn, [
+          fileURLToPath(new URL('../scripts/flash_battery.mjs', import.meta.url)),
+          `--out=${out}`,
+          `--base=http://127.0.0.1:${port}`,
+          '--songs=1',
+          '--turns=4',
+          '--pace=0',
+        ]);
+        assert.equal(r.status, 0, `finished on turn 3: ${r.stderr}\n${r.stdout}`);
+        assert.equal(n, 4, 'four turns, the fresh run after the park was not fail-fast');
+        const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+        assert.equal(summary.songs[0].exit_reason, 'finished');
+        assert.deepEqual(
+          summary.songs[0].flags.filter((f) => f.flag === 'fail_fast'),
+          []
+        );
+        const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
+        assert.ok(
+          /parkStreak >= PARK_STREAK_CAP/.test(bat),
+          'three parks without fewer open lines is the idle rule'
+        );
+      } finally {
+        srv.close();
+        rmSync(out, { recursive: true, force: true });
+      }
+    }
+  );
   check(
     'a partial turn (calls kept, engine died) is not fail-fast, and the round goes on to finish',
     async () => {
