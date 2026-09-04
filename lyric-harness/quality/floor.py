@@ -612,6 +612,21 @@ class Profile:
                 f"the {self.name} profile's {key} is a function of length "
                 f"and was asked without one (n_tokens={n_tokens!r})")
         x = math.log(n_tokens)
+        if isinstance(c, dict):
+            # A KNOT TABLE (the calibration's CK candidate): the bin
+            # percentiles joined by linear interpolation in ln N between
+            # the bins' median lengths, flat beyond the end knots. Shipped
+            # where a smooth curve failed the held-out rate and the knots
+            # passed it (RESULTS_LENGTH_CURVE.md §9).
+            ks = c["knots"]
+            if x <= ks[0][0]:
+                return ks[0][1]
+            if x >= ks[-1][0]:
+                return ks[-1][1]
+            for (x0, y0), (x1, y1) in zip(ks, ks[1:]):
+                if x0 <= x <= x1:
+                    return y0 if x1 == x0 else y0 + (y1 - y0) * (x - x0) / (x1 - x0)
+            return ks[-1][1]
         return sum(a * x ** j for j, a in enumerate(c))
 
     def keys(self):
@@ -625,6 +640,12 @@ class Profile:
         c = self.curves.get(key)
         if c is None:
             return ""
+        if isinstance(c, dict):
+            ks = c["knots"]
+            return ("a knot table, %d bin percentiles interpolated in ln N "
+                    "(%.4f at N=%d ... %.4f at N=%d)"
+                    % (len(ks), ks[0][1], round(math.exp(ks[0][0])),
+                       ks[-1][1], round(math.exp(ks[-1][0]))))
         terms = []
         for j, a in enumerate(c):
             if j == 0:
@@ -1154,7 +1175,15 @@ PROFILES.append(
             "line_length_cv_min": (-0.0314058, 0.0359349, -0.00181958),
         },
         measured_auc={},
-        held_out_fpr={},
+        held_out_fpr={
+            # (median, 5th, 95th percentile of 200 file-level seeds), as
+            # PERCENTAGES over ALL held-out items 4-3,245 tokens — the
+            # stage B run's own print (RESULTS_LENGTH_CURVE.md §9).
+            "mattr": (4.80, 3.00, 7.89),
+            "function_word_ratio": (5.10, 3.16, 7.29),
+            "anaphora": (5.15, 3.27, 7.18),
+            "line_length_cv": (5.05, 3.89, 6.67),
+        },
         source=("corpus/song/eng_*.txt, every `--- TITLE:` item (8,667 over "
                 "1,297 files, 4-3,245 tokens), no sample; thresholds fit by "
                 "the pinball loss in ln N over the whole corpus and held out "

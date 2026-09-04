@@ -2329,7 +2329,14 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         # can grade, so it is drawn from the gradeable set before anything
         # is conditioned on it — and it then BOUNDS the pattern, since a
         # song of T lines cannot carry more than T sung sections.
-        total = rng.choice(sorted(_GRADEABLE))
+        # A DECLARED `--lines` FIXES THE TOTAL; it is not rejection-sampled
+        # for (M-239, 2026-09-04). Until the envelope widened to 12..447 the
+        # old `if total != lines: continue` cleared in a handful of draws;
+        # over 436 values it cleared in 68% of requests and cost 4 s per
+        # refusal. Conditioning a uniform draw on one coordinate IS fixing
+        # that coordinate — the distribution over everything else is the
+        # same — so the total is set and the rest of the draw is unchanged.
+        total = lines if lines is not None else rng.choice(sorted(_GRADEABLE))
         # THE CELL CEILING IS WHAT THIS SONG CAN AFFORD AT THE CALIBRATED
         # STANZA SIZE, not what it can afford at one line each (M-106).
         # `total` alone is a SOUND bound — a song of T lines cannot hold more

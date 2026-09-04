@@ -725,13 +725,23 @@ def test_the_measure():
     # fraction of the DERIVED set, which cannot go stale when the set moves.
     from quality import plan as _PL
     _env = set(_PL.song_line_counts())
-    check("totals cover the envelope's order, not one shape: most of the "
-          "DERIVED envelope reached, both ends included",
-          len(totals) >= 0.85 * len(_env) and min(totals) <= _lo + 5
+    # REPINNED 2026-09-04 (`MISSING.md` M-239): the envelope is 12..447 now
+    # and 300 draws cannot reach 85% of 436 values — a uniform draw reaches
+    # 1 - (1 - 1/|env|)^seeds of them in expectation, about 50% here. The
+    # claim is still COVERAGE, stated against that expectation rather than
+    # against a literal share, so it cannot go stale when the set moves
+    # again. Both ends within 5 of the derived limits, as before.
+    import math as _m
+    _expect = len(_env) * (1 - (1 - 1 / len(_env)) ** len(plans))
+    check("totals cover the envelope's order, not one shape: the distinct "
+          "totals reached are most of what a UNIFORM draw over the DERIVED "
+          "envelope reaches in this many seeds, both ends included",
+          len(totals) >= 0.85 * _expect and min(totals) <= _lo + 5
           and max(totals) >= _hi - 5,
           f"{len(totals)} distinct of {len(_env)} in the envelope "
-          f"({100 * len(totals) / len(_env):.0f}%), "
-          f"[{min(totals)}, {max(totals)}] against [{_lo}, {_hi}]")
+          f"({100 * len(totals) / len(_env):.0f}%; a uniform draw expects "
+          f"{_expect:.0f}), [{min(totals)}, {max(totals)}] against "
+          f"[{_lo}, {_hi}]")
 
     # THE MOVE-37 PIN: the corpus samples nothing. The planner imports
     # exactly its three quality dependencies and never opens a file — a
@@ -991,7 +1001,9 @@ def _envelope_tracks_the_floor():
     from quality import floor as FL
     from quality import plan as _PL
     before = set(_PL.gradeable_line_counts())
-    song = [p for p in FL.PROFILES if p.name == "song"][0]
+    # The LIVE lyric-sheet profile (M-239): a superseded row's band is read
+    # by nothing, so perturbing it would prove nothing.
+    song = [p for p in FL.PROFILES if not p.n_lines and not p.superseded_by][0]
     old_hi = song.hi
     try:
         song.hi = old_hi + 200
@@ -2121,9 +2133,19 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
 
     union = set(_PL.gradeable_line_counts())
     song = set(_PL.song_line_counts())
-    check("the SONG band is a strict SUBSET of the union — this narrows "
-          "what the planner volunteers, it does not widen it",
-          song < union, f"song {len(song)} of union {len(union)}")
+    # REPINNED 2026-09-04 (`MISSING.md` M-239): the one live lyric-sheet
+    # profile spans 4-3,245 tokens, which is 1..447 lines at the measured
+    # tokens-per-line band and CONTAINS every stanza profile's reach, so the
+    # song set is no longer a strict subset of the union — it IS the union.
+    # The claim that survives: the planner draws from the SONG set, and
+    # that set is never wider than what some profile can grade.
+    check("the SONG band is contained in the union of every live profile's "
+          "reach — this never widens what the planner volunteers past what "
+          "the floor can grade; since M-239 the two coincide, because the "
+          "lyric-sheet profile's range contains the quatrain's and the "
+          "sonnet's",
+          song <= union and song == union,
+          f"song {len(song)} of union {len(union)}")
     # REPINNED 2026-09-01 (`MISSING.md` M-193): a SECOND lyric-sheet
     # profile, `short` (50-150 tokens), reaches 6..20 lines, so the SONG
     # set is {6..20} | {22..55} with ONE hole at the seam between the two
@@ -2134,14 +2156,17 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # and this one is the seam between two, not a fact about songs. The
     # union's own 6-11 and 18-21 holes are FILLED by the short band and
     # it now carries the same single seam.
-    check("and its one hole is the SEAM between the two calibrated bands "
-          "(21 lines), where the union used to carry the quatrain-sonnet "
-          "and sonnet-song holes as well — every hole is a fact about which "
-          "bands were unioned, never about songs",
-          set(range(6, 21)) <= song and set(range(22, 56)) <= song
-          and 21 not in song and len(_PL.line_count_gaps(song)) == 1
-          and _PL.line_count_gaps(union) == _PL.line_count_gaps(song),
-          f"song gaps {_PL.line_count_gaps(song)}, "
+    # REPINNED 2026-09-04 (M-239): ~~one hole at 21~~ — NO hole. The seam
+    # was the space between two calibrated bands, and one profile covering
+    # 4-3,245 tokens has no seam. This docstring's own diagnosis — every
+    # hole was a fact about which bands were unioned, never about songs —
+    # is what the closure confirms.
+    check("and there is NO hole at all — every former seam (6-11, 18-21, "
+          "21) was the space between two calibrated bands, and the "
+          "length-curve profile has none",
+          song == set(range(1, 448)) and _PL.line_count_gaps(song) == []
+          and _PL.line_count_gaps(union) == [],
+          f"song {min(song)}..{max(song)} gaps {_PL.line_count_gaps(song)}, "
           f"union gaps {_PL.line_count_gaps(union)}")
     # ===================================================================
     # M-133, 2026-08-26. The union's holes were DISCLOSED in the evidence
@@ -2212,12 +2237,15 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # Under the old three-profile table that read 2 == 2 - 0; it reads
     # 1 == 3 - 2 now, and the single survivor is the sonnet-song seam
     # M-131 opened (18-21), narrowed to 21 by the short band from below.
+    # REPINNED 2026-09-04 (M-239): the reaches are the LIVE profiles' —
+    # section 4-5, sonnet 12-17, lyric 1-447 — and the lyric reach contains
+    # both others, so every seam touches and the hole count reads 0 == 2 - 2.
     check("...and the union's hole count is the number of seams between "
           "adjacent reaches that neither touch nor overlap — one hole per "
-          "such seam — which reads 1 == 3 - 2 over four profiles: the short "
-          "band abuts the section's reach and overlaps the sonnet's, and "
-          "only the sonnet-song seam M-131 opened still stands open, at 21",
-          len(holes) == (len(reaches) - 1) - len(touching) == 1
+          "such seam — which reads 0 == 2 - 2 over the three live profiles: "
+          "the lyric-sheet reach contains the section's and the sonnet's, "
+          "so no seam is open",
+          len(holes) == (len(reaches) - 1) - len(touching) == 0
           and len(touching) == 2,
           f"{len(holes)} hole(s) {holes} over {len(reaches)} reaches "
           f"{ {k: (min(v), max(v)) for k, v in ordered} }; "
@@ -2226,13 +2254,14 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # name test would be a second statement of which profile means what
     # (doctrine 1). Proven by ASKING the table rather than by reading the
     # source: exactly the profiles with `n_lines == 0` must reach the band.
-    lyric = [p for p in FL.PROFILES if not p.n_lines]
+    lyric = [p for p in FL.PROFILES if not p.n_lines and not p.superseded_by]
     _tlo, _thi = _PL.tokens_per_line_band()
-    check("the band is the reach of exactly the profile(s) declaring "
-          "`n_lines == 0` — TWO since M-193, and the set is their union: "
+    check("the band is the reach of exactly the LIVE profile(s) declaring "
+          "`n_lines == 0` — ONE since M-239 (the two band rows are "
+          "superseded and read by nothing), and the set is its reach: "
           "a lyric sheet has no fixed line count, which is the coordinate, "
           "not the string 'song'",
-          len(lyric) == 2 and min(song) >= 1
+          len(lyric) == 1 and min(song) >= 1
           and max(song) == max(int(p.hi // _tlo) for p in lyric)
           and min(song) == min(math.ceil(p.lo / _thi) for p in lyric)
           and song == set().union(*[
