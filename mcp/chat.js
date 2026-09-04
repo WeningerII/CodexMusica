@@ -592,6 +592,11 @@ export async function createChatRouter({
           answer_sent: c.answer_sent ?? null,
           draft_fp: c.draft_fp ?? null,
           song_at_stop: c.song_at_stop ?? null,
+          // M-237: the run the tool remembered, copied by name.
+          run_id: c.run_id ?? null,
+          run_state_carried: c.run_state_carried ?? false,
+          run_draft_carried: c.run_draft_carried ?? false,
+          run_decl_carried: c.run_decl_carried ?? false,
         })),
         stopped: run.stopped,
         // WHY IT STOPPED, WITH THE NUMBERS (2026-09-02, triage C11). A bare

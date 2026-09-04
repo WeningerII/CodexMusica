@@ -954,6 +954,135 @@ check('validation: actionable errors', () => {
         assert.deepEqual(VI.priorReasons('no rejection here'), []);
       }
     );
+    // ── M-237: THE RUN RECORD, KEPT BY THE TOOL ──────────────────────────
+    check(
+      'the run store keeps one record per key, finds it by run_id, and forgets by TTL and cap (M-237)',
+      async () => {
+        const { RunStore, newRunId, runKeyOf, declarationsOf } = await import('./run_store.js');
+        let t = 0;
+        const st = new RunStore({ ttlMs: 1000, cap: 2, now: () => t });
+        st.put('seed:1', {
+          seed: 1,
+          status: 'suspended',
+          state: '{}',
+          run_id: newRunId('seed:1', () => 'aaaa'),
+        });
+        st.put('seed:2', {
+          seed: 2,
+          status: 'parked',
+          draft: ['a', 'b'],
+          open: ['L1'],
+          run_id: 'seed:2#bbbb',
+        });
+        assert.equal(st.get('seed:1').run_id, 'seed:1#aaaa');
+        assert.equal(st.byId('seed:2#bbbb').seed, 2);
+        st.put('seed:3', { seed: 3, status: 'suspended', state: '{}', run_id: 'seed:3#cccc' });
+        assert.equal(st.size(), 2, 'the cap evicts the least recently used');
+        assert.equal(st.get('seed:2'), null, 'seed:2 was the coldest (seed:1 was touched by get)');
+        t = 2000;
+        assert.equal(st.size(), 0, 'the TTL forgets an idle run');
+        assert.equal(runKeyOf({ seed: 7 }), 'seed:7');
+        assert.equal(runKeyOf({ scheme: 'ABAB' }), 'mandate:["ABAB",null,null,null,null]');
+        assert.equal(runKeyOf({}), null);
+        assert.deepEqual(
+          declarationsOf({
+            seed: 1,
+            draft: ['x'],
+            draft_text: 'x',
+            answer: 'y',
+            state: '{}',
+            run_id: 'r',
+            new_run: true,
+            lines: 20,
+          }),
+          { seed: 1, lines: 20 }
+        );
+      }
+    );
+    check(
+      "the tool's own refusals on a parked run, and a moved declaration refused by name (M-237)",
+      async () => {
+        const { runRefusal, movedDeclarations, movedRefusal } = await import('./run_store.js');
+        const rec = {
+          seed: 2,
+          status: 'parked',
+          draft: ['a', 'b'],
+          open: ['L1'],
+          run_id: 'seed:2#bbbb',
+          decl: { seed: 2, lines: 20 },
+        };
+        assert.ok(
+          /PARKED.*sends `answer`\/`state`/.test(runRefusal(rec, { seed: 2, answer: 'x' }))
+        );
+        assert.ok(/omits the draft/.test(runRefusal(rec, { seed: 2 })));
+        assert.ok(/SAME draft/.test(runRefusal(rec, { seed: 2, draft: ['a', 'b'] })));
+        assert.ok(
+          /new_run: true/.test(runRefusal(rec, { seed: 2, draft: ['a', 'b'] })),
+          'every refusal names the way out'
+        );
+        assert.equal(
+          runRefusal(rec, { seed: 2, draft: ['a', 'c'] }),
+          null,
+          'a rewritten draft goes through'
+        );
+        assert.equal(
+          runRefusal({ ...rec, status: 'suspended', state: '{}' }, { seed: 2, answer: 'x' }),
+          null,
+          'a suspended run refuses nothing here — the carry handles it'
+        );
+        assert.equal(runRefusal(null, { seed: 2, answer: 'x' }), null);
+        assert.deepEqual(movedDeclarations({ seed: 2, lines: 20 }, { seed: 2, lines: 22 }), [
+          { field: 'lines', run: 20, call: 22 },
+        ]);
+        assert.deepEqual(
+          movedDeclarations({ seed: 2, lines: 20 }, { seed: 2 }),
+          [],
+          'an omitted declaration is not a moved one — it is carried'
+        );
+        const why = movedRefusal(rec, [{ field: 'lines', run: 20, call: 22 }]);
+        assert.ok(/the run says 20, this call says 22/.test(why) && /new_run: true/.test(why));
+      }
+    );
+    check(
+      'the run fields ride loopFields, chat.js tools[] and the tool source (M-237)',
+      async () => {
+        const { _agentInternals: AI } = await import('./gemini_agent.js');
+        const st = AI.loopFields({
+          run_id: 'seed:1#aaaa',
+          run_state_carried: true,
+          run_draft_carried: false,
+          run_decl_carried: true,
+        });
+        assert.equal(st.run_id, 'seed:1#aaaa');
+        assert.equal(st.run_state_carried, true);
+        assert.equal(st.run_draft_carried, false);
+        assert.equal(st.run_decl_carried, true);
+        assert.equal(AI.loopFields(null).run_id, null);
+        const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+        for (const f of ['run_id', 'run_state_carried', 'run_draft_carried', 'run_decl_carried'])
+          assert.ok(
+            new RegExp(`^\\s+${f}: c\\.${f} \\?\\? (null|false),`, 'm').test(chat),
+            `chat.js tools[] carries ${f}`
+          );
+        const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
+        assert.ok(
+          /const runWander = runRefusal\(runRec, a\);/.test(src),
+          "the tool's refusals run before anything is carried"
+        );
+        assert.ok(
+          /if \(moved\.length\) throw refuse\(movedRefusal\(runRec, moved\)\);/.test(src),
+          'a moved declaration is refused, not replaced'
+        );
+        assert.ok(
+          /status: 'parked',/.test(src) && /RUNS\.del\(runKey\);/.test(src),
+          'exit 3 parks the record and exit 0 forgets it'
+        );
+        assert.ok(
+          /text: r\.stdout \+ openRunNote\(a\)/.test(src),
+          'a plan on a seed with an open run says so'
+        );
+      }
+    );
     // ── M-236: THE BATCH DOOR ON THE ROW, AND THE VERDICT OFF THE RECORD ──
     check(
       'a batch question and its folded answers ride the row, one record per member, judged off `outcomes` (M-236)',
@@ -5106,12 +5235,54 @@ try {
       'and re-asks the IDENTICAL question — the loop is resumed, not re-imagined'
     );
     // An answer with no state to answer is refused by the tool itself.
-    const revBad = await client.callTool(
-      { name: 'lyric_revise', arguments: { seed: planSeed, draft, answer: 'a line' } },
+    // M-237: THE TOOL REMEMBERS THE RUN. An answer WITHOUT `state` on this
+    // seed continues it — the state and the draft are carried by the tool
+    // and the verdict says so; the run keeps its id.
+    const pend1 = st1.pending;
+    const answer1 =
+      pend1.kind === 'propose_batch'
+        ? pend1.record.records.map((r) => `L${r.line}: ${draft[r.line - 1]} again`).join('\n')
+        : pend1.kind === 'propose_group'
+          ? pend1.record.members.map((n) => `L${n}: ${draft[n - 1]} again`).join('\n')
+          : `${draft[pend1.record.line - 1]} again`;
+    const rev3 = await client.callTool(
+      { name: 'lyric_revise', arguments: { seed: planSeed, answer: answer1 } },
       undefined,
       LIVE_OPTS
     );
-    assert.ok(revBad.isError, '`answer` without `state` refuses — there is no question it answers');
+    assert.ok(
+      !rev3.isError,
+      `an answer without state continues the remembered run (got: ${String(rev3.content?.[0]?.text).slice(0, 200)})`
+    );
+    const rv3 = JSON.parse(rev3.content[1].text);
+    assert.ok([0, 3, 4].includes(rv3.exit_code), `the run advanced (exit ${rv3.exit_code})`);
+    assert.equal(rv3.run_state_carried, true, 'the tool carried the state');
+    assert.equal(rv3.run_draft_carried, true, 'and the draft');
+    assert.equal(typeof rv1.run_id, 'string', 'the first call minted a run id');
+    assert.equal(rv3.run_id, rv1.run_id, 'the same run');
+    // A seed with NO remembered run: `answer` without `state` still refuses.
+    const revBad = await client.callTool(
+      { name: 'lyric_revise', arguments: { seed: planSeed + 100000, draft, answer: 'a line' } },
+      undefined,
+      LIVE_OPTS
+    );
+    assert.ok(
+      revBad.isError,
+      '`answer` without `state` on a seed with no run refuses — there is no question it answers'
+    );
+    // `new_run` drops the record: zero answers, a different id.
+    const rev4 = await client.callTool(
+      { name: 'lyric_revise', arguments: { seed: planSeed, draft, new_run: true } },
+      undefined,
+      LIVE_OPTS
+    );
+    assert.ok(
+      !rev4.isError,
+      `new_run opens a fresh run (got: ${String(rev4.content?.[0]?.text).slice(0, 200)})`
+    );
+    const rv4 = JSON.parse(rev4.content[1].text);
+    assert.equal(rv4.answers_on_record ?? 0, 0, 'a fresh run has no answers');
+    assert.notEqual(rv4.run_id, rv1.run_id, 'and a new id');
     console.log(
       '  ok  lyric_revise live: suspends with the question, no render, state round-trips'
     );

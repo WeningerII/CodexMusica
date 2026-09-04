@@ -414,6 +414,13 @@ function loopFields(v) {
     answer_sent: typeof v?.answer_sent === 'string' ? v.answer_sent : null,
     draft_fp: typeof v?.draft_fp === 'string' ? v.draft_fp : null,
     song_at_stop: typeof v?.song_at_stop === 'string' ? v.song_at_stop : null,
+    // THE RUN THE TOOL REMEMBERED (M-237): its id, and which of the state,
+    // the draft and the declarations the TOOL filled in (the wrapper's own
+    // `draft_carried`/`declarations_carried` stay its own count).
+    run_id: typeof v?.run_id === 'string' ? v.run_id : null,
+    run_state_carried: v?.run_state_carried === true,
+    run_draft_carried: v?.run_draft_carried === true,
+    run_decl_carried: v?.run_decl_carried === true,
   };
 }
 

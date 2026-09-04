@@ -34,6 +34,15 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
 import { TOOL_BUDGET_MS } from './budget.js';
+import {
+  RunStore,
+  runKeyOf,
+  declarationsOf,
+  newRunId,
+  runRefusal,
+  movedDeclarations,
+  movedRefusal,
+} from './run_store.js';
 
 const HARNESS_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'lyric-harness');
 const PYTHON = process.env.LYRIC_PYTHON || 'python3';
@@ -477,6 +486,25 @@ function extractStanding(stdout) {
 // next pending question names the verdict. Exact below the attempt budget;
 // the budget's LAST attempt is `unknown` here (rejected-and-exhausted and
 // accepted both move to another line) and is left so, never guessed.
+// THE RUN RECORD THE TOOL KEEPS (M-237): one per run key, a cache of the
+// state the tool returns verbatim. See run_store.js.
+export const RUNS = new RunStore();
+// A plan on a seed with an open run is NOT refused by the tool (a person may
+// plan again on purpose; the Gemini wrapper keeps its stricter refusal) —
+// the result says a run is open and names the move (M-237).
+function openRunNote(a) {
+  const key = runKeyOf(a);
+  const rec = key ? RUNS.get(key) : null;
+  if (!rec) return '';
+  return (
+    `\n\nNOTE: a lyric_revise run is OPEN on ${key} (run ${rec.run_id}, ${rec.status}` +
+    (rec.status === 'suspended'
+      ? `, ${rec.answers ?? 0} answer(s) on record`
+      : `, ${(rec.open || []).length} line(s) open`) +
+    `). This plan does not touch it: continue it with lyric_revise, or send \`new_run: true\` there to start over.`
+  );
+}
+
 export const CONNECTOR_MAX_ROUNDS = 8;
 export const CONNECTOR_ATTEMPTS = 1;
 export const CONNECTOR_BACKTRACK = 0;
@@ -1339,6 +1367,19 @@ export const LYRIC_TOOL_SCHEMAS = {
       .describe(
         "The `state` string returned by this tool's previous call on this song, VERBATIM. It is the harness's own deferred-run record (every answer already given, replayable by anyone); the server keeps nothing between calls, so dropping it restarts the revision from zero answers. Omit on the first call."
       ),
+    run_id: z
+      .string()
+      .max(80)
+      .optional()
+      .describe(
+        'The `run_id` a previous call on this song returned. Optional: without it the newest run on this seed (or mandate) is the run. Names one run when two are open on one seed.'
+      ),
+    new_run: z
+      .boolean()
+      .optional()
+      .describe(
+        'true to DROP the run the tool remembers for this seed and open a fresh one on the draft you send. The only way past a parked run without rewriting it, and the only way to move a declaration mid-song.'
+      ),
     answer: z
       .string()
       .max(MAX_ANSWER_CHARS)
@@ -1570,7 +1611,7 @@ export function registerLyricTools(server, tool) {
           const { report: _report, ...stamped } = verdict;
           return {
             content: [
-              { type: 'text', text: r.stdout },
+              { type: 'text', text: r.stdout + openRunNote(a) },
               { type: 'text', text: JSON.stringify({ ...stamped, exit_code: 0 }) },
             ],
           };
@@ -1743,9 +1784,53 @@ export function registerLyricTools(server, tool) {
         // M-234: the draft may arrive as one string.
         if (typeof a.draft_text === 'string' && !Array.isArray(a.draft))
           a.draft = draftFromText(a.draft_text);
+        // THE RUN THE TOOL REMEMBERS (M-237). Resolved by `run_id` when the
+        // call names one, else the newest run on this key. `new_run` drops
+        // it. Then the tool's own refusals for a parked run, the moved
+        // declaration guard, and the carry: an omitted `state`, `draft` or
+        // declaration is filled from the record and SAID so on the verdict;
+        // an explicit value always wins and refreshes the record.
+        const runKey = runKeyOf(a);
+        let runRec = a.run_id ? RUNS.byId(a.run_id) : runKey ? RUNS.get(runKey) : null;
+        if (a.run_id && !runRec)
+          throw refuse(
+            `\`run_id\` ${a.run_id} names no run this tool remembers — it may have finished, expired (${Math.round(RUNS.ttlMs / 3600000)} h idle) or been forgotten by a restart; pass \`state\` back, or omit \`run_id\` and send the draft to open a fresh run`
+          );
+        if (runRec && runKey && runRec.key !== runKey)
+          throw refuse(
+            `\`run_id\` ${a.run_id} belongs to ${runRec.key}, and this call names ${runKey}`
+          );
+        if (a.new_run === true && runRec) {
+          RUNS.del(runRec.key);
+          runRec = null;
+        }
+        const runWander = runRefusal(runRec, a);
+        if (runWander) throw refuse(runWander);
+        const carried = { state: false, draft: false, decl: false };
+        if (runRec) {
+          const moved = movedDeclarations(runRec.decl, a);
+          if (moved.length) throw refuse(movedRefusal(runRec, moved));
+          for (const [k, v] of Object.entries(runRec.decl || {}))
+            if (a[k] === undefined) {
+              a[k] = v;
+              carried.decl = true;
+            }
+          if (
+            runRec.status === 'suspended' &&
+            a.state == null &&
+            typeof runRec.state === 'string'
+          ) {
+            a.state = runRec.state;
+            carried.state = true;
+          }
+          if (runRec.status === 'suspended' && a.draft == null && Array.isArray(runRec.draft)) {
+            a.draft = runRec.draft;
+            carried.draft = true;
+          }
+        }
         if (!Array.isArray(a.draft))
           throw refuse(
-            '`draft` omitted and no draft is carried for this run — pass the song lines (the SAME draft on every call of one run; the connector carries it for you only after a suspended call)'
+            '`draft` omitted and no draft is carried for this run — pass the song lines (the SAME draft on every call of one run; the tool carries it for you after a suspended call)'
           );
         checkLines(a.draft);
         const draftPath = path.join(dir, 'draft.txt');
@@ -1873,9 +1958,33 @@ export function registerLyricTools(server, tool) {
           // The bracketed stamp keeps its shape (readers pin on it); the
           // batch note follows it on the same line (M-236).
           const head = `[AWAITING PROPOSAL — ${a.seed != null ? `seed ${a.seed}` : 'declared mandate'} — ${onRecord} answer(s) on record — NO SONG YET]${batchNote}`;
+          // M-237: the tool remembers the run; the client may omit `state`
+          // and `draft` on the next call.
+          const runNow = runKey
+            ? RUNS.put(runKey, {
+                seed: typeof a.seed === 'number' ? a.seed : null,
+                status: 'suspended',
+                state: JSON.stringify(st),
+                draft: a.draft,
+                decl: declarationsOf(a),
+                answers: onRecord,
+                run_id: runRec?.run_id ?? newRunId(runKey),
+              })
+            : null;
+          const continueNote =
+            `\n\nCONTINUE: call lyric_revise with \`seed\` and \`answer\`` +
+            (askedNow && askedNow.kind === 'propose_batch'
+              ? ' (one `L<n>: <line>` row per asked line)'
+              : '') +
+            (runNow
+              ? ` — the state and the draft are carried for you (run ${runNow.run_id}); \`state\` passed back verbatim also works.`
+              : '.');
           return {
             content: [
-              { type: 'text', text: `${head}\n\n${(st.pending && st.pending.prompt) || r.stdout}` },
+              {
+                type: 'text',
+                text: `${head}\n\n${(st.pending && st.pending.prompt) || r.stdout}${continueNote}`,
+              },
               {
                 type: 'text',
                 text: JSON.stringify({
@@ -1887,6 +1996,10 @@ export function registerLyricTools(server, tool) {
                   // `answer` folded and what verify made of that answer.
                   asked: askedNow,
                   folded: foldedOf(a.state, st, budget.attempts),
+                  run_id: runNow ? runNow.run_id : null,
+                  run_state_carried: carried.state,
+                  run_draft_carried: carried.draft,
+                  run_decl_carried: carried.decl,
                   answer_sent: typeof a.answer === 'string' ? a.answer.slice(0, 300) : null,
                   draft_fp: draftFp(a.draft),
                   // THE SUSPENDED VERDICT IS THE COMMON ROW OF A REAL RUN — 32
@@ -1911,6 +2024,32 @@ export function registerLyricTools(server, tool) {
           // reached on ride with the stop row, so a cycle is readable from
           // the rows alone.
           verdict.draft_fp = draftFp(a.draft);
+          // M-237: exit 3 PARKS the record (no state — no question pending);
+          // exit 0 forgets it.
+          verdict.run_state_carried = carried.state;
+          verdict.run_draft_carried = carried.draft;
+          verdict.run_decl_carried = carried.decl;
+          if (runKey && r.code === 3) {
+            const parkedRec = RUNS.put(runKey, {
+              seed: typeof a.seed === 'number' ? a.seed : null,
+              status: 'parked',
+              draft: a.draft,
+              decl: declarationsOf(a),
+              stop: verdict.loop_stop_reason ?? null,
+              open: Array.isArray(verdict.loop_unresolved_lines)
+                ? verdict.loop_unresolved_lines
+                : [],
+              whole: Array.isArray(verdict.loop_whole_flag_codes)
+                ? verdict.loop_whole_flag_codes
+                : [],
+              standing: Array.isArray(verdict.standing) ? verdict.standing.slice(0, 24) : [],
+              run_id: runRec?.run_id ?? newRunId(runKey),
+            });
+            verdict.run_id = parkedRec.run_id;
+          } else if (runKey && r.code === 0) {
+            RUNS.del(runKey);
+            verdict.run_id = runRec?.run_id ?? null;
+          }
           verdict.song_at_stop = m
             ? m[1].replace(/\n\n\[FINISHED[\s\S]*$/, '').slice(0, 4000)
             : null;
@@ -1933,9 +2072,13 @@ export function registerLyricTools(server, tool) {
                 ? '\n\nSTANDING AT THE STOP — what the open lines and the whole draft still carry:\n' +
                   verdict.standing.map((x) => `  ${x}`).join('\n')
                 : '';
+            const parkNote =
+              r.code === 3
+                ? `\n\nCONTINUE: no question is pending. Rewrite the open line(s) and call lyric_revise with \`seed\` and \`draft_text\` (the full song as ONE newline-separated string) — no \`answer\`, no \`state\`${verdict.run_id ? ` (run ${verdict.run_id}; \`new_run: true\` starts over instead)` : ''}.`
+                : '';
             return {
               content: [
-                { type: 'text', text: m[1] + standingText },
+                { type: 'text', text: m[1] + standingText + parkNote },
                 { type: 'text', text: JSON.stringify(verdict) },
               ],
             };
