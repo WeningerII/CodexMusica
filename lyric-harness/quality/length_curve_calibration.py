@@ -139,6 +139,8 @@ def read_rows(paths):
                 r["x"] = math.log(r["n_tokens"])
                 rows.append(r)
     rows.sort(key=lambda r: (r["n_tokens"], r["file"], r["title"]))
+    for i, r in enumerate(rows):
+        r["i"] = i
     return rows
 
 
@@ -381,14 +383,35 @@ def curves_for(items, bins, f, two_starts=False):
     return out, extremes
 
 
-def held_out(rows, bins, checks, seeds, verbose=True):
+def flagged_ids(items, f, curve):
+    side = SIDE[f]
+    out = set()
+    for r in items:
+        v = r[f]
+        if v != v:
+            continue
+        t = curve(r["x"])
+        if (v < t) if side == "lo" else (v > t):
+            out.add(r["i"])
+    return out
+
+
+def held_out(rows, bins, checks, seeds, verbose=True, bands=()):
     """§4: 200 author (file) 50/50 splits; per seed, per check, per model,
     per bin: the held-out flag rate. -> results[f][model][k] = [rates],
-    plus held counts and under-resolved marks."""
+    plus held counts and under-resolved marks.
+
+    Also returns, per seed, the SET of held-out item ids each (check, model)
+    flags — and the same for each shipped band's constant threshold, read
+    off the calibration half INSIDE the band (`band:<name>`), so E2 can be
+    a held-out union against a held-out union on the same seeds (§6 E2).
+    """
     files = sorted({r["file"] for r in rows})
     res = {f: {m: {bn["k"]: [] for bn in bins} for m in MODELS} for f in checks}
     unres = {f: {bn["k"]: 0 for bn in bins} for f in checks}
     held_n = {bn["k"]: [] for bn in bins}
+    flag_sets = []          # per seed: {(f, model): set(ids)}
+    held_ids = []           # per seed: set of held item ids
     t0 = time.time()
     done = 0
     for s in range(seeds):
@@ -405,6 +428,7 @@ def held_out(rows, bins, checks, seeds, verbose=True):
             h_by_bin.setdefault(r["bin"], []).append(r)
         for bn in bins:
             held_n[bn["k"]].append(len(h_by_bin.get(bn["k"], [])))
+        fs = {}
         for f in checks:
             cv, extremes = curves_for(c, bins, f)
             for k, e in extremes.items():
@@ -415,11 +439,36 @@ def held_out(rows, bins, checks, seeds, verbose=True):
                     defined = sum(1 for r in sub if r[f] == r[f])
                     rate = flags(sub, f, curve) / defined if defined else float("nan")
                     res[f][m][bn["k"]].append(rate)
+                fs[(f, m)] = flagged_ids(h, f, curve)
+            for name, lo, hi in bands:
+                vals = [r[f] for r in c if lo <= r["n_tokens"] <= hi and r[f] == r[f]]
+                if not vals:
+                    continue
+                t = C.q(vals, TAU[f])
+                fs[(f, "band:" + name)] = flagged_ids(h, f, lambda x, t=t: t)
+        flag_sets.append(fs)
+        held_ids.append({r["i"] for r in h})
         done += 1
         if verbose and (done % 10 == 0 or done == seeds):
             print("  held-out seed %d/%d  %.0f s" % (done, seeds, time.time() - t0),
                   flush=True)
-    return res, held_n, unres, done
+    return res, held_n, unres, done, flag_sets, held_ids
+
+
+def union_rate(flag_sets, held_ids, rows, bins, model_of, bin_keys):
+    """-> [per-seed union rate] over held items in `bin_keys`, flagging an
+    item when ANY check's chosen model (`model_of[f]`) flags it."""
+    ids_in = {r["i"] for bn in bins if bn["k"] in bin_keys for r in rows[bn["lo_i"]:bn["hi_i"]]}
+    out = []
+    for fs, hid in zip(flag_sets, held_ids):
+        held = hid & ids_in
+        if not held:
+            continue
+        flagged = set()
+        for f, m in model_of.items():
+            flagged |= fs.get((f, m), set())
+        out.append(len(flagged & held) / len(held))
+    return out
 
 
 def median_nan(v):
@@ -495,8 +544,14 @@ def cmd_fit(a):
                       % (f, math.exp(xt), " — INSIDE the corpus range (E3 watch)" if inside else ""))
 
     # 3. held-out (§4)
+    from quality import floor as FL  # noqa: E402
+    band_thr = {}
+    for p in FL.PROFILES:
+        if p.n_lines == 0:
+            band_thr[p.name] = (p.lo, p.hi, p.percentiles)
     print("\nHELD-OUT (§4): %d file 50/50 splits" % a.seeds, flush=True)
-    res, held_n, unres, done = held_out(rows, bins, checks, a.seeds)
+    res, held_n, unres, done, flag_sets, held_ids = held_out(
+        rows, bins, checks, a.seeds, bands=[(n, lo, hi) for n, (lo, hi, _) in band_thr.items()])
     bounds = {}
     for bn in bins:
         nk = int(statistics.median(held_n[bn["k"]]))
@@ -543,6 +598,13 @@ def cmd_fit(a):
                 break
         if pick is None and all(passing["CK"]):
             pick = "CK"
+        if a.picks and f in a.picks:
+            # A DECLARED pick, for re-running the in-sample sections (§5.4,
+            # §5.5) with the picks the 200-seed run made, without paying the
+            # 200 seeds again. Disclosed; never a selection.
+            print("  PICK %s: rule says %s; OVERRIDDEN to %s by --picks (in-sample re-run)"
+                  % (f, pick, a.picks[f]))
+            pick = a.picks[f]
         if pick is None:
             ok_bins = [bn for bn, ok in zip(bins, passing["CK"]) if ok]
             holes = [bn for bn, ok in zip(bins, passing["CK"]) if not ok]
@@ -562,11 +624,6 @@ def cmd_fit(a):
 
     # 4. the shipped bands beside the pick, on the bins they cover (§5.4)
     print("\nSHIPPED BANDS BESIDE THE PICK (§5.4): held-out median flag rate %% on bins inside a band")
-    from quality import floor as FL  # noqa: E402
-    band_thr = {}
-    for p in FL.PROFILES:
-        if p.n_lines == 0:
-            band_thr[p.name] = (p.lo, p.hi, p.percentiles)
     key_of = {"mattr": "mattr_min", "fwr": "function_word_ratio_max",
               "anaphora": "anaphora_max", "cv": "line_length_cv_min",
               "predictability": "predictable_pair_fraction_max"}
@@ -588,6 +645,62 @@ def cmd_fit(a):
                 m = picks[f]["model"]
                 cells.append("%s: band %.2f curve %.2f" % (f, 100 * rate, 100 * median_nan(res[f][m][k])))
             print("    bin %d (N %d-%d): " % (k, bn["n_lo"], bn["n_hi"]) + "; ".join(cells))
+
+    # 4a. E2 AS DECLARED: held-out union vs held-out union, same seeds, on the
+    # whole bins inside each band; the band's thresholds are re-read from the
+    # calibration half inside the band on every seed (the band cell's own
+    # protocol), the curves from the calibration half over the whole corpus.
+    model_of = {f: picks[f]["model"] for f in checks}
+    print("\nE2 (held-out, §6): union on the band's own bins — the band's thresholds vs the picked curves, "
+          "%d seeds, median [5th-95th]" % done)
+    for name, (lo, hi, _thr) in band_thr.items():
+        keys = {bn["k"] for bn in bins if bn["n_lo"] >= lo and bn["n_hi"] <= hi}
+        if not keys:
+            continue
+        ub = union_rate(flag_sets, held_ids, rows, bins, {f: "band:" + name for f in checks}, keys)
+        uc = union_rate(flag_sets, held_ids, rows, bins, model_of, keys)
+        print("  band %s %d-%d (bins %s): ANY band %.2f%% [%.2f-%.2f]  ANY curves %.2f%% [%.2f-%.2f]  difference %+.2f points; E2 fires over +2%s"
+              % (name, lo, hi, sorted(keys), 100 * median_nan(ub), 100 * pct(ub, 0.05), 100 * pct(ub, 0.95),
+                 100 * median_nan(uc), 100 * pct(uc, 0.05), 100 * pct(uc, 0.95),
+                 100 * (median_nan(uc) - median_nan(ub)),
+                 "  — E2 FIRES" if median_nan(uc) - median_nan(ub) > 0.02 else ""))
+    print("\nHELD-OUT UNION PER BIN (picked curves, median over seeds):")
+    for bn in bins:
+        u = union_rate(flag_sets, held_ids, rows, bins, model_of, {bn["k"]})
+        print("  bin %2d (N %5d-%5d): ANY %.2f%% [%.2f-%.2f]" % (bn["k"], bn["n_lo"], bn["n_hi"],
+              100 * median_nan(u), 100 * pct(u, 0.05), 100 * pct(u, 0.95)))
+    u = union_rate(flag_sets, held_ids, rows, bins, model_of, {bn["k"] for bn in bins})
+    print("  overall held-out ANY %.2f%% [%.2f-%.2f]" % (100 * median_nan(u), 100 * pct(u, 0.05), 100 * pct(u, 0.95)))
+
+    # 4b. E2: the UNION on the bins a shipped band covers — the band's own
+    # thresholds against the picked curves, both in-sample on the same items,
+    # so the comparison is like for like (the band's banked union is held-out
+    # and is quoted beside it in the results, not here).
+    print("\nE2 — UNION ON THE BAND'S OWN BINS (in-sample, same items): band thresholds vs picked curves")
+    for name, (lo, hi, thr) in band_thr.items():
+        items = [r for bn in bins if bn["n_lo"] >= lo and bn["n_hi"] <= hi for r in by_bin[bn["k"]]]
+        if not items:
+            continue
+        band_hit = curve_hit = 0
+        for r in items:
+            b = c = False
+            for f in checks:
+                v = r[f]
+                if v != v:
+                    continue
+                if key_of[f] in thr:
+                    t = thr[key_of[f]]
+                    if (v < t) if SIDE[f] == "lo" else (v > t):
+                        b = True
+                m = picks[f]["model"]
+                t2 = full[f][m][0](r["x"])
+                if (v < t2) if SIDE[f] == "lo" else (v > t2):
+                    c = True
+            band_hit += b
+            curve_hit += c
+        print("  band %s %d-%d: %d items in whole bins inside it; ANY band %.2f%%  ANY curves %.2f%%  (difference %+.2f points; E2 fires over +2)"
+              % (name, lo, hi, len(items), 100 * band_hit / len(items), 100 * curve_hit / len(items),
+                 100 * (curve_hit - band_hit) / len(items)))
 
     # 5. union per bin, picked set, on the full-corpus curves (in-sample) and held-out
     print("\nUNION (§5.5): per bin, %% of items flagged by ANY picked curve (full-corpus fit, in-sample)")
@@ -642,12 +755,16 @@ def main():
     f.add_argument("rows", nargs="+")
     f.add_argument("--seeds", type=int, default=200)
     f.add_argument("--checks", default="mattr,fwr,anaphora,cv,predictability")
+    f.add_argument("--picks", default=None,
+                   help="check=MODEL,... — force the picks for the in-sample sections (disclosed)")
     f.set_defaults(fn=cmd_fit)
     m = sub.add_parser("merge-cache")
     m.add_argument("shards", nargs="+")
     m.add_argument("--into", required=True)
     m.set_defaults(fn=cmd_merge_cache)
     a = ap.parse_args()
+    if getattr(a, "picks", None):
+        a.picks = dict(kv.split("=") for kv in a.picks.split(","))
     a.fn(a)
 
 
