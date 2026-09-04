@@ -209,13 +209,29 @@ the curve is UNDER the band (3.00 → 1.87, 2.25 → 1.95).
 | `song` 200–400 | 2,000 | 16.60% | 17.45% | +0.85 |
 | `short` 50–150 | 3,200 | 14.03% | 15.78% | +1.75 |
 
-E2 fires over +2 points; it does not fire, and `short` is close. The
-held-out version of the same comparison — the band's thresholds re-read
-from each seed's calibration half inside the band, the curves from the
-whole calibration half, both evaluated on the held-out items of the same
-bins — is printed by the instrument since the rerun and is banked in §9
-when that run completes. (The banked band unions, 20.22% and 16.18%, are
-held-out figures from the band cells' own runs and are not the row above.)
+E2 fires over +2 points; it does not fire in-sample, and `short` is close.
+
+**E2 AS DECLARED — held-out against held-out, same 200 seeds** (the
+band's thresholds re-read from each seed's calibration half INSIDE the
+band, the curves from the whole calibration half, both evaluated on the
+held-out items of the same whole bins; the rerun that printed it
+reproduced every pick and every coefficient of the first run byte for
+byte):
+
+| band | bins | ANY, band thresholds, median [5th–95th] | ANY, picked curves | difference |
+|---|---|--:|--:|--:|
+| `song` 200–400 | 14–18 | 17.03% [13.57–21.80] | 17.60% [13.81–22.47] | **+0.57** |
+| `short` 50–150 | 2–9 | 13.91% [9.84–20.84] | 15.42% [11.14–21.53] | **+1.51** |
+
+E2 does not fire. The curve costs a writer inside the `song` band about
+half a point of interruption rate and inside `short` a point and a half,
+for coverage of the 31% of lengths the bands refuse; and the seed spread
+of both columns overlaps almost entirely. (The banked band unions, 20.22%
+and 16.18%, are the band cells' own held-out figures over their own item
+sets and are not the rows above; `song`'s includes predictability.)
+
+Overall held-out union of the four picked curves over the whole corpus:
+**16.21% [13.09–21.25]**.
 
 Union of the four picked curves over the whole corpus, in-sample: **16.43%
 of 8,667 items** flagged by at least one check, per bin 12.0–20.5%
