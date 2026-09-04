@@ -574,6 +574,10 @@ export async function createChatRouter({
           plan_lines: c.plan_lines ?? null,
           // M-221: the draft came from the carried record, not the model.
           draft_carried: c.draft_carried ?? false,
+          // M-229: the run's declarations were re-applied; the call was refused
+          // by the connector for wandering off a suspended run.
+          declarations_carried: c.declarations_carried ?? false,
+          refused_by_connector: c.refused_by_connector ?? false,
         })),
         stopped: run.stopped,
         // WHY IT STOPPED, WITH THE NUMBERS (2026-09-02, triage C11). A bare

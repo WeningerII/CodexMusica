@@ -417,6 +417,7 @@ export const _agentInternals = {
   stateKey,
   carriedKey,
   pruneHistory,
+  stubSupersededInPlace,
 };
 
 async function generate({
@@ -527,20 +528,76 @@ const SUSPENDED_RUN_NOTE = (seed) =>
 // the continuing lyric_revise call is filled from it, so the parameter is
 // removed from the declaration for that request and the model has nothing to
 // re-emit. The first call of a song, with no record, sees the full schema.
+// The arguments that DECLARE a run, as opposed to answer it: everything but
+// the draft, the answer and the carried state. Stored on the record at the
+// first suspended call and re-applied on every continuing one (M-229).
+const RUN_ANSWER_FIELDS = new Set(['draft', 'answer', STATE_PROPERTY]);
+export function declarationArgs(args) {
+  const out = {};
+  for (const [k, v] of Object.entries(args || {})) if (!RUN_ANSWER_FIELDS.has(k)) out[k] = v;
+  return out;
+}
+// The fields that KEY a run (stateKey's coordinates) — the only declaration
+// fields the model still sees while a run is suspended, so a continuing call
+// can name the run it continues and nothing else.
+const RUN_KEY_FIELDS = new Set(['seed', 'scheme', 'groups', 'returns', 'relation', 'structures']);
+
 export function declarationsFor(surface, lyr) {
   if (!lyr || typeof lyr.state !== 'string' || !Array.isArray(lyr.draft))
     return surface.declarations;
   return surface.declarations.map((d) => {
     if (!surface.stateTools?.has(d.name) || !d.parameters?.properties?.draft) return d;
-    const { draft: _draft, ...properties } = d.parameters.properties;
+    // M-226 dropped `draft`; M-229 drops every other declaration field too —
+    // while a run is suspended the call is `answer` plus the run's key, and
+    // the connector puts the run's own declarations back (declarationArgs).
+    const properties = {};
+    for (const [k, v] of Object.entries(d.parameters.properties))
+      if (k === 'answer' || RUN_KEY_FIELDS.has(k)) properties[k] = v;
     const required = Array.isArray(d.parameters.required)
-      ? d.parameters.required.filter((n) => n !== 'draft')
+      ? d.parameters.required.filter((n) => n in properties)
       : d.parameters.required;
     return {
       ...d,
       parameters: { ...d.parameters, properties, ...(required ? { required } : {}) },
     };
   });
+}
+
+// A CALL THAT WANDERS OFF A SUSPENDED RUN IS REFUSED BY THE CONNECTOR (M-229).
+// Round 16's turn 0: with a run suspended at answers 0, the model swept
+// again, planned twice more, and graded two fresh drafts — fourteen hops and
+// the question never answered. While a lyric_revise run is SUSPENDED (a
+// question pending), a call that plans or sweeps or recovers a song, or
+// that grades/checks/revises a DIFFERENT run, gets an error result naming
+// the suspended run and the one call that continues it. Screening words and
+// asking about rhyme types stay open — they help answer.
+const WANDER_ALWAYS = new Set(['lyric_plan', 'lyric_sweep', 'lyric_recover']);
+const WANDER_KEYED = new Set(['lyric_grade', 'lyric_check', 'lyric_revise']);
+export function wanderRefusal(lyr, name, args) {
+  const seed = suspendedSeed(lyr);
+  if (seed == null) return null;
+  let where = null;
+  if (WANDER_ALWAYS.has(name)) where = `${name} starts another song`;
+  else if (WANDER_KEYED.has(name)) {
+    const k = stateKey(args);
+    if (k != null && k !== carriedKey(lyr)) where = `${name} names a different run (${k})`;
+  }
+  if (!where) return null;
+  let answers = null;
+  try {
+    const st = JSON.parse(lyr.state);
+    answers = Array.isArray(st?.answered?.propose)
+      ? st.answered.propose.length + (st.answered.propose_group?.length || 0)
+      : null;
+  } catch {
+    /* the count is disclosure, not a gate */
+  }
+  return (
+    `REFUSED by the connector: a lyric_revise run for ${typeof seed === 'number' ? `seed ${seed}` : seed} is SUSPENDED` +
+    `${answers == null ? '' : ` with ${answers} answer(s) on record`}, awaiting one answer, and ${where}. ` +
+    'Finish the suspended run first: call lyric_revise with `answer` (and the same seed). ' +
+    'The song cannot finish through any other call.'
+  );
 }
 
 function suspendedSeed(lyr) {
@@ -619,6 +676,13 @@ function carryState(prev, toolName, args, verdict, surface) {
         : Array.isArray(prev?.draft)
           ? { draft: prev.draft }
           : {}),
+      // THE DECLARATIONS RIDE TOO (M-229, round 16). A seeded plan is a pure
+      // function of the seed AND the declarations (form, lines, functions,
+      // relation, title, budget knobs); round 16 changed one mid-run and the
+      // harness refused the 20-line carried draft against a 39-line plan,
+      // twice. The run's own declarations are pinned here and put back on
+      // every continuing call.
+      decl: declarationArgs(args),
     };
   }
   if ((code === 0 || code === 3) && prev && carriedKey(prev) === key) return null;
@@ -699,6 +763,46 @@ function stubResponse(fr) {
  * @param {{keepTurns?:number, maxBytes?:number}} opts
  * @returns {Array} a new array; entries are shared where untouched
  */
+// THE IN-TURN STUB (M-228, round 14's named wall). pruneHistory stubs a
+// superseded lyric result only in turns OLDER than the newest, so inside one
+// turn every fold's brief rode every later hop: round 12 re-sent twelve
+// superseded briefs on hop 14 and handed back a 328 KB transcript; round 14
+// carried 213–282 KB after each turn and its turn 6 died on three 502s. This
+// pass stubs a lyric_* functionResponse anywhere in the transcript once a
+// LATER result of the same tool exists — the model has already acted on it,
+// and the newest result of each tool (the pending question, the latest
+// grade) stays verbatim. Same stub, same note, same idempotence as
+// pruneHistory; model parts (and their thoughtSignatures) are untouched.
+// Applied in place between hops so the next request carries only what the
+// model still needs, and the handed-back history is already stubbed.
+function stubSupersededInPlace(contents) {
+  if (!Array.isArray(contents) || !contents.length) return 0;
+  const newest = new Map();
+  contents.forEach((entry, i) => {
+    for (const p of entry?.parts || []) {
+      const name = p?.functionResponse?.name;
+      if (typeof name === 'string' && PRUNED_FAMILY.test(name)) newest.set(name, i);
+    }
+  });
+  let stubbed = 0;
+  contents.forEach((entry, i) => {
+    if (entry?.role !== 'user') return;
+    let changed = false;
+    const parts = (entry.parts || []).map((p) => {
+      const fr = p?.functionResponse;
+      if (!fr || !PRUNED_FAMILY.test(fr.name || '') || newest.get(fr.name) === i) return p;
+      if (fr.response && fr.response.pruned === PRUNED_NOTE) return p;
+      const s = stubResponse(fr);
+      if (!s) return p;
+      changed = true;
+      stubbed += 1;
+      return { ...p, functionResponse: s };
+    });
+    if (changed) contents[i] = { ...entry, parts };
+  });
+  return stubbed;
+}
+
 function pruneHistory(contents, { keepTurns = 1, maxBytes = 200_000 } = {}) {
   if (!Array.isArray(contents) || !contents.length) return contents;
   // Turns: each user TEXT entry opens one; tool responses ride on `user`
@@ -932,8 +1036,30 @@ export async function runTurn({
         // way an absent workspace is — the FIRST lyric_revise call of a song
         // legitimately has none, and the tool itself refuses an `answer` with
         // no state, in its own words.
+        // M-229: a call that wanders off a suspended run is answered by the
+        // connector, never sent to the harness.
+        const wander = wanderRefusal(lyr, fc.name, args);
+        if (wander) {
+          result = { isError: true, content: [{ type: 'text', text: `Error: ${wander}` }] };
+          calls.push({
+            name: fc.name,
+            args,
+            isError: true,
+            error: wander,
+            refused_by_connector: true,
+            draft_carried: false,
+            declarations_carried: false,
+            cards: null,
+            recipe: null,
+            ...loopFields(null),
+          });
+          if (onEvent) onEvent({ type: 'tool', name: fc.name, isError: true, refused: true });
+          responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });
+          continue;
+        }
         let injectedState = false;
         let injectedDraft = false;
+        let injectedDecl = false;
         if (surface.stateTools?.has(fc.name)) {
           if (lyr && stateKey(args) != null && stateKey(args) === carriedKey(lyr)) {
             args[STATE_PROPERTY] = lyr.state;
@@ -943,6 +1069,14 @@ export async function runTurn({
             if (args.draft == null && Array.isArray(lyr.draft)) {
               args.draft = lyr.draft;
               injectedDraft = true;
+            }
+            // The run's own declarations REPLACE whatever the model sent
+            // (M-229): the plan is a function of them, and a moved one is a
+            // different song the carried draft cannot be graded against.
+            if (lyr.decl && typeof lyr.decl === 'object') {
+              for (const k of Object.keys(args)) if (!RUN_ANSWER_FIELDS.has(k)) delete args[k];
+              Object.assign(args, lyr.decl);
+              injectedDecl = true;
             }
           } else {
             // The declaration does not expose `state`, so anything here is
@@ -1017,6 +1151,8 @@ export async function runTurn({
           // M-221: whether this call's draft came from the model or from the
           // carried record — the row that says how much the model had to emit.
           draft_carried: injectedDraft,
+          // M-229: the run's declarations were re-applied over the model's.
+          declarations_carried: injectedDecl,
           error: isError ? (result?.content?.[0]?.text ?? '') : null,
           cards: payload?.cards ?? null,
           recipe: payload?.recipe ?? null,
@@ -1027,6 +1163,9 @@ export async function runTurn({
       }
       // Gemini takes tool output back on the `user` turn.
       contents.push({ role: 'user', parts: responses });
+      // M-228: the brief the model just answered leaves the transcript before
+      // the next request; the result it has not acted on yet stays whole.
+      if (limits.pruneFolded) stubSupersededInPlace(contents);
 
       // Stop between hops once this turn has spent its allowance. Checked HERE,
       // after the tool responses are appended, so the transcript handed back is

@@ -57,13 +57,19 @@ on:
   # own, have promoted the 25-minute `tandem` job from weekly to daily. So
   # `tandem` names the weekly cron and the two nightly jobs name the nightly
   # one, and a third cron cannot change what any existing job does.
-  schedule:
-    - cron: '0 6 * * 1'
-    # Nightly, for the checks the measurement in `suites` prices out of a pull
-    # request. Deliberately NOT at :00 — GitHub's scheduler queues cron runs
-    # globally and the top of the hour is the most contended minute there is,
-    # which shows up as a scheduled run starting late or being dropped.
-    - cron: '17 4 * * *'
+  # SUSPENDED 2026-09-04 (M-227) BY THE OWNER'S ORDER for the duration of the
+  # end-to-end drive: "suspend/cancel tonight's nightly, tandem, mutation. you
+  # have a dramatically more important goal right now that cannot be
+  # interrupted or stopped until it's successful." Both crons are commented
+  # out, not deleted (doctrine 17); restore them by uncommenting when the
+  # drive lands a song.
+  # schedule:
+  #   - cron: '0 6 * * 1'
+  # Nightly, for the checks the measurement in `suites` prices out of a pull
+  # request. Deliberately NOT at :00 — GitHub's scheduler queues cron runs
+  # globally and the top of the hour is the most contended minute there is,
+  # which shows up as a scheduled run starting late or being dropped.
+  #   - cron: '17 4 * * *'
 
 # ONE LIVE RUN PER BRANCH. This is the `gate` job's argument (below) restated at
 # the level of the RUN instead of the JOB, and it was the larger of the two leaks

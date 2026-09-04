@@ -20144,6 +20144,41 @@ entry is about, made settable.
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
 with this entry (2026-09-03).
 
+### M-229 · Round 16 made fourteen well-formed calls and no malformed hop — and spent them wandering: a moved declaration, two re-plans, a sweep, and a question never answered `CLOSED` 2026-09-04 (connector and driver halves; round 17 measures the model half)
+
+**ROUND 16** (run 33832762778, GitHub's #18, the first round to START against the M-226 build — `wait_for_live` released it 91 s after the deploy hook): turn 0, 206 s, **14 hops, `MAX_STEPS`, `malformed: []`** — the coordinate M-226 removed did not break once. What the hops bought: `lyric_plan` (20 lines) → `lyric_grade` **refused, 11-line draft against a 20-line plan** → `lyric_revise` refused (mandate fields beside a seed) → `lyric_revise` **exit 4, a run suspended at answers 0** → two `lyric_revise` **refused: "the plan declares 39 line(s) and the draft carries 20"**, `draft_carried: true` — the model kept the seed, changed a declaration, and the harness graded the carried 20-line draft against a different plan → `lyric_sweep` → `lyric_plan` → `lyric_grade` exit 3 (1 banned pair) → `lyric_revise` refused (no draft on a first call for a new seed) → refused (answer before a question) → refused (49 lines vs 20) → `lyric_plan` → `lyric_grade` exit 3. **Zero answers folded.** Turn 1: a 502, then three Gemini 429s naming waits of 53 s, 25 s and 59 s; the driver's four-retry budget — sized for 5xx — gave the round up after them (`exit_reason: transport`).
+
+**BUILT — three mechanisms where three prose instructions had been (doctrine 48):**
+
+1. **The run's declarations are carried and re-applied** (`mcp/gemini_agent.js`): `carryState` stores `declarationArgs(args)` — everything but draft, answer and state — on the record at the first suspended call, and a continuing call for the same key has its declaration fields REPLACED by the run's own before the harness sees it (`declarations_carried` on the row). A plan is a pure function of seed and declarations; a moved one is a different song the carried draft cannot be graded against.
+2. **The suspended-run declaration is `answer` plus the run's key, nothing else**: `declarationsFor` now strips every declaration field except the key coordinates (`seed`, or the mandate fields for a pasted song) and `answer`. M-226 removed one field the model could break a call on; this removes every field it could move a plan with.
+3. **A call that wanders off a suspended run is refused by the connector**, never sent to the harness: while a run has a question pending, `lyric_plan`/`lyric_sweep`/`lyric_recover`, or `lyric_grade`/`lyric_check`/`lyric_revise` naming a different run, get an error result that names the suspended seed, the answers on record and the one call that continues it (`wanderRefusal`; `refused_by_connector` on the row). `lyric_screen` and `lyric_types` stay open — they help answer. Not a harness change: the harness's own refusals (mandate beside a seed, answer before a question, a wrong-length draft) are untouched and were all correct.
+4. **A 429 that names its wait is pacing** (`scripts/flash_battery.mjs`): waited out on the server's own number, not charged to the four-retry budget, bounded by `--rate-wait-cap` (900 s) in total; the retry row carries `paced` and the running `rate_wait_s`.
+
+`mcp/test.mjs`: a six-hop mocked turn — the second call's moved `lines` is put back with the run's `form` and `max_rounds`, the model's answer and the carried draft intact; the declaration on the suspended hop has exactly `answer` and `seed`; `lyric_plan` and a different seed's `lyric_grade` are refused with the run named and never reach the tool, the same seed's grade and a screen go through, the refusal is a function response the model reads; `declarationArgs` and `wanderRefusal` on the empty cases. The M-221 carry check moved with it: its different-seed call is now the refusal.
+
+**WHAT ROUND 16 SETTLED ABOUT THE MODEL:** given a declaration it cannot break, gemini-3.1-flash-lite made fourteen well-formed calls in one turn. What it still does not do on its own is follow the working order past the first refusal; this entry makes the order the only path the tools admit while a run is open.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~283~~ **284** with this entry (2026-09-04).
+
+### M-228 · Inside one turn every answered brief rode every later hop — 328 KB after one turn, 502s under it — because the fold pruner only looked at OLDER turns `CLOSED` 2026-09-04 (connector half; measured on the next round's `sizes.history`)
+
+M-223 named it as the next wall and round 14 ran into it: the transcript was **213–282 KB after every turn** and turn 6 died on three 502s over 27 minutes before the new build answered. `pruneHistory` (M-197) stubs a superseded lyric result only in a turn OLDER than the newest, so within a turn — where a `continue` message folds eight to twelve answers — every brief the model had already answered went back to Gemini on every later hop and came back in the envelope whole. Round 12's hop 14 re-sent twelve superseded briefs.
+
+**BUILT:** `stubSupersededInPlace(contents)` (`mcp/gemini_agent.js`) runs between hops, right after the tool responses are appended: a `lyric_*` `functionResponse` anywhere in the transcript whose tool has a LATER result is replaced by the same verdict stub `pruneHistory` writes (exit code, status, answers on record, the pruned note); the newest result of each tool — the pending question, the latest grade — stays verbatim; model parts and their thoughtSignatures are untouched; recipe results are never touched (standing rule 1). The handed-back history is the stubbed one and stubbing it again changes nothing. Gated on `pruneFolded` like the pruner it extends.
+
+`mcp/test.mjs`: three mocked folds — request 3 carries the first result as a stub and the second whole, request 4 carries two stubs and the third whole, the transcript no longer grows by a brief per hop; the returned history is the stubbed one and idempotent; a recipe result and a lone lyric result are left byte-identical.
+
+**WHAT IT DOES NOT CLAIM:** a number. The saving is `sizes.history` on the first round after this deploys, read against round 14's 213–282 KB; the 502s it may or may not have caused stay unattributed until the same rows say so.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~281~~ **282** with this entry (2026-09-04).
+
+### M-227 · The nightly and weekly CI crons are suspended for the end-to-end drive `OPEN` 2026-09-04 — the owner's order, verbatim: *"suspend/cancel tonight's nightly, tandem, mutation. you have a dramatically more important goal right now that cannot be interrupted or stopped until it's successful."*
+
+Both `schedule:` crons in `.github/workflows/ci.yml` (`17 4 * * *` nightly, `0 6 * * 1` weekly) are commented out, not deleted (doctrine 17). A backstop check-in cancels any scheduled run that fires before this reaches `main`. **Restore by uncommenting when the drive lands a song**; this entry closes then.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved with M-228 (this entry and M-228 entered together, 2026-09-04).
+
 ### M-226 · The first malformed call ever recorded broke inside the draft array the model re-sent — and the connector's own reminder told it to re-send it `CLOSED` 2026-09-04 (connector half; round 16 measures the model half) — rounds 14 and 15 banked
 
 **ROUND 14** (run 33824760222, GitHub's #15, 90 min, cancelled at turn 8; the driver at 89481da3): turns 0–5 against the deployment at 02e022ff — **34 answers folded in six turns**, 7/8/5/10/3/8 calls a turn, three turns ended `MALFORMED_FUNCTION_CALL` after calls (truncated, continued: M-223's rule working), one `MAX_TOKENS`; history 213–282 KB after every turn. Turn 6: three 502s over 27 minutes (*"The engine could not answer that one"*) — the 328 KB envelope against the old server, then the deploy restart under it. **Turns 6 and 7 answered from the NEW connector** (4df502d4, live at ~02:35): `path: warm`, `malformed: []` then `malformed: [1 hop, re-asked]`, one fold each, and the round was cancelled to free the queue.

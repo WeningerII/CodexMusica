@@ -83,6 +83,9 @@ const PACE_MS = Math.max(0, parseFloat(args.pace || '130') * 1000);
 // M-223: the longest the driver honours a Retry-After for, in seconds. Past
 // it the row records the server's number and the run moves on.
 const RETRY_AFTER_CAP_S = Math.max(0, Number(args['retry-after-cap'] ?? 600) || 0);
+// M-229: the most a turn waits in total on 429s that name their wait, in
+// seconds, before the round records the transport failure.
+const RATE_WAIT_CAP_S = Math.max(0, Number(args['rate-wait-cap'] ?? 900) || 0);
 const REASK = Math.max(0, Number(args.reask ?? (N_SONGS === 1 ? 2 : 0)) || 0);
 const STOP_ON = new Set(
   (args['stop-on'] ?? (N_SONGS === 1 ? 'malformed,idle' : 'none'))
@@ -365,12 +368,20 @@ for (const [songNo, briefIdx] of indices.entries()) {
     // Four sixty-second waits on it would be four minutes of nothing; the row
     // names it and the round ends with its own reason.
     const turnCapped = () => r.status === 429 && /start a new recipe/.test(r.error || '');
+    // A 429 THAT NAMES ITS WAIT IS PACING, NOT A FAILURE (M-229, round 16):
+    // Gemini's per-minute limit answered turn 1 three times with Retry-After
+    // 53s/25s/59s and the four-retry budget — sized for 5xx — gave the round
+    // up on it. Such a 429 is waited out on the server's own number and does
+    // not spend the retry budget; RATE_WAIT_CAP_S bounds the total.
+    let rateWaitS = 0;
+    const paced = () => r.status === 429 && r.retryAfterS != null && !turnCapped();
     while (
       (r.status === 429 || r.status === 502 || r.status === 503) &&
       !turnCapped() &&
-      retries < 4
+      (retries < 4 || (paced() && rateWaitS < RATE_WAIT_CAP_S))
     ) {
-      retries++;
+      if (!paced()) retries++;
+      else rateWaitS += Math.min(r.retryAfterS, RETRY_AFTER_CAP_S);
       // The wait is the server's own Retry-After when it names one (capped at
       // RETRY_AFTER_CAP_S so a quota that says "tomorrow" cannot park the job),
       // else the 60s floor. The row says which, and quotes the body's error.
@@ -380,6 +391,8 @@ for (const [songNo, briefIdx] of indices.entries()) {
         JSON.stringify({
           turn: t,
           retry: retries,
+          paced: paced(),
+          rate_wait_s: rateWaitS,
           status: r.status,
           error: r.error ?? null,
           retry_after_s: r.retryAfterS ?? null,

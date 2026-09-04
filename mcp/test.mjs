@@ -951,9 +951,11 @@ check('validation: actionable errors', () => {
     );
     // M-195: the carry is keyed on `seed:N` for a planned song and `mandate:…`
     // for a pasted one, so the record carries its key beside the seed.
+    // M-229: the record also pins the run's declarations (everything but
+    // draft, answer and state) — here the seed alone.
     assert.deepEqual(
       suspended,
-      { key: 'seed:7', seed: 7, state: 'S1' },
+      { key: 'seed:7', seed: 7, state: 'S1', decl: { seed: 7 } },
       'exit 4 carries the record'
     );
     assert.equal(
@@ -1467,7 +1469,9 @@ check('validation: actionable errors', () => {
     check(
       'an omitted draft on a continuing call is filled from the carried record, a sent draft stands, a different seed gets nothing (M-221)',
       () => {
-        assert.equal(seen.length, 4);
+        // M-229: the fourth call named a different seed while this run was
+        // suspended, so the connector refused it and the harness never saw it.
+        assert.equal(seen.length, 3);
         assert.deepEqual(seen[0].args.draft, DRAFT, 'the first call sends its own draft');
         assert.equal(seen[0].args.state, undefined, 'and carries no state yet');
         assert.deepEqual(
@@ -1485,8 +1489,12 @@ check('validation: actionable errors', () => {
           ['a draft the model sent itself'],
           'a draft the model sent is not overwritten'
         );
-        assert.equal(seen[3].args.draft, undefined, 'a different seed inherits neither draft');
-        assert.equal(seen[3].args.state, undefined, 'nor state');
+        assert.equal(
+          carried.calls[3].refused_by_connector,
+          true,
+          'a different seed is refused while this run is suspended (M-229)'
+        );
+        assert.ok(/names a different run \(seed:6\)/.test(carried.calls[3].error));
         assert.deepEqual(
           carried.calls.map((c) => c.draft_carried),
           [false, true, false, false],
@@ -1599,6 +1607,359 @@ check('validation: actionable errors', () => {
       );
     }
   });
+  // ── M-228: THE IN-TURN STUB ─────────────────────────────────────────────
+  // Inside one turn every fold's brief rode every later hop (round 12: 328 KB
+  // after one turn). Once a later result of the same lyric tool exists, the
+  // earlier result's body is stubbed between hops; the newest stays whole.
+  await (async () => {
+    const { runTurn: _rt, LIMITS: _L, _agentInternals: AI } = await import('./gemini_agent.js');
+    const surface = {
+      instructions: '',
+      declarations: [
+        {
+          name: 'lyric_revise',
+          parameters: {
+            type: 'object',
+            properties: {
+              seed: { type: 'integer' },
+              draft: { type: 'array' },
+              answer: { type: 'string' },
+            },
+            required: ['seed', 'draft'],
+          },
+        },
+      ],
+      workspaceTools: new Set(),
+      stateTools: new Set(['lyric_revise']),
+    };
+    const usageMeta = { promptTokenCount: 10, candidatesTokenCount: 5, thoughtsTokenCount: 0 };
+    const BRIEF = 'B'.repeat(2000);
+    const requests = [];
+    const realFetch = globalThis.fetch;
+    const script = [
+      { functionCall: { name: 'lyric_revise', args: { seed: 9, draft: ['a', 'b'] } } },
+      { functionCall: { name: 'lyric_revise', args: { seed: 9, answer: 'one' } } },
+      { functionCall: { name: 'lyric_revise', args: { seed: 9, answer: 'two' } } },
+      { text: 'done' },
+    ];
+    let hop = 0;
+    globalThis.fetch = async (_url, init) => {
+      requests.push(JSON.parse(init.body));
+      const part = script[Math.min(hop++, script.length - 1)];
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({
+          candidates: [
+            { content: { parts: [part] }, finishReason: part.text ? 'STOP' : undefined },
+          ],
+          usageMetadata: usageMeta,
+        }),
+      };
+    };
+    let n = 0;
+    let run;
+    try {
+      run = await _rt({
+        apiKey: 'k',
+        surface,
+        callTool: async () => {
+          n += 1;
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `[AWAITING PROPOSAL — seed 9 — ${n} answer(s) on record — NO SONG YET]\n${BRIEF}`,
+              },
+              {
+                type: 'text',
+                text: JSON.stringify({
+                  exit_code: 4,
+                  status: 'awaiting_proposal',
+                  answers_on_record: n,
+                  state: `{"pending":{"kind":"propose"},"n":${n}}`,
+                }),
+              },
+            ],
+          };
+        },
+        userText: 'go',
+        limits: { ..._L, maxTurnUsd: 0 },
+        retries: 0,
+      });
+    } finally {
+      globalThis.fetch = realFetch;
+    }
+    const responsesIn = (req) =>
+      req.contents.flatMap((c) => (c.parts || []).map((p) => p.functionResponse).filter(Boolean));
+    check(
+      'between hops, a lyric result a later result of the same tool superseded is stubbed and the newest stays whole (M-228)',
+      () => {
+        assert.equal(requests.length, 4, 'four requests: three calls, then the reply');
+        const r3 = responsesIn(requests[2]);
+        assert.equal(r3.length, 2, 'request 3 carries two revise results');
+        assert.ok(
+          typeof r3[0].response.pruned === 'string' && /pruned/.test(r3[0].response.pruned),
+          'the first carries the pruned note'
+        );
+        assert.equal(r3[0].response.answers_on_record, 1, 'and keeps its verdict fields');
+        assert.ok(!('presentation' in r3[0].response), 'its brief is gone');
+        assert.ok(r3[1].response.presentation.includes(BRIEF), 'the newest result keeps its brief');
+        const r4 = responsesIn(requests[3]);
+        assert.deepEqual(
+          r4.map((fr) => 'presentation' in fr.response),
+          [false, false, true],
+          'on the next hop the second is stubbed too and the third stays whole'
+        );
+        const bytes2 = JSON.stringify(requests[1].contents).length;
+        const bytes4 = JSON.stringify(requests[3].contents).length;
+        assert.ok(
+          bytes4 < bytes2 + 2 * BRIEF.length,
+          `the transcript does not grow by a brief per hop (${bytes2} -> ${bytes4})`
+        );
+      }
+    );
+    check(
+      'the handed-back history is the stubbed one, and stubbing it again changes nothing (M-228)',
+      () => {
+        const hist = run.history;
+        const frs = hist.flatMap((c) =>
+          (c.parts || []).map((p) => p.functionResponse).filter(Boolean)
+        );
+        assert.deepEqual(
+          frs.map((fr) => 'presentation' in fr.response),
+          [false, false, true]
+        );
+        const copy = JSON.parse(JSON.stringify(hist));
+        assert.equal(AI.stubSupersededInPlace(copy), 0, 'idempotent');
+        assert.deepEqual(copy, hist);
+        assert.equal(hist.filter((c) => c.role === 'model').length, 4, 'model parts untouched');
+      }
+    );
+    check(
+      'stubSupersededInPlace leaves a recipe result and a lone lyric result alone (M-228)',
+      () => {
+        const c = [
+          { role: 'user', parts: [{ text: 'hi' }] },
+          { role: 'model', parts: [{ functionCall: { name: 'start_recipe', args: {} } }] },
+          {
+            role: 'user',
+            parts: [{ functionResponse: { name: 'start_recipe', response: { cards: 3 } } }],
+          },
+          { role: 'model', parts: [{ functionCall: { name: 'lyric_plan', args: {} } }] },
+          {
+            role: 'user',
+            parts: [
+              {
+                functionResponse: {
+                  name: 'lyric_plan',
+                  response: { presentation: 'P', verdict: { exit_code: 0 } },
+                },
+              },
+            ],
+          },
+        ];
+        const before = JSON.stringify(c);
+        assert.equal(AI.stubSupersededInPlace(c), 0);
+        assert.equal(JSON.stringify(c), before);
+      }
+    );
+  })();
+  // ── M-229: THE RUN'S DECLARATIONS ARE CARRIED, THE CALL IS ANSWER+KEY, AND
+  // A CALL THAT WANDERS OFF A SUSPENDED RUN IS REFUSED ─────────────────────
+  await (async () => {
+    const {
+      runTurn: _rt,
+      LIMITS: _L,
+      declarationsFor: _df,
+      declarationArgs: _da,
+      wanderRefusal: _wr,
+    } = await import('./gemini_agent.js');
+    const reviseDecl = {
+      name: 'lyric_revise',
+      parameters: {
+        type: 'object',
+        properties: {
+          seed: { type: 'integer' },
+          draft: { type: 'array' },
+          answer: { type: 'string' },
+          lines: { type: 'integer' },
+          form: { type: 'string' },
+          max_rounds: { type: 'integer' },
+        },
+        required: ['seed', 'draft'],
+      },
+    };
+    const planDecl = {
+      name: 'lyric_plan',
+      parameters: { type: 'object', properties: { seed: { type: 'integer' } } },
+    };
+    const surface = {
+      instructions: '',
+      declarations: [
+        reviseDecl,
+        planDecl,
+        { name: 'lyric_screen' },
+        {
+          name: 'lyric_grade',
+          parameters: { type: 'object', properties: { seed: { type: 'integer' } } },
+        },
+      ],
+      workspaceTools: new Set(),
+      stateTools: new Set(['lyric_revise']),
+    };
+    const usageMeta = { promptTokenCount: 10, candidatesTokenCount: 5, thoughtsTokenCount: 0 };
+    const suspended = (n) => ({
+      content: [
+        {
+          type: 'text',
+          text: `[AWAITING PROPOSAL — seed 5 — ${n} answer(s) on record — NO SONG YET]`,
+        },
+        {
+          type: 'text',
+          text: JSON.stringify({
+            exit_code: 4,
+            status: 'awaiting_proposal',
+            answers_on_record: n,
+            state: `{"pending":{"kind":"propose"},"answered":{"propose":${JSON.stringify(Array(n).fill('x'))},"propose_group":[]}}`,
+          }),
+        },
+      ],
+    });
+    const script = [
+      {
+        functionCall: {
+          name: 'lyric_revise',
+          args: { seed: 5, draft: ['a', 'b'], lines: 20, form: 'verse-chorus', max_rounds: 4 },
+        },
+      },
+      { functionCall: { name: 'lyric_revise', args: { seed: 5, answer: 'one', lines: 39 } } },
+      { functionCall: { name: 'lyric_plan', args: { seed: 6 } } },
+      { functionCall: { name: 'lyric_grade', args: { seed: 6 } } },
+      { functionCall: { name: 'lyric_screen', args: { pairs: 'a--b' } } },
+      { functionCall: { name: 'lyric_grade', args: { seed: 5 } } },
+      { text: 'done' },
+    ];
+    const requests = [];
+    const seen = [];
+    let hop = 0;
+    const realFetch = globalThis.fetch;
+    globalThis.fetch = async (_url, init) => {
+      requests.push(JSON.parse(init.body));
+      const part = script[Math.min(hop++, script.length - 1)];
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({
+          candidates: [
+            { content: { parts: [part] }, finishReason: part.text ? 'STOP' : undefined },
+          ],
+          usageMetadata: usageMeta,
+        }),
+      };
+    };
+    let n = 0;
+    let run;
+    try {
+      run = await _rt({
+        apiKey: 'k',
+        surface,
+        callTool: async (name, args) => {
+          seen.push({ name, args: { ...args } });
+          if (name === 'lyric_revise') return suspended(++n);
+          return { content: [{ type: 'text', text: JSON.stringify({ exit_code: 0 }) }] };
+        },
+        userText: 'go',
+        limits: { ..._L, maxTurnUsd: 0 },
+        retries: 0,
+      });
+    } finally {
+      globalThis.fetch = realFetch;
+    }
+    check(
+      "the run's declarations are carried and re-applied over a continuing call that moved one (M-229)",
+      () => {
+        assert.deepEqual(_da({ seed: 5, draft: ['a'], answer: 'x', state: 's', lines: 20 }), {
+          seed: 5,
+          lines: 20,
+        });
+        assert.deepEqual(run.lyric.decl, {
+          seed: 5,
+          lines: 20,
+          form: 'verse-chorus',
+          max_rounds: 4,
+        });
+        const second = seen[1];
+        assert.equal(second.name, 'lyric_revise');
+        assert.equal(second.args.lines, 20, 'the moved declaration is put back');
+        assert.equal(second.args.form, 'verse-chorus');
+        assert.equal(second.args.max_rounds, 4);
+        assert.equal(second.args.answer, 'one', "the answer is the model's");
+        assert.deepEqual(second.args.draft, ['a', 'b'], 'the draft is carried');
+        assert.equal(run.calls[1].declarations_carried, true);
+        assert.equal(run.calls[0].declarations_carried, false);
+      }
+    );
+    check(
+      'while a run is suspended the lyric_revise declaration is answer plus the run key, nothing else (M-229)',
+      () => {
+        const d = (req) => req.tools[0].functionDeclarations.find((x) => x.name === 'lyric_revise');
+        assert.deepEqual(Object.keys(d(requests[0]).parameters.properties).sort(), [
+          'answer',
+          'draft',
+          'form',
+          'lines',
+          'max_rounds',
+          'seed',
+        ]);
+        assert.deepEqual(Object.keys(d(requests[1]).parameters.properties).sort(), [
+          'answer',
+          'seed',
+        ]);
+        assert.deepEqual(d(requests[1]).parameters.required, ['seed']);
+        assert.deepEqual(_df(surface, null), surface.declarations);
+      }
+    );
+    check(
+      'a call that wanders off a suspended run is refused by the connector and never reaches the harness (M-229)',
+      () => {
+        const names = seen.map((c) => c.name);
+        assert.deepEqual(
+          names,
+          ['lyric_revise', 'lyric_revise', 'lyric_screen', 'lyric_grade'],
+          "plan and the other seed's grade never ran"
+        );
+        const refused = run.calls.filter((c) => c.refused_by_connector);
+        assert.deepEqual(
+          refused.map((c) => c.name),
+          ['lyric_plan', 'lyric_grade']
+        );
+        assert.ok(
+          /SUSPENDED with 2 answer\(s\) on record/.test(refused[0].error),
+          refused[0].error
+        );
+        assert.ok(/lyric_plan starts another song/.test(refused[0].error));
+        assert.ok(/lyric_grade names a different run \(seed:6\)/.test(refused[1].error));
+        assert.ok(/call lyric_revise with `answer`/.test(refused[0].error));
+        assert.equal(seen[3].args.seed, 5, "the same run's grade went through");
+        // The refusal is a functionResponse the model can read.
+        const frs = run.history.flatMap((c) =>
+          (c.parts || []).map((p) => p.functionResponse).filter(Boolean)
+        );
+        assert.ok(
+          frs.some(
+            (fr) => fr.name === 'lyric_plan' && /REFUSED by the connector/.test(fr.response.error)
+          )
+        );
+        assert.equal(_wr(null, 'lyric_plan', {}), null, 'no suspended run, nothing refused');
+        assert.equal(
+          _wr(run.lyric, 'lyric_types', {}),
+          null,
+          'asking about rhyme types is not wandering'
+        );
+      }
+    );
+  })();
   check(
     'chat.js hands the malformed hops and draft_carried out, and the battery rows bank them (M-221)',
     () => {
