@@ -90,6 +90,9 @@ const REASK = Math.max(0, Number(args.reask ?? (N_SONGS === 1 ? 2 : 0)) || 0);
 // M-232: how many partial turns (the connector kept the calls, the engine
 // died mid-turn) one round tolerates before it is the engine being down.
 const PARTIAL_CAP = Math.max(0, Number(args['partial-cap'] ?? 6) || 0);
+// M-233: parks in a row that leave the same or more lines open before the
+// round is idle — a rewrite that parks on fewer lines is progress.
+const PARK_STREAK_CAP = Math.max(1, Number(args['park-streak-cap'] ?? 3) || 3);
 const STOP_ON = new Set(
   (args['stop-on'] ?? (N_SONGS === 1 ? 'malformed,idle' : 'none'))
     .split(',')
@@ -313,6 +316,8 @@ for (const [songNo, briefIdx] of indices.entries()) {
   let retries = 0;
   const loopLadder = []; // M-169: one row per revise call that reached a stop
   let lastAnswers = -1; // M-220: the answer count the previous turn left on record
+  let parkStreak = 0; // M-233: parks in a row that did not reduce the open lines
+  let lastOpen = null; // M-233: the open-line count at the last park
   let failedFast = false;
   let userReasks = 0; // M-222: same-message re-sends after a malformed, call-less turn
   let truncated = 0; // M-223: turns cut off by a malformed hop AFTER making calls
@@ -565,10 +570,15 @@ for (const [songNo, briefIdx] of indices.entries()) {
     // THE ROW, AS A WORKFLOW ANNOTATION THE MOMENT IT LANDS (M-220): the job
     // log is served only after the job ends, and an annotation is the one
     // channel a runner has that a reader can see mid-run.
+    // THE TURN'S OWN COUNT, not the running maximum (M-233, round 19): a
+    // parked run is continued by a FRESH run whose answers start at 0 again,
+    // and a count folded into the previous run's maximum read the fresh
+    // run's ten answers as "no new answer folded (13 on record, was 13)".
     const answersNow = Math.max(
-      lastAnswers,
+      -1,
       ...tools.map((c) => (typeof c.answers_on_record === 'number' ? c.answers_on_record : -1))
     );
+    const parkedRows = reviseCalls.filter((c) => c.exit_code === 3);
     console.log(
       `::notice title=battery song ${songNo} turn ${t}::status=${r.status} ms=${r.ms} ` +
         `tools=${tools.length} answers_on_record=${answersNow < 0 ? 'none' : answersNow} ` +
@@ -634,8 +644,29 @@ for (const [songNo, briefIdx] of indices.entries()) {
     }
     if (!partial && STOP_ON.has('idle') && tools.length === 0)
       reasons.push('turn made no tool call');
-    if (!partial && STOP_ON.has('idle') && t > 0 && answersNow >= 0 && answersNow <= lastAnswers)
+    // A park is a result, not idleness; the baseline resets after it so the
+    // continuing run's first folds count. What IS idleness after a park: the
+    // same or more lines open on three parks in a row (M-233).
+    if (
+      !partial &&
+      STOP_ON.has('idle') &&
+      t > 0 &&
+      answersNow >= 0 &&
+      answersNow <= lastAnswers &&
+      !parkedRows.length
+    )
       reasons.push(`no new answer folded (${answersNow} on record, was ${lastAnswers})`);
+    if (parkedRows.length) {
+      const open = Math.min(
+        ...parkedRows.map((c) => (typeof c.loop_unresolved === 'number' ? c.loop_unresolved : 0))
+      );
+      parkStreak = lastOpen != null && open >= lastOpen ? parkStreak + 1 : 1;
+      lastOpen = open;
+      if (STOP_ON.has('idle') && parkStreak >= PARK_STREAK_CAP)
+        reasons.push(`parked ${parkStreak} times in a row without fewer open lines (${open} open)`);
+    } else if (answersNow > lastAnswers) {
+      parkStreak = 0;
+    }
     if (reasons.length) {
       flags.push({ turn: t, flag: 'fail_fast', reasons });
       appendFileSync(file, JSON.stringify({ turn: t, fail_fast: reasons }) + '\n');
@@ -646,7 +677,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
       failedFast = true;
       break;
     }
-    lastAnswers = Math.max(lastAnswers, answersNow);
+    lastAnswers = parkedRows.length ? -1 : Math.max(lastAnswers, answersNow);
     parkedLastTurn = parkedThisTurn;
     await sleep(PACE_MS);
   }
