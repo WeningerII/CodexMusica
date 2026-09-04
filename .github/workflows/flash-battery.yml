@@ -18,8 +18,8 @@ on:
         default: '3'
         required: false
       turns:
-        description: 'Max user turns per song'
-        default: '9'
+        description: 'Max user turns per song (M-224: 25 — round 14 folded 34 answers in six turns and nine could not hold the loop)'
+        default: '25'
         required: false
       pace:
         description: 'Seconds between requests (the site allows ~30/hr/IP)'

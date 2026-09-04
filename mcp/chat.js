@@ -559,6 +559,21 @@ export async function createChatRouter({
           // The harness's own REFUSED headline on an exit 2 (M-168's swerve:
           // round 10 banked three exit-2 calls with no reason on record).
           refusal: c.refusal ?? null,
+          // THE M-216 FIELDS, AND THIS PROJECTION WAS THE SECOND SPELLING
+          // THAT DROPPED THEM (M-219, round 11): `loopFields` put path, ms
+          // and the run record on every call, this map re-spelled the row
+          // by hand and never learned them, and round 11's rows could not
+          // say whether the new deploy answered warm. Copied by name so a
+          // field added to loopFields is a field added HERE, in one edit.
+          path: c.path ?? null,
+          ms: c.ms ?? null,
+          memo_state: c.memo_state ?? null,
+          memo_hit: c.memo_hit ?? null,
+          memo_asked: c.memo_asked ?? null,
+          stale_answers: c.stale_answers ?? null,
+          plan_lines: c.plan_lines ?? null,
+          // M-221: the draft came from the carried record, not the model.
+          draft_carried: c.draft_carried ?? false,
         })),
         stopped: run.stopped,
         // WHY IT STOPPED, WITH THE NUMBERS (2026-09-02, triage C11). A bare
@@ -569,6 +584,10 @@ export async function createChatRouter({
         // the battery banks the reason rather than the label. Null on every
         // turn that stopped for any other reason.
         stopped_detail: run.stoppedDetail ?? null,
+        // WHAT EACH MALFORMED HOP CONTAINED (M-221): one entry per hop Gemini
+        // ended on MALFORMED_FUNCTION_CALL, with the head of the call text it
+        // could not parse — re-asked or not. Empty on a clean turn.
+        malformed: run.malformed ?? [],
         ...envelope,
         sig: sign(envelope),
       });

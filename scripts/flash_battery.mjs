@@ -28,7 +28,10 @@
 //
 // Usage:
 //   node scripts/flash_battery.mjs --out=DIR [--base=URL] [--songs=N]
-//     [--turns=N] [--pace=SECONDS] [--brief=INDEX]
+//     [--turns=N] [--pace=SECONDS] [--brief=INDEX] [--smoke]
+//     [--stop-on=malformed,idle|none]   (default for one song: malformed,idle)
+//     [--retry-after-cap=S]              (default 600; the longest Retry-After honoured)
+//     [--reask=N]                        (default for one song: 2; same-message re-sends on a malformed, call-less turn)
 //
 // Output: DIR/song<i>.jsonl (one row per turn) and DIR/summary.json.
 
@@ -54,8 +57,42 @@ if (!OUT) {
   process.exit(2);
 }
 const N_SONGS = Math.max(1, parseInt(args.songs || '3', 10));
-const MAX_TURNS = Math.max(2, parseInt(args.turns || '9', 10));
+// M-224 (round 14): the turn cap was the wall. Six turns folded 34 answers at
+// six to ten a turn, every turn advancing, and nine turns cannot hold a loop
+// that asks forty or more questions. 25 for a single song; the pace, not the
+// count, is what the per-IP hour limit is sized against.
+const MAX_TURNS = args.smoke ? 2 : Math.max(2, parseInt(args.turns || '25', 10));
 const PACE_MS = Math.max(0, parseFloat(args.pace || '130') * 1000);
+// FAIL FAST (M-220, 2026-09-03, the owner's ruling after round 11: "we should
+// have been alerted on the first turn failure so we could stop the run"). A
+// single-song round stops — red, exit 1 — at the first turn that ends on a
+// model-side MALFORMED_FUNCTION_CALL after the connector's re-asks, makes no
+// tool call at all, or folds no new answer (the count on record did not
+// advance). Round 11 ran nine such turns for an hour and reported at the end;
+// the job log is unreadable until a job ends, so the ONLY signal a watcher
+// has mid-run is the run's status, and a run that stops at the first bad turn
+// hands that signal over within minutes instead of at the timeout. `--stop-on`
+// names the conditions (`malformed`, `idle`, `none`); the default for ONE song
+// is all of them and for a multi-song round it is none, because a multi-song
+// round's job is the survey and a single song's job is the diagnosis.
+// `--reask=N` (M-222): how many times a turn that ended on a model-side
+// MALFORMED_FUNCTION_CALL with no tool call is re-sent, as the same user
+// message on the returned envelope, before fail-fast judges it. Default 2 for
+// a single-song round — the same bound as the connector's own re-ask (M-219),
+// applied one layer out so it works against a deploy that lacks that re-ask.
+// M-223: the longest the driver honours a Retry-After for, in seconds. Past
+// it the row records the server's number and the run moves on.
+const RETRY_AFTER_CAP_S = Math.max(0, Number(args['retry-after-cap'] ?? 600) || 0);
+const REASK = Math.max(0, Number(args.reask ?? (N_SONGS === 1 ? 2 : 0)) || 0);
+const STOP_ON = new Set(
+  (args['stop-on'] ?? (N_SONGS === 1 ? 'malformed,idle' : 'none'))
+    .split(',')
+    .map((s) => s.trim())
+    .filter((s) => s && s !== 'none')
+);
+// `--smoke` is the two-turn shape a new deploy gets BEFORE a full round: a
+// plan, a grade and the first folds are enough to see whether the model can
+// make a well-formed call against this build, and it costs ten minutes.
 
 // The briefs vary which gates get exercised: a plain ask, a form with a
 // declared relation, a roster constraint, a revision-heavy ask, a paste-in
@@ -81,10 +118,19 @@ const BRIEFS = [
 // the dozens of folds a clean run needs at that pace. The user-role remedy
 // is the same species as PARKED_CONTINUE: steer the PROCESS, write no
 // lyric line — a user watching one answer per reply says "keep going".
+// M-224: PROCESS STEERING ONLY, no lyric line. Round 14 lost three turns to a
+// malformed call and one to the output-token cap. Both are the model's OUTPUT
+// breaking: a call it could not serialise, and a reply too long to finish.
+// A user watching that says: tool calls only, no prose between them, the one
+// line the question asked, never the whole song retyped, and if a call did
+// not go through, make it again.
 const CONTINUE =
   'continue — and answer every question the revision loop asks within this ' +
   'same reply, one lyric_revise call after another, as many as it takes. ' +
-  'One answer per reply is too slow; keep going until it reaches exit 0.';
+  'One answer per reply is too slow; keep going until it reaches exit 0. ' +
+  'Tool calls only: no prose between calls, and never retype the song — ' +
+  'each answer is the one line (or the L<n>: lines) the question asked for, ' +
+  'plain ASCII punctuation. If a call did not go through, make the same call again.';
 // M-163 (owner's order, 2026-08-29: "keep going until we get a clean exit 0
 // song"): exit 3 is a real stop condition and NOT a finished song — the loop
 // parked with flags standing. The driver, still in its user role, does what
@@ -190,7 +236,17 @@ function post(body) {
           } catch {
             payload = null;
           }
-          resolve({ status: res.statusCode, payload, ms: Date.now() - started });
+          // M-223: WHICH limiter answered. Round 12's turn 1 banked 429, 502,
+          // 429, 429, 502 as bare statuses; the connector names its limiter
+          // in the body and its wait in Retry-After, and the row carries both.
+          const ra = Number(res.headers['retry-after']);
+          resolve({
+            status: res.statusCode,
+            payload,
+            ms: Date.now() - started,
+            retryAfterS: Number.isFinite(ra) && ra > 0 ? ra : null,
+            error: payload && typeof payload.error === 'string' ? payload.error : null,
+          });
         });
       }
     );
@@ -238,6 +294,13 @@ for (const [songNo, briefIdx] of indices.entries()) {
   let turns = 0;
   let retries = 0;
   const loopLadder = []; // M-169: one row per revise call that reached a stop
+  let lastAnswers = -1; // M-220: the answer count the previous turn left on record
+  let failedFast = false;
+  let userReasks = 0; // M-222: same-message re-sends after a malformed, call-less turn
+  let truncated = 0; // M-223: turns cut off by a malformed hop AFTER making calls
+  let hitTurnCap = false; // M-224: the connector's CHAT_MAX_TURNS answered 429
+  let lastStatus = 200; // M-223: the last turn's HTTP status and error body
+  let lastError = null;
 
   for (let t = 0; t < MAX_TURNS; t++) {
     const message = t === 0 ? brief : parkedLastTurn ? PARKED_CONTINUE : CONTINUE;
@@ -249,19 +312,100 @@ for (const [songNo, briefIdx] of indices.entries()) {
       body.sig = env.sig;
     }
     let r = await post(body);
+    // THE USER-LEVEL RE-ASK (M-222). The connector's own re-ask (M-219)
+    // reaches the model only once it is deployed; until then a turn that ends
+    // on MALFORMED_FUNCTION_CALL with no tool call is exactly what a person at
+    // the page does next: press send again on the same message with the
+    // envelope the server handed back. Bounded (--reask, default 2 for one
+    // song), every re-ask a row, and the fail-fast rule below judges the LAST
+    // attempt — a turn that recovers on the re-ask is a recovered turn, and a
+    // turn that fails three times is the failure the round stops on.
+    let reasks = 0;
+    let reasks_user = 0;
+    while (
+      r.status === 200 &&
+      (r.payload?.stopped ?? null) === 'MALFORMED_FUNCTION_CALL' &&
+      !(Array.isArray(r.payload?.tools) && r.payload.tools.length) &&
+      reasks < REASK
+    ) {
+      reasks++;
+      reasks_user = reasks;
+      appendFileSync(
+        file,
+        JSON.stringify({
+          turn: t,
+          reask: reasks,
+          stopped: r.payload.stopped,
+          stopped_detail: r.payload.stopped_detail ?? null,
+          ms: r.ms,
+        }) + '\n'
+      );
+      console.log(
+        `::warning title=battery user re-ask::song ${songNo} turn ${t} re-ask ${reasks}/${REASK}: the turn ended on MALFORMED_FUNCTION_CALL with no call; sending the same message again`
+      );
+      const again = { ...body };
+      if (r.payload.history) {
+        again.history = r.payload.history;
+        again.workspace = r.payload.workspace;
+        if (r.payload.lyric != null) again.lyric = r.payload.lyric;
+        again.sig = r.payload.sig;
+      }
+      await sleep(PACE_MS);
+      r = await post(again);
+    }
     // Bounded, logged backoff: a 429/503 is the deployment's own pacing and
     // is part of the record, never silently absorbed. 502 joined at M-164
     // (round 7, 2026-08-29): chat.js answers 502 from its catch-all when a
     // turn's upstream dies past the server's own single 5xx retry — the
     // turn's work is thrown away but the carried envelope is intact, so a
     // logged retry is the user pressing send again, not record-blurring.
-    while ((r.status === 429 || r.status === 502 || r.status === 503) && retries < 4) {
+    // THE CONNECTOR'S OWN CONVERSATION CAP IS TERMINAL (M-224): `CHAT_MAX_TURNS`
+    // (12 by default, counted over the user turns the pruned history still
+    // holds) answers 429 with "start a new recipe", and no retry changes it.
+    // Four sixty-second waits on it would be four minutes of nothing; the row
+    // names it and the round ends with its own reason.
+    const turnCapped = () => r.status === 429 && /start a new recipe/.test(r.error || '');
+    while (
+      (r.status === 429 || r.status === 502 || r.status === 503) &&
+      !turnCapped() &&
+      retries < 4
+    ) {
       retries++;
-      appendFileSync(file, JSON.stringify({ turn: t, retry: retries, status: r.status }) + '\n');
-      await sleep(Math.max(PACE_MS, 60_000));
+      // The wait is the server's own Retry-After when it names one (capped at
+      // RETRY_AFTER_CAP_S so a quota that says "tomorrow" cannot park the job),
+      // else the 60s floor. The row says which, and quotes the body's error.
+      const waitS = r.retryAfterS != null ? Math.min(r.retryAfterS, RETRY_AFTER_CAP_S) : null;
+      appendFileSync(
+        file,
+        JSON.stringify({
+          turn: t,
+          retry: retries,
+          status: r.status,
+          error: r.error ?? null,
+          retry_after_s: r.retryAfterS ?? null,
+          waited_s: waitS ?? Math.max(PACE_MS, 60_000) / 1000,
+        }) + '\n'
+      );
+      console.log(
+        `::warning title=battery retry::song ${songNo} turn ${t} retry ${retries}/4: status ${r.status}` +
+          (r.retryAfterS != null ? ` retry-after ${r.retryAfterS}s` : '') +
+          (r.error ? ` — ${esc(r.error, 160)}` : '')
+      );
+      await sleep(waitS != null ? waitS * 1000 : Math.max(PACE_MS, 60_000));
       r = await post(body);
     }
     const p = r.payload || {};
+    lastStatus = r.status;
+    lastError = r.error ?? r.transport ?? null;
+    if (turnCapped()) {
+      hitTurnCap = true;
+      flags.push({ turn: t, flag: 'server_turn_cap', error: r.error });
+      appendFileSync(file, JSON.stringify({ turn: t, server_turn_cap: r.error }) + '\n');
+      console.log(
+        `::error title=battery server turn cap::song ${songNo} turn ${t}: ${esc(r.error, 160)}`
+      );
+      break;
+    }
     if (r.status === 0) {
       flags.push({ turn: t, flag: 'transport_failure', detail: r.transport });
     }
@@ -325,6 +469,11 @@ for (const [songNo, briefIdx] of indices.entries()) {
         reply: p.reply ?? null,
         tools,
         stopped: p.stopped ?? null,
+        // M-221: WHY it stopped and WHAT the malformed hops contained. Round
+        // 11 banked nine malformed turns and could quote none of them.
+        stopped_detail: p.stopped_detail ?? null,
+        malformed: Array.isArray(p.malformed) ? p.malformed : null,
+        user_reasks: reasks,
         error: p.error ?? null,
         sizes: {
           history: p.history ? JSON.stringify(p.history).length : 0,
@@ -333,21 +482,107 @@ for (const [songNo, briefIdx] of indices.entries()) {
       }) + '\n'
     );
     turns++;
+    userReasks += reasks;
+    // THE ROW, AS A WORKFLOW ANNOTATION THE MOMENT IT LANDS (M-220): the job
+    // log is served only after the job ends, and an annotation is the one
+    // channel a runner has that a reader can see mid-run.
+    const answersNow = Math.max(
+      lastAnswers,
+      ...tools.map((c) => (typeof c.answers_on_record === 'number' ? c.answers_on_record : -1))
+    );
+    console.log(
+      `::notice title=battery song ${songNo} turn ${t}::status=${r.status} ms=${r.ms} ` +
+        `tools=${tools.length} answers_on_record=${answersNow < 0 ? 'none' : answersNow} ` +
+        `stopped=${p.stopped ?? 'none'} user_reasks=${reasks} malformed_hops=${Array.isArray(p.malformed) ? p.malformed.length : 'unrecorded'} ` +
+        `draft_carried=${tools.filter((c) => c.draft_carried).length}/${tools.filter((c) => c.name === 'lyric_revise').length} ` +
+        `paths=${[...new Set(tools.map((c) => c.path).filter(Boolean))].join('/') || 'unrecorded'}`
+    );
+    // The malformed call text is the evidence (M-221): print its head the
+    // moment it lands, one notice per hop, so a red run says what the model
+    // tried to call rather than only that it failed.
+    for (const m of Array.isArray(p.malformed) ? p.malformed : []) {
+      console.log(
+        `::notice title=battery malformed hop::song ${songNo} turn ${t} hop ${m.hop} ` +
+          `${m.reasked ? 're-asked' : 'not re-asked'}: ${m.finishMessage == null ? '(finishMessage absent)' : esc(m.finishMessage, 600)}`
+      );
+    }
     if (r.status !== 200) break;
     env = { history: p.history, workspace: p.workspace, lyric: p.lyric, sig: p.sig };
     if (sawStop !== null) break; // exit 0 — the song is FINISHED (M-163)
     if (p.error) break;
+    // FAIL FAST (M-220). Three conditions, named separately in the row.
+    const reasons = [];
+    // A MALFORMED END AFTER CALLS IS A TRUNCATED TURN, NOT A DEAD ONE (M-223,
+    // round 13): the turn planned, checked and was cut off by the model's
+    // broken hop — round 11's malformed turns folded 6, 2, 4 and 5 answers
+    // each before ending the same way. Those turns continue on the next
+    // message; the idle rule below is what catches a run that stops
+    // advancing. Only a malformed turn with NO call, after the user re-asks
+    // (M-222) are spent, is the failure this rule names.
+    if (STOP_ON.has('malformed') && p.stopped === 'MALFORMED_FUNCTION_CALL' && tools.length === 0) {
+      // Say what the deploy actually did (M-221): the smoke run's row read
+      // "after the connector re-asks" against a deploy that had no re-ask.
+      const reasks = p.stopped_detail?.malformedRetries;
+      reasons.push(
+        reasks == null
+          ? `turn ended on MALFORMED_FUNCTION_CALL with no call (this deploy records no re-ask; ${reasks_user} user re-ask(s) spent)`
+          : `turn ended on MALFORMED_FUNCTION_CALL with no call after ${reasks} connector re-ask(s) and ${reasks_user} user re-ask(s)`
+      );
+    }
+    if (p.stopped === 'MALFORMED_FUNCTION_CALL' && tools.length > 0) truncated++;
+    if (STOP_ON.has('idle') && tools.length === 0) reasons.push('turn made no tool call');
+    if (STOP_ON.has('idle') && t > 0 && answersNow >= 0 && answersNow <= lastAnswers)
+      reasons.push(`no new answer folded (${answersNow} on record, was ${lastAnswers})`);
+    if (reasons.length) {
+      flags.push({ turn: t, flag: 'fail_fast', reasons });
+      appendFileSync(file, JSON.stringify({ turn: t, fail_fast: reasons }) + '\n');
+      console.log(
+        `::error title=battery fail-fast::song ${songNo} turn ${t}: ${reasons.join('; ')}`
+      );
+      process.exitCode = 1;
+      failedFast = true;
+      break;
+    }
+    lastAnswers = Math.max(lastAnswers, answersNow);
     parkedLastTurn = parkedThisTurn;
     await sleep(PACE_MS);
   }
 
+  // THE ROUND'S VERDICT IS THE EXIT CODE (M-223). Round 12 exited 0 with no
+  // song: its only red path was fail-fast, so a round whose turn 1 died on
+  // 429/502 five times reported GREEN. One reason per song, never summed:
+  // finished (a lyric_revise exit 0), failed_fast, transport (the last turn
+  // was a non-200 or an error body), no_stop (every turn answered and the
+  // loop never reached exit 0). A single-song round is red on anything but
+  // finished; a survey keeps exit 0 because its job is coverage.
+  const exitReason =
+    sawStop === 0
+      ? 'finished'
+      : failedFast
+        ? 'failed_fast'
+        : hitTurnCap
+          ? 'server_turn_cap'
+          : lastStatus !== 200 || lastError
+            ? 'transport'
+            : 'no_stop';
+  if (N_SONGS === 1 && exitReason !== 'finished') process.exitCode = 1;
+  console.log(
+    `::${exitReason === 'finished' ? 'notice' : 'error'} title=battery verdict::song ${songNo}: ${exitReason}` +
+      (lastError ? ` — last error: ${esc(lastError, 160)}` : '')
+  );
   summary.songs.push({
     song: songNo,
     brief: esc(brief, 80),
     turns,
     retries,
+    exit_reason: exitReason,
     reached_stop: sawStop,
     parked,
+    failed_fast: failedFast,
+    stop_on: [...STOP_ON],
+    user_reasks: userReasks,
+    reask_bound: REASK,
+    truncated_turns: truncated,
     loop_ladder: loopLadder,
     flags,
   });
@@ -358,7 +593,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
     .map((l) => `t${l.turn}:${l.stop}/${l.rounds}r/${l.unresolved ?? '?'}open`)
     .join(' ');
   console.log(
-    `song ${songNo}: ${turns} turn(s), stop=${sawStop === null ? (parked ? `NEVER (parked x${parked})` : 'NEVER') : `exit ${sawStop}`}, flags=${flags.length}` +
+    `song ${songNo}: ${turns} turn(s), stop=${sawStop === null ? (parked ? `NEVER (parked x${parked})` : 'NEVER') : `exit ${sawStop}`}, flags=${flags.length}${failedFast ? ', FAILED FAST' : ''}` +
       (ladder
         ? `\n  loop ladder: ${ladder}`
         : '\n  loop ladder: (no call reached a stop condition)')

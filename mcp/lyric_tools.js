@@ -1100,7 +1100,11 @@ export const LYRIC_TOOL_SCHEMAS = {
     functions: functionsField,
     title: titleField,
     narrative: narrativeField,
-    draft: draftField,
+    // OPTIONAL ON A CONTINUING CALL (M-221): the chat connector carries the
+    // draft of the previous call beside the state, so a fold need not re-emit
+    // every quoted line. A first call, or any client that carries nothing,
+    // must still send it — the handler refuses an absent draft by name.
+    draft: draftField.optional(),
     voices: voicesField,
     fallback: fallbackField,
     state: z
@@ -1328,10 +1332,17 @@ export function registerLyricTools(server, tool) {
         // Same presentation-first shape as lyric_grade: the report (plan
         // rows + writer brief, headers intact) leads as plain text.
         if (r.code === 0) {
+          // The verdict block carries everything verdictOf stamped — path,
+          // ms, plan_lines (M-216) — and not the report, which is block 0.
+          // This block used to re-spell the verdict as {exit_code, meaning}
+          // by hand, so a plan row never said which path answered or how
+          // many lines the plan drew: round 9's "large drawn shape" stayed
+          // an inference through round 11 for this reason (M-219).
+          const { report: _report, ...stamped } = verdict;
           return {
             content: [
               { type: 'text', text: r.stdout },
-              { type: 'text', text: JSON.stringify({ exit_code: 0, meaning: verdict.meaning }) },
+              { type: 'text', text: JSON.stringify({ ...stamped, exit_code: 0 }) },
             ],
           };
         }
@@ -1482,7 +1493,9 @@ export function registerLyricTools(server, tool) {
         "first content block of a suspended call is the writer's brief for ONE question (which lines, what they " +
         'must answer, which words are FORBIDDEN as too predictable). Answer it by calling again with the SAME ' +
         'arguments plus `state` (returned verbatim by every call — the server keeps nothing) and `answer` (the new ' +
-        'line, or `L<n>:` lines for a group). THERE IS NO SONG IN ANY RESPONSE UNTIL THE LOOP REACHES A STOP ' +
+        'line, or `L<n>:` lines for a group); on such a continuing call `draft` MAY BE OMITTED where the caller ' +
+        'carries it (the chat connector does) — the draft is one draft for the whole run and never changes ' +
+        'between its calls. THERE IS NO SONG IN ANY RESPONSE UNTIL THE LOOP REACHES A STOP ' +
         'CONDITION: a suspended call returns [AWAITING PROPOSAL] and the question, structurally without a render, ' +
         'so a song cannot be presented that the loop never certified. At a stop condition the first block is the ' +
         'rendered song in performance order under its bracket headers with a [FINISHED — seed N — exit E — ' +
@@ -1498,6 +1511,10 @@ export function registerLyricTools(server, tool) {
     },
     (a) =>
       withTempDir(async (dir) => {
+        if (!Array.isArray(a.draft))
+          throw refuse(
+            '`draft` omitted and no draft is carried for this run — pass the song lines (the SAME draft on every call of one run; the connector carries it for you only after a suspended call)'
+          );
         checkLines(a.draft);
         const draftPath = path.join(dir, 'draft.txt');
         const statePath = path.join(dir, 'state.json');
@@ -1607,6 +1624,14 @@ export function registerLyricTools(server, tool) {
                   status: 'awaiting_proposal',
                   kind: st.pending ? st.pending.kind : null,
                   answers_on_record: onRecord,
+                  // THE SUSPENDED VERDICT IS THE COMMON ROW OF A REAL RUN — 32
+                  // of round 11's 33 rows — and it was built here by hand,
+                  // without the path and time `verdictOf` stamps (M-216), so
+                  // the one row that could have said warm or cold never did
+                  // (M-219's second finding, the third spelling of it).
+                  path: typeof r.path === 'string' ? r.path : null,
+                  ms: typeof r.ms === 'number' ? r.ms : null,
+                  ...extractRunRecord(r.stdout),
                   state: JSON.stringify(st),
                 }),
               },

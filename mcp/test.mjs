@@ -1218,6 +1218,338 @@ check('validation: actionable errors', () => {
     );
     assert.ok(/refusal: c\.refusal \?\? null,/.test(chat), 'tools[] carries the refusal headline');
   });
+  // ── M-219 (2026-09-03, round 11): a malformed function call is RE-ASKED ──
+  // Round 11 ended 8 of 9 turns on Gemini's MALFORMED_FUNCTION_CALL, two of
+  // them before any call was made; the hop loop treated every non-STOP finish
+  // as the end of the turn, so the loop's next question waited a whole
+  // battery pace. The re-ask is bounded (MALFORMED_CALL_RETRY), spends a hop
+  // and a request, keeps NOTHING of the broken hop in the transcript, and a
+  // turn that exhausts it stops with the count on stoppedDetail.
+  await (async () => {
+    const {
+      runTurn: _runTurn,
+      LIMITS: _LIMITS,
+      MALFORMED_CALL_RETRY: _MCR,
+    } = await import('./gemini_agent.js');
+    const surface = {
+      instructions: '',
+      declarations: [],
+      workspaceTools: new Set(),
+      stateTools: new Set(),
+    };
+    const usageMeta = { promptTokenCount: 10, candidatesTokenCount: 5, thoughtsTokenCount: 0 };
+    const MALFORMED_TEXT =
+      "Malformed function call: lyric_revise(draft=['we carry the morning to the stone', ...";
+    const malformed = () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        candidates: [
+          {
+            content: { parts: [] },
+            finishReason: 'MALFORMED_FUNCTION_CALL',
+            finishMessage: MALFORMED_TEXT,
+          },
+        ],
+        usageMetadata: usageMeta,
+      }),
+    });
+    const call = () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        candidates: [
+          { content: { parts: [{ functionCall: { name: 'lyric_types', args: { a: 'x' } } }] } },
+        ],
+        usageMetadata: usageMeta,
+      }),
+    });
+    const done = () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        candidates: [{ content: { parts: [{ text: 'done' }] }, finishReason: 'STOP' }],
+        usageMetadata: usageMeta,
+      }),
+    });
+    const realFetch = globalThis.fetch;
+    const drive = async (script) => {
+      let hop = 0;
+      globalThis.fetch = async () => script[Math.min(hop++, script.length - 1)]();
+      try {
+        return await _runTurn({
+          apiKey: 'k',
+          surface,
+          callTool: async () => ({ content: [{ type: 'text', text: 'ok' }] }),
+          userText: 'hi',
+          limits: { ..._LIMITS, maxTurnUsd: 0 },
+          retries: 0,
+        });
+      } finally {
+        globalThis.fetch = realFetch;
+      }
+    };
+    check('MALFORMED_CALL_RETRY is two re-asks, stated once', () => {
+      assert.equal(_MCR.retries, 2);
+    });
+    const recovered = await drive([malformed, call, done]);
+    check(
+      'a malformed hop is re-asked in the same turn: the call lands, the turn ends on STOP, and the broken hop left nothing in the transcript',
+      () => {
+        assert.equal(recovered.stopped, null, 'the turn did not stop on the malformed hop');
+        assert.equal(recovered.calls.length, 1, 'the re-asked hop produced the call');
+        assert.equal(recovered.usage.malformedRetries, 1);
+        assert.equal(recovered.usage.requests, 3, 'three requests: malformed, call, done');
+        // history: user, model(call), user(functionResponse), model(done) — no
+        // model turn for the malformed hop.
+        const modelTurns = recovered.history.filter((c) => c.role === 'model');
+        assert.equal(modelTurns.length, 2, 'the malformed hop appended no model turn');
+        assert.ok(
+          modelTurns.every((c) => c.parts.length > 0),
+          'no empty model turn survives'
+        );
+      }
+    );
+    // M-221: the re-ask keeps nothing of the broken hop in the TRANSCRIPT and
+    // keeps its text in the RECORD — round 11 banked nine malformed turns and
+    // could quote none of them.
+    check(
+      "the malformed hop's finishMessage is recorded even when the re-ask then lands the call (M-221)",
+      () => {
+        assert.equal(recovered.malformed.length, 1);
+        assert.deepEqual(
+          {
+            hop: recovered.malformed[0].hop,
+            attempt: recovered.malformed[0].attempt,
+            reasked: recovered.malformed[0].reasked,
+          },
+          { hop: 1, attempt: 1, reasked: true }
+        );
+        assert.equal(recovered.malformed[0].finishMessage, MALFORMED_TEXT);
+      }
+    );
+    const exhausted = await drive([malformed, malformed, malformed]);
+    check(
+      'three malformed hops in a row exhaust the two re-asks: the turn stops as MALFORMED_FUNCTION_CALL with the count on stoppedDetail',
+      () => {
+        assert.equal(exhausted.stopped, 'MALFORMED_FUNCTION_CALL');
+        assert.equal(exhausted.usage.malformedRetries, 2);
+        assert.equal(exhausted.stoppedDetail.malformedRetries, 2);
+        assert.equal(exhausted.stoppedDetail.retriesAllowed, 2);
+        assert.equal(exhausted.stoppedDetail.hops, 3);
+        assert.equal(exhausted.calls.length, 0);
+      }
+    );
+    check(
+      'an exhausted turn records all three malformed hops and puts the last text on stoppedDetail (M-221)',
+      () => {
+        assert.equal(
+          exhausted.malformed.length,
+          3,
+          'two re-asked hops and the one that stopped the turn'
+        );
+        assert.deepEqual(
+          exhausted.malformed.map((m) => m.reasked),
+          [true, true, false]
+        );
+        assert.deepEqual(
+          exhausted.malformed.map((m) => m.hop),
+          [1, 2, 3]
+        );
+        assert.equal(exhausted.stoppedDetail.finishMessage, MALFORMED_TEXT);
+      }
+    );
+    check(
+      'a malformed hop with no finishMessage records null, not a fabricated text (M-221)',
+      async () => {
+        const { malformedText: mt, MALFORMED_TEXT_HEAD } = await import('./gemini_agent.js');
+        assert.equal(mt({ finishReason: 'MALFORMED_FUNCTION_CALL' }), null);
+        assert.equal(mt({ finishMessage: '' }), null);
+        const long = 'x'.repeat(MALFORMED_TEXT_HEAD + 50);
+        const head = mt({ finishMessage: long });
+        assert.equal(head.length, MALFORMED_TEXT_HEAD + 1, 'head-truncated with one ellipsis');
+        assert.ok(head.endsWith('…'));
+      }
+    );
+
+    // ── M-221: THE DRAFT IS CARRIED BESIDE THE STATE ──────────────────────
+    // The model re-emitted every quoted line of the draft on every fold. After
+    // a suspended call the connector carries the draft with the record, an
+    // OMITTED draft on the continuing call is filled from it, a SENT draft
+    // stands, and a different seed carries nothing.
+    const stateSurface = {
+      instructions: '',
+      declarations: [],
+      workspaceTools: new Set(),
+      stateTools: new Set(['lyric_revise']),
+    };
+    const callWith = (args) => () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        candidates: [{ content: { parts: [{ functionCall: { name: 'lyric_revise', args } }] } }],
+        usageMetadata: usageMeta,
+      }),
+    });
+    const suspended = (n) => ({
+      content: [
+        {
+          type: 'text',
+          text: `[AWAITING PROPOSAL — seed 5 — ${n} answer(s) on record — NO SONG YET]`,
+        },
+        {
+          type: 'text',
+          text: JSON.stringify({
+            exit_code: 4,
+            status: 'awaiting_proposal',
+            answers_on_record: n,
+            state: `{"n":${n}}`,
+          }),
+        },
+      ],
+    });
+    const seen = [];
+    const driveState = async (script, lyric = null) => {
+      let hop = 0;
+      globalThis.fetch = async () => script[Math.min(hop++, script.length - 1)]();
+      try {
+        return await _runTurn({
+          apiKey: 'k',
+          surface: stateSurface,
+          lyric,
+          callTool: async (name, args) => {
+            seen.push({ name, args: { ...args } });
+            return suspended(seen.length - 1);
+          },
+          userText: 'hi',
+          limits: { ..._LIMITS, maxTurnUsd: 0 },
+          retries: 0,
+        });
+      } finally {
+        globalThis.fetch = realFetch;
+      }
+    };
+    const DRAFT = ['we carry the morning to the stone', 'the lantern turned and found the road'];
+    const carried = await driveState([
+      callWith({ seed: 5, draft: DRAFT }),
+      callWith({ seed: 5, answer: 'a new line' }),
+      callWith({ seed: 5, answer: 'another line', draft: ['a draft the model sent itself'] }),
+      callWith({ seed: 6, answer: 'wrong seed' }),
+      done,
+    ]);
+    check(
+      'an omitted draft on a continuing call is filled from the carried record, a sent draft stands, a different seed gets nothing (M-221)',
+      () => {
+        assert.equal(seen.length, 4);
+        assert.deepEqual(seen[0].args.draft, DRAFT, 'the first call sends its own draft');
+        assert.equal(seen[0].args.state, undefined, 'and carries no state yet');
+        assert.deepEqual(
+          seen[1].args.draft,
+          DRAFT,
+          'the second call omitted draft and got the carried one'
+        );
+        assert.equal(seen[1].args.state, '{"n":0}', 'beside the carried state');
+        assert.deepEqual(
+          seen[2].args.draft,
+          ['a draft the model sent itself'],
+          'a draft the model sent is not overwritten'
+        );
+        assert.equal(seen[3].args.draft, undefined, 'a different seed inherits neither draft');
+        assert.equal(seen[3].args.state, undefined, 'nor state');
+        assert.deepEqual(
+          carried.calls.map((c) => c.draft_carried),
+          [false, true, false, false],
+          'the row says which call the connector filled'
+        );
+        assert.equal(
+          carried.calls[1].args.draft,
+          '<carried>',
+          'the logged args name the fill rather than repeat the lines'
+        );
+        // The record carries the draft the LAST suspended call ran on: the
+        // third call sent its own, so that is the draft its state was produced
+        // against and the one the next fold must replay onto.
+        assert.deepEqual(
+          carried.lyric.draft,
+          ['a draft the model sent itself'],
+          'the envelope hands the next turn the draft the last suspended call ran on'
+        );
+      }
+    );
+    seen.length = 0;
+    const nextTurn = await driveState(
+      [callWith({ seed: 5, answer: 'a line on the next turn' }), done],
+      { key: 'seed:5', seed: 5, state: '{"n":2}', draft: DRAFT }
+    );
+    check('the carried draft survives the turn boundary through the envelope (M-221)', () => {
+      assert.deepEqual(seen[0].args.draft, DRAFT);
+      assert.equal(seen[0].args.state, '{"n":2}');
+      assert.equal(nextTurn.calls[0].draft_carried, true);
+    });
+    seen.length = 0;
+    await driveState([callWith({ seed: 5, answer: 'a line' }), done], {
+      key: 'seed:5',
+      seed: 5,
+      state: '{"n":1}',
+    });
+    check(
+      'an envelope written before M-221 carries a state and no draft: nothing is invented, the tool refuses in its own words (M-221)',
+      () => {
+        assert.equal(seen[0].args.draft, undefined);
+        assert.equal(seen[0].args.state, '{"n":1}');
+      }
+    );
+  })();
+  check('chat.js tools[] carries the seven M-216 fields loopFields stamps (M-219)', () => {
+    // Round 11's rows had none of them: loopFields put them on every call and
+    // chat.js's hand-spelled row projection never learned them.
+    const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+    for (const f of [
+      'path',
+      'ms',
+      'memo_state',
+      'memo_hit',
+      'memo_asked',
+      'stale_answers',
+      'plan_lines',
+    ]) {
+      assert.ok(
+        new RegExp(`^\\s+${f}: c\\.${f} \\?\\? null,`, 'm').test(chat),
+        `tools[] carries ${f}`
+      );
+    }
+  });
+  check(
+    'chat.js hands the malformed hops and draft_carried out, and the battery rows bank them (M-221)',
+    () => {
+      const chat = readFileSync(new URL('./chat.js', import.meta.url), 'utf8');
+      assert.ok(
+        /^\s+malformed: run\.malformed \?\? \[\],/m.test(chat),
+        'the response carries malformed[]'
+      );
+      assert.ok(
+        /^\s+draft_carried: c\.draft_carried \?\? false,/m.test(chat),
+        'tools[] carries draft_carried'
+      );
+      const battery = readFileSync(
+        new URL('../scripts/flash_battery.mjs', import.meta.url),
+        'utf8'
+      );
+      assert.ok(
+        /stopped_detail: p\.stopped_detail \?\? null,/.test(battery),
+        'the row banks stopped_detail'
+      );
+      assert.ok(
+        /malformed: Array\.isArray\(p\.malformed\) \? p\.malformed : null,/.test(battery),
+        'the row banks the malformed hops'
+      );
+      assert.ok(/battery malformed hop/.test(battery), 'and prints each as an annotation');
+      assert.ok(
+        !/after the connector re-asks'/.test(battery),
+        'the fail-fast reason no longer asserts a re-ask the deploy may not have'
+      );
+    }
+  );
   // ── M-168's swerve (2026-09-02): an exit 2 carries the harness's own reason ──
   // Round 10's record holds two lyric_sweep calls and one lyric_plan call at
   // exit 2 with `error: null` and nothing else. The extractor reads the
@@ -1951,8 +2283,11 @@ check('validation: actionable errors', () => {
         '--turns=2',
         '--pace=0',
       ]);
-      assert.equal(r.status, 0, `the driver survives its transport failing: ${r.stderr}`);
+      // M-223: surviving means the RECORD is written; the exit code is the
+      // round's verdict, and a single-song round with no song is red.
+      assert.equal(r.status, 1, `a single-song round with no song exits 1: ${r.stderr}`);
       const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+      assert.equal(summary.songs[0].exit_reason, 'transport');
       assert.equal(
         summary.songs[0].flags[0].flag,
         'transport_failure',
@@ -1968,6 +2303,430 @@ check('validation: actionable errors', () => {
       rmSync(out, { recursive: true, force: true });
     }
   });
+  // The fake connector lives in THIS process, so the driver must be awaited
+  // asynchronously: spawnSync would block the event loop the server answers
+  // on and the two would wait on each other forever (measured, 2026-09-04).
+  const runDriver = (spawn, argv) =>
+    new Promise((resolve) => {
+      const child = spawn(process.execPath, argv);
+      let stdout = '';
+      let stderr = '';
+      child.stdout.on('data', (c) => (stdout += c));
+      child.stderr.on('data', (c) => (stderr += c));
+      child.on('close', (status) => resolve({ status, stdout, stderr }));
+    });
+  // M-222: THE USER-LEVEL RE-ASK, DRIVEN against a fake connector. Two turns
+  // that end on MALFORMED_FUNCTION_CALL with no call are re-sent as the same
+  // message; the third answer lands a call, and the round does NOT fail fast
+  // — three rows for one turn, the user_reasks count on the row and the
+  // summary, and the envelope of the LAST answer carried forward.
+  check(
+    'a malformed, call-less turn is re-sent as the same message, bounded, and a recovered turn is not a failure',
+    async () => {
+      const { spawn } = await import('node:child_process');
+      const { mkdtempSync, rmSync } = await import('node:fs');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+      const { fileURLToPath } = await import('node:url');
+      const http = await import('node:http');
+      const seen = [];
+      const srv = http.createServer((req, res) => {
+        let body = '';
+        req.on('data', (c) => (body += c));
+        req.on('end', () => {
+          const b = JSON.parse(body || '{}');
+          seen.push(b);
+          const n = seen.length;
+          const malformedTurn = n <= 2;
+          res.writeHead(200, { 'content-type': 'application/json' });
+          res.end(
+            JSON.stringify({
+              reply: malformedTurn ? '' : 'planned',
+              tools: malformedTurn
+                ? []
+                : [{ name: 'lyric_plan', exit_code: 0, path: 'warm', answers_on_record: null }],
+              stopped: malformedTurn ? 'MALFORMED_FUNCTION_CALL' : null,
+              stopped_detail: null,
+              history: [{ role: 'user', parts: [{ text: `h${n}` }] }],
+              workspace: null,
+              sig: `sig${n}`,
+            })
+          );
+        });
+      });
+      await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+      const port = srv.address().port;
+      const out = mkdtempSync(join(tmpdir(), 'battery-m222-'));
+      try {
+        const r = await runDriver(spawn, [
+          fileURLToPath(new URL('../scripts/flash_battery.mjs', import.meta.url)),
+          `--out=${out}`,
+          `--base=http://127.0.0.1:${port}`,
+          '--songs=1',
+          '--turns=1',
+          '--pace=0',
+        ]);
+        // The round reached no stop, so it is red (M-223) — but NOT as a
+        // fail-fast: the reason separates a recovered turn from a failure.
+        assert.equal(r.status, 1, `no song, so exit 1: ${r.stderr}\n${r.stdout}`);
+        // The driver's floor is two turns; turn 0 is the message sent three
+        // times and turn 1 is the CONTINUE message sent once.
+        assert.equal(seen.length, 4, 'turn 0 sent three times, turn 1 once');
+        assert.notEqual(
+          seen[3].message,
+          seen[0].message,
+          'the fourth request is the next turn, not a re-ask'
+        );
+        assert.equal(seen[1].message, seen[0].message, 'the re-ask is the SAME message');
+        assert.equal(seen[1].sig, 'sig1', 'on the envelope the failed answer handed back');
+        assert.equal(seen[2].sig, 'sig2');
+        const rows = readFileSync(join(out, 'song0.jsonl'), 'utf8')
+          .trim()
+          .split('\n')
+          .map((l) => JSON.parse(l));
+        assert.deepEqual(
+          rows.filter((x) => 'reask' in x).map((x) => [x.reask, x.stopped]),
+          [
+            [1, 'MALFORMED_FUNCTION_CALL'],
+            [2, 'MALFORMED_FUNCTION_CALL'],
+          ],
+          'each re-ask is its own row'
+        );
+        const turnRow = rows.find((x) => 'tools' in x);
+        assert.equal(turnRow.user_reasks, 2, 'the turn row counts them');
+        assert.equal(turnRow.stopped, null, 'and records the LAST answer');
+        assert.ok(!rows.some((x) => 'fail_fast' in x), 'no fail-fast row');
+        const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+        assert.equal(summary.songs[0].user_reasks, 2);
+        assert.equal(summary.songs[0].reask_bound, 2);
+        assert.equal(summary.songs[0].failed_fast, false);
+        assert.equal(
+          summary.songs[0].exit_reason,
+          'no_stop',
+          'red for no song, not for the re-ask'
+        );
+        assert.ok(
+          /battery user re-ask/.test(String(r.stdout)),
+          'each re-ask is a warning annotation'
+        );
+      } finally {
+        srv.close();
+        rmSync(out, { recursive: true, force: true });
+      }
+    }
+  );
+  // M-223: a 429 names its limiter in the body and its wait in Retry-After;
+  // the retry row carries both and the wait is the server's number. Then the
+  // round FINISHES (a lyric_revise exit 0) and exits 0, exit_reason finished.
+  check(
+    "a 429 is retried after the server's own Retry-After, the row quotes the limiter, and a finished song exits 0",
+    async () => {
+      const { spawn } = await import('node:child_process');
+      const { mkdtempSync, rmSync } = await import('node:fs');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+      const { fileURLToPath } = await import('node:url');
+      const http = await import('node:http');
+      const stamps = [];
+      const srv = http.createServer((req, res) => {
+        req.on('data', () => {});
+        req.on('end', () => {
+          stamps.push(Date.now());
+          if (stamps.length === 1) {
+            res.writeHead(429, { 'content-type': 'application/json', 'retry-after': '1' });
+            res.end(
+              JSON.stringify({
+                error: 'The engine is over its rate limit for the moment — try again in a minute.',
+              })
+            );
+            return;
+          }
+          res.writeHead(200, { 'content-type': 'application/json' });
+          res.end(
+            JSON.stringify({
+              reply: 'done',
+              tools: [
+                {
+                  name: 'lyric_revise',
+                  exit_code: 0,
+                  loop_stop_reason: 'success',
+                  loop_rounds: 2,
+                  answers_on_record: 3,
+                },
+              ],
+              stopped: null,
+              history: [],
+              workspace: null,
+              sig: 's',
+            })
+          );
+        });
+      });
+      await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+      const port = srv.address().port;
+      const out = mkdtempSync(join(tmpdir(), 'battery-m223-'));
+      try {
+        const r = await runDriver(spawn, [
+          fileURLToPath(new URL('../scripts/flash_battery.mjs', import.meta.url)),
+          `--out=${out}`,
+          `--base=http://127.0.0.1:${port}`,
+          '--songs=1',
+          '--turns=3',
+          '--pace=0',
+        ]);
+        assert.equal(r.status, 0, `a finished song is the one green: ${r.stderr}`);
+        assert.equal(stamps.length, 2, 'the 429 was retried once and the song finished');
+        assert.ok(
+          stamps[1] - stamps[0] >= 900,
+          `the retry waited the server's 1s, not the 60s floor (${stamps[1] - stamps[0]}ms)`
+        );
+        const rows = readFileSync(join(out, 'song0.jsonl'), 'utf8')
+          .trim()
+          .split('\n')
+          .map((l) => JSON.parse(l));
+        const retry = rows.find((x) => 'retry' in x);
+        assert.equal(retry.status, 429);
+        assert.equal(retry.retry_after_s, 1);
+        assert.equal(retry.waited_s, 1);
+        assert.ok(/over its rate limit/.test(retry.error), 'the row quotes the limiter');
+        const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+        assert.equal(summary.songs[0].exit_reason, 'finished');
+        assert.equal(summary.songs[0].reached_stop, 0);
+        assert.ok(/battery retry/.test(String(r.stdout)), 'the retry is a warning annotation');
+        assert.ok(
+          /battery verdict::song 0: finished/.test(String(r.stdout)),
+          'the verdict is an annotation'
+        );
+      } finally {
+        srv.close();
+        rmSync(out, { recursive: true, force: true });
+      }
+    }
+  );
+  // M-223 (round 13): a turn that made calls and THEN ended on a malformed
+  // hop is truncated, not dead — it continues on the next message and is
+  // counted, and fail-fast does not fire on it.
+  check(
+    'a malformed end after calls is a truncated turn: no fail-fast, the next message goes out, and the summary counts it',
+    async () => {
+      const { spawn } = await import('node:child_process');
+      const { mkdtempSync, rmSync } = await import('node:fs');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+      const { fileURLToPath } = await import('node:url');
+      const http = await import('node:http');
+      const seen = [];
+      const srv = http.createServer((req, res) => {
+        let body = '';
+        req.on('data', (c) => (body += c));
+        req.on('end', () => {
+          seen.push(JSON.parse(body || '{}'));
+          const n = seen.length;
+          res.writeHead(200, { 'content-type': 'application/json' });
+          res.end(
+            JSON.stringify(
+              n === 1
+                ? {
+                    reply: '',
+                    tools: [
+                      { name: 'lyric_plan', exit_code: 0 },
+                      { name: 'lyric_revise', exit_code: 4, answers_on_record: 2 },
+                    ],
+                    stopped: 'MALFORMED_FUNCTION_CALL',
+                    history: [{ role: 'user', parts: [{ text: 'h1' }] }],
+                    workspace: null,
+                    sig: 'sig1',
+                  }
+                : {
+                    reply: 'done',
+                    tools: [
+                      {
+                        name: 'lyric_revise',
+                        exit_code: 0,
+                        loop_stop_reason: 'success',
+                        loop_rounds: 1,
+                        answers_on_record: 3,
+                      },
+                    ],
+                    stopped: null,
+                    history: [],
+                    workspace: null,
+                    sig: 'sig2',
+                  }
+            )
+          );
+        });
+      });
+      await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+      const port = srv.address().port;
+      const out = mkdtempSync(join(tmpdir(), 'battery-m223b-'));
+      try {
+        const r = await runDriver(spawn, [
+          fileURLToPath(new URL('../scripts/flash_battery.mjs', import.meta.url)),
+          `--out=${out}`,
+          `--base=http://127.0.0.1:${port}`,
+          '--songs=1',
+          '--turns=3',
+          '--pace=0',
+        ]);
+        assert.equal(r.status, 0, `the song finished on turn 1: ${r.stderr}\n${r.stdout}`);
+        assert.equal(
+          seen.length,
+          2,
+          'the truncated turn was followed by the next message, not a re-send'
+        );
+        assert.notEqual(seen[1].message, seen[0].message, 'the second message is CONTINUE');
+        assert.equal(seen[1].sig, 'sig1', "on the truncated turn's envelope");
+        const rows = readFileSync(join(out, 'song0.jsonl'), 'utf8')
+          .trim()
+          .split('\n')
+          .map((l) => JSON.parse(l));
+        assert.ok(!rows.some((x) => 'fail_fast' in x), 'no fail-fast row');
+        assert.ok(!rows.some((x) => 'reask' in x), 'no user re-ask either: the turn made calls');
+        const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+        assert.equal(summary.songs[0].truncated_turns, 1);
+        assert.equal(summary.songs[0].exit_reason, 'finished');
+      } finally {
+        srv.close();
+        rmSync(out, { recursive: true, force: true });
+      }
+    }
+  );
+  // M-224: the connector's own conversation cap (CHAT_MAX_TURNS) answers 429
+  // with "start a new recipe" and no retry changes it — the round ends at once
+  // with its own reason instead of four sixty-second waits.
+  check(
+    "the connector's conversation cap ends the round at once with exit_reason server_turn_cap",
+    async () => {
+      const { spawn } = await import('node:child_process');
+      const { mkdtempSync, rmSync } = await import('node:fs');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+      const { fileURLToPath } = await import('node:url');
+      const http = await import('node:http');
+      let n = 0;
+      const t0 = Date.now();
+      const srv = http.createServer((req, res) => {
+        req.on('data', () => {});
+        req.on('end', () => {
+          n++;
+          if (n === 1) {
+            res.writeHead(200, { 'content-type': 'application/json' });
+            res.end(
+              JSON.stringify({
+                reply: '',
+                tools: [{ name: 'lyric_plan', exit_code: 0 }],
+                stopped: null,
+                history: [],
+                workspace: null,
+                sig: 's1',
+              })
+            );
+            return;
+          }
+          res.writeHead(429, { 'content-type': 'application/json' });
+          res.end(
+            JSON.stringify({ error: 'That is 12 messages — start a new recipe to keep going.' })
+          );
+        });
+      });
+      await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+      const port = srv.address().port;
+      const out = mkdtempSync(join(tmpdir(), 'battery-m224-'));
+      try {
+        const r = await runDriver(spawn, [
+          fileURLToPath(new URL('../scripts/flash_battery.mjs', import.meta.url)),
+          `--out=${out}`,
+          `--base=http://127.0.0.1:${port}`,
+          '--songs=1',
+          '--turns=5',
+          '--pace=0',
+        ]);
+        assert.equal(r.status, 1, 'no song, so red');
+        assert.equal(n, 2, 'the cap was not retried');
+        assert.ok(Date.now() - t0 < 30_000, 'and the round did not wait on it');
+        const rows = readFileSync(join(out, 'song0.jsonl'), 'utf8')
+          .trim()
+          .split('\n')
+          .map((l) => JSON.parse(l));
+        assert.ok(
+          rows.some((x) => 'server_turn_cap' in x),
+          'the cap is its own row'
+        );
+        assert.ok(!rows.some((x) => 'retry' in x), 'and no retry row');
+        const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+        assert.equal(summary.songs[0].exit_reason, 'server_turn_cap');
+        assert.equal(summary.songs[0].flags[0].flag, 'server_turn_cap');
+      } finally {
+        srv.close();
+        rmSync(out, { recursive: true, force: true });
+      }
+    }
+  );
+  check(
+    'the re-ask is bounded: a turn that fails a third time is the failure fail-fast stops on',
+    async () => {
+      const { spawn } = await import('node:child_process');
+      const { mkdtempSync, rmSync } = await import('node:fs');
+      const { tmpdir } = await import('node:os');
+      const { join } = await import('node:path');
+      const { fileURLToPath } = await import('node:url');
+      const http = await import('node:http');
+      let n = 0;
+      const srv = http.createServer((req, res) => {
+        req.on('data', () => {});
+        req.on('end', () => {
+          n++;
+          res.writeHead(200, { 'content-type': 'application/json' });
+          res.end(
+            JSON.stringify({
+              reply: '',
+              tools: [],
+              stopped: 'MALFORMED_FUNCTION_CALL',
+              stopped_detail: null,
+              history: [],
+              workspace: null,
+              sig: `s${n}`,
+            })
+          );
+        });
+      });
+      await new Promise((r) => srv.listen(0, '127.0.0.1', r));
+      const port = srv.address().port;
+      const out = mkdtempSync(join(tmpdir(), 'battery-m222b-'));
+      try {
+        const r = await runDriver(spawn, [
+          fileURLToPath(new URL('../scripts/flash_battery.mjs', import.meta.url)),
+          `--out=${out}`,
+          `--base=http://127.0.0.1:${port}`,
+          '--songs=1',
+          '--turns=3',
+          '--pace=0',
+        ]);
+        assert.equal(r.status, 1, 'three malformed answers to one message is the fail-fast');
+        assert.equal(n, 3, 'the bound held: two re-asks, not more, and no second turn');
+        const rows = readFileSync(join(out, 'song0.jsonl'), 'utf8')
+          .trim()
+          .split('\n')
+          .map((l) => JSON.parse(l));
+        const ff = rows.find((x) => 'fail_fast' in x);
+        assert.ok(ff, 'a fail_fast row');
+        assert.ok(
+          ff.fail_fast.some((m) =>
+            /with no call \(this deploy records no re-ask; 2 user re-ask\(s\) spent\)/.test(m)
+          ),
+          'the reason says what the deploy did, not what it might have'
+        );
+        const summary = JSON.parse(readFileSync(join(out, 'summary.json'), 'utf8'));
+        assert.equal(summary.songs[0].user_reasks, 2);
+        assert.equal(summary.songs[0].failed_fast, true);
+        assert.equal(summary.songs[0].exit_reason, 'failed_fast');
+      } finally {
+        srv.close();
+        rmSync(out, { recursive: true, force: true });
+      }
+    }
+  );
 }
 
 {
@@ -2696,9 +3455,24 @@ try {
         'below, and a fact about the PATTERN rather than about titles'
     );
     assert.equal(plannedRes.content.length, 2, 'plan returns two blocks: report, then verdict');
+    // M-219: the plan's verdict block says which path answered, how long it
+    // took and how many lines it drew — it used to say exit_code and meaning
+    // and nothing else, so no battery row ever carried the drawn shape.
+    const planVerdict = JSON.parse(plannedRes.content[1].text);
+    assert.ok(
+      ['warm', 'cold', 'cold-fallback'].includes(planVerdict.path),
+      `the plan verdict names its path (got ${planVerdict.path})`
+    );
+    assert.equal(typeof planVerdict.ms, 'number', 'and carries its wall time');
+    assert.ok(!('report' in planVerdict), 'and does not repeat block 0 as JSON');
     const planReport = plannedRes.content[0].text;
     const nLines = Number((planReport.match(/-> (\d+) line\(s\)/) || [])[1]);
     assert.ok(nLines >= 4, `the plan declares its own line count (got ${nLines})`);
+    assert.equal(
+      planVerdict.plan_lines,
+      nLines,
+      'the verdict block carries the same line count the report prints'
+    );
 
     // The bracket header rows ARE the shape, and their line counts must sum
     // to the declared total -- an invariant of the report rather than a
@@ -2746,6 +3520,13 @@ try {
     );
     assert.ok(!gradedRes.isError, 'lyric_grade answered without isError');
     assert.equal(gradedRes.content.length, 2, 'grade returns two blocks: song, then verdict');
+    {
+      const gv = JSON.parse(gradedRes.content[1].text);
+      assert.ok(
+        ['warm', 'cold', 'cold-fallback'].includes(gv.path) && typeof gv.ms === 'number',
+        `the grade verdict names its path and time (got ${gv.path}, ${gv.ms})`
+      );
+    }
     const song = gradedRes.content[0].text;
     assert.ok(
       // The plan's OWN first header, not a literal -- see the note above.
@@ -2813,6 +3594,23 @@ try {
     // question is the writer's brief, and the `state` blob round-trips —
     // the server keeps nothing, so a re-call with the same unanswered state
     // re-asks the SAME question rather than advancing or inventing one.
+    // M-221: `draft` is optional in the SCHEMA so the connector may fill it
+    // from the carried record; a client that carries nothing gets a refusal
+    // naming the parameter, never a run on an empty draft.
+    const noDraft = await client.callTool(
+      { name: 'lyric_revise', arguments: { seed: planSeed } },
+      undefined,
+      LIVE_OPTS
+    );
+    assert.ok(noDraft.isError, 'lyric_revise with no draft and nothing carried refuses');
+    assert.ok(
+      /`draft` omitted and no draft is carried/.test(noDraft.content[0].text),
+      `the refusal names the draft (got: ${noDraft.content[0].text.slice(0, 120)})`
+    );
+    console.log(
+      '  ok  lyric_revise live: an omitted draft nothing carries refuses by name (M-221)'
+    );
+    passed++;
     const rev1 = await client.callTool(
       { name: 'lyric_revise', arguments: { seed: planSeed, draft } },
       undefined,
@@ -2836,6 +3634,12 @@ try {
       'suspension is exit 4, its own code — neither verdict nor failure'
     );
     assert.equal(rv1.status, 'awaiting_proposal', 'and says so in its own field');
+    // M-219: the SUSPENDED verdict is the common row of a real run (32 of
+    // round 11's 33) and it was built by hand without the path stamp.
+    assert.ok(
+      ['warm', 'cold', 'cold-fallback'].includes(rv1.path) && typeof rv1.ms === 'number',
+      `a suspended verdict names its path and time too (got ${rv1.path}, ${rv1.ms})`
+    );
     const st1 = JSON.parse(rv1.state);
     assert.ok(st1.pending && st1.pending.kind, 'the state carries the pending question');
     // Round-trip: same state, no answer -> the SAME question, fast (the

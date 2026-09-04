@@ -10825,6 +10825,11 @@ def main():
                 # worker (M-155) keeps it across resumes; a miss IS the old
                 # behaviour, and quality/replay_memo.py carries the argument.
                 from quality import replay_memo as RM
+
+                def _R_pm():
+                    from quality import relations as _RPM
+                    return _RPM
+                from quality import revise as _RV_mod
                 _rm_key = RM.run_key(sys.argv[1:],
                                      input_paths=(args[1], bp_path))
                 rv_loop, say_memo = RM.wrap(rv, _rm_key, len(lines))
@@ -10854,12 +10859,20 @@ def main():
                           f"{need.kind} it has no answer for, and will not "
                           f"guess one.")
                     print(say_memo())
+                    print(_R_pm().pair_memo_disclosure())
+                    print(_RV_mod.memo_disclosure())
                     print(f"  Written to {path}. Fill `pending.answer`, then "
                           f"run the SAME command again.\n")
                     print(need.prompt)
                     sys.exit(4)
                 print(result)
                 print(say_memo())
+                # THE PAIR MEMO'S OWN LINE (M-217's remainder): the schema
+                # judge remembers each line pair's verdict per declaration,
+                # so a candidate draft re-judges only the pairs its changed
+                # line touches; what was served and what was judged, apart.
+                print(_R_pm().pair_memo_disclosure())
+                print(_RV_mod.memo_disclosure())
                 print(say_proposer(done=True))
                 # THE VERDICT'S CODE, COMPUTED ONCE and read by the stamp,
                 # the state file and the exit below (doctrine 1). `revise`

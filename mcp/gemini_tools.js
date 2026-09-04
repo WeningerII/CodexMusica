@@ -171,7 +171,8 @@ const WORKSPACE_NOTE =
 const STATE_NOTE =
   ' The revise state is carried for you automatically — there is no state parameter to pass. ' +
   'Keep seed and the other declarations identical across one song’s calls, and put your ' +
-  'proposal in `answer`.';
+  'proposal in `answer`. After a suspended call the draft is carried too: omit `draft` on the ' +
+  'continuing call — the run replays onto the one draft it started with.';
 
 /**
  * @param {Array<{name:string,description?:string,inputSchema?:object}>} tools

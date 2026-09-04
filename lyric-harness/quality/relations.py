@@ -143,8 +143,11 @@ value took the default path in silence.  See `ClassEqual` and `UNMATCHED`.
             paragraph (doctrine 48), and it fails in both directions.
 """
 
+import collections
+import hashlib
 import itertools
 import json
+import os
 import re
 from dataclasses import dataclass, field, replace
 
@@ -2650,7 +2653,7 @@ def order_burden(schema, stream, chans=DEFAULT_CHANNELS):
 
 
 def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
-            keep=("true", "none"), tally=None):
+            keep=("true", "none"), tally=None, skip_line_pairs=None):
     """Find every instance of `schema` in the song.  -> [Instance] or Refusal.
 
     THE ALGORITHM
@@ -2681,6 +2684,13 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
     minus infinity and belongs in the DENOMINATOR, not out of the sample. The
     first family-wise correction in this repo dropped exactly those and got 0%
     saturation on every corpus.
+
+    `skip_line_pairs` is a set of 0-based (line_a, line_b) pairs, unordered
+    (min, max), whose CROSS-LINE candidates are not evaluated -- the caller
+    already holds their verdict (`line_pairs_for`'s per-pair memo, M-217's
+    remainder).  Same-line candidates are never skipped.  None (the default)
+    evaluates everything, byte-identical to the call before the parameter
+    existed.
     """
     # THE WHOLE SET, not the first name.  This loop used to `return` inside the
     # `for`, so the answer was whichever missing capability sorted first and a
@@ -2780,6 +2790,11 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
                     tally["deduplicated_candidates"] = (
                         tally.get("deduplicated_candidates", 0) + 1)
                 continue         # the mirror carries it; see mirrored()
+            if skip_line_pairs:
+                la, lb = _span_line(a, stream), _span_line(b, stream)
+                if (la != lb and la is not None and lb is not None
+                        and (min(la, lb), max(la, lb)) in skip_line_pairs):
+                    continue         # the memo carries it; see line_pairs_for
             n += 1
             if n > max_pairs:
                 raise RuntimeError("candidate explosion; tighten the schema")
@@ -7092,7 +7107,29 @@ def line_pairs_for(schema, stream, keep_refusal=True):
     schema is true of no pair here" are different answers and doctrine 20
     forbids spelling them the same.  An empty frozenset means looked-and-none.
     """
-    out = realise(schema, stream)
+    # THE PER-PAIR MEMO (M-217's remainder, 2026-09-03).  A revision loop
+    # grades a candidate draft that differs from the last by ONE LINE, and
+    # every schema was re-judged over every line pair of it: 484 realise()
+    # calls, 1.79 M channel evaluations, 66 % of a warm fold (the profile is
+    # `quality/review_2026-09-03/profile_warm_fold.txt`).  A pair's verdict
+    # is a function of the two lines -- their text, their indices, their
+    # frames, their neighbours where a hyphen continues a token -- and the
+    # declaration, never of the rest of the draft (`_loci` reads one line
+    # at a time; `Placement.holds` reads the two spans' lines).  So the
+    # verdict is remembered per (schema, declaration, line a, line b) and a
+    # pair whose two lines are unchanged is not judged again.  A key the
+    # memo cannot spell disables it for that call rather than guessing.
+    memo = _pair_memo_slot(schema, stream)
+    skip, sigs = {}, None
+    if memo is not None:
+        sigs = [_line_sig(stream, i) for i in range(len(stream.lines))]
+        for i in range(len(sigs)):
+            for j in range(i + 1, len(sigs)):
+                k = (i, j, sigs[i], sigs[j])
+                if k in memo["store"]:
+                    skip[(i, j)] = memo["store"][k]
+        _PAIR_MEMO_TALLY["hit"] += len(skip)
+    out = realise(schema, stream, skip_line_pairs=set(skip) or None)
     if isinstance(out, Refusal):
         return out if keep_refusal else frozenset()
     pairs = set()
@@ -7110,7 +7147,186 @@ def line_pairs_for(schema, stream, keep_refusal=True):
             # violation — see `rhyme_types.satisfies_relation`.
             continue
         pairs.add((min(a, b), max(a, b)))
+    if memo is not None:
+        # RECORD every pair this call JUDGED -- the ones it skipped were
+        # already on record -- as True or False.  A pair with no candidate
+        # span at all is a judged False: the same two lines will have no
+        # candidate next time either.  1-based in `pairs`, 0-based in the
+        # key, and the conversion is here and in the replay below only.
+        fresh = 0
+        for i in range(len(sigs)):
+            for j in range(i + 1, len(sigs)):
+                if (i, j) in skip:
+                    continue
+                memo["store"][(i, j, sigs[i], sigs[j])] = (i + 1, j + 1) in pairs
+                fresh += 1
+        _PAIR_MEMO_TALLY["miss"] += fresh
+        while len(memo["store"]) > PAIR_MEMO_CAP:
+            memo["store"].pop(next(iter(memo["store"])))
+            _PAIR_MEMO_TALLY["evicted"] += 1
+        for (i, j), v in skip.items():
+            if v:
+                pairs.add((i + 1, j + 1))
     return frozenset(pairs)
+
+
+def _span_line(span, stream):
+    """-> the 0-based line a span belongs to, by its origin when it carries
+    one and by its head unit otherwise; None when neither says."""
+    o = _origin_line(span)
+    if o is not None:
+        return o - 1
+    try:
+        return stream.units[span.head()].line
+    except (IndexError, AttributeError):
+        return None
+
+
+#: THE PER-PAIR SCHEMA MEMO (M-217's remainder).  One slot per (schema name,
+#: stream constants); each slot holds {(line a, line b, sig a, sig b): bool}.
+#: `_line_sig` is what makes a hit HONEST: the digest of everything about a
+#: line that a pair verdict can read -- its text, its two neighbours (a
+#: hyphen at a line edge continues the token, so a neighbour's text is part
+#: of this line's units), its declared status, its section and stanza, and
+#: every per-line frame entry spelled as an OFFSET into the line rather than
+#: a global unit index, because unit indices shift when an earlier line
+#: changes length and the verdict does not.  The stream constants are the
+#: phonology's declaration, the stream's declaration, the frame SOURCES and
+#: the alt surfaces; a stream carrying an alt surface disables the memo (a
+#: projected second declaration is not spelled here).  Bounded per slot, and
+#: the slot table itself is bounded; `LYRIC_PAIR_MEMO=0` bypasses it.
+_PAIR_MEMO = collections.OrderedDict()
+#: DERIVED, not guessed: the planner's envelope tops out at 55 lines
+#: (`plan.ENVELOPE["total_lines"]`), i.e. 1,485 line pairs for one draft, and
+#: a fold that moves one line adds at most 54 rows; 4,096 holds the whole
+#: draft plus 48 folds before the oldest rows go.  Slots: the 77 registered
+#: schemas plus the declared ones a mandate can name, under one declaration,
+#: with room for a second declaration in the same process.
+PAIR_MEMO_CAP = 4_096         # (line pair, signature) rows per (schema, stream) slot
+PAIR_MEMO_SLOTS = 128         # (schema, stream constants) slots held at once
+_PAIR_MEMO_TALLY = {"hit": 0, "miss": 0, "evicted": 0}
+
+
+def _pair_memo_enabled():
+    return os.environ.get("LYRIC_PAIR_MEMO", "1") != "0"
+
+
+def pair_memo_tally():
+    """-> {hit, miss, evicted, slots, held}: hits are line pairs served from
+    the memo, misses are line pairs judged and recorded, never summed."""
+    return dict(_PAIR_MEMO_TALLY, slots=len(_PAIR_MEMO),
+                held=sum(len(m["store"]) for m in _PAIR_MEMO.values()))
+
+
+def pair_memo_clear():
+    _PAIR_MEMO.clear()
+    for k in _PAIR_MEMO_TALLY:
+        _PAIR_MEMO_TALLY[k] = 0
+
+
+def pair_memo_disclosure():
+    """-> the one line a verb prints about this memo, beside the replay
+    memo's (M-167): what was served and what was judged, never summed, and
+    OFF spelled as off rather than as zero (doctrine 20)."""
+    if not _pair_memo_enabled():
+        return ("  PAIR MEMO: off (LYRIC_PAIR_MEMO=0) — every line pair of "
+                "every graded draft was judged in full")
+    t = pair_memo_tally()
+    state = "warm" if t["hit"] else "cold"
+    return (f"  PAIR MEMO: {state} — {t['hit']} line pair(s) served from the "
+            f"process memo, {t['miss']} judged and recorded "
+            f"({t['slots']} schema slot(s), {t['held']} row(s) held)")
+
+
+def _stream_const_key(stream):
+    """-> the stream-level half of the memo key, or None when it cannot be
+    spelled (an alt surface, an undeclared phonology)."""
+    if getattr(stream, "alt", None):
+        return None
+    try:
+        d = stream.phon.declaration()
+        pk = (d["language"], d["name"])
+    except (AttributeError, KeyError, TypeError):
+        return None
+    fr = stream.frames
+    try:
+        return (pk, json.dumps(stream.declaration, sort_keys=True, default=str),
+                fr.caesura_source, fr.lift_source, fr.refrain_source,
+                fr.beat_source, fr.bayt_source, fr.stanza_source,
+                fr.stub_source, bool(any(stream.line_status)))
+    except (TypeError, AttributeError):
+        return None
+
+
+def _pair_memo_slot(schema, stream):
+    """-> the memo slot for this (schema, stream constants), created on first
+    use and moved to the end on every use; None when the memo is off or the
+    key cannot be spelled."""
+    if not _pair_memo_enabled():
+        return None
+    # A stream that does not carry its own text, or carries it for a
+    # different number of lines than it indexes, cannot spell a per-line
+    # signature: every line would digest to the same bytes and distinct
+    # lines would share one key. Disabled for that stream, never guessed.
+    if len(getattr(stream, "text_lines", ()) or ()) != len(stream.lines):
+        return None
+    const = _stream_const_key(stream)
+    if const is None:
+        return None
+    key = (schema.name, const)
+    slot = _PAIR_MEMO.get(key)
+    if slot is None:
+        slot = {"store": {}}
+        _PAIR_MEMO[key] = slot
+        while len(_PAIR_MEMO) > PAIR_MEMO_SLOTS:
+            _PAIR_MEMO.popitem(last=False)
+    else:
+        _PAIR_MEMO.move_to_end(key)
+    return slot
+
+
+#: `build_stream`'s cut rule (line 837), quoted here rather than re-derived,
+#: and pinned equal to it by `test_replay_memo.py` §7.
+_HYPHEN_CUT = re.compile(r"[\w’'](-)\s*$")
+
+
+def _line_sig(stream, li):
+    """-> a short digest of everything a pair verdict can read off line `li`."""
+    tl = stream.text_lines
+    txt = tl[li] if li < len(tl) else ""
+    # A NEIGHBOUR IS PART OF THIS LINE ONLY WHERE A HYPHEN CONTINUES A TOKEN
+    # ACROSS THE LINE EDGE -- `build_stream`'s own cut rule, quoted: a line
+    # ending `[\w'](-)` hands its last token's tail to the next line's first
+    # token, so that token's units (and both lines' spans over it) read both
+    # texts.  Everywhere else a neighbour's text is not this line's, and
+    # folding it in unconditionally cost two thirds of the hits: a one-line
+    # change re-judged three lines' pairs instead of one's (measured on a
+    # four-line fixture, 0 hits of 6 pairs).
+    prev = tl[li - 1] if 0 < li < len(tl) else ""
+    nxt = tl[li + 1] if li + 1 < len(tl) else ""
+    prev = prev if _HYPHEN_CUT.search(prev or "") else ""
+    nxt = nxt if _HYPHEN_CUT.search(txt or "") else ""
+    ids = stream.lines[li] if li < len(stream.lines) else ()
+    base = ids[0] if ids else 0
+    u0 = stream.units[ids[0]] if ids else None
+    fr = stream.frames
+
+    def off(v):
+        if v is None:
+            return None
+        if isinstance(v, (tuple, list)):
+            return tuple(off(x) for x in v)
+        return v - base if isinstance(v, int) else repr(v)
+    beat = fr.beat.get(li) if isinstance(fr.beat, dict) else None
+    parts = (
+        txt, prev, nxt, stream.status_of(li),
+        u0.section if u0 else "", u0.stanza if u0 else None,
+        len(ids), off(fr.caesura.get(li)), off(fr.lifts.get(li)),
+        off(fr.refrain_tail.get(li)), repr(fr.stub_resolution.get(li)),
+        repr(fr.hemistich.get(li)), off(beat),
+        tuple((t, len(v)) for (l, t), v in stream.tokens.items() if l == li),
+    )
+    return hashlib.blake2b(repr(parts).encode("utf-8"), digest_size=12).digest()
 
 
 def _origin_line(span):

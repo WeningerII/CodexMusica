@@ -131,10 +131,14 @@ def drive(runner, workdir, env=None):
 
 
 def normalise(out, workdir):
-    """Strip the two legitimate differences: temp paths and the memo line."""
+    """Strip the legitimate differences: temp paths and the memo lines — the
+    replay memo's (M-167) and, since M-217's remainder, the pair, score and
+    rank memos' one line each, whose tallies differ between a warm arm and a
+    cold one by construction."""
     out = out.replace(workdir, "<TMP>")
     return "\n".join(l for l in out.splitlines()
-                     if not l.strip().startswith("REPLAY MEMO:"))
+                     if not l.strip().startswith(("REPLAY MEMO:", "PAIR MEMO:",
+                                                  "SCORE MEMO:")))
 
 
 print("test_replay_memo — the deferred-replay memo (M-167)")
@@ -289,5 +293,169 @@ finally:
 _RV.field_memo_clear()
 check("the cap is the planner's own envelope (55 lines x 4 places x 2 bands, "
       "rounded), stated once", _RV.FIELD_MEMO_CAP == 512)
+
+print("\n7. THE PER-PAIR SCHEMA MEMO (M-217's remainder) — a candidate draft that "
+      "differs by ONE line re-judges only the pairs that touch it, the verdicts "
+      "are byte-identical to the memo-off judge, a hyphen-continued neighbour is "
+      "part of the line, and LYRIC_PAIR_MEMO=0 bypasses it")
+from quality import relations as _R7
+from quality.revise import _relation_phonology as _phon7
+_p7 = _phon7()
+_base7 = ["I saw the cat run down the road", "we wore the hat and left the load",
+          "the moon came up above the hill", "the river froze and lay there still",
+          "a coat hung dripping by the door", "the kettle ticked upon the floor"]
+_var7 = list(_base7); _var7[2] = "a lantern swung above the sill"
+_names7 = ["perfect rhyme", "consonance", "anaphora", "internal rhyme",
+           "head rhyme (positional)", "semirhyme"]
+
+
+def _lp7(lines, name):
+    st = _R7.build_stream(lines, _p7, declaration={"language": "eng"})
+    return _R7.line_pairs_for(_R7.REGISTRY[name], st)
+
+
+os.environ["LYRIC_PAIR_MEMO"] = "0"
+try:
+    _R7.pair_memo_clear()
+    _off7 = {(n, k): _lp7(l, n) for n in _names7
+             for k, l in (("base", _base7), ("var", _var7))}
+    check("LYRIC_PAIR_MEMO=0 bypasses the store: nothing held, nothing hit",
+          _R7.pair_memo_tally() == {"hit": 0, "miss": 0, "evicted": 0,
+                                    "slots": 0, "held": 0},
+          str(_R7.pair_memo_tally()))
+finally:
+    del os.environ["LYRIC_PAIR_MEMO"]
+_R7.pair_memo_clear()
+_on7 = {}
+_hits, _misses = {}, {}
+for n in _names7:
+    _on7[(n, "base")] = _lp7(_base7, n)
+    t1 = _R7.pair_memo_tally()
+    _on7[(n, "var")] = _lp7(_var7, n)
+    t2 = _R7.pair_memo_tally()
+    _hits[n], _misses[n] = t2["hit"] - t1["hit"], t2["miss"] - t1["miss"]
+check("six schemas, two drafts: every verdict set is byte-identical to the "
+      "memo-off judge", all(_off7[k] == _on7[k] for k in _off7),
+      str({k: (sorted(_off7[k]), sorted(_on7[k])) for k in _off7
+           if _off7[k] != _on7[k]}))
+check("the first draft of each schema is all misses (15 pairs judged, 0 hits)",
+      all(_misses[n] >= 0 for n in _names7)
+      and _R7.pair_memo_tally()["miss"] == sum(_misses.values()) + 15 * len(_names7),
+      str(_R7.pair_memo_tally()))
+check("the one-line variant hits the 10 pairs that do not touch the changed "
+      "line and judges only the 5 that do — on every schema",
+      all(_hits[n] == 10 and _misses[n] == 5 for n in _names7),
+      f"hits {_hits} misses {_misses}")
+# THE DECLARATION IS IN THE KEY: a stream declaring another language misses.
+_R7.pair_memo_clear()
+_lp7(_base7, "perfect rhyme")
+st_cy = _R7.build_stream(_base7, _p7, declaration={"language": "cym"})
+_R7.line_pairs_for(_R7.REGISTRY["perfect rhyme"], st_cy)
+check("a stream under a different declaration misses on every pair — the "
+      "declaration is in the key", _R7.pair_memo_tally()["hit"] == 0
+      and _R7.pair_memo_tally()["slots"] == 2, str(_R7.pair_memo_tally()))
+# THE HYPHEN RULE: a line whose predecessor ends in a hyphen carries that
+# predecessor's text in its signature, so changing the predecessor re-judges
+# its pairs too; an un-hyphenated neighbour is not part of the line.
+_R7.pair_memo_clear()
+_hy = ["the lantern swung and lit the win-", "dow frame and every rafter",
+       "the moon came up above the hill", "the river froze and lay there still"]
+_hy2 = list(_hy); _hy2[0] = "the candle guttered on the win-"
+_lp7(_hy, "perfect rhyme"); t1 = _R7.pair_memo_tally()
+_lp7(_hy2, "perfect rhyme"); t2 = _R7.pair_memo_tally()
+check("a change to a hyphen-cut line also re-judges the line it continues "
+      "into: pairs touching L1 or L2 miss (5 of 6), the one pair that "
+      "touches neither hits", t2["hit"] - t1["hit"] == 1
+      and t2["miss"] - t1["miss"] == 5, f"{t1} -> {t2}")
+check("the cut rule the signature quotes is build_stream's own",
+      _R7._HYPHEN_CUT.pattern == r"[\w’'](-)\s*$"
+      and bool(_R7._HYPHEN_CUT.search("win-")) and not _R7._HYPHEN_CUT.search("win"))
+_R7.pair_memo_clear()
+_st_nt = _R7.build_stream(_base7, _p7, declaration={"language": "eng"})
+_st_nt.text_lines = ()
+_R7.line_pairs_for(_R7.REGISTRY["perfect rhyme"], _st_nt)
+check("a stream that cannot spell per-line signatures (no text lines) bypasses "
+      "the memo instead of collapsing every line onto one key",
+      _R7.pair_memo_tally()["slots"] == 0 and _R7.pair_memo_tally()["miss"] == 0,
+      str(_R7.pair_memo_tally()))
+check("the two caps are stated once, and the row cap holds a 55-line draft's "
+      "1,485 pairs plus 48 one-line folds",
+      _R7.PAIR_MEMO_CAP == 4_096 and _R7.PAIR_MEMO_SLOTS == 128
+      and _R7.PAIR_MEMO_CAP >= 55 * 54 // 2 + 48 * 54)
+_R7.pair_memo_clear()
+print(f"\n{'ALL PASS' if not FAILS else f'{len(FAILS)} FAILURE(S)'}")
+
+
+print("\n8. THE PAIR-SCORE AND RANKING MEMOS (M-217's remainder, levers 2 and 3) — "
+      "a second Reviser is served the first one's pair scores and rankings on an "
+      "identical key, a different profile or declaration misses, the served "
+      "objects are the same verdicts, and the two kill switches bypass them")
+_RV.score_rank_memo_clear()
+_lines8 = ["I saw the cat run down the road", "we wore the hat and left the load",
+           "the moon came up above the hill", "the river froze and lay there still"]
+_var8 = list(_lines8); _var8[2] = "a lantern swung above the sill"
+lex8 = LH.Lexicon()
+ra = _Rv(lex=lex8)
+_, _, _, m1 = ra._matrix(_lines8)
+t1 = _RV.score_memo_tally()
+check("the first draft scores all 6 pairs and records them (6 misses, 0 hits)",
+      t1["miss"] == 6 and t1["hit"] == 0 and t1["held"] == 6, str(t1))
+rb = _Rv(lex=lex8)
+_, _, _, m2 = rb._matrix(_var8)
+t2 = _RV.score_memo_tally()
+check("a SECOND Reviser grading the one-line variant is served the 3 pairs that "
+      "do not touch the changed line and scores the 3 that do",
+      t2["hit"] == 3 and t2["miss"] == 9, str(t2))
+check("a served score IS the recorded verdict: L1~L2 identical across the two "
+      "Revisers, total and relation", m2[0][1]["total"] == m1[0][1]["total"]
+      and m2[0][1]["relation"] == m1[0][1]["relation"])
+rc_ = _Rv(lex=lex8)
+rc_._matrix(_lines8, profile="assonance")
+t3 = _RV.score_memo_tally()
+check("a different comparator profile misses on every pair — the profile is in "
+      "the key", t3["miss"] == 15 and t3["hit"] == 3, str(t3))
+rd_ = _Rv(lex=lex8, decl=LH.Declaration(theta_rhyme=0.9))
+rd_._matrix(_lines8)
+t4 = _RV.score_memo_tally()
+check("a different declaration misses on every pair — the declaration is in "
+      "the key", t4["miss"] == 21 and t4["hit"] == 3, str(t4))
+# THE RANKING MEMO
+_RV.score_rank_memo_clear(); _RV.field_memo_clear()
+h1 = ra.modal_head("rain")
+r1 = _RV.rank_memo_tally()
+h2 = rb.modal_head("rain")
+r2 = _RV.rank_memo_tally()
+check("the first ranking misses and is recorded; a second Reviser's identical "
+      "ask is served (one miss, one hit) and the forbidden head is the same list",
+      r1["miss"] == 1 and r1["hit"] == 0 and r2["hit"] == 1 and h1 == h2
+      and h1 is not h2, f"{r1} -> {r2}")
+h3 = rd_.modal_head("rain")
+r3 = _RV.rank_memo_tally()
+check("a different declaration's ranking misses — the declaration is in the key",
+      r3["miss"] == 2, str(r3))
+check("the spelled-rime memo holds every word the rankings read, and the same "
+      "word asked twice reads once", r3["rimes"] > 0
+      and ra._spelled_rime("rain") == ra._spelled_rime_compute("rain"))
+for var, fn in (("LYRIC_SCORE_MEMO", lambda: _Rv(lex=lex8)._matrix(_var8)),
+                ("LYRIC_RANK_MEMO", lambda: _Rv(lex=lex8).modal_head("rain"))):
+    os.environ[var] = "0"
+    try:
+        _RV.score_rank_memo_clear()
+        fn(); fn()
+        tl = _RV.score_memo_tally() if "SCORE" in var else _RV.rank_memo_tally()
+        check(f"{var}=0 bypasses its store: two Revisers, zero hits, zero misses, "
+              f"nothing held", tl["hit"] == 0 and tl["miss"] == 0 and tl["held"] == 0,
+              str(tl))
+    finally:
+        del os.environ[var]
+_RV.score_rank_memo_clear()
+check("the caps are stated once and the score cap holds a 55-line draft's 1,485 "
+      "pairs plus every one-line fold of a long run",
+      _RV.SCORE_MEMO_CAP == 8_192 and _RV.RANK_MEMO_CAP == 2_048
+      and _RV.RIME_MEMO_CAP == 200_000 and _RV.SCORE_MEMO_CAP >= 1_485 + 100 * 54)
+check("the disclosure names both memos and says served and judged apart",
+      "SCORE MEMO: pair scores" in _RV.memo_disclosure()
+      and "RANK MEMO: field rankings" in _RV.memo_disclosure())
+print(f"\n{'ALL PASS' if not FAILS else f'{len(FAILS)} FAILURE(S)'}")
 
 sys.exit(1 if FAILS else 0)
