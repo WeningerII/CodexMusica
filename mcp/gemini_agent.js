@@ -417,6 +417,7 @@ export const _agentInternals = {
   stateKey,
   carriedKey,
   pruneHistory,
+  stubSupersededInPlace,
 };
 
 async function generate({
@@ -699,6 +700,46 @@ function stubResponse(fr) {
  * @param {{keepTurns?:number, maxBytes?:number}} opts
  * @returns {Array} a new array; entries are shared where untouched
  */
+// THE IN-TURN STUB (M-228, round 14's named wall). pruneHistory stubs a
+// superseded lyric result only in turns OLDER than the newest, so inside one
+// turn every fold's brief rode every later hop: round 12 re-sent twelve
+// superseded briefs on hop 14 and handed back a 328 KB transcript; round 14
+// carried 213–282 KB after each turn and its turn 6 died on three 502s. This
+// pass stubs a lyric_* functionResponse anywhere in the transcript once a
+// LATER result of the same tool exists — the model has already acted on it,
+// and the newest result of each tool (the pending question, the latest
+// grade) stays verbatim. Same stub, same note, same idempotence as
+// pruneHistory; model parts (and their thoughtSignatures) are untouched.
+// Applied in place between hops so the next request carries only what the
+// model still needs, and the handed-back history is already stubbed.
+function stubSupersededInPlace(contents) {
+  if (!Array.isArray(contents) || !contents.length) return 0;
+  const newest = new Map();
+  contents.forEach((entry, i) => {
+    for (const p of entry?.parts || []) {
+      const name = p?.functionResponse?.name;
+      if (typeof name === 'string' && PRUNED_FAMILY.test(name)) newest.set(name, i);
+    }
+  });
+  let stubbed = 0;
+  contents.forEach((entry, i) => {
+    if (entry?.role !== 'user') return;
+    let changed = false;
+    const parts = (entry.parts || []).map((p) => {
+      const fr = p?.functionResponse;
+      if (!fr || !PRUNED_FAMILY.test(fr.name || '') || newest.get(fr.name) === i) return p;
+      if (fr.response && fr.response.pruned === PRUNED_NOTE) return p;
+      const s = stubResponse(fr);
+      if (!s) return p;
+      changed = true;
+      stubbed += 1;
+      return { ...p, functionResponse: s };
+    });
+    if (changed) contents[i] = { ...entry, parts };
+  });
+  return stubbed;
+}
+
 function pruneHistory(contents, { keepTurns = 1, maxBytes = 200_000 } = {}) {
   if (!Array.isArray(contents) || !contents.length) return contents;
   // Turns: each user TEXT entry opens one; tool responses ride on `user`
@@ -1027,6 +1068,9 @@ export async function runTurn({
       }
       // Gemini takes tool output back on the `user` turn.
       contents.push({ role: 'user', parts: responses });
+      // M-228: the brief the model just answered leaves the transcript before
+      // the next request; the result it has not acted on yet stays whole.
+      if (limits.pruneFolded) stubSupersededInPlace(contents);
 
       // Stop between hops once this turn has spent its allowance. Checked HERE,
       // after the tool responses are appended, so the transcript handed back is

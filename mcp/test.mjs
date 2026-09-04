@@ -1599,6 +1599,164 @@ check('validation: actionable errors', () => {
       );
     }
   });
+  // ── M-228: THE IN-TURN STUB ─────────────────────────────────────────────
+  // Inside one turn every fold's brief rode every later hop (round 12: 328 KB
+  // after one turn). Once a later result of the same lyric tool exists, the
+  // earlier result's body is stubbed between hops; the newest stays whole.
+  await (async () => {
+    const { runTurn: _rt, LIMITS: _L, _agentInternals: AI } = await import('./gemini_agent.js');
+    const surface = {
+      instructions: '',
+      declarations: [
+        {
+          name: 'lyric_revise',
+          parameters: {
+            type: 'object',
+            properties: {
+              seed: { type: 'integer' },
+              draft: { type: 'array' },
+              answer: { type: 'string' },
+            },
+            required: ['seed', 'draft'],
+          },
+        },
+      ],
+      workspaceTools: new Set(),
+      stateTools: new Set(['lyric_revise']),
+    };
+    const usageMeta = { promptTokenCount: 10, candidatesTokenCount: 5, thoughtsTokenCount: 0 };
+    const BRIEF = 'B'.repeat(2000);
+    const requests = [];
+    const realFetch = globalThis.fetch;
+    const script = [
+      { functionCall: { name: 'lyric_revise', args: { seed: 9, draft: ['a', 'b'] } } },
+      { functionCall: { name: 'lyric_revise', args: { seed: 9, answer: 'one' } } },
+      { functionCall: { name: 'lyric_revise', args: { seed: 9, answer: 'two' } } },
+      { text: 'done' },
+    ];
+    let hop = 0;
+    globalThis.fetch = async (_url, init) => {
+      requests.push(JSON.parse(init.body));
+      const part = script[Math.min(hop++, script.length - 1)];
+      return {
+        ok: true,
+        status: 200,
+        json: async () => ({
+          candidates: [
+            { content: { parts: [part] }, finishReason: part.text ? 'STOP' : undefined },
+          ],
+          usageMetadata: usageMeta,
+        }),
+      };
+    };
+    let n = 0;
+    let run;
+    try {
+      run = await _rt({
+        apiKey: 'k',
+        surface,
+        callTool: async () => {
+          n += 1;
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `[AWAITING PROPOSAL — seed 9 — ${n} answer(s) on record — NO SONG YET]\n${BRIEF}`,
+              },
+              {
+                type: 'text',
+                text: JSON.stringify({
+                  exit_code: 4,
+                  status: 'awaiting_proposal',
+                  answers_on_record: n,
+                  state: `{"pending":{"kind":"propose"},"n":${n}}`,
+                }),
+              },
+            ],
+          };
+        },
+        userText: 'go',
+        limits: { ..._L, maxTurnUsd: 0 },
+        retries: 0,
+      });
+    } finally {
+      globalThis.fetch = realFetch;
+    }
+    const responsesIn = (req) =>
+      req.contents.flatMap((c) => (c.parts || []).map((p) => p.functionResponse).filter(Boolean));
+    check(
+      'between hops, a lyric result a later result of the same tool superseded is stubbed and the newest stays whole (M-228)',
+      () => {
+        assert.equal(requests.length, 4, 'four requests: three calls, then the reply');
+        const r3 = responsesIn(requests[2]);
+        assert.equal(r3.length, 2, 'request 3 carries two revise results');
+        assert.ok(
+          typeof r3[0].response.pruned === 'string' && /pruned/.test(r3[0].response.pruned),
+          'the first carries the pruned note'
+        );
+        assert.equal(r3[0].response.answers_on_record, 1, 'and keeps its verdict fields');
+        assert.ok(!('presentation' in r3[0].response), 'its brief is gone');
+        assert.ok(r3[1].response.presentation.includes(BRIEF), 'the newest result keeps its brief');
+        const r4 = responsesIn(requests[3]);
+        assert.deepEqual(
+          r4.map((fr) => 'presentation' in fr.response),
+          [false, false, true],
+          'on the next hop the second is stubbed too and the third stays whole'
+        );
+        const bytes2 = JSON.stringify(requests[1].contents).length;
+        const bytes4 = JSON.stringify(requests[3].contents).length;
+        assert.ok(
+          bytes4 < bytes2 + 2 * BRIEF.length,
+          `the transcript does not grow by a brief per hop (${bytes2} -> ${bytes4})`
+        );
+      }
+    );
+    check(
+      'the handed-back history is the stubbed one, and stubbing it again changes nothing (M-228)',
+      () => {
+        const hist = run.history;
+        const frs = hist.flatMap((c) =>
+          (c.parts || []).map((p) => p.functionResponse).filter(Boolean)
+        );
+        assert.deepEqual(
+          frs.map((fr) => 'presentation' in fr.response),
+          [false, false, true]
+        );
+        const copy = JSON.parse(JSON.stringify(hist));
+        assert.equal(AI.stubSupersededInPlace(copy), 0, 'idempotent');
+        assert.deepEqual(copy, hist);
+        assert.equal(hist.filter((c) => c.role === 'model').length, 4, 'model parts untouched');
+      }
+    );
+    check(
+      'stubSupersededInPlace leaves a recipe result and a lone lyric result alone (M-228)',
+      () => {
+        const c = [
+          { role: 'user', parts: [{ text: 'hi' }] },
+          { role: 'model', parts: [{ functionCall: { name: 'start_recipe', args: {} } }] },
+          {
+            role: 'user',
+            parts: [{ functionResponse: { name: 'start_recipe', response: { cards: 3 } } }],
+          },
+          { role: 'model', parts: [{ functionCall: { name: 'lyric_plan', args: {} } }] },
+          {
+            role: 'user',
+            parts: [
+              {
+                functionResponse: {
+                  name: 'lyric_plan',
+                  response: { presentation: 'P', verdict: { exit_code: 0 } },
+                },
+              },
+            ],
+          },
+        ];
+        const before = JSON.stringify(c);
+        assert.equal(AI.stubSupersededInPlace(c), 0);
+        assert.equal(JSON.stringify(c), before);
+      }
+    );
+  })();
   check(
     'chat.js hands the malformed hops and draft_carried out, and the battery rows bank them (M-221)',
     () => {

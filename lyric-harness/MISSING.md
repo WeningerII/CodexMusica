@@ -20144,6 +20144,24 @@ entry is about, made settable.
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
 with this entry (2026-09-03).
 
+### M-228 · Inside one turn every answered brief rode every later hop — 328 KB after one turn, 502s under it — because the fold pruner only looked at OLDER turns `CLOSED` 2026-09-04 (connector half; measured on the next round's `sizes.history`)
+
+M-223 named it as the next wall and round 14 ran into it: the transcript was **213–282 KB after every turn** and turn 6 died on three 502s over 27 minutes before the new build answered. `pruneHistory` (M-197) stubs a superseded lyric result only in a turn OLDER than the newest, so within a turn — where a `continue` message folds eight to twelve answers — every brief the model had already answered went back to Gemini on every later hop and came back in the envelope whole. Round 12's hop 14 re-sent twelve superseded briefs.
+
+**BUILT:** `stubSupersededInPlace(contents)` (`mcp/gemini_agent.js`) runs between hops, right after the tool responses are appended: a `lyric_*` `functionResponse` anywhere in the transcript whose tool has a LATER result is replaced by the same verdict stub `pruneHistory` writes (exit code, status, answers on record, the pruned note); the newest result of each tool — the pending question, the latest grade — stays verbatim; model parts and their thoughtSignatures are untouched; recipe results are never touched (standing rule 1). The handed-back history is the stubbed one and stubbing it again changes nothing. Gated on `pruneFolded` like the pruner it extends.
+
+`mcp/test.mjs`: three mocked folds — request 3 carries the first result as a stub and the second whole, request 4 carries two stubs and the third whole, the transcript no longer grows by a brief per hop; the returned history is the stubbed one and idempotent; a recipe result and a lone lyric result are left byte-identical.
+
+**WHAT IT DOES NOT CLAIM:** a number. The saving is `sizes.history` on the first round after this deploys, read against round 14's 213–282 KB; the 502s it may or may not have caused stay unattributed until the same rows say so.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~281~~ **282** with this entry (2026-09-04).
+
+### M-227 · The nightly and weekly CI crons are suspended for the end-to-end drive `OPEN` 2026-09-04 — the owner's order, verbatim: *"suspend/cancel tonight's nightly, tandem, mutation. you have a dramatically more important goal right now that cannot be interrupted or stopped until it's successful."*
+
+Both `schedule:` crons in `.github/workflows/ci.yml` (`17 4 * * *` nightly, `0 6 * * 1` weekly) are commented out, not deleted (doctrine 17). A backstop check-in cancels any scheduled run that fires before this reaches `main`. **Restore by uncommenting when the drive lands a song**; this entry closes then.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved with M-228 (this entry and M-228 entered together, 2026-09-04).
+
 ### M-226 · The first malformed call ever recorded broke inside the draft array the model re-sent — and the connector's own reminder told it to re-send it `CLOSED` 2026-09-04 (connector half; round 16 measures the model half) — rounds 14 and 15 banked
 
 **ROUND 14** (run 33824760222, GitHub's #15, 90 min, cancelled at turn 8; the driver at 89481da3): turns 0–5 against the deployment at 02e022ff — **34 answers folded in six turns**, 7/8/5/10/3/8 calls a turn, three turns ended `MALFORMED_FUNCTION_CALL` after calls (truncated, continued: M-223's rule working), one `MAX_TOKENS`; history 213–282 KB after every turn. Turn 6: three 502s over 27 minutes (*"The engine could not answer that one"*) — the 328 KB envelope against the old server, then the deploy restart under it. **Turns 6 and 7 answered from the NEW connector** (4df502d4, live at ~02:35): `path: warm`, `malformed: []` then `malformed: [1 hop, re-asked]`, one fold each, and the round was cancelled to free the queue.
