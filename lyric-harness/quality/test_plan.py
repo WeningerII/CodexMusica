@@ -2303,19 +2303,69 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # Under the old three-profile table that read 2 == 2 - 0; it reads
     # 1 == 3 - 2 now, and the single survivor is the sonnet-song seam
     # M-131 opened (18-21), narrowed to 21 by the short band from below.
-    # REPINNED 2026-09-04 (M-239): the reaches are the LIVE profiles' —
-    # section 4-5, sonnet 12-17, lyric 1-447 — and the lyric reach contains
-    # both others, so every seam touches and the hole count reads 0 == 2 - 2.
-    check("...and the union's hole count is the number of seams between "
-          "adjacent reaches that neither touch nor overlap — one hole per "
-          "such seam — which reads 0 == 2 - 2 over the three live profiles: "
-          "the lyric-sheet reach contains the section's and the sonnet's, "
-          "so no seam is open",
-          len(holes) == (len(reaches) - 1) - len(touching) == 0
-          and len(touching) == 2,
-          f"{len(holes)} hole(s) {holes} over {len(reaches)} reaches "
-          f"{ {k: (min(v), max(v)) for k, v in ordered} }; "
-          f"touching {touching}")
+    #
+    # ~~REPINNED 2026-09-04 (M-239): … every seam touches and the hole
+    # count reads 0 == 2 - 2.~~ — STRUCK 2026-09-05, AND THE STRIKE IS THE
+    # FINDING. That repin kept the seam identity and only moved its
+    # arithmetic, and the identity is what M-239 broke. MEASURED: the live
+    # reaches are lyric 1-447, section 4-5, sonnet 12-17; ordered by their
+    # MINIMA that is lyric, section, sonnet, and the adjacent-pair test
+    # reads (lyric, section) touching at 448 >= 4 but (section, sonnet)
+    # NOT, at 6 >= 12 — so `touching` is 1 and `holes == seams - touching`
+    # asserts 0 == 1, which is why this check went red the hour the row
+    # was adopted. The identity was never general: it models reaches laid
+    # END TO END, and one reach CONTAINING the others is a different
+    # arrangement, in which a min-ordered neighbour is not a seam at all.
+    # A repin that had only moved the numbers would have been a check
+    # tuned to its own answer.
+    #
+    # WHAT IS TRUE OF ANY ARRANGEMENT, and what is pinned instead: the
+    # union's holes are exactly the values inside its span that no reach
+    # covers — that is `line_count_gaps`' own definition, so asserting it
+    # alone would be circular (the defect two comments up). The CONTINGENT
+    # property that discriminates this table is CONTAINMENT: one reach
+    # contains every other, so the union IS that reach and no hole can
+    # exist. It is contingent because it is false of every table this
+    # repo shipped before 2026-09-04, and the mutation below shows it
+    # failing.
+    _by_size = sorted(reaches.items(), key=lambda kv: len(kv[1]), reverse=True)
+    _widest, _wr = _by_size[0]
+    _contained = [n for n, r in _by_size[1:] if r <= _wr]
+    check("...and the union has NO hole because one reach CONTAINS every "
+          "other — the lyric-sheet reach, which is the only live "
+          "`n_lines == 0` row's, so the union IS that reach; the "
+          "end-to-end seam identity the two readings above pinned does "
+          "not describe this arrangement and was struck rather than "
+          "re-fitted",
+          holes == [] and len(_contained) == len(reaches) - 1
+          and union == _wr,
+          f"{len(holes)} hole(s) {holes}; widest {_widest} "
+          f"{min(_wr)}..{max(_wr)} contains {_contained} of "
+          f"{[k for k, _ in _by_size[1:]]}; "
+          f"reaches { {k: (min(v), max(v)) for k, v in ordered} }; "
+          f"min-ordered touching {touching}")
+    # AND THE CONTAINMENT IS NOT FREE: narrow the sheet row until it stops
+    # covering the sonnet's reach and a hole opens, which is what makes
+    # the check above discriminating rather than a restatement of
+    # `line_count_gaps`. The perturbation is restored.
+    _sheet = [p for p in FL.PROFILES if not p.n_lines and not p.superseded_by][0]
+    _old_lo, _old_hi = _sheet.lo, _sheet.hi
+    try:
+        _sheet.lo, _sheet.hi = 200, 400
+        _PL.gradeable_line_counts.cache_clear()
+        _narrow_union = set(_PL.gradeable_line_counts())
+        _narrow_holes = _PL.line_count_gaps(_narrow_union)
+    finally:
+        _sheet.lo, _sheet.hi = _old_lo, _old_hi
+        _PL.gradeable_line_counts.cache_clear()
+    check("MUTATION — narrow the live sheet row back to a 200-400-token "
+          "BAND and the containment breaks: its reach no longer covers "
+          "the stanza reaches, the union re-opens holes, and the "
+          "perturbation is restored",
+          _narrow_holes and not _PL.line_count_gaps(
+              set(_PL.gradeable_line_counts())),
+          f"{len(_narrow_holes)} hole(s) under the narrowed row "
+          f"{_narrow_holes}, {len(holes)} restored")
     # THE PROFILE IS IDENTIFIED BY ITS OWN DECLARATION, not by its name. A
     # name test would be a second statement of which profile means what
     # (doctrine 1). Proven by ASKING the table rather than by reading the
