@@ -2652,6 +2652,71 @@ def order_burden(schema, stream, chans=DEFAULT_CHANNELS):
     return dict(base, instances=len(out))
 
 
+def _cand_buckets(schema, a, stream, chans, idx, wild):
+    """The bucket LISTS whose concatenation is `a`'s candidate sequence.
+
+    Lists rather than candidates, because `len()` over them is the candidate
+    count for `a` without touching a single `b` -- the upper bound `realise()`
+    reads to decide whether the pair guard can fire at all.  Yielded in the
+    order the loop consumed them, so the concatenation is the same sequence,
+    and a bucket appearing twice still yields twice (`seen` de-duplicates,
+    and it did before).
+    """
+    fk = _frame_key(schema, a, stream)
+    ka = _bucket_key(schema, a, stream, chans, rule=schema.spans[0])
+    if ka is None:
+        for (f, k), v in idx.items():
+            if fk is None or f is None or f == fk:
+                yield v
+        return
+    yield idx.get((fk, ka), ())
+    if fk is not None:
+        yield idx.get((None, ka), ())
+    yield wild.get(fk, ())
+    if fk is not None:
+        yield wild.get(None, ())
+
+
+def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
+                     skip_line_pairs, tally=None):
+    """Every pair `realise()` would evaluate, in `realise()`'s order.
+
+    ONE definition of what a candidate is (doctrine 1).  The `seen`
+    de-duplication, the `mirrored()` skip and the `skip_line_pairs` skip live
+    here and nowhere else, so the pass that COUNTS candidates for the pair
+    guard and the pass that EVALUATES them cannot drift into refusing one
+    number and evaluating another.  Each pass builds its own `seen`.
+
+    `tally` is written by the evaluating pass only; the counting pass passes
+    None, because a run that refuses records nothing and a run that does not
+    refuse must count `deduplicated_candidates` exactly once.
+    """
+    seen = set()
+    for a, buckets in layout:
+        for v in buckets:
+            for b in v:
+                if a.idx == b.idx or (a.idx, b.idx) in seen:
+                    continue
+                seen.add((a.idx, b.idx))
+                reversed_pair = a.head() > b.head()
+                if reversed_pair and mirrored(a, b, a_keys, b_keys):
+                    # CANDIDATE level: a de-duplicated pair is never
+                    # evaluated, so this count and `recovered_instances` sit
+                    # on different denominators and must never be compared or
+                    # summed. The key names say which, because a number whose
+                    # label outruns its evidence is adversary 7's whole remit.
+                    if tally is not None:
+                        tally["deduplicated_candidates"] = (
+                            tally.get("deduplicated_candidates", 0) + 1)
+                    continue     # the mirror carries it; see mirrored()
+                if skip_line_pairs:
+                    la, lb = _span_line(a, stream), _span_line(b, stream)
+                    if (la != lb and la is not None and lb is not None
+                            and (min(la, lb), max(la, lb)) in skip_line_pairs):
+                        continue  # the memo carries it; see line_pairs_for
+                yield a, b, reversed_pair
+
+
 def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
             keep=("true", "none"), tally=None, skip_line_pairs=None):
     """Find every instance of `schema` in the song.  -> [Instance] or Refusal.
@@ -2759,56 +2824,56 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
         if k is None:
             wild.setdefault(f, []).extend(v)
 
-    out, seen, n = [], set(), 0
-    for a in A:
-        fk = _frame_key(schema, a, stream)
-        ka = _bucket_key(schema, a, stream, chans, rule=schema.spans[0])
-        cands = []
-        if ka is None:
-            for (f, k), v in idx.items():
-                if fk is None or f is None or f == fk:
-                    cands.extend(v)
-        else:
-            cands.extend(idx.get((fk, ka), []))
-            if fk is not None:
-                cands.extend(idx.get((None, ka), []))
-            cands.extend(wild.get(fk, []))
-            if fk is not None:
-                cands.extend(wild.get(None, []))
-        for b in cands:
-            if a.idx == b.idx or (a.idx, b.idx) in seen:
-                continue
-            seen.add((a.idx, b.idx))
-            reversed_pair = a.head() > b.head()
-            if reversed_pair and mirrored(a, b, a_keys, b_keys):
-                # CANDIDATE level: a de-duplicated pair is never evaluated, so
-                # this count and `recovered_instances` below sit on different
-                # denominators and must never be compared or summed. The key
-                # names say which, because a number whose label outruns its
-                # evidence is adversary 7's whole remit.
-                if tally is not None:
-                    tally["deduplicated_candidates"] = (
-                        tally.get("deduplicated_candidates", 0) + 1)
-                continue         # the mirror carries it; see mirrored()
-            if skip_line_pairs:
-                la, lb = _span_line(a, stream), _span_line(b, stream)
-                if (la != lb and la is not None and lb is not None
-                        and (min(la, lb), max(la, lb)) in skip_line_pairs):
-                    continue         # the memo carries it; see line_pairs_for
+    # THE BUCKET LAYOUT, TAKEN ONCE.  Per `a`, the bucket lists whose
+    # concatenation is `a`'s candidate sequence -- references, not a copy, so
+    # it costs one frame key and one bucket key per `a` and nothing per
+    # candidate.  Their LENGTHS are the guard's upper bound.
+    layout = [(a, tuple(_cand_buckets(schema, a, stream, chans, idx, wild)))
+              for a in A]
+
+    # THE PAIR GUARD, MOVED IN FRONT OF `evaluate()` (M-240's cost).  It used
+    # to count inside the loop and raise on candidate max_pairs + 1, so a
+    # draft it REFUSES paid for two million evaluations first.  Now the bound
+    # above is read with no `b` touched, and only a bound over the ceiling
+    # pays for an exact count -- the same generator the loop runs, minus
+    # `evaluate()` and minus the tally.
+    # MEASURED 2026-09-05, CPU time, old tree against new on the same loaded
+    # machine: `test_plan._round_trip_one(2)` (222 lines, walled at the
+    # 77-schema door) made 2,000,000 `evaluate()` calls in the refused call
+    # and now makes NONE; time inside `realise()` over that seed's 18 calls
+    # 8.6 s -> 5.2 s.  WHAT IT DID NOT BUY is the seed: 75.1 s -> 72.1 s,
+    # because the wall was never where that seed's time went -- at ~2 us a
+    # pair, two million of them are SECONDS, and M-240 read the refusal as
+    # minutes.  The graded seed is untouched: `_round_trip_one(1)`,
+    # 4,576,240 evaluations before and after, 240.7 s -> 242.8 s.
+    # WHAT DID NOT MOVE: which inputs refuse -- the bound is the candidate
+    # count BEFORE de-duplication and can never be below the exact count, so
+    # nothing is refused by the bound that the exact count would have let
+    # through -- nor the instances, their order, or the tally, which only the
+    # evaluating pass writes.
+    if sum(len(v) for _, vs in layout for v in vs) > max_pairs:
+        n = 0
+        for _ in _candidate_pairs(schema, layout, stream, a_keys, b_keys,
+                                  skip_line_pairs):
             n += 1
             if n > max_pairs:
                 raise RuntimeError("candidate explosion; tighten the schema")
-            inst = evaluate(schema, a, b, stream, chans)
-            if inst is None:
-                continue
-            if reversed_pair and tally is not None:      # INSTANCE level
-                tally["recovered_instances"] = (
-                    tally.get("recovered_instances", 0) + 1)
-                if inst.verdict is True:
-                    tally["recovered_true"] = tally.get("recovered_true", 0) + 1
-            tag = {True: "true", False: "false", None: "none"}[inst.verdict]
-            if keep == "all" or tag in keep:
-                out.append(inst)
+
+    out = []
+    for a, b, reversed_pair in _candidate_pairs(
+            schema, layout, stream, a_keys, b_keys, skip_line_pairs,
+            tally=tally):
+        inst = evaluate(schema, a, b, stream, chans)
+        if inst is None:
+            continue
+        if reversed_pair and tally is not None:          # INSTANCE level
+            tally["recovered_instances"] = (
+                tally.get("recovered_instances", 0) + 1)
+            if inst.verdict is True:
+                tally["recovered_true"] = tally.get("recovered_true", 0) + 1
+        tag = {True: "true", False: "false", None: "none"}[inst.verdict]
+        if keep == "all" or tag in keep:
+            out.append(inst)
     return out
 
 

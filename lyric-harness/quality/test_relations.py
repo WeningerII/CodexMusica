@@ -2948,6 +2948,210 @@ def test_the_judge_memo_answers_identical_calls_only():
     RT._WVP_MEMO.clear()
 
 
+# ---------------------------------------------------------------------------
+# X10. The pair guard fires BEFORE `evaluate()` — M-244's cost, closed
+# ---------------------------------------------------------------------------
+
+GUARD_LINES = ["the cat sat on the mat", "he wore a funny hat",
+               "i sang beneath the moon", "and whistled her a tune",
+               "the rain came down the lane", "we ran across the plain",
+               "a bird flew past the hill", "the water running still",
+               "she found a golden ring", "and heard the choirs sing",
+               "the road was long and wide", "we walked along the tide"]
+
+
+def _realise_pre_guard_move(schema, st, chans=None, max_pairs=2_000_000,
+                            keep=("true", "none"), tally=None,
+                            skip_line_pairs=None):
+    """THE ORACLE: `realise()`'s candidate loop as it stood before the guard
+    moved in front of `evaluate()`, frozen here verbatim.
+
+    Not a second implementation to keep in step — a RECORD of the loop every
+    count in this repo was taken over, so "nothing moved but WHEN the refusal
+    is raised" is a comparison and not an assurance. It starts after the
+    capability check, which the move did not touch; the caller skips schemas
+    that refuse. `R.evaluate` is looked up at call time on purpose, so the
+    spy below counts this loop's evaluations too.
+    """
+    chans = R.DEFAULT_CHANNELS if chans is None else chans
+    A = list(R.enumerate_spans(schema.spans[0], st))
+    B = (A if schema.spans[0] == schema.spans[1]
+         else list(R.enumerate_spans(schema.spans[1], st)))
+    a_keys = {s.idx for s in A}
+    b_keys = a_keys if B is A else {s.idx for s in B}
+    idx = {}
+    for s in B:
+        idx.setdefault((R._frame_key(schema, s, st),
+                        R._bucket_key(schema, s, st, chans,
+                                      rule=schema.spans[1])), []).append(s)
+    wild = {}
+    for (f, k), v in idx.items():
+        if k is None:
+            wild.setdefault(f, []).extend(v)
+    out, seen, n = [], set(), 0
+    for a in A:
+        fk = R._frame_key(schema, a, st)
+        ka = R._bucket_key(schema, a, st, chans, rule=schema.spans[0])
+        cands = []
+        if ka is None:
+            for (f, k), v in idx.items():
+                if fk is None or f is None or f == fk:
+                    cands.extend(v)
+        else:
+            cands.extend(idx.get((fk, ka), []))
+            if fk is not None:
+                cands.extend(idx.get((None, ka), []))
+            cands.extend(wild.get(fk, []))
+            if fk is not None:
+                cands.extend(wild.get(None, []))
+        for b in cands:
+            if a.idx == b.idx or (a.idx, b.idx) in seen:
+                continue
+            seen.add((a.idx, b.idx))
+            reversed_pair = a.head() > b.head()
+            if reversed_pair and R.mirrored(a, b, a_keys, b_keys):
+                if tally is not None:
+                    tally["deduplicated_candidates"] = (
+                        tally.get("deduplicated_candidates", 0) + 1)
+                continue
+            if skip_line_pairs:
+                la, lb = R._span_line(a, st), R._span_line(b, st)
+                if (la != lb and la is not None and lb is not None
+                        and (min(la, lb), max(la, lb)) in skip_line_pairs):
+                    continue
+            n += 1
+            if n > max_pairs:
+                raise RuntimeError("candidate explosion; tighten the schema")
+            inst = R.evaluate(schema, a, b, st, chans)
+            if inst is None:
+                continue
+            if reversed_pair and tally is not None:
+                tally["recovered_instances"] = (
+                    tally.get("recovered_instances", 0) + 1)
+                if inst.verdict is True:
+                    tally["recovered_true"] = tally.get("recovered_true", 0) + 1
+            tag = {True: "true", False: "false", None: "none"}[inst.verdict]
+            if keep == "all" or tag in keep:
+                out.append(inst)
+    return out
+
+
+class _EvaluateSpy:
+    """Counts `relations.evaluate` calls and passes every one through.
+
+    The mutation-style probe: a check that a refusal is CHEAP cannot be read
+    off a stopwatch on a loaded machine, so it is read off the call count of
+    the one expensive thing the loop does.
+    """
+
+    def __enter__(self):
+        self.calls = 0
+        self._real = R.evaluate
+
+        def spy(*a, **kw):
+            self.calls += 1
+            return self._real(*a, **kw)
+
+        R.evaluate = spy
+        return self
+
+    def __exit__(self, *exc):
+        R.evaluate = self._real
+        return False
+
+
+def test_the_pair_guard_refuses_before_it_evaluates():
+    """X10. `max_pairs` used to be counted INSIDE the candidate loop and
+    raised on candidate max_pairs + 1 — so a draft the guard REFUSES paid for
+    two million evaluations first (`MISSING.md` M-240's wall). MEASURED
+    2026-09-05 on `test_plan._round_trip_one(2)`, the walled 222-line seed:
+    2,000,000 `evaluate()` calls inside the refused call, and 3.4 s of the
+    seed's 75 s of CPU. Seconds, not the minutes M-240 read into it — which
+    is why the checks below are call COUNTS and not a stopwatch.
+
+    EIGHT CHECKS, and the last four are the ones that make the first four
+    worth having: a guard that fires early is only an improvement if it
+    refuses the same inputs and answers the others identically.
+    """
+    print("\nX10. the pair guard refuses BEFORE it evaluates, and refuses "
+          "the same inputs")
+    st = stream(GUARD_LINES)
+    sch = R.REGISTRY["chain rhyme (rap)"]
+
+    # THE FIXTURE'S OWN NUMBER, so every cap below is a measurement.
+    with _EvaluateSpy() as spy:
+        ref = _realise_pre_guard_move(sch, st, keep="all")
+    exact = spy.calls
+    check("the fixture reaches 2,961 candidate pairs on `chain rhyme (rap)` "
+          "— enough to test a cap against", exact == 2961,
+          f"{exact} candidates, {len(ref)} instances")
+
+    # (i) OVER THE CAP: the same refusal, and not one evaluation paid for it.
+    with _EvaluateSpy() as spy:
+        e = _raises(R.realise, sch, st, keep="all", max_pairs=50)
+    check("a stream over the cap still raises RuntimeError with the message "
+          "`test_plan.py` and `mcp/lyric_tools.js` match on, byte for byte",
+          isinstance(e, RuntimeError)
+          and str(e) == "candidate explosion; tighten the schema",
+          f"{type(e).__name__}: {e}")
+    check("...and `evaluate` was never called — the refusal is free",
+          spy.calls == 0, f"{spy.calls} evaluations")
+    with _EvaluateSpy() as old:
+        _raises(_realise_pre_guard_move, sch, st, keep="all", max_pairs=50)
+    check("...where the frozen pre-move loop paid for exactly `max_pairs` "
+          "evaluations before raising the same error (the probe: 0 is a "
+          "number this check could have failed to reach)", old.calls == 50,
+          f"{old.calls} evaluations before the raise")
+
+    # (ii) THE BOUNDARY. The cheap upper bound (5,637 here) is the candidate
+    # count BEFORE de-duplication, so it is never below the exact count —
+    # a cap between the two must NOT refuse, or the guard would have started
+    # refusing inputs it used to answer.
+    with _EvaluateSpy() as spy:
+        at_cap = R.realise(sch, st, keep="all", max_pairs=exact)
+    check("a cap ABOVE the exact count and BELOW the bound answers in full, "
+          "instance for instance — the bound alone never refuses",
+          not isinstance(at_cap, R.Refusal) and repr(at_cap) == repr(ref)
+          and spy.calls == exact,
+          f"{spy.calls} evaluations, {len(at_cap)} instances")
+    e = _raises(R.realise, sch, st, keep="all", max_pairs=exact - 1)
+    check("...and one below the exact count refuses, as it did before",
+          isinstance(e, RuntimeError)
+          and str(e) == "candidate explosion; tighten the schema",
+          f"{type(e).__name__}: {e}")
+
+    # (iii) UNDER THE CAP: every schema that runs answers identically, and
+    # the tally the guard's pass must not touch is identical with it.
+    drift = []
+    ran = 0
+    for name, s in R.REGISTRY.items():
+        t_new, t_old = {}, {}
+        got = R.realise(s, st, keep="all", tally=t_new)
+        if isinstance(got, R.Refusal):
+            continue
+        exp = _realise_pre_guard_move(s, st, keep="all", tally=t_old)
+        ran += 1
+        if repr(got) != repr(exp) or t_new != t_old:
+            drift.append((name, len(got), len(exp), t_new, t_old))
+    check(f"all {ran} running schemas return the SAME instances in the SAME "
+          "order as the frozen loop, and the same "
+          "deduplicated_candidates / recovered_instances / recovered_true",
+          not drift and ran >= 40, f"{len(drift)} drifted: {drift[:3]}")
+
+    # (iv) the `skip_line_pairs` memo is inside the shared generator now;
+    # a skip that is never exercised would make (iii) say nothing about it.
+    skip = {(0, 1), (2, 3), (4, 7)}
+    t_new, t_old = {}, {}
+    got = R.realise(sch, st, keep="all", tally=t_new, skip_line_pairs=skip)
+    exp = _realise_pre_guard_move(sch, st, keep="all", tally=t_old,
+                                  skip_line_pairs=skip)
+    check("a `skip_line_pairs` call is identical too, and the skip is LIVE "
+          "(it drops instances the unskipped call found)",
+          repr(got) == repr(exp) and t_new == t_old and len(got) < len(ref),
+          f"{len(got)} instances against {len(ref)} unskipped; "
+          f"tally {t_new}")
+
+
 if __name__ == "__main__":
     test_inventory()
     test_p0_unreadable_final_token()
@@ -2981,6 +3185,7 @@ if __name__ == "__main__":
     test_orthography_surface_is_declarable()
     test_frequency_refusal_is_measured_against_the_shipped_tables()
     test_the_judge_memo_answers_identical_calls_only()
+    test_the_pair_guard_refuses_before_it_evaluates()
     print("=" * 66)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")
