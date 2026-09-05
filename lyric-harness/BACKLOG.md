@@ -1712,6 +1712,29 @@ until ruled.
     mandated pairs unjudged". Not a recommendation; the campaign builds
     nothing on it until ruled.
 
+22. **One-line sung sections — is a one-line VERSE or CHORUS a mislabelled
+   section by M-54's own test?** Seed 33 at 20 lines drew intro 3, verse 1,
+   chorus 1, breakdown 12, prechorus 1, chorus 1, coda 1: four of six sung
+   sections are one line. The composition floor is one line per sung
+   section (`stanza_line_floor()` bounds the COUNT at T // 4, not the size).
+   Options: a per-KIND floor derived from the section profile's own reach
+   (4 lines) for verse and chorus only; leave it to `lyric_sweep`'s
+   `lines_per_section` predicate; or rule that a one-line chorus is a real
+   section. Found 2026-09-05 in the connector session behind M-245..M-247.
+23. **Bindings per syllable — should a line's bound words be bounded by its
+   syllable capacity?** Participation is drawn 1..2 per line and the
+   end-rhyme pass (M-107) binds free ends on top, so a 5/8 line capped at
+   eight syllables carried three bound words at T4, T7 and the end, and
+   the writing that satisfied it was noun stacks. The joint gate asks only
+   that distinct words ≤ syllables. Unmeasured: how many plans put ≥3
+   bindings on a line under 10 syllables. Found the same day.
+24. **The `SCHEME_VIOLATION` evidence line under a `schema:` verdict.** It
+   prints the scalar's mosaic attribution ("scored on: chest is a drum ~
+   locked in the pipe") beneath a verdict the token judge made at the
+   declared words, and a reader took it for the judge reading the whole
+   phrase (M-245's finding). Rendering only; the ruling is whether the
+   line prints the judge's own reads or is dropped under a schema verdict.
+
 ## RULINGS TAKEN UNDER DELEGATION — 2026-09-01
 
 The owner, on being handed the 2026-09-01 triage audit's open questions:
@@ -1777,6 +1800,193 @@ pricing, M-136's required words and assonance profile).
 | M-138 / E-5 (2026-09-02, triage C13's last row) | the parked verdict-moving halves ran under a preregistration of their own — the blocker both entries recorded. M-138 CLOSED: ASSONANCE priced at 0.82 (3.99–4.92x → 1.54–1.82x the canon arm), CONSONANCE measured and unmoved, battery 12 → 14 against a preregistered ceiling of 20, the admit band repinned 289..339 → 173..193 with narrow and schema HELD as controls. E-5 stays OPEN on a REFUSAL: both coda rules fired E2 — `zero` displaces 208 admitted pairs and is caught by the unpriced schema door (231 against 23), `cannot_tell` displaces exactly one and the registration said any. One adoption, two refusals, each decided by a rule written before its number | `NEAR_RELATION_PRICING_PREREGISTRATION.md`, `theta_by_relation`, `coda_empty_evidence` |
 
 ---
+
+## GROOMED 2026-09-05 — the paydown order
+
+**What this is.** A grooming pass over every entry the register still
+holds open — 101 of them at HEAD: 63 `OPEN`, 36 `PARTIAL`, 2 `BLOCKED`
+(`python3 quality/counters.py --check` is the count's owner). Each entry's
+body was read on the day and given ONE disposition; where the tree
+contradicted the entry the row says so. The entry is the authority when this
+table and the entry disagree, and nothing here changes an entry's status —
+that is a strike in `MISSING.md`, done when the row is picked up. The term
+for what follows is debt paydown; this section is the grooming that orders
+it.
+
+**The order, and the argument for it.** The songwriting working order is
+sweep → screen → plan → write → grade → revise, and the 2026-09-05 connector
+session (M-245..M-247) showed where it is weakest: a plan whose shape is
+legal and is not a song, a writer handed no move, and a grade that refused
+its own registry's example. So the order below puts the song path first and
+the absent layers last, and it separates four kinds of remaining work that
+are never summed: a strike (the tree already has it), a build or a
+measurement (a session can do it), a ruling (only the owner can), and a
+blocker outside the repository (nobody here can).
+
+Dispositions over the 101: CLOSE-AS-STALE 7 · DO-NOW 5 · NEXT 20
+· ASK-OWNER 22 · PARK 39 · CANNOT 8. Kinds: BUILD 45 · RULING 17
+· MEASURE 14 · RECORD 10 · CANNOT-OBTAIN 9 · STALE 6. Sizes are S under an
+hour, M a sitting, L several, U unknown from the entry.
+
+### 0 · Strike first — 7 entries the tree has already closed
+
+One sitting, record only. Each needs its heading struck and the closing
+commit named; none needs code.
+
+| entry | status | kind · size | touches | what is still open | why here |
+|---|---|---|---|---|---|
+| M-181 | PARTIAL | STALE · S | plan | The DENSITY half — but the ruled remedy, M-191's per-plan density coordinate, is live (`binding_cap`). LIKELY STALE. | Length half repinned closed by M-239; the density coordinate the entry says the draw lacks exists. |
+| M-182 | PARTIAL | STALE · S | CI | Its two named open items (verbs imbalance; test_revise's 609 s floor with no per-section timing) are answered by M-244. LIKELY STALE. | M-244 cost-ordered the verbs sections and put test_revise on the timed idiom. |
+| M-132 | OPEN | STALE · S | record, grade | LIKELY STALE — every former seam (127…199 tokens) is EXACT under the one `lyric` profile, so the sheet-judged-by-a-sonnet handoff no longer exists. | The length curve closed it; the entry needs the strike. |
+| M-15 | PARTIAL | RECORD · S | record, corpus | Only the source gap survives (75 of 77 scoped), and that half is M-15a's. | 298 Tradition rows / 319 attachments populated and `Tradition.witness` cites M-15a; needs the strike. |
+| M-15a | OPEN | STALE · S | record, corpus | LIKELY STALE — `quality/canon_index.tsv` is in the repo with outside citations and `Tradition.witness` is tri-state. | The survey array the entry says is absent is inlined. |
+| F-5 | OPEN | STALE · S | record | LIKELY STALE — Check J shipped 2026-08-28 and the body says RESOLVED; the status line still reads OPEN. | Only the status line needs the strike. |
+| I-2 | PARTIAL | STALE · S | plan, sweep, record | LIKELY STALE — the seed sweep shipped and the "ruled on hold" blocker is spent; residue is three scheme coordinates absent from `SWEEP_MEASURES`. | The entry rests on a pending ruling that has been made and built. |
+
+Six more entries carry a stale HEADLINE over a live residue and are placed
+by the residue below: A-1, M-54, M-79, M-120, M-139, K-6.
+
+### 1 · DO-NOW — 5 cheap items on the song path
+
+| entry | status | kind · size | touches | what is still open | why here |
+|---|---|---|---|---|---|
+| M-79 | OPEN | MEASURE · M | plan, write | LIKELY STALE on the headline (`plan.joint_findings` is the gate); findings 2–4 unmeasured against it: 3.3% writable seeds, median 3 pinned positions per line, chorus-first 56% vs the corpus's 23%. | 13 of 399 seeds produced a writable plan and nobody has re-run that sweep since the gate landed — it is the song path itself. |
+| M-34 | PARTIAL | BUILD · S | write, grade | The `types` verb has no `--position=` flag, so it prints `UNNAMED` for night/light and blames the vocabulary. | Under an hour; the writer's most-used entry point cannot name 31 of its own 49 coordinates. |
+| E-3 | PARTIAL | BUILD · S | grade, screen, record | No `window=` coordinate on `internal_matches`/`rhyme_density` and no frame statement in the `internal rhyme` schema note. | Two answers to one question (distance ≤1 vs a song-wide graph where 8 of 22 instances cross a stanza break); the close is a declaration plus a test. |
+| A-1 | OPEN | RECORD · S | record, corpus, grade | LIKELY STALE on its headline — `RefrainScheme`/`parse_refrain` ship; the residue is resolving a `&c.` stub against its target chorus and naming the rule behind the 989/1,036 count. | The entry still says the villanelle "cannot be written down here" while the notation is implemented; a one-sitting strike. |
+| M-4 | PARTIAL | RECORD · S | record, corpus | The Finnish `155 → 139` share is UNVERIFIABLE because the row states no tokeniser and no reason-code filter. | One live debt: a one-line rule statement beside the number (with M-18's pick). |
+
+### 2 · NEXT — 20 sittings, song path first
+
+| entry | status | kind · size | touches | what is still open | why here |
+|---|---|---|---|---|---|
+| M-244 | PARTIAL | MEASURE · M | CI, grade | The wall IS measured now (17.6 min on run 1387, 17.9 on 1398; agent's row said unmeasured — stale by a day); four levers unbuilt — chiefly the schema door's evaluate cost per round-trip seed and the artifact rebuild. | The re-cut matrices are in and priced; the entry text needs the measured wall and the profile finding. |
+| M-241 | OPEN | BUILD · M | plan, sweep | No derivation behind a declared length, and `_sample_pattern` draws uniform over the grammar's leaves so a song-shaped short song is 0.3% of seeds. | The same derivation-by-dimension move M-81 made for meters; lifts `lines<=60;sections<=6;lines_per_section>=2` off 1 in 300. |
+| H-1 | OPEN | BUILD · M | write, revise, grade | Concreteness reaches the discriminator and never the writing path; the slop floor has nothing semantic. | Plumbing the existing `concreteness_mean`/`p90` to the writing path is one sitting on the song path. |
+| M-170 | OPEN | MEASURE · L | revise, grade | Audit items 1 and 4–10 unmeasured — chiefly whether `features.field` and `_field_one` share an admission predicate (~13.7%), `group_merges`' extra blueprint build, cross-request `Reviser` safety. | The remaining rows sit on the 69.4% candidate-field share that dominates a 59 s fold. |
+| M-196 | PARTIAL | BUILD · S | record | Three lost drafts and the declared `--bank-draft SONG MD5 FILE` recovery verb — no such flag in `song_log.py`. | Small and bounded: 6 LOST md5 rows over 4 drafts, `bank_draft()` already built. |
+| M-95 | PARTIAL | MEASURE · M | CI | The 1-second `Joint AUC null` failure of 2026-08-23 is undiagnosed, and both crons are commented out. | One `workflow_dispatch` reproduces it; 14 scheduled runs, 0 successes, diagnosis never taken. |
+| M-137 | OPEN | BUILD · S | grade, record | `SPAN_KINDS` has one reference (its definition) while `span_kind()` hard-codes the order; `Attribution["beat"]`/`candidates_a`/`candidates_b` have zero production readers. | Cheap and per-item: consume the two counts in `search_null.py`, iterate the constant, fix the comment three sites contradict. |
+| M-46 | OPEN | BUILD · S | grade | `_GAP_FORCED` has no `both_line_final` row, so `local_fraction@0` runs dead on 64 rows and reads as a clean null. | One table row fixes a dead statistic on 28 of 77 schemas, but repins a frozen ledger. |
+| M-42 | OPEN | BUILD · M | grade, record | Two nulls draw the same σ, so 28 `both_line_final` schemas have 3 nulls not 4 and 7 of 17 admissible rows print the wrong denominator. | The `/3` denominator fix lands immediately; the separate-RNG fix moves every §A row and wants a ruling. |
+| M-36 | BLOCKED | RECORD · S | record, grade | `BLOCKERS['orthography']` still reads "build" though `declare_orthography` exists; one entry has no kind; no check keeps the kinds true. | Two rows of a 12-capability table are wrong or kind-less, and the table sets the honest denominator. |
+| M-40 | OPEN | BUILD · L | corpus, grade | Eight admissible-set failures need one corpus each (six clear Gutenberg on author death); E44 chain rhyme has no schema. | Six of the eight are one corpus each with no new schema — the cheapest movement available. |
+| M-39 | PARTIAL | MEASURE · L | grade, corpus | Five stanza-framed schemas' null rows unre-run (`monorhyme / leash` 268 → 30), no `section` capability gate, two mark-vocabulary refusals await the owner. | A results row is a number whose frame is superseded until the five are re-run. |
+| K-4 | PARTIAL | MEASURE · M | corpus, phonology, record | The hending measurement has never been re-run against the staged text (55.63% vs 30.72% are a dead scratchpad's figures); no licensed Háttatal. | 7 files / 160 vísur / 1,228 lines are staged; one run retires two quoted numbers. |
+| H-2 | OPEN | MEASURE · M | corpus, phonology, record | The pembayang/maksud discontinuity has never been measured over the 126 quatrains in the pantun file. | The cheap statistic needs no sense resource; a preregistration comes first. |
+| H-3 | PARTIAL | BUILD · M | plan, grade | Clichéd section orders, hook placement, and rhyme-scheme choice are undetected; `stanza_lock()`'s six grid clichés are the only structural detector. | The section-order clause stands untouched. |
+| A-2 | PARTIAL | BUILD · M | grade, write | Answer lines and call-and-response are one leader/response relation the registry has no axis for. | 2 of 4 clauses false and the return ladder shipped; one axis is left. |
+| A-3 | PARTIAL | BUILD · S | plan, grade, CI | Scheme round-trip is tested to 30 sounds; nothing exercises `label()`'s fallthrough at song length. | A cheap test extension, not on the song path today. |
+| F-3 | OPEN | BUILD · M | corpus, phonology, grade | (i) no dialect tokeniser behind `build_stream(tokeniser=)` reading the `# orthography:` headers three dialect files carry; (ii) a sourced dialect phonology the repo lacks. | The orthography half has a seam and zero blast radius, against 8,008/553/1,666 dialect marks read two opposite wrong ways. |
+| M-5 | OPEN | BUILD · M | corpus, phonology | No check answers "does this printing spell one sound two ways?" — the Kanteletar mixes `w`/`v`. | The measurement is in hand (folding moves weak 81.84 → 82.15%); belongs beside the other corpus checks. |
+| K-1 | PARTIAL | BUILD · M | corpus | Tin Pan Alley and music-hall unstaged (egress-blocked); three on-disk bodies unmined (~250 Rogers Scots songwriters, ~86 Otterbein hymns, 14 G&S libretti with ~349 headings). | The on-disk headings are a staging sitting; the broadsides are a channel problem. |
+
+### 3 · ASK-OWNER — 22 entries whose only blocker is a ruling
+
+Ordered by what they block. The first four gate the end-to-end drive; the
+next seven decide what the grader and planner mean; the rest are corpus and
+record decisions. Where a row already sits in RULINGS WANTED above, its
+number there is the same question.
+
+| entry | status | kind · size | touches | what is still open | why here |
+|---|---|---|---|---|---|
+| M-162 | OPEN | RULING · S | sweep, screen | The mechanical systemInstruction reminder (chat surface only, when a lyric conversation's first call is `lyric_plan` with no sweep/screen) is designed but HELD for the owner's go. | The model skipped both steps 2 of 2 rounds; a nudge in every conversation is a policy call. |
+| M-168 | OPEN | MEASURE · L | write, revise, CI | The WRITER half is unmeasured: ten rounds, zero exit-0 songs on the chat path; round 11 needs merge → deploy → a dispatch spending the owner's Gemini credit. | Closes on that measurement or on nothing, and only the owner can press it. |
+| M-187 | PARTIAL | MEASURE · M | CI, revise, grade | (a) no live probe that the warm worker is ENGAGED on Render; (c) the grade path's memo miss is measured and unbuilt. | (a) binds only after a merge and a deploy, which the entry says is the owner's. |
+| M-227 | OPEN | RECORD · S | CI, record | Both `schedule:` crons in ci.yml are still commented out; they restore when the drive lands a song. | Two lines to uncomment; the trigger condition is the owner's to declare. |
+| M-140 | OPEN | RULING · M | grade, screen | Only the chance-rate PRICING is left — the 77-schema door admits 23.30% of random CMUdict pairs (19.69x the 1.18% canon) and nobody has ruled whether that is tolerable; the `normative` filter half is ruled and live. | The measurement is banked; what remains is the owner's verdict on the ratio. |
+| M-139 | OPEN | RULING · S | plan, grade | LIKELY STALE on the headline (`door_census.py --check`: 26 sites, INCOMPLETE 0); what is owed is the `--cliques` ruling: the RHYME graph or the whole-vocabulary relation graph. | 23% → 73% of line pairs at a 77x stream cost is a use-of-the-judge decision. |
+| M-136 | OPEN | RULING · M | grade, phonology | Two verdict-moving halves parked: required `word_a`/`word_b` at 48 wordless call sites, and whether `profile="assonance"` may emit ASSONANCE. | Both move recorded verdicts and were explicitly not taken under the delegation; a preregistration outline is banked. |
+| M-120 | OPEN | RULING · S | plan, grade | LIKELY STALE on the measurable half (`audible_share` ships, M-192); the ruling is untaken: must the draw say aloud that a plan's ends are organised by relations a listener will not hear as rhyme. | Which of the 22 drawable schemas count as audible at a line end is a declaration only the owner makes. |
+| M-101 | OPEN | RULING · S | grade, plan | `grid.py` loops a hand-written tuple of 4 of 21 section functions for the convention profile. | Membership is a ruling among three honest options; picking one silently is how the four got there. |
+| M-78 | OPEN | RULING · S | record | The note-vs-flag convention rule is cited as doctrine 6 at 22 sites and stated nowhere; the owner picks a new doctrine number or doctrine 7. | The rule decides severity for 51 of 71 codes; a doctrine number is owner vocabulary. |
+| M-54 | PARTIAL | RULING · S | plan, grade | LIKELY STALE on items 2–3 (cells derived, `placement_findings` read by the grader); what remains is the outro/coda mutual exclusion and M-56's kinds on `refrain`/`hook`. | Lifting the exclusion changes the planner's distribution over 84 of 84 outro plans. |
+| E-5 | OPEN | RULING · S | grade, screen, CI | The `cannot_tell` arm was built, measured and REFUSED because ONE pair of 979 left the admitted set against a registration that said ANY; a preregistered TOLERANCE is what is missing. | A number nobody has earned the right to choose (doctrine 58). |
+| D-2 | PARTIAL | RULING · S | grade, plan | Hook DENSITY has no declared coordinate and no band; hook-as-melody is B-1's. | Picking the density coordinate by fiat is doctrine 19's error. |
+| M-35 | OPEN | BUILD · L | grade, revise, plan | A labelled-edge representation with parallel edges; two `Mandate` groups over an identical line set silently dedupe to one. | Makes the approved step 4 larger than scoped; scope is a ruling before a build. |
+| M-44 | PARTIAL | BUILD · M | grade, revise | Cross-tradition names still fire on English pairs (`adalhending` on mother/brother) because the grader has no `tradition_scope`. | Waits on M-35's tradition-coordinate ruling. |
+| K-1a | OPEN | RULING · L | corpus, record | The declared `source_type` third axis — a vocabulary the owner must name before the TSV is built. | The smallest honest fix is complete; the full fix is 12–20 h and explicitly waits on the ruling. |
+| K-6 | OPEN | RULING · M | corpus, record, CI | LIKELY STALE in part (`non_` is 7 files); the live residue is the nine-status vocabulary with no declared home and no drift check. | The entry says the owner names the vocabulary before anyone rebuilds the table. |
+| M-153 | OPEN | RULING · S | corpus | Two corpus items still stage non-sung text under real verse marks (Emmett's byline under `[VERSE 1]`, Lovelace's Hazlitt notes under `[VERSE 8..10]`). | The fix edits staged bytes and moves md5 rows, so it is a staging ruling. |
+| M-20 | OPEN | RULING · M | corpus | Which printing wins for ≥28 same-file double-staged pairs (27 `eng_`, 1 `cym_`), plus the `RUN-ON`/`DOUBLE-STAGED` split. | 28 pairs inflate `eng_` song counts; choosing a printing is a reading question. |
+| M-22 | PARTIAL | MEASURE · M | corpus, phonology | Census run 2 (cym + san + msa + ltc endword-only, under 1 core-hour) plus the `'`/`-` token-member sitting (10,286 lines). | Under 1 core-hour but sits in RULINGS WANTED for the owner to commission. |
+| N-3 | OPEN | RULING · S | corpus, record | Which Malay count ships — 82/80, the fresh 131/129, or the monorhyme-separated 90/88. | The 82/80 run's function-word list is gone so nothing re-derives; a `sources.tsv` call. |
+| M-18 | OPEN | RULING · S | record, corpus | One unpaid row: M-4's Finnish `155 → 139` names no tokeniser and D24 cannot recover which of three readings it meant. | Owed a decision, not a run. |
+
+**Three unregistered questions from the same session**, added to RULINGS
+WANTED as rows 22–24 rather than as `MISSING.md` entries, because each is a
+ruling before it is a finding: whether a one-line verse or chorus is a
+mislabelled section by M-54's own test (seed 33 at 20 lines drew four
+one-line sung sections out of six); whether bindings per line should be
+bounded by the line's syllable capacity (three bound words in an
+eight-syllable 5/8 line produced the noun stacks the owner's complaint
+names); and whether the `SCHEME_VIOLATION` evidence line may print the
+scalar's mosaic attribution under a verdict the token judge made (what the
+friend read as "the scorer reads the whole phrase").
+
+### 4 · PARK — 39 entries that are real and not on the song path
+
+Absent layers (B, C, D, G, most of E and F), long corpus judgement passes,
+and the time-layer redesign. Each stays open by its own argument; none is
+picked up before the tiers above are empty.
+
+| entry | status | kind · size | touches | what is still open | why here |
+|---|---|---|---|---|---|
+| B-1 | OPEN | BUILD · L | plan, write, grade | No pitch layer at all. | A whole absent layer the words-only harness does not need to write a song. |
+| B-2 | OPEN | BUILD · M | plan, record | No tuning declaration; 12-TET is an unaudited assumption. | Meaningless before a pitch layer exists. |
+| B-3 | OPEN | BUILD · L | plan | No scale or mode systems. | Downstream of B-1 and B-2. |
+| B-4 | OPEN | BUILD · L | plan, grade | No melodic shape. | Nothing to describe until B-1 lands. |
+| C-2 | PARTIAL | CANNOT-OBTAIN · L | plan, corpus | The `Cycle` container exists; the catalogue DATA (tālas, usuls, īqāʿāt, gamelan forms, compases, timelines) is absent. | Sourced data entry (`register_named()` refuses an entry without a source), off the English song path. |
+| C-3 | PARTIAL | BUILD · L | plan, grade | Metric modulation, hemiola, tuplets, swing, rubato, hypermeter, metric dissonance unrepresented. | Seven separate mechanisms; the bar and polymeter shipped. |
+| C-4 | PARTIAL | BUILD · M | grade, CI, record | Syncopation as displacement off a declared `BeatGrid`; separately the triage scanner reads this entry CITED when it is DECLARED. | The groove questions are permanently refused by name; the residue is narrow. |
+| C-5 | PARTIAL | BUILD · S | grade, plan | `BeatGrid.tempo_bpm` has no reader and `fit._no_tempo` no caller — both inert. | Activates the first time a per-second question is asked; declared INERT. |
+| D-4 | OPEN | BUILD · L | plan | No arc across the form. | A performance/arrangement layer this harness does not model. |
+| E-2 | PARTIAL | BUILD · L | grade, screen | The scalar grading path is still five-valued and consults neither the 77-schema registry nor `rhyme_types`; `Stream.alt` has no producer. | Multi-sitting by the entry's own words; the `ALT_SURFACES` reader is a separable smaller build. |
+| E-4 | OPEN | BUILD · M | grade | No rhyme rate per bar, no acceleration into a hook. | "Per bar" needs the syllable-to-beat mapping G-1 refuses without a setting. |
+| F-1 | PARTIAL | BUILD · L | phonology, corpus | ~38 further phonologies undeclared; the roster is nine. | Each language is its own sitting. |
+| F-2 | OPEN | BUILD · L | phonology, grade | Tone-contour rhyme, pitch accent, vowel harmony, mutation, root-and-pattern morphology unrepresented as rhyme mechanisms. | Each redefines what rhyme means in its family. |
+| F-6 | OPEN | RECORD · M | corpus, record | A recorded sourcing caution with one unmined consequence: Kalliope's 122 of 124 Moore airs unstaged; Ramsay CONTESTED. | Correct as written; staging is a corpus sitting off the song path. |
+| F-4a | OPEN | BUILD · L | grade, corpus, phonology | `line_tokens` shreds non-ASCII letters in 5,934 of 13,909 Barnes lines, 1,515 in rhyme position. | Priced at ~1 day because it repins both frequency tables and everything calibrated on them. |
+| G-1 | OPEN | BUILD · L | plan, write, grade | No syllable placement on the grid. | `NO_SETTING` is a permanent refusal: the setting comes from notation, not text. |
+| G-2 | PARTIAL | RECORD · S | grade, write, record | Three residue clauses belong to B-1 and F-2 or are permanent; the prominence band runs on every `inspect()` with no blueprint. | The metric half is delivered. |
+| G-3 | PARTIAL | BUILD · M | plan, grade | The `meter TEMPLATE` verb and the bar grid are two unconnected layers. | Connecting them is the mapping G-1 refuses. |
+| I-1 | PARTIAL | RECORD · S | record, plan | One clause: melody-first, which needs a tune object. | A category error for a stated design decision; the last clause is B-1's. |
+| K-3 | OPEN | RECORD · S | corpus, record | A standing FINDING: the Whitman text carries the property under test as a burden. | The replacement control is built; the entry stays open as a finding by its own words. |
+| L-1 | OPEN | BUILD · L | grade, CI | A false-event rate controlled at α is absent: `M_NEEDED` 18–28 against a median family of 198–217. | "Closing it is a redesign of the layer, not a measurement." |
+| L-2 | OPEN | BUILD · L | grade, CI | Real sonnets still do not separate from scrambled text (29.1% vs 29.0%). | Needs a null that moves the perfect-pair rate ~10×, i.e. L-1's redesign. |
+| L-3 | PARTIAL | MEASURE · L | grade, corpus | The slop floor is calibrated on 152 sonnets vs 40 model sonnets — one form, one language, one generator. | Needs a second form and a second language's generated arm before any run. |
+| K-7 | PARTIAL | BUILD · L | corpus, phonology | A third orthography witness for 441 unreached 異體字 types (7,646 tokens) and declaring the entity/placeholder marks in headers — a 66-file re-stage. | 52.8% covered by two witnesses; the rest needs a source plus a re-stage, off the song path. |
+| M-10 | OPEN | RECORD · S | corpus | No single GITenberg enumeration finds all 9 Welsh holdings; 5 `cym_` files staged. | A confirmed acquisition fact with nothing owed in-tree. |
+| M-21 | OPEN | MEASURE · L | record, CI | Re-running `phrase_commonplace.py`'s study over a corpus nine times larger, plus prose drift beside green pins in 8 RESULTS documents. | A research sitting, not bookkeeping. |
+| M-48 | OPEN | BUILD · L | corpus, plan | `same_object_as` is one prose column: 622/623 populated, 381 long prose, 5 typed relations, 111 naming no known term. | A multi-sitting judgement pass, not the current song path. |
+| M-38 | PARTIAL | BUILD · M | grade | `_select()` counts figures where `assemble()` counts members under one name; coincide at k=2 and the untested branch refuses. | Nothing owed until step 4 asks for k ≥ 3. |
+| M-30 | PARTIAL | RULING · M | CI | The mutation baseline's time bound: `DEFAULT_TIMEOUT` is 600, which still excludes `test_discriminate` (890 s) and `test_verbs` (1,469 s). | Whole-tree coverage is a baseline measured in hours; the exclusion is loud. |
+| M-23 | OPEN | BUILD · L | grade, corpus | `Structure` has no `partition` kind, so the 2,286-row 欽定詞譜 partition on 10,029 staged poems reaches only the standalone `ltc_overlap.py` audit. | Four sources want four shapes, and the ltc arm's rhyme-partition premise is refuted by M-25(c)'s 99.9% figure. |
+| M-24 | PARTIAL | BUILD · L | grade, plan, corpus | The MARK half is keyed `(language, mark)`; the FUNCTION half is still 21 bare names, so pop vs sonata `bridge` are one row. | Wants a global closed FUNCTION vocabulary with per-tradition NAME rows; the measured collision count on the shipped corpus is zero. |
+| M-25 | OPEN | BUILD · L | corpus, grade | Check H is built and 14 headings repaired, but 1,045 charged blocks across 105 files are still typed as sung verse and 1,505 residue blocks unadjudicated. | Each remedy needs a human reading of the printing across 2,550 blocks. |
+| M-26 | OPEN | BUILD · M | grade | `VARIES_OFF_TEXT` is built (16 kinds), but no kind names a resequenced return or a substituted cadence, which still report `LEXICAL_VARIATION`. | Both misreport a shape rather than assert a falsehood. |
+| M-29 | OPEN | BUILD · L | plan, corpus | Nothing maps a declared period into the time layer: no air→bar-count table for the 11,099 `[air: …]` strings; the 詞牌 arm (2,334 rows) is unbuilt. | The English arm is a licence question outside the repo; the ltc arm serves a layer doctrine 4 records as mute. |
+| M-74 | OPEN | BUILD · M | none | Every mandate still pays the `relations` import (17.7 ms → 132.8 ms per process). | A documented 115 ms cost the entry itself declines to buy the scoped fix for. |
+| M-135 | OPEN | MEASURE · L | grade, phonology | The crossover gate ships (margin +0.03); the coupling of `theta_rhyme` and the k-span search stays open, and correcting for k re-grades every pair in the repository. | The shipped 0.75 sits above the crossover and is gated in CI. |
+| M-142 | OPEN | BUILD · L | revise, corpus | A PLACED word-identity judge does not exist, so 94.9% of recovered REPEAT edges are refused by name; the `recover` door itself still owes a ruling. | Off the song path — nothing shipped imports `recover`'s refusal path. |
+| M-166 | OPEN | MEASURE · M | write, revise, CI | Only the deployed-box readings are left — whether the replay memo engages on Render, plus a client-clock margin. | Both driver-side remedies shipped; the residue is M-187(a)'s post-deploy measurement. |
+| M-240 | OPEN | BUILD · L | grade, plan | The scaling schema door (a bounded line-distance pair door) is unbuilt, so drafts past the 108–144-line pair guard cannot be graded. | Owner ruled to keep the envelope and log this; needs its own preregistration with a null. |
+
+### 5 · CANNOT — 8 entries blocked outside the repository
+
+Licences, egress, or data that does not exist. Listed so they are not
+mistaken for work.
+
+| entry | status | kind · size | touches | what is still open | why here |
+|---|---|---|---|---|---|
+| K-5 | BLOCKED | CANNOT-OBTAIN · U | corpus, phonology | Kirk 1905 is the one admissible witness and every probed host returns 000/403. | `som.py` is built and measured; the sole blocker is one fetch from a host with egress. |
+| M-8 | OPEN | CANNOT-OBTAIN · U | corpus | No reachable Welsh edition prints a metre index. | Nothing in the repo can supply it. |
+| M-11 | PARTIAL | CANNOT-OBTAIN · U | corpus | Persian, Malay and Sanskrit record 0 named airs over 8,504 songs for three reasons outside the repo. | The readable half closed (31 airs found in the TITLE). |
+| M-12 | OPEN | CANNOT-OBTAIN · U | corpus | Three doctrine-92 instances: Gītagovinda headings CC BY-NC-SA, `rcc-data` no licence, 5,081 Chinese ci/yuefu express non-commercial. | "Find a better source" is the answer to none of the three. |
+| M-13 | OPEN | CANNOT-OBTAIN · U | corpus, record | The edition gate is unanswered on all 31 Persian files; the hosts are egress-blocked and there is no edition coordinate to close it into. | Even with egress the recovered field is a machine score, not an editorial statement. |
+| M-14 | OPEN | CANNOT-OBTAIN · U | corpus, phonology | Sanskrit refrain evidence stops at 2 DCS authors; more needs an NC ruling on GRETIL or a stotra source the DCS's 270 texts do not hold. | Outside the only reachable Sanskrit source; the alternative is a licence decision. |
+| M-19 | OPEN | CANNOT-OBTAIN · U | phonology, grade | True-positive rhyme data in General American, which the repo does not have; `theta_nucleus = 0.600` ships as incumbent. | The 28/6/1 partition has no remainder to price against. |
+| M-99 | OPEN | CANNOT-OBTAIN · L | corpus, grade | No labelled song population (survived/forgotten, or a matched generated set) for the 1,421 staged songs, so the song arm calibrates and never grades merit. | Anthologisation labelled the sonnet arm; song has no clean analogue. |
 
 ## Counters, so drift is visible
 
