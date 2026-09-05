@@ -38,7 +38,9 @@ negative class 40 sonnets by one model in the same form and register.
 
 | | section profile | sonnet profile |
 
-> **This table predates the third profile.** `song` (whole lyric sheet, 150–400 tokens, 3,571 human items, tol 1.25) landed 2026-08-11 and is a different kind of calibration — a held-out false-positive rate, no AUC, because no generated song class exists (L-4a). The two columns below are correct for the two stanza profiles and are not the full list.
+> **This table predates the third profile.** ~~`song` (whole lyric sheet, 150–400 tokens, 3,571 human items, tol 1.25) landed 2026-08-11~~ and is a different kind of calibration — a held-out false-positive rate, no AUC, because no generated song class exists (L-4a). The two columns below are correct for the two stanza profiles and are not the full list.
+>
+> **REPINNED 2026-09-05 (`MISSING.md` M-239).** The struck reading was the 2026-08-11 adoption; `song` was re-adopted at **200–400 tokens, 2,261 items** on 2026-08-26 (M-133), and a fourth row `short` (50–150) landed 2026-09-01 (M-193). On **2026-09-04 both band rows were SUPERSEDED** by `lyric`, the live lyric-sheet profile: **4–3,245 tokens, 8,667 human items (the whole song corpus), tolerance 1.0**, whose five thresholds are **curves in ln N** — pinball-loss fits, and a knot table for predictability — not fixed percentiles, so a finding under it names the threshold evaluated at that text's own length (`quality/RESULTS_LENGTH_CURVE.md`). `song` and `short` stay in `PROFILES` with `superseded_by="lyric"` for their own drift checks and are never applied: `PROFILES` is five rows and `live_profiles()` — what `declaration_for` may pick from — is `section`, `sonnet`, `lyric`.
 |---|---|---|
 | unit | 4-line quatrain (lines 1–4, 5–8, 9–12 of each sonnet) | whole 14-line sonnet |
 | token domain (human p05–p95) | 29–37 | 108–126 |
@@ -223,8 +225,17 @@ band.
 every item in a profile's calibration set falls on the *same* side of the
 `len(words) <= window` fallback; otherwise one profile reports a mixture of
 two statistics under a single threshold. Measured token ranges: section
-quatrains 23–40, sonnets 94–133, song band 150–400. 50 is inside the set;
-25, 30, 38, 39 and 100 are not. A retune that followed the AUC gradient
+quatrains 23–40, sonnets 94–133, ~~song band 150–400~~. 50 is inside the set;
+25, 30, 38, 39 and 100 are not.
+
+> **REPINNED 2026-09-05 (`MISSING.md` M-239).** The struck reach was the band
+> the admissible set was derived from; the song band was re-adopted at
+> 200–400 on 2026-08-26 and SUPERSEDED on 2026-09-04. The live sheet profile
+> `lyric` spans **4–3,245 tokens**, which straddles every candidate window,
+> so the same-side-of-the-fallback argument cannot be made for it as stated:
+> [1, 22] ∪ [40, 93] is the admissible set for the two stanza profiles and
+> for the two superseded band rows, and re-deriving it against `lyric` is
+> OWED. Nothing below is re-measured (doctrine 91). A retune that followed the AUC gradient
 downward and stopped at 25 or 30 would land outside it.
 
 **It is kept anyway, on doctrine 19.** The shipped value costs ~0.06 AUC
@@ -253,12 +264,30 @@ every finding **downgraded to a note** — an extrapolation may not reject — a
 text no profile reaches gets no length-sensitive finding at all, only the
 relation-level checks, which do not depend on length.
 
+> **REPINNED 2026-09-05 (`MISSING.md` M-239).** ~~That downgrade is the reading
+> for a lyric sheet.~~ It describes the **stanza** profiles' 2.0× bands only.
+> The live sheet row `lyric` declares `tolerance` **1.0**: inside 4–3,245
+> tokens there is no edge to extrapolate past, so no sheet length is served
+> INEXACT, and outside that range the floor REFUSES rather than downgrading.
+> A 150–199-token sheet, which the two band rows served by the nearer edge
+> until 2026-09-04, grades **EXACT** now.
+
 ## Out-of-domain behaviour, on material already in the repo
 
 `verse.txt` (a 62-line rap verse at 632 tokens, since DELETED as in-copyright --
-see data/sources.tsv) was outside every profile. The
+see data/sources.tsv) ~~was outside every profile. The
 gate declines the length-sensitive checks, says so, and reports only what it
-can actually measure: one cliché pair (baby/crazy) and four self-rhymes.
+can actually measure: one cliché pair (baby/crazy) and four self-rhymes.~~
+
+> **REPINNED 2026-09-05 (`MISSING.md` M-239).** That run is what the floor did
+> when 632 tokens reached no profile. It would not decline today: 632 is
+> inside `lyric`'s 4–3,245, and `declaration_for(632, 62)` returns
+> (`lyric`, EXACT) — measured. Every length-sensitive check runs, at the
+> thresholds the curves evaluate **at N = 632**: `mattr_min` 0.7435,
+> `function_word_ratio_max` 0.4755, `anaphora_max` 0.2506,
+> `line_length_cv_min` 0.1247, `predictable_pair_fraction_max` 0.8561. What
+> the run found about the *radif* rule below is unaffected — it is a
+> relation-level check and does not depend on length.
 
 That run also found the last defect. Two of its thirty-one pairs happen to end
 in "it", which cleared a bare recurrence count of two and was licensed as a

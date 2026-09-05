@@ -27,8 +27,12 @@ a 25-line song in 8/8 through a sonnet-fitted model and printing the number
 would be a measurement laundered out of its domain — the exact move doctrine
 13/14 exists to stop. So this file computes the FEATURES the discriminator
 reads and stops there; what those features mean against the song corpus is
-`quality/floor.py`'s song profile, calibrated on `corpus/song/` and already
-running inside `song`.
+`quality/floor.py`'s ~~song profile~~ LYRIC-SHEET PROFILE — repinned
+2026-09-05 (`MISSING.md` M-239): that is `lyric` since 2026-09-04, calibrated
+on all of `corpus/song/` (8,667 items, 4-3,245 tokens) with its five
+thresholds as curves in ln N. The `song` row (200-400 tokens) and `short`
+(50-150) are superseded band rows, kept in `PROFILES` for their own drift
+checks and never applied by `declaration_for`.
 
 THE PAIRING IS DECLARED, NOT INFERRED. `extract(lines)` with no scheme pairs
 ADJACENT COUPLETS. Our mandates bind (line, locus) members that no letter

@@ -271,8 +271,13 @@ def test_cliche_pair():
           bool(g) and "does not describe it" in g[0].evidence
           and "no measured rate behind it at all" in g[0].evidence
           and f is not None and "does not describe it" not in f.evidence,
-          "the 6.35% is a property of THIS set on THIS corpus (doctrine 22), "
-          "so the finding disowns it the moment the set is replaced")
+          "the measured rate is a property of THIS set on THIS corpus "
+          "(doctrine 22), so the finding disowns it the moment the set is "
+          "replaced. Repinned 2026-09-05 (M-239): this line named ~~the "
+          "6.35%~~, the 2026-08-14 150-400 point estimate; the shipped "
+          "`song` row has carried 7.64% over 200-400 since 2026-08-26 and "
+          "the finding now reads both band rows' rates off the rows rather "
+          "than quoting a typed number")
     # WHAT THE FLAG IS NOT. The rate licenses it to fire; it does not make
     # the list a cliche detector, and the finding a writer reads has to say
     # so where they will see it.
@@ -318,8 +323,13 @@ def test_cliche_pair_may_only_reject_where_it_was_measured():
           f"and nothing about it changed")
     check("...but it may not reject there",
           g and g[0].severity == "note",
-          "MEASURED 2026-08-14: 14.74% of the 285 corpus items in this "
-          "bucket fire it, against 6.35% in band. An unmeasured rate may "
+          "~~MEASURED 2026-08-14: 14.74% of the 285 corpus items in this "
+          "bucket fire it, against 6.35% in band.~~ Repinned 2026-09-05 "
+          "(M-239): that 285-item bucket was the corpus outside the "
+          "2026-08-14 BAND table; under the live table no corpus item sits "
+          "outside 4-3,245 tokens, so the rate out here is not merely "
+          "different — it is UNMEASURED, which is the stronger form of the "
+          "same reason. An unmeasured rate may "
           "not carry a rejection (doctrine 22)")
     check("...and it was the ONLY flag the gate could emit there",
           not [x for x in fs if x.severity == "flag"
@@ -486,32 +496,57 @@ def test_length_is_a_coordinate():
           p is not None and not exact, f"profile={p.name}, exact={exact}")
 
     # the load-bearing behaviour: an extrapolated finding may not reject
+    #
+    # REPINNED 2026-09-05 (M-239). This block sat behind a bare
+    # `if pr is not None and not ex:` and, since the length-curve adoption
+    # covered 4-3,245 tokens EXACTLY, that guard was False every run: the
+    # three checks below had not executed since 2026-09-04 and the section
+    # printed as green without them (doctrine 94 — a silently skipped check
+    # is worse than a red one, because nothing says it went). The fixture is
+    # unchanged, so what it proved is unchanged; what moved is HOW the branch
+    # is reached — the same `_narrowed_lyric(200, 400, 1.25)` the rest of
+    # this file uses to reach the tolerance-band branches. At 75 tokens with
+    # the sheet row narrowed away, `gap()` hands the text to `sonnet` inside
+    # its 2.0x band (54-252) and outside its measured 108-126: extrapolated,
+    # which is the state these three checks are about. The premise is now a
+    # CHECK of its own, so if the branch stops being reachable this section
+    # goes red instead of quietly shrinking.
     long_bad = ["And so the morning comes and so it goes and so it goes"] * 3 \
         + ["And all the world is turning in the rain again and again"] * 3
-    fs = FLOOR.check(long_bad)
     tok = sum(len(FLOOR.qf._tokens(x)) for x in long_bad)
-    pr, ex = declaration_for(tok)
-    if pr is not None and not ex:
-        # The five LENGTH-CALIBRATED checks are downgraded because their
-        # thresholds were extrapolated. CLICHE_PAIR is downgraded too, and
-        # for a different reason (see test 6b): it borrows no percentile, but
-        # the false-positive rate that lets it reject was only ever measured
-        # in band. Self-rhyme, radif and shared suffix keep their severity —
-        # a word rhymed with itself is a fact about two lines.
-        sized = {"LEXICAL_MONOTONY", "FUNCTION_WORD_HEAVY",
-                 "ANAPHORA_OVERLOAD", "UNIFORM_LINE_LENGTH",
-                 "PREDICTABLE_RHYME", "CLICHE_PAIR"}
-        bad = [f.code for f in fs
-               if f.code in sized and f.severity == "flag"]
-        check("no length-calibrated flag survives extrapolation", not bad,
-              f"{tok} tokens, profile {pr.name}, {len(fs)} finding(s); "
-              f"{'flags left: ' + str(bad) if bad else 'none left'}")
-        check("length-independent findings keep their severity",
-              any(f.severity == "flag" for f in fs
-                  if f.code not in sized),
-              "a self-rhyme is a self-rhyme at any length")
-        check("the extrapolation is announced",
-              "EXTRAPOLATED_LENGTH" in {f.code for f in fs})
+    with _narrowed_lyric(200, 400, 1.25):
+        pr, ex = declaration_for(tok)
+        fs = FLOOR.check(long_bad)
+    check("the extrapolated branch is REACHED, so the three checks below "
+          "are not silently skipped (under `_narrowed_lyric`; the shipped "
+          "table covers this length exactly)",
+          pr is not None and not ex,
+          f"{tok} tokens, profile {pr.name if pr else None}, exact={ex}")
+    # The five LENGTH-CALIBRATED checks are downgraded because their
+    # thresholds were extrapolated. CLICHE_PAIR is downgraded too, and
+    # for a different reason (see test 6b): it borrows no percentile, but
+    # the false-positive rate that lets it reject was only ever measured
+    # in the band rows. Self-rhyme, radif and shared suffix keep their
+    # severity — a word rhymed with itself is a fact about two lines.
+    sized = {"LEXICAL_MONOTONY", "FUNCTION_WORD_HEAVY",
+             "ANAPHORA_OVERLOAD", "UNIFORM_LINE_LENGTH",
+             "PREDICTABLE_RHYME", "CLICHE_PAIR"}
+    bad = [f.code for f in fs
+           if f.code in sized and f.severity == "flag"]
+    check("no length-calibrated flag survives extrapolation", not bad,
+          f"{tok} tokens, profile {pr.name if pr else None}, "
+          f"{len(fs)} finding(s); "
+          f"{'flags left: ' + str(bad) if bad else 'none left'}")
+    check("...and the downgrade was not vacuous: at least one "
+          "length-calibrated finding IS present, as a note",
+          any(f.code in sized and f.severity == "note" for f in fs),
+          f"{sorted((f.code, f.severity) for f in fs)}")
+    check("length-independent findings keep their severity",
+          any(f.severity == "flag" for f in fs
+              if f.code not in sized),
+          "a self-rhyme is a self-rhyme at any length")
+    check("the extrapolation is announced",
+          "EXTRAPOLATED_LENGTH" in {f.code for f in fs})
 
     # and MATTR, the check that silently changes statistic, must not run
     # outside a profile
@@ -745,12 +780,19 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
     ls = _sheet("anaphoric.txt")
     f = find(ls, "ANAPHORA_OVERLOAD")
     check("the fixture trips ANAPHORA_OVERLOAD", f is not None,
-          "13 of its 26 lines open with 'I' — 50% against a human 95th "
-          "percentile of 30.0% measured on 1,859 corpus songs. If a later "
-          "change makes this pass, the threshold moved for the lyric's sake "
-          "and this test is the thing that says so")
+          "13 of its 26 lines open with 'I' — 50% against the human 95th "
+          "percentile ~~of 30.0% measured on 1,859 corpus songs~~ REPINNED "
+          "2026-09-05 (M-239): the fixture lands in `lyric`, whose "
+          "`anaphora_max` is a curve in ln N, and the number this check is "
+          "graded against is that curve EVALUATED AT 221 TOKENS — 0.3050, "
+          "read from the row rather than typed (§13 pins the profile). The "
+          "30.0% / 1,859-item figure was the `song` band's fixed percentile "
+          "and is kept as the reading this test was written against. If a "
+          "later change makes this pass, the threshold moved for the lyric's "
+          "sake and this test is the thing that says so")
     check("and it is a flag, not a note", f is not None and
-          f.severity == "flag", "the song profile covers 221 tokens exactly, "
+          f.severity == "flag", "the ~~song~~ lyric profile (M-239, repinned "
+          "2026-09-05) covers 221 tokens exactly, "
           "so nothing is downgraded for extrapolation")
     from quality.floor import PROFILES
     song = [p for p in PROFILES if p.name == "song"][0]
@@ -800,9 +842,12 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
           "argument and the commands")
 
 
-#: A sheet that trips EVERY length-sensitive check under the `song` profile at
+#: A sheet that trips EVERY length-sensitive check under the ~~`song`~~ live
+#: lyric-sheet profile at
 #: once, so §15's population is the whole of `LENGTH_SENSITIVE` rather than
-#: whichever codes one fixture happened to fire.
+#: whichever codes one fixture happened to fire. REPINNED 2026-09-05 (M-239):
+#: both arms land in `lyric` (4-3,245 tokens), whose thresholds are curves in
+#: ln N, so "under the profile" now means "at this arm's own length".
 #:
 #: WHY IT IS BUILT HERE RATHER THAN READ FROM `fixtures/`: the section's claim
 #: is about the SET of findings, so the text has to be answerable to the set.
@@ -813,9 +858,14 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
 #:
 #: HOW THE PAIRS WERE CHOSEN, DECLARED because a fixture picked to make a check
 #: fire is a tuning decision unless it says so. PREDICTABLE_RHYME needs the
-#: fraction of pairs above `predictability_max` (0.90) to exceed the `song`
-#: profile's 0.9333, so with n pairs it needs ALL of them: 11/12 is 0.9167 and
-#: does not clear. Twelve stock pairs were measured through
+#: fraction of pairs above `predictability_max` (0.90) to exceed ~~the `song`
+#: profile's 0.9333~~ the profile's threshold at this length — REPINNED
+#: 2026-09-05 (M-239): under `lyric` that is the knot table read at the arm's
+#: own N (0.9370 at 234 tokens; at 78 tokens it is 1.0000, the statistic's
+#: ceiling, which is why the short arm's PREDICTABLE_RHYME is pinned SILENT
+#: below rather than expected to fire). With n pairs the check needs ALL of
+#: them either way: 11/12 is 0.9167 and does not clear. Twelve stock pairs
+#: were measured through
 #: `QualityFeatures._predictability` and three fell below 0.90 — time/rhyme
 #: 0.7213, home/roam 0.7221, eyes/skies 0.8255 — so the nine that cleared are
 #: what is here (day/way 0.9942, night/light 0.9735, heart/part 0.9858,
@@ -850,12 +900,21 @@ class _narrowed_lyric:
 
 
 def _sheet_that_trips_every_length_check(n_pairs=9):
-    """All nine pairs: 18 lines / 234 tokens, inside `song`'s measured 200-400.
+    """All nine pairs: 18 lines / 234 tokens. The first three: 6 lines / 78
+    tokens — the SAME text shortened, so the two arms differ in length and in
+    nothing else.
 
-    The first three: 6 lines / 78 tokens, inside `short`'s measured 50-150 —
-    the SAME text shortened, so the two arms differ in length and in nothing
-    else, which is what makes the shrinking expectation below attributable to
-    the profile rather than to the fixture.
+    ~~234 tokens sits inside `song`'s measured 200-400 and 78 inside
+    `short`'s measured 50-150, which is what makes the shrinking expectation
+    below attributable to the profile rather than to the fixture.~~ REPINNED
+    2026-09-05 (M-239): both arms land in the ONE live sheet profile,
+    `lyric` (4-3,245 tokens), and the band rows that used to catch them are
+    superseded. What the two arms now separate is the THRESHOLD: `lyric`'s
+    five cuts are functions of ln N, so the arms are graded against different
+    numbers at 234 and at 78 tokens, and the difference below is attributable
+    to the CURVE rather than to the fixture. The section's tail asserts
+    exactly that (`seen_profiles == ["lyric", "lyric"]` with every curve
+    differing between the two lengths).
     """
     out = []
     for a, b in _ALL_FIVE_PAIRS[:n_pairs]:
@@ -888,13 +947,23 @@ def test_the_song_profile_makes_no_separation_claim():
           f"declared-not-mapped {sorted(declared - mapped)}; "
           f"mapped-not-declared {sorted(mapped - declared)}")
 
-    # BOTH LYRIC-SHEET PROFILES ARE UNDER TEST, and the second is not a
+    # ~~BOTH LYRIC-SHEET PROFILES ARE UNDER TEST, and the second is not a
     # duplicate: `short` declares FOUR thresholds, not five — M-193's stage B
     # REFUSED `predictable_pair_fraction_max` there, because its 95th
-    # percentile over that band is 1.0000, the statistic's own ceiling. So the
+    # percentile over that band is 1.0000, the statistic's own ceiling.~~
+    # REPINNED 2026-09-05 (M-239): ONE profile at two lengths. Both arms land
+    # in `lyric`, which declares all five thresholds as curves in ln N; the
+    # check at the tail of this section pins that (`seen_profiles ==
+    # ["lyric", "lyric"]`, every curve differing between 78 and 234 tokens).
+    # The shorter arm is still not a duplicate, and for a related reason
+    # measured rather than declared: at 78 tokens the predictability knot
+    # table IS the statistic's ceiling (1.0000), so PREDICTABLE_RHYME cannot
+    # fire there — the same fact M-193's stage B refused a fixed threshold
+    # for, now carried as a disclosed under-resolved region. So the
     # expected finding set SHRINKS BY ARITHMETIC on the shorter sheet, and if
     # it did not, the derivation below would be a constant wearing a
-    # comprehension.
+    # comprehension. The `silent` set below is what computes that, from the
+    # row, so it cannot go stale the way this paragraph did.
     seen_profiles = []
     for n_pairs in (9, 3):
         ls = _sheet_that_trips_every_length_check(n_pairs)
@@ -913,8 +982,10 @@ def test_the_song_profile_makes_no_separation_claim():
         # profile declares a threshold for.
         # A threshold AT THIS LENGTH that sits at the statistic's own
         # ceiling (a `hi` fraction at 1.0) cannot fire on anything — the
-        # predictability knot table is 1.0000 under ~156 tokens by
-        # resolution (M-239, RESULTS_LENGTH_CURVE.md §9) — so it is not in
+        # predictability knot table is 1.0000 through ~~~156~~ 163 tokens by
+        # resolution and first drops under 1.0 at N = 164, to 0.9957
+        # (M-239, RESULTS_LENGTH_CURVE.md §9; repinned 2026-09-05) — so it
+        # is not in
         # `want`, and its SILENCE is pinned below rather than left implicit.
         silent = {c for c, (pk, _) in LENGTH_SENSITIVE.items()
                   if pk in prof.keys()

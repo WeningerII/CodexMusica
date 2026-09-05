@@ -113,7 +113,15 @@ def test_measured_seeds():
           "vocabulary (35 admit / 5 zero through both), and 2026-09-01 "
           "under the short-profile envelope (seeds 1-40: 36 admit, 4 "
           "admit zero — the census moved by one for the first time, and "
-          "the exemplars are re-chosen again)")
+          "the exemplars are re-chosen again). "
+          "~~That 2026-09-01 sweep is the last basis~~ — REPINNED "
+          "2026-09-05 (`MISSING.md` M-239): the `lyric` LENGTH-CURVE "
+          "profile superseded the `song` and `short` band rows on "
+          "2026-09-04, `song_line_counts()` is 1..447 and "
+          "`fillable_line_counts()` 12..447 (was {6..20} | {22..55} and "
+          "12..55), so every seed's drawn LENGTH was re-rolled a fifth "
+          "time and the figures printed here were measured under the "
+          "12..55 envelope, not this one")
     from quality import plan as P
     #: REPINNED 2026-08-26 (`MISSING.md` M-133) BY THE M-131 SONG-PROFILE
     #: RE-ADOPTION, AND THE PIN THAT MOVED IS NOT THE PIN THAT MATTERS.
@@ -185,6 +193,27 @@ def test_measured_seeds():
     #: open). Seeds 1 and 7 are BYTE-IDENTICAL a second time (924672,
     #: 456576): both drew lengths the old set also held, at the same
     #: stream position, so nothing downstream moved.
+    #:
+    #: REPINNED A FIFTH TIME 2026-09-05 (`MISSING.md` M-239) — HEADER TEXT
+    #: ONLY, THE CAUSE IS THE ENVELOPE A THIRD TIME: the two
+    #: fixed-percentile band rows (`song` 200-400 tokens, `short` 50-150)
+    #: are SUPERSEDED by one LENGTH-CURVE profile, `lyric`, covering
+    #: 4-3,245 tokens with thresholds that are curves in ln N; they keep
+    #: their place in `PROFILES` with `superseded_by="lyric"` for their own
+    #: drift checks and are never applied. `song_line_counts()` went
+    #: ~~{6..20} | {22..55}, 49 values, one hole at 21~~ -> **1..447, 447
+    #: values, NO hole**, and the planner's FILLABLE set went ~~12..55, 43
+    #: values~~ -> **12..447, 436 values**, `ENVELOPE["total_lines"]`
+    #: (12, 447). The default draw is uniform over 12..447 (measured
+    #: median 201 lines over 40 seeds, against ~35 under 12..55), so every
+    #: seed re-dealt its LENGTH first and its roster after, a fifth time.
+    #: WHAT THAT COSTS THIS SUITE, SAID PLAINLY: the census and exemplars
+    #: below, and §6's seed-31 pin, were MEASURED under the 12..55
+    #: envelope and are not re-measured in this repin — they are readings
+    #: of a set the floor no longer has. They are repinned by the worker
+    #: who owns the re-sweep; this note is the disclosure that the
+    #: question is open, not an answer to it (doctrine 17: the numbers
+    #: that were true when written stay legible inside the strike).
     #:
     #: THE EXEMPLARS, RE-CHOSEN FROM THE NEW SPACE: the opening refusals
     #: are seed 9 (bridge-first, HELD through the move) and seed 15

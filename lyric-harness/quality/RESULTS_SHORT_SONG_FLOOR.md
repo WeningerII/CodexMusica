@@ -1,5 +1,18 @@
 # Results: the SHORT-SONG floor profile — ADOPTED 2026-09-01, four checks
 
+> **SUPERSEDED 2026-09-04 — banner written 2026-09-05 (`MISSING.md` M-239).**
+> Every number below is a BANKED result of the 2026-09-01 sitting and stays as
+> banked; what changed is which of them is the LIVE reading. On 2026-09-04 the
+> floor adopted `lyric`, a LENGTH-CURVE profile over **4–3,245 tokens, 8,667
+> human items (the whole song corpus)**, whose five thresholds are curves in
+> ln N rather than fixed percentiles. It SUPERSEDES both fixed-percentile band
+> rows — `short` (50–150) and `song` (200–400) — which keep their place in
+> `PROFILES` with `superseded_by="lyric"` for their own drift checks and are
+> **never applied**; `live_profiles()` is `section`, `sonnet`, `lyric`. The
+> live calibration document is `quality/RESULTS_LENGTH_CURVE.md`. The
+> present-tense sentences below that are no longer the live reading are struck
+> and repinned in place, dated 2026-09-05.
+
 > Pre-registration: `quality/SHORT_SONG_FLOOR_PREREGISTRATION.md`. Instrument:
 > `python3 quality/song_profile_calibration.py --profile short` (stage B,
 > with predictability) and `--profile short --check --without-predictability`
@@ -24,11 +37,18 @@ candidates, each refused by a NAMED sub-bin:
 
 **150–200 is a fact worth its own line.** It clears the rule by itself and
 is excluded only because 50–150 is wider. It is not covered by this profile
-and not by `song` (200–400): a 150–199-token sheet is served INEXACT by
+and not by `song` (200–400): ~~a 150–199-token sheet is served INEXACT by
 whichever band's edge is nearer (`declaration_for`'s rule), as it was
 before. A third lyric-sheet profile at 150–200 under the same rule is the
-follow-up this leaves open, and the band rule's clause (iii) — widest wins
+follow-up this leaves open~~, and the band rule's clause (iii) — widest wins
 — is the reason it is not adopted here.
+
+REPINNED 2026-09-05 (`MISSING.md` M-239): a 150–199-token sheet grades
+**EXACT** under `lyric` — measured, `test_floor.py` pins 150, 163, 175, 176
+and 199 — and no sheet length is served by a nearer band edge any more,
+because neither band row is live. The 150–200 follow-up is CLOSED, and not
+by a third band: the seam was the shape of the drift, and the answer was to
+make every threshold a function of ln N over the whole corpus.
 
 The drift the rule is refusing, 5th/95th by token bin (n, `mattr` p05,
 `fwr` p95, anaphora p95, `cv` p05): 50–80 (798) 0.6442 / 0.5088 / 0.3869 /
@@ -82,11 +102,15 @@ rate the gate delivers is an item rate.
 
 The union FALLS monotonically with the factor: a floor calibrated on short
 sheets fires less on the longer items a wider reach admits, because its
-`mattr` floor is the lowest of the three lyric-sheet profiles. So the
+`mattr` floor is the lowest of the ~~three~~ two BAND lyric-sheet profiles
+(repinned 2026-09-05; and one curve row, `lyric`, since M-239). So the
 preregistration's tolerance rule (§3: "the multiplier at which the union
 first rises more than one point") has no answer, and the row DECLARES 1.25
 to match the `song` profile's, so the two reaches meet (40–187 against
-160–500) and the nearest-measured-edge rule decides between them. **The
+160–500) and the nearest-measured-edge rule ~~decides~~ decided between them
+— REPINNED 2026-09-05 (`MISSING.md` M-239): until 2026-09-04, when `lyric`
+superseded both rows; `declaration_for` reads `live_profiles()` and neither
+reach is consulted now. **The
 runner's own sentence was wrong for this band** — it printed *"every check
 gets worse monotonically"* as a literal — and it reads the table now.
 
@@ -135,19 +159,32 @@ moving average IS its TTR — asserted numerically in the check, not argued.
   14-line 118-token text is a sonnet; a 20-line one is a lyric sheet;
   a caller passing no count gets list order byte for byte. `test_floor.py`
   §26.
-* **Coverage**: over 1–699 tokens the floor can FLAG at **44.5%** of
-  lengths (~~32.8%~~) and reaches no profile at **30.3%, unmoved** — the
+* **Coverage**: over 1–699 tokens the floor can FLAG at ~~**44.5%**~~
+  **99.6%** of lengths (the banked run's own prior reading was 32.8%) and
+  reaches no profile at ~~**30.3%, unmoved**~~ **0.4%** — ~~the
   band's reach sits inside what the section and song bands already
-  reached, so lengths moved from "note" to "flag" and none from "nothing".
-* **The planner's envelope**: `plan.song_line_counts()` unions every
+  reached, so lengths moved from "note" to "flag" and none from "nothing".~~
+  REPINNED 2026-09-05 (`MISSING.md` M-239): **99.6%** flaggable (696 of 699)
+  and **0.4%** no-profile — the three lengths 1–3, under `lyric`'s own lower
+  limit of 4, the corpus's shortest item. `test_floor.py` pins
+  `exact_n == 696 and none_n == 3`.
+* **The planner's envelope**: `plan.song_line_counts()` ~~unions every
   `n_lines == 0` profile by construction, so the gradeable set is
-  `{6..20} | {22..55}` (one hole at 21, the seam between the bands). What
+  `{6..20} | {22..55}` (one hole at 21, the seam between the bands)~~. What
   the planner VOLUNTEERS is `fillable_line_counts()` — that set restricted
   to totals whose stanza-sized cell ceiling holds the form's own minimum
   section count (verse once, chorus twice: 3, derived from
   `FORM_REQUIRES` and `FORM_RECURS`) — so `ENVELOPE["total_lines"]` is
-  **(12, 55)**, 43 values, and a total the pattern draw would reject on
+  ~~**(12, 55)**, 43 values~~, and a total the pattern draw would reject on
   every attempt is never drawn. `test_plan.py` §14.
+
+  REPINNED 2026-09-05 (`MISSING.md` M-239): the union mechanism reads
+  `live_profiles()` and skips superseded rows, and the one live sheet row
+  covers every length, so **`song_line_counts()` is 1..447 — 447 values, NO
+  hole** (the 21 seam was between the two bands), `fillable_line_counts()`
+  is **12..447** and **`ENVELOPE["total_lines"]` is (12, 447)**, 436 values.
+  Measured at HEAD. The 12..447 ceiling is the owner's ruling that no
+  ceiling is typed (M-241).
 * **What did NOT move**: no threshold of any other profile, no recorded
   verdict on a text the `song` or `section` band covers.
 
@@ -174,10 +211,19 @@ values 0 and 1 almost only, so the mass piles at 1.0 (the author-weighted
 alternative, one median per author, reads 0.9000 — the same pile from the
 other side). A predictability threshold for this band needs a PAIR-COUNT
 floor on the item, or a denominator that is not the item's own pair count,
-and that is a preregistration of its own. Until then a short song is graded
+and that is a preregistration of its own. ~~Until then a short song is graded
 on four thresholds, PREDICTABLE_RHYME (a `MANDATORY_PURSUE` member) is
-silent on this band, and `MISSING.md` M-193's addendum says so where the
-consequence was measured. The run's own exit was 1 (DRIFT) on one row —
+silent on this band~~, and `MISSING.md` M-193's addendum says so where the
+consequence was measured.
+
+REPINNED 2026-09-05 (`MISSING.md` M-239): that preregistration was written
+and the answer shipped on 2026-09-04. The `short` row is not applied to
+anything, and a short sheet is graded on `lyric`'s **five** thresholds; the
+fifth is a KNOT TABLE whose value is the statistic's ceiling, 1.0000,
+through 163 tokens and which first fires at 164 — so PREDICTABLE_RHYME is
+still silent at these lengths, by resolution rather than by an absent
+threshold, and the disclosure is carried as an under-resolved run
+(`RESULTS_LENGTH_CURVE.md` §9). The run's own exit was 1 (DRIFT) on one row —
 "the profile note no longer quotes rho +0.275" — which is the SONG
 profile's struck-rho gate applied to `short` by the runner as it stood when
 the run was launched; the runner shipped in the same sitting reads
@@ -210,7 +256,18 @@ What ships instead is the disclosure, made mechanical: `floor.LENGTH_SENSITIVE`
 declares the length-sensitive codes once, every one of them carries this
 profile's own `evidence_for` sentence — *"NO generated class exists at this
 length, so there is no AUC and no separation claim"* — and `test_floor.py` §15
-runs this band as its second arm, expecting **four** codes rather than five
-because §7 refused the fifth threshold. That the expected set shrinks here by
+~~runs this band as its second arm, expecting **four** codes rather than five
+because §7 refused the fifth threshold~~. That the expected set shrinks here by
 arithmetic is what proves the pin reads the profile rather than a list
 somebody typed.
+
+REPINNED 2026-09-05 (`MISSING.md` M-239): §15 no longer reaches this band at
+all — both of its arms land in `lyric` now (measured: 234 tokens / 18 lines
+and 78 tokens / 6 lines both return (`lyric`, EXACT)) — and the second arm
+still expects FOUR codes, but by a different arithmetic: `lyric` declares
+five thresholds and the section subtracts the ones whose value AT THAT
+LENGTH is the statistic's own ceiling, which at 78 tokens is
+`predictable_pair_fraction_max` at 1.0000. The claim the sentence was making
+— that the expectation is derived from the profile and not typed — survives
+the supersession intact; `n_generated = 0` still holds on `lyric`, which
+ships a false-positive rate and no separation.

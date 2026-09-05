@@ -589,9 +589,13 @@ unread: every floor profile STATES its line count in its `unit` prose
 tokens-per-line band agreeing to a fifth of a token (7.25–9.25 against
 7.71–9.00).
 **SO THE ENVELOPE IS WHAT THE ENFORCEMENT CAN ENFORCE.** MEASURED over
-1–699 tokens: **39.9% of lengths can produce a FLAG, 29.8% sit in a tolerance
+1–699 tokens: ~~**39.9% of lengths can produce a FLAG, 29.8% sit in a tolerance
 band where every length-sensitive finding is downgraded to a note, and 30.3%
-reach no profile at all.** ~~`gradeable_line_counts()` is the surviving set and
+reach no profile at all.**~~ **REPINNED 2026-09-05 (`MISSING.md` M-239): 99.6%
+can FLAG (696 of 699), 0.0% sit in a tolerance band — the `lyric` row declares
+`tolerance` 1.0, so no sheet length is extrapolated — and 0.4% reach no profile
+at all: the three lengths 1–3, under the corpus's own shortest item.
+`test_floor.py` pins `exact_n == 696 and none_n == 3`.** ~~`gradeable_line_counts()` is the surviving set and
 it is NOT contiguous — **a song of 6 to 11 lines cannot be graded with teeth
 at any length-sensitive check** — and `line_count_gaps()` prints that hole in
 every plan's own disclosure, so it is a calibration request rather than a
@@ -599,15 +603,20 @@ discovery.~~
 **STRUCK 2026-08-24 (`MISSING.md` M-106): THE HOLE WAS AN ARTEFACT OF ASKING
 THE WRONG QUESTION, AND THE PLANNER WAS DRAWING ITS LENGTH FROM THREE KINDS OF
 TEXT.** `gradeable_line_counts()` unions `section` (a 4-line quatrain),
-`sonnet` and `song`, whose reaches at the derived tokens-per-line band are
-**4–5**, **12–17** and ~~**17–55**~~ **22–55** lines — so 6 to 11 is the space
-between a QUATRAIN and a SONNET and was never a fact about songs.
+`sonnet` and ~~`song`~~ the sheet row, whose reaches at the derived
+tokens-per-line band are **4–5**, **12–17** and ~~**17–55**~~ ~~**22–55**~~
+lines — so 6 to 11 is the space between a QUATRAIN and a SONNET and was never a
+fact about songs. **REPINNED 2026-09-05 (`MISSING.md` M-239): the union skips
+rows carrying `superseded_by`, so the third reach is `lyric`'s — 1–447 lines,
+which CONTAINS both stanza reaches — and the union is `1..447`, 447 values,
+`line_count_gaps()` empty. Measured at HEAD; `test_plan.py` pins
+`song <= union and song == union`.**
 `song_line_counts()` reads the profile that grades a lyric sheet, identified by
 its own `n_lines == 0` and never by name — **and since 2026-09-04
 (`MISSING.md` M-239) that is the length-curve profile, 4–3,245 tokens, so the
 set is `1..447` with NO HOLE and the planner volunteers 12..447 (the owner's
 ruling on the envelope: no typed ceiling; length is a declaration): **~~**17..55, 39 values,
-CONTIGUOUS.**~~ ~~**22..55, 34 values, STILL CONTIGUOUS**~~ **`{6..20} | {22..55}`, 49 values, ONE HOLE AT 21 — REPINNED 2026-09-01 (`MISSING.md` M-193): a second lyric-sheet profile, `short` (50–150 tokens), joined the floor and this function unions every `n_lines == 0` profile by construction; the hole is the seam between two calibrated bands. What the planner VOLUNTEERS is narrower — `fillable_line_counts()`, the totals whose stanza-sized cell ceiling can hold the form's own minimum section count (verse once, chorus twice), so `ENVELOPE["total_lines"]` is (12, 55).** The 2026-08-26 reading, kept: 22..55, 34 values, still contiguous — REPINNED 2026-08-26
+CONTIGUOUS.**~~ ~~**22..55, 34 values, STILL CONTIGUOUS**~~ ~~**`{6..20} | {22..55}`, 49 values, ONE HOLE AT 21 — REPINNED 2026-09-01 (`MISSING.md` M-193): a second lyric-sheet profile, `short` (50–150 tokens), joined the floor and this function unions every `n_lines == 0` profile by construction; the hole is the seam between two calibrated bands. What the planner VOLUNTEERS is narrower — `fillable_line_counts()`, the totals whose stanza-sized cell ceiling can hold the form's own minimum section count (verse once, chorus twice), so `ENVELOPE["total_lines"]` is (12, 55).**~~ **REPINNED 2026-09-05 (`MISSING.md` M-239): `1..447`, 447 values, NO HOLE — the 21 seam was between the two band rows and both are superseded; `fillable_line_counts()` is 12..447 and `ENVELOPE["total_lines"]` is (12, 447), 436 values. The M-193 explanation of WHY the hole was a seam is struck, not deleted, because it is the diagnosis the curve row acted on.** The 2026-08-26 reading, kept: 22..55, 34 values, still contiguous — REPINNED 2026-08-26
 by the M-131 re-adoption (`MISSING.md` M-133), which took the song profile's
 band `lo` from 150 to 200 tokens; this function READS that band, so the
 envelope followed it and every seed's drawn length moved with it. **The
@@ -615,11 +624,16 @@ ARGUMENT is untouched and the endpoints are all that moved**: the set is still
 the one profile that grades the object the planner emits, and it is still
 contiguous. The
 function above is unchanged and still answers its own different question —
-**and it now has TWO holes, which is this entry's own diagnosis confirmed
+~~**and it now has TWO holes, which is this entry's own diagnosis confirmed
 rather than dented.** The union gained **18–21**, the space between a SONNET
 and a SONG once the song floor rose past the sonnet ceiling: the identical
 species as 6–11, at the next seam out, and one more length that is a fact about
-which KINDS of text were unioned rather than a fact about songs.
+which KINDS of text were unioned rather than a fact about songs.~~ **REPINNED
+2026-09-05 (`MISSING.md` M-239): it had two holes until 2026-09-04 and has
+NONE now — measured, `line_count_gaps(gradeable_line_counts()) == []`. The
+diagnosis stands and is what closed them: 6–11 and 18–21 were seams between
+KINDS of text unioned, and one profile covering every sheet length from 4 to
+3,245 tokens leaves no seam to fall into.**
 **AND THE SECTION CEILING WAS M-81(A)'s ERROR ONE LAYER OVER** —
 `_sample_pattern` took `max_cells = total` on the argument that a song of T
 lines cannot hold more than T sung sections, TRUE and never a claim that all T
@@ -2703,8 +2717,12 @@ zero and a fact a verb does not emit must have NO ROW.
 stops; `song_log.py` reaches every verdict through `subprocess` and imports no
 grader at all, checked by ABSENCE in `test_songs_log.py` §5. The reason is
 M-99: `discriminate.py` is fitted on **152 SONNETS** under a fixed
-`SONNET_SCHEME` while `corpus/song/` holds **1,421** songs that calibrate the
-FLOOR's song profile. Pushing a 25-line song in 8/8 through a sonnet-fitted
+`SONNET_SCHEME` while `corpus/song/` holds ~~**1,421** songs~~ **8,667
+`--- TITLE:` items over 1,297 files, 4–3,245 tokens** that calibrate the
+FLOOR's ~~song profile~~ **lyric-sheet profile** (REPINNED 2026-09-05,
+`MISSING.md` M-239: the live row is `lyric`, whose five thresholds are curves
+in ln N fit over that whole corpus; `song` and `short` are superseded band
+rows). Pushing a 25-line song in 8/8 through a sonnet-fitted
 model and printing the number is a measurement laundered out of its domain
 (doctrine 13/14), so **there is no human-vs-generated discriminator for songs
 and the tables say so by having no column for one.**

@@ -840,10 +840,21 @@ def _schema_name_of(_RT, want):
 #: THE PROCESS-LEVEL FIELD MEMO (`MISSING.md` M-217). Keyed by
 #: `Reviser._field_memo_key` — the instance key PLUS every declared field of
 #: the `Declaration` PLUS the lexicon's identity — so a hit is only ever an
-#: IDENTICAL question. Bounded LRU: the cap is the number of distinct bound
+#: IDENTICAL question. Bounded LRU: ~~the cap is the number of distinct bound
 #: places a long song can name (55 lines x 4 places, the planner's own
 #: envelope) times the two field bands, rounded up — one song's worth of
-#: pools, never a runaway store. `LYRIC_FIELD_MEMO=0` bypasses it; the tally
+#: pools~~, never a runaway store.
+#: REPINNED 2026-09-05 (`MISSING.md` M-239): the derivation's input moved.
+#: 512 was sized on 2026-09-02 to the envelope OF THAT DAY, 55 lines
+#: (55 x 4 x 2 = 440, rounded up to 512); the envelope is 12..447 since
+#: 2026-09-04, and 447 x 4 places x 2 bands is **3,576**, so the stated
+#: derivation no longer produces this number. What 512 holds is
+#: **64 lines'** worth of pools (64 x 4 x 2 = 512), not "one song's". Past
+#: that it is a BOUND with LRU eviction, never a clamp — nothing is refused,
+#: the oldest pool goes and the field is recomputed. The CAP IS NOT CHANGED
+#: HERE (a cap change is a behaviour change with its own record); the
+#: scaling of these memos to the widened envelope is filed under M-240
+#: (OPEN). `LYRIC_FIELD_MEMO=0` bypasses it; the tally
 #: is what a disclosure reads.
 import collections as _collections_fm
 _FIELD_MEMO = _collections_fm.OrderedDict()
@@ -857,10 +868,17 @@ def _field_memo_enabled():
 
 #: LEVERS 2 AND 3 OF M-217's REMAINDER, beside the field memo and keyed the
 #: same way (the instance's own key + `_decl_lex_key`). Caps are derived from
-#: the planner's envelope like `PAIR_MEMO_CAP` in quality/relations.py: a
+#: the planner's envelope like `PAIR_MEMO_CAP` in quality/relations.py: ~~a
 #: 55-line draft is 1,485 pair scores and a one-line fold re-scores 54, so
-#: 8,192 holds the draft and every fold of a long run; rankings are asked
+#: 8,192 holds the draft and every fold of a long run~~; rankings are asked
 #: per flagged line per round, hundreds not thousands; rimes are words.
+#: REPINNED 2026-09-05 (`MISSING.md` M-239): sized 2026-09-02 to the 55-line
+#: envelope of that day; the envelope is 12..447 since 2026-09-04 and a
+#: 447-line draft is 447 x 446 / 2 = **99,681** pair scores, of which 8,192
+#: is 8.2%. MEASURED, 8,192 holds a WHOLE draft up to **128 lines**
+#: (128 x 127 / 2 = 8,128) and is exceeded at **129** (8,256). Past that it
+#: is a BOUND with LRU eviction, never a clamp. The CAP IS NOT CHANGED HERE;
+#: scaling these memos to the widened envelope is filed under M-240 (OPEN).
 _SCORE_MEMO = _collections_fm.OrderedDict()
 SCORE_MEMO_CAP = 8_192
 _SCORE_MEMO_TALLY = {"hit": 0, "miss": 0, "evicted": 0}

@@ -143,8 +143,12 @@ def test_refusals():
           "repeat_licence" in BLOCKED_FORMS["ghazal"])
 
 
-#: 64 distinct CMUdict-readable end words — enough for the envelope's
-#: longest song. The dummy draft only has to be READABLE and honor the
+#: 64 distinct CMUdict-readable end words — ~~enough for the envelope's
+#: longest song~~. REPINNED 2026-09-05 (`MISSING.md` M-239): the envelope's
+#: longest song is 447 lines, not 64, so the bank is CYCLED modulo 64
+#: (`BANK[(i - 1) % len(BANK)]` below) and a 447-line dummy draft repeats
+#: each end word up to seven times. That is the fixture's repetition, not
+#: the planner's: the dummy draft only has to be READABLE and honor the
 #: plan's verbatim returns; the round trip asserts machinery outcomes
 #: (parses, judged counts, no drift), never quality verdicts.
 BANK = ("stone rain door light road name fire glass train hill salt wire "
@@ -221,11 +225,23 @@ def _round_trip_reviser():
 
 
 def _round_trip_one(seed):
-    """-> (seed, bad, judged, refused) for ONE seed of §3's sweep.
+    """-> (seed, bad, judged, refused, (walled, total_lines)) for ONE seed
+    of §3's sweep.
 
     Returns plain data rather than raising, because a worker's exception
     would reach the driver stripped of which seed produced it — and the
-    seed is the whole diagnostic."""
+    seed is the whole diagnostic.
+
+    REPINNED 2026-09-05 (`MISSING.md` M-240). Two repairs, neither of them
+    a change to what the sweep accepts. (a) THE ARITY IS FIVE ON EVERY
+    PATH: the blueprint-shape-mismatch return below was a 4-tuple while the
+    driver unpacks five, so any seed whose blueprint shape mismatched would
+    have died in the driver with a ValueError instead of reporting the
+    mismatch it found. (b) THE FIFTH SLOT CARRIES THE TOTAL, not just the
+    fact of the wall: the pair guard M-240 records is a function of DRAFT
+    LENGTH (53 lines grade in 56 s, 108 in 330 s, 144 refuse), so a list of
+    walled SEED NUMBERS cannot say where the wall stands. The driver prints
+    the walled seeds' totals beside them."""
     import quality.fit as FT
     import quality.schemes as SC
     from quality.grid import song_from_blueprint
@@ -248,8 +264,10 @@ def _round_trip_one(seed):
                 or len(song.sections) != len(plan["sections"])):
             bad.append((seed, "blueprint shape mismatch"))
             # `continue` in the serial loop; this seed is DONE, and the
-            # early return is the same skip one scope out.
-            return seed, bad, judged_total, refused_total
+            # early return is the same skip one scope out. FIVE-TUPLE
+            # (2026-09-05, M-240): the driver unpacks five on every path.
+            return (seed, bad, judged_total, refused_total,
+                    (False, plan["total_lines"]))
         # MEMBERS ARE LEFT AS STRINGS, exactly as the CLI's own
         # `--groups=` reader leaves them since 2026-08-23: a member may
         # name WHERE in its line the requirement binds (`3.head`,
@@ -319,10 +337,12 @@ def _round_trip_one(seed):
         if "candidate explosion" not in str(e):
             bad.append((seed, f"{type(e).__name__}: {e}"))
         else:
-            return seed, bad, judged_total, refused_total, "walled"
+            return (seed, bad, judged_total, refused_total,
+                    (True, plan["total_lines"]))
     except Exception as e:  # noqa: BLE001 — any raise is the failure
         bad.append((seed, f"{type(e).__name__}: {e}"))
-    return seed, bad, judged_total, refused_total, None
+    return (seed, bad, judged_total, refused_total,
+            (False, plan["total_lines"]))
 
 
 def test_the_round_trip():
@@ -353,13 +373,21 @@ def test_the_round_trip():
         _results = [_round_trip_one(_s) for _s in range(20)]
     # SEED ORDER, explicitly. `map` already preserves it; sorting says so, so
     # a later switch to `as_completed` cannot quietly reorder `bad`.
+    # REPINNED 2026-09-05 (`MISSING.md` M-240): the fourth count recorded
+    # SEED NUMBERS, and a seed number says nothing about where the schema
+    # door's pair guard stands — the wall is a function of DRAFT LENGTH.
+    # Both lists carry `(seed, total_lines)` now, so the detail line below
+    # states the wall's height in the units the guard is measured in. The
+    # ACCEPTANCE RULE IS UNCHANGED: `not bad and judged_total > 0 and
+    # len(walled) < 20`, exactly as before.
     walled = []
-    for _seed, _b, _j, _r, _w in sorted(_results, key=lambda t: t[0]):
+    graded = []
+    for _seed, _b, _j, _r, (_wall, _tot) in sorted(_results,
+                                                   key=lambda t: t[0]):
         bad.extend(_b)
         judged_total += _j
         refused_total += _r
-        if _w:
-            walled.append(_seed)
+        (walled if _wall else graded).append((_seed, _tot))
     check("20 seeds: blueprint READS, mandate PARSES, mandated == judged + "
           "REFUSED with judged > 0 (three counts, never summed: doctrine "
           "79), every refusal is a NO-ANCHOR slot on the dummy draft's own "
@@ -370,7 +398,13 @@ def test_the_round_trip():
           not bad and judged_total > 0 and len(walled) < 20,
           f"bad: {bad or 'none'}; "
           f"judged {judged_total}, slot-refused {refused_total}, "
-          f"walled at the schema door {len(walled)} seed(s) {walled}")
+          f"walled at the schema door {len(walled)} seed(s) as "
+          f"(seed, total_lines) {walled}"
+          + (f", walled totals {min(t for _, t in walled)}.."
+             f"{max(t for _, t in walled)}" if walled else "")
+          + (f"; graded totals {min(t for _, t in graded)}.."
+             f"{max(t for _, t in graded)}" if graded else
+             "; nothing graded"))
 
     # AND THE SECTION'S GRADING POWER HAS A FLOOR IT DERIVES FROM ITS OWN
     # FIXTURE, so `judged > 0` cannot decay to "one pair answered".
@@ -615,7 +649,10 @@ def test_the_measure():
     beats, meters, units = [], set(), set()
     funcs, ks = set(), Counter()
     totals = set()
-    for seed in range(200):
+    #: named 2026-09-05 so the coverage expectation below cannot drift from
+    #: the loop it is an expectation for (M-239 repin).
+    _N_MEASURE = 200
+    for seed in range(_N_MEASURE):
         p = make_plan(seed=seed)
         m = p["sections"][0]["meter"]
         beats.append(m["beats"])
@@ -727,7 +764,9 @@ def test_the_measure():
     # moved, because a shape the form forbids is no longer drawn.
     # ~~reaching under 15 and over 60 lines~~ — REPINNED 2026-08-23. 60 was
     # inside the LITERAL envelope `total_lines (4, 64)`; the envelope is
-    # derived now and its ceiling is 55, because that is the longest song
+    # derived now and its ceiling ~~is 55~~ was 55 on that date (447 since
+    # 2026-09-04, `MISSING.md` M-239 — repinned here 2026-09-05), because
+    # that is the longest song
     # whose expected token count still lands inside a MEASURED floor profile.
     # Asserting 60 would be asserting that the planner volunteers a length
     # the floor cannot grade with teeth — the opposite of what this repin is
@@ -743,15 +782,23 @@ def test_the_measure():
     # The claim was always COVERAGE, so coverage is what is asserted — as a
     # fraction of the DERIVED set, which cannot go stale when the set moves.
     from quality import plan as _PL
-    _env = set(_PL.song_line_counts())
+    # ~~`_env = set(_PL.song_line_counts())`~~ — REPINNED 2026-09-05
+    # (`MISSING.md` M-239). `song_line_counts()` is 447 values (1..447) but
+    # the planner DRAWS over `fillable_line_counts()`, 436 values (12..447),
+    # so the expectation has to be computed over the draw's own domain or it
+    # is an expectation for a set nothing samples.
+    _env = set(_PL.fillable_line_counts())
     # REPINNED 2026-09-04 (`MISSING.md` M-239): the envelope is 12..447 now
-    # and 300 draws cannot reach 85% of 436 values — a uniform draw reaches
-    # 1 - (1 - 1/|env|)^seeds of them in expectation, about 50% here. The
+    # and ~~300 draws~~ 200 draws (`_N_MEASURE`, the seed loop above; "300"
+    # was a third figure beside the set's 447 and the draw's 436, repinned
+    # 2026-09-05) cannot reach 85% of the draw's
+    # 436 values — a uniform draw reaches
+    # 1 - (1 - 1/|env|)^seeds of them in expectation, about 37% here. The
     # claim is still COVERAGE, stated against that expectation rather than
     # against a literal share, so it cannot go stale when the set moves
     # again. Both ends within 5 of the derived limits, as before.
     import math as _m
-    _expect = len(_env) * (1 - (1 - 1 / len(_env)) ** 200)  # 200: the seed loop above
+    _expect = len(_env) * (1 - (1 - 1 / len(_env)) ** _N_MEASURE)
     check("totals cover the envelope's order, not one shape: the distinct "
           "totals reached are most of what a UNIFORM draw over the DERIVED "
           "envelope reaches in this many seeds, both ends included",
@@ -2288,8 +2335,11 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
               for p in lyric]),
           f"{[p.name for p in lyric]}, {min(song)}..{max(song)}")
 
-    # MUTATION 1 — the band must be a FUNCTION of the song profile, not a
-    # literal wearing a derivation (doctrine 48).
+    # MUTATION 1 — the band must be a FUNCTION of the ~~song~~ lyric-sheet
+    # profile, not a literal wearing a derivation (doctrine 48). REPINNED
+    # 2026-09-05 (`MISSING.md` M-239): `lyric[0]` below is the one LIVE
+    # `n_lines == 0` row, which is `lyric` (4-3,245 tokens); `song`
+    # (200-400) and `short` (50-150) are superseded and read by nothing.
     old_hi = lyric[0].hi
     try:
         lyric[0].hi = old_hi + 200
@@ -2298,7 +2348,8 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     finally:
         lyric[0].hi = old_hi
         _PL.song_line_counts.cache_clear()
-    check("MUTATION — widening the song profile's measured token band "
+    check("MUTATION — widening the LIVE lyric-sheet profile's measured "
+          "token band (`lyric` since M-239, not the superseded `song` row) "
           "widens the SONG line band with it, and the perturbation is "
           "restored",
           widened > song and set(_PL.song_line_counts()) == song,
@@ -2341,7 +2392,8 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     ones = sum(1 for x in sung if x == 1) / len(sung)
     check("no seed is lost to the narrower band — 120 of 120 still plan",
           len(tot) == 120, f"{len(tot)} plans")
-    check("every drawn total is INSIDE the song profile's own band, so the "
+    check("every drawn total is INSIDE the lyric-sheet profile's own band "
+          "(`lyric` since M-239, repinned 2026-09-05), so the "
           "planner volunteers no length that profile cannot hold to "
           "anything", all(t in song for t in tot),
           f"[{min(tot)}, {max(tot)}] against [{min(song)}, {max(song)}]")

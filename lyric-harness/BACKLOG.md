@@ -1469,7 +1469,7 @@ either.
 `meter.py` and `fit.py` between them expose no pitch, scale, mode or tuning
 object. 12-TET assumed by omission (B-2). No tempo (C-5), which `fit.py` states
 in its own refusal: *"a note DURATION is not [a coordinate], because there is no
-tempo"*. The floor has ~~two~~ **three** length profiles — the third is the whole-sheet `song` profile, 2026-08-11 — and ~~L-4 records what they are~~ L-4 closed 2026-08-21 on saying "two"; L-4a carries the real residue (no generated class).
+tempo"*. The floor has ~~two~~ ~~**three** length profiles — the third is the whole-sheet `song` profile, 2026-08-11~~ **five rows since 2026-09-04, THREE LIVE — REPINNED 2026-09-05 (`MISSING.md` M-239): `live_profiles()` is `section`, `sonnet`, `lyric`, and the whole-sheet profile is `lyric`, 4–3,245 tokens, whose five thresholds are curves in ln N; the band rows `song` (200–400) and `short` (50–150) stay in `PROFILES` with `superseded_by="lyric"` for their own drift checks and are never applied** — and ~~L-4 records what they are~~ L-4 closed 2026-08-21 on saying "two"; L-4a carries the real residue (no generated class).
 
 **MOVED OUT ON 2026-08-11 — three absences that were FILLED and stayed on the
 list.** This section exists so absences "are not mistaken for" debt or defects.

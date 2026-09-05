@@ -11855,8 +11855,9 @@ and a sonnet**, which is not a fact about songs at all. A song planner drawing
 its total from that set was drawing from lengths a QUATRAIN can be and lengths
 a SONNET can be, then rejecting around a hole it had created by asking the
 wrong question. `song_line_counts()` reads the profile that grades a lyric
-sheet: ~~**17..55, 39 values, CONTIGUOUS, no hole.**~~ **22..55, 34 values,
-CONTIGUOUS, no hole.** The profile is identified by
+sheet: ~~**17..55, 39 values, CONTIGUOUS, no hole.**~~ ~~**22..55, 34 values,
+CONTIGUOUS, no hole.**~~ **REPINNED 2026-09-05 (M-239): `1..447, 447 values,
+CONTIGUOUS, no hole` — measured at HEAD.** The profile is identified by
 `n_lines == 0` — its own declaration that a lyric sheet has no fixed line count
 — never by its name, which would be a second statement of which profile means
 what (doctrine 1).
@@ -11870,6 +11871,20 @@ sonnet ceiling. That is the identical species as 6–11 at the next seam out, an
 it is the strongest available evidence for this entry's diagnosis: the holes
 are artefacts of unioning three KINDS of text, so moving one profile's band
 manufactures another hole in the union while leaving the song set contiguous.
+
+**REPINNED 2026-09-05 (M-239, adopted 2026-09-04): BOTH HOLES ARE CLOSED AND
+THE DIAGNOSIS IS WHAT CLOSED THEM.** ~~The union gained a SECOND hole, 18–21~~
+— and M-193 (2026-09-01) added a third seam at 21 when the `short` band row
+joined, making the set `{6..20} | {22..55}`. On 2026-09-04 the length-curve
+profile `lyric` (4–3,245 tokens, thresholds functions of ln N) SUPERSEDED both
+band rows, `song_line_counts()` skips rows carrying `superseded_by`, and one
+row now covers every sheet length: **`song_line_counts()` is 1..447 with NO
+hole, `gradeable_line_counts()` is 1..447 with `line_count_gaps()` empty**
+(the `lyric` reach contains the quatrain's and the sonnet's), and the planner
+volunteers `fillable_line_counts()`, 12..447 — `ENVELOPE["total_lines"] ==
+(12, 447)`. The 6–11 and 18–21 holes this entry diagnosed as seams between
+KINDS of text unioned were exactly that, and they went away when the kinds
+stopped being unioned.
 
 **DEFECT 2 — A SOUND BOUND WAS BEING USED AS A UNIFORM DRAW, AND IT IS
 `MISSING.md` M-81(A)'s ERROR ONE LAYER OVER.** `_sample_pattern` took
@@ -13307,9 +13322,18 @@ against a band-wide 0.9375, |d| 0.0625 > 0.05**. So the shipped band was the
 answer to a rule the profile no longer ran, and the sentence describing it was
 the last place still stating the old one (doctrine 17/58).
 
-**THE BAND IS 200-400 NOW**, 2,261 items over 663 authors, and every candidate
-is refused by a NAMED sub-bin — 50-400 and 100-800 and 200-500 on mattr,
-100-400 on anaphora, ~~150-400~~ and 150-450 on predictability.
+~~**THE BAND IS 200-400 NOW**~~, 2,261 items over 663 authors, and every
+candidate is refused by a NAMED sub-bin — 50-400 and 100-800 and 200-500 on
+mattr, 100-400 on anaphora, ~~150-400~~ and 150-450 on predictability.
+
+**SUPERSEDED 2026-09-04, PINNED HERE 2026-09-05 (M-239).** The 200-400 band is
+still the `song` row's own band and its drift check still re-derives it, but
+the row is not applied to anything: `Profile.superseded_by="lyric"`, and
+`declaration_for` picks from `live_profiles()` — `section`, `sonnet`, `lyric`.
+The live lyric-sheet profile is `lyric`, 4-3,245 tokens over 8,667 items, whose
+five thresholds are curves in ln N rather than fixed percentiles — because the
+band rule this entry ran finds where the drift is SMALL and cannot find its
+SHAPE, which is the reading M-239 records.
 
 **ONE THING MOVED AND SIX FOLLOWED IT, WHICH IS MEASURED RATHER THAN
 ASSERTED.** `--check --without-predictability` computes over the SHIPPED band,
@@ -18019,7 +18043,8 @@ instrument, 60 seeds, at the songs' own commit `34149de` against HEAD:
 | HEAD | **1.71** | 2.48 | 2.92 | **0%** | -0.06 |
 
 The median barely moved. The RANGE collapsed, and it collapsed from below:
-every seed that could produce a song in the band the five listenable ones
+every seed that could produce a song in the band ~~the five listenable ones~~
+the five songs the owner's complaint named (struck 2026-09-05, M-238)
 occupy is gone, 0 of 60. The five were not written under a lighter
 planner — they are the BOTTOM QUINTILE of the same distribution, five
 draws all landing under 1.50 when 20% of seeds did (p ~ 3e-4 under
@@ -18032,8 +18057,15 @@ six sparsest draw 12, 14, 18, 21, 24 and 25 lines. `978b1e0` ("the song's
 length comes from the profile that grades a song") moved the length
 envelope onto `floor.PROFILES["song"]`, whose token band was then
 re-adopted 150 -> 200 (M-131/M-133). `song_line_counts()` reads that band
-and now reaches **22..55**. The five songs are **12, 16, 18, 19** and 25
-lines: **FOUR OF THE FIVE CANNOT BE DRAWN AT ANY SEED TODAY.** The
+and ~~now reaches **22..55**~~ reached 22..55 until 2026-09-01. The five songs
+are **12, 16, 18, 19** and 25 lines: ~~**FOUR OF THE FIVE CANNOT BE DRAWN AT
+ANY SEED TODAY.**~~ **REPINNED 2026-09-05 (M-239, adopted 2026-09-04): the
+length half of this finding is CLOSED. M-193 took the envelope to 12..55 on
+2026-09-01, and the length-curve profile `lyric` (4–3,245 tokens, superseding
+both band rows) takes `song_line_counts()` to 1..447 and the planner's
+volunteered envelope to 12..447 — measured at HEAD; all five of these lengths
+are drawable. What stays OPEN here is the DENSITY half, which M-191 measured
+and which no envelope move restores.** The
 end-rhyme pass then shaved what remained — measured across `978b1e0` ->
 `25a968e`, min 1.50 -> 1.71 and share<=1.5 2% -> 0% — which is the pass
 working as designed, since it binds free line ends and a sparse plan is
@@ -18066,10 +18098,17 @@ HEAD. That is the finding, not a failure of the flag — the sweep is a
 rejection filter and cannot find what the generator no longer produces.
 
 **WHAT IS OPEN, and it is an owner ruling plus a calibration, not a code
-edit.** Reaching the band again means the floor gaining a profile below
+edit.** ~~Reaching the band again means the floor gaining a profile below
 200 tokens — preregister, measure, adopt, re-snapshot the manifest, the
 same ladder every other band here climbed — which unblocks the planner's
-length envelope as a consequence rather than by touching `plan.py` at all.
+length envelope as a consequence rather than by touching `plan.py` at all.~~
+**TAKEN, and by that exact ladder — repinned 2026-09-05. M-193 (2026-09-01)
+preregistered and adopted the `short` profile at 50–150 tokens, and M-239
+(2026-09-04) replaced both band rows with `lyric`, one length-curve profile
+over 4–3,245 tokens, so there is no length below 200 the floor declines to
+grade and the planner's envelope followed without a `plan.py` edit:
+`ENVELOPE["total_lines"] == (12, 447)`. The DENSITY half below is what is
+still open.**
 Retuning `line_binding_ceiling` instead would move the mean and NOT
 restore the tail, because the tail is a length fact. Left OPEN rather than
 guessed: doctrine 58, and the owner's standing rule that a threshold with
@@ -19352,11 +19391,11 @@ text's, then a lyric sheet, then list order; `Floor.check` passes
 `len(lines)`; a caller passing none gets list order byte for byte.
 `test_floor.py` §26.
 **WHAT MOVED DOWNSTREAM, EACH READ RATHER THAN REMEMBERED.** Over 1–699
-tokens the floor can FLAG at **44.5%** of lengths (~~32.8%~~) and reaches no
-profile at **30.3%, unmoved** — lengths moved from "note" to "flag" and none
-from "nothing" (`test_floor.py`, repinned with the reason). The planner's
-gradeable set is `{6..20} | {22..55}` — `song_line_counts()` unions every
-`n_lines == 0` profile by construction, as M-106 built it to — with one
+tokens the floor can FLAG at ~~**44.5%**~~ of lengths (~~32.8%~~) and reaches
+no profile at ~~**30.3%, unmoved**~~ — lengths moved from "note" to "flag" and
+none from "nothing" (`test_floor.py`, repinned with the reason). The planner's
+gradeable set ~~is~~ was `{6..20} | {22..55}` — `song_line_counts()` unions
+every `n_lines == 0` profile by construction, as M-106 built it to — with one
 hole at 21, the seam between two calibrated bands. **AND A SIX-LINE
 VERSE-CHORUS SONG CANNOT BE DRAWN**: its stanza-sized cell ceiling is 1 and
 the form needs verse once and chorus twice, so every draw of a total under
@@ -19365,10 +19404,25 @@ the form needs verse once and chorus twice, so every draw of a total under
 `FORM_REQUIRES` and `FORM_RECURS` (3), `fillable_line_counts(form)`
 intersects the gradeable set with the totals whose cell ceiling holds it,
 and both `ENVELOPE["total_lines"]` and `make_plan`'s draw read that:
-**(12, 55), 43 values.** Every seed's drawn length re-rolls, as it did at
+~~**(12, 55), 43 values.**~~ Every seed's drawn length re-rolls, as it did at
 M-133; `test_plan.py` §14 pins the derivation and that every plan in the
 sweep drew a fillable total. `songs/README.md` says the banked seeds no
 longer reproduce their shapes from HEAD.
+
+**REPINNED 2026-09-05 (M-239, adopted 2026-09-04).** The length-curve profile
+`lyric` (4–3,245 tokens, thresholds functions of ln N) SUPERSEDED both band
+rows — this entry's `short` and M-131's `song` — and `song_line_counts()`
+skips rows carrying `superseded_by`, so there is one live sheet profile and no
+seam to fall into: the gradeable set is **1..447, 447 values, NO hole** (the
+21 hole was the seam between the two bands), `fillable_line_counts()` is
+12..447 and **`ENVELOPE["total_lines"]` is (12, 447), 436 values** — measured
+at HEAD. The coverage figures above go the same way: over 1–699 tokens the
+floor can FLAG at **99.6%** of lengths (696 of 699) and reaches no profile at
+**0.4%** (the three lengths 1–3, under the corpus's shortest item), so the
+~~44.5%~~ and ~~30.3%~~ readings are the 2026-09-01 ones. The derivation this
+entry shipped is untouched — `form_min_sections` / `fillable_line_counts`
+still hold the form's own minimum section count — only the set they run over
+widened.
 **E2 did not fire** (16.18% < 30%); **E1 did not fire** (a band cleared);
 **E3** is answered by construction — no corpus item's verdict moves under
 the tie-break unless two profiles cover its count, and before this row none

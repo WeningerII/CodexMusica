@@ -133,9 +133,31 @@ held-out human song text, which is the doctrine-22 statement of a threshold and
 is a weaker claim than a separation: it says how often the gate interrupts a
 human songwriter, and says NOTHING about whether it catches a machine.
 
+THE SHEET PROFILE IS `lyric` NOW, NOT `song` — REPINNED 2026-09-05 (M-239,
+adopted 2026-09-04). Everything in this section describes the `song` row and
+is kept because it is the record of what that row measured (doctrine 17), but
+`song` (200-400 tokens) and `short` (50-150) are SUPERSEDED BAND ROWS: they
+stay in `PROFILES` with `superseded_by="lyric"` for their own `--check` drift
+runs and are NEVER picked by `declaration_for` / `live_profiles()`. The live
+profiles are `section`, `sonnet` and `lyric`. `lyric` covers 4-3,245 tokens
+and its five thresholds are CURVES in ln(N tokens) rather than fixed
+percentiles — four pinball-loss polynomial fits picked by the preregistered
+rule (mattr C1; function-word ratio, anaphora and line-length CV C2) and, for
+predictability, a 22-knot table adopted as a RECORDED DEVIATION from that rule
+(silent through N <= 163 tokens, first able to fire at 164). Its evidence is
+the same kind as `song`'s — a held-out false-positive rate on human text, no
+generated class, no AUC — and it is banked in
+`quality/RESULTS_LENGTH_CURVE.md`. The row itself, with its own note, is at
+the bottom of `PROFILES`.
+
 Its calibration set is `corpus/song/eng_*.txt` -- 143 files, one author each,
-4,930 `--- TITLE:` items, 152,325 sung lines -- restricted to items of 150-400
-tokens. Held out BY AUTHOR, never by item, because items by one author are not
+4,930 `--- TITLE:` items, 152,325 sung lines -- ~~restricted to items of
+150-400 tokens~~ restricted to items of 200-400 tokens from 2026-08-26 (the
+re-adopted band; 1,297 files, 8,667 items, 283,520 lines by then), and
+SUPERSEDED 2026-09-04 by `lyric` over the whole 4-3,245 range (M-239) —
+repinned 2026-09-05. The held-out-by-author protocol described next did not
+move and is what the curves were held to as well.
+Held out BY AUTHOR, never by item, because items by one author are not
 independent of each other (doctrine 13); the item-level split was run alongside
 purely to price what the wrong split would have bought, and it understates the
 seed-to-seed spread by roughly a factor of two. Every rate below is a median
@@ -195,8 +217,16 @@ ANAPHORA_OVERLOAD 5.01% exactly.
 
 So it is in the family of the three that ship. That is what licenses it to
 fire, and this repin does NOT demote it. What the measurement did compel is
-one change, and it is a SEVERITY change outside the band. Bucketed by the live
-`declaration_for()` over all 4,930 corpus items:
+one change, and it is a SEVERITY change outside the band. Bucketed by the
+`declaration_for()` LIVE ON 2026-08-14 over all 4,930 corpus items — a
+HISTORICAL reading, repinned 2026-09-05 (M-239): the selector it was taken
+with is gone. `song` and `short` no longer receive any item (both superseded),
+`lyric` covers 4-3,245 tokens exactly, and 696 of the 699 lengths 1-699 are
+now EXACT with none in a tolerance band (measured with the shipped selector),
+so the `EXTRAPOLATED:*` and `OUT_OF_CALIBRATED_LENGTH` rows below no longer
+describe any sheet the floor grades. The per-bucket cliche rate under the live
+table has NOT been re-measured; M-239 owes the per-length-bin rate, and until
+it is taken no row here may be read as current:
 
     exact:section              86 items    0 fire     0.00%
     exact:sonnet              437         24         5.49%
@@ -572,8 +602,15 @@ class Profile:
     #: (160-500, union 20.52% -- three tenths of a point over the exact band,
     #: which is what makes 1.25 the cheap one), superseding the 150-400
     #: reading ~~20.79% -> 26.33% at 2.0, 23.12% at 1.25, 19.36% at four
-    #: checks~~. The other two profiles keep 2.0 because re-measuring them
-    #: needs the sonnet classes and that was not this cell's to move.
+    #: checks~~. ~~The other two profiles keep 2.0~~ REPINNED 2026-09-05
+    #: (M-239): there are five rows, not three. `short` (2026-09-01) DECLARES
+    #: 1.25 to match `song` so the two reaches meet; `section` and `sonnet`
+    #: keep 2.0 because re-measuring them
+    #: needs the sonnet classes and that was not this cell's to move; and the
+    #: live sheet row `lyric` (2026-09-04) declares 1.0 — inside 4-3,245
+    #: tokens there is no edge to extrapolate past, so it has no band at all.
+    #: The 1.25 on `song`/`short` is now a superseded row's constant: nothing
+    #: live reads it, because `declaration_for` never picks either row.
     tolerance: float = 2.0
     #: what text the percentiles were read off, and how they were held out.
     source: str = ""
@@ -1075,7 +1112,10 @@ PROFILES = [
 #: tokens a lyric sheet reached no exact profile: M-181 measured ~~the five
 #: songs a listener preferred as the SHORT ones~~ the five banked songs the
 #: owner's complaint was about as the SHORT ones (struck 2026-09-04, `MISSING.md` M-238: a person's reaction to a generated song is opinion and is not evidence), and the planner's envelope
-#: (`plan.song_line_counts`, which unions every `n_lines == 0` profile)
+#: (`plan.song_line_counts`, which unions every ~~`n_lines == 0` profile~~
+#: LIVE `n_lines == 0` profile — repinned 2026-09-05, M-239: since the
+#: adoption it skips superseded rows, which is why this row is read by
+#: nothing there)
 #: could not volunteer one. The band rule is the `song` profile's own,
 #: UNCHANGED, searched over edges 50..200 (`song_profile_calibration.py
 #: --profile short`), and it returns 50-150: 50-200 fails on `mattr` at
@@ -1330,6 +1370,26 @@ def live_profiles():
     return [p for p in PROFILES if not p.superseded_by]
 
 
+def cliche_rate_rows():
+    """The rows that carry a MEASURED `cliche` false-positive rate, in table
+    order. Superseded or not: CLICHE_PAIR reads no percentile, so what
+    licenses it to reject is a rate, and the only rates ever taken for it are
+    the two band rows' (M-239, 2026-09-05). Read rather than typed, so a
+    finding's evidence cannot drift from the row it is quoting (doctrine 1).
+    """
+    return [p for p in PROFILES if "cliche" in p.held_out_fpr]
+
+
+def _cliche_rates_text():
+    """Those rows spelled for a finding's evidence: name, band, median."""
+    return " and ".join(
+        f"{p.held_out_fpr['cliche'][0]:.2f}% at {p.lo}-{p.hi} tokens "
+        f"(`{p.name}`, seed 5th-95th "
+        f"{p.held_out_fpr['cliche'][1]:.2f}-"
+        f"{p.held_out_fpr['cliche'][2]:.2f}%)"
+        for p in cliche_rate_rows())
+
+
 def declaration_for(n_tokens, n_lines=None):
     """Pick the calibrated profile for a text of `n_tokens`.
 
@@ -1427,18 +1487,32 @@ class UncalibratedLength(ValueError):
     loudest about it.
 
     MEASURED, so the size of the hole is on the record rather than asserted.
-    Across 1-699 tokens: **39.9% of lengths can produce a FLAG; 29.8% sit
+    Across 1-699 tokens: ~~**39.9% of lengths can produce a FLAG; 29.8% sit
     inside a tolerance band where every length-sensitive finding is
     DOWNGRADED to a note; 30.3% reach no profile at all.** This class is the
-    gate on that last 30.3%.
+    gate on that last 30.3%.~~
 
-    WHY NOT ALSO THE 29.8%. The tolerance band is a DECLARED and MEASURED
+    REPINNED 2026-09-05 (M-239, the length-curve adoption of 2026-09-04). The
+    three figures above were true of the band table and are kept as the
+    record of what it left ungraded. Re-measured with the SHIPPED selector
+    over the same 1-699 tokens: **99.6% of lengths are EXACT and can produce
+    a FLAG (696 of 699); 0.0% sit inside a tolerance band; 0.4% reach no
+    profile at all (3 of 699 — 1, 2 and 3 tokens, under `lyric`'s lo=4).**
+    This class is the gate on that last 0.4%, plus everything past 3,245
+    tokens, which is the corpus's own longest item and therefore the edge of
+    every measurement the floor has.
+
+    WHY NOT ALSO ~~THE 29.8%~~ A TOLERANCE BAND (no sheet length sits in one
+    now; this paragraph is live for the two STANZA profiles, `section` and
+    `sonnet`, which keep 2.0). The tolerance band is a DECLARED and MEASURED
     allowance, not an accident — `Profile.tolerance` carries its own
     false-positive measurement (the song profile's 1.25 was adopted at 23.12%
-    against 20.79% in-band). Findings there are produced and downgraded on a
-    number somebody measured. `FloorDeclaration.require_exact_length` reaches
-    the stricter posture for a caller who wants it, and says so in its own
-    field comment; the default refuses only where nothing was measured at all.
+    against 20.79% in-band; that row is superseded, and the live `lyric` row
+    declares 1.0, i.e. no band). Findings there are produced and downgraded
+    on a number somebody measured. `FloorDeclaration.require_exact_length`
+    reaches the stricter posture for a caller who wants it, and says so in
+    its own field comment; the default refuses only where nothing was
+    measured at all.
 
     A `ValueError`, so the CLI's existing `REFUSED ... exit 2` path carries it
     with no new handler — the route `NoMandate` and `UndecodableLyricFile`
@@ -1742,9 +1816,18 @@ class SlopFloor:
                 f"FLAG here — a word rhymed with itself is a fact about the "
                 f"two lines and needs no calibration. CLICHE_PAIR is a NOTE "
                 f"at this length: nothing about the membership test changes, "
-                f"but the only false-positive rate it has was measured "
-                f"in-band, and out here it runs at 14.74% against that "
-                f"6.35% (285 corpus items, 42 firing). RADIF_LICENSED and "
+                f"but the only false-positive rates it has were measured in "
+                f"the two SUPERSEDED band rows — "
+                + _cliche_rates_text()
+                + f" — and neither covers {n_tok} tokens. REPINNED "
+                f"2026-09-05 (M-239): this branch used to add that out here "
+                f"the check runs at 14.74% against 6.35% in band (285 corpus "
+                f"items, 42 firing); that 285-item population was the corpus "
+                f"outside the 2026-08-14 BAND table, and under the live "
+                f"table it is empty — no corpus item sits under 4 or over "
+                f"3,245 tokens, so there is no measured rate out here at all "
+                f"(doctrine 22), which is exactly why this is a note. "
+                f"RADIF_LICENSED and "
                 f"SHARED_SUFFIX are notes at every length"))
             return out + self._relation_findings(
                 lines, self._pairs(lines, scheme), sev)
@@ -1766,8 +1849,15 @@ class SlopFloor:
                 f"are downgraded, and so is CLICHE_PAIR — not because a "
                 f"percentile was extrapolated for it, it has none, but "
                 f"because its false-positive rate was only ever measured "
-                f"inside the song band and it runs 3.71-7.20% out here "
-                f"against 6.35% in it. The relation-level checks all still "
+                f"inside the two SUPERSEDED band rows ("
+                + _cliche_rates_text()
+                + f"), never here — REPINNED 2026-09-05 (M-239): the "
+                f"3.71-7.20%-against-6.35% reading this clause used to quote "
+                f"was bucketed by the 2026-08-14 selector, and since the "
+                f"length-curve adoption no SHEET length is extrapolated at "
+                f"all (every one of 4-3,245 tokens is exact under `lyric`), "
+                f"so this branch is live only for the two stanza profiles' "
+                f"2.0x bands. The relation-level checks all still "
                 f"RAN, and REPEAT_IN_VERSE can still be a FLAG: a word "
                 f"rhymed with itself is a fact about two lines, calibrated "
                 f"against nothing. RADIF_LICENSED and SHARED_SUFFIX are "
@@ -2204,15 +2294,18 @@ class SlopFloor:
             # profile whose range is the whole corpus `exact` is True at 25
             # tokens and at 2,000 — and the only false-positive rates the
             # shipped list has were measured on the two band rows, 50-150
-            # (4.02%) and 200-400 (6.35%). A flag on a rate nobody measured
+            # (4.02%) and 200-400 (~~6.35%~~ 7.64%, repinned 2026-09-05: the
+            # 6.35% / 118 of 1,859 point estimate is the 2026-08-14 150-400
+            # reading, and the row's own `held_out_fpr["cliche"]` has been
+            # (7.64, 5.99, 9.04) over the re-adopted 200-400 band since
+            # 2026-08-26). A flag on a rate nobody measured
             # is the doctrine-22 error, so the severity reads WHICH rows
             # carry a `cliche` rate that COVERS this length, superseded or
             # not: inside one, a flag; outside all, a note that says so.
             # Measuring the rate per length bin over 4-3,245 is owed (M-239).
             n_tok = sum(len(self.qf._tokens(l)) for l in lines)
             prof, exact = declaration_for(n_tok, len(lines))
-            cliche_rows = [p for p in PROFILES
-                           if "cliche" in p.held_out_fpr and p.covers(n_tok)]
+            cliche_rows = [p for p in cliche_rate_rows() if p.covers(n_tok)]
             # A STANZA profile (a fixed unit — `section`, `sonnet`) keeps
             # the flag it always carried: the carry-over to those two
             # lengths was argued and measured in the branch below (0.00%
@@ -2225,52 +2318,77 @@ class SlopFloor:
                                  and not cliche_rows and not stanza_exact)
             if not shipped:
                 why_sev = ("The list has been REPLACED through the "
-                           "declaration, so the shipped 6.35% in-band "
-                           "false-positive rate does not describe it and this "
+                           "declaration, so the shipped list's measured "
+                           "in-band false-positive rates ("
+                           + _cliche_rates_text()
+                           + ", the only ones ever taken for this check) "
+                           "do not describe it and this "
                            "finding has no measured rate behind it at all "
-                           "(doctrine 22). ")
+                           "(doctrine 22). Repinned 2026-09-05, M-239: this "
+                           "sentence quoted ~~6.35%~~, the 2026-08-14 "
+                           "150-400 reading, after the band moved to 200-400 "
+                           "and both band rows were superseded. ")
             elif cliche_unmeasured:
                 why_sev = ("It is a NOTE here and may not reject. The five "
                            "percentile checks are calibrated at this length "
                            f"({prof.name} profile), but CLICHE_PAIR reads no "
                            "percentile: its only measured false-positive rates "
-                           "are the band rows' — 4.02% at 50-150 tokens and "
-                           "6.35% at 200-400 — and this text sits at "
+                           "are the two SUPERSEDED band rows' — "
+                           + _cliche_rates_text()
+                           + f" — and this text sits at "
                            f"{n_tok} tokens, where no rate was taken. An "
                            "unmeasured rate may not carry a rejection "
                            "(doctrine 22); measuring it per length bin over "
                            "4-3,245 is owed (M-239). ")
             elif csev == "flag":
-                why_sev = ("It fires as a FLAG because the text sits inside a "
-                           "profile's MEASURED range and the shipped list has "
-                           "a measured interruption rate on held-out human "
-                           "song: 6.36% median, 5th-95th percentile of seeds "
-                           "4.23-8.37%, point estimate 118/1859 = 6.35%, "
-                           "Wilson 95% CI [5.33, 7.55], author-held out, 200 "
+                why_sev = ("It fires as a FLAG because the shipped list has a "
+                           "measured interruption rate on held-out human "
+                           "song: author-held out, 200 "
                            "seeds, 50/50 — the same protocol that gives "
                            "LEXICAL_MONOTONY 5.43% and FUNCTION_WORD_HEAVY "
-                           "5.23%. THAT RATE WAS MEASURED IN THE SONG BAND "
-                           "(150-400 tokens) and nowhere else, so at section "
-                           "or sonnet length it is being carried across, not "
-                           "quoted from a reading taken there. What is known "
-                           "about those two: over the same 4,930 corpus items "
-                           "the check fires on 0.00% of the 86 that land in "
-                           "`section` exactly and 5.49% of the 437 that land "
-                           "in `sonnet` exactly — at or under the song "
-                           "rate, "
+                           "5.23%. WHERE THAT RATE WAS TAKEN, REPINNED "
+                           "2026-09-05 (M-239): only in the two band rows, "
+                           + _cliche_rates_text()
+                           + " — rows SUPERSEDED on 2026-09-04 for their "
+                           "percentiles, kept for their own drift checks, "
+                           "and still the only measured cliche rates the "
+                           "floor has. "
+                           + ("This text sits inside "
+                              + ", ".join(f"`{r.name}`" for r in cliche_rows)
+                              + ", so the rate is quoted from a reading taken "
+                                "at this length. "
+                              if cliche_rows else
+                              "This text is at an EXACT STANZA profile "
+                              f"(`{prof.name}`), where the rate is being "
+                              "carried across rather than quoted from a "
+                              "reading taken there. ")
+                           + "What is known about the two stanza lengths: "
+                           "over the 4,930 corpus items bucketed on "
+                           "2026-08-14 the check fired on 0.00% of the 86 "
+                           "that landed in `section` exactly and 5.49% of "
+                           "the 437 that landed in `sonnet` exactly — at or "
+                           "under the band rate, "
                            "which is why the carry-over is not what `sev()` "
-                           "is guarding against. ")
+                           "is guarding against. Measuring the rate per "
+                           "length bin over 4-3,245 tokens is owed (M-239). ")
             else:
                 why_sev = ("It is a NOTE here and may not reject. The "
                            "membership test is unchanged — it reads no "
                            "percentile and no length — but the only "
-                           "false-positive rate licensing it was measured "
-                           "inside the song profile's 150-400 band (6.36% "
-                           "median, 118/1859 = 6.35%), and this text is "
-                           "outside a measured range. Bucketed over the 4,930 "
-                           "corpus items it runs 2.22-7.20% under "
-                           "extrapolation and 14.74% where no profile "
-                           "reaches, against that 6.35%. An unmeasured rate "
+                           "false-positive rates licensing it were measured "
+                           "in the two SUPERSEDED band rows, "
+                           + _cliche_rates_text()
+                           + ", and this text is outside both. REPINNED "
+                           "2026-09-05 (M-239): this sentence used to name "
+                           "~~the song profile's 150-400 band (6.36% median, "
+                           "118/1859 = 6.35%)~~, which was the 2026-08-14 "
+                           "reading — the band moved to 200-400 "
+                           "on 2026-08-26 "
+                           "and both rows were superseded by `lyric` on "
+                           "2026-09-04. The 2.22-7.20%-under-extrapolation "
+                           "and 14.74%-where-no-profile-reaches buckets came "
+                           "off that same retired selector and are not a "
+                           "reading of this length. An unmeasured rate "
                            "may not carry a rejection (doctrine 22). ")
             out.append(Finding(
                 "CLICHE_PAIR", csev,
@@ -2373,10 +2491,21 @@ class SlopFloor:
               f"FloorDeclaration.mattr_window; swept 2026-08-14, admissible "
               f"[1,22] u [40,93], NOT a plateau — "
               f"CALIBRATION['mattr_window'])", file=stream)
+        # WHAT THE BANNER MAY SAY IS APPLIED (M-239, repinned 2026-09-05).
+        # This loop printed `applied a-b (t x)` for every row in `PROFILES`,
+        # so a reader was told the `song` and `short` bands were applied
+        # while `declaration_for` had not picked either since the 2026-09-04
+        # adoption. The rows still print — they are kept for their own drift
+        # `--check` and deleting them from the banner would delete the record
+        # (doctrine 17) — but a superseded row now prints WHY it is here
+        # instead of a reach that is never reached.
         for p in PROFILES:
             a, b = p.band()
+            applied = (f"SUPERSEDED by {p.superseded_by} (kept for its own "
+                       f"drift check; never applied)" if p.superseded_by
+                       else f"applied {a}-{b} ({p.tolerance:g}x)")
             print(f"  profile {p.name:<8} {p.unit:<32} measured {p.lo}-{p.hi} "
-                  f"tok, applied {a}-{b} ({p.tolerance:g}x)", file=stream)
+                  f"tok, {applied}", file=stream)
             # A profile whose whole MEASURED range sits inside the window is
             # not reporting MATTR at all, and the banner is where a reader
             # who never opens this file finds that out.
@@ -2446,11 +2575,18 @@ if __name__ == "__main__":
             floor.report(ls, sc, banner=False)
         # The SHEET pass, for the length-sensitive half only.
         #
-        # A marked-up sheet never reaches the song profile section by section:
-        # each section is 20-60 tokens and lands in `section` or in nothing.
-        # But the song profile was calibrated on WHOLE corpus items with their
-        # refrains printed, so the sheet is the length its thresholds were
-        # measured at and the sections are not. Both passes therefore run and
+        # ~~A marked-up sheet never reaches the song profile section by
+        # section: each section is 20-60 tokens and lands in `section` or in
+        # nothing.~~ REPINNED 2026-09-05 (M-239): the sheet profile is
+        # `lyric`, which covers 4-3,245 tokens, so a 20-60-token section DOES
+        # reach it — four lines land in `section` by line count, any other
+        # count lands in `lyric` at the section's own length. The reason both
+        # passes run is unchanged and is the one that was always load-bearing:
+        # the sheet profile was calibrated on WHOLE corpus items with their
+        # refrains printed, so the SHEET is the length its thresholds were
+        # read at and a section is not — and under a curve profile that is
+        # sharper still, because the threshold is a function of N and a
+        # section asks for it at the wrong N. Both passes therefore run and
         # both are labelled.
         #
         # Only the length-sensitive codes are reported here, and that is

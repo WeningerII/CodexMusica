@@ -886,31 +886,64 @@ MUTATIONS = [
         rationale=(
             "`declaration_for` reverts to taking the FIRST profile that "
             "reaches the length instead of the one with the smallest "
-            "extrapolation. `PROFILES` is ordered section, sonnet, song, so a "
-            "150-token lyric that the song profile MEASURED is graded on the "
-            "section profile's 29-37-token percentiles, extrapolating 113 "
-            "tokens past a measured edge. The module's own comment records "
+            "extrapolation. ~~`PROFILES` is ordered section, sonnet, song, "
+            "so a 150-token lyric that the song profile MEASURED is graded "
+            "on the section profile's 29-37-token percentiles, extrapolating "
+            "113 tokens past a measured edge.~~ REPINNED 2026-09-05 "
+            "(`MISSING.md` M-239): `PROFILES` is ordered section, sonnet, "
+            "song, short, lyric, and the last three of those are the sheet "
+            "rows — `song` and `short` SUPERSEDED, `lyric` live over "
+            "4-3,245 "
+            "tokens. Under the shipped table the mutated line is "
+            "UNREACHABLE, because every sheet length is covered exactly and "
+            "`reach` never holds more than one candidate to choose wrongly "
+            "between; `test_floor.py` §19 reaches it by narrowing the lyric "
+            "profile in process (`_narrowed_lyric`) and then asks the "
+            "question this mutation is about — a text no live row COVERS is "
+            "handed to the first row that merely reaches it, "
+            "the section profile's 29-37-token percentiles, instead of the "
+            "nearest measured edge. The module's own comment records "
             "this class of bug (the midpoint rule choosing the sonnet at 149 "
             "tokens); this plants a worse version of it."),
     ),
     Mutation(
         name="QF5", layer="value", file=FLOOR,
-        # LENGTHENED 2026-09-01: the `short` profile (M-193) declares the
-        # same `tolerance=1.25,` one row down, so the anchor names the
-        # `song` row by the note that follows it.
-        old="        tolerance=1.25,\n"
-            "        #: RE-ADOPTED 2026-08-26 AS A SET, AND THE BAND IS THE ONLY",
-        new="        tolerance=2.0,\n"
-            "        #: RE-ADOPTED 2026-08-26 AS A SET, AND THE BAND IS THE ONLY",
+        # RE-ANCHORED 2026-09-05 (`MISSING.md` M-239) FROM THE `song` ROW
+        # ONTO THE `lyric` ROW, and the move is the whole finding. The
+        # anchor was ~~`        tolerance=1.25,\n        #: RE-ADOPTED
+        # 2026-08-26 AS A SET, AND THE BAND IS THE ONLY`~~ — the `song`
+        # row's, lengthened on 2026-09-01 so it would not also match
+        # `short`'s. That row was SUPERSEDED on 2026-09-04: `live_profiles()`
+        # filters it out, `declaration_for` never picks it, `covers()` reads
+        # `lo`/`hi` and not `tolerance`, and nothing in T_FLOOR reads
+        # `song.band()`. So the mutant killed nothing — an EQUIVALENT mutant
+        # wearing a passing row, which is the one thing a mutation set may
+        # not contain (doctrine 48: a check that cannot fail). It now flips
+        # the LIVE sheet row's tolerance instead.
+        old="        tolerance=1.0,\n"
+            "        percentiles={},",
+        new="        tolerance=1.25,\n"
+            "        percentiles={},",
         subset=T_FLOOR,
         rationale=(
-            "The `song` profile's tolerance goes back to the unmeasured 2.0 "
-            "that the first two profiles shipped with. Measured (floor.py's "
-            "own note on `Profile.tolerance`), carrying the 150-400 thresholds "
-            "out to 2.0x raises the union false-positive rate from 23.12% to "
-            "26.33%, and 1.25 is the only one of the three tolerances that "
-            "anybody ever measured. Doctrine 16: an uncalibrated threshold "
-            "fails toward whoever guessed."),
+            "The `lyric` profile's declared 1.0 — no tolerance band at all, "
+            "because inside 4-3,245 tokens there is no edge to extrapolate "
+            "past — becomes the band rows' 1.25, so the row's reach opens "
+            "to "
+            "3-4,056 tokens and the floor SERVES a 3,246-token sheet as an "
+            "extrapolation instead of REFUSING it. 3,245 is the corpus's "
+            "longest item, so everything past it is a length nothing was "
+            "ever measured at, and §16 of `test_floor.py` is the check that "
+            "says so ('3246 tokens is still outside every profile', plus the "
+            "3,600-token `huge` fixture that must still raise "
+            "OUT_OF_CALIBRATED_LENGTH). Doctrine 16: an uncalibrated "
+            "threshold fails toward whoever guessed — and the guess here is "
+            "a tolerance carried over from a superseded band row, which is "
+            "how the mutant is meant to look plausible. Measured "
+            "(floor.py's own note on `Profile.tolerance`): on the band rows "
+            "carrying the 150-400 thresholds out to 2.0x raised the union "
+            "false-positive rate from 23.12% to 26.33%; no such measurement "
+            "exists past 3,245 tokens, which is the point."),
     ),
 
     # ------------------------------------- quality/revise.py (the loop's gate)

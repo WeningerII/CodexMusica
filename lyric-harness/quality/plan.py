@@ -63,14 +63,22 @@ GENERATOR over a space the enforcement layers already grade:
     * THE LINE ENVELOPE IS WHAT THE FLOOR CAN ENFORCE. A draft outside every
       profile's MEASURED range has every length-sensitive finding downgraded
       to a note or skipped, so volunteering that length is volunteering a
-      plan the graders cannot hold to anything. Measured across 1-699
+      plan the graders cannot hold to anything. ~~Measured across 1-699
       tokens: 39.9% of lengths can produce a flag, 29.8% sit in a tolerance
-      band where everything is downgraded, 30.3% reach no profile at all.
-      `gradeable_line_counts()` is the set that survives, and it is NOT
+      band where everything is downgraded, 30.3% reach no profile at all.~~
+      `gradeable_line_counts()` is the set that survives, and ~~it is NOT
       contiguous — 6 to 11 lines falls between the section profile's reach
-      and the sonnet's. `line_count_gaps()` names that hole in every plan's
+      and the sonnet's.~~ `line_count_gaps()` names that hole in every plan's
       own disclosure, because a gap nobody prints is a calibration request
       nobody makes.
+      REPINNED 2026-09-05 (`MISSING.md` M-239): the two fixed-percentile
+      band rows are superseded by the `lyric` LENGTH-CURVE profile (4-3,245
+      tokens, thresholds that are curves in ln N), so re-measured across
+      1-699 tokens **99.6% of lengths grade exactly (696 of 699), 0% sit in
+      a tolerance band, 0.4% (3) reach no profile at all**, and
+      `gradeable_line_counts()` is **1..447, contiguous, no hole** —
+      `line_count_gaps()` returns `[]`. It is kept as the disclosure that
+      would name a hole the day a profile is retired or narrowed.
     * THE TOTAL IS DRAWN FIRST and then bounds everything conditioned on it:
       the pattern's cell count (a song of T lines carries at most T sung
       sections) and the per-kind line counts, which are drawn EXACT-UNIFORM
@@ -377,16 +385,31 @@ def gradeable_line_counts():
     count falls outside every profile's MEASURED range gets every
     length-sensitive finding downgraded to a note or skipped entirely, so a
     plan volunteering that length is a plan the graders cannot hold to
-    anything. Measured across 1..699 tokens: 39.9% of lengths can produce a
+    anything. ~~Measured across 1..699 tokens: 39.9% of lengths can produce a
     flag, 29.8% are inside a tolerance band where every finding is downgraded,
-    and 30.3% reach no profile at all.
+    and 30.3% reach no profile at all.~~
 
     So the line envelope is the set of line counts whose expected token count
     — at the derived tokens-per-line band — can land inside some profile's
-    measured range. It is NOT CONTIGUOUS, and the gap is a real finding rather
-    than an inconvenience: it is a calibration request, and
+    measured range. ~~It is NOT CONTIGUOUS, and the gap is a real finding
+    rather than an inconvenience: it is a calibration request, and~~
     `line_count_gaps()` names it so it is visible in every plan's own
     disclosure instead of being discovered by a writer.
+
+    REPINNED 2026-09-05 (`MISSING.md` M-239). The measurement above was taken
+    under the two fixed-percentile band rows (`song` 200-400 tokens, `short`
+    50-150), which the `lyric` LENGTH-CURVE profile superseded on 2026-09-04:
+    they keep their place in `PROFILES` for their own drift checks and are
+    never applied. This function reads LIVE profiles only (the loop below
+    skips `superseded_by`), so on the live floor — `section`, `sonnet`,
+    `lyric` — the re-measurement over 1..699 tokens is **99.6% exact (696 of
+    699), 0% inside a tolerance band, 0.4% (3) reaching no profile**, and the
+    returned set is **1..447, 447 values, CONTIGUOUS**: `line_count_gaps()`
+    on it returns `[]`. The non-contiguity was a fact about which KINDS of
+    text were unioned, not about songs, and the one live sheet profile closed
+    every seam. `line_count_gaps()` is KEPT — not as a description of today,
+    but as the disclosure that would name a hole the day a profile is retired
+    or narrowed again.
     """
     tlo, thi = tokens_per_line_band()
     out = set()
@@ -431,7 +454,11 @@ def line_count_gaps(ok=None):
 
 @lru_cache(maxsize=None)
 def song_line_counts():
-    """-> frozenset of line counts THE SONG PROFILE CAN GRADE WITH TEETH.
+    """-> frozenset of line counts THE LYRIC-SHEET PROFILE CAN GRADE WITH
+    TEETH. (~~THE SONG PROFILE~~ — repinned 2026-09-05, `MISSING.md` M-239:
+    the sheet row is `lyric` since 2026-09-04; `song` and `short` are
+    superseded and applied nowhere. The function name is unchanged because
+    it names the OBJECT this planner emits, a song, not the profile row.)
 
     THE HOLE IN `gradeable_line_counts()` IS AN ARTEFACT OF UNIONING THREE
     KINDS OF TEXT, AND THIS IS THE REPAIR (2026-08-24, `MISSING.md` M-106,
@@ -440,15 +467,19 @@ def song_line_counts():
     count or the total length of the song"*).
 
     `gradeable_line_counts()` answers *"what line counts can ANY floor profile
-    grade"* over `section` (a 4-line quatrain), `sonnet` (14 lines) and `song`
-    (a lyric sheet). MEASURED, the three reach **4–5**, **12–17** and
-    ~~**17–55**~~ **22–55** lines — so the union is
-    ~~`{4, 5} | {12..55}`~~ `{4, 5} | {12..17} | {22..55}` and the famous
+    grade"* over `section` (a 4-line quatrain), `sonnet` (14 lines) and
+    ~~`song`~~ the lyric-sheet row (a lyric sheet). MEASURED, the three reach
+    **4–5**, **12–17** and ~~**17–55**~~ ~~**22–55**~~ lines — so the union is
+    ~~`{4, 5} | {12..55}`~~ ~~`{4, 5} | {12..17} | {22..55}`~~ and the famous
     **6–11 hole is the space between a quatrain and a sonnet**, which is not
     a fact about songs at all. A SONG planner drawing its length from that
     union was drawing from a set that contains "lengths a QUATRAIN can be"
     and "lengths a SONNET can be", and the hole it then had to reject around
     was one it created by asking the wrong question.
+    REPINNED 2026-09-05 (`MISSING.md` M-239): the sheet row is `lyric`, not
+    `song` — `song` (200-400 tokens) and `short` (50-150) were superseded on
+    2026-09-04 and are never applied — the three LIVE reaches are **4–5**,
+    **12–17** and **1–447**, and the union is **`1..447`, no hole**.
 
     REPINNED 2026-08-26 BY M-131's RE-ADOPTION (`MISSING.md` M-133): the song
     profile's band `lo` went 150 -> 200 tokens and this function READS that
@@ -462,15 +493,20 @@ def song_line_counts():
     ~~**22..55, 34 values, still no hole**~~ — and it is the profile that
     grades the object this planner emits. **REPINNED 2026-09-01 (`MISSING.md`
     M-193): a SECOND lyric-sheet profile, `short` (50-150 tokens), joined
-    the floor, and this function unions every `n_lines == 0` profile by
+    the floor, and ~~this function unions every `n_lines == 0` profile by
     construction — so the set is now `{6..20} | {22..55}`, 49 values, with
     ONE hole at 21 (150 tokens at the band's lowest tokens-per-line is 20
     lines; 200 tokens at its highest is 22). The hole is the seam between
     two calibrated bands, the same species as the 6-11 and 18-21 holes this
-    docstring already diagnoses. What the PLANNER volunteers is narrower
+    docstring already diagnoses.~~ What the PLANNER volunteers is narrower
     than this set: `fillable_line_counts()` intersects it with the totals
     the form's minimum section count can fill (12 and up for verse-chorus),
-    and `ENVELOPE["total_lines"]` reads that.** The
+    and `ENVELOPE["total_lines"]` reads that.**
+    REPINNED 2026-09-05 (`MISSING.md` M-239): this function unions every
+    LIVE `n_lines == 0` profile — the loop below skips `superseded_by` — and
+    since 2026-09-04 there is exactly ONE such row, `lyric`, so the set is
+    `1..447`, 447 values, with NO hole; the seam at 21 was the boundary
+    between two fixed-percentile bands that no longer grade anything. The
     profile is identified by `n_lines == 0`, which is its own declaration
     that a lyric sheet has no fixed line count, and not by its name: a name
     test would be a second statement of which profile means what (doctrine
@@ -494,14 +530,26 @@ def song_line_counts():
     MEASURED over 40 seeds at adoption: median drawn total 201 lines (was
     ~35 under 12..55), min 18, max 418, 0 refused, 440-line plans in ~4 s.
 
-    WHAT THIS COSTS, SAID PLAINLY: ~~a song of fewer than ~~17~~ **22** lines is
-    now outside the planner's envelope — the cost ROSE by five lines with the
-    band (M-133), and it rose in the direction this paragraph already priced.
-    That is not a narrowing of the harness —
-    a writer hand-declares any length and the graders grade it — it is the
-    planner declining to volunteer a length the song profile cannot hold to
-    anything. `gradeable_line_counts()` is UNCHANGED and still answers its
-    own (different) question for any caller that wants the union.
+    WHAT THIS COSTS, SAID PLAINLY: ~~a song of fewer than 17 (then 22) lines
+    is now outside the planner's envelope — the cost ROSE by five lines with
+    the band (M-133), and it rose in the direction this paragraph already
+    priced. That is not a narrowing of the harness — a writer hand-declares
+    any length and the graders grade it — it is the planner declining to
+    volunteer a length the song profile cannot hold to anything.
+    `gradeable_line_counts()` is UNCHANGED and still answers its own
+    (different) question for any caller that wants the union.~~
+    REPINNED 2026-09-05 (`MISSING.md` M-239) — the strike above is flat, and
+    both struck claims are false on this tree. (a) NOTHING is priced out at
+    the short end for the floor's sake: every length **1..447** is gradeable
+    and **12..447** fillable, and the fillable floor of 12 is the FORM's
+    minimum (the verse-chorus form's smallest section count, read through
+    `fillable_line_counts()`), not a length the floor cannot hold. The
+    ceiling 447 is derived from the `lyric` row's `hi` of 3,245 tokens at the
+    band's lowest tokens-per-line. (b) `gradeable_line_counts()` is NOT
+    unchanged: it now skips superseded rows too, so it returns 1..447 and
+    COINCIDES with this function's set rather than answering a different
+    question — the union it computes is over `section`, `sonnet` and `lyric`,
+    and `lyric` already contains the other two.
     """
     tlo, thi = tokens_per_line_band()
     # LIVE sheet profiles only (M-239): a band row a later calibration
@@ -522,7 +570,9 @@ def song_line_counts():
                          int(prof.hi // tlo) + 1))
     if not out:
         raise PlanRefused(
-            "no line count lands inside the song profile's measured range.")
+            # M-239 (2026-09-05): the sheet row is `lyric`, not `song`.
+            "no line count lands inside the lyric-sheet profile's measured "
+            "range.")
     return frozenset(out)
 
 
@@ -585,6 +635,11 @@ def _envelope():
     # needs three, so every draw of it was rejected by the pattern loop.
     # The set is intersected with the form's own minimum here, so the
     # envelope this file discloses is one the sampler can fill.
+    # REPINNED 2026-09-05 (`MISSING.md` M-239): the `short` row named above
+    # is superseded and read by nothing; the gradeable set is 1..447 now, so
+    # the intersection bites HARDER (1..11 is unfillable, not just 6..11)
+    # and the argument is unchanged — the floor of 12 is the FORM's, never
+    # the floor's.
     ok = fillable_line_counts(PLAN_FORMS[0] if PLAN_FORMS else "verse-chorus")
     stanza = stanza_line_floor()
     d_lo, d_hi = MB.ADOPTED["DENSITY"]
@@ -628,10 +683,12 @@ def _envelope():
         # section count is bounded by what makes a section a stanza rather
         # than by what makes it non-empty. 1 is still a real song.
         "sections": (1, max(1, max(ok) // stanza)),
-        # TOTAL LINES: the span of the song profile's own set. The set itself
-        # is what the sampler rejects against; it is CONTIGUOUS now, and the
-        # 6-11 hole it used to carry belonged to the gap between a quatrain
-        # and a sonnet rather than to songs (M-106).
+        # TOTAL LINES: the span of the ~~song~~ lyric-sheet profile's own set
+        # (`lyric` since 2026-09-04, M-239; `song` when this was written).
+        # The set itself is what the sampler rejects against; it is
+        # CONTIGUOUS now, and the 6-11 hole it used to carry belonged to the
+        # gap between a quatrain and a sonnet rather than to songs (M-106).
+        # REPINNED 2026-09-05 (M-239): the span is (12, 447).
         "total_lines": (min(ok), max(ok)),
         # subdivisions the fit layer's grid models (eighth/sixteenth pulse
         # against the beat) — a data-type set, not taste.
@@ -2332,10 +2389,24 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         # A DECLARED `--lines` FIXES THE TOTAL; it is not rejection-sampled
         # for (M-239, 2026-09-04). Until the envelope widened to 12..447 the
         # old `if total != lines: continue` cleared in a handful of draws;
-        # over 436 values it cleared in 68% of requests and cost 4 s per
-        # refusal. Conditioning a uniform draw on one coordinate IS fixing
+        # ~~over 436 values it cleared in 68% of requests and cost 4 s per
+        # refusal.~~ REPINNED 2026-09-05 (M-239): the 68% was ARITHMETIC
+        # stated as a measurement, and over the wrong denominator. The draw
+        # is uniform over `fillable_line_counts()`, and `song_line_counts()`
+        # is 447 values (1..447), the fillable set 436 (12..447); the chance
+        # that 500 uniform draws hit one named value out of 447 is
+        # 1 - (1 - 1/447)^500 = 67.4%. No log banks a per-refusal cost; the
+        # only banked figure is a whole 440-line plan in ~4 s.
+        # Conditioning a uniform draw on one coordinate IS fixing
         # that coordinate — the distribution over everything else is the
         # same — so the total is set and the rest of the draw is unchanged.
+        # WHAT MOVED, SAID PLAINLY (2026-09-05, M-239): the same
+        # (seed, --lines) request now yields a DIFFERENT plan than it did at
+        # any earlier commit, because the rng stream no longer spends a
+        # `rng.choice` and a pattern/partition draw on totals it will throw
+        # away. `lines=None` is byte-identical — it consumes the stream
+        # exactly as before. A logged plan reproduces at its `harness_commit`,
+        # which `song_log.py`'s HEADER stamps on every step.
         total = lines if lines is not None else rng.choice(sorted(_GRADEABLE))
         # THE CELL CEILING IS WHAT THIS SONG CAN AFFORD AT THE CALIBRATED
         # STANZA SIZE, not what it can afford at one line each (M-106).
@@ -2436,6 +2507,11 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         # sampling makes.
         if total not in _GRADEABLE:
             continue
+        # UNREACHABLE BY CONSTRUCTION SINCE 2026-09-04 (M-239): the draw
+        # above sets `total = lines` when `lines is not None`, so this can
+        # never fire. KEPT, not deleted (doctrine 17) — it is the guard that
+        # said what the rejection sampler used to do, and it is the check
+        # that would catch a future edit that stops fixing the total.
         if lines is not None and total != lines:
             continue
         # at least one mandated pair somewhere: some sung function with
@@ -2444,13 +2520,24 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
             continue
         break
     else:
+        # REPINNED 2026-09-05 (`MISSING.md` M-239). This text said "the song
+        # profile" — a row superseded on 2026-09-04 and never applied — and
+        # it interpolated the gap list unconditionally, so on a floor with
+        # one live sheet profile it printed the empty subtraction "MINUS the
+        # uncalibrated runs []". The clause is now emitted only when there is
+        # a run to name, and it names the LIVE sheet profile generically.
+        _gaps = line_count_gaps(song_line_counts())
+        _gap_clause = (
+            f" MINUS the uncalibrated runs {_gaps}, which the lyric-sheet "
+            f"profile does not grade with teeth"
+            if _gaps else
+            " with no uncalibrated run inside it — the lyric-sheet profile "
+            "grades every length in the span with teeth")
         raise PlanRefused(
             f"500 seeded draws found no plan matching the request inside "
             f"the envelope (sections {ENVELOPE['sections']}, lines/section "
             f"{ENVELOPE['lines_per_section']}, total {ENVELOPE['total_lines']}"
-            f" MINUS the uncalibrated runs "
-            f"{line_count_gaps(song_line_counts())}, which the song profile "
-            f"does not grade with teeth"
+            f"{_gap_clause}"
             f"{', exact total ' + str(lines) if lines is not None else ''}) "
             f"— try another seed, drop --lines, or declare the shape by "
             f"hand.")
@@ -3006,12 +3093,27 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         _aprof = next(p for p in _FL.PROFILES
                       if p.n_lines == 0 and not p.superseded_by)
         # A curve profile (M-239) needs a LENGTH IN TOKENS, and a plan has
-        # only lines. The length is DERIVED: the total times the midpoint
-        # of the measured tokens-per-line band (`tokens_per_line_band`, the
+        # only lines. The length is derived from the total times a point in
+        # the measured tokens-per-line band (`tokens_per_line_band`, the
         # same band that turns the profile's token limits into this
-        # envelope). A derivation, disclosed here, not a number chosen.
+        # envelope). ~~A derivation, disclosed here, not a number chosen.~~
+        # REPINNED 2026-09-05 (M-239), two corrections to that sentence.
+        # (a) THE MIDPOINT IS A CHOICE, not a derivation. The band has two
+        # ends and the cap differs between them: measured, at 40 lines the
+        # cap is 11 at `lo` and 10 at `hi`, at 100 lines 24 and 23, at 447
+        # lines 105 and 107. The midpoint is disclosed as the point chosen,
+        # and it is one point among the band's many.
+        # (b) THE ESTIMATE IS CLAMPED TO THE PROFILE'S REACH. `total * mid`
+        # crosses the `lyric` row's `hi` of 3,245 tokens at total 394 and
+        # reaches 3,688 at 447, and `Profile.threshold` evaluates its
+        # polynomial with no range check — so without the clamp the planner
+        # would take a threshold at a length the floor itself refuses to
+        # grade (`covers(3688)` is False), which is exactly the
+        # extrapolation the floor says the gate never performs. Clamped, the
+        # cap at 447 lines is 105 rather than 106.
         _tlo, _thi = tokens_per_line_band()
         _atok = max(1, int(round(total * (_tlo + _thi) / 2)))
+        _atok = min(max(_atok, _aprof.lo), _aprof.hi)
         _acap = int(_FL.FloorDeclaration().resolve("anaphora_max", _aprof,
                                                    _atok)
                     * total + 1e-9)

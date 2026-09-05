@@ -17,9 +17,15 @@
 Pre-registration: quality/LENGTH_CURVE_PREREGISTRATION.md (2026-09-04).
 Results: quality/RESULTS_LENGTH_CURVE.md.
 
-THE QUESTION. The lyric-sheet floor's five human percentiles are fixed
+THE QUESTION, AS IT STOOD WHEN THIS CELL OPENED. The lyric-sheet floor's five
+human percentiles ~~are~~ WERE fixed
 numbers over a token BAND (200-400 `song`, 50-150 `short`), and the band
-rule refuses every wider range because the percentiles drift with length.
+rule refused every wider range because the percentiles drift with length.
+Repinned 2026-09-05: the cell answered its own question on 2026-09-04 and the
+answer shipped — the `lyric` row this file re-derives under `check`
+SUPERSEDED both bands (`MISSING.md` M-239), so the floor's sheet thresholds
+are curves in ln N now and the two band rows survive only for their own
+drift checks.
 This file measures the drift's SHAPE over all 8,667 items (4-3,245 tokens)
 and asks whether a threshold that is a function of ln N can hold a nominal
 5% held-out false-positive rate at EVERY length, so one profile can cover
