@@ -21841,3 +21841,147 @@ does not police the word "finished" in prose (the GRADED stamp itself says
 prose is what M-150 refused. `song_log.py --verdicts` still owns truth.
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~297~~
 **298** with this entry (2026-09-05).
+
+### M-244 · The CI wall was one process — `test_plan` alone, 35.6 of 36.8 minutes — and "more shards" could not touch it; the work is cut (a parallel sweep, an early pair guard), every long suite is dealt through ONE idiom, and the matrices are re-cut around the measured floors `PARTIAL` 2026-09-05 — the owner's ask, verbatim: "way more shards ... as fast as possible"
+**THE COMPLAINT:** *"it looks like our CI is taking an unnecessary long time
+to run again. I'd love if we added way more shards. It feels crazy that it
+takes more than 10 minutes to run this. I'd really like it to be as fast as
+possible."*
+
+**THE MEASUREMENT, run 1376 (`main`, green, 36.8 min).** Seven parallel
+wall clocks, never summed (doctrine 79):
+
+| job | wall | what bounds it |
+|---|---:|---|
+| suites shard 1 = `test_plan` SOLO | **35.6 min** | one process: §3 round trip, 20 seeds, 4-wide |
+| verbs (4) | 16.6 | the 480 s seed-sweep section, dealt beside two 100 s sections by accident |
+| freshness | 16.6 | `build_static_api` 738 s (already 3 workers) + 3.6 min fault injection |
+| revision-loop | 15.8 | `test_revise` + `test_loop` side by side, undealt |
+| verify | 13.7 | `npm test` 580 s: 11 leaves 4-wide, `test:connector` ONE leaf of 12 serial scripts |
+| verbs (3) / (2) / (1) | 10.7 / 9.7 / 7.7 | the same file, chronological residue |
+| catalog ×4 | 6.7 | fine |
+
+M-182 had already said it: *the wall is bounded by GRANULARITY, not by
+parallelism.* The first row is one Python process, and a shard cannot split
+a process. So a shard count is the THIRD lever, after cutting the work and
+making the work dealable.
+
+**WHERE `test_plan`'S 35 MINUTES GO — MEASURED, AND THE PREMISE M-240
+CARRIED DOES NOT REPRODUCE.** §3 grades twenty planner seeds; at the M-239
+envelope (12..447 lines) ten of them (0, 2, 5, 6, 7, 10, 13, 16, 17, 19;
+144–418 lines) sit past the schema door's pair guard and the other ten
+grade at 47–133 lines. Per seed, single-threaded on a loaded 4-vCPU box:
+seed 0 252 s, seed 1 543 s, seed 2 (walled, 222 lines) 183 s. M-240 wrote
+that the guard fires *"between 108 lines (grades, 330 s) and 144
+(refuses)"* and this session read that as the walled seeds' cost. cProfile
+on seed 2, 183 s under the profiler:
+
+| where | cumulative |
+|---|---:|
+| `Reviser.inspect` | 171.8 s |
+| ↳ `floor.check` → `features.extract` → `_predictability` | **152.0 s** |
+| ↳↳ `RhymeField.field` (1,558 calls, 62 distinct words, ONE object) | 151.5 s |
+| ↳↳↳ `lyric_harness.score` — **2,229,177 calls** | 149.9 s |
+| ↳ `grade` (the 77-schema door, `whole_vocabulary_pairs`, 18 `realise` calls) | 19.8 s |
+| ↳↳ `evaluate` before the guard: 2,000,000 calls | ~3.4 s |
+
+**The pair guard was ~3 s of a 75 s seed. The floor's PREDICTABLE_RHYME
+feature is the cost: a field for one call word scores that word against
+~36,000 lexicon candidates (the nucleus bucket and its neighbours) at
+~67 µs each, ~2.4 s per DISTINCT end word, and a 222-line dummy draft has
+62 of them.** The cache is per word and per `RhymeField` and it HITS —
+1,496 of the 1,558 calls — so the cost is the 62 misses, and a real song
+with a chorus pays the same shape. This is the next lever and it is not
+taken here: a field memo that outlives the process (keyed on the word AND
+the declaration it was scored under — the floor's own per-item feature
+cache, a gitignored build artifact this entry deliberately does not cite as
+a path, is the precedent) or a cheaper admission test in front of `score`, either of which is its own measurement and its own entry.
+
+**WHAT SHIPS, in three layers.**
+
+*Cut the work.*
+- `plan.sweep` is parallel (`SWEEP_WORKERS`, default min(4, cpus), ONE
+  inside the CI `suites` pool — the eight-on-four M-182 measured): the
+  seeds are independent, results are assembled in SEED ORDER whatever
+  finished first (doctrine 66), `_sweep_one` returns plain data so a
+  refusal travels back as a count. A/B on 40 seeds, identical results.
+  The speedup is UNMEASURED on an idle machine — the A/B ran under load 7
+  on 4 cores and read 14.8 s serial against 17.5 s four-wide, which is a
+  fact about the load, not the code; the first CI run's SECTION COST line
+  for `test_the_seed_sweep_is_reachable_from_the_command_line` (533.5 s
+  local, 480 s CI, serial) is the measurement.
+- `relations.realise` refuses BEFORE it evaluates: `_candidate_pairs()` is
+  the one definition of a candidate (the `seen` de-duplication, the
+  `mirrored()` skip, the `skip_line_pairs` skip), read by a counting pass
+  and by the evaluating pass; `_cand_buckets()` gives the
+  pre-de-duplication upper bound with no `b` touched, checked first, and
+  only past it does the exact count run. One raise site, byte-identical
+  message. Measured interleaved old/new: the walled seed goes 2,146,381
+  → 146,381 `evaluate` calls, 8.6 → 5.2 s inside `realise`; the graded
+  seed identical in calls (4,576,240). `test_relations` X10: `max_pairs=50`
+  refuses with ZERO evaluations where the frozen pre-move loop paid 50;
+  all 49 running schemas return identical instances and tallies.
+
+*Make the work dealable — one idiom (doctrine 1).* `quality/shard.py`:
+`dealt(sections, env)` reads `ENV=k/n` and returns the sections whose
+index ≡ k-1 (mod n) — every section runs EXACTLY ONCE across a full
+k=1..n matrix by the arithmetic of residue classes; `run_sections(...)`
+runs them, times each, prints SECTION COST slowest-first on green runs too
+(a cost only visible when something fails is a cost nobody sees), and
+takes `always=` for a section that deals its own items by the same
+coordinate. `test_verbs.py` grew this idiom inline over two sittings
+(M-182); it calls the module now, and so do `test_revise`, `test_loop`,
+`test_capacity` and `test_plan` — whose §3 deals its twenty SEEDS by
+`TEST_PLAN_SHARD` through `shard.dealt`, so the one loop no section deal
+could split is dealt inside, with the acceptance rule restated per shard
+over the seeds it holds. `test_verbs`' tuple is cost-ordered from a full
+local run (the sweep 533.5 s first, then 350.9 s, then a tail under
+190 s): residue over a cost-ordered tuple balances by DESIGN, over a
+chronological one by ACCIDENT — projected 8-shard walls 459/637/446/423/
+398/374/338/323 s local against 843/637/… without the sweep repair.
+`test_shard.py` pins exactly-once for n ∈ {1,2,3,4,5,6,8,12}, refusal on
+a malformed coordinate, the printout, `always=`, and that every suite
+`ci.yml` deals calls the module and spells no residue of its own.
+
+*Re-cut the matrices.* `ci.yml`: verbs 4 → 8 (`TEST_VERBS_SHARD` k/8);
+catalog 4 → 8; suites 4 → 3 pool shards with NO solos (`plan` and
+`capacity` out to their own jobs, `shard` in, the label 79 → 78,
+`SWEEP_WORKERS=1` in the pool); new dealt matrices `plan` ×5
+(`TEST_PLAN_SHARD`, `TEST_PLAN_WORKERS=4`) and `capacity` ×3; revision-loop
+×4 running both suites' residues side by side; a `-result` job for each
+new matrix in `verbs-result`'s shape. `package.json`: `test:connector`
+is twelve `test:connector:*` sub-scripts, so `run_parallel` — which
+flattens `npm run` links — spreads them where it saw one 12-script leaf.
+
+**PROJECTED, from the measured section costs scaled to CI (local ≈ 1.55×
+CI on `test_verbs`): verbs ≈ 8 min, plan ≈ 6–7, capacity ≤ 8 (its
+per-section floor is unmeasured until the first printout), revision-loop
+≈ 5, suites ≈ 6, verify ≈ 9, catalog ≈ 3.5; wall ≈ 9–10 min against 37.**
+Stated as a projection and this entry stays PARTIAL until a run measures
+it. **THE CAP THIS RUNS INTO IS THE ACCOUNT'S CONCURRENT-JOB LIMIT**, not
+the workflow: 18 jobs started together on run 1376; the re-cut starts ~33.
+GitHub allows 20 concurrent jobs on Free, 40 on Pro, 60 on Team; on Free
+the surplus queues and the wall lands nearer 12 min. Asked of the owner;
+unanswered as this is written.
+
+**WHAT IS NOT DONE, named.** (1) The floor's field cost above — the real
+floor of any long grade, connector included. (2) `freshness`: the 738 s
+build already runs three workers; for a harness-only diff the scope gate
+already skips it, and for a catalog diff the honest cut is a shard-aware
+build+compare or a build cache keyed on the declared closure
+(`check_build_closure.js`), both unbuilt. (3) `verify`'s Playwright
+install + `npm test` are one runner; `run_parallel` now has 24 leaves to
+spread, and whether the 580 s falls to ~300 is the next run's LEAF COST
+line. (4) A `harness_affected` scope output to skip the Python matrices on
+a site-only diff — the mirror of `artifacts_affected` — deferred because
+the result jobs' skipped-arm semantics ("skipped means gate failed") would
+have to move with it.
+
+**TESTED WHILE OPEN** — `quality/test_shard.py` names this entry and pins
+the dealing arithmetic and the idiom's adoption, which is the BUILT half;
+what keeps the entry open is the wall itself, which only a CI run
+measures, and the three unbuilt levers above.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~298~~
+**299** with this entry (2026-09-05).
+

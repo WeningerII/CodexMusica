@@ -102,3 +102,32 @@ def run_sections(sections, env, failures, footer, *, always=(), out=None):
         return 1
     print(footer, file=out)
     return 0
+
+
+def main(argv=None):
+    """`python3 quality/shard.py k/n N` — print which of N sections (0-based
+    indices) shard k of n runs, so a person can see a deal before running it.
+
+    The run itself lives in each suite's `__main__`; this entrance exists so
+    the module has a door of its own (`wiring` names a library with no caller
+    and no way to run it STRANDED, and test imports are not callers)."""
+    argv = sys.argv[1:] if argv is None else argv
+    if len(argv) != 2 or "/" not in argv[0] or not argv[1].isdigit():
+        print("usage: python3 quality/shard.py k/n N   "
+              "(the 0-based indices of N sections that shard k of n runs)",
+              file=sys.stderr)
+        return 2
+    os.environ["SHARD_PROBE"] = argv[0]
+    try:
+        chosen, kn = dealt(list(range(int(argv[1]))), "SHARD_PROBE")
+    except SystemExit as e:              # a refusal is exit 2 here, as on every verb
+        print(f"REFUSED — {e}", file=sys.stderr)
+        return 2
+    k, n = kn
+    print(f"shard {k}/{n} of {argv[1]} sections runs {len(chosen)}: "
+          + " ".join(str(i) for i in chosen))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

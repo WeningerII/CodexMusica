@@ -3249,6 +3249,19 @@ the repaired check now fails and the old one did not.
 
 - `python3 battery.py` — sonnet oracle (152 sonnets, ABABCDCDEFEFGG),
   Lear limerick known-answers, Whitman **legacy** comparator.
+- **A LONG SUITE IS DEALT ACROSS CI SHARDS THROUGH ONE IDIOM, AND EVERY RUN
+  PRINTS WHAT EACH SECTION COST** (`quality/shard.py`, 2026-09-05,
+  `MISSING.md` M-244). `TEST_<SUITE>_SHARD=k/n` runs the sections whose
+  index in the suite's cost-ordered tuple is ≡ k-1 (mod n) — exactly once
+  across a full matrix by the arithmetic of residue classes, everything when
+  unset — and the SECTION COST printout, slowest first, is the floor no
+  shard count beats and the order the tuple is re-cut from. `test_verbs`,
+  `test_plan` (whose §3 deals its twenty seeds by the same coordinate),
+  `test_revise`, `test_loop` and `test_capacity` call it. The lesson M-182
+  and M-244 both paid for: a CI job's wall is its LONGEST SINGLE PROCESS,
+  and on run 1376 that was `test_plan` alone, 35.6 of 36.8 minutes — a
+  number more shards could not touch until the work inside it was cut and
+  dealt.
 - `python3 quality/suite_sweep.py` — **IS THE WHOLE SUITE TREE GREEN, AND
   WHERE DOES THE TIME GO?** Added here 2026-08-22 for the same reason
   `negative_control.py` was added the day before: this list is the one place a
