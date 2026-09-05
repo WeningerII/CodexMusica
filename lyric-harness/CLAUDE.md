@@ -3464,8 +3464,11 @@ M-239)** — a 4-line quatrain, a 14-line sonnet, **and a whole lyric sheet of
 (the `song` 200–400 and `short` 50–150 band rows are SUPERSEDED, kept for
 their own drift checks) — and text outside all three gets no length-sensitive
 finding at all (doctrine 15); inside the sheet's range nothing is
-extrapolated any more, because there is no edge to extrapolate past. **REPINNED 2026-08-21**: `floor.PROFILES` is
-`section` / `sonnet` / `song`, the third landed 2026-08-11 and was re-adopted
+extrapolated any more, because there is no edge to extrapolate past. **REPINNED 2026-08-21**: ~~`floor.PROFILES` is
+`section` / `sonnet` / `song`~~ — since 2026-09-04 `PROFILES` is five rows
+(`section`, `sonnet`, `song`, `short`, `lyric`) and `live_profiles()`, what
+`declaration_for` picks from, is `section` / `sonnet` / `lyric`; the third
+row, `song`, landed 2026-08-11 and was re-adopted
 2026-08-21 at `n_human=3571`. `L-4`'s close repinned three other "two"
 citations — `quality/floor.py`, `BACKLOG.md`'s Tier-5 row, `quality/FLOOR.md`
 — and missed this one, while the floor paragraph higher in THIS file already

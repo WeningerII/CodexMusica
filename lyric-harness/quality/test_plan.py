@@ -310,7 +310,8 @@ def _round_trip_one(seed):
                                   f"{n} line(s), {s['bars']} bar(s)"))
     except RuntimeError as e:
         # THE SCHEMA DOOR'S PAIR GUARD (`MISSING.md` M-240, 2026-09-04): a
-        # plan past ~140 lines — reachable since M-239 widened the envelope
+        # plan past the wall — between 108 lines (grades, 330 s) and 144
+        # (refuses) on the fixture draft — reachable since M-239 widened the envelope
         # to 12..447 — cannot be graded through the 77-schema default door,
         # which refuses at its declared pair guard. That is the grader's
         # own limit, recorded as its OWN count beside the three, never as a
@@ -2660,8 +2661,15 @@ def test_the_relation_draw():
                       for c in traits["assonance"]["claims"]),
           f"semirhyme {traits['semirhyme']['claims']}")
     from quality import floor as FLR
-    _aprof = next(p for p in FLR.PROFILES if p.n_lines == 0)
-    _amax = FLR.FloorDeclaration().resolve("anaphora_max", _aprof)
+    # The LIVE sheet profile, at a DERIVED length — the planner's own idiom
+    # since M-239: a curve needs N tokens and a plan has lines, so the
+    # total times the measured tokens-per-line band's midpoint stands in.
+    _aprof = next(p for p in FLR.PROFILES
+                  if p.n_lines == 0 and not p.superseded_by)
+    from quality import plan as _PLN
+    _tlo, _thi = _PLN.tokens_per_line_band()
+    _amax = FLR.FloorDeclaration().resolve(
+        "anaphora_max", _aprof, max(1, int(round(24 * (_tlo + _thi) / 2))))
     check("M-125(b): the forced-opener ceiling is READ from the floor's "
           "own lyric-sheet profile (n_lines == 0, never by name — the "
           "M-106 idiom), so the gate and ANAPHORA_OVERLOAD cannot hold "
@@ -3358,9 +3366,11 @@ def test_the_delegated_rulings(FAILURES=None):
     check("...the planner's line envelope is the gradeable set restricted "
           "to totals whose stanza-sized cell ceiling can hold that many "
           "sections, so a total the pattern draw would reject on every "
-          "attempt is never drawn: the short profile (M-193) took the "
-          "gradeable set to 6 lines and the fillable floor is 12",
-          fill <= grade and min(fill) == 12 and min(grade) == 6
+          "attempt is never drawn: ~~the short profile (M-193) took the "
+          "gradeable set to 6 lines~~ the length-curve profile (M-239) takes "
+          "it to 1 line (4 tokens at the band's highest tokens-per-line) "
+          "and the fillable floor is 12",
+          fill <= grade and min(fill) == 12 and min(grade) == 1
           and all(max(1, t // _PL.stanza_line_floor()) >= need for t in fill)
           and ENVELOPE["total_lines"] == (min(fill), max(fill)),
           f"gradeable {min(grade)}..{max(grade)}, fillable {min(fill)}.."

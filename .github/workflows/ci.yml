@@ -2977,6 +2977,29 @@ jobs:
             *) echo "UNEXPECTED exit $rc"; exit $rc ;;
           esac
 
+      # THE LENGTH-CURVE ROW RE-DERIVES (M-239, 2026-09-04). The `lyric`
+      # profile's five curves are ADOPTED figures of the same species as the
+      # band rows above, and this is their `--check`: re-fit the polynomials
+      # (two starts, the banked procedure) and the predictability knot
+      # table from the whole corpus and compare to the digit. It runs AFTER
+      # the band check on purpose — that step warms the predictability memo
+      # this one reads, so a cold night bounds the band check and this one
+      # inherits whatever it banked. Exit 0 HOLDS, 1 MOVED (argue and repin
+      # as a set, doctrine 58), 2 cannot tell, 124 the memo was still cold.
+      - name: length-curve row re-derives from the corpus (M-239)
+        run: |
+          set +e
+          timeout 40m python3 quality/length_curve_calibration.py check
+          rc=$?
+          set -e
+          case $rc in
+            0) echo "HOLDS — the lyric row's curves re-derive over the whole corpus." ;;
+            1) echo "MOVED — the curves no longer describe corpus/song/. Argue it and repin as a SET (doctrine 58)."; exit 1 ;;
+            2) echo "CANNOT TELL — the check refused before comparing; read its print."; exit 2 ;;
+            124) echo "BOUNDED — the predictability memo was still cold; the band check above banks it and the next nightly resumes." ;;
+            *) echo "UNEXPECTED exit $rc"; exit $rc ;;
+          esac
+
       # ─────────── deployment freshness (M-127) ───────────
       #
       # THE ONE LOOP NOTHING ABOVE CLOSES. Every step in this file runs against

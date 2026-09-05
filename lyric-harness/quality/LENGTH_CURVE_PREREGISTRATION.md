@@ -149,6 +149,20 @@ the check ships as a knot table. If CK fails a bin too, the check is
 check's calibrated range; a refusal in the middle of the range is reported
 as a hole, exactly as `line_count_gaps` reports one today.
 
+> **AMENDED AFTER THE FACT, 2026-09-04, after the numbers were read**
+> (`RESULTS_LENGTH_CURVE.md` §9), without editing the text above: for
+> predictability the rule as written returned C0 = 1.0000 — the
+> whole-corpus 95th percentile IS the statistic's ceiling — which passes
+> every bin by never firing (0.00% held-out everywhere: `u` through bin
+> 11 under the under-resolved clause, `<` at bins 12–21 under the
+> conservative clause). Neither clause was written for a constant at the
+> ceiling and no falsifier named the case. The shipped pick is CK, the
+> knot table (22/22 bins, silent through 163 tokens by resolution,
+> 3.0–5.7% per bin above), and the results record that as a DEVIATION
+> from this rule, not as the rule's answer. The rule itself is not
+> rewritten here; a future cell that wants it fixed should add: "a
+> candidate whose held-out rate is 0.00% in every bin has passed nothing."
+
 **The derived limits.** The lower limit of the lyric-sheet floor is the
 lower edge of the lowest bin at which every shipped check passes (or is
 under-resolved); the upper limit is the upper edge of the highest such bin.
@@ -230,4 +244,6 @@ own pins, and none is made here.
   person's reaction to a generated song is opinion and has no place in the
   record; the phrase "the songs a listener preferred" in M-181, M-193 and
   the `short` profile's note is struck under that ruling in a separate
-  entry, and this cell's motivation is stated above without it.
+  entry — `MISSING.md` M-238, which lists every site (eight, not the
+  three named here; additive note 2026-09-04) — and this cell's
+  motivation is stated above without it.

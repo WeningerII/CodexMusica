@@ -21,9 +21,12 @@ of ln N, fit on the whole corpus at once.** The picks by the declared rule
 | `fwr` | 95th, hi | **C2** | `0.692763 − 0.0688436·x + 0.0054502·x²` | 4–3,245 | none |
 | anaphora | 95th, hi | **C2** | `1.13285 − 0.238372·x + 0.0157485·x²` | 4–3,245 | none |
 | `cv` | 5th, lo | **C2** | `−0.0314058 + 0.0359349·x − 0.00181958·x²` | 4–3,245 | none |
+| predictability | 95th, hi | **CK — a recorded DEVIATION (§9)**: the rule picked C0 = 1.0000, which cannot fire | knot table, 22 bin percentiles in ln N | fires 164–3,245; cannot fire 4–163 | none |
 
 The derived limits are the corpus's own ends, 4 and 3,245 tokens. There is
-no length inside that range at which any of the four checks is refused.
+no length inside that range at which any of the four cheap checks is
+refused; the fifth is silent through 163 tokens by resolution, not by
+refusal (§9).
 The two shipped bands covered 5,964 of the 8,667 items (69%); the curves
 cover 8,667 (100%) — with the caveat, stated in §2, that above 688 tokens
 one bin of 267 items carries the whole top of the range.
@@ -41,9 +44,10 @@ band rule was refusing to look past, now measured end to end.
 
 `population()`'s own rows, `--- TITLE:` items of `corpus/song/eng_*.txt`,
 no sample, duplicates kept, the four features computed by the shipped
-functions and defined on all 8,667 items. Predictability (stage B) is being
-computed cold in four shards because the on-disk memo's fingerprint no
-longer matches the shipped comparator; see §8.
+functions and defined on all 8,667 items. Predictability (stage B) ~~is being
+computed~~ was computed cold in four shards, because the on-disk memo's
+fingerprint no longer matched the shipped comparator; §8 has the cost and
+§9 the result. It is defined on 8,610 items.
 
 ## 2. The bins (§2 of the preregistration), and what sits in them
 
@@ -187,19 +191,27 @@ held-out rate, [5th–95th of seeds]):
   12.30 and bin 21 at 10.97 [4.9–17.5]; C1 `cv`: bin 0 at 8.31 [3.9–11.2].
   A straight line in ln N is not enough curvature for three of the four.
 
-No bin is under-resolved for any check (no `u` mark anywhere: even at
-4–45 tokens the 95th percentile of anaphora sits below the bin maximum).
-The picks' per-bin medians run 2.3–7.6% with no bin over its bound; the
-full rows are in the instrument's print and are not retyped here.
+~~No bin is under-resolved for any check~~ No bin is under-resolved for any
+of the FOUR stage-A checks (no `u` mark in their rows: even at 4–45 tokens
+the 95th percentile of anaphora sits below the bin maximum); predictability
+is under-resolved through bin 10, §9. The picks' per-bin medians run
+~~2.3–7.6%~~ **1.87%** (`cv` C2 at bin 3, under its lower bound L_k, which
+passes) to **7.92%** (`fwr` C2 at bin 20, under its 8.04% bound) with no
+bin over its bound; the full rows are in the instrument's print and are
+not retyped here.
 
 ## 6. The shipped bands beside the picks (§5.4, E2)
 
-Per bin inside each band, in-sample flag rate of the band's own constant
-against the picked curve, all four checks (the instrument's §5.4 rows):
-inside `song` the two agree within 2.1 points on every check in every bin
-(the largest gap is anaphora at bin 18, 3.25 → 5.32); inside `short`
-the largest is anaphora at bin 8, 3.25 → 5.54, and `cv` at bins 3–4 where
-the curve is UNDER the band (3.00 → 1.87, 2.25 → 1.95).
+Per bin inside each band (the instrument's §5.4 rows) — TWO KINDS OF RATE,
+which the instrument's header now says and the first banking of this
+paragraph did not: the band column is the shipped constant IN-SAMPLE over
+the bin's 400 items, the curve column the HELD-OUT median over 200 seeds.
+Read as a cross-check and not as a comparison of like with like: inside
+`song` the two sit within 2.1 points on every check in every bin (the
+largest gap is anaphora at bin 18, 3.25 → 5.32); inside `short` the
+largest is anaphora at ~~bin 8~~ bin 7, 3.00 → 5.38, then bin 8, 3.25 →
+5.54, and `cv` at bins 3–4 where the curve is UNDER the band (3.00 → 1.87,
+2.25 → 1.95). The like-for-like comparison is the held-out E2 table below.
 
 **E2, in-sample, with the 200-seed picks declared to the rerun
 (`--picks mattr=C1,fwr=C2,anaphora=C2,cv=C2`, disclosed in its print):**
@@ -248,7 +260,9 @@ as under the band, everywhere, instead of no rate at all on 31% of lengths.
   Which of C2 or CK to ship for `fwr` and anaphora is that change's call
   under E3; both pass.
 * It does not touch `sonnet`, `quatrain` or `section` (out of scope, §0).
-* It says nothing yet about predictability (§8).
+* ~~It says nothing yet about predictability (§8).~~ Predictability is §9:
+  adopted as a knot table, by a recorded deviation, silent through 163
+  tokens.
 * The rate inside a bin is at nominal; the rate at a single N inside bin
   0 or bin 21 is not separately measured, and the adoption should carry
   that in the finding text (the threshold AT THIS LENGTH beside the
@@ -262,8 +276,9 @@ entries under the shipped comparator's fingerprint `ac265f6eeb09…`; the
 5,512-entry file on disk carried a stale fingerprint and was not read).
 Cost, the shards' own prints: 4,854 + 5,892 + 4,348 + 5,229 = **20,323
 CPU-s (5.6 CPU-hours)**, 7,276 s wall on four shared cores — against the
-band cell's 2.0–2.2 CPU-hours for one process, because each shard warms
-its own end-word memo. Predictability is defined on 8,610 of 8,667 items
+band cell's banked 9,072 CPU-s (2.5 CPU-hours) for its predictability arm
+in one process (`RESULTS_SONG_FLOOR.md`; the calibration script's docstring
+projects 2.0–2.2), because each shard warms its own end-word memo. Predictability is defined on 8,610 of 8,667 items
 (57 carry no readable pair). The five-check fit
 (`fit rowsB_1..4.tsv --seeds 200`) reproduced every stage A pick and
 coefficient byte for byte.
@@ -290,15 +305,38 @@ is the check that cannot fail (doctrine 48), and the preregistration's
 everywhere. The clause was written for a bin, not for a whole-corpus
 constant, and this cell is the record of the hole.
 
+**HOW C0 PASSED, exactly, because the first banking of this paragraph
+blamed one clause and it was two.** §4 of the preregistration passes a bin
+when the median held-out rate is at or under U_k, and adds two ways a rate
+UNDER the lower bound L_k still passes: "under-resolved" (the bin's
+percentile sits at the statistic's extreme) and "the curve is conservative
+there" (below L_k WITHOUT the percentile at the extreme). C0 = 1.0000
+cannot fire at any length because predictability is a fraction and nothing
+exceeds 1.0 with `>`; its held-out rate is therefore 0.00% in every bin.
+Through bin 11 that 0.00% passed as under-resolved (`u`); at bins 12–21,
+where the data DOES resolve and a working curve fires, it passed under the
+SECOND clause (`<`), which reads a cannot-fire rate as a conservative one.
+Both clauses were written for a bin, not for a constant at the ceiling,
+and neither the pick sentence ("the fewest free parameters that passes
+EVERY bin") nor the falsifiers named this case; the preregistration now
+carries a dated amendment saying so, under its §4, without editing the
+original text.
+
 **THE DEVIATION, recorded rather than hidden (doctrine 17):** the shipped
 pick for predictability is **CK, the knot table**, by this argument and
 not by the rule — CK passes 22/22 (under-resolved through bin 10, then
 3.02, 4.85, 4.70, 5.24, 5.74, 5.55, 4.94, 5.71, 5.43, 5.59, 5.40% at
-bins 11–21, every one under its bound), is silent by resolution under
-~156 tokens, and does the check's work above it, where the band cells'
-own `song` threshold (0.9375 at 200–400) sits. C0 would have shipped a
-threshold that never fires at any length while looking calibrated. The
-rerun that banks CK's evidence was declared to the instrument
+bins 11–21, every one under its bound), is silent by resolution through
+**163 tokens exactly** (the last knot at 1.0 is bin 11's median, N = 163;
+the table first drops under 1.0 at N = 164, to 0.9957; the held-out `u`
+marks run through bin 10 because bin 11, 156–169, straddles that edge),
+and does the check's work above it, where the band cells' own `song`
+threshold (0.9375 at 200–400) sits. C0 would have shipped a threshold that
+never fires at any length while looking calibrated. Under the rule's own
+pick the E2 comparison printed **−2.70 held-out and −2.45 in-sample**
+(`fitB_200.log`): a five-check band union against a curve set whose fifth
+check never fires, which is the same fact read as a cost. The rerun that
+banks CK's evidence was declared to the instrument
 (`--picks predictability=CK`, disclosed in its print) and ran the same
 200 seeds:
 
@@ -308,7 +346,7 @@ rerun that banks CK's evidence was declared to the instrument
 | `fwr` | C2 | 5.10% [3.16–7.29] |
 | anaphora | C2 | 5.15% [3.27–7.18] |
 | `cv` | C2 | 5.05% [3.89–6.67] |
-| predictability | **CK** | **2.78% [1.46–4.53]** — under nominal because it is silent under ~156 tokens; at nominal per bin above |
+| predictability | **CK** | **2.78% [1.46–4.53]** — POOLED over every length, so under nominal because it cannot fire through 163 tokens; 3.0–5.7% per bin above, at nominal. The profile row carries both readings (`held_out_scope`), because the pooled figure alone would read as "how often this fires on a human songwriter" over lengths where it cannot fire (doctrine 20/79) |
 
 **E2 with five checks, held-out against held-out, same seeds:**
 
@@ -325,7 +363,13 @@ curves' 18.31%, "+2.61". That is not a preregistered comparison and
 not a shipped band; it says what §5's C0 rows say — one constant over
 everything interrupts writers less overall by over-flagging short songs
 and going silent on long ones — and is kept here so the print is not
-quietly unexplained.)
+quietly unexplained. The instrument selects bands by fixed percentiles
+now, so the row does not recur; in `fitB_200.log`, before the knot table
+existed, the same row read `ANY 0.00%` because the lyric row had no
+thresholds to read — and that is the ORDER of events, for the record:
+stage A banked → the four curves adopted → stage B fit against the tree
+that already carried them → the knot table adopted. The preregistration's
+"adoption reads the results file" held for stage A only.)
 
 **Union, five picked curves, whole corpus:** held-out **18.31%
 [14.14–23.79]**; in-sample 18.01%. Four checks alone: 16.21% held-out.
@@ -337,8 +381,26 @@ predictability knot table as `curves`, `tolerance` 1.0, `held_out_fpr`
 from the table above; `song` and `short` superseded, not deleted;
 `declaration_for` picks from live profiles; every length-sensitive
 finding names the threshold evaluated at the text's length beside the
-formula; the planner's envelope reads the live profile (12..447 lines,
-the owner's ruling that no ceiling is typed); an exact `--lines` fixes
-the total. What the adoption exposed and did not fix — the grader's
-schema-door pair guard at ~140 lines, and length as a declaration with
-no genre derivation behind it — is M-240 and M-241, open.
+formula (and not when a declaration override supplied the number);
+CLICHE_PAIR is a flag only at lengths where a band row measured its rate
+(50–150, 200–400) and a note elsewhere, its per-bin rate over 4–3,245
+owed; the planner's envelope reads the live profile (12..447 lines, the
+owner's ruling that no ceiling is typed); an exact `--lines` fixes the
+total. **What the adoption exposed and did not fix, with the logs:**
+
+* the grader's 77-schema door refuses at its declared pair guard
+  (`relations.realise`, `max_pairs=2_000_000`), reached on the planner's
+  fixture draft between 108 lines (grades, 330 s) and 144 lines (refuses)
+  — `explosion_probe2.log`: 53 lines 56 s, 108 lines 330 s, 144 and 314
+  lines refused; the CLI turns it into a named refusal — M-240, open;
+* the planner's default draw has a median of 201 lines over 40 seeds
+  (`plan_probe.log`), past that wall, and an exact `--lines` request was
+  cleared by rejection sampling in 68% of requests until it was made to
+  fix the total (10/10 seeds at 16, 24, 40, 100, 300 lines after);
+* the sweep predicates a writer would use for a song-shaped short song
+  are RARE under the uniform draw (`ladder.log`, 300 seeds each):
+  `lines<=60` 17.3%, +`sections<=6` 1.3%, +`lines_per_section>=2` 0.3%,
+  the verbs suite's old six-predicate WANT 0 of 1,600 — the section-count
+  draw favours many thin sections at every length — M-241, open, and the
+  suite's §40 repinned to the measured 1.3% predicate with the length
+  declared.

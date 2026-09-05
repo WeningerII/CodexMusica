@@ -548,7 +548,7 @@ def test_calibration_block_is_honest():
         # exists to catch, and would have left a reader looking for the
         # calibration run that set a policy.
         policy = set(CALIBRATION.get("policy", ()))
-        measured = {k for p in profs.values() for k in p.percentiles}
+        measured = {k for p in profs.values() for k in p.keys()}
         untraceable = [k for k in d.__dict__
                        if k not in measured and k not in defn
                        and k not in policy]
@@ -599,7 +599,7 @@ def test_calibration_block_is_honest():
               "measured on")
         check("a profile cannot borrow a threshold it never measured",
               "predictable_pair_fraction_max"
-              not in profs["section"].percentiles,
+              not in profs["section"].keys(),
               "the section profile stays silent on PREDICTABLE_RHYME rather "
               "than reusing the sonnet cut")
         check("checks that failed their expectation are recorded too",

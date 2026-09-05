@@ -6,6 +6,13 @@
     python3 quality/length_curve_calibration.py fit rows.tsv [more.tsv ...] \\
         [--seeds 200] [--checks mattr,fwr,anaphora,cv,predictability]
     python3 quality/length_curve_calibration.py merge-cache shard1.tsv ... --into P
+    python3 quality/length_curve_calibration.py check [--rows rows.tsv ...]
+                                # THE DRIFT DETECTOR: re-fit the shipped
+                                # `lyric` row's curves from the corpus and
+                                # compare to the digit; exit 0 HOLDS, 1 MOVED,
+                                # 2 cannot tell. Cold: ~2 CPU-min for the four
+                                # cheap checks + the predictability memo's
+                                # own cost (warm after the nightly band check)
 
 Pre-registration: quality/LENGTH_CURVE_PREREGISTRATION.md (2026-09-04).
 Results: quality/RESULTS_LENGTH_CURVE.md.
@@ -547,7 +554,10 @@ def cmd_fit(a):
     from quality import floor as FL  # noqa: E402
     band_thr = {}
     for p in FL.PROFILES:
-        if p.n_lines == 0:
+        # A shipped BAND is a lyric-sheet row with fixed percentiles; the
+        # `lyric` row (curves, empty percentiles) is what is being judged
+        # and is not a band to compare against.
+        if p.n_lines == 0 and p.percentiles:
             band_thr[p.name] = (p.lo, p.hi, p.percentiles)
     print("\nHELD-OUT (§4): %d file 50/50 splits" % a.seeds, flush=True)
     res, held_n, unres, done, flag_sets, held_ids = held_out(
@@ -623,7 +633,9 @@ def cmd_fit(a):
                       % full[f]["C2"][1]["turn_N"])
 
     # 4. the shipped bands beside the pick, on the bins they cover (§5.4)
-    print("\nSHIPPED BANDS BESIDE THE PICK (§5.4): held-out median flag rate %% on bins inside a band")
+    print("\nSHIPPED BANDS BESIDE THE PICK (§5.4): per bin inside a band — the band's shipped constant "
+          "IN-SAMPLE over the bin's items, beside the picked curve's HELD-OUT median over the seeds "
+          "(two kinds of rate; the like-for-like held-out comparison is the E2 block)")
     key_of = {"mattr": "mattr_min", "fwr": "function_word_ratio_max",
               "anaphora": "anaphora_max", "cv": "line_length_cv_min",
               "predictability": "predictable_pair_fraction_max"}
@@ -754,9 +766,91 @@ def cmd_fit(a):
     for f in checks:
         m = picks[f]["model"]
         if m == "CK":
-            print("  %-14s CK knots (ln N, q): %s" % (f, ", ".join("(%.3f, %.4f)" % k for k in full[f]["CK"][1]["knots"])))
+            print("  %-14s CK knots (ln N, q), FULL precision — what a profile row must carry: %s"
+                  % (f, ", ".join("(%r, %r)" % k for k in full[f]["CK"][1]["knots"])))
         else:
-            print("  %-14s %s coef (in ln N): [%s]" % (f, m, ", ".join("%.6g" % c for c in full[f][m][1]["coef"])))
+            print("  %-14s %s coef (in ln N), FULL precision — what a profile row must carry: [%s]"
+                  % (f, m, ", ".join("%r" % c for c in full[f][m][1]["coef"])))
+
+
+# ---------------------------------------------------------------------------
+# check: the shipped row re-derives from the corpus (the meter_bands /
+# capacity / song_profile_calibration --check pattern, M-239)
+# ---------------------------------------------------------------------------
+
+SHIPPED_MODEL = {"mattr": "C1", "fwr": "C2", "anaphora": "C2", "cv": "C2",
+                 "predictability": "CK"}
+KEY_OF = {"mattr": "mattr_min", "fwr": "function_word_ratio_max",
+          "anaphora": "anaphora_max", "cv": "line_length_cv_min",
+          "predictability": "predictable_pair_fraction_max"}
+REL_TOL = 1e-6
+
+
+def cmd_check(a):
+    from quality import floor as FL
+    lyric = [p for p in FL.PROFILES if p.curves and p.n_lines == 0]
+    if not lyric:
+        print("CANNOT TELL: no lyric-sheet profile carries curves")
+        sys.exit(2)
+    prof = lyric[0]
+    if a.rows:
+        rows = read_rows(a.rows)
+        print("ROWS  from %d file(s): %d items" % (len(a.rows), len(rows)))
+    else:
+        cache = C.PredictabilityCache(a.cache_path, enabled=True).open()
+        cache.report()
+        rs, _ = C.population(scorer=C.Scorer(cache), with_predictability=True,
+                             pred_max_tokens=None)
+        cache.flush()
+        import tempfile
+        tmp = os.path.join(tempfile.gettempdir(), "length_curve_check_rows.tsv")
+        with open(tmp, "w", encoding="utf-8") as fh:
+            fh.write("\t".join(ROW_FIELDS) + "\n")
+            for r in rs:
+                fh.write("\t".join(
+                    str(r[k]) if k in ("file", "author", "title", "n_lines", "n_tokens")
+                    else repr(float(r[k])) for k in ROW_FIELDS) + "\n")
+        rows = read_rows([tmp])
+        print("ROWS  computed: %d items (memo hits %d, misses %d)" % (len(rows), cache.hits, cache.misses))
+    if len(rows) != prof.n_human:
+        print("MOVED: the corpus holds %d items, the row was fit on %d — the "
+              "population moved, so every curve is a different population's "
+              "(doctrine 58); re-run the cell and re-adopt as a set"
+              % (len(rows), prof.n_human))
+        sys.exit(1)
+    bins = make_bins(rows)
+    moved = []
+    for f, m in SHIPPED_MODEL.items():
+        key = KEY_OF[f]
+        shipped = prof.curves.get(key)
+        # TWO STARTS, exactly as the banked run fit the shipped row (§3 of
+        # the preregistration): the pinball objective is flat near its
+        # optimum, so the knot start and the zero start land within 1e-7 in
+        # loss and ~1e-3 apart in coefficients, and a check that ran one
+        # start would report the OTHER optimum as drift.
+        cv, _ = curves_for(rows, bins, f, two_starts=True)
+        if m == "CK":
+            got = cv["CK"][1]["knots"]
+            ok = (isinstance(shipped, dict) and len(shipped["knots"]) == len(got)
+                  and all(abs(x - gx) <= 1e-9 and abs(q - gq) <= 1e-9
+                          for (x, q), (gx, gq) in zip(sorted(shipped["knots"]), got)))
+            print("  %-14s CK  shipped %d knots, re-derived %d  -> %s"
+                  % (f, len(shipped["knots"]) if isinstance(shipped, dict) else -1, len(got),
+                     "HOLDS" if ok else "MOVED"))
+        else:
+            got = cv[m][1]["coef"]
+            ok = (isinstance(shipped, tuple) and len(shipped) == len(got)
+                  and all(abs(a_ - b_) <= REL_TOL * max(1.0, abs(a_)) for a_, b_ in zip(shipped, got)))
+            print("  %-14s %s  shipped [%s]  re-derived [%s]  -> %s"
+                  % (f, m, ", ".join("%r" % c for c in shipped) if shipped else "-",
+                     ", ".join("%r" % c for c in got), "HOLDS" if ok else "MOVED"))
+        if not ok:
+            moved.append(f)
+    if moved:
+        print("RESULT: MOVED — %s. Argue it and repin as a SET; do not tune (doctrine 58)."
+              % ", ".join(moved))
+        sys.exit(1)
+    print("RESULT: HOLDS — the lyric row's %d curves re-derive from the corpus" % len(SHIPPED_MODEL))
 
 
 def main():
@@ -775,6 +869,10 @@ def main():
     f.add_argument("--picks", default=None,
                    help="check=MODEL,... — force the picks for the in-sample sections (disclosed)")
     f.set_defaults(fn=cmd_fit)
+    k = sub.add_parser("check")
+    k.add_argument("--rows", nargs="*", default=None, help="saved row TSVs; omit to compute from the corpus")
+    k.add_argument("--cache-path", default=C.DEFAULT_CACHE)
+    k.set_defaults(fn=cmd_check)
     m = sub.add_parser("merge-cache")
     m.add_argument("shards", nargs="+")
     m.add_argument("--into", required=True)

@@ -20144,6 +20144,263 @@ entry is about, made settable.
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ **260**
 with this entry (2026-09-03).
 
+### M-241 · A song's length is a DECLARATION and the planner has no derivation behind it — under the derived envelope the total is uniform over 12..447 lines unless declared, and the section-count draw makes a song-shaped short song rare `OPEN` 2026-09-04 — found by the owner's ruling on M-239's envelope and by the verbs suite's sweep going to zero
+**THE RULING, verbatim (2026-09-04), when asked whether the envelope
+should be 12..447, a corpus-percentile ceiling, or the old 12..55:**
+*"Genre shifts it a lot: hip-hop runs 60–100+ (16-bar verses),
+folk/ballads 40–60, EDM or minimalist pop can be under 20. I don't love
+the idea of putting hard numbers on like that, I think it's better to
+solve ... it's so fucking stupid for me to suggest that most of the songs
+we produce should be 65 lines long. It's like saying the average fruit is
+an inch in diameter because of how many grapes there are ... clearly 55
+was wrong, otherwise we wouldn't be here doing all of this work, the
+length of songs we were getting was being prescribed instead of being
+derived."* So: no typed ceiling (M-239 ships 12..447, the calibrated
+range at the measured tokens-per-line band), no corpus average, and what
+makes one song 16 lines and another 100 is a DECLARATION — a form, a
+sweep predicate, a `--lines` — never a number the planner carries.
+
+**WHAT IS OPEN.** The declaration the ruling names — genre, or a form
+that implies a length — is a coordinate nothing derives from. The planner
+draws the total UNIFORM over the envelope when nothing is declared
+(`plan.make_plan`, `total = rng.choice(sorted(_GRADEABLE))`): MEASURED
+over 40 seeds at adoption, median 201 lines, min 18, max 418
+(`plan_probe.log`), which is not a claim about songs and is not meant to
+be — it is the honest prior when the writer has said nothing. A
+genre-to-length derivation would be a table of what each declared form
+IMPLIES, in the form vocabulary's own terms (a 16-bar verse is a fact
+about hip-hop the way "a sonnet is 14 lines" is a fact about sonnets),
+and it does not exist. It is not the "move 37" ban's subject — sampling a
+measured length distribution is what the ban forbids; deriving a length
+from a declared form is the opposite move — but it is a design cell with
+its own preregistration, not a number to type into this one.
+
+**THE SECOND HALF, MEASURED, and it predates M-239.** A sweep for a
+song-shaped SHORT song is rare under the uniform draw, and the reason is
+the section-count draw, not the total. `plan --sweep=0-300` per predicate
+set (`ladder.log`, 2026-09-04): `lines<=60` accepts **52 (17.3%)**;
+adding `sections<=6` **4 (1.3%)**; adding `lines_per_section>=2` **1
+(0.3%)**; adding `group<=4` **0**; the verbs suite's old six-predicate
+WANT **0 of 1,600** and 0 of 800 with `lines<=60` prepended. So four of
+every five 12–60-line songs draw SEVEN OR MORE sections — thin ones —
+because `_sample_pattern` draws a pattern uniform over the grammar's
+admissible patterns up to the cell ceiling (`total // stanza_line_floor()`,
+M-106), and there are many more long patterns than short ones. That is
+the enumeration bias v2's own smoke run named for meters
+(`CLAUDE.md`, "never uniform over the enumerated leaves") one draw over,
+still uniform over leaves here. It was reachable before M-239 — the old
+suite expected about one hit in 1,600 — and the wider envelope only
+made it visible. `quality/test_verbs.py` §40 is repinned to the measured
+1.3% predicate with the length DECLARED (`lines<=60;sections<=6;
+uses=verse,chorus`, ~21 hits in 1,600), the old WANT struck beside it.
+Repairing the draw — a section COUNT drawn first, then a pattern of that
+many cells, uniform over each set — is the same derivation-by-dimension
+move M-81 made for meters, and is this entry's other half.
+
+**WHAT THIS DOES NOT CHANGE:** a writer who declares `--lines`, a form, or
+a sweep predicate gets exactly that; the graders grade any length the
+floor covers. The cost is only to the writer who says nothing.
+
+### M-240 · The grader's rhyme-schema default door refuses at a pair guard between 108 and 144 lines, so the planner now volunteers lengths the graders cannot judge — recorded and refused loudly; the scaling schema door is the complete answer and is not built `OPEN` 2026-09-04 — found by the planner suite's round trip the hour M-239 widened the envelope; the owner ruled to keep the envelope and log this
+**THE WALL, MEASURED** (`explosion_probe2.log`, the planner's own dummy
+draft graded through `Reviser.inspect` under the round-trip mandate):
+
+| lines | result |
+|--:|---|
+| 53 | graded, 56 s |
+| 108 | graded, 330 s |
+| 144 | `RuntimeError: candidate explosion; tighten the schema`, 7.7 s |
+| 314 | the same, 77 s |
+
+The 77-schema default door (`relations.whole_vocabulary_pairs`, consulted
+by `Reviser.grade` for every mandated pair the narrow door refuses, and by
+the collision check) builds every candidate pair over the WHOLE draft, so
+its cost grows with the square of the line count, and `relations.realise`
+stops at a declared guard, `max_pairs=2_000_000`. The guard is a constant
+and the bracket is a measurement; the wall is not "140 lines", it is
+between 108 and 144 on this fixture and moves with the words (doctrine
+58). Under the 12..55 envelope no plan could reach it. Under 12..447 the
+default draw's median is 201 lines (M-241), past it.
+
+**THE OWNER'S RULING (2026-09-04):** *"if we can keep what we currently
+have implemented and log these away in the MISSING, just so we can finish
+up what we're doing I would prefer that. If that destroys what we're
+doing then go for the cheapest thing that doesn't break anything and
+throw the scaling schema door in the MISSING given that it seems like
+that is the most complete answer."* It did not destroy anything, so the
+envelope stands and the cheapest non-breaking things shipped:
+
+1. **A named refusal, not a traceback.** `lyric_harness.py`'s dispatch
+   turns the guard's `RuntimeError` into `REFUSED — the rhyme-schema
+   default door refused this draft: candidate explosion` at exit 2, naming
+   the guard, the measured bracket, and the two ways round it (declare a
+   relation per group so the schema door is not consulted; grade a shorter
+   draft). Any other `RuntimeError` is re-raised — the handler matches the
+   guard's own message and nothing else.
+2. **The planner round trip counts it.** `quality/test_plan.py` §3 records
+   a seed whose plan lands past the wall as a FOURTH count beside
+   mandated / judged / refused — "walled at the schema door" — never
+   summed into them, requires at least one seed to grade, and passes.
+3. **The connector's recover route** is bounded the same way for a
+   different reason: `MAX_MANDATE_CHARS` (65,536) holds a recovered cover
+   of about 80 lines (`sqrt(65536 / 10009) * 32`), and `mcp/lyric_tools.js`
+   says so where `MAX_LINES` went 64 → 447.
+
+**THE COMPLETE ANSWER, NOT BUILT:** a schema door that considers a pair
+only within a bounded LINE DISTANCE, which makes the stream linear in the
+draft and removes the wall. It changes what "the 77 schemas over the whole
+draft" MEANS — a cross-line schema satisfied at distance 40 would no
+longer be found — so it needs its own preregistration with a null (what
+fraction of the pairs the whole-draft door rescues today lie beyond the
+window, over the corpus), and it is days, not hours. The derived-ceiling
+alternative (a volunteer ceiling read off the guard and the fixture's
+measured growth, re-derived by a check) was put to the owner and declined
+in favour of the envelope as it stands.
+
+**WHAT A WRITER SEES TODAY:** a draft under ~108 lines grades (slowly past
+60 — 56 s at 53 lines, 330 s at 108, on this machine, which the connector's
+own clock will not wait for: `lyric_grade` is bounded by the tool budget,
+M-218); a draft past the wall is refused with the reason; a draft of any
+length under a DECLARED relation per group never consults the schema door
+at all.
+
+### M-239 · The floor's two lyric-sheet bands graded 69% of the corpus and refused the rest because five fixed percentiles were held where they happened to sit still — thresholds are FUNCTIONS OF LENGTH now, fit over the whole corpus (4–3,245 tokens), and one profile grades every length `CLOSED` 2026-09-04 — ordered by the owner in their own words; preregistered before any number was read; adopted the same day; two consequences left OPEN as M-240 and M-241
+**THE ORDER, verbatim (2026-09-04):** *"69% graded seems like a failing
+rate ... finding out how to grade 100% of the corpus sounds like the only
+correct path to me ... I really think we need something robust enough to
+work with the entire spectrum of tokens ... we need to stop all other
+projects and work on figuring this out now."* And on the premise: *"maybe
+our slice method not working outside of 200–400 tokens is proof that
+we're measuring incorrectly."* It was.
+
+**THE MEASUREMENT THAT STARTED IT.** Every `--- TITLE:` item in
+`corpus/song/eng_*.txt`: **8,667 items over 1,297 files, 4 to 3,245
+tokens, median 154, 5th percentile 46, 95th 570.** The `song` band
+(200–400) held 2,261 of them and `short` (50–150) 3,703 — 5,964,
+**69%**; 514 under 50, 1,314 in the 150–200 seam and 918 over 400 reached
+no exact profile. The bands were where the band rule's five percentiles
+stayed within a tolerance across 50-token sub-bins; that rule finds where
+the drift is SMALL and cannot find its SHAPE, and the drift is the
+features' own: `mattr` is a 50-token window, anaphora a fraction of lines,
+predictability a fraction of pairs.
+
+**PREREGISTERED** (`quality/LENGTH_CURVE_PREREGISTRATION.md`, before any
+feature-against-length number outside the two bands was read): x = ln N;
+22 fixed bins of 400 items (the last 267); candidates C0 (a constant, the
+current design applied everywhere), C1, C2 (pinball-loss fits in x, two
+starts), CK (the bin percentiles joined in x); 200 file-level 50/50 splits;
+a bin passes when the median held-out rate is at or under its binomial
+upper bound; the pick is the fewest parameters passing EVERY bin; limits
+derived from the passing bins; five falsifiers.
+
+**MEASURED** (`quality/RESULTS_LENGTH_CURVE.md`; the instrument is
+`quality/length_curve_calibration.py`, standard library only):
+
+| check | drift, bin 0 → bin 21 | C0 passes | pick | held-out rate, all items |
+|---|---|--:|---|--:|
+| `mattr` p05 | 0.643 → 0.758 | 18/22 | **C1** | 4.80% [3.00–7.89] |
+| `fwr` p95 | 0.519 → 0.459 | 18/22 | **C2** | 5.10% [3.16–7.29] |
+| anaphora p95 | 0.500 → 0.229 | 20/22 | **C2** | 5.15% [3.27–7.18] |
+| `cv` p05 | 0.067 → 0.131 | 19/22 | **C2** | 5.05% [3.89–6.67] |
+| predictability p95 | 1.000 (through 163 tokens) → 0.837 | 22/22 by never firing | **CK, a DEVIATION** | 2.78% [1.46–4.53] pooled; 3.0–5.7% per bin where it can fire |
+
+C0 fails at both ends of the corpus: over-flagging under 100 tokens
+(`mattr` 8–13%, anaphora 18% and `cv` 19% under 45) and silent over 700
+(0.28%, 0.00%, 0.00%). The four picks pass 22/22 bins; E2 (the curves'
+union against the shipped bands' on the bands' own bins, held-out on the
+same seeds) is **+0.87** points inside `song` and **+1.68** inside
+`short`, under the +2 line; E3 disclosed for `fwr` and anaphora (C2's
+turning point inside the range) and E4 does not fire (two-start agreement
+under 1e-7). Union of the five curves, held-out over the whole corpus:
+**18.31% [14.14–23.79]** (16.21% without predictability) — about what the
+bands charged on their own ranges, everywhere instead of on 69%.
+
+**THE DEVIATION, and it is recorded as one.** For predictability the rule
+returned C0 = 1.0000 — the whole-corpus 95th percentile IS the statistic's
+ceiling, because a one- or two-pair song makes the fraction 0/1-valued —
+which "passes" every bin by never firing (0.00% held-out at every length:
+`u` under the under-resolved clause through bin 11, `<` under the
+conservative clause at bins 12–21). That is the check that cannot fail
+(doctrine 48), the shape M-193's stage B refused. The knot table passes
+22/22, is silent through 163 tokens exactly (the last knot at 1.0 is bin
+11's median; it first fires at 164), and holds nominal above. It ships;
+the preregistration carries a dated amendment under its §4 saying the rule
+was not followed for this check and why, and the results §9 say how both
+pass clauses let a ceiling constant through.
+
+**COST:** the four cheap checks 85 CPU-s; predictability cold **5.6
+CPU-hours** in four shards (the on-disk memo's fingerprint no longer
+matched the comparator; 8,663 entries re-banked under the current one);
+each 200-seed fit ~25 min.
+
+**ADOPTED, the same day, at the owner's order** (`quality/floor.py`,
+`quality/plan.py`, `mcp/lyric_tools.js`, `lyric_harness.py`):
+
+* `Profile.curves` — a percentile key → polynomial coefficients in ln N,
+  or a knot table — outranking `percentiles`; `threshold(key, n_tokens)`
+  REFUSES a curve asked without a length; `keys()`; `at_length()` puts the
+  evaluated number and the formula in every length-sensitive finding, and
+  not when a declaration override supplied the number. `FloorDeclaration.
+  resolve` takes the length. Coefficients and knots are banked at FULL
+  precision — a row typed from the instrument's six-digit print failed its
+  own drift check.
+* A `lyric` row, 4–3,245 tokens, `tolerance` 1.0 (no edge to extrapolate
+  past inside the range; refusal outside it, as before above 500 and under
+  40), `held_out_fpr` from the table above with `held_out_scope` saying
+  what the pooled predictability figure hides, `ANY` 18.31.
+* `song` and `short` are **superseded, not deleted** (`Profile.
+  superseded_by`): they keep their place in `PROFILES` for their own
+  `--check` and for the record; `declaration_for` picks from
+  `live_profiles()` — `section`, `sonnet`, `lyric` — and the M-193 line-count
+  tie-break still hands a 14-line 118-token text to the sonnet.
+* `CLICHE_PAIR` reads no percentile, and under a profile whose range is the
+  corpus `exact` is true at 25 tokens and 2,000: it is a FLAG only at
+  lengths where a band row measured its rate (50–150, 200–400) or under a
+  stanza profile as before, a NOTE elsewhere that says so; its per-bin
+  rate over 4–3,245 is OWED here.
+* The planner's envelope reads live sheet profiles: `song_line_counts`
+  1..447, no hole (the 6–11, 18–21 and 21 seams were between bands), the
+  planner volunteers 12..447 — **by the owner's ruling that no ceiling is
+  typed** (M-241 carries the words); an exact `--lines` FIXES the total
+  instead of being rejection-sampled for (over 436 values the old test
+  cleared 68% of requests at 4 s a refusal; 10/10 seeds at every length
+  tried now); the plan-time anaphora cap derives its token count from the
+  total and the measured tokens-per-line band; `MAX_LINES` 64 → 447 with
+  the recover route's own bound stated.
+* `quality/length_curve_calibration.py check` re-derives the row's five
+  curves from the corpus to the digit and exits 1 on drift, the
+  `meter_bands` / `capacity` pattern; it HOLDS on the banked rows.
+* Suites: `test_floor.py` repinned to the new geography, with
+  `_narrowed_lyric` reaching the tolerance-band and no-profile branches the
+  shipped table no longer has (52 pins moved; all pass); `test_plan.py`
+  §3, §12 and the M-193 envelope section repinned (one live sheet, no holes, coverage against what a
+  uniform draw reaches, the wall as a fourth count); `test_verbs.py` §40
+  (M-241). `verify_entries`' floor probe reads the first profile WITH
+  percentiles, since the alphabetically first is now a curve row.
+
+**WHAT IT DOES NOT CLAIM:** the rate at a single N inside bin 0 (4–45
+tokens) or bin 21 (688–3,245) is not separately measured — the claim is per
+bin; above 688 tokens the formula keeps moving but the check is one
+number. The period question (doctrine 11) was NOT re-asked for the curves;
+every anaphora finding under `lyric` says so beside the band readings.
+Predictability cannot fire through 163 tokens and its findings say that
+too. And two things the adoption exposed are open, not closed: the
+grader's schema-door wall (M-240) and length as an undeclared coordinate
+(M-241).
+
+**REVIEWED ADVERSARIALLY BEFORE BANKING** (five lenses over the diff, four
+search modes over the tree, two refuters per finding, one drafter):
+twenty-odd findings taken — retyped figures in the results (1.87–7.92%,
+not 2.3–7.6%; bin 7, not 8; a band cell's cost), the silence boundary
+stated three ways (163/164 now, once), the rule's hole misattributed to
+one clause, the knots and coefficients typed from a rounded print, the
+instrument reading the new row as a band, `verify_entries`' probe gone
+vacuous, `CLICHE_PAIR` flagging on an unmeasured rate, an override
+attributed to the curve, ANAPHORA's threshold printed at whole percents,
+PREDICTABLE_RHYME's evidence missing its threshold, and the superseded
+rows' undated "now" sentences. The register cites what changed and where;
+the strikes stay visible.
+
 ### M-238 · A person's reaction to a generated song was cited as evidence in three register entries, a profile note and a preregistration — struck under the owner's ruling that opinion has no place in the record `CLOSED` 2026-09-04 — ruled by the owner in their own words; the ruling is recorded here so it binds later sessions
 **THE RULING, verbatim (2026-09-04):** *"I do not want the impression that I
 have responded positively or negatively to any of the songs ever. that's
