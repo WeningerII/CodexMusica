@@ -22076,7 +22076,14 @@ VIOLATES → VIOLATES. `derive_drawable_schemas()` re-derives the SAME
 gate~curator, both true). The friend's draft against its own plan: exit 3
 with ONE flag → exit 3 with ZERO flags, the exit now carried by the ban
 standing on five lines, which is the honest state of that draft.
-`test_relations.py` 244 PASS in 16 s; §10 PASS.
+`test_relations.py` 244 PASS in 16 s; §10 PASS. **AND THE SCHEMA DOOR'S
+CHANCE RATE MOVED WITH IT** — CI run 1396's `chance_rate.py --check` said
+MOVED, schema measured 957..987 against the adopted 960..994, reproduced
+locally the same hour: the two repaired schemas answer three fewer random
+pairs in four thousand, the admit and narrow arms HELD, and
+`chance_rate.ADOPTED["schema"]` is repinned (957, 987) with the ladder
+kept (CLAUDE.md's citation with it). The M-148 repin went up with
+correctness; this one goes down with it; neither is priced.
 
 **THE OWNER'S SECOND ORDER — "then pin every drawable schema."**
 `relations.DRAWABLE_EXHIBITS` is one exhibit and one contrast per drawable

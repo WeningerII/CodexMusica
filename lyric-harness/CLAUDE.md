@@ -950,11 +950,14 @@ citation, because ARGUED is the disposition a site could be TALKED into.
 figures that entry recorded came from an uncommitted script and do not
 reproduce: the SAMPLER's population and reader were never declared. Measured
 against random CMUdict pairs, the ADMIT door admits **8.48%** and the SCHEMA
-door ~~23.30%~~ **24.0–24.9% (repinned 2026-08-28: the M-148 `_seq`
-cluster repair moved which random pairs the consonance-family schemas
-answer, so the door's chance rate rose WITH its correctness — measured
-960..994 of 4,000 over the adopted grid, the admit and narrow arms
-HELD)**, against **1.18%** of Shakespeare's mandated pairs failing —
+door ~~23.30%~~ ~~24.0–24.9%~~ **23.9–24.7% (repinned 2026-09-05,
+`MISSING.md` M-245: semirhyme and apocopated rhyme read their coda as the
+post-vocalic cluster now, and the door admits three fewer random pairs —
+measured 957..987 of 4,000 over the adopted grid; repinned 2026-08-28
+from 23.30% when the M-148 `_seq` cluster repair moved which random
+pairs the consonance-family schemas answer, so the door's chance rate
+rose WITH its correctness — 960..994 then; the admit and narrow arms
+HELD both times)**, against **1.18%** of Shakespeare's mandated pairs failing —
 **7.16x and ~20x**, where the gap that got `theta_coda` recalibrated was
 1.5x. Neither is priced (`MISSING.md` M-138, M-140).
 

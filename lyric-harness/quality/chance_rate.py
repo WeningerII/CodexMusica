@@ -301,6 +301,17 @@ CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 #: HELD, which is the control that the sampler and the other two doors did
 #: not move. A higher chance rate is a fact about the door and stays
 #: unpriced exactly as M-138/M-140 record.
+#: `schema` REPINNED AGAIN 2026-09-05 from ~~(960, 994)~~ (doctrine 17):
+#: the M-245 repair — `semirhyme` and `apocopated rhyme` reading their coda
+#: as the post-vocalic cluster with a PREFIX agreement, so bend~ending
+#: answers its own judge — moved which random pairs those two schemas
+#: answer, and the door's whole-arm count went DOWN this time: measured
+#: 957..987 over the same grid at the same seed (CI run 1396's own MOVED
+#: line, reproduced locally the same hour); `admit` 173..193 and `narrow`
+#: 36..46 HELD, the same control as before. A door that answers its
+#: registry's own examples and admits three fewer random pairs in four
+#: thousand is the direction M-148 recorded in reverse, and it is unpriced
+#: exactly as M-138/M-140 record.
 #: `admit` REPINNED 2026-09-02 from ~~(289, 339)~~ (doctrine 17), and this
 #: one moved because THE DOOR MOVED rather than because the sampler did.
 #: `MISSING.md` M-138's pricing put a per-relation cut on the near relations
@@ -327,7 +338,7 @@ CANON_RATE = CANON_VIOLATIONS / CANON_JUDGED
 ADOPTED = {
     "admit": (173, 193),
     "narrow": (36, 46),
-    "schema": (960, 994),
+    "schema": (957, 987),
 }
 
 
