@@ -146,10 +146,93 @@ def test_every_dealt_suite_calls_the_one_idiom():
               path)
 
 
+def test_no_section_reads_what_another_section_wrote():
+    print("\n5. in a dealt suite no section READS module state another section "
+          "WROTE -- a verdict that depends on section order is a verdict "
+          "that depends on the deal (doctrine 66)")
+    # THE DEFECT THIS PINS, 2026-09-05 (`MISSING.md` M-244): test_loop §16
+    # compared its own run to a (width, count) pair §13 had appended to a
+    # module-level list. Serial, always green. The first dealt CI run put
+    # §13 and §16 in different shards and §16 read an empty list:
+    # `width ? -> ? pair(s)`, red. Every section a shard may run alone must
+    # carry its own evidence, so this walks each dealt suite's AST for a
+    # module-level container mutated inside one `test_*` function and read
+    # inside a DIFFERENT one. `FAILURES` is the one shared sink and is
+    # exempt by name: it is written by `check()` and read by the runner.
+    import ast
+    import re
+    MUT = {"append", "extend", "add", "update", "clear", "insert", "pop",
+           "remove", "setdefault", "discard"}
+
+    def handoffs(path):
+        tree = ast.parse(open(path, encoding="utf-8").read())
+        shared = set()
+        for n in tree.body:
+            if not isinstance(n, ast.Assign):
+                continue
+            v = n.value
+            container = (isinstance(v, (ast.List, ast.Dict, ast.Set,
+                                        ast.ListComp, ast.DictComp))
+                         or (isinstance(v, ast.Call)
+                             and isinstance(v.func, ast.Name)
+                             and v.func.id in ("list", "dict", "set")))
+            if container:
+                shared |= {t.id for t in n.targets if isinstance(t, ast.Name)}
+        shared.discard("FAILURES")
+        writers, readers = {}, {}
+        for fn in tree.body:
+            if not (isinstance(fn, ast.FunctionDef)
+                    and fn.name.startswith("test_")):
+                continue
+            for node in ast.walk(fn):
+                if (isinstance(node, ast.Call)
+                        and isinstance(node.func, ast.Attribute)
+                        and node.func.attr in MUT
+                        and isinstance(node.func.value, ast.Name)
+                        and node.func.value.id in shared):
+                    writers.setdefault(node.func.value.id, set()).add(fn.name)
+                if (isinstance(node, ast.Subscript)
+                        and isinstance(node.ctx, ast.Store)
+                        and isinstance(node.value, ast.Name)
+                        and node.value.id in shared):
+                    writers.setdefault(node.value.id, set()).add(fn.name)
+                if (isinstance(node, ast.Name) and node.id in shared
+                        and isinstance(node.ctx, ast.Load)):
+                    readers.setdefault(node.id, set()).add(fn.name)
+        return sorted((name, sorted(ws), sorted(readers.get(name, set()) - ws))
+                      for name, ws in writers.items()
+                      if readers.get(name, set()) - ws)
+
+    ci = open(os.path.join(HERE, "..", "..", ".github", "workflows",
+                           "ci.yml"), encoding="utf-8").read()
+    dealt = sorted(set(re.findall(r"TEST_([A-Z]+)_SHARD:", ci)))
+    for name in dealt:
+        path = os.path.join(HERE, f"test_{name.lower()}.py")
+        found = handoffs(path) if os.path.exists(path) else [("(missing)", [], [])]
+        check(f"test_{name.lower()}.py: no section reads a container another "
+              f"section mutated", not found, str(found))
+    # THE CHECK CAN FAIL: the shape it refuses, planted in a scratch module.
+    planted = os.path.join(os.environ.get("TMPDIR", "/tmp"),
+                           "shard_planted_handoff.py")
+    with open(planted, "w", encoding="utf-8") as fh:
+        fh.write("_SEEN = []\n"
+                 "def test_a():\n    _SEEN.append(1)\n"
+                 "def test_b():\n    assert _SEEN\n"
+                 "def test_c():\n    local = []\n    local.append(2)\n")
+    try:
+        got = handoffs(planted)
+    finally:
+        os.remove(planted)
+    check("PLANTED: a list one section appends and another reads IS found, "
+          "named by writer and reader; a section-local list is not",
+          got == [("_SEEN", ["test_a"], ["test_b"])], str(got))
+
+
 if __name__ == "__main__":
     for fn in (test_the_deal_is_exactly_once, test_a_bad_coordinate_refuses,
                test_run_sections_times_and_gates,
-               test_every_dealt_suite_calls_the_one_idiom):
+               test_every_dealt_suite_calls_the_one_idiom,
+               test_no_section_reads_what_another_section_wrote):
         fn()
     print("=" * 62)
     if FAILURES:
