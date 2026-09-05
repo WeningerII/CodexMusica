@@ -154,6 +154,42 @@ def test_the_two_causes_are_apart():
           f"{s['undecidable']} when it is read")
     check("...and the restoration held",
           GC.summarize(GC.census()) == GC.PINNED)
+    # THE SAME PROOF FOR THE TERNARY SHAPE, added 2026-09-05 (`MISSING.md`
+    # M-239) because the census met it in the wild and failed: the
+    # length-curve adoption made `CLICHE_PAIR`'s severity depend on which
+    # rows carry a rate at the text's length, so `floor.py` writes it as
+    # `sev("flag") if (...) else "note"`, and a resolver that read only a
+    # call and a bare name filed that DECIDED code as undecidable — the
+    # gated count fell 24 -> 23 and this suite went red. A shape the
+    # resolver cannot read is not the tree's defect, it is the census's,
+    # and it fails in the census's own flattering direction (a bigger
+    # UNDECIDABLE makes the tree look worse and the instrument look more
+    # necessary). Take the shape away and the code must fall back, or the
+    # reader is not doing the work.
+    _real_ifexp = GC._ceiling_severity
+
+    def _blind_to_ternaries(expr, scope):
+        import ast as _ast
+        if isinstance(expr, _ast.IfExp):
+            return None
+        return _real_ifexp(expr, scope)
+
+    try:
+        GC._ceiling_severity = _blind_to_ternaries
+        blind_t = GC.summarize(GC.census())
+    finally:
+        GC._ceiling_severity = _real_ifexp
+    check("and forgetting that a severity may be written as a TERNARY puts "
+          "`CLICHE_PAIR` straight back into UNDECIDABLE — the shape the "
+          "census actually met on 2026-09-05, so this reading is READ too "
+          "and the 0 is an answer",
+          blind_t["undecidable"] > s["undecidable"]
+          and blind_t["gated"] < s["gated"],
+          f"blind to the ternary: {blind_t['undecidable']} undecidable, "
+          f"{blind_t['gated']} gated vs {s['undecidable']} and {s['gated']} "
+          f"when it is read")
+    check("...and THAT restoration held too",
+          GC.summarize(GC.census()) == GC.PINNED)
 
 
 def test_the_pin_moves_when_the_tree_does():

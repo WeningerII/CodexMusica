@@ -1,5 +1,19 @@
 # RESULTS — the slop floor gets a song-length profile
 
+> **SUPERSEDED 2026-09-04 — banner written 2026-09-05 (`MISSING.md` M-239).**
+> Every figure below is a BANKED result and stays as banked; what changed is
+> which of them is the LIVE reading. On 2026-09-04 the floor adopted `lyric`,
+> a LENGTH-CURVE profile over **4–3,245 tokens, 8,667 human items (the whole
+> song corpus)**, whose five thresholds are curves in ln N rather than fixed
+> percentiles. It SUPERSEDES the two fixed-percentile band rows — this
+> document's `song` (200–400 after the 2026-08-26 re-adoption; 150–400 when
+> this document was written) and `short` (50–150) — which keep their place in
+> `PROFILES` with `superseded_by="lyric"` for their own drift checks and are
+> **never applied**; `live_profiles()` is `section`, `sonnet`, `lyric`. The
+> live calibration document is `quality/RESULTS_LENGTH_CURVE.md`. The
+> present-tense sentences below that are no longer the live reading are struck
+> and repinned in place, dated 2026-09-05.
+
 Cell BD, 2026-08-11. Everything below is re-derivable by one command:
 
 > **ONE CLAUSE OF THAT OPENING IS FALSE AND IS CORRECTED HERE RATHER THAN
@@ -660,9 +674,14 @@ corpus, after the change:
 | section | no | 631 | 12.8% |
 | **`OUT_OF_CALIBRATED_LENGTH`** | — | **285** | **5.8%** |
 
-Above 500 tokens and below 14, no profile reaches and the length-sensitive
+~~Above 500 tokens and below 14, no profile reaches and the length-sensitive
 checks still decline. `test_floor.py` test 16 pins 501, 700 and 3000 tokens as
-refusals.
+refusals.~~
+
+REPINNED 2026-09-05 (`MISSING.md` M-239): the refusal line is the corpus's own
+edge now — **above 3,245 tokens and below 4** — and 501, 700 and 3000 are all
+INSIDE `lyric` and graded EXACT. `test_floor.py` §16's pins were moved with the
+adoption: ~~501, 700, 3000~~ **3246, 5000, 20000**.
 
 **One rule changed with the third profile.** `declaration_for` used to break a
 tie between reaching profiles by nearest MIDPOINT. That was fine while two
@@ -671,6 +690,13 @@ added: at 149 tokens it chose the sonnet, extrapolating 23 tokens past a
 measured 126, over a profile whose measured range starts at 150. It now
 minimises the SIZE OF THE EXTRAPOLATION — nearest measured edge — which is what
 the tolerance concept was always about.
+
+REPINNED 2026-09-05 (`MISSING.md` M-239): the rule still ships and still has to
+be right, but ~~it decides a sheet's profile~~ no sheet length reaches it any
+more — `lyric` declares `tolerance` **1.0** over 4–3,245, so inside the range
+there is no edge to extrapolate past and outside it the floor REFUSES. The
+branch is reached only by narrowing the profile in process (`test_floor.py`'s
+`_narrowed_lyric`).
 
 ---
 
@@ -734,7 +760,18 @@ has already returned. So `CLICHE_PAIR` was emitted as a HARD FLAG on **133
 items where every length-sensitive finding had been downgraded to a note**, 42
 of them in the one bucket nothing was ever calibrated at, at 2.3× the in-band
 rate, where it was the only flag the gate could still emit. It now runs through
-`sev()`: exact → flag, extrapolated or out-of-range → note.
+`sev()`: ~~exact → flag, extrapolated or out-of-range → note~~.
+
+REPINNED 2026-09-05 (`MISSING.md` M-239): `exact` is no longer the test, because
+`CLICHE_PAIR` reads no percentile and no length, and under a profile whose range
+is the whole corpus `exact` is true at 25 tokens and at 2,000 — a flag on a rate
+nobody measured is the doctrine-22 error this section exists to name. The
+severity now reads **WHICH ROWS CARRY A `cliche` RATE THAT COVERS THIS LENGTH,
+superseded or not** — the two band rows, 50–150 (4.02%) and 200–400 (7.64%) —
+plus an exact STANZA profile, whose carry-over was argued and measured below:
+inside one of those, a flag; outside all of them, a NOTE that says the rate was
+never taken at this length. Measuring `CLICHE_PAIR`'s rate per length bin over
+4–3,245 is OWED (M-239).
 
 **In band that costs nothing, and this is measured rather than asserted.**
 Re-running the same protocol against the changed gate, counting only items
@@ -908,13 +945,22 @@ subsample is not a clean finding in either direction (doctrine 20).
 
 `declaration_for` swept over 100–260 tokens, before and after:
 
-| tokens | before | after |
-|---|---|---|
-| 127–138 | sonnet, extrapolated | sonnet, extrapolated |
-| 139–149 | song, extrapolated | sonnet, extrapolated |
-| 150–163 | **song, EXACT** | **sonnet, extrapolated** |
-| 164–199 | **song, EXACT** | song, extrapolated |
-| 200+ | song, EXACT | song, EXACT |
+| tokens | before | after | at HEAD (2026-09-05) |
+|---|---|---|---|
+| 127–138 | sonnet, extrapolated | sonnet, extrapolated | **`lyric`, EXACT** |
+| 139–149 | song, extrapolated | sonnet, extrapolated | **`lyric`, EXACT** |
+| 150–163 | **song, EXACT** | **sonnet, extrapolated** | **`lyric`, EXACT** |
+| 164–199 | **song, EXACT** | song, extrapolated | **`lyric`, EXACT** |
+| 200+ | song, EXACT | song, EXACT | **`lyric`, EXACT** |
+
+REPINNED 2026-09-05 (`MISSING.md` M-239): the third column is the live reading
+and the first two are the banked sweep. `declaration_for` picks from
+`live_profiles()`, and every length in this table is inside `lyric`'s
+4–3,245, so ~~what it costs is rejection power at 150–199, and at 150–163 a
+lyric sheet is now judged against a 14-line **sonnet** profile~~ — that cost is
+paid back: a 150–199-token sheet grades EXACT and can reject again, and M-132's
+sonnet-at-150–163 region is closed with it. (The M-193 line-count tie-break
+still hands a 14-line 118-token text to the sonnet; that is by design.)
 
 No **silent** gap opens — `EXTRAPOLATED_LENGTH` still fires, which is what
 task #102 required. What it costs is rejection power at 150–199, and at
@@ -1158,11 +1204,18 @@ What ships with this ruling:
 - **`test_floor.py` §15 derives its population from that map**, on a sheet
   built to fire all five, and fails if any code the running profile declares a
   threshold for did not appear. It runs the SAME text at two lengths — 18
-  lines / 234 tokens into `song`, its first 6 lines / 78 tokens into `short` —
-  so the expected set SHRINKS to four on the shorter arm by arithmetic
-  (`short` has no fifth threshold; stage B refused it,
-  `RESULTS_SHORT_SONG_FLOOR.md` §7), which is what proves the derivation is
-  not a constant wearing a comprehension. A further check requires
+  lines / 234 tokens ~~into `song`~~, its first 6 lines / 78 tokens ~~into
+  `short`~~ — so the expected set SHRINKS to four on the shorter arm by
+  arithmetic ~~(`short` has no fifth threshold; stage B refused it,
+  `RESULTS_SHORT_SONG_FLOOR.md` §7)~~, which is what proves the derivation is
+  not a constant wearing a comprehension. REPINNED 2026-09-05 (`MISSING.md`
+  M-239): neither band row receives the text any more — measured, both arms
+  return (`lyric`, EXACT) — and the shrink survives on different arithmetic:
+  `lyric` declares five thresholds and §15 subtracts the ones whose value AT
+  THAT LENGTH is the statistic's own ceiling, which at 78 tokens is
+  `predictable_pair_fraction_max` at 1.0000 (the knot table is silent through
+  163 tokens and first fires at 164, `RESULTS_LENGTH_CURVE.md` §9). Four on the
+  short arm, five on the long one, still derived and still not a constant. A further check requires
   `LENGTH_SENSITIVE` to name every percentile any profile declares, so a sixth
   threshold cannot be added without joining the map.
 

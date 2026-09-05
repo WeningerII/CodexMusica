@@ -6,18 +6,41 @@ the answers to your capable hands and taste"*). The instrument is
 `quality/song_profile_calibration.py --profile short`; the results, and the
 adoption or the refusal, are `quality/RESULTS_SHORT_SONG_FLOOR.md`.
 
+> **AMENDED AFTER THE FACT, 2026-09-05 (`MISSING.md` M-239) — the registered
+> text below is NOT rewritten.** Every premise in §0 describes the floor as it
+> stood on 2026-09-01, the date this was registered, and that is what a
+> preregistration is for. Those premises were SUPERSEDED on 2026-09-04, when
+> the floor adopted `lyric`, a LENGTH-CURVE profile over **4–3,245 tokens,
+> 8,667 human items (the whole song corpus)** whose five thresholds are curves
+> in ln N rather than fixed percentiles. It supersedes both fixed-percentile
+> band rows — the `song` row this cell was written against (200–400) and the
+> `short` row this cell adopted (50–150) — which stay in `PROFILES` with
+> `superseded_by="lyric"` for their own drift checks and are never applied;
+> `live_profiles()` is `section`, `sonnet`, `lyric`. No sheet length is
+> refused between 4 and 3,245 tokens and none is served by a tolerance band;
+> the planner's envelope is `ENVELOPE["total_lines"] == (12, 447)`. The live
+> calibration is `quality/LENGTH_CURVE_PREREGISTRATION.md` and
+> `quality/RESULTS_LENGTH_CURVE.md`. Present-tense clauses below are struck
+> where they no longer read as the live floor; nothing is deleted.
+
 ## 0. Why this cell exists
 
-The `song` profile in `quality/floor.py` grades a lyric sheet of **200–400
-tokens** (re-adopted 2026-08-26, `MISSING.md` M-133). Below 200 tokens a
-song reaches no profile and the floor REFUSES (`UncalibratedLength`), or is
-graded inside the `song` profile's 1.25× tolerance band (160–200) with every
-length-sensitive finding downgraded to a note. `MISSING.md` M-181 measured
-the consequence on the banked series: the five songs a listener preferred
-are the SHORT ones, and four of the five sit below the floor the planner
+The `song` profile in `quality/floor.py` ~~grades~~ graded a lyric sheet of
+**200–400 tokens** (re-adopted 2026-08-26, `MISSING.md` M-133). ~~Below 200
+tokens a song reaches no profile and the floor REFUSES (`UncalibratedLength`),
+or is graded inside the `song` profile's 1.25× tolerance band (160–200) with
+every length-sensitive finding downgraded to a note.~~ (Struck 2026-09-05,
+`MISSING.md` M-239: since 2026-09-04 the `lyric` row grades every sheet of
+4–3,245 tokens EXACTLY, with `tolerance` 1.0 and no band; `song` is
+superseded.) `MISSING.md` M-181 measured
+the consequence on the banked series: ~~the five songs a listener preferred
+are the SHORT ones~~ the five banked songs the owner's complaint named are
+the SHORT ones (struck 2026-09-04, `MISSING.md` M-238: a person's reaction to a generated song is opinion and is not evidence), and four of the five sit below the floor the planner
 volunteers inside (`plan.song_line_counts` reads the profile with
-`n_lines == 0`, so the planner's envelope is **22–55 lines** and a
-twelve-line song has probability zero from the front door). M-191 removed
+`n_lines == 0`, so the planner's envelope ~~is~~ was **22–55 lines** and a
+twelve-line song ~~has~~ had probability zero from the front door — 12–55
+after this cell, 2026-09-01, and `(12, 447)` since 2026-09-04, `MISSING.md`
+M-239). M-191 removed
 the density half of that finding; this cell is the length half.
 
 The gap is a calibration, not a threshold: nothing may be graded at a
@@ -82,8 +105,9 @@ more than one point over the exact band, or 1.25 if that is where `song`'s
 did, stated either way.
 
 If no band clears: the refusal is recorded with the named sub-bin and no
-row ships. The planner's envelope then stays 22–55 lines and M-181's
-length half stays open.
+row ships. ~~The planner's envelope then stays 22–55 lines and M-181's
+length half stays open.~~ (That branch was not taken; and the envelope is
+(12, 447) since 2026-09-04 — struck 2026-09-05, `MISSING.md` M-239.)
 
 ## 4. The tie-break, ruled before the row exists
 
@@ -99,12 +123,20 @@ answer byte for byte. The gate (`Floor.check`) passes `len(lines)`.
 
 ## 5. What the planner inherits, automatically
 
-`plan.song_line_counts()` unions the reach of EVERY profile with
-`n_lines == 0` — it was written that way on 2026-08-24 (M-106) so that a
+~~`plan.song_line_counts()` unions the reach of EVERY profile with
+`n_lines == 0`~~ — it was written that way on 2026-08-24 (M-106) so that a
 second lyric-sheet profile would widen the envelope without a planner
 edit. The envelope's new floor is `ceil(short.lo / tokens-per-line hi)`;
 the value is READ, and the docstring's "22..55" is repinned to whatever it
 reads.
+
+AMENDED 2026-09-05 (`MISSING.md` M-239): the union mechanism this cell relied
+on was removed by the 2026-09-04 adoption — `song_line_counts()` skips rows
+carrying `superseded_by`, so it unions the LIVE sheet profiles only, and there
+is one. It reads **1..447, 447 values, NO hole**; `fillable_line_counts()` is
+12..447 and `ENVELOPE["total_lines"]` is (12, 447). The inheritance the cell
+predicted still happened — the planner was not edited to widen — but by
+reading `live_profiles()` rather than by unioning every `n_lines == 0` row.
 
 ## 6. Falsifiers, named
 

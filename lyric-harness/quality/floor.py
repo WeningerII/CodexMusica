@@ -133,9 +133,31 @@ held-out human song text, which is the doctrine-22 statement of a threshold and
 is a weaker claim than a separation: it says how often the gate interrupts a
 human songwriter, and says NOTHING about whether it catches a machine.
 
+THE SHEET PROFILE IS `lyric` NOW, NOT `song` — REPINNED 2026-09-05 (M-239,
+adopted 2026-09-04). Everything in this section describes the `song` row and
+is kept because it is the record of what that row measured (doctrine 17), but
+`song` (200-400 tokens) and `short` (50-150) are SUPERSEDED BAND ROWS: they
+stay in `PROFILES` with `superseded_by="lyric"` for their own `--check` drift
+runs and are NEVER picked by `declaration_for` / `live_profiles()`. The live
+profiles are `section`, `sonnet` and `lyric`. `lyric` covers 4-3,245 tokens
+and its five thresholds are CURVES in ln(N tokens) rather than fixed
+percentiles — four pinball-loss polynomial fits picked by the preregistered
+rule (mattr C1; function-word ratio, anaphora and line-length CV C2) and, for
+predictability, a 22-knot table adopted as a RECORDED DEVIATION from that rule
+(silent through N <= 163 tokens, first able to fire at 164). Its evidence is
+the same kind as `song`'s — a held-out false-positive rate on human text, no
+generated class, no AUC — and it is banked in
+`quality/RESULTS_LENGTH_CURVE.md`. The row itself, with its own note, is at
+the bottom of `PROFILES`.
+
 Its calibration set is `corpus/song/eng_*.txt` -- 143 files, one author each,
-4,930 `--- TITLE:` items, 152,325 sung lines -- restricted to items of 150-400
-tokens. Held out BY AUTHOR, never by item, because items by one author are not
+4,930 `--- TITLE:` items, 152,325 sung lines -- ~~restricted to items of
+150-400 tokens~~ restricted to items of 200-400 tokens from 2026-08-26 (the
+re-adopted band; 1,297 files, 8,667 items, 283,520 lines by then), and
+SUPERSEDED 2026-09-04 by `lyric` over the whole 4-3,245 range (M-239) —
+repinned 2026-09-05. The held-out-by-author protocol described next did not
+move and is what the curves were held to as well.
+Held out BY AUTHOR, never by item, because items by one author are not
 independent of each other (doctrine 13); the item-level split was run alongside
 purely to price what the wrong split would have bought, and it understates the
 seed-to-seed spread by roughly a factor of two. Every rate below is a median
@@ -195,8 +217,16 @@ ANAPHORA_OVERLOAD 5.01% exactly.
 
 So it is in the family of the three that ship. That is what licenses it to
 fire, and this repin does NOT demote it. What the measurement did compel is
-one change, and it is a SEVERITY change outside the band. Bucketed by the live
-`declaration_for()` over all 4,930 corpus items:
+one change, and it is a SEVERITY change outside the band. Bucketed by the
+`declaration_for()` LIVE ON 2026-08-14 over all 4,930 corpus items — a
+HISTORICAL reading, repinned 2026-09-05 (M-239): the selector it was taken
+with is gone. `song` and `short` no longer receive any item (both superseded),
+`lyric` covers 4-3,245 tokens exactly, and 696 of the 699 lengths 1-699 are
+now EXACT with none in a tolerance band (measured with the shipped selector),
+so the `EXTRAPOLATED:*` and `OUT_OF_CALIBRATED_LENGTH` rows below no longer
+describe any sheet the floor grades. The per-bucket cliche rate under the live
+table has NOT been re-measured; M-239 owes the per-length-bin rate, and until
+it is taken no row here may be read as current:
 
     exact:section              86 items    0 fire     0.00%
     exact:sonnet              437         24         5.49%
@@ -261,6 +291,7 @@ careful. The defect is real on arbitrary text and is written down here and in
 the finding instead.
 """
 
+import math
 import os
 import statistics
 import sys
@@ -350,7 +381,16 @@ CALIBRATION = {
             "whether a TOLERANCE BAND also refuses. Off by default because "
             "the band is a measured allowance (`Profile.tolerance` carries "
             "its own false-positive rate) rather than an absence; on, it "
-            "takes the refusing region from 30.3% of lengths to 60.1%.",
+            "~~takes the refusing region from 30.3% of lengths to 60.1%~~ "
+            "-- STRUCK 2026-09-05 (`MISSING.md` M-239): under the shipped "
+            "table this knob changes NOTHING. Both stanza reaches sit "
+            "inside the lyric-sheet row's exact coverage, so no length is "
+            "ever reached-but-inexact and there is no tolerance band left "
+            "to refuse. MEASURED over 1-699 tokens: the refusing region is "
+            "0.4% (3 of 699) with the knob off and 0.4% with it on, and "
+            "over 1-3,999 tokens across seven line counts there is not one "
+            "inexact case. It is exercised only by the suite's own "
+            "`_narrowed_lyric`.",
     },
     #: `mattr_window` is definitional in the SAME sense and in that sense
     #: only -- it defines what MATTR IS, so moving it moves what every
@@ -571,8 +611,15 @@ class Profile:
     #: (160-500, union 20.52% -- three tenths of a point over the exact band,
     #: which is what makes 1.25 the cheap one), superseding the 150-400
     #: reading ~~20.79% -> 26.33% at 2.0, 23.12% at 1.25, 19.36% at four
-    #: checks~~. The other two profiles keep 2.0 because re-measuring them
-    #: needs the sonnet classes and that was not this cell's to move.
+    #: checks~~. ~~The other two profiles keep 2.0~~ REPINNED 2026-09-05
+    #: (M-239): there are five rows, not three. `short` (2026-09-01) DECLARES
+    #: 1.25 to match `song` so the two reaches meet; `section` and `sonnet`
+    #: keep 2.0 because re-measuring them
+    #: needs the sonnet classes and that was not this cell's to move; and the
+    #: live sheet row `lyric` (2026-09-04) declares 1.0 — inside 4-3,245
+    #: tokens there is no edge to extrapolate past, so it has no band at all.
+    #: The 1.25 on `song`/`short` is now a superseded row's constant: nothing
+    #: live reads it, because `declaration_for` never picks either row.
     tolerance: float = 2.0
     #: what text the percentiles were read off, and how they were held out.
     source: str = ""
@@ -580,9 +627,97 @@ class Profile:
     #: human text. This is the doctrine-22 statement of the threshold; a
     #: percentile on a scale is not one.
     held_out_fpr: dict = field(default_factory=dict)
+    #: WHAT A `held_out_fpr` FIGURE IS POOLED OVER, when that is not the
+    #: whole of the profile's range — appended verbatim to the finding's
+    #: evidence by `evidence_for` (M-239: predictability's pooled 2.78%
+    #: counts ~4,400 items the check cannot fire on; the per-bin rate above
+    #: 163 tokens is the honest reading and the sentence says so).
+    held_out_scope: dict = field(default_factory=dict)
+    #: THRESHOLDS AS A FUNCTION OF LENGTH (2026-09-04, `MISSING.md` M-239,
+    #: `quality/RESULTS_LENGTH_CURVE.md`): percentile key -> EITHER polynomial
+    #: coefficients in x = ln(n_tokens), lowest degree first, fit by the
+    #: pinball loss over the WHOLE song corpus, OR a knot table
+    #: `{"knots": [(ln N, q), ...]}` interpolated linearly in ln N and flat
+    #: beyond the end knots (the calibration's CK candidate) — each held to
+    #: a nominal 5% false-positive rate in every one of 22 length bins. A key present
+    #: here OUTRANKS the same key in `percentiles`, and `threshold()` refuses
+    #: to serve it without a length: a curve is not a number until N is
+    #: known, and guessing N is the doctrine-15 error one layer down.
+    curves: dict = field(default_factory=dict)
+    #: The name of the profile that SUPERSEDED this one, or "". A superseded
+    #: row stays in `PROFILES` — its calibration `--check` and the results
+    #: documents still find it by name, and the record of what it measured
+    #: is not deleted (doctrine 17) — but `declaration_for` never picks it
+    #: and the planner never reads its band.
+    superseded_by: str = ""
 
     def band(self):
         return int(self.lo / self.tolerance), int(self.hi * self.tolerance)
+
+    def threshold(self, key, n_tokens=None):
+        """The threshold for `key` AT THIS LENGTH: the curve evaluated at
+        ln(n_tokens) when one is declared, else the fixed percentile, else
+        None (the check does not run under this profile)."""
+        c = self.curves.get(key)
+        if c is None:
+            return self.percentiles.get(key)
+        if n_tokens is None or n_tokens < 1:
+            raise ValueError(
+                f"the {self.name} profile's {key} is a function of length "
+                f"and was asked without one (n_tokens={n_tokens!r})")
+        x = math.log(n_tokens)
+        if isinstance(c, dict):
+            # A KNOT TABLE (the calibration's CK candidate): the bin
+            # percentiles joined by linear interpolation in ln N between
+            # the bins' median lengths, flat beyond the end knots. Shipped
+            # where a smooth curve failed the held-out rate and the knots
+            # passed it (RESULTS_LENGTH_CURVE.md §9).
+            ks = sorted(c["knots"])
+            if x <= ks[0][0]:
+                return ks[0][1]
+            if x >= ks[-1][0]:
+                return ks[-1][1]
+            for (x0, y0), (x1, y1) in zip(ks, ks[1:]):
+                if x0 <= x <= x1:
+                    return y0 if x1 == x0 else y0 + (y1 - y0) * (x - x0) / (x1 - x0)
+            return ks[-1][1]
+        return sum(a * x ** j for j, a in enumerate(c))
+
+    def keys(self):
+        """Every threshold this profile DECLARES — fixed percentiles and
+        length curves alike. The suites read this rather than `percentiles`
+        so a curve counts as a declared threshold (M-239)."""
+        return set(self.percentiles) | set(self.curves)
+
+    def curve_text(self, key):
+        """The formula, spelled, for a finding's evidence line."""
+        c = self.curves.get(key)
+        if c is None:
+            return ""
+        if isinstance(c, dict):
+            ks = sorted(c["knots"])
+            return ("a knot table, %d bin percentiles interpolated in ln N "
+                    "(%.4f at N=%d ... %.4f at N=%d)"
+                    % (len(ks), ks[0][1], round(math.exp(ks[0][0])),
+                       ks[-1][1], round(math.exp(ks[-1][0]))))
+        terms = []
+        for j, a in enumerate(c):
+            if j == 0:
+                terms.append("%.6g" % a)
+            elif j == 1:
+                terms.append("%+.6g·ln N" % a)
+            else:
+                terms.append("%+.6g·(ln N)^%d" % (a, j))
+        return " ".join(terms)
+
+    def at_length(self, key, n_tokens):
+        """', evaluated at N=... from <formula>' for a curve profile, '' for
+        a fixed one — so every length-sensitive finding under a curve names
+        the number that was APPLIED beside the length it was applied at."""
+        if key not in self.curves:
+            return ""
+        return (f", evaluated at N={n_tokens} tokens from "
+                f"{self.curve_text(key)}")
 
     def covers(self, n):
         return self.lo <= n <= self.hi
@@ -611,7 +746,8 @@ class Profile:
                 "AUC and no separation claim; the evidence is a false-positive "
                 "rate of %.2f%% on HELD-OUT human song (5th-95th percentile of "
                 "seeds %.2f-%.2f%%). It says how often this fires on a human "
-                "songwriter, not whether it catches a machine" % f)
+                "songwriter, not whether it catches a machine" % f
+                + self.held_out_scope.get(key, ""))
 
 
 #: ~~Both profiles~~ THE TWO STANZA PROFILES come from the SAME two classes --
@@ -682,6 +818,7 @@ PROFILES = [
     Profile(
         name="song", unit="whole lyric sheet, 200-400 tokens",
         lo=200, hi=400, n_lines=0, n_human=2261, n_generated=0,
+        superseded_by="lyric",  # 2026-09-04, M-239: the length-curve profile below
         tolerance=1.25,
         #: RE-ADOPTED 2026-08-26 AS A SET, AND THE BAND IS THE ONLY THING THAT
         #: MOVED ON ITS OWN. `lo` 150 -> 200; every other constant here follows
@@ -717,9 +854,11 @@ PROFILES = [
         #:
         #: WHAT IT COSTS, MEASURED WITH THE SHIPPED SELECTOR RATHER THAN
         #: ARGUED. `declaration_for` swept over 100-260 tokens, before and
-        #: after: a 150-199 sheet was EXACT and could reject; it is now
-        #: EXTRAPOLATED and can only note. Worse at the bottom of that span --
-        #: 150-163 now selects the SONNET profile, because `gap()` minimises
+        #: after: a 150-199 sheet was EXACT and could reject; it ~~is now~~
+        #: was, from 2026-08-26 to 2026-09-04, EXTRAPOLATED and could only
+        #: note (since M-239 the `lyric` row covers it exactly). Worse at the
+        #: bottom of that span -- 150-163 ~~now selects~~ then selected the
+        #: SONNET profile, because `gap()` minimises
         #: the extrapolation in TOKENS and knows nothing about form. No SILENT
         #: gap opens (`EXTRAPOLATED_LENGTH` still fires, which is what task
         #: #102 required), but the region where a lyric sheet is judged by a
@@ -979,9 +1118,13 @@ PROFILES = [
 #: THE SHORT-SONG PROFILE — ADOPTED 2026-09-01 under the owner's delegation
 #: (`quality/SHORT_SONG_FLOOR_PREREGISTRATION.md`, results in
 #: `quality/RESULTS_SHORT_SONG_FLOOR.md`; `MISSING.md` M-193). Below 200
-#: tokens a lyric sheet reached no exact profile: M-181 measured the five
-#: songs a listener preferred as the SHORT ones, and the planner's envelope
-#: (`plan.song_line_counts`, which unions every `n_lines == 0` profile)
+#: tokens a lyric sheet reached no exact profile: M-181 measured ~~the five
+#: songs a listener preferred as the SHORT ones~~ the five banked songs the
+#: owner's complaint was about as the SHORT ones (struck 2026-09-04, `MISSING.md` M-238: a person's reaction to a generated song is opinion and is not evidence), and the planner's envelope
+#: (`plan.song_line_counts`, which unions every ~~`n_lines == 0` profile~~
+#: LIVE `n_lines == 0` profile — repinned 2026-09-05, M-239: since the
+#: adoption it skips superseded rows, which is why this row is read by
+#: nothing there)
 #: could not volunteer one. The band rule is the `song` profile's own,
 #: UNCHANGED, searched over edges 50..200 (`song_profile_calibration.py
 #: --profile short`), and it returns 50-150: 50-200 fails on `mattr` at
@@ -996,6 +1139,7 @@ PROFILES.append(
     Profile(
         name="short", unit="whole lyric sheet, 50-150 tokens",
         lo=50, hi=150, n_lines=0, n_human=3703, n_generated=0,
+        superseded_by="lyric",  # 2026-09-04, M-239: the length-curve profile below
         tolerance=1.25,  # declared, see note: the union FPR FALLS with the factor here
         percentiles={
             "mattr_min": 0.6682,                # human 5th
@@ -1034,11 +1178,13 @@ PROFILES.append(
              "1.50 / 2.00 / 3.00 takes the union held-out FPR 16.18% -> "
              "15.76 / 15.19 / 14.22 / 13.62 / 12.69%, FALLING, because a "
              "floor calibrated on short sheets rarely fires on longer ones "
-             "(the mattr floor is the lowest of the three lyric-sheet "
-             "profiles). So 1.25 is not the cheap point of a rising cost, "
-             "as it is for `song`; it is DECLARED to match that profile so "
-             "the two reaches meet (40-187 against 160-500) and the "
-             "nearest-measured-edge rule decides between them. "
+             "(the mattr floor is the lowest of the ~~three~~ two BAND "
+             "lyric-sheet profiles, before M-239). So 1.25 is not the cheap "
+             "point of a rising cost, as it is for `song`; it is DECLARED to "
+             "match that profile so the two reaches meet (40-187 against "
+             "160-500) and the nearest-measured-edge rule ~~decides~~ decided "
+             "between them until 2026-09-04, when the `lyric` row superseded "
+             "both. "
              "PERIOD (doctrine 11): 381 of 690 authors are dated, 309 are "
              "not; mattr rho -0.226 (p_perm 0.0001), fwr +0.143 (0.0052) "
              "and anaphora +0.164 (0.0022) SURVIVE Bonferroni at 0.0125, cv "
@@ -1060,6 +1206,126 @@ PROFILES.append(
              "pairs, so the fraction is 0/1-valued and piles at 1. "
              "PREDICTABLE_RHYME is silent on this band until a pair-count "
              "floor is preregistered (RESULTS_SHORT_SONG_FLOOR.md 7).",
+    ))
+
+#: THE LYRIC-SHEET PROFILE, THRESHOLDS A FUNCTION OF LENGTH — ADOPTED
+#: 2026-09-04 at the owner's order (`MISSING.md` M-239, preregistered in
+#: `quality/LENGTH_CURVE_PREREGISTRATION.md`, banked in
+#: `quality/RESULTS_LENGTH_CURVE.md`). The two band rows above graded 69%
+#: of the corpus and refused the rest, because each percentile is a fixed
+#: number and the human percentiles DRIFT with length (mattr's 5th 0.64 ->
+#: 0.76, anaphora's 95th 0.50 -> 0.23 across 4-3,245 tokens). This row's
+#: thresholds are the pinball-loss fits in x = ln N over all 8,667 items,
+#: picked by the preregistered rule (fewest parameters passing a nominal 5%
+#: held-out rate in EVERY one of 22 length bins, 200 file-level splits):
+#: C1 for mattr, ~~C2 for the other three~~ C2 for fwr, anaphora and cv, and
+#: for predictability a KNOT TABLE adopted as a recorded DEVIATION from that
+#: rule (the inner comment on it, and RESULTS §9). The band rows are
+#: SUPERSEDED, not deleted: their `--check` still re-derives them and this
+#: row does not pretend they never shipped. `tolerance` is 1.0 — inside
+#: 4-3,245 there is no edge to extrapolate past, and outside it the floor
+#: REFUSES, as it did above 500 (the `song` band's 1.25x reach) and under
+#: 40 (`short`'s). `percentiles` is EMPTY on purpose: a reader that wants a
+#: number must ask for it at a length.
+PROFILES.append(
+    Profile(
+        name="lyric", unit="whole lyric sheet, 4-3245 tokens, thresholds a function of ln N",
+        lo=4, hi=3245, n_lines=0, n_human=8667, n_generated=0,
+        tolerance=1.0,
+        percentiles={},
+        curves={
+            # FULL precision (the instrument's own values; its six-digit
+            # print is what RESULTS quotes, and a row typed from the print
+            # failed its own `check` at 1e-6 relative on anaphora).
+            "mattr_min": (0.4891631653188428, 0.039441315725486745),
+            "function_word_ratio_max": (0.6927632133048186, -0.0688436258062089,
+                                        0.005450197418000158),
+            "anaphora_max": (1.132854426921562, -0.23837175894239163,
+                             0.015748518391014224),
+            "line_length_cv_min": (-0.03140581192621683, 0.035934890493947456,
+                                   -0.0018195831450699535),
+            # PREDICTABILITY IS A KNOT TABLE, AND THE PICK IS A RECORDED
+            # DEVIATION from the preregistered rule (RESULTS_LENGTH_CURVE.md
+            # §9). The rule's own pick was C0 — the 95th percentile over the
+            # whole corpus, which is 1.0000, the statistic's ceiling — and it
+            # "passed" every bin by never firing (0.00% held-out at every
+            # length): the check that could not fail (doctrine 48), the
+            # exact shape M-193's stage B refused for the short band. The
+            # knot curve also passes every bin, is SILENT THROUGH 163 TOKENS
+            # (the last knot at 1.0 is bin 11's median, N = 163; the table
+            # first drops under 1.0 at N = 164, to 0.9957) — where a one- or
+            # two-pair song makes the fraction 0/1-valued: under-resolved,
+            # disclosed, not a threshold — and holds 3.0-5.7% per bin above
+            # it. Knots are (ln N at the bin's MEDIAN length, the bin's 95th
+            # percentile), interpolated linearly in ln N, flat beyond the
+            # ends, at FULL precision: the instrument's own values, not its
+            # 3-/4-decimal print (a rounded knot put the flat edge at
+            # N = 902.35 instead of the bin's median 902).
+            "predictable_pair_fraction_max": {"knots": [
+                (3.5553480614894135, 1.0), (3.9512437185814275, 1.0),
+                (4.23410650459726, 1.0), (4.418840607796598, 1.0),
+                (4.543294782270004, 1.0), (4.624972813284271, 1.0),
+                (4.709530201312334, 1.0), (4.77912349311153, 1.0),
+                (4.875197323201151, 1.0), (4.948759890378168, 1.0),
+                (5.0106352940962555, 1.0), (5.093750200806762, 1.0),
+                (5.181783550292085, 0.9375),
+                (5.272999558563747, 0.9288095238095236),
+                (5.365976015021851, 0.9337254901960781),
+                (5.4680601411351315, 0.9375),
+                (5.577841251298354, 0.9378676470588234),
+                (5.697093486505405, 0.9090909090909091),
+                (5.831882477283517, 0.9090909090909091),
+                (6.013715156042802, 0.9049783549783548),
+                (6.310826956162734, 0.8636363636363636),
+                (6.804614520062624, 0.8367804878048779)]},
+        },
+        measured_auc={},
+        held_out_fpr={
+            # (median, 5th, 95th percentile of 200 file-level seeds), as
+            # PERCENTAGES over ALL held-out items 4-3,245 tokens — the
+            # stage B run's own print (RESULTS_LENGTH_CURVE.md §9).
+            "mattr": (4.80, 3.00, 7.89),
+            "function_word_ratio": (5.10, 3.16, 7.29),
+            "anaphora": (5.15, 3.27, 7.18),
+            "line_length_cv": (5.05, 3.89, 6.67),
+            # Over ALL held-out items, so the silent half (through 163
+            # tokens) pulls it under nominal; per bin above 163 it is at
+            # nominal (3.0-5.7%). Both readings are in RESULTS §9, and
+            # `held_out_scope` puts the second beside the first in every
+            # finding, because the pooled figure alone would read as "how
+            # often this fires on a human songwriter" over lengths where
+            # it cannot fire at all (doctrine 20/79).
+            "predictability": (2.78, 1.46, 4.53),
+            # THE UNION, five checks, held-out over the whole corpus
+            # (RESULTS §9); the four-check union without predictability
+            # is 16.21% [13.09-21.25]. `report()`'s banner reads this.
+            "ANY": (18.31, 14.14, 23.79),
+        },
+        held_out_scope={
+            "predictability": (". THAT FIGURE IS POOLED OVER EVERY LENGTH, "
+                               "4-3,245 tokens, INCLUDING the 4-163 where "
+                               "this check cannot fire at all (its threshold "
+                               "there is the statistic's ceiling, 1.0); over "
+                               "the lengths where it CAN fire it runs "
+                               "3.0-5.7% per bin, at nominal"),
+        },
+        source=("corpus/song/eng_*.txt, every `--- TITLE:` item (8,667 over "
+                "1,297 files, 4-3,245 tokens), no sample; thresholds fit by "
+                "the pinball loss in ln N over the whole corpus and held out "
+                "AUTHOR-wise on 200 file-level 50/50 splits, the rate tested "
+                "in 22 fixed bins of ~400 items, the last 267 "
+                "(RESULTS_LENGTH_CURVE.md §5). "
+                "predictable_pair_fraction_max is a knot table (§9) that "
+                "fires only from 164 tokens: through 163 a one- or two-pair "
+                "song makes the fraction 0/1-valued and the human 95th "
+                "percentile IS the ceiling, so PREDICTABLE_RHYME is silent "
+                "there by resolution, not by choice — the `short` profile's "
+                "stage B refusal, carried as a disclosed under-resolved run "
+                "rather than as an absent threshold."),
+        note=("Supersedes `song` (200-400) and `short` (50-150), which stay "
+              "above for their own drift checks. A finding under this row "
+              "names the threshold EVALUATED AT THIS TEXT'S LENGTH beside "
+              "the formula, because the number differs at every N."),
     ))
 
 CALIBRATION["profiles"] = {p.name: p for p in PROFILES}
@@ -1106,6 +1372,33 @@ LENGTH_SENSITIVE = {
 }
 
 
+def live_profiles():
+    """The profiles `declaration_for` may pick from: `PROFILES` minus the
+    rows a later calibration superseded (M-239). The superseded rows keep
+    their place in `PROFILES` for their own `--check` and for the record."""
+    return [p for p in PROFILES if not p.superseded_by]
+
+
+def cliche_rate_rows():
+    """The rows that carry a MEASURED `cliche` false-positive rate, in table
+    order. Superseded or not: CLICHE_PAIR reads no percentile, so what
+    licenses it to reject is a rate, and the only rates ever taken for it are
+    the two band rows' (M-239, 2026-09-05). Read rather than typed, so a
+    finding's evidence cannot drift from the row it is quoting (doctrine 1).
+    """
+    return [p for p in PROFILES if "cliche" in p.held_out_fpr]
+
+
+def _cliche_rates_text():
+    """Those rows spelled for a finding's evidence: name, band, median."""
+    return " and ".join(
+        f"{p.held_out_fpr['cliche'][0]:.2f}% at {p.lo}-{p.hi} tokens "
+        f"(`{p.name}`, seed 5th-95th "
+        f"{p.held_out_fpr['cliche'][1]:.2f}-"
+        f"{p.held_out_fpr['cliche'][2]:.2f}%)"
+        for p in cliche_rate_rows())
+
+
 def declaration_for(n_tokens, n_lines=None):
     """Pick the calibrated profile for a text of `n_tokens`.
 
@@ -1127,7 +1420,7 @@ def declaration_for(n_tokens, n_lines=None):
     order. A caller that passes no line count gets list order, byte for
     byte what it got before the parameter existed.
     """
-    covering = [p for p in PROFILES if p.covers(n_tokens)]
+    covering = [p for p in live_profiles() if p.covers(n_tokens)]
     if covering:
         if n_lines is not None:
             exact_unit = [p for p in covering if p.n_lines == n_lines]
@@ -1137,7 +1430,7 @@ def declaration_for(n_tokens, n_lines=None):
             if sheet:
                 return sheet[0], True
         return covering[0], True
-    reach = [p for p in PROFILES if p.reaches(n_tokens)]
+    reach = [p for p in live_profiles() if p.reaches(n_tokens)]
     if not reach:
         return None, False
     # Nearest MEASURED EDGE, not nearest midpoint. The midpoint rule was fine
@@ -1203,18 +1496,32 @@ class UncalibratedLength(ValueError):
     loudest about it.
 
     MEASURED, so the size of the hole is on the record rather than asserted.
-    Across 1-699 tokens: **39.9% of lengths can produce a FLAG; 29.8% sit
+    Across 1-699 tokens: ~~**39.9% of lengths can produce a FLAG; 29.8% sit
     inside a tolerance band where every length-sensitive finding is
     DOWNGRADED to a note; 30.3% reach no profile at all.** This class is the
-    gate on that last 30.3%.
+    gate on that last 30.3%.~~
 
-    WHY NOT ALSO THE 29.8%. The tolerance band is a DECLARED and MEASURED
+    REPINNED 2026-09-05 (M-239, the length-curve adoption of 2026-09-04). The
+    three figures above were true of the band table and are kept as the
+    record of what it left ungraded. Re-measured with the SHIPPED selector
+    over the same 1-699 tokens: **99.6% of lengths are EXACT and can produce
+    a FLAG (696 of 699); 0.0% sit inside a tolerance band; 0.4% reach no
+    profile at all (3 of 699 — 1, 2 and 3 tokens, under `lyric`'s lo=4).**
+    This class is the gate on that last 0.4%, plus everything past 3,245
+    tokens, which is the corpus's own longest item and therefore the edge of
+    every measurement the floor has.
+
+    WHY NOT ALSO ~~THE 29.8%~~ A TOLERANCE BAND (no sheet length sits in one
+    now; this paragraph is live for the two STANZA profiles, `section` and
+    `sonnet`, which keep 2.0). The tolerance band is a DECLARED and MEASURED
     allowance, not an accident — `Profile.tolerance` carries its own
     false-positive measurement (the song profile's 1.25 was adopted at 23.12%
-    against 20.79% in-band). Findings there are produced and downgraded on a
-    number somebody measured. `FloorDeclaration.require_exact_length` reaches
-    the stricter posture for a caller who wants it, and says so in its own
-    field comment; the default refuses only where nothing was measured at all.
+    against 20.79% in-band; that row is superseded, and the live `lyric` row
+    declares 1.0, i.e. no band). Findings there are produced and downgraded
+    on a number somebody measured. `FloorDeclaration.require_exact_length`
+    reaches the stricter posture for a caller who wants it, and says so in
+    its own field comment; the default refuses only where nothing was
+    measured at all.
 
     A `ValueError`, so the CLI's existing `REFUSED ... exit 2` path carries it
     with no new handler — the route `NoMandate` and `UndecodableLyricFile`
@@ -1298,8 +1605,14 @@ class FloorDeclaration:
     #: tolerance band is a measured allowance rather than an absence —
     #: `Profile.tolerance` carries its own false-positive rate — so refusing
     #: there is a policy a caller may want and not a fact the measurement
-    #: forces. Measured: it takes the refusing region from 30.3% of lengths
-    #: to 60.1%.
+    #: forces. ~~Measured: it takes the refusing region from 30.3% of
+    #: lengths to 60.1%.~~ -- STRUCK 2026-09-05 (`MISSING.md` M-239), the
+    #: same strike as the policy entry's copy: MEASURED at HEAD the region
+    #: is 0.4% (3 of 699 over 1-699 tokens) with the knob off AND with it
+    #: on, because the tolerance band is empty at every length -- both
+    #: stanza reaches are strict subsets of the lyric-sheet row's exact
+    #: coverage. The knob cannot change a verdict under the shipped table;
+    #: `test_floor.py`'s `_narrowed_lyric` is what still exercises it.
     require_exact_length: bool = False
     #: What share of an item's rhyme pairs a repetend must close before it is
     #: read as a radif rather than as repeated rhyme words. A count alone will
@@ -1369,8 +1682,15 @@ class FloorDeclaration:
     #: for English pop.
     #:
     #: THE DEFAULT IS THE SHIPPED 30, and the shipped 30 are what carry the
-    #: measured 6.35% in-band false-positive rate (song profile,
-    #: `held_out_fpr["cliche"]`). A caller who replaces the set replaces that
+    #: only measured in-band false-positive rates this check has -- read them
+    #: from the rows with `cliche_rate_rows()` rather than from a number typed
+    #: here, which is how this comment went stale: ~~the measured 6.35%
+    #: in-band false-positive rate (song profile, `held_out_fpr["cliche"]`)~~
+    #: -- STRUCK 2026-09-05 (`MISSING.md` M-239). It named a key and a number
+    #: in one breath and the key stopped agreeing with the number on
+    #: 2026-08-26, when the band was re-adopted at 200-400 and
+    #: `held_out_fpr["cliche"]` became (7.64, 5.99, 9.04). A caller who
+    #: replaces the set replaces that
     #: measurement with it and inherits an UNCALIBRATED list: the rate is a
     #: property of THIS set on THIS corpus, not of the membership test. The
     #: finding says so on its face, so a swapped list cannot quietly borrow
@@ -1394,13 +1714,15 @@ class FloorDeclaration:
     #: keep out of a single profile.
     mattr_window: int = 50
 
-    def resolve(self, key, profile):
-        """Override if set, else the profile's measurement, else None -- and
-        None means the check does not run at this length."""
+    def resolve(self, key, profile, n_tokens=None):
+        """Override if set, else the profile's measurement AT THIS LENGTH
+        (`Profile.threshold`: a curve needs `n_tokens`, a percentile ignores
+        it), else None -- and None means the check does not run at this
+        length."""
         v = getattr(self, key, None)
         if v is not None:
             return v
-        return profile.percentiles.get(key) if profile else None
+        return profile.threshold(key, n_tokens) if profile else None
 
 
 class SlopFloor:
@@ -1464,6 +1786,115 @@ class SlopFloor:
             """An extrapolated measurement may not carry a rejection."""
             return default if exact else "note"
 
+        def declared(key):
+            """Is the number this check will apply the CALLER'S rather than
+            the profile's? One definition, read by both clauses below, so
+            they cannot disagree about which cut is whose (doctrine 1)."""
+            return getattr(d, key, None) is not None
+
+        def source(key, side):
+            """WHERE THE NUMBER THE CHECK APPLIED CAME FROM — the whole
+            parenthetical, derived here so no finding retypes it.
+
+            ~~`at_len(key)` returned ', evaluated at N=... from <formula>'
+            for a curve profile and EMPTY when the declaration overrides the
+            key, because then the number the check applied did not come from
+            the curve (doctrine 1).~~ SUPERSEDED 2026-09-05 (`MISSING.md`
+            M-238, M-241): every word of that was true and it was HALF the
+            sentence. Suppressing the curve clause left `human 5th
+            percentile, lyric profile` standing beside the CALLER'S number,
+            so an override still read as the corpus's percentile — and
+            suppressing the clause made it read MORE like a fixed-percentile
+            profile's, not less. Measured 2026-09-05 on a 552-token sheet:
+            `MATTR 0.220 < 0.9111 (human 5th percentile, lyric profile)`
+            under `FloorDeclaration(mattr_min=0.9111)`, where 0.9111 is a
+            percentile of nothing.
+
+            AND ON THE TWO STANZA PROFILES IT SUPPRESSED NOTHING AT ALL:
+            `section` and `sonnet` carry no curves, so `at_length` was
+            already '' and the overridden string was BYTE-IDENTICAL to the
+            measured one apart from the digits. The sharpest case is in this
+            repository's own suite — `test_floor.py` §11 declares
+            `predictable_pair_fraction_max=0.8333` under `section`, a
+            profile that does not declare that key at all, and the finding
+            printed `> 0.8333 (human 95th percentile, section profile)` for
+            a percentile that profile never took.
+            """
+            if declared(key):
+                # TWO CASES, NOT ONE (doctrine 20). A declaration that
+                # replaces a measured cut and a declaration that supplies the
+                # only cut there is are different facts about the run, and
+                # `test_floor.py` §11 is the second: it declares
+                # `predictable_pair_fraction_max` under `section`, which
+                # measured none, so "overrides what the profile would have
+                # applied" would itself be false there.
+                # No `if prof` guard: both closures are called only from
+                # the five sites BELOW the `prof is None` branch, which
+                # returns. A guard here would be a branch no run can enter
+                # and no test can fail (doctrine 48).
+                mine = prof.threshold(key, n_tok)
+                if mine is None:
+                    return ("DECLARED by the caller: FloorDeclaration.%s. "
+                            "The %s profile measured no %s, so this check "
+                            "runs at this length ONLY because the "
+                            "declaration supplied a cut, and that cut is a "
+                            "percentile of nothing" % (key, prof.name, key))
+                return ("DECLARED by the caller: FloorDeclaration.%s, "
+                        "replacing the %.4f the %s profile would have "
+                        "applied here — the number this check compared "
+                        "against is a declaration, not a percentile of this "
+                        "or any corpus" % (key, mine, prof.name))
+            return "human %s, %s profile%s" % (
+                side, prof.name, prof.at_length(key, n_tok))
+
+        def rests_on(key, ev_key):
+            """WHAT THE APPLIED CUT HAS BEEN PRICED AT — the profile's own
+            derived sentence, or a withdrawal when the caller moved the cut.
+
+            SEPARATE FROM `source` ON PURPOSE (doctrine 20). Where a number
+            came from and what it has been measured to cost are two
+            different statements, and collapsing them into one clause would
+            let a reader who needed only one of them take the other.
+
+            `Profile.evidence_for` reports an AUC against a generated class,
+            or a held-out false-positive rate on human text. BOTH WERE
+            MEASURED AT THE PROFILE'S OWN THRESHOLD and both move with the
+            cut: they are properties of a number, not of the membership
+            test. Printed beside an override they price the wrong cut, and
+            in the direction that flatters it — `AUC 0.776 against the
+            generated class at this length` sat beside a caller's 0.9111
+            under `section` until 2026-09-05, and 0.776 was measured at
+            `section`'s own 0.7568, which prices nothing at 0.9111.
+            ~~at 0.9111 the profile's 4.80% held-out rate is not within
+            reach of the truth~~ — STRUCK 2026-09-05, the day it was
+            written, and the strike is doctrine 20's own case: 4.80% is
+            `lyric`'s mattr held-out rate, and `section` carries NO
+            held-out rate at all (`held_out_fpr` is empty; its evidence is
+            the AUC). One sentence naming one profile and quoting another's
+            number is exactly the carry this closure exists to stop. A
+            held-out rate withdrawn under an override is a separate
+            sentence, and it names `lyric`. Nothing
+            measured is deleted; it is refused for a cut it was not taken
+            at (doctrine 22).
+            """
+            if declared(key):
+                # The withdrawn figures are NOT reprinted beside the
+                # withdrawal. A number printed next to the sentence saying it
+                # does not apply is a number the reader still leaves with,
+                # which is the carry `Profile.evidence_for` exists to stop.
+                if prof.threshold(key, n_tok) is None:
+                    return ("No AUC and no false-positive rate prices this "
+                            "cut, and the %s profile has none to lend: it "
+                            "measured no %s, so nothing here has ever been "
+                            "run against a corpus at any threshold"
+                            % (prof.name, key))
+                return ("No AUC and no false-positive rate prices this cut. "
+                        "The %s profile's own figures are WITHDRAWN rather "
+                        "than quoted: they were measured at the threshold "
+                        "this declaration replaced, and both move with the "
+                        "cut by an unmeasured amount" % prof.name)
+            return prof.evidence_for(ev_key)
+
         # THE LENGTH GATE (2026-08-23). A length nothing was calibrated at is
         # a question this layer CANNOT ANSWER, and the honest spelling of that
         # is a refusal — not a note beside an exit 0, which made "skipped
@@ -1475,7 +1906,7 @@ class SlopFloor:
                 f"{n_tok} tokens reaches no calibrated length profile, so "
                 f"every length-sensitive check would be SKIPPED and the "
                 f"result would read as clean. Profiles cover "
-                f"{', '.join(f'{p.name} {p.lo}-{p.hi}' for p in PROFILES)} "
+                f"{', '.join(f'{p.name} {p.lo}-{p.hi}' for p in live_profiles())} "
                 f"tokens, each with its own declared tolerance band. Write "
                 f"inside a calibrated length, calibrate this one, or declare "
                 f"`FloorDeclaration(uncalibrated_length='note')` to take the "
@@ -1494,9 +1925,9 @@ class SlopFloor:
                 "OUT_OF_CALIBRATED_LENGTH", "note",
                 f"{n_tok} tokens is outside every calibrated length; the "
                 f"length-sensitive checks did not run",
-                f"profiles cover {', '.join(f'{p.name} {p.lo}-{p.hi}' for p in PROFILES)} "
-                f"tokens, each with a {PROFILES[0].tolerance:g}x tolerance "
-                f"band. MATTR in particular is a moving average over a "
+                f"profiles cover {', '.join(f'{p.name} {p.lo}-{p.hi} (reach {p.band()[0]}-{p.band()[1]})' for p in live_profiles())} "
+                f"tokens, each with its own declared reach. "
+                f"MATTR in particular is a moving average over a "
                 f"{d.mattr_window}-token window (declared: "
                 f"FloorDeclaration.mattr_window) and silently degrades to "
                 f"plain type-token ratio below that, so a threshold measured "
@@ -1508,9 +1939,18 @@ class SlopFloor:
                 f"FLAG here — a word rhymed with itself is a fact about the "
                 f"two lines and needs no calibration. CLICHE_PAIR is a NOTE "
                 f"at this length: nothing about the membership test changes, "
-                f"but the only false-positive rate it has was measured "
-                f"in-band, and out here it runs at 14.74% against that "
-                f"6.35% (285 corpus items, 42 firing). RADIF_LICENSED and "
+                f"but the only false-positive rates it has were measured in "
+                f"the two SUPERSEDED band rows — "
+                + _cliche_rates_text()
+                + f" — and neither covers {n_tok} tokens. REPINNED "
+                f"2026-09-05 (M-239): this branch used to add that out here "
+                f"the check runs at 14.74% against 6.35% in band (285 corpus "
+                f"items, 42 firing); that 285-item population was the corpus "
+                f"outside the 2026-08-14 BAND table, and under the live "
+                f"table it is empty — no corpus item sits under 4 or over "
+                f"3,245 tokens, so there is no measured rate out here at all "
+                f"(doctrine 22), which is exactly why this is a note. "
+                f"RADIF_LICENSED and "
                 f"SHARED_SUFFIX are notes at every length"))
             return out + self._relation_findings(
                 lines, self._pairs(lines, scheme), sev)
@@ -1532,8 +1972,23 @@ class SlopFloor:
                 f"are downgraded, and so is CLICHE_PAIR — not because a "
                 f"percentile was extrapolated for it, it has none, but "
                 f"because its false-positive rate was only ever measured "
-                f"inside the song band and it runs 3.71-7.20% out here "
-                f"against 6.35% in it. The relation-level checks all still "
+                f"inside the two SUPERSEDED band rows ("
+                + _cliche_rates_text()
+                + f"), never here — REPINNED 2026-09-05 (M-239): the "
+                f"3.71-7.20%-against-6.35% reading this clause used to quote "
+                f"was bucketed by the 2026-08-14 selector, and since the "
+                f"length-curve adoption no SHEET length is extrapolated at "
+                f"all (every one of 4-3,245 tokens is exact under `lyric`), "
+                f"so this branch is ~~live only for the two stanza "
+                f"profiles' 2.0x bands~~ -- STRUCK 2026-09-05, THE SAME DAY "
+                f"IT WAS WRITTEN, because it is live for NOTHING: both "
+                f"stanza reaches (`section` 14-74, `sonnet` 54-252 with "
+                f"their 2.0x bands) are strict subsets of the lyric-sheet "
+                f"row's exact coverage, so `declaration_for` returns no "
+                f"reached-but-inexact length at all -- MEASURED over "
+                f"1-3,999 tokens across seven line counts, zero cases. "
+                f"`test_floor.py`'s `_narrowed_lyric` is what reaches this "
+                f"branch now. The relation-level checks all still "
                 f"RAN, and REPEAT_IN_VERSE can still be a FLAG: a word "
                 f"rhymed with itself is a fact about two lines, calibrated "
                 f"against nothing. RADIF_LICENSED and SHARED_SUFFIX are "
@@ -1553,21 +2008,38 @@ class SlopFloor:
         #    measured range. Reporting it as "MATTR" is the label defect the
         #    2026-08-14 window sweep found; see CALIBRATION["mattr_window"].
         stat = "TTR" if n_tok <= d.mattr_window else "MATTR"
-        thr = d.resolve("mattr_min", prof)
+        thr = d.resolve("mattr_min", prof, n_tok)
         m = v.get("mattr")
         if thr is not None and m == m and m is not None and m < thr:
             out.append(Finding(
                 "LEXICAL_MONOTONY", sev("flag"),
                 "vocabulary repeats more than human verse did in calibration",
-                f"{stat} {m:.3f} < {thr:.4f} (human 5th percentile, "
-                f"{prof.name} profile); {prof.evidence_for('mattr')}. "
+                f"{stat} {m:.3f} < {thr:.4f} "
+                f"({source('mattr_min', '5th percentile')}); "
+                f"{rests_on('mattr_min', 'mattr')}. "
                 + (f"THE STATISTIC HERE IS PLAIN TTR, NOT MATTR: {n_tok} "
                    f"tokens does not exceed the declared "
                    f"{d.mattr_window}-token window, so the moving average "
                    f"degenerates to one type/token ratio over the whole "
-                   f"item. The {prof.name} threshold was read off items that "
-                   f"degenerate the same way, so the comparison is like for "
-                   f"like -- but a MATTR quoted from another profile is not "
+                   f"item. "
+                   + (f"~~The {prof.name} threshold was read off items "
+                      f"that degenerate the same way, so the comparison is "
+                      f"like for like~~ -- STRUCK 2026-09-05 (`MISSING.md` "
+                      f"M-239) AND THE CORRECTION IS NOT IN YOUR FAVOUR: "
+                      f"that was true of the STANZA profiles, whose whole "
+                      f"calibration set is short enough to degenerate. The "
+                      f"{prof.name} threshold at this length comes from a "
+                      f"curve fit over the WHOLE corpus, 8,667 items, of "
+                      f"which 548 (6.32%, measured) degenerate to TTR and "
+                      f"8,119 do not -- so this is a TTR read against a cut "
+                      f"fit mostly on moving averages, which is the mixture "
+                      f"`quality/features.py` discloses as inadmissible "
+                      f"rather than repairs. "
+                      if prof.curves else
+                      f"The {prof.name} threshold was read off items that "
+                      f"degenerate the same way, so the comparison is like "
+                      f"for like. ")
+                   + f"A MATTR quoted from another profile is not "
                    f"the same statistic and may not be compared with it. "
                    if stat == "TTR" else "")
                 + f"Caveat: within Shakespeare the direction REVERSES "
@@ -1575,22 +2047,23 @@ class SlopFloor:
                 f"only outside the range this corpus occupied"))
 
         # 2. function-word load
-        thr = d.resolve("function_word_ratio_max", prof)
+        thr = d.resolve("function_word_ratio_max", prof, n_tok)
         f = v.get("function_word_ratio")
         if thr is not None and f == f and f is not None and f > thr:
             out.append(Finding(
                 "FUNCTION_WORD_HEAVY", sev("flag"),
                 "a high share of the text is closed-class filler",
-                f"function-word ratio {f:.3f} > {thr:.4f} (human 95th "
-                f"percentile, {prof.name} profile); "
-                f"{prof.evidence_for('function_word_ratio')}. Null within "
+                f"function-word ratio {f:.3f} > {thr:.4f} "
+                f"({source('function_word_ratio_max', '95th percentile')}); "
+                f"{rests_on('function_word_ratio_max', 'function_word_ratio')}. "
+                f"Null within "
                 f"Shakespeare (0.536), so this "
                 f"is a register signal with no within-tradition support. "
                 f"Presumes a clean function/content split and does not "
                 f"transfer to agglutinative or polysynthetic languages"))
 
         # 3. anaphora -- repeated line openings
-        thr = d.resolve("anaphora_max", prof)
+        thr = d.resolve("anaphora_max", prof, n_tok)
         a, word = self._anaphora(lines)
         if thr is not None and a > thr:
             hits = [i + 1 for i, l in enumerate(lines)
@@ -1599,9 +2072,9 @@ class SlopFloor:
                 "ANAPHORA_OVERLOAD", sev("flag"),
                 f"{int(a * len(lines))} of {len(lines)} lines open with the "
                 f"same word",
-                f"opening {word!r} at {a:.0%} of lines > {thr:.0%} (human 95th "
-                f"percentile, {prof.name} profile); "
-                f"{prof.evidence_for('anaphora')}. "
+                f"opening {word!r} at {a:.0%} of lines > {thr:.2%} "
+                f"({source('anaphora_max', '95th percentile')}); "
+                f"{rests_on('anaphora_max', 'anaphora')}. "
                 f"POST-HOC: this check was not pre-registered, so it needs its "
                 f"own replication before it is trusted"
                 + (". PERIOD CAUTION WITHDRAWN 2026-08-20 (doctrine 17): "
@@ -1619,25 +2092,33 @@ class SlopFloor:
                    "so this is a failure to reproduce and not a clean bill; "
                    "and `mattr`/`fwr` DO now carry slopes, so period-reading "
                    "moved rather than left (doctrine 11)"
-                   if prof.name == "song" else "")
+                   + (". FOR THE LENGTH CURVES (M-239) THE PERIOD QUESTION "
+                      "WAS NOT RE-ASKED: the band readings above are the "
+                      "only ones on record, and a curve fit across the same "
+                      "authors inherits whatever they carry — not measured, "
+                      "so not claimed either way (doctrine 20)"
+                      if prof.name == "lyric" else "")
+                   if prof.name in ("song", "lyric") else "")
                 + f". Deliberate anaphora is "
                 f"a figure — Whitman, the Psalms and every blues refrain trip "
                 f"this — so the finding is a decision handed back, not a "
                 f"verdict", hits))
 
         # 4. metronomic line length
-        thr = d.resolve("line_length_cv_min", prof)
+        thr = d.resolve("line_length_cv_min", prof, n_tok)
         cv = self._line_length_cv(lines)
         if thr is not None and cv < thr:
             out.append(Finding(
                 "UNIFORM_LINE_LENGTH", "note",
                 "every line is close to the same length",
-                f"line-length CV {cv:.3f} < {thr:.4f} (human 5th percentile, "
-                f"{prof.name} profile). NOT slop evidence: this check was "
+                f"line-length CV {cv:.3f} < {thr:.4f} "
+                f"({source('line_length_cv_min', '5th percentile')}). "
+                f"NOT slop evidence: this check was "
                 f"built expecting metronomic lines to be a generated-text tell "
                 f"and the measurement came out BACKWARDS — Shakespeare is more "
                 f"uniform than the model. "
-                f"{prof.evidence_for('line_length_cv')}. In a fixed form "
+                f"{rests_on('line_length_cv_min', 'line_length_cv')}. "
+                f"In a fixed form "
                 f"uniformity is the form. Retained only as 'outside the human "
                 f"range', and meaningful, if at all, in free verse"))
 
@@ -1651,7 +2132,7 @@ class SlopFloor:
         #    to be. It runs only under a profile that measured it; the section
         #    profile did not, so it stays silent there rather than borrowing
         #    the sonnet cut.
-        thr = d.resolve("predictable_pair_fraction_max", prof)
+        thr = d.resolve("predictable_pair_fraction_max", prof, n_tok)
         pairs = self._pairs(lines, scheme)
         # `_predictability` returns (i, j, value) aligned to its pairs since
         # 2026-08-14. ~~this check wants the values only~~ — it wants all
@@ -1679,8 +2160,10 @@ class SlopFloor:
                     f"{len(obvious)} of {len(preds)} rhymes are near the top "
                     f"of their own candidate field",
                     f"{frac:.0%} of pairs above {d.predictability_max:.2f} "
-                    f"predictability ({prof.name} profile); "
-                    f"{prof.evidence_for('predictability')}. A NOTE, and it "
+                    f"predictability > {thr:.4f} "
+                    f"({source('predictable_pair_fraction_max', '95th percentile')}); "
+                    f"{rests_on('predictable_pair_fraction_max', 'predictability')}. "
+                    f"A NOTE, and it "
                     f"may not reject: a rhyme "
                     f"at the top of its own candidate field is a decision "
                     f"handed back, not a verdict, because a floor may not "
@@ -1720,9 +2203,14 @@ class SlopFloor:
         # under none. `sev` goes with them anyway, and that is not a
         # contradiction: running is one question and being allowed to REJECT
         # is another. CLICHE_PAIR borrows no percentile from any profile, but
-        # the only false-positive rate it has was measured inside one band,
-        # so that band is the only place it may carry a rejection. See the
-        # CLICHE_PAIR section of this module's docstring for the numbers.
+        # ~~the only false-positive rate it has was measured inside one band,
+        # so that band is the only place it may carry a rejection~~ --
+        # STRUCK 2026-09-05 (`MISSING.md` M-239). TWO band rows carry a rate
+        # (`short` 50-150 at 4.02%, `song` 200-400 at 7.64%), both of them
+        # SUPERSEDED for their percentiles and kept for their drift checks,
+        # and an EXACT STANZA profile licenses a rejection too. Read the
+        # rates from `cliche_rate_rows()`, never from a number typed in a
+        # comment -- which is exactly how this sentence went stale.
         out.extend(self._relation_findings(lines, pairs, sev))
         return out
 
@@ -1750,9 +2238,18 @@ class SlopFloor:
         lines, with no percentile and no measured rate behind it, so there is
         nothing for a length to invalidate. CLICHE_PAIR is the opposite case
         — the membership test is equally length-blind, but the only thing
-        licensing it to REJECT is a false-positive rate measured in one band,
-        and outside that band there is no measurement to lean on (14.74%
-        where nothing was calibrated, against 6.35% in band).
+        licensing it to REJECT is a false-positive rate measured in a BAND
+        rather than at a length. ~~measured in one band, and outside that
+        band there is no measurement to lean on (14.74% where nothing was
+        calibrated, against 6.35% in band)~~ -- STRUCK 2026-09-05
+        (`MISSING.md` M-239), and both halves were wrong by then. There are
+        TWO rated bands, not one (`short` 50-150 at 4.02%, `song` 200-400 at
+        7.64% -- read them with `cliche_rate_rows()`), and an EXACT STANZA
+        profile licenses a rejection as well. The 14.74% belonged to the
+        corpus OUTSIDE the 2026-08-14 band table, a population the live
+        table makes EMPTY: no corpus item sits under 4 or over 3,245 tokens,
+        so out here there is no measured rate at all, which is a stronger
+        reason not to reject than a high one (doctrine 22).
 
         Doctrine 3 says the REPEAT band inverts by context: the same identical
         end word is a violation inside a verse and a requirement as a
@@ -1958,44 +2455,106 @@ class SlopFloor:
         if cliche:
             n_list = len(self.decl.cliche_pairs)
             shipped = self.decl.cliche_pairs == frozenset(CLICHE_PAIRS)
-            csev = sev("flag")
+            # WHERE CLICHE_PAIR'S RATE WAS MEASURED (M-239, 2026-09-04). The
+            # membership test reads no percentile and no length, so under a
+            # profile whose range is the whole corpus `exact` is True at 25
+            # tokens and at 2,000 — and the only false-positive rates the
+            # shipped list has were measured on the two band rows, 50-150
+            # (4.02%) and 200-400 (~~6.35%~~ 7.64%, repinned 2026-09-05: the
+            # 6.35% / 118 of 1,859 point estimate is the 2026-08-14 150-400
+            # reading, and the row's own `held_out_fpr["cliche"]` has been
+            # (7.64, 5.99, 9.04) over the re-adopted 200-400 band since
+            # 2026-08-26). A flag on a rate nobody measured
+            # is the doctrine-22 error, so the severity reads WHICH rows
+            # carry a `cliche` rate that COVERS this length, superseded or
+            # not: inside one, a flag; outside all, a note that says so.
+            # Measuring the rate per length bin over 4-3,245 is owed (M-239).
+            n_tok = sum(len(self.qf._tokens(l)) for l in lines)
+            prof, exact = declaration_for(n_tok, len(lines))
+            cliche_rows = [p for p in cliche_rate_rows() if p.covers(n_tok)]
+            # A STANZA profile (a fixed unit — `section`, `sonnet`) keeps
+            # the flag it always carried: the carry-over to those two
+            # lengths was argued and measured in the branch below (0.00%
+            # of the 86 section items, 5.49% of the 437 sonnet items), and
+            # nothing about M-239 touched it. The new rule is for the SHEET
+            # profile, whose range is the whole corpus.
+            stanza_exact = prof is not None and exact and bool(prof.n_lines)
+            csev = sev("flag") if (cliche_rows or stanza_exact) else "note"
+            cliche_unmeasured = (prof is not None and exact
+                                 and not cliche_rows and not stanza_exact)
             if not shipped:
                 why_sev = ("The list has been REPLACED through the "
-                           "declaration, so the shipped 6.35% in-band "
-                           "false-positive rate does not describe it and this "
+                           "declaration, so the shipped list's measured "
+                           "in-band false-positive rate ("
+                           + _cliche_rates_text()
+                           + " — the only rates ever taken for this check) "
+                           "does not describe it and this "
                            "finding has no measured rate behind it at all "
-                           "(doctrine 22). ")
+                           "(doctrine 22). Repinned 2026-09-05, M-239: this "
+                           "sentence quoted ~~6.35%~~, the 2026-08-14 "
+                           "150-400 reading, after the band moved to 200-400 "
+                           "and both band rows were superseded. ")
+            elif cliche_unmeasured:
+                why_sev = ("It is a NOTE here and may not reject. The five "
+                           "percentile checks are calibrated at this length "
+                           f"({prof.name} profile), but CLICHE_PAIR reads no "
+                           "percentile: its only measured false-positive rates "
+                           "are the two SUPERSEDED band rows' — "
+                           + _cliche_rates_text()
+                           + f" — and this text sits at "
+                           f"{n_tok} tokens, where no rate was taken. An "
+                           "unmeasured rate may not carry a rejection "
+                           "(doctrine 22); measuring it per length bin over "
+                           "4-3,245 is owed (M-239). ")
             elif csev == "flag":
-                why_sev = ("It fires as a FLAG because the text sits inside a "
-                           "profile's MEASURED range and the shipped list has "
-                           "a measured interruption rate on held-out human "
-                           "song: 6.36% median, 5th-95th percentile of seeds "
-                           "4.23-8.37%, point estimate 118/1859 = 6.35%, "
-                           "Wilson 95% CI [5.33, 7.55], author-held out, 200 "
+                why_sev = ("It fires as a FLAG because the shipped list has a "
+                           "measured interruption rate on held-out human "
+                           "song: author-held out, 200 "
                            "seeds, 50/50 — the same protocol that gives "
                            "LEXICAL_MONOTONY 5.43% and FUNCTION_WORD_HEAVY "
-                           "5.23%. THAT RATE WAS MEASURED IN THE SONG BAND "
-                           "(150-400 tokens) and nowhere else, so at section "
-                           "or sonnet length it is being carried across, not "
-                           "quoted from a reading taken there. What is known "
-                           "about those two: over the same 4,930 corpus items "
-                           "the check fires on 0.00% of the 86 that land in "
-                           "`section` exactly and 5.49% of the 437 that land "
-                           "in `sonnet` exactly — at or under the song "
-                           "rate, "
+                           "5.23%. WHERE THAT RATE WAS TAKEN, REPINNED "
+                           "2026-09-05 (M-239): only in the two band rows, "
+                           + _cliche_rates_text()
+                           + " — rows SUPERSEDED on 2026-09-04 for their "
+                           "percentiles, kept for their own drift checks, "
+                           "and still the only measured cliche rates the "
+                           "floor has. "
+                           + ("This text sits inside "
+                              + ", ".join(f"`{r.name}`" for r in cliche_rows)
+                              + ", so the rate is quoted from a reading taken "
+                                "at this length. "
+                              if cliche_rows else
+                              "This text is at an EXACT STANZA profile "
+                              f"(`{prof.name}`), where the rate is being "
+                              "carried across rather than quoted from a "
+                              "reading taken there. ")
+                           + "What is known about the two stanza lengths: "
+                           "over the 4,930 corpus items bucketed on "
+                           "2026-08-14 the check fired on 0.00% of the 86 "
+                           "that landed in `section` exactly and 5.49% of "
+                           "the 437 that landed in `sonnet` exactly — at or "
+                           "under the band rate, "
                            "which is why the carry-over is not what `sev()` "
-                           "is guarding against. ")
+                           "is guarding against. Measuring the rate per "
+                           "length bin over 4-3,245 tokens is owed (M-239). ")
             else:
                 why_sev = ("It is a NOTE here and may not reject. The "
                            "membership test is unchanged — it reads no "
                            "percentile and no length — but the only "
-                           "false-positive rate licensing it was measured "
-                           "inside the song profile's 150-400 band (6.36% "
-                           "median, 118/1859 = 6.35%), and this text is "
-                           "outside a measured range. Bucketed over the 4,930 "
-                           "corpus items it runs 2.22-7.20% under "
-                           "extrapolation and 14.74% where no profile "
-                           "reaches, against that 6.35%. An unmeasured rate "
+                           "false-positive rates licensing it were measured "
+                           "in the two SUPERSEDED band rows, "
+                           + _cliche_rates_text()
+                           + ", and this text is outside both. REPINNED "
+                           "2026-09-05 (M-239): this sentence used to name "
+                           "~~the song profile's 150-400 band (6.36% median, "
+                           "118/1859 = 6.35%)~~, which was the 2026-08-14 "
+                           "reading — the band moved to 200-400 "
+                           "on 2026-08-26 "
+                           "and both rows were superseded by `lyric` on "
+                           "2026-09-04. The 2.22-7.20%-under-extrapolation "
+                           "and 14.74%-where-no-profile-reaches buckets came "
+                           "off that same retired selector and are not a "
+                           "reading of this length. An unmeasured rate "
                            "may not carry a rejection (doctrine 22). ")
             out.append(Finding(
                 "CLICHE_PAIR", csev,
@@ -2098,10 +2657,21 @@ class SlopFloor:
               f"FloorDeclaration.mattr_window; swept 2026-08-14, admissible "
               f"[1,22] u [40,93], NOT a plateau — "
               f"CALIBRATION['mattr_window'])", file=stream)
+        # WHAT THE BANNER MAY SAY IS APPLIED (M-239, repinned 2026-09-05).
+        # This loop printed `applied a-b (t x)` for every row in `PROFILES`,
+        # so a reader was told the `song` and `short` bands were applied
+        # while `declaration_for` had not picked either since the 2026-09-04
+        # adoption. The rows still print — they are kept for their own drift
+        # `--check` and deleting them from the banner would delete the record
+        # (doctrine 17) — but a superseded row now prints WHY it is here
+        # instead of a reach that is never reached.
         for p in PROFILES:
             a, b = p.band()
+            applied = (f"SUPERSEDED by {p.superseded_by} (kept for its own "
+                       f"drift check; never applied)" if p.superseded_by
+                       else f"applied {a}-{b} ({p.tolerance:g}x)")
             print(f"  profile {p.name:<8} {p.unit:<32} measured {p.lo}-{p.hi} "
-                  f"tok, applied {a}-{b} ({p.tolerance:g}x)", file=stream)
+                  f"tok, {applied}", file=stream)
             # A profile whose whole MEASURED range sits inside the window is
             # not reporting MATTR at all, and the banner is where a reader
             # who never opens this file finds that out.
@@ -2171,11 +2741,18 @@ if __name__ == "__main__":
             floor.report(ls, sc, banner=False)
         # The SHEET pass, for the length-sensitive half only.
         #
-        # A marked-up sheet never reaches the song profile section by section:
-        # each section is 20-60 tokens and lands in `section` or in nothing.
-        # But the song profile was calibrated on WHOLE corpus items with their
-        # refrains printed, so the sheet is the length its thresholds were
-        # measured at and the sections are not. Both passes therefore run and
+        # ~~A marked-up sheet never reaches the song profile section by
+        # section: each section is 20-60 tokens and lands in `section` or in
+        # nothing.~~ REPINNED 2026-09-05 (M-239): the sheet profile is
+        # `lyric`, which covers 4-3,245 tokens, so a 20-60-token section DOES
+        # reach it — four lines land in `section` by line count, any other
+        # count lands in `lyric` at the section's own length. The reason both
+        # passes run is unchanged and is the one that was always load-bearing:
+        # the sheet profile was calibrated on WHOLE corpus items with their
+        # refrains printed, so the SHEET is the length its thresholds were
+        # read at and a section is not — and under a curve profile that is
+        # sharper still, because the threshold is a function of N and a
+        # section asks for it at the wrong N. Both passes therefore run and
         # both are labelled.
         #
         # Only the length-sensitive codes are reported here, and that is

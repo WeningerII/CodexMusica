@@ -543,6 +543,33 @@ def main(argv=None):
           f"is a moved CORPUS, which would move every AUC below for a reason "
           f"that has nothing to do with the comparator")
 
+    # A MISSING PACKAGE IS A REFUSAL, NOT A CRASH — added 2026-09-05.
+    # `joint_classifier` returns None when scikit-learn is not importable
+    # (discriminate.py's own `except ImportError` branch, which PRINTS that
+    # it skipped), so every joint figure comes back None. This loop then
+    # formatted None with `:.3f` and the suite died with a TypeError at
+    # exit 1 — Python's own crash, which this repo reads as "the harness
+    # died before reaching a verdict", not as an answer (doctrine 20, and
+    # the EXIT_MEANING table's own distinction between 1 and 2). MEASURED:
+    # a container without numpy/scikit-learn printed four FAIL lines whose
+    # evidence said "measured NOTHING" and then tracebacked, so the real
+    # cause — an absent dependency — appeared nowhere in the output. It
+    # says so now, and refuses at 2.
+    _no_joint = [k for k in ("abs_exp1", "abs_exp2", "wi_exp1", "wi_exp2")
+                 if got[k]["joint_all"] is None or got[k]["joint_solo"] is None]
+    if _no_joint:
+        print("\n  REFUSED — no joint AUC was computed for: %s."
+              % ", ".join(_no_joint))
+        print("  `quality/discriminate.py`'s joint classifier returns None "
+              "when scikit-learn is not importable, and it prints that it "
+              "skipped. Every joint figure below would be a comparison "
+              "against nothing, so this suite does not report one.")
+        print("  Install the packages CI installs for this suite and re-run:")
+        print("      python3 -m pip install numpy scikit-learn")
+        print("  The per-feature AUCs and the corpus counts above were "
+              "measured and stand; it is the JOINT half that has no answer.")
+        return 2
+
     for key in ("abs_exp1", "abs_exp2", "wi_exp1", "wi_exp2"):
         pin, arm = PINNED[key], got[key]
         print(f"\n-- {key}   {pin['label']}")

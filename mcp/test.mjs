@@ -5010,15 +5010,40 @@ try {
     // MEASURED over 240 seeds: 59.6% of plans declared a hook before the
     // re-derivation and 56.2% after, so this is a coin flip either way and
     // was never a property of 55.
+    // AND THE LENGTH IS DECLARED, NOT DRAWN (M-239 / M-240, 2026-09-05).
+    // Since M-239 the planner's envelope is 12..447 lines and a DRAWN total
+    // has a median of 201, which puts this block's whole chain past two
+    // measured ceilings at once: the 77-schema default door refuses a draft
+    // that long at its pair guard (53 lines grade in 56 s, 108 in 330 s,
+    // 144 REFUSE), and the report itself outgrows the connector's 4 MiB
+    // output cap (MEASURED: `finish` on the 80-line fixture draft printed
+    // 8.56 MB after ~600 s; the 47-line one answered in 245 s; the 24-line
+    // one in 109 s and 0.47 MB). Hunting seeds for a short draw was the
+    // first repair and it was the wrong one — it left the block's cost to
+    // the dice. THE LENGTH IS A DECLARATION (M-241): every call in this
+    // block declares the SAME `lines`, so the plan, the grade and the
+    // revision are one shape and the block's runtime is a property of the
+    // test rather than of a seed. 24 is the smallest round figure that
+    // still draws multi-line sections and a hook; MEASURED, every seed of
+    // 1..5 declares a hook at this length, so the loop below now confirms
+    // the premise rather than searching for it.
+    const LIVE_LINES = 24;
+    const withLines = (extra) => ({ seed: planSeed, lines: LIVE_LINES, ...extra });
     let plannedRes = null;
     let planSeed = null;
-    for (const candidate of [55, 1, 4, 5, 11, 16, 17, 19]) {
+    for (const candidate of [1, 2, 3, 4, 5]) {
       const tryRes = await client.callTool(
-        { name: 'lyric_plan', arguments: { seed: candidate } },
+        { name: 'lyric_plan', arguments: { seed: candidate, lines: LIVE_LINES } },
         undefined,
         LIVE_OPTS
       );
       assert.ok(!tryRes.isError, `lyric_plan answered without isError (seed ${candidate})`);
+      const declared = /-> (\d+) line\(s\)/.exec(tryRes.content[0].text);
+      assert.equal(
+        declared && Number(declared[1]),
+        LIVE_LINES,
+        'a declared length is the length that was drawn'
+      );
       if (/is the hook/.test(tryRes.content[0].text)) {
         plannedRes = tryRes;
         planSeed = candidate;
@@ -5090,7 +5115,7 @@ try {
     // as an escaped JSON field is what a client model restyled to bare
     // [SECTION] headers. Block 0 must parse as a song, not as JSON.
     const gradedRes = await client.callTool(
-      { name: 'lyric_grade', arguments: { seed: planSeed, draft } },
+      { name: 'lyric_grade', arguments: withLines({ draft }) },
       undefined,
       LIVE_OPTS
     );
@@ -5174,7 +5199,7 @@ try {
     // from the carried record; a client that carries nothing gets a refusal
     // naming the parameter, never a run on an empty draft.
     const noDraft = await client.callTool(
-      { name: 'lyric_revise', arguments: { seed: planSeed } },
+      { name: 'lyric_revise', arguments: withLines({}) },
       undefined,
       LIVE_OPTS
     );
@@ -5188,7 +5213,7 @@ try {
     );
     passed++;
     const rev1 = await client.callTool(
-      { name: 'lyric_revise', arguments: { seed: planSeed, draft } },
+      { name: 'lyric_revise', arguments: withLines({ draft }) },
       undefined,
       LIVE_OPTS
     );
@@ -5226,7 +5251,7 @@ try {
     // harness refuses to advance past an unanswered pending — that refusal
     // IS the enforcement, and it must be idempotent or a retry would skip).
     const rev2 = await client.callTool(
-      { name: 'lyric_revise', arguments: { seed: planSeed, draft, state: rv1.state } },
+      { name: 'lyric_revise', arguments: withLines({ draft, state: rv1.state }) },
       undefined,
       LIVE_OPTS
     );
@@ -5249,7 +5274,7 @@ try {
           ? pend1.record.members.map((n) => `L${n}: ${draft[n - 1]} again`).join('\n')
           : `${draft[pend1.record.line - 1]} again`;
     const rev3 = await client.callTool(
-      { name: 'lyric_revise', arguments: { seed: planSeed, answer: answer1 } },
+      { name: 'lyric_revise', arguments: withLines({ answer: answer1 }) },
       undefined,
       LIVE_OPTS
     );
@@ -5265,7 +5290,10 @@ try {
     assert.equal(rv3.run_id, rv1.run_id, 'the same run');
     // A seed with NO remembered run: `answer` without `state` still refuses.
     const revBad = await client.callTool(
-      { name: 'lyric_revise', arguments: { seed: planSeed + 100000, draft, answer: 'a line' } },
+      {
+        name: 'lyric_revise',
+        arguments: { seed: planSeed + 100000, lines: LIVE_LINES, draft, answer: 'a line' },
+      },
       undefined,
       LIVE_OPTS
     );
@@ -5275,7 +5303,7 @@ try {
     );
     // `new_run` drops the record: zero answers, a different id.
     const rev4 = await client.callTool(
-      { name: 'lyric_revise', arguments: { seed: planSeed, draft, new_run: true } },
+      { name: 'lyric_revise', arguments: withLines({ draft, new_run: true }) },
       undefined,
       LIVE_OPTS
     );
@@ -5348,7 +5376,7 @@ try {
       const res = await client.callTool(
         {
           name: 'lyric_grade',
-          arguments: title === null ? { seed: planSeed, draft } : { seed: planSeed, draft, title },
+          arguments: title === null ? withLines({ draft }) : withLines({ draft, title }),
         },
         undefined,
         LIVE_OPTS
@@ -5501,23 +5529,49 @@ try {
     // two-block check above was rebuilt to end. The membership check below
     // therefore reads the verdict's own truncation disclosure instead of
     // assuming the rate.
+    // THE CEILING IS READ FROM THE CONNECTOR, NOT RETYPED HERE (doctrine 1):
+    // a second copy of a derived bound is the copy that goes stale, which is
+    // exactly what the 2026-09-05 re-derivation found in this file.
+    const toolsSrc = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
+    const sweepCeil = /const MAX_SWEEP_SEEDS = (\d+);/.exec(toolsSrc);
+    assert.ok(sweepCeil, 'lyric_tools.js declares the sweep ceiling');
+    const MAX_SWEEP = Number(sweepCeil[1]);
+    assert.ok(MAX_SWEEP >= 8, `the ceiling is a usable window (got ${MAX_SWEEP})`);
+    const HALF = Math.floor(MAX_SWEEP / 2);
+    // REPINNED 2026-09-05 (`MISSING.md` M-239): the windows were
+    // ~~120 / 120 / 240~~ and the predicate ~~['lines>=24', 'lines<=28']~~.
+    // Both moved for the same reason and neither is a taste: the sweep's
+    // ceiling is 28 seeds now (a plan draws a median 201 lines under the
+    // derived envelope, so a seed costs ~510ms and the window that answers
+    // inside the client's clock is that much smaller), so a 120-seed call
+    // is REFUSED; and a five-value band out of 436 accepts ~1% of seeds,
+    // which over 28 draws is a coin toss rather than a check — the
+    // `accepted_count > 0` line above exists precisely so this block is not
+    // vacuous, and a predicate that usually accepts nothing would make it
+    // vacuous by luck. `lines>=24` rejects 12..23 and accepts the rest, so
+    // it is still a predicate doing work and the composition claim is
+    // unchanged.
     const sweepA = await callText('lyric_sweep', {
       seed_from: 1,
-      count: 120,
-      want: ['lines>=24', 'lines<=28'],
+      count: HALF,
+      want: ['lines>=24'],
     });
-    assert.equal(sweepA.swept, 120, 'the window is the one that was asked for');
+    assert.equal(sweepA.swept, HALF, 'the window is the one that was asked for');
     assert.ok(sweepA.accepted_count > 0, 'and it found seeds, so this check is not vacuous');
-    assert.equal(sweepA.window.next_seed_from, 121, 'the next window starts where this one ended');
+    assert.equal(
+      sweepA.window.next_seed_from,
+      1 + HALF,
+      'the next window starts where this one ended'
+    );
     const sweepB = await callText('lyric_sweep', {
-      seed_from: 121,
-      count: 120,
-      want: ['lines>=24', 'lines<=28'],
+      seed_from: 1 + HALF,
+      count: HALF,
+      want: ['lines>=24'],
     });
     const sweepAB = await callText('lyric_sweep', {
       seed_from: 1,
-      count: 240,
-      want: ['lines>=24', 'lines<=28'],
+      count: 2 * HALF,
+      want: ['lines>=24'],
     });
     // COMPOSITION IS THE LOAD-BEARING CLAIM. A plan is a pure function of
     // its seed, so two windows must equal the one that spans them — counts
@@ -5571,7 +5625,8 @@ try {
     );
     // THE BOUND IS REAL AND NAMED.
     const over = await client.callTool(
-      { name: 'lyric_sweep', arguments: { seed_from: 1, count: 513 } },
+      // REPINNED 2026-09-05 (M-239): ~~513~~, one past the old 512 ceiling.
+      { name: 'lyric_sweep', arguments: { seed_from: 1, count: MAX_SWEEP + 1 } },
       undefined,
       LIVE_OPTS
     );
@@ -5606,10 +5661,31 @@ try {
     // every seed that plans, so the printed list is cut at 40 and the count
     // is not — a field holding 40 of N with no flag would be the silent
     // substitution this repo refuses.
-    const wide = await callText('lyric_sweep', { seed_from: 1, count: 64 });
-    assert.equal(wide.accepted_count, 64, 'with no predicate every seed that plans is accepted');
-    assert.ok(wide.accepted_shown.length < wide.accepted_count, 'and the printed list is shorter');
-    assert.equal(wide.accepted_truncated, true, '...which the verdict says out loud');
+    // REPINNED 2026-09-05 (M-239): ~~a 64-seed window, whose accepted list
+    // ran past the harness's printed cap of 40 and exercised the truncation
+    // disclosure live~~. THE CAP IS NOW OUT OF REACH THROUGH ONE CALL: the
+    // derived ceiling is 28 seeds, so no single window can accept 41, and
+    // the live surface can no longer show a truncated list. What is still
+    // checkable live is the SAME INVARIANT the three windows above are
+    // charged with — the flag agrees with the two counts — so it is checked
+    // here too rather than dropped, and the unreachability is stated rather
+    // than left as a check that quietly always passes (doctrine 48).
+    const wide = await callText('lyric_sweep', { seed_from: 1, count: MAX_SWEEP });
+    assert.equal(
+      wide.accepted_count,
+      MAX_SWEEP,
+      'with no predicate every seed that plans is accepted'
+    );
+    assert.equal(
+      wide.accepted_truncated === true,
+      wide.accepted_shown.length < wide.accepted_count,
+      "the full window's truncation flag agrees with its own two counts"
+    );
+    assert.equal(
+      wide.accepted_truncated,
+      false,
+      `and at the derived ceiling nothing is cut: ${MAX_SWEEP} accepted seeds sit under the harness cap of 40`
+    );
     console.log('  ok  lyric_sweep live: bounded, composes, and does not rank');
     passed++;
 

@@ -50,7 +50,12 @@ const PYTHON = process.env.LYRIC_PYTHON || 'python3';
 // ── ceilings (every one refused loudly, none silently clamped) ─────────────
 const MAX_WORDS = 12;
 const MAX_WORD_CHARS = 40;
-const MAX_LINES = 64; // the planner envelope's own total_lines ceiling
+// REPINNED 2026-09-04 from ~~64~~ (M-239): the planner's envelope is derived
+// from the floor's calibrated token range, and the length-curve profile
+// covers 4-3,245 tokens, so `ENVELOPE["total_lines"]` reads (12, 447). The
+// ceiling here is that number and nothing else; a 448-line draft is refused
+// loudly, as a 65-line one was.
+const MAX_LINES = 447; // the planner envelope's own total_lines ceiling
 const MAX_LINE_CHARS = 200;
 // THE MANDATE CEILING IS SIZED TO THE RECOVER DOOR'S OWN OUTPUT (M-195,
 // repinned 2026-09-02 from ~~400~~). A pasted song's mandate is what
@@ -59,9 +64,14 @@ const MAX_LINE_CHARS = 200;
 // MEASURED at the default four places, 4,132 chars over 19 lines, 5,299
 // over 25, 10,009 over 32 (670 pair-groups) — every one of them refused by
 // the old 400, so the prescribed route recover -> check -> revise could not
-// chain past a few lines. Extrapolated to MAX_LINES (64) that is ~40k; the
-// kernel's per-argument ceiling is 128 KiB. Half of that is the bound, and
-// it is still a bound (a runaway is refused, never clamped).
+// chain past a few lines. Extrapolated to ~~MAX_LINES (64) that is ~40k~~
+// 64 lines that is ~40k; the kernel's per-argument ceiling is 128 KiB. Half
+// of that is the bound, and it is still a bound (a runaway is refused, never
+// clamped). REPINNED 2026-09-04 (M-239): MAX_LINES is 447 now, and the same
+// square law puts a recovered cover over 447 lines near 2 MB — so the
+// recover -> check -> revise route reaches about 80 lines under this bound
+// (sqrt(65536 / 10009) * 32), and a longer pasted song's cover is refused
+// here with the count in the message. A ceiling stated, not a clamp.
 const MAX_MANDATE_CHARS = 65536;
 // THE SWEEP WINDOW, DERIVED AGAINST THE TIGHTER OF THE TWO CLOCKS. This
 // connector kills a subprocess at SUBPROCESS_TIMEOUT_MS but the MCP
@@ -72,18 +82,36 @@ const MAX_MANDATE_CHARS = 65536;
 // against the looser clock is the flattering direction.
 //
 // Budget = 60s minus the lexicon load this connector already declares on the
-// deploy target (~10s) = 50s of planning. MEASURED here, warm: 128 seeds in
+// deploy target (~10s) = 50s of planning. ~~MEASURED here, warm: 128 seeds in
 // 4.2s and 512 in 15.1s, i.e. ~1.5s fixed and ~28.5ms marginal per seed. 512
 // seeds is 14.6s of planning, which absorbs a deploy box ~3.4x slower than
-// this one before the client's clock runs out.
+// this one before the client's clock runs out.~~
+//
+// RE-MEASURED AND REPINNED 2026-09-05 (`MISSING.md` M-239). A SWEEP PLANS
+// EVERY SEED IN ITS WINDOW, so the window's cost is the PLANNER'S cost, and
+// the planner's envelope moved from 12..55 lines to 12..447 (median drawn
+// total 201 lines against ~35 before). The old constant was derived against
+// the old envelope and nothing re-derived it when the envelope moved -- a
+// derived number that outlives its derivation is a hand number wearing one.
+// MEASURED here 2026-09-05, same box, same verb: `plan --sweep=1-128` 81.3s
+// and `--sweep=1-512` 277.1s, i.e. ~16.0s fixed (interpreter + lexicon) and
+// ~510ms marginal per seed -- 18x the old marginal. Against 50s of planning
+// and the SAME ~3.4x deploy-box margin the old derivation declared, the
+// window is 50 / 3.4 / 0.510 = 28 seeds, which costs 14.3s here: the same
+// wall clock the 512-seed window used to buy, for 28 seeds instead of 512.
 //
 // AND THE BOUND IS PAGINATION, NOT TRUNCATION, because a plan is a pure
-// function of its seed: sweep(1..900) is exactly sweep(1..512) union
-// sweep(512..900) and the three counts add. The two acceptance rates this
-// repo has actually banked are 23/899 (stay_awake) and 6/699
-// (carry_it_over); at the HARDER of those, 0.86%, a 512-seed window holds at
-// least one acceptance 98.8% of the time, so one call usually answers.
-const MAX_SWEEP_SEEDS = 512;
+// function of its seed: sweep(1..900) is exactly sweep(1..28) union
+// sweep(29..900) and the three counts add. WHAT THE MOVE COSTS A SEARCH,
+// SAID OUT LOUD: the two acceptance rates this repo has banked are 23/899
+// (stay_awake) and 6/699 (carry_it_over); at the HARDER of those, 0.86%,
+// ~~a 512-seed window holds at least one acceptance 98.8% of the time, so
+// one call usually answers~~ -- a 28-seed window holds one 21.5% of the
+// time, so a search now takes SEVERAL calls where it used to take one. That
+// is the envelope's price on this verb, not a defect of the bound; a sweep
+// that scales with the envelope is the schema-door scaling item's neighbour
+// (`MISSING.md` M-240, open).
+const MAX_SWEEP_SEEDS = 28;
 const MAX_WANTS = 13; // = |SWEEP_MEASURES| + |SWEEP_SETS| + |SWEEP_ORDERS|
 const MAX_WANT_CHARS = 80;
 // lyric_revise: one answer may carry a whole tier-2 group (one `L<n>:` line
@@ -152,7 +180,12 @@ const WANT_RE = /^[a-z][a-z_]{0,23}(<=|>=|=)[A-Za-z0-9_,-]{1,48}$/;
 const STRUCTURES_RE =
   /^[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. /-]{1,64}(,[A-Za-z0-9]{1,3}:[A-Za-z0-9()',. /-]{1,64})*$/;
 const RETURNS_RE = /^[0-9]+(,[0-9]+)*(;[0-9]+(,[0-9]+)*)*$/;
-const SCHEME_RE = /^[A-Za-z]{1,64}$/;
+// A SCHEME IS ONE LETTER PER LINE, so its bound IS the line ceiling and
+// nothing else. REPINNED 2026-09-05 (M-239): ~~{1,64}~~, a hand copy of
+// the old MAX_LINES that the 447 repin left behind — a 65..447-line draft
+// passed checkLines and was then refused here, at a bound that named no
+// reason. Built from MAX_LINES so the two cannot part again.
+const SCHEME_RE = new RegExp(`^[A-Za-z]{1,${MAX_LINES}}$`);
 
 // One python at a time (see OPERATIONAL SHAPE above). A rejected run must
 // not wedge the chain, so the tail always settles.
@@ -185,7 +218,16 @@ let _workerBuf = '';
 let _workerNextId = 1;
 let _workerWaiter = null; // {id, resolve, reject} — the queue is serial, so at most one
 
-function _killWorker() {
+// A KILL CARRIES ITS REASON (`MISSING.md` M-240, 2026-09-05). Every kill
+// used to reject the waiter with the same bare "worker died", so the one
+// cause that must NOT fall back to the cold path — a reply past the output
+// cap, which the cold path holds too — was indistinguishable from a crash,
+// which must. MEASURED: `finish` on the planner's own 80-line fixture draft
+// answers exit 4 in ~600 s and prints 8.56 MB, twice this cap; the warm
+// worker was killed at the cap, the fallback re-ran the same 600 s cold, and
+// execFile then refused the same bytes at the same cap — twenty minutes to
+// deliver one truncated block.
+function _killWorker(why) {
   if (_worker) {
     try {
       _worker.kill('SIGKILL');
@@ -198,7 +240,9 @@ function _killWorker() {
   if (_workerWaiter) {
     const w = _workerWaiter;
     _workerWaiter = null;
-    w.reject(new Error('worker died'));
+    const e = new Error(why ? why.message || String(why) : 'worker died');
+    if (why && why.overflowed) e.overflowed = true;
+    w.reject(e);
   }
 }
 
@@ -217,7 +261,11 @@ function _spawnWorker() {
   w.stdout.setEncoding('utf8');
   w.stdout.on('data', (chunk) => {
     _workerBuf += chunk;
-    if (_workerBuf.length > MAX_OUTPUT_BYTES) return _killWorker();
+    if (_workerBuf.length > MAX_OUTPUT_BYTES)
+      return _killWorker({
+        overflowed: true,
+        message: `the harness printed past this connector's ${MAX_OUTPUT_BYTES}-byte output cap`,
+      });
     let nl;
     while ((nl = _workerBuf.indexOf('\n')) >= 0) {
       const line = _workerBuf.slice(0, nl);
@@ -302,6 +350,29 @@ function _runVerbWarm(args) {
   });
 }
 
+// THE OVERSIZE REFUSAL, WRITTEN IN THE HARNESS'S OWN VOICE so the verdict
+// builder reads it exactly as it reads a refusal the harness printed: exit 2
+// is "the harness did not answer; the report names why", which is precisely
+// what happened. It is NOT a cold fallback: the cold path carries the SAME
+// cap (`execFile`'s maxBuffer), so falling back could only spend the budget
+// a second time to fail the same way (M-240).
+function _oversizeRefusal(args) {
+  const mib = (MAX_OUTPUT_BYTES / (1024 * 1024)).toFixed(0);
+  return {
+    code: 2,
+    stdout:
+      `  REFUSED — ${args[0]} printed more than this connector can carry: its report ran past the ` +
+      `${mib} MiB output cap and was cut off, so no part of it is an answer.\n` +
+      `  A report grows with the SQUARE of the line count — the mandate prints every mandated pair, and a ` +
+      `plan draws a median 201 lines under the envelope derived on 2026-09-04 (MISSING.md M-239). MEASURED ` +
+      `2026-09-05 on the fixture drafts the planner draws: an 80-line finish prints 8.56 MB, twice this cap, ` +
+      `after ~600 s; a 47-line finish answers in 245 s and fits.\n` +
+      `  Ask for a shorter song (lyric_plan / lyric_grade / lyric_revise all take an exact 'lines'), or grade ` +
+      `the sections one at a time. A connector that pages a long report is MISSING.md M-240, open.\n`,
+    stderr: '',
+  };
+}
+
 function _runVerbCold(args) {
   return new Promise((resolve) => {
     execFile(
@@ -314,6 +385,13 @@ function _runVerbCold(args) {
         env: { ...process.env, PYTHONDONTWRITEBYTECODE: '1' },
       },
       (err, stdout, stderr) => {
+        // THE SAME CAP, ON THIS PATH TOO (M-240, 2026-09-05). `execFile`
+        // reports an over-cap child as a STRING code, which the -1 default
+        // below flattened into "subprocess failure (-1)" — the one shape a
+        // caller cannot act on. It is the same event the warm path names,
+        // so it gets the same named refusal and the same advice.
+        if (err && err.code === 'ERR_CHILD_PROCESS_STDIO_MAXBUFFER')
+          return resolve(_oversizeRefusal(args));
         // The CLI's exit codes are the contract: 0 answered clean,
         // 2 REFUSED (the harness did not answer), 3 answered with a
         // FLAG standing, 4 SUSPENDED. execFile treats any nonzero as
@@ -356,10 +434,15 @@ function runVerb(args) {
           (e) =>
             e && e.timedOut
               ? { code: -1, ...killed(e, t0) }
-              : (console.error(
-                  `[lyric] warm worker unavailable (${e && e.message}); answering '${args[0]}' on the COLD path`
-                ),
-                _runVerbCold(args).then((r) => stamp(r, 'cold-fallback')))
+              : e && e.overflowed
+                ? (console.error(
+                    `[lyric] '${args[0]}' printed past the ${MAX_OUTPUT_BYTES}-byte output cap — REFUSED, not re-run cold`
+                  ),
+                  stamp(_oversizeRefusal(args), 'killed'))
+                : (console.error(
+                    `[lyric] warm worker unavailable (${e && e.message}); answering '${args[0]}' on the COLD path`
+                  ),
+                  _runVerbCold(args).then((r) => stamp(r, 'cold-fallback')))
         )
       : _runVerbCold(args).then((r) => stamp(r, 'cold'))
   );
@@ -1113,10 +1196,17 @@ const formField = z
 const linesField = z
   .number()
   .int()
-  .min(4)
+  // THE FLOOR IS THE ENVELOPE'S, NOT A HAND NUMBER. REPINNED 2026-09-05
+  // (M-239): ~~.min(4)~~ admitted 4..11, and the harness refused every one of
+  // them by name (MEASURED: `--lines=4`, `=8`, `=11` all answer "outside the
+  // planner's envelope [12, 447]"). 4 was reachable when the volunteered set
+  // still carried the {4, 5} island; the derived envelope has no island now.
+  .min(12)
   .max(MAX_LINES)
   .optional()
-  .describe('Exact total line count to request (4-64). Omit to let the planner choose.');
+  .describe(
+    "Exact total line count to request (12-447 — the planner's envelope, derived from the calibrated length range; outside it the harness refuses by name). Omit to let the planner choose."
+  );
 
 // THE WRITER'S DECLARATION (MISSING.md M-55). Neither field is sampled here
 // and neither has a default: an omitted field means NOBODY SAID.
@@ -1141,6 +1231,9 @@ const linesField = z
 // dice rather than the bare door.
 const relationField = z
   .string()
+  // 64 CHARS IS THE RELATION NAME'S OWN BOUND, not a line count: the longest
+  // name in the vocabulary is well under it, and it is unrelated to
+  // MAX_LINES (checked 2026-09-05 under M-239's ceiling repin).
   .max(64)
   .optional()
   .describe(
@@ -1320,7 +1413,10 @@ export const LYRIC_TOOL_SCHEMAS = {
     seed: seedField.optional(),
     scheme: z
       .string()
-      .max(64)
+      // ONE LETTER PER LINE (see SCHEME_RE): REPINNED 2026-09-05 (M-239)
+      // from ~~64~~, the old MAX_LINES, which capped a mandate at 64 lines
+      // on a route whose draft ceiling is 447.
+      .max(MAX_LINES)
       .optional()
       .describe(
         "For a pasted song (no seed): the letter rhyme scheme over the lines, e.g. 'ABAB' (X = free)."
@@ -1448,7 +1544,10 @@ export const LYRIC_TOOL_SCHEMAS = {
     after: draftField,
     scheme: z
       .string()
-      .max(64)
+      // ONE LETTER PER LINE (see SCHEME_RE): REPINNED 2026-09-05 (M-239)
+      // from ~~64~~, the old MAX_LINES, which capped a mandate at 64 lines
+      // on a route whose draft ceiling is 447.
+      .max(MAX_LINES)
       .optional()
       .describe("Letter rhyme scheme over the lines, e.g. 'ABAB' (X = free line)."),
     groups: z
@@ -1500,7 +1599,10 @@ export const LYRIC_TOOL_SCHEMAS = {
     lines: draftField,
     scheme: z
       .string()
-      .max(64)
+      // ONE LETTER PER LINE (see SCHEME_RE): REPINNED 2026-09-05 (M-239)
+      // from ~~64~~, the old MAX_LINES, which capped a mandate at 64 lines
+      // on a route whose draft ceiling is 447.
+      .max(MAX_LINES)
       .optional()
       .describe("Letter rhyme scheme over the lines, e.g. 'ABAB' (X = free line)."),
     groups: z
@@ -1640,7 +1742,8 @@ export function registerLyricTools(server, tool) {
         '(HOMEOTELEUTON / MODAL_RHYME) and is UNSKIPPABLE AT ANY EXIT CODE — banned_pairs above zero means the song is ' +
         'NOT finished, whatever exit_code says: replace those end words (screen replacements with lyric_screen) and ' +
         'grade again; other NOTES are measurements, not defects. Exit 0 clean, 2 refused (e.g. wrong line count), 3 ' +
-        'flags standing. Revise the flagged and banned lines only and call again. ~15s.',
+        'flags standing. Revise the flagged and banned lines only and call again. ~~~15s.~~ ' +
+        'MEASURED 2026-09-04 on the fixture drafts the planner draws, and it is a CURVE with a WALL, not a flat number: 53 lines grade in 56 s, 108 lines in 330 s, and at 144 lines the default rhyme door REFUSES (exit 2) because it considers every candidate pair over the whole draft, so its cost grows with the SQUARE of the line count and it stops at a declared pair guard. The exact wall depends on the TEXT, not only its length. Declare a class:/type: relation per group to stay off that door, or grade a shorter draft. A client with a 60 s default timeout must raise it. ',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_grade,
     },
     (a) =>
@@ -2105,7 +2208,9 @@ export function registerLyricTools(server, tool) {
         'turning a request down (an unbuildable roster, an unattainable length) and is NOT a predicate rejecting a ' +
         'shape, so `planned 0` means the DECLARATION is unbuildable and the predicates never ran. The window is ' +
         `bounded at ${MAX_SWEEP_SEEDS} seeds per call and sweeps compose exactly — continue from next_seed_from ` +
-        'and add the counts. ~15s at the full window.',
+        'and add the counts. ~14s at the full window (the window is derived against a 60s client clock from a ' +
+        'MEASURED ~510ms per seed: a sweep PLANS every seed, and a plan now draws a median 201 lines). A selective ' +
+        'want accepts a few percent of seeds at best, so expect to page: call again from next_seed_from.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_sweep,
     },
     async (a) => {
@@ -2170,7 +2275,8 @@ export function registerLyricTools(server, tool) {
         'exits 0 for ACCEPTED and REJECTED alike, because the verdict is an answer and not an error. IT IS A DIFF, ' +
         'NOT A GRADE — it reports what this change fixed and introduced, and says nothing about defects that ' +
         'survived it untouched, so it does not and cannot report banned pairs. For "is the song finished", use ' +
-        'lyric_grade or lyric_check. ~25s.',
+        'lyric_grade or lyric_check. ~~~25s~~ — it scores the same pairs lyric_grade does, so it carries the same ' +
+        'length curve and the same wall: MEASURED 2026-09-04 on the fixture drafts the planner draws, and it is a CURVE with a WALL, not a flat number: 53 lines grade in 56 s, 108 lines in 330 s, and at 144 lines the default rhyme door REFUSES (exit 2) because it considers every candidate pair over the whole draft, so its cost grows with the SQUARE of the line count and it stops at a declared pair guard. The exact wall depends on the TEXT, not only its length. Declare a class:/type: relation per group to stay off that door, or grade a shorter draft. A client with a 60 s default timeout must raise it. ',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_verify,
     },
     (a) =>
@@ -2275,7 +2381,9 @@ export function registerLyricTools(server, tool) {
         "any exit code; other NOTES are measurements. THE EXIT CODE IS brief's, whose gates are song's alone: `flags` " +
         'and `whole_flags` in the verdict say what STANDS at exit 0, and `unreadable` names the pairs that were NOT judged. ' +
         'MEASURED 2026-09-01: ~20 s for a four-line draft cold, and it grows with the line count (a 16-line song grades in ' +
-        '~90-170 s) — not the ~10 s this text used to promise. A client with a 60 s default timeout must raise it.',
+        '~90-170 s) — not the ~10 s this text used to promise. A client with a 60 s default timeout must raise it. ' +
+        "AND THE CURVE HAS A WALL, added 2026-09-05 (`MISSING.md` M-240) when the planner's envelope reached 447 " +
+        'lines: MEASURED 2026-09-04 on the fixture drafts the planner draws, and it is a CURVE with a WALL, not a flat number: 53 lines grade in 56 s, 108 lines in 330 s, and at 144 lines the default rhyme door REFUSES (exit 2) because it considers every candidate pair over the whole draft, so its cost grows with the SQUARE of the line count and it stops at a declared pair guard. The exact wall depends on the TEXT, not only its length. Declare a class:/type: relation per group to stay off that door, or grade a shorter draft. A client with a 60 s default timeout must raise it. ',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_check,
     },
     (a) =>

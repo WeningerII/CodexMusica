@@ -291,8 +291,15 @@ try:
 finally:
     del os.environ["LYRIC_FIELD_MEMO"]
 _RV.field_memo_clear()
-check("the cap is the planner's own envelope (55 lines x 4 places x 2 bands, "
-      "rounded), stated once", _RV.FIELD_MEMO_CAP == 512)
+# REPINNED 2026-09-05 (`MISSING.md` M-239): the message named the planner's
+# envelope, which is 12..447 now (447 x 4 x 2 = 3,576), so the cap is no
+# longer the envelope's own number. The PIN is unchanged — 512, the owner's
+# constant — and only what it is said to be is repaired.
+check("the cap is ~~the planner's own envelope (55 lines x 4 places x 2 "
+      "bands, rounded)~~ 64 lines x 4 places x 2 bands: sized 2026-09-02 to "
+      "the 55-line envelope of that day, a BOUND with LRU eviction since the "
+      "envelope went to 447 (M-239), scaling filed under M-240 — "
+      "stated once", _RV.FIELD_MEMO_CAP == 512)
 
 print("\n7. THE PER-PAIR SCHEMA MEMO (M-217's remainder) — a candidate draft that "
       "differs by ONE line re-judges only the pairs that touch it, the verdicts "
@@ -378,8 +385,16 @@ check("a stream that cannot spell per-line signatures (no text lines) bypasses "
       "the memo instead of collapsing every line onto one key",
       _R7.pair_memo_tally()["slots"] == 0 and _R7.pair_memo_tally()["miss"] == 0,
       str(_R7.pair_memo_tally()))
+# REPINNED 2026-09-05 (`MISSING.md` M-239): the arithmetic below is still
+# true of a 55-line draft, but 55 is no longer the envelope's ceiling — 447
+# is, and a 447-line draft is 99,681 pairs. What 4,096 rows hold WHOLE is a
+# 91-line draft (4,095 pairs); at 92 lines (4,186) the LRU starts evicting.
+# The pinned values are unchanged.
 check("the two caps are stated once, and the row cap holds a 55-line draft's "
-      "1,485 pairs plus 48 one-line folds",
+      "1,485 pairs plus 48 one-line folds — ~~which is the planner's "
+      "longest~~ a 55-line draft being the 2026-09-02 envelope's longest; "
+      "the cap holds a whole draft to 91 lines and is a BOUND with LRU "
+      "eviction past it (M-239; scaling filed under M-240)",
       _R7.PAIR_MEMO_CAP == 4_096 and _R7.PAIR_MEMO_SLOTS == 128
       and _R7.PAIR_MEMO_CAP >= 55 * 54 // 2 + 48 * 54)
 _R7.pair_memo_clear()
@@ -449,8 +464,15 @@ for var, fn in (("LYRIC_SCORE_MEMO", lambda: _Rv(lex=lex8)._matrix(_var8)),
     finally:
         del os.environ[var]
 _RV.score_rank_memo_clear()
+# REPINNED 2026-09-05 (`MISSING.md` M-239): 55 lines was the envelope's
+# ceiling when this was sized (2026-09-02); it is 447 now and a 447-line
+# draft is 99,681 pair scores. 8,192 holds a whole draft to 128 lines
+# (8,128) and is exceeded at 129 (8,256). Pinned values unchanged.
 check("the caps are stated once and the score cap holds a 55-line draft's 1,485 "
-      "pairs plus every one-line fold of a long run",
+      "pairs plus every one-line fold of a long run — a 55-line draft being "
+      "the 2026-09-02 envelope's longest, not ~~the planner's~~ today's "
+      "(12..447 since M-239); whole drafts to 128 lines, a BOUND with LRU "
+      "eviction past that, scaling filed under M-240",
       _RV.SCORE_MEMO_CAP == 8_192 and _RV.RANK_MEMO_CAP == 2_048
       and _RV.RIME_MEMO_CAP == 200_000 and _RV.SCORE_MEMO_CAP >= 1_485 + 100 * 54)
 check("the disclosure names both memos and says served and judged apart",

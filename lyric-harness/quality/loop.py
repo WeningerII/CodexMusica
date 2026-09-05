@@ -160,23 +160,41 @@ result from a layer that was asked and came back clean.
   that can still be flags — `LEXICAL_MONOTONY`, `FUNCTION_WORD_HEAVY` — are
   whole-draft and invisible below. Measured on this suite's own fixture:
   4 lines is 37 tokens and lands in the `section` profile exactly, so
-  `LEXICAL_MONOTONY` IS a flag there; 8 and 10 lines (74 and 93 tokens) fall
-  between two profiles and every floor finding becomes a note. What is left
+  `LEXICAL_MONOTONY` IS a flag there; ~~8 and 10 lines (74 and 93 tokens)
+  fall between two profiles and every floor finding becomes a note~~ —
+  REPINNED 2026-09-05 (`MISSING.md` M-239): 74 and 93 tokens land in the
+  `lyric` profile EXACTLY (it covers 4-3,245 tokens, thresholds curves in
+  ln N), so nothing is downgraded for extrapolation at either length and a
+  length-sensitive flag CAN fire there. They fell between profiles until
+  2026-09-01 and were covered by the `short` band (50-150) from then until
+  the curve row superseded it. What is left
   that can actually start a round is the LENGTH-INDEPENDENT half —
   `CLICHE_PAIR` and `REPEAT_IN_VERSE`, both in `RHYME_FINDINGS`, so both earn
   a candidate field.
   AMENDED 2026-08-14, and the amendment narrows this loop's reach: only
   `REPEAT_IN_VERSE` is a flag at any length now. `CLICHE_PAIR` runs at any
-  length and may only REJECT inside the song profile's measured band, where
-  its false-positive rate was measured (6.35% in band against 14.74% outside
-  every profile — `quality/floor.py`'s CLICHE_PAIR docstring section). The
+  length and may only REJECT where a false-positive rate for it was
+  measured. ~~That is inside the song profile's measured band (6.35% in band
+  against 14.74% outside every profile)~~ — REPINNED 2026-09-05 (M-239):
+  the rate was measured in the two BAND rows and nowhere else, and they are
+  superseded for percentiles but are still the only cliche rates the floor
+  has, so the licence is: a FLAG at 50-150 tokens (`short`, 4.02%) and at
+  200-400 (`song`, 7.64%), and at an exact STANZA profile, where the
+  carry-over was measured; a NOTE at every other length, including the
+  lengths the `lyric` row now covers exactly but no cliche rate was ever
+  taken at. Measuring it per length bin over 4-3,245 tokens is owed (M-239).
+  `quality/floor.py`'s CLICHE_PAIR section and the finding's own evidence
+  string carry it. The
   two questions came apart: the membership test is length-blind, its LICENCE
   to reject is not. Priced on this suite's own fixtures, which is the only
   honest way to state it: at 4 lines / 37 tokens the `section` profile covers
-  the draft exactly, so a stock pair still starts a round there; at 8 and 10
-  lines it is now a note and starts none, so a draft between profiles whose
-  ONLY defect is a stock rhyme reports SUCCESS with the note standing rather
-  than spending rounds on it. That is the same shape as the three whole-draft
+  the draft exactly, so a stock pair still starts a round there; ~~at 8 and
+  10 lines it is now a note and starts none~~ — repinned 2026-09-05: 74 and
+  93 tokens sit inside the superseded `short` band's 50-150, so CLICHE_PAIR
+  is a FLAG at both and DOES start a round. The draft that reports SUCCESS
+  with a stock rhyme standing is now the one at a length no band row covers
+  (151-199 tokens, or over 400), where the finding is a note. That is the
+  same shape as the three whole-draft
   flags above — disclosed in `LoopResult`, not acted on. `ANAPHORA_OVERLOAD`
   names lines and so IS briefed, but it is not in `RHYME_FINDINGS`: the line
   comes back with an empty field and the round reports "no candidates

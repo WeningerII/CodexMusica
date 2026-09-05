@@ -143,8 +143,12 @@ def test_refusals():
           "repeat_licence" in BLOCKED_FORMS["ghazal"])
 
 
-#: 64 distinct CMUdict-readable end words — enough for the envelope's
-#: longest song. The dummy draft only has to be READABLE and honor the
+#: 64 distinct CMUdict-readable end words — ~~enough for the envelope's
+#: longest song~~. REPINNED 2026-09-05 (`MISSING.md` M-239): the envelope's
+#: longest song is 447 lines, not 64, so the bank is CYCLED modulo 64
+#: (`BANK[(i - 1) % len(BANK)]` below) and a 447-line dummy draft repeats
+#: each end word up to seven times. That is the fixture's repetition, not
+#: the planner's: the dummy draft only has to be READABLE and honor the
 #: plan's verbatim returns; the round trip asserts machinery outcomes
 #: (parses, judged counts, no drift), never quality verdicts.
 BANK = ("stone rain door light road name fire glass train hill salt wire "
@@ -221,11 +225,23 @@ def _round_trip_reviser():
 
 
 def _round_trip_one(seed):
-    """-> (seed, bad, judged, refused) for ONE seed of §3's sweep.
+    """-> (seed, bad, judged, refused, (walled, total_lines)) for ONE seed
+    of §3's sweep.
 
     Returns plain data rather than raising, because a worker's exception
     would reach the driver stripped of which seed produced it — and the
-    seed is the whole diagnostic."""
+    seed is the whole diagnostic.
+
+    REPINNED 2026-09-05 (`MISSING.md` M-240). Two repairs, neither of them
+    a change to what the sweep accepts. (a) THE ARITY IS FIVE ON EVERY
+    PATH: the blueprint-shape-mismatch return below was a 4-tuple while the
+    driver unpacks five, so any seed whose blueprint shape mismatched would
+    have died in the driver with a ValueError instead of reporting the
+    mismatch it found. (b) THE FIFTH SLOT CARRIES THE TOTAL, not just the
+    fact of the wall: the pair guard M-240 records is a function of DRAFT
+    LENGTH (53 lines grade in 56 s, 108 in 330 s, 144 refuse), so a list of
+    walled SEED NUMBERS cannot say where the wall stands. The driver prints
+    the walled seeds' totals beside them."""
     import quality.fit as FT
     import quality.schemes as SC
     from quality.grid import song_from_blueprint
@@ -248,8 +264,10 @@ def _round_trip_one(seed):
                 or len(song.sections) != len(plan["sections"])):
             bad.append((seed, "blueprint shape mismatch"))
             # `continue` in the serial loop; this seed is DONE, and the
-            # early return is the same skip one scope out.
-            return seed, bad, judged_total, refused_total
+            # early return is the same skip one scope out. FIVE-TUPLE
+            # (2026-09-05, M-240): the driver unpacks five on every path.
+            return (seed, bad, judged_total, refused_total,
+                    (False, plan["total_lines"]))
         # MEMBERS ARE LEFT AS STRINGS, exactly as the CLI's own
         # `--groups=` reader leaves them since 2026-08-23: a member may
         # name WHERE in its line the requirement binds (`3.head`,
@@ -308,9 +326,23 @@ def _round_trip_one(seed):
                     n != 0 or s["bars"] < 1):
                 bad.append((seed, f"instrumental {s['name']} carries "
                                   f"{n} line(s), {s['bars']} bar(s)"))
+    except RuntimeError as e:
+        # THE SCHEMA DOOR'S PAIR GUARD (`MISSING.md` M-240, 2026-09-04): a
+        # plan past the wall — between 108 lines (grades, 330 s) and 144
+        # (refuses) on the fixture draft — reachable since M-239 widened the envelope
+        # to 12..447 — cannot be graded through the 77-schema default door,
+        # which refuses at its declared pair guard. That is the grader's
+        # own limit, recorded as its OWN count beside the three, never as a
+        # planner shape the graders cannot take and never summed into them.
+        if "candidate explosion" not in str(e):
+            bad.append((seed, f"{type(e).__name__}: {e}"))
+        else:
+            return (seed, bad, judged_total, refused_total,
+                    (True, plan["total_lines"]))
     except Exception as e:  # noqa: BLE001 — any raise is the failure
         bad.append((seed, f"{type(e).__name__}: {e}"))
-    return seed, bad, judged_total, refused_total
+    return (seed, bad, judged_total, refused_total,
+            (False, plan["total_lines"]))
 
 
 def test_the_round_trip():
@@ -341,17 +373,38 @@ def test_the_round_trip():
         _results = [_round_trip_one(_s) for _s in range(20)]
     # SEED ORDER, explicitly. `map` already preserves it; sorting says so, so
     # a later switch to `as_completed` cannot quietly reorder `bad`.
-    for _seed, _b, _j, _r in sorted(_results, key=lambda t: t[0]):
+    # REPINNED 2026-09-05 (`MISSING.md` M-240): the fourth count recorded
+    # SEED NUMBERS, and a seed number says nothing about where the schema
+    # door's pair guard stands — the wall is a function of DRAFT LENGTH.
+    # Both lists carry `(seed, total_lines)` now, so the detail line below
+    # states the wall's height in the units the guard is measured in. The
+    # ACCEPTANCE RULE IS UNCHANGED: `not bad and judged_total > 0 and
+    # len(walled) < 20`, exactly as before.
+    walled = []
+    graded = []
+    for _seed, _b, _j, _r, (_wall, _tot) in sorted(_results,
+                                                   key=lambda t: t[0]):
         bad.extend(_b)
         judged_total += _j
         refused_total += _r
+        (walled if _wall else graded).append((_seed, _tot))
     check("20 seeds: blueprint READS, mandate PARSES, mandated == judged + "
           "REFUSED with judged > 0 (three counts, never summed: doctrine "
           "79), every refusal is a NO-ANCHOR slot on the dummy draft's own "
           "words rather than a shape the graders cannot take, and no "
-          "verbatim/drift finding stands on a planner shape",
-          not bad, f"bad: {bad or 'none'}; "
-                   f"judged {judged_total}, slot-refused {refused_total}")
+          "verbatim/drift finding stands on a planner shape — a seed past "
+          "the schema door's pair guard (M-240) is a FOURTH count, the "
+          "grader's own wall, and at least one seed must have graded",
+          not bad and judged_total > 0 and len(walled) < 20,
+          f"bad: {bad or 'none'}; "
+          f"judged {judged_total}, slot-refused {refused_total}, "
+          f"walled at the schema door {len(walled)} seed(s) as "
+          f"(seed, total_lines) {walled}"
+          + (f", walled totals {min(t for _, t in walled)}.."
+             f"{max(t for _, t in walled)}" if walled else "")
+          + (f"; graded totals {min(t for _, t in graded)}.."
+             f"{max(t for _, t in graded)}" if graded else
+             "; nothing graded"))
 
     # AND THE SECTION'S GRADING POWER HAS A FLOOR IT DERIVES FROM ITS OWN
     # FIXTURE, so `judged > 0` cannot decay to "one pair answered".
@@ -596,7 +649,10 @@ def test_the_measure():
     beats, meters, units = [], set(), set()
     funcs, ks = set(), Counter()
     totals = set()
-    for seed in range(200):
+    #: named 2026-09-05 so the coverage expectation below cannot drift from
+    #: the loop it is an expectation for (M-239 repin).
+    _N_MEASURE = 200
+    for seed in range(_N_MEASURE):
         p = make_plan(seed=seed)
         m = p["sections"][0]["meter"]
         beats.append(m["beats"])
@@ -708,7 +764,9 @@ def test_the_measure():
     # moved, because a shape the form forbids is no longer drawn.
     # ~~reaching under 15 and over 60 lines~~ — REPINNED 2026-08-23. 60 was
     # inside the LITERAL envelope `total_lines (4, 64)`; the envelope is
-    # derived now and its ceiling is 55, because that is the longest song
+    # derived now and its ceiling ~~is 55~~ was 55 on that date (447 since
+    # 2026-09-04, `MISSING.md` M-239 — repinned here 2026-09-05), because
+    # that is the longest song
     # whose expected token count still lands inside a MEASURED floor profile.
     # Asserting 60 would be asserting that the planner volunteers a length
     # the floor cannot grade with teeth — the opposite of what this repin is
@@ -724,14 +782,32 @@ def test_the_measure():
     # The claim was always COVERAGE, so coverage is what is asserted — as a
     # fraction of the DERIVED set, which cannot go stale when the set moves.
     from quality import plan as _PL
-    _env = set(_PL.song_line_counts())
-    check("totals cover the envelope's order, not one shape: most of the "
-          "DERIVED envelope reached, both ends included",
-          len(totals) >= 0.85 * len(_env) and min(totals) <= _lo + 5
+    # ~~`_env = set(_PL.song_line_counts())`~~ — REPINNED 2026-09-05
+    # (`MISSING.md` M-239). `song_line_counts()` is 447 values (1..447) but
+    # the planner DRAWS over `fillable_line_counts()`, 436 values (12..447),
+    # so the expectation has to be computed over the draw's own domain or it
+    # is an expectation for a set nothing samples.
+    _env = set(_PL.fillable_line_counts())
+    # REPINNED 2026-09-04 (`MISSING.md` M-239): the envelope is 12..447 now
+    # and ~~300 draws~~ 200 draws (`_N_MEASURE`, the seed loop above; "300"
+    # was a third figure beside the set's 447 and the draw's 436, repinned
+    # 2026-09-05) cannot reach 85% of the draw's
+    # 436 values — a uniform draw reaches
+    # 1 - (1 - 1/|env|)^seeds of them in expectation, about 37% here. The
+    # claim is still COVERAGE, stated against that expectation rather than
+    # against a literal share, so it cannot go stale when the set moves
+    # again. Both ends within 5 of the derived limits, as before.
+    import math as _m
+    _expect = len(_env) * (1 - (1 - 1 / len(_env)) ** _N_MEASURE)
+    check("totals cover the envelope's order, not one shape: the distinct "
+          "totals reached are most of what a UNIFORM draw over the DERIVED "
+          "envelope reaches in this many seeds, both ends included",
+          len(totals) >= 0.85 * _expect and min(totals) <= _lo + 5
           and max(totals) >= _hi - 5,
           f"{len(totals)} distinct of {len(_env)} in the envelope "
-          f"({100 * len(totals) / len(_env):.0f}%), "
-          f"[{min(totals)}, {max(totals)}] against [{_lo}, {_hi}]")
+          f"({100 * len(totals) / len(_env):.0f}%; a uniform draw expects "
+          f"{_expect:.0f}), [{min(totals)}, {max(totals)}] against "
+          f"[{_lo}, {_hi}]")
 
     # THE MOVE-37 PIN: the corpus samples nothing. The planner imports
     # exactly its three quality dependencies and never opens a file — a
@@ -991,7 +1067,9 @@ def _envelope_tracks_the_floor():
     from quality import floor as FL
     from quality import plan as _PL
     before = set(_PL.gradeable_line_counts())
-    song = [p for p in FL.PROFILES if p.name == "song"][0]
+    # The LIVE lyric-sheet profile (M-239): a superseded row's band is read
+    # by nothing, so perturbing it would prove nothing.
+    song = [p for p in FL.PROFILES if not p.n_lines and not p.superseded_by][0]
     old_hi = song.hi
     try:
         song.hi = old_hi + 200
@@ -2121,9 +2199,19 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
 
     union = set(_PL.gradeable_line_counts())
     song = set(_PL.song_line_counts())
-    check("the SONG band is a strict SUBSET of the union — this narrows "
-          "what the planner volunteers, it does not widen it",
-          song < union, f"song {len(song)} of union {len(union)}")
+    # REPINNED 2026-09-04 (`MISSING.md` M-239): the one live lyric-sheet
+    # profile spans 4-3,245 tokens, which is 1..447 lines at the measured
+    # tokens-per-line band and CONTAINS every stanza profile's reach, so the
+    # song set is no longer a strict subset of the union — it IS the union.
+    # The claim that survives: the planner draws from the SONG set, and
+    # that set is never wider than what some profile can grade.
+    check("the SONG band is contained in the union of every live profile's "
+          "reach — this never widens what the planner volunteers past what "
+          "the floor can grade; since M-239 the two coincide, because the "
+          "lyric-sheet profile's range contains the quatrain's and the "
+          "sonnet's",
+          song <= union and song == union,
+          f"song {len(song)} of union {len(union)}")
     # REPINNED 2026-09-01 (`MISSING.md` M-193): a SECOND lyric-sheet
     # profile, `short` (50-150 tokens), reaches 6..20 lines, so the SONG
     # set is {6..20} | {22..55} with ONE hole at the seam between the two
@@ -2134,14 +2222,17 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # and this one is the seam between two, not a fact about songs. The
     # union's own 6-11 and 18-21 holes are FILLED by the short band and
     # it now carries the same single seam.
-    check("and its one hole is the SEAM between the two calibrated bands "
-          "(21 lines), where the union used to carry the quatrain-sonnet "
-          "and sonnet-song holes as well — every hole is a fact about which "
-          "bands were unioned, never about songs",
-          set(range(6, 21)) <= song and set(range(22, 56)) <= song
-          and 21 not in song and len(_PL.line_count_gaps(song)) == 1
-          and _PL.line_count_gaps(union) == _PL.line_count_gaps(song),
-          f"song gaps {_PL.line_count_gaps(song)}, "
+    # REPINNED 2026-09-04 (M-239): ~~one hole at 21~~ — NO hole. The seam
+    # was the space between two calibrated bands, and one profile covering
+    # 4-3,245 tokens has no seam. This docstring's own diagnosis — every
+    # hole was a fact about which bands were unioned, never about songs —
+    # is what the closure confirms.
+    check("and there is NO hole at all — every former seam (6-11, 18-21, "
+          "21) was the space between two calibrated bands, and the "
+          "length-curve profile has none",
+          song == set(range(1, 448)) and _PL.line_count_gaps(song) == []
+          and _PL.line_count_gaps(union) == [],
+          f"song {min(song)}..{max(song)} gaps {_PL.line_count_gaps(song)}, "
           f"union gaps {_PL.line_count_gaps(union)}")
     # ===================================================================
     # M-133, 2026-08-26. The union's holes were DISCLOSED in the evidence
@@ -2212,27 +2303,81 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # Under the old three-profile table that read 2 == 2 - 0; it reads
     # 1 == 3 - 2 now, and the single survivor is the sonnet-song seam
     # M-131 opened (18-21), narrowed to 21 by the short band from below.
-    check("...and the union's hole count is the number of seams between "
-          "adjacent reaches that neither touch nor overlap — one hole per "
-          "such seam — which reads 1 == 3 - 2 over four profiles: the short "
-          "band abuts the section's reach and overlaps the sonnet's, and "
-          "only the sonnet-song seam M-131 opened still stands open, at 21",
-          len(holes) == (len(reaches) - 1) - len(touching) == 1
-          and len(touching) == 2,
-          f"{len(holes)} hole(s) {holes} over {len(reaches)} reaches "
-          f"{ {k: (min(v), max(v)) for k, v in ordered} }; "
-          f"touching {touching}")
+    #
+    # ~~REPINNED 2026-09-04 (M-239): … every seam touches and the hole
+    # count reads 0 == 2 - 2.~~ — STRUCK 2026-09-05, AND THE STRIKE IS THE
+    # FINDING. That repin kept the seam identity and only moved its
+    # arithmetic, and the identity is what M-239 broke. MEASURED: the live
+    # reaches are lyric 1-447, section 4-5, sonnet 12-17; ordered by their
+    # MINIMA that is lyric, section, sonnet, and the adjacent-pair test
+    # reads (lyric, section) touching at 448 >= 4 but (section, sonnet)
+    # NOT, at 6 >= 12 — so `touching` is 1 and `holes == seams - touching`
+    # asserts 0 == 1, which is why this check went red the hour the row
+    # was adopted. The identity was never general: it models reaches laid
+    # END TO END, and one reach CONTAINING the others is a different
+    # arrangement, in which a min-ordered neighbour is not a seam at all.
+    # A repin that had only moved the numbers would have been a check
+    # tuned to its own answer.
+    #
+    # WHAT IS TRUE OF ANY ARRANGEMENT, and what is pinned instead: the
+    # union's holes are exactly the values inside its span that no reach
+    # covers — that is `line_count_gaps`' own definition, so asserting it
+    # alone would be circular (the defect two comments up). The CONTINGENT
+    # property that discriminates this table is CONTAINMENT: one reach
+    # contains every other, so the union IS that reach and no hole can
+    # exist. It is contingent because it is false of every table this
+    # repo shipped before 2026-09-04, and the mutation below shows it
+    # failing.
+    _by_size = sorted(reaches.items(), key=lambda kv: len(kv[1]), reverse=True)
+    _widest, _wr = _by_size[0]
+    _contained = [n for n, r in _by_size[1:] if r <= _wr]
+    check("...and the union has NO hole because one reach CONTAINS every "
+          "other — the lyric-sheet reach, which is the only live "
+          "`n_lines == 0` row's, so the union IS that reach; the "
+          "end-to-end seam identity the two readings above pinned does "
+          "not describe this arrangement and was struck rather than "
+          "re-fitted",
+          holes == [] and len(_contained) == len(reaches) - 1
+          and union == _wr,
+          f"{len(holes)} hole(s) {holes}; widest {_widest} "
+          f"{min(_wr)}..{max(_wr)} contains {_contained} of "
+          f"{[k for k, _ in _by_size[1:]]}; "
+          f"reaches { {k: (min(v), max(v)) for k, v in ordered} }; "
+          f"min-ordered touching {touching}")
+    # AND THE CONTAINMENT IS NOT FREE: narrow the sheet row until it stops
+    # covering the sonnet's reach and a hole opens, which is what makes
+    # the check above discriminating rather than a restatement of
+    # `line_count_gaps`. The perturbation is restored.
+    _sheet = [p for p in FL.PROFILES if not p.n_lines and not p.superseded_by][0]
+    _old_lo, _old_hi = _sheet.lo, _sheet.hi
+    try:
+        _sheet.lo, _sheet.hi = 200, 400
+        _PL.gradeable_line_counts.cache_clear()
+        _narrow_union = set(_PL.gradeable_line_counts())
+        _narrow_holes = _PL.line_count_gaps(_narrow_union)
+    finally:
+        _sheet.lo, _sheet.hi = _old_lo, _old_hi
+        _PL.gradeable_line_counts.cache_clear()
+    check("MUTATION — narrow the live sheet row back to a 200-400-token "
+          "BAND and the containment breaks: its reach no longer covers "
+          "the stanza reaches, the union re-opens holes, and the "
+          "perturbation is restored",
+          _narrow_holes and not _PL.line_count_gaps(
+              set(_PL.gradeable_line_counts())),
+          f"{len(_narrow_holes)} hole(s) under the narrowed row "
+          f"{_narrow_holes}, {len(holes)} restored")
     # THE PROFILE IS IDENTIFIED BY ITS OWN DECLARATION, not by its name. A
     # name test would be a second statement of which profile means what
     # (doctrine 1). Proven by ASKING the table rather than by reading the
     # source: exactly the profiles with `n_lines == 0` must reach the band.
-    lyric = [p for p in FL.PROFILES if not p.n_lines]
+    lyric = [p for p in FL.PROFILES if not p.n_lines and not p.superseded_by]
     _tlo, _thi = _PL.tokens_per_line_band()
-    check("the band is the reach of exactly the profile(s) declaring "
-          "`n_lines == 0` — TWO since M-193, and the set is their union: "
+    check("the band is the reach of exactly the LIVE profile(s) declaring "
+          "`n_lines == 0` — ONE since M-239 (the two band rows are "
+          "superseded and read by nothing), and the set is its reach: "
           "a lyric sheet has no fixed line count, which is the coordinate, "
           "not the string 'song'",
-          len(lyric) == 2 and min(song) >= 1
+          len(lyric) == 1 and min(song) >= 1
           and max(song) == max(int(p.hi // _tlo) for p in lyric)
           and min(song) == min(math.ceil(p.lo / _thi) for p in lyric)
           and song == set().union(*[
@@ -2240,8 +2385,11 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
               for p in lyric]),
           f"{[p.name for p in lyric]}, {min(song)}..{max(song)}")
 
-    # MUTATION 1 — the band must be a FUNCTION of the song profile, not a
-    # literal wearing a derivation (doctrine 48).
+    # MUTATION 1 — the band must be a FUNCTION of the ~~song~~ lyric-sheet
+    # profile, not a literal wearing a derivation (doctrine 48). REPINNED
+    # 2026-09-05 (`MISSING.md` M-239): `lyric[0]` below is the one LIVE
+    # `n_lines == 0` row, which is `lyric` (4-3,245 tokens); `song`
+    # (200-400) and `short` (50-150) are superseded and read by nothing.
     old_hi = lyric[0].hi
     try:
         lyric[0].hi = old_hi + 200
@@ -2250,7 +2398,8 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     finally:
         lyric[0].hi = old_hi
         _PL.song_line_counts.cache_clear()
-    check("MUTATION — widening the song profile's measured token band "
+    check("MUTATION — widening the LIVE lyric-sheet profile's measured "
+          "token band (`lyric` since M-239, not the superseded `song` row) "
           "widens the SONG line band with it, and the perturbation is "
           "restored",
           widened > song and set(_PL.song_line_counts()) == song,
@@ -2293,7 +2442,8 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     ones = sum(1 for x in sung if x == 1) / len(sung)
     check("no seed is lost to the narrower band — 120 of 120 still plan",
           len(tot) == 120, f"{len(tot)} plans")
-    check("every drawn total is INSIDE the song profile's own band, so the "
+    check("every drawn total is INSIDE the lyric-sheet profile's own band "
+          "(`lyric` since M-239, repinned 2026-09-05), so the "
           "planner volunteers no length that profile cannot hold to "
           "anything", all(t in song for t in tot),
           f"[{min(tot)}, {max(tot)}] against [{min(song)}, {max(song)}]")
@@ -2613,8 +2763,15 @@ def test_the_relation_draw():
                       for c in traits["assonance"]["claims"]),
           f"semirhyme {traits['semirhyme']['claims']}")
     from quality import floor as FLR
-    _aprof = next(p for p in FLR.PROFILES if p.n_lines == 0)
-    _amax = FLR.FloorDeclaration().resolve("anaphora_max", _aprof)
+    # The LIVE sheet profile, at a DERIVED length — the planner's own idiom
+    # since M-239: a curve needs N tokens and a plan has lines, so the
+    # total times the measured tokens-per-line band's midpoint stands in.
+    _aprof = next(p for p in FLR.PROFILES
+                  if p.n_lines == 0 and not p.superseded_by)
+    from quality import plan as _PLN
+    _tlo, _thi = _PLN.tokens_per_line_band()
+    _amax = FLR.FloorDeclaration().resolve(
+        "anaphora_max", _aprof, max(1, int(round(24 * (_tlo + _thi) / 2))))
     check("M-125(b): the forced-opener ceiling is READ from the floor's "
           "own lyric-sheet profile (n_lines == 0, never by name — the "
           "M-106 idiom), so the gate and ANAPHORA_OVERLOAD cannot hold "
@@ -3195,7 +3352,7 @@ def test_the_delegated_rulings(FAILURES=None):
     bwpl = {k: _PL.SWEEP_MEASURES["bound_words_per_line"][1](p)
             for k, p in plans.items()}
     sparse = [k for k, v in bwpl.items() if v <= 1.5]
-    check("...and the SPARSE band the five listenable songs occupy (M-181: "
+    check("...and the SPARSE band M-181's five songs occupy (M-181, wording struck M-238: "
           "<= 1.5 bound words a line) is REACHABLE — `plan --sweep=1-100 "
           "--want=bound_words_per_line<=1.5` accepted 0 of 99 before the "
           "ruling and 26 after",
@@ -3311,9 +3468,11 @@ def test_the_delegated_rulings(FAILURES=None):
     check("...the planner's line envelope is the gradeable set restricted "
           "to totals whose stanza-sized cell ceiling can hold that many "
           "sections, so a total the pattern draw would reject on every "
-          "attempt is never drawn: the short profile (M-193) took the "
-          "gradeable set to 6 lines and the fillable floor is 12",
-          fill <= grade and min(fill) == 12 and min(grade) == 6
+          "attempt is never drawn: ~~the short profile (M-193) took the "
+          "gradeable set to 6 lines~~ the length-curve profile (M-239) takes "
+          "it to 1 line (4 tokens at the band's highest tokens-per-line) "
+          "and the fillable floor is 12",
+          fill <= grade and min(fill) == 12 and min(grade) == 1
           and all(max(1, t // _PL.stanza_line_floor()) >= need for t in fill)
           and ENVELOPE["total_lines"] == (min(fill), max(fill)),
           f"gradeable {min(grade)}..{max(grade)}, fillable {min(fill)}.."

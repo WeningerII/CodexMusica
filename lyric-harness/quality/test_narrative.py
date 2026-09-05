@@ -113,7 +113,18 @@ def test_measured_seeds():
           "vocabulary (35 admit / 5 zero through both), and 2026-09-01 "
           "under the short-profile envelope (seeds 1-40: 36 admit, 4 "
           "admit zero — the census moved by one for the first time, and "
-          "the exemplars are re-chosen again)")
+          "the exemplars are re-chosen again). "
+          "~~That 2026-09-01 sweep is the last basis~~ — REPINNED "
+          "2026-09-05 (`MISSING.md` M-239): the `lyric` LENGTH-CURVE "
+          "profile superseded the `song` and `short` band rows on "
+          "2026-09-04, `song_line_counts()` is 1..447 and "
+          "`fillable_line_counts()` 12..447 (was {6..20} | {22..55} and "
+          "12..55), so every seed's drawn LENGTH was re-rolled a fifth "
+          "time and ~~the figures printed here were measured under the "
+          "12..55 envelope, not this one~~ — RE-SWEPT 2026-09-05 under "
+          "M-239's envelope, which is what the figures below now are: "
+          "seeds 1-40 are ~~36 admit / 4 zero~~ -> 34 ADMIT / 6 ZERO, "
+          "and every exemplar is re-chosen from that sweep")
     from quality import plan as P
     #: REPINNED 2026-08-26 (`MISSING.md` M-133) BY THE M-131 SONG-PROFILE
     #: RE-ADOPTION, AND THE PIN THAT MOVED IS NOT THE PIN THAT MATTERS.
@@ -162,7 +173,17 @@ def test_measured_seeds():
     #: is the census: **35 admit / 5 zero over seeds 1-40, unmoved a
     #: second time**, across a fully remapped seed space — the ratio is
     #: a property of the grammar and the rules, not of which seeds carry
-    #: which shapes. Every exemplar below is re-chosen from the new
+    #: which shapes.
+    #: ~~the ratio is a property of the grammar and the rules~~ —
+    #: STRUCK 2026-09-05 (`MISSING.md` M-239), and this is a finding, not
+    #: a repin: the census has now moved under three consecutive
+    #: envelopes (35/5 -> 36/4 -> **34/6 over seeds 1-40**, measured
+    #: below), so the ratio is a property of the ENVELOPE as much as of
+    #: the grammar. What held across five generations was the two-digit
+    #: neighbourhood, not the number. The 2026-08-26 and 2026-08-28
+    #: readings above stay as dated history of the sets they were taken
+    #: over (doctrine 17).
+    #: Every exemplar below is re-chosen from the new
     #: space: the opening refusals are seeds 9 (bridge-first), 25
     #: (false_ending-first) and 39 (tag-first, the one carrier that
     #: HELD); seed 28 is the RESOLVE-clause zero at position 2
@@ -186,11 +207,32 @@ def test_measured_seeds():
     #: 456576): both drew lengths the old set also held, at the same
     #: stream position, so nothing downstream moved.
     #:
-    #: THE EXEMPLARS, RE-CHOSEN FROM THE NEW SPACE: the opening refusals
-    #: are seed 9 (bridge-first, HELD through the move) and seed 15
-    #: (SOLO-first — a kind no earlier generation witnessed: `solo`
-    #: carries no ESTABLISH face, so a song cannot open on it); the
-    #: RESOLVE-clause zeros at position 2 are seeds 30 ([intro,
+    #: REPINNED A FIFTH TIME 2026-09-05 (`MISSING.md` M-239) — HEADER TEXT
+    #: ONLY, THE CAUSE IS THE ENVELOPE A THIRD TIME: the two
+    #: fixed-percentile band rows (`song` 200-400 tokens, `short` 50-150)
+    #: are SUPERSEDED by one LENGTH-CURVE profile, `lyric`, covering
+    #: 4-3,245 tokens with thresholds that are curves in ln N; they keep
+    #: their place in `PROFILES` with `superseded_by="lyric"` for their own
+    #: drift checks and are never applied. `song_line_counts()` went
+    #: ~~{6..20} | {22..55}, 49 values, one hole at 21~~ -> **1..447, 447
+    #: values, NO hole**, and the planner's FILLABLE set went ~~12..55, 43
+    #: values~~ -> **12..447, 436 values**, `ENVELOPE["total_lines"]`
+    #: (12, 447). The default draw is uniform over 12..447 (measured
+    #: median 201 lines over 40 seeds, against ~35 under 12..55), so every
+    #: seed re-dealt its LENGTH first and its roster after, a fifth time.
+    #: WHAT THAT COSTS THIS SUITE, SAID PLAINLY: the census and exemplars
+    #: below, and §6's seed-31 pin, were MEASURED under the 12..55
+    #: envelope and are not re-measured in this repin — they are readings
+    #: of a set the floor no longer has. They are repinned by the worker
+    #: who owns the re-sweep; this note is the disclosure that the
+    #: question is open, not an answer to it (doctrine 17: the numbers
+    #: that were true when written stay legible inside the strike).
+    #:
+    #: ~~THE EXEMPLARS, RE-CHOSEN FROM THE NEW SPACE: the opening
+    #: refusals are seed 9 (bridge-first, HELD through the move) and
+    #: seed 15 (SOLO-first — a kind no earlier generation witnessed:
+    #: `solo` carries no ESTABLISH face, so a song cannot open on it);
+    #: the RESOLVE-clause zeros at position 2 are seeds 30 ([intro,
     #: false_ending]) and 34 ([breakdown, false_ending]). **THE THIRD
     #: DEPTH IS GONE FROM THE DICE**: no seed in 1-100 collapses at
     #: position 3 under this envelope (measured: nine zeros, at 1 or 2),
@@ -199,27 +241,98 @@ def test_measured_seeds():
     #: planner's own dice happen to reach is a property of the envelope,
     #: and this one does not reach three (doctrine 17 keeps the third
     #: depth legible as history). The four seeds that crossed a class
-    #: boundary keep their rows at the new values, as before.
+    #: boundary keep their rows at the new values, as before.~~
+    #:
+    #: THE RE-SWEEP THAT NOTE ASKED FOR, RUN 2026-09-05 (`MISSING.md`
+    #: M-239) — THE PARAGRAPH ABOVE IS STRUCK IN FULL, AND NOT ONLY
+    #: BECAUSE ITS NUMBERS AGED: swept at HEAD over seeds 1-100
+    #: (`P.make_plan(s)` -> `N.count_lineups`, plus the collapse depth of
+    #: every prefix), **NONE of the four exemplars it names is a
+    #: zero-shape at all**: seed 9 draws 10,227,548,160 line-ups, seed 15
+    #: 394,496, seed 30 44,308,800, seed 34 11,482,560. They are pinned
+    #: below at those values as class-crossers rather than deleted.
+    #:
+    #: THE MEASURED ZERO CLASS, seeds 1-100: **21 zeros** — 4, 6, 19, 23,
+    #: 24, 27, 41, 51, 52, 56, 67, 71, 77, 78, 79, 81, 82, 87, 88, 89,
+    #: 100 (against the struck paragraph's "nine zeros, at 1 or 2").
+    #: ~~THE THIRD DEPTH IS GONE FROM THE DICE~~ — **STRUCK: the third
+    #: depth is BACK, and the dice now reach FIVE.** The full ladder,
+    #: each rung pinned below: position 1 seeds 19 (`false_ending`-first),
+    #: 24 (`tag`-first), 27 (`bridge`-first); position 2 seeds 77
+    #: ([intro, false_ending]) and 89 ([vamp, false_ending]); position 3
+    #: seed 23 ([intro, chorus, false_ending]) — seed 27's 2026-08-28
+    #: witness of a third depth is RESTORED by a different seed, so that
+    #: strike is itself struck; position 4 seed 6; position 5 seed 4,
+    #: the deepest collapse any generation of this suite has witnessed
+    #: from the planner's own dice.
+    #:
+    #: SEED 4 CROSSED BACK. The 2026-08-26 note pinned seed 4 at its new
+    #: shape saying "a seed that crossed a class boundary once is exactly
+    #: the seed worth watching cross back". It has: zero again, and it is
+    #: the position-5 witness. The watch was worth keeping.
+    #:
+    #: A PREMISE REPAIR THE SWEEP FORCED, and the reason the struck
+    #: paragraph's `solo` claim could never have been true: a WORDLESS
+    #: opener makes the length-1 prefix count 0 without refusing
+    #: anything. Measured: `count_lineups(["solo"]) == 0` and
+    #: `count_lineups(["interlude"]) == 0`, but
+    #: `count_lineups(["solo", "verse", "chorus"]) == 8` — `solo` carries
+    #: NO atom at all, so it is not a function that "cannot open a song",
+    #: it is a function that contributes no line-up until a sung section
+    #: follows. **"SOLO-FIRST OPENING REFUSAL" HAS NO WITNESS AND IS NOT
+    #: A KIND**: searched every zero-shape in seeds 1-300 by first
+    #: function — `intro` 27, `false_ending` 9, `tag` 9, `bridge` 5,
+    #: `chorus` 3, `vamp` 2, `hook` 1, `solo` 1 (seed 261) — and seed
+    #: 261's depth-1 reading is exactly this artifact, not a refusal.
+    #: The three position-1 exemplars pinned below are therefore chosen
+    #: with SUNG openers whose every face is illegal at the opening
+    #: (RESOLVE, JUDGE, TURN), which is the distinction §2 proves by hand.
+    #: REPINNED 2026-09-05 (`MISSING.md` M-239) FROM THE RE-SWEEP ABOVE.
+    #: Every one of the twelve rows moved. ~~seeds 1 and 7
+    #: byte-identical~~ — **STRUCK: that run of two generations ends
+    #: here.** Seed 1 goes ~~924672~~ -> 13,602,816 and seed 7 ~~456576~~
+    #: -> 1,485,125,222,400; under M-193 both had drawn lengths the
+    #: {6..20}|{22..55} set also held, and a 12..447 set holds neither
+    #: draw at the same stream position. The old values stay legible
+    #: here beside the new ones.
     pins = {
-        # shapes with line-ups — seeds 1 and 7 byte-identical
-        1: 924672, 7: 456576, 31: 136448, 4: 1664,
-        # zeros refused AT THE OPENING: bridge-first, solo-first
-        9: 0, 15: 0,
+        # shapes with line-ups. ~~1: 924672, 7: 456576, 31: 136448~~
+        # (2026-09-01) -> re-derived 2026-09-05:
+        1: 13602816, 7: 1485125222400, 31: 63232,
+        # class-crossers, watched: the four seeds the struck 2026-09-05
+        # paragraph called zeros are shapes — ~~9: 0, 15: 0, 30: 0,
+        # 34: 0~~ -> measured
+        9: 10227548160, 15: 394496, 30: 44308800, 34: 11482560,
+        # class-crossers, watched from 2026-08-26/28: former zeros that
+        # still draw a shape. ~~25: 19024, 39: 17056, 28: 13384960~~ ->
+        25: 442368, 39: 15206400, 28: 90243072,
+        # zeros refused AT THE OPENING, all three with SUNG openers whose
+        # every face is illegal at position 1 (see the premise repair
+        # above): false_ending-first (RESOLVE), tag-first (JUDGE),
+        # bridge-first (TURN). ~~seed 27: 1866240~~ — seed 27 CROSSED
+        # BACK into the zero class on this envelope.
+        19: 0, 24: 0, 27: 0,
         # the RESOLVE-clause zeros at position 2
-        30: 0, 34: 0,
-        # class-crossers, watched: former zeros that draw a shape now
-        25: 19024, 39: 17056, 28: 13384960, 27: 1866240,
+        77: 0, 89: 0,
+        # position 3 — the depth the 2026-09-05 note struck as witnessed
+        # by nothing, RESTORED by measurement
+        23: 0,
+        # positions 4 and 5, reached from the dice for the first time.
+        # ~~4: 1664~~ — the seed the 2026-08-26 note said was worth
+        # watching cross back has crossed back, at the deepest rung.
+        6: 0, 4: 0,
     }
     got = {}
     for seed, want in sorted(pins.items()):
         fns = [s["function"] for s in P.make_plan(seed)["sections"]]
         got[seed] = N.count_lineups(fns)
-    check("twelve pinned seeds re-derive exactly — four shapes with "
-          "line-ups (seeds 1 and 7 byte-identical through the envelope "
-          "move), the two zero-shapes refused at the OPENING (bridge-, "
-          "solo-first), the two refused LATER by the "
-          "RESOLVE-needs-a-prior-COMPLICATE clause at position 2, and "
-          "four class-crossers",
+    check("eighteen pinned seeds re-derive exactly (repinned 2026-09-05, "
+          "M-239) — three shapes with line-ups (~~seeds 1 and 7 "
+          "byte-identical~~, struck: all three re-dealt), seven "
+          "class-crossers, the three zero-shapes refused at the OPENING "
+          "(false_ending-, tag-, bridge-first), the two refused LATER by "
+          "the RESOLVE-needs-a-prior-COMPLICATE clause at position 2, "
+          "and one each at positions 3, 4 and 5",
           got == pins, got)
     #: The claim above is only worth making if the KINDS of zero are
     #: actually distinguishable, so the position is asserted rather than
@@ -229,14 +342,29 @@ def test_measured_seeds():
         fns = [s["function"] for s in P.make_plan(seed)["sections"]]
         return next((k for k in range(1, len(fns) + 1)
                      if N.count_lineups(fns[:k]) == 0), None)
-    at = {s: collapse_at(s) for s in (9, 15, 30, 34)}
+    #: REPINNED 2026-09-05 (`MISSING.md` M-239), AND THE CHECK IS
+    #: STRONGER THAN THE ONE IT REPLACES, NOT WEAKER: it asserted two
+    #: depths over four seeds by naming each; it now asserts the WHOLE
+    #: LADDER as one exact mapping. ~~at[9] == 1 and at[15] == 1 and
+    #: at[30] == 2 and at[34] == 2~~ — struck because none of those four
+    #: seeds is a zero any more (`collapse_at` returns None for all four,
+    #: which is how the stale pin announced the move). The seeds below
+    #: are chosen from the seeds 1-100 sweep recorded in the header, one
+    #: per measured rung, NOT from whichever seed happened to pass; and
+    #: the position-1 rung deliberately excludes rosters that open on a
+    #: wordless section, whose length-1 prefix counts 0 for a reason that
+    #: is not a refusal (the premise repair in the header).
+    at = {s: collapse_at(s) for s in (19, 24, 27, 77, 89, 23, 6, 4)}
     check("...and the kinds of zero are told apart by WHERE they "
-          "collapse, not by the count they share: the two opening "
-          "refusals die on their first section, and seeds 30 and 34 "
-          "survive their opening and die on the second — the same "
-          "clause, two depths (the third depth's witness is struck "
-          "above)",
-          at[9] == 1 and at[15] == 1 and at[30] == 2 and at[34] == 2, at)
+          "collapse, not by the count they share — and the ladder now "
+          "runs to FIVE: three opening refusals die on their first "
+          "section, seeds 77 and 89 survive the opening and die on the "
+          "second, seed 23 on the third (~~the third depth's witness is "
+          "struck~~ — RESTORED 2026-09-05), seed 6 on the fourth and "
+          "seed 4 on the fifth, every rung the same RESOLVE clause "
+          "except the openings",
+          at == {19: 1, 24: 1, 27: 1, 77: 2, 89: 2, 23: 3, 6: 4, 4: 5},
+          at)
 
 
 def test_the_wired_draw():
@@ -308,17 +436,24 @@ def test_the_wired_draw():
     #: layer-split reading the third and fifth repins made cannot be
     #: made here: a length move is upstream of BOTH layers, and the
     #: check below says so by asserting the length rather than the floor.
-    check("seed 31's RELATION draw re-derives exactly (A perfect rhyme, "
-          "D family rhyme, F Scots vowel-length rhyme, J cluster "
-          "consonance) — a moved pin here means the pools, the dice, "
-          "the ENVELOPE or the VOCABULARY moved, which is a question, "
-          "not a merge conflict",
-          pl["relations"].get("A") == "schema:perfect rhyme"
-          and pl["relations"]["D"] == "schema:family rhyme"
-          and pl["relations"]["F"]
-          == "schema:Scots vowel-length rhyme (Aitken's Law)"
-          and pl["relations"]["J"]
-          == "schema:cluster consonance / skothending span",
+    #: REPINNED AN EIGHTH TIME 2026-09-05 (`MISSING.md` M-239), AND THE
+    #: ENVELOPE ANSWERED THE QUESTION THE CHECK'S OWN TEXT ASKS: the
+    #: `lyric` length-curve profile took the fillable set 12..55 -> 12..447,
+    #: seed 31's length re-dealt 24 -> 18, and a length move is upstream
+    #: of every layer, so all four named draws moved together.
+    #: ~~A perfect rhyme, D family rhyme, F Scots vowel-length rhyme,
+    #: J cluster consonance~~ (2026-09-01) -> **A FAMILY rhyme, D
+    #: PARARHYME, F RIME RICHE, J MONAI** (measured 2026-09-05).
+    check("seed 31's RELATION draw re-derives exactly (~~A perfect "
+          "rhyme, D family rhyme, F Scots vowel-length rhyme, J cluster "
+          "consonance~~ -> A family rhyme, D pararhyme, F rime riche, "
+          "J monai, repinned 2026-09-05 under M-239) — a moved pin here "
+          "means the pools, the dice, the ENVELOPE or the VOCABULARY "
+          "moved, which is a question, not a merge conflict",
+          pl["relations"].get("A") == "schema:family rhyme"
+          and pl["relations"]["D"] == "schema:pararhyme"
+          and pl["relations"]["F"] == "schema:rime riche"
+          and pl["relations"]["J"] == "schema:monai",
           {k: pl["relations"].get(k) for k in ("A", "D", "F", "J")})
     #: REPINNED A SIXTH TIME 2026-08-30 (`MISSING.md` M-174), and this move
     #: is the NARROWEST of the six, which is itself the reading: the
@@ -326,22 +461,30 @@ def test_the_wired_draw():
     #: its existence, so seed 31's cover is BYTE-IDENTICAL at 359 groups and
     #: only the label count moves, 19 -> 20. The three named draws (A bare,
     #: D consonance, F pararhyme, J perfect rhyme) all held through it.
-    check("...and seed 31 no longer draws a floor: 24 lines inside the "
-          "FILLABLE set (floor 12, M-193), 235 groups, 12 labels — a pin "
-          "that says WHICH layer moved, where four relation names alone "
-          "could not: this time the LENGTH, upstream of both",
-          pl["total_lines"] == 24
+    check("...and seed 31 still draws no floor: ~~24 lines~~ -> 18 lines "
+          "inside the FILLABLE set (floor 12, unmoved by M-239 — the "
+          "`lyric` curve moved the CEILING, 55 -> 447), ~~235 groups~~ "
+          "-> 147, ~~12 labels~~ -> 9 (repinned 2026-09-05) — a pin that "
+          "says WHICH layer moved, where four relation names alone could "
+          "not: this time the LENGTH again, upstream of both",
+          pl["total_lines"] == 18
           and pl["total_lines"] in P.fillable_line_counts()
           and min(P.fillable_line_counts()) == 12
-          and len(pl["groups"]) == 235 and len(pl["relations"]) == 12,
+          and len(pl["groups"]) == 147 and len(pl["relations"]) == 9,
           f"lines {pl['total_lines']} (fillable floor "
           f"{min(P.fillable_line_counts())}), {len(pl['groups'])} groups, "
           f"{len(pl['relations'])} labels")
     nar = pl["narrative"]
+    #: REPINNED 2026-09-05 (M-239) WITH THE LENGTH: seed 31's roster is
+    #: [intro, prechorus, chorus, prechorus, chorus, verse, outro] — SEVEN
+    #: sections against the old nine, and every one of them SUNG, so the
+    #: atom count equals the section count here where it did not before
+    #: (the old nine carried one wordless section: 8 atoms, 7 junctions).
+    #: ~~lineups 136448, 8 atoms, 7 junctions~~ -> 63232, 7, 6.
     check("the collapse is RECORDED: mode drawn, the exact line-up "
           "count disclosed, one atom per sung section, one junction "
-          "per seam", nar["mode"] == "drawn" and nar["lineups"] == 136448
-          and len(nar["atoms"]) == 8 and len(nar["junctions"]) == 7)
+          "per seam", nar["mode"] == "drawn" and nar["lineups"] == 63232
+          and len(nar["atoms"]) == 7 and len(nar["junctions"]) == 6)
     check("the drawn line-up VALIDATES under the one shared validator",
           N.validate_lineup([sec["function"] for sec in pl["sections"]],
                             nar["atoms"], nar["junctions"]) == [])
@@ -358,13 +501,23 @@ def test_the_wired_draw():
     #: under the 22-function grammar). The check itself is unchanged —
     #: what a zero-shape must do is disclose and still ship a sound
     #: plan, whichever seed draws one.
-    p9 = P.make_plan(9)
+    #: SEED 9 -> SEED 27, 2026-09-05 (`MISSING.md` M-239): ~~seed 9 is
+    #: the bridge-first opening refusal~~ — struck, seed 9 draws
+    #: 10,227,548,160 line-ups under this envelope and is no longer a
+    #: zero of any kind, so the check would have had no zero-shape to
+    #: make its point on. The carrier is re-chosen from the seeds 1-100
+    #: sweep recorded in §5's header rather than from the first seed that
+    #: passes: seed 27 is a bridge-first opening refusal there (roster
+    #: opens `[bridge, turnaround, ...]`, collapse depth 1), the SAME
+    #: kind seed 9 carried, so the sentence beside the check still
+    #: describes what it measures.
+    p27 = P.make_plan(27)
     check("a zero-shape seed DISCLOSES and still ships: mode none, "
           "lineups 0, the brief says nothing is asked of the meaning "
           "axis, and the sound plan is intact",
-          p9["narrative"]["mode"] == "none"
-          and p9["narrative"]["lineups"] == 0
-          and "NO STORY PLAN" in p9["writer_brief"] and p9["groups"])
+          p27["narrative"]["mode"] == "none"
+          and p27["narrative"]["lineups"] == 0
+          and "NO STORY PLAN" in p27["writer_brief"] and p27["groups"])
     lu = {"atoms": nar["atoms"], "junctions": nar["junctions"]}
     pd = P.make_plan(31, narrative=lu)
     check("a DECLARED line-up is carried, never resampled",
@@ -445,13 +598,24 @@ def test_the_wired_draw():
     #: accepting all three — the same doctrine-48 trap the 2026-08-26
     #: repin names. 8-10 restores two accepted, one rejected: seed 9 is
     #: the bridge-first opening refusal that HELD through the move.
-    res = P.sweep(range(8, 11),
+    #: WINDOW 8-10 -> 26-28, 2026-09-05 (`MISSING.md` M-239): the
+    #: length-curve move gave seed 9 a shape (10,227,548,160 line-ups),
+    #: emptying 8-10 of zeros — measured, the sweep accepted all three,
+    #: which is the doctrine-48 trap the 2026-08-26 and 2026-09-01 repins
+    #: both name: a filter that rejects nothing looks identical to a
+    #: filter that works. 26-28 is chosen from the seeds 1-100 zero
+    #: sweep in §5's header, not by trying windows until one passed: it
+    #: restores two accepted, one rejected, and the rejected one is a
+    #: BRIDGE-FIRST opening refusal (seed 27, roster opens
+    #: `[bridge, turnaround, ...]`), the same kind seed 9 carried, so the
+    #: label below still says what it measures.
+    res = P.sweep(range(26, 29),
                   wants=[P.parse_sweep_want("story_lineups>=1")])
     check("the SEED FILTER is a sweep predicate: story_lineups>=1 over "
-          "seeds 8-10 accepts 8 and 10 and rejects 9 (the "
+          "seeds ~~8-10~~ -> 26-28 accepts 26 and 28 and rejects 27 (the "
           "bridge-first zero-shape) — rejection sampling, no ranking",
-          9 not in res["accepted"] and 8 in res["accepted"]
-          and 10 in res["accepted"], res["accepted"])
+          27 not in res["accepted"] and 26 in res["accepted"]
+          and 28 in res["accepted"], res["accepted"])
 
 
 if __name__ == "__main__":

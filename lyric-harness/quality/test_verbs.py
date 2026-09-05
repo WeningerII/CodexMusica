@@ -4008,8 +4008,18 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
     # about is whether a person can RUN it — "any measurement or step used in
     # producing a delivered song goes through a verb, and an improvised
     # script used twice is a defect report, not a convenience."
-    WANT = ("--want=sections<=6;lines_per_section>=2;group<=4;"
-            "uses=verse,chorus;before=verse,chorus;pins_per_line<=5")
+    # REPINNED 2026-09-04 (`MISSING.md` M-239/M-241): the envelope is
+    # 12..447 lines now and a sweep for a song-shaped short song is RARE —
+    # measured, 300 seeds each: `lines<=60` alone accepts 17.3%, adding
+    # `sections<=6` 1.3%, adding `lines_per_section>=2` 0.3%, and the old
+    # six-predicate WANT 0 of 1,600. The section-count draw favours many
+    # thin sections at every length (M-241 names the site); this section's
+    # claim is that the sweep RUNS and comes back with seeds, so the WANT
+    # is the measured 1.3% one — ~21 hits expected in 1,600 — and the
+    # length is DECLARED, which is the owner's ruling on how a song gets a
+    # length at all. ~~sections<=6;lines_per_section>=2;group<=4;
+    # uses=verse,chorus;before=verse,chorus;pins_per_line<=5~~
+    WANT = "--want=lines<=60;sections<=6;uses=verse,chorus"
     # ~~`--sweep=0-120` and `" 108" in out`.~~ **REPINNED 2026-08-24
     # (`MISSING.md` M-106), the CLI mirror of `test_plan.py` §10's repin and
     # for the same reason.** The seed that satisfies a six-way conjunction is
@@ -4038,11 +4048,32 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
           and len([x for x in out.split("ACCEPTED (in seed order")[1]
                    .splitlines()[1].split(",") if x.strip()]) == _n,
           f"{_n} accepted :: {_acc[:1]}")
+    # REPINNED 2026-09-05 (`MISSING.md` M-239/M-241). ~~out.count("WANT ")
+    # == 6 and "the SMALLEST sung section" in out~~ — the 6 was the old
+    # six-predicate WANT's length and the gloss belonged to
+    # `lines_per_section>=2`, which the repin above dropped because the
+    # conjunction accepted 0 of 1,600 seeds under the derived envelope. A
+    # literal count ties this check to HOW MANY predicates the declaration
+    # happens to carry, when the claim is a CORRESPONDENCE: one echoed line
+    # per declared predicate, each carrying its coordinate's gloss. Derived
+    # from WANT itself now, so changing the declaration cannot make it stale
+    # or vacuous — and the gloss half is asserted per line rather than by
+    # one remembered phrase.
+    _preds = WANT.split("=", 1)[1].split(";")
+    _echoed = [l.strip() for l in out.splitlines() if l.strip().startswith("WANT ")]
     check("...and it ECHOES every predicate with the coordinate's own gloss, "
           "so a caller can see which declaration was applied rather than "
-          "inferring it from the answer",
-          out.count("WANT ") == 6 and "the SMALLEST sung section" in out,
-          f"{out.count('WANT ')} predicates echoed")
+          "inferring it from the answer — one echoed line per DECLARED "
+          "predicate, counted off the declaration and not off a remembered "
+          "integer",
+          len(_echoed) == len(_preds) == 3
+          and all(any(e.startswith("WANT " + pr) for e in _echoed)
+                  for pr in _preds)
+          and all(" — " in e and len(e.split(" — ", 1)[1].strip()) > 20
+                  for e in _echoed)
+          and "the song's total line count" in out,
+          f"{len(_echoed)} echoed for {len(_preds)} declared :: "
+          f"{[e[:46] for e in _echoed]}")
     check("...and prints THREE COUNTS, never summed (doctrine 79)",
           "swept 1600" in out and "planned" in out
           and "REFUSED by the planner" in out and "accepted" in out,
@@ -4190,15 +4221,40 @@ def test_the_ban_is_unskippable_at_the_grading_verb_too():
     #
     # `hair`/`chair` is the canonical tier-1 pair: CLAUDE.md records it as one
     # of the three that beat the single top-N cliff and forced the two tiers.
-    banned = "I ran my fingers through her hair\nand set the bottle on the chair\n"
+    # BOTH FIXTURES RE-CUT 2026-09-05 (`MISSING.md` M-239), and the reason
+    # is the section's own premise. ~~"I ran my fingers through her hair /
+    # and set the bottle on the chair"~~ and ~~"She met me halfway up the
+    # stair / and had no second breath to spare"~~ carried the ban and the
+    # clean control at 14 tokens each. Under the band table a 14-token draft
+    # reached no profile, so every length-sensitive check was silent and the
+    # ban was the ONLY thing that could exit 3. Under the length curve 14
+    # tokens grades EXACT: MEASURED, the banned fixture now trips
+    # FUNCTION_WORD_HEAVY as a whole-draft FLAG (ratio over the 0.5490 the
+    # curve puts at N=14) and the control does not. The flag gate sits
+    # BEFORE the ban gate on purpose (`lyric_harness.py`: a flag is a defect
+    # a writer can act on line by line, the ban names a pair to screen), so
+    # the flag preempted the ban sentence and two checks below went red —
+    # while the two fixtures had quietly come to differ in TWO ways, which
+    # is exactly what this section's premise forbids.
+    #
+    # Re-cut so the ban is again the only difference, and MEASURED clean at
+    # the floor on both sides (`SlopFloor().check` returns [] for each): the
+    # two drafts now share line 1 verbatim and differ in line 2 alone, which
+    # is a tighter control than the pair they replace. `hair`/`chair` is
+    # kept — CLAUDE.md records it as one of the three tier-1 pairs that beat
+    # the single top-N cliff and forced the two tiers.
+    banned = ("dust settles on the kitchen chair\n"
+              "cold rain keeps combing through her hair\n")
     # THE CONTROL PAIR MUST RHYME AND BE CLEAN, which is a real constraint
     # and not a detail: the first draft of this check used `hair`/`floor`,
     # which do not rhyme, so it exited 3 on `SCHEME_VIOLATION` and would have
-    # "passed" the section for entirely the wrong reason. `stair`/`spare` is
-    # a screened-clean perfect rhyme (different spelled rime, neither in the
-    # other's modal head), so the only thing separating the two fixtures is
-    # the ban itself.
-    clean = "She met me halfway up the stair\nand had no second breath to spare\n"
+    # "passed" the section for entirely the wrong reason. ~~`stair`/`spare`~~
+    # `chair`/`spare` is a screened-clean perfect rhyme (`screen chair spare
+    # --relation=RHYME` -> CLEAN — RHYMES: different spelled rime, neither in
+    # the other's modal head), so the only thing separating the two fixtures
+    # is the ban itself.
+    clean = ("dust settles on the kitchen chair\n"
+             "cold rain leaves nothing left to spare\n")
     bp = {"sections": [{"name": "V1", "function": "verse", "bars": 2,
                         "start_bar": 1,
                         "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
@@ -4510,8 +4566,17 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
     # 6 (the render exists exactly past a stop condition, stamped with the
     # exit code the process actually returns).
     #
-    # COST DISCIPLINE: seed 16 is the smallest shape in 1..80 (23 lines —
-    # found by `plan --sweep=1-80 --want=lines<=23`, re-derivable), the
+    # COST DISCIPLINE: ~~seed 16 is the smallest shape in 1..80 (23 lines —
+    # found by `plan --sweep=1-80 --want=lines<=23`, re-derivable)~~ —
+    # REPINNED 2026-09-05 (`MISSING.md` M-239/M-240). The selection RULE is
+    # unchanged and is what was re-run: the envelope moved to 12..447, so
+    # seed 16 now draws 197 lines, and a 197-line draft is past the schema
+    # door's pair guard — `finish` came back REFUSED at exit 2 and the four
+    # stamp checks below had no render to read. Re-derived with the
+    # fixture's own sweep, `plan --sweep=1-80 --want=lines<=18`: ONE seed
+    # accepts, 31, at 18 lines / 7 sections, the smallest shape in 1..80
+    # (next is 68 at 30 lines). Smaller than the old fixture and far under
+    # the wall, so this section still costs about one grade. The
     # suspension run stops at the loop's FIRST question, and the
     # convergence run declares a zero budget (`--attempts=0 --backtrack=0`)
     # so it reaches NO_PROGRESS at roughly ONE grade's price — an honest
@@ -4524,7 +4589,7 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
     # The draft is built from the PLAN'S OWN declared line count, never a
     # remembered one — the same rule the connector's two-block check
     # follows, and the reason this section survives a planner re-derivation.
-    rc, out, _ = run("plan", "--seed=16", expect_rc=0)
+    rc, out, _ = run("plan", "--seed=31", expect_rc=0)
     m = re.search(r"-> (\d+) line\(s\)", out)
     check("the plan declares its own line count for the fixture to honor",
           rc == 0 and m is not None, f"rc {rc}")
@@ -4539,18 +4604,18 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
     rc, out, _ = run("finish", draft, expect_rc=2)
     check("no --seed REFUSES naming the flag — the plan is the mandate's "
           "one statement", rc == 2 and "--seed" in out, f"rc {rc}")
-    rc, out, _ = run("finish", draft, "--seed=16", "--blueprint=x.json",
+    rc, out, _ = run("finish", draft, "--seed=31", "--blueprint=x.json",
                      expect_rc=2)
     check("--blueprint on finish REFUSES — a second statement of the meter "
           "layer beside the plan's own",
           rc == 2 and "--blueprint" in out, f"rc {rc}")
-    rc, out, _ = run("finish", draft, "AABB", "--seed=16", expect_rc=2)
+    rc, out, _ = run("finish", draft, "AABB", "--seed=31", expect_rc=2)
     check("a positional mandate REFUSES — two statements of one cover",
           rc == 2 and "mandate" in out, f"rc {rc}")
     short = os.path.join(d, "short.txt")
     with open(short, "w") as fh:
         fh.write("one line\ntwo line\n")
-    rc, out, _ = run("finish", short, "--seed=16", expect_rc=2)
+    rc, out, _ = run("finish", short, "--seed=31", expect_rc=2)
     check("a draft of the wrong length REFUSES with the plan's own count",
           rc == 2 and str(n) in out, f"rc {rc}")
 
@@ -4558,7 +4623,7 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
     # loop's first question, and NO render reaches the output — not the
     # frame, not a header, not the stamp. This is the check that the render
     # call sits after the loop's return rather than beside it.
-    rc, out, _ = run("finish", draft, "--seed=16",
+    rc, out, _ = run("finish", draft, "--seed=31",
                      f"--propose=defer:{state}", expect_rc=4)
     check("a deferred run with no answers SUSPENDS at exit 4",
           rc == 4 and "SUSPENDED" in out, f"rc {rc}")
@@ -4583,7 +4648,7 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
           "under — the plan's own — not the flag this verb does not take",
           "NO SUBDIVISION DECLARED" not in out
           and re.search(r"subdivision=\d+ \(the plan's own declared "
-                        r"subdivision \(seed 16\)", out) is not None,
+                        r"subdivision \(seed 31\)", out) is not None,
           next((l for l in out.splitlines() if "BLUEPRINT:" in l), "(none)"))
     check("...and it AGREES with the MANDATE line above it — one fact, one "
           "statement (doctrine 1), where the two used to contradict",
@@ -4595,9 +4660,9 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
     # 6: PAST A STOP CONDITION THE RENDER EXISTS, stamped with the exit the
     # process actually returns. The zero budget reaches NO_PROGRESS
     # honestly; whatever the stop, the stamp and the process must agree.
-    rc, out, _ = run("finish", draft, "--seed=16", "--attempts=0",
+    rc, out, _ = run("finish", draft, "--seed=31", "--attempts=0",
                      "--backtrack=0")
-    stamp = re.search(r"\[FINISHED — seed 16 — exit (\d) — (\w+) after "
+    stamp = re.search(r"\[FINISHED — seed 31 — exit (\d) — (\w+) after "
                       r"(\d+) round\(s\) — ([^\]]+)\]", out)
     check("a stop condition renders the song under its stamp",
           rc in (0, 3) and "THE SONG, PERFORMANCE ORDER" in out
@@ -4767,7 +4832,7 @@ def test_a_missing_staged_resource_refuses_instead_of_crashing():
     check("`plan --sweep=` answers without the floor",
           rc == 0 and HEAD not in out and "Traceback" not in err
           and "SWEEP:" in out, f"rc {rc}; {first(out)}")
-    rc, out, err = run("finish", quat, "--seed=16", env=hidden)
+    rc, out, err = run("finish", quat, "--seed=31", env=hidden)
     check("`finish --seed=` reaches the floor and REFUSES for resources -- "
           "past its own no-seed refusal, it is the sixth grading verb",
           refused(rc, out, err) and STAGING_COMMANDS in out,
@@ -4892,22 +4957,71 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
     """
     print("\n53. `finish` exits 3 on a WHOLE-DRAFT flag ALONE, and stamps it "
           "— the isolated case M-186 owed")
+    # RE-CUT 2026-09-05 (`MISSING.md` M-239). The planner's length envelope
+    # was re-derived on 2026-09-04 from 12..55 to 12..447 total lines, so
+    # every seed was re-dealt and seed 176 now draws ~~13 lines~~ — STRUCK
+    # 2026-09-05: 27 lines in 7 sections (verse 1-4, wordless interlude,
+    # turnaround 5-7, prechorus 8-14, chorus 15-17, prechorus 18-24, chorus
+    # 25-27), with the hook at ~~L3~~ L15 and 15,25;16,26;17,27 returning
+    # verbatim. The hand-written 13-line draft no longer filled the plan and
+    # `finish` REFUSED at exit 2 ("the plan declares 27 line(s) and the draft
+    # carries 13"), which is exactly the reading the first check below is
+    # written to give.
+    #
+    # THE SEED DID NOT MOVE, AND THE SELECTION RULE ONLY HALF SURVIVES. The
+    # fixture chose 176 by the sweep `lines<=14;binding_cap<=1` for a SPARSE
+    # plan. MEASURED over 1..299 on 2026-09-05: `binding_cap<=1` still
+    # accepts 66 seeds, 176 among them — the DENSITY half of the rule is
+    # untouched and still names this plan sparse — but ~~no seed satisfies
+    # the conjunction~~ because the LENGTH half is now unsatisfiable: not one
+    # sparse seed draws 14 lines or fewer under the new envelope, so
+    # `lines<=14;binding_cap<=1` accepts nothing in 1..299. Only the length
+    # half moved, and re-selecting on it would change what this fixture pins.
+    #
+    # SO THE DRAFT WAS RE-CUT, NEVER THE ASSERTION — the docstring's own
+    # instruction ("THE DRAFT IS THE SEED'S ... the fixture is re-cut, never
+    # the assertion"). The 27 lines below fill the new plan: every group in
+    # `1.T1,3.T3,4.T5;5.T3,7.head;8.T1,9.headrime,10.T3,11.T7;13.headrime,
+    # 14.T6;15.T7,16.headrime,17.T2;18.T3,19.headrime,20.T6,21.T4;23,24.T2`
+    # and every end group `1,3,4;5,7;8,9,10,11;13,14;15,16,17;18,19,20,21`
+    # was screened as a SET with the `screen` verb before the words were
+    # written (0 banned on each), so no pair is HOMEOTELEUTON, MODAL_RHYME or
+    # RIME_RICHE, the openers are varied so no ANAPHORA_OVERLOAD stands, and
+    # the only finding left standing is the whole-draft flag this fixture is
+    # about. The CONTROL's title moved with the hook: ~~"the door unlocked"~~
+    # "leave a light on", which L15 carries verbatim — the same test (a title
+    # the hook DOES carry clears the flag), asked of the hook the plan now
+    # names.
     d = tempfile.mkdtemp()
     draft = os.path.join(d, "whole176.txt")
     with open(draft, "w", encoding="utf-8") as fh:
-        fh.write("the kettle hums before the light\n"
-                 "and every window learns my name\n"
-                 "I keep the door unlocked for you\n"
-                 "I keep the door unlocked for you\n"
-                 "the river carries every stone downhill\n"
-                 "and until dawn the cattle sleep\n"
-                 "I found a coin beneath the pier again\n"
-                 "a career of swallows nesting in Cayenne\n"
-                 "one candle burns beside the open door\n"
-                 "the town made every scandal into folklore\n"
-                 "she wrote a letter I could never read\n"
-                 "a sweater keeps the promise like a creed\n"
-                 "the kettle hums, the light comes on\n")
+        fh.write("stone on the sill and a red balloon\n"
+                 "somebody counts the change below the stair\n"
+                 "the names sewn into coats are now immune\n"
+                 "and all we ever loan comes back strewn\n"
+                 "the paper kite still hangs in doubt\n"
+                 "below a sky that will not settle\n"
+                 "night comes early in the drought\n"
+                 "console the child who hides a bruise\n"
+                 "stroll through the hall of borrowed clues\n"
+                 "a single goal these rooms refuse\n"
+                 "wax on the plate and the bowl will ooze\n"
+                 "and nothing in the house is answered\n"
+                 "learn the low note of a wooden flute\n"
+                 "we keep the salt and fern and fruit\n"
+                 "leave a light on for the small rain\n"
+                 "crawl to the wall and find the vein\n"
+                 "the haul of what we cannot feign\n"
+                 "what we denied has turned to braid\n"
+                 "divide the evening into suede\n"
+                 "the whole street stood and sighed and stayed\n"
+                 "the coat we dyed was never weighed\n"
+                 "and morning finds us in the kitchen\n"
+                 "we walked the lane for half a mile\n"
+                 "your style was never mine to keep\n"
+                 "leave a light on for the small rain\n"
+                 "crawl to the wall and find the vein\n"
+                 "the haul of what we cannot feign\n")
     common = ["--seed=176", "--relation=RHYME", "--attempts=0",
               "--backtrack=0", "--max-rounds=1"]
     rc, out, _ = run("finish", draft, "--title=zebra confetti", *common)
@@ -4931,7 +5045,7 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
     check("...and the STANDING block prints the flag in the report's own "
           "spelling",
           "WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK" in out)
-    rc0, out0, _ = run("finish", draft, "--title=the door unlocked", *common)
+    rc0, out0, _ = run("finish", draft, "--title=leave a light on", *common)
     st0 = re.search(r"\[FINISHED — seed 176 — exit (\d) — [^\]]*\]", out0)
     check("CONTROL: a title the hook carries clears the flag — exit 0, and "
           "the stamp has no WHOLE-DRAFT clause",
@@ -5003,7 +5117,7 @@ def test_the_plan_report_discloses_density_and_audibility():
     import json as _json
     d = tempfile.mkdtemp()
     bp = os.path.join(d, "bp.json")
-    rc, out, _ = run("plan", "--seed=16", f"--out={bp}", expect_rc=0)
+    rc, out, _ = run("plan", "--seed=31", f"--out={bp}", expect_rc=0)
     with open(bp, encoding="utf-8") as fh:
         plan = _json.load(fh)
     dn = plan["choices"]["density"]

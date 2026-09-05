@@ -85,6 +85,7 @@ from quality.loop import (AnchorSlot, GroupBrief,  # noqa: E402
 from quality.revise import ReviseDeclaration, Reviser  # noqa: E402
 from quality.schemes import NoMandate  # noqa: E402
 from quality import schemes as SC  # noqa: E402
+from quality import floor as FL  # noqa: E402  (§13's narrowing mutation)
 from lyric_harness import (line_tokens, raw_final_token,  # noqa: E402
                            Lexicon, RHYME_RELATIONS)
 import dataclasses as _dc  # noqa: E402
@@ -887,12 +888,64 @@ def test_group_brief_carries_the_situation():
           all("nothing was fixed" in "; ".join(pb.reasons)
               for pb in seen if pb.reasons),
           seen[1].reasons)
+    # REPINNED 2026-09-05 (`MISSING.md` M-239), and the repin is the
+    # interesting half. ~~== {"EXTRAPOLATED_LENGTH"}~~ -- this fixture is 5
+    # lines / 28 tokens, which under the band table was REACHED-BUT-INEXACT
+    # (inside `short`'s 1.25x band, outside its measured 50-150) and so
+    # carried exactly one whole-draft finding. Under the length curve 28
+    # tokens is EXACT, no length is extrapolated at any length, and the
+    # floor emits NOTHING on this draft -- MEASURED, `SlopFloor().check`
+    # returns []. Repinning the literal to `set()` would leave a check that
+    # examines an empty population and passes for the wrong reason
+    # (doctrine 48), so the claim is asserted the way §14's own repin
+    # asserts its half: tier 2 is handed THE SAME whole-draft object the
+    # run computes, not a second derivation of it (doctrine 1) -- and the
+    # mutation below supplies the non-empty population the literal used to.
     check("the whole-draft findings reach tier 2 as well -- the harder tier "
-          "is not the one told less",
+          "is not the one told less: every brief carries the run's OWN "
+          "whole-draft set, which is empty on this draft under the shipped "
+          "table and is proved to travel by the mutation below",
           all(isinstance(pb.whole, tuple) for pb in seen)
-          and {f.code for pb in seen for f in pb.whole}
+          and all({f.code for f in pb.whole}
+                  == {f.code for f in FL.SlopFloor().check(SILVER_NIGHT_LOCKED)}
+                  for pb in seen),
+          sorted({f.code for pb in seen for f in pb.whole}) or "empty, as the "
+          "floor is on 28 tokens under the length curve")
+    # THE MUTATION THAT MAKES THE CLAIM NON-VACUOUS. Narrow the live sheet
+    # row to the band it superseded and this same 28-token draft is
+    # reached-but-inexact again, EXTRAPOLATED_LENGTH fires, and tier 2 must
+    # CARRY it -- if it did not, the check above would be satisfied by two
+    # empty sets agreeing with each other, which is the shape it is written
+    # to avoid. Same perturbation `test_floor.py`'s `_narrowed_lyric` uses,
+    # spelled here because this suite owns no copy of it and a second copy
+    # of a context manager is a second thing to keep in step (doctrine 1 is
+    # why it is three lines rather than an import of a private name).
+    _sheet = [x for x in FL.PROFILES if not x.n_lines and not x.superseded_by][0]
+    _keep = (_sheet.lo, _sheet.hi, _sheet.tolerance)
+    narrowed = []
+    try:
+        _sheet.lo, _sheet.hi, _sheet.tolerance = 200, 400, 1.25
+        R2 = Reviser(rdecl=ReviseDeclaration(backtrack_width=2))
+        revise_loop(R2, SILVER_NIGHT_LOCKED, SILVER_NIGHT_OPEN_MANDATE,
+                    propose=lambda *a, **k: None,
+                    propose_group=lambda gb: (narrowed.append(gb),
+                                              _no_op_group(gb))[1])
+    finally:
+        _sheet.lo, _sheet.hi, _sheet.tolerance = _keep
+    check("MUTATION -- narrow the sheet row to the band it superseded and "
+          "this same draft is extrapolated again: the whole-draft finding "
+          "comes back AND tier 2 carries it, so the check above is an "
+          "agreement between two populated sets and not between two empty "
+          "ones",
+          bool(narrowed)
+          and {f.code for pb in narrowed for f in pb.whole}
           == {"EXTRAPOLATED_LENGTH"},
-          sorted({f.code for pb in seen for f in pb.whole}))
+          sorted({f.code for pb in narrowed for f in pb.whole}))
+    check("...and the perturbation is restored, so no later section "
+          "inherits a narrowed floor",
+          [x for x in FL.PROFILES if not x.n_lines and not x.superseded_by][0]
+          .band() == (4, 3245),
+          _sheet.band())
     check("8 groups proposed = 2 two-line group(s) x width 2 x width 2",
           len(seen) == 8 == 2 * R.rdecl.backtrack_width ** 2, len(seen))
     # HANDED TO TEST 16, which compares this run against its own. Recorded
@@ -1292,9 +1345,24 @@ def test_a_line_is_briefed_against_the_draft_as_it_now_stands():
 
     # CHECK 3 — A LINE CLOSED BY AN EARLIER FIX IS NOT ASKED ABOUT, and is
     # recorded as its own kind rather than as a failed attempt.
-    CLOSE = ["the kitchen light is burning at half past four",
+    # REPINNED 2026-09-05 (`MISSING.md` M-239). ~~"the kitchen light is
+    # burning at half past four" / "the empty coats are hanging on the
+    # stairs"~~ -- two of the three lines opened on "the", which was
+    # harmless while the floor was SILENT at this length and is not now.
+    # This draft is 25 tokens; under the band table it reached no profile,
+    # so every length-sensitive finding was downgraded to a note and the
+    # round opened on L2 alone. Under the length curve 25 tokens grades
+    # EXACT, ANAPHORA_OVERLOAD is a FLAG, and it opens L1 and L3 as well --
+    # MEASURED: attempts [1, 2, 3] then [1, 3], `resolved_elsewhere` empty,
+    # because L3 is now opened by a finding L2's fix cannot close. The
+    # scenario stopped being reachable, not the behaviour: the openers are
+    # varied so the only findings on the table are the two this check is
+    # about (L2's SCHEME_VIOLATION and L3's REPEAT_ACROSS_GROUPS), which is
+    # what the fixture was always for. Re-measured on the new text: round 0
+    # attempts [2], `resolved_elsewhere` [3], one brief.
+    CLOSE = ["morning light was burning at half past four",
              "and nobody came back to climb the stairs",
-             "the empty coats are hanging on the stairs"]
+             "wet empty coats are hanging on the stairs"]
     asked = []
 
     def spy2(brief, lines, attempt, reasons=None, whole=()):

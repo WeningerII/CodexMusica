@@ -271,8 +271,13 @@ def test_cliche_pair():
           bool(g) and "does not describe it" in g[0].evidence
           and "no measured rate behind it at all" in g[0].evidence
           and f is not None and "does not describe it" not in f.evidence,
-          "the 6.35% is a property of THIS set on THIS corpus (doctrine 22), "
-          "so the finding disowns it the moment the set is replaced")
+          "the measured rate is a property of THIS set on THIS corpus "
+          "(doctrine 22), so the finding disowns it the moment the set is "
+          "replaced. Repinned 2026-09-05 (M-239): this line named ~~the "
+          "6.35%~~, the 2026-08-14 150-400 point estimate; the shipped "
+          "`song` row has carried 7.64% over 200-400 since 2026-08-26 and "
+          "the finding now reads both band rows' rates off the rows rather "
+          "than quoting a typed number")
     # WHAT THE FLAG IS NOT. The rate licenses it to fire; it does not make
     # the list a cliche detector, and the finding a writer reads has to say
     # so where they will see it.
@@ -305,7 +310,9 @@ def test_cliche_pair_may_only_reject_where_it_was_measured():
           f"severity={f.severity if f else None}")
     # Past every profile's reach: the branch where `check()` returns early and
     # CLICHE_PAIR used to be the ONLY flag the gate could still emit.
-    huge = inband + ["word " * 40] * 40
+    # REPINNED 2026-09-04 (M-239): 1,634 tokens is COVERED now; "past every
+    # profile's reach" is past 3,245, the lyric profile's upper limit.
+    huge = inband + ["word " * 40] * 90
     m = sum(len(FLOOR.qf._tokens(x)) for x in huge)
     pr, ex = declaration_for(m)
     fs = FLOOR.check(huge, None)
@@ -316,8 +323,13 @@ def test_cliche_pair_may_only_reject_where_it_was_measured():
           f"and nothing about it changed")
     check("...but it may not reject there",
           g and g[0].severity == "note",
-          "MEASURED 2026-08-14: 14.74% of the 285 corpus items in this "
-          "bucket fire it, against 6.35% in band. An unmeasured rate may "
+          "~~MEASURED 2026-08-14: 14.74% of the 285 corpus items in this "
+          "bucket fire it, against 6.35% in band.~~ Repinned 2026-09-05 "
+          "(M-239): that 285-item bucket was the corpus outside the "
+          "2026-08-14 BAND table; under the live table no corpus item sits "
+          "outside 4-3,245 tokens, so the rate out here is not merely "
+          "different — it is UNMEASURED, which is the stronger form of the "
+          "same reason. An unmeasured rate may "
           "not carry a rejection (doctrine 22)")
     check("...and it was the ONLY flag the gate could emit there",
           not [x for x in fs if x.severity == "flag"
@@ -334,11 +346,19 @@ def test_cliche_pair_may_only_reject_where_it_was_measured():
     # the section profile's tolerance band and by the short profile's, and
     # covered by neither — which is the extrapolated case this check is
     # about, with the cliche pair the next two checks read still in it.
-    stretched = inband + ["word " * 10]
+    # REPINNED 2026-09-04 (M-239): ~~42 tokens, between profiles~~ — every
+    # sheet length is covered exactly now, so the extrapolated branch is
+    # reached by narrowing the lyric profile in process (200-400 at 1.25x)
+    # and stretching the fixture to ~450 tokens, inside the band and outside
+    # the measured range.
+    stretched = inband + ["word " * 40] * 10
     s_tok = sum(len(FLOOR.qf._tokens(x)) for x in stretched)
-    sp, sx = declaration_for(s_tok)
-    ext = find(stretched, "EXTRAPOLATED_LENGTH")
-    check("a length between profiles is announced as extrapolated",
+    with _narrowed_lyric(200, 400, 1.25):
+        sp, sx = declaration_for(s_tok)
+        ext = find(stretched, "EXTRAPOLATED_LENGTH")
+        sf = find(stretched, "CLICHE_PAIR")
+    check("a length between profiles is announced as extrapolated (reached "
+          "under `_narrowed_lyric`; the shipped table has no such length)",
           sp is not None and not sx and ext is not None,
           f"{s_tok} tokens, profile {sp.name if sp else None}, exact={sx}")
     check("the extrapolation banner names which checks still ran",
@@ -349,7 +369,6 @@ def test_cliche_pair_may_only_reject_where_it_was_measured():
           "was false — `_relation_findings` is appended AFTER `sev()` and "
           "hardcoded a flag — and false in the direction that makes a "
           "surviving flag look impossible")
-    sf = find(stretched, "CLICHE_PAIR")
     check("...and the banner's claim now matches the severity emitted",
           sf is not None and sf.severity == "note",
           f"severity={sf.severity if sf else None}")
@@ -459,47 +478,79 @@ def test_length_is_a_coordinate():
     p, exact = declaration_for(118)
     check("a 118-token sonnet picks the sonnet profile",
           p is not None and p.name == "sonnet" and exact)
-    p, exact = declaration_for(3000)
+    # 3000 -> 3300 tokens, 2026-09-04 (MISSING.md M-239): the lyric profile
+    # covers up to 3,245, the corpus's longest item; past it nothing reaches.
+    p, exact = declaration_for(3300)
     check("a length no profile reaches is refused, not extrapolated",
           p is None and not exact)
-    # 60 -> 40 tokens, 2026-09-01 (MISSING.md M-193): the `short` profile
-    # COVERS 50-150 now, so 60 is exact; 40 is reached by the section band
-    # (14-74) and by the short band (40-187) and covered by neither.
+    # ~~40 tokens, between profiles~~ -> covered EXACTLY by the lyric profile
+    # since M-239; the inexact branch is reached by narrowing it in process.
     p, exact = declaration_for(40)
-    check("a length between profiles is served but marked inexact",
+    check("40 tokens, once between two bands, is served EXACTLY now",
+          p is not None and exact and p.name == "lyric",
+          f"profile={p.name if p else None}, exact={exact}")
+    with _narrowed_lyric(200, 400, 1.25):
+        p, exact = declaration_for(450)
+    check("a length between profiles is served but marked inexact (under "
+          "`_narrowed_lyric`, since the shipped table has no such length)",
           p is not None and not exact, f"profile={p.name}, exact={exact}")
 
     # the load-bearing behaviour: an extrapolated finding may not reject
+    #
+    # REPINNED 2026-09-05 (M-239). This block sat behind a bare
+    # `if pr is not None and not ex:` and, since the length-curve adoption
+    # covered 4-3,245 tokens EXACTLY, that guard was False every run: the
+    # three checks below had not executed since 2026-09-04 and the section
+    # printed as green without them (doctrine 94 — a silently skipped check
+    # is worse than a red one, because nothing says it went). The fixture is
+    # unchanged, so what it proved is unchanged; what moved is HOW the branch
+    # is reached — the same `_narrowed_lyric(200, 400, 1.25)` the rest of
+    # this file uses to reach the tolerance-band branches. At 75 tokens with
+    # the sheet row narrowed away, `gap()` hands the text to `sonnet` inside
+    # its 2.0x band (54-252) and outside its measured 108-126: extrapolated,
+    # which is the state these three checks are about. The premise is now a
+    # CHECK of its own, so if the branch stops being reachable this section
+    # goes red instead of quietly shrinking.
     long_bad = ["And so the morning comes and so it goes and so it goes"] * 3 \
         + ["And all the world is turning in the rain again and again"] * 3
-    fs = FLOOR.check(long_bad)
     tok = sum(len(FLOOR.qf._tokens(x)) for x in long_bad)
-    pr, ex = declaration_for(tok)
-    if pr is not None and not ex:
-        # The five LENGTH-CALIBRATED checks are downgraded because their
-        # thresholds were extrapolated. CLICHE_PAIR is downgraded too, and
-        # for a different reason (see test 6b): it borrows no percentile, but
-        # the false-positive rate that lets it reject was only ever measured
-        # in band. Self-rhyme, radif and shared suffix keep their severity —
-        # a word rhymed with itself is a fact about two lines.
-        sized = {"LEXICAL_MONOTONY", "FUNCTION_WORD_HEAVY",
-                 "ANAPHORA_OVERLOAD", "UNIFORM_LINE_LENGTH",
-                 "PREDICTABLE_RHYME", "CLICHE_PAIR"}
-        bad = [f.code for f in fs
-               if f.code in sized and f.severity == "flag"]
-        check("no length-calibrated flag survives extrapolation", not bad,
-              f"{tok} tokens, profile {pr.name}, {len(fs)} finding(s); "
-              f"{'flags left: ' + str(bad) if bad else 'none left'}")
-        check("length-independent findings keep their severity",
-              any(f.severity == "flag" for f in fs
-                  if f.code not in sized),
-              "a self-rhyme is a self-rhyme at any length")
-        check("the extrapolation is announced",
-              "EXTRAPOLATED_LENGTH" in {f.code for f in fs})
+    with _narrowed_lyric(200, 400, 1.25):
+        pr, ex = declaration_for(tok)
+        fs = FLOOR.check(long_bad)
+    check("the extrapolated branch is REACHED, so the three checks below "
+          "are not silently skipped (under `_narrowed_lyric`; the shipped "
+          "table covers this length exactly)",
+          pr is not None and not ex,
+          f"{tok} tokens, profile {pr.name if pr else None}, exact={ex}")
+    # The five LENGTH-CALIBRATED checks are downgraded because their
+    # thresholds were extrapolated. CLICHE_PAIR is downgraded too, and
+    # for a different reason (see test 6b): it borrows no percentile, but
+    # the false-positive rate that lets it reject was only ever measured
+    # in the band rows. Self-rhyme, radif and shared suffix keep their
+    # severity — a word rhymed with itself is a fact about two lines.
+    sized = {"LEXICAL_MONOTONY", "FUNCTION_WORD_HEAVY",
+             "ANAPHORA_OVERLOAD", "UNIFORM_LINE_LENGTH",
+             "PREDICTABLE_RHYME", "CLICHE_PAIR"}
+    bad = [f.code for f in fs
+           if f.code in sized and f.severity == "flag"]
+    check("no length-calibrated flag survives extrapolation", not bad,
+          f"{tok} tokens, profile {pr.name if pr else None}, "
+          f"{len(fs)} finding(s); "
+          f"{'flags left: ' + str(bad) if bad else 'none left'}")
+    check("...and the downgrade was not vacuous: at least one "
+          "length-calibrated finding IS present, as a note",
+          any(f.code in sized and f.severity == "note" for f in fs),
+          f"{sorted((f.code, f.severity) for f in fs)}")
+    check("length-independent findings keep their severity",
+          any(f.severity == "flag" for f in fs
+              if f.code not in sized),
+          "a self-rhyme is a self-rhyme at any length")
+    check("the extrapolation is announced",
+          "EXTRAPOLATED_LENGTH" in {f.code for f in fs})
 
     # and MATTR, the check that silently changes statistic, must not run
     # outside a profile
-    huge = ["word " * 40] * 40
+    huge = ["word " * 40] * 90
     c = {f.code for f in FLOOR.check(huge)}
     check("outside every profile the length-sensitive checks do not run",
           "LEXICAL_MONOTONY" not in c and "OUT_OF_CALIBRATED_LENGTH" in c,
@@ -515,9 +566,10 @@ def test_calibration_block_is_honest():
         profs = CALIBRATION.get("profiles", {})
         defn = set(CALIBRATION.get("definitional", ()))
         d = FloorDeclaration()
-        check("every profile records its own percentiles",
-              profs and all(p.percentiles for p in profs.values()),
-              ", ".join(f"{n}:{len(p.percentiles)}" for n, p in profs.items()))
+        check("every profile records its own thresholds — percentiles or "
+              "length curves (`Profile.keys()`, M-239)",
+              profs and all(p.keys() for p in profs.values()),
+              ", ".join(f"{n}:{len(p.keys())}" for n, p in profs.items()))
         # the load-bearing direction: a threshold cannot be added to the
         # declaration without being either measured or explicitly definitional
         #
@@ -531,7 +583,7 @@ def test_calibration_block_is_honest():
         # exists to catch, and would have left a reader looking for the
         # calibration run that set a policy.
         policy = set(CALIBRATION.get("policy", ()))
-        measured = {k for p in profs.values() for k in p.percentiles}
+        measured = {k for p in profs.values() for k in p.keys()}
         untraceable = [k for k in d.__dict__
                        if k not in measured and k not in defn
                        and k not in policy]
@@ -582,7 +634,7 @@ def test_calibration_block_is_honest():
               "measured on")
         check("a profile cannot borrow a threshold it never measured",
               "predictable_pair_fraction_max"
-              not in profs["section"].percentiles,
+              not in profs["section"].keys(),
               "the section profile stays silent on PREDICTABLE_RHYME rather "
               "than reusing the sonnet cut")
         check("checks that failed their expectation are recorded too",
@@ -704,8 +756,9 @@ def test_the_floor_runs_on_a_song():
         ls = _sheet(name)
         tok = sum(len(FLOOR.qf._tokens(x)) for x in ls)
         prof, exact = declaration_for(tok)
-        check(f"{name} lands in the song profile, exactly",
-              prof is not None and prof.name == "song" and exact,
+        check(f"{name} lands in the lyric-sheet profile, exactly (M-239; "
+              f"it landed in `song` from 2026-08-11 to 2026-09-04)",
+              prof is not None and prof.name == "lyric" and exact,
               f"{len(ls)} lines, {tok} tokens -> "
               f"{prof.name if prof else None}, exact={exact}")
         check(f"{name} gets a length-sensitive verdict",
@@ -727,12 +780,19 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
     ls = _sheet("anaphoric.txt")
     f = find(ls, "ANAPHORA_OVERLOAD")
     check("the fixture trips ANAPHORA_OVERLOAD", f is not None,
-          "13 of its 26 lines open with 'I' — 50% against a human 95th "
-          "percentile of 30.0% measured on 1,859 corpus songs. If a later "
-          "change makes this pass, the threshold moved for the lyric's sake "
-          "and this test is the thing that says so")
+          "13 of its 26 lines open with 'I' — 50% against the human 95th "
+          "percentile ~~of 30.0% measured on 1,859 corpus songs~~ REPINNED "
+          "2026-09-05 (M-239): the fixture lands in `lyric`, whose "
+          "`anaphora_max` is a curve in ln N, and the number this check is "
+          "graded against is that curve EVALUATED AT 221 TOKENS — 0.3050, "
+          "read from the row rather than typed (§13 pins the profile). The "
+          "30.0% / 1,859-item figure was the `song` band's fixed percentile "
+          "and is kept as the reading this test was written against. If a "
+          "later change makes this pass, the threshold moved for the lyric's "
+          "sake and this test is the thing that says so")
     check("and it is a flag, not a note", f is not None and
-          f.severity == "flag", "the song profile covers 221 tokens exactly, "
+          f.severity == "flag", "the ~~song~~ lyric profile (M-239, repinned "
+          "2026-09-05) covers 221 tokens exactly, "
           "so nothing is downgraded for extrapolation")
     from quality.floor import PROFILES
     song = [p for p in PROFILES if p.name == "song"][0]
@@ -782,9 +842,12 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
           "argument and the commands")
 
 
-#: A sheet that trips EVERY length-sensitive check under the `song` profile at
+#: A sheet that trips EVERY length-sensitive check under the ~~`song`~~ live
+#: lyric-sheet profile at
 #: once, so §15's population is the whole of `LENGTH_SENSITIVE` rather than
-#: whichever codes one fixture happened to fire.
+#: whichever codes one fixture happened to fire. REPINNED 2026-09-05 (M-239):
+#: both arms land in `lyric` (4-3,245 tokens), whose thresholds are curves in
+#: ln N, so "under the profile" now means "at this arm's own length".
 #:
 #: WHY IT IS BUILT HERE RATHER THAN READ FROM `fixtures/`: the section's claim
 #: is about the SET of findings, so the text has to be answerable to the set.
@@ -795,9 +858,14 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
 #:
 #: HOW THE PAIRS WERE CHOSEN, DECLARED because a fixture picked to make a check
 #: fire is a tuning decision unless it says so. PREDICTABLE_RHYME needs the
-#: fraction of pairs above `predictability_max` (0.90) to exceed the `song`
-#: profile's 0.9333, so with n pairs it needs ALL of them: 11/12 is 0.9167 and
-#: does not clear. Twelve stock pairs were measured through
+#: fraction of pairs above `predictability_max` (0.90) to exceed ~~the `song`
+#: profile's 0.9333~~ the profile's threshold at this length — REPINNED
+#: 2026-09-05 (M-239): under `lyric` that is the knot table read at the arm's
+#: own N (0.9370 at 234 tokens; at 78 tokens it is 1.0000, the statistic's
+#: ceiling, which is why the short arm's PREDICTABLE_RHYME is pinned SILENT
+#: below rather than expected to fire). With n pairs the check needs ALL of
+#: them either way: 11/12 is 0.9167 and does not clear. Twelve stock pairs
+#: were measured through
 #: `QualityFeatures._predictability` and three fell below 0.90 — time/rhyme
 #: 0.7213, home/roam 0.7221, eyes/skies 0.8255 — so the nine that cleared are
 #: what is here (day/way 0.9942, night/light 0.9735, heart/part 0.9858,
@@ -810,13 +878,43 @@ _ALL_FIVE_PAIRS = [("day", "way"), ("night", "light"), ("heart", "part"),
                    ("rain", "again"), ("sea", "me"), ("sun", "one")]
 
 
-def _sheet_that_trips_every_length_check(n_pairs=9):
-    """All nine pairs: 18 lines / 234 tokens, inside `song`'s measured 200-400.
+class _narrowed_lyric:
+    """Narrow the lyric-sheet profile IN PROCESS so the tolerance-band and
+    no-profile branches are reachable again (M-239 covers 4-3,245 tokens
+    exactly, so under the shipped table nothing is extrapolated and nothing
+    under 3,246 tokens is refused). The branches are code that still ships
+    and still has to be right; the perturbation is how the suite reaches
+    them, the way `test_plan.py` reaches the planner's envelope."""
 
-    The first three: 6 lines / 78 tokens, inside `short`'s measured 50-150 —
-    the SAME text shortened, so the two arms differ in length and in nothing
-    else, which is what makes the shrinking expectation below attributable to
-    the profile rather than to the fixture.
+    def __init__(self, lo=200, hi=400, tolerance=1.25):
+        self.lo, self.hi, self.tol = lo, hi, tolerance
+
+    def __enter__(self):
+        self.p = [x for x in FL.PROFILES if x.name == "lyric"][0]
+        self.keep = (self.p.lo, self.p.hi, self.p.tolerance)
+        self.p.lo, self.p.hi, self.p.tolerance = self.lo, self.hi, self.tol
+        return self.p
+
+    def __exit__(self, *a):
+        self.p.lo, self.p.hi, self.p.tolerance = self.keep
+
+
+def _sheet_that_trips_every_length_check(n_pairs=9):
+    """All nine pairs: 18 lines / 234 tokens. The first three: 6 lines / 78
+    tokens — the SAME text shortened, so the two arms differ in length and in
+    nothing else.
+
+    ~~234 tokens sits inside `song`'s measured 200-400 and 78 inside
+    `short`'s measured 50-150, which is what makes the shrinking expectation
+    below attributable to the profile rather than to the fixture.~~ REPINNED
+    2026-09-05 (M-239): both arms land in the ONE live sheet profile,
+    `lyric` (4-3,245 tokens), and the band rows that used to catch them are
+    superseded. What the two arms now separate is the THRESHOLD: `lyric`'s
+    five cuts are functions of ln N, so the arms are graded against different
+    numbers at 234 and at 78 tokens, and the difference below is attributable
+    to the CURVE rather than to the fixture. The section's tail asserts
+    exactly that (`seen_profiles == ["lyric", "lyric"]` with every curve
+    differing between the two lengths).
     """
     out = []
     for a, b in _ALL_FIVE_PAIRS[:n_pairs]:
@@ -842,20 +940,30 @@ def test_the_song_profile_makes_no_separation_claim():
     # THE MAP MAY NOT GO STALE EITHER. A sixth threshold added to any profile
     # without joining `LENGTH_SENSITIVE` would be a length-sensitive finding
     # nothing here reads — the same defect one layer up.
-    declared = {k for p in PROFILES for k in p.percentiles}
+    declared = {k for p in PROFILES for k in p.keys()}
     mapped = {pk for pk, _ in LENGTH_SENSITIVE.values()}
     check("`LENGTH_SENSITIVE` names every percentile any profile declares",
           declared == mapped,
           f"declared-not-mapped {sorted(declared - mapped)}; "
           f"mapped-not-declared {sorted(mapped - declared)}")
 
-    # BOTH LYRIC-SHEET PROFILES ARE UNDER TEST, and the second is not a
+    # ~~BOTH LYRIC-SHEET PROFILES ARE UNDER TEST, and the second is not a
     # duplicate: `short` declares FOUR thresholds, not five — M-193's stage B
     # REFUSED `predictable_pair_fraction_max` there, because its 95th
-    # percentile over that band is 1.0000, the statistic's own ceiling. So the
+    # percentile over that band is 1.0000, the statistic's own ceiling.~~
+    # REPINNED 2026-09-05 (M-239): ONE profile at two lengths. Both arms land
+    # in `lyric`, which declares all five thresholds as curves in ln N; the
+    # check at the tail of this section pins that (`seen_profiles ==
+    # ["lyric", "lyric"]`, every curve differing between 78 and 234 tokens).
+    # The shorter arm is still not a duplicate, and for a related reason
+    # measured rather than declared: at 78 tokens the predictability knot
+    # table IS the statistic's ceiling (1.0000), so PREDICTABLE_RHYME cannot
+    # fire there — the same fact M-193's stage B refused a fixed threshold
+    # for, now carried as a disclosed under-resolved region. So the
     # expected finding set SHRINKS BY ARITHMETIC on the shorter sheet, and if
     # it did not, the derivation below would be a constant wearing a
-    # comprehension.
+    # comprehension. The `silent` set below is what computes that, from the
+    # row, so it cannot go stale the way this paragraph did.
     seen_profiles = []
     for n_pairs in (9, 3):
         ls = _sheet_that_trips_every_length_check(n_pairs)
@@ -872,13 +980,30 @@ def test_the_song_profile_makes_no_separation_claim():
 
         # Which codes MUST appear: every length-sensitive finding this
         # profile declares a threshold for.
+        # A threshold AT THIS LENGTH that sits at the statistic's own
+        # ceiling (a `hi` fraction at 1.0) cannot fire on anything — the
+        # predictability knot table is 1.0000 through ~~~156~~ 163 tokens by
+        # resolution and first drops under 1.0 at N = 164, to 0.9957
+        # (M-239, RESULTS_LENGTH_CURVE.md §9; repinned 2026-09-05) — so it
+        # is not in
+        # `want`, and its SILENCE is pinned below rather than left implicit.
+        silent = {c for c, (pk, _) in LENGTH_SENSITIVE.items()
+                  if pk in prof.keys()
+                  and pk.endswith("_max")
+                  and (prof.threshold(pk, n_tok) or 0) >= 1.0}
         want = {c for c, (pk, _) in LENGTH_SENSITIVE.items()
-                if pk in prof.percentiles}
+                if pk in prof.keys()} - silent
         got = {f.code for f in FLOOR.check(ls)} & set(LENGTH_SENSITIVE)
         check(f"[{prof.name}] every length-sensitive finding the profile "
               f"declares actually FIRES on this sheet, so no check below is "
-              f"vacuous",
+              f"vacuous — minus the checks whose threshold at {n_tok} tokens "
+              f"is the statistic's ceiling ({sorted(silent) or 'none'})",
               got == want, f"want {sorted(want)}; got {sorted(got)}")
+        if silent:
+            check(f"[{prof.name}] ...and a check whose threshold is the "
+                  f"ceiling at this length is SILENT here, by resolution and "
+                  f"not by omission: {sorted(silent)}",
+                  not (got & silent), f"fired anyway: {sorted(got & silent)}")
 
         fs = [f for f in FLOOR.check(ls) if f.code in LENGTH_SENSITIVE]
         check(f"[{prof.name}] at least one finding is under test", bool(fs))
@@ -926,9 +1051,20 @@ def test_the_song_profile_makes_no_separation_claim():
               all("not whether it catches a machine" in f.evidence
                   for f in fs))
 
-    check("the two arms landed in DIFFERENT profiles, so the derivation above "
-          "is not one profile read twice",
-          len(set(seen_profiles)) == 2, f"{seen_profiles}")
+    # REPINNED 2026-09-04 (M-239): both arms land in the ONE lyric-sheet
+    # profile now, and the derivation is still not one profile read twice,
+    # because that profile's thresholds are FUNCTIONS OF LENGTH — the two
+    # arms are graded against different numbers. That is what is pinned.
+    _lp = [p for p in PROFILES if p.name == "lyric"][0]
+    check("the two arms land in ONE profile whose thresholds DIFFER between "
+          "them (a curve, not a constant), so the derivation above is not "
+          "one number read twice",
+          seen_profiles == ["lyric", "lyric"]
+          and all(_lp.threshold(k, 78) != _lp.threshold(k, 234)
+                  for k in _lp.curves),
+          f"{seen_profiles}; mattr_min at 78 tokens "
+          f"{_lp.threshold('mattr_min', 78):.4f} vs at 234 "
+          f"{_lp.threshold('mattr_min', 234):.4f}")
 
     # The period half below reads the ANAPHORA_OVERLOAD finding on the
     # original fixture, which is where the withdrawal was pinned.
@@ -981,23 +1117,28 @@ def test_the_song_profile_makes_no_separation_claim():
 def test_the_song_profile_did_not_swallow_everything():
     print("\n16. adding a profile must not delete the refusal")
     from quality.floor import declaration_for
-    for tok in (501, 700, 3000):
+    # REPINNED 2026-09-04 (MISSING.md M-239): ~~501, 700, 3000~~ are INSIDE
+    # the lyric profile's 4-3,245 now, and that is a CALIBRATION, not a
+    # widening — every one of those lengths sits in a bin the curves passed
+    # a held-out 5% rate in. What the refusal still guards is the corpus's
+    # own edge: 3,246 tokens and up reach nothing.
+    for tok in (3246, 5000, 20000):
         p, _ = declaration_for(tok)
         check(f"{tok} tokens is still outside every profile", p is None,
               "doctrine 15: length is a coordinate of the declaration. A "
-              "profile widened until nothing refuses is not a calibration")
-    huge = ["word " * 40] * 40
+              "profile widened until nothing refuses is not a calibration — "
+              "and 3,245 is the corpus's longest item, not a number chosen")
+    huge = ["word " * 40] * 90
     c = codes(huge)
-    check("OUT_OF_CALIBRATED_LENGTH still fires above the song band",
+    check("OUT_OF_CALIBRATED_LENGTH still fires above the calibrated range",
           "OUT_OF_CALIBRATED_LENGTH" in c and "LEXICAL_MONOTONY" not in c,
           f"codes: {sorted(c)}")
     p, exact = declaration_for(450)
-    check("450 tokens is served by the song profile but marked inexact",
-          p is not None and p.name == "song" and not exact,
-          "1.25x tolerance -> applied 120-500. Measured on the song corpus, "
-          "carrying these thresholds to 2.0x raises the union false-positive "
-          "rate from 20.79% to 26.33%, which is why this profile does not "
-          "take the 2.0 the other two ship with")
+    check("450 tokens is served by the lyric profile EXACTLY — the 1.25x "
+          "tolerance band that used to serve it inexactly (`song`, 160-500) "
+          "has no job inside the calibrated range",
+          p is not None and p.name == "lyric" and exact,
+          f"got {p.name if p else None!r}, exact={exact}")
 
 
 def test_the_examples_are_not_in_the_calibration_set():
@@ -1098,23 +1239,37 @@ def test_the_two_mutants_this_suite_could_not_see():
     # (50-150 tokens, reach 40-187), sits after `song`; the mutant's
     # `reach[0]` is still the sonnet at every length below, so the
     # mutation stays live.
+    # REPINNED 2026-09-04 (MISSING.md M-239): a fifth row, `lyric`, sits
+    # last; `song` and `short` are SUPERSEDED (still listed, never picked).
     order = [p.name for p in PROFILES]
-    check("PROFILES is ordered section, sonnet, song, short",
-          order == ["section", "sonnet", "song", "short"], " -> ".join(order))
-    song_lo = [p for p in PROFILES if p.name == "song"][0].lo
-    for n, want_reach in ((199, ["sonnet", "song"]),
-                          (180, ["sonnet", "song", "short"])):
-        reach = [p.name for p in PROFILES if p.reaches(n)]
-        got, exact = declaration_for(n)
-        check(f"at {n} tokens {len(want_reach)} profiles REACH and none "
-              f"COVERS -- the mutated line is live here",
-              reach == want_reach and not exact, f"reaches {reach}")
-        check(f"...and the choice is `song`, the smallest extrapolation",
-              got.name == "song",
-              f"got {got.name!r}. `reach[0]` would give {reach[0]!r} -- "
-              f"{n - 126} tokens past the sonnet's measured 126, against "
-              f"{song_lo - n} short of the song's {song_lo}. This is the "
-              f"worked case `declaration_for`'s own comment records")
+    check("PROFILES is ordered section, sonnet, song, short, lyric — and "
+          "the live set is section, sonnet, lyric",
+          order == ["section", "sonnet", "song", "short", "lyric"]
+          and [p.name for p in FL.live_profiles()]
+          == ["section", "sonnet", "lyric"],
+          " -> ".join(order))
+    # THE MUTANT IS UNREACHABLE UNDER THE SHIPPED TABLE — every sheet length
+    # 4-3,245 is COVERED, so `reach` is never consulted — and it is reached
+    # here by narrowing the lyric profile in process to the old song band
+    # (200-400 at 1.25x). The worked case is then exactly the one
+    # `declaration_for`'s own comment records, with `lyric` in `song`'s seat.
+    with _narrowed_lyric(200, 400, 1.25):
+        lyric_lo = 200
+        for n, want_reach in ((199, ["sonnet", "lyric"]),
+                              (180, ["sonnet", "lyric"])):
+            reach = [p.name for p in FL.live_profiles() if p.reaches(n)]
+            got, exact = declaration_for(n)
+            check(f"at {n} tokens {len(want_reach)} live profiles REACH and "
+                  f"none COVERS (under `_narrowed_lyric`) -- the mutated "
+                  f"line is live here",
+                  reach == want_reach and not exact, f"reaches {reach}")
+            check(f"...and the choice is `lyric`, the smallest extrapolation",
+                  got.name == "lyric",
+                  f"got {got.name!r}. `reach[0]` would give {reach[0]!r} -- "
+                  f"{n - 126} tokens past the sonnet's measured 126, against "
+                  f"{lyric_lo - n} short of the narrowed lyric's {lyric_lo}. "
+                  f"This is the worked case `declaration_for`'s own comment "
+                  f"records")
 
     # AND THE COST OF THE 2026-08-26 REPIN IS PINNED HERE RATHER THAN LEFT TO
     # BE REDISCOVERED (MISSING.md M-132). Narrowing the song band to 200-400
@@ -1135,48 +1290,37 @@ def test_the_two_mutants_this_suite_could_not_see():
     # 108-126, which both cover, and there `declaration_for`'s line-count
     # tie-break (preregistration §4) decides -- fourteen lines is a
     # sonnet, anything else a sheet.
-    got_150, ex_150 = declaration_for(150)
-    check("at 150 tokens a lyric sheet is EXACT under `short` -- the "
-          "2026-08-26 handoff to the sonnet is paid back here",
-          got_150 is not None and got_150.name == "short" and ex_150,
-          f"got {got_150.name if got_150 else None!r}, exact={ex_150}")
-    got_163, ex_163 = declaration_for(163)
-    check("at 163 tokens it falls to `short`, extrapolated 13 tokens, "
-          "where it fell to `sonnet` extrapolated 37",
-          got_163 is not None and got_163.name == "short" and not ex_163,
-          f"got {got_163.name if got_163 else None!r}, exact={ex_163}")
-    got_127, ex_127 = declaration_for(127)
-    got_138, ex_138 = declaration_for(138)
-    check("...and the sonnet handoff for a lyric sheet is CLOSED, not "
-          "narrowed: 127-150 sit INSIDE the short band, so 127 and 138 "
-          "are exact under `short` where they fell to the sonnet "
-          "extrapolated; the only lengths a lyric sheet still meets the "
-          "sonnet at are its own 108-126, where the line count decides",
-          got_127 is not None and got_127.name == "short" and ex_127
-          and got_138 is not None and got_138.name == "short" and ex_138,
-          f"127 -> {got_127.name if got_127 else None!r} exact={ex_127}, "
-          f"138 -> {got_138.name if got_138 else None!r} exact={ex_138}")
-    got_175, _ = declaration_for(175)
-    got_176, _ = declaration_for(176)
-    check("...and between the two lyric-sheet bands 176 is where `song` "
-          "takes over from `short` (a tie at 175 goes to the narrower "
-          "band), so no length between them falls to the sonnet",
-          got_175 is not None and got_175.name == "short"
-          and got_176 is not None and got_176.name == "song",
-          f"175 -> {got_175.name if got_175 else None!r}, "
-          f"176 -> {got_176.name if got_176 else None!r}")
+    # REPINNED 2026-09-04 (MISSING.md M-239): the whole geography of
+    # handoffs this block pinned — `short` to 150, the sonnet at 163, the
+    # seam at 175/176 — is GONE, because one profile covers every sheet
+    # length exactly. What replaces it is one claim: every length from 4 to
+    # 3,245 is exact under `lyric` for a text that is not a quatrain or a
+    # sonnet by line count. The old seams are named so the record shows
+    # what closed them.
+    seams = (127, 138, 150, 163, 175, 176, 199, 4, 21, 3245)
+    got_seams = {n: declaration_for(n, 20) for n in seams}
+    check("every former seam — 127, 138, 150, 163, 175, 176, 199, and the "
+          "limits 4 and 3,245 — is EXACT under `lyric` for a twenty-line "
+          "text; the handoffs between `short`, `sonnet` and `song` that "
+          "M-132/M-193 pinned are closed by one profile, not by three "
+          "abutting bands",
+          all(p is not None and p.name == "lyric" and e
+              for p, e in got_seams.values()),
+          ", ".join(f"{n} -> {p.name if p else None}/{e}"
+                    for n, (p, e) in got_seams.items()))
 
-    for n, want in ((200, "song"), (400, "song"), (37, "section"),
+    for n, want in ((200, "lyric"), (400, "lyric"), (37, "section"),
                     (126, "sonnet")):
         got, exact = declaration_for(n)
         check(f"...and at {n} tokens it is `{want}`, EXACT",
               got.name == want and exact, f"got {got.name!r}, exact={exact}")
-    far, exact_far = declaration_for(1000)
+    far, exact_far = declaration_for(3300)
     check("past every profile's REACH the answer is None, not a nearest guess",
           far is None and not exact_far,
           "doctrine 15 -- text outside every calibrated length gets no "
           "length-sensitive finding at all, rather than one extrapolated "
-          "600 tokens past a measured edge")
+          "past a measured edge (3,300 tokens is past the corpus's longest "
+          "item, 3,245, since M-239)")
 
     # QF2 -- the radif licence needs BOTH a count of >= 2 pairs AND a fraction
     # >= radif_min_pair_fraction. The mutant kept only the count. floor.py's
@@ -1278,7 +1422,11 @@ def test_the_radif_licence_says_which_layer_it_speaks_for():
 
 def test_the_length_gate_is_a_gate():
     print("\n. an uncalibrated length REFUSES to certify — it is not a note")
-    short = ["A cat", "A hat"]
+    # REPINNED 2026-09-04 (MISSING.md M-239): ~~["A cat", "A hat"]~~, 4
+    # tokens, is COVERED now — the lyric-sheet profile's curves run from 4
+    # to 3,245 tokens — so the fixture that reaches no profile is a 3,600-
+    # token one, past the corpus's longest item.
+    short = ["word " * 40] * 90
     n = sum(len(FL.QualityFeatures._tokens(l)) for l in short)
     prof, exact = FL.declaration_for(n)
     check("the premise: this fixture reaches NO profile, so every "
@@ -1313,16 +1461,21 @@ def test_the_length_gate_is_a_gate():
           "ON IT — the shape `modal_exclusion=0` uses, so the defect stays "
           "demonstrable rather than becoming a sentence nobody can check",
           old == found, f"{old}")
-    mid = ["Silver rivers carry morning light"] * 4
+    # REPINNED 2026-09-04 (M-239): no shipped length sits in a tolerance
+    # band any more (the lyric profile's tolerance is 1.0 and it covers
+    # every sheet length), so the band branch is reached by narrowing the
+    # profile in process — `_narrowed_lyric` — and asking at 450 tokens.
+    mid = ["word " * 9] * 50
     nm = sum(len(FL.QualityFeatures._tokens(l)) for l in mid)
-    pm, em = FL.declaration_for(nm)
     strict = False
-    try:
-        FL.SlopFloor(FL.FloorDeclaration(
-            require_exact_length=True,
-            uncalibrated_length="refuse")).check(mid)
-    except FL.UncalibratedLength:
-        strict = True
+    with _narrowed_lyric(200, 400, 1.25):
+        pm, em = FL.declaration_for(nm)
+        try:
+            FL.SlopFloor(FL.FloorDeclaration(
+                require_exact_length=True,
+                uncalibrated_length="refuse")).check(mid)
+        except FL.UncalibratedLength:
+            strict = True
     check("`require_exact_length` refuses inside a TOLERANCE BAND too, where "
           "nothing can reject — off by default because the band is a "
           "measured allowance rather than an absence",
@@ -1349,11 +1502,17 @@ def test_the_length_gate_is_a_gate():
     # new band's reach (40-187) sits inside what the section and song
     # bands already reached, so it moved lengths from "note" to "flag" and
     # none from "nothing" to anything.
+    # REPINNED 2026-09-04 (MISSING.md M-239): the length-curve profile
+    # covers 4-3,245 tokens EXACTLY, so over 1-699 the flaggable share goes
+    # ~~44.5%~~ -> 99.6% (696 of 699) and the no-profile share ~~30.3%~~ ->
+    # 0.4% — the three lengths 1-3, under the profile's own lower limit,
+    # which is the corpus's shortest item. The hole this check was written
+    # to measure is closed, and the check now measures that it stays closed.
     check("AND THE SIZE OF THE HOLE IS MEASURED, not asserted: over 1-699 "
-          "tokens the floor can FLAG at 44.5% of lengths and reaches no "
-          "profile at all at 30.3%, with everything between downgraded",
-          abs(exact_n / 699 - 0.445) < 0.01
-          and abs(none_n / 699 - 0.303) < 0.01,
+          "tokens the floor can FLAG at 99.6% of lengths and reaches no "
+          "profile at all at 0.4% — the hole the band rows left is closed "
+          "by the length curves (M-239)",
+          exact_n == 696 and none_n == 3,
           f"flaggable {exact_n / 699:.1%}, no profile {none_n / 699:.1%}")
 
 
@@ -1374,9 +1533,12 @@ def test_the_profile_pick_reads_the_line_count():
     # tokens is covered by both. The section was first written against a
     # stand-in row appended for its duration; the shipped row makes the
     # stand-in a THIRD coverer and is used directly instead.
-    names = [p.name for p in FL.PROFILES if p.covers(118)]
-    check("the premise: two profiles cover 118 tokens, `sonnet` and `short`",
-          names == ["sonnet", "short"], f"{names}")
+    # REPINNED 2026-09-04 (M-239): the LIVE coverers of 118 tokens are
+    # `sonnet` and `lyric`; `short` still covers it in `PROFILES` and is
+    # superseded, which is why the premise reads `live_profiles()`.
+    names = [p.name for p in FL.live_profiles() if p.covers(118)]
+    check("the premise: two live profiles cover 118 tokens, `sonnet` and "
+          "`lyric`", names == ["sonnet", "lyric"], f"{names}")
     p0, e0 = FL.declaration_for(118)
     check("with NO line count the pick is list order — the pre-2026-09-01 "
           "answer, byte for byte", p0.name == "sonnet" and e0)
@@ -1388,13 +1550,22 @@ def test_the_profile_pick_reads_the_line_count():
     check("a twenty-line text of 118 tokens is graded as a LYRIC SHEET — "
           "the profile whose unit fixes no line count — and not as a "
           "sonnet it is not",
-          p2.name == "short" and e2, f"{p2.name}")
+          p2.name == "lyric" and e2, f"{p2.name}")
+    # 33 tokens is covered by `section` AND by `lyric` since M-239, and a
+    # twenty-line text of 33 tokens is a sheet, not a quatrain: the line
+    # count decides here too, exactly as it does at 118.
     p3, _ = FL.declaration_for(33, 20)
-    check("a count only ONE profile covers is unmoved by the line count",
-          p3.name == "section")
-    p4, e4 = FL.declaration_for(40, 20)
+    check("a twenty-line text of 33 tokens is a LYRIC SHEET, not a quatrain "
+          "— the same tie-break, at the section's length",
+          p3.name == "lyric", f"{p3.name}")
+    p3b, _ = FL.declaration_for(33, 4)
+    check("...and a four-line text of 33 tokens is the quatrain",
+          p3b.name == "section", f"{p3b.name}")
+    with _narrowed_lyric(200, 400, 1.25):
+        p4, e4 = FL.declaration_for(450, 20)
     check("...and a count NO profile covers still takes the "
-          "nearest-measured-edge rule, inexact", p4 is not None and not e4)
+          "nearest-measured-edge rule, inexact (under `_narrowed_lyric`)",
+          p4 is not None and not e4)
     # THE GATE PASSES THE COUNT. Recorded rather than inferred: the picker
     # is swapped for a recorder for one call, so the check reads what the
     # gate actually handed it.
@@ -1412,6 +1583,147 @@ def test_the_profile_pick_reads_the_line_count():
         FL.declaration_for = real
     check("`Floor.check` hands the picker the text's line count beside its "
           "token count", seen and seen[0][1] == 6, f"{seen[:1]}")
+
+
+def test_a_declared_threshold_is_not_a_corpus_percentile():
+    print("\n27. an OVERRIDDEN threshold may not be reported as the "
+          "corpus's percentile (M-238, M-241)")
+    # WHAT THIS PINS, AND WHY THE OBVIOUS HALF OF IT WAS ALREADY RIGHT.
+    # `check()`'s local `at_len` helper has returned "" for an overridden key
+    # since the length curves landed, so the ", evaluated at N=... from
+    # <formula>" clause never appeared beside a caller's number. That is the
+    # half a reader checks first and it holds. What it did NOT cover is the
+    # rest of the same parenthetical: `(human 5th percentile, lyric profile)`
+    # stood beside the CALLER'S cut, and `Profile.evidence_for`'s AUC or
+    # held-out false-positive rate — both measured AT THE PROFILE'S OWN
+    # THRESHOLD — were printed as the evidence for it. Suppressing the curve
+    # clause made the override read MORE like a fixed-percentile profile's
+    # number, not less; and on the two stanza profiles, which carry no
+    # curves, `at_len` suppressed nothing at all and the overridden string
+    # was byte-identical to the measured one apart from the digits.
+    SIDE = {"mattr_min": "5th", "function_word_ratio_max": "95th",
+            "anaphora_max": "95th", "line_length_cv_min": "5th",
+            "predictable_pair_fraction_max": "95th"}
+    OVR = {"mattr_min": 0.9111, "function_word_ratio_max": 0.1222,
+           "anaphora_max": 0.0333, "line_length_cv_min": 0.4444,
+           "predictable_pair_fraction_max": 0.0555}
+    by_key = {pk: code for code, (pk, _) in FL.LENGTH_SENSITIVE.items()}
+    ev_key = {pk: ek for _, (pk, ek) in FL.LENGTH_SENSITIVE.items()}
+
+    sheet = ["and the way that we go to the day of the fire",
+             "and the way that we go to the day of desire"] * 24
+    n_tok = sum(len(FLOOR.qf._tokens(l)) for l in sheet)
+    prof, exact = declaration_for(n_tok, len(sheet))
+    check("the fixture lands in the lyric profile, exactly — the profile "
+          "whose five thresholds are CURVES, so the struck helper's own "
+          "branch is the one under test",
+          prof is not None and prof.name == "lyric" and exact,
+          f"{len(sheet)} lines, {n_tok} tokens -> "
+          f"{prof.name if prof else None}, exact={exact}")
+
+    base = {f.code: f.evidence for f in FLOOR.check(sheet, "AABB")}
+    check("PREMISE: all five length-sensitive findings FIRE on it under the "
+          "default declaration, so neither arm below asserts over an empty "
+          "list (doctrine 48)",
+          set(base) >= set(FL.LENGTH_SENSITIVE),
+          f"missing {sorted(set(FL.LENGTH_SENSITIVE) - set(base))}")
+
+    for key in sorted(OVR):
+        code, side = by_key[key], SIDE[key]
+        claim = f"(human {side} percentile, {prof.name} profile"
+        rests = prof.evidence_for(ev_key[key])
+        ov = [f for f in SlopFloor(FloorDeclaration(**{key: OVR[key]}))
+              .check(sheet, "AABB") if f.code == code]
+        check(f"[{code}] PREMISE: it fires under the override too, so the "
+              f"three checks below read a real string",
+              len(ov) == 1, f"{len(ov)} finding(s)")
+        if not ov:
+            continue
+        got = ov[0].evidence
+        # THE CONTROL AND THE CLAIM ARE ONE PAIR. Without the default arm a
+        # renderer that stopped naming the percentile ANYWHERE would pass.
+        check(f"[{code}] CONTROL: with no override the finding still names "
+              f"the corpus percentile and the profile it came from",
+              claim in base[code], f"expected {claim!r}")
+        check(f"[{code}] ...and with `FloorDeclaration.{key}` set it does "
+              f"NOT — the caller's cut is not a percentile of any corpus",
+              claim not in got,
+              f"{OVR[key]} reported as the {prof.name} corpus's {side} "
+              f"percentile")
+        check(f"[{code}] ...and it NAMES the declaration the number came "
+              f"from, rather than going silent about its provenance "
+              f"(doctrine 20)",
+              f"FloorDeclaration.{key}" in got)
+        # `evidence_for` prices the PROFILE'S threshold. It is not a
+        # property of the membership test and it moves with the cut, so it
+        # may not stand beside a number the caller chose (doctrine 22).
+        check(f"[{code}] CONTROL: the profile's own AUC/held-out sentence "
+              f"IS quoted when the profile's own threshold was applied",
+              rests in base[code], f"expected: {rests[:60]}...")
+        check(f"[{code}] ...and is WITHDRAWN under the override, because it "
+              f"was measured at the threshold the declaration replaced",
+              rests not in got, f"still quoting: {rests[:60]}...")
+
+    # THE HALF THE CURVE-SUPPRESSING HELPER NEVER REACHED. `section` carries
+    # fixed percentiles and no curves, so `at_length` was already "" there
+    # and an override was indistinguishable from a measurement.
+    stanza = ["and the way we go to the fire",
+              "and the way we go to the mire"] * 2
+    s_tok = sum(len(FLOOR.qf._tokens(l)) for l in stanza)
+    sp, s_exact = declaration_for(s_tok, len(stanza))
+    check("the stanza fixture lands in `section`, exactly — a profile with "
+          "NO curves, where the struck helper contributed nothing",
+          sp is not None and sp.name == "section" and s_exact
+          and not sp.curves,
+          f"{s_tok} tokens -> {sp.name if sp else None}, curves "
+          f"{sorted(sp.curves) if sp else None}")
+    s_base = [f for f in FLOOR.check(stanza, "AABB")
+              if f.code == "LEXICAL_MONOTONY"]
+    s_ov = [f for f in SlopFloor(FloorDeclaration(mattr_min=0.9111))
+            .check(stanza, "AABB") if f.code == "LEXICAL_MONOTONY"]
+    check("PREMISE: LEXICAL_MONOTONY fires on it under both declarations",
+          len(s_base) == 1 and len(s_ov) == 1,
+          f"{len(s_base)} / {len(s_ov)}")
+    if s_base and s_ov:
+        check("CONTROL: the section profile's own cut is still reported as "
+              "its 5th percentile",
+              "(human 5th percentile, section profile" in s_base[0].evidence)
+        check("...and an override under a FIXED-percentile profile is not — "
+              "the defect `at_len` could not reach",
+              "(human 5th percentile, section profile"
+              not in s_ov[0].evidence)
+        check("...and the section profile's AUC is withdrawn with it: 0.776 "
+              "was measured at 0.7568 and prices nothing at 0.9111",
+              sp.evidence_for("mattr") not in s_ov[0].evidence)
+
+    # THE SHARPEST CASE, AND IT IS THIS SUITE'S OWN §11 FIXTURE. `section`
+    # declares NO `predictable_pair_fraction_max`, so the check runs there
+    # ONLY because a declaration supplied the cut — and the finding printed
+    # `> 0.8333 (human 95th percentile, section profile)` for a percentile
+    # that profile never took.
+    s11 = ["The candle burned and set the room on fire",
+           "And all night long she nursed a small desire",
+           "He said the word and then he turned to go",
+           "She never asked the thing she had to know"]
+    p11, _ = declaration_for(sum(len(FLOOR.qf._tokens(l)) for l in s11),
+                             len(s11))
+    check("PREMISE: `section` declares no `predictable_pair_fraction_max`, "
+          "so §11's own fixture can only run this check on a declaration",
+          "predictable_pair_fraction_max" not in p11.keys(),
+          f"{p11.name} declares {sorted(p11.keys())}")
+    f11 = [f for f in SlopFloor(
+        FloorDeclaration(predictable_pair_fraction_max=0.8333))
+        .check(s11, "AABB") if f.code == "PREDICTABLE_RHYME"]
+    check("PREMISE: it fires, as §11 requires", len(f11) == 1)
+    if f11:
+        check("a cut the profile never measured is not reported as that "
+              "profile's 95th percentile",
+              "(human 95th percentile, section profile"
+              not in f11[0].evidence)
+        check("...and the finding says the profile measured NONE, rather "
+              "than implying a threshold was overridden that never existed",
+              "measured no predictable_pair_fraction_max" in f11[0].evidence,
+              f11[0].evidence[:120])
 
 
 if __name__ == "__main__":
@@ -1436,7 +1748,8 @@ if __name__ == "__main__":
                test_anaphora_tie_break_reproduces,
                test_the_two_mutants_this_suite_could_not_see,
                test_the_radif_licence_says_which_layer_it_speaks_for,
-               test_the_profile_pick_reads_the_line_count):
+               test_the_profile_pick_reads_the_line_count,
+               test_a_declared_threshold_is_not_a_corpus_percentile):
         fn()
     print("=" * 62)
     if FAILURES:

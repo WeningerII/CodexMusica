@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
 """Re-derive the `song` profile in quality/floor.py from corpus/song/.
 
+REPINNED 2026-09-05 (`MISSING.md` M-239). The `song` row this file re-derives
+is a SUPERSEDED band row and has been since 2026-09-04, as is the `short` row
+`--profile short` re-derives: `quality/floor.py`'s live lyric-sheet profile is
+`lyric`, whose five thresholds are curves in ln(N tokens) over the whole
+4-3,245-token corpus, and `declaration_for` / `live_profiles()` never pick
+either band. This instrument is NOT retired by that — the rows stay in
+`PROFILES` precisely so their constants keep a drift detector, and that is
+what `--check` still is. What it may no longer be read as is a check on the
+numbers the floor GRADES with; `quality/length_curve_calibration.py check` is
+that, and `quality/RESULTS_LENGTH_CURVE.md` is its record.
+
     python3 quality/song_profile_calibration.py             # the full report
     python3 quality/song_profile_calibration.py --check     # numbers only, exit 1 on drift
     python3 quality/song_profile_calibration.py --seeds 50  # faster, wider intervals
@@ -219,9 +230,20 @@ _MARKER = re.compile(r"^(#|--- |\[)")
 #: statistic and would report agreement or drift for the wrong reason. Taking
 #: it from `FloorDeclaration` makes that disagreement impossible to have.
 #: The window itself is a coordinate with a sweep behind it -- see
-#: `quality.floor.CALIBRATION["mattr_window"]`; every song-band item is
+#: `quality.floor.CALIBRATION["mattr_window"]`; ~~every song-band item is
 #: 150-400 tokens, comfortably past 50, so every `mattr` below IS a genuine
-#: moving average (unlike the `section` profile's, which is plain TTR).
+#: moving average (unlike the `section` profile's, which is plain TTR).~~
+#: REPINNED 2026-09-05: every `song`-band item is 200-400 tokens (the band
+#: re-adopted 2026-08-26), comfortably past 50, so every `mattr` this
+#: instrument computes for THAT band is a genuine moving average — unlike the
+#: `section` profile's, which is plain TTR. It is NOT true of every band this
+#: file measures: `--profile short` re-derives 50-150, whose lower edge sits
+#: ON the window, and `_mattr` returns plain TTR when `len(words) <= window`,
+#: so items of exactly 50 tokens there are a TTR inside a MATTR percentile.
+#: The count is not taken here and the mixture is disclosed rather than
+#: corrected. Both bands are SUPERSEDED for grading since 2026-09-04
+#: (`MISSING.md` M-239, the `lyric` curve row) and this file re-derives them
+#: as drift checks.
 MATTR_WINDOW = FloorDeclaration().mattr_window
 
 #: (feature, side, percentile). "lo" flags below the 5th, "hi" above the 95th.
@@ -641,7 +663,8 @@ def predictability_frac(qf, lines, obvious_cutoff=0.90):
 
 
 def population(verbose=True, qf=None, with_predictability=True, scorer=None,
-               sample=None, sample_seed=SAMPLE_SEED, pred_max_tokens=None):
+               sample=None, sample_seed=SAMPLE_SEED, pred_max_tokens=None,
+               files=None):
     """-> ([row], scorer), one row per `--- TITLE:` item in corpus/song/eng_*.txt.
 
     `qf`/`scorer` let a caller share one `QualityFeatures` (and its
@@ -662,7 +685,10 @@ def population(verbose=True, qf=None, with_predictability=True, scorer=None,
         scorer = Scorer(PredictabilityCache(enabled=False).open(), qf)
     elif qf is not None and scorer._qf is None:
         scorer._qf = qf
-    files = corpus_files()
+    # `files` (2026-09-04, quality/LENGTH_CURVE_PREREGISTRATION.md §1): a
+    # SHARD of the corpus for a parallel cold run of the fifth check. The
+    # default is the whole population, byte for byte what it was.
+    files = corpus_files() if files is None else list(files)
     raw = []
     for p in files:
         a, born, died = author_of(p)
@@ -1110,9 +1136,14 @@ def report_tolerance(rows, lo, hi, seeds):
         print("   The union FPR is NOT monotone in the factor over this "
               "table; read the rows.")
     print("   The song profile declares 1.25 (its cheap point); the short "
-          "profile declares 1.25 to meet it. The other two profiles keep "
+          "profile declares 1.25 to meet it. The two STANZA profiles keep "
           "2.0 because re-measuring them needs the sonnet classes, and "
-          "that is a different cell's to move.")
+          "that is a different cell's to move. Repinned 2026-09-05 (M-239): "
+          "there are five rows, not four — the live sheet row `lyric` "
+          "declares 1.0 (no band: inside 4-3,245 tokens there is no edge to "
+          "extrapolate past) and SUPERSEDES both bands above, which stay in "
+          "`PROFILES` for this instrument's drift check and are never "
+          "applied by `declaration_for`.")
 
 
 def report_period(rows, lo, hi, draws=2000):

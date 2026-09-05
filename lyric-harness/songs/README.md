@@ -21,7 +21,13 @@ The planner has moved since these seeds were banked — `stanza_line_floor`
 (M-171), the density and recurrence coordinates of 2026-09-01 (M-190,
 M-191), and the SHORT floor profile of the same day (M-193), which took the
 planner's length envelope from 22–55 lines to **12–55** and re-rolled every
-seed's drawn length — and a plan is a function of the seed AND the planner.
+seed's drawn length — **and, added to this list 2026-09-05, the
+LENGTH-CURVE profile of 2026-09-04 (`MISSING.md` M-239), which superseded
+both band rows with one `lyric` row over 4–3,245 tokens and took the envelope
+from 12–55 to `ENVELOPE["total_lines"] == (12, 447)` — `song_line_counts()`
+is 1..447 (447 values, NO hole), `fillable_line_counts()` 12..447 — re-rolling
+every seed's drawn length a further time (median drawn total ~35 -> 201 lines
+over 40 seeds)** — and a plan is a function of the seed AND the planner.
 MEASURED before M-193: `plan --seed=22` drew **30 lines** at HEAD against
 `keep_the_light.txt`'s 18; after it, every seed below draws a different
 length again. Each song's `*.log.tsv` names the harness commit its plan was drawn at;
@@ -470,8 +476,11 @@ writing.
 `quality/discriminate.py` fits its discriminator on SONNETS at a fixed 14-line
 scheme; pushing a 25-line song in 8/8 through it and printing the number is a
 measurement laundered out of its domain. The features are recorded; the
-verdict against the song corpus is `quality/floor.py`'s song profile, which
-already runs inside `song`.
+verdict against the song corpus is `quality/floor.py`'s ~~song profile, which
+already runs inside `song`~~ **lyric-sheet profile** — REPINNED 2026-09-05
+(`MISSING.md` M-239): the live row is `lyric`, 4–3,245 tokens, whose five
+thresholds are functions of ln N evaluated at the sheet's own length; `song`
+(200–400) and `short` (50–150) are superseded and never applied.
 
 **AND THE FIRST RUN DID NOT FLATTER THE NEWEST SONG.** On concreteness —
 pre-registered as HIGHER in the survived/human class — `carry_it_over.txt` is

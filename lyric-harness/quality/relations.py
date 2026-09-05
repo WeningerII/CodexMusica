@@ -7196,12 +7196,24 @@ def _span_line(span, stream):
 #: projected second declaration is not spelled here).  Bounded per slot, and
 #: the slot table itself is bounded; `LYRIC_PAIR_MEMO=0` bypasses it.
 _PAIR_MEMO = collections.OrderedDict()
-#: DERIVED, not guessed: the planner's envelope tops out at 55 lines
+#: DERIVED, not guessed: ~~the planner's envelope tops out at 55 lines
 #: (`plan.ENVELOPE["total_lines"]`), i.e. 1,485 line pairs for one draft, and
 #: a fold that moves one line adds at most 54 rows; 4,096 holds the whole
-#: draft plus 48 folds before the oldest rows go.  Slots: the 77 registered
-#: schemas plus the declared ones a mandate can name, under one declaration,
-#: with room for a second declaration in the same process.
+#: draft plus 48 folds before the oldest rows go.~~
+#: REPINNED 2026-09-05 (`MISSING.md` M-239).  The premise moved: the cap was
+#: sized on 2026-09-02 to the envelope OF THAT DAY, `plan.ENVELOPE
+#: ["total_lines"] == (12, 55)`, and since 2026-09-04 the envelope is
+#: (12, 447) — a 447-line draft is 447 x 446 / 2 = **99,681** pairs, so
+#: 4,096 rows are 4.1% of one draft and the word DERIVED no longer describes
+#: this number.  MEASURED, 4,096 rows hold a WHOLE draft up to **91 lines**
+#: (91 x 90 / 2 = 4,095) and are exceeded at **92** (4,186).  Past that the
+#: memo is a BOUND with LRU eviction, never a clamp: nothing is refused, the
+#: oldest rows go and the pair is re-scored.  The CAP IS NOT CHANGED HERE —
+#: changing it is a behaviour change with its own record — and the scaling
+#: question is filed under M-240 (OPEN), the grader's own pair guard, which
+#: is where the cost of long drafts is being priced.  Slots: the 77
+#: registered schemas plus the declared ones a mandate can name, under one
+#: declaration, with room for a second declaration in the same process.
 PAIR_MEMO_CAP = 4_096         # (line pair, signature) rows per (schema, stream) slot
 PAIR_MEMO_SLOTS = 128         # (schema, stream constants) slots held at once
 _PAIR_MEMO_TALLY = {"hit": 0, "miss": 0, "evicted": 0}

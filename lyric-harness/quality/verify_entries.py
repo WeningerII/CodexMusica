@@ -1727,7 +1727,13 @@ def _floor_probe(delta):
     profile's own key set, which is also what proves the header rule is read
     from the declaration rather than typed out here (doctrine 1).
     """
-    prof = floor_profiles()[sorted(floor_profiles())[0]]
+    # The first profile IN SORT ORDER THAT DECLARES FIXED PERCENTILES: since
+    # M-239 the alphabetically-first row is `lyric`, whose thresholds are
+    # curves and whose `percentiles` is empty, and a probe rendered from it
+    # has no keys — TRUE and FALSE both fall to `None` and the control is
+    # vacuous. A curve row's table cells are not this shape's business.
+    _named = sorted(n for n, p in floor_profiles().items() if p.percentiles)
+    prof = floor_profiles()[_named[0]]
     keys = sorted(prof.percentiles)
     head = "| | " + " | ".join("`%s`" % k for k in keys) + " |"
     row = "| %s profile | " % prof.name + " | ".join(

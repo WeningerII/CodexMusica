@@ -11417,6 +11417,29 @@ def cli():
     # handler just prints what it was already told.
     try:
         main()
+    except RuntimeError as e:
+        # THE SCHEMA DOOR'S PAIR GUARD (`MISSING.md` M-240, 2026-09-04). The
+        # 77-schema default door builds every candidate pair over the whole
+        # draft and refuses past `relations.realise`'s `max_pairs`; the
+        # planner's envelope reaches lengths past that wall since M-239
+        # (measured: 108 lines grade in 330 s, 144 lines refuse). A wall
+        # reached is a REFUSAL with its reason, not a traceback — and it is
+        # NOT caught inside the grader, because a draft graded on the
+        # narrow door alone while the report reads like the default would
+        # be a verdict wearing the wrong coordinate (doctrine 1).
+        if "candidate explosion" not in str(e):
+            raise
+        _refuse(f"the rhyme-schema default door refused this draft: {e}",
+                detail=["the 77-schema door considers every candidate pair "
+                        "over the whole draft, so its cost grows with the "
+                        "SQUARE of the line count and it stops at a declared "
+                        "pair guard (`relations.realise`, max_pairs). "
+                        "MEASURED on the planner's fixture draft: 53 lines "
+                        "56 s, 108 lines 330 s, 144 lines refused.",
+                        "declare a relation per group (`--relation=` / "
+                        "`--relations=`) so the schema door is not consulted, "
+                        "or grade a shorter draft. A schema door that scales "
+                        "is `MISSING.md` M-240, open."])
     except UndecodableLyricFile as e:
         _refuse(str(e),
                 detail=["this harness reads lyrics and corpora as UTF-8 and "

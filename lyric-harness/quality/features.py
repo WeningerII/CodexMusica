@@ -696,9 +696,11 @@ class QualityFeatures:
         admissible only if EVERY item in a profile's calibration set falls on
         the same side of it. Otherwise one profile's percentile is a mixture
         of two different statistics reported under a single threshold, which
-        is the defect doctrine 15 names. Measured over the three shipped
-        profiles' own calibration sets (section quatrains 23-40 tokens,
-        sonnets 94-133, song band 150-400), the admissible windows are
+        is the defect doctrine 15 names. Measured 2026-08-14 over the ~~three
+        shipped profiles'~~ THREE PROFILES SHIPPED THAT DAY, on their own
+        calibration sets (section quatrains 23-40 tokens,
+        sonnets 94-133, song band 150-400 — the song band moved to 200-400
+        on 2026-08-26), the admissible windows are
 
             [1, 22]  union  [40, 93]
 
@@ -709,6 +711,26 @@ class QualityFeatures:
         matters because a naive retune toward the AUC gradient -- which points
         DOWNWARD, at 20 -- would plausibly stop at 25 or 30, land on an
         inadmissible value, and nothing in this repo would have said so.
+
+        THE ARGUMENT ABOVE IS A PER-BAND ONE AND DOES NOT EXTEND TO THE
+        `lyric` ROW (2026-09-04, `MISSING.md` M-239; noted here 2026-09-05).
+        There are five rows in `floor.PROFILES` now, and the live sheet row
+        is `lyric`, whose calibration set is the WHOLE corpus, 4-3,245
+        tokens. That set straddles the 50-token window, so its items do NOT
+        all fall on the same side of the branch below: an item under the
+        window is plain TTR and one over it is a moving average, inside one
+        profile. By the rule stated above no window is admissible for that
+        row, and this note does not claim otherwise. What the length-curve
+        cell did instead is written down rather than assumed: it fits the
+        SHIPPED statistic as shipped, TTR fallback included, and its
+        preregistration (`quality/LENGTH_CURVE_PREREGISTRATION.md` §8) says
+        so — "no feature is redefined to be length-free; the cell measures
+        how the SHIPPED statistics move". That is a disclosure, not a repair,
+        and the mixture the paragraph above calls inadmissible is still a
+        mixture. `quality/RESULTS_LENGTH_CURVE.md` §3 carries it. The two
+        superseded band rows (`song` 200-400, `short` 50-150) are what the
+        admissibility argument was ever about, and `short`'s lower edge sits
+        ON the window.
 
         AND IT IS KEPT ANYWAY, ON DOCTRINE 19. The shipped value costs ~0.06
         AUC against the sweep's best and is kept because an in-sample argmax
