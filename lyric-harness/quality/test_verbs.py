@@ -4221,15 +4221,40 @@ def test_the_ban_is_unskippable_at_the_grading_verb_too():
     #
     # `hair`/`chair` is the canonical tier-1 pair: CLAUDE.md records it as one
     # of the three that beat the single top-N cliff and forced the two tiers.
-    banned = "I ran my fingers through her hair\nand set the bottle on the chair\n"
+    # BOTH FIXTURES RE-CUT 2026-09-05 (`MISSING.md` M-239), and the reason
+    # is the section's own premise. ~~"I ran my fingers through her hair /
+    # and set the bottle on the chair"~~ and ~~"She met me halfway up the
+    # stair / and had no second breath to spare"~~ carried the ban and the
+    # clean control at 14 tokens each. Under the band table a 14-token draft
+    # reached no profile, so every length-sensitive check was silent and the
+    # ban was the ONLY thing that could exit 3. Under the length curve 14
+    # tokens grades EXACT: MEASURED, the banned fixture now trips
+    # FUNCTION_WORD_HEAVY as a whole-draft FLAG (ratio over the 0.5490 the
+    # curve puts at N=14) and the control does not. The flag gate sits
+    # BEFORE the ban gate on purpose (`lyric_harness.py`: a flag is a defect
+    # a writer can act on line by line, the ban names a pair to screen), so
+    # the flag preempted the ban sentence and two checks below went red —
+    # while the two fixtures had quietly come to differ in TWO ways, which
+    # is exactly what this section's premise forbids.
+    #
+    # Re-cut so the ban is again the only difference, and MEASURED clean at
+    # the floor on both sides (`SlopFloor().check` returns [] for each): the
+    # two drafts now share line 1 verbatim and differ in line 2 alone, which
+    # is a tighter control than the pair they replace. `hair`/`chair` is
+    # kept — CLAUDE.md records it as one of the three tier-1 pairs that beat
+    # the single top-N cliff and forced the two tiers.
+    banned = ("dust settles on the kitchen chair\n"
+              "cold rain keeps combing through her hair\n")
     # THE CONTROL PAIR MUST RHYME AND BE CLEAN, which is a real constraint
     # and not a detail: the first draft of this check used `hair`/`floor`,
     # which do not rhyme, so it exited 3 on `SCHEME_VIOLATION` and would have
-    # "passed" the section for entirely the wrong reason. `stair`/`spare` is
-    # a screened-clean perfect rhyme (different spelled rime, neither in the
-    # other's modal head), so the only thing separating the two fixtures is
-    # the ban itself.
-    clean = "She met me halfway up the stair\nand had no second breath to spare\n"
+    # "passed" the section for entirely the wrong reason. ~~`stair`/`spare`~~
+    # `chair`/`spare` is a screened-clean perfect rhyme (`screen chair spare
+    # --relation=RHYME` -> CLEAN — RHYMES: different spelled rime, neither in
+    # the other's modal head), so the only thing separating the two fixtures
+    # is the ban itself.
+    clean = ("dust settles on the kitchen chair\n"
+             "cold rain leaves nothing left to spare\n")
     bp = {"sections": [{"name": "V1", "function": "verse", "bars": 2,
                         "start_bar": 1,
                         "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
