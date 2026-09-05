@@ -76,8 +76,7 @@ def test_the_population_is_real():
             ("### X-3 · a probe `BLOCKED` (doctrine 44)", "BLOCKED"),
             ("### X-4 · a probe with no status token", "OPEN")):
         m = T.MISSING_HEAD.match(head)
-        st = T.MISSING_STATUS.search(m.group(2)) if m else None
-        got = st.group(1) if st else ("OPEN" if m else None)
+        got = T.missing_status_of(m.group(2)) if m else None
         check("heading shape parses: %r -> %s" % (head[10:44], want),
               got == want, "got %s" % got)
     # A heading pattern that stops matching is the failure that reads as a
@@ -96,6 +95,65 @@ def test_the_population_is_real():
               "clean register (doctrine 20)", raised)
     finally:
         T.MISSING_HEAD, T.BACKLOG_HEAD = real
+
+
+def test_a_struck_status_is_not_the_status():
+    """1b. ONE READER, AND IT UNSTRIKES FIRST (`MISSING.md` M-242, 2026-09-05).
+
+    Three entries were closed on 2026-09-01 by doctrine 17's own move --
+    `~~\`PARTIAL\`~~ \`CLOSED\`` -- and BOTH shipped readers took the first
+    backticked token, so the struck one. The open queue carried three closed
+    entries with `--check` green. And this file had a SECOND reader beside
+    counters' "THE ONE PARSER"; the two disagreed on the tokenless L-3.
+    """
+    print("\n1b. a struck status token is history, never the status")
+    from quality import counters as C
+    for head, want in (
+            ("### X-5 · closed by strike ~~`PARTIAL`~~ `CLOSED` 2026-09-01 "
+             "— the reprise was built", "CLOSED"),
+            ("### X-6 · closed by strike ~~`OPEN`~~ `CLOSED` 2026-09-01 — moot",
+             "CLOSED"),
+            ("### X-7 · reopened by strike ~~`CLOSED`~~ `PARTIAL` — residual",
+             "PARTIAL"),
+            ("### X-8 · only a struck token ~~`CLOSED`~~", "OPEN")):
+        m = T.MISSING_HEAD.match(head)
+        got = T.missing_status_of(m.group(2))
+        check("struck shape parses: %r -> %s" % (head[10:50], want),
+              got == want, "got %s" % got)
+    # THE MUTATION, run in place: the pre-fix rule -- first token with the
+    # struck text kept -- must DISAGREE on the struck shapes, or this section
+    # is asserting a difference that does not exist.
+    prefix = re.compile(r"`(%s)[^`]*`" % "|".join(C.MISSING_STATUSES))
+    old = lambda h: prefix.search(h).group(1) if prefix.search(h) else "OPEN"
+    check("...and the pre-fix first-token rule reads the STRUCK token on that "
+          "shape, so the repair is load-bearing",
+          old("a ~~`PARTIAL`~~ `CLOSED`") == "PARTIAL"
+          and T.missing_status_of("a ~~`PARTIAL`~~ `CLOSED`") == "CLOSED")
+    # THE LIVE REGISTER: the three closes that were misfiled, and the entry
+    # the two readers disagreed on.
+    for key in ("D-3", "M-85", "M-94"):
+        e = BY.get(key)
+        check("%s reads CLOSED (it was struck-closed 2026-09-01)" % key,
+              e is not None and e.status == "CLOSED",
+              "got %s" % (e.status if e else "absent"))
+    e = BY.get("L-3")
+    check("L-3 reads PARTIAL from this reader AND from counters' -- one "
+          "register, one answer",
+          e is not None and e.status == "PARTIAL"
+          and dict((n, st) for _, n, st in C.missing_entry_statuses())
+          .get(e.lineno) == "PARTIAL",
+          "got %s" % (e.status if e else "absent"))
+    # NO SECOND READER: triage has no status regex of its own any more, and
+    # every MISSING status it reports is in counters' list at the same line.
+    rows = {n: st for _, n, st in C.missing_entry_statuses()}
+    miss = [e for e in ENTRIES if e.source == "MISSING.md"]
+    agree = sum(1 for e in miss if (rows.get(e.lineno) or "OPEN") == e.status)
+    check("every MISSING status triage reports is counters' at that line "
+          "(%d of %d)" % (agree, len(miss)),
+          miss and agree == len(miss),
+          "%d disagree" % (len(miss) - agree))
+    check("triage carries no status regex of its own",
+          not hasattr(T, "MISSING_STATUS"))
 
 
 def test_the_status_vocabulary():
@@ -291,6 +349,7 @@ def main():
     print("REGISTER TRIAGE — quality/triage.py")
     print("=" * 70)
     test_the_population_is_real()
+    test_a_struck_status_is_not_the_status()
     test_the_status_vocabulary()
     test_the_citation_scan_discriminates()
     test_the_signal_was_validated_backwards()

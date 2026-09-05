@@ -2026,7 +2026,7 @@ dead (L-1), and closing this needs a null that moves the perfect-pair rate by
 about 10× — a redesign of the layer, a declared beat, not a backlog item.
 Guarded by `quality/test_controls.py` and `quality/test_null_shapes.py`.
 
-### L-3 · The slop floor is calibrated on one form, one language, one generator
+### L-3 · The slop floor is calibrated on one form, one language, one generator `PARTIAL`
 `PARTIAL` — 152 Shakespeare sonnets vs 40 model sonnets, a 400-year register
 gap. Its own docstring calls it unvalidated as a general slop detector.
 
@@ -21664,3 +21664,95 @@ is a renderer:~~ **BOTH DISCHARGED — see above and M-205:**
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~259~~ ~~260~~
 **261** with this entry (2026-09-03).
+
+### M-242 · Both register readers took the FIRST status token and neither unstruck it, so three entries closed by strike on 2026-09-01 sat in the open queue for four days — and `triage.py` carried a second reader beside "THE ONE PARSER" that disagreed with it on L-3 `CLOSED` 2026-09-05 — found by the owner asking how many OPEN and how many PARTIAL, and getting two answers
+**THE QUESTION WAS "HOW MANY OPEN AND HOW MANY PARTIAL", AND THE TREE GAVE
+TWO ANSWERS.** `python3 quality/triage.py` read 65 OPEN / 36 PARTIAL;
+`python3 quality/counters.py` read 64 OPEN / 37 PARTIAL, and had written
+that row into `BACKLOG.md`'s counters table. Same file, same 296 entries,
+same 180 CLOSED / 13 RESOLVED / 2 BLOCKED. Neither figure was right.
+
+**TWO DEFECTS, ONE SHAPE EACH.**
+
+1. **A struck token was read as the live one.** D-3, M-85 and M-94 were
+   closed on 2026-09-01 by doctrine 17's own move — strike, never delete:
+   `### D-3 · No return/variation structure ~~\`PARTIAL\`~~ \`CLOSED\`
+   2026-09-01 — …`. Both readers took the FIRST backticked token in
+   `MISSING_STATUSES`, which is the struck one, so `triage` filed D-3 and
+   M-85 as PARTIAL and M-94 as OPEN (`--entry D-3` printed `PARTIAL`), and
+   `counters` counted them the same way. Three closed entries in the open
+   buckets, four days, `triage --check` green throughout — the check asks
+   for CONTESTED (open AND named by a test AND no declaration), and all
+   three carry `TESTED WHILE OPEN`, so they filed DECLARED, which is the
+   bucket that never turns anything red. The register's own convention
+   defeated the register's own readers. `quality/verify_entries.py` had
+   already learned this lesson for an entry's CLAIMS (`_unstrike`, its
+   docstring recording the day a multi-line strike shifted every line
+   number) and reads its STATUS from `counters`, so it inherited the
+   misread from the one place it trusted.
+
+2. **Two readers for one file, disagreeing on the entry with no token.**
+   `counters.missing_entry_statuses` reads the heading PLUS its
+   continuation line; its docstring says why in as many words — L-3's
+   heading wrapped and its `PARTIAL` sat on the next line, which had
+   reproduced the committed `53 / 10 / 2 / 7 = 72` against a true 73 —
+   and calls itself *"THE ONE PARSER … exposed rather than inlined for a
+   reason."* `triage.py` imported that module's VOCABULARY on 2026-08-28
+   (M-21's sitting) and kept its own regex over the heading line alone,
+   with a tokenless heading falling back to OPEN. So L-3 was PARTIAL to
+   counters and OPEN to triage, and that one entry is the whole 65/36
+   against 64/37. One definition of the vocabulary, two definitions of
+   the read (doctrine 1) — in the two instruments whose reason to exist
+   is that the registers not disagree with each other.
+
+**THE CORRECTED COUNT, at the moment the question was asked: 63 OPEN /
+35 PARTIAL / 2 BLOCKED / 183 CLOSED / 13 RESOLVED = 296.** Three moved
+from open to CLOSED (D-3, M-85 PARTIAL -> CLOSED; M-94 OPEN -> CLOSED);
+L-3 is PARTIAL in both readers because its heading now says so. This
+entry is the 297th and is itself CLOSED, so the row `counters.py --write`
+writes reads 63 / 35 / 2 / 184 / 13 = 297. (The session that found this
+first said 64 / 34 aloud — it had L-3 on the OPEN side, reading triage's
+fallback rather than the token on L-3's own next line. The written row is
+the measurement; the spoken one was not.)
+
+**WHAT MOVED IN THE TREE.**
+- `counters.missing_status(blob)` is the one rule, exposed: strike first
+  (`STRUCK`, byte-identical to `verify_entries.STRIKE`), then the first
+  token in `MISSING_STATUSES`. `missing_entry_statuses` calls it.
+- `triage.py`'s `MISSING_STATUS` regex is DELETED. `read_entries` keys
+  counters' rows by the heading's 1-based line — the join
+  `verify_entries` already makes — and `missing_status_of(head)` wraps
+  the same rule for a synthetic heading, keeping the OPEN fallback for a
+  tokenless one (an entry that has not said it is finished must
+  surface). Three instruments, one reader.
+- L-3's heading carries `PARTIAL`, the register's own convention
+  (`MISSING.md` line 14) that every other heading already followed. The
+  continuation rule in `counters` is KEPT, because the register is
+  allowed to wrap and an instrument may not depend on it never doing so;
+  today no entry exercises it, and the docstring says so.
+- `quality/test_triage.py` §1b: four struck shapes through the one rule;
+  the pre-fix first-token rule run IN PLACE on the struck shape and
+  required to DISAGREE, so the repair is shown load-bearing rather than
+  asserted; the three live closes read CLOSED; L-3 reads PARTIAL from
+  both readers; every MISSING status triage reports equals counters' at
+  that line; and `triage` has no status regex attribute at all.
+- `BACKLOG.md`'s counters row rewritten by `counters.py --write`.
+
+**WHAT DID NOT MOVE, stated so the delta is attributable.** No entry's
+body changed. The five-count triage census moves by exactly the three
+entries plus this one, MEASURED: DECLARED 33 -> 31 (D-3 and M-85 are
+closed and test-named, so they are GUARDED now, 65 -> 67); UNGUARDED
+47 -> 46 (M-94 was named by nothing and is CLOSED-QUIET now, 156 -> 158
+with this entry beside it); CITED 24 unmoved; CONTESTED 0 before and
+after. `audit_register.py`'s independent entry count counts headings, not
+statuses — 296 before this entry, 297 with it — and was the cross-check
+that agreed with both wrong answers because the question it answers is a
+different one.
+
+**WHY IT SURVIVED.** The strike convention entered the register on
+2026-09-01 (M-94, D-3, M-85 in one sitting) and no reader had been asked
+about it; the readers' own tests pin the three heading SHAPES the register
+wrote before that day (a dated close, a status with an aside, no token)
+and not the fourth. And the two-reader split was invisible because the two
+instruments print in different places — one to stdout, one into a table —
+and were never put side by side until a person asked for one number.

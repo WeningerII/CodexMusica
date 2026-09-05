@@ -257,12 +257,32 @@ MISSING_HEAD = re.compile(r"^### ([A-Z]-\d+[a-z]?) · (.*)$")
 #: One fact, two media — M-21's own subject, in the instrument row nobody
 #: suspected. One definition now; `RESOLVED` and `WITHDRAWN` are
 #: closed-family because `OPEN_STATUSES` above does not name them.
+#: AND THE REGEX ITSELF IS GONE SINCE 2026-09-05 (`MISSING.md` M-242). Sharing
+#: the VOCABULARY was half of doctrine 1: this file still had its own READER
+#: -- heading line only, first token, no strike handling -- beside
+#: `counters.missing_entry_statuses()`, whose docstring calls itself "THE ONE
+#: PARSER". Two readers, one file, and they disagreed twice: L-3 (tokenless
+#: heading, token on the continuation line) read OPEN here and PARTIAL there,
+#: so the two shipped counts were 65/36 and 64/37 of the same register; and
+#: both read a STRUCK token as live, so D-3, M-85 and M-94 -- closed
+#: 2026-09-01 as `~~\`PARTIAL\`~~ \`CLOSED\`` -- sat in the open buckets for
+#: four days with `--check` green. `missing_status_of` below is the one
+#: reader now, CALLED rather than re-spelled; the OPEN fallback for a
+#: tokenless heading is kept, because an entry that has not said it is
+#: finished must surface.
 try:
-    from quality.counters import MISSING_STATUSES as _STATUS_VOCAB
+    from quality.counters import missing_status as _missing_status
+    from quality.counters import missing_entry_statuses as _missing_rows
 except ImportError:                                   # pragma: no cover
-    from counters import MISSING_STATUSES as _STATUS_VOCAB
-MISSING_STATUS = re.compile(r"`(%s)[^`]*`" % "|".join(_STATUS_VOCAB))
+    from counters import missing_status as _missing_status
+    from counters import missing_entry_statuses as _missing_rows
 BACKLOG_HEAD = re.compile(r"^### (\d+\.\d+) · (.*)$")
+
+
+def missing_status_of(head):
+    """-> the status a MISSING heading declares, through counters' one rule,
+    or OPEN when it declares none."""
+    return _missing_status(head) or "OPEN"
 
 
 def read_entries():
@@ -272,12 +292,15 @@ def read_entries():
     report would then read as 'nothing is contested' (doctrine 20).
     """
     out = []
+    # keyed on the heading's 1-based line, the join `verify_entries.py`
+    # already makes; counters' read covers the heading PLUS its continuation
+    # line, which a heading-only read here cannot (L-3, M-242).
+    by_line = {n: st for _, n, st in _missing_rows()}
     for m, ln, body in _blocks(MISSING_MD, MISSING_HEAD):
         head = m.group(2)
-        st = MISSING_STATUS.search(head)
+        st = by_line.get(ln) or missing_status_of(head)
         out.append(Entry(m.group(1), "MISSING.md",
-                         clean_title(head), st.group(1) if st else "OPEN",
-                         ln, body))
+                         clean_title(head), st, ln, body))
     for m, ln, body in _blocks(BACKLOG_MD, BACKLOG_HEAD):
         head = m.group(2)
         status = "CLOSED" if BACKLOG_CLOSED_RE.search(head) else "OPEN"
