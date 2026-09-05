@@ -224,6 +224,16 @@ def _round_trip_reviser():
     return _RT_REVISER
 
 
+def _timed_round_trip(seed):
+    """-> (seconds, _round_trip_one(seed)). The worker's own tuple is
+    untouched; the driver prints the seconds beside each seed so a shard's
+    floor is attributable to ONE seed (M-244)."""
+    import time as _time
+    t0 = _time.perf_counter()
+    r = _round_trip_one(seed)
+    return _time.perf_counter() - t0, r
+
+
 def _round_trip_one(seed):
     """-> (seed, bad, judged, refused, (walled, total_lines)) for ONE seed
     of §3's sweep.
@@ -397,12 +407,21 @@ def test_the_round_trip():
     # re-derivation reads off a green run rather than a bisect.
     from quality.shard import dealt
     seeds, _kn = dealt(list(range(20)), "TEST_PLAN_SHARD")
+    # EACH SEED IS TIMED (2026-09-05, M-244): a pool of four runs at the
+    # speed of its slowest seed, so this section's cost is ONE seed's and
+    # the per-seed line below is what says which. `_timed_round_trip`
+    # wraps the worker rather than widening its five-tuple, which the
+    # driver unpacks by arity on every path.
     if _w > 1:
         import concurrent.futures as _cf
         with _cf.ProcessPoolExecutor(max_workers=_w) as _ex:
-            _results = list(_ex.map(_round_trip_one, seeds))
+            _timed = list(_ex.map(_timed_round_trip, seeds))
     else:
-        _results = [_round_trip_one(_s) for _s in seeds]
+        _timed = [_timed_round_trip(_s) for _s in seeds]
+    _results = [r for _, r in _timed]
+    print("   per-seed cost, slowest first (the pool's wall is the top line): "
+          + ", ".join(f"seed {r[0]} {dt:.0f}s"
+                      for dt, r in sorted(_timed, key=lambda t: -t[0])))
     # SEED ORDER, explicitly. `map` already preserves it; sorting says so, so
     # a later switch to `as_completed` cannot quietly reorder `bad`.
     # REPINNED 2026-09-05 (`MISSING.md` M-240): the fourth count recorded
@@ -1520,6 +1539,43 @@ def test_the_writers_declaration():
           == r)
 
 
+def _functions_of(seed):
+    """-> the plan's section functions in order, or None where the planner
+    refuses. A worker for `_section_functions`; module-level so a process
+    pool can pickle it."""
+    try:
+        return [x["function"] for x in PLN.make_plan(seed)["sections"]]
+    except Exception:
+        return None
+
+
+def _section_functions(seeds):
+    """`[_functions_of(s) for s in seeds]`, seed order, over a process pool
+    of `TEST_PLAN_WORKERS` (default 4) when it pays (2026-09-05, M-244).
+
+    §8 calls the planner 800 times — four passes of 200 seeds — and ran
+    them serially at 227 s on CI, the second-largest section in the plan
+    shards after the round trip. Each plan is a pure function of its seed,
+    so the passes ride the same pool §3 uses.
+    THE MUTATION PASSES STILL MEASURE THE MUTATION. Two of the four passes
+    run with `FORM_REQUIRES`/`FORM_RECURS` CLEARED in this process, and a
+    pool built INSIDE the pass inherits that state because Linux's default
+    start method is fork — the children are copies of the mutated parent.
+    Under `spawn` they would re-import `plan.py` whole and the withdrawn
+    tables would come back, at which point the collapse the section pins
+    (`dead_ok * 4 < dead_n`) fails LOUDLY rather than passing on the wrong
+    population, so the substitution cannot be silent. `TEST_PLAN_WORKERS=1`
+    is byte-identical to the serial loop this replaces."""
+    seeds = list(seeds)
+    w = (int(os.environ.get("TEST_PLAN_WORKERS", "0") or 0)
+         or min(4, os.cpu_count() or 1))
+    if w > 1 and len(seeds) >= 2 * w:
+        import concurrent.futures as _cf
+        with _cf.ProcessPoolExecutor(max_workers=w) as ex:
+            return list(ex.map(_functions_of, seeds, chunksize=8))
+    return [_functions_of(s) for s in seeds]
+
+
 def test_the_form_is_read():
     """The form was a coordinate NOTHING read (2026-08-23).
 
@@ -1538,12 +1594,9 @@ def test_the_form_is_read():
 
     def _rate(n=200):
         ok = chorus = seen = 0
-        for s in range(n):
-            try:
-                pl = PLN.make_plan(s)
-            except Exception:
+        for fns in _section_functions(range(n)):
+            if fns is None:
                 continue
-            fns = [x["function"] for x in pl["sections"]]
             seen += 1
             if "chorus" in fns:
                 chorus += 1
@@ -1603,10 +1656,8 @@ def test_the_form_is_read():
           str(PLN.FORM_TENDENCIES["verse-chorus"]))
     ordered = 0
     total = 0
-    for s in range(200):
-        try:
-            fns = [x["function"] for x in PLN.make_plan(s)["sections"]]
-        except Exception:
+    for fns in _section_functions(range(200)):
+        if fns is None:
             continue
         total += 1
         if fns.index("verse") < fns.index("chorus"):
