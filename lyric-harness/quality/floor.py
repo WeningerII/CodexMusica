@@ -381,7 +381,16 @@ CALIBRATION = {
             "whether a TOLERANCE BAND also refuses. Off by default because "
             "the band is a measured allowance (`Profile.tolerance` carries "
             "its own false-positive rate) rather than an absence; on, it "
-            "takes the refusing region from 30.3% of lengths to 60.1%.",
+            "~~takes the refusing region from 30.3% of lengths to 60.1%~~ "
+            "-- STRUCK 2026-09-05 (`MISSING.md` M-239): under the shipped "
+            "table this knob changes NOTHING. Both stanza reaches sit "
+            "inside the lyric-sheet row's exact coverage, so no length is "
+            "ever reached-but-inexact and there is no tolerance band left "
+            "to refuse. MEASURED over 1-699 tokens: the refusing region is "
+            "0.4% (3 of 699) with the knob off and 0.4% with it on, and "
+            "over 1-3,999 tokens across seven line counts there is not one "
+            "inexact case. It is exercised only by the suite's own "
+            "`_narrowed_lyric`.",
     },
     #: `mattr_window` is definitional in the SAME sense and in that sense
     #: only -- it defines what MATTR IS, so moving it moves what every
@@ -1596,8 +1605,14 @@ class FloorDeclaration:
     #: tolerance band is a measured allowance rather than an absence —
     #: `Profile.tolerance` carries its own false-positive rate — so refusing
     #: there is a policy a caller may want and not a fact the measurement
-    #: forces. Measured: it takes the refusing region from 30.3% of lengths
-    #: to 60.1%.
+    #: forces. ~~Measured: it takes the refusing region from 30.3% of
+    #: lengths to 60.1%.~~ -- STRUCK 2026-09-05 (`MISSING.md` M-239), the
+    #: same strike as the policy entry's copy: MEASURED at HEAD the region
+    #: is 0.4% (3 of 699 over 1-699 tokens) with the knob off AND with it
+    #: on, because the tolerance band is empty at every length -- both
+    #: stanza reaches are strict subsets of the lyric-sheet row's exact
+    #: coverage. The knob cannot change a verdict under the shipped table;
+    #: `test_floor.py`'s `_narrowed_lyric` is what still exercises it.
     require_exact_length: bool = False
     #: What share of an item's rhyme pairs a repetend must close before it is
     #: read as a radif rather than as repeated rhyme words. A count alone will
@@ -1667,8 +1682,15 @@ class FloorDeclaration:
     #: for English pop.
     #:
     #: THE DEFAULT IS THE SHIPPED 30, and the shipped 30 are what carry the
-    #: measured 6.35% in-band false-positive rate (song profile,
-    #: `held_out_fpr["cliche"]`). A caller who replaces the set replaces that
+    #: only measured in-band false-positive rates this check has -- read them
+    #: from the rows with `cliche_rate_rows()` rather than from a number typed
+    #: here, which is how this comment went stale: ~~the measured 6.35%
+    #: in-band false-positive rate (song profile, `held_out_fpr["cliche"]`)~~
+    #: -- STRUCK 2026-09-05 (`MISSING.md` M-239). It named a key and a number
+    #: in one breath and the key stopped agreeing with the number on
+    #: 2026-08-26, when the band was re-adopted at 200-400 and
+    #: `held_out_fpr["cliche"]` became (7.64, 5.99, 9.04). A caller who
+    #: replaces the set replaces that
     #: measurement with it and inherits an UNCALIBRATED list: the rate is a
     #: property of THIS set on THIS corpus, not of the membership test. The
     #: finding says so on its face, so a swapped list cannot quietly borrow
@@ -1799,10 +1821,29 @@ class SlopFloor:
             a percentile that profile never took.
             """
             if declared(key):
-                return ("DECLARED by the caller: FloorDeclaration.%s, which "
-                        "overrides what the %s profile would have applied "
-                        "here — it is not a percentile of this or any corpus"
-                        % (key, prof.name))
+                # TWO CASES, NOT ONE (doctrine 20). A declaration that
+                # replaces a measured cut and a declaration that supplies the
+                # only cut there is are different facts about the run, and
+                # `test_floor.py` §11 is the second: it declares
+                # `predictable_pair_fraction_max` under `section`, which
+                # measured none, so "overrides what the profile would have
+                # applied" would itself be false there.
+                # No `if prof` guard: both closures are called only from
+                # the five sites BELOW the `prof is None` branch, which
+                # returns. A guard here would be a branch no run can enter
+                # and no test can fail (doctrine 48).
+                mine = prof.threshold(key, n_tok)
+                if mine is None:
+                    return ("DECLARED by the caller: FloorDeclaration.%s. "
+                            "The %s profile measured no %s, so this check "
+                            "runs at this length ONLY because the "
+                            "declaration supplied a cut, and that cut is a "
+                            "percentile of nothing" % (key, prof.name, key))
+                return ("DECLARED by the caller: FloorDeclaration.%s, "
+                        "replacing the %.4f the %s profile would have "
+                        "applied here — the number this check compared "
+                        "against is a declaration, not a percentile of this "
+                        "or any corpus" % (key, mine, prof.name))
             return "human %s, %s profile%s" % (
                 side, prof.name, prof.at_length(key, n_tok))
 
@@ -1822,18 +1863,36 @@ class SlopFloor:
             test. Printed beside an override they price the wrong cut, and
             in the direction that flatters it — `AUC 0.776 against the
             generated class at this length` sat beside a caller's 0.9111
-            under `section` until 2026-09-05, and at 0.9111 the profile's
-            4.80% held-out rate is not within reach of the truth. Nothing
+            under `section` until 2026-09-05, and 0.776 was measured at
+            `section`'s own 0.7568, which prices nothing at 0.9111.
+            ~~at 0.9111 the profile's 4.80% held-out rate is not within
+            reach of the truth~~ — STRUCK 2026-09-05, the day it was
+            written, and the strike is doctrine 20's own case: 4.80% is
+            `lyric`'s mattr held-out rate, and `section` carries NO
+            held-out rate at all (`held_out_fpr` is empty; its evidence is
+            the AUC). One sentence naming one profile and quoting another's
+            number is exactly the carry this closure exists to stop. A
+            held-out rate withdrawn under an override is a separate
+            sentence, and it names `lyric`. Nothing
             measured is deleted; it is refused for a cut it was not taken
             at (doctrine 22).
             """
             if declared(key):
-                return ("the %s profile's AUC and held-out false-positive "
-                        "rate are WITHDRAWN here rather than quoted: both "
-                        "were measured at the threshold this declaration "
-                        "replaced, so neither prices the cut that was "
-                        "actually applied, and no rate for it exists"
-                        % prof.name)
+                # The withdrawn figures are NOT reprinted beside the
+                # withdrawal. A number printed next to the sentence saying it
+                # does not apply is a number the reader still leaves with,
+                # which is the carry `Profile.evidence_for` exists to stop.
+                if prof.threshold(key, n_tok) is None:
+                    return ("No AUC and no false-positive rate prices this "
+                            "cut, and the %s profile has none to lend: it "
+                            "measured no %s, so nothing here has ever been "
+                            "run against a corpus at any threshold"
+                            % (prof.name, key))
+                return ("No AUC and no false-positive rate prices this cut. "
+                        "The %s profile's own figures are WITHDRAWN rather "
+                        "than quoted: they were measured at the threshold "
+                        "this declaration replaced, and both move with the "
+                        "cut by an unmeasured amount" % prof.name)
             return prof.evidence_for(ev_key)
 
         # THE LENGTH GATE (2026-08-23). A length nothing was calibrated at is
@@ -1920,8 +1979,16 @@ class SlopFloor:
                 f"was bucketed by the 2026-08-14 selector, and since the "
                 f"length-curve adoption no SHEET length is extrapolated at "
                 f"all (every one of 4-3,245 tokens is exact under `lyric`), "
-                f"so this branch is live only for the two stanza profiles' "
-                f"2.0x bands. The relation-level checks all still "
+                f"so this branch is ~~live only for the two stanza "
+                f"profiles' 2.0x bands~~ -- STRUCK 2026-09-05, THE SAME DAY "
+                f"IT WAS WRITTEN, because it is live for NOTHING: both "
+                f"stanza reaches (`section` 14-74, `sonnet` 54-252 with "
+                f"their 2.0x bands) are strict subsets of the lyric-sheet "
+                f"row's exact coverage, so `declaration_for` returns no "
+                f"reached-but-inexact length at all -- MEASURED over "
+                f"1-3,999 tokens across seven line counts, zero cases. "
+                f"`test_floor.py`'s `_narrowed_lyric` is what reaches this "
+                f"branch now. The relation-level checks all still "
                 f"RAN, and REPEAT_IN_VERSE can still be a FLAG: a word "
                 f"rhymed with itself is a fact about two lines, calibrated "
                 f"against nothing. RADIF_LICENSED and SHARED_SUFFIX are "
@@ -1954,9 +2021,25 @@ class SlopFloor:
                    f"tokens does not exceed the declared "
                    f"{d.mattr_window}-token window, so the moving average "
                    f"degenerates to one type/token ratio over the whole "
-                   f"item. The {prof.name} threshold was read off items that "
-                   f"degenerate the same way, so the comparison is like for "
-                   f"like -- but a MATTR quoted from another profile is not "
+                   f"item. "
+                   + (f"~~The {prof.name} threshold was read off items "
+                      f"that degenerate the same way, so the comparison is "
+                      f"like for like~~ -- STRUCK 2026-09-05 (`MISSING.md` "
+                      f"M-239) AND THE CORRECTION IS NOT IN YOUR FAVOUR: "
+                      f"that was true of the STANZA profiles, whose whole "
+                      f"calibration set is short enough to degenerate. The "
+                      f"{prof.name} threshold at this length comes from a "
+                      f"curve fit over the WHOLE corpus, 8,667 items, of "
+                      f"which 548 (6.32%, measured) degenerate to TTR and "
+                      f"8,119 do not -- so this is a TTR read against a cut "
+                      f"fit mostly on moving averages, which is the mixture "
+                      f"`quality/features.py` discloses as inadmissible "
+                      f"rather than repairs. "
+                      if prof.curves else
+                      f"The {prof.name} threshold was read off items that "
+                      f"degenerate the same way, so the comparison is like "
+                      f"for like. ")
+                   + f"A MATTR quoted from another profile is not "
                    f"the same statistic and may not be compared with it. "
                    if stat == "TTR" else "")
                 + f"Caveat: within Shakespeare the direction REVERSES "
@@ -2120,9 +2203,14 @@ class SlopFloor:
         # under none. `sev` goes with them anyway, and that is not a
         # contradiction: running is one question and being allowed to REJECT
         # is another. CLICHE_PAIR borrows no percentile from any profile, but
-        # the only false-positive rate it has was measured inside one band,
-        # so that band is the only place it may carry a rejection. See the
-        # CLICHE_PAIR section of this module's docstring for the numbers.
+        # ~~the only false-positive rate it has was measured inside one band,
+        # so that band is the only place it may carry a rejection~~ --
+        # STRUCK 2026-09-05 (`MISSING.md` M-239). TWO band rows carry a rate
+        # (`short` 50-150 at 4.02%, `song` 200-400 at 7.64%), both of them
+        # SUPERSEDED for their percentiles and kept for their drift checks,
+        # and an EXACT STANZA profile licenses a rejection too. Read the
+        # rates from `cliche_rate_rows()`, never from a number typed in a
+        # comment -- which is exactly how this sentence went stale.
         out.extend(self._relation_findings(lines, pairs, sev))
         return out
 
@@ -2150,9 +2238,18 @@ class SlopFloor:
         lines, with no percentile and no measured rate behind it, so there is
         nothing for a length to invalidate. CLICHE_PAIR is the opposite case
         — the membership test is equally length-blind, but the only thing
-        licensing it to REJECT is a false-positive rate measured in one band,
-        and outside that band there is no measurement to lean on (14.74%
-        where nothing was calibrated, against 6.35% in band).
+        licensing it to REJECT is a false-positive rate measured in a BAND
+        rather than at a length. ~~measured in one band, and outside that
+        band there is no measurement to lean on (14.74% where nothing was
+        calibrated, against 6.35% in band)~~ -- STRUCK 2026-09-05
+        (`MISSING.md` M-239), and both halves were wrong by then. There are
+        TWO rated bands, not one (`short` 50-150 at 4.02%, `song` 200-400 at
+        7.64% -- read them with `cliche_rate_rows()`), and an EXACT STANZA
+        profile licenses a rejection as well. The 14.74% belonged to the
+        corpus OUTSIDE the 2026-08-14 band table, a population the live
+        table makes EMPTY: no corpus item sits under 4 or over 3,245 tokens,
+        so out here there is no measured rate at all, which is a stronger
+        reason not to reject than a high one (doctrine 22).
 
         Doctrine 3 says the REPEAT band inverts by context: the same identical
         end word is a violation inside a verse and a requirement as a

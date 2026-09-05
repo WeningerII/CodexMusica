@@ -1585,6 +1585,147 @@ def test_the_profile_pick_reads_the_line_count():
           "token count", seen and seen[0][1] == 6, f"{seen[:1]}")
 
 
+def test_a_declared_threshold_is_not_a_corpus_percentile():
+    print("\n27. an OVERRIDDEN threshold may not be reported as the "
+          "corpus's percentile (M-238, M-241)")
+    # WHAT THIS PINS, AND WHY THE OBVIOUS HALF OF IT WAS ALREADY RIGHT.
+    # `check()`'s local `at_len` helper has returned "" for an overridden key
+    # since the length curves landed, so the ", evaluated at N=... from
+    # <formula>" clause never appeared beside a caller's number. That is the
+    # half a reader checks first and it holds. What it did NOT cover is the
+    # rest of the same parenthetical: `(human 5th percentile, lyric profile)`
+    # stood beside the CALLER'S cut, and `Profile.evidence_for`'s AUC or
+    # held-out false-positive rate — both measured AT THE PROFILE'S OWN
+    # THRESHOLD — were printed as the evidence for it. Suppressing the curve
+    # clause made the override read MORE like a fixed-percentile profile's
+    # number, not less; and on the two stanza profiles, which carry no
+    # curves, `at_len` suppressed nothing at all and the overridden string
+    # was byte-identical to the measured one apart from the digits.
+    SIDE = {"mattr_min": "5th", "function_word_ratio_max": "95th",
+            "anaphora_max": "95th", "line_length_cv_min": "5th",
+            "predictable_pair_fraction_max": "95th"}
+    OVR = {"mattr_min": 0.9111, "function_word_ratio_max": 0.1222,
+           "anaphora_max": 0.0333, "line_length_cv_min": 0.4444,
+           "predictable_pair_fraction_max": 0.0555}
+    by_key = {pk: code for code, (pk, _) in FL.LENGTH_SENSITIVE.items()}
+    ev_key = {pk: ek for _, (pk, ek) in FL.LENGTH_SENSITIVE.items()}
+
+    sheet = ["and the way that we go to the day of the fire",
+             "and the way that we go to the day of desire"] * 24
+    n_tok = sum(len(FLOOR.qf._tokens(l)) for l in sheet)
+    prof, exact = declaration_for(n_tok, len(sheet))
+    check("the fixture lands in the lyric profile, exactly — the profile "
+          "whose five thresholds are CURVES, so the struck helper's own "
+          "branch is the one under test",
+          prof is not None and prof.name == "lyric" and exact,
+          f"{len(sheet)} lines, {n_tok} tokens -> "
+          f"{prof.name if prof else None}, exact={exact}")
+
+    base = {f.code: f.evidence for f in FLOOR.check(sheet, "AABB")}
+    check("PREMISE: all five length-sensitive findings FIRE on it under the "
+          "default declaration, so neither arm below asserts over an empty "
+          "list (doctrine 48)",
+          set(base) >= set(FL.LENGTH_SENSITIVE),
+          f"missing {sorted(set(FL.LENGTH_SENSITIVE) - set(base))}")
+
+    for key in sorted(OVR):
+        code, side = by_key[key], SIDE[key]
+        claim = f"(human {side} percentile, {prof.name} profile"
+        rests = prof.evidence_for(ev_key[key])
+        ov = [f for f in SlopFloor(FloorDeclaration(**{key: OVR[key]}))
+              .check(sheet, "AABB") if f.code == code]
+        check(f"[{code}] PREMISE: it fires under the override too, so the "
+              f"three checks below read a real string",
+              len(ov) == 1, f"{len(ov)} finding(s)")
+        if not ov:
+            continue
+        got = ov[0].evidence
+        # THE CONTROL AND THE CLAIM ARE ONE PAIR. Without the default arm a
+        # renderer that stopped naming the percentile ANYWHERE would pass.
+        check(f"[{code}] CONTROL: with no override the finding still names "
+              f"the corpus percentile and the profile it came from",
+              claim in base[code], f"expected {claim!r}")
+        check(f"[{code}] ...and with `FloorDeclaration.{key}` set it does "
+              f"NOT — the caller's cut is not a percentile of any corpus",
+              claim not in got,
+              f"{OVR[key]} reported as the {prof.name} corpus's {side} "
+              f"percentile")
+        check(f"[{code}] ...and it NAMES the declaration the number came "
+              f"from, rather than going silent about its provenance "
+              f"(doctrine 20)",
+              f"FloorDeclaration.{key}" in got)
+        # `evidence_for` prices the PROFILE'S threshold. It is not a
+        # property of the membership test and it moves with the cut, so it
+        # may not stand beside a number the caller chose (doctrine 22).
+        check(f"[{code}] CONTROL: the profile's own AUC/held-out sentence "
+              f"IS quoted when the profile's own threshold was applied",
+              rests in base[code], f"expected: {rests[:60]}...")
+        check(f"[{code}] ...and is WITHDRAWN under the override, because it "
+              f"was measured at the threshold the declaration replaced",
+              rests not in got, f"still quoting: {rests[:60]}...")
+
+    # THE HALF THE CURVE-SUPPRESSING HELPER NEVER REACHED. `section` carries
+    # fixed percentiles and no curves, so `at_length` was already "" there
+    # and an override was indistinguishable from a measurement.
+    stanza = ["and the way we go to the fire",
+              "and the way we go to the mire"] * 2
+    s_tok = sum(len(FLOOR.qf._tokens(l)) for l in stanza)
+    sp, s_exact = declaration_for(s_tok, len(stanza))
+    check("the stanza fixture lands in `section`, exactly — a profile with "
+          "NO curves, where the struck helper contributed nothing",
+          sp is not None and sp.name == "section" and s_exact
+          and not sp.curves,
+          f"{s_tok} tokens -> {sp.name if sp else None}, curves "
+          f"{sorted(sp.curves) if sp else None}")
+    s_base = [f for f in FLOOR.check(stanza, "AABB")
+              if f.code == "LEXICAL_MONOTONY"]
+    s_ov = [f for f in SlopFloor(FloorDeclaration(mattr_min=0.9111))
+            .check(stanza, "AABB") if f.code == "LEXICAL_MONOTONY"]
+    check("PREMISE: LEXICAL_MONOTONY fires on it under both declarations",
+          len(s_base) == 1 and len(s_ov) == 1,
+          f"{len(s_base)} / {len(s_ov)}")
+    if s_base and s_ov:
+        check("CONTROL: the section profile's own cut is still reported as "
+              "its 5th percentile",
+              "(human 5th percentile, section profile" in s_base[0].evidence)
+        check("...and an override under a FIXED-percentile profile is not — "
+              "the defect `at_len` could not reach",
+              "(human 5th percentile, section profile"
+              not in s_ov[0].evidence)
+        check("...and the section profile's AUC is withdrawn with it: 0.776 "
+              "was measured at 0.7568 and prices nothing at 0.9111",
+              sp.evidence_for("mattr") not in s_ov[0].evidence)
+
+    # THE SHARPEST CASE, AND IT IS THIS SUITE'S OWN §11 FIXTURE. `section`
+    # declares NO `predictable_pair_fraction_max`, so the check runs there
+    # ONLY because a declaration supplied the cut — and the finding printed
+    # `> 0.8333 (human 95th percentile, section profile)` for a percentile
+    # that profile never took.
+    s11 = ["The candle burned and set the room on fire",
+           "And all night long she nursed a small desire",
+           "He said the word and then he turned to go",
+           "She never asked the thing she had to know"]
+    p11, _ = declaration_for(sum(len(FLOOR.qf._tokens(l)) for l in s11),
+                             len(s11))
+    check("PREMISE: `section` declares no `predictable_pair_fraction_max`, "
+          "so §11's own fixture can only run this check on a declaration",
+          "predictable_pair_fraction_max" not in p11.keys(),
+          f"{p11.name} declares {sorted(p11.keys())}")
+    f11 = [f for f in SlopFloor(
+        FloorDeclaration(predictable_pair_fraction_max=0.8333))
+        .check(s11, "AABB") if f.code == "PREDICTABLE_RHYME"]
+    check("PREMISE: it fires, as §11 requires", len(f11) == 1)
+    if f11:
+        check("a cut the profile never measured is not reported as that "
+              "profile's 95th percentile",
+              "(human 95th percentile, section profile"
+              not in f11[0].evidence)
+        check("...and the finding says the profile measured NONE, rather "
+              "than implying a threshold was overridden that never existed",
+              "measured no predictable_pair_fraction_max" in f11[0].evidence,
+              f11[0].evidence[:120])
+
+
 if __name__ == "__main__":
     for fn in (test_the_length_gate_is_a_gate,
                test_never_returns_a_score, test_too_short_is_silent,
@@ -1607,7 +1748,8 @@ if __name__ == "__main__":
                test_anaphora_tie_break_reproduces,
                test_the_two_mutants_this_suite_could_not_see,
                test_the_radif_licence_says_which_layer_it_speaks_for,
-               test_the_profile_pick_reads_the_line_count):
+               test_the_profile_pick_reads_the_line_count,
+               test_a_declared_threshold_is_not_a_corpus_percentile):
         fn()
     print("=" * 62)
     if FAILURES:
