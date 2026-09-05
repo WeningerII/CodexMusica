@@ -22009,3 +22009,105 @@ measures, and the three unbuilt levers above.
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~298~~
 **299** with this entry (2026-09-05).
 
+### M-245 · The `schema:semirhyme` judge refused the schema's own example — bend~ending read the coda off the stressed SYLLABLE of a maximal-onset syllabification, and every drawable schema is now pinned to the pair its definition names `CLOSED` 2026-09-05 — found by a connector user's seed-33 song grading exit 3 on one flag, and the flag being ours
+
+**THE FINDING.** The owner forwarded a friend's session: seed 33 at 20
+lines, graded exit 3 with ONE flag, `SCHEME_VIOLATION` on lines 8 and 10
+under the plan's drawn `schema:semirhyme` (drum ~ stomach). Reproduced
+here byte-for-byte — `plan --seed=33 --lines=20` draws the same shape and
+the same ten groups, and grading the friend's draft against its own
+blueprint gives exit 3, one flag, ten banned pairs. Then `screen bend
+ending --relation=schema:semirhyme` said VIOLATES: the pair the schema's
+own legend prints as its example ("the second word carries an extra
+syllable or more after the rhyme (bend / ending)") failed its own judge.
+drum~stomach, drum~summer and drum~drummer failed with it; hum~humble and
+drum~drumstick passed. The pattern is the reading: `semirhyme` declared
+`ChannelRule("coda", AGREE, "anchor")`, the coda of the anchor SYLLABLE,
+and English resyllabifies a consonant before a vowel-initial syllable —
+`ending` is EN.DING, coda [N] against bend's [N,D]; `stomach` is STAH.MAHK,
+coda [] against drum's [M]. The pairs that passed are the ones whose extra
+syllable starts with its own consonant, so the coda stays put. This is
+M-148's P1 defect one channel over ("a checker keyed on the coda of a
+maximal-onset syllabification reads `fyr` and `of` out of jörð:fyrðum and
+finds neither"), and `quality/rhyme_constraints.py`'s own `semirhyme` row
+has carried the diagnosis since it was written: *"bend/ending fails on a
+syllable-coda reading (the /d/ resyllabifies into `ding`) and holds on the
+post-vocalic cluster reading."* The `schema:` registry — the one the
+planner draws from — never took the second reading.
+
+**WHY THE M-148 GATE COULD NOT SEE IT.** `test_mandate_relation.py` §10
+certifies every drawable name on the sixteen-line witness, and the
+witness's semirhyme exhibit was grow~growing: an OPEN syllable, whose
+empty coda agrees with itself under either reading. A witness proves that
+SOME pair answers. Nothing asked whether the pair the definition NAMES
+answers.
+
+**THE REPAIR — one scope, one predicate, two rows.** `quality/relations.py`
+gains a `cluster` scope on `ChannelRule`: the channel is read as the
+post-vocalic consonant cluster from the anchor vowel ACROSS the syllable
+boundary, through `_post_vocalic` — the M-148 reader, one definition —
+and unlike the consonant-sequence rule an empty cluster on both sides is
+an answer (grow~growing agrees on an open syllable and is a semirhyme; the
+nucleus rule beside it keeps day~seeing out). And a `PrefixAgree`
+predicate, an `Agree` by subclass: the two sequences agree as far as the
+shorter runs and the longer may run on — [N,D] opens [N,D]; [M] opens
+[M,B] and [M,S,T]; [N,D] does not open [N,T]. That is what "the rhyme,
+then an extra syllable" means for the consonants: bend~ending, hum~humble
+and drum~drumstick all satisfy, bend~enter and cat~captain do not. Plain
+cluster EQUALITY (the `rhyme_constraints` variant) would have refused
+hum~humble, and the section's in-place mutation shows both halves are
+load-bearing. `semirhyme` and its converse `apocopated rhyme`
+(`unmatched="require_a"`) take `ChannelRule("coda", PREFIX_AGREE,
+"cluster")`. Subclassing `Agree` is deliberate: the legend, the audibility
+derivation, the trait claims and the bucket key all ask "does this schema
+require the channel to agree", and a prefix agreement IS agreement on the
+material both members carry; what changes downstream is the trait claim's
+predicate NAME — `("coda", "anchor", "PrefixAgree")` — which the planner's
+transitive closure correctly does not read as equality ([M] opens [M,B]
+and [M,S,T] while those two do not open each other), and `test_plan.py`'s
+M-122(c) pin is repointed to say so.
+
+**MEASURED, before → after, on the pair route** (`screen … --relation=
+schema:semirhyme`): bend~ending VIOLATES → SATISFIES; drum~stomach,
+drum~summer, drum~drummer VIOLATES → SATISFIES; hum~humble, drum~drumstick,
+grow~growing SATISFIES → SATISFIES; bend~enter, cat~captain, bend~send
+VIOLATES → VIOLATES. `derive_drawable_schemas()` re-derives the SAME
+22-name pool (the witness's semirhyme instance moves from grow~growing to
+gate~curator, both true). The friend's draft against its own plan: exit 3
+with ONE flag → exit 3 with ZERO flags, the exit now carried by the ban
+standing on five lines, which is the honest state of that draft.
+`test_relations.py` 244 PASS in 16 s; §10 PASS.
+
+**THE OWNER'S SECOND ORDER — "then pin every drawable schema."**
+`relations.DRAWABLE_EXHIBITS` is one exhibit and one contrast per drawable
+name, `(line_a, line_b, slot_a, slot_b)` in the mandate's own slot
+spelling, and `test_mandate_relation.py` §13 grades all forty-four through
+`Reviser.grade` on a two-line, one-group, one-stanza mandate: every
+exhibit SATISFIED, every contrast VIOLATED, none REFUSED, and the table's
+key set equal to `DRAWABLE_SCHEMAS` so a name without a row fails. Where
+the registry states an example it is the exhibit (bend~ending, sun~much,
+sea~see, bad~bed, bee~beauty, feared~year, fast~lost); the rest are
+textbook cases written for the row. Building the table found three
+exhibit errors of mine and no further judge defect: `again` is
+AH0-G-EH1-N in CMUdict General American, so rain~again is not a rhyme in
+the declared dialect (doctrine 1; `remain` stands in the pantun row);
+`bow` is a homograph and an uncertain nucleus is a refusal, not a no; and
+a two-syllable nucleus window ("fading"/"sailing") satisfies chain rhyme
+and multisyllabic rhyme wherever two lines share one, so their contrasts
+are a line with no shared vowel pair at all. Three frame figures
+(`analysed rhyme`, `monorhyme / leash`, `monai`) refuse a two-line draft
+with no stanza, which is right, and the section grades inside a declared
+one-stanza frame exactly as §10 does.
+
+**WHAT THIS DOES NOT CLOSE, named.** The friend's other three findings are
+recorded in the session and not here: a plan whose four of six sung
+sections are one line, three bindings on an eight-syllable line, and a
+brief whose OFFERED list is empty once four partners occupy both spelling
+classes of one family — each is a ruling or a separate entry, not a judge
+defect. The `SCHEME_VIOLATION` evidence line prints the scalar's mosaic
+attribution ("scored on: chest is a drum ~ locked in the pipe") under a
+verdict that came from the token judge, which is what the friend read as
+"the scorer reads the whole phrase"; that rendering is open.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~299~~
+**300** with this entry (2026-09-05).

@@ -1258,6 +1258,38 @@ class Differ(Predicate):
         return Read(None if v is None else (not v), inf, note)
 
 
+class PrefixAgree(Agree):
+    """AGREE ON THE SHORTER MEMBER'S WHOLE VALUE: the two SEQUENCES agree as
+    far as the shorter one runs, and the longer may run on.  Read with the
+    `cluster` scope (`evaluate`), this is what "the rhyme, then an extra
+    syllable" means for the consonants after the vowel: bend~ending is
+    [N,D] against [N,D] and hum~humble is [M] against [M,B] — the shorter
+    word's cluster OPENS the longer word's.  bend~enter, [N,D] against
+    [N,T], disagrees on the second consonant and is False.
+
+    AN `Agree` BY SUBCLASS, deliberately: every reader that asks "does this
+    schema require the channel to AGREE" — the legend, the audibility
+    derivation, the trait claims, the bucket key — is answered the same
+    way, because a prefix agreement IS an agreement on the material both
+    members carry.  What the subclass adds is that the longer member's
+    tail is not charged.  (2026-09-05, `MISSING.md` M-245.)
+    """
+    name = "AGREE-PREFIX"
+
+    def __call__(self, x, y):
+        if x is None or y is None:
+            return Read(None, False, "unreadable on this surface")
+        if uncertain(x) or uncertain(y):
+            return Read(None, True, "uncertain reading; the prefix relation "
+                                    "is not derivable from a set")
+        x, y = tuple(next(iter(_alts(x)))), tuple(next(iter(_alts(y))))
+        n = min(len(x), len(y))
+        return Read(x[:n] == y[:n], not (_empty(x) and _empty(y)),
+                    "" if x[:n] == y[:n] else
+                    f"the shorter cluster {x if len(x) <= len(y) else y} "
+                    f"does not open the longer {y if len(x) <= len(y) else x}")
+
+
 class Free(Predicate):
     name = "FREE"
 
@@ -1552,6 +1584,7 @@ class SubsequenceOf(Predicate):
 
 
 AGREE, DIFFER, FREE = Agree(), Differ(), Free()
+PREFIX_AGREE = PrefixAgree()
 
 
 # ---------------------------------------------------------------------------
@@ -2018,7 +2051,10 @@ class ChannelRule:
     channel: str
     predicate: object
     scope: str = "each"      # each | anchor | post_anchor | first | last |
-    #                          sequence | unmatched_a | unmatched_b
+    #                          sequence | unmatched_a | unmatched_b |
+    #                          cluster (the post-vocalic consonant cluster
+    #                          from the anchor vowel, ACROSS the syllable
+    #                          boundary — `_post_vocalic`; M-245)
     surface: str = "phonemic"
     required: bool = True    # False -> reported, not enforced (Snorri's FEGRA)
 
@@ -2363,6 +2399,23 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
                     "vacuously true of any two open syllables")))
             else:
                 mine.append((cr.channel, -1, pred(xa, xb)))
+        elif cr.scope == "cluster":
+            # THE CONSONANTS AFTER THE ANCHOR VOWEL, ACROSS THE SYLLABLE
+            # BOUNDARY (2026-09-05, `MISSING.md` M-245).  A `coda` read at
+            # the anchor SYLLABLE is the coda of a maximal-onset
+            # syllabification, and English resyllabifies: bend~ending is
+            # [N,D] against EN.DING's [N], so the registry's own semirhyme
+            # example refused its own judge — the M-148 P1 defect one
+            # channel over, and `rhyme_constraints`'s note on this very pair
+            # says so.  `_post_vocalic` is the one reader (the skothending
+            # repair's), and unlike the `sequence` scope's consonant rule an
+            # EMPTY cluster on both sides is an answer here rather than a
+            # refusal: grow~growing agrees on an open syllable and is a
+            # semirhyme; it is the nucleus rule beside this one that keeps
+            # day~seeing out.
+            xa = _post_vocalic(a, stream, chans, cr.surface)
+            xb = _post_vocalic(b, stream, chans, cr.surface)
+            mine.append((cr.channel, a.anchor_pos, pred(xa, xb)))
         elif cr.scope in ("unmatched_a", "unmatched_b"):
             side = a if cr.scope.endswith("a") else b
             pos = (align.unmatched_a if cr.scope.endswith("a")
@@ -4266,17 +4319,23 @@ declare(RelationSchema(
     name="semirhyme",
     spans=(END_ANCHOR, END_ANCHOR), align="anchor", unmatched="require_b",
     channels=(ChannelRule("nucleus", AGREE, "anchor"),
-              ChannelRule("coda", AGREE, "anchor")),
+              ChannelRule("coda", PREFIX_AGREE, "cluster")),
     placement=(Placement("both_line_final"),), identity=(DISTINCT,),
     note="NOT suffix-reachable: the word ends do not agree, which IS the "
          "point. unmatched='exclude' vs pararhyme's MUST-DIFFER is a SPAN "
-         "coordinate, not a channel one."))
+         "coordinate, not a channel one. THE CODA IS THE POST-VOCALIC "
+         "CLUSTER, READ ACROSS THE SYLLABLE BOUNDARY, AND THE SHORTER "
+         "WORD'S MUST OPEN THE LONGER'S (M-245, 2026-09-05): at the anchor "
+         "SYLLABLE it was [N,D] against EN.DING's [N], and bend~ending — "
+         "this schema's own example — VIOLATED it from the day it was "
+         "drawable; drum~stomach, hum~humble and grow~growing are the "
+         "same relation and answered False, False and True."))
 
 declare(RelationSchema(
     name="apocopated rhyme",
     spans=(END_ANCHOR, END_ANCHOR), align="anchor", unmatched="require_a",
     channels=(ChannelRule("nucleus", AGREE, "anchor"),
-              ChannelRule("coda", AGREE, "anchor")),
+              ChannelRule("coda", PREFIX_AGREE, "cluster")),
     placement=(Placement("both_line_final"),), identity=(DISTINCT,),
     note="THE CONVERSE OF SEMIRHYME BY WHICH MEMBER OVERHANGS, and once "
          "members are an ordered tuple in TEXT ORDER that is the ONLY "
@@ -7130,6 +7189,113 @@ DRAWABLE_SCHEMAS = (
     "semirhyme",
     "subtractive rhyme",
 )
+
+
+#: ONE EXHIBIT AND ONE CONTRAST PER DRAWABLE NAME, judged on the route a
+#: PLANNED mandate takes (`Reviser.grade` on a two-line draft, one group,
+#: `default_relation="schema:<name>"`, a one-stanza frame) — 2026-09-05,
+#: `MISSING.md` M-245.  Each row is `(exhibit, contrast)`, each of those
+#: `(line_a, line_b, slot_a, slot_b)` with the slots in the mandate's own
+#: spelling ("1" is line 1's end word, "1.T2" its second word, "1.head" its
+#: first).  The exhibit must SATISFY and the contrast must VIOLATE — neither
+#: may be REFUSED — and `quality/test_mandate_relation.py` §13 asks both of
+#: every name in `DRAWABLE_SCHEMAS`, so a name without a row fails.
+#:
+#: WHY A SECOND TABLE BESIDE THE WITNESS: the pool is certified on a
+#: sixteen-line witness whose exhibit for a schema is whatever pair happens
+#: to satisfy it there, and `semirhyme`'s was grow~growing — an OPEN
+#: syllable, which the anchor-syllable coda read agreed on — while the
+#: schema's own example, bend~ending, VIOLATED the same judge from the day
+#: the schema was drawable.  A witness proves "some pair answers"; this
+#: table pins that THE PAIR THE DEFINITION NAMES answers, and a pair the
+#: definition excludes does not.  Where the registry states an example it
+#: is the exhibit (bend~ending, sun~much, sea~see, bad~bed, bee~beauty,
+#: feared~year, fast~lost); the rest are textbook cases written for the
+#: row and read as such.  The `again` trap is why `remain` stands in the
+#: pantun row: CMUdict General American reads `again` as AH0-G-EH1-N, so
+#: rain~again is not a rhyme in the declared dialect (doctrine 1).
+DRAWABLE_EXHIBITS = {
+    "Scots vowel-length rhyme (Aitken's Law)": (
+        ("the kitchen light was fading fast",
+         "a silver ship went sailing past", "1", "2"),
+        ("the kitchen light was fading fast",
+         "a silver ship went sailing fat", "1", "2")),
+    "analysed rhyme": (
+        ("we stood beneath the winter sun",
+         "the cold had never asked for much", "1", "2"),
+        ("we stood beneath the winter sun",
+         "the cold had never let us run", "1", "2")),
+    "anaphora": (
+        ("never say the word aloud", "never leave the room",
+         "1.head", "2.head"),
+        ("never say the word aloud", "always leave the room",
+         "1.head", "2.head")),
+    "assonance": (
+        ("we walked out in the sun", "it never felt like much", "1", "2"),
+        ("we walked out in the sun", "and started in to run", "1", "2")),
+    "chain rhyme (rap)": (
+        ("the kitchen light was fading fast",
+         "a silver ship went sailing past", "1", "2"),
+        ("the kitchen light was fading fast", "go slow", "1", "2")),
+    "cluster consonance / skothending span": (
+        ("she kept the fast", "he lost the lost", "1", "2"),
+        ("she kept the day", "he lost the sea", "1", "2")),
+    "compound / phrasal rhyme": (
+        ("I told her so", "she sold her toe", "1", "2"),
+        ("I told her so", "she sold her hat", "1", "2")),
+    "consonance": (
+        ("he went mad", "she went to bed", "1", "2"),
+        ("he went mad", "she was so sad", "1", "2")),
+    "family rhyme": (
+        ("she fed the cat", "he wore the cap", "1", "2"),
+        ("she fed the cat", "he ran the can", "1", "2")),
+    "head rhyme (positional)": (
+        ("cold as the road ahead", "bold as a toad in bed",
+         "1.head", "2.head"),
+        ("cold as the road ahead", "warm as a toad in bed",
+         "1.head", "2.head")),
+    "interlaced rhyme": (
+        ("the light was thin and grey", "a kite had spun away",
+         "1.T2", "2.T2"),
+        ("the light was thin and grey", "a dog had run away",
+         "1.T2", "2.T2")),
+    "internal rhyme": (
+        ("the light went out at last", "the night had come and passed",
+         "1.T2", "2.T2"),
+        ("the light went out at last", "the dog had come and passed",
+         "1.T2", "2.T2")),
+    "light rhyme": (
+        ("a bee", "the beauty", "1", "2"),
+        ("a bee", "the sea", "1", "2")),
+    "monai": (
+        ("sing me the song again", "sun on the wall", "1", "2"),
+        ("sing me the song again", "moon on the wall", "1", "2")),
+    "monorhyme / leash": (
+        ("she fed the cat", "he wore the hat", "1", "2"),
+        ("she fed the cat", "he wore the cap", "1", "2")),
+    "multisyllabic rhyme": (
+        ("the kitchen light was fading fast",
+         "a silver ship went sailing past", "1", "2"),
+        ("the kitchen light was fading fast", "go slow", "1", "2")),
+    "pantun ABAB": (
+        ("we waited for the rain", "the two of us remain", "1", "2"),
+        ("we waited for the rain", "it never came at all", "1", "2")),
+    "pararhyme": (
+        ("it was bad", "it was bed", "1", "2"),
+        ("it was bad", "it was sad", "1", "2")),
+    "perfect rhyme": (
+        ("she fed the cat", "he wore the hat", "1", "2"),
+        ("she fed the cat", "he wore the cap", "1", "2")),
+    "rime riche": (
+        ("the sea", "i see", "1", "2"),
+        ("the sea", "the tea", "1", "2")),
+    "semirhyme": (
+        ("a bend", "an ending", "1", "2"),
+        ("a bend", "he entered", "1", "2")),
+    "subtractive rhyme": (
+        ("he feared", "a year", "1", "2"),
+        ("a year", "he feared", "1", "2")),
+}
 
 
 def audible_as_end_rhyme(schema):

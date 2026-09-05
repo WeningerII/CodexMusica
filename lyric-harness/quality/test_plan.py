@@ -2799,11 +2799,21 @@ def test_the_relation_draw():
           "pre-fix count from 53 to a false 56",
           ("onset", "post", "Agree") in pr
           and ("onset", "anchor", "Differ") in pr, pr)
+    # REPOINTED 2026-09-05 (`MISSING.md` M-245): semirhyme's coda rule is
+    # `PrefixAgree` at the `cluster` scope now — the shorter word's
+    # post-vocalic cluster OPENS the longer's — and a prefix agreement is
+    # NOT an equality: [M] opens [M,B] and [M,S,T] while those two do not
+    # open each other, so it must NOT compose into rime riche's transitive
+    # chain, and the claim's predicate name says so. The split this check
+    # was written for (anchor against final) is unchanged.
     check("M-122(c): the syllable coordinate SPLITS what the dict "
-          "conflated — semirhyme's coda claim rides the anchor while "
-          "light rhyme's rides the written-out final syllable, so only "
-          "the first composes into rime riche's transitive chain",
-          ("coda", "anchor", "Agree") in traits["semirhyme"]["claims"]
+          "conflated — semirhyme's coda claim rides the anchor (as a "
+          "PREFIX agreement since M-245, which the transitive closure "
+          "correctly does not read as equality) while light rhyme's "
+          "rides the written-out final syllable",
+          ("coda", "anchor", "PrefixAgree") in traits["semirhyme"]["claims"]
+          and ("coda", "anchor", "Agree")
+          not in traits["semirhyme"]["claims"]
           and ("coda", "final", "Agree") in traits["light rhyme"]["claims"]
           and ("coda", "anchor", "Agree")
           not in traits["light rhyme"]["claims"],

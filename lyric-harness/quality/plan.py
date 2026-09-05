@@ -3728,6 +3728,8 @@ _SCOPE_GLOSS = {
     "last": "on the last syllable",
     "each": "on every syllable",
     "sequence": "in sequence",
+    "cluster": ("as the consonants after the vowel, across the syllable "
+                "boundary — the shorter word's must open the longer word's"),
     "unmatched_a": "on the first word's extra material",
     "unmatched_b": "on the second word's extra material",
 }
