@@ -37,10 +37,21 @@ CORRECT = ("[INTRO — 2 lines — 2 bars of 8/8]\n"
            "[VAMP — 2 lines — 2 bars of 8/8]\n"
            "Down in the engine, counting strokes\n")
 #: The built form WITH its convergence state declared — what a finished
-#: presentation looks like under BOTH gates (M-97's apparatus, M-150's
-#: operator seam). CORRECT alone is the §7 defect: rendered right, and not
-#: one word about how the run ended.
-CORRECT_STATED = CORRECT + "\nsong: exit 0 — revise SUCCESS in 0 rounds\n"
+#: presentation looks like under ALL THREE gates (M-97's apparatus, M-150's
+#: operator seam, M-243's provenance). CORRECT alone is the §7 defect:
+#: rendered right, and not one word about how the run ended.
+FINISHED_STAMP = ("[FINISHED — seed 6 — exit 0 — SUCCESS after 2 round(s) "
+                  "— no flag stands]")
+CORRECT_STATED = CORRECT + "\n  " + FINISHED_STAMP + "\n"
+#: The INTERIM stamp `lyric_grade` writes — disclosed as a grade, so it
+#: passes; the reader is TOLD it is not a run.
+GRADED_STAMP = "[GRADED — seed 6 — exit 0, no FLAG stands — 0 banned pair(s)]"
+CORRECT_GRADED = CORRECT + "\n" + GRADED_STAMP + "\n"
+#: THE M-243 DEFECT, VERBATIM in shape: this was §6/§7's GOOD fixture until
+#: 2026-09-05 — a bare exit code typed by the operator, which no verb prints
+#: into text, so it says nothing about which verb produced it. It is the
+#: exact spelling a session used to present a graded draft as a run's exit 0.
+CORRECT_BARE_EXIT = CORRECT + "\nsong: exit 0 — revise SUCCESS in 0 rounds\n"
 
 
 def check(msg, ok, detail=""):
@@ -206,14 +217,15 @@ def test_the_operator_seam():
         check("...and `main()` refuses it at exit 1, so the Stop hook that "
               "wraps this to exit 2 blocks the turn",
               C.main(["--text", p]) == 1)
-    check("the same render beside \"exit 0\" passes — the state the verbs "
-          "print, quoted in the turn, is the whole ask",
+    check("the same render beside the `[FINISHED — …]` stamp passes — the "
+          "state the verb WROTE, quoted in the turn, is the whole ask",
           C.rendered_without_state(CORRECT_STATED) == [])
-    check("...and beside \"exit 3\" it ALSO passes — disclosure, never "
-          "adjudication: a flagged draft presented AS flagged is a "
-          "disclosed draft",
+    check("...and beside an exit-3 `[FINISHED — declared mandate — …]` "
+          "stamp it ALSO passes — disclosure, never adjudication: a parked "
+          "draft presented AS parked is a disclosed draft",
           C.rendered_without_state(
-              CORRECT + "\nrevise: exit 3 — one flag standing\n") == [])
+              CORRECT + "\n[FINISHED — declared mandate — exit 3 — "
+              "ROUND_LIMIT after 8 round(s) — UNRESOLVED: L4]\n") == [])
     check("...and UNCONVERGED passes too, case-insensitively — the honest "
           "word for a draft with no stop condition reached is a state",
           C.rendered_without_state(CORRECT + "\nstill unconverged.\n") == [])
@@ -244,11 +256,90 @@ def test_the_operator_seam():
           len(C.rendered_without_state(CORRECT)) == 3)
 
 
+def test_graded_is_not_finished():
+    """8. THE STATE SAYS WHICH VERB SAID IT (M-243, 2026-09-05).
+
+    M-150 accepted a bare `exit N`. A session then graded a draft, presented
+    the render beside "exit 0", and stopped short of the loop — six lines
+    still open — and this gate passed the turn, because an exit code was
+    SAID. No CLI verb prints "exit N" into text; the verbs write STAMPS whose
+    first word is the provenance. Those stamps, or UNCONVERGED / PARKED, are
+    the whole accepted set now. Still disclosure: a GRADED turn passes AS a
+    grade. What cannot happen any more is a grade's code read as a run's.
+    """
+    print("\n8. graded is not finished — the state carries its provenance")
+    got = C.rendered_without_state(CORRECT_BARE_EXIT)
+    check("the fixture that was §6/§7's GOOD arm until 2026-09-05 — the built "
+          "render beside a bare \"song: exit 0\" — is REFUSED now, every "
+          "header named", len(got) == 3, f"{len(got)} refused")
+    check("...and so is a bare \"revise: exit 3\": the tightening is about "
+          "PROVENANCE, not about the code being clean",
+          len(C.rendered_without_state(
+              CORRECT + "\nrevise: exit 3 — one flag standing\n")) == 3)
+    check("the same render under the `[GRADED — …]` stamp PASSES — an "
+          "interim draft disclosed as one is a disclosed draft",
+          C.rendered_without_state(CORRECT_GRADED) == [])
+    check("...and under the `[FINISHED — …]` stamp passes — the only stamp "
+          "written past a stop condition",
+          C.rendered_without_state(CORRECT_STATED) == [])
+    check("a hyphenated stamp is a RETYPED stamp and does not count (M-97: "
+          "present the bytes)",
+          len(C.rendered_without_state(
+              CORRECT + "\n[FINISHED - seed 6 - exit 0 - SUCCESS]\n")) == 3)
+    # THE REFUSAL NAMES THE RULE: main() on the bare-exit turn says so.
+    with tempfile.TemporaryDirectory() as td:
+        p = os.path.join(td, "bare.txt")
+        with open(p, "w", encoding="utf-8") as fh:
+            fh.write(CORRECT_BARE_EXIT)
+        import io, contextlib
+        buf = io.StringIO()
+        with contextlib.redirect_stderr(buf):
+            rc = C.main(["--text", p])
+        err = buf.getvalue()
+    check("`main()` refuses the bare-exit turn at exit 1 and its reason "
+          "names BOTH stamps and the M-243 rule, so the blocked turn is "
+          "told what to quote instead",
+          rc == 1 and "[FINISHED — seed N" in err and "[GRADED — seed N" in err
+          and "BARE \"exit N\" IS NOT ACCEPTED (M-243)" in err,
+          err.strip().splitlines()[-1][:70] if err else "no stderr")
+    # ONE DEFINITION OF THE FINISHED STAMP (doctrine 1): song_log.py PARSES
+    # it for the bank, this module RECOGNISES it for the gate. Hold both to
+    # the same samples — each must accept both shipped FINISHED shapes and
+    # each must reject the GRADED stamp — so they cannot drift apart.
+    from quality import song_log as SL
+    samples_yes = (FINISHED_STAMP,
+                   "[FINISHED — declared mandate — exit 3 — ROUND_LIMIT "
+                   "after 8 round(s) — UNRESOLVED: L4]")
+    check("song_log's `_STAMP` parser and this gate's `STAMP_FINISHED` agree "
+          "on both shipped FINISHED shapes and both reject the GRADED stamp",
+          all(SL._STAMP.search(x) and C.STAMP_FINISHED.search(x)
+              for x in samples_yes)
+          and not SL._STAMP.search(GRADED_STAMP)
+          and not C.STAMP_FINISHED.search(GRADED_STAMP))
+    # THE MUTATION, hand-proven: put the pre-M-243 rule back (bare exit
+    # accepted) and the bare-exit turn PASSES — so the refusal above is the
+    # tightening doing the work, not the fixture.
+    keep = C.STATE
+    try:
+        C.STATE = __import__("re").compile(
+            C.BARE_EXIT.pattern + r"|\bUNCONVERGED\b|\bPARKED\b",
+            __import__("re").IGNORECASE)
+        check("MUTATION: with the pre-M-243 bare-exit rule restored, the "
+              "bare \"song: exit 0\" turn is ACCEPTED — the provenance "
+              "requirement is what refuses it",
+              C.rendered_without_state(CORRECT_BARE_EXIT) == [])
+    finally:
+        C.STATE = keep
+    check("...and the mutation is reverted, so this file leaves the "
+          "instrument as it found it",
+          len(C.rendered_without_state(CORRECT_BARE_EXIT)) == 3)
+
+
 if __name__ == "__main__":
     for fn in (test_the_predicate, test_the_builder_itself_passes,
                test_the_escapes_and_the_floor, test_the_transcript_reader,
                test_the_mutation, test_the_hook_is_wired,
-               test_the_operator_seam):
+               test_the_operator_seam, test_graded_is_not_finished):
         fn()
     print("=" * 70)
     if FAILURES:

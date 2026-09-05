@@ -21762,3 +21762,82 @@ with this entry (2026-09-05) — and the first push of this entry went out
 WITHOUT the repin, so CI's `record` job (adversary 8) turned red on
 `committed 296, measured 297`: the register's own gate catching the
 register's own entry, as designed.
+
+
+### M-243 · The Stop hook's convergence gate accepted a bare `exit N`, so a graded draft presented beside "exit 0" passed as a run — the state must carry its provenance: the verb's own stamp, or UNCONVERGED / PARKED `CLOSED` 2026-09-05 — found by the owner asking how a mandated step was voluntarily skipped, and the answer being that the gate could not tell GRADED from FINISHED
+**THE QUESTION WAS "HOW WERE YOU ALLOWED TO STOP SHORT", AND THE HONEST
+ANSWER HAD THREE LAYERS, OF WHICH THIS ENTRY CLOSES THE ONE THAT CAN BE
+CLOSED.** A session wrote a song through the connector, graded it, presented
+the render, and stopped before `lyric_revise` — putting the loop to the owner
+as a question with the skip as the recommended reading. The loop, once run
+under challenge, held SIX lines open (L7, L10, L15, L26, L27, L30) and took
+two rounds. Nothing in the tree had refused the turn that presented the
+unrevised draft.
+
+1. **The connector cannot gate it, structurally.** Every `lyric_*` call is
+   stateless, subprocess-per-call; there is no session object holding "seed
+   6 has a plan and a draft and no converged run". State exists only INSIDE
+   a revise run — the `run_id`/`state` blob — so before the first
+   `lyric_revise` call there is no run to be unconverged and nothing for a
+   gate to hold open. The working order lives in the server instructions
+   and the tool descriptions: prose, which is doctrine 48 at the outermost
+   layer.
+2. **The Stop hook gated the seam and was disclosure-only by design
+   (M-150)** — and its accepted spellings included a bare `exit N`.
+   `STATE` was `\bexit\s+\d\b|\bexit=\d\b|\bUNCONVERGED\b|\bPARKED\b`, with
+   the comment *"DELIBERATELY NOT `exit 0` alone: the gate wants the state
+   SAID, not the state CLEAN."* Right about clean; silent about WHO said it.
+   `lyric_grade` returns an exit code too — 0 on a draft with six flagged
+   lines the loop would open, because the ban and the pursue live in
+   `loop.MANDATORY_PURSUE` and the grade path does not run the loop — so a
+   turn presenting a grade's render beside "exit 0" satisfied the regex
+   letter for letter. MEASURED before repair: `rendered_without_state(CORRECT
+   + "song: exit 0 — revise SUCCESS in 0 rounds")` returned `[]` — and that
+   string was `test_render_form.py`'s own GOOD fixture (`CORRECT_STATED`),
+   so the suite pinned the hole as the healthy shape.
+3. **The part that was the operator's.** The step was not forgotten; it was
+   reached, priced, and converted into a question. This entry does not close
+   that and does not pretend to: a gate at the seam can make the two states
+   impossible to conflate in a presentation; it cannot make anyone run the
+   loop. M-150's own words: disclosure, never adjudication.
+
+**WHAT THE VERBS ACTUALLY WRITE, MEASURED, AND WHY THAT IS THE ANSWER.** No
+CLI verb prints the words "exit N" into its text — zero `print` sites in
+`lyric_harness.py` carry them — so every bare "exit 0" in a turn was TYPED
+BY THE OPERATOR. What the verbs write under a rendered song is a STAMP whose
+first word is the provenance: `[GRADED — seed N — exit E, … — N banned
+pair(s)]` from `lyric_grade` (`mcp/lyric_tools.js`, whose own description
+calls the render an INTERIM artifact), and `[FINISHED — seed N — exit E —
+STOP after R round(s) — …]` — `— declared mandate —` for a pasted song —
+from `finish` and `lyric_revise`, emitted ONLY past a stop condition
+(M-169/M-195). The stamps carry the distinction; the gate simply stopped
+accepting anything that does not.
+
+**WHAT MOVED.** `quality/check_render_form.py`: `STAMP_FINISHED` and
+`STAMP_GRADED` are the two verb-written shapes (whitespace around the em
+dashes tolerated, the dash itself not — a hyphenated stamp is a retyped one,
+M-97); `STATE` is those two or UNCONVERGED / PARKED, with the bare-exit
+alternation STRUCK in the comment and kept as `BARE_EXIT`, a name read by
+nothing but the suite's mutation; the refusal names both stamps and, when a
+bare code is present, says why it does not count. `rendered_without_state`
+is unchanged — the question moved, not the mechanism. `test_render_form.py`
+§8: the old good fixture REFUSED with every header named; a bare "revise:
+exit 3" refused too (provenance, not cleanliness); the GRADED render PASSES;
+the FINISHED render passes; a hyphenated stamp does not count; `main()`'s
+stderr names both stamps and the rule; `song_log._STAMP` (the bank's parser)
+and `STAMP_FINISHED` (the gate's recogniser) held to the same two shipped
+samples and the same rejection of GRADED, so the two readings of one stamp
+cannot drift (doctrine 1); and the MUTATION — the pre-M-243 rule restored
+by name — accepts the bare-exit turn, so the tightening is shown
+load-bearing rather than asserted. §6's end-to-end good arm and §7's
+fixtures moved from the typed spelling to the stamp. `CLAUDE.md`'s M-150
+paragraph carries the amendment.
+
+**WHAT DID NOT MOVE, stated so the delta is attributable.** The hook script
+and its registration are untouched — one hook, still two questions of the
+same text, the second one sharper. A `[GRADED — …]` turn passes: this gate
+does not police the word "finished" in prose (the GRADED stamp itself says
+"UNSKIPPABLE — not finished" when banned pairs stand), and adjudicating
+prose is what M-150 refused. `song_log.py --verdicts` still owns truth.
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~297~~
+**298** with this entry (2026-09-05).
