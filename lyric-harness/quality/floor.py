@@ -2319,10 +2319,10 @@ class SlopFloor:
             if not shipped:
                 why_sev = ("The list has been REPLACED through the "
                            "declaration, so the shipped list's measured "
-                           "in-band false-positive rates ("
+                           "in-band false-positive rate ("
                            + _cliche_rates_text()
-                           + ", the only ones ever taken for this check) "
-                           "do not describe it and this "
+                           + " — the only rates ever taken for this check) "
+                           "does not describe it and this "
                            "finding has no measured rate behind it at all "
                            "(doctrine 22). Repinned 2026-09-05, M-239: this "
                            "sentence quoted ~~6.35%~~, the 2026-08-14 "

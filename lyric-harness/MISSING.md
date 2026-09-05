@@ -19115,15 +19115,16 @@ equality. EMPIRICALLY VERIFIED 2026-09-01: the four repinned sections and
 §14 green.
 
 ### M-191 · The participation draw pinned the MEAN density near 2.5 bound words a line, so the sparse band ~~the listenable songs~~ the five songs of M-181 (struck 2026-09-04, M-238) occupy was unreachable at any seed — the plan draws its own density coordinate now `CLOSED` 2026-09-01 — ruled under the owner's delegation; M-181's cause, found by reading the draw the entry had blamed on length
-**THE CAUSE M-181 MISSED.** That entry read the five listenable songs as
-sitting at ≤ 1.5 bound words a line and blamed the length floor, which rose
+**THE CAUSE M-181 MISSED.** That entry read ~~the five listenable songs~~
+the five songs the owner's complaint named (struck 2026-09-05, M-238: no
+statement of preference for any song stands in this record) as sitting at ≤ 1.5 bound words a line and blamed the length floor, which rose
 past four of them. The floor is real and the cause is not it: every line's
 participation was drawn `rng.randint(1, pool_n)` with `pool_n` the
 line-binding ceiling of **4**, so the EXPECTED bindings a line was 2.5 by the
 draw itself, at every seed and every length. MEASURED at HEAD: `plan
 --sweep=1-100 --want=bound_words_per_line<=1.5` accepted **0 of 99**, and
-`<=2.0` accepted **7 of 99**. The listenable shape had probability zero from
-the front door — the "move 37" defect in the opposite direction, a density
+`<=2.0` accepted **7 of 99**. ~~The listenable shape~~ That density had
+probability zero from the front door — the "move 37" defect in the opposite direction, a density
 set by the shape of a loop (M-71's own sentence about the group count, one
 coordinate over).
 **THE RULING, AND THE TWO EXTREMES IT REFUSES.** The owner has refused both
@@ -20308,6 +20309,51 @@ envelope stands and the cheapest non-breaking things shipped:
    bracket), because it is about the two-block contract and not about
    the wall. That the tool surface hands out plans the grade refuses is
    the point of this entry, not a defect in the check.
+
+5. **AND THE WALL THE CONNECTOR ACTUALLY HIT WAS ITS OWN OUTPUT CAP, not
+   this one** (2026-09-05). After note 4 the same suite failed one check
+   later, on `lyric_revise`, with `[lyric] warm worker unavailable (worker
+   died); answering 'finish' on the COLD path` and then a one-block answer.
+   Not the pair guard: MEASURED on the fixture drafts the planner draws,
+   `finish` on the **80-line** draft answers **exit 4 after ~600 s and
+   prints 8.56 MB**, twice `mcp/lyric_tools.js`'s **4 MiB**
+   `MAX_OUTPUT_BYTES`. A report grows with the square of the line count for
+   the same reason the door does — the mandate prints every mandated pair
+   (55 groups, 189 pairs over those 80 lines) — so the connector meets a
+   SECOND square law before it meets this entry's. The warm worker was
+   killed at the cap and said only "worker died"; the fallback then spent
+   another ~600 s cold, where `execFile` refused the same bytes at the same
+   cap and reported a STRING code that the verdict flattened to "subprocess
+   failure (-1)". Twenty minutes to deliver one truncated block, and
+   nothing in the answer named the cap. FIXED the same day: a kill carries
+   its reason, an over-cap reply REFUSES by name (exit 2, naming the cap,
+   the square law, the three measured points and the two ways round it) and
+   is NOT re-run cold, and the cold path names the same event. The measured
+   ladder, all `finish`, same fixture recipe: **24 lines 109 s / 0.47 MB;
+   47 lines 245 s; 80 lines ~600 s / 8.56 MB (REFUSED at the cap)**. A
+   connector that PAGES a long report is part of this entry's open half.
+6. **The live block now DECLARES its length instead of drawing one**
+   (2026-09-05). Note 4's repair — hunt seeds for a plan under 100 lines —
+   was the wrong shape: it left the block's cost to the dice, and 80 lines
+   was still past the cap above. Every call in `mcp/test.mjs`'s live lyric
+   block now declares the same `lines: 24` (M-241: a length is a
+   declaration), MEASURED to draw a hook on every seed of 1..5, so the
+   block's runtime is a property of the test and not of a seed.
+7. **The sweep window was derived against an envelope that then moved**
+   (2026-09-05, the same square law one layer up). `MAX_SWEEP_SEEDS` was
+   512 because a seed cost ~28.5 ms when the planner volunteered 12..55
+   lines; a sweep PLANS every seed in its window, so when the median drawn
+   total went ~35 → 201 lines the bound stopped meaning what its comment
+   said. RE-MEASURED, same box, same verb: `plan --sweep=1-128` **81.3 s**
+   and `--sweep=1-512` **277.1 s**, i.e. ~16.0 s fixed and **~510 ms
+   marginal** — 18x. Against the same 50 s of planning and the same ~3.4x
+   deploy-box margin the old text declared, the window is **28** seeds,
+   which costs the same ~14 s the 512-seed window used to. WHAT THAT COSTS
+   A SEARCH, said out loud rather than absorbed: at the harder banked
+   acceptance rate (0.86%) one call holds a hit **21.5%** of the time
+   against **98.8%** before, so a search that used to take one call now
+   takes several. `mcp/test.mjs` reads the ceiling out of the connector
+   now instead of keeping a second copy of it.
 
 **THE COMPLETE ANSWER, NOT BUILT:** a schema door that considers a pair
 only within a bounded LINE DISTANCE, which makes the stream linear in the

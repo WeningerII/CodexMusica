@@ -867,9 +867,9 @@ def _field_memo_enabled():
 
 
 #: LEVERS 2 AND 3 OF M-217's REMAINDER, beside the field memo and keyed the
-#: same way (the instance's own key + `_decl_lex_key`). Caps are derived from
-#: the planner's envelope like `PAIR_MEMO_CAP` in quality/relations.py: ~~a
-#: 55-line draft is 1,485 pair scores and a one-line fold re-scores 54, so
+#: same way (the instance's own key + `_decl_lex_key`). ~~Caps are derived
+#: from the planner's envelope like `PAIR_MEMO_CAP` in quality/relations.py:
+#: a 55-line draft is 1,485 pair scores and a one-line fold re-scores 54, so
 #: 8,192 holds the draft and every fold of a long run~~; rankings are asked
 #: per flagged line per round, hundreds not thousands; rimes are words.
 #: REPINNED 2026-09-05 (`MISSING.md` M-239): sized 2026-09-02 to the 55-line
