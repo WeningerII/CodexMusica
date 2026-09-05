@@ -4677,7 +4677,14 @@ def test_the_hook_is_read_from_the_slot_not_the_snapshot():
 
 
 if __name__ == "__main__":
-    for fn in (test_the_loop_does_not_write,
+    # DEALT ACROSS CI SHARDS AND TIMED, through the one idiom in
+    # `quality/shard.py` (2026-09-05, `MISSING.md` M-244). `TEST_REVISE_SHARD=k/n`
+    # runs the sections whose index here is ≡ k-1 (mod n); unset runs them
+    # all, byte-identical to the serial block this replaces. The tuple's
+    # ORDER is the balance: put the slowest first, from the SECTION COST
+    # printout every run leaves behind.
+    from quality.shard import run_sections
+    _SECTIONS = (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
                test_a_revision_may_not_trade_one_defect_for_another,
                test_reject_taking_the_modal_candidate,
@@ -4732,10 +4739,6 @@ if __name__ == "__main__":
                test_the_offer_falls_back_per_call_when_the_conjunction_is_empty,
                test_a_pair_finding_names_its_own_group,
                test_the_ban_is_the_same_field_as_the_offer,
-               test_the_hook_is_read_from_the_slot_not_the_snapshot):
-        fn()
-    print("=" * 62)
-    if FAILURES:
-        print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
-        sys.exit(1)
-    print("all revision-loop regressions pass")
+               test_the_hook_is_read_from_the_slot_not_the_snapshot)
+    sys.exit(run_sections(_SECTIONS, "TEST_REVISE_SHARD", FAILURES,
+                          footer="all revision-loop regressions pass"))

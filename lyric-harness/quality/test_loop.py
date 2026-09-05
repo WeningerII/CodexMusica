@@ -2342,7 +2342,14 @@ def test_the_batch_door_and_the_recorded_verdict():
 
 
 if __name__ == "__main__":
-    for fn in (test_success_stop,
+    # DEALT ACROSS CI SHARDS AND TIMED, through the one idiom in
+    # `quality/shard.py` (2026-09-05, `MISSING.md` M-244). `TEST_LOOP_SHARD=k/n`
+    # runs the sections whose index here is ≡ k-1 (mod n); unset runs them
+    # all, byte-identical to the serial block this replaces. The tuple's
+    # ORDER is the balance: put the slowest first, from the SECTION COST
+    # printout every run leaves behind.
+    from quality.shard import run_sections
+    _SECTIONS = (test_success_stop,
                test_no_progress_stop,
                test_round_limit_stop,
                test_tier2_backtrack_resolves_a_joint_conflict,
@@ -2367,10 +2374,6 @@ if __name__ == "__main__":
                test_a_return_is_a_class_and_is_revised_together,
                test_the_escalation_reads_the_declared_backtrack_width,
                test_the_rebrief_carries_to_the_rest_of_the_round,
-               test_the_batch_door_and_the_recorded_verdict):
-        fn()
-    print("=" * 62)
-    if FAILURES:
-        print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
-        sys.exit(1)
-    print("all loop regressions pass")
+               test_the_batch_door_and_the_recorded_verdict)
+    sys.exit(run_sections(_SECTIONS, "TEST_LOOP_SHARD", FAILURES,
+                          footer="all loop regressions pass"))

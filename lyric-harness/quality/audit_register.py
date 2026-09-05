@@ -2402,7 +2402,7 @@ PINNED = {
     # `pins_per_line` is a MAXIMUM and accepted 0 of 39 seeds. The
     # calibration that would reopen the band is an owner ruling and is left
     # OPEN), pin told in the entry's own sitting.
-    "coverage_entries": 298,  # REPINNED 2026-09-05 from ~~240~~ ~~253~~ ~~254~~ ~~255~~ ~~256~~ ~~257~~ ~~259~~ ~~260~~ ~~261~~ ~~262~~ ~~263~~ ~~264~~ ~~265~~ ~~266~~ ~~267~~ ~~268~~ ~~269~~ ~~270~~ ~~274~~ ~~275~~ ~~276~~ ~~277~~ ~~278~~ ~~279~~ ~~280~~ ~~281~~ ~~283~~ ~~284~~ ~~285~~ ~~286~~ ~~287~~ ~~288~~ ~~289~~ ~~290~~ ~~291~~ ~~292~~ ~~293~~ ~~296~~ ~~297~~: M-183..M-243 (M-205 entered late)
+    "coverage_entries": 299,  # REPINNED 2026-09-05 from ~~240~~ ~~253~~ ~~254~~ ~~255~~ ~~256~~ ~~257~~ ~~259~~ ~~260~~ ~~261~~ ~~262~~ ~~263~~ ~~264~~ ~~265~~ ~~266~~ ~~267~~ ~~268~~ ~~269~~ ~~270~~ ~~274~~ ~~275~~ ~~276~~ ~~277~~ ~~278~~ ~~279~~ ~~280~~ ~~281~~ ~~283~~ ~~284~~ ~~285~~ ~~286~~ ~~287~~ ~~288~~ ~~289~~ ~~290~~ ~~291~~ ~~292~~ ~~293~~ ~~296~~ ~~297~~ ~~298~~: M-183..M-244 (M-205 entered late)
                               # (the delegation sitting: the loop trio, the
                               # whole-draft exit, the deploy, the staged
                               # resources, the connector coordinates, the

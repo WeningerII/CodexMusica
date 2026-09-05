@@ -434,13 +434,16 @@ def test_the_relation_is_a_coordinate():
 
 
 if __name__ == "__main__":
-    for fn in (test_the_anchor, test_tier1, test_the_crown,
+    # DEALT ACROSS CI SHARDS AND TIMED, through the one idiom in
+    # `quality/shard.py` (2026-09-05, `MISSING.md` M-244). `TEST_CAPACITY_SHARD=k/n`
+    # runs the sections whose index here is ≡ k-1 (mod n); unset runs them
+    # all, byte-identical to the serial block this replaces. The tuple's
+    # ORDER is the balance: put the slowest first, from the SECTION COST
+    # printout every run leaves behind.
+    from quality.shard import run_sections
+    _SECTIONS = (test_the_anchor, test_tier1, test_the_crown,
                test_determinism_and_bounds, test_the_verb,
-               test_the_judge_is_recorded, test_the_relation_is_a_coordinate):
-        fn()
-    print("=" * 62)
-    if FAILURES:
-        print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
-        sys.exit(1)
-    print("capacity states what the language holds, in the judge's own "
-          "units — and grades nothing")
+               test_the_judge_is_recorded, test_the_relation_is_a_coordinate)
+    sys.exit(run_sections(_SECTIONS, "TEST_CAPACITY_SHARD", FAILURES,
+                          footer="capacity states what the language holds, in the judge's own "
+          "units — and grades nothing"))

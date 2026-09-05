@@ -596,8 +596,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2, 3, 4]
-    name: catalog (shard ${{ matrix.shard }}/4)
+        shard: [1, 2, 3, 4, 5, 6, 7, 8]
+    name: catalog (shard ${{ matrix.shard }}/8)
     steps:
       - uses: actions/checkout@v5
 
@@ -610,7 +610,7 @@ jobs:
         run: npm ci
 
       - name: Catalog-wide smoke (every tradition through the live pipeline)
-        run: node scripts/smoke.js --shard=${{ matrix.shard }}/4
+        run: node scripts/smoke.js --shard=${{ matrix.shard }}/8
 
   # An always-reporting summary over the catalog shards, so the repo's broadest
   # gate can actually be a REQUIRED status check.
@@ -1679,8 +1679,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2, 3, 4]
-    name: suites (shard ${{ matrix.shard }}/4)
+        shard: [1, 2, 3]
+    name: suites (shard ${{ matrix.shard }}/3)
     # A RUNAWAY GUARD, NOT A BUDGET. ~~All 44 files in this job are now
     # measured: the 42 cheap ones sum to 505 CPU-s and the revision pair adds
     # 375, so the job is ~880 CPU-s / ~14.7 min and this guard is ~2x that.~~
@@ -1726,7 +1726,7 @@ jobs:
       # loop below. Both are set together so a matrix that grows finds
       # the divisor beside it rather than in a second place.
       SUITES_SHARD: ${{ matrix.shard }}
-      SUITES_SHARDS: 4
+      SUITES_SHARDS: 3
     steps:
       - uses: actions/checkout@v5
 
@@ -1783,12 +1783,15 @@ jobs:
       # caught `nc_census` on the run that added it — and `structures` on
       # the run that added THAT. `comm -23 <(ls quality/test_*.py | sed 's|quality/test_||;s|\.py$||'
       # | sort) <(the names in this file, sorted)` is that command.
-      - name: "The 79 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate and recover the same day with the second door into the pipeline, each added in the same commit as the module it gates so neither joins the census below; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census 2026-08-23 with the census of which findings can refuse anything, added in the same commit as the module it gates — and the instrument's own first run is why it is here rather than a sitting later: it named two constructors, measured 46 codes, and omitted `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated; songs 2026-08-24 — the DELIVERED songs, which until that day nothing in this repository read at all: zero checks under quality/, zero mentions here, and two of the five had shipped with their section structure missing while every gate in the tree stayed green; render_form the same day — the check that reads a MESSAGE, which no other gate can, plus the Stop hook that hands it the transcript and BLOCKS a turn carrying a section bracket with its apparatus stripped; songs_record the same day — the SERIES, because every report about these songs had been a PASS/FAIL bit read aloud as a judgement, and its claim check is the one gate in this tree aimed at the narrator rather than the code; songs_log the same day — the PROCESS beside the product, because the series banks what a song IS and nothing banked how it got there, and the zero-ceiling rhyme families were a markdown table no command could re-derive; sentencehood 2026-08-25 with the M-110 noun-stack layer — the nightly gained `sentencehood.py --check` in the same commit as the module and its SUITE joined nothing, the census's own defect one more time, caught by the census; narrative 2026-08-25 — the paired blind experiment's own suite, written across the M-121 narrative-layer sittings and never added here, and the census's finding was MASKED for a day: the orphan check is test_verbs §24, shard 1 died at §20's M-116 breakage two sections in front of it, so a crash in one section hid an orphan in another — the fix that cleared the crash is what let the census speak; door_census 2026-08-26 with the M-139 census of which DOOR each pair-satisfaction site judges at, added in the same commit as the module it gates -- and this label went from 71 to 72 with it, which `test_verbs.py` §43's own check is what caught: the label a reader trusts must equal the list it labels, and a suite added without moving the number is a list that is short looking exactly like a list that is complete; chance_rate 2026-08-26 with M-138's strike and M-140 -- the chance-rate measurement had by then been improvised TWICE from uncommitted scripts, which standing rule 3 calls a defect report, and its suite is here in the same commit as the module so it never joins the orphan census above; verify_figures 2026-08-28 with M-33's live/history citation instrument, added the sitting after its module -- the orphan census caught it on the full test_verbs run, the same shape a fourth time, and the label moved 73 to 74 with it; replay_memo 2026-08-29 with M-167's deferred-replay grading memo — the warm worker's cross-request answer to the quadratic resume cost round 9 measured, added in the same commit as the module it gates, label 74 to 75; staging 2026-09-01 with the retried, atomic staged download -- run #1195 lost a whole CI run to one TLS reset in a step that had not begun any test, and the `suites` shard matrix in this same commit took the number of jobs performing that unretried download from 5 to 8 per run, so the sharding made the failure MORE likely and this is the cost being paid rather than deferred, label 75 to 76; ban_convergence 2026-09-02 with the ban-against-the-bank instrument (M-168, triage C18), added in the same commit as the module it gates — its 13 checks re-derive one song's README triple through `Reviser.inspect` and kill a one-word mutation, ~2 min, label 76 to 77; cross_song 2026-09-02 with the cross-song disclosure M-111's ruling built (triage C08), added in the same commit as the module it gates — the section that earns its place is the PREFIX PIN, which holds `screen` output as a byte prefix of `screen --bank` and so makes the GATE the ruling refused mechanically unreachable rather than merely discouraged; the null half of the pin costs ~60s of corpus tagging and is `cross_song.py --check`'s business, which pin_sweep discovers by itself, label 77 to 78; brief_provenance 2026-09-02 with the gate on WHETHER A REVISION WAS BRIEFED (M-200), added in the same commit as the module it gates — the loop had been computing a complete OFFERED field per bound position, excluding both ban tiers, and nothing required a writer to read it, so a session hand-guessed five replacement pairs across three `finish` runs and every one came back BANNED; the check that earns its place is the FINGERPRINT one, which makes a brief earned on one draft unable to launder a hand-edit made to another, label 78 to 79)"
+      - name: "The 78 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21; pin_sweep + suite_sweep 2026-08-22 — both were ORPHANS, found by the very check in test_verbs.py that exists because a list that is short looks exactly like a list that is complete; mandate_relation + relation_shapes + relations_null 2026-08-22, the SAME check catching the same shape a second time in one day — three suites written during the relation-ladder work and never added here, so every one of them was green on a developer machine and unrun in CI; placement 2026-08-22 with the section-constraint layer, added in the same commit as the suite rather than after somebody noticed; section_marks the same day with the bracketed-mark triage, whose own `--check` is the gate that a corpus load printing a NEW mark turns red instead of joining the 62% that answered nothing; slots 2026-08-23 with the placement coordinate and recover the same day with the second door into the pipeline, each added in the same commit as the module it gates so neither joins the census below; capabilities 2026-08-23 — the SAME orphan census a third time, and this one had been unrun since the day it was written — `quality/test_capabilities.py` §8 is what pins the 77-of-77-askable claim CLAUDE.md leads with, 51 checks at 6.9s, named by nothing that gates; gate_census 2026-08-23 with the census of which findings can refuse anything, added in the same commit as the module it gates — and the instrument's own first run is why it is here rather than a sitting later: it named two constructors, measured 46 codes, and omitted `quality/grid.py`'s SHAPE layer entirely, which a census reports as fully gated; songs 2026-08-24 — the DELIVERED songs, which until that day nothing in this repository read at all: zero checks under quality/, zero mentions here, and two of the five had shipped with their section structure missing while every gate in the tree stayed green; render_form the same day — the check that reads a MESSAGE, which no other gate can, plus the Stop hook that hands it the transcript and BLOCKS a turn carrying a section bracket with its apparatus stripped; songs_record the same day — the SERIES, because every report about these songs had been a PASS/FAIL bit read aloud as a judgement, and its claim check is the one gate in this tree aimed at the narrator rather than the code; songs_log the same day — the PROCESS beside the product, because the series banks what a song IS and nothing banked how it got there, and the zero-ceiling rhyme families were a markdown table no command could re-derive; sentencehood 2026-08-25 with the M-110 noun-stack layer — the nightly gained `sentencehood.py --check` in the same commit as the module and its SUITE joined nothing, the census's own defect one more time, caught by the census; narrative 2026-08-25 — the paired blind experiment's own suite, written across the M-121 narrative-layer sittings and never added here, and the census's finding was MASKED for a day: the orphan check is test_verbs §24, shard 1 died at §20's M-116 breakage two sections in front of it, so a crash in one section hid an orphan in another — the fix that cleared the crash is what let the census speak; door_census 2026-08-26 with the M-139 census of which DOOR each pair-satisfaction site judges at, added in the same commit as the module it gates -- and this label went from 71 to 72 with it, which `test_verbs.py` §43's own check is what caught: the label a reader trusts must equal the list it labels, and a suite added without moving the number is a list that is short looking exactly like a list that is complete; chance_rate 2026-08-26 with M-138's strike and M-140 -- the chance-rate measurement had by then been improvised TWICE from uncommitted scripts, which standing rule 3 calls a defect report, and its suite is here in the same commit as the module so it never joins the orphan census above; verify_figures 2026-08-28 with M-33's live/history citation instrument, added the sitting after its module -- the orphan census caught it on the full test_verbs run, the same shape a fourth time, and the label moved 73 to 74 with it; replay_memo 2026-08-29 with M-167's deferred-replay grading memo — the warm worker's cross-request answer to the quadratic resume cost round 9 measured, added in the same commit as the module it gates, label 74 to 75; staging 2026-09-01 with the retried, atomic staged download -- run #1195 lost a whole CI run to one TLS reset in a step that had not begun any test, and the `suites` shard matrix in this same commit took the number of jobs performing that unretried download from 5 to 8 per run, so the sharding made the failure MORE likely and this is the cost being paid rather than deferred, label 75 to 76; ban_convergence 2026-09-02 with the ban-against-the-bank instrument (M-168, triage C18), added in the same commit as the module it gates — its 13 checks re-derive one song's README triple through `Reviser.inspect` and kill a one-word mutation, ~2 min, label 76 to 77; cross_song 2026-09-02 with the cross-song disclosure M-111's ruling built (triage C08), added in the same commit as the module it gates — the section that earns its place is the PREFIX PIN, which holds `screen` output as a byte prefix of `screen --bank` and so makes the GATE the ruling refused mechanically unreachable rather than merely discouraged; the null half of the pin costs ~60s of corpus tagging and is `cross_song.py --check`'s business, which pin_sweep discovers by itself, label 77 to 78; brief_provenance 2026-09-02 with the gate on WHETHER A REVISION WAS BRIEFED (M-200), added in the same commit as the module it gates — the loop had been computing a complete OFFERED field per bound position, excluding both ban tiers, and nothing required a writer to read it, so a session hand-guessed five replacement pairs across three `finish` runs and every one came back BANNED; the check that earns its place is the FINGERPRINT one, which makes a brief earned on one draft unable to launder a hand-edit made to another, label 78 to 79; plan + capacity OUT to their own dealt matrix jobs and shard IN — the one dealing-and-timing idiom every dealt suite now calls — 2026-09-05 (M-244), label 79 to 78)"
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
           MKL_NUM_THREADS: '1'
           OPENBLAS_NUM_THREADS: '1'
+          # The pool is already four-wide; `plan.sweep` forks its own workers
+          # (M-244) and must not inside it — the eight-on-four M-182 measured.
+          SWEEP_WORKERS: '1'
         run: |
           set -e
           # FOUR AT A TIME, 2026-08-18. These are 49 independent PROCESSES
@@ -1836,8 +1839,14 @@ jobs:
           # now, and a fifth shard would buy NOTHING -- the pool is already
           # under it at 293s. That is why the count stays at four: the next
           # win is splitting `capacity`, not dealing the same cards thinner.
-          SOLO="plan capacity"
-          _nsolo=2
+          # NO SOLOS SINCE 2026-09-05 (`MISSING.md` M-244): `plan` and
+          # `capacity` are their own dealt matrix jobs now (`plan`,
+          # `capacity` below), each cut by section through the one idiom in
+          # `quality/shard.py`, so the whole pool here is dealt by residue
+          # over three runners. The solo machinery stays, at zero, because
+          # the next suite that outgrows a lane is a one-word change here.
+          SOLO=""
+          _nsolo=0
           _mine=""
           _solo_on=0
           _pool_n=${SUITES_SHARDS:-1}
@@ -1852,7 +1861,7 @@ jobs:
           fi
           echo "shard ${SUITES_SHARD:-1}/${SUITES_SHARDS:-1}:" \
                "solo='${_mine:-none}' pool=${_pool_k}/${_pool_n}"
-          for f in plan capacity relations_null songs_record screen g2p spans readability \
+          for f in relations_null songs_record screen g2p spans readability \
                    recover replay_memo grid propose gate_census floor fwer homograph \
                    mut_oracle msa_fin corpus_audit provenance homeoteleuton null_shapes \
                    phrase_commonplace mandate_relation meter_bands sentencehood \
@@ -1864,7 +1873,7 @@ jobs:
                    band relation_shapes matrix render_form verify_entries register_audit \
                    phon_msa mandate_language phon_fas phon_non phon_san staging \
                    controls data_row_claims english_text meter verify_figures expected_drift \
-                   ipa songs ban_convergence cross_song brief_provenance; do
+                   ipa songs ban_convergence cross_song brief_provenance shard; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured
@@ -2211,11 +2220,24 @@ jobs:
   # pool but a checkout, so serializing them bought nothing but wall clock.
   # As its own job it runs BESIDE the pool and the run's path drops by the
   # pair's full cost. Same env pins, same setup steps as `suites`.
-  revision-loop:
+  plan:
     needs: gate
     runs-on: ubuntu-latest
-    # Measured 11m on run #522; headroom, not a budget.
+    # THE LONGEST SINGLE PROCESS IN CI, DEALT (2026-09-05, `MISSING.md`
+    # M-244). `test_plan.py` ran SOLO on a suites shard at 35.6 min on run
+    # 1376 — the whole workflow's wall — because §3 grades twenty planner
+    # seeds through the full 77-schema door and ten of them sit past the
+    # pair guard (M-240). Five shards: the SECTIONS are dealt by residue over
+    # a cost-ordered tuple, and §3 deals its SEEDS by the same coordinate
+    # (4 seeds a shard, four workers each), so no shard carries the whole
+    # sweep. `SWEEP_WORKERS` is the default (four) here because this process
+    # owns the runner. Headroom, not a budget.
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4, 5]
+    name: plan (${{ matrix.shard }}/5)
     defaults:
       run:
         working-directory: lyric-harness
@@ -2223,6 +2245,135 @@ jobs:
       OMP_NUM_THREADS: '1'
       MKL_NUM_THREADS: '1'
       OPENBLAS_NUM_THREADS: '1'
+      TEST_PLAN_SHARD: ${{ matrix.shard }}/5
+      TEST_PLAN_WORKERS: '4'
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Stage the pronunciation dictionary
+        run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
+      - name: Install nltk (the floor reaches the POS tagger through features.py)
+        run: python3 -m pip install --disable-pip-version-check nltk
+      - name: Stage the tagger model and the concreteness norms
+        run: python3 quality/fetch_data.py
+      - name: test_plan shard ${{ matrix.shard }}/5 (sections dealt by residue over the cost-ordered tuple; §3 deals its seeds by the same coordinate)
+        run: python3 quality/test_plan.py
+
+  plan-result:
+    needs: plan
+    timeout-minutes: 15
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Aggregate the plan shards
+        run: |
+          result="${{ needs.plan.result }}"
+          echo "plan aggregate result: $result"
+          case "$result" in
+            success)
+              echo "All shards passed."
+              ;;
+            skipped)
+              echo "::error::plan shards were SKIPPED — the job is unconditional, so this means gate did not succeed and no section ran"
+              exit 1
+              ;;
+            cancelled)
+              echo "::error::plan shards were CANCELLED while the run was not — a shard hit its own timeout or lost its runner"
+              exit 1
+              ;;
+            *)
+              echo "::error::plan shards reported '$result'"
+              exit 1
+              ;;
+          esac
+
+  capacity:
+    needs: gate
+    runs-on: ubuntu-latest
+    # `test_capacity.py` measured 698 s alone — the second-longest single
+    # process (M-182's table) — and sat solo on a suites shard. Dealt three
+    # ways by section since 2026-09-05 (`MISSING.md` M-244); the SECTION COST
+    # printout says which section is its floor. Headroom, not a budget.
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3]
+    name: capacity (${{ matrix.shard }}/3)
+    defaults:
+      run:
+        working-directory: lyric-harness
+    env:
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      TEST_CAPACITY_SHARD: ${{ matrix.shard }}/3
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Stage the pronunciation dictionary
+        run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
+      - name: Install nltk (the floor reaches the POS tagger through features.py)
+        run: python3 -m pip install --disable-pip-version-check nltk
+      - name: Stage the tagger model and the concreteness norms
+        run: python3 quality/fetch_data.py
+      - name: test_capacity shard ${{ matrix.shard }}/3 (sections dealt by residue)
+        run: python3 quality/test_capacity.py
+
+  capacity-result:
+    needs: capacity
+    timeout-minutes: 15
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Aggregate the capacity shards
+        run: |
+          result="${{ needs.capacity.result }}"
+          echo "capacity aggregate result: $result"
+          case "$result" in
+            success)
+              echo "All shards passed."
+              ;;
+            skipped)
+              echo "::error::capacity shards were SKIPPED — the job is unconditional, so this means gate did not succeed and no section ran"
+              exit 1
+              ;;
+            cancelled)
+              echo "::error::capacity shards were CANCELLED while the run was not — a shard hit its own timeout or lost its runner"
+              exit 1
+              ;;
+            *)
+              echo "::error::capacity shards reported '$result'"
+              exit 1
+              ;;
+          esac
+
+  revision-loop:
+    needs: gate
+    runs-on: ubuntu-latest
+    # Measured 11m on run #522 and 15.8 min on run 1376 as ONE job running
+    # both suites side by side; DEALT FOUR WAYS since 2026-09-05 (`MISSING.md`
+    # M-244): each shard runs its residue of `test_revise` and of `test_loop`
+    # at once, through `quality/shard.py`. Headroom, not a budget.
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    name: revision-loop (${{ matrix.shard }}/4)
+    defaults:
+      run:
+        working-directory: lyric-harness
+    env:
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      TEST_REVISE_SHARD: ${{ matrix.shard }}/4
+      TEST_LOOP_SHARD: ${{ matrix.shard }}/4
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
@@ -2297,15 +2448,48 @@ jobs:
   # section runs EXACTLY ONCE across the matrix by arithmetic, not by
   # review, and an unset var still runs the whole file byte-identically
   # (the local command nobody has to relearn).
+  revision-loop-result:
+    needs: revision-loop
+    timeout-minutes: 15
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Aggregate the revision-loop shards
+        run: |
+          result="${{ needs.revision-loop.result }}"
+          echo "revision-loop aggregate result: $result"
+          case "$result" in
+            success)
+              echo "All shards passed."
+              ;;
+            skipped)
+              echo "::error::revision-loop shards were SKIPPED — the job is unconditional, so this means gate did not succeed and no section ran"
+              exit 1
+              ;;
+            cancelled)
+              echo "::error::revision-loop shards were CANCELLED while the run was not — a shard hit its own timeout or lost its runner"
+              exit 1
+              ;;
+            *)
+              echo "::error::revision-loop shards reported '$result'"
+              exit 1
+              ;;
+          esac
+
   verbs:
     needs: gate
     runs-on: ubuntu-latest
-    # ~11m expected per half; headroom, not a budget.
-    timeout-minutes: 25
+    # EIGHT SHARDS OVER A COST-ORDERED TUPLE (2026-09-05, `MISSING.md`
+    # M-244). Four shards over the chronological order measured 7.7 / 9.7 /
+    # 10.7 / 16.6 min on run 1376 — the worst held the 480 s seed sweep plus
+    # two 100 s sections by accident. The tuple is cost-ordered now and the
+    # sweep itself is parallel (`SWEEP_WORKERS`), so eight shards deal ~470 s
+    # of section time each. Headroom, not a budget.
+    timeout-minutes: 20
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2, 3, 4]
+        shard: [1, 2, 3, 4, 5, 6, 7, 8]
     defaults:
       run:
         working-directory: lyric-harness
@@ -2313,7 +2497,7 @@ jobs:
       OMP_NUM_THREADS: '1'
       MKL_NUM_THREADS: '1'
       OPENBLAS_NUM_THREADS: '1'
-      TEST_VERBS_SHARD: ${{ matrix.shard }}/4
+      TEST_VERBS_SHARD: ${{ matrix.shard }}/8
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v5
@@ -2349,7 +2533,7 @@ jobs:
       # direction -- if the floor is low, four shards already collected the
       # win; if it is high, the printout names the section to split and
       # nothing was spent finding that out.
-      - name: test_verbs shard ${{ matrix.shard }}/4 (the whole file, quartered by section residue)
+      - name: test_verbs shard ${{ matrix.shard }}/8 (the whole file, dealt by section residue over the cost-ordered tuple)
         run: python3 quality/test_verbs.py
 
   # An always-reporting summary over the `verbs` shards, so the longest suite

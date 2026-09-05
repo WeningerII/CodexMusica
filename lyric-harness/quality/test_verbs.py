@@ -5267,115 +5267,81 @@ def test_the_batch_door_asks_independent_lines_together():
 
 
 if __name__ == "__main__":
+    # COST-ORDERED, SLOWEST FIRST — 2026-09-05 (`MISSING.md` M-244), from a
+    # full local run of all 53 sections (3,782.9 s): the seed sweep 533.5 s,
+    # the comparator/meter flags 350.9 s, then a long tail under 190 s.
+    # Residue dealing (below, through `quality/shard.py`) balances by DESIGN
+    # over this order and by ACCIDENT over the chronological one it
+    # replaces — M-182 measured that accident at 948 s against 1,265 s on
+    # two shards. The SECTION COST printout every run leaves behind is what
+    # this tuple is re-cut from when the costs move.
     _SECTIONS = (
-        test_the_map_is_not_stale,
-        test_fit_answers_whether_the_words_fit_the_bars,
-        test_fit_refuses_the_undeclared_subdivision,
-        test_function_is_not_section_name,
-        test_refrain_writes_the_villanelle,
-        test_brief_refuses_instead_of_tracebacking,
-        test_every_verb_runs,
-        test_the_four_blueprint_verbs_cannot_answer_differently,
-        test_the_fifteen_original_verbs_are_untouched,
-        test_fallback_reaches_every_verb_ahead_of_the_verb_name,
-        test_readability_prints_what_the_fallback_invented,
-        test_candidates_refuses_an_unreadable_query,
-        test_relations_prints_the_search_burden_it_promises,
-        test_no_broad_exception_handler_hides_a_call,
-        test_blueprint_mismatch_refuses_on_every_verb,
-        test_song_does_not_invent_a_structure_defect_on_a_repeated_name,
-        test_no_flag_silently_changes_a_measurement,
-        test_every_flag_value_refuses_in_one_shape,
-        test_the_profile_lookup_raises_at_the_library_too,
-        test_qafiya_reads_a_file_the_way_every_other_verb_does,
-        test_the_report_rolls_up_without_dropping_anything,
-        test_song_exits_on_a_flag,
-        test_propose_selects_who_writes_the_line,
-        test_both_mandate_spellings_are_read,
-        test_the_loop_suspends_instead_of_guessing,
-        test_the_loop_pursues_a_note_it_can_brief,
-        test_the_candidate_field_says_which_ordering_it_is,
-        test_the_last_two_traceback_shapes_refuse,
-        test_every_test_file_is_accounted_for_by_ci,
-        test_a_near_miss_flag_refuses_on_the_reviser_verbs,
-        test_a_file_the_harness_cannot_read_refuses_on_every_verb,
-        test_the_named_pair_disclosure_survives_the_module_boundary,
-        test_every_verb_reads_its_own_arguments,
-        test_the_comparator_and_the_meter_flags_reach_the_graders,
-        test_the_title_a_lyric_declares_reaches_the_check_or_refuses,
-        test_the_collision_cut_is_one_constant_and_cannot_drift,
-        test_both_meter_coordinates_are_disclosed_and_collisions_are_typed,
-        test_every_report_names_the_draft_it_read,
-        test_the_structures_spelling_reaches_the_verbs,
         test_the_seed_sweep_is_reachable_from_the_command_line,
-        test_fill_reads_a_draft_the_way_every_other_verb_does,
-        test_the_ban_is_unskippable_at_the_grading_verb_too,
+        test_the_comparator_and_the_meter_flags_reach_the_graders,
+        test_both_meter_coordinates_are_disclosed_and_collisions_are_typed,
+        test_brief_refuses_instead_of_tracebacking,
+        test_blueprint_mismatch_refuses_on_every_verb,
+        test_propose_selects_who_writes_the_line,
+        test_the_title_a_lyric_declares_reaches_the_check_or_refuses,
+        test_finish_is_the_one_door_from_draft_to_rendered_song,
+        test_the_loop_verbs_exit_on_what_stands_at_the_stop,
+        test_finish_exits_3_on_a_whole_draft_flag_alone,
+        test_a_near_miss_flag_refuses_on_the_reviser_verbs,
+        test_every_verb_runs,
+        test_both_mandate_spellings_are_read,
+        test_song_does_not_invent_a_structure_defect_on_a_repeated_name,
+        test_the_loop_pursues_a_note_it_can_brief,
+        test_the_named_pair_disclosure_survives_the_module_boundary,
+        test_a_missing_staged_resource_refuses_instead_of_crashing,
+        test_the_loop_suspends_instead_of_guessing,
+        test_the_batch_door_asks_independent_lines_together,
+        test_song_exits_on_a_flag,
+        test_the_candidate_field_says_which_ordering_it_is,
+        test_a_file_the_harness_cannot_read_refuses_on_every_verb,
+        test_fallback_reaches_every_verb_ahead_of_the_verb_name,
+        test_the_structures_spelling_reaches_the_verbs,
+        test_every_report_names_the_draft_it_read,
+        test_the_report_rolls_up_without_dropping_anything,
+        test_every_verb_reads_its_own_arguments,
+        test_no_flag_silently_changes_a_measurement,
         test_a_song_wide_relation_may_not_stand_beside_a_structure,
         test_a_row_name_with_a_comma_is_still_reachable,
-        test_every_workflow_file_is_parseable_yaml,
-        test_finish_is_the_one_door_from_draft_to_rendered_song,
-        test_the_cynghanedd_verb_reaches_caesura_and_marks,
-        test_a_missing_staged_resource_refuses_instead_of_crashing,
-        test_the_loop_verbs_exit_on_what_stands_at_the_stop,
         test_the_pasted_song_has_the_same_door_as_a_planned_one,
+        test_the_ban_is_unskippable_at_the_grading_verb_too,
+        test_the_last_two_traceback_shapes_refuse,
+        test_candidates_refuses_an_unreadable_query,
+        test_qafiya_reads_a_file_the_way_every_other_verb_does,
+        test_every_flag_value_refuses_in_one_shape,
+        test_the_four_blueprint_verbs_cannot_answer_differently,
+        test_fill_reads_a_draft_the_way_every_other_verb_does,
+        test_fit_answers_whether_the_words_fit_the_bars,
+        test_the_map_is_not_stale,
+        test_the_cynghanedd_verb_reaches_caesura_and_marks,
+        test_function_is_not_section_name,
+        test_relations_prints_the_search_burden_it_promises,
+        test_fit_refuses_the_undeclared_subdivision,
+        test_the_profile_lookup_raises_at_the_library_too,
+        test_the_fifteen_original_verbs_are_untouched,
         test_the_plan_report_discloses_density_and_audibility,
-        test_finish_exits_3_on_a_whole_draft_flag_alone,
-        test_the_batch_door_asks_independent_lines_together,
+        test_refrain_writes_the_villanelle,
+        test_readability_prints_what_the_fallback_invented,
+        test_no_broad_exception_handler_hides_a_call,
+        test_every_workflow_file_is_parseable_yaml,
+        test_the_collision_cut_is_one_constant_and_cannot_drift,
+        test_every_test_file_is_accounted_for_by_ci,
     )
-    # SHARDING, 2026-08-18. This file is the longest suite in the repo —
-    # measured 21-22 minutes on CI run #524, and after the pool went
-    # four-wide it WAS the pool's wall (parallel width cannot beat the
-    # longest member). The sections are independent by construction (each
-    # builds its own tmpdirs and fixtures; the shared state is FAILURES,
-    # which only accumulates), so TEST_VERBS_SHARD=k/n runs the sections
-    # whose index ≡ k-1 (mod n) — interleaved, so the heavy sections
-    # spread across shards instead of stacking in one. Unset runs
-    # everything, byte-identical to the pre-shard file: the env var is a
-    # CI-shape coordinate, not a semantics one, and every section still
-    # runs EXACTLY ONCE across a full k=1..n matrix by the arithmetic of
-    # the residue classes — a section skipped by every shard is impossible
-    # by construction, not by review.
-    _shard = os.environ.get("TEST_VERBS_SHARD", "").strip()
-    if _shard:
-        k, n = (int(x) for x in _shard.split("/"))
-        if not (1 <= k <= n):
-            raise SystemExit(f"TEST_VERBS_SHARD={_shard!r} refuses: "
-                             f"k must be in 1..n")
-        run_sections = [f for i, f in enumerate(_SECTIONS)
-                        if i % n == k - 1]
-        print(f"SHARD {k}/{n}: {len(run_sections)} of {len(_SECTIONS)} "
-              f"sections (interleaved by index residue)")
-    else:
-        run_sections = list(_SECTIONS)
-    # PER-SECTION COST, PRINTED EVERY RUN — 2026-09-01. Sharding this file
-    # by index residue is exactly-once by arithmetic, but it balances by
-    # ACCIDENT: the residue classes are drawn over the order the sections
-    # happen to be written in, which is chronological, and cost is not.
-    # Measured on run #1197 the two shards came out 948s and 1265s — a 33%
-    # imbalance, and a job's wall is its WORST shard, so a third of that
-    # runner's time bought nothing. Raising the shard count cannot fix an
-    # imbalance and cannot beat the LONGEST SINGLE SECTION either, and
-    # which section that is had never been measured (M-182's first open
-    # item said exactly this). So the suite now times each section and
-    # prints them slowest-first: the top line IS the floor any shard count
-    # stalls at, and the ordering is what a cost-ordered `_SECTIONS` would
-    # be built from. Printed by every shard, so the union of a matrix run
-    # is the whole file's profile, and printed on a green run too — a cost
-    # that is only visible when something fails is a cost nobody sees.
-    _times = []
-    for _fn in run_sections:
-        _t0 = time.time()
-        _fn()
-        _times.append((time.time() - _t0, _fn.__name__))
-    print("=" * 62)
-    print("SECTION COST, slowest first — the top line is the floor a shard "
-          "count cannot beat:")
-    for _sec, _nm in sorted(_times, reverse=True):
-        print(f"  {_sec:8.1f}s  {_nm}")
-    print(f"  {sum(_s for _s, _ in _times):8.1f}s  TOTAL, this shard "
-          f"({len(_times)} of {len(_SECTIONS)} sections)")
-    print("=" * 62)
-    if FAILURES:
-        print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
-        sys.exit(1)
-    print("every shipped capability has a verb, and the map says so")
+    # SHARDING (2026-08-18) AND THE PER-SECTION PROFILE (2026-09-01) LIVED
+    # INLINE HERE and are ONE idiom in `quality/shard.py` since 2026-09-05
+    # (M-244), so `test_plan`, `test_revise`, `test_loop` and
+    # `test_capacity` deal and time their sections the same way rather than
+    # each growing a spelling of its own (doctrine 1). The contract is
+    # unchanged: `TEST_VERBS_SHARD=k/n` runs the sections whose index ≡ k-1
+    # (mod n), every section runs EXACTLY ONCE across a full k=1..n matrix
+    # by the arithmetic of residue classes, unset runs everything
+    # byte-identical to an undealt file, and every run prints each
+    # section's cost slowest-first — the top line is the floor no shard
+    # count beats.
+    from quality.shard import run_sections
+    sys.exit(run_sections(_SECTIONS, "TEST_VERBS_SHARD", FAILURES,
+                          footer="every shipped capability has a verb, and "
+                                 "the map says so"))
