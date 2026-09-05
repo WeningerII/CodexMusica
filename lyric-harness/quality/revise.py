@@ -792,9 +792,8 @@ def ban_emptied_note(calls, labels, forbidden, width=76):
     that is not the lexicon; that a swap on this line cannot clear it
     while the partners stand; that the move is the GROUP's — the loop's
     tier 2, the joint backtrack (M-105), which `revise`/`finish` escalate
-    to after tier 1 fails (M-205) — and, because the connector's
-    `lyric_revise` defaults the backtrack width to 0 where the CLI's
-    default is 5, which coordinate opens that door there; and the two
+    to after tier 1 fails (M-205) — at which width on each path (the
+    CLI's 5, the connector's 1 since M-247; 0 shuts it); and the two
     other doors (a narrower mandate; a family certified deeper, which
     `capacity WORD` prints together with the words the ban admits).
     """
@@ -811,11 +810,12 @@ def ban_emptied_note(calls, labels, forbidden, width=76):
         f"answers the next word too. The GROUP ({labs}) has to move, and "
         f"that is the loop's tier 2, the joint backtrack (M-105): "
         f"`revise`/`finish` rewrite every member of the group at once and "
-        f"escalate there after tier 1 fails on this line (M-205). The CLI "
-        f"default is `--backtrack=5`; the connector's `lyric_revise` "
-        f"defaults to `backtrack=0`, so pass `backtrack` of 1 or more "
-        f"there — a hand edit of this line alone is answered by the same "
-        f"ban. The other doors: narrow the mandate to fewer members, or "
+        f"escalate there after tier 1 fails on this line (M-205) — the CLI "
+        f"at `--backtrack=5`, the connector's `lyric_revise` at "
+        f"`backtrack=1` (one group question per stuck line per round; 0 "
+        f"shuts it). So run the loop: a hand edit of this line alone is "
+        f"answered by the same ban. The other doors: narrow the mandate "
+        f"to fewer members, or "
         f"move the group to a family certified deeper (`capacity WORD` "
         f"prints the family's certified chain and which of its words the "
         f"ban admits against WORD).")

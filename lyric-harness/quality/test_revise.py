@@ -4710,7 +4710,7 @@ def test_an_offer_the_ban_emptied_points_at_the_group_backtrack():
           all(x in note for x in ("'throat'", "'wrote'", "HOMEOTELEUTON",
                                   "MODAL_RHYME", "GROUP", "tier 2",
                                   "joint backtrack", "M-105", "M-205",
-                                  "lyric_revise", "backtrack=0",
+                                  "lyric_revise", "backtrack=1",
                                   "capacity WORD")),
           note)
     # The sentence is WRAPPED at 76 columns, so phrases are read on the
@@ -4722,7 +4722,7 @@ def test_an_offer_the_ban_emptied_points_at_the_group_backtrack():
     p2 = _flat(render_line(b2, L))
     check("the writer prompt prints it IN PLACE of the old case-(c) "
           "sentence, which named the cause and no move",
-          "joint backtrack" in p2 and "backtrack=0" in p2
+          "joint backtrack" in p2 and "backtrack=1" in p2
           and "is the binding" not in p2, p2[-600:])
     check("CONTROL: L3, whose offer is NOT empty (`quote` survives both "
           "tiers), owes no pointer and renders none",

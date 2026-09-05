@@ -5289,7 +5289,7 @@ def test_brief_prints_the_group_backtrack_pointer():
           "under L2: the joint backtrack, tier 2, and the connector's "
           "`backtrack` coordinate",
           rc == 0 and "joint backtrack" in flat and "tier 2" in flat
-          and "backtrack=0" in flat,
+          and "backtrack=1" in flat,
           f"rc {rc}; {err[-300:] if rc else out[-500:]}")
     check("...and NOT under L3, whose offer is not empty",
           "L3:" in out and "offered: quote" in out.split("L3:")[1]

@@ -22133,9 +22133,10 @@ swap on ONE line cannot clear a state the partners produce.
 **THE MOVE ALREADY EXISTED.** The loop's tier 2, the joint backtrack
 (M-105), rewrites every member of the group at once, and since M-205 the
 loop escalates there after tier 1 fails on a line — under the CLI's
-default `--backtrack=5`. On the connector path `lyric_revise` defaults
-`backtrack` to 0 (M-236's budget), so the door is shut unless the caller
-opens it, and nothing told the caller which coordinate that was.
+default `--backtrack=5`. On the connector path `lyric_revise` defaulted
+`backtrack` to 0 (M-236's budget), so the door was shut unless the caller
+opened it, and nothing told the caller which coordinate that was. ~~That
+default stands~~ — the owner turned it on the same day, width 1 (M-247).
 
 **THE REPAIR.** `Brief.offer_emptied_by_ban`, a printable sentence set
 where the offer is copied out of the primary slot's field and nowhere
@@ -22145,7 +22146,8 @@ definition, `revise.ban_emptied_note`, carried as data for the reason
 names the partners, both tiers of the ban and the count under FORBIDDEN,
 says no swap on this line clears it while the partners stand, names the
 GROUP by label, tier 2 / the joint backtrack (M-105) and the escalation
-(M-205), the CLI default and the connector's `backtrack=0`, and the two
+(M-205), the width on each path (the CLI's 5, the connector's 1 since
+M-247 — 0 shuts it), and the two
 other doors — a narrower mandate, or a family certified deeper, which
 `capacity WORD` prints together with the words the ban admits. All three
 renderers print it; `propose.py` prints it in place of the old case-(c)
@@ -22163,8 +22165,42 @@ L2 and not under L3. `quality/test_propose.py`'s stand-in grew the field
 under the §7c guard that exists for exactly this (132 PASS). The friend's
 own line 9, re-briefed against its plan, now ends: *"The GROUP (G) has to
 move, and that is the loop's tier 2, the joint backtrack (M-105) … the
-connector's `lyric_revise` defaults to `backtrack=0`, so pass `backtrack`
-of 1 or more there."*
+connector's `lyric_revise` at `backtrack=1` … So run the loop."* (The
+quoted sentence is the M-247 wording; M-246's own first wording named the
+connector's then-default of 0.)
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~300~~
 **301** with this entry (2026-09-05).
+
+### M-247 · The connector's `lyric_revise` opened no group rewrite by default — `backtrack` was 0 under M-236's budget, so the one move an offer the ban emptied has (M-246) was shut on the path a chat user takes; on at width 1 `CLOSED` 2026-09-05 — the owner's order, verbatim: "turn the connector's backtrack default on"
+
+**THE STATE.** M-236 set the connector's revision budget to one attempt
+per line, no backtrack, eight rounds — the backtrack off because "with one
+attempt every rejection would open a group rewrite at once". M-246 then
+found the state that budget cannot close: a line whose every single-word
+answer the two-tier ban refuses has NO tier-1 move, and its only move is
+the group's — tier 2, the joint backtrack (M-105), which M-205 escalates
+to after tier 1 fails. With `backtrack=0` the escalation is declared off
+(M-208), so on the connector path the pointer M-246 prints named a door
+the caller had to open by hand.
+
+**THE WIDTH IS 1, NOT THE CLI's 5, AND THE ARITHMETIC IS WHY.** In
+`quality/loop.py`'s `_try_tier2` the walk is `backtrack_width` pivot words
+by `backtrack_width` last-member words — width² group questions per stuck
+line per round, and on the connector path each question is a suspension
+(`defer:`) answered by one model turn. Five would open up to twenty-five
+per stuck line per round; one opens exactly one, which is the budget's own
+shape (one question per line per round), and a rejected group answer is
+re-briefed next round like a rejected line. `backtrack: 0` from the caller
+still shuts it (the M-229 carried declaration holds for the run's life).
+
+**WHAT MOVED.** `mcp/lyric_tools.js`: `CONNECTOR_BACKTRACK` 0 → 1, the
+tool description, and the budget comment. `mcp/test.mjs` pins the new
+value. `revise.ban_emptied_note` (M-246) now says the connector opens the
+door at `backtrack=1` and that 0 shuts it, and `quality/test_revise.py`
+§57 / `quality/test_verbs.py` §55 read the new phrase. M-246's text is
+amended in place with the old default struck, not deleted (doctrine 17).
+The CLI's own default is untouched.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~301~~
+**302** with this entry (2026-09-05).
