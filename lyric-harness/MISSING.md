@@ -21841,3 +21841,373 @@ does not police the word "finished" in prose (the GRADED stamp itself says
 prose is what M-150 refused. `song_log.py --verdicts` still owns truth.
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~297~~
 **298** with this entry (2026-09-05).
+
+### M-244 · The CI wall was one process — `test_plan` alone, 35.6 of 36.8 minutes — and "more shards" could not touch it; the work is cut (a parallel sweep, an early pair guard), every long suite is dealt through ONE idiom, and the matrices are re-cut around the measured floors `PARTIAL` 2026-09-05 — the owner's ask, verbatim: "way more shards ... as fast as possible"
+**THE COMPLAINT:** *"it looks like our CI is taking an unnecessary long time
+to run again. I'd love if we added way more shards. It feels crazy that it
+takes more than 10 minutes to run this. I'd really like it to be as fast as
+possible."*
+
+**THE MEASUREMENT, run 1376 (`main`, green, 36.8 min).** Seven parallel
+wall clocks, never summed (doctrine 79):
+
+| job | wall | what bounds it |
+|---|---:|---|
+| suites shard 1 = `test_plan` SOLO | **35.6 min** | one process: §3 round trip, 20 seeds, 4-wide |
+| verbs (4) | 16.6 | the 480 s seed-sweep section, dealt beside two 100 s sections by accident |
+| freshness | 16.6 | `build_static_api` 738 s (already 3 workers) + 3.6 min fault injection |
+| revision-loop | 15.8 | `test_revise` + `test_loop` side by side, undealt |
+| verify | 13.7 | `npm test` 580 s: 11 leaves 4-wide, `test:connector` ONE leaf of 12 serial scripts |
+| verbs (3) / (2) / (1) | 10.7 / 9.7 / 7.7 | the same file, chronological residue |
+| catalog ×4 | 6.7 | fine |
+
+M-182 had already said it: *the wall is bounded by GRANULARITY, not by
+parallelism.* The first row is one Python process, and a shard cannot split
+a process. So a shard count is the THIRD lever, after cutting the work and
+making the work dealable.
+
+**WHERE `test_plan`'S 35 MINUTES GO — MEASURED, AND THE PREMISE M-240
+CARRIED DOES NOT REPRODUCE.** §3 grades twenty planner seeds; at the M-239
+envelope (12..447 lines) ten of them (0, 2, 5, 6, 7, 10, 13, 16, 17, 19;
+144–418 lines) sit past the schema door's pair guard and the other ten
+grade at 47–133 lines. Per seed, single-threaded on a loaded 4-vCPU box:
+seed 0 252 s, seed 1 543 s, seed 2 (walled, 222 lines) 183 s. M-240 wrote
+that the guard fires *"between 108 lines (grades, 330 s) and 144
+(refuses)"* and this session read that as the walled seeds' cost. cProfile
+on seed 2, 183 s under the profiler:
+
+| where | cumulative |
+|---|---:|
+| `Reviser.inspect` | 171.8 s |
+| ↳ `floor.check` → `features.extract` → `_predictability` | **152.0 s** |
+| ↳↳ `RhymeField.field` (1,558 calls, 62 distinct words, ONE object) | 151.5 s |
+| ↳↳↳ `lyric_harness.score` — **2,229,177 calls** | 149.9 s |
+| ↳ `grade` (the 77-schema door, `whole_vocabulary_pairs`, 18 `realise` calls) | 19.8 s |
+| ↳↳ `evaluate` before the guard: 2,000,000 calls | ~3.4 s |
+
+**The pair guard was ~3 s of a 75 s seed. The floor's PREDICTABLE_RHYME
+feature is the cost: a field for one call word scores that word against
+~36,000 lexicon candidates (the nucleus bucket and its neighbours) at
+~67 µs each, ~2.4 s per DISTINCT end word, and a 222-line dummy draft has
+62 of them.** The cache is per word and per `RhymeField` and it HITS —
+1,496 of the 1,558 calls — so the cost is the 62 misses, and a real song
+with a chorus pays the same shape. This is the next lever and it is not
+taken here: a field memo that outlives the process (keyed on the word AND
+the declaration it was scored under — the floor's own per-item feature
+cache, a gitignored build artifact this entry deliberately does not cite as
+a path, is the precedent) or a cheaper admission test in front of `score`, either of which is its own measurement and its own entry.
+
+**WHAT SHIPS, in three layers.**
+
+*Cut the work.*
+- `plan.sweep` is parallel (`SWEEP_WORKERS`, default min(4, cpus), ONE
+  inside the CI `suites` pool — the eight-on-four M-182 measured): the
+  seeds are independent, results are assembled in SEED ORDER whatever
+  finished first (doctrine 66), `_sweep_one` returns plain data so a
+  refusal travels back as a count. A/B on 40 seeds, identical results.
+  The speedup is UNMEASURED on an idle machine — the A/B ran under load 7
+  on 4 cores and read 14.8 s serial against 17.5 s four-wide, which is a
+  fact about the load, not the code; the first CI run's SECTION COST line
+  for `test_the_seed_sweep_is_reachable_from_the_command_line` (533.5 s
+  local, 480 s CI, serial) is the measurement.
+- `relations.realise` refuses BEFORE it evaluates: `_candidate_pairs()` is
+  the one definition of a candidate (the `seen` de-duplication, the
+  `mirrored()` skip, the `skip_line_pairs` skip), read by a counting pass
+  and by the evaluating pass; `_cand_buckets()` gives the
+  pre-de-duplication upper bound with no `b` touched, checked first, and
+  only past it does the exact count run. One raise site, byte-identical
+  message. Measured interleaved old/new: the walled seed goes 2,146,381
+  → 146,381 `evaluate` calls, 8.6 → 5.2 s inside `realise`; the graded
+  seed identical in calls (4,576,240). `test_relations` X10: `max_pairs=50`
+  refuses with ZERO evaluations where the frozen pre-move loop paid 50;
+  all 49 running schemas return identical instances and tallies.
+
+*Make the work dealable — one idiom (doctrine 1).* `quality/shard.py`:
+`dealt(sections, env)` reads `ENV=k/n` and returns the sections whose
+index ≡ k-1 (mod n) — every section runs EXACTLY ONCE across a full
+k=1..n matrix by the arithmetic of residue classes; `run_sections(...)`
+runs them, times each, prints SECTION COST slowest-first on green runs too
+(a cost only visible when something fails is a cost nobody sees), and
+takes `always=` for a section that deals its own items by the same
+coordinate. `test_verbs.py` grew this idiom inline over two sittings
+(M-182); it calls the module now, and so do `test_revise`, `test_loop`,
+`test_capacity` and `test_plan` — whose §3 deals its twenty SEEDS by
+`TEST_PLAN_SHARD` through `shard.dealt`, so the one loop no section deal
+could split is dealt inside, with the acceptance rule restated per shard
+over the seeds it holds. `test_verbs`' tuple is cost-ordered from a full
+local run (the sweep 533.5 s first, then 350.9 s, then a tail under
+190 s): residue over a cost-ordered tuple balances by DESIGN, over a
+chronological one by ACCIDENT — projected 8-shard walls 459/637/446/423/
+398/374/338/323 s local against 843/637/… without the sweep repair.
+`test_shard.py` pins exactly-once for n ∈ {1,2,3,4,5,6,8,12}, refusal on
+a malformed coordinate, the printout, `always=`, and that every suite
+`ci.yml` deals calls the module and spells no residue of its own.
+
+*Re-cut the matrices.* `ci.yml`: verbs 4 → 8 (`TEST_VERBS_SHARD` k/8);
+catalog 4 → 8; suites 4 → 3 pool shards with NO solos (`plan` and
+`capacity` out to their own jobs, `shard` in, the label 79 → 78,
+`SWEEP_WORKERS=1` in the pool); new dealt matrices `plan` ×5
+(`TEST_PLAN_SHARD`, `TEST_PLAN_WORKERS=4`) and `capacity` ×3; revision-loop
+×4 running both suites' residues side by side; a `-result` job for each
+new matrix in `verbs-result`'s shape. `package.json`: `test:connector`
+is twelve `test:connector:*` sub-scripts, so `run_parallel` — which
+flattens `npm run` links — spreads them where it saw one 12-script leaf.
+
+**PROJECTED, from the measured section costs scaled to CI (local ≈ 1.55×
+CI on `test_verbs`): verbs ≈ 8 min, plan ≈ 6–7, capacity ≤ 8 (its
+per-section floor is unmeasured until the first printout), revision-loop
+≈ 5, suites ≈ 6, verify ≈ 9, catalog ≈ 3.5; wall ≈ 9–10 min against 37.**
+Stated as a projection and this entry stays PARTIAL until a run measures
+it. **THE CAP THIS RUNS INTO IS THE ACCOUNT'S CONCURRENT-JOB LIMIT**, not
+the workflow: 18 jobs started together on run 1376; the re-cut starts ~33.
+GitHub allows 20 concurrent jobs on Free, 40 on Pro, 60 on Team; on Free
+the surplus queues and the wall lands nearer 12 min. Asked of the owner;
+unanswered as this is written.
+
+**WHAT IS NOT DONE, named.** (1) The floor's field cost above — the real
+floor of any long grade, connector included. (2) `freshness`: the 738 s
+build already runs three workers; for a harness-only diff the scope gate
+already skips it, and for a catalog diff the honest cut is a shard-aware
+build+compare or a build cache keyed on the declared closure
+(`check_build_closure.js`), both unbuilt. (3) `verify`'s Playwright
+install + `npm test` are one runner; `run_parallel` now has 24 leaves to
+spread, and whether the 580 s falls to ~300 is the next run's LEAF COST
+line. (4) A `harness_affected` scope output to skip the Python matrices on
+a site-only diff — the mirror of `artifacts_affected` — deferred because
+the result jobs' skipped-arm semantics ("skipped means gate failed") would
+have to move with it.
+
+**`test_plan` MEASURED PER SECTION, and two static hints were wrong.** Each
+section run once in one process on the loaded box (seconds): seed sweep
+462.8 · form is read 256.7 · the measure 151.2 · disclosure 58.1 · joint
+gate 56.6 · song length 38.2 · placement route 31.5 · delegated rulings
+25.9 · overhang 25.7 · whole line 23.0 · end-rhyme pass 19.9 · relation
+draw 7.0 · GRADE IT 5.4 · determinism 4.4 · writer's declaration 4.3 ·
+rendering 0.6 · bound share 0.5 · refusals 0.0 · legend 0.0 — 1,171.8 s
+beside §3. The subprocess sections are the CHEAP ones (one `plan`
+subprocess is 3.5 s; neither grades a full draft), so the ~10-minute
+section the buffered CI timestamps hinted at was the seed sweep (~680
+`make_plan` calls at 0.43 s each), which `SWEEP_WORKERS` now divides;
+`rendering`'s `range(300)` is a ceiling it leaves at the first qualifying
+shape. The tuple is cut from those numbers and marked provisional. Smoke,
+`TEST_PLAN_SHARD=5/5 TEST_PLAN_WORKERS=4`: 46 PASS / 0 FAIL, exit 0; the
+shard held seeds 4, 9, 14, 19 (one walled, 358 lines), §3 547.5 s
+four-wide under load, 620.3 s for the shard — the round trip is now the
+floor of ITS shard, no longer of the run. Found on the way: §11
+`test_the_section_header_keeps_its_apparatus_inside_the_bracket` is
+defined and was run by NOTHING — absent from the old `__main__` loop as
+well. Run under this entry it PASSES in 40.1 s, so it is ADOPTED into the
+tuple at its measured cost — a section defined and run by nothing is
+doctrine 48's own shape, and leaving it out to keep CI's set unchanged
+would have kept the defect for tidiness.
+
+**TESTED WHILE OPEN** — `quality/test_shard.py` names this entry and pins
+the dealing arithmetic and the idiom's adoption, which is the BUILT half;
+what keeps the entry open is the wall itself, which only a CI run
+measures, and the three unbuilt levers above.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~298~~
+**299** with this entry (2026-09-05).
+
+### M-245 · The `schema:semirhyme` judge refused the schema's own example — bend~ending read the coda off the stressed SYLLABLE of a maximal-onset syllabification, and every drawable schema is now pinned to the pair its definition names `CLOSED` 2026-09-05 — found by a connector user's seed-33 song grading exit 3 on one flag, and the flag being ours
+
+**THE FINDING.** The owner forwarded a friend's session: seed 33 at 20
+lines, graded exit 3 with ONE flag, `SCHEME_VIOLATION` on lines 8 and 10
+under the plan's drawn `schema:semirhyme` (drum ~ stomach). Reproduced
+here byte-for-byte — `plan --seed=33 --lines=20` draws the same shape and
+the same ten groups, and grading the friend's draft against its own
+blueprint gives exit 3, one flag, ten banned pairs. Then `screen bend
+ending --relation=schema:semirhyme` said VIOLATES: the pair the schema's
+own legend prints as its example ("the second word carries an extra
+syllable or more after the rhyme (bend / ending)") failed its own judge.
+drum~stomach, drum~summer and drum~drummer failed with it; hum~humble and
+drum~drumstick passed. The pattern is the reading: `semirhyme` declared
+`ChannelRule("coda", AGREE, "anchor")`, the coda of the anchor SYLLABLE,
+and English resyllabifies a consonant before a vowel-initial syllable —
+`ending` is EN.DING, coda [N] against bend's [N,D]; `stomach` is STAH.MAHK,
+coda [] against drum's [M]. The pairs that passed are the ones whose extra
+syllable starts with its own consonant, so the coda stays put. This is
+M-148's P1 defect one channel over ("a checker keyed on the coda of a
+maximal-onset syllabification reads `fyr` and `of` out of jörð:fyrðum and
+finds neither"), and `quality/rhyme_constraints.py`'s own `semirhyme` row
+has carried the diagnosis since it was written: *"bend/ending fails on a
+syllable-coda reading (the /d/ resyllabifies into `ding`) and holds on the
+post-vocalic cluster reading."* The `schema:` registry — the one the
+planner draws from — never took the second reading.
+
+**WHY THE M-148 GATE COULD NOT SEE IT.** `test_mandate_relation.py` §10
+certifies every drawable name on the sixteen-line witness, and the
+witness's semirhyme exhibit was grow~growing: an OPEN syllable, whose
+empty coda agrees with itself under either reading. A witness proves that
+SOME pair answers. Nothing asked whether the pair the definition NAMES
+answers.
+
+**THE REPAIR — one scope, one predicate, two rows.** `quality/relations.py`
+gains a `cluster` scope on `ChannelRule`: the channel is read as the
+post-vocalic consonant cluster from the anchor vowel ACROSS the syllable
+boundary, through `_post_vocalic` — the M-148 reader, one definition —
+and unlike the consonant-sequence rule an empty cluster on both sides is
+an answer (grow~growing agrees on an open syllable and is a semirhyme; the
+nucleus rule beside it keeps day~seeing out). And a `PrefixAgree`
+predicate, an `Agree` by subclass: the two sequences agree as far as the
+shorter runs and the longer may run on — [N,D] opens [N,D]; [M] opens
+[M,B] and [M,S,T]; [N,D] does not open [N,T]. That is what "the rhyme,
+then an extra syllable" means for the consonants: bend~ending, hum~humble
+and drum~drumstick all satisfy, bend~enter and cat~captain do not. Plain
+cluster EQUALITY (the `rhyme_constraints` variant) would have refused
+hum~humble, and the section's in-place mutation shows both halves are
+load-bearing. `semirhyme` and its converse `apocopated rhyme`
+(`unmatched="require_a"`) take `ChannelRule("coda", PREFIX_AGREE,
+"cluster")`. Subclassing `Agree` is deliberate: the legend, the audibility
+derivation, the trait claims and the bucket key all ask "does this schema
+require the channel to agree", and a prefix agreement IS agreement on the
+material both members carry; what changes downstream is the trait claim's
+predicate NAME — `("coda", "anchor", "PrefixAgree")` — which the planner's
+transitive closure correctly does not read as equality ([M] opens [M,B]
+and [M,S,T] while those two do not open each other), and `test_plan.py`'s
+M-122(c) pin is repointed to say so.
+
+**MEASURED, before → after, on the pair route** (`screen … --relation=
+schema:semirhyme`): bend~ending VIOLATES → SATISFIES; drum~stomach,
+drum~summer, drum~drummer VIOLATES → SATISFIES; hum~humble, drum~drumstick,
+grow~growing SATISFIES → SATISFIES; bend~enter, cat~captain, bend~send
+VIOLATES → VIOLATES. `derive_drawable_schemas()` re-derives the SAME
+22-name pool (the witness's semirhyme instance moves from grow~growing to
+gate~curator, both true). The friend's draft against its own plan: exit 3
+with ONE flag → exit 3 with ZERO flags, the exit now carried by the ban
+standing on five lines, which is the honest state of that draft.
+`test_relations.py` 244 PASS in 16 s; §10 PASS. **AND THE SCHEMA DOOR'S
+CHANCE RATE MOVED WITH IT** — CI run 1396's `chance_rate.py --check` said
+MOVED, schema measured 957..987 against the adopted 960..994, reproduced
+locally the same hour: the two repaired schemas answer three fewer random
+pairs in four thousand, the admit and narrow arms HELD, and
+`chance_rate.ADOPTED["schema"]` is repinned (957, 987) with the ladder
+kept (CLAUDE.md's citation with it). The M-148 repin went up with
+correctness; this one goes down with it; neither is priced.
+
+**THE OWNER'S SECOND ORDER — "then pin every drawable schema."**
+`relations.DRAWABLE_EXHIBITS` is one exhibit and one contrast per drawable
+name, `(line_a, line_b, slot_a, slot_b)` in the mandate's own slot
+spelling, and `test_mandate_relation.py` §13 grades all forty-four through
+`Reviser.grade` on a two-line, one-group, one-stanza mandate: every
+exhibit SATISFIED, every contrast VIOLATED, none REFUSED, and the table's
+key set equal to `DRAWABLE_SCHEMAS` so a name without a row fails. Where
+the registry states an example it is the exhibit (bend~ending, sun~much,
+sea~see, bad~bed, bee~beauty, feared~year, fast~lost); the rest are
+textbook cases written for the row. Building the table found three
+exhibit errors of mine and no further judge defect: `again` is
+AH0-G-EH1-N in CMUdict General American, so rain~again is not a rhyme in
+the declared dialect (doctrine 1; `remain` stands in the pantun row);
+`bow` is a homograph and an uncertain nucleus is a refusal, not a no; and
+a two-syllable nucleus window ("fading"/"sailing") satisfies chain rhyme
+and multisyllabic rhyme wherever two lines share one, so their contrasts
+are a line with no shared vowel pair at all. Three frame figures
+(`analysed rhyme`, `monorhyme / leash`, `monai`) refuse a two-line draft
+with no stanza, which is right, and the section grades inside a declared
+one-stanza frame exactly as §10 does.
+
+**WHAT THIS DOES NOT CLOSE, named.** The friend's other three findings are
+recorded in the session and not here: a plan whose four of six sung
+sections are one line, three bindings on an eight-syllable line, and a
+brief whose OFFERED list is empty once four partners occupy both spelling
+classes of one family — each is a ruling or a separate entry, not a judge
+defect. The `SCHEME_VIOLATION` evidence line prints the scalar's mosaic
+attribution ("scored on: chest is a drum ~ locked in the pipe") under a
+verdict that came from the token judge, which is what the friend read as
+"the scorer reads the whole phrase"; that rendering is open.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~299~~
+**300** with this entry (2026-09-05).
+
+### M-246 · An offer the two-tier ban emptied printed the FORBIDDEN list and then nothing — the brief now says why it is empty and points at the group backtrack, with the coordinate that opens it on the connector `CLOSED` 2026-09-05 — found in the same connector session as M-245: three hand edits of one line, three bans
+
+**THE FINDING.** The friend's line 9 sat in a five-way group with
+throat/wrote/boat/float already holding it. Its brief printed twenty words
+under FORBIDDEN and then NOTHING: no offer, and no sentence about the
+offer. His reading — *"every candidate the tool offers is already in its
+own forbidden list"* — was what the brief showed. Reproduced here on a
+five-line fixture under `schema:perfect rhyme`: with four partners
+occupying both spelled endings of the -oat family, tier one bans every
+remaining monosyllable and tier two bans the last (`quote`), so the offer
+is empty by construction and `joint_conflict` is False, because words DO
+answer — they are banned. Three renderers handled that state three ways:
+`Brief.__str__` and `lyric_harness._print_brief_report` printed the ban
+and stopped; `quality/propose.py`'s case (c) said *"the mandate, not the
+lexicon, is the binding constraint here"* — true, and naming no move. He
+edited the line by hand three times and was banned three times, because a
+swap on ONE line cannot clear a state the partners produce.
+
+**THE MOVE ALREADY EXISTED.** The loop's tier 2, the joint backtrack
+(M-105), rewrites every member of the group at once, and since M-205 the
+loop escalates there after tier 1 fails on a line — under the CLI's
+default `--backtrack=5`. On the connector path `lyric_revise` defaulted
+`backtrack` to 0 (M-236's budget), so the door was shut unless the caller
+opened it, and nothing told the caller which coordinate that was. ~~That
+default stands~~ — the owner turned it on the same day, width 1 (M-247).
+
+**THE REPAIR.** `Brief.offer_emptied_by_ban`, a printable sentence set
+where the offer is copied out of the primary slot's field and nowhere
+else, non-empty exactly when the offer is empty and the ban is not. ONE
+definition, `revise.ban_emptied_note`, carried as data for the reason
+`schema_route_note` is (`propose.py` imports `re` and nothing else). It
+names the partners, both tiers of the ban and the count under FORBIDDEN,
+says no swap on this line clears it while the partners stand, names the
+GROUP by label, tier 2 / the joint backtrack (M-105) and the escalation
+(M-205), the width on each path (the CLI's 5, the connector's 1 since
+M-247 — 0 shuts it), and the two
+other doors — a narrower mandate, or a family certified deeper, which
+`capacity WORD` prints together with the words the ban admits. All three
+renderers print it; `propose.py` prints it in place of the old case-(c)
+sentence and keeps that sentence for a brief that has not grown the field.
+An offer that is not empty owes nothing, and `joint_conflict` (nothing
+answers, ban or none) keeps its own M-202 sentence.
+
+**PINNED.** `quality/test_revise.py` §57 on the fixture: L2's offer empty,
+ban non-empty, field computed, no joint conflict; the pointer carries every
+named part; `Brief.__str__` and `render_line` print it; L3 (whose offer
+holds `quote`) owes nothing, and the same five lines under a BARE group keep a non-empty offer on every line and owe nothing — the declared schema is the coordinate that emptied it; and the sentence
+on the brief is `ban_emptied_note`'s byte for byte. `quality/test_verbs.py`
+§55 runs the CLI `brief` on the same fixture and reads the pointer under
+L2 and not under L3. `quality/test_propose.py`'s stand-in grew the field
+under the §7c guard that exists for exactly this (132 PASS). The friend's
+own line 9, re-briefed against its plan, now ends: *"The GROUP (G) has to
+move, and that is the loop's tier 2, the joint backtrack (M-105) … the
+connector's `lyric_revise` at `backtrack=1` … So run the loop."* (The
+quoted sentence is the M-247 wording; M-246's own first wording named the
+connector's then-default of 0.)
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~300~~
+**301** with this entry (2026-09-05).
+
+### M-247 · The connector's `lyric_revise` opened no group rewrite by default — `backtrack` was 0 under M-236's budget, so the one move an offer the ban emptied has (M-246) was shut on the path a chat user takes; on at width 1 `CLOSED` 2026-09-05 — the owner's order, verbatim: "turn the connector's backtrack default on"
+
+**THE STATE.** M-236 set the connector's revision budget to one attempt
+per line, no backtrack, eight rounds — the backtrack off because "with one
+attempt every rejection would open a group rewrite at once". M-246 then
+found the state that budget cannot close: a line whose every single-word
+answer the two-tier ban refuses has NO tier-1 move, and its only move is
+the group's — tier 2, the joint backtrack (M-105), which M-205 escalates
+to after tier 1 fails. With `backtrack=0` the escalation is declared off
+(M-208), so on the connector path the pointer M-246 prints named a door
+the caller had to open by hand.
+
+**THE WIDTH IS 1, NOT THE CLI's 5, AND THE ARITHMETIC IS WHY.** In
+`quality/loop.py`'s `_try_tier2` the walk is `backtrack_width` pivot words
+by `backtrack_width` last-member words — width² group questions per stuck
+line per round, and on the connector path each question is a suspension
+(`defer:`) answered by one model turn. Five would open up to twenty-five
+per stuck line per round; one opens exactly one, which is the budget's own
+shape (one question per line per round), and a rejected group answer is
+re-briefed next round like a rejected line. `backtrack: 0` from the caller
+still shuts it (the M-229 carried declaration holds for the run's life).
+
+**WHAT MOVED.** `mcp/lyric_tools.js`: `CONNECTOR_BACKTRACK` 0 → 1, the
+tool description, and the budget comment. `mcp/test.mjs` pins the new
+value. `revise.ban_emptied_note` (M-246) now says the connector opens the
+door at `backtrack=1` and that 0 shuts it, and `quality/test_revise.py`
+§57 / `quality/test_verbs.py` §55 read the new phrase. M-246's text is
+amended in place with the old default struck, not deleted (doctrine 17).
+The CLI's own default is untouched.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~301~~
+**302** with this entry (2026-09-05).

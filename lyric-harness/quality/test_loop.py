@@ -122,15 +122,16 @@ def perfect_rhyme_reviser():
 
 FAILURES = []
 
-#: Test 13's MEASURED (backtrack_width, pairs proposed), read by test 16 so
-#: its "the bound is the declared coordinate and not a constant" check
-#: compares two RUNS rather than two literals. It read
+#: Test 16 used to read a (backtrack_width, pairs proposed) pair that test
+#: 13 APPENDED HERE, so its "the bound is the declared coordinate and not a
+#: constant" check compared two RUNS rather than two literals (it read
 #: `8 == 2 * 2 ** 2 and 50 == 2 * 5 ** 2` until 2026-08-15 -- a condition
-#: containing no Name, Call or Attribute node anywhere, so no mutation of any
-#: production file could move it and it evaluated True with the loop deleted.
-#: Found by an AST sweep for constant-only `check()` conditions; it was the
-#: only one of 612 outside the True/False arms of refusal try/excepts.
-_NARROW_RUN = []
+#: with no Name, Call or Attribute node, movable by nothing). REMOVED
+#: 2026-09-05 (`MISSING.md` M-244): the handoff made section 16's verdict a
+#: function of section ORDER, and the first dealt CI run put the two in
+#: different shards -- `width ? -> ? pair(s)`, red. Section 16 now makes the
+#: narrow run ITSELF, so it still reads two runs and reads them in one
+#: process (doctrine 66; `quality/test_shard.py` §5 refuses the next one).
 
 
 def check(name, cond, detail=""):
@@ -948,11 +949,9 @@ def test_group_brief_carries_the_situation():
           _sheet.band())
     check("8 groups proposed = 2 two-line group(s) x width 2 x width 2",
           len(seen) == 8 == 2 * R.rdecl.backtrack_width ** 2, len(seen))
-    # HANDED TO TEST 16, which compares this run against its own. Recorded
-    # as a (width, count) PAIR rather than a bare number, so the comparison
-    # there reads two measurements and cannot be satisfied by arithmetic on
-    # two literals -- see the note at that check.
-    _NARROW_RUN.append((R.rdecl.backtrack_width, len(seen)))
+    # Test 16 re-measures this same width-2 run itself and compares it to
+    # the default width in ONE process -- it used to read a pair appended
+    # here, which made its verdict a function of section order (M-244).
     check("the draft is untouched -- every pair was correctly rejected, so "
           "widening the brief changed what the writer SEES and not what the "
           "loop accepts",
@@ -1104,19 +1103,30 @@ def test_backtrack_width_still_bounds_the_search():
     # no Call, no Attribute, nothing this repository could change to make it
     # false. It named the strongest claim in the section — that the bound
     # tracks a DECLARED coordinate rather than a hardcoded number — and
-    # asserted it of nothing. Test 13 now hands its measured (width, count)
-    # over and the same sentence is checked against both runs, so deleting
+    # asserted it of nothing. Two runs are compared instead, so deleting
     # either loop, or fixing either width, fails here.
+    # BOTH RUNS ARE THIS SECTION'S OWN — 2026-09-05 (`MISSING.md` M-244).
+    # The narrow one was read off a module-level list test 13 appended to,
+    # which made this verdict a function of the ORDER the sections ran in;
+    # the first dealt CI run put 13 and 16 in different shards and this
+    # check went red on `width ? -> ?`. A section's verdict may depend on
+    # nothing another section did (doctrine 66), so the width-2 run is made
+    # here, on the same fixture and the same no-op proposer test 13 uses.
+    narrow_seen = []
+    R2 = Reviser(rdecl=ReviseDeclaration(backtrack_width=2))
+    revise_loop(R2, SILVER_NIGHT_LOCKED, SILVER_NIGHT_OPEN_MANDATE,
+                propose=lambda *a, **k: None,
+                propose_group=lambda gb: (narrow_seen.append(gb),
+                                          _no_op_group(gb))[1])
+    narrow = (R2.rdecl.backtrack_width, len(narrow_seen))
     check("the bound is the DECLARED coordinate and not a constant: the "
-          "same fixture at `backtrack_width=2` proposes 8 (test 13), which "
-          "is 2 x 2^2 against this run's 2 x 5^2",
-          len(_NARROW_RUN) == 1
-          and _NARROW_RUN[0][1] == 2 * _NARROW_RUN[0][0] ** 2
+          "same fixture at `backtrack_width=2` proposes 8 (test 13's run, "
+          "re-made here), which is 2 x 2^2 against this run's 2 x 5^2",
+          narrow[1] == 2 * narrow[0] ** 2
           and len(seen) == 2 * R.rdecl.backtrack_width ** 2
-          and _NARROW_RUN[0][0] != R.rdecl.backtrack_width
-          and _NARROW_RUN[0][1] != len(seen),
-          f"width {_NARROW_RUN[0][0] if _NARROW_RUN else '?'} -> "
-          f"{_NARROW_RUN[0][1] if _NARROW_RUN else '?'} pair(s) against "
+          and narrow[0] != R.rdecl.backtrack_width
+          and narrow[1] != len(seen),
+          f"width {narrow[0]} -> {narrow[1]} pair(s) against "
           f"width {R.rdecl.backtrack_width} -> {len(seen)}")
     check("every one of the 50 was rejected and the draft is untouched, "
           "which is test 5's claim re-measured through the new contract",
@@ -2342,7 +2352,14 @@ def test_the_batch_door_and_the_recorded_verdict():
 
 
 if __name__ == "__main__":
-    for fn in (test_success_stop,
+    # DEALT ACROSS CI SHARDS AND TIMED, through the one idiom in
+    # `quality/shard.py` (2026-09-05, `MISSING.md` M-244). `TEST_LOOP_SHARD=k/n`
+    # runs the sections whose index here is ≡ k-1 (mod n); unset runs them
+    # all, byte-identical to the serial block this replaces. The tuple's
+    # ORDER is the balance: put the slowest first, from the SECTION COST
+    # printout every run leaves behind.
+    from quality.shard import run_sections
+    _SECTIONS = (test_success_stop,
                test_no_progress_stop,
                test_round_limit_stop,
                test_tier2_backtrack_resolves_a_joint_conflict,
@@ -2367,10 +2384,6 @@ if __name__ == "__main__":
                test_a_return_is_a_class_and_is_revised_together,
                test_the_escalation_reads_the_declared_backtrack_width,
                test_the_rebrief_carries_to_the_rest_of_the_round,
-               test_the_batch_door_and_the_recorded_verdict):
-        fn()
-    print("=" * 62)
-    if FAILURES:
-        print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
-        sys.exit(1)
-    print("all loop regressions pass")
+               test_the_batch_door_and_the_recorded_verdict)
+    sys.exit(run_sections(_SECTIONS, "TEST_LOOP_SHARD", FAILURES,
+                          footer="all loop regressions pass"))

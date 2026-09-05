@@ -1258,6 +1258,38 @@ class Differ(Predicate):
         return Read(None if v is None else (not v), inf, note)
 
 
+class PrefixAgree(Agree):
+    """AGREE ON THE SHORTER MEMBER'S WHOLE VALUE: the two SEQUENCES agree as
+    far as the shorter one runs, and the longer may run on.  Read with the
+    `cluster` scope (`evaluate`), this is what "the rhyme, then an extra
+    syllable" means for the consonants after the vowel: bend~ending is
+    [N,D] against [N,D] and hum~humble is [M] against [M,B] — the shorter
+    word's cluster OPENS the longer word's.  bend~enter, [N,D] against
+    [N,T], disagrees on the second consonant and is False.
+
+    AN `Agree` BY SUBCLASS, deliberately: every reader that asks "does this
+    schema require the channel to AGREE" — the legend, the audibility
+    derivation, the trait claims, the bucket key — is answered the same
+    way, because a prefix agreement IS an agreement on the material both
+    members carry.  What the subclass adds is that the longer member's
+    tail is not charged.  (2026-09-05, `MISSING.md` M-245.)
+    """
+    name = "AGREE-PREFIX"
+
+    def __call__(self, x, y):
+        if x is None or y is None:
+            return Read(None, False, "unreadable on this surface")
+        if uncertain(x) or uncertain(y):
+            return Read(None, True, "uncertain reading; the prefix relation "
+                                    "is not derivable from a set")
+        x, y = tuple(next(iter(_alts(x)))), tuple(next(iter(_alts(y))))
+        n = min(len(x), len(y))
+        return Read(x[:n] == y[:n], not (_empty(x) and _empty(y)),
+                    "" if x[:n] == y[:n] else
+                    f"the shorter cluster {x if len(x) <= len(y) else y} "
+                    f"does not open the longer {y if len(x) <= len(y) else x}")
+
+
 class Free(Predicate):
     name = "FREE"
 
@@ -1552,6 +1584,7 @@ class SubsequenceOf(Predicate):
 
 
 AGREE, DIFFER, FREE = Agree(), Differ(), Free()
+PREFIX_AGREE = PrefixAgree()
 
 
 # ---------------------------------------------------------------------------
@@ -2018,7 +2051,10 @@ class ChannelRule:
     channel: str
     predicate: object
     scope: str = "each"      # each | anchor | post_anchor | first | last |
-    #                          sequence | unmatched_a | unmatched_b
+    #                          sequence | unmatched_a | unmatched_b |
+    #                          cluster (the post-vocalic consonant cluster
+    #                          from the anchor vowel, ACROSS the syllable
+    #                          boundary — `_post_vocalic`; M-245)
     surface: str = "phonemic"
     required: bool = True    # False -> reported, not enforced (Snorri's FEGRA)
 
@@ -2363,6 +2399,23 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
                     "vacuously true of any two open syllables")))
             else:
                 mine.append((cr.channel, -1, pred(xa, xb)))
+        elif cr.scope == "cluster":
+            # THE CONSONANTS AFTER THE ANCHOR VOWEL, ACROSS THE SYLLABLE
+            # BOUNDARY (2026-09-05, `MISSING.md` M-245).  A `coda` read at
+            # the anchor SYLLABLE is the coda of a maximal-onset
+            # syllabification, and English resyllabifies: bend~ending is
+            # [N,D] against EN.DING's [N], so the registry's own semirhyme
+            # example refused its own judge — the M-148 P1 defect one
+            # channel over, and `rhyme_constraints`'s note on this very pair
+            # says so.  `_post_vocalic` is the one reader (the skothending
+            # repair's), and unlike the `sequence` scope's consonant rule an
+            # EMPTY cluster on both sides is an answer here rather than a
+            # refusal: grow~growing agrees on an open syllable and is a
+            # semirhyme; it is the nucleus rule beside this one that keeps
+            # day~seeing out.
+            xa = _post_vocalic(a, stream, chans, cr.surface)
+            xb = _post_vocalic(b, stream, chans, cr.surface)
+            mine.append((cr.channel, a.anchor_pos, pred(xa, xb)))
         elif cr.scope in ("unmatched_a", "unmatched_b"):
             side = a if cr.scope.endswith("a") else b
             pos = (align.unmatched_a if cr.scope.endswith("a")
@@ -2652,6 +2705,71 @@ def order_burden(schema, stream, chans=DEFAULT_CHANNELS):
     return dict(base, instances=len(out))
 
 
+def _cand_buckets(schema, a, stream, chans, idx, wild):
+    """The bucket LISTS whose concatenation is `a`'s candidate sequence.
+
+    Lists rather than candidates, because `len()` over them is the candidate
+    count for `a` without touching a single `b` -- the upper bound `realise()`
+    reads to decide whether the pair guard can fire at all.  Yielded in the
+    order the loop consumed them, so the concatenation is the same sequence,
+    and a bucket appearing twice still yields twice (`seen` de-duplicates,
+    and it did before).
+    """
+    fk = _frame_key(schema, a, stream)
+    ka = _bucket_key(schema, a, stream, chans, rule=schema.spans[0])
+    if ka is None:
+        for (f, k), v in idx.items():
+            if fk is None or f is None or f == fk:
+                yield v
+        return
+    yield idx.get((fk, ka), ())
+    if fk is not None:
+        yield idx.get((None, ka), ())
+    yield wild.get(fk, ())
+    if fk is not None:
+        yield wild.get(None, ())
+
+
+def _candidate_pairs(schema, layout, stream, a_keys, b_keys,
+                     skip_line_pairs, tally=None):
+    """Every pair `realise()` would evaluate, in `realise()`'s order.
+
+    ONE definition of what a candidate is (doctrine 1).  The `seen`
+    de-duplication, the `mirrored()` skip and the `skip_line_pairs` skip live
+    here and nowhere else, so the pass that COUNTS candidates for the pair
+    guard and the pass that EVALUATES them cannot drift into refusing one
+    number and evaluating another.  Each pass builds its own `seen`.
+
+    `tally` is written by the evaluating pass only; the counting pass passes
+    None, because a run that refuses records nothing and a run that does not
+    refuse must count `deduplicated_candidates` exactly once.
+    """
+    seen = set()
+    for a, buckets in layout:
+        for v in buckets:
+            for b in v:
+                if a.idx == b.idx or (a.idx, b.idx) in seen:
+                    continue
+                seen.add((a.idx, b.idx))
+                reversed_pair = a.head() > b.head()
+                if reversed_pair and mirrored(a, b, a_keys, b_keys):
+                    # CANDIDATE level: a de-duplicated pair is never
+                    # evaluated, so this count and `recovered_instances` sit
+                    # on different denominators and must never be compared or
+                    # summed. The key names say which, because a number whose
+                    # label outruns its evidence is adversary 7's whole remit.
+                    if tally is not None:
+                        tally["deduplicated_candidates"] = (
+                            tally.get("deduplicated_candidates", 0) + 1)
+                    continue     # the mirror carries it; see mirrored()
+                if skip_line_pairs:
+                    la, lb = _span_line(a, stream), _span_line(b, stream)
+                    if (la != lb and la is not None and lb is not None
+                            and (min(la, lb), max(la, lb)) in skip_line_pairs):
+                        continue  # the memo carries it; see line_pairs_for
+                yield a, b, reversed_pair
+
+
 def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
             keep=("true", "none"), tally=None, skip_line_pairs=None):
     """Find every instance of `schema` in the song.  -> [Instance] or Refusal.
@@ -2759,56 +2877,56 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
         if k is None:
             wild.setdefault(f, []).extend(v)
 
-    out, seen, n = [], set(), 0
-    for a in A:
-        fk = _frame_key(schema, a, stream)
-        ka = _bucket_key(schema, a, stream, chans, rule=schema.spans[0])
-        cands = []
-        if ka is None:
-            for (f, k), v in idx.items():
-                if fk is None or f is None or f == fk:
-                    cands.extend(v)
-        else:
-            cands.extend(idx.get((fk, ka), []))
-            if fk is not None:
-                cands.extend(idx.get((None, ka), []))
-            cands.extend(wild.get(fk, []))
-            if fk is not None:
-                cands.extend(wild.get(None, []))
-        for b in cands:
-            if a.idx == b.idx or (a.idx, b.idx) in seen:
-                continue
-            seen.add((a.idx, b.idx))
-            reversed_pair = a.head() > b.head()
-            if reversed_pair and mirrored(a, b, a_keys, b_keys):
-                # CANDIDATE level: a de-duplicated pair is never evaluated, so
-                # this count and `recovered_instances` below sit on different
-                # denominators and must never be compared or summed. The key
-                # names say which, because a number whose label outruns its
-                # evidence is adversary 7's whole remit.
-                if tally is not None:
-                    tally["deduplicated_candidates"] = (
-                        tally.get("deduplicated_candidates", 0) + 1)
-                continue         # the mirror carries it; see mirrored()
-            if skip_line_pairs:
-                la, lb = _span_line(a, stream), _span_line(b, stream)
-                if (la != lb and la is not None and lb is not None
-                        and (min(la, lb), max(la, lb)) in skip_line_pairs):
-                    continue         # the memo carries it; see line_pairs_for
+    # THE BUCKET LAYOUT, TAKEN ONCE.  Per `a`, the bucket lists whose
+    # concatenation is `a`'s candidate sequence -- references, not a copy, so
+    # it costs one frame key and one bucket key per `a` and nothing per
+    # candidate.  Their LENGTHS are the guard's upper bound.
+    layout = [(a, tuple(_cand_buckets(schema, a, stream, chans, idx, wild)))
+              for a in A]
+
+    # THE PAIR GUARD, MOVED IN FRONT OF `evaluate()` (M-240's cost).  It used
+    # to count inside the loop and raise on candidate max_pairs + 1, so a
+    # draft it REFUSES paid for two million evaluations first.  Now the bound
+    # above is read with no `b` touched, and only a bound over the ceiling
+    # pays for an exact count -- the same generator the loop runs, minus
+    # `evaluate()` and minus the tally.
+    # MEASURED 2026-09-05, CPU time, old tree against new on the same loaded
+    # machine: `test_plan._round_trip_one(2)` (222 lines, walled at the
+    # 77-schema door) made 2,000,000 `evaluate()` calls in the refused call
+    # and now makes NONE; time inside `realise()` over that seed's 18 calls
+    # 8.6 s -> 5.2 s.  WHAT IT DID NOT BUY is the seed: 75.1 s -> 72.1 s,
+    # because the wall was never where that seed's time went -- at ~2 us a
+    # pair, two million of them are SECONDS, and M-240 read the refusal as
+    # minutes.  The graded seed is untouched: `_round_trip_one(1)`,
+    # 4,576,240 evaluations before and after, 240.7 s -> 242.8 s.
+    # WHAT DID NOT MOVE: which inputs refuse -- the bound is the candidate
+    # count BEFORE de-duplication and can never be below the exact count, so
+    # nothing is refused by the bound that the exact count would have let
+    # through -- nor the instances, their order, or the tally, which only the
+    # evaluating pass writes.
+    if sum(len(v) for _, vs in layout for v in vs) > max_pairs:
+        n = 0
+        for _ in _candidate_pairs(schema, layout, stream, a_keys, b_keys,
+                                  skip_line_pairs):
             n += 1
             if n > max_pairs:
                 raise RuntimeError("candidate explosion; tighten the schema")
-            inst = evaluate(schema, a, b, stream, chans)
-            if inst is None:
-                continue
-            if reversed_pair and tally is not None:      # INSTANCE level
-                tally["recovered_instances"] = (
-                    tally.get("recovered_instances", 0) + 1)
-                if inst.verdict is True:
-                    tally["recovered_true"] = tally.get("recovered_true", 0) + 1
-            tag = {True: "true", False: "false", None: "none"}[inst.verdict]
-            if keep == "all" or tag in keep:
-                out.append(inst)
+
+    out = []
+    for a, b, reversed_pair in _candidate_pairs(
+            schema, layout, stream, a_keys, b_keys, skip_line_pairs,
+            tally=tally):
+        inst = evaluate(schema, a, b, stream, chans)
+        if inst is None:
+            continue
+        if reversed_pair and tally is not None:          # INSTANCE level
+            tally["recovered_instances"] = (
+                tally.get("recovered_instances", 0) + 1)
+            if inst.verdict is True:
+                tally["recovered_true"] = tally.get("recovered_true", 0) + 1
+        tag = {True: "true", False: "false", None: "none"}[inst.verdict]
+        if keep == "all" or tag in keep:
+            out.append(inst)
     return out
 
 
@@ -4201,17 +4319,23 @@ declare(RelationSchema(
     name="semirhyme",
     spans=(END_ANCHOR, END_ANCHOR), align="anchor", unmatched="require_b",
     channels=(ChannelRule("nucleus", AGREE, "anchor"),
-              ChannelRule("coda", AGREE, "anchor")),
+              ChannelRule("coda", PREFIX_AGREE, "cluster")),
     placement=(Placement("both_line_final"),), identity=(DISTINCT,),
     note="NOT suffix-reachable: the word ends do not agree, which IS the "
          "point. unmatched='exclude' vs pararhyme's MUST-DIFFER is a SPAN "
-         "coordinate, not a channel one."))
+         "coordinate, not a channel one. THE CODA IS THE POST-VOCALIC "
+         "CLUSTER, READ ACROSS THE SYLLABLE BOUNDARY, AND THE SHORTER "
+         "WORD'S MUST OPEN THE LONGER'S (M-245, 2026-09-05): at the anchor "
+         "SYLLABLE it was [N,D] against EN.DING's [N], and bend~ending — "
+         "this schema's own example — VIOLATED it from the day it was "
+         "drawable; drum~stomach, hum~humble and grow~growing are the "
+         "same relation and answered False, False and True."))
 
 declare(RelationSchema(
     name="apocopated rhyme",
     spans=(END_ANCHOR, END_ANCHOR), align="anchor", unmatched="require_a",
     channels=(ChannelRule("nucleus", AGREE, "anchor"),
-              ChannelRule("coda", AGREE, "anchor")),
+              ChannelRule("coda", PREFIX_AGREE, "cluster")),
     placement=(Placement("both_line_final"),), identity=(DISTINCT,),
     note="THE CONVERSE OF SEMIRHYME BY WHICH MEMBER OVERHANGS, and once "
          "members are an ordered tuple in TEXT ORDER that is the ONLY "
@@ -7065,6 +7189,113 @@ DRAWABLE_SCHEMAS = (
     "semirhyme",
     "subtractive rhyme",
 )
+
+
+#: ONE EXHIBIT AND ONE CONTRAST PER DRAWABLE NAME, judged on the route a
+#: PLANNED mandate takes (`Reviser.grade` on a two-line draft, one group,
+#: `default_relation="schema:<name>"`, a one-stanza frame) — 2026-09-05,
+#: `MISSING.md` M-245.  Each row is `(exhibit, contrast)`, each of those
+#: `(line_a, line_b, slot_a, slot_b)` with the slots in the mandate's own
+#: spelling ("1" is line 1's end word, "1.T2" its second word, "1.head" its
+#: first).  The exhibit must SATISFY and the contrast must VIOLATE — neither
+#: may be REFUSED — and `quality/test_mandate_relation.py` §13 asks both of
+#: every name in `DRAWABLE_SCHEMAS`, so a name without a row fails.
+#:
+#: WHY A SECOND TABLE BESIDE THE WITNESS: the pool is certified on a
+#: sixteen-line witness whose exhibit for a schema is whatever pair happens
+#: to satisfy it there, and `semirhyme`'s was grow~growing — an OPEN
+#: syllable, which the anchor-syllable coda read agreed on — while the
+#: schema's own example, bend~ending, VIOLATED the same judge from the day
+#: the schema was drawable.  A witness proves "some pair answers"; this
+#: table pins that THE PAIR THE DEFINITION NAMES answers, and a pair the
+#: definition excludes does not.  Where the registry states an example it
+#: is the exhibit (bend~ending, sun~much, sea~see, bad~bed, bee~beauty,
+#: feared~year, fast~lost); the rest are textbook cases written for the
+#: row and read as such.  The `again` trap is why `remain` stands in the
+#: pantun row: CMUdict General American reads `again` as AH0-G-EH1-N, so
+#: rain~again is not a rhyme in the declared dialect (doctrine 1).
+DRAWABLE_EXHIBITS = {
+    "Scots vowel-length rhyme (Aitken's Law)": (
+        ("the kitchen light was fading fast",
+         "a silver ship went sailing past", "1", "2"),
+        ("the kitchen light was fading fast",
+         "a silver ship went sailing fat", "1", "2")),
+    "analysed rhyme": (
+        ("we stood beneath the winter sun",
+         "the cold had never asked for much", "1", "2"),
+        ("we stood beneath the winter sun",
+         "the cold had never let us run", "1", "2")),
+    "anaphora": (
+        ("never say the word aloud", "never leave the room",
+         "1.head", "2.head"),
+        ("never say the word aloud", "always leave the room",
+         "1.head", "2.head")),
+    "assonance": (
+        ("we walked out in the sun", "it never felt like much", "1", "2"),
+        ("we walked out in the sun", "and started in to run", "1", "2")),
+    "chain rhyme (rap)": (
+        ("the kitchen light was fading fast",
+         "a silver ship went sailing past", "1", "2"),
+        ("the kitchen light was fading fast", "go slow", "1", "2")),
+    "cluster consonance / skothending span": (
+        ("she kept the fast", "he lost the lost", "1", "2"),
+        ("she kept the day", "he lost the sea", "1", "2")),
+    "compound / phrasal rhyme": (
+        ("I told her so", "she sold her toe", "1", "2"),
+        ("I told her so", "she sold her hat", "1", "2")),
+    "consonance": (
+        ("he went mad", "she went to bed", "1", "2"),
+        ("he went mad", "she was so sad", "1", "2")),
+    "family rhyme": (
+        ("she fed the cat", "he wore the cap", "1", "2"),
+        ("she fed the cat", "he ran the can", "1", "2")),
+    "head rhyme (positional)": (
+        ("cold as the road ahead", "bold as a toad in bed",
+         "1.head", "2.head"),
+        ("cold as the road ahead", "warm as a toad in bed",
+         "1.head", "2.head")),
+    "interlaced rhyme": (
+        ("the light was thin and grey", "a kite had spun away",
+         "1.T2", "2.T2"),
+        ("the light was thin and grey", "a dog had run away",
+         "1.T2", "2.T2")),
+    "internal rhyme": (
+        ("the light went out at last", "the night had come and passed",
+         "1.T2", "2.T2"),
+        ("the light went out at last", "the dog had come and passed",
+         "1.T2", "2.T2")),
+    "light rhyme": (
+        ("a bee", "the beauty", "1", "2"),
+        ("a bee", "the sea", "1", "2")),
+    "monai": (
+        ("sing me the song again", "sun on the wall", "1", "2"),
+        ("sing me the song again", "moon on the wall", "1", "2")),
+    "monorhyme / leash": (
+        ("she fed the cat", "he wore the hat", "1", "2"),
+        ("she fed the cat", "he wore the cap", "1", "2")),
+    "multisyllabic rhyme": (
+        ("the kitchen light was fading fast",
+         "a silver ship went sailing past", "1", "2"),
+        ("the kitchen light was fading fast", "go slow", "1", "2")),
+    "pantun ABAB": (
+        ("we waited for the rain", "the two of us remain", "1", "2"),
+        ("we waited for the rain", "it never came at all", "1", "2")),
+    "pararhyme": (
+        ("it was bad", "it was bed", "1", "2"),
+        ("it was bad", "it was sad", "1", "2")),
+    "perfect rhyme": (
+        ("she fed the cat", "he wore the hat", "1", "2"),
+        ("she fed the cat", "he wore the cap", "1", "2")),
+    "rime riche": (
+        ("the sea", "i see", "1", "2"),
+        ("the sea", "the tea", "1", "2")),
+    "semirhyme": (
+        ("a bend", "an ending", "1", "2"),
+        ("a bend", "he entered", "1", "2")),
+    "subtractive rhyme": (
+        ("he feared", "a year", "1", "2"),
+        ("a year", "he feared", "1", "2")),
+}
 
 
 def audible_as_end_rhyme(schema):

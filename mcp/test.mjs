@@ -1164,11 +1164,11 @@ check('validation: actionable errors', () => {
       }
     );
     check(
-      "the connector's revise budget is one attempt, no backtrack, eight rounds, and the driver tallies batch folds (M-236)",
+      "the connector's revise budget is one attempt, ONE group rewrite per stuck line (backtrack 1, on since M-247), eight rounds, and the driver tallies batch folds (M-236)",
       async () => {
         const LT = await import('./lyric_tools.js');
         assert.equal(LT.CONNECTOR_ATTEMPTS, 1);
-        assert.equal(LT.CONNECTOR_BACKTRACK, 0);
+        assert.equal(LT.CONNECTOR_BACKTRACK, 1);
         assert.equal(LT.CONNECTOR_MAX_ROUNDS, 8);
         const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
         assert.ok(

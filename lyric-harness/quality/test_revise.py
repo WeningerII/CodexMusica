@@ -4676,8 +4676,92 @@ def test_the_hook_is_read_from_the_slot_not_the_snapshot():
               and R._blueprint_hook_slot(os.path.join(td, "nope.json")) is None)
 
 
+def test_an_offer_the_ban_emptied_points_at_the_group_backtrack():
+    """§57 (`MISSING.md` M-246). A connector user's seed-33 line 9 was
+    briefed with twenty FORBIDDEN words and NO offer — four partners already
+    held both spelling classes of the -oat family, so tier one banned every
+    remaining monosyllable and tier two banned the last — and the brief
+    said nothing about what to do. Three hand edits, three bans. The state
+    has no single-word fix by construction; the fix is the group's, and the
+    loop has it (tier 2, M-105, reached by escalation, M-205). The brief now
+    says so, at every renderer."""
+    print("\n57. M-246 — an offer the BAN emptied says why, and points at "
+          "the group backtrack")
+    from quality.propose import render_line
+    L = ["the cold went down my throat", "he signed the time on a note",
+         "everything sinks that he wrote", "a light left on in the boat",
+         "under the lid a white float"]
+    R = Reviser()
+    bs = {b.line_no: b for b in
+          R.brief(L, SC.mandate([[1, 2, 3, 4, 5]], n_lines=5,
+                             default_relation="schema:perfect rhyme"))}
+    b2, b3 = bs[2], bs[3]
+    check("PREMISE: L2's offer is EMPTY, its ban is not, the field WAS "
+          "computed, and it is not a joint conflict — the friend's line 9 "
+          "shape (four partners on both spelled endings of one family)",
+          not b2.candidates and len(b2.forbidden_modal) >= 10
+          and b2.field_computed and not b2.joint_conflict,
+          f"offered {b2.candidates}, forbidden {len(b2.forbidden_modal)}, "
+          f"jc {b2.joint_conflict}")
+    note = b2.offer_emptied_by_ban
+    check("the brief carries the pointer: the partners by name, the ban's "
+          "two tiers, the GROUP, tier 2 / the joint backtrack (M-105), the "
+          "escalation (M-205), and the connector's `backtrack` coordinate",
+          all(x in note for x in ("'throat'", "'wrote'", "HOMEOTELEUTON",
+                                  "MODAL_RHYME", "GROUP", "tier 2",
+                                  "joint backtrack", "M-105", "M-205",
+                                  "lyric_revise", "backtrack=1",
+                                  "capacity WORD")),
+          note)
+    # The sentence is WRAPPED at 76 columns, so phrases are read on the
+    # whitespace-normalised text.
+    def _flat(x):
+        return " ".join(str(x).split())
+    check("`Brief.__str__` prints it", "joint backtrack" in _flat(b2)
+          and "The GROUP (A) has to move" in _flat(b2), _flat(b2)[-400:])
+    p2 = _flat(render_line(b2, L))
+    check("the writer prompt prints it IN PLACE of the old case-(c) "
+          "sentence, which named the cause and no move",
+          "joint backtrack" in p2 and "backtrack=1" in p2
+          and "is the binding" not in p2, p2[-600:])
+    check("CONTROL: L3, whose offer is NOT empty (`quote` survives both "
+          "tiers), owes no pointer and renders none",
+          b3.candidates and not b3.offer_emptied_by_ban
+          and "joint backtrack" not in _flat(b3)
+          and "joint backtrack" not in _flat(render_line(b3, L)),
+          f"offered {b3.candidates}")
+    # CONTROL: the SAME lines and partners under a BARE group — no declared
+    # relation — keep a non-empty offer (the default door admits the near
+    # relations: thought, lot, put …), so the only coordinate that empties
+    # the offer is the declared schema, and a non-empty offer owes nothing.
+    bare = {b.line_no: b for b in
+            R.brief(L, SC.mandate([[1, 2, 3, 4, 5]], n_lines=5))}
+    check("CONTROL: the same five lines under a BARE group keep a non-empty "
+          "offer on every briefed line and owe no pointer — the declared "
+          "schema is the coordinate that emptied it",
+          bare and all(b.candidates for b in bare.values())
+          and not any(b.offer_emptied_by_ban for b in bare.values()),
+          {n: (len(b.candidates), bool(b.offer_emptied_by_ban))
+           for n, b in bare.items()})
+    # THE ONE DEFINITION: the sentence on the brief IS `ban_emptied_note`'s,
+    # so a renderer cannot restate it.
+    from quality.revise import ban_emptied_note
+    check("the sentence is `ban_emptied_note`'s own, byte for byte",
+          note == ban_emptied_note(
+              b2.fields_by_slot[None].calls,
+              b2.fields_by_slot[None].labels,
+              b2.fields_by_slot[None].forbidden))
+
+
 if __name__ == "__main__":
-    for fn in (test_the_loop_does_not_write,
+    # DEALT ACROSS CI SHARDS AND TIMED, through the one idiom in
+    # `quality/shard.py` (2026-09-05, `MISSING.md` M-244). `TEST_REVISE_SHARD=k/n`
+    # runs the sections whose index here is ≡ k-1 (mod n); unset runs them
+    # all, byte-identical to the serial block this replaces. The tuple's
+    # ORDER is the balance: put the slowest first, from the SECTION COST
+    # printout every run leaves behind.
+    from quality.shard import run_sections
+    _SECTIONS = (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
                test_a_revision_may_not_trade_one_defect_for_another,
                test_reject_taking_the_modal_candidate,
@@ -4732,10 +4816,7 @@ if __name__ == "__main__":
                test_the_offer_falls_back_per_call_when_the_conjunction_is_empty,
                test_a_pair_finding_names_its_own_group,
                test_the_ban_is_the_same_field_as_the_offer,
-               test_the_hook_is_read_from_the_slot_not_the_snapshot):
-        fn()
-    print("=" * 62)
-    if FAILURES:
-        print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
-        sys.exit(1)
-    print("all revision-loop regressions pass")
+               test_the_hook_is_read_from_the_slot_not_the_snapshot,
+               test_an_offer_the_ban_emptied_points_at_the_group_backtrack)
+    sys.exit(run_sections(_SECTIONS, "TEST_REVISE_SHARD", FAILURES,
+                          footer="all revision-loop regressions pass"))

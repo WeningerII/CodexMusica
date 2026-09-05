@@ -590,7 +590,13 @@ function openRunNote(a) {
 
 export const CONNECTOR_MAX_ROUNDS = 8;
 export const CONNECTOR_ATTEMPTS = 1;
-export const CONNECTOR_BACKTRACK = 0;
+// ON SINCE 2026-09-05 (lyric-harness/MISSING.md M-247, owner: "turn the
+// connector's backtrack default on"). Width 1, not the CLI's 5: the walk is
+// width² group questions per stuck line per round (each a suspension on
+// this path), and M-236's budget is one question per line per round — so
+// one group rewrite is opened after tier 1 fails on a line, and a rejected
+// one is re-briefed next round. `backtrack: 0` from the caller shuts it.
+export const CONNECTOR_BACKTRACK = 1;
 
 function askedOf(pending) {
   if (!pending || typeof pending !== 'object') return null;
@@ -1508,7 +1514,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(8)
       .optional()
       .describe(
-        "Tier-2 backtrack width (this connector's default is 0: no group rewrite is opened on a single rejection). Same constancy rule as max_rounds."
+        "Tier-2 backtrack width (this connector's default is 1 since M-247: when tier 1 fails on a line, ONE group rewrite is put to you that round — the whole rhyme group at once, which is the only move when every single-word answer is banned; 0 shuts it). Same constancy rule as max_rounds."
       ),
   },
   lyric_sweep: {
@@ -2022,15 +2028,19 @@ export function registerLyricTools(server, tool) {
           }
           args.push(`--propose=defer:${statePath}`);
         }
-        // THE CONNECTOR'S BUDGET (M-236): one attempt per line, no
-        // backtrack, eight rounds. The re-ask inside a round is where a
+        // THE CONNECTOR'S BUDGET (M-236): one attempt per line, ONE group
+        // rewrite per stuck line (backtrack width 1 — on since M-247, off
+        // under M-236), eight rounds. The re-ask inside a round is where a
         // model-driven run spent most of its hops (round 21: 103 answers for
         // four rounds); under one attempt a rejected line is re-briefed
         // fresh next round with its rejection quoted, the batch door asks
         // the round's independent lines together, and the rounds are cheap
-        // enough to have more of. Tier 2's backtrack is off on this path
-        // for the same reason: with one attempt every rejection would open
-        // a group rewrite at once. A model that declares its own values
+        // enough to have more of. Tier 2's backtrack WAS off on this path
+        // for the same reason — with one attempt every rejection would open
+        // a group rewrite at once — and is on at width 1 since M-247: a
+        // line whose every single-word answer the ban refuses (M-246) has
+        // no tier-1 move at all, and the one group question a width of 1
+        // opens is the budget's own shape. A model that declares its own values
         // keeps them; the carried declarations (M-229) hold whichever
         // applied for the run's whole life, so the budget never moves
         // mid-run.

@@ -224,6 +224,16 @@ def _round_trip_reviser():
     return _RT_REVISER
 
 
+def _timed_round_trip(seed):
+    """-> (seconds, _round_trip_one(seed)). The worker's own tuple is
+    untouched; the driver prints the seconds beside each seed so a shard's
+    floor is attributable to ONE seed (M-244)."""
+    import time as _time
+    t0 = _time.perf_counter()
+    r = _round_trip_one(seed)
+    return _time.perf_counter() - t0, r
+
+
 def _round_trip_one(seed):
     """-> (seed, bad, judged, refused, (walled, total_lines)) for ONE seed
     of §3's sweep.
@@ -346,9 +356,20 @@ def _round_trip_one(seed):
 
 
 def test_the_round_trip():
-    """THE CROWN, SWEPT. Twenty seeds' plans survive the machine that
-    grades against them — not by this file's reading of the formats, but
-    by the real readers refusing nothing."""
+    """THE CROWN, SWEPT. ~~Twenty seeds'~~ THIS SHARD'S seeds' plans
+    survive the machine that grades against them — not by this file's
+    reading of the formats, but by the real readers refusing nothing.
+
+    DEALT, NOT SPLIT (2026-09-05, `MISSING.md` M-244). This section is this
+    file's floor — MEASURED ~21 min of the suite's 35.6 min solo on the
+    4-vCPU runner, already four workers wide — so no deal of the SECTIONS
+    can move it. It runs on EVERY shard and deals its own loop instead:
+    `quality.shard.dealt` hands it the seeds whose index is congruent to
+    k-1 (mod n) for this shard's `TEST_PLAN_SHARD=k/n`, exactly the
+    coordinate `run_sections` deals the other sections by. The population
+    is what the shard holds, not twenty — the check texts say the count and
+    list the seeds, and the acceptance rule is per-shard. Unset runs all
+    20, byte-identical to the undealt section."""
     print("\n3. THE ROUND TRIP — the graders accept what the planner emits, "
           "over a sweep")
     import quality.fit as FT
@@ -365,21 +386,56 @@ def test_the_round_trip():
     # coordinate is a SHAPE one and never a semantics one.
     _w = int(os.environ.get("TEST_PLAN_WORKERS", "0") or 0) or min(
         4, os.cpu_count() or 1)
+    # AND THE SEEDS ARE DEALT BY THE SAME COORDINATE THE SECTIONS ARE
+    # (2026-09-05, `MISSING.md` M-244). `quality.shard.dealt` is the ONE
+    # definition of the residue arithmetic (doctrine 1): re-spelling
+    # `i % n == k - 1` here would be a second reader of `TEST_PLAN_SHARD`,
+    # free to drift from the one `run_sections` deals the sections by, and
+    # two readings of one coordinate is the defect that doctrine names.
+    # This is the remedy `shard.py` points at for a section no section-deal
+    # can split — the section runs on every shard and deals its LOOP — and
+    # it composes with `TEST_PLAN_WORKERS`: the shard picks the seeds, the
+    # pool picks how many run at once.
+    # MEASURED at the last full run (the pair guard, M-240): seeds
+    # 0,2,5,6,7,10,13,16,17,19 wall at the schema door and 1,3,4,8,9,11,12,
+    # 14,15,18 grade. NO SHARD IS ALL-WALLED for n in {4,5,6}, which is what
+    # `judged_total > 0` needs: n=5 shard 1 holds 0,5,10,15 and 15 grades
+    # (the thinnest class, with shard 3's 2,7,12,17 -> 12); n=4's thinnest is
+    # shard 2, 1,5,9,13,17 -> 1,9; n=6's are shards 2, 5 and 6 -> 1, 4, 11.
+    # CI's matrix is n=5. A future lot that moves the wall moves this
+    # arithmetic with it, and the detail line below prints both lists so the
+    # re-derivation reads off a green run rather than a bisect.
+    from quality.shard import dealt
+    seeds, _kn = dealt(list(range(20)), "TEST_PLAN_SHARD")
+    # EACH SEED IS TIMED (2026-09-05, M-244): a pool of four runs at the
+    # speed of its slowest seed, so this section's cost is ONE seed's and
+    # the per-seed line below is what says which. `_timed_round_trip`
+    # wraps the worker rather than widening its five-tuple, which the
+    # driver unpacks by arity on every path.
     if _w > 1:
         import concurrent.futures as _cf
         with _cf.ProcessPoolExecutor(max_workers=_w) as _ex:
-            _results = list(_ex.map(_round_trip_one, range(20)))
+            _timed = list(_ex.map(_timed_round_trip, seeds))
     else:
-        _results = [_round_trip_one(_s) for _s in range(20)]
+        _timed = [_timed_round_trip(_s) for _s in seeds]
+    _results = [r for _, r in _timed]
+    print("   per-seed cost, slowest first (the pool's wall is the top line): "
+          + ", ".join(f"seed {r[0]} {dt:.0f}s"
+                      for dt, r in sorted(_timed, key=lambda t: -t[0])))
     # SEED ORDER, explicitly. `map` already preserves it; sorting says so, so
     # a later switch to `as_completed` cannot quietly reorder `bad`.
     # REPINNED 2026-09-05 (`MISSING.md` M-240): the fourth count recorded
     # SEED NUMBERS, and a seed number says nothing about where the schema
     # door's pair guard stands — the wall is a function of DRAFT LENGTH.
     # Both lists carry `(seed, total_lines)` now, so the detail line below
-    # states the wall's height in the units the guard is measured in. The
+    # states the wall's height in the units the guard is measured in. ~~The
     # ACCEPTANCE RULE IS UNCHANGED: `not bad and judged_total > 0 and
-    # len(walled) < 20`, exactly as before.
+    # len(walled) < 20`, exactly as before.~~ STRUCK THE SAME DAY (M-244):
+    # the rule keeps its SHAPE and changes its population — `len(walled) <
+    # len(seeds)` — because a shard holding four seeds cannot be asked
+    # whether fewer than twenty of them walled. The literal 20 would have
+    # been satisfied by a shard whose every seed walled, which is the one
+    # state this fourth count exists to catch.
     walled = []
     graded = []
     for _seed, _b, _j, _r, (_wall, _tot) in sorted(_results,
@@ -388,15 +444,16 @@ def test_the_round_trip():
         judged_total += _j
         refused_total += _r
         (walled if _wall else graded).append((_seed, _tot))
-    check("20 seeds: blueprint READS, mandate PARSES, mandated == judged + "
-          "REFUSED with judged > 0 (three counts, never summed: doctrine "
-          "79), every refusal is a NO-ANCHOR slot on the dummy draft's own "
-          "words rather than a shape the graders cannot take, and no "
-          "verbatim/drift finding stands on a planner shape — a seed past "
-          "the schema door's pair guard (M-240) is a FOURTH count, the "
-          "grader's own wall, and at least one seed must have graded",
-          not bad and judged_total > 0 and len(walled) < 20,
-          f"bad: {bad or 'none'}; "
+    check(f"{len(seeds)} seed(s) {seeds}: blueprint READS, mandate PARSES, "
+          "mandated == judged + REFUSED with judged > 0 (three counts, "
+          "never summed: doctrine 79), every refusal is a NO-ANCHOR slot "
+          "on the dummy draft's own words rather than a shape the graders "
+          "cannot take, and no verbatim/drift finding stands on a planner "
+          "shape — a seed past the schema door's pair guard (M-240) is a "
+          "FOURTH count, the grader's own wall, and at least one seed THIS "
+          "SHARD HOLDS must have graded",
+          not bad and judged_total > 0 and len(walled) < len(seeds),
+          f"held {seeds}; bad: {bad or 'none'}; "
           f"judged {judged_total}, slot-refused {refused_total}, "
           f"walled at the schema door {len(walled)} seed(s) as "
           f"(seed, total_lines) {walled}"
@@ -1482,6 +1539,43 @@ def test_the_writers_declaration():
           == r)
 
 
+def _functions_of(seed):
+    """-> the plan's section functions in order, or None where the planner
+    refuses. A worker for `_section_functions`; module-level so a process
+    pool can pickle it."""
+    try:
+        return [x["function"] for x in PLN.make_plan(seed)["sections"]]
+    except Exception:
+        return None
+
+
+def _section_functions(seeds):
+    """`[_functions_of(s) for s in seeds]`, seed order, over a process pool
+    of `TEST_PLAN_WORKERS` (default 4) when it pays (2026-09-05, M-244).
+
+    §8 calls the planner 800 times — four passes of 200 seeds — and ran
+    them serially at 227 s on CI, the second-largest section in the plan
+    shards after the round trip. Each plan is a pure function of its seed,
+    so the passes ride the same pool §3 uses.
+    THE MUTATION PASSES STILL MEASURE THE MUTATION. Two of the four passes
+    run with `FORM_REQUIRES`/`FORM_RECURS` CLEARED in this process, and a
+    pool built INSIDE the pass inherits that state because Linux's default
+    start method is fork — the children are copies of the mutated parent.
+    Under `spawn` they would re-import `plan.py` whole and the withdrawn
+    tables would come back, at which point the collapse the section pins
+    (`dead_ok * 4 < dead_n`) fails LOUDLY rather than passing on the wrong
+    population, so the substitution cannot be silent. `TEST_PLAN_WORKERS=1`
+    is byte-identical to the serial loop this replaces."""
+    seeds = list(seeds)
+    w = (int(os.environ.get("TEST_PLAN_WORKERS", "0") or 0)
+         or min(4, os.cpu_count() or 1))
+    if w > 1 and len(seeds) >= 2 * w:
+        import concurrent.futures as _cf
+        with _cf.ProcessPoolExecutor(max_workers=w) as ex:
+            return list(ex.map(_functions_of, seeds, chunksize=8))
+    return [_functions_of(s) for s in seeds]
+
+
 def test_the_form_is_read():
     """The form was a coordinate NOTHING read (2026-08-23).
 
@@ -1500,12 +1594,9 @@ def test_the_form_is_read():
 
     def _rate(n=200):
         ok = chorus = seen = 0
-        for s in range(n):
-            try:
-                pl = PLN.make_plan(s)
-            except Exception:
+        for fns in _section_functions(range(n)):
+            if fns is None:
                 continue
-            fns = [x["function"] for x in pl["sections"]]
             seen += 1
             if "chorus" in fns:
                 chorus += 1
@@ -1565,10 +1656,8 @@ def test_the_form_is_read():
           str(PLN.FORM_TENDENCIES["verse-chorus"]))
     ordered = 0
     total = 0
-    for s in range(200):
-        try:
-            fns = [x["function"] for x in PLN.make_plan(s)["sections"]]
-        except Exception:
+    for fns in _section_functions(range(200)):
+        if fns is None:
             continue
         total += 1
         if fns.index("verse") < fns.index("chorus"):
@@ -2710,11 +2799,21 @@ def test_the_relation_draw():
           "pre-fix count from 53 to a false 56",
           ("onset", "post", "Agree") in pr
           and ("onset", "anchor", "Differ") in pr, pr)
+    # REPOINTED 2026-09-05 (`MISSING.md` M-245): semirhyme's coda rule is
+    # `PrefixAgree` at the `cluster` scope now — the shorter word's
+    # post-vocalic cluster OPENS the longer's — and a prefix agreement is
+    # NOT an equality: [M] opens [M,B] and [M,S,T] while those two do not
+    # open each other, so it must NOT compose into rime riche's transitive
+    # chain, and the claim's predicate name says so. The split this check
+    # was written for (anchor against final) is unchanged.
     check("M-122(c): the syllable coordinate SPLITS what the dict "
-          "conflated — semirhyme's coda claim rides the anchor while "
-          "light rhyme's rides the written-out final syllable, so only "
-          "the first composes into rime riche's transitive chain",
-          ("coda", "anchor", "Agree") in traits["semirhyme"]["claims"]
+          "conflated — semirhyme's coda claim rides the anchor (as a "
+          "PREFIX agreement since M-245, which the transitive closure "
+          "correctly does not read as equality) while light rhyme's "
+          "rides the written-out final syllable",
+          ("coda", "anchor", "PrefixAgree") in traits["semirhyme"]["claims"]
+          and ("coda", "anchor", "Agree")
+          not in traits["semirhyme"]["claims"]
           and ("coda", "final", "Agree") in traits["light rhyme"]["claims"]
           and ("coda", "anchor", "Agree")
           not in traits["light rhyme"]["claims"],
@@ -3532,24 +3631,118 @@ def test_the_legend_states_the_whole_schema():
               "present on the first word" in leg, leg)
 
 
+#: THE SECTIONS, IN COST ORDER, SLOWEST FIRST — every section except §3,
+#: which is `always=` below because it deals its own seeds by the same
+#: coordinate. THE ORDER IS THE BALANCE (`quality/shard.py`): residue
+#: dealing lands the n most expensive sections one per shard and deals the
+#: tail round-robin under them, so a CHRONOLOGICAL tuple balances by
+#: accident and a cost-ordered one by design. ~~The tuple was in the order
+#: the sections were written.~~ STRUCK 2026-09-05 (`MISSING.md` M-244).
+#:
+#: MEASURED 2026-09-05, each section called once in one process, on a
+#: 4-vCPU box carrying two other measurements at the same time — so these
+#: are RATIOS between sections and not a budget for any of them:
+#:    462.8s  seed_sweep_is_a_verb
+#:    256.7s  form_is_read
+#:    151.2s  measure
+#:     58.1s  disclosure
+#:     56.6s  joint_gate
+#:     38.2s  song_length_is_the_songs_own
+#:     31.5s  placement_route
+#:     25.9s  delegated_rulings
+#:     25.7s  overhang_group
+#:     23.0s  planner_plans_the_whole_line
+#:     19.9s  end_rhyme_pass_is_additive
+#:      7.0s  relation_draw
+#:      5.4s  grade_it_line_runs
+#:      4.4s  determinism
+#:      4.3s  writers_declaration
+#:      0.6s  rendering
+#:      0.5s  bound_share
+#:      0.0s  refusals
+#:      0.0s  legend_states_the_whole_schema
+#: 1171.8 s of sections in all, against §3's ~21 min four workers wide —
+#: which is why §3 is dealt by SEED and these are dealt by INDEX.
+#:
+#: THREE THINGS THE MEASUREMENT SAID THAT THE STATIC READING DID NOT.
+#: (a) THE SUBPROCESS SECTIONS ARE THE CHEAP ONES. The CI logs' timestamps
+#: put a ~10 min section near `writers_declaration`, which runs a `plan`
+#: subprocess; it is 4.3 s, and `grade_it_line_runs`, which runs two, is
+#: 5.4 s — one `plan` subprocess is 3.5 s and neither grades a full draft
+#: in one. Block-buffered CI output attributes a section's lines to
+#: whenever the block flushed, so those timestamps are evidence about the
+#: FILE's wall and never about which section owns it.
+#: (b) THE SEED COUNT IS THE COST, because `make_plan` is 0.43 s a seed
+#: (MEASURED: 40 seeds, 17.3 s). `seed_sweep` sweeps ~680 and is the top
+#: line; `form_is_read` walks 200 and is the second.
+#: (c) `rendering`'s `range(300)` IS A CEILING AND NOT A COUNT — it breaks
+#: at the first returns+instrumental shape, so it costs 0.6 s and sits near
+#: the bottom where a seed-count reading would have put it near the top.
+#:
+#: STILL PROVISIONAL, and the printout every run now leaves behind is what
+#: re-cuts it: `run_sections` prints each section's cost slowest-first on
+#: GREEN runs too, so the union of a k=1..5 matrix's printouts is this
+#: file's whole profile. The pairs to re-cut first are the ones inside this
+#: box's noise — `disclosure`/`joint_gate` at 58.1/56.6 and the
+#: 23-26 s block of `delegated_rulings`, `overhang_group` and
+#: `planner_plans_the_whole_line`.
+#:
+#: `test_the_section_header_keeps_its_apparatus_inside_the_bracket` (§11)
+#: was defined above and RUN BY NOTHING — absent from the old `__main__`
+#: loop as well, so no deal had dropped it; it had simply never joined. A
+#: section nobody runs is doctrine 48's own shape. Run under M-244 it
+#: passes in 40.1 s, so it sits here at that cost (2026-09-05).
+_SECTIONS = (
+    test_the_seed_sweep_is_a_verb,
+    test_the_form_is_read,
+    test_the_measure,
+    test_the_disclosure,
+    test_the_joint_gate,
+    test_the_section_header_keeps_its_apparatus_inside_the_bracket,
+    test_the_song_length_is_the_songs_own,
+    test_the_placement_route,
+    test_the_delegated_rulings,
+    test_the_overhang_group,
+    test_the_planner_plans_the_whole_line,
+    test_the_end_rhyme_pass_is_additive,
+    test_the_relation_draw,
+    test_the_grade_it_line_runs,
+    test_determinism,
+    test_the_writers_declaration,
+    test_the_rendering,
+    test_the_bound_share,
+    test_refusals,
+    test_the_legend_states_the_whole_schema,
+)
+
 if __name__ == "__main__":
-    for fn in (test_the_planner_plans_the_whole_line,
-               test_determinism, test_refusals, test_the_round_trip,
-               test_the_measure, test_the_disclosure,
-               test_the_rendering, test_the_writers_declaration,
-               test_the_form_is_read, test_the_joint_gate,
-               test_the_seed_sweep_is_a_verb,
-               test_the_song_length_is_the_songs_own,
-               test_the_end_rhyme_pass_is_additive,
-               test_the_relation_draw, test_the_bound_share,
-               test_the_grade_it_line_runs, test_the_overhang_group,
-               test_the_placement_route,
-               test_the_delegated_rulings,
-               test_the_legend_states_the_whole_schema):
-        fn()
-    print("=" * 62)
-    if FAILURES:
-        print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
-        sys.exit(1)
-    print("the planning phase plans, the graders accept what it plans, "
-          "and the dice are uniform over derived spaces")
+    # DEALT AND TIMED BY THE ONE IDIOM (2026-09-05, `MISSING.md` M-244):
+    # `TEST_PLAN_SHARD=k/n` runs the sections whose index in `_SECTIONS` is
+    # congruent to k-1 (mod n), every section runs EXACTLY ONCE across a
+    # full k=1..n matrix by the arithmetic of residue classes, and unset
+    # runs everything byte-identical to an undealt file. This file was the
+    # longest single process in CI — 35.6 min solo on run 1376 — and a CI
+    # job's wall is its longest process, so a suite that cannot be dealt is
+    # a floor no shard count beats.
+    # §3 IS `always=` RATHER THAN A MEMBER OF THE TUPLE: at ~21 min four
+    # workers wide it is bigger than every other section put together, so
+    # dealing it to ONE shard would leave that shard the whole file's wall.
+    # It runs on every shard and deals its twenty SEEDS by the same
+    # `TEST_PLAN_SHARD`, which is the split `shard.py` says a section-deal
+    # cannot make from outside. Its cost is timed and printed like any
+    # other section's, so the profile stays whole.
+    # THE SECTIONS ARE CALLED WITH NO ARGUMENTS, exactly as the old loop
+    # called them, and `run_sections` calls them the same way. Four
+    # (`song_length_is_the_songs_own`, `end_rhyme_pass_is_additive`,
+    # `placement_route`, `delegated_rulings`) carry a `FAILURES=None`
+    # parameter their bodies never read — MEASURED: the name occurs in this
+    # file at the module list, at `check`'s append, and in those four
+    # signatures, nowhere else — so the shadow is inert and every check
+    # lands in the module's own `FAILURES`, which is the list
+    # `run_sections` reads after the sections have run.
+    from quality.shard import run_sections
+    sys.exit(run_sections(_SECTIONS, "TEST_PLAN_SHARD", FAILURES,
+                          footer="the planning phase plans, the graders "
+                                 "accept what it plans, and the dice are "
+                                 "uniform over derived spaces",
+                          always=(test_the_round_trip,)))

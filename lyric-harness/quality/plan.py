@@ -135,6 +135,7 @@ Run:  python3 lyric_harness.py plan --seed=N [--form=verse-chorus]
 Test: python3 quality/test_plan.py
 """
 
+import os
 import json
 import shlex
 import math
@@ -2228,18 +2229,48 @@ def sweep(seeds, wants=(), **plan_kw):
     reproducibly, with nothing carried over from the search.
     """
     seeds = list(seeds)
-    accepted, planned, refused = [], 0, 0
-    for s in seeds:
-        try:
-            p = make_plan(seed=s, **plan_kw)
-        except PlanRefused:
-            refused += 1
-            continue
-        planned += 1
-        if all(sweep_holds(p, w) for w in wants):
-            accepted.append(s)
+    wants = list(wants)
+    # THE SEEDS ARE INDEPENDENT AND THE SWEEP IS THE FLOOR OF TWO CI JOBS
+    # (2026-09-05, `MISSING.md` M-244). A plan is a pure function of its
+    # seed, so the loop below is embarrassingly parallel and was serial:
+    # `plan --sweep=1-1600` ran 480 s inside `test_verbs.py` §40 and was that
+    # job's longest section — the floor no shard count beats — and
+    # `test_plan.py` §10 pays the same loop over 680 seeds. Workers are a
+    # SHAPE coordinate and never a semantics one: the result is assembled in
+    # SEED ORDER whatever finished first (doctrine 66), each worker sees only
+    # its own seed, and `SWEEP_WORKERS=1` is byte-identical to the serial
+    # loop. The default is the runner's width capped at four — and ONE when
+    # the caller is already inside a parallel pool (the CI `suites` shard
+    # sets it), because four workers inside a four-wide loop is the
+    # eight-on-four oversubscription M-182 measured.
+    _w = int(os.environ.get("SWEEP_WORKERS", "0") or 0) or min(
+        4, os.cpu_count() or 1)
+    if _w > 1 and len(seeds) >= 2 * _w:
+        import concurrent.futures as _cf
+        with _cf.ProcessPoolExecutor(max_workers=_w) as _ex:
+            rows = list(_ex.map(_sweep_one, ((s, wants, plan_kw)
+                                             for s in seeds)))
+    else:
+        rows = [_sweep_one((s, wants, plan_kw)) for s in seeds]
+    accepted = [s for s, st, ok in rows if st == "planned" and ok]
+    planned = sum(1 for _, st, _ in rows if st == "planned")
+    refused = sum(1 for _, st, _ in rows if st == "refused")
     return {"accepted": accepted, "planned": planned, "refused": refused,
-            "wants": list(wants), "seeds": len(seeds)}
+            "wants": wants, "seeds": len(seeds)}
+
+
+def _sweep_one(job):
+    """-> (seed, 'planned' | 'refused', holds) for ONE seed of `sweep`.
+
+    Module-level so a worker process can reach it; returns plain data so
+    a refusal travels back as a count rather than an exception stripped of
+    its seed."""
+    s, wants, plan_kw = job
+    try:
+        p = make_plan(seed=s, **plan_kw)
+    except PlanRefused:
+        return (s, "refused", False)
+    return (s, "planned", all(sweep_holds(p, w) for w in wants))
 
 
 def make_plan(seed, form="verse-chorus", lines=None, relation=None,
@@ -3697,6 +3728,8 @@ _SCOPE_GLOSS = {
     "last": "on the last syllable",
     "each": "on every syllable",
     "sequence": "in sequence",
+    "cluster": ("as the consonants after the vowel, across the syllable "
+                "boundary — the shorter word's must open the longer word's"),
     "unmatched_a": "on the first word's extra material",
     "unmatched_b": "on the second word's extra material",
 }

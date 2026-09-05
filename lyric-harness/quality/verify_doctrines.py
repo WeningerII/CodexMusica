@@ -675,12 +675,26 @@ def can_fail(text):
     its own; otherwise there must be BOTH a `sys.exit` call AND some function
     that can return a non-zero code for it to carry. A module whose only exit
     code is a literal 0 fails this, which is the case worth catching.
+
+    AND ONE CROSS-MODULE SHAPE IS READ BY NAME (2026-09-05, `MISSING.md`
+    M-244): `sys.exit(run_sections(...))` with `run_sections` imported from
+    `quality.shard`. That is the one dealing-and-timing idiom every long
+    suite ends in now, and its non-zero path — `return 1` on a non-empty
+    failures list — lives in the shared module, where this walk cannot see
+    it. The contract is pinned by `quality/test_shard.py` §3 (a non-empty
+    failures list exits 1 and never prints the footer), so the name is
+    trusted HERE rather than each suite re-spelling a literal exit beside
+    the call to satisfy a static reader — that literal would be the
+    decoration this guard exists to refuse.
     """
     try:
         tree = ast.parse(text)
     except SyntaxError:
         return False
     consts = _module_ints(tree)
+    dealt = any(isinstance(n, ast.ImportFrom) and n.module == "quality.shard"
+                and any(a.name == "run_sections" for a in n.names)
+                for n in ast.walk(tree))
     exits, nonzero_exit, nonzero_return = False, False, False
     for node in ast.walk(tree):
         if isinstance(node, ast.Call):
@@ -690,6 +704,11 @@ def can_fail(text):
             if name in ("exit", "SystemExit"):
                 exits = True
                 if node.args and _nonzero_const(node.args[0], consts):
+                    nonzero_exit = True
+                a0 = node.args[0] if node.args else None
+                if (dealt and isinstance(a0, ast.Call)
+                        and isinstance(a0.func, ast.Name)
+                        and a0.func.id == "run_sections"):
                     nonzero_exit = True
         elif isinstance(node, ast.Raise):
             e = node.exc

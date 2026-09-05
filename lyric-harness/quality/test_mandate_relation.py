@@ -991,6 +991,99 @@ def test_the_default_door_reads_normative():
           not (set(bad) & set(RL.DRAWABLE_SCHEMAS)))
 
 
+def test_every_drawable_schema_answers_its_own_example():
+    """§13 — the M-245 gate: every drawable name SATISFIES the pair its
+    definition names and VIOLATES a pair its definition excludes, through
+    the grade route (`relations.DRAWABLE_EXHIBITS`).
+
+    THE DEFECT THIS PINS, 2026-09-05. A connector user's seed-33 song drew
+    `semirhyme` on lines 8 and 10 and the grade flagged drum~stomach; so did
+    drum~summer, drum~drummer — and bend~ending, the schema's OWN example,
+    which had VIOLATED its own judge from the day the schema was drawable.
+    The coda channel was read at the anchor SYLLABLE, and English
+    resyllabifies: bend is [N,D], EN.DING's stressed syllable is [N]. The
+    M-148 gate (§10) could not see it, because the witness's exhibit was
+    grow~growing, an open syllable that agrees on an empty coda.  A witness
+    proves SOME pair answers; this section asks whether the pair the
+    definition NAMES answers, for all twenty-two, and whether a near miss
+    does not — the second half is what keeps the first from being vacuous.
+    """
+    print("\n13. the M-245 gate — every drawable schema answers its own "
+          "example and refuses its own near miss, through the grade route")
+    from quality import relations as RL
+    rv = Reviser()
+
+    def _grade(name, a, b, sa, sb):
+        g = rv.grade([a, b], mandate([[sa, sb]], n_lines=2,
+                                     default_relation=f"schema:{name}"),
+                     sections=["a", "a"])
+        if g["refusals"]:
+            return "REFUSED: " + g["refusals"][0]["reason"][:80]
+        return "violated" if g["violations"] else "satisfied"
+
+    check("every name in the drawable pool has an exhibit row, and every "
+          "row names a drawable schema — the table and the pool are one set",
+          set(RL.DRAWABLE_EXHIBITS) == set(RL.DRAWABLE_SCHEMAS),
+          f"missing {sorted(set(RL.DRAWABLE_SCHEMAS) - set(RL.DRAWABLE_EXHIBITS))}, "
+          f"extra {sorted(set(RL.DRAWABLE_EXHIBITS) - set(RL.DRAWABLE_SCHEMAS))}")
+    wrong = []
+    for name in RL.DRAWABLE_SCHEMAS:
+        ex, con = RL.DRAWABLE_EXHIBITS[name]
+        got_ex, got_con = _grade(name, *ex), _grade(name, *con)
+        if got_ex != "satisfied":
+            wrong.append((name, "exhibit", ex[:2], got_ex))
+        if got_con != "violated":
+            wrong.append((name, "contrast", con[:2], got_con))
+    check("all 22 exhibits SATISFY and all 22 contrasts VIOLATE — none "
+          "refused — on the route a planned mandate takes",
+          not wrong, wrong)
+    check("semirhyme's exhibit IS the registry's own example, bend~ending, "
+          "and the M-148 witness exhibit for it (grow~growing, an open "
+          "syllable) still satisfies beside it",
+          RL.DRAWABLE_EXHIBITS["semirhyme"][0][:2] == ("a bend", "an ending")
+          and _grade("semirhyme", "we watched it grow",
+                     "and kept on growing", "1", "2") == "satisfied")
+    # THE MUTATION, IN PLACE: semirhyme's coda rule read at the anchor
+    # SYLLABLE with plain Agree — the pre-M-245 declaration — refuses the
+    # registry's own example on the same route, and the cluster scope with
+    # plain (non-prefix) Agree refuses hum~humble.  Both halves of the
+    # repair are load-bearing, and the check above can fail.
+    import dataclasses as _dc
+    sem = RL.REGISTRY["semirhyme"]
+    old = _dc.replace(sem, channels=(RL.ChannelRule("nucleus", RL.AGREE,
+                                                    "anchor"),
+                                     RL.ChannelRule("coda", RL.AGREE,
+                                                    "anchor")))
+    half = _dc.replace(sem, channels=(RL.ChannelRule("nucleus", RL.AGREE,
+                                                     "anchor"),
+                                      RL.ChannelRule("coda", RL.AGREE,
+                                                     "cluster")))
+    from quality import phonology as PH
+
+    def _pair(schema, a, b):
+        st = RL.build_stream([a, b], PH.get("eng"),
+                             declaration={"language": "eng"})
+        return RL.pair_satisfies(schema, st, (0, -1), (1, -1))
+
+    check("MUTATION — the anchor-syllable coda read (the declaration "
+          "before M-245) answers False on bend~ending: the example the "
+          "schema names refused its own judge",
+          _pair(old, "a bend", "an ending") is False
+          and _pair(sem, "a bend", "an ending") is True,
+          f"old {_pair(old, 'a bend', 'an ending')}, "
+          f"now {_pair(sem, 'a bend', 'an ending')}")
+    check("MUTATION — the cluster scope with plain Agree still refuses "
+          "hum~humble ([M] against [M,B]); the PREFIX predicate is the "
+          "other half of the repair",
+          _pair(half, "a hum", "so humble") is False
+          and _pair(sem, "a hum", "so humble") is True
+          and _pair(sem, "a bend", "he entered") is False,
+          f"half {_pair(half, 'a hum', 'so humble')}, "
+          f"now {_pair(sem, 'a hum', 'so humble')}, "
+          f"enter {_pair(sem, 'a bend', 'he entered')}")
+
+
+
 if __name__ == "__main__":
     for fn in (test_vocabulary, test_judge, test_mandate_coordinate,
                test_grade_routing, test_position_is_declared,
@@ -1000,7 +1093,8 @@ if __name__ == "__main__":
                test_identity_is_the_schemas_own_ruling,
                test_the_drawable_pool_holds_through_the_grade_route,
                test_the_type_judge_past_one_syllable,
-               test_the_default_door_reads_normative):
+               test_the_default_door_reads_normative,
+               test_every_drawable_schema_answers_its_own_example):
         fn()
     print("=" * 62)
     if FAILURES:

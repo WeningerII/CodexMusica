@@ -139,6 +139,13 @@ class B:
         #: on no fixture in this file — no error, no red, and the suite
         #: pinning a prompt that a narrowed offer never produces.
         self.schema_refused = kw.get("schema_refused", ())
+        #: THE POINTER AN EMPTY OFFER OWES (`MISSING.md` M-246, 2026-09-05),
+        #: and §7c below is what forces it here: `render_line` reads it
+        #: through `getattr`, and a stand-in without it renders the OLD
+        #: case-(c) sentence — the one that named no move — on every
+        #: fixture, no error, no red. Defaulted empty: an offer that is
+        #: not empty owes nothing.
+        self.offer_emptied_by_ban = kw.get("offer_emptied_by_ban", "")
         #: THE PLACEMENT, added 2026-08-24 — and it was §7c below that found
         #: it, on the first CI run after the workflow started parsing again.
         #: `Brief` grew `slot`/`slot_conflict` at `9ad2dad` (`MISSING.md`

@@ -630,6 +630,21 @@ class Brief:
     #: non-empty is a NARROWED offer, not a thin lexicon, and the renderers
     #: say which.
     schema_refused: tuple = ()
+    #: THE POINTER AN EMPTY OFFER OWES (`MISSING.md` M-246, 2026-09-05): a
+    #: printable sentence, non-empty exactly when `candidates` is empty and
+    #: `forbidden_modal` is not — every word answering this place's calls
+    #: is on the two-tier ban. That state has no single-word fix BY
+    #: CONSTRUCTION: with the partners standing, the same ban answers any
+    #: swap on this line, so the move is the loop's tier 2, the joint
+    #: backtrack (M-105), which rewrites the whole group. Three renderers
+    #: printed the FORBIDDEN list and then nothing (`Brief.__str__`,
+    #: `lyric_harness._print_brief_report`) or "the mandate, not the
+    #: lexicon, is the binding constraint" (`quality/propose.py`) — true,
+    #: and naming no move; a connector user read it, hand-edited the line
+    #: three times, and was banned three times. ONE definition
+    #: (`ban_emptied_note`), carried as DATA for the reason
+    #: `schema_route_note` is: `propose.py` imports only `re`.
+    offer_emptied_by_ban: str = ""
     #: The `(field_depth, field_band)` the candidate field was read at, as a
     #: printable string. A count with no setting beside it is the defect
     #: doctrine 58 is about, and this flag is a count of zero.
@@ -753,6 +768,9 @@ class Brief:
                        f"the {_SL.word_phrase(self.slot)} that is already on "
                        f"this line is not a revision): "
                        f"{self.forbidden_incumbent}")
+        if self.offer_emptied_by_ban:
+            out.extend("    " + ln for ln in
+                       self.offer_emptied_by_ban.split("\n"))
         if self.candidates:
             out.append(f"    offered: {', '.join(self.candidates[:12])}"
                        + (" ..." if len(self.candidates) > 12 else ""))
@@ -763,6 +781,45 @@ class Brief:
             out.append(f"    keep unchanged: {', '.join(map(str, self.keep))}")
         return "\n".join(out)
 
+
+
+def ban_emptied_note(calls, labels, forbidden, width=76):
+    """-> the sentence an offer emptied by the two-tier ban owes, wrapped
+    at `width` and newline-joined (`MISSING.md` M-246). THE ONE DEFINITION:
+    `Brief.offer_emptied_by_ban` carries it, and every renderer prints it.
+
+    What it has to say, in order: that the offer is empty for a REASON
+    that is not the lexicon; that a swap on this line cannot clear it
+    while the partners stand; that the move is the GROUP's — the loop's
+    tier 2, the joint backtrack (M-105), which `revise`/`finish` escalate
+    to after tier 1 fails (M-205) — at which width on each path (the
+    CLI's 5, the connector's 1 since M-247; 0 shuts it); and the two
+    other doors (a narrower mandate; a family certified deeper, which
+    `capacity WORD` prints together with the words the ban admits).
+    """
+    import textwrap
+    partners = ", ".join(repr(c) for c in calls)
+    labs = ", ".join(str(x) for x in labels) or "?"
+    text = (
+        f"NOTHING OFFERED — and NOT because nothing rhymes with "
+        f"{partners}: every word that answers all of them at once is on "
+        f"the two-tier ban, the same spelled ending as one of them "
+        f"(HOMEOTELEUTON) or one of their most-predictable answers "
+        f"(MODAL_RHYME; the {len(forbidden)} under FORBIDDEN). No swap on "
+        f"THIS line clears it while the partners stand — the same ban "
+        f"answers the next word too. The GROUP ({labs}) has to move, and "
+        f"that is the loop's tier 2, the joint backtrack (M-105): "
+        f"`revise`/`finish` rewrite every member of the group at once and "
+        f"escalate there after tier 1 fails on this line (M-205) — the CLI "
+        f"at `--backtrack=5`, the connector's `lyric_revise` at "
+        f"`backtrack=1` (one group question per stuck line per round; 0 "
+        f"shuts it). So run the loop: a hand edit of this line alone is "
+        f"answered by the same ban. The other doors: narrow the mandate "
+        f"to fewer members, or "
+        f"move the group to a family certified deeper (`capacity WORD` "
+        f"prints the family's certified chain and which of its words the "
+        f"ban admits against WORD).")
+    return "\n".join(textwrap.wrap(text, width))
 
 
 def schema_route_lines(note, indent="  "):
@@ -4752,6 +4809,15 @@ class Reviser:
                     b.partial_by_call = _pf.by_call
                     # M-204 — carried beside the field it narrowed.
                     b.schema_refused = _pf.schema_refused
+                    # M-246 — the pointer an EMPTY offer owes, set beside
+                    # the offer it explains and nowhere else: empty offer,
+                    # non-empty ban, so the field was asked and the ban is
+                    # what emptied it. `joint_conflict` is the OTHER empty
+                    # (nothing answers, ban or none) and keeps its own
+                    # sentence (M-202).
+                    if not _pf.offered and _pf.forbidden:
+                        b.offer_emptied_by_ban = ban_emptied_note(
+                            calls, _pf.labels, _pf.forbidden)
                 # THE WORD CURRENTLY THERE, ON ITS OWN FIELD SINCE
                 # 2026-08-16. It used to be APPENDED to `forbidden_modal`,
                 # which put two rules in one list under doctrine 9's name —

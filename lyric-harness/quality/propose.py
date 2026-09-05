@@ -755,7 +755,17 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
         # before, because `forbidden_modal` also held the incumbent, so a
         # renderer could not say "every answering word is modal" without
         # implicating a word that is on the list for another reason.
-        if forbidden:
+        if forbidden and getattr(brief, "offer_emptied_by_ban", ""):
+            # THE POINTER (`MISSING.md` M-246): case (c) named its cause
+            # and no move — "the mandate, not the lexicon, is the binding
+            # constraint" — and a writer hand-edited the line three times
+            # into the same ban. The sentence is `revise.ban_emptied_note`'s
+            # and travels on the brief as data (this module imports `re`
+            # and nothing else); it names the group backtrack and the
+            # coordinate that opens it on the connector path.
+            out.extend("  " + ln for ln in
+                       str(brief.offer_emptied_by_ban).split("\n"))
+        elif forbidden:
             out.append("  (no candidate field was offered — and it is NOT "
                        "that nothing answers this line:")
             out.append("  every word that answers its groups is in the "
