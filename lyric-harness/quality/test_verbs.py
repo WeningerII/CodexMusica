@@ -4957,22 +4957,71 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
     """
     print("\n53. `finish` exits 3 on a WHOLE-DRAFT flag ALONE, and stamps it "
           "— the isolated case M-186 owed")
+    # RE-CUT 2026-09-05 (`MISSING.md` M-239). The planner's length envelope
+    # was re-derived on 2026-09-04 from 12..55 to 12..447 total lines, so
+    # every seed was re-dealt and seed 176 now draws ~~13 lines~~ — STRUCK
+    # 2026-09-05: 27 lines in 7 sections (verse 1-4, wordless interlude,
+    # turnaround 5-7, prechorus 8-14, chorus 15-17, prechorus 18-24, chorus
+    # 25-27), with the hook at ~~L3~~ L15 and 15,25;16,26;17,27 returning
+    # verbatim. The hand-written 13-line draft no longer filled the plan and
+    # `finish` REFUSED at exit 2 ("the plan declares 27 line(s) and the draft
+    # carries 13"), which is exactly the reading the first check below is
+    # written to give.
+    #
+    # THE SEED DID NOT MOVE, AND THE SELECTION RULE ONLY HALF SURVIVES. The
+    # fixture chose 176 by the sweep `lines<=14;binding_cap<=1` for a SPARSE
+    # plan. MEASURED over 1..299 on 2026-09-05: `binding_cap<=1` still
+    # accepts 66 seeds, 176 among them — the DENSITY half of the rule is
+    # untouched and still names this plan sparse — but ~~no seed satisfies
+    # the conjunction~~ because the LENGTH half is now unsatisfiable: not one
+    # sparse seed draws 14 lines or fewer under the new envelope, so
+    # `lines<=14;binding_cap<=1` accepts nothing in 1..299. Only the length
+    # half moved, and re-selecting on it would change what this fixture pins.
+    #
+    # SO THE DRAFT WAS RE-CUT, NEVER THE ASSERTION — the docstring's own
+    # instruction ("THE DRAFT IS THE SEED'S ... the fixture is re-cut, never
+    # the assertion"). The 27 lines below fill the new plan: every group in
+    # `1.T1,3.T3,4.T5;5.T3,7.head;8.T1,9.headrime,10.T3,11.T7;13.headrime,
+    # 14.T6;15.T7,16.headrime,17.T2;18.T3,19.headrime,20.T6,21.T4;23,24.T2`
+    # and every end group `1,3,4;5,7;8,9,10,11;13,14;15,16,17;18,19,20,21`
+    # was screened as a SET with the `screen` verb before the words were
+    # written (0 banned on each), so no pair is HOMEOTELEUTON, MODAL_RHYME or
+    # RIME_RICHE, the openers are varied so no ANAPHORA_OVERLOAD stands, and
+    # the only finding left standing is the whole-draft flag this fixture is
+    # about. The CONTROL's title moved with the hook: ~~"the door unlocked"~~
+    # "leave a light on", which L15 carries verbatim — the same test (a title
+    # the hook DOES carry clears the flag), asked of the hook the plan now
+    # names.
     d = tempfile.mkdtemp()
     draft = os.path.join(d, "whole176.txt")
     with open(draft, "w", encoding="utf-8") as fh:
-        fh.write("the kettle hums before the light\n"
-                 "and every window learns my name\n"
-                 "I keep the door unlocked for you\n"
-                 "I keep the door unlocked for you\n"
-                 "the river carries every stone downhill\n"
-                 "and until dawn the cattle sleep\n"
-                 "I found a coin beneath the pier again\n"
-                 "a career of swallows nesting in Cayenne\n"
-                 "one candle burns beside the open door\n"
-                 "the town made every scandal into folklore\n"
-                 "she wrote a letter I could never read\n"
-                 "a sweater keeps the promise like a creed\n"
-                 "the kettle hums, the light comes on\n")
+        fh.write("stone on the sill and a red balloon\n"
+                 "somebody counts the change below the stair\n"
+                 "the names sewn into coats are now immune\n"
+                 "and all we ever loan comes back strewn\n"
+                 "the paper kite still hangs in doubt\n"
+                 "below a sky that will not settle\n"
+                 "night comes early in the drought\n"
+                 "console the child who hides a bruise\n"
+                 "stroll through the hall of borrowed clues\n"
+                 "a single goal these rooms refuse\n"
+                 "wax on the plate and the bowl will ooze\n"
+                 "and nothing in the house is answered\n"
+                 "learn the low note of a wooden flute\n"
+                 "we keep the salt and fern and fruit\n"
+                 "leave a light on for the small rain\n"
+                 "crawl to the wall and find the vein\n"
+                 "the haul of what we cannot feign\n"
+                 "what we denied has turned to braid\n"
+                 "divide the evening into suede\n"
+                 "the whole street stood and sighed and stayed\n"
+                 "the coat we dyed was never weighed\n"
+                 "and morning finds us in the kitchen\n"
+                 "we walked the lane for half a mile\n"
+                 "your style was never mine to keep\n"
+                 "leave a light on for the small rain\n"
+                 "crawl to the wall and find the vein\n"
+                 "the haul of what we cannot feign\n")
     common = ["--seed=176", "--relation=RHYME", "--attempts=0",
               "--backtrack=0", "--max-rounds=1"]
     rc, out, _ = run("finish", draft, "--title=zebra confetti", *common)
@@ -4996,7 +5045,7 @@ def test_finish_exits_3_on_a_whole_draft_flag_alone():
     check("...and the STANDING block prints the flag in the report's own "
           "spelling",
           "WHOLE-DRAFT: FINDING [FLAG] TITLE_NOT_IN_HOOK" in out)
-    rc0, out0, _ = run("finish", draft, "--title=the door unlocked", *common)
+    rc0, out0, _ = run("finish", draft, "--title=leave a light on", *common)
     st0 = re.search(r"\[FINISHED — seed 176 — exit (\d) — [^\]]*\]", out0)
     check("CONTROL: a title the hook carries clears the flag — exit 0, and "
           "the stamp has no WHOLE-DRAFT clause",
