@@ -134,11 +134,15 @@ def test_every_dealt_suite_calls_the_one_idiom():
     for name in dealt:
         path = os.path.join(HERE, f"test_{name.lower()}.py")
         src = open(path, encoding="utf-8").read() if os.path.exists(path) else ""
+        # CODE, not comments: a suite may EXPLAIN the deal in prose beside
+        # the call ("index ≡ k-1 (mod n)"); what it may not do is compute it.
+        code = "\n".join(l for l in src.splitlines()
+                         if not l.lstrip().startswith("#"))
         check(f"test_{name.lower()}.py calls run_sections and spells no "
-              f"`% n ==` residue of its own",
+              f"`% n ==` residue of its own (in code; comments may explain it)",
               "from quality.shard import run_sections" in src
               and f'"TEST_{name}_SHARD"' in src
-              and not re.search(r"% *n *== *k *- *1", src),
+              and not re.search(r"% *n *== *k *- *1", code),
               path)
 
 

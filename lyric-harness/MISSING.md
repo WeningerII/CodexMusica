@@ -21977,6 +21977,30 @@ a site-only diff — the mirror of `artifacts_affected` — deferred because
 the result jobs' skipped-arm semantics ("skipped means gate failed") would
 have to move with it.
 
+**`test_plan` MEASURED PER SECTION, and two static hints were wrong.** Each
+section run once in one process on the loaded box (seconds): seed sweep
+462.8 · form is read 256.7 · the measure 151.2 · disclosure 58.1 · joint
+gate 56.6 · song length 38.2 · placement route 31.5 · delegated rulings
+25.9 · overhang 25.7 · whole line 23.0 · end-rhyme pass 19.9 · relation
+draw 7.0 · GRADE IT 5.4 · determinism 4.4 · writer's declaration 4.3 ·
+rendering 0.6 · bound share 0.5 · refusals 0.0 · legend 0.0 — 1,171.8 s
+beside §3. The subprocess sections are the CHEAP ones (one `plan`
+subprocess is 3.5 s; neither grades a full draft), so the ~10-minute
+section the buffered CI timestamps hinted at was the seed sweep (~680
+`make_plan` calls at 0.43 s each), which `SWEEP_WORKERS` now divides;
+`rendering`'s `range(300)` is a ceiling it leaves at the first qualifying
+shape. The tuple is cut from those numbers and marked provisional. Smoke,
+`TEST_PLAN_SHARD=5/5 TEST_PLAN_WORKERS=4`: 46 PASS / 0 FAIL, exit 0; the
+shard held seeds 4, 9, 14, 19 (one walled, 358 lines), §3 547.5 s
+four-wide under load, 620.3 s for the shard — the round trip is now the
+floor of ITS shard, no longer of the run. Found on the way: §11
+`test_the_section_header_keeps_its_apparatus_inside_the_bracket` is
+defined and was run by NOTHING — absent from the old `__main__` loop as
+well. Run under this entry it PASSES in 40.1 s, so it is ADOPTED into the
+tuple at its measured cost — a section defined and run by nothing is
+doctrine 48's own shape, and leaving it out to keep CI's set unchanged
+would have kept the defect for tidiness.
+
 **TESTED WHILE OPEN** — `quality/test_shard.py` names this entry and pins
 the dealing arithmetic and the idiom's adoption, which is the BUILT half;
 what keeps the entry open is the wall itself, which only a CI run
