@@ -21964,6 +21964,48 @@ GitHub allows 20 concurrent jobs on Free, 40 on Pro, 60 on Team; on Free
 the surplus queues and the wall lands nearer 12 min. Asked of the owner;
 unanswered as this is written.
 
+**MEASURED, the first three runs of the re-cut (2026-09-05, per-job
+timestamps from the Actions API, 44 jobs a run; the projection above is
+kept as written, doctrine 17).** Walls, never summed:
+
+| run | head | event | wall | the job that ended last | queued > 1 min |
+|---|---|---|---:|---|---:|
+| 1387 | M-244 head, PR | pull_request | **17.6 min** | `freshness` | — |
+| 1398 | 2a344b16, PR | pull_request | **17.8 min** | `freshness` 16.8 min, started at 1.1 | 13 jobs, max wait 6.0 min |
+| 1399 | e7600264, main | push | **26.0 min** | `freshness` 16.9 min, **started at 9.1** | 15 jobs, max wait 8.1 min |
+
+**36.8 → 17.6, and the wall is `freshness` now — the 738 s static-API
+rebuild, lever (2) below — not any dealt suite**: on run 1398 the longest
+dealt shard was `plan (1/5)` at 12.0 min, `verify` 13.6, and every other
+job under 11. Against the projection: verbs 8.0 (≈ 8 projected), plan
+shards 6.2–12.0 (6–7; the walled seeds' shard is the long one), suites
+5.1–8.8 (6), revision-loop ≤ 6.4 (5), verify 13.6 (9 — its `npm test`
+runs solo and was not cut), catalog under 5 (3.5).
+
+**THE CAP IS ANSWERED BY THE RUN ITSELF: 20.** 13 of 44 jobs sat queued
+over a minute on a run with nothing else in flight, the longest for 6.0
+min — the surplus over twenty waiting for a slot, as the paragraph above
+priced. **And the SAME head ran twice on the merge**: the stop hook
+fast-forwards the working branch to main after a merge, that push is a
+`push` event on a non-main ref, and `concurrency` groups by REF, so main's
+run 1399 and the branch mirror's run 1400 (byte-identical sha, 44 jobs
+each, started 17 s apart) shared one 20-slot cap. Run 1399's `freshness`
+waited 7.9 min for a runner and the wall went **17.8 → 26.0 min** for the
+run that is main's own verdict. That is a fourth lever and it is cheap: a
+`gate` step that fetches `origin/main` and skips the rest when a non-main
+push's sha IS main's head — deterministic, no API call, and every
+uncertain case falls through to running, the asymmetry the scope step
+already holds. Not taken here; named so the next sitting on this entry
+takes it first, since it is the only lever that moves the merge wall by
+eight minutes without touching a suite.
+
+**The field cost, re-read on an idle box.** The 183 s profile of seed 2
+above was under load; the same seed round-trips in **71.6 s** idle
+(`TEST_PLAN_WORKERS=1`), with the identical 1,558 `field()` calls over 62
+distinct words on ONE `RhymeField` — so the shape holds and the load
+factor is ~2.5×, which is also why "local ≈ 1.55× CI" above is a
+measurement of one suite under one load and not a constant.
+
 **WHAT IS NOT DONE, named.** (1) The floor's field cost above — the real
 floor of any long grade, connector included. (2) `freshness`: the 738 s
 build already runs three workers; for a harness-only diff the scope gate
@@ -22003,8 +22045,11 @@ would have kept the defect for tidiness.
 
 **TESTED WHILE OPEN** — `quality/test_shard.py` names this entry and pins
 the dealing arithmetic and the idiom's adoption, which is the BUILT half;
-what keeps the entry open is the wall itself, which only a CI run
-measures, and the three unbuilt levers above.
+~~what keeps the entry open is the wall itself, which only a CI run
+measures, and the three unbuilt levers above.~~ The wall is MEASURED
+(17.6 / 17.8 / 26.0 above); what keeps the entry open is the four unbuilt
+levers — the field memo, the `freshness` rebuild that is now the wall, the
+`verify` solo, and the merge-mirror dedupe — each its own measurement.
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~298~~
 **299** with this entry (2026-09-05).
