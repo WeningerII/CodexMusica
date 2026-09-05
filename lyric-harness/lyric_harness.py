@@ -10597,6 +10597,13 @@ def main():
                           f"re-proposing the end word that is already on "
                           f"this line is not a revision): "
                           f"{b.forbidden_incumbent}")
+                # M-246: an offer the BAN emptied says so and names the
+                # move — the group backtrack — where it used to print the
+                # FORBIDDEN list and then nothing.
+                for _l in (getattr(b, "offer_emptied_by_ban", "") or
+                           "").split("\n"):
+                    if _l:
+                        print(f"      {_l}")
                 if b.candidates:
                     print(f"      offered: {', '.join(b.candidates[:12])}")
                     # RENDER SITE 6 OF 6. `_print_brief_report` is a SECOND

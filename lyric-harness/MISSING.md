@@ -22111,3 +22111,60 @@ verdict that came from the token judge, which is what the friend read as
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~299~~
 **300** with this entry (2026-09-05).
+
+### M-246 · An offer the two-tier ban emptied printed the FORBIDDEN list and then nothing — the brief now says why it is empty and points at the group backtrack, with the coordinate that opens it on the connector `CLOSED` 2026-09-05 — found in the same connector session as M-245: three hand edits of one line, three bans
+
+**THE FINDING.** The friend's line 9 sat in a five-way group with
+throat/wrote/boat/float already holding it. Its brief printed twenty words
+under FORBIDDEN and then NOTHING: no offer, and no sentence about the
+offer. His reading — *"every candidate the tool offers is already in its
+own forbidden list"* — was what the brief showed. Reproduced here on a
+five-line fixture under `schema:perfect rhyme`: with four partners
+occupying both spelled endings of the -oat family, tier one bans every
+remaining monosyllable and tier two bans the last (`quote`), so the offer
+is empty by construction and `joint_conflict` is False, because words DO
+answer — they are banned. Three renderers handled that state three ways:
+`Brief.__str__` and `lyric_harness._print_brief_report` printed the ban
+and stopped; `quality/propose.py`'s case (c) said *"the mandate, not the
+lexicon, is the binding constraint here"* — true, and naming no move. He
+edited the line by hand three times and was banned three times, because a
+swap on ONE line cannot clear a state the partners produce.
+
+**THE MOVE ALREADY EXISTED.** The loop's tier 2, the joint backtrack
+(M-105), rewrites every member of the group at once, and since M-205 the
+loop escalates there after tier 1 fails on a line — under the CLI's
+default `--backtrack=5`. On the connector path `lyric_revise` defaults
+`backtrack` to 0 (M-236's budget), so the door is shut unless the caller
+opens it, and nothing told the caller which coordinate that was.
+
+**THE REPAIR.** `Brief.offer_emptied_by_ban`, a printable sentence set
+where the offer is copied out of the primary slot's field and nowhere
+else, non-empty exactly when the offer is empty and the ban is not. ONE
+definition, `revise.ban_emptied_note`, carried as data for the reason
+`schema_route_note` is (`propose.py` imports `re` and nothing else). It
+names the partners, both tiers of the ban and the count under FORBIDDEN,
+says no swap on this line clears it while the partners stand, names the
+GROUP by label, tier 2 / the joint backtrack (M-105) and the escalation
+(M-205), the CLI default and the connector's `backtrack=0`, and the two
+other doors — a narrower mandate, or a family certified deeper, which
+`capacity WORD` prints together with the words the ban admits. All three
+renderers print it; `propose.py` prints it in place of the old case-(c)
+sentence and keeps that sentence for a brief that has not grown the field.
+An offer that is not empty owes nothing, and `joint_conflict` (nothing
+answers, ban or none) keeps its own M-202 sentence.
+
+**PINNED.** `quality/test_revise.py` §57 on the fixture: L2's offer empty,
+ban non-empty, field computed, no joint conflict; the pointer carries every
+named part; `Brief.__str__` and `render_line` print it; L3 (whose offer
+holds `quote`) owes nothing, and the same five lines under a BARE group keep a non-empty offer on every line and owe nothing — the declared schema is the coordinate that emptied it; and the sentence
+on the brief is `ban_emptied_note`'s byte for byte. `quality/test_verbs.py`
+§55 runs the CLI `brief` on the same fixture and reads the pointer under
+L2 and not under L3. `quality/test_propose.py`'s stand-in grew the field
+under the §7c guard that exists for exactly this (132 PASS). The friend's
+own line 9, re-briefed against its plan, now ends: *"The GROUP (G) has to
+move, and that is the loop's tier 2, the joint backtrack (M-105) … the
+connector's `lyric_revise` defaults to `backtrack=0`, so pass `backtrack`
+of 1 or more there."*
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~300~~
+**301** with this entry (2026-09-05).

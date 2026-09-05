@@ -5266,6 +5266,39 @@ def test_the_batch_door_asks_independent_lines_together():
           f"rc {rc4} {p4['kind']} {p4['record']}")
 
 
+def test_brief_prints_the_group_backtrack_pointer():
+    """§55 (`MISSING.md` M-246): the CLI `brief` — the renderer a person
+    runs — prints the pointer an offer emptied by the ban owes, where it
+    printed the FORBIDDEN list and then nothing."""
+    print("\n55. M-246 — `brief` prints the group-backtrack pointer under an "
+          "offer the ban emptied")
+    d = tempfile.mkdtemp()
+    q = os.path.join(d, "oat.txt")
+    with open(q, "w") as fh:
+        fh.write("the cold went down my throat\n"
+                 "he signed the time on a note\n"
+                 "everything sinks that he wrote\n"
+                 "a light left on in the boat\n"
+                 "under the lid a white float\n")
+    rc, out, err = run("brief", q, "--groups=1,2,3,4,5",
+                       "--relation=schema:perfect rhyme")
+    # The sentence is wrapped at 76 columns; phrases are read on the
+    # whitespace-normalised text, the per-line slices below on the raw.
+    flat = " ".join(out.split())
+    check("`brief` runs (notes only, so exit 0) and prints the pointer "
+          "under L2: the joint backtrack, tier 2, and the connector's "
+          "`backtrack` coordinate",
+          rc == 0 and "joint backtrack" in flat and "tier 2" in flat
+          and "backtrack=0" in flat,
+          f"rc {rc}; {err[-300:] if rc else out[-500:]}")
+    check("...and NOT under L3, whose offer is not empty",
+          "L3:" in out and "offered: quote" in out.split("L3:")[1]
+          .split("L4:")[0]
+          and "joint backtrack" not in
+          " ".join(out.split("L3:")[1].split("L4:")[0].split()),
+          out.split("L3:")[1].split("L4:")[0][:300] if "L3:" in out else out[-300:])
+
+
 if __name__ == "__main__":
     # COST-ORDERED, SLOWEST FIRST — 2026-09-05 (`MISSING.md` M-244), from a
     # full local run of all 53 sections (3,782.9 s): the seed sweep 533.5 s,
@@ -5329,6 +5362,7 @@ if __name__ == "__main__":
         test_every_workflow_file_is_parseable_yaml,
         test_the_collision_cut_is_one_constant_and_cannot_drift,
         test_every_test_file_is_accounted_for_by_ci,
+        test_brief_prints_the_group_backtrack_pointer,
     )
     # SHARDING (2026-08-18) AND THE PER-SECTION PROFILE (2026-09-01) LIVED
     # INLINE HERE and are ONE idiom in `quality/shard.py` since 2026-09-05
