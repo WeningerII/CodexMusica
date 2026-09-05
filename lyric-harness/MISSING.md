@@ -20245,6 +20245,15 @@ envelope stands and the cheapest non-breaking things shipped:
    different reason: `MAX_MANDATE_CHARS` (65,536) holds a recovered cover
    of about 80 lines (`sqrt(65536 / 10009) * 32`), and `mcp/lyric_tools.js`
    says so where `MAX_LINES` went 64 → 447.
+4. **The connector suite met the wall the same night.** `mcp/test.mjs`'s
+   live grade check takes the first candidate seed whose plan declares a
+   hook; that was seed 55, whose plan is 360 lines now, and `lyric_grade`
+   came back exit 2 where the stamp regex allows 0 or 3. The check now
+   also requires the candidate to plan UNDER the wall (the report's own
+   line count against 100, the largest round figure under the measured
+   bracket), because it is about the two-block contract and not about
+   the wall. That the tool surface hands out plans the grade refuses is
+   the point of this entry, not a defect in the check.
 
 **THE COMPLETE ANSWER, NOT BUILT:** a schema door that considers a pair
 only within a bounded LINE DISTANCE, which makes the stream linear in the

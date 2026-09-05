@@ -5010,6 +5010,15 @@ try {
     // MEASURED over 240 seeds: 59.6% of plans declared a hook before the
     // re-derivation and 56.2% after, so this is a coin flip either way and
     // was never a property of 55.
+    // AND UNDER THE SCHEMA DOOR'S WALL (M-240, 2026-09-05). Since M-239 the
+    // planner's envelope is 12..447 lines and seed 55's plan is 360 of
+    // them; the 77-schema default door refuses a draft that long at its
+    // pair guard (measured: 108 lines grade, 144 refuse), so the grade below
+    // came back exit 2 and the [GRADED … exit 0|3] stamp could not match.
+    // The candidate must therefore ALSO plan under the wall — read off the
+    // report's own line count, against 100, the largest round figure under
+    // the measured bracket — because this check is about the two-block
+    // contract and the stamp, not about the wall, which has its own entry.
     let plannedRes = null;
     let planSeed = null;
     for (const candidate of [55, 1, 4, 5, 11, 16, 17, 19]) {
@@ -5019,7 +5028,9 @@ try {
         LIVE_OPTS
       );
       assert.ok(!tryRes.isError, `lyric_plan answered without isError (seed ${candidate})`);
-      if (/is the hook/.test(tryRes.content[0].text)) {
+      const declared = /(\d+) lines/.exec(tryRes.content[0].text);
+      const underWall = declared && Number(declared[1]) <= 100;
+      if (/is the hook/.test(tryRes.content[0].text) && underWall) {
         plannedRes = tryRes;
         planSeed = candidate;
         break;
