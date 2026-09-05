@@ -65,6 +65,19 @@ UNDECIDABLE makes the tree look worse and this module look more necessary:
                         local (`rsev` takes "note" on one branch and "flag" on
                         another; the honest answer is that flag is REACHABLE),
                         and REFUSES rather than guessing on any other shape.
+  A TERNARY             ADDED 2026-09-05 (`MISSING.md` M-239). The
+                        length-curve adoption made `CLICHE_PAIR`'s severity
+                        depend on which rows carry a rate at this length, so
+                        `floor.py` now writes `csev = sev("flag") if
+                        (cliche_rows or stanza_exact) else "note"` -- an
+                        `IfExp`, which this resolver did not read, so the
+                        census filed a DECIDED code as undecidable and the
+                        gated count fell 24 -> 23. That is the census failing
+                        in its own flattering direction, the exact defect its
+                        `FitFinding` paragraph below records. A ternary whose
+                        BOTH arms are readable has a well-defined ceiling and
+                        resolving it is not a guess; one unreadable arm still
+                        voids the answer, as it does for a local.
 
 AND A DISCLOSED-ONLY CODE IS NOT AUTOMATICALLY A DEFECT. Doctrine 6 is the
 counterweight and it is load-bearing: a CONVENTION a writer may depart from
@@ -164,19 +177,39 @@ CEILING_CALLS = ("sev",)
 def _ceiling_severity(expr, scope):
     """-> the highest severity an expression can reach, or None if unreadable.
 
-    Resolves exactly two shapes and REFUSES on anything else, because a
-    resolver that guesses is worse than one that declines (doctrine 20):
+    Resolves exactly ~~two~~ THREE shapes (the third added 2026-09-05,
+    M-239) and REFUSES on anything else, because a resolver that guesses is
+    worse than one that declines (doctrine 20):
 
       `sev("flag")`   a wrapper whose literal argument is the ceiling.
       a bare NAME     a local assigned in the same function; every assignment
                       to it is collected and the strongest wins. `floor.py`'s
                       `rsev` takes "note" on one branch and "flag" on another,
                       and the honest answer is that "flag" is REACHABLE.
+      a TERNARY       `a if cond else b`, resolved as the strongest of its two
+                      arms. NOT a guess: both arms are read by this same
+                      function and one unreadable arm voids the answer, so the
+                      shape is decided or it is refused, never estimated. The
+                      condition is deliberately NOT evaluated -- this census
+                      asks what a code CAN reach, not what it reaches today.
     """
     if isinstance(expr, ast.Call) and isinstance(expr.func, ast.Name) \
             and expr.func.id in CEILING_CALLS and expr.args \
             and isinstance(expr.args[0], ast.Constant):
         return expr.args[0].value
+    if isinstance(expr, ast.IfExp):
+        # BOTH ARMS OR NOTHING. `sev("flag") if rows else "note"` reaches
+        # "flag"; an arm this function cannot read makes the whole expression
+        # unreadable, the same rule the local branch below applies.
+        arms = []
+        for arm in (expr.body, expr.orelse):
+            got = _ceiling_severity(arm, scope)
+            if got is None and isinstance(arm, ast.Constant):
+                got = arm.value
+            if got is None:
+                return None
+            arms.append(got)
+        return "flag" if "flag" in arms else sorted(arms)[0]
     if isinstance(expr, ast.Name):
         reach = set()
         for a in scope:

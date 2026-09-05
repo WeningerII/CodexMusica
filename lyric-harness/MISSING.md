@@ -20252,6 +20252,19 @@ Repairing the draw — a section COUNT drawn first, then a pattern of that
 many cells, uniform over each set — is the same derivation-by-dimension
 move M-81 made for meters, and is this entry's other half.
 
+**TESTED WHILE OPEN** (2026-09-05, and the entry was read before this was
+written). `quality/test_verbs.py` §40 names M-241 and pins the SECOND HALF
+above rather than guarding a fix. Its claim is that the sweep verb RUNS and
+comes back with seeds, so its predicate had to be one the envelope can
+satisfy: the ladder measured here — `lines<=60` alone 17.3%, adding
+`sections<=6` 1.3%, adding `lines_per_section>=2` 0.3%, the old
+six-predicate conjunction 0 of 1,600 — is what chose it, and the section
+that carries it states the rarity as the reason. So the suite MEASURES the
+bias this entry records and would pass unchanged on a tree where the draw
+had never been examined. Both open halves stand: no derivation sits behind
+a song's length (it is a declaration, by the owner's ruling), and the
+section-count draw still favours many thin sections at every length.
+
 **WHAT THIS DOES NOT CHANGE:** a writer who declares `--lines`, a form, or
 a sweep predicate gets exactly that; the graders grade any length the
 floor covers. The cost is only to the writer who says nothing.
@@ -20354,6 +20367,18 @@ envelope stands and the cheapest non-breaking things shipped:
    against **98.8%** before, so a search that used to take one call now
    takes several. `mcp/test.mjs` reads the ceiling out of the connector
    now instead of keeping a second copy of it.
+
+**TESTED WHILE OPEN** (2026-09-05, and the entry was read before this was
+written). `quality/test_plan.py`'s round trip names M-240 and PINS THE
+WALL rather than guarding a fix: the wall is a FOURTH count beside judged,
+slot-refused and bad — the check asserts that a seed past the pair guard is
+counted and named `(seed, total_lines)`, that at least one seed still
+graded, and that fewer than twenty of twenty are walled. Every one of those
+is true WITH the wall standing and would be true of a tree that had never
+tried to remove it; the helper reproduces the refusal on seed 13 at 144
+lines. What this entry says is missing is the door that SCALES, and that is
+unbuilt: nothing in the suite asserts a 144-line draft grades, because it
+does not. The disclosure is tested; the gap is open.
 
 **THE COMPLETE ANSWER, NOT BUILT:** a schema door that considers a pair
 only within a bounded LINE DISTANCE, which makes the stream linear in the
