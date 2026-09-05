@@ -21756,3 +21756,9 @@ wrote before that day (a dated close, a status with an aside, no token)
 and not the fourth. And the two-reader split was invisible because the two
 instruments print in different places — one to stdout, one into a table —
 and were never put side by side until a person asked for one number.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~296~~ **297**
+with this entry (2026-09-05) — and the first push of this entry went out
+WITHOUT the repin, so CI's `record` job (adversary 8) turned red on
+`committed 296, measured 297`: the register's own gate catching the
+register's own entry, as designed.
