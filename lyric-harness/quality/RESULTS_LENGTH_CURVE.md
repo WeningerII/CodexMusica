@@ -2,9 +2,33 @@
 
 > Pre-registration: `quality/LENGTH_CURVE_PREREGISTRATION.md` (2026-09-04,
 > before any number below was read). Instrument:
-> `python3 quality/length_curve_calibration.py compute --without-predictability --out rows.tsv`
+> ~~`python3 quality/length_curve_calibration.py compute --without-predictability --out rows.tsv`
 > (85 CPU-s) then `… fit rows.tsv --seeds 200 --checks mattr,fwr,anaphora,cv`
-> (about 25 min on a shared core). Every figure below is the instrument's
+> (about 25 min on a shared core).~~ — those are STAGE A alone, and §§8–9
+> rest on STAGE B, which this blockquote never named; repinned 2026-09-05
+> (`MISSING.md` M-239), the same repair two sibling sentences (§1, §7)
+> already carry. BOTH stages, in the order they ran:
+>
+> * **Stage A** — the four cheap checks (§§2–7):
+>   `python3 quality/length_curve_calibration.py compute --without-predictability --out rowsA.tsv`
+>   (85 CPU-s, 85 wall-s, 1,297 files, 8,667 rows — `stageA.log`), then
+>   `… fit rowsA.tsv --seeds 200 --checks mattr,fwr,anaphora,cv`
+>   (about 25 min on a shared core — `fitA_200.log`). `fitA_200b.log` is
+>   that same fit re-run after the E2 blocks were added to the instrument;
+>   its print is identical to `fitA_200.log` through the §5.4 table and
+>   adds the held-out E2 and per-bin union blocks §6 quotes.
+> * **Stage B** — predictability (§§8–9), cold, in four shards:
+>   `… compute --shard i/4 --out rowsB_i.tsv --cache-path cache_i.tsv` for
+>   i = 1…4 (`shardB_1.log`…`shardB_4.log`, 20,323 CPU-s together), then
+>   `… merge-cache cache_1.tsv cache_2.tsv cache_3.tsv cache_4.tsv --into ~/.cache/lyric-harness/song_predictability_v1.tsv`
+>   (8,663 entries — `merge_cache.log`), then
+>   `… fit rowsB_1.tsv rowsB_2.tsv rowsB_3.tsv rowsB_4.tsv --seeds 200`
+>   over all five checks (`fitB_200.log`), and the declared re-run
+>   `… fit rowsB_1.tsv rowsB_2.tsv rowsB_3.tsv rowsB_4.tsv --seeds 200 --picks predictability=CK`
+>   (`fitB_ck.log`), which is where §9's shipped knot-table numbers come
+>   from.
+>
+> Every figure below is the instrument's
 > own print over the corpus at `e8491bf4`: **8,667 items, 1,297 files,
 > 4–3,245 tokens, median 154**. `MISSING.md` M-239 is the entry.
 
@@ -206,6 +230,21 @@ Per bin inside each band (the instrument's §5.4 rows) — TWO KINDS OF RATE,
 which the instrument's header now says and the first banking of this
 paragraph did not: the band column is the shipped constant IN-SAMPLE over
 the bin's 400 items, the curve column the HELD-OUT median over 200 seeds.
+
+**The BANKED LOGS carry the old header and cannot be rewritten** (noted
+2026-09-05, M-239). Every `fit` log of this cell prints, above that table,
+`SHIPPED BANDS BESIDE THE PICK (§5.4): held-out median flag rate %% on bins
+inside a band` — `fitA_200.log:209`, `fitA_200b.log:209`,
+`fitB_200.log:241`, `fitB_ck.log:242` — which calls BOTH columns held-out
+and is wrong about the band column. It should have said what the instrument
+prints now: *the band's shipped constant IN-SAMPLE over the bin's items,
+beside the picked curve's HELD-OUT median over the seeds*. Nothing computed
+moved; only the label. The arithmetic tells the two columns apart in the
+banked prints: measured 2026-09-05 over `fitA_200.log`, **all 52 band cells
+are multiples of 0.25** — 1/400, the whole bin's in-sample denominator —
+while only **3 of the 52 curve cells** are, the curve column being a median
+over 200 seeds of half-bin denominators. Read those log lines under this
+correction.
 Read as a cross-check and not as a comparison of like with like: inside
 `song` the two sit within 2.1 points on every check in every bin (the
 largest gap is anaphora at bin 18, 3.25 → 5.32); inside `short` the
@@ -285,8 +324,20 @@ coefficient byte for byte.
 
 ## 9. Stage B results — predictability, and a recorded DEVIATION from the rule
 
-**The reference curve says the statistic has no resolution under ~169
-tokens.** Its 95th percentile per bin: **1.0000 in every bin from 4 to
+~~**The reference curve says the statistic has no resolution under ~169
+tokens.**~~ **The reference curve's 95th percentile sits at the ceiling
+through bin 11, whose upper EDGE is 169 tokens; the boundary the SHIPPED
+row enforces is 163** — repinned 2026-09-05 (M-239, the length-curve
+adoption), because ~169 is a bin edge and the threshold's own edge is a
+knot. Measured against the shipped `lyric` row on 2026-09-05,
+`Profile.threshold('predictable_pair_fraction_max', N)` returns
+**1.0000 at N = 162 and at N = 163, and 0.9956577343606186 at N = 164**
+(the last 1.0000 knot is at ln N = 5.09375, N = 163). §9's DEVIATION
+paragraph below already states that boundary — **163 tokens exactly** —
+and is the reading to carry; `floor.py`'s row and the preregistration's
+2026-09-04 amendment both say 163 as well. The ~169 above is the reference
+curve's LAST CEILING BIN, not the shipped table's silence. Its 95th
+percentile per bin: **1.0000 in every bin from 4 to
 169 tokens** (bins 0–11), then 0.9375, 0.9288, 0.9337, 0.9375, 0.9379,
 0.9091, 0.9091, 0.9050, 0.8636, 0.8368 (bins 12–21, medians 178 → 902
 tokens). A one- or two-pair song makes the fraction 0/1-valued and
@@ -300,10 +351,23 @@ CK 22/22. C0 passes only because nothing can exceed 1.0 with `>`: its
 held-out rate is **0.00% [0.00–0.00] in every bin**, marked `u`
 (under-resolved) through bin 11 and `<` (under the lower bound) from bin
 12 to 21 — where the data DOES resolve and a working check fires. That
-is the check that cannot fail (doctrine 48), and the preregistration's
+is the check that cannot fail (doctrine 48), and ~~the preregistration's
 "under-resolved counts as pass" clause (§4) let a ceiling constant pass
 everywhere. The clause was written for a bin, not for a whole-corpus
-constant, and this cell is the record of the hole.
+constant, and this cell is the record of the hole.~~ — **TWO of §4's
+clauses let it pass, not one**; repinned 2026-09-05 (M-239). "Under-resolved"
+covers only bins 0–11, where the BIN's own percentile sits at the
+statistic's ceiling (`u`); at bins 12–21 the same 0.00% passes under the
+OTHER clause, "the curve is conservative there" (`<`), which reads any rate
+under L_k as caution. The instrument keys both marks to the BIN and never to
+the candidate — in `quality/length_curve_calibration.py`,
+`u_frac = unres[f][k] / max(1, done)` is indexed by check and bin with no
+model term, and the cell mark is `mark = "u" if u_frac >= 0.5 else "<"` —
+so a curve that cannot fire at ANY length is marked *conservative* at
+exactly the bins where the data does resolve. Neither clause was written for
+a whole-corpus constant at the ceiling, and this cell is the record of the
+hole; the next paragraph spells the mechanism out in full and is the one to
+read.
 
 **HOW C0 PASSED, exactly, because the first banking of this paragraph
 blamed one clause and it was two.** §4 of the preregistration passes a bin

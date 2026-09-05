@@ -4,7 +4,12 @@
     python3 quality/length_curve_calibration.py compute --out rows.tsv \\
         [--without-predictability] [--shard I/K] [--cache-path P]
     python3 quality/length_curve_calibration.py fit rows.tsv [more.tsv ...] \\
-        [--seeds 200] [--checks mattr,fwr,anaphora,cv,predictability]
+        [--seeds 200] [--checks mattr,fwr,anaphora,cv,predictability] \\
+        [--picks check=MODEL,...]   # a DECLARED pick for the in-sample
+                                    # sections, printed as an override; the
+                                    # shipped predictability knot table was
+                                    # banked this way (--picks
+                                    # predictability=CK, RESULTS §9)
     python3 quality/length_curve_calibration.py merge-cache shard1.tsv ... --into P
     python3 quality/length_curve_calibration.py check [--rows rows.tsv ...]
                                 # THE DRIFT DETECTOR: re-fit the shipped

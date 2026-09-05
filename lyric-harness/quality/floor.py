@@ -1764,13 +1764,77 @@ class SlopFloor:
             """An extrapolated measurement may not carry a rejection."""
             return default if exact else "note"
 
-        def at_len(key):
-            """The evaluated-threshold clause for a curve profile — EMPTY when
-            the declaration overrides the key, because then the number the
-            check applied did not come from the curve (doctrine 1)."""
-            if prof is None or getattr(d, key, None) is not None:
-                return ""
-            return prof.at_length(key, n_tok)
+        def declared(key):
+            """Is the number this check will apply the CALLER'S rather than
+            the profile's? One definition, read by both clauses below, so
+            they cannot disagree about which cut is whose (doctrine 1)."""
+            return getattr(d, key, None) is not None
+
+        def source(key, side):
+            """WHERE THE NUMBER THE CHECK APPLIED CAME FROM — the whole
+            parenthetical, derived here so no finding retypes it.
+
+            ~~`at_len(key)` returned ', evaluated at N=... from <formula>'
+            for a curve profile and EMPTY when the declaration overrides the
+            key, because then the number the check applied did not come from
+            the curve (doctrine 1).~~ SUPERSEDED 2026-09-05 (`MISSING.md`
+            M-238, M-241): every word of that was true and it was HALF the
+            sentence. Suppressing the curve clause left `human 5th
+            percentile, lyric profile` standing beside the CALLER'S number,
+            so an override still read as the corpus's percentile — and
+            suppressing the clause made it read MORE like a fixed-percentile
+            profile's, not less. Measured 2026-09-05 on a 552-token sheet:
+            `MATTR 0.220 < 0.9111 (human 5th percentile, lyric profile)`
+            under `FloorDeclaration(mattr_min=0.9111)`, where 0.9111 is a
+            percentile of nothing.
+
+            AND ON THE TWO STANZA PROFILES IT SUPPRESSED NOTHING AT ALL:
+            `section` and `sonnet` carry no curves, so `at_length` was
+            already '' and the overridden string was BYTE-IDENTICAL to the
+            measured one apart from the digits. The sharpest case is in this
+            repository's own suite — `test_floor.py` §11 declares
+            `predictable_pair_fraction_max=0.8333` under `section`, a
+            profile that does not declare that key at all, and the finding
+            printed `> 0.8333 (human 95th percentile, section profile)` for
+            a percentile that profile never took.
+            """
+            if declared(key):
+                return ("DECLARED by the caller: FloorDeclaration.%s, which "
+                        "overrides what the %s profile would have applied "
+                        "here — it is not a percentile of this or any corpus"
+                        % (key, prof.name))
+            return "human %s, %s profile%s" % (
+                side, prof.name, prof.at_length(key, n_tok))
+
+        def rests_on(key, ev_key):
+            """WHAT THE APPLIED CUT HAS BEEN PRICED AT — the profile's own
+            derived sentence, or a withdrawal when the caller moved the cut.
+
+            SEPARATE FROM `source` ON PURPOSE (doctrine 20). Where a number
+            came from and what it has been measured to cost are two
+            different statements, and collapsing them into one clause would
+            let a reader who needed only one of them take the other.
+
+            `Profile.evidence_for` reports an AUC against a generated class,
+            or a held-out false-positive rate on human text. BOTH WERE
+            MEASURED AT THE PROFILE'S OWN THRESHOLD and both move with the
+            cut: they are properties of a number, not of the membership
+            test. Printed beside an override they price the wrong cut, and
+            in the direction that flatters it — `AUC 0.776 against the
+            generated class at this length` sat beside a caller's 0.9111
+            under `section` until 2026-09-05, and at 0.9111 the profile's
+            4.80% held-out rate is not within reach of the truth. Nothing
+            measured is deleted; it is refused for a cut it was not taken
+            at (doctrine 22).
+            """
+            if declared(key):
+                return ("the %s profile's AUC and held-out false-positive "
+                        "rate are WITHDRAWN here rather than quoted: both "
+                        "were measured at the threshold this declaration "
+                        "replaced, so neither prices the cut that was "
+                        "actually applied, and no rate for it exists"
+                        % prof.name)
+            return prof.evidence_for(ev_key)
 
         # THE LENGTH GATE (2026-08-23). A length nothing was calibrated at is
         # a question this layer CANNOT ANSWER, and the honest spelling of that
@@ -1883,8 +1947,9 @@ class SlopFloor:
             out.append(Finding(
                 "LEXICAL_MONOTONY", sev("flag"),
                 "vocabulary repeats more than human verse did in calibration",
-                f"{stat} {m:.3f} < {thr:.4f} (human 5th percentile, "
-                f"{prof.name} profile{at_len('mattr_min')}); {prof.evidence_for('mattr')}. "
+                f"{stat} {m:.3f} < {thr:.4f} "
+                f"({source('mattr_min', '5th percentile')}); "
+                f"{rests_on('mattr_min', 'mattr')}. "
                 + (f"THE STATISTIC HERE IS PLAIN TTR, NOT MATTR: {n_tok} "
                    f"tokens does not exceed the declared "
                    f"{d.mattr_window}-token window, so the moving average "
@@ -1905,9 +1970,10 @@ class SlopFloor:
             out.append(Finding(
                 "FUNCTION_WORD_HEAVY", sev("flag"),
                 "a high share of the text is closed-class filler",
-                f"function-word ratio {f:.3f} > {thr:.4f} (human 95th "
-                f"percentile, {prof.name} profile{at_len('function_word_ratio_max')}); "
-                f"{prof.evidence_for('function_word_ratio')}. Null within "
+                f"function-word ratio {f:.3f} > {thr:.4f} "
+                f"({source('function_word_ratio_max', '95th percentile')}); "
+                f"{rests_on('function_word_ratio_max', 'function_word_ratio')}. "
+                f"Null within "
                 f"Shakespeare (0.536), so this "
                 f"is a register signal with no within-tradition support. "
                 f"Presumes a clean function/content split and does not "
@@ -1923,9 +1989,9 @@ class SlopFloor:
                 "ANAPHORA_OVERLOAD", sev("flag"),
                 f"{int(a * len(lines))} of {len(lines)} lines open with the "
                 f"same word",
-                f"opening {word!r} at {a:.0%} of lines > {thr:.2%} (human 95th "
-                f"percentile, {prof.name} profile{at_len('anaphora_max')}); "
-                f"{prof.evidence_for('anaphora')}. "
+                f"opening {word!r} at {a:.0%} of lines > {thr:.2%} "
+                f"({source('anaphora_max', '95th percentile')}); "
+                f"{rests_on('anaphora_max', 'anaphora')}. "
                 f"POST-HOC: this check was not pre-registered, so it needs its "
                 f"own replication before it is trusted"
                 + (". PERIOD CAUTION WITHDRAWN 2026-08-20 (doctrine 17): "
@@ -1962,12 +2028,14 @@ class SlopFloor:
             out.append(Finding(
                 "UNIFORM_LINE_LENGTH", "note",
                 "every line is close to the same length",
-                f"line-length CV {cv:.3f} < {thr:.4f} (human 5th percentile, "
-                f"{prof.name} profile{at_len('line_length_cv_min')}). NOT slop evidence: this check was "
+                f"line-length CV {cv:.3f} < {thr:.4f} "
+                f"({source('line_length_cv_min', '5th percentile')}). "
+                f"NOT slop evidence: this check was "
                 f"built expecting metronomic lines to be a generated-text tell "
                 f"and the measurement came out BACKWARDS — Shakespeare is more "
                 f"uniform than the model. "
-                f"{prof.evidence_for('line_length_cv')}. In a fixed form "
+                f"{rests_on('line_length_cv_min', 'line_length_cv')}. "
+                f"In a fixed form "
                 f"uniformity is the form. Retained only as 'outside the human "
                 f"range', and meaningful, if at all, in free verse"))
 
@@ -2009,9 +2077,10 @@ class SlopFloor:
                     f"{len(obvious)} of {len(preds)} rhymes are near the top "
                     f"of their own candidate field",
                     f"{frac:.0%} of pairs above {d.predictability_max:.2f} "
-                    f"predictability > {thr:.4f} (human 95th percentile, "
-                    f"{prof.name} profile{at_len('predictable_pair_fraction_max')}); "
-                    f"{prof.evidence_for('predictability')}. A NOTE, and it "
+                    f"predictability > {thr:.4f} "
+                    f"({source('predictable_pair_fraction_max', '95th percentile')}); "
+                    f"{rests_on('predictable_pair_fraction_max', 'predictability')}. "
+                    f"A NOTE, and it "
                     f"may not reject: a rhyme "
                     f"at the top of its own candidate field is a decision "
                     f"handed back, not a verdict, because a floor may not "
