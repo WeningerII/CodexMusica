@@ -4048,11 +4048,32 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
           and len([x for x in out.split("ACCEPTED (in seed order")[1]
                    .splitlines()[1].split(",") if x.strip()]) == _n,
           f"{_n} accepted :: {_acc[:1]}")
+    # REPINNED 2026-09-05 (`MISSING.md` M-239/M-241). ~~out.count("WANT ")
+    # == 6 and "the SMALLEST sung section" in out~~ — the 6 was the old
+    # six-predicate WANT's length and the gloss belonged to
+    # `lines_per_section>=2`, which the repin above dropped because the
+    # conjunction accepted 0 of 1,600 seeds under the derived envelope. A
+    # literal count ties this check to HOW MANY predicates the declaration
+    # happens to carry, when the claim is a CORRESPONDENCE: one echoed line
+    # per declared predicate, each carrying its coordinate's gloss. Derived
+    # from WANT itself now, so changing the declaration cannot make it stale
+    # or vacuous — and the gloss half is asserted per line rather than by
+    # one remembered phrase.
+    _preds = WANT.split("=", 1)[1].split(";")
+    _echoed = [l.strip() for l in out.splitlines() if l.strip().startswith("WANT ")]
     check("...and it ECHOES every predicate with the coordinate's own gloss, "
           "so a caller can see which declaration was applied rather than "
-          "inferring it from the answer",
-          out.count("WANT ") == 6 and "the SMALLEST sung section" in out,
-          f"{out.count('WANT ')} predicates echoed")
+          "inferring it from the answer — one echoed line per DECLARED "
+          "predicate, counted off the declaration and not off a remembered "
+          "integer",
+          len(_echoed) == len(_preds) == 3
+          and all(any(e.startswith("WANT " + pr) for e in _echoed)
+                  for pr in _preds)
+          and all(" — " in e and len(e.split(" — ", 1)[1].strip()) > 20
+                  for e in _echoed)
+          and "the song's total line count" in out,
+          f"{len(_echoed)} echoed for {len(_preds)} declared :: "
+          f"{[e[:46] for e in _echoed]}")
     check("...and prints THREE COUNTS, never summed (doctrine 79)",
           "swept 1600" in out and "planned" in out
           and "REFUSED by the planner" in out and "accepted" in out,
@@ -4520,8 +4541,17 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
     # 6 (the render exists exactly past a stop condition, stamped with the
     # exit code the process actually returns).
     #
-    # COST DISCIPLINE: seed 16 is the smallest shape in 1..80 (23 lines —
-    # found by `plan --sweep=1-80 --want=lines<=23`, re-derivable), the
+    # COST DISCIPLINE: ~~seed 16 is the smallest shape in 1..80 (23 lines —
+    # found by `plan --sweep=1-80 --want=lines<=23`, re-derivable)~~ —
+    # REPINNED 2026-09-05 (`MISSING.md` M-239/M-240). The selection RULE is
+    # unchanged and is what was re-run: the envelope moved to 12..447, so
+    # seed 16 now draws 197 lines, and a 197-line draft is past the schema
+    # door's pair guard — `finish` came back REFUSED at exit 2 and the four
+    # stamp checks below had no render to read. Re-derived with the
+    # fixture's own sweep, `plan --sweep=1-80 --want=lines<=18`: ONE seed
+    # accepts, 31, at 18 lines / 7 sections, the smallest shape in 1..80
+    # (next is 68 at 30 lines). Smaller than the old fixture and far under
+    # the wall, so this section still costs about one grade. The
     # suspension run stops at the loop's FIRST question, and the
     # convergence run declares a zero budget (`--attempts=0 --backtrack=0`)
     # so it reaches NO_PROGRESS at roughly ONE grade's price — an honest
@@ -4534,7 +4564,7 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
     # The draft is built from the PLAN'S OWN declared line count, never a
     # remembered one — the same rule the connector's two-block check
     # follows, and the reason this section survives a planner re-derivation.
-    rc, out, _ = run("plan", "--seed=16", expect_rc=0)
+    rc, out, _ = run("plan", "--seed=31", expect_rc=0)
     m = re.search(r"-> (\d+) line\(s\)", out)
     check("the plan declares its own line count for the fixture to honor",
           rc == 0 and m is not None, f"rc {rc}")
@@ -4549,18 +4579,18 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
     rc, out, _ = run("finish", draft, expect_rc=2)
     check("no --seed REFUSES naming the flag — the plan is the mandate's "
           "one statement", rc == 2 and "--seed" in out, f"rc {rc}")
-    rc, out, _ = run("finish", draft, "--seed=16", "--blueprint=x.json",
+    rc, out, _ = run("finish", draft, "--seed=31", "--blueprint=x.json",
                      expect_rc=2)
     check("--blueprint on finish REFUSES — a second statement of the meter "
           "layer beside the plan's own",
           rc == 2 and "--blueprint" in out, f"rc {rc}")
-    rc, out, _ = run("finish", draft, "AABB", "--seed=16", expect_rc=2)
+    rc, out, _ = run("finish", draft, "AABB", "--seed=31", expect_rc=2)
     check("a positional mandate REFUSES — two statements of one cover",
           rc == 2 and "mandate" in out, f"rc {rc}")
     short = os.path.join(d, "short.txt")
     with open(short, "w") as fh:
         fh.write("one line\ntwo line\n")
-    rc, out, _ = run("finish", short, "--seed=16", expect_rc=2)
+    rc, out, _ = run("finish", short, "--seed=31", expect_rc=2)
     check("a draft of the wrong length REFUSES with the plan's own count",
           rc == 2 and str(n) in out, f"rc {rc}")
 
@@ -4568,7 +4598,7 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
     # loop's first question, and NO render reaches the output — not the
     # frame, not a header, not the stamp. This is the check that the render
     # call sits after the loop's return rather than beside it.
-    rc, out, _ = run("finish", draft, "--seed=16",
+    rc, out, _ = run("finish", draft, "--seed=31",
                      f"--propose=defer:{state}", expect_rc=4)
     check("a deferred run with no answers SUSPENDS at exit 4",
           rc == 4 and "SUSPENDED" in out, f"rc {rc}")
@@ -4593,7 +4623,7 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
           "under — the plan's own — not the flag this verb does not take",
           "NO SUBDIVISION DECLARED" not in out
           and re.search(r"subdivision=\d+ \(the plan's own declared "
-                        r"subdivision \(seed 16\)", out) is not None,
+                        r"subdivision \(seed 31\)", out) is not None,
           next((l for l in out.splitlines() if "BLUEPRINT:" in l), "(none)"))
     check("...and it AGREES with the MANDATE line above it — one fact, one "
           "statement (doctrine 1), where the two used to contradict",
@@ -4605,9 +4635,9 @@ def test_finish_is_the_one_door_from_draft_to_rendered_song():
     # 6: PAST A STOP CONDITION THE RENDER EXISTS, stamped with the exit the
     # process actually returns. The zero budget reaches NO_PROGRESS
     # honestly; whatever the stop, the stamp and the process must agree.
-    rc, out, _ = run("finish", draft, "--seed=16", "--attempts=0",
+    rc, out, _ = run("finish", draft, "--seed=31", "--attempts=0",
                      "--backtrack=0")
-    stamp = re.search(r"\[FINISHED — seed 16 — exit (\d) — (\w+) after "
+    stamp = re.search(r"\[FINISHED — seed 31 — exit (\d) — (\w+) after "
                       r"(\d+) round\(s\) — ([^\]]+)\]", out)
     check("a stop condition renders the song under its stamp",
           rc in (0, 3) and "THE SONG, PERFORMANCE ORDER" in out
@@ -4777,7 +4807,7 @@ def test_a_missing_staged_resource_refuses_instead_of_crashing():
     check("`plan --sweep=` answers without the floor",
           rc == 0 and HEAD not in out and "Traceback" not in err
           and "SWEEP:" in out, f"rc {rc}; {first(out)}")
-    rc, out, err = run("finish", quat, "--seed=16", env=hidden)
+    rc, out, err = run("finish", quat, "--seed=31", env=hidden)
     check("`finish --seed=` reaches the floor and REFUSES for resources -- "
           "past its own no-seed refusal, it is the sixth grading verb",
           refused(rc, out, err) and STAGING_COMMANDS in out,
@@ -5013,7 +5043,7 @@ def test_the_plan_report_discloses_density_and_audibility():
     import json as _json
     d = tempfile.mkdtemp()
     bp = os.path.join(d, "bp.json")
-    rc, out, _ = run("plan", "--seed=16", f"--out={bp}", expect_rc=0)
+    rc, out, _ = run("plan", "--seed=31", f"--out={bp}", expect_rc=0)
     with open(bp, encoding="utf-8") as fh:
         plan = _json.load(fh)
     dn = plan["choices"]["density"]
