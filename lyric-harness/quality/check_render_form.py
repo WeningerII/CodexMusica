@@ -43,13 +43,40 @@ lives in a terminal no gate can read — except this one, which is already
 reading the turn. A turn that presents the built form with not one word
 about how the run ended reads as FINISHED with no instrument having said
 so. So a turn presenting MIN_BRACKETS or more BUILT section headers must
-also DECLARE the state — an exit code as the verbs print it ("exit 0",
-"exit 3"), or UNCONVERGED / PARKED for a draft that has not reached a stop.
+also DECLARE the state — ~~an exit code as the verbs print it ("exit 0",
+"exit 3")~~ the STAMP the verb wrote, or UNCONVERGED / PARKED for a draft
+that has not reached a stop.
 THE GATE REQUIRES THE DISCLOSURE AND NEVER ADJUDICATES IT: an exit-3 draft
 presented WITH its state is a disclosed draft, and a false claim is
 `quality/song_log.py --verdicts`' business, charged against the banked log
 rather than guessed at here. `RAW LYRIC FILE` escapes this check too — a
 quoted file is a record, not a presentation of finished work.
+
+AND THE STATE MUST SAY WHICH VERB SAID IT — GRADED IS NOT FINISHED
+(`MISSING.md` M-243, 2026-09-05). M-150 accepted a bare `exit N`, and the
+struck clause above is where it did. That was the hole a session walked
+through the same day M-242 was found: it graded a draft, presented the
+render beside "exit 0", and stopped — the loop never ran, six lines were
+still open, and the turn passed this gate because an exit code was SAID.
+A bare exit code cannot carry its provenance: `lyric_grade`, `song`,
+`revise` and `finish` all end in one, and NO CLI verb prints the words
+"exit N" into the text (measured: zero such `print` sites in
+`lyric_harness.py`) — so every bare "exit 0" in a turn was typed by the
+operator, and the operator is the seam this instrument exists to gate.
+What the verbs DO write is a stamp whose first word is the provenance:
+`[GRADED — seed N — exit E, … — N banned pair(s)]` from `lyric_grade`,
+an INTERIM artifact by its own tool description, and
+`[FINISHED — seed N — exit E — STOP after R round(s) — …]` (or
+`— declared mandate —` for a pasted song) from `finish` / `lyric_revise`,
+written ONLY past a stop condition. So the accepted declarations are now
+exactly those two stamps, or UNCONVERGED / PARKED. Still disclosure and
+never adjudication: a `[GRADED — …]` turn PASSES — it says what it is —
+and this file does not police the word "finished" in prose (the GRADED
+stamp itself says "not finished" when banned pairs stand). What it makes
+impossible is presenting a grade's exit code where a run's would be read.
+`quality/song_log.py:_STAMP` parses the FINISHED stamp for the log; the
+regex here recognises it, and `test_render_form.py` §8 holds the two to
+the same sample stamps so they cannot drift apart (doctrine 1).
 """
 import argparse
 import json
@@ -79,14 +106,28 @@ DECLARED_RAW = "RAW LYRIC FILE"
 #: Two, not one: a single bracketed word is prose ("[NOTE]", "[FLAG]"), and
 #: refusing that would make this instrument something people route around.
 MIN_BRACKETS = 2
-#: A convergence-state declaration, in the spellings the verbs themselves
-#: print (`song`/`revise` end on an exit code; scripts spell it `exit=N`) plus
-#: the two honest words for a draft that has not reached a stop condition.
-#: DELIBERATELY NOT `exit 0` alone: the gate wants the state SAID, not the
-#: state CLEAN — an exit-3 draft disclosed as exit 3 passes, because
-#: disclosure is this instrument's whole question and truth is --verdicts'.
-STATE = re.compile(r"\bexit\s+\d\b|\bexit=\d\b|\bUNCONVERGED\b|\bPARKED\b",
-                   re.IGNORECASE)
+#: The two stamps the verbs write under a rendered song, and they are the
+#: ONLY exit-code spellings this gate accepts (M-243). Whitespace around the
+#: em dashes is tolerated; the dash itself is not negotiable — a hyphenated
+#: stamp is a retyped stamp, and M-97 says present the bytes.
+STAMP_FINISHED = re.compile(
+    r"\[FINISHED\s*—\s*(?:seed\s*-?\d+|declared mandate)\s*—\s*exit\s*\d")
+STAMP_GRADED = re.compile(r"\[GRADED\s*—\s*seed\s*-?\d+\s*—\s*exit\s*\d")
+#: A convergence-state declaration: one of the two stamps above, or the two
+#: honest words for a draft that has not reached a stop condition.
+#: ~~`\bexit\s+\d\b|\bexit=\d\b`~~ STRUCK 2026-09-05 (M-243): a bare exit
+#: code does not say which verb produced it, and grade and finish both
+#: produce one. DELIBERATELY NOT `[FINISHED` alone: the gate wants the state
+#: SAID WITH ITS PROVENANCE, not the state CLEAN — a `[GRADED — …]` turn and
+#: an exit-3 `[FINISHED — …]` turn both pass, because disclosure is this
+#: instrument's whole question and truth is --verdicts'.
+STATE = re.compile(
+    r"%s|%s|\bUNCONVERGED\b|\bPARKED\b"
+    % (STAMP_FINISHED.pattern, STAMP_GRADED.pattern), re.IGNORECASE)
+#: The old spelling, kept as a NAME so `test_render_form.py` §8 can restore
+#: it as a mutation and show the tightening is load-bearing. Read by nothing
+#: else.
+BARE_EXIT = re.compile(r"\bexit\s+\d\b|\bexit=\d\b", re.IGNORECASE)
 
 
 def violations(text):
@@ -205,21 +246,29 @@ def main(argv=None):
         print("", file=sys.stderr)
         print("A rendered song shown bare reads as FINISHED, and only the "
               "instruments may say that", file=sys.stderr)
-        print("— the owner's rule: nothing is allowed to skip a step. Say "
-              "what the verbs said,", file=sys.stderr)
+        print("— the owner's rule: nothing is allowed to skip a step. Quote "
+              "the STAMP the verb wrote,", file=sys.stderr)
         print("in the turn text, beside the song:", file=sys.stderr)
-        print("    `song`/`revise` print an exit code — quote it: \"exit 0\" "
-              "(clean), \"exit 3\"", file=sys.stderr)
-        print("    (a flag stands), \"exit 2\" (refused), \"exit 4\" "
-              "(waiting on a writer);", file=sys.stderr)
-        print("    or say UNCONVERGED / PARKED for a draft that reached no "
-              "stop condition.", file=sys.stderr)
+        print("    [FINISHED — seed N — exit E — STOP after R round(s) — …]  "
+              "from `finish` / lyric_revise,", file=sys.stderr)
+        print("        the only stamp written past a stop condition (exit 0 "
+              "converged, exit 3 parked);", file=sys.stderr)
+        print("    [GRADED — seed N — exit E, … — N banned pair(s)]          "
+              "from lyric_grade — an INTERIM", file=sys.stderr)
+        print("        draft, disclosed as one; or say UNCONVERGED / PARKED "
+              "for a draft with no stop reached.", file=sys.stderr)
+        if BARE_EXIT.search(text):
+            print("A BARE \"exit N\" IS NOT ACCEPTED (M-243): grade and "
+                  "finish both end in one, no verb prints", file=sys.stderr)
+            print("those words into the text, so a bare code was typed here "
+                  "and says nothing about WHICH", file=sys.stderr)
+            print("verb produced it. That is how a graded draft was presented "
+                  "as a run's exit 0.", file=sys.stderr)
         print("This gate requires the DISCLOSURE and never adjudicates it: "
-              "an exit-3 draft", file=sys.stderr)
-        print("presented WITH its state is a disclosed draft. A false claim "
-              "is `quality/song_log.py", file=sys.stderr)
-        print("--verdicts`' business, charged against the banked log.",
-              file=sys.stderr)
+              "a GRADED turn and an", file=sys.stderr)
+        print("exit-3 FINISHED turn both pass. A false claim is "
+              "`quality/song_log.py --verdicts`'", file=sys.stderr)
+        print("business, charged against the banked log.", file=sys.stderr)
         print(f"(Quoting a lyric file on purpose? Say '{DECLARED_RAW}' in "
               f"the text — declared, not silent.)", file=sys.stderr)
     return 1

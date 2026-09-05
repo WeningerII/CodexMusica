@@ -461,17 +461,46 @@ MISSING_STATUSES = ("OPEN", "PARTIAL", "BLOCKED", "CLOSED", "WITHDRAWN",
                     "RESOLVED")
 
 
+#: A struck run. `~~\`PARTIAL\`~~ \`CLOSED\` 2026-09-01` is how three
+#: entries were closed on 2026-09-01 (D-3, M-85, M-94) -- doctrine 17's own
+#: move, strike and never delete -- and the first-token rule below read the
+#: STRUCK token as the live one on all three, so the open queue carried three
+#: closed entries for four days while `triage --check` stayed green
+#: (`MISSING.md` M-242). Struck text is removed BEFORE the token search;
+#: `quality/verify_entries.py` does the same to an entry's claims with its own
+#: newline-preserving `_unstrike`, which this regex is byte-identical to.
+STRUCK = re.compile(r"~~.*?~~", re.S)
+
+
+def missing_status(blob):
+    """-> the status token of one heading (plus continuation) or None.
+
+    THE ONE RULE, stated once so `triage.py` can call it on a synthetic heading
+    and this file can call it on the register: strike first, then the FIRST
+    backticked token drawn from `MISSING_STATUSES`. A token inside `~~...~~`
+    is a status the entry USED to have and is never the answer.
+    """
+    live = STRUCK.sub(" ", blob)
+    found = [t for t in re.findall(r"`([A-Z]+)`", live)
+             if t in MISSING_STATUSES]
+    return found[0] if found else None
+
+
 def missing_entry_statuses():
     """-> [(heading_line, 1-based line number, status or None), ...].
 
     THE ONE PARSER, and it is exposed rather than inlined for a reason. This
     file's `missing_entries()` counts these into BACKLOG.md's table;
     `quality/verify_entries.py` judges each entry's CLAIMS against the same
-    status. Two parsers that disagreed about whether M-6 is OPEN would make the
-    two instruments contradict each other over one file, which is the defect
-    both of them exist to catch. The rule -- first status token over the
-    heading line PLUS its continuation -- is stated and defended in
-    `missing_entries()` below, including why both neighbouring rules are wrong.
+    status, and since 2026-09-05 `quality/triage.py` reads its MISSING statuses
+    from this list too (`MISSING.md` M-242: it had carried a SECOND parser --
+    heading line only, no strike handling -- and the two disagreed on L-3 while
+    both misread three struck closes). Two parsers that disagreed about whether
+    M-6 is OPEN would make the two instruments contradict each other over one
+    file, which is the defect both of them exist to catch. The rule -- first
+    UNSTRUCK status token over the heading line PLUS its continuation -- is
+    `missing_status()` above and is defended in `missing_entries()` below,
+    including why both neighbouring rules are wrong.
     """
     lines = open(MISSING, encoding="utf-8").read().split("\n")
     out = []
@@ -484,9 +513,7 @@ def missing_entry_statuses():
                 and not lines[j].startswith("**"):
             blob += " " + lines[j]
             j += 1
-        found = [t for t in re.findall(r"`([A-Z]+)`", blob)
-                 if t in MISSING_STATUSES]
-        out.append((ln, i + 1, found[0] if found else None))
+        out.append((ln, i + 1, missing_status(blob)))
     return out
 
 
@@ -505,14 +532,24 @@ def missing_entries():
     neighbouring rules are wrong, in opposite directions -- which is the whole
     reason to write it down:
 
-      heading line only  -> `L-3`'s heading wraps and its `PARTIAL` sits on the
-                            next line, so the entry falls out of every bucket.
-                            This is EXACTLY the committed row: it reproduces
-                            `53 / 10 / 2 / 7`, total 72, while a separate count
-                            of `^### ` correctly said 73. The parts and the
-                            total had been produced by two different rules.
+      heading line only  -> `L-3`'s heading wrapped and its `PARTIAL` sat on
+                            the next line, so the entry fell out of every
+                            bucket. This is EXACTLY the committed row: it
+                            reproduces `53 / 10 / 2 / 7`, total 72, while a
+                            separate count of `^### ` correctly said 73. The
+                            parts and the total had been produced by two
+                            different rules. (L-3's heading carries the token
+                            since 2026-09-05, M-242 -- the register's own
+                            convention -- so today no entry exercises the
+                            continuation; the rule stays because the register
+                            is allowed to wrap and this instrument may not
+                            depend on it never doing so.)
       last token         -> `C-2`'s continuation ends "catalogues do not
                             `OPEN`", so C-2 flips PARTIAL -> OPEN.
+      first token, struck
+      text kept          -> `D-3`'s heading is `~~\`PARTIAL\`~~ \`CLOSED\``,
+                            and this rule read PARTIAL: a closed entry in the
+                            open queue (M-242, three of them).
 
     Two things are ASSERTED rather than reported, because both are errors the
     table can make with no outside help:
