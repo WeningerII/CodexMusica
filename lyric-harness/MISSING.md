@@ -22351,3 +22351,75 @@ the field, which is the planner working and a cost worth knowing.
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~302~~
 **303** with this entry (2026-09-06).
+
+### M-249 · Round 23 proved M-248 — 0 malformed hops where round 22 had 9 of 9, and 4 answers folded — then sat fifteen minutes in a paced-429 loop printing `retry 0/4` on every line, because a rate limit no affordable wait can clear was not a stopping place `CLOSED` 2026-09-06 (driver half; round 24 measures the song) — the owner's ruling, verbatim: *"when the rate limit is hit and not progressing because we literally can not ... it counts as a stopping place right?"*
+
+**ROUND 23** (run 34038642870, GitHub's #25, on main a247c11a — the M-248
+build; `wait_for_live` held 20 m 26 s for the deploy; cancelled by the owner
+at 43 min). Three turns, off the notices:
+
+| turn | ms | tools | answers on record | stopped | malformed hops |
+|---:|---:|---:|---:|---|---:|
+| 0 | 394,951 | 11 | **4** | none | **0** |
+| 1 | 30,706 | 8 | — | MAX_TOKENS | **0** |
+| 2 | 250,073 | 1 | — | UPSTREAM_503 | **0** |
+
+**M-248 IS MEASURED AND IT HOLDS.** Round 22 was **9 malformed answer hops
+of 9** on M-236's `answer: L1: …` row string; round 23 is **0 of 20 tool
+calls**, `MALFORMED_FUNCTION_CALL` absent from the whole log, and four
+answers folded onto the record before the engine stopped it. The structured
+`answers` array survives as a function call where the labelled row string
+did not — the measurement M-248 shipped owing, now taken. What ended the
+round was Gemini's own quota, not this harness.
+
+**WHAT THE ROUND COULD NOT DO, AND WHY THE HARNESS HID IT.** Turn 2 drew
+**seven consecutive 429s** carrying Retry-After 58/34/59/18/60/13/59 s, and
+every warning line read `retry 0/4 (0/16 this round)` — a counter that
+cannot move. M-229 is why and M-229 is right about its own case: a 429 that
+NAMES its wait is per-minute pacing, so it is waited out on the server's
+number and does not spend the four-retry budget sized for 5xx. That case
+cleared in three. **A limit that answers 429 every time answers it with a
+Retry-After too**, so under M-229 alone the only bound was
+`RATE_WAIT_CAP_S` — fifteen minutes of waiting out a wall, while the log
+printed a stationary counter and the run read as alive. The owner watched
+it and could see what the driver could not say.
+
+**THE READING IS NOT SETTLED AND THE ENTRY SAYS SO.** Every Retry-After was
+≤ 60 s, which is the shape of a per-MINUTE limit, and the body said *"You
+exceeded your current quota, please check your plan and billing details."*
+Two readings fit: a daily allowance already spent, or the per-minute token
+allowance re-exhausted by each turn on arrival (turn 0 alone ran 395 s over
+11 hops with a history M-228 measured in the hundreds of KB). What
+distinguishes them is a probe after the provider's daily reset, which this
+round did not run. **Both readings share the operative fact and that is what
+the fix rests on: no wait this round can afford clears it.**
+
+**BUILT (`scripts/flash_battery.mjs`, driver only):**
+
+1. **`RATE_PACED_MAX`** (declared, default **3** — M-229's own measured
+   clearance): consecutive paced 429s on one turn. The retry loop's paced arm
+   is bounded by it as well as by `RATE_WAIT_CAP_S`, and `pacedRetries` is
+   incremented where the budget deliberately is not, so the bound can fire.
+2. **`rate_limited` is a verdict of its own**, beside `finished`,
+   `failed_fast`, `server_turn_cap`, `upstream_final`, `transport` and
+   `no_stop` — never folded into `transport`, because a dead engine and a
+   spent allowance need different answers from a reader, and a longer wait
+   fixes neither but only one of them is about this code. The round BREAKS
+   at that point rather than spending further turns.
+3. **The counter that moves is the counter that prints**: a paced 429 logs
+   `paced N/MAX (waited Ss/CAPs)`, a 5xx keeps `retry N/4 (M/CAP this
+   round)`, and the row carries `paced_retry`, `paced_max` and
+   `rate_wait_cap_s` beside the existing `rate_wait_s`.
+
+`mcp/test.mjs` pins all four: the declared bound, its place in the loop
+condition, `rate_limited` as its own verdict, and the paced counter in the
+warning.
+
+**WHAT IT DOES NOT CLAIM:** that round 24 gets a song. This makes the wall
+legible and cheap — the round stops in about three minutes instead of
+fifteen and says which wall it hit — and it moves no token. Whether Flash
+can carry a song to a stop condition inside the engine's allowance is
+M-228's cost question, still open, and the next round measures it.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~303~~
+**304** with this entry (2026-09-06).

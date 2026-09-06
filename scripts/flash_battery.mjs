@@ -86,6 +86,15 @@ const RETRY_AFTER_CAP_S = Math.max(0, Number(args['retry-after-cap'] ?? 600) || 
 // M-229: the most a turn waits in total on 429s that name their wait, in
 // seconds, before the round records the transport failure.
 const RATE_WAIT_CAP_S = Math.max(0, Number(args['rate-wait-cap'] ?? 900) || 0);
+// M-249 (round 23): CONSECUTIVE paced 429s on ONE turn before the round calls
+// the rate limit a STOPPING PLACE. M-229 made a 429 that names its wait not
+// spend the retry budget, which is right for a per-MINUTE limit — its own case
+// cleared in three. A SPENT QUOTA also answers 429 with a Retry-After, every
+// time, forever ("You exceeded your current quota"), so under M-229 alone the
+// round waited out fifteen minutes of a limit no wait can clear while the
+// warning printed `retry 0/4` on every line — a counter that cannot move is a
+// run that looks alive and is not. Three is M-229's own measured clearance.
+const RATE_PACED_MAX = Math.max(1, Number(args['rate-paced-max'] ?? 3) || 3);
 const REASK = Math.max(0, Number(args.reask ?? (N_SONGS === 1 ? 2 : 0)) || 0);
 // M-232: how many partial turns (the connector kept the calls, the engine
 // died mid-turn) one round tolerates before it is the engine being down.
@@ -373,6 +382,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
   let truncated = 0; // M-223: turns cut off by a malformed hop AFTER making calls
   let hitTurnCap = false; // M-224: the connector's CHAT_MAX_TURNS answered 429
   let hitUpstreamFinal = false; // M-231: a 502 whose upstream answered 4xx (not 429)
+  let rateLimited = false; // M-249: the engine's quota is spent and no wait clears it
   let partials = 0; // M-232: turns the connector ended early on an upstream 5xx, calls kept
   let lastStatus = 200; // M-223: the last turn's HTTP status and error body
   let lastError = null;
@@ -446,6 +456,7 @@ for (const [songNo, briefIdx] of indices.entries()) {
     // up on it. Such a 429 is waited out on the server's own number and does
     // not spend the retry budget; RATE_WAIT_CAP_S bounds the total.
     let rateWaitS = 0;
+    let pacedRetries = 0;
     turnRetries = 0;
     const paced = () => r.status === 429 && r.retryAfterS != null && !turnCapped();
     // A 502 WHOSE UPSTREAM SAID 4xx IS FINAL (M-231, round 17): the connector
@@ -464,12 +475,18 @@ for (const [songNo, briefIdx] of indices.entries()) {
       (r.status === 429 || r.status === 502 || r.status === 503) &&
       !turnCapped() &&
       !upstreamFinal() &&
-      ((turnRetries < 4 && retries < RETRY_ROUND_CAP) || (paced() && rateWaitS < RATE_WAIT_CAP_S))
+      ((turnRetries < 4 && retries < RETRY_ROUND_CAP) ||
+        (paced() && rateWaitS < RATE_WAIT_CAP_S && pacedRetries < RATE_PACED_MAX))
     ) {
       if (!paced()) {
         retries++;
         turnRetries++;
-      } else rateWaitS += Math.min(r.retryAfterS, RETRY_AFTER_CAP_S);
+      } else {
+        // M-249: a paced 429 still does not spend the RETRY budget (M-229), and
+        // it is counted, so the bound above can fire and the row can say so.
+        pacedRetries++;
+        rateWaitS += Math.min(r.retryAfterS, RETRY_AFTER_CAP_S);
+      }
       // The wait is the server's own Retry-After when it names one (capped at
       // RETRY_AFTER_CAP_S so a quota that says "tomorrow" cannot park the job),
       // else the 60s floor. The row says which, and quotes the body's error.
@@ -481,7 +498,10 @@ for (const [songNo, briefIdx] of indices.entries()) {
           retry: turnRetries,
           retries_total: retries,
           paced: paced(),
+          paced_retry: pacedRetries,
+          paced_max: RATE_PACED_MAX,
           rate_wait_s: rateWaitS,
+          rate_wait_cap_s: RATE_WAIT_CAP_S,
           status: r.status,
           error: r.error ?? null,
           // M-231: the upstream cause, when the connector says it.
@@ -494,7 +514,11 @@ for (const [songNo, briefIdx] of indices.entries()) {
         }) + '\n'
       );
       console.log(
-        `::warning title=battery retry::song ${songNo} turn ${t} retry ${turnRetries}/4 (${retries}/${RETRY_ROUND_CAP} this round): status ${r.status}` +
+        `::warning title=battery retry::song ${songNo} turn ${t} ` +
+          (paced()
+            ? `paced ${pacedRetries}/${RATE_PACED_MAX} (waited ${rateWaitS}s/${RATE_WAIT_CAP_S}s)`
+            : `retry ${turnRetries}/4 (${retries}/${RETRY_ROUND_CAP} this round)`) +
+          `: status ${r.status}` +
           (r.retryAfterS != null ? ` retry-after ${r.retryAfterS}s` : '') +
           (r.error ? ` — ${esc(r.error, 160)}` : '') +
           (r.detail
@@ -527,6 +551,48 @@ for (const [songNo, briefIdx] of indices.entries()) {
       );
       console.log(
         `::error title=battery upstream final::song ${songNo} turn ${t}: the engine answered ${r.upstreamStatus} after ${r.hopsBeforeFailure ?? '?'} hop(s) — ${esc(r.detail ?? '', 200)}`
+      );
+      break;
+    }
+    // THE SPENT RATE LIMIT IS A STOPPING PLACE (M-249, round 23). The engine
+    // answering 429 with a Retry-After it will answer again is not a failure of
+    // this harness and it is not pacing either — it is the round being unable
+    // to proceed, which is a RESULT and belongs in the record under its own
+    // name. Waiting past the bound buys nothing: the quota resets on the
+    // provider's clock, not on ours.
+    if (
+      r.status === 429 &&
+      !turnCapped() &&
+      (pacedRetries >= RATE_PACED_MAX || rateWaitS >= RATE_WAIT_CAP_S)
+    ) {
+      rateLimited = true;
+      flags.push({
+        turn: t,
+        flag: 'rate_limited',
+        paced_retry: pacedRetries,
+        rate_wait_s: rateWaitS,
+        retry_after_s: r.retryAfterS ?? null,
+        error: r.error ?? null,
+      });
+      appendFileSync(
+        file,
+        JSON.stringify({
+          turn: t,
+          rate_limited: true,
+          paced_retry: pacedRetries,
+          paced_max: RATE_PACED_MAX,
+          rate_wait_s: rateWaitS,
+          rate_wait_cap_s: RATE_WAIT_CAP_S,
+          retry_after_s: r.retryAfterS ?? null,
+          error: r.error ?? null,
+        }) + '\n'
+      );
+      console.log(
+        `::error title=battery rate limited::song ${songNo} turn ${t}: the engine's rate limit is SPENT — ` +
+          `${pacedRetries} paced 429(s), ${rateWaitS}s waited, and it still answers 429` +
+          (r.retryAfterS != null ? ` retry-after ${r.retryAfterS}s` : '') +
+          `. No wait this round can afford will clear it; the round stops here.` +
+          (r.error ? ` — ${esc(r.error, 200)}` : '')
       );
       break;
     }
@@ -769,7 +835,9 @@ for (const [songNo, briefIdx] of indices.entries()) {
   // song: its only red path was fail-fast, so a round whose turn 1 died on
   // 429/502 five times reported GREEN. One reason per song, never summed:
   // finished (a lyric_revise exit 0), failed_fast, server_turn_cap (M-224),
-  // upstream_final (M-231: a 502 whose upstream answered 4xx), transport (the
+  // upstream_final (M-231: a 502 whose upstream answered 4xx), rate_limited
+  // (M-249: the engine's quota is spent — a stopping place, not a transport
+  // failure, and not something a longer wait fixes), transport (the
   // last turn was a non-200 or an error body), no_stop (every turn answered and the
   // loop never reached exit 0). A single-song round is red on anything but
   // finished; a survey keeps exit 0 because its job is coverage.
@@ -782,9 +850,11 @@ for (const [songNo, briefIdx] of indices.entries()) {
           ? 'server_turn_cap'
           : hitUpstreamFinal
             ? 'upstream_final'
-            : lastStatus !== 200 || lastError
-              ? 'transport'
-              : 'no_stop';
+            : rateLimited
+              ? 'rate_limited'
+              : lastStatus !== 200 || lastError
+                ? 'transport'
+                : 'no_stop';
   if (N_SONGS === 1 && exitReason !== 'finished') process.exitCode = 1;
   console.log(
     `::${exitReason === 'finished' ? 'notice' : 'error'} title=battery verdict::song ${songNo}: ${exitReason}` +
