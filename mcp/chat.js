@@ -603,6 +603,19 @@ export async function createChatRouter({
           run_state_carried: c.run_state_carried ?? false,
           run_draft_carried: c.run_draft_carried ?? false,
           run_decl_carried: c.run_decl_carried ?? false,
+          // M-254/M-255: the kitchen's bill, copied by name as the M-216
+          // fields are. `writer` names who wrote the words; the proposer_*
+          // fields are what the cook cost and how long the 429s held it.
+          writer: c.writer ?? null,
+          proposer_model: c.proposer_model ?? null,
+          proposer_calls: c.proposer_calls ?? null,
+          proposer_ms: c.proposer_ms ?? null,
+          proposer_ms_max: c.proposer_ms_max ?? null,
+          proposer_tokens_in: c.proposer_tokens_in ?? null,
+          proposer_tokens_out: c.proposer_tokens_out ?? null,
+          proposer_empty: c.proposer_empty ?? null,
+          proposer_retries: c.proposer_retries ?? null,
+          proposer_wait_s: c.proposer_wait_s ?? null,
         })),
         stopped: run.stopped,
         // WHY IT STOPPED, WITH THE NUMBERS (2026-09-02, triage C11). A bare

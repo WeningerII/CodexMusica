@@ -54,11 +54,25 @@ CONFIGURATION IS ENVIRONMENT, DECLARED BY THE CONNECTOR AT WORKER SPAWN:
                                bytes and spends the attempt for nothing
   LYRIC_PROPOSER_MAX_TOKENS    default 256 (one line, or one short group)
 
-THE PACING POLICY RESTATES `gemini_agent.js`'s numbers (RATE_LIMIT_RETRY:
-two 429 retries at 2 s / 4 s or the hint, eight seconds in all;
-RETRY_TRANSIENT 500/502/503/504 three times at 1 / 2 / 4 s). Two statements
-of one policy across two languages is doctrine 1's defect; `mcp/test.mjs`
-pins the two equal by reading this file, so they cannot drift in silence.
+THE TRANSIENT POLICY RESTATES `gemini_agent.js`'s (RETRY_TRANSIENT
+500/502/503/504, three retries at 1 / 2 / 4 s); `mcp/test.mjs` pins the two
+equal by reading this file. THE 429 POLICY IS THE KITCHEN'S OWN, ON PURPOSE
+(M-255, 2026-09-06): a chat hop has a person waiting and gives a 429 eight
+seconds; a kitchen run has a SONG to protect and a declared budget to
+protect it with. Round 23 died on seven consecutive 429s whose hints ran
+13-60 s (M-249) — under an eight-second ceiling every one of them would have
+ended the run as a refusal with nothing to resume. So a 429 is waited out on
+the server's own hint, or on a doubling backoff when it names none, for as
+long as the run's WAIT BUDGET allows:
+  LYRIC_PROPOSER_WAIT_BUDGET_S   the most this run may spend waiting on
+                                 429s in all — set by the connector as a
+                                 declared share of the tool budget
+                                 (lyric_tools.js KITCHEN_WAIT_SHARE);
+                                 absent, WAIT_BUDGET_DEFAULT_S
+A single hint past HINT_CAP_S is refused at once: a quota that resets on the
+provider's clock is a STOPPING PLACE (M-249's ruling), not a wait. Every
+wait is counted on the record line (`wait=`), so a run that spent its budget
+says so.
 """
 import json
 import os
@@ -69,13 +83,18 @@ import urllib.request
 
 DEFAULT_API_BASE = "https://generativelanguage.googleapis.com/v1beta"
 
-#: gemini_agent.js RATE_LIMIT_RETRY / RETRY_TRANSIENT, restated (see above).
-RATE_LIMIT_RETRIES = 2
-RATE_LIMIT_BACKOFF_S = (2.0, 4.0)
-RATE_LIMIT_MAX_WAIT_S = 8.0
+#: gemini_agent.js RETRY_TRANSIENT, restated (see above).
 TRANSIENT_STATUSES = (500, 502, 503, 504)
 TRANSIENT_RETRIES = 3
 TRANSIENT_BACKOFF_S = (1.0, 2.0, 4.0)
+
+#: THE 429 POLICY (M-255). `WAIT_BUDGET_DEFAULT_S` is the standalone fallback
+#: only — the connector always sets LYRIC_PROPOSER_WAIT_BUDGET_S from the one
+#: tool budget. A 429 with no hint backs off along RATE_BACKOFF_S (each step
+#: doubling, the last repeated); a hint past HINT_CAP_S is refused at once.
+WAIT_BUDGET_DEFAULT_S = 240.0
+RATE_BACKOFF_S = (2.0, 4.0, 8.0, 16.0, 32.0, 60.0)
+HINT_CAP_S = 120.0
 
 #: What the writer is, in one breath. The brief itself (rendered by
 #: quality/propose.py) carries the whole question, the forbidden words and
@@ -136,6 +155,7 @@ class _Kitchen:
         self.tokens_out = 0
         self.empty = 0
         self.retries = 0
+        self.waited_s = 0.0
         self._checked = False
 
     def _check(self):
@@ -167,7 +187,9 @@ class _Kitchen:
         }
         data = json.dumps(body).encode("utf-8")
         url = f"{base}/models/{model}:generateContent"
-        rate_limited, waited, transient = 0, 0.0, 0
+        budget = float(_env("LYRIC_PROPOSER_WAIT_BUDGET_S",
+                            str(WAIT_BUDGET_DEFAULT_S)))
+        rate_limited, transient = 0, 0
         while True:
             req = urllib.request.Request(
                 url, data=data, method="POST",
@@ -184,21 +206,30 @@ class _Kitchen:
                     payload = None
                 if status == 429:
                     hint = _retry_after_s(e.headers, payload)
+                    if hint is not None and hint > HINT_CAP_S:
+                        raise ProposerUnavailable(
+                            f"Gemini 429 with Retry-After {hint:.0f}s, past "
+                            f"the {HINT_CAP_S:.0f}s hint cap — a quota that "
+                            f"resets on the provider's clock is a stopping "
+                            f"place, not a wait (M-249); {self.waited_s:.0f}s "
+                            f"of the {budget:.0f}s wait budget spent so far, "
+                            f"{rate_limited} paced retry(ies) on this "
+                            f"call") from None
                     wait = hint if hint is not None else (
-                        RATE_LIMIT_BACKOFF_S[min(rate_limited,
-                                                 len(RATE_LIMIT_BACKOFF_S) - 1)])
-                    if (rate_limited < RATE_LIMIT_RETRIES
-                            and waited + wait <= RATE_LIMIT_MAX_WAIT_S):
+                        RATE_BACKOFF_S[min(rate_limited, len(RATE_BACKOFF_S) - 1)])
+                    if self.waited_s + wait <= budget:
                         rate_limited += 1
-                        waited += wait
                         self.retries += 1
+                        self.waited_s += wait
                         time.sleep(wait)
                         continue
                     raise ProposerUnavailable(
-                        f"Gemini 429 after {rate_limited} bounded retr"
-                        f"{'y' if rate_limited == 1 else 'ies'} "
-                        f"({waited:.0f}s waited; hint "
-                        f"{hint if hint is not None else 'none'})") from None
+                        f"Gemini 429 and the run's wait budget is spent: "
+                        f"{self.waited_s:.0f}s waited of "
+                        f"{budget:.0f}s (LYRIC_PROPOSER_WAIT_BUDGET_S), the "
+                        f"next wait would be {wait:.0f}s; {rate_limited} "
+                        f"paced retry(ies) on this call, hint "
+                        f"{hint if hint is not None else 'none'}") from None
                 if status in TRANSIENT_STATUSES and transient < TRANSIENT_RETRIES:
                     wait = TRANSIENT_BACKOFF_S[min(transient,
                                                    len(TRANSIENT_BACKOFF_S) - 1)]
@@ -263,7 +294,8 @@ class _Kitchen:
               + (f" finish={finish}" if finish and finish != "STOP" else "")
               + f" | kitchen model={model} calls={self.calls} "
               f"ms={self.ms_total} in={self.tokens_in} out={self.tokens_out} "
-              f"empty={self.empty} retries={self.retries}")
+              f"empty={self.empty} retries={self.retries} "
+              f"wait={int(self.waited_s)}")
         sys.stdout.flush()
         return text
 
