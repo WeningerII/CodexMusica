@@ -2029,7 +2029,9 @@ export function registerLyricTools(server, tool) {
           }
           await writeFile(statePath, JSON.stringify(st, null, 2) + '\n', 'utf8');
         } else if (a.answer != null || a.answers != null) {
-          throw refuse('`answer`/`answers` without `state` — the first call has no question to answer');
+          throw refuse(
+            '`answer`/`answers` without `state` — the first call has no question to answer'
+          );
         }
         // SEEDED: `finish` reads the mandate off the plan. UNSEEDED (M-195):
         // `revise` under the declared mandate, with the same deferred state,

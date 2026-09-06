@@ -1198,23 +1198,58 @@ check('validation: actionable errors', () => {
         const LT = await import('./lyric_tools.js');
         // The join is the harness's own `L<n>: <line>` rows, in the order sent.
         assert.equal(
-          LT.answerFromRows([{ line: 1, text: ' a ' }, { line: 3, text: 'b' }], 'propose_batch'),
+          LT.answerFromRows(
+            [
+              { line: 1, text: ' a ' },
+              { line: 3, text: 'b' },
+            ],
+            'propose_batch'
+          ),
           'L1: a\nL3: b'
         );
-        assert.equal(LT.answerFromRows([{ line: 7, text: 'x' }, { line: 9, text: 'y' }], 'propose_group'), 'L7: x\nL9: y');
+        assert.equal(
+          LT.answerFromRows(
+            [
+              { line: 7, text: 'x' },
+              { line: 9, text: 'y' },
+            ],
+            'propose_group'
+          ),
+          'L7: x\nL9: y'
+        );
         // A single-line question takes the one row's text bare.
         assert.equal(LT.answerFromRows([{ line: 4, text: 'bare' }], 'propose'), 'bare');
         // ...and a single-line question sent two rows gets the rows, which the
         // harness's strict single-line parser then refuses by name.
-        assert.equal(LT.answerFromRows([{ line: 4, text: 'p' }, { line: 5, text: 'q' }], 'propose'), 'L4: p\nL5: q');
+        assert.equal(
+          LT.answerFromRows(
+            [
+              { line: 4, text: 'p' },
+              { line: 5, text: 'q' },
+            ],
+            'propose'
+          ),
+          'L4: p\nL5: q'
+        );
         // The schema: `answers` beside `answer`, and the twins beside every array.
         const S = LT.LYRIC_TOOL_SCHEMAS;
         assert.ok(S.lyric_revise.answers, 'lyric_revise takes `answers`');
-        assert.ok(S.lyric_grade.draft_text && S.lyric_grade.draft.isOptional(), 'lyric_grade: draft_text, draft optional');
-        assert.ok(S.lyric_check.lines_text && S.lyric_check.lines.isOptional(), 'lyric_check: lines_text');
-        assert.ok(S.lyric_recover.lines_text && S.lyric_recover.lines.isOptional(), 'lyric_recover: lines_text');
         assert.ok(
-          S.lyric_verify.before_text && S.lyric_verify.after_text && S.lyric_verify.before.isOptional(),
+          S.lyric_grade.draft_text && S.lyric_grade.draft.isOptional(),
+          'lyric_grade: draft_text, draft optional'
+        );
+        assert.ok(
+          S.lyric_check.lines_text && S.lyric_check.lines.isOptional(),
+          'lyric_check: lines_text'
+        );
+        assert.ok(
+          S.lyric_recover.lines_text && S.lyric_recover.lines.isOptional(),
+          'lyric_recover: lines_text'
+        );
+        assert.ok(
+          S.lyric_verify.before_text &&
+            S.lyric_verify.after_text &&
+            S.lyric_verify.before.isOptional(),
           'lyric_verify: before_text / after_text'
         );
         // takeLines fills the array from the twin, keeps an array that was sent, refuses neither.
@@ -1236,24 +1271,61 @@ check('validation: actionable errors', () => {
               parameters: {
                 type: 'object',
                 properties: {
-                  seed: {}, draft: {}, draft_text: {}, answer: {}, answers: {}, lines: {}, max_rounds: {},
+                  seed: {},
+                  draft: {},
+                  draft_text: {},
+                  answer: {},
+                  answers: {},
+                  lines: {},
+                  max_rounds: {},
                 },
                 required: ['seed'],
               },
             },
           ],
         };
-        const susp = declarationsFor(surface, { key: 'seed:5', seed: 5, state: '{}', draft: ['x'] });
-        assert.deepEqual(Object.keys(susp[0].parameters.properties).sort(), ['answer', 'answers', 'seed']);
-        const parked = declarationsFor(surface, { key: 'seed:5', seed: 5, parked: true, draft: ['x'] });
-        assert.deepEqual(Object.keys(parked[0].parameters.properties).sort(), ['draft_text', 'seed']);
+        const susp = declarationsFor(surface, {
+          key: 'seed:5',
+          seed: 5,
+          state: '{}',
+          draft: ['x'],
+        });
+        assert.deepEqual(Object.keys(susp[0].parameters.properties).sort(), [
+          'answer',
+          'answers',
+          'seed',
+        ]);
+        const parked = declarationsFor(surface, {
+          key: 'seed:5',
+          seed: 5,
+          parked: true,
+          draft: ['x'],
+        });
+        assert.deepEqual(Object.keys(parked[0].parameters.properties).sort(), [
+          'draft_text',
+          'seed',
+        ]);
         // The suspended head and the tool's own description name `answers`.
         const src = readFileSync(new URL('./lyric_tools.js', import.meta.url), 'utf8');
-        assert.ok(/BATCH: answer \$\{askedNow\.lines.*?with \\`answers\\`/.test(src), 'the head names `answers`');
-        assert.ok(/a\.answer = answerFromRows\(a\.answers, st\?\.pending\?\.kind\)/.test(src), 'the join is keyed on the question kind');
+        assert.ok(
+          /BATCH: answer \$\{askedNow\.lines.*?with \\`answers\\`/.test(src),
+          'the head names `answers`'
+        );
+        assert.ok(
+          /a\.answer = answerFromRows\(a\.answers, st\?\.pending\?\.kind\)/.test(src),
+          'the join is keyed on the question kind'
+        );
         for (const t of ['lyric_grade', 'lyric_check', 'lyric_recover'])
-          assert.ok(new RegExp(`takeLines\\(a, '(draft|lines)', '(draft|lines)_text'\\)`).test(src), t);
-        assert.ok(/takeLines\(a, 'before', 'before_text'\);\s*takeLines\(a, 'after', 'after_text'\)/.test(src), 'verify reads both twins');
+          assert.ok(
+            new RegExp(`takeLines\\(a, '(draft|lines)', '(draft|lines)_text'\\)`).test(src),
+            t
+          );
+        assert.ok(
+          /takeLines\(a, 'before', 'before_text'\);\s*takeLines\(a, 'after', 'after_text'\)/.test(
+            src
+          ),
+          'verify reads both twins'
+        );
       }
     );
     check(
