@@ -11184,6 +11184,11 @@ def main():
                 # worker (M-155) keeps it across resumes; a miss IS the old
                 # behaviour, and quality/replay_memo.py carries the argument.
                 from quality import replay_memo as RM
+                try:
+                    from quality.propose import ProposerUnavailable as _PR_unavailable
+                except ImportError:                       # pragma: no cover
+                    class _PR_unavailable(Exception):     # never raised
+                        pass
 
                 def _R_pm():
                     from quality import relations as _RPM
@@ -11224,6 +11229,25 @@ def main():
                           f"run the SAME command again.\n")
                     print(need.prompt)
                     sys.exit(4)
+                except _PR_unavailable as e:
+                    # THE FAR SIDE OF THE `call:` SEAM COULD NOT BE REACHED
+                    # (M-254). Not a line the writer declined — that parses
+                    # to None and costs an attempt inside the loop — but no
+                    # writer at all: no credential, no model, transport
+                    # exhausted after the proposer's own bounded retries.
+                    # A REFUSED at exit 2, naming the seam, rather than
+                    # Python's exit 1 and a traceback the connector can
+                    # only report as "subprocess failure" (doctrine 20).
+                    _refuse(f"the declared proposer could not answer: {e}",
+                            detail=[f"--propose={propose_spec}: the harness "
+                                    f"imported the module it was told to and "
+                                    f"the module could not reach its writer",
+                                    "nothing about the DRAFT is decided by "
+                                    "this — the loop was interrupted, no "
+                                    "verdict stands, and the same command "
+                                    "answers once the far side is reachable",
+                                    "a malformed reply is NOT this refusal: "
+                                    "it parses to None and the loop moves on"])
                 print(result)
                 print(say_memo())
                 # THE PAIR MEMO'S OWN LINE (M-217's remainder): the schema

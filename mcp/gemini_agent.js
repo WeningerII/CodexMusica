@@ -25,6 +25,14 @@ export const PRICING = {
 };
 
 export const DEFAULT_MODEL = 'gemini-3.1-flash-lite';
+// KITCHEN COOKS (owner ruling 2026-09-06, M-254): who answers a revise
+// question on THIS surface. Read at CALL time, not import time, so a test
+// can drive both surfaces from one process; the mechanism is beside
+// `declarationsFor`. `LYRIC_CHAT_WRITER=interview` restores the old surface
+// for a measured comparison; anything else, including unset, cooks.
+export function chatWriter() {
+  return process.env.LYRIC_CHAT_WRITER === 'interview' ? 'interview' : 'kitchen';
+}
 
 // Thinking LOW, and it is the cheaper setting — which is the opposite of what
 // the token price says, so it is worth writing down why.
@@ -425,6 +433,7 @@ function loopFields(v) {
 }
 
 export const _agentInternals = {
+  chatWriter,
   loopFields,
   PARKED_RUN_NOTE,
   SKIPPED_STEPS_NOTE,
@@ -654,7 +663,36 @@ export function declarationArgs(args) {
 // can name the run it continues and nothing else.
 const RUN_KEY_FIELDS = new Set(['seed', 'scheme', 'groups', 'returns', 'relation', 'structures']);
 
-export function declarationsFor(surface, lyr) {
+// KITCHEN COOKS (owner ruling 2026-09-06, M-254). On THIS surface the chat
+// model never answers a revise question: every lyric_revise call it makes is
+// sent with `writer: 'kitchen'`, and the interview fields (`state`, `answer`,
+// `answers`, `writer`) leave the declaration it sees, so there is nothing to
+// fumble. The server's own writer (mcp/gemini_proposer.py) takes the loop to
+// a stop condition. `LYRIC_CHAT_WRITER=interview` restores the old surface
+// for a measured comparison; nothing else does.
+const INTERVIEW_FIELDS = new Set(['state', 'answer', 'answers', 'writer']);
+
+export function declarationsFor(surface, lyr, writer = chatWriter()) {
+  const base =
+    writer === 'kitchen'
+      ? surface.declarations.map((d) => {
+          if (!surface.stateTools?.has(d.name) || !d.parameters?.properties) return d;
+          const properties = {};
+          for (const [k, v] of Object.entries(d.parameters.properties))
+            if (!INTERVIEW_FIELDS.has(k)) properties[k] = v;
+          const required = Array.isArray(d.parameters.required)
+            ? d.parameters.required.filter((n) => n in properties)
+            : d.parameters.required;
+          return {
+            ...d,
+            parameters: { ...d.parameters, properties, ...(required ? { required } : {}) },
+          };
+        })
+      : surface.declarations;
+  return declarationsForRun({ ...surface, declarations: base }, lyr);
+}
+
+function declarationsForRun(surface, lyr) {
   // M-232: a PARKED run's continuing call is the rewritten draft plus the
   // run's key — no `answer`, no `state` — the mirror image of a suspended one.
   // M-234: the rewritten draft is sent as ONE string (`draft_text`) where the
@@ -1063,6 +1101,10 @@ function pruneHistory(contents, { keepTurns = 1, maxBytes = 200_000 } = {}) {
  *   different seed starts a fresh run instead of inheriting a stale record.
  */
 export async function runTurn({
+  // KITCHEN COOKS (M-254): who answers a revise question on this surface —
+  // the declared default, overridable per call so a test drives both
+  // surfaces without touching the process environment.
+  writer = chatWriter(),
   apiKey,
   model = DEFAULT_MODEL,
   surface,
@@ -1141,7 +1183,7 @@ export async function runTurn({
       if (si) body.systemInstruction = si;
       else delete body.systemInstruction;
       // Per hop, like the reminder: the record can appear mid-turn (M-226).
-      body.tools = [{ functionDeclarations: declarationsFor(surface, lyr) }];
+      body.tools = [{ functionDeclarations: declarationsFor(surface, lyr, writer) }];
       let json;
       try {
         json = await generate({
@@ -1352,6 +1394,15 @@ export async function runTurn({
             // and refuse honestly, but a clean first call is the better run.
             delete args[STATE_PROPERTY];
           }
+        }
+        // KITCHEN COOKS (M-254): on this surface the server's writer answers
+        // every revise question. Mechanical, not asked of the model — the
+        // interview fields never reach the tool from here.
+        if (writer === 'kitchen' && surface.stateTools?.has(fc.name)) {
+          args.writer = 'kitchen';
+          delete args[STATE_PROPERTY];
+          delete args.answer;
+          delete args.answers;
         }
         // A tool that fails — a timeout, a dropped transport — becomes an
         // ERROR RESULT the model can see and react to, never an exception

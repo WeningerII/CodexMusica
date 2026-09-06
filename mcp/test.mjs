@@ -10,6 +10,16 @@ import { fileURLToPath } from 'node:url';
 import * as E from './engine.js';
 import { TOOL_BUDGET_MS } from './budget.js';
 
+// THE SURFACE THE INTERVIEW TESTS BELOW DRIVE (M-254). The chat surface
+// COOKS by default since 2026-09-06: every lyric_revise call it makes is
+// `writer: 'kitchen'` and the interview fields never reach the tool from
+// there. The M-158/M-221/M-226/M-229/M-232/M-248 blocks test the INTERVIEW
+// mechanics — state carry, answer folding, the parked rewrite — which still
+// exist for MCP clients that write their own lines and for a measured
+// comparison; they run under the interview surface, declared here once.
+// The kitchen block sets its own surface around its own calls.
+process.env.LYRIC_CHAT_WRITER = 'interview';
+
 // Raw merged catalog (with the universal cross-instrument materials present) so the
 // guard below can tell a curated variant from a borrowed (expanded, auto:false) one.
 //
@@ -1737,6 +1747,213 @@ check('validation: actionable errors', () => {
       assert.ok(
         both.indexOf('WORKING ORDER') < both.indexOf('SUSPENDED'),
         'skipped-steps note precedes the suspended-run note'
+      );
+    }
+  );
+  // ── M-254: kitchen cooks — the chat surface never answers a revise question ──
+  check(
+    'the chat surface sends every lyric_revise call as writer:kitchen and strips the interview fields',
+    async () => {
+      const { chatWriter } = _agentInternals;
+      const {
+        runTurn: _runTurn,
+        LIMITS: _LIMITS,
+        declarationsFor,
+        RATE_LIMIT_RETRY,
+        RETRY_TRANSIENT,
+      } = await import('./gemini_agent.js');
+      const { _verdictInternals } = await import('./lyric_tools.js');
+      // The declared default, read synchronously — set, read, restore with
+      // no await between, because this suite runs its checks concurrently
+      // and a mutated environment leaks into every other async check.
+      {
+        const saved = process.env.LYRIC_CHAT_WRITER;
+        delete process.env.LYRIC_CHAT_WRITER;
+        const unset = chatWriter();
+        process.env.LYRIC_CHAT_WRITER = 'interview';
+        const declared = chatWriter();
+        if (saved === undefined) delete process.env.LYRIC_CHAT_WRITER;
+        else process.env.LYRIC_CHAT_WRITER = saved;
+        assert.equal(unset, 'kitchen', 'unset → kitchen (the default surface)');
+        assert.equal(declared, 'interview', 'the declared switch restores the interview');
+      }
+      const surface = {
+        instructions: 'BASE',
+        declarations: [
+          {
+            name: 'lyric_revise',
+            parameters: {
+              type: 'object',
+              properties: {
+                seed: { type: 'integer' },
+                draft_text: { type: 'string' },
+                state: { type: 'string' },
+                answer: { type: 'string' },
+                answers: { type: 'array' },
+                writer: { type: 'string' },
+                run_id: { type: 'string' },
+              },
+              required: ['seed', 'answer'],
+            },
+          },
+          {
+            name: 'lyric_screen',
+            parameters: { type: 'object', properties: { pairs: { type: 'array' } } },
+          },
+        ],
+        workspaceTools: new Set(),
+        stateTools: new Set(['lyric_revise']),
+      };
+      const decl = declarationsFor(surface, null, 'kitchen');
+      const rev = decl.find((d) => d.name === 'lyric_revise');
+      assert.deepEqual(
+        Object.keys(rev.parameters.properties).sort(),
+        ['draft_text', 'run_id', 'seed'],
+        "state/answer/answers/writer are gone from the chat model's view"
+      );
+      assert.deepEqual(
+        rev.parameters.required,
+        ['seed'],
+        'a required interview field is dropped with it'
+      );
+      assert.deepEqual(
+        decl.find((d) => d.name === 'lyric_screen'),
+        surface.declarations[1],
+        'a non-state tool is untouched'
+      );
+      assert.deepEqual(
+        declarationsFor(surface, null, 'interview'),
+        surface.declarations,
+        'the interview surface shows the full schema'
+      );
+      // runTurn: whatever the model put in the interview fields, the call
+      // the tool receives is writer:kitchen with them removed.
+      const seen = [];
+      const realFetch = globalThis.fetch;
+      let hop = 0;
+      const script = [
+        () =>
+          new Response(
+            JSON.stringify({
+              candidates: [
+                {
+                  content: {
+                    parts: [
+                      {
+                        functionCall: {
+                          name: 'lyric_revise',
+                          args: {
+                            seed: 5,
+                            draft_text: 'a\nb',
+                            state: 'x',
+                            answer: 'y',
+                            answers: [],
+                          },
+                        },
+                      },
+                    ],
+                  },
+                  finishReason: 'STOP',
+                },
+              ],
+              usageMetadata: {},
+            }),
+            { status: 200 }
+          ),
+        () =>
+          new Response(
+            JSON.stringify({
+              candidates: [{ content: { parts: [{ text: 'done' }] }, finishReason: 'STOP' }],
+              usageMetadata: {},
+            }),
+            { status: 200 }
+          ),
+      ];
+      globalThis.fetch = async () => script[Math.min(hop++, script.length - 1)]();
+      try {
+        await _runTurn({
+          apiKey: 'k',
+          surface,
+          lyric: null,
+          writer: 'kitchen',
+          callTool: async (name, args) => {
+            seen.push({ name, args: { ...args } });
+            return {
+              content: [
+                { type: 'text', text: JSON.stringify({ exit_code: 0, writer: 'kitchen' }) },
+              ],
+            };
+          },
+          userText: 'hi',
+          limits: { ..._LIMITS, maxTurnUsd: 0 },
+          retries: 0,
+        });
+      } finally {
+        globalThis.fetch = realFetch;
+      }
+      assert.equal(seen.length, 1);
+      assert.equal(seen[0].args.writer, 'kitchen', 'writer:kitchen is set by the connector');
+      assert.equal(seen[0].args.state, undefined, 'state stripped');
+      assert.equal(seen[0].args.answer, undefined, 'answer stripped');
+      assert.equal(seen[0].args.answers, undefined, 'answers stripped');
+      assert.deepEqual(seen[0].args.draft, ['a', 'b'], 'the draft still goes through');
+      // THE KITCHEN'S BILL, and its pacing restating the chat driver's
+      const { extractProposerRecord, WRITERS, KITCHEN_PROPOSE } = _verdictInternals;
+      assert.deepEqual(WRITERS, ['interview', 'kitchen']);
+      assert.equal(KITCHEN_PROPOSE, 'call:gemini_proposer:make');
+      assert.deepEqual(extractProposerRecord('no proposer lines here'), { proposer_calls: 0 });
+      const out =
+        '  PROPOSER CALL 1: ok 900 ms in=800 out=10 | kitchen model=m calls=1 ms=900 in=800 out=10 empty=0 retries=0\n' +
+        '  PROPOSER CALL 2: empty 1500 ms in=820 out=0 finish=MAX_TOKENS | kitchen model=m calls=2 ms=2400 in=1620 out=10 empty=1 retries=1\n' +
+        'THE SONG, PERFORMANCE ORDER:\n';
+      assert.deepEqual(extractProposerRecord(out), {
+        proposer_model: 'm',
+        proposer_calls: 2,
+        proposer_ms: 2400,
+        proposer_tokens_in: 1620,
+        proposer_tokens_out: 10,
+        proposer_empty: 1,
+        proposer_retries: 1,
+        proposer_ms_max: 1500,
+      });
+      // DOCTRINE 1 ACROSS TWO LANGUAGES: the Python proposer restates
+      // RATE_LIMIT_RETRY / RETRY_TRANSIENT; hold them equal by reading it.
+      const py = readFileSync(new URL('./gemini_proposer.py', import.meta.url), 'utf8');
+      const num = (name) => Number(new RegExp(`^\\s*${name} = ([\\d.]+)`, 'm').exec(py)?.[1]);
+      const tup = (name) =>
+        (new RegExp(`^\\s*${name} = \\(([^)]*)\\)`, 'm').exec(py)?.[1] || '')
+          .split(',')
+          .map((x) => Number(x.trim()))
+          .filter((x) => !Number.isNaN(x));
+      assert.equal(num('RATE_LIMIT_RETRIES'), RATE_LIMIT_RETRY.retries);
+      assert.deepEqual(
+        tup('RATE_LIMIT_BACKOFF_S').map((x) => x * 1000),
+        RATE_LIMIT_RETRY.backoffMs
+      );
+      assert.equal(num('RATE_LIMIT_MAX_WAIT_S') * 1000, RATE_LIMIT_RETRY.maxTotalWaitMs);
+      assert.deepEqual(tup('TRANSIENT_STATUSES'), RETRY_TRANSIENT);
+      assert.equal(num('TRANSIENT_RETRIES'), 3, "the chat driver's `retries: 3` (chat.js)");
+      // THE PROPOSER ITSELF, against a stub Gemini: its own Python suite,
+      // spawned here so `npm test` is the one door to every connector check.
+      const { spawnSync } = await import('node:child_process');
+      const pyRun = spawnSync(
+        process.env.LYRIC_PYTHON || 'python3',
+        [fileURLToPath(new URL('./test_gemini_proposer.py', import.meta.url))],
+        { encoding: 'utf8', timeout: 120000 }
+      );
+      assert.equal(
+        pyRun.status,
+        0,
+        `test_gemini_proposer.py: ${
+          (pyRun.stdout || '')
+            .split('\n')
+            .filter((l) => /FAIL/.test(l))
+            .join(' | ') || pyRun.stderr
+        }`
+      );
+      assert.ok(
+        /all kitchen-proposer checks pass/.test(pyRun.stdout),
+        'the Python suite reached its own summary'
       );
     }
   );

@@ -41,6 +41,10 @@ COPY mcp/*.js ./mcp/
 # peak. `LYRIC_WORKER=0` in the service's env is the documented switch if a
 # live measurement ever says otherwise.
 COPY mcp/worker.py ./mcp/
+# The kitchen proposer (M-254): Python beside the worker, reached by the
+# harness through `--propose=call:gemini_proposer:make` with mcp/ on
+# PYTHONPATH. A module the image does not carry is M-187's defect again.
+COPY mcp/gemini_proposer.py ./mcp/
 
 # The lyric harness (mcp/lyric_tools.js runs it as python3 subprocesses —
 # pure stdlib except nltk, which the slop floor's POS tagger reaches through

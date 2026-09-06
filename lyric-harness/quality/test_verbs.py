@@ -5541,6 +5541,84 @@ def test_density_declares_its_line_window():
           note[-160:])
 
 
+
+def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
+    """59. THE `call:` SEAM'S ONE DECLARED FAILURE IS A REFUSED, NOT A
+    TRACEBACK (`MISSING.md` M-254).
+
+    A `call:` proposer whose far side cannot be reached at all — no
+    credential, no model, transport exhausted — raises
+    `quality.propose.ProposerUnavailable`, and the verb turns it into
+    `REFUSED — the declared proposer could not answer: …` at exit 2 naming
+    the seam. Before this clause the only shape was Python's exit 1 and a
+    traceback, which the connector reports as "subprocess failure" with no
+    reason. A module written here, on PYTHONPATH, stands in for the kitchen.
+    """
+    print("\n59. a `call:` proposer that cannot reach its writer REFUSES at "
+          "exit 2, naming the seam (M-254)")
+    import tempfile
+    import subprocess
+    tmpd = tempfile.mkdtemp()
+    with open(os.path.join(tmpd, "zz_unreachable.py"), "w", encoding="utf-8") as f:
+        f.write("from quality.propose import ProposerUnavailable\n"
+                "def make():\n"
+                "    def call(prompt):\n"
+                "        raise ProposerUnavailable('no writer behind this seam (planted)')\n"
+                "    return call\n")
+    with open(os.path.join(tmpd, "zz_declines.py"), "w", encoding="utf-8") as f:
+        f.write("def make():\n"
+                "    return lambda prompt: ''\n")
+    draft = os.path.join(tmpd, "draft.txt")
+    rc0, plan, _ = run("plan", "--seed=2003", "--lines=12")
+    n = int(re.search(r"seed=2003 -> (\d+) line", plan).group(1))
+    pool = ["the lantern swung and lit the stony road",
+            "we counted every mile beneath the rain",
+            "a letter folded twice inside my coat",
+            "the river kept the secret of the plain",
+            "she sang the chorus louder than the wind",
+            "the engine hummed a promise through the night",
+            "the porch light flickered once and then went dim",
+            "we drove until the morning turned to light",
+            "the dust rose up to meet the falling sun",
+            "a stranger's coat still hanging by the door",
+            "the clock ran slow the day the harvest come",
+            "the tide went out and left the empty shore",
+            "the radio was playing something old",
+            "the map was torn along the river bend"]
+    with open(draft, "w", encoding="utf-8") as f:
+        f.write("\n".join(pool[:n]) + "\n")
+    env = dict(os.environ, PYTHONPATH=tmpd + os.pathsep + os.environ.get("PYTHONPATH", ""))
+    budget = ["--max-rounds=1", "--attempts=1", "--backtrack=1"]
+    try:
+        r = subprocess.run([sys.executable, "lyric_harness.py", "finish", draft,
+                            "--seed=2003", f"--lines={n}",
+                            "--propose=call:zz_unreachable:make", *budget],
+                           capture_output=True, text=True, env=env, timeout=900)
+        check("an unreachable writer is REFUSED at exit 2, naming the seam and "
+              "the planted reason — never Python's exit 1",
+              r.returncode == 2 and "REFUSED" in r.stdout
+              and "declared proposer could not answer" in r.stdout
+              and "planted" in r.stdout and "Traceback" not in r.stderr,
+              f"rc={r.returncode} {(r.stdout.strip().splitlines() or [''])[-1][:120]}")
+        check("...and the refusal says the draft was NOT decided — no verdict "
+              "stands, the same command answers once the far side is reachable",
+              "no verdict stands" in r.stdout and "[FINISHED" not in r.stdout,
+              [l for l in r.stdout.splitlines() if "verdict" in l][:1])
+        r2 = subprocess.run([sys.executable, "lyric_harness.py", "finish", draft,
+                             "--seed=2003", f"--lines={n}",
+                             "--propose=call:zz_declines:make", *budget],
+                            capture_output=True, text=True, env=env, timeout=900)
+        check("CONTROL: a writer that merely DECLINES (an empty reply, parsed "
+              "to None) is not this refusal — the loop runs to a stop "
+              "condition and the run is a verdict",
+              r2.returncode in (0, 3) and "[FINISHED" in r2.stdout
+              and "could not answer" not in r2.stdout,
+              f"rc={r2.returncode}")
+    finally:
+        import shutil
+        shutil.rmtree(tmpd, ignore_errors=True)
+
+
 if __name__ == "__main__":
     # COST-ORDERED, SLOWEST FIRST — 2026-09-05 (`MISSING.md` M-244), from a
     # full local run of all 53 sections (3,782.9 s): the seed sweep 533.5 s,
@@ -5609,6 +5687,7 @@ if __name__ == "__main__":
         test_the_group_verdict_is_on_the_state_and_quoted_next_round,
         test_types_can_declare_its_position_and_names_the_missing_axis,
         test_density_declares_its_line_window,
+        test_a_proposer_that_cannot_reach_its_writer_refuses_by_name,
     )
     # SHARDING (2026-08-18) AND THE PER-SECTION PROFILE (2026-09-01) LIVED
     # INLINE HERE and are ONE idiom in `quality/shard.py` since 2026-09-05

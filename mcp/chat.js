@@ -256,6 +256,12 @@ export async function createChatRouter({
   limits = CHAT_LIMITS,
 }) {
   const router = express.Router();
+  // THE KITCHEN'S WRITER IS THE CHAT'S OWN MODEL (M-254): declared here once
+  // (GEMINI_MODEL, else DEFAULT_MODEL) and handed to the harness processes
+  // through their env, so mcp/gemini_proposer.py asks the model the service
+  // says it runs and no second model name exists anywhere. Set before any
+  // harness worker spawns (they spawn lazily on the first lyric call).
+  if (!process.env.LYRIC_PROPOSER_MODEL) process.env.LYRIC_PROPOSER_MODEL = model;
 
   if (!apiKey) {
     // A chat bar that 500s on every message is worse than one that says it is
