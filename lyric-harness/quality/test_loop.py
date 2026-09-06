@@ -2351,6 +2351,67 @@ def test_the_batch_door_and_the_recorded_verdict():
           heard[:4])
 
 
+def test_a_rejected_group_rewrite_is_recorded_and_quoted_next_round():
+    print("\n— tier 2 tells a recording proposer the verdict and asks it for "
+          "the last round's rejection, exactly as tier 1 has since M-236 "
+          "(`MISSING.md` M-253)")
+    # THE DEFECT, 2026-09-06: with one group question per line per round
+    # (the connector's budget) a rejected joint rewrite was re-briefed NEXT
+    # round with `attempt` and `reasons` reset, and nothing recorded what
+    # verify had said — the same group asked three times, three silences.
+    from quality import propose as _PR
+    mandate = SC.mandate(SC.mandate(LIVE_GROUPS, n_lines=4),
+                         default_relation="class:RHYME")
+    recorded, seen, priors = [], [], {}
+
+    def stub(gb):
+        seen.append(gb)
+        return tuple(gb.lines[n - 1] for n in gb.members)   # nothing fixed
+
+    def record(members, round_no, texts, accepted, reasons):
+        recorded.append((tuple(members), round_no, accepted, list(reasons)))
+        if not accepted:
+            priors[tuple(members)] = {
+                "round": round_no,
+                "text": "\n".join(f"L{n}: {t}" for n, t in zip(members, texts)),
+                "reasons": list(reasons)}
+
+    def prior(members, round_no):
+        p = priors.get(tuple(members))
+        return (p if p and (p["round"] is None or round_no is None
+                            or p["round"] < round_no) else None)
+    stub.record, stub.prior = record, prior
+    rd = ReviseDeclaration(max_rounds=2, attempts_per_line=1,
+                           backtrack_width=1)
+    revise_loop(Reviser(rdecl=rd), list(ANCHOR_HAS_A_LIVE_GROUP), mandate,
+                propose=lambda *a, **k: None, propose_group=stub)
+    rej = [r for r in recorded if not r[2]]
+    check("every joint rewrite put to the proposer is recorded, with the "
+          "grader's reasons",
+          seen and len(recorded) == len(seen)
+          and rej and all(r[3] for r in rej),
+          (len(seen), len(recorded), rej[:1]))
+    r2 = [gb for gb in seen if getattr(gb.brief, "round_no", None) == 2]
+    with_prior = [gb for gb in r2 if gb.prior]
+    check("a round-2 group brief for a group rejected in round 1 carries "
+          "that rejection as `prior`", r2 and with_prior,
+          (len(r2), len(with_prior)))
+    p = _PR.render_group(with_prior[0]) if with_prior else ""
+    check("...and `render_group` quotes it: the round, the rewrite, the "
+          "reasons, verbatim",
+          "rewrite of this group in ROUND 1 was REJECTED" in p
+          and "nothing was fixed" in p,
+          p[p.find("ATTEMPT"):p.find("ATTEMPT") + 260])
+    # CONTROL: a bare callable has neither hook and the loop must not care.
+    plain = []
+    revise_loop(Reviser(rdecl=rd), list(ANCHOR_HAS_A_LIVE_GROUP), mandate,
+                propose=lambda *a, **k: None,
+                propose_group=lambda gb: plain.append(gb))
+    check("CONTROL: a proposer with no `record`/`prior` is asked exactly as "
+          "before and every brief's `prior` is None",
+          plain and all(gb.prior is None for gb in plain), len(plain))
+
+
 if __name__ == "__main__":
     # DEALT ACROSS CI SHARDS AND TIMED, through the one idiom in
     # `quality/shard.py` (2026-09-05, `MISSING.md` M-244). `TEST_LOOP_SHARD=k/n`
@@ -2384,6 +2445,7 @@ if __name__ == "__main__":
                test_a_return_is_a_class_and_is_revised_together,
                test_the_escalation_reads_the_declared_backtrack_width,
                test_the_rebrief_carries_to_the_rest_of_the_round,
-               test_the_batch_door_and_the_recorded_verdict)
+               test_the_batch_door_and_the_recorded_verdict,
+               test_a_rejected_group_rewrite_is_recorded_and_quoted_next_round)
     sys.exit(run_sections(_SECTIONS, "TEST_LOOP_SHARD", FAILURES,
                           footer="all loop regressions pass"))

@@ -5299,6 +5299,115 @@ def test_brief_prints_the_group_backtrack_pointer():
           out.split("L3:")[1].split("L4:")[0][:300] if "L3:" in out else out[-300:])
 
 
+def test_a_slotted_pair_is_rendered_on_its_own_spans():
+    print("\n— a pair bound at a mid-line word is rendered on the spans that "
+          "JUDGED it, and the verb's NO JOINT CANDIDATE sentence is the "
+          "brief's own, strike and all (`MISSING.md` M-253)")
+    # REPORTED FROM THE CONNECTOR, 2026-09-06: `left is \`lies\`, not
+    # \`Gauge\`` on a group bound at word 1 — the verdict's slot word printed
+    # beside the END-WORD matrix cell's spans. Reproduced on M-184's own
+    # probe: HEAD's renderer printed `right is \`lamp\`, not \`left\`` on
+    # L2-L3 (group A at 3.T2); the fix prints the judging spans.
+    d = tempfile.mkdtemp()
+    draft = os.path.join(d, "probe.txt")
+    with open(draft, "w") as fh:
+        fh.write("she shut the door\nand walked into the night\n"
+                 "i left my keys beside the lamp\n")
+    rc, out, _ = run("brief", draft, "--groups=2,3.T2;1,3")
+    lines = out.splitlines()
+    def _block(head):
+        i = next((k for k, ln in enumerate(lines) if head in ln), None)
+        return "\n".join(lines[i:i + 3]) if i is not None else ""
+    slotted = _block("FAILS L2-L3")
+    check("the slotted pair's FAILS block scores `night ~ left` — the T2 "
+          "word, which is what the grader judged",
+          rc == 0 and "scored on: night  ~  left" in slotted, slotted)
+    check("...and carries NO attribution banner: label and evidence agree",
+          slotted and "NAMED PAIR IS NOT THE EVIDENCE" not in slotted,
+          slotted)
+    dflt = _block("FAILS L1-L3")
+    check("CONTROL: the default-slot pair still discloses its MOSAIC reach "
+          "with the banner, byte-for-byte the §27 invariant",
+          "MOSAIC (" in dflt and "NAMED PAIR IS NOT THE EVIDENCE" in dflt,
+          dflt)
+    # ONE SENTENCE, TWO RENDERERS (doctrine 1). `Brief.__str__` struck
+    # "the MANDATE is what needs revising" on 2026-09-03 (M-202); the verb
+    # kept printing it live, directly above the brief's struck copy on the
+    # connector — a tool contradicting itself in adjacent lines.
+    src = open(os.path.join(ROOT, "lyric_harness.py"), encoding="utf-8").read()
+    i = src.find('"      NO JOINT CANDIDATE: nothing in the "')
+    verb = src[i:i + 500]
+    check("the verb's NO JOINT CANDIDATE line carries the strike and the "
+          "M-202 note, as the brief's does",
+          i >= 0 and "~~The MANDATE is what needs" in verb
+          and "STRUCK 2026-09-03" in verb, verb[:240])
+    check("...and no live copy of the old sentence survives in either "
+          "renderer",
+          "revising, not the line.\")" not in src
+          and 'is what needs revising, not the line."' not in src)
+
+
+def test_the_group_verdict_is_on_the_state_and_quoted_next_round():
+    print("\n— a rejected joint rewrite is ON THE STATE with the grader's "
+          "reasons, and the next group question quotes it (`MISSING.md` "
+          "M-253)")
+    # THE SHAPE A WRITER SAW, 2026-09-06: the same group question three
+    # rounds running, every answer gone, no reason given. Tier 2 had no
+    # `record` hook and no `prior`; tier 1 has had both since M-236.
+    from quality.test_loop import ANCHOR_HAS_A_LIVE_GROUP, LIVE_GROUPS
+    d = tempfile.mkdtemp()
+    draft = os.path.join(d, "live.txt")
+    with open(draft, "w") as fh:
+        fh.write("\n".join(ANCHOR_HAS_A_LIVE_GROUP) + "\n")
+    state = os.path.join(d, "st.json")
+    groups = "--groups=" + ";".join(",".join(str(n) for n in g)
+                                   for g in LIVE_GROUPS)
+    mand = (groups, "--relation=class:RHYME", "--attempts=1",
+            "--backtrack=1", "--max-rounds=3", f"--propose=defer:{state}")
+    rejected, asked_group, quoted = None, 0, ""
+    for _ in range(14):
+        rc, out, _ = run("revise", draft, *mand, expect_rc=None)
+        if rc != 4:
+            break
+        st = json.load(open(state))
+        pend = st.get("pending") or {}
+        kind = pend.get("kind")
+        rec = pend.get("record") or {}
+        gos = [o for o in st.get("group_outcomes", [])
+               if o.get("accepted") is False and o.get("reasons")]
+        if kind == "propose_group":
+            asked_group += 1
+            if gos and "rewrite of this group in ROUND" in pend.get("prompt", ""):
+                rejected, quoted = gos[0], pend["prompt"]
+                break
+            members = rec.get("members") or []
+            pend["answer"] = "\n".join(
+                f"L{n}: {ANCHOR_HAS_A_LIVE_GROUP[n - 1]}" for n in members)
+        elif kind == "propose_batch":
+            pend["answer"] = "\n".join(
+                f"L{r['line']}: {ANCHOR_HAS_A_LIVE_GROUP[r['line'] - 1]}"
+                for r in rec.get("records", []))
+        elif kind == "propose":
+            pend["answer"] = ANCHOR_HAS_A_LIVE_GROUP[rec["line"] - 1]
+        else:
+            break
+        st["pending"] = pend
+        json.dump(st, open(state, "w"))
+    check("a group question was asked on the deferred path", asked_group > 0,
+          asked_group)
+    check("a rejected joint rewrite is recorded on `group_outcomes` with "
+          "members, round, the answer and the grader's reasons",
+          rejected is not None and rejected.get("members")
+          and rejected.get("text", "").startswith("L")
+          and any("nothing was fixed" in r for r in rejected["reasons"]),
+          rejected)
+    check("...and the NEXT group question quotes that rejection, round, "
+          "text and reasons, verbatim",
+          "rewrite of this group in ROUND" in quoted
+          and "nothing was fixed" in quoted,
+          quoted[quoted.find("ATTEMPT"):quoted.find("ATTEMPT") + 320])
+
+
 if __name__ == "__main__":
     # COST-ORDERED, SLOWEST FIRST — 2026-09-05 (`MISSING.md` M-244), from a
     # full local run of all 53 sections (3,782.9 s): the seed sweep 533.5 s,
@@ -5363,6 +5472,8 @@ if __name__ == "__main__":
         test_the_collision_cut_is_one_constant_and_cannot_drift,
         test_every_test_file_is_accounted_for_by_ci,
         test_brief_prints_the_group_backtrack_pointer,
+        test_a_slotted_pair_is_rendered_on_its_own_spans,
+        test_the_group_verdict_is_on_the_state_and_quoted_next_round,
     )
     # SHARDING (2026-08-18) AND THE PER-SECTION PROFILE (2026-09-01) LIVED
     # INLINE HERE and are ONE idiom in `quality/shard.py` since 2026-09-05

@@ -22719,3 +22719,132 @@ quietly drop a job. M-250's planted mutation runs unchanged.
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~306~~
 **307** with this entry (2026-09-06).
+
+
+### M-253 · A writer on the connector reported three defects in two messages, and all three were real — a slotted pair rendered beside the wrong spans, a struck sentence printed live above its own strike, and a rejected group rewrite that went in and vanished `CLOSED` 2026-09-06 — the owner's order, verbatim: *"go look to see if the problem(s) still exists in our repo, if they do then fix them"*
+
+**THE REPORT.** A Claude session using the connector on a friend's song
+wrote two messages home. Read as the tool-user's own account — which is
+what it was — its three claims were: (1) *"the grader still reports 'left
+is `lies`, not `Gauge`' — it's scoring line ends where the plan bound word
+1 and word 2"*; (2) *"it even prints its own contradiction — NO JOINT
+CANDIDATE, the mandate needs revising, immediately followed by a
+struck-through note saying that was fixed on 3 September"*; (3) *"all three
+of my answers went in and vanished — the draft it hands back still shows
+the original, and no rejection reason is given … the group-backtrack
+answers for a propose_group question are being accepted into state but
+not applied to the draft."* My first reading, before looking, was that (3)
+was the least supported and probably one bug wearing two faces with (1).
+That reading was wrong. They were three defects, none of them the grader.
+
+**(1) THE RENDERER, NOT THE GRADER.** `grade()` was already slot-aware on
+both routes — `_slot_score` for a scalar relation, `pair_satisfies` at the
+declared tokens for a schema (M-148) — and `_attribution` received the
+slot `Scored` with the slot labels, so the VERDICT was clean. The
+`song`/`revise` renderer in `lyric_harness.py` then rebuilt each failing
+pair's evidence by reading `rv._matrix(lines)[i-1][j-1]` — the END-WORD
+comparison — and handed `report_pair` that object beside the verdict's
+slot words. `report_pair`'s attribution check did its job: *left is
+`lies`, not `Gauge`* is the honest report that the words on the line and
+the spans under the number are different things. The comment above the
+block had named the proper fix as a `spans` field on the verdict "filed
+as a patch". REPRODUCED on M-184's own probe (`--groups=2,3.T2;1,3`):
+HEAD's renderer prints `FAILS L2-L3 (night/left) … NAMED PAIR IS NOT THE
+EVIDENCE: right is \`lamp\`, not \`left\``. **Fixed:** every verdict and
+collision record carries `"spans"` — the `Scored` that judged it — and the
+renderer reads that and never `_matrix`. A default-slot verdict's object IS
+the matrix cell, so the mosaic disclosures `test_verbs.py` §27 pins are
+byte-identical; the same probe now prints `scored on: night ~ left` with
+no banner.
+
+**(1b) THE FIX BROKE THE VERB, AND THE BREAK WAS OLDER THAN THE FIX.**
+`Attribution` is a frozen dict subclass whose class comment said "copy/
+pickle … still work". That was true of pickle and false of
+`copy.deepcopy`, whose `_reconstruct` applies the instance state
+(`_frozen = True`) BEFORE re-inserting the items, so the guard fired on
+the copy. Nothing had ever deep-copied one; the first verdict to carry an
+`Attribution` met `quality/replay_memo.py`'s memo, which deep-copies every
+result it stores, and `revise` died in `TypeError` — the connector's live
+check `revise returns two blocks` went 2 → 1. **Fixed** on the class, not
+the caller: `__copy__`/`__deepcopy__` return `self` (an immutable record is
+its own copy, which is what `deepcopy` already does for every atom) and
+`__reduce__` rebuilds through `__init__` so the freeze lands last. The
+sentence in the comment is now true by construction and struck where it
+was false (doctrine 17).
+
+**(2) TWO RENDERERS, ONE STALE.** `Brief.__str__` struck *"The mandate,
+not the line, is what needs revising"* on 2026-09-03 (M-202) and prints
+the strike inline. The verb renderer at the same `joint_conflict` branch
+kept printing the pre-M-202 sentence UNSTRUCK, so a connector reader saw
+it live and, lines below, the brief's own copy struck through with the
+note that it had been fixed — a tool contradicting itself in adjacent
+lines, which the writer noticed and reported exactly. Doctrine 1 broken
+in the rendering. **Fixed:** the verb prints the brief's sentence, strike
+and M-202 note included; no live copy of the old sentence survives in
+either renderer (pinned).
+
+**(3) THREE SILENCES ON ONE PATH.** The answers were NOT "accepted into
+state but not applied": `parse_group` refuses a malformed answer LOUDLY at
+the fold, and a well-formed one was applied and then REJECTED by
+`verify()` with a reason — `nothing was fixed`, the one this report's
+answers earn. What was missing was everything after the rejection:
+(a) tier 2 had no `record` hook, so the verdict was written nowhere (tier
+1 has had `record` → `outcomes` since M-236); (b) the connector's fold
+therefore returned `verdict: unknown, reasons: []` for EVERY group answer,
+by construction; (c) with one group question per line per round (the
+connector's M-247 budget) a rejected group was re-briefed NEXT round with
+`attempt` and `reasons` reset and no `prior` — `render_group` called
+`_attempt_block` without one, where the tier-1 prompt has quoted the last
+round's rejection since M-236. So the same group question came back three
+rounds running with the rejection never mentioned once: "went in and
+vanished" was the writer's exact experience of a correct rejection that
+nobody told them about. **Fixed, mirroring tier 1 piece for piece:**
+`GroupBrief.prior`; `_try_tier2` records every joint verdict through
+`propose_group.record` and asks `propose_group.prior` before each group
+question (duck-typed, as `propose.record`/`prefetch` are — a bare lambda
+has neither and nothing changes for it); the deferred proposer keeps
+`group_outcomes` — its OWN list keyed `(members, round)`, because every
+reader of `outcomes` keys on `line` — and hands the last round's rejection
+back; `render_group` quotes it, *"Your rewrite of this group in ROUND 1
+was REJECTED: … The grader's reasons, verbatim: – nothing was fixed"*; and
+the connector folds a group answer off `group_outcomes` — verdict, reasons,
+`source: outcome` — and stays `unknown` without a row, as M-235 pinned.
+
+**MEASURED, in-process, on `test_loop.py`'s live-group fixture under a
+proposer that returns the lines unchanged:** 10 group questions, 10
+verdicts recorded, all rejected with `nothing was fixed`; 5 round-2 group
+briefs, 3 carrying a `prior`; `render_group` quotes it. On the deferred
+path, driven through the CLI with every question answered by the unchanged
+line(s): `group_outcomes` gains a rejected row carrying members, round, the
+answer and the reasons, and the next `propose_group` suspension's prompt
+quotes it.
+
+**PINNED.** `quality/test_revise.py` (the verdict and every violation
+carry `spans`; a slotted verdict's spans CLAIM its own words; a default
+slot's spans ARE the matrix cell's; `deepcopy` of an `Attribution` is
+identity and a pickle round-trip stays frozen; the verb's `span_by_pair`
+block reads `v.get("spans")` and never `_matrix(lines)`).
+`quality/test_verbs.py` (the slotted probe's `FAILS L2-L3` block scores
+`night ~ left` with no banner while the default-slot block keeps its
+MOSAIC banner; the verb's NO JOINT CANDIDATE line carries the strike and
+no live copy of the old sentence survives; a CLI walk on the deferred path
+finds a rejected row on `group_outcomes` and the next group prompt quoting
+it). `quality/test_loop.py` (every joint rewrite recorded with reasons; a
+round-2 brief carries `prior`; `render_group` quotes it; CONTROL — a bare
+callable is asked exactly as before with `prior` None).
+`quality/test_propose.py` (`prior` is in the declared-versus-read field
+set, so `render_group` cannot stop reading it silently). `mcp/test.mjs`
+(a group answer folds off `group_outcomes` by exact members AND round,
+`source: outcome`; without a row it is `unknown`).
+
+**WHAT THE REPORT GOT RIGHT THAT I HAD DISCOUNTED.** All of it. The
+struck-sentence observation was the thread I pulled first and it was a
+real doctrine-1 break. The "left is `lies`" line was a renderer defect
+that read as a grader defect, exactly as the writer inferred. And "no
+rejection reason is given" was literally true on three layers at once.
+The one thing it named that was not a defect — "accepted into state but
+not applied" — was the writer's best reading of a correct rejection
+delivered in silence, and the silence was ours.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~307~~
+**308** with this entry (2026-09-06).

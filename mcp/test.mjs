@@ -1163,6 +1163,48 @@ check('validation: actionable errors', () => {
         assert.equal(VI.outcomeAt({ outcomes: [] }, 3, 0, 1), null);
       }
     );
+    // ── M-253: THE GROUP VERDICT, OFF ITS OWN RECORD ─────────────────────
+    check(
+      'a tier-2 group answer folds off `group_outcomes` — verdict, reasons, source — and stays unknown without it (M-253)',
+      () => {
+        const pend = {
+          kind: 'propose_group',
+          record: { members: [3, 7, 9], round: 2 },
+          answer: 'L3: a\nL7: b\nL9: c',
+        };
+        const st = {
+          pending: null,
+          group_outcomes: [
+            { members: [3, 7], round: 2, accepted: true, reasons: [] },
+            {
+              members: [3, 7, 9],
+              round: 2,
+              accepted: false,
+              reasons: ['nothing was fixed'],
+              text: 'L3: a\nL7: b\nL9: c',
+            },
+          ],
+        };
+        const g = VI.foldedOf(JSON.stringify({ pending: pend }), st, 1);
+        assert.equal(g.kind, 'propose_group');
+        assert.deepEqual(g.members, [3, 7, 9]);
+        assert.equal(g.verdict, 'rejected', 'the record wins');
+        assert.equal(g.source, 'outcome');
+        assert.deepEqual(g.reasons, ['nothing was fixed']);
+        // The exact members AND the round: a row for [3,7] or for another
+        // round is not this question's verdict.
+        assert.equal(VI.groupOutcomeAt(st, [3, 7, 9], 1), null, 'another round is not it');
+        assert.equal(
+          VI.groupOutcomeAt(st, [3, 9, 7], 2),
+          null,
+          'members are ordered, as the mandate orders them'
+        );
+        // Without a row the answer is UNKNOWN, as M-235 pinned — never guessed.
+        const none = VI.foldedOf(JSON.stringify({ pending: pend }), { pending: null }, 1);
+        assert.equal(none.verdict, 'unknown');
+        assert.deepEqual(none.reasons, []);
+      }
+    );
     check(
       "the connector's revise budget is one attempt, ONE group rewrite per stuck line (backtrack 1, on since M-247), eight rounds, and the driver tallies batch folds (M-236)",
       async () => {

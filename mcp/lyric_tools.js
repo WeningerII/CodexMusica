@@ -664,6 +664,24 @@ function outcomeAt(st, line, attempt, round) {
   return null;
 }
 
+// THE GROUP VERDICT, OFF ITS OWN RECORD (M-253, 2026-09-06). The harness
+// writes what verify made of every joint rewrite to `group_outcomes`, keyed
+// (members, round) — its own list, because every reader of `outcomes` keys
+// on `line`. Before this a tier-2 answer folded as `unknown` with no
+// reasons, always, so a writer whose group rewrite was rejected three
+// rounds running saw three silences.
+function groupOutcomeAt(st, members, round) {
+  const outs = st && Array.isArray(st.group_outcomes) ? st.group_outcomes : [];
+  const want = Array.isArray(members) ? members.map(Number).join(',') : null;
+  if (want == null) return null;
+  for (let i = outs.length - 1; i >= 0; i--) {
+    const o = outs[i];
+    if (!o || typeof o !== 'object' || !Array.isArray(o.members)) continue;
+    if (o.members.map(Number).join(',') === want && (o.round ?? null) === (round ?? null)) return o;
+  }
+  return null;
+}
+
 function foldedOne(asked, answer, st, budget) {
   const next = st && typeof st === 'object' ? st.pending : null;
   const nextAsked = askedOf(next);
@@ -673,7 +691,9 @@ function foldedOne(asked, answer, st, budget) {
   const o =
     asked.kind === 'propose' && typeof asked.attempt === 'number'
       ? outcomeAt(st, asked.line, asked.attempt, asked.round)
-      : null;
+      : asked.kind === 'propose_group' && Array.isArray(asked.members)
+        ? groupOutcomeAt(st, asked.members, asked.round)
+        : null;
   if (o) {
     verdict = o.accepted === true ? 'accepted' : o.accepted === false ? 'rejected' : 'unknown';
     reasons = Array.isArray(o.reasons) ? o.reasons.map((r) => String(r).slice(0, 300)) : [];
@@ -1406,6 +1426,7 @@ export function answerFromRows(rows, kind) {
 export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
+  groupOutcomeAt,
   extractStanding,
   askedOf,
   priorReasons,

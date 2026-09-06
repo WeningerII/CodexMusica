@@ -995,7 +995,10 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
             # shape of the request.
             "anchors",
             "label", "members", "brief", "lines", "attempt", "reasons",
-            "whole", "pivot_slot"}
+            "whole", "pivot_slot",
+            # `prior` — the last round's rejection of THIS group, read by
+            # `render_group` and quoted in its ATTEMPT block (M-253).
+            "prior"}
     check("every field this suite builds a `PB` out of is a real "
           "`GroupBrief` field", used <= declared, sorted(used - declared))
     check("...and `GroupBrief` has grown no field this suite is blind to",
