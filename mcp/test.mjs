@@ -1185,6 +1185,40 @@ check('validation: actionable errors', () => {
         );
         const bat = readFileSync(new URL('../scripts/flash_battery.mjs', import.meta.url), 'utf8');
         assert.ok(/const foldedList = \(c\) =>/.test(bat), 'a batch call folds several answers');
+        // M-249 (round 23): a rate limit no affordable wait clears is a STOP,
+        // and the counter that reports it has to be able to move. Round 23 sat
+        // in a paced-429 loop printing `retry 0/4` on every line because a
+        // paced 429 deliberately does not spend the retry budget (M-229).
+        assert.ok(
+          /const RATE_PACED_MAX = /.test(bat),
+          'the paced-429 bound is a declared coordinate'
+        );
+        assert.ok(
+          /pacedRetries < RATE_PACED_MAX/.test(bat),
+          'and it bounds the retry loop, so a spent quota cannot spin'
+        );
+        assert.ok(
+          /rateLimited\s*\n?\s*\? 'rate_limited'/.test(bat),
+          "and 'rate_limited' is its own verdict, never folded into transport"
+        );
+        assert.ok(
+          /paced \$\{pacedRetries\}\/\$\{RATE_PACED_MAX\}/.test(bat),
+          'the warning prints the counter that actually moves on a paced 429'
+        );
+        // M-249 (round 24): `answers` is an answer, not a declaration. Missing
+        // from RUN_ANSWER_FIELDS it became one, and the moved-declaration
+        // guard refused the next answer for differing from the last.
+        const { RUN_ANSWER_FIELDS, declarationsOf } = await import('./run_store.js');
+        assert.ok(RUN_ANSWER_FIELDS.has('answers'), '`answers` is an answer field');
+        assert.deepEqual(
+          declarationsOf({
+            seed: 7,
+            answers: [{ line: 1, text: 'a' }],
+            relation: 'type:pararhyme',
+          }),
+          { seed: 7, relation: 'type:pararhyme' },
+          "so it never lands in a run's declarations"
+        );
         const ga = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
         assert.ok(
           /one \{line, text\} object per asked line, every one required/.test(ga),
