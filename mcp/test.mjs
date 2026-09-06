@@ -1686,6 +1686,60 @@ check('validation: actionable errors', () => {
       'nothing to say → no block at all'
     );
   });
+  // ── M-162: the skipped-steps reminder (owner's go 2026-09-06) ───────────
+  check(
+    'the skipped-steps note names what the transcript has not called, and leaves when it has',
+    () => {
+      const { lyricCallsOnRecord, SKIPPED_STEPS_NOTE } = _agentInternals;
+      const surface = { instructions: 'BASE INSTRUCTIONS' };
+      const call = (name) => ({ role: 'model', parts: [{ functionCall: { name, args: {} } }] });
+      const user = { role: 'user', parts: [{ text: 'write me a song' }] };
+      // the scanner reads model functionCalls only, lyric_* only
+      const rec = lyricCallsOnRecord([user, call('search_catalog'), call('lyric_plan')]);
+      assert.deepEqual([...rec], ['lyric_plan'], 'model lyric_* calls, nothing else');
+      assert.equal(lyricCallsOnRecord(null).size, 0, 'no transcript → empty record, never a throw');
+      // nothing on record → both steps named, in front of the base bytes
+      const t0 = buildSystemInstruction(surface, null, new Set()).parts[0].text;
+      assert.ok(t0.startsWith('BASE INSTRUCTIONS'), 'the base instructions survive in front');
+      assert.ok(
+        t0.includes('lyric_sweep') && t0.includes('lyric_screen'),
+        'both missing steps named'
+      );
+      assert.ok(!t0.includes('already been called'), 'no plan yet → no "already" clause');
+      // plan called first, neither step → the note says so
+      const t1 = buildSystemInstruction(surface, null, new Set(['lyric_plan'])).parts[0].text;
+      assert.ok(
+        t1.includes('lyric_plan has already been called without them'),
+        'a plan without the steps is named as such'
+      );
+      // one step on record → only the other is named
+      const t2 = buildSystemInstruction(surface, null, new Set(['lyric_sweep'])).parts[0].text;
+      assert.ok(
+        t2.includes('lyric_screen') && !/not yet called lyric_sweep/.test(t2),
+        'only the missing step is named'
+      );
+      // both on record → the base bytes, exactly: the note is gone
+      const t3 = buildSystemInstruction(surface, null, new Set(['lyric_sweep', 'lyric_screen']));
+      assert.equal(t3.parts[0].text, 'BASE INSTRUCTIONS', 'both steps on record → no note');
+      assert.equal(SKIPPED_STEPS_NOTE(new Set(['lyric_sweep', 'lyric_screen'])), null);
+      // no record handed in → the two-argument contract is untouched
+      assert.equal(
+        buildSystemInstruction(surface, null).parts[0].text,
+        'BASE INSTRUCTIONS',
+        'record omitted → no note'
+      );
+      // it composes with the M-158 reminder: note first, then the suspended run
+      const both = buildSystemInstruction(
+        surface,
+        { seed: 7, state: '{"pending":{"kind":"propose"}}' },
+        new Set()
+      ).parts[0].text;
+      assert.ok(
+        both.indexOf('WORKING ORDER') < both.indexOf('SUSPENDED'),
+        'skipped-steps note precedes the suspended-run note'
+      );
+    }
+  );
   // ── M-197: a throw mid-turn carries the hops already spent ─────────────
   // `generate()` throws on a 429 (retries 0), and the hop loop used to let
   // that throw discard `usage` — every billed hop before it was uncounted by
@@ -2813,10 +2867,15 @@ check('validation: actionable errors', () => {
         assert.ok(/all 2 lines, in order/.test(si));
         assert.ok(/Do NOT send `answer`/.test(si));
         assert.ok(!/SUSPENDED/.test(si), 'a parked run is not a suspended one');
-        assert.equal(
-          requests[5].systemInstruction.parts[0].text,
-          'BASE',
-          'exit 0: no reminder on the last hop, the base instructions alone'
+        // exit 0: no RUN reminder on the last hop. The skipped-steps note
+        // (M-162) is a different reminder and correctly stands here: this
+        // transcript planned and revised without ever sweeping or screening.
+        const last = requests[5].systemInstruction.parts[0].text;
+        assert.ok(last.startsWith('BASE'), 'the base instructions lead');
+        assert.ok(!/PARKED|SUSPENDED/.test(last), 'exit 0: no run reminder on the last hop');
+        assert.ok(
+          /WORKING ORDER/.test(last),
+          'M-162: the transcript never swept or screened, so that note stands'
         );
         // Pure helpers.
         assert.equal(_ip(null), false);
@@ -3083,8 +3142,8 @@ check('validation: actionable errors', () => {
     const assigns = src.match(/body\.systemInstruction\s*=\s*(\w+)/g) || [];
     assert.equal(assigns.length, 1, 'exactly one assignment site');
     assert.ok(
-      /const si = buildSystemInstruction\(surface, lyr\)/.test(src),
-      'and it is fed by the builder, per hop, from the live carried state'
+      /const si = buildSystemInstruction\(surface, lyr, lyricCallsOnRecord\(contents\)\)/.test(src),
+      'and it is fed by the builder, per hop, from the live carried state AND the live transcript (M-162)'
     );
   });
 

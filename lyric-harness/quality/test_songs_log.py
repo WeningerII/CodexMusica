@@ -353,14 +353,20 @@ def test_the_bytes_behind_the_md5_are_banked():
     # gate names them as a bucket, which is the difference between a sentence
     # and a measurement.
     lost = set(re.findall(r"^  LOST\s+(\S+) (\w+)", out, re.M))
-    check("...and the LOST bucket is exactly the drafts M-168 named — "
-          "crooked_waltz 19, matinee 54/55, the_long_way_back 2 — no more "
-          "and no fewer",
+    check("...and the LOST bucket is exactly the drafts M-168 named LESS "
+          "the one §9 recovered — crooked_waltz 19, matinee 54/55; "
+          "the_long_way_back 2 is BANKED since 2026-09-06 — no more and no "
+          "fewer",
           lost == {("crooked_waltz.txt", "29697fccfe8d"),
                    ("matinee.txt", "707c48614794"),
-                   ("matinee.txt", "04065bbbcdd9"),
-                   ("the_long_way_back.txt", "687eaa34c949")},
+                   ("matinee.txt", "04065bbbcdd9")},
           f"{sorted(lost)}")
+    check("...and the recovered draft reads BANKED, from the committed file "
+          "and not from anything this suite wrote",
+          re.search(r"^  BANKED\s+the_long_way_back\.txt 687eaa34c949", out,
+                    re.M) is not None
+          and os.path.exists(L.draft_path("the_long_way_back.txt",
+                                          "687eaa34c949")))
     check("the fingerprint is BORROWED from the grader's own definition and "
           "never respelled here, so a draft file's name cannot come to mean "
           "something the report does not (doctrine 1)",
@@ -438,7 +444,7 @@ def test_the_bytes_behind_the_md5_are_banked():
               "which is the whole discriminator working",
               re.search(r"^  FAILING\s+" + re.escape(DRAFT_PROBE), out2, re.M)
               is not None
-              and "6 LOST" in out2,
+              and "3 LOST" in out2,
               [l for l in out2.splitlines() if DRAFT_PROBE in l][:1])
         with open(want, "w", encoding="utf-8") as f:
             f.write(held)
@@ -468,6 +474,98 @@ def test_the_bytes_behind_the_md5_are_banked():
     check("...and the committed tree is back to PASS", rc4 == 0)
 
 
+def test_the_recovery_verb_banks_only_what_the_log_names():
+    """9. `--bank-draft SONG MD5 FILE` — THE DECLARED ROUTE FOR A LOST DRAFT.
+
+    `MISSING.md` M-196 recorded that one of the four LOST drafts,
+    the_long_way_back `687eaa34c949`, is readable from git history
+    (`8d7b3f18`) and refused to write it into `songs/drafts/` by hand,
+    because a file written today from a re-hash looks banked-by-construction
+    and was not. The route it named is a verb that REFUSES unless the song's
+    log already holds the md5 and the file fingerprints to it. Three refusals
+    and one acceptance, each on a probe log this section writes and removes.
+    """
+    print("\n9. `--bank-draft` banks bytes a log already names, and refuses "
+          "everything else (`MISSING.md` M-196)")
+    import tempfile
+    import shutil
+    from quality.revise import draft_fingerprint
+    import lyric_harness as LH
+    tmpd = tempfile.mkdtemp()
+    probe = "zz_bank_probe.txt"
+    lines = ["the lamp is out and the road is long",
+             "we count the mile by the turning song"]
+    fp = draft_fingerprint(lines)
+    draft = os.path.join(tmpd, "draft.txt")
+    with open(draft, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+    other = os.path.join(tmpd, "other.txt")
+    with open(other, "w", encoding="utf-8") as f:
+        f.write("a different line entirely\nand its partner\n")
+    try:
+        # a log that holds NO md5: the verb refuses whatever the file is
+        rel, why = L.bank_draft_file(probe, fp, draft)
+        check("a log with no md5 row for it REFUSES, naming the song and "
+              "the md5 — a fingerprint the log never printed is not a draft "
+              "of this song", rel is None and why and "no row" in why,
+              why or f"{rel!r}")
+        # write a probe log that names fp on an md5 row
+        with open(L.log_path(probe), "w", encoding="utf-8") as f:
+            f.write("\t".join(L.HEADER) + "\n")
+            row = {k: "" for k in L.HEADER}
+            row.update({"step": "1", "verb": "song", "fact": "md5",
+                        "value": fp, "measured": "2026-08-30"})
+            f.write("\t".join(row[k] for k in L.HEADER) + "\n")
+        rel, why = L.bank_draft_file(probe, fp, other)
+        check("a file whose bytes do NOT carry the md5 REFUSES and says what "
+              "they do carry — nothing is banked under a name its contents "
+              "lack", rel is None and why and "fingerprints" in why
+              and draft_fingerprint(LH.load_lyric_lines(other)) in why,
+              why or f"{rel!r}")
+        rel, why = L.bank_draft_file(probe, fp, draft)
+        want = L.draft_path(probe, fp)
+        check("the matching file is BANKED at the one draft path, byte for "
+              "byte", rel is not None and os.path.exists(want)
+              and open(want, encoding="utf-8").read() == "\n".join(lines) + "\n",
+              why or rel)
+        rel2, why2 = L.bank_draft_file(probe, fp, draft)
+        check("...and banking it again is a no-op that answers the same path "
+              "(idempotent, nothing overwritten)", rel2 == rel and why2 is None,
+              why2 or rel2)
+        with open(want, "w", encoding="utf-8") as f:
+            f.write("tampered\n")
+        rel3, why3 = L.bank_draft_file(probe, fp, draft)
+        check("...and a destination holding DIFFERENT bytes under that name "
+              "REFUSES rather than overwriting", rel3 is None and why3
+              and "DIFFERENT" in why3, why3 or f"{rel3!r}")
+        rc, out = run(["quality/song_log.py", "--bank-draft", probe, fp, draft])
+        check("the CLI spelling refuses at exit 2 with REFUSED in front, the "
+              "same shape as every other refusal here",
+              rc == 2 and out.lstrip().startswith("REFUSED"), out.strip()[:90])
+        os.remove(want)
+        rc, out = run(["quality/song_log.py", "--bank-draft", probe, fp, draft])
+        check("...and banks at exit 0 when the three conditions hold",
+              rc == 0 and "BANKED" in out and os.path.exists(want),
+              out.strip()[:90])
+    finally:
+        for pth in (L.log_path(probe), L.draft_path(probe, fp)):
+            if os.path.exists(pth):
+                os.remove(pth)
+        shutil.rmtree(tmpd, ignore_errors=True)
+    check("...and the probe leaves no residue",
+          not os.path.exists(L.log_path(probe))
+          and not os.path.exists(L.draft_path(probe, fp)))
+    # THE RECOVERY ITSELF, AS A FACT ABOUT THE COMMITTED TREE: the bytes at
+    # `8d7b3f18:lyric-harness/songs/the_long_way_back.txt` were banked through
+    # this verb on 2026-09-06 and the file is committed. Re-derive, do not
+    # assume: the file must fingerprint to the md5 in its own name.
+    got = L.draft_path("the_long_way_back.txt", "687eaa34c949")
+    check("the_long_way_back's once-LOST draft is a committed file whose "
+          "bytes fingerprint to the md5 in its name",
+          os.path.exists(got)
+          and draft_fingerprint(LH.load_lyric_lines(got)) == "687eaa34c949")
+
+
 if __name__ == "__main__":
     for t in (test_every_song_has_a_log_and_the_shape_holds,
               test_an_unparseable_command_is_refused_not_banked,
@@ -476,7 +574,8 @@ if __name__ == "__main__":
               test_it_records_and_does_not_grade,
               test_the_citation_is_word_keyed_and_refuses_ambiguity,
               test_the_finish_stamp_has_a_parser,
-              test_the_bytes_behind_the_md5_are_banked):
+              test_the_bytes_behind_the_md5_are_banked,
+              test_the_recovery_verb_banks_only_what_the_log_names):
         t()
     print("\n" + "=" * 62)
     if FAILURES:

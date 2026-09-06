@@ -4564,7 +4564,11 @@ declare(RelationSchema(
     identity=(DISTINCT,),
     note="polarity=False is the negation: at least one member NOT line-final, "
          "computed. MISSING E-3: this is the song-wide positional graph the "
-         "two-line internal_matches could not build."))
+         "two-line internal_matches could not build. FRAME, STATED (E-3 "
+         "closed 2026-09-06): this schema answers over the WHOLE SONG -- "
+         "Figure(frame='song'), every line pair, stanza breaks crossed -- "
+         "while lyric_harness.rhyme_density answers at a DECLARED line "
+         "distance (window=, default 1). Two readers, two declared windows."))
 
 declare(RelationSchema(
     name="leonine rhyme",

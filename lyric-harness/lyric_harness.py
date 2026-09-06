@@ -2666,8 +2666,10 @@ def span_label(prov):
 
 
 #: How a scored span stands to the END WORD a report prints beside it.
-#: These four names are the partition adversary 7 measures over; they are
-#: exhaustive and disjoint by construction in `span_kind`.
+#: These FIVE names are the partition adversary 7 measures over; they are
+#: exhaustive and disjoint by construction in `span_kind`. (~~four~~ — this
+#: comment said four above five constants, under a function whose own
+#: docstring says five, `MISSING.md` M-137; corrected 2026-09-06.)
 SPAN_EXACT = "exact"          #: the span IS the end word, whole
 SPAN_PART = "part"            #: the span is INSIDE the end word (anchor cut)
 SPAN_REACH = "reach"          #: the span reaches back PAST the end word
@@ -2675,8 +2677,30 @@ SPAN_SUBSTITUTED = "substituted"     #: the token did not all read (hyphen)
 SPAN_UNATTRIBUTED = "unattributed"   #: no provenance; nothing may be claimed
 
 #: The order the kinds are checked in, worst first. Exhaustive and disjoint.
+#: `span_kind` ITERATES THIS TUPLE (M-137, 2026-09-06): until then it
+#: hard-coded the same order as a chain of `if`s and this constant had one
+#: reference in the repository, its own definition — the precedence of a live
+#: five-way decision, declared and consulted by nothing, free to drift from
+#: the code that enforced it. The predicate for each kind sits beside its
+#: name in `_SPAN_KIND_TESTS`; the tuple is the order they are asked in, and
+#: the two are held equal at import.
 SPAN_KINDS = (SPAN_UNATTRIBUTED, SPAN_SUBSTITUTED, SPAN_REACH, SPAN_PART,
               SPAN_EXACT)
+
+#: kind -> does this provenance record fall in it, ASKED IN `SPAN_KINDS`
+#: ORDER. Each test may assume every earlier kind answered no, which is why
+#: only the first handles `None`. The last is the exhaustive remainder.
+_SPAN_KIND_TESTS = {
+    SPAN_UNATTRIBUTED: lambda p: p is None,
+    SPAN_SUBSTITUTED: lambda p: bool(p.get("substituted")),
+    SPAN_REACH: lambda p: not p["endword_only"],
+    SPAN_PART: lambda p: bool(p["partial_word"]),
+    SPAN_EXACT: lambda p: True,
+}
+if tuple(_SPAN_KIND_TESTS) != SPAN_KINDS:      # one order, stated once
+    raise RuntimeError("SPAN_KINDS and _SPAN_KIND_TESTS disagree about the "
+                       "kinds or their order: %r vs %r"
+                       % (SPAN_KINDS, tuple(_SPAN_KIND_TESTS)))
 
 
 def span_kind(prov):
@@ -2705,15 +2729,10 @@ def span_kind(prov):
     rule, visible. It is still a case where the printed label and the compared
     span are different objects, and doctrine 45 is about saying so.
     """
-    if prov is None:
-        return SPAN_UNATTRIBUTED
-    if prov.get("substituted"):
-        return SPAN_SUBSTITUTED
-    if not prov["endword_only"]:
-        return SPAN_REACH
-    if prov["partial_word"]:
-        return SPAN_PART
-    return SPAN_EXACT
+    for kind in SPAN_KINDS:
+        if _SPAN_KIND_TESTS[kind](prov):
+            return kind
+    raise AssertionError("SPAN_KINDS is not exhaustive")   # unreachable
 
 
 def _norm_word(w):
@@ -3069,9 +3088,15 @@ def best_score(ancs_a, ancs_b, decl, word_a=None, word_b=None, profile=None):
         "a": pa, "b": pb,
         "anchor_a": won[0], "anchor_b": won[1],
         # doctrine 56: k is the size of the search the max was taken over.
-        # Recording it is the precondition for a null under the same search;
-        # `beat` is how many candidates the winner beat.
-        "search_k": k, "beat": k - 1,
+        # Recording it is the precondition for a null under the same search
+        # (`quality/search_null.py` is that null, M-135), and `candidates_a`
+        # / `candidates_b` are its two FACTORS — the side-searches whose
+        # product k is — which `search_null.search_shape` reports apart.
+        # ~~`beat` is how many candidates the winner beat~~ — struck 2026-09-06
+        # (M-137): `k - 1` was stored as a bare key that no production path
+        # read, a derived value banked beside its own derivation, which this
+        # class's docstring names as the defect. Removed rather than kept.
+        "search_k": k,
         "candidates_a": len(cand_a), "candidates_b": len(cand_b),
         # A tie means the named span is ONE of several that produce this
         # number, so the report has to say so rather than pick in silence.
@@ -4524,7 +4549,20 @@ def _span_words(sylls, i, j):
 
 
 def internal_matches(lex, text_a, decl, text_b=None, theta=None,
-                     max_window=3):
+                     max_span=3):
+    """Internal (within-line) or cross-line span matches between at most
+    TWO texts.
+
+    TWO AXES, TWO NAMES (`MISSING.md` E-3, closed 2026-09-06). `max_span` is
+    the longest SPAN a candidate may cover, in SYLLABLES — it was called
+    `max_window`, the same word `rhyme_density` needed for the LINE distance,
+    one name over two coordinates (doctrine 1). This function has no line
+    window of its own: it takes at most two texts and the CALLER decides which
+    two, so the line-distance coordinate lives on `rhyme_density(window=)`,
+    and the song-wide reading — every pair of lines, stanza breaks crossed — is
+    `quality/relations.py`'s `internal rhyme` schema, `Figure(frame='song')`.
+    Three readers, each declaring its own window; none answering for another.
+    """
     if theta is None:
         theta = decl.theta_rhyme + 0.05
     A = word_syllable_map(lex, text_a)
@@ -4535,7 +4573,7 @@ def internal_matches(lex, text_a, decl, text_b=None, theta=None,
         out = []
         for i, s in enumerate(X):
             if s["stress"] in (1, 2):
-                for L in range(1, max_window + 1):
+                for L in range(1, max_span + 1):
                     if i + L <= len(X):
                         out.append((i, i + L))
         return out
@@ -4569,8 +4607,16 @@ def internal_matches(lex, text_a, decl, text_b=None, theta=None,
     return picked, len(A), len(B)
 
 
-def rhyme_density(lex, lines, decl, theta=None):
+def rhyme_density(lex, lines, decl, theta=None, window=1):
     """Share of a line's syllables caught in an internal or cross-line match.
+
+    `window` is the LINE DISTANCE cross-line matches are asked at: 1 (the
+    default, byte-identical to every reading before the coordinate existed)
+    asks each line against its next; N asks every pair at distance 1..N; 0
+    asks only within lines. DECLARED, and returned as `"window"`, because
+    until E-3 closed this layer was distance <= 1 by the shape of one loop
+    while `quality/relations.py`'s `internal rhyme` schema answered
+    song-wide, and nothing said which window a number came from.
 
     `internal_matches` reads `word_syllable_map`, so an unreadable word is not
     in the denominator OR the numerator -- the density is computed over the
@@ -4588,13 +4634,17 @@ def rhyme_density(lex, lines, decl, theta=None):
         for p in picked:
             matched[idx].update(range(*p["a_syll"]))
             matched[idx].update(range(*p["b_syll"]))
-    for idx in range(len(lines) - 1):
-        picked, _, _ = internal_matches(lex, lines[idx], decl,
-                                        text_b=lines[idx + 1],
-                                        theta=theta)
-        for p in picked:
-            matched[idx].update(range(*p["a_syll"]))
-            matched[idx + 1].update(range(*p["b_syll"]))
+    if not isinstance(window, int) or window < 0:
+        raise ValueError(f"window must be a non-negative line distance, "
+                         f"not {window!r}")
+    for d in range(1, window + 1):
+        for idx in range(len(lines) - d):
+            picked, _, _ = internal_matches(lex, lines[idx], decl,
+                                            text_b=lines[idx + d],
+                                            theta=theta)
+            for p in picked:
+                matched[idx].update(range(*p["a_syll"]))
+                matched[idx + d].update(range(*p["b_syll"]))
     for idx in range(len(lines)):
         d = len(matched[idx]) / totals[idx] if totals[idx] else 0.0
         per_line.append(round(d, 3))
@@ -4602,6 +4652,7 @@ def rhyme_density(lex, lines, decl, theta=None):
                if sum(totals) else 0.0)
     records = readability_records(lex, lines)
     return {"per_line": per_line, "overall": round(overall, 3),
+            "window": window,
             "readability": records,
             "unreadable": [{"line": r["line"], "words": r["unreadable"],
                             "reason": r["reason"]}
@@ -5686,7 +5737,7 @@ commands (the fifteen spine verbs):
   chains FILE [theta]     inferred rhyme chains
   graph  FILE [theta]     the full pairwise matrix, cliques and overlaps
   internal "line"         internal (within-line) matches
-  density FILE            rhyme density per line
+  density FILE [--window=N]  rhyme density per line at a declared line distance
   weight "line"           syllable weights and matras
   qafiya FILE|L...        Arabic/Persian qafiya profile audit
   cynghanedd [--lang=cym|eng] [--caesura=marked|search] [--marks=M,M] "line"   Welsh consonantal answer
@@ -5697,7 +5748,7 @@ the quality layer (each says which module answered):
   wiring                  which verb runs on which layer, which verbs are
                           dispatched and NOT on the map, and any STRANDED
                           module
-  types  W1 -- W2 [--lang=] [--preset=]
+  types  W1 -- W2 [--lang=] [--preset=] [--position=]
                           full rhyme-type coordinate: 9 axes, per-member
                           anchor, traditional names
   recover LYRIC.txt [--placements=end,head,T4]
@@ -7460,8 +7511,28 @@ def main():
               + (f"  OOV {oov}" if oov else ""))
 
     elif cmd == "density":
-        lines = load_lyric_lines(args[1])
-        res = rhyme_density(lex, lines, decl)
+        rest = args[1:]
+        raw = _flag_value(rest, "--window", eq_only=True)
+        rest = _strip_flag(rest, "--window")
+        bad_flag = [a for a in rest if a.startswith("--")]
+        if bad_flag:
+            _refuse(f"density does not take {bad_flag[0]!r}",
+                    detail=["usage: density FILE [--window=N]"])
+        window = 1 if raw is None else _number_or_refuse(
+            raw, int, "--window", "density FILE [--window=N]",
+            "the LINE DISTANCE cross-line matches are asked at: 1 is each "
+            "line against its next (the default), 0 is within lines only")
+        if window < 0:
+            _refuse("--window must be a non-negative line distance",
+                    detail=["usage: density FILE [--window=N]"])
+        lines = load_lyric_lines(rest[0])
+        res = rhyme_density(lex, lines, decl, window=window)
+        # THE WINDOW IS PRINTED ON EVERY RUN (E-3): a density read at line
+        # distance 1 and one read song-wide are different numbers under one
+        # name, and this line is what keeps them from being quoted as one.
+        print(f"  window: {res['window']} line(s) — cross-line matches asked "
+              f"at distance 1..{res['window']}; the `internal rhyme` schema "
+              f"(relations) asks song-wide")
         for i, d in enumerate(res["per_line"]):
             print(f"  L{i+1}: {d}")
         print(f"  overall density: {res['overall']}")
@@ -7916,18 +7987,20 @@ def main():
 
     elif cmd == "types":
         from quality import rhyme_types as RT
-        rest, lang, preset = args[1:], "eng", None
+        rest, lang, preset, position = args[1:], "eng", None, None
         keep = []
         for a in rest:
             if a.startswith("--lang="):
                 lang = a.split("=", 1)[1]
             elif a.startswith("--preset="):
                 preset = a.split("=", 1)[1]
+            elif a.startswith("--position="):
+                position = a.split("=", 1)[1]
             else:
                 keep.append(a)
         w1, w2 = _two_sides_or_refuse(
             " ".join(keep), "types",
-            "types W1 -- W2 [--lang=] [--preset=]")
+            "types W1 -- W2 [--lang=] [--preset=] [--position=]")
         # BOTH of this verb's flags name a declared vocabulary, both already
         # refuse an undeclared value with a message that names it, and both
         # did it as a traceback at exit 1 -- `phonology.Unsupported` and
@@ -7942,7 +8015,30 @@ def main():
                 "A preset sets the ANCHOR RULE and the channel selection at "
                 "once (doctrine 83), so an unrecognised name cannot fall "
                 "through to the default pair.")
+        # `--position=` DECLARES THE COORDINATE THE VERB COULD NEVER SPELL
+        # (`MISSING.md` M-34, 2026-09-06). 31 of the 49 NAMED keys need a
+        # non-None position and `classify_pair` takes two bare words and no
+        # line, so with nothing declared those 31 can never match and
+        # `night -- light` printed UNNAMED for a masculine rhyme. A mandate
+        # supplies 'end' because its groups are line-final by construction;
+        # a caller with two words supplies it here, over the declared
+        # vocabulary, or declares nothing and is TOLD the coordinate is
+        # missing rather than told the space is larger than the vocabulary.
+        if position is not None:
+            _value_in_vocabulary_or_refuse(
+                "--position", position, RT.POSITION,
+                "Position is where in the line the pair sits (doctrine 83's "
+                "locator, one axis of the 9); 'end' is a line-final pair, "
+                "which is what a mandate group's members are.")
         kw = {"preset": preset} if preset else {}
+        # NOT `classify_pair(position=...)`: that path VERIFIES a position
+        # against a Frame or refuses, and two bare words have no honest
+        # frame (each word as its own whole line measures HOLORHYME, not
+        # `end` — tried, refused by the library, recorded here). The verb
+        # takes the mandate path's own move instead: the caller DECLARES the
+        # placement and every registered name is judged at its own
+        # coordinate under that declaration (`rhyme_types.names_at`, the
+        # M-44 loop turned around). The axis line below says DECLARED.
         try:
             t = RT.classify_pair(w1, w2, phon, **kw)
         except RT.Indeterminate as e:
@@ -7961,10 +8057,36 @@ def main():
                                  else ""))
         for ax in ("identity", "stress", "position", "boundary", "length",
                    "realisation"):
+            if ax == "position" and position is not None:
+                print(f"  position: {position} (DECLARED by `--position=`, "
+                      f"as a mandate declares it for a line-final group — "
+                      f"asserted, not measured from a line)")
+                continue
             print(f"  {ax}: {getattr(t, ax)}")
-        names = t.names()
-        _un = ("UNNAMED at this coordinate — the space is larger than the "
-               "vocabulary, and that is the point of it being a space")
+        if position is not None:
+            at = RT.names_at(w1, w2, phon, position, preset=preset)
+            names, skipped = at if at is not None else ((), ())
+            if skipped:
+                print(f"  not asked at this length: {', '.join(skipped)} "
+                      f"(a registered anchor has no referent in one member "
+                      f"— a refusal, not a no)")
+        else:
+            names = t.names()
+        if position is None:
+            # An INCOMPLETE coordinate is not an unnamed one. Say which axis
+            # is missing and how many names need it, derived from the table
+            # rather than quoted (M-34).
+            _pi = RT.AXIS_INDEX["position"]
+            _need = sum(1 for k in RT.NAMED if k[_pi] is not None)
+            _un = (f"UNNAMED — and the coordinate is INCOMPLETE: no "
+                   f"`--position=` was declared, and {_need} of "
+                   f"{len(RT.NAMED)} named keys need one "
+                   f"({', '.join(RT.POSITION)}). A line-final pair is "
+                   f"`--position=end`.")
+        else:
+            _un = ("UNNAMED at this coordinate — the space is larger than "
+                   "the vocabulary, and that is the point of it being a "
+                   "space")
         print(f"  NAMES: {', '.join(names) if names else _un}")
         print(f"  verdict: {t.verdict()}   alliterates: {t.alliterates()}")
         route = getattr(t, "route", None)

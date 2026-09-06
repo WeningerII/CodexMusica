@@ -1793,9 +1793,12 @@ def resolve_relation(name):
 #: position-free.  `classify_pair` takes two bare words and no line, so it
 #: leaves `position=None` and those 31 can never match -- which is why
 #: `lyric_harness.py types night -- light` reports `NAMES: UNNAMED at this
-#: coordinate` for a masculine rhyme.  See `MISSING.md` M-34: the emptiness is
-#: permanent on that path and is explained there as a fact about the
-#: vocabulary rather than about a missing coordinate.
+#: coordinate` for a masculine rhyme.  See `MISSING.md` M-34: ~~the emptiness
+#: is permanent on that path and is explained there as a fact about the
+#: vocabulary rather than about a missing coordinate~~ — since 2026-09-06 the
+#: verb takes `--position=` over `POSITION`, and with none declared it says
+#: the coordinate is INCOMPLETE and how many names need it, derived from
+#: `NAMED` at print time.
 #:
 #: A MANDATE KNOWS IT.  An end-rhyme group's pairs are line-final by
 #: construction, so `grade()` can supply 'end' honestly and reach the 22 + 18
@@ -2167,6 +2170,61 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
     return False
 
 
+def names_at(a, b, phon, position, preset=None):
+    """-> (names, skipped) — every registered name this pair satisfies with
+    the caller DECLARING `position`, judged at each name's OWN registered
+    coordinate.  None if a member is unreadable.
+
+    THE M-44 MOVE, PER PAIR RATHER THAN PER CANON (`MISSING.md` M-34,
+    2026-09-06).  `satisfies_relation` asks "does this pair satisfy THIS
+    name at the caller's position?" by classifying at the name's registered
+    boundary / realisation / anchors and comparing at the registered key.
+    The `types` verb needs the same question turned around -- "which names
+    does this pair satisfy at the caller's position?" -- and this is that
+    loop, over the registry, with the registered `position=None` names (the
+    position-agnostic 18) always admitted and a registered position that
+    DIFFERS from the declared one always skipped (a real no, M-44's ruling).
+
+    `position` is ASSERTED by the caller and never verified here, which is
+    exactly what a mandate does for a line-final group and what
+    `classify_pair` refuses to do for a bare word with no Frame.  The two
+    are not in tension: verification needs a line, and a caller with two
+    words and no line is declaring a placement, not measuring one.  The
+    verb prints that word -- DECLARED -- beside the axis.
+
+    `skipped` names the registered keys `classify_pair` found Indeterminate
+    for this pair (an anchor with no referent at this length), so a short
+    list is not read as a small vocabulary (doctrine 20).
+    """
+    if position not in POSITION:
+        raise ValueError(f"position {position!r} is not in the declared "
+                         f"vocabulary {list(POSITION)}")
+    import dataclasses as _dc
+    kw = {"preset": preset} if preset else {}
+    found, skipped = [], []
+    for key, val in NAMED.items():
+        names_here = (val if isinstance(val, (list, tuple, set, frozenset))
+                      else (val,))
+        if key[6] != "phonetic":
+            continue
+        reg = key[3]
+        if reg is not None and reg != position:
+            continue
+        try:
+            t = classify_pair(a, b, phon, boundary=key[4], realisation=key[6],
+                              anchor_a=key[7], anchor_b=key[8], **kw)
+        except Indeterminate:
+            skipped.extend(n for n in names_here if n not in skipped)
+            continue
+        if t is None:
+            return None
+        got = _dc.replace(t, position=reg).names()
+        for n in names_here:
+            if n in got and n not in found:
+                found.append(n)
+    return tuple(found), tuple(n for n in skipped if n not in found)
+
+
 __all__ = ["CHANNELS", "SPAN", "IDENTITY", "STRESS", "POSITION", "BOUNDARY",
            "LENGTH", "REALISATION", "CELL_NAMES", "RhymeType",
            "agreement_cells", "classify_pair", "verdict", "Indeterminate",
@@ -2174,6 +2232,7 @@ __all__ = ["CHANNELS", "SPAN", "IDENTITY", "STRESS", "POSITION", "BOUNDARY",
            "named_count", "classify", "Anchor", "ANCHOR_RULES", "DETERMINACY",
            "SPAN_RULES", "PROMINENCE_RULES", "FRAME_RULES", "ANCHOR_VALUES",
            "PRESETS", "Frame", "Unverifiable", "resolve_anchor", "alliterates",
+           "names_at",
            "UNLOCATED", "LAST_PROMINENT", "WORD_INITIAL", "FINAL_UNPROMINENT",
            "PENULTIMATE_PROMINENT", "SECOND_AKSARA", "LINE_PENULT",
            "PROMINENT_ONSET_SEARCH", "PROMINENT_SEARCH", "WELSH_PENULT",

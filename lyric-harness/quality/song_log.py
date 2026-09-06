@@ -5,6 +5,7 @@
     python3 quality/song_log.py --show SONG               # render one song's log
     python3 quality/song_log.py --verdicts                # README process claims vs the logs
     python3 quality/song_log.py --drafts                  # every banked md5 vs the bytes behind it
+    python3 quality/song_log.py --bank-draft SONG MD5 FILE  # bank bytes a log already names (M-196)
 
 WHY THIS EXISTS, AND WHY IT IS NOT `RESULTS.tsv`
 ------------------------------------------------
@@ -547,6 +548,61 @@ def bank_draft(song, verb, argv, facts):
     return os.path.relpath(out, ROOT), None
 
 
+def bank_draft_file(song, md5, path):
+    """-> (relpath, None) or (None, why-nothing-was-written).
+
+    THE RECOVERY VERB M-196 NAMED AND DID NOT BUILD. A draft that was graded
+    before the bytes were banked (`DRAFT_BANKING_SINCE`) is LOST, and one of
+    the four -- the_long_way_back `687eaa34c949` -- is readable from git
+    history for that song and no other. Writing those bytes into
+    `songs/drafts/` BY HAND would produce a file that looks
+    banked-by-construction and was not; this is the declared route, and it
+    REFUSES unless three things hold, each checked and none assumed:
+
+      1. `song`'s log HOLDS `md5` -- on an `md5`, `md5_in` or `md5_out` row.
+         A fingerprint the log never printed is not a draft of this song,
+         whatever the file contains, and banking it would invent a step.
+      2. `path` FINGERPRINTS to `md5` through the harness's own two
+         definitions (`load_lyric_lines`, `draft_fingerprint`) -- the same
+         borrowed pair `bank_draft` uses, never a second hash.
+      3. the destination holds nothing, or holds these exact bytes.
+
+    Nothing is looked up FOR the caller: the md5 is typed, the file is named,
+    and the verb says yes or no. A `--bank-draft` that searched git history
+    itself would be the backfill `drafts()` refuses to perform.
+    """
+    rows = [r for r in _md5_rows(song) if r[3] == md5]
+    if not rows:
+        held = sorted({r[3] for r in _md5_rows(song)})
+        return None, ("%s's log holds no row fingerprinted %s -- it holds %s "
+                      "-- so these bytes are not a draft this log ever named; "
+                      "nothing banked"
+                      % (song, md5, ", ".join(held) if held else "no md5 at all"))
+    import lyric_harness as LH
+    from quality.revise import draft_fingerprint
+    try:
+        lines = LH.load_lyric_lines(path)
+    except (OSError, UnicodeDecodeError) as e:
+        return None, "%s cannot be read: %s" % (path, e)
+    got = draft_fingerprint(lines)
+    if got != md5:
+        return None, ("%s fingerprints %s, not %s; nothing banked under a "
+                      "name its bytes do not carry" % (path, got, md5))
+    text = "\n".join(lines) + "\n"
+    out = draft_path(song, md5)
+    if os.path.exists(out):
+        with open(out, encoding="utf-8") as fh:
+            if fh.read() != text:
+                return None, ("%s already holds DIFFERENT bytes under this "
+                              "fingerprint; nothing overwritten"
+                              % os.path.relpath(out, ROOT))
+        return os.path.relpath(out, ROOT), None
+    os.makedirs(DRAFTS, exist_ok=True)
+    with open(out, "w", encoding="utf-8") as fh:
+        fh.write(text)
+    return os.path.relpath(out, ROOT), None
+
+
 # ---------------------------------------------------------------- the log
 
 def read_log(song):
@@ -1000,8 +1056,21 @@ def main():
     ap.add_argument("--verdicts", action="store_true")
     ap.add_argument("--drafts", action="store_true",
                     help="every banked md5 against the bytes behind it")
+    ap.add_argument("--bank-draft", nargs=3, metavar=("SONG", "MD5", "FILE"),
+                    help="bank FILE as SONG's draft MD5 -- refuses unless the "
+                         "log holds MD5 and FILE fingerprints to it (M-196)")
     ap.add_argument("cmd", nargs="*")
     a = ap.parse_args()
+    if a.bank_draft:
+        song, md5, path = a.bank_draft
+        if not song.endswith(".txt"):
+            song += ".txt"
+        rel, why = bank_draft_file(song, md5, path)
+        if rel is None:
+            print("  REFUSED -- %s" % why)
+            return 2
+        print("  BANKED %s %s -> %s" % (song, md5, rel))
+        return 0
     if a.record:
         argv = list(a.cmd)
         if argv and argv[0] == "--":

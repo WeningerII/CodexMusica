@@ -427,6 +427,8 @@ function loopFields(v) {
 export const _agentInternals = {
   loopFields,
   PARKED_RUN_NOTE,
+  SKIPPED_STEPS_NOTE,
+  lyricCallsOnRecord,
   parkedRefusal,
   toFunctionResponse,
   suspendedSeed,
@@ -510,6 +512,62 @@ export async function buildSurface(client) {
     instructions,
     tools,
   };
+}
+
+// ── THE SKIPPED-STEPS REMINDER (M-162, owner's go 2026-09-06) ──────────────
+// The model skipped lyric_sweep and lyric_screen in 2 of 2 battery rounds
+// that reached it, opening with lyric_plan on a hand-round seed (9999) —
+// against the standing rule that NOTHING SKIPS A STEP: sweep → screen → plan
+// → write → grade → revise to a stop condition. The server cannot REFUSE at
+// the tool door (a deliberate seed from an MCP client is a legitimate
+// declaration), so the cure is M-158's own shape one step earlier: a
+// MECHANICAL note in the systemInstruction, present while the transcript
+// holds no lyric_sweep and no lyric_screen call, naming the steps not yet
+// taken, rebuilt every hop from the live record so it disappears the moment
+// either lands. It STATES and never blocks. Chat surface only — this driver
+// is the chat surface; MCP clients never pass through it. Held for the
+// owner's go rather than shipped when designed, because a nudge the server
+// writes into every conversation is a policy; the go came 2026-09-06.
+const LYRIC_STEPS_BEFORE_PLAN = ['lyric_sweep', 'lyric_screen'];
+
+/** The lyric_* tool names the transcript's model turns have called so far. */
+export function lyricCallsOnRecord(contents) {
+  const seen = new Set();
+  for (const entry of contents || []) {
+    if (!entry || entry.role !== 'model') continue;
+    for (const part of entry.parts || []) {
+      const name = part?.functionCall?.name;
+      if (typeof name === 'string' && name.startsWith('lyric_')) seen.add(name);
+    }
+  }
+  return seen;
+}
+
+function SKIPPED_STEPS_NOTE(record) {
+  const missing = LYRIC_STEPS_BEFORE_PLAN.filter((n) => !record.has(n));
+  if (!missing.length) return null;
+  const planned = record.has('lyric_plan') || record.has('lyric_revise');
+  const what = {
+    lyric_sweep:
+      'lyric_sweep chooses the seed by declaring the shape you want — a hand-round seed is a guess the sweep exists to replace',
+    lyric_screen:
+      'lyric_screen checks candidate end-word pairs BEFORE you write — a banned pair (HOMEOTELEUTON / MODAL_RHYME) is an answer, pick other words',
+  };
+  return (
+    'WORKING ORDER (mechanical reminder): this conversation has not yet called ' +
+    missing.join(' or ') +
+    '. Nothing skips a step — sweep, then screen, then plan, then write, then grade, then revise to a stop condition. ' +
+    missing.map((n) => what[n]).join('; ') +
+    '. ' +
+    (planned
+      ? 'lyric_plan has already been called without ' +
+        (missing.length === 2 ? 'them' : 'it') +
+        ': screen your end words before writing a line, and sweep before planning again. '
+      : '') +
+    'This note goes away once ' +
+    (missing.length === 2 ? 'both are' : 'it is') +
+    ' on the record.'
+  );
 }
 
 // ── THE SUSPENDED-RUN REMINDER (M-158) ────────────────────────────────────
@@ -834,10 +892,14 @@ function carriedKey(lyr) {
   return typeof lyr.seed === 'number' ? `seed:${lyr.seed}` : null;
 }
 
-function buildSystemInstruction(surface, lyr) {
+// `record` is the Set `lyricCallsOnRecord` returns for the live transcript.
+// Omitted (null) means "no record to read" and no skipped-steps note is
+// written — the two-argument contract every earlier caller and test holds.
+function buildSystemInstruction(surface, lyr, record = null) {
   const seed = suspendedSeed(lyr);
   const text = [
     surface.instructions,
+    record ? SKIPPED_STEPS_NOTE(record) : null,
     seed == null ? null : SUSPENDED_RUN_NOTE(seed),
     isParked(lyr) ? PARKED_RUN_NOTE(lyr) : null,
   ]
@@ -1072,8 +1134,10 @@ export async function runTurn({
     for (let step = 0; step < limits.maxSteps; step++) {
       body.contents = contents;
       // Rebuilt per hop from the LIVE carried state (M-158): `lyr` moves when
-      // a harvest lands mid-turn, and the reminder must move with it.
-      const si = buildSystemInstruction(surface, lyr);
+      // a harvest lands mid-turn, and the reminder must move with it. The
+      // skipped-steps note (M-162) reads the transcript the same way, so it
+      // disappears on the hop after a sweep or a screen lands.
+      const si = buildSystemInstruction(surface, lyr, lyricCallsOnRecord(contents));
       if (si) body.systemInstruction = si;
       else delete body.systemInstruction;
       // Per hop, like the reminder: the record can appear mid-turn (M-226).

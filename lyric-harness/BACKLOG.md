@@ -409,7 +409,7 @@ dropping `cym` from the attestation set, and ignoring the declared language
 fail 2, 8 and 9 checks respectively.
 
 ### 2.5 · ~~`RelationSchema.traditions` is declared on 77 schemas, populated on 0~~ — **75 of 77 populated** `M-15` — `CLOSED 2026-08-21`
-**TASK DISCHARGED — `M-15` STAYS OPEN.** The task was *populate the field*, and
+**TASK DISCHARGED — ~~`M-15` STAYS OPEN~~ (M-15 CLOSED 2026-09-06 with M-15a: the survey is inlined as `quality/canon_index.tsv` and `Tradition.witness` is derived from it).** The task was *populate the field*, and
 75 of 77 schemas now carry traditions — 298 distinct `Tradition` rows, 319
 attachments, taken from `quality/RHYME_CANON.md` rather than invented from
 schema names. M-15 stays PARTIAL because the fill has a gap of its own, filed
@@ -2078,10 +2078,10 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 63 OPEN / 37 PARTIAL / 2 BLOCKED / 193 CLOSED / 13 RESOLVED = 308 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 58 OPEN / 31 PARTIAL / 2 BLOCKED / 203 CLOSED / 14 RESOLVED = 308 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,738 lines with a `__main__` and 3 non-test callers (`gate_census.py`, `relation_shapes.py`, `relations.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1468** DECLARED-public top-level functions/classes under `quality/` and the root — **279** named by another production module, **441** by tests only, **649** only inside their own module, **11** by nothing anywhere, **88** REFUSED (59 ambiguous, 21 dynamic, 8 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **72** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1471** DECLARED-public top-level functions/classes under `quality/` and the root — **280** named by another production module, **445** by tests only, **647** only inside their own module, **11** by nothing anywhere, **88** REFUSED (59 ambiguous, 21 dynamic, 8 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **72** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
