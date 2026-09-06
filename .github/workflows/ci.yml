@@ -1142,6 +1142,7 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/verify_entries.py
       - name: The flash battery, one row per round (M-254 D)
+        working-directory: lyric-harness
         run: python3 quality/battery_rounds.py --check
 
       - name: Committed counters against their measurement
