@@ -11,6 +11,7 @@ Run: python3 quality/test_shard.py
 """
 import io
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -228,11 +229,92 @@ def test_no_section_reads_what_another_section_wrote():
           got == [("_SEEN", ["test_a"], ["test_b"])], str(got))
 
 
+def _ci_jobs():
+    """-> `{job name: its block text}` from `.github/workflows/ci.yml`.
+
+    TEXT, not YAML: the harness declares no third-party package (CI's own
+    `record` job asserts it), so this reads the two-space job headers and the
+    deeper-indented lines under them rather than importing a parser.
+    """
+    path = os.path.join(HERE, "..", "..", ".github", "workflows", "ci.yml")
+    lines = open(path, encoding="utf-8").read().splitlines()
+    jobs, name, buf, in_jobs = {}, None, [], False
+    for ln in lines:
+        if ln == "jobs:":
+            in_jobs = True
+            continue
+        if not in_jobs:
+            continue
+        m = re.match(r"^  ([a-z][a-z0-9-]*):\s*$", ln)
+        if m:
+            if name:
+                jobs[name] = "\n".join(buf)
+            name, buf = m.group(1), []
+        elif name is not None:
+            buf.append(ln)
+    if name:
+        jobs[name] = "\n".join(buf)
+    return jobs
+
+
+def test_a_duplicate_push_run_skips_rather_than_cancelling():
+    print("\n6. a push run that a pull_request run already covers SKIPS every "
+          "job -- skipped is NEUTRAL on the PR where cancelled is not "
+          "(`MISSING.md` M-250)")
+    # THE DEFECT THIS PINS, 2026-09-06. A push to a branch with an open PR
+    # starts two runs and the concurrency group cancels one within seconds, by
+    # design. That left ~15 CANCELLED check runs on the PR's head, so a PR
+    # whose real run was entirely green read "some checks were not successful"
+    # and sat at mergeable_state `unstable` -- twice in one day, PR #236 and
+    # PR #237, each cleared only by re-running the dead twin BY HAND.
+    path = os.path.join(HERE, "..", "..", ".github", "workflows", "ci.yml")
+    ci = open(path, encoding="utf-8").read()
+    check("the workflow may ASK whether a PR covers this commit "
+          "(`pull-requests: read`)", "pull-requests: read" in ci)
+    jobs = _ci_jobs()
+    check("gate publishes the answer as an output every job can read",
+          "covered_by_pr:" in jobs.get("gate", ""), sorted(jobs))
+    # DERIVED, never a list: a job added tomorrow without the guard fails here.
+    GUARD = "needs.gate.outputs.covered_by_pr != 'true'"
+    def guarded(txt):
+        return GUARD in txt
+    def needs_gate(txt):
+        return re.search(r"^    needs: (gate\b|\[gate\b)", txt, re.M) is not None
+    downstream = sorted(n for n, t in jobs.items() if needs_gate(t))
+    check("every job that runs off `gate` carries the guard",
+          downstream and all(guarded(jobs[n]) for n in downstream),
+          f"{len(downstream)} downstream: "
+          + ", ".join(n for n in downstream if not guarded(jobs[n])) or "all guarded")
+    # The jobs that do NOT need the guard must be unable to run on a push at
+    # all -- otherwise "no guard" is an omission wearing an exemption's coat.
+    for n, t in sorted(jobs.items()):
+        if n == "gate" or needs_gate(t):
+            continue
+        check(f"{n} needs no guard because it cannot run on a push",
+              "workflow_dispatch" in t and "schedule" in t)
+    # DENY BY DEFAULT: the step decides `false` first and only a parsed answer
+    # moves it, so an unanswered question never skips a run (the
+    # six-uncovered-commits defect the `branches: ['**']` filter prevents).
+    gate = jobs.get("gate", "")
+    check("the check starts at false, so a failed or unparseable answer RUNS",
+          re.search(r"^\s+covered=false$", gate, re.M) is not None
+          and gate.count("an unanswered question is not a yes") >= 2)
+    check("and it never skips a push to the production branch",
+          'github.ref_name }}" != "main"' in gate)
+    # THE CHECK CAN FAIL: strip one job's guard and the sweep must catch it.
+    victim = downstream[0]
+    planted = dict(jobs)
+    planted[victim] = planted[victim].replace(GUARD, "true")
+    check("PLANTED: a downstream job whose guard was dropped IS caught",
+          not all(guarded(planted[n]) for n in downstream), victim)
+
+
 if __name__ == "__main__":
     for fn in (test_the_deal_is_exactly_once, test_a_bad_coordinate_refuses,
                test_run_sections_times_and_gates,
                test_every_dealt_suite_calls_the_one_idiom,
-               test_no_section_reads_what_another_section_wrote):
+               test_no_section_reads_what_another_section_wrote,
+               test_a_duplicate_push_run_skips_rather_than_cancelling):
         fn()
     print("=" * 62)
     if FAILURES:
