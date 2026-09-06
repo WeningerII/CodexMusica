@@ -26,6 +26,13 @@ export const RUN_ANSWER_FIELDS = new Set([
   'draft',
   'draft_text',
   'answer',
+  // M-249 (round 24): `answers` (M-248) is an ANSWER, not a declaration, and
+  // it was missing here — so the tool stored one call's answers as the run's
+  // declarations and M-237's moved-declaration guard refused the NEXT answer
+  // by name ("the run says [...], this call says [...]"). Measured on round
+  // 24 turn 0: two calls burned on a guard firing at the thing it exists to
+  // let through.
+  'answers',
   'state',
   'run_id',
   'new_run',

@@ -1205,6 +1205,20 @@ check('validation: actionable errors', () => {
           /paced \$\{pacedRetries\}\/\$\{RATE_PACED_MAX\}/.test(bat),
           'the warning prints the counter that actually moves on a paced 429'
         );
+        // M-249 (round 24): `answers` is an answer, not a declaration. Missing
+        // from RUN_ANSWER_FIELDS it became one, and the moved-declaration
+        // guard refused the next answer for differing from the last.
+        const { RUN_ANSWER_FIELDS, declarationsOf } = await import('./run_store.js');
+        assert.ok(RUN_ANSWER_FIELDS.has('answers'), '`answers` is an answer field');
+        assert.deepEqual(
+          declarationsOf({
+            seed: 7,
+            answers: [{ line: 1, text: 'a' }],
+            relation: 'type:pararhyme',
+          }),
+          { seed: 7, relation: 'type:pararhyme' },
+          "so it never lands in a run's declarations"
+        );
         const ga = readFileSync(new URL('./gemini_agent.js', import.meta.url), 'utf8');
         assert.ok(
           /one \{line, text\} object per asked line, every one required/.test(ga),
