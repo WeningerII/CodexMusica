@@ -22657,7 +22657,29 @@ cases, the same three yeses.
 still has to be provisioned before it can answer, so `dup` cannot beat
 every cancel — a 4-second one will still win, and that is the case that
 does no damage anyway. What it now beats is the 33-second one that put
-fifteen red marks on PR #237. The entry is **PARTIAL** and stays PARTIAL
+fifteen red marks on PR #237.
+
+**AND THE PROVISIONING IS NOT A ROUNDING ERROR — MEASURED ON `dup`'s FIRST
+LIVE RUN** (job 101523526760, run 34046912271, push `569a6d5f`):
+
+| | |
+| --- | --- |
+| queued, waiting for a runner | **2 min 48 s** (16:54:24 → 16:57:12) |
+| runner time, whole job | **4 s** (16:57:12 → 16:57:16) |
+| the two HTTP questions themselves | **0.73 s** |
+
+The work is under a second and the WAIT was two minutes forty-eight,
+because main's own 44-job matrix held the account's 20-job cap — the same
+cap M-244 measured. So the honest shape of this fix is: it removes the 57 s
+`gate` was spending, and it cannot remove the queue. Under contention the
+duplicate is still cancelled before it answers. That is the residual, it is
+a number now rather than a hedge, and it is why this entry is PARTIAL.
+
+**THE PERMISSION IS CONFIRMED LIVE BY THAT SAME RUN**, which is the point
+of fixing it before it shipped: the log reads `successful main push run(s)
+of ci.yml at this commit: 0`. A 403 would have printed `could not ask
+(curl rc 0, HTTP 403)` instead. Question 2 asked, was answered, and said
+no — correctly, `569a6d5f` is not on main. The entry is **PARTIAL** and stays PARTIAL
 until a twin is observed skipping rather than cancelling, which needs a
 push to a branch with an already-open PR where the `pull_request` event is
 slow. That observation is not in hand and is not claimed.
