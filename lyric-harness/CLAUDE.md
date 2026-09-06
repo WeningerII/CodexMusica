@@ -1426,7 +1426,7 @@ names both halves and ~~this repo ships no module of its own, because the
 proposing half is not this project's to ship~~ **the HARNESS names no module
 of its own — amended 2026-09-06 (`MISSING.md` M-254, the owner's "kitchen
 cooks" ruling): the CONNECTOR ships one, `mcp/gemini_proposer.py`, and puts
-its name on the command line like any other caller. Twenty-two battery rounds
+its name on the command line like any other caller. Twenty-three battery rounds
 asked the chat model to be the writer through a nine-hop interview and every
 model-side failure was a dropped shape; on the chat surface the server now
 runs the loop to a stop condition with that proposer asking its own writer
