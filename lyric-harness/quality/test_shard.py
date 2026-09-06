@@ -11,6 +11,7 @@ Run: python3 quality/test_shard.py
 """
 import io
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -228,11 +229,134 @@ def test_no_section_reads_what_another_section_wrote():
           got == [("_SEEN", ["test_a"], ["test_b"])], str(got))
 
 
+def _ci_jobs():
+    """-> `{job name: its block text}` from `.github/workflows/ci.yml`.
+
+    TEXT, not YAML: the harness declares no third-party package (CI's own
+    `record` job asserts it), so this reads the two-space job headers and the
+    deeper-indented lines under them rather than importing a parser.
+    """
+    path = os.path.join(HERE, "..", "..", ".github", "workflows", "ci.yml")
+    lines = open(path, encoding="utf-8").read().splitlines()
+    jobs, name, buf, in_jobs = {}, None, [], False
+    for ln in lines:
+        if ln == "jobs:":
+            in_jobs = True
+            continue
+        if not in_jobs:
+            continue
+        m = re.match(r"^  ([a-z][a-z0-9-]*):\s*$", ln)
+        if m:
+            if name:
+                jobs[name] = "\n".join(buf)
+            name, buf = m.group(1), []
+        elif name is not None:
+            buf.append(ln)
+    if name:
+        jobs[name] = "\n".join(buf)
+    return jobs
+
+
+def test_a_duplicate_push_run_skips_rather_than_cancelling():
+    print("\n6. a push run another run already covers SKIPS every job -- "
+          "skipped is NEUTRAL on the PR where cancelled is not "
+          "(`MISSING.md` M-250, M-251)")
+    # THE TWO DEFECTS THIS PINS, both 2026-09-06, both counted over the last
+    # 30 pushes to one branch.
+    #
+    # M-250, THE TWIN. A push to a branch with an open PR starts two runs and
+    # the concurrency group cancels one within seconds, by design; 17 of those
+    # 30 ended `cancelled`. That left ~15 CANCELLED check runs on the PR's
+    # head, so a PR whose real run was entirely green read "some checks were
+    # not successful" and sat at mergeable_state `unstable` -- twice in one
+    # day, PR #236 and PR #237, each cleared only by re-running the twin BY
+    # HAND.
+    #
+    # M-251, THE MERGE MIRROR. Restarting the branch from the default branch
+    # after a merge pushes the merge commit itself back onto the branch; that
+    # run and the default branch's own run share a sha but not a concurrency
+    # group, so BOTH do the full matrix on one tree. It fired on all five
+    # merges in that window and finished twice over in three of them
+    # (a247c11a: run 34038632516 on main, run 34038762057 on the branch, ~20
+    # min and ~44 jobs each). The first question cannot see it -- the PR has
+    # just closed -- so there is a second question.
+    path = os.path.join(HERE, "..", "..", ".github", "workflows", "ci.yml")
+    ci = open(path, encoding="utf-8").read()
+    check("the workflow may ASK whether a PR covers this commit "
+          "(`pull-requests: read`)", "pull-requests: read" in ci)
+    jobs = _ci_jobs()
+    check("gate publishes the answer as an output every job can read",
+          "already_covered:" in jobs.get("gate", ""), sorted(jobs))
+    # DERIVED, never a list: a job added tomorrow without the guard fails here.
+    GUARD = "needs.gate.outputs.already_covered != 'true'"
+    def guarded(txt):
+        return GUARD in txt
+    def needs_gate(txt):
+        return re.search(r"^    needs: (gate\b|\[gate\b)", txt, re.M) is not None
+    downstream = sorted(n for n, t in jobs.items() if needs_gate(t))
+    check("every job that runs off `gate` carries the guard",
+          downstream and all(guarded(jobs[n]) for n in downstream),
+          f"{len(downstream)} downstream: "
+          + ", ".join(n for n in downstream if not guarded(jobs[n])) or "all guarded")
+    # The jobs that do NOT need the guard must be unable to run on a push at
+    # all -- otherwise "no guard" is an omission wearing an exemption's coat.
+    for n, t in sorted(jobs.items()):
+        if n == "gate" or needs_gate(t):
+            continue
+        check(f"{n} needs no guard because it cannot run on a push",
+              "workflow_dispatch" in t and "schedule" in t)
+    # DENY BY DEFAULT: the step decides `false` first and only a parsed answer
+    # moves it, so an unanswered question never skips a run (the
+    # six-uncovered-commits defect the `branches: ['**']` filter prevents).
+    gate = jobs.get("gate", "")
+    check("the check starts at false, so a failed or unparseable answer RUNS",
+          re.search(r"^\s+covered=false$", gate, re.M) is not None
+          and gate.count("an unanswered question is not a yes") >= 2)
+    check("and it never skips a push to the production branch",
+          'github.ref_name }}" != "$default_branch"' in gate
+          and 'default_branch="${{ github.event.repository.default_branch }}"'
+          in gate)
+    # QUESTION 1 (M-250): an OPEN pull request whose head IS this commit.
+    check("question 1 counts only OPEN pull requests at THIS sha",
+          'select(.state == "open")' in gate
+          and "select(.head.sha == env.GITHUB_SHA)" in gate)
+    # QUESTION 2 (M-251): a push run of this workflow on the DEFAULT branch
+    # that already concluded success at this sha.
+    check("question 2 is asked only when question 1 did not answer yes",
+          re.search(r'if \[ "\$covered" = "false" \]; then', gate) is not None)
+    for want, why in (
+        ("select(.head_sha == env.GITHUB_SHA)", "at THIS commit"),
+        ('select(.event == "push")', "a push run"),
+        ('select(.conclusion == "success")', "green"),
+        ("select(.head_branch == env.DEFAULT_BRANCH)", "on the DEFAULT branch"),
+        ("select((.id | tostring) != env.GITHUB_RUN_ID)", "not this run itself"),
+    ):
+        check(f"question 2 counts a run only if it is {why}", want in gate, want)
+    # WHY THE DEFAULT BRANCH IS DEMANDED and not merely "some green run": a run
+    # can conclude success having SKIPPED every job -- which is precisely what
+    # question 1 makes the twin do -- and that success proves nothing about the
+    # tree. The step is a no-op on the default branch, so a green run there is
+    # the full matrix and nothing less. That reasoning must stay ON the step.
+    check("the step says why a green run elsewhere would not do",
+          "WHY QUESTION 2 DEMANDS THE DEFAULT BRANCH" in ci)
+    # The workflow names itself from the ref rather than hard-coding a
+    # filename, so renaming this file cannot silently stop the question.
+    check("question 2 derives its own workflow file from GITHUB_WORKFLOW_REF",
+          'wf="${GITHUB_WORKFLOW_REF%%@*}"' in gate and 'wf="${wf##*/}"' in gate)
+    # THE CHECK CAN FAIL: strip one job's guard and the sweep must catch it.
+    victim = downstream[0]
+    planted = dict(jobs)
+    planted[victim] = planted[victim].replace(GUARD, "true")
+    check("PLANTED: a downstream job whose guard was dropped IS caught",
+          not all(guarded(planted[n]) for n in downstream), victim)
+
+
 if __name__ == "__main__":
     for fn in (test_the_deal_is_exactly_once, test_a_bad_coordinate_refuses,
                test_run_sections_times_and_gates,
                test_every_dealt_suite_calls_the_one_idiom,
-               test_no_section_reads_what_another_section_wrote):
+               test_no_section_reads_what_another_section_wrote,
+               test_a_duplicate_push_run_skips_rather_than_cancelling):
         fn()
     print("=" * 62)
     if FAILURES:

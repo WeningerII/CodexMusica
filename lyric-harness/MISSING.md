@@ -22423,3 +22423,177 @@ M-228's cost question, still open, and the next round measures it.
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~303~~
 **304** with this entry (2026-09-06).
+
+### M-250 · A push to a branch with an open PR started a SECOND run the concurrency group then cancelled, and ~15 cancelled check runs made an entirely green PR read "some checks were not successful" — the duplicate is skipped now, and skipped is neutral where cancelled is not `CLOSED` 2026-09-06 — the owner's order, verbatim: *"fix the duplicate run problem so this stops happening"*
+
+**THE COLLISION IS BY DESIGN AND THE COST WAS NOT.** `on: push: branches:
+['**']` (every branch, deliberately — six commits went uncovered on
+2026-08-14 when the filter read `[main]`) plus `on: pull_request` means a
+push to a branch with an open PR starts TWO runs of the same workflow on
+the same tree. They share one `concurrency` group keyed on the ref, so one
+is cancelled within seconds. That is correct — one run per branch is the
+point — but a cancelled run leaves **cancelled check runs on the head
+commit**, and GitHub counts those: the PR reports *"some checks were not
+successful"* and sits at `mergeable_state: unstable` while its real run is
+entirely green.
+
+**MEASURED TWICE IN ONE DAY.** PR #236 (head ad289dcb): the pull_request
+run 34002107694 was 44 jobs, all success or skipped; the 15 non-green
+marks were every job of the push twin 34002105789, cancelled 3 s in. PR
+#237 (head 1e312add): identical shape — run 34042897417 all green, twin
+34042870334 cancelled 2 s in. Each was cleared only by RE-RUNNING THE DEAD
+TWIN BY HAND, which spends ~30 runner-minutes re-proving what the other
+run had already proved. `catalog-result`'s own comment block has recorded
+this collision biting from the other side since 2026-08-16, when
+`always()` made that job aggregate a cancelled matrix and put a red X on
+every commit on every branch with an open PR.
+
+**THE FIX IS TO SKIP, NOT TO CANCEL, AND THE DIFFERENCE IS THE WHOLE
+ENTRY.** GitHub treats a SKIPPED check as neutral and a CANCELLED one as
+not. The push run is the one with nothing to add — the pull_request run
+tests the identical tree — so `gate` asks the API whether an open pull
+request's head IS this commit
+(`/repos/{owner}/{repo}/commits/{sha}/pulls`, filtered to `state == "open"`
+and `head.sha == this sha`), publishes the answer as ~~`covered_by_pr`~~
+**`already_covered`** (renamed by M-251, which made it two questions), and
+every job below skips on it. `pull-requests: read` is added to the
+workflow's permissions; nothing else gains a privilege.
+
+**DENY BY DEFAULT, which is the half that keeps the 2026-08-14 lesson.**
+Skipping a run that was NOT covered means a commit with no CI at all —
+exactly what `branches: ['**']` exists to prevent — so `covered` starts
+`false` and only a positive, parsed, HTTP 200 answer moves it. A curl
+failure, a non-200, unparseable JSON, a missing token: all leave it false
+and the run does the work. **Exercised, not asserted** — the step's body
+was extracted and driven against a stubbed transport: an open PR at this
+sha → true; a CLOSED PR at this sha → false; an open PR at a DIFFERENT
+sha → false; no PR → false; HTTP 403 → false; unparseable body → false;
+curl rc 7 → false; a push to `main` → false; the pull_request run itself →
+false. One case says yes and eight say run.
+
+**WHAT IT BUYS BESIDES THE GREEN.** The twin was ~30 runner-minutes a
+push, and it was contending for the account's 20-job concurrent cap —
+the same cap M-244 measured holding main's own merge run to 26.0 min
+against 17.8 when two 44-job runs shared it.
+
+**PINNED, AND DERIVED RATHER THAN LISTED** (`quality/test_shard.py` §6,
+text-based because the harness declares no third-party package and CI's
+`record` job asserts it): the permission is present; `gate` publishes the
+output; EVERY job that runs off `gate` carries the guard — computed from
+the file, so a job added tomorrow without it fails here; every job that
+does NOT carry it is proven unable to run on a push at all (the three
+schedule/dispatch jobs), so "no guard" cannot be an omission wearing an
+exemption's coat; the step starts at `false` and says twice that an
+unanswered question is not a yes; it never skips a push to `main`. A
+PLANTED mutation drops one job's guard and the sweep catches it.
+
+**WHAT IT DOES NOT CLAIM.** That the PR carrying this change is itself
+free of the twin: at the moment its branch is pushed no pull request
+exists yet, so its own gate correctly answers "not covered" and the twin
+is cancelled as before. The fix applies from the NEXT push to a branch
+whose PR is already open. Nor does it touch the OTHER duplicate M-244
+named — main's merge commit mirrored onto the working branch, two runs in
+DIFFERENT concurrency groups, neither cancelling the other — which this
+guard does not see, because on that path the branch push has no open PR
+either. ~~That one is still open.~~ **M-251 closed it the same day, as a
+second question on this same step** (2026-09-06).
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~304~~
+**305** with this entry (2026-09-06).
+
+
+### M-251 · Merging a PR and restarting the branch from `main` pushed the merge commit BACK onto the branch, and its run and main's own ran the identical tree in different concurrency groups so neither cancelled the other — the same step now asks a second question `CLOSED` 2026-09-06 — the second half of the owner's order, verbatim: *"fix the duplicate run problem so this stops happening"*
+
+**M-250 CLOSED ONE DUPLICATE AND NAMED THIS ONE AS STILL OPEN.** This
+entry closes it, and it is the same defect only in the sense that both
+run a workflow twice on one tree; the mechanism is different and so is
+the question that catches it.
+
+**THE MECHANISM.** The working rule after a merge is to restart the
+branch from the default branch (`git checkout -B <branch> origin/main`)
+and push. That pushes **main's own merge commit** onto the branch. The
+default branch already ran that sha on the merge; the branch push runs it
+again. The two runs carry the SAME sha and DIFFERENT concurrency groups —
+the group is keyed on the ref (`CI-<repo>@<ref>`), and `main` and
+`claude/…` are different refs — so `cancel-in-progress` never fires and
+BOTH do the full matrix. M-250's question cannot see it: the pull request
+has just CLOSED, so "an OPEN pull request's head is this commit" is
+correctly `false`.
+
+**COUNTED OVER THE LAST 30 PUSHES TO THIS BRANCH**, which is also where
+M-250's 17-of-30 cancelled twins were counted. The mirror fired on ALL
+FIVE merges in that window — PRs #232, #233, #234, #235, #236 — and ran
+to completion in three of them; the other two were cancelled by a later
+push, which is M-250's defect wearing this one's clothes. The clean
+measurement is `a247c11a` (the #236 merge):
+
+| run | ref | started | outcome |
+| --- | --- | --- | --- |
+| 34038632516 | `main` | 14:16:13 | success, full matrix |
+| 34038762057 | `claude/lyrics-writing-process-butw9s` | 14:18:45 | success, full matrix |
+
+Two minutes and thirty-two seconds apart, ~20 minutes and ~44 jobs each,
+for one byte-identical tree — against the account's 20-job concurrent cap
+that M-244 measured holding main's merge run to 26.0 min where an
+uncontended run took 17.8.
+
+**THE QUESTION.** After M-250's question answers no, `gate` asks a second:
+*has a `push` run of this workflow, ON THE DEFAULT BRANCH, at this exact
+sha, already concluded `success`?* If so every job below skips, on the
+same `already_covered` output (renamed from M-250's `covered_by_pr`, which
+now describes only half of what it means). The workflow names its own file
+from `GITHUB_WORKFLOW_REF` rather than hard-coding `ci.yml`, so renaming
+the file cannot silently stop the question being asked.
+
+**WHY THE DEFAULT BRANCH IS DEMANDED, and not merely "some run at this sha
+went green".** A run can conclude `success` having SKIPPED every job — that
+is precisely what M-250 now makes the twin do — and such a success proves
+nothing whatever about the tree. A push run on the default branch never
+skips, because the whole step is a no-op there, so its success IS the full
+matrix. The rule is therefore narrow on purpose: green, on a push, on the
+default branch, at this sha, and not this run itself.
+
+**ONE THING THE TWO RUNS GENUINELY DID DIFFERENTLY, stated rather than
+waved past.** The scope step below computes `artifacts_affected` from a
+different base on each: against the previous tip on the default branch,
+against a merge-base on the branch — and on the mirror that merge-base IS
+the commit, so the diff is empty and the step assumes affected. The mirror
+could therefore rebuild artifacts where main's run had scoped them out.
+That costs nothing here: `freshness`, the job that proves the built
+artifacts are in sync with their sources, is not one of the scoped jobs
+and already passed on the same tree.
+
+**DENY BY DEFAULT, unchanged and now shared.** The two questions run
+through one `ask` (succeeds only on a curl-clean HTTP 200) and one `count`
+(a body that does not parse as a number is not an answer and counts zero).
+`covered` starts `false`; a curl failure, a non-200, an unparseable body or
+a missing token all leave it false and the run does the work. The step is
+still a no-op on the default branch, belt and braces.
+
+**EXERCISED, NOT ASSERTED.** The step's body was extracted and driven
+against a stubbed transport across 19 cases, three of which say yes: an
+open PR at this sha; a green `main` push run at this sha; and a green
+`main` run reached when question 1 was UNANSWERABLE (HTTP 403), which is
+the case proving the two questions are independent. Sixteen say run —
+among them the four near-misses that decide whether the rule is narrow
+enough: the only green run is THIS run; the green run is on a topic branch
+rather than the default; the green run is a `pull_request` run; the run at
+this sha FAILED.
+
+**PINNED** (`quality/test_shard.py` §6, alongside M-250's): question 2 is
+asked only when question 1 did not answer yes; it counts a run only if it
+is at this sha, a push, green, on the default branch, and not this run
+itself — each `select` pinned by its text; the workflow derives its own
+file from `GITHUB_WORKFLOW_REF`; and the step still carries the written
+reason why a green run elsewhere would not do, so the narrowness cannot be
+loosened silently. The guard sweep and its PLANTED mutation are M-250's
+and run unchanged over the renamed output.
+
+**WHAT IT DOES NOT CLAIM.** That every duplicate is gone. A branch pushed
+at a sha the default branch has NOT yet finished running still runs — the
+question is asked once, at gate time, and is not retried. That is
+deny-by-default working as intended, and it costs a duplicate run rather
+than a missed one.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~305~~
+**306** with this entry (2026-09-06).
