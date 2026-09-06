@@ -1350,6 +1350,56 @@ export function draftFromText(text) {
     .filter((l) => l && !/^\[[^\]]*\]$/.test(l));
 }
 
+// EVERY TOOL THAT TAKES LINES TAKES THEM AS ONE STRING TOO (M-248, round
+// 22). Round 22's turn 0 broke `lyric_grade{draft:[ …` twice — M-226's
+// array shape on a tool M-234 had not reached — and reached for
+// `lyric_check` next. The string twin of each array field is accepted
+// beside it and split by `draftFromText`; a handler reads the array, and
+// `takeLines` fills it from the twin when only the twin was sent.
+const textTwinOf = (arrayName) =>
+  z
+    .string()
+    .max(MAX_LINES * (MAX_LINE_CHARS + 1))
+    .describe(
+      `The same lines as \`${arrayName}\` as ONE newline-separated string, one line per row, performance order — for a caller whose array calls break. Send one of the two.`
+    );
+export function takeLines(a, arrayName, textName) {
+  if (typeof a[textName] === 'string' && !Array.isArray(a[arrayName]))
+    a[arrayName] = draftFromText(a[textName]);
+  if (!Array.isArray(a[arrayName]))
+    throw refuse(`\`${arrayName}\` (or \`${textName}\`, the same lines as one string) is required`);
+}
+
+// THE BATCH ANSWER AS STRUCTURE, NOT AS MARKED ROWS (M-248, round 22).
+// M-236's batch asks several lines at once and its answer was one string of
+// `L<n>: <line>` rows. Round 22 was the first round on that shape and the
+// model could not emit it as a call — MALFORMED_FUNCTION_CALL nine times of
+// nine, every one `lyric_revise{answer: L1: …\nL3: …` — where round 21's 190
+// single-line answers all went through and the newline-joined `draft_text`
+// goes through: the marker's colon inside an unquoted value is the one
+// thing the failing shape has that the passing ones lack. `answers` is one
+// object per asked line, {line, text}; the connector joins it into the
+// harness's own row format here, so `parse_batch` / `parse_group` and the
+// replay file's shape do not move. A single-line question takes the one
+// row's text bare (the harness would strip an echoed label anyway).
+const answersField = z
+  .array(
+    z.object({
+      line: z.number().int().min(1).max(MAX_LINES).describe('The asked line number, 1-based.'),
+      text: z.string().max(MAX_LINE_CHARS).describe('The new line, bare — no label, no quotes.'),
+    })
+  )
+  .min(1)
+  .max(MAX_LINES)
+  .describe(
+    "The writer's answer as STRUCTURE: one {line, text} per asked line, every asked line present, nothing else — the shape to use for a BATCH or a group question (and fine for a single line). Replaces `answer` for those; send one of the two."
+  );
+export function answerFromRows(rows, kind) {
+  const list = Array.isArray(rows) ? rows : [];
+  if (kind === 'propose' && list.length === 1) return String(list[0].text).trim();
+  return list.map((r) => `L${r.line}: ${String(r.text).trim()}`).join('\n');
+}
+
 // THE VERDICT'S EXTRACTORS, exported for mcp/test.mjs to drive on synthetic
 // reports (M-186): a live check proves one draft; the unit cases prove the
 // regexes against every spelling the harness prints.
@@ -1407,7 +1457,8 @@ export const LYRIC_TOOL_SCHEMAS = {
     functions: functionsField,
     title: titleField,
     narrative: narrativeField,
-    draft: draftField,
+    draft: draftField.optional(),
+    draft_text: textTwinOf('draft').optional(),
     voices: voicesField,
     fallback: fallbackField,
   },
@@ -1487,8 +1538,9 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_ANSWER_CHARS)
       .optional()
       .describe(
-        "The writer's answer to the pending question in `state` — exactly one line of song text for a single-line question, or one `L<n>: <line>` row per line for a BATCH (several independent lines asked at once, the common case) or a group question, every marker required. It is parsed strictly and a malformed answer REFUSES rather than guessing which line goes where. Omit on the first call (there is no question yet)."
+        "The writer's answer to the pending question in `state` as ONE STRING — exactly one line of song text for a single-line question. For a BATCH (several independent lines asked at once, the common case) or a group question use `answers` instead: one {line, text} per asked line. (A string of `L<n>: <line>` rows is still read here, but that shape has broken as a function call — M-248.) It is parsed strictly and a malformed answer REFUSES rather than guessing which line goes where. Omit on the first call (there is no question yet)."
       ),
+    answers: answersField.optional(),
     max_rounds: z
       .number()
       .int()
@@ -1546,8 +1598,10 @@ export const LYRIC_TOOL_SCHEMAS = {
     functions: functionsField,
   },
   lyric_verify: {
-    before: draftField,
-    after: draftField,
+    before: draftField.optional(),
+    before_text: textTwinOf('before').optional(),
+    after: draftField.optional(),
+    after_text: textTwinOf('after').optional(),
     scheme: z
       .string()
       // ONE LETTER PER LINE (see SCHEME_RE): REPINNED 2026-09-05 (M-239)
@@ -1591,7 +1645,8 @@ export const LYRIC_TOOL_SCHEMAS = {
       ),
   },
   lyric_recover: {
-    lines: draftField,
+    lines: draftField.optional(),
+    lines_text: textTwinOf('lines').optional(),
     placements: z
       .string()
       .max(200)
@@ -1602,7 +1657,8 @@ export const LYRIC_TOOL_SCHEMAS = {
     fallback: fallbackField,
   },
   lyric_check: {
-    lines: draftField,
+    lines: draftField.optional(),
+    lines_text: textTwinOf('lines').optional(),
     scheme: z
       .string()
       // ONE LETTER PER LINE (see SCHEME_RE): REPINNED 2026-09-05 (M-239)
@@ -1754,6 +1810,7 @@ export function registerLyricTools(server, tool) {
     },
     (a) =>
       withTempDir(async (dir) => {
+        takeLines(a, 'draft', 'draft_text');
         checkLines(a.draft);
         const draftPath = path.join(dir, 'draft.txt');
         const bpPath = path.join(dir, 'bp.json');
@@ -1872,7 +1929,7 @@ export function registerLyricTools(server, tool) {
         "first content block of a suspended call is the writer's brief for ONE question (which lines, what they " +
         'must answer, which words are FORBIDDEN as too predictable). Answer it by calling again with the SAME ' +
         'declarations (seed and the rest) plus `state` (returned verbatim by every call — the server keeps ' +
-        'nothing) and `answer` (the new line, or `L<n>:` lines for a group); on such a continuing call OMIT ' +
+        'nothing) and `answer` (the new line) or `answers` (one {line, text} per asked line, for a batch or a group); on such a continuing call OMIT ' +
         '`draft` where the caller carries it (the chat connector does) — the draft is one draft for the whole ' +
         'run and never changes between its calls, and re-sending it is where calls have broken. THERE IS NO SONG IN ANY RESPONSE UNTIL THE LOOP REACHES A STOP ' +
         'CONDITION: a suspended call returns [AWAITING PROPOSAL] and the question, structurally without a render, ' +
@@ -1959,16 +2016,22 @@ export function registerLyricTools(server, tool) {
           } catch {
             throw refuse('`state` is not the JSON this tool returned — pass it back VERBATIM');
           }
+          // M-248: the structured answer becomes the harness's own row
+          // format here, keyed on the question's kind.
+          if (a.answer == null && Array.isArray(a.answers))
+            a.answer = answerFromRows(a.answers, st?.pending?.kind);
           if (a.answer != null) {
             if (!st || !st.pending)
               throw refuse(
-                '`answer` was given and `state` holds no pending question — there is nothing it answers'
+                '`answer`/`answers` was given and `state` holds no pending question — there is nothing it answers'
               );
             st.pending.answer = a.answer;
           }
           await writeFile(statePath, JSON.stringify(st, null, 2) + '\n', 'utf8');
-        } else if (a.answer != null) {
-          throw refuse('`answer` without `state` — the first call has no question to answer');
+        } else if (a.answer != null || a.answers != null) {
+          throw refuse(
+            '`answer`/`answers` without `state` — the first call has no question to answer'
+          );
         }
         // SEEDED: `finish` reads the mandate off the plan. UNSEEDED (M-195):
         // `revise` under the declared mandate, with the same deferred state,
@@ -2066,7 +2129,7 @@ export function registerLyricTools(server, tool) {
             askedNow.kind === 'propose_batch' &&
             Array.isArray(askedNow.lines) &&
             askedNow.lines.length
-              ? ` BATCH: answer ${askedNow.lines.map((n) => `L${n}`).join(', ')} as one \`L<n>: <line>\` row each, every one required.`
+              ? ` BATCH: answer ${askedNow.lines.map((n) => `L${n}`).join(', ')} with \`answers\` — one {line, text} per asked line, every one required, nothing else.`
               : '';
           // The bracketed stamp keeps its shape (readers pin on it); the
           // batch note follows it on the same line (M-236).
@@ -2087,7 +2150,7 @@ export function registerLyricTools(server, tool) {
           const continueNote =
             `\n\nCONTINUE: call lyric_revise with \`seed\` and \`answer\`` +
             (askedNow && askedNow.kind === 'propose_batch'
-              ? ' (one `L<n>: <line>` row per asked line)'
+              ? ' (`answers`: one {line, text} per asked line)'
               : '') +
             (runNow
               ? ` — the state and the draft are carried for you (run ${runNow.run_id}); \`state\` passed back verbatim also works.`
@@ -2291,6 +2354,8 @@ export function registerLyricTools(server, tool) {
     },
     (a) =>
       withTempDir(async (dir) => {
+        takeLines(a, 'before', 'before_text');
+        takeLines(a, 'after', 'after_text');
         checkLines(a.before);
         checkLines(a.after);
         const hasScheme = a.scheme != null && a.scheme !== '';
@@ -2355,6 +2420,7 @@ export function registerLyricTools(server, tool) {
     },
     (a) =>
       withTempDir(async (dir) => {
+        takeLines(a, 'lines', 'lines_text');
         checkLines(a.lines);
         if (a.placements != null && !/^[A-Za-z0-9]+(,[A-Za-z0-9]+)*$/.test(a.placements))
           throw refuse("placements must be names like 'end,head,T4', comma-separated");
@@ -2398,6 +2464,7 @@ export function registerLyricTools(server, tool) {
     },
     (a) =>
       withTempDir(async (dir) => {
+        takeLines(a, 'lines', 'lines_text');
         checkLines(a.lines);
         const hasScheme = a.scheme != null && a.scheme !== '';
         const hasGroups = a.groups != null && a.groups !== '';

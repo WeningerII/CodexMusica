@@ -21964,6 +21964,48 @@ GitHub allows 20 concurrent jobs on Free, 40 on Pro, 60 on Team; on Free
 the surplus queues and the wall lands nearer 12 min. Asked of the owner;
 unanswered as this is written.
 
+**MEASURED, the first three runs of the re-cut (2026-09-05, per-job
+timestamps from the Actions API, 44 jobs a run; the projection above is
+kept as written, doctrine 17).** Walls, never summed:
+
+| run | head | event | wall | the job that ended last | queued > 1 min |
+|---|---|---|---:|---|---:|
+| 1387 | M-244 head, PR | pull_request | **17.6 min** | `freshness` | — |
+| 1398 | 2a344b16, PR | pull_request | **17.8 min** | `freshness` 16.8 min, started at 1.1 | 13 jobs, max wait 6.0 min |
+| 1399 | e7600264, main | push | **26.0 min** | `freshness` 16.9 min, **started at 9.1** | 15 jobs, max wait 8.1 min |
+
+**36.8 → 17.6, and the wall is `freshness` now — the 738 s static-API
+rebuild, lever (2) below — not any dealt suite**: on run 1398 the longest
+dealt shard was `plan (1/5)` at 12.0 min, `verify` 13.6, and every other
+job under 11. Against the projection: verbs 8.0 (≈ 8 projected), plan
+shards 6.2–12.0 (6–7; the walled seeds' shard is the long one), suites
+5.1–8.8 (6), revision-loop ≤ 6.4 (5), verify 13.6 (9 — its `npm test`
+runs solo and was not cut), catalog under 5 (3.5).
+
+**THE CAP IS ANSWERED BY THE RUN ITSELF: 20.** 13 of 44 jobs sat queued
+over a minute on a run with nothing else in flight, the longest for 6.0
+min — the surplus over twenty waiting for a slot, as the paragraph above
+priced. **And the SAME head ran twice on the merge**: the stop hook
+fast-forwards the working branch to main after a merge, that push is a
+`push` event on a non-main ref, and `concurrency` groups by REF, so main's
+run 1399 and the branch mirror's run 1400 (byte-identical sha, 44 jobs
+each, started 17 s apart) shared one 20-slot cap. Run 1399's `freshness`
+waited 7.9 min for a runner and the wall went **17.8 → 26.0 min** for the
+run that is main's own verdict. That is a fourth lever and it is cheap: a
+`gate` step that fetches `origin/main` and skips the rest when a non-main
+push's sha IS main's head — deterministic, no API call, and every
+uncertain case falls through to running, the asymmetry the scope step
+already holds. Not taken here; named so the next sitting on this entry
+takes it first, since it is the only lever that moves the merge wall by
+eight minutes without touching a suite.
+
+**The field cost, re-read on an idle box.** The 183 s profile of seed 2
+above was under load; the same seed round-trips in **71.6 s** idle
+(`TEST_PLAN_WORKERS=1`), with the identical 1,558 `field()` calls over 62
+distinct words on ONE `RhymeField` — so the shape holds and the load
+factor is ~2.5×, which is also why "local ≈ 1.55× CI" above is a
+measurement of one suite under one load and not a constant.
+
 **WHAT IS NOT DONE, named.** (1) The floor's field cost above — the real
 floor of any long grade, connector included. (2) `freshness`: the 738 s
 build already runs three workers; for a harness-only diff the scope gate
@@ -22003,8 +22045,11 @@ would have kept the defect for tidiness.
 
 **TESTED WHILE OPEN** — `quality/test_shard.py` names this entry and pins
 the dealing arithmetic and the idiom's adoption, which is the BUILT half;
-what keeps the entry open is the wall itself, which only a CI run
-measures, and the three unbuilt levers above.
+~~what keeps the entry open is the wall itself, which only a CI run
+measures, and the three unbuilt levers above.~~ The wall is MEASURED
+(17.6 / 17.8 / 26.0 above); what keeps the entry open is the four unbuilt
+levers — the field memo, the `freshness` rebuild that is now the wall, the
+`verify` solo, and the merge-mirror dedupe — each its own measurement.
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~298~~
 **299** with this entry (2026-09-05).
@@ -22211,3 +22256,98 @@ The CLI's own default is untouched.
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~301~~
 **302** with this entry (2026-09-05).
+
+### M-248 · Round 22 was the first round on M-236's batch answer and the model could not emit it as a call — nine of nine `lyric_revise{answer: L1: …` hops MALFORMED where round 21's 190 bare-line answers all went through; the batch answer is STRUCTURE now, and every line-taking tool takes its lines as one string `CLOSED` 2026-09-06 (connector half; round 23 measures the model half) — round 22 banked
+
+**ROUND 22** (run 33999737190, GitHub's #24, on main at e7600264 — the
+M-244..M-247 build, `wait_for_live` passing on the first probe in 3 s;
+songs 1, turns 25, pace 130). **14.6 minutes, 3 turns, 0 answers folded,
+FAILED FAST** — *"no new answer folded (0 on record, was 0)"* — with the
+run suspended at its first question. Per turn, off the rows:
+
+- **Turn 0** (53.7 s, 5 calls, 8 hops): `lyric_sweep` exit 0 (1.9 s);
+  `lyric_plan` seed 1000 **refused twice** on the model's own narrative —
+  *cell 2 ('COMPLICATE') declares no inbound junction*, then *cell 4
+  ('RESOLVE')* — and planned on the third call, exit 0, 20 lines;
+  `lyric_screen` exit 0 (5.0 s). Then **`lyric_grade{draft:[ The lantern
+  spins a golden thread , The ocean hums a steady song , …` MALFORMED at
+  hop 6, re-asked, MALFORMED again at hop 7** — M-226's array shape on a
+  tool M-234's `draft_text` never reached — and at hop 8 the model reached
+  for `lyric_check{blueprint: {"sections":[{"name":"VAMP", …` with a
+  blueprint it had typed by hand, MALFORMED, re-asks spent. No grade.
+- **Turn 1** (87.9 s, 1 call, 4 hops): `lyric_revise` seed 1000 → **exit 4
+  in 29.7 s** (memo cold; asked `propose_batch` lines 1, 3, 4, 5, 11, 13,
+  14, 16, 17, 20, round 1, attempt 0; run `seed:1000#672450bd`, draft
+  `891a176539`). Then **three hops, all `lyric_revise{answer: L1: A
+  lantern spins a golden thread\nL3: Where shadows dance and sailors
+  sway\nL4: Heavy eyelids start to fall\nL5: …` — MALFORMED, MALFORMED,
+  MALFORMED**, the turn ending on the third.
+- **Turn 2**: the driver's two user-level re-asks (M-222) each ran three
+  hops and each hop was the same call MALFORMED — six more, with the lines
+  REWRITTEN each time (*sailors obey* … *sailors kneel to pray*; *Wick* …
+  *The motion* … *Wicks*): the model was answering, and the transport
+  dropped every answer. The third send made one well-formed
+  `lyric_revise` (2.7 s, draft and declarations carried, `state` not —
+  `run_state_carried: false`) that carried no answer, the same question
+  came back, and fail-fast fired. History 36 → 203 → 183 KB.
+
+**THE COORDINATE IS THE ONE M-226 NAMED AS THE NEXT ONE.** That entry
+closed the draft-array shape and wrote: *"if round 16's `malformed[]` rows
+quote a call that broke elsewhere — in `answer`, in a `L<n>:` block — that
+is the next coordinate."* It took until the first round on M-236's batch
+door to reach it, because until then a `lyric_revise` answer was ONE bare
+line: round 21 folded **190 of 190** with no malformed hop and both
+rewrites went through as the newline-joined `draft_text`. Round 22's
+answer was ten `L<n>: <line>` rows joined by newlines, and it went through
+**0 of 9**. Newlines are not the difference (`draft_text` has them); the
+length is not (a rewrite is longer); what the failing shape has that the
+passing ones lack is a **colon-bearing label inside an unquoted value** —
+`answer: L1: A lantern …` — which is exactly where a `key: value`
+serialiser loses its footing. Stated as the reading of the evidence, not
+as a fact about Gemini's parser: the measurement is round 23's.
+
+**BUILT (connector only; the harness's `parse_batch` / `parse_group` and
+the replay file's shape do not move):**
+
+1. **`answers`** on `lyric_revise` (`mcp/lyric_tools.js`, `answersField`,
+   `answerFromRows`): one `{line, text}` object per asked line. The
+   connector joins it into the harness's own `L<n>: <line>` rows before the
+   state is written, keyed on the pending question's kind — a single-line
+   question takes the one row's text bare. `answer` (one string) stays,
+   its description now sending a batch or a group to `answers` and saying
+   the row string has broken as a call. `answer`/`answers` without a state
+   refuse in the same words.
+2. **A one-string twin beside every line array** (`textTwinOf`,
+   `takeLines`): `lyric_grade` `draft_text`, `lyric_check` and
+   `lyric_recover` `lines_text`, `lyric_verify` `before_text` /
+   `after_text` — split by the one `draftFromText` M-234 wrote; the arrays
+   are optional now and a handler refuses when neither arrives.
+3. **The suspended declaration keeps both answer shapes**
+   (`mcp/gemini_agent.js` `declarationsFor`): while a run is suspended the
+   model sees `answer`, `answers` and the run's key — M-229's stripping
+   would otherwise have removed the new field on exactly the hop it is
+   for. `RUN_ANSWER_FIELDS` and the parked refusal know `answers`; a parked
+   continuation drops it as it drops `answer`.
+4. **The reminders name the shape**: the suspended head's BATCH note (*with
+   `answers` — one {line, text} per asked line, every one required,
+   nothing else*), the tool's continuing-call text, and
+   `SUSPENDED_RUN_NOTE`.
+
+`mcp/test.mjs` (M-248 check, plus the M-236 reminder pin repointed):
+`answerFromRows` on a batch, a group, a single line and a mis-sent pair;
+the five schemas carry their twins with the arrays optional; `takeLines`
+fills, keeps, refuses; `declarationsFor` keeps `answer` + `answers` + key
+when suspended and `draft_text` + key when parked; source pins on the head,
+the kind-keyed join and the four handlers. **145 checks, exit 0**.
+
+**WHAT IT DOES NOT CLAIM:** that an array of ten objects survives where a
+string of ten rows did not — round 20's draft ARRAY broke too (M-226/M-234),
+and this is a different array (short single-line strings, no commas to
+balance) on the strength of an argument, not a run. Round 23 reads it off
+`malformed[]`. Nor is the twice-refused narrative a defect: the model
+declared a story whose cells had no inbound junction and the planner said so
+by name, twice, at 0.7 s a call — two hops the model spent before dropping
+the field, which is the planner working and a cost worth knowing.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~302~~
+**303** with this entry (2026-09-06).
