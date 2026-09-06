@@ -22697,6 +22697,18 @@ in this workflow may start or cancel a run. **A permission the fix needs
 is not a detail of the fix, it IS the fix** — this is the second thing in
 two entries that was written, reviewed and shipped while unable to fire.
 
+**TESTED WHILE OPEN.** `quality/test_shard.py` §6 names this entry while it
+stays PARTIAL, and the two are about different things. The pins test WHAT
+WAS BUILT and can hold today: that `dup` is the graph's root, that it
+carries no checkout or toolchain, that `actions: read` is present, that
+`gate` is guarded like everything else. What keeps the entry open is not
+any of that — it is an OUTCOME nobody has observed: a twin actually
+SKIPPING rather than being cancelled. No test can assert that, because it
+depends on which of two GitHub events wins a race on a machine this
+repository does not own. Closing the entry because the pins are green
+would be exactly the error M-250 made — mistaking a built mechanism for a
+working one — so the pins stay and the entry stays open.
+
 **PINNED** (`quality/test_shard.py` §6): `actions: read` is present; `dup`
 publishes the output; `dup`
 declares no `needs`; `dup` contains no checkout, no setup-node and no
