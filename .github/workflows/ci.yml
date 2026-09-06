@@ -164,86 +164,149 @@ jobs:
       # Whether this diff can possibly change api/ or codex.html. Consumed by the
       # two jobs whose cost is linear in catalog size. See the step that sets it.
       artifacts_affected: ${{ steps.scope.outputs.artifacts_affected }}
-      # Whether a pull_request run is already testing this exact commit, so this
-      # push run is a duplicate. Consumed by EVERY job below. See the step.
-      covered_by_pr: ${{ steps.dup.outputs.covered_by_pr }}
+      # Whether another run has already tested this exact commit — a
+      # pull_request run now, or the default branch earlier — so this push run
+      # is a duplicate. Consumed by EVERY job below. See the step.
+      already_covered: ${{ steps.dup.outputs.already_covered }}
     steps:
       - uses: actions/checkout@v5
         with:
           # Needed to diff against the base commit in the scope step below.
           fetch-depth: 0
 
-      # ── Is a pull_request run already testing this exact commit? ──────────
+      # ── Is this exact commit already covered by another run? ──────────────
       #
-      # M-250, 2026-09-06. A push to a branch with an open PR starts TWO runs —
-      # one `push`, one `pull_request` — and the concurrency group above cancels
-      # one of them within seconds, by design, EVERY TIME. The cancellation is
-      # not free: it leaves ~15 CANCELLED check runs on the PR's head commit, so
-      # a PR whose real run is entirely green reads "some checks were not
-      # successful" and sits at mergeable_state `unstable`. Measured twice in one
-      # day, on PR #236 and PR #237, each cleared only by re-running the dead
-      # twin by hand. `catalog-result`'s own comment block below records the same
-      # collision biting from the other side in August.
+      # TWO DUPLICATES, and this step is one question asked twice. Both were
+      # counted over the last 30 pushes to this branch.
       #
-      # THE CANCELLED RUN IS THE PUSH ONE AND IT HAS NOTHING TO ADD: the
-      # pull_request run tests the identical tree. So this asks the API whether
-      # an open PR's head IS this commit, and every job below skips when it is.
-      # A skipped check is NEUTRAL on GitHub where a cancelled one is not —
-      # that difference is the whole fix — and the ~30 runner-minutes the twin
-      # was spending come back, which also relieves the 20-job concurrency cap
-      # M-244 measured main's own merge run contending for.
+      # (1) THE TWIN — M-250, 2026-09-06. A push to a branch with an open PR
+      # starts TWO runs of this workflow — one `push`, one `pull_request` —
+      # and the concurrency group above cancels one of them within seconds, by
+      # design, EVERY TIME. 17 of those 30 pushes ended `cancelled`. The
+      # cancellation is not free: it leaves ~15 CANCELLED check runs on the
+      # PR's head commit, so a PR whose real run is entirely green reads "some
+      # checks were not successful" and sits at mergeable_state `unstable`.
+      # Measured twice in one day, on PR #236 and PR #237, each cleared only by
+      # re-running the dead twin by hand. `catalog-result`'s own comment block
+      # below records the same collision biting from the other side in August.
+      #
+      # (2) THE MERGE MIRROR — M-251, 2026-09-06. Merging a PR and restarting
+      # the branch from the default branch pushes THE MERGE COMMIT ITSELF back
+      # onto the branch. That push's run and the default branch's own run carry
+      # the same sha in DIFFERENT concurrency groups, so neither cancels the
+      # other and both do the full matrix on a byte-identical tree. It fired on
+      # all five merges in that window (#232 #233 #234 #235 #236) and ran to
+      # completion in three of them — a247c11a is the clean one: run
+      # 34038632516 on main at 14:16:13 and run 34038762057 on the branch at
+      # 14:18:45, ~20 minutes and ~44 jobs each, twice, for one tree. Question
+      # 1 cannot see this: the PR has just CLOSED, so "an OPEN pull request's
+      # head is this commit" is correctly false.
+      #
+      # THE DUPLICATE HAS NOTHING TO ADD in either case — the other run tests
+      # the identical tree — and a SKIPPED check is NEUTRAL on GitHub where a
+      # cancelled one is not. That difference is the whole fix; the
+      # runner-minutes come back with it, which also relieves the 20-job
+      # concurrency cap M-244 measured main's own merge run contending for.
       #
       # DENY-BY-DEFAULT, the same asymmetry the scope step below argues for.
       # Skipping a run that was NOT covered means a commit with no CI at all,
       # which is the six-uncovered-commits defect the `branches: ['**']` filter
       # exists to prevent. So `covered` starts false and only a positive,
-      # parsed, HTTP 200 answer naming an OPEN pull request at this exact sha
-      # moves it: a curl failure, a non-200, unparseable JSON or a missing token
-      # all leave it false and the run proceeds. An unanswered question is not
-      # a yes.
+      # parsed, HTTP 200 answer moves it: a curl failure, a non-200, a body
+      # that does not parse as a count, or a missing token all leave it false
+      # and the run proceeds. An unanswered question is not a yes.
       #
-      # NEVER ON main, belt and braces: a push to the production branch is the
-      # one run nothing may silently drop. In practice its merge commit is the
-      # head of no OPEN pull request, so the query already answers no; the
-      # explicit test means a reader does not have to derive that.
-      - name: Scope — is this push already covered by a pull_request run?
+      # WHY QUESTION 2 DEMANDS THE DEFAULT BRANCH rather than merely "some run
+      # at this sha went green": a run can conclude success having SKIPPED
+      # every job — which is exactly what question 1 now makes the twin do —
+      # and that success proves nothing about the tree. A push run on the
+      # default branch never skips, because this whole step is a no-op there,
+      # so its success is the full matrix and nothing less.
+      #
+      # The two runs can still scope themselves differently — on the default
+      # branch the step below diffs against the previous tip, on the mirror
+      # against a merge-base that is the commit itself — so the mirror might
+      # have rebuilt artifacts where the default branch's run did not. That
+      # costs nothing here: `freshness`, which proves the built artifacts are
+      # in sync, is not the scoped job and already passed on the same tree.
+      #
+      # NEVER ON THE DEFAULT BRANCH, belt and braces: a push to the production
+      # branch is the one run nothing may silently drop.
+      - name: Scope — is this exact commit already covered by another run?
         id: dup
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          default_branch="${{ github.event.repository.default_branch }}"
           covered=false
-          if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.ref_name }}" != "main" ]; then
+          reason=""
+
+          # One HTTP question. Prints the response body on stdout and succeeds
+          # ONLY on a curl-clean HTTP 200; every other outcome says so and
+          # fails, which leaves the caller's `covered` exactly as it was.
+          ask() {
             set +e
-            resp=$(curl -sS --max-time 30 -w '\n%{http_code}' \
+            _resp=$(curl -sS --max-time 30 -w '\n%{http_code}' \
               -H "Authorization: Bearer $GH_TOKEN" \
               -H "Accept: application/vnd.github+json" \
-              -H "X-GitHub-Api-Version: 2022-11-28" \
-              "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/commits/${GITHUB_SHA}/pulls")
-            rc=$?
+              -H "X-GitHub-Api-Version: 2022-11-28" "$1")
+            _rc=$?
             set -e
-            code=$(printf '%s' "$resp" | tail -n1)
-            json=$(printf '%s' "$resp" | sed '$d')
-            if [ "$rc" = "0" ] && [ "$code" = "200" ]; then
-              n=$(printf '%s' "$json" | jq --arg sha "$GITHUB_SHA" \
-                '[.[] | select(.state == "open") | select(.head.sha == $sha)] | length' 2>/dev/null)
-              case "$n" in
-                '' | *[!0-9]*)
-                  echo "the answer did not parse as a count — running, because an unanswered question is not a yes"
-                  ;;
-                *)
-                  echo "open pull request(s) whose head IS this commit: $n"
-                  if [ "$n" -gt 0 ]; then covered=true; fi
-                  ;;
-              esac
-            else
-              echo "could not ask (curl rc $rc, HTTP $code) — running, because an unanswered question is not a yes"
+            _code=$(printf '%s' "$_resp" | tail -n1)
+            if [ "$_rc" = "0" ] && [ "$_code" = "200" ]; then
+              printf '%s' "$_resp" | sed '$d'
+              return 0
+            fi
+            echo "could not ask (curl rc $_rc, HTTP $_code) — running, because an unanswered question is not a yes" >&2
+            return 1
+          }
+
+          # A body that does not answer as a number is not an answer: say so
+          # and count zero, which is the answer that runs the jobs.
+          count() {
+            _n=$(printf '%s' "$1" | jq "$2" 2>/dev/null)
+            case "$_n" in
+              '' | *[!0-9]*)
+                echo "the answer did not parse as a count — running, because an unanswered question is not a yes" >&2
+                echo 0
+                ;;
+              *) echo "$_n" ;;
+            esac
+          }
+
+          if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.ref_name }}" != "$default_branch" ]; then
+            export DEFAULT_BRANCH="$default_branch"
+
+            # (1) Is an OPEN pull request's head this exact commit?
+            if json=$(ask "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/commits/${GITHUB_SHA}/pulls"); then
+              n=$(count "$json" '[.[]? | select(.state == "open") | select(.head.sha == env.GITHUB_SHA)] | length')
+              echo "open pull request(s) whose head IS this commit: $n"
+              if [ "$n" -gt 0 ]; then
+                covered=true
+                reason="a pull_request run is already testing this commit"
+              fi
+            fi
+
+            # (2) Has a push run on the default branch already gone green here?
+            if [ "$covered" = "false" ]; then
+              wf="${GITHUB_WORKFLOW_REF%%@*}"
+              wf="${wf##*/}"
+              if json=$(ask "${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/actions/workflows/${wf}/runs?head_sha=${GITHUB_SHA}&event=push&status=success&branch=${default_branch}&per_page=100"); then
+                n=$(count "$json" '[.workflow_runs[]? | select(.head_sha == env.GITHUB_SHA) | select(.event == "push") | select(.conclusion == "success") | select(.head_branch == env.DEFAULT_BRANCH) | select((.id | tostring) != env.GITHUB_RUN_ID)] | length')
+                echo "successful $default_branch push run(s) of $wf at this commit: $n"
+                if [ "$n" -gt 0 ]; then
+                  covered=true
+                  reason="$default_branch has already run this exact tree green"
+                fi
+              fi
             fi
           fi
-          echo "covered_by_pr=$covered" >> "$GITHUB_OUTPUT"
+
+          echo "already_covered=$covered" >> "$GITHUB_OUTPUT"
           if [ "$covered" = "true" ]; then
-            echo "::notice title=CI duplicate::a pull_request run is already testing $GITHUB_SHA — every job below SKIPS (M-250). Skipped is neutral; the PR's own run carries the verdict."
+            echo "::notice title=CI duplicate::$reason ($GITHUB_SHA) — every job below SKIPS (M-250, M-251). Skipped is neutral; the run that did the work carries the verdict."
           else
-            echo "covered_by_pr=false — this run does the work"
+            echo "already_covered=false — this run does the work"
           fi
 
       # ── Can this diff move a built artifact? ──────────────────────────────
@@ -383,7 +446,7 @@ jobs:
   verify:
     needs: gate
     # M-250: skip when a pull_request run already tests this commit.
-    if: needs.gate.outputs.covered_by_pr != 'true'
+    if: needs.gate.outputs.already_covered != 'true'
     runs-on: ubuntu-latest
     # MEASURED at ~8-12 minutes green when first pinned; REPINNED 2026-09-04
     # (M-231 addendum) from ~~30~~ to 45: the job now runs the connector
@@ -568,7 +631,7 @@ jobs:
   freshness:
     needs: gate
     # M-250: skip when a pull_request run already tests this commit.
-    if: needs.gate.outputs.covered_by_pr != 'true'
+    if: needs.gate.outputs.already_covered != 'true'
     runs-on: ubuntu-latest
     # MEASURED at ~10-15 minutes green; the same apt-stall class as verify
     # hung THIS job 44m+ on the run for PR #168 (2026-08-18). Same cap,
@@ -676,7 +739,7 @@ jobs:
     # was paying for (re-measured 2026-08-14, run 31769893295, the four shards:
     # 6.9 + 5.9 + 6.4 + 6.0).
     # M-250 adds the second clause: a pull_request run already tests this commit.
-    if: needs.gate.outputs.artifacts_affected == 'true' && needs.gate.outputs.covered_by_pr != 'true'
+    if: needs.gate.outputs.artifacts_affected == 'true' && needs.gate.outputs.already_covered != 'true'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -807,7 +870,7 @@ jobs:
     # down. It does NOT weaken the gate — the `*)` arm still fires on a
     # `cancelled` result when the RUN itself was not cancelled, which is the
     # case that means a shard hit its own timeout and IS a real error.
-    if: ${{ !cancelled() && needs.gate.outputs.covered_by_pr != 'true' }}
+    if: ${{ !cancelled() && needs.gate.outputs.already_covered != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Aggregate the catalog shards
@@ -963,7 +1026,7 @@ jobs:
   record:
     needs: gate
     # M-250: skip when a pull_request run already tests this commit.
-    if: needs.gate.outputs.covered_by_pr != 'true'
+    if: needs.gate.outputs.already_covered != 'true'
     runs-on: ubuntu-latest
     # Measured 6.15 min on run #1165 and 6.47 min on #1216 (the job's own
     # wall, from `gh run view <id> --json jobs`); 15 is headroom, not a
@@ -1757,7 +1820,7 @@ jobs:
   suites:
     needs: gate
     # M-250: skip when a pull_request run already tests this commit.
-    if: needs.gate.outputs.covered_by_pr != 'true'
+    if: needs.gate.outputs.already_covered != 'true'
     runs-on: ubuntu-latest
     # WHY FOUR, AND WHY IT ONLY PAYS WITH test_plan SPLIT. Measured
     # 2026-09-01: 5,612 CPU-s over 75 suites, of which `test_plan.py` is 838s
@@ -2275,7 +2338,7 @@ jobs:
     # A seconds-long fan-in; capped so a wedged runner cannot make it the
     # slowest job in the run it exists to summarize.
     timeout-minutes: 15
-    if: ${{ !cancelled() && needs.gate.outputs.covered_by_pr != 'true' }}
+    if: ${{ !cancelled() && needs.gate.outputs.already_covered != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Aggregate the suites shards
@@ -2318,7 +2381,7 @@ jobs:
   plan:
     needs: gate
     # M-250: skip when a pull_request run already tests this commit.
-    if: needs.gate.outputs.covered_by_pr != 'true'
+    if: needs.gate.outputs.already_covered != 'true'
     runs-on: ubuntu-latest
     # THE LONGEST SINGLE PROCESS IN CI, DEALT (2026-09-05, `MISSING.md`
     # M-244). `test_plan.py` ran SOLO on a suites shard at 35.6 min on run
@@ -2364,7 +2427,7 @@ jobs:
     # `skipped` arm would read that as gate having failed.
     needs: [gate, plan]
     timeout-minutes: 15
-    if: ${{ !cancelled() && needs.gate.outputs.covered_by_pr != 'true' }}
+    if: ${{ !cancelled() && needs.gate.outputs.already_covered != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Aggregate the plan shards
@@ -2392,7 +2455,7 @@ jobs:
   capacity:
     needs: gate
     # M-250: skip when a pull_request run already tests this commit.
-    if: needs.gate.outputs.covered_by_pr != 'true'
+    if: needs.gate.outputs.already_covered != 'true'
     runs-on: ubuntu-latest
     # `test_capacity.py` measured 698 s alone — the second-longest single
     # process (M-182's table) — and sat solo on a suites shard. Dealt three
@@ -2432,7 +2495,7 @@ jobs:
     # `skipped` arm would read that as gate having failed.
     needs: [gate, capacity]
     timeout-minutes: 15
-    if: ${{ !cancelled() && needs.gate.outputs.covered_by_pr != 'true' }}
+    if: ${{ !cancelled() && needs.gate.outputs.already_covered != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Aggregate the capacity shards
@@ -2460,7 +2523,7 @@ jobs:
   revision-loop:
     needs: gate
     # M-250: skip when a pull_request run already tests this commit.
-    if: needs.gate.outputs.covered_by_pr != 'true'
+    if: needs.gate.outputs.already_covered != 'true'
     runs-on: ubuntu-latest
     # Measured 11m on run #522 and 15.8 min on run 1376 as ONE job running
     # both suites side by side; DEALT FOUR WAYS since 2026-09-05 (`MISSING.md`
@@ -2561,7 +2624,7 @@ jobs:
     # `skipped` arm would read that as gate having failed.
     needs: [gate, revision-loop]
     timeout-minutes: 15
-    if: ${{ !cancelled() && needs.gate.outputs.covered_by_pr != 'true' }}
+    if: ${{ !cancelled() && needs.gate.outputs.already_covered != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Aggregate the revision-loop shards
@@ -2589,7 +2652,7 @@ jobs:
   verbs:
     needs: gate
     # M-250: skip when a pull_request run already tests this commit.
-    if: needs.gate.outputs.covered_by_pr != 'true'
+    if: needs.gate.outputs.already_covered != 'true'
     runs-on: ubuntu-latest
     # EIGHT SHARDS OVER A COST-ORDERED TUPLE (2026-09-05, `MISSING.md`
     # M-244). Four shards over the chronological order measured 7.7 / 9.7 /
@@ -2681,7 +2744,7 @@ jobs:
     # A seconds-long fan-in; capped so a wedged runner cannot make it the
     # slowest job in the run it exists to summarize.
     timeout-minutes: 15
-    if: ${{ !cancelled() && needs.gate.outputs.covered_by_pr != 'true' }}
+    if: ${{ !cancelled() && needs.gate.outputs.already_covered != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Aggregate the verbs shards
