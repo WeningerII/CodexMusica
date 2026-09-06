@@ -709,6 +709,14 @@ class GroupBrief:
     #: `Mandate.slot_of`. `None` is the default slot — the end of the line —
     #: and is what every mandate written before `Mandate.loci` means.
     pivot_slot: object = None
+    #: THE LAST ROUND'S REJECTION OF THIS GROUP (M-253, 2026-09-06): a dict
+    #: `{"round", "text", "reasons"}` from the recording proposer's own
+    #: record, or None. `reasons` carries a rejection INSIDE a round; with
+    #: one group question per line per round (the connector's budget) there
+    #: is no re-ask inside the round, so without this the same group was
+    #: asked again next round with the grader's reasons said nowhere —
+    #: the shape M-236 closed for a line, open here until this field.
+    prior: object = None
 
     def proposal_for(self, line_no):
         """-> (text, proposed word, slot) for one member, or `None`.
@@ -1297,6 +1305,12 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     # about which group's turn it was.
     attempt = 0
     reasons = None
+    # THE VERDICT, TOLD TO THE PROPOSER, AND THE LAST ROUND'S, ASKED OF IT
+    # (M-253). Duck-typed on the callable, as tier 1's `record`/`prefetch`
+    # are; a plain function has neither and nothing changes for it.
+    _record_g = getattr(propose_group, "record", None)
+    _prior_g = getattr(propose_group, "prior", None)
+    _round = getattr(b, "round_no", None)
     pinned = []
     starved = []
     # THE SKIPS THAT USED TO BE SILENT (`MISSING.md` M-205). Each is its own
@@ -1422,7 +1436,9 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                 pivot_slot=_slot_for(mandate, gi, b.line_no),
                 anchors=tuple(_anchors), label=label, members=members,
                 brief=b, lines=tuple(lines), attempt=attempt,
-                reasons=reasons, whole=whole))
+                reasons=reasons, whole=whole,
+                prior=(_prior_g(members, _round)
+                       if _prior_g is not None else None)))
             attempt += 1
             if got is not None:
                 tried += 1
@@ -1440,6 +1456,10 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                         lines, after, mandate, targeted=set(members),
                         profile=profile, blueprint=blueprint,
                         subdivision=subdivision, assume=assume)
+                    if _record_g is not None:
+                        _record_g(members, _round, list(got),
+                                  bool(res["accepted"]),
+                                  list(res.get("reasons") or ()))
                     if res["accepted"]:
                         _why = ("the pivot is unconstrained" if pivot_free
                                 else "its conjunction came back empty")
@@ -1495,7 +1515,9 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                     pivot_slot=_slot_for(mandate, gi, b.line_no),
                     anchors=tuple(anchors), label=label, members=members,
                     brief=b, lines=tuple(lines), attempt=attempt,
-                    reasons=reasons, whole=whole))
+                    reasons=reasons, whole=whole,
+                    prior=(_prior_g(members, _round)
+                           if _prior_g is not None else None)))
                 attempt += 1
                 if got is None:
                     continue
@@ -1519,6 +1541,10 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                     targeted=set(members), profile=profile,
                     blueprint=blueprint, subdivision=subdivision,
                     assume=assume)
+                if _record_g is not None:
+                    _record_g(members, _round, list(got),
+                              bool(res["accepted"]),
+                              list(res.get("reasons") or ()))
                 if res["accepted"]:
                     moved = ", ".join(f"L{a.line_no} -> {a.word!r}"
                                       for a in anchors)

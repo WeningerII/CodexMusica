@@ -4753,6 +4753,75 @@ def test_an_offer_the_ban_emptied_points_at_the_group_backtrack():
               b2.fields_by_slot[None].forbidden))
 
 
+def test_the_verdict_carries_the_judging_spans():
+    print("\n— the verdict carries the `Scored` that JUDGED it, so a renderer "
+          "never reads a slotted pair off the end-word matrix (`MISSING.md` "
+          "M-253)")
+    # THE DEFECT, 2026-09-06, reported by a writer on the connector: a group
+    # bound at L3's T2 word was graded by `_slot_score` on `night ~ left`,
+    # and the `song`/`revise` renderer then printed that verdict's slot words
+    # beside the END-WORD matrix cell's spans (`night ~ lamp`), so
+    # `report_pair`'s attribution check said, correctly, `right is 'lamp',
+    # not 'left'` — a renderer contradiction that read as a grader defect.
+    import copy as _copy
+    import pickle as _pickle
+    import inspect as _inspect
+    from lyric_harness import Attribution
+    import lyric_harness as _LH
+    draft = ["she shut the door", "and walked into the night",
+             "i left my keys beside the lamp"]
+    # THE CLI'S OWN SHAPE (`_groups` in lyric_harness.py): members left as
+    # strings, so `mandate()` — the one definition of what a member may be —
+    # parses the `3.T2` placement exactly as `--groups=2,3.T2;1,3` does.
+    m = R.mandate(draft, [["2", "3.T2"], ["1", "3"]])
+    g = R.grade(draft, m)
+    slotted = [v for v in g["verdicts"] if v["lines"] == (2, 3)]
+    check("the slotted pair's verdict carries `spans`",
+          slotted and slotted[0].get("spans") is not None,
+          [sorted(v) for v in slotted[:1]])
+    check("...and those spans CLAIM the verdict's own words — the judging "
+          "object, not the matrix cell",
+          slotted and slotted[0]["spans"].claims(*slotted[0]["endwords"]),
+          slotted and (slotted[0]["endwords"],
+                       getattr(slotted[0]["spans"], "kinds", None)))
+    check("every verdict and every violation carries the field",
+          all("spans" in v for v in g["verdicts"])
+          and all("spans" in v for v in g["violations"]),
+          [v["lines"] for v in g["verdicts"] if "spans" not in v])
+    _, _, _, mx = R._matrix(draft)
+    dflt = [v for v in g["verdicts"] if v["lines"] == (1, 3)]
+    check("a DEFAULT-slot verdict's spans ARE the matrix cell's — the "
+          "mosaic disclosures test_verbs §27 pins are byte-identical",
+          dflt and dflt[0]["spans"] is mx[0][2]["spans"])
+    # THE COPY THAT CRASHED THE VERB. `quality/replay_memo.py` deep-copies
+    # every result it stores; the first verdict to carry an `Attribution`
+    # met it and `revise` died in TypeError, because `copy._reconstruct`
+    # sets `_frozen` BEFORE re-inserting the items. An immutable record is
+    # its own copy, and any rebuild goes through __init__.
+    a = slotted[0]["spans"]
+    check("deepcopy of a frozen Attribution is the record itself",
+          _copy.deepcopy({"v": a})["v"] is a)
+    p = _pickle.loads(_pickle.dumps(a))
+    def _still_frozen(x):
+        try:
+            x["x"] = 1
+            return False
+        except TypeError:
+            return True
+    check("pickle round-trips equal AND still frozen",
+          p == a and isinstance(p, Attribution) and _still_frozen(p))
+    # THE RENDERER READS THE VERDICT, NOT THE MATRIX (source pin): the block
+    # that builds `span_by_pair` in lyric_harness reads `v.get("spans")` and
+    # no longer calls `_matrix` to fetch a score for a violation.
+    src = _inspect.getsource(_LH.main)
+    i = src.find("span_by_pair = {}")
+    blk = src[i:i + 900]
+    check("the verb's span_by_pair block reads the verdict's spans and "
+          "never `_matrix(lines)`",
+          i >= 0 and 'v.get("spans")' in blk and "_matrix(lines)" not in blk,
+          blk[:200])
+
+
 if __name__ == "__main__":
     # DEALT ACROSS CI SHARDS AND TIMED, through the one idiom in
     # `quality/shard.py` (2026-09-05, `MISSING.md` M-244). `TEST_REVISE_SHARD=k/n`
@@ -4817,6 +4886,7 @@ if __name__ == "__main__":
                test_a_pair_finding_names_its_own_group,
                test_the_ban_is_the_same_field_as_the_offer,
                test_the_hook_is_read_from_the_slot_not_the_snapshot,
-               test_an_offer_the_ban_emptied_points_at_the_group_backtrack)
+               test_an_offer_the_ban_emptied_points_at_the_group_backtrack,
+               test_the_verdict_carries_the_judging_spans)
     sys.exit(run_sections(_SECTIONS, "TEST_REVISE_SHARD", FAILURES,
                           footer="all revision-loop regressions pass"))

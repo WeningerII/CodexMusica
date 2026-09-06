@@ -1927,6 +1927,15 @@ class Reviser:
                              "members": list(m.groups[k]),
                              "endwords": (ew_i, ew_j),
                              "score": s["total"], "relation": rel,
+                             # THE NUMBER'S OWN PROVENANCE, CARRIED (M-253,
+                             # 2026-09-06). This is the `Scored` that JUDGED
+                             # the pair — the matrix cell for a default slot,
+                             # `_slot_score`'s object for a declared one —
+                             # so a renderer that wants to print the spans
+                             # beside the words reads THIS and never
+                             # re-derives them from the end-word matrix,
+                             # which is the wrong object for a slotted pair.
+                             "spans": s.get("spans"),
                              # BACKLOG 1.2 — "" unless the two end words this
                              # verdict names are NOT what produced the score.
                              "attribution": self._attribution(
@@ -2214,6 +2223,7 @@ class Reviser:
                         "lines": (i + 1, j + 1),
                         "endwords": (endwords[i], endwords[j]),
                         "score": s["total"], "relation": s["relation"],
+                        "spans": s.get("spans"),           # M-253, as above
                         # BACKLOG 1.2, the same gate as `verdicts` above: a
                         # collision is reported as two end words and a
                         # number, and a near-relation collision is exactly

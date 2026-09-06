@@ -2743,9 +2743,30 @@ class Attribution(dict):
 
     # -- frozen -----------------------------------------------------------
     # `_frozen` is set at the END of __init__ and read with getattr(...,
-    # False), so copy/pickle -- which build the object without calling
-    # __init__ and then fill it -- still work. The guard is against a LATER
-    # caller rewriting the record, which is the only way it could lie.
+    # False). ~~so copy/pickle -- which build the object without calling
+    # __init__ and then fill it -- still work.~~ STRUCK 2026-09-06 (M-253):
+    # that was true of pickle and FALSE of `copy.deepcopy`, whose
+    # `_reconstruct` applies the instance state (`_frozen = True`) BEFORE it
+    # re-inserts the items with `y[key] = value`, so the guard fired on the
+    # copy. Nothing had ever deep-copied one: the first record to carry an
+    # `Attribution` — the verdict dict, so a renderer could read the
+    # judging spans off the verdict instead of the end-word matrix — met
+    # `quality/replay_memo.py`'s memo, which deep-copies every result it
+    # stores, and the whole `revise` verb died in `TypeError`. The three
+    # methods below make the sentence true by construction: an immutable
+    # record IS its own copy (what `deepcopy` already does for every atom),
+    # and any reconstruction goes through `__init__`, so the freeze lands
+    # last. The guard against a LATER caller rewriting the record — the
+    # only way it could lie — is unchanged.
+    def __copy__(self):
+        return self
+
+    def __deepcopy__(self, memo):
+        return self
+
+    def __reduce__(self):
+        return (self.__class__, (dict(self),))
+
     def _locked(self):
         if getattr(self, "_frozen", False):
             raise TypeError(
@@ -6767,6 +6788,19 @@ def _defer_proposer(path, lines=None):
                    for i, o in enumerate(st["outcomes"])
                    if "line" in o and "attempt" in o}
     last_rej = {}
+    # THE GROUP HALF (M-253, 2026-09-06). Tier 2 had no record hook and no
+    # prior: a rejected joint rewrite was written nowhere, the connector
+    # folded it as `unknown`, and the SAME group question came back next
+    # round with `attempt` and `reasons` reset — asked three times on one
+    # song with the rejection never mentioned once. Its own list, keyed on
+    # (members, round): every reader of `outcomes` keys on `line`.
+    st["group_outcomes"] = [o for o in (st.get("group_outcomes") or [])
+                            if isinstance(o, dict)]
+    _goutcome_at = {(tuple(int(x) for x in o["members"]),
+                     None if o.get("round") is None else int(o["round"])): i
+                    for i, o in enumerate(st["group_outcomes"])
+                    if "members" in o}
+    last_grej = {}
 
     def record(line_no, attempt, round_no, text, accepted, reasons):
         entry = {"line": int(line_no), "attempt": int(attempt),
@@ -6903,6 +6937,44 @@ def _defer_proposer(path, lines=None):
                  {"members": list(members), "texts": list(texts),
                   "words": list(words), "round": round_no, "new": None},
                  PR.render_group(group_brief))
+
+    def record_group(members, round_no, texts, accepted, reasons):
+        """What verify made of one joint rewrite, beside the answer
+        (M-253) — the tier-2 twin of `record`, written by the loop as it
+        replays and idempotent under replay."""
+        _m = tuple(int(x) for x in members)
+        entry = {"members": list(_m),
+                 "round": None if round_no is None else int(round_no),
+                 "text": "\n".join(f"L{n}: {t}" for n, t in zip(_m, texts)),
+                 "accepted": bool(accepted),
+                 "reasons": [str(r) for r in (reasons or ())]}
+        k = (_m, entry["round"])
+        i = _goutcome_at.get(k)
+        if i is None:
+            _goutcome_at[k] = len(st["group_outcomes"])
+            st["group_outcomes"].append(entry)
+        else:
+            st["group_outcomes"][i] = entry
+        if accepted:
+            last_grej.pop(_m, None)
+        else:
+            last_grej[_m] = {"round": entry["round"], "text": entry["text"],
+                             "reasons": entry["reasons"]}
+
+    def _prior_group(members, round_no):
+        """-> the LAST ROUND's rejection of this exact group, or None — the
+        same rule `_prior` applies to a line: shown on a new round only,
+        never inside the round that produced it."""
+        _r = last_grej.get(tuple(int(x) for x in members))
+        if not _r:
+            return None
+        if _r.get("round") is not None and round_no is not None \
+                and _r["round"] >= round_no:
+            return None
+        return _r
+
+    propose_group.record = record_group
+    propose_group.prior = _prior_group
 
     def disclosure(done=False):
         n = len(ones) + len(groups)
@@ -10270,20 +10342,32 @@ def main():
             # `check_scheme`, and a brief is where the misattribution
             # costs most: it tells a writer WHICH WORD to change, and if
             # the number came from `enjoys it` the word to change is not
-            # `it`. Read off `grade`'s own cached matrix -- the same
+            # `it`. ~~Read off `grade`'s own cached matrix -- the same
             # `Scored` objects it graded, never a second comparison. The
             # proper home for this is a `spans` field on the verdict
             # dict, which lives in `quality/revise.py` and is filed as a
-            # patch; this reads the object rather than recomputing it, so
-            # the two cannot disagree, and it degrades to silence rather
-            # than raising if that file is refactored underneath it.
+            # patch~~ — THE PATCH LANDED 2026-09-06 (`MISSING.md` M-253),
+            # AND THE MATRIX HAD BECOME THE WRONG OBJECT. The matrix is the
+            # END-WORD comparison; a group that binds a line at its T1 or
+            # T2 word is judged by `_slot_score` on the declared span, and
+            # `grade()` had been putting THAT verdict's slot words beside
+            # the matrix cell's end-word spans. `report_pair`'s attribution
+            # check then said, correctly, `left is \`lies\`, not \`Gauge\``
+            # — a renderer contradiction that read as a grader defect and
+            # was reported as one. The verdict now carries the `Scored`
+            # that judged it; this reads that object rather than
+            # recomputing anything, so the two cannot disagree, and it
+            # degrades to silence rather than raising if that file is
+            # refactored underneath it. A default-slot verdict's object IS
+            # the matrix cell, so the mosaic disclosures `test_verbs.py`
+            # §27 pins are byte-identical.
             span_by_pair = {}
             try:
                 graded = rv.grade(lines, scheme)
-                _, _, _, mx = rv._matrix(lines)
                 for v in graded["violations"]:
                     i, j = v["lines"]
-                    s = mx[i - 1][j - 1]
+                    s = {"total": v["score"], "relation": v["relation"],
+                         "spans": v.get("spans")}
                     span_by_pair[(i, j)] = (v, s)
             except Exception:                # pragma: no cover
                 span_by_pair = {}
@@ -10573,10 +10657,22 @@ def main():
                               f"{len(b.must_answer)} groups, and must answer "
                               f"every one (conjunctive; doctrine 2)")
                 if b.joint_conflict:
+                    # THE SAME SENTENCE `Brief.__str__` PRINTS, strike and
+                    # all (M-253, 2026-09-06). This renderer had kept the
+                    # pre-M-202 sentence UNSTRUCK, so a connector reader saw
+                    # "the MANDATE is what needs revising" here and, lines
+                    # below it, the brief's own copy struck through with the
+                    # note that it was fixed on 2026-09-03 — two renderers
+                    # of one fact, one of them stale (doctrine 1). The
+                    # strike stays visible (doctrine 17); what changed is
+                    # that both renderers now say the same thing.
                     print("      NO JOINT CANDIDATE: nothing in the "
                           "lexicon answers all of the groups bound at this "
-                          "place at once. The MANDATE is what needs "
-                          "revising, not the line.")
+                          "place at once. ~~The MANDATE is what needs "
+                          "revising, not the line.~~ STRUCK 2026-09-03 "
+                          "(M-202) — the grader flags PAIRS, so a word "
+                          "answering the VIOLATED one is accepted; see the "
+                          "per-call lists in the brief.")
                 if not b.must_answer and b.must_rhyme_with:
                     n, w = b.must_rhyme_with
                     print(f"      must rhyme with L{n} ({w!r})")

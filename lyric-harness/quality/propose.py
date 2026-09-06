@@ -492,7 +492,8 @@ def _enforced_block(line_no, n_lines, indent="  ", word_name="end word"):
     ]
 
 
-def _attempt_block(attempt, reasons, indent="  ", prior=None):
+def _attempt_block(attempt, reasons, indent="  ", prior=None,
+                   what="line for this slot"):
     """-> [str]. Which try this is, and why the last one was thrown out.
 
     `prior` (M-236) is the LAST ROUND's rejection of this line, a dict
@@ -522,7 +523,9 @@ def _attempt_block(attempt, reasons, indent="  ", prior=None):
                    f"would reject again.")
     elif prior and (prior.get("reasons") or prior.get("text")):
         _pr = prior.get("round")
-        out.append(f"{indent}Your line for this slot in ROUND "
+        # `what` names the thing rejected: a line, or (M-253) a whole group
+        # rewrite — one renderer for both, so the sentence cannot drift.
+        out.append(f"{indent}Your {what} in ROUND "
                    f"{_pr if _pr is not None else '?'} was REJECTED"
                    + (f": {prior['text']!r}" if prior.get("text") else "")
                    + ". The grader's reasons, verbatim:")
@@ -1081,8 +1084,15 @@ def render_group(group_brief):
     out.append("")
 
     out.append("ATTEMPT")
+    # THE LAST ROUND'S REJECTION OF THIS GROUP, QUOTED (M-253, 2026-09-06).
+    # `reasons` is the rejection inside a round; `prior` is the previous
+    # round's, and it is the only way a writer asked the same group question
+    # a round later learns why the last answer was thrown out — the tier-1
+    # prompt has carried this since M-236 and this one had not.
     out.extend(_attempt_block(getattr(g, "attempt", 0),
-                              getattr(g, "reasons", None)))
+                              getattr(g, "reasons", None),
+                              prior=getattr(g, "prior", None),
+                              what="rewrite of this group"))
     out.append("")
 
     out.append(f"THE {k} LINES")
