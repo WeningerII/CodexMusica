@@ -1,0 +1,24 @@
+round	date	run_id	layer	entry	exit0	what_stopped_it
+1	2026-08-28	33212872482	instrument	M-158	no	the launch pad itself: a workflow with open egress, no song attempted
+2	2026-08-28	33214026059	instrument	M-158	no	transcripts printed into the job log; instrument work, no song attempted
+3	2026-08-29	33224082837	model-shape	M-158	no	the model answered the loop's question INTO THE CHAT, five turns with zero tool calls
+4	2026-08-29	33228961328	instrument	M-159	no	the driver's own transport carried undici's undeclared 300 s default; turn 0 outlived it and the record was erased
+5	2026-08-29	33230235766	transport	M-160	no	turn 0 reset (ECONNRESET at 272 s) inside the NAT's 240 s idle-flow wall; zero model turns
+6	2026-08-29	33231200689	budget	M-161	no	the 180 s subprocess wall fired three kills in one turn; the model also opened on lyric_plan seed 9999 (M-162)
+7	2026-08-29	33251420261	transport	M-164	no	a 502 at 236 s on the opening turn; the driver treated it as fatal and hung up
+8	2026-08-29	33253826300	budget	M-165	no	two clocks over one tool call: the subprocess wall under its caller's patience, the replay growth crossing it
+9	2026-08-29	33259376754	connector	M-166	no	kills gone; one answered question per turn and the replay slope (340-515 s a fold) spent the turns
+10	2026-08-29	33266613606	writer	M-168	no	batching landed; the standing wall was the writer against the drawn mandate, and the parked push restarted the run
+11	2026-09-03	33810239434	model-shape	M-219	no	32 answers batched in 9 turns, 8 of 9 turns ENDED on a malformed tool call the connector read as the end of the turn
+12	2026-09-04	33822583572	instrument	M-223	no	the driver exited GREEN with no song: its verdict read the wrong coordinate
+13	2026-09-04	33824315744	instrument	M-223	no	the driver exited RED on a turn that had made three calls: fail-fast read the wrong coordinate
+14	2026-09-04	33824760222	model-shape	M-226	no	the first malformed call ever recorded broke inside the draft array the model re-sent, as the reminder told it to
+15	2026-09-04	33828209110	model-shape	M-226	no	banked with round 14 under the same finding: the re-sent draft array
+16	2026-09-04	33832762778	model-wander	M-229	no	fourteen well-formed calls, no malformed hop, spent wandering: a moved declaration, two re-plans, a sweep, a question never answered
+17	2026-09-04	33835711156/33841728667/33844305943	transport	M-231	no	turn 1 died on four 502s over thirteen minutes (Gemini 503s underneath); three attempts under the wait-for-live fix (M-230)
+18	2026-09-04	33848743075	connector	M-232	no	reached the loop's park and could not leave it: a mid-turn 503 threw six folded answers away; after exit 3 the model answered a question that was not pending
+19	2026-09-04	33857584226	connector	M-233	no	13 answers folded and parked; the parked record was thrown away at the next turn's door, so the model planned again
+20	2026-09-04	33865590488	model-shape	M-234	no	the park carried across turns; the rewritten draft broke as a function-call array six times; five Gemini 503 spikes
+21	2026-09-04	33876114108	instrument	M-235	no	190 answers folded over three loops and the record could not say which line any of them answered or whether verify took it
+22	2026-09-06	33999737190	model-shape	M-248	no	the first round on the batch answer: nine of nine lyric_revise hops MALFORMED where round 21's 190 bare-line answers went through
+23	2026-09-06	34038642870	rate-limit	M-249	no	0 malformed hops, 4 answers folded, then seven consecutive paced 429s waited out for fifteen minutes

@@ -212,6 +212,29 @@ function enqueue(fn) {
 // on the cold execFile path — one slow answer, byte-identical semantics.
 // `LYRIC_WORKER=0` disables the warm path entirely.
 const WORKER_PATH = path.join(path.dirname(fileURLToPath(import.meta.url)), 'worker.py');
+// THE ENV BOTH HARNESS PATHS RUN UNDER — one definition (M-254). `mcp/` on
+// PYTHONPATH is what lets `--propose=call:gemini_proposer:make` import the
+// kitchen proposer that lives beside this file; LYRIC_PROPOSER_MODEL is the
+// chat's own declared model, set once by chat.js at boot from the one place
+// it is declared (GEMINI_MODEL or DEFAULT_MODEL), so the writer the kitchen
+// asks is the model the service says it runs.
+const MCP_DIR = path.dirname(fileURLToPath(import.meta.url));
+function harnessEnv() {
+  const prior = process.env.PYTHONPATH;
+  return {
+    ...process.env,
+    PYTHONDONTWRITEBYTECODE: '1',
+    PYTHONPATH: prior ? `${MCP_DIR}${path.delimiter}${prior}` : MCP_DIR,
+  };
+}
+// WHO WRITES THE LINE, ON THIS TOOL (M-254). `interview` is every earlier
+// caller's contract: the loop suspends at each question and the CALLER
+// answers through `state` + `answer`. `kitchen` is the owner's 2026-09-06
+// ruling for the chat surface: the loop runs to a stop condition HERE, with
+// `mcp/gemini_proposer.py` asking Gemini one line per question on the
+// harness's own rendered brief, and no question ever reaches the caller.
+const WRITERS = ['interview', 'kitchen'];
+const KITCHEN_PROPOSE = 'call:gemini_proposer:make';
 const WORKER_ENABLED = process.env.LYRIC_WORKER !== '0';
 let _worker = null;
 let _workerBuf = '';
@@ -250,7 +273,7 @@ function _spawnWorker() {
   const w = spawn(PYTHON, [WORKER_PATH], {
     cwd: HARNESS_DIR,
     stdio: ['pipe', 'pipe', 'ignore'],
-    env: { ...process.env, PYTHONDONTWRITEBYTECODE: '1' },
+    env: harnessEnv(),
   });
   // UNREF'd so the worker never holds the parent open: node exits when its
   // own work is done, the worker's stdin sees EOF, and worker.py's read
@@ -382,7 +405,7 @@ function _runVerbCold(args) {
         cwd: HARNESS_DIR,
         timeout: SUBPROCESS_TIMEOUT_MS,
         maxBuffer: MAX_OUTPUT_BYTES,
-        env: { ...process.env, PYTHONDONTWRITEBYTECODE: '1' },
+        env: harnessEnv(),
       },
       (err, stdout, stderr) => {
         // THE SAME CAP, ON THIS PATH TOO (M-240, 2026-09-05). `execFile`
@@ -947,6 +970,30 @@ function extractRunRecord(stdout) {
   return out;
 }
 
+// THE KITCHEN'S BILL (M-254), read off the proposer's own per-call lines —
+// the LAST line carries the running totals, so a run the budget killed
+// mid-loop still reports what it spent. Absent lines → zero calls, said as
+// such (`proposer_calls: 0`), never as missing keys.
+function extractProposerRecord(stdout) {
+  const lines = [
+    ...stdout.matchAll(
+      /PROPOSER CALL (\d+): (\S+) (\d+) ms in=(\d+) out=(\d+)(?: finish=(\S+))? \| kitchen model=(\S+) calls=(\d+) ms=(\d+) in=(\d+) out=(\d+) empty=(\d+) retries=(\d+)/g
+    ),
+  ];
+  if (!lines.length) return { proposer_calls: 0 };
+  const last = lines[lines.length - 1];
+  return {
+    proposer_model: last[7],
+    proposer_calls: Number(last[8]),
+    proposer_ms: Number(last[9]),
+    proposer_tokens_in: Number(last[10]),
+    proposer_tokens_out: Number(last[11]),
+    proposer_empty: Number(last[12]),
+    proposer_retries: Number(last[13]),
+    proposer_ms_max: Math.max(...lines.map((m) => Number(m[3]))),
+  };
+}
+
 function verdictOf(r) {
   const banned = extractBannedPairs(r.stdout);
   const uncalibrated = extractUncalibrated(r.stdout);
@@ -1426,6 +1473,10 @@ export function answerFromRows(rows, kind) {
 export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
+  extractProposerRecord,
+  WRITERS,
+  KITCHEN_PROPOSE,
+  harnessEnv,
   groupOutcomeAt,
   extractStanding,
   askedOf,
@@ -1553,6 +1604,12 @@ export const LYRIC_TOOL_SCHEMAS = {
       .optional()
       .describe(
         'true to DROP the run the tool remembers for this seed and open a fresh one on the draft you send. The only way past a parked run without rewriting it, and the only way to move a declaration mid-song.'
+      ),
+    writer: z
+      .enum(WRITERS)
+      .optional()
+      .describe(
+        "Who writes the lines. 'interview' (the default, every earlier client's contract): the loop suspends at each question and YOU answer through `state` + `answer`/`answers`. 'kitchen': the server runs the loop to a stop condition itself, asking its own writer model one line per question on the harness's brief — no question comes back, no `state`/`answer` is taken, and the result is the [FINISHED …] song or a parked exit 3 to rewrite. The chat surface always uses 'kitchen'."
       ),
     answer: z
       .string()
@@ -1963,7 +2020,11 @@ export function registerLyricTools(server, tool) {
         'replacements. Each call re-runs the loop from its record (deterministic, so the same questions arrive in ' +
         'the same order) — expect ~60-120s early, growing ~15s per answer on record (a late call in a long ' +
         'run can legitimately take several minutes); keep any budget fields ' +
-        "constant across one song's calls.",
+        "constant across one song's calls. WHO WRITES THE LINES is `writer` (M-254): 'interview' (the default) is " +
+        "the question-and-answer contract above, for a client that writes its own lines; 'kitchen' runs the loop " +
+        'to a stop condition on the server with its own writer model answering every question one line at a ' +
+        'time on the same brief — no question comes back, no `state`/`answer` is taken, one call returns the ' +
+        '[FINISHED …] song or a parked exit 3 to rewrite with `draft_text`. The chat surface always cooks.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_revise,
     },
     (a) =>
@@ -2084,6 +2145,16 @@ export function registerLyricTools(server, tool) {
           throw refuse(
             '`blueprint` needs `subdivision` — the slot questions refuse rather than assume a grid'
           );
+        const writer = a.writer || 'interview';
+        if (writer === 'kitchen' && (a.state != null || a.answer != null || a.answers != null))
+          throw refuse(
+            "writer 'kitchen' takes no `state`, `answer` or `answers` — the server's own writer answers every question; send the draft (or rewrite a parked one with `draft_text`)"
+          );
+        if (writer === 'kitchen' && !process.env.GEMINI_API_KEY)
+          throw refuse(
+            "writer 'kitchen' needs the service's GEMINI_API_KEY and it is unset here — use writer 'interview' and answer the questions yourself"
+          );
+        const proposeSpec = writer === 'kitchen' ? KITCHEN_PROPOSE : `defer:${statePath}`;
         let args;
         if (seeded) {
           args = [
@@ -2091,7 +2162,7 @@ export function registerLyricTools(server, tool) {
             'finish',
             draftPath,
             ...planArgs(a),
-            `--propose=defer:${statePath}`,
+            `--propose=${proposeSpec}`,
           ];
         } else {
           args = [...globalsFor(a), 'revise', draftPath];
@@ -2110,7 +2181,7 @@ export function registerLyricTools(server, tool) {
             await writeFile(bpPath, a.blueprint, 'utf8');
             args.push(`--blueprint=${bpPath}`, '--subdivision', String(a.subdivision));
           }
-          args.push(`--propose=defer:${statePath}`);
+          args.push(`--propose=${proposeSpec}`);
         }
         // THE CONNECTOR'S BUDGET (M-236): one attempt per line, ONE group
         // rewrite per stuck line (backtrack width 1 — on since M-247, off
@@ -2217,6 +2288,8 @@ export function registerLyricTools(server, tool) {
           const m = r.stdout.match(/THE SONG, PERFORMANCE ORDER:\n\n([\s\S]*?\[FINISHED[^\]]*\])/);
           const verdict = verdictOf(r);
           verdict.status = loopStatusOf(r.code, verdict);
+          verdict.writer = writer;
+          if (writer === 'kitchen') Object.assign(verdict, extractProposerRecord(r.stdout));
           // M-235: the last answer's verdict and the draft this stop was
           // reached on ride with the stop row, so a cycle is readable from
           // the rows alone.
@@ -2282,7 +2355,10 @@ export function registerLyricTools(server, tool) {
           }
           return verdict;
         }
-        return verdictOf(r);
+        const other = verdictOf(r);
+        other.writer = writer;
+        if (writer === 'kitchen') Object.assign(other, extractProposerRecord(r.stdout));
+        return other;
       })
   );
 
@@ -2588,10 +2664,11 @@ export const LYRIC_INSTRUCTIONS =
   'words inside the hook line is a FLAG; (3) lyric_grade with the SAME seed AND THE SAME DECLARATIONS ' +
   '(form, lines, relation, functions, title — a declaration dropped here grades a different plan) and ' +
   'the draft — its render is the INTERIM graded draft, and the [GRADED — seed …] stamp under it is a ' +
-  'grade, not a finish; (4) lyric_revise with the SAME seed and declarations, called repeatedly — it ' +
-  'drives the revise loop, asks one question per suspended call (answer with `state` passed back ' +
-  'verbatim plus `answer`), and returns a song ONLY past a stop condition, under a [FINISHED — seed … — ' +
-  'exit …] stamp. THE FINISHED SONG COMES FROM lyric_revise AND NOWHERE ELSE: a song presented without ' +
+  'grade, not a finish; (4) lyric_revise with the SAME seed and declarations — it drives the revise loop ' +
+  'and returns a song ONLY past a stop condition, under a [FINISHED — seed … — exit …] stamp. With ' +
+  "`writer: 'kitchen'` (the chat surface always; any client may ask for it) the server's own writer answers " +
+  "every question and ONE call returns the stop condition; with the default 'interview' the loop asks one " +
+  'question per suspended call (answer with `state` passed back verbatim plus `answer`), called repeatedly. THE FINISHED SONG COMES FROM lyric_revise AND NOWHERE ELSE: a song presented without ' +
   'its [FINISHED …] stamp is an interim draft and must be presented as one, and stopping at step (3) ' +
   'because the draft "looks done" is the exact hand-wash the loop exists to end — the loop, not you, ' +
   'says when revision is over. THE BAN IS UNSKIPPABLE: a grade verdict with banned_pairs above zero is ' +

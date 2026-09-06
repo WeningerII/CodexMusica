@@ -296,7 +296,7 @@ def main(argv):
     falsifiers_only = "--falsifiers-only" in argv
     lex, decl = Lexicon(), Declaration()
     print(f"instrument: internal_matches theta={decl.theta_rhyme + 0.05} "
-          f"(declaration {decl.theta_rhyme} + 0.05), max_window=3")
+          f"(declaration {decl.theta_rhyme} + 0.05), max_span=3 (syllables; E-3)")
 
     bad = falsifiers(lex, decl)
     if bad:
@@ -376,7 +376,7 @@ def main(argv):
         fh.write("# registration: quality/INTERNAL_RHYME_PREREGISTRATION.md;"
                  " instrument: quality/internal_rhyme_rate.py\n")
         fh.write(f"# instrument coordinates: internal_matches theta="
-                 f"{decl.theta_rhyme + 0.05} max_window=3; population: "
+                 f"{decl.theta_rhyme + 0.05} max_span=3 (syllables; E-3); population: "
                  f"negative_control.load_quatrains(cap_per_file=8, "
                  f"min_chars=12) = {n} quatrains\n")
         fh.write("# exclusions: both-spans-line-final (the end-rhyme "

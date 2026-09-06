@@ -118,6 +118,35 @@ def totals(pairs, decl):
     return out
 
 
+def search_shape(pairs, decl):
+    """-> {'pairs', 'mean_k', 'max_k', 'mean_a', 'mean_b'}: the search's
+    SIZE and its two FACTORS, read off the Attribution `best_score` records.
+
+    `candidates_a` / `candidates_b` were banked on every score from the first
+    commit and read by nothing in production (`MISSING.md` M-137) -- the
+    decomposition of doctrine 56's k into the two side-searches, invisible.
+    This is their consumer: k is not one number here, it is a product, and a
+    null under the same search has to reproduce BOTH factors, not the product
+    alone (a 2x8 search and a 4x4 search have the same k and different
+    reach). Reported beside the sweep, never pinned as a rate.
+    """
+    ks, aa, bb = [], [], []
+    for ca, cb, wa, wb in pairs:
+        s = LH.best_score(ca, cb, decl, wa, wb)
+        if not s:
+            continue
+        sp = s["spans"]
+        ks.append(sp["search_k"])
+        aa.append(sp["candidates_a"])
+        bb.append(sp["candidates_b"])
+    n = len(ks)
+    return {"pairs": n,
+            "mean_k": (sum(ks) / n) if n else 0.0,
+            "max_k": max(ks) if ks else 0,
+            "mean_a": (sum(aa) / n) if n else 0.0,
+            "mean_b": (sum(bb) / n) if n else 0.0}
+
+
 def sonnet_units(lex, path="corpus/sonnets.txt"):
     lines = [l.rstrip("\n") for l in open(path, encoding="utf-8")
              if l.strip() and not LH.is_apparatus_line(l)]
@@ -171,6 +200,10 @@ def main(argv):
           "(doctrine 56)")
     print(f"  {len(units)} sonnets, {n} mandated pairs, "
           f"{REPLICATES} within-sonnet line-permutation replicates")
+    shape = search_shape([p for u in units for p in scheme_pairs(u)], decl)
+    print(f"  the search, as its two factors (doctrine 56; M-137): "
+          f"mean k {shape['mean_k']:.2f} = {shape['mean_a']:.2f} x "
+          f"{shape['mean_b']:.2f} candidates per side, max k {shape['max_k']}")
     print(f"  arms: full k-search vs `endword_only` (k=1), on real and "
           f"permuted text\n")
     print(f"  {'theta':>7}{'REAL lift':>12}{'NULL lift':>12}"

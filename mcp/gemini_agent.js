@@ -25,6 +25,14 @@ export const PRICING = {
 };
 
 export const DEFAULT_MODEL = 'gemini-3.1-flash-lite';
+// KITCHEN COOKS (owner ruling 2026-09-06, M-254): who answers a revise
+// question on THIS surface. Read at CALL time, not import time, so a test
+// can drive both surfaces from one process; the mechanism is beside
+// `declarationsFor`. `LYRIC_CHAT_WRITER=interview` restores the old surface
+// for a measured comparison; anything else, including unset, cooks.
+export function chatWriter() {
+  return process.env.LYRIC_CHAT_WRITER === 'interview' ? 'interview' : 'kitchen';
+}
 
 // Thinking LOW, and it is the cheaper setting — which is the opposite of what
 // the token price says, so it is worth writing down why.
@@ -425,8 +433,11 @@ function loopFields(v) {
 }
 
 export const _agentInternals = {
+  chatWriter,
   loopFields,
   PARKED_RUN_NOTE,
+  SKIPPED_STEPS_NOTE,
+  lyricCallsOnRecord,
   parkedRefusal,
   toFunctionResponse,
   suspendedSeed,
@@ -510,6 +521,62 @@ export async function buildSurface(client) {
     instructions,
     tools,
   };
+}
+
+// ── THE SKIPPED-STEPS REMINDER (M-162, owner's go 2026-09-06) ──────────────
+// The model skipped lyric_sweep and lyric_screen in 2 of 2 battery rounds
+// that reached it, opening with lyric_plan on a hand-round seed (9999) —
+// against the standing rule that NOTHING SKIPS A STEP: sweep → screen → plan
+// → write → grade → revise to a stop condition. The server cannot REFUSE at
+// the tool door (a deliberate seed from an MCP client is a legitimate
+// declaration), so the cure is M-158's own shape one step earlier: a
+// MECHANICAL note in the systemInstruction, present while the transcript
+// holds no lyric_sweep and no lyric_screen call, naming the steps not yet
+// taken, rebuilt every hop from the live record so it disappears the moment
+// either lands. It STATES and never blocks. Chat surface only — this driver
+// is the chat surface; MCP clients never pass through it. Held for the
+// owner's go rather than shipped when designed, because a nudge the server
+// writes into every conversation is a policy; the go came 2026-09-06.
+const LYRIC_STEPS_BEFORE_PLAN = ['lyric_sweep', 'lyric_screen'];
+
+/** The lyric_* tool names the transcript's model turns have called so far. */
+export function lyricCallsOnRecord(contents) {
+  const seen = new Set();
+  for (const entry of contents || []) {
+    if (!entry || entry.role !== 'model') continue;
+    for (const part of entry.parts || []) {
+      const name = part?.functionCall?.name;
+      if (typeof name === 'string' && name.startsWith('lyric_')) seen.add(name);
+    }
+  }
+  return seen;
+}
+
+function SKIPPED_STEPS_NOTE(record) {
+  const missing = LYRIC_STEPS_BEFORE_PLAN.filter((n) => !record.has(n));
+  if (!missing.length) return null;
+  const planned = record.has('lyric_plan') || record.has('lyric_revise');
+  const what = {
+    lyric_sweep:
+      'lyric_sweep chooses the seed by declaring the shape you want — a hand-round seed is a guess the sweep exists to replace',
+    lyric_screen:
+      'lyric_screen checks candidate end-word pairs BEFORE you write — a banned pair (HOMEOTELEUTON / MODAL_RHYME) is an answer, pick other words',
+  };
+  return (
+    'WORKING ORDER (mechanical reminder): this conversation has not yet called ' +
+    missing.join(' or ') +
+    '. Nothing skips a step — sweep, then screen, then plan, then write, then grade, then revise to a stop condition. ' +
+    missing.map((n) => what[n]).join('; ') +
+    '. ' +
+    (planned
+      ? 'lyric_plan has already been called without ' +
+        (missing.length === 2 ? 'them' : 'it') +
+        ': screen your end words before writing a line, and sweep before planning again. '
+      : '') +
+    'This note goes away once ' +
+    (missing.length === 2 ? 'both are' : 'it is') +
+    ' on the record.'
+  );
 }
 
 // ── THE SUSPENDED-RUN REMINDER (M-158) ────────────────────────────────────
@@ -596,7 +663,36 @@ export function declarationArgs(args) {
 // can name the run it continues and nothing else.
 const RUN_KEY_FIELDS = new Set(['seed', 'scheme', 'groups', 'returns', 'relation', 'structures']);
 
-export function declarationsFor(surface, lyr) {
+// KITCHEN COOKS (owner ruling 2026-09-06, M-254). On THIS surface the chat
+// model never answers a revise question: every lyric_revise call it makes is
+// sent with `writer: 'kitchen'`, and the interview fields (`state`, `answer`,
+// `answers`, `writer`) leave the declaration it sees, so there is nothing to
+// fumble. The server's own writer (mcp/gemini_proposer.py) takes the loop to
+// a stop condition. `LYRIC_CHAT_WRITER=interview` restores the old surface
+// for a measured comparison; nothing else does.
+const INTERVIEW_FIELDS = new Set(['state', 'answer', 'answers', 'writer']);
+
+export function declarationsFor(surface, lyr, writer = chatWriter()) {
+  const base =
+    writer === 'kitchen'
+      ? surface.declarations.map((d) => {
+          if (!surface.stateTools?.has(d.name) || !d.parameters?.properties) return d;
+          const properties = {};
+          for (const [k, v] of Object.entries(d.parameters.properties))
+            if (!INTERVIEW_FIELDS.has(k)) properties[k] = v;
+          const required = Array.isArray(d.parameters.required)
+            ? d.parameters.required.filter((n) => n in properties)
+            : d.parameters.required;
+          return {
+            ...d,
+            parameters: { ...d.parameters, properties, ...(required ? { required } : {}) },
+          };
+        })
+      : surface.declarations;
+  return declarationsForRun({ ...surface, declarations: base }, lyr);
+}
+
+function declarationsForRun(surface, lyr) {
   // M-232: a PARKED run's continuing call is the rewritten draft plus the
   // run's key — no `answer`, no `state` — the mirror image of a suspended one.
   // M-234: the rewritten draft is sent as ONE string (`draft_text`) where the
@@ -834,10 +930,14 @@ function carriedKey(lyr) {
   return typeof lyr.seed === 'number' ? `seed:${lyr.seed}` : null;
 }
 
-function buildSystemInstruction(surface, lyr) {
+// `record` is the Set `lyricCallsOnRecord` returns for the live transcript.
+// Omitted (null) means "no record to read" and no skipped-steps note is
+// written — the two-argument contract every earlier caller and test holds.
+function buildSystemInstruction(surface, lyr, record = null) {
   const seed = suspendedSeed(lyr);
   const text = [
     surface.instructions,
+    record ? SKIPPED_STEPS_NOTE(record) : null,
     seed == null ? null : SUSPENDED_RUN_NOTE(seed),
     isParked(lyr) ? PARKED_RUN_NOTE(lyr) : null,
   ]
@@ -1001,6 +1101,10 @@ function pruneHistory(contents, { keepTurns = 1, maxBytes = 200_000 } = {}) {
  *   different seed starts a fresh run instead of inheriting a stale record.
  */
 export async function runTurn({
+  // KITCHEN COOKS (M-254): who answers a revise question on this surface —
+  // the declared default, overridable per call so a test drives both
+  // surfaces without touching the process environment.
+  writer = chatWriter(),
   apiKey,
   model = DEFAULT_MODEL,
   surface,
@@ -1072,12 +1176,14 @@ export async function runTurn({
     for (let step = 0; step < limits.maxSteps; step++) {
       body.contents = contents;
       // Rebuilt per hop from the LIVE carried state (M-158): `lyr` moves when
-      // a harvest lands mid-turn, and the reminder must move with it.
-      const si = buildSystemInstruction(surface, lyr);
+      // a harvest lands mid-turn, and the reminder must move with it. The
+      // skipped-steps note (M-162) reads the transcript the same way, so it
+      // disappears on the hop after a sweep or a screen lands.
+      const si = buildSystemInstruction(surface, lyr, lyricCallsOnRecord(contents));
       if (si) body.systemInstruction = si;
       else delete body.systemInstruction;
       // Per hop, like the reminder: the record can appear mid-turn (M-226).
-      body.tools = [{ functionDeclarations: declarationsFor(surface, lyr) }];
+      body.tools = [{ functionDeclarations: declarationsFor(surface, lyr, writer) }];
       let json;
       try {
         json = await generate({
@@ -1288,6 +1394,15 @@ export async function runTurn({
             // and refuse honestly, but a clean first call is the better run.
             delete args[STATE_PROPERTY];
           }
+        }
+        // KITCHEN COOKS (M-254): on this surface the server's writer answers
+        // every revise question. Mechanical, not asked of the model — the
+        // interview fields never reach the tool from here.
+        if (writer === 'kitchen' && surface.stateTools?.has(fc.name)) {
+          args.writer = 'kitchen';
+          delete args[STATE_PROPERTY];
+          delete args.answer;
+          delete args.answers;
         }
         // A tool that fails — a timeout, a dropped transport — becomes an
         // ERROR RESULT the model can see and react to, never an exception

@@ -1382,6 +1382,22 @@ def parse_batch(text, members):
     return {int(n): t for n, t in zip(members, got)}
 
 
+class ProposerUnavailable(RuntimeError):
+    """THE SEAM'S ONE DECLARED FAILURE (2026-09-06, `MISSING.md` M-254).
+
+    `ModelProposer` swallows nothing: a `call` that raises is a transport
+    failure and not a model declining, and the loop must not read one as a
+    dead end for the line. Until this class existed the only shape a far-side
+    failure could take was an uncaught exception — Python's exit 1 and a
+    traceback, which a connector reads as "subprocess failure" with no
+    reason. A `call:` proposer that cannot reach its writer AT ALL (no
+    credential, no model, transport exhausted after its bounded retries)
+    raises THIS, and the verb turns it into `REFUSED …` at exit 2 naming the
+    seam (doctrine 20: a refusal is not an absence, and it is not a crash).
+    A malformed reply is NOT this — that parses to None and costs an attempt.
+    """
+
+
 class ModelProposer:
     """A `propose`/`propose_group` pair backed by one
     `callable(prompt) -> str`.

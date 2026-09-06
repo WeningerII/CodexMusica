@@ -440,7 +440,10 @@ so nothing here is being tested green while the gap is open — the entry closes
 when the grading path consults the registry, which is the relation ladder's
 own destination and not a fix this entry can make alone.
 
-### E-3 · ~~Internal rhyme is two-line only~~ Internal rhyme has two windows and neither is declared `PARTIAL`
+### E-3 · ~~Internal rhyme is two-line only~~ Internal rhyme has two windows and neither is declared ~~`PARTIAL`~~ `CLOSED` 2026-09-06 — both windows declared, the third axis renamed
+**CLOSED 2026-09-06 — THE THREE CORRECTIONS ABOVE ARE EACH A COORDINATE NOW.** (1) `rhyme_density(lex, lines, decl, window=1)`: the LINE DISTANCE cross-line matches are asked at, default 1 so every earlier reading is byte-identical, 0 for within-line only, N for every pair at distance 1..N, returned as `"window"` beside the numbers; the `density` verb takes `--window=N`, refuses a non-integer, a negative and an unknown flag at exit 2 in the one shape, and PRINTS the window on every run, default included, beside the sentence that the `internal rhyme` schema asks song-wide. (2) `internal_matches(max_span=3)` — the SYLLABLE cap under its own name; the word `window` no longer appears in that signature, and the docstring says whose coordinate the line window is. (3) The `internal rhyme` schema note states its frame — the WHOLE SONG, `Figure(frame='song')`, stanza breaks crossed — and names the other reader's declared window, so the two answers carry their coordinates. Measured on a three-line fixture whose first and third lines share two internal families and whose second shares nothing: `--window=1` finds no cross-line match, `--window=2` raises L1 and L3, `--window=0` is nowhere above 1. `quality/test_verbs.py` §58 (8 checks) is the first test to name E-3 — CITED → GUARDED, as the last line below asked.
+
+
 **Now:** ~~`internal_matches` supports a pair of lines. No verse-wide or
 song-wide positional rhyme graph.~~
 **REPINNED 2026-08-16 — the graph exists and this entry cited it without
@@ -739,7 +742,7 @@ declared, like everything else in `quality/phonology/`.
 > `relations.py` imports nothing from `lyric_harness` (P10) and no shipped
 > table is derived, so the blast radius is zero.
 
-### F-5 · An EDITION can retokenise a language `OPEN`
+### F-5 · An EDITION can retokenise a language ~~`OPEN`~~ `RESOLVED` 2026-08-28 (status line struck 2026-09-06 — the body has said RESOLVED since Check J shipped)
 **Verified 2026-08-10.** Rogers's 1855 _Modern Scottish Minstrel_ sets a SPACE
 before enclitics — `There 's high and low`, `Wha 'll buy caller herrin'` — 189
 times in Nairne and 81 in Hogg, against **13 in all 17,555 lines of Burns**.
@@ -1038,7 +1041,9 @@ can take a tune as input, because there is no pitch or tune object at all
 (B-1, re-verified absent 2026-08-21). "Nothing generates" was true of the tree
 and false of the SYSTEM from the day `plan.py` v2 landed.
 
-### I-2 · No way to sample the space under constraints `PARTIAL` 2026-08-21 — the SAMPLER shipped; the PREDICATE is ruled on hold
+### I-2 · No way to sample the space under constraints `PARTIAL` 2026-08-21 — the SAMPLER shipped; ~~the PREDICATE is ruled on hold~~ the PREDICATE shipped as `plan --sweep` (M-82, 2026-08-23) and the residue is three scheme coordinates it cannot yet name (repinned 2026-09-06)
+**REPINNED 2026-09-06 — THE BLOCKER THIS ENTRY RESTS ON WAS SPENT SIXTEEN DAYS AGO.** The last paragraph below says the filter is *"RULED ON HOLD, by name"* and must not be built as a favour. The ruling came on 2026-08-23 — *"make it a verb"* — and it is `plan --sweep=LO-HI [--want=PRED;PRED]` (M-82, `CLAUDE.md` standing rule 3): a closed predicate vocabulary over coordinates the plan already discloses, rejection-sampled from the uniform proposal, ranking nothing. So the PREDICATE exists. **What is still missing is narrower than the entry's own example and is a residue, not a blocker**: this entry asks for *3 sounds, no adjacencies, at least 2 section-crossings*, and `plan.SWEEP_MEASURES` at HEAD names 13 measures — `bars_per_line beats_per_line binding_cap bound_words_per_line group hook lines lines_per_section pins_per_line returns sections slots_per_line story_lineups` — none of which is `n_sounds`, `adjacencies` or `crossings`, though `schemes.SchemeCoordinates` computes all three for every drawn scheme. Adding the three is a build of the M-82 shape (a measure reads a disclosed coordinate; the sweep's own test pins the vocabulary), and it is not taken in a record-only sitting. Status stays PARTIAL on that residue and on nothing else.
+
 **Missing:** "give me an 11-line scheme with 3 sounds, no adjacencies, at least
 2 section-crossings, and no name" — the spaces are enumerable and there is no
 constrained sampler over them.
@@ -3056,7 +3061,9 @@ stotra/pada literature — Vedānta Deśika, Bilvamaṅgala, the Gosvāmins,
 `m` 1,078 times and `ṃ` 3 times; the Caurapañcāśikā does the opposite. A
 final-akṣara rhyme key is **not comparable across DCS texts without folding**.
 
-### M-15 · `RelationSchema.traditions` — ~~declared on 77 schemas and populated on ZERO~~ **75 of 77 populated, and the SOURCE is the gap** `PARTIAL`
+### M-15 · `RelationSchema.traditions` — ~~declared on 77 schemas and populated on ZERO~~ **75 of 77 populated, and the SOURCE is the gap** ~~`PARTIAL`~~ `CLOSED` 2026-09-06 with M-15a
+**CLOSED 2026-09-06 — RECORD ONLY.** The only half this entry held open was the source gap, and that half is M-15a's, closed the same day (the survey inlined as `quality/canon_index.tsv`, the witness derived from it). The two schemas with no tradition, `blues AAB stanza` and `refrain by reference`, are unchanged and are the census's own reading, not an omission.
+
 The ZERO was left standing as live heading text under a blockquote that already
 corrected it, which is how a superseded figure keeps being quoted: `BACKLOG.md`
 §2.5 copied it forward for a day. Struck now, and `python3
@@ -3543,7 +3550,9 @@ it moves a `sources.tsv` row and pulls the corpus-audit md5 checks with it.
 
 ---
 
-### M-15a · `Tradition.source` is a pointer into a document that cites nothing `OPEN`
+### M-15a · `Tradition.source` is a pointer into a document that cites nothing ~~`OPEN`~~ `CLOSED` 2026-09-06 — the survey is inlined and the witness is derived from it
+**CLOSED 2026-09-06 — RECORD ONLY; the owed work was done on 2026-08-30 and this heading was never told.** What was owed: *inline the survey's `source` strings into the repository and put the real citation on `Tradition`, before the transcripts are gone.* `quality/canon_index.tsv` (96 KB; columns `idx name tradition witness basis self_doubt source`) IS the inlined survey — every cell index the canon cites resolves inside a clean checkout now, with the recorded source string beside it (`E1 perfect rhyme … en-academic mirror of the Wikipedia Rhyme taxonomy; Turco list …`). `Tradition.witness` is DERIVED at import from that index through `quality/canon_sources.py` and is tri-state on purpose: `"external"`, `"project"`, or `None` for CANNOT TELL, with `why` and `cites` carrying the citation on the object (`Tradition(name='English handbook perfect rhyme', … witness='external', cites=('E1',), why='attributed to E1 (perfect rhyme), whose recorded source is: …')`). Measured at HEAD: **298 rows, 238 carry a witness verdict, 60 are `None`** — and the 60 are the honest residue, an absence of witness the index records rather than one this repair invented (doctrine 28); §5's list of the 19 project-only structures is what those `None`s are. `Tradition.source` still reads `R<n>`: that is the canon row it was attached FROM, and the citation now sits one attribute over, derived, rather than typed into the table by hand — which the builder's own docstring says is the design (*"a citation typed by hand into a table is the defect this whole section exists to close"*).
+
 **Found 2026-08-11 by `python3 quality/audit_register.py --provenance`, auditing
 the FIX to M-15 rather than the gap.** 75 of 77 schemas now carry traditions —
 298 distinct `Tradition` rows, 319 attachments — and **every single
@@ -5698,7 +5707,10 @@ arity extension for the 12 non-pair figures, but multiplicity: parallel edges.
 The 2026-08-22 relation coordinate is unaffected and correct as far as it goes:
 one relation per group, groups may overlap, and nothing here needs undoing.
 
-### M-34 · The named-type engine can never name a masculine rhyme, and it explains the emptiness as a fact about the vocabulary `PARTIAL`
+### M-34 · The named-type engine can never name a masculine rhyme, and it explains the emptiness as a fact about the vocabulary ~~`PARTIAL`~~ `CLOSED` 2026-09-06 — the verb declares the position now, and says INCOMPLETE when it cannot
+**CLOSED 2026-09-06 — `types W1 -- W2 --position=P` OVER THE DECLARED `POSITION` VOCABULARY, AND THE BARE VERB NAMES THE MISSING AXIS.** The first cut declared the position to `classify_pair` with each word as its own one-word `Frame`, and the library refused it correctly: a word that IS its whole line measures `holorhyme`, not `end`, and *"a declared coordinate that contradicts the measurement is refused, not overwritten in either direction."* The verb takes the mandate path's own move instead — M-44's loop turned around. `rhyme_types.names_at(a, b, phon, position)` judges every registered name at its OWN coordinate under the caller's declared position: the 18 position-agnostic keys always admitted, a registered position that differs always a real no, `Indeterminate` keys returned as SKIPPED so a short list is not read as a small vocabulary (doctrine 20). The position is ASSERTED, as a mandate asserts it for a line-final group, and the axis line says so in the word DECLARED. Measured: `night -- light --position=end` names **11** (masculine rhyme first; M-44 measured the same 11 on the same pair through `satisfies_relation`), `mother -- brother --position=end` names feminine rhyme; a bogus value refuses at exit 2 in §16's one shape; and the bare verb prints `UNNAMED — and the coordinate is INCOMPLETE: no --position= was declared, and 31 of 49 named keys need one`, the 31 and the 49 derived from `NAMED` at print time and never quoted. The old sentence survives for the case it is now true of — a pair unnamed at a COMPLETE coordinate. `quality/test_verbs.py` §57 (6 checks) and the `--position=` row in §16; `--help` carries the flag. The 9 types needing `internal`/`head`/`leonine`/`cross`/`holorhyme` are reachable by declaring those words, and remain unreachable from an end-rhyme MANDATE by definition, as recorded below.
+
+
 **Found 2026-08-22 while wiring the mandate's declared-relation coordinate, by
 asking `classify_pair` for the name of a pair I already knew the name of.**
 
@@ -13379,7 +13391,9 @@ constants stay refused, because this mode still cannot decide them.
 against 0 declared; `test_floor.py` all green. Run twice at 8,238s of cold
 population work, the second reproducing every figure of the first.
 
-### M-132 · a lyric sheet at 150-163 tokens is judged by a sonnet `OPEN`
+### M-132 · a lyric sheet at 150-163 tokens is judged by a sonnet ~~`OPEN`~~ `CLOSED` 2026-09-06 — the handoff no longer exists
+**CLOSED 2026-09-06 — RECORD ONLY; the tree closed it on 2026-09-04.** The defect was WHICH profile an extrapolated length fell to, and M-239 removed the extrapolation: the one `lyric` profile is EXACT over 4–3,245 tokens, so no sheet length is handed to the sonnet, and `quality/test_floor.py` §19 was rewritten in that sitting to assert exactly that — every former seam (127, 138, 150, 163, 175, 176, 199) is one profile, not three. That is the rewrite the TESTED WHILE OPEN clause below said would have to happen on the day this was fixed, and it happened; the clause is kept as the record of why the check was written the way it was.
+
 The cost of M-131, measured with the shipped selector rather than argued.
 `declaration_for` swept over 100-260 tokens, before and after the band moved:
 
@@ -13827,7 +13841,10 @@ emitting ASSONANCE. Also found on the way: §13 sat in
 so it printed the same `all pass` as a section that ran — listed in the
 loop now.
 
-### M-137 · M-135's dead coordinate has siblings, and two are deader `OPEN`
+### M-137 · M-135's dead coordinate has siblings, and two are deader ~~`OPEN`~~ `CLOSED` 2026-09-06 — each item took the repair its own paragraph asked for
+**CLOSED 2026-09-06 — PER ITEM, AS THE LAST PARAGRAPH BELOW RULED: CONSUME OR REMOVE, NEVER LEAVE.** `candidates_a` / `candidates_b` are CONSUMED: `quality/search_null.search_shape` reads them off every scored pair and the sweep prints doctrine 56's k as its two factors (*mean k = a × b candidates per side, max k*), because a null under the same search has to reproduce both factors and not their product — a 2×8 search and a 4×4 search have one k and different reach. `Attribution["beat"]` is REMOVED and its comment struck in place: `k - 1` was a derived value stored as a bare key, which the class's own docstring names as the defect, and no production path read it; `test_spans.py` §3's check now asserts the key is GONE. `SPAN_KINDS` is CONSUMED: `span_kind` iterates the tuple over a predicate table `_SPAN_KIND_TESTS` keyed by kind, the two are held equal at import (a `RuntimeError` if the order or the membership drifts), and the constant has a reader besides its definition — the enforcement order is stated once. The four-versus-five comment above the constants reads five, with the four struck visibly. Verified by `quality/test_spans.py` §3 (three new checks: the key absent, the consumer reporting both factors, `span_kind`'s source iterating the tuple) and by the whole suite passing byte-identically on every provenance verdict, since the table encodes the same five tests in the same order.
+
+
 A census for the SHAPE M-135 found — a value computed and stored under a
 comment implying it is consumed, which nothing consumes. Every figure below was
 re-verified by hand before being written down.
@@ -16658,7 +16675,10 @@ this entry priced has no second clock left to arise between.
 Option (b) stays REFUSED on its own unchanged argument. The
 register pin moved with M-165's entry.
 
-### M-162 · The model skips the sweep and the screen every time it writes — 2 of 2 rounds, seed 9999 — and the gate question is now its own entry `OPEN` 2026-08-29 — promoted out of M-158's deliberate deferral by the recurrence it waited for
+### M-162 · The model skips the sweep and the screen every time it writes — 2 of 2 rounds, seed 9999 — and the gate question is now its own entry ~~`OPEN` 2026-08-29~~ `CLOSED` 2026-09-06 — the owner said go, and the reminder ships exactly as designed below — promoted out of M-158's deliberate deferral by the recurrence it waited for
+**CLOSED 2026-09-06 — THE OWNER'S GO CAME (*"sounds like we should finish these first, before we run round 23"*), AND THE REMINDER SHIPS AS THE CONSERVATIVE DESIGN BELOW, UNCHANGED.** `mcp/gemini_agent.js`: `lyricCallsOnRecord(contents)` reads the transcript's MODEL turns for `lyric_*` function calls (user parts and recipe tools ignored); `SKIPPED_STEPS_NOTE(record)` names whichever of `lyric_sweep` / `lyric_screen` the record lacks, says in one clause what each is for, adds *"lyric_plan has already been called without them"* when it has, and returns `null` once both are on the record; `buildSystemInstruction(surface, lyr, record)` carries it as the second block — after the server's instructions, before M-158's suspended-run note and M-232's parked-run note — so there is still exactly ONE builder, and the hop site feeds it `lyricCallsOnRecord(contents)` beside the live carried state, rebuilt every hop, so the note leaves on the hop after either step lands. Omitting `record` (every earlier caller, every earlier test) writes no note: the two-argument contract is untouched. It STATES and never blocks; the tool door is untouched, so an MCP client's deliberate seed is still a declaration. Chat surface only, because this driver IS the chat surface. `mcp/test.mjs`: the scanner's selectivity, both-missing / one-missing / none-missing / plan-first texts, the base bytes exactly when both are on record or no record is handed in, composition order against the suspended-run note, and the one-builder source pin repointed to the three-argument call. What round 23 measures is whether the nudge is TAKEN — this entry's own last sentence — and that measurement is M-168's, on the owner's credit.
+
+
 **THE DEFERRAL'S OWN CONDITION IS MET.** M-158 recorded the
 skipped-step charge UNGATED, deliberately, "waiting for evidence it
 recurs before any gate is designed for it." It has recurred: both
@@ -18001,7 +18021,9 @@ this ladder line, which `verify_entries.py`'s doctrine-17 sweep caught
 within five minutes: a superseded 236 visible in no scanned document is
 exactly the vanished-value case that check exists to refuse.
 
-### M-181 · ~~The listenable songs~~ The five songs the owner's complaint was about (struck 2026-09-04, M-238) are UNREACHABLE — the length floor rose past four of the five, and density rides length `PARTIAL` 2026-08-31 — found by an owner asking why every song sounds the same, and by three of this session's own wrong answers
+### M-181 · ~~The listenable songs~~ The five songs the owner's complaint was about (struck 2026-09-04, M-238) are UNREACHABLE — the length floor rose past four of the five, and density rides length ~~`PARTIAL` 2026-08-31~~ `CLOSED` 2026-09-06 — both halves were closed by other entries and this heading was never told — found by an owner asking why every song sounds the same, and by three of this session's own wrong answers
+**CLOSED 2026-09-06 — RECORD ONLY, nothing in the tree moved.** Both halves this entry held open were closed under other numbers and the heading kept saying PARTIAL. The LENGTH half was repinned closed on 2026-09-05 (below): M-239's one `lyric` profile grades 4–3,245 tokens and `ENVELOPE["total_lines"] == (12, 447)`, so no song of the five is short of the floor. The DENSITY half is M-191, `CLOSED` 2026-09-01: `binding_cap` is a live per-plan coordinate (`quality/plan.py`, drawn from `f"{seed}:density"`, disclosed in the plan's own choices and selectable by `--want=binding_cap<=N`), and the sparse band this entry measured as unreachable at ANY length — `plan --sweep=1-100 --want=bound_words_per_line<=1.5` accepting **0 of 99** — accepts **26 of 99** under it, `binding_cap<=1` **18 of 99**. Verified at HEAD before this strike by reading both: the coordinate at `plan.py` and M-191's own measurement. What this entry still owns is the diagnosis, which stands: the tail was never a length fact, and the remedy the first paragraph proposed was necessary and not sufficient.
+
 **THE COMPLAINT, verbatim, and it named a cause this entry had to test
 rather than adopt:** *"we're getting these faux purple prose meets word
 soup because ... I requested that we have 2 kinds of rhymes per line and
@@ -18137,7 +18159,9 @@ reach their DENSITY; the density needs a coordinate the draw does not have.
 **RULED 2026-09-01 (delegated):** the participation draw gains a per-plan
 density coordinate — M-191 carries the design and the measurement.
 
-### M-182 · The CI wall clock is bounded by GRANULARITY, not by parallelism — and the first two readings of that were both wrong `PARTIAL` 2026-09-01 — found by an owner asking for a strong effort at cutting the wait, and by that owner refusing the first answer as artificially conservative
+### M-182 · The CI wall clock is bounded by GRANULARITY, not by parallelism — and the first two readings of that were both wrong ~~`PARTIAL` 2026-09-01~~ `CLOSED` 2026-09-06 — its last two open items were answered by M-244 — found by an owner asking for a strong effort at cutting the wait, and by that owner refusing the first answer as artificially conservative
+**CLOSED 2026-09-06 — RECORD ONLY.** The addendum below leaves two items PARTIAL: the `verbs` shards' 2.0x imbalance *"`_SECTIONS` is not yet cost-ordered against"*, and `test_revise.py`'s 609 s floor *"has no named section yet"*. M-244 (2026-09-05) answered both with one idiom, `quality/shard.py`: `test_verbs.py`'s `_SECTIONS` is the cost-ordered tuple and every shard prints `dealt by index residue over the cost-ordered tuple`; `test_revise.py` calls `run_sections(_SECTIONS, "TEST_REVISE_SHARD", …)` and prints SECTION COST slowest-first on every run, so its floor is a named section now. Verified at HEAD by running `TEST_VERBS_SHARD=55/56` and reading `test_revise.py`'s runner. The finding — granularity, not parallelism, bounds the wall — is unchanged and is what M-244 acted on.
+
 **THE COMPLAINT, verbatim:** *"we gotta start thinking about ways to
 optimize here cut the amount of time this takes ... I don't mean like a 1%
 reduction in time, I really need a strong effort into this."* And on the
@@ -19450,7 +19474,10 @@ piles at 1). A pair-count floor or a different denominator is the next
 preregistration; until then a short song is graded on four thresholds
 and this sentence is where that is said.
 
-### M-196 · The song bank's record is stamped on commits that do not exist, the log had no parser for the working order's LAST verb, and two songs sit in the bank with no entry `PARTIAL` 2026-09-01 — found by the 2026-09-01 triage audit (finding C27) counting the rows; the parser ships, the rest is recorded with its cost
+### M-196 · The song bank's record is stamped on commits that do not exist, the log had no parser for the working order's LAST verb, and two songs sit in the bank with no entry ~~`PARTIAL`~~ `CLOSED` 2026-09-06 — the recovery verb is built and the one recoverable draft is banked through it 2026-09-01 — found by the 2026-09-01 triage audit (finding C27) counting the rows; the parser ships, the rest is recorded with its cost
+**CLOSED 2026-09-06 — `--bank-draft SONG MD5 FILE` IS BUILT, AND THE ONE DRAFT GIT COULD GIVE BACK WENT THROUGH IT.** `song_log.bank_draft_file` refuses on three conditions, each checked and none assumed: the song's log must HOLD the md5 (on an `md5`, `md5_in` or `md5_out` row — a fingerprint the log never printed is not a draft of this song, whatever the file holds); the file must FINGERPRINT to it through the same borrowed pair `bank_draft` uses (`load_lyric_lines`, `draft_fingerprint`), never a second hash; and the destination must be empty or hold these exact bytes. It looks nothing up for the caller — the md5 is typed, the file is named, and a `--bank-draft` that searched git history itself would be the backfill `drafts()` refuses to perform. Then `git show 8d7b3f18:lyric-harness/songs/the_long_way_back.txt` was handed to it under `687eaa34c949`: the two wrong-md5 probes REFUSED at exit 2 (a foreign md5 names the two the log does hold; the right file under the wrong md5 names what it does fingerprint), the right pair BANKED `songs/drafts/the_long_way_back.687eaa34c949.draft.txt`, and a second run answered the same path without writing. **Reading after: 3 BANKED, 44 RECOVERABLE, 3 LOST, 0 FAILING** — the three rows of the recovered draft moved from LOST to BANKED and nothing else moved; the three genuinely lost drafts (crooked_waltz 19, matinee 54 and 55) stay LOST because no copy of their bytes exists anywhere, which is the honest count and not a defect this verb can reach. `quality/test_songs_log.py` §9 (10 checks): the three refusals on a probe log, the acceptance byte for byte, idempotence, the overwrite refusal, both CLI exit codes, no residue, and the committed recovery file re-fingerprinting to the md5 in its own name; §8's LOST set and its `3 LOST` mutation reading are repinned with it. The `ban_convergence` third-mandate-source consequence below is still deliberately not taken and is not this entry's.
+
+
 **MEASURED AT `54650e5`, clean tree.** `songs/RESULTS.tsv` holds 164 rows
 and **124 carry `-WORKING`**; 11 of its 15 distinct harness stamps are
 dirty, and **all 16 songs' LATEST rows are `8e37fd6-WORKING`** (banked in
@@ -19591,7 +19618,7 @@ IS BACKFILLED: sixteen of the twenty md5s are the songs' own committed bytes
 and are reported RECOVERABLE rather than banked, because a file written
 today from a re-hash would make a run that recorded its bytes and a run that
 did not look identical, which is the one distinction the mechanism IS
-(doctrine 20). Reading today: **0 BANKED, 44 RECOVERABLE, 6 LOST, 0
+(doctrine 20). Reading today: **~~0 BANKED, 44 RECOVERABLE, 6 LOST, 0~~ 3 BANKED, 44 RECOVERABLE, 3 LOST, 0 (repinned 2026-09-06; the 2026-09-02 reading was 0/44/6/0)
 FAILING**.
 **THE LOST BUCKET IS M-168's FINDING AS A NUMBER, AND IT IS FOUR DRAFTS**
 — crooked_waltz step 19 `29697fccfe8d`, matinee 54 `707c48614794`, matinee
@@ -19603,7 +19630,7 @@ history for that song and for no other. They are NOT written into
 `songs/drafts/` here — recovering them by hand produces a file that looks
 banked-by-construction and was not, and the honest route is a declared
 `--bank-draft SONG MD5 FILE` that REFUSES unless the file fingerprints to an
-md5 the song's log already holds. That is a build and is named open.
+md5 the song's log already holds. ~~That is a build and is named open.~~ Built 2026-09-06, above.
 `test_songs_log.py` §8 is 18 checks (the suite goes 41 to 59): the cutoff is
 declared and non-vacuous, the four buckets PARTITION the 50 md5 rows, the
 LOST set is exactly those four and no more, an end-to-end `--record` banks
@@ -19617,8 +19644,8 @@ make a THIRD mandate source available to `ban_convergence.mandate_spec`
 the route that would have resolved `oar_lair`. Wiring it moves that
 instrument's pinned 11/4/1 and turns its `--check` red, and a pin that moves
 without a register line is a defect report. It needs its own sitting.
-The entry stays `PARTIAL` on the three genuinely lost drafts and the
-recovery verb, and on nothing else.
+~~The entry stays `PARTIAL` on the three genuinely lost drafts and the
+recovery verb, and on nothing else.~~ CLOSED 2026-09-06: the verb is built; three drafts stay LOST because nothing holds their bytes, which is a count and not a gap.
 
 ### M-197 · A chat turn that threw mid-way spent hops nobody charged, and the turn's cost reached no reader `CLOSED` 2026-09-01 — found by the 2026-09-01 triage audit (findings C28 and C11) reading `runTurn`'s hop loop against `chat.js`'s catch; the uncounted throw is charged and the cost is on the response, the in-memory counter and the turn cap stay the owner's
 **THE DEFECT.** `gemini_agent.runTurn` accumulates `usage` as a local and
@@ -22848,3 +22875,12 @@ delivered in silence, and the silence was ours.
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~307~~
 **308** with this entry (2026-09-06).
+
+### M-254 · Kitchen cooks: twenty-three battery rounds asked the CHAT model to be the writer through a nine-hop interview, and the interview was the defect — the server runs the loop now, asking its own writer one line per question, and the chat model only starts it `CLOSED` 2026-09-06 (built; round 24 is the measurement) — owner's ruling, verbatim *"I like your kitchen cooks recommendation. Please begin"*
+**THE LADDER THE RULING ANSWERS.** Rounds 1–8 died on transport and budget (M-159's undici 300 s default, then 429s, then 503s thrown mid-turn discarding folded answers, M-197/M-232); 9–10 on the connector's own batching and the shared budget (M-166/M-168); 11, 14, 16 and 22 on the model being unable to EMIT the call shape (8 of 9 turns malformed, M-219; malformed inside a re-sent draft array, M-226; the structured `answers` array itself 9 of 9, M-248); 16, 18, 19 on wandering and a parked run lost at a turn boundary (M-229, M-232, M-233); 23 on a rate wall — 0 malformed hops, 4 answers folded, then seven consecutive paced 429s waited out for fifteen minutes (M-249, the same morning as this entry; ~~twenty-two~~ twenty-three rounds, corrected the hour it was written); and every round on the model skipping sweep and screen (M-162). Each round found ONE defect in the layer the previous fix exposed, and each fix was a patch to the protocol the chat model had to follow — a state blob to carry, `L<n>:` shapes inside tool arguments, never re-send the draft, structured arrays — while it also talked to the person. Twenty-three rounds, one bit of information each, zero exit-0 songs on the chat path, against three finished songs on the CLI path with a capable writer. The design manufactured a new defect per round; the fix is the design.
+**WHAT SHIPS.** `mcp/gemini_proposer.py` — connector code beside `gemini_agent.js`, reached by the harness only by the name the connector puts on the command line: `--propose=call:gemini_proposer:make`. `make()` returns `callable(prompt) -> str`; `quality/propose.py`'s `ModelProposer` renders the harness's OWN brief for each question and parses the reply with its own strict parser, so a malformed answer parses to `None` and costs the loop's attempt, judged where it always was. The proposer sends the brief as the one user part under a fixed system instruction (the role and the reply shape, nothing else), `temperature 0.8` (declared, and NOT the chat driver's 0: a rejected line is re-asked with its rejection quoted, and at 0 the re-ask returns the same bytes), `maxOutputTokens 256`; retries TRANSPORT only, restating the chat driver's pacing (two hinted 429 retries inside eight seconds; 500/502/503/504 three times at 1/2/4 s — `mcp/test.mjs` reads the `.py` and holds the numbers equal to `RATE_LIMIT_RETRY`/`RETRY_TRANSIENT`, doctrine 1 across two languages); prints ONE line per call (`PROPOSER CALL n: ok|empty ms in= out= | kitchen model= calls= ms= in= out= empty= retries=`, totals on every line so the last is the bill whether or not the loop finished); and raises `quality.propose.ProposerUnavailable` — the seam's one declared failure, new — when there is no key, no model, or transport is exhausted, which the verb turns into `REFUSED — the declared proposer could not answer: …` at exit 2 naming the seam, never Python's exit 1 and a traceback (doctrine 20). The factory itself never raises: the harness calls it before the loop, outside that clause.
+**THE CONNECTOR.** `lyric_revise` takes `writer: 'interview' | 'kitchen'`; `interview` is every earlier caller's contract byte for byte, `kitchen` swaps `--propose=defer:STATE` for the call, refuses `state`/`answer`/`answers`, refuses by name when the service has no `GEMINI_API_KEY`, and stamps the verdict with `writer` and the proposer's bill (`proposer_calls/ms/ms_max/tokens_in/tokens_out/empty/retries/model`, read off the record lines; `proposer_calls: 0` when there are none, never a missing key). Both harness paths — the warm worker and the cold `execFile` — run under one `harnessEnv()`: `mcp/` on `PYTHONPATH`, and `LYRIC_PROPOSER_MODEL` set ONCE by `chat.js` at boot from the chat's own declared model (`GEMINI_MODEL`, else `DEFAULT_MODEL`), so the kitchen asks the model the service says it runs and no second model name exists. The image carries the proposer (`mcp/Dockerfile` — M-187's defect, pre-empted). **THE CHAT SURFACE COOKS MECHANICALLY**: `gemini_agent.js` sends every `lyric_revise` call it makes with `writer: 'kitchen'` and the interview fields stripped, whatever the model put in them, and `declarationsFor` removes `state`/`answer`/`answers`/`writer` from the schema the model sees, so there is nothing to fumble; `LYRIC_CHAT_WRITER=interview` restores the old surface for a measured comparison and nothing else does. M-158's suspended-run note can no longer fire on this surface (no run suspends); M-232's parked-run note still does, and the rewrite it asks for is the one whole-draft move the chat model keeps.
+**MEASURED, ON THE CLI, AGAINST A STUB GEMINI** (a local server answering one constant line; `LYRIC_PROPOSER_API_BASE` is why a test needs no credential): seed 2003 at `--lines=12`, the connector's own budget (8 rounds, 1 attempt, backtrack 1): **48 proposer calls in 83 s wall, 152,599 prompt tokens in, 384 out — ~3,180 tokens per question, 0 empty, 0 retries — exit 3 NO_PROGRESS after 3 rounds**, which is the correct verdict on a writer that answers every question with the same line, and the whole path exercised: the brief rendered, the reply parsed, `verify()` rejecting, the record lines printed, the `[FINISHED — seed 2003 — exit 3 …]` stamp. The no-key path: `REFUSED — the declared proposer could not answer: GEMINI_API_KEY is not set …` at exit 2. `mcp/test_gemini_proposer.py` (8 checks, spawned by `npm test`) drives the proposer against a scripted stub: the request shape, the record line, a hinted 429 waited out once, a hint past the budget refused, four 503s refused naming the retries, no key raising on the first call and not in the factory, and the exception class being the harness's own. `mcp/test.mjs` M-254: the surface switch, the schema stripping, the mechanical `writer:'kitchen'` on a real `runTurn` with the model sending `state`/`answer`/`answers`, the bill extractor, the pacing pin.
+**D — THE LADDER IN ONE TABLE (the owner: *"D sounds pretty good"*).** `quality/battery_rounds.tsv` is one row per round, DECLARED by hand from the entry that banked it, under a CLOSED layer vocabulary (`instrument`, `transport`, `budget`, `connector`, `model-shape`, `model-wander`, `writer`, `rate-limit` — each a different remedy), and `quality/battery_rounds.py --check` is its gate in CI beside `verify_entries`: every layer declared, every entry a heading, rounds contiguous from 1, run ids eleven digits. Read at HEAD, 23 rounds: **instrument 6** (1, 2, 4, 12, 13, 21), **model-shape 6** (3, 11, 14, 15, 20, 22), **transport 3** (5, 7, 17), **connector 3** (9, 18, 19), **budget 2** (6, 8), **model-wander 1** (16), **writer 1** (10), **rate-limit 1** (23), never summed; **songs at exit 0: 0 of 23**. The reading the table makes plain: the WRITING itself was the wall in exactly one round of twenty-three. Twelve died in the instrument or the model's grip on the call shape, which is the half kitchen-cooks removes from the chat model's hands; six in the wires and the clocks, which the earlier entries repaired one by one.
+
+**WHAT THIS DOES NOT DECIDE, said so it is not read as decided.** (1) The kitchen's tokens are outside the chat turn's dollar accounting: they ride the verdict and the battery rows, and `chat.js`'s daily cap does not yet charge them — a follow-up, priced by round 24's own bill. (2) A kitchen run must finish inside the shared tool budget (600 s); 83 s for 12 lines with a stub says a real song fits, and round 24 measures it. (3) The prompt is ~3.2k tokens per question because the brief carries the whole draft and the whole-draft findings; that is the harness's brief, unchanged, and trimming it is a separate question. (4) The stance in `CLAUDE.md` that *"this repo ships no module of its own"* for the `call:` seam is amended, not deleted: the HARNESS still names no proposer; the CONNECTOR ships one.

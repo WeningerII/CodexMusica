@@ -1617,6 +1617,8 @@ def test_every_flag_value_refuses_in_one_shape():
          ("types", "cat", "--", "hat", "--lang=bogus"), "no phonology"),
         ("types --preset=",
          ("types", "cat", "--", "hat", "--preset=bogus"), "wants one of"),
+        ("types --position= (M-34)",
+         ("types", "cat", "--", "hat", "--position=bogus"), "wants one of"),
         ("relations --lang=",
          ("relations", EXAMPLE_TXT, "--lang=bogus"), "no phonology"),
         ("fit --subdivision (not a number)",
@@ -5408,6 +5410,215 @@ def test_the_group_verdict_is_on_the_state_and_quoted_next_round():
           quoted[quoted.find("ATTEMPT"):quoted.find("ATTEMPT") + 320])
 
 
+
+def test_types_can_declare_its_position_and_names_the_missing_axis():
+    """57. `types --position=` REACHES THE 31 NAMES THAT NEED ONE, AND THE
+    BARE VERB STOPS BLAMING THE VOCABULARY (`MISSING.md` M-34).
+
+    `night`/`light` is a masculine rhyme and the verb printed `UNNAMED at
+    this coordinate — the space is larger than the vocabulary`, which was a
+    true sentence about the wrong thing: 31 of the 49 NAMED keys need a
+    non-None `position`, `classify_pair` takes two bare words and no line,
+    and nothing on the command line could declare one. The mandate path was
+    fixed in August (`grade()` passes 'end'); the writer's own entry point
+    was not.
+    """
+    print("\n57. `types --position=` names a masculine rhyme, and the bare "
+          "verb names the MISSING AXIS rather than the space (M-34)")
+    from quality import rhyme_types as RT
+    rc0, bare, _ = run("types", "night", "--", "light")
+    check("bare `types night -- light` is UNNAMED (the premise still holds)",
+          rc0 == 0 and "NAMES: UNNAMED" in bare,
+          [l for l in bare.splitlines() if "NAMES" in l][:1])
+    need = sum(1 for k in RT.NAMED if k[RT.AXIS_INDEX["position"]] is not None)
+    check("...and the message names the MISSING COORDINATE, not the "
+          "vocabulary: `--position=` is absent, and the count of names "
+          "needing it is derived from NAMED at print time",
+          "INCOMPLETE" in bare and "--position=" in bare
+          and "larger than the vocabulary" not in bare
+          and f"{need} of {len(RT.NAMED)}" in bare,
+          [l for l in bare.splitlines() if "NAMES" in l][:1])
+    rc1, end, _ = run("types", "night", "--", "light", "--position=end")
+    check("`--position=end` NAMES it — masculine rhyme, from the same table "
+          "the mandate path reaches",
+          rc1 == 0 and "masculine rhyme" in end and "position: end" in end,
+          [l for l in end.splitlines() if "NAMES" in l or "position" in l][:2])
+    rc2, fem, _ = run("types", "mother", "--", "brother", "--position=end")
+    check("...and a feminine pair names feminine rhyme under the same flag "
+          "(the coordinate is read, not a label)",
+          rc2 == 0 and "feminine rhyme" in fem,
+          [l for l in fem.splitlines() if "NAMES" in l][:1])
+    rc3, still, _ = run("types", "cat", "--", "dog", "--position=end")
+    check("a pair that IS unnamed at a COMPLETE coordinate gets the old "
+          "sentence — the space is larger than the vocabulary — because now "
+          "that sentence is true of it",
+          rc3 == 0 and "NAMES: UNNAMED at this coordinate" in still
+          and "INCOMPLETE" not in still,
+          [l for l in still.splitlines() if "NAMES" in l][:1])
+    rc4, help_, _ = run("--help")
+    check("`--help` spells the flag beside the verb (the map, the usage and "
+          "the dispatch are one set — `wiring`'s rule)",
+          "[--position=]" in help_,
+          [l for l in help_.splitlines() if "types" in l][:1])
+
+
+
+def test_density_declares_its_line_window():
+    """58. `density --window=N` — THE LINE DISTANCE IS A DECLARED COORDINATE,
+    PRINTED ON EVERY RUN, AND THE SYLLABLE CAP STOPS SHARING ITS NAME
+    (`MISSING.md` E-3).
+
+    `rhyme_density` asked cross-line matches at distance 1 by the shape of
+    one loop; `relations.py`'s `internal rhyme` schema asks song-wide; and
+    `internal_matches(max_window=)` capped SPAN LENGTH in syllables under
+    the same word. Two answers to one question, three readers, no coordinate.
+    """
+    print("\n58. `density --window=N` is read, printed and refused in one "
+          "shape; `max_span` is the syllable cap's own name (E-3)")
+    import inspect
+    import tempfile
+    import lyric_harness as LH
+    sig = inspect.signature(LH.internal_matches)
+    check("`internal_matches` caps the span as `max_span` (syllables) and "
+          "has NO parameter called window — the line window is not its "
+          "coordinate", "max_span" in sig.parameters
+          and "max_window" not in sig.parameters
+          and "window" not in sig.parameters, list(sig.parameters))
+    sig2 = inspect.signature(LH.rhyme_density)
+    check("`rhyme_density` declares `window=1` — the default that keeps "
+          "every earlier reading byte-identical",
+          sig2.parameters["window"].default == 1, sig2)
+    tmp = tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False,
+                                      encoding="utf-8")
+    # L1 and L3 share two internal families (lamp/damp, out/stout); L2 shares
+    # nothing with either, so distance 1 finds no cross-line match and
+    # distance 2 does.
+    tmp.write("the lamp is out\nsome quiet road\nthe damp is stout\n")
+    tmp.close()
+    try:
+        rc1, w1, _ = run("density", tmp.name)
+        rc2, w2, _ = run("density", tmp.name, "--window=2")
+        rc0, w0, _ = run("density", tmp.name, "--window=0")
+        check("every run PRINTS its window, default included",
+              rc1 == 0 and "window: 1 line(s)" in w1
+              and rc2 == 0 and "window: 2 line(s)" in w2
+              and rc0 == 0 and "window: 0 line(s)" in w0,
+              [l for l in (w1 + w2 + w0).splitlines() if "window" in l][:3])
+        def dens(out):
+            return [l.split(":")[1].strip() for l in out.splitlines()
+                    if l.strip().startswith("L")]
+        check("`--window=2` reaches the L1~L3 matches that distance 1 cannot "
+              "— the coordinate is READ, not labelled",
+              dens(w2) != dens(w1) and dens(w2)[0] > dens(w1)[0]
+              and dens(w2)[2] > dens(w1)[2],
+              f"w1 {dens(w1)} w2 {dens(w2)}")
+        check("...and `--window=0` is within-line only, no larger than "
+              "distance 1 anywhere",
+              all(float(a) <= float(b) for a, b in zip(dens(w0), dens(w1))),
+              f"w0 {dens(w0)} w1 {dens(w1)}")
+        rcx, outx, errx = run("density", tmp.name, "--window=two")
+        rcn, outn, _ = run("density", tmp.name, "--window=-1")
+        rcf, outf, _ = run("density", tmp.name, "--nope")
+        check("a bad window, a negative one and an unknown flag each REFUSE "
+              "at exit 2 in the one shape",
+              rcx == 2 and outx.lstrip().startswith("REFUSED")
+              and "Traceback" not in errx
+              and rcn == 2 and outn.lstrip().startswith("REFUSED")
+              and rcf == 2 and outf.lstrip().startswith("REFUSED"),
+              f"{rcx} {rcn} {rcf}")
+        res = LH.rhyme_density(LH.Lexicon(), LH.load_lyric_lines(tmp.name),
+                               LH.Declaration(), window=2)
+        check("the API returns the window it read, beside the numbers",
+              res["window"] == 2, res["window"])
+    finally:
+        os.unlink(tmp.name)
+    from quality import relations as RL
+    note = RL.REGISTRY["internal rhyme"].note
+    check("the `internal rhyme` schema note STATES its frame — song-wide — "
+          "and names the other reader's declared window, so the two answers "
+          "carry their coordinates",
+          "WHOLE SONG" in note and "window=" in note and "E-3" in note,
+          note[-160:])
+
+
+
+def test_a_proposer_that_cannot_reach_its_writer_refuses_by_name():
+    """59. THE `call:` SEAM'S ONE DECLARED FAILURE IS A REFUSED, NOT A
+    TRACEBACK (`MISSING.md` M-254).
+
+    A `call:` proposer whose far side cannot be reached at all — no
+    credential, no model, transport exhausted — raises
+    `quality.propose.ProposerUnavailable`, and the verb turns it into
+    `REFUSED — the declared proposer could not answer: …` at exit 2 naming
+    the seam. Before this clause the only shape was Python's exit 1 and a
+    traceback, which the connector reports as "subprocess failure" with no
+    reason. A module written here, on PYTHONPATH, stands in for the kitchen.
+    """
+    print("\n59. a `call:` proposer that cannot reach its writer REFUSES at "
+          "exit 2, naming the seam (M-254)")
+    import tempfile
+    import subprocess
+    tmpd = tempfile.mkdtemp()
+    with open(os.path.join(tmpd, "zz_unreachable.py"), "w", encoding="utf-8") as f:
+        f.write("from quality.propose import ProposerUnavailable\n"
+                "def make():\n"
+                "    def call(prompt):\n"
+                "        raise ProposerUnavailable('no writer behind this seam (planted)')\n"
+                "    return call\n")
+    with open(os.path.join(tmpd, "zz_declines.py"), "w", encoding="utf-8") as f:
+        f.write("def make():\n"
+                "    return lambda prompt: ''\n")
+    draft = os.path.join(tmpd, "draft.txt")
+    rc0, plan, _ = run("plan", "--seed=2003", "--lines=12")
+    n = int(re.search(r"seed=2003 -> (\d+) line", plan).group(1))
+    pool = ["the lantern swung and lit the stony road",
+            "we counted every mile beneath the rain",
+            "a letter folded twice inside my coat",
+            "the river kept the secret of the plain",
+            "she sang the chorus louder than the wind",
+            "the engine hummed a promise through the night",
+            "the porch light flickered once and then went dim",
+            "we drove until the morning turned to light",
+            "the dust rose up to meet the falling sun",
+            "a stranger's coat still hanging by the door",
+            "the clock ran slow the day the harvest come",
+            "the tide went out and left the empty shore",
+            "the radio was playing something old",
+            "the map was torn along the river bend"]
+    with open(draft, "w", encoding="utf-8") as f:
+        f.write("\n".join(pool[:n]) + "\n")
+    env = dict(os.environ, PYTHONPATH=tmpd + os.pathsep + os.environ.get("PYTHONPATH", ""))
+    budget = ["--max-rounds=1", "--attempts=1", "--backtrack=1"]
+    try:
+        r = subprocess.run([sys.executable, "lyric_harness.py", "finish", draft,
+                            "--seed=2003", f"--lines={n}",
+                            "--propose=call:zz_unreachable:make", *budget],
+                           capture_output=True, text=True, env=env, timeout=900)
+        check("an unreachable writer is REFUSED at exit 2, naming the seam and "
+              "the planted reason — never Python's exit 1",
+              r.returncode == 2 and "REFUSED" in r.stdout
+              and "declared proposer could not answer" in r.stdout
+              and "planted" in r.stdout and "Traceback" not in r.stderr,
+              f"rc={r.returncode} {(r.stdout.strip().splitlines() or [''])[-1][:120]}")
+        check("...and the refusal says the draft was NOT decided — no verdict "
+              "stands, the same command answers once the far side is reachable",
+              "no verdict stands" in r.stdout and "[FINISHED" not in r.stdout,
+              [l for l in r.stdout.splitlines() if "verdict" in l][:1])
+        r2 = subprocess.run([sys.executable, "lyric_harness.py", "finish", draft,
+                             "--seed=2003", f"--lines={n}",
+                             "--propose=call:zz_declines:make", *budget],
+                            capture_output=True, text=True, env=env, timeout=900)
+        check("CONTROL: a writer that merely DECLINES (an empty reply, parsed "
+              "to None) is not this refusal — the loop runs to a stop "
+              "condition and the run is a verdict",
+              r2.returncode in (0, 3) and "[FINISHED" in r2.stdout
+              and "could not answer" not in r2.stdout,
+              f"rc={r2.returncode}")
+    finally:
+        import shutil
+        shutil.rmtree(tmpd, ignore_errors=True)
+
+
 if __name__ == "__main__":
     # COST-ORDERED, SLOWEST FIRST — 2026-09-05 (`MISSING.md` M-244), from a
     # full local run of all 53 sections (3,782.9 s): the seed sweep 533.5 s,
@@ -5474,6 +5685,9 @@ if __name__ == "__main__":
         test_brief_prints_the_group_backtrack_pointer,
         test_a_slotted_pair_is_rendered_on_its_own_spans,
         test_the_group_verdict_is_on_the_state_and_quoted_next_round,
+        test_types_can_declare_its_position_and_names_the_missing_axis,
+        test_density_declares_its_line_window,
+        test_a_proposer_that_cannot_reach_its_writer_refuses_by_name,
     )
     # SHARDING (2026-08-18) AND THE PER-SECTION PROFILE (2026-09-01) LIVED
     # INLINE HERE and are ONE idiom in `quality/shard.py` since 2026-09-05

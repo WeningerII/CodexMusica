@@ -147,8 +147,26 @@ def test_search_size_is_recorded():
           sp["search_k"] == len(aa) * len(bb) == sp["candidates_a"]
           * sp["candidates_b"],
           f"k={sp['search_k']} = {len(aa)} x {len(bb)}")
-    check("`beat` is how many candidates the winner beat",
-          sp["beat"] == sp["search_k"] - 1)
+    check("`beat` is GONE — it was `search_k - 1` stored as a bare key that "
+          "no production path read (M-137); a derived value is the reader's "
+          "arithmetic, not a banked field",
+          "beat" not in sp, sorted(sp))
+    # M-137: the two factors are CONSUMED now, by the null under the same
+    # search, and the consumer reports them apart from their product.
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import search_null as SN
+    shape = SN.search_shape([(aa, bb, "go", "receipt")], DECL)
+    check("`search_null.search_shape` reads candidates_a/candidates_b and "
+          "reports k as their product, per side",
+          shape["pairs"] == 1 and shape["mean_k"] == sp["search_k"]
+          and shape["mean_a"] == sp["candidates_a"]
+          and shape["mean_b"] == sp["candidates_b"], shape)
+    check("`span_kind` ITERATES `SPAN_KINDS` — the declared order is the "
+          "enforced order, one statement (M-137)",
+          tuple(lh._SPAN_KIND_TESTS) == lh.SPAN_KINDS
+          and "for kind in SPAN_KINDS" in
+          __import__("inspect").getsource(lh.span_kind),
+          lh.SPAN_KINDS)
     check("the winning anchors themselves are returned, not just their words",
           sp["anchor_a"] in aa and sp["anchor_b"] in bb)
     check("a max over k is not a max over 1 here — the search is real",
