@@ -535,12 +535,12 @@ export async function buildSurface(client) {
 const SUSPENDED_RUN_NOTE = (seed) =>
   `A lyric_revise run for ${typeof seed === 'number' ? `seed ${seed}` : seed} is SUSPENDED, awaiting an answer. ` +
   'Nothing you write in chat reaches the harness: the run advances ONLY ' +
-  'when you call lyric_revise again with `seed` and `answer` — NOTHING ELSE. ' +
-  'When the question asked about SEVERAL lines at once, `answer` is one `L<n>: <line>` ' +
-  'row per asked line, every one required, nothing else (M-236). ' +
+  'when you call lyric_revise again with `seed` and `answer` (or `answers`) — NOTHING ELSE. ' +
+  'When the question asked about SEVERAL lines at once, send `answers` instead of `answer`: ' +
+  'one {line, text} object per asked line, every one required, nothing else (M-236, M-248). ' +
   'Do NOT send `draft`: the draft and the state are carried for you, and a ' +
-  're-sent draft is where the call has broken before. Put the line in the ' +
-  "tool call's `answer` field — do not print it as your reply. The song " +
+  're-sent draft is where the call has broken before. Put the line(s) in the ' +
+  "tool call's `answer`/`answers` field — do not print them as your reply. The song " +
   'cannot finish until the loop reaches a stop condition through that tool.';
 
 // THE PARKED-RUN REMINDER (M-232, round 18). A run that reached exit 3 is
@@ -585,7 +585,7 @@ function PARKED_RUN_NOTE(lyr) {
 // The arguments that DECLARE a run, as opposed to answer it: everything but
 // the draft, the answer and the carried state. Stored on the record at the
 // first suspended call and re-applied on every continuing one (M-229).
-const RUN_ANSWER_FIELDS = new Set(['draft', 'answer', STATE_PROPERTY]);
+const RUN_ANSWER_FIELDS = new Set(['draft', 'answer', 'answers', STATE_PROPERTY]);
 export function declarationArgs(args) {
   const out = {};
   for (const [k, v] of Object.entries(args || {})) if (!RUN_ANSWER_FIELDS.has(k)) out[k] = v;
@@ -607,17 +607,21 @@ export function declarationsFor(surface, lyr) {
     return surface.declarations;
   return surface.declarations.map((d) => {
     if (!surface.stateTools?.has(d.name) || !d.parameters?.properties?.draft) return d;
-    const keep = parked ? (d.parameters.properties.draft_text ? 'draft_text' : 'draft') : 'answer';
+    // M-248: a suspended run's call is `answers` (a batch or a group) or
+    // `answer` (one line) plus the run's key — both stay declared.
+    const keep = parked
+      ? new Set([d.parameters.properties.draft_text ? 'draft_text' : 'draft'])
+      : new Set(['answer', 'answers']);
     // M-226 dropped `draft`; M-229 drops every other declaration field too —
-    // while a run is suspended the call is `answer` plus the run's key, and
+    // while a run is suspended the call is the answer plus the run's key, and
     // the connector puts the run's own declarations back (declarationArgs).
     const properties = {};
     for (const [k, v] of Object.entries(d.parameters.properties))
-      if (k === keep || RUN_KEY_FIELDS.has(k)) properties[k] = v;
+      if (keep.has(k) || RUN_KEY_FIELDS.has(k)) properties[k] = v;
     let required = Array.isArray(d.parameters.required)
       ? d.parameters.required.filter((n) => n in properties)
       : d.parameters.required;
-    if (keep === 'draft_text' && Array.isArray(required) && !required.includes('draft_text'))
+    if (keep.has('draft_text') && Array.isArray(required) && !required.includes('draft_text'))
       required = [...required, 'draft_text'];
     return {
       ...d,
@@ -701,7 +705,7 @@ function parkedRefusal(lyr, name, args) {
       return `${head}, and ${name} names a different run (${k}).${tail}`;
   }
   if (name !== 'lyric_revise') return null;
-  if (args && (args.answer != null || args[STATE_PROPERTY] != null))
+  if (args && (args.answer != null || args.answers != null || args[STATE_PROPERTY] != null))
     return `${head}, and this call sends \`answer\`/\`state\` — there is no question to answer.${tail}`;
   if (!Array.isArray(args?.draft))
     return `${head}, and this call omits the draft — a parked run is continued by a REWRITTEN draft (\`draft_text\`), which only you can write.${tail}`;
@@ -1255,6 +1259,7 @@ export async function runTurn({
             // else is injected — there is no state and no pending question.
             delete args[STATE_PROPERTY];
             delete args.answer;
+            delete args.answers;
             if (lyr.decl && typeof lyr.decl === 'object') {
               for (const k of Object.keys(args)) if (!RUN_ANSWER_FIELDS.has(k)) delete args[k];
               Object.assign(args, lyr.decl);
