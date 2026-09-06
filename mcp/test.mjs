@@ -3917,6 +3917,8 @@ check('validation: actionable errors', () => {
       'mcp/README.md': 'documentation',
       'mcp/PRIVACY.md': 'documentation',
       'mcp/test.mjs': 'this suite — CI runs it against the tree; the image runs server_http.js',
+      'mcp/test_gemini_proposer.py':
+        "the kitchen proposer's own suite (M-254) — spawned by this suite against a stub Gemini; the image carries gemini_proposer.py and not its test",
       'mcp/check_live.mjs':
         "the nightly's freshness probe — it runs in CI AGAINST the deployed endpoint (M-127), so an image carrying it would be the deployment checking itself",
     };
