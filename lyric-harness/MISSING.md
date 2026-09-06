@@ -22449,7 +22449,11 @@ this collision biting from the other side since 2026-08-16, when
 every commit on every branch with an open PR.
 
 **THE FIX IS TO SKIP, NOT TO CANCEL, AND THE DIFFERENCE IS THE WHOLE
-ENTRY.** GitHub treats a SKIPPED check as neutral and a CANCELLED one as
+ENTRY.** ~~(This paragraph claimed a working mechanism. It described one
+that could not fire: the answer was published by `gate`, which takes 57 s,
+and the cancellation it had to beat arrived in 4 to 40 s. M-252 measured
+that, moved the question into its own job, and is where this entry's claim
+actually becomes true.)~~ GitHub treats a SKIPPED check as neutral and a CANCELLED one as
 not. The push run is the one with nothing to add — the pull_request run
 tests the identical tree — so `gate` asks the API whether an open pull
 request's head IS this commit
@@ -22597,3 +22601,121 @@ than a missed one.
 
 `quality/audit_register.py`'s PINNED `coverage_entries` moved ~~305~~
 **306** with this entry (2026-09-06).
+
+
+### M-252 · M-250's guard could not fire on the twin it was written for — the answer was published by a 57-second job and the cancellation it had to beat arrived in four `PARTIAL` 2026-09-06 — a correction to my own closed entry, and the fix it turned out to need
+
+**THIS ENTRY EXISTS BECAUSE M-250 CLAIMED MORE THAN IT COULD DO, and I
+said so to the owner before saying it here.** M-250 put the duplicate
+question in `gate` and had every job below skip on `gate`'s output. A
+job's outputs are published when the JOB ENDS. `gate` is checkout, `npm
+ci`, lint, prettier, validate and check-docs; it measured **57 s** on run
+34045401932 (16:26:00 → 16:26:57). The concurrency cancellation that
+creates the duplicate's cancelled check runs does not wait 57 s.
+
+**MEASURED ON THE TWO TWINS THAT RAN AFTER THE FIX SHIPPED**, and neither
+reached the guard:
+
+| twin | run | pull_request run arrived | cancelled at | jobs materialised |
+| --- | --- | --- | --- | --- |
+| `18e9506f` | 34045380471 | +23 s (the PR was opened after the push) | **40 s** | 19, fifteen of them CANCELLED |
+| `80edba49` | 34046355712 | +2 s (the PR was already open) | **4 s** | **0** |
+
+The first was cancelled with `gate` 36 s into its 57, mid-step. Its answer
+was correctly `false` anyway — no pull request existed when it was asked —
+so it does not by itself disprove the guard; what it prices is the budget.
+The second is the case the fix was written for, an already-open PR, and
+the answer would have been `true`; the run was dead in four seconds and
+`gate` had not started.
+
+**THE ONE PIECE OF GOOD NEWS, AND IT IS NOT THE GUARD'S.** At `80edba49`
+the twin materialised NO jobs at all, so PR #238 carried no cancelled
+checks — the symptom did not recur. That came from the `pull_request` run
+arriving two seconds behind the push and killing the twin before fan-out,
+not from anything this repository does. Webhook latency was 2 s there and
+33 s on PR #237, where the same race left fifteen red marks. **A fix whose
+success depends on which of two GitHub events wins a race is not a fix**,
+which is the whole reason this entry is not a note inside M-250.
+
+**WHAT M-250 DID DELIVER, stated at its real size.** Re-running a dead
+twin by hand — the remedy applied to #236 and #237 — stops re-running 44
+jobs for ~30 runner-minutes and skips in one job instead, because nothing
+cancels a re-run. And M-251 is untouched by any of this: a merge mirror is
+cancelled by nothing, so `gate` always completed and question 2 always
+fired.
+
+**THE FIX: THE ANSWER GETS ITS OWN JOB.** `dup` is now the root of the
+graph — no `needs`, **no checkout, no setup-node, no npm**, two HTTP
+questions and `jq` — and everything hangs off it, `gate` included. `gate`
+is not exempt from the answer it used to publish: on a duplicate its own
+57 s of lint, prettier, validate and check-docs is skipped too, which is
+16 guarded jobs where M-250 had 15. The question's body did not change and
+was re-driven against the stubbed transport in its new home: the same 19
+cases, the same three yeses.
+
+**WHAT THIS IS AND IS NOT, because the last entry got this wrong.** A job
+still has to be provisioned before it can answer, so `dup` cannot beat
+every cancel — a 4-second one will still win, and that is the case that
+does no damage anyway. What it now beats is the 33-second one that put
+fifteen red marks on PR #237.
+
+**AND THE PROVISIONING IS NOT A ROUNDING ERROR — MEASURED ON `dup`'s FIRST
+LIVE RUN** (job 101523526760, run 34046912271, push `569a6d5f`):
+
+| | |
+| --- | --- |
+| queued, waiting for a runner | **2 min 48 s** (16:54:24 → 16:57:12) |
+| runner time, whole job | **4 s** (16:57:12 → 16:57:16) |
+| the two HTTP questions themselves | **0.73 s** |
+
+The work is under a second and the WAIT was two minutes forty-eight,
+because main's own 44-job matrix held the account's 20-job cap — the same
+cap M-244 measured. So the honest shape of this fix is: it removes the 57 s
+`gate` was spending, and it cannot remove the queue. Under contention the
+duplicate is still cancelled before it answers. That is the residual, it is
+a number now rather than a hedge, and it is why this entry is PARTIAL.
+
+**THE PERMISSION IS CONFIRMED LIVE BY THAT SAME RUN**, which is the point
+of fixing it before it shipped: the log reads `successful main push run(s)
+of ci.yml at this commit: 0`. A 403 would have printed `could not ask
+(curl rc 0, HTTP 403)` instead. Question 2 asked, was answered, and said
+no — correctly, `569a6d5f` is not on main. The entry is **PARTIAL** and stays PARTIAL
+until a twin is observed skipping rather than cancelling, which needs a
+push to a branch with an already-open PR where the `pull_request` event is
+slow. That observation is not in hand and is not claimed.
+
+**AND A SECOND DEFECT, CAUGHT BEFORE IT SHIPPED AND ONLY BECAUSE THE GATE
+LOG WAS READ.** M-251's question 2 reads workflow RUNS
+(`/repos/{o}/{r}/actions/workflows/{file}/runs`), which is the `actions`
+scope, not `contents` or `pull-requests`. Run 34045380471's gate printed
+the token it was given — `Contents: read`, `Metadata: read`,
+`PullRequests: read` — so as merged, question 2 would have answered 403 on
+every push, forever. Deny-by-default would have kept that SAFE and kept
+the duplicate: the run proceeds, nothing is skipped, nothing is wrong, and
+the fix does nothing at all. `actions: read` is added, read-only; nothing
+in this workflow may start or cancel a run. **A permission the fix needs
+is not a detail of the fix, it IS the fix** — this is the second thing in
+two entries that was written, reviewed and shipped while unable to fire.
+
+**TESTED WHILE OPEN.** `quality/test_shard.py` §6 names this entry while it
+stays PARTIAL, and the two are about different things. The pins test WHAT
+WAS BUILT and can hold today: that `dup` is the graph's root, that it
+carries no checkout or toolchain, that `actions: read` is present, that
+`gate` is guarded like everything else. What keeps the entry open is not
+any of that — it is an OUTCOME nobody has observed: a twin actually
+SKIPPING rather than being cancelled. No test can assert that, because it
+depends on which of two GitHub events wins a race on a machine this
+repository does not own. Closing the entry because the pins are green
+would be exactly the error M-250 made — mistaking a built mechanism for a
+working one — so the pins stay and the entry stays open.
+
+**PINNED** (`quality/test_shard.py` §6): `actions: read` is present; `dup`
+publishes the output; `dup`
+declares no `needs`; `dup` contains no checkout, no setup-node and no
+`npm`, so the thing that made the guard decorative cannot creep back;
+`gate` carries the guard like everything else; and the derived sweep now
+computes the downstream set from `needs: dup`, so the renaming could not
+quietly drop a job. M-250's planted mutation runs unchanged.
+
+`quality/audit_register.py`'s PINNED `coverage_entries` moved ~~306~~
+**307** with this entry (2026-09-06).
