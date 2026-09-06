@@ -260,7 +260,7 @@ def _ci_jobs():
 def test_a_duplicate_push_run_skips_rather_than_cancelling():
     print("\n6. a push run another run already covers SKIPS every job -- "
           "skipped is NEUTRAL on the PR where cancelled is not "
-          "(`MISSING.md` M-250, M-251)")
+          "(`MISSING.md` M-250, M-251, M-252)")
     # THE TWO DEFECTS THIS PINS, both 2026-09-06, both counted over the last
     # 30 pushes to one branch.
     #
@@ -284,31 +284,48 @@ def test_a_duplicate_push_run_skips_rather_than_cancelling():
     ci = open(path, encoding="utf-8").read()
     check("the workflow may ASK whether a PR covers this commit "
           "(`pull-requests: read`)", "pull-requests: read" in ci)
+    # Question 2 reads workflow RUNS, which is a different scope. Without it
+    # the endpoint answers 403, deny-by-default keeps the duplicate, and the
+    # fix is decorative -- so the permission is pinned, not assumed.
+    check("and whether the default branch already ran it (`actions: read`)",
+          "actions: read" in ci)
     jobs = _ci_jobs()
-    check("gate publishes the answer as an output every job can read",
-          "already_covered:" in jobs.get("gate", ""), sorted(jobs))
+    check("`dup` publishes the answer as an output every job can read",
+          "already_covered:" in jobs.get("dup", ""), sorted(jobs))
+    # THE ANSWER HAS ITS OWN JOB, and that is M-252's whole point: a job's
+    # outputs land when the JOB ends, `gate` measured 57 s, and the
+    # concurrency cancellation arrived at 4 s and 40 s on the two twins. So
+    # `dup` carries no checkout and no toolchain -- if it grows one it stops
+    # beating the cancel and the guard goes back to being decorative.
+    dup = jobs.get("dup", "")
+    check("`dup` answers before anything else: it needs nothing",
+          re.search(r"^    needs:", dup, re.M) is None)
+    check("and it stays fast: no checkout, no setup-node, no npm",
+          not any(k in dup for k in ("actions/checkout", "setup-node", "npm ")))
     # DERIVED, never a list: a job added tomorrow without the guard fails here.
-    GUARD = "needs.gate.outputs.already_covered != 'true'"
+    GUARD = "needs.dup.outputs.already_covered != 'true'"
     def guarded(txt):
         return GUARD in txt
-    def needs_gate(txt):
-        return re.search(r"^    needs: (gate\b|\[gate\b)", txt, re.M) is not None
-    downstream = sorted(n for n, t in jobs.items() if needs_gate(t))
-    check("every job that runs off `gate` carries the guard",
+    def needs_dup(txt):
+        return re.search(r"^    needs: (dup\b|\[dup\b)", txt, re.M) is not None
+    downstream = sorted(n for n, t in jobs.items() if needs_dup(t))
+    check("`gate` is not exempt from the answer it used to publish",
+          guarded(jobs.get("gate", "")))
+    check("every job that runs off `dup` carries the guard",
           downstream and all(guarded(jobs[n]) for n in downstream),
           f"{len(downstream)} downstream: "
           + ", ".join(n for n in downstream if not guarded(jobs[n])) or "all guarded")
     # The jobs that do NOT need the guard must be unable to run on a push at
     # all -- otherwise "no guard" is an omission wearing an exemption's coat.
     for n, t in sorted(jobs.items()):
-        if n == "gate" or needs_gate(t):
+        if n == "dup" or needs_dup(t):
             continue
         check(f"{n} needs no guard because it cannot run on a push",
               "workflow_dispatch" in t and "schedule" in t)
     # DENY BY DEFAULT: the step decides `false` first and only a parsed answer
     # moves it, so an unanswered question never skips a run (the
     # six-uncovered-commits defect the `branches: ['**']` filter prevents).
-    gate = jobs.get("gate", "")
+    gate = dup
     check("the check starts at false, so a failed or unparseable answer RUNS",
           re.search(r"^\s+covered=false$", gate, re.M) is not None
           and gate.count("an unanswered question is not a yes") >= 2)
