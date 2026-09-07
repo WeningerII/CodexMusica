@@ -616,6 +616,11 @@ export async function createChatRouter({
           proposer_empty: c.proposer_empty ?? null,
           proposer_retries: c.proposer_retries ?? null,
           proposer_wait_s: c.proposer_wait_s ?? null,
+          // The findings standing at a stop, and the report's two counts
+          // (round 24 smoke run: a parked row could not say why).
+          standing: c.standing ?? null,
+          flags: c.flags ?? null,
+          whole_flags: c.whole_flags ?? null,
         })),
         stopped: run.stopped,
         // WHY IT STOPPED, WITH THE NUMBERS (2026-09-02, triage C11). A bare

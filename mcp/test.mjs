@@ -2592,6 +2592,10 @@ check('validation: actionable errors', () => {
         'proposer_empty',
         'proposer_retries',
         'proposer_wait_s',
+        // Round 24's smoke run: WHY a run parked, not only that it did.
+        'standing',
+        'flags',
+        'whole_flags',
       ]) {
         assert.ok(
           new RegExp(`^\\s+${f}: c\\.${f} \\?\\? null,`, 'm').test(chat),
