@@ -845,6 +845,11 @@ class LoopResult:
     input_fingerprint: str = ""
 
     @property
+    def coverage_certified(self):
+        """Every declared pair was judged; separate from writing defects."""
+        return self.pairs_refused == 0
+
+    @property
     def whole_flags(self):
         """The whole-draft findings that are FLAGS — the ones `stop_reason`
         above was never able to see. ~~`LEXICAL_MONOTONY`, `FUNCTION_WORD_HEAVY`,
@@ -903,6 +908,9 @@ class LoopResult:
         out.append(f"  PAIRS: mandated {self.pairs_mandated}, judged "
                   f"{self.pairs_judged}, refused {self.pairs_refused} — three "
                   f"counts, never summed (doctrine 79)")
+        if not self.coverage_certified:
+            out.append("  COVERAGE UNCERTIFIED: declared obligations remain "
+                       "unjudged; this is not an artistic violation")
         if self.whole_flags:
             out.append("  WHOLE-DRAFT FLAG(S) NO STOP CONDITION ABOVE CAN "
                       "SEE: " + ", ".join(f.code for f in self.whole_flags))
@@ -1005,6 +1013,8 @@ def _close(reviser, stop_reason, lines, rounds, unresolved, mandate,
     # what "unresolved" contains (doctrine 1, the argument `_open_lines`
     # itself was written for).
     _flagged, _pursued = _open_by_rule(unresolved, pursue)
+    if stop_reason == "success" and g["pairs_refused"]:
+        stop_reason = "uncertified"
     return LoopResult(
         stop_reason, lines, rounds, unresolved,
         unresolved_flagged=_flagged,
@@ -1282,6 +1292,10 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     disclosure of a refusal, and a reader owed the news that it now searches
     them is owed it in the same place (doctrine 20).
     """
+    if rdecl.backtrack_width < 1:
+        return LineAttempt(b.line_no, 2, False, 0,
+                           "backtrack_width is 0: tier 2 was not asked",
+                           (), asked=False), lines
     groups = [(lab, tuple(mem), cl) for lab, mem, cl in b.must_answer]
     # THE GROUPS AT THE PIVOT'S OWN PLACE (M-184, 2026-09-01). A pivot bound
     # at its end in one group and at its T2 word in another is a pivot at
@@ -1406,7 +1420,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         pivot_current = (getattr(b, "forbidden_incumbent", "")
                          or raw_final_token(b.text) or "")
         p_offered, _p_forbidden = (
-            reviser.joint_field(other_calls, exclude=(pivot_current,))
+            reviser.joint_field(other_calls, exclude=(pivot_current,),
+                                profile=profile)
             if other_calls else ([], []))
         walked = p_offered[:rdecl.backtrack_width]
         # AN EMPTY WALK IS STILL A QUESTION (`MISSING.md` M-205). `walked`
@@ -1424,7 +1439,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
             _anchors = []
             for m_line, m_current, m_other in others:
                 _mf, _ = (reviser.joint_field(list(m_other),
-                                              exclude=(m_current,))
+                                              exclude=(m_current,),
+                                              profile=profile)
                           if m_other else ([], []))
                 _anchors.append(AnchorSlot(
                     line_no=m_line, text=lines[m_line - 1], word="",
@@ -1483,7 +1499,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
             assigned, broke = [], None
             for idx, (m_line, m_current, m_other) in enumerate(others):
                 field, _mf = reviser.joint_field(
-                    chosen + list(m_other), exclude=(m_current,))
+                    chosen + list(m_other), exclude=(m_current,), profile=profile)
                 if not field:
                     # THIS MEMBER'S OWN CONJUNCTION CAME BACK EMPTY, a
                     # sentence only the folded field can form — the
@@ -1756,6 +1772,9 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     # reason every other coordinate does: the caller who needs it is reading
     # the result without the call site in view.
     input_n, input_fp = len(lines), draft_fingerprint(lines)
+    _checkpoint = getattr(propose, "checkpoint", None)
+    if _checkpoint is not None:
+        _checkpoint(lines, 0, "started")
     rounds = []
     # A BARREN ROUND UNDER ONE ATTEMPT PER LINE IS NOT YET NO PROGRESS
     # (M-236). With `attempts_per_line` 1 the re-ask that carries the
@@ -1770,6 +1789,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     # and `--attempts=0` asks nothing and stops honestly on the first.
     _barren, _barren_cap = 0, (2 if rdecl.attempts_per_line == 1 else 1)
     for round_no in range(1, rdecl.max_rounds + 1):
+        if _checkpoint is not None:
+            _checkpoint(lines, round_no, "grading")
         briefs = reviser.brief(lines, mandate, profile=profile,
                                blueprint=blueprint, subdivision=subdivision,
                                assume=assume)
@@ -2032,6 +2053,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                         asked=attempt.asked)
             attempts.append(attempt)
             if attempt.accepted:
+                if _checkpoint is not None:
+                    _checkpoint(lines, round_no, "accepted")
                 fixed_this_round.extend(attempt.touched)
                 touched.update(attempt.touched)
         rounds.append(RoundResult(round_no, attempts,

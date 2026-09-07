@@ -7080,12 +7080,154 @@ def _defer_proposer(path, lines=None):
     return propose, propose_group, disclosure
 
 
-def _resolve_proposer(spec, lines=None):
+def _checkpoint_proposer(one, two, lines, config_key, spec):
+    """Journal the call: seam before grading can fail or a worker can die.
+
+    Resume replays the original draft and exact ordered questions/answers.
+    Accepted lines are a recovery artifact, not a replacement replay input.
+    A question/configuration mismatch refuses before another paid call.
+    """
+    from quality.propose import ProposerUnavailable, render_line, render_group
+    from quality.revise import draft_fingerprint
+    import hashlib
+    import tempfile
+
+    path = os.environ.get("LYRIC_CHECKPOINT_PATH")
+    initial = list(lines or ())
+    state = {"version": 1, "input_draft": initial,
+             "input_fingerprint": draft_fingerprint(initial),
+             "config_key": config_key, "proposer": spec,
+             "accepted_lines": initial, "round": 0, "status": "started",
+             "proposals": [], "answered": {"propose": [], "propose_group": []}}
+    if path and os.path.exists(path) and os.path.getsize(path):
+        try:
+            with open(path, encoding="utf-8") as fh:
+                prior = json.load(fh)
+            if not isinstance(prior, dict):
+                raise ValueError("checkpoint must be an object")
+            if (prior.get("version") != 1
+                    or prior.get("input_draft") != initial
+                    or prior.get("config_key") != config_key
+                    or prior.get("proposer") != spec
+                    or not isinstance(prior.get("proposals"), list)):
+                raise ValueError("input, declaration, proposer or version differs")
+            if (prior.get("input_fingerprint") != draft_fingerprint(initial)
+                    or not isinstance(prior.get("accepted_lines"), list)
+                    or len(prior["accepted_lines"]) != len(initial)
+                    or not all(isinstance(x, str) for x in prior["accepted_lines"])
+                    or not isinstance(prior.get("answered"), dict)
+                    or not all(isinstance(prior["answered"].get(k), list)
+                               for k in ("propose", "propose_group"))):
+                raise ValueError("invalid checkpoint draft or answer record")
+            for event in prior["proposals"]:
+                if not isinstance(event, dict):
+                    raise ValueError("proposal journal contains a non-object")
+                kind, answer = event.get("kind"), event.get("answer")
+                digest = event.get("question_sha256")
+                if (kind not in ("propose", "propose_group")
+                        or not isinstance(digest, str) or len(digest) != 64
+                        or any(c not in "0123456789abcdef" for c in digest)
+                        or "answer" not in event
+                        or (answer is not None and not (
+                            isinstance(answer, str) if kind == "propose" else
+                            isinstance(answer, list)
+                            and all(isinstance(x, str) for x in answer)))):
+                    raise ValueError("invalid completed proposal record")
+            state = prior
+        except (OSError, ValueError, TypeError) as e:
+            raise ProposerUnavailable(f"checkpoint cannot resume: {e}") from e
+    cursor = 0
+    replay_count = len(state["proposals"])
+
+    def emit():
+        data = json.dumps(state, ensure_ascii=False, separators=(",", ":"))
+        if path:
+            fd, tmp = tempfile.mkstemp(prefix=".lyric-checkpoint-",
+                                       dir=os.path.dirname(os.path.abspath(path)))
+            try:
+                with os.fdopen(fd, "w", encoding="utf-8") as fh:
+                    fh.write(data + "\n")
+                    fh.flush()
+                    os.fsync(fh.fileno())
+                os.replace(tmp, path)
+                directory_fd = os.open(os.path.dirname(os.path.abspath(path)),
+                                       os.O_RDONLY)
+                try:
+                    os.fsync(directory_fd)
+                finally:
+                    os.close(directory_fd)
+            finally:
+                if os.path.exists(tmp):
+                    os.unlink(tmp)
+        print("  lyric checkpoint: " + json.dumps(
+            dict(state, transport_token=os.environ.get("LYRIC_CONTROL_TOKEN")),
+            ensure_ascii=False, separators=(",", ":")), flush=True)
+
+    def checkpoint(current, round_no, status, **extra):
+        # Replaying a prefix may temporarily visit older accepted drafts.
+        # Keep the durable furthest checkpoint until that prefix is consumed.
+        if cursor < replay_count:
+            return
+        state.update(accepted_lines=list(current), round=round_no, status=status)
+        if status != "finished":
+            for key in ("final_draft", "coverage", "stop", "exit"):
+                state.pop(key, None)
+        state.update(extra)
+        emit()
+
+    def ask(kind, prompt, current, round_no, call, record):
+        nonlocal cursor
+        identity = hashlib.sha256(prompt.encode("utf-8")).hexdigest()
+        if cursor < replay_count:
+            event = state["proposals"][cursor]
+            if event.get("kind") != kind or event.get("question_sha256") != identity:
+                raise ProposerUnavailable(
+                    "checkpoint replay question differs; no new writer request was made")
+            cursor += 1
+            return event.get("answer")
+        checkpoint(current, round_no, "proposing")
+        answer = call()
+        if isinstance(answer, tuple):
+            answer = list(answer)
+        state["proposals"].append({"kind": kind,
+                                   "question_sha256": identity, "answer": answer})
+        cursor += 1
+        if answer is not None:
+            record["text" if kind == "propose" else "new"] = answer
+            state["answered"][kind].append(record)
+        # This write precedes verify: a returned paid proposal is never
+        # forgotten merely because its verification was interrupted.
+        state["status"] = "proposal_completed"
+        emit()
+        return answer
+
+    def wrapped_one(brief, current, attempt, reasons=None, whole=()):
+        round_no = getattr(brief, "round_no", None)
+        prompt = render_line(brief, current, whole=whole,
+                             attempt=attempt, reasons=reasons)
+        return ask("propose", prompt, current, round_no,
+                   lambda: one(brief, current, attempt, reasons=reasons, whole=whole),
+                   {"line": brief.line_no, "attempt": attempt, "round": round_no,
+                    "draft": draft_fingerprint(current)})
+
+    def wrapped_two(brief):
+        members, texts, words, round_no = _brief_key(brief)
+        return ask("propose_group", render_group(brief), brief.lines, round_no,
+                   lambda: two(brief),
+                   {"members": list(members), "texts": list(texts),
+                    "words": list(words), "round": round_no})
+
+    wrapped_one.checkpoint = checkpoint
+    wrapped_one.checkpoint_state = state
+    return wrapped_one, wrapped_two if two is not None else None
+
+
+def _resolve_proposer(spec, lines=None, checkpoint_key=None):
     """`--propose=`'s value -> (propose, propose_group, disclosure).
 
-    `lines` is the draft handed in, read only by `defer:` (M-183): it is how
-    a re-run of a COMPLETE state is told, before the loop starts, that it is
-    replaying a finished run on the very draft it finished on.
+    `lines` is the input draft. `defer:` uses it to disclose a completed
+    replay; `call:` uses it with `checkpoint_key` to validate its journal
+    and preserve the exact accepted draft across interruption.
 
     `disclosure(done=False)` is printed TWICE — once before the loop, for
     the identity, and once after it with `done=True`, because `replay:` only
@@ -7235,6 +7377,7 @@ def _resolve_proposer(spec, lines=None):
                    ". NO `.propose_group`: tier 2 (the backtrack) fell "
                    "back to quality/loop.py's own stub slot-swap, so any "
                    "backtracked line is a SPLICE and not proposed text"))
+    one, two = _checkpoint_proposer(one, two, lines, checkpoint_key, spec)
     return one, two, disclosure
 
 
@@ -11051,7 +11194,8 @@ def main():
                 # `modal_endword_unchanged` would have been dropped in
                 # exactly the same silence.
                 for k in ("fixed", "broken", "new_flags", "new_notes",
-                          "modal_violations", "modal_endword_unchanged"):
+                          "modal_violations", "modal_endword_unchanged",
+                          "new_findings", "coverage_regressions"):
                     if v.get(k):
                         print(f"    {k}: {v[k]}")
 
@@ -11167,8 +11311,16 @@ def main():
                 _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
-                propose, propose_group, say_proposer = _resolve_proposer(
-                    propose_spec, lines=lines)
+                from quality import replay_memo as RM
+                _rm_key = RM.run_key(sys.argv[1:], input_paths=(args[1], bp_path))
+                try:
+                    propose, propose_group, say_proposer = _resolve_proposer(
+                        propose_spec, lines=lines, checkpoint_key=_rm_key)
+                except Exception as e:
+                    from quality.propose import ProposerUnavailable
+                    if not isinstance(e, ProposerUnavailable):
+                        raise
+                    _refuse(f"the declared proposer cannot resume: {e}")
                 # DISCLOSED BEFORE THE RUN AS WELL AS AFTER IT, and the two
                 # are the same callable. Which proposer wrote the draft is
                 # the first thing a reader of this output needs and the last
@@ -11277,7 +11429,26 @@ def main():
                 # CLAUDE.md promised the 3; probed on a TITLE_NOT_IN_HOOK
                 # draft, the stamp said 0.
                 _whole_codes = [f.code for f in result.whole_flags]
-                _code = 3 if (result.unresolved or _whole_codes) else 0
+                _code = (3 if (result.unresolved or _whole_codes) else
+                         0 if result.coverage_certified else 2)
+                _coverage = {"pairs_mandated": result.pairs_mandated,
+                             "pairs_judged": result.pairs_judged,
+                             "pairs_refused": result.pairs_refused,
+                             "scope": "declared_rhyme_pairs",
+                             "certified": result.coverage_certified}
+                print("  COVERAGE: " + json.dumps(_coverage, sort_keys=True))
+                print("  lyric result: " + json.dumps({
+                    "version": 1, "status": "finished", "input_draft": list(lines),
+                    "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
+                    "accepted_lines": list(result.lines),
+                    "final_draft": list(result.lines), "coverage": _coverage,
+                    "stop": result.stop_reason, "exit": _code},
+                    ensure_ascii=False, separators=(",", ":")), flush=True)
+                _cp = getattr(propose, "checkpoint", None)
+                if _cp is not None:
+                    _cp(result.lines, len(result.rounds), "finished",
+                        final_draft=list(result.lines), coverage=_coverage,
+                        stop=result.stop_reason, exit=_code)
                 # THE FINDINGS STANDING AT THE STOP, in the report's own
                 # `FINDING [SEV] CODE: …` spelling (M-186): the pursued
                 # notes (HOMEOTELEUTON/MODAL_RHYME) and the flags on the
@@ -11333,7 +11504,7 @@ def main():
                     for i, l in enumerate(result.lines, 1):
                         mark = "*" if l != lines[i - 1] else " "
                         print(f"  {mark} L{i}: {l}")
-                if cmd == "revise" and propose_spec.startswith("defer:"):
+                if cmd == "revise" and propose_spec.startswith(("defer:", "call:")):
                     # THE SAME DOOR FOR A PASTED SONG (M-195, 2026-09-01):
                     # `finish` renders and stamps past a stop condition and
                     # `revise` did not, so a song with no seed — the human

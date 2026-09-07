@@ -50,8 +50,9 @@ COPY mcp/gemini_proposer.py ./mcp/
 # pure stdlib except nltk, which the slop floor's POS tagger reaches through
 # quality/features.py). Staging mirrors CI's revision-loop job exactly:
 # fetch_data() downloads CMUdict, quality/fetch_data.py stages the tagger
-# model and concreteness norms into data/. All at BUILD time so a running
-# container makes no network calls (openWorldHint stays false).
+# model and concreteness norms into data/. Grading resources are staged at
+# BUILD time; deterministic grading does not fetch them at runtime. The optional
+# lyrics kitchen makes paid Gemini requests under the shared admission ledger.
 RUN apt-get update \
  && apt-get install -y --no-install-recommends python3 python3-pip \
  && rm -rf /var/lib/apt/lists/*
@@ -67,6 +68,10 @@ RUN python3 -m pip install --no-cache-dir --break-system-packages nltk \
 # reports null and mcp/check_live.mjs --commit treats that as NOT a match.
 ARG RENDER_GIT_COMMIT=""
 ENV RENDER_GIT_COMMIT=$RENDER_GIT_COMMIT
+ENV BUILD_GIT_COMMIT=$RENDER_GIT_COMMIT
+# Runtime recovery is opt-in locally; mount persistent storage and set
+# LYRIC_RUNTIME_DIR for durable receipts, signing and paid accounting.
+# No VOLUME declaration: a forgotten anonymous volume must not claim durability.
 ENV PORT=8080
 EXPOSE 8080
 WORKDIR /app/mcp

@@ -68,7 +68,8 @@ def ok_body(text, t_in=100, t_out=8, finish="STOP"):
 
 def env(**kw):
     for k in ("GEMINI_API_KEY", "LYRIC_PROPOSER_MODEL", "GEMINI_MODEL",
-              "LYRIC_PROPOSER_API_BASE", "LYRIC_PROPOSER_WAIT_BUDGET_S"):
+              "LYRIC_PROPOSER_API_BASE", "LYRIC_PROPOSER_WAIT_BUDGET_S",
+              "LYRIC_REQUEST_DEADLINE_MS", "LYRIC_BUDGET_URL", "LYRIC_BUDGET_TOKEN"):
         os.environ.pop(k, None)
     os.environ.update({k: v for k, v in kw.items() if v is not None})
 
@@ -199,6 +200,90 @@ def main():
           raised is not None and "GEMINI_API_KEY" in raised, raised)
     check("...and the class IS the harness's own (quality/propose.ProposerUnavailable), so the verb's clause catches it",
           GP.ProposerUnavailable.__module__ == "quality.propose", GP.ProposerUnavailable.__module__)
+
+    print("\n4. terminal records, retry ceilings and complete usage survive")
+    sc = Script([(429, {"Retry-After": "30"}, {}),
+                 *[(503, {}, {})] * 4])
+    srv = serve(sc)
+    env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m",
+        LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}")
+    call = GP.make()
+    buf = io.StringIO()
+    try:
+        with redirect_stdout(buf):
+            call("terminal")
+    except GP.ProposerUnavailable:
+        pass
+    events = [json.loads(line.split("proposer event: ", 1)[1])
+              for line in buf.getvalue().splitlines() if "proposer event:" in line]
+    final = events[-1]
+    check("terminal transport failure emits cumulative attempts, retries and waits",
+          final["status"] == "failed" and final["attempts"] == 5
+          and final["retries"] == 4 and final["wait_s"] == 30
+          and not final["in_flight"], final)
+    srv.shutdown()
+
+    sc = Script([(429, {"Retry-After": "0"}, {})] * (GP.RATE_RETRIES + 2))
+    srv = serve(sc)
+    env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m",
+        LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}")
+    call = GP.make()
+    try:
+        with redirect_stdout(io.StringIO()):
+            call("zero hints")
+        raised = None
+    except GP.ProposerUnavailable as error:
+        raised = str(error)
+    check("zero-second hints hit the independent paced retry cap",
+          raised is not None and "retry cap" in raised
+          and len(sc.seen) == GP.RATE_RETRIES + 1
+          and call.waited_s == GP.RATE_RETRIES * GP.MIN_RATE_WAIT_S, raised)
+    srv.shutdown()
+    check("invalid and non-finite retry hints use bounded backoff",
+          all(GP._retry_after_s({"Retry-After": value}, {}) is None
+              for value in ("NaN", "Infinity", "-2", "garbage")))
+
+    reply = ok_body("known usage", 300, 7)
+    reply["usageMetadata"].update(thoughtsTokenCount=900,
+        cachedContentTokenCount=200, totalTokenCount=1207)
+    sc = Script([(200, {}, reply)])
+    srv = serve(sc)
+    env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m",
+        LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}")
+    call = GP.make()
+    buf = io.StringIO()
+    with redirect_stdout(buf):
+        call("thinking")
+    final = [json.loads(line.split("proposer event: ", 1)[1])
+             for line in buf.getvalue().splitlines() if "proposer event:" in line][-1]
+    check("thinking, cache and provider total tokens reach the terminal record",
+          final["tokens_in"] == 300 and final["tokens_out"] == 7
+          and final["tokens_thoughts"] == 900 and final["tokens_cached"] == 200
+          and final["tokens_total"] == 1207 and not final["usage_unknown"], final)
+    srv.shutdown()
+
+    sc = Script([(200, {}, {"candidates": [{"content": {"parts": [{"text": "no usage"}]}}]})])
+    srv = serve(sc)
+    env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m",
+        LYRIC_PROPOSER_API_BASE=f"http://127.0.0.1:{srv.server_port}")
+    call = GP.make()
+    with redirect_stdout(io.StringIO()):
+        call("unknown")
+    check("a successful response without provider usage is explicitly unknown",
+          call.unknown_attempts == 1 and call.calls == 1)
+    srv.shutdown()
+
+    env(GEMINI_API_KEY="k", LYRIC_PROPOSER_MODEL="m",
+        LYRIC_REQUEST_DEADLINE_MS="1")
+    call = GP.make()
+    try:
+        with redirect_stdout(io.StringIO()):
+            call("expired")
+        raised = None
+    except GP.ProposerUnavailable as error:
+        raised = str(error)
+    check("expired request refuses before starting a paid HTTP attempt",
+          raised is not None and "deadline" in raised and call.attempts == 0, raised)
 
     print()
     if FAILURES:

@@ -26,6 +26,12 @@ services:
     # a spending decision, and merging it is how the decision is made.
     plan: standard
     healthCheckPath: /health
+    # Durable receipts, signing key and paid ledger. Single-instance service;
+    # syncing this Blueprint provisions storage, deployment is a separate act.
+    disk:
+      name: lyrics-runtime
+      mountPath: /data/lyrics
+      sizeGB: 1
     # OFF SINCE 2026-08-27, AND THE REPLACEMENT IS A WORKFLOW, NOT A DASHBOARD.
     #
     # `autoDeploy: true` fires on PUSH and knows nothing about GitHub Actions,
@@ -50,9 +56,9 @@ services:
     # dashboard -> this service -> Settings -> Deploy Hook), and it FAILS LOUD
     # rather than quietly not deploying if that secret is unset.
     autoDeploy: false
-    # /mcp needs none of these — it is pure deterministic compute over the
-    # bundled catalog. They exist for /chat, which is the one surface that
-    # spends money. `sync: false` means Render PROMPTS for the value instead of
+    # Recipe tools require no key. Both /chat and the optional lyrics kitchen
+    # spend through the shared paid ledger. `sync: false` means Render prompts
+    # for the value instead of
     # storing it here: a key committed to a public repo is a key that has been
     # published, and this repo is public.
     #
@@ -61,12 +67,15 @@ services:
     envVars:
       - key: GEMINI_API_KEY
         sync: false
-      # Signs the conversation envelope. Unset is SAFE but not free: chat.js
-      # generates one per boot, so every redeploy silently ends conversations
-      # in flight (the next message starts a new recipe). Set it to survive
-      # deploys. Any long random string.
+      # CHAT_SECRET may explicitly override the durable generated key. With
+      # no override, the first boot writes /data/lyrics/chat-secret.key once.
+      # Keep an existing explicit value through migration to preserve signatures.
       - key: CHAT_SECRET
         sync: false
+      - key: LYRIC_RUNTIME_DIR
+        value: /data/lyrics
+      - key: CHAT_SPEND_FILE
+        value: /data/lyrics/chat-spend.json
       # The model the chat bar runs on, declared rather than defaulted.
       #
       # This was previously unset, so the deployed model was whatever
@@ -106,14 +115,8 @@ services:
       # Spend ceiling in USD before /chat refuses. See CHAT_LIMITS in mcp/chat.js
       # for the rate limits this sits on top of.
       #
-      # READ THE NEXT BLOCK BEFORE TRUSTING THE WORD "DAY". With no
-      # CHAT_SPEND_FILE this counter lives in process memory, and autoDeploy
-      # below restarts the service on every push to main — so what this actually
-      # bounds is an uptime period that happens to reset at UTC midnight too.
-      # This used to be described here as a per-day cap with no qualification
-      # (audit F128). /chat/status now reports `capDurable: false` and
-      # `countingSince`, and the service logs the same thing at boot, so the
-      # limitation is visible rather than inferred.
+      # Counters and paid-call reservations survive restart on the mounted
+      # disk. Unreadable/corrupt persistence closes paid admission.
       #
       # $2 UNTIL 2026-09-03; the owner raised it to $25 on 2026-09-02 (BACKLOG.md
       # "RULINGS TAKEN UNDER DELEGATION", M-197, OWNER) and this pin did not
@@ -122,31 +125,6 @@ services:
       # values to that ruling, the way it already pins CHAT_TOOL_TIMEOUT_MS.
       - key: CHAT_DAILY_USD
         value: '25'
-      # Where the daily counters live, so they survive a restart.
-      #
-      # UNSET TODAY, DELIBERATELY, because this blueprint declares no `disk:` —
-      # Render rebuilds the container on deploy, so a path on the container
-      # filesystem would reset on precisely the event that motivated the fix.
-      # Pointing this at an unmounted path would be worse than leaving it unset:
-      # the service would report `capDurable: true` and still lose the count.
-      #
-      # To make the cap real, add a disk to this service and point this at it:
-      #
-      #   disk:
-      #     name: chat-spend
-      #     mountPath: /data
-      #     sizeGB: 1
-      #   ...
-      #   - key: CHAT_SPEND_FILE
-      #     value: /data/spend.json
-      #
-      # A disk pins the service to a single instance, which costs nothing here:
-      # CHAT_CONCURRENCY is 2 and the service has never needed to scale out. An
-      # unusable path degrades to in-memory with a log line rather than failing
-      # the endpoint (mcp/spend_store.js), and the counters are validated on read
-      # so a corrupt file can never hand budget back.
-      # - key: CHAT_SPEND_FILE
-      #   value: /data/spend.json
       # The SECOND daily ceiling, counted in turns rather than dollars, and
       # deliberately independent of the pricing table: it still fires if the
       # cost arithmetic is ever wrong in the cheap direction. In normal

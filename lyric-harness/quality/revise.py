@@ -2259,6 +2259,7 @@ class Reviser:
                 # construction instead of by coincidence.
                 "pairs_mandated": len(pairs),
                 "pairs_refused": len(refused),
+                "refused_obligations": sorted(refused),
                 "pairs_judged": len(pairs) - len(refused),
                 # THE WHOLE-VOCABULARY DEFAULT'S OWN COUNT (M-116): pairs the
                 # scalar door failed and a schema satisfied, with the names.
@@ -2896,7 +2897,7 @@ class Reviser:
         for f in rep["findings"]:
             whole.append(Finding(
                 f.code, f.severity,
-                f.message, f.evidence, []))
+                f.message, f.evidence, [], subject=getattr(f, "subject", ())))
         for r in rep["refusals"]:
             whole.append(Finding(r.code, "note", r.message, r.evidence, []))
 
@@ -3174,7 +3175,8 @@ class Reviser:
                 f"{v['members']} but do not rhyme",
                 f"{v['why']} (score {v['score']:.3f}; "
                 f"{v['endwords'][0]!r} ~ {v['endwords'][1]!r})"
-                f"{v.get('attribution', '')}", [i, j]))
+                f"{v.get('attribution', '')}", [i, j],
+                groups=(v["label"],)))
         # DOCTRINE 9, ASKED OF A PAIR THAT ALREADY PASSES, NOT ONLY ONE THAT
         # FAILED. `modal_field` has existed since the candidate field was
         # built, and every caller of it -- `joint_field`'s own candidate
@@ -3303,7 +3305,7 @@ class Reviser:
             add(j, Finding(
                 "REFRAIN_REPEAT", "note",
                 f"L{i} and L{j} are the same end word inside group "
-                f"{v['label']}, licensed as a refrain", ev, [i, j]))
+                f"{v['label']}, licensed as a refrain", ev, [i, j], (v["label"],)))
         # A DECLARED VERBATIM RETURN THAT DID NOT COME BACK VERBATIM. This is
         # the other half of the fix above: `grade()` now correctly stops
         # flagging a CORRECT refrain as a violation, and this is what makes
@@ -3349,7 +3351,7 @@ class Reviser:
                     [x for x in (i, j) if x <= len(lines)]))
                 continue
             add(j, Finding("RETURN_NOT_VERBATIM", "flag", msg,
-                           f"{kind}: {ev}" if ev else kind, [i, j]))
+                           f"{kind}: {ev}" if ev else kind, [i, j], (label or "",)))
         for v in rep["excused"]:
             i, j = v["lines"]
             # WHICH GROUP EXCUSED WHICH LINE. `grade()` grants the excuse per
@@ -3372,7 +3374,7 @@ class Reviser:
                 f"pass. Under the declared default (conjunctive) this is a "
                 f"violation. The disjunctive reading gets weaker the more "
                 f"structure you declare, which is why it is reachable and "
-                f"not the default.", [i, j]))
+                f"not the default.", [i, j], (v["label"],)))
         # A REFUSAL IS NOT A VIOLATION. Before the readability fix these
         # arrived as violations and this loop briefed a model to rewrite
         # lines that rhyme perfectly well -- Barnes's Dorset `drong`/`zong`
@@ -3388,7 +3390,7 @@ class Reviser:
                     f"{', '.join(r['groups']) or '-'}) and the harness could "
                     f"not read an end word, so this rhyme is UNKNOWN rather "
                     f"than absent",
-                    r["reason"], [i, j]))
+                    r["reason"], [i, j], groups=tuple(r["groups"])))
         # THE READABILITY REPORT, JOINED — AND IT IS THE SAME LAYER AS THE
         # BLOCK ABOVE, WHICH IS WHY IT SITS HERE.
         #
@@ -3530,7 +3532,8 @@ class Reviser:
             "switch for it in `ReviseDeclaration`.")
         for f in RD.report(self.lex, lines)["findings"]:
             ev = f.evidence + (_downgraded if f.severity == "flag" else "")
-            note = Finding(f.code, "note", f.message, ev, list(f.locations))
+            note = Finding(f.code, "note", f.message, ev, list(f.locations),
+                           obligations=tuple((ln,) for ln in f.locations))
             if note.locations:
                 for ln in dict.fromkeys(note.locations):
                     add(ln, note)
@@ -3582,7 +3585,7 @@ class Reviser:
                     f"{len(mg['edges'])} cross pair(s) below are the form "
                     f"and not a defect",
                     f"{mg['how']}. Reported once, about the mandate, rather "
-                    f"than once per line: {ev}", list(mg["lines"])))
+                    f"than once per line: {ev}", list(mg["lines"]), groups=(la, lb)))
             else:
                 whole.append(Finding(
                     "MANDATE_GROUPS_INDISTINGUISHABLE", "note",
@@ -3599,7 +3602,7 @@ class Reviser:
                     f"loop does not read intent out of a score. If it is a "
                     f"return, declare it and these stop being findings; if it "
                     f"is not, one of the two groups needs a different sound. "
-                    f"Edges: {ev}", list(mg["lines"])))
+                    f"Edges: {ev}", list(mg["lines"]), groups=(la, lb)))
         for c in rep["collisions"]:
             i, j = c["lines"]
             if (i, j) in absorbed:
@@ -5069,85 +5072,85 @@ class Reviser:
                                blueprint=blueprint, subdivision=subdivision,
                                assume=assume)
 
-        def codes(f):
-            """The finding MULTISET, keyed so a diff can tell two of a kind
-            apart AND count how many of each it holds.
+        def identities(found):
+            # Compare obligations, not report prose or a (line, code) count.
+            # Labels identify groups and their fixed slot declarations under
+            # this SAME mandate. Severity remains a coordinate: promoting a
+            # note to a flag is a new flagged finding.
+            out_keys = []
+            aggregates = set()
 
-            A whole-draft finding used to key on `(0, code)` alone. That was
-            right while every one of them was unique per draft
-            (`OUT_OF_CALIBRATED_LENGTH`, `MANDATE_NOT_INDEPENDENT`), and it
-            stopped being right when a draft could carry FOUR
-            `MANDATE_GROUPS_INDISTINGUISHABLE` at once: dissolving one of the
-            four would leave the code present and `verify` would report
-            "nothing was fixed" about a revision that fixed something. So a
-            whole finding that carries locations keys on its FIRST line —
-            still a 2-tuple, still sorts, and now one key per finding.
+            def add(line, finding):
+                groups = tuple(sorted(set(getattr(finding, "groups", ()))))
+                subject = tuple(getattr(finding, "subject", ()))
+                obligations = getattr(finding, "obligations", ())
+                if obligations:
+                    # The floor renders several independent pairs as ONE
+                    # Finding and joins it to several report lines. Expand
+                    # from the actual pairs once, never from that lossy list
+                    # of first endpoints. Repairing one leaves its sibling
+                    # obligation identical; swapping a pair does not.
+                    for obligation in obligations:
+                        locs = tuple(obligation)
+                        aggregates.add((locs[0], finding.code,
+                                        finding.severity, locs, groups, subject))
+                    return
+                out_keys.append((line, finding.code, finding.severity,
+                                 tuple(sorted(set(finding.locations))), groups, subject))
 
-            A PIVOT LINE HAS THE SAME SHAPE OF BUG, FOUND THE SAME WAY THE
-            FIRST ONE WAS: measuring, not assuming. A line answering two
-            mandated groups at once can carry TWO `SCHEME_VIOLATION`
-            findings — one per group — and a revision that fixes one while
-            breaking the OTHER still shows the same `(line, "SCHEME_
-            VIOLATION")` key before and after, so a plain set diff reports
-            it as neither fixed nor new: a real regression, invisible. This
-            key stays a bare 2-tuple on purpose (three real call sites
-            outside this module test per-line membership as `(line, code)
-            in res["new"]`, and every one of those codes is genuinely
-            singular per line) — the multiplicity is carried in the COUNT
-            returned here instead, and the caller below diffs it as a
-            multiset rather than a set. Doctrine 47 again: a loop that
-            cannot see the change it asked for is a rubber stamp in the
-            other direction, and that is exactly as true of a count as it
-            is of a key.
-            """
-            return ([(ln, x.code) for ln, fs in f["per_line"].items()
-                     for x in fs]
-                    + [(min(x.locations) if x.locations else 0, x.code)
-                       for x in f["whole"]])
+            for ln, fs in found["per_line"].items():
+                for finding in fs:
+                    add(ln, finding)
+            for finding in found["whole"]:
+                add(min(finding.locations) if finding.locations else 0, finding)
+            return collections.Counter(out_keys + sorted(aggregates))
 
-        def severities(f):
-            """(loc, code) -> severity, over the same keys `codes()` mints.
-
-            A NOTE IS NOT A FLAG here either — `report()` already draws this
-            line for what a WRITER sees; the acceptance gate below drew it
-            nowhere, and MODAL_RHYME (doctrine 9 asked of a pair that
-            already passes) is what exposed it: a tier-2 backtrack that
-            fixes a real SCHEME_VIOLATION by landing on `mind`'s own most
-            conventional rhyme was rejected outright for "introducing" a
-            finding whose entire declared purpose is to be disclosed, not
-            enforced (doctrine 7 — a floor may not order the permitted
-            region, and blocking a correct fix on a NOTE is ordering it).
-            """
-            d = {}
-            for ln, fs in f["per_line"].items():
-                for x in fs:
-                    d[(ln, x.code)] = x.severity
-            for x in f["whole"]:
-                d[(min(x.locations) if x.locations else 0,
-                   x.code)] = x.severity
-            return d
-
-        cb, ca = collections.Counter(codes(f_before)), collections.Counter(
-            codes(f_after))
-        # Counter subtraction keeps only the POSITIVE remainder per key: a
-        # key whose count is unchanged (2 before, 2 after) nets to zero on
-        # both sides and lands in neither -- exactly a plain set diff's
-        # behaviour, and where the count genuinely moves this is the fix.
-        gone, new = set(cb - ca), set(ca - cb)
-        # A finding that named something RIGHT cannot have been FIXED by its
-        # own removal (`SATISFACTION_FINDINGS`). Split rather than dropped:
-        # doctrine 24 says a rule that would delete a category must relabel,
-        # and the whole defect here was a regression wearing a repair's name.
+        cb, ca = identities(f_before), identities(f_after)
+        gone, new = cb - ca, ca - cb
         broken = {k for k in gone if k[1] in SATISFACTION_FINDINGS}
-        fixed = gone - broken
-        out["fixed"] = sorted(fixed)
-        out["broken"] = sorted(broken)
-        out["new"] = sorted(new)
-        sev = severities(f_before)
-        sev.update(severities(f_after))
-        new_flags = {k for k in new if sev.get(k) == "flag"}
-        out["new_flags"] = sorted(new_flags)
-        out["new_notes"] = sorted(new - new_flags)
+        fixed = set(gone) - broken
+        new_flags = {k for k in new if k[2] == "flag"}
+
+        # Keep the legacy (line, code) projection for existing renderers;
+        # acceptance itself reads the full identities above. Detailed rows
+        # retain both a repair and a regression when their projection agrees.
+        def projection(keys):
+            return sorted({(k[0], k[1]) for k in keys})
+
+        def detail(keys, counts):
+            return [{"line": k[0], "code": k[1], "severity": k[2],
+                     "locations": list(k[3]), "groups": list(k[4]),
+                     "subject": list(k[5]), "count": counts[k]} for k in sorted(keys)]
+
+        out["fixed"] = projection(fixed)
+        out["broken"] = projection(broken)
+        out["new"] = projection(new)
+        out["new_flags"] = projection(new_flags)
+        out["new_notes"] = projection(set(new) - new_flags)
+        out["fixed_findings"] = detail(fixed, gone)
+        out["new_findings"] = detail(new, new)
+        # A refused obligation is unknown, never artistically wrong. But
+        # making a previously judgeable requirement unknown cannot repair it.
+        def coverage(found):
+            g = found["grade"]
+            return {k: g[k] for k in
+                    ("pairs_mandated", "pairs_judged", "pairs_refused")}
+        out["coverage_before"] = coverage(f_before)
+        out["coverage_after"] = coverage(f_after)
+        before_refused = set(map(tuple, f_before["grade"].get(
+            "refused_obligations", ())))
+        after_refused = set(map(tuple, f_after["grade"].get(
+            "refused_obligations", ())))
+        out["coverage_regressions"] = sorted(after_refused - before_refused)
+        out["mandate"] = m
+        out["independent"] = m.independent()
+        if out["coverage_regressions"]:
+            out["reasons"].append(
+                "previously judged obligation(s) became refused: "
+                + ", ".join(f"L{i}/L{j} in group {m.labels[k]}"
+                            for i, j, k in out["coverage_regressions"])
+                + "; unknown is neither a violation nor a repaired obligation")
+            return out
         out["mandate"] = m
         out["independent"] = m.independent()
 
@@ -5268,7 +5271,7 @@ class Reviser:
                    f"ending one is a regression and not a repair"
                    if broken else ""))
             return out
-        if len(new_flags) > self.rdecl.allow_net_new:
+        if sum(new[k] for k in new_flags) > self.rdecl.allow_net_new:
             out["reasons"].append(
                 f"introduced {len(new_flags)} new flagged finding(s) "
                 f"{sorted(new_flags)} while fixing {len(fixed)}; a revision "

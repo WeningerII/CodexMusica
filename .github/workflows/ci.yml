@@ -472,6 +472,27 @@ jobs:
       - name: Build closure is sound (scope decision is provable)
         run: npm run check:closure
 
+  lyrics-image:
+    needs: [dup, gate]
+    if: needs.dup.outputs.already_covered != 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Build the deployed lyrics runtime
+        timeout-minutes: 15
+        env:
+          TESTED_SHA: ${{ github.sha }}
+        run: docker build --build-arg RENDER_GIT_COMMIT="$TESTED_SHA" -f mcp/Dockerfile -t codex-lyrics-ci .
+      - name: Offline image pipeline and restart recovery
+        timeout-minutes: 5
+        env:
+          TESTED_SHA: ${{ github.sha }}
+        run: node scripts/check_lyrics_image.mjs codex-lyrics-ci "$TESTED_SHA"
+
   verify:
     needs: [dup, gate]
     # M-250: skip when a pull_request run already tests this commit.
@@ -2061,7 +2082,7 @@ jobs:
                    phon_msa mandate_language phon_fas phon_non phon_san staging \
                    controls data_row_claims english_text meter verify_figures expected_drift \
                    ipa songs ban_convergence cross_song brief_provenance shard \
-                   battery_rounds; do
+                   battery_rounds audit_regressions; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured

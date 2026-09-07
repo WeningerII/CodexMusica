@@ -193,9 +193,12 @@ function scanSchema(toolName, schema) {
   );
   for (const t of tools) {
     const a = t.annotations || {};
+    const revision = t.name === 'lyric_revise';
     check(
-      `${t.name}: readOnly + idempotent + closed-world`,
-      a.readOnlyHint === true && a.idempotentHint === true && a.openWorldHint === false,
+      `${t.name}: annotations describe mutation and paid external calls`,
+      a.readOnlyHint === !revision &&
+        a.idempotentHint === !revision &&
+        a.openWorldHint === revision,
       JSON.stringify(a)
     );
   }
